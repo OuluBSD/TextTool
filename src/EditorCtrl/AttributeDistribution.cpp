@@ -157,7 +157,7 @@ void AttributeDistribution::Data() {
 }
 
 void AttributeDistribution::DataSuggestions() {
-	TODO
+	LOG("TODO");
 	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;

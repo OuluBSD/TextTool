@@ -33,5 +33,6 @@
 #include "PhraseParts.h"
 #include "PhrasePartAnalysis.h"
 #include "Diagnostics.h"
+#include "Attributes.h"
 
 #endif

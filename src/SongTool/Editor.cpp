@@ -84,6 +84,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Action parallels"), action_parallels);
 	AddItem(t_("Database"), t_("Action transitions"), action_transitions);
 	AddItem(t_("Database"), t_("Wordnet"), song_wordnet);
+	AddItem(t_("Database"), t_("Attributes"), db_attrs);
 	AddItem(t_("Database"), t_("Diagnostics"), db_diagnostics);
 	/*AddItem(t_("Database"), t_("Analysis"), song_analysis);
 	AddItem(t_("Database"), t_("Phrases"), song_phrases);
@@ -114,13 +115,13 @@ void Editor::InitSimplified() {
 	//AddItem(t_("Song"), t_("Rhyme Structure"), rhyme_struct);
 	
 	//AddItem(t_("Song lyrics"), t_("Production idea"), prod_idea);
+	AddItem(t_("Song lyrics"), t_("Attributes"), ctx_attrs);
+	AddItem(t_("Song lyrics"), t_("Attribute Distribution"), attr_dist);
 	AddItem(t_("Song lyrics"), t_("Nana editor"), nana_editor);
 	AddItem(t_("Song lyrics"), t_("Line structure editor"), line_struct);
 	AddItem(t_("Song lyrics"), t_("Action editor"), action_editor);
 	AddItem(t_("Song lyrics"), t_("Preprocessing"), preprocessing);
 	AddItem(t_("Song lyrics"), t_("Lyrics editor"), lyrics_editor);
-	AddItem(t_("Song lyrics"), t_("Attributes"), ctx_attrs);
-	AddItem(t_("Song lyrics"), t_("Attribute Distribution"), attr_dist);
 	
 	
 	AddItem(t_("Checklist"), t_("Song"), checklist_composition);

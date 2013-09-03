@@ -78,6 +78,12 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetPhraseData)
 		;
 	
+	AddRule(TASK_GET_ATTRIBUTES, "get attributes")
+		.Input(&Task::CreateInput_GetAttributes)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetAttributes)
+		;
+	
 }
 
 void TaskMgrConfig::Load() {
@@ -368,6 +374,22 @@ void TaskMgr::GetPhraseData(const PhraseArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_PHRASE_DATA);
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetAttributes(const AttrArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_ATTRIBUTES);
 	TaskMgr& p = *this;
 	
 	String s = args.Get();

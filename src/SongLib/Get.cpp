@@ -1733,4 +1733,67 @@ void TaskManager::MakeWordnetsFromTemplates(Task* t) {
 	#endif
 }
 
+void TaskManager::GetAttributes(Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	
+	VectorMap<String,Index<String>> uniq_attrs;
+	for(int i = 0; i < da.attrs.GetCount(); i++) {
+		const AttrHeader& ah = da.attrs.GetKey(i);
+		uniq_attrs.GetAdd(ah.group).FindAdd(ah.value);
+	}
+	
+	struct Sorter {
+		bool operator()(const Index<String>& a, const Index<String>& b) const {
+			return a.GetCount() > b.GetCount();
+		}
+	};
+	SortByValue(uniq_attrs, Sorter());
+	
+	
+	if (t->fn == 0) {
+		Database& db = Database::Single();
+		SongData& sd = db.song_data;
+		SongDataAnalysis& sda = db.song_data.a;
+		DatasetAnalysis& da = sda.datasets[t->ds_i];
+		
+		if (t->batch_i >= uniq_attrs.GetCount()) {
+			RemoveTask(*t);
+			return;
+		}
+		
+		const Index<String>& values = uniq_attrs[t->batch_i];
+		if (values.GetCount() <= 2) {
+			RemoveTask(*t);
+			return;
+		}
+		
+		
+		AttrArgs args;
+		args.group = uniq_attrs.GetKey(t->batch_i);
+		args.values <<= uniq_attrs[t->batch_i].GetKeys();
+		
+		if (args.group.IsEmpty()) {
+			t->batch_i++;
+			t->running = false;
+			return;
+		}
+		
+		t->tmp_str = args.group;
+		
+		RealizePipe();
+		TaskMgr& m = *pipe;
+		m.GetAttributes(args, THISBACK1(OnAttributes, t));
+	}
+	else if (t->fn == 1) {
+		
+		
+		
+	}
+	
+}
+
 }

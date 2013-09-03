@@ -20,6 +20,7 @@ typedef enum {
 	TASK_ACTION_PARALLELS,
 	TASK_ACTION_TRANSITIONS,
 	TASK_WORDNET,
+	TASK_ATTRIBUTES,
 	
 	TASK_COUNT
 } TaskType;
@@ -74,6 +75,9 @@ class TaskManager {
 	
 	void GetTokenData(Task* t);
 	void OnTokenData(String result, Task* t);
+	
+	void GetAttributes(Task* t);
+	void OnAttributes(String result, Task* t);
 	
 	void GetUnknownTokenPairs(Task* t);
 	void GetWordProcess(Task* t);
@@ -157,6 +161,7 @@ public:
 	void DoActionParallel(int ds_i, int fn);
 	void DoActionTransition(int ds_i, int fn);
 	void DoWordnet(int ds_i, int fn);
+	void DoAttributes(int ds_i, int fn);
 	
 };
 

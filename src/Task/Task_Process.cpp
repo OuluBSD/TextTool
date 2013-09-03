@@ -77,3 +77,7 @@ void Task::Process_GetTokenData() {
 void Task::Process_GetPhraseData() {
 	WhenResult(output);
 }
+
+void Task::Process_GetAttributes() {
+	WhenResult("1. " + output);
+}

@@ -36,6 +36,8 @@ file
 	ActionParallels.cpp,
 	ActionTransitions.h,
 	ActionTransitions.cpp,
+	Attributes.h,
+	Attributes.cpp,
 	Wordnet.h,
 	Wordnet.cpp,
 	Loader.h,

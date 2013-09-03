@@ -88,6 +88,7 @@ struct TaskMgr {
 	void GetLyricsPhrase(const LyricsPhraseArgs& args, Event<String> WhenResult);
 	void GetTokenData(const TokenArgs& args, Event<String> WhenResult);
 	void GetPhraseData(const PhraseArgs& args, Event<String> WhenResult);
+	void GetAttributes(const AttrArgs& args, Event<String> WhenResult);
 	
 };
 

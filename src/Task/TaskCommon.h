@@ -87,6 +87,7 @@ typedef enum : int {
 	
 	TASK_GET_TOKEN_DATA,
 	TASK_GET_PHRASE_DATA,
+	TASK_GET_ATTRIBUTES,
 	
 	TASK_COUNT
 } TaskType;
@@ -482,6 +483,22 @@ struct PhraseArgs {
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
 				("phrases", phrases)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct AttrArgs {
+	int fn;
+	String group;
+	Vector<String> values;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("group", group)
+				("values", values)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

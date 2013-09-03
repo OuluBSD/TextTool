@@ -2285,3 +2285,32 @@ void Task::CreateInput_GetPhraseData() {
 		input.response_length = 2048;
 	}
 }
+
+void Task::CreateInput_GetAttributes() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	AttrArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		auto& list = input.AddSub().Title("List \"A\" values in the same group '" + args.group + "'");
+		int end = min(400, args.values.GetCount());
+		for(int i = 0; i < end; i++) {
+			const String& s = args.values[i];
+			list.Add(s);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("2 main values of list \"A\", which summarizes all values in a way, that the first value is the common attribute of modern pop and rock songs, and the second value is the polar opposite of the first");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 1) {
+		
+	}
+}

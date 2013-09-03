@@ -286,7 +286,24 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	translations.Load(ds_dir, trans_ds_key);
 	wordnets.Load(ds_dir, "wordnets");
 	diagnostics.Load(ds_dir, "diagnostics");
+	simple_attrs.Load(ds_dir, "simple_attrs");
 	
+	
+	// Load fast attr group to main attr vector
+	for(int i = 0; i < simple_attrs.GetCount(); i++) {
+		int attr_i0 = simple_attrs.GetKey(i);
+		const auto& v = simple_attrs[i];
+		for(int j = 0; j < v.GetCount(); j++) {
+			int attr_i1 = simple_attrs.GetKey(i, j);
+			const auto& sat = v[j];
+			
+			if (sat.attr_group >= 0 && attr_group_main.GetCount() <= sat.attr_group)
+				attr_group_main.SetCount(sat.attr_group + 1, Tuple2<int,int>(-1,-1));
+			
+			attr_group_main[sat.attr_group] =
+				Tuple2<int,int>(attr_i0, attr_i1);
+		}
+	}
 	//DUMP(phrase_parts.GetCount());
 	
 	/*MapFile<int,WordPairType> old_ambiguous_word_pairs;

@@ -188,6 +188,7 @@ public:
 	void CreateInput_GetLyricsPhrase();
 	void CreateInput_GetTokenData();
 	void CreateInput_GetPhraseData();
+	void CreateInput_GetAttributes();
 	
 	void Process_GetTokenData();
 	void Process_GetPhraseData();
@@ -229,6 +230,7 @@ public:
 	void Process_GetSongDataAnalysis();
 	void Process_GetActionAnalysis();
 	void Process_GetLyricsPhrase();
+	void Process_GetAttributes();
 	
 	void Retry(bool skip_prompt, bool skip_cache);
 	String GetDescription() const;

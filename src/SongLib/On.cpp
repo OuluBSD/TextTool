@@ -1177,6 +1177,66 @@ void TaskManager::OnWordData(String res, Task* t) {
 	
 	
 	
+	t->batch_i++;
+	t->running = false;
+}
+
+void TaskManager::OnAttributes(String res, Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	
+	Vector<String> parts = Split(res, "2.");
+	if (parts.GetCount() == 2) {
+		String& f = parts[0];
+		String& l = parts[1];
+		int a = f.Find("1.");
+		if (a >= 0) {
+			f = f.Mid(a+2);
+		}
+		f = TrimBoth(f);
+		l = TrimBoth(l);
+		
+		Vector<String> keys;
+		keys.SetCount(2);
+		for(int i = 0; i < parts.GetCount(); i++) {
+			String& part = parts[i];
+			int a0 = part.Find(":");
+			int a1 = part.Find("-");
+			int a2 = part.Find("/");
+			int a3 = part.Find("\n");
+			int a = min(a0, min(a1, min(a2, a3)));
+			if (a < 0) continue;
+			String& key = keys[i];
+			key = TrimBoth(part.Left(a));
+		}
+		
+		if (parts[0].GetCount() && parts[1].GetCount()) {
+			int attr_i[2] = {-1,-1};
+			for(int i = 0; i < parts.GetCount(); i++) {
+				AttrHeader ah;
+				ah.group = ToLower(t->tmp_str);
+				ah.value = ToLower(keys[i]);
+				
+				da.attrs.GetAdd(ah, attr_i[i]);
+			}
+			
+			
+			ExportSimpleAttr& sat = da.simple_attrs.GetAdd3(attr_i[0], attr_i[1]);
+			sat.attr_group = t->batch_i;
+			
+			if (da.attr_group_main.GetCount() <= t->batch_i)
+				da.attr_group_main.SetCount(t->batch_i+1);
+			
+			da.attr_group_main[t->batch_i] = Tuple2<int,int>(attr_i[0], attr_i[1]);
+		}
+	}
+	
+	
+	t->batch_i++;
+	t->running = false;
 }
 
 }
