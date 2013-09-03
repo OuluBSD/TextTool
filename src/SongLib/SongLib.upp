@@ -11,6 +11,8 @@ file
 	Do.cpp,
 	Get.cpp,
 	On.cpp,
+	LyricsGenerator.h,
+	LyricsGenerator.cpp,
 	LyricsSolver.h,
 	LyricsSolver.cpp;
 

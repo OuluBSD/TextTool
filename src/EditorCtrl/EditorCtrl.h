@@ -35,6 +35,7 @@
 #include "NativeEditor.h"
 #include "SecondarySetter.h"
 #include "LyricsSolverCtrl.h"
+#include "SongPool.h"
 
 
 #endif

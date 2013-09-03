@@ -27,7 +27,7 @@ class LyricsSolver {
 	Artist* artist = 0;
 	Release* release = 0;
 	Song* song = 0;
-	
+		
 	bool waiting = false;
 	bool running = false, stopped = true;
 	bool skip_ready = true;
