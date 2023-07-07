@@ -1,0 +1,15 @@
+uses
+	CtrlLib,
+	CodeEditor;
+
+file
+	SongTool.h,
+	SongTool.cpp,
+	SongTool.rc,
+	SongTool.t,
+	App.lay,
+	App.iml;
+
+mainconfig
+	"" = "GUI";
+
