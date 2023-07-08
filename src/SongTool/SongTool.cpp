@@ -9,23 +9,18 @@ GUI_APP_MAIN {
 	SetLanguage(GetSystemLNG());
 	
 	// Load Database
-	/*Database& db = Database::Single();
-	
+	Database& db = Database::Single();
 	#ifdef flagWIN32
-	db.dir = "C:\\git\\AudioAssets";
+	db.dir = "C:\\git\\SongTool";
 	#else
-	db.dir = GetHomeDirFile("AudioAssets");
+	db.dir = GetHomeDirFile("SongTool");
 	#endif
 	
 	if (!DirectoryExists(db.dir)) {
-		PromptOK(DeQtf("Default path not found.\nSelect AudioAssets directory."));
+		PromptOK(DeQtf("Default path not found.\nSelect SongTool directory."));
 		db.dir = SelectDirectory();
 	}
-	
 	db.Load();
-	
-	
-	
-	ToolApp().Run();*/
-	TopWindow().Run();
+	SongTool().Run();
+	db.Store();
 }

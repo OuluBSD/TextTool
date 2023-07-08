@@ -14,4 +14,44 @@ using namespace Upp;
 #define LAYOUTFILE <SongTool/App.lay>
 #include <CtrlCore/lay.h>
 
+#include "Utils.h"
+
+#include "Common.h"
+#include "Calendar.h"
+#include "Task.h"
+#include "Social.h"
+#include "Recruiment.h"
+#include "Rhymes.h"
+#include "Production.h"
+#include "Analysis.h"
+#include "Story.h"
+#include "PatternMask.h"
+#include "Pattern.h"
+#include "Scoring.h"
+#include "Composition.h"
+#include "Song.h"
+#include "Release.h"
+#include "Artist.h"
+#include "Attributes.h"
+#include "Database.h"
+
+#include "RecruimentCtrl.h"
+#include "SocialCtrl.h"
+#include "CalMgrCtrl.h"
+#include "TaskMgrCtrl.h"
+#include "StoryCtrl.h"
+#include "PatternMaskCtrl.h"
+#include "PatternCtrl.h"
+#include "CompositionCtrl.h"
+#include "AnalysisCtrl.h"
+#include "ProductionCtrl.h"
+#include "RhymesCtrl.h"
+
+#include "FrontPage.h"
+#include "CalendarPage.h"
+#include "Editor.h"
+#include "App.h"
+
+
+
 #endif

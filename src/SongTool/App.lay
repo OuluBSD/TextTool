@@ -1,3 +1,11 @@
 LAYOUT(Main, 400, 200)
 END_LAYOUT
 
+LAYOUT(FrontPage, 400, 200)
+	ITEM(Upp::Label, dv___0, SetLabel(t_("FrontPage")).LeftPosZ(12, 144).VSizePosZ(8, 173))
+END_LAYOUT
+
+LAYOUT(Calendar, 400, 200)
+	ITEM(Upp::Label, dv___0, SetLabel(t_("Calendar")).LeftPosZ(12, 144).VSizePosZ(8, 173))
+END_LAYOUT
+
