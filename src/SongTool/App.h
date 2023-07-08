@@ -25,7 +25,7 @@ public:
 	void MainMenu(Bar& b);
 	void Data();
 	void SetView(int i);
-	void Serialize(Stream& s) override {s % page % last_window % is_maximized;}
+	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed;}
 	void Layout() override {SaveWindowPos();}
 	void ShowOrphanedFiles();
 	void SaveWindowPos();

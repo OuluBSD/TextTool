@@ -1,0 +1,62 @@
+{
+	"artist": "",
+	"title": "Sydämen Asialla",
+	"story": {
+		"year": 0,
+		"title": "",
+		"meaning": "",
+		"devices": "",
+		"emotion": "",
+		"references": "",
+		"structure": "",
+		"history": "",
+		"storyline": "",
+		"implications": ""
+	},
+	"pattern": {
+		"structure": "",
+		"parts": [
+
+		],
+		"unique_parts": [
+
+		]
+	},
+	"patternscore": {
+		"structure": "",
+		"parts": [
+
+		],
+		"unique_parts": [
+
+		]
+	},
+	"composition": {
+		"year": 0,
+		"title": "",
+		"tempo": 0,
+		"beat": "",
+		"melody": "",
+		"chord_progression": "",
+		"key_and_mode": "",
+		"texture": "",
+		"structure": "",
+		"genre_style": ""
+	},
+	"analysis": {
+		"year": 0,
+		"title": "",
+		"data": [
+
+		]
+	},
+	"scoregroup": {
+		"attrs": [
+
+		],
+		"scores": [
+
+		],
+		"name": ""
+	}
+}

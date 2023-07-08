@@ -11,6 +11,8 @@ SongTool::SongTool() {
 	is_maximized = false;
 	Load();
 	
+	ed.Init();
+	
 	Add(fp.SizePos());
 	Add(cal.SizePos());
 	Add(ed.SizePos());

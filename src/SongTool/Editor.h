@@ -24,6 +24,9 @@ public:
 	typedef Editor CLASSNAME;
 	Editor();
 	
+	void Serialize(Stream& s) {s % page;}
+	void Init();
+	void UpdateView();
 	void Data();
 	void DataArtist();
 	void DataRelease();

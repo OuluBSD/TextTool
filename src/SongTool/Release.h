@@ -15,7 +15,6 @@ struct Release : DataFile {
 		json
 			("title", title)
 			("date", date)
-			("songs", songs)
 			;
 		if (json.IsStoring()) {
 			Vector<String> names;

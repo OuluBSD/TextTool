@@ -57,4 +57,13 @@ int VectorFindPtr(PTR* p, T& arr) {
 	return -1;
 }
 
+inline String MakeTitle(String s) {
+	WString ws = s.ToWString();
+	ws = ToLower(ws);
+	ws.Replace(L" ", L"_");
+	ws.Replace(L"ä", L"a");
+	ws.Replace(L"ö", L"o");
+	return ws.ToString();
+}
+
 #endif
