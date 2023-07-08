@@ -35,6 +35,7 @@ using namespace Upp;
 #include "Attributes.h"
 #include "Database.h"
 
+#include "BasicInfoCtrl.h"
 #include "RecruimentCtrl.h"
 #include "SocialCtrl.h"
 #include "CalMgrCtrl.h"

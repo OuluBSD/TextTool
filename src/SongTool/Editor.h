@@ -3,11 +3,15 @@
 
 
 class Editor : public Ctrl {
+	
+protected:
+	friend class BasicInfoCtrl;
 	Splitter	hsplit, menusplit;
 	ArrayCtrl	tablist, artists, releases, songs;
 	Ctrl		base;
 	int			page = 0;
 	
+	BasicInfoCtrl		info;
 	RecruimentCtrl	recru;
 	SocialCtrl		social;
 	CalMgrCtrl		cal;

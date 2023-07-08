@@ -17,6 +17,7 @@ Editor::Editor() {
 	tablist.AddColumn("");
 	tablist.AddColumn("");
 	tablist.ColumnWidths("1 3");
+	tablist.Add(t_("All"), t_("Info"));
 	tablist.Add(t_("Release"), t_("Recruitment"));
 	tablist.Add(t_("Release"), t_("Social media campaign"));
 	tablist.Add(t_("Release"), t_("Calendar"));
@@ -34,15 +35,19 @@ Editor::Editor() {
 	artists.NoHeader();
 	artists <<= THISBACK(DataArtist);
 	
-	releases.AddColumn("");
-	releases.NoHeader();
+	releases.AddColumn(t_("Title"));
+	releases.AddColumn(t_("Date"));
+	releases.ColumnWidths("3 1");
 	releases <<= THISBACK(DataRelease);
 	
-	songs.AddColumn("");
-	songs.AddColumn("");
-	songs.NoHeader();
+	songs.AddColumn(t_("Artist"));
+	songs.AddColumn(t_("Title"));
+	songs.AddColumn(t_("Project name"));
 	songs <<= THISBACK(DataSong);
 	
+	info.editor = this;
+	
+	base.Add(info.SizePos());
 	base.Add(recru.SizePos());
 	base.Add(social.SizePos());
 	base.Add(cal.SizePos());
@@ -62,6 +67,7 @@ void Editor::Init() {
 }
 
 void Editor::SetView(int i) {
+	info.Hide();
 	recru.Hide();
 	social.Hide();
 	cal.Hide();
@@ -74,28 +80,46 @@ void Editor::SetView(int i) {
 	production.Hide();
 	rhymes.Hide();
 	
-	page = i;
-	
 	switch (i) {
 		default: i = 0;
-		case 0: recru.Show(); break;
-		case 1: social.Show(); break;
-		case 2: cal.Show(); break;
-		case 3: task.Show(); break;
-		case 4: story.Show(); break;
-		case 5: patmask.Show(); break;
-		case 6: pattern.Show(); break;
-		case 7: composition.Show(); break;
-		case 8: analysis.Show(); break;
-		case 9: production.Show(); break;
-		case 10: rhymes.Show(); break;
+		case 0: info.Show(); break;
+		case 1: recru.Show(); break;
+		case 2: social.Show(); break;
+		case 3: cal.Show(); break;
+		case 4: task.Show(); break;
+		case 5: story.Show(); break;
+		case 6: patmask.Show(); break;
+		case 7: pattern.Show(); break;
+		case 8: composition.Show(); break;
+		case 9: analysis.Show(); break;
+		case 10: production.Show(); break;
+		case 11: rhymes.Show(); break;
 	}
 	page = i;
 	DataPage();
 }
 
+void Editor::DataPage() {
+	switch (page) {
+		case 0: info.Data(); break;
+		case 1: recru.Data(); break;
+		case 2: social.Data(); break;
+		case 3: cal.Data(); break;
+		case 4: task.Data(); break;
+		case 5: story.Data(); break;
+		case 6: patmask.Data(); break;
+		case 7: pattern.Data(); break;
+		case 8: composition.Data(); break;
+		case 9: analysis.Data(); break;
+		case 10: production.Data(); break;
+		case 11: rhymes.Data(); break;
+		default: break;
+	}
+}
+
 void Editor::UpdateView() {
 	SetView(tablist.GetCursor());
+	DataPage();
 }
 
 void Editor::Data() {
@@ -125,6 +149,7 @@ void Editor::DataArtist() {
 	for(int i = 0; i < a.releases.GetCount(); i++) {
 		Release& r = a.releases[i];
 		releases.Set(i, 0, r.title);
+		releases.Set(i, 1, r.date);
 	}
 	releases.SetCount(a.releases.GetCount());
 	
@@ -148,6 +173,7 @@ void Editor::DataRelease() {
 		Song& s = r.songs[i];
 		songs.Set(i, 0, s.artist);
 		songs.Set(i, 1, s.title);
+		songs.Set(i, 2, s.prj_name);
 	}
 	songs.SetCount(r.songs.GetCount());
 	
@@ -173,23 +199,6 @@ void Editor::DataSong() {
 		songs.SetCursor(cursor);
 	
 	DataPage();
-}
-
-void Editor::DataPage() {
-	switch (page) {
-		case 0: recru.Data(); break;
-		case 1: social.Data(); break;
-		case 2: cal.Data(); break;
-		case 3: task.Data(); break;
-		case 4: story.Data(); break;
-		case 5: patmask.Data(); break;
-		case 6: pattern.Data(); break;
-		case 7: composition.Data(); break;
-		case 8: analysis.Data(); break;
-		case 9: production.Data(); break;
-		case 10: rhymes.Data(); break;
-		default: break;
-	}
 }
 
 void Editor::ArtistMenu(Bar& bar) {

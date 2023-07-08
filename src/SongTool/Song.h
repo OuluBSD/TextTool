@@ -5,6 +5,7 @@
 struct Song : DataFile {
 	String			artist;
 	String			title;
+	String			prj_name;
 	
 	// Components
 	Story			story;
@@ -21,6 +22,7 @@ struct Song : DataFile {
 		json
 			("artist", artist)
 			("title", title)
+			("prj_name", prj_name)
 			
 			("story", story)
 			("pattern", pattern)

@@ -18,6 +18,8 @@ file
 	Editor.h,
 	Editor.cpp,
 	"Editor Ctrls" readonly separator,
+	BasicInfoCtrl.h,
+	BasicInfoCtrl.cpp,
 	RecruimentCtrl.h,
 	RecruimentCtrl.cpp,
 	SocialCtrl.h,
