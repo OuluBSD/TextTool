@@ -2,6 +2,7 @@
 
 
 ProductionCtrl::ProductionCtrl() {
+	CtrlLayout(*this);
 	
 }
 

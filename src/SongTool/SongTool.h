@@ -35,6 +35,9 @@ using namespace Upp;
 #include "Attributes.h"
 #include "Database.h"
 
+#include "AI_Tasks.h"
+#include "TaskMgr.h"
+
 #include "BasicInfoCtrl.h"
 #include "RecruimentCtrl.h"
 #include "SocialCtrl.h"
@@ -47,10 +50,16 @@ using namespace Upp;
 #include "AnalysisCtrl.h"
 #include "ProductionCtrl.h"
 #include "RhymesCtrl.h"
+#include "AttrScoreCtrl.h"
+#include "ReverseCtrl.h"
+#include "ScoringCtrl.h"
+#include "ImportCtrl.h"
 
 #include "FrontPage.h"
 #include "CalendarPage.h"
 #include "Editor.h"
+#include "AI_TaskCtrl.h"
+
 #include "App.h"
 
 

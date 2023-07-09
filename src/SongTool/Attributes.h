@@ -26,6 +26,7 @@ struct Attributes : DataFile {
 		Vector<String> values;
 		Color clr;
 		String description;
+		String type;
 		
 		Group& SetDescription(String s) {description = s; return *this;}
 		Group& SetColor(Color c) {clr = c; return *this;}
@@ -34,6 +35,7 @@ struct Attributes : DataFile {
 		void Jsonize(JsonIO& json) {
 			json
 				("description", description)
+				("type", type)
 				("color", clr)
 				("values", values)
 				;
@@ -58,18 +60,22 @@ struct Attributes : DataFile {
 		}
 	};
 	
-	VectorMap<String, Group> groups;
+	Index<String> group_types;
+	Vector<Group> groups;
 	VectorMap<String, Translation> translation;
 	Vector<ScoringType> scorings;
-	
+	VectorMap<String, Vector<String>> analysis;
 	
 	
 	Attributes();
 	
+	void LoadDefaultGroups();
+	void LoadDefaultAnalysis();
+	Group& AddGroup(String type, String desc);
 	int GetCount() const {return groups.GetCount();}
 	int GetItemCount() const {
 		int i = 0;
-		for (const Group& g : groups.GetValues())
+		for (const Group& g : groups)
 			i += g.values.GetCount();
 		return i;
 	}
@@ -78,13 +84,19 @@ struct Attributes : DataFile {
 	void Clear() {groups.Clear(); translation.Clear();}
 	void Jsonize(JsonIO& json) {
 		json
+			("group_types", group_types)
 			("groups", groups)
 			("translation", translation)
 			("scorings", scorings)
+			("analysis", analysis)
 			;
 		if (json.IsLoading()) {
 			String lng = GetCurrentLanguageString().Left(5);
 			trans_i = translation.Find(lng);
+			if (groups.IsEmpty() || group_types.IsEmpty())
+				LoadDefaultGroups();
+			if (analysis.IsEmpty())
+				LoadDefaultAnalysis();
 		}
 	}
 	void AddScoring(String s, Vector<Attributes::ScoringType>& scorings);

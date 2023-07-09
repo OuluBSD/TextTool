@@ -3,32 +3,11 @@
 #endif
 // App.lay
 
-T_("Song")
-fiFI("Laulu")
+T_("FrontPage")
+fiFI("Etusivu")
 
-T_("Copy to Clipboard")
-fiFI("Kopioi leikep\303\266yd\303\244lle")
-
-T_("Generate")
-fiFI("Generoi")
-
-T_("Artist:")
-fiFI("Artisti:")
-
-T_("Story:")
-fiFI("Tarina:")
-
-T_("Pattern:")
-fiFI("Kaava:")
-
-T_("Composition:")
-fiFI("S\303\244vellys:")
-
-T_("Analysis:")
-fiFI("Analyysi:")
-
-T_("Add")
-fiFI("Lis\303\244\303\244")
+T_("Calendar")
+fiFI("Kalenteri")
 
 T_("Artist")
 fiFI("Artisti")
@@ -57,14 +36,26 @@ fiFI("Akustinen soitin:")
 T_("Electronic instr.:")
 fiFI("Elektroninen soitin:")
 
-T_("Story")
-fiFI("Kertomus")
-
-T_("Year:")
-fiFI("Vuosi:")
+T_("Album")
+fiFI("Albumi")
 
 T_("Title:")
 fiFI("Otsikko:")
+
+T_("Date:")
+fiFI("P\303\244iv\303\244m\303\244\303\244r\303\244:")
+
+T_("Song")
+fiFI("Laulu")
+
+T_("Artist (if different):")
+fiFI("Artisti (jos eri):")
+
+T_("Project name:")
+fiFI("Projektinimi:")
+
+T_("Story")
+fiFI("Kertomus")
 
 T_("The meaning:")
 fiFI("Tarkoitus")
@@ -117,33 +108,6 @@ fiFI("Seuraukset")
 T_("The social and political implications of the song")
 fiFI("Laulun sosiaaliset ja poliittiset vaikutukset")
 
-T_("Composition")
-fiFI("S\303\244vellys")
-
-T_("Tempo:")
-fiFI("Tempo:")
-
-T_("Beat/Rhythm:")
-fiFI("Isku/rytmi:")
-
-T_("Melody:")
-fiFI("Melodia:")
-
-T_("Chord Progressions:")
-fiFI("Sointukulku:")
-
-T_("Key and Mode:")
-fiFI("Avain ja moodi:")
-
-T_("Texture:")
-fiFI("Tekstuuri:")
-
-T_("Genre/Style:")
-fiFI("Genre/Tyyli:")
-
-T_("Parse")
-fiFI("Parsi")
-
 T_("Pattern")
 fiFI("Kaavio")
 
@@ -155,6 +119,12 @@ fiFI("Uudelleenlataa rakenne")
 
 T_("Merge attributes to owner")
 fiFI("Yhdist\303\244 attribuutit omistajaan")
+
+T_("Add")
+fiFI("Lis\303\244\303\244")
+
+T_("Pattern mask preset")
+fiFI("Kaaviomaskin esiasetus")
 
 T_("Score")
 fiFI("Pisteytys")
@@ -180,68 +150,44 @@ fiFI("Kopioi AI-kehote leikep\303\266yd\303\244lle")
 T_("Parse AI prompt from clipboard")
 fiFI("Parsi AI-kehote leikep\303\266yd\303\244lt\303\244")
 
-T_("Group:")
-fiFI("Ryhm\303\244:")
-
-T_("Copy prompt to clipboard")
-fiFI("Kopioi kehote leikep\303\266yd\303\244lle")
-
-T_("Paste prompt from clipboard")
-fiFI("Liit\303\244 kehote leikep\303\266yd\303\244lt\303\244")
-
 T_("Load active pattern score")
 fiFI("Lataa aktiivisen kuvion pisteet")
 
 T_("Stop tasks")
 fiFI("Lopeta teht\303\244v\303\244t")
 
-T_("Album")
-fiFI("Albumi")
+T_("Composition")
+fiFI("S\303\244vellys")
 
-T_("Date:")
-fiFI("P\303\244iv\303\244m\303\244\303\244r\303\244:")
+T_("Year:")
+fiFI("Vuosi:")
 
-T_("Prj. name:")
-fiFI("Prj. nimi:")
+T_("Tempo:")
+fiFI("Tempo:")
 
-T_("Add song")
-fiFI("Lis\303\244\303\244 kappale")
+T_("Beat/Rhythm:")
+fiFI("Isku/rytmi:")
 
-T_("Add album")
-fiFI("Lis\303\244\303\244 albuumi")
+T_("Melody:")
+fiFI("Melodia:")
 
-T_("Pattern mask preset")
-fiFI("Kaaviomaskin esiasetus")
+T_("Chord Progressions:")
+fiFI("Sointukulku:")
 
+T_("Key and Mode:")
+fiFI("Avain ja moodi:")
 
-// Data.cpp
+T_("Texture:")
+fiFI("Tekstuuri:")
 
-T_("Name")
-fiFI("Nimi")
+T_("Genre/Style:")
+fiFI("Genre/Tyyli:")
+
+T_("Parse")
+fiFI("Parsi")
 
 
 // App.cpp
-
-T_("Main")
-fiFI("Etusivu")
-
-T_("Pattern mask")
-fiFI("Kaaviomaski")
-
-T_("Attribute score")
-fiFI("Ominaisuuden pisteet")
-
-T_("Reverse")
-fiFI("K\303\244\303\244nteinen")
-
-T_("Production")
-fiFI("Tuotanto")
-
-T_("Analysis")
-fiFI("Analyysi")
-
-T_("Timeline")
-fiFI("Aikajana")
 
 T_("App")
 fiFI("Ohjelma")
@@ -255,11 +201,173 @@ fiFI("Poistu")
 T_("View")
 fiFI("N\303\244kym\303\244")
 
+T_("View Front Page")
+fiFI("Katso etusivua")
+
+T_("View Calendar")
+fiFI("Katso kalenteria")
+
+T_("View Editor")
+fiFI("Katso editoria")
+
+T_("Tools")
+fiFI("Ty\303\266kalut")
+
+T_("Show orphaned files")
+fiFI("N\303\244yt\303\244 orpoutuneet tiedostot")
+
+
+// Editor.cpp
+
+T_("All")
+fiFI("Kaikki")
+
+T_("Info")
+fiFI("Info")
+
+T_("Release")
+fiFI("Julkaisu")
+
+T_("Recruitment")
+fiFI("Rekrytointi")
+
+T_("Social media campaign")
+fiFI("Sosiaalisen median kampanja")
+
+T_("Tasks")
+fiFI("Teht\303\244v\303\244t")
+
+T_("Pattern mask")
+fiFI("Kaaviomaski")
+
+T_("Attribute scoring")
+fiFI("Ominaisuuksien pisteytys")
+
+T_("Scoring")
+fiFI("Pisteytys")
+
+T_("Reverse")
+fiFI("K\303\244\303\244nteinen")
+
+T_("Analysis")
+fiFI("Analyysi")
+
+T_("Production")
+fiFI("Tuotanto")
+
+T_("Rhymes")
+fiFI("Riimit")
+
+T_("Title")
+fiFI("Otsikko")
+
+T_("Date")
+fiFI("P\303\244iv\303\244m\303\244\303\244r\303\244")
+
+T_("Project name")
+fiFI("Projektin nimi")
+
+T_("Add Artist")
+fiFI("Lis\303\244\303\244 artisti")
+
+T_("Rename Artist")
+fiFI("Uudelleennime\303\244 artisti")
+
+T_("Delete Artist")
+fiFI("Poista artisti")
+
+T_("Add Release")
+fiFI("Lis\303\244\303\244 julkaisu")
+
+T_("Rename Release")
+fiFI("Uudelleennime\303\244 julkaisu")
+
+T_("Delete Release")
+fiFI("Poista julkaisu")
+
+T_("Add Song")
+fiFI("Lis\303\244\303\244 laulu")
+
+T_("Rename Song")
+fiFI("Uudelleennime\303\244 laulu")
+
+T_("Delete Song")
+fiFI("Poista laulu")
+
+T_("Artist's name")
+fiFI("Artistin nimi")
+
+T_("Artist exist already")
+fiFI("Artisti on jo olemassa")
+
+T_("Release's title")
+fiFI("Julkaisun nimi")
+
+T_("Release exist already")
+fiFI("Julkaisu on jo olemassa")
+
+T_("Song's title")
+fiFI("Laulun nimi")
+
+T_("Song exist already")
+fiFI("Laulu on jo olemassa")
+
+
+// Obsolete
+
+T_("Copy to Clipboard")
+fiFI("Kopioi leikep\303\266yd\303\244lle")
+
+T_("Generate")
+fiFI("Generoi")
+
+T_("Artist:")
+fiFI("Artisti:")
+
+T_("Story:")
+fiFI("Tarina:")
+
+T_("Pattern:")
+fiFI("Kaava:")
+
+T_("Composition:")
+fiFI("S\303\244vellys:")
+
+T_("Analysis:")
+fiFI("Analyysi:")
+
+T_("Group:")
+fiFI("Ryhm\303\244:")
+
+T_("Copy prompt to clipboard")
+fiFI("Kopioi kehote leikep\303\266yd\303\244lle")
+
+T_("Paste prompt from clipboard")
+fiFI("Liit\303\244 kehote leikep\303\266yd\303\244lt\303\244")
+
+T_("Prj. name:")
+fiFI("Prj. nimi:")
+
+T_("Add song")
+fiFI("Lis\303\244\303\244 kappale")
+
+T_("Add album")
+fiFI("Lis\303\244\303\244 albuumi")
+
+T_("Name")
+fiFI("Nimi")
+
+T_("Main")
+fiFI("Etusivu")
+
+T_("Attribute score")
+fiFI("Ominaisuuden pisteet")
+
+T_("Timeline")
+fiFI("Aikajana")
+
 T_("Move to owner")
 fiFI("Siirry omistajaan")
-
-
-// PatternCtrl.cpp
 
 T_("Position")
 fiFI("Kohta")
@@ -269,9 +377,6 @@ fiFI("Kaavion nimi")
 
 T_("Please write pattern's name")
 fiFI("Kirjoita kaavion nimi")
-
-
-// AttrCtrl.cpp
 
 T_("Add group")
 fiFI("Lis\303\244\303\244 ryhm\303\244")
@@ -296,12 +401,6 @@ fiFI("Merkinn\303\244n k\303\244\303\244nn\303\266s")
 
 T_("Entry '%s' exists already")
 fiFI("Merkint\303\244 '%s' on jo olemassa")
-
-
-// AttrScoreCtrl.cpp
-
-T_("Scoring")
-fiFI("Pisteytys")
 
 T_("Entry count")
 fiFI("Merkint\303\266jen m\303\244\303\244r\303\244")
@@ -345,9 +444,6 @@ fiFI("Merkinn\303\244n nimi")
 T_("Entry was not found ('%s')")
 fiFI("Tietoa ei l\303\266ytynyt ('%s')")
 
-
-// PlotCtrl.cpp
-
 T_("absolute value")
 fiFI("itseisarvo")
 
@@ -359,12 +455,6 @@ fiFI("painotettu itseisarvo")
 
 T_("weighted accumulated value")
 fiFI("painotettu kertynyt arvo")
-
-
-// ScoreCtrl.cpp
-
-T_("Title")
-fiFI("Otsikko")
 
 T_("Preset's name")
 fiFI("Esiasetuksen nimi")
@@ -396,9 +486,6 @@ fiFI("Esiasetuksen nimi")
 T_("Preset '%s' already exists")
 fiFI("Esiasetus '%s' on jo olemassa")
 
-
-// ReverseCtrl.cpp
-
 T_("Active")
 fiFI("Aktiivinen")
 
@@ -417,20 +504,11 @@ fiFI("Optimoijan pisteet")
 T_("Result")
 fiFI("Tulos")
 
-
-// TimelineCtrl.cpp
-
 T_("Year")
 fiFI("Vuosi")
 
-T_("Project name")
-fiFI("Projektin nimi")
-
 T_("Remove")
 fiFI("Poista")
-
-
-// Obsolete
 
 T_("Read-only")
 fiFI("Vain-luku")

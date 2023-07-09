@@ -16,6 +16,7 @@ SongTool::SongTool() {
 	Add(fp.SizePos());
 	Add(cal.SizePos());
 	Add(ed.SizePos());
+	Add(ai.SizePos());
 	SetView(page);
 	
 	AddFrame(menu);
@@ -33,6 +34,7 @@ void SongTool::MainMenu(Bar& bar) {
 		bar.Add(t_("View Front Page"), THISBACK1(SetView, 0)).Key(K_ALT_1);
 		bar.Add(t_("View Calendar"), THISBACK1(SetView, 1)).Key(K_ALT_2);
 		bar.Add(t_("View Editor"), THISBACK1(SetView, 2)).Key(K_ALT_3);
+		bar.Add(t_("View AI Tasks"), THISBACK1(SetView, 3)).Key(K_ALT_4);
 	});
 	bar.Sub(t_("Tools"), [this](Bar& bar) {
 		bar.Add(t_("Show orphaned files"), THISBACK(ShowOrphanedFiles));
@@ -60,6 +62,7 @@ void SongTool::Data() {
 		case 0: fp.Data(); break;
 		case 1: cal.Data(); break;
 		case 2: ed.Data(); break;
+		case 3: ai.Data(); break;
 	}
 }
 
@@ -67,12 +70,14 @@ void SongTool::SetView(int i) {
 	fp.Hide();
 	cal.Hide();
 	ed.Hide();
+	ai.Hide();
 	
 	switch (i) {
 		default: i = 0;
 		case 0: fp.Show(); break;
 		case 1: cal.Show(); break;
 		case 2: ed.Show(); break;
+		case 3: ai.Show(); break;
 	}
 	
 	page = i;

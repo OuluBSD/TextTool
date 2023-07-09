@@ -2,7 +2,7 @@
 #define _SongTool_ProductionCtrl_h_
 
 
-class ProductionCtrl : public Ctrl {
+class ProductionCtrl : public WithProduction<Ctrl> {
 	
 	
 public:

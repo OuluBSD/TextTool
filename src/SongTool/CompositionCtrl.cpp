@@ -2,6 +2,7 @@
 
 
 CompositionCtrl::CompositionCtrl() {
+	CtrlLayout(*this);
 	
 }
 

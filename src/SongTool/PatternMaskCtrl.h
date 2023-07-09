@@ -2,7 +2,7 @@
 #define _SongTool_PatternMaskCtrl_h_
 
 
-class PatternMaskCtrl : public Ctrl {
+class PatternMaskCtrl : public WithPatternMask<Ctrl> {
 	
 	
 public:

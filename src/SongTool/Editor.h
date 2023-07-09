@@ -17,12 +17,16 @@ protected:
 	CalMgrCtrl		cal;
 	TaskMgrCtrl		task;
 	StoryCtrl		story;
+	ImportCtrl		importer;
 	PatternMaskCtrl	patmask;
 	PatternCtrl		pattern;
 	CompositionCtrl	composition;
 	AnalysisCtrl	analysis;
 	ProductionCtrl	production;
 	RhymesCtrl		rhymes;
+	ScoringCtrl		scoring;
+	AttrScoreCtrl	attrscore;
+	ReverseCtrl		reverse;
 	
 public:
 	typedef Editor CLASSNAME;

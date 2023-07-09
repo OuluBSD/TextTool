@@ -8,6 +8,7 @@ class SongTool : public TopWindow {
 	FrontPage		fp;
 	CalendarPage	cal;
 	Editor			ed;
+	AI_Tasks		ai;
 	
 	int page = 0;
 	Rect last_window;

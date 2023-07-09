@@ -2,6 +2,7 @@
 
 
 PatternCtrl::PatternCtrl() {
+	CtrlLayout(*this);
 	
 }
 

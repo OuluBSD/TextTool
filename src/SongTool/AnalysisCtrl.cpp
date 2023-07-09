@@ -2,6 +2,7 @@
 
 
 AnalysisCtrl::AnalysisCtrl() {
+	CtrlLayout(*this);
 	
 }
 

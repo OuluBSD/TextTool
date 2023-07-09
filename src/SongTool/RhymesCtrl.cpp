@@ -2,6 +2,7 @@
 
 
 RhymesCtrl::RhymesCtrl() {
+	CtrlLayout(*this);
 	
 }
 

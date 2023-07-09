@@ -2,7 +2,7 @@
 #define _SongTool_StoryCtrl_h_
 
 
-class StoryCtrl : public Ctrl {
+class StoryCtrl : public WithStory<Ctrl> {
 	
 	
 public:
@@ -10,6 +10,7 @@ public:
 	StoryCtrl();
 	
 	void Data();
+	void SaveStory();
 	
 	
 };

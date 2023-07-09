@@ -22,17 +22,20 @@ Editor::Editor() {
 	tablist.Add(t_("Release"), t_("Social media campaign"));
 	tablist.Add(t_("Release"), t_("Calendar"));
 	tablist.Add(t_("Release"), t_("Tasks"));
+	tablist.Add(t_("Song"), t_("Importer"));
 	tablist.Add(t_("Song"), t_("Story"));
 	tablist.Add(t_("Song"), t_("Pattern mask"));
 	tablist.Add(t_("Song"), t_("Pattern"));
+	tablist.Add(t_("Song"), t_("Attribute scoring"));
+	tablist.Add(t_("Song"), t_("Scoring"));
+	tablist.Add(t_("Song"), t_("Reverse"));
 	tablist.Add(t_("Song"), t_("Composition"));
 	tablist.Add(t_("Song"), t_("Analysis"));
 	tablist.Add(t_("Song"), t_("Production"));
 	tablist.Add(t_("Song"), t_("Rhymes"));
 	tablist.SetCursor(0);
 	
-	artists.AddColumn("");
-	artists.NoHeader();
+	artists.AddColumn(t_("Artist"));
 	artists <<= THISBACK(DataArtist);
 	
 	releases.AddColumn(t_("Title"));
@@ -52,9 +55,12 @@ Editor::Editor() {
 	base.Add(social.SizePos());
 	base.Add(cal.SizePos());
 	base.Add(task.SizePos());
+	base.Add(importer.SizePos());
 	base.Add(story.SizePos());
 	base.Add(patmask.SizePos());
 	base.Add(pattern.SizePos());
+	base.Add(attrscore.SizePos());
+	base.Add(scoring.SizePos());
 	base.Add(composition.SizePos());
 	base.Add(analysis.SizePos());
 	base.Add(production.SizePos());
@@ -73,8 +79,12 @@ void Editor::SetView(int i) {
 	cal.Hide();
 	task.Hide();
 	story.Hide();
+	importer.Hide();
 	patmask.Hide();
 	pattern.Hide();
+	attrscore.Hide();
+	scoring.Hide();
+	reverse.Hide();
 	composition.Hide();
 	analysis.Hide();
 	production.Hide();
@@ -87,13 +97,17 @@ void Editor::SetView(int i) {
 		case 2: social.Show(); break;
 		case 3: cal.Show(); break;
 		case 4: task.Show(); break;
-		case 5: story.Show(); break;
-		case 6: patmask.Show(); break;
-		case 7: pattern.Show(); break;
-		case 8: composition.Show(); break;
-		case 9: analysis.Show(); break;
-		case 10: production.Show(); break;
-		case 11: rhymes.Show(); break;
+		case 5: importer.Show(); break;
+		case 6: story.Show(); break;
+		case 7: patmask.Show(); break;
+		case 8: pattern.Show(); break;
+		case 9: attrscore.Show(); break;
+		case 10: scoring.Show(); break;
+		case 11: reverse.Show(); break;
+		case 12: composition.Show(); break;
+		case 13: analysis.Show(); break;
+		case 14: production.Show(); break;
+		case 15: rhymes.Show(); break;
 	}
 	page = i;
 	DataPage();
@@ -106,13 +120,17 @@ void Editor::DataPage() {
 		case 2: social.Data(); break;
 		case 3: cal.Data(); break;
 		case 4: task.Data(); break;
-		case 5: story.Data(); break;
-		case 6: patmask.Data(); break;
-		case 7: pattern.Data(); break;
-		case 8: composition.Data(); break;
-		case 9: analysis.Data(); break;
-		case 10: production.Data(); break;
-		case 11: rhymes.Data(); break;
+		case 5: importer.Data(); break;
+		case 6: story.Data(); break;
+		case 7: patmask.Data(); break;
+		case 8: pattern.Data(); break;
+		case 9: attrscore.Data(); break;
+		case 10: scoring.Data(); break;
+		case 11: reverse.Data(); break;
+		case 12: composition.Data(); break;
+		case 13: analysis.Data(); break;
+		case 14: production.Data(); break;
+		case 15: rhymes.Data(); break;
 		default: break;
 	}
 }

@@ -2,7 +2,7 @@
 #define _SongTool_RhymesCtrl_h_
 
 
-class RhymesCtrl : public Ctrl {
+class RhymesCtrl : public WithRhymes<Ctrl> {
 	
 	
 public:

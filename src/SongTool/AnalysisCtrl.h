@@ -2,7 +2,7 @@
 #define _SongTool_AnalysisCtrl_h_
 
 
-class AnalysisCtrl : public Ctrl {
+class AnalysisCtrl : public WithAnalysis<Ctrl> {
 	
 	
 public:

@@ -2,7 +2,7 @@
 #define _SongTool_PatternCtrl_h_
 
 
-class PatternCtrl : public Ctrl {
+class PatternCtrl : public WithPattern<Ctrl> {
 	
 	
 public:
@@ -13,5 +13,6 @@ public:
 	
 	
 };
+
 
 #endif
