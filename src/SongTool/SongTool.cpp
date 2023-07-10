@@ -23,4 +23,6 @@ GUI_APP_MAIN {
 	db.Load();
 	SongTool().Run();
 	db.Store();
+	
+	TaskMgr::Single().Store();
 }

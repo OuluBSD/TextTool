@@ -1,0 +1,95 @@
+Groups of language attributes:
+- Nouns
+- Pronouns
+- Verbs
+- Adjectives
+- Adverbs
+- Prepositions
+- Conjunctions
+- Interjections
+- Syntax
+- Morphology
+- Semantics
+- Pragmatics
+- Discourse
+
+Lyrics:
+verse1
+Scar tissue that I wish you saw, (you) Sarcastic mister know-it-all.
+Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view).
+
+chorus1
+With the birds I'll share this lonely viewin'
+With the birds I'll share this lonely viewin'
+
+verse2
+Push me up against the wall, (you) Young Kentucky girl in a push-up bra.
+Fallin' all over myself to lick your heart and taste your health ('cause)
+
+chorus2
+With the birds I'll share this lonely viewin'
+With the birds I'll share this lonely viewin'
+With the birds I'll share this lonely view
+
+verse3
+Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak).
+I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)
+
+verse4
+(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl.
+And autumn's sweet, we call it fall.
+I'll make it to the moon if I have to crawl (and)
+
+
+
+The artist is a serious white caucasian male.
+One attribute from every group is required.
+
+Groups with matching abstract values (in format "language group: Value 1, Value 2, etc"):
+
+Attributes of lyrics (parts verse1, chorus1, verse2, chorus2, verse3, verse4):
+verse1
+- Nouns: Scar, Sarcastic, mister, know-it-all
+- Pronouns: you
+- Verbs: saw, kiss, share
+- Adjectives: lonely
+- Prepositions: with
+- Syntax: verb-subject-object
+
+Chorus1
+- Nouns: birds
+- Verbs: share
+- Adjectives: lonely
+- Prepositions: with
+- Syntax: verb-subject-object
+
+Verse2
+- Nouns: Push, wall, Young Kentucky girl, push-up bra
+- Pronouns: you
+- Verbs: fallin', lick, taste
+- Adjectives: health
+- Prepositions: with
+- Syntax: verb-subject-object
+
+Chorus2
+- Nouns: birds
+- Verbs: share
+- Adjectives: lonely
+- Prepositions: with
+- Syntax: verb-subject-object
+
+Verse3
+- Nouns: Blood, bathroom, stall, southern girl, scarlet, drawl
+- Pronouns: you, ma, pa
+- Verbs: wave, share
+- Adjectives: none
+- Prepositions: with
+- Syntax: verb-subject-object
+
+Verse4
+- Nouns: Jaw, step, moon
+- Pronouns: I
+- Verbs: spoken, broken, crawl
+- Adjectives: soft, autumn's sweet
+- Prepositions: with
+- Syntax: verb-subject-object

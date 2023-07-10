@@ -68,17 +68,16 @@ String PatternSnap::GetStructuredText(bool pretty, int indent) const {
 
 
 
-void Pattern::ReloadStructure() {
+void Song::ReloadStructure() {
 	Database& db = Database::Single();
 	db.active_snap = 0;
 	
 	this->parts.Clear();
-	//this->unique_parts.Clear();
+	this->structure = Split(this->structure_str, ",");
 	
-	Vector<String> part_str = Split(this->structure, ",");
 	Index<String> part_seen;
 	
-	for (String& p : part_str) {
+	for (String& p : structure) {
 		p = TrimBoth(p);
 		
 		// Split name and beat count
@@ -86,7 +85,7 @@ void Pattern::ReloadStructure() {
 		String name;
 		
 		if (i < 0) {
-			i = this->unique_parts.Find(p);
+			i = this->parts.Find(p);
 			if (i >= 0) {
 				name = p; // ok
 			}
@@ -100,12 +99,13 @@ void Pattern::ReloadStructure() {
 			int beats = StrInt(p.Mid(i+1));
 			
 			// Check for beat length error
-			i = this->unique_parts.Find(name);
+			i = this->parts.Find(name);
 			if (i >= 0) {
-				Part& part = this->unique_parts[i];
-				if (part.len != beats) {
+				Part& part = this->parts[i];
+				int len = part.lines.GetCount();
+				if (len != beats) {
 					if (part_seen.Find(name) < 0) {
-						part.len = beats;
+						part.lines.SetCount(beats);
 					}
 					else {
 						PromptOK(DeQtf("error: part length mismatch"));
@@ -114,21 +114,22 @@ void Pattern::ReloadStructure() {
 				}
 			}
 			else {
-				Part& part = this->unique_parts.GetAdd(name);
-				part.len = beats;
+				Part& part = this->parts.GetAdd(name);
+				part.lines.SetCount(beats);
 			}
 		}
 		
 		// Add part
-		this->parts.Add(name);
-		part_seen.Add(name);
+		this->parts.GetAdd(name);
+		part_seen.FindAdd(name);
 	}
 	
-	DUMPM(this->unique_parts);
-	DUMPC(this->parts);
-	
-	for (Part& part : this->unique_parts) {
-		part.snap.Init(0, part.len);
+	//DUMPM(this->parts);
+	//DUMPC(this->structure);
+	for (Part& part : this->parts) {
+		//DUMP(part.lines.GetCount());
+		part.snap.Init(0, part.lines.GetCount());
+		ASSERT(part.snap.GetLevel() > 0 || part.lines.GetCount() <= 1);
 		part.FixPtrs();
 	}
 }

@@ -59,8 +59,12 @@ struct Attributes : DataFile {
 				;
 		}
 	};
-	
-	Index<String> group_types;
+	struct GroupType : Moveable<GroupType> {
+		String name;
+		String ai_txt;
+		void Jsonize(JsonIO& json) {json("name", name)("ai_txt", ai_txt);}
+	};
+	Vector<GroupType> group_types;
 	Vector<Group> groups;
 	VectorMap<String, Translation> translation;
 	Vector<ScoringType> scorings;
@@ -71,6 +75,8 @@ struct Attributes : DataFile {
 	
 	void LoadDefaultGroups();
 	void LoadDefaultAnalysis();
+	GroupType& AddGroupType(String type, String ai_txt);
+	GroupType& GetGroupType(String type);
 	Group& AddGroup(String type, String desc);
 	int GetCount() const {return groups.GetCount();}
 	int GetItemCount() const {
@@ -80,6 +86,7 @@ struct Attributes : DataFile {
 		return i;
 	}
 	String Translate(const String& s);
+	SnapAttr GetAddAttr(String group, String item);
 	bool FindAttr(String group, String item, SnapAttr& sa) const;
 	void Clear() {groups.Clear(); translation.Clear();}
 	void Jsonize(JsonIO& json) {
@@ -93,6 +100,7 @@ struct Attributes : DataFile {
 		if (json.IsLoading()) {
 			String lng = GetCurrentLanguageString().Left(5);
 			trans_i = translation.Find(lng);
+			//groups.Clear();
 			if (groups.IsEmpty() || group_types.IsEmpty())
 				LoadDefaultGroups();
 			if (analysis.IsEmpty())

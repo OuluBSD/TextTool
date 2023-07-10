@@ -9,6 +9,8 @@ struct TaskMgr {
 	AI_Task* active_task = 0;
 	
 	
+	void Store();
+	
 	static TaskMgr& Single() {static TaskMgr m; return m;}
 	
 };

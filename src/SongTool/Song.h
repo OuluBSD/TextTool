@@ -29,23 +29,17 @@ struct Song : DataFile {
 	String			artist;
 	String			title;
 	String			prj_name;
+	String			structure_str;
 	
 	// Imported lyrics
 	String								content;
-	VectorMap<String, Vector<String>>	parsed_content;
 	VectorMap<String, Vector<Attr>>		unique_lines;
-	
-	// Components
-	Story			story;
-	PatternMask		mask;
-	Pattern			pattern;
-	PatternScore	patternscore;
-	Composition		composition;
-	Analysis		analysis;
-	AttrScoreGroup	scoregroup;
+	Vector<String>						structure;
+	ArrayMap<String, Part>				parts;
 	
 	void Store();
 	void LoadTitle(String title);
+	void ReloadStructure();
 	void Jsonize(JsonIO& json) {
 		json
 			("artist", artist)
@@ -53,16 +47,52 @@ struct Song : DataFile {
 			("prj_name", prj_name)
 			
 			("content", content)
-			("parsed_content", parsed_content)
 			("unique_lines", unique_lines)
-			
-			("story", story)
-			("pattern", pattern)
-			("patternscore", patternscore)
-			("composition", composition)
-			("analysis", analysis)
-			("scoregroup", scoregroup)
+			("parts", parts)
 			;
+		if (json.IsLoading())
+			FixPtrs();
+	}
+	void FixPtrs() {
+		for(int i = 0; i < parts.GetCount(); i++) {
+			Part& p = parts[i];
+			p.name = parts.GetKey(i);
+			p.snap.SetId(i);
+			p.FixPtrs();
+		}
+	}
+	bool operator()(const Song& a, const Song& b) const {
+		return a.file_title < b.file_title;
+	}
+	void GetSnapsLevel(int level, Vector<PatternSnap*>& level_snaps) {
+		for (Part& p : parts.GetValues())
+			p.snap.GetSnapsLevel(level, level_snaps);
+	}
+	void GetAttributes(Index<SnapAttr>& attrs) const {
+		for (const Part& p : parts.GetValues())
+			p.snap.GetAttributes(attrs);
+	}
+	void MergeOwner() {
+		for (Part& p : parts.GetValues())
+			p.snap.MergeOwner();
+	}
+	String GetStructuredText(bool pretty, int indent = 0) const {
+		String s;
+		for(const Part& p : parts.GetValues()) {
+			if (pretty) {
+				s.Cat('\t', indent);
+				s	<< "part " << p.name << " {\n";
+				s	<< p.snap.GetStructuredText(pretty, indent+1);
+				s	<< "}\n";
+				s.Cat('\t', indent);
+			}
+			else {
+				s	<< "part " << p.name << "{";
+				s	<< p.snap.GetStructuredText(pretty, indent+1);
+				s	<< "}";
+			}
+		}
+		return s;
 	}
 };
 

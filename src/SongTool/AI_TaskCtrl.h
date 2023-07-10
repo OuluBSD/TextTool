@@ -14,6 +14,8 @@ public:
 	void Data();
 	void DataTask();
 	void ValueChange();
+	void ProcessItem();
+	void OutputMenu(Bar& bar);
 	
 };
 

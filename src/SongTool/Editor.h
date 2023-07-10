@@ -7,7 +7,7 @@ class Editor : public Ctrl {
 protected:
 	friend class BasicInfoCtrl;
 	Splitter	hsplit, menusplit;
-	ArrayCtrl	tablist, artists, releases, songs;
+	ArrayCtrl	tablist, artists, releases, songs, parts;
 	Ctrl		base;
 	int			page = 0;
 	
@@ -16,7 +16,6 @@ protected:
 	SocialCtrl		social;
 	CalMgrCtrl		cal;
 	TaskMgrCtrl		task;
-	StoryCtrl		story;
 	ImportCtrl		importer;
 	PatternMaskCtrl	patmask;
 	PatternCtrl		pattern;
@@ -39,12 +38,14 @@ public:
 	void DataArtist();
 	void DataRelease();
 	void DataSong();
+	void DataPart();
 	void DataPage();
 	void SetView(int i);
 	
 	void ArtistMenu(Bar& bar);
 	void ReleaseMenu(Bar& bar);
 	void SongMenu(Bar& bar);
+	void PartMenu(Bar& bar);
 	
 	void AddArtist();
 	void RenameArtist();

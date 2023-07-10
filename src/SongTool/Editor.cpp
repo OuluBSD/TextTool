@@ -7,11 +7,13 @@ Editor::Editor() {
 	hsplit.Horz() << menusplit << base;
 	hsplit.SetPos(1500);
 	
-	menusplit.Vert() << tablist << artists << releases << songs;
+	menusplit.Vert() << tablist << artists << releases << songs << parts;
 	artists.WhenBar << THISBACK(ArtistMenu);
 	releases.WhenBar << THISBACK(ReleaseMenu);
 	songs.WhenBar << THISBACK(SongMenu);
+	parts.WhenBar << THISBACK(PartMenu);
 	tablist <<= THISBACK(UpdateView);
+	importer.WhenStructureChange << THISBACK(DataSong);
 	
 	tablist.NoHeader();
 	tablist.AddColumn("");
@@ -48,6 +50,11 @@ Editor::Editor() {
 	songs.AddColumn(t_("Project name"));
 	songs <<= THISBACK(DataSong);
 	
+	parts.AddColumn(t_("Part"));
+	parts.AddColumn(t_("Lines"));
+	parts.ColumnWidths("3 1");
+	parts <<= THISBACK(DataPart);
+	
 	info.editor = this;
 	
 	base.Add(info.SizePos());
@@ -56,7 +63,6 @@ Editor::Editor() {
 	base.Add(cal.SizePos());
 	base.Add(task.SizePos());
 	base.Add(importer.SizePos());
-	base.Add(story.SizePos());
 	base.Add(patmask.SizePos());
 	base.Add(pattern.SizePos());
 	base.Add(attrscore.SizePos());
@@ -78,7 +84,6 @@ void Editor::SetView(int i) {
 	social.Hide();
 	cal.Hide();
 	task.Hide();
-	story.Hide();
 	importer.Hide();
 	patmask.Hide();
 	pattern.Hide();
@@ -98,16 +103,15 @@ void Editor::SetView(int i) {
 		case 3: cal.Show(); break;
 		case 4: task.Show(); break;
 		case 5: importer.Show(); break;
-		case 6: story.Show(); break;
-		case 7: patmask.Show(); break;
-		case 8: pattern.Show(); break;
-		case 9: attrscore.Show(); break;
-		case 10: scoring.Show(); break;
-		case 11: reverse.Show(); break;
-		case 12: composition.Show(); break;
-		case 13: analysis.Show(); break;
-		case 14: production.Show(); break;
-		case 15: rhymes.Show(); break;
+		case 6: patmask.Show(); break;
+		case 7: pattern.Show(); break;
+		case 8: attrscore.Show(); break;
+		case 9: scoring.Show(); break;
+		case 10: reverse.Show(); break;
+		case 11: composition.Show(); break;
+		case 12: analysis.Show(); break;
+		case 13: production.Show(); break;
+		case 14: rhymes.Show(); break;
 	}
 	page = i;
 	DataPage();
@@ -121,16 +125,15 @@ void Editor::DataPage() {
 		case 3: cal.Data(); break;
 		case 4: task.Data(); break;
 		case 5: importer.Data(); break;
-		case 6: story.Data(); break;
-		case 7: patmask.Data(); break;
-		case 8: pattern.Data(); break;
-		case 9: attrscore.Data(); break;
-		case 10: scoring.Data(); break;
-		case 11: reverse.Data(); break;
-		case 12: composition.Data(); break;
-		case 13: analysis.Data(); break;
-		case 14: production.Data(); break;
-		case 15: rhymes.Data(); break;
+		case 6: patmask.Data(); break;
+		case 7: pattern.Data(); break;
+		case 8: attrscore.Data(); break;
+		case 9: scoring.Data(); break;
+		case 10: reverse.Data(); break;
+		case 11: composition.Data(); break;
+		case 12: analysis.Data(); break;
+		case 13: production.Data(); break;
+		case 14: rhymes.Data(); break;
 		default: break;
 	}
 }
@@ -212,11 +215,33 @@ void Editor::DataSong() {
 	Release& r = *db.active_release;
 	Song& s = *db.active_song;
 	
-	int cursor = db.GetActiveSongIndex();
+	for(int i = 0; i < s.parts.GetCount(); i++) {
+		Part& p = s.parts[i];
+		String k = s.parts.GetKey(i);
+		parts.Set(i, 0, k);
+		parts.Set(i, 1, p.lines.GetCount());
+	}
+	parts.SetCount(s.parts.GetCount());
+	
+	int cursor = db.GetActivePartIndex();
 	if (cursor >= 0 && cursor < songs.GetCount() && !songs.IsCursor())
 		songs.SetCursor(cursor);
 	
 	DataPage();
+	DataPart();
+}
+
+void Editor::DataPart() {
+	Database& db = Database::Single();
+	if (!parts.IsCursor() || !db.active_artist || !db.active_release || !db.active_song)
+		return;
+	
+	db.active_part = &db.active_song->parts[parts.GetCursor()];
+	
+	int cursor = db.GetActivePartIndex();
+	if (cursor >= 0 && cursor < parts.GetCount() && !parts.IsCursor())
+		parts.SetCursor(cursor);
+	
 }
 
 void Editor::ArtistMenu(Bar& bar) {
@@ -244,6 +269,10 @@ void Editor::SongMenu(Bar& bar) {
 		bar.Add(t_("Rename Song"), THISBACK(RenameSong));
 		bar.Add(t_("Delete Song"), THISBACK(RemoveSong));
 	}
+}
+
+void Editor::PartMenu(Bar& bar) {
+	
 }
 
 void Editor::AddArtist() {

@@ -5,8 +5,9 @@
 struct AI_Task {
 	enum {
 		TASK_PATTERNMASK,
-		TASK_PATTERN,
 		TASK_ANALYSIS,
+		TASK_CHECK_PATTERN,
+		TASK_PATTERN,
 		TASK_CHECK_ATTRSCORES,
 		TASK_ATTRSCORES,
 		TASK_SONGSCORE,
@@ -20,6 +21,8 @@ struct AI_Task {
 	String input;
 	String output;
 	int type = -1;
+	int response_length = 0;
+	String error;
 	bool ready = false;
 	bool failed = false;
 	
@@ -27,10 +30,19 @@ struct AI_Task {
 	Song* song = 0;
 	Vector<PatternSnap*> snap;
 	
+	void Store();
+	void Load();
+	void Process();
+	void SetError(String s);
+	String GetInputHash() const;
+	String GetOutputHash() const;
 	void CreateInput();
 	void CreateInput_PatternMask();
 	void CreateInput_Pattern();
 	void CreateInput_Analysis();
+	void Process_PatternMask();
+	void Process_Pattern();
+	void Process_Analysis();
 	String GetDescription() const;
 	String GetTypeString() const;
 };

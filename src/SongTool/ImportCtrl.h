@@ -18,6 +18,7 @@ public:
 	void MakeTasks();
 	void ParseOriginalLyrics();
 	
+	Callback WhenStructureChange;
 	
 };
 

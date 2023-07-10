@@ -11,6 +11,7 @@ struct Artist : DataFile {
 	String vibe_of_voice;
 	String acoustic_instruments;
 	String electronic_instruments;
+	String vocalist_visual;
 	
 	Array<Release> releases;
 	
@@ -23,6 +24,7 @@ struct Artist : DataFile {
 		vibe_of_voice.Clear();
 		acoustic_instruments.Clear();
 		electronic_instruments.Clear();
+		vocalist_visual.Clear();
 	}
 	void Store();
 	void LoadTitle(String title);
@@ -36,6 +38,7 @@ struct Artist : DataFile {
 			("vibe_of_voice", vibe_of_voice)
 			("acoustic_instruments", acoustic_instruments)
 			("electronic_instruments", electronic_instruments)
+			("vocalist_visual", vocalist_visual)
 			;
 		if (json.IsStoring()) {
 			Vector<String> names;

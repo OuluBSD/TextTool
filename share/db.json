@@ -1,73 +1,136 @@
 {
 	"attributes": {
 		"group_types": [
-			"language",
-			"writing",
-			"characters",
-			"performance",
-			"setting",
-			"creativity",
-			"gestures",
-			"costuming",
-			"editing",
-			"lighting"
+			{
+				"name": "language",
+				"ai_txt": "matching abstract values"
+			},
+			{
+				"name": "writing",
+				"ai_txt": "matching abstract values"
+			},
+			{
+				"name": "characters",
+				"ai_txt": "matching abstract values"
+			},
+			{
+				"name": "setting",
+				"ai_txt": "matching abstract values"
+			},
+			{
+				"name": "creativity",
+				"ai_txt": "matching abstract values"
+			},
+			{
+				"name": "performance",
+				"ai_txt": "good values for a novel music video"
+			},
+			{
+				"name": "gestures",
+				"ai_txt": "good values for a novel music video"
+			},
+			{
+				"name": "costuming",
+				"ai_txt": "good values for a novel music video"
+			},
+			{
+				"name": "editing",
+				"ai_txt": "good values for a novel music video"
+			},
+			{
+				"name": "lighting",
+				"ai_txt": "good values for a novel music video"
+			}
 		],
 		"groups": [
 			{
 				"description": "nouns",
 				"type": "language",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 228,
+					"green": 13,
+					"blue": 193
 				},
 				"values": [
-
+					"Jaw",
+					"Step",
+					"Moon",
+					"Scar",
+					"Sarcastic",
+					"Mister",
+					"Know-it-all",
+					"Birds",
+					"Push",
+					"Wall",
+					"Young kentucky girl",
+					"Push-up bra",
+					"Blood",
+					"Bathroom",
+					"Stall",
+					"Southern girl",
+					"Scarlet",
+					"Drawl"
 				]
 			},
 			{
 				"description": "pronouns",
 				"type": "language",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 42,
+					"green": 89,
+					"blue": 205
 				},
 				"values": [
-
+					"I",
+					"You",
+					"Ma",
+					"Pa"
 				]
 			},
 			{
 				"description": "verbs",
 				"type": "language",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 2,
+					"green": 208,
+					"blue": 225
 				},
 				"values": [
-
+					"Spoken",
+					"Broken",
+					"Crawl",
+					"Saw",
+					"Kiss",
+					"Share",
+					"Fallin'",
+					"Lick",
+					"Taste",
+					"Wave"
 				]
 			},
 			{
 				"description": "adjectives",
 				"type": "language",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 202,
+					"green": 86,
+					"blue": 254
 				},
 				"values": [
-
+					"Soft",
+					"Autumn's sweet",
+					"Lonely",
+					"Health",
+					"None"
 				]
 			},
 			{
 				"description": "adverbs",
 				"type": "language",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 100,
+					"green": 100,
+					"blue": 202
 				},
 				"values": [
 
@@ -77,21 +140,21 @@
 				"description": "prepositions",
 				"type": "language",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 113,
+					"green": 13,
+					"blue": 111
 				},
 				"values": [
-
+					"With"
 				]
 			},
 			{
 				"description": "conjunctions",
 				"type": "language",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 4,
+					"green": 225,
+					"blue": 176
 				},
 				"values": [
 
@@ -101,9 +164,9 @@
 				"description": "interjections",
 				"type": "language",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 75,
+					"green": 245,
+					"blue": 251
 				},
 				"values": [
 
@@ -113,21 +176,21 @@
 				"description": "syntax",
 				"type": "language",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 98,
+					"green": 120,
+					"blue": 4
 				},
 				"values": [
-
+					"Verb-subject-object"
 				]
 			},
 			{
 				"description": "morphology",
 				"type": "language",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 181,
+					"green": 22,
+					"blue": 32
 				},
 				"values": [
 
@@ -137,9 +200,9 @@
 				"description": "semantics",
 				"type": "language",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 88,
+					"green": 151,
+					"blue": 143
 				},
 				"values": [
 
@@ -149,9 +212,9 @@
 				"description": "pragmatics",
 				"type": "language",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 108,
+					"green": 165,
+					"blue": 208
 				},
 				"values": [
 
@@ -161,9 +224,9 @@
 				"description": "discourse",
 				"type": "language",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 101,
+					"green": 132,
+					"blue": 29
 				},
 				"values": [
 
@@ -173,9 +236,9 @@
 				"description": "types of sentences",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 4,
+					"green": 57,
+					"blue": 214
 				},
 				"values": [
 
@@ -185,9 +248,9 @@
 				"description": "dramatic sentences",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 14,
+					"green": 22,
+					"blue": 235
 				},
 				"values": [
 
@@ -197,9 +260,9 @@
 				"description": "dramatic scenarios",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 203,
+					"green": 87,
+					"blue": 116
 				},
 				"values": [
 
@@ -209,9 +272,9 @@
 				"description": "dramatic expressions",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 252,
+					"green": 85,
+					"blue": 133
 				},
 				"values": [
 
@@ -221,9 +284,9 @@
 				"description": "comedic sentences",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 242,
+					"green": 58,
+					"blue": 95
 				},
 				"values": [
 
@@ -233,9 +296,9 @@
 				"description": "comedic scenarios",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 209,
+					"green": 36,
+					"blue": 119
 				},
 				"values": [
 
@@ -245,9 +308,9 @@
 				"description": "comedic expressions",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 172,
+					"green": 153,
+					"blue": 121
 				},
 				"values": [
 
@@ -257,21 +320,21 @@
 				"description": "humorous expressions",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 1,
+					"green": 114,
+					"blue": 93
 				},
 				"values": [
 
 				]
 			},
 			{
-				"description": "clichã©s",
+				"description": "cliches",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 88,
+					"green": 57,
+					"blue": 165
 				},
 				"values": [
 
@@ -281,9 +344,9 @@
 				"description": "similes",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 1,
+					"green": 229,
+					"blue": 120
 				},
 				"values": [
 
@@ -293,9 +356,9 @@
 				"description": "metaphors",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 95,
+					"green": 241,
+					"blue": 77
 				},
 				"values": [
 
@@ -305,9 +368,9 @@
 				"description": "personification",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 132,
+					"green": 158,
+					"blue": 121
 				},
 				"values": [
 
@@ -317,9 +380,9 @@
 				"description": "hyperboles",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 184,
+					"green": 203,
+					"blue": 209
 				},
 				"values": [
 
@@ -329,9 +392,9 @@
 				"description": "allusions",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 44,
+					"green": 254,
+					"blue": 249
 				},
 				"values": [
 
@@ -341,9 +404,9 @@
 				"description": "irony",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 251,
+					"green": 214,
+					"blue": 24
 				},
 				"values": [
 
@@ -353,9 +416,9 @@
 				"description": "satire",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 80,
+					"green": 35,
+					"blue": 181
 				},
 				"values": [
 
@@ -365,9 +428,9 @@
 				"description": "foreshadowing",
 				"type": "writing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 170,
+					"green": 137,
+					"blue": 53
 				},
 				"values": [
 
@@ -377,9 +440,9 @@
 				"description": "contrast and unexpected elements",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 86,
+					"green": 70,
+					"blue": 49
 				},
 				"values": [
 
@@ -389,9 +452,9 @@
 				"description": "moral interactions",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 198,
+					"green": 249,
+					"blue": 145
 				},
 				"values": [
 
@@ -401,9 +464,9 @@
 				"description": "moral interactions with",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 43,
+					"green": 30,
+					"blue": 132
 				},
 				"values": [
 
@@ -413,9 +476,9 @@
 				"description": "type of action in moral interaction",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 76,
+					"green": 155,
+					"blue": 65
 				},
 				"values": [
 
@@ -425,9 +488,9 @@
 				"description": "religiously moral",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 67,
+					"green": 132,
+					"blue": 36
 				},
 				"values": [
 
@@ -437,9 +500,9 @@
 				"description": "atheistic interactions",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 248,
+					"green": 137,
+					"blue": 148
 				},
 				"values": [
 
@@ -449,9 +512,9 @@
 				"description": "atheistic interactions with",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 173,
+					"green": 153,
+					"blue": 209
 				},
 				"values": [
 
@@ -461,9 +524,9 @@
 				"description": "type of action in atheistic interaction",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 238,
+					"green": 203,
+					"blue": 20
 				},
 				"values": [
 
@@ -473,9 +536,9 @@
 				"description": "religiously moral",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 193,
+					"green": 195,
+					"blue": 107
 				},
 				"values": [
 
@@ -485,9 +548,9 @@
 				"description": "interactions",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 153,
+					"green": 48,
+					"blue": 87
 				},
 				"values": [
 
@@ -497,9 +560,9 @@
 				"description": "interactions with",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 172,
+					"green": 85,
+					"blue": 135
 				},
 				"values": [
 
@@ -509,9 +572,9 @@
 				"description": "physical features",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 100,
+					"green": 79,
+					"blue": 130
 				},
 				"values": [
 
@@ -521,9 +584,9 @@
 				"description": "personality traits",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 19,
+					"green": 10,
+					"blue": 127
 				},
 				"values": [
 
@@ -533,9 +596,9 @@
 				"description": "likes and dislikes",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 216,
+					"green": 183,
+					"blue": 185
 				},
 				"values": [
 
@@ -545,9 +608,9 @@
 				"description": "quirks",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 3,
+					"green": 45,
+					"blue": 15
 				},
 				"values": [
 
@@ -557,9 +620,9 @@
 				"description": "goals",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 40,
+					"green": 49,
+					"blue": 82
 				},
 				"values": [
 
@@ -569,9 +632,9 @@
 				"description": "motivations",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 37,
+					"green": 53,
+					"blue": 220
 				},
 				"values": [
 
@@ -581,489 +644,9 @@
 				"description": "backstories",
 				"type": "characters",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "acting styles",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "tones",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "voiceover tones",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "physical gestures",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "facial expressions",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "dance moves",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "costumes",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "choose of props",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "satire",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "parody",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "theatrical conventions",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "vocal techniques",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "timing",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "interplay between performer and audience",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "expression of emotions",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "narrative arcs",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "character development",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "movement of the body",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "exaggeration",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "use of facial makeup",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "utilization of voice inflection",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "expressiveness",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "intentional choice of words",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "utilization of pauses",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "creation of suspense",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "playful physicality",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "interpretation of dialogues",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "behind the camera elements",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "body language",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "inflection",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "volume of voice",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "nonverbal cues",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "work with band/musicians",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "mise-en-scene",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "directional cues",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "audio techniques",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "cadence",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "emphasis on words",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "dramatic exercises",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
-				},
-				"values": [
-
-				]
-			},
-			{
-				"description": "improvisation",
-				"type": "performance",
-				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 141,
+					"green": 138,
+					"blue": 171
 				},
 				"values": [
 
@@ -1073,9 +656,9 @@
 				"description": "places",
 				"type": "setting",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 254,
+					"green": 190,
+					"blue": 171
 				},
 				"values": [
 
@@ -1085,9 +668,9 @@
 				"description": "environments",
 				"type": "setting",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 228,
+					"green": 155,
+					"blue": 215
 				},
 				"values": [
 
@@ -1097,9 +680,9 @@
 				"description": "locations",
 				"type": "setting",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 32,
+					"green": 248,
+					"blue": 9
 				},
 				"values": [
 
@@ -1109,9 +692,9 @@
 				"description": "weather",
 				"type": "setting",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 247,
+					"green": 242,
+					"blue": 108
 				},
 				"values": [
 
@@ -1121,9 +704,9 @@
 				"description": "time of day",
 				"type": "setting",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 52,
+					"green": 89,
+					"blue": 100
 				},
 				"values": [
 
@@ -1133,9 +716,9 @@
 				"description": "time periods",
 				"type": "setting",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 151,
+					"green": 178,
+					"blue": 248
 				},
 				"values": [
 
@@ -1145,9 +728,9 @@
 				"description": "ideas",
 				"type": "creativity",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 231,
+					"green": 94,
+					"blue": 22
 				},
 				"values": [
 
@@ -1157,9 +740,9 @@
 				"description": "imagination",
 				"type": "creativity",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 193,
+					"green": 232,
+					"blue": 82
 				},
 				"values": [
 
@@ -1169,9 +752,9 @@
 				"description": "inspiration",
 				"type": "creativity",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 89,
+					"green": 218,
+					"blue": 130
 				},
 				"values": [
 
@@ -1181,9 +764,9 @@
 				"description": "symbols",
 				"type": "creativity",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 64,
+					"green": 245,
+					"blue": 238
 				},
 				"values": [
 
@@ -1193,9 +776,9 @@
 				"description": "imagery",
 				"type": "creativity",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 110,
+					"green": 252,
+					"blue": 44
 				},
 				"values": [
 
@@ -1205,9 +788,9 @@
 				"description": "abstractions",
 				"type": "creativity",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 196,
+					"green": 66,
+					"blue": 246
 				},
 				"values": [
 
@@ -1217,9 +800,9 @@
 				"description": "dreams",
 				"type": "creativity",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 81,
+					"green": 112,
+					"blue": 178
 				},
 				"values": [
 
@@ -1229,9 +812,9 @@
 				"description": "themes",
 				"type": "creativity",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 157,
+					"green": 196,
+					"blue": 165
 				},
 				"values": [
 
@@ -1241,9 +824,9 @@
 				"description": "metaphors",
 				"type": "creativity",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 170,
+					"green": 113,
+					"blue": 114
 				},
 				"values": [
 
@@ -1253,9 +836,9 @@
 				"description": "similes",
 				"type": "creativity",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 11,
+					"green": 155,
+					"blue": 35
 				},
 				"values": [
 
@@ -1265,9 +848,489 @@
 				"description": "personification",
 				"type": "creativity",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 41,
+					"green": 7,
+					"blue": 152
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "acting styles",
+				"type": "performance",
+				"color": {
+					"red": 9,
+					"green": 249,
+					"blue": 142
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "tones",
+				"type": "performance",
+				"color": {
+					"red": 31,
+					"green": 188,
+					"blue": 50
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "voiceover tones",
+				"type": "performance",
+				"color": {
+					"red": 106,
+					"green": 12,
+					"blue": 17
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "physical gestures",
+				"type": "performance",
+				"color": {
+					"red": 52,
+					"green": 72,
+					"blue": 49
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "facial expressions",
+				"type": "performance",
+				"color": {
+					"red": 235,
+					"green": 146,
+					"blue": 37
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "dance moves",
+				"type": "performance",
+				"color": {
+					"red": 33,
+					"green": 172,
+					"blue": 166
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "costumes",
+				"type": "performance",
+				"color": {
+					"red": 144,
+					"green": 24,
+					"blue": 86
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "choose of props",
+				"type": "performance",
+				"color": {
+					"red": 132,
+					"green": 53,
+					"blue": 237
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "satire",
+				"type": "performance",
+				"color": {
+					"red": 110,
+					"green": 41,
+					"blue": 229
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "parody",
+				"type": "performance",
+				"color": {
+					"red": 155,
+					"green": 27,
+					"blue": 10
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "theatrical conventions",
+				"type": "performance",
+				"color": {
+					"red": 138,
+					"green": 144,
+					"blue": 178
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "vocal techniques",
+				"type": "performance",
+				"color": {
+					"red": 78,
+					"green": 127,
+					"blue": 148
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "timing",
+				"type": "performance",
+				"color": {
+					"red": 251,
+					"green": 126,
+					"blue": 13
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "interplay between performer and audience",
+				"type": "performance",
+				"color": {
+					"red": 36,
+					"green": 64,
+					"blue": 121
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "expression of emotions",
+				"type": "performance",
+				"color": {
+					"red": 214,
+					"green": 41,
+					"blue": 53
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "narrative arcs",
+				"type": "performance",
+				"color": {
+					"red": 15,
+					"green": 62,
+					"blue": 72
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "character development",
+				"type": "performance",
+				"color": {
+					"red": 175,
+					"green": 59,
+					"blue": 3
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "movement of the body",
+				"type": "performance",
+				"color": {
+					"red": 140,
+					"green": 90,
+					"blue": 236
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "exaggeration",
+				"type": "performance",
+				"color": {
+					"red": 160,
+					"green": 73,
+					"blue": 220
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "use of facial makeup",
+				"type": "performance",
+				"color": {
+					"red": 16,
+					"green": 131,
+					"blue": 192
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "utilization of voice inflection",
+				"type": "performance",
+				"color": {
+					"red": 145,
+					"green": 238,
+					"blue": 236
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "expressiveness",
+				"type": "performance",
+				"color": {
+					"red": 27,
+					"green": 221,
+					"blue": 60
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "intentional choice of words",
+				"type": "performance",
+				"color": {
+					"red": 74,
+					"green": 57,
+					"blue": 229
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "utilization of pauses",
+				"type": "performance",
+				"color": {
+					"red": 81,
+					"green": 157,
+					"blue": 221
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "creation of suspense",
+				"type": "performance",
+				"color": {
+					"red": 158,
+					"green": 99,
+					"blue": 72
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "playful physicality",
+				"type": "performance",
+				"color": {
+					"red": 180,
+					"green": 38,
+					"blue": 93
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "interpretation of dialogues",
+				"type": "performance",
+				"color": {
+					"red": 88,
+					"green": 209,
+					"blue": 44
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "behind the camera elements",
+				"type": "performance",
+				"color": {
+					"red": 195,
+					"green": 159,
+					"blue": 124
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "body language",
+				"type": "performance",
+				"color": {
+					"red": 111,
+					"green": 184,
+					"blue": 88
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "inflection",
+				"type": "performance",
+				"color": {
+					"red": 193,
+					"green": 133,
+					"blue": 239
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "volume of voice",
+				"type": "performance",
+				"color": {
+					"red": 191,
+					"green": 71,
+					"blue": 97
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "nonverbal cues",
+				"type": "performance",
+				"color": {
+					"red": 107,
+					"green": 210,
+					"blue": 16
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "work with band/musicians",
+				"type": "performance",
+				"color": {
+					"red": 53,
+					"green": 194,
+					"blue": 61
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "mise-en-scene",
+				"type": "performance",
+				"color": {
+					"red": 21,
+					"green": 29,
+					"blue": 199
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "directional cues",
+				"type": "performance",
+				"color": {
+					"red": 93,
+					"green": 164,
+					"blue": 36
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "audio techniques",
+				"type": "performance",
+				"color": {
+					"red": 83,
+					"green": 128,
+					"blue": 34
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "cadence",
+				"type": "performance",
+				"color": {
+					"red": 163,
+					"green": 115,
+					"blue": 111
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "emphasis on words",
+				"type": "performance",
+				"color": {
+					"red": 44,
+					"green": 245,
+					"blue": 64
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "dramatic exercises",
+				"type": "performance",
+				"color": {
+					"red": 163,
+					"green": 163,
+					"blue": 86
+				},
+				"values": [
+
+				]
+			},
+			{
+				"description": "improvisation",
+				"type": "performance",
+				"color": {
+					"red": 209,
+					"green": 212,
+					"blue": 144
 				},
 				"values": [
 
@@ -1277,9 +1340,9 @@
 				"description": "hand motions",
 				"type": "gestures",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 86,
+					"green": 140,
+					"blue": 48
 				},
 				"values": [
 
@@ -1289,9 +1352,9 @@
 				"description": "facial expressions",
 				"type": "gestures",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 224,
+					"green": 121,
+					"blue": 191
 				},
 				"values": [
 
@@ -1301,9 +1364,9 @@
 				"description": "body language",
 				"type": "gestures",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 101,
+					"green": 38,
+					"blue": 120
 				},
 				"values": [
 
@@ -1313,9 +1376,9 @@
 				"description": "hair/makeup",
 				"type": "costuming",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 233,
+					"green": 34,
+					"blue": 223
 				},
 				"values": [
 
@@ -1325,9 +1388,9 @@
 				"description": "clothing",
 				"type": "costuming",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 222,
+					"green": 160,
+					"blue": 78
 				},
 				"values": [
 
@@ -1337,9 +1400,9 @@
 				"description": "accessories",
 				"type": "costuming",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 163,
+					"green": 78,
+					"blue": 107
 				},
 				"values": [
 
@@ -1349,9 +1412,9 @@
 				"description": "props",
 				"type": "costuming",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 219,
+					"green": 2,
+					"blue": 41
 				},
 				"values": [
 
@@ -1361,9 +1424,9 @@
 				"description": "transitions",
 				"type": "editing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 185,
+					"green": 13,
+					"blue": 160
 				},
 				"values": [
 
@@ -1373,9 +1436,9 @@
 				"description": "fades",
 				"type": "editing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 2,
+					"green": 174,
+					"blue": 99
 				},
 				"values": [
 
@@ -1385,9 +1448,9 @@
 				"description": "splices",
 				"type": "editing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 98,
+					"green": 80,
+					"blue": 117
 				},
 				"values": [
 
@@ -1397,9 +1460,9 @@
 				"description": "effects",
 				"type": "editing",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 146,
+					"green": 216,
+					"blue": 1
 				},
 				"values": [
 
@@ -1409,9 +1472,9 @@
 				"description": "natural",
 				"type": "lighting",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 173,
+					"green": 63,
+					"blue": 178
 				},
 				"values": [
 
@@ -1421,9 +1484,9 @@
 				"description": "artificial",
 				"type": "lighting",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 2,
+					"green": 9,
+					"blue": 6
 				},
 				"values": [
 
@@ -1433,9 +1496,9 @@
 				"description": "ambient",
 				"type": "lighting",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 217,
+					"green": 134,
+					"blue": 207
 				},
 				"values": [
 
@@ -1445,9 +1508,9 @@
 				"description": "diffused",
 				"type": "lighting",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 106,
+					"green": 225,
+					"blue": 30
 				},
 				"values": [
 
@@ -1457,9 +1520,9 @@
 				"description": "color",
 				"type": "lighting",
 				"color": {
-					"red": null,
-					"green": null,
-					"blue": null
+					"red": 222,
+					"green": 228,
+					"blue": 107
 				},
 				"values": [
 
@@ -1487,7 +1550,7 @@
 				]
 			},
 			{
-				"key": "conscious",
+				"key": "psychological analysis of conscious values",
 				"value": [
 					"life choices",
 					"changing the world",
@@ -1502,7 +1565,7 @@
 				]
 			},
 			{
-				"key": "subconscious",
+				"key": "psychological analysis of subconscious values",
 				"value": [
 					"love",
 					"loss and longing",

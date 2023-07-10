@@ -11,8 +11,11 @@ void Attributes::LoadDefaultGroups() {
 	group_types.Clear();
 	groups.Clear();
 	
-	// "good values for a novel music video "
-	// "matching abstract values"
+	// Groups with ... (in format "lighting group: Value 1, Value 2, etc"):
+	String known = "matching abstract values";
+	String not_known = "good values for a novel music video";
+	
+	AddGroupType("language", known);
 	AddGroup("language", "Nouns");
 	AddGroup("language", "Pronouns");
 	AddGroup("language", "Verbs");
@@ -27,6 +30,7 @@ void Attributes::LoadDefaultGroups() {
 	AddGroup("language", "Pragmatics");
 	AddGroup("language", "Discourse");
 	
+	AddGroupType("writing", known);
 	AddGroup("writing", "Types of sentences");
 	AddGroup("writing", "Dramatic sentences");
 	AddGroup("writing", "Dramatic scenarios");
@@ -35,7 +39,7 @@ void Attributes::LoadDefaultGroups() {
 	AddGroup("writing", "Comedic scenarios");
 	AddGroup("writing", "Comedic expressions");
 	AddGroup("writing", "Humorous expressions");
-	AddGroup("writing", "Clichés");
+	AddGroup("writing", "Cliches");
 	AddGroup("writing", "Similes");
 	AddGroup("writing", "Metaphors");
 	AddGroup("writing", "Personification");
@@ -45,6 +49,7 @@ void Attributes::LoadDefaultGroups() {
 	AddGroup("writing", "Satire");
 	AddGroup("writing", "Foreshadowing");
 
+	AddGroupType("characters", known);
 	AddGroup("characters", "Contrast and Unexpected Elements");
 	AddGroup("characters", "Moral interactions");
 	AddGroup("characters", "Moral interactions with");
@@ -63,7 +68,29 @@ void Attributes::LoadDefaultGroups() {
 	AddGroup("characters", "Goals");
 	AddGroup("characters", "Motivations");
 	AddGroup("characters", "Backstories");
-
+	
+	AddGroupType("setting", known);
+	AddGroup("setting", "Places");
+	AddGroup("setting", "Environments");
+	AddGroup("setting", "Locations");
+	AddGroup("setting", "Weather");
+	AddGroup("setting", "Time of day");
+	AddGroup("setting", "Time periods");
+	
+	AddGroupType("creativity", known);
+	AddGroup("creativity", "Ideas");
+	AddGroup("creativity", "Imagination");
+	AddGroup("creativity", "Inspiration");
+	AddGroup("creativity", "Symbols");
+	AddGroup("creativity", "Imagery");
+	AddGroup("creativity", "Abstractions");
+	AddGroup("creativity", "Dreams");
+	AddGroup("creativity", "Themes");
+	AddGroup("creativity", "Metaphors");
+	AddGroup("creativity", "Similes");
+	AddGroup("creativity", "Personification");
+	
+	AddGroupType("performance", not_known);
 	AddGroup("performance", "Acting Styles");
 	AddGroup("performance", "Tones");
 	AddGroup("performance", "Voiceover Tones");
@@ -105,39 +132,24 @@ void Attributes::LoadDefaultGroups() {
 	AddGroup("performance", "Dramatic exercises");
 	AddGroup("performance", "Improvisation");
 	
-	AddGroup("setting", "Places");
-	AddGroup("setting", "Environments");
-	AddGroup("setting", "Locations");
-	AddGroup("setting", "Weather");
-	AddGroup("setting", "Time of day");
-	AddGroup("setting", "Time periods");
-	
-	AddGroup("creativity", "Ideas");
-	AddGroup("creativity", "Imagination");
-	AddGroup("creativity", "Inspiration");
-	AddGroup("creativity", "Symbols");
-	AddGroup("creativity", "Imagery");
-	AddGroup("creativity", "Abstractions");
-	AddGroup("creativity", "Dreams");
-	AddGroup("creativity", "Themes");
-	AddGroup("creativity", "Metaphors");
-	AddGroup("creativity", "Similes");
-	AddGroup("creativity", "Personification");
-	
+	AddGroupType("gestures", not_known);
 	AddGroup("gestures", "Hand motions");
 	AddGroup("gestures", "Facial expressions");
 	AddGroup("gestures", "Body language");
 	
+	AddGroupType("costuming", not_known);
 	AddGroup("costuming", "Hair/makeup");
 	AddGroup("costuming", "Clothing");
 	AddGroup("costuming", "Accessories");
 	AddGroup("costuming", "Props");
 	
+	AddGroupType("editing", not_known);
 	AddGroup("editing", "Transitions");
 	AddGroup("editing", "Fades");
 	AddGroup("editing", "Splices");
 	AddGroup("editing", "Effects");
 	
+	AddGroupType("lighting", not_known);
 	AddGroup("lighting", "Natural");
 	AddGroup("lighting", "Artificial");
 	AddGroup("lighting", "Ambient");
@@ -159,7 +171,7 @@ void Attributes::LoadDefaultAnalysis() {
 		<< "stroryline"
 		<< "implications"
 		;
-	analysis.Add("conscious")
+	analysis.Add("psychological analysis of conscious values")
 		<< "life choices"
 		<< "changing the world"
 		<< "overcoming adversity"
@@ -171,7 +183,7 @@ void Attributes::LoadDefaultAnalysis() {
 		<< "faith"
 		<< "loss"
 		;
-	analysis.Add("subconscious")
+	analysis.Add("psychological analysis of subconscious values")
 		<< "love"
 		<< "loss and longing"
 		<< "memories"
@@ -195,11 +207,33 @@ void Attributes::LoadDefaultAnalysis() {
 		;
 }
 
+Attributes::GroupType& Attributes::AddGroupType(String type, String ai_txt) {
+	for (Attributes::GroupType& gt : group_types) {
+		ASSERT(gt.name != type);
+		if (gt.name == type)
+			return gt;
+	}
+	Attributes::GroupType& gt = group_types.Add();
+	gt.name = type;
+	gt.ai_txt = ai_txt;
+	return gt;
+}
+
+Attributes::GroupType& Attributes::GetGroupType(String type) {
+	for (Attributes::GroupType& gt : group_types) {
+		if (gt.name == type)
+			return gt;
+	}
+	Panic("error: group type not found");
+	return group_types[0];
+}
+
 Attributes::Group& Attributes::AddGroup(String type, String desc) {
+	GroupType& gt = GetGroupType(type);
 	Group& g = groups.Add();
 	g.description = ToLower(desc);
 	g.type = ToLower(type);
-	group_types.FindAdd(type);
+	g.clr = Color(Random(256), Random(256), Random(256));
 	return g;
 }
 
@@ -220,6 +254,34 @@ bool Attributes::FindAttr(String group, String item, SnapAttr& sa) const {
 		group_i++;
 	}
 	return false;
+}
+
+SnapAttr Attributes::GetAddAttr(String group, String item) {
+	SnapAttr sa;
+	String lgroup = ToLower(group);
+	String litem = ToLower(item);
+	for(int i = 0; i < groups.GetCount(); i++) {
+		Group& gg = groups[i];
+		if (ToLower(gg.description) == lgroup) {
+			sa.group = i;
+			for(int j = 0; j < gg.values.GetCount(); j++) {
+				if (ToLower(gg.values[j]) == litem) {
+					sa.item = j;
+					return sa;
+				}
+			}
+			sa.item = gg.values.GetCount();
+			gg.values.Add(Capitalize(ToLower(item)));
+			return sa;
+		}
+	}
+	sa.group = groups.GetCount();
+	sa.item = 0;
+	Group& gg = groups.Add();
+	gg.description = Capitalize(ToLower(group));
+	gg.clr = Color(Random(256), Random(256), Random(256));
+	gg.values.Add(Capitalize(ToLower(item)));
+	return sa;
 }
 
 void Attributes::AddScoring(String s, Vector<Attributes::ScoringType>& scorings) {

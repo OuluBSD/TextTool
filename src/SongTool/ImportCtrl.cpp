@@ -61,10 +61,8 @@ void ImportCtrl::ParseOriginalLyrics() {
 		return;
 	Song& a = *db.active_song;
 	
-	// Pattern
-	Pattern& p = a.pattern;
-	p.parts.Clear();
-	p.unique_parts.Clear();
+	a.parts.Clear();
+	a.structure.Clear();
 	
 	// Begin parsing the parts string
 	String c = a.content;
@@ -72,23 +70,23 @@ void ImportCtrl::ParseOriginalLyrics() {
 	Vector<String> parts = Split(c, "\n\n");
 	
 	// Structure string
-	p.structure.Clear();
+	a.structure_str.Clear();
+	a.structure.Clear();
 	for(int i = 0; i < parts.GetCount(); i++) {
 		Vector<String> lines = Split(parts[i], "\n");
 		int lc = lines.GetCount()-1;
 		String part_title = TrimBoth(lines[0]);
 		if (part_title.Right(1) == ":")
 			part_title = part_title.Left(part_title.GetCount()-1);
-		if (!p.structure.IsEmpty())
-			p.structure << ",";
-		p.structure << part_title;
-		if (lc) p.structure << ":" << lc;
+		if (!a.structure_str.IsEmpty())
+			a.structure_str << ",";
+		a.structure_str << part_title;
+		if (lc) a.structure_str << ":" << lc;
 	}
-	DUMP(p.structure);
-	p.ReloadStructure(); // p.unique_parts is filled here
+	//DUMP(a.structure_str);
+	a.ReloadStructure(); // p.unique_parts is filled here
 	
 	// Parse lyric parts and lines
-	a.parsed_content.Clear();
 	a.unique_lines.Clear();
 	bool found = false;
 	for(int i = 0; i < parts.GetCount(); i++) {
@@ -100,7 +98,8 @@ void ImportCtrl::ParseOriginalLyrics() {
 				part_title = part_title.Left(part_title.GetCount()-1);
 			
 			if (lc) {
-				Vector<String>& parsed_lines = a.parsed_content.GetAdd(part_title);
+				Part& part = a.parts.GetAdd(part_title);
+				Vector<String>& parsed_lines = part.lines;
 				parsed_lines.Clear();
 				
 				// Add parsed lines to the Song class
@@ -111,7 +110,6 @@ void ImportCtrl::ParseOriginalLyrics() {
 				}
 				
 				// Fill lines of text to PatternSnap
-				Part& part = p.unique_parts.Get(part_title);
 				Vector<PatternSnap*> level_snaps;
 				part.snap.GetSnapsLevel(0, level_snaps);
 				if (level_snaps.GetCount() != lc) {
@@ -125,7 +123,9 @@ void ImportCtrl::ParseOriginalLyrics() {
 			}
 		}
 	}
-	p.FixPtrs();
+	a.FixPtrs();
+	
+	WhenStructureChange();
 }
 
 
@@ -133,32 +133,56 @@ void ImportCtrl::ParseOriginalLyrics() {
 void ImportCtrl::MakeTasks() {
 	TaskMgr& m = TaskMgr::Single();
 	Database& db = Database::Single();
-	if (!db.active_song)
+	if (!db.active_song || !db.active_artist)
 		return;
 	Song& s = *db.active_song;
+	Artist& a = *db.active_artist;
 	
-	if (s.pattern.structure.IsEmpty())
-		ParseOriginalLyrics();
+	for (Part& p : s.parts.GetValues()) {
+		p.mask.Clear();
+		p.snap.Clear();
+	}
+	
+	ParseOriginalLyrics();
 	
 	m.lock.EnterWrite();
+	
+	// Remove old tasks with the same Song pointer
+	{
+		Vector<int> rm_list;
+		for(int i = 0; i < m.tasks.GetCount(); i++) {
+			if (m.tasks[i].song == &s)
+				rm_list.Add(i);
+		}
+		m.tasks.Remove(rm_list);
+	}
+	
 	AI_Task* chk_task = 0;
-	Vector<AI_Task*> pattern_tasks;
+	//Vector<AI_Task*> pattern_tasks;
 	for(int type = AI_Task::TASK_COUNT-1; type >= 0; type--) {
 		if      (type == AI_Task::TASK_PATTERNMASK) {
 			for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
-				String group_type = db.attrs.group_types[i];
+				const Attributes::GroupType& group_type = db.attrs.group_types[i];
 					
 				// Add task for type
 				AI_Task& t = m.tasks.Add();
 				t.type = type;
 				t.song = &s;
-				t.args << group_type;
+				t.args << group_type.name << group_type.ai_txt << a.vocalist_visual;
 				
-				for (AI_Task* t0 : pattern_tasks)
-					t0->depends_on.Add(&t);
+				//for (AI_Task* t0 : pattern_tasks)
+				//	t0->depends_on.Add(&t);
 			}
 		}
+		else if (type == AI_Task::TASK_CHECK_PATTERN) {
+			// Add task for getting patterns based on pattern mask
+			chk_task = &m.tasks.Add();
+			chk_task->type = type;
+			chk_task->song = &s;
+		}
 		else if (type == AI_Task::TASK_PATTERN) {
+			// pass
+			#if 0
 			const int attr_per_query = 5;
 			Vector<PatternSnap*> level_snaps;
 			s.pattern.GetSnapsLevel(0, level_snaps);
@@ -167,13 +191,13 @@ void ImportCtrl::MakeTasks() {
 				// Add task per around 5 attributes
 					
 				for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
-					String group_type = db.attrs.group_types[i];
+					const Attributes::GroupType& group_type = db.attrs.group_types[i];
 				
 					// Add task for snap and group_type
 					AI_Task& t = m.tasks.Add();
 					t.type = type;
 					t.song = &s;
-					t.args << group_type;
+					t.args << group_type.name << group_type.ai_txt;
 					for(int k = 0; k < attr_per_query; k++) {
 						int item = j + k;
 						if (item >= level_snaps.GetCount()) break;
@@ -185,6 +209,7 @@ void ImportCtrl::MakeTasks() {
 					chk_task->depends_on.Add(&t);
 				}
 			}
+			#endif
 		}
 		else if (type == AI_Task::TASK_ANALYSIS) {
 			for(int i = 0; i < db.attrs.analysis.GetCount(); i++) {
@@ -194,6 +219,7 @@ void ImportCtrl::MakeTasks() {
 				AI_Task& t = m.tasks.Add();
 				t.type = type;
 				t.song = &s;
+				t.args << a.vocalist_visual;
 				t.args << key;
 				
 				const Vector<String>& v = db.attrs.analysis[i];
@@ -203,13 +229,8 @@ void ImportCtrl::MakeTasks() {
 				chk_task->depends_on.Add(&t);
 			}
 		}
-		else if (type == AI_Task::TASK_CHECK_ATTRSCORES) {
-			// Add task for checking which attributes must be queried
-			chk_task = &m.tasks.Add();
-			chk_task->type = type;
-			chk_task->song = &s;
-		}
 		else if (type == AI_Task::TASK_ATTRSCORES ||
+				 type == AI_Task::TASK_CHECK_ATTRSCORES ||
 				 type == AI_Task::TASK_SONGSCORE ||
 				 type == AI_Task::TASK_REVERSEPATTERN ||
 				 type == AI_Task::TASK_LYRICS) {

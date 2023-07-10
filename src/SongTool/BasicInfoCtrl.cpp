@@ -16,6 +16,7 @@ BasicInfoCtrl::BasicInfoCtrl() {
 	song_artist <<= THISBACK(OnValueChange);
 	song_title <<= THISBACK(OnValueChange);
 	song_prj_name <<= THISBACK(OnValueChange);
+	vocalist_visual <<= THISBACK(OnValueChange);
 	
 }
 
@@ -33,6 +34,7 @@ void BasicInfoCtrl::Data() {
 		this->vibe_of_voice				.SetData(a.vibe_of_voice);
 		this->acoustic_instruments		.SetData(a.acoustic_instruments);
 		this->electronic_instruments	.SetData(a.electronic_instruments);
+		this->vocalist_visual			.SetData(a.vocalist_visual);
 	}
 	
 	if (db.active_release) {
@@ -49,7 +51,6 @@ void BasicInfoCtrl::Data() {
 		song_title.SetData(s.title);
 		song_prj_name.SetData(s.prj_name);
 	}
-	
 }
 
 void BasicInfoCtrl::OnValueChange() {
@@ -65,6 +66,7 @@ void BasicInfoCtrl::OnValueChange() {
 		o.vibe_of_voice				= this->vibe_of_voice.GetData();
 		o.acoustic_instruments		= this->acoustic_instruments.GetData();
 		o.electronic_instruments	= this->electronic_instruments.GetData();
+		o.vocalist_visual			= this->vocalist_visual.GetData();
 		
 		int c = editor->artists.GetCursor();
 		editor->artists.Set(c, 0, o.name);
@@ -92,5 +94,4 @@ void BasicInfoCtrl::OnValueChange() {
 		editor->songs.Set(c, 1, s.title);
 		editor->songs.Set(c, 2, s.prj_name);
 	}
-	
 }

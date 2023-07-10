@@ -11,7 +11,6 @@ struct Composition {
 	String chord_progression;
 	String key_and_mode;
 	String texture;
-	String structure;
 	String genre_style;
 	
 	void Clear() {
@@ -23,7 +22,6 @@ struct Composition {
 		chord_progression.Clear();
 		key_and_mode.Clear();
 		texture.Clear();
-		structure.Clear();
 		genre_style.Clear();
 	}
 	void Jsonize(JsonIO& json) {
@@ -36,7 +34,6 @@ struct Composition {
 			("chord_progression", chord_progression)
 			("key_and_mode", key_and_mode)
 			("texture", texture)
-			("structure", structure)
 			("genre_style", genre_style)
 			;
 	}
