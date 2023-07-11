@@ -4,7 +4,22 @@
 int Attributes::trans_i = -1;
 
 Attributes::Attributes() {
-	
+	file_title = "attributes";
+}
+
+void Attributes::Store() {
+	String dir = Database::Single().dir;
+	RealizeDirectory(dir);
+	String json_path = dir + DIR_SEPS "share" DIR_SEPS + file_title + ".json";
+	//DUMP(json_path);
+	StoreAsJsonFile(*this, json_path, true);
+}
+
+void Attributes::Load() {
+	String dir = Database::Single().dir;
+	String json_path = dir + DIR_SEPS "share" DIR_SEPS + file_title + ".json";
+	//DUMP(json_path);
+	LoadFromJsonFile(*this, json_path);
 }
 
 void Attributes::LoadDefaultGroups() {
@@ -276,6 +291,8 @@ bool Attributes::FindAttr(String group, String item, SnapAttr& sa) const {
 }
 
 SnapAttr Attributes::GetAddAttr(String group, String item) {
+	ASSERT(group.Find(",") < 0);
+	ASSERT(item.Find(",") < 0);
 	SnapAttr sa;
 	String lgroup = ToLower(group);
 	String litem = ToLower(item);
@@ -290,6 +307,7 @@ SnapAttr Attributes::GetAddAttr(String group, String item) {
 				}
 			}
 			sa.item = gg.values.GetCount();
+			ASSERT(item.Find(",") < 0);
 			gg.values.Add(Capitalize(ToLower(item)));
 			return sa;
 		}
@@ -299,6 +317,7 @@ SnapAttr Attributes::GetAddAttr(String group, String item) {
 	Group& gg = groups.Add();
 	gg.description = Capitalize(ToLower(group));
 	gg.clr = Color(Random(256), Random(256), Random(256));
+	ASSERT(item.Find(",") < 0);
 	gg.values.Add(Capitalize(ToLower(item)));
 	return sa;
 }

@@ -133,6 +133,7 @@ void AI_Task::Process_PatternMask() {
 				String value = ToLower(values[k]);
 				if (value == "none" || value == "n/a")
 					continue;
+				ASSERT(value.Find(",") < 0);
 				
 				// Realize pattern snapshot attribute
 				SnapAttr sa = db.attrs.GetAddAttr(group, value);
@@ -234,18 +235,29 @@ void AI_Task::Process_Pattern() {
 			s = TrimBoth(s.Mid(1));
 			a = s.Find(":");
 			if (a < 0) {
+				#if 0
 				SetError(t_("Expected ':'"));
 				fail = true;
 				break;
+				#else
+				// Sometimes AI gives only the group
+				continue;
+				#endif
 			}
 			
-			String group_str = TrimBoth(s.Left(a));
-			String item_str = TrimBoth(s.Mid(a+1));
-			if (item_str == "n/a" ||item_str == "none")
-				continue;
-			item_str = TrimBoth(item_str);
+			String group_str = ToLower(TrimBoth(s.Left(a)));
+			String item_str = ToLower(TrimBoth(s.Mid(a+1)));
 			
-			line_parsed.GetAdd(group_str).FindAdd(item_str);
+			Vector<String> items = Split(item_str, ",");
+			for (String& item_str : items) {
+				item_str = TrimBoth(item_str);
+				
+				if (item_str == "n/a" ||item_str == "none")
+					continue;
+				item_str = TrimBoth(item_str);
+				
+				line_parsed.GetAdd(group_str).FindAdd(item_str);
+			}
 			/*
 			ArchivedSong::Attr& attr = l.attrs.Add();
 			attr.group = 
@@ -264,6 +276,9 @@ void AI_Task::Process_Pattern() {
 		String line_txt = parsed.GetKey(i);
 		const auto& group_map = parsed[i];
 		Vector<Song::Attr>& line_attrs = song.unique_lines.GetAdd(line_txt);
+		
+		Vector<PatternSnap*> snaps;
+		song.GetLineSnapshots(line_txt, snaps);
 		
 		for(int j = 0; j < group_map.GetCount(); j++) {
 			String group_txt = group_map.GetKey(j);
@@ -285,6 +300,9 @@ void AI_Task::Process_Pattern() {
 					attr.item = item_str;
 					attr.group_i = sa.group;
 					attr.item_i = sa.item;
+					
+					for (PatternSnap* snap : snaps)
+						snap->attributes.FindAdd(sa);
 				}
 			}
 		}

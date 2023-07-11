@@ -94,6 +94,11 @@ struct Song : DataFile {
 		}
 		return s;
 	}
+	void GetLineSnapshots(const String& txt_line, Vector<PatternSnap*>& snaps) {
+		ASSERT(!txt_line.IsEmpty());
+		for (Part& p : parts.GetValues())
+			p.snap.GetLineSnapshots(txt_line, snaps);
+	}
 };
 
 

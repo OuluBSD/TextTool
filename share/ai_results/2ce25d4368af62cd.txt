@@ -1,0 +1,186 @@
+﻿ Contrast and unexpected elements: Scar tissue
+- Contrast and unexpected elements: Sarcastic Mister know-it-all
+- Moral interactions: N/a
+- Type of action in moral interaction: N/a
+- Religiously moral: N/a
+- Atheistic interactions: N/a
+- Type of action in atheistic interaction: N/a
+- Interactions: None
+- Interactions with: None
+- Physical features: Broken jaw
+- Personality traits: Sarcastic
+- Likes and dislikes: N/a
+- Quirks: Mister know-it-all
+- Goals: N/a
+- Motivations: N/a
+- Backstories: N/a
+
+Line 2, "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
+- Contrast and unexpected elements: N/a
+- Moral interactions: Close your eyes and I'll kiss you
+- Type of action in moral interaction: Kissing
+- Religiously moral: N/a
+- Atheistic interactions: Sharing a lonely view
+- Type of action in atheistic interaction: Sharing a view
+- Interactions: Kissing
+- Interactions with: None
+- Physical features: N/a
+- Personality traits: N/a
+- Likes and dislikes: N/a
+- Quirks: N/a
+- Goals: N/a
+- Motivations: N/a
+- Backstories: N/a
+
+Line 3, "With the birds I'll share this lonely viewin'"
+- Contrast and unexpected elements: N/a
+- Moral interactions: N/a
+- Type of action in moral interaction: N/a
+- Religiously moral: N/a
+- Atheistic interactions: Sharing this lonely view
+- Type of action in atheistic interaction: Sharing a view
+- Interactions: None
+- Interactions with: None
+- Physical features: N/a
+- Personality traits: N/a
+- Likes and dislikes: N/a
+- Quirks: None
+- Goals: Sharing a view
+- Motivations: N/a
+- Backstories: N/a
+
+Line 4, "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
+- Contrast and unexpected elements: N/a
+- Moral interactions: N/a
+- Type of action in moral interaction: N/a
+- Religiously moral: N/a
+- Atheistic interactions: None
+- Type of action in atheistic interaction: N/a
+- Interactions: None
+- Interactions with: Young Kentucky girl
+- Physical features: Push-up bra
+- Personality traits: N/a
+- Likes and dislikes: N/a
+- Quirks: N/a
+- Goals: N/a
+- Motivations: N/a
+- Backstories: N/a
+
+Line 5, "Fallin' all over myself to lick your heart and taste your health ('cause)"
+- Contrast and unexpected elements: N/a
+- Moral interactions: None
+- Type of action in moral interaction: N/a
+- Religiously moral: N/a
+- Atheistic interactions: Lick your heart and taste your health
+- Type of action in atheistic interaction: Licking and tasting
+- Interactions: Licking heart
+- Interactions with: None
+- Physical features: N/a
+- Personality traits: N/a
+- Likes and dislikes: N/a
+- Quirks: N/a
+- Goals: Tasting health
+- Motivations: N/a
+- Backstories: N/a
+
+Line 6, "With the birds I'll share this lonely view"
+- Contrast and unexpected elements: N/a
+- Moral interactions: N/a
+- Type of action in moral interaction: N/a
+- Religiously moral: N/a
+- Atheistic interactions: Sharing this lonely view
+- Type of action in atheistic interaction: Sharing a view
+- Interactions: None
+- Interactions with: None
+- Physical features: N/a
+- Personality traits: N/a
+- Likes and dislikes: N/a
+- Quirks: None
+- Goals: Sharing a view
+- Motivations: N/a
+- Backstories: N/a
+
+Line 7, "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
+- Contrast and unexpected elements: Blood loss in a bathroom stall
+- Moral interactions: N/a
+- Type of action in moral interaction: N/a
+- Religiously moral: N/a
+- Atheistic interactions: N/a
+- Type of action in atheistic interaction: N/a
+- Interactions: None
+- Interactions with: None
+- Physical features: Scar tissue, broken jaw
+- Personality traits: Soft spoken
+- Likes and dislikes: N/a
+- Quirks: N/a
+- Goals: N/a
+- Motivations: N/a
+- Backstories: N/a
+
+Line 8, "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
+- Contrast and unexpected elements: N/a
+- Moral interactions: Wave goodbye to ma and pa
+- Type of action in moral interaction: Waving goodbye
+- Religiously moral: Wave goodbye
+- Atheistic interactions: N/a
+- Type of action in atheistic interaction: N/a
+- Interactions: Waving goodbye
+- Interactions with: Ma and pa
+- Physical features: N/a
+- Personality traits: N/a
+- Likes and dislikes: N/a
+- Quirks: N/a
+- Goals: N/a
+- Motivations: N/a
+- Backstories: N/a
+
+Line 9, "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
+- Contrast and unexpected elements: N/a
+- Moral interactions: N/a
+- Type of action in moral interaction: N/a
+- Religiously moral: N/a
+- Atheistic interactions: None
+- Type of action in atheistic interaction: N/a
+- Interactions: None
+- Interactions with: None
+- Physical features: Soft spoken with a broken jaw
+- Personality traits: Soft spoken
+- Likes and dislikes: N/a
+- Quirks: N/a
+- Goals: N/a
+- Motivations: N/a
+- Backstories: N/a
+
+Line 10, "And autumn's sweet, we call it fall."
+- Contrast and unexpected elements: N/a
+- Moral interactions: N/a
+- Type of action in moral interaction: N/a
+- Religiously moral: N/a
+- Atheistic interactions: N/a
+- Type of action in atheistic interaction: N/a
+- Interactions: None
+- Interactions with: None
+- Physical features: N/a
+- Personality traits: N/a
+- Likes and dislikes: Autumn's sweet
+- Quirks: N/a
+- Goals: N/a
+- Motivations: N/a
+- Backstories: N/a
+
+Line 11, "I'll make it to the moon if I have to crawl (and)"
+- Contrast and unexpected elements: N/a
+- Moral interactions: N/a
+- Type of action in moral interaction: N/a
+- Religiously moral: N/a
+- Atheistic interactions: None
+- Type of action in atheistic interaction: N/a
+- Interactions: None
+- Interactions with: None
+- Physical features: N/a
+- Personality traits: N/a
+- Likes and dislikes: N/a
+- Quirks: None
+- Goals: Making it to the moon
+- Motivations: Crawling
+- Backstories: N/a

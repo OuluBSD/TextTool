@@ -91,6 +91,7 @@ void AI_Task::CreateInput_Pattern() {
 		String key = Capitalize(gg.description);
 		s << key << ":\n";
 		for(int j = 0; j < gg.values.GetCount(); j++) {
+			ASSERT(gg.values[j].Find(",") < 0);
 			s << "- " << gg.values[j] << "\n";
 		}
 		s << "\n";
@@ -253,7 +254,8 @@ void AI_Task::CreateInput_AttrScores() {
 	
 	// Try making prompt with errors first
 	Song& a = *db.active_song;
-	a.GetAttributes(attrs);
+	a.GetAttributes(attrs); // get attrs from snapshots
+	
 	
 	int entry_count = 0;
 	for (const SnapAttr& a : attrs.GetKeys()) {

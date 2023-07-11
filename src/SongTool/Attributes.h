@@ -31,7 +31,7 @@ struct Attributes : DataFile {
 		Group& SetDescription(String s) {description = s; return *this;}
 		Group& SetColor(Color c) {clr = c; return *this;}
 		Group& SetColor(int r, int g, int b) {clr = Color(r,g,b); return *this;}
-		Group& operator<<(String s) {values.Add(s); return *this;}
+		Group& operator<<(String s) {ASSERT(s.Find(",") < 0); values.Add(s); return *this;}
 		void Jsonize(JsonIO& json) {
 			json
 				("description", description)
@@ -73,6 +73,8 @@ struct Attributes : DataFile {
 	
 	Attributes();
 	
+	void Store();
+	void Load();
 	void LoadDefaultGroups();
 	void LoadDefaultAnalysis();
 	void LoadDefaultAttrGroups();

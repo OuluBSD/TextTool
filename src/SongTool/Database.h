@@ -23,13 +23,13 @@ struct Database {
 	void FindOrphaned();
 	void Jsonize(JsonIO& json) {
 		json
-			("attributes", attrs)
 			;
 		if (json.IsStoring()) {
 			Vector<String> names;
 			for (Artist& a : artists) {a.Store(); names.Add(a.file_title);}
 			json("artists", names);
 			attrscores.Store();
+			attrs.Store();
 		}
 		if (json.IsLoading()) {
 			Vector<String> names;
@@ -38,6 +38,7 @@ struct Database {
 			Sort(artists, Artist());
 			//FindOrphaned();
 			attrscores.Load();
+			attrs.Load();
 		}
 	}
 	String GetArtistsDir() const;

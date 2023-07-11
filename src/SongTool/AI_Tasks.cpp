@@ -93,11 +93,22 @@ void AI_Task::Process() {
 	
 	bool ok = true;
 	
+	if (output.IsEmpty())
+		Load();
+	
 	input.Replace("\r","");
 	output = TrimBoth(output);
 	
-	if (!input.IsEmpty() && output.IsEmpty() && type != TASK_MAKE_PATTERN_TASKS && type != TASK_MAKE_ATTRSCORES_TASKS)
-		ok = RunOpenAI();
+	if (output.IsEmpty())
+		Load();
+	
+	if (!input.IsEmpty() && output.IsEmpty() && type != TASK_MAKE_PATTERN_TASKS && type != TASK_MAKE_ATTRSCORES_TASKS) {
+		if (output.IsEmpty())
+			Load();
+		DUMP(GetInputHash());
+		if (output.IsEmpty())
+			ok = RunOpenAI();
+	}
 	
 	output.Replace("\r","");
 	

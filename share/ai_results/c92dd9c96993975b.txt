@@ -1,0 +1,108 @@
+﻿ Interactions: None
+- Interactions with: None
+- Physical features: Scar tissue, broken jaw
+- Personality traits: Sarcastic
+- Likes and dislikes: None
+- Quirks: Mister know-it-all
+- Goals: None
+- Motivations: None
+- Backstories: None
+
+Line 2, "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
+- Interactions: Kissing
+- Interactions with: None
+- Physical features: None
+- Personality traits: None
+- Likes and dislikes: None
+- Quirks: None
+- Goals: None
+- Motivations: None
+- Backstories: None
+
+Line 3, "With the birds I'll share this lonely viewin'"
+- Interactions: None
+- Interactions with: None
+- Physical features: None
+- Personality traits: None
+- Likes and dislikes: None
+- Quirks: None
+- Goals: Sharing a view
+- Motivations: None
+- Backstories: None
+
+Line 4, "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
+- Interactions: None
+- Interactions with: Young Kentucky Girl
+- Physical features: Push-up bra
+- Personality traits: None
+- Likes and dislikes: None
+- Quirks: None
+- Goals: None
+- Motivations: None
+- Backstories: None
+
+Line 5, "Fallin' all over myself to lick your heart and taste your health ('cause)"
+- Interactions: Licking and tasting
+- Interactions with: None
+- Physical features: None
+- Personality traits: None
+- Likes and dislikes: None
+- Quirks: None
+- Goals: Licking heart and tasting health
+- Motivations: None
+- Backstories: None
+
+Line 6, "With the birds I'll share this lonely view"
+- Interactions: None
+- Interactions with: None
+- Physical features: None
+- Personality traits: None
+- Likes and dislikes: None
+- Quirks: None
+- Goals: Sharing a view
+- Motivations: None
+- Backstories: None
+
+Line 7, "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
+- Interactions: None
+- Interactions with: None
+- Physical features: Broken jaw
+- Personality traits: Soft spoken
+- Likes and dislikes: None
+- Quirks: None
+- Goals: None
+- Motivations: None
+- Backstories: None
+
+Line 8, "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
+- Interactions: Waving goodbye
+- Interactions with: Ma and Pa
+- Physical features: None
+- Personality traits: None
+- Likes and dislikes: None
+- Quirks: None
+- Goals: None
+- Motivations: None
+- Backstories: None
+
+Line 9, "And autumn's sweet, we call it fall."
+- Interactions: None
+- Interactions with: None
+- Physical features: None
+- Personality traits: None
+- Likes and dislikes: Autumn's sweet
+- Quirks: None
+- Goals: None
+- Motivations: None
+- Backstories: None
+
+Line 10, "I'll make it to the moon if I have to crawl (and)"
+- Interactions: None
+- Interactions with: None
+- Physical features: None
+- Personality traits: None
+- Likes and dislikes: None
+- Quirks: None
+- Goals: Making it to the moon
+- Motivations: Crawling
+- Backstories: None

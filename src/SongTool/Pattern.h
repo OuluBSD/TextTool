@@ -111,6 +111,14 @@ struct PatternSnap {
 		if (a) a->GetAttributes(attrs);
 		if (b) b->GetAttributes(attrs);
 	}
+	void GetLineSnapshots(const String& txt_line, Vector<PatternSnap*>& snaps) {
+		// if level == 0 (== a and b are empty)
+		if (!a && !b) {
+			ASSERT(!txt.IsEmpty());
+			if (txt == txt_line)
+				snaps.Add(this);
+		}
+	}
 };
 
 
