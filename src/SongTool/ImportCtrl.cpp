@@ -174,7 +174,7 @@ void ImportCtrl::MakeTasks() {
 				//	t0->depends_on.Add(&t);
 			}
 		}
-		else if (type == AI_Task::TASK_CHECK_PATTERN) {
+		else if (type == AI_Task::TASK_MAKE_PATTERN_TASKS) {
 			// Add task for getting patterns based on pattern mask
 			chk_task = &m.tasks.Add();
 			chk_task->type = type;
@@ -230,7 +230,7 @@ void ImportCtrl::MakeTasks() {
 			}
 		}
 		else if (type == AI_Task::TASK_ATTRSCORES ||
-				 type == AI_Task::TASK_CHECK_ATTRSCORES ||
+				 type == AI_Task::TASK_MAKE_ATTRSCORES_TASKS ||
 				 type == AI_Task::TASK_SONGSCORE ||
 				 type == AI_Task::TASK_REVERSEPATTERN ||
 				 type == AI_Task::TASK_LYRICS) {

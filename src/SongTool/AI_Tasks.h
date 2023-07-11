@@ -2,13 +2,81 @@
 #define _SongTool_AI_Tasks_h_
 
 
+struct OpenAiResponse {
+	struct Choice : Moveable<Choice> {
+		String text;
+		String finish_reason;
+		int index;
+		Vector<double> logprobs;
+		
+		void Jsonize(JsonIO& json) {
+			json("text", text)
+				("finish_reason", finish_reason)
+				("logprobs", logprobs)
+				("index", index);
+		}
+		String ToString() const {
+			String s;
+			s	<< "text: " << text << "\n"
+				<< "finish_reason: " << finish_reason << "\n"
+				<< "logprobs: ";
+			for (double d : logprobs)
+				s << d <<", ";
+			s	<< "\nindex: " << index << "\n";
+			return s;
+		}
+	};
+	struct Usage {
+		int completion_tokens;
+		int prompt_tokens;
+		int total_tokens;
+		void Jsonize(JsonIO& json) {
+			json("completion_tokens", completion_tokens)
+				("prompt_tokens", prompt_tokens)
+				("total_tokens", total_tokens);
+		}
+		String ToString() const {
+			String s;
+			s	<< "completion_tokens: " << completion_tokens << "\n"
+				<< "prompt_tokens: " << prompt_tokens << "\n"
+				<< "total_tokens: " << total_tokens << "\n";
+			return s;
+		}
+	};
+	Vector<Choice> choices;
+	String id;
+	String model;
+	String object;
+	Usage usage;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("choices", choices)
+			("id", id)
+			("model", model)
+			("object", object)
+			("usage", usage)
+			;
+	}
+	String ToString() const {
+		String s;
+		for(auto& c : choices)
+			s << c.ToString();
+		s	<< "id: " << id << "\n"
+			<< "model: " << model << "\n"
+			<< "object: " << object << "\n"
+			<< usage.ToString() << "\n";
+		return s;
+	}
+};
+
 struct AI_Task {
 	enum {
 		TASK_PATTERNMASK,
 		TASK_ANALYSIS,
-		TASK_CHECK_PATTERN,
+		TASK_MAKE_PATTERN_TASKS,
 		TASK_PATTERN,
-		TASK_CHECK_ATTRSCORES,
+		TASK_MAKE_ATTRSCORES_TASKS,
 		TASK_ATTRSCORES,
 		TASK_SONGSCORE,
 		TASK_REVERSEPATTERN,
@@ -25,6 +93,8 @@ struct AI_Task {
 	String error;
 	bool ready = false;
 	bool failed = false;
+	bool processing = false;
+	bool changed = false;
 	
 	Vector<AI_Task*> depends_on;
 	Song* song = 0;
@@ -32,6 +102,7 @@ struct AI_Task {
 	
 	void Store();
 	void Load();
+	bool RunOpenAI();
 	void Process();
 	void SetError(String s);
 	String GetInputHash() const;
@@ -40,12 +111,21 @@ struct AI_Task {
 	void CreateInput_PatternMask();
 	void CreateInput_Pattern();
 	void CreateInput_Analysis();
+	void CreateInput_AttrScores();
 	void Process_PatternMask();
 	void Process_Pattern();
 	void Process_Analysis();
+	void Process_MakePatternTasks();
+	void Process_MakeAttrScores();
+	void Process_AttrScores();
 	String GetDescription() const;
 	String GetTypeString() const;
+	bool IsDepsReady(Index<AI_Task*>& seen) const;
+	bool AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str);
+	void AddAttrScoreId(AttrScoreGroup& ag, const SnapAttr& a);
+	
 };
+
 
 
 #endif

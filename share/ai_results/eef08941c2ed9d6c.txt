@@ -1,0 +1,163 @@
+﻿ Nouns: Scar, Wish, Sarcastic, Mister, Know-it-all 
+- Pronouns: You
+- Verbs: Saw
+- Adjectives: None
+- Adverbs: None
+- Prepositions: None
+- Conjunctions: None
+- Interjections: None
+- Syntax: Subject-Verb-Object
+- Morphology: None
+- Semantics: Meaning of words used
+- Pragmatics: Tone
+- Discourse: None
+
+Line 2, "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
+- Nouns: Eyes, Kiss, Birds, View
+- Pronouns: You, I 
+- Verbs: Close, Kiss, Share
+- Adjectives: Lonely
+- Adverbs: Closely
+- Prepositions: With
+- Conjunctions: Cause
+- Interjections: None
+- Syntax: Subject-Verb-Object
+- Morphology: None
+- Semantics: Meaning of words used 
+- Pragmatics: Affection, Care
+- Discourse: None
+
+Line 3, "With the birds I'll share this lonely viewin'"
+- Nouns: Birds, View 
+- Pronouns: I 
+- Verbs: Share 
+- Adjectives: Lonely 
+- Adverbs: None
+- Prepositions: With 
+- Conjunctions: None
+- Interjections: None
+- Syntax: Subject-Verb-Object
+- Morphology: None
+- Semantics: Meaning of words used 
+- Pragmatics: Care
+- Discourse: Contrast
+
+Line 4, "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
+- Nouns: Push, Wall, Girl, Bra 
+- Pronouns: You 
+- Verbs: Push 
+- Adjectives: Young, Kentucky 
+- Adverbs: Up 
+- Prepositions: Against 
+- Conjunctions: None
+- Interjections: None
+- Syntax: Subject-Verb-Object
+- Morphology: None
+- Semantics: Meaning of words used 
+- Pragmatics: Tone
+- Discourse: None
+
+Line 5, "Fallin' all over myself to lick your heart and taste your health ('cause)." 
+- Nouns: Fallin', Myself, Heart, Taste, Health 
+- Pronouns: I, You 
+- Verbs: Lick, Taste 
+- Adjectives: None 
+- Adverbs: All, Over 
+- Prepositions: None
+- Conjunctions: Cause 
+- Interjections: None
+- Syntax: Subject-Verb-Object 
+- Morphology: Modals, Participles 
+- Semantics: Desire, Obligation 
+- Pragmatics: None
+- Discourse: Repetition
+
+Line 6, "With the birds I'll share this lonely view"
+- Nouns: Birds, View 
+- Pronouns: I 
+- Verbs: Share 
+- Adjectives: Lonely 
+- Adverbs: None
+- Prepositions: With 
+- Conjunctions: None
+- Interjections: None
+- Syntax: Subject-Verb-Object
+- Morphology: None
+- Semantics: Meaning of words used 
+- Pragmatics: Care
+- Discourse: Contrast
+
+Line 7, "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
+- Nouns: Blood, Loss, Bathroom, Stall, Girl, Scarlet, Drawl 
+- Pronouns: None
+- Verbs: None 
+- Adjectives: Southern, Scarlet 
+- Adverbs: None
+- Prepositions: With 
+- Conjunctions: None
+- Interjections: None
+- Syntax: None 
+- Morphology: None
+- Semantics: Meaning of words used
+- Pragmatics: Tone
+- Discourse: None
+
+Line 8, "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
+- Nouns: Wave, Goodbye, Ma, Pa, Birds, View 
+- Pronouns: I 
+- Verbs: Wave, Share 
+- Adjectives: Lonely 
+- Adverbs: None
+- Prepositions: None
+- Conjunctions: Cause 
+- Interjections: None
+- Syntax: Subject-Verb-Object
+- Morphology: None
+- Semantics: Meaning of words used 
+- Pragmatics: Care
+- Discourse: Contrast
+
+Line 9, "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
+- Nouns: Soft, Spoken, Jaw, Step, Brawl 
+- Pronouns: I 
+- Verbs: Step 
+- Adjectives: Soft, Broken 
+- Adverbs: None 
+- Prepositions: None
+- Conjunctions: But
+- Interjections: None
+- Syntax: Subject-Verb-Object
+- Morphology: None 
+- Semantics: Meaning of words used 
+- Pragmatics: Tone
+- Discourse: None
+
+Line 10, "And autumn's sweet, we call it fall."
+- Nouns: Autumn, Fall 
+- Pronouns: We 
+- Verbs: Call 
+- Adjectives: Sweet 
+- Adverbs: None
+- Prepositions: None
+- Conjunctions:None
+- Interjections: None
+- Syntax: Subject-Verb-Object 
+- Morphology: None
+- Semantics: Meaning of words used 
+- Pragmatics: None 
+- Discourse: Narrative form
+
+Line 11, "I'll make it to the moon if I have to crawl (and)"
+- Nouns: Moon, Crawl
+- Pronouns: I
+- Verbs: Make, Crawl
+- Adjectives: None
+- Adverbs: None
+- Prepositions: None
+- Conjunctions: And
+- Interjections: None
+- Syntax: Subject-Verb-Object
+- Morphology: None
+- Semantics: Meaning of words used
+- Pragmatics: None
+- Discourse: None

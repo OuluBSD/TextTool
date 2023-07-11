@@ -207,6 +207,25 @@ void Attributes::LoadDefaultAnalysis() {
 		;
 }
 
+void Attributes::LoadDefaultAttrGroups() {
+	AddScoring(("Mood: joyful/melancholic"), scorings);
+	AddScoring(("Mood: playful/serious"), scorings);
+	AddScoring(("Mood: uplifting/heavy"), scorings);
+	AddScoring(("Mood: lighthearted/somber"), scorings);
+	AddScoring(("Mood: humorous/dramatic"), scorings);
+	AddScoring(("Social: authoritarian/liberatrian"), scorings);
+	AddScoring(("Economic: liberal/conservative"), scorings);
+	AddScoring(("Culture: individualism/collective"), scorings);
+	AddScoring(("Human strength: strong/weak"), scorings);
+	AddScoring(("Motivation: rewarding/punishing"), scorings);
+	AddScoring(("Sexualization: sexual/non-sexual"), scorings);
+	AddScoring(("Attitude: hopeful/despair"), scorings);
+	AddScoring(("Attitude: optimistic/pessimistic"), scorings);
+	AddScoring(("Attitude: open/closed"), scorings);
+	AddScoring(("Beliefs: spiritual/secular"), scorings);
+	AddScoring(("Expectations: perfection/acceptance"), scorings);
+}
+
 Attributes::GroupType& Attributes::AddGroupType(String type, String ai_txt) {
 	for (Attributes::GroupType& gt : group_types) {
 		ASSERT(gt.name != type);
@@ -316,4 +335,3 @@ String Attributes::Translate(const String& s) {
 	}
 	return o.IsEmpty() ? s : o;
 }
-

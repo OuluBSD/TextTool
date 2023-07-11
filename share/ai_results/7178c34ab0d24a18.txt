@@ -1,0 +1,75 @@
+﻿ Natural: Honest
+- Artificial: Expressive
+- Ambient: Dark
+- Diffused: Moody
+- Color: Moody
+
+Line 2, "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
+- Natural: Jovial
+- Artificial: Daring
+- Ambient: Transcendent
+- Diffused: Dreamy
+- Color: Hypnotic
+
+Line 3, "With the birds I'll share this lonely viewin'"
+- Natural: Serene
+- Artificial: Liberating
+- Ambient: Inspiring
+- Diffused: Mystical
+- Color: Passionate
+
+Line 4, "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
+- Natural: Calm
+- Artificial: Rebellious
+- Ambient: Heavy
+- Diffused: Soft
+- Color: Ethereal
+
+Line 5, "Fallin' all over myself to lick your heart and taste your health ('cause)
+- Natural: Peaceful
+- Artificial: Audacious
+- Ambient: Desolate
+- Diffused: Reflected
+- Color: Intense
+
+Line 6, "With the birds I'll share this lonely view"
+- Natural: Majestic
+- Artificial: Bold
+- Ambient: Empowering
+- Diffused: Melodic
+- Color: Joyous
+
+Line 7, "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
+- Natural: Gentle
+- Artificial: Exciting
+- Ambient: Uplifting
+- Diffused: Radiant
+- Color: Noble
+
+Line 8, "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
+- Natural: Realistic
+- Artificial: Thought-provoking
+- Ambient: Mismatched
+- Diffused: Breathable
+- Color: Vivid
+
+Line 9, "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
+- Natural: Naturalistic
+- Artificial: Stimulating
+- Ambient: Resilient
+- Diffused: Mysterious
+- Color: Subtle
+
+Line 10, "And autumn's sweet, we call it fall."
+- Natural: Pure
+- Artificial: Poetic
+- Ambient: Lone
+- Diffused: Entrancing
+- Color: Provocative
+
+Line 11, "I'll make it to the moon if I have to crawl (and)"
+- Natural: Jovial
+- Artificial: Energizing
+- Ambient: Intimate
+- Diffused: Serene
+- Color: Alive

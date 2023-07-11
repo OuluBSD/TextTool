@@ -12,7 +12,6 @@ struct Part {
 	PatternScore	patternscore;
 	Composition		composition;
 	Analysis		analysis;
-	AttrScoreGroup	scoregroup;
 	
 	void Clear() {
 		lines.Clear();
@@ -27,7 +26,6 @@ struct Part {
 			("patternscore", patternscore)
 			("composition", composition)
 			("analysis", analysis)
-			("scoregroup", scoregroup)
 			;
 	}
 	String ToString() const {return "line_len=" + IntStr(lines.GetCount());}

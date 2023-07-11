@@ -1,0 +1,40 @@
+﻿ a-1 b-1 c-1 d-1 e-1 f+1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p+1
+
+contrast and unexpected elements: "Sarcastic mister know-it-all.":
+Combination string: a0 b0 c0 d0 e0 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p+1
+
+moral interactions: "Close your eyes and i'll kiss you.":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n+1 o0 p-1
+
+type of action in moral interaction: "Kissing.":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n+1 o0 p-1
+
+atheistic interactions: "Sharing a lonely view.":
+Combination string:a0 b0 c0 d0 e0 f-1 g0 h0 i0 j0 k0 l0 m0 n0 o0 p0
+
+type of action in atheistic interaction: "Licking and tasting.":
+Combination string: a0 b0 c0 d0 e0 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p+1
+
+interactions: "Kissing":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n+1 o0 p-1
+
+interactions with: "Young kentucky girl":
+Combination string: a-1 b-1 c-1 d-1 e-1 f+1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p+1
+
+physical features: "Young kentucky girl in a push-up bra.":
+Combination string: a-1 b-1 c-1 d-1 e-1 f+1 g0 h-1 i-1 j-1 k+1 l-1 m-1 n-1 o0 p+1
+
+personality traits: "Sarcastic":
+Combination string: a0 b0 c0 d0 e0 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p+1
+
+likes and dislikes: "Autumn's sweet":
+Combination string: a0 b0 c+1 d0 e0 f-1 g0 h0 i0 j0 k0 l+1 m0 n0 o0 p0
+
+quirks: "Mister know-it-all":
+Combination string: a0 b0 c0 d0 e0 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p+1
+
+goals: "Reaching the moon.":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n+1 o0 p-1
+
+motivations: "None":
+Combination string: a0 b0 c0 d0 e0 f0 g0 h0 i0 j0 k0 l0 m0 n0 o0 p0

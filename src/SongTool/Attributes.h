@@ -75,6 +75,7 @@ struct Attributes : DataFile {
 	
 	void LoadDefaultGroups();
 	void LoadDefaultAnalysis();
+	void LoadDefaultAttrGroups();
 	GroupType& AddGroupType(String type, String ai_txt);
 	GroupType& GetGroupType(String type);
 	Group& AddGroup(String type, String desc);
@@ -105,6 +106,8 @@ struct Attributes : DataFile {
 				LoadDefaultGroups();
 			if (analysis.IsEmpty())
 				LoadDefaultAnalysis();
+			if (scorings.IsEmpty())
+				LoadDefaultAttrGroups();
 		}
 	}
 	void AddScoring(String s, Vector<Attributes::ScoringType>& scorings);

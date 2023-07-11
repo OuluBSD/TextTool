@@ -28,6 +28,9 @@ SongTool::SongTool() {
 void SongTool::MainMenu(Bar& bar) {
 	bar.Sub(t_("App"), [this](Bar& bar) {
 		bar.Add(t_("Save"), callback(&Database::Single(), &Database::Store)).Key(K_CTRL_S);
+		bar.Separator();
+		bar.Add(t_("Set OpenAI token"), THISBACK(SetOpenAIToken));
+		bar.Separator();
 		bar.Add(t_("Exit"), callback(this, &TopWindow::Close));
 	});
 	bar.Sub(t_("View"), [this](Bar& bar) {
@@ -39,6 +42,23 @@ void SongTool::MainMenu(Bar& bar) {
 	bar.Sub(t_("Tools"), [this](Bar& bar) {
 		bar.Add(t_("Show orphaned files"), THISBACK(ShowOrphanedFiles));
 	});
+}
+
+void SongTool::SetOpenAIToken() {
+	String token;
+	bool b = EditTextNotNull(
+		token,
+		t_("OpenAI token"),
+		t_("OpenAI token"),
+		0
+	);
+	if (!b) return;
+	
+	TaskMgr& m = TaskMgr::Single();
+	m.openai_token = token;
+	m.Store();
+	
+	PromptOK(t_("Restart is required for applying the new token"));
 }
 
 void SongTool::LoadWindowPos() {
@@ -71,13 +91,14 @@ void SongTool::SetView(int i) {
 	cal.Hide();
 	ed.Hide();
 	ai.Hide();
+	tc.Kill();
 	
 	switch (i) {
 		default: i = 0;
 		case 0: fp.Show(); break;
 		case 1: cal.Show(); break;
 		case 2: ed.Show(); break;
-		case 3: ai.Show(); break;
+		case 3: ai.Show(); tc.Set(-500, THISBACK(Data)); break;
 	}
 	
 	page = i;

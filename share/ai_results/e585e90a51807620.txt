@@ -1,0 +1,117 @@
+﻿ Contrast and unexpected elements: Scar tissue, Sarcastic mister know-it-all
+- Moral interactions: None
+- Type of action in moral interaction: None
+- Religiously moral: None
+- Atheistic interactions: None
+- Type of action in atheistic interaction: None
+- Interactions: None
+- Interactions with: None
+- Physical features: None
+- Personality traits: Sarcastic
+- Likes and dislikes: None
+- Quirks: Mister know-it-all
+- Goals: None
+- Motivations: None
+- Backstories: None
+
+Line 2, "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
+- Contrast and unexpected elements: None
+- Moral interactions: Kissing
+- Type of action in moral interaction: Kissing
+- Religiously moral: None
+- Atheistic interactions: Sharing a lonely view
+- Type of action in atheistic interaction: Sharing a view
+- Interactions: Kissing
+- Interactions with: None 
+- Physical features: None
+- Personality traits: None 
+- Likes and dislikes: None
+- Quirks: None
+- Goals: None
+- Motivations: None
+- Backstories: None
+
+Line 3, "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
+- Contrast and unexpected elements: None
+- Moral interactions: None
+- Type of action in moral interaction: None
+- Religiously moral: None
+- Atheistic interactions: None
+- Type of action in atheistic interaction: None
+- Interactions: None
+- Interactions with: Young Kentucky girl
+- Physical features: push-up bra
+- Personality traits: None
+- Likes and dislikes: None
+- Quirks: None
+- Goals: None
+- Motivations: None
+- Backstories: None
+
+Line 4, "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
+- Contrast and unexpected elements: Blood loss in a bathroom stall
+- Moral interactions: None
+- Type of action in moral interaction: None
+- Religiously moral: None
+- Atheistic interactions: None
+- Type of action in atheistic interaction: None
+- Interactions: None
+- Interactions with: None
+- Physical features: None
+- Personality traits: Southern girl with a scarlet drawl (way to speak)
+- Likes and dislikes: None
+- Quirks: None
+- Goals: None
+- Motivations: None
+- Backstories: None
+
+Line 5, "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)."
+- Contrast and unexpected elements: None
+- Moral interactions: Waving goodbye
+- Type of action in moral interaction: Waving goodbye 
+- Religiously moral: None
+- Atheistic interactions: Sharing a lonely view
+- Type of action in atheistic interaction: Sharing a view
+- Interactions: Waving goodbye
+- Interactions with: Ma and pa
+- Physical features: None
+- Personality traits: None
+- Likes and dislikes: None
+- Quirks: None
+- Goals: None
+- Motivations: None
+- Backstories: None
+
+Line 6, "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
+- Contrast and unexpected elements: Soft spoken with a broken jaw
+- Moral interactions: None
+- Type of action in moral interaction: None
+- Religiously moral: None
+- Atheistic interactions: None
+- Type of action in atheistic interaction: None
+- Interactions: None
+- Interactions with: None
+- Physical features: Broken jaw
+- Personality traits: Soft spoken
+- Likes and dislikes: None
+- Quirks: None
+- Goals: None
+- Motivations: None
+- Backstories: None
+
+Line 7, "And autumn's sweet, we call it fall. I'll make it to the moon if I have to crawl (and)"
+- Contrast and unexpected elements: None
+- Moral interactions: None
+- Type of action in moral interaction: None
+- Religiously moral: None
+- Atheistic interactions: Licking your heart and tasting health
+- Type of action in atheistic interaction: Licking and Tasting
+- Interactions: Licking heart, Tasting health
+- Interactions with: None
+- Physical features: None
+- Personality traits: None
+- Likes and dislikes: Autumn's sweet
+- Quirks: None
+- Goals: Reaching the moon, Making it to the moon
+- Motivations: None
+- Backstories: None

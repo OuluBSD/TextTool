@@ -1,0 +1,46 @@
+﻿ Places: Park, City Street 
+- Environments: Public, City 
+- Locations: Outside, Open Space
+- Weather: Any
+- Time of day: Evening
+- Time periods: Current 
+
+Chorus1:
+- Places: None 
+- Environments: Open Space 
+- Locations: Open Sky 
+- Weather: Any
+- Time of day: Day 
+- Time periods: Current
+
+Verse2: 
+- Places: Home 
+- Environments: Private, Rural 
+- Locations: Inside 
+- Weather: Any
+- Time of day: Evening 
+- Time periods: Current
+
+Chorus2:
+- Places: None 
+- Environments: Open Space 
+- Locations: Open Sky 
+- Weather: Any
+- Time of day: Day 
+- Time periods: Current
+
+Verse3:
+- Places: Home 
+- Environments: Rural, Countryside 
+- Locations: Outside 
+- Weather: Any
+- Time of day: Morning 
+- Time periods: Current
+
+Verse4:
+- Places: Any 
+- Environments: Any
+- Locations: Any 
+- Weather: Any
+- Time of day: Night 
+- Time periods: Current

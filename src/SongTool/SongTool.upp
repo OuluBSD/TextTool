@@ -2,6 +2,8 @@ uses
 	CtrlLib,
 	CodeEditor;
 
+library(WIN32) "curl libcurl.dll.a";
+
 file
 	SongTool.h,
 	SongTool.cpp,
@@ -54,11 +56,15 @@ file
 	Core readonly separator,
 	Utils.h,
 	Utils.cpp,
+	OpenAI.h,
+	Json.h,
 	"Data: AI Tasks" readonly separator,
 	TaskMgr.h,
 	TaskMgr.cpp,
 	AI_Tasks.h,
 	AI_Tasks.cpp,
+	Task_CreateInput.cpp,
+	Task_Process.cpp,
 	Data readonly separator,
 	Database.h,
 	Database.cpp,

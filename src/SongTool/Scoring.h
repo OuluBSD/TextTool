@@ -62,7 +62,7 @@ struct AttrScoreGroup {
 	
 };
 
-struct AttrScore {
+struct AttrScore : DataFile {
 	Array<AttrScoreGroup> groups;
 	VectorMap<String, Vector<int>> presets;
 	
@@ -71,7 +71,8 @@ struct AttrScore {
 	
 	
 	AttrScore();
-	
+	void Store();
+	void Load();
 	AttrScoreGroup& GetAdd(const Vector<int>& scores) {
 		for (AttrScoreGroup& g : groups)
 			if (g.Is(scores))
@@ -87,9 +88,9 @@ struct AttrScore {
 		json
 			("groups", groups)
 			("presets", presets)
-			;
+		;
 	}
-	void RealizeTemp();
+	bool RealizeTemp();
 };
 
 struct PatternScore {

@@ -1,0 +1,86 @@
+﻿ Places: Home
+- Environments: Private
+- Locations: Inside
+- Weather: Any
+- Time of day: Any
+- Time periods: Current
+
+Line 2, "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
+- Places: Park
+- Environments: Open space
+- Locations: Outside
+- Weather: Any
+- Time of day: Any
+- Time periods: Current
+
+Line 3, "With the birds I'll share this lonely viewin'"
+- Places: Any
+- Environments: Any
+- Locations: Open space
+- Weather: Any
+- Time of day: Any
+- Time periods: Current
+
+Line 4, "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
+- Places: City street
+- Environments: City
+- Locations: Outside
+- Weather: Any
+- Time of day: Any
+- Time periods: Current
+
+Line 5, "Fallin' all over myself to lick your heart and taste your health ('cause)"
+- Places: Home 
+- Environments: Private
+- Locations: Inside 
+- Weather: Any
+- Time of day: Any
+- Time periods: Current
+
+Line 6, "With the birds I'll share this lonely view"
+- Places: Any
+- Environments: Any
+- Locations: Open space
+- Weather: Any
+- Time of day: Any
+- Time periods: Current
+
+Line 7, "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
+- Places: Home
+- Environments: Private
+- Locations: Inside
+- Weather: Any
+- Time of day: Any
+- Time periods: Current
+
+Line 8, "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
+- Places: Any
+- Environments: Any
+- Locations: Open space
+- Weather: Any
+- Time of day: Any
+- Time periods: Current
+
+Line 9, "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
+- Places: Any
+- Environments: Open space 
+- Locations: Outside 
+- Weather: Any
+- Time of day: Any
+- Time periods: Current
+
+Line 10, "And autumn's sweet, we call it fall."
+- Places: Any
+- Environments: Rural 
+- Locations: Countryside
+- Weather: Any
+- Time of day: Evening
+- Time periods: Current
+
+Line 11, "I'll make it to the moon if I have to crawl (and)"
+- Places: Any
+- Environments: Open sky
+- Locations: Outside 
+- Weather: Any
+- Time of day: Night
+- Time periods: Current

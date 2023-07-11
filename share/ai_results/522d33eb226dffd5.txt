@@ -1,0 +1,40 @@
+﻿ Natural: Realistic, Naturalistic
+- Artificial: Poetic, Expressive
+- Ambient: Dark, Melancholy
+- Diffused: Soft, Dreamy
+- Color: Moody, Ethereal
+
+Chorus1:
+- Natural: Majestic, Calm
+- Artificial: Audacious, Energizing
+- Ambient: Transcendent, Inspiring
+- Diffused: Soft, Reflected
+- Color: Passionate, Saturated
+
+Verse2:
+- Natural: Serene, Gentle 
+- Artificial: Rebellious, Daring 
+- Ambient: Heavy, Desolate
+- Diffused: Mystical, Melodic 
+- Color: Intense, Noble
+
+Chorus2:
+- Natural: Peaceful, Pure 
+- Artificial: Exciting, Liberating 
+- Ambient: Empowering, Uplifting 
+- Diffused: Radiant, Breathable 
+- Color: Joyous, Vivid
+
+Verse3:
+- Natural: Jovial, Majestic
+- Artificial: Bold, Daring 
+- Ambient: Mismatched, Resilient 
+- Diffused: Moody, Serene
+- Color: Subtle, Hypnotic
+
+Verse4:
+- Natural: Comforting, Honest 
+- Artificial: Thought-provoking, Stimulating 
+- Ambient: Lone, Intimate 
+- Diffused: Mysterious, Entrancing 
+- Color: Provocative, Alive

@@ -1,0 +1,42 @@
+﻿ Groups: Lyrics, Sarcasm 
+- Attributes: Scar tissue, Sarcastic mister know-it-all 
+
+Line 2, "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
+- Groups: Lyrics, Imagination, Symbols 
+- Attributes: Close eyes, Kissing, Birds, Lonely view 
+
+Line 3, "With the birds I'll share this lonely viewin'."
+- Groups: Lyrics 
+- Attributes: Birds, Sharing, Lonely viewin' 
+
+Line 4, "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
+- Groups: Lyrics, Imagination
+- Attributes: Wall, Push-up bra, Young Kentucky girl 
+
+Line 5, "Fallin' all over myself to lick your heart and taste your health ('cause)"
+- Groups: Lyrics
+- Attributes: Falling, Licking, Tasting, Health 
+
+Line 6, "With the birds I'll share this lonely view"
+- Groups: Lyrics, Symbols
+- Attributes: Birds, Sharing, Lonely view 
+
+Line 7, "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
+- Groups: Lyrics, Imagination
+- Attributes: Blood loss, Bathroom stall, Southern girl, Scarlet drawl 
+
+Line 8, "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)."
+- Groups: Lyrics, Symbols 
+- Attributes: Waving, Goodbye, Birds, Sharing, Lonely view 
+
+Line 9, "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
+- Groups: Lyrics 
+- Attributes: Soft spoken, Broken jaw, Stepping, Brawl 
+
+Line 10, "And autumn's sweet, we call it fall.
+- Groups: Lyrics, Imagery
+- Attributes: Autumn, Sweet, Call 
+
+Line 11, "I'll make it to the moon if I have to crawl (and)"
+- Groups: Lyrics, Imagination 
+- Attributes: Making, Moon, Crawling

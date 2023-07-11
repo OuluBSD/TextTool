@@ -1,0 +1,34 @@
+﻿ Hair/makeup: Serious, nostalgic
+- Clothing: Casual, comfortable
+- Accessories: Simple
+- Props: None
+
+Chorus1:
+- Hair/makeup: Striking, emotional
+- Clothing: Striking, emotional
+- Accessories: Eye-catching
+- Props: None
+
+Verse2:
+- Hair/makeup: Wild, daring
+- Clothing: Sexy, bold
+- Accessories: Sparkly, unique
+- Props: None
+
+Chorus2:
+- Hair/makeup: Relaxed, mesmerizing
+- Clothing: Relaxed, comfortable
+- Accessories: Earthy, natural
+- Props: None
+
+Verse3:
+- Hair/makeup: Refined, regal
+- Clothing: Elegant, formal
+- Accessories: Delicate, ornamental
+- Props: None
+
+Verse4:
+- Hair/makeup: Determined, unwavering
+- Clothing: Rugged, determined
+- Accessories: Rough, simple
+- Props: Telescope or other celestial objects

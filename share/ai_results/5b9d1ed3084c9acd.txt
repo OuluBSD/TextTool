@@ -1,0 +1,64 @@
+﻿ a+1 b-1 c-1 d0 e-1 f-1 g0 h+1 i+1 j+1 k0 l0 m-1 n0 o0 p-1
+
+facial expressions: "Shock":
+Combination string: a-1 b-1 c-2 d-2 e-1 f-1 g0 h+1 i-1 j+1 k0 l-1 m-2 n-1 o0 p-2
+
+facial expressions: "Resolve":
+Combination string: a+1 b+1 c+1 d0 e+1 f-1 g0 h+1 i+1 j+1 k0 l+2 m+1 n+1 o0 p+1
+
+facial expressions: "Passion":
+Combination string: a+2 b+1 c+2 d+1 e+2 f-2 g0 h+2 i+2 j+2 k0 l+2 m+2 n+2 o0 p+2
+
+facial expressions: "Joy":
+Combination string: a+3 b+2 c+3 d+2 e+3 f-2 g0 h+3 i+2 j+3 k0 l+3 m+3 n+3 o0 p+2
+
+facial expressions: "Ecstasy":
+Combination string: a+3 b+3 c+3 d+3 e+3 f-3 g0 h+3 i+3 j+3 k0 l+3 m+3 n+3 o0 p+3
+
+facial expressions: "Resentful":
+Combination string: a-1 b-1 c-2 d-1 e-2 f-2 g0 h-1 i-2 j+1 k0 l-2 m-1 n-1 o0 p-2
+
+facial expressions: "Sorrowful":
+Combination string: a-2 b-2 c-3 d-2 e-3 f-2 g0 h-2 i-3 j+1 k0 l-3 m-2 n-2 o0 p-3
+
+facial expressions: "Determination":
+Combination string: a+2 b+1 c+2 d+1 e+2 f-1 g0 h+2 i+2 j+2 k0 l+2 m+2 n+2 o0 p+1
+
+facial expressions: "Longing":
+Combination string: a-1 b-2 c-1 d-1 e-2 f-1 g0 h-1 i-1 j+1 k0 l-2 m-1 n-1 o0 p-2
+
+body language: "Protective posture":
+Combination string: a-2 b-1 c-1 d-1 e-1 f-2 g0 h+1 i+1 j-1 k0 l-1 m-2 n-1 o0 p-2
+
+body language: "Squared shoulders":
+Combination string: a-1 b-1 c-2 d-1 e-1 f-2 g0 h+2 i+2 j+1 k0 l-1 m-2 n-2 o0 p-2
+
+body language: "Posture":
+Combination string: a+1 b0 c+1 d0 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n+1 o0 p0
+
+body language: "Taking up space":
+Combination string: a+2 b+1 c+2 d+1 e+2 f-2 g0 h+2 i+2 j+2 k0 l+2 m+2 n+2 o0 p+1
+
+body language: "Swaying":
+Combination string: a+1 b-1 c+1 d-1 e0 f-1 g0 h+1 i+1 j+1 k0 l-1 m+1 n0 o0 p-1
+
+body language: "Bending":
+Combination string: a-1 b-2 c-2 d-2 e-1 f-2 g0 h+1 i-1 j+1 k0 l-2 m-1 n-1 o0 p-2
+
+body language: "Moving rhythmically":
+Combination string: a+1 b-1 c+2 d+1 e+1 f-1 g0 h+2 i+2 j+2 k0 l+1 m+2 n+1 o0 p+1
+
+body language: "Arm swinging":
+Combination string: a+1 b-1 c+1 d0 e+1 f-1 g0 h+1 i+2 j+2 k0 l+2 m+1 n+2 o0 p+1
+
+body language: "Hunching shoulders":
+Combination string: a-2 b-2 c-2 d-2 e-2 f-2 g0 h-1 i-1 j+1 k0 l-2 m-2 n-2 o0 p-2
+
+body language: "Dragging feet":
+Combination string: a-2 b-2 c-3 d-2 e-2 f-2 g0 h-1 i-2 j+1 k0 l-3 m-2 n-2 o0 p-3
+
+body language: "Long strides":
+Combination string: a+2 b+1 c+1 d+2 e+2 f-2 g0 h+2 i+2 j+2 k0 l+2 m+3 n+2 o0 p+1
+
+body language: "Prolonged stares":
+Combination string: a-1 b-1 c-2 d-1 e-1 f-2 g0 h+1 i+1 j+1 k0 l-1 m-2 n-1 o0 p-2

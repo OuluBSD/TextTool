@@ -25,7 +25,6 @@ Editor::Editor() {
 	tablist.Add(t_("Release"), t_("Calendar"));
 	tablist.Add(t_("Release"), t_("Tasks"));
 	tablist.Add(t_("Song"), t_("Importer"));
-	tablist.Add(t_("Song"), t_("Story"));
 	tablist.Add(t_("Song"), t_("Pattern mask"));
 	tablist.Add(t_("Song"), t_("Pattern"));
 	tablist.Add(t_("Song"), t_("Attribute scoring"));

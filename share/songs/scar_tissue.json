@@ -108,7 +108,350 @@
 				},
 				"mask": {
 					"attrs": [
-
+						{
+							"g": 0,
+							"i": 3
+						},
+						{
+							"g": 0,
+							"i": 4
+						},
+						{
+							"g": 0,
+							"i": 19
+						},
+						{
+							"g": 1,
+							"i": 1
+						},
+						{
+							"g": 2,
+							"i": 3
+						},
+						{
+							"g": 2,
+							"i": 4
+						},
+						{
+							"g": 2,
+							"i": 5
+						},
+						{
+							"g": 3,
+							"i": 2
+						},
+						{
+							"g": 4,
+							"i": 0
+						},
+						{
+							"g": 5,
+							"i": 1
+						},
+						{
+							"g": 5,
+							"i": 0
+						},
+						{
+							"g": 6,
+							"i": 0
+						},
+						{
+							"g": 13,
+							"i": 1
+						},
+						{
+							"g": 16,
+							"i": 1
+						},
+						{
+							"g": 16,
+							"i": 2
+						},
+						{
+							"g": 19,
+							"i": 1
+						},
+						{
+							"g": 21,
+							"i": 1
+						},
+						{
+							"g": 22,
+							"i": 2
+						},
+						{
+							"g": 29,
+							"i": 1
+						},
+						{
+							"g": 30,
+							"i": 6
+						},
+						{
+							"g": 30,
+							"i": 7
+						},
+						{
+							"g": 31,
+							"i": 3
+						},
+						{
+							"g": 33,
+							"i": 3
+						},
+						{
+							"g": 34,
+							"i": 1
+						},
+						{
+							"g": 35,
+							"i": 5
+						},
+						{
+							"g": 37,
+							"i": 4
+						},
+						{
+							"g": 39,
+							"i": 0
+						},
+						{
+							"g": 40,
+							"i": 0
+						},
+						{
+							"g": 41,
+							"i": 3
+						},
+						{
+							"g": 42,
+							"i": 0
+						},
+						{
+							"g": 43,
+							"i": 1
+						},
+						{
+							"g": 44,
+							"i": 2
+						},
+						{
+							"g": 45,
+							"i": 2
+						},
+						{
+							"g": 46,
+							"i": 1
+						},
+						{
+							"g": 47,
+							"i": 1
+						},
+						{
+							"g": 48,
+							"i": 0
+						},
+						{
+							"g": 48,
+							"i": 1
+						},
+						{
+							"g": 49,
+							"i": 0
+						},
+						{
+							"g": 49,
+							"i": 1
+						},
+						{
+							"g": 50,
+							"i": 0
+						},
+						{
+							"g": 50,
+							"i": 1
+						},
+						{
+							"g": 51,
+							"i": 0
+						},
+						{
+							"g": 52,
+							"i": 0
+						},
+						{
+							"g": 53,
+							"i": 0
+						},
+						{
+							"g": 54,
+							"i": 0
+						},
+						{
+							"g": 54,
+							"i": 1
+						},
+						{
+							"g": 54,
+							"i": 2
+						},
+						{
+							"g": 55,
+							"i": 0
+						},
+						{
+							"g": 57,
+							"i": 0
+						},
+						{
+							"g": 58,
+							"i": 0
+						},
+						{
+							"g": 23,
+							"i": 1
+						},
+						{
+							"g": 22,
+							"i": 3
+						},
+						{
+							"g": 105,
+							"i": 0
+						},
+						{
+							"g": 105,
+							"i": 1
+						},
+						{
+							"g": 69,
+							"i": 0
+						},
+						{
+							"g": 69,
+							"i": 1
+						},
+						{
+							"g": 93,
+							"i": 0
+						},
+						{
+							"g": 93,
+							"i": 1
+						},
+						{
+							"g": 108,
+							"i": 0
+						},
+						{
+							"g": 108,
+							"i": 1
+						},
+						{
+							"g": 109,
+							"i": 0
+						},
+						{
+							"g": 109,
+							"i": 1
+						},
+						{
+							"g": 110,
+							"i": 0
+						},
+						{
+							"g": 111,
+							"i": 0
+						},
+						{
+							"g": 112,
+							"i": 0
+						},
+						{
+							"g": 112,
+							"i": 1
+						},
+						{
+							"g": 112,
+							"i": 2
+						},
+						{
+							"g": 113,
+							"i": 0
+						},
+						{
+							"g": 113,
+							"i": 1
+						},
+						{
+							"g": 113,
+							"i": 2
+						},
+						{
+							"g": 114,
+							"i": 0
+						},
+						{
+							"g": 114,
+							"i": 1
+						},
+						{
+							"g": 114,
+							"i": 2
+						},
+						{
+							"g": 115,
+							"i": 0
+						},
+						{
+							"g": 115,
+							"i": 1
+						},
+						{
+							"g": 115,
+							"i": 2
+						},
+						{
+							"g": 116,
+							"i": 0
+						},
+						{
+							"g": 116,
+							"i": 1
+						},
+						{
+							"g": 117,
+							"i": 0
+						},
+						{
+							"g": 117,
+							"i": 1
+						},
+						{
+							"g": 118,
+							"i": 0
+						},
+						{
+							"g": 118,
+							"i": 1
+						},
+						{
+							"g": 119,
+							"i": 0
+						},
+						{
+							"g": 119,
+							"i": 1
+						},
+						{
+							"g": 120,
+							"i": 0
+						},
+						{
+							"g": 120,
+							"i": 1
+						}
 					]
 				},
 				"patternscore": {
@@ -134,23 +477,58 @@
 				"analysis": {
 					"data": [
 						{
-							"key": "Overcoming Adversity",
-							"value": "The lyrics express the idea of struggling with something and wishing for someone to understand and be close despite the obstacles."
+							"key": "Meaning",
+							"value": "The narrator is reflecting on a past relationship, expressing his regret and desire that their scar tissue could be seen. He expresses his frustration with his partner’s sarcasm and seeming ‘know-it-all’ attitude."
 						},
 						{
-							"key": "Love",
-							"value": "The lyrics demonstrate the expression of love and the need to be close and to be kissed by someone special."
+							"key": "Literary Devices",
+							"value": "Alliteration is used in the phrase ‘Sarcastic Mister Know-It-All’ to emphasize the narrator’s frustration."
+						},
+						{
+							"key": "Emotion",
+							"value": "The narrator is feeling regretful and melancholy."
+						},
+						{
+							"key": "References",
+							"value": "The narrator references his partner’s scar tissue and her sarcasm."
+						},
+						{
+							"key": "Structure",
+							"value": "This verse is composed of a nine-line stanza of four-four-five-five-four-two-one-five-two syllables per line."
+						},
+						{
+							"key": "History",
+							"value": "The narrator is reflecting on a past relationship."
+						},
+						{
+							"key": "Storyline",
+							"value": "The narrator wishes that his partner’s scar tissue could be seen and laments her sarcastic and self-convincing attitude."
+						},
+						{
+							"key": "Implications",
+							"value": "The narrator is regretful of this past relationship and the way it has affected him."
+						},
+						{
+							"key": "Overcoming adversity",
+							"value": "The artist acknowledges that there are difficulties in life - scar tissue that he wishes he could show the other person. The artist's perseverance in the face of adversity is highlighted."
+						},
+						{
+							"key": "Loss and Longing",
+							"value": "Inverse wish of loving someone so close yet so far from being able to express it."
+						},
+						{
+							"key": "Memories",
+							"value": "Reflection of past time spent with the other as a substitute to show the affection."
+						},
+						{
+							"key": "Intimacy and Connection",
+							"value": "Feeling a deep connection with someone, even an unspoken one."
+						},
+						{
+							"key": "hope and Optimism",
+							"value": "Reaching out to that person despite all the odds."
 						}
 					]
-				},
-				"scoregroup": {
-					"attrs": [
-
-					],
-					"scores": [
-
-					],
-					"name": ""
 				}
 			}
 		},
@@ -190,7 +568,222 @@
 				},
 				"mask": {
 					"attrs": [
-
+						{
+							"g": 0,
+							"i": 7
+						},
+						{
+							"g": 0,
+							"i": 21
+						},
+						{
+							"g": 2,
+							"i": 5
+						},
+						{
+							"g": 3,
+							"i": 2
+						},
+						{
+							"g": 5,
+							"i": 0
+						},
+						{
+							"g": 30,
+							"i": 8
+						},
+						{
+							"g": 31,
+							"i": 4
+						},
+						{
+							"g": 33,
+							"i": 4
+						},
+						{
+							"g": 34,
+							"i": 1
+						},
+						{
+							"g": 35,
+							"i": 5
+						},
+						{
+							"g": 37,
+							"i": 4
+						},
+						{
+							"g": 39,
+							"i": 1
+						},
+						{
+							"g": 40,
+							"i": 0
+						},
+						{
+							"g": 41,
+							"i": 3
+						},
+						{
+							"g": 42,
+							"i": 3
+						},
+						{
+							"g": 43,
+							"i": 1
+						},
+						{
+							"g": 44,
+							"i": 2
+						},
+						{
+							"g": 45,
+							"i": 2
+						},
+						{
+							"g": 46,
+							"i": 1
+						},
+						{
+							"g": 47,
+							"i": 1
+						},
+						{
+							"g": 48,
+							"i": 2
+						},
+						{
+							"g": 49,
+							"i": 2
+						},
+						{
+							"g": 50,
+							"i": 2
+						},
+						{
+							"g": 51,
+							"i": 0
+						},
+						{
+							"g": 52,
+							"i": 1
+						},
+						{
+							"g": 53,
+							"i": 0
+						},
+						{
+							"g": 54,
+							"i": 4
+						},
+						{
+							"g": 55,
+							"i": 2
+						},
+						{
+							"g": 57,
+							"i": 0
+						},
+						{
+							"g": 58,
+							"i": 2
+						},
+						{
+							"g": 23,
+							"i": 3
+						},
+						{
+							"g": 22,
+							"i": 5
+						},
+						{
+							"g": 105,
+							"i": 2
+						},
+						{
+							"g": 105,
+							"i": 3
+						},
+						{
+							"g": 69,
+							"i": 2
+						},
+						{
+							"g": 69,
+							"i": 3
+						},
+						{
+							"g": 93,
+							"i": 2
+						},
+						{
+							"g": 93,
+							"i": 3
+						},
+						{
+							"g": 108,
+							"i": 2
+						},
+						{
+							"g": 108,
+							"i": 3
+						},
+						{
+							"g": 109,
+							"i": 2
+						},
+						{
+							"g": 109,
+							"i": 3
+						},
+						{
+							"g": 110,
+							"i": 1
+						},
+						{
+							"g": 111,
+							"i": 0
+						},
+						{
+							"g": 116,
+							"i": 2
+						},
+						{
+							"g": 116,
+							"i": 3
+						},
+						{
+							"g": 117,
+							"i": 2
+						},
+						{
+							"g": 117,
+							"i": 3
+						},
+						{
+							"g": 118,
+							"i": 2
+						},
+						{
+							"g": 118,
+							"i": 3
+						},
+						{
+							"g": 119,
+							"i": 0
+						},
+						{
+							"g": 119,
+							"i": 2
+						},
+						{
+							"g": 120,
+							"i": 2
+						},
+						{
+							"g": 120,
+							"i": 3
+						}
 					]
 				},
 				"patternscore": {
@@ -216,23 +809,42 @@
 				"analysis": {
 					"data": [
 						{
-							"key": "Friendship",
-							"value": "The lyrics express a desire to share and experience moments with someone and to be in their company, showing a deep friendship bond between the two."
+							"key": "Meaning",
+							"value": "The narrator expresses his longing to share what he sees with the birds, conveying his feeling of loneliness."
 						},
 						{
-							"key": "Loyalty",
-							"value": "The need to be close to such a person, despite the lonely moments, shows a strong loyalty between the two."
+							"key": "Literary Devices",
+							"value": "The phrase ‘lonely viewin’ is repeated to emphasize its sentiment."
+						},
+						{
+							"key": "Emotion",
+							"value": "The narrator is feeling lonely and isolated."
+						},
+						{
+							"key": "References",
+							"value": "The narrator references the birds as a symbol of his loneliness."
+						},
+						{
+							"key": "Structure",
+							"value": "This chorus is composed of an eight-line stanza of five-five-five-five-nine-five-five-five syllables per line."
+						},
+						{
+							"key": "History",
+							"value": "The narrator is expressing his loneliness."
+						},
+						{
+							"key": "Storyline",
+							"value": "The narrator feels longing to share what he sees with the birds, conveying his loneliness."
+						},
+						{
+							"key": "Implications",
+							"value": "The narrator is struggling to cope with his loneliness."
+						},
+						{
+							"key": "Journeys",
+							"value": "The artist compares his life journey to the lifelong journey of birds, implying that life is an arduous but fulfilling journey."
 						}
 					]
-				},
-				"scoregroup": {
-					"attrs": [
-
-					],
-					"scores": [
-
-					],
-					"name": ""
 				}
 			}
 		},
@@ -272,7 +884,318 @@
 				},
 				"mask": {
 					"attrs": [
-
+						{
+							"g": 0,
+							"i": 9
+						},
+						{
+							"g": 0,
+							"i": 22
+						},
+						{
+							"g": 0,
+							"i": 23
+						},
+						{
+							"g": 0,
+							"i": 24
+						},
+						{
+							"g": 0,
+							"i": 25
+						},
+						{
+							"g": 1,
+							"i": 1
+						},
+						{
+							"g": 2,
+							"i": 14
+						},
+						{
+							"g": 2,
+							"i": 15
+						},
+						{
+							"g": 2,
+							"i": 7
+						},
+						{
+							"g": 3,
+							"i": 6
+						},
+						{
+							"g": 4,
+							"i": 1
+						},
+						{
+							"g": 5,
+							"i": 1
+						},
+						{
+							"g": 5,
+							"i": 0
+						},
+						{
+							"g": 6,
+							"i": 0
+						},
+						{
+							"g": 30,
+							"i": 9
+						},
+						{
+							"g": 31,
+							"i": 4
+						},
+						{
+							"g": 33,
+							"i": 4
+						},
+						{
+							"g": 34,
+							"i": 1
+						},
+						{
+							"g": 35,
+							"i": 6
+						},
+						{
+							"g": 37,
+							"i": 5
+						},
+						{
+							"g": 39,
+							"i": 2
+						},
+						{
+							"g": 39,
+							"i": 3
+						},
+						{
+							"g": 40,
+							"i": 1
+						},
+						{
+							"g": 41,
+							"i": 4
+						},
+						{
+							"g": 42,
+							"i": 3
+						},
+						{
+							"g": 43,
+							"i": 1
+						},
+						{
+							"g": 44,
+							"i": 2
+						},
+						{
+							"g": 45,
+							"i": 2
+						},
+						{
+							"g": 46,
+							"i": 1
+						},
+						{
+							"g": 47,
+							"i": 1
+						},
+						{
+							"g": 48,
+							"i": 3
+						},
+						{
+							"g": 49,
+							"i": 3
+						},
+						{
+							"g": 49,
+							"i": 4
+						},
+						{
+							"g": 50,
+							"i": 3
+						},
+						{
+							"g": 51,
+							"i": 0
+						},
+						{
+							"g": 52,
+							"i": 0
+						},
+						{
+							"g": 53,
+							"i": 0
+						},
+						{
+							"g": 54,
+							"i": 3
+						},
+						{
+							"g": 55,
+							"i": 1
+						},
+						{
+							"g": 57,
+							"i": 1
+						},
+						{
+							"g": 58,
+							"i": 1
+						},
+						{
+							"g": 23,
+							"i": 2
+						},
+						{
+							"g": 22,
+							"i": 4
+						},
+						{
+							"g": 105,
+							"i": 4
+						},
+						{
+							"g": 105,
+							"i": 5
+						},
+						{
+							"g": 121,
+							"i": 0
+						},
+						{
+							"g": 121,
+							"i": 1
+						},
+						{
+							"g": 93,
+							"i": 4
+						},
+						{
+							"g": 93,
+							"i": 5
+						},
+						{
+							"g": 108,
+							"i": 4
+						},
+						{
+							"g": 108,
+							"i": 5
+						},
+						{
+							"g": 109,
+							"i": 4
+						},
+						{
+							"g": 109,
+							"i": 5
+						},
+						{
+							"g": 110,
+							"i": 2
+						},
+						{
+							"g": 110,
+							"i": 3
+						},
+						{
+							"g": 111,
+							"i": 0
+						},
+						{
+							"g": 112,
+							"i": 1
+						},
+						{
+							"g": 112,
+							"i": 2
+						},
+						{
+							"g": 112,
+							"i": 3
+						},
+						{
+							"g": 113,
+							"i": 0
+						},
+						{
+							"g": 113,
+							"i": 3
+						},
+						{
+							"g": 113,
+							"i": 4
+						},
+						{
+							"g": 114,
+							"i": 0
+						},
+						{
+							"g": 114,
+							"i": 3
+						},
+						{
+							"g": 114,
+							"i": 4
+						},
+						{
+							"g": 115,
+							"i": 0
+						},
+						{
+							"g": 115,
+							"i": 1
+						},
+						{
+							"g": 115,
+							"i": 3
+						},
+						{
+							"g": 116,
+							"i": 4
+						},
+						{
+							"g": 116,
+							"i": 5
+						},
+						{
+							"g": 117,
+							"i": 4
+						},
+						{
+							"g": 117,
+							"i": 5
+						},
+						{
+							"g": 118,
+							"i": 4
+						},
+						{
+							"g": 118,
+							"i": 5
+						},
+						{
+							"g": 119,
+							"i": 3
+						},
+						{
+							"g": 119,
+							"i": 4
+						},
+						{
+							"g": 120,
+							"i": 4
+						},
+						{
+							"g": 120,
+							"i": 5
+						}
 					]
 				},
 				"patternscore": {
@@ -298,23 +1221,54 @@
 				"analysis": {
 					"data": [
 						{
-							"key": "Life Choices",
-							"value": "The idea of pushing boundaries and making decisions that will affect the future is present in the lyrics."
+							"key": "Meaning",
+							"value": "The narrator is again reflecting on a past relationship and the physicality of it, describing how he was pushed up against a wall. The phrase ‘ Young Kentucky girl’ references a particular partner."
 						},
 						{
-							"key": "Change the World",
-							"value": "The idea of wanting to make a difference, even a small one, is present in the lyrics."
+							"key": "Literary Devices",
+							"value": "Repetition of the phrase ‘push up’ is used to emphasize the physicality of the narrative."
+						},
+						{
+							"key": "Emotion",
+							"value": "The narrator is feeling fond nostalgia."
+						},
+						{
+							"key": "References",
+							"value": "The narrator references a partner, pushing, licking, and tasting."
+						},
+						{
+							"key": "Structure",
+							"value": "The verse is composed of a ten-line stanza of five-five-(four-four-five)-three-three-nine-five-four-two syllables per line."
+						},
+						{
+							"key": "History",
+							"value": "The narrator is reflecting on a past relationship."
+						},
+						{
+							"key": "Storyline",
+							"value": "The narrator remembers physical moments from previous relationships, including a partner from Kentucky."
+						},
+						{
+							"key": "Implications",
+							"value": "The narrator is fondly recalling memories from the past."
+						},
+						{
+							"key": "Life choices",
+							"value": "The artist clearly states that he is making choices, such as \"push me up against the wall,\" that will lead to different outcomes in life."
+						},
+						{
+							"key": "Loss and Longing",
+							"value": "Imagining a potential romantic encounter and the longing that goes with it."
+						},
+						{
+							"key": "Intimacy and Connection",
+							"value": "Imagining a passionate romantic encounter."
+						},
+						{
+							"key": "Self-Esteem and Identity",
+							"value": "Projecting an image of himself as strong and successful."
 						}
 					]
-				},
-				"scoregroup": {
-					"attrs": [
-
-					],
-					"scores": [
-
-					],
-					"name": ""
 				}
 			}
 		},
@@ -373,7 +1327,250 @@
 				},
 				"mask": {
 					"attrs": [
-
+						{
+							"g": 0,
+							"i": 7
+						},
+						{
+							"g": 0,
+							"i": 21
+						},
+						{
+							"g": 2,
+							"i": 5
+						},
+						{
+							"g": 3,
+							"i": 2
+						},
+						{
+							"g": 5,
+							"i": 0
+						},
+						{
+							"g": 30,
+							"i": 8
+						},
+						{
+							"g": 31,
+							"i": 4
+						},
+						{
+							"g": 33,
+							"i": 4
+						},
+						{
+							"g": 34,
+							"i": 1
+						},
+						{
+							"g": 35,
+							"i": 5
+						},
+						{
+							"g": 37,
+							"i": 4
+						},
+						{
+							"g": 39,
+							"i": 1
+						},
+						{
+							"g": 40,
+							"i": 0
+						},
+						{
+							"g": 41,
+							"i": 3
+						},
+						{
+							"g": 42,
+							"i": 3
+						},
+						{
+							"g": 43,
+							"i": 1
+						},
+						{
+							"g": 44,
+							"i": 2
+						},
+						{
+							"g": 45,
+							"i": 2
+						},
+						{
+							"g": 46,
+							"i": 1
+						},
+						{
+							"g": 47,
+							"i": 1
+						},
+						{
+							"g": 48,
+							"i": 2
+						},
+						{
+							"g": 49,
+							"i": 2
+						},
+						{
+							"g": 50,
+							"i": 2
+						},
+						{
+							"g": 51,
+							"i": 0
+						},
+						{
+							"g": 52,
+							"i": 1
+						},
+						{
+							"g": 53,
+							"i": 0
+						},
+						{
+							"g": 105,
+							"i": 6
+						},
+						{
+							"g": 105,
+							"i": 7
+						},
+						{
+							"g": 69,
+							"i": 4
+						},
+						{
+							"g": 69,
+							"i": 5
+						},
+						{
+							"g": 93,
+							"i": 6
+						},
+						{
+							"g": 93,
+							"i": 7
+						},
+						{
+							"g": 108,
+							"i": 6
+						},
+						{
+							"g": 108,
+							"i": 7
+						},
+						{
+							"g": 109,
+							"i": 6
+						},
+						{
+							"g": 109,
+							"i": 1
+						},
+						{
+							"g": 110,
+							"i": 4
+						},
+						{
+							"g": 110,
+							"i": 5
+						},
+						{
+							"g": 111,
+							"i": 0
+						},
+						{
+							"g": 112,
+							"i": 1
+						},
+						{
+							"g": 112,
+							"i": 2
+						},
+						{
+							"g": 112,
+							"i": 4
+						},
+						{
+							"g": 113,
+							"i": 0
+						},
+						{
+							"g": 113,
+							"i": 3
+						},
+						{
+							"g": 113,
+							"i": 4
+						},
+						{
+							"g": 114,
+							"i": 0
+						},
+						{
+							"g": 114,
+							"i": 5
+						},
+						{
+							"g": 114,
+							"i": 6
+						},
+						{
+							"g": 115,
+							"i": 4
+						},
+						{
+							"g": 115,
+							"i": 1
+						},
+						{
+							"g": 115,
+							"i": 5
+						},
+						{
+							"g": 116,
+							"i": 6
+						},
+						{
+							"g": 116,
+							"i": 7
+						},
+						{
+							"g": 117,
+							"i": 6
+						},
+						{
+							"g": 117,
+							"i": 7
+						},
+						{
+							"g": 118,
+							"i": 6
+						},
+						{
+							"g": 118,
+							"i": 7
+						},
+						{
+							"g": 119,
+							"i": 5
+						},
+						{
+							"g": 119,
+							"i": 6
+						},
+						{
+							"g": 120,
+							"i": 6
+						},
+						{
+							"g": 120,
+							"i": 7
+						}
 					]
 				},
 				"patternscore": {
@@ -399,23 +1596,50 @@
 				"analysis": {
 					"data": [
 						{
-							"key": "Journey",
-							"value": "The idea of a metaphorical journey, with an unknown goal or destination, is present in the lyrics."
+							"key": "Meaning",
+							"value": "The chorus is repeated to emphasize the feeling of loneliness."
 						},
 						{
-							"key": "Faith",
-							"value": "The need to have faith in the journey, despite the loneliness, is shown in the lyrics."
+							"key": "Literary Devices",
+							"value": "Repetition is used to emphasize the sentiment of loneliness."
+						},
+						{
+							"key": "Emotion",
+							"value": "The narrator is feeling lonely and isolated."
+						},
+						{
+							"key": "References",
+							"value": "The narrator references the birds as a symbol of his loneliness."
+						},
+						{
+							"key": "Structure",
+							"value": "This chorus is composed of an eight-line stanza of five-five-five-five-nine-five-five-five syllables per line."
+						},
+						{
+							"key": "History",
+							"value": "The narrator is expressing his loneliness."
+						},
+						{
+							"key": "Storyline",
+							"value": "The narrator feels longing to share what he sees with the birds, conveying his loneliness."
+						},
+						{
+							"key": "Implications",
+							"value": "The narrator is struggling to cope with his loneliness."
+						},
+						{
+							"key": "Loyalty",
+							"value": "The artist continues to share his life journey with his beloved friends or family members, despite the daunting task of life."
+						},
+						{
+							"key": "Memories",
+							"value": "Reflection of the shared memory of the past"
+						},
+						{
+							"key": "Hope and Optimism",
+							"value": "Possibility of creating a future together, despite the lonely view."
 						}
 					]
-				},
-				"scoregroup": {
-					"attrs": [
-
-					],
-					"scores": [
-
-					],
-					"name": ""
 				}
 			}
 		},
@@ -455,7 +1679,310 @@
 				},
 				"mask": {
 					"attrs": [
-
+						{
+							"g": 0,
+							"i": 12
+						},
+						{
+							"g": 0,
+							"i": 13
+						},
+						{
+							"g": 0,
+							"i": 14
+						},
+						{
+							"g": 0,
+							"i": 26
+						},
+						{
+							"g": 0,
+							"i": 17
+						},
+						{
+							"g": 0,
+							"i": 27
+						},
+						{
+							"g": 1,
+							"i": 1
+						},
+						{
+							"g": 2,
+							"i": 16
+						},
+						{
+							"g": 2,
+							"i": 9
+						},
+						{
+							"g": 3,
+							"i": 7
+						},
+						{
+							"g": 5,
+							"i": 0
+						},
+						{
+							"g": 6,
+							"i": 0
+						},
+						{
+							"g": 30,
+							"i": 10
+						},
+						{
+							"g": 30,
+							"i": 11
+						},
+						{
+							"g": 31,
+							"i": 4
+						},
+						{
+							"g": 33,
+							"i": 4
+						},
+						{
+							"g": 34,
+							"i": 1
+						},
+						{
+							"g": 35,
+							"i": 5
+						},
+						{
+							"g": 37,
+							"i": 4
+						},
+						{
+							"g": 39,
+							"i": 4
+						},
+						{
+							"g": 40,
+							"i": 2
+						},
+						{
+							"g": 41,
+							"i": 3
+						},
+						{
+							"g": 42,
+							"i": 3
+						},
+						{
+							"g": 43,
+							"i": 1
+						},
+						{
+							"g": 44,
+							"i": 2
+						},
+						{
+							"g": 45,
+							"i": 2
+						},
+						{
+							"g": 46,
+							"i": 1
+						},
+						{
+							"g": 47,
+							"i": 1
+						},
+						{
+							"g": 48,
+							"i": 3
+						},
+						{
+							"g": 49,
+							"i": 4
+						},
+						{
+							"g": 49,
+							"i": 5
+						},
+						{
+							"g": 50,
+							"i": 0
+						},
+						{
+							"g": 51,
+							"i": 0
+						},
+						{
+							"g": 52,
+							"i": 2
+						},
+						{
+							"g": 53,
+							"i": 0
+						},
+						{
+							"g": 54,
+							"i": 5
+						},
+						{
+							"g": 55,
+							"i": 3
+						},
+						{
+							"g": 57,
+							"i": 2
+						},
+						{
+							"g": 58,
+							"i": 3
+						},
+						{
+							"g": 23,
+							"i": 4
+						},
+						{
+							"g": 22,
+							"i": 6
+						},
+						{
+							"g": 105,
+							"i": 8
+						},
+						{
+							"g": 105,
+							"i": 9
+						},
+						{
+							"g": 69,
+							"i": 6
+						},
+						{
+							"g": 69,
+							"i": 7
+						},
+						{
+							"g": 93,
+							"i": 8
+						},
+						{
+							"g": 93,
+							"i": 9
+						},
+						{
+							"g": 108,
+							"i": 8
+						},
+						{
+							"g": 108,
+							"i": 9
+						},
+						{
+							"g": 109,
+							"i": 7
+						},
+						{
+							"g": 109,
+							"i": 8
+						},
+						{
+							"g": 110,
+							"i": 6
+						},
+						{
+							"g": 110,
+							"i": 7
+						},
+						{
+							"g": 111,
+							"i": 0
+						},
+						{
+							"g": 112,
+							"i": 0
+						},
+						{
+							"g": 112,
+							"i": 1
+						},
+						{
+							"g": 112,
+							"i": 3
+						},
+						{
+							"g": 113,
+							"i": 0
+						},
+						{
+							"g": 113,
+							"i": 1
+						},
+						{
+							"g": 113,
+							"i": 2
+						},
+						{
+							"g": 114,
+							"i": 0
+						},
+						{
+							"g": 114,
+							"i": 1
+						},
+						{
+							"g": 114,
+							"i": 2
+						},
+						{
+							"g": 115,
+							"i": 0
+						},
+						{
+							"g": 115,
+							"i": 1
+						},
+						{
+							"g": 115,
+							"i": 2
+						},
+						{
+							"g": 116,
+							"i": 8
+						},
+						{
+							"g": 116,
+							"i": 2
+						},
+						{
+							"g": 117,
+							"i": 8
+						},
+						{
+							"g": 117,
+							"i": 5
+						},
+						{
+							"g": 118,
+							"i": 8
+						},
+						{
+							"g": 118,
+							"i": 9
+						},
+						{
+							"g": 119,
+							"i": 7
+						},
+						{
+							"g": 119,
+							"i": 8
+						},
+						{
+							"g": 120,
+							"i": 8
+						},
+						{
+							"g": 120,
+							"i": 9
+						}
 					]
 				},
 				"patternscore": {
@@ -481,23 +2008,54 @@
 				"analysis": {
 					"data": [
 						{
-							"key": "Loss",
-							"value": "The lyrics express a sense of loss at leaving a familiar place and knowing that there is an uncertain future ahead."
+							"key": "Meaning",
+							"value": "The narrator is describing a particular memory that leaves him feeling melancholic. He expresses his wish to be able to ‘wave goodbye’ to his past."
 						},
 						{
-							"key": "Finding Purpose",
-							"value": "The idea of having a purpose in life and a mission to pursue is present in the lyrics."
+							"key": "Literary Devices",
+							"value": "Repetition of the phrase ‘wave goodbye’ is used to emphasize the sentiment of the phrase."
+						},
+						{
+							"key": "Emotion",
+							"value": "The narrator is feeling nostalgic and melancholic."
+						},
+						{
+							"key": "References",
+							"value": "The narrator references blood, a bathroom stall, a Southerner, and scarlet drawl, and waving goodbye."
+						},
+						{
+							"key": "Structure",
+							"value": "The verse is composed of an eleven-line stanza of five-five-three-five-five-four-five-three-two-five-two syllables per line."
+						},
+						{
+							"key": "History",
+							"value": "The narrator is recalling a past memory."
+						},
+						{
+							"key": "Storyline",
+							"value": "The narrator is reminiscing about a particular moment and expressing his wish to be able to wave goodbye to his past."
+						},
+						{
+							"key": "Implications",
+							"value": "The narrator is struggling to move on from a particular moment that he struggles to let go of."
+						},
+						{
+							"key": "Faith",
+							"value": "The artist has faith that he can make it through life despite the obstacles he faces and is willing to take risks, such as \"blood loss in a bathroom stall,\" to get to the other side."
+						},
+						{
+							"key": "Loss and Longing",
+							"value": "Goodbye to the past, and the experiences that come with it."
+						},
+						{
+							"key": "Memories",
+							"value": "Reflection of the shared memory of the past"
+						},
+						{
+							"key": "Self-Esteem and Identity",
+							"value": "Lingering sense of confidence to move forward despite the odds."
 						}
 					]
-				},
-				"scoregroup": {
-					"attrs": [
-
-					],
-					"scores": [
-
-					],
-					"name": ""
 				}
 			}
 		},
@@ -556,7 +2114,318 @@
 				},
 				"mask": {
 					"attrs": [
-
+						{
+							"g": 0,
+							"i": 0
+						},
+						{
+							"g": 0,
+							"i": 2
+						},
+						{
+							"g": 1,
+							"i": 0
+						},
+						{
+							"g": 2,
+							"i": 17
+						},
+						{
+							"g": 2,
+							"i": 18
+						},
+						{
+							"g": 2,
+							"i": 9
+						},
+						{
+							"g": 2,
+							"i": 19
+						},
+						{
+							"g": 2,
+							"i": 2
+						},
+						{
+							"g": 3,
+							"i": 0
+						},
+						{
+							"g": 3,
+							"i": 8
+						},
+						{
+							"g": 4,
+							"i": 2
+						},
+						{
+							"g": 5,
+							"i": 0
+						},
+						{
+							"g": 6,
+							"i": 2
+						},
+						{
+							"g": 6,
+							"i": 0
+						},
+						{
+							"g": 30,
+							"i": 12
+						},
+						{
+							"g": 30,
+							"i": 13
+						},
+						{
+							"g": 30,
+							"i": 14
+						},
+						{
+							"g": 31,
+							"i": 4
+						},
+						{
+							"g": 33,
+							"i": 4
+						},
+						{
+							"g": 34,
+							"i": 1
+						},
+						{
+							"g": 35,
+							"i": 7
+						},
+						{
+							"g": 37,
+							"i": 6
+						},
+						{
+							"g": 39,
+							"i": 1
+						},
+						{
+							"g": 40,
+							"i": 0
+						},
+						{
+							"g": 41,
+							"i": 5
+						},
+						{
+							"g": 42,
+							"i": 4
+						},
+						{
+							"g": 43,
+							"i": 2
+						},
+						{
+							"g": 44,
+							"i": 2
+						},
+						{
+							"g": 45,
+							"i": 3
+						},
+						{
+							"g": 46,
+							"i": 1
+						},
+						{
+							"g": 47,
+							"i": 1
+						},
+						{
+							"g": 48,
+							"i": 4
+						},
+						{
+							"g": 49,
+							"i": 6
+						},
+						{
+							"g": 50,
+							"i": 4
+						},
+						{
+							"g": 51,
+							"i": 0
+						},
+						{
+							"g": 52,
+							"i": 3
+						},
+						{
+							"g": 53,
+							"i": 0
+						},
+						{
+							"g": 54,
+							"i": 6
+						},
+						{
+							"g": 55,
+							"i": 4
+						},
+						{
+							"g": 57,
+							"i": 3
+						},
+						{
+							"g": 58,
+							"i": 4
+						},
+						{
+							"g": 23,
+							"i": 5
+						},
+						{
+							"g": 22,
+							"i": 7
+						},
+						{
+							"g": 105,
+							"i": 10
+						},
+						{
+							"g": 105,
+							"i": 11
+						},
+						{
+							"g": 69,
+							"i": 8
+						},
+						{
+							"g": 69,
+							"i": 9
+						},
+						{
+							"g": 93,
+							"i": 10
+						},
+						{
+							"g": 93,
+							"i": 11
+						},
+						{
+							"g": 108,
+							"i": 10
+						},
+						{
+							"g": 108,
+							"i": 11
+						},
+						{
+							"g": 109,
+							"i": 9
+						},
+						{
+							"g": 109,
+							"i": 10
+						},
+						{
+							"g": 110,
+							"i": 8
+						},
+						{
+							"g": 110,
+							"i": 0
+						},
+						{
+							"g": 111,
+							"i": 1
+						},
+						{
+							"g": 112,
+							"i": 0
+						},
+						{
+							"g": 112,
+							"i": 1
+						},
+						{
+							"g": 112,
+							"i": 2
+						},
+						{
+							"g": 113,
+							"i": 0
+						},
+						{
+							"g": 113,
+							"i": 3
+						},
+						{
+							"g": 113,
+							"i": 4
+						},
+						{
+							"g": 114,
+							"i": 0
+						},
+						{
+							"g": 114,
+							"i": 3
+						},
+						{
+							"g": 114,
+							"i": 4
+						},
+						{
+							"g": 115,
+							"i": 0
+						},
+						{
+							"g": 115,
+							"i": 1
+						},
+						{
+							"g": 115,
+							"i": 3
+						},
+						{
+							"g": 116,
+							"i": 9
+						},
+						{
+							"g": 116,
+							"i": 10
+						},
+						{
+							"g": 117,
+							"i": 9
+						},
+						{
+							"g": 117,
+							"i": 10
+						},
+						{
+							"g": 118,
+							"i": 10
+						},
+						{
+							"g": 118,
+							"i": 11
+						},
+						{
+							"g": 119,
+							"i": 9
+						},
+						{
+							"g": 119,
+							"i": 10
+						},
+						{
+							"g": 120,
+							"i": 10
+						},
+						{
+							"g": 120,
+							"i": 11
+						}
 					]
 				},
 				"patternscore": {
@@ -582,19 +2451,54 @@
 				"analysis": {
 					"data": [
 						{
-							"key": "Overcoming Adversity",
-							"value": "The lyrics express the idea of struggling and finding strength in the face of adversity by continuing to strive for one's goals."
+							"key": "Meaning",
+							"value": "The narrator is expressing his determination and strength, despite his broken jaw and feeling of loneliness. He conveys his perseverance and will to make it to the moon, despite his current state."
+						},
+						{
+							"key": "Literary Devices",
+							"value": "The phrase ‘moon if I have to crawl’ is used to emphasize the narrator’s strength and determination."
+						},
+						{
+							"key": "Emotion",
+							"value": "The narrator is feeling determined and hopeful."
+						},
+						{
+							"key": "References",
+							"value": "The narrator references his broken jaw and will to make it to the moon."
+						},
+						{
+							"key": "Structure",
+							"value": "The verse is composed of an eight-line stanza of four-four-nine-five-five-five-four-two syllables per line."
+						},
+						{
+							"key": "History",
+							"value": "The narrator has recently experienced a different emotional state than the one expressed in the previous verses."
+						},
+						{
+							"key": "Storyline",
+							"value": "The narrator is conveying his determination and willingness to continue forward, despite the hardships he has faced."
+						},
+						{
+							"key": "Implications",
+							"value": "The narrator is demonstrating the strength of his will and determination to continue on despite his hardships."
+						},
+						{
+							"key": "Love",
+							"value": "Despite the difficulties the artist has faced, he still loves someone enough to brave the dangers of life and commit to continuing forward. Even in difficult times, the love shared between two people is a powerful and resilient force."
+						},
+						{
+							"key": "Hard Work and Resilience",
+							"value": "Overcoming pain and obstacles to realize dreams."
+						},
+						{
+							"key": "Courage and Resilience",
+							"value": "Courage to make changes and take risks."
+						},
+						{
+							"key": "Impermanence and Interconnectedness",
+							"value": "Understanding that everything passes and will eventually lead to a larger purpose."
 						}
 					]
-				},
-				"scoregroup": {
-					"attrs": [
-
-					],
-					"scores": [
-
-					],
-					"name": ""
 				}
 			}
 		}

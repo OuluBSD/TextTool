@@ -1,0 +1,28 @@
+﻿ Hand motions: Clasping, Pointing 
+- Facial expressions: Disbelief, Shock
+- Body language: Protective Posture, Squared shoulders
+
+chorus1:
+- Hand motions: Closing fists, Throwing arms out
+- Facial expressions: Resolve, Passion
+- Body language: Posture, Taking up Space
+
+verse2:
+- Hand motions: Pulling, Emphatic Gestures
+- Facial expression: Smirking, Allure
+- Body language: Swaying, Bending 
+
+chorus2:
+- Hand motions: Moving in a Wave, Raising Hands
+- Facial expressions: Joy, Ecstasy 
+- Body language: Moving Rhythmically, Arm swinging 
+
+verse3:
+- Hand motions: Waving, Holding up Palms 
+- Facial expressions: Resentful, Sorrowful
+- Body language: Hunching Shoulders, Dragging Feet 
+
+verse4:
+- Hand motions: Clenching, Poising Thumbs 
+- Facial expressions: Determination, Longing 
+- Body language: Long strides, ProlongedStares

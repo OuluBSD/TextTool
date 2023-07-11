@@ -69,7 +69,17 @@
 					"Stall",
 					"Southern girl",
 					"Scarlet",
-					"Drawl"
+					"Drawl",
+					"Scar tissue",
+					"Eyes",
+					"Sarcastic mister",
+					"View",
+					"Kentucky",
+					"Heart",
+					"Taste",
+					"Health",
+					"Southern",
+					"Pa"
 				]
 			},
 			{
@@ -105,7 +115,17 @@
 					"Fallin'",
 					"Lick",
 					"Taste",
-					"Wave"
+					"Wave",
+					"Wish",
+					"Know",
+					"Close",
+					"See",
+					"Push",
+					"Fall",
+					"Loss",
+					"Speak",
+					"Step",
+					"Make"
 				]
 			},
 			{
@@ -121,7 +141,11 @@
 					"Autumn's sweet",
 					"Lonely",
 					"Health",
-					"None"
+					"None",
+					"Sarcastic",
+					"Young",
+					"Scarlet",
+					"Broken"
 				]
 			},
 			{
@@ -133,7 +157,9 @@
 					"blue": 202
 				},
 				"values": [
-
+					"Closely",
+					"Over",
+					"Outside"
 				]
 			},
 			{
@@ -145,7 +171,8 @@
 					"blue": 111
 				},
 				"values": [
-					"With"
+					"With",
+					"Against"
 				]
 			},
 			{
@@ -157,7 +184,9 @@
 					"blue": 176
 				},
 				"values": [
-
+					"'cause",
+					"Cause",
+					"But"
 				]
 			},
 			{
@@ -169,7 +198,8 @@
 					"blue": 251
 				},
 				"values": [
-
+					"-",
+					"None"
 				]
 			},
 			{
@@ -181,7 +211,11 @@
 					"blue": 4
 				},
 				"values": [
-					"Verb-subject-object"
+					"Verb-subject-object",
+					"3rd person singular",
+					"Subject",
+					"Verb",
+					"Object"
 				]
 			},
 			{
@@ -193,7 +227,9 @@
 					"blue": 32
 				},
 				"values": [
-
+					"Modals",
+					"Participles",
+					"None"
 				]
 			},
 			{
@@ -205,7 +241,9 @@
 					"blue": 143
 				},
 				"values": [
-
+					"Desire",
+					"Obligation",
+					"Meaning of words used"
 				]
 			},
 			{
@@ -217,7 +255,10 @@
 					"blue": 208
 				},
 				"values": [
-
+					"Affection",
+					"Care",
+					"Tone",
+					"Mood"
 				]
 			},
 			{
@@ -229,7 +270,9 @@
 					"blue": 29
 				},
 				"values": [
-
+					"Contrast",
+					"Repetition",
+					"Narrative form"
 				]
 			},
 			{
@@ -241,7 +284,8 @@
 					"blue": 214
 				},
 				"values": [
-
+					"Metaphor",
+					"Sarcastic"
 				]
 			},
 			{
@@ -253,7 +297,7 @@
 					"blue": 235
 				},
 				"values": [
-
+					"Scar tissue that i wish you saw"
 				]
 			},
 			{
@@ -265,7 +309,7 @@
 					"blue": 116
 				},
 				"values": [
-
+					"Blood loss in a bathroom stall"
 				]
 			},
 			{
@@ -277,7 +321,9 @@
 					"blue": 133
 				},
 				"values": [
-
+					"Soft spoken with a broken jaw",
+					"Scar tissue",
+					"Wish you saw"
 				]
 			},
 			{
@@ -289,7 +335,7 @@
 					"blue": 95
 				},
 				"values": [
-
+					"Sarcastic mister know-it-all"
 				]
 			},
 			{
@@ -301,7 +347,7 @@
 					"blue": 119
 				},
 				"values": [
-
+					"Young kentucky girl in a push-up bra"
 				]
 			},
 			{
@@ -313,7 +359,8 @@
 					"blue": 121
 				},
 				"values": [
-
+					"Fallin' all over myself to lick your heart and taste your health",
+					"Sarcastic mister know it all"
 				]
 			},
 			{
@@ -325,7 +372,7 @@
 					"blue": 93
 				},
 				"values": [
-
+					"Wave goodbye to ma and pa"
 				]
 			},
 			{
@@ -337,7 +384,8 @@
 					"blue": 165
 				},
 				"values": [
-
+					"Push me up against the wall",
+					"Close your eyes and i'll kiss you"
 				]
 			},
 			{
@@ -349,7 +397,14 @@
 					"blue": 120
 				},
 				"values": [
-
+					"Autumn's sweet",
+					"We call it fall",
+					"With the birds i'll share",
+					"Sarcastic mister",
+					"Falling all over myself",
+					"None",
+					"Scarlet drawl",
+					"Soft spoken"
 				]
 			},
 			{
@@ -361,7 +416,12 @@
 					"blue": 77
 				},
 				"values": [
-
+					"I'll make it to the moon if i have to crawl",
+					"Scar tissue",
+					"Lick your heart",
+					"None",
+					"Wave goodbye",
+					"Make it to the moon"
 				]
 			},
 			{
@@ -373,7 +433,7 @@
 					"blue": 121
 				},
 				"values": [
-
+					"Close your eyes and i'll kiss you"
 				]
 			},
 			{
@@ -385,7 +445,7 @@
 					"blue": 209
 				},
 				"values": [
-
+					"I'll make it to the moon if i have to crawl"
 				]
 			},
 			{
@@ -397,7 +457,7 @@
 					"blue": 249
 				},
 				"values": [
-
+					"Push me up against the wall"
 				]
 			},
 			{
@@ -409,7 +469,7 @@
 					"blue": 24
 				},
 				"values": [
-
+					"Scar tissue that i wish you saw"
 				]
 			},
 			{
@@ -421,7 +481,7 @@
 					"blue": 181
 				},
 				"values": [
-
+					"Sarcastic mister know-it-all"
 				]
 			},
 			{
@@ -433,7 +493,8 @@
 					"blue": 53
 				},
 				"values": [
-
+					"Blood loss in a bathroom stall.",
+					"I'll make it to the moon if i have to crawl"
 				]
 			},
 			{
@@ -445,7 +506,21 @@
 					"blue": 49
 				},
 				"values": [
-
+					"Scar tissue that i wish you saw",
+					"Sarcastic mister know-it-all.",
+					"N/a",
+					"Push me up against the wall.",
+					"Blood loss in a bathroom stall.",
+					"Soft spoken with a broken jaw.",
+					"Scar tissue",
+					"Sarcastic mister know-it-all",
+					"None",
+					"Young kentucky girl in a push-up bra",
+					"Blood loss in a bathroom stall",
+					"A southern girl with a scarlet drawl",
+					"Soft spoken with a broken jaw",
+					"Step outside",
+					"But not to brawl"
 				]
 			},
 			{
@@ -457,7 +532,11 @@
 					"blue": 145
 				},
 				"values": [
-
+					"Close your eyes and i'll kiss you.",
+					"N/a",
+					"Wave goodbye to ma and pa.",
+					"Close your eyes and i'll kiss you",
+					"None"
 				]
 			},
 			{
@@ -481,7 +560,11 @@
 					"blue": 65
 				},
 				"values": [
-
+					"Kissing.",
+					"N/a",
+					"Waving goodbye.",
+					"Kissing",
+					"None"
 				]
 			},
 			{
@@ -493,7 +576,8 @@
 					"blue": 36
 				},
 				"values": [
-
+					"N/a",
+					"None"
 				]
 			},
 			{
@@ -505,7 +589,14 @@
 					"blue": 148
 				},
 				"values": [
-
+					"N/a",
+					"Sharing a lonely view.",
+					"Lick your heart and taste your health.",
+					"Sharing this lonely view.",
+					"Make it to the moon if i have to crawl.",
+					"None",
+					"Fallin' all over myself to lick your heart and taste your health",
+					"Making it to the moon if i have to crawl"
 				]
 			},
 			{
@@ -529,7 +620,13 @@
 					"blue": 20
 				},
 				"values": [
-
+					"N/a",
+					"Sharing a view.",
+					"Licking and tasting.",
+					"Crawing.",
+					"None",
+					"Licking heart and tasting health",
+					"Crawling"
 				]
 			},
 			{
@@ -553,7 +650,11 @@
 					"blue": 87
 				},
 				"values": [
-
+					"Kissing",
+					"None",
+					"Licking heart",
+					"Tasting health",
+					"Wave goodbye"
 				]
 			},
 			{
@@ -565,7 +666,9 @@
 					"blue": 135
 				},
 				"values": [
-
+					"None",
+					"Young kentucky girl",
+					"Ma and pa"
 				]
 			},
 			{
@@ -577,7 +680,12 @@
 					"blue": 130
 				},
 				"values": [
-
+					"N/a",
+					"Young kentucky girl in a push-up bra.",
+					"Southern girl with a scarlet drawl (way to speak).",
+					"None",
+					"Push-up bra",
+					"Broken jaw"
 				]
 			},
 			{
@@ -589,7 +697,11 @@
 					"blue": 127
 				},
 				"values": [
-
+					"Sarcastic",
+					"N/a",
+					"Serious",
+					"None",
+					"Soft spoken"
 				]
 			},
 			{
@@ -601,7 +713,9 @@
 					"blue": 185
 				},
 				"values": [
-
+					"N/a",
+					"None",
+					"Autumn's sweet"
 				]
 			},
 			{
@@ -613,7 +727,9 @@
 					"blue": 15
 				},
 				"values": [
-
+					"Mister know-it-all",
+					"N/a",
+					"None"
 				]
 			},
 			{
@@ -625,7 +741,10 @@
 					"blue": 82
 				},
 				"values": [
-
+					"N/a",
+					"Reaching the moon.",
+					"None",
+					"Making it to the moon"
 				]
 			},
 			{
@@ -637,7 +756,8 @@
 					"blue": 220
 				},
 				"values": [
-
+					"N/a",
+					"None"
 				]
 			},
 			{
@@ -649,7 +769,8 @@
 					"blue": 171
 				},
 				"values": [
-
+					"N/a",
+					"None"
 				]
 			},
 			{
@@ -661,7 +782,11 @@
 					"blue": 171
 				},
 				"values": [
-
+					"Park",
+					"City street",
+					"None",
+					"Home",
+					"Any"
 				]
 			},
 			{
@@ -673,7 +798,13 @@
 					"blue": 215
 				},
 				"values": [
-
+					"Public",
+					"City",
+					"Open space",
+					"Private",
+					"Rural",
+					"Countryside",
+					"Any"
 				]
 			},
 			{
@@ -685,7 +816,11 @@
 					"blue": 9
 				},
 				"values": [
-
+					"Outside",
+					"Open space",
+					"Open sky",
+					"Inside",
+					"Any"
 				]
 			},
 			{
@@ -697,7 +832,7 @@
 					"blue": 108
 				},
 				"values": [
-
+					"Any"
 				]
 			},
 			{
@@ -709,7 +844,10 @@
 					"blue": 100
 				},
 				"values": [
-
+					"Evening",
+					"Day",
+					"Morning",
+					"Night"
 				]
 			},
 			{
@@ -721,7 +859,7 @@
 					"blue": 248
 				},
 				"values": [
-
+					"Current"
 				]
 			},
 			{
@@ -733,7 +871,13 @@
 					"blue": 22
 				},
 				"values": [
-
+					"Scar tissue",
+					"Sarcasm",
+					"Kissing",
+					"Wall",
+					"Sharing",
+					"Bathroom stall",
+					"Broken jaw"
 				]
 			},
 			{
@@ -745,7 +889,11 @@
 					"blue": 82
 				},
 				"values": [
-
+					"Close eyes",
+					"Push-up bra",
+					"Bird's view",
+					"Southern girl",
+					"Outside"
 				]
 			},
 			{
@@ -769,7 +917,10 @@
 					"blue": 238
 				},
 				"values": [
-
+					"Birds",
+					"Heart",
+					"Scarlet drawl",
+					"Moon"
 				]
 			},
 			{
@@ -781,7 +932,11 @@
 					"blue": 44
 				},
 				"values": [
-
+					"Lonely view",
+					"Taste of health",
+					"Lonely viewin'",
+					"Goodbye to ma and pa",
+					"Autumn's sweet"
 				]
 			},
 			{
@@ -913,7 +1068,16 @@
 					"blue": 37
 				},
 				"values": [
-
+					"Disbelief",
+					"Shock",
+					"Resolve",
+					"Passion",
+					"Joy",
+					"Ecstasy",
+					"Resentful",
+					"Sorrowful",
+					"Determination",
+					"Longing"
 				]
 			},
 			{
@@ -1201,7 +1365,18 @@
 					"blue": 88
 				},
 				"values": [
-
+					"Protective posture",
+					"Squared shoulders",
+					"Posture",
+					"Taking up space",
+					"Swaying",
+					"Bending",
+					"Moving rhythmically",
+					"Arm swinging",
+					"Hunching shoulders",
+					"Dragging feet",
+					"Long strides",
+					"Prolongedstares"
 				]
 			},
 			{
@@ -1345,7 +1520,18 @@
 					"blue": 48
 				},
 				"values": [
-
+					"Clasping",
+					"Pointing",
+					"Closing fists",
+					"Throwing arms out",
+					"Pulling",
+					"Emphatic gestures",
+					"Moving in a wave",
+					"Raising hands",
+					"Waving",
+					"Holding up palms",
+					"Clenching",
+					"Poising thumbs"
 				]
 			},
 			{
@@ -1381,7 +1567,18 @@
 					"blue": 223
 				},
 				"values": [
-
+					"Serious",
+					"Nostalgic",
+					"Striking",
+					"Emotional",
+					"Wild",
+					"Daring",
+					"Relaxed",
+					"Mesmerizing",
+					"Refined",
+					"Regal",
+					"Determined",
+					"Unwavering"
 				]
 			},
 			{
@@ -1393,7 +1590,17 @@
 					"blue": 78
 				},
 				"values": [
-
+					"Casual",
+					"Comfortable",
+					"Striking",
+					"Emotional",
+					"Sexy",
+					"Bold",
+					"Relaxed",
+					"Elegant",
+					"Formal",
+					"Rugged",
+					"Determined"
 				]
 			},
 			{
@@ -1405,7 +1612,15 @@
 					"blue": 107
 				},
 				"values": [
-
+					"Simple",
+					"Eye-catching",
+					"Sparkly",
+					"Unique",
+					"Earthy",
+					"Natural",
+					"Delicate",
+					"Ornamental",
+					"Rough"
 				]
 			},
 			{
@@ -1417,7 +1632,8 @@
 					"blue": 41
 				},
 				"values": [
-
+					"None",
+					"Telescope or other celestial objects"
 				]
 			},
 			{
@@ -1429,7 +1645,11 @@
 					"blue": 160
 				},
 				"values": [
-
+					"Fade in/out",
+					"Wipe",
+					"Split/swipe",
+					"Push/pull",
+					"Star-shaped wipe"
 				]
 			},
 			{
@@ -1441,7 +1661,11 @@
 					"blue": 99
 				},
 				"values": [
-
+					"Dissolve",
+					"Drop shadow",
+					"Lens flare",
+					"Color enhancement",
+					"Cross-fade"
 				]
 			},
 			{
@@ -1453,7 +1677,13 @@
 					"blue": 117
 				},
 				"values": [
-
+					"Cutaways",
+					"Opposition ramps",
+					"Picture in picture",
+					"Reverse order",
+					"Lens flare",
+					"Double exposure",
+					"Background transition"
 				]
 			},
 			{
@@ -1465,7 +1695,12 @@
 					"blue": 1
 				},
 				"values": [
-
+					"Motion blur",
+					"Color correction",
+					"Screen flicker",
+					"Grain",
+					"Audio fade",
+					"Shake"
 				]
 			},
 			{
@@ -1477,7 +1712,17 @@
 					"blue": 178
 				},
 				"values": [
-
+					"Realistic",
+					"Naturalistic",
+					"Majestic",
+					"Calm",
+					"Serene",
+					"Gentle",
+					"Peaceful",
+					"Pure",
+					"Jovial",
+					"Comforting",
+					"Honest"
 				]
 			},
 			{
@@ -1489,7 +1734,17 @@
 					"blue": 6
 				},
 				"values": [
-
+					"Poetic",
+					"Expressive",
+					"Audacious",
+					"Energizing",
+					"Rebellious",
+					"Daring",
+					"Exciting",
+					"Liberating",
+					"Bold",
+					"Thought-provoking",
+					"Stimulating"
 				]
 			},
 			{
@@ -1501,7 +1756,18 @@
 					"blue": 207
 				},
 				"values": [
-
+					"Dark",
+					"Melancholy",
+					"Transcendent",
+					"Inspiring",
+					"Heavy",
+					"Desolate",
+					"Empowering",
+					"Uplifting",
+					"Mismatched",
+					"Resilient",
+					"Lone",
+					"Intimate"
 				]
 			},
 			{
@@ -1513,7 +1779,17 @@
 					"blue": 30
 				},
 				"values": [
-
+					"Soft",
+					"Dreamy",
+					"Reflected",
+					"Mystical",
+					"Melodic",
+					"Radiant",
+					"Breathable",
+					"Moody",
+					"Serene",
+					"Mysterious",
+					"Entrancing"
 				]
 			},
 			{
@@ -1525,7 +1801,31 @@
 					"blue": 107
 				},
 				"values": [
-
+					"Moody",
+					"Ethereal",
+					"Passionate",
+					"Saturated",
+					"Intense",
+					"Noble",
+					"Joyous",
+					"Vivid",
+					"Subtle",
+					"Hypnotic",
+					"Provocative",
+					"Alive"
+				]
+			},
+			{
+				"description": "Facial expression",
+				"type": "",
+				"color": {
+					"red": 56,
+					"green": 174,
+					"blue": 79
+				},
+				"values": [
+					"Smirking",
+					"Allure"
 				]
 			}
 		],
@@ -1533,7 +1833,86 @@
 
 		],
 		"scorings": [
-
+			{
+				"class": "Mood",
+				"axes0": "joyful",
+				"axes1": "melancholic"
+			},
+			{
+				"class": "Mood",
+				"axes0": "playful",
+				"axes1": "serious"
+			},
+			{
+				"class": "Mood",
+				"axes0": "uplifting",
+				"axes1": "heavy"
+			},
+			{
+				"class": "Mood",
+				"axes0": "lighthearted",
+				"axes1": "somber"
+			},
+			{
+				"class": "Mood",
+				"axes0": "humorous",
+				"axes1": "dramatic"
+			},
+			{
+				"class": "Social",
+				"axes0": "authoritarian",
+				"axes1": "liberatrian"
+			},
+			{
+				"class": "Economic",
+				"axes0": "liberal",
+				"axes1": "conservative"
+			},
+			{
+				"class": "Culture",
+				"axes0": "individualism",
+				"axes1": "collective"
+			},
+			{
+				"class": "Human strength",
+				"axes0": "strong",
+				"axes1": "weak"
+			},
+			{
+				"class": "Motivation",
+				"axes0": "rewarding",
+				"axes1": "punishing"
+			},
+			{
+				"class": "Sexualization",
+				"axes0": "sexual",
+				"axes1": "non-sexual"
+			},
+			{
+				"class": "Attitude",
+				"axes0": "hopeful",
+				"axes1": "despair"
+			},
+			{
+				"class": "Attitude",
+				"axes0": "optimistic",
+				"axes1": "pessimistic"
+			},
+			{
+				"class": "Attitude",
+				"axes0": "open",
+				"axes1": "closed"
+			},
+			{
+				"class": "Beliefs",
+				"axes0": "spiritual",
+				"axes1": "secular"
+			},
+			{
+				"class": "Expectations",
+				"axes0": "perfection",
+				"axes1": "acceptance"
+			}
 		],
 		"analysis": [
 			{

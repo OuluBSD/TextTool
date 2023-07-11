@@ -1,0 +1,58 @@
+﻿ Transitions: Fade in/out
+- Fades: Dissolve
+- Splices: Opposition ramps
+- Effects: Motion blur
+
+Line 2, "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
+- Transitions: Wipe
+- Fades: Drop shadow
+- Splices: Cutaways
+- Effects: Color correction
+
+Line 3, "With the birds I'll share this lonely viewin'"
+- Transitions: Split/swipe
+- Fades: Lens flare
+- Splices: Picture in picture
+- Effects: Screen flicker
+
+Line 4, "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
+- Transitions: Push/pull
+- Fades: Color enhancement
+- Splices: Reverse order
+- Effects: Grain
+
+Line 5, "Fallin' all over myself to lick your heart and taste your health ('cause)"
+- Transitions: Star-shaped wipe
+- Fades: Cross-fade
+- Splices: Lens flare
+- Effects: Audio fade
+
+Line 6, "With the birds I'll share this lonely view"
+- Transitions: Push/pull
+- Fades: Color enhancement
+- Splices: Double exposure
+- Effects: Shake
+
+Line 7, "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
+- Transitions: Wipe
+- Fades: Drop shadow
+- Splices: Background transition
+- Effects: Color correction
+
+Line 8, "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
+- Transitions: Star-shaped wipe
+- Fades: Cross-fade
+- Splices: Lens flare
+- Effects: Audio fade
+
+Line 9, "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
+- Transitions: Push/pull
+- Fades: Color enhancement
+- Splices: Reverse order
+- Effects: Grain
+
+Line 10, "And autumn's sweet, we call it fall. I'll make it to the moon if I have to crawl (and)"
+- Transitions: Fade in/out
+- Fades: Dissolve
+- Splices: Opposition ramps
+- Effects: Motion blur

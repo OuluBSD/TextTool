@@ -6,6 +6,9 @@ class AI_Tasks : public Ctrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl list;
 	DocEdit input, output;
+	ProgressIndicator prog;
+	Label lbl;
+	int data_cursor = -1;
 	
 public:
 	typedef AI_Tasks CLASSNAME;
@@ -15,6 +18,7 @@ public:
 	void DataTask();
 	void ValueChange();
 	void ProcessItem();
+	void RetryItem();
 	void OutputMenu(Bar& bar);
 	
 };

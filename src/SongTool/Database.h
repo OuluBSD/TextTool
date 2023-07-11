@@ -5,6 +5,7 @@
 struct Database {
 	Array<Artist>	artists;
 	Attributes		attrs;
+	AttrScore		attrscores;
 	
 	Artist*			active_artist = 0;
 	Release*		active_release = 0;
@@ -12,6 +13,7 @@ struct Database {
 	Part*			active_part = 0;
 	PatternSnap*	active_snap = 0;
 	PartScore*		active_partscore = 0;
+	AttrScoreGroup*	active_scoregroup = 0;
 	
 	String			dir;
 	
@@ -27,6 +29,7 @@ struct Database {
 			Vector<String> names;
 			for (Artist& a : artists) {a.Store(); names.Add(a.file_title);}
 			json("artists", names);
+			attrscores.Store();
 		}
 		if (json.IsLoading()) {
 			Vector<String> names;
@@ -34,6 +37,7 @@ struct Database {
 			for (String n : names) artists.Add().LoadTitle(n);
 			Sort(artists, Artist());
 			//FindOrphaned();
+			attrscores.Load();
 		}
 	}
 	String GetArtistsDir() const;
@@ -43,6 +47,7 @@ struct Database {
 	int GetActiveReleaseIndex() const {if (!active_artist) return -1; return VectorFindPtr(active_release, active_artist->releases);}
 	int GetActiveSongIndex() const {if (!active_release) return -1; return VectorFindPtr(active_song, active_release->songs);}
 	int GetActivePartIndex() const {if (!active_song) return -1; return VectorFindPtr(active_part, active_song->parts);}
+	int GetActiveScoreGroupIndex() const {return VectorFindPtr(active_scoregroup, attrscores.groups);}
 	
 	static Database& Single() {static Database db; return db;}
 	

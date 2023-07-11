@@ -1,0 +1,88 @@
+﻿ Nouns: Scar, Sarcastic, Eyes
+- Pronouns: You
+- Verbs: Saw, Kiss, Share
+- Adjectives: Lonely
+- Adverbs: Closely 
+- Prepositions: Against, With
+- Conjunctions: 'Cause
+- Interjections: 
+- Syntax: 
+- Morphology: 
+- Semantics: 
+- Pragmatics: 
+- Discourse: 
+
+Chorus1: 
+- Nouns: Birds, View
+- Pronouns: 
+- Verbs: Share
+- Adjectives: Lonely
+- Adverbs: 
+- Prepositions: With
+- Conjunctions: 
+- Interjections: 
+- Syntax: 
+- Morphology: 
+- Semantics:
+- Pragmatics: 
+- Discourse: 
+
+verse2:
+- Nouns: Wall, Kentucky, Heart, Taste, Health
+- Pronouns: You
+- Verbs: Push, Fall, Lick
+- Adjectives: Young
+- Adverbs: Over, 
+- Prepositions: Against, With
+- Conjunctions: 'Cause
+- Interjections: 
+- Syntax: 
+- Morphology: 
+- Semantics: 
+- Pragmatics: 
+- Discourse: 
+
+Chorus2: 
+- Nouns: Birds, View
+- Pronouns: 
+- Verbs: Share
+- Adjectives: Lonely
+- Adverbs: 
+- Prepositions: With
+- Conjunctions: 
+- Interjections: 
+- Syntax: 
+- Morphology: 
+- Semantics:
+- Pragmatics: 
+- Discourse: 
+
+verse3:
+- Nouns: Blood, Bathroom, Stall, Southern, Drawl, Pa
+- Pronouns: You
+- Verbs: Loss, Wave
+- Adjectives: Scarlet
+- Adverbs: 
+- Prepositions: With
+- Conjunctions: 'Cause
+- Interjections: 
+- Syntax: 
+- Morphology: 
+- Semantics: 
+- Pragmatics: 
+- Discourse: 
+
+verse4:
+- Nouns: Jaw, Moon
+- Pronouns: I
+- Verbs: Speak, Step, Wave, Make, Crawl
+- Adjectives: Soft, Broken
+- Adverbs: Outside
+- Prepositions: With
+- Conjunctions: But, 'Cause
+- Interjections: 
+- Syntax: 
+- Morphology: 
+- Semantics:
+- Pragmatics: 
+- Discourse:

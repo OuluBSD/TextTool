@@ -1,0 +1,34 @@
+﻿ Transitions: Fade in/out, Wipe, Split/Swipe
+- Fades: Dissolve, Drop Shadow, Lens Flare
+- Splices: Cutaways, Opposition Ramps, Picture in Picture
+- Effects: Motion Blur, Color Correction, Screen Flicker
+ 
+chorus1: 
+- Transitions: Wipe, Split/Swipe, Star-shaped Wipe 
+- Fades: Dissolve, Color Enhancement, Cross-fade
+- Splices: Cutaways, Double Exposure, Background Transition 
+- Effects: Audio Fade, Color Correction, Shake
+
+verse2: 
+- Transitions: Wipe, Split/Swipe, Push/Pull
+- Fades: Dissolve, Color Enhancement, Cross-fade
+- Splices: Cutaways, Reverse Order, Lens Flare 
+- Effects: Motion Blur, Color Correction, Grain
+
+chorus2: 
+- Transitions: Wipe, Split/Swipe, Star-shaped Wipe 
+- Fades: Dissolve, Color Enhancement, Cross-fade
+- Splices: Cutaways, Double Exposure, Background Transition 
+- Effects: Audio Fade, Color Correction, Shake
+
+verse3: 
+- Transitions: Fade in/out, Wipe, Push/Pull
+- Fades: Dissolve, Drop Shadow, Lens Flare
+- Splices: Cutaways, Opposition Ramps, Picture in Picture
+- Effects: Motion Blur, Color Correction, Screen Flicker
+
+verse4: 
+- Transitions: Fade in/out, Wipe, Split/Swipe
+- Fades: Dissolve, Color Enhancement, Cross-fade
+- Splices: Cutaways, Reverse Order, Lens Flare
+- Effects: Motion Blur, Color Correction, Grain

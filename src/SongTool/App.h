@@ -9,6 +9,7 @@ class SongTool : public TopWindow {
 	CalendarPage	cal;
 	Editor			ed;
 	AI_Tasks		ai;
+	TimeCallback	tc;
 	
 	int page = 0;
 	Rect last_window;
@@ -24,6 +25,7 @@ public:
 	~SongTool() {SaveWindowPos(); Store();}
 	
 	void MainMenu(Bar& b);
+	void SetOpenAIToken();
 	void Data();
 	void SetView(int i);
 	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed;}
