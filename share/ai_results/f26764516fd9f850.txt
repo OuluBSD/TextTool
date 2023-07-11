@@ -1,4 +1,4 @@
-﻿ Places: Park, City Street 
+﻿Places: Park, City Street 
 - Environments: Public, City 
 - Locations: Outside, Open Space
 - Weather: Any

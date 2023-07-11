@@ -7,7 +7,7 @@ void TaskMgr::Process() {
 		this->total = tasks.GetCount();
 		
 		int ready = 0;
-		for(int i = 0; i < tasks.GetCount(); i++) {
+		for(int i = 0; i < tasks.GetCount() && running && !Thread::IsShutdownThreads(); i++) {
 			AI_Task& t = tasks[i];
 			if (!t.ready) {
 				ProcessSingle(i);

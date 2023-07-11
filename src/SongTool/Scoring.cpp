@@ -7,13 +7,15 @@ AttrScore::AttrScore() {
 void AttrScore::Store() {
 	String dir = Database::Single().dir;
 	RealizeDirectory(dir);
-	String json_path = dir + file_title + ".json";
+	String json_path = dir + DIR_SEPS "share" DIR_SEPS + file_title + ".json";
+	//DUMP(json_path);
 	StoreAsJsonFile(*this, json_path, true);
 }
 
 void AttrScore::Load() {
 	String dir = Database::Single().dir;
-	String json_path = dir + file_title + ".json";
+	String json_path = dir + DIR_SEPS "share" DIR_SEPS + file_title + ".json";
+	//DUMP(json_path);
 	LoadFromJsonFile(*this, json_path);
 }
 
@@ -65,7 +67,7 @@ bool AttrScore::RealizeTemp() {
 			}
 			
 			if (!found) {
-				LOG("AttrScore::RealizeTemp: not found: " + gg.values[j] + " (" << IntStr(i) + ":" + IntStr(j) + ")");
+				//LOG("AttrScore::RealizeTemp: not found: " + gg.values[j] + " (" << IntStr(i) + ":" + IntStr(j) + ")");
 				not_found++;
 			}
 		}

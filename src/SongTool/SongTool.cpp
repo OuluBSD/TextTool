@@ -98,4 +98,5 @@ GUI_APP_MAIN {
 	m.Stop();
 	db.Store();
 	m.Store();
+	Thread::ShutdownThreads();
 }

@@ -1,4 +1,4 @@
-﻿ Natural: Realistic
+﻿Natural: Realistic
 - Artificial: Poetic
 - Ambient: Dark
 - Diffused: Soft

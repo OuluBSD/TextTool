@@ -1,4 +1,4 @@
-﻿ Transitions: Fade in/out, Wipe, Split/Swipe
+﻿Transitions: Fade in/out, Wipe, Split/Swipe
 - Fades: Dissolve, Drop Shadow, Lens Flare
 - Splices: Cutaways, Opposition Ramps, Picture in Picture
 - Effects: Motion Blur, Color Correction, Screen Flicker

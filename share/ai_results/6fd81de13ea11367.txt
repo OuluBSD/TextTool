@@ -1,42 +1,43 @@
-﻿Fades: Dissolve
-- Effects: Screen flicker
+﻿Ideas: Scar tissue
+- Ideas: Sarcasm
 
 Line 2, "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
-- Transitions: Fade in/out
-- Fades: Drop shadow
+- Imagination: Close eyes
+- Symbols: Birds
+- Imagery: Lonely view
 
 Line 3, "With the birds I'll share this lonely viewin'"
-- Fades: Lens flare
-- Effects: Motion blur
+- Symbols: Birds
+- Imagery: Lonely viewin'
 
 Line 4, "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
-- Transitions: Push/pull
-- Fades: Color enhancement
+- Imagination: Push-up bra
+- Imagery: Young Kentucky girl
 
 Line 5, "Fallin' all over myself to lick your heart and taste your health ('cause)"
-- Transitions: Wipe
-- Fades: Cross-fade
+- Imagination: Fallin'
 
 Line 6, "With the birds I'll share this lonely view"
-- Effects: Color correction
-- Fades: Lens flare
+- Symbols: Birds
+- Imagery: Lonely view
 
 Line 7, "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
-- Transitions: Split/swipe
-- Fades: Dissolve
+- Ideas: Blood loss
+- Imagery: Southern girl
+- Symbols: Scarlet drawl
 
 Line 8, "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
-- Transitions: Star-shaped wipe
-- Fades: Drop shadow
+- Ideas: Goodbye
+- Symbols: Birds
+- Imagery: Lonely view
 
 Line 9, "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
-- Transitions: Push/pull
-- Effects: Grain
+- Ideas: Broken jaw
+- Imagination: Soft spoken
+- Imagination: Step outside
 
 Line 10, "And autumn's sweet, we call it fall."
-- Transitions: Fade in/out
-- Effects: Audio fade
+- Imagery: Autumn's sweet
 
 Line 11, "I'll make it to the moon if I have to crawl (and)"
-- Transitions: Wipe
-- Effects: Shake
+- Imagination: Make it to the moon

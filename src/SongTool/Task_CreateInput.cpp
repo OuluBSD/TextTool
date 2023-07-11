@@ -203,14 +203,10 @@ List of axes:
 Combination string from results:
  - a (Mood: joyful/melancholic) b (Mood: playful/serious) c (Mood: uplifting/heavy) etc.
 
-Entries:
-- Pronouns: "I"
-${ENTRIES}
-
 Combination integer values are allwed to be between -3 and +3.
 
 Scores per entry:
-Pronouns: "I":
+Line 1, Pronouns: "I":
 -a Mood: joyful/melancholic: +1 Joyful
 -b Mood: playful/serious: +1 Playful
 -c Mood: uplifting/heavy: +1 Uplifting
@@ -231,8 +227,11 @@ Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n+1 o0 p-1
 )ATRSCROO";
 
 const char* attrscore_prompt2 = R"ATRSCROO(
-Pronouns: "I":
+Line 1, Pronouns: "I":
 Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n+1 o0 p-1
+
+Entries:
+${ENTRIES}
 
 ${FIRSTENTRY}:
 Combination string:)ATRSCROO";
@@ -240,6 +239,7 @@ Combination string:)ATRSCROO";
 void AI_Task::CreateInput_AttrScores() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
+	AttrScore& as = db.attrscores;
 	String prompt;
 	String entries;
 	Index<SnapAttr> attrs;
@@ -257,44 +257,59 @@ void AI_Task::CreateInput_AttrScores() {
 	
 	int entry_count = 0;
 	for (const SnapAttr& a : attrs.GetKeys()) {
+		// Skip attributes with known score values
 		int score = db.attrscores.attr_to_score[a.group][a.item];
 		if (score >= 0)
 			continue;
 		
+		// Skip groups, which doesn't match this task
 		const Attributes::Group& gg = db.attrs.groups[a.group];
 		if (gg.type != type)
 			continue;
+		
+		// Get attribute's name
 		String key = gg.values[a.item];
 		
-		entries << "- " << gg.description << ": \"" << key << "\"\n";
+		// Add line to ai prompt
+		entries << "Line " << entry_count+2 << ", " << gg.description << ": \"" << key << "\"\n";
 		
+		// Make FIRSTENTRY prompt on first seen value
 		if (!entry_count)
 			prompt.Replace("${FIRSTENTRY}", gg.description + ": \"" + key + "\"");
-		
 		entry_count++;
 	}
 	
+	#if 0
+	// Get every songs' attribute scores
 	if (entry_count == 0) {
+		// Ensure all values (shouldn't be needed)
 		db.attrscores.RealizeTemp();
+		
 		for(int i = 0; i < g.groups.GetCount(); i++) {
+			// Skip groups, which doesn't match this task
 			Attributes::Group& gg = g.groups[i];
 			if (gg.type != type)
 				continue;
+			
 			for(int j = 0; j < gg.values.GetCount(); j++) {
-				String key = gg.values[j];
+				// Skip attributes with known score values
 				int scr = db.attrscores.attr_to_score[i][j];
 				if (scr >= 0)
 					continue;
-				entries << "- " << gg.description << ": \"" << key << "\"\n";
+				
+				String key = gg.values[j];
+				entries << "Line " << entry_count+2 << ", " << gg.description << ": \"" << key << "\"\n";
 				
 				if (!entry_count)
-					prompt.Replace("${FIRSTENTRY}", gg.description + ": \"" + key + "\"");
+					prompt.Replace("${FIRSTENTRY}", "Line 2, " + gg.description + ": \"" + key + "\"");
 				
 				entry_count++;
 			}
 		}
 	}
+	#endif
 	
+	// This task shouldn't exist, if there is nothing to solve
 	if (entry_count == 0) {
 		SetError(DeQtf(t_("Nothing to ask from AI here")));
 		return;

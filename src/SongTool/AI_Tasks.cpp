@@ -94,6 +94,7 @@ void AI_Task::Process() {
 	bool ok = true;
 	
 	input.Replace("\r","");
+	output = TrimBoth(output);
 	
 	if (!input.IsEmpty() && output.IsEmpty() && type != TASK_MAKE_PATTERN_TASKS && type != TASK_MAKE_ATTRSCORES_TASKS)
 		ok = RunOpenAI();

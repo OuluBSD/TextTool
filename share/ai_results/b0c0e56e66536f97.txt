@@ -1,4 +1,4 @@
-﻿ Clothing: Bold 
+﻿Clothing: Bold 
 - Hair/Makeup: Daring
 - Accessories: Eye-catching
 - Props: None

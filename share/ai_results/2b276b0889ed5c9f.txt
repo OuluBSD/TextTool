@@ -1,0 +1,99 @@
+﻿a-1 b-1 c-1 d-1 e-2 f+1 g0 h0 i0 j-1 k1 l-1 m-1 n-1 o0 p+1
+
+Line 3, types of sentences: "Sarcastic":
+Combination string: a-1 b-1 c-1 d-1 e-2 f+1 g0 h0 i0 j-1 k1 l-1 m-1 n-1 o0 p+1
+
+Line 4, dramatic sentences: "Scar tissue that i wish you saw":
+Combination string: a-1 b-2 c-1 d-2 e-2 f+1 g0 h0 i0 j-2 k1 l-2 m-1 n-2 o0 p+1
+
+Line 5, dramatic scenarios: "Blood loss in a bathroom stall":
+Combination string: a-3 b-2 c-2 d-2 e-2 f+1 g0 h0 i0 j-2 k1 l-3 m-2 n-2 o0 p+2
+
+Line 6, dramatic expressions: "Soft spoken with a broken jaw":
+Combination string: a-3 b-3 c-2 d-3 e-2 f+1 g0 h0 i0 j-2 k1 l-3 m-2 n-2 o0 p+2
+
+Line 7, dramatic expressions: "Scar tissue":
+Combination string: a-3 b-3 c-2 d-3 e-2 f+1 g0 h0 i0 j-2 k1 l-3 m-2 n-2 o0 p+2
+
+Line 8, dramatic expressions: "Wish you saw":
+Combination string: a-3 b-3 c-2 d-3 e-3 f+1 g0 h0 i0 j-2 k1 l-3 m-2 n-2 o0 p+2
+
+Line 9, comedic sentences: "Sarcastic mister know-it-all":
+Combination string: a-2 b-2 c+1 d-2 e-2 f+2 g0 h0 i0 j-1 k2 l-2 m-1 n-1 o0 p+1
+
+Line 10, comedic scenarios: "Young kentucky girl in a push-up bra":
+Combination string: a+1 b+1 c+2 d-1 e-1 f+1 g0 h+1 i+1 j+1 k2 l+1 m+1 n+1 o0 p0
+
+Line 11, comedic expressions: "Fallin' all over myself to lick your heart and taste your health":
+Combination string: a+1 b+1 c+2 d-1 e-1 f+1 g0 h+1 i+1 j+1 k2 l+1 m+1 n+1 o0 p0
+
+Line 12, comedic expressions: "Sarcastic mister know it all":
+Combination string: a-2 b-2 c+1 d-2 e-2 f+2 g0 h0 i0 j-1 k2 l-2 m-1 n-1 o0 p+1
+
+Line 13, humorous expressions: "Wave goodbye to ma and pa":
+Combination string: a+1 b+2 c+1 d-1 e-1 f+2 g0 h+1 i+2 j+1 k2 l+2 m+1 n+1 o0 p+1
+
+Line 14, cliches: "Push me up against the wall":
+Combination string: a+1 b+1 c+2 d-1 e-2 f+1 g0 h+1 i+1 j+1 k2 l+1 m+1 n+1 o0 p0 
+
+Line 15, cliches: "Close your eyes and i'll kiss you":
+Combination string: a+2 b+1 c+2 d-1 e-1 f+1 g0 h+1 i+1 j+1 k2 l+2 m+1 n+1 o0 p0 
+
+Line 16, similes: "Autumn's sweet":
+Combination string: a+2 b+1 c+2 d-1 e-1 f+1 g0 h+1 i+1 j+1 k3 l+2 m+2 n+2 o0 p0 
+
+Line 17, similes: "We call it fall":
+Combination string: a+2 b+1 c+2 d-1 e-1 f+1 g0 h+1 i+1 j+1 k3 l+2 m+2 n+2 o0 p0  
+
+Line 18, similes: "With the birds i'll share":
+Combination string: a+2 b+1 c+2 d-1 e-1 f+1 g0 h+1 i+1 j+1 k3 l+2 m+2 n+2 o0 p0  
+
+Line 19, similes: "Sarcastic Mister":
+Combination string: a-2 b-2 c+1 d-2 e-2 f+2 g0 h0 i0 j-1 k2 l-2 m-1 n-1 o0 p+1
+
+Line 20, similes: "Falling all over myself":
+Combination string: a+1 b+1 c+2 d-1 e-1 f+1 g0 h+1 i+1 j+1 k2 l+1 m+1 n+1 o0 p0
+
+Line 21, similes: "None":
+Combination string: 0
+
+Line 22, similes: "Scarlet drawl":
+Combination string: a+1 b+2 c+1 d-1 e-2 f+2 g0 h+1 i+1 j+1 k2 l+2 m+1 n+1 o0 p+1
+
+Line 23, similes: "Soft spoken":
+Combination string: a-3 b-3 c-2 d-3 e-2 f+1 g0 h0 i0 j-2 k1 l-3 m-2 n-2 o0 p+2
+
+Line 24, metaphors: "I'll make it to the moon if i have to crawl":
+Combination string: a-2 b-3 c-2 d-2 e-2 f+1 g0 h0 i+1 j-2 k1 l-2 m-1 n-2 o0 p+1
+
+Line 25, metaphors: "Scar tissue":
+Combination string: a-3 b-3 c-2 d-3 e-2 f+1 g0 h0 i0 j-2 k1 l-3 m-2 n-2 o0 p+2
+
+Line 26, metaphors: "Lick your heart":
+Combination string: a+1 b+1 c+2 d-1 e-1 f+1 g0 h+1 i+1 j+1 k2 l+1 m+1 n+1 o0 p0
+
+Line 27, metaphors: "None":
+Combination string: 0
+ 
+Line 28, metaphors: "Wave goodbye":
+Combination string: a+1 b+2 c+1 d-1 e-1 f+2 g0 h+1 i+2 j+1 k2 l+2 m+1 n+1 o0 p+1
+
+Line 29, metaphors: "Make it to the moon":
+Combination string: a-2 b-3 c-2 d-2 e-2 f+1 g0 h0 i+1 j-2 k1 l-2 m-1 n-2 o0 p+1
+
+Line 30, personification: "Close your eyes and i'll kiss you":
+Combination string: a+2 b+1 c+2 d-1 e-1 f+1 g0 h+1 i+1 j+1 k2 l+2 m+1 n+1 o0 p0
+
+Line 31, hyperboles: "I'll make it to the moon if i have to crawl":
+Combination string: a-2 b-3 c-2 d-2 e-2 f+1 g0 h0 i+1 j-2 k1 l-2 m-1 n-2 o0 p+1
+
+Line 32, allusions: "Push me up against the wall":
+Combination string: a+1 b+1 c+2 d-1 e-2 f+1 g0 h+1 i+1 j+1 k2 l+1 m+1 n+1 o0 p0
+
+Line 33, irony: "Scar tissue that i wish you saw":
+Combination string: a-1 b-2 c-1 d-2 e-2 f+1 g0 h0 i0 j-2 k1 l-2 m-1 n-2 o0 p+1
+
+Line 34, satire: "Sarcastic mister know-it-all":
+Combination string: a-2 b-2 c+1 d-2 e-2 f+2 g0 h0 i0 j-1 k2 l-2 m-1 n-1 o0 p+1
+
+Line 35, foreshadowing: "Blood loss in a bathroom stall

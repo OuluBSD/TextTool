@@ -25,6 +25,14 @@ SongTool::SongTool() {
 	PostCallback(THISBACK(Data));
 }
 
+SongTool::~SongTool() {
+	// Stop task manager
+	TaskMgr::Single().running = false;
+	
+	SaveWindowPos();
+	Store();
+}
+
 void SongTool::MainMenu(Bar& bar) {
 	bar.Sub(t_("App"), [this](Bar& bar) {
 		bar.Add(t_("Save"), callback(&Database::Single(), &Database::Store)).Key(K_CTRL_S);

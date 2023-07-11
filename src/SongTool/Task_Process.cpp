@@ -3,25 +3,66 @@
 void AI_Task::Process_MakeAttrScores() {
 	Database& db = Database::Single();
 	TaskMgr& m = TaskMgr::Single();
+	Attributes& a = db.attrs;
+	AttrScore& as = db.attrscores;
 	if (!song) {
 		failed = true;
 		return;
 	}
 	
-	/*AI_Task& chk = m.tasks.Add();
-	chk.type = TASK_MAKE_ATTRSCORES_TASKS;
-	chk.song = song;*/
+	as.RealizeTemp();
 	
+	AI_Task* chk = 0;
 	for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
 		const Attributes::GroupType& group_type = db.attrs.group_types[i];
+		for(int j = 0; j < a.groups.GetCount(); j++) {
+			// Skip groups, which doesn't match this task
+			Attributes::Group& gg = a.groups[j];
+			if (gg.type != group_type.name)
+				continue;
+			
+			// Check from 'attribute to score' conversion vector, if all is solved
+			if (j >= as.attr_to_score.GetCount())
+				break;
+			const Vector<int>& to_score_i = as.attr_to_score[j];
+			bool is_unresolved = false;
+			for(int k = 0; k < gg.values.GetCount(); k++) {
+				// Check if attribute is without score
+				if (k >= to_score_i.GetCount() || to_score_i[k] < 0) {
+					// Not found
+					is_unresolved = true;
+					break;
+				}
+			}
+			
+			
+			// If group have attributes without known scores (then add task to get them)
+			if (is_unresolved) {
+				if (!chk) {
+					chk = &m.tasks.Add();
+					chk->type = TASK_MAKE_ATTRSCORES_TASKS;
+					chk->song = song;
+				}
+				
+				AI_Task& t = m.tasks.Add();
+				m.total++;
+				t.type = TASK_ATTRSCORES;
+				t.song = song;
+				t.args << group_type.name << group_type.ai_txt;
+				t.CreateInput();
+				
+				chk->depends_on << &t;
+			}
+		}
+	}
+	
+	// If all were resolved
+	if (!chk) {
 		AI_Task& t = m.tasks.Add();
 		m.total++;
-		t.type = TASK_ATTRSCORES;
+		t.type = TASK_SONGSCORE;
 		t.song = song;
-		t.args << group_type.name << group_type.ai_txt;
 		t.CreateInput();
-		//t.failed = true;
-		//chk.depends_on << &t;
 	}
 }
 
@@ -89,7 +130,9 @@ void AI_Task::Process_PatternMask() {
 			const Vector<String>& values = parsed_key[j];
 			
 			for(int k = 0; k < values.GetCount(); k++) {
-				const String& value = values[k];
+				String value = ToLower(values[k]);
+				if (value == "none" || value == "n/a")
+					continue;
 				
 				// Realize pattern snapshot attribute
 				SnapAttr sa = db.attrs.GetAddAttr(group, value);
@@ -103,25 +146,149 @@ void AI_Task::Process_PatternMask() {
 }
 
 void AI_Task::Process_Pattern() {
-	/*
-		int part_i = p.unique_parts.Find(part_key);
-		if (part_i < 0) {
-			SetError("part key was not found: " + part_key);
-			return;
-		}
-		Part& part = p.unique_parts[part_i];
+	Database& db = Database::Single();
+	TaskMgr& m = TaskMgr::Single();
+	Attributes& g = db.attrs;
+	AttrScore& as = db.attrscores;
+	Song& song = *this->song;
+	
+	String txt = input + output;
+	txt.Replace("\r", "");
+	
+	// Find beginning of results
+	int a = txt.Find("Attributes (in format \"Group: Attribute\")");
+	if (a < 0) {
+		//LOG(txt);
+		SetError(t_("Didn't find 'Attributes' string"));
+		return;
+	}
+	a = txt.Find("\n", a);
+	if (a < 0) return;
+	txt = txt.Mid(a+1);
+	
+	// Trim lines with some spaces left
+	txt = ToLower(txt);
+	Vector<String> tmp_lines = Split(txt, "\n", false);
+	for (String& l : tmp_lines) l = TrimBoth(l);
+	for(int i = 0; i < tmp_lines.GetCount() - 1; i++) {
+		if (tmp_lines[i].Find("combination string:") == 0 && !tmp_lines[i+1].IsEmpty())
+			tmp_lines.Insert(i+1, "");
+	}
+	txt = Join(tmp_lines, "\n", false);
+	
+	
+	// Parse results
+	VectorMap<String, VectorMap<String, Index<String>>> parsed;
+	Vector<String> lines = Split(txt, "\n\n");
+	bool fail = false;
+	for(int i = 0; i < lines.GetCount(); i++) {
+		Vector<String> v = Split(lines[i], "\n");
+		if (v.GetCount() < 2) break;
 		
-	// Check that all parts were handled
-	for (String key : p.unique_parts.GetKeys()) {
-		if (parsed.Find(key) < 0) {
-			SetError("part key not in the result string: " + key);
-			return;
+		String header = v[0];
+		if (header.Left(5) != "line ") {
+			SetError(t_("Expected header string"));
+			fail = true;
+			break;
+		}
+		
+		// Parse original line again
+		a = header.Find("\"");
+		if (a < 0) {
+			SetError(t_("Expected '\"'"));
+			fail = true;
+			break;
+		}
+		int b = header.Find("\"", a+1);
+		if (b < 0) {
+			b = header.GetCount();
+		}
+		a += 1;
+		String line_txt = header.Mid(a, b-a);
+		VectorMap<String, Index<String>>& line_parsed = parsed.GetAdd(line_txt);
+		
+		/*
+		int line_i = -1;
+		for(int j = 0; j < song.line_attrs.GetCount(); j++) {
+			ArchivedSong::Line& l = song.line_attrs[j];
+			if (l.line == txt) {
+				line_i = j;
+				break;
+			}
+		}
+		
+		ArchivedSong::Line& l = line_i < 0 ? song.line_attrs.Add() : song.line_attrs[line_i];
+		l.line = txt;
+		*/
+		
+		// Parse attributes
+		for(int j = 1; j < v.GetCount(); j++) {
+			String& s = v[j];
+			if (s.IsEmpty()) continue;
+			if (s[0] != '-') {
+				SetError(t_("Expected '-'"));
+				fail = true;
+				break;
+			}
+			
+			s = TrimBoth(s.Mid(1));
+			a = s.Find(":");
+			if (a < 0) {
+				SetError(t_("Expected ':'"));
+				fail = true;
+				break;
+			}
+			
+			String group_str = TrimBoth(s.Left(a));
+			String item_str = TrimBoth(s.Mid(a+1));
+			if (item_str == "n/a" ||item_str == "none")
+				continue;
+			item_str = TrimBoth(item_str);
+			
+			line_parsed.GetAdd(group_str).FindAdd(item_str);
+			/*
+			ArchivedSong::Attr& attr = l.attrs.Add();
+			attr.group = 
+			attr.item = item_str;
+			
+			groups.GetAdd(attr.group).FindAdd(attr.item);*/
+		}
+		if (fail) break;
+		
+		
+	}
+	//DUMPM(parsed);
+	
+	// Add parsed data to database
+	for(int i = 0; i < parsed.GetCount(); i++) {
+		String line_txt = parsed.GetKey(i);
+		const auto& group_map = parsed[i];
+		Vector<Song::Attr>& line_attrs = song.unique_lines.GetAdd(line_txt);
+		
+		for(int j = 0; j < group_map.GetCount(); j++) {
+			String group_txt = group_map.GetKey(j);
+			const auto& item_idx = group_map[j];
+			
+			for(int k = 0; k < item_idx.GetCount(); k++) {
+				String item_str = item_idx[k];
+				bool found = false;
+				for (Song::Attr& attr : line_attrs) {
+					if (attr.group == group_txt && attr.item == item_str) {
+						found = true;
+						break;
+					}
+				}
+				if (!found) {
+					SnapAttr sa = db.attrs.GetAddAttr(group_txt, item_str);
+					Song::Attr& attr = line_attrs.Add();
+					attr.group = group_txt;
+					attr.item = item_str;
+					attr.group_i = sa.group;
+					attr.item_i = sa.item;
+				}
+			}
 		}
 	}
-	*/
-	
-	// !!!! fill Song::unique_lines attr & group
-	
 }
 
 void AI_Task::Process_Analysis() {
@@ -223,16 +390,32 @@ void AI_Task::Process_AttrScores() {
 	int exp_count = g.scorings.GetCount();
 	
 	String txt = input + output;
+	
+	// Regularize newline separation
 	txt.Replace("\r", "");
 	txt.Replace("\n\n\n\n\n", "\n\n");
 	txt.Replace("\n\n\n\n", "\n\n");
 	txt.Replace("\n\n\n", "\n\n");
 	
-	int a = txt.Find("Combination string");
+	// Trim lines with some spaces left
+	txt = ToLower(txt);
+	Vector<String> tmp_lines = Split(txt, "\n", false);
+	for (String& l : tmp_lines) l = TrimBoth(l);
+	for(int i = 0; i < tmp_lines.GetCount() - 1; i++) {
+		if (tmp_lines[i].Find("combination string:") == 0 && !tmp_lines[i+1].IsEmpty())
+			tmp_lines.Insert(i+1, "");
+	}
+	txt = Join(tmp_lines, "\n", false);
+	
+	// Find the beginning of results
+	int a = txt.Find("line 2,");
 	if (a < 0) {failed = true; return;}
 	a = txt.Find("\n", a);
 	if (a < 0) {failed = true; return;}
+	a = txt.Find("line 2,", a);
+	if (a < 0) {failed = true; return;}
 	txt = txt.Mid(a);
+	LOG(txt);
 	
 	// Parse results
 	VectorMap<String, VectorMap<String, String>> parsed;
@@ -240,11 +423,19 @@ void AI_Task::Process_AttrScores() {
 	for (String& part : parts) {
 		part.Replace("\n", "");
 		
-		int a = part.Find(": ");
+		// Split at ':'
+		int a = part.Find(":");
 		if (a < 0)
 			continue;
-		
 		String group = ToLower(part.Left(a));
+		part = TrimBoth(part.Mid(a+1));
+		
+		// Remove "Line #,"
+		a = group.Find(",");
+		if (a < 0)
+			continue;
+		group = ToLower(TrimBoth(group.Mid(a+1)));
+		
 		Index<String> keys;
 		//DUMP(part);
 		//DUMP(a);
@@ -266,7 +457,7 @@ void AI_Task::Process_AttrScores() {
 		
 		//DUMPC(keys);
 		
-		String search = "Combination string:";
+		String search = "combination string:";
 		a = part.Find(search);
 		if (a < 0)
 			continue;
@@ -274,8 +465,15 @@ void AI_Task::Process_AttrScores() {
 		String score_str = TrimBoth(part.Mid(a + search.GetCount()));
 		score_str.Replace(",", "");
 		
+		if (score_str.Find("combination string") >= 0) {
+			DUMP(group);
+			DUMP(part);
+			DUMPC(keys);
+		}
+		ASSERT(score_str.Find("combination string") < 0);
+		
 		for (String key : keys.GetKeys())
-			parsed.GetAdd(group).GetAdd(key) = score_str;
+			parsed.GetAdd(group).GetAdd(key) = ToLower(score_str);
 	}
 	//DUMPM(parsed);
 	
@@ -291,7 +489,7 @@ void AI_Task::Process_AttrScores() {
 			bool found = false;
 			for(int i = 0; i < g.groups.GetCount(); i++) {
 				Attributes::Group& gg = g.groups[i];
-				if (gg.description == group) {
+				if (ToLower(gg.description) == group) {
 					for(int j = 0; j < gg.values.GetCount(); j++) {
 						String v = gg.values[j];
 						if (ToLower(v) == key) {
@@ -328,7 +526,33 @@ void AI_Task::Process_AttrScores() {
 					scores.Remove(i+1);
 				}
 			}
+			
+			// extend zero value (e.g. from "None");
+			bool forced_fix =
+				(scores.GetCount() == 1 && scores[0] == "0") ||
+				(scores.GetCount() != exp_count && (key == "n/a" || key == "none"));
+			if (forced_fix) {
+				scores.SetCount(exp_count);
+				int chr = 'a';
+				for (String& s : scores) {s = ""; s.Cat(chr++); s.Cat('0');}
+			}
+			
+			// Try remove spaces
+			if (scores.GetCount() > exp_count) {
+				for(int i = 0; i < scores.GetCount() - 1; i++) {
+					String& s0 = scores[i];
+					String& s1 = scores[i+1];
+					if (s0.GetCount() == 1 && !IsAlpha(s1[0])) {
+						s0 += s1;
+						scores.Remove(i+1);
+					}
+				}
+			}
+			
+			
 			if (scores.GetCount() != exp_count) {
+				DUMP(key);
+				DUMPC(scores);
 				// If output was incomplete, ignore this result
 				if (is_last)
 					break;

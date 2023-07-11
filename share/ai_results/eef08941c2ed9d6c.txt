@@ -1,4 +1,4 @@
-﻿ Nouns: Scar, Wish, Sarcastic, Mister, Know-it-all 
+﻿Nouns: Scar, Wish, Sarcastic, Mister, Know-it-all 
 - Pronouns: You
 - Verbs: Saw
 - Adjectives: None

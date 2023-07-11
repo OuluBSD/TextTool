@@ -1,58 +1,8 @@
-﻿Meaning: The narrator is reflecting on a past relationship, expressing his regret and desire that their scar tissue could be seen. He expresses his frustration with his partnerâ€™s sarcasm and seeming â€˜know-it-allâ€™ attitude.
--Literary Devices: Alliteration is used in the phrase â€˜Sarcastic Mister Know-It-Allâ€™ to emphasize the narratorâ€™s frustration.
--Emotion: The narrator is feeling regretful and melancholy.
--References: The narrator references his partnerâ€™s scar tissue and her sarcasm.
--Structure: This verse is composed of a nine-line stanza of four-four-five-five-four-two-one-five-two syllables per line.
--History: The narrator is reflecting on a past relationship.
--Storyline: The narrator wishes that his partnerâ€™s scar tissue could be seen and laments her sarcastic and self-convincing attitude.
--Implications: The narrator is regretful of this past relationship and the way it has affected him.
-
-chorus1:
-- Meaning: The narrator expresses his longing to share what he sees with the birds, conveying his feeling of loneliness.
-- Literary Devices: The phrase â€˜lonely viewinâ€™ is repeated to emphasize its sentiment.
--Emotion: The narrator is feeling lonely and isolated.
--References: The narrator references the birds as a symbol of his loneliness.
--Structure: This chorus is composed of an eight-line stanza of five-five-five-five-nine-five-five-five syllables per line.
--History: The narrator is expressing his loneliness.
--Storyline: The narrator feels longing to share what he sees with the birds, conveying his loneliness.
--Implications: The narrator is struggling to cope with his loneliness.
-
-verse2:
--Meaning: The narrator is again reflecting on a past relationship and the physicality of it, describing how he was pushed up against a wall. The phrase â€˜ Young Kentucky girlâ€™ references a particular partner.
--Literary Devices: Repetition of the phrase â€˜push upâ€™ is used to emphasize the physicality of the narrative.
--Emotion: The narrator is feeling fond nostalgia.
--References: The narrator references a partner, pushing, licking, and tasting.
--Structure: The verse is composed of a ten-line stanza of five-five-(four-four-five)-three-three-nine-five-four-two syllables per line.
--History: The narrator is reflecting on a past relationship.
--Storyline: The narrator remembers physical moments from previous relationships, including a partner from Kentucky.
--Implications: The narrator is fondly recalling memories from the past.
-
-chorus2:
--Meaning: The chorus is repeated to emphasize the feeling of loneliness.
--Literary Devices: Repetition is used to emphasize the sentiment of loneliness.
--Emotion: The narrator is feeling lonely and isolated.
--References: The narrator references the birds as a symbol of his loneliness.
--Structure: This chorus is composed of an eight-line stanza of five-five-five-five-nine-five-five-five syllables per line.
--History: The narrator is expressing his loneliness.
--Storyline: The narrator feels longing to share what he sees with the birds, conveying his loneliness.
--Implications: The narrator is struggling to cope with his loneliness.
-
-verse3:
--Meaning: The narrator is describing a particular memory that leaves him feeling melancholic. He expresses his wish to be able to â€˜wave goodbyeâ€™ to his past.
--Literary Devices: Repetition of the phrase â€˜wave goodbyeâ€™ is used to emphasize the sentiment of the phrase.
--Emotion: The narrator is feeling nostalgic and melancholic.
--References: The narrator references blood, a bathroom stall, a Southerner, and scarlet drawl, and waving goodbye.
--Structure: The verse is composed of an eleven-line stanza of five-five-three-five-five-four-five-three-two-five-two syllables per line.
--History: The narrator is recalling a past memory.
--Storyline: The narrator is reminiscing about a particular moment and expressing his wish to be able to wave goodbye to his past.
--Implications: The narrator is struggling to move on from a particular moment that he struggles to let go of. 
-
-verse4:
--Meaning: The narrator is expressing his determination and strength, despite his broken jaw and feeling of loneliness. He conveys his perseverance and will to make it to the moon, despite his current state.
--Literary Devices: The phrase â€˜moon if I have to crawlâ€™ is used to emphasize the narratorâ€™s strength and determination.
--Emotion: The narrator is feeling determined and hopeful.
--References: The narrator references his broken jaw and will to make it to the moon.
--Structure: The verse is composed of an eight-line stanza of four-four-nine-five-five-five-four-two syllables per line.
--History: The narrator has recently experienced a different emotional state than the one expressed in the previous verses.
--Storyline: The narrator is conveying his determination and willingness to continue forward, despite the hardships he has faced.
--Implications: The narrator is demonstrating the strength of his will and determination to continue on despite his hardships.
+﻿Meaning: This verse talks about how the artist wishes someone else could see the pain and the hard times he has gone through. He says that he will offer a kiss if the other person closes their eyes to try and make them understand his struggles.
+- Literary Devices: The artist employs use of imagery to evoke a feeling of empathy and understanding. He also contrasts the idea of an innocent kiss against the likely stories of pain and struggle. 
+- Emotion: This verse tends to evoke a feeling of sadness, loss, and longing as the artist expresses his wish for someone to understand his pain.
+- References: The lyrics in this verse primarily reference a person, presumably his love interest, but also indirectly refer to darkness, loneliness, and struggle. 
+- Structure: The verse consists of four lines, which each contain a single sentence. The chorus follows, emphasizing the same idea in the lyrics. 
+- History: This verse does not reference any particular historical event.
+- Storyline: The story in this verse is of the narrator wishing for someone else to see and understand his struggles, while also suggesting that offering a tender kiss could convey his meaning.
+- Implications: Through the verse, the artist implies that everyone who experiences struggles sometimes want someone else to truly understand them. The lyrics suggest that love can be used to bridge the gap between two people and communicate an understanding that words sometimes cannot.

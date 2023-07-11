@@ -79,7 +79,18 @@
 					"Taste",
 					"Health",
 					"Southern",
-					"Pa"
+					"Pa",
+					"Scar, wish, sarcastic, mister, know-it-all",
+					"Eyes, kiss, birds, view",
+					"Birds, view",
+					"Push, wall, girl, bra",
+					"Fallin', myself, heart, taste, health",
+					"Blood, loss, bathroom, stall, girl, scarlet, drawl",
+					"Wave, goodbye, ma, pa, birds, view",
+					"Soft, spoken, jaw, step, brawl",
+					"Autumn, fall",
+					"Moon, crawl",
+					"Scar tissue, wish, sarcastic, mister, know-it-all"
 				]
 			},
 			{
@@ -94,7 +105,14 @@
 					"I",
 					"You",
 					"Ma",
-					"Pa"
+					"Pa",
+					"You, i",
+					"I, you",
+					"We",
+					"Me, you",
+					"Your, mine, i",
+					"A",
+					"I's"
 				]
 			},
 			{
@@ -125,7 +143,15 @@
 					"Loss",
 					"Speak",
 					"Step",
-					"Make"
+					"Make",
+					"Close, kiss, share",
+					"Lick, taste",
+					"Wave, share",
+					"Call",
+					"Make, crawl",
+					"Wish, saw",
+					"Fall, lick, taste",
+					"Spoken, step, brawl"
 				]
 			},
 			{
@@ -145,7 +171,11 @@
 					"Sarcastic",
 					"Young",
 					"Scarlet",
-					"Broken"
+					"Broken",
+					"Young, kentucky",
+					"Southern, scarlet",
+					"Soft, broken",
+					"Sweet"
 				]
 			},
 			{
@@ -159,7 +189,9 @@
 				"values": [
 					"Closely",
 					"Over",
-					"Outside"
+					"Outside",
+					"Up",
+					"All, over"
 				]
 			},
 			{
@@ -172,7 +204,10 @@
 				},
 				"values": [
 					"With",
-					"Against"
+					"Against",
+					"With, cause",
+					"To",
+					"To, cause, with"
 				]
 			},
 			{
@@ -186,7 +221,8 @@
 				"values": [
 					"'cause",
 					"Cause",
-					"But"
+					"But",
+					"And"
 				]
 			},
 			{
@@ -215,7 +251,8 @@
 					"3rd person singular",
 					"Subject",
 					"Verb",
-					"Object"
+					"Object",
+					"Subject-verb-object"
 				]
 			},
 			{
@@ -229,7 +266,8 @@
 				"values": [
 					"Modals",
 					"Participles",
-					"None"
+					"None",
+					"Modals, participles"
 				]
 			},
 			{
@@ -243,7 +281,8 @@
 				"values": [
 					"Desire",
 					"Obligation",
-					"Meaning of words used"
+					"Meaning of words used",
+					"Desire, obligation"
 				]
 			},
 			{
@@ -258,7 +297,8 @@
 					"Affection",
 					"Care",
 					"Tone",
-					"Mood"
+					"Mood",
+					"Affection, care"
 				]
 			},
 			{
@@ -323,7 +363,9 @@
 				"values": [
 					"Soft spoken with a broken jaw",
 					"Scar tissue",
-					"Wish you saw"
+					"Wish you saw",
+					"Scar tissue, wish you saw",
+					"Scarlet drawl"
 				]
 			},
 			{
@@ -360,7 +402,9 @@
 				},
 				"values": [
 					"Fallin' all over myself to lick your heart and taste your health",
-					"Sarcastic mister know it all"
+					"Sarcastic mister know it all",
+					"Fallin’ all over myself to lick your heart and taste your health",
+					"Sarcastic mister know-it-all"
 				]
 			},
 			{
@@ -404,7 +448,11 @@
 					"Falling all over myself",
 					"None",
 					"Scarlet drawl",
-					"Soft spoken"
+					"Soft spoken",
+					"Autumn’s sweet",
+					"With the birds i'll share this lonely view",
+					"With the birds i'll share (this lonely view)",
+					"Autumn's sweet, we call it fall"
 				]
 			},
 			{
@@ -433,7 +481,9 @@
 					"blue": 121
 				},
 				"values": [
-					"Close your eyes and i'll kiss you"
+					"Close your eyes and i'll kiss you",
+					"Wave goodbye to ma and pa",
+					"I wave goodbye to ma and pa"
 				]
 			},
 			{
@@ -445,7 +495,8 @@
 					"blue": 209
 				},
 				"values": [
-					"I'll make it to the moon if i have to crawl"
+					"I'll make it to the moon if i have to crawl",
+					"I’ll make it to the moon if i have to crawl"
 				]
 			},
 			{
@@ -457,7 +508,8 @@
 					"blue": 249
 				},
 				"values": [
-					"Push me up against the wall"
+					"Push me up against the wall",
+					"With the birds i'll share (lonely view)"
 				]
 			},
 			{
@@ -520,7 +572,9 @@
 					"A southern girl with a scarlet drawl",
 					"Soft spoken with a broken jaw",
 					"Step outside",
-					"But not to brawl"
+					"But not to brawl",
+					"Push me up against the wall",
+					"Step outside, but not to brawl"
 				]
 			},
 			{
@@ -536,7 +590,8 @@
 					"N/a",
 					"Wave goodbye to ma and pa.",
 					"Close your eyes and i'll kiss you",
-					"None"
+					"None",
+					"Wave goodbye to ma and pa"
 				]
 			},
 			{
@@ -564,7 +619,8 @@
 					"N/a",
 					"Waving goodbye.",
 					"Kissing",
-					"None"
+					"None",
+					"Waving goodbye"
 				]
 			},
 			{
@@ -596,7 +652,10 @@
 					"Make it to the moon if i have to crawl.",
 					"None",
 					"Fallin' all over myself to lick your heart and taste your health",
-					"Making it to the moon if i have to crawl"
+					"Making it to the moon if i have to crawl",
+					"Sharing a lonely view",
+					"Sharing this lonely view",
+					"Lick your heart and taste your health"
 				]
 			},
 			{
@@ -626,7 +685,8 @@
 					"Crawing.",
 					"None",
 					"Licking heart and tasting health",
-					"Crawling"
+					"Crawling",
+					"Licking and tasting"
 				]
 			},
 			{
@@ -685,7 +745,11 @@
 					"Southern girl with a scarlet drawl (way to speak).",
 					"None",
 					"Push-up bra",
-					"Broken jaw"
+					"Broken jaw",
+					"Young kentucky girl in a push-up bra",
+					"Southern girl with scarlet drawl",
+					"Soft spoken with a broken jaw",
+					"Southern girl with a scarlet drawl"
 				]
 			},
 			{
@@ -757,7 +821,8 @@
 				},
 				"values": [
 					"N/a",
-					"None"
+					"None",
+					"Crawling"
 				]
 			},
 			{
@@ -847,7 +912,8 @@
 					"Evening",
 					"Day",
 					"Morning",
-					"Night"
+					"Night",
+					"Any"
 				]
 			},
 			{
@@ -859,7 +925,8 @@
 					"blue": 248
 				},
 				"values": [
-					"Current"
+					"Current",
+					"Any"
 				]
 			},
 			{
@@ -877,7 +944,9 @@
 					"Wall",
 					"Sharing",
 					"Bathroom stall",
-					"Broken jaw"
+					"Broken jaw",
+					"Goodbye",
+					"Blood loss"
 				]
 			},
 			{
@@ -893,7 +962,11 @@
 					"Push-up bra",
 					"Bird's view",
 					"Southern girl",
-					"Outside"
+					"Outside",
+					"Soft spoken",
+					"Fallin'",
+					"Step outside",
+					"Make it to the moon"
 				]
 			},
 			{
@@ -936,7 +1009,10 @@
 					"Taste of health",
 					"Lonely viewin'",
 					"Goodbye to ma and pa",
-					"Autumn's sweet"
+					"Autumn's sweet",
+					"Young kentucky girl",
+					"Southern girl",
+					"Scarlet drawl"
 				]
 			},
 			{
@@ -1077,7 +1153,14 @@
 					"Resentful",
 					"Sorrowful",
 					"Determination",
-					"Longing"
+					"Longing",
+					"Disbelief, resentful",
+					"Joy, ecstasy",
+					"Longing, sorrowful",
+					"Shock, passion",
+					"Resolve, determination",
+					"Shock, disbelief",
+					"Resentful, passion"
 				]
 			},
 			{
@@ -1376,7 +1459,16 @@
 					"Hunching shoulders",
 					"Dragging feet",
 					"Long strides",
-					"Prolongedstares"
+					"Prolongedstares",
+					"Prolonged stares, hunching shoulders",
+					"Moving rhythmically, taking up space",
+					"Arm swinging, long strides",
+					"Protected posture, squared shoulders",
+					"Posture, hunching shoulders",
+					"Protective posture, squared shoulders",
+					"Dragging feet, hunching shoulders",
+					"Swaying, bending",
+					"Prolonged stares, taking up space"
 				]
 			},
 			{
@@ -1825,7 +1917,18 @@
 				},
 				"values": [
 					"Smirking",
-					"Allure"
+					"Allure",
+					"Disbelief",
+					"Joy",
+					"Resolve",
+					"Passion",
+					"Desire",
+					"Longing",
+					"Shock",
+					"Sorrowful",
+					"Determination",
+					"Ecstasy",
+					"Resentful"
 				]
 			}
 		],

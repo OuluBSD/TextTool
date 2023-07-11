@@ -1,4 +1,4 @@
-﻿ Nouns: Scar, Sarcastic, Eyes
+﻿Nouns: Scar, Sarcastic, Eyes
 - Pronouns: You
 - Verbs: Saw, Kiss, Share
 - Adjectives: Lonely

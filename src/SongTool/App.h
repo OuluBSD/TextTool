@@ -22,7 +22,7 @@ class SongTool : public TopWindow {
 public:
 	typedef SongTool CLASSNAME;
 	SongTool();
-	~SongTool() {SaveWindowPos(); Store();}
+	~SongTool();
 	
 	void MainMenu(Bar& b);
 	void SetOpenAIToken();
