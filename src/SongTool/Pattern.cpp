@@ -24,20 +24,21 @@ String PatternSnap::GetStructuredText(bool pretty, int indent) const {
 	if (pretty) s << "\n";
 	int i = 0;
 	Index<int> used_groups;
-	for (const SnapAttr& sa : this->attributes.GetKeys()) {
-		used_groups.FindAdd(sa.group);
+	for (const SnapAttrStr& sa : this->attributes.GetKeys()) {
+		used_groups.FindAdd(sa.group_i);
 	}
 	
-	for (int group : used_groups.GetKeys()) {
-		const Attributes::Group& gg = g.groups[group];
+	for (int group_i : used_groups.GetKeys()) {
+		const Attributes::Group& gg = g.groups[group_i];
 		if (pretty) s.Cat('\t', indent+1);
 		s << ToLower(gg.description) << " {";
 		if (pretty) s << "\n";
-		for (const SnapAttr& sa : this->attributes.GetKeys()) {
-			if (sa.group != group)
+		for (const SnapAttrStr& sa : this->attributes.GetKeys()) {
+			ASSERT(sa.has_id);
+			if (sa.group_i != group_i)
 				continue;
 			if (pretty) s.Cat('\t', indent+2);
-			s	<< ToLower(gg.values[sa.item])
+			s	<< ToLower(gg.values[sa.item_i])
 				<< ";"
 				;
 			if (pretty) s << "\n";

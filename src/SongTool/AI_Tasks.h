@@ -95,6 +95,7 @@ struct AI_Task {
 	bool failed = false;
 	bool processing = false;
 	bool changed = false;
+	hash_t hash = 0;
 	
 	Vector<AI_Task*> depends_on;
 	Song* song = 0;

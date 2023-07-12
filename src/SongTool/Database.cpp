@@ -19,6 +19,7 @@ void Database::Store() {
 void Database::Load() {
 	Clear();
 	LoadFromJsonFile(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json");
+	
 }
 
 void Database::FindOrphaned() {

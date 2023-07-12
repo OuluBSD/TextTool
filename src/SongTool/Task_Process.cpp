@@ -83,18 +83,77 @@ void AI_Task::Process_PatternMask() {
 	#endif
 	//LOG(result);
 	
+	// Add pronouns
+	for(int i = 0; i < s.parts.GetCount(); i++) {
+		Part& p = s.parts[i];
+		for(const String& line : p.lines) {
+			Vector<String> parts = Split(line, " ");
+			for (String part : parts) {
+				part = ToLower(part);
+				int a = part.Find("'");
+				if (a >= 0)
+					part = part.Left(a);
+				
+				if (part == "i" ||
+					part == "you" ||
+					part == "he" ||
+					part == "she" ||
+					part == "it" ||
+					part == "we" ||
+					part == "they" ||
+					part == "one" ||
+					part == "my" ||
+					part == "your" ||
+					part == "his" ||
+					part == "her" ||
+					part == "its" ||
+					part == "our" ||
+					part == "their" ||
+					part == "mine" ||
+					part == "yours" ||
+					part == "his" ||
+					part == "hers" ||
+					part == "ours" ||
+					part == "theirs" ||
+					part == "me" ||
+					part == "him" ||
+					part == "us" ||
+					part == "them"
+					) {
+					SnapAttrStr sa;
+					sa.group = "pronouns";
+					sa.item = part;
+					p.mask.attrs.FindAdd(sa);
+				}
+			}
+		}
+	}
+	
+	// Fix bad formatting from ai (Title:\n\n- values\n- values)
+	Vector<String> parts_ = Split(result, "\n\n");
+	Vector<Vector<String>> parts;
+	parts.SetCount(parts_.GetCount());
+	for(int i = 0; i < parts.GetCount(); i++) {
+		parts[i] = Split(parts_[i], "\n");
+	}
+	for(int i = 0; i < parts.GetCount()-1; i++) {
+		if (parts[i].GetCount() == 1 && parts[i+1][0].Left(1) == "-") {
+			parts[i].Append(parts[i+1]);
+			parts.Remove(i+1);
+		}
+	}
+	//DUMPCC(parts);
 	
 	// Parse result text
-	Vector<String> parts = Split(result, "\n\n");
 	VectorMap<String, VectorMap<String, Vector<String>>> parsed;
 	for(int i = 0; i < parts.GetCount(); i++) {
-		Vector<String> lines = Split(parts[i], "\n");
+		Vector<String>& lines = parts[i];
 		String key = ToLower(TrimBoth(lines[0])).ToWString().ToString();
 		if (key.Right(1) == ":") key = key.Left(key.GetCount()-1);
 		VectorMap<String, Vector<String>>& parsed_key = parsed.GetAdd(key);
 		
 		for(int j = 1; j < lines.GetCount(); j++) {
-			String line = TrimBoth(lines[j]);
+			String line = ToLower(TrimBoth(lines[j]));
 			if (line.IsEmpty()) break;
 			if (line.Left(1) == "-") line = TrimBoth(line.Mid(1));
 			int colon = line.Find(":");
@@ -137,7 +196,13 @@ void AI_Task::Process_PatternMask() {
 				
 				// Realize pattern snapshot attribute
 				SnapAttr sa = db.attrs.GetAddAttr(group, value);
-				part.mask.attrs.FindAdd(sa);
+				SnapAttrStr sas;
+				sas.group = group;
+				sas.item = value;
+				sas.group_i = sa.group;
+				sas.item_i = sa.item;
+				sas.has_id = true;
+				part.mask.attrs.FindAdd(sas);
 				LOG(part_key << " -> " << group << " -> " << value);
 			}
 		}
@@ -275,7 +340,7 @@ void AI_Task::Process_Pattern() {
 	for(int i = 0; i < parsed.GetCount(); i++) {
 		String line_txt = parsed.GetKey(i);
 		const auto& group_map = parsed[i];
-		Vector<Song::Attr>& line_attrs = song.unique_lines.GetAdd(line_txt);
+		Vector<SnapAttrStr>& line_attrs = song.unique_lines.GetAdd(line_txt);
 		
 		Vector<PatternSnap*> snaps;
 		song.GetLineSnapshots(line_txt, snaps);
@@ -287,7 +352,8 @@ void AI_Task::Process_Pattern() {
 			for(int k = 0; k < item_idx.GetCount(); k++) {
 				String item_str = item_idx[k];
 				bool found = false;
-				for (Song::Attr& attr : line_attrs) {
+				for (SnapAttrStr& attr : line_attrs) {
+					ASSERT(!attr.group.IsEmpty() && !attr.item.IsEmpty());
 					if (attr.group == group_txt && attr.item == item_str) {
 						found = true;
 						break;
@@ -295,14 +361,15 @@ void AI_Task::Process_Pattern() {
 				}
 				if (!found) {
 					SnapAttr sa = db.attrs.GetAddAttr(group_txt, item_str);
-					Song::Attr& attr = line_attrs.Add();
+					SnapAttrStr& attr = line_attrs.Add();
 					attr.group = group_txt;
 					attr.item = item_str;
 					attr.group_i = sa.group;
 					attr.item_i = sa.item;
+					attr.has_id = true;
 					
 					for (PatternSnap* snap : snaps)
-						snap->attributes.FindAdd(sa);
+						snap->attributes.FindAdd(attr);
 				}
 			}
 		}
@@ -349,7 +416,7 @@ void AI_Task::Process_Analysis() {
 				return;*/
 				continue;
 			}
-			String group = TrimBoth(line.Left(colon));
+			String group = ToLower(TrimBoth(line.Left(colon)));
 			parsed_key.GetAdd(group) = TrimBoth(line.Mid(colon+1));
 		}
 	}

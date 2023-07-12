@@ -22,8 +22,8 @@ struct Database {
 	void Load();
 	void FindOrphaned();
 	void Jsonize(JsonIO& json) {
-		json
-			;
+		/*json
+			;*/
 		if (json.IsStoring()) {
 			Vector<String> names;
 			for (Artist& a : artists) {a.Store(); names.Add(a.file_title);}

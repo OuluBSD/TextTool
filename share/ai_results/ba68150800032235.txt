@@ -1,0 +1,42 @@
+﻿Facial Expressions: Serious, Frowning, Raising Eyebrows
+-Body Language: Defensive Posture, Crossing Arms
+
+Line 2, "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
+-Facial Expressions: Joy, Passion, Ecstasy
+-Body Language: Reaching Forward, Relaxed Posture
+
+Line 3, "With the birds I'll share this lonely viewin'"
+-Facial Expressions: Contemplative, Wistful, Sad
+-Body Language: Longing Posture, Leaning In, Slumped
+
+Line 4, "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
+-Facial Expressions: Resolve, Determination, Longing
+-Body Language: Squared Shoulders, Taking Up Space, Swaying
+
+Line 5, "Fallin' all over myself to lick your heart and taste your health ('cause)"
+-Facial Expressions: Resentful, Sorrowful, Bruised/Painful
+-Body Language: Bending, Moving Rhythmically, Arm Swinging
+
+Line 6, "With the birds I'll share this lonely view"
+-Facial Expressions: Smiling, Relieved, Resolved
+-Body Language: Hunching Shoulders, Dragging Feet, Long Strides
+
+Line 7, "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
+-Facial Expressions: Intense Staring, Desperation, Determined
+-Body Language: Prolonged Stares, Crouching, Defensive Posture
+
+Line 8, "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
+-Facial Expressions: Disbelief, Shock, Longing
+-Body Language: Looking Up, Longing Posture, Erratic
+
+Line 9, "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
+-Facial Expressions: Serious, Desperation, Sad
+-Body Language: Aggressive, Reaching Forward, Relaxed Posture
+
+Line 10, "And autumn's sweet, we call it fall."
+-Facial Expressions: Relieved, Determined, Smiling
+-Body Language: Leaning Forward, Slumped, Prolonged Stares
+
+Line 11, "I'll make it to the moon if I have to crawl (and)"
+-Facial Expressions: Wistful, Sad, Resolved
+-Body Language: Longing Posture, Marching, Defensive Posture

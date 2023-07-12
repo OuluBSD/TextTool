@@ -4,8 +4,8 @@
 
 struct TaskMgr {
 	String openai_token;
-	
 	Array<AI_Task> tasks;
+	
 	RWMutex lock;
 	Mutex task_lock;
 	bool running = false, stopped = true;

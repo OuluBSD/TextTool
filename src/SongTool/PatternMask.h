@@ -2,11 +2,11 @@
 #define _SongTool_PatternMask_h_
 
 struct PatternMask {
-	Index<SnapAttr> attrs;
+	Index<SnapAttrStr> attrs;
 	
 	
 	void Clear() {attrs.Clear();}
-	void Add(const SnapAttr& sa) {
+	void Add(const SnapAttrStr& sa) {
 		attrs.FindAdd(sa);
 	}
 	void Jsonize(JsonIO& json) {

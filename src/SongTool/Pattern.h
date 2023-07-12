@@ -2,24 +2,6 @@
 #define _SongTool_Pattern_h_
 
 
-struct SnapAttr : Moveable<SnapAttr> {
-	int group = 0, item = 0;
-	
-	bool operator==(const SnapAttr& a) const {return group == a.group && item == a.item;}
-	void Clear() {
-		group = 0;
-		item = 0;
-	}
-	void Jsonize(JsonIO& json) {
-		json
-			("g", group)
-			("i", item)
-			;
-	}
-	String ToString() const {return IntStr(group) + ":" + IntStr(item);}
-	hash_t GetHashValue() const {CombineHash c; c.Put(group); c.Put(item); return c;}
-};
-
 struct Part;
 
 struct PatternSnap {
@@ -29,7 +11,7 @@ struct PatternSnap {
 	One<PatternSnap> a, b;
 	int part_id = -1;
 	int pos = -1, len = 0;
-	Index<SnapAttr> attributes;
+	Index<SnapAttrStr> attributes;
 	String txt;
 	
 	void Init(int pos, int len);
@@ -71,7 +53,7 @@ struct PatternSnap {
 		if (b) b->MergeOwner();
 		if (a && b) {
 			for(int i = 0; i < a->attributes.GetCount(); i++) {
-				const SnapAttr& sa = a->attributes[i];
+				const SnapAttrStr& sa = a->attributes[i];
 				int j = b->attributes.Find(sa);
 				if (j < 0)
 					continue;
@@ -105,8 +87,8 @@ struct PatternSnap {
 			if (b) b->GetSnapsLevel(level, level_snaps);
 		}
 	}
-	void GetAttributes(Index<SnapAttr>& attrs) const {
-		for (const SnapAttr& a : this->attributes.GetKeys())
+	void GetAttributes(Index<SnapAttrStr>& attrs) const {
+		for (const SnapAttrStr& a : this->attributes.GetKeys())
 			attrs.FindAdd(a);
 		if (a) a->GetAttributes(attrs);
 		if (b) b->GetAttributes(attrs);

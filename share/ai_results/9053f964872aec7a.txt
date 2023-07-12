@@ -1,6 +1,16 @@
-﻿Types of sentences: Sarcastic, 
-- Dramatic expressions: Scar tissue, wish you saw, 
-- Comedic expressions: Sarcastic mister know it all, 
-- Cliches: Close your eyes and I'll kiss you
-- Similes: With the birds I'll share
-- Foreshadowing: I'll make it to the moon if I have to crawl
+﻿Dramatic sentences, Dramatic expressions, Similes
+
+chorus1:
+- Cliches, Personification, Hyperboles
+
+verse2:
+- Comedic sentences, Comedic expressions, Allusions
+
+chorus2:
+- Metaphors, Irony, Satire
+
+verse3:
+- Dramatic scenarios, Humorous expressions, Foreshadowing
+
+verse4:
+- Types of sentences, Dramatic expressions, Hyperboles

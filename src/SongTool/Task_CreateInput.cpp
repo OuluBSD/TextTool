@@ -1,6 +1,7 @@
 #include "SongTool.h"
 
 void AI_Task::CreateInput_PatternMask() {
+	//CombineHash hash;
 	Database& db = Database::Single();
 	if (!song) {
 		failed = true;
@@ -17,12 +18,14 @@ void AI_Task::CreateInput_PatternMask() {
 	if (ai_txt.IsEmpty()) ai_txt = "matching abstract values";
 	
 	s << "Groups of " << type << " attributes:\n";
+	//hash << ToLower(type);
 	for(Attributes::Group& g : db.attrs.groups) {
 		if (g.type == type) {
 			String key = Capitalize(g.description);
 			if (first.IsEmpty())
 				first = key;
 			s << "- " << key << "\n";
+			//hash << ToLower(g.description);
 		}
 	}
 	s << "\n";
@@ -33,6 +36,7 @@ void AI_Task::CreateInput_PatternMask() {
 	for(int i = 0; i < a.parts.GetCount(); i++) {
 		String key = a.parts.GetKey(i);
 		s << key << "\n";
+		//hash << ToLower(key);
 		
 		if (!parts.IsEmpty()) parts << ", ";
 		parts << key;
@@ -41,6 +45,7 @@ void AI_Task::CreateInput_PatternMask() {
 		for(int j = 0; j < lines.GetCount(); j++) {
 			String& line = lines[j];
 			s << line << "\n";
+			//hash << ToLower(line);
 		}
 		
 		s << "\n";
@@ -48,6 +53,8 @@ void AI_Task::CreateInput_PatternMask() {
 	s << "\n\n";
 	//s << "Empty groups are omitted or marked as N/A.\n";
 	//s << "Multiple values are separated with a comma.\n\n";
+	//hash << ToLower(vocalist_visual);
+	//hash << ToLower(ai_txt);
 	s << vocalist_visual << "\nOne attribute from every group is required.\n\n";
 	s << "Groups with " << ai_txt << " (in format \"" << type << " group: Value 1, Value 2, etc\"):\n\n";
 	
@@ -57,10 +64,12 @@ void AI_Task::CreateInput_PatternMask() {
 	s << "-";
 	
 	input = s;
+	//this->hash = hash;
 	response_length = 2*1024;
 }
 
 void AI_Task::CreateInput_Pattern() {
+	//CombineHash hash;
 	Database& db = Database::Single();
 	if (!song) {
 		failed = true;
@@ -90,9 +99,12 @@ void AI_Task::CreateInput_Pattern() {
 			continue;
 		String key = Capitalize(gg.description);
 		s << key << ":\n";
+		//hash << ToLower(gg.description);
 		for(int j = 0; j < gg.values.GetCount(); j++) {
-			ASSERT(gg.values[j].Find(",") < 0);
-			s << "- " << gg.values[j] << "\n";
+			const String& v = gg.values[j];
+			ASSERT(v.Find(",") < 0);
+			s << "- " << v << "\n";
+			//hash << ToLower(v);
 		}
 		s << "\n";
 		if (first_key.IsEmpty()) first_key = key;
@@ -105,17 +117,22 @@ void AI_Task::CreateInput_Pattern() {
 	}
 	
 	s << "\n\n\nLyrics:\n";
-	for(int i = 0; i < a.unique_lines.GetCount(); i++)
-		s << "Line " << (i+1) << ", \"" << a.unique_lines.GetKey(i) << "\"\n";
+	for(int i = 0; i < a.unique_lines.GetCount(); i++) {
+		const String& l = a.unique_lines.GetKey(i);
+		s << "Line " << (i+1) << ", \"" << l << "\"\n";
+		//hash << ToLower(l);
+	}
 	s << "\nMultiple answers are required.\n\n";
 	s << "\n\nAttributes (in format \"Group: Attribute\") for all lines:\nLine 1, \"" << a.unique_lines.GetKey(0) << "\"\n-";
 	
 	//failed = true;
+	//this->hash = hash;
 	input = s;
 	response_length = 2*1024;
 }
 
 void AI_Task::CreateInput_Analysis() {
+	//CombineHash hash;
 	Database& db = Database::Single();
 	if (!song) {
 		failed = true;
@@ -134,8 +151,11 @@ void AI_Task::CreateInput_Analysis() {
 	String first;
 	
 	s << Capitalize(title) << ":\n";
+	//hash << ToLower(title);
 	for(int i = 2; i < args.GetCount(); i++) {
-		s << "- " << args[i] << "\n";
+		String a = ToLower(args[i]);
+		s << "- " << a << "\n";
+		//hash << ToLower(a);
 	}
 	s << "\n";
 	
@@ -144,6 +164,7 @@ void AI_Task::CreateInput_Analysis() {
 	for(int i = 0; i < a.parts.GetCount(); i++) {
 		String key = a.parts.GetKey(i);
 		s << key << "\n";
+		//hash << ToLower(key);
 		
 		if (!parts.IsEmpty()) parts << ", ";
 		parts << key;
@@ -152,6 +173,7 @@ void AI_Task::CreateInput_Analysis() {
 		for(int j = 0; j < lines.GetCount(); j++) {
 			String& line = lines[j];
 			s << line << "\n";
+			//hash << ToLower(line);
 		}
 		
 		s << "\n";
@@ -159,6 +181,7 @@ void AI_Task::CreateInput_Analysis() {
 	s << "\n\n";
 	
 	s << vocalist_visual << "\n";
+	//hash << ToLower(vocalist_visual);
 	//s << "One attribute from every group is required.\n\n";
 	s << "Multiple answers are required.\n\n";
 	
@@ -177,6 +200,7 @@ void AI_Task::CreateInput_Analysis() {
 	s << "-";
 	#endif
 	
+	//this->hash = hash;
 	input = s;
 	response_length = 2*1024;
 }
@@ -238,12 +262,13 @@ ${FIRSTENTRY}:
 Combination string:)ATRSCROO";
 
 void AI_Task::CreateInput_AttrScores() {
+	//CombineHash hash;
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
 	AttrScore& as = db.attrscores;
 	String prompt;
 	String entries;
-	Index<SnapAttr> attrs;
+	Index<SnapAttrStr> attrs;
 	
 	String type = args[0];
 	String ai_txt = args[1];
@@ -258,22 +283,26 @@ void AI_Task::CreateInput_AttrScores() {
 	
 	
 	int entry_count = 0;
-	for (const SnapAttr& a : attrs.GetKeys()) {
+	for (const SnapAttrStr& a : attrs.GetKeys()) {
+		ASSERT(a.has_id);
+		
 		// Skip attributes with known score values
-		int score = db.attrscores.attr_to_score[a.group][a.item];
+		int score = db.attrscores.attr_to_score[a.group_i][a.item_i];
 		if (score >= 0)
 			continue;
 		
 		// Skip groups, which doesn't match this task
-		const Attributes::Group& gg = db.attrs.groups[a.group];
+		const Attributes::Group& gg = db.attrs.groups[a.group_i];
 		if (gg.type != type)
 			continue;
 		
 		// Get attribute's name
-		String key = gg.values[a.item];
+		String key = gg.values[a.item_i];
 		
 		// Add line to ai prompt
 		entries << "Line " << entry_count+2 << ", " << gg.description << ": \"" << key << "\"\n";
+		//hash << ToLower(gg.description);
+		//hash << ToLower(key);
 		
 		// Make FIRSTENTRY prompt on first seen value
 		if (!entry_count)
@@ -318,6 +347,7 @@ void AI_Task::CreateInput_AttrScores() {
 	}
 	
 	prompt.Replace("${ENTRIES}", entries);
+	//this->hash = hash;
 	input = prompt;
 	response_length = 2*1024;
 }

@@ -1,28 +1,28 @@
-﻿Hand motions: Clasping, Pointing 
-- Facial expressions: Disbelief, Shock
-- Body language: Protective Posture, Squared shoulders
+﻿Hand motions: clapping, finger snapping, pointing
+-Facial expressions: frowning, smiling, raising eyebrows
+-Body language: crossing arms, nodding head, crossing legs
 
-chorus1:
-- Hand motions: Closing fists, Throwing arms out
-- Facial expressions: Resolve, Passion
-- Body language: Posture, Taking up Space
+Chorus1:
+-Hand motions: clapping, waving hands, pointing
+-Facial expressions: wide eyes, pursed lips, smiling
+-Body language: swaying side to side, bouncing to the beat, gesturing with arms
 
-verse2:
-- Hand motions: Pulling, Emphatic Gestures
-- Facial expression: Smirking, Allure
-- Body language: Swaying, Bending 
+Verse2:
+-Hand motions: twirling, snapping fingers, pointing 
+-Facial expressions: mouth agape, wide eyes, frowning 
+-Body language: shrugging shoulders, leaning forward, gesturing with arms
 
-chorus2:
-- Hand motions: Moving in a Wave, Raising Hands
-- Facial expressions: Joy, Ecstasy 
-- Body language: Moving Rhythmically, Arm swinging 
+Chorus2: 
+-Hand motions: clapping, pumping fists, pointing 
+-Facial expressions: wide eyes, frowning, pursed lips 
+-Body language: swaying head to side, bouncing to the beat, gesturing with arms
 
-verse3:
-- Hand motions: Waving, Holding up Palms 
-- Facial expressions: Resentful, Sorrowful
-- Body language: Hunching Shoulders, Dragging Feet 
+Verse3:
+-Hand motions: twirling, snapping fingers, pointing 
+-Facial expressions: pouting lips, wide eyes, frowning 
+-Body language: crouching, leaning back, gesturing with arms
 
-verse4:
-- Hand motions: Clenching, Poising Thumbs 
-- Facial expressions: Determination, Longing 
-- Body language: Long strides, ProlongedStares
+Verse4: 
+-Hand motions: twirling, snapping fingers, pointing
+-Facial expressions: squinting eyes, pursed lips, frowning 
+-Body language: crouching, gesturing with arms, swaying to the beat

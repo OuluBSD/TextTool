@@ -1,40 +1,40 @@
-﻿Natural: Realistic, Naturalistic
-- Artificial: Poetic, Expressive
-- Ambient: Dark, Melancholy
-- Diffused: Soft, Dreamy
-- Color: Moody, Ethereal
+﻿Natural: Soft, Subtle
+- Artificial: Gritty, Dramatic
+- Ambient: Warm, Inviting
+- Diffused: Airing, Soft 
+- Color: Rich, Vibrant
 
 Chorus1:
-- Natural: Majestic, Calm
-- Artificial: Audacious, Energizing
-- Ambient: Transcendent, Inspiring
-- Diffused: Soft, Reflected
-- Color: Passionate, Saturated
+- Natural: Soft, Subtle 
+- Artificial: Glowing, Dynamic 
+- Ambient: Bright, Mysterious 
+- Diffused: Airy, Soft 
+- Color: Gritty, Earthy 
 
 Verse2:
-- Natural: Serene, Gentle 
-- Artificial: Rebellious, Daring 
-- Ambient: Heavy, Desolate
-- Diffused: Mystical, Melodic 
-- Color: Intense, Noble
+- Natural: Vibrant, Bold 
+- Artificial: Stark, Dramatic 
+- Ambient: Muted, Magical 
+- Diffused: Airy, Soft
+- Color: Dark, Moody 
 
 Chorus2:
-- Natural: Peaceful, Pure 
-- Artificial: Exciting, Liberating 
-- Ambient: Empowering, Uplifting 
-- Diffused: Radiant, Breathable 
-- Color: Joyous, Vivid
+- Natural: Soft, Soothing 
+- Artificial: Flashing, Dramatic 
+- Ambient: Mysterious, Alluring 
+- Diffused: Diffused, Subtle 
+- Color: Dark, Contrasting 
 
 Verse3:
-- Natural: Jovial, Majestic
-- Artificial: Bold, Daring 
-- Ambient: Mismatched, Resilient 
-- Diffused: Moody, Serene
-- Color: Subtle, Hypnotic
+- Natural: Soft, Serene 
+- Artificial: Glowing, Abstract 
+- Ambient: Muted, Mystical 
+- Diffused: Airy, Dreamy 
+- Color: Rich, Vibrant 
 
 Verse4:
-- Natural: Comforting, Honest 
-- Artificial: Thought-provoking, Stimulating 
-- Ambient: Lone, Intimate 
-- Diffused: Mysterious, Entrancing 
-- Color: Provocative, Alive
+- Natural: Bold, Bright 
+- Artificial: Glowing, Dramatic 
+- Ambient: Mysterious, Mysterious 
+- Diffused: Airy, Subtle 
+- Color: Dark, Contrasting

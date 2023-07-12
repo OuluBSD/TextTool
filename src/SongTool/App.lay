@@ -1,14 +1,3 @@
-LAYOUT(Main, 400, 200)
-END_LAYOUT
-
-LAYOUT(FrontPage, 400, 200)
-	ITEM(Upp::Label, dv___0, SetLabel(t_("FrontPage")).LeftPosZ(12, 144).VSizePosZ(8, 173))
-END_LAYOUT
-
-LAYOUT(Calendar, 400, 200)
-	ITEM(Upp::Label, dv___0, SetLabel(t_("Calendar")).LeftPosZ(12, 144).VSizePosZ(8, 173))
-END_LAYOUT
-
 LAYOUT(Info, 672, 456)
 	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Artist")).LeftPosZ(4, 664).TopPosZ(0, 288))
 	ITEM(Upp::Label, dv___1, SetLabel(t_("Name:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 120).TopPosZ(16, 20))
@@ -43,6 +32,27 @@ LAYOUT(Info, 672, 456)
 	ITEM(Upp::EditString, song_prj_name, LeftPosZ(136, 256).TopPosZ(420, 20))
 END_LAYOUT
 
+LAYOUT(Analysis, 724, 488)
+	ITEM(Upp::ArrayCtrl, data, HSizePosZ(0, 0).VSizePosZ(112, 0))
+	ITEM(Upp::DocEdit, lyrics, HSizePosZ(0, 0).TopPosZ(0, 116))
+END_LAYOUT
+
+LAYOUT(PatternMask, 400, 200)
+	ITEM(Upp::ArrayCtrl, data, HSizePosZ(0, 0).VSizePosZ(112, 0))
+	ITEM(Upp::DocEdit, lyrics, HSizePosZ(0, 0).TopPosZ(0, 116))
+END_LAYOUT
+
+LAYOUT(Main, 400, 200)
+END_LAYOUT
+
+LAYOUT(FrontPage, 400, 200)
+	ITEM(Upp::Label, dv___0, SetLabel(t_("FrontPage")).LeftPosZ(12, 144).VSizePosZ(8, 173))
+END_LAYOUT
+
+LAYOUT(Calendar, 400, 200)
+	ITEM(Upp::Label, dv___0, SetLabel(t_("Calendar")).LeftPosZ(12, 144).VSizePosZ(8, 173))
+END_LAYOUT
+
 LAYOUT(Import, 592, 108)
 	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Import from lyrics with AI")).LeftPosZ(4, 152).TopPosZ(0, 40))
 	ITEM(Upp::Button, make_tasks, SetLabel(t_("Make Tasks")).LeftPosZ(8, 144).TopPosZ(16, 20))
@@ -71,26 +81,6 @@ LAYOUT(Story, 492, 476)
 	ITEM(Upp::DocEdit, storyline, Tip(t_("The storyline and narrative of the song")).LeftPosZ(152, 332).TopPosZ(356, 52))
 	ITEM(Upp::Label, dv___15, SetLabel(t_("Implications:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 136).TopPosZ(412, 20))
 	ITEM(Upp::DocEdit, implications, Tip(t_("The social and political implications of the song")).LeftPosZ(152, 332).TopPosZ(412, 52))
-END_LAYOUT
-
-LAYOUT(Pattern, 556, 216)
-	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Pattern")).LeftPosZ(4, 228).TopPosZ(4, 88))
-	ITEM(Upp::Label, dv___1, SetLabel(t_("Struct:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(8, 56).TopPosZ(20, 20))
-	ITEM(Upp::EditString, structure, LeftPosZ(68, 160).TopPosZ(20, 20))
-	ITEM(Upp::Button, reload, SetLabel(t_("Reload Structure")).LeftPosZ(68, 160).TopPosZ(44, 20))
-	ITEM(Upp::Button, merge_owner, SetLabel(t_("Merge attributes to owner")).LeftPosZ(68, 160).TopPosZ(68, 20))
-	ITEM(Splitter, vsplit, LeftPosZ(4, 228).VSizePosZ(96, 32))
-	ITEM(Splitter, mainsplit, HSizePosZ(236, 0).VSizePosZ(0, 0))
-	ITEM(Upp::Button, add, SetLabel(t_("Add")).LeftPosZ(4, 228).BottomPosZ(4, 24))
-END_LAYOUT
-
-LAYOUT(PatternMask, 400, 200)
-	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Pattern mask preset")).LeftPosZ(4, 228).TopPosZ(4, 88))
-	ITEM(Upp::Label, dv___1, SetLabel(t_("Name:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(8, 56).TopPosZ(20, 20))
-	ITEM(Upp::EditString, name, LeftPosZ(68, 160).TopPosZ(20, 20))
-	ITEM(Splitter, vsplit, LeftPosZ(4, 228).VSizePosZ(96, 32))
-	ITEM(Splitter, mainsplit, HSizePosZ(236, 0).VSizePosZ(0, 0))
-	ITEM(Upp::Button, add, SetLabel(t_("Add")).LeftPosZ(4, 228).BottomPosZ(4, 24))
 END_LAYOUT
 
 LAYOUT(Scoring, 556, 216)
@@ -142,13 +132,6 @@ LAYOUT(Composition, 492, 440)
 	ITEM(Upp::DocEdit, structure, Tip(t_("The storyline and narrative of the song")).HSizePosZ(148, 12).TopPosZ(320, 52))
 	ITEM(Upp::Label, dv___15, SetLabel(t_("Genre/Style:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(8, 136).TopPosZ(376, 20))
 	ITEM(Upp::DocEdit, genre_style, Tip(t_("The social and political implications of the song")).HSizePosZ(148, 12).TopPosZ(376, 52))
-END_LAYOUT
-
-LAYOUT(Analysis, 724, 488)
-	ITEM(Upp::ArrayCtrl, analyses, LeftPosZ(4, 228).VSizePosZ(4, 60))
-	ITEM(Upp::Button, add, SetLabel(t_("Add")).LeftPosZ(4, 228).BottomPosZ(32, 24))
-	ITEM(Upp::Button, parse, SetLabel(t_("Parse")).LeftPosZ(4, 228).BottomPosZ(4, 24))
-	ITEM(Upp::ArrayCtrl, data, HSizePosZ(236, 4).VSizePosZ(4, 4))
 END_LAYOUT
 
 LAYOUT(Production, 400, 200)

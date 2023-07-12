@@ -1,100 +1,31 @@
-﻿Contrast and unexpected elements: Scar tissue, Sarcastic mister know-it-all
-- Moral interactions: Close your eyes and I'll kiss you
-- Type of action in moral interaction: Kissing
-- Religiously moral: None
-- Atheistic interactions: None
-- Type of action in atheistic interaction: None
-- Interactions: Kissing
-- Interactions with: None
-- Physical features: None
-- Personality traits: Sarcastic
-- Likes and dislikes: None
-- Quirks: None
-- Goals: None
-- Motivations: None
-- Backstories: None
+﻿Contrast and unexpected elements: Sarcastic mister know-it-all
+- Type of action in moral interaction: kiss you 
+- Physical features: Scar tissue 
+- Likes and dislikes: Close your eyes 
+- Goals: make it to the moon 
 
-chorus1:
-- Contrast and unexpected elements: None
-- Moral interactions: None
-- Type of action in moral interaction: None
-- Religiously moral: None
-- Atheistic interactions: None
-- Type of action in atheistic interaction: None
-- Interactions: None
-- Interactions with: None
-- Physical features: None
-- Personality traits: None
-- Likes and dislikes: None
-- Quirks: None
-- Goals: None
-- Motivations: None
-- Backstories: None
+Chorus1:
+- Interactions with: the birds
+- Type of action in moral interaction: share 
 
-verse2:
-- Contrast and unexpected elements: Young Kentucky girl in a push-up bra
-- Moral interactions: None
-- Type of action in moral interaction: None
-- Religiously moral: None
-- Atheistic interactions: Fallin' all over myself to lick your heart and taste your health
-- Type of action in atheistic interaction: Licking heart and tasting health
-- Interactions: Licking heart, tasting health
-- Interactions with: Young Kentucky girl
-- Physical features: Push-up bra
-- Personality traits: None
-- Likes and dislikes: None
-- Quirks: None
-- Goals: None
-- Motivations: None
-- Backstories: None
+Verse2:
+- Contrast and unexpected elements: Young Kentucky girl in a push-up bra 
+- Type of action in moral interaction: lick your heart 
+- Likes and dislikes: taste your health 
 
-chorus2:
-- Contrast and unexpected elements: None
-- Moral interactions: None
-- Type of action in moral interaction: None
-- Religiously moral: None
-- Atheistic interactions: None
-- Type of action in atheistic interaction: None
-- Interactions: None
-- Interactions with: None
-- Physical features: None
-- Personality traits: None
-- Likes and dislikes: None
-- Quirks: None
-- Goals: None
-- Motivations: None
-- Backstories: None
+Chorus2:
+- Type of action in moral interaction: share 
+- Interactions with: the birds 
 
-verse3:
-- Contrast and unexpected elements: Blood loss in a bathroom stall, A southern girl with a scarlet drawl
-- Moral interactions: None
-- Type of action in moral interaction: None
-- Religiously moral: None
-- Atheistic interactions: None
-- Type of action in atheistic interaction: None
-- Interactions: Wave goodbye 
-- Interactions with: Ma and Pa
-- Physical features: None
-- Personality traits: None
-- Likes and dislikes: None
-- Quirks: None
-- Goals: None
-- Motivations: None
-- Backstories: None
+Verse3:
+- Contrast and unexpected elements: Blood loss in a bathroom stall 
+- Type of action in moral interaction: wave goodbye 
+- Physical features: southern girl 
+- Interactions with: ma and pa 
 
-verse4:
-- Contrast and unexpected elements: Soft spoken with a broken jaw, Step outside, but not to brawl 
-- Moral interactions: None
-- Type of action in moral interaction: None
-- Religiously moral: None
-- Atheistic interactions: Making it to the moon if I have to crawl 
-- Type of action in atheistic interaction: Crawling 
-- Interactions: None
-- Interactions with: None
-- Physical features: Broken jaw 
-- Personality traits: Soft spoken 
-- Likes and dislikes: Autumn's sweet 
-- Quirks: None
-- Goals: Making it to the moon 
-- Motivations: None
-- Backstories: None
+Verse4:
+- Contrast and unexpected elements: broken jaw 
+- Physical features: soft spoken 
+- Likes and dislikes: step outside 
+- Goals: make it to the moon 
+- Motivations: have to crawl

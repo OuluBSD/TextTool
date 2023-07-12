@@ -113,6 +113,7 @@ struct Attributes : DataFile {
 		}
 	}
 	void AddScoring(String s, Vector<Attributes::ScoringType>& scorings);
+	int FindGroup(String group_name);
 	
 	static const int group_limit = 1024;
 	static int trans_i; // active language translation index

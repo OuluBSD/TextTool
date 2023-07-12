@@ -1,0 +1,53 @@
+﻿Diffused: Soft
+- Artificial: Gritty
+- Color: Rich
+
+Line 2, "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
+- Natural: Subtle
+- Color: Vibrant
+- Ambient: Mysterious
+
+Line 3, "With the birds I'll share this lonely viewin'"
+- Natural: Serene
+- Color: Dark
+- Ambient: Inviting
+
+Line 4, "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
+- Artificial: Dramatic
+- Diffused: Airy
+- Color: Gritty
+
+Line 5, "Fallin' all over myself to lick your heart and taste your health ('cause)"
+- Natural: Soothing
+- Color: Moody
+- Diffused: Dreamy
+
+Line 6, "With the birds I'll share this lonely view"
+- Natural: Bright
+- Color: Contrasting
+- Ambient: Bright
+
+Line 7, "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
+- Artificial: Glowing
+- Color: Earthy
+- Diffused: Subtle
+
+Line 8, "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
+- Natural: Bold
+- Color: Rich
+- Ambient: Magical
+
+Line 9, "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
+- Diffused: Soft
+- Artificial: Abstract
+- Color: Vibrant
+
+Line 10, "And autumn's sweet, we call it fall."
+- Natural: Vibrant
+- Color: Earthy
+- Ambient: Alluring
+
+Line 11, "I'll make it to the moon if I have to crawl (and)"
+- Artificial: Stark
+- Diffused: Airing
+- Color: Moody

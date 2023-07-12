@@ -42,7 +42,7 @@ void AI_Task::SetError(String s) {
 }
 
 String AI_Task::GetInputHash() const {
-	hash_t h = input.GetHashValue();
+	hash_t h = this->hash ? this->hash : input.GetHashValue();
 	return HexString((void*)&h, sizeof(h));
 }
 
@@ -85,6 +85,7 @@ void AI_Task::CreateInput() {
 		case TASK_LYRICS: break;
 		default: break;
 	}
+	
 	Load();
 }
 

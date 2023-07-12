@@ -46,6 +46,7 @@ using namespace Upp;
 #include "CalMgrCtrl.h"
 #include "TaskMgrCtrl.h"
 #include "PatternMaskCtrl.h"
+#include "AttrCtrl.h"
 #include "PatternCtrl.h"
 #include "CompositionCtrl.h"
 #include "AnalysisCtrl.h"

@@ -1,0 +1,64 @@
+﻿Hair/makeup: Wild
+- Clothing: Bold
+- Accessories: Unique
+- Props: None
+
+Line 2, "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
+- Hair/makeup: Natural makeup
+- Clothing: Casual
+- Accessories: Earrings
+- Props: None
+
+Line 3, "With the birds I'll share this lonely viewin'"
+- Hair/makeup: Messy hair
+- Clothing: Casual attire
+- Accessories: Sunglasses
+- Props: Telescope or other celestial objects
+
+Line 4, "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
+- Hair/makeup: Vintage hairstyle
+- Clothing: Formal occasion attire
+- Accessories: Hat or cap
+- Props: None
+
+Line 5, "Fallin' all over myself to lick your heart and taste your health ('cause)"
+- Hair/makeup: Subdued
+- Clothing: Shades of red
+- Accessories: Bracelet
+- Props: None
+
+Line 6, "With the birds I'll share this lonely view"
+- Hair/makeup: Shaggy hair
+- Clothing: Floral print dress
+- Accessories: Hoop earrings
+- Props: Telescope
+
+Line 7, "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
+- Hair/makeup: Bronzed makeup
+- Clothing: Cowboy boots
+- Accessories: Choker
+- Props: None
+
+Line 8, "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
+- Hair/makeup: Nude makeup
+- Clothing: Denim
+- Accessories: Bandana
+- Props: Moon
+
+Line 9, "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
+- Hair/makeup: Neat
+- Clothing: Leather jacket
+- Accessories: Clip-on earrings
+- Props: None
+
+Line 10, "And autumn's sweet, we call it fall."
+- Hair/makeup: Refined
+- Clothing: Jeans
+- Accessories: Bolo tie
+- Props: None
+
+Line 11, "I'll make it to the moon if I have to crawl (and)"
+- Hair/makeup: Daring
+- Clothing: Sneakers
+- Accessories: Belt buckle
+- Props: Camera

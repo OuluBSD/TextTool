@@ -1,0 +1,64 @@
+﻿ Transitions: Abrupt, Sharp
+- Fades: None
+- Splices: Hard cut
+- Effects: None
+
+Line 2, "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
+- Transitions: Fade in/out, Subtle
+- Fades: Fade to black, Fade in/out
+- Splices: None
+- Effects: None
+
+Line 3, "With the birds I'll share this lonely viewin'"
+- Transitions: None
+- Fades: Cross fade
+- Splices: None
+- Effects: Reverb, Echo
+
+Line 4, "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
+- Transitions: Abrupt, Sharp
+- Fades: None
+- Splices: Hard cut
+- Effects: None
+
+Line 5, "Fallin' all over myself to lick your heart and taste your health ('cause)"
+- Transitions: Fade in/out, Subtle
+- Fades: Fade to black, Fade in/out
+- Splices: None
+- Effects: None
+
+Line 6, "With the birds I'll share this lonely view"
+- Transitions: None
+- Fades: Cross fade
+- Splices: None
+- Effects: Reverb, Echo
+
+Line 7, "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
+- Transitions: Abrupt, Sharp
+- Fades: None
+- Splices: Hard cut
+- Effects: None
+
+Line 8, "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
+- Transitions: Fade in/out, Subtle
+- Fades: Fade to black, Fade in/out
+- Splices: None
+- Effects: None
+
+Line 9, "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
+- Transitions: Abrupt, Sharp
+- Fades: None
+- Splices: Hard cut
+- Effects: None
+
+Line 10, "And autumn's sweet, we call it fall."
+- Transitions: Fade in/out, Subtle
+- Fades: Fade to black, Fade in/out
+- Splices: None
+- Effects: None
+
+Line 11, "I'll make it to the moon if I have to crawl (and)"
+- Transitions: Abrupt, Sharp
+- Fades: None
+- Splices: Hard cut
+- Effects: None

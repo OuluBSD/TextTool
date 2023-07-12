@@ -1,16 +1,40 @@
-﻿Use of Facial Expressions, Expression of Emotions, Utilization of Voice Inflection
+﻿Expression of emotions
+- Choice of words
+- Utilization of pauses
+- Subtle cadence
+- Emphasis on words
 
-chorus1:
-- Playful Physicality, Timing, Utilization of Pauses
+Chorus1:
+- Utilization of voice inflection
+- Expression of emotions
+- Dramatic exercises
+- Improvisation
+- Utilization of pauses
 
-verse2:
-- Narrative Arcs, Intentional Choice of Words, Satire
+Verse2:
+- Theatre conventions
+- Narrative arcs
+- Character development
+- Movement of the body
+- Exaggeration
 
-chorus2:
-- Exaggeration, Playful Physicality, Expression of Emotions
+Chorus2:
+- Utilization of voice inflection
+- Expression of emotions
+- Improvisation
+- Utilization of pauses
+- Subtle cadence
 
-verse3:
-- Character Development, Tone, Nonverbal Cues
+Verse3:
+- Facial expressions
+- Satire
+- Parody
+- Expression of emotions
+- Choice of words
 
-verse4:
-- Cadence, Emphasis on Words, Voiceover Tones
+Verse4:
+- Voiceover tones
+- Vocal techniques
+- Timing
+- Physical gestures
+- Playful physicality

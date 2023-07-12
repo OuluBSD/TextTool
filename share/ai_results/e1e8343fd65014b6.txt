@@ -1,34 +1,39 @@
-﻿Transitions: Fade in/out, Wipe, Split/Swipe
-- Fades: Dissolve, Drop Shadow, Lens Flare
-- Splices: Cutaways, Opposition Ramps, Picture in Picture
-- Effects: Motion Blur, Color Correction, Screen Flicker
- 
-chorus1: 
-- Transitions: Wipe, Split/Swipe, Star-shaped Wipe 
-- Fades: Dissolve, Color Enhancement, Cross-fade
-- Splices: Cutaways, Double Exposure, Background Transition 
-- Effects: Audio Fade, Color Correction, Shake
+﻿Transitions: Fade in/fade out, Whip pan, jump cut, stinger
+-Fades: Smooth, Cross, Quick
+-Splices: Tempo change, Slow-motion
+-Effects: Blur, distortion, color tint
 
-verse2: 
-- Transitions: Wipe, Split/Swipe, Push/Pull
-- Fades: Dissolve, Color Enhancement, Cross-fade
-- Splices: Cutaways, Reverse Order, Lens Flare 
-- Effects: Motion Blur, Color Correction, Grain
+Chorus1:
 
-chorus2: 
-- Transitions: Wipe, Split/Swipe, Star-shaped Wipe 
-- Fades: Dissolve, Color Enhancement, Cross-fade
-- Splices: Cutaways, Double Exposure, Background Transition 
-- Effects: Audio Fade, Color Correction, Shake
+-Transitions: Shake, wipe, dissolve
+-Fades: Repeated, delayed
+-Splices: Echo, Melody
+-Effects: Echo, pitch shift, reverb
 
-verse3: 
-- Transitions: Fade in/out, Wipe, Push/Pull
-- Fades: Dissolve, Drop Shadow, Lens Flare
-- Splices: Cutaways, Opposition Ramps, Picture in Picture
-- Effects: Motion Blur, Color Correction, Screen Flicker
+Verse2:
 
-verse4: 
-- Transitions: Fade in/out, Wipe, Split/Swipe
-- Fades: Dissolve, Color Enhancement, Cross-fade
-- Splices: Cutaways, Reverse Order, Lens Flare
-- Effects: Motion Blur, Color Correction, Grain
+-Transitions: Push, rotate, zoom
+-Fades: Soft, gradual, diagonal
+-Splices: Augmented rhythms, reversed sounds
+-Effects: Glitch, vibrato, phaser
+
+Chorus2:
+
+-Transitions: Match cut, split screen, flip
+-Fades: Scanner, starburst, diamond
+-Splices: Harmonization, synthesizers
+-Effects: Flanger, chorusing, compression
+
+Verse3:
+
+-Transitions: Page turn, dissolve, flipping
+-Fades: Combination, circle, triangle
+-Splices: Orchestration, drum rolls
+-Effects: Saturation, distortion, shimmer
+
+Verse4:
+
+-Transitions: Spiral, pan, ripple
+-Fades: 3D, radial, ripple
+-Splices: Staccato sounds, ocatvitave jumps
+-Effects: Autotuning, phaser, flanging

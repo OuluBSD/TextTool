@@ -1,17 +1,2127 @@
 {
 	"group_types": [
-
+		{
+			"name": "language",
+			"ai_txt": "matching abstract values"
+		},
+		{
+			"name": "writing",
+			"ai_txt": "matching abstract values"
+		},
+		{
+			"name": "characters",
+			"ai_txt": "matching abstract values"
+		},
+		{
+			"name": "setting",
+			"ai_txt": "matching abstract values"
+		},
+		{
+			"name": "creativity",
+			"ai_txt": "matching abstract values"
+		},
+		{
+			"name": "performance",
+			"ai_txt": "good values for a novel music video"
+		},
+		{
+			"name": "gestures",
+			"ai_txt": "good values for a novel music video"
+		},
+		{
+			"name": "costuming",
+			"ai_txt": "good values for a novel music video"
+		},
+		{
+			"name": "editing",
+			"ai_txt": "good values for a novel music video"
+		},
+		{
+			"name": "lighting",
+			"ai_txt": "good values for a novel music video"
+		}
 	],
 	"groups": [
+		{
+			"description": "nouns",
+			"type": "language",
+			"color": {
+				"red": 41,
+				"green": 192,
+				"blue": 245
+			},
+			"values": [
+				"Scar",
+				"Sarcastic",
+				"Mister",
+				"Birds",
+				"Viewin'",
+				"Wall",
+				"Kentucky",
+				"Girl",
+				"Push-up",
+				"Bra",
+				"Health",
+				"Blood",
+				"Bathroom",
+				"Stall",
+				"Southern",
+				"Drawl",
+				"Ma",
+				"Pa",
+				"Jaw",
+				"Moon",
+				"Crawl",
+				"View",
+				"Heart",
+				"Loss",
+				"Autumn",
+				"Fall"
+			]
+		},
+		{
+			"description": "pronouns",
+			"type": "language",
+			"color": {
+				"red": 74,
+				"green": 100,
+				"blue": 83
+			},
+			"values": [
+				"You",
+				"I",
+				"Me",
+				"Myself",
+				"I'm",
+				"It"
+			]
+		},
+		{
+			"description": "verbs",
+			"type": "language",
+			"color": {
+				"red": 142,
+				"green": 197,
+				"blue": 216
+			},
+			"values": [
+				"Saw",
+				"Know-it-all",
+				"Close",
+				"Kiss",
+				"Share",
+				"Fallin'",
+				"Lick",
+				"Taste",
+				"Wave",
+				"Goodbye",
+				"Step",
+				"Make",
+				"Push",
+				"Soft",
+				"Spoken",
+				"Brawl",
+				"Crawl"
+			]
+		},
+		{
+			"description": "adjectives",
+			"type": "language",
+			"color": {
+				"red": 250,
+				"green": 172,
+				"blue": 126
+			},
+			"values": [
+				"Lonely",
+				"Scarlet",
+				"Soft",
+				"Broken",
+				"Sarcastic",
+				"Young",
+				"Sweet"
+			]
+		},
+		{
+			"description": "adverbs",
+			"type": "language",
+			"color": {
+				"red": 1,
+				"green": 243,
+				"blue": 101
+			},
+			"values": [
+				"Outside",
+				"Cause",
+				"This",
+				"Up",
+				"All",
+				"Over",
+				"Goodbye",
+				"But"
+			]
+		},
+		{
+			"description": "prepositions",
+			"type": "language",
+			"color": {
+				"red": 224,
+				"green": 32,
+				"blue": 55
+			},
+			"values": [
+				"Against",
+				"With",
+				"To",
+				"If"
+			]
+		},
+		{
+			"description": "conjunctions",
+			"type": "language",
+			"color": {
+				"red": 131,
+				"green": 244,
+				"blue": 10
+			},
+			"values": [
+				"'cause",
+				"But",
+				"And"
+			]
+		},
+		{
+			"description": "interjections",
+			"type": "language",
+			"color": {
+				"red": 183,
+				"green": 138,
+				"blue": 128
+			},
+			"values": [
 
+			]
+		},
+		{
+			"description": "syntax",
+			"type": "language",
+			"color": {
+				"red": 67,
+				"green": 117,
+				"blue": 232
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "morphology",
+			"type": "language",
+			"color": {
+				"red": 77,
+				"green": 77,
+				"blue": 235
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "semantics",
+			"type": "language",
+			"color": {
+				"red": 86,
+				"green": 4,
+				"blue": 60
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "pragmatics",
+			"type": "language",
+			"color": {
+				"red": 47,
+				"green": 0,
+				"blue": 132
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "discourse",
+			"type": "language",
+			"color": {
+				"red": 75,
+				"green": 232,
+				"blue": 37
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "types of sentences",
+			"type": "writing",
+			"color": {
+				"red": 120,
+				"green": 94,
+				"blue": 237
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "dramatic sentences",
+			"type": "writing",
+			"color": {
+				"red": 238,
+				"green": 10,
+				"blue": 151
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "dramatic scenarios",
+			"type": "writing",
+			"color": {
+				"red": 79,
+				"green": 145,
+				"blue": 252
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "dramatic expressions",
+			"type": "writing",
+			"color": {
+				"red": 216,
+				"green": 211,
+				"blue": 37
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "comedic sentences",
+			"type": "writing",
+			"color": {
+				"red": 187,
+				"green": 153,
+				"blue": 222
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "comedic scenarios",
+			"type": "writing",
+			"color": {
+				"red": 168,
+				"green": 160,
+				"blue": 153
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "comedic expressions",
+			"type": "writing",
+			"color": {
+				"red": 69,
+				"green": 158,
+				"blue": 113
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "humorous expressions",
+			"type": "writing",
+			"color": {
+				"red": 126,
+				"green": 217,
+				"blue": 209
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "cliches",
+			"type": "writing",
+			"color": {
+				"red": 124,
+				"green": 157,
+				"blue": 251
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "similes",
+			"type": "writing",
+			"color": {
+				"red": 65,
+				"green": 236,
+				"blue": 158
+			},
+			"values": [
+				"Sarcastic mister know-it-all",
+				"Autumn's sweet"
+			]
+		},
+		{
+			"description": "metaphors",
+			"type": "writing",
+			"color": {
+				"red": 129,
+				"green": 215,
+				"blue": 250
+			},
+			"values": [
+				"Scar tissue",
+				"Close eyes",
+				"Birds sharing lonely view",
+				"Step outside",
+				"Birds sharing",
+				"Fallin' all over myself",
+				"Broken jaw",
+				"Crawl"
+			]
+		},
+		{
+			"description": "personification",
+			"type": "writing",
+			"color": {
+				"red": 211,
+				"green": 15,
+				"blue": 171
+			},
+			"values": [
+				"Birds sharing",
+				"Kentucky girl",
+				"Southern girl"
+			]
+		},
+		{
+			"description": "hyperboles",
+			"type": "writing",
+			"color": {
+				"red": 121,
+				"green": 61,
+				"blue": 250
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "allusions",
+			"type": "writing",
+			"color": {
+				"red": 183,
+				"green": 213,
+				"blue": 172
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "irony",
+			"type": "writing",
+			"color": {
+				"red": 207,
+				"green": 124,
+				"blue": 43
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "satire",
+			"type": "writing",
+			"color": {
+				"red": 221,
+				"green": 103,
+				"blue": 132
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "foreshadowing",
+			"type": "writing",
+			"color": {
+				"red": 72,
+				"green": 5,
+				"blue": 206
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "contrast and unexpected elements",
+			"type": "characters",
+			"color": {
+				"red": 23,
+				"green": 98,
+				"blue": 240
+			},
+			"values": [
+				"Sarcastic mister know-it-all",
+				"Young kentucky girl in a push-up bra",
+				"Blood loss in a bathroom stall",
+				"Broken jaw"
+			]
+		},
+		{
+			"description": "moral interactions",
+			"type": "characters",
+			"color": {
+				"red": 137,
+				"green": 195,
+				"blue": 136
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "moral interactions with",
+			"type": "characters",
+			"color": {
+				"red": 24,
+				"green": 209,
+				"blue": 100
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "type of action in moral interaction",
+			"type": "characters",
+			"color": {
+				"red": 237,
+				"green": 58,
+				"blue": 213
+			},
+			"values": [
+				"Kiss you",
+				"Share",
+				"Lick your heart",
+				"Wave goodbye"
+			]
+		},
+		{
+			"description": "religiously moral",
+			"type": "characters",
+			"color": {
+				"red": 30,
+				"green": 97,
+				"blue": 132
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "atheistic interactions",
+			"type": "characters",
+			"color": {
+				"red": 36,
+				"green": 20,
+				"blue": 75
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "atheistic interactions with",
+			"type": "characters",
+			"color": {
+				"red": 118,
+				"green": 8,
+				"blue": 149
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "type of action in atheistic interaction",
+			"type": "characters",
+			"color": {
+				"red": 249,
+				"green": 74,
+				"blue": 148
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "religiously moral",
+			"type": "characters",
+			"color": {
+				"red": 209,
+				"green": 37,
+				"blue": 3
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "interactions",
+			"type": "characters",
+			"color": {
+				"red": 111,
+				"green": 228,
+				"blue": 75
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "interactions with",
+			"type": "characters",
+			"color": {
+				"red": 210,
+				"green": 10,
+				"blue": 205
+			},
+			"values": [
+				"The birds",
+				"Ma and pa"
+			]
+		},
+		{
+			"description": "physical features",
+			"type": "characters",
+			"color": {
+				"red": 154,
+				"green": 203,
+				"blue": 241
+			},
+			"values": [
+				"Scar tissue",
+				"Southern girl",
+				"Soft spoken"
+			]
+		},
+		{
+			"description": "personality traits",
+			"type": "characters",
+			"color": {
+				"red": 101,
+				"green": 38,
+				"blue": 28
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "likes and dislikes",
+			"type": "characters",
+			"color": {
+				"red": 255,
+				"green": 67,
+				"blue": 214
+			},
+			"values": [
+				"Close your eyes",
+				"Taste your health",
+				"Step outside"
+			]
+		},
+		{
+			"description": "quirks",
+			"type": "characters",
+			"color": {
+				"red": 87,
+				"green": 86,
+				"blue": 230
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "goals",
+			"type": "characters",
+			"color": {
+				"red": 70,
+				"green": 128,
+				"blue": 128
+			},
+			"values": [
+				"Make it to the moon"
+			]
+		},
+		{
+			"description": "motivations",
+			"type": "characters",
+			"color": {
+				"red": 92,
+				"green": 174,
+				"blue": 99
+			},
+			"values": [
+				"Have to crawl"
+			]
+		},
+		{
+			"description": "backstories",
+			"type": "characters",
+			"color": {
+				"red": 164,
+				"green": 227,
+				"blue": 94
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "places",
+			"type": "setting",
+			"color": {
+				"red": 230,
+				"green": 142,
+				"blue": 226
+			},
+			"values": [
+				"In a room",
+				"Unknown",
+				"Against a wall",
+				"In a bathroom",
+				"Outside"
+			]
+		},
+		{
+			"description": "environments",
+			"type": "setting",
+			"color": {
+				"red": 193,
+				"green": 64,
+				"blue": 50
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "locations",
+			"type": "setting",
+			"color": {
+				"red": 249,
+				"green": 36,
+				"blue": 140
+			},
+			"values": [
+				"Unknown",
+				"Viewin"
+			]
+		},
+		{
+			"description": "weather",
+			"type": "setting",
+			"color": {
+				"red": 126,
+				"green": 130,
+				"blue": 114
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "time of day",
+			"type": "setting",
+			"color": {
+				"red": 240,
+				"green": 135,
+				"blue": 155
+			},
+			"values": [
+				"Unspecified"
+			]
+		},
+		{
+			"description": "time periods",
+			"type": "setting",
+			"color": {
+				"red": 23,
+				"green": 148,
+				"blue": 85
+			},
+			"values": [
+				"Present"
+			]
+		},
+		{
+			"description": "ideas",
+			"type": "creativity",
+			"color": {
+				"red": 133,
+				"green": 194,
+				"blue": 163
+			},
+			"values": [
+				"Scar tissue",
+				"Sarcastic mister",
+				"Kissing",
+				"Push wall",
+				"Kentucky girl",
+				"Licking heart",
+				"Taste health",
+				"Blood loss",
+				"Southern girl",
+				"Wave goodbye",
+				"Broken jaw",
+				"Step outside",
+				"Moon crawlin",
+				"Autumn sweet"
+			]
+		},
+		{
+			"description": "imagination",
+			"type": "creativity",
+			"color": {
+				"red": 148,
+				"green": 137,
+				"blue": 133
+			},
+			"values": [
+				"Wish you saw",
+				"Close eyes",
+				"Birds sharing",
+				"Push up bra",
+				"Licking heart",
+				"Taste health",
+				"Soft spoken",
+				"Brokrn jaw",
+				"Step outside",
+				"Moon crawling"
+			]
+		},
+		{
+			"description": "inspiration",
+			"type": "creativity",
+			"color": {
+				"red": 26,
+				"green": 14,
+				"blue": 228
+			},
+			"values": [
+				"Kentucky girl",
+				"Southern girl",
+				"Soft spoken"
+			]
+		},
+		{
+			"description": "symbols",
+			"type": "creativity",
+			"color": {
+				"red": 254,
+				"green": 128,
+				"blue": 247
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "imagery",
+			"type": "creativity",
+			"color": {
+				"red": 94,
+				"green": 175,
+				"blue": 49
+			},
+			"values": [
+				"Birds sharing lonely view",
+				"Scarlet drawl",
+				"Wave goodbye",
+				"Birds sharing"
+			]
+		},
+		{
+			"description": "abstractions",
+			"type": "creativity",
+			"color": {
+				"red": 234,
+				"green": 238,
+				"blue": 59
+			},
+			"values": [
+				"Lonely view",
+				"Loneliness"
+			]
+		},
+		{
+			"description": "dreams",
+			"type": "creativity",
+			"color": {
+				"red": 33,
+				"green": 79,
+				"blue": 76
+			},
+			"values": [
+				"Kissing",
+				"Tasting health",
+				"Waving goodbye",
+				"Crawling"
+			]
+		},
+		{
+			"description": "themes",
+			"type": "creativity",
+			"color": {
+				"red": 47,
+				"green": 84,
+				"blue": 247
+			},
+			"values": [
+				"Loneliness"
+			]
+		},
+		{
+			"description": "metaphors",
+			"type": "creativity",
+			"color": {
+				"red": 108,
+				"green": 208,
+				"blue": 178
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "similes",
+			"type": "creativity",
+			"color": {
+				"red": 205,
+				"green": 247,
+				"blue": 23
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "personification",
+			"type": "creativity",
+			"color": {
+				"red": 7,
+				"green": 218,
+				"blue": 21
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "acting styles",
+			"type": "performance",
+			"color": {
+				"red": 237,
+				"green": 5,
+				"blue": 3
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "tones",
+			"type": "performance",
+			"color": {
+				"red": 99,
+				"green": 40,
+				"blue": 14
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "voiceover tones",
+			"type": "performance",
+			"color": {
+				"red": 15,
+				"green": 200,
+				"blue": 122
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "physical gestures",
+			"type": "performance",
+			"color": {
+				"red": 199,
+				"green": 170,
+				"blue": 119
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "facial expressions",
+			"type": "performance",
+			"color": {
+				"red": 168,
+				"green": 43,
+				"blue": 253
+			},
+			"values": [
+				"Frowning",
+				"Smiling",
+				"Raising eyebrows",
+				"Wide eyes",
+				"Pursed lips",
+				"Mouth agape",
+				"Pouting lips",
+				"Squinting eyes"
+			]
+		},
+		{
+			"description": "dance moves",
+			"type": "performance",
+			"color": {
+				"red": 251,
+				"green": 109,
+				"blue": 7
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "costumes",
+			"type": "performance",
+			"color": {
+				"red": 27,
+				"green": 229,
+				"blue": 36
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "choose of props",
+			"type": "performance",
+			"color": {
+				"red": 53,
+				"green": 228,
+				"blue": 211
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "satire",
+			"type": "performance",
+			"color": {
+				"red": 112,
+				"green": 192,
+				"blue": 81
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "parody",
+			"type": "performance",
+			"color": {
+				"red": 93,
+				"green": 61,
+				"blue": 215
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "theatrical conventions",
+			"type": "performance",
+			"color": {
+				"red": 197,
+				"green": 120,
+				"blue": 108
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "vocal techniques",
+			"type": "performance",
+			"color": {
+				"red": 121,
+				"green": 238,
+				"blue": 49
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "timing",
+			"type": "performance",
+			"color": {
+				"red": 194,
+				"green": 54,
+				"blue": 4
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "interplay between performer and audience",
+			"type": "performance",
+			"color": {
+				"red": 240,
+				"green": 178,
+				"blue": 211
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "expression of emotions",
+			"type": "performance",
+			"color": {
+				"red": 200,
+				"green": 203,
+				"blue": 52
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "narrative arcs",
+			"type": "performance",
+			"color": {
+				"red": 170,
+				"green": 127,
+				"blue": 12
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "character development",
+			"type": "performance",
+			"color": {
+				"red": 23,
+				"green": 148,
+				"blue": 150
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "movement of the body",
+			"type": "performance",
+			"color": {
+				"red": 103,
+				"green": 200,
+				"blue": 3
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "exaggeration",
+			"type": "performance",
+			"color": {
+				"red": 122,
+				"green": 203,
+				"blue": 223
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "use of facial makeup",
+			"type": "performance",
+			"color": {
+				"red": 99,
+				"green": 107,
+				"blue": 24
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "utilization of voice inflection",
+			"type": "performance",
+			"color": {
+				"red": 201,
+				"green": 155,
+				"blue": 156
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "expressiveness",
+			"type": "performance",
+			"color": {
+				"red": 168,
+				"green": 60,
+				"blue": 161
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "intentional choice of words",
+			"type": "performance",
+			"color": {
+				"red": 171,
+				"green": 47,
+				"blue": 106
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "utilization of pauses",
+			"type": "performance",
+			"color": {
+				"red": 207,
+				"green": 241,
+				"blue": 33
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "creation of suspense",
+			"type": "performance",
+			"color": {
+				"red": 161,
+				"green": 228,
+				"blue": 1
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "playful physicality",
+			"type": "performance",
+			"color": {
+				"red": 108,
+				"green": 75,
+				"blue": 248
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "interpretation of dialogues",
+			"type": "performance",
+			"color": {
+				"red": 234,
+				"green": 59,
+				"blue": 1
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "behind the camera elements",
+			"type": "performance",
+			"color": {
+				"red": 151,
+				"green": 115,
+				"blue": 107
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "body language",
+			"type": "performance",
+			"color": {
+				"red": 245,
+				"green": 98,
+				"blue": 161
+			},
+			"values": [
+				"Crossing arms",
+				"Nodding head",
+				"Crossing legs",
+				"Swaying side to side",
+				"Bouncing to the beat",
+				"Gesturing with arms",
+				"Shrugging shoulders",
+				"Leaning forward",
+				"Swaying head to side",
+				"Crouching",
+				"Leaning back",
+				"Swaying to the beat"
+			]
+		},
+		{
+			"description": "inflection",
+			"type": "performance",
+			"color": {
+				"red": 175,
+				"green": 192,
+				"blue": 119
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "volume of voice",
+			"type": "performance",
+			"color": {
+				"red": 66,
+				"green": 195,
+				"blue": 194
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "nonverbal cues",
+			"type": "performance",
+			"color": {
+				"red": 32,
+				"green": 9,
+				"blue": 137
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "work with band/musicians",
+			"type": "performance",
+			"color": {
+				"red": 9,
+				"green": 171,
+				"blue": 229
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "mise-en-scene",
+			"type": "performance",
+			"color": {
+				"red": 161,
+				"green": 137,
+				"blue": 82
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "directional cues",
+			"type": "performance",
+			"color": {
+				"red": 142,
+				"green": 157,
+				"blue": 137
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "audio techniques",
+			"type": "performance",
+			"color": {
+				"red": 208,
+				"green": 89,
+				"blue": 255
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "cadence",
+			"type": "performance",
+			"color": {
+				"red": 255,
+				"green": 105,
+				"blue": 21
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "emphasis on words",
+			"type": "performance",
+			"color": {
+				"red": 12,
+				"green": 167,
+				"blue": 167
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "dramatic exercises",
+			"type": "performance",
+			"color": {
+				"red": 189,
+				"green": 90,
+				"blue": 96
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "improvisation",
+			"type": "performance",
+			"color": {
+				"red": 116,
+				"green": 138,
+				"blue": 151
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "hand motions",
+			"type": "gestures",
+			"color": {
+				"red": 191,
+				"green": 178,
+				"blue": 18
+			},
+			"values": [
+				"Clapping",
+				"Finger snapping",
+				"Pointing",
+				"Waving hands",
+				"Twirling",
+				"Snapping fingers",
+				"Pumping fists"
+			]
+		},
+		{
+			"description": "facial expressions",
+			"type": "gestures",
+			"color": {
+				"red": 90,
+				"green": 145,
+				"blue": 35
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "body language",
+			"type": "gestures",
+			"color": {
+				"red": 86,
+				"green": 249,
+				"blue": 65
+			},
+			"values": [
+
+			]
+		},
+		{
+			"description": "hair/makeup",
+			"type": "costuming",
+			"color": {
+				"red": 230,
+				"green": 4,
+				"blue": 124
+			},
+			"values": [
+				"Neat",
+				"Subdued",
+				"Simple",
+				"Classic",
+				"Bold",
+				"Dramatic",
+				"Refined",
+				"Stylish",
+				"Elegant",
+				"Natural",
+				"Rugged",
+				"Outdoor"
+			]
+		},
+		{
+			"description": "clothing",
+			"type": "costuming",
+			"color": {
+				"red": 165,
+				"green": 116,
+				"blue": 251
+			},
+			"values": [
+				"Modern",
+				"Casual",
+				"Loose-fitting",
+				"Relaxed",
+				"Quirky",
+				"Fashionable",
+				"Sophisticated",
+				"Intelligent",
+				"Refined",
+				"Timeless",
+				"Rugged",
+				"Outdoor",
+				"Push-up bra"
+			]
+		},
+		{
+			"description": "accessories",
+			"type": "costuming",
+			"color": {
+				"red": 240,
+				"green": 75,
+				"blue": 196
+			},
+			"values": [
+				"Sunglasses",
+				"Hat/cap",
+				"Earrings",
+				"Hair clips",
+				"Scarf",
+				"Tie",
+				"Brooch",
+				"Gloves",
+				"Belt",
+				"Watch",
+				"Hairclips"
+			]
+		},
+		{
+			"description": "props",
+			"type": "costuming",
+			"color": {
+				"red": 108,
+				"green": 175,
+				"blue": 182
+			},
+			"values": [
+				"Musical instrument",
+				"Books",
+				"Desk items",
+				"Vintage photo",
+				"Camping gear"
+			]
+		},
+		{
+			"description": "transitions",
+			"type": "editing",
+			"color": {
+				"red": 255,
+				"green": 104,
+				"blue": 183
+			},
+			"values": [
+				"Fade in/fade out",
+				"Whip pan",
+				"Jump cut",
+				"Stinger",
+				"Shake",
+				"Wipe",
+				"Dissolve",
+				"Push",
+				"Rotate",
+				"Zoom",
+				"Match cut",
+				"Split screen",
+				"Flip",
+				"Page turn",
+				"Flipping",
+				"Spiral",
+				"Pan",
+				"Ripple"
+			]
+		},
+		{
+			"description": "fades",
+			"type": "editing",
+			"color": {
+				"red": 216,
+				"green": 219,
+				"blue": 58
+			},
+			"values": [
+				"Smooth",
+				"Cross",
+				"Quick",
+				"Repeated",
+				"Delayed",
+				"Soft",
+				"Gradual",
+				"Diagonal",
+				"Scanner",
+				"Starburst",
+				"Diamond",
+				"Combination",
+				"Circle",
+				"Triangle",
+				"3d",
+				"Radial",
+				"Ripple"
+			]
+		},
+		{
+			"description": "splices",
+			"type": "editing",
+			"color": {
+				"red": 151,
+				"green": 165,
+				"blue": 94
+			},
+			"values": [
+				"Tempo change",
+				"Slow-motion",
+				"Echo",
+				"Melody",
+				"Augmented rhythms",
+				"Reversed sounds",
+				"Harmonization",
+				"Synthesizers",
+				"Orchestration",
+				"Drum rolls",
+				"Staccato sounds",
+				"Ocatvitave jumps"
+			]
+		},
+		{
+			"description": "effects",
+			"type": "editing",
+			"color": {
+				"red": 119,
+				"green": 10,
+				"blue": 9
+			},
+			"values": [
+				"Blur",
+				"Distortion",
+				"Color tint",
+				"Echo",
+				"Pitch shift",
+				"Reverb",
+				"Glitch",
+				"Vibrato",
+				"Phaser",
+				"Flanger",
+				"Chorusing",
+				"Compression",
+				"Saturation",
+				"Shimmer",
+				"Autotuning",
+				"Flanging"
+			]
+		},
+		{
+			"description": "natural",
+			"type": "lighting",
+			"color": {
+				"red": 177,
+				"green": 194,
+				"blue": 221
+			},
+			"values": [
+				"Soft",
+				"Subtle",
+				"Vibrant",
+				"Bold",
+				"Soothing",
+				"Serene",
+				"Bright"
+			]
+		},
+		{
+			"description": "artificial",
+			"type": "lighting",
+			"color": {
+				"red": 62,
+				"green": 136,
+				"blue": 248
+			},
+			"values": [
+				"Gritty",
+				"Dramatic",
+				"Glowing",
+				"Dynamic",
+				"Stark",
+				"Flashing",
+				"Abstract"
+			]
+		},
+		{
+			"description": "ambient",
+			"type": "lighting",
+			"color": {
+				"red": 163,
+				"green": 56,
+				"blue": 202
+			},
+			"values": [
+				"Warm",
+				"Inviting",
+				"Bright",
+				"Mysterious",
+				"Muted",
+				"Magical",
+				"Alluring",
+				"Mystical"
+			]
+		},
+		{
+			"description": "diffused",
+			"type": "lighting",
+			"color": {
+				"red": 6,
+				"green": 87,
+				"blue": 203
+			},
+			"values": [
+				"Airing",
+				"Soft",
+				"Airy",
+				"Diffused",
+				"Subtle",
+				"Dreamy"
+			]
+		},
+		{
+			"description": "color",
+			"type": "lighting",
+			"color": {
+				"red": 224,
+				"green": 88,
+				"blue": 185
+			},
+			"values": [
+				"Rich",
+				"Vibrant",
+				"Gritty",
+				"Earthy",
+				"Dark",
+				"Moody",
+				"Contrasting"
+			]
+		},
+		{
+			"description": "Environment",
+			"type": "",
+			"color": {
+				"red": 17,
+				"green": 78,
+				"blue": 3
+			},
+			"values": [
+				"Alone",
+				"Lonely",
+				"Tense",
+				"Heartbreaking",
+				"Determined"
+			]
+		},
+		{
+			"description": "Symbolism",
+			"type": "",
+			"color": {
+				"red": 174,
+				"green": 207,
+				"blue": 221
+			},
+			"values": [
+				"Licking heart",
+				"Blood loss",
+				"Broken jaw",
+				"Moon crawling"
+			]
+		},
+		{
+			"description": "Time period",
+			"type": "",
+			"color": {
+				"red": 115,
+				"green": 11,
+				"blue": 210
+			},
+			"values": [
+				"Present"
+			]
+		},
+		{
+			"description": "Location",
+			"type": "",
+			"color": {
+				"red": 43,
+				"green": 127,
+				"blue": 221
+			},
+			"values": [
+				"Unknown",
+				"Viewin"
+			]
+		},
+		{
+			"description": "Facial expression",
+			"type": "",
+			"color": {
+				"red": 45,
+				"green": 240,
+				"blue": 228
+			},
+			"values": [
+				"Frowning",
+				"Smiling",
+				"Raising eyebrows",
+				"Wide eyes",
+				"Pursed lips",
+				"Mouth agape",
+				"Pouting lips",
+				"Squinting eyes"
+			]
+		},
+		{
+			"description": "Person",
+			"type": "",
+			"color": {
+				"red": 69,
+				"green": 83,
+				"blue": 78
+			},
+			"values": [
+				"Scar tissue",
+				"Sarcastic mister know-it-all",
+				"Young kentucky girl",
+				"Southern girl",
+				"Ma and pa"
+			]
+		},
+		{
+			"description": "Feeling",
+			"type": "",
+			"color": {
+				"red": 21,
+				"green": 34,
+				"blue": 221
+			},
+			"values": [
+				"Close your eyes",
+				"Lonely",
+				"Taste"
+			]
+		},
+		{
+			"description": "Action",
+			"type": "",
+			"color": {
+				"red": 42,
+				"green": 153,
+				"blue": 228
+			},
+			"values": [
+				"Kiss",
+				"Viewin",
+				"Push",
+				"Fallin'",
+				"Lick",
+				"View",
+				"Step outside",
+				"Brawl",
+				"Call",
+				"Make it",
+				"Crawl"
+			]
+		},
+		{
+			"description": "Nature",
+			"type": "",
+			"color": {
+				"red": 8,
+				"green": 150,
+				"blue": 196
+			},
+			"values": [
+				"Birds",
+				"Blood loss"
+			]
+		},
+		{
+			"description": "Place",
+			"type": "",
+			"color": {
+				"red": 254,
+				"green": 90,
+				"blue": 76
+			},
+			"values": [
+				"Bathroom stall"
+			]
+		},
+		{
+			"description": "Way of speaking",
+			"type": "",
+			"color": {
+				"red": 33,
+				"green": 208,
+				"blue": 245
+			},
+			"values": [
+				"Scarlet drawl",
+				"Soft spoken"
+			]
+		},
+		{
+			"description": "Hand motion",
+			"type": "",
+			"color": {
+				"red": 36,
+				"green": 13,
+				"blue": 50
+			},
+			"values": [
+				"Wave goodbye"
+			]
+		},
+		{
+			"description": "Injury",
+			"type": "",
+			"color": {
+				"red": 236,
+				"green": 83,
+				"blue": 76
+			},
+			"values": [
+				"Broken jaw"
+			]
+		},
+		{
+			"description": "Season",
+			"type": "",
+			"color": {
+				"red": 142,
+				"green": 98,
+				"blue": 130
+			},
+			"values": [
+				"Autumn"
+			]
+		},
+		{
+			"description": "Distance",
+			"type": "",
+			"color": {
+				"red": 119,
+				"green": 5,
+				"blue": 19
+			},
+			"values": [
+				"Moon"
+			]
+		}
 	],
 	"translation": [
 
 	],
 	"scorings": [
-
+		{
+			"class": "Integrity",
+			"axes0": "honest",
+			"axes1": "twisted"
+		},
+		{
+			"class": "Social",
+			"axes0": "authoritarian",
+			"axes1": "liberatrian"
+		},
+		{
+			"class": "Economic",
+			"axes0": "liberal",
+			"axes1": "conservative"
+		},
+		{
+			"class": "Culture",
+			"axes0": "individualism",
+			"axes1": "collective"
+		},
+		{
+			"class": "Human strength",
+			"axes0": "strong",
+			"axes1": "weak"
+		},
+		{
+			"class": "Motivation",
+			"axes0": "rewarding",
+			"axes1": "punishing"
+		},
+		{
+			"class": "Sexualization",
+			"axes0": "sexual",
+			"axes1": "non-sexual"
+		},
+		{
+			"class": "Beliefs",
+			"axes0": "spiritual",
+			"axes1": "secular"
+		},
+		{
+			"class": "Expectations",
+			"axes0": "perfection",
+			"axes1": "acceptance"
+		},
+		{
+			"class": "Mood",
+			"axes0": "joyful",
+			"axes1": "melancholic"
+		},
+		{
+			"class": "Mood",
+			"axes0": "playful",
+			"axes1": "serious"
+		},
+		{
+			"class": "Mood",
+			"axes0": "uplifting",
+			"axes1": "heavy"
+		},
+		{
+			"class": "Mood",
+			"axes0": "lighthearted",
+			"axes1": "somber"
+		},
+		{
+			"class": "Mood",
+			"axes0": "humorous",
+			"axes1": "dramatic"
+		},
+		{
+			"class": "Attitude",
+			"axes0": "hopeful",
+			"axes1": "despair"
+		},
+		{
+			"class": "Attitude",
+			"axes0": "optimistic",
+			"axes1": "pessimistic"
+		},
+		{
+			"class": "Attitude",
+			"axes0": "open",
+			"axes1": "closed"
+		}
 	],
 	"analysis": [
-
+		{
+			"key": "story analysis",
+			"value": [
+				"meaning",
+				"literary devices",
+				"emotion",
+				"references",
+				"structure",
+				"history",
+				"stroryline",
+				"implications"
+			]
+		},
+		{
+			"key": "psychological analysis of conscious values",
+			"value": [
+				"life choices",
+				"changing the world",
+				"overcoming adversity",
+				"friendship",
+				"love",
+				"finding purpose",
+				"loyalty",
+				"journeys",
+				"faith",
+				"loss"
+			]
+		},
+		{
+			"key": "psychological analysis of subconscious values",
+			"value": [
+				"love",
+				"loss and longing",
+				"memories",
+				"coming of age",
+				"happiness and joy",
+				"heartache and sadness",
+				"intimacy and connection",
+				"self-esteem and identity",
+				"hope and optimism",
+				"fear and despair",
+				"redemption and reconciliation",
+				"social justice and intervention",
+				"gratitude and appreciation",
+				"rejection and abandonment",
+				"longing for belongingness",
+				"creativity and expression",
+				"hard work and resilience",
+				"impermanence and interconnectedness",
+				"courage and resilience",
+				"awe and wonder"
+			]
+		}
 	]
 }

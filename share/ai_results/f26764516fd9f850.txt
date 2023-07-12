@@ -1,46 +1,46 @@
-﻿Places: Park, City Street 
-- Environments: Public, City 
-- Locations: Outside, Open Space
-- Weather: Any
-- Time of day: Evening
-- Time periods: Current 
+﻿Places: In a room
+- Environment: Alone
+- Locations: Unknown 
+- Weather: None
+- Time of day: Unspecified
+- Time periods: Present
 
 Chorus1:
-- Places: None 
-- Environments: Open Space 
-- Locations: Open Sky 
-- Weather: Any
-- Time of day: Day 
-- Time periods: Current
+- Places: Unknown
+- Environment: Lonely 
+- Locations: Viewin
+- Weather: None
+- Time of day: Unspecified
+- Time periods: Present
 
 Verse2: 
-- Places: Home 
-- Environments: Private, Rural 
-- Locations: Inside 
-- Weather: Any
-- Time of day: Evening 
-- Time periods: Current
+- Places: Against a wall
+- Environment: Tense
+- Locations: Unknown 
+- Weather: None
+- Time of day: Unspecified
+- Time periods: Present
 
-Chorus2:
-- Places: None 
-- Environments: Open Space 
-- Locations: Open Sky 
-- Weather: Any
-- Time of day: Day 
-- Time periods: Current
+Chorus2: 
+- Places: Unknown
+- Environment: Lonely
+- Locations: Viewin
+- Weather: None
+- Time of day: Unspecified
+- Time periods: Present
 
 Verse3:
-- Places: Home 
-- Environments: Rural, Countryside 
-- Locations: Outside 
-- Weather: Any
-- Time of day: Morning 
-- Time periods: Current
+- Places: In a bathroom
+- Environment: Heartbreaking 
+- Locations: Unknown 
+- Weather: None
+- Time of day: Unspecified
+- Time periods: Present
 
-Verse4:
-- Places: Any 
-- Environments: Any
-- Locations: Any 
-- Weather: Any
-- Time of day: Night 
-- Time periods: Current
+Verse4: 
+- Places: Outside
+- Environment: Determined
+- Locations: Unknown 
+- Weather: None
+- Time of day: Unspecified
+- Time periods: Present

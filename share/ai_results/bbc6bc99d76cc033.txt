@@ -1,88 +1,88 @@
-﻿Nouns: Scar, Sarcastic, Eyes
-- Pronouns: You
-- Verbs: Saw, Kiss, Share
-- Adjectives: Lonely
-- Adverbs: Closely 
-- Prepositions: Against, With
-- Conjunctions: 'Cause
-- Interjections: 
-- Syntax: 
-- Morphology: 
-- Semantics: 
-- Pragmatics: 
-- Discourse: 
+﻿Nouns: Scar, Sarcastic, Mister, Birds 
+-Pronouns: You
+-Verbs: Saw, Know-It-All, Close, Kiss, Share
+-Adjectives: Lonely 
+-Adverbs: 
+-Prepositions: Against, With 
+-Conjunctions: 'Cause 
+-Interjections: 
+-Syntax: 
+-Morphology: 
+-Semantics: 
+-Pragmatics: 
+-Discourse: 
 
-Chorus1: 
-- Nouns: Birds, View
-- Pronouns: 
-- Verbs: Share
-- Adjectives: Lonely
-- Adverbs: 
-- Prepositions: With
-- Conjunctions: 
-- Interjections: 
-- Syntax: 
-- Morphology: 
-- Semantics:
-- Pragmatics: 
-- Discourse: 
+Chorus1:
+-Nouns: Birds, Viewin' 
+-Pronouns: 
+-Verbs: Share
+-Adjectives: Lonely 
+-Adverbs: 
+-Prepositions: With
+-Conjunctions: 
+-Interjections: 
+-Syntax: 
+-Morphology: 
+-Semantics: 
+-Pragmatics: 
+-Discourse: 
 
-verse2:
-- Nouns: Wall, Kentucky, Heart, Taste, Health
-- Pronouns: You
-- Verbs: Push, Fall, Lick
-- Adjectives: Young
-- Adverbs: Over, 
-- Prepositions: Against, With
-- Conjunctions: 'Cause
-- Interjections: 
-- Syntax: 
-- Morphology: 
-- Semantics: 
-- Pragmatics: 
-- Discourse: 
+Verse2:
+-Nouns: Wall, Kentucky, Girl, Push-up, Bra, Health
+-Pronouns: You 
+-Verbs: Fallin', Lick, Taste 
+-Adjectives: 
+-Adverbs: 
+-Prepositions: Against 
+-Conjunctions: 'Cause 
+-Interjections: 
+-Syntax: 
+-Morphology: 
+-Semantics: 
+-Pragmatics: 
+-Discourse: 
 
-Chorus2: 
-- Nouns: Birds, View
-- Pronouns: 
-- Verbs: Share
-- Adjectives: Lonely
-- Adverbs: 
-- Prepositions: With
-- Conjunctions: 
-- Interjections: 
-- Syntax: 
-- Morphology: 
-- Semantics:
-- Pragmatics: 
-- Discourse: 
+Chorus2:
+-Nouns: Birds, Viewin' 
+-Pronouns: 
+-Verbs: Share 
+-Adjectives: Lonely 
+-Adverbs: 
+-Prepositions: With 
+-Conjunctions: 
+-Interjections: 
+-Syntax: 
+-Morphology: 
+-Semantics: 
+-Pragmatics: 
+-Discourse: 
 
-verse3:
-- Nouns: Blood, Bathroom, Stall, Southern, Drawl, Pa
-- Pronouns: You
-- Verbs: Loss, Wave
-- Adjectives: Scarlet
-- Adverbs: 
-- Prepositions: With
-- Conjunctions: 'Cause
-- Interjections: 
-- Syntax: 
-- Morphology: 
-- Semantics: 
-- Pragmatics: 
-- Discourse: 
+Verse3:
+-Nouns: Blood, Bathroom, Stall, Southern, Girl, Drawl, Ma, Pa 
+-Pronouns: You 
+-Verbs: Wave, Goodbye 
+-Adjectives: Scarlet 
+-Adverbs: 
+-Prepositions: With 
+-Conjunctions: 'Cause 
+-Interjections: 
+-Syntax: 
+-Morphology: 
+-Semantics: 
+-Pragmatics: 
+-Discourse: 
 
-verse4:
-- Nouns: Jaw, Moon
-- Pronouns: I
-- Verbs: Speak, Step, Wave, Make, Crawl
-- Adjectives: Soft, Broken
-- Adverbs: Outside
-- Prepositions: With
-- Conjunctions: But, 'Cause
-- Interjections: 
-- Syntax: 
-- Morphology: 
-- Semantics:
-- Pragmatics: 
-- Discourse:
+Verse4:
+-Nouns: Jaw, Moon, Crawl 
+-Pronouns: I 
+-Verbs: Step, Make 
+-Adjectives: Soft, Broken 
+-Adverbs: Outside 
+-Prepositions: To 
+-Conjunctions: But, And 
+-Interjections: 
+-Syntax: 
+-Morphology: 
+-Semantics: 
+-Pragmatics: 
+-Discourse:

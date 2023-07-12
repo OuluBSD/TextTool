@@ -3,7 +3,7 @@
 
 
 struct Song : DataFile {
-	struct Attr : Moveable<Attr> {
+	/*struct Attr : Moveable<Attr> {
 		String group, item;
 		int group_i = -1, item_i = -1;
 		
@@ -19,7 +19,7 @@ struct Song : DataFile {
 					;
 			}
 		}
-	};
+	};*/
 	struct Line : Moveable<Line> {
 		String line;
 		
@@ -32,10 +32,10 @@ struct Song : DataFile {
 	String			structure_str;
 	
 	// Imported lyrics
-	String								content;
-	VectorMap<String, Vector<Attr>>		unique_lines;
-	Vector<String>						structure;
-	ArrayMap<String, Part>				parts;
+	String									content;
+	VectorMap<String, Vector<SnapAttrStr>>	unique_lines;
+	Vector<String>							structure;
+	ArrayMap<String, Part>					parts;
 	
 	void Store();
 	void LoadTitle(String title);
@@ -68,7 +68,7 @@ struct Song : DataFile {
 		for (Part& p : parts.GetValues())
 			p.snap.GetSnapsLevel(level, level_snaps);
 	}
-	void GetAttributes(Index<SnapAttr>& attrs) const {
+	void GetAttributes(Index<SnapAttrStr>& attrs) const {
 		for (const Part& p : parts.GetValues())
 			p.snap.GetAttributes(attrs);
 	}

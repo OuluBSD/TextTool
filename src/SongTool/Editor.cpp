@@ -25,13 +25,13 @@ Editor::Editor() {
 	tablist.Add(t_("Release"), t_("Calendar"));
 	tablist.Add(t_("Release"), t_("Tasks"));
 	tablist.Add(t_("Song"), t_("Importer"));
+	tablist.Add(t_("Song"), t_("Analysis"));
 	tablist.Add(t_("Song"), t_("Pattern mask"));
 	tablist.Add(t_("Song"), t_("Pattern"));
 	tablist.Add(t_("Song"), t_("Attribute scoring"));
 	tablist.Add(t_("Song"), t_("Scoring"));
 	tablist.Add(t_("Song"), t_("Reverse"));
 	tablist.Add(t_("Song"), t_("Composition"));
-	tablist.Add(t_("Song"), t_("Analysis"));
 	tablist.Add(t_("Song"), t_("Production"));
 	tablist.Add(t_("Song"), t_("Rhymes"));
 	tablist.SetCursor(0);
@@ -102,13 +102,13 @@ void Editor::SetView(int i) {
 		case 3: cal.Show(); break;
 		case 4: task.Show(); break;
 		case 5: importer.Show(); break;
-		case 6: patmask.Show(); break;
-		case 7: pattern.Show(); break;
-		case 8: attrscore.Show(); break;
-		case 9: scoring.Show(); break;
-		case 10: reverse.Show(); break;
-		case 11: composition.Show(); break;
-		case 12: analysis.Show(); break;
+		case 6: analysis.Show(); break;
+		case 7: patmask.Show(); break;
+		case 8: pattern.Show(); break;
+		case 9: attrscore.Show(); break;
+		case 10: scoring.Show(); break;
+		case 11: reverse.Show(); break;
+		case 12: composition.Show(); break;
 		case 13: production.Show(); break;
 		case 14: rhymes.Show(); break;
 	}
@@ -124,13 +124,13 @@ void Editor::DataPage() {
 		case 3: cal.Data(); break;
 		case 4: task.Data(); break;
 		case 5: importer.Data(); break;
-		case 6: patmask.Data(); break;
-		case 7: pattern.Data(); break;
-		case 8: attrscore.Data(); break;
-		case 9: scoring.Data(); break;
-		case 10: reverse.Data(); break;
-		case 11: composition.Data(); break;
-		case 12: analysis.Data(); break;
+		case 6: analysis.Data(); break;
+		case 7: patmask.Data(); break;
+		case 8: pattern.Data(); break;
+		case 9: attrscore.Data(); break;
+		case 10: scoring.Data(); break;
+		case 11: reverse.Data(); break;
+		case 12: composition.Data(); break;
 		case 13: production.Data(); break;
 		case 14: rhymes.Data(); break;
 		default: break;
@@ -222,18 +222,19 @@ void Editor::DataSong() {
 	}
 	parts.SetCount(s.parts.GetCount());
 	
-	int cursor = db.GetActivePartIndex();
-	if (cursor >= 0 && cursor < songs.GetCount() && !songs.IsCursor())
-		songs.SetCursor(cursor);
+	int cursor = max(0, db.GetActivePartIndex());
+	if (cursor >= 0 && cursor < parts.GetCount() && !parts.IsCursor())
+		parts.SetCursor(cursor);
 	
-	DataPage();
 	DataPart();
 }
 
 void Editor::DataPart() {
 	Database& db = Database::Single();
-	if (!parts.IsCursor() || !db.active_artist || !db.active_release || !db.active_song)
+	if (!parts.IsCursor() || !db.active_artist || !db.active_release || !db.active_song) {
+		DataPage();
 		return;
+	}
 	
 	db.active_part = &db.active_song->parts[parts.GetCursor()];
 	
@@ -241,6 +242,7 @@ void Editor::DataPart() {
 	if (cursor >= 0 && cursor < parts.GetCount() && !parts.IsCursor())
 		parts.SetCursor(cursor);
 	
+	DataPage();
 }
 
 void Editor::ArtistMenu(Bar& bar) {

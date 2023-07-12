@@ -4,7 +4,6 @@
 
 class AnalysisCtrl : public WithAnalysis<Ctrl> {
 	
-	
 public:
 	typedef AnalysisCtrl CLASSNAME;
 	AnalysisCtrl();
