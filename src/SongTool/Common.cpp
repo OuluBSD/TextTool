@@ -24,5 +24,11 @@ void SnapAttrStr::RealizeId() const {
 			ASSERT_(0, "item not found");
 		}
 	}
+	DUMP(sa.group);
+	DUMP(sa.item);
 	ASSERT_(0, "group and item not found");
+}
+
+void SnapAttrStr::Load(const SnapAttr& sa) {
+	Panic("TODO");
 }

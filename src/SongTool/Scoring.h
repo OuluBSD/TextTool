@@ -93,6 +93,7 @@ struct AttrScore : DataFile {
 	bool RealizeTemp();
 };
 
+#if 0
 struct PatternScore {
 	String						structure;
 	Vector<String>				parts;
@@ -114,5 +115,6 @@ struct PatternScore {
 		return a.file_title < b.file_title;
 	}*/
 };
+#endif
 
 #endif

@@ -1,13 +1,13 @@
 #ifdef _MSC_VER
 #pragma setlocale("C")
 #endif
+// SongTool.cpp
+
+T_("OpenAI token")
+fiFI("OpenAI avainkoodi")
+
+
 // App.lay
-
-T_("FrontPage")
-fiFI("Etusivu")
-
-T_("Calendar")
-fiFI("Kalenteri")
 
 T_("Artist")
 fiFI("Artisti")
@@ -36,6 +36,9 @@ fiFI("Akustinen soitin:")
 T_("Electronic instr.:")
 fiFI("Elektroninen soitin:")
 
+T_("Vocalist's visually:")
+fiFI("Vokalisti visuaalisesti:")
+
 T_("Album")
 fiFI("Albumi")
 
@@ -53,6 +56,42 @@ fiFI("Artisti (jos eri):")
 
 T_("Project name:")
 fiFI("Projektinimi:")
+
+T_("Import from lyrics with AI")
+fiFI("Tuo lyriikat teko\303\244lyll\303\244")
+
+T_("Make Tasks")
+fiFI("Luo Teht\303\244v\303\244t")
+
+T_("Import from music composition")
+fiFI("Tuo s\303\244vellyksest\303\244")
+
+T_("Structure:")
+fiFI("Rakenne:")
+
+T_("Reload")
+fiFI("Lataa uudelleen")
+
+T_("Add group for entries with the same score")
+fiFI("Lis\303\244\303\244 ryhm\303\244 merkinn\303\266ille, joilla on sama pistem\303\244\303\244r\303\244")
+
+T_("Add entry")
+fiFI("Lis\303\244\303\244 merkint\303\244")
+
+T_("Wizard for getting words with given score")
+fiFI("Ohjattu sanojen hankkiminen tietyll\303\244 pistem\303\244\303\244r\303\244ll\303\244")
+
+T_("Group:")
+fiFI("Ryhm\303\244:")
+
+T_("Add task")
+fiFI("Lis\303\244\303\244 teht\303\244v\303\244")
+
+T_("FrontPage")
+fiFI("Etusivu")
+
+T_("Calendar")
+fiFI("Kalenteri")
 
 T_("Story")
 fiFI("Kertomus")
@@ -82,9 +121,6 @@ fiFI("Viitteet:")
 T_("The cultural references used in the song")
 fiFI("Laulussa k\303\244ytetyt kulttuuriviittaukset")
 
-T_("Structure:")
-fiFI("Rakenne:")
-
 T_("The musical structure or elements of the song, such as the chord progression, "
      "rhythm, and melody")
 fiFI("Kappaleen musiikillinen rakenne tai elementit, kuten sointukulku, rytmi "
@@ -108,59 +144,8 @@ fiFI("Seuraukset")
 T_("The social and political implications of the song")
 fiFI("Laulun sosiaaliset ja poliittiset vaikutukset")
 
-T_("Pattern")
-fiFI("Kaavio")
-
-T_("Struct:")
-fiFI("Rakenne:")
-
-T_("Reload Structure")
-fiFI("Uudelleenlataa rakenne")
-
-T_("Merge attributes to owner")
-fiFI("Yhdist\303\244 attribuutit omistajaan")
-
-T_("Add")
-fiFI("Lis\303\244\303\244")
-
-T_("Pattern mask preset")
-fiFI("Kaaviomaskin esiasetus")
-
-T_("Score")
-fiFI("Pisteytys")
-
-T_("Load active pattern")
-fiFI("Lataa aktiivinen kaavio")
-
-T_("New preset")
-fiFI("Uusi esiasetus")
-
-T_("Add group for entries with the same score")
-fiFI("Lis\303\244\303\244 ryhm\303\244 merkinn\303\266ille, joilla on sama pistem\303\244\303\244r\303\244")
-
-T_("Add entry")
-fiFI("Lis\303\244\303\244 merkint\303\244")
-
-T_("Wizard for getting words with given score")
-fiFI("Ohjattu sanojen hankkiminen tietyll\303\244 pistem\303\244\303\244r\303\244ll\303\244")
-
-T_("Copy AI prompt to clipboard")
-fiFI("Kopioi AI-kehote leikep\303\266yd\303\244lle")
-
-T_("Parse AI prompt from clipboard")
-fiFI("Parsi AI-kehote leikep\303\266yd\303\244lt\303\244")
-
-T_("Load active pattern score")
-fiFI("Lataa aktiivisen kuvion pisteet")
-
-T_("Stop tasks")
-fiFI("Lopeta teht\303\244v\303\244t")
-
 T_("Composition")
 fiFI("S\303\244vellys")
-
-T_("Year:")
-fiFI("Vuosi:")
 
 T_("Tempo:")
 fiFI("Tempo:")
@@ -183,9 +168,6 @@ fiFI("Tekstuuri:")
 T_("Genre/Style:")
 fiFI("Genre/Tyyli:")
 
-T_("Parse")
-fiFI("Parsi")
-
 
 // App.cpp
 
@@ -194,6 +176,9 @@ fiFI("Ohjelma")
 
 T_("Save")
 fiFI("Tallenna")
+
+T_("Set OpenAI token")
+fiFI("Aseta OpenAI avainkoodi")
 
 T_("Exit")
 fiFI("Poistu")
@@ -210,11 +195,17 @@ fiFI("Katso kalenteria")
 T_("View Editor")
 fiFI("Katso editoria")
 
+T_("View AI Tasks")
+fiFI("Katso teko\303\244ly-teht\303\244vi\303\244")
+
 T_("Tools")
 fiFI("Ty\303\266kalut")
 
 T_("Show orphaned files")
 fiFI("N\303\244yt\303\244 orpoutuneet tiedostot")
+
+T_("Restart is required for applying the new token")
+fiFI("Uudelleenk\303\244ynnistys vaaditaan uuden avainkoodin k\303\244ytt\303\244miseksi")
 
 
 // Editor.cpp
@@ -224,6 +215,9 @@ fiFI("Kaikki")
 
 T_("Info")
 fiFI("Info")
+
+T_("Attributes")
+fiFI("Attribuutit")
 
 T_("Release")
 fiFI("Julkaisu")
@@ -237,8 +231,17 @@ fiFI("Sosiaalisen median kampanja")
 T_("Tasks")
 fiFI("Teht\303\244v\303\244t")
 
+T_("Importer")
+fiFI("Tuonti")
+
+T_("Analysis")
+fiFI("Analyysi")
+
 T_("Pattern mask")
 fiFI("Kaaviomaski")
+
+T_("Pattern")
+fiFI("Kaavio")
 
 T_("Attribute scoring")
 fiFI("Ominaisuuksien pisteytys")
@@ -248,9 +251,6 @@ fiFI("Pisteytys")
 
 T_("Reverse")
 fiFI("K\303\244\303\244nteinen")
-
-T_("Analysis")
-fiFI("Analyysi")
 
 T_("Production")
 fiFI("Tuotanto")
@@ -266,6 +266,15 @@ fiFI("P\303\244iv\303\244m\303\244\303\244r\303\244")
 
 T_("Project name")
 fiFI("Projektin nimi")
+
+T_("Part")
+fiFI("Osa")
+
+T_("Lines")
+fiFI("Lainit")
+
+T_("Whole song")
+fiFI("Koko kappale")
 
 T_("Add Artist")
 fiFI("Lis\303\244\303\244 artisti")
@@ -313,7 +322,292 @@ T_("Song exist already")
 fiFI("Laulu on jo olemassa")
 
 
+// AI_TaskCtrl.cpp
+
+T_("Idle")
+fiFI("Tyhj\303\244k\303\244ynti")
+
+T_("Description")
+fiFI("Selitys")
+
+T_("Status")
+fiFI("Tilanne")
+
+T_("Error")
+fiFI("Virhe")
+
+T_("Processing")
+fiFI("Prosessoi")
+
+T_("Ready")
+fiFI("Valmis")
+
+T_("Process output")
+fiFI("Prosessoi ulostulo-teksti")
+
+T_("Retry")
+fiFI("Yrit\303\244 uudelleen")
+
+
+// AttrDataCtrl.cpp
+
+T_("Type")
+fiFI("Tyyppi")
+
+T_("Group description")
+fiFI("Ryhm\303\244n selitys")
+
+T_("Key")
+fiFI("Avain")
+
+
+// ImportCtrl.cpp
+
+T_("Line")
+fiFI("Laini")
+
+T_("Remove line")
+fiFI("Poista laini")
+
+T_("Unexpected mismatch: %d vs %d")
+fiFI("Odottamaton t\303\244sm\303\244\303\244m\303\244tt\303\266myys: %d vastaan %d")
+
+
+// AnalysisCtrl.cpp
+
+T_("Value")
+fiFI("Arvo")
+
+
+// PatternCtrl.cpp
+
+T_("Position")
+fiFI("Kohta")
+
+
+// AttrCtrl.cpp
+
+T_("Add group")
+fiFI("Lis\303\244\303\244 ryhm\303\244")
+
+T_("Add entry to group '%s'")
+fiFI("Lis\303\244\303\244 merkint\303\244 ryhm\303\244\303\244n '%s'")
+
+T_("Translation of the group")
+fiFI("K\303\244\303\244nn\303\266s ryhm\303\244lle")
+
+T_("Group's translation")
+fiFI("Ryhm\303\244n k\303\244\303\244nn\303\266s")
+
+T_("Group '%s' exists already")
+fiFI("Ryhm\303\244 '%s' on jo olemassa")
+
+T_("Type of the group (e.g. language)")
+fiFI("Rym\303\244n tyyppi englanniksi(esim. language)")
+
+T_("Type of the group")
+fiFI("Ryhm\303\244n tyyppi")
+
+T_("Translation of the entry")
+fiFI("K\303\244\303\244nn\303\266s merkinn\303\244lle")
+
+T_("Entry's translation")
+fiFI("Merkinn\303\244n k\303\244\303\244nn\303\266s")
+
+T_("Entry '%s' exists already")
+fiFI("Merkint\303\244 '%s' on jo olemassa")
+
+
+// AttrScoreCtrl.cpp
+
+T_("Entry count")
+fiFI("Merkint\303\266jen m\303\244\303\244r\303\244")
+
+T_("Group")
+fiFI("Ryhm\303\244")
+
+T_("Entry")
+fiFI("Merkint\303\244")
+
+T_("Attributes to words wizard")
+fiFI("Sanojen ohjatun attribuutit")
+
+T_("Add to scoring group")
+fiFI("Lis\303\244\303\244 pisteytysryhm\303\244\303\244n")
+
+T_("Entry name")
+fiFI("Merkinn\303\244n nimi")
+
+T_("Name of the entry")
+fiFI("Merkinn\303\244n nimi")
+
+T_("Entry was not found ('%s')")
+fiFI("Tietoa ei l\303\266ytynyt ('%s')")
+
+T_("Score string of the group")
+fiFI("Ryhm\303\244n pisteet")
+
+T_("Score string")
+fiFI("Piste-teksti")
+
+T_("error: got %d scores (expected %d)")
+fiFI("virhe: sain %d pistett\303\244 (odotettu %d)")
+
+T_("error: expected values between -5 and +5 (got %d)")
+fiFI("virhe: odotetut arvot v\303\244lill\303\244 -5 ja +5 (sain %d)")
+
+
+// ScoringCtrl.cpp
+
+T_("Name")
+fiFI("Nimi")
+
+T_("Preset's name")
+fiFI("Esiasetuksen nimi")
+
+T_("Save as preset")
+fiFI("Tallenna esiasetuksena")
+
+T_("Update focused preset")
+fiFI("P\303\244ivit\303\244 kohdistettu esiasetus")
+
+T_("Add preset")
+fiFI("Lis\303\244\303\244 esiasetus")
+
+T_("Apply preset")
+fiFI("K\303\244yt\303\244 esiasetusta")
+
+T_("Remove preset")
+fiFI("Poista esiasetus")
+
+T_("Name of the preset")
+fiFI("Esiasetuksen nimi")
+
+T_("Preset '%s' already exists")
+fiFI("Esiasetus '%s' on jo olemassa")
+
+
+// Plotter.cpp
+
+T_("absolute value")
+fiFI("itseisarvo")
+
+T_("accumulated value")
+fiFI("kertynyt arvo")
+
+T_("weighted absolute value")
+fiFI("painotettu itseisarvo")
+
+T_("weighted accumulated value")
+fiFI("painotettu kertynyt arvo")
+
+
+// ReverseCtrl.cpp
+
+T_("Active")
+fiFI("Aktiivinen")
+
+T_("Progress")
+fiFI("Edistyminen")
+
+T_("Number")
+fiFI("Numero")
+
+T_("Optimizer score")
+fiFI("Optimoijan pisteet")
+
+T_("Result")
+fiFI("Tulos")
+
+
+// AI_Tasks.cpp
+
+T_("Make pattern tasks")
+fiFI("Luo kaavion teht\303\244v\303\244t")
+
+T_("Make attribute score tasks")
+fiFI("Luo attribuuttien pisteytyksen teht\303\244v\303\244t")
+
+T_("Attributes scores")
+fiFI("Attribuuttien pisteytykset")
+
+T_("Song scores")
+fiFI("Kappaleen pisteytykset")
+
+T_("Reverse pattern")
+fiFI("K\303\244\303\244nteinen kaavio")
+
+T_("Lyrics")
+fiFI("Lyriikat")
+
+
+// Task_Process.cpp
+
+T_("Didn't find 'Attributes' string")
+fiFI("'Attributes' teksti ei l\303\266ytynyt")
+
+T_("Expected header string")
+fiFI("Odotettiin otsake-teksti\303\244")
+
+T_("Expected '\"'")
+fiFI("Odotettiin '\"'")
+
+T_("Expected '-'")
+fiFI("Odotettiin '-'")
+
+T_("Expected ':'")
+fiFI("Odotettiin ':'")
+
+T_("error: '%s' got %d scores (expected %d)")
+fiFI("virhe: '%s' sai %d pistett\303\244 (odotettiin %d)")
+
+T_("error: fail with key %s")
+fiFI("virhe: ep\303\244onnistuminen avaimella %s")
+
+
 // Obsolete
+
+T_("Struct:")
+fiFI("Rakenne:")
+
+T_("Reload Structure")
+fiFI("Uudelleenlataa rakenne")
+
+T_("Merge attributes to owner")
+fiFI("Yhdist\303\244 attribuutit omistajaan")
+
+T_("Add")
+fiFI("Lis\303\244\303\244")
+
+T_("Pattern mask preset")
+fiFI("Kaaviomaskin esiasetus")
+
+T_("Score")
+fiFI("Pisteytys")
+
+T_("Load active pattern")
+fiFI("Lataa aktiivinen kaavio")
+
+T_("New preset")
+fiFI("Uusi esiasetus")
+
+T_("Copy AI prompt to clipboard")
+fiFI("Kopioi AI-kehote leikep\303\266yd\303\244lle")
+
+T_("Parse AI prompt from clipboard")
+fiFI("Parsi AI-kehote leikep\303\266yd\303\244lt\303\244")
+
+T_("Load active pattern score")
+fiFI("Lataa aktiivisen kuvion pisteet")
+
+T_("Stop tasks")
+fiFI("Lopeta teht\303\244v\303\244t")
+
+T_("Year:")
+fiFI("Vuosi:")
+
+T_("Parse")
+fiFI("Parsi")
 
 T_("Copy to Clipboard")
 fiFI("Kopioi leikep\303\266yd\303\244lle")
@@ -336,9 +630,6 @@ fiFI("S\303\244vellys:")
 T_("Analysis:")
 fiFI("Analyysi:")
 
-T_("Group:")
-fiFI("Ryhm\303\244:")
-
 T_("Copy prompt to clipboard")
 fiFI("Kopioi kehote leikep\303\266yd\303\244lle")
 
@@ -354,9 +645,6 @@ fiFI("Lis\303\244\303\244 kappale")
 T_("Add album")
 fiFI("Lis\303\244\303\244 albuumi")
 
-T_("Name")
-fiFI("Nimi")
-
 T_("Main")
 fiFI("Etusivu")
 
@@ -369,140 +657,17 @@ fiFI("Aikajana")
 T_("Move to owner")
 fiFI("Siirry omistajaan")
 
-T_("Position")
-fiFI("Kohta")
-
 T_("Pattern's name")
 fiFI("Kaavion nimi")
 
 T_("Please write pattern's name")
 fiFI("Kirjoita kaavion nimi")
 
-T_("Add group")
-fiFI("Lis\303\244\303\244 ryhm\303\244")
-
-T_("Add entry to group '%s'")
-fiFI("Lis\303\244\303\244 merkint\303\244 ryhm\303\244\303\244n '%s'")
-
-T_("Translation of the group")
-fiFI("K\303\244\303\244nn\303\266s ryhm\303\244lle")
-
-T_("Group's translation")
-fiFI("Ryhm\303\244n k\303\244\303\244nn\303\266s")
-
-T_("Group '%s' exists already")
-fiFI("Ryhm\303\244 '%s' on jo olemassa")
-
-T_("Translation of the entry")
-fiFI("K\303\244\303\244nn\303\266s merkinn\303\244lle")
-
-T_("Entry's translation")
-fiFI("Merkinn\303\244n k\303\244\303\244nn\303\266s")
-
-T_("Entry '%s' exists already")
-fiFI("Merkint\303\244 '%s' on jo olemassa")
-
-T_("Entry count")
-fiFI("Merkint\303\266jen m\303\244\303\244r\303\244")
-
-T_("Group")
-fiFI("Ryhm\303\244")
-
-T_("Entry")
-fiFI("Merkint\303\244")
-
-T_("Attributes to words wizard")
-fiFI("Sanojen ohjatun attribuutit")
-
-T_("Key")
-fiFI("Avain")
-
-T_("Value")
-fiFI("Arvo")
-
-T_("Add to scoring group")
-fiFI("Lis\303\244\303\244 pisteytysryhm\303\244\303\244n")
-
-T_("Score string of the group")
-fiFI("Ryhm\303\244n pisteet")
-
-T_("Score string")
-fiFI("Piste-teksti")
-
-T_("error: got %d scores (expected %d)")
-fiFI("virhe: sain %d pistett\303\244 (odotettu %d)")
-
-T_("error: expected values between -5 and +5 (got %d)")
-fiFI("virhe: odotetut arvot v\303\244lill\303\244 -5 ja +5 (sain %d)")
-
-T_("Entry name")
-fiFI("Merkinn\303\244n nimi")
-
-T_("Name of the entry")
-fiFI("Merkinn\303\244n nimi")
-
-T_("Entry was not found ('%s')")
-fiFI("Tietoa ei l\303\266ytynyt ('%s')")
-
-T_("absolute value")
-fiFI("itseisarvo")
-
-T_("accumulated value")
-fiFI("kertynyt arvo")
-
-T_("weighted absolute value")
-fiFI("painotettu itseisarvo")
-
-T_("weighted accumulated value")
-fiFI("painotettu kertynyt arvo")
-
-T_("Preset's name")
-fiFI("Esiasetuksen nimi")
-
-T_("Whole song")
-fiFI("Koko kappale")
-
 T_("Do you want to overwrite the file %s?")
 fiFI("Haluatko korvata tiedoston %s?")
 
 T_("error: snap count and length mismatch")
 fiFI("virhe: otosten lukum\303\244\303\244r\303\244 ja pituus eiv\303\244t t\303\244sm\303\244\303\244")
-
-T_("Save as preset")
-fiFI("Tallenna esiasetuksena")
-
-T_("Update focused preset")
-fiFI("P\303\244ivit\303\244 kohdistettu esiasetus")
-
-T_("Apply preset")
-fiFI("K\303\244yt\303\244 esiasetusta")
-
-T_("Remove preset")
-fiFI("Poista esiasetus")
-
-T_("Name of the preset")
-fiFI("Esiasetuksen nimi")
-
-T_("Preset '%s' already exists")
-fiFI("Esiasetus '%s' on jo olemassa")
-
-T_("Active")
-fiFI("Aktiivinen")
-
-T_("Progress")
-fiFI("Edistyminen")
-
-T_("Attributes")
-fiFI("Attribuutit")
-
-T_("Number")
-fiFI("Numero")
-
-T_("Optimizer score")
-fiFI("Optimoijan pisteet")
-
-T_("Result")
-fiFI("Tulos")
 
 T_("Year")
 fiFI("Vuosi")
@@ -512,9 +677,6 @@ fiFI("Poista")
 
 T_("Read-only")
 fiFI("Vain-luku")
-
-T_("Add preset")
-fiFI("Lis\303\244\303\244 esiasetus")
 
 T_("I (m)")
 fiFI("min\303\244 (m)")
@@ -1538,9 +1700,6 @@ fiFI("Polku")
 
 T_("Browse")
 fiFI("Selaa")
-
-T_("Line")
-fiFI("Laini")
 
 T_("Part:")
 fiFI("Osa:")

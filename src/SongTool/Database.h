@@ -12,8 +12,8 @@ struct Database {
 	Song*			active_song = 0;
 	Part*			active_part = 0;
 	PatternSnap*	active_snap = 0;
-	PartScore*		active_partscore = 0;
 	AttrScoreGroup*	active_scoregroup = 0;
+	bool			active_wholesong = false;
 	
 	String			dir;
 	

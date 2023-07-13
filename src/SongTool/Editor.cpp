@@ -72,6 +72,7 @@ Editor::Editor() {
 	base.Add(analysis.SizePos());
 	base.Add(production.SizePos());
 	base.Add(rhymes.SizePos());
+	base.Add(reverse.SizePos());
 }
 
 void Editor::Init() {
@@ -97,6 +98,8 @@ void Editor::SetView(int i) {
 	production.Hide();
 	rhymes.Hide();
 	
+	WhenStopUpdating();
+	
 	switch (i) {
 		default: i = 0;
 		case 0: info.Show(); break;
@@ -111,7 +114,7 @@ void Editor::SetView(int i) {
 		case 9: pattern.Show(); break;
 		case 10: attrscore.Show(); break;
 		case 11: scoring.Show(); break;
-		case 12: reverse.Show(); break;
+		case 12: WhenStartUpdating(); reverse.Show(); break;
 		case 13: composition.Show(); break;
 		case 14: production.Show(); break;
 		case 15: rhymes.Show(); break;
@@ -219,11 +222,20 @@ void Editor::DataSong() {
 	Release& r = *db.active_release;
 	Song& s = *db.active_song;
 	
-	for(int i = 0; i < s.parts.GetCount(); i++) {
-		Part& p = s.parts[i];
-		String k = s.parts.GetKey(i);
+	for(int i = 0; i < s.parts.GetCount()+1; i++) {
+		String k;
+		int c = 0;
+		if (i == 0) {
+			k = t_("Whole song");
+		}
+		else {
+			int j = i-1;
+			Part& p = s.parts[j];
+			k = s.parts.GetKey(j);
+			c = p.lines.GetCount();
+		}
 		parts.Set(i, 0, k);
-		parts.Set(i, 1, p.lines.GetCount());
+		parts.Set(i, 1, c);
 	}
 	parts.SetCount(s.parts.GetCount());
 	
@@ -241,11 +253,19 @@ void Editor::DataPart() {
 		return;
 	}
 	
-	db.active_part = &db.active_song->parts[parts.GetCursor()];
+	int cursor = parts.GetCursor();
+	if (!cursor) {
+		db.active_wholesong = true;
+		db.active_part = 0;
+	}
+	else {
+		db.active_wholesong = false;
+		db.active_part = &db.active_song->parts[cursor-1];
+	}
 	
-	int cursor = db.GetActivePartIndex();
-	if (cursor >= 0 && cursor < parts.GetCount() && !parts.IsCursor())
-		parts.SetCursor(cursor);
+	int part_i = db.GetActivePartIndex();
+	if (part_i >= 0 && part_i < parts.GetCount() && !parts.IsCursor())
+		parts.SetCursor(1+part_i);
 	
 	DataPage();
 }

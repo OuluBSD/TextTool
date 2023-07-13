@@ -26,6 +26,7 @@ struct SnapAttrStr : Moveable<SnapAttrStr> {
 	bool has_id = false;
 	
 	bool operator==(const SnapAttrStr& a) const {return group == a.group && item == a.item;}
+	bool operator==(const SnapAttr& a) const {RealizeId(); return group_i == a.group && item_i == a.item;}
 	void Clear() {
 		group = "";
 		item = "";
@@ -37,6 +38,7 @@ struct SnapAttrStr : Moveable<SnapAttrStr> {
 			;
 	}
 	void RealizeId() const;
+	void Load(const SnapAttr& sa);
 	String ToString() const {return group + ":" + item;}
 	hash_t GetHashValue() const {CombineHash c; c << group << item; return c;}
 };

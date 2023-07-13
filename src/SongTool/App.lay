@@ -32,6 +32,16 @@ LAYOUT(Info, 672, 456)
 	ITEM(Upp::EditString, song_prj_name, LeftPosZ(136, 256).TopPosZ(420, 20))
 END_LAYOUT
 
+LAYOUT(Import, 592, 108)
+	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Import from lyrics with AI")).LeftPosZ(4, 152).TopPosZ(0, 40))
+	ITEM(Upp::Button, make_tasks, SetLabel(t_("Make Tasks")).LeftPosZ(8, 144).TopPosZ(16, 20))
+	ITEM(Upp::LabelBox, dv___2, SetLabel(t_("Import from music composition")).LeftPosZ(160, 428).TopPosZ(0, 40))
+	ITEM(Upp::Label, dv___3, SetLabel(t_("Structure:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(164, 76).TopPosZ(16, 20))
+	ITEM(Upp::EditString, structure, LeftPosZ(244, 268).TopPosZ(16, 20))
+	ITEM(Upp::Button, reload, SetLabel(t_("Reload")).LeftPosZ(516, 68).TopPosZ(16, 20))
+	ITEM(Splitter, mainsplit, HSizePosZ(4, 0).VSizePosZ(48, 0))
+END_LAYOUT
+
 LAYOUT(Analysis, 724, 488)
 	ITEM(Upp::ArrayCtrl, data, HSizePosZ(0, 0).VSizePosZ(112, 0))
 	ITEM(Upp::DocEdit, lyrics, HSizePosZ(0, 0).TopPosZ(0, 116))
@@ -40,6 +50,21 @@ END_LAYOUT
 LAYOUT(PatternMask, 400, 200)
 	ITEM(Upp::ArrayCtrl, data, HSizePosZ(0, 0).VSizePosZ(112, 0))
 	ITEM(Upp::DocEdit, lyrics, HSizePosZ(0, 0).TopPosZ(0, 116))
+END_LAYOUT
+
+LAYOUT(AttrScore, 400, 200)
+	ITEM(Splitter, vsplit, LeftPosZ(4, 228).VSizePosZ(4, 88))
+	ITEM(Splitter, mainsplit, HSizePosZ(236, 0).VSizePosZ(0, 0))
+	ITEM(Upp::Button, add_scoregroup, SetLabel(t_("Add group for entries with the same score")).LeftPosZ(4, 228).BottomPosZ(60, 24))
+	ITEM(Upp::Button, add_entry, SetLabel(t_("Add entry")).LeftPosZ(4, 228).BottomPosZ(32, 24))
+	ITEM(Upp::Button, prompt_scores, SetLabel(t_("Wizard for getting words with given score")).LeftPosZ(4, 228).BottomPosZ(4, 24))
+END_LAYOUT
+
+LAYOUT(AttrWords, 396, 332)
+	ITEM(Upp::ArrayCtrl, list, HSizePosZ(0, 0).VSizePosZ(32, 32))
+	ITEM(Upp::Label, dv___1, SetLabel(t_("Group:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(0, 88).TopPosZ(0, 32))
+	ITEM(Upp::DropList, groups, HSizePosZ(92, 4).TopPosZ(4, 24))
+	ITEM(Upp::Button, add_task, SetLabel(t_("Add task")).HCenterPosZ(192, 2).BottomPosZ(4, 24))
 END_LAYOUT
 
 LAYOUT(Main, 400, 200)
@@ -51,16 +76,6 @@ END_LAYOUT
 
 LAYOUT(Calendar, 400, 200)
 	ITEM(Upp::Label, dv___0, SetLabel(t_("Calendar")).LeftPosZ(12, 144).VSizePosZ(8, 173))
-END_LAYOUT
-
-LAYOUT(Import, 592, 108)
-	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Import from lyrics with AI")).LeftPosZ(4, 152).TopPosZ(0, 40))
-	ITEM(Upp::Button, make_tasks, SetLabel(t_("Make Tasks")).LeftPosZ(8, 144).TopPosZ(16, 20))
-	ITEM(Upp::LabelBox, dv___2, SetLabel(t_("Import from music composition")).LeftPosZ(160, 428).TopPosZ(0, 40))
-	ITEM(Upp::Label, dv___3, SetLabel(t_("Structure:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(164, 76).TopPosZ(16, 20))
-	ITEM(Upp::EditString, structure, LeftPosZ(244, 268).TopPosZ(16, 20))
-	ITEM(Upp::Button, reload, SetLabel(t_("Reload")).LeftPosZ(516, 68).TopPosZ(16, 20))
-	ITEM(Splitter, mainsplit, HSizePosZ(4, 0).VSizePosZ(48, 0))
 END_LAYOUT
 
 LAYOUT(Story, 492, 476)
@@ -81,37 +96,6 @@ LAYOUT(Story, 492, 476)
 	ITEM(Upp::DocEdit, storyline, Tip(t_("The storyline and narrative of the song")).LeftPosZ(152, 332).TopPosZ(356, 52))
 	ITEM(Upp::Label, dv___15, SetLabel(t_("Implications:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 136).TopPosZ(412, 20))
 	ITEM(Upp::DocEdit, implications, Tip(t_("The social and political implications of the song")).LeftPosZ(152, 332).TopPosZ(412, 52))
-END_LAYOUT
-
-LAYOUT(Scoring, 556, 216)
-	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Score")).LeftPosZ(4, 228).TopPosZ(4, 116))
-	ITEM(Upp::Label, dv___1, SetLabel(t_("Struct:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(8, 56).TopPosZ(20, 20))
-	ITEM(Upp::EditString, structure, LeftPosZ(68, 160).TopPosZ(20, 20))
-	ITEM(Upp::Button, reload, SetLabel(t_("Reload Structure")).LeftPosZ(68, 160).TopPosZ(44, 20))
-	ITEM(Upp::Button, load_active_pattern, SetLabel(t_("Load active pattern")).LeftPosZ(68, 160).TopPosZ(68, 20))
-	ITEM(Upp::Button, new_preset, SetLabel(t_("New preset")).LeftPosZ(68, 160).TopPosZ(92, 20))
-	ITEM(Splitter, vsplit, LeftPosZ(4, 228).VSizePosZ(124, 32))
-	ITEM(Splitter, mainsplit, HSizePosZ(236, 0).VSizePosZ(0, 0))
-	ITEM(Upp::Button, add, SetLabel(t_("Add")).LeftPosZ(4, 228).BottomPosZ(4, 24))
-END_LAYOUT
-
-LAYOUT(AttrScore, 400, 200)
-	ITEM(Splitter, vsplit, LeftPosZ(4, 228).VSizePosZ(4, 144))
-	ITEM(Splitter, mainsplit, HSizePosZ(236, 0).VSizePosZ(0, 0))
-	ITEM(Upp::Button, add_scoregroup, SetLabel(t_("Add group for entries with the same score")).LeftPosZ(4, 228).BottomPosZ(116, 24))
-	ITEM(Upp::Button, add_entry, SetLabel(t_("Add entry")).LeftPosZ(4, 228).BottomPosZ(88, 24))
-	ITEM(Upp::Button, prompt_scores, SetLabel(t_("Wizard for getting words with given score")).LeftPosZ(4, 228).BottomPosZ(60, 24))
-	ITEM(Upp::Button, make_prompt, SetLabel(t_("Copy AI prompt to clipboard")).LeftPosZ(4, 228).BottomPosZ(32, 24))
-	ITEM(Upp::Button, parse_prompt, SetLabel(t_("Parse AI prompt from clipboard")).LeftPosZ(4, 228).BottomPosZ(4, 24))
-END_LAYOUT
-
-LAYOUT(Reverse, 400, 200)
-	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Score")).LeftPosZ(4, 228).TopPosZ(4, 116))
-	ITEM(Upp::Button, load_active_patternscore, SetLabel(t_("Load active pattern score")).LeftPosZ(68, 160).TopPosZ(20, 20))
-	ITEM(Upp::Button, stop, SetLabel(t_("Stop tasks")).LeftPosZ(68, 160).TopPosZ(44, 20))
-	ITEM(Splitter, vsplit, LeftPosZ(4, 228).VSizePosZ(124, 32))
-	ITEM(Splitter, mainsplit, HSizePosZ(236, 0).VSizePosZ(0, 0))
-	ITEM(Upp::Button, add, SetLabel(t_("Add")).LeftPosZ(4, 228).BottomPosZ(4, 24))
 END_LAYOUT
 
 LAYOUT(Composition, 492, 440)

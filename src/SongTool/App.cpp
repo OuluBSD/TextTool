@@ -23,6 +23,9 @@ SongTool::SongTool() {
 	menu.Set(THISBACK(MainMenu));
 	PostCallback(THISBACK(LoadWindowPos));
 	PostCallback(THISBACK(Data));
+	
+	ed.WhenStartUpdating << [this](){tc.Set(-500, THISBACK(Data));};
+	ed.WhenStopUpdating << [this](){tc.Kill();};
 }
 
 SongTool::~SongTool() {

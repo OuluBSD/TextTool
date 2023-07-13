@@ -6,10 +6,10 @@ struct Part {
 	
 	Vector<String> lines;
 	PatternSnap snap;
+	PartScore		score;
 	
 	// Components
 	PatternMask		mask;
-	PatternScore	patternscore;
 	Composition		composition;
 	Analysis		analysis;
 	
@@ -23,7 +23,6 @@ struct Part {
 			("snap", snap)
 			
 			("mask", mask)
-			("patternscore", patternscore)
 			("composition", composition)
 			("analysis", analysis)
 			;

@@ -17,6 +17,7 @@ using namespace Upp;
 #include "OpenAI.h"
 
 #include "Utils.h"
+#include "Optimizer.h"
 
 #include "Common.h"
 #include "Calendar.h"
@@ -55,6 +56,7 @@ using namespace Upp;
 #include "RhymesCtrl.h"
 #include "AttrScoreCtrl.h"
 #include "ReverseCtrl.h"
+#include "Plotter.h"
 #include "ScoringCtrl.h"
 #include "ImportCtrl.h"
 

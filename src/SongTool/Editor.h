@@ -57,6 +57,9 @@ public:
 	void AddSong();
 	void RenameSong();
 	void RemoveSong();
+	
+	Callback WhenStartUpdating, WhenStopUpdating;
+	
 };
 
 

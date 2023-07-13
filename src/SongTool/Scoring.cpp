@@ -88,3 +88,29 @@ void PartScore::Realize() {
 		v.SetCount(len, 0);
 }
 
+
+String AttrScoreGroup::ToString() const {
+	Attributes& g = Database::Single().attrs;
+	
+	String s;
+	if (name.GetCount())
+		s << t_("Name") << ": " << name << "\n";
+	
+	for(int i = 0; i < scores.GetCount(); i++) {
+		int sc = scores[i];
+		if (!sc) continue;
+		
+		if (i >= g.scorings.GetCount()) {
+			s << "error\n";
+			continue;
+		}
+		
+		const Attributes::ScoringType& t = g.scorings[i];
+		String name =
+			Capitalize(g.Translate(t.klass)) + ": " + (sc > 0 ? "+" : "-") + " (" +
+			Capitalize(g.Translate(sc > 0 ? t.axes0 : t.axes1)) + ")";
+		s << name << "\n";
+	}
+	
+	return s;
+}
