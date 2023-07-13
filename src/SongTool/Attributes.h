@@ -28,6 +28,9 @@ struct Attributes : DataFile {
 		String description;
 		String type;
 		
+		// temp values
+		int type_i = -1;
+		
 		Group& SetDescription(String s) {description = s; return *this;}
 		Group& SetColor(Color c) {clr = c; return *this;}
 		Group& SetColor(int r, int g, int b) {clr = Color(r,g,b); return *this;}
@@ -62,7 +65,13 @@ struct Attributes : DataFile {
 	struct GroupType : Moveable<GroupType> {
 		String name;
 		String ai_txt;
-		void Jsonize(JsonIO& json) {json("name", name)("ai_txt", ai_txt);}
+		Color clr;
+		void Jsonize(JsonIO& json) {json
+			("name", name)
+			("ai_txt", ai_txt)
+			("clr", clr);
+			//if (json.IsLoading()) clr = Color(Random(256),Random(256),Random(256));
+		}
 	};
 	Vector<GroupType> group_types;
 	Vector<Group> groups;
@@ -78,6 +87,8 @@ struct Attributes : DataFile {
 	void LoadDefaultGroups();
 	void LoadDefaultAnalysis();
 	void LoadDefaultAttrGroups();
+	void RealizeAttrIds();
+	void FindGroupTypes(const Vector<int>& groups, Index<int>& group_types) const;
 	GroupType& AddGroupType(String type, String ai_txt);
 	GroupType& GetGroupType(String type);
 	Group& AddGroup(String type, String desc);
@@ -90,6 +101,7 @@ struct Attributes : DataFile {
 	}
 	String Translate(const String& s);
 	SnapAttr GetAddAttr(String group, String item);
+	void ResolveId(SnapAttrStr& sa);
 	bool FindAttr(String group, String item, SnapAttr& sa) const;
 	void Clear() {groups.Clear(); translation.Clear();}
 	void Jsonize(JsonIO& json) {
@@ -103,14 +115,16 @@ struct Attributes : DataFile {
 		if (json.IsLoading()) {
 			String lng = GetCurrentLanguageString().Left(5);
 			trans_i = translation.Find(lng);
-			//groups.Clear();
-			if (groups.IsEmpty() || group_types.IsEmpty())
-				LoadDefaultGroups();
-			if (analysis.IsEmpty())
-				LoadDefaultAnalysis();
-			if (scorings.IsEmpty())
-				LoadDefaultAttrGroups();
+			Realize();
 		}
+	}
+	void Realize() {
+		if (groups.IsEmpty() || group_types.IsEmpty())
+			LoadDefaultGroups();
+		if (analysis.IsEmpty())
+			LoadDefaultAnalysis();
+		if (scorings.IsEmpty())
+			LoadDefaultAttrGroups();
 	}
 	void AddScoring(String s, Vector<Attributes::ScoringType>& scorings);
 	int FindGroup(String group_name);

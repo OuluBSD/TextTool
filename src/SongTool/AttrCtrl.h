@@ -1,6 +1,10 @@
 #ifndef _SongTool_AttrCtrl_h_
 #define _SongTool_AttrCtrl_h_
 
+
+class PatternCtrl;
+
+
 class AttrCtrl : public Ctrl {
 	using RectId = Tuple3<Rect, int, int>;
 	Vector<RectId> group_title_rects;
@@ -10,7 +14,9 @@ class AttrCtrl : public Ctrl {
 	Vector<bool> active;
 	Vector<bool> inherited_active;
 	
-	Vector<Vector<int>> group_grid;
+	Index<int> group_types;
+	VectorMap<int, Vector<int>> group_items;
+	Vector<VectorMap<int, Vector<int>>> grid;
 	bool invalidate_group_grid = false;
 	
 	void RealizeTemp();
@@ -23,7 +29,7 @@ public:
 	void Load();
 	void Store();
 	void Paint(Draw& d) override;
-	void PaintKeys(Draw& d, int group_i, int x, int cx, int& y, float lineh, Font fnt);
+	void PaintKeys(Draw& d, int group_i, const Vector<int>& items, int x, int cx, int& y, float lineh, Font fnt);
 	void ContextMenu(Bar& bar, Point pt);
 	void AddGroup();
 	void AddEntry(int group);
@@ -37,6 +43,7 @@ public:
 	
 	
 	Callback WhenUpdate;
+	
 };
 
 #endif

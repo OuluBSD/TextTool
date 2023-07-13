@@ -20,6 +20,7 @@ struct Database {
 	void Clear() {artists.Clear();}
 	void Store();
 	void Load();
+	void RealizeAttrIds();
 	void FindOrphaned();
 	void Jsonize(JsonIO& json) {
 		/*json

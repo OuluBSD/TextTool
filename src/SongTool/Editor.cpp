@@ -20,6 +20,7 @@ Editor::Editor() {
 	tablist.AddColumn("");
 	tablist.ColumnWidths("1 3");
 	tablist.Add(t_("All"), t_("Info"));
+	tablist.Add(t_("All"), t_("Attributes"));
 	tablist.Add(t_("Release"), t_("Recruitment"));
 	tablist.Add(t_("Release"), t_("Social media campaign"));
 	tablist.Add(t_("Release"), t_("Calendar"));
@@ -57,6 +58,7 @@ Editor::Editor() {
 	info.editor = this;
 	
 	base.Add(info.SizePos());
+	base.Add(attr.SizePos());
 	base.Add(recru.SizePos());
 	base.Add(social.SizePos());
 	base.Add(cal.SizePos());
@@ -79,6 +81,7 @@ void Editor::Init() {
 
 void Editor::SetView(int i) {
 	info.Hide();
+	attr.Hide();
 	recru.Hide();
 	social.Hide();
 	cal.Hide();
@@ -97,20 +100,21 @@ void Editor::SetView(int i) {
 	switch (i) {
 		default: i = 0;
 		case 0: info.Show(); break;
-		case 1: recru.Show(); break;
-		case 2: social.Show(); break;
-		case 3: cal.Show(); break;
-		case 4: task.Show(); break;
-		case 5: importer.Show(); break;
-		case 6: analysis.Show(); break;
-		case 7: patmask.Show(); break;
-		case 8: pattern.Show(); break;
-		case 9: attrscore.Show(); break;
-		case 10: scoring.Show(); break;
-		case 11: reverse.Show(); break;
-		case 12: composition.Show(); break;
-		case 13: production.Show(); break;
-		case 14: rhymes.Show(); break;
+		case 1: attr.Show(); break;
+		case 2: recru.Show(); break;
+		case 3: social.Show(); break;
+		case 4: cal.Show(); break;
+		case 5: task.Show(); break;
+		case 6: importer.Show(); break;
+		case 7: analysis.Show(); break;
+		case 8: patmask.Show(); break;
+		case 9: pattern.Show(); break;
+		case 10: attrscore.Show(); break;
+		case 11: scoring.Show(); break;
+		case 12: reverse.Show(); break;
+		case 13: composition.Show(); break;
+		case 14: production.Show(); break;
+		case 15: rhymes.Show(); break;
 	}
 	page = i;
 	DataPage();
@@ -119,20 +123,21 @@ void Editor::SetView(int i) {
 void Editor::DataPage() {
 	switch (page) {
 		case 0: info.Data(); break;
-		case 1: recru.Data(); break;
-		case 2: social.Data(); break;
-		case 3: cal.Data(); break;
-		case 4: task.Data(); break;
-		case 5: importer.Data(); break;
-		case 6: analysis.Data(); break;
-		case 7: patmask.Data(); break;
-		case 8: pattern.Data(); break;
-		case 9: attrscore.Data(); break;
-		case 10: scoring.Data(); break;
-		case 11: reverse.Data(); break;
-		case 12: composition.Data(); break;
-		case 13: production.Data(); break;
-		case 14: rhymes.Data(); break;
+		case 1: attr.Data(); break;
+		case 2: recru.Data(); break;
+		case 3: social.Data(); break;
+		case 4: cal.Data(); break;
+		case 5: task.Data(); break;
+		case 6: importer.Data(); break;
+		case 7: analysis.Data(); break;
+		case 8: patmask.Data(); break;
+		case 9: pattern.Data(); break;
+		case 10: attrscore.Data(); break;
+		case 11: scoring.Data(); break;
+		case 12: reverse.Data(); break;
+		case 13: composition.Data(); break;
+		case 14: production.Data(); break;
+		case 15: rhymes.Data(); break;
 		default: break;
 	}
 }

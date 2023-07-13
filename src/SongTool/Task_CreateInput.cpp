@@ -4,7 +4,7 @@ void AI_Task::CreateInput_PatternMask() {
 	//CombineHash hash;
 	Database& db = Database::Single();
 	if (!song) {
-		failed = true;
+		SetError("no song pointer set");
 		return;
 	}
 	
@@ -72,7 +72,7 @@ void AI_Task::CreateInput_Pattern() {
 	//CombineHash hash;
 	Database& db = Database::Single();
 	if (!song) {
-		failed = true;
+		SetError("no song pointer set");
 		return;
 	}
 	
@@ -135,7 +135,7 @@ void AI_Task::CreateInput_Analysis() {
 	//CombineHash hash;
 	Database& db = Database::Single();
 	if (!song) {
-		failed = true;
+		SetError("no song pointer set");
 		return;
 	}
 	
@@ -208,52 +208,54 @@ void AI_Task::CreateInput_Analysis() {
 const char* attrscore_prompt1 = R"ATRSCROO(
 
 List of axes:
--a Mood: +joyful/-melancholic
--b Mood: +playful/-serious
--c Mood: +uplifting/-heavy
--d Mood: +lighthearted/-somber
--e Mood: +humorous/-dramatic
--f Social: +authoritarian/-liberatrian
--g Economic: +liberal/-conservative
--h Culture: +individualism/-collective
--i Human strength: +strong/-weak
--j Motivation: +rewarding/-punishing
--k Sexualization: +sexual/-non-sexual
--l Attitude: +hopeful/-despair
--m Attitude: +optimistic/-pessimistic
--n Attitude: +open/-closed
--o Beliefs: +spiritual/-secular
--p Expectations: +perfection/-acceptance
+-a Integrity: +honest/-twisted
+-b Social: +authoritarian/-liberatrian
+-c Economic: +liberal/-conservative
+-d Culture: +individualism/-collective
+-e Human strength: +strong/-weak
+-f Motivation: +rewarding/-punishing
+-g Sexualization: +sexual/-non-sexual
+-h Beliefs: +spiritual/-secular
+-i Expectations: +perfection/-acceptance
+-j Mood: +joyful/-melancholic
+-k Mood: +playful/-serious
+-l Mood: +uplifting/-heavy
+-m Mood: +lighthearted/-somber
+-n Mood: +humorous/-dramatic
+-o Attitude: +hopeful/-despair
+-p Attitude: +optimistic/-pessimistic
+-q Attitude: +open/-closed
 
 Combination string from results:
- - a (Mood: joyful/melancholic) b (Mood: playful/serious) c (Mood: uplifting/heavy) etc.
+ - a (Integrity: +honest/-twisted) b (Social: +authoritarian/-liberatrian) c (Economic: +liberal/-conservative) etc.
 
 Combination integer values are allwed to be between -3 and +3.
 
 Scores per entry:
 Line 1, Pronouns: "I":
--a Mood: joyful/melancholic: +1 Joyful
--b Mood: playful/serious: +1 Playful
--c Mood: uplifting/heavy: +1 Uplifting
--d Mood: lighthearted/somber: +1 Lighthearted
--e Mood: humorous/dramatic: +1 Humorous
--f Social: authoritarian/liberatrian: -1 Libertarian
--g Economic: liberal/conservative: 0
--h Culture: individualism/collective: +1 Individualism
--i Human strength: strong/weak: +1 Strong
--j Motivation: rewarding/punishing: +1 Rewarding
--k Sexualization: sexual/non-sexual: 0
--l Attitude: hopeful/despair: +1 Hopeful
--m Attitude: optimistic/pessimistic: +1 Optimistic
--n Attitude: open/closed: +1 Open
--o Beliefs: spiritual/ secular: 0
--p Expectations: perfection/acceptance: -1 Acceptance
-Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n+1 o0 p-1
+-a Integrity: +honest/-twisted: +1 honest
+-b Social: authoritarian/liberatrian: -1 libertarian
+-c Economic: liberal/conservative: 0
+-d Culture: individualism/collective: +1 individualism
+-e Human strength: strong/weak: +1 strong
+-f Motivation: rewarding/punishing: +1 rewarding
+-g Sexualization: sexual/non-sexual: 0
+-h Beliefs: spiritual/ secular: 0
+-i Expectations: perfection/acceptance: -1 acceptance
+-j Mood: joyful/melancholic: +1 joyful
+-k Mood: playful/serious: +1 playful
+-l Mood: uplifting/heavy: +1 uplifting
+-m Mood: lighthearted/somber: +1 lighthearted
+-n Mood: humorous/dramatic: +1 humorous
+-o Attitude: hopeful/despair: +1 hopeful
+-p Attitude: optimistic/pessimistic: +1 optimistic
+-q Attitude: open/closed: +1 open
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
 )ATRSCROO";
 
 const char* attrscore_prompt2 = R"ATRSCROO(
 Line 1, Pronouns: "I":
-Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n+1 o0 p-1
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
 
 Entries:
 ${ENTRIES}
@@ -278,7 +280,7 @@ void AI_Task::CreateInput_AttrScores() {
 	
 	
 	// Try making prompt with errors first
-	Song& a = *db.active_song;
+	Song& a = *this->song;
 	a.GetAttributes(attrs); // get attrs from snapshots
 	
 	
@@ -306,7 +308,7 @@ void AI_Task::CreateInput_AttrScores() {
 		
 		// Make FIRSTENTRY prompt on first seen value
 		if (!entry_count)
-			prompt.Replace("${FIRSTENTRY}", gg.description + ": \"" + key + "\"");
+			prompt.Replace("${FIRSTENTRY}", "Line 2, " + gg.description + ": \"" + key + "\"");
 		entry_count++;
 	}
 	

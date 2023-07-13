@@ -67,8 +67,9 @@ bool AttrScore::RealizeTemp() {
 			}
 			
 			if (!found) {
-				//LOG("AttrScore::RealizeTemp: not found: " + gg.values[j] + " (" << IntStr(i) + ":" + IntStr(j) + ")");
+				//LOG("AttrScore::RealizeTemp: not found: " + gg.description + ", " + gg.values[j] + " (" << IntStr(i) + ":" + IntStr(j) + ")");
 				not_found++;
+				//return false;
 			}
 		}
 	}

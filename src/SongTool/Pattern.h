@@ -27,6 +27,7 @@ struct PatternSnap {
 		if (a) a->SetId(i);
 		if (b) b->SetId(i);
 	}
+	void ResolveId();
 	void Jsonize(JsonIO& json) {
 		json
 			("part_id",  part_id)
@@ -97,9 +98,14 @@ struct PatternSnap {
 		// if level == 0 (== a and b are empty)
 		if (!a && !b) {
 			ASSERT(!txt.IsEmpty());
-			if (txt == txt_line)
+			if (ToLower(txt) == txt_line)
+			//DUMP(txt);
+			//DUMP(txt_line);
+			//if (ToLower(txt) == ToLower(txt_line))
 				snaps.Add(this);
 		}
+		if (a) a->GetLineSnapshots(txt_line, snaps);
+		if (b) b->GetLineSnapshots(txt_line, snaps);
 	}
 };
 

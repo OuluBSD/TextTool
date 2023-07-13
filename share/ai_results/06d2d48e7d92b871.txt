@@ -1,0 +1,37 @@
+﻿a-1 b-1 c-1 d-1 e-1 f+1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p+1
+Line 3, body language: "crossing arms":
+Combination string: a-1 b-1 c-1 d-1 e-1 f+1 g0 h-1 i-1 j-1 k0 l-1 m-1 n+1 o0 p+1
+Line 4, facial expressions: "smiling":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n-1 o0 p-1
+Line 5, body language: "nodding head":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n-1 o0 p-1
+Line 6, facial expressions: "wide eyes":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n-1 o0 p-1
+Line 7, body language: "swaying side to side":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n-1 o0 p-1
+Line 8, facial expressions: "raising eyebrows":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n-1 o0 p-1
+Line 9, body language: "gesturing with arms":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n-1 o0 p-1
+Line 10, facial expressions: "pursed lips":
+Combination string: a-1 b-1 c-1 d-1 e-1 f+1 g0 h-1 i-1 j-1 k0 l-1 m-1 n+1 o0 p+1
+Line 11, body language: "shrugging shoulders":
+Combination string: a-1 b-1 c-1 d-1 e-1 f+1 g0 h-1 i-1 j-1 k0 l-1 m-1 n+1 o0 p+1
+Line 12, facial expressions: "pouting lips":
+Combination string: a-1 b-1 c-1 d-1 e-1 f+1 g0 h-1 i-1 j-1 k0 l-1 m-1 n+1 o0 p+1
+Line 13, body language: "leaning forward":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n+1 o0 p-1
+Line 14, facial expressions: "squinting eyes":
+Combination string: a-1 b-1 c-1 d-1 e-1 f+1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p+1
+Line 15, body language: "swaying head to side":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n-1 o0 p-1
+Line 16, facial expressions: "mouth agape":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n-1 o0 p-1
+Line 17, body language: "crouching":
+Combination string: a-1 b-1 c-1 d-1 e-1 f+1 g0 h-1 i-1 j-1 k0 l-1 m-1 n+1 o0 p+1
+Line 18, body language: "leaning back":
+Combination string: a-1 b-1 c-1 d-1 e-1 f+1 g0 h-1 i-1 j-1 k0 l-1 m-1 n+1 o0 p+1
+Line 19, body language: "swaying to the beat":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n-1 o0 p-1
+Line 20, body language: "bouncing to the beat":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n-1 o0 p-1

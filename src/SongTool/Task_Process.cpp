@@ -3,65 +3,91 @@
 void AI_Task::Process_MakeAttrScores() {
 	Database& db = Database::Single();
 	TaskMgr& m = TaskMgr::Single();
-	Attributes& a = db.attrs;
+	Attributes& attrs = db.attrs;
 	AttrScore& as = db.attrscores;
 	if (!song) {
-		failed = true;
+		SetError("no song pointer set");
+		return;
+	}
+	Song& song = *this->song;
+	
+	if (!as.RealizeTemp()) {
+		SetError("AttrScore::RealizeTemp failed");
 		return;
 	}
 	
-	as.RealizeTemp();
+	Index<SnapAttrStr> song_attrs;
+	song.GetAttributes(song_attrs); // get attrs from snapshots
 	
-	AI_Task* chk = 0;
-	for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
-		const Attributes::GroupType& group_type = db.attrs.group_types[i];
-		for(int j = 0; j < a.groups.GetCount(); j++) {
-			// Skip groups, which doesn't match this task
-			Attributes::Group& gg = a.groups[j];
-			if (gg.type != group_type.name)
-				continue;
+	Index<int> unresolved_group_types;
+	for (const SnapAttrStr& a : song_attrs.GetKeys()) {
+		ASSERT(a.has_id);
+		const Attributes::Group& gg = attrs.groups[a.group_i];
+		ASSERT(gg.type_i >= 0);
+		const Attributes::GroupType& group_type = attrs.group_types[gg.type_i];
+		
+		
+		// Skip groups, which doesn't match this task
+		if (gg.type != group_type.name)
+			continue;
+		
+		// Check from 'attribute to score' conversion vector, if all is solved
+		if (a.group_i >= as.attr_to_score.GetCount())
+			break;
+		const Vector<int>& to_score_i = as.attr_to_score[a.group_i];
+		bool is_unresolved = false;
+		// Check if attribute is without score
+		if (a.item_i >= to_score_i.GetCount() || to_score_i[a.item_i] < 0) {
+			// Not found
+			is_unresolved = true;
+			break;
+		}
+		
+		
+		// If group have attributes without known scores (then add task to get them)
+		if (is_unresolved) {
+			unresolved_group_types.FindAdd(gg.type_i);
+		}
+	}
+	
+	if (unresolved_group_types.GetCount()) {
+		int task_begin = m.tasks.GetCount();
+		AI_Task& chk = m.tasks.Add();
+		chk.type = TASK_MAKE_ATTRSCORES_TASKS;
+		chk.song = this->song;
+		
+		for (int group_type_i : unresolved_group_types.GetKeys()) {
+			const Attributes::GroupType& group_type = attrs.group_types[group_type_i];
 			
-			// Check from 'attribute to score' conversion vector, if all is solved
-			if (j >= as.attr_to_score.GetCount())
-				break;
-			const Vector<int>& to_score_i = as.attr_to_score[j];
-			bool is_unresolved = false;
-			for(int k = 0; k < gg.values.GetCount(); k++) {
-				// Check if attribute is without score
-				if (k >= to_score_i.GetCount() || to_score_i[k] < 0) {
-					// Not found
-					is_unresolved = true;
-					break;
+			AI_Task& t = m.tasks.Add();
+			m.total++;
+			t.type = TASK_ATTRSCORES;
+			t.song = this->song;
+			t.args << group_type.name << group_type.ai_txt;
+			t.CreateInput();
+			ASSERT(!t.failed);
+			ASSERT(t.input.GetCount());
+			
+			// Prevent stupid loops
+			for(int i = 0; i < m.tasks.GetCount()-1; i++) {
+				if (m.tasks[i].input == t.input) {
+					this->input = t.input;
+					SetError("duplicate task is being made");
+					m.tasks.Remove(task_begin, m.tasks.GetCount()-task_begin);
+					return;
 				}
 			}
 			
-			
-			// If group have attributes without known scores (then add task to get them)
-			if (is_unresolved) {
-				if (!chk) {
-					chk = &m.tasks.Add();
-					chk->type = TASK_MAKE_ATTRSCORES_TASKS;
-					chk->song = song;
-				}
-				
-				AI_Task& t = m.tasks.Add();
-				m.total++;
-				t.type = TASK_ATTRSCORES;
-				t.song = song;
-				t.args << group_type.name << group_type.ai_txt;
-				t.CreateInput();
-				
-				chk->depends_on << &t;
-			}
+			chk.depends_on << &t;
 		}
 	}
 	
 	// If all were resolved
-	if (!chk) {
+	else {
 		AI_Task& t = m.tasks.Add();
 		m.total++;
 		t.type = TASK_SONGSCORE;
-		t.song = song;
+		t.song = this->song;
 		t.CreateInput();
 	}
 }
@@ -120,10 +146,14 @@ void AI_Task::Process_PatternMask() {
 					part == "us" ||
 					part == "them"
 					) {
-					SnapAttrStr sa;
-					sa.group = "pronouns";
-					sa.item = part;
-					p.mask.attrs.FindAdd(sa);
+					SnapAttrStr sas;
+					sas.group = "pronouns";
+					sas.item = part;
+					SnapAttr sa = db.attrs.GetAddAttr(sas.group, sas.item);
+					sas.group_i = sa.group;
+					sas.item_i = sa.item;
+					sas.has_id = true;
+					p.mask.attrs.FindAdd(sas);
 				}
 			}
 		}
@@ -195,15 +225,21 @@ void AI_Task::Process_PatternMask() {
 				ASSERT(value.Find(",") < 0);
 				
 				// Realize pattern snapshot attribute
-				SnapAttr sa = db.attrs.GetAddAttr(group, value);
-				SnapAttrStr sas;
-				sas.group = group;
-				sas.item = value;
-				sas.group_i = sa.group;
-				sas.item_i = sa.item;
-				sas.has_id = true;
-				part.mask.attrs.FindAdd(sas);
-				LOG(part_key << " -> " << group << " -> " << value);
+				int group_i = db.attrs.FindGroup(group);
+				if (group_i >= 0) {
+					SnapAttr sa = db.attrs.GetAddAttr(group, value); // ugly semantics
+					SnapAttrStr sas;
+					sas.group = group;
+					sas.item = value;
+					sas.group_i = sa.group;
+					sas.item_i = sa.item;
+					sas.has_id = true;
+					part.mask.attrs.FindAdd(sas);
+					LOG(part_key << " -> " << group << " -> " << value);
+				}
+				else {
+					LOG("warning: not adding group '" << group << "'");
+				}
 			}
 		}
 	}
@@ -339,37 +375,50 @@ void AI_Task::Process_Pattern() {
 	// Add parsed data to database
 	for(int i = 0; i < parsed.GetCount(); i++) {
 		String line_txt = parsed.GetKey(i);
-		const auto& group_map = parsed[i];
+		const VectorMap<String, Index<String>>& group_map = parsed[i];
 		Vector<SnapAttrStr>& line_attrs = song.unique_lines.GetAdd(line_txt);
+		//DUMPC(line_attrs);
 		
+		DUMP(line_txt);
 		Vector<PatternSnap*> snaps;
 		song.GetLineSnapshots(line_txt, snaps);
+		DUMP(snaps.GetCount());
 		
 		for(int j = 0; j < group_map.GetCount(); j++) {
-			String group_txt = group_map.GetKey(j);
-			const auto& item_idx = group_map[j];
+			String group_str = group_map.GetKey(j);
+			const Index<String>& item_idx = group_map[j];
 			
 			for(int k = 0; k < item_idx.GetCount(); k++) {
 				String item_str = item_idx[k];
 				bool found = false;
 				for (SnapAttrStr& attr : line_attrs) {
 					ASSERT(!attr.group.IsEmpty() && !attr.item.IsEmpty());
-					if (attr.group == group_txt && attr.item == item_str) {
+					if (attr.group == group_str && attr.item == item_str) {
 						found = true;
+						attr.RealizeId();
+						for (PatternSnap* snap : snaps)
+							snap->attributes.FindAdd(attr);
 						break;
 					}
 				}
+				// ERROR: This causes continuous hash changing of pattern hash
+				//        Which causes re-fetching of costly OpenAI data.
 				if (!found) {
-					SnapAttr sa = db.attrs.GetAddAttr(group_txt, item_str);
-					SnapAttrStr& attr = line_attrs.Add();
-					attr.group = group_txt;
-					attr.item = item_str;
-					attr.group_i = sa.group;
-					attr.item_i = sa.item;
-					attr.has_id = true;
-					
-					for (PatternSnap* snap : snaps)
-						snap->attributes.FindAdd(attr);
+					SnapAttr sa;
+					if (db.attrs.FindAttr(group_str, item_str, sa)) {
+						SnapAttrStr& attr = line_attrs.Add();
+						attr.group = group_str;
+						attr.item = item_str;
+						attr.group_i = sa.group;
+						attr.item_i = sa.item;
+						attr.has_id = true;
+						
+						for (PatternSnap* snap : snaps)
+							snap->attributes.FindAdd(attr);
+					}
+					else {
+						LOG("AI_Task::Process_Pattern: warning: not found: " << group_str << " -> " << item_str);
+					}
 				}
 			}
 		}
@@ -449,7 +498,7 @@ void AI_Task::Process_MakePatternTasks() {
 	Database& db = Database::Single();
 	TaskMgr& m = TaskMgr::Single();
 	if (!song) {
-		failed = true;
+		SetError("no song pointer set");
 		return;
 	}
 	
@@ -494,11 +543,11 @@ void AI_Task::Process_AttrScores() {
 	
 	// Find the beginning of results
 	int a = txt.Find("line 2,");
-	if (a < 0) {failed = true; return;}
+	if (a < 0) {SetError("no 'line2' found"); return;}
 	a = txt.Find("\n", a);
-	if (a < 0) {failed = true; return;}
+	if (a < 0) {SetError("no newline found"); return;}
 	a = txt.Find("line 2,", a);
-	if (a < 0) {failed = true; return;}
+	if (a < 0) {SetError("no second 'line2' found"); return;}
 	txt = txt.Mid(a);
 	LOG(txt);
 	
@@ -523,9 +572,10 @@ void AI_Task::Process_AttrScores() {
 		
 		Index<String> keys;
 		//DUMP(part);
-		//DUMP(a);
+		a = 0;
 		while (1) {
 			a = part.Find("\"", a);
+			//DUMP(a);
 			if (a < 0)
 				break;
 			a++;
@@ -638,6 +688,10 @@ void AI_Task::Process_AttrScores() {
 			if (scores.GetCount() != exp_count) {
 				DUMP(key);
 				DUMPC(scores);
+				DUMP(i);
+				DUMP(j);
+				DUMP(parsed.GetCount());
+				DUMP(map.GetCount());
 				// If output was incomplete, ignore this result
 				if (is_last)
 					break;
@@ -686,7 +740,7 @@ void AI_Task::Process_AttrScores() {
 	
 	// Calculate all connections again
 	if (!db.attrscores.RealizeTemp())
-		failed = true;
+		SetError("realizing attribute scores failed");
 	
 }
 

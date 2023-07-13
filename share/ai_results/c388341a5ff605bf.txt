@@ -1,0 +1,40 @@
+﻿ a-1 b+1 c+1 d-1 e-1 f-1 g0 h0 i+1 j-1 k-1 l-1 m-1 n+1 o-1 p-1 q-1
+
+Line 3, physical features: "scar tissue":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n-1 o+1 p+0 q+0
+
+Line 4, type of action in moral interaction: "kiss you":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g+1 h-1 i-1 j+1 k+1 l+1 m+1 n-1 o+1 p+1 q+1
+
+Line 5, interactions with: "the birds":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h+1 i-1 j+1 k+1 l+1 m+1 n-1 o+1 p+1 q+1
+
+Line 6, contrast and unexpected elements: "young kentucky girl in a push-up bra":
+Combination string: a-1 b+1 c+1 d-1 e-1 f-1 g+1 h-1 i+1 j-1 k-1 l-1 m-1 n+1 o-1 p-1 q-1
+
+Line 7, physical features: "southern girl":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h+1 i-1 j+1 k+1 l+1 m+1 n-1 o+1 p+0 q+0
+
+Line 8, type of action in moral interaction: "lick your heart":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g+1 h-1 i-1 j+1 k+1 l+1 m+1 n-1 o+1 p+1 q+1
+
+Line 9, contrast and unexpected elements: "blood loss in a bathroom stall":
+Combination string: a-1 b+1 c+1 d-1 e-1 f-1 g+1 h-1 i+1 j-1 k-1 l-1 m-1 n+1 o-1 p-1 q-1
+
+Line 10, type of action in moral interaction: "wave goodbye":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g+1 h+1 i-1 j+1 k+1 l+1 m+1 n-1 o+1 p+1 q+1
+
+Line 11, interactions with: "ma and pa":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h+1 i-1 j+1 k+1 l+1 m+1 n-1 o+1 p+1 q+1
+
+Line 12, physical features: "soft spoken":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h+1 i-1 j+1 k+1 l+1 m+1 n-1 o+1 p+0 q+0
+
+Line 13, likes and dislikes: "taste your health":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g+1 h-1 i-1 j+1 k+1 l+1 m+1 n-1 o+1 p+1 q+1
+
+Line 14, goals: "make it to the moon":
+Combination string: a+1 b-1 c-1 d+1 e+1 f+1 g0 h+1 i-1 j+1 k+1 l+1 m+1 n-1 o+1 p+1 q+1
+
+Line 15, motivations: "have to crawl":
+Combination string: a+1 b-1 c-1 d+1 e+1 f+1 g-1 h+1 i-1 j+1 k+1 l+1 m+1 n-1 o+1 p+1 q+1

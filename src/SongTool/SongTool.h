@@ -40,6 +40,7 @@ using namespace Upp;
 #include "AI_Tasks.h"
 #include "TaskMgr.h"
 
+#include "AttrDataCtrl.h"
 #include "BasicInfoCtrl.h"
 #include "RecruimentCtrl.h"
 #include "SocialCtrl.h"

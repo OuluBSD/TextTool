@@ -135,3 +135,9 @@ void Song::ReloadStructure() {
 	}
 }
 
+void PatternSnap::ResolveId() {
+	for (const SnapAttrStr& sa : attributes.GetKeys())
+		sa.RealizeId();
+	if (a) a->ResolveId();
+	if (b) b->ResolveId();
+}

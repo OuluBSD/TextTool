@@ -1,0 +1,74 @@
+﻿Nouns: Scar, tissue, mister 
+- Pronouns: you 
+- Verbs: saw, know-it-all 
+- Adjectives: sarcastic
+
+Line 2, "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
+- Pronouns: your, I, you 
+- Verbs: close, kiss, share 
+- Prepositions: with 
+- Conjunction: 'cause 
+- Adjectives: lonely
+
+Line 3, "With the birds I'll share this lonely viewin'"
+- Pronouns: I 
+- Verbs: share 
+- Prepositions: with 
+- Adjectives: lonely 
+- Gerund: viewin'
+
+Line 4, "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
+- Pronouns: me, you 
+- Verbs: push 
+- Prepositions: against 
+- Adjectives: young, push-up 
+- Nouns: wall, Kentucky, girl, bra
+
+Line 5, "Fallin' all over myself to lick your heart and taste your health ('cause)"
+- Prepositions: over 
+- Verbs: fallin', lick, taste 
+- Pronouns: myself, your 
+- Conjunction: 'cause 
+- Nouns: heart, health
+
+Line 6, "With the birds I'll share this lonely view"
+- Pronouns: I 
+- Verbs: share 
+- Prepositions: with 
+- Adjectives: lonely 
+- Nouns: birds, view
+
+Line 7, "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
+- Nouns: blood, loss, bathroom, stall, southern, girl, drawl
+- Prepositions: in, with 
+- Adjectives: scarlet
+
+Line 8, "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
+- Pronouns: I, ma, pa 
+- Verbs: wave, share 
+- Prepositions: to, with 
+- Conjunction: 'cause 
+- Nouns: birds, view
+- Adjectives: lonely 
+
+Line 9, "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
+- Pronouns: I 
+- Verbs: soft, spoken, step 
+- Adjectives: soft, broken 
+- Preposition: with
+- Nouns: jaw 
+- Adverb: outside 
+- Conjunction: but 
+
+Line 10, "And autumn's sweet, we call it fall."
+- Nouns: autumn, fall 
+- Verbs: call 
+- Adjectives: sweet 
+- Conjunction: and
+
+Line 11, "I'll make it to the moon if I have to crawl (and)"
+- Pronouns: I 
+- Verbs: make, crawl 
+- Prepositions: to, if 
+- Conjunction: if, and 
+- Nouns: moon

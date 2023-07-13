@@ -19,7 +19,22 @@ void Database::Store() {
 void Database::Load() {
 	Clear();
 	LoadFromJsonFile(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json");
-	
+	attrs.Realize();
+	RealizeAttrIds();
+}
+
+void Database::RealizeAttrIds() {
+	for (Artist& a : artists) {
+		for (Release& r : a.releases) {
+			for (Song& s : r.songs) {
+				for (Part& p : s.parts) {
+					p.mask.ResolveId();
+					p.snap.ResolveId();
+				}
+			}
+		}
+	}
+	attrs.RealizeAttrIds();
 }
 
 void Database::FindOrphaned() {

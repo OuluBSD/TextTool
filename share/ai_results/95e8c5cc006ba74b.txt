@@ -1,0 +1,25 @@
+﻿ a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+
+Line 3, locations: "unknown":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+
+Line 4, time of day: "unspecified":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+
+Line 5, time periods: "present":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+
+Line 6, places: "in a room":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+
+Line 7, locations: "viewin":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+
+Line 8, places: "against a wall":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+
+Line 9, places: "in a bathroom":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+
+Line 10, places: "outside":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1

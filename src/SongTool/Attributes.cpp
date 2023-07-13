@@ -242,6 +242,19 @@ void Attributes::LoadDefaultAttrGroups() {
 	AddScoring(("Attitude: open/closed"), scorings);
 }
 
+void Attributes::RealizeAttrIds() {
+	for (Group& gg : groups) {
+		if (gg.type_i >= 0) continue;
+		for(int i = 0; i < group_types.GetCount(); i++) {
+			if (gg.type == group_types[i].name) {
+				gg.type_i = i;
+				break;
+			}
+		}
+		ASSERT(gg.type_i >= 0);
+	}
+}
+
 Attributes::GroupType& Attributes::AddGroupType(String type, String ai_txt) {
 	for (Attributes::GroupType& gt : group_types) {
 		ASSERT(gt.name != type);
@@ -264,6 +277,8 @@ Attributes::GroupType& Attributes::GetGroupType(String type) {
 }
 
 Attributes::Group& Attributes::AddGroup(String type, String desc) {
+	ASSERT(!type.IsEmpty());
+	ASSERT(!desc.IsEmpty());
 	GroupType& gt = GetGroupType(type);
 	Group& g = groups.Add();
 	g.description = ToLower(desc);
@@ -309,18 +324,29 @@ SnapAttr Attributes::GetAddAttr(String group, String item) {
 			}
 			sa.item = gg.values.GetCount();
 			ASSERT(item.Find(",") < 0);
-			gg.values.Add(Capitalize(ToLower(item)));
+			gg.values.Add(ToLower(item));
 			return sa;
 		}
 	}
+	#if 0
 	sa.group = groups.GetCount();
 	sa.item = 0;
 	Group& gg = groups.Add();
-	gg.description = Capitalize(ToLower(group));
+	gg.description = ToLower(group);
 	gg.clr = Color(Random(256), Random(256), Random(256));
 	ASSERT(item.Find(",") < 0);
-	gg.values.Add(Capitalize(ToLower(item)));
+	gg.values.Add(ToLower(item));
 	return sa;
+	#else
+	if (1) {
+		DUMP(group);
+		DUMP(item);
+		ASSERT(0);
+	}
+	sa.group = -1;
+	sa.item = -1;
+	return sa;
+	#endif
 }
 
 void Attributes::AddScoring(String s, Vector<Attributes::ScoringType>& scorings) {
@@ -362,5 +388,24 @@ int Attributes::FindGroup(String group_name) {
 			return i;
 	}
 	return -1;
+}
+
+void Attributes::FindGroupTypes(const Vector<int>& group_ids, Index<int>& group_type_ids) const {
+	for (int group_i : group_ids) {
+		const Group& g = groups[group_i];
+		ASSERT(!g.type.IsEmpty());
+		if (g.type_i < 0) {
+			Group& mg = const_cast<Group&>(g);
+			for(int i = 0; i < group_types.GetCount(); i++) {
+				if (group_types[i].name == mg.type) {
+					mg.type_i = i;
+					break;
+				}
+			}
+			if (g.type_i < 0) {DUMP(g.type);}
+		}
+		ASSERT(g.type_i >= 0);
+		group_type_ids.FindAdd(g.type_i);
+	}
 }
 

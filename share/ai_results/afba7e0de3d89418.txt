@@ -1,0 +1,25 @@
+﻿ a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+
+Line 3, transitions: "jump cut":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n-1 o+1 p+1 q+1
+
+Line 4, splices: "tempo change":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m-1 n-1 o+1 p+1 q+1
+
+Line 5, effects: "color tint":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l-1 m-1 n-1 o+1 p+1 q+1
+
+Line 6, transitions: "push":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k-1 l-1 m-1 n-1 o+1 p+1 q+1
+
+Line 7, effects: "distortion":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j-1 k-1 l-1 m-1 n-1 o+1 p+1 q+1
+
+Line 8, transitions: "fade in/fade out":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j-1 k-1 l-1 m-1 n-1 o+1 p-1 q+1
+
+Line 9, splices: "augmented rhythms":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j-1 k-1 l-1 m-1 n-1 o-1 p-1 q+1
+
+Line 10, effects: "blur":
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j-1 k-1 l-1 m-1 n-1 o-1 p-1 q-1

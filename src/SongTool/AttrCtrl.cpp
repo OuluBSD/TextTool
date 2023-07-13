@@ -56,7 +56,7 @@ void AttrCtrl::Store() {
 			SnapAttrStr attr;
 			attr.item_i = id % g.group_limit;
 			attr.group_i = id / g.group_limit;
-			Panic("TODO");
+			attr.RealizeId();
 			db.active_snap->attributes.Add(attr);
 		}
 		id++;
@@ -64,16 +64,24 @@ void AttrCtrl::Store() {
 }
 
 void AttrCtrl::Paint(Draw& d) {
-	Attributes& g = Database::Single().attrs;
+	Database& db = Database::Single();
+	Attributes& g = db.attrs;
 	Color bg = GrayColor(32);
 	Size sz = GetSize();
 	
 	d.DrawRect(sz, bg);
 	
+	if (!db.active_part)
+		return;
+	Part& p = *db.active_part;
+	
 	int tgt_lineh = 18;
 	Font fnt = SansSerif(15);
 	
-	int item_count = g.GetItemCount();
+	
+	
+	
+	/*int item_count = g.GetItemCount();
 	if (!item_count)
 		return;
 	int item_total_h = item_count * tgt_lineh;
@@ -86,77 +94,121 @@ void AttrCtrl::Paint(Draw& d) {
 		DUMP(colsf);
 		DUMP(cols);
 		LOG("");
-	}
+	}*/
 	
 	// Make grid of groups
-	if (group_grid.IsEmpty() || invalidate_group_grid) {
+	if (grid.IsEmpty() || invalidate_group_grid) {
 		invalidate_group_grid = false;
 		
-		group_grid.SetCount(cols);
-		for (auto& v : group_grid) v.SetCount(0);
+		{
+			group_items.Clear();
+			group_types.Clear();
+			p.mask.GetGroupItems(group_items);
+			db.attrs.FindGroupTypes(group_items.GetKeys(), group_types);
+		}
 		
-		VectorMap<int,int> group_sizes;
-		for(int i = 0; i < g.groups.GetCount(); i++)
-			group_sizes.Add(i, g.groups[i].values.GetCount());
-		SortByValue(group_sizes, StdLess<int>());
-		
-		int col = 0;
-		bool add = true;
-		for(int i = 0; i < group_sizes.GetCount(); i++) {
-			int group = group_sizes.GetKey(i);
-			group_grid[col].Add(group);
-			if (add) {
-				col++;
-				if (col >= cols) {
-					col = cols-1;
-					add = false;
-				}
-			}
-			else {
-				col--;
-				if (col < 0) {
-					col = 0;
-					add = true;
+		// Sort by group type first
+		if (1) {
+			int h_limit = sz.cy / 40;
+			
+			grid.Clear();
+			VectorMap<int, Vector<int>>* cur_col = &grid.Add();
+			int col_items = 0;
+			for (int group_type : group_types.GetKeys()) {
+				for(int i = 0; i < group_items.GetCount(); i++) {
+					int group_i = group_items.GetKey(i);
+					const Attributes::Group& gg = g.groups[group_i];
+					ASSERT(gg.type_i >= 0);
+					if (gg.type_i != group_type)
+						continue;
+					
+					const Vector<int>& items = group_items[i];
+					int new_col_items = col_items + items.GetCount();
+					if (new_col_items >= h_limit && !cur_col->IsEmpty()) {
+						cur_col = &grid.Add();
+						new_col_items = items.GetCount();
+					}
+					col_items = new_col_items;
+					Vector<int>& vals = cur_col->Add(group_i);
+					vals <<= items;
 				}
 			}
 		}
+		// Sort by adding small first
+		/*else {
+			group_grid.SetCount(cols);
+			for (auto& v : group_grid) v.SetCount(0);
+			
+			VectorMap<int,int> group_sizes;
+			for(int i = 0; i < groups.GetCount(); i++) {
+				int group_i = groups[i];
+				group_sizes.Add(group_i, g.groups[group_i].values.GetCount());
+			}
+			SortByValue(group_sizes, StdLess<int>());
+			
+			int col = 0;
+			bool add = true;
+			for(int i = 0; i < group_sizes.GetCount(); i++) {
+				int group = group_sizes.GetKey(i);
+				group_grid[col].Add(group);
+				if (add) {
+					col++;
+					if (col >= cols) {
+						col = cols-1;
+						add = false;
+					}
+				}
+				else {
+					col--;
+					if (col < 0) {
+						col = 0;
+						add = true;
+					}
+				}
+			}
+		}*/
 	}
 	
 	group_title_rects.SetCount(0);
 	entry_rects.SetCount(0);
 	
-	int div = group_grid.GetCount();
-	double cx = (double)sz.cx / div;
-	for(int col = 0; col < group_grid.GetCount(); col++) {
+	int div = grid.GetCount();
+	double cx = min(200.0, (double)sz.cx / div);
+	for(int col = 0; col < grid.GetCount(); col++) {
 		int x = col * cx;
 		int y = 0;
-		const Vector<int>& col_groups = group_grid[col];
+		const VectorMap<int,Vector<int>>& col_groups = grid[col];
+		int groups = col_groups.GetCount();
 		int items = col_groups.GetCount();
-		for (int group : col_groups)
-			items += g.groups[group].values.GetCount();
+		for (const Vector<int>& group : col_groups.GetValues())
+			items += group.GetCount();
 		if (!items)
 			continue;
 		int lineh = min<int>(tgt_lineh * 1.33, sz.cy / items);
 		for(int j = 0; j < col_groups.GetCount(); j++) {
-			int group_i = col_groups[j];
-			PaintKeys(d, group_i, x, cx, y, lineh, fnt);
+			int group_i = col_groups.GetKey(j);
+			PaintKeys(d, group_i, col_groups[j], x, cx, y, lineh, fnt);
 		}
 	}
 	
 	
 }
 
-void AttrCtrl::PaintKeys(Draw& d, int group, int x, int cx, int& y, float lineh, Font fnt) {
-	Attributes& g = Database::Single().attrs;
+void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, int cx, int& y, float lineh, Font fnt) {
+	Database& db = Database::Single();
+	Attributes& g = db.attrs;
 	Attributes::Group& gg = g.groups[group];
 	int x0 = x;
 	int y0 = y;
 	int x1 = x + cx;
-	int key_count = gg.values.GetCount() + 1;
+	int key_count = items.GetCount() + 1;
 	int ht = key_count * lineh;
 	int y1 = y + ht;
 	const int off = 1;
 	Color clr = gg.clr;
+	
+	if (gg.type_i >= 0)
+		clr = db.attrs.group_types[gg.type_i].clr;
 	
 	// realize snapshots
 	int snap_size = g.groups.GetCount() * g.group_limit;
@@ -187,7 +239,7 @@ void AttrCtrl::PaintKeys(Draw& d, int group, int x, int cx, int& y, float lineh,
 			rid.c = -1;
 		}
 		else {
-			int j = i-1;
+			int j = items[i-1];
 			txt = g.Translate(gg.values[j]);
 			int id = group * g.group_limit + j;
 			bool active = this->active[id];
@@ -280,7 +332,7 @@ void AttrCtrl::LeftDown(Point p, dword keyflags) {
 			SnapAttrStr a;
 			a.group_i = rid.b;
 			a.item_i = rid.c;
-			Panic("TODO");
+			a.RealizeId();
 			pressed = rid;
 			int id = a.group_i * g.group_limit + a.item_i;
 			if (id >= 0 && id < active.GetCount()) {

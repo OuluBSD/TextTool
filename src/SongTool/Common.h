@@ -36,6 +36,7 @@ struct SnapAttrStr : Moveable<SnapAttrStr> {
 			("i", item)
 			;
 	}
+	void RealizeId() const;
 	String ToString() const {return group + ":" + item;}
 	hash_t GetHashValue() const {CombineHash c; c << group << item; return c;}
 };

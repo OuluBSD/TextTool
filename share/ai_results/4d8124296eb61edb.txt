@@ -1,0 +1,109 @@
+﻿a-1 b-1 c-1 d-1 e-1 f1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 2, nouns: "mister":
+Combination string: a-1 b-1 c-1 d-1 e1 f-1 g0 h-1 i-1 j-1 k0 l-1 m0 n-1 o0 p1
+
+Line 3, pronouns: "you":
+Combination string: a0 b-1 c0 d0 e1 f-1 g0 h-1 i-1 j-1 k0 l0 m-1 n-1 o0 p0
+
+Line 4, verbs: "saw":
+Combination string: a-1 b-1 c0 d-1 e1 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 5, verbs: "know-it-all":
+Combination string: a-1 b-1 c0 d0 e1 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n0 o0 p1
+
+Line 6, pronouns: "your":
+Combination string: a0 b-1 c0 d0 e1 f1 g0 h-1 i-1 j-1 k0 l0 m-1 n-1 o0 p0
+
+Line 7, pronouns: "i":
+Combination string: a0 b0 c0 d0 e1 f-1 g0 h-1 i+1 j+1 k0 l0 m-1 n-1 o0 p0
+
+Line 8, verbs: "close":
+Combination string: a0 b-1 c-1 d-1 e1 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 9, verbs: "kiss":
+Combination string: a+1 b-1 c0 d-1 e1 f-1 g0 h-1 i-1 j-1 k+1 l-1 m-1 n-1 o0 p1
+
+Line 10, verbs: "share":
+Combination string: a0 b+1 c0 d-1 e1 f-1 g0 h+1 i0 j+1 k0 l+1 m-1 n+1 o0 p0
+
+Line 11, prepositions: "with":
+Combination string: a0 b0 c0 d0 e1 f0 g0 h0 i0 j0 k0 l0 m0 n0 o0 p0
+
+Line 12, adjectives: "lonely":
+Combination string: a-1 b-1 c-1 d0 e0 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 13, pronouns: "me":
+Combination string: a0 b0 c0 d0 e1 f-1 g0 h-1 i+1 j+1 k0 l0 m-1 n-1 o0 p0
+
+Line 14, prepositions: "against":
+Combination string: a-1 b-1 c-1 d0 e1 f1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 15, nouns: "wall":
+Combination string: a-1 b-1 c-1 d-1 e1 f1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 16, nouns: "Kentucky":
+Combination string: a-1 b-1 c0 d-1 e0 f1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 17, nouns: "girl":
+Combination string: a0 b-1 c0 d-1 e1 f1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 18, nouns: "bra":
+Combination string: a0 b-1 c-1 d-1 e1 f1 g0 h-1 i-1 j-1 k+1 l-1 m-1 n-1 o0 p1
+
+Line 19, verbs: "fallin'":
+Combination string: a0 b-1 c-1 d-1 e1 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 20, verbs: "lick":
+Combination string: a+1 b-1 c-1 d-1 e1 f-1 g0 h-1 i-1 j-1 k+1 l-1 m-1 n-1 o0 p1
+
+Line 21, verbs: "taste":
+Combination string: a+1 b-1 c0 d-1 e1 f-1 g0 h-1 i-1 j-1 k+1 l-1 m-1 n-1 o0 p1
+
+Line 22, nouns: "health":
+Combination string: a0 b-1 c0 d-1 e1 f-1 g0 h+1 i-1 j-1 k0 l+1 m-1 n-1 o0 p0
+
+Line 23, nouns: "birds":
+Combination string: a0 b-1 c0 d0 e1 f-1 g0 h+1 i-1 j-1 k0 l+1 m-1 n-1 o0 p0
+
+Line 24, nouns: "blood":
+Combination string: a-1 b-1 c-1 d-1 e1 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 25, nouns: "bathroom":
+Combination string: a-1 b-1 c-1 d-1 e0 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 26, nouns: "stall":
+Combination string: a-1 b-1 c-1 d-1 e0 f1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 27, nouns: "southern":
+Combination string: a-1 b-1 c0 d-1 e0 f1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 28, nouns: "drawl":
+Combination string: a-1 b-1 c0 d0 e0 f1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 29, adjectives: "scarlet":
+Combination string: a+1 b-1 c-1 d0 e0 f-1 g0 h-1 i-1 j-1 k+1 l-1 m-1 n-1 o0 p1
+
+Line 30, verbs: "wave":
+Combination string: a0 b-1 c0 d-1 e1 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 31, prepositions: "to":
+Combination string: a0 b0 c0 d0 e1 f0 g0 h0 i0 j0 k0 l0 m0 n0 o0 p0
+
+Line 32, verbs: "step":
+Combination string: a0 b-1 c-1 d0 e1 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 33, adjectives: "soft":
+Combination string: a+1 b-1 c0 d+1 e1 f-1 g0 h-1 i-1 j-1 k0 l+1 m-1 n-1 o0 p0
+
+Line 34, adjectives: "broken":
+Combination string: a-1 b-1 c-1 d-1 e0 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 35, nouns: "jaw":
+Combination string: a-1 b-1 c-1 d-1 e0 f1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 36, verbs: "make":
+Combination string: a0 b-1 c-1 d-1 e1 f-1 g0 h-1 i-1 j-1 k0 l-1 m-1 n-1 o0 p1
+
+Line 37, nouns: "moon":
+Comb

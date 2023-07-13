@@ -11,7 +11,8 @@ protected:
 	Ctrl		base;
 	int			page = 0;
 	
-	BasicInfoCtrl		info;
+	BasicInfoCtrl	info;
+	AttrDataCtrl	attr;
 	RecruimentCtrl	recru;
 	SocialCtrl		social;
 	CalMgrCtrl		cal;

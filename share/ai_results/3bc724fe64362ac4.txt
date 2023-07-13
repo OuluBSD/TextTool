@@ -1,0 +1,40 @@
+﻿a+1 b+1 c-1 d+1 e-1 f-1 g0 h+1 i+1 j-1 k0 l-1 m-1 n+1 o0 p-1 
+
+ideas: "sarcastic mister":
+Combination string: a+1 b-1 c-1 d+1 e+1 f-1 g0 h+1 i-1 j-1 k0 l-1 m+1 n+1 o0 p-1 
+
+ideas: "kissing":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k+1 l+1 m+1 n+1 o0 p-1 
+
+imagery: "birds sharing lonely view":
+Combination string: a+1 b+1 c-1 d-1 e-1 f-1 g0 h+1 i+1 j+1 k0 l+1 m-1 n+1 o0 p-1 
+
+ideas: "push wall":
+Combination string: a+1 b+1 c-1 d-1 e-1 f-1 g0 h+1 i+1 j-1 k0 l-1 m+1 n+1 o0 p-1 
+
+ideas: "kentucky girl":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n+1 o0 p-1 
+
+ideas: "licking heart":
+Combination string: a+1 b+1 c-1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k+1 l+1 m+1 n+1 o0 p-1 
+
+ideas: "taste health":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n+1 o0 p-1 
+
+ideas: "blood loss":
+Combination string: a-1 b+1 c-1 d-1 e-1 f-1 g0 h+1 i-1 j-1 k0 l+1 m-1 n+1 o0 p-1 
+
+ideas: "southern girl":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n+1 o0 p-1 
+
+ideas: "wave goodbye":
+Combination string: a-1 b+1 c-1 d+1 e+1 f-1 g0 h+1 i+1 j-1 k0 l-1 m+1 n+1 o0 p-1 
+
+ideas: "broken jaw":
+Combination string: a-1 b+1 c-1 d-1 e-1 f-1 g0 h+1 i-1 j-1 k0 l-1 m+1 n+1 o0 p-1 
+
+ideas: "step outside":
+Combination string: a+1 b+1 c-1 d-1 e-1 f-1 g0 h+1 i+1 j-1 k0 l-1 m+1 n+1 o0 p-1 
+
+ideas: "moon crawlin":
+Combination string: a+1 b+1 c+1 d+1 e+1 f-1 g0 h+1 i+1 j+1 k0 l+1 m+1 n+1 o0 p-1

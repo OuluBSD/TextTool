@@ -1,0 +1,70 @@
+﻿a-1 b0 c-1 d0 e-1 f0 g-1 h0 i-1 j-1 k-1 l0 m-1 n-1 o+1 p0
+
+Line 3, artificial: "stark":
+Combination string: a-1 b0 c-2 d-1 e-2 f0 g-1 h-1 i-2 j-2 k-1 l0 m-2 n-2 o+1 p0
+
+Line 4, color: "moody":
+Combination string: a-1 b-1 c-2 d-1 e-2 f0 g-1 h-1 i-2 j-2 k-1 l0 m-2 n-1 o+1 p0
+
+Line 5, natural: "soothing":
+Combination string: a0 b-1 c-2 d0 e-2 f0 g-1 h-1 i-2 j-2 k-1 l0 m-1 n-1 o+1 p+1
+
+Line 6, artificial: "dynamic":
+Combination string: a0 b0 c-2 d-1 e-2 f0 g-1 h-1 i-2 j-2 k-1 l+1 m-1 n-1 o+1 p+1
+
+Line 7, color: "rich":
+Combination string: a0 b0 c-1 d-1 e-1 f+1 g-1 h-1 i-1 j-1 k-1 l+1 m0 n-1 o+1 p+1
+
+Line 8, natural: "subtle":
+Combination string: a+1 b0 c-1 d-1 e-1 f+1 g-1 h-1 i-1 j-1 k-1 l+1 m0 n0 o+1 p+2
+
+Line 9, artificial: "abstract":
+Combination string: a+1 b-1 c-2 d-1 e-2 f+1 g-1 h-2 i-2 j-2 k-1 l+1 m-1 n0 o+1 p+2
+
+Line 10, color: "contrasting":
+Combination string: a+1 b-1 c-2 d-2 e-2 f+1 g-1 h-2 i-2 j-2 k-1 l+1 m-2 n-1 o+1 p+2
+
+Line 11, ambient: "bright":
+Combination string: a+2 b0 c-1 d-1 e-1 f+1 g-1 h-1 i-1 j-1 k-1 l+2 m0 n0 o+2 p+2
+
+Line 12, artificial: "flashing":
+Combination string: a+2 b-1 c-2 d-1 e-2 f+1 g-1 h-2 i-2 j-2 k-1 l+2 m-1 n-1 o+2 p+2
+
+Line 13, color: "vibrant":
+Combination string: a+2 b-1 c-2 d-1 e-2 f+1 g-1 h-2 i-2 j-2 k0 l+2 m-1 n0 o+2 p+2
+
+Line 14, natural: "bold":
+Combination string: a+2 b0 c-1 d-1 e-1 f+2 g-1 h-1 i-1 j-1 k0 l+2 m0 n0 o+2 p+3
+
+Line 15, artificial: "gritty":
+Combination string: a+2 b-1 c-2 d-2 e-2 f+2 g-1 h-2 i-2 j-2 k0 l+2 m-1 n-1 o+2 p+3
+
+Line 16, color: "earthy":
+Combination string: a+2 b-1 c-2 d-2 e-2 f+2 g-1 h-2 i-2 j-2 k0 l+2 m-1 n-2 o+2 p+3
+
+Line 17, natural: "serene":
+Combination string: a+3 b0 c-1 d-1 e-1 f+2 g-1 h-1 i-1 j-1 k0 l+2 m0 n-1 o+3 p+3
+
+Line 18, artificial: "dramatic":
+Combination string: a+3 b-1 c-2 d-2 e-2 f+2 g-1 h-2 i-2 j-2 k0 l+2 m-1 n-2 o+3 p+3
+
+Line 19, color: "dark":
+Combination string: a+3 b-1 c-2 d-2 e-2 f+2 g-1 h-2 i-2 j-2 k0 l+3 m-2 n-3 o+3 p+3
+
+Line 20, ambient: "alluring":
+Combination string: a+3 b0 c-1 d-1 e-1 f+2 g-1 h-1 i-1 j-1 k0 l+3 m-1 n-2 o+3 p+3
+
+Line 21, artificial: "glowing":
+Combination string: a+3 b-1 c-2 d-1 e-2 f+2 g-1 h-2 i-2 j-2 k0 l+3 m-1 n-1 o+3 p+3
+
+Line 22,natural: "bright":
+Combination string: a+3 b0 c-1 d-1 e-1 f+3 g-1 h-1 i-1 j-1 k0 l+3 m0 n0 o+3 p+4
+
+Line 23, natural: "soft":
+Combination string: a+3 b0 c-1 d0 e-1 f+3 g-1 h-1 i-1 j-1 k0 l+3 m0 n+1 o+3 p+4
+
+Line 24, natural: "vibrant":
+Combination string: a+3 b0 c-1 d0 e-1 f+3 g-1 h-1 i-1 j-1 k0 l+3 m0 n+2 o+3 p+4
+
+Line 25, ambient: "magical":
+Combination string: a+3 b0 c0 d0 e0 f+3 g-1 h0 i0 j0 k0 l+3 m0 n+2 o+3 p+4
