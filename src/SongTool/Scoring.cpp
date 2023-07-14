@@ -81,12 +81,12 @@ bool AttrScore::RealizeTemp() {
 
 
 
-void PartScore::Realize() {
+/*void PartScore::Realize() {
 	Attributes& g = Database::Single().attrs;
 	values.SetCount(g.scorings.GetCount());
 	for (auto& v : values)
 		v.SetCount(len, 0);
-}
+}*/
 
 
 String AttrScoreGroup::ToString() const {

@@ -89,6 +89,12 @@ void AI_Task::Process_MakeAttrScores() {
 		t.type = TASK_SONGSCORE;
 		t.song = this->song;
 		t.CreateInput();
+		
+		AI_Task& chk = m.tasks.Add();
+		m.total++;
+		chk.type = TASK_MAKE_REVERSEPATTERN_TASK;
+		chk.song = this->song;
+		chk.depends_on << &t;
 	}
 }
 
@@ -805,4 +811,307 @@ void AI_Task::AddAttrScoreId(AttrScoreGroup& ag, const SnapAttr& a) {
 	ag.attrs.Add(a);
 }
 
+void GetScores(const PatternSnap& snap, Vector<int>& scores) {
+	Database& db = Database::Single();
+	const PatternSnap* s = &snap;
+	int c = db.attrs.scorings.GetCount();
+	scores.SetCount(c);
+	for(auto& v : scores) v = 0;
 	
+	while (s) {
+		for (const AttrScoreGroup& g : db.attrscores.groups) {
+			SnapAttr a0;
+			
+			int match_count = 0;
+			for (const SnapAttr& a0 : g.attrs) {
+				for (const SnapAttrStr& a1 : s->attributes.GetKeys()) {
+					if (a1 == a0)
+						match_count++;
+				}
+			}
+			
+			if (match_count) {
+				for(int i = 0; i < c; i++) {
+					int sc = g.scores[i];
+					if (0)
+						sc = max(-1, min(+1, sc));
+					scores[i] += match_count * sc;
+				}
+			}
+		}
+		
+		s = s->owner;
+	}
+}
+
+void AI_Task::Process_SongScores() {
+	Database& db = Database::Single();
+	if (!db.active_song)
+		return;
+	
+	Song& s = *db.active_song;
+	Attributes& g = db.attrs;
+	
+	Vector<int> scores;
+	for(int i = 0; i < s.parts.GetCount(); i++) {
+		String key = s.parts.GetKey(i);
+		Part& f = s.parts[i];
+		PartScore& ps = f.score;
+		
+		Vector<PatternSnap*> level_snaps;
+		f.snap.GetSnapsLevel(0, level_snaps);
+		
+		ps.values.Clear();
+		ps.values.SetCount(g.scorings.GetCount());
+		for (auto& v : ps.values)
+			v.SetCount(level_snaps.GetCount(), 0);
+		
+		for(int i = 0; i < level_snaps.GetCount(); i++) {
+			PatternSnap* snap = level_snaps[i];
+			GetScores(*snap, scores);
+			for(int j = 0; j < g.scorings.GetCount(); j++) {
+				ps.values[j][i] = scores[j];
+			}
+		}
+	}
+}
+
+void AI_Task::Process_ReversePattern() {
+	const TaskMgr& mgr = *this->mgr;
+	Database& db = Database::Single();
+	Attributes& g = db.attrs;
+	int gc = g.scorings.GetCount();
+	int ac = db.attrscores.groups.GetCount();
+	ReverseTask& task = *this->task;
+	Vector<double> score;
+	score.SetCount(gc);
+	double* sc = score.Begin();
+	task.scores.SetCount(gc, 0);
+	const double* comp = task.scores.Begin();
+	task.active = true;
+	PatternSnap& snap = *task.snap;
+	if (!task.snap) {SetError("no snap pointer"); return;}
+	
+	GeneticOptimizer optimizer;
+	optimizer.SetMaxGenerations(gens);
+	optimizer.Init(ac, ac * gen_multiplier);
+	optimizer.MinMax(0, 1);
+	double mismatch_prob = 1.0 - (double)max_values / ac;
+	
+	// Process
+	FixedTopValueSorter<max_values> sorter;
+	task.actual = 0;
+	task.total = optimizer.GetMaxRounds();
+	task.result_values.Reserve(1 << 16);
+	while (task.actual < task.total && !optimizer.IsEnd() && mgr.running) {
+		optimizer.Start();
+		
+		// Calculate score of the trial solution
+		const Vector<double>& trial = optimizer.GetTrialSolution();
+		for(int j = 0; j < gc; j++)
+			sc[j] = 0;
+		
+		sorter.Reset();
+		for(int i = 0; i < ac; i++) {
+			double t = trial[i];
+			if (t < mismatch_prob)
+				continue;
+			
+			sorter.Add(i, t);
+		}
+		
+		int mc = min(max_values, sorter.count);
+		for(int i = 0; i < mc; i++) {
+			int group_i = sorter.key[i];
+			
+			const AttrScoreGroup& ag = db.attrscores.groups[group_i];
+			ASSERT(ag.scores.GetCount() == gc);
+			const int* fsc = ag.scores.Begin();
+			for(int j = 0; j < gc; j++)
+				sc[j] += fsc[j];
+		}
+		
+		// Calculate energy
+		double energy = 0;
+		if (1) {
+			for(int i = 0; i < gc; i++) {
+				double a = sc[i];
+				double b = comp[i];
+				double diff = fabs(a - b);
+				energy -= diff;
+			}
+		}
+		else if (0) {
+			for(int i = 0; i < gc; i++) {
+				double a = sc[i];
+				double b = comp[i];
+				double diff = fabs(a - b);
+				bool sgn_mismatch = (a > 0) == (b > 0);
+				bool large_value = fabs(a) > fabs(b);
+				double mul = (sgn_mismatch ? 2 : 1) * (large_value ? 2 : 1);
+				energy -= diff * mul;
+			}
+		}
+		else {
+			int sum_X = 0, sum_Y = 0, sum_XY = 0;
+			int squareSum_X = 0, squareSum_Y = 0;
+			for(int i = 0; i < gc; i++) {
+				double a = sc[i];
+				double b = comp[i];
+				if (!a) continue;
+				
+				// sum of elements of array X.
+		        sum_X = sum_X + a;
+		 
+		        // sum of elements of array Y.
+		        sum_Y = sum_Y + b;
+		 
+		        // sum of X[i] * Y[i].
+		        sum_XY = sum_XY + a * b;
+		 
+		        // sum of square of array elements.
+		        squareSum_X = squareSum_X + a * a;
+		        squareSum_Y = squareSum_Y + b * b;
+			}
+			// use formula for calculating correlation coefficient.
+			float mul = (gc * squareSum_Y - sum_Y * sum_Y);
+			float sq = sqrt((gc * squareSum_X - sum_X * sum_X) * mul);
+			float corr = (float)(gc * sum_XY - sum_X * sum_Y) / sq;
+			
+			if (!IsFin(corr)) {
+				DUMP(sum_X);
+				DUMP(sum_Y);
+				DUMP(sum_XY);
+				DUMP(squareSum_X);
+				DUMP(squareSum_Y);
+				DUMP(sq);
+				DUMP(mul);
+				ASSERT(0);
+			}
+			energy = corr;
+		}
+		
+		/*double penalty = max(0, enabled_count - 5) * 0.01;
+		energy -= penalty;*/
+		
+		DUMP(energy);
+		DUMP(optimizer.GetBestEnergy());
+		bool new_best = energy > optimizer.GetBestEnergy();
+		
+		if ((task.actual % 100) == 0 || new_best) {
+			task.result_values.Add(energy);
+			task.values_max = max(energy, task.values_max);
+			task.values_min = min(energy, task.values_min);
+		}
+		
+		if (new_best) {
+			//LOG("Task #" << task.id << " best energy: " << energy);
+			task.lock.EnterWrite();
+			TaskResult& res = task.results.Add();
+			res.optimizer_score = energy;
+			res.id = task.actual;
+			task.lock.LeaveWrite();
+		}
+		
+		optimizer.Stop(energy);
+		
+		task.actual++;
+	}
+	
+	if (!mgr.running) {
+		SetError(t_("Interrupted"));
+		return;
+	}
+	
+	
+	// Use the best result
+	{
+		task.lock.EnterWrite();
+		task.attrs.Clear();
+		snap.attributes.Clear();
+		
+		const Vector<double>& best = optimizer.GetBestSolution();
+		for(int j = 0; j < gc; j++)
+			sc[j] = 0;
+		
+		sorter.Reset();
+		for(int i = 0; i < ac; i++) {
+			double t = best[i];
+			if (t < mismatch_prob)
+				continue;
+			
+			sorter.Add(i, t);
+		}
+		
+		int mc = min(max_values, sorter.count);
+		for(int i = 0; i < mc; i++) {
+			int group_i = sorter.key[i];
+			const AttrScoreGroup& ag = db.attrscores.groups[group_i];
+			if (ag.attrs.IsEmpty())
+				continue;
+			
+			int c = ag.attrs.GetCount();
+			const SnapAttr& sa = ag.attrs[Random(c)];
+			task.attrs.Add(sa);
+			
+			SnapAttrStr sas;
+			sas.Load(sa);
+			snap.attributes.FindAdd(sas);
+		}
+		task.lock.LeaveWrite();
+	}
+	
+	// merge common values to owners in snaps
+	snap.MergeOwner();
+}
+
+void AI_Task::Process_MakeReversePattern() {
+	Database& db = Database::Single();
+	Attributes& g = db.attrs;
+	TaskMgr& m = TaskMgr::Single();
+	if (!song) {
+		SetError("no song pointer set");
+		return;
+	}
+	
+	AI_Task& chk = m.tasks.Add();
+	chk.type = TASK_MAKE_LYRICS_TASK;
+	chk.song = song;
+	
+	int gc = g.scorings.GetCount();
+	int ac = db.attrscores.groups.GetCount();
+	int total = ac * gen_multiplier * gens;
+	
+	song->rev_tasks.Clear();
+	for (Part& p : song->parts.GetValues()) {
+		Vector<PatternSnap*> snaps;
+		p.snap.GetSnapsLevel(0, snaps);
+		for(int i = 0; i < snaps.GetCount(); i++) {
+			ReverseTask& rt = song->rev_tasks.Add();
+			AI_Task& t = m.tasks.Add();
+			t.type = TASK_REVERSEPATTERN;
+			t.song = song;
+			t.task = &rt;
+			//t.id = i;
+			//t.total = total;
+			rt.snap = snaps[i];
+			rt.txt = rt.snap->txt;
+			chk.depends_on << &t;
+			m.total++;
+			
+			// Connect PatternSnap to PartScore values (groups.snap_position)
+			// Get score-vector
+			Part& part = song->parts[rt.snap->part_id];
+			const PartScore& partscore = part.score;
+			rt.scores.SetCount(gc);
+			for(int j = 0; j < gc; j++)
+				rt.scores[j] = partscore.values[j][rt.snap->pos];
+		}
+	}
+}
+
+void AI_Task::Process_MakeLyricsTask() {
+	
+	SetError("TODO");
+	
+}

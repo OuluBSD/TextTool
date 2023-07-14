@@ -26,7 +26,6 @@ public:
 	void ApplyPreset();
 	void RemovePreset();
 	void ListValueChanged(int pos, int scoring);
-	void GetScores(const PatternSnap& snap, Vector<int>& scores);
 	
 };
 

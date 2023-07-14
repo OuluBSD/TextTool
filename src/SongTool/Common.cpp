@@ -30,5 +30,18 @@ void SnapAttrStr::RealizeId() const {
 }
 
 void SnapAttrStr::Load(const SnapAttr& sa) {
-	Panic("TODO");
+	group_i = sa.group;
+	item_i = sa.item;
+	group.Clear();
+	item.Clear();
+	has_id = false;
+	if (group_i < 0 || item_i < 0) {ASSERT(0); return;}
+	Database& db = Database::Single();
+	ASSERT(group_i < db.attrs.groups.GetCount());
+	if (group_i >= db.attrs.groups.GetCount()) {ASSERT(0); return;}
+	Attributes::Group& g = db.attrs.groups[group_i];
+	if (item_i >= g.values.GetCount()) {ASSERT(0); return;}
+	group = g.description;
+	item = g.values[item_i];
+	has_id = true;
 }

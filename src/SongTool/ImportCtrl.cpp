@@ -180,37 +180,6 @@ void ImportCtrl::MakeTasks() {
 			chk_task->type = type;
 			chk_task->song = &s;
 		}
-		else if (type == AI_Task::TASK_PATTERN) {
-			// pass
-			#if 0
-			const int attr_per_query = 5;
-			Vector<PatternSnap*> level_snaps;
-			s.pattern.GetSnapsLevel(0, level_snaps);
-			for(int j = 0; j < level_snaps.GetCount(); j += attr_per_query) {
-				
-				// Add task per around 5 attributes
-					
-				for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
-					const Attributes::GroupType& group_type = db.attrs.group_types[i];
-				
-					// Add task for snap and group_type
-					AI_Task& t = m.tasks.Add();
-					t.type = type;
-					t.song = &s;
-					t.args << group_type.name << group_type.ai_txt;
-					for(int k = 0; k < attr_per_query; k++) {
-						int item = j + k;
-						if (item >= level_snaps.GetCount()) break;
-						
-						PatternSnap* snap = level_snaps[item];
-						t.snap << snap;
-					}
-					pattern_tasks.Add(&t);
-					chk_task->depends_on.Add(&t);
-				}
-			}
-			#endif
-		}
 		else if (type == AI_Task::TASK_ANALYSIS) {
 			for(int i = 0; i < db.attrs.analysis.GetCount(); i++) {
 				String key = db.attrs.analysis.GetKey(i);
@@ -229,59 +198,8 @@ void ImportCtrl::MakeTasks() {
 				chk_task->depends_on.Add(&t);
 			}
 		}
-		else if (type == AI_Task::TASK_ATTRSCORES ||
-				 type == AI_Task::TASK_MAKE_ATTRSCORES_TASKS ||
-				 type == AI_Task::TASK_SONGSCORE ||
-				 type == AI_Task::TASK_REVERSEPATTERN ||
-				 type == AI_Task::TASK_LYRICS) {
-			// Pass
-		}
-		
-		#if 0
-		else if (type == AI_Task::TASK_ATTRSCORES) {
-			const int attr_per_query = 5;
-			
-			for(int i = 0; i < db.attrs.groups.GetCount(); i++) {
-				const Attributes::Group& gg = db.attrs.groups[i];
-				
-				for(int j = 0; j < gg.values.GetCount(); j += attr_per_query) {
-					
-					// Add task per around 5 attributes
-					
-					for(int k = 0; k < attr_per_query; k++) {
-						int item = j + k;
-						if (item >= gg.values.GetCount()) break;
-						const String& val = gg.values[item];
-						
-						// Check if attribute have been queried
-						
-						Panic("TODO");
-					}
-				}
-			}
-		}
-		else if (type == AI_Task::TASK_SONGSCORE) {
-			
-			// Add single task for calculating song score vector
-			Panic("TODO");
-			
-		}
-		else if (type == AI_Task::TASK_REVERSEPATTERN) {
-			
-			// Add single task for calculating pattern from score (in a reverse way)
-			Panic("TODO");
-			
-		}
-		else if (type == AI_Task::TASK_LYRICS) {
-			
-			// Add single task for calculating pattern from score (in a reverse way)
-			Panic("TODO");
-			
-		}
-		#endif
 		else {
-			PromptOK("internal error: task type not supported");
-			break;
+			// Pass
 		}
 	}
 	for (AI_Task& t : m.tasks)

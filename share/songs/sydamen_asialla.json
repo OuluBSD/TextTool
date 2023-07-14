@@ -2,6 +2,7 @@
 	"artist": "Poko",
 	"title": "Sydämen Asialla",
 	"prj_name": "hearbeat",
+	"structure_str": "",
 	"content": "",
 	"unique_lines": [
 		{
@@ -88,6 +89,9 @@
 
 			]
 		}
+	],
+	"structure": [
+
 	],
 	"parts": [
 

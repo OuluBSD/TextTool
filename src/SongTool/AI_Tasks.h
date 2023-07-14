@@ -2,6 +2,8 @@
 #define _SongTool_AI_Tasks_h_
 
 
+struct TaskMgr;
+
 struct OpenAiResponse {
 	struct Choice : Moveable<Choice> {
 		String text;
@@ -79,7 +81,9 @@ struct AI_Task {
 		TASK_MAKE_ATTRSCORES_TASKS,
 		TASK_ATTRSCORES,
 		TASK_SONGSCORE,
+		TASK_MAKE_REVERSEPATTERN_TASK,
 		TASK_REVERSEPATTERN,
+		TASK_MAKE_LYRICS_TASK,
 		TASK_LYRICS,
 		
 		TASK_COUNT
@@ -99,7 +103,12 @@ struct AI_Task {
 	
 	Vector<AI_Task*> depends_on;
 	Song* song = 0;
-	Vector<PatternSnap*> snap;
+	ReverseTask* task = 0;
+	TaskMgr* mgr = 0;
+	
+	static constexpr int gen_multiplier	= 20;
+	static constexpr int gens			= 200;
+	static constexpr int max_values		= 20;
 	
 	void Store();
 	void Load();
@@ -119,6 +128,10 @@ struct AI_Task {
 	void Process_MakePatternTasks();
 	void Process_MakeAttrScores();
 	void Process_AttrScores();
+	void Process_SongScores();
+	void Process_MakeReversePattern();
+	void Process_MakeLyricsTask();
+	void Process_ReversePattern();
 	String GetDescription() const;
 	String GetTypeString() const;
 	bool IsDepsReady(Index<AI_Task*>& seen) const;
@@ -127,6 +140,7 @@ struct AI_Task {
 	
 };
 
+void GetScores(const PatternSnap& snap, Vector<int>& scores);
 
 
 #endif

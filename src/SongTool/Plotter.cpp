@@ -69,9 +69,11 @@ Color HSVToRGB(double H, double S, double V) {
 
 	}
 	
-	DUMP(r);
-	DUMP(g);
-	DUMP(b);
+	if (0) {
+		DUMP(r);
+		DUMP(g);
+		DUMP(b);
+	}
 	RGBA rgb;
 	rgb.r = r * 255;
 	rgb.g = g * 255;
@@ -119,7 +121,13 @@ void Plotter::Paint(Draw& d) {
 		for(int i = 0; i < song->structure.GetCount(); i++) {
 			String key = song->structure[i];
 			int j = song->parts.Find(key);
+			if (j < 0) {
+				DUMP(i);
+				DUMPC(song->structure);
+				DUMPC(song->parts.GetKeys());
+			}
 			ASSERT(j >= 0);
+			
 			PartScore& part = song->parts[j].score;
 			
 			// Accumulate values
@@ -132,7 +140,7 @@ void Plotter::Paint(Draw& d) {
 			}
 			
 			// Get positions of vertical lines
-			vert_x += part.len;
+			vert_x += part.GetLen();
 			vert_lines.Add(vert_x);
 			
 			// Get key string for the whole song
@@ -144,7 +152,6 @@ void Plotter::Paint(Draw& d) {
 	else {
 		if (!part)
 			return;
-		part->Realize();
 		part_key = this->part_key;
 		int c = part->values.GetCount();
 		this->values.SetCount(c);
@@ -183,7 +190,8 @@ void Plotter::Paint(Draw& d) {
 		for(int i = 0; i < song->structure.GetCount(); i++) {
 			const String& part_key = song->structure[i];
 			const PartScore& part = song->parts.Get(part_key).score;
-			for(int j = 0; j < part.len; j++) {
+			int len = part.GetLen();
+			for(int j = 0; j < len; j++) {
 				int x = xoff + cx * k;
 				RectId& rid = rids.Add();
 				rid.a = RectC(x, 0, cx, sz.cy);

@@ -6,6 +6,7 @@ class Editor : public Ctrl {
 	
 protected:
 	friend class BasicInfoCtrl;
+	friend class SongTool;
 	Splitter	hsplit, menusplit;
 	ArrayCtrl	tablist, artists, releases, songs, parts;
 	Ctrl		base;

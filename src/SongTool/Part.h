@@ -4,14 +4,12 @@
 struct Part {
 	String name;
 	
-	Vector<String> lines;
-	PatternSnap snap;
-	PartScore		score;
-	
-	// Components
-	PatternMask		mask;
-	Composition		composition;
-	Analysis		analysis;
+	Vector<String>		lines;
+	PatternSnap			snap;
+	PartScore			score;
+	PatternMask			mask;
+	Composition			composition;
+	Analysis			analysis;
 	
 	void Clear() {
 		lines.Clear();
@@ -21,7 +19,7 @@ struct Part {
 		json
 			("lines", lines)
 			("snap", snap)
-			
+			("score", score)
 			("mask", mask)
 			("composition", composition)
 			("analysis", analysis)

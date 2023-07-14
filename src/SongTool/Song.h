@@ -37,21 +37,38 @@ struct Song : DataFile {
 	Vector<String>							structure;
 	ArrayMap<String, Part>					parts;
 	
+	// Local data only (not shared)
+	Array<ReverseTask>						rev_tasks;
+	
 	void Store();
 	void LoadTitle(String title);
 	void ReloadStructure();
+	void RealizeTaskSnaps();
 	void Jsonize(JsonIO& json) {
 		json
 			("artist", artist)
 			("title", title)
 			("prj_name", prj_name)
+			("structure_str", structure_str)
 			
 			("content", content)
 			("unique_lines", unique_lines)
+			("structure", structure)
 			("parts", parts)
 			;
-		if (json.IsLoading())
+		
+		// rev_tasks
+		String local_dir = ConfigFile("local");
+		RealizeDirectory(local_dir);
+		String rev_tasks_file = AppendFileName(local_dir, artist + " - " + title + ".bin");
+		if (json.IsLoading()) {
 			FixPtrs();
+			LoadFromFile(rev_tasks, rev_tasks_file);
+			RealizeTaskSnaps();
+		}
+		else {
+			StoreToFile(rev_tasks, rev_tasks_file);
+		}
 	}
 	void FixPtrs() {
 		for(int i = 0; i < parts.GetCount(); i++) {

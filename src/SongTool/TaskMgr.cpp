@@ -37,6 +37,7 @@ void TaskMgr::ProcessSingle(int task_i) {
 		;
 	else {
 		status = "Processing #" + IntStr(task_i);
+		t.mgr = this;
 		t.Process();
 		status = "";
 	}

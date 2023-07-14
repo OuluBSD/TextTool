@@ -73,6 +73,8 @@ Editor::Editor() {
 	base.Add(production.SizePos());
 	base.Add(rhymes.SizePos());
 	base.Add(reverse.SizePos());
+	
+	PostCallback(THISBACK(Data)); // sets active artist, song, etc.
 }
 
 void Editor::Init() {

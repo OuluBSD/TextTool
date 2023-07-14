@@ -48,7 +48,6 @@ void ScoringCtrl::Data() {
 	Database& db = Database::Single();
 	if (db.active_song) {
 		if (db.active_wholesong) {
-			list.SetCount(0);
 			plotter.SetWholeSong(*db.active_song);
 		}
 		else {
@@ -76,9 +75,8 @@ void ScoringCtrl::DataPresets() {
 
 void ScoringCtrl::DataList() {
 	Database& db = Database::Single();
-	if (!db.active_part || !db.active_song)
+	if (!db.active_song)
 		return;
-	Part& part = *db.active_part;
 	Song& o = *db.active_song;
 	
 	// Whole song
@@ -94,7 +92,8 @@ void ScoringCtrl::DataList() {
 			PartScore& ps = part.score;
 			String part_name = db.attrs.Translate(part.name);
 			
-			for(int i = 0; i < ps.len; i++) {
+			int len = ps.GetLen();
+			for(int i = 0; i < len; i++) {
 				list.Set(total, 0, part_i);
 				list.Set(total, 1, i);
 				list.Set(total, 2, part_name + ":" + IntStr(i));
@@ -115,12 +114,15 @@ void ScoringCtrl::DataList() {
 		list.SetCount(total);
 	}
 	else {
+		if (!db.active_part)
+			return;
 		Part& p = *db.active_part;
 		PartScore& part = p.score;
 		plotter.SetPart(p.name, part);
 		String part_name = db.attrs.Translate(p.name);
 		int part_i = db.GetActivePartIndex();
-		for(int i = 0; i < part.len; i++) {
+		int len = part.GetLen();
+		for(int i = 0; i < len; i++) {
 			list.Set(i, 0, part_i);
 			list.Set(i, 1, i);
 			list.Set(i, 2, part_name + ":" + IntStr(i));
@@ -136,7 +138,7 @@ void ScoringCtrl::DataList() {
 				list.SetCtrl(i, k2, c);
 			}
 		}
-		list.SetCount(part.len);
+		list.SetCount(len);
 	}
 }
 
@@ -173,39 +175,6 @@ void ScoringCtrl::ListValueChanged(int pos, int scoring) {
 	}
 	
 	plotter.Refresh();
-}
-
-void ScoringCtrl::GetScores(const PatternSnap& snap, Vector<int>& scores) {
-	Database& db = Database::Single();
-	const PatternSnap* s = &snap;
-	int c = db.attrs.scorings.GetCount();
-	scores.SetCount(c);
-	for(auto& v : scores) v = 0;
-	
-	while (s) {
-		for (const AttrScoreGroup& g : db.attrscores.groups) {
-			SnapAttr a0;
-			
-			int match_count = 0;
-			for (const SnapAttr& a0 : g.attrs) {
-				for (const SnapAttrStr& a1 : s->attributes.GetKeys()) {
-					if (a1 == a0)
-						match_count++;
-				}
-			}
-			
-			if (match_count) {
-				for(int i = 0; i < c; i++) {
-					int sc = g.scores[i];
-					if (0)
-						sc = max(-1, min(+1, sc));
-					scores[i] += match_count * sc;
-				}
-			}
-		}
-		
-		s = s->owner;
-	}
 }
 
 void ScoringCtrl::ListMenu(Bar& bar) {

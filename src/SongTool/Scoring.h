@@ -2,21 +2,14 @@
 #define _SongTool_Scoring_h_
 
 struct PartScore {
-	int len = 0;
 	Vector<Vector<int>> values;
 	
-	void Clear() {
-		len = 0;
-	}
 	void Jsonize(JsonIO& json) {
 		json
-			("len", len)
 			("values", values)
 			;
-		if (json.IsLoading())
-			Realize();
 	}
-	void Realize();
+	int GetLen() const {return values.GetCount() ? values[0].GetCount() : 0;}
 };
 
 struct AttrScoreGroup {

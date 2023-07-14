@@ -31,6 +31,7 @@ public:
 	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed;}
 	void Layout() override {SaveWindowPos();}
 	void ShowOrphanedFiles();
+	void MakeTasks();
 	void SaveWindowPos();
 	void LoadWindowPos();
 };

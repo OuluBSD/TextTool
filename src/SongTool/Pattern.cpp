@@ -98,6 +98,7 @@ void Song::ReloadStructure() {
 		else {
 			name = p.Left(i);
 			int beats = StrInt(p.Mid(i+1));
+			p = name; // trim : from string in structure vector
 			
 			// Check for beat length error
 			i = this->parts.Find(name);

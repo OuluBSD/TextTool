@@ -66,8 +66,10 @@ String AI_Task::GetTypeString() const {
 		case TASK_MAKE_ATTRSCORES_TASKS: return t_("Make attribute score tasks");
 		case TASK_ATTRSCORES: return t_("Attributes scores");
 		case TASK_SONGSCORE: return t_("Song scores");
+		case TASK_MAKE_REVERSEPATTERN_TASK: return t_("Convert score to pattern");
 		case TASK_REVERSEPATTERN: return t_("Reverse pattern");
 		case TASK_LYRICS: return t_("Lyrics");
+		case TASK_MAKE_LYRICS_TASK: return t_("Make lyrics task");
 		default: return "<error>";
 	}
 }
@@ -81,8 +83,10 @@ void AI_Task::CreateInput() {
 		case TASK_MAKE_ATTRSCORES_TASKS: break;
 		case TASK_ATTRSCORES: CreateInput_AttrScores(); break;
 		case TASK_SONGSCORE: break;
+		case TASK_MAKE_REVERSEPATTERN_TASK: break;
 		case TASK_REVERSEPATTERN: break;
 		case TASK_LYRICS: break;
+		case TASK_MAKE_LYRICS_TASK: break;
 		default: break;
 	}
 	
@@ -121,8 +125,10 @@ void AI_Task::Process() {
 			case TASK_ANALYSIS: Process_Analysis(); break;
 			case TASK_MAKE_ATTRSCORES_TASKS: Process_MakeAttrScores(); break;
 			case TASK_ATTRSCORES: Process_AttrScores(); break;
-			case TASK_SONGSCORE: break;
-			case TASK_REVERSEPATTERN: break;
+			case TASK_SONGSCORE: Process_SongScores(); break;
+			case TASK_MAKE_REVERSEPATTERN_TASK: Process_MakeReversePattern(); break;
+			case TASK_REVERSEPATTERN: Process_ReversePattern(); break;
+			case TASK_MAKE_LYRICS_TASK: Process_MakeLyricsTask(); break;
 			case TASK_LYRICS: break;
 			default: break;
 		}
