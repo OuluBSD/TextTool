@@ -33,10 +33,10 @@ public:
 class ReverseCtrl : public Ctrl {
 	//Array<ReverseTask> tasks;
 	
-	Splitter mainsplit;
+	Splitter mainsplit, hsplit, vsplit;
 	ArrayCtrl snaplist, tasklist, resultlist;
 	TaskCtrl task;
-	One<CoWork> co;
+	CodeEditor lyrics, translated;
 	
 	static const int gen_multiplier = 20;
 	static const int gens = 200;

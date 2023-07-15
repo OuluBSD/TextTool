@@ -60,6 +60,7 @@ void ImportCtrl::ParseOriginalLyrics() {
 	if (!db.active_song)
 		return;
 	Song& a = *db.active_song;
+	a.lock.EnterWrite();
 	
 	a.parts.Clear();
 	a.structure.Clear();
@@ -110,20 +111,27 @@ void ImportCtrl::ParseOriginalLyrics() {
 				}
 				
 				// Fill lines of text to PatternSnap
-				Vector<PatternSnap*> level_snaps;
-				part.snap.GetSnapsLevel(0, level_snaps);
-				if (level_snaps.GetCount() != lc) {
-					LOG(part_title);
-					PromptOK(Format(t_("Unexpected mismatch: %d vs %d"), level_snaps.GetCount(), lc));
-					return;
+				for(int k = 0; k < 2; k++) {
+					Vector<PatternSnap*> level_snaps;
+					(k == 0 ? part.snap : part.rev_snap).GetSnapsLevel(0, level_snaps);
+					if (level_snaps.GetCount() != lc) {
+						LOG(part_title);
+						PromptOK(Format(t_("Unexpected mismatch: %d vs %d"), level_snaps.GetCount(), lc));
+						a.lock.LeaveWrite();
+						return;
+					}
+					int j = 1;
+					for (PatternSnap* snap : level_snaps)
+						snap->txt = lines[j++];
 				}
-				int j = 1;
-				for (PatternSnap* snap : level_snaps)
-					snap->txt = lines[j++];
 			}
 		}
 	}
 	a.FixPtrs();
+	
+	a.RealizeTaskSnaps(true);
+	
+	a.lock.LeaveWrite();
 	
 	WhenStructureChange();
 }
@@ -137,10 +145,12 @@ void ImportCtrl::MakeTasks() {
 		return;
 	Song& s = *db.active_song;
 	Artist& a = *db.active_artist;
+	Release& r = *db.active_release;
 	
 	for (Part& p : s.parts.GetValues()) {
 		p.mask.Clear();
 		p.snap.Clear();
+		p.rev_snap.Clear();
 	}
 	
 	ParseOriginalLyrics();
@@ -151,7 +161,7 @@ void ImportCtrl::MakeTasks() {
 	{
 		Vector<int> rm_list;
 		for(int i = 0; i < m.tasks.GetCount(); i++) {
-			if (m.tasks[i].song == &s)
+			if (m.tasks[i].p.song == &s)
 				rm_list.Add(i);
 		}
 		m.tasks.Remove(rm_list);
@@ -167,7 +177,9 @@ void ImportCtrl::MakeTasks() {
 				// Add task for type
 				AI_Task& t = m.tasks.Add();
 				t.type = type;
-				t.song = &s;
+				t.p.artist = &a;
+				t.p.release = &r;
+				t.p.song = &s;
 				t.args << group_type.name << group_type.ai_txt << a.vocalist_visual;
 				
 				//for (AI_Task* t0 : pattern_tasks)
@@ -178,7 +190,9 @@ void ImportCtrl::MakeTasks() {
 			// Add task for getting patterns based on pattern mask
 			chk_task = &m.tasks.Add();
 			chk_task->type = type;
-			chk_task->song = &s;
+			chk_task->p.artist = &a;
+			chk_task->p.release = &r;
+			chk_task->p.song = &s;
 		}
 		else if (type == AI_Task::TASK_ANALYSIS) {
 			for(int i = 0; i < db.attrs.analysis.GetCount(); i++) {
@@ -187,7 +201,9 @@ void ImportCtrl::MakeTasks() {
 				// Add task for analysis type
 				AI_Task& t = m.tasks.Add();
 				t.type = type;
-				t.song = &s;
+				t.p.artist = &a;
+				t.p.release = &r;
+				t.p.song = &s;
 				t.args << a.vocalist_visual;
 				t.args << key;
 				

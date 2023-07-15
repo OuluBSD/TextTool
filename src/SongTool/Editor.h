@@ -20,7 +20,7 @@ protected:
 	TaskMgrCtrl		task;
 	ImportCtrl		importer;
 	PatternMaskCtrl	patmask;
-	PatternCtrl		pattern;
+	PatternCtrl		pattern, rev_pattern;
 	CompositionCtrl	composition;
 	AnalysisCtrl	analysis;
 	ProductionCtrl	production;
@@ -35,6 +35,7 @@ public:
 	
 	void Serialize(Stream& s) {s % page;}
 	void Init();
+	void PostInit() {PostCallback(THISBACK(Init));}
 	void UpdateView();
 	void Data();
 	void DataArtist();

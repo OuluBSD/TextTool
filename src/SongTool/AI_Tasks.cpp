@@ -70,6 +70,7 @@ String AI_Task::GetTypeString() const {
 		case TASK_REVERSEPATTERN: return t_("Reverse pattern");
 		case TASK_LYRICS: return t_("Lyrics");
 		case TASK_MAKE_LYRICS_TASK: return t_("Make lyrics task");
+		case TASK_LYRICS_TRANSLATE: return t_("Translate lyrics");
 		default: return "<error>";
 	}
 }
@@ -85,7 +86,8 @@ void AI_Task::CreateInput() {
 		case TASK_SONGSCORE: break;
 		case TASK_MAKE_REVERSEPATTERN_TASK: break;
 		case TASK_REVERSEPATTERN: break;
-		case TASK_LYRICS: break;
+		case TASK_LYRICS: CreateInput_Lyrics(); break;
+		case TASK_LYRICS_TRANSLATE: CreateInput_LyricsTranslate(); break;
 		case TASK_MAKE_LYRICS_TASK: break;
 		default: break;
 	}
@@ -100,6 +102,9 @@ void AI_Task::Process() {
 	
 	if (output.IsEmpty())
 		Load();
+	
+	if (input.IsEmpty())
+		CreateInput();
 	
 	input.Replace("\r","");
 	output = TrimBoth(output);
@@ -129,7 +134,8 @@ void AI_Task::Process() {
 			case TASK_MAKE_REVERSEPATTERN_TASK: Process_MakeReversePattern(); break;
 			case TASK_REVERSEPATTERN: Process_ReversePattern(); break;
 			case TASK_MAKE_LYRICS_TASK: Process_MakeLyricsTask(); break;
-			case TASK_LYRICS: break;
+			case TASK_LYRICS: Process_Lyrics(); break;
+			case TASK_LYRICS_TRANSLATE: Process_LyricsTranslate(); break;
 			default: break;
 		}
 	}
@@ -180,6 +186,9 @@ bool AI_Task::RunOpenAI() {
 		SetError(e.what());
 		return false;
 	}
+	
+	// Fix unicode formatting
+	output = ToUnicode(output, CHARSET_UTF8).ToString();
 	
 	changed = true;
 	Store();

@@ -11,7 +11,9 @@ SongTool::SongTool() {
 	is_maximized = false;
 	Load();
 	
-	ed.Init();
+	ed.WhenStartUpdating << [this](){tc.Set(-500, THISBACK(Data));};
+	ed.WhenStopUpdating << [this](){tc.Kill();};
+	ed.PostInit();
 	
 	Add(fp.SizePos());
 	Add(cal.SizePos());
@@ -24,8 +26,6 @@ SongTool::SongTool() {
 	PostCallback(THISBACK(LoadWindowPos));
 	PostCallback(THISBACK(Data));
 	
-	ed.WhenStartUpdating << [this](){tc.Set(-500, THISBACK(Data));};
-	ed.WhenStopUpdating << [this](){tc.Kill();};
 }
 
 SongTool::~SongTool() {

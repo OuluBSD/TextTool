@@ -32,6 +32,8 @@ public:
 	void FocusTree();
 	void FocusList();
 	
+	bool use_rev_snap = false;
+	
 };
 
 

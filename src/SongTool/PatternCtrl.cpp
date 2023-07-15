@@ -43,7 +43,7 @@ void PatternCtrl::DataPatternTree() {
 		Part& part = o.parts[i];
 		String s = o.parts.GetKey(i) + " :" + IntStr(part.lines.GetCount());
 		int id = tree.Add(0, AppImg::Part(), s);
-		DataPatternTreeNode(part, part.snap, id);
+		DataPatternTreeNode(part, use_rev_snap ? part.rev_snap : part.snap, id);
 	}
 	tree.OpenDeep(0);
 	tree.SetCursor(cursor);
@@ -156,7 +156,7 @@ void PatternCtrl::DataList() {
 	}
 	
 	level_snaps.SetCount(0);
-	p.snap.GetSnapsLevel(level, level_snaps);
+	(use_rev_snap ? p.rev_snap : p.snap).GetSnapsLevel(level, level_snaps);
 	
 	list.SetCount(level_snaps.GetCount());
 	Index<String> skip_list;

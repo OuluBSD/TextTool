@@ -3,12 +3,12 @@
 void AI_Task::CreateInput_PatternMask() {
 	//CombineHash hash;
 	Database& db = Database::Single();
-	if (!song) {
+	if (!p.song) {
 		SetError("no song pointer set");
 		return;
 	}
 	
-	Song& a = *song;
+	Song& a = *p.song;
 	
 	String s;
 	String type = args[0];
@@ -71,12 +71,12 @@ void AI_Task::CreateInput_PatternMask() {
 void AI_Task::CreateInput_Pattern() {
 	//CombineHash hash;
 	Database& db = Database::Single();
-	if (!song) {
+	if (!p.song) {
 		SetError("no song pointer set");
 		return;
 	}
 	
-	Song& a = *song;
+	Song& a = *p.song;
 	
 	String s;
 	String type = args[0];
@@ -134,12 +134,12 @@ void AI_Task::CreateInput_Pattern() {
 void AI_Task::CreateInput_Analysis() {
 	//CombineHash hash;
 	Database& db = Database::Single();
-	if (!song) {
+	if (!p.song) {
 		SetError("no song pointer set");
 		return;
 	}
 	
-	Song& a = *song;
+	Song& a = *p.song;
 	if (a.parts.IsEmpty()) {
 		SetError("Empty song");
 		return;
@@ -280,7 +280,7 @@ void AI_Task::CreateInput_AttrScores() {
 	
 	
 	// Try making prompt with errors first
-	Song& a = *this->song;
+	Song& a = *this->p.song;
 	a.GetAttributes(attrs); // get attrs from snapshots
 	
 	
@@ -353,3 +353,94 @@ void AI_Task::CreateInput_AttrScores() {
 	input = prompt;
 	response_length = 2*1024;
 }
+
+const char* example_conv = R"TXT(
+Example structured lyrics:
+part verse1{line(0:3) {line(0:1) {pronouns {i (m);}types of sentences {observations;}contrast and unexpected elements {exaggeration and surreal situations;}acting styles {funny;}tones {melancholic;}dramatic scenarios {tragic death;}voiceover tones {casual;}comedic sentences {satirical;}comedic scenarios {absurd and exaggerated scenarios;}humorous expressions {irony;}moral interactions {respect;}religiously moral {playful ia. with god;}interactions {social;}interactions with {man;}place {my bed (m);}place's visibility {is mentioned;}verbs {wish;}idea {a free spirited individual who is optimistic;playful;and joyful;yet realistic and accepting of imperfection.;}setting {world;}}line(1:2) {line(1:1) {pronouns {you (m);}types of sentences {statements;}contrast and unexpected elements {subversion of expectations;}acting styles {dramatic;}tones {pleading;}dramatic scenarios {a marriage in crisis;}voiceover tones {contrasting;}comedic sentences {pun;}comedic scenarios {physical comedy;}humorous expressions {playful wordplay;}moral interactions {honesty;}religiously moral {mutual antagonism ia.;}interactions {atheistic;}interactions with {woman;}place {my bed (f);}place's visibility {is said between the lines;}verbs {say;}idea {building strong relationships;}setting {space;}}line(2:1) {pronouns {i (m);}types of sentences {declarative;}contrast and unexpected elements {exaggeration and surreal situations;}moral interactions {respect;}religiously moral {playful ia. with god;}interactions {social;}acting styles {funny;}tones {melancholic;}dramatic scenarios {tragic death;}voiceover tones {casual;}comedic sentences {puns;}comedic scenarios {absurd and exaggerated scenarios;}humorous expressions {irony;}moral interactions mode {promote someone's;}place {my bed (m);}place's visibility {is mentioned;}verbs {wish;}idea {a free spirited individual who is optimistic;playful;and joyful;yet realistic and accepting of imperfection.;}setting {world;}}}}}
+
+Example lyrics (from structured lyrics):
+verse1:
+Scar tissue that I wish you saw
+Sarcastic mister know-it-all
+Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)
+
+)TXT";
+
+void AI_Task::CreateInput_Lyrics() {
+	Database& db = Database::Single();
+	
+	Artist& a = *this->p.artist;
+	Song& s = *this->p.song;
+	Release& r = *this->p.release;
+	Part& p = *this->p.part;
+	//Story& s = *db.active_story;
+	//Composition& c = *db.active_composition;
+	//Analysis& n = *db.active_analysis;
+	//Pattern& p = *db.active_pattern;
+	
+	bool rev_snap = args.GetCount() && args[0] == "rev";
+	
+	String o;
+	o	<< "Artist name: " << a.name << "\n"
+		<< "Year of birth: " << a.year_of_birth << "\n"
+		<< "Year of beginning of the career: " << a.year_of_career_begin << "\n"
+		<< "Music genre: " << a.musical_style << "\n"
+		<< "Voice: " << a.vibe_of_voice << "\n"
+		<< "Vocalist visually: " << a.vocalist_visual << "\n"
+		<< "\n\n";
+		
+	o	<< "Title of lyrics: " << s.title << "\n"
+		<< "Year: " << (int)r.date.year << "\n"
+		/*<< "Meaning: " << s.meaning << "\n"
+		<< "Literary devices: " << s.devices << "\n"
+		<< "Emotion: " << s.emotion << "\n"
+		<< "References: " << s.references << "\n"
+		<< "Structure: " << s.structure << "\n"
+		<< "History: " << s.history << "\n"
+		<< "Storyline: " << s.storyline << "\n"
+		<< "Implications: " << s.implications << "\n"*/
+		<< "\n\n";
+	
+	/*o	<< "Title of music composition: " << c.title << "\n"
+		<< "Year: " << c.year << "\n"
+		<< "Tempo: " << c.tempo << " bpm\n"
+		<< "Beat/Rhythm: " << c.beat << "\n"
+		<< "Melody: " << c.melody << "\n"
+		<< "Chord progression: " << c.chord_progression << "\n"
+		<< "Key and mode: " << c.key_and_mode << "\n"
+		<< "Texture: " << c.texture << "\n"
+		<< "Structure: " << c.structure << "\n"
+		<< "Genre/Style: " << c.genre_style << "\n"
+		<< "\n\n";*/
+	
+	o	<< example_conv << "\n\n\nStructured lyrics:\n";
+	o	<< (rev_snap ? p.rev_snap : p.snap).GetStructuredText(false) << "\n\n";
+	o	<< "\nLyrics:\n";
+	
+	input = o;
+}
+
+void AI_Task::CreateInput_LyricsTranslate() {
+	Song& song = *this->p.song;
+	
+	bool rev_snap = args[0] == "rev";
+	String lng = args[1].Left(5);
+	if (lng == LNGAsText(LNG_('F','I','F','I')))
+		lng = "Finnish";
+	String key = rev_snap ? "rev.gen.lyrics" : "gen.lyrics";
+	
+	String s, lyrics;
+	for (Part& p : song.parts.GetValues()) {
+		lyrics << p.name << ":\n";
+		lyrics << p.data.GetAdd(key) << "\n\n";
+	}
+	song.data.GetAdd(key) = lyrics;
+	
+	s << "In English:\n" << lyrics;
+	s << "In " << lng << ":\n";
+	
+	StringStream ss;
+	SaveStreamBOMUtf8(ss, s);
+	input = ss.GetResult();
+}
+

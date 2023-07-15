@@ -59,8 +59,8 @@ void AI_Tasks::DataTask() {
 	m.active_task = &t;
 	
 	if (cursor != data_cursor || (output.GetLength() == 0 && t.output.GetCount())) {
-		input.SetData(t.input);
-		output.SetData(t.output);
+		input.SetData(t.input.ToWString());
+		output.SetData(t.output.ToWString());
 		data_cursor = cursor;
 	}
 }

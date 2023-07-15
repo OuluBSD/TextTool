@@ -97,6 +97,7 @@ file
 	Recruiment.h,
 	Social.h,
 	Task.h,
+	Task.cpp,
 	Calendar.h,
 	Common.h,
 	Common.cpp,

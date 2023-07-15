@@ -30,6 +30,7 @@ struct Song : DataFile {
 	String			title;
 	String			prj_name;
 	String			structure_str;
+	VectorMap<String,String> data;
 	
 	// Imported lyrics
 	String									content;
@@ -40,16 +41,19 @@ struct Song : DataFile {
 	// Local data only (not shared)
 	Array<ReverseTask>						rev_tasks;
 	
+	RWMutex			lock;
+	
 	void Store();
 	void LoadTitle(String title);
 	void ReloadStructure();
-	void RealizeTaskSnaps();
+	void RealizeTaskSnaps(bool force=false);
 	void Jsonize(JsonIO& json) {
 		json
 			("artist", artist)
 			("title", title)
 			("prj_name", prj_name)
 			("structure_str", structure_str)
+			("data", data)
 			
 			("content", content)
 			("unique_lines", unique_lines)
@@ -58,16 +62,19 @@ struct Song : DataFile {
 			;
 		
 		// rev_tasks
-		String local_dir = ConfigFile("local");
-		RealizeDirectory(local_dir);
-		String rev_tasks_file = AppendFileName(local_dir, artist + " - " + title + ".bin");
 		if (json.IsLoading()) {
 			FixPtrs();
-			LoadFromFile(rev_tasks, rev_tasks_file);
+			
+			Vector<String> hashes;
+			json("rev_tasks", hashes);
+			for (String h : hashes) rev_tasks.Add().LoadHash(StrInt64(h));
+			
 			RealizeTaskSnaps();
 		}
 		else {
-			StoreToFile(rev_tasks, rev_tasks_file);
+			Vector<String> hashes;
+			for (ReverseTask& t : rev_tasks) {t.Store(); hashes.Add(IntStr64(t.GetHashValue()));}
+			json("rev_tasks", hashes);
 		}
 	}
 	void FixPtrs() {
@@ -75,6 +82,7 @@ struct Song : DataFile {
 			Part& p = parts[i];
 			p.name = parts.GetKey(i);
 			p.snap.SetId(i);
+			p.rev_snap.SetId(i);
 			p.FixPtrs();
 		}
 	}

@@ -3,6 +3,16 @@
 	"title": "Scar Tissue",
 	"prj_name": "",
 	"structure_str": "verse1:2,chorus1:2,verse2:2,chorus2:3,verse3:2,chorus1,verse4:3,chorus2,verse1,chorus2",
+	"data": [
+		{
+			"key": "rev.gen.lyrics.FI-FI",
+			"value": "Kohtaus 1:\nSulje silmäsi ja suudella minua\nKoska lintujen kanssa jaan tämän yksinäisen näkymän\nSarkastinen herra tietää-kaikki\nSe on haava jonka toivon näkeväsi\n\nKertosäe 1:\nJaan lintujen kanssa yksinäisen näkymän\nKatson heitä lentävän taivaan sinisessä\nJa keinun puolelta toiselle päälläni kumara\nTämän avoimen näkemyksen jaan niiden lintujen kanssa alas\n\nKohtaus2:\nLasken sisään maista terveytesi\nMaista rohkeasi ja ruskeasävyistä sieluasi\nSeinän vieressä, huoneessa, kuiskaan\nMaista sydämestäsi täytä ne\nKohoa kulmiani, eleen liikkeillä\nVärikkäälle Kentucky-tytölle, viileään iskuun\nHämärä näkymä, hyvästi\nDraamamentyinen tyyli, puristan huulia, hivenen harteillani\nYksinäinen näkymä, vapaa-aatteinen henkilö, joka on optimistinen, leikkisä ja iloinen, mutta realistinen ja hyväksyvä virheiden suhteen\n\nKertosäe 2:\nHaava jonka toivon näkeväsi\nJaan näkymää lintujen kanssa yksinäisen taivaan alla\nKanssani, kanssani, kanssani\n\nHe jakavat yksinäisen näkymämme, Tumman ja rauhallisen taivaan alla\nJakavat klassisen näkymän, huulilla pouta ja silmien räpytteleellä\nKanssani, kanssani, kanssani\n\nKohtaus3:\nEtelätyttö seisoo tallissa\nRikkaiden punaisella verellä, joka alkaa juosta\nHän kallistaa päätään sivulle\nJa hänen suunsa aukeaa sanoessaan hyvästit\n\nKirkas ja rohkea, loistava vetovoima\nHän swaggaa ulos lintujen kanssa\nÄiti ja isä hakevat sanan hyvästit\nHeidän yksinäisen näkemyksensä he jakavat taivaassa\n\nKohtaus4:\nAstu ulos ja teen riskin\nMaista terveyttäni, koska olen vapaa-aatteinen mies\nKimmeltävän taivaan värimaalaus, rytmin salpaavaa sydämen tahtiin\nAvoimet silmät keinuen tahtiin, on ryömiydyttävä päästäkseen kohti kuuta\nKohota kulmiani, poiston lähtöni, hyppien musiikin tahtiin\nKohti kuuta, noidankehän oma, taika omiin käsiisi."
+		},
+		{
+			"key": "rev.gen.lyrics",
+			"value": "verse1:\nClose your eyes and I'll kiss you 'cause\nWith the birds I'll share this lonely view\nSarcastic Mister know-it-all\nIt's scar tissue that I wish you saw\n\nchorus1:\nI'll share with the birds a lonely view\nWatching them fly in the sky so blue\nAs I sway side to side my head hangs low\nThis wide eyed view of life I share with the birds below\n\nverse2:\nFalling in, lick your health\nTaste your bold and gritty soul\nAgainst a wall, in a room, I whisper\nLick your heart, fill you up\nRaise my eyebrows, gesture with my arms\nTo a vibrant, Kentucky girl, a refined shock\nBlur and flash, wish you well\nDramatic 'do, purse my lips, shrug my shoulders\nLonely view of a free spirited individual who is optimistic, playful and joyful, yet realistic and accepting of imperfection\n\nchorus2:\nScar tissue that I wish you could see\nSharing a view with the birds in a lonely sky\nWith me, with me, with me\n\nThey share our lonely view, in a dark and serene sky\nSharing a classic look, with pouting lips and eyes wide\nWith me, with me, with me\n\nverse3:\nA southern girl is standing in the stall \nWith rich red blood that's starting to crawl \nShe's got her head cocked to the side \nAnd her mouth agape as she says her goodbye\n\nBright and bold with a glowing allure,\nShe swaggers out to the outside with the birds\nMa and Pa grasp for a wave goodbye \nWith the lonely view they share in the sky.\n\nverse4:\nStep outside and I'll take my chances \nTaste my health since I'm a man of leisure\nVibrant colors in a moody sky, flashing rhythm to my heart's beat\nWide eyes swaying to the sound, have to crawl to make it to the moon\nRaising eyebrows as I set off, bouncing to the music as I go\nTo make it to the moon, a magical, contrasting world.\n\n"
+		}
+	],
 	"content": "verse1:\r\nScar tissue that I wish you saw, (you) Sarcastic mister know-it-all.\r\nClose your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view).\r\n\r\nchorus1:\r\nWith the birds I'll share this lonely viewin'\r\nWith the birds I'll share this lonely viewin'\r\n\r\nverse2:\r\nPush me up against the wall, (you) Young Kentucky girl in a push-up bra.\r\nFallin' all over myself to lick your heart and taste your health ('cause)\r\n\r\nchorus2:\r\nWith the birds I'll share this lonely viewin'\r\nWith the birds I'll share this lonely viewin'\r\nWith the birds I'll share this lonely view\r\n\r\nverse3:\r\nBlood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak).\r\nI wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)\r\n\r\nchorus1:\r\n\r\nverse4:\r\n(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl.\r\nAnd autumn's sweet, we call it fall.\r\nI'll make it to the moon if I have to crawl (and)\r\n\r\nchorus2:\r\n\r\nverse1:\r\n\r\nchorus2:\r\n",
 	"unique_lines": [
 		{
@@ -1203,6 +1213,12 @@
 		{
 			"key": "verse1",
 			"value": {
+				"data": [
+					{
+						"key": "rev.gen.lyrics",
+						"value": "Close your eyes and I'll kiss you 'cause\nWith the birds I'll share this lonely view\nSarcastic Mister know-it-all\nIt's scar tissue that I wish you saw"
+					}
+				],
 				"lines": [
 					"Scar tissue that I wish you saw, (you) Sarcastic mister know-it-all.",
 					"Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
@@ -1221,64 +1237,108 @@
 						"len": 1,
 						"attributes": [
 							{
-								"g": "splices",
-								"i": "augmented rhythms"
+								"g": "nouns",
+								"i": "scar"
 							},
 							{
-								"g": "ideas",
-								"i": "sarcastic mister"
+								"g": "nouns",
+								"i": "mister"
 							},
 							{
-								"g": "color",
-								"i": "dark"
+								"g": "pronouns",
+								"i": "you"
 							},
 							{
-								"g": "body language",
-								"i": "shrugging shoulders"
+								"g": "verbs",
+								"i": "saw"
 							},
 							{
-								"g": "effects",
-								"i": "color tint"
+								"g": "verbs",
+								"i": "know-it-all"
 							},
 							{
 								"g": "similes",
 								"i": "sarcastic mister know-it-all"
 							},
 							{
-								"g": "ideas",
-								"i": "push wall"
-							},
-							{
-								"g": "hair/makeup",
-								"i": "natural"
-							},
-							{
-								"g": "color",
-								"i": "moody"
-							},
-							{
-								"g": "artificial",
-								"i": "stark"
-							},
-							{
-								"g": "ideas",
-								"i": "wave goodbye"
-							},
-							{
-								"g": "artificial",
-								"i": "abstract"
+								"g": "metaphors",
+								"i": "scar tissue"
 							},
 							{
 								"g": "contrast and unexpected elements",
 								"i": "sarcastic mister know-it-all"
 							},
 							{
+								"g": "physical features",
+								"i": "scar tissue"
+							},
+							{
+								"g": "places",
+								"i": "unknown"
+							},
+							{
+								"g": "locations",
+								"i": "unknown"
+							},
+							{
+								"g": "time of day",
+								"i": "unspecified"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
+							},
+							{
+								"g": "ideas",
+								"i": "scar tissue"
+							},
+							{
+								"g": "ideas",
+								"i": "sarcastic mister"
+							},
+							{
 								"g": "facial expressions",
 								"i": "frowning"
 							},
 							{
-								"g": "type of action in moral interaction",
-								"i": "lick your heart"
+								"g": "body language",
+								"i": "crossing arms"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "natural"
+							},
+							{
+								"g": "clothing",
+								"i": "casual"
+							},
+							{
+								"g": "accessories",
+								"i": "sunglasses"
+							},
+							{
+								"g": "effects",
+								"i": "echo"
+							},
+							{
+								"g": "transitions",
+								"i": "jump cut"
+							},
+							{
+								"g": "splices",
+								"i": "tempo change"
+							},
+							{
+								"g": "ambient",
+								"i": "mysterious"
+							},
+							{
+								"g": "artificial",
+								"i": "stark"
+							},
+							{
+								"g": "color",
+								"i": "moody"
 							}
 						],
 						"txt": "Scar tissue that I wish you saw, (you) Sarcastic mister know-it-all."
@@ -1289,36 +1349,237 @@
 						"len": 1,
 						"attributes": [
 							{
-								"g": "hair/makeup",
-								"i": "classic"
+								"g": "pronouns",
+								"i": "your"
 							},
 							{
-								"g": "color",
-								"i": "moody"
+								"g": "pronouns",
+								"i": "i"
 							},
 							{
-								"g": "hair/makeup",
-								"i": "natural"
+								"g": "pronouns",
+								"i": "you"
 							},
 							{
-								"g": "natural",
-								"i": "soothing"
+								"g": "verbs",
+								"i": "close"
+							},
+							{
+								"g": "verbs",
+								"i": "kiss"
+							},
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "prepositions",
+								"i": "with"
+							},
+							{
+								"g": "adjectives",
+								"i": "lonely"
+							},
+							{
+								"g": "metaphors",
+								"i": "close eyes"
+							},
+							{
+								"g": "metaphors",
+								"i": "birds sharing lonely view"
+							},
+							{
+								"g": "type of action in moral interaction",
+								"i": "kiss you"
+							},
+							{
+								"g": "interactions with",
+								"i": "the birds"
+							},
+							{
+								"g": "places",
+								"i": "in a room"
+							},
+							{
+								"g": "locations",
+								"i": "viewin"
+							},
+							{
+								"g": "time of day",
+								"i": "unspecified"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
 							},
 							{
 								"g": "ideas",
-								"i": "wave goodbye"
-							},
-							{
-								"g": "artificial",
-								"i": "dynamic"
+								"i": "kissing"
 							},
 							{
 								"g": "imagery",
 								"i": "birds sharing lonely view"
 							},
 							{
+								"g": "facial expressions",
+								"i": "smiling"
+							},
+							{
+								"g": "body language",
+								"i": "nodding head"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "stylish"
+							},
+							{
+								"g": "clothing",
+								"i": "fashionable"
+							},
+							{
+								"g": "accessories",
+								"i": "hair clips"
+							},
+							{
+								"g": "props",
+								"i": "books"
+							},
+							{
+								"g": "effects",
+								"i": "color tint"
+							},
+							{
 								"g": "transitions",
 								"i": "push"
+							},
+							{
+								"g": "natural",
+								"i": "soothing"
+							},
+							{
+								"g": "artificial",
+								"i": "dynamic"
+							},
+							{
+								"g": "color",
+								"i": "rich"
+							}
+						],
+						"txt": "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
+					}
+				},
+				"rev_snap": {
+					"part_id": 0,
+					"pos": 0,
+					"len": 2,
+					"attributes": [
+
+					],
+					"txt": "",
+					"a": {
+						"part_id": 0,
+						"pos": 0,
+						"len": 1,
+						"attributes": [
+							{
+								"g": "time of day",
+								"i": "unspecified"
+							},
+							{
+								"g": "similes",
+								"i": "sarcastic mister know-it-all"
+							},
+							{
+								"g": "ideas",
+								"i": "sarcastic mister"
+							},
+							{
+								"g": "color",
+								"i": "moody"
+							},
+							{
+								"g": "nouns",
+								"i": "mister"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "natural"
+							},
+							{
+								"g": "ambient",
+								"i": "mysterious"
+							},
+							{
+								"g": "effects",
+								"i": "echo"
+							},
+							{
+								"g": "transitions",
+								"i": "jump cut"
+							},
+							{
+								"g": "splices",
+								"i": "tempo change"
+							},
+							{
+								"g": "body language",
+								"i": "crossing arms"
+							},
+							{
+								"g": "facial expressions",
+								"i": "frowning"
+							},
+							{
+								"g": "artificial",
+								"i": "stark"
+							},
+							{
+								"g": "ideas",
+								"i": "scar tissue"
+							},
+							{
+								"g": "contrast and unexpected elements",
+								"i": "sarcastic mister know-it-all"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
+							},
+							{
+								"g": "physical features",
+								"i": "scar tissue"
+							},
+							{
+								"g": "metaphors",
+								"i": "scar tissue"
+							},
+							{
+								"g": "verbs",
+								"i": "know-it-all"
+							},
+							{
+								"g": "pronouns",
+								"i": "you"
+							}
+						],
+						"txt": "Scar tissue that I wish you saw, (you) Sarcastic mister know-it-all."
+					},
+					"b": {
+						"part_id": 0,
+						"pos": 1,
+						"len": 1,
+						"attributes": [
+							{
+								"g": "metaphors",
+								"i": "close eyes"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
+							},
+							{
+								"g": "imagery",
+								"i": "birds sharing lonely view"
 							},
 							{
 								"g": "type of action in moral interaction",
@@ -1326,27 +1587,67 @@
 							},
 							{
 								"g": "metaphors",
-								"i": "close eyes"
-							},
-							{
-								"g": "ambient",
-								"i": "bright"
-							},
-							{
-								"g": "natural",
-								"i": "soft"
-							},
-							{
-								"g": "artificial",
-								"i": "stark"
+								"i": "birds sharing lonely view"
 							},
 							{
 								"g": "body language",
-								"i": "gesturing with arms"
+								"i": "nodding head"
+							},
+							{
+								"g": "facial expressions",
+								"i": "smiling"
+							},
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "pronouns",
+								"i": "you"
 							},
 							{
 								"g": "hair/makeup",
-								"i": "neat"
+								"i": "stylish"
+							},
+							{
+								"g": "prepositions",
+								"i": "with"
+							},
+							{
+								"g": "artificial",
+								"i": "dynamic"
+							},
+							{
+								"g": "effects",
+								"i": "color tint"
+							},
+							{
+								"g": "transitions",
+								"i": "push"
+							},
+							{
+								"g": "pronouns",
+								"i": "i"
+							},
+							{
+								"g": "pronouns",
+								"i": "your"
+							},
+							{
+								"g": "natural",
+								"i": "soothing"
+							},
+							{
+								"g": "ideas",
+								"i": "kissing"
+							},
+							{
+								"g": "interactions with",
+								"i": "the birds"
+							},
+							{
+								"g": "places",
+								"i": "in a room"
 							}
 						],
 						"txt": "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)."
@@ -1792,6 +2093,12 @@
 		{
 			"key": "chorus1",
 			"value": {
+				"data": [
+					{
+						"key": "rev.gen.lyrics",
+						"value": "I'll share with the birds a lonely view\nWatching them fly in the sky so blue\nAs I sway side to side my head hangs low\nThis wide eyed view of life I share with the birds below"
+					}
+				],
 				"lines": [
 					"With the birds I'll share this lonely viewin'",
 					"With the birds I'll share this lonely viewin'"
@@ -1810,64 +2117,92 @@
 						"len": 1,
 						"attributes": [
 							{
-								"g": "effects",
-								"i": "distortion"
+								"g": "pronouns",
+								"i": "i"
 							},
 							{
-								"g": "hair/makeup",
-								"i": "rugged"
+								"g": "verbs",
+								"i": "share"
 							},
 							{
-								"g": "locations",
+								"g": "prepositions",
+								"i": "with"
+							},
+							{
+								"g": "adjectives",
+								"i": "lonely"
+							},
+							{
+								"g": "interactions with",
+								"i": "the birds"
+							},
+							{
+								"g": "places",
 								"i": "unknown"
 							},
 							{
-								"g": "artificial",
-								"i": "abstract"
+								"g": "locations",
+								"i": "viewin"
 							},
 							{
-								"g": "body language",
-								"i": "bouncing to the beat"
+								"g": "time of day",
+								"i": "unspecified"
 							},
 							{
-								"g": "physical features",
-								"i": "southern girl"
-							},
-							{
-								"g": "natural",
-								"i": "soothing"
-							},
-							{
-								"g": "color",
-								"i": "vibrant"
-							},
-							{
-								"g": "hair/makeup",
-								"i": "stylish"
-							},
-							{
-								"g": "transitions",
-								"i": "jump cut"
-							},
-							{
-								"g": "color",
-								"i": "moody"
-							},
-							{
-								"g": "color",
-								"i": "contrasting"
-							},
-							{
-								"g": "splices",
-								"i": "augmented rhythms"
+								"g": "time periods",
+								"i": "present"
 							},
 							{
 								"g": "imagery",
 								"i": "birds sharing lonely view"
 							},
 							{
+								"g": "facial expressions",
+								"i": "wide eyes"
+							},
+							{
+								"g": "body language",
+								"i": "swaying side to side"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "rugged"
+							},
+							{
+								"g": "clothing",
+								"i": "loose-fitting"
+							},
+							{
+								"g": "accessories",
+								"i": "hat/cap"
+							},
+							{
+								"g": "props",
+								"i": "vintage photo"
+							},
+							{
+								"g": "effects",
+								"i": "distortion"
+							},
+							{
+								"g": "transitions",
+								"i": "fade in/fade out"
+							},
+							{
+								"g": "splices",
+								"i": "augmented rhythms"
+							},
+							{
+								"g": "natural",
+								"i": "subtle"
+							},
+							{
+								"g": "artificial",
+								"i": "abstract"
+							},
+							{
 								"g": "color",
-								"i": "dark"
+								"i": "contrasting"
 							}
 						],
 						"txt": "With the birds I'll share this lonely viewin'"
@@ -1878,64 +2213,269 @@
 						"len": 1,
 						"attributes": [
 							{
-								"g": "color",
-								"i": "moody"
+								"g": "pronouns",
+								"i": "i"
 							},
 							{
-								"g": "color",
-								"i": "contrasting"
+								"g": "verbs",
+								"i": "share"
 							},
 							{
-								"g": "body language",
-								"i": "gesturing with arms"
+								"g": "prepositions",
+								"i": "with"
 							},
 							{
-								"g": "ambient",
-								"i": "bright"
+								"g": "adjectives",
+								"i": "lonely"
 							},
 							{
-								"g": "color",
-								"i": "earthy"
+								"g": "interactions with",
+								"i": "the birds"
 							},
 							{
-								"g": "hair/makeup",
-								"i": "bold"
+								"g": "places",
+								"i": "unknown"
 							},
 							{
-								"g": "splices",
-								"i": "augmented rhythms"
+								"g": "locations",
+								"i": "viewin"
 							},
 							{
-								"g": "color",
-								"i": "dark"
+								"g": "time of day",
+								"i": "unspecified"
 							},
 							{
-								"g": "natural",
-								"i": "soothing"
-							},
-							{
-								"g": "artificial",
-								"i": "gritty"
-							},
-							{
-								"g": "effects",
-								"i": "blur"
-							},
-							{
-								"g": "hair/makeup",
-								"i": "rugged"
+								"g": "time periods",
+								"i": "present"
 							},
 							{
 								"g": "imagery",
 								"i": "birds sharing lonely view"
 							},
 							{
-								"g": "nouns",
-								"i": "wall"
+								"g": "facial expressions",
+								"i": "wide eyes"
+							},
+							{
+								"g": "body language",
+								"i": "swaying side to side"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "rugged"
+							},
+							{
+								"g": "clothing",
+								"i": "loose-fitting"
+							},
+							{
+								"g": "accessories",
+								"i": "hat/cap"
+							},
+							{
+								"g": "props",
+								"i": "vintage photo"
+							},
+							{
+								"g": "effects",
+								"i": "distortion"
 							},
 							{
 								"g": "transitions",
-								"i": "jump cut"
+								"i": "fade in/fade out"
+							},
+							{
+								"g": "splices",
+								"i": "augmented rhythms"
+							},
+							{
+								"g": "natural",
+								"i": "subtle"
+							},
+							{
+								"g": "artificial",
+								"i": "abstract"
+							},
+							{
+								"g": "color",
+								"i": "contrasting"
+							}
+						],
+						"txt": "With the birds I'll share this lonely viewin'"
+					}
+				},
+				"rev_snap": {
+					"part_id": 1,
+					"pos": 0,
+					"len": 2,
+					"attributes": [
+
+					],
+					"txt": "",
+					"a": {
+						"part_id": 1,
+						"pos": 0,
+						"len": 1,
+						"attributes": [
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "adjectives",
+								"i": "lonely"
+							},
+							{
+								"g": "interactions with",
+								"i": "the birds"
+							},
+							{
+								"g": "prepositions",
+								"i": "with"
+							},
+							{
+								"g": "pronouns",
+								"i": "i"
+							},
+							{
+								"g": "splices",
+								"i": "augmented rhythms"
+							},
+							{
+								"g": "locations",
+								"i": "viewin"
+							},
+							{
+								"g": "artificial",
+								"i": "abstract"
+							},
+							{
+								"g": "imagery",
+								"i": "birds sharing lonely view"
+							},
+							{
+								"g": "places",
+								"i": "unknown"
+							},
+							{
+								"g": "transitions",
+								"i": "fade in/fade out"
+							},
+							{
+								"g": "natural",
+								"i": "subtle"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "rugged"
+							},
+							{
+								"g": "time of day",
+								"i": "unspecified"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
+							},
+							{
+								"g": "color",
+								"i": "contrasting"
+							},
+							{
+								"g": "effects",
+								"i": "distortion"
+							},
+							{
+								"g": "facial expressions",
+								"i": "wide eyes"
+							},
+							{
+								"g": "body language",
+								"i": "swaying side to side"
+							}
+						],
+						"txt": "With the birds I'll share this lonely viewin'"
+					},
+					"b": {
+						"part_id": 1,
+						"pos": 1,
+						"len": 1,
+						"attributes": [
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "adjectives",
+								"i": "lonely"
+							},
+							{
+								"g": "interactions with",
+								"i": "the birds"
+							},
+							{
+								"g": "prepositions",
+								"i": "with"
+							},
+							{
+								"g": "pronouns",
+								"i": "i"
+							},
+							{
+								"g": "splices",
+								"i": "augmented rhythms"
+							},
+							{
+								"g": "locations",
+								"i": "viewin"
+							},
+							{
+								"g": "artificial",
+								"i": "abstract"
+							},
+							{
+								"g": "imagery",
+								"i": "birds sharing lonely view"
+							},
+							{
+								"g": "places",
+								"i": "unknown"
+							},
+							{
+								"g": "transitions",
+								"i": "fade in/fade out"
+							},
+							{
+								"g": "natural",
+								"i": "subtle"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "rugged"
+							},
+							{
+								"g": "time of day",
+								"i": "unspecified"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
+							},
+							{
+								"g": "color",
+								"i": "contrasting"
+							},
+							{
+								"g": "effects",
+								"i": "distortion"
+							},
+							{
+								"g": "facial expressions",
+								"i": "wide eyes"
+							},
+							{
+								"g": "body language",
+								"i": "swaying side to side"
 							}
 						],
 						"txt": "With the birds I'll share this lonely viewin'"
@@ -2261,6 +2801,12 @@
 		{
 			"key": "verse2",
 			"value": {
+				"data": [
+					{
+						"key": "rev.gen.lyrics",
+						"value": "Falling in, lick your health\nTaste your bold and gritty soul\nAgainst a wall, in a room, I whisper\nLick your heart, fill you up\nRaise my eyebrows, gesture with my arms\nTo a vibrant, Kentucky girl, a refined shock\nBlur and flash, wish you well\nDramatic 'do, purse my lips, shrug my shoulders\nLonely view of a free spirited individual who is optimistic, playful and joyful, yet realistic and accepting of imperfection"
+					}
+				],
 				"lines": [
 					"Push me up against the wall, (you) Young Kentucky girl in a push-up bra.",
 					"Fallin' all over myself to lick your heart and taste your health ('cause)"
@@ -2279,64 +2825,116 @@
 						"len": 1,
 						"attributes": [
 							{
-								"g": "hair/makeup",
-								"i": "natural"
+								"g": "pronouns",
+								"i": "me"
 							},
 							{
-								"g": "ideas",
-								"i": "push wall"
+								"g": "pronouns",
+								"i": "you"
 							},
 							{
-								"g": "facial expressions",
-								"i": "mouth agape"
+								"g": "prepositions",
+								"i": "against"
 							},
 							{
-								"g": "hair/makeup",
-								"i": "stylish"
+								"g": "nouns",
+								"i": "wall"
+							},
+							{
+								"g": "nouns",
+								"i": "kentucky"
+							},
+							{
+								"g": "nouns",
+								"i": "girl"
+							},
+							{
+								"g": "nouns",
+								"i": "bra"
+							},
+							{
+								"g": "personification",
+								"i": "kentucky girl"
 							},
 							{
 								"g": "contrast and unexpected elements",
 								"i": "young kentucky girl in a push-up bra"
 							},
 							{
-								"g": "effects",
-								"i": "blur"
-							},
-							{
-								"g": "body language",
-								"i": "swaying head to side"
-							},
-							{
-								"g": "facial expressions",
-								"i": "raising eyebrows"
-							},
-							{
 								"g": "physical features",
-								"i": "scar tissue"
+								"i": "southern girl"
 							},
 							{
-								"g": "verbs",
-								"i": "share"
+								"g": "places",
+								"i": "against a wall"
 							},
 							{
-								"g": "body language",
-								"i": "bouncing to the beat"
+								"g": "locations",
+								"i": "unknown"
 							},
 							{
-								"g": "color",
-								"i": "vibrant"
+								"g": "time of day",
+								"i": "unspecified"
 							},
 							{
-								"g": "hair/makeup",
-								"i": "elegant"
+								"g": "time periods",
+								"i": "present"
+							},
+							{
+								"g": "ideas",
+								"i": "push wall"
 							},
 							{
 								"g": "ideas",
 								"i": "kentucky girl"
 							},
 							{
-								"g": "personification",
-								"i": "kentucky girl"
+								"g": "facial expressions",
+								"i": "raising eyebrows"
+							},
+							{
+								"g": "body language",
+								"i": "gesturing with arms"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "refined"
+							},
+							{
+								"g": "clothing",
+								"i": "sophisticated"
+							},
+							{
+								"g": "accessories",
+								"i": "scarf"
+							},
+							{
+								"g": "props",
+								"i": "desk items"
+							},
+							{
+								"g": "effects",
+								"i": "blur"
+							},
+							{
+								"g": "transitions",
+								"i": "wipe"
+							},
+							{
+								"g": "splices",
+								"i": "reversed sounds"
+							},
+							{
+								"g": "ambient",
+								"i": "bright"
+							},
+							{
+								"g": "artificial",
+								"i": "flashing"
+							},
+							{
+								"g": "color",
+								"i": "vibrant"
 							}
 						],
 						"txt": "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
@@ -2347,64 +2945,269 @@
 						"len": 1,
 						"attributes": [
 							{
-								"g": "type of action in moral interaction",
-								"i": "wave goodbye"
+								"g": "verbs",
+								"i": "fallin'"
+							},
+							{
+								"g": "verbs",
+								"i": "lick"
+							},
+							{
+								"g": "verbs",
+								"i": "taste"
+							},
+							{
+								"g": "pronouns",
+								"i": "your"
+							},
+							{
+								"g": "nouns",
+								"i": "health"
 							},
 							{
 								"g": "type of action in moral interaction",
 								"i": "lick your heart"
 							},
 							{
-								"g": "facial expressions",
-								"i": "pouting lips"
+								"g": "places",
+								"i": "in a room"
+							},
+							{
+								"g": "locations",
+								"i": "unknown"
+							},
+							{
+								"g": "time of day",
+								"i": "unspecified"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
+							},
+							{
+								"g": "ideas",
+								"i": "licking heart"
 							},
 							{
 								"g": "ideas",
 								"i": "taste health"
 							},
 							{
-								"g": "artificial",
-								"i": "abstract"
-							},
-							{
-								"g": "similes",
-								"i": "sarcastic mister know-it-all"
+								"g": "facial expressions",
+								"i": "pursed lips"
 							},
 							{
 								"g": "body language",
-								"i": "swaying side to side"
-							},
-							{
-								"g": "hair/makeup",
-								"i": "natural"
-							},
-							{
-								"g": "facial expressions",
-								"i": "wide eyes"
-							},
-							{
-								"g": "nouns",
-								"i": "southern"
+								"i": "shrugging shoulders"
 							},
 							{
 								"g": "hair/makeup",
 								"i": "dramatic"
 							},
 							{
+								"g": "clothing",
+								"i": "intelligent"
+							},
+							{
+								"g": "accessories",
+								"i": "earrings"
+							},
+							{
+								"g": "effects",
+								"i": "pitch shift"
+							},
+							{
+								"g": "transitions",
+								"i": "rotate"
+							},
+							{
+								"g": "splices",
+								"i": "melody"
+							},
+							{
+								"g": "natural",
+								"i": "bold"
+							},
+							{
+								"g": "artificial",
+								"i": "gritty"
+							},
+							{
+								"g": "color",
+								"i": "earthy"
+							}
+						],
+						"txt": "Fallin' all over myself to lick your heart and taste your health ('cause)"
+					}
+				},
+				"rev_snap": {
+					"part_id": 2,
+					"pos": 0,
+					"len": 2,
+					"attributes": [
+
+					],
+					"txt": "",
+					"a": {
+						"part_id": 2,
+						"pos": 0,
+						"len": 1,
+						"attributes": [
+							{
+								"g": "nouns",
+								"i": "bra"
+							},
+							{
+								"g": "locations",
+								"i": "unknown"
+							},
+							{
+								"g": "ambient",
+								"i": "bright"
+							},
+							{
+								"g": "nouns",
+								"i": "girl"
+							},
+							{
+								"g": "places",
+								"i": "against a wall"
+							},
+							{
+								"g": "color",
+								"i": "vibrant"
+							},
+							{
+								"g": "nouns",
+								"i": "wall"
+							},
+							{
+								"g": "personification",
+								"i": "kentucky girl"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "refined"
+							},
+							{
+								"g": "ideas",
+								"i": "kentucky girl"
+							},
+							{
+								"g": "effects",
+								"i": "blur"
+							},
+							{
+								"g": "nouns",
+								"i": "kentucky"
+							},
+							{
+								"g": "ideas",
+								"i": "push wall"
+							},
+							{
+								"g": "artificial",
+								"i": "flashing"
+							},
+							{
+								"g": "pronouns",
+								"i": "you"
+							},
+							{
 								"g": "pronouns",
 								"i": "me"
 							},
 							{
-								"g": "hair/makeup",
-								"i": "rugged"
+								"g": "time periods",
+								"i": "present"
 							},
 							{
-								"g": "contrast and unexpected elements",
-								"i": "young kentucky girl in a push-up bra"
+								"g": "facial expressions",
+								"i": "raising eyebrows"
+							},
+							{
+								"g": "body language",
+								"i": "gesturing with arms"
+							}
+						],
+						"txt": "Push me up against the wall, (you) Young Kentucky girl in a push-up bra."
+					},
+					"b": {
+						"part_id": 2,
+						"pos": 1,
+						"len": 1,
+						"attributes": [
+							{
+								"g": "verbs",
+								"i": "fallin'"
+							},
+							{
+								"g": "verbs",
+								"i": "lick"
+							},
+							{
+								"g": "color",
+								"i": "earthy"
+							},
+							{
+								"g": "pronouns",
+								"i": "your"
+							},
+							{
+								"g": "nouns",
+								"i": "health"
+							},
+							{
+								"g": "natural",
+								"i": "bold"
+							},
+							{
+								"g": "verbs",
+								"i": "taste"
+							},
+							{
+								"g": "artificial",
+								"i": "gritty"
+							},
+							{
+								"g": "locations",
+								"i": "unknown"
+							},
+							{
+								"g": "places",
+								"i": "in a room"
+							},
+							{
+								"g": "type of action in moral interaction",
+								"i": "lick your heart"
 							},
 							{
 								"g": "ideas",
-								"i": "wave goodbye"
+								"i": "licking heart"
+							},
+							{
+								"g": "ideas",
+								"i": "taste health"
+							},
+							{
+								"g": "facial expressions",
+								"i": "pursed lips"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "dramatic"
+							},
+							{
+								"g": "body language",
+								"i": "shrugging shoulders"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
+							},
+							{
+								"g": "time of day",
+								"i": "unspecified"
 							}
 						],
 						"txt": "Fallin' all over myself to lick your heart and taste your health ('cause)"
@@ -2806,6 +3609,12 @@
 		{
 			"key": "chorus2",
 			"value": {
+				"data": [
+					{
+						"key": "rev.gen.lyrics",
+						"value": "Scar tissue that I wish you could see\nSharing a view with the birds in a lonely sky\nWith me, with me, with me\n\nThey share our lonely view, in a dark and serene sky\nSharing a classic look, with pouting lips and eyes wide\nWith me, with me, with me"
+					}
+				],
 				"lines": [
 					"With the birds I'll share this lonely viewin'",
 					"With the birds I'll share this lonely viewin'",
@@ -2825,64 +3634,92 @@
 						"len": 1,
 						"attributes": [
 							{
-								"g": "effects",
-								"i": "blur"
+								"g": "pronouns",
+								"i": "i"
 							},
 							{
-								"g": "ambient",
-								"i": "alluring"
+								"g": "verbs",
+								"i": "share"
 							},
 							{
-								"g": "splices",
-								"i": "tempo change"
+								"g": "prepositions",
+								"i": "with"
 							},
 							{
-								"g": "splices",
-								"i": "augmented rhythms"
+								"g": "adjectives",
+								"i": "lonely"
 							},
 							{
-								"g": "transitions",
-								"i": "fade in/fade out"
+								"g": "interactions with",
+								"i": "the birds"
 							},
 							{
-								"g": "transitions",
-								"i": "jump cut"
+								"g": "places",
+								"i": "unknown"
 							},
 							{
-								"g": "color",
-								"i": "contrasting"
+								"g": "locations",
+								"i": "viewin"
 							},
 							{
-								"g": "natural",
-								"i": "soothing"
+								"g": "time of day",
+								"i": "unspecified"
 							},
 							{
-								"g": "color",
-								"i": "vibrant"
-							},
-							{
-								"g": "hair/makeup",
-								"i": "elegant"
-							},
-							{
-								"g": "artificial",
-								"i": "flashing"
+								"g": "time periods",
+								"i": "present"
 							},
 							{
 								"g": "imagery",
 								"i": "birds sharing lonely view"
 							},
 							{
+								"g": "facial expressions",
+								"i": "wide eyes"
+							},
+							{
 								"g": "body language",
-								"i": "bouncing to the beat"
+								"i": "swaying side to side"
 							},
 							{
 								"g": "hair/makeup",
-								"i": "natural"
+								"i": "rugged"
 							},
 							{
-								"g": "adjectives",
-								"i": "scarlet"
+								"g": "clothing",
+								"i": "loose-fitting"
+							},
+							{
+								"g": "accessories",
+								"i": "hat/cap"
+							},
+							{
+								"g": "props",
+								"i": "vintage photo"
+							},
+							{
+								"g": "effects",
+								"i": "distortion"
+							},
+							{
+								"g": "transitions",
+								"i": "fade in/fade out"
+							},
+							{
+								"g": "splices",
+								"i": "augmented rhythms"
+							},
+							{
+								"g": "natural",
+								"i": "subtle"
+							},
+							{
+								"g": "artificial",
+								"i": "abstract"
+							},
+							{
+								"g": "color",
+								"i": "contrasting"
 							}
 						],
 						"txt": "With the birds I'll share this lonely viewin'"
@@ -2901,12 +3738,72 @@
 							"len": 1,
 							"attributes": [
 								{
-									"g": "splices",
-									"i": "augmented rhythms"
+									"g": "pronouns",
+									"i": "i"
 								},
 								{
-									"g": "ambient",
-									"i": "bright"
+									"g": "verbs",
+									"i": "share"
+								},
+								{
+									"g": "prepositions",
+									"i": "with"
+								},
+								{
+									"g": "adjectives",
+									"i": "lonely"
+								},
+								{
+									"g": "interactions with",
+									"i": "the birds"
+								},
+								{
+									"g": "places",
+									"i": "unknown"
+								},
+								{
+									"g": "locations",
+									"i": "viewin"
+								},
+								{
+									"g": "time of day",
+									"i": "unspecified"
+								},
+								{
+									"g": "time periods",
+									"i": "present"
+								},
+								{
+									"g": "imagery",
+									"i": "birds sharing lonely view"
+								},
+								{
+									"g": "facial expressions",
+									"i": "wide eyes"
+								},
+								{
+									"g": "body language",
+									"i": "swaying side to side"
+								},
+								{
+									"g": "hair/makeup",
+									"i": "rugged"
+								},
+								{
+									"g": "clothing",
+									"i": "loose-fitting"
+								},
+								{
+									"g": "accessories",
+									"i": "hat/cap"
+								},
+								{
+									"g": "props",
+									"i": "vintage photo"
+								},
+								{
+									"g": "effects",
+									"i": "distortion"
 								},
 								{
 									"g": "transitions",
@@ -2914,51 +3811,19 @@
 								},
 								{
 									"g": "splices",
-									"i": "tempo change"
-								},
-								{
-									"g": "ambient",
-									"i": "magical"
-								},
-								{
-									"g": "artificial",
-									"i": "dynamic"
-								},
-								{
-									"g": "effects",
-									"i": "blur"
+									"i": "augmented rhythms"
 								},
 								{
 									"g": "natural",
 									"i": "subtle"
 								},
 								{
-									"g": "hair/makeup",
-									"i": "natural"
+									"g": "artificial",
+									"i": "abstract"
 								},
 								{
-									"g": "hair/makeup",
-									"i": "stylish"
-								},
-								{
-									"g": "places",
-									"i": "in a bathroom"
-								},
-								{
-									"g": "natural",
-									"i": "soothing"
-								},
-								{
-									"g": "body language",
-									"i": "bouncing to the beat"
-								},
-								{
-									"g": "type of action in moral interaction",
-									"i": "wave goodbye"
-								},
-								{
-									"g": "ideas",
-									"i": "push wall"
+									"g": "color",
+									"i": "contrasting"
 								}
 							],
 							"txt": "With the birds I'll share this lonely viewin'"
@@ -2969,64 +3834,354 @@
 							"len": 1,
 							"attributes": [
 								{
-									"g": "physical features",
-									"i": "soft spoken"
+									"g": "pronouns",
+									"i": "i"
 								},
 								{
-									"g": "ambient",
-									"i": "alluring"
+									"g": "verbs",
+									"i": "share"
+								},
+								{
+									"g": "prepositions",
+									"i": "with"
+								},
+								{
+									"g": "adjectives",
+									"i": "lonely"
+								},
+								{
+									"g": "nouns",
+									"i": "birds"
+								},
+								{
+									"g": "interactions with",
+									"i": "the birds"
+								},
+								{
+									"g": "places",
+									"i": "unknown"
+								},
+								{
+									"g": "locations",
+									"i": "viewin"
+								},
+								{
+									"g": "time of day",
+									"i": "unspecified"
+								},
+								{
+									"g": "time periods",
+									"i": "present"
+								},
+								{
+									"g": "imagery",
+									"i": "birds sharing lonely view"
+								},
+								{
+									"g": "facial expressions",
+									"i": "pouting lips"
+								},
+								{
+									"g": "body language",
+									"i": "leaning forward"
+								},
+								{
+									"g": "hair/makeup",
+									"i": "classic"
+								},
+								{
+									"g": "clothing",
+									"i": "timeless"
+								},
+								{
+									"g": "accessories",
+									"i": "tie"
+								},
+								{
+									"g": "effects",
+									"i": "glitch"
+								},
+								{
+									"g": "transitions",
+									"i": "whip pan"
+								},
+								{
+									"g": "splices",
+									"i": "orchestration"
+								},
+								{
+									"g": "natural",
+									"i": "serene"
+								},
+								{
+									"g": "artificial",
+									"i": "dramatic"
 								},
 								{
 									"g": "color",
 									"i": "dark"
+								}
+							],
+							"txt": "With the birds I'll share this lonely view"
+						}
+					}
+				},
+				"rev_snap": {
+					"part_id": 3,
+					"pos": 0,
+					"len": 3,
+					"attributes": [
+
+					],
+					"txt": "",
+					"a": {
+						"part_id": 3,
+						"pos": 0,
+						"len": 1,
+						"attributes": [
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "adjectives",
+								"i": "lonely"
+							},
+							{
+								"g": "interactions with",
+								"i": "the birds"
+							},
+							{
+								"g": "prepositions",
+								"i": "with"
+							},
+							{
+								"g": "pronouns",
+								"i": "i"
+							},
+							{
+								"g": "splices",
+								"i": "augmented rhythms"
+							},
+							{
+								"g": "locations",
+								"i": "viewin"
+							},
+							{
+								"g": "artificial",
+								"i": "abstract"
+							},
+							{
+								"g": "imagery",
+								"i": "birds sharing lonely view"
+							},
+							{
+								"g": "places",
+								"i": "unknown"
+							},
+							{
+								"g": "transitions",
+								"i": "fade in/fade out"
+							},
+							{
+								"g": "natural",
+								"i": "subtle"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "rugged"
+							},
+							{
+								"g": "time of day",
+								"i": "unspecified"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
+							},
+							{
+								"g": "color",
+								"i": "contrasting"
+							},
+							{
+								"g": "effects",
+								"i": "distortion"
+							},
+							{
+								"g": "facial expressions",
+								"i": "wide eyes"
+							},
+							{
+								"g": "body language",
+								"i": "swaying side to side"
+							}
+						],
+						"txt": "With the birds I'll share this lonely viewin'"
+					},
+					"b": {
+						"part_id": 3,
+						"pos": 1,
+						"len": 2,
+						"attributes": [
+
+						],
+						"txt": "",
+						"a": {
+							"part_id": 3,
+							"pos": 1,
+							"len": 1,
+							"attributes": [
+								{
+									"g": "verbs",
+									"i": "share"
 								},
 								{
-									"g": "ideas",
-									"i": "push wall"
+									"g": "adjectives",
+									"i": "lonely"
 								},
 								{
-									"g": "ambient",
-									"i": "bright"
+									"g": "interactions with",
+									"i": "the birds"
 								},
 								{
-									"g": "hair/makeup",
-									"i": "natural"
+									"g": "prepositions",
+									"i": "with"
+								},
+								{
+									"g": "pronouns",
+									"i": "i"
 								},
 								{
 									"g": "splices",
 									"i": "augmented rhythms"
 								},
 								{
-									"g": "metaphors",
-									"i": "close eyes"
-								},
-								{
-									"g": "color",
-									"i": "vibrant"
-								},
-								{
-									"g": "verbs",
-									"i": "know-it-all"
-								},
-								{
-									"g": "facial expressions",
-									"i": "squinting eyes"
+									"g": "locations",
+									"i": "viewin"
 								},
 								{
 									"g": "artificial",
-									"i": "glowing"
+									"i": "abstract"
 								},
 								{
-									"g": "goals",
-									"i": "make it to the moon"
+									"g": "imagery",
+									"i": "birds sharing lonely view"
+								},
+								{
+									"g": "places",
+									"i": "unknown"
+								},
+								{
+									"g": "transitions",
+									"i": "fade in/fade out"
+								},
+								{
+									"g": "natural",
+									"i": "subtle"
+								},
+								{
+									"g": "hair/makeup",
+									"i": "rugged"
+								},
+								{
+									"g": "time of day",
+									"i": "unspecified"
+								},
+								{
+									"g": "time periods",
+									"i": "present"
+								},
+								{
+									"g": "color",
+									"i": "contrasting"
+								},
+								{
+									"g": "effects",
+									"i": "distortion"
 								},
 								{
 									"g": "facial expressions",
-									"i": "pursed lips"
+									"i": "wide eyes"
 								},
 								{
 									"g": "body language",
-									"i": "crossing arms"
+									"i": "swaying side to side"
+								}
+							],
+							"txt": "With the birds I'll share this lonely viewin'"
+						},
+						"b": {
+							"part_id": 3,
+							"pos": 2,
+							"len": 1,
+							"attributes": [
+								{
+									"g": "adjectives",
+									"i": "lonely"
+								},
+								{
+									"g": "prepositions",
+									"i": "with"
+								},
+								{
+									"g": "pronouns",
+									"i": "i"
+								},
+								{
+									"g": "places",
+									"i": "unknown"
+								},
+								{
+									"g": "interactions with",
+									"i": "the birds"
+								},
+								{
+									"g": "color",
+									"i": "dark"
+								},
+								{
+									"g": "nouns",
+									"i": "birds"
+								},
+								{
+									"g": "natural",
+									"i": "serene"
+								},
+								{
+									"g": "artificial",
+									"i": "dramatic"
+								},
+								{
+									"g": "time periods",
+									"i": "present"
+								},
+								{
+									"g": "verbs",
+									"i": "share"
+								},
+								{
+									"g": "body language",
+									"i": "leaning forward"
+								},
+								{
+									"g": "hair/makeup",
+									"i": "classic"
+								},
+								{
+									"g": "facial expressions",
+									"i": "pouting lips"
+								},
+								{
+									"g": "time of day",
+									"i": "unspecified"
+								},
+								{
+									"g": "locations",
+									"i": "viewin"
+								},
+								{
+									"g": "imagery",
+									"i": "birds sharing lonely view"
 								}
 							],
 							"txt": "With the birds I'll share this lonely view"
@@ -3382,6 +4537,12 @@
 		{
 			"key": "verse3",
 			"value": {
+				"data": [
+					{
+						"key": "rev.gen.lyrics",
+						"value": "A southern girl is standing in the stall \nWith rich red blood that's starting to crawl \nShe's got her head cocked to the side \nAnd her mouth agape as she says her goodbye\n\nBright and bold with a glowing allure,\nShe swaggers out to the outside with the birds\nMa and Pa grasp for a wave goodbye \nWith the lonely view they share in the sky."
+					}
+				],
 				"lines": [
 					"Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak).",
 					"I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
@@ -3400,15 +4561,39 @@
 						"len": 1,
 						"attributes": [
 							{
-								"g": "ideas",
-								"i": "wave goodbye"
+								"g": "nouns",
+								"i": "blood"
 							},
 							{
-								"g": "ideas",
-								"i": "taste health"
+								"g": "nouns",
+								"i": "bathroom"
 							},
 							{
-								"g": "ideas",
+								"g": "nouns",
+								"i": "stall"
+							},
+							{
+								"g": "nouns",
+								"i": "southern"
+							},
+							{
+								"g": "nouns",
+								"i": "girl"
+							},
+							{
+								"g": "nouns",
+								"i": "drawl"
+							},
+							{
+								"g": "prepositions",
+								"i": "with"
+							},
+							{
+								"g": "adjectives",
+								"i": "scarlet"
+							},
+							{
+								"g": "personification",
 								"i": "southern girl"
 							},
 							{
@@ -3416,48 +4601,281 @@
 								"i": "blood loss in a bathroom stall"
 							},
 							{
+								"g": "physical features",
+								"i": "southern girl"
+							},
+							{
+								"g": "places",
+								"i": "in a bathroom"
+							},
+							{
+								"g": "locations",
+								"i": "unknown"
+							},
+							{
+								"g": "time of day",
+								"i": "unspecified"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
+							},
+							{
+								"g": "ideas",
+								"i": "blood loss"
+							},
+							{
+								"g": "ideas",
+								"i": "southern girl"
+							},
+							{
+								"g": "facial expressions",
+								"i": "squinting eyes"
+							},
+							{
 								"g": "body language",
-								"i": "swaying side to side"
+								"i": "swaying head to side"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "bold"
+							},
+							{
+								"g": "clothing",
+								"i": "quirky"
+							},
+							{
+								"g": "accessories",
+								"i": "brooch"
+							},
+							{
+								"g": "effects",
+								"i": "vibrato"
+							},
+							{
+								"g": "transitions",
+								"i": "jump cut"
+							},
+							{
+								"g": "ambient",
+								"i": "alluring"
+							},
+							{
+								"g": "artificial",
+								"i": "glowing"
+							}
+						],
+						"txt": "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
+					},
+					"b": {
+						"part_id": 4,
+						"pos": 1,
+						"len": 1,
+						"attributes": [
+							{
+								"g": "pronouns",
+								"i": "i"
+							},
+							{
+								"g": "verbs",
+								"i": "wave"
+							},
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "prepositions",
+								"i": "to"
+							},
+							{
+								"g": "prepositions",
+								"i": "with"
+							},
+							{
+								"g": "nouns",
+								"i": "birds"
+							},
+							{
+								"g": "adjectives",
+								"i": "lonely"
+							},
+							{
+								"g": "type of action in moral interaction",
+								"i": "wave goodbye"
+							},
+							{
+								"g": "interactions with",
+								"i": "ma and pa"
+							},
+							{
+								"g": "interactions with",
+								"i": "the birds"
+							},
+							{
+								"g": "places",
+								"i": "outside"
+							},
+							{
+								"g": "locations",
+								"i": "viewin"
+							},
+							{
+								"g": "time of day",
+								"i": "unspecified"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
+							},
+							{
+								"g": "ideas",
+								"i": "wave goodbye"
+							},
+							{
+								"g": "imagery",
+								"i": "birds sharing lonely view"
 							},
 							{
 								"g": "facial expressions",
 								"i": "mouth agape"
 							},
 							{
-								"g": "personification",
+								"g": "body language",
+								"i": "crouching"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "neat"
+							},
+							{
+								"g": "clothing",
+								"i": "relaxed"
+							},
+							{
+								"g": "accessories",
+								"i": "gloves"
+							},
+							{
+								"g": "props",
+								"i": "camping gear"
+							},
+							{
+								"g": "effects",
+								"i": "phaser"
+							},
+							{
+								"g": "transitions",
+								"i": "flip"
+							},
+							{
+								"g": "splices",
+								"i": "drum rolls"
+							},
+							{
+								"g": "natural",
+								"i": "bright"
+							},
+							{
+								"g": "artificial",
+								"i": "dynamic"
+							},
+							{
+								"g": "color",
+								"i": "rich"
+							}
+						],
+						"txt": "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
+					}
+				},
+				"rev_snap": {
+					"part_id": 4,
+					"pos": 0,
+					"len": 2,
+					"attributes": [
+
+					],
+					"txt": "",
+					"a": {
+						"part_id": 4,
+						"pos": 0,
+						"len": 1,
+						"attributes": [
+							{
+								"g": "physical features",
 								"i": "southern girl"
 							},
 							{
-								"g": "facial expressions",
-								"i": "raising eyebrows"
+								"g": "locations",
+								"i": "unknown"
+							},
+							{
+								"g": "time of day",
+								"i": "unspecified"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "bold"
 							},
 							{
 								"g": "facial expressions",
-								"i": "pursed lips"
+								"i": "squinting eyes"
+							},
+							{
+								"g": "ideas",
+								"i": "southern girl"
+							},
+							{
+								"g": "body language",
+								"i": "swaying head to side"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
+							},
+							{
+								"g": "ambient",
+								"i": "alluring"
+							},
+							{
+								"g": "artificial",
+								"i": "glowing"
+							},
+							{
+								"g": "nouns",
+								"i": "bathroom"
+							},
+							{
+								"g": "nouns",
+								"i": "stall"
+							},
+							{
+								"g": "nouns",
+								"i": "blood"
+							},
+							{
+								"g": "nouns",
+								"i": "southern"
+							},
+							{
+								"g": "personification",
+								"i": "southern girl"
 							},
 							{
 								"g": "nouns",
 								"i": "drawl"
 							},
 							{
-								"g": "splices",
-								"i": "augmented rhythms"
+								"g": "ideas",
+								"i": "blood loss"
 							},
 							{
-								"g": "verbs",
-								"i": "saw"
+								"g": "nouns",
+								"i": "girl"
 							},
 							{
-								"g": "color",
-								"i": "vibrant"
-							},
-							{
-								"g": "body language",
-								"i": "swaying to the beat"
-							},
-							{
-								"g": "ambient",
-								"i": "alluring"
+								"g": "prepositions",
+								"i": "with"
 							}
 						],
 						"txt": "Blood loss in a bathroom stall, (with) a southern girl with a scarlet drawl (way to speak)."
@@ -3469,63 +4887,83 @@
 						"attributes": [
 							{
 								"g": "color",
-								"i": "vibrant"
+								"i": "rich"
 							},
 							{
 								"g": "body language",
-								"i": "bouncing to the beat"
+								"i": "crouching"
 							},
 							{
-								"g": "interactions with",
-								"i": "ma and pa"
-							},
-							{
-								"g": "ideas",
-								"i": "taste health"
-							},
-							{
-								"g": "ideas",
-								"i": "wave goodbye"
+								"g": "natural",
+								"i": "bright"
 							},
 							{
 								"g": "imagery",
 								"i": "birds sharing lonely view"
 							},
 							{
+								"g": "interactions with",
+								"i": "the birds"
+							},
+							{
 								"g": "artificial",
-								"i": "flashing"
+								"i": "dynamic"
 							},
 							{
 								"g": "facial expressions",
-								"i": "pursed lips"
+								"i": "mouth agape"
+							},
+							{
+								"g": "ideas",
+								"i": "wave goodbye"
+							},
+							{
+								"g": "type of action in moral interaction",
+								"i": "wave goodbye"
+							},
+							{
+								"g": "nouns",
+								"i": "birds"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
+							},
+							{
+								"g": "interactions with",
+								"i": "ma and pa"
+							},
+							{
+								"g": "places",
+								"i": "outside"
+							},
+							{
+								"g": "prepositions",
+								"i": "with"
+							},
+							{
+								"g": "locations",
+								"i": "viewin"
+							},
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "adjectives",
+								"i": "lonely"
 							},
 							{
 								"g": "prepositions",
 								"i": "to"
 							},
 							{
-								"g": "physical features",
-								"i": "southern girl"
-							},
-							{
-								"g": "motivations",
-								"i": "have to crawl"
-							},
-							{
-								"g": "natural",
-								"i": "soothing"
-							},
-							{
-								"g": "nouns",
-								"i": "drawl"
+								"g": "time of day",
+								"i": "unspecified"
 							},
 							{
 								"g": "hair/makeup",
-								"i": "elegant"
-							},
-							{
-								"g": "artificial",
-								"i": "dynamic"
+								"i": "neat"
 							}
 						],
 						"txt": "I wave goodbye to ma and pa 'cause with the birds I'll share (this lonely view)"
@@ -3927,6 +5365,12 @@
 		{
 			"key": "verse4",
 			"value": {
+				"data": [
+					{
+						"key": "rev.gen.lyrics",
+						"value": "Step outside and I'll take my chances \nTaste my health since I'm a man of leisure\nVibrant colors in a moody sky, flashing rhythm to my heart's beat\nWide eyes swaying to the sound, have to crawl to make it to the moon\nRaising eyebrows as I set off, bouncing to the music as I go\nTo make it to the moon, a magical, contrasting world."
+					}
+				],
 				"lines": [
 					"(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl.",
 					"And autumn's sweet, we call it fall.",
@@ -3946,64 +5390,96 @@
 						"len": 1,
 						"attributes": [
 							{
-								"g": "artificial",
-								"i": "stark"
+								"g": "pronouns",
+								"i": "i"
+							},
+							{
+								"g": "verbs",
+								"i": "step"
+							},
+							{
+								"g": "adjectives",
+								"i": "soft"
+							},
+							{
+								"g": "adjectives",
+								"i": "broken"
+							},
+							{
+								"g": "nouns",
+								"i": "jaw"
+							},
+							{
+								"g": "physical features",
+								"i": "soft spoken"
+							},
+							{
+								"g": "places",
+								"i": "outside"
+							},
+							{
+								"g": "locations",
+								"i": "unknown"
+							},
+							{
+								"g": "time of day",
+								"i": "unspecified"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
 							},
 							{
 								"g": "ideas",
-								"i": "taste health"
-							},
-							{
-								"g": "prepositions",
-								"i": "against"
+								"i": "broken jaw"
 							},
 							{
 								"g": "ideas",
 								"i": "step outside"
 							},
 							{
-								"g": "natural",
-								"i": "soothing"
+								"g": "facial expressions",
+								"i": "smiling"
 							},
 							{
-								"g": "ideas",
-								"i": "sarcastic mister"
-							},
-							{
-								"g": "type of action in moral interaction",
-								"i": "wave goodbye"
-							},
-							{
-								"g": "artificial",
-								"i": "dynamic"
-							},
-							{
-								"g": "ambient",
-								"i": "magical"
+								"g": "body language",
+								"i": "leaning back"
 							},
 							{
 								"g": "hair/makeup",
-								"i": "refined"
+								"i": "elegant"
+							},
+							{
+								"g": "clothing",
+								"i": "modern"
+							},
+							{
+								"g": "accessories",
+								"i": "belt"
+							},
+							{
+								"g": "effects",
+								"i": "flanger"
+							},
+							{
+								"g": "transitions",
+								"i": "spiral"
+							},
+							{
+								"g": "splices",
+								"i": "staccato sounds"
+							},
+							{
+								"g": "natural",
+								"i": "soft"
 							},
 							{
 								"g": "artificial",
 								"i": "gritty"
 							},
 							{
-								"g": "physical features",
-								"i": "scar tissue"
-							},
-							{
-								"g": "hair/makeup",
-								"i": "dramatic"
-							},
-							{
-								"g": "goals",
-								"i": "make it to the moon"
-							},
-							{
-								"g": "facial expressions",
-								"i": "pursed lips"
+								"g": "color",
+								"i": "earthy"
 							}
 						],
 						"txt": "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
@@ -4022,64 +5498,68 @@
 							"len": 1,
 							"attributes": [
 								{
-									"g": "facial expressions",
-									"i": "wide eyes"
-								},
-								{
-									"g": "contrast and unexpected elements",
-									"i": "sarcastic mister know-it-all"
-								},
-								{
-									"g": "verbs",
-									"i": "step"
-								},
-								{
-									"g": "hair/makeup",
-									"i": "stylish"
-								},
-								{
-									"g": "splices",
-									"i": "augmented rhythms"
-								},
-								{
-									"g": "ambient",
-									"i": "mysterious"
-								},
-								{
-									"g": "prepositions",
-									"i": "to"
-								},
-								{
 									"g": "likes and dislikes",
 									"i": "taste your health"
 								},
 								{
-									"g": "ambient",
-									"i": "bright"
+									"g": "places",
+									"i": "unknown"
 								},
 								{
-									"g": "color",
-									"i": "contrasting"
+									"g": "locations",
+									"i": "unknown"
 								},
 								{
-									"g": "ideas",
-									"i": "scar tissue"
+									"g": "time of day",
+									"i": "unspecified"
+								},
+								{
+									"g": "time periods",
+									"i": "present"
 								},
 								{
 									"g": "facial expressions",
-									"i": "raising eyebrows"
-								},
-								{
-									"g": "color",
-									"i": "vibrant"
+									"i": "wide eyes"
 								},
 								{
 									"g": "body language",
-									"i": "swaying head to side"
+									"i": "swaying to the beat"
 								},
 								{
-									"g": "ambient",
-									"i": "magical"
+									"g": "hair/makeup",
+									"i": "subdued"
+								},
+								{
+									"g": "clothing",
+									"i": "refined"
+								},
+								{
+									"g": "accessories",
+									"i": "watch"
+								},
+								{
+									"g": "effects",
+									"i": "chorusing"
+								},
+								{
+									"g": "transitions",
+									"i": "match cut"
+								},
+								{
+									"g": "splices",
+									"i": "synthesizers"
+								},
+								{
+									"g": "natural",
+									"i": "vibrant"
+								},
+								{
+									"g": "artificial",
+									"i": "flashing"
+								},
+								{
+									"g": "color",
+									"i": "moody"
 								}
 							],
 							"txt": "And autumn's sweet, we call it fall."
@@ -4090,44 +5570,20 @@
 							"len": 1,
 							"attributes": [
 								{
-									"g": "ideas",
-									"i": "kissing"
+									"g": "pronouns",
+									"i": "i"
 								},
 								{
-									"g": "artificial",
-									"i": "flashing"
-								},
-								{
-									"g": "artificial",
-									"i": "abstract"
-								},
-								{
-									"g": "interactions with",
-									"i": "the birds"
-								},
-								{
-									"g": "artificial",
-									"i": "gritty"
+									"g": "verbs",
+									"i": "make"
 								},
 								{
 									"g": "prepositions",
 									"i": "to"
 								},
 								{
-									"g": "color",
-									"i": "vibrant"
-								},
-								{
-									"g": "verbs",
-									"i": "share"
-								},
-								{
-									"g": "hair/makeup",
-									"i": "rugged"
-								},
-								{
-									"g": "ambient",
-									"i": "magical"
+									"g": "nouns",
+									"i": "moon"
 								},
 								{
 									"g": "goals",
@@ -4138,16 +5594,266 @@
 									"i": "have to crawl"
 								},
 								{
+									"g": "places",
+									"i": "unknown"
+								},
+								{
+									"g": "locations",
+									"i": "unknown"
+								},
+								{
+									"g": "time of day",
+									"i": "unspecified"
+								},
+								{
+									"g": "time periods",
+									"i": "present"
+								},
+								{
+									"g": "ideas",
+									"i": "moon crawlin"
+								},
+								{
+									"g": "facial expressions",
+									"i": "raising eyebrows"
+								},
+								{
+									"g": "body language",
+									"i": "bouncing to the beat"
+								},
+								{
+									"g": "hair/makeup",
+									"i": "simple"
+								},
+								{
+									"g": "clothing",
+									"i": "outdoor"
+								},
+								{
+									"g": "props",
+									"i": "musical instrument"
+								},
+								{
+									"g": "effects",
+									"i": "compression"
+								},
+								{
 									"g": "transitions",
-									"i": "fade in/fade out"
+									"i": "zoom"
+								},
+								{
+									"g": "splices",
+									"i": "harmonization"
+								},
+								{
+									"g": "ambient",
+									"i": "magical"
+								},
+								{
+									"g": "artificial",
+									"i": "abstract"
+								},
+								{
+									"g": "color",
+									"i": "contrasting"
+								}
+							],
+							"txt": "I'll make it to the moon if I have to crawl (and)"
+						}
+					}
+				},
+				"rev_snap": {
+					"part_id": 5,
+					"pos": 0,
+					"len": 3,
+					"attributes": [
+
+					],
+					"txt": "",
+					"a": {
+						"part_id": 5,
+						"pos": 0,
+						"len": 1,
+						"attributes": [
+							{
+								"g": "verbs",
+								"i": "step"
+							},
+							{
+								"g": "pronouns",
+								"i": "i"
+							},
+							{
+								"g": "body language",
+								"i": "leaning back"
+							},
+							{
+								"g": "natural",
+								"i": "soft"
+							},
+							{
+								"g": "color",
+								"i": "earthy"
+							},
+							{
+								"g": "hair/makeup",
+								"i": "elegant"
+							},
+							{
+								"g": "artificial",
+								"i": "gritty"
+							},
+							{
+								"g": "facial expressions",
+								"i": "smiling"
+							},
+							{
+								"g": "physical features",
+								"i": "soft spoken"
+							},
+							{
+								"g": "ideas",
+								"i": "step outside"
+							},
+							{
+								"g": "places",
+								"i": "outside"
+							},
+							{
+								"g": "time of day",
+								"i": "unspecified"
+							},
+							{
+								"g": "time periods",
+								"i": "present"
+							},
+							{
+								"g": "ideas",
+								"i": "broken jaw"
+							},
+							{
+								"g": "locations",
+								"i": "unknown"
+							}
+						],
+						"txt": "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl."
+					},
+					"b": {
+						"part_id": 5,
+						"pos": 1,
+						"len": 2,
+						"attributes": [
+
+						],
+						"txt": "",
+						"a": {
+							"part_id": 5,
+							"pos": 1,
+							"len": 1,
+							"attributes": [
+								{
+									"g": "artificial",
+									"i": "flashing"
+								},
+								{
+									"g": "likes and dislikes",
+									"i": "taste your health"
+								},
+								{
+									"g": "natural",
+									"i": "vibrant"
+								},
+								{
+									"g": "color",
+									"i": "moody"
+								},
+								{
+									"g": "time of day",
+									"i": "unspecified"
+								},
+								{
+									"g": "facial expressions",
+									"i": "wide eyes"
+								},
+								{
+									"g": "locations",
+									"i": "unknown"
+								},
+								{
+									"g": "time periods",
+									"i": "present"
+								},
+								{
+									"g": "places",
+									"i": "unknown"
+								},
+								{
+									"g": "body language",
+									"i": "swaying to the beat"
+								}
+							],
+							"txt": "And autumn's sweet, we call it fall."
+						},
+						"b": {
+							"part_id": 5,
+							"pos": 2,
+							"len": 1,
+							"attributes": [
+								{
+									"g": "time periods",
+									"i": "present"
+								},
+								{
+									"g": "ideas",
+									"i": "moon crawlin"
+								},
+								{
+									"g": "locations",
+									"i": "unknown"
+								},
+								{
+									"g": "time of day",
+									"i": "unspecified"
+								},
+								{
+									"g": "facial expressions",
+									"i": "raising eyebrows"
+								},
+								{
+									"g": "motivations",
+									"i": "have to crawl"
+								},
+								{
+									"g": "artificial",
+									"i": "abstract"
+								},
+								{
+									"g": "places",
+									"i": "unknown"
+								},
+								{
+									"g": "goals",
+									"i": "make it to the moon"
+								},
+								{
+									"g": "ambient",
+									"i": "magical"
 								},
 								{
 									"g": "color",
 									"i": "contrasting"
 								},
 								{
-									"g": "facial expressions",
-									"i": "wide eyes"
+									"g": "body language",
+									"i": "bouncing to the beat"
+								},
+								{
+									"g": "pronouns",
+									"i": "i"
+								},
+								{
+									"g": "prepositions",
+									"i": "to"
 								}
 							],
 							"txt": "I'll make it to the moon if I have to crawl (and)"
@@ -4552,5 +6258,21 @@
 				}
 			}
 		}
+	],
+	"rev_tasks": [
+		"-6119967176141634635",
+		"8887879240178358282",
+		"3014818864306309641",
+		"3014818864306309641",
+		"-2187629592181123318",
+		"-515505459559448718",
+		"3014818864306309641",
+		"3014818864306309641",
+		"-8517119662946673969",
+		"-2267940477502630071",
+		"-7964707502679796757",
+		"-8941701531438033838",
+		"-8436199859983115316",
+		"-1666189236664162655"
 	]
 }

@@ -85,6 +85,7 @@ struct AI_Task {
 		TASK_REVERSEPATTERN,
 		TASK_MAKE_LYRICS_TASK,
 		TASK_LYRICS,
+		TASK_LYRICS_TRANSLATE,
 		
 		TASK_COUNT
 	};
@@ -102,7 +103,7 @@ struct AI_Task {
 	hash_t hash = 0;
 	
 	Vector<AI_Task*> depends_on;
-	Song* song = 0;
+	Ptrs p;
 	ReverseTask* task = 0;
 	TaskMgr* mgr = 0;
 	
@@ -122,6 +123,8 @@ struct AI_Task {
 	void CreateInput_Pattern();
 	void CreateInput_Analysis();
 	void CreateInput_AttrScores();
+	void CreateInput_Lyrics();
+	void CreateInput_LyricsTranslate();
 	void Process_PatternMask();
 	void Process_Pattern();
 	void Process_Analysis();
@@ -132,6 +135,8 @@ struct AI_Task {
 	void Process_MakeReversePattern();
 	void Process_MakeLyricsTask();
 	void Process_ReversePattern();
+	void Process_Lyrics();
+	void Process_LyricsTranslate();
 	String GetDescription() const;
 	String GetTypeString() const;
 	bool IsDepsReady(Index<AI_Task*>& seen) const;

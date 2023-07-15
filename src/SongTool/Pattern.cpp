@@ -131,6 +131,7 @@ void Song::ReloadStructure() {
 	for (Part& part : this->parts) {
 		//DUMP(part.lines.GetCount());
 		part.snap.Init(0, part.lines.GetCount());
+		part.rev_snap.Init(0, part.lines.GetCount());
 		ASSERT(part.snap.GetLevel() > 0 || part.lines.GetCount() <= 1);
 		part.FixPtrs();
 	}

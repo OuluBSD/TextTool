@@ -40,6 +40,7 @@ struct SnapAttrStr : Moveable<SnapAttrStr> {
 	}
 	void RealizeId() const;
 	void Load(const SnapAttr& sa);
+	void Serialize(Stream& s) {s % group % item % group_i % item_i % has_id;}
 	String ToString() const {return group + ":" + item;}
 	hash_t GetHashValue() const {CombineHash c; c << group << item; return c;}
 };
@@ -47,6 +48,21 @@ struct SnapAttrStr : Moveable<SnapAttrStr> {
 
 struct DataFile {
 	String file_title;
+	
+};
+
+struct Artist;
+struct Release;
+struct Song;
+struct Part;
+struct PatternSnap;
+
+struct Ptrs {
+	Artist* artist = 0;
+	Release* release = 0;
+	Song* song = 0;
+	Part* part = 0;
+	PatternSnap* snap = 0;
 	
 };
 

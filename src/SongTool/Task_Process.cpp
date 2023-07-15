@@ -5,11 +5,11 @@ void AI_Task::Process_MakeAttrScores() {
 	TaskMgr& m = TaskMgr::Single();
 	Attributes& attrs = db.attrs;
 	AttrScore& as = db.attrscores;
-	if (!song) {
+	if (!p.song) {
 		SetError("no song pointer set");
 		return;
 	}
-	Song& song = *this->song;
+	Song& song = *this->p.song;
 	
 	if (!as.RealizeTemp()) {
 		SetError("AttrScore::RealizeTemp failed");
@@ -54,7 +54,7 @@ void AI_Task::Process_MakeAttrScores() {
 		int task_begin = m.tasks.GetCount();
 		AI_Task& chk = m.tasks.Add();
 		chk.type = TASK_MAKE_ATTRSCORES_TASKS;
-		chk.song = this->song;
+		chk.p = this->p;
 		
 		for (int group_type_i : unresolved_group_types.GetKeys()) {
 			const Attributes::GroupType& group_type = attrs.group_types[group_type_i];
@@ -62,7 +62,7 @@ void AI_Task::Process_MakeAttrScores() {
 			AI_Task& t = m.tasks.Add();
 			m.total++;
 			t.type = TASK_ATTRSCORES;
-			t.song = this->song;
+			t.p = this->p;
 			t.args << group_type.name << group_type.ai_txt;
 			t.CreateInput();
 			ASSERT(!t.failed);
@@ -87,13 +87,13 @@ void AI_Task::Process_MakeAttrScores() {
 		AI_Task& t = m.tasks.Add();
 		m.total++;
 		t.type = TASK_SONGSCORE;
-		t.song = this->song;
+		t.p = this->p;
 		t.CreateInput();
 		
 		AI_Task& chk = m.tasks.Add();
 		m.total++;
 		chk.type = TASK_MAKE_REVERSEPATTERN_TASK;
-		chk.song = this->song;
+		chk.p = this->p;
 		chk.depends_on << &t;
 	}
 }
@@ -101,7 +101,7 @@ void AI_Task::Process_MakeAttrScores() {
 void AI_Task::Process_PatternMask() {
 	LOG("AI_Task::Process_PatternMask: begin");
 	Database& db = Database::Single();
-	Song& s = *song;
+	Song& s = *p.song;
 	
 	input.Replace("\r","");
 	output.Replace("\r","");
@@ -258,7 +258,7 @@ void AI_Task::Process_Pattern() {
 	TaskMgr& m = TaskMgr::Single();
 	Attributes& g = db.attrs;
 	AttrScore& as = db.attrscores;
-	Song& song = *this->song;
+	Song& song = *this->p.song;
 	
 	String txt = input + output;
 	txt.Replace("\r", "");
@@ -434,7 +434,7 @@ void AI_Task::Process_Pattern() {
 void AI_Task::Process_Analysis() {
 	LOG("AI_Task::Process_Analysis: begin");
 	Database& db = Database::Single();
-	Song& s = *song;
+	Song& s = *p.song;
 	String vocalist_visual = args[0];
 	String title = args[1];
 	
@@ -503,21 +503,21 @@ void AI_Task::Process_Analysis() {
 void AI_Task::Process_MakePatternTasks() {
 	Database& db = Database::Single();
 	TaskMgr& m = TaskMgr::Single();
-	if (!song) {
+	if (!p.song) {
 		SetError("no song pointer set");
 		return;
 	}
 	
 	AI_Task& chk = m.tasks.Add();
 	chk.type = TASK_MAKE_ATTRSCORES_TASKS;
-	chk.song = song;
+	chk.p = this->p;
 	
 	for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
 		const Attributes::GroupType& group_type = db.attrs.group_types[i];
 		AI_Task& t = m.tasks.Add();
 		m.total++;
 		t.type = TASK_PATTERN;
-		t.song = song;
+		t.p = this->p;
 		t.args << group_type.name << group_type.ai_txt;
 		t.CreateInput();
 		chk.depends_on << &t;
@@ -880,51 +880,72 @@ void AI_Task::Process_ReversePattern() {
 	const TaskMgr& mgr = *this->mgr;
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
+	
+	db.attrscores.RealizeTemp();
+	
+	const Attributes::Group* gp = g.groups.Begin();
+	int group_count = g.groups.GetCount();
 	int gc = g.scorings.GetCount();
-	int ac = db.attrscores.groups.GetCount();
+	//int ac = db.attrscores.groups.GetCount();
 	ReverseTask& task = *this->task;
+	ASSERT(!task.mask_attrs.IsEmpty());
+	ASSERT(!task.scores.IsEmpty());
+	ASSERT(!task.txt.IsEmpty());
+	ASSERT(task.snap);
+	ASSERT(task.rev_snap);
+	const double* comp = task.scores.Begin();
+	PatternSnap& snap = *task.rev_snap;
+	int ma = task.mask_attrs.GetCount();
+	ASSERT(ma > 0);
+	task.active = true;
+	const SnapAttrStr* mas = task.mask_attrs.GetKeys().Begin();
+	
 	Vector<double> score;
 	score.SetCount(gc);
 	double* sc = score.Begin();
-	task.scores.SetCount(gc, 0);
-	const double* comp = task.scores.Begin();
-	task.active = true;
-	PatternSnap& snap = *task.snap;
-	if (!task.snap) {SetError("no snap pointer"); return;}
 	
-	GeneticOptimizer optimizer;
-	optimizer.SetMaxGenerations(gens);
-	optimizer.Init(ac, ac * gen_multiplier);
-	optimizer.MinMax(0, 1);
-	double mismatch_prob = 1.0 - (double)max_values / ac;
-	
-	// Process
+	GeneticOptimizer& optimizer = task.optimizer;
 	FixedTopValueSorter<max_values> sorter;
-	task.actual = 0;
-	task.total = optimizer.GetMaxRounds();
-	task.result_values.Reserve(1 << 16);
-	while (task.actual < task.total && !optimizer.IsEnd() && mgr.running) {
-		optimizer.Start();
+	double mismatch_prob = max(0.5, 1.0 - (double)max_values / ma);
+	
+	if (!optimizer.GetRound()) {
+		optimizer.SetMaxGenerations(gens);
+		optimizer.Init(ma, ma * gen_multiplier);
+		optimizer.MinMax(0, 1);
 		
-		// Calculate score of the trial solution
+		// Process
+		task.actual = 0;
+		task.total = optimizer.GetMaxRounds();
+		task.result_values.Reserve(1 << 16);
+	}
+	
+	while (task.actual < task.total && !optimizer.IsEnd() && mgr.running) {
+		// Get trial solution
+		optimizer.Start();
 		const Vector<double>& trial = optimizer.GetTrialSolution();
 		for(int j = 0; j < gc; j++)
 			sc[j] = 0;
 		
+		
+		// Collect probabilities for attributes
 		sorter.Reset();
-		for(int i = 0; i < ac; i++) {
-			double t = trial[i];
-			if (t < mismatch_prob)
+		for(int i = 0; i < ma; i++) {
+			double p = trial[i];
+			if (p < mismatch_prob)
 				continue;
 			
-			sorter.Add(i, t);
+			sorter.Add(i, p);
 		}
 		
+		
+		// Calculate score of the trial solution
 		int mc = min(max_values, sorter.count);
 		for(int i = 0; i < mc; i++) {
-			int group_i = sorter.key[i];
-			
-			const AttrScoreGroup& ag = db.attrscores.groups[group_i];
+			int attr_i = sorter.key[i];
+			const SnapAttrStr& sa = mas[attr_i];
+			int score = db.attrscores.attr_to_score[sa.group_i][sa.item_i];
+			ASSERT(score >= 0);
+			const AttrScoreGroup& ag = db.attrscores.groups[score];
 			ASSERT(ag.scores.GetCount() == gc);
 			const int* fsc = ag.scores.Begin();
 			for(int j = 0; j < gc; j++)
@@ -940,6 +961,8 @@ void AI_Task::Process_ReversePattern() {
 				double diff = fabs(a - b);
 				energy -= diff;
 			}
+			double penalty = (max_values - mc) * 0.1;
+			energy -= penalty;
 		}
 		else if (0) {
 			for(int i = 0; i < gc; i++) {
@@ -994,8 +1017,8 @@ void AI_Task::Process_ReversePattern() {
 		/*double penalty = max(0, enabled_count - 5) * 0.01;
 		energy -= penalty;*/
 		
-		DUMP(energy);
-		DUMP(optimizer.GetBestEnergy());
+		//DUMP(energy);
+		//DUMP(optimizer.GetBestEnergy());
 		bool new_best = energy > optimizer.GetBestEnergy();
 		
 		if ((task.actual % 100) == 0 || new_best) {
@@ -1016,6 +1039,9 @@ void AI_Task::Process_ReversePattern() {
 		optimizer.Stop(energy);
 		
 		task.actual++;
+		
+		if (energy == 0)
+			break;
 	}
 	
 	if (!mgr.running) {
@@ -1027,7 +1053,7 @@ void AI_Task::Process_ReversePattern() {
 	// Use the best result
 	{
 		task.lock.EnterWrite();
-		task.attrs.Clear();
+		task.result_attrs.Clear();
 		snap.attributes.Clear();
 		
 		const Vector<double>& best = optimizer.GetBestSolution();
@@ -1035,7 +1061,7 @@ void AI_Task::Process_ReversePattern() {
 			sc[j] = 0;
 		
 		sorter.Reset();
-		for(int i = 0; i < ac; i++) {
+		for(int i = 0; i < ma; i++) {
 			double t = best[i];
 			if (t < mismatch_prob)
 				continue;
@@ -1045,73 +1071,159 @@ void AI_Task::Process_ReversePattern() {
 		
 		int mc = min(max_values, sorter.count);
 		for(int i = 0; i < mc; i++) {
-			int group_i = sorter.key[i];
-			const AttrScoreGroup& ag = db.attrscores.groups[group_i];
-			if (ag.attrs.IsEmpty())
-				continue;
-			
-			int c = ag.attrs.GetCount();
-			const SnapAttr& sa = ag.attrs[Random(c)];
-			task.attrs.Add(sa);
-			
-			SnapAttrStr sas;
-			sas.Load(sa);
-			snap.attributes.FindAdd(sas);
+			int attr_i = sorter.key[i];
+			const SnapAttrStr& sa = mas[attr_i];
+			task.result_attrs.Add(sa);
+			snap.attributes.FindAdd(sa);
 		}
 		task.lock.LeaveWrite();
 	}
 	
 	// merge common values to owners in snaps
 	snap.MergeOwner();
+	
+	task.Store();
 }
 
 void AI_Task::Process_MakeReversePattern() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
 	TaskMgr& m = TaskMgr::Single();
-	if (!song) {
+	if (!p.song) {
 		SetError("no song pointer set");
 		return;
 	}
 	
+	Song& song = *p.song;
+	
 	AI_Task& chk = m.tasks.Add();
 	chk.type = TASK_MAKE_LYRICS_TASK;
-	chk.song = song;
+	chk.p = p;
 	
 	int gc = g.scorings.GetCount();
 	int ac = db.attrscores.groups.GetCount();
 	int total = ac * gen_multiplier * gens;
 	
-	song->rev_tasks.Clear();
-	for (Part& p : song->parts.GetValues()) {
-		Vector<PatternSnap*> snaps;
+	song.lock.EnterWrite();
+	song.rev_tasks.Clear();
+	for (Part& p : song.parts.GetValues()) {
+		Vector<PatternSnap*> snaps, rev_snaps;
+		p.rev_snap.GetSnapsLevel(0, rev_snaps);
 		p.snap.GetSnapsLevel(0, snaps);
+		if (snaps.GetCount() != rev_snaps.GetCount()) {
+			SetError("snaps and rev-snaps count mismatch");
+			song.lock.LeaveWrite();
+			return;
+		}
 		for(int i = 0; i < snaps.GetCount(); i++) {
-			ReverseTask& rt = song->rev_tasks.Add();
+			PatternSnap& snap = *snaps[i];
+			PatternSnap& rev_snap = *rev_snaps[i];
+			ReverseTask& rt = song.rev_tasks.Add();
 			AI_Task& t = m.tasks.Add();
 			t.type = TASK_REVERSEPATTERN;
-			t.song = song;
+			t.p = this->p;
 			t.task = &rt;
 			//t.id = i;
 			//t.total = total;
-			rt.snap = snaps[i];
-			rt.txt = rt.snap->txt;
+			rt.snap = &snap;
+			rt.rev_snap = &rev_snap;
 			chk.depends_on << &t;
 			m.total++;
 			
-			// Connect PatternSnap to PartScore values (groups.snap_position)
-			// Get score-vector
-			Part& part = song->parts[rt.snap->part_id];
+			
+			// Input arguments ( = hash affecting values)
+			rt.txt = snap.txt;
+			if (snap.txt.IsEmpty()) {
+				SetError("snap text empty");
+				t.failed = true;
+				song.lock.LeaveWrite();
+				return;
+			}
+			
+			Part& part = song.parts[snap.part_id];
 			const PartScore& partscore = part.score;
+			if (partscore.values.IsEmpty()) {
+				SetError("partscore vector is empty");
+				t.failed = true;
+				song.lock.LeaveWrite();
+				return;
+			}
 			rt.scores.SetCount(gc);
 			for(int j = 0; j < gc; j++)
 				rt.scores[j] = partscore.values[j][rt.snap->pos];
+			
+			rt.mask_attrs <<= snap.attributes;
+			for(int j = 0; j < rt.mask_attrs.GetCount(); j++) {
+				const SnapAttrStr& sa = rt.mask_attrs[j];
+				int score = db.attrscores.attr_to_score[sa.group_i][sa.item_i];
+				if (score < 0) {
+					LOG("warning: attribute did not have the scoring: " << sa.group << ", " << sa.item);
+					rt.mask_attrs.Remove(j--);
+				}
+			}
+			if (rt.mask_attrs.IsEmpty()) {
+				SetError("no snap mask attributes");
+				t.failed = true;
+				song.lock.LeaveWrite();
+				return;
+			}
+			
+			// Try to load existing results
+			rt.LoadHash(rt.GetHashValue());
+			
+			
+			// Set task as ready if results were loaded
+			/*if (rt.result_attrs.GetCount()) {
+				t.ready = true;
+			}*/
 		}
 	}
+	song.lock.LeaveWrite();
 }
 
 void AI_Task::Process_MakeLyricsTask() {
+	Database& db = Database::Single();
+	TaskMgr& m = TaskMgr::Single();
+	if (!p.song) {
+		SetError("no song pointer set");
+		return;
+	}
 	
-	SetError("TODO");
+	Song& song = *p.song;
+	Vector<AI_Task*> tasks;
+	for (Part& part : song.parts.GetValues()) {
+		AI_Task& t = m.tasks.Add();
+		t.type = TASK_LYRICS;
+		t.p = p;
+		t.p.part = &part;
+		t.args << "rev";
+		t.CreateInput();
+		tasks << &t;
+	}
 	
+	if (GetCurrentLanguage() != LNG_('E', 'N', 'U', 'S')) {
+		AI_Task& t = m.tasks.Add();
+		t.type = TASK_LYRICS_TRANSLATE;
+		t.p = p;
+		t.depends_on <<= tasks;
+		t.args << "rev" << GetCurrentLanguageString();
+	}
+}
+
+void AI_Task::Process_Lyrics() {
+	Part& p = *this->p.part;
+	bool rev_snap = args.GetCount() && args[0] == "rev";
+	String& txt = rev_snap ? p.data.GetAdd("rev.gen.lyrics") : p.data.GetAdd("gen.lyrics");
+	txt = output;
+}
+
+void AI_Task::Process_LyricsTranslate() {
+	bool rev_snap = args.GetCount() && args[0] == "rev";
+	String lng = args[1].Left(5);
+	String key = rev_snap ? "rev.gen.lyrics" : "gen.lyrics";
+	key += "." + lng;
+	//DUMP(key);
+	//DUMP(output);
+	String& dst = p.song->data.GetAdd(key);
+	dst = output;
 }

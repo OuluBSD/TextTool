@@ -4,8 +4,9 @@
 struct Part {
 	String name;
 	
+	VectorMap<String,String> data;
 	Vector<String>		lines;
-	PatternSnap			snap;
+	PatternSnap			snap, rev_snap;
 	PartScore			score;
 	PatternMask			mask;
 	Composition			composition;
@@ -14,11 +15,14 @@ struct Part {
 	void Clear() {
 		lines.Clear();
 		snap.Clear();
+		rev_snap.Clear();
 	}
 	void Jsonize(JsonIO& json) {
 		json
+			("data", data)
 			("lines", lines)
 			("snap", snap)
+			("rev_snap", rev_snap)
 			("score", score)
 			("mask", mask)
 			("composition", composition)
@@ -29,6 +33,8 @@ struct Part {
 	void FixPtrs() {
 		snap.part = this;
 		snap.FixPtrs();
+		rev_snap.part = this;
+		rev_snap.FixPtrs();
 	}
 };
 

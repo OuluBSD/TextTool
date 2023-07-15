@@ -1,7 +1,12 @@
 #include "SongTool.h"
 
 ReverseCtrl::ReverseCtrl() {
-	Add(mainsplit.SizePos());
+	Add(hsplit.SizePos());
+	
+	hsplit.Horz() << mainsplit << vsplit;
+	hsplit.SetPos(6666);
+	
+	vsplit.Vert() << lyrics << translated;
 	
 	snaplist.AddColumn(t_("Position"));
 	
@@ -31,13 +36,15 @@ void ReverseCtrl::Data() {
 		return;
 	Song& song = *db.active_song;
 	
+	song.lock.EnterRead();
 	song.RealizeTaskSnaps();
 	
 	for(int i = 0; i < song.rev_tasks.GetCount(); i++) {
 		ReverseTask& t = song.rev_tasks[i];
 		
 		t.lock.EnterRead();
-		if (!t.snap) {t.lock.LeaveRead(); continue;}
+		if (!t.snap || !t.snap->part) {t.lock.LeaveRead(); continue;}
+		
 		
 		String name =
 			g.Translate(t.snap->part->name) + ": " +
@@ -52,16 +59,26 @@ void ReverseCtrl::Data() {
 		tasklist.Set(i, 3, perc);
 		
 		String s;
-		for(int j = 0; j < t.attrs.GetCount(); j++) {
-			const SnapAttr& sa = t.attrs[j];
+		for(int j = 0; j < t.result_attrs.GetCount(); j++) {
+			const SnapAttrStr& sa = t.result_attrs[j];
 			if (!s.IsEmpty()) s << ", ";
-			Attributes::Group& gg = g.groups[sa.group];
-			String value = gg.values[sa.item];
+			Attributes::Group& gg = g.groups[sa.group_i];
+			String value = gg.values[sa.item_i];
 			s << Capitalize(g.Translate(gg.description)) << ": " << Capitalize(g.Translate(value));
 		}
 		tasklist.Set(i, 4, s);
 		t.lock.LeaveRead();
 	}
+	song.lock.LeaveRead();
+	
+	String key = "rev.gen.lyrics";
+	String key_translated = "rev.gen.lyrics." + GetCurrentLanguageString().Left(5);
+	lyrics.SetData(song.data.Get(key, "").ToWString());
+	
+	/*String translated = song.data.Get(key_translated, "");
+	WString wtranslated = ToUnicode(translated, CHARSET_UTF8);
+	this->translated.SetData(wtranslated);*/
+	this->translated.SetData(song.data.Get(key_translated, ""));
 	
 	if (tasklist.GetCount() && !tasklist.IsCursor())
 		tasklist.SetCursor(0);
@@ -81,6 +98,9 @@ void ReverseCtrl::DataWorker() {
 	
 	int cursor = tasklist.GetCursor();
 	int id = tasklist.Get(cursor, 0);
+	
+	song.lock.EnterRead();
+	if (id >= song.rev_tasks.GetCount()) {song.lock.LeaveRead(); return;}
 	
 	ReverseTask& t = song.rev_tasks[id];
 	this->task.plotter.Set(t);
@@ -108,6 +128,7 @@ void ReverseCtrl::DataWorker() {
 	}
 	task.total_prog.Set(total_actual, total_total);
 	
+	song.lock.LeaveRead();
 }
 
 

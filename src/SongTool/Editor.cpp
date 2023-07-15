@@ -32,6 +32,7 @@ Editor::Editor() {
 	tablist.Add(t_("Song"), t_("Attribute scoring"));
 	tablist.Add(t_("Song"), t_("Scoring"));
 	tablist.Add(t_("Song"), t_("Reverse"));
+	tablist.Add(t_("Song"), t_("Reverse pattern"));
 	tablist.Add(t_("Song"), t_("Composition"));
 	tablist.Add(t_("Song"), t_("Production"));
 	tablist.Add(t_("Song"), t_("Rhymes"));
@@ -73,6 +74,9 @@ Editor::Editor() {
 	base.Add(production.SizePos());
 	base.Add(rhymes.SizePos());
 	base.Add(reverse.SizePos());
+	base.Add(rev_pattern.SizePos());
+	
+	rev_pattern.use_rev_snap = true;
 	
 	PostCallback(THISBACK(Data)); // sets active artist, song, etc.
 }
@@ -95,6 +99,7 @@ void Editor::SetView(int i) {
 	attrscore.Hide();
 	scoring.Hide();
 	reverse.Hide();
+	rev_pattern.Hide();
 	composition.Hide();
 	analysis.Hide();
 	production.Hide();
@@ -117,9 +122,10 @@ void Editor::SetView(int i) {
 		case 10: attrscore.Show(); break;
 		case 11: scoring.Show(); break;
 		case 12: WhenStartUpdating(); reverse.Show(); break;
-		case 13: composition.Show(); break;
-		case 14: production.Show(); break;
-		case 15: rhymes.Show(); break;
+		case 13: rev_pattern.Show(); break;
+		case 14: composition.Show(); break;
+		case 15: production.Show(); break;
+		case 16: rhymes.Show(); break;
 	}
 	page = i;
 	DataPage();
@@ -140,9 +146,10 @@ void Editor::DataPage() {
 		case 10: attrscore.Data(); break;
 		case 11: scoring.Data(); break;
 		case 12: reverse.Data(); break;
-		case 13: composition.Data(); break;
-		case 14: production.Data(); break;
-		case 15: rhymes.Data(); break;
+		case 13: rev_pattern.Data(); break;
+		case 14: composition.Data(); break;
+		case 15: production.Data(); break;
+		case 16: rhymes.Data(); break;
 		default: break;
 	}
 }
