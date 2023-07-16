@@ -28,7 +28,7 @@ struct Line : PatternSnap {
 	Array<Break>& GetSub() {return breaks;}
 	const Array<Break>& GetSub() const {return breaks;}
 	void MergeOwner() {PatternSnap::MergeOwner(this, breaks);}
-	
+	void ParseLine(const String& txt);
 	
 	PATTERNMASK_MACROS
 };

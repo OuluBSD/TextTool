@@ -55,6 +55,7 @@ void AI_Task::Process_MakeAttrScores() {
 		AI_Task& chk = m.tasks.Add();
 		chk.type = TASK_MAKE_ATTRSCORES_TASKS;
 		chk.p = this->p;
+		chk.rev = this->rev;
 		
 		for (int group_type_i : unresolved_group_types.GetKeys()) {
 			const Attributes::GroupType& group_type = attrs.group_types[group_type_i];
@@ -63,6 +64,7 @@ void AI_Task::Process_MakeAttrScores() {
 			m.total++;
 			t.type = TASK_ATTRSCORES;
 			t.p = this->p;
+			t.rev = this->rev;
 			t.args << group_type.name << group_type.ai_txt;
 			t.CreateInput();
 			ASSERT(!t.failed);
@@ -88,12 +90,14 @@ void AI_Task::Process_MakeAttrScores() {
 		m.total++;
 		t.type = TASK_SONGSCORE;
 		t.p = this->p;
+		t.rev = this->rev;
 		t.CreateInput();
 		
 		AI_Task& chk = m.tasks.Add();
 		m.total++;
 		chk.type = TASK_MAKE_REVERSEPATTERN_TASK;
 		chk.p = this->p;
+		chk.rev = this->rev;
 		chk.depends_on << &t;
 	}
 }
@@ -505,6 +509,7 @@ void AI_Task::Process_MakePatternTasks() {
 	AI_Task& chk = m.tasks.Add();
 	chk.type = TASK_MAKE_ATTRSCORES_TASKS;
 	chk.p = this->p;
+	chk.rev = this->rev;
 	
 	for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
 		const Attributes::GroupType& group_type = db.attrs.group_types[i];
@@ -512,6 +517,7 @@ void AI_Task::Process_MakePatternTasks() {
 		m.total++;
 		t.type = TASK_PATTERN;
 		t.p = this->p;
+		t.rev = this->rev;
 		t.args << group_type.name << group_type.ai_txt;
 		t.CreateInput();
 		chk.depends_on << &t;
@@ -1094,6 +1100,7 @@ void AI_Task::Process_MakeReversePattern() {
 	AI_Task& chk = m.tasks.Add();
 	chk.type = TASK_MAKE_LYRICS_TASK;
 	chk.p = p;
+	chk.rev = rev;
 	
 	int gc = g.scorings.GetCount();
 	int ac = db.attrscores.groups.GetCount();
@@ -1129,6 +1136,7 @@ void AI_Task::Process_MakeReversePattern() {
 			AI_Task& t = m.tasks.Add();
 			t.type = TASK_REVERSEPATTERN;
 			t.p = this->p;
+			t.rev = this->rev;
 			t.task = &rt;
 			//t.id = i;
 			//t.total = total;
@@ -1195,12 +1203,15 @@ void AI_Task::Process_MakeLyricsTask() {
 	}
 	
 	Song& song = *p.song;
+	Song& rsong = *rev.song;
 	Vector<AI_Task*> tasks;
-	for (Part& part : song.parts) {
+	for (Part& part : rsong.parts) {
 		AI_Task& t = m.tasks.Add();
 		t.type = TASK_LYRICS;
 		t.p = p;
-		t.p.part = &part;
+		t.p.part = 0;
+		t.rev = rev;
+		t.rev.part = &part;
 		t.args << "rev";
 		t.CreateInput();
 		tasks << &t;
@@ -1210,25 +1221,27 @@ void AI_Task::Process_MakeLyricsTask() {
 		AI_Task& t = m.tasks.Add();
 		t.type = TASK_LYRICS_TRANSLATE;
 		t.p = p;
+		t.rev = rev;
 		t.depends_on <<= tasks;
 		t.args << "rev" << GetCurrentLanguageString();
 	}
 }
 
 void AI_Task::Process_Lyrics() {
-	Part& p = *this->p.part;
 	bool rev_snap = args.GetCount() && args[0] == "rev";
-	String& txt = rev_snap ? p.data.GetAdd("rev.gen.lyrics") : p.data.GetAdd("gen.lyrics");
+	Part& p = *(rev_snap ? this->rev.part : this->p.part);
+	String& txt = p.data.GetAdd("gen.lyrics");
 	txt = output;
 }
 
 void AI_Task::Process_LyricsTranslate() {
 	bool rev_snap = args.GetCount() && args[0] == "rev";
 	String lng = args[1].Left(5);
-	String key = rev_snap ? "rev.gen.lyrics" : "gen.lyrics";
+	String key = "gen.lyrics";
 	key += "." + lng;
 	//DUMP(key);
 	//DUMP(output);
-	String& dst = p.song->data.GetAdd(key);
+	Song& s = *(rev_snap ? this->rev.song : this->p.song);
+	String& dst = s.data.GetAdd(key);
 	dst = output;
 }

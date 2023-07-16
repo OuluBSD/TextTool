@@ -57,17 +57,18 @@ void ImportCtrl::RemoveLine() {
 
 void ImportCtrl::ParseOriginalLyrics() {
 	Database& db = Database::Single();
-	if (!db.active.song)
+	if (!db.active.song || !db.active_rev.song)
 		return;
 	
-	LOG("TODO reverse song");
-	
-	#if 0
 	Song& a = *db.active.song;
+	Song& b = *db.active_rev.song;
 	a.lock.EnterWrite();
+	b.lock.EnterWrite();
 	
 	a.parts.Clear();
 	a.structure.Clear();
+	b.parts.Clear();
+	b.structure.Clear();
 	
 	// Begin parsing the parts string
 	String c = a.content;
@@ -88,58 +89,52 @@ void ImportCtrl::ParseOriginalLyrics() {
 		a.structure_str << part_title;
 		if (lc) a.structure_str << ":" << lc;
 	}
+	b.structure <<= a.structure;
+	b.structure_str = a.structure_str;
 	//DUMP(a.structure_str);
 	a.ReloadStructure(); // p.unique_parts is filled here
+	b.ReloadStructure();
 	
 	// Parse lyric parts and lines
 	a.unique_lines.Clear();
+	b.unique_lines.Clear();
 	bool found = false;
-	for(int i = 0; i < parts.GetCount(); i++) {
-		Vector<String> lines = Split(parts[i], "\n");
-		int lc = lines.GetCount()-1;
-		if (lines.GetCount() >= 1) {
-			String part_title = TrimBoth(lines[0]);
-			if (part_title.Right(1) == ":")
-				part_title = part_title.Left(part_title.GetCount()-1);
-			
-			if (lc) {
-				Part& part = a.GetAddPart(part_title);
-				Array<Line>& parsed_lines = part.lines;
-				parsed_lines.Clear();
+	for (int v = 0; v < 2; v++) {
+		Song& s = v == 0 ? a : b;
+		for(int i = 0; i < parts.GetCount(); i++) {
+			Vector<String> lines = Split(parts[i], "\n");
+			int lc = lines.GetCount()-1;
+			if (lines.GetCount() >= 1) {
+				String part_title = TrimBoth(lines[0]);
+				if (part_title.Right(1) == ":")
+					part_title = part_title.Left(part_title.GetCount()-1);
 				
-				// Add parsed lines to the Song class
-				for(int j = 1; j < lines.GetCount(); j++) {
-					String tl = TrimBoth(lines[j]);
-					a.unique_lines.GetAdd(tl);
-					parsed_lines.Add().txt = tl;
-				}
-				
-				// Fill lines of text to PatternSnap
-				for(int k = 0; k < 2; k++) {
-					Vector<PatternSnap*> level_snaps;
-					(k == 0 ? part.snap : part.rev_snap).GetSnapsLevel(0, level_snaps);
-					if (level_snaps.GetCount() != lc) {
-						LOG(part_title);
-						PromptOK(Format(t_("Unexpected mismatch: %d vs %d"), level_snaps.GetCount(), lc));
-						a.lock.LeaveWrite();
-						return;
+				if (lc) {
+					Part& part = s.GetAddPart(part_title);
+					Array<Line>& parsed_lines = part.lines;
+					parsed_lines.Clear();
+					
+					// Add parsed lines to the Song class
+					for(int j = 1; j < lines.GetCount(); j++) {
+						String tl = TrimBoth(lines[j]);
+						s.unique_lines.GetAdd(tl);
+						parsed_lines.Add().ParseLine(tl);
 					}
-					int j = 1;
-					for (PatternSnap* snap : level_snaps)
-						snap->txt = lines[j++];
 				}
 			}
 		}
 	}
 	a.FixPtrs();
+	b.FixPtrs();
 	
 	a.RealizeTaskSnaps(true);
+	b.RealizeTaskSnaps(true);
 	
 	a.lock.LeaveWrite();
+	b.lock.LeaveWrite();
 	
 	WhenStructureChange();
 	
-	#endif
 }
 
 
@@ -156,6 +151,12 @@ void ImportCtrl::MakeTasks() {
 	for (Part& p : s.parts) {
 		p.PatternSnap::Clear();
 	}
+	
+	Song& rs = r.RealizeReversed(s);
+	db.active_rev.Ptrs::Clear();
+	db.active_rev.artist = &a;
+	db.active_rev.release = &r;
+	db.active_rev.song = &rs;
 	
 	ParseOriginalLyrics();
 	
@@ -181,9 +182,8 @@ void ImportCtrl::MakeTasks() {
 				// Add task for type
 				AI_Task& t = m.tasks.Add();
 				t.type = type;
-				t.p.artist = &a;
-				t.p.release = &r;
-				t.p.song = &s;
+				t.p = db.active;
+				t.rev = db.active_rev;
 				t.args << group_type.name << group_type.ai_txt << a.vocalist_visual;
 				
 				//for (AI_Task* t0 : pattern_tasks)
@@ -194,9 +194,8 @@ void ImportCtrl::MakeTasks() {
 			// Add task for getting patterns based on pattern mask
 			chk_task = &m.tasks.Add();
 			chk_task->type = type;
-			chk_task->p.artist = &a;
-			chk_task->p.release = &r;
-			chk_task->p.song = &s;
+			chk_task->p = db.active;
+			chk_task->rev = db.active_rev;
 		}
 		else if (type == AI_Task::TASK_ANALYSIS) {
 			for(int i = 0; i < db.attrs.analysis.GetCount(); i++) {
@@ -205,9 +204,8 @@ void ImportCtrl::MakeTasks() {
 				// Add task for analysis type
 				AI_Task& t = m.tasks.Add();
 				t.type = type;
-				t.p.artist = &a;
-				t.p.release = &r;
-				t.p.song = &s;
+				t.p = db.active;
+				t.rev = db.active_rev;
 				t.args << a.vocalist_visual;
 				t.args << key;
 				

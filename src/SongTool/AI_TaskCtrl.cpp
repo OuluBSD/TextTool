@@ -95,6 +95,7 @@ void AI_Tasks::RetryItem() {
 	int cursor = list.GetCursor();
 	AI_Task& t = m.tasks[cursor];
 	t.output.Clear();
+	t.skip_load = true;
 	t.failed = false;
 	t.ready = false;
 	t.error.Clear();

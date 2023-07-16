@@ -96,6 +96,7 @@ struct AI_Task {
 	int type = -1;
 	int response_length = 0;
 	String error;
+	bool skip_load = false;
 	bool ready = false;
 	bool failed = false;
 	bool processing = false;

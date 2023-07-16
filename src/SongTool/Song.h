@@ -6,39 +6,46 @@ struct Song :
 	DataFile,
 	PatternSnap
 {
+	int										uniq = 0;
+	int										linked_uniq = 0;
 	String									artist;
 	String									title;
 	String									prj_name;
 	String									structure_str;
 	VectorMap<String,String>				data;
-	
-	// Imported lyrics
 	String									content;
 	VectorMap<String, Vector<SnapAttrStr>>	unique_lines;
 	Vector<String>							structure;
 	Array<Part>								parts;
+	Array<Track>							tracks;
 	
 	// Local data only (not shared)
 	Array<ReverseTask>						rev_tasks;
 	
+	bool									reversed = false;
 	RWMutex									lock;
 	
+	Song();
 	void Store();
 	void LoadTitle(String title);
 	void ReloadStructure();
+	void RealizeProduction();
 	void RealizeTaskSnaps(bool force=false);
+	Song& SetReversed() {reversed = true; return *this;}
 	void Jsonize(JsonIO& json) {
 		json
+			("uniq", uniq)
+			("linked_uniq", linked_uniq)
 			("artist", artist)
 			("title", title)
 			("prj_name", prj_name)
 			("structure_str", structure_str)
 			("data", data)
-			
 			("content", content)
 			("unique_lines", unique_lines)
 			("structure", structure)
 			("parts", parts)
+			("tracks", tracks)
 			;
 		
 		// rev_tasks

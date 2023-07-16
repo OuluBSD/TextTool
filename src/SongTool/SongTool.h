@@ -34,6 +34,8 @@ using namespace Upp;
 #include "Break.h"
 #include "Line.h"
 #include "Part.h"
+#include "Block.h"
+#include "Track.h"
 #include "Song.h"
 #include "Release.h"
 #include "Artist.h"
@@ -61,6 +63,10 @@ using namespace Upp;
 #include "Plotter.h"
 #include "ScoringCtrl.h"
 #include "ImportCtrl.h"
+
+#include "LineEditCtrl.h"
+#include "Sequencer.h"
+#include "SeqCtrl.h"
 
 #include "FrontPage.h"
 #include "CalendarPage.h"

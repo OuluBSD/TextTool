@@ -8,8 +8,11 @@ String Database::GetReleasesDir() const {
 	return dir + DIR_SEPS "share" DIR_SEPS "releases" DIR_SEPS;
 }
 
-String Database::GetSongsDir() const {
-	return dir + DIR_SEPS "share" DIR_SEPS "songs" DIR_SEPS;
+String Database::GetSongsDir(bool reversed) const {
+	if (!reversed)
+		return dir + DIR_SEPS "share" DIR_SEPS "songs" DIR_SEPS;
+	else
+		return dir + DIR_SEPS "share" DIR_SEPS "re_songs" DIR_SEPS;
 }
 
 void Database::Store() {
@@ -19,8 +22,10 @@ void Database::Store() {
 void Database::Load() {
 	Clear();
 	LoadFromJsonFile(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json");
+	bool initial = attrs.groups.IsEmpty();
 	attrs.Realize();
-	RealizeAttrIds();
+	if (!initial)
+		RealizeAttrIds();
 }
 
 void Database::RealizeAttrIds() {

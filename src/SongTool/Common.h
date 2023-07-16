@@ -68,6 +68,8 @@ struct Ptrs {
 	Break* brk = 0;
 	PatternSnap* snap = 0;
 	
+	void Clear() {memset(this, 0, sizeof(Ptrs));}
+	
 };
 
 #endif

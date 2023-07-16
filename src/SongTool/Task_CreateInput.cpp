@@ -173,6 +173,7 @@ void AI_Task::CreateInput_Analysis() {
 		for(int j = 0; j < lines.GetCount(); j++) {
 			Line& line = lines[j];
 			s << line.txt << "\n";
+			ASSERT(line.txt.GetCount());
 			//hash << ToLower(line.txt);
 		}
 		

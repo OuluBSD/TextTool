@@ -42,7 +42,7 @@ struct Database {
 	}
 	String GetArtistsDir() const;
 	String GetReleasesDir() const;
-	String GetSongsDir() const;
+	String GetSongsDir(bool reversed) const;
 	int GetActiveArtistIndex() const {return VectorFindPtr(active.artist, artists);}
 	int GetActiveReleaseIndex() const {if (!active.artist) return -1; return VectorFindPtr(active.release, active.artist->releases);}
 	int GetActiveSongIndex() const {if (!active.release) return -1; return VectorFindPtr(active.song, active.release->songs);}

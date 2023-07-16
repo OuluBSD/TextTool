@@ -28,6 +28,8 @@ void AI_Task::Store() {
 }
 
 void AI_Task::Load() {
+	if (skip_load)
+		return;
 	Database& db = Database::Single();
 	String dir = ConfigFile("share" DIR_SEPS "ai_results" DIR_SEPS);
 	RealizeDirectory(dir);
@@ -141,6 +143,7 @@ void AI_Task::Process() {
 	}
 	
 	if (!failed) ready = true;
+	skip_load = false;
 	processing = false;
 	changed = true;
 }

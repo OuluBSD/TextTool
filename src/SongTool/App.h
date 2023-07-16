@@ -8,6 +8,7 @@ class SongTool : public TopWindow {
 	FrontPage		fp;
 	CalendarPage	cal;
 	Editor			ed;
+	SeqCtrl			seq;
 	AI_Tasks		ai;
 	TimeCallback	tc;
 	
