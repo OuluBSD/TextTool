@@ -224,14 +224,14 @@ void Attributes::LoadDefaultAnalysis() {
 
 void Attributes::LoadDefaultAttrGroups() {
 	AddScoring(("Integrity: honest/twisted"), scorings);
-	AddScoring(("Social: authoritarian/liberatrian"), scorings);
+	AddScoring(("Social: libertarian/authoritarian"), scorings);
 	AddScoring(("Economic: liberal/conservative"), scorings);
 	AddScoring(("Culture: individualism/collective"), scorings);
 	AddScoring(("Human strength: strong/weak"), scorings);
 	AddScoring(("Motivation: rewarding/punishing"), scorings);
 	AddScoring(("Sexualization: sexual/non-sexual"), scorings);
 	AddScoring(("Beliefs: spiritual/secular"), scorings);
-	AddScoring(("Expectations: perfection/acceptance"), scorings);
+	AddScoring(("Expectations: acceptance/perfection"), scorings);
 	AddScoring(("Mood: joyful/melancholic"), scorings);
 	AddScoring(("Mood: playful/serious"), scorings);
 	AddScoring(("Mood: uplifting/heavy"), scorings);

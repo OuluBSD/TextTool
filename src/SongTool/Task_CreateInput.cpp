@@ -209,14 +209,14 @@ const char* attrscore_prompt1 = R"ATRSCROO(
 
 List of axes:
 -a Integrity: +honest/-twisted
--b Social: +authoritarian/-liberatrian
+-b Social: +libertarian/-authoritarian
 -c Economic: +liberal/-conservative
 -d Culture: +individualism/-collective
 -e Human strength: +strong/-weak
 -f Motivation: +rewarding/-punishing
 -g Sexualization: +sexual/-non-sexual
 -h Beliefs: +spiritual/-secular
--i Expectations: +perfection/-acceptance
+-i Expectations: +acceptance/-perfection
 -j Mood: +joyful/-melancholic
 -k Mood: +playful/-serious
 -l Mood: +uplifting/-heavy
@@ -227,21 +227,21 @@ List of axes:
 -q Attitude: +open/-closed
 
 Combination string from results:
- - a (Integrity: +honest/-twisted) b (Social: +authoritarian/-liberatrian) c (Economic: +liberal/-conservative) etc.
+ - a (Integrity: +honest/-twisted) b (Social: +libertarian/-authoritarian) c (Economic: +liberal/-conservative) etc.
 
 Combination integer values are allwed to be between -3 and +3.
 
 Scores per entry:
 Line 1, Pronouns: "I":
 -a Integrity: +honest/-twisted: +1 honest
--b Social: authoritarian/liberatrian: -1 libertarian
+-b Social: libertarian/authoritarian: +1 libertarian
 -c Economic: liberal/conservative: 0
 -d Culture: individualism/collective: +1 individualism
 -e Human strength: strong/weak: +1 strong
 -f Motivation: rewarding/punishing: +1 rewarding
 -g Sexualization: sexual/non-sexual: 0
 -h Beliefs: spiritual/ secular: 0
--i Expectations: perfection/acceptance: -1 acceptance
+-i Expectations: acceptance/perfection: +1 acceptance
 -j Mood: joyful/melancholic: +1 joyful
 -k Mood: playful/serious: +1 playful
 -l Mood: uplifting/heavy: +1 uplifting
@@ -250,12 +250,12 @@ Line 1, Pronouns: "I":
 -o Attitude: hopeful/despair: +1 hopeful
 -p Attitude: optimistic/pessimistic: +1 optimistic
 -q Attitude: open/closed: +1 open
-Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
 )ATRSCROO";
 
 const char* attrscore_prompt2 = R"ATRSCROO(
 Line 1, Pronouns: "I":
-Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i-1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
 
 Entries:
 ${ENTRIES}
