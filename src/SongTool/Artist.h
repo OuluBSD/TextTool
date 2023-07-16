@@ -2,7 +2,10 @@
 #define _SongTool_Artist_h_
 
 
-struct Artist : DataFile {
+struct Artist :
+	DataFile,
+	PatternSnap
+{
 	String name;
 	int year_of_birth = 0;
 	int year_of_career_begin = 0;
@@ -28,6 +31,18 @@ struct Artist : DataFile {
 	}
 	void Store();
 	void LoadTitle(String title);
+	void FixPtrs() {
+		this->artist = this;
+		int id = 0;
+		for (Release& r : releases) {
+			static_cast<Ptrs&>(r) = *(Ptrs*)this;
+			r.owner = this;
+			r.SetId(id++);
+			r.FixPtrs();
+		}
+	}
+	Array<Release>& GetSub() {return releases;}
+	const Array<Release>& GetSub() const {return releases;}
 	void Jsonize(JsonIO& json) {
 		json
 			("name", name)
@@ -52,6 +67,7 @@ struct Artist : DataFile {
 			for (String n : names) releases.Add().LoadTitle(n);
 			Sort(releases, Release());
 		}
+		PatternSnap::Jsonize(json);
 	}
 	
 	bool operator()(const Artist& a, const Artist& b) const {
@@ -59,6 +75,8 @@ struct Artist : DataFile {
 		return a.name < b.name;
 	}
 	
+	
+	PATTERNMASK_MACROS
 };
 
 

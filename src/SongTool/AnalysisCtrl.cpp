@@ -11,11 +11,11 @@ AnalysisCtrl::AnalysisCtrl() {
 
 void AnalysisCtrl::Data() {
 	Database& db = Database::Single();
-	if (!db.active_part) return;
-	Part& p = *db.active_part;
+	if (!db.active.part) return;
+	Part& p = *db.active.part;
 	Analysis& a = p.analysis;
 	
-	lyrics.SetData(Join(p.lines, "\n"));
+	lyrics.SetData(p.txt);
 	
 	for(int i = 0; i < a.data.GetCount(); i++) {
 		data.Set(i, 0, a.data.GetKey(i));

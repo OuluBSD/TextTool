@@ -101,7 +101,6 @@ struct Attributes : DataFile {
 	}
 	String Translate(const String& s);
 	SnapAttr GetAddAttr(String group, String item);
-	void ResolveId(SnapAttrStr& sa);
 	bool FindAttr(String group, String item, SnapAttr& sa) const;
 	void Clear() {groups.Clear(); translation.Clear();}
 	void Jsonize(JsonIO& json) {
@@ -133,6 +132,16 @@ struct Attributes : DataFile {
 	static int trans_i; // active language translation index
 	
 };
+
+
+
+
+
+
+
+
+
+
 
 
 

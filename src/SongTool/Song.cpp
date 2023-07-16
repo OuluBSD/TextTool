@@ -26,9 +26,9 @@ void Song::RealizeTaskSnaps(bool force) {
 		if (all_ok)
 			return;
 	}
-	for (Part& p : parts.GetValues()) {
+	for (Part& p : parts) {
 		Vector<PatternSnap*> snaps;
-		p.snap.GetSnapsLevel(0, snaps);
+		p.GetSnapsLevel(0, snaps);
 		if (force)
 			for (ReverseTask& rt : rev_tasks)
 				rt.snap = 0;

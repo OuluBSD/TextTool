@@ -120,27 +120,27 @@ void Plotter::Paint(Draw& d) {
 		for (auto& v : values) v.SetCount(0);
 		for(int i = 0; i < song->structure.GetCount(); i++) {
 			String key = song->structure[i];
-			int j = song->parts.Find(key);
+			int j = song->FindPartIdx(key);
 			if (j < 0) {
 				DUMP(i);
 				DUMPC(song->structure);
-				DUMPC(song->parts.GetKeys());
+				DUMPC(song->parts);
 			}
 			ASSERT(j >= 0);
 			
-			PartScore& part = song->parts[j].score;
+			Part& part = song->parts[j];
 			
-			// Accumulate values
-			int c0 = min(c, part.values.GetCount());
-			for(int j = 0; j < c0; j++) {
-				auto& to = values[j];
-				const auto& from = part.values[j];
-				for (auto& v : from)
-					to.Add(v);
+			for(int j = 0; j < part.lines.GetCount(); j++) {
+				Line& line = part.lines[j];
+				
+				// Accumulate values
+				int c0 = min(c, line.partscore.GetCount());
+				for(int k = 0; k < c0; k++)
+					values[k].Add(line.partscore[k]);
 			}
 			
 			// Get positions of vertical lines
-			vert_x += part.GetLen();
+			vert_x += part.lines.GetCount();
 			vert_lines.Add(vert_x);
 			
 			// Get key string for the whole song
@@ -152,16 +152,12 @@ void Plotter::Paint(Draw& d) {
 	else {
 		if (!part)
 			return;
-		part_key = this->part_key;
-		int c = part->values.GetCount();
-		this->values.SetCount(c);
-		for(int i = 0; i < c; i++) {
-			const auto& f = part->values[i];
-			auto& d = this->values[i];
-			int c0 = f.GetCount();
-			d.SetCount(c0);
+		part_key = part->name;
+		for(int i = 0; i < part->lines.GetCount(); i++) {
+			Line& line = part->lines[i];
+			int c0 = min(c, line.partscore.GetCount());
 			for(int j = 0; j < c0; j++)
-				d[j] = f[j];
+				this->values[j].Add(line.partscore[j]);
 		}
 	}
 	
@@ -189,8 +185,8 @@ void Plotter::Paint(Draw& d) {
 		int k = 0;
 		for(int i = 0; i < song->structure.GetCount(); i++) {
 			const String& part_key = song->structure[i];
-			const PartScore& part = song->parts.Get(part_key).score;
-			int len = part.GetLen();
+			const Part& part = *song->FindPart(part_key);
+			int len = part.lines.GetCount();
 			for(int j = 0; j < len; j++) {
 				int x = xoff + cx * k;
 				RectId& rid = rids.Add();
@@ -349,15 +345,14 @@ void Plotter::MouseWheel(Point p, int zdelta, dword keyflags) {
 			if (rid.a.Contains(p)) {
 				int change = zdelta > 0 ? +1 : -1;
 				const String& part_key = song->structure[rid.b];
-				PartScore& part = song->parts.Get(part_key).score;
-				if (focused_group_i < 0 || focused_group_i > part.values.GetCount())
+				Part& part = *song->FindPart(part_key);
+				//if (focused_group_i < 0 || focused_group_i > part.values.GetCount())
+				//	return;
+				if (rid.c < 0 || rid.c >= part.lines.GetCount())
 					return;
 				
-				auto& v = part.values[focused_group_i];
-				if (rid.c < 0 || rid.c >= v.GetCount())
-					return;
-				
-				auto& score = v[rid.c];
+				Line& line = part.lines[rid.c];
+				auto& score = line.partscore[focused_group_i];
 				score += change;
 				break;
 			}

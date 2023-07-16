@@ -46,14 +46,13 @@ void ScoringCtrl::AddPreset() {
 
 void ScoringCtrl::Data() {
 	Database& db = Database::Single();
-	if (db.active_song) {
+	if (db.active.song) {
 		if (db.active_wholesong) {
-			plotter.SetWholeSong(*db.active_song);
+			plotter.SetWholeSong(*db.active.song);
 		}
 		else {
-			Part& p = *db.active_part;
-			PartScore& part = p.score;
-			plotter.SetPart(p.name, part);
+			Part& p = *db.active.part;
+			plotter.SetPart(p);
 		}
 	}
 	
@@ -75,9 +74,9 @@ void ScoringCtrl::DataPresets() {
 
 void ScoringCtrl::DataList() {
 	Database& db = Database::Single();
-	if (!db.active_song)
+	if (!db.active.song)
 		return;
-	Song& o = *db.active_song;
+	Song& o = *db.active.song;
 	
 	// Whole song
 	if (db.active_wholesong) {
@@ -86,20 +85,18 @@ void ScoringCtrl::DataList() {
 		int total = 0;
 		for(int i = 0; i < o.structure.GetCount(); i++) {
 			String part_key = o.structure[i];
-			int part_i = o.parts.Find(part_key);
+			int part_i = o.FindPartIdx(part_key);
 			if (part_i < 0) continue;
 			Part& part = o.parts[part_i];
-			PartScore& ps = part.score;
 			String part_name = db.attrs.Translate(part.name);
 			
-			int len = ps.GetLen();
-			for(int i = 0; i < len; i++) {
+			for(int j = 0; j < part.lines.GetCount(); j++) {
+				Line& line = part.lines[j];
 				list.Set(total, 0, part_i);
-				list.Set(total, 1, i);
-				list.Set(total, 2, part_name + ":" + IntStr(i));
-				for(int j = 0; j < ps.values.GetCount(); j++) {
-					Vector<int>& d = ps.values[j];
-					int value = i < d.GetCount() ? d[i] : 0;
+				list.Set(total, 1, j);
+				list.Set(total, 2, part_name + ":" + IntStr(j));
+				for(int j = 0; j < line.partscore.GetCount(); j++) {
+					int value = line.partscore[i];
 					int k1 = group_begin+j;
 					int k2 = group_begin-2+j; // skip 2 index columns for visible Ctrls
 					list.Set(total, k1, value);
@@ -114,21 +111,19 @@ void ScoringCtrl::DataList() {
 		list.SetCount(total);
 	}
 	else {
-		if (!db.active_part)
+		if (!db.active.part)
 			return;
-		Part& p = *db.active_part;
-		PartScore& part = p.score;
-		plotter.SetPart(p.name, part);
-		String part_name = db.attrs.Translate(p.name);
+		Part& part = *db.active.part;
+		plotter.SetPart(part);
+		String part_name = db.attrs.Translate(part.name);
 		int part_i = db.GetActivePartIndex();
-		int len = part.GetLen();
-		for(int i = 0; i < len; i++) {
+		for(int i = 0; i < part.lines.GetCount(); i++) {
+			Line& line = part.lines[i];
 			list.Set(i, 0, part_i);
 			list.Set(i, 1, i);
 			list.Set(i, 2, part_name + ":" + IntStr(i));
-			for(int j = 0; j < part.values.GetCount(); j++) {
-				Vector<int>& d = part.values[j];
-				int value = i < d.GetCount() ? d[i] : 0;
+			for(int j = 0; j < line.partscore.GetCount(); j++) {
+				int value = line.partscore[j];
 				int k1 = group_begin+j;
 				int k2 = group_begin-2+j; // skip 2 index columns for visible Ctrls
 				list.Set(i, k1, value);
@@ -138,32 +133,26 @@ void ScoringCtrl::DataList() {
 				list.SetCtrl(i, k2, c);
 			}
 		}
-		list.SetCount(len);
+		list.SetCount(part.lines.GetCount());
 	}
 }
 
 void ScoringCtrl::ListValueChanged(int pos, int scoring) {
 	Database& db = Database::Single();
-	if (!db.active_part || !db.active_song)
+	if (!db.active.part || !db.active.song)
 		return;
-	Part& p = *db.active_part;
-	Song& o = *db.active_song;
+	Song& o = *db.active.song;
 	
 	int part_i = list.Get(pos, 0);
 	int i = list.Get(pos, 1);
 	
+	Part& part = o.parts[part_i];
+	if (part.partscore.GetCount() != db.attrs.scorings.GetCount())
+		part.partscore.SetCount(db.attrs.scorings.GetCount(), 0);
+	
+	auto& dst = part.partscore[i];
 	int value = list.Get(pos, group_begin+scoring);
-	
-	PartScore& part = p.score;
-	
-	if (scoring >= part.values.GetCount())
-		part.values.SetCount(scoring+1);
-	
-	auto& v = part.values[scoring];
-	if (i >= v.GetCount())
-		v.SetCount(i+1, 0);
-	
-	v[i] = value;
+	dst = value;
 	
 	// Refresh duplicate values (for whole song)
 	for(int j = 0; j < list.GetCount(); j++) {
@@ -246,7 +235,7 @@ void ScoringCtrl::ApplyPreset() {
 	Database& db = Database::Single();
 	if (!list.IsCursor() || !presets.IsCursor())
 		return;
-	if (!db.active_part)
+	if (!db.active.part)
 		return;
 	
 	AttrScore& a = db.attrscores;
@@ -260,13 +249,12 @@ void ScoringCtrl::ApplyPreset() {
 	int part_i = list.Get(cur, 0);
 	int pos = list.Get(cur, 1);
 	
-	Part& o = *db.active_part;
-	PartScore& part = o.score;
+	Part& o = *db.active.part;
+	Line& line = o.lines[pos];
+	line.partscore.SetCount(c, 0);
 	
 	for(int i = 0; i < c; i++) {
-		auto& vv = part.values[i];
-		auto& v = vv[pos];
-		v = scores[i];
+		line.partscore[i] = scores[i];
 	}
 	
 	DataList();

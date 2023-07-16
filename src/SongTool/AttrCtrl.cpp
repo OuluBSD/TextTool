@@ -18,11 +18,11 @@ void AttrCtrl::RealizeTemp() {
 void AttrCtrl::Load() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
-	if (!db.active_snap)
+	if (!db.active.snap)
 		return;
 	
 	for (bool& b : active) b = false;
-	for (const SnapAttrStr& a : db.active_snap->attributes) {
+	for (const SnapAttrStr& a : db.active.snap->attributes) {
 		int id = a.group_i * g.group_limit + a.item_i;
 		ASSERT(id >= 0 && id < active.GetCount());
 		if (id >= 0 && id < active.GetCount())
@@ -30,7 +30,7 @@ void AttrCtrl::Load() {
 	}
 	
 	for (bool& b : inherited_active) b = false;
-	PatternSnap* owner = db.active_snap->owner;
+	PatternSnap* owner = db.active.snap->owner;
 	while (owner) {
 		for (const SnapAttrStr& a : owner->attributes) {
 			int id = a.group_i * g.group_limit + a.item_i;
@@ -45,10 +45,10 @@ void AttrCtrl::Load() {
 void AttrCtrl::Store() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
-	if (!db.active_snap)
+	if (!db.active.snap)
 		return;
 	
-	db.active_snap->attributes.Clear();
+	db.active.snap->attributes.Clear();
 	
 	int id = 0;
 	for (bool& b : active) {
@@ -57,7 +57,7 @@ void AttrCtrl::Store() {
 			attr.item_i = id % g.group_limit;
 			attr.group_i = id / g.group_limit;
 			attr.RealizeId();
-			db.active_snap->attributes.Add(attr);
+			db.active.snap->attributes.Add(attr);
 		}
 		id++;
 	}
@@ -71,9 +71,9 @@ void AttrCtrl::Paint(Draw& d) {
 	
 	d.DrawRect(sz, bg);
 	
-	if (!db.active_part)
+	if (!db.active.part)
 		return;
-	Part& p = *db.active_part;
+	Part& p = *db.active.part;
 	
 	int tgt_lineh = 18;
 	Font fnt = SansSerif(15);
@@ -103,7 +103,7 @@ void AttrCtrl::Paint(Draw& d) {
 		{
 			group_items.Clear();
 			group_types.Clear();
-			p.mask.GetGroupItems(group_items);
+			p.GetGroupItems(group_items);
 			db.attrs.FindGroupTypes(group_items.GetKeys(), group_types);
 		}
 		
@@ -337,15 +337,15 @@ void AttrCtrl::LeftDown(Point p, dword keyflags) {
 			int id = a.group_i * g.group_limit + a.item_i;
 			if (id >= 0 && id < active.GetCount()) {
 				bool& b = active[id];
-				if (db.active_snap) {
+				if (db.active.snap) {
 					b = !b;
 					if (!b) {
-						int i = db.active_snap->attributes.Find(a);
+						int i = db.active.snap->attributes.Find(a);
 						ASSERT(i >= 0);
-						db.active_snap->attributes.Remove(i);
+						db.active.snap->attributes.Remove(i);
 					}
 					else {
-						db.active_snap->attributes.Add(a);
+						db.active.snap->attributes.Add(a);
 					}
 					Update();
 				}

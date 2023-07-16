@@ -2,7 +2,10 @@
 #define _SongTool_Release_h_
 
 
-struct Release : DataFile {
+struct Release :
+	DataFile,
+	PatternSnap
+{
 	String			title;
 	Date			date;
 	Array<Song>		songs;
@@ -27,13 +30,27 @@ struct Release : DataFile {
 			json("songs", names);
 			for (String n : names) songs.Add().LoadTitle(n);
 		}
+		PatternSnap::Jsonize(json);
 	}
-	
+	void FixPtrs() {
+		this->release = this;
+		int id = 0;
+		for (Song& s : songs) {
+			static_cast<Ptrs&>(s) = *(Ptrs*)this;
+			s.owner = this;
+			s.SetId(id++);
+			s.FixPtrs();
+		}
+	}
+	Array<Song>& GetSub() {return songs;}
+	const Array<Song>& GetSub() const {return songs;}
 	bool operator()(const Release& a, const Release& b) const {
 		if (a.date != b.date) return a.date < b.date;
 		return a.title < b.title;
 	}
 	
+	
+	PATTERNMASK_MACROS
 };
 
 

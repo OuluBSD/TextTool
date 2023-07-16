@@ -55,6 +55,8 @@ struct Artist;
 struct Release;
 struct Song;
 struct Part;
+struct Line;
+struct Break;
 struct PatternSnap;
 
 struct Ptrs {
@@ -62,6 +64,8 @@ struct Ptrs {
 	Release* release = 0;
 	Song* song = 0;
 	Part* part = 0;
+	Line* line = 0;
+	Break* brk = 0;
 	PatternSnap* snap = 0;
 	
 };

@@ -1,41 +1,50 @@
 #ifndef _SongTool_Part_h_
 #define _SongTool_Part_h_
 
-struct Part {
+struct Part :
+	PatternSnap
+{
 	String name;
 	
-	VectorMap<String,String> data;
-	Vector<String>		lines;
-	PatternSnap			snap, rev_snap;
-	PartScore			score;
-	PatternMask			mask;
+	Array<Line>			lines;
+	//PartScore			score;
 	Composition			composition;
 	Analysis			analysis;
 	
 	void Clear() {
 		lines.Clear();
-		snap.Clear();
-		rev_snap.Clear();
+		PatternSnap::Clear();
 	}
 	void Jsonize(JsonIO& json) {
 		json
 			("data", data)
 			("lines", lines)
-			("snap", snap)
-			("rev_snap", rev_snap)
-			("score", score)
-			("mask", mask)
+			//("snap", snap)
+			//("rev_snap", rev_snap)
+			//("score", score)
+			//("mask", mask)
 			("composition", composition)
 			("analysis", analysis)
 			;
+		PatternSnap::Jsonize(json);
 	}
-	String ToString() const {return "line_len=" + IntStr(lines.GetCount());}
+	String ToString() const {return name + ", lines=" + IntStr(lines.GetCount());}
 	void FixPtrs() {
-		snap.part = this;
-		snap.FixPtrs();
-		rev_snap.part = this;
-		rev_snap.FixPtrs();
+		this->part = this;
+		int id = 0;
+		for (Line& l : lines) {
+			static_cast<Ptrs&>(l) = *(Ptrs*)this;
+			l.owner = this;
+			l.SetId(id++);
+			l.FixPtrs();
+		}
 	}
+	void MergeOwner() {PatternSnap::MergeOwner(this, lines);}
+	Array<Line>& GetSub() {return lines;}
+	const Array<Line>& GetSub() const {return lines;}
+	
+	
+	PATTERNMASK_MACROS
 };
 
 #endif

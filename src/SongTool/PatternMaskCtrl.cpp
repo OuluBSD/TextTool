@@ -11,14 +11,14 @@ PatternMaskCtrl::PatternMaskCtrl() {
 
 void PatternMaskCtrl::Data() {
 	Database& db = Database::Single();
-	if (!db.active_part) return;
+	if (!db.active.part) return;
 	Attributes& a = db.attrs;
-	Part& p = *db.active_part;
+	Part& p = *db.active.part;
 	
-	lyrics.SetData(Join(p.lines, "\n"));
+	lyrics.SetData(p.txt);
 	
-	for(int i = 0; i < p.mask.attrs.GetCount(); i++) {
-		const SnapAttrStr& sa = p.mask.attrs[i];
+	for(int i = 0; i < p.mask.GetCount(); i++) {
+		const SnapAttrStr& sa = p.mask[i];
 		#if 0
 		const Attributes::Group& gg = a.groups[sa.group];
 		const String& item = gg.values[sa.item];
@@ -33,6 +33,6 @@ void PatternMaskCtrl::Data() {
 		data.Set(i, 0, sa.group);
 		data.Set(i, 1, sa.item);
 	}
-	data.SetCount(p.mask.attrs.GetCount());
+	data.SetCount(p.mask.GetCount());
 	
 }

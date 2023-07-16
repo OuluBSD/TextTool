@@ -31,6 +31,8 @@ using namespace Upp;
 #include "Pattern.h"
 #include "Scoring.h"
 #include "Composition.h"
+#include "Break.h"
+#include "Line.h"
 #include "Part.h"
 #include "Song.h"
 #include "Release.h"

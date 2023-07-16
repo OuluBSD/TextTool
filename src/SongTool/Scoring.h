@@ -1,7 +1,7 @@
 #ifndef _SongTool_Scoring_h_
 #define _SongTool_Scoring_h_
 
-struct PartScore {
+/*struct PartScore {
 	Vector<Vector<int>> values;
 	
 	void Jsonize(JsonIO& json) {
@@ -10,7 +10,7 @@ struct PartScore {
 			;
 	}
 	int GetLen() const {return values.GetCount() ? values[0].GetCount() : 0;}
-};
+};*/
 
 struct AttrScoreGroup {
 	Vector<SnapAttr> attrs;

@@ -18,8 +18,7 @@ class Plotter : public Ctrl {
 	bool whole_song = false;
 	int focused_group = 0, focused_group_i = 0;
 	int draw_count = 0;
-	String part_key;
-	PartScore* part = 0;
+	Part* part = 0;
 	Song* song = 0;
 	
 	Vector<Vector<double>> values;
@@ -32,7 +31,7 @@ public:
 	Plotter();
 	
 	void SetWholeSong(Song& s) {whole_song = true; song = &s; Refresh();}
-	void SetPart(String key, PartScore& p) {whole_song = false; part_key = key; part = &p; Refresh();}
+	void SetPart(Part& p) {whole_song = false; part = &p; Refresh();}
 	void Paint(Draw& d) override;
 	
 	

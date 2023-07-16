@@ -32,9 +32,9 @@ void ReverseCtrl::Data() {
 	Attributes& g = db.attrs;
 	
 	this->snaplist.Clear();
-	if (!db.active_song)
+	if (!db.active.song)
 		return;
-	Song& song = *db.active_song;
+	Song& song = *db.active.song;
 	
 	song.lock.EnterRead();
 	song.RealizeTaskSnaps();
@@ -48,8 +48,8 @@ void ReverseCtrl::Data() {
 		
 		String name =
 			g.Translate(t.snap->part->name) + ": " +
-			IntStr(t.snap->pos) + "/" +
-			IntStr(t.snap->len)
+			IntStr(t.snap->id) /*+ "/" +
+			IntStr(t.snap->len)*/
 			;
 		
 		int perc = 100 * t.actual / t.total;
@@ -89,9 +89,9 @@ void ReverseCtrl::Data() {
 
 void ReverseCtrl::DataWorker() {
 	Database& db = Database::Single();
-	if (!db.active_song)
+	if (!db.active.song)
 		return;
-	Song& song = *db.active_song;
+	Song& song = *db.active.song;
 	
 	if (!tasklist.IsCursor())
 		return;

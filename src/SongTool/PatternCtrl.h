@@ -23,7 +23,6 @@ public:
 	
 	void Data();
 	void DataPatternTree();
-	void DataPatternTreeNode(Part& part, PatternSnap& snap, int parent);
 	void OnTreeSel();
 	void OnListSel();
 	void DataPatternSnap();
@@ -32,6 +31,18 @@ public:
 	void FocusTree();
 	void FocusList();
 	
+	template <class T>
+	void DataPatternTreeNode(Part& part, T& snap, int parent) {
+		tree_snaps.Add(parent, &snap);
+		tree_parts.Add(parent, &part);
+		
+		for (auto& sub : snap.GetSub()) {
+			String s = IntStr(sub.id);
+			int id = tree.Add(parent, AppImg::Snap(), s);
+			DataPatternTreeNode(part, sub, id);
+		}
+	}
+
 	bool use_rev_snap = false;
 	
 };

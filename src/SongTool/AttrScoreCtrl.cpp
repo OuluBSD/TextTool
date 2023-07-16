@@ -290,15 +290,15 @@ void AttrScoreCtrl::OnEntrySel() {
 void AttrScoreCtrl::CheckErrors() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
-	if (!db.active_part)
+	if (!db.active.part)
 		return;
 	
 	db.attrscores.RealizeTemp();
 	
 	Index<SnapAttrStr> attrs;
 	
-	Part& part = *db.active_part;
-	part.snap.GetAttributes(attrs);
+	Part& part = *db.active.part;
+	part.GetAttributes(attrs);
 	
 	
 	int i = 0;

@@ -24,18 +24,18 @@ ImportCtrl::ImportCtrl() {
 
 void ImportCtrl::Data() {
 	Database& db = Database::Single();
-	if (!db.active_song)
+	if (!db.active.song)
 		return;
 	
-	input.SetData(db.active_song->content);
+	input.SetData(db.active.song->content);
 }
 
 void ImportCtrl::OnValueChange() {
 	Database& db = Database::Single();
-	if (!db.active_song)
+	if (!db.active.song)
 		return;
 	
-	Song& a = *db.active_song;
+	Song& a = *db.active.song;
 	a.content = input.GetData();
 }
 
@@ -45,21 +45,25 @@ void ImportCtrl::OutputBar(Bar& bar) {
 
 void ImportCtrl::RemoveLine() {
 	Database& db = Database::Single();
-	if (!db.active_song || !output.IsCursor())
+	if (!db.active.song || !output.IsCursor())
 		return;
 	
 	int cursor = output.GetCursor();
-	if (cursor >= 0 && cursor < db.active_song->unique_lines.GetCount()) {
-		db.active_song->unique_lines.Remove(cursor);
+	if (cursor >= 0 && cursor < db.active.song->unique_lines.GetCount()) {
+		db.active.song->unique_lines.Remove(cursor);
 		Data();
 	}
 }
 
 void ImportCtrl::ParseOriginalLyrics() {
 	Database& db = Database::Single();
-	if (!db.active_song)
+	if (!db.active.song)
 		return;
-	Song& a = *db.active_song;
+	
+	LOG("TODO reverse song");
+	
+	#if 0
+	Song& a = *db.active.song;
 	a.lock.EnterWrite();
 	
 	a.parts.Clear();
@@ -99,15 +103,15 @@ void ImportCtrl::ParseOriginalLyrics() {
 				part_title = part_title.Left(part_title.GetCount()-1);
 			
 			if (lc) {
-				Part& part = a.parts.GetAdd(part_title);
-				Vector<String>& parsed_lines = part.lines;
+				Part& part = a.GetAddPart(part_title);
+				Array<Line>& parsed_lines = part.lines;
 				parsed_lines.Clear();
 				
 				// Add parsed lines to the Song class
 				for(int j = 1; j < lines.GetCount(); j++) {
 					String tl = TrimBoth(lines[j]);
 					a.unique_lines.GetAdd(tl);
-					parsed_lines.Add(tl);
+					parsed_lines.Add().txt = tl;
 				}
 				
 				// Fill lines of text to PatternSnap
@@ -134,6 +138,8 @@ void ImportCtrl::ParseOriginalLyrics() {
 	a.lock.LeaveWrite();
 	
 	WhenStructureChange();
+	
+	#endif
 }
 
 
@@ -141,16 +147,14 @@ void ImportCtrl::ParseOriginalLyrics() {
 void ImportCtrl::MakeTasks() {
 	TaskMgr& m = TaskMgr::Single();
 	Database& db = Database::Single();
-	if (!db.active_song || !db.active_artist)
+	if (!db.active.song || !db.active.artist)
 		return;
-	Song& s = *db.active_song;
-	Artist& a = *db.active_artist;
-	Release& r = *db.active_release;
+	Song& s = *db.active.song;
+	Artist& a = *db.active.artist;
+	Release& r = *db.active.release;
 	
-	for (Part& p : s.parts.GetValues()) {
-		p.mask.Clear();
-		p.snap.Clear();
-		p.rev_snap.Clear();
+	for (Part& p : s.parts) {
+		p.PatternSnap::Clear();
 	}
 	
 	ParseOriginalLyrics();

@@ -34,18 +34,18 @@ void AI_Task::CreateInput_PatternMask() {
 	s << "Lyrics:\n";
 	String parts;
 	for(int i = 0; i < a.parts.GetCount(); i++) {
-		String key = a.parts.GetKey(i);
-		s << key << "\n";
-		//hash << ToLower(key);
+		Part& part = a.parts[i];
+		s << part.name << "\n";
+		//hash << ToLower(part.name);
 		
 		if (!parts.IsEmpty()) parts << ", ";
-		parts << key;
+		parts << part.name;
 		
-		Vector<String>& lines = a.parts[i].lines;
+		Array<Line>& lines = part.lines;
 		for(int j = 0; j < lines.GetCount(); j++) {
-			String& line = lines[j];
-			s << line << "\n";
-			//hash << ToLower(line);
+			Line& line = lines[j];
+			s << line.txt << "\n";
+			//hash << ToLower(line.txt);
 		}
 		
 		s << "\n";
@@ -59,7 +59,7 @@ void AI_Task::CreateInput_PatternMask() {
 	s << "Groups with " << ai_txt << " (in format \"" << type << " group: Value 1, Value 2, etc\"):\n\n";
 	
 	s << "Attributes of lyrics (parts " << parts << "):\n";
-	s << "" << a.parts.GetKey(0) << ":\n";
+	s << "" << a.parts[0].name << ":\n";
 	//s << "- " << first << ":";
 	s << "-";
 	
@@ -162,18 +162,18 @@ void AI_Task::CreateInput_Analysis() {
 	s << "Lyrics:\n";
 	String parts;
 	for(int i = 0; i < a.parts.GetCount(); i++) {
-		String key = a.parts.GetKey(i);
-		s << key << "\n";
-		//hash << ToLower(key);
+		Part& part = a.parts[i];
+		s << part.name << "\n";
+		//hash << ToLower(part.name);
 		
 		if (!parts.IsEmpty()) parts << ", ";
-		parts << key;
+		parts << part.name;
 		
-		Vector<String>& lines = a.parts[i].lines;
+		Array<Line>& lines = part.lines;
 		for(int j = 0; j < lines.GetCount(); j++) {
-			String& line = lines[j];
-			s << line << "\n";
-			//hash << ToLower(line);
+			Line& line = lines[j];
+			s << line.txt << "\n";
+			//hash << ToLower(line.txt);
 		}
 		
 		s << "\n";
@@ -192,11 +192,11 @@ void AI_Task::CreateInput_Analysis() {
 	#else
 	s << "Verbose " << title << " of lyrics for all parts:\n";
 	for(int i = 0; i < a.parts.GetCount(); i++) {
-		String key = a.parts.GetKey(i);
+		String key = a.parts[i].name;
 		s << "- " << key << "\n";
 	}
 	s << "\n\n";
-	s << "" << a.parts.GetKey(0) << ":\n";
+	s << "" << a.parts[0].name << ":\n";
 	s << "-";
 	#endif
 	
@@ -234,7 +234,7 @@ Combination integer values are allwed to be between -3 and +3.
 Scores per entry:
 Line 1, Pronouns: "I":
 -a Integrity: +honest/-twisted: +1 honest
--b Social: libertarian/authoritarian: +1 libertarian
+-b Social: libertarian/au	thoritarian: +1 libertarian
 -c Economic: liberal/conservative: 0
 -d Culture: individualism/collective: +1 individualism
 -e Human strength: strong/weak: +1 strong
@@ -250,12 +250,12 @@ Line 1, Pronouns: "I":
 -o Attitude: hopeful/despair: +1 hopeful
 -p Attitude: optimistic/pessimistic: +1 optimistic
 -q Attitude: open/closed: +1 open
-Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+Combination string: a+1 b+1 c0 d+1 e+1 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
 )ATRSCROO";
 
 const char* attrscore_prompt2 = R"ATRSCROO(
 Line 1, Pronouns: "I":
-Combination string: a+1 b-1 c0 d+1 e+1 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+Combination string: a+1 b+1 c0 d+1 e+1 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
 
 Entries:
 ${ENTRIES}
@@ -369,16 +369,24 @@ Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view
 void AI_Task::CreateInput_Lyrics() {
 	Database& db = Database::Single();
 	
-	Artist& a = *this->p.artist;
-	Song& s = *this->p.song;
-	Release& r = *this->p.release;
-	Part& p = *this->p.part;
+	if (!this->rev.part) {
+		SetError("no reverse pointers");
+		return;
+	}
+	
+	bool rev_snap = args.GetCount() && args[0] == "rev";
+	
+	Ptrs& ptrs = rev_snap ? this->p : this->rev;
+	
+	Artist& a = *ptrs.artist;
+	Song& s = *ptrs.song;
+	Release& r = *ptrs.release;
+	Part& p = *ptrs.part;
+	Part& rev_p = *ptrs.part;
 	//Story& s = *db.active_story;
 	//Composition& c = *db.active_composition;
 	//Analysis& n = *db.active_analysis;
 	//Pattern& p = *db.active_pattern;
-	
-	bool rev_snap = args.GetCount() && args[0] == "rev";
 	
 	String o;
 	o	<< "Artist name: " << a.name << "\n"
@@ -413,8 +421,9 @@ void AI_Task::CreateInput_Lyrics() {
 		<< "Genre/Style: " << c.genre_style << "\n"
 		<< "\n\n";*/
 	
+	
 	o	<< example_conv << "\n\n\nStructured lyrics:\n";
-	o	<< (rev_snap ? p.rev_snap : p.snap).GetStructuredText(false) << "\n\n";
+	o	<< p.GetStructuredText(false) << "\n\n";
 	o	<< "\nLyrics:\n";
 	
 	input = o;
@@ -430,7 +439,7 @@ void AI_Task::CreateInput_LyricsTranslate() {
 	String key = rev_snap ? "rev.gen.lyrics" : "gen.lyrics";
 	
 	String s, lyrics;
-	for (Part& p : song.parts.GetValues()) {
+	for (Part& p : song.parts) {
 		lyrics << p.name << ":\n";
 		lyrics << p.data.GetAdd(key) << "\n\n";
 	}

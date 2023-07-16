@@ -27,11 +27,10 @@ void PatternCtrl::Data() {
 
 void PatternCtrl::DataPatternTree() {
 	Database& db = Database::Single();
-	if (!db.active_part)
+	if ((!use_rev_snap && !db.active.song) || (use_rev_snap && !db.active_rev.song))
 		return;
 	
-	Song& o = *db.active_song;
-	
+	Song& o = *(use_rev_snap ? db.active_rev.song : db.active.song);
 	int cursor = tree.IsCursor() ? tree.GetCursor() : 0;
 	
 	tree_snaps.Clear();
@@ -41,30 +40,12 @@ void PatternCtrl::DataPatternTree() {
 	
 	for(int i = 0; i < o.parts.GetCount(); i++) {
 		Part& part = o.parts[i];
-		String s = o.parts.GetKey(i) + " :" + IntStr(part.lines.GetCount());
+		String s = part.name + " :" + IntStr(part.lines.GetCount());
 		int id = tree.Add(0, AppImg::Part(), s);
-		DataPatternTreeNode(part, use_rev_snap ? part.rev_snap : part.snap, id);
+		DataPatternTreeNode(part, part, id);
 	}
 	tree.OpenDeep(0);
 	tree.SetCursor(cursor);
-}
-
-void PatternCtrl::DataPatternTreeNode(Part& part, PatternSnap& snap, int parent) {
-	tree_snaps.Add(parent, &snap);
-	tree_parts.Add(parent, &part);
-	
-	if (snap.a) {
-		String s = IntStr(snap.a->pos);
-		if (snap.a->len > 1) s += ":" + IntStr(snap.a->len);
-		int id = tree.Add(parent, AppImg::Snap(), s);
-		DataPatternTreeNode(part, *snap.a, id);
-	}
-	if (snap.b) {
-		String s = IntStr(snap.b->pos);
-		if (snap.b->len > 1) s += ":" + IntStr(snap.b->len);
-		int id = tree.Add(parent, AppImg::Snap(), s);
-		DataPatternTreeNode(part, *snap.b, id);
-	}
 }
 
 void PatternCtrl::OnTreeSel() {
@@ -75,8 +56,8 @@ void PatternCtrl::OnTreeSel() {
 	if (i >= 0 && j >= 0) {
 		Part& part = *tree_parts[j];
 		PatternSnap& snap = *tree_snaps[i];
-		db.active_part = &part;
-		db.active_snap = &snap;
+		db.active.part = &part;
+		db.active.snap = &snap;
 		FocusList();
 		DataList();
 		DataPatternSnap();
@@ -88,7 +69,7 @@ void PatternCtrl::OnListSel() {
 	int cursor = list->GetCursor();
 	if (cursor >= 0 && cursor < level_snaps.GetCount()) {
 		PatternSnap& snap = *level_snaps[cursor];
-		db.active_snap = &snap;
+		db.active.snap = &snap;
 		FocusTree();
 		DataPatternSnap();
 	}
@@ -101,27 +82,25 @@ void PatternCtrl::DataPatternSnap() {
 
 void PatternCtrl::DataList() {
 	Database& db = Database::Single();
-	if (!db.active_part || !db.active_snap)
+	if (!use_rev_snap && (!db.active.part || !db.active.snap))
+		return;
+	if (use_rev_snap && (!db.active_rev.part || !db.active_rev.snap))
 		return;
 	
 	Database& d = Database::Single();
 	Attributes& g = d.attrs;
 	if (g.groups.IsEmpty()) return;
 	
-	Part& p = *db.active_part;
-	PatternSnap& s = *db.active_snap;
+	Part& p = *(use_rev_snap ? db.active_rev.part : db.active.part);
+	PatternSnap& s = *(use_rev_snap ? db.active_rev.snap : db.active.snap);
 	int level = s.GetLevel();
 	
 	
 	// Update relate txt
-	Vector<PatternSnap*> l0;
-	s.GetSnapsLevel(0, l0);
-	String txt;
-	for (PatternSnap* s : l0) {
-		if (!txt.IsEmpty()) txt << "; ";
-		txt << s->txt;
-	}
-	this->txt.SetLabel(txt);
+	String line = s.txt;
+	line.Replace("\r", "");
+	line.Replace("\n", ";");
+	this->txt.SetLabel(line);
 	
 	
 	// Update columns
@@ -137,7 +116,7 @@ void PatternCtrl::DataList() {
 	{
 		group_items.Clear();
 		group_types.Clear();
-		p.mask.GetGroupItems(group_items);
+		p.GetGroupItems(group_items);
 		db.attrs.FindGroupTypes(group_items.GetKeys(), group_types);
 		
 		list.AddColumn(t_("Position"));
@@ -156,15 +135,15 @@ void PatternCtrl::DataList() {
 	}
 	
 	level_snaps.SetCount(0);
-	(use_rev_snap ? p.rev_snap : p.snap).GetSnapsLevel(level, level_snaps);
+	p.GetSnapsLevel(level, level_snaps);
 	
 	list.SetCount(level_snaps.GetCount());
 	Index<String> skip_list;
 	for(int i = 0; i < level_snaps.GetCount(); i++) {
 		PatternSnap& s0 = *level_snaps[i];
-		String pos = s0.part->name + " :" + IntStr(s0.pos);
-		if (s0.len > 1)
-			pos += ":" + IntStr(s0.len);
+		String pos = s0.part->name + " :" + IntStr(s0.id);
+		//if (s0.len > 1)
+		//	pos += ":" + IntStr(s0.len);
 		list.Set(i, 0, pos);
 		
 		for(int j = 0, k = 1; j < group_items.GetCount(); j++) {
@@ -201,16 +180,16 @@ void PatternCtrl::DataList() {
 
 void PatternCtrl::MergeOwner() {
 	Database& db = Database::Single();
-	if (!db.active_part || !db.active_snap)
+	if (!db.active.part || !db.active.snap)
 		return;
-	db.active_part->snap.MergeOwner();
+	db.active.part->MergeOwner();
 	Data();
 }
 
 void PatternCtrl::FocusTree() {
 	Database& db = Database::Single();
 	for(int i = 0; i < tree_snaps.GetCount(); i++) {
-		if (tree_snaps[i] == db.active_snap) {
+		if (tree_snaps[i] == db.active.snap) {
 			tree.SetCursor(tree_snaps.GetKey(i));
 			break;
 		}
@@ -220,7 +199,7 @@ void PatternCtrl::FocusTree() {
 void PatternCtrl::FocusList() {
 	Database& db = Database::Single();
 	for(int i = 0; i < level_snaps.GetCount(); i++) {
-		if (level_snaps[i] == db.active_snap) {
+		if (level_snaps[i] == db.active.snap) {
 			list->SetCursor(i);
 			break;
 		}
