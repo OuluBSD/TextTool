@@ -19,7 +19,7 @@ void AI_Task::Store() {
 	if (output.IsEmpty()) return;
 	if (!changed) return;
 	Database& db = Database::Single();
-	String dir = db.dir + DIR_SEPS "share" DIR_SEPS "ai_results" DIR_SEPS;
+	String dir = ConfigFile("share" DIR_SEPS "ai_results" DIR_SEPS);
 	RealizeDirectory(dir);
 	String filename = GetInputHash() + ".txt";
 	String file = dir + filename;
@@ -29,7 +29,7 @@ void AI_Task::Store() {
 
 void AI_Task::Load() {
 	Database& db = Database::Single();
-	String dir = db.dir + DIR_SEPS "share" DIR_SEPS "ai_results" DIR_SEPS;
+	String dir = ConfigFile("share" DIR_SEPS "ai_results" DIR_SEPS);
 	RealizeDirectory(dir);
 	String filename = GetInputHash() + ".txt";
 	String file = dir + filename;
