@@ -17,6 +17,7 @@ struct Part :
 	}
 	void Jsonize(JsonIO& json) {
 		json
+			("name", name)
 			("data", data)
 			("lines", lines)
 			//("snap", snap)
@@ -39,7 +40,6 @@ struct Part :
 			l.FixPtrs();
 		}
 	}
-	void MergeOwner() {PatternSnap::MergeOwner(this, lines);}
 	Array<Line>& GetSub() {return lines;}
 	const Array<Line>& GetSub() const {return lines;}
 	

@@ -2,13 +2,9 @@
 #define _SongTool_Break_h_
 
 struct Break : PatternSnap {
-	String						txt;
-	
 	
 	void Jsonize(JsonIO& json) {
-		json
-			("txt", txt)
-			;
+		
 		PatternSnap::Jsonize(json);
 	}
 	void FixPtrs() {

@@ -1,7 +1,7 @@
 #include "SongTool.h"
 
 
-void Line::ParseLine(const String& txt) {
+void Line::ParseLine(Song& song, const String& txt) {
 	breaks.Clear();
 	Vector<String> parts = Split(txt, "[br]");
 	breaks.SetCount(parts.GetCount());
@@ -10,6 +10,7 @@ void Line::ParseLine(const String& txt) {
 		s = TrimBoth(s);
 		Break& b = breaks[i];
 		b.txt = s;
+		song.unique_lines.GetAdd(s);
 	}
 	this->txt = Join(parts, " ");
 	FixPtrs();

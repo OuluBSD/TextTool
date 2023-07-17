@@ -9,6 +9,10 @@ void AI_Task::Process_MakeAttrScores() {
 		SetError("no song pointer set");
 		return;
 	}
+	
+	if (as.groups.IsEmpty())
+		as.attr_to_score.Clear();
+	
 	Song& song = *this->p.song;
 	
 	if (!as.RealizeTemp()) {
@@ -40,7 +44,6 @@ void AI_Task::Process_MakeAttrScores() {
 		if (a.item_i >= to_score_i.GetCount() || to_score_i[a.item_i] < 0) {
 			// Not found
 			is_unresolved = true;
-			break;
 		}
 		
 		
@@ -286,18 +289,28 @@ void AI_Task::Process_Pattern() {
 		if (tmp_lines[i].Find("combination string:") == 0 && !tmp_lines[i+1].IsEmpty())
 			tmp_lines.Insert(i+1, "");
 	}
+	// Separate \n\n parts if AI had them sticked together
+	for(int i = 0; i < tmp_lines.GetCount() - 1; i++) {
+		String& l0 = tmp_lines[i];
+		String& l1 = tmp_lines[i+1];
+		if (l1.IsEmpty()) continue;
+		if (l0.Left(1) == "-" && l1.Left(1) != "-")
+			tmp_lines.Insert(i+1, "");
+		if (l0.GetCount() && l0.Left(1) != "-" && l1.Left(1) != "-")
+			tmp_lines.Insert(i+1, "");
+	}
 	txt = Join(tmp_lines, "\n", false);
 	
 	
 	// Parse results
 	VectorMap<String, VectorMap<String, Index<String>>> parsed;
-	Vector<String> lines = Split(txt, "\n\n");
+	Vector<String> parts = Split(txt, "\n\n");
 	bool fail = false;
-	for(int i = 0; i < lines.GetCount(); i++) {
-		Vector<String> v = Split(lines[i], "\n");
-		if (v.GetCount() < 2) break;
+	for(int i = 0; i < parts.GetCount(); i++) {
+		Vector<String> lines = Split(parts[i], "\n");
+		if (lines.GetCount() < 2) break;
 		
-		String header = v[0];
+		String header = lines[0];
 		if (header.Left(5) != "line ") {
 			SetError(t_("Expected header string"));
 			fail = true;
@@ -334,8 +347,8 @@ void AI_Task::Process_Pattern() {
 		*/
 		
 		// Parse attributes
-		for(int j = 1; j < v.GetCount(); j++) {
-			String& s = v[j];
+		for(int j = 1; j < lines.GetCount(); j++) {
+			String& s = lines[j];
 			if (s.IsEmpty()) continue;
 			if (s[0] != '-') {
 				SetError(t_("Expected '-'"));
@@ -683,7 +696,7 @@ void AI_Task::Process_AttrScores() {
 				for(int i = 0; i < scores.GetCount() - 1; i++) {
 					String& s0 = scores[i];
 					String& s1 = scores[i+1];
-					if (s0.GetCount() == 1 && !IsAlpha(s1[0])) {
+					if (s0.GetCount() <= 2 && !IsAlpha(s1[0])) {
 						s0 += s1;
 						scores.Remove(i+1);
 					}
@@ -858,12 +871,19 @@ void AI_Task::Process_SongScores() {
 		const String& key = f.name;
 		
 		Vector<PatternSnap*> level_snaps;
-		f.GetSnapsLevel(1, level_snaps);
+		/*f.GetSnapsLevel(1, level_snaps);
 		
 		for(int i = 0; i < level_snaps.GetCount(); i++) {
 			PatternSnap& snap = *level_snaps[i];
 			Line& line = static_cast<Line&>(snap);
 			GetScores(snap, line.partscore);
+		}
+		level_snaps.Clear();*/
+		f.GetSnapsLevel(0, level_snaps);
+		for(int i = 0; i < level_snaps.GetCount(); i++) {
+			PatternSnap& snap = *level_snaps[i];
+			Break& brk = static_cast<Break&>(snap);
+			GetScores(snap, brk.partscore);
 		}
 	}
 }
@@ -880,6 +900,10 @@ void AI_Task::Process_ReversePattern() {
 	int gc = g.scorings.GetCount();
 	//int ac = db.attrscores.groups.GetCount();
 	ReverseTask& task = *this->task;
+	if (task.mask_attrs.IsEmpty()) {
+		SetError("empty mask attrs");
+		return;
+	}
 	ASSERT(!task.mask_attrs.IsEmpty());
 	ASSERT(!task.scores.IsEmpty());
 	ASSERT(!task.txt.IsEmpty());
@@ -1129,66 +1153,78 @@ void AI_Task::Process_MakeReversePattern() {
 		for(int i = 0; i < p.lines.GetCount(); i++) {
 			Line& line = p.lines[i];
 			Line& rev_line = revp.lines[i];
-			
-			//PatternSnap& snap = *snaps[i];
-			//PatternSnap& rev_snap = *rev_snaps[i];
-			ReverseTask& rt = song.rev_tasks.Add();
-			AI_Task& t = m.tasks.Add();
-			t.type = TASK_REVERSEPATTERN;
-			t.p = this->p;
-			t.rev = this->rev;
-			t.task = &rt;
-			//t.id = i;
-			//t.total = total;
-			rt.snap = &line;
-			rt.rev_snap = &rev_line;
-			chk.depends_on << &t;
-			m.total++;
-			
-			
-			// Input arguments ( = hash affecting values)
-			rt.txt = line.txt;
-			if (line.txt.IsEmpty()) {
-				SetError("snap text empty");
-				t.failed = true;
-				song.lock.LeaveWrite();
+			if (line.breaks.GetCount() != rev_line.breaks.GetCount()) {
+				SetError("normal line and reversed line breaks mismatch");
 				return;
 			}
-			if (line.txt != rev_line.txt) {
-				SetError("snap text mismatch");
-				t.failed = true;
-				song.lock.LeaveWrite();
-				return;
-			}
-			
-			ASSERT(line.partscore.GetCount() == gc);
-			line.partscore.SetCount(gc, 0);
-			rev_line.partscore.SetCount(gc, 0);
-			
-			rt.mask_attrs <<= line.mask;
-			for(int j = 0; j < rt.mask_attrs.GetCount(); j++) {
-				const SnapAttrStr& sa = rt.mask_attrs[j];
-				int score = db.attrscores.attr_to_score[sa.group_i][sa.item_i];
-				if (score < 0) {
-					LOG("warning: attribute did not have the scoring: " << sa.group << ", " << sa.item);
-					rt.mask_attrs.Remove(j--);
+			for(int j = 0; j < line.breaks.GetCount(); j++) {
+				Break& brk = line.breaks[j];
+				Break& rev_brk = rev_line.breaks[j];
+				
+				//PatternSnap& snap = *snaps[i];
+				//PatternSnap& rev_snap = *rev_snaps[i];
+				ReverseTask& rt = song.rev_tasks.Add();
+				AI_Task& t = m.tasks.Add();
+				t.type = TASK_REVERSEPATTERN;
+				t.p = this->p;
+				t.rev = this->rev;
+				t.task = &rt;
+				//t.id = i;
+				//t.total = total;
+				rt.snap = &brk;
+				rt.rev_snap = &rev_brk;
+				chk.depends_on << &t;
+				m.total++;
+				
+				
+				// Input arguments ( = hash affecting values)
+				rt.txt = brk.txt;
+				if (brk.txt.IsEmpty()) {
+					SetError("snap text empty");
+					t.failed = true;
+					song.lock.LeaveWrite();
+					return;
 				}
+				if (brk.txt != rev_brk.txt) {
+					SetError("snap text mismatch");
+					t.failed = true;
+					song.lock.LeaveWrite();
+					return;
+				}
+				
+				ASSERT(brk.partscore.GetCount() == gc);
+				brk.partscore.SetCount(gc, 0);
+				rev_brk.partscore.SetCount(gc, 0);
+				
+				rt.scores.SetCount(brk.partscore.GetCount());
+				for(int i = 0; i < brk.partscore.GetCount(); i++)
+					rt.scores[i] = brk.partscore[i];
+				
+				rt.mask_attrs <<= p.mask;
+				for(int j = 0; j < rt.mask_attrs.GetCount(); j++) {
+					const SnapAttrStr& sa = rt.mask_attrs[j];
+					int score = db.attrscores.attr_to_score[sa.group_i][sa.item_i];
+					if (score < 0) {
+						LOG("warning: attribute did not have the scoring: " << sa.group << ", " << sa.item);
+						rt.mask_attrs.Remove(j--);
+					}
+				}
+				if (rt.mask_attrs.IsEmpty()) {
+					SetError("no snap mask attributes");
+					t.failed = true;
+					song.lock.LeaveWrite();
+					return;
+				}
+				
+				// Try to load existing results
+				rt.LoadHash(rt.GetHashValue());
+				
+				
+				// Set task as ready if results were loaded
+				/*if (rt.result_attrs.GetCount()) {
+					t.ready = true;
+				}*/
 			}
-			if (rt.mask_attrs.IsEmpty()) {
-				SetError("no snap mask attributes");
-				t.failed = true;
-				song.lock.LeaveWrite();
-				return;
-			}
-			
-			// Try to load existing results
-			rt.LoadHash(rt.GetHashValue());
-			
-			
-			// Set task as ready if results were loaded
-			/*if (rt.result_attrs.GetCount()) {
-				t.ready = true;
-			}*/
 		}
 	}
 	song.lock.LeaveWrite();
@@ -1205,11 +1241,12 @@ void AI_Task::Process_MakeLyricsTask() {
 	Song& song = *p.song;
 	Song& rsong = *rev.song;
 	Vector<AI_Task*> tasks;
+	int i = 0;
 	for (Part& part : rsong.parts) {
 		AI_Task& t = m.tasks.Add();
 		t.type = TASK_LYRICS;
 		t.p = p;
-		t.p.part = 0;
+		t.p.part = &song.parts[i++];;
 		t.rev = rev;
 		t.rev.part = &part;
 		t.args << "rev";

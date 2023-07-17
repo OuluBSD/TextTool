@@ -3,13 +3,11 @@
 
 
 struct Line : PatternSnap {
-	String						txt;
 	Array<Break>				breaks;
 	VectorMap<String,String>	data;
 	
 	void Jsonize(JsonIO& json) {
 		json
-			("txt", txt)
 			("breaks", breaks)
 			("data", data)
 			;
@@ -27,8 +25,7 @@ struct Line : PatternSnap {
 	}
 	Array<Break>& GetSub() {return breaks;}
 	const Array<Break>& GetSub() const {return breaks;}
-	void MergeOwner() {PatternSnap::MergeOwner(this, breaks);}
-	void ParseLine(const String& txt);
+	void ParseLine(Song& song, const String& txt);
 	
 	PATTERNMASK_MACROS
 };

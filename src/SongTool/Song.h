@@ -78,10 +78,10 @@ struct Song :
 	bool operator()(const Song& a, const Song& b) const {
 		return a.file_title < b.file_title;
 	}
-	void MergeOwner() {
+	/*void MergeOwner() {
 		for (Part& p : parts)
 			p.MergeOwner();
-	}
+	}*/
 	Array<Part>& GetSub() {return parts;}
 	const Array<Part>& GetSub() const {return parts;}
 	/*String GetStructuredText(bool pretty, int indent = 0) const {

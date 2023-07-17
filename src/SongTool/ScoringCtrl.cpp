@@ -8,6 +8,7 @@ ScoringCtrl::ScoringCtrl() {
 	Attributes& g = Database::Single().attrs;
 	list.AddIndex();
 	list.AddIndex();
+	list.AddIndex();
 	list.AddColumn(t_("Position"));
 	presets.AddColumn(t_("Name"));
 	for (Attributes::ScoringType& t : g.scorings) {
@@ -92,20 +93,24 @@ void ScoringCtrl::DataList() {
 			
 			for(int j = 0; j < part.lines.GetCount(); j++) {
 				Line& line = part.lines[j];
-				list.Set(total, 0, part_i);
-				list.Set(total, 1, j);
-				list.Set(total, 2, part_name + ":" + IntStr(j));
-				for(int j = 0; j < line.partscore.GetCount(); j++) {
-					int value = line.partscore[i];
-					int k1 = group_begin+j;
-					int k2 = group_begin-2+j; // skip 2 index columns for visible Ctrls
-					list.Set(total, k1, value);
-					
-					Ctrl* c = new EditIntNotNullSpin;
-					*c <<= THISBACK2(ListValueChanged, total, j);
-					list.SetCtrl(total, k2, c);
+				for(int k = 0; k < line.breaks.GetCount(); k++) {
+					Break& brk = line.breaks[k];
+					list.Set(total, 0, part_i);
+					list.Set(total, 1, j);
+					list.Set(total, 2, k);
+					list.Set(total, 3, part_name + ":" + IntStr(j) + ":" + IntStr(k));
+					for(int j = 0; j < line.partscore.GetCount(); j++) {
+						int value = brk.partscore[i];
+						int k1 = group_begin+j;
+						int k2 = group_begin-3+j; // skip 3 index columns for visible Ctrls
+						list.Set(total, k1, value);
+						
+						Ctrl* c = new EditIntNotNullSpin;
+						*c <<= THISBACK2(ListValueChanged, total, j);
+						list.SetCtrl(total, k2, c);
+					}
+					total++;
 				}
-				total++;
 			}
 		}
 		list.SetCount(total);
@@ -117,23 +122,29 @@ void ScoringCtrl::DataList() {
 		plotter.SetPart(part);
 		String part_name = db.attrs.Translate(part.name);
 		int part_i = db.GetActivePartIndex();
+		int total = 0;
 		for(int i = 0; i < part.lines.GetCount(); i++) {
 			Line& line = part.lines[i];
-			list.Set(i, 0, part_i);
-			list.Set(i, 1, i);
-			list.Set(i, 2, part_name + ":" + IntStr(i));
-			for(int j = 0; j < line.partscore.GetCount(); j++) {
-				int value = line.partscore[j];
-				int k1 = group_begin+j;
-				int k2 = group_begin-2+j; // skip 2 index columns for visible Ctrls
-				list.Set(i, k1, value);
-				
-				Ctrl* c = new EditIntNotNullSpin;
-				*c <<= THISBACK2(ListValueChanged, i, j);
-				list.SetCtrl(i, k2, c);
+			for(int k = 0; k < line.breaks.GetCount(); k++) {
+				Break& brk = line.breaks[k];
+				list.Set(total, 0, part_i);
+				list.Set(total, 1, i);
+				list.Set(total, 2, k);
+				list.Set(total, 3, part_name + ":" + IntStr(i) + ":" + IntStr(k));
+				for(int j = 0; j < line.partscore.GetCount(); j++) {
+					int value = brk.partscore[j];
+					int k1 = group_begin+j;
+					int k2 = group_begin-3+j; // skip 3 index columns for visible Ctrls
+					list.Set(total, k1, value);
+					
+					Ctrl* c = new EditIntNotNullSpin;
+					*c <<= THISBACK2(ListValueChanged, i, j);
+					list.SetCtrl(total, k2, c);
+				}
+				total++;
 			}
 		}
-		list.SetCount(part.lines.GetCount());
+		list.SetCount(total);
 	}
 }
 

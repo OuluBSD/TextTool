@@ -153,6 +153,13 @@ struct PatternSnap : PatternMask {
 		for (B& o : sub) ResolveIdT(&o, o.GetSub());
 	}
 	
+	template <class A, class B>
+	static void ClearAttrs(A* owner, Array<B>& sub) {
+		owner->PatternSnap::attributes.Clear();
+		owner->PatternSnap::partscore.Clear();
+		for (B& o : sub) ClearAttrs(&o, o.GetSub());
+	}
+	
 	template <class B>
 	String GetStructuredText(bool pretty, int indent, const Array<B>& sub) const;
 
@@ -162,7 +169,9 @@ struct PatternSnap : PatternMask {
 		void GetAttributes(Index<SnapAttrStr>& attrs) {PatternSnap::GetAttributes(this, GetSub(), attrs);} \
 		void GetLineSnapshots(const String& txt_line, Vector<PatternSnap*>& snaps) {PatternSnap::GetLineSnapshots(this, GetSub(), txt_line, snaps);} \
 		void ResolveId() {ResolveIdT(this, GetSub());} \
-		String GetStructuredText(bool pretty, int indent=0) const {return PatternSnap::GetStructuredText(pretty, indent, GetSub());}
+		String GetStructuredText(bool pretty, int indent=0) const {return PatternSnap::GetStructuredText(pretty, indent, GetSub());} \
+		void MergeOwner() {PatternSnap::MergeOwner(this, GetSub());} \
+		void ClearAttrs() {PatternSnap::ClearAttrs(this, GetSub());}
 	
 };
 

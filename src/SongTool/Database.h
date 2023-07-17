@@ -38,6 +38,10 @@ struct Database {
 			//FindOrphaned();
 			attrscores.Load();
 			attrs.Load();
+			
+			if (attrs.groups.IsEmpty())
+				for (Artist& a : artists)
+					a.ClearAttrs();
 		}
 	}
 	String GetArtistsDir() const;

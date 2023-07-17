@@ -264,6 +264,7 @@ Attributes::GroupType& Attributes::AddGroupType(String type, String ai_txt) {
 	Attributes::GroupType& gt = group_types.Add();
 	gt.name = type;
 	gt.ai_txt = ai_txt;
+	gt.clr = Color(Random(256), Random(256), Random(256));
 	return gt;
 }
 
@@ -284,6 +285,15 @@ Attributes::Group& Attributes::AddGroup(String type, String desc) {
 	g.description = ToLower(desc);
 	g.type = ToLower(type);
 	g.clr = Color(Random(256), Random(256), Random(256));
+	
+	for(int i = 0; i < group_types.GetCount(); i++) {
+		if (g.type == group_types[i].name) {
+			g.type_i = i;
+			break;
+		}
+	}
+	ASSERT(g.type_i >= 0);
+	
 	return g;
 }
 

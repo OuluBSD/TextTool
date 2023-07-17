@@ -31,6 +31,8 @@ void ReverseCtrl::Data() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
 	
+	if (g.groups.IsEmpty()) return;
+	
 	this->snaplist.Clear();
 	if (!db.active.song)
 		return;

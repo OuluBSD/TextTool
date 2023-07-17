@@ -235,7 +235,7 @@ Combination integer values are allwed to be between -3 and +3.
 Scores per entry:
 Line 1, Pronouns: "I":
 -a Integrity: +honest/-twisted: +1 honest
--b Social: libertarian/au	thoritarian: +1 libertarian
+-b Social: libertarian/authoritarian: +1 libertarian
 -c Economic: liberal/conservative: 0
 -d Culture: individualism/collective: +1 individualism
 -e Human strength: strong/weak: +1 strong
@@ -352,7 +352,7 @@ void AI_Task::CreateInput_AttrScores() {
 	prompt.Replace("${ENTRIES}", entries);
 	//this->hash = hash;
 	input = prompt;
-	response_length = 2*1024;
+	response_length = 1024;
 }
 
 const char* example_conv = R"TXT(
@@ -370,8 +370,13 @@ Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view
 void AI_Task::CreateInput_Lyrics() {
 	Database& db = Database::Single();
 	
+	if (!this->p.part) {
+		SetError("no part pointers");
+		return;
+	}
+	
 	if (!this->rev.part) {
-		SetError("no reverse pointers");
+		SetError("no reverse partpointers");
 		return;
 	}
 	
@@ -431,13 +436,13 @@ void AI_Task::CreateInput_Lyrics() {
 }
 
 void AI_Task::CreateInput_LyricsTranslate() {
-	Song& song = *this->p.song;
-	
 	bool rev_snap = args[0] == "rev";
+	Song& song = *(!rev_snap ? this->p.song : this->rev.song);
+	
 	String lng = args[1].Left(5);
 	if (lng == LNGAsText(LNG_('F','I','F','I')))
 		lng = "Finnish";
-	String key = rev_snap ? "rev.gen.lyrics" : "gen.lyrics";
+	String key = "gen.lyrics";
 	
 	String s, lyrics;
 	for (Part& p : song.parts) {

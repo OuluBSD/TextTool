@@ -117,8 +117,11 @@ void ImportCtrl::ParseOriginalLyrics() {
 					// Add parsed lines to the Song class
 					for(int j = 1; j < lines.GetCount(); j++) {
 						String tl = TrimBoth(lines[j]);
-						s.unique_lines.GetAdd(tl);
-						parsed_lines.Add().ParseLine(tl);
+						Line& l = parsed_lines.Add();
+						l.ParseLine(s, tl);
+						
+						if (!part.txt.IsEmpty()) part.txt << "\n";
+						part.txt << l.txt;
 					}
 				}
 			}

@@ -156,23 +156,22 @@ bool AI_Task::RunOpenAI() {
 		response_length = 1024;
 	}
 	String prompt = input;
-	LOG(prompt);
+	//LOG(prompt);
 	
 	prompt.Replace("\n", "\\n");
+	prompt.Replace("\t", "\\t");
 	prompt.Replace("\"", "\\\"");
 	
-	String txt = R"(
-    {
-        "model": "text-davinci-003",
-        "prompt": ")" + prompt + R"(",
-        "max_tokens": )" + IntStr(response_length) + R"(,
-        "temperature": 1
-    }
-    )";
-    LOG(txt);
+	String txt = R"({
+    "model": "text-davinci-003",
+    "prompt": ")" + prompt + R"(",
+    "max_tokens": )" + IntStr(response_length) + R"(,
+    "temperature": 1
+})";
+    //LOG(txt);
 	
-	nlohmann::json json = nlohmann::json::parse(txt.Begin(), txt.End());
 	try {
+		nlohmann::json json = nlohmann::json::parse(txt.Begin(), txt.End());
 		auto completion = openai::completion().create(json);
 	    LOG("Response is:\n" << completion.dump(2));
 	    
@@ -186,6 +185,8 @@ bool AI_Task::RunOpenAI() {
 	        output.Clear();
 	}
 	catch (std::runtime_error e) {
+		LOG(prompt);
+		LOG(txt);
 		SetError(e.what());
 		return false;
 	}

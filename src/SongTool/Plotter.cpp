@@ -122,6 +122,7 @@ void Plotter::Paint(Draw& d) {
 			String key = song->structure[i];
 			int j = song->FindPartIdx(key);
 			if (j < 0) {
+				return;
 				DUMP(i);
 				DUMPC(song->structure);
 				DUMPC(song->parts);
@@ -129,18 +130,22 @@ void Plotter::Paint(Draw& d) {
 			ASSERT(j >= 0);
 			
 			Part& part = song->parts[j];
-			
+			int total = 0;
 			for(int j = 0; j < part.lines.GetCount(); j++) {
 				Line& line = part.lines[j];
-				
-				// Accumulate values
-				int c0 = min(c, line.partscore.GetCount());
-				for(int k = 0; k < c0; k++)
-					values[k].Add(line.partscore[k]);
+				total += line.breaks.GetCount();
+				for(int k = 0; k < line.breaks.GetCount(); k++) {
+					Break& brk = line.breaks[k];
+					
+					// Accumulate values
+					int c0 = min(c, brk.partscore.GetCount());
+					for(int k = 0; k < c0; k++)
+						values[k].Add(brk.partscore[k]);
+				}
 			}
 			
 			// Get positions of vertical lines
-			vert_x += part.lines.GetCount();
+			vert_x += total;
 			vert_lines.Add(vert_x);
 			
 			// Get key string for the whole song
@@ -153,11 +158,17 @@ void Plotter::Paint(Draw& d) {
 		if (!part)
 			return;
 		part_key = part->name;
+		for(int j = 0; j < this->values.GetCount(); j++)
+			this->values[j].Clear();
 		for(int i = 0; i < part->lines.GetCount(); i++) {
 			Line& line = part->lines[i];
-			int c0 = min(c, line.partscore.GetCount());
-			for(int j = 0; j < c0; j++)
-				this->values[j].Add(line.partscore[j]);
+			for(int k = 0; k < line.breaks.GetCount(); k++) {
+				Break& brk = line.breaks[k];
+				
+				int c0 = min(c, brk.partscore.GetCount());
+				for(int j = 0; j < c0; j++)
+					this->values[j].Add(brk.partscore[j]);
+			}
 		}
 	}
 	

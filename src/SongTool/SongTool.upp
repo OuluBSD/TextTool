@@ -4,6 +4,8 @@ uses
 
 library(WIN32) "curl libcurl.dll.a";
 
+library(POSIX) curl;
+
 file
 	SongTool.h,
 	SongTool.cpp,
