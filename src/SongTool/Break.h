@@ -1,16 +1,18 @@
 #ifndef _SongTool_Break_h_
 #define _SongTool_Break_h_
 
-struct Break : PatternSnap {
+struct Break :
+	SnapContext
+{
 	
 	void Jsonize(JsonIO& json) {
 		
-		PatternSnap::Jsonize(json);
+		SnapContext::Jsonize(json);
 	}
 	void FixPtrs() {
-		this->brk = this;
+		SetBreakPtr(this);
 	}
-	static Array<Break>& GetSub() {static Array<Break> b; return b;} // for PatternSnap::MergeOwner compat
+	static Array<Break>& GetSub() {static Array<Break> b; return b;} // for SnapContext::MergeOwner compat
 	
 	
 	PATTERNMASK_MACROS

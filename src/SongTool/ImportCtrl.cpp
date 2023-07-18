@@ -4,48 +4,48 @@
 ImportCtrl::ImportCtrl() {
 	CtrlLayout(*this);
 	
-	output.AddColumn(t_("Line"));
-	output.AddColumn(t_("Attributes"));
-	output.ColumnWidths("3 8");
-	output.WhenBar << THISBACK(OutputBar);
+	messages.AddColumn(t_("Line"));
+	messages.AddColumn(t_("Severity"));
+	messages.AddColumn(t_("Message"));
+	messages.ColumnWidths("1 3 15");
 	
-	input			<<= THISBACK(OnValueChange);
+	input[0]		<<= THISBACK(OnValueChange);
+	input[1]		<<= THISBACK(OnValueChange);
 	make_tasks		<<= THISBACK(MakeTasks);
-	/*parse			<<= THISBACK(ParseOriginalLyrics);
-	copy_mask		<<= THISBACK(CopyMask);
-	paste_mask		<<= THISBACK(PasteMask);
-	copy_pattern	<<= THISBACK(CopyPattern);
-	paste_pattern	<<= THISBACK(PastePattern);*/
 	
-	mainsplit.Horz() << input << output;
-	mainsplit.SetPos(3333);
+	vsplit.Vert() << hsplit << messages;
+	hsplit.Horz() << input[0] << input[1];
+	vsplit.SetPos(8000);
 	
 }
 
 void ImportCtrl::Data() {
 	Database& db = Database::Single();
-	if (!db.active.song)
+	Ptrs& p = db.ctx[MALE];
+	if (!db.ctx.HasSong())
 		return;
 	
-	input.SetData(db.active.song->content);
+	input[0].SetData(p.song->headers[0].content);
+	input[1].SetData(p.song->headers[1].content);
 }
 
 void ImportCtrl::OnValueChange() {
 	Database& db = Database::Single();
-	if (!db.active.song)
+	Ptrs& p = db.ctx[MALE];
+	if (!db.ctx.HasSong())
 		return;
 	
-	Song& a = *db.active.song;
-	a.content = input.GetData();
+	for(int i = 0; i < GENDER_COUNT; i++)
+		p.song->headers[i].content = input[i].GetData();
 }
 
-void ImportCtrl::OutputBar(Bar& bar) {
+/*void ImportCtrl::OutputBar(Bar& bar) {
 	bar.Add(t_("Remove line"), THISBACK(RemoveLine));
-}
+}*/
 
-void ImportCtrl::RemoveLine() {
+/*void ImportCtrl::RemoveLine() {
 	Database& db = Database::Single();
-	if (!db.active.song || !output.IsCursor())
+	if (!db.ctx.HasSong() || !output.IsCursor())
 		return;
 	
 	int cursor = output.GetCursor();
@@ -53,13 +53,18 @@ void ImportCtrl::RemoveLine() {
 		db.active.song->unique_lines.Remove(cursor);
 		Data();
 	}
-}
+}*/
 
 void ImportCtrl::ParseOriginalLyrics() {
 	Database& db = Database::Single();
-	if (!db.active.song || !db.active_rev.song)
+	Ptrs& p = db.ctx[MALE];
+	Ptrs& p_rev = db.ctx[MALE_REVERSED];
+	if (!db.ctx.HasSong() || !p_rev.song)
 		return;
 	
+	Panic("TODO");
+	
+	#if 0
 	Song& a = *db.active.song;
 	Song& b = *db.active_rev.song;
 	a.lock.EnterWrite();
@@ -137,7 +142,7 @@ void ImportCtrl::ParseOriginalLyrics() {
 	b.lock.LeaveWrite();
 	
 	WhenStructureChange();
-	
+	#endif
 }
 
 
@@ -145,21 +150,22 @@ void ImportCtrl::ParseOriginalLyrics() {
 void ImportCtrl::MakeTasks() {
 	TaskMgr& m = TaskMgr::Single();
 	Database& db = Database::Single();
-	if (!db.active.song || !db.active.artist)
+	Ptrs& p = db.ctx[MALE];
+	Ptrs& p_rev = db.ctx[MALE_REVERSED];
+	if (!db.ctx.HasSong() || !p.artist)
 		return;
-	Song& s = *db.active.song;
-	Artist& a = *db.active.artist;
-	Release& r = *db.active.release;
+	Song& s = *p.song;
+	Artist& a = *p.artist;
+	Release& r = *p.release;
 	
-	for (Part& p : s.parts) {
-		p.PatternSnap::Clear();
-	}
+	/*Song& rs = r.RealizeReversed(s);
+	p_rev.Ptrs::Clear();
+	p_rev.artist = &a;
+	p_rev.release = &r;
+	p_rev.song = &rs;*/
 	
-	Song& rs = r.RealizeReversed(s);
-	db.active_rev.Ptrs::Clear();
-	db.active_rev.artist = &a;
-	db.active_rev.release = &r;
-	db.active_rev.song = &rs;
+	s.DeepClearSnap();
+	//rs.DeepClearSnap();
 	
 	ParseOriginalLyrics();
 	
@@ -185,8 +191,7 @@ void ImportCtrl::MakeTasks() {
 				// Add task for type
 				AI_Task& t = m.tasks.Add();
 				t.type = type;
-				t.p = db.active;
-				t.rev = db.active_rev;
+				t.p = p;
 				t.args << group_type.name << group_type.ai_txt << a.vocalist_visual;
 				
 				//for (AI_Task* t0 : pattern_tasks)
@@ -197,8 +202,7 @@ void ImportCtrl::MakeTasks() {
 			// Add task for getting patterns based on pattern mask
 			chk_task = &m.tasks.Add();
 			chk_task->type = type;
-			chk_task->p = db.active;
-			chk_task->rev = db.active_rev;
+			chk_task->p = p;
 		}
 		else if (type == AI_Task::TASK_ANALYSIS) {
 			for(int i = 0; i < db.attrs.analysis.GetCount(); i++) {
@@ -207,8 +211,7 @@ void ImportCtrl::MakeTasks() {
 				// Add task for analysis type
 				AI_Task& t = m.tasks.Add();
 				t.type = type;
-				t.p = db.active;
-				t.rev = db.active_rev;
+				t.p = p;
 				t.args << a.vocalist_visual;
 				t.args << key;
 				

@@ -2,51 +2,57 @@
 #define _SongTool_Song_h_
 
 
-struct Song :
-	DataFile,
-	PatternSnap
-{
-	int										uniq = 0;
-	int										linked_uniq = 0;
-	String									artist;
-	String									title;
-	String									prj_name;
-	String									structure_str;
+struct SongHeader {
 	VectorMap<String,String>				data;
 	String									content;
 	VectorMap<String, Vector<SnapAttrStr>>	unique_lines;
-	Vector<String>							structure;
-	Array<Part>								parts;
-	Array<Track>							tracks;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("data", data)
+			("content", content)
+			("unique_lines", unique_lines)
+			;
+	}
+};
+
+struct Song :
+	DataFile,
+	SnapContext
+{
+	String				artist;
+	String				title;
+	String				prj_name;
+	String				structure_str;
+	Vector<String>		structure;
+	Array<Part>			parts;
+	Array<Track>		tracks;
+	SongHeader			headers[PTR_COUNT];
 	
 	// Local data only (not shared)
-	Array<ReverseTask>						rev_tasks;
+	Array<ReverseTask>	rev_tasks;
 	
-	bool									reversed = false;
-	RWMutex									lock;
+	RWMutex				lock;
 	
-	Song();
+	//Song();
 	void Store();
 	void LoadTitle(String title);
 	void ReloadStructure();
 	void RealizeProduction();
 	void RealizeTaskSnaps(bool force=false);
-	Song& SetReversed() {reversed = true; return *this;}
 	void Jsonize(JsonIO& json) {
 		json
-			("uniq", uniq)
-			("linked_uniq", linked_uniq)
 			("artist", artist)
 			("title", title)
 			("prj_name", prj_name)
 			("structure_str", structure_str)
-			("data", data)
-			("content", content)
-			("unique_lines", unique_lines)
 			("structure", structure)
 			("parts", parts)
 			("tracks", tracks)
 			;
+		
+		for(int i = 0; i < PTR_COUNT; i++)
+			json("headers[" + IntStr(i) + "]", headers[i]);
 		
 		// rev_tasks
 		if (json.IsLoading()) {
@@ -63,14 +69,14 @@ struct Song :
 			for (ReverseTask& t : rev_tasks) {t.Store(); hashes.Add(IntStr64(t.GetHashValue()));}
 			json("rev_tasks", hashes);
 		}
-		PatternSnap::Jsonize(json);
+		SnapContext::Jsonize(json);
 	}
 	void FixPtrs() {
-		this->song = this;
+		SetSongPtr(this);
 		int id = 0;
 		for (Part& p : parts) {
-			static_cast<Ptrs&>(p) = *(Ptrs*)this;
-			p.owner = this;
+			p.CopyPtrs(*this);
+			p.SetOwner(*this);
 			p.SetId(id++);
 			p.FixPtrs();
 		}
@@ -90,13 +96,13 @@ struct Song :
 			if (pretty) {
 				s.Cat('\t', indent);
 				s	<< "part " << p.name << " {\n";
-				s	<< p.PatternSnap::GetStructuredText(pretty, indent+1);
+				s	<< p.SnapContext::GetStructuredText(pretty, indent+1);
 				s	<< "}\n";
 				s.Cat('\t', indent);
 			}
 			else {
 				s	<< "part " << p.name << "{";
-				s	<< p.PatternSnap::GetStructuredText(pretty, indent+1);
+				s	<< p.SnapContext::GetStructuredText(pretty, indent+1);
 				s	<< "}";
 			}
 		}
@@ -135,6 +141,7 @@ struct Song :
 	
 	PATTERNMASK_MACROS
 };
+
 
 
 #endif

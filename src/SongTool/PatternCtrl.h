@@ -11,7 +11,7 @@ class PatternCtrl : public Ctrl {
 	AttrCtrl attr;
 	
 public:
-	VectorMap<int, PatternSnap*> tree_snaps;
+	VectorMap<int, SnapContext*> tree_snaps;
 	VectorMap<int, Part*> tree_parts;
 	Vector<PatternSnap*> level_snaps;
 	Index<int> group_types;
@@ -37,7 +37,7 @@ public:
 		tree_parts.Add(parent, &part);
 		
 		for (auto& sub : snap.GetSub()) {
-			String s = IntStr(sub.id);
+			String s = IntStr(sub.snap[0].id);
 			int id = tree.Add(parent, AppImg::Snap(), s);
 			DataPatternTreeNode(part, sub, id);
 		}

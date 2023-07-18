@@ -15,6 +15,7 @@ class Plotter : public Ctrl {
 	};
 	
 	int mode = 0;
+	int pmode = MALE;
 	bool whole_song = false;
 	int focused_group = 0, focused_group_i = 0;
 	int draw_count = 0;

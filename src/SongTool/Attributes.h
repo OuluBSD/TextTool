@@ -49,6 +49,7 @@ struct Attributes : DataFile {
 					return true;
 			return false;
 		}
+		String ToString() const {return description + "(" + type + ")";}
 	};
 	struct ScoringType : Moveable<ScoringType> {
 		String klass;

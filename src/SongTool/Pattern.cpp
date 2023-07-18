@@ -17,14 +17,18 @@
 }*/
 
 
-void PatternSnap::MergeOwner() {
-	int level = GetLevel();
+void SnapContext::MergeOwner() {
+	int level = snap[0].GetLevel();
 	if (level == 0) static_cast<Break*>(this)->MergeOwner();
 	if (level == 1) static_cast<Line*>(this)->MergeOwner();
 	if (level == 2) static_cast<Part*>(this)->MergeOwner();
 	if (level == 3) static_cast<Song*>(this)->MergeOwner();
 	if (level == 4) static_cast<Release*>(this)->MergeOwner();
 	if (level == 5) static_cast<Artist*>(this)->MergeOwner();
+}
+
+void PatternSnap::FindAddAttr(const SnapAttrStr& sa) {
+	attributes.FindAdd(sa);
 }
 
 
@@ -41,7 +45,8 @@ void PatternSnap::MergeOwner() {
 
 void Song::ReloadStructure() {
 	Database& db = Database::Single();
-	db.active.snap = 0;
+	Ptrs& p = db.ctx[MALE];
+	p.snap = 0;
 	
 	this->parts.Clear();
 	this->structure = Split(this->structure_str, ",");

@@ -127,8 +127,9 @@ void AttrScoreCtrl::DataAttrScore() {
 	String title = attrscores.Get(cursor, 0);
 	
 	Database& db = Database::Single();
+	Ptrs& p = db.ctx[MALE];
 	AttrScoreGroup& o = db.attrscores.groups[cursor];
-	db.active_scoregroup = &o;
+	db.ctx.active_scoregroup = &o;
 	
 	//structure.SetData(o.structure);
 	scoregroup_data.SetData(o.ToString());
@@ -253,7 +254,7 @@ void AttrScoreCtrl::AddAttrScoreId(const SnapAttr& a) {
 	
 	int active_idx = db.GetActiveScoreGroupIndex();
 	//if (!found)
-	db.active_scoregroup->attrs.Add(a);
+	db.ctx.active_scoregroup->attrs.Add(a);
 	
 	db.attrscores.attr_to_score.Clear();
 	db.attrscores.RealizeTemp();
@@ -289,15 +290,18 @@ void AttrScoreCtrl::OnEntrySel() {
 
 void AttrScoreCtrl::CheckErrors() {
 	Database& db = Database::Single();
+	Ptrs& p = db.ctx[MALE];
 	Attributes& g = db.attrs;
-	if (!db.active.part)
+	if (!p.part)
 		return;
 	
 	db.attrscores.RealizeTemp();
 	
 	Index<SnapAttrStr> attrs;
 	
-	Part& part = *db.active.part;
+	Part& part = *p.part;
+	Panic("TODO");
+	#if 0
 	part.GetAttributes(attrs);
 	
 	
@@ -316,7 +320,7 @@ void AttrScoreCtrl::CheckErrors() {
 		i++;
 	}
 	//part_errors.SetCount(i);
-	
+	#endif
 }
 
 void AttrScoreCtrl::OpenPromptScores() {
@@ -375,7 +379,7 @@ void AttrScoreCtrl::AddAttrScoreGroup() {
 	
 	AttrScoreGroup& g = db.attrscores.GetAdd(score_ints);
 	
-	db.active_scoregroup = &g;
+	db.ctx.active_scoregroup = &g;
 	
 	Data();
 }
@@ -383,7 +387,7 @@ void AttrScoreCtrl::AddAttrScoreGroup() {
 bool AttrScoreCtrl::AddAttrScore() {
 	Database& db = Database::Single();
 	
-	if (!db.active_scoregroup)
+	if (!db.ctx.active_scoregroup)
 		return false;
 	
 	String entry_str;

@@ -104,7 +104,7 @@ struct AI_Task {
 	hash_t hash = 0;
 	
 	Vector<AI_Task*> depends_on;
-	Ptrs p, rev;
+	Ptrs p;
 	ReverseTask* task = 0;
 	TaskMgr* mgr = 0;
 	

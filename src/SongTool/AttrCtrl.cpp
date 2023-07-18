@@ -17,12 +17,13 @@ void AttrCtrl::RealizeTemp() {
 
 void AttrCtrl::Load() {
 	Database& db = Database::Single();
+	Ptrs& p = db.ctx[MALE];
 	Attributes& g = db.attrs;
-	if (!db.active.snap)
+	if (!p.snap)
 		return;
 	
 	for (bool& b : active) b = false;
-	for (const SnapAttrStr& a : db.active.snap->attributes) {
+	for (const SnapAttrStr& a : p.snap->attributes) {
 		int id = a.group_i * g.group_limit + a.item_i;
 		ASSERT(id >= 0 && id < active.GetCount());
 		if (id >= 0 && id < active.GetCount())
@@ -30,7 +31,7 @@ void AttrCtrl::Load() {
 	}
 	
 	for (bool& b : inherited_active) b = false;
-	PatternSnap* owner = db.active.snap->owner;
+	PatternSnap* owner = p.snap->owner;
 	while (owner) {
 		for (const SnapAttrStr& a : owner->attributes) {
 			int id = a.group_i * g.group_limit + a.item_i;
@@ -44,11 +45,12 @@ void AttrCtrl::Load() {
 
 void AttrCtrl::Store() {
 	Database& db = Database::Single();
+	Ptrs& p = db.ctx[MALE];
 	Attributes& g = db.attrs;
-	if (!db.active.snap)
+	if (!p.snap)
 		return;
 	
-	db.active.snap->attributes.Clear();
+	p.snap->attributes.Clear();
 	
 	int id = 0;
 	for (bool& b : active) {
@@ -57,7 +59,7 @@ void AttrCtrl::Store() {
 			attr.item_i = id % g.group_limit;
 			attr.group_i = id / g.group_limit;
 			attr.RealizeId();
-			db.active.snap->attributes.Add(attr);
+			p.snap->attributes.Add(attr);
 		}
 		id++;
 	}
@@ -65,21 +67,22 @@ void AttrCtrl::Store() {
 
 void AttrCtrl::Paint(Draw& d) {
 	Database& db = Database::Single();
+	Ptrs& p = db.ctx[MALE];
 	Attributes& g = db.attrs;
 	Color bg = GrayColor(32);
 	Size sz = GetSize();
 	
 	d.DrawRect(sz, bg);
 	
-	if (!db.active.part)
+	if (!p.part)
 		return;
-	Part& p = *db.active.part;
+	Part& part = *p.part;
 	
 	int tgt_lineh = 18;
 	Font fnt = SansSerif(15);
 	
 	
-	
+	#if 0
 	
 	/*int item_count = g.GetItemCount();
 	if (!item_count)
@@ -103,7 +106,7 @@ void AttrCtrl::Paint(Draw& d) {
 		{
 			group_items.Clear();
 			group_types.Clear();
-			p.GetGroupItems(group_items);
+			part.GetGroupItems(group_items);
 			db.attrs.FindGroupTypes(group_items.GetKeys(), group_types);
 		}
 		
@@ -191,7 +194,7 @@ void AttrCtrl::Paint(Draw& d) {
 		}
 	}
 	
-	
+	#endif
 }
 
 void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, int cx, int& y, float lineh, Font fnt) {
@@ -324,11 +327,12 @@ void AttrCtrl::MouseLeave() {
 	}
 }
 
-void AttrCtrl::LeftDown(Point p, dword keyflags) {
+void AttrCtrl::LeftDown(Point pt, dword keyflags) {
 	Database& db = Database::Single();
+	Ptrs& p = db.ctx[MALE];
 	Attributes& g = db.attrs;
 	for(RectId& rid : entry_rects) {
-		if (rid.a.Contains(p)) {
+		if (rid.a.Contains(pt)) {
 			SnapAttrStr a;
 			a.group_i = rid.b;
 			a.item_i = rid.c;
@@ -337,15 +341,15 @@ void AttrCtrl::LeftDown(Point p, dword keyflags) {
 			int id = a.group_i * g.group_limit + a.item_i;
 			if (id >= 0 && id < active.GetCount()) {
 				bool& b = active[id];
-				if (db.active.snap) {
+				if (p.snap) {
 					b = !b;
 					if (!b) {
-						int i = db.active.snap->attributes.Find(a);
+						int i = p.snap->attributes.Find(a);
 						ASSERT(i >= 0);
-						db.active.snap->attributes.Remove(i);
+						p.snap->attributes.Remove(i);
 					}
 					else {
-						db.active.snap->attributes.Add(a);
+						p.snap->attributes.Add(a);
 					}
 					Update();
 				}

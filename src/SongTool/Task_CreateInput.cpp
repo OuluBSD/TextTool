@@ -8,7 +8,9 @@ void AI_Task::CreateInput_PatternMask() {
 		return;
 	}
 	
-	Song& a = *p.song;
+	Ptrs& p = this->p;
+	Song& song = *p.song;
+	ASSERT(p.mode >= 0);
 	
 	String s;
 	String type = args[0];
@@ -33,8 +35,8 @@ void AI_Task::CreateInput_PatternMask() {
 	
 	s << "Lyrics:\n";
 	String parts;
-	for(int i = 0; i < a.parts.GetCount(); i++) {
-		Part& part = a.parts[i];
+	for(int i = 0; i < song.parts.GetCount(); i++) {
+		Part& part = song.parts[i];
 		s << part.name << "\n";
 		//hash << ToLower(part.name);
 		
@@ -44,7 +46,7 @@ void AI_Task::CreateInput_PatternMask() {
 		Array<Line>& lines = part.lines;
 		for(int j = 0; j < lines.GetCount(); j++) {
 			Line& line = lines[j];
-			s << line.txt << "\n";
+			s << line.snap[p.mode].txt << "\n";
 			//hash << ToLower(line.txt);
 		}
 		
@@ -59,7 +61,7 @@ void AI_Task::CreateInput_PatternMask() {
 	s << "Groups with " << ai_txt << " (in format \"" << type << " group: Value 1, Value 2, etc\"):\n\n";
 	
 	s << "Attributes of lyrics (parts " << parts << "):\n";
-	s << "" << a.parts[0].name << ":\n";
+	s << "" << song.parts[0].name << ":\n";
 	//s << "- " << first << ":";
 	s << "-";
 	
@@ -76,7 +78,10 @@ void AI_Task::CreateInput_Pattern() {
 		return;
 	}
 	
-	Song& a = *p.song;
+	Ptrs& p = this->p;
+	Song& song = *p.song;
+	ASSERT(p.mode >= 0);
+	SongHeader& header = song.headers[p.mode];
 	
 	String s;
 	String type = args[0];
@@ -117,13 +122,13 @@ void AI_Task::CreateInput_Pattern() {
 	}
 	
 	s << "\n\n\nLyrics:\n";
-	for(int i = 0; i < a.unique_lines.GetCount(); i++) {
-		const String& l = a.unique_lines.GetKey(i);
+	for(int i = 0; i < header.unique_lines.GetCount(); i++) {
+		const String& l = header.unique_lines.GetKey(i);
 		s << "Line " << (i+1) << ", \"" << l << "\"\n";
 		//hash << ToLower(l);
 	}
 	s << "\nMultiple answers are required.\n\n";
-	s << "\n\nAttributes (in format \"Group: Attribute\") for all lines:\nLine 1, \"" << a.unique_lines.GetKey(0) << "\"\n-";
+	s << "\n\nAttributes (in format \"Group: Attribute\") for all lines:\nLine 1, \"" << header.unique_lines.GetKey(0) << "\"\n-";
 	
 	//failed = true;
 	//this->hash = hash;
@@ -134,6 +139,11 @@ void AI_Task::CreateInput_Pattern() {
 void AI_Task::CreateInput_Analysis() {
 	//CombineHash hash;
 	Database& db = Database::Single();
+	Ptrs& p = this->p;
+	Song& song = *p.song;
+	ASSERT(p.mode >= 0);
+	SongHeader& header = song.headers[p.mode];
+	
 	if (!p.song) {
 		SetError("no song pointer set");
 		return;
@@ -172,8 +182,9 @@ void AI_Task::CreateInput_Analysis() {
 		Array<Line>& lines = part.lines;
 		for(int j = 0; j < lines.GetCount(); j++) {
 			Line& line = lines[j];
-			s << line.txt << "\n";
-			ASSERT(line.txt.GetCount());
+			const String& txt = line.snap[p.mode].txt;
+			s << txt << "\n";
+			ASSERT(txt.GetCount());
 			//hash << ToLower(line.txt);
 		}
 		
@@ -269,6 +280,11 @@ void AI_Task::CreateInput_AttrScores() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
 	AttrScore& as = db.attrscores;
+	Ptrs& p = this->p;
+	Song& song = *p.song;
+	ASSERT(p.mode >= 0);
+	SongHeader& header = song.headers[p.mode];
+	
 	String prompt;
 	String entries;
 	Index<SnapAttrStr> attrs;
@@ -282,7 +298,7 @@ void AI_Task::CreateInput_AttrScores() {
 	
 	// Try making prompt with errors first
 	Song& a = *this->p.song;
-	a.GetAttributes(attrs); // get attrs from snapshots
+	a.GetAttributes(p.mode, attrs); // get attrs from snapshots
 	
 	
 	int entry_count = 0;
@@ -352,7 +368,7 @@ void AI_Task::CreateInput_AttrScores() {
 	prompt.Replace("${ENTRIES}", entries);
 	//this->hash = hash;
 	input = prompt;
-	response_length = 1024;
+	response_length = 2*1024;
 }
 
 const char* example_conv = R"TXT(
@@ -375,24 +391,19 @@ void AI_Task::CreateInput_Lyrics() {
 		return;
 	}
 	
-	if (!this->rev.part) {
-		SetError("no reverse partpointers");
-		return;
-	}
-	
 	bool rev_snap = args.GetCount() && args[0] == "rev";
-	
-	Ptrs& ptrs = rev_snap ? this->p : this->rev;
+	int mode = rev_snap ? p.mode + 2 : p.mode;
+	Ptrs& ptrs = this->p;
 	
 	Artist& a = *ptrs.artist;
 	Song& s = *ptrs.song;
 	Release& r = *ptrs.release;
 	Part& p = *ptrs.part;
-	Part& rev_p = *ptrs.part;
 	//Story& s = *db.active_story;
 	//Composition& c = *db.active_composition;
 	//Analysis& n = *db.active_analysis;
 	//Pattern& p = *db.active_pattern;
+	ASSERT(ptrs.mode >= 0);
 	
 	String o;
 	o	<< "Artist name: " << a.name << "\n"
@@ -429,7 +440,7 @@ void AI_Task::CreateInput_Lyrics() {
 	
 	
 	o	<< example_conv << "\n\n\nStructured lyrics:\n";
-	o	<< p.GetStructuredText(false) << "\n\n";
+	o	<< p.GetStructuredText(mode, false) << "\n\n";
 	o	<< "\nLyrics:\n";
 	
 	input = o;
@@ -437,7 +448,8 @@ void AI_Task::CreateInput_Lyrics() {
 
 void AI_Task::CreateInput_LyricsTranslate() {
 	bool rev_snap = args[0] == "rev";
-	Song& song = *(!rev_snap ? this->p.song : this->rev.song);
+	int mode = rev_snap ? p.mode + 2 : p.mode;
+	Song& song = *p.song;
 	
 	String lng = args[1].Left(5);
 	if (lng == LNGAsText(LNG_('F','I','F','I')))
@@ -445,11 +457,11 @@ void AI_Task::CreateInput_LyricsTranslate() {
 	String key = "gen.lyrics";
 	
 	String s, lyrics;
-	for (Part& p : song.parts) {
-		lyrics << p.name << ":\n";
-		lyrics << p.data.GetAdd(key) << "\n\n";
+	for (Part& part : song.parts) {
+		lyrics << part.name << ":\n";
+		lyrics << part.snap[mode].data.GetAdd(key) << "\n\n";
 	}
-	song.data.GetAdd(key) = lyrics;
+	song.snap[mode].data.GetAdd(key) = lyrics;
 	
 	s << "In English:\n" << lyrics;
 	s << "In " << lng << ":\n";

@@ -4,18 +4,17 @@
 
 struct Release :
 	DataFile,
-	PatternSnap
+	SnapContext
 {
 	String			title;
 	Date			date;
 	Array<Song>		songs;
-	Array<Song>		reversed_songs;
 	
 	
 	
 	void Store();
 	void LoadTitle(String title);
-	Song& RealizeReversed(Song& s);
+	//Song& RealizeReversed(Song& s);
 	void Jsonize(JsonIO& json) {
 		json
 			("title", title)
@@ -26,10 +25,6 @@ struct Release :
 				Vector<String> names;
 				for (Song& s : songs) {s.Store(); names.Add(s.file_title);}
 				json("songs", names);
-			}{
-				Vector<String> names;
-				for (Song& s : reversed_songs) {s.SetReversed(); s.Store(); names.Add(s.file_title);}
-				json("reversed_songs", names);
 			}
 		}
 		if (json.IsLoading()) {
@@ -38,29 +33,16 @@ struct Release :
 				Vector<String> names;
 				json("songs", names);
 				for (String n : names) songs.Add().LoadTitle(n);
-			}{
-				reversed_songs.Clear();
-				Vector<String> names;
-				json("reversed_songs", names);
-				for (String n : names) reversed_songs.Add().SetReversed().LoadTitle(n);
 			}
 		}
-		PatternSnap::Jsonize(json);
+		SnapContext::Jsonize(json);
 	}
 	void FixPtrs() {
-		this->release = this;
+		SetReleasePtr(this);
 		int id = 0;
 		for (Song& s : songs) {
-			static_cast<Ptrs&>(s) = *(Ptrs*)this;
-			s.owner = this;
-			s.SetId(id++);
-			s.FixPtrs();
-		}
-		id = 0;
-		for (Song& s : reversed_songs) {
-			static_cast<Ptrs&>(s) = *(Ptrs*)this;
-			s.owner = this;
-			s.SetReversed();
+			s.CopyPtrs(*this);
+			s.SetOwner(*this);
 			s.SetId(id++);
 			s.FixPtrs();
 		}

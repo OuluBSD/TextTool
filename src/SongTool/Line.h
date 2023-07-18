@@ -2,7 +2,9 @@
 #define _SongTool_Line_h_
 
 
-struct Line : PatternSnap {
+struct Line :
+	SnapContext
+{
 	Array<Break>				breaks;
 	VectorMap<String,String>	data;
 	
@@ -11,21 +13,21 @@ struct Line : PatternSnap {
 			("breaks", breaks)
 			("data", data)
 			;
-		PatternSnap::Jsonize(json);
+		SnapContext::Jsonize(json);
 	}
 	void FixPtrs() {
-		this->line = this;
+		this->SetLinePtr(this);
 		int id = 0;
 		for (Break& b : breaks) {
-			static_cast<Ptrs&>(b) = *(Ptrs*)this;
-			b.owner = this;
+			b.CopyPtrs(*this);
+			b.SetOwner(*this);
 			b.SetId(id++);
 			b.FixPtrs();
 		}
 	}
 	Array<Break>& GetSub() {return breaks;}
 	const Array<Break>& GetSub() const {return breaks;}
-	void ParseLine(Song& song, const String& txt);
+	void ParseLine(Song& song, int mode, const String& txt);
 	
 	PATTERNMASK_MACROS
 };

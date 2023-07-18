@@ -1,100 +1,8 @@
 {
-	"uniq": -715626496,
-	"linked_uniq": 0,
 	"artist": "Poko",
 	"title": "Sydämen Asialla",
 	"prj_name": "hearbeat",
 	"structure_str": "",
-	"data": [
-
-	],
-	"content": "",
-	"unique_lines": [
-		{
-			"key": "Scar tissue that I wish you saw",
-			"value": [
-
-			]
-		},
-		{
-			"key": "Sarcastic mister know-it-all",
-			"value": [
-
-			]
-		},
-		{
-			"key": "Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view)",
-			"value": [
-
-			]
-		},
-		{
-			"key": "With the birds I'll share this lonely viewin'",
-			"value": [
-
-			]
-		},
-		{
-			"key": "Push me up against the wall",
-			"value": [
-
-			]
-		},
-		{
-			"key": "Young Kentucky girl in a push-up bra",
-			"value": [
-
-			]
-		},
-		{
-			"key": "Fallin' all over myself To lick your heart and taste your health 'cause",
-			"value": [
-
-			]
-		},
-		{
-			"key": "With the birds I'll share this lonely view",
-			"value": [
-
-			]
-		},
-		{
-			"key": "Blood loss in a bathroom stall",
-			"value": [
-
-			]
-		},
-		{
-			"key": "A southern girl with a scarlet drawl",
-			"value": [
-
-			]
-		},
-		{
-			"key": "I wave goodbye to ma and pa 'Cause with the birds I'll share (lonely view)",
-			"value": [
-
-			]
-		},
-		{
-			"key": "Soft spoken with a broken jaw",
-			"value": [
-
-			]
-		},
-		{
-			"key": "Step outside but not to brawl and autumn's sweet, we call it fall",
-			"value": [
-
-			]
-		},
-		{
-			"key": "I'll make it to the moon if I have to crawl (and)",
-			"value": [
-
-			]
-		}
-	],
 	"structure": [
 
 	],
@@ -104,20 +12,103 @@
 	"tracks": [
 
 	],
+	"headers[0]": {
+		"data": [
+
+		],
+		"content": "",
+		"unique_lines": [
+
+		]
+	},
+	"headers[1]": {
+		"data": [
+
+		],
+		"content": "",
+		"unique_lines": [
+
+		]
+	},
+	"headers[2]": {
+		"data": [
+
+		],
+		"content": "",
+		"unique_lines": [
+
+		]
+	},
+	"headers[3]": {
+		"data": [
+
+		],
+		"content": "",
+		"unique_lines": [
+
+		]
+	},
 	"rev_tasks": [
 
 	],
-	"txt": "",
-	"attributes": [
+	"snap[0]": {
+		"txt": "",
+		"attributes": [
 
-	],
-	"partscore": [
+		],
+		"partscore": [
 
-	],
-	"data": [
+		],
+		"data": [
 
-	],
-	"mask": [
+		],
+		"mask": [
 
-	]
+		]
+	},
+	"snap[1]": {
+		"txt": "",
+		"attributes": [
+
+		],
+		"partscore": [
+
+		],
+		"data": [
+
+		],
+		"mask": [
+
+		]
+	},
+	"snap[2]": {
+		"txt": "",
+		"attributes": [
+
+		],
+		"partscore": [
+
+		],
+		"data": [
+
+		],
+		"mask": [
+
+		]
+	},
+	"snap[3]": {
+		"txt": "",
+		"attributes": [
+
+		],
+		"partscore": [
+
+		],
+		"data": [
+
+		],
+		"mask": [
+
+		]
+	}
 }

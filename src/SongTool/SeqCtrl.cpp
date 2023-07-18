@@ -11,11 +11,12 @@ SeqCtrl::SeqCtrl() {
 
 void SeqCtrl::Data() {
 	Database& db = Database::Single();
+	Ptrs& p = db.ctx[MALE];
 	
-	if (!db.active.song)
+	if (!db.ctx.HasSong())
 		return;
 	
-	db.active.song->RealizeProduction();
+	p.song->RealizeProduction();
 	
 	seq.Data();
 	line.Data();

@@ -47,13 +47,14 @@ void ScoringCtrl::AddPreset() {
 
 void ScoringCtrl::Data() {
 	Database& db = Database::Single();
-	if (db.active.song) {
-		if (db.active_wholesong) {
-			plotter.SetWholeSong(*db.active.song);
+	Ptrs& p = db.ctx[MALE];
+	if (p.song) {
+		if (db.ctx.active_wholesong) {
+			plotter.SetWholeSong(*p.song);
 		}
 		else {
-			Part& p = *db.active.part;
-			plotter.SetPart(p);
+			Part& part = *p.part;
+			plotter.SetPart(part);
 		}
 	}
 	
@@ -75,12 +76,13 @@ void ScoringCtrl::DataPresets() {
 
 void ScoringCtrl::DataList() {
 	Database& db = Database::Single();
-	if (!db.active.song)
+	Ptrs& p = db.ctx[MALE];
+	if (!db.ctx.HasSong())
 		return;
-	Song& o = *db.active.song;
+	Song& o = *p.song;
 	
 	// Whole song
-	if (db.active_wholesong) {
+	if (db.ctx.active_wholesong) {
 		list.SetCount(0);
 		plotter.SetWholeSong(o);
 		int total = 0;
@@ -99,8 +101,8 @@ void ScoringCtrl::DataList() {
 					list.Set(total, 1, j);
 					list.Set(total, 2, k);
 					list.Set(total, 3, part_name + ":" + IntStr(j) + ":" + IntStr(k));
-					for(int j = 0; j < line.partscore.GetCount(); j++) {
-						int value = brk.partscore[i];
+					for(int j = 0; j < line.snap[p.mode].partscore.GetCount(); j++) {
+						int value = brk.snap[p.mode].partscore[i];
 						int k1 = group_begin+j;
 						int k2 = group_begin-3+j; // skip 3 index columns for visible Ctrls
 						list.Set(total, k1, value);
@@ -116,12 +118,12 @@ void ScoringCtrl::DataList() {
 		list.SetCount(total);
 	}
 	else {
-		if (!db.active.part)
+		if (!p.part)
 			return;
-		Part& part = *db.active.part;
+		Part& part = *p.part;
 		plotter.SetPart(part);
 		String part_name = db.attrs.Translate(part.name);
-		int part_i = db.GetActivePartIndex();
+		int part_i = p.GetActivePartIndex();
 		int total = 0;
 		for(int i = 0; i < part.lines.GetCount(); i++) {
 			Line& line = part.lines[i];
@@ -131,8 +133,8 @@ void ScoringCtrl::DataList() {
 				list.Set(total, 1, i);
 				list.Set(total, 2, k);
 				list.Set(total, 3, part_name + ":" + IntStr(i) + ":" + IntStr(k));
-				for(int j = 0; j < line.partscore.GetCount(); j++) {
-					int value = brk.partscore[j];
+				for(int j = 0; j < line.snap[p.mode].partscore.GetCount(); j++) {
+					int value = brk.snap[p.mode].partscore[j];
 					int k1 = group_begin+j;
 					int k2 = group_begin-3+j; // skip 3 index columns for visible Ctrls
 					list.Set(total, k1, value);
@@ -150,18 +152,19 @@ void ScoringCtrl::DataList() {
 
 void ScoringCtrl::ListValueChanged(int pos, int scoring) {
 	Database& db = Database::Single();
-	if (!db.active.part || !db.active.song)
+	Ptrs& p = db.ctx[MALE];
+	if (!p.part || !db.ctx.HasSong())
 		return;
-	Song& o = *db.active.song;
+	Song& o = *p.song;
 	
 	int part_i = list.Get(pos, 0);
 	int i = list.Get(pos, 1);
 	
 	Part& part = o.parts[part_i];
-	if (part.partscore.GetCount() != db.attrs.scorings.GetCount())
-		part.partscore.SetCount(db.attrs.scorings.GetCount(), 0);
+	if (part.snap[p.mode].partscore.GetCount() != db.attrs.scorings.GetCount())
+		part.snap[p.mode].partscore.SetCount(db.attrs.scorings.GetCount(), 0);
 	
-	auto& dst = part.partscore[i];
+	auto& dst = part.snap[p.mode].partscore[i];
 	int value = list.Get(pos, group_begin+scoring);
 	dst = value;
 	
@@ -244,9 +247,10 @@ void ScoringCtrl::UpdatePreset() {
 
 void ScoringCtrl::ApplyPreset() {
 	Database& db = Database::Single();
+	Ptrs& p = db.ctx[MALE];
 	if (!list.IsCursor() || !presets.IsCursor())
 		return;
-	if (!db.active.part)
+	if (!p.part)
 		return;
 	
 	AttrScore& a = db.attrscores;
@@ -260,12 +264,12 @@ void ScoringCtrl::ApplyPreset() {
 	int part_i = list.Get(cur, 0);
 	int pos = list.Get(cur, 1);
 	
-	Part& o = *db.active.part;
-	Line& line = o.lines[pos];
-	line.partscore.SetCount(c, 0);
+	Part& part = *p.part;
+	Line& line = part.lines[pos];
+	line.snap[p.mode].partscore.SetCount(c, 0);
 	
 	for(int i = 0; i < c; i++) {
-		line.partscore[i] = scores[i];
+		line.snap[p.mode].partscore[i] = scores[i];
 	}
 	
 	DataList();

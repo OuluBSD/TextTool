@@ -30,13 +30,14 @@ ReverseCtrl::ReverseCtrl() {
 void ReverseCtrl::Data() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
+	Ptrs& p = db.ctx[MALE];
 	
 	if (g.groups.IsEmpty()) return;
 	
 	this->snaplist.Clear();
-	if (!db.active.song)
+	if (!db.ctx.HasSong())
 		return;
-	Song& song = *db.active.song;
+	Song& song = *p.song;
 	
 	song.lock.EnterRead();
 	song.RealizeTaskSnaps();
@@ -73,14 +74,14 @@ void ReverseCtrl::Data() {
 	}
 	song.lock.LeaveRead();
 	
-	String key = "rev.gen.lyrics";
-	String key_translated = "rev.gen.lyrics." + GetCurrentLanguageString().Left(5);
-	lyrics.SetData(song.data.Get(key, "").ToWString());
+	String key = "gen.lyrics";
+	String key_translated = "gen.lyrics." + GetCurrentLanguageString().Left(5);
+	lyrics.SetData(song.snap[MALE_REVERSED].data.Get(key, "").ToWString());
 	
 	/*String translated = song.data.Get(key_translated, "");
 	WString wtranslated = ToUnicode(translated, CHARSET_UTF8);
 	this->translated.SetData(wtranslated);*/
-	this->translated.SetData(song.data.Get(key_translated, ""));
+	this->translated.SetData(song.snap[MALE_REVERSED].data.Get(key_translated, ""));
 	
 	if (tasklist.GetCount() && !tasklist.IsCursor())
 		tasklist.SetCursor(0);
@@ -91,9 +92,9 @@ void ReverseCtrl::Data() {
 
 void ReverseCtrl::DataWorker() {
 	Database& db = Database::Single();
-	if (!db.active.song)
+	if (!db.ctx.HasSong())
 		return;
-	Song& song = *db.active.song;
+	Song& song = *db.ctx[0].song;
 	
 	if (!tasklist.IsCursor())
 		return;

@@ -3,8 +3,9 @@
 
 
 class ImportCtrl : public WithImport<Ctrl> {
-	DocEdit input;
-	ArrayCtrl output;
+	DocEdit input[2];
+	Splitter hsplit;
+	ArrayCtrl messages;
 	
 	
 public:
@@ -13,8 +14,8 @@ public:
 	
 	void Data();
 	void OnValueChange();
-	void OutputBar(Bar& bar);
-	void RemoveLine();
+	//void OutputBar(Bar& bar);
+	//void RemoveLine();
 	void MakeTasks();
 	void ParseOriginalLyrics();
 	

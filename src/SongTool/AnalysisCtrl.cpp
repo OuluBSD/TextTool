@@ -11,11 +11,13 @@ AnalysisCtrl::AnalysisCtrl() {
 
 void AnalysisCtrl::Data() {
 	Database& db = Database::Single();
-	if (!db.active.part) return;
-	Part& p = *db.active.part;
-	Analysis& a = p.analysis;
+	Ptrs& p = db.ctx[MALE];
+	if (!p.part) return;
+	Part& part = *p.part;
+	PatternSnap& snap = part.snap[MALE];
+	Analysis& a = part.analysis;
 	
-	lyrics.SetData(p.txt);
+	lyrics.SetData(snap.txt);
 	
 	for(int i = 0; i < a.data.GetCount(); i++) {
 		data.Set(i, 0, a.data.GetKey(i));

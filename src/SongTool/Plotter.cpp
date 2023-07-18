@@ -138,9 +138,9 @@ void Plotter::Paint(Draw& d) {
 					Break& brk = line.breaks[k];
 					
 					// Accumulate values
-					int c0 = min(c, brk.partscore.GetCount());
+					int c0 = min(c, brk.snap[pmode].partscore.GetCount());
 					for(int k = 0; k < c0; k++)
-						values[k].Add(brk.partscore[k]);
+						values[k].Add(brk.snap[pmode].partscore[k]);
 				}
 			}
 			
@@ -165,9 +165,9 @@ void Plotter::Paint(Draw& d) {
 			for(int k = 0; k < line.breaks.GetCount(); k++) {
 				Break& brk = line.breaks[k];
 				
-				int c0 = min(c, brk.partscore.GetCount());
+				int c0 = min(c, brk.snap[pmode].partscore.GetCount());
 				for(int j = 0; j < c0; j++)
-					this->values[j].Add(brk.partscore[j]);
+					this->values[j].Add(brk.snap[pmode].partscore[j]);
 			}
 		}
 	}
@@ -363,7 +363,7 @@ void Plotter::MouseWheel(Point p, int zdelta, dword keyflags) {
 					return;
 				
 				Line& line = part.lines[rid.c];
-				auto& score = line.partscore[focused_group_i];
+				auto& score = line.snap[pmode].partscore[focused_group_i];
 				score += change;
 				break;
 			}

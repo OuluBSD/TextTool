@@ -39,7 +39,7 @@ LAYOUT(Import, 592, 108)
 	ITEM(Upp::Label, dv___3, SetLabel(t_("Structure:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(164, 76).TopPosZ(16, 20))
 	ITEM(Upp::EditString, structure, LeftPosZ(244, 268).TopPosZ(16, 20))
 	ITEM(Upp::Button, reload, SetLabel(t_("Reload")).LeftPosZ(516, 68).TopPosZ(16, 20))
-	ITEM(Splitter, mainsplit, HSizePosZ(4, 0).VSizePosZ(48, 0))
+	ITEM(Splitter, vsplit, HSizePosZ(4, 0).VSizePosZ(48, 0))
 END_LAYOUT
 
 LAYOUT(Analysis, 724, 488)

@@ -1,1083 +1,8 @@
 {
-	"uniq": 1999482156,
-	"linked_uniq": 0,
 	"artist": "",
 	"title": "Scar Tissue",
 	"prj_name": "",
 	"structure_str": "verse1:2,chorus1:2,verse2:2,chorus2:3,verse3:2,chorus1,verse4:2,chorus2,verse1,chorus2",
-	"data": [
-		{
-			"key": "rev.gen.lyrics.FI-FI",
-			"value": "Kohtaus 1:\nSulje silmäsi ja suudella minua\nKoska lintujen kanssa jaan tämän yksinäisen näkymän\nSarkastinen herra tietää-kaikki\nSe on haava jonka toivon näkeväsi\n\nKertosäe 1:\nJaan lintujen kanssa yksinäisen näkymän\nKatson heitä lentävän taivaan sinisessä\nJa keinun puolelta toiselle päälläni kumara\nTämän avoimen näkemyksen jaan niiden lintujen kanssa alas\n\nKohtaus2:\nLasken sisään maista terveytesi\nMaista rohkeasi ja ruskeasävyistä sieluasi\nSeinän vieressä, huoneessa, kuiskaan\nMaista sydämestäsi täytä ne\nKohoa kulmiani, eleen liikkeillä\nVärikkäälle Kentucky-tytölle, viileään iskuun\nHämärä näkymä, hyvästi\nDraamamentyinen tyyli, puristan huulia, hivenen harteillani\nYksinäinen näkymä, vapaa-aatteinen henkilö, joka on optimistinen, leikkisä ja iloinen, mutta realistinen ja hyväksyvä virheiden suhteen\n\nKertosäe 2:\nHaava jonka toivon näkeväsi\nJaan näkymää lintujen kanssa yksinäisen taivaan alla\nKanssani, kanssani, kanssani\n\nHe jakavat yksinäisen näkymämme, Tumman ja rauhallisen taivaan alla\nJakavat klassisen näkymän, huulilla pouta ja silmien räpytteleellä\nKanssani, kanssani, kanssani\n\nKohtaus3:\nEtelätyttö seisoo tallissa\nRikkaiden punaisella verellä, joka alkaa juosta\nHän kallistaa päätään sivulle\nJa hänen suunsa aukeaa sanoessaan hyvästit\n\nKirkas ja rohkea, loistava vetovoima\nHän swaggaa ulos lintujen kanssa\nÄiti ja isä hakevat sanan hyvästit\nHeidän yksinäisen näkemyksensä he jakavat taivaassa\n\nKohtaus4:\nAstu ulos ja teen riskin\nMaista terveyttäni, koska olen vapaa-aatteinen mies\nKimmeltävän taivaan värimaalaus, rytmin salpaavaa sydämen tahtiin\nAvoimet silmät keinuen tahtiin, on ryömiydyttävä päästäkseen kohti kuuta\nKohota kulmiani, poiston lähtöni, hyppien musiikin tahtiin\nKohti kuuta, noidankehän oma, taika omiin käsiisi."
-		},
-		{
-			"key": "rev.gen.lyrics",
-			"value": "verse1:\n\n\nchorus1:\n\n\nverse2:\n\n\nchorus2:\n\n\nverse3:\n\n\nverse4:\n\n\n"
-		}
-	],
-	"content": "verse1:\nScar tissue [br] that I wish you saw, [br] (I'm) Sarcastic [br] mister know-it-all.\n(I'm saying to myself) close your eyes [br] and I'll kiss you, [br] 'cause with the birds I'll share (lonely view).\n\nchorus1:\nWith the birds [br] I'll share this lonely viewin'\nWith the birds [br] I'll share this lonely viewin'\n\nverse2:\n(Drug,) push me up [br] against the wall, [br] (I feel like a ) young Kentucky girl in a [br] push-up bra.\n(I'm) fallin' all over myself [br] to lick your heart (blood) [br] and taste your health (via illegal drug) 'cause\n\nchorus2:\nWith the birds [br] I'll share this lonely viewin'\nWith the birds [br] I'll share this lonely viewin'\nWith the birds [br] I'll share this lonely view\n\nverse3:\n(I'm having a) blood loss [br] in a bathroom stall, [br] (I'm acting like) a southern girl with a (Texas) scarlet drawl (of way to speak).\nI (leave toilets and) wave goodbye to ma and pa (sings in doors) 'cause [br] with the birds I'll share (this lonely view)\n\nchorus1:\n\nverse4:\n(I'm) soft spoken with a broken jaw, [br] (but I still) step outside, but not to brawl.\nAnd autumn's sweet, we call it fall. [br] I'll make it to the moon [br] if I have to crawl and (to share lonely view)\n\nchorus2:\n\nverse1:\n\nchorus2:\n",
-	"unique_lines": [
-		{
-			"key": "Scar tissue",
-			"value": [
-
-			]
-		},
-		{
-			"key": "that I wish you saw,",
-			"value": [
-
-			]
-		},
-		{
-			"key": "(I'm) Sarcastic",
-			"value": [
-
-			]
-		},
-		{
-			"key": "mister know-it-all.",
-			"value": [
-				{
-					"g": "personality traits",
-					"i": "reckless behavior"
-				},
-				{
-					"g": "time of day",
-					"i": "afternoon"
-				},
-				{
-					"g": "body language",
-					"i": "digging deep"
-				},
-				{
-					"g": "clothing",
-					"i": "jeans"
-				},
-				{
-					"g": "accessories",
-					"i": "belt buckle"
-				},
-				{
-					"g": "transitions",
-					"i": "fast jumps"
-				},
-				{
-					"g": "artificial",
-					"i": "vivid"
-				}
-			]
-		},
-		{
-			"key": "(I'm saying to myself) close your eyes",
-			"value": [
-
-			]
-		},
-		{
-			"key": "and I'll kiss you,",
-			"value": [
-
-			]
-		},
-		{
-			"key": "'cause with the birds I'll share (lonely view).",
-			"value": [
-
-			]
-		},
-		{
-			"key": "With the birds",
-			"value": [
-
-			]
-		},
-		{
-			"key": "I'll share this lonely viewin'",
-			"value": [
-
-			]
-		},
-		{
-			"key": "(Drug,) push me up",
-			"value": [
-
-			]
-		},
-		{
-			"key": "against the wall,",
-			"value": [
-				{
-					"g": "locations",
-					"i": "bathroom stall"
-				},
-				{
-					"g": "body language",
-					"i": "exploring"
-				},
-				{
-					"g": "clothing",
-					"i": "sneakers"
-				},
-				{
-					"g": "transitions",
-					"i": "fast jumps"
-				},
-				{
-					"g": "artificial",
-					"i": "focused"
-				},
-				{
-					"g": "ambient",
-					"i": "moody"
-				}
-			]
-		},
-		{
-			"key": "(I feel like a ) young Kentucky girl in a",
-			"value": [
-
-			]
-		},
-		{
-			"key": "push-up bra.",
-			"value": [
-				{
-					"g": "physical features",
-					"i": "young kentucky girl in a push-up bra"
-				},
-				{
-					"g": "environments",
-					"i": "outside"
-				},
-				{
-					"g": "body language",
-					"i": "digging deep"
-				},
-				{
-					"g": "clothing",
-					"i": "grey t-shirt"
-				},
-				{
-					"g": "accessories",
-					"i": "sunglasses"
-				},
-				{
-					"g": "fades",
-					"i": "dark and mysterious"
-				},
-				{
-					"g": "artificial",
-					"i": "stylized"
-				},
-				{
-					"g": "diffused",
-					"i": "glow"
-				}
-			]
-		},
-		{
-			"key": "(I'm) fallin' all over myself",
-			"value": [
-
-			]
-		},
-		{
-			"key": "to lick your heart (blood)",
-			"value": [
-				{
-					"g": "interactions",
-					"i": "kissing"
-				},
-				{
-					"g": "locations",
-					"i": "toilets"
-				},
-				{
-					"g": "body language",
-					"i": "letting go"
-				},
-				{
-					"g": "clothing",
-					"i": "combat boots"
-				},
-				{
-					"g": "fades",
-					"i": "glowing highlights"
-				},
-				{
-					"g": "natural",
-					"i": "warm"
-				},
-				{
-					"g": "artificial",
-					"i": "intense"
-				}
-			]
-		},
-		{
-			"key": "and taste your health (via illegal drug) 'cause",
-			"value": [
-				{
-					"g": "environments",
-					"i": "wall"
-				},
-				{
-					"g": "body language",
-					"i": "movement"
-				},
-				{
-					"g": "clothing",
-					"i": "black stilettos"
-				},
-				{
-					"g": "effects",
-					"i": "distorted sound effects"
-				},
-				{
-					"g": "artificial",
-					"i": "bold"
-				}
-			]
-		},
-		{
-			"key": "I'll share this lonely view",
-			"value": [
-
-			]
-		},
-		{
-			"key": "(I'm having a) blood loss",
-			"value": [
-
-			]
-		},
-		{
-			"key": "in a bathroom stall,",
-			"value": [
-				{
-					"g": "locations",
-					"i": "bathroom stall"
-				},
-				{
-					"g": "body language",
-					"i": "exploring"
-				},
-				{
-					"g": "clothing",
-					"i": "cargo pants"
-				},
-				{
-					"g": "accessories",
-					"i": "sunglasses"
-				},
-				{
-					"g": "transitions",
-					"i": "fast jumps"
-				},
-				{
-					"g": "ambient",
-					"i": "suppressed"
-				},
-				{
-					"g": "diffused",
-					"i": "glow"
-				}
-			]
-		},
-		{
-			"key": "(I'm acting like) a southern girl with a (Texas) scarlet drawl (of way to speak).",
-			"value": [
-
-			]
-		},
-		{
-			"key": "I (leave toilets and) wave goodbye to ma and pa (sings in doors) 'cause",
-			"value": [
-
-			]
-		},
-		{
-			"key": "with the birds I'll share (this lonely view)",
-			"value": [
-
-			]
-		},
-		{
-			"key": "(I'm) soft spoken with a broken jaw,",
-			"value": [
-
-			]
-		},
-		{
-			"key": "(but I still) step outside, but not to brawl.",
-			"value": [
-
-			]
-		},
-		{
-			"key": "And autumn's sweet, we call it fall.",
-			"value": [
-
-			]
-		},
-		{
-			"key": "I'll make it to the moon",
-			"value": [
-
-			]
-		},
-		{
-			"key": "if I have to crawl and (to share lonely view)",
-			"value": [
-
-			]
-		},
-		{
-			"key": "scar tissue",
-			"value": [
-				{
-					"g": "physical features",
-					"i": "broken jaw"
-				},
-				{
-					"g": "places",
-					"i": "kentucky"
-				},
-				{
-					"g": "weather",
-					"i": "autumn"
-				},
-				{
-					"g": "body language",
-					"i": "perseverance"
-				},
-				{
-					"g": "accessories",
-					"i": "silver watch"
-				},
-				{
-					"g": "effects",
-					"i": "distorted sound effects"
-				},
-				{
-					"g": "artificial",
-					"i": "sharp"
-				},
-				{
-					"g": "ambient",
-					"i": "textured"
-				}
-			]
-		},
-		{
-			"key": "that i wish you saw,",
-			"value": [
-				{
-					"g": "interactions",
-					"i": "sharing"
-				},
-				{
-					"g": "time of day",
-					"i": "morning"
-				},
-				{
-					"g": "body language",
-					"i": "contemplative"
-				},
-				{
-					"g": "hair/makeup",
-					"i": "smoky eye makeup"
-				},
-				{
-					"g": "transitions",
-					"i": "slow and gradual"
-				},
-				{
-					"g": "natural",
-					"i": "crisp"
-				},
-				{
-					"g": "artificial",
-					"i": "bold"
-				}
-			]
-		},
-		{
-			"key": "(i'm) sarcastic",
-			"value": [
-				{
-					"g": "personality traits",
-					"i": "sarcasm"
-				},
-				{
-					"g": "environments",
-					"i": "outside"
-				},
-				{
-					"g": "body language",
-					"i": "exploring"
-				},
-				{
-					"g": "accessories",
-					"i": "sunglasses"
-				},
-				{
-					"g": "effects",
-					"i": "echoing reverb"
-				},
-				{
-					"g": "artificial",
-					"i": "enhanced"
-				},
-				{
-					"g": "diffused",
-					"i": "subtle"
-				}
-			]
-		},
-		{
-			"key": "(i'm saying to myself) close your eyes",
-			"value": [
-				{
-					"g": "interactions",
-					"i": "kissing"
-				},
-				{
-					"g": "time of day",
-					"i": "evening"
-				},
-				{
-					"g": "body language",
-					"i": "movement"
-				},
-				{
-					"g": "hair/makeup",
-					"i": "shaggy blonde hair"
-				},
-				{
-					"g": "accessories",
-					"i": "cowboy hat"
-				},
-				{
-					"g": "fades",
-					"i": "soft"
-				},
-				{
-					"g": "artificial",
-					"i": "highlighted"
-				}
-			]
-		},
-		{
-			"key": "and i'll kiss you,",
-			"value": [
-				{
-					"g": "interactions",
-					"i": "kissing"
-				},
-				{
-					"g": "body language",
-					"i": "expanding"
-				},
-				{
-					"g": "clothing",
-					"i": "vintage dress"
-				},
-				{
-					"g": "accessories",
-					"i": "pearl earrings"
-				},
-				{
-					"g": "transitions",
-					"i": "jagged"
-				},
-				{
-					"g": "natural",
-					"i": "rich"
-				},
-				{
-					"g": "ambient",
-					"i": "calm"
-				}
-			]
-		},
-		{
-			"key": "'cause with the birds i'll share (lonely view).",
-			"value": [
-				{
-					"g": "moral interactions",
-					"i": "sharing"
-				},
-				{
-					"g": "locations",
-					"i": "moon"
-				},
-				{
-					"g": "body language",
-					"i": "letting go"
-				},
-				{
-					"g": "clothing",
-					"i": "white shirt"
-				},
-				{
-					"g": "accessories",
-					"i": "plaid scarf"
-				},
-				{
-					"g": "transitions",
-					"i": "wild and unpredictable"
-				},
-				{
-					"g": "natural",
-					"i": "soft"
-				},
-				{
-					"g": "artificial",
-					"i": "intense"
-				}
-			]
-		},
-		{
-			"key": "with the birds",
-			"value": [
-				{
-					"g": "moral interactions",
-					"i": "sharing"
-				},
-				{
-					"g": "environments",
-					"i": "wall"
-				},
-				{
-					"g": "body language",
-					"i": "heightened energy"
-				},
-				{
-					"g": "clothing",
-					"i": "cowboy shirt"
-				},
-				{
-					"g": "accessories",
-					"i": "aviator sunglasses"
-				},
-				{
-					"g": "fades",
-					"i": "dreamy wisps of clouds"
-				},
-				{
-					"g": "natural",
-					"i": "bright"
-				}
-			]
-		},
-		{
-			"key": "i'll share this lonely viewin'",
-			"value": [
-				{
-					"g": "moral interactions",
-					"i": "sharing"
-				},
-				{
-					"g": "time of day",
-					"i": "midnight"
-				},
-				{
-					"g": "body language",
-					"i": "longing"
-				},
-				{
-					"g": "clothing",
-					"i": "short shorts"
-				},
-				{
-					"g": "accessories",
-					"i": "black beret"
-				},
-				{
-					"g": "transitions",
-					"i": "smooth and dreamy"
-				},
-				{
-					"g": "natural",
-					"i": "vibrant"
-				},
-				{
-					"g": "ambient",
-					"i": "diffused"
-				}
-			]
-		},
-		{
-			"key": "(drug,) push me up",
-			"value": [
-				{
-					"g": "places",
-					"i": "texas"
-				},
-				{
-					"g": "ideas",
-					"i": "drug pusher"
-				},
-				{
-					"g": "body language",
-					"i": "resilience"
-				},
-				{
-					"g": "clothing",
-					"i": "black vest"
-				},
-				{
-					"g": "accessories",
-					"i": "scarf"
-				},
-				{
-					"g": "effects",
-					"i": "delayed tones and filters"
-				},
-				{
-					"g": "artificial",
-					"i": "saturated"
-				},
-				{
-					"g": "diffused",
-					"i": "emphasized"
-				}
-			]
-		},
-		{
-			"key": "(i feel like a ) young kentucky girl in a",
-			"value": [
-				{
-					"g": "physical features",
-					"i": "young kentucky girl in a push-up bra"
-				},
-				{
-					"g": "places",
-					"i": "kentucky"
-				},
-				{
-					"g": "body language",
-					"i": "expanding"
-				},
-				{
-					"g": "effects",
-					"i": "slow-motion and dream-like atmosphere"
-				},
-				{
-					"g": "diffused",
-					"i": "soft"
-				}
-			]
-		},
-		{
-			"key": "(i'm) fallin' all over myself",
-			"value": [
-				{
-					"g": "personality traits",
-					"i": "reckless behavior"
-				},
-				{
-					"g": "weather",
-					"i": "autumn"
-				},
-				{
-					"g": "body language",
-					"i": "perseverance"
-				},
-				{
-					"g": "clothing",
-					"i": "ripped jeans"
-				},
-				{
-					"g": "transitions",
-					"i": "jagged"
-				},
-				{
-					"g": "artificial",
-					"i": "contrasted"
-				},
-				{
-					"g": "diffused",
-					"i": "dimmed"
-				}
-			]
-		},
-		{
-			"key": "i'll share this lonely view",
-			"value": [
-				{
-					"g": "moral interactions",
-					"i": "sharing"
-				},
-				{
-					"g": "time of day",
-					"i": "morning"
-				},
-				{
-					"g": "body language",
-					"i": "longing"
-				},
-				{
-					"g": "props",
-					"i": "microphone"
-				},
-				{
-					"g": "transitions",
-					"i": "smooth and dreamy"
-				},
-				{
-					"g": "natural",
-					"i": "vibrant"
-				},
-				{
-					"g": "artificial",
-					"i": "enhanced"
-				}
-			]
-		},
-		{
-			"key": "(i'm having a) blood loss",
-			"value": [
-				{
-					"g": "physical features",
-					"i": "broken jaw"
-				},
-				{
-					"g": "body language",
-					"i": "resilience"
-				},
-				{
-					"g": "hair/makeup",
-					"i": "braided blonde hair with curls"
-				},
-				{
-					"g": "fades",
-					"i": "soft pastels and faded tones"
-				},
-				{
-					"g": "artificial",
-					"i": "highlighted"
-				},
-				{
-					"g": "diffused",
-					"i": "diffused warmth"
-				}
-			]
-		},
-		{
-			"key": "(i'm acting like) a southern girl with a (texas) scarlet drawl (of way to speak).",
-			"value": [
-				{
-					"g": "personality traits",
-					"i": "drawl"
-				},
-				{
-					"g": "places",
-					"i": "texas"
-				},
-				{
-					"g": "body language",
-					"i": "expanding"
-				},
-				{
-					"g": "clothing",
-					"i": "black leather jacket"
-				},
-				{
-					"g": "effects",
-					"i": "echoing reverb"
-				},
-				{
-					"g": "natural",
-					"i": "rich"
-				},
-				{
-					"g": "ambient",
-					"i": "textured"
-				}
-			]
-		},
-		{
-			"key": "i (leave toilets and) wave goodbye to ma and pa (sings in doors) 'cause",
-			"value": [
-				{
-					"g": "type of action in moral interaction",
-					"i": "leaving and saying goodbye"
-				},
-				{
-					"g": "locations",
-					"i": "toilets"
-				},
-				{
-					"g": "ideas",
-					"i": "leaving toilets and singing in doors"
-				},
-				{
-					"g": "body language",
-					"i": "digging deep"
-				},
-				{
-					"g": "hair/makeup",
-					"i": "slicked back hair with retro makeup"
-				},
-				{
-					"g": "transitions",
-					"i": "wild and unpredictable"
-				},
-				{
-					"g": "natural",
-					"i": "bright"
-				},
-				{
-					"g": "ambient",
-					"i": "dreamy"
-				}
-			]
-		},
-		{
-			"key": "with the birds i'll share (this lonely view)",
-			"value": [
-				{
-					"g": "moral interactions",
-					"i": "sharing"
-				},
-				{
-					"g": "body language",
-					"i": "letting go"
-				},
-				{
-					"g": "props",
-					"i": "acoustic guitar"
-				},
-				{
-					"g": "accessories",
-					"i": "cowboy hat"
-				},
-				{
-					"g": "fades",
-					"i": "vivid colors and lights"
-				},
-				{
-					"g": "natural",
-					"i": "crisp"
-				},
-				{
-					"g": "artificial",
-					"i": "saturated"
-				}
-			]
-		},
-		{
-			"key": "(i'm) soft spoken with a broken jaw,",
-			"value": [
-				{
-					"g": "personality traits",
-					"i": "soft spoken"
-				},
-				{
-					"g": "environments",
-					"i": "outside"
-				},
-				{
-					"g": "body language",
-					"i": "perseverance"
-				},
-				{
-					"g": "hair/makeup",
-					"i": "dark brown hair gelled to perfection"
-				},
-				{
-					"g": "accessories",
-					"i": "sunglasses"
-				},
-				{
-					"g": "fades",
-					"i": "soft"
-				},
-				{
-					"g": "ambient",
-					"i": "calm"
-				},
-				{
-					"g": "diffused",
-					"i": "serene"
-				}
-			]
-		},
-		{
-			"key": "(but i still) step outside, but not to brawl.",
-			"value": [
-				{
-					"g": "personality traits",
-					"i": "reckless behavior"
-				},
-				{
-					"g": "time of day",
-					"i": "afternoon"
-				},
-				{
-					"g": "body language",
-					"i": "expanding"
-				},
-				{
-					"g": "clothing",
-					"i": "plaid shirt"
-				},
-				{
-					"g": "accessories",
-					"i": "belt buckle"
-				},
-				{
-					"g": "transitions",
-					"i": "slow and gradual"
-				},
-				{
-					"g": "artificial",
-					"i": "focused"
-				},
-				{
-					"g": "diffused",
-					"i": "soft"
-				}
-			]
-		},
-		{
-			"key": "and autumn's sweet, we call it fall.",
-			"value": [
-				{
-					"g": "personification",
-					"i": "autumn's sweet"
-				},
-				{
-					"g": "likes and dislikes",
-					"i": "liking sharing"
-				},
-				{
-					"g": "weather",
-					"i": "autumn"
-				},
-				{
-					"g": "body language",
-					"i": "heightened energy"
-				},
-				{
-					"g": "hair/makeup",
-					"i": "shaggy blonde hair"
-				},
-				{
-					"g": "accessories",
-					"i": "pearl earrings"
-				},
-				{
-					"g": "fades",
-					"i": "subdued colors"
-				},
-				{
-					"g": "natural",
-					"i": "warm"
-				},
-				{
-					"g": "color",
-					"i": "balanced glow"
-				}
-			]
-		},
-		{
-			"key": "i'll make it to the moon",
-			"value": [
-				{
-					"g": "goals",
-					"i": "make it to the moon"
-				},
-				{
-					"g": "locations",
-					"i": "moon"
-				},
-				{
-					"g": "imagination",
-					"i": "make it to the moon"
-				},
-				{
-					"g": "body language",
-					"i": "movement"
-				},
-				{
-					"g": "clothing",
-					"i": "white shirt"
-				},
-				{
-					"g": "accessories",
-					"i": "black beret"
-				},
-				{
-					"g": "fades",
-					"i": "dreamy wisps of clouds"
-				},
-				{
-					"g": "artificial",
-					"i": "intense"
-				},
-				{
-					"g": "color",
-					"i": "neutral"
-				}
-			]
-		},
-		{
-			"key": "if i have to crawl and (to share lonely view)",
-			"value": [
-				{
-					"g": "moral interactions",
-					"i": "sharing"
-				},
-				{
-					"g": "time of day",
-					"i": "evening"
-				},
-				{
-					"g": "body language",
-					"i": "longing"
-				},
-				{
-					"g": "clothing",
-					"i": "vintage dress"
-				},
-				{
-					"g": "accessories",
-					"i": "plaid scarf"
-				},
-				{
-					"g": "transitions",
-					"i": "jagged"
-				},
-				{
-					"g": "artificial",
-					"i": "bold"
-				},
-				{
-					"g": "color",
-					"i": "harmonious"
-				}
-			]
-		},
-		{
-			"key": "(i leave toilets and) wave goodbye to ma and pa (sings in doors) 'cause",
-			"value": [
-
-			]
-		},
-		{
-			"key": "(i feel like) a young kentucky girl in a",
-			"value": [
-				{
-					"g": "clothing",
-					"i": "cowboy boots"
-				}
-			]
-		}
-	],
 	"structure": [
 		"verse1",
 		"chorus1",
@@ -1093,472 +18,574 @@
 	"parts": [
 		{
 			"name": "verse1",
-			"data": [
-
-			],
 			"lines": [
 				{
-					"txt": "Scar tissue that I wish you saw, (I'm) Sarcastic mister know-it-all.",
 					"breaks": [
 						{
-							"txt": "Scar tissue",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "physical features",
-									"i": "broken jaw"
-								},
-								{
-									"g": "places",
-									"i": "kentucky"
-								},
-								{
-									"g": "weather",
-									"i": "autumn"
-								},
-								{
-									"g": "body language",
-									"i": "perseverance"
-								},
-								{
-									"g": "accessories",
-									"i": "silver watch"
-								},
-								{
-									"g": "effects",
-									"i": "distorted sound effects"
-								},
-								{
-									"g": "artificial",
-									"i": "sharp"
-								},
-								{
-									"g": "ambient",
-									"i": "textured"
-								}
-							],
-							"partscore": [
-								6,
-								4,
-								1,
-								8,
-								6,
-								5,
-								0,
-								0,
-								1,
-								2,
-								2,
-								0,
-								3,
-								3,
-								4,
-								5,
-								0
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "that I wish you saw,",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "interactions",
-									"i": "sharing"
-								},
-								{
-									"g": "time of day",
-									"i": "morning"
-								},
-								{
-									"g": "body language",
-									"i": "contemplative"
-								},
-								{
-									"g": "hair/makeup",
-									"i": "smoky eye makeup"
-								},
-								{
-									"g": "transitions",
-									"i": "slow and gradual"
-								},
-								{
-									"g": "natural",
-									"i": "crisp"
-								},
-								{
-									"g": "artificial",
-									"i": "bold"
-								}
-							],
-							"partscore": [
-								6,
-								5,
-								1,
-								7,
-								5,
-								7,
-								0,
-								1,
-								5,
-								4,
-								3,
-								0,
-								3,
-								6,
-								5,
-								6,
-								3
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "(I'm) Sarcastic",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "personality traits",
-									"i": "sarcasm"
-								},
-								{
-									"g": "environments",
-									"i": "outside"
-								},
-								{
-									"g": "body language",
-									"i": "exploring"
-								},
-								{
-									"g": "accessories",
-									"i": "sunglasses"
-								},
-								{
-									"g": "effects",
-									"i": "echoing reverb"
-								},
-								{
-									"g": "artificial",
-									"i": "enhanced"
-								},
-								{
-									"g": "diffused",
-									"i": "subtle"
-								}
-							],
-							"partscore": [
-								5,
-								3,
-								3,
-								7,
-								4,
-								6,
-								1,
-								1,
-								6,
-								3,
-								0,
-								-2,
-								0,
-								4,
-								4,
-								6,
-								4
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "mister know-it-all.",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "personality traits",
-									"i": "reckless behavior"
-								},
-								{
-									"g": "time of day",
-									"i": "afternoon"
-								},
-								{
-									"g": "body language",
-									"i": "digging deep"
-								},
-								{
-									"g": "clothing",
-									"i": "jeans"
-								},
-								{
-									"g": "accessories",
-									"i": "belt buckle"
-								},
-								{
-									"g": "transitions",
-									"i": "fast jumps"
-								},
-								{
-									"g": "artificial",
-									"i": "vivid"
-								}
-							],
-							"partscore": [
-								5,
-								4,
-								2,
-								8,
-								5,
-								6,
-								0,
-								1,
-								2,
-								3,
-								3,
-								-2,
-								3,
-								3,
-								3,
-								3,
-								4
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						}
 					],
 					"data": [
 
 					],
-					"txt": "",
-					"attributes": [
+					"snap[0]": {
+						"txt": "",
+						"attributes": [
 
-					],
-					"partscore": [
+						],
+						"partscore": [
 
-					],
-					"data": [
+						],
+						"data": [
 
-					],
-					"mask": [
+						],
+						"mask": [
 
-					]
+						]
+					},
+					"snap[1]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[2]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[3]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					}
 				},
 				{
-					"txt": "(I'm saying to myself) close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view).",
 					"breaks": [
 						{
-							"txt": "(I'm saying to myself) close your eyes",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "interactions",
-									"i": "kissing"
-								},
-								{
-									"g": "time of day",
-									"i": "evening"
-								},
-								{
-									"g": "body language",
-									"i": "movement"
-								},
-								{
-									"g": "hair/makeup",
-									"i": "shaggy blonde hair"
-								},
-								{
-									"g": "accessories",
-									"i": "cowboy hat"
-								},
-								{
-									"g": "fades",
-									"i": "soft"
-								},
-								{
-									"g": "artificial",
-									"i": "highlighted"
-								}
-							],
-							"partscore": [
-								6,
-								4,
-								0,
-								8,
-								5,
-								8,
-								2,
-								0,
-								7,
-								7,
-								7,
-								4,
-								6,
-								7,
-								8,
-								8,
-								4
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "and I'll kiss you,",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "interactions",
-									"i": "kissing"
-								},
-								{
-									"g": "body language",
-									"i": "expanding"
-								},
-								{
-									"g": "clothing",
-									"i": "vintage dress"
-								},
-								{
-									"g": "accessories",
-									"i": "pearl earrings"
-								},
-								{
-									"g": "transitions",
-									"i": "jagged"
-								},
-								{
-									"g": "natural",
-									"i": "rich"
-								},
-								{
-									"g": "ambient",
-									"i": "calm"
-								}
-							],
-							"partscore": [
-								6,
-								3,
-								1,
-								8,
-								5,
-								6,
-								2,
-								1,
-								7,
-								7,
-								6,
-								6,
-								9,
-								7,
-								7,
-								7,
-								6
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "'cause with the birds I'll share (lonely view).",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "moral interactions",
-									"i": "sharing"
-								},
-								{
-									"g": "locations",
-									"i": "moon"
-								},
-								{
-									"g": "body language",
-									"i": "letting go"
-								},
-								{
-									"g": "clothing",
-									"i": "white shirt"
-								},
-								{
-									"g": "accessories",
-									"i": "plaid scarf"
-								},
-								{
-									"g": "transitions",
-									"i": "wild and unpredictable"
-								},
-								{
-									"g": "natural",
-									"i": "soft"
-								},
-								{
-									"g": "artificial",
-									"i": "intense"
-								}
-							],
-							"partscore": [
-								7,
-								4,
-								1,
-								9,
-								6,
-								6,
-								0,
-								1,
-								4,
-								5,
-								5,
-								0,
-								5,
-								6,
-								6,
-								7,
-								6
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						}
 					],
 					"data": [
 
 					],
-					"txt": "",
-					"attributes": [
+					"snap[0]": {
+						"txt": "",
+						"attributes": [
 
-					],
-					"partscore": [
+						],
+						"partscore": [
 
-					],
-					"data": [
+						],
+						"data": [
 
-					],
-					"mask": [
+						],
+						"mask": [
 
-					]
+						]
+					},
+					"snap[1]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[2]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[3]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					}
 				}
 			],
 			"composition": {
@@ -1624,570 +651,451 @@
 					}
 				]
 			},
-			"txt": "Scar tissue that I wish you saw, (I'm) Sarcastic mister know-it-all.\n(I'm saying to myself) close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view).",
-			"attributes": [
+			"snap[0]": {
+				"txt": "",
+				"attributes": [
 
-			],
-			"partscore": [
+				],
+				"partscore": [
 
-			],
-			"data": [
+				],
+				"data": [
 
-			],
-			"mask": [
-				{
-					"g": "pronouns",
-					"i": "i"
-				},
-				{
-					"g": "pronouns",
-					"i": "you"
-				},
-				{
-					"g": "pronouns",
-					"i": "your"
-				},
-				{
-					"g": "nouns",
-					"i": "scar tissue"
-				},
-				{
-					"g": "nouns",
-					"i": "mister"
-				},
-				{
-					"g": "verbs",
-					"i": "wish"
-				},
-				{
-					"g": "verbs",
-					"i": "saw"
-				},
-				{
-					"g": "verbs",
-					"i": "(i'm)"
-				},
-				{
-					"g": "verbs",
-					"i": "saying"
-				},
-				{
-					"g": "verbs",
-					"i": "close"
-				},
-				{
-					"g": "verbs",
-					"i": "kiss"
-				},
-				{
-					"g": "verbs",
-					"i": "share"
-				},
-				{
-					"g": "adjectives",
-					"i": "sarcastic"
-				},
-				{
-					"g": "adjectives",
-					"i": "know-it-all"
-				},
-				{
-					"g": "adverbs",
-					"i": "close"
-				},
-				{
-					"g": "prepositions",
-					"i": "against"
-				},
-				{
-					"g": "prepositions",
-					"i": "with"
-				},
-				{
-					"g": "conjunctions",
-					"i": "and"
-				},
-				{
-					"g": "contrast and unexpected elements",
-					"i": "sarcastic mister know-it-all"
-				},
-				{
-					"g": "contrast and unexpected elements",
-					"i": "â€˜cause with the birds i'll share (lonely view)"
-				},
-				{
-					"g": "interactions",
-					"i": "kissing"
-				},
-				{
-					"g": "interactions",
-					"i": "sharing"
-				},
-				{
-					"g": "personality traits",
-					"i": "sarcasm"
-				},
-				{
-					"g": "physical features",
-					"i": "broken jaw"
-				},
-				{
-					"g": "quirks",
-					"i": "talking to oneself"
-				},
-				{
-					"g": "places",
-					"i": "kentucky"
-				},
-				{
-					"g": "environments",
-					"i": "wall"
-				},
-				{
-					"g": "locations",
-					"i": "bathroom stall"
-				},
-				{
-					"g": "weather",
-					"i": "autumn"
-				},
-				{
-					"g": "time of day",
-					"i": "morning"
-				},
-				{
-					"g": "time periods",
-					"i": "fall"
-				},
-				{
-					"g": "ideas",
-					"i": "scar tissue and sarcastic mister know-it-all"
-				},
-				{
-					"g": "imagination",
-					"i": "close your eyes and kiss you"
-				},
-				{
-					"g": "symbols",
-					"i": "birds"
-				},
-				{
-					"g": "imagery",
-					"i": "kentucky girl in a push-up bra"
-				},
-				{
-					"g": "themes",
-					"i": "blood loss in a bathroom stall"
-				},
-				{
-					"g": "metaphors",
-					"i": "southern girl with a scarlet drawl"
-				},
-				{
-					"g": "similes",
-					"i": "wave goodbye to ma and pa"
-				},
-				{
-					"g": "personification",
-					"i": "autumn's sweet"
-				},
-				{
-					"g": "hand motions",
-					"i": "overlapping hands"
-				},
-				{
-					"g": "hand motions",
-					"i": "pointing"
-				},
-				{
-					"g": "facial expressions",
-					"i": "wistful"
-				},
-				{
-					"g": "facial expressions",
-					"i": "curiosity"
-				},
-				{
-					"g": "body language",
-					"i": "contemplative"
-				},
-				{
-					"g": "body language",
-					"i": "distress"
-				},
-				{
-					"g": "body language",
-					"i": "longing"
-				},
-				{
-					"g": "clothing",
-					"i": "black leather jacket"
-				},
-				{
-					"g": "clothing",
-					"i": "jeans"
-				},
-				{
-					"g": "clothing",
-					"i": "sneakers"
-				},
-				{
-					"g": "accessories",
-					"i": "silver hoop earrings"
-				},
-				{
-					"g": "accessories",
-					"i": "necklaces"
-				},
-				{
-					"g": "props",
-					"i": "microphone"
-				},
-				{
-					"g": "fades",
-					"i": "dark and mysterious"
-				},
-				{
-					"g": "splices",
-					"i": "unexpected cuts between stanzas"
-				},
-				{
-					"g": "effects",
-					"i": "slow-motion and dream-like atmosphere"
-				},
-				{
-					"g": "natural",
-					"i": "soft"
-				},
-				{
-					"g": "natural",
-					"i": "warm"
-				},
-				{
-					"g": "artificial",
-					"i": "sharp"
-				},
-				{
-					"g": "artificial",
-					"i": "contrasted"
-				},
-				{
-					"g": "ambient",
-					"i": "diffused"
-				},
-				{
-					"g": "ambient",
-					"i": "calm"
-				},
-				{
-					"g": "diffused",
-					"i": "subtle"
-				},
-				{
-					"g": "diffused",
-					"i": "serene"
-				},
-				{
-					"g": "color",
-					"i": "warm"
-				},
-				{
-					"g": "color",
-					"i": "balanced"
-				}
-			]
+				],
+				"mask": [
+
+				]
+			},
+			"snap[1]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			},
+			"snap[2]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			},
+			"snap[3]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			}
 		},
 		{
 			"name": "chorus1",
-			"data": [
-
-			],
 			"lines": [
 				{
-					"txt": "With the birds I'll share this lonely viewin'",
 					"breaks": [
 						{
-							"txt": "With the birds",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "moral interactions",
-									"i": "sharing"
-								},
-								{
-									"g": "environments",
-									"i": "wall"
-								},
-								{
-									"g": "body language",
-									"i": "heightened energy"
-								},
-								{
-									"g": "clothing",
-									"i": "cowboy shirt"
-								},
-								{
-									"g": "accessories",
-									"i": "aviator sunglasses"
-								},
-								{
-									"g": "fades",
-									"i": "dreamy wisps of clouds"
-								},
-								{
-									"g": "natural",
-									"i": "bright"
-								}
-							],
-							"partscore": [
-								7,
-								6,
-								0,
-								9,
-								7,
-								9,
-								0,
-								1,
-								9,
-								9,
-								10,
-								5,
-								9,
-								8,
-								9,
-								9,
-								8
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "I'll share this lonely viewin'",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "moral interactions",
-									"i": "sharing"
-								},
-								{
-									"g": "time of day",
-									"i": "midnight"
-								},
-								{
-									"g": "body language",
-									"i": "longing"
-								},
-								{
-									"g": "clothing",
-									"i": "short shorts"
-								},
-								{
-									"g": "accessories",
-									"i": "black beret"
-								},
-								{
-									"g": "transitions",
-									"i": "smooth and dreamy"
-								},
-								{
-									"g": "natural",
-									"i": "vibrant"
-								},
-								{
-									"g": "ambient",
-									"i": "diffused"
-								}
-							],
-							"partscore": [
-								7,
-								6,
-								1,
-								9,
-								5,
-								6,
-								0,
-								2,
-								8,
-								9,
-								6,
-								2,
-								8,
-								8,
-								8,
-								8,
-								8
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						}
 					],
 					"data": [
 
 					],
-					"txt": "",
-					"attributes": [
+					"snap[0]": {
+						"txt": "",
+						"attributes": [
 
-					],
-					"partscore": [
+						],
+						"partscore": [
 
-					],
-					"data": [
+						],
+						"data": [
 
-					],
-					"mask": [
+						],
+						"mask": [
 
-					]
+						]
+					},
+					"snap[1]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[2]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[3]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					}
 				},
 				{
-					"txt": "With the birds I'll share this lonely viewin'",
 					"breaks": [
 						{
-							"txt": "With the birds",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "moral interactions",
-									"i": "sharing"
-								},
-								{
-									"g": "environments",
-									"i": "wall"
-								},
-								{
-									"g": "body language",
-									"i": "heightened energy"
-								},
-								{
-									"g": "clothing",
-									"i": "cowboy shirt"
-								},
-								{
-									"g": "accessories",
-									"i": "aviator sunglasses"
-								},
-								{
-									"g": "fades",
-									"i": "dreamy wisps of clouds"
-								},
-								{
-									"g": "natural",
-									"i": "bright"
-								}
-							],
-							"partscore": [
-								7,
-								6,
-								0,
-								9,
-								7,
-								9,
-								0,
-								1,
-								9,
-								9,
-								10,
-								5,
-								9,
-								8,
-								9,
-								9,
-								8
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "I'll share this lonely viewin'",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "moral interactions",
-									"i": "sharing"
-								},
-								{
-									"g": "time of day",
-									"i": "midnight"
-								},
-								{
-									"g": "body language",
-									"i": "longing"
-								},
-								{
-									"g": "clothing",
-									"i": "short shorts"
-								},
-								{
-									"g": "accessories",
-									"i": "black beret"
-								},
-								{
-									"g": "transitions",
-									"i": "smooth and dreamy"
-								},
-								{
-									"g": "natural",
-									"i": "vibrant"
-								},
-								{
-									"g": "ambient",
-									"i": "diffused"
-								}
-							],
-							"partscore": [
-								7,
-								6,
-								1,
-								9,
-								5,
-								6,
-								0,
-								2,
-								8,
-								9,
-								6,
-								2,
-								8,
-								8,
-								8,
-								8,
-								8
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						}
 					],
 					"data": [
 
 					],
-					"txt": "",
-					"attributes": [
+					"snap[0]": {
+						"txt": "",
+						"attributes": [
 
-					],
-					"partscore": [
+						],
+						"partscore": [
 
-					],
-					"data": [
+						],
+						"data": [
 
-					],
-					"mask": [
+						],
+						"mask": [
 
-					]
+						]
+					},
+					"snap[1]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[2]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[3]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					}
 				}
 			],
 			"composition": {
@@ -2245,635 +1153,637 @@
 					}
 				]
 			},
-			"txt": "With the birds I'll share this lonely viewin'\nWith the birds I'll share this lonely viewin'",
-			"attributes": [
+			"snap[0]": {
+				"txt": "",
+				"attributes": [
 
-			],
-			"partscore": [
+				],
+				"partscore": [
 
-			],
-			"data": [
+				],
+				"data": [
 
-			],
-			"mask": [
-				{
-					"g": "pronouns",
-					"i": "i"
-				},
-				{
-					"g": "nouns",
-					"i": "birds"
-				},
-				{
-					"g": "nouns",
-					"i": "viewin'"
-				},
-				{
-					"g": "verbs",
-					"i": "share"
-				},
-				{
-					"g": "adjectives",
-					"i": "lonely"
-				},
-				{
-					"g": "prepositions",
-					"i": "with"
-				},
-				{
-					"g": "moral interactions",
-					"i": "sharing"
-				},
-				{
-					"g": "religiously moral",
-					"i": "sharing"
-				},
-				{
-					"g": "likes and dislikes",
-					"i": "liking sharing"
-				},
-				{
-					"g": "imagination",
-					"i": "share this lonely viewin'"
-				},
-				{
-					"g": "symbols",
-					"i": "birds"
-				},
-				{
-					"g": "imagery",
-					"i": "share this lonely viewin'"
-				},
-				{
-					"g": "dreams",
-					"i": "make it to the moon"
-				},
-				{
-					"g": "themes",
-					"i": "have to crawl"
-				},
-				{
-					"g": "metaphors",
-					"i": "step outside but not to brawl"
-				},
-				{
-					"g": "similes",
-					"i": "soft spoken with a broken jaw"
-				},
-				{
-					"g": "personification",
-					"i": "goodbye to ma and pa"
-				},
-				{
-					"g": "hand motions",
-					"i": "pulling"
-				},
-				{
-					"g": "hand motions",
-					"i": "reaching"
-				},
-				{
-					"g": "facial expressions",
-					"i": "hopeful"
-				},
-				{
-					"g": "facial expressions",
-					"i": "reflective"
-				},
-				{
-					"g": "body language",
-					"i": "movement"
-				},
-				{
-					"g": "body language",
-					"i": "letting go"
-				},
-				{
-					"g": "hair/makeup",
-					"i": "dark brown hair gelled to perfection"
-				},
-				{
-					"g": "clothing",
-					"i": "white shirt"
-				},
-				{
-					"g": "clothing",
-					"i": "black vest"
-				},
-				{
-					"g": "clothing",
-					"i": "jeans"
-				},
-				{
-					"g": "accessories",
-					"i": "sunglasses"
-				},
-				{
-					"g": "accessories",
-					"i": "silver watch"
-				},
-				{
-					"g": "transitions",
-					"i": "slow and gradual"
-				},
-				{
-					"g": "fades",
-					"i": "glowing highlights"
-				},
-				{
-					"g": "splices",
-					"i": "smooth transitions between stanzas"
-				},
-				{
-					"g": "natural",
-					"i": "bright"
-				},
-				{
-					"g": "natural",
-					"i": "crisp"
-				},
-				{
-					"g": "artificial",
-					"i": "bold"
-				},
-				{
-					"g": "artificial",
-					"i": "highlighted"
-				},
-				{
-					"g": "ambient",
-					"i": "subtle"
-				},
-				{
-					"g": "ambient",
-					"i": "suppressed"
-				},
-				{
-					"g": "diffused",
-					"i": "softened"
-				},
-				{
-					"g": "diffused",
-					"i": "emphasized"
-				},
-				{
-					"g": "color",
-					"i": "coherent"
-				},
-				{
-					"g": "color",
-					"i": "harmonious"
-				}
-			]
+				],
+				"mask": [
+
+				]
+			},
+			"snap[1]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			},
+			"snap[2]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			},
+			"snap[3]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			}
 		},
 		{
 			"name": "verse2",
-			"data": [
-
-			],
 			"lines": [
 				{
-					"txt": "(Drug,) push me up against the wall, (I feel like a ) young Kentucky girl in a push-up bra.",
 					"breaks": [
 						{
-							"txt": "(Drug,) push me up",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "places",
-									"i": "texas"
-								},
-								{
-									"g": "ideas",
-									"i": "drug pusher"
-								},
-								{
-									"g": "body language",
-									"i": "resilience"
-								},
-								{
-									"g": "clothing",
-									"i": "black vest"
-								},
-								{
-									"g": "accessories",
-									"i": "scarf"
-								},
-								{
-									"g": "effects",
-									"i": "delayed tones and filters"
-								},
-								{
-									"g": "artificial",
-									"i": "saturated"
-								},
-								{
-									"g": "diffused",
-									"i": "emphasized"
-								}
-							],
-							"partscore": [
-								3,
-								3,
-								-2,
-								7,
-								3,
-								5,
-								-3,
-								-1,
-								4,
-								0,
-								-3,
-								-6,
-								2,
-								-1,
-								3,
-								5,
-								3
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "against the wall,",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "locations",
-									"i": "bathroom stall"
-								},
-								{
-									"g": "body language",
-									"i": "exploring"
-								},
-								{
-									"g": "clothing",
-									"i": "sneakers"
-								},
-								{
-									"g": "transitions",
-									"i": "fast jumps"
-								},
-								{
-									"g": "artificial",
-									"i": "focused"
-								},
-								{
-									"g": "ambient",
-									"i": "moody"
-								}
-							],
-							"partscore": [
-								6,
-								8,
-								1,
-								8,
-								6,
-								8,
-								0,
-								2,
-								5,
-								5,
-								4,
-								1,
-								6,
-								6,
-								5,
-								6,
-								8
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "(I feel like a ) young Kentucky girl in a",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "physical features",
-									"i": "young kentucky girl in a push-up bra"
-								},
-								{
-									"g": "places",
-									"i": "kentucky"
-								},
-								{
-									"g": "body language",
-									"i": "expanding"
-								},
-								{
-									"g": "effects",
-									"i": "slow-motion and dream-like atmosphere"
-								},
-								{
-									"g": "diffused",
-									"i": "soft"
-								}
-							],
-							"partscore": [
-								3,
-								2,
-								2,
-								6,
-								5,
-								7,
-								2,
-								1,
-								6,
-								7,
-								7,
-								8,
-								8,
-								9,
-								6,
-								9,
-								6
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "push-up bra.",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "physical features",
-									"i": "young kentucky girl in a push-up bra"
-								},
-								{
-									"g": "environments",
-									"i": "outside"
-								},
-								{
-									"g": "body language",
-									"i": "digging deep"
-								},
-								{
-									"g": "clothing",
-									"i": "grey t-shirt"
-								},
-								{
-									"g": "accessories",
-									"i": "sunglasses"
-								},
-								{
-									"g": "fades",
-									"i": "dark and mysterious"
-								},
-								{
-									"g": "artificial",
-									"i": "stylized"
-								},
-								{
-									"g": "diffused",
-									"i": "glow"
-								}
-							],
-							"partscore": [
-								7,
-								6,
-								3,
-								10,
-								9,
-								11,
-								2,
-								1,
-								8,
-								10,
-								9,
-								7,
-								11,
-								9,
-								7,
-								12,
-								8
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						}
 					],
 					"data": [
 
 					],
-					"txt": "",
-					"attributes": [
+					"snap[0]": {
+						"txt": "",
+						"attributes": [
 
-					],
-					"partscore": [
+						],
+						"partscore": [
 
-					],
-					"data": [
+						],
+						"data": [
 
-					],
-					"mask": [
+						],
+						"mask": [
 
-					]
+						]
+					},
+					"snap[1]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[2]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[3]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					}
 				},
 				{
-					"txt": "(I'm) fallin' all over myself to lick your heart (blood) and taste your health (via illegal drug) 'cause",
 					"breaks": [
 						{
-							"txt": "(I'm) fallin' all over myself",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "personality traits",
-									"i": "reckless behavior"
-								},
-								{
-									"g": "weather",
-									"i": "autumn"
-								},
-								{
-									"g": "body language",
-									"i": "perseverance"
-								},
-								{
-									"g": "clothing",
-									"i": "ripped jeans"
-								},
-								{
-									"g": "transitions",
-									"i": "jagged"
-								},
-								{
-									"g": "artificial",
-									"i": "contrasted"
-								},
-								{
-									"g": "diffused",
-									"i": "dimmed"
-								}
-							],
-							"partscore": [
-								5,
-								4,
-								2,
-								9,
-								5,
-								6,
-								0,
-								0,
-								3,
-								3,
-								2,
-								3,
-								6,
-								6,
-								4,
-								5,
-								5
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "to lick your heart (blood)",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "interactions",
-									"i": "kissing"
-								},
-								{
-									"g": "locations",
-									"i": "toilets"
-								},
-								{
-									"g": "body language",
-									"i": "letting go"
-								},
-								{
-									"g": "clothing",
-									"i": "combat boots"
-								},
-								{
-									"g": "fades",
-									"i": "glowing highlights"
-								},
-								{
-									"g": "natural",
-									"i": "warm"
-								},
-								{
-									"g": "artificial",
-									"i": "intense"
-								}
-							],
-							"partscore": [
-								6,
-								2,
-								1,
-								9,
-								5,
-								10,
-								1,
-								0,
-								5,
-								5,
-								4,
-								2,
-								6,
-								8,
-								8,
-								8,
-								4
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "and taste your health (via illegal drug) 'cause",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "environments",
-									"i": "wall"
-								},
-								{
-									"g": "body language",
-									"i": "movement"
-								},
-								{
-									"g": "clothing",
-									"i": "black stilettos"
-								},
-								{
-									"g": "effects",
-									"i": "distorted sound effects"
-								},
-								{
-									"g": "artificial",
-									"i": "bold"
-								}
-							],
-							"partscore": [
-								4,
-								1,
-								2,
-								7,
-								4,
-								4,
-								0,
-								0,
-								0,
-								1,
-								2,
-								-2,
-								0,
-								3,
-								4,
-								3,
-								1
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						}
 					],
 					"data": [
 
 					],
-					"txt": "",
-					"attributes": [
+					"snap[0]": {
+						"txt": "",
+						"attributes": [
 
-					],
-					"partscore": [
+						],
+						"partscore": [
 
-					],
-					"data": [
+						],
+						"data": [
 
-					],
-					"mask": [
+						],
+						"mask": [
 
-					]
+						]
+					},
+					"snap[1]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[2]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[3]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					}
 				}
 			],
 			"composition": {
@@ -2935,701 +1845,642 @@
 					}
 				]
 			},
-			"txt": "(Drug,) push me up against the wall, (I feel like a ) young Kentucky girl in a push-up bra.\n(I'm) fallin' all over myself to lick your heart (blood) and taste your health (via illegal drug) 'cause",
-			"attributes": [
+			"snap[0]": {
+				"txt": "",
+				"attributes": [
 
-			],
-			"partscore": [
+				],
+				"partscore": [
 
-			],
-			"data": [
+				],
+				"data": [
 
-			],
-			"mask": [
-				{
-					"g": "pronouns",
-					"i": "me"
-				},
-				{
-					"g": "pronouns",
-					"i": "your"
-				},
-				{
-					"g": "nouns",
-					"i": "drug"
-				},
-				{
-					"g": "nouns",
-					"i": "wall"
-				},
-				{
-					"g": "nouns",
-					"i": "kentucky girl"
-				},
-				{
-					"g": "nouns",
-					"i": "push-up bra"
-				},
-				{
-					"g": "pronouns",
-					"i": "i"
-				},
-				{
-					"g": "pronouns",
-					"i": "you"
-				},
-				{
-					"g": "verbs",
-					"i": "push"
-				},
-				{
-					"g": "verbs",
-					"i": "feel"
-				},
-				{
-					"g": "verbs",
-					"i": "fall"
-				},
-				{
-					"g": "verbs",
-					"i": "lick"
-				},
-				{
-					"g": "verbs",
-					"i": "taste"
-				},
-				{
-					"g": "adjectives",
-					"i": "young"
-				},
-				{
-					"g": "adverbs",
-					"i": "all over"
-				},
-				{
-					"g": "prepositions",
-					"i": "against"
-				},
-				{
-					"g": "prepositions",
-					"i": "for"
-				},
-				{
-					"g": "conjunctions",
-					"i": "'cause"
-				},
-				{
-					"g": "atheistic interactions",
-					"i": "drug pushing"
-				},
-				{
-					"g": "type of action in atheistic interaction",
-					"i": "taking/using an illegal drug"
-				},
-				{
-					"g": "physical features",
-					"i": "young kentucky girl in a push-up bra"
-				},
-				{
-					"g": "personality traits",
-					"i": "reckless behavior"
-				},
-				{
-					"g": "quirks",
-					"i": "licking hearts and tasting health"
-				},
-				{
-					"g": "places",
-					"i": "kentucky"
-				},
-				{
-					"g": "environments",
-					"i": "wall"
-				},
-				{
-					"g": "locations",
-					"i": "bathroom stall"
-				},
-				{
-					"g": "weather",
-					"i": "autumn"
-				},
-				{
-					"g": "time of day",
-					"i": "afternoon"
-				},
-				{
-					"g": "time periods",
-					"i": "fall"
-				},
-				{
-					"g": "ideas",
-					"i": "drug pusher"
-				},
-				{
-					"g": "imagination",
-					"i": "taste your health"
-				},
-				{
-					"g": "symbols",
-					"i": "birds"
-				},
-				{
-					"g": "imagery",
-					"i": "young kentucky girl in a push-up bra"
-				},
-				{
-					"g": "themes",
-					"i": "blood loss in a bathroom stall"
-				},
-				{
-					"g": "metaphors",
-					"i": "southern girl with a scarlet drawl"
-				},
-				{
-					"g": "similes",
-					"i": "wave goodbye to ma and pa"
-				},
-				{
-					"g": "personification",
-					"i": "autumn's sweet"
-				},
-				{
-					"g": "hand motions",
-					"i": "pushing"
-				},
-				{
-					"g": "hand motions",
-					"i": "grasping"
-				},
-				{
-					"g": "facial expressions",
-					"i": "determined"
-				},
-				{
-					"g": "facial expressions",
-					"i": "fearful"
-				},
-				{
-					"g": "body language",
-					"i": "heightened energy"
-				},
-				{
-					"g": "body language",
-					"i": "perseverance"
-				},
-				{
-					"g": "hair/makeup",
-					"i": "braided blonde hair with curls"
-				},
-				{
-					"g": "clothing",
-					"i": "cowboy shirt"
-				},
-				{
-					"g": "clothing",
-					"i": "short shorts"
-				},
-				{
-					"g": "clothing",
-					"i": "cowboy boots"
-				},
-				{
-					"g": "accessories",
-					"i": "cowboy hat"
-				},
-				{
-					"g": "accessories",
-					"i": "belt buckle"
-				},
-				{
-					"g": "transitions",
-					"i": "jagged"
-				},
-				{
-					"g": "transitions",
-					"i": "fast jumps"
-				},
-				{
-					"g": "fades",
-					"i": "vivid colors and lights"
-				},
-				{
-					"g": "effects",
-					"i": "distorted sound effects"
-				},
-				{
-					"g": "natural",
-					"i": "bright"
-				},
-				{
-					"g": "natural",
-					"i": "vibrant"
-				},
-				{
-					"g": "artificial",
-					"i": "vivid"
-				},
-				{
-					"g": "artificial",
-					"i": "saturated"
-				},
-				{
-					"g": "ambient",
-					"i": "subtle"
-				},
-				{
-					"g": "ambient",
-					"i": "textured"
-				},
-				{
-					"g": "diffused",
-					"i": "diffused warmth"
-				},
-				{
-					"g": "diffused",
-					"i": "glow"
-				},
-				{
-					"g": "color",
-					"i": "balanced"
-				},
-				{
-					"g": "color",
-					"i": "balanced glow"
-				}
-			]
+				],
+				"mask": [
+
+				]
+			},
+			"snap[1]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			},
+			"snap[2]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			},
+			"snap[3]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			}
 		},
 		{
 			"name": "chorus2",
-			"data": [
-
-			],
 			"lines": [
 				{
-					"txt": "With the birds I'll share this lonely viewin'",
 					"breaks": [
 						{
-							"txt": "With the birds",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "moral interactions",
-									"i": "sharing"
-								},
-								{
-									"g": "environments",
-									"i": "wall"
-								},
-								{
-									"g": "body language",
-									"i": "heightened energy"
-								},
-								{
-									"g": "clothing",
-									"i": "cowboy shirt"
-								},
-								{
-									"g": "accessories",
-									"i": "aviator sunglasses"
-								},
-								{
-									"g": "fades",
-									"i": "dreamy wisps of clouds"
-								},
-								{
-									"g": "natural",
-									"i": "bright"
-								}
-							],
-							"partscore": [
-								7,
-								6,
-								0,
-								9,
-								7,
-								9,
-								0,
-								1,
-								9,
-								9,
-								10,
-								5,
-								9,
-								8,
-								9,
-								9,
-								8
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "I'll share this lonely viewin'",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "moral interactions",
-									"i": "sharing"
-								},
-								{
-									"g": "time of day",
-									"i": "midnight"
-								},
-								{
-									"g": "body language",
-									"i": "longing"
-								},
-								{
-									"g": "clothing",
-									"i": "short shorts"
-								},
-								{
-									"g": "accessories",
-									"i": "black beret"
-								},
-								{
-									"g": "transitions",
-									"i": "smooth and dreamy"
-								},
-								{
-									"g": "natural",
-									"i": "vibrant"
-								},
-								{
-									"g": "ambient",
-									"i": "diffused"
-								}
-							],
-							"partscore": [
-								7,
-								6,
-								1,
-								9,
-								5,
-								6,
-								0,
-								2,
-								8,
-								9,
-								6,
-								2,
-								8,
-								8,
-								8,
-								8,
-								8
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						}
 					],
 					"data": [
 
 					],
-					"txt": "",
-					"attributes": [
+					"snap[0]": {
+						"txt": "",
+						"attributes": [
 
-					],
-					"partscore": [
+						],
+						"partscore": [
 
-					],
-					"data": [
+						],
+						"data": [
 
-					],
-					"mask": [
+						],
+						"mask": [
 
-					]
+						]
+					},
+					"snap[1]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[2]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[3]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					}
 				},
 				{
-					"txt": "With the birds I'll share this lonely viewin'",
 					"breaks": [
 						{
-							"txt": "With the birds",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "moral interactions",
-									"i": "sharing"
-								},
-								{
-									"g": "environments",
-									"i": "wall"
-								},
-								{
-									"g": "body language",
-									"i": "heightened energy"
-								},
-								{
-									"g": "clothing",
-									"i": "cowboy shirt"
-								},
-								{
-									"g": "accessories",
-									"i": "aviator sunglasses"
-								},
-								{
-									"g": "fades",
-									"i": "dreamy wisps of clouds"
-								},
-								{
-									"g": "natural",
-									"i": "bright"
-								}
-							],
-							"partscore": [
-								7,
-								6,
-								0,
-								9,
-								7,
-								9,
-								0,
-								1,
-								9,
-								9,
-								10,
-								5,
-								9,
-								8,
-								9,
-								9,
-								8
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "I'll share this lonely viewin'",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "moral interactions",
-									"i": "sharing"
-								},
-								{
-									"g": "time of day",
-									"i": "midnight"
-								},
-								{
-									"g": "body language",
-									"i": "longing"
-								},
-								{
-									"g": "clothing",
-									"i": "short shorts"
-								},
-								{
-									"g": "accessories",
-									"i": "black beret"
-								},
-								{
-									"g": "transitions",
-									"i": "smooth and dreamy"
-								},
-								{
-									"g": "natural",
-									"i": "vibrant"
-								},
-								{
-									"g": "ambient",
-									"i": "diffused"
-								}
-							],
-							"partscore": [
-								7,
-								6,
-								1,
-								9,
-								5,
-								6,
-								0,
-								2,
-								8,
-								9,
-								6,
-								2,
-								8,
-								8,
-								8,
-								8,
-								8
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						}
 					],
 					"data": [
 
 					],
-					"txt": "",
-					"attributes": [
+					"snap[0]": {
+						"txt": "",
+						"attributes": [
 
-					],
-					"partscore": [
+						],
+						"partscore": [
 
-					],
-					"data": [
+						],
+						"data": [
 
-					],
-					"mask": [
+						],
+						"mask": [
 
-					]
+						]
+					},
+					"snap[1]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[2]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[3]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					}
 				},
 				{
-					"txt": "With the birds I'll share this lonely view",
 					"breaks": [
 						{
-							"txt": "With the birds",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "moral interactions",
-									"i": "sharing"
-								},
-								{
-									"g": "environments",
-									"i": "wall"
-								},
-								{
-									"g": "body language",
-									"i": "heightened energy"
-								},
-								{
-									"g": "clothing",
-									"i": "cowboy shirt"
-								},
-								{
-									"g": "accessories",
-									"i": "aviator sunglasses"
-								},
-								{
-									"g": "fades",
-									"i": "dreamy wisps of clouds"
-								},
-								{
-									"g": "natural",
-									"i": "bright"
-								}
-							],
-							"partscore": [
-								7,
-								6,
-								0,
-								9,
-								7,
-								9,
-								0,
-								1,
-								9,
-								9,
-								10,
-								5,
-								9,
-								8,
-								9,
-								9,
-								8
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "I'll share this lonely view",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "moral interactions",
-									"i": "sharing"
-								},
-								{
-									"g": "time of day",
-									"i": "morning"
-								},
-								{
-									"g": "body language",
-									"i": "longing"
-								},
-								{
-									"g": "props",
-									"i": "microphone"
-								},
-								{
-									"g": "transitions",
-									"i": "smooth and dreamy"
-								},
-								{
-									"g": "natural",
-									"i": "vibrant"
-								},
-								{
-									"g": "artificial",
-									"i": "enhanced"
-								}
-							],
-							"partscore": [
-								6,
-								5,
-								1,
-								7,
-								5,
-								7,
-								0,
-								1,
-								5,
-								5,
-								5,
-								3,
-								6,
-								8,
-								7,
-								7,
-								5
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						}
 					],
 					"data": [
 
 					],
-					"txt": "",
-					"attributes": [
+					"snap[0]": {
+						"txt": "",
+						"attributes": [
 
-					],
-					"partscore": [
+						],
+						"partscore": [
 
-					],
-					"data": [
+						],
+						"data": [
 
-					],
-					"mask": [
+						],
+						"mask": [
 
-					]
+						]
+					},
+					"snap[1]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[2]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[3]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					}
 				}
 			],
 			"composition": {
@@ -3691,529 +2542,513 @@
 					}
 				]
 			},
-			"txt": "With the birds I'll share this lonely viewin'\nWith the birds I'll share this lonely viewin'\nWith the birds I'll share this lonely view",
-			"attributes": [
+			"snap[0]": {
+				"txt": "",
+				"attributes": [
 
-			],
-			"partscore": [
+				],
+				"partscore": [
 
-			],
-			"data": [
+				],
+				"data": [
 
-			],
-			"mask": [
-				{
-					"g": "pronouns",
-					"i": "i"
-				},
-				{
-					"g": "nouns",
-					"i": "birds"
-				},
-				{
-					"g": "nouns",
-					"i": "viewin'"
-				},
-				{
-					"g": "verbs",
-					"i": "share"
-				},
-				{
-					"g": "adjectives",
-					"i": "lonely"
-				},
-				{
-					"g": "prepositions",
-					"i": "with"
-				},
-				{
-					"g": "religiously moral",
-					"i": "sharing"
-				},
-				{
-					"g": "likes and dislikes",
-					"i": "liking sharing"
-				},
-				{
-					"g": "imagination",
-					"i": "share this lonely viewin'"
-				},
-				{
-					"g": "symbols",
-					"i": "birds"
-				},
-				{
-					"g": "imagery",
-					"i": "share this lonely viewin'"
-				},
-				{
-					"g": "dreams",
-					"i": "make it to the moon"
-				},
-				{
-					"g": "themes",
-					"i": "have to crawl"
-				},
-				{
-					"g": "metaphors",
-					"i": "step outside but not to brawl"
-				},
-				{
-					"g": "similes",
-					"i": "soft spoken with a broken jaw"
-				},
-				{
-					"g": "personification",
-					"i": "goodbye to ma and pa"
-				},
-				{
-					"g": "hand motions",
-					"i": "circling"
-				},
-				{
-					"g": "hand motions",
-					"i": "embracing"
-				},
-				{
-					"g": "facial expressions",
-					"i": "introspective"
-				},
-				{
-					"g": "facial expressions",
-					"i": "resolute"
-				},
-				{
-					"g": "body language",
-					"i": "exploring"
-				},
-				{
-					"g": "body language",
-					"i": "expanding"
-				},
-				{
-					"g": "clothing",
-					"i": "plaid shirt"
-				},
-				{
-					"g": "clothing",
-					"i": "cargo pants"
-				},
-				{
-					"g": "clothing",
-					"i": "combat boots"
-				},
-				{
-					"g": "accessories",
-					"i": "necklaces"
-				},
-				{
-					"g": "accessories",
-					"i": "scarf"
-				},
-				{
-					"g": "props",
-					"i": "acoustic guitar"
-				},
-				{
-					"g": "transitions",
-					"i": "jagged"
-				},
-				{
-					"g": "transitions",
-					"i": "fast jumps"
-				},
-				{
-					"g": "fades",
-					"i": "dreamy wisps of clouds"
-				},
-				{
-					"g": "splices",
-					"i": "quickly cut images"
-				},
-				{
-					"g": "natural",
-					"i": "soft"
-				},
-				{
-					"g": "natural",
-					"i": "warm"
-				},
-				{
-					"g": "artificial",
-					"i": "intense"
-				},
-				{
-					"g": "artificial",
-					"i": "focused"
-				},
-				{
-					"g": "ambient",
-					"i": "subtle"
-				},
-				{
-					"g": "ambient",
-					"i": "subdued"
-				},
-				{
-					"g": "diffused",
-					"i": "soft"
-				},
-				{
-					"g": "diffused",
-					"i": "serene"
-				},
-				{
-					"g": "color",
-					"i": "neutral"
-				},
-				{
-					"g": "color",
-					"i": "unify"
-				}
-			]
+				],
+				"mask": [
+
+				]
+			},
+			"snap[1]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			},
+			"snap[2]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			},
+			"snap[3]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			}
 		},
 		{
 			"name": "verse3",
-			"data": [
-
-			],
 			"lines": [
 				{
-					"txt": "(I'm having a) blood loss in a bathroom stall, (I'm acting like) a southern girl with a (Texas) scarlet drawl (of way to speak).",
 					"breaks": [
 						{
-							"txt": "(I'm having a) blood loss",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "physical features",
-									"i": "broken jaw"
-								},
-								{
-									"g": "body language",
-									"i": "resilience"
-								},
-								{
-									"g": "hair/makeup",
-									"i": "braided blonde hair with curls"
-								},
-								{
-									"g": "fades",
-									"i": "soft pastels and faded tones"
-								},
-								{
-									"g": "artificial",
-									"i": "highlighted"
-								},
-								{
-									"g": "diffused",
-									"i": "diffused warmth"
-								}
-							],
-							"partscore": [
-								5,
-								3,
-								0,
-								8,
-								6,
-								6,
-								1,
-								2,
-								4,
-								4,
-								4,
-								5,
-								4,
-								7,
-								6,
-								7,
-								4
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "in a bathroom stall,",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "locations",
-									"i": "bathroom stall"
-								},
-								{
-									"g": "body language",
-									"i": "exploring"
-								},
-								{
-									"g": "clothing",
-									"i": "cargo pants"
-								},
-								{
-									"g": "accessories",
-									"i": "sunglasses"
-								},
-								{
-									"g": "transitions",
-									"i": "fast jumps"
-								},
-								{
-									"g": "ambient",
-									"i": "suppressed"
-								},
-								{
-									"g": "diffused",
-									"i": "glow"
-								}
-							],
-							"partscore": [
-								7,
-								6,
-								1,
-								11,
-								8,
-								8,
-								0,
-								1,
-								4,
-								6,
-								6,
-								5,
-								8,
-								8,
-								7,
-								8,
-								9
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "(I'm acting like) a southern girl with a (Texas) scarlet drawl (of way to speak).",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "personality traits",
-									"i": "drawl"
-								},
-								{
-									"g": "places",
-									"i": "texas"
-								},
-								{
-									"g": "body language",
-									"i": "expanding"
-								},
-								{
-									"g": "clothing",
-									"i": "black leather jacket"
-								},
-								{
-									"g": "effects",
-									"i": "echoing reverb"
-								},
-								{
-									"g": "natural",
-									"i": "rich"
-								},
-								{
-									"g": "ambient",
-									"i": "textured"
-								}
-							],
-							"partscore": [
-								6,
-								3,
-								2,
-								9,
-								5,
-								10,
-								1,
-								1,
-								6,
-								3,
-								5,
-								1,
-								5,
-								7,
-								5,
-								7,
-								4
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						}
 					],
 					"data": [
 
 					],
-					"txt": "",
-					"attributes": [
+					"snap[0]": {
+						"txt": "",
+						"attributes": [
 
-					],
-					"partscore": [
+						],
+						"partscore": [
 
-					],
-					"data": [
+						],
+						"data": [
 
-					],
-					"mask": [
+						],
+						"mask": [
 
-					]
+						]
+					},
+					"snap[1]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[2]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[3]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					}
 				},
 				{
-					"txt": "I (leave toilets and) wave goodbye to ma and pa (sings in doors) 'cause with the birds I'll share (this lonely view)",
 					"breaks": [
 						{
-							"txt": "I (leave toilets and) wave goodbye to ma and pa (sings in doors) 'cause",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "type of action in moral interaction",
-									"i": "leaving and saying goodbye"
-								},
-								{
-									"g": "locations",
-									"i": "toilets"
-								},
-								{
-									"g": "ideas",
-									"i": "leaving toilets and singing in doors"
-								},
-								{
-									"g": "body language",
-									"i": "digging deep"
-								},
-								{
-									"g": "hair/makeup",
-									"i": "slicked back hair with retro makeup"
-								},
-								{
-									"g": "transitions",
-									"i": "wild and unpredictable"
-								},
-								{
-									"g": "natural",
-									"i": "bright"
-								},
-								{
-									"g": "ambient",
-									"i": "dreamy"
-								}
-							],
-							"partscore": [
-								10,
-								6,
-								2,
-								11,
-								10,
-								11,
-								0,
-								5,
-								7,
-								7,
-								8,
-								5,
-								8,
-								9,
-								9,
-								10,
-								9
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "with the birds I'll share (this lonely view)",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "moral interactions",
-									"i": "sharing"
-								},
-								{
-									"g": "body language",
-									"i": "letting go"
-								},
-								{
-									"g": "props",
-									"i": "acoustic guitar"
-								},
-								{
-									"g": "accessories",
-									"i": "cowboy hat"
-								},
-								{
-									"g": "fades",
-									"i": "vivid colors and lights"
-								},
-								{
-									"g": "natural",
-									"i": "crisp"
-								},
-								{
-									"g": "artificial",
-									"i": "saturated"
-								}
-							],
-							"partscore": [
-								6,
-								4,
-								1,
-								7,
-								4,
-								8,
-								0,
-								0,
-								6,
-								5,
-								5,
-								5,
-								6,
-								7,
-								7,
-								7,
-								5
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						}
 					],
 					"data": [
 
 					],
-					"txt": "",
-					"attributes": [
+					"snap[0]": {
+						"txt": "",
+						"attributes": [
 
-					],
-					"partscore": [
+						],
+						"partscore": [
 
-					],
-					"data": [
+						],
+						"data": [
 
-					],
-					"mask": [
+						],
+						"mask": [
 
-					]
+						]
+					},
+					"snap[1]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[2]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[3]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					}
 				}
 			],
 			"composition": {
@@ -4279,633 +3114,513 @@
 					}
 				]
 			},
-			"txt": "(I'm having a) blood loss in a bathroom stall, (I'm acting like) a southern girl with a (Texas) scarlet drawl (of way to speak).\nI (leave toilets and) wave goodbye to ma and pa (sings in doors) 'cause with the birds I'll share (this lonely view)",
-			"attributes": [
+			"snap[0]": {
+				"txt": "",
+				"attributes": [
 
-			],
-			"partscore": [
+				],
+				"partscore": [
 
-			],
-			"data": [
+				],
+				"data": [
 
-			],
-			"mask": [
-				{
-					"g": "pronouns",
-					"i": "i"
-				},
-				{
-					"g": "nouns",
-					"i": "blood loss"
-				},
-				{
-					"g": "nouns",
-					"i": "bathroom stall"
-				},
-				{
-					"g": "nouns",
-					"i": "southern girl"
-				},
-				{
-					"g": "nouns",
-					"i": "texas"
-				},
-				{
-					"g": "nouns",
-					"i": "drawl"
-				},
-				{
-					"g": "pronouns",
-					"i": "ma"
-				},
-				{
-					"g": "pronouns",
-					"i": "pa"
-				},
-				{
-					"g": "verbs",
-					"i": "push"
-				},
-				{
-					"g": "verbs",
-					"i": "feel"
-				},
-				{
-					"g": "verbs",
-					"i": "fall"
-				},
-				{
-					"g": "verbs",
-					"i": "sing"
-				},
-				{
-					"g": "verbs",
-					"i": "wave"
-				},
-				{
-					"g": "verbs",
-					"i": "share"
-				},
-				{
-					"g": "adjectives",
-					"i": "scarlet"
-				},
-				{
-					"g": "prepositions",
-					"i": "with"
-				},
-				{
-					"g": "prepositions",
-					"i": "in"
-				},
-				{
-					"g": "conjunctions",
-					"i": "'cause"
-				},
-				{
-					"g": "contrast and unexpected elements",
-					"i": "southern girl with a (texas) scarlet drawl"
-				},
-				{
-					"g": "moral interactions",
-					"i": "saying goodbye"
-				},
-				{
-					"g": "type of action in moral interaction",
-					"i": "leaving and saying goodbye"
-				},
-				{
-					"g": "physical features",
-					"i": "southern girl"
-				},
-				{
-					"g": "personality traits",
-					"i": "drawl"
-				},
-				{
-					"g": "places",
-					"i": "texas"
-				},
-				{
-					"g": "environments",
-					"i": "wall"
-				},
-				{
-					"g": "locations",
-					"i": "toilets"
-				},
-				{
-					"g": "weather",
-					"i": "autumn"
-				},
-				{
-					"g": "time of day",
-					"i": "evening"
-				},
-				{
-					"g": "time periods",
-					"i": "fall"
-				},
-				{
-					"g": "ideas",
-					"i": "drug pusher"
-				},
-				{
-					"g": "imagination",
-					"i": "taste your health"
-				},
-				{
-					"g": "symbols",
-					"i": "birds"
-				},
-				{
-					"g": "imagery",
-					"i": "young kentucky girl in a push-up bra"
-				},
-				{
-					"g": "themes",
-					"i": "drug use"
-				},
-				{
-					"g": "metaphors",
-					"i": "southern girl with a scarlet drawl"
-				},
-				{
-					"g": "similes",
-					"i": "wave goodbye to ma and pa"
-				},
-				{
-					"g": "personification",
-					"i": "autumn's sweet"
-				},
-				{
-					"g": "hand motions",
-					"i": "flowing"
-				},
-				{
-					"g": "hand motions",
-					"i": "waving"
-				},
-				{
-					"g": "facial expressions",
-					"i": "resigned"
-				},
-				{
-					"g": "facial expressions",
-					"i": "melancholic"
-				},
-				{
-					"g": "body language",
-					"i": "goodbye"
-				},
-				{
-					"g": "body language",
-					"i": "nostalgic"
-				},
-				{
-					"g": "hair/makeup",
-					"i": "slicked back hair with retro makeup"
-				},
-				{
-					"g": "clothing",
-					"i": "vintage dress"
-				},
-				{
-					"g": "clothing",
-					"i": "black stilettos"
-				},
-				{
-					"g": "accessories",
-					"i": "pearl earrings"
-				},
-				{
-					"g": "accessories",
-					"i": "black beret"
-				},
-				{
-					"g": "transitions",
-					"i": "wild and unpredictable"
-				},
-				{
-					"g": "fades",
-					"i": "soft pastels and faded tones"
-				},
-				{
-					"g": "effects",
-					"i": "echoing reverb"
-				},
-				{
-					"g": "natural",
-					"i": "soft"
-				},
-				{
-					"g": "natural",
-					"i": "warm"
-				},
-				{
-					"g": "artificial",
-					"i": "intense"
-				},
-				{
-					"g": "artificial",
-					"i": "stylized"
-				},
-				{
-					"g": "ambient",
-					"i": "subtle"
-				},
-				{
-					"g": "ambient",
-					"i": "dreamy"
-				},
-				{
-					"g": "diffused",
-					"i": "dimmed"
-				},
-				{
-					"g": "diffused",
-					"i": "diffused"
-				},
-				{
-					"g": "color",
-					"i": "soft"
-				},
-				{
-					"g": "color",
-					"i": "soft glow"
-				}
-			]
+				],
+				"mask": [
+
+				]
+			},
+			"snap[1]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			},
+			"snap[2]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			},
+			"snap[3]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			}
 		},
 		{
 			"name": "verse4",
-			"data": [
-
-			],
 			"lines": [
 				{
-					"txt": "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl.",
 					"breaks": [
 						{
-							"txt": "(I'm) soft spoken with a broken jaw,",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "personality traits",
-									"i": "soft spoken"
-								},
-								{
-									"g": "environments",
-									"i": "outside"
-								},
-								{
-									"g": "body language",
-									"i": "perseverance"
-								},
-								{
-									"g": "hair/makeup",
-									"i": "dark brown hair gelled to perfection"
-								},
-								{
-									"g": "accessories",
-									"i": "sunglasses"
-								},
-								{
-									"g": "fades",
-									"i": "soft"
-								},
-								{
-									"g": "ambient",
-									"i": "calm"
-								},
-								{
-									"g": "diffused",
-									"i": "serene"
-								}
-							],
-							"partscore": [
-								7,
-								6,
-								0,
-								9,
-								6,
-								8,
-								1,
-								1,
-								9,
-								10,
-								8,
-								5,
-								10,
-								10,
-								10,
-								11,
-								9
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "(but I still) step outside, but not to brawl.",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "personality traits",
-									"i": "reckless behavior"
-								},
-								{
-									"g": "time of day",
-									"i": "afternoon"
-								},
-								{
-									"g": "body language",
-									"i": "expanding"
-								},
-								{
-									"g": "clothing",
-									"i": "plaid shirt"
-								},
-								{
-									"g": "accessories",
-									"i": "belt buckle"
-								},
-								{
-									"g": "transitions",
-									"i": "slow and gradual"
-								},
-								{
-									"g": "artificial",
-									"i": "focused"
-								},
-								{
-									"g": "diffused",
-									"i": "soft"
-								}
-							],
-							"partscore": [
-								6,
-								7,
-								2,
-								10,
-								5,
-								9,
-								0,
-								1,
-								8,
-								9,
-								7,
-								2,
-								5,
-								5,
-								5,
-								7,
-								6
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						}
 					],
 					"data": [
 
 					],
-					"txt": "",
-					"attributes": [
+					"snap[0]": {
+						"txt": "",
+						"attributes": [
 
-					],
-					"partscore": [
+						],
+						"partscore": [
 
-					],
-					"data": [
+						],
+						"data": [
 
-					],
-					"mask": [
+						],
+						"mask": [
 
-					]
+						]
+					},
+					"snap[1]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[2]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[3]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					}
 				},
 				{
-					"txt": "And autumn's sweet, we call it fall. I'll make it to the moon if I have to crawl and (to share lonely view)",
 					"breaks": [
 						{
-							"txt": "And autumn's sweet, we call it fall.",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "personification",
-									"i": "autumn's sweet"
-								},
-								{
-									"g": "likes and dislikes",
-									"i": "liking sharing"
-								},
-								{
-									"g": "weather",
-									"i": "autumn"
-								},
-								{
-									"g": "body language",
-									"i": "heightened energy"
-								},
-								{
-									"g": "hair/makeup",
-									"i": "shaggy blonde hair"
-								},
-								{
-									"g": "accessories",
-									"i": "pearl earrings"
-								},
-								{
-									"g": "fades",
-									"i": "subdued colors"
-								},
-								{
-									"g": "natural",
-									"i": "warm"
-								},
-								{
-									"g": "color",
-									"i": "balanced glow"
-								}
-							],
-							"partscore": [
-								9,
-								8,
-								-1,
-								12,
-								12,
-								13,
-								0,
-								3,
-								14,
-								14,
-								11,
-								15,
-								15,
-								14,
-								14,
-								16,
-								13
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "I'll make it to the moon",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "goals",
-									"i": "make it to the moon"
-								},
-								{
-									"g": "locations",
-									"i": "moon"
-								},
-								{
-									"g": "imagination",
-									"i": "make it to the moon"
-								},
-								{
-									"g": "body language",
-									"i": "movement"
-								},
-								{
-									"g": "clothing",
-									"i": "white shirt"
-								},
-								{
-									"g": "accessories",
-									"i": "black beret"
-								},
-								{
-									"g": "fades",
-									"i": "dreamy wisps of clouds"
-								},
-								{
-									"g": "artificial",
-									"i": "intense"
-								},
-								{
-									"g": "color",
-									"i": "neutral"
-								}
-							],
-							"partscore": [
-								11,
-								9,
-								6,
-								14,
-								13,
-								14,
-								3,
-								4,
-								12,
-								13,
-								14,
-								10,
-								12,
-								13,
-								14,
-								14,
-								12
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						},
 						{
-							"txt": "if I have to crawl and (to share lonely view)",
-							"txt": "",
-							"attributes": [
-								{
-									"g": "moral interactions",
-									"i": "sharing"
-								},
-								{
-									"g": "time of day",
-									"i": "evening"
-								},
-								{
-									"g": "body language",
-									"i": "longing"
-								},
-								{
-									"g": "clothing",
-									"i": "vintage dress"
-								},
-								{
-									"g": "accessories",
-									"i": "plaid scarf"
-								},
-								{
-									"g": "transitions",
-									"i": "jagged"
-								},
-								{
-									"g": "artificial",
-									"i": "bold"
-								},
-								{
-									"g": "color",
-									"i": "harmonious"
-								}
-							],
-							"partscore": [
-								7,
-								4,
-								0,
-								9,
-								7,
-								8,
-								0,
-								1,
-								5,
-								7,
-								6,
-								5,
-								8,
-								10,
-								7,
-								8,
-								7
-							],
-							"data": [
+							"snap[0]": {
+								"txt": "",
+								"attributes": [
 
-							],
-							"mask": [
+								],
+								"partscore": [
 
-							]
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[1]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[2]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							},
+							"snap[3]": {
+								"txt": "",
+								"attributes": [
+
+								],
+								"partscore": [
+
+								],
+								"data": [
+
+								],
+								"mask": [
+
+								]
+							}
 						}
 					],
 					"data": [
 
 					],
-					"txt": "",
-					"attributes": [
+					"snap[0]": {
+						"txt": "",
+						"attributes": [
 
-					],
-					"partscore": [
+						],
+						"partscore": [
 
-					],
-					"data": [
+						],
+						"data": [
 
-					],
-					"mask": [
+						],
+						"mask": [
 
-					]
+						]
+					},
+					"snap[1]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[2]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					},
+					"snap[3]": {
+						"txt": "",
+						"attributes": [
+
+						],
+						"partscore": [
+
+						],
+						"data": [
+
+						],
+						"mask": [
+
+						]
+					}
 				}
 			],
 			"composition": {
@@ -4975,258 +3690,66 @@
 					}
 				]
 			},
-			"txt": "(I'm) soft spoken with a broken jaw, (but I still) step outside, but not to brawl.\nAnd autumn's sweet, we call it fall. I'll make it to the moon if I have to crawl and (to share lonely view)",
-			"attributes": [
+			"snap[0]": {
+				"txt": "",
+				"attributes": [
 
-			],
-			"partscore": [
+				],
+				"partscore": [
 
-			],
-			"data": [
+				],
+				"data": [
 
-			],
-			"mask": [
-				{
-					"g": "pronouns",
-					"i": "i"
-				},
-				{
-					"g": "pronouns",
-					"i": "we"
-				},
-				{
-					"g": "pronouns",
-					"i": "it"
-				},
-				{
-					"g": "nouns",
-					"i": "soft spoken"
-				},
-				{
-					"g": "nouns",
-					"i": "broken jaw"
-				},
-				{
-					"g": "nouns",
-					"i": "moon"
-				},
-				{
-					"g": "pronouns",
-					"i": "ma"
-				},
-				{
-					"g": "pronouns",
-					"i": "pa"
-				},
-				{
-					"g": "verbs",
-					"i": "step"
-				},
-				{
-					"g": "verbs",
-					"i": "crawl"
-				},
-				{
-					"g": "verbs",
-					"i": "share"
-				},
-				{
-					"g": "adjectives",
-					"i": "soft"
-				},
-				{
-					"g": "adverbs",
-					"i": "still"
-				},
-				{
-					"g": "prepositions",
-					"i": "with"
-				},
-				{
-					"g": "prepositions",
-					"i": "to"
-				},
-				{
-					"g": "conjunctions",
-					"i": "and"
-				},
-				{
-					"g": "atheistic interactions",
-					"i": "leaving toilets"
-				},
-				{
-					"g": "type of action in atheistic interaction",
-					"i": "leaving/escaping"
-				},
-				{
-					"g": "physical features",
-					"i": "broken jaw"
-				},
-				{
-					"g": "personality traits",
-					"i": "soft spoken"
-				},
-				{
-					"g": "goals",
-					"i": "make it to the moon"
-				},
-				{
-					"g": "environments",
-					"i": "outside"
-				},
-				{
-					"g": "locations",
-					"i": "moon"
-				},
-				{
-					"g": "weather",
-					"i": "autumn"
-				},
-				{
-					"g": "time of day",
-					"i": "midnight"
-				},
-				{
-					"g": "time periods",
-					"i": "fall"
-				},
-				{
-					"g": "ideas",
-					"i": "leaving toilets and singing in doors"
-				},
-				{
-					"g": "imagination",
-					"i": "make it to the moon"
-				},
-				{
-					"g": "symbols",
-					"i": "birds"
-				},
-				{
-					"g": "imagery",
-					"i": "southern girl with texas scarlet drawl"
-				},
-				{
-					"g": "themes",
-					"i": "crawling"
-				},
-				{
-					"g": "metaphors",
-					"i": "soft spoken with a broken jaw"
-				},
-				{
-					"g": "similes",
-					"i": "wave goodbye to ma and pa"
-				},
-				{
-					"g": "personification",
-					"i": "autumn's sweet"
-				},
-				{
-					"g": "hand motions",
-					"i": "defiance"
-				},
-				{
-					"g": "hand motions",
-					"i": "pleading"
-				},
-				{
-					"g": "facial expressions",
-					"i": "determined"
-				},
-				{
-					"g": "body language",
-					"i": "digging deep"
-				},
-				{
-					"g": "body language",
-					"i": "resilience"
-				},
-				{
-					"g": "hair/makeup",
-					"i": "shaggy blonde hair"
-				},
-				{
-					"g": "hair/makeup",
-					"i": "smoky eye makeup"
-				},
-				{
-					"g": "clothing",
-					"i": "grey t-shirt"
-				},
-				{
-					"g": "clothing",
-					"i": "ripped jeans"
-				},
-				{
-					"g": "clothing",
-					"i": "combat boots"
-				},
-				{
-					"g": "accessories",
-					"i": "plaid scarf"
-				},
-				{
-					"g": "accessories",
-					"i": "aviator sunglasses"
-				},
-				{
-					"g": "transitions",
-					"i": "smooth and dreamy"
-				},
-				{
-					"g": "fades",
-					"i": "soft"
-				},
-				{
-					"g": "fades",
-					"i": "subdued colors"
-				},
-				{
-					"g": "effects",
-					"i": "delayed tones and filters"
-				},
-				{
-					"g": "natural",
-					"i": "rich"
-				},
-				{
-					"g": "natural",
-					"i": "vibrant"
-				},
-				{
-					"g": "artificial",
-					"i": "bold"
-				},
-				{
-					"g": "artificial",
-					"i": "enhanced"
-				},
-				{
-					"g": "ambient",
-					"i": "subtle"
-				},
-				{
-					"g": "ambient",
-					"i": "moody"
-				},
-				{
-					"g": "diffused",
-					"i": "subtle"
-				},
-				{
-					"g": "diffused",
-					"i": "soft"
-				},
-				{
-					"g": "color",
-					"i": "vibrant"
-				},
-				{
-					"g": "color",
-					"i": "expressive"
-				}
-			]
+				],
+				"mask": [
+
+				]
+			},
+			"snap[1]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			},
+			"snap[2]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			},
+			"snap[3]": {
+				"txt": "",
+				"attributes": [
+
+				],
+				"partscore": [
+
+				],
+				"data": [
+
+				],
+				"mask": [
+
+				]
+			}
 		}
 	],
 	"tracks": [
@@ -5238,60 +3761,136 @@
 			]
 		}
 	],
+	"headers[0]": {
+		"data": [
+
+		],
+		"content": "",
+		"unique_lines": [
+
+		]
+	},
+	"headers[1]": {
+		"data": [
+
+		],
+		"content": "",
+		"unique_lines": [
+
+		]
+	},
+	"headers[2]": {
+		"data": [
+
+		],
+		"content": "",
+		"unique_lines": [
+
+		]
+	},
+	"headers[3]": {
+		"data": [
+
+		],
+		"content": "",
+		"unique_lines": [
+
+		]
+	},
 	"rev_tasks": [
-		"-7929209495606657153",
-		"6313793801201129187",
-		"9189305962264230900",
-		"4639601723178748299",
-		"5864148855439469132",
-		"2948340589371354679",
-		"455824379163965538",
-		"7512164806055373953",
-		"4741480675803148918",
-		"7512164806055373953",
-		"4741480675803148918",
-		"2566490165839687882",
-		"8973177463268045241",
-		"2123804904265615796",
-		"-4937973530496046964",
-		"2426474072118681643",
-		"3667889385914111532",
-		"5830742307011915944",
-		"-317854591043709251",
-		"2121482407480657158",
-		"-317854591043709251",
-		"2121482407480657158",
-		"-317854591043709251",
-		"-2727671688085661937",
-		"8175510705086081138",
-		"1696673136733539204",
-		"47240053355695075",
-		"7132236325182801233",
-		"-5648484981997861933",
-		"-102196243772423195",
-		"-2872820121809450284",
-		"7126100666521419775",
-		"2969689121119031051",
-		"-4624041448233267810"
+		"-9068364494913469657",
+		"3740622461314472627",
+		"166846004783067942",
+		"355938691619070045",
+		"-6656529939922817544",
+		"-837427830019339906",
+		"8543636048871097598",
+		"665215859021854108",
+		"4378424736390001129",
+		"665215859021854108",
+		"4378424736390001129",
+		"-3384557083939064432",
+		"3716248121864764837",
+		"-5755017239122414944",
+		"7907596215781209296",
+		"-5320532189792551575",
+		"-8119832549384086286",
+		"-8826120435355764808",
+		"3008397926191011122",
+		"-401779196587765965",
+		"3008397926191011122",
+		"-401779196587765965",
+		"3008397926191011122",
+		"7728673678704605008",
+		"1984696493512339937",
+		"-7036151597930168146",
+		"-7800883115674384843",
+		"-7063151965416239641",
+		"9130746377899032846",
+		"-1812285950201195393",
+		"8852351086984327396",
+		"-5404732431773205982",
+		"136405275922218369",
+		"-7249612261806785026"
 	],
-	"txt": "",
-	"attributes": [
+	"snap[0]": {
+		"txt": "",
+		"attributes": [
 
-	],
-	"partscore": [
+		],
+		"partscore": [
 
-	],
-	"data": [
-		{
-			"key": "rev.gen.lyrics.FI-FI",
-			"value": "Kohtaus 1:\nSulje silmäsi ja suudella minua\nKoska lintujen kanssa jaan tämän yksinäisen näkymän\nSarkastinen herra tietää-kaikki\nSe on haava jonka toivon näkeväsi\n\nKertosäe 1:\nJaan lintujen kanssa yksinäisen näkymän\nKatson heitä lentävän taivaan sinisessä\nJa keinun puolelta toiselle päälläni kumara\nTämän avoimen näkemyksen jaan niiden lintujen kanssa alas\n\nKohtaus2:\nLasken sisään maista terveytesi\nMaista rohkeasi ja ruskeasävyistä sieluasi\nSeinän vieressä, huoneessa, kuiskaan\nMaista sydämestäsi täytä ne\nKohoa kulmiani, eleen liikkeillä\nVärikkäälle Kentucky-tytölle, viileään iskuun\nHämärä näkymä, hyvästi\nDraamamentyinen tyyli, puristan huulia, hivenen harteillani\nYksinäinen näkymä, vapaa-aatteinen henkilö, joka on optimistinen, leikkisä ja iloinen, mutta realistinen ja hyväksyvä virheiden suhteen\n\nKertosäe 2:\nHaava jonka toivon näkeväsi\nJaan näkymää lintujen kanssa yksinäisen taivaan alla\nKanssani, kanssani, kanssani\n\nHe jakavat yksinäisen näkymämme, Tumman ja rauhallisen taivaan alla\nJakavat klassisen näkymän, huulilla pouta ja silmien räpytteleellä\nKanssani, kanssani, kanssani\n\nKohtaus3:\nEtelätyttö seisoo tallissa\nRikkaiden punaisella verellä, joka alkaa juosta\nHän kallistaa päätään sivulle\nJa hänen suunsa aukeaa sanoessaan hyvästit\n\nKirkas ja rohkea, loistava vetovoima\nHän swaggaa ulos lintujen kanssa\nÄiti ja isä hakevat sanan hyvästit\nHeidän yksinäisen näkemyksensä he jakavat taivaassa\n\nKohtaus4:\nAstu ulos ja teen riskin\nMaista terveyttäni, koska olen vapaa-aatteinen mies\nKimmeltävän taivaan värimaalaus, rytmin salpaavaa sydämen tahtiin\nAvoimet silmät keinuen tahtiin, on ryömiydyttävä päästäkseen kohti kuuta\nKohota kulmiani, poiston lähtöni, hyppien musiikin tahtiin\nKohti kuuta, noidankehän oma, taika omiin käsiisi."
-		},
-		{
-			"key": "rev.gen.lyrics",
-			"value": "verse1:\n\n\nchorus1:\n\n\nverse2:\n\n\nchorus2:\n\n\nverse3:\n\n\nverse4:\n\n\n"
-		}
-	],
-	"mask": [
+		],
+		"data": [
 
-	]
+		],
+		"mask": [
+
+		]
+	},
+	"snap[1]": {
+		"txt": "",
+		"attributes": [
+
+		],
+		"partscore": [
+
+		],
+		"data": [
+
+		],
+		"mask": [
+
+		]
+	},
+	"snap[2]": {
+		"txt": "",
+		"attributes": [
+
+		],
+		"partscore": [
+
+		],
+		"data": [
+
+		],
+		"mask": [
+
+		]
+	},
+	"snap[3]": {
+		"txt": "",
+		"attributes": [
+
+		],
+		"partscore": [
+
+		],
+		"data": [
+
+		],
+		"mask": [
+
+		]
+	}
 }

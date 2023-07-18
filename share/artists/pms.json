@@ -11,17 +11,64 @@
 	"releases": [
 		"sydamen_asialla"
 	],
-	"txt": "",
-	"attributes": [
+	"snap[0]": {
+		"txt": "",
+		"attributes": [
 
-	],
-	"partscore": [
+		],
+		"partscore": [
 
-	],
-	"data": [
+		],
+		"data": [
 
-	],
-	"mask": [
+		],
+		"mask": [
 
-	]
+		]
+	},
+	"snap[1]": {
+		"txt": "",
+		"attributes": [
+
+		],
+		"partscore": [
+
+		],
+		"data": [
+
+		],
+		"mask": [
+
+		]
+	},
+	"snap[2]": {
+		"txt": "",
+		"attributes": [
+
+		],
+		"partscore": [
+
+		],
+		"data": [
+
+		],
+		"mask": [
+
+		]
+	},
+	"snap[3]": {
+		"txt": "",
+		"attributes": [
+
+		],
+		"partscore": [
+
+		],
+		"data": [
+
+		],
+		"mask": [
+
+		]
+	}
 }

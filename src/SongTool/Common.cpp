@@ -45,3 +45,8 @@ void SnapAttrStr::Load(const SnapAttr& sa) {
 	item = g.values[item_i];
 	has_id = true;
 }
+
+int Ptrs::GetActivePartIndex() const {if (!song) return -1; return VectorFindPtr(part, song->parts);}
+int Ptrs::GetActiveArtistIndex() const {return VectorFindPtr(artist, Database::Single().artists);}
+int Ptrs::GetActiveReleaseIndex() const {if (!artist) return -1; return VectorFindPtr(release, artist->releases);}
+int Ptrs::GetActiveSongIndex() const {if (!release) return -1; return VectorFindPtr(song, release->songs);}

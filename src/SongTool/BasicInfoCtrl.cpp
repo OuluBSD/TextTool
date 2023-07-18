@@ -22,9 +22,10 @@ BasicInfoCtrl::BasicInfoCtrl() {
 
 void BasicInfoCtrl::Data() {
 	Database& db = Database::Single();
+	Ptrs& p = db.ctx[MALE];
 	
-	if (db.active.artist) {
-		Artist& a = *db.active.artist;
+	if (p.artist) {
+		Artist& a = *p.artist;
 			
 		this->name						.SetData(a.name);
 		this->year_of_birth				.SetData(a.year_of_birth);
@@ -37,15 +38,15 @@ void BasicInfoCtrl::Data() {
 		this->vocalist_visual			.SetData(a.vocalist_visual);
 	}
 	
-	if (db.active.release) {
-		Release& r = *db.active.release;
+	if (p.release) {
+		Release& r = *p.release;
 		
 		album_title.SetData(r.title);
 		album_date.SetData(r.date);
 	}
 	
-	if (db.active.song) {
-		Song& s = *db.active.song;
+	if (p.song) {
+		Song& s = *p.song;
 		
 		song_artist.SetData(s.artist);
 		song_title.SetData(s.title);
@@ -55,9 +56,10 @@ void BasicInfoCtrl::Data() {
 
 void BasicInfoCtrl::OnValueChange() {
 	Database& db = Database::Single();
+	Ptrs& p = db.ctx[MALE];
 	
-	if (db.active.artist) {
-		Artist& o = *db.active.artist;
+	if (p.artist) {
+		Artist& o = *p.artist;
 		o.name						= this->name.GetData();
 		o.year_of_birth				= this->year_of_birth.GetData();
 		o.year_of_career_begin		= this->year_of_career_begin.GetData();
@@ -72,8 +74,8 @@ void BasicInfoCtrl::OnValueChange() {
 		editor->artists.Set(c, 0, o.name);
 	}
 	
-	if (db.active.release) {
-		Release& r = *db.active.release;
+	if (p.release) {
+		Release& r = *p.release;
 		
 		r.title = album_title.GetData();
 		r.date = album_date.GetData();
@@ -82,8 +84,8 @@ void BasicInfoCtrl::OnValueChange() {
 		editor->releases.Set(c, 0, r.title);
 	}
 	
-	if (db.active.song) {
-		Song& s = *db.active.song;
+	if (p.song) {
+		Song& s = *p.song;
 		
 		s.artist = song_artist.GetData();
 		s.title = song_title.GetData();

@@ -1,19 +1,19 @@
 #include "SongTool.h"
 
 
-Song::Song() {
+/*Song::Song() {
 	uniq = Random();
-}
+}*/
 
 void Song::Store() {
-	String dir = Database::Single().GetSongsDir(reversed);
+	String dir = Database::Single().GetSongsDir();
 	RealizeDirectory(dir);
 	String json_path = dir + file_title + ".json";
 	StoreAsJsonFile(*this, json_path, true);
 }
 
 void Song::LoadTitle(String title) {
-	String dir = Database::Single().GetSongsDir(reversed);
+	String dir = Database::Single().GetSongsDir();
 	file_title = title;
 	String json_path = dir + file_title + ".json";
 	LoadFromJsonFile(*this, json_path);
@@ -32,15 +32,17 @@ void Song::RealizeTaskSnaps(bool force) {
 			return;
 	}
 	for (Part& p : parts) {
-		Vector<PatternSnap*> snaps;
-		p.GetSnapsLevel(0, snaps);
-		if (force)
-			for (ReverseTask& rt : rev_tasks)
-				rt.snap = 0;
-		for (PatternSnap* s: snaps) {
-			for (ReverseTask& rt : rev_tasks) {
-				if (!rt.snap && rt.txt == s->txt)
-					rt.snap = s;
+		for(int i = 0; i < PTR_COUNT; i++) {
+			Vector<PatternSnap*> snaps;
+			p.GetSnapsLevel(i, 0, snaps);
+			if (force)
+				for (ReverseTask& rt : rev_tasks)
+					rt.snap = 0;
+			for (PatternSnap* s: snaps) {
+				for (ReverseTask& rt : rev_tasks) {
+					if (!rt.snap && rt.txt == s->txt)
+						rt.snap = s;
+				}
 			}
 		}
 	}

@@ -161,6 +161,7 @@ void Editor::UpdateView() {
 
 void Editor::Data() {
 	Database& db = Database::Single();
+	Ptrs& p = db.ctx[MALE];
 	
 	for(int i = 0; i < db.artists.GetCount(); i++) {
 		Artist& a = db.artists[i];
@@ -168,7 +169,7 @@ void Editor::Data() {
 	}
 	artists.SetCount(db.artists.GetCount());
 	
-	int cursor = max(0, db.GetActiveArtistIndex());
+	int cursor = max(0, p.GetActiveArtistIndex());
 	if (cursor >= 0 && cursor < artists.GetCount())
 		artists.SetCursor(cursor);
 	
@@ -180,8 +181,9 @@ void Editor::DataArtist() {
 	if (!artists.IsCursor())
 		return;
 	
-	db.active.artist = &db.artists[artists.GetCursor()];
-	Artist& a = *db.active.artist;
+	Ptrs& p = db.ctx[MALE];
+	p.artist = &db.artists[artists.GetCursor()];
+	Artist& a = *p.artist;
 	
 	for(int i = 0; i < a.releases.GetCount(); i++) {
 		Release& r = a.releases[i];
@@ -190,7 +192,7 @@ void Editor::DataArtist() {
 	}
 	releases.SetCount(a.releases.GetCount());
 	
-	int cursor = max(0, db.GetActiveReleaseIndex());
+	int cursor = max(0, p.GetActiveReleaseIndex());
 	if (cursor >= 0 && cursor < releases.GetCount())
 		releases.SetCursor(cursor);
 	
@@ -199,12 +201,13 @@ void Editor::DataArtist() {
 
 void Editor::DataRelease() {
 	Database& db = Database::Single();
-	if (!releases.IsCursor() || !db.active.artist)
+	Ptrs& p = db.ctx[MALE];
+	if (!releases.IsCursor() || !p.artist)
 		return;
 	
-	db.active.release = &db.active.artist->releases[releases.GetCursor()];
-	Artist& a = *db.active.artist;
-	Release& r = *db.active.release;
+	p.release = &p.artist->releases[releases.GetCursor()];
+	Artist& a = *p.artist;
+	Release& r = *p.release;
 	
 	for(int i = 0; i < r.songs.GetCount(); i++) {
 		Song& s = r.songs[i];
@@ -214,7 +217,7 @@ void Editor::DataRelease() {
 	}
 	songs.SetCount(r.songs.GetCount());
 	
-	int cursor = max(0, db.GetActiveSongIndex());
+	int cursor = max(0, p.GetActiveSongIndex());
 	if (cursor >= 0 && cursor < songs.GetCount())
 		songs.SetCursor(cursor);
 	
@@ -223,13 +226,14 @@ void Editor::DataRelease() {
 
 void Editor::DataSong() {
 	Database& db = Database::Single();
-	if (!songs.IsCursor() || !db.active.artist || !db.active.release)
+	Ptrs& p = db.ctx[MALE];
+	if (!songs.IsCursor() || !p.artist || !p.release)
 		return;
 	
-	db.active.song = &db.active.release->songs[songs.GetCursor()];
-	Artist& a = *db.active.artist;
-	Release& r = *db.active.release;
-	Song& s = *db.active.song;
+	p.song = &p.release->songs[songs.GetCursor()];
+	Artist& a = *p.artist;
+	Release& r = *p.release;
+	Song& s = *p.song;
 	
 	for(int i = 0; i < s.parts.GetCount()+1; i++) {
 		String k;
@@ -248,7 +252,7 @@ void Editor::DataSong() {
 	}
 	parts.SetCount(s.parts.GetCount());
 	
-	int cursor = max(0, db.GetActivePartIndex());
+	int cursor = max(0, p.GetActivePartIndex());
 	if (cursor >= 0 && cursor < parts.GetCount() && !parts.IsCursor())
 		parts.SetCursor(cursor);
 	
@@ -257,22 +261,23 @@ void Editor::DataSong() {
 
 void Editor::DataPart() {
 	Database& db = Database::Single();
-	if (!parts.IsCursor() || !db.active.artist || !db.active.release || !db.active.song) {
+	Ptrs& p = db.ctx[MALE];
+	if (!parts.IsCursor() || !p.artist || !p.release || !db.ctx.HasSong()) {
 		DataPage();
 		return;
 	}
 	
 	int cursor = parts.GetCursor();
 	if (!cursor) {
-		db.active_wholesong = true;
-		db.active.part = 0;
+		db.ctx.active_wholesong = true;
+		p.part = 0;
 	}
 	else {
-		db.active_wholesong = false;
-		db.active.part = &db.active.song->parts[cursor-1];
+		db.ctx.active_wholesong = false;
+		p.part = &p.song->parts[cursor-1];
 	}
 	
-	int part_i = db.GetActivePartIndex();
+	int part_i = p.GetActivePartIndex();
 	if (part_i >= 0 && part_i < parts.GetCount() && !parts.IsCursor())
 		parts.SetCursor(1+part_i);
 	
@@ -312,6 +317,7 @@ void Editor::PartMenu(Bar& bar) {
 
 void Editor::AddArtist() {
 	Database& db = Database::Single();
+	Ptrs& p = db.ctx[MALE];
 	
 	String name;
 	bool b = EditTextNotNull(
@@ -340,14 +346,15 @@ void Editor::AddArtist() {
 	Artist& a = db.artists.Add();
 	a.file_title = MakeTitle(name);
 	a.name = name;
-	db.active.artist = &a;
+	p.artist = &a;
 	
 	Data();
 }
 
 void Editor::RenameArtist() {
 	Database& db = Database::Single();
-	if (!db.active.artist)
+	Ptrs& p = db.ctx[MALE];
+	if (!p.artist)
 		return;
 	
 	String name;
@@ -359,16 +366,17 @@ void Editor::RenameArtist() {
 	);
 	if (!b) return;
 	
-	db.active.artist->name = name;
+	p.artist->name = name;
 	
 	Data();
 }
 
 void Editor::RemoveArtist() {
 	Database& db = Database::Single();
-	if (!db.active.artist)
+	Ptrs& p = db.ctx[MALE];
+	if (!p.artist)
 		return;
-	int idx = db.GetActiveArtistIndex();
+	int idx = p.GetActiveArtistIndex();
 	if (idx < 0) return;
 	db.artists.Remove(idx);
 	Data();
@@ -376,9 +384,10 @@ void Editor::RemoveArtist() {
 
 void Editor::AddRelease() {
 	Database& db = Database::Single();
-	if (!db.active.artist)
+	Ptrs& p = db.ctx[MALE];
+	if (!p.artist)
 		return;
-	Artist& a = *db.active.artist;
+	Artist& a = *p.artist;
 	
 	String title;
 	bool b = EditTextNotNull(
@@ -405,14 +414,15 @@ void Editor::AddRelease() {
 	Release& r = a.releases.Add();
 	r.file_title = MakeTitle(title);
 	r.title = title;
-	db.active.release = &r;
+	p.release = &r;
 	
 	DataArtist();
 }
 
 void Editor::RenameRelease() {
 	Database& db = Database::Single();
-	if (!db.active.release)
+	Ptrs& p = db.ctx[MALE];
+	if (!p.release)
 		return;
 	
 	String title;
@@ -424,27 +434,29 @@ void Editor::RenameRelease() {
 	);
 	if (!b) return;
 	
-	db.active.release->title = title;
+	p.release->title = title;
 	
 	DataArtist();
 }
 
 void Editor::RemoveRelease() {
 	Database& db = Database::Single();
-	if (!db.active.artist || !db.active.release)
+	Ptrs& p = db.ctx[MALE];
+	if (!p.artist || !p.release)
 		return;
-	int idx = db.GetActiveReleaseIndex();
+	int idx = p.GetActiveReleaseIndex();
 	if (idx < 0) return;
-	db.active.artist->releases.Remove(idx);
+	p.artist->releases.Remove(idx);
 	DataArtist();
 }
 
 void Editor::AddSong() {
 	Database& db = Database::Single();
-	if (!db.active.artist)
+	Ptrs& p = db.ctx[MALE];
+	if (!p.artist)
 		return;
-	Artist& a = *db.active.artist;
-	Release& r = *db.active.release;
+	Artist& a = *p.artist;
+	Release& r = *p.release;
 	
 	String title;
 	bool b = EditTextNotNull(
@@ -471,14 +483,15 @@ void Editor::AddSong() {
 	Song& s = r.songs.Add();
 	s.file_title = MakeTitle(title);
 	s.title = title;
-	db.active.song = &s;
+	p.song = &s;
 	
 	DataArtist();
 }
 
 void Editor::RenameSong() {
 	Database& db = Database::Single();
-	if (!db.active.song)
+	Ptrs& p = db.ctx[MALE];
+	if (!db.ctx.HasSong())
 		return;
 	
 	String title;
@@ -490,18 +503,19 @@ void Editor::RenameSong() {
 	);
 	if (!b) return;
 	
-	db.active.song->title = title.ToString();
+	p.song->title = title.ToString();
 	
 	DataRelease();
 }
 
 void Editor::RemoveSong() {
 	Database& db = Database::Single();
-	if (!db.active.song || !db.active.release)
+	Ptrs& p = db.ctx[MALE];
+	if (!db.ctx.HasSong() || !p.release)
 		return;
-	int idx = db.GetActiveSongIndex();
+	int idx = p.GetActiveSongIndex();
 	if (idx < 0) return;
-	db.active.release->songs.Remove(idx);
-	db.active.song = 0;
+	p.release->songs.Remove(idx);
+	p.song = 0;
 	DataRelease();
 }

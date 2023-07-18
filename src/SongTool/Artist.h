@@ -4,7 +4,7 @@
 
 struct Artist :
 	DataFile,
-	PatternSnap
+	SnapContext
 {
 	String name;
 	int year_of_birth = 0;
@@ -32,11 +32,11 @@ struct Artist :
 	void Store();
 	void LoadTitle(String title);
 	void FixPtrs() {
-		this->artist = this;
+		SetArtistPtr(this);
 		int id = 0;
 		for (Release& r : releases) {
-			static_cast<Ptrs&>(r) = *(Ptrs*)this;
-			r.owner = this;
+			r.CopyPtrs(*this);
+			r.SetOwner(*this);
 			r.SetId(id++);
 			r.FixPtrs();
 		}
@@ -67,7 +67,7 @@ struct Artist :
 			for (String n : names) releases.Add().LoadTitle(n);
 			Sort(releases, Release());
 		}
-		PatternSnap::Jsonize(json);
+		SnapContext::Jsonize(json);
 	}
 	
 	bool operator()(const Artist& a, const Artist& b) const {

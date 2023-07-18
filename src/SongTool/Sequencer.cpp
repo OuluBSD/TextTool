@@ -17,10 +17,11 @@ Sequencer::Sequencer() {
 
 void Sequencer::Data() {
 	Database& db = Database::Single();
+	Ptrs& p = db.ctx[MALE];
 	
-	if (!db.active.song)
+	if (!db.ctx.HasSong())
 		return;
-	Song& song = *db.active.song;
+	Song& song = *p.song;
 	
 	RealizeSubCtrls(headers, headers.list, song.tracks);
 	for(int i = 0; i < headers.list.GetCount(); i++) {
