@@ -9,6 +9,7 @@ struct PatternSnap : PatternMask {
 	Index<SnapAttrStr>			attributes;
 	Vector<int>					partscore;
 	VectorMap<String,String>	data;
+	int							syllables = 0;
 	
 	int							id = -1;
 	PatternSnap*				owner = 0;
@@ -28,6 +29,7 @@ struct PatternSnap : PatternMask {
 			("attributes",	attributes)
 			("partscore",	partscore)
 			("data",		data)
+			("syllables",	syllables)
 			;
 		PatternMask::Jsonize(json);
 	}

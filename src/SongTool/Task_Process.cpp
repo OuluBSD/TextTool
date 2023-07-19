@@ -1,5 +1,104 @@
 #include "SongTool.h"
 
+void AI_Task::Process_StoryArc() {
+	Song& song = *this->p.song;
+	
+	String txt = input + output;
+	//LOG(txt);
+	
+	int a = txt.Find("Story arc:");
+	String part = txt.Mid(a);
+	part.Replace("\r", "");
+	{
+		Vector<String> lines = Split(part, "\n", false);
+		for (String& l : lines)
+			l = TrimBoth(l);
+		part = Join(lines, "\n");
+	}
+	//LOG(part);
+	
+	Vector<String> parts = Split(part, "\n\n");
+	//DUMPC(parts);
+	
+	for (String& part : parts) {
+		Vector<String> lines = Split(part, "\n");
+		if (lines.GetCount() >= 2) {
+			String key = TrimBoth(ToLower(lines[0]));
+			key.Replace(":", "");
+			String key_without_spaces = key;
+			key_without_spaces.Replace(" ", "");
+			if (key.Find("storyline in parts") >= 0) {
+				int items = lines.GetCount()-1;
+				if (items >= song.parts.GetCount()) {
+					for(int i = 0; i < song.parts.GetCount(); i++) {
+						String s = TrimBoth(lines[1+i]);
+						int j = s.Find(":");
+						if (j >= 0) s = TrimBoth(s.Mid(j+1));
+						Part& part = song.parts[i];
+						if (part.name == key || part.name == key_without_spaces)
+							part.snap[p.mode].data.GetAdd("storyline") = s;
+					}
+				}
+				else {
+					SetError("part count mismatch");
+					return;
+				}
+			}
+			else {
+				String value;
+				for(int i = 1; i < lines.GetCount(); i++) {
+					if (i > 1) value += "\n";
+					value += lines[i];
+				}
+				p.song->snap[p.mode].data.GetAdd(key) = value;
+			}
+		}
+	}
+	
+}
+
+void AI_Task::Process_Impact() {
+	String txt = input + output;
+	LOG(txt);
+	
+	
+	int a = txt.Find("How the listener is impacted in short:");
+	String part = txt.Mid(a);
+	part.Replace("\r", "");
+	{
+		Vector<String> lines = Split(part, "\n", false);
+		for (String& l : lines)
+			l = TrimBoth(l);
+		part = Join(lines, "\n");
+	}
+	//LOG(part);
+	
+	Vector<String> lines = Split(part, "\n");
+	
+	Line& line = *p.line;
+	
+	if (line.breaks.GetCount() != lines.GetCount()-1) {
+		SetError("result line count mismatch to breaks");
+		return;
+	}
+	
+	for(int i = 1; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		int a = l.Find(":");
+		if (a < 0) {
+			SetError("did not find ':'");
+			return;
+		}
+		
+		l = TrimBoth(l.Mid(a+1));
+		
+		Break& brk = line.breaks[i-1];
+		brk.snap[p.mode].data.GetAdd("impact") = l;
+	}
+	
+	
+}
+
 void AI_Task::Process_MakeAttrScores() {
 	Database& db = Database::Single();
 	TaskMgr& m = TaskMgr::Single();
@@ -298,9 +397,8 @@ void AI_Task::Process_Pattern() {
 		String& l0 = tmp_lines[i];
 		String& l1 = tmp_lines[i+1];
 		if (l1.IsEmpty()) continue;
-		if (l0.Left(1) == "-" && l1.Left(1) != "-")
-			tmp_lines.Insert(i+1, "");
-		if (l0.GetCount() && l0.Left(1) != "-" && l1.Left(1) != "-")
+		if ((l0.Left(1) == "-" && l1.Left(1) != "-") ||
+			(l0.GetCount() && l0.Left(1) != "-" && l1.Left(1) != "-"))
 			tmp_lines.Insert(i+1, "");
 	}
 	txt = Join(tmp_lines, "\n", false);
@@ -388,7 +486,7 @@ void AI_Task::Process_Pattern() {
 			}
 			/*
 			ArchivedSong::Attr& attr = l.attrs.Add();
-			attr.group = 
+			attr.group =
 			attr.item = item_str;
 			
 			groups.GetAdd(attr.group).FindAdd(attr.item);*/
@@ -397,8 +495,8 @@ void AI_Task::Process_Pattern() {
 		
 		
 	}
-	DUMPM(parsed);
-	DUMPC(db.attrs.groups);
+	//DUMPM(parsed);
+	//DUMPC(db.attrs.groups);
 	
 	// Add parsed data to database
 	for(int i = 0; i < parsed.GetCount(); i++) {
@@ -407,10 +505,10 @@ void AI_Task::Process_Pattern() {
 		Vector<SnapAttrStr>& line_attrs = song.headers[mode].unique_lines.GetAdd(line_txt);
 		//DUMPC(line_attrs);
 		
-		DUMP(line_txt);
+		//DUMP(line_txt);
 		Vector<PatternSnap*> snaps;
 		song.GetLineSnapshots(mode, line_txt, snaps);
-		DUMP(snaps.GetCount());
+		//DUMP(snaps.GetCount());
 		
 		for(int j = 0; j < group_map.GetCount(); j++) {
 			String group_str = group_map.GetKey(j);
@@ -472,6 +570,7 @@ void AI_Task::Process_Analysis() {
 	LOG("AI_Task::Process_Analysis: begin");
 	Database& db = Database::Single();
 	Song& s = *p.song;
+	int mode = p.mode;
 	String vocalist_visual = args[0];
 	String title = args[1];
 	
@@ -518,12 +617,12 @@ void AI_Task::Process_Analysis() {
 			SetError("part not found: " + key);
 			return;
 		}
-		Part& p = s.parts[part_i];
+		Part& part = s.parts[part_i];
 		
 		for(int i = 0; i < part_values.GetCount(); i++) {
 			String k = part_values.GetKey(i);
 			String v = part_values[i];
-			p.analysis.data.GetAdd(k) = v;
+			part.analysis[mode].data.GetAdd(k) = v;
 			LOG(key << " -> " << k << " = \"" << v << "\"");
 		}
 	}
@@ -879,7 +978,7 @@ void AI_Task::Process_SongScores() {
 	Database& db = Database::Single();
 	ASSERT(p.mode >= 0);
 	int mode = p.mode;
-	if (!db.ctx.HasSong())
+	if (!p.song)
 		return;
 	
 	Song& s = *p.song;

@@ -19,7 +19,7 @@ void Sequencer::Data() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
 	
-	if (!db.ctx.HasSong())
+	if (!p.song)
 		return;
 	Song& song = *p.song;
 	

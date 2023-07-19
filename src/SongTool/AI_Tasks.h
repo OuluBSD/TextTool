@@ -76,6 +76,8 @@ struct AI_Task {
 	enum {
 		TASK_PATTERNMASK,
 		TASK_ANALYSIS,
+		TASK_STORYARC,
+		TASK_IMPACT,
 		TASK_MAKE_PATTERN_TASKS,
 		TASK_PATTERN,
 		TASK_MAKE_ATTRSCORES_TASKS,
@@ -120,12 +122,15 @@ struct AI_Task {
 	String GetInputHash() const;
 	String GetOutputHash() const;
 	void CreateInput();
+	void CreateInput_StoryArc();
 	void CreateInput_PatternMask();
 	void CreateInput_Pattern();
 	void CreateInput_Analysis();
 	void CreateInput_AttrScores();
 	void CreateInput_Lyrics();
 	void CreateInput_LyricsTranslate();
+	void CreateInput_Impact();
+	void Process_StoryArc();
 	void Process_PatternMask();
 	void Process_Pattern();
 	void Process_Analysis();
@@ -138,6 +143,7 @@ struct AI_Task {
 	void Process_ReversePattern();
 	void Process_Lyrics();
 	void Process_LyricsTranslate();
+	void Process_Impact();
 	String GetDescription() const;
 	String GetTypeString() const;
 	bool IsDepsReady(Index<AI_Task*>& seen) const;

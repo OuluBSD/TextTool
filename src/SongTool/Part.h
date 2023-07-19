@@ -8,7 +8,7 @@ struct Part :
 	
 	Array<Line>			lines;
 	Composition			composition;
-	Analysis			analysis;
+	Analysis			analysis[PTR_COUNT];
 	
 	void Clear() {
 		lines.Clear();
@@ -19,8 +19,9 @@ struct Part :
 			("name", name)
 			("lines", lines)
 			("composition", composition)
-			("analysis", analysis)
 			;
+		for(int i = 0; i < PTR_COUNT; i++)
+			json("analysis[" + IntStr(i) + "]", analysis[i]);
 		SnapContext::Jsonize(json);
 	}
 	String ToString() const {return name + ", lines=" + IntStr(lines.GetCount());}
@@ -36,6 +37,7 @@ struct Part :
 	}
 	Array<Line>& GetSub() {return lines;}
 	const Array<Line>& GetSub() const {return lines;}
+	int GetLength(int mode) const;
 	
 	
 	PATTERNMASK_MACROS

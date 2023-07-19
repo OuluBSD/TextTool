@@ -137,6 +137,7 @@ struct Song :
 		FixPtrs();
 		return p;
 	}
+	int GetLength(int mode) const;
 	
 	
 	PATTERNMASK_MACROS

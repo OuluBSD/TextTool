@@ -35,7 +35,7 @@ void ReverseCtrl::Data() {
 	if (g.groups.IsEmpty()) return;
 	
 	this->snaplist.Clear();
-	if (!db.ctx.HasSong())
+	if (!p.song)
 		return;
 	Song& song = *p.song;
 	
@@ -92,9 +92,10 @@ void ReverseCtrl::Data() {
 
 void ReverseCtrl::DataWorker() {
 	Database& db = Database::Single();
-	if (!db.ctx.HasSong())
+	Ptrs& p = db.ctx[MALE];
+	if (!p.song)
 		return;
-	Song& song = *db.ctx[0].song;
+	Song& song = *p.song;
 	
 	if (!tasklist.IsCursor())
 		return;

@@ -55,3 +55,11 @@ void Song::RealizeProduction() {
 		t.type = TrackType::TT_VOCAL;
 	}
 }
+
+int Song::GetLength(int mode) const {
+	CHKMODE(mode);
+	int len = 0;
+	for (const Part& p : parts)
+		len += p.GetLength(mode);
+	return len;
+}

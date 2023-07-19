@@ -13,7 +13,8 @@ AI_Tasks::AI_Tasks() {
 	
 	list.AddColumn(t_("Description"));
 	list.AddColumn(t_("Status"));
-	list.ColumnWidths("4 1");
+	list.AddColumn(t_("Mode"));
+	list.ColumnWidths("8 2 1");
 	list <<= THISBACK(DataTask);
 	
 	output <<= THISBACK(ValueChange);
@@ -36,6 +37,7 @@ void AI_Tasks::Data() {
 		else if (t.ready)
 			s = t_("Ready");
 		list.Set(i, 1, s);
+		list.Set(i, 2, GetModeString(t.p.mode));
 	}
 	list.SetCount(m.tasks.GetCount());
 	

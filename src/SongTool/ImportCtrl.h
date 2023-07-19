@@ -8,6 +8,7 @@ class ImportCtrl : public WithImport<Ctrl> {
 	ArrayCtrl messages;
 	
 	
+	void AddMessage(int line, int severity, String msg);
 public:
 	typedef ImportCtrl CLASSNAME;
 	ImportCtrl();
@@ -17,7 +18,7 @@ public:
 	//void OutputBar(Bar& bar);
 	//void RemoveLine();
 	void MakeTasks();
-	void ParseOriginalLyrics();
+	bool ParseOriginalLyrics();
 	
 	Callback WhenStructureChange;
 	

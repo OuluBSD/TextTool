@@ -13,7 +13,7 @@ void SeqCtrl::Data() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
 	
-	if (!db.ctx.HasSong())
+	if (!p.song)
 		return;
 	
 	p.song->RealizeProduction();

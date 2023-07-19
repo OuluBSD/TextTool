@@ -62,6 +62,9 @@ using namespace Upp;
 #include "ReverseCtrl.h"
 #include "Plotter.h"
 #include "ScoringCtrl.h"
+#include "ImpactCtrl.h"
+#include "StoryCtrl.h"
+#include "StructureCtrl.h"
 #include "ImportCtrl.h"
 
 #include "LineEditCtrl.h"

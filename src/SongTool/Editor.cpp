@@ -26,7 +26,10 @@ Editor::Editor() {
 	tablist.Add(t_("Release"), t_("Calendar"));
 	tablist.Add(t_("Release"), t_("Tasks"));
 	tablist.Add(t_("Song"), t_("Importer"));
+	tablist.Add(t_("Song"), t_("Structure"));
 	tablist.Add(t_("Song"), t_("Analysis"));
+	tablist.Add(t_("Song"), t_("Story"));
+	tablist.Add(t_("Song"), t_("Impact"));
 	tablist.Add(t_("Song"), t_("Pattern mask"));
 	tablist.Add(t_("Song"), t_("Pattern"));
 	tablist.Add(t_("Song"), t_("Attribute scoring"));
@@ -71,10 +74,13 @@ Editor::Editor() {
 	base.Add(scoring.SizePos());
 	base.Add(composition.SizePos());
 	base.Add(analysis.SizePos());
+	base.Add(impact.SizePos());
 	base.Add(production.SizePos());
 	base.Add(rhymes.SizePos());
 	base.Add(reverse.SizePos());
 	base.Add(rev_pattern.SizePos());
+	base.Add(story.SizePos());
+	base.Add(structure.SizePos());
 	
 	rev_pattern.use_rev_snap = true;
 	
@@ -104,6 +110,9 @@ void Editor::SetView(int i) {
 	analysis.Hide();
 	production.Hide();
 	rhymes.Hide();
+	impact.Hide();
+	story.Hide();
+	structure.Hide();
 	
 	WhenStopUpdating();
 	
@@ -116,16 +125,19 @@ void Editor::SetView(int i) {
 		case 4: cal.Show(); break;
 		case 5: task.Show(); break;
 		case 6: importer.Show(); break;
-		case 7: analysis.Show(); break;
-		case 8: patmask.Show(); break;
-		case 9: pattern.Show(); break;
-		case 10: attrscore.Show(); break;
-		case 11: scoring.Show(); break;
-		case 12: WhenStartUpdating(); reverse.Show(); break;
-		case 13: rev_pattern.Show(); break;
-		case 14: composition.Show(); break;
-		case 15: production.Show(); break;
-		case 16: rhymes.Show(); break;
+		case 7: structure.Show(); break;
+		case 8: analysis.Show(); break;
+		case 9: story.Show(); break;
+		case 10: impact.Show(); break;
+		case 11: patmask.Show(); break;
+		case 12: pattern.Show(); break;
+		case 13: attrscore.Show(); break;
+		case 14: scoring.Show(); break;
+		case 15: WhenStartUpdating(); reverse.Show(); break;
+		case 16: rev_pattern.Show(); break;
+		case 17: composition.Show(); break;
+		case 18: production.Show(); break;
+		case 19: rhymes.Show(); break;
 	}
 	page = i;
 	DataPage();
@@ -140,16 +152,19 @@ void Editor::DataPage() {
 		case 4: cal.Data(); break;
 		case 5: task.Data(); break;
 		case 6: importer.Data(); break;
-		case 7: analysis.Data(); break;
-		case 8: patmask.Data(); break;
-		case 9: pattern.Data(); break;
-		case 10: attrscore.Data(); break;
-		case 11: scoring.Data(); break;
-		case 12: reverse.Data(); break;
-		case 13: rev_pattern.Data(); break;
-		case 14: composition.Data(); break;
-		case 15: production.Data(); break;
-		case 16: rhymes.Data(); break;
+		case 7: structure.Data(); break;
+		case 8: analysis.Data(); break;
+		case 9: story.Data(); break;
+		case 10: impact.Data(); break;
+		case 11: patmask.Data(); break;
+		case 12: pattern.Data(); break;
+		case 13: attrscore.Data(); break;
+		case 14: scoring.Data(); break;
+		case 15: reverse.Data(); break;
+		case 16: rev_pattern.Data(); break;
+		case 17: composition.Data(); break;
+		case 18: production.Data(); break;
+		case 19: rhymes.Data(); break;
 		default: break;
 	}
 }
@@ -262,7 +277,7 @@ void Editor::DataSong() {
 void Editor::DataPart() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
-	if (!parts.IsCursor() || !p.artist || !p.release || !db.ctx.HasSong()) {
+	if (!parts.IsCursor() || !p.artist || !p.release || !p.song) {
 		DataPage();
 		return;
 	}
@@ -491,7 +506,7 @@ void Editor::AddSong() {
 void Editor::RenameSong() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
-	if (!db.ctx.HasSong())
+	if (!p.song)
 		return;
 	
 	String title;
@@ -511,7 +526,7 @@ void Editor::RenameSong() {
 void Editor::RemoveSong() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
-	if (!db.ctx.HasSong() || !p.release)
+	if (!p.song || !p.release)
 		return;
 	int idx = p.GetActiveSongIndex();
 	if (idx < 0) return;

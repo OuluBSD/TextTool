@@ -22,7 +22,7 @@ ImportCtrl::ImportCtrl() {
 void ImportCtrl::Data() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
-	if (!db.ctx.HasSong())
+	if (!p.song)
 		return;
 	
 	input[0].SetData(p.song->headers[0].content);
@@ -32,7 +32,7 @@ void ImportCtrl::Data() {
 void ImportCtrl::OnValueChange() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
-	if (!db.ctx.HasSong())
+	if (!p.song)
 		return;
 	
 	for(int i = 0; i < GENDER_COUNT; i++)
@@ -45,7 +45,7 @@ void ImportCtrl::OnValueChange() {
 
 /*void ImportCtrl::RemoveLine() {
 	Database& db = Database::Single();
-	if (!db.ctx.HasSong() || !output.IsCursor())
+	if (!p.song || !output.IsCursor())
 		return;
 	
 	int cursor = output.GetCursor();
@@ -55,57 +55,87 @@ void ImportCtrl::OnValueChange() {
 	}
 }*/
 
-void ImportCtrl::ParseOriginalLyrics() {
+void ImportCtrl::AddMessage(int line, int severity, String msg) {
+	String sev;
+	switch(severity) {
+		case 0: sev = "info"; break;
+		case 1: sev = "warning"; break;
+		case 2: sev = "error"; break;
+	}
+	messages.Add(line, sev, msg);
+}
+
+bool ImportCtrl::ParseOriginalLyrics() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
-	Ptrs& p_rev = db.ctx[MALE_REVERSED];
-	if (!db.ctx.HasSong() || !p_rev.song)
-		return;
+	if (!p.song)
+		return false;
 	
-	Panic("TODO");
 	
-	#if 0
-	Song& a = *db.active.song;
-	Song& b = *db.active_rev.song;
-	a.lock.EnterWrite();
-	b.lock.EnterWrite();
+	Song& song = *p.song;
+	String structure_str;
+	for(int mode = 0; mode < 2; mode++) {
+		String c = song.headers[mode].content;
+		c.Replace("\r", "");
+		Vector<String> parts = Split(c, "\n\n");
+		
+		String str;
+		for(int i = 0; i < parts.GetCount(); i++) {
+			Vector<String> lines = Split(parts[i], "\n");
+			int lc = lines.GetCount()-1;
+			String part_title = TrimBoth(lines[0]);
+			if (part_title.Right(1) == ":")
+				part_title = part_title.Left(part_title.GetCount()-1);
+			if (!str.IsEmpty())
+				str << ",";
+			str << part_title;
+			if (lc) str << ":" << lc;
+			for(int j = 1; j < lines.GetCount(); j++) {
+				Vector<String> breaks = Split(lines[j], "[br]");
+				str << ":" << breaks.GetCount();
+			}
+		}
+		//DUMP(str);
+		if (structure_str.IsEmpty())
+			structure_str = str;
+		else {
+			if (structure_str != str) {
+				int len = min(structure_str.GetCount(), str.GetCount());
+				String mismatch;
+				for(int j = 0; j < len; j++) {
+					if (structure_str[j] != str[j]) {
+						mismatch = str.Mid(j, 16);
+						break;
+					}
+				}
+				AddMessage(0, 2, "structure mismatch at '" + mismatch + "'");
+				return false;
+			}
+		}
+	}
 	
-	a.parts.Clear();
-	a.structure.Clear();
-	b.parts.Clear();
-	b.structure.Clear();
+	song.lock.EnterWrite();
 	
-	// Begin parsing the parts string
-	String c = a.content;
-	c.Replace("\r", "");
-	Vector<String> parts = Split(c, "\n\n");
+	song.parts.Clear();
+	song.structure.Clear();
 	
 	// Structure string
-	a.structure_str.Clear();
-	a.structure.Clear();
-	for(int i = 0; i < parts.GetCount(); i++) {
-		Vector<String> lines = Split(parts[i], "\n");
-		int lc = lines.GetCount()-1;
-		String part_title = TrimBoth(lines[0]);
-		if (part_title.Right(1) == ":")
-			part_title = part_title.Left(part_title.GetCount()-1);
-		if (!a.structure_str.IsEmpty())
-			a.structure_str << ",";
-		a.structure_str << part_title;
-		if (lc) a.structure_str << ":" << lc;
-	}
-	b.structure <<= a.structure;
-	b.structure_str = a.structure_str;
+	song.structure_str = structure_str;
+	song.structure.Clear();
+	
 	//DUMP(a.structure_str);
-	a.ReloadStructure(); // p.unique_parts is filled here
-	b.ReloadStructure();
+	song.ReloadStructure(); // p.unique_parts is filled here
 	
 	// Parse lyric parts and lines
-	a.unique_lines.Clear();
-	b.unique_lines.Clear();
-	bool found = false;
-	for (int v = 0; v < 2; v++) {
-		Song& s = v == 0 ? a : b;
+	for(int i = 0; i < PTR_COUNT; i++)
+		song.headers[i].unique_lines.Clear();
+	
+	
+	for(int mode = 0; mode < 2; mode++) {
+		String c = song.headers[mode].content;
+		c.Replace("\r", "");
+		Vector<String> parts = Split(c, "\n\n");
+		
 		for(int i = 0; i < parts.GetCount(); i++) {
 			Vector<String> lines = Split(parts[i], "\n");
 			int lc = lines.GetCount()-1;
@@ -115,34 +145,33 @@ void ImportCtrl::ParseOriginalLyrics() {
 					part_title = part_title.Left(part_title.GetCount()-1);
 				
 				if (lc) {
-					Part& part = s.GetAddPart(part_title);
+					Part& part = song.GetAddPart(part_title);
 					Array<Line>& parsed_lines = part.lines;
-					parsed_lines.Clear();
+					parsed_lines.SetCount(lines.GetCount()-1);
 					
 					// Add parsed lines to the Song class
 					for(int j = 1; j < lines.GetCount(); j++) {
 						String tl = TrimBoth(lines[j]);
-						Line& l = parsed_lines.Add();
-						l.ParseLine(s, tl);
+						Line& l = parsed_lines[j-1];
+						l.ParseLine(song, mode, tl);
+						ASSERT(l.snap[mode].txt.GetCount());
 						
-						if (!part.txt.IsEmpty()) part.txt << "\n";
-						part.txt << l.txt;
+						String& txt = part.snap[mode].txt;
+						if (!txt.IsEmpty()) txt << "\n";
+						txt << l.snap[mode].txt;
 					}
 				}
 			}
 		}
 	}
-	a.FixPtrs();
-	b.FixPtrs();
 	
-	a.RealizeTaskSnaps(true);
-	b.RealizeTaskSnaps(true);
-	
-	a.lock.LeaveWrite();
-	b.lock.LeaveWrite();
+	song.FixPtrs();
+	song.RealizeTaskSnaps(true);
+	song.lock.LeaveWrite();
 	
 	WhenStructureChange();
-	#endif
+	
+	return true;
 }
 
 
@@ -152,7 +181,7 @@ void ImportCtrl::MakeTasks() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
 	Ptrs& p_rev = db.ctx[MALE_REVERSED];
-	if (!db.ctx.HasSong() || !p.artist)
+	if (!p.song || !p.artist)
 		return;
 	Song& s = *p.song;
 	Artist& a = *p.artist;
@@ -164,10 +193,13 @@ void ImportCtrl::MakeTasks() {
 	p_rev.release = &r;
 	p_rev.song = &rs;*/
 	
+	messages.Clear();
+	
 	s.DeepClearSnap();
 	//rs.DeepClearSnap();
 	
-	ParseOriginalLyrics();
+	if (!ParseOriginalLyrics())
+		return;
 	
 	m.lock.EnterWrite();
 	
@@ -181,45 +213,94 @@ void ImportCtrl::MakeTasks() {
 		m.tasks.Remove(rm_list);
 	}
 	
-	AI_Task* chk_task = 0;
+	AI_Task* chk_task[GENDER_COUNT] = {0,0};
 	//Vector<AI_Task*> pattern_tasks;
 	for(int type = AI_Task::TASK_COUNT-1; type >= 0; type--) {
 		if      (type == AI_Task::TASK_PATTERNMASK) {
 			for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
-				const Attributes::GroupType& group_type = db.attrs.group_types[i];
+				for(int j = 0; j < GENDER_COUNT; j++) {
+					const Attributes::GroupType& group_type = db.attrs.group_types[i];
+						
+					// Add task for type
+					AI_Task& t = m.tasks.Add();
+					t.type = type;
+					t.p = p;
+					t.p.mode = j;
+					t.args << group_type.name << group_type.ai_txt << a.vocalist_visual;
 					
-				// Add task for type
+					//for (AI_Task* t0 : pattern_tasks)
+					//	t0->depends_on.Add(&t);
+					
+					for(int k = 0; k < GENDER_COUNT; k++)
+						chk_task[k]->depends_on.Add(&t);
+				}
+			}
+		}
+		else if (type == AI_Task::TASK_STORYARC) {
+			for(int j = 0; j < GENDER_COUNT; j++) {
 				AI_Task& t = m.tasks.Add();
 				t.type = type;
 				t.p = p;
-				t.args << group_type.name << group_type.ai_txt << a.vocalist_visual;
+				t.p.mode = j;
 				
-				//for (AI_Task* t0 : pattern_tasks)
-				//	t0->depends_on.Add(&t);
+				for(int k = 0; k < GENDER_COUNT; k++)
+					chk_task[k]->depends_on.Add(&t);
+			}
+		}
+		else if (type == AI_Task::TASK_IMPACT) {
+			for(int j = 0; j < GENDER_COUNT; j++) {
+				Vector<PatternSnap*> snaps;
+				s.GetSnapsLevel(j, 1, snaps);
+				SongHeader& h = s.headers[j];
+				Index<String> unique_lines;
+				for (PatternSnap* snap : snaps) {
+					if (unique_lines.Find(snap->txt) >= 0)
+						continue;
+					unique_lines.Add(snap->txt);
+					
+					AI_Task& t = m.tasks.Add();
+					t.type = type;
+					t.p.CopyPtrs(*snap);
+					t.p.snap = snap;
+					t.p.mode = j;
+					ASSERT(t.p.snap && t.p.line);
+					
+					for(int k = 0; k < GENDER_COUNT; k++)
+						chk_task[k]->depends_on.Add(&t);
+				}
 			}
 		}
 		else if (type == AI_Task::TASK_MAKE_PATTERN_TASKS) {
-			// Add task for getting patterns based on pattern mask
-			chk_task = &m.tasks.Add();
-			chk_task->type = type;
-			chk_task->p = p;
-		}
-		else if (type == AI_Task::TASK_ANALYSIS) {
-			for(int i = 0; i < db.attrs.analysis.GetCount(); i++) {
-				String key = db.attrs.analysis.GetKey(i);
-				
-				// Add task for analysis type
+			for(int j = 0; j < GENDER_COUNT; j++) {
+				// Add task for getting patterns based on pattern mask
 				AI_Task& t = m.tasks.Add();
 				t.type = type;
 				t.p = p;
-				t.args << a.vocalist_visual;
-				t.args << key;
+				t.p.mode = j;
 				
-				const Vector<String>& v = db.attrs.analysis[i];
-				for(int j = 0; j < v.GetCount(); j++)
-					t.args << v[j];
-				
-				chk_task->depends_on.Add(&t);
+				chk_task[j] = &t;
+			}
+		}
+		else if (type == AI_Task::TASK_ANALYSIS) {
+			for(int i = 0; i < db.attrs.analysis.GetCount(); i++) {
+				for(int j = 0; j < GENDER_COUNT; j++) {
+					String key = db.attrs.analysis.GetKey(i);
+					
+					// Add task for analysis type
+					AI_Task& t = m.tasks.Add();
+					t.type = type;
+					t.p = p;
+					t.p.mode = j;
+					t.args << a.vocalist_visual;
+					t.args << key;
+					
+					const Vector<String>& v = db.attrs.analysis[i];
+					for(int j = 0; j < v.GetCount(); j++)
+						t.args << v[j];
+					
+					for(int k = 0; k < GENDER_COUNT; k++)
+						chk_task[k]->depends_on.Add(&t);
+				}
 			}
 		}
 		else {

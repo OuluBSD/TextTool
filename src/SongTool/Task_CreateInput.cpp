@@ -1,5 +1,91 @@
 #include "SongTool.h"
 
+void AI_Task::CreateInput_StoryArc() {
+	Database& db = Database::Single();
+	if (!p.song) {
+		SetError("no song pointer set");
+		return;
+	}
+	
+	Ptrs& p = this->p;
+	Song& song = *p.song;
+	int mode = p.mode;
+	ASSERT(mode >= 0);
+	
+	if (song.parts.IsEmpty()) {
+		SetError("no parts in song");
+		return;
+	}
+	
+	String s;
+	
+	s << "Lyrics:\n";
+	String parts;
+	for(int i = 0; i < song.parts.GetCount(); i++) {
+		Part& part = song.parts[i];
+		s << part.name << "\n";
+		
+		if (!parts.IsEmpty()) parts << ", ";
+		parts << part.name;
+		
+		Array<Line>& lines = part.lines;
+		for(int j = 0; j < lines.GetCount(); j++) {
+			Line& line = lines[j];
+			s << line.snap[mode].txt << "\n";
+		}
+		
+		s << "\n";
+	}
+	s << "\n\n";
+	
+	s << "Data topics:\n"
+	  << "- Story arc\n"
+	  << "- Shortened absolute story arc\n"
+	  << "- Shortened absolute story arc of whole song\n"
+	  << "- Theme of the whole song\n"
+	  << "- Storyline in parts (" << song.parts[0].name << ", etc.)\n"
+	  << "\n"
+	;
+	s << "Results for data topics:\nStory arc:\n";
+	
+	input = s;
+}
+
+void AI_Task::CreateInput_Impact() {
+	Database& db = Database::Single();
+	if (!p.line) {
+		SetError("no line pointer set");
+		return;
+	}
+	
+	Ptrs& p = this->p;
+	Song& song = *p.song;
+	Line& line = *p.line;
+	int mode = p.mode;
+	ASSERT(mode >= 0);
+	
+	
+	String s;
+	s << "Lyrics with breaks [br]:\n";
+	for(int i = 0; i < line.breaks.GetCount(); i++) {
+		if (i) s << " [br] ";
+		s << line.breaks[i].snap[p.mode].txt;
+	}
+	s << "\n\nLyrics divided in parts:\n";
+	for(int i = 0; i < line.breaks.GetCount(); i++) {
+		Break& brk = line.breaks[i];
+		s << "Part " << i+1 << ", \"" << brk.snap[p.mode].txt << "\"\n";
+	}
+	s << "\n";
+	
+	//s << "Impact of lyrics of parts between breaks in short:\n"
+	//s << "How lyrics impacts listener in absolute in short:\n"
+	s << "How the listener is impacted in short:\n"
+		"Part 1, \"" << line.breaks[0].snap[p.mode].txt << "\":";
+	
+	input = s;
+}
+
 void AI_Task::CreateInput_PatternMask() {
 	//CombineHash hash;
 	Database& db = Database::Single();
@@ -10,7 +96,8 @@ void AI_Task::CreateInput_PatternMask() {
 	
 	Ptrs& p = this->p;
 	Song& song = *p.song;
-	ASSERT(p.mode >= 0);
+	int mode = p.mode;
+	ASSERT(mode >= 0);
 	
 	String s;
 	String type = args[0];
@@ -46,7 +133,7 @@ void AI_Task::CreateInput_PatternMask() {
 		Array<Line>& lines = part.lines;
 		for(int j = 0; j < lines.GetCount(); j++) {
 			Line& line = lines[j];
-			s << line.snap[p.mode].txt << "\n";
+			s << line.snap[mode].txt << "\n";
 			//hash << ToLower(line.txt);
 		}
 		
@@ -80,8 +167,13 @@ void AI_Task::CreateInput_Pattern() {
 	
 	Ptrs& p = this->p;
 	Song& song = *p.song;
-	ASSERT(p.mode >= 0);
-	SongHeader& header = song.headers[p.mode];
+	int mode = p.mode;
+	ASSERT(mode >= 0);
+	SongHeader& header = song.headers[mode];
+	if (header.unique_lines.IsEmpty()) {
+		SetError("no unique lines");
+		return;
+	}
 	
 	String s;
 	String type = args[0];
@@ -140,9 +232,10 @@ void AI_Task::CreateInput_Analysis() {
 	//CombineHash hash;
 	Database& db = Database::Single();
 	Ptrs& p = this->p;
+	int mode = p.mode;
 	Song& song = *p.song;
 	ASSERT(p.mode >= 0);
-	SongHeader& header = song.headers[p.mode];
+	SongHeader& header = song.headers[mode];
 	
 	if (!p.song) {
 		SetError("no song pointer set");
@@ -182,7 +275,7 @@ void AI_Task::CreateInput_Analysis() {
 		Array<Line>& lines = part.lines;
 		for(int j = 0; j < lines.GetCount(); j++) {
 			Line& line = lines[j];
-			const String& txt = line.snap[p.mode].txt;
+			const String& txt = line.snap[mode].txt;
 			s << txt << "\n";
 			ASSERT(txt.GetCount());
 			//hash << ToLower(line.txt);

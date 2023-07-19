@@ -63,6 +63,18 @@ enum {
 	GENDER_COUNT = MALE_REVERSED,
 };
 
+#define CHKMODE(x) ASSERT(x >= 0 && x < PTR_COUNT);
+
+inline String GetModeString(int i) {
+	switch (i) {
+		case MALE:				return "Male";
+		case FEMALE:			return "Female";
+		case MALE_REVERSED:		return "Male Reversed";
+		case FEMALE_REVERSED:	return "Female Reversed";
+		default: return "<error>";
+	}
+}
+
 struct Artist;
 struct Release;
 struct Song;

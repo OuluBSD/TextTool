@@ -28,6 +28,7 @@ struct Line :
 	Array<Break>& GetSub() {return breaks;}
 	const Array<Break>& GetSub() const {return breaks;}
 	void ParseLine(Song& song, int mode, const String& txt);
+	int GetLength(int mode) const;
 	
 	PATTERNMASK_MACROS
 };

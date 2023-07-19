@@ -34,17 +34,8 @@ END_LAYOUT
 
 LAYOUT(Import, 592, 108)
 	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Import from lyrics with AI")).LeftPosZ(4, 152).TopPosZ(0, 40))
-	ITEM(Upp::Button, make_tasks, SetLabel(t_("Make Tasks")).LeftPosZ(8, 144).TopPosZ(16, 20))
-	ITEM(Upp::LabelBox, dv___2, SetLabel(t_("Import from music composition")).LeftPosZ(160, 428).TopPosZ(0, 40))
-	ITEM(Upp::Label, dv___3, SetLabel(t_("Structure:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(164, 76).TopPosZ(16, 20))
-	ITEM(Upp::EditString, structure, LeftPosZ(244, 268).TopPosZ(16, 20))
-	ITEM(Upp::Button, reload, SetLabel(t_("Reload")).LeftPosZ(516, 68).TopPosZ(16, 20))
+	ITEM(Upp::Button, make_tasks, SetLabel(t_("Import")).LeftPosZ(8, 144).TopPosZ(16, 20))
 	ITEM(Splitter, vsplit, HSizePosZ(4, 0).VSizePosZ(48, 0))
-END_LAYOUT
-
-LAYOUT(Analysis, 724, 488)
-	ITEM(Upp::ArrayCtrl, data, HSizePosZ(0, 0).VSizePosZ(112, 0))
-	ITEM(Upp::DocEdit, lyrics, HSizePosZ(0, 0).TopPosZ(0, 116))
 END_LAYOUT
 
 LAYOUT(PatternMask, 400, 200)
@@ -78,26 +69,6 @@ LAYOUT(Calendar, 400, 200)
 	ITEM(Upp::Label, dv___0, SetLabel(t_("Calendar")).LeftPosZ(12, 144).VSizePosZ(8, 173))
 END_LAYOUT
 
-LAYOUT(Story, 492, 476)
-	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Story")).LeftPosZ(4, 484).TopPosZ(4, 464))
-	ITEM(Upp::Label, dv___1, SetLabel(t_("The meaning:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 136).TopPosZ(20, 20))
-	ITEM(Upp::DocEdit, meaning, Tip(t_("The meaning or message behind the lyrics")).LeftPosZ(152, 332).TopPosZ(20, 52))
-	ITEM(Upp::Label, dv___3, SetLabel(t_("Lit. devices:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 136).TopPosZ(76, 20))
-	ITEM(Upp::DocEdit, devices, Tip(t_("The use of literary devices, such as alliteration, metaphor, or imagery")).LeftPosZ(152, 332).TopPosZ(76, 52))
-	ITEM(Upp::Label, dv___5, SetLabel(t_("Emotion:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 136).TopPosZ(132, 20))
-	ITEM(Upp::DocEdit, emotion, Tip(t_("The emotion that the songwriter is trying to convey")).LeftPosZ(152, 332).TopPosZ(132, 52))
-	ITEM(Upp::Label, dv___7, SetLabel(t_("References:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 136).TopPosZ(188, 20))
-	ITEM(Upp::DocEdit, references, Tip(t_("The cultural references used in the song")).LeftPosZ(152, 332).TopPosZ(188, 52))
-	ITEM(Upp::Label, dv___9, SetLabel(t_("Structure:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 136).TopPosZ(244, 20))
-	ITEM(Upp::DocEdit, structure, Tip(t_("The musical structure or elements of the song, such as the chord progression, rhythm, and melody")).LeftPosZ(152, 332).TopPosZ(244, 52))
-	ITEM(Upp::Label, dv___11, SetLabel(t_("History:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 136).TopPosZ(300, 20))
-	ITEM(Upp::DocEdit, history, Tip(t_("The history of the song and its significance in a particular era")).LeftPosZ(152, 332).TopPosZ(300, 52))
-	ITEM(Upp::Label, dv___13, SetLabel(t_("Storyline:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 136).TopPosZ(356, 20))
-	ITEM(Upp::DocEdit, storyline, Tip(t_("The storyline and narrative of the song")).LeftPosZ(152, 332).TopPosZ(356, 52))
-	ITEM(Upp::Label, dv___15, SetLabel(t_("Implications:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 136).TopPosZ(412, 20))
-	ITEM(Upp::DocEdit, implications, Tip(t_("The social and political implications of the song")).LeftPosZ(152, 332).TopPosZ(412, 52))
-END_LAYOUT
-
 LAYOUT(Composition, 492, 440)
 	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Composition")).HSizePosZ(4, 4).TopPosZ(4, 432))
 	ITEM(Upp::Label, dv___1, SetLabel(t_("Tempo:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(8, 136).TopPosZ(16, 20))
@@ -122,5 +93,14 @@ LAYOUT(Production, 400, 200)
 END_LAYOUT
 
 LAYOUT(Rhymes, 400, 200)
+END_LAYOUT
+
+LAYOUT(Structure, 572, 44)
+	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Import from music composition")).HSizePosZ(140, 4).TopPosZ(0, 40))
+	ITEM(Upp::LabelBox, dv___1, SetLabel(t_("Mode")).LeftPosZ(4, 132).TopPosZ(0, 40))
+	ITEM(Upp::Label, dv___2, SetLabel(t_("Structure:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(144, 76).TopPosZ(16, 20))
+	ITEM(Upp::EditString, structure, HSizePosZ(224, 124).TopPosZ(16, 20))
+	ITEM(Upp::Button, reload, SetLabel(t_("Reload")).RightPosZ(8, 112).TopPosZ(16, 20))
+	ITEM(Upp::DropList, mode, LeftPosZ(8, 124).TopPosZ(16, 19))
 END_LAYOUT
 

@@ -7,7 +7,7 @@ bool AI_Task::IsDepsReady(Index<AI_Task*>& seen) const {
 		if (seen.Find(dep) >= 0)
 			continue;
 		seen.Add(dep);
-		if (!dep->ready || !dep->IsDepsReady(seen)) {
+		if (!dep->ready || dep->failed || !dep->IsDepsReady(seen)) {
 			all_ready = false;
 			break;
 		}
@@ -62,6 +62,8 @@ String AI_Task::GetDescription() const {
 String AI_Task::GetTypeString() const {
 	switch (type) {
 		case TASK_PATTERNMASK: return t_("Pattern mask");
+		case TASK_STORYARC: return t_("Story arc");
+		case TASK_IMPACT: return t_("Impact");
 		case TASK_MAKE_PATTERN_TASKS: return t_("Make pattern tasks");
 		case TASK_PATTERN: return t_("Pattern");
 		case TASK_ANALYSIS: return t_("Analysis");
@@ -80,6 +82,8 @@ String AI_Task::GetTypeString() const {
 void AI_Task::CreateInput() {
 	switch (type) {
 		case TASK_PATTERNMASK: CreateInput_PatternMask(); break;
+		case TASK_STORYARC: CreateInput_StoryArc(); break;
+		case TASK_IMPACT: CreateInput_Impact(); break;
 		case TASK_MAKE_PATTERN_TASKS: break;
 		case TASK_PATTERN: CreateInput_Pattern(); break;
 		case TASK_ANALYSIS: CreateInput_Analysis(); break;
@@ -117,7 +121,7 @@ void AI_Task::Process() {
 	if (!input.IsEmpty() && output.IsEmpty() && type != TASK_MAKE_PATTERN_TASKS && type != TASK_MAKE_ATTRSCORES_TASKS) {
 		if (output.IsEmpty())
 			Load();
-		DUMP(GetInputHash());
+		//DUMP(GetInputHash());
 		if (output.IsEmpty())
 			ok = RunOpenAI();
 	}
@@ -127,6 +131,8 @@ void AI_Task::Process() {
 	if (ok) {
 		switch (type) {
 			case TASK_PATTERNMASK: Process_PatternMask(); break;
+			case TASK_STORYARC: Process_StoryArc();break;
+			case TASK_IMPACT: Process_Impact();break;
 			case TASK_MAKE_PATTERN_TASKS: Process_MakePatternTasks();break;
 			case TASK_PATTERN: Process_Pattern(); break;
 			case TASK_ANALYSIS: Process_Analysis(); break;

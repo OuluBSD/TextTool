@@ -28,6 +28,9 @@ protected:
 	ScoringCtrl		scoring;
 	AttrScoreCtrl	attrscore;
 	ReverseCtrl		reverse;
+	ImpactCtrl		impact;
+	StoryCtrl		story;
+	StructureCtrl	structure;
 	
 public:
 	typedef Editor CLASSNAME;

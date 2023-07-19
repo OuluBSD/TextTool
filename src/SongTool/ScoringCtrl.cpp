@@ -77,7 +77,7 @@ void ScoringCtrl::DataPresets() {
 void ScoringCtrl::DataList() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
-	if (!db.ctx.HasSong())
+	if (!p.song)
 		return;
 	Song& o = *p.song;
 	
@@ -153,7 +153,7 @@ void ScoringCtrl::DataList() {
 void ScoringCtrl::ListValueChanged(int pos, int scoring) {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
-	if (!p.part || !db.ctx.HasSong())
+	if (!p.part || !p.song)
 		return;
 	Song& o = *p.song;
 	
