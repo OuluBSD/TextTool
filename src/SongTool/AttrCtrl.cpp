@@ -17,7 +17,7 @@ void AttrCtrl::RealizeTemp() {
 
 void AttrCtrl::Load() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx[mode];
 	Attributes& g = db.attrs;
 	if (!p.snap)
 		return;
@@ -45,7 +45,7 @@ void AttrCtrl::Load() {
 
 void AttrCtrl::Store() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx[mode];
 	Attributes& g = db.attrs;
 	if (!p.snap)
 		return;
@@ -67,7 +67,7 @@ void AttrCtrl::Store() {
 
 void AttrCtrl::Paint(Draw& d) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx[mode];
 	Attributes& g = db.attrs;
 	Color bg = GrayColor(32);
 	Size sz = GetSize();
@@ -81,8 +81,6 @@ void AttrCtrl::Paint(Draw& d) {
 	int tgt_lineh = 18;
 	Font fnt = SansSerif(15);
 	
-	
-	#if 0
 	
 	/*int item_count = g.GetItemCount();
 	if (!item_count)
@@ -106,7 +104,7 @@ void AttrCtrl::Paint(Draw& d) {
 		{
 			group_items.Clear();
 			group_types.Clear();
-			part.GetGroupItems(group_items);
+			part.snap[mode].GetGroupItems(group_items);
 			db.attrs.FindGroupTypes(group_items.GetKeys(), group_types);
 		}
 		
@@ -193,8 +191,6 @@ void AttrCtrl::Paint(Draw& d) {
 			PaintKeys(d, group_i, col_groups[j], x, cx, y, lineh, fnt);
 		}
 	}
-	
-	#endif
 }
 
 void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, int cx, int& y, float lineh, Font fnt) {
@@ -329,7 +325,7 @@ void AttrCtrl::MouseLeave() {
 
 void AttrCtrl::LeftDown(Point pt, dword keyflags) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx[mode];
 	Attributes& g = db.attrs;
 	for(RectId& rid : entry_rects) {
 		if (rid.a.Contains(pt)) {

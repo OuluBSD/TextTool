@@ -38,11 +38,6 @@ LAYOUT(Import, 592, 108)
 	ITEM(Splitter, vsplit, HSizePosZ(4, 0).VSizePosZ(48, 0))
 END_LAYOUT
 
-LAYOUT(PatternMask, 400, 200)
-	ITEM(Upp::ArrayCtrl, data, HSizePosZ(0, 0).VSizePosZ(112, 0))
-	ITEM(Upp::DocEdit, lyrics, HSizePosZ(0, 0).TopPosZ(0, 116))
-END_LAYOUT
-
 LAYOUT(AttrScore, 400, 200)
 	ITEM(Splitter, vsplit, LeftPosZ(4, 228).VSizePosZ(4, 88))
 	ITEM(Splitter, mainsplit, HSizePosZ(236, 0).VSizePosZ(0, 0))

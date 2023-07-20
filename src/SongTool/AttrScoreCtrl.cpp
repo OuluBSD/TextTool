@@ -107,12 +107,12 @@ void AttrScoreCtrl::DataGroup() {
 		int score_i = db.attrscores.attr_to_score[cursor][i];
 		if (score_i >= 0)
 			score_txt = db.attrscores.groups[score_i].GetName();
-		else {
+		/*else {
 			DUMP(cursor);
 			DUMP(i);
 			DUMP(score_i);
 			DUMP(v);
-		}
+		}*/
 		src_entries.Set(i, 1, Capitalize(score_txt));
 	}
 	src_entries.SetCount(gg.values.GetCount());
@@ -300,9 +300,8 @@ void AttrScoreCtrl::CheckErrors() {
 	Index<SnapAttrStr> attrs;
 	
 	Part& part = *p.part;
-	Panic("TODO");
-	#if 0
-	part.GetAttributes(attrs);
+	
+	part.GetAttributes(p.mode, attrs);
 	
 	
 	int i = 0;
@@ -320,7 +319,7 @@ void AttrScoreCtrl::CheckErrors() {
 		i++;
 	}
 	//part_errors.SetCount(i);
-	#endif
+	
 }
 
 void AttrScoreCtrl::OpenPromptScores() {

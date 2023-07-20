@@ -2,37 +2,44 @@
 
 
 PatternCtrl::PatternCtrl() {
-	Add(txt.HSizePos(5).TopPos(0,20));
-	Add(hsplit.HSizePos().VSizePos(20));
+	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << vsplit0 << vsplit1;
+	hsplit.Horz() << tree << vsplit;
 	hsplit.SetPos(800);
 	
-	vsplit0 << tree;
-	
-	vsplit1.Vert() << list_placeholder << attr;
-	vsplit1.SetPos(1000);
+	vsplit.Vert();
+	for(int mode = 0; mode < GENDER_COUNT; mode++) {
+		AttrCtrl& attr = this->attr[mode];
+		Label& txt = this->txt[mode];
+		Ctrl& ctrl = this->ctrl[mode];
+		
+		attr.SetMode(mode);
+		
+		ctrl.Add(txt.HSizePos().TopPos(0,15));
+		ctrl.Add(attr.HSizePos().VSizePos(115,0));
+		vsplit << ctrl;
+		
+		//attr.WhenAction << THISBACK1(DataList, mode);
+	}
 	
 	tree.WhenSel << THISBACK(OnTreeSel);
-	attr.WhenUpdate << THISBACK(DataList);
 	//merge_owner <<= THISBACK(MergeOwner);
 	
 }
 
 void PatternCtrl::Data() {
 	DataPatternTree();
-	DataPatternSnap();
-	DataList();
+	DataPatternSnapAll();
+	DataListAll();
 }
 
 void PatternCtrl::DataPatternTree() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
-	Ptrs& p_rev = db.ctx[MALE_REVERSED];
-	if ((!use_rev_snap && !p.song) || (use_rev_snap && !p_rev.song))
+	if (!p.song)
 		return;
 	
-	Song& o = *(use_rev_snap ? p_rev.song : p.song);
+	Song& o = *p.song;
 	int cursor = tree.IsCursor() ? tree.GetCursor() : 0;
 	
 	tree_snaps.Clear();
@@ -63,96 +70,126 @@ void PatternCtrl::OnTreeSel() {
 			p.part = &part;
 			p.snap = &ctx.snap[k];
 		}
-		FocusList();
-		DataList();
-		DataPatternSnap();
+		FocusListAll();
+		DataListAll();
+		DataPatternSnapAll();
 	}
 }
 
-void PatternCtrl::OnListSel() {
+void PatternCtrl::OnListSel(int mode) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
-	int cursor = list->GetCursor();
-	if (cursor >= 0 && cursor < level_snaps.GetCount()) {
-		PatternSnap& snap = *level_snaps[cursor];
+	Ptrs& p = db.ctx[mode];
+	int cursor = list[mode]->GetCursor();
+	if (cursor >= 0 && cursor < level_snaps[mode].GetCount()) {
+		PatternSnap& snap = *level_snaps[mode][cursor];
 		p.snap = &snap;
-		FocusTree();
-		DataPatternSnap();
+		FocusTree(mode);
+		DataPatternSnap(mode);
 	}
 }
 
-void PatternCtrl::DataPatternSnap() {
-	attr.Load();
-	attr.Refresh();
+void PatternCtrl::DataPatternSnap(int mode) {
+	attr[mode].SetMode(mode);
+	attr[mode].Load();
+	attr[mode].Refresh();
 }
 
-void PatternCtrl::DataList() {
+void PatternCtrl::DataList(int mode) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
-	Ptrs& p_rev = db.ctx[MALE_REVERSED];
-	if (!use_rev_snap && (!p.part || !p.snap))
+	Ptrs& p = db.ctx[mode];
+	
+	if (!p.part || !p.snap)
 		return;
-	if (use_rev_snap && (!p.part || !p.snap))
-		return;
+	
+	if (use_rev_snap)
+		mode += GENDER_COUNT;
+	
+	Label& txt = this->txt[mode];
+	One<ArrayCtrl>& list0 = this->list[mode];
+	Ctrl& ctrl = this->ctrl[mode];
 	
 	Database& d = Database::Single();
 	Attributes& g = d.attrs;
 	if (g.groups.IsEmpty()) return;
 	
-	Part& part = *(use_rev_snap ? p_rev.part : p.part);
-	PatternSnap& s = *(use_rev_snap ? p_rev.snap : p.snap);
+	Part& part = *p.part;
+	PatternSnap& s = *p.snap;
 	int level = s.GetLevel();
 	
-	#if 0
+	Vector<PatternSnap*>& level_snaps = this->level_snaps[mode];
+	Index<int>& group_types = this->group_types[mode];
+	VectorMap<int, Vector<int>>& group_items = this->group_items[mode];
 	
 	// Update relate txt
 	String line = s.txt;
 	line.Replace("\r", "");
 	line.Replace("\n", ";");
-	this->txt.SetLabel(line);
+	txt.SetLabel(line);
 	
 	
 	// Update columns
 	
 	// fucking ugly u++: column reset requires removing old ArrayCtrl
-	if (this->list) {
-		list_placeholder.RemoveChild(&*this->list);
-		this->list.Clear();
+	int cursor = 0;
+	if (list0) {
+		cursor = list0->GetCursor();
+		ctrl.RemoveChild(&*list0);
+		list0.Clear();
 	}
-	ArrayCtrl& list = this->list.Create();
-	list_placeholder.Add(list.SizePos());
+	ArrayCtrl& list = list0.Create();
+	ctrl.Add(list.HSizePos().TopPos(15,100));
+	
+	level_snaps.SetCount(0);
+	part.GetSnapsLevel(mode, level, level_snaps);
 	
 	{
 		group_items.Clear();
 		group_types.Clear();
-		part.GetGroupItems(group_items);
+		part.snap[mode].GetGroupItems(group_items);
 		db.attrs.FindGroupTypes(group_items.GetKeys(), group_types);
 		
 		list.AddColumn(t_("Position"));
-		
+		String col_width_str = "2";
 		for(int i = 0; i < group_items.GetCount(); i++) {
 			int group_i = group_items.GetKey(i);
 			const Vector<int>& items = group_items[i];
 			if (!items.IsEmpty()) {
-				Attributes::Group& gg = g.groups[group_i];
-				String key = g.Translate(gg.description);
-				list.AddColumn(key);
+				bool has_items = false;
+				for (PatternSnap* snap : level_snaps) {
+					if (HasSnapGroupString(*snap, group_i)) {
+						has_items = true;
+						break;
+					}
+					PatternSnap* owner = snap->owner;
+					while (owner) {
+						if (HasSnapGroupString(*owner, group_i)) {
+							has_items = true;
+							break;
+						}
+						owner = owner->owner;
+					}
+				}
+				if (has_items) {
+					Attributes::Group& gg = g.groups[group_i];
+					String key = g.Translate(gg.description);
+					list.AddColumn(key);
+					col_width_str << " 1";
+				}
+				else
+					group_items.Remove(i--);
 			}
 		}
+		list.ColumnWidths(col_width_str);
 		
-		attr.Layout();
+		attr[mode].Layout();
 	}
-	
-	level_snaps.SetCount(0);
-	part.GetSnapsLevel(level, level_snaps);
 	
 	list.SetCount(level_snaps.GetCount());
 	Index<String> skip_list;
 	for(int i = 0; i < level_snaps.GetCount(); i++) {
 		PatternSnap& s0 = *level_snaps[i];
 		String pos = s0.part->name + " :" + IntStr(s0.id);
-		//if (s0.len > 1)
-		//	pos += ":" + IntStr(s0.len);
+		
 		list.Set(i, 0, pos);
 		
 		for(int j = 0, k = 1; j < group_items.GetCount(); j++) {
@@ -165,7 +202,7 @@ void PatternCtrl::DataList() {
 			PatternSnap* owner = s0.owner;
 			String inherited;
 			while (owner) {
-				String s2 = GetSnapGroupString(*owner, j, skip_list);
+				String s2 = GetSnapGroupString(*owner, group_i, skip_list);
 				if (s2.GetCount()) {
 					if (!inherited.IsEmpty()) inherited << ", ";
 					inherited += s2;
@@ -183,9 +220,8 @@ void PatternCtrl::DataList() {
 	}
 	
 	if (!list.IsCursor())
-		list.SetCursor(0);
-	list.WhenSel << THISBACK(OnListSel);
-	#endif
+		list.SetCursor(min(cursor, list.GetCount()));
+	list.WhenSel << THISBACK1(OnListSel, mode);
 }
 
 void PatternCtrl::MergeOwner() {
@@ -197,47 +233,53 @@ void PatternCtrl::MergeOwner() {
 	Data();
 }
 
-void PatternCtrl::FocusTree() {
+void PatternCtrl::FocusTree(int mode) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx[mode];
 	for(int i = 0; i < tree_snaps.GetCount(); i++) {
-		if (&tree_snaps[i]->snap[MALE] == p.snap) {
+		if (&tree_snaps[i]->snap[mode] == p.snap) {
 			tree.SetCursor(tree_snaps.GetKey(i));
 			break;
 		}
 	}
 }
 
-void PatternCtrl::FocusList() {
+void PatternCtrl::FocusList(int mode) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
-	for(int i = 0; i < level_snaps.GetCount(); i++) {
-		if (level_snaps[i] == p.snap) {
-			list->SetCursor(i);
+	Ptrs& p = db.ctx[mode];
+	for(int i = 0; i < level_snaps[mode].GetCount(); i++) {
+		if (level_snaps[mode][i] == p.snap) {
+			list[mode]->SetCursor(i);
 			break;
 		}
 	}
 }
 
-String GetSnapGroupString(PatternSnap& snap, int group_i, Index<String>& skip_list) {
-	Attributes& g = Database::Single().attrs;
-	Attributes::Group& gg = g.groups[group_i];
+void PatternCtrl::SelectLine(int match) {
 	
-	String s;
-	for(const SnapAttrStr& a : snap.attributes.GetKeys()) {
-		a.RealizeId();
-		if (a.group_i != group_i)
-			continue;
-		
-		String item = g.Translate(gg.values[a.item_i]);
-		
-		if (skip_list.Find(item) < 0) {
-			if (!s.IsEmpty())
-				s << ", ";
-			skip_list.Add(item);
-			s << item;
+	// Select same kay in other lists too
+	if (match >= 0 && match < GENDER_COUNT) {
+		if (!this->list[match])
+			return;
+		ArrayCtrl& list = *this->list[match];
+		if (list.IsCursor()) {
+			String key = AttrText(list.Get(list.GetCursor(), 0)).text.ToString();
+			for(int i = 0; i < GENDER_COUNT; i++) {
+				if (i == match) continue;
+				ArrayCtrl& list = *this->list[i];
+				bool found = false;
+				for(int j = 0; j < list.GetCount(); j++) {
+					if (AttrText(list.Get(j, 0)).text.ToString() == key) {
+						list.SetCursor(j);
+						found = true;
+						break;
+					}
+				}
+				if (!found)
+					list.KillCursor();
+			}
 		}
 	}
-	return s;
+	
+	DataList(match);
 }
-

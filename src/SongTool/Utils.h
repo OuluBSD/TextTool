@@ -3,6 +3,7 @@
 
 struct PatternSnap;
 
+bool HasSnapGroupString(PatternSnap& snap, int group);
 String GetSnapGroupString(PatternSnap& snap, int group, Index<String>& skip_list);
 String Capitalize(String s);
 

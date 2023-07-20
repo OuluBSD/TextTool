@@ -105,6 +105,7 @@ struct AI_Task {
 	bool changed = false;
 	bool whole_song = false;
 	hash_t hash = 0;
+	int tries = 0;
 	
 	Vector<AI_Task*> depends_on;
 	Ptrs p;
@@ -145,6 +146,7 @@ struct AI_Task {
 	void Process_Lyrics();
 	void Process_LyricsTranslate();
 	void Process_Impact();
+	void Retry();
 	String GetDescription() const;
 	String GetTypeString() const;
 	bool IsDepsReady(Index<AI_Task*>& seen) const;

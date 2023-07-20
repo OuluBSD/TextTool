@@ -120,7 +120,26 @@
 				"health",
 				"view",
 				"ex-boyfriend",
-				"eyes"
+				"eyes",
+				"drug injection",
+				"heart",
+				"blood",
+				"scarlet drawl",
+				"ma",
+				"pa",
+				"service station",
+				"autumn",
+				"boyfriend",
+				"scar",
+				"tissue",
+				"kentucky",
+				"bra",
+				"bathroom",
+				"stall",
+				"trip",
+				"man",
+				"jaw",
+				"step"
 			]
 		},
 		{
@@ -171,7 +190,17 @@
 				"crawl",
 				"know-it-all",
 				"see",
-				"be"
+				"be",
+				"sarcastic",
+				"reward",
+				"goodbye",
+				"make",
+				"hear",
+				"have",
+				"look",
+				"going",
+				"speak",
+				"call"
 			]
 		},
 		{
@@ -189,7 +218,12 @@
 				"young",
 				"scarlet",
 				"soft",
-				"mister"
+				"mister",
+				"weak",
+				"soft spoken",
+				"afraid",
+				"broken",
+				"good"
 			]
 		},
 		{
@@ -206,7 +240,10 @@
 				"still",
 				"really",
 				"so",
-				"'cause"
+				"'cause",
+				"know-it-all",
+				"lovingly",
+				"lower"
 			]
 		},
 		{
@@ -223,7 +260,9 @@
 				"for",
 				"in",
 				"to",
-				"of"
+				"of",
+				"at",
+				"from"
 			]
 		},
 		{
@@ -238,7 +277,8 @@
 				"and",
 				"'cause",
 				"because",
-				"but"
+				"but",
+				"cause"
 			]
 		},
 		{
@@ -264,7 +304,9 @@
 			"values": [
 				"declarative sentences",
 				"comparative clause",
-				"coordinating conjunction"
+				"coordinating conjunction",
+				"sentence structure",
+				"structure of chorus"
 			]
 		},
 		{
@@ -292,7 +334,9 @@
 				"contrast",
 				"with regards to the conflicting wishes of the narrator",
 				"repetition",
-				"paradox"
+				"paradox",
+				"meaning of words",
+				"meaning of lyrics"
 			]
 		},
 		{
@@ -319,7 +363,9 @@
 			},
 			"values": [
 				"no specific pattern",
-				"repetition"
+				"repetition",
+				"melody",
+				"tone"
 			]
 		},
 		{
@@ -445,7 +491,14 @@
 				"young kentucky girl in a push-up bra",
 				"southern girl with a texas scarlet drawl",
 				"soft spoken like with a broken jaw",
-				"close your eyes and kiss"
+				"close your eyes and kiss",
+				"close your eyes",
+				"lonely view",
+				"up against wall",
+				"sharing view",
+				"blood loss",
+				"soft spoken",
+				"broken jaw"
 			]
 		},
 		{
@@ -462,7 +515,12 @@
 				"soft spoken with a broken jaw",
 				"scar tissue",
 				"with the birds",
-				"wave goodbye to ma and pa"
+				"wave goodbye to ma and pa",
+				"vantage point",
+				"push-up bra",
+				"lonely view",
+				"scarlet drawl",
+				"autumn sweet"
 			]
 		},
 		{
@@ -475,7 +533,12 @@
 			},
 			"values": [
 				"autumn's sweet",
-				"goodbye to ma and pa"
+				"goodbye to ma and pa",
+				"scar tissue",
+				"birds",
+				"kentucky girl",
+				"scarlet drawl",
+				"autumn sweet"
 			]
 		},
 		{
@@ -554,7 +617,18 @@
 				"scar tissue",
 				"sarcasm",
 				"sarcastic mister",
-				"kiss"
+				"kiss",
+				"close your eyes and kiss",
+				"share this lonely viewin",
+				"lick your heart",
+				"bloody bathroom stall",
+				"drawl",
+				"broken jaw",
+				"autumn's sweet",
+				"crawl in the bed",
+				"toilet",
+				"outside",
+				"vantage point"
 			]
 		},
 		{
@@ -569,7 +643,15 @@
 				"sharing",
 				"saying goodbye",
 				"kiss",
-				"lovingly"
+				"lovingly",
+				"wish you saw",
+				"close your eyes and kiss",
+				"push me up lovingly against the wall",
+				"look me like",
+				"wave goodbye",
+				"lovingly against the wall",
+				"push up against wall",
+				"blood loss"
 			]
 		},
 		{
@@ -581,7 +663,8 @@
 				"blue": 33
 			},
 			"values": [
-
+				"kentucky girl",
+				"southern girl"
 			]
 		},
 		{
@@ -596,7 +679,17 @@
 				"leaving and saying goodbye",
 				"wishing",
 				"sharing",
-				"kiss"
+				"kiss",
+				"sarcastic mister know-it-all",
+				"kissing with a drug injection",
+				"wish you saw",
+				"close your eyes and kiss",
+				"push up",
+				"look me like",
+				"goodbye",
+				"lovingly",
+				"kissing",
+				"waving goodbye"
 			]
 		},
 		{
@@ -608,7 +701,9 @@
 				"blue": 231
 			},
 			"values": [
-				"sharing"
+				"sharing",
+				"lick heart and taste health",
+				"share view"
 			]
 		},
 		{
@@ -622,7 +717,8 @@
 			"values": [
 				"drug pushing",
 				"leaving toilets",
-				"against the wall"
+				"against the wall",
+				"drug injection"
 			]
 		},
 		{
@@ -701,7 +797,12 @@
 			"values": [
 				"broken jaw",
 				"young kentucky girl in a push-up bra",
-				"southern girl"
+				"southern girl",
+				"scar tissue",
+				"push-up bra",
+				"bloody bathroom stall",
+				"birds",
+				"scarlet drawl"
 			]
 		},
 		{
@@ -732,7 +833,10 @@
 			"values": [
 				"liking sharing",
 				"autumn's sweet",
-				"loving another's health"
+				"loving another's health",
+				"lonely viewin",
+				"sharing",
+				"drug injection"
 			]
 		},
 		{
@@ -748,7 +852,11 @@
 				"licking hearts and tasting health",
 				"sarcastic mister know-it-all",
 				"singing doors closing",
-				"falling over oneself"
+				"falling over oneself",
+				"lick your heart",
+				"drawl",
+				"crawl in the bed",
+				"talking to himself"
 			]
 		},
 		{
@@ -762,7 +870,13 @@
 			"values": [
 				"make it to the moon",
 				"sharing a lonely view",
-				"lick another's heart"
+				"lick another's heart",
+				"to kiss you",
+				"share this lonely viewin",
+				"taste your skin and health",
+				"to make a trip to the moon",
+				"share the lonely view",
+				"share the view"
 			]
 		},
 		{
@@ -776,7 +890,12 @@
 			"values": [
 				"share a lonely view",
 				"escapism from reality",
-				"love"
+				"love",
+				"to make the other afraid of you",
+				"to get lower",
+				"to leave home",
+				"leaving home",
+				"highness"
 			]
 		},
 		{
@@ -788,7 +907,10 @@
 				"blue": 25
 			},
 			"values": [
-
+				"lonely view",
+				"toilet",
+				"service station",
+				"vantage point"
 			]
 		},
 		{
@@ -809,7 +931,12 @@
 				"service station",
 				"vantage point",
 				"my ex-boyfriend's place",
-				"outside"
+				"outside",
+				"my ex-boyfriend's",
+				"push me up",
+				"blood loss",
+				"(my man is) soft spoken",
+				"(my ex-boyfriend's) scar tissue"
 			]
 		},
 		{
@@ -833,7 +960,14 @@
 				"lonely viewin'",
 				"falling over myself",
 				"blood loss",
-				"soft spoken with broken jaw"
+				"soft spoken with broken jaw",
+				"sedated",
+				"high",
+				"weak",
+				"lovingly",
+				"in a bathroom stall",
+				"with a broken jaw",
+				"that i wish you saw"
 			]
 		},
 		{
@@ -856,7 +990,14 @@
 				"heart and pussy",
 				"skin and health",
 				"road trip",
-				"walk outside"
+				"walk outside",
+				"toilet",
+				"bathroom",
+				"close your eyes",
+				"against the wall",
+				"a southern girl",
+				"step outside",
+				"so that you would be afraid of me"
 			]
 		},
 		{
@@ -869,7 +1010,9 @@
 			},
 			"values": [
 				"autumn",
-				"autumn sweet"
+				"autumn sweet",
+				"i'll kiss you",
+				"i'll share this lonely viewin'"
 			]
 		},
 		{
@@ -885,7 +1028,9 @@
 				"afternoon",
 				"evening",
 				"midnight",
-				"night"
+				"night",
+				"so that you would be afraid of me",
+				"not to brawl"
 			]
 		},
 		{
@@ -899,7 +1044,12 @@
 			"values": [
 				"fall",
 				"road trip",
-				"walk outside"
+				"walk outside",
+				"sarcastic mister know-it-all",
+				"with the birds i'll share",
+				"like you want to have sex",
+				"with the birds i'll share this lonely viewin'",
+				"going to a trip"
 			]
 		},
 		{
@@ -916,7 +1066,20 @@
 				"leaving toilets and singing in doors",
 				"scar tissue",
 				"sarcastic mister",
-				"share this lonely view"
+				"share this lonely view",
+				"kissing",
+				"sharing lonely view",
+				"birds",
+				"up against wall",
+				"kentucky girl",
+				"licking",
+				"sharing view",
+				"blood loss",
+				"bathroom stall",
+				"trip",
+				"soft spoken",
+				"broken jaw",
+				"step outside"
 			]
 		},
 		{
@@ -934,7 +1097,14 @@
 				"make it to the moon",
 				"wish you saw",
 				"close your eyes and kiss",
-				"hear birds"
+				"hear birds",
+				"close your eyes",
+				"vantage point",
+				"want to have sex",
+				"push-up bra",
+				"lonely view",
+				"scarlet drawl",
+				"autumn sweet"
 			]
 		},
 		{
@@ -947,7 +1117,12 @@
 			},
 			"values": [
 				"fear of me",
-				"vantage point"
+				"vantage point",
+				"so that you would be afraid of me",
+				"sharing view",
+				"health and skin",
+				"leaving home",
+				"going to a trip"
 			]
 		},
 		{
@@ -961,7 +1136,10 @@
 			"values": [
 				"birds",
 				"drug",
-				"scar tissue"
+				"scar tissue",
+				"kentucky girl",
+				"scarlet drawl",
+				"autumn sweet"
 			]
 		},
 		{
@@ -997,7 +1175,13 @@
 				"moon",
 				"crawl",
 				"kiss you",
-				"share this lonely view"
+				"share this lonely view",
+				"vantage point",
+				"licking",
+				"lonely view",
+				"blood loss",
+				"bathroom stall",
+				"step outside"
 			]
 		},
 		{
@@ -1010,7 +1194,12 @@
 			},
 			"values": [
 				"fear",
-				"vantage point"
+				"vantage point",
+				"wish you saw",
+				"sharing view",
+				"want to have sex",
+				"leaving home",
+				"going to a trip"
 			]
 		},
 		{
@@ -1022,7 +1211,11 @@
 				"blue": 143
 			},
 			"values": [
-				"make it to the moon"
+				"make it to the moon",
+				"kiss you",
+				"birds",
+				"health and skin",
+				"trip"
 			]
 		},
 		{
@@ -1041,7 +1234,15 @@
 				"scar tissue",
 				"fear of me",
 				"sharing",
-				"loneliness"
+				"loneliness",
+				"fear",
+				"wishing",
+				"sharing lonely view",
+				"sexual desire",
+				"health",
+				"loss",
+				"journeys",
+				"innocence"
 			]
 		},
 		{
@@ -1172,7 +1373,39 @@
 				"longing",
 				"conversation",
 				"seriousness",
-				"determination"
+				"determination",
+				"frown",
+				"sad",
+				"smile",
+				"victorious",
+				"admiring",
+				"flirtatious",
+				"bold",
+				"daring",
+				"thoughtful",
+				"overjoyed",
+				"excited",
+				"concentrated",
+				"serene",
+				"relaxed",
+				"expressing reluctance",
+				"mockery",
+				"sarcasm",
+				"bittersweetness.",
+				"peering up in wonder.",
+				"inexpressiveness",
+				"surprise",
+				"surprise guilt.",
+				"expectant.",
+				"resignation.",
+				"joyful",
+				"euphoric.",
+				"dreamy",
+				"determined.",
+				"a mixture of awe",
+				"delight and surprise.",
+				"confidence",
+				"defiance."
 			]
 		},
 		{
@@ -1498,7 +1731,26 @@
 				"passion",
 				"sadness",
 				"embracing",
-				"support"
+				"support",
+				"slouched",
+				"dejected",
+				"taller",
+				"stronger",
+				"leaning forward",
+				"curious",
+				"confident",
+				"steady",
+				"taking steps forward",
+				"firm",
+				"fast pace",
+				"joyous",
+				"pacing",
+				"moving",
+				"casually walking",
+				"amble",
+				"standing straight",
+				"determined",
+				"moving away and standing tall."
 			]
 		},
 		{
@@ -1673,7 +1925,35 @@
 				"clapping",
 				"moving in rhythm",
 				"grabbing",
-				"hugging"
+				"hugging",
+				"embrace",
+				"touch affectionately",
+				"wave",
+				"raise index finger",
+				"grab",
+				"pull",
+				"raise arms",
+				"victory",
+				"push",
+				"point",
+				"hug",
+				"comfort",
+				"reach out",
+				"touch",
+				"place hand on shoulder",
+				"shake hands",
+				"cupping hands to mouth",
+				"mimicking birds in flight.",
+				"flailing arms and moving away.",
+				"throwing hands up in the air.",
+				"waving goodbye.",
+				"clapping hands",
+				"flicking fingers to beat a rhythm.",
+				"sweetly cupping hands together",
+				"drawing imaginary lines with fingers in the air.",
+				"flicking fingers in the air",
+				"making sweeping gestures with open palms.",
+				"extending arms outward in a gesture of defiance."
 			]
 		},
 		{
@@ -1731,7 +2011,8 @@
 				"soft pink lip color",
 				"dewy skin",
 				"pigtailed braids",
-				"soft peachy blush"
+				"soft peachy blush",
+				"scarlet drawl"
 			]
 		},
 		{
@@ -1773,7 +2054,19 @@
 				"skinny jeans",
 				"velvet hoodie",
 				"colorful romper",
-				"moccasins"
+				"moccasins",
+				"young kentucky girl style",
+				"push up bra",
+				"street style cloth",
+				"southern girl style",
+				"casual",
+				"streetwear",
+				"texas scarlet drawl style",
+				"down-to-earth style",
+				"outerspace attire",
+				"manly white caucasian male style",
+				"push-up bra",
+				"kentucky girl"
 			]
 		},
 		{
@@ -1810,7 +2103,18 @@
 				"bedazzled earrings",
 				"layered chokers",
 				"wooden beads",
-				"kitten earrings"
+				"kitten earrings",
+				"drug injection",
+				"beanie",
+				"cowboy boots",
+				"bandanna",
+				"hair band",
+				"hat",
+				"low cap",
+				"spacesuit",
+				"necklace",
+				"scar tissue",
+				"broken jaw"
 			]
 		},
 		{
@@ -1834,7 +2138,10 @@
 				"vintage suitcase",
 				"hiking backpack",
 				"toy car",
-				"kite"
+				"kite",
+				"wall",
+				"birds",
+				"autumn's sweet (autumn leave)"
 			]
 		},
 		{
@@ -1866,7 +2173,18 @@
 				"jump",
 				"transitions between clips",
 				"crossfading",
-				"fading"
+				"fading",
+				"fade in/out",
+				"splice",
+				"jump cut",
+				"wipe",
+				"gentle",
+				"sharp",
+				"cutting",
+				"elegant",
+				"graceful",
+				"subtle",
+				"light"
 			]
 		},
 		{
@@ -1894,7 +2212,12 @@
 				"fast",
 				"subtle",
 				"moderate",
-				"natural"
+				"natural",
+				"dissolve",
+				"crossfade",
+				"gradual",
+				"medium speed",
+				"quick"
 			]
 		},
 		{
@@ -1922,7 +2245,11 @@
 				"short",
 				"accurate",
 				"sequential",
-				"uneven"
+				"uneven",
+				"needle drop",
+				"gradual",
+				"jump cut",
+				"sudden"
 			]
 		},
 		{
@@ -1954,7 +2281,25 @@
 				"reverb",
 				"echo",
 				"flanger",
-				"delay"
+				"delay",
+				"glitch",
+				"digital zoom",
+				"3d visuals",
+				"chroma shift",
+				"out of focus",
+				"vignette",
+				"slow shutter",
+				"blurred vision",
+				"shadowing",
+				"overlay",
+				"speed ramping",
+				"black and white",
+				"reverse video",
+				"vibrato",
+				"distortion",
+				"pitch shift",
+				"tremolo",
+				"chorus"
 			]
 		},
 		{
@@ -1992,7 +2337,12 @@
 				"glowing",
 				"refreshing",
 				"drift",
-				"serene"
+				"serene",
+				"subtle",
+				"bold",
+				"melancholic",
+				"majestic",
+				"illuminating"
 			]
 		},
 		{
@@ -2036,7 +2386,16 @@
 				"flashing",
 				"illuminating",
 				"technological",
-				"vibrant"
+				"vibrant",
+				"colorful",
+				"subtle",
+				"playful",
+				"romantic",
+				"dazzling",
+				"warm",
+				"steady",
+				"reinforcing",
+				"ethereal"
 			]
 		},
 		{
@@ -2082,7 +2441,15 @@
 				"uplifting",
 				"radiant",
 				"glittering",
-				"majestic"
+				"majestic",
+				"soft",
+				"romantic",
+				"hopeful",
+				"alluring",
+				"comforting",
+				"free",
+				"enchanting",
+				"inviting"
 			]
 		},
 		{
@@ -2122,7 +2489,16 @@
 				"shadowy",
 				"restrained",
 				"subdued",
-				"enchanted"
+				"enchanted",
+				"soft focus",
+				"lens flare",
+				"open",
+				"seductive",
+				"sensuous",
+				"light",
+				"mysterious",
+				"tender",
+				"whispering"
 			]
 		},
 		{
@@ -2166,7 +2542,21 @@
 				"turquoise",
 				"indigo",
 				"lavender",
-				"peach"
+				"peach",
+				"neutral tones",
+				"blues",
+				"deep",
+				"moody",
+				"dreamy",
+				"energetic",
+				"colorful",
+				"emotional",
+				"atmospheric",
+				"majestic",
+				"noble",
+				"sentimental",
+				"romantic",
+				"sensual"
 			]
 		}
 	],

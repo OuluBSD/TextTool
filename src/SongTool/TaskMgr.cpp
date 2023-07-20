@@ -6,7 +6,7 @@ void TaskMgr::Process() {
 	while (running) {
 		this->total = tasks.GetCount();
 		
-		int ready = 0;
+		int ready = 0, got_ready = 0;
 		for(int i = 0; i < tasks.GetCount() && running && !Thread::IsShutdownThreads(); i++) {
 			AI_Task& t = tasks[i];
 			if (!t.ready) {
@@ -14,12 +14,22 @@ void TaskMgr::Process() {
 				if (t.ready) {
 					actual++;
 					ready++;
+					got_ready++;
 				}
 			}
 			else
 				ready++;
 		}
 		this->actual = ready;
+		
+		if (!got_ready) {
+			for (AI_Task& t : tasks) {
+				if (t.failed && !t.ready && t.tries < max_tries) {
+					t.tries++;
+					t.Retry();
+				}
+			}
+		}
 		
 		Sleep(10);
 	}

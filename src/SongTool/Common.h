@@ -123,5 +123,6 @@ struct Context {
 
 
 Color GetPartColor(const String& name, Color def=Color(56,170,255));
+Color GetGenderColor(int i);
 
 #endif

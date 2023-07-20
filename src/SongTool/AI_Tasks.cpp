@@ -204,3 +204,12 @@ bool AI_Task::RunOpenAI() {
 	Store();
 	return true;
 }
+
+void AI_Task::Retry() {
+	output.Clear();
+	skip_load = true;
+	failed = false;
+	ready = false;
+	error.Clear();
+	changed = true;
+}

@@ -10,8 +10,8 @@ public:
 	typedef ImpactCtrl CLASSNAME;
 	ImpactCtrl();
 	
-	void SelectLine(int match);
 	void Data();
+	void SelectLine(int match);
 	
 	
 };

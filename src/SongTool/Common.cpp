@@ -61,3 +61,16 @@ Color GetPartColor(const String& key, Color def) {
 	else
 		return def;
 }
+
+Color GetGenderColor(int i) {
+	switch (i) {
+		case MALE:
+		case MALE_REVERSED:
+			return Color(41, 59, 202);
+		case FEMALE:
+		case FEMALE_REVERSED:
+			return Color(255, 42, 200);
+		default:
+			return GrayColor();
+	}
+}

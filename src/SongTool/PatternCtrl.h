@@ -3,19 +3,20 @@
 
 
 class PatternCtrl : public Ctrl {
-	Label txt;
-	Splitter hsplit, vsplit0, vsplit1;
+	Splitter hsplit, vsplit;
 	TreeCtrl tree;
-	One<ArrayCtrl> list;
-	Ctrl list_placeholder;
-	AttrCtrl attr;
+	Label txt[GENDER_COUNT];
+	One<ArrayCtrl> list[GENDER_COUNT];
+	Ctrl ctrl[GENDER_COUNT];
+	AttrCtrl attr[GENDER_COUNT];
 	
 public:
 	VectorMap<int, SnapContext*> tree_snaps;
 	VectorMap<int, Part*> tree_parts;
-	Vector<PatternSnap*> level_snaps;
-	Index<int> group_types;
-	VectorMap<int, Vector<int>> group_items;
+	
+	Vector<PatternSnap*> level_snaps[GENDER_COUNT];
+	Index<int> group_types[GENDER_COUNT];
+	VectorMap<int, Vector<int>> group_items[GENDER_COUNT];
 	
 public:
 	typedef PatternCtrl CLASSNAME;
@@ -24,12 +25,16 @@ public:
 	void Data();
 	void DataPatternTree();
 	void OnTreeSel();
-	void OnListSel();
-	void DataPatternSnap();
-	void DataList();
+	void OnListSel(int mode);
+	void DataPatternSnap(int mode);
+	void DataPatternSnapAll() {for(int mode = 0; mode < GENDER_COUNT; mode++) DataPatternSnap(mode);}
+	void DataList(int mode);
+	void DataListAll() {for(int mode = 0; mode < GENDER_COUNT; mode++) DataList(mode);}
 	void MergeOwner();
-	void FocusTree();
-	void FocusList();
+	void FocusTree(int mode);
+	void FocusList(int mode);
+	void FocusListAll() {for(int mode = 0; mode < GENDER_COUNT; mode++) FocusList(mode);}
+	void SelectLine(int match);
 	
 	template <class T>
 	void DataPatternTreeNode(Part& part, T& snap, int parent) {

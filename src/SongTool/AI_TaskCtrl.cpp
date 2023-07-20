@@ -36,6 +36,8 @@ void AI_Tasks::Data() {
 			s = t_("Processing");
 		else if (t.ready)
 			s = t_("Ready");
+		if (t.tries > 0)
+			s << " (" << t_("tries") << " " << t.tries << ")";
 		list.Set(i, 1, s);
 		list.Set(i, 2, GetModeString(t.p.mode));
 	}
@@ -96,12 +98,7 @@ void AI_Tasks::RetryItem() {
 		return;
 	int cursor = list.GetCursor();
 	AI_Task& t = m.tasks[cursor];
-	t.output.Clear();
-	t.skip_load = true;
-	t.failed = false;
-	t.ready = false;
-	t.error.Clear();
-	t.changed = true;
+	t.Retry();
 	m.StartSingle(cursor);
 	this->output.Clear();
 }

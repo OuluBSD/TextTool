@@ -214,7 +214,7 @@ void AI_Task::Process_MakeAttrScores() {
 void AI_Task::Process_PatternMask() {
 	LOG("AI_Task::Process_PatternMask: begin");
 	Database& db = Database::Single();
-	Song& s = *p.song;
+	Song& song = *p.song;
 	ASSERT(p.mode >= 0);
 	int mode = p.mode;
 	
@@ -222,17 +222,17 @@ void AI_Task::Process_PatternMask() {
 	output.Replace("\r","");
 	#if 0
 	int a = input.GetCount() - 1;
-	a -= s.parts.GetKey(0).GetCount() + 1; // input has this extra, which has to be backspaced
+	a -= song.parts.GetKey(0).GetCount() + 1; // input has this extra, which has to be backspaced
 	String result = output.Mid(a);
 	#else
-	int a = input.GetCount() - 3 - s.parts[0].name.GetCount();
+	int a = input.GetCount() - 3 - song.parts[0].name.GetCount();
 	String result = input.Mid(a) + output;
 	#endif
 	//LOG(result);
 	
 	// Add pronouns
-	for(int i = 0; i < s.parts.GetCount(); i++) {
-		Part& p = s.parts[i];
+	for(int i = 0; i < song.parts.GetCount(); i++) {
+		Part& p = song.parts[i];
 		for(const Line& line : p.lines) {
 			Vector<String> parts = Split(line.snap[mode].txt, " ");
 			for (String part : parts) {
@@ -328,12 +328,12 @@ void AI_Task::Process_PatternMask() {
 	for(int i = 0; i < parsed.GetCount(); i++) {
 		const String& part_key = parsed.GetKey(i);
 		const VectorMap<String, Vector<String>>& parsed_key = parsed[i];
-		int pm_i = s.FindPartIdx(part_key);
+		int pm_i = song.FindPartIdx(part_key);
 		if (pm_i < 0) {
 			SetError("part was not found: " + part_key);
 			return;
 		}
-		Part& part = s.parts[pm_i];
+		Part& part = song.parts[pm_i];
 		
 		for(int j = 0; j < parsed_key.GetCount(); j++) {
 			const String& group = parsed_key.GetKey(j);
@@ -356,6 +356,7 @@ void AI_Task::Process_PatternMask() {
 					sas.item_i = sa.item;
 					sas.has_id = true;
 					part.snap[mode].mask.FindAdd(sas);
+					song.snap[mode].mask.FindAdd(sas);
 					LOG(part_key << " -> " << group << " -> " << value);
 				}
 				else {

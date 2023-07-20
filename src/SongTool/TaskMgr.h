@@ -12,6 +12,7 @@ struct TaskMgr {
 	AI_Task* active_task = 0;
 	int actual = 0, total = 0;
 	String status;
+	int max_tries = 3;
 	
 	typedef TaskMgr CLASSNAME;
 	void Start() {running = true; stopped = false; Thread::Start(THISBACK(Process));}
