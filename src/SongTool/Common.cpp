@@ -50,3 +50,14 @@ int Ptrs::GetActivePartIndex() const {if (!song) return -1; return VectorFindPtr
 int Ptrs::GetActiveArtistIndex() const {return VectorFindPtr(artist, Database::Single().artists);}
 int Ptrs::GetActiveReleaseIndex() const {if (!artist) return -1; return VectorFindPtr(release, artist->releases);}
 int Ptrs::GetActiveSongIndex() const {if (!release) return -1; return VectorFindPtr(song, release->songs);}
+
+Color GetPartColor(const String& key, Color def) {
+	if (key.Find("verse") == 0)
+		return Color(226, 85, 0);
+	else if (key.Find("chorus") == 0)
+		return Color(141, 255, 0);
+	else if (key.Find("bridge") == 0)
+		return Color(56, 170, 255);
+	else
+		return def;
+}

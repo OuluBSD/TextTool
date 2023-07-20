@@ -26,3 +26,13 @@ int Line::GetLength(int mode) const {
 		len += brk.GetLength(mode);
 	return len;
 }
+
+int Line::GetBreakIdx(const Break& b0) const {
+	int i = 0;
+	for (const Break& b : breaks) {
+		if (&b == &b0)
+			return i;
+		i++;
+	}
+	return -1;
+}

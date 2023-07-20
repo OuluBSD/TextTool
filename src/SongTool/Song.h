@@ -6,12 +6,14 @@ struct SongHeader {
 	VectorMap<String,String>				data;
 	String									content;
 	VectorMap<String, Vector<SnapAttrStr>>	unique_lines;
+	Analysis								analysis;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("data", data)
 			("content", content)
 			("unique_lines", unique_lines)
+			("analysis", analysis)
 			;
 	}
 };

@@ -19,7 +19,12 @@
 		"content": "",
 		"unique_lines": [
 
-		]
+		],
+		"analysis": {
+			"data": [
+
+			]
+		}
 	},
 	"headers[1]": {
 		"data": [
@@ -28,7 +33,12 @@
 		"content": "",
 		"unique_lines": [
 
-		]
+		],
+		"analysis": {
+			"data": [
+
+			]
+		}
 	},
 	"headers[2]": {
 		"data": [
@@ -37,7 +47,12 @@
 		"content": "",
 		"unique_lines": [
 
-		]
+		],
+		"analysis": {
+			"data": [
+
+			]
+		}
 	},
 	"headers[3]": {
 		"data": [
@@ -46,7 +61,12 @@
 		"content": "",
 		"unique_lines": [
 
-		]
+		],
+		"analysis": {
+			"data": [
+
+			]
+		}
 	},
 	"rev_tasks": [
 

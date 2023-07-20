@@ -120,4 +120,8 @@ struct Context {
 	Ptrs& operator[](int i) {ASSERT(i >= 0 && i < PTR_COUNT); return p[i];}
 };
 
+
+
+Color GetPartColor(const String& name, Color def=Color(56,170,255));
+
 #endif

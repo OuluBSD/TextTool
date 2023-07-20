@@ -91,7 +91,9 @@ GUI_APP_MAIN {
 	
 	
 	// Run main program
-	SongTool().Run();
+	{
+		SongTool().Run();
+	}
 	
 	
 	// Deinit storing of files

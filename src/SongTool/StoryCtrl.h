@@ -3,12 +3,14 @@
 
 
 class StoryCtrl : public Ctrl {
-	ArrayCtrl list;
+	Splitter vsplit;
+	ArrayCtrl list[2];
 	
 public:
 	typedef StoryCtrl CLASSNAME;
 	StoryCtrl();
 	
+	void SelectLine(int match);
 	void Data();
 	
 	

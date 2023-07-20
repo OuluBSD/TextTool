@@ -38,7 +38,7 @@ struct Part :
 	Array<Line>& GetSub() {return lines;}
 	const Array<Line>& GetSub() const {return lines;}
 	int GetLength(int mode) const;
-	
+	int GetLineIdx(const Line& l) const;
 	
 	PATTERNMASK_MACROS
 };

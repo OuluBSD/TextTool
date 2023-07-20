@@ -7,35 +7,44 @@ void AI_Task::Process_StoryArc() {
 	//LOG(txt);
 	
 	int a = txt.Find("Story arc:");
-	String part = txt.Mid(a);
-	part.Replace("\r", "");
+	String result = txt.Mid(a);
+	result.Replace("\r", "");
 	{
-		Vector<String> lines = Split(part, "\n", false);
+		Vector<String> lines = Split(result, "\n", false);
+		lines.Remove(0); // Remove "Story arc:");
 		for (String& l : lines)
 			l = TrimBoth(l);
-		part = Join(lines, "\n");
+		result = Join(lines, "\n");
 	}
-	//LOG(part);
+	LOG(result);
 	
-	Vector<String> parts = Split(part, "\n\n");
-	//DUMPC(parts);
+	Vector<String> parts = Split(result, "\n\n");
+	DUMPC(parts);
 	
 	for (String& part : parts) {
 		Vector<String> lines = Split(part, "\n");
 		if (lines.GetCount() >= 2) {
+			DUMPC(lines);
 			String key = TrimBoth(ToLower(lines[0]));
 			key.Replace(":", "");
-			String key_without_spaces = key;
-			key_without_spaces.Replace(" ", "");
-			if (key.Find("storyline in parts") >= 0) {
+			if (key.Find("toryline in parts") >= 0) {
 				int items = lines.GetCount()-1;
 				if (items >= song.parts.GetCount()) {
 					for(int i = 0; i < song.parts.GetCount(); i++) {
 						String s = TrimBoth(lines[1+i]);
+						String part_key;
 						int j = s.Find(":");
-						if (j >= 0) s = TrimBoth(s.Mid(j+1));
+						if (j >= 0) {
+							part_key = ToLower(TrimBoth(s.Left(j)));
+							s = TrimBoth(s.Mid(j+1));
+						}
+						String part_key_without_spaces = part_key;
+						part_key_without_spaces.Replace(" ", "");
 						Part& part = song.parts[i];
-						if (part.name == key || part.name == key_without_spaces)
+						//DUMP(part.name);
+						//DUMP(part_key);
+						//DUMP(part_key_without_spaces);
+						if (part.name == part_key || part.name == part_key_without_spaces)
 							part.snap[p.mode].data.GetAdd("storyline") = s;
 					}
 				}
@@ -569,26 +578,72 @@ void AI_Task::Process_Pattern() {
 void AI_Task::Process_Analysis() {
 	LOG("AI_Task::Process_Analysis: begin");
 	Database& db = Database::Single();
-	Song& s = *p.song;
+	Song& song = *p.song;
 	int mode = p.mode;
 	String vocalist_visual = args[0];
 	String title = args[1];
 	
 	output.Replace("\n\n-", "\n-");
 	
-	int a = input.GetCount() - 3 - s.parts[0].name.GetCount();
-	String result = input.Mid(a) + output;
-	//LOG(result);
-	
-	
-	// Parse result text
-	Vector<String> parts = Split(result, "\n\n");
-	VectorMap<String, VectorMap<String, String>> parsed;
-	for(int i = 0; i < parts.GetCount(); i++) {
-		Vector<String> lines = Split(parts[i], "\n");
+	if (!whole_song) {
+		int a = input.GetCount() - 3 - song.parts[0].name.GetCount();
+		String result = input.Mid(a) + output;
+		
+		// Parse result text
+		Vector<String> parts = Split(result, "\n\n");
+		VectorMap<String, VectorMap<String, String>> parsed;
+		for(int i = 0; i < parts.GetCount(); i++) {
+			Vector<String> lines = Split(parts[i], "\n");
+			String key = ToLower(TrimBoth(lines[0]));
+			if (key.Right(1) == ":") key = key.Left(key.GetCount()-1);
+			VectorMap<String, String>& parsed_key = parsed.GetAdd(key);
+			
+			for(int j = 1; j < lines.GetCount(); j++) {
+				String line = TrimBoth(lines[j]);
+				if (line.IsEmpty()) break;
+				if (line.Left(1) == "-") line = TrimBoth(line.Mid(1));
+				int colon = line.Find(":");
+				if (colon < 0) {
+					/*LOG(key << ": " << j-1 << ": " << line);
+					SetError("semicolon not found at " + key + " line " + IntStr(j-1));
+					return;*/
+					continue;
+				}
+				String group = ToLower(TrimBoth(line.Left(colon)));
+				parsed_key.GetAdd(group) = TrimBoth(line.Mid(colon+1));
+			}
+		}
+		
+		// Add values to database
+		for(int i = 0; i < parsed.GetCount(); i++) {
+			String key = parsed.GetKey(i);
+			const VectorMap<String, String>& part_values = parsed[i];
+			
+			// Find Part
+			int part_i = song.FindPartIdx(key);
+			if (part_i < 0) {
+				SetError("part not found: " + key);
+				return;
+			}
+			Part& part = song.parts[part_i];
+			
+			for(int i = 0; i < part_values.GetCount(); i++) {
+				String k = part_values.GetKey(i);
+				String v = part_values[i];
+				Analysis& a = part.analysis[mode];
+				a.data.GetAdd(k) = v;
+				LOG(key << " -> " << k << " = \"" << v << "\"");
+			}
+		}
+	}
+	else {
+		String result = "-" + output;
+		
+		// Parse result text
+		VectorMap<String, String> parsed_key;
+		Vector<String> lines = Split(result, "\n");
 		String key = ToLower(TrimBoth(lines[0]));
 		if (key.Right(1) == ":") key = key.Left(key.GetCount()-1);
-		VectorMap<String, String>& parsed_key = parsed.GetAdd(key);
 		
 		for(int j = 1; j < lines.GetCount(); j++) {
 			String line = TrimBoth(lines[j]);
@@ -604,28 +659,19 @@ void AI_Task::Process_Analysis() {
 			String group = ToLower(TrimBoth(line.Left(colon)));
 			parsed_key.GetAdd(group) = TrimBoth(line.Mid(colon+1));
 		}
-	}
-	
-	// Add values to database
-	for(int i = 0; i < parsed.GetCount(); i++) {
-		String key = parsed.GetKey(i);
-		const VectorMap<String, String>& part_values = parsed[i];
 		
-		// Find Part
-		int part_i = s.FindPartIdx(key);
-		if (part_i < 0) {
-			SetError("part not found: " + key);
-			return;
-		}
-		Part& part = s.parts[part_i];
-		
-		for(int i = 0; i < part_values.GetCount(); i++) {
-			String k = part_values.GetKey(i);
-			String v = part_values[i];
-			part.analysis[mode].data.GetAdd(k) = v;
+		// Add values to database
+		Analysis& a = song.headers[mode].analysis;
+		for(int i = 0; i < parsed_key.GetCount(); i++) {
+			String k = parsed_key.GetKey(i);
+			String v = parsed_key[i];
+			
+			a.data.GetAdd(k) = v;
 			LOG(key << " -> " << k << " = \"" << v << "\"");
 		}
 	}
+	//LOG(result);
+	
 	
 	LOG("AI_Task::Process_Analysis: end (success)");
 }

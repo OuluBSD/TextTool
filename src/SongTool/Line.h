@@ -29,6 +29,7 @@ struct Line :
 	const Array<Break>& GetSub() const {return breaks;}
 	void ParseLine(Song& song, int mode, const String& txt);
 	int GetLength(int mode) const;
+	int GetBreakIdx(const Break& b0) const;
 	
 	PATTERNMASK_MACROS
 };

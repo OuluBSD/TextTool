@@ -291,15 +291,7 @@ void StructureDrawer::Paint(Draw& d) {
 		Item& item = items.Add();
 		item.part = part;
 		item.len = part->GetLength(mode);
-		
-		if (key.Find("verse") == 0)
-			item.clr = Color(226, 85, 0);
-		else if (key.Find("chorus") == 0)
-			item.clr = Color(141, 255, 0);
-		else if (key.Find("bridge") == 0)
-			item.clr = Color(56, 170, 255);
-		else
-			item.clr = Color(Random(256), Random(256), Random(256));
+		item.clr = GetPartColor(key, Color(Random(256), Random(256), Random(256)));
 		
 		total_len += item.len;
 	}

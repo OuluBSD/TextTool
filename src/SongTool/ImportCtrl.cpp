@@ -282,24 +282,27 @@ void ImportCtrl::MakeTasks() {
 			}
 		}
 		else if (type == AI_Task::TASK_ANALYSIS) {
-			for(int i = 0; i < db.attrs.analysis.GetCount(); i++) {
-				for(int j = 0; j < GENDER_COUNT; j++) {
-					String key = db.attrs.analysis.GetKey(i);
-					
-					// Add task for analysis type
-					AI_Task& t = m.tasks.Add();
-					t.type = type;
-					t.p = p;
-					t.p.mode = j;
-					t.args << a.vocalist_visual;
-					t.args << key;
-					
-					const Vector<String>& v = db.attrs.analysis[i];
-					for(int j = 0; j < v.GetCount(); j++)
-						t.args << v[j];
-					
-					for(int k = 0; k < GENDER_COUNT; k++)
-						chk_task[k]->depends_on.Add(&t);
+			for (int whole_song = 0; whole_song < 2; whole_song++) {
+				for(int i = 0; i < db.attrs.analysis.GetCount(); i++) {
+					for(int j = 0; j < GENDER_COUNT; j++) {
+						String key = db.attrs.analysis.GetKey(i);
+						
+						// Add task for analysis type
+						AI_Task& t = m.tasks.Add();
+						t.type = type;
+						t.p = p;
+						t.p.mode = j;
+						t.args << a.vocalist_visual;
+						t.args << key;
+						t.whole_song = whole_song;
+						
+						const Vector<String>& v = db.attrs.analysis[i];
+						for(int j = 0; j < v.GetCount(); j++)
+							t.args << v[j];
+						
+						for(int k = 0; k < GENDER_COUNT; k++)
+							chk_task[k]->depends_on.Add(&t);
+					}
 				}
 			}
 		}

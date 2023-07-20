@@ -242,8 +242,7 @@ void AI_Task::CreateInput_Analysis() {
 		return;
 	}
 	
-	Song& a = *p.song;
-	if (a.parts.IsEmpty()) {
+	if (song.parts.IsEmpty()) {
 		SetError("Empty song");
 		return;
 	}
@@ -264,10 +263,11 @@ void AI_Task::CreateInput_Analysis() {
 	
 	s << "Lyrics:\n";
 	String parts;
-	for(int i = 0; i < a.parts.GetCount(); i++) {
-		Part& part = a.parts[i];
-		s << part.name << "\n";
-		//hash << ToLower(part.name);
+	for(int i = 0; i < song.parts.GetCount(); i++) {
+		Part& part = song.parts[i];
+		
+		if (!whole_song)
+			s << part.name << "\n";
 		
 		if (!parts.IsEmpty()) parts << ", ";
 		parts << part.name;
@@ -281,7 +281,8 @@ void AI_Task::CreateInput_Analysis() {
 			//hash << ToLower(line.txt);
 		}
 		
-		s << "\n";
+		if (!whole_song)
+			s << "\n";
 	}
 	s << "\n\n";
 	
@@ -290,20 +291,20 @@ void AI_Task::CreateInput_Analysis() {
 	//s << "One attribute from every group is required.\n\n";
 	s << "Multiple answers are required.\n\n";
 	
-	#if 0
-	s << "Verbose " << title << " of lyrics for all parts (parts " << parts << "):\n";
-	s << "" << a.parts.GetKey(0) << ":\n";
-	s << "-";
-	#else
-	s << "Verbose " << title << " of lyrics for all parts:\n";
-	for(int i = 0; i < a.parts.GetCount(); i++) {
-		String key = a.parts[i].name;
-		s << "- " << key << "\n";
+	if (whole_song)
+		s << "Verbose " << title << " of lyrics for whole lyrics:\n";
+	else
+		s << "Verbose " << title << " of lyrics for all parts:\n";
+	
+	if (!whole_song) {
+		for(int i = 0; i < song.parts.GetCount(); i++) {
+			String key = song.parts[i].name;
+			s << "- " << key << "\n";
+		}
+		s << "\n\n";
+		s << "" << song.parts[0].name << ":\n";
 	}
-	s << "\n\n";
-	s << "" << a.parts[0].name << ":\n";
 	s << "-";
-	#endif
 	
 	//this->hash = hash;
 	input = s;

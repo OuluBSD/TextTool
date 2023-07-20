@@ -3,12 +3,14 @@
 
 
 class ImpactCtrl : public Ctrl {
-	ArrayCtrl list;
+	Splitter vsplit;
+	ArrayCtrl list[GENDER_COUNT];
 	
 public:
 	typedef ImpactCtrl CLASSNAME;
 	ImpactCtrl();
 	
+	void SelectLine(int match);
 	void Data();
 	
 	
