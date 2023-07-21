@@ -92,8 +92,13 @@ Plotter::Plotter() {
 
 void Plotter::Paint(Draw& d) {
 	Size sz = GetSize();
-	bool absolute_view = view == VIEW_ABSOLUTE   || view == VIEW_ABSOLUTE_WEIGHTED;
+	bool absolute_view = view == VIEW_ABSOLUTE  || view == VIEW_ABSOLUTE_WEIGHTED;
 	bool weighted_view = view == VIEW_ABSOLUTE_WEIGHTED || view == VIEW_CUMULATIVE_WEIGHTED;
+	bool cumulative_view = view == VIEW_CUMULATIVE || view == VIEW_CUMULATIVE_WEIGHTED;
+	bool genderdiff_view = view == VIEW_GENDERDIFF;
+	bool genderdiff_weighted_view = view == VIEW_GENDERDIFF_WEIGHTED;
+	
+	int other_mode = !mode;
 	
 	d.DrawRect(sz, White());
 	
@@ -137,10 +142,45 @@ void Plotter::Paint(Draw& d) {
 				for(int k = 0; k < line.breaks.GetCount(); k++) {
 					Break& brk = line.breaks[k];
 					
-					// Accumulate values
-					int c0 = min(c, brk.snap[mode].partscore.GetCount());
-					for(int k = 0; k < c0; k++)
-						values[k].Add(brk.snap[mode].partscore[k]);
+					// Read values to stack variables
+					if (genderdiff_weighted_view) {
+						int c0 = min(c, min(
+							brk.snap[other_mode].partscore.GetCount(),
+							brk.snap[mode].partscore.GetCount()));
+						
+						double av = 0;
+						for (auto& val : brk.snap[mode].partscore) av += val;
+						av /= brk.snap[mode].partscore.GetCount();
+						
+						double other_av = 0;
+						for (auto& val : brk.snap[other_mode].partscore) other_av += val;
+						other_av /= brk.snap[other_mode].partscore.GetCount();
+						
+						for(int k = 0; k < c0; k++) {
+							double av_diff = brk.snap[mode].partscore[k] - av;
+							double other_av_diff = brk.snap[other_mode].partscore[k] - other_av;
+							
+							values[k].Add(
+								av_diff -
+								other_av_diff
+								);
+						}
+					}
+					else if (genderdiff_view) {
+						int c0 = min(c, min(
+							brk.snap[other_mode].partscore.GetCount(),
+							brk.snap[mode].partscore.GetCount()));
+						for(int k = 0; k < c0; k++)
+							values[k].Add(
+								brk.snap[mode].partscore[k] -
+								brk.snap[other_mode].partscore[k]
+								);
+					}
+					else {
+						int c0 = min(c, brk.snap[mode].partscore.GetCount());
+						for(int k = 0; k < c0; k++)
+							values[k].Add(brk.snap[mode].partscore[k]);
+					}
 				}
 			}
 			
@@ -193,7 +233,7 @@ void Plotter::Paint(Draw& d) {
 	
 	rids.Clear();
 	double cx = (double)sz.cx / (vert_x-1);
-	double xoff = absolute_view ? -cx / 2 : 0;
+	double xoff = absolute_view || genderdiff_view || genderdiff_weighted_view ? -cx / 2 : 0;
 	if (whole_song) {
 		int pos = 0;
 		for(int i = 0; i < song->structure.GetCount(); i++) {
@@ -253,12 +293,14 @@ void Plotter::Paint(Draw& d) {
 			case VIEW_CUMULATIVE: t = t_("accumulated value"); break;
 			case VIEW_ABSOLUTE_WEIGHTED: t = t_("weighted absolute value"); break;
 			case VIEW_CUMULATIVE_WEIGHTED: t = t_("weighted accumulated value"); break;
+			case VIEW_GENDERDIFF: t = t_("gender difference value"); break;
+			case VIEW_GENDERDIFF_WEIGHTED: t = t_("weighted gender difference value"); break;
 		}
 		d.DrawText(3,13, t, fnt,txt_clr);
 	}
 	
 	// Accumulated value view
-	if (!absolute_view) {
+	if (cumulative_view) {
 		for (auto& vv : this->values) {
 			double a = 0;
 			for (auto& v : vv) {
@@ -343,6 +385,11 @@ void Plotter::Paint(Draw& d) {
 			x += cx;
 		}
 		int lh = (focused_group == j) ? 3 : 1;
+		if (focused_group == j) {
+			d.Offset(0,2);
+			d.DrawPolyline(polyline, lh, Black());
+			d.End();
+		}
 		d.DrawPolyline(polyline, lh, clr);
 		j++;
 	}
@@ -389,12 +436,32 @@ void Plotter::MouseWheel(Point p, int zdelta, dword keyflags) {
 		if (rid) {
 			int change = zdelta > 0 ? +1 : -1;
 			const String& part_key = song->structure[rid->b];
-			Part& part = *song->FindPart(part_key);
+			int part_i = song->FindPartIdx(part_key);
+			int line_i = rid->c;
+			int brk_i = rid->d;
 			
-			Line& line = part.lines[rid->c];
-			Break& brk = line.breaks[rid->d];
+			if (part_i < 0)
+				return;
+			Part& part = song->parts[part_i];
+			Line& line = part.lines[line_i];
+			Break& brk = line.breaks[brk_i];
 			auto& score = brk.snap[mode].partscore[focused_group_i];
 			score += change;
+			
+			if (list) {
+				ArrayCtrl& list = *this->list;
+				for(int i = 0; i < list.GetCount(); i++) {
+					int part_i0 = list.Get(i, 0);
+					int line_i0 = list.Get(i, 1);
+					int brk_i0 = list.Get(i, 2);
+					if (part_i0 == part_i && line_i0 == line_i && brk_i0 == brk_i) {
+						int col = ScoringCtrl::group_begin + focused_group_i;
+						list.Set(i, col, score);
+						list.SetCursor(i);
+						break;
+					}
+				}
+			}
 		}
 	}
 	Refresh();

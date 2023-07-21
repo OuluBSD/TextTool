@@ -8,6 +8,8 @@ class Plotter : public Ctrl {
 	enum {
 		VIEW_ABSOLUTE,
 		VIEW_ABSOLUTE_WEIGHTED,
+		VIEW_GENDERDIFF,
+		VIEW_GENDERDIFF_WEIGHTED,
 		VIEW_COUNT,
 		
 		VIEW_CUMULATIVE,
@@ -46,6 +48,9 @@ public:
 	void SetMode(int mode) {this->mode = mode;}
 	
 	const RectId* FindPos(Point p);
+	
+	
+	ArrayCtrl* list = 0;
 	
 };
 

@@ -9,7 +9,6 @@ class ScoringCtrl : public Ctrl {
 	Splitter vsplit[GENDER_COUNT], mainsplit;
 	
 	
-	static const int group_begin = 4;
 	
 	void ListMenu(Bar& bar);
 	void PresetMenu(Bar& bar);
@@ -27,6 +26,9 @@ public:
 	void ApplyPreset();
 	void RemovePreset();*/
 	void ListValueChanged(int mode, int pos, int scoring);
+	
+	
+	static const int group_begin = 4;
 	
 };
 

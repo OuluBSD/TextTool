@@ -9,6 +9,7 @@ ScoringCtrl::ScoringCtrl() {
 		Plotter& plotter = this->plotter[mode];
 		ArrayCtrl& list = this->list[mode];
 		
+		plotter.list = &list;
 		plotter.SetMode(mode);
 		
 		mainsplit << plotter << list;// << presets;
