@@ -14,6 +14,7 @@ class AttrCtrl : public Ctrl {
 	
 	Vector<bool> active;
 	Vector<bool> inherited_active;
+	Vector<bool> sub_active;
 	
 	Index<int> group_types;
 	VectorMap<int, Vector<int>> group_items;

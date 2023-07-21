@@ -125,6 +125,7 @@ void SongTool::SetView(int i) {
 }
 
 void SongTool::MakeTasks() {
+	SetView(3);
 	ed.importer.MakeTasks();
 }
 

@@ -98,15 +98,10 @@ struct PatternSnap : PatternMask {
 	}
 	template <class A, class B>
 	static void GetLineSnapshots(int mode, A* owner, Array<B>& sub, const String& txt_line, Vector<PatternSnap*>& snaps) {
-		if (sub.IsEmpty()) {
-			ASSERT(!owner->snap[mode].txt.IsEmpty());
-			if (ToLower(owner->snap[mode].txt) == txt_line)
-				snaps.Add(&owner->snap[mode]);
-		}
-		else {
-			for (B& o : sub)
-				GetLineSnapshots(mode, &o, o.GetSub(), txt_line, snaps);
-		}
+		if (ToLower(owner->snap[mode].txt) == txt_line)
+			snaps.Add(&owner->snap[mode]);
+		for (B& o : sub)
+			GetLineSnapshots(mode, &o, o.GetSub(), txt_line, snaps);
 	}
 	template <class A, class B>
 	static void ResolveIdT(int mode, A* owner, Array<B>& sub) {

@@ -680,6 +680,14 @@ void AI_Task::Process_Analysis() {
 void AI_Task::Process_MakePatternTasks() {
 	Database& db = Database::Single();
 	TaskMgr& m = TaskMgr::Single();
+	int mode = p.mode;
+	ASSERT(mode >= 0);
+	Song& song = *p.song;
+	SongHeader& header = song.headers[mode];
+	
+	int per_task = 30;
+	int tasks = 1 + header.unique_lines.GetCount() / per_task;
+	
 	if (!p.song) {
 		SetError("no song pointer set");
 		return;
@@ -691,13 +699,16 @@ void AI_Task::Process_MakePatternTasks() {
 	
 	for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
 		const Attributes::GroupType& group_type = db.attrs.group_types[i];
-		AI_Task& t = m.tasks.Add();
-		m.total++;
-		t.type = TASK_PATTERN;
-		t.p = this->p;
-		t.args << group_type.name << group_type.ai_txt;
-		t.CreateInput();
-		chk.depends_on << &t;
+		
+		for(int j = 0; j < tasks; j++) {
+			AI_Task& t = m.tasks.Add();
+			m.total++;
+			t.type = TASK_PATTERN;
+			t.p = this->p;
+			t.args << group_type.name << group_type.ai_txt << IntStr(j * per_task) << IntStr((j + 1) * per_task);
+			t.CreateInput();
+			chk.depends_on << &t;
+		}
 	}
 }
 

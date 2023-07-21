@@ -42,6 +42,7 @@ struct Song :
 	void ReloadStructure();
 	void RealizeProduction();
 	void RealizeTaskSnaps(bool force=false);
+	int GetPartIdx(const Part& p) const;
 	void Jsonize(JsonIO& json) {
 		json
 			("artist", artist)

@@ -148,6 +148,7 @@ bool ImportCtrl::ParseOriginalLyrics() {
 					Part& part = song.GetAddPart(part_title);
 					Array<Line>& parsed_lines = part.lines;
 					parsed_lines.SetCount(lines.GetCount()-1);
+					String& txt = part.snap[mode].txt;
 					
 					// Add parsed lines to the Song class
 					for(int j = 1; j < lines.GetCount(); j++) {
@@ -156,10 +157,11 @@ bool ImportCtrl::ParseOriginalLyrics() {
 						l.ParseLine(song, mode, tl);
 						ASSERT(l.snap[mode].txt.GetCount());
 						
-						String& txt = part.snap[mode].txt;
-						if (!txt.IsEmpty()) txt << "\n";
+						if (!txt.IsEmpty()) txt << "; ";
 						txt << l.snap[mode].txt;
 					}
+					
+					song.headers[mode].unique_lines.GetAdd(txt);
 				}
 			}
 		}

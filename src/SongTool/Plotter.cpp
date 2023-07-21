@@ -92,8 +92,8 @@ Plotter::Plotter() {
 
 void Plotter::Paint(Draw& d) {
 	Size sz = GetSize();
-	bool absolute_mode = mode == MODE_ABSOLUTE   || mode == MODE_ABSOLUTE_WEIGHTED;
-	bool weighted_mode = mode == MODE_ABSOLUTE_WEIGHTED || mode == MODE_CUMULATIVE_WEIGHTED;
+	bool absolute_view = view == VIEW_ABSOLUTE   || view == VIEW_ABSOLUTE_WEIGHTED;
+	bool weighted_view = view == VIEW_ABSOLUTE_WEIGHTED || view == VIEW_CUMULATIVE_WEIGHTED;
 	
 	d.DrawRect(sz, White());
 	
@@ -138,9 +138,9 @@ void Plotter::Paint(Draw& d) {
 					Break& brk = line.breaks[k];
 					
 					// Accumulate values
-					int c0 = min(c, brk.snap[pmode].partscore.GetCount());
+					int c0 = min(c, brk.snap[mode].partscore.GetCount());
 					for(int k = 0; k < c0; k++)
-						values[k].Add(brk.snap[pmode].partscore[k]);
+						values[k].Add(brk.snap[mode].partscore[k]);
 				}
 			}
 			
@@ -165,15 +165,18 @@ void Plotter::Paint(Draw& d) {
 			for(int k = 0; k < line.breaks.GetCount(); k++) {
 				Break& brk = line.breaks[k];
 				
-				int c0 = min(c, brk.snap[pmode].partscore.GetCount());
+				int c0 = min(c, brk.snap[mode].partscore.GetCount());
 				for(int j = 0; j < c0; j++)
-					this->values[j].Add(brk.snap[pmode].partscore[j]);
+					this->values[j].Add(brk.snap[mode].partscore[j]);
+				
 			}
+			vert_x += line.breaks.GetCount();
+			vert_lines.Add(vert_x);
 		}
 	}
 	
 	// Weighted value (constant sum of scoring groups)
-	if (weighted_mode) {
+	if (weighted_view) {
 		int pos = values[0].GetCount();
 		for(int i = 0; i < pos; i++) {
 			double sum = 0;
@@ -190,21 +193,41 @@ void Plotter::Paint(Draw& d) {
 	
 	rids.Clear();
 	double cx = (double)sz.cx / (vert_x-1);
-	double xoff = absolute_mode ? -cx / 2 : 0;
-	if (song) {
-		double cx = (double)sz.cx / (vert_x-1);
-		int k = 0;
+	double xoff = absolute_view ? -cx / 2 : 0;
+	if (whole_song) {
+		int pos = 0;
 		for(int i = 0; i < song->structure.GetCount(); i++) {
 			const String& part_key = song->structure[i];
 			const Part& part = *song->FindPart(part_key);
 			int len = part.lines.GetCount();
 			for(int j = 0; j < len; j++) {
-				int x = xoff + cx * k;
+				const Line& line = part.lines[j];
+				for(int k = 0; k < line.breaks.GetCount(); k++) {
+					int x = xoff + cx * pos;
+					RectId& rid = rids.Add();
+					rid.a = RectC(x, 0, cx, sz.cy);
+					rid.b = i;
+					rid.c = j;
+					rid.d = k;
+					pos++;
+				}
+			}
+		}
+	}
+	else {
+		int pos = 0;
+		int part_i = song->GetPartIdx(*part);
+		for(int i = 0; i < part->lines.GetCount(); i++) {
+			const Line& line = part->lines[i];
+			for(int j = 0; j < line.breaks.GetCount(); j++) {
+				const Break& brk = line.breaks[j];
+				int x = xoff + cx * pos;
 				RectId& rid = rids.Add();
 				rid.a = RectC(x, 0, cx, sz.cy);
-				rid.b = i;
-				rid.c = j;
-				k++;
+				rid.b = part_i;
+				rid.c = i;
+				rid.d = j;
+				pos++;
 			}
 		}
 	}
@@ -225,17 +248,17 @@ void Plotter::Paint(Draw& d) {
 		d.DrawText(3,3, whole_song ? String(t_("Whole song")) : part_key,fnt,txt_clr);
 		
 		String t;
-		switch (mode) {
-			case MODE_ABSOLUTE: t = t_("absolute value"); break;
-			case MODE_CUMULATIVE: t = t_("accumulated value"); break;
-			case MODE_ABSOLUTE_WEIGHTED: t = t_("weighted absolute value"); break;
-			case MODE_CUMULATIVE_WEIGHTED: t = t_("weighted accumulated value"); break;
+		switch (view) {
+			case VIEW_ABSOLUTE: t = t_("absolute value"); break;
+			case VIEW_CUMULATIVE: t = t_("accumulated value"); break;
+			case VIEW_ABSOLUTE_WEIGHTED: t = t_("weighted absolute value"); break;
+			case VIEW_CUMULATIVE_WEIGHTED: t = t_("weighted accumulated value"); break;
 		}
 		d.DrawText(3,13, t, fnt,txt_clr);
 	}
 	
-	// Accumulated value mode
-	if (!absolute_mode) {
+	// Accumulated value view
+	if (!absolute_view) {
 		for (auto& vv : this->values) {
 			double a = 0;
 			for (auto& v : vv) {
@@ -324,13 +347,23 @@ void Plotter::Paint(Draw& d) {
 		j++;
 	}
 	
+	
+	
+	if (last_brk) {
+		const String& txt = last_brk->snap[mode].txt;
+		Size tsz = GetTextSize(txt, fnt);
+		int x = (sz.cx - tsz.cx) / 2;
+		Rect r = RectC(x, 0, tsz.cx, tsz.cy);
+		d.DrawRect(r, White());
+		d.DrawText(x, 0, txt, fnt, Black());
+	}
 }
 
 void Plotter::LeftDown(Point p, dword keyflags) {
 	if (keyflags & K_SHIFT)
-		mode = mode == 0 ? MODE_COUNT-1 : mode - 1;
+		view = view == 0 ? VIEW_COUNT-1 : view - 1;
 	else
-		mode = (mode + 1) % MODE_COUNT;
+		view = (view + 1) % VIEW_COUNT;
 	Refresh();
 }
 
@@ -351,23 +384,42 @@ void Plotter::MouseWheel(Point p, int zdelta, dword keyflags) {
 			focused_group = focused_group == 0 ? draw_count-1 : focused_group-1;
 	}
 	else {
-		DUMPC(rids);
-		for (const RectId& rid : rids) {
-			if (rid.a.Contains(p)) {
-				int change = zdelta > 0 ? +1 : -1;
-				const String& part_key = song->structure[rid.b];
-				Part& part = *song->FindPart(part_key);
-				//if (focused_group_i < 0 || focused_group_i > part.values.GetCount())
-				//	return;
-				if (rid.c < 0 || rid.c >= part.lines.GetCount())
-					return;
-				
-				Line& line = part.lines[rid.c];
-				auto& score = line.snap[pmode].partscore[focused_group_i];
-				score += change;
-				break;
-			}
+		//DUMPC(rids);
+		const RectId* rid = FindPos(p);
+		if (rid) {
+			int change = zdelta > 0 ? +1 : -1;
+			const String& part_key = song->structure[rid->b];
+			Part& part = *song->FindPart(part_key);
+			
+			Line& line = part.lines[rid->c];
+			Break& brk = line.breaks[rid->d];
+			auto& score = brk.snap[mode].partscore[focused_group_i];
+			score += change;
 		}
 	}
 	Refresh();
 }
+
+void Plotter::MouseMove(Point p, dword keyflags) {
+	const RectId* rid = FindPos(p);
+	if (rid) {
+		const String& part_key = song->structure[rid->b];
+		Part& part = *song->FindPart(part_key);
+		Line& line = part.lines[rid->c];
+		Break& brk = line.breaks[rid->d];
+		if (&brk != last_brk) {
+			last_brk = &brk;
+			Refresh();
+		}
+	}
+}
+
+const Plotter::RectId* Plotter::FindPos(Point p) {
+	for (const RectId& rid : rids) {
+		if (rid.a.Contains(p)) {
+			return &rid;
+		}
+	}
+	return 0;
+}
+

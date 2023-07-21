@@ -63,3 +63,13 @@ int Song::GetLength(int mode) const {
 		len += p.GetLength(mode);
 	return len;
 }
+
+int Song::GetPartIdx(const Part& p0) const {
+	int i = 0;
+	for (const Part& p : parts) {
+		if (&p == &p0)
+			return i;
+		i++;
+	}
+	return -1;
+}

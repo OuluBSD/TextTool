@@ -13,6 +13,7 @@ void AttrCtrl::RealizeTemp() {
 	Attributes& g = Database::Single().attrs;
 	active.SetCount(g.GetCount() * g.group_limit, false);
 	inherited_active.SetCount(g.GetCount() * g.group_limit, false);
+	sub_active.SetCount(g.GetCount() * g.group_limit, false);
 }
 
 void AttrCtrl::Load() {
@@ -31,15 +32,38 @@ void AttrCtrl::Load() {
 	}
 	
 	for (bool& b : inherited_active) b = false;
+	for (bool& b : sub_active) b = false;
 	PatternSnap* owner = p.snap->owner;
 	while (owner) {
 		for (const SnapAttrStr& a : owner->attributes) {
 			int id = a.group_i * g.group_limit + a.item_i;
+			
 			ASSERT(id >= 0 && id < inherited_active.GetCount());
 			if (id >= 0 && id < inherited_active.GetCount())
 				inherited_active[id] = true;
+			
 		}
 		owner = owner->owner;
+	}
+	int level = p.snap->GetLevel();
+	for (int l = level-1; l >= 0; l--) {
+		Vector<PatternSnap*> sub;
+		switch (level) {
+			case 0: p.snap->brk->GetSnapsLevel(mode, l, sub); break;
+			case 1: p.snap->line->GetSnapsLevel(mode, l, sub); break;
+			case 2: p.snap->part->GetSnapsLevel(mode, l, sub); break;
+			case 3: p.snap->song->GetSnapsLevel(mode, l, sub); break;
+			case 4: p.snap->release->GetSnapsLevel(mode, l, sub); break;
+			case 5: p.snap->artist->GetSnapsLevel(mode, l, sub); break;
+		}
+		for (PatternSnap* s : sub) {
+			for (const SnapAttrStr& a : s->attributes) {
+				int id = a.group_i * g.group_limit + a.item_i;
+				ASSERT(id >= 0 && id < sub_active.GetCount());
+				if (id >= 0 && id < sub_active.GetCount())
+					sub_active[id] = true;
+			}
+		}
 	}
 }
 
@@ -213,15 +237,18 @@ void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, in
 	int snap_size = g.groups.GetCount() * g.group_limit;
 	active.SetCount(snap_size, false);
 	inherited_active.SetCount(snap_size, false);
+	sub_active.SetCount(snap_size, false);
 	
 	for(int i = 0; i < key_count; i++) {
 		int y1 = y0 + i * lineh;
+		int y2 = y0 + (i+1) * lineh;
 		
 		Rect r = RectC(x0, y1, cx, lineh);
 		d.Clip(r);
 		
 		Color bg_clr, stripe_clr;
-		bool stripes = false;
+		bool vstripes = false;
+		bool hstripes = false;
 		String txt;
 		Font txt_fnt = fnt;
 		int xoff = 4;
@@ -243,6 +270,7 @@ void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, in
 			int id = group * g.group_limit + j;
 			bool active = this->active[id];
 			bool inherited_active = this->inherited_active[id];
+			bool sub_active = this->sub_active[id];
 			
 			// Mouse hovers
 			if (group == pressed.b && j == pressed.c)
@@ -251,10 +279,11 @@ void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, in
 				bg_clr = clr;
 			else if (active)
 				bg_clr = Blend(clr, GrayColor(64), 0.3*255);
-			else if (inherited_active) {
+			else if (inherited_active || sub_active) {
 				bg_clr = Blend(clr, GrayColor(64), 0.97*255);
 				stripe_clr = Blend(clr, GrayColor(64), 0.3*255);
-				stripes = true;
+				vstripes = inherited_active;
+				hstripes = sub_active;
 			}
 			else
 				bg_clr = Blend(clr, GrayColor(64), 0.97*255);
@@ -266,10 +295,19 @@ void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, in
 		}
 		
 		d.DrawRect(r, bg_clr);
-		if (stripes) {
-			int sw = 2;
-			for (int x = x0; x <= x1; x += sw * 2) {
+		if (vstripes) {
+			int ival = 6;
+			int sw = 1;
+			for (int x = x0; x <= x1; x += sw * ival) {
 				Rect r = RectC(x, y1, sw, lineh+1);
+				d.DrawRect(r, stripe_clr);
+			}
+		}
+		if (hstripes) {
+			int ival = 4;
+			int sh = 1;
+			for (int y = y1; y <= y2; y += sh * ival) {
+				Rect r = RectC(x0, y, cx, sh);
 				d.DrawRect(r, stripe_clr);
 			}
 		}

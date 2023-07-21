@@ -178,6 +178,8 @@ void AI_Task::CreateInput_Pattern() {
 	String s;
 	String type = args[0];
 	String ai_txt = args[1];
+	int offset_begin = StrInt(args[2]);
+	int offset_end = StrInt(args[3]);
 	String first_key;
 	
 	s << "Groups of attributes and allowed values:\n";
@@ -214,10 +216,13 @@ void AI_Task::CreateInput_Pattern() {
 	}
 	
 	s << "\n\n\nLyrics:\n";
-	for(int i = 0; i < header.unique_lines.GetCount(); i++) {
+	for(int i = 0, j = 0; i < header.unique_lines.GetCount(); i++) {
 		const String& l = header.unique_lines.GetKey(i);
-		s << "Line " << (i+1) << ", \"" << l << "\"\n";
+		if (i < offset_begin || i >= offset_end)
+			continue;
+		s << "Line " << (j+1) << ", \"" << l << "\"\n";
 		//hash << ToLower(l);
+		j++;
 	}
 	s << "\nMultiple answers are required.\n\n";
 	s << "\n\nAttributes (in format \"Group: Attribute\") for all lines:\nLine 1, \"" << header.unique_lines.GetKey(0) << "\"\n-";

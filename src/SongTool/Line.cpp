@@ -14,8 +14,10 @@ void Line::ParseLine(Song& song, int mode, const String& txt) {
 		snap.syllables = max(1, s.GetCount() / 3); // 3 chars per syllable by average
 		song.headers[mode].unique_lines.GetAdd(s);
 	}
-	this->snap[mode].txt = Join(parts, " ");
+	String joined = Join(parts, " ");
+	this->snap[mode].txt = joined;
 	ASSERT(this->snap[mode].txt.GetCount());
+	song.headers[mode].unique_lines.GetAdd(joined);
 	FixPtrs();
 }
 
