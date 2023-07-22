@@ -33,7 +33,9 @@ Editor::Editor() {
 	tablist.Add(t_("Song"), t_("Pattern mask"));
 	tablist.Add(t_("Song"), t_("Pattern"));
 	tablist.Add(t_("Song"), t_("Attribute scoring"));
-	tablist.Add(t_("Song"), t_("Scoring"));
+	tablist.Add(t_("Song"), t_("Impact scoring"));
+	tablist.Add(t_("Song"), t_("Pattern mask scoring"));
+	tablist.Add(t_("Song"), t_("Pattern scoring"));
 	tablist.Add(t_("Song"), t_("Reverse"));
 	tablist.Add(t_("Song"), t_("Reverse pattern"));
 	tablist.Add(t_("Song"), t_("Composition"));
@@ -81,6 +83,8 @@ Editor::Editor() {
 	base.Add(rev_pattern.SizePos());
 	base.Add(story.SizePos());
 	base.Add(structure.SizePos());
+	base.Add(impact_scoring.SizePos());
+	base.Add(mask_scoring.SizePos());
 	
 	rev_pattern.use_rev_snap = true;
 	
@@ -113,6 +117,8 @@ void Editor::SetView(int i) {
 	impact.Hide();
 	story.Hide();
 	structure.Hide();
+	impact_scoring.Hide();
+	mask_scoring.Hide();
 	
 	WhenStopUpdating();
 	
@@ -132,12 +138,14 @@ void Editor::SetView(int i) {
 		case 11: patmask.Show(); break;
 		case 12: pattern.Show(); break;
 		case 13: attrscore.Show(); break;
-		case 14: scoring.Show(); break;
-		case 15: WhenStartUpdating(); reverse.Show(); break;
-		case 16: rev_pattern.Show(); break;
-		case 17: composition.Show(); break;
-		case 18: production.Show(); break;
-		case 19: rhymes.Show(); break;
+		case 14: impact_scoring.Show(); break;
+		case 15: mask_scoring.Show(); break;
+		case 16: scoring.Show(); break;
+		case 17: WhenStartUpdating(); reverse.Show(); break;
+		case 18: rev_pattern.Show(); break;
+		case 19: composition.Show(); break;
+		case 20: production.Show(); break;
+		case 21: rhymes.Show(); break;
 	}
 	page = i;
 	DataPage();
@@ -159,12 +167,14 @@ void Editor::DataPage() {
 		case 11: patmask.Data(); break;
 		case 12: pattern.Data(); break;
 		case 13: attrscore.Data(); break;
-		case 14: scoring.Data(); break;
-		case 15: reverse.Data(); break;
-		case 16: rev_pattern.Data(); break;
-		case 17: composition.Data(); break;
-		case 18: production.Data(); break;
-		case 19: rhymes.Data(); break;
+		case 14: impact_scoring.Data(); break;
+		case 15: mask_scoring.Data(); break;
+		case 16: scoring.Data(); break;
+		case 17: reverse.Data(); break;
+		case 18: rev_pattern.Data(); break;
+		case 19: composition.Data(); break;
+		case 20: production.Data(); break;
+		case 21: rhymes.Data(); break;
 		default: break;
 	}
 }

@@ -1,8 +1,8 @@
-#ifndef _SongTool_ScoringCtrl_h_
-#define _SongTool_ScoringCtrl_h_
+#ifndef _SongTool_PatternScoringCtrl_h_
+#define _SongTool_PatternScoringCtrl_h_
 
 
-class ScoringCtrl : public Ctrl {
+class PatternScoringCtrl : public Ctrl {
 	Plotter plotter[GENDER_COUNT];
 	ArrayCtrl list[GENDER_COUNT];
 	//ArrayCtrl presets;
@@ -13,8 +13,8 @@ class ScoringCtrl : public Ctrl {
 	void ListMenu(Bar& bar);
 	void PresetMenu(Bar& bar);
 public:
-	typedef ScoringCtrl CLASSNAME;
-	ScoringCtrl();
+	typedef PatternScoringCtrl CLASSNAME;
+	PatternScoringCtrl();
 	
 	void Data();
 	void DataListAll() {for (int mode = 0; mode < GENDER_COUNT; mode++) DataList(mode);}

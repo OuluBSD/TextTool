@@ -148,6 +148,7 @@ void Plotter::Paint(Draw& d) {
 							brk.snap[other_mode].partscore.GetCount(),
 							brk.snap[mode].partscore.GetCount()));
 						
+						#if 0
 						double av = 0;
 						for (auto& val : brk.snap[mode].partscore) av += val;
 						av /= brk.snap[mode].partscore.GetCount();
@@ -165,6 +166,27 @@ void Plotter::Paint(Draw& d) {
 								other_av_diff
 								);
 						}
+						#else
+						double av = 0;
+						for (auto& val : brk.snap[mode].partscore) av += fabs(val);
+						av /= brk.snap[mode].partscore.GetCount();
+						
+						double other_av = 0;
+						for (auto& val : brk.snap[other_mode].partscore) other_av += fabs(val);
+						other_av /= brk.snap[other_mode].partscore.GetCount();
+						
+						double f = av / other_av;
+						
+						for(int k = 0; k < c0; k++) {
+							double val = brk.snap[mode].partscore[k];
+							double other_weighted_val = brk.snap[other_mode].partscore[k] * f;
+							
+							values[k].Add(
+								val -
+								other_weighted_val
+								);
+						}
+						#endif
 					}
 					else if (genderdiff_view) {
 						int c0 = min(c, min(
@@ -455,7 +477,7 @@ void Plotter::MouseWheel(Point p, int zdelta, dword keyflags) {
 					int line_i0 = list.Get(i, 1);
 					int brk_i0 = list.Get(i, 2);
 					if (part_i0 == part_i && line_i0 == line_i && brk_i0 == brk_i) {
-						int col = ScoringCtrl::group_begin + focused_group_i;
+						int col = PatternScoringCtrl::group_begin + focused_group_i;
 						list.Set(i, col, score);
 						list.SetCursor(i);
 						break;

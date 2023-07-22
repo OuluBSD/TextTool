@@ -31,6 +31,8 @@ struct Song :
 	Array<Track>		tracks;
 	SongHeader			headers[PTR_COUNT];
 	
+	VectorMap<String, Vector<int>> impact_scores;
+	
 	// Local data only (not shared)
 	Array<ReverseTask>	rev_tasks;
 	
@@ -52,6 +54,7 @@ struct Song :
 			("structure", structure)
 			("parts", parts)
 			("tracks", tracks)
+			("impact_scores", impact_scores)
 			;
 		
 		for(int i = 0; i < PTR_COUNT; i++)

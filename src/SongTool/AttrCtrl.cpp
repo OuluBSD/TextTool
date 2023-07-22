@@ -298,7 +298,7 @@ void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, in
 		if (vstripes) {
 			int ival = 6;
 			int sw = 1;
-			for (int x = x0; x <= x1; x += sw * ival) {
+			for (int x = x0 + ival*sw/2; x <= x1; x += sw * ival) {
 				Rect r = RectC(x, y1, sw, lineh+1);
 				d.DrawRect(r, stripe_clr);
 			}

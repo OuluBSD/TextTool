@@ -198,7 +198,7 @@ void ImportCtrl::MakeTasks() {
 	messages.Clear();
 	
 	s.DeepClearSnap();
-	//rs.DeepClearSnap();
+	s.impact_scores.Clear();
 	
 	if (!ParseOriginalLyrics())
 		return;
@@ -216,6 +216,7 @@ void ImportCtrl::MakeTasks() {
 	}
 	
 	AI_Task* chk_task[GENDER_COUNT] = {0,0};
+	AI_Task* make_impact_score_task[GENDER_COUNT] = {0,0};
 	//Vector<AI_Task*> pattern_tasks;
 	for(int type = AI_Task::TASK_COUNT-1; type >= 0; type--) {
 		if      (type == AI_Task::TASK_PATTERNMASK) {
@@ -267,9 +268,21 @@ void ImportCtrl::MakeTasks() {
 					t.p.mode = j;
 					ASSERT(t.p.snap && t.p.line);
 					
-					for(int k = 0; k < GENDER_COUNT; k++)
+					for(int k = 0; k < GENDER_COUNT; k++) {
 						chk_task[k]->depends_on.Add(&t);
+						make_impact_score_task[k]->depends_on.Add(&t);
+					}
 				}
+			}
+		}
+		else if (type == AI_Task::TASK_MAKE_IMPACT_SCORING_TASKS) {
+			for(int j = 0; j < GENDER_COUNT; j++) {
+				AI_Task& t = m.tasks.Add();
+				t.type = type;
+				t.p = p;
+				t.p.mode = j;
+				
+				make_impact_score_task[j] = &t;
 			}
 		}
 		else if (type == AI_Task::TASK_MAKE_PATTERN_TASKS) {

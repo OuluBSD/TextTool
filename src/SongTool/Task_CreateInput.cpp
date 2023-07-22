@@ -86,6 +86,110 @@ void AI_Task::CreateInput_Impact() {
 	input = s;
 }
 
+const char* impactscore_prompt1 = R"ATRSCROO(
+
+List of axes:
+-a Integrity: +honest/-twisted
+-b Social: +libertarian/-authoritarian
+-c Economic: +liberal/-conservative
+-d Culture: +individualism/-collective
+-e Human strength: +strong/-weak
+-f Motivation: +rewarding/-punishing
+-g Sexualization: +sexual/-non-sexual
+-h Beliefs: +spiritual/-secular
+-i Expectations: +acceptance/-perfection
+-j Mood: +joyful/-melancholic
+-k Mood: +playful/-serious
+-l Mood: +uplifting/-heavy
+-m Mood: +lighthearted/-somber
+-n Mood: +humorous/-dramatic
+-o Attitude: +hopeful/-despair
+-p Attitude: +optimistic/-pessimistic
+-q Attitude: +open/-closed
+
+Combination string from results:
+ - a (Integrity: +honest/-twisted) b (Social: +libertarian/-authoritarian) c (Economic: +liberal/-conservative) etc.
+
+Combination integer values are allwed to be between -3 and +3.
+
+Scores per entry:
+Line 1, "The narrator is happy and likes trains"
+-a Integrity: honest/twisted: +1 honest
+-b Social: libertarian/authoritarian: 0
+-c Economic: liberal/conservative: 0
+-d Culture: individualism/collective: +1 individualism
+-e Human strength: strong/weak: 0
+-f Motivation: rewarding/punishing: +1 rewarding
+-g Sexualization: sexual/non-sexual: 0
+-h Beliefs: spiritual/secular: 0
+-i Expectations: acceptance/perfection: +1 acceptance
+-j Mood: joyful/melancholic: +1 joyful
+-k Mood: playful/serious: +1 playful
+-l Mood: uplifting/heavy: +1 uplifting
+-m Mood: lighthearted/somber: +1 lighthearted
+-n Mood: humorous/dramatic: 0
+-o Attitude: hopeful/despair: +1 hopeful
+-p Attitude: optimistic/pessimistic: +1 optimistic
+-q Attitude: open/closed: 0
+Combination string: a+1 b0 c0 d+1 e0 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n0 o+1 p+1 q0
+)ATRSCROO";
+
+const char* impactscore_prompt2 = R"ATRSCROO(
+Line 1, "The narrator is happy and likes trains"
+Combination string: a+1 b0 c0 d+1 e0 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n0 o+1 p+1 q0
+
+Entries:
+${ENTRIES}
+
+${FIRSTENTRY}:
+Combination string:)ATRSCROO";
+
+void AI_Task::CreateInput_ImpactScoring() {
+	//CombineHash hash;
+	Database& db = Database::Single();
+	Attributes& g = db.attrs;
+	AttrScore& as = db.attrscores;
+	Ptrs& p = this->p;
+	Song& song = *p.song;
+	ASSERT(p.mode >= 0);
+	SongHeader& header = song.headers[p.mode];
+	
+	String prompt;
+	String entries;
+	
+	prompt += impactscore_prompt1;
+	prompt += impactscore_prompt2;
+	
+	int arg_count = args.GetCount();
+	
+	int entry_count = 0;
+	for(int i = 0; i < arg_count; i++) {
+		String impact = args[i];
+		int j = song.impact_scores.Find(impact);
+		if (j >= 0)
+			continue;
+		
+		// Add line to ai prompt
+		entries << "Line " << i+2 << ", \"" << impact << "\"\n";
+		
+		// Make FIRSTENTRY prompt on first seen value
+		if (!entry_count)
+			prompt.Replace("${FIRSTENTRY}", "Line 2, \"" + impact + "\"");
+		entry_count++;
+	}
+	
+	// This task shouldn't exist, if there is nothing to solve
+	if (entry_count == 0) {
+		SetError(DeQtf(t_("Nothing to ask from AI here")));
+		return;
+	}
+	
+	prompt.Replace("${ENTRIES}", entries);
+	//this->hash = hash;
+	input = prompt;
+	response_length = 2*1024;
+}
+
 void AI_Task::CreateInput_PatternMask() {
 	//CombineHash hash;
 	Database& db = Database::Single();

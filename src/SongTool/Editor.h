@@ -25,12 +25,14 @@ protected:
 	AnalysisCtrl	analysis;
 	ProductionCtrl	production;
 	RhymesCtrl		rhymes;
-	ScoringCtrl		scoring;
-	AttrScoreCtrl	attrscore;
-	ReverseCtrl		reverse;
-	ImpactCtrl		impact;
-	StoryCtrl		story;
-	StructureCtrl	structure;
+	PatternScoringCtrl	scoring;
+	AttrScoreCtrl		attrscore;
+	ReverseCtrl			reverse;
+	ImpactCtrl			impact;
+	StoryCtrl			story;
+	StructureCtrl		structure;
+	ImpactScoringCtrl	impact_scoring;
+	MaskScoringCtrl		mask_scoring;
 	
 public:
 	typedef Editor CLASSNAME;

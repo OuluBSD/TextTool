@@ -54,25 +54,37 @@ GUI_APP_MAIN {
 	
 	
 	// Start OpenAI backend
+	openai::OpenAI* instance = 0;
 	if (!m.openai_token.IsEmpty())
-		openai::start(m.openai_token.Begin());
+		instance = &openai::start(m.openai_token.Begin());
 	
 	
 	// For testing
-	if (CommandLine().GetCount() && CommandLine()[0] == "-test-openai") {
-		auto completion = openai::completion().create(R"(
-	    {
-	        "model": "text-davinci-003",
-	        "prompt": "Say this is a test",
-	        "max_tokens": 7,
-	        "temperature": 0
-	    }
-	    )"_json);
-	    LOG("Response is:\n" << completion.dump(2));
-	    OpenAiResponse response;
-	    LoadFromJson(response, String(completion.dump(2)));
-	    LOG(response.ToString());
-	    return;
+	const Vector<String>& cmds = CommandLine();
+	for(int i = 0; i < cmds.GetCount(); i++) {
+		const String& cmd = cmds[i];
+		
+		if (cmd == "-test-openai") {
+			auto completion = openai::completion().create(R"(
+		    {
+		        "model": "text-davinci-003",
+		        "prompt": "Say this is a test",
+		        "max_tokens": 7,
+		        "temperature": 0
+		    }
+		    )"_json);
+		    LOG("Response is:\n" << completion.dump(2));
+		    OpenAiResponse response;
+		    LoadFromJson(response, String(completion.dump(2)));
+		    LOG(response.ToString());
+		    return;
+		}
+		else if (cmd == "-proxy" && i+1 < cmds.GetCount()) {
+			const String& proxy = cmds[i+1];
+			if (instance)
+				instance->setProxy(proxy.Begin());
+			i++;
+		}
 	}
 	
 	

@@ -1,6 +1,6 @@
 #include "SongTool.h"
 
-ScoringCtrl::ScoringCtrl() {
+PatternScoringCtrl::PatternScoringCtrl() {
 	Add(mainsplit.SizePos());
 	mainsplit.Vert();
 	
@@ -42,7 +42,7 @@ ScoringCtrl::ScoringCtrl() {
 	
 }
 
-void ScoringCtrl::AddPreset() {
+void PatternScoringCtrl::AddPreset() {
 	String preset_name;
 	bool b = EditTextNotNull(
 		preset_name,
@@ -55,7 +55,7 @@ void ScoringCtrl::AddPreset() {
 	}
 }
 
-void ScoringCtrl::Data() {
+void PatternScoringCtrl::Data() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
 	if (p.song) {
@@ -74,7 +74,7 @@ void ScoringCtrl::Data() {
 	//DataPresets();
 }
 
-/*void ScoringCtrl::DataPresets() {
+/*void PatternScoringCtrl::DataPresets() {
 	Database& db = Database::Single();
 	for(int i = 0; i < db.attrscores.presets.GetCount(); i++) {
 		String key = db.attrscores.presets.GetKey(i);
@@ -86,7 +86,7 @@ void ScoringCtrl::Data() {
 	presets.SetCount(db.attrscores.presets.GetCount());
 }*/
 
-void ScoringCtrl::DataList(int mode) {
+void PatternScoringCtrl::DataList(int mode) {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
 	if (!p.song)
@@ -166,7 +166,7 @@ void ScoringCtrl::DataList(int mode) {
 	}
 }
 
-void ScoringCtrl::ListValueChanged(int mode, int pos, int scoring) {
+void PatternScoringCtrl::ListValueChanged(int mode, int pos, int scoring) {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
 	
@@ -206,20 +206,20 @@ void ScoringCtrl::ListValueChanged(int mode, int pos, int scoring) {
 	plotter.Refresh();
 }
 
-void ScoringCtrl::ListMenu(Bar& bar) {
+void PatternScoringCtrl::ListMenu(Bar& bar) {
 	//bar.Add(t_("Save as preset"), THISBACK(SavePreset));
 	//bar.Add(t_("Update focused preset"), THISBACK(UpdatePreset));
 }
 
 #if 0
-void ScoringCtrl::PresetMenu(Bar& bar) {
+void PatternScoringCtrl::PresetMenu(Bar& bar) {
 	bar.Add(t_("Add preset"), THISBACK(AddPreset));
 	bar.Add(t_("Apply preset"), THISBACK(ApplyPreset));
 	bar.Add(t_("Remove preset"), THISBACK(RemovePreset));
 	
 }
 
-void ScoringCtrl::SavePreset(int mode) {
+void PatternScoringCtrl::SavePreset(int mode) {
 	Splitter& vsplit = this->vsplit[mode];
 	Plotter& plotter = this->plotter[mode];
 	ArrayCtrl& list = this->list[mode];
@@ -256,7 +256,7 @@ void ScoringCtrl::SavePreset(int mode) {
 	DataPresets();
 }
 
-void ScoringCtrl::UpdatePreset() {
+void PatternScoringCtrl::UpdatePreset() {
 	if (!list.IsCursor() || !presets.IsCursor())
 		return;
 	
@@ -276,7 +276,7 @@ void ScoringCtrl::UpdatePreset() {
 	DataPresets();
 }
 
-void ScoringCtrl::ApplyPreset() {
+void PatternScoringCtrl::ApplyPreset() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
 	if (!list.IsCursor() || !presets.IsCursor())
@@ -306,7 +306,7 @@ void ScoringCtrl::ApplyPreset() {
 	DataListAll();
 }
 
-void ScoringCtrl::RemovePreset() {
+void PatternScoringCtrl::RemovePreset() {
 	if (!presets.IsCursor())
 		return;
 	

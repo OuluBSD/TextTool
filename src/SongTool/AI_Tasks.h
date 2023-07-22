@@ -79,13 +79,20 @@ struct AI_Task {
 		TASK_STORYARC,
 		TASK_IMPACT,
 		TASK_MAKE_PATTERN_TASKS,
+		
+		TASK_IMPACT_SCORING,
+		TASK_MAKE_IMPACT_SCORING_TASKS,
+		
 		TASK_PATTERN,
 		TASK_MAKE_ATTRSCORES_TASKS,
+		
 		TASK_ATTRSCORES,
 		TASK_SONGSCORE,
 		TASK_MAKE_REVERSEPATTERN_TASK,
+		
 		TASK_REVERSEPATTERN,
 		TASK_MAKE_LYRICS_TASK,
+		
 		TASK_LYRICS,
 		TASK_LYRICS_TRANSLATE,
 		
@@ -104,6 +111,7 @@ struct AI_Task {
 	bool processing = false;
 	bool changed = false;
 	bool whole_song = false;
+	bool wait_task = false;
 	hash_t hash = 0;
 	int tries = 0;
 	
@@ -132,6 +140,8 @@ struct AI_Task {
 	void CreateInput_Lyrics();
 	void CreateInput_LyricsTranslate();
 	void CreateInput_Impact();
+	void CreateInput_ImpactScoring();
+	void CreateInput_MakeImpactScoringTasks();
 	void Process_StoryArc();
 	void Process_PatternMask();
 	void Process_Pattern();
@@ -146,6 +156,8 @@ struct AI_Task {
 	void Process_Lyrics();
 	void Process_LyricsTranslate();
 	void Process_Impact();
+	void Process_ImpactScoring();
+	void Process_MakeImpactScoringTasks();
 	void Retry();
 	String GetDescription() const;
 	String GetTypeString() const;

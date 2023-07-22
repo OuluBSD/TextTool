@@ -68,7 +68,7 @@ void AI_Task::Process_StoryArc() {
 
 void AI_Task::Process_Impact() {
 	String txt = input + output;
-	LOG(txt);
+	//LOG(txt);
 	
 	
 	int a = txt.Find("How the listener is impacted in short:");
@@ -105,7 +105,160 @@ void AI_Task::Process_Impact() {
 		brk.snap[p.mode].data.GetAdd("impact") = l;
 	}
 	
+}
+
+void AI_Task::Process_ImpactScoring() {
+	Database& db = Database::Single();
+	Attributes& g = db.attrs;
+	int exp_count = g.scorings.GetCount();
+	Song& song = *p.song;
 	
+	String txt = input + output;
+	
+	// Regularize newline separation
+	txt.Replace("\r", "");
+	txt.Replace("\n\n\n\n\n", "\n\n");
+	txt.Replace("\n\n\n\n", "\n\n");
+	txt.Replace("\n\n\n", "\n\n");
+	txt.Replace("string:\n\n\n", ": ");
+	txt.Replace("string:\n\n", ": ");
+	txt.Replace("string:\n", ": ");
+	
+	// Trim lines with some spaces left
+	txt = ToLower(txt);
+	Vector<String> tmp_lines = Split(txt, "\n", false);
+	for (String& l : tmp_lines) l = TrimBoth(l);
+	for(int i = 0; i < tmp_lines.GetCount() - 1; i++) {
+		if (tmp_lines[i].Find("combination string:") == 0 && !tmp_lines[i+1].IsEmpty())
+			tmp_lines.Insert(i+1, "");
+	}
+	txt = Join(tmp_lines, "\n", false);
+	
+	// Find the beginning of results
+	int a = txt.Find("line 2,");
+	if (a < 0) {SetError("no 'line2' found"); return;}
+	a = txt.Find("\n", a);
+	if (a < 0) {SetError("no newline found"); return;}
+	a = txt.Find("line 2,", a);
+	if (a < 0) {SetError("no second 'line2' found"); return;}
+	txt = txt.Mid(a);
+	//LOG(txt);
+	
+	// Parse results
+	VectorMap<String, String> parsed;
+	Vector<String> parts = Split(txt, "\n\n");
+	for (String& part : parts) {
+		part.Replace("\n", "");
+		
+		// Split at ':'
+		int a = part.Find(":");
+		if (a < 0)
+			continue;
+		String impact = ToLower(part.Left(a));
+		part = TrimBoth(part.Mid(a+1));
+		
+		// Remove "Line #,"
+		a = impact.Find(",");
+		if (a < 0)
+			continue;
+		impact = ToLower(TrimBoth(impact.Mid(a+1)));
+		impact = impact.Mid(1, impact.GetCount()-2); // Remove " "
+		
+		String search = "combination string:";
+		a = part.Find(search);
+		if (a < 0)
+			continue;
+		
+		String score_str = TrimBoth(part.Mid(a + search.GetCount()));
+		score_str.Replace(",", "");
+		
+		if (score_str.Find("combination string") >= 0) {
+			DUMP(impact);
+			DUMP(part);
+		}
+		ASSERT(score_str.Find("combination string") < 0);
+		
+		parsed.GetAdd(impact) = ToLower(score_str);
+	}
+	//DUMPM(parsed);
+	
+	
+	
+	// Add parsed data to the database
+	for(int i = 0; i < parsed.GetCount(); i++) {
+		bool is_last = i == parsed.GetCount()-1;
+		String impact = parsed.GetKey(i);
+		String score_str = parsed[i];
+		
+		// Handle combination: get group
+		Vector<String> scores = Split(score_str, " ");
+		if (scores.GetCount() == 2 * exp_count) {
+			for(int i = 0; i < exp_count; i++) {
+				scores[i] += scores[i+1];
+				scores.Remove(i+1);
+			}
+		}
+		
+		// extend zero value (e.g. from "None");
+		bool forced_fix =
+			scores.GetCount() == 1 && scores[0] == "0";
+		if (forced_fix) {
+			scores.SetCount(exp_count);
+			int chr = 'a';
+			for (String& s : scores) {s = ""; s.Cat(chr++); s.Cat('0');}
+		}
+		
+		// Try remove spaces
+		if (scores.GetCount() > exp_count) {
+			for(int i = 0; i < scores.GetCount() - 1; i++) {
+				String& s0 = scores[i];
+				String& s1 = scores[i+1];
+				if (s0.GetCount() <= 2 && !IsAlpha(s1[0])) {
+					s0 += s1;
+					scores.Remove(i+1);
+				}
+			}
+		}
+		
+		
+		if (scores.GetCount() != exp_count) {
+			// If output was incomplete, ignore this result
+			if (is_last)
+				break;
+			
+			DUMP(impact);
+			DUMPC(scores);
+			DUMP(i);
+			DUMP(parsed.GetCount());
+			SetError(Format(t_("error: '%s' got %d scores (expected %d)"), impact.Left(16), scores.GetCount(), exp_count));
+			return;
+		}
+		
+		// Handle combination: get integer values
+		Vector<int> score_ints;
+		int chr = 'a';
+		bool fail = false;
+		for (String& s : scores) {
+			if (s.IsEmpty()) {fail = true; break;}
+			if (s[0] != chr++) {fail = true; break;}
+			int i = StrInt(s.Mid(1));
+			#if 0
+			if (i < -3 || i > +3) {
+				SetError(Format(t_("error: expected values between -5 and +5 (got %d)"), i));
+				return;
+			}
+			#else
+			i = max(-3, min(+3, i));
+			#endif
+			score_ints.Add(i);
+		}
+		if (fail) {
+			SetError(Format(t_("error: fail with impact '%s'"), impact));
+			break;
+		}
+		
+		song.impact_scores.GetAdd(impact) <<= score_ints;
+	}
 }
 
 void AI_Task::Process_MakeAttrScores() {
@@ -357,7 +510,7 @@ void AI_Task::Process_PatternMask() {
 					sas.has_id = true;
 					part.snap[mode].mask.FindAdd(sas);
 					song.snap[mode].mask.FindAdd(sas);
-					LOG(part_key << " -> " << group << " -> " << value);
+					//LOG(part_key << " -> " << group << " -> " << value);
 				}
 				else {
 					LOG("warning: not adding group '" << group << "'");
@@ -559,7 +712,7 @@ void AI_Task::Process_Pattern() {
 						attr.item_i = sa.item;
 						attr.has_id = true;
 						
-						LOG(line_txt << " ---> " << group_str << ", " << item_str);
+						//LOG(line_txt << " ---> " << group_str << ", " << item_str);
 						
 						ASSERT(g.groups[attr.group_i].description == attr.group);
 						for (PatternSnap* snap : snaps) {
@@ -633,7 +786,7 @@ void AI_Task::Process_Analysis() {
 				String v = part_values[i];
 				Analysis& a = part.analysis[mode];
 				a.data.GetAdd(k) = v;
-				LOG(key << " -> " << k << " = \"" << v << "\"");
+				//LOG(key << " -> " << k << " = \"" << v << "\"");
 			}
 		}
 	}
@@ -697,18 +850,83 @@ void AI_Task::Process_MakePatternTasks() {
 	chk.type = TASK_MAKE_ATTRSCORES_TASKS;
 	chk.p = this->p;
 	
-	for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
-		const Attributes::GroupType& group_type = db.attrs.group_types[i];
-		
-		for(int j = 0; j < tasks; j++) {
-			AI_Task& t = m.tasks.Add();
-			m.total++;
-			t.type = TASK_PATTERN;
-			t.p = this->p;
-			t.args << group_type.name << group_type.ai_txt << IntStr(j * per_task) << IntStr((j + 1) * per_task);
-			t.CreateInput();
-			chk.depends_on << &t;
+	// Pattern tasks -> attribute score task maker
+	{
+		for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
+			const Attributes::GroupType& group_type = db.attrs.group_types[i];
+			
+			for(int j = 0; j < tasks; j++) {
+				AI_Task& t = m.tasks.Add();
+				m.total++;
+				t.type = TASK_PATTERN;
+				t.p = this->p;
+				t.args << group_type.name << group_type.ai_txt << IntStr(j * per_task) << IntStr((j + 1) * per_task);
+				t.CreateInput();
+				chk.depends_on << &t;
+			}
 		}
+	}
+	
+}
+
+void AI_Task::Process_MakeImpactScoringTasks() {
+	Database& db = Database::Single();
+	TaskMgr& m = TaskMgr::Single();
+	int mode = p.mode;
+	ASSERT(mode >= 0);
+	Song& song = *p.song;
+	SongHeader& header = song.headers[mode];
+	
+	if (!p.song) {
+		SetError("no song pointer set");
+		return;
+	}
+	
+
+	Index<String> line_impacts;
+	for(int i = 0; i < song.parts.GetCount(); i++) {
+		Part& part = song.parts[i];
+		for(int j = 0; j < part.lines.GetCount(); j++) {
+			Line& line = part.lines[j];
+			for(int k = 0; k < line.breaks.GetCount(); k++) {
+				Break& brk = line.breaks[k];
+				PatternSnap& snap = brk.snap[mode];
+				String impact = snap.data.Get("impact", "");
+				if (impact.GetCount()) {
+					bool found = song.impact_scores.Find(impact) >= 0;
+					if (!found)
+						line_impacts.FindAdd(impact);
+				}
+			}
+		}
+		
+	}
+	if (line_impacts.IsEmpty()) {
+		return;
+	}
+	SortIndex(line_impacts, StdLess<String>());
+	
+	AI_Task& chk = m.tasks.Add();
+	chk.type = TASK_MAKE_IMPACT_SCORING_TASKS;
+	chk.p = this->p;
+	
+	int per_task = 30;
+	int tasks = 1 + (line_impacts.GetCount() + 1) / per_task;
+	
+	int impact_i = 0;
+	for(int i = 0; i < tasks; i++) {
+		AI_Task& t = m.tasks.Add();
+		m.total++;
+		t.type = TASK_IMPACT_SCORING;
+		t.p = this->p;
+		for(int i = 0; i < per_task; i++) {
+			if (impact_i >= line_impacts.GetCount())
+				break;
+			t.args << line_impacts[impact_i];
+			impact_i++;
+		}
+		t.CreateInput();
+		chk.depends_on << &t;
 	}
 }
 
@@ -743,7 +961,7 @@ void AI_Task::Process_AttrScores() {
 	a = txt.Find("line 2,", a);
 	if (a < 0) {SetError("no second 'line2' found"); return;}
 	txt = txt.Mid(a);
-	LOG(txt);
+	//LOG(txt);
 	
 	// Parse results
 	VectorMap<String, VectorMap<String, String>> parsed;
@@ -1292,6 +1510,16 @@ void AI_Task::Process_MakeReversePattern() {
 		return;
 	}
 	Song& song = *p.song;
+	
+	// Check that impact scores are ready
+	for (AI_Task& t : m.tasks) {
+		if (t.type == TASK_MAKE_IMPACT_SCORING_TASKS && t.p.song == p.song) {
+			if (!t.ready || t.failed) {
+				wait_task = true;
+				return;
+			}
+		}
+	}
 	
 	AI_Task& chk = m.tasks.Add();
 	chk.type = TASK_MAKE_LYRICS_TASK;

@@ -66,6 +66,8 @@ String AI_Task::GetTypeString() const {
 		case TASK_IMPACT: return t_("Impact");
 		case TASK_MAKE_PATTERN_TASKS: return t_("Make pattern tasks");
 		case TASK_PATTERN: return t_("Pattern");
+		case TASK_IMPACT_SCORING: return t_("Impact scoring");
+		case TASK_MAKE_IMPACT_SCORING_TASKS: return t_("Make impact scoring tasks");
 		case TASK_ANALYSIS: return t_("Analysis");
 		case TASK_MAKE_ATTRSCORES_TASKS: return t_("Make attribute score tasks");
 		case TASK_ATTRSCORES: return t_("Attributes scores");
@@ -86,7 +88,9 @@ void AI_Task::CreateInput() {
 		case TASK_IMPACT: CreateInput_Impact(); break;
 		case TASK_MAKE_PATTERN_TASKS: break;
 		case TASK_PATTERN: CreateInput_Pattern(); break;
+		case TASK_IMPACT_SCORING: CreateInput_ImpactScoring(); break;
 		case TASK_ANALYSIS: CreateInput_Analysis(); break;
+		case TASK_MAKE_IMPACT_SCORING_TASKS: break;
 		case TASK_MAKE_ATTRSCORES_TASKS: break;
 		case TASK_ATTRSCORES: CreateInput_AttrScores(); break;
 		case TASK_SONGSCORE: break;
@@ -135,6 +139,8 @@ void AI_Task::Process() {
 			case TASK_IMPACT: Process_Impact();break;
 			case TASK_MAKE_PATTERN_TASKS: Process_MakePatternTasks();break;
 			case TASK_PATTERN: Process_Pattern(); break;
+			case TASK_IMPACT_SCORING: Process_ImpactScoring(); break;
+			case TASK_MAKE_IMPACT_SCORING_TASKS: Process_MakeImpactScoringTasks(); break;
 			case TASK_ANALYSIS: Process_Analysis(); break;
 			case TASK_MAKE_ATTRSCORES_TASKS: Process_MakeAttrScores(); break;
 			case TASK_ATTRSCORES: Process_AttrScores(); break;
@@ -148,10 +154,15 @@ void AI_Task::Process() {
 		}
 	}
 	
-	if (!failed) ready = true;
+	if (wait_task) {
+		wait_task = false;
+	}
+	else {
+		if (!failed) ready = true;
+		changed = true;
+	}
 	skip_load = false;
 	processing = false;
-	changed = true;
 }
 
 bool AI_Task::RunOpenAI() {
@@ -179,7 +190,7 @@ bool AI_Task::RunOpenAI() {
 	try {
 		nlohmann::json json = nlohmann::json::parse(txt.Begin(), txt.End());
 		auto completion = openai::completion().create(json);
-	    LOG("Response is:\n" << completion.dump(2));
+	    //LOG("Response is:\n" << completion.dump(2));
 	    
 	    OpenAiResponse response;
 	    LoadFromJson(response, String(completion.dump(2)));
