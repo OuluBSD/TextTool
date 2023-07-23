@@ -7,27 +7,28 @@ class Editor : public Ctrl {
 protected:
 	friend class BasicInfoCtrl;
 	friend class SongTool;
-	Splitter	hsplit, menusplit;
-	ArrayCtrl	tablist, artists, releases, songs, parts;
-	Ctrl		base;
-	int			page = 0;
 	
-	BasicInfoCtrl	info;
-	AttrDataCtrl	attr;
-	RecruimentCtrl	recru;
-	SocialCtrl		social;
-	CalMgrCtrl		cal;
-	TaskMgrCtrl		task;
-	ImportCtrl		importer;
-	PatternMaskCtrl	patmask;
-	PatternCtrl		pattern, rev_pattern;
-	CompositionCtrl	composition;
-	AnalysisCtrl	analysis;
-	ProductionCtrl	production;
-	RhymesCtrl		rhymes;
+	Splitter			hsplit, menusplit;
+	ArrayCtrl			tablist, artists, releases, songs, parts;
+	Ctrl				base;
+	int					page = 0;
+	
+	BasicInfoCtrl		info;
+	AttrDataCtrl		attr;
+	RecruimentCtrl		recru;
+	SocialCtrl			social;
+	CalMgrCtrl			cal;
+	TaskMgrCtrl			task;
+	ImportCtrl			importer;
+	PatternMaskCtrl		patmask;
+	PatternCtrl			pattern, rev_pattern;
+	CompositionCtrl		composition;
+	AnalysisCtrl		analysis;
+	ProductionCtrl		production;
+	RhymesCtrl			rhymes;
 	PatternScoringCtrl	scoring;
 	AttrScoreCtrl		attrscore;
-	ReverseCtrl			reverse;
+	ReverseCtrl			reverse[3];
 	ImpactCtrl			impact;
 	StoryCtrl			story;
 	StructureCtrl		structure;

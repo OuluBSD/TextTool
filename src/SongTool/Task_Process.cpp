@@ -358,7 +358,7 @@ void AI_Task::Process_MakeAttrScores() {
 		
 		AI_Task& chk = m.tasks.Add();
 		m.total++;
-		chk.type = TASK_MAKE_REVERSEPATTERN_TASK;
+		chk.type = TASK_MAKE_REVERSE_IMPACT_TASK;
 		chk.p = this->p;
 		chk.depends_on << &t;
 	}
@@ -893,7 +893,7 @@ void AI_Task::Process_MakeImpactScoringTasks() {
 				PatternSnap& snap = brk.snap[mode];
 				String impact = snap.data.Get("impact", "");
 				if (impact.GetCount()) {
-					bool found = song.impact_scores.Find(impact) >= 0;
+					bool found = song.impact_scores.Find(ToLower(impact)) >= 0;
 					if (!found)
 						line_impacts.FindAdd(impact);
 				}
@@ -1250,6 +1250,39 @@ void GetScores(const PatternSnap& snap, Vector<int>& scores) {
 	}
 }
 
+void GetMaskScores(const PatternSnap& snap, Vector<int>& scores) {
+	Database& db = Database::Single();
+	const PatternSnap* s = &snap;
+	int c = db.attrs.scorings.GetCount();
+	scores.SetCount(c);
+	for(auto& v : scores) v = 0;
+	
+	while (s) {
+		for (const AttrScoreGroup& g : db.attrscores.groups) {
+			SnapAttr a0;
+			
+			int match_count = 0;
+			for (const SnapAttr& a0 : g.attrs) {
+				for (const SnapAttrStr& a1 : s->mask.GetKeys()) {
+					if (a1 == a0)
+						match_count++;
+				}
+			}
+			
+			if (match_count) {
+				for(int i = 0; i < c; i++) {
+					int sc = g.scores[i];
+					if (0)
+						sc = max(-1, min(+1, sc));
+					scores[i] += match_count * sc;
+				}
+			}
+		}
+		
+		s = s->owner;
+	}
+}
+
 void AI_Task::Process_SongScores() {
 	Database& db = Database::Single();
 	ASSERT(p.mode >= 0);
@@ -1266,14 +1299,25 @@ void AI_Task::Process_SongScores() {
 		const String& key = f.name;
 		
 		Vector<PatternSnap*> level_snaps;
-		/*f.GetSnapsLevel(1, level_snaps);
 		
+		level_snaps.Clear();
+		f.GetSnapsLevel(mode, 2, level_snaps);
 		for(int i = 0; i < level_snaps.GetCount(); i++) {
 			PatternSnap& snap = *level_snaps[i];
-			Line& line = static_cast<Line&>(snap);
-			GetScores(snap, line.partscore);
+			Part& part = *snap.part;
+			GetScores(snap, part.snap[mode].partscore);
+			GetMaskScores(snap, part.snap[mode].maskscore);
 		}
-		level_snaps.Clear();*/
+		
+		level_snaps.Clear();
+		f.GetSnapsLevel(mode, 1, level_snaps);
+		for(int i = 0; i < level_snaps.GetCount(); i++) {
+			PatternSnap& snap = *level_snaps[i];
+			Line& line = *snap.line;
+			GetScores(snap, line.snap[mode].partscore);
+		}
+		
+		level_snaps.Clear();
 		f.GetSnapsLevel(mode, 0, level_snaps);
 		for(int i = 0; i < level_snaps.GetCount(); i++) {
 			PatternSnap& snap = *level_snaps[i];
@@ -1500,6 +1544,31 @@ void AI_Task::Process_ReversePattern() {
 	
 	task.Store();
 }
+
+void AI_Task::Process_MakeReverseImpactTask() {
+	
+	TODO
+	
+}
+
+void AI_Task::Process_ReverseImpact() {
+	
+	TODO
+	
+}
+
+void AI_Task::Process_MakeReverseMaskTask() {
+	
+	TODO
+	
+}
+
+void AI_Task::Process_ReverseMask() {
+	
+	TODO
+	
+}
+
 
 void AI_Task::Process_MakeReversePattern() {
 	Database& db = Database::Single();

@@ -61,44 +61,66 @@ String AI_Task::GetDescription() const {
 
 String AI_Task::GetTypeString() const {
 	switch (type) {
-		case TASK_PATTERNMASK: return t_("Pattern mask");
-		case TASK_STORYARC: return t_("Story arc");
-		case TASK_IMPACT: return t_("Impact");
-		case TASK_MAKE_PATTERN_TASKS: return t_("Make pattern tasks");
-		case TASK_PATTERN: return t_("Pattern");
-		case TASK_IMPACT_SCORING: return t_("Impact scoring");
-		case TASK_MAKE_IMPACT_SCORING_TASKS: return t_("Make impact scoring tasks");
-		case TASK_ANALYSIS: return t_("Analysis");
-		case TASK_MAKE_ATTRSCORES_TASKS: return t_("Make attribute score tasks");
-		case TASK_ATTRSCORES: return t_("Attributes scores");
-		case TASK_SONGSCORE: return t_("Song scores");
-		case TASK_MAKE_REVERSEPATTERN_TASK: return t_("Convert score to pattern");
-		case TASK_REVERSEPATTERN: return t_("Reverse pattern");
-		case TASK_LYRICS: return t_("Lyrics");
-		case TASK_MAKE_LYRICS_TASK: return t_("Make lyrics task");
-		case TASK_LYRICS_TRANSLATE: return t_("Translate lyrics");
+		case TASK_PATTERNMASK:				return t_("Pattern mask");
+		case TASK_ANALYSIS:					return t_("Analysis");
+		case TASK_STORYARC:					return t_("Story arc");
+		case TASK_IMPACT:					return t_("Impact");
+		
+		case TASK_MAKE_PATTERN_TASKS:		return t_("Make pattern tasks");
+		case TASK_PATTERN:					return t_("Pattern");
+		case TASK_IMPACT_SCORING:			return t_("Impact scoring");
+		case TASK_MAKE_IMPACT_SCORING_TASKS:return t_("Make impact scoring tasks");
+		
+		case TASK_MAKE_ATTRSCORES_TASKS:	return t_("Make attribute score tasks");
+		case TASK_ATTRSCORES:				return t_("Attributes scores");
+		case TASK_SONGSCORE:				return t_("Song scores");
+		
+		case TASK_MAKE_REVERSE_IMPACT_TASK:	return t_("Make reverse impact task");
+		case TASK_REVERSE_IMPACT:			return t_("Reverse impact");
+		
+		case TASK_MAKE_REVERSE_MASK_TASK:	return t_("Make reverse mask task");
+		case TASK_REVERSE_MASK:				return t_("Reverse mask");
+		
+		case TASK_MAKE_REVERSEPATTERN_TASK:	return t_("Make reverse pattern task");
+		case TASK_REVERSEPATTERN:			return t_("Reverse pattern");
+		
+		case TASK_MAKE_LYRICS_TASK:			return t_("Make lyrics task");
+		case TASK_LYRICS:					return t_("Lyrics");
+		case TASK_LYRICS_TRANSLATE:			return t_("Translate lyrics");
+		
 		default: return "<error>";
 	}
 }
 
 void AI_Task::CreateInput() {
 	switch (type) {
-		case TASK_PATTERNMASK: CreateInput_PatternMask(); break;
-		case TASK_STORYARC: CreateInput_StoryArc(); break;
-		case TASK_IMPACT: CreateInput_Impact(); break;
-		case TASK_MAKE_PATTERN_TASKS: break;
-		case TASK_PATTERN: CreateInput_Pattern(); break;
-		case TASK_IMPACT_SCORING: CreateInput_ImpactScoring(); break;
-		case TASK_ANALYSIS: CreateInput_Analysis(); break;
-		case TASK_MAKE_IMPACT_SCORING_TASKS: break;
-		case TASK_MAKE_ATTRSCORES_TASKS: break;
-		case TASK_ATTRSCORES: CreateInput_AttrScores(); break;
-		case TASK_SONGSCORE: break;
-		case TASK_MAKE_REVERSEPATTERN_TASK: break;
-		case TASK_REVERSEPATTERN: break;
-		case TASK_LYRICS: CreateInput_Lyrics(); break;
-		case TASK_LYRICS_TRANSLATE: CreateInput_LyricsTranslate(); break;
-		case TASK_MAKE_LYRICS_TASK: break;
+		case TASK_PATTERNMASK:				CreateInput_PatternMask(); break;
+		case TASK_ANALYSIS:					CreateInput_Analysis(); break;
+		case TASK_STORYARC:					CreateInput_StoryArc(); break;
+		case TASK_IMPACT:					CreateInput_Impact(); break;
+		
+		case TASK_MAKE_PATTERN_TASKS:		break;
+		case TASK_PATTERN:					CreateInput_Pattern(); break;
+		case TASK_IMPACT_SCORING:			CreateInput_ImpactScoring(); break;
+		case TASK_MAKE_IMPACT_SCORING_TASKS:break;
+		
+		case TASK_MAKE_ATTRSCORES_TASKS:	break;
+		case TASK_ATTRSCORES:				CreateInput_AttrScores(); break;
+		case TASK_SONGSCORE:				break;
+		
+		case TASK_MAKE_REVERSE_IMPACT_TASK:	break;
+		case TASK_REVERSE_IMPACT:			break;
+		
+		case TASK_MAKE_REVERSE_MASK_TASK:	break;
+		case TASK_REVERSE_MASK:				break;
+		
+		case TASK_MAKE_REVERSEPATTERN_TASK:	break;
+		case TASK_REVERSEPATTERN:			break;
+		
+		case TASK_MAKE_LYRICS_TASK:			break;
+		case TASK_LYRICS:					CreateInput_Lyrics(); break;
+		case TASK_LYRICS_TRANSLATE:			CreateInput_LyricsTranslate(); break;
+		
 		default: break;
 	}
 	
@@ -134,22 +156,32 @@ void AI_Task::Process() {
 	
 	if (ok) {
 		switch (type) {
-			case TASK_PATTERNMASK: Process_PatternMask(); break;
-			case TASK_STORYARC: Process_StoryArc();break;
-			case TASK_IMPACT: Process_Impact();break;
-			case TASK_MAKE_PATTERN_TASKS: Process_MakePatternTasks();break;
-			case TASK_PATTERN: Process_Pattern(); break;
-			case TASK_IMPACT_SCORING: Process_ImpactScoring(); break;
-			case TASK_MAKE_IMPACT_SCORING_TASKS: Process_MakeImpactScoringTasks(); break;
-			case TASK_ANALYSIS: Process_Analysis(); break;
-			case TASK_MAKE_ATTRSCORES_TASKS: Process_MakeAttrScores(); break;
-			case TASK_ATTRSCORES: Process_AttrScores(); break;
-			case TASK_SONGSCORE: Process_SongScores(); break;
-			case TASK_MAKE_REVERSEPATTERN_TASK: Process_MakeReversePattern(); break;
-			case TASK_REVERSEPATTERN: Process_ReversePattern(); break;
-			case TASK_MAKE_LYRICS_TASK: Process_MakeLyricsTask(); break;
-			case TASK_LYRICS: Process_Lyrics(); break;
-			case TASK_LYRICS_TRANSLATE: Process_LyricsTranslate(); break;
+			case TASK_PATTERNMASK:				Process_PatternMask(); break;
+			case TASK_ANALYSIS:					Process_Analysis(); break;
+			case TASK_STORYARC:					Process_StoryArc();break;
+			case TASK_IMPACT:					Process_Impact();break;
+			
+			case TASK_MAKE_PATTERN_TASKS:		Process_MakePatternTasks();break;
+			case TASK_IMPACT_SCORING:			Process_ImpactScoring(); break;
+			case TASK_MAKE_IMPACT_SCORING_TASKS:Process_MakeImpactScoringTasks(); break;
+			case TASK_PATTERN:					Process_Pattern(); break;
+			
+			case TASK_MAKE_ATTRSCORES_TASKS:	Process_MakeAttrScores(); break;
+			case TASK_ATTRSCORES:				Process_AttrScores(); break;
+			case TASK_SONGSCORE:				Process_SongScores(); break;
+			
+			case TASK_MAKE_REVERSE_IMPACT_TASK:	Process_MakeReverseImpactTask(); break;
+			case TASK_REVERSE_IMPACT:			Process_ReverseImpact(); break;
+			
+			case TASK_MAKE_REVERSE_MASK_TASK:	Process_MakeReverseMaskTask(); break;
+			case TASK_REVERSE_MASK:				Process_ReverseMask(); break;
+			
+			case TASK_MAKE_REVERSEPATTERN_TASK:	Process_MakeReversePattern(); break;
+			case TASK_REVERSEPATTERN:			Process_ReversePattern(); break;
+			
+			case TASK_MAKE_LYRICS_TASK:			Process_MakeLyricsTask(); break;
+			case TASK_LYRICS:					Process_Lyrics(); break;
+			case TASK_LYRICS_TRANSLATE:			Process_LyricsTranslate(); break;
 			default: break;
 		}
 	}

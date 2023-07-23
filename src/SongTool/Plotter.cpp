@@ -90,6 +90,167 @@ Plotter::Plotter() {
 	
 }
 
+void Plotter::WholeSongParts() {
+	if (!song)
+		return;
+	for (auto& v : values) v.SetCount(0);
+	for(int i = 0; i < song->structure.GetCount(); i++) {
+		String key = song->structure[i];
+		int j = song->FindPartIdx(key);
+		if (j < 0)
+			return;
+		Part& part = song->parts[j];
+		AddValue(part);
+	}
+}
+
+void Plotter::WholeSongSnaps() {
+	if (!song)
+		return;
+	for (auto& v : values) v.SetCount(0);
+	for(int i = 0; i < song->structure.GetCount(); i++) {
+		String key = song->structure[i];
+		int j = song->FindPartIdx(key);
+		if (j < 0) {
+			return;
+			DUMP(i);
+			DUMPC(song->structure);
+			DUMPC(song->parts);
+		}
+		ASSERT(j >= 0);
+		
+		Part& part = song->parts[j];
+		for(int j = 0; j < part.lines.GetCount(); j++) {
+			Line& line = part.lines[j];
+			for(int k = 0; k < line.breaks.GetCount(); k++) {
+				Break& brk = line.breaks[k];
+				AddValue(brk);
+			}
+		}
+	}
+}
+
+void Plotter::PartSnaps() {
+	Attributes& g = Database::Single().attrs;
+	int c = g.scorings.GetCount();
+	if (!part)
+		return;
+	for(int j = 0; j < this->values.GetCount(); j++)
+		this->values[j].Clear();
+	for(int i = 0; i < part->lines.GetCount(); i++) {
+		Line& line = part->lines[i];
+		for(int k = 0; k < line.breaks.GetCount(); k++) {
+			Break& brk = line.breaks[k];
+			AddValue(brk);
+		}
+	}
+}
+
+void Plotter::AddValue(SnapContext& ctx) {
+	int other_mode = !mode;
+	if (src == 0) {
+		String impact0 = ctx.snap[mode].data.Get("impact", "");
+		int impact_i0 = song->impact_scores.Find(ToLower(impact0));
+		if (impact_i0 >= 0) {
+			String impact1 = ctx.snap[other_mode].data.Get("impact", "");
+			int impact_i1 = song->impact_scores.Find(ToLower(impact1));
+			if (impact_i1 >= 0) {
+				AddValue(
+					song->impact_scores[impact_i0],
+					song->impact_scores[impact_i1]
+				);
+			}
+			else AddEmptyValue();
+		}
+		else AddEmptyValue();
+	}
+	else if (src == 1) {
+		AddValue(ctx.snap[mode].maskscore, ctx.snap[other_mode].maskscore);
+	}
+	else if (src == 2) {
+		AddValue(ctx.snap[mode].partscore, ctx.snap[other_mode].partscore);
+	}
+}
+
+void Plotter::AddEmptyValue() {
+	Attributes& g = Database::Single().attrs;
+	int c = g.scorings.GetCount();
+	for(int i = 0; i < c; i++)
+		values[i].Add(0);
+}
+
+void Plotter::AddValue(const Vector<int>& score, const Vector<int>& other_score) {
+	Attributes& g = Database::Single().attrs;
+	
+	bool genderdiff_weighted_view = view == VIEW_GENDERDIFF_WEIGHTED;
+	bool genderdiff_view = view == VIEW_GENDERDIFF;
+	int c = g.scorings.GetCount();
+	
+	
+	// Read values to stack variables
+	if (genderdiff_weighted_view) {
+		int c0 = min(c, min(
+			other_score.GetCount(),
+			score.GetCount()));
+		
+		if (0) {
+			double av = 0;
+			for (auto& val : score) av += val;
+			av /= score.GetCount();
+			
+			double other_av = 0;
+			for (auto& val : other_score) other_av += val;
+			other_av /= other_score.GetCount();
+			
+			for(int k = 0; k < c0; k++) {
+				double av_diff = score[k] - av;
+				double other_av_diff = other_score[k] - other_av;
+				
+				values[k].Add(
+					av_diff -
+					other_av_diff
+					);
+			}
+		}
+		else {
+			double av = 0;
+			for (auto& val : score) av += fabs(val);
+			av /= score.GetCount();
+			
+			double other_av = 0;
+			for (auto& val : other_score) other_av += fabs(val);
+			other_av /= other_score.GetCount();
+			
+			double f = av / other_av;
+			
+			for(int k = 0; k < c0; k++) {
+				double val = score[k];
+				double other_weighted_val = other_score[k] * f;
+				
+				values[k].Add(
+					val -
+					other_weighted_val
+					);
+			}
+		}
+	}
+	else if (genderdiff_view) {
+		int c0 = min(c, min(
+			other_score.GetCount(),
+			score.GetCount()));
+		for(int k = 0; k < c0; k++)
+			values[k].Add(
+				score[k] -
+				other_score[k]
+				);
+	}
+	else {
+		int c0 = min(c, score.GetCount());
+		for(int k = 0; k < c0; k++)
+			values[k].Add(score[k]);
+	}
+}
+
 void Plotter::Paint(Draw& d) {
 	Size sz = GetSize();
 	bool absolute_view = view == VIEW_ABSOLUTE  || view == VIEW_ABSOLUTE_WEIGHTED;
@@ -105,8 +266,6 @@ void Plotter::Paint(Draw& d) {
 	Color txt_clr = Black();
 	Font fnt = Monospace(10);
 	
-	
-	
 	Attributes& g = Database::Single().attrs;
 	
 	int y = sz.cy-15;
@@ -119,119 +278,38 @@ void Plotter::Paint(Draw& d) {
 	String part_key;
 	int vert_x = 0;
 	Vector<int> caps;
+	if (src == 1) {
+		WholeSongParts();
+	}
+	else if (whole_song) {
+		WholeSongSnaps();
+	}
+	else {
+		PartSnaps();
+	}
+	
 	if (whole_song) {
-		if (!song)
-			return;
-		for (auto& v : values) v.SetCount(0);
+		// Get key string for the whole song
 		for(int i = 0; i < song->structure.GetCount(); i++) {
 			String key = song->structure[i];
 			int j = song->FindPartIdx(key);
-			if (j < 0) {
+			if (j < 0)
 				return;
-				DUMP(i);
-				DUMPC(song->structure);
-				DUMPC(song->parts);
-			}
-			ASSERT(j >= 0);
-			
 			Part& part = song->parts[j];
-			int total = 0;
-			for(int j = 0; j < part.lines.GetCount(); j++) {
-				Line& line = part.lines[j];
-				total += line.breaks.GetCount();
-				for(int k = 0; k < line.breaks.GetCount(); k++) {
-					Break& brk = line.breaks[k];
-					
-					// Read values to stack variables
-					if (genderdiff_weighted_view) {
-						int c0 = min(c, min(
-							brk.snap[other_mode].partscore.GetCount(),
-							brk.snap[mode].partscore.GetCount()));
-						
-						#if 0
-						double av = 0;
-						for (auto& val : brk.snap[mode].partscore) av += val;
-						av /= brk.snap[mode].partscore.GetCount();
-						
-						double other_av = 0;
-						for (auto& val : brk.snap[other_mode].partscore) other_av += val;
-						other_av /= brk.snap[other_mode].partscore.GetCount();
-						
-						for(int k = 0; k < c0; k++) {
-							double av_diff = brk.snap[mode].partscore[k] - av;
-							double other_av_diff = brk.snap[other_mode].partscore[k] - other_av;
-							
-							values[k].Add(
-								av_diff -
-								other_av_diff
-								);
-						}
-						#else
-						double av = 0;
-						for (auto& val : brk.snap[mode].partscore) av += fabs(val);
-						av /= brk.snap[mode].partscore.GetCount();
-						
-						double other_av = 0;
-						for (auto& val : brk.snap[other_mode].partscore) other_av += fabs(val);
-						other_av /= brk.snap[other_mode].partscore.GetCount();
-						
-						double f = av / other_av;
-						
-						for(int k = 0; k < c0; k++) {
-							double val = brk.snap[mode].partscore[k];
-							double other_weighted_val = brk.snap[other_mode].partscore[k] * f;
-							
-							values[k].Add(
-								val -
-								other_weighted_val
-								);
-						}
-						#endif
-					}
-					else if (genderdiff_view) {
-						int c0 = min(c, min(
-							brk.snap[other_mode].partscore.GetCount(),
-							brk.snap[mode].partscore.GetCount()));
-						for(int k = 0; k < c0; k++)
-							values[k].Add(
-								brk.snap[mode].partscore[k] -
-								brk.snap[other_mode].partscore[k]
-								);
-					}
-					else {
-						int c0 = min(c, brk.snap[mode].partscore.GetCount());
-						for(int k = 0; k < c0; k++)
-							values[k].Add(brk.snap[mode].partscore[k]);
-					}
-				}
-			}
-			
-			// Get positions of vertical lines
-			vert_x += total;
-			vert_lines.Add(vert_x);
-			
-			// Get key string for the whole song
 			if (i)
 				part_key << ", ";
 			part_key << g.Translate(key);
+			for(int j = 0; j < part.lines.GetCount(); j++) {
+				Line& line = part.lines[j];
+				vert_x += line.breaks.GetCount();
+			}
+			vert_lines.Add(vert_x);
 		}
 	}
 	else {
-		if (!part)
-			return;
 		part_key = part->name;
-		for(int j = 0; j < this->values.GetCount(); j++)
-			this->values[j].Clear();
 		for(int i = 0; i < part->lines.GetCount(); i++) {
 			Line& line = part->lines[i];
-			for(int k = 0; k < line.breaks.GetCount(); k++) {
-				Break& brk = line.breaks[k];
-				
-				int c0 = min(c, brk.snap[mode].partscore.GetCount());
-				for(int j = 0; j < c0; j++)
-					this->values[j].Add(brk.snap[mode].partscore[j]);
-				
-			}
 			vert_x += line.breaks.GetCount();
 			vert_lines.Add(vert_x);
 		}

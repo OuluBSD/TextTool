@@ -106,6 +106,9 @@ List of axes:
 -o Attitude: +hopeful/-despair
 -p Attitude: +optimistic/-pessimistic
 -q Attitude: +open/-closed
+-r Sexual Orientation: +heterosexual/-homosexual
+-s Sexual Preference: +kinky/-normal
+-t Physical Preference: +enhancement/-natural
 
 Combination string from results:
  - a (Integrity: +honest/-twisted) b (Social: +libertarian/-authoritarian) c (Economic: +liberal/-conservative) etc.
@@ -131,12 +134,15 @@ Line 1, "The narrator is happy and likes trains"
 -o Attitude: hopeful/despair: +1 hopeful
 -p Attitude: optimistic/pessimistic: +1 optimistic
 -q Attitude: open/closed: 0
-Combination string: a+1 b0 c0 d+1 e0 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n0 o+1 p+1 q0
+-r Sexual Orientation: heterosexual/homosexual: 0
+-s Sexual Preference: kinky/normal: 0
+-t Physical Preference: enhancement/natural: 0
+Combination string: a+1 b0 c0 d+1 e0 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n0 o+1 p+1 q0 r0 s0 t0
 )ATRSCROO";
 
 const char* impactscore_prompt2 = R"ATRSCROO(
 Line 1, "The narrator is happy and likes trains"
-Combination string: a+1 b0 c0 d+1 e0 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n0 o+1 p+1 q0
+Combination string: a+1 b0 c0 d+1 e0 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n0 o+1 p+1 q0 r0 s0 t0
 
 Entries:
 ${ENTRIES}
@@ -440,6 +446,9 @@ List of axes:
 -o Attitude: +hopeful/-despair
 -p Attitude: +optimistic/-pessimistic
 -q Attitude: +open/-closed
+-r Sexual Orientation: +heterosexual/-homosexual
+-s Sexual Preference: +kinky/-normal
+-t Physical Preference: +enhancement/-natural
 
 Combination string from results:
  - a (Integrity: +honest/-twisted) b (Social: +libertarian/-authoritarian) c (Economic: +liberal/-conservative) etc.
@@ -465,12 +474,15 @@ Line 1, Pronouns: "I":
 -o Attitude: hopeful/despair: +1 hopeful
 -p Attitude: optimistic/pessimistic: +1 optimistic
 -q Attitude: open/closed: +1 open
-Combination string: a+1 b+1 c0 d+1 e+1 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+-r Sexual Orientation: heterosexual/homosexual: 0
+-s Sexual Preference: kinky/normal: 0
+-t Physical Preference: enhancement/natural: 0
+Combination string: a+1 b+1 c0 d+1 e+1 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1 r0 s0 t0
 )ATRSCROO";
 
 const char* attrscore_prompt2 = R"ATRSCROO(
 Line 1, Pronouns: "I":
-Combination string: a+1 b+1 c0 d+1 e+1 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1
+Combination string: a+1 b+1 c0 d+1 e+1 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n+1 o+1 p+1 q+1 r0 s0 t0
 
 Entries:
 ${ENTRIES}

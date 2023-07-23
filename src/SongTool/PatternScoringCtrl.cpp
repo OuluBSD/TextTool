@@ -11,6 +11,7 @@ PatternScoringCtrl::PatternScoringCtrl() {
 		
 		plotter.list = &list;
 		plotter.SetMode(mode);
+		plotter.SetSource(2);
 		
 		mainsplit << plotter << list;// << presets;
 		
@@ -41,7 +42,7 @@ PatternScoringCtrl::PatternScoringCtrl() {
 	}
 	
 }
-
+/*
 void PatternScoringCtrl::AddPreset() {
 	String preset_name;
 	bool b = EditTextNotNull(
@@ -53,7 +54,7 @@ void PatternScoringCtrl::AddPreset() {
 	if (b) {
 		DUMP(preset_name);
 	}
-}
+}*/
 
 void PatternScoringCtrl::Data() {
 	Database& db = Database::Single();

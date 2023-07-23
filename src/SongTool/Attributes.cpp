@@ -240,6 +240,9 @@ void Attributes::LoadDefaultAttrGroups() {
 	AddScoring(("Attitude: hopeful/despair"), scorings);
 	AddScoring(("Attitude: optimistic/pessimistic"), scorings);
 	AddScoring(("Attitude: open/closed"), scorings);
+	AddScoring(("Sexual Orientation: heterosexual/homosexual"), scorings);
+	AddScoring(("Sexual Preference: kinky/normal"), scorings);
+	AddScoring(("Physical Preference: enhancement/natural"), scorings);
 }
 
 void Attributes::RealizeAttrIds() {

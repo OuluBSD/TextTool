@@ -115,6 +115,7 @@ struct Attributes : DataFile {
 		if (json.IsLoading()) {
 			String lng = GetCurrentLanguageString().Left(5);
 			trans_i = translation.Find(lng);
+			scorings.Clear();
 			Realize();
 		}
 	}

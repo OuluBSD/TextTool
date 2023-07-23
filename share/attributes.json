@@ -2648,6 +2648,21 @@
 			"class": "Attitude",
 			"axes0": "open",
 			"axes1": "closed"
+		},
+		{
+			"class": "Sexual Orientation",
+			"axes0": "heterosexual",
+			"axes1": "homosexual"
+		},
+		{
+			"class": "Sexual Preference",
+			"axes0": "kinky",
+			"axes1": "normal"
+		},
+		{
+			"class": "Physical Preference",
+			"axes0": "enhancement",
+			"axes1": "natural"
 		}
 	],
 	"analysis": [

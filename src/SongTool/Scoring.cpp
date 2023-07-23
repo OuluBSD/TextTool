@@ -1,5 +1,13 @@
 #include "SongTool.h"
 
+void AttrScoreGroup::Realize() {
+	Attributes& g = Database::Single().attrs;
+	if (scores.GetCount() < g.scorings.GetCount())
+		scores.SetCount(g.scorings.GetCount(), 0);
+}
+
+
+
 AttrScore::AttrScore() {
 	file_title = "attrscore";
 }

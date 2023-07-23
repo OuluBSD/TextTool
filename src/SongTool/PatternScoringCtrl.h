@@ -20,7 +20,7 @@ public:
 	void DataListAll() {for (int mode = 0; mode < GENDER_COUNT; mode++) DataList(mode);}
 	void DataList(int mode);
 	//void DataPresets();
-	void AddPreset();
+	//void AddPreset();
 	/*void SavePreset();
 	void UpdatePreset();
 	void ApplyPreset();

@@ -33,8 +33,8 @@ struct Database {
 			for (String n : names) artists.Add().LoadTitle(n);
 			Sort(artists, Artist());
 			//FindOrphaned();
-			attrscores.Load();
 			attrs.Load();
+			attrscores.Load();
 			
 			if (attrs.groups.IsEmpty())
 				for (Artist& a : artists)

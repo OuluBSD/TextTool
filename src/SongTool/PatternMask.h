@@ -2,16 +2,21 @@
 #define _SongTool_PatternMask_h_
 
 struct PatternMask : Ptrs {
-	Index<SnapAttrStr> mask;
+	Index<SnapAttrStr>	mask;
+	Vector<int>			maskscore;
 	
 	
-	void Clear() {mask.Clear();}
+	void Clear() {
+		mask.Clear();
+		maskscore.Clear();
+	}
 	void Add(const SnapAttrStr& sa) {
 		mask.FindAdd(sa);
 	}
 	void Jsonize(JsonIO& json) {
 		json
 			("mask", mask)
+			("maskscore", maskscore)
 			;
 	}
 	void GetGroups(Index<int>& groups) {

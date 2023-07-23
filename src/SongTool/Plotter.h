@@ -18,6 +18,7 @@ class Plotter : public Ctrl {
 	};
 	
 	int view = 0;
+	int src = 0;
 	int mode = MALE;
 	bool whole_song = false;
 	int focused_group = 0, focused_group_i = 0;
@@ -31,6 +32,16 @@ class Plotter : public Ctrl {
 	Vector<bool> draw_group;
 	Vector<int> vert_lines;
 	Vector<RectId> rids;
+	
+	
+	void AddValue(SnapContext& ctx);
+	void AddValue(const Vector<int>& score, const Vector<int>& other_score);
+	void AddEmptyValue();
+	void WholeSongImpacts();
+	void PartImpacts();
+	void WholeSongParts();
+	void WholeSongSnaps();
+	void PartSnaps();
 	
 public:
 	Plotter();
@@ -46,6 +57,7 @@ public:
 	void MouseMove(Point p, dword keyflags) override;
 	
 	void SetMode(int mode) {this->mode = mode;}
+	void SetSource(int s) {this->src = s;}
 	
 	const RectId* FindPos(Point p);
 	

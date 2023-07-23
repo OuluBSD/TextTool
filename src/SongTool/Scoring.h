@@ -23,7 +23,10 @@ struct AttrScoreGroup {
 			("scores", scores)
 			("name", name)
 			;
+		if (json.IsLoading())
+			Realize();
 	}
+	void Realize();
 	String GetName() const {
 		if (!name.IsEmpty())
 			return name;

@@ -18,6 +18,9 @@
 		"syllables": 0,
 		"mask": [
 
+		],
+		"maskscore": [
+
 		]
 	},
 	"snap[1]": {
@@ -33,6 +36,9 @@
 		],
 		"syllables": 0,
 		"mask": [
+
+		],
+		"maskscore": [
 
 		]
 	},
@@ -50,6 +56,9 @@
 		"syllables": 0,
 		"mask": [
 
+		],
+		"maskscore": [
+
 		]
 	},
 	"snap[3]": {
@@ -65,6 +74,9 @@
 		],
 		"syllables": 0,
 		"mask": [
+
+		],
+		"maskscore": [
 
 		]
 	}
