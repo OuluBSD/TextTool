@@ -214,6 +214,13 @@ void StructureCtrl::DataList() {
 		list.Set(list_i, 2, brk.snap[mode].txt);
 		list_i++;
 		
+		if (brk.snap[mode].impact.GetCount()) {
+			list.Set(list_i, 0, t_("Break"));
+			list.Set(list_i, 1, t_("Impact"));
+			list.Set(list_i, 2, brk.snap[mode].impact);
+			list_i++;
+		}
+		
 		for(int i = 0; i < brk.snap[mode].data.GetCount(); i++) {
 			list.Set(list_i, 0, t_("Break"));
 			list.Set(list_i, 1, brk.snap[mode].data.GetKey(i));

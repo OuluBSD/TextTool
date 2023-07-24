@@ -422,3 +422,19 @@ void Attributes::FindGroupTypes(const Vector<int>& group_ids, Index<int>& group_
 	}
 }
 
+void Attributes::GetAll(Vector<SnapAttrStr>& attrs) {
+	int group_i = 0;
+	for (Group& g : groups) {
+		int item_i = 0;
+		for (String& value : g.values) {
+			SnapAttrStr& sa = attrs.Add();
+			sa.group_i = group_i;
+			sa.group = g.description;
+			sa.item_i = item_i;
+			sa.item = value;
+			sa.has_id = true;
+			item_i++;
+		}
+		group_i++;
+	}
+}

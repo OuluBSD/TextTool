@@ -42,8 +42,8 @@ void ReverseCtrl::Data() {
 	song.lock.EnterRead();
 	song.RealizeTaskSnaps();
 	
-	for(int i = 0; i < song.rev_tasks.GetCount(); i++) {
-		ReverseTask& t = song.rev_tasks[i];
+	for(int i = 0; i < song.rev_pattern_tasks.GetCount(); i++) {
+		ReverseTask& t = song.rev_pattern_tasks[i];
 		
 		t.lock.EnterRead();
 		if (!t.snap || !t.snap->part) {t.lock.LeaveRead(); continue;}
@@ -104,9 +104,9 @@ void ReverseCtrl::DataWorker() {
 	int id = tasklist.Get(cursor, 0);
 	
 	song.lock.EnterRead();
-	if (id >= song.rev_tasks.GetCount()) {song.lock.LeaveRead(); return;}
+	if (id >= song.rev_pattern_tasks.GetCount()) {song.lock.LeaveRead(); return;}
 	
-	ReverseTask& t = song.rev_tasks[id];
+	ReverseTask& t = song.rev_pattern_tasks[id];
 	this->task.plotter.Set(t);
 	this->task.plotter.Refresh();
 	t.lock.EnterRead();
@@ -126,7 +126,7 @@ void ReverseCtrl::DataWorker() {
 	// Total progess over all tasks
 	int total_total = 0;
 	int total_actual = 0;
-	for (ReverseTask& t : song.rev_tasks) {
+	for (ReverseTask& t : song.rev_pattern_tasks) {
 		total_total += t.total;
 		total_actual += t.actual;
 	}

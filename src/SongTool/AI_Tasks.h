@@ -125,9 +125,10 @@ struct AI_Task {
 	ReverseTask* task = 0;
 	TaskMgr* mgr = 0;
 	
-	static constexpr int gen_multiplier	= 20;
-	static constexpr int gens			= 200;
-	static constexpr int max_values		= 20;
+	static constexpr int gen_multiplier		= 20;
+	static constexpr int gens				= 200;
+	static constexpr int max_snap_values	= 20;
+	static constexpr int max_mask_values	= 50;
 	
 	void Store();
 	void Load();

@@ -38,6 +38,8 @@ void ImpactScoringCtrl::Data() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[MALE];
 	if (p.song) {
+		//p.song->RealizeImpacts();
+		
 		if (db.ctx.active_wholesong) {
 			for (int mode = 0; mode < GENDER_COUNT; mode++)
 				plotter[mode].SetWholeSong(*p.song);
@@ -65,7 +67,7 @@ void ImpactScoringCtrl::DataList(int mode) {
 	
 	int sc = db.attrs.scorings.GetCount();
 	
-	//DUMPC(song.impact_scores.GetKeys());
+	//DUMPC(song.impacts.GetKeys());
 	
 	// Whole song
 	if (db.ctx.active_wholesong) {
@@ -83,23 +85,26 @@ void ImpactScoringCtrl::DataList(int mode) {
 				Line& line = part.lines[j];
 				for(int k = 0; k < line.breaks.GetCount(); k++) {
 					Break& brk = line.breaks[k];
+					PatternSnap& snap = brk.snap[mode];
 					
 					list.Set(total, 0, part_i);
 					list.Set(total, 1, j);
 					list.Set(total, 2, k);
 					list.Set(total, 3, part_name + ":" + IntStr(j) + ":" + IntStr(k));
 					
-					String impact = ToLower(brk.snap[mode].data.Get("impact", ""));
-					int impact_i = song.impact_scores.Find(impact);
+					//String impact = ToLower(brk.snap[mode].impact);
+					//Impact* im = song.FindImpact(impact);
+					//Impact& im = brk.snap[mode].impact;
 					for(int j = 0; j < sc; j++) {
 						int k1 = group_begin+j;
 						int k2 = group_begin-3+j; // skip 3 index columns for visible Ctrls
-						if (impact_i < 0) {
+						if (snap.impact_score.IsEmpty()) {
 							list.Set(total, k1, Value());
 							//list.SetCtrl(total, k2, 0);
 						}
 						else {
-							const Vector<int>& impact_score = song.impact_scores[impact_i];
+							const Vector<int>& impact_score = snap.impact_score;
+							if (impact_score.IsEmpty()) continue;
 							int value =  impact_score[j];
 							list.Set(total, k1, value);
 							
@@ -126,22 +131,25 @@ void ImpactScoringCtrl::DataList(int mode) {
 			Line& line = part.lines[i];
 			for(int k = 0; k < line.breaks.GetCount(); k++) {
 				Break& brk = line.breaks[k];
+				PatternSnap& snap = brk.snap[mode];
+				
 				list.Set(total, 0, part_i);
 				list.Set(total, 1, i);
 				list.Set(total, 2, k);
 				list.Set(total, 3, part_name + ":" + IntStr(i) + ":" + IntStr(k));
 				
-				String impact = ToLower(brk.snap[mode].data.Get("impact", ""));
-				int impact_i = song.impact_scores.Find(impact);
+				//String impact = ToLower(brk.snap[mode].impact);
+				//Impact* im = song.FindImpact(impact);
+				//Impact& im = brk.snap[mode].impact;
 				for(int j = 0; j < sc; j++) {
 					int k1 = group_begin+j;
 					int k2 = group_begin-3+j; // skip 3 index columns for visible Ctrls
-					if (impact_i < 0) {
+					if (snap.impact_score.IsEmpty()) {
 						list.Set(total, k1, Value());
 						//list.SetCtrl(total, k2, 0);
 					}
 					else {
-						const Vector<int>& impact_score = song.impact_scores[impact_i];
+						const Vector<int>& impact_score = snap.impact_score;
 						int value =  impact_score[j];
 						list.Set(total, k1, value);
 						

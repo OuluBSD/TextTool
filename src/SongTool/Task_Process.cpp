@@ -102,7 +102,7 @@ void AI_Task::Process_Impact() {
 		l = TrimBoth(l.Mid(a+1));
 		
 		Break& brk = line.breaks[i-1];
-		brk.snap[p.mode].data.GetAdd("impact") = l;
+		brk.snap[p.mode].impact = l;
 	}
 	
 }
@@ -163,6 +163,29 @@ void AI_Task::Process_ImpactScoring() {
 			continue;
 		impact = ToLower(TrimBoth(impact.Mid(a+1)));
 		impact = impact.Mid(1, impact.GetCount()-2); // Remove " "
+		
+		for(int i = 0; i < impact.GetCount(); i++) {
+			int chr = impact[i];
+			if (chr < 0) continue;
+			impact = impact.Mid(i);
+			break;
+		}
+		for (int i = impact.GetCount(); i >= 0; i--) {
+			int chr = impact[i];
+			if (chr < 0) continue;
+			impact = impact.Left(i);
+			break;
+		}
+		for(int i = 0; i < impact.GetCount(); i++) {
+			int chr = impact[i];
+			if (chr < 0) {
+				impact = impact.Left(i) + impact.Mid(i+1);
+			}
+			if (chr == 80) {
+				impact = impact.Left(i) + impact.Mid(i+1);
+			}
+		}
+		impact = TrimBoth(impact);
 		
 		String search = "combination string:";
 		a = part.Find(search);
@@ -257,8 +280,21 @@ void AI_Task::Process_ImpactScoring() {
 			break;
 		}
 		
-		song.impact_scores.GetAdd(impact) <<= score_ints;
+		PatternSnap* snap = 0;
+		
+		// char 80 persists in the string. Try finding without trailing characters
+		for(int i = 0; i < 3 && !snap; i++) {
+			snap = song.FindSnapByImpact(impact.Left(impact.GetCount()-i));
+		}
+		/*if(!snap) {
+			DUMPC(impact);
+			LOG(impact);
+		}
+		ASSERT(snap);*/
+		if (snap)
+			snap->impact_score <<= score_ints;
 	}
+	
 }
 
 void AI_Task::Process_MakeAttrScores() {
@@ -891,11 +927,8 @@ void AI_Task::Process_MakeImpactScoringTasks() {
 			for(int k = 0; k < line.breaks.GetCount(); k++) {
 				Break& brk = line.breaks[k];
 				PatternSnap& snap = brk.snap[mode];
-				String impact = snap.data.Get("impact", "");
-				if (impact.GetCount()) {
-					bool found = song.impact_scores.Find(ToLower(impact)) >= 0;
-					if (!found)
-						line_impacts.FindAdd(impact);
+				if (snap.impact.GetCount() && snap.impact_score.IsEmpty()) {
+					line_impacts.FindAdd(snap.impact);
 				}
 			}
 		}
@@ -1328,247 +1361,69 @@ void AI_Task::Process_SongScores() {
 	}
 }
 
-void AI_Task::Process_ReversePattern() {
-	const TaskMgr& mgr = *this->mgr;
-	Database& db = Database::Single();
-	Attributes& g = db.attrs;
-	ASSERT(p.mode >= 0);
-	int mode = p.mode;
-	
-	SetError("test"); return;
-	
-	db.attrscores.RealizeTemp();
-	
-	const Attributes::Group* gp = g.groups.Begin();
-	int group_count = g.groups.GetCount();
-	int gc = g.scorings.GetCount();
-	//int ac = db.attrscores.groups.GetCount();
-	ReverseTask& task = *this->task;
-	if (task.mask_attrs.IsEmpty()) {
-		SetError("empty mask attrs");
-		return;
-	}
-	ASSERT(!task.mask_attrs.IsEmpty());
-	ASSERT(!task.scores.IsEmpty());
-	ASSERT(!task.txt.IsEmpty());
-	ASSERT(task.snap);
-	ASSERT(task.rev_snap);
-	const double* comp = task.scores.Begin();
-	PatternSnap& snap = *task.rev_snap;
-	int ma = task.mask_attrs.GetCount();
-	ASSERT(ma > 0);
-	task.active = true;
-	const SnapAttrStr* mas = task.mask_attrs.GetKeys().Begin();
-	
-	Vector<double> score;
-	score.SetCount(gc);
-	double* sc = score.Begin();
-	
-	GeneticOptimizer& optimizer = task.optimizer;
-	FixedTopValueSorter<max_values> sorter;
-	double mismatch_prob = max(0.5, 1.0 - (double)max_values / ma);
-	
-	if (!optimizer.GetRound()) {
-		optimizer.SetMaxGenerations(gens);
-		optimizer.Init(ma, ma * gen_multiplier);
-		optimizer.MinMax(0, 1);
-		
-		// Process
-		task.actual = 0;
-		task.total = optimizer.GetMaxRounds();
-		task.result_values.Reserve(1 << 16);
-	}
-	
-	while (task.actual < task.total && !optimizer.IsEnd() && mgr.running) {
-		// Get trial solution
-		optimizer.Start();
-		const Vector<double>& trial = optimizer.GetTrialSolution();
-		for(int j = 0; j < gc; j++)
-			sc[j] = 0;
-		
-		
-		// Collect probabilities for attributes
-		sorter.Reset();
-		for(int i = 0; i < ma; i++) {
-			double p = trial[i];
-			if (p < mismatch_prob)
-				continue;
-			
-			sorter.Add(i, p);
-		}
-		
-		
-		// Calculate score of the trial solution
-		int mc = min(max_values, sorter.count);
-		for(int i = 0; i < mc; i++) {
-			int attr_i = sorter.key[i];
-			const SnapAttrStr& sa = mas[attr_i];
-			int score = db.attrscores.attr_to_score[sa.group_i][sa.item_i];
-			ASSERT(score >= 0);
-			const AttrScoreGroup& ag = db.attrscores.groups[score];
-			ASSERT(ag.scores.GetCount() == gc);
-			const int* fsc = ag.scores.Begin();
-			for(int j = 0; j < gc; j++)
-				sc[j] += fsc[j];
-		}
-		
-		// Calculate energy
-		double energy = 0;
-		if (1) {
-			for(int i = 0; i < gc; i++) {
-				double a = sc[i];
-				double b = comp[i];
-				double diff = fabs(a - b);
-				energy -= diff;
-			}
-			double penalty = (max_values - mc) * 0.1;
-			energy -= penalty;
-		}
-		else if (0) {
-			for(int i = 0; i < gc; i++) {
-				double a = sc[i];
-				double b = comp[i];
-				double diff = fabs(a - b);
-				bool sgn_mismatch = (a > 0) == (b > 0);
-				bool large_value = fabs(a) > fabs(b);
-				double mul = (sgn_mismatch ? 2 : 1) * (large_value ? 2 : 1);
-				energy -= diff * mul;
-			}
-		}
-		else {
-			int sum_X = 0, sum_Y = 0, sum_XY = 0;
-			int squareSum_X = 0, squareSum_Y = 0;
-			for(int i = 0; i < gc; i++) {
-				double a = sc[i];
-				double b = comp[i];
-				if (!a) continue;
-				
-				// sum of elements of array X.
-		        sum_X = sum_X + a;
-		 
-		        // sum of elements of array Y.
-		        sum_Y = sum_Y + b;
-		 
-		        // sum of X[i] * Y[i].
-		        sum_XY = sum_XY + a * b;
-		 
-		        // sum of square of array elements.
-		        squareSum_X = squareSum_X + a * a;
-		        squareSum_Y = squareSum_Y + b * b;
-			}
-			// use formula for calculating correlation coefficient.
-			float mul = (gc * squareSum_Y - sum_Y * sum_Y);
-			float sq = sqrt((gc * squareSum_X - sum_X * sum_X) * mul);
-			float corr = (float)(gc * sum_XY - sum_X * sum_Y) / sq;
-			
-			if (!IsFin(corr)) {
-				DUMP(sum_X);
-				DUMP(sum_Y);
-				DUMP(sum_XY);
-				DUMP(squareSum_X);
-				DUMP(squareSum_Y);
-				DUMP(sq);
-				DUMP(mul);
-				ASSERT(0);
-			}
-			energy = corr;
-		}
-		
-		/*double penalty = max(0, enabled_count - 5) * 0.01;
-		energy -= penalty;*/
-		
-		//DUMP(energy);
-		//DUMP(optimizer.GetBestEnergy());
-		bool new_best = energy > optimizer.GetBestEnergy();
-		
-		if ((task.actual % 100) == 0 || new_best) {
-			task.result_values.Add(energy);
-			task.values_max = max(energy, task.values_max);
-			task.values_min = min(energy, task.values_min);
-		}
-		
-		if (new_best) {
-			//LOG("Task #" << task.id << " best energy: " << energy);
-			task.lock.EnterWrite();
-			TaskResult& res = task.results.Add();
-			res.optimizer_score = energy;
-			res.id = task.actual;
-			task.lock.LeaveWrite();
-		}
-		
-		optimizer.Stop(energy);
-		
-		task.actual++;
-		
-		if (energy == 0)
-			break;
-	}
-	
-	if (!mgr.running) {
-		SetError(t_("Interrupted"));
-		return;
-	}
-	
-	
-	// Use the best result
-	{
-		task.lock.EnterWrite();
-		task.result_attrs.Clear();
-		snap.attributes.Clear();
-		
-		const Vector<double>& best = optimizer.GetBestSolution();
-		for(int j = 0; j < gc; j++)
-			sc[j] = 0;
-		
-		sorter.Reset();
-		for(int i = 0; i < ma; i++) {
-			double t = best[i];
-			if (t < mismatch_prob)
-				continue;
-			
-			sorter.Add(i, t);
-		}
-		
-		int mc = min(max_values, sorter.count);
-		for(int i = 0; i < mc; i++) {
-			int attr_i = sorter.key[i];
-			const SnapAttrStr& sa = mas[attr_i];
-			task.result_attrs.Add(sa);
-			snap.FindAddAttr(sa);
-		}
-		task.lock.LeaveWrite();
-	}
-	
-	// merge common values to owners in snaps
-	snap.line->MergeOwner();
-	
-	task.Store();
-}
-
 void AI_Task::Process_MakeReverseImpactTask() {
+	TaskMgr& m = TaskMgr::Single();
+	AI_Task& chk = m.tasks.Add();
+	chk.type = TASK_MAKE_REVERSE_MASK_TASK;
+	chk.p = p;
 	
-	TODO
-	
-}
-
-void AI_Task::Process_ReverseImpact() {
-	
-	TODO
-	
+	AI_Task& t = m.tasks.Add();
+	t.type = TASK_REVERSE_IMPACT;
+	t.p = p;
+	chk.depends_on << &t;
 }
 
 void AI_Task::Process_MakeReverseMaskTask() {
+	Database& db = Database::Single();
+	Attributes& g = db.attrs;
+	Song& song = *p.song;
+	int mode = p.mode;
+	ASSERT(mode == MALE || mode == FEMALE);
+	int rev_mode = p.mode == MALE ? MALE_REVERSED : FEMALE_REVERSED;
+	int gc = g.scorings.GetCount();
 	
-	TODO
+	TaskMgr& m = TaskMgr::Single();
+	AI_Task& chk = m.tasks.Add();
+	chk.type = TASK_MAKE_REVERSEPATTERN_TASK;
+	chk.p = p;
 	
+	for (Part& part : song.parts) {
+		AI_Task& t = m.tasks.Add();
+		t.type = TASK_REVERSE_MASK;
+		t.p = p;
+		t.p.part = &part;
+		chk.depends_on << &t;
+		
+		ReverseTask& rt = song.rev_mask_tasks.Add();
+		rt.id = song.rev_mask_tasks.GetCount()-1;
+		t.task = &rt;
+		
+		rt.snap = &part.snap[mode];
+		rt.rev_snap = &part.snap[rev_mode];
+		m.total++;
+		
+		
+		// Input arguments ( = hash affecting values)
+		rt.txt = rt.snap->txt;
+		if (rt.txt.IsEmpty()) {
+			SetError("snap text empty");
+			t.failed = true;
+			song.lock.LeaveWrite();
+			return;
+		}
+		
+		ASSERT(rt.snap->partscore.GetCount() == gc);
+		rt.snap->partscore.SetCount(gc, 0);
+		rt.rev_snap->partscore.SetCount(gc, 0);
+		
+		rt.scores.SetCount(rt.snap->partscore.GetCount());
+		for(int i = 0; i < rt.snap->partscore.GetCount(); i++)
+			rt.scores[i] = rt.snap->partscore[i];
+		
+		// Try to load existing results
+		rt.LoadHash(rt.GetHashValue());
+	}
 }
-
-void AI_Task::Process_ReverseMask() {
-	
-	TODO
-	
-}
-
 
 void AI_Task::Process_MakeReversePattern() {
 	Database& db = Database::Single();
@@ -1602,7 +1457,7 @@ void AI_Task::Process_MakeReversePattern() {
 	int total = ac * gen_multiplier * gens;
 	
 	song.lock.EnterWrite();
-	song.rev_tasks.Clear();
+	song.rev_pattern_tasks.Clear();
 	int part_i = -1;
 	for (Part& p : song.parts) {
 		part_i++;
@@ -1623,7 +1478,7 @@ void AI_Task::Process_MakeReversePattern() {
 				
 				//PatternSnap& snap = *snaps[i];
 				//PatternSnap& rev_snap = *rev_snaps[i];
-				ReverseTask& rt = song.rev_tasks.Add();
+				ReverseTask& rt = song.rev_pattern_tasks.Add();
 				AI_Task& t = m.tasks.Add();
 				t.type = TASK_REVERSEPATTERN;
 				t.p = this->p;

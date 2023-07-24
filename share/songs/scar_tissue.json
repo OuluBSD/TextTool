@@ -289,12 +289,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is evoked to feel sorrow and gloom."
-									}
+
 								],
 								"syllables": 3,
+								"impact": "The listener is evoked to feel sorrow and gloom.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									0,
+									1,
+									2,
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									2,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -441,12 +461,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "Sets up a dark tone, as the mention of ex-boyfriend's scar tissue implies a past of pain or violence."
-									}
+
 								],
 								"syllables": 10,
+								"impact": "Sets up a dark tone, as the mention of ex-boyfriend's scar tissue implies a past of pain or violence.",
+								"impact_score": [
+									0,
+									0,
+									0,
+									-1,
+									1,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									0,
+									-1,
+									-1,
+									1,
+									-1,
+									-1,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -460,31 +500,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is evoked to feel sorrow and gloom.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									0,
+									1,
+									2,
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									2,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -498,31 +542,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "Sets up a dark tone, as the mention of ex-boyfriend's scar tissue implies a past of pain or violence.",
+								"impact_score": [
+									0,
+									0,
+									0,
+									-1,
+									1,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									0,
+									-1,
+									-1,
+									1,
+									-1,
+									-1,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -603,12 +651,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is motivated to take a closer look at the situation."
-									}
+
 								],
 								"syllables": 6,
+								"impact": "The listener is motivated to take a closer look at the situation.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -723,12 +791,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "reveals a need for control on the part of the speaker, emphasizing the darker tone created in part one."
-									}
+
 								],
 								"syllables": 18,
+								"impact": "reveals a need for control on the part of the speaker, emphasizing the darker tone created in part one.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -742,31 +830,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is motivated to take a closer look at the situation.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -780,31 +872,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "reveals a need for control on the part of the speaker, emphasizing the darker tone created in part one.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -889,12 +985,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is curious to gain further insight into the complexity of the situation."
-									}
+
 								],
 								"syllables": 13,
+								"impact": "The listener is curious to gain further insight into the complexity of the situation.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									0,
+									2,
+									2,
+									2,
+									2,
+									2,
+									1,
+									1,
+									3,
+									2,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -965,12 +1081,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "changes the tone to one of cynicism and frustration."
-									}
+
 								],
 								"syllables": 3,
+								"impact": "changes the tone to one of cynicism and frustration.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									0,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -984,31 +1120,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is curious to gain further insight into the complexity of the situation.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									0,
+									2,
+									2,
+									2,
+									2,
+									2,
+									1,
+									1,
+									3,
+									2,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -1022,31 +1162,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "changes the tone to one of cynicism and frustration.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									0,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -1135,12 +1279,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is challenged to think critically about the speaker's intentions and motives."
-									}
+
 								],
 								"syllables": 6,
+								"impact": "The listener is challenged to think critically about the speaker's intentions and motives.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									0,
+									2,
+									2,
+									2,
+									2,
+									2,
+									1,
+									1,
+									2,
+									2,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -1219,12 +1383,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "Focuses the tone toward one of mocking and judgement. The listener is left with a feeling of tension, as the lyrics evoke a sense of conflict between the speaker and the person being addressed."
-									}
+
 								],
 								"syllables": 6,
+								"impact": "Focuses the tone toward one of mocking and judgement. The listener is left with a feeling of tension, as the lyrics evoke a sense of conflict between the speaker and the person being addressed.",
+								"impact_score": [
+									0,
+									-1,
+									0,
+									-1,
+									1,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									0,
+									-1,
+									-1,
+									1,
+									-1,
+									-1,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -1238,31 +1422,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is challenged to think critically about the speaker's intentions and motives.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									0,
+									2,
+									2,
+									2,
+									2,
+									2,
+									1,
+									1,
+									2,
+									2,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -1276,31 +1464,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "Focuses the tone toward one of mocking and judgement. The listener is left with a feeling of tension, as the lyrics evoke a sense of conflict between the speaker and the person being addressed.",
+								"impact_score": [
+									0,
+									-1,
+									0,
+									-1,
+									1,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									0,
+									-1,
+									-1,
+									1,
+									-1,
+									-1,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -1439,6 +1631,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -1572,6 +1768,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -1591,6 +1791,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -1610,6 +1814,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -1712,12 +1920,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "creates the sense of taking a leap of faith into a vulnerable moment"
-									}
+
 								],
 								"syllables": 12,
+								"impact": "creates the sense of taking a leap of faith into a vulnerable moment",
+								"impact_score": [
+									1,
+									1,
+									-1,
+									1,
+									2,
+									2,
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									2,
+									1,
+									2,
+									2,
+									2,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -1804,12 +2032,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is comforted, feeling reassured and calm."
-									}
+
 								],
 								"syllables": 11,
+								"impact": "The listener is comforted, feeling reassured and calm.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -1823,31 +2071,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "creates the sense of taking a leap of faith into a vulnerable moment",
+								"impact_score": [
+									1,
+									1,
+									-1,
+									1,
+									2,
+									2,
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									2,
+									1,
+									2,
+									2,
+									2,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -1861,31 +2113,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is comforted, feeling reassured and calm.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -1978,12 +2234,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "paints a picture of longing and intensity"
-									}
+
 								],
 								"syllables": 22,
+								"impact": "paints a picture of longing and intensity",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									1,
+									-1,
+									-2,
+									-1,
+									-2,
+									-1,
+									-1,
+									-2,
+									-1,
+									-1,
+									-2,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -2062,12 +2338,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener feels loved and cherished."
-									}
+
 								],
 								"syllables": 6,
+								"impact": "The listener feels loved and cherished.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -2081,31 +2377,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "paints a picture of longing and intensity",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									1,
+									-1,
+									-2,
+									-1,
+									-2,
+									-1,
+									-1,
+									-2,
+									-1,
+									-1,
+									-2,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -2119,31 +2419,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener feels loved and cherished.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -2264,12 +2568,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "evokes the feelings of loneliness and yearning for a deeper connection."
-									}
+
 								],
 								"syllables": 22,
+								"impact": "evokes the feelings of loneliness and yearning for a deeper connection.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									1,
+									-1,
+									-1,
+									-1,
+									-2,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -2360,12 +2684,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is excited, feeling an anticipation and joy of sharing something special."
-									}
+
 								],
 								"syllables": 11,
+								"impact": "The listener is excited, feeling an anticipation and joy of sharing something special.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -2379,31 +2723,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "evokes the feelings of loneliness and yearning for a deeper connection.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									1,
+									-1,
+									-1,
+									-1,
+									-2,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -2417,31 +2765,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is excited, feeling an anticipation and joy of sharing something special.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -2620,6 +2972,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -2761,6 +3117,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -2780,6 +3140,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -2799,6 +3163,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -3166,6 +3534,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -3612,6 +3984,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -3925,6 +4301,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -3944,6 +4324,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -4053,12 +4437,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is able to imagine the speaker's out-of-the ordinary perspective and appreciate the peaceful atmosphere."
-									}
+
 								],
 								"syllables": 11,
+								"impact": "The listener is able to imagine the speaker's out-of-the ordinary perspective and appreciate the peaceful atmosphere.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									2,
+									2,
+									2,
+									2,
+									1,
+									1,
+									2,
+									2,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -4157,12 +4561,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is made aware of the birds singing around them, creating a tranquil atmosphere."
-									}
+
 								],
 								"syllables": 11,
+								"impact": "The listener is made aware of the birds singing around them, creating a tranquil atmosphere.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -4176,31 +4600,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is able to imagine the speaker's out-of-the ordinary perspective and appreciate the peaceful atmosphere.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									2,
+									2,
+									2,
+									2,
+									1,
+									1,
+									2,
+									2,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -4214,31 +4642,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is made aware of the birds singing around them, creating a tranquil atmosphere.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -4339,12 +4771,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is struck by the loneliness of the speaker and can empathize with the isolation they feel."
-									}
+
 								],
 								"syllables": 16,
+								"impact": "The listener is struck by the loneliness of the speaker and can empathize with the isolation they feel.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -4455,12 +4907,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener feels the loneliness of the scene and focus of the narrator, but can find solace in being able to share it."
-									}
+
 								],
 								"syllables": 18,
+								"impact": "The listener feels the loneliness of the scene and focus of the narrator, but can find solace in being able to share it.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									-1,
+									-1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -4474,31 +4946,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is struck by the loneliness of the speaker and can empathize with the isolation they feel.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -4512,31 +4988,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener feels the loneliness of the scene and focus of the narrator, but can find solace in being able to share it.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									-1,
+									-1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -4667,6 +5147,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -4812,6 +5296,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -4831,6 +5319,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -4850,6 +5342,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -4959,6 +5455,10 @@
 
 								],
 								"syllables": 11,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -5060,6 +5560,10 @@
 
 								],
 								"syllables": 11,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -5073,31 +5577,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -5111,31 +5600,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -5239,6 +5713,10 @@
 
 								],
 								"syllables": 16,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -5352,6 +5830,10 @@
 
 								],
 								"syllables": 18,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -5365,31 +5847,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -5403,31 +5870,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -5558,6 +6010,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -5703,6 +6159,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -5722,6 +6182,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -5741,6 +6205,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -5900,6 +6368,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -6146,6 +6618,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -6367,6 +6843,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -6386,6 +6866,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -6475,12 +6959,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is made aware of a potentially dangerous activity and is drawn in to the song."
-									}
+
 								],
 								"syllables": 10,
+								"impact": "The listener is made aware of a potentially dangerous activity and is drawn in to the song.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									-1,
+									-1,
+									1,
+									0,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									-1,
+									-1,
+									-1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -6575,12 +7079,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener feels a sense of tenderness."
-									}
+
 								],
 								"syllables": 7,
+								"impact": "The listener feels a sense of tenderness.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -6594,31 +7118,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is made aware of a potentially dangerous activity and is drawn in to the song.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									-1,
+									-1,
+									1,
+									0,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									-1,
+									-1,
+									-1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -6632,31 +7160,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener feels a sense of tenderness.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -6725,12 +7257,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener can sense the physical and mental impact of the described activity."
-									}
+
 								],
 								"syllables": 5,
+								"impact": "The listener can sense the physical and mental impact of the described activity.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									2,
+									1,
+									0,
+									1,
+									2,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -6821,12 +7373,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener feels a sense of anticipation and excitement."
-									}
+
 								],
 								"syllables": 15,
+								"impact": "The listener feels a sense of anticipation and excitement.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -6840,31 +7412,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener can sense the physical and mental impact of the described activity.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									2,
+									1,
+									0,
+									1,
+									2,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -6878,31 +7454,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener feels a sense of anticipation and excitement.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -7003,12 +7583,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "This phrase is meant to evoke an image of a vulnerable young person, thus heightening the sense of danger and vulnerability felt by the listener."
-									}
+
 								],
 								"syllables": 19,
+								"impact": "This phrase is meant to evoke an image of a vulnerable young person, thus heightening the sense of danger and vulnerability felt by the listener.",
+								"impact_score": [
+									1,
+									1,
+									-1,
+									1,
+									2,
+									1,
+									0,
+									1,
+									1,
+									-2,
+									-1,
+									-2,
+									-2,
+									-2,
+									-2,
+									-2,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -7115,12 +7715,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener feels a flush of admiration."
-									}
+
 								],
 								"syllables": 13,
+								"impact": "The listener feels a flush of admiration.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -7134,31 +7754,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "This phrase is meant to evoke an image of a vulnerable young person, thus heightening the sense of danger and vulnerability felt by the listener.",
+								"impact_score": [
+									1,
+									1,
+									-1,
+									1,
+									2,
+									1,
+									0,
+									1,
+									1,
+									-2,
+									-1,
+									-2,
+									-2,
+									-2,
+									-2,
+									-2,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -7172,31 +7796,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener feels a flush of admiration.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -7269,12 +7897,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is reminded of the physicality of youth and, with this last phrase, can feel a sense of bittersweetness as the song ends."
-									}
+
 								],
 								"syllables": 4,
+								"impact": "The listener is reminded of the physicality of youth and, with this last phrase, can feel a sense of bittersweetness as the song ends.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									1,
+									-1,
+									-1,
+									1,
+									1,
+									-1,
+									1,
+									-1
+								],
 								"mask": [
 
 								],
@@ -7361,12 +8009,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener feels aroused."
-									}
+
 								],
 								"syllables": 4,
+								"impact": "The listener feels aroused.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									-1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									0,
+									1,
+									-1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1
+								],
 								"mask": [
 
 								],
@@ -7380,31 +8048,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is reminded of the physicality of youth and, with this last phrase, can feel a sense of bittersweetness as the song ends.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									1,
+									-1,
+									-1,
+									1,
+									1,
+									-1,
+									1,
+									-1
+								],
 								"mask": [
 
 								],
@@ -7418,31 +8090,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener feels aroused.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									-1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									0,
+									1,
+									-1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1
+								],
 								"mask": [
 
 								],
@@ -7569,6 +8245,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -7714,6 +8394,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -7733,6 +8417,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -7752,6 +8440,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -7800,7 +8492,7 @@
 									}
 								],
 								"partscore": [
-									33,
+									34,
 									8,
 									-23,
 									17,
@@ -7822,12 +8514,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is impacted by the feeling of attraction and losing composure in the singer's presence."
-									}
+
 								],
 								"syllables": 9,
+								"impact": "The listener is impacted by the feeling of attraction and losing composure in the singer's presence.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									2,
+									1,
+									2,
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									2,
+									2,
+									2,
+									2,
+									0
+								],
 								"mask": [
 
 								],
@@ -7918,12 +8630,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "the listener senses the speaker's eagerness and eagerness to please (their potential lover)."
-									}
+
 								],
 								"syllables": 12,
+								"impact": "the listener senses the speaker's eagerness and eagerness to please (their potential lover).",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									2,
+									2,
+									2,
+									2,
+									2,
+									0,
+									2,
+									2,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -7937,31 +8669,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is impacted by the feeling of attraction and losing composure in the singer's presence.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									2,
+									1,
+									2,
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									2,
+									2,
+									2,
+									2,
+									0
+								],
 								"mask": [
 
 								],
@@ -7975,31 +8711,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "the listener senses the speaker's eagerness and eagerness to please (their potential lover).",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									2,
+									2,
+									2,
+									2,
+									2,
+									0,
+									2,
+									2,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -8080,12 +8820,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is impacted by the singer's desperation to feel closer to their object of affection, no matter how intimate the behavior."
-									}
+
 								],
 								"syllables": 14,
+								"impact": "The listener is impacted by the singer's desperation to feel closer to their object of affection, no matter how intimate the behavior.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									-1,
+									1,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									1,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -8172,12 +8932,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "the listener further senses the speaker's strong desire and willingness to please and serve."
-									}
+
 								],
 								"syllables": 10,
+								"impact": "the listener further senses the speaker's strong desire and willingness to please and serve.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -8191,31 +8971,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is impacted by the singer's desperation to feel closer to their object of affection, no matter how intimate the behavior.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									-1,
+									1,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									1,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -8229,31 +9013,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "the listener further senses the speaker's strong desire and willingness to please and serve.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -8334,12 +9122,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is shocked and overwhelmed at the depths of the singer's desire and willingness to go to extreme lengths to be close to their object of affection."
-									}
+
 								],
 								"syllables": 22,
+								"impact": "The listener is shocked and overwhelmed at the depths of the singer's desire and willingness to go to extreme lengths to be close to their object of affection.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									-1,
+									-1,
+									1,
+									-1,
+									1,
+									-1,
+									-1,
+									-1,
+									1,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -8430,12 +9238,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "the listener is made to feel special and treasured as the speaker expresses their willingness to appreciate and savor every part of their potential lover."
-									}
+
 								],
 								"syllables": 13,
+								"impact": "the listener is made to feel special and treasured as the speaker expresses their willingness to appreciate and savor every part of their potential lover.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									2,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -8449,31 +9277,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is shocked and overwhelmed at the depths of the singer's desire and willingness to go to extreme lengths to be close to their object of affection.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									-1,
+									-1,
+									1,
+									-1,
+									1,
+									-1,
+									-1,
+									-1,
+									1,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -8487,31 +9319,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "the listener is made to feel special and treasured as the speaker expresses their willingness to appreciate and savor every part of their potential lover.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									2,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -8634,6 +9470,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -8771,6 +9611,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -8790,6 +9634,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -8809,6 +9657,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -9064,6 +9916,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -9410,6 +10266,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -9687,6 +10547,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -9706,6 +10570,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -9818,6 +10686,10 @@
 
 								],
 								"syllables": 11,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -9919,6 +10791,10 @@
 
 								],
 								"syllables": 11,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -9932,31 +10808,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -9970,31 +10831,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -10098,6 +10944,10 @@
 
 								],
 								"syllables": 16,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -10211,6 +11061,10 @@
 
 								],
 								"syllables": 18,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -10224,31 +11078,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -10262,31 +11101,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -10417,6 +11241,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -10562,6 +11390,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -10581,6 +11413,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -10600,6 +11436,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -10709,6 +11549,10 @@
 
 								],
 								"syllables": 11,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -10810,6 +11654,10 @@
 
 								],
 								"syllables": 11,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -10823,31 +11671,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -10861,31 +11694,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -10989,6 +11807,10 @@
 
 								],
 								"syllables": 16,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -11102,6 +11924,10 @@
 
 								],
 								"syllables": 18,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -11115,31 +11941,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -11153,31 +11964,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -11308,6 +12104,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -11453,6 +12253,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -11472,6 +12276,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -11491,6 +12299,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -11597,12 +12409,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is reassured by the presence of nature."
-									}
+
 								],
 								"syllables": 11,
+								"impact": "The listener is reassured by the presence of nature.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									-1,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1
+								],
 								"mask": [
 
 								],
@@ -11701,12 +12533,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is presented with the imagery of birds singing in a lonely place."
-									}
+
 								],
 								"syllables": 11,
+								"impact": "The listener is presented with the imagery of birds singing in a lonely place.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									-1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -11720,31 +12572,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is reassured by the presence of nature.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									-1,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1
+								],
 								"mask": [
 
 								],
@@ -11758,31 +12614,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is presented with the imagery of birds singing in a lonely place.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									-1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -11847,12 +12707,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is moved by the sense of connection in shared experience."
-									}
+
 								],
 								"syllables": 9,
+								"impact": "The listener is moved by the sense of connection in shared experience.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									-1,
+									-1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -11931,12 +12811,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is moved by the idea of the singer sharing the loneliness and solitude they are experiencing."
-									}
+
 								],
 								"syllables": 9,
+								"impact": "The listener is moved by the idea of the singer sharing the loneliness and solitude they are experiencing.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									-1,
+									-1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -11950,31 +12850,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is moved by the sense of connection in shared experience.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									-1,
+									-1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -11988,31 +12892,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is moved by the idea of the singer sharing the loneliness and solitude they are experiencing.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									-1,
+									-1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -12095,6 +13003,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -12196,6 +13108,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -12215,6 +13131,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -12234,6 +13154,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -12389,6 +13313,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -12643,6 +13571,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -12860,6 +13792,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -12879,6 +13815,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -12940,12 +13880,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is likely to feel shocked and concerned about the situation."
-									}
+
 								],
 								"syllables": 13,
+								"impact": "The listener is likely to feel shocked and concerned about the situation.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									1,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -13028,12 +13988,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "the listener feels a sense of distress and acknowledgement of a difficult realty."
-									}
+
 								],
 								"syllables": 10,
+								"impact": "the listener feels a sense of distress and acknowledgement of a difficult realty.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									-1,
+									0,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									0,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -13047,31 +14027,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is likely to feel shocked and concerned about the situation.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									1,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -13085,31 +14069,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "the listener feels a sense of distress and acknowledgement of a difficult realty.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									-1,
+									0,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									0,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -13178,12 +14166,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is likely to start picturing the scene, and feeling overwhelmed."
-									}
+
 								],
 								"syllables": 6,
+								"impact": "The listener is likely to start picturing the scene, and feeling overwhelmed.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -13270,12 +14278,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "the listener connects to the uncomfortableness of a personal moment in a public space."
-									}
+
 								],
 								"syllables": 6,
+								"impact": "the listener connects to the uncomfortableness of a personal moment in a public space.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									-1,
+									1,
+									-1,
+									0,
+									0,
+									-1,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -13289,31 +14317,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is likely to start picturing the scene, and feeling overwhelmed.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -13327,31 +14359,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "the listener connects to the uncomfortableness of a personal moment in a public space.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									-1,
+									1,
+									-1,
+									0,
+									0,
+									-1,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -13424,12 +14460,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is likely to be taken aback by the contrast between the horrific situation and the protagonist's acceptance of their circumstances."
-									}
+
 								],
 								"syllables": 27,
+								"impact": "The listener is likely to be taken aback by the contrast between the horrific situation and the protagonist's acceptance of their circumstances.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									0,
+									1,
+									-1,
+									-1,
+									-1,
+									-1,
+									0,
+									1,
+									1,
+									0,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -13512,12 +14568,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "the listener feels a sense of empowerment and beauty in the courage of the woman in the story."
-									}
+
 								],
 								"syllables": 17,
+								"impact": "the listener feels a sense of empowerment and beauty in the courage of the woman in the story.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -13531,31 +14607,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -13569,31 +14630,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -13648,6 +14694,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -13686,6 +14736,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -13705,6 +14759,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -13724,6 +14782,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -13763,12 +14825,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "This conveys a sense of bittersweet emotions, as the person is saying goodbye to their loved ones in order to go on their own journey."
-									}
+
 								],
 								"syllables": 34,
+								"impact": "This conveys a sense of bittersweet emotions, as the person is saying goodbye to their loved ones in order to go on their own journey.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									-1,
+									-1,
+									-1,
+									1,
+									1,
+									-1,
+									1,
+									-1
+								],
 								"mask": [
 
 								],
@@ -13823,12 +14905,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener can empathize with the sorrow of leaving home."
-									}
+
 								],
 								"syllables": 19,
+								"impact": "The listener can empathize with the sorrow of leaving home.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									-1,
+									1,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									0,
+									-1,
+									-1,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -13842,31 +14944,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "This conveys a sense of bittersweet emotions, as the person is saying goodbye to their loved ones in order to go on their own journey.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									-1,
+									-1,
+									-1,
+									1,
+									1,
+									-1,
+									1,
+									-1
+								],
 								"mask": [
 
 								],
@@ -13880,31 +14986,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener can empathize with the sorrow of leaving home.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									-1,
+									1,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									0,
+									-1,
+									-1,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -13977,12 +15087,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "This conveys a sense of empowerment and freedom, as the person is embracing their independence and setting out into the world to explore and find themselves. The use of \"high\" also gives the impression that the person is going to be experiencing joy and a sense of adventure."
-									}
+
 								],
 								"syllables": 19,
+								"impact": "This conveys a sense of empowerment and freedom, as the person is embracing their independence and setting out into the world to explore and find themselves. The use of \"high\" also gives the impression that the person is going to be experiencing joy and a sense of adventure.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									1
+								],
 								"mask": [
 
 								],
@@ -14113,12 +15243,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener finds hope in the adventure awaiting despite the loneliness of the view."
-									}
+
 								],
 								"syllables": 22,
+								"impact": "The listener finds hope in the adventure awaiting despite the loneliness of the view.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									0,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -14132,31 +15282,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "This conveys a sense of empowerment and freedom, as the person is embracing their independence and setting out into the world to explore and find themselves. The use of \"high\" also gives the impression that the person is going to be experiencing joy and a sense of adventure.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									1
+								],
 								"mask": [
 
 								],
@@ -14170,31 +15324,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener finds hope in the adventure awaiting despite the loneliness of the view.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									0,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -14249,6 +15407,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -14418,6 +15580,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -14437,6 +15603,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -14456,6 +15626,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -14559,6 +15733,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -14929,6 +16107,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -15210,6 +16392,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -15229,6 +16415,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -15338,12 +16528,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener may feel a sense of companionship imagining being surrounded by the birds."
-									}
+
 								],
 								"syllables": 11,
+								"impact": "The listener may feel a sense of companionship imagining being surrounded by the birds.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									-1,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1
+								],
 								"mask": [
 
 								],
@@ -15462,12 +16672,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is given a peaceful, bucolic image of birds flying together."
-									}
+
 								],
 								"syllables": 11,
+								"impact": "The listener is given a peaceful, bucolic image of birds flying together.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -15481,31 +16711,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener may feel a sense of companionship imagining being surrounded by the birds.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									-1,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1
+								],
 								"mask": [
 
 								],
@@ -15519,31 +16753,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is given a peaceful, bucolic image of birds flying together.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -15616,12 +16854,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener may feel a sense of loneliness and introspection in the atmosphere created by the service station and the narrator sharing their view."
-									}
+
 								],
 								"syllables": 18,
+								"impact": "The listener may feel a sense of loneliness and introspection in the atmosphere created by the service station and the narrator sharing their view.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -15740,12 +16998,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is made aware of the singer's loneliness as they travel on a road trip."
-									}
+
 								],
 								"syllables": 16,
+								"impact": "The listener is made aware of the singer's loneliness as they travel on a road trip.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									-1,
+									-1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -15759,31 +17037,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener may feel a sense of loneliness and introspection in the atmosphere created by the service station and the narrator sharing their view.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -15797,31 +17079,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is made aware of the singer's loneliness as they travel on a road trip.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									-1,
+									-1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -15916,6 +17202,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -16041,6 +17331,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -16060,6 +17354,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -16079,6 +17377,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -16188,6 +17490,10 @@
 
 								],
 								"syllables": 11,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -16309,6 +17615,10 @@
 
 								],
 								"syllables": 11,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -16322,31 +17632,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -16360,31 +17655,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -16460,6 +17740,10 @@
 
 								],
 								"syllables": 18,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -16581,6 +17865,10 @@
 
 								],
 								"syllables": 16,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -16594,31 +17882,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -16632,31 +17905,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -16751,6 +18009,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -16876,6 +18138,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -16895,6 +18161,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -16914,6 +18184,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -17053,6 +18327,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -17303,6 +18581,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -17520,6 +18802,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -17539,6 +18825,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -17600,12 +18890,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "with this line, the listener feels a sense of vulnerability and fragility."
-									}
+
 								],
 								"syllables": 14,
+								"impact": "with this line, the listener feels a sense of vulnerability and fragility.",
+								"impact_score": [
+									1,
+									0,
+									-1,
+									1,
+									1,
+									1,
+									-1,
+									-1,
+									-2,
+									-2,
+									-1,
+									-2,
+									-1,
+									-1,
+									-2,
+									-2,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -17712,12 +19022,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "This creates a sense of fragility and vulnerability."
-									}
+
 								],
 								"syllables": 14,
+								"impact": "This creates a sense of fragility and vulnerability.",
+								"impact_score": [
+									0,
+									0,
+									0,
+									-1,
+									1,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									0,
+									-1,
+									-1,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -17731,31 +19061,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "with this line, the listener feels a sense of vulnerability and fragility.",
+								"impact_score": [
+									1,
+									0,
+									-1,
+									1,
+									1,
+									1,
+									-1,
+									-1,
+									-2,
+									-2,
+									-1,
+									-2,
+									-1,
+									-1,
+									-2,
+									-2,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -17769,31 +19103,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "This creates a sense of fragility and vulnerability.",
+								"impact_score": [
+									0,
+									0,
+									0,
+									-1,
+									1,
+									-1,
+									0,
+									0,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									0,
+									-1,
+									-1,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -17866,12 +19204,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "the listener now feels a sense of courage and determination, that no matter the obstacles the protagonist will try to continue on."
-									}
+
 								],
 								"syllables": 17,
+								"impact": "the listener now feels a sense of courage and determination, that no matter the obstacles the protagonist will try to continue on.",
+								"impact_score": [
+									1,
+									0,
+									1,
+									1,
+									2,
+									2,
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									2,
+									2,
+									2,
+									2,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -17958,12 +19316,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "Despite his vulnerability, he shows he can still stand up and take action."
-									}
+
 								],
 								"syllables": 9,
+								"impact": "Despite his vulnerability, he shows he can still stand up and take action.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									0,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -17977,31 +19355,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "the listener now feels a sense of courage and determination, that no matter the obstacles the protagonist will try to continue on.",
+								"impact_score": [
+									1,
+									0,
+									1,
+									1,
+									2,
+									2,
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									2,
+									2,
+									2,
+									2,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -18015,31 +19397,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "Despite his vulnerability, he shows he can still stand up and take action.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									0,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -18096,12 +19482,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "with this line, the listener feels a sense of hope and positivity that despite the struggles faced by the protagonist, there is still light at the end of the tunnel."
-									}
+
 								],
 								"syllables": 17,
+								"impact": "with this line, the listener feels a sense of hope and positivity that despite the struggles faced by the protagonist, there is still light at the end of the tunnel.",
+								"impact_score": [
+									1,
+									0,
+									1,
+									1,
+									2,
+									1,
+									1,
+									1,
+									2,
+									2,
+									2,
+									2,
+									2,
+									1,
+									2,
+									2,
+									2,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -18204,12 +19610,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "He is also portrayed as a good man, furthering the contrast between his violent past and his present moral character. This gives listeners a sense of appreciation for this man's good nature."
-									}
+
 								],
 								"syllables": 14,
+								"impact": "He is also portrayed as a good man, furthering the contrast between his violent past and his present moral character. This gives listeners a sense of appreciation for this man's good nature.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -18223,31 +19649,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "with this line, the listener feels a sense of hope and positivity that despite the struggles faced by the protagonist, there is still light at the end of the tunnel.",
+								"impact_score": [
+									1,
+									0,
+									1,
+									1,
+									2,
+									1,
+									1,
+									1,
+									2,
+									2,
+									2,
+									2,
+									2,
+									1,
+									2,
+									2,
+									2,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -18261,31 +19691,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "He is also portrayed as a good man, furthering the contrast between his violent past and his present moral character. This gives listeners a sense of appreciation for this man's good nature.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -18368,6 +19802,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -18501,6 +19939,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -18520,6 +19962,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -18539,6 +19985,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -18609,12 +20059,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "A peaceful, calming reflection on the season of autumn and the joy it brings."
-									}
+
 								],
 								"syllables": 12,
+								"impact": "A peaceful, calming reflection on the season of autumn and the joy it brings.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									0,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -18725,12 +20195,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is drawn into the season of autumn with imagery of a cozy Fall Day."
-									}
+
 								],
 								"syllables": 20,
+								"impact": "The listener is drawn into the season of autumn with imagery of a cozy Fall Day.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -18744,31 +20234,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "A peaceful, calming reflection on the season of autumn and the joy it brings.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									0,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -18782,31 +20276,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is drawn into the season of autumn with imagery of a cozy Fall Day.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -18891,12 +20389,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "An optimistic outlook on the determination and possibilities of life."
-									}
+
 								],
 								"syllables": 8,
+								"impact": "An optimistic outlook on the determination and possibilities of life.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									2,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -18999,12 +20517,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is inspired by the ambition and optimism of the lyrics."
-									}
+
 								],
 								"syllables": 8,
+								"impact": "The listener is inspired by the ambition and optimism of the lyrics.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -19018,31 +20556,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "An optimistic outlook on the determination and possibilities of life.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									2,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -19056,31 +20598,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is inspired by the ambition and optimism of the lyrics.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -19141,12 +20687,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "A reminder that ambition, enthusiasm and courage can take you far, as well as a touching sentiment that even in solitude, beauty can be found."
-									}
+
 								],
 								"syllables": 29,
+								"impact": "A reminder that ambition, enthusiasm and courage can take you far, as well as a touching sentiment that even in solitude, beauty can be found.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -19257,12 +20823,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is encouraged by the determination of the lyrics and focus of the singer on their goal."
-									}
+
 								],
 								"syllables": 11,
+								"impact": "The listener is encouraged by the determination of the lyrics and focus of the singer on their goal.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -19276,31 +20862,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "A reminder that ambition, enthusiasm and courage can take you far, as well as a touching sentiment that even in solitude, beauty can be found.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -19314,31 +20904,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is encouraged by the determination of the lyrics and focus of the singer on their goal.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -19433,6 +21027,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -19570,6 +21168,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -19589,6 +21191,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -19608,6 +21214,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -19763,6 +21373,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -20117,6 +21731,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -20446,6 +22064,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -20465,6 +22087,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -20550,12 +22176,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is filled with wonder and joy as they observe the birds around them."
-									}
+
 								],
 								"syllables": 12,
+								"impact": "The listener is filled with wonder and joy as they observe the birds around them.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									1,
+									1,
+									2,
+									2,
+									2,
+									2,
+									2,
+									2,
+									2,
+									3,
+									2,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -20654,12 +22300,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "This section creates an atmosphere of calm and peace, as nature is being celebrated."
-									}
+
 								],
 								"syllables": 11,
+								"impact": "This section creates an atmosphere of calm and peace, as nature is being celebrated.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -20673,31 +22339,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is filled with wonder and joy as they observe the birds around them.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									1,
+									1,
+									2,
+									2,
+									2,
+									2,
+									2,
+									2,
+									2,
+									3,
+									2,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -20711,31 +22381,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "This section creates an atmosphere of calm and peace, as nature is being celebrated.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -20808,12 +22482,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is filled with a sense of solitude and melancholic musings as they take in the view from a serious vantage point."
-									}
+
 								],
 								"syllables": 18,
+								"impact": "The listener is filled with a sense of solitude and melancholic musings as they take in the view from a serious vantage point.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									1,
+									1,
+									2,
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									2,
+									2,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -20924,12 +22618,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "This section shows a sense of companionship, as the narrator is inviting someone to share the experience of being outdoors."
-									}
+
 								],
 								"syllables": 17,
+								"impact": "This section shows a sense of companionship, as the narrator is inviting someone to share the experience of being outdoors.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -20943,31 +22657,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "The listener is filled with a sense of solitude and melancholic musings as they take in the view from a serious vantage point.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									1,
+									1,
+									2,
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									2,
+									2,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -20981,31 +22699,35 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "This section shows a sense of companionship, as the narrator is inviting someone to share the experience of being outdoors.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -21088,6 +22810,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -21201,6 +22927,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -21220,6 +22950,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -21239,6 +22973,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -21324,6 +23062,10 @@
 
 								],
 								"syllables": 12,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -21425,6 +23167,10 @@
 
 								],
 								"syllables": 11,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -21438,31 +23184,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -21476,31 +23207,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -21576,6 +23292,10 @@
 
 								],
 								"syllables": 18,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -21689,6 +23409,10 @@
 
 								],
 								"syllables": 17,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -21702,31 +23426,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -21740,31 +23449,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -21847,6 +23541,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -21960,6 +23658,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -21979,6 +23681,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -21998,6 +23704,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -22080,12 +23790,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "This creates a feeling of peacefulness and contentment."
-									}
+
 								],
 								"syllables": 12,
+								"impact": "This creates a feeling of peacefulness and contentment.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									2,
+									0,
+									2,
+									1,
+									0,
+									2,
+									2,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -22187,6 +23917,10 @@
 
 								],
 								"syllables": 11,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -22200,31 +23934,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -22238,31 +23957,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -22327,12 +24031,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "This stirs feelings of isolation and acceptance."
-									}
+
 								],
 								"syllables": 9,
+								"impact": "This stirs feelings of isolation and acceptance.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									1,
+									-1,
+									-2,
+									-1,
+									-2,
+									-2,
+									-2,
+									-1,
+									1,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -22414,6 +24138,10 @@
 
 								],
 								"syllables": 9,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -22427,31 +24155,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -22465,31 +24178,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -22584,6 +24282,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -22685,6 +24387,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -22704,6 +24410,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -22723,6 +24433,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -22854,6 +24568,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -23200,6 +24918,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -23421,6 +25143,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -23440,6 +25166,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -23721,12 +25451,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "This evokes a physical feeling of experiencing pain."
-									}
+
 								],
 								"syllables": 3,
+								"impact": "This evokes a physical feeling of experiencing pain.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									-2,
+									-1,
+									-1,
+									-2,
+									-1,
+									-2,
+									-1,
+									-1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -23876,6 +25626,10 @@
 
 								],
 								"syllables": 10,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -23889,31 +25643,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -23927,31 +25666,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -24032,12 +25756,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "This expresses a longing for someone to witness and understand the emotional turmoil being experienced."
-									}
+
 								],
 								"syllables": 6,
+								"impact": "This expresses a longing for someone to witness and understand the emotional turmoil being experienced.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									1,
+									1,
+									0,
+									1,
+									2,
+									-1,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									2,
+									2,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -24155,6 +25899,10 @@
 
 								],
 								"syllables": 18,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -24168,31 +25916,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -24206,31 +25939,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -24291,12 +26009,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "This conveys an attitude of sarcasm or cynicism towards the situation."
-									}
+
 								],
 								"syllables": 5,
+								"impact": "This conveys an attitude of sarcasm or cynicism towards the situation.",
+								"impact_score": [
+									1,
+									0,
+									0,
+									1,
+									0,
+									-1,
+									0,
+									0,
+									1,
+									-1,
+									0,
+									0,
+									0,
+									1,
+									1,
+									0,
+									1,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -24370,6 +26108,10 @@
 
 								],
 								"syllables": 3,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -24383,31 +26125,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -24421,31 +26148,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -24534,12 +26246,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "This reveals a resentment towards someone for thinking they have all the answers."
-									}
+
 								],
 								"syllables": 6,
+								"impact": "This reveals a resentment towards someone for thinking they have all the answers.",
+								"impact_score": [
+									1,
+									-1,
+									-2,
+									-1,
+									1,
+									1,
+									0,
+									1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-1,
+									-2,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -24621,6 +26353,10 @@
 
 								],
 								"syllables": 6,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -24634,31 +26370,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -24672,31 +26393,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -24759,6 +26465,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -24892,6 +26602,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -24911,6 +26625,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -24930,6 +26648,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -25004,12 +26726,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is encouraged to relax and trust the singer."
-									}
+
 								],
 								"syllables": 7,
+								"impact": "The listener is encouraged to relax and trust the singer.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									0,
+									0,
+									2,
+									2,
+									2,
+									2,
+									2,
+									1,
+									2,
+									3,
+									2,
+									0,
+									0,
+									0
+								],
 								"mask": [
 
 								],
@@ -25099,6 +26841,10 @@
 
 								],
 								"syllables": 11,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -25112,31 +26858,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -25150,31 +26881,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -25235,12 +26951,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is feeling the intimacy of the singer's promise of an affectionate kiss."
-									}
+
 								],
 								"syllables": 6,
+								"impact": "The listener is feeling the intimacy of the singer's promise of an affectionate kiss.",
+								"impact_score": [
+									1,
+									1,
+									1,
+									1,
+									1,
+									2,
+									1,
+									1,
+									2,
+									1,
+									1,
+									1,
+									2,
+									1,
+									2,
+									2,
+									2,
+									1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -25322,6 +27058,10 @@
 
 								],
 								"syllables": 6,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -25335,31 +27075,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -25373,31 +27098,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -25462,12 +27172,32 @@
 									0
 								],
 								"data": [
-									{
-										"key": "impact",
-										"value": "The listener is swept away by the imagery of the two of them feeling free together and enjoying the moment."
-									}
+
 								],
 								"syllables": 20,
+								"impact": "The listener is swept away by the imagery of the two of them feeling free together and enjoying the moment.",
+								"impact_score": [
+									1,
+									1,
+									0,
+									1,
+									1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									1,
+									-1,
+									1,
+									0
+								],
 								"mask": [
 
 								],
@@ -25561,6 +27291,10 @@
 
 								],
 								"syllables": 11,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -25574,31 +27308,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -25612,31 +27331,16 @@
 
 								],
 								"partscore": [
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0,
-									0
+
 								],
 								"data": [
 
 								],
 								"syllables": 0,
+								"impact": "",
+								"impact_score": [
+
+								],
 								"mask": [
 
 								],
@@ -25711,6 +27415,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -25852,6 +27560,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -25871,6 +27583,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -25890,6 +27606,10 @@
 
 						],
 						"syllables": 0,
+						"impact": "",
+						"impact_score": [
+
+						],
 						"mask": [
 
 						],
@@ -26009,6 +27729,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -26427,6 +28151,10 @@
 					}
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 					{
 						"g": "pronouns",
@@ -26716,6 +28444,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -26735,6 +28467,10 @@
 
 				],
 				"syllables": 0,
+				"impact": "",
+				"impact_score": [
+
+				],
 				"mask": [
 
 				],
@@ -26750,2408 +28486,6 @@
 			"type": 1,
 			"blocks": [
 
-			]
-		}
-	],
-	"impact_scores": [
-		{
-			"key": "a peaceful, calming reflection on the season of autumn and the joy it brings.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				0,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "a reminder that ambition, enthusiasm and courage can take you far, as well as a touching sentiment that even in solitude, beauty can be found.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "an optimistic outlook on the determination and possibilities of life.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener can sense the physical and mental impact of the described activity.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is able to imagine the speakerâ€™s out-of-the ordinary perspective and appreciate the peaceful atmosphere.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is challenged to think critically about the speakerâ€™s intentions and motives.â€",
-			"value": [
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is curious to gain further insight into the complexity of the situation.â€",
-			"value": [
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is encouraged to relax and trust the singer.â€",
-			"value": [
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is evoked to feel sorrow and gloom.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				0,
-				1,
-				0,
-				0,
-				1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is feeling the intimacy of the singerâ€™s promise of an affectionate kiss.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				0,
-				1,
-				1,
-				0,
-				1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				0,
-				0,
-				1,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is filled with a sense of solitude and melancholic musings as they take in the view from a serious vantage point.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				0,
-				1,
-				0,
-				0,
-				1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is filled with wonder and joy as they observe the birds around them.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				0,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is impacted by the feeling of attraction and losing composure in the singerâ€™s presence.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				0,
-				1,
-				1,
-				0,
-				0,
-				1,
-				0,
-				1,
-				0,
-				0,
-				1,
-				1,
-				0,
-				0,
-				1,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is impacted by the singerâ€™s desperation to feel closer to their object of affection, no matter how intimate the behavior.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				0,
-				1,
-				1,
-				0,
-				0,
-				-1,
-				-1,
-				0,
-				-1,
-				0,
-				-1,
-				-1,
-				0,
-				0,
-				1,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is likely to be taken aback by the contrast between the horrific situation and the protagonistâ€™s acceptance of their circumstances.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is likely to feel shocked and concerned about the situation.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is likely to start picturing the scene, and feeling overwhelmed.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is made aware of a potentially dangerous activity and is drawn in to the song.â€",
-			"value": [
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is motivated to take a closer look at the situation.â€",
-			"value": [
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is moved by the sense of connection in shared experience.â€",
-			"value": [
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is reassured by the presence of nature.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				0,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is reminded of the physicality of youth and, with this last phrase, can feel a sense of bittersweetness as the song ends.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				0,
-				1,
-				0,
-				0,
-				1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is shocked and overwhelmed at the depths of the singerâ€™s desire and willingness to go to extreme lengths to be close to their object of affection.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				0,
-				1,
-				1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				0,
-				0,
-				1,
-				0
-			]
-		},
-		{
-			"key": "€œthe listener is struck by the loneliness of the speaker and can empathize with the isolation they feel.â€",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				0,
-				1,
-				0,
-				0,
-				1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "this creates a feeling of peacefulness and contentment.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				0,
-				1,
-				0,
-				0,
-				1,
-				1,
-				0,
-				1,
-				1,
-				0,
-				1,
-				1,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "creates the sense of taking a leap of faith into a vulnerable moment",
-			"value": [
-				1,
-				-1,
-				-1,
-				1,
-				0,
-				-1,
-				0,
-				0,
-				-1,
-				-2,
-				-2,
-				-2,
-				-2,
-				0,
-				-1,
-				-2,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "paints a picture of longing and intensity",
-			"value": [
-				1,
-				-1,
-				-1,
-				1,
-				0,
-				-1,
-				0,
-				0,
-				-1,
-				-2,
-				-2,
-				-1,
-				-2,
-				0,
-				-1,
-				-3,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "despite his vulnerability, he shows he can still stand up and take action.",
-			"value": [
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "focuses the tone toward one of mocking and judgement. the listener is left with a feeling of tension, as the lyrics evoke a sense of conflict between the speaker and the person being addressed.",
-			"value": [
-				-1,
-				-1,
-				0,
-				-1,
-				0,
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "he is also portrayed as a good man, furthering the contrast between his violent past and his present moral character. this gives listeners a sense of appreciation for this man's good nature.",
-			"value": [
-				1,
-				1,
-				0,
-				2,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				2,
-				2,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "sets up a dark tone, as the mention of ex-boyfriend's scar tissue implies a past of pain or violence.",
-			"value": [
-				-2,
-				-1,
-				0,
-				-2,
-				-2,
-				-2,
-				0,
-				-1,
-				-1,
-				-2,
-				-2,
-				-2,
-				-2,
-				0,
-				-2,
-				-2,
-				-1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener can empathize with the sorrow of leaving home.",
-			"value": [
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener feels a flush of admiration.",
-			"value": [
-				2,
-				1,
-				0,
-				1,
-				1,
-				2,
-				0,
-				1,
-				1,
-				1,
-				1,
-				2,
-				1,
-				0,
-				1,
-				2,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener feels a sense of anticipation and excitement.",
-			"value": [
-				2,
-				1,
-				0,
-				2,
-				1,
-				2,
-				0,
-				1,
-				2,
-				2,
-				2,
-				2,
-				2,
-				0,
-				2,
-				2,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener feels a sense of tenderness.",
-			"value": [
-				1,
-				1,
-				0,
-				1,
-				1,
-				2,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				2,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener feels aroused.",
-			"value": [
-				2,
-				2,
-				0,
-				2,
-				2,
-				3,
-				2,
-				2,
-				2,
-				2,
-				2,
-				2,
-				2,
-				1,
-				2,
-				3,
-				1,
-				1,
-				1,
-				1
-			]
-		},
-		{
-			"key": "the listener feels loved and cherished.",
-			"value": [
-				2,
-				2,
-				0,
-				2,
-				2,
-				3,
-				1,
-				2,
-				2,
-				2,
-				2,
-				2,
-				2,
-				0,
-				2,
-				3,
-				1,
-				1,
-				1,
-				1
-			]
-		},
-		{
-			"key": "the listener feels the loneliness of the scene and focus of the narrator, but can find solace in being able to share it.",
-			"value": [
-				1,
-				1,
-				0,
-				1,
-				1,
-				2,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				2,
-				1,
-				1,
-				1,
-				1
-			]
-		},
-		{
-			"key": "the listener finds hope in the adventure awaiting despite the loneliness of the view.",
-			"value": [
-				2,
-				2,
-				0,
-				2,
-				2,
-				3,
-				1,
-				2,
-				2,
-				2,
-				2,
-				2,
-				2,
-				0,
-				2,
-				3,
-				1,
-				1,
-				1,
-				1
-			]
-		},
-		{
-			"key": "the listener is comforted, feeling reassured and calm.",
-			"value": [
-				1,
-				1,
-				0,
-				1,
-				1,
-				2,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				2,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is drawn into the season of autumn with imagery of a cozy fall day.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				2,
-				0,
-				1,
-				1,
-				1,
-				1,
-				2,
-				1,
-				0,
-				1,
-				2,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is encouraged by the determination of the lyrics and focus of the singer on their goal.",
-			"value": [
-				2,
-				2,
-				0,
-				2,
-				2,
-				3,
-				0,
-				2,
-				2,
-				2,
-				2,
-				2,
-				2,
-				0,
-				2,
-				3,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is excited, feeling an anticipation and joy of sharing something special.",
-			"value": [
-				2,
-				1,
-				0,
-				2,
-				1,
-				2,
-				0,
-				1,
-				2,
-				2,
-				2,
-				2,
-				2,
-				0,
-				2,
-				2,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is given a peaceful, bucolic image of birds flying together.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				2,
-				0,
-				1,
-				1,
-				1,
-				1,
-				2,
-				1,
-				0,
-				1,
-				2,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is inspired by the ambition and optimism of the lyrics.",
-			"value": [
-				2,
-				2,
-				1,
-				2,
-				2,
-				3,
-				0,
-				2,
-				2,
-				2,
-				2,
-				2,
-				2,
-				0,
-				2,
-				3,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is made aware of the birds singing around them, creating a tranquil atmosphere.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				2,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				2,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is made aware of the singer's loneliness as they travel on a road trip.",
-			"value": [
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is moved by the idea of the singer sharing the loneliness and solitude they are experiencing.",
-			"value": [
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				-2,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-2,
-				-1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is presented with the imagery of birds singing in a lonely place.",
-			"value": [
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-2,
-				-1,
-				0,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "this creates a sense of fragility and vulnerability.",
-			"value": [
-				-2,
-				-1,
-				0,
-				-2,
-				-2,
-				-2,
-				0,
-				-1,
-				-1,
-				-2,
-				-2,
-				-2,
-				-2,
-				0,
-				-2,
-				-2,
-				-1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "this section creates an atmosphere of calm and peace, as nature is being celebrated.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				2,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				2,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "this section shows a sense of companionship, as the narrator is inviting someone to share the experience of being outdoors.",
-			"value": [
-				1,
-				1,
-				0,
-				1,
-				1,
-				2,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				2,
-				1,
-				1,
-				1,
-				-3
-			]
-		},
-		{
-			"key": "the listener further senses the speaker's strong desire and willingness to please and serve.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is made to feel special and treasured as the speaker expresses their willingness to appreciate and savor every part of their potential lover.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				2,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener senses the speaker's eagerness and eagerness to please (their potential lover).",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				2,
-				2,
-				2,
-				2,
-				2,
-				0,
-				2,
-				2,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener can sense the physical and mental impact of the described activity.",
-			"value": [
-				0,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				0,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is able to imagine the speaker's out-of-the ordinary perspective and appreciate the peaceful atmosphere.",
-			"value": [
-				0,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is challenged to think critically about the speaker's intentions and motives.",
-			"value": [
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				0,
-				-1,
-				-1,
-				-1,
-				1,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is curious to gain further insight into the complexity of the situation.",
-			"value": [
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				0,
-				0,
-				0,
-				0,
-				1,
-				0,
-				0,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is encouraged to relax and trust the singer.",
-			"value": [
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is evoked to feel sorrow and gloom.",
-			"value": [
-				0,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is feeling the intimacy of the singer's promise of an affectionate kiss.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				0,
-				0,
-				0,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0
-			]
-		},
-		{
-			"key": "the listener is filled with a sense of solitude and melancholic musings as they take in the view from a serious vantage point.",
-			"value": [
-				0,
-				0,
-				0,
-				-1,
-				0,
-				0,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is filled with wonder and joy as they observe the birds around them.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is impacted by the feeling of attraction and losing composure in the singer's presence.",
-			"value": [
-				0,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				0,
-				0,
-				0,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0
-			]
-		},
-		{
-			"key": "the listener is impacted by the singer's desperation to feel closer to their object of affection, no matter how intimate the behavior.",
-			"value": [
-				-1,
-				-1,
-				-1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				-1,
-				-1,
-				-1,
-				-1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0
-			]
-		},
-		{
-			"key": "the listener is likely to be taken aback by the contrast between the horrific situation and the protagonist's acceptance of their circumstances.",
-			"value": [
-				-1,
-				-1,
-				-1,
-				1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				1,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is likely to feel shocked and concerned about the situation.",
-			"value": [
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				1,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is likely to start picturing the scene, and feeling overwhelmed.",
-			"value": [
-				0,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is made aware of a potentially dangerous activity and is drawn in to the song.",
-			"value": [
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				1,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is motivated to take a closer look at the situation.",
-			"value": [
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				0,
-				0,
-				0,
-				0,
-				1,
-				0,
-				0,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is moved by the sense of connection in shared experience.",
-			"value": [
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is reassured by the presence of nature.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is reminded of the physicality of youth and, with this last phrase, can feel a sense of bittersweetness as the song ends.",
-			"value": [
-				0,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is shocked and overwhelmed at the depths of the singer's desire and willingness to go to extreme lengths to be close to their object of affection.",
-			"value": [
-				-1,
-				-1,
-				-1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				-1,
-				-1,
-				-1,
-				-1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0
-			]
-		},
-		{
-			"key": "the listener is struck by the loneliness of the speaker and can empathize with the isolation they feel.",
-			"value": [
-				0,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener is swept away by the imagery of the two of them feeling free together and enjoying the moment.",
-			"value": [
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0
-			]
-		},
-		{
-			"key": "the listener may feel a sense of companionship imagining being surrounded by the birds.",
-			"value": [
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "this reveals a resentment towards someone for thinking they have all the answers.",
-			"value": [
-				1,
-				-1,
-				0,
-				1,
-				0,
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "this stirs feelings of isolation and acceptance.",
-			"value": [
-				1,
-				-1,
-				0,
-				-1,
-				0,
-				1,
-				0,
-				0,
-				1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				1,
-				-1,
-				-1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "evokes the feelings of loneliness and yearning for a deeper connection.",
-			"value": [
-				1,
-				-1,
-				0,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener now feels a sense of courage and determination, that no matter the obstacles the protagonist will try to continue on.",
-			"value": [
-				1,
-				0,
-				1,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "with this line, the listener feels a sense of hope and positivity that despite the struggles faced by the protagonist, there is still light at the end of the tunnel.",
-			"value": [
-				1,
-				0,
-				1,
-				1,
-				0,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "with this line, the listener feels a sense of vulnerability and fragility.",
-			"value": [
-				1,
-				0,
-				1,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "changes the tone to one of cynicism and frustration.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				0,
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "reveals a need for control on the part of the speaker, emphasizing the darker tone created in part one.",
-			"value": [
-				1,
-				1,
-				0,
-				1,
-				1,
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener connects to the uncomfortableness of a personal moment in a public space.",
-			"value": [
-				1,
-				1,
-				0,
-				-1,
-				1,
-				-1,
-				0,
-				0,
-				-1,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener feels a sense of distress and acknowledgement of a difficult realty.",
-			"value": [
-				1,
-				0,
-				0,
-				-1,
-				0,
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener feels a sense of empowerment and beauty in the courage of the woman in the story.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "the listener may feel a sense of loneliness and introspection in the atmosphere created by the service station and the narrator sharing their view.",
-			"value": [
-				0,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "this conveys a sense of bittersweet emotions, as the person is saying goodbye to their loved ones in order to go on their own journey.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				0,
-				0,
-				-1,
-				-1,
-				0,
-				1,
-				-1,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "this conveys a sense of empowerment and freedom, as the person is embracing their independence and setting out into the world to explore and find themselves. the use of \"high\" also gives the impression that the person is going to be experiencing joy and a sense of adventure.",
-			"value": [
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				0,
-				0,
-				1,
-				2,
-				2,
-				2,
-				1,
-				0,
-				2,
-				2,
-				1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "this conveys an attitude of sarcasm or cynicism towards the situation.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				-1,
-				0,
-				0,
-				-1,
-				0,
-				0,
-				-1,
-				0,
-				2,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "this evokes a physical feeling of experiencing pain.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				-2,
-				0,
-				0,
-				-1,
-				-1,
-				-1,
-				-2,
-				-2,
-				0,
-				-1,
-				-2,
-				-1,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "this expresses a longing for someone to witness and understand the emotional turmoil being experienced.",
-			"value": [
-				1,
-				0,
-				0,
-				1,
-				1,
-				1,
-				0,
-				1,
-				-1,
-				0,
-				0,
-				-1,
-				-1,
-				0,
-				0,
-				0,
-				2,
-				0,
-				0,
-				0
-			]
-		},
-		{
-			"key": "this phrase is meant to evoke an image of a vulnerable young person, thus heightening the sense of danger and vulnerability felt by the listener.",
-			"value": [
-				1,
-				-1,
-				-1,
-				1,
-				-1,
-				-1,
-				0,
-				1,
-				1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-2,
-				-1,
-				0,
-				0,
-				0
 			]
 		}
 	],
@@ -41197,6 +40531,10 @@
 			}
 		],
 		"syllables": 0,
+		"impact": "",
+		"impact_score": [
+
+		],
 		"mask": [
 			{
 				"g": "nouns",
@@ -41946,6 +41284,10 @@
 			}
 		],
 		"syllables": 0,
+		"impact": "",
+		"impact_score": [
+
+		],
 		"mask": [
 			{
 				"g": "nouns",
@@ -43344,6 +42686,10 @@
 
 		],
 		"syllables": 0,
+		"impact": "",
+		"impact_score": [
+
+		],
 		"mask": [
 
 		],
@@ -43363,6 +42709,10 @@
 
 		],
 		"syllables": 0,
+		"impact": "",
+		"impact_score": [
+
+		],
 		"mask": [
 
 		],

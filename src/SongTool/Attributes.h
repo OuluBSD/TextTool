@@ -89,6 +89,7 @@ struct Attributes : DataFile {
 	void LoadDefaultAnalysis();
 	void LoadDefaultAttrGroups();
 	void RealizeAttrIds();
+	void GetAll(Vector<SnapAttrStr>& attrs);
 	void FindGroupTypes(const Vector<int>& groups, Index<int>& group_types) const;
 	GroupType& AddGroupType(String type, String ai_txt);
 	GroupType& GetGroupType(String type);

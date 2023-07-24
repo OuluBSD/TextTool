@@ -159,6 +159,7 @@ void AI_Task::CreateInput_ImpactScoring() {
 	Song& song = *p.song;
 	ASSERT(p.mode >= 0);
 	SongHeader& header = song.headers[p.mode];
+	int sc = g.scorings.GetCount();
 	
 	String prompt;
 	String entries;
@@ -170,10 +171,16 @@ void AI_Task::CreateInput_ImpactScoring() {
 	
 	int entry_count = 0;
 	for(int i = 0; i < arg_count; i++) {
-		String impact = args[i];
-		int j = song.impact_scores.Find(impact);
-		if (j >= 0)
+		String impact = ToLower(args[i]);
+		ASSERT(impact.GetCount());
+		
+		PatternSnap* snap = song.FindSnapByImpact(impact);
+		if (snap && snap->impact_score.GetCount() == sc)
 			continue;
+		
+		/*Impact* im = song.FindImpact(impact);
+		if (im)
+			continue;*/
 		
 		// Add line to ai prompt
 		entries << "Line " << i+2 << ", \"" << impact << "\"\n";

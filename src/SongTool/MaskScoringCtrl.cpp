@@ -65,7 +65,7 @@ void MaskScoringCtrl::DataList(int mode) {
 	
 	int sc = db.attrs.scorings.GetCount();
 	
-	//DUMPC(song.impact_scores.GetKeys());
+	//DUMPC(song.impacts.GetKeys());
 	
 	// Whole song
 	{

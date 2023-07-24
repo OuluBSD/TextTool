@@ -149,20 +149,7 @@ void Plotter::PartSnaps() {
 void Plotter::AddValue(SnapContext& ctx) {
 	int other_mode = !mode;
 	if (src == 0) {
-		String impact0 = ctx.snap[mode].data.Get("impact", "");
-		int impact_i0 = song->impact_scores.Find(ToLower(impact0));
-		if (impact_i0 >= 0) {
-			String impact1 = ctx.snap[other_mode].data.Get("impact", "");
-			int impact_i1 = song->impact_scores.Find(ToLower(impact1));
-			if (impact_i1 >= 0) {
-				AddValue(
-					song->impact_scores[impact_i0],
-					song->impact_scores[impact_i1]
-				);
-			}
-			else AddEmptyValue();
-		}
-		else AddEmptyValue();
+		AddValue(ctx.snap[mode].impact_score, ctx.snap[other_mode].impact_score);
 	}
 	else if (src == 1) {
 		AddValue(ctx.snap[mode].maskscore, ctx.snap[other_mode].maskscore);

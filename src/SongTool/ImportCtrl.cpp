@@ -198,7 +198,7 @@ void ImportCtrl::MakeTasks() {
 	messages.Clear();
 	
 	s.DeepClearSnap();
-	s.impact_scores.Clear();
+	//s.impacts.Clear();
 	
 	if (!ParseOriginalLyrics())
 		return;

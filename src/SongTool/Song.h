@@ -31,14 +31,20 @@ struct Song :
 	Array<Track>		tracks;
 	SongHeader			headers[PTR_COUNT];
 	
-	VectorMap<String, Vector<int>> impact_scores;
+	//Array<Impact>		impacts;
 	
 	// Local data only (not shared)
-	Array<ReverseTask>	rev_tasks;
+	Array<ReverseTask>	rev_mask_tasks;
+	Array<ReverseTask>	rev_pattern_tasks;
 	
 	RWMutex				lock;
 	
 	//Song();
+	/*Impact* FindImpact(String impact_txt);
+	Impact* FindImpactByText(String txt);
+	Impact& GetAddImpact(String impact_txt, String brk_txt);
+	void RealizeImpacts();*/
+	PatternSnap* FindSnapByImpact(String impact_txt);
 	void Store();
 	void LoadTitle(String title);
 	void ReloadStructure();
@@ -54,26 +60,37 @@ struct Song :
 			("structure", structure)
 			("parts", parts)
 			("tracks", tracks)
-			("impact_scores", impact_scores)
+			//("impacts", impacts)
 			;
 		
 		for(int i = 0; i < PTR_COUNT; i++)
 			json("headers[" + IntStr(i) + "]", headers[i]);
 		
-		// rev_tasks
+		// rev_pattern_tasks
 		if (json.IsLoading()) {
 			FixPtrs();
 			
-			Vector<String> hashes;
-			json("rev_tasks", hashes);
-			for (String h : hashes) rev_tasks.Add().LoadHash(StrInt64(h));
-			
+			{
+				Vector<String> hashes;
+				json("rev_pattern_tasks", hashes);
+				for (String h : hashes) rev_pattern_tasks.Add().LoadHash(StrInt64(h));
+			}{
+				Vector<String> hashes;
+				json("rev_mask_tasks", hashes);
+				for (String h : hashes) rev_mask_tasks.Add().LoadHash(StrInt64(h));
+			}
 			RealizeTaskSnaps();
 		}
 		else {
-			Vector<String> hashes;
-			for (ReverseTask& t : rev_tasks) {t.Store(); hashes.Add(IntStr64(t.GetHashValue()));}
-			json("rev_tasks", hashes);
+			{
+				Vector<String> hashes;
+				for (ReverseTask& t : rev_pattern_tasks) {t.Store(); hashes.Add(IntStr64(t.GetHashValue()));}
+				json("rev_pattern_tasks", hashes);
+			}{
+				Vector<String> hashes;
+				for (ReverseTask& t : rev_mask_tasks) {t.Store(); hashes.Add(IntStr64(t.GetHashValue()));}
+				json("rev_mask_tasks", hashes);
+			}
 		}
 		SnapContext::Jsonize(json);
 	}
@@ -144,7 +161,6 @@ struct Song :
 		return p;
 	}
 	int GetLength(int mode) const;
-	
 	
 	PATTERNMASK_MACROS
 };

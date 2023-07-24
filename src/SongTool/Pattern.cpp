@@ -17,6 +17,7 @@
 }*/
 
 
+
 void SnapContext::MergeOwner() {
 	int level = snap[0].GetLevel();
 	if (level == 0) static_cast<Break*>(this)->MergeOwner();

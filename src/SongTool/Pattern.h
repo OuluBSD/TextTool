@@ -10,6 +10,8 @@ struct PatternSnap : PatternMask {
 	Vector<int>					partscore;
 	VectorMap<String,String>	data;
 	int							syllables = 0;
+	String						impact;
+	Vector<int>					impact_score;
 	
 	int							id = -1;
 	PatternSnap*				owner = 0;
@@ -25,11 +27,13 @@ struct PatternSnap : PatternMask {
 	}
 	void Jsonize(JsonIO& json) {
 		json
-			("txt",			txt)
-			("attributes",	attributes)
-			("partscore",	partscore)
-			("data",		data)
-			("syllables",	syllables)
+			("txt",				txt)
+			("attributes",		attributes)
+			("partscore",		partscore)
+			("data",			data)
+			("syllables",		syllables)
+			("impact",			impact)
+			("impact_score",	impact_score)
 			;
 		PatternMask::Jsonize(json);
 	}
@@ -130,7 +134,8 @@ struct PatternSnap : PatternMask {
 		void ResolveId() {FOR_SNAP ResolveIdT(i, this, GetSub());} \
 		void MergeOwner() {FOR_SNAP PatternSnap::MergeOwner(i, this, GetSub());} \
 		void ClearAttrs() {FOR_SNAP PatternSnap::ClearAttrs(i, this, GetSub());} \
-		void DeepClearSnap() {FOR_SNAP PatternSnap::DeepClearSnap(i, this, GetSub());}
+		void DeepClearSnap() {FOR_SNAP PatternSnap::DeepClearSnap(i, this, GetSub());} \
+		void GetContextLevel(int level, Vector<SnapContext*>& ctxs) {SnapContext::GetContextLevelT(this, GetSub(), level, ctxs);}
 	
 };
 
@@ -138,6 +143,16 @@ struct PatternSnap : PatternMask {
 struct SnapContext {
 	PatternSnap snap[PTR_COUNT];
 	
+	
+	
+	template <class A, class B>
+	static void GetContextLevelT(A* owner, Array<B>& sub, int level, Vector<SnapContext*>& ctxs) {
+		int level0 = owner->snap[0].GetLevel();
+		if (level == level0)
+			ctxs.Add(owner);
+		for (B& o : sub)
+			GetContextLevelT(&o, o.GetSub(), level, ctxs);
+	}
 	
 	void MergeOwner();
 	void Clear() {

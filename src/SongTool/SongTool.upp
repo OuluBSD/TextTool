@@ -95,6 +95,7 @@ file
 	AI_Tasks.cpp,
 	Task_CreateInput.cpp,
 	Task_Process.cpp,
+	Task_Reverse.cpp,
 	Data readonly separator,
 	Database.h,
 	Database.cpp,

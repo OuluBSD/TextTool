@@ -49,11 +49,11 @@ void ImpactCtrl::Data() {
 			
 			list.Set(i, 0, AttrText(pos).NormalPaper(clr));
 			list.Set(i, 1, AttrText(snap.txt).NormalPaper(clr));
-			list.Set(i, 2, AttrText(snap.data.Get("impact", "")).NormalPaper(clr));
+			list.Set(i, 2, AttrText(snap.impact).NormalPaper(clr));
 			
 			EditString* edit = new EditString;
 			edit->WhenAction << [&,edit]() {
-				snap.data.GetAdd("impact") = edit->GetData();
+				snap.impact = edit->GetData();
 			};
 			list.SetCtrl(i, 2, edit);
 		}

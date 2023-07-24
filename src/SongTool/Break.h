@@ -1,9 +1,11 @@
 #ifndef _SongTool_Break_h_
 #define _SongTool_Break_h_
 
+
 struct Break :
 	SnapContext
 {
+	
 	
 	void Jsonize(JsonIO& json) {
 		
@@ -18,5 +20,6 @@ struct Break :
 	
 	PATTERNMASK_MACROS
 };
+
 
 #endif
