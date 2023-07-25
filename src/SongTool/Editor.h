@@ -28,6 +28,7 @@ protected:
 	RhymesCtrl			rhymes;
 	PatternScoringCtrl	scoring;
 	AttrScoreCtrl		attrscore;
+	ReverseImpactCtrl	reverse_impact;
 	ReverseCtrl			reverse[3];
 	ImpactCtrl			impact;
 	StoryCtrl			story;

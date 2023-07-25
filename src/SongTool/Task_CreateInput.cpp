@@ -555,7 +555,7 @@ void AI_Task::CreateInput_AttrScores() {
 	// Get every songs' attribute scores
 	if (entry_count == 0) {
 		// Ensure all values (shouldn't be needed)
-		db.attrscores.RealizeTemp();
+		db.attrscores.UpdateGroupsToScoring();
 		
 		for(int i = 0; i < g.groups.GetCount(); i++) {
 			// Skip groups, which doesn't match this task

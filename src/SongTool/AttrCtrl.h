@@ -21,7 +21,7 @@ class AttrCtrl : public Ctrl {
 	Vector<VectorMap<int, Vector<int>>> grid;
 	bool invalidate_group_grid = false;
 	
-	void RealizeTemp();
+	void UpdateGroupsToScoring();
 	
 public:
 	typedef AttrCtrl CLASSNAME;

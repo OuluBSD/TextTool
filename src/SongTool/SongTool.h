@@ -59,6 +59,7 @@ using namespace Upp;
 #include "ProductionCtrl.h"
 #include "RhymesCtrl.h"
 #include "AttrScoreCtrl.h"
+#include "ReverseImpactCtrl.h"
 #include "ReverseCtrl.h"
 #include "Plotter.h"
 #include "ImpactScoringCtrl.h"

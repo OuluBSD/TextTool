@@ -34,7 +34,9 @@ struct Song :
 	//Array<Impact>		impacts;
 	
 	// Local data only (not shared)
-	Array<ReverseTask>	rev_mask_tasks;
+	ReverseTask			rev_impact;
+	Array<ReverseTask>	rev_common_mask_tasks;
+	Array<ReverseTask>	rev_separate_mask_tasks;
 	Array<ReverseTask>	rev_pattern_tasks;
 	
 	RWMutex				lock;
@@ -60,7 +62,6 @@ struct Song :
 			("structure", structure)
 			("parts", parts)
 			("tracks", tracks)
-			//("impacts", impacts)
 			;
 		
 		for(int i = 0; i < PTR_COUNT; i++)
@@ -71,25 +72,42 @@ struct Song :
 			FixPtrs();
 			
 			{
+				String hash;
+				json("rev_impact", hash);
+				rev_impact.LoadHash(StrInt64(hash));
+			}{
+				Vector<String> hashes;
+				json("rev_common_mask_tasks", hashes);
+				for (String h : hashes) rev_common_mask_tasks.Add().LoadHash(StrInt64(h));
+			}{
+				Vector<String> hashes;
+				json("rev_separate_mask_tasks", hashes);
+				for (String h : hashes) rev_separate_mask_tasks.Add().LoadHash(StrInt64(h));
+			}{
 				Vector<String> hashes;
 				json("rev_pattern_tasks", hashes);
 				for (String h : hashes) rev_pattern_tasks.Add().LoadHash(StrInt64(h));
-			}{
-				Vector<String> hashes;
-				json("rev_mask_tasks", hashes);
-				for (String h : hashes) rev_mask_tasks.Add().LoadHash(StrInt64(h));
 			}
 			RealizeTaskSnaps();
 		}
 		else {
 			{
+				String hash;
+				rev_impact.Store();
+				hash = IntStr64(rev_impact.GetHashValue());
+				json("rev_impact", hash);
+			}{
+				Vector<String> hashes;
+				for (ReverseTask& t : rev_common_mask_tasks) {t.Store(); hashes.Add(IntStr64(t.GetHashValue()));}
+				json("rev_common_mask_tasks", hashes);
+			}{
+				Vector<String> hashes;
+				for (ReverseTask& t : rev_separate_mask_tasks) {t.Store(); hashes.Add(IntStr64(t.GetHashValue()));}
+				json("rev_separate_mask_tasks", hashes);
+			}{
 				Vector<String> hashes;
 				for (ReverseTask& t : rev_pattern_tasks) {t.Store(); hashes.Add(IntStr64(t.GetHashValue()));}
 				json("rev_pattern_tasks", hashes);
-			}{
-				Vector<String> hashes;
-				for (ReverseTask& t : rev_mask_tasks) {t.Store(); hashes.Add(IntStr64(t.GetHashValue()));}
-				json("rev_mask_tasks", hashes);
 			}
 		}
 		SnapContext::Jsonize(json);

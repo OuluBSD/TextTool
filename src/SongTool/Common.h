@@ -102,7 +102,8 @@ struct Ptrs {
 	void CopyPtrs(Ptrs& p) {
 		*this = p;
 	}
-	
+	String GetBreakInSongString() const;
+	String GetBreakInDatabaseString() const;
 };
 
 struct Context {

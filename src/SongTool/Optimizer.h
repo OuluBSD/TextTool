@@ -89,6 +89,7 @@ public:
 	
 	
 	
+	void	ClearPopulation() {population.Clear();}
 	int		Dimension() {return dimension;}
 	int		Population() {return population_count;}
 	double	Energy() {return(best_energy);}

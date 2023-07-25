@@ -27,7 +27,7 @@ void AttrScore::Load() {
 	LoadFromJsonFile(*this, json_path);
 }
 
-bool AttrScore::RealizeTemp() {
+bool AttrScore::UpdateGroupsToScoring() {
 	// Connect attribute group&items to score groups
 	// These classes are kept separate, because they center around different concepts.
 	
@@ -75,7 +75,7 @@ bool AttrScore::RealizeTemp() {
 			}
 			
 			if (!found) {
-				//LOG("AttrScore::RealizeTemp: not found: " + gg.description + ", " + gg.values[j] + " (" << IntStr(i) + ":" + IntStr(j) + ")");
+				//LOG("AttrScore::UpdateGroupsToScoring: not found: " + gg.description + ", " + gg.values[j] + " (" << IntStr(i) + ":" + IntStr(j) + ")");
 				not_found++;
 				//return false;
 			}
@@ -83,7 +83,7 @@ bool AttrScore::RealizeTemp() {
 	}
 	
 	//int ready = 100 * not_found / total;
-	//LOG("AttrScore::RealizeTemp: total=" << total << ", not_found=" << not_found << " (" << ready << "\%)");
+	//LOG("AttrScore::UpdateGroupsToScoring: total=" << total << ", not_found=" << not_found << " (" << ready << "\%)");
 	return true;
 }
 

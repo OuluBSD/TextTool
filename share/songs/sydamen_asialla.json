@@ -68,7 +68,14 @@
 			]
 		}
 	},
-	"rev_tasks": [
+	"rev_impact": "3964530291374013338",
+	"rev_common_mask_tasks": [
+
+	],
+	"rev_separate_mask_tasks": [
+
+	],
+	"rev_pattern_tasks": [
 
 	],
 	"snap[0]": {

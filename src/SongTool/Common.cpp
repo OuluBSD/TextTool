@@ -51,6 +51,24 @@ int Ptrs::GetActiveArtistIndex() const {return VectorFindPtr(artist, Database::S
 int Ptrs::GetActiveReleaseIndex() const {if (!artist) return -1; return VectorFindPtr(release, artist->releases);}
 int Ptrs::GetActiveSongIndex() const {if (!release) return -1; return VectorFindPtr(song, release->songs);}
 
+String Ptrs::GetBreakInSongString() const {
+	String s;
+	if (part) s << part->name;
+	if (line) s << ": " << part->GetLineIdx(*line);
+	if (brk) s << ": " << line->GetBreakIdx(*brk);
+	return s;
+}
+
+String Ptrs::GetBreakInDatabaseString() const {
+	String s;
+	if (artist) s << artist->name + " - ";
+	if (release) s << release->title + " - ";
+	if (song) s << song->title;
+	s << ": ";
+	s << GetBreakInSongString();
+	return s;
+}
+
 Color GetPartColor(const String& key, Color def) {
 	if (key.Find("verse") == 0)
 		return Color(226, 85, 0);

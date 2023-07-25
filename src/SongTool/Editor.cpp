@@ -37,7 +37,8 @@ Editor::Editor() {
 	tablist.Add(t_("Song"), t_("Pattern mask scoring"));
 	tablist.Add(t_("Song"), t_("Pattern scoring"));
 	tablist.Add(t_("Song"), t_("Reverse: make impacts"));
-	tablist.Add(t_("Song"), t_("Reverse: make mask"));
+	tablist.Add(t_("Song"), t_("Reverse: make common mask"));
+	tablist.Add(t_("Song"), t_("Reverse: make separate mask"));
 	tablist.Add(t_("Song"), t_("Reverse: make pattern"));
 	tablist.Add(t_("Song"), t_("Reverse: make lyrics"));
 	tablist.Add(t_("Song"), t_("Composition"));
@@ -84,11 +85,15 @@ Editor::Editor() {
 	base.Add(reverse[0].SizePos());
 	base.Add(reverse[1].SizePos());
 	base.Add(reverse[2].SizePos());
+	base.Add(reverse_impact.SizePos());
 	base.Add(rev_pattern.SizePos());
 	base.Add(story.SizePos());
 	base.Add(structure.SizePos());
 	base.Add(impact_scoring.SizePos());
 	base.Add(mask_scoring.SizePos());
+	
+	for(int i = 0; i < 3; i++)
+		reverse[i].SetSource(i);
 	
 	rev_pattern.use_rev_snap = true;
 	
@@ -115,6 +120,7 @@ void Editor::SetView(int i) {
 	reverse[0].Hide();
 	reverse[1].Hide();
 	reverse[2].Hide();
+	reverse_impact.Hide();
 	rev_pattern.Hide();
 	composition.Hide();
 	analysis.Hide();
@@ -147,13 +153,14 @@ void Editor::SetView(int i) {
 		case 14: impact_scoring.Show(); break;
 		case 15: mask_scoring.Show(); break;
 		case 16: scoring.Show(); break;
-		case 17: WhenStartUpdating(); reverse[0].Show(); break;
-		case 18: WhenStartUpdating(); reverse[1].Show(); break;
-		case 19: WhenStartUpdating(); reverse[2].Show(); break;
-		case 20: rev_pattern.Show(); break;
-		case 21: composition.Show(); break;
-		case 22: production.Show(); break;
-		case 23: rhymes.Show(); break;
+		case 17: WhenStartUpdating(); reverse_impact.Show(); break;
+		case 18: WhenStartUpdating(); reverse[0].Show(); break;
+		case 19: WhenStartUpdating(); reverse[1].Show(); break;
+		case 20: WhenStartUpdating(); reverse[2].Show(); break;
+		case 21: rev_pattern.Show(); break;
+		case 22: composition.Show(); break;
+		case 23: production.Show(); break;
+		case 24: rhymes.Show(); break;
 	}
 	page = i;
 	DataPage();
@@ -178,13 +185,14 @@ void Editor::DataPage() {
 		case 14: impact_scoring.Data(); break;
 		case 15: mask_scoring.Data(); break;
 		case 16: scoring.Data(); break;
-		case 17: reverse[0].Data(); break;
-		case 18: reverse[1].Data(); break;
-		case 19: reverse[2].Data(); break;
-		case 20: rev_pattern.Data(); break;
-		case 21: composition.Data(); break;
-		case 22: production.Data(); break;
-		case 23: rhymes.Data(); break;
+		case 17: reverse_impact.Data(); break;
+		case 18: reverse[0].Data(); break;
+		case 19: reverse[1].Data(); break;
+		case 20: reverse[2].Data(); break;
+		case 21: rev_pattern.Data(); break;
+		case 22: composition.Data(); break;
+		case 23: production.Data(); break;
+		case 24: rhymes.Data(); break;
 		default: break;
 	}
 }

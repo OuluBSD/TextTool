@@ -79,7 +79,8 @@ String AI_Task::GetTypeString() const {
 		case TASK_REVERSE_IMPACT:			return t_("Reverse impact");
 		
 		case TASK_MAKE_REVERSE_MASK_TASK:	return t_("Make reverse mask task");
-		case TASK_REVERSE_MASK:				return t_("Reverse mask");
+		case TASK_REVERSE_SEPARATE_MASK:	return t_("Reverse common mask");
+		case TASK_REVERSE_COMMON_MASK:		return t_("Reverse separate mask");
 		
 		case TASK_MAKE_REVERSEPATTERN_TASK:	return t_("Make reverse pattern task");
 		case TASK_REVERSEPATTERN:			return t_("Reverse pattern");
@@ -112,7 +113,8 @@ void AI_Task::CreateInput() {
 		case TASK_REVERSE_IMPACT:			break;
 		
 		case TASK_MAKE_REVERSE_MASK_TASK:	break;
-		case TASK_REVERSE_MASK:				break;
+		case TASK_REVERSE_COMMON_MASK:		break;
+		case TASK_REVERSE_SEPARATE_MASK:	break;
 		
 		case TASK_MAKE_REVERSEPATTERN_TASK:	break;
 		case TASK_REVERSEPATTERN:			break;
@@ -174,7 +176,8 @@ void AI_Task::Process() {
 			case TASK_REVERSE_IMPACT:			Process_ReverseImpact(); break;
 			
 			case TASK_MAKE_REVERSE_MASK_TASK:	Process_MakeReverseMaskTask(); break;
-			case TASK_REVERSE_MASK:				Process_ReverseMask(); break;
+			case TASK_REVERSE_COMMON_MASK:		Process_ReverseCommonMask(); break;
+			case TASK_REVERSE_SEPARATE_MASK:	Process_ReverseSeparateMask(); break;
 			
 			case TASK_MAKE_REVERSEPATTERN_TASK:	Process_MakeReversePattern(); break;
 			case TASK_REVERSEPATTERN:			Process_ReversePattern(); break;

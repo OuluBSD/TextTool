@@ -86,7 +86,7 @@ struct AttrScore : DataFile {
 			("presets", presets)
 		;
 	}
-	bool RealizeTemp();
+	bool UpdateGroupsToScoring();
 };
 
 #if 0

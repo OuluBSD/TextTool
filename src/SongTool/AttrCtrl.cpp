@@ -6,10 +6,10 @@ AttrCtrl::AttrCtrl() {
 	pressed.b = -1;
 	pressed.c = -1;
 	
-	RealizeTemp();
+	UpdateGroupsToScoring();
 }
 
-void AttrCtrl::RealizeTemp() {
+void AttrCtrl::UpdateGroupsToScoring() {
 	Attributes& g = Database::Single().attrs;
 	active.SetCount(g.GetCount() * g.group_limit, false);
 	inherited_active.SetCount(g.GetCount() * g.group_limit, false);

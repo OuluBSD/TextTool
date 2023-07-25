@@ -37,10 +37,7 @@ class ReverseCtrl : public Ctrl {
 	ArrayCtrl snaplist, tasklist, resultlist;
 	TaskCtrl task;
 	CodeEditor lyrics, translated;
-	
-	static const int gen_multiplier = 20;
-	static const int gens = 200;
-	inline static const int max_values = 12;
+	int src = 0;
 	
 public:
 	typedef ReverseCtrl CLASSNAME;
@@ -48,6 +45,7 @@ public:
 	
 	void Data();
 	void DataWorker();
+	void SetSource(int i);
 	
 };
 

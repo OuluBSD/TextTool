@@ -1,23 +1,37 @@
 #include "SongTool.h"
 
 ReverseCtrl::ReverseCtrl() {
-	Add(hsplit.SizePos());
+	Add(mainsplit.SizePos());
 	
-	hsplit.Horz() << mainsplit << vsplit;
+	/*hsplit.Horz() << mainsplit << vsplit;
 	hsplit.SetPos(6666);
 	
-	vsplit.Vert() << lyrics << translated;
+	vsplit.Vert() << lyrics << translated;*/
 	
 	snaplist.AddColumn(t_("Position"));
 	
 	mainsplit.Vert() << tasklist << resultlist << task;
 	
+}
+
+void ReverseCtrl::SetSource(int i) {
+	src = i;
+	
 	tasklist.AddIndex();
 	tasklist.AddColumn(t_("Name"));
 	tasklist.AddColumn(t_("Active"));
 	tasklist.AddColumn(t_("Progress"));
-	tasklist.AddColumn(t_("Attributes"));
-	tasklist.ColumnWidths("4 1 2 6");
+	if (src == 1) {
+		tasklist.AddColumn(t_("Male Attributes"));
+		tasklist.AddColumn(t_("Female Attributes"));
+	}
+	else
+		tasklist.AddColumn(t_("Attributes"));
+	if (src == 1)
+		tasklist.ColumnWidths("2 2 2 9 9");
+	else
+		tasklist.ColumnWidths("1 1 1 9");
+	
 	tasklist <<= THISBACK(DataWorker);
 	
 	resultlist.AddIndex();
@@ -40,48 +54,57 @@ void ReverseCtrl::Data() {
 	Song& song = *p.song;
 	
 	song.lock.EnterRead();
+	
 	song.RealizeTaskSnaps();
 	
-	for(int i = 0; i < song.rev_pattern_tasks.GetCount(); i++) {
-		ReverseTask& t = song.rev_pattern_tasks[i];
+	Array<ReverseTask>& tasks = src == 0 ? song.rev_common_mask_tasks : (src == 1 ? song.rev_separate_mask_tasks : song.rev_pattern_tasks);
+	
+	int row = 0;
+	for(int i = 0; i < tasks.GetCount(); i++) {
+		ReverseTask& t = tasks[i];
+		
+		if (!t.ctx) {continue;}
 		
 		t.lock.EnterRead();
-		if (!t.snap || !t.snap->part) {t.lock.LeaveRead(); continue;}
 		
-		
+		PatternSnap& snap = t.ctx->snap[0];
 		String name =
-			g.Translate(t.snap->part->name) + ": " +
-			IntStr(t.snap->id) /*+ "/" +
+			g.Translate(snap.part->name) + ": " +
+			IntStr(snap.id) /*+ "/" +
 			IntStr(t.snap->len)*/
 			;
 		
 		int perc = 100 * t.actual / t.total;
-		tasklist.Set(i, 0, i);
-		tasklist.Set(i, 1, name);
-		tasklist.Set(i, 2, t.active ? t_("Active") : "");
-		tasklist.Set(i, 3, perc);
+		tasklist.Set(row, 0, i);
+		tasklist.Set(row, 1, name);
+		tasklist.Set(row, 2, t.active ? t_("Active") : "");
+		tasklist.Set(row, 3, perc);
 		
-		String s;
-		for(int j = 0; j < t.result_attrs.GetCount(); j++) {
-			const SnapAttrStr& sa = t.result_attrs[j];
-			if (!s.IsEmpty()) s << ", ";
-			Attributes::Group& gg = g.groups[sa.group_i];
-			String value = gg.values[sa.item_i];
-			s << Capitalize(g.Translate(gg.description)) << ": " << Capitalize(g.Translate(value));
+		int mode_count = src == 1 ? 2 : 1;
+		for (int mode = 0; mode < mode_count; mode++) {
+			String s;
+			for(int j = 0; j < t.result_attrs[mode].GetCount(); j++) {
+				const SnapAttrStr& sa = t.result_attrs[mode][j];
+				if (!s.IsEmpty()) s << ", ";
+				Attributes::Group& gg = g.groups[sa.group_i];
+				String value = gg.values[sa.item_i];
+				s << Capitalize(g.Translate(gg.description)) << ": " << Capitalize(g.Translate(value));
+			}
+			tasklist.Set(row, 4 + mode, s);
 		}
-		tasklist.Set(i, 4, s);
 		t.lock.LeaveRead();
+		
+		row++;
+		
 	}
+	tasklist.SetCount(row);
 	song.lock.LeaveRead();
 	
-	String key = "gen.lyrics";
+	/*String key = "gen.lyrics";
 	String key_translated = "gen.lyrics." + GetCurrentLanguageString().Left(5);
 	lyrics.SetData(song.snap[MALE_REVERSED].data.Get(key, "").ToWString());
 	
-	/*String translated = song.data.Get(key_translated, "");
-	WString wtranslated = ToUnicode(translated, CHARSET_UTF8);
-	this->translated.SetData(wtranslated);*/
-	this->translated.SetData(song.snap[MALE_REVERSED].data.Get(key_translated, ""));
+	this->translated.SetData(song.snap[MALE_REVERSED].data.Get(key_translated, ""));*/
 	
 	if (tasklist.GetCount() && !tasklist.IsCursor())
 		tasklist.SetCursor(0);
@@ -104,9 +127,11 @@ void ReverseCtrl::DataWorker() {
 	int id = tasklist.Get(cursor, 0);
 	
 	song.lock.EnterRead();
-	if (id >= song.rev_pattern_tasks.GetCount()) {song.lock.LeaveRead(); return;}
 	
-	ReverseTask& t = song.rev_pattern_tasks[id];
+	Array<ReverseTask>& tasks = src == 0 ? song.rev_common_mask_tasks : (src == 1 ? song.rev_separate_mask_tasks : song.rev_pattern_tasks);
+	if (id < 0 || id >= tasks.GetCount()) {song.lock.LeaveRead(); return;}
+	
+	ReverseTask& t = tasks[id];
 	this->task.plotter.Set(t);
 	this->task.plotter.Refresh();
 	t.lock.EnterRead();

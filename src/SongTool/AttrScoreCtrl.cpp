@@ -74,7 +74,7 @@ void AttrScoreCtrl::Data() {
 void AttrScoreCtrl::DataAttrList() {
 	Database& db = Database::Single();
 	
-	db.attrscores.RealizeTemp();
+	db.attrscores.UpdateGroupsToScoring();
 	
 	Attributes& g = db.attrs;
 	for(int i = 0; i < g.groups.GetCount(); i++) {
@@ -257,7 +257,7 @@ void AttrScoreCtrl::AddAttrScoreId(const SnapAttr& a) {
 	db.ctx.active_scoregroup->attrs.Add(a);
 	
 	db.attrscores.attr_to_score.Clear();
-	db.attrscores.RealizeTemp();
+	db.attrscores.UpdateGroupsToScoring();
 	
 	DUMP(db.attrscores.attr_to_score[5][0]);
 	/*auto& vv = db.attrscores.attr_to_score;
@@ -295,7 +295,7 @@ void AttrScoreCtrl::CheckErrors() {
 	if (!p.part)
 		return;
 	
-	db.attrscores.RealizeTemp();
+	db.attrscores.UpdateGroupsToScoring();
 	
 	Index<SnapAttrStr> attrs;
 	

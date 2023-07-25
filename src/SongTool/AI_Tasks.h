@@ -92,7 +92,8 @@ struct AI_Task {
 		TASK_REVERSE_IMPACT,
 		
 		TASK_MAKE_REVERSE_MASK_TASK,
-		TASK_REVERSE_MASK,
+		TASK_REVERSE_COMMON_MASK,
+		TASK_REVERSE_SEPARATE_MASK,
 		
 		TASK_MAKE_REVERSEPATTERN_TASK,
 		TASK_REVERSEPATTERN,
@@ -125,16 +126,22 @@ struct AI_Task {
 	ReverseTask* task = 0;
 	TaskMgr* mgr = 0;
 	
-	static constexpr int gen_multiplier		= 20;
-	static constexpr int gens				= 200;
-	static constexpr int max_snap_values	= 20;
-	static constexpr int max_mask_values	= 50;
+	static constexpr int common_mask_gen_multiplier		= 8;
+	static constexpr int common_mask_max_values			= 10;
+	static constexpr int common_mask_gens				= 200;
+	static constexpr int separate_mask_gen_multiplier	= 8;
+	static constexpr int separate_mask_max_values		= 50;
+	static constexpr int separate_mask_gens				= 100;
+	static constexpr int snap_gen_multiplier	= 20;
+	static constexpr int snap_max_values		= 20;
+	static constexpr int snap_gens				= 100;
 	
 	void Store();
 	void Load();
 	bool RunOpenAI();
 	void Process();
 	void SetError(String s);
+	void SetWaiting() {wait_task = true;}
 	String GetInputHash() const;
 	String GetOutputHash() const;
 	void CreateInput();
@@ -159,7 +166,8 @@ struct AI_Task {
 	void Process_MakeReverseImpactTask();
 	void Process_ReverseImpact();
 	void Process_MakeReverseMaskTask();
-	void Process_ReverseMask();
+	void Process_ReverseCommonMask();
+	void Process_ReverseSeparateMask();
 	void Process_MakeReversePattern();
 	void Process_MakeLyricsTask();
 	void Process_ReversePattern();
