@@ -45,6 +45,12 @@ struct SnapAttrStr : Moveable<SnapAttrStr> {
 	void Serialize(Stream& s) {s % group % item % group_i % item_i % has_id;}
 	String ToString() const {return group + ":" + item;}
 	hash_t GetHashValue() const {CombineHash c; c << group << item; return c;}
+	bool operator()(const SnapAttrStr& a, const SnapAttrStr& b) const {
+		if (a.has_id && b.has_id)
+			return a.group_i < b.group_i || a.item_i < b.item_i;
+		else
+			return a.group < b.group || a.item < b.item;
+	}
 };
 
 
@@ -61,6 +67,9 @@ enum {
 	
 	PTR_COUNT,
 	GENDER_COUNT = MALE_REVERSED,
+	
+	COMMON_GENDER_COUNT = GENDER_COUNT + 1,
+	COMMON_GENDER_WEIGHTED_COUNT = GENDER_COUNT + 2,
 };
 
 #define CHKMODE(x) ASSERT(x >= 0 && x < PTR_COUNT);
@@ -125,5 +134,11 @@ struct Context {
 
 Color GetPartColor(const String& name, Color def=Color(56,170,255));
 Color GetGenderColor(int i);
+
+
+template <class T>
+void CalculateWeightedGenderDifference(Vector<double>& values, const Vector<T>& score, const Vector<T>& other_score);
+
+
 
 #endif

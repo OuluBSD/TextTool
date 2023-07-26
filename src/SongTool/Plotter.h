@@ -27,6 +27,7 @@ class Plotter : public Ctrl {
 	Song* song = 0;
 	Break* last_brk = 0;
 	
+	Vector<double> tmp_score;
 	Vector<Vector<double>> values;
 	Vector<Point> polyline;
 	Vector<bool> draw_group;

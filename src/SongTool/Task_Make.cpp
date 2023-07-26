@@ -280,6 +280,7 @@ void AI_Task::Process_MakeReverseMaskTask() {
 			ReverseTask& rt = tasks.Add();
 			rt.type = t.type;
 			rt.id = tasks.GetCount()-1;
+			rt.result_attrs.SetCount(2);
 			t.task = &rt;
 			
 			rt.ctx = &part;
@@ -287,24 +288,23 @@ void AI_Task::Process_MakeReverseMaskTask() {
 			
 			
 			// Input arguments ( = hash affecting values)
-			/*rt.txt = rt.snap->txt;
+			rt.txt = part.snap[i].txt;
 			if (rt.txt.IsEmpty()) {
 				SetError("snap text empty");
 				t.failed = true;
 				song.lock.LeaveWrite();
 				return;
-			}*/
-			
+			}
+			rt.scores.SetCount(GENDER_COUNT);
 			for(int i = 0; i < GENDER_COUNT; i++) {
 				auto& score = rt.ctx->snap[i].partscore;
 				ASSERT(score.GetCount() == gc);
 				score.SetCount(gc, 0);
 				rt.ctx->snap[MALE_REVERSED + i].partscore.SetCount(gc, 0);
-				
-				/*rt.scores.SetCount(score.GetCount());
-				for(int i = 0; i < score.GetCount(); i++)
-					rt.scores[i] = score[i];
-				*/
+
+				rt.scores[i].SetCount(score.GetCount());
+				for(int j = 0; j < score.GetCount(); j++)
+					rt.scores[i][j] = score[j];
 			}
 			
 			prev = &t;
@@ -325,6 +325,7 @@ void AI_Task::Process_MakeReverseMaskTask() {
 void AI_Task::Process_MakeReversePattern() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
+	AttrScore& as = db.attrscores;
 	TaskMgr& m = TaskMgr::Single();
 	if (!p.song) {
 		SetError("no song pointer set");
@@ -348,8 +349,8 @@ void AI_Task::Process_MakeReversePattern() {
 	chk.type = TASK_MAKE_LYRICS_TASK;
 	chk.p = p;
 	int mode = p.mode;
-	ASSERT(mode == MALE || mode == FEMALE);
-	int rev_mode = p.mode == MALE ? MALE_REVERSED : FEMALE_REVERSED;
+	ASSERT(mode == 0); // all are being done in one mode
+	//int rev_mode = p.mode == MALE ? MALE_REVERSED : FEMALE_REVERSED;
 	
 	int gc = g.scorings.GetCount();
 	int ac = db.attrscores.groups.GetCount();
@@ -395,8 +396,8 @@ void AI_Task::Process_MakeReversePattern() {
 				
 				// Input arguments ( = hash affecting values)
 				
-				// Snapshot text
-				rt.txt = brk.snap[mode].txt;
+				// Snapshot text (for hash purposes only)
+				rt.txt = brk.snap[0].txt; // + "; " + brk.snap[1].txt;
 				if (rt.txt.IsEmpty()) {
 					SetError("snap text empty");
 					t.failed = true;
@@ -405,21 +406,29 @@ void AI_Task::Process_MakeReversePattern() {
 					return;
 				}
 				
-				/*ASSERT(rt.snap->partscore.GetCount() == gc);
-				rt.snap->partscore.SetCount(gc, 0);
-				rt.scores.SetCount(rt.snap->partscore.GetCount());
-				for(int i = 0; i < rt.snap->partscore.GetCount(); i++)
-					rt.scores[i] = rt.snap->partscore[i];
 				
-				rt.mask_attrs <<= p.snap[mode].mask;
+				// Add mask from genders
+				// - get int from += 1 << i, highest sum means that it's common
+				// - sort mask by value
+				rt.mask_attrs.Clear();
+				for(int i = 0; i < GENDER_COUNT; i++) {
+					int code = 1 << i;
+					const PatternSnap& snap = rt.ctx->snap[i];
+					for (const SnapAttrStr& sa : snap.mask.GetKeys()) {
+						rt.mask_attrs.GetAdd(sa, 0) += code;
+					}
+				}
+				SortByKey(rt.mask_attrs, SnapAttrStr()); // required for same hash value
+				SortByValue(rt.mask_attrs, StdGreater<int>());
+				
 				for(int j = 0; j < rt.mask_attrs.GetCount(); j++) {
-					const SnapAttrStr& sa = rt.mask_attrs[j];
+					const SnapAttrStr& sa = rt.mask_attrs.GetKey(j);
 					int score = db.attrscores.attr_to_score[sa.group_i][sa.item_i];
 					if (score < 0) {
-						LOG("warning: attribute did not have the scoring: " << sa.group << ", " << sa.item);
+						//LOG("warning: attribute did not have the scoring: " << sa.group << ", " << sa.item);
 						rt.mask_attrs.Remove(j--);
 					}
-				}*/
+				}
 				if (rt.mask_attrs.IsEmpty()) {
 					SetError("no snap mask attributes");
 					t.failed = true;
@@ -428,14 +437,55 @@ void AI_Task::Process_MakeReversePattern() {
 					return;
 				}
 				
+				// Gender scores requires knowing common and separate attributes
+				// Calculate them here, as there is no database structure for that
+				VectorMap<SnapAttrStr,int>& snap_attrs = rt.snap_attrs;
+				snap_attrs.Clear();
+				for(int i = 0; i < GENDER_COUNT; i++) {
+					int code = 1 << i;
+					const PatternSnap& snap = rt.ctx->snap[i];
+					for (const SnapAttrStr& sa : snap.attributes.GetKeys()) {
+						snap_attrs.GetAdd(sa, 0) += code;
+					}
+				}
+				SortByValue(snap_attrs, StdGreater<int>());
+				
+				// Calculate scores for common and separate attribute vectors
+				Vector<Vector<double>>& src_scores = rt.scores;
+				src_scores.SetCount(COMMON_GENDER_WEIGHTED_COUNT);
+				for(int i = 0; i < COMMON_GENDER_COUNT; i++) {
+					Vector<double>& src_score = src_scores[i];
+					src_score.SetCount(0);
+					src_score.SetCount(gc, 0);
+					int match = i == 0 ? 3 : (1 << (i-1));
+					int match_count = 0;
+					for(int j = 0; j < snap_attrs.GetCount(); j++) {
+						if (snap_attrs[j] != match)
+							continue;
+						const SnapAttrStr& sa = snap_attrs.GetKey(j);
+						ASSERT(sa.has_id);
+						int score_i = as.attr_to_score[sa.group_i][sa.item_i];
+						const auto& score = as.groups[score_i].scores;
+						ASSERT(score.GetCount() == gc);
+						for(int k = 0; k < gc; k++)
+							src_score[k] += score[k];
+						match_count++;
+					}
+					ASSERT(match_count > 0);
+				}
+				
+				// Calculate last score: weighted separate
+				{
+					const Vector<double>& src_score0 = src_scores[1]; // MALE
+					const Vector<double>& src_score1 = src_scores[2]; // FEMALE
+					Vector<double>& dst_score = src_scores[3];
+					dst_score.SetCount(gc);
+					CalculateWeightedGenderDifference(dst_score, src_score0, src_score1);
+				}
+				
 				// Try to load existing results
 				rt.LoadHash(rt.GetHashValue());
 				
-				
-				// Set task as ready if results were loaded
-				/*if (rt.result_attrs.GetCount()) {
-					t.ready = true;
-				}*/
 			}
 		}
 	}

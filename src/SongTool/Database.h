@@ -108,4 +108,59 @@ inline String PatternSnap::GetStructuredText(int mode, bool pretty, int indent, 
 	return s;
 }
 
+template <class T>
+void CalculateWeightedGenderDifference(Vector<double>& values, const Vector<T>& score, const Vector<T>& other_score) {
+	Attributes& g = Database::Single().attrs;
+	int c = g.scorings.GetCount();
+	
+	ASSERT(score.GetCount() == c);
+	ASSERT(other_score.GetCount() == c);
+	
+	int c0 = min(c, min(
+		other_score.GetCount(),
+		score.GetCount()));
+	
+	if (0) {
+		double av = 0;
+		for (auto& val : score) av += val;
+		av /= score.GetCount();
+		
+		double other_av = 0;
+		for (auto& val : other_score) other_av += val;
+		other_av /= other_score.GetCount();
+		
+		for(int k = 0; k < c0; k++) {
+			double av_diff = score[k] - av;
+			double other_av_diff = other_score[k] - other_av;
+			
+			values[k] = (
+				av_diff -
+				other_av_diff
+				);
+		}
+	}
+	else {
+		double av = 0;
+		for (auto& val : score) av += fabs(val);
+		av /= score.GetCount();
+		
+		double other_av = 0;
+		for (auto& val : other_score) other_av += fabs(val);
+		other_av /= other_score.GetCount();
+		
+		double f = av / other_av;
+		
+		for(int k = 0; k < c0; k++) {
+			double val = score[k];
+			double other_weighted_val = other_score[k] * f;
+			
+			values[k] = (
+				val -
+				other_weighted_val
+				);
+		}
+	}
+
+}
+
 #endif

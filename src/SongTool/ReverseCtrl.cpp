@@ -82,6 +82,8 @@ void ReverseCtrl::Data() {
 		
 		int mode_count = src == 1 ? 2 : 1;
 		for (int mode = 0; mode < mode_count; mode++) {
+			if (t.result_attrs.IsEmpty())
+				continue;
 			String s;
 			for(int j = 0; j < t.result_attrs[mode].GetCount(); j++) {
 				const SnapAttrStr& sa = t.result_attrs[mode][j];
@@ -95,7 +97,6 @@ void ReverseCtrl::Data() {
 		t.lock.LeaveRead();
 		
 		row++;
-		
 	}
 	tasklist.SetCount(row);
 	song.lock.LeaveRead();

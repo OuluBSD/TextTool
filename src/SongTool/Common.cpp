@@ -92,3 +92,23 @@ Color GetGenderColor(int i) {
 			return GrayColor();
 	}
 }
+
+
+
+
+/*template <> void CalculateWeightedGenderDifference<double>(Vector<double>& values, const Vector<double>& score, const Vector<double>& other_score);
+template <> void CalculateWeightedGenderDifference<int>(Vector<double>& values, const Vector<int>& score, const Vector<int>& other_score);
+
+
+
+
+void Dummy() {
+	auto fn0 = &CalculateWeightedGenderDifference<double>;
+	auto fn1 = &CalculateWeightedGenderDifference<int>;
+}*/
+
+
+
+
+
+

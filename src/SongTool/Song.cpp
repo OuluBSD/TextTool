@@ -91,7 +91,7 @@ void Song::RealizeTaskSnaps(bool force) {
 	if (!force) {
 		bool all_ok = true;
 		for (ReverseTask& rt : rev_pattern_tasks) {
-			if (!rt.snap) {
+			if (!rt.ctx) {
 				all_ok = false;
 				break;
 			}
@@ -100,17 +100,15 @@ void Song::RealizeTaskSnaps(bool force) {
 			return;
 	}
 	for (Part& p : parts) {
-		for(int i = 0; i < PTR_COUNT; i++) {
-			Vector<PatternSnap*> snaps;
-			p.GetSnapsLevel(i, 0, snaps);
-			if (force)
-				for (ReverseTask& rt : rev_pattern_tasks)
-					rt.snap = 0;
-			for (PatternSnap* s: snaps) {
-				for (ReverseTask& rt : rev_pattern_tasks) {
-					if (!rt.snap && rt.txt == s->txt)
-						rt.snap = s;
-				}
+		Vector<SnapContext*> ctxs;
+		p.GetContextLevel(0, ctxs);
+		if (force)
+			for (ReverseTask& rt : rev_pattern_tasks)
+				rt.ctx = 0;
+		for (SnapContext* c: ctxs) {
+			for (ReverseTask& rt : rev_pattern_tasks) {
+				if (!rt.ctx && rt.txt == c->snap[0].txt)
+					rt.ctx = c;
 			}
 		}
 	}

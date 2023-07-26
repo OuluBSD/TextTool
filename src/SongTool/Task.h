@@ -23,20 +23,19 @@ struct ReverseTask {
 	double values_min = +DBL_MAX;
 	double values_max = -DBL_MAX;
 	bool active = false;
-	Vector<SnapAttrStr> result_attrs[2];
+	Vector<Vector<SnapAttrStr>> result_attrs;
 	GeneticOptimizer optimizer;
 	VectorMap<String, Tuple2<String,double>> impact_results;
 	
 	// Hash affecting variables
 	String txt;
-	Vector<double> scores;
+	Vector<Vector<double>> scores;
 	VectorMap<SnapAttrStr, int> mask_attrs;
 	
 	// Temp
 	RWMutex lock;
-	PatternSnap* snap = 0;
-	PatternSnap* rev_snap = 0;
 	SnapContext* ctx = 0;
+	VectorMap<SnapAttrStr,int> snap_attrs; // source snaps (not used)
 	
 	void Store();
 	void LoadHash(hash_t h);
@@ -52,8 +51,7 @@ struct ReverseTask {
 			% values_min
 			% values_max
 			% active
-			% result_attrs[0]
-			% result_attrs[1]
+			% result_attrs
 			% optimizer
 			% txt
 			% scores
@@ -63,7 +61,7 @@ struct ReverseTask {
 		/*if (s.IsLoading()) lock.LeaveWrite();
 		else lock.LeaveRead();*/
 	}
-	static hash_t HashFn(int type, const String& txt, const Vector<double>& scores, const VectorMap<SnapAttrStr, int>& mask_attrs) {
+	static hash_t HashFn(int type, const String& txt, const Vector<Vector<double>>& scores, const VectorMap<SnapAttrStr, int>& mask_attrs) {
 		CombineHash c;
 		c << type << txt << scores;
 		for (const SnapAttrStr& sa : mask_attrs.GetKeys()) c << sa;
