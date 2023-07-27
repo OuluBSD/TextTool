@@ -1,13 +1,12 @@
 #include "SongTool.h"
 
 
-void AI_Task::Process_ReverseImpact() {
+void Task::Process_ReverseImpact() {
 	// Gather references for easy access
 	const TaskMgr& mgr = *this->mgr;
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
-	ASSERT(p.mode >= 0);
-	int mode = p.mode;
+	ASSERT(p.mode == 0);
 	int gc = db.attrs.scorings.GetCount();
 	Song& song0 = *p.song;
 	
@@ -147,7 +146,7 @@ void AI_Task::Process_ReverseImpact() {
 	}
 }
 
-void AI_Task::Process_ReverseCommonMask() {
+void Task::Process_ReverseCommonMask() {
 	// Gather stack references for easy access
 	const TaskMgr& mgr = *this->mgr;
 	Database& db = Database::Single();
@@ -336,7 +335,7 @@ void AI_Task::Process_ReverseCommonMask() {
 		
 		// Collect best result
 		if (new_best) {
-			LOG("Task #" << task.id << " best energy: " << av_energy);
+			LOG("Task #" << IntStr64((int64)this) << " best energy: " << av_energy);
 			task.lock.EnterWrite();
 			TaskResult& res = task.results.Add();
 			res.optimizer_score = av_energy;
@@ -422,7 +421,13 @@ void AI_Task::Process_ReverseCommonMask() {
 	task.Store();
 }
 
-void AI_Task::Process_ReverseSeparateMask() {
+void Task::Process_MaskScore() {
+	
+	TODO
+	
+}
+
+void Task::Process_ReverseSeparateMask() {
 	// Gather stack references for easy access
 	const TaskMgr& mgr = *this->mgr;
 	Database& db = Database::Single();
@@ -619,7 +624,7 @@ void AI_Task::Process_ReverseSeparateMask() {
 		
 		// Collect best result
 		if (new_best) {
-			LOG("Task #" << task.id << " best energy: " << av_energy);
+			LOG("Task #" << IntStr64((int64)this) << " best energy: " << av_energy);
 			task.lock.EnterWrite();
 			TaskResult& res = task.results.Add();
 			res.optimizer_score = av_energy;
@@ -689,6 +694,7 @@ void AI_Task::Process_ReverseSeparateMask() {
 				// Add result for the database (and pipeline)
 				snap.mask.FindAdd(sa);
 			}
+			ASSERT(!snap.mask.IsEmpty());
 		}
 		task.lock.LeaveWrite();
 	}
@@ -702,7 +708,7 @@ void AI_Task::Process_ReverseSeparateMask() {
 	task.Store();
 }
 
-void AI_Task::Process_ReversePattern() {
+void Task::Process_ReversePattern() {
 	// Gather stack references for easy access
 	const TaskMgr& mgr = *this->mgr;
 	Database& db = Database::Single();
@@ -710,16 +716,15 @@ void AI_Task::Process_ReversePattern() {
 	ASSERT(p.mode >= 0);
 	int mode = p.mode;
 	ReverseTask& task = *this->task;
+	if (task.mask_attrs.IsEmpty()) {
+		SetError("no snap mask attributes");
+		return;
+	}
 	GeneticOptimizer& optimizer = task.optimizer;
 	ASSERT(task.scores.GetCount() == COMMON_GENDER_WEIGHTED_COUNT);
 	ASSERT(task.ctx);
 	SnapContext& ctx = *task.ctx;
 	int ma = task.mask_attrs.GetCount();
-	ASSERT(ma > 0);
-	if (ma == 0) {
-		SetError("empty mask attrs");
-		return;
-	}
 	
 	// Update group/item to score shortcut vector
 	db.attrscores.UpdateGroupsToScoring();

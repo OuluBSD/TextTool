@@ -1,8 +1,202 @@
 #include "SongTool.h"
 
-void AI_Task::Process_MakeAttrScores() {
+void Task::Process_MakeImportTasks() {
+	const Database& db = Database::Single();
+	Song& song = *p.song;
+	const Artist& artist = *p.artist;
+	ASSERT(p.artist);
+	
+	{
+		song.DeepClearSnap();
+		
+		if (!ParseOriginalLyrics())
+			return;
+	}
+	{
+		for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
+			for(int j = 0; j < GENDER_COUNT; j++) {
+				const Attributes::GroupType& group_type = db.attrs.group_types[i];
+					
+				// Add task for type
+				Task& t = ResultTask(TASK_PATTERNMASK);
+				t.p = p;
+				t.p.mode = j;
+				t.args << group_type.name << group_type.ai_txt << artist.vocalist_visual;
+			}
+		}
+	}
+	
+	{
+		for(int j = 0; j < GENDER_COUNT; j++) {
+			Task& t = ResultTask(TASK_STORYARC);
+			t.p = p;
+			t.p.mode = j;
+		}
+	}
+	
+	{
+		for(int j = 0; j < GENDER_COUNT; j++) {
+			Vector<PatternSnap*> snaps;
+			song.GetSnapsLevel(j, 1, snaps);
+			const SongHeader& h = song.headers[j];
+			Index<String> unique_lines;
+			for (PatternSnap* snap : snaps) {
+				if (unique_lines.Find(snap->txt) >= 0)
+					continue;
+				unique_lines.Add(snap->txt);
+				
+				Task& t = ResultTask(TASK_IMPACT);
+				t.p.CopyPtrs(*snap);
+				t.p.snap = snap;
+				t.p.mode = j;
+				ASSERT(t.p.snap && t.p.line);
+			}
+		}
+	}
+	
+	{
+		for(int j = 0; j < GENDER_COUNT; j++) {
+			Task& t = ResultTask(TASK_MAKE_IMPACT_SCORING_TASKS);
+			t.p = p;
+			t.p.mode = j;
+		}
+	}
+	
+	{
+		for (int whole_song = 0; whole_song < 2; whole_song++) {
+			for(int i = 0; i < db.attrs.analysis.GetCount(); i++) {
+				for(int j = 0; j < GENDER_COUNT; j++) {
+					String key = db.attrs.analysis.GetKey(i);
+					
+					// Add task for analysis type
+					Task& t = ResultTask(TASK_ANALYSIS);
+					t.p = p;
+					t.p.mode = j;
+					t.args << artist.vocalist_visual;
+					t.args << key;
+					t.whole_song = whole_song;
+					
+					const Vector<String>& v = db.attrs.analysis[i];
+					for(int j = 0; j < v.GetCount(); j++)
+						t.args << v[j];
+				}
+			}
+		}
+	}
+}
+
+bool Task::ParseOriginalLyrics() {
 	Database& db = Database::Single();
-	TaskMgr& m = TaskMgr::Single();
+	if (!p.song)
+		return false;
+	
+	
+	Song& song = *p.song;
+	String structure_str;
+	for(int mode = 0; mode < 2; mode++) {
+		String c = song.headers[mode].content;
+		c.Replace("\r", "");
+		Vector<String> parts = Split(c, "\n\n");
+		
+		String str;
+		for(int i = 0; i < parts.GetCount(); i++) {
+			Vector<String> lines = Split(parts[i], "\n");
+			int lc = lines.GetCount()-1;
+			String part_title = TrimBoth(lines[0]);
+			if (part_title.Right(1) == ":")
+				part_title = part_title.Left(part_title.GetCount()-1);
+			if (!str.IsEmpty())
+				str << ",";
+			str << part_title;
+			if (lc) str << ":" << lc;
+			for(int j = 1; j < lines.GetCount(); j++) {
+				Vector<String> breaks = Split(lines[j], "[br]");
+				str << ":" << breaks.GetCount();
+			}
+		}
+		//DUMP(str);
+		if (structure_str.IsEmpty())
+			structure_str = str;
+		else {
+			if (structure_str != str) {
+				int len = min(structure_str.GetCount(), str.GetCount());
+				String mismatch;
+				for(int j = 0; j < len; j++) {
+					if (structure_str[j] != str[j]) {
+						mismatch = str.Mid(j, 16);
+						break;
+					}
+				}
+				SetError("structure mismatch at '" + mismatch + "'");
+				return false;
+			}
+		}
+	}
+	
+	song.lock.EnterWrite();
+	
+	song.parts.Clear();
+	song.structure.Clear();
+	
+	// Structure string
+	song.structure_str = structure_str;
+	song.structure.Clear();
+	
+	//DUMP(a.structure_str);
+	song.ReloadStructure(); // p.unique_parts is filled here
+	
+	// Parse lyric parts and lines
+	Vector<Vector<String>>& unique_lines = str_map;
+	for(int i = 0; i < PTR_COUNT; i++)
+		song.headers[i].unique_lines.Clear();
+	
+	
+	for(int mode = 0; mode < GENDER_COUNT; mode++) {
+		String c = song.headers[mode].content;
+		c.Replace("\r", "");
+		Vector<String> parts = Split(c, "\n\n");
+		
+		for(int i = 0; i < parts.GetCount(); i++) {
+			Vector<String> lines = Split(parts[i], "\n");
+			int lc = lines.GetCount()-1;
+			if (lines.GetCount() >= 1) {
+				String part_title = TrimBoth(lines[0]);
+				if (part_title.Right(1) == ":")
+					part_title = part_title.Left(part_title.GetCount()-1);
+				
+				if (lc) {
+					Part& part = song.GetAddPart(part_title);
+					Array<Line>& parsed_lines = part.lines;
+					parsed_lines.SetCount(lines.GetCount()-1);
+					String& txt = part.snap[mode].txt;
+					
+					// Add parsed lines to the Song class
+					for(int j = 1; j < lines.GetCount(); j++) {
+						String tl = TrimBoth(lines[j]);
+						Line& l = parsed_lines[j-1];
+						l.ParseLine(song, mode, tl);
+						ASSERT(l.snap[mode].txt.GetCount());
+						
+						if (!txt.IsEmpty()) txt << "; ";
+						txt << l.snap[mode].txt;
+					}
+					
+					song.headers[mode].unique_lines.GetAdd(txt);
+				}
+			}
+		}
+	}
+	
+	song.FixPtrs();
+	song.RealizeTaskSnaps(true);
+	song.lock.LeaveWrite();
+	
+	return true;
+}
+
+
+void Task::Process_MakeAttrScores() {
+	Database& db = Database::Single();
 	Attributes& attrs = db.attrs;
 	AttrScore& as = db.attrscores;
 	if (!p.song) {
@@ -23,7 +217,7 @@ void AI_Task::Process_MakeAttrScores() {
 	}
 	
 	Index<SnapAttrStr> song_attrs;
-	song.GetAttributes(mode, song_attrs); // get attrs from snapshots
+	song.GetMaskAttributes(mode, song_attrs); // get attrs from snapshots
 	
 	Index<int> unresolved_group_types;
 	for (const SnapAttrStr& a : song_attrs.GetKeys()) {
@@ -55,62 +249,43 @@ void AI_Task::Process_MakeAttrScores() {
 		}
 	}
 	
-	m.lock.EnterWrite();
-	
 	if (unresolved_group_types.GetCount()) {
-		int task_begin = m.tasks.GetCount();
-		AI_Task& chk = m.tasks.Add();
-		chk.type = TASK_MAKE_ATTRSCORES_TASKS;
+		Task& chk = ResultTask(TASK_MAKE_ATTRSCORES_TASKS);
 		chk.p = this->p;
 		
 		for (int group_type_i : unresolved_group_types.GetKeys()) {
 			const Attributes::GroupType& group_type = attrs.group_types[group_type_i];
 			
-			AI_Task& t = m.tasks.Add();
-			m.total++;
-			t.type = TASK_ATTRSCORES;
+			Task& t = ResultTask(TASK_ATTRSCORES);
 			t.p = this->p;
 			t.args << group_type.name << group_type.ai_txt;
-			t.CreateInput();
-			ASSERT(!t.failed);
-			ASSERT(t.input.GetCount());
 			
 			// Prevent stupid loops
-			for(int i = 0; i < m.tasks.GetCount()-1; i++) {
+			/*
+			t.CreateInput();
+			ASSERT(!t.failed);
+			ASSERT(t.input.GetCount());for(int i = 0; i < m.tasks.GetCount()-1; i++) {
 				if (m.tasks[i].input == t.input) {
 					this->input = t.input;
 					SetError("duplicate task is being made");
-					m.tasks.Remove(task_begin, m.tasks.GetCount()-task_begin);
-					m.lock.LeaveWrite();
 					return;
 				}
-			}
-			
-			chk.depends_on << &t;
+			}*/
 		}
 	}
 	
 	// If all were resolved
 	else {
-		AI_Task& t = m.tasks.Add();
-		m.total++;
-		t.type = TASK_SONGSCORE;
+		Task& t = ResultTask(TASK_SONGSCORE);
 		t.p = this->p;
-		t.CreateInput();
 		
-		AI_Task& chk = m.tasks.Add();
-		m.total++;
-		chk.type = TASK_MAKE_REVERSE_IMPACT_TASK;
+		Task& chk = ResultTask(TASK_MAKE_REVERSE_IMPACT_TASK);
 		chk.p = this->p;
-		chk.depends_on << &t;
 	}
-	
-	m.lock.LeaveWrite();
 }
 
-void AI_Task::Process_MakePatternTasks() {
+void Task::Process_MakePatternTasks() {
 	Database& db = Database::Single();
-	TaskMgr& m = TaskMgr::Single();
 	int mode = p.mode;
 	ASSERT(mode >= 0);
 	Song& song = *p.song;
@@ -124,10 +299,7 @@ void AI_Task::Process_MakePatternTasks() {
 		return;
 	}
 	
-	m.lock.EnterWrite();
-	
-	AI_Task& chk = m.tasks.Add();
-	chk.type = TASK_MAKE_ATTRSCORES_TASKS;
+	Task& chk = ResultTask(TASK_MAKE_ATTRSCORES_TASKS);
 	chk.p = this->p;
 	
 	// Pattern tasks -> attribute score task maker
@@ -136,23 +308,16 @@ void AI_Task::Process_MakePatternTasks() {
 			const Attributes::GroupType& group_type = db.attrs.group_types[i];
 			
 			for(int j = 0; j < tasks; j++) {
-				AI_Task& t = m.tasks.Add();
-				m.total++;
-				t.type = TASK_PATTERN;
+				Task& t = ResultTask(TASK_PATTERN);
 				t.p = this->p;
 				t.args << group_type.name << group_type.ai_txt << IntStr(j * per_task) << IntStr((j + 1) * per_task);
-				t.CreateInput();
-				chk.depends_on << &t;
 			}
 		}
 	}
-	
-	m.lock.LeaveWrite();
 }
 
-void AI_Task::Process_MakeImpactScoringTasks() {
+void Task::Process_MakeImpactScoringTasks() {
 	Database& db = Database::Single();
-	TaskMgr& m = TaskMgr::Single();
 	int mode = p.mode;
 	ASSERT(mode >= 0);
 	Song& song = *p.song;
@@ -184,10 +349,7 @@ void AI_Task::Process_MakeImpactScoringTasks() {
 	}
 	SortIndex(line_impacts, StdLess<String>());
 	
-	m.lock.EnterWrite();
-	
-	AI_Task& chk = m.tasks.Add();
-	chk.type = TASK_MAKE_IMPACT_SCORING_TASKS;
+	Task& chk = ResultTask(TASK_MAKE_IMPACT_SCORING_TASKS);
 	chk.p = this->p;
 	
 	int per_task = 30;
@@ -195,9 +357,7 @@ void AI_Task::Process_MakeImpactScoringTasks() {
 	
 	int impact_i = 0;
 	for(int i = 0; i < tasks; i++) {
-		AI_Task& t = m.tasks.Add();
-		m.total++;
-		t.type = TASK_IMPACT_SCORING;
+		Task& t = ResultTask(TASK_IMPACT_SCORING);
 		t.p = this->p;
 		for(int i = 0; i < per_task; i++) {
 			if (impact_i >= line_impacts.GetCount())
@@ -205,33 +365,20 @@ void AI_Task::Process_MakeImpactScoringTasks() {
 			t.args << line_impacts[impact_i];
 			impact_i++;
 		}
-		t.CreateInput();
-		chk.depends_on << &t;
 	}
-	
-	m.lock.LeaveWrite();
 }
 
-void AI_Task::Process_MakeReverseImpactTask() {
-	TaskMgr& m = TaskMgr::Single();
-	m.lock.EnterWrite();
-	
-	AI_Task& chk = m.tasks.Add();
-	chk.type = TASK_MAKE_REVERSE_MASK_TASK;
+void Task::Process_MakeReverseImpactTask() {
+	Task& chk = ResultTask(TASK_MAKE_REVERSE_MASK_TASK);
 	chk.p = p;
 	
-	AI_Task& t0 = m.tasks.Add();
-	t0.type = TASK_REVERSE_IMPACT;
+	Task& t0 = ResultTask(TASK_REVERSE_IMPACT);
 	t0.p = p;
-	chk.depends_on << &t0;
-	
-	m.lock.LeaveWrite();
 }
 
-void AI_Task::Process_MakeReverseMaskTask() {
+void Task::Process_MakeReverseMaskTask() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
-	TaskMgr& m = TaskMgr::Single();
 	Song& song = *p.song;
 	int gc = g.scorings.GetCount();
 	
@@ -239,9 +386,9 @@ void AI_Task::Process_MakeReverseMaskTask() {
 	if (p.mode > 0) {
 		return;
 	}
-	else {
+	/*else {
 		// Check that other modes are ready
-		for (AI_Task& t : m.tasks) {
+		for (Task& t : m.tasks) {
 			if (&t == this) continue;
 			if (t.p.song == p.song && t.type == TASK_MAKE_REVERSE_MASK_TASK) {
 				ASSERT(t.p.mode > 0);
@@ -251,40 +398,32 @@ void AI_Task::Process_MakeReverseMaskTask() {
 				}
 			}
 		}
-	}
-	
-	m.lock.EnterWrite();
+	}*/
 	
 	song.lock.EnterWrite();
 	song.rev_common_mask_tasks.Clear();
 	song.rev_separate_mask_tasks.Clear();
 	
-	AI_Task& chk = m.tasks.Add();
-	chk.type = TASK_MAKE_REVERSEPATTERN_TASK;
+	Task& chk = ResultTask(TASK_MAKE_REVERSEPATTERN_TASK);
 	chk.p = p;
 	
 	for (Part& part : song.parts) {
-		AI_Task* prev = 0;
+		Task* prev = 0;
 		for(int i = 0; i < 2; i++) {
 			int rev_mode = p.mode == MALE ? MALE_REVERSED : FEMALE_REVERSED;
+			int type = i == 0 ? TASK_REVERSE_COMMON_MASK : TASK_REVERSE_SEPARATE_MASK;
 			
-			AI_Task& t = m.tasks.Add();
-			t.type = i == 0 ? TASK_REVERSE_COMMON_MASK : TASK_REVERSE_SEPARATE_MASK;
+			Task& t = ResultTask(type);
 			t.p = p;
 			t.p.part = &part;
-			chk.depends_on << &t;
-			if (prev)
-				t.depends_on << prev;
 			
 			Array<ReverseTask>& tasks = i == 0 ? song.rev_common_mask_tasks : song.rev_separate_mask_tasks;
 			ReverseTask& rt = tasks.Add();
-			rt.type = t.type;
-			rt.id = tasks.GetCount()-1;
+			rt.type = type;
 			rt.result_attrs.SetCount(2);
 			t.task = &rt;
 			
 			rt.ctx = &part;
-			m.total++;
 			
 			
 			// Input arguments ( = hash affecting values)
@@ -292,8 +431,8 @@ void AI_Task::Process_MakeReverseMaskTask() {
 			if (rt.txt.IsEmpty()) {
 				SetError("snap text empty");
 				t.failed = true;
-				song.lock.LeaveWrite();
-				return;
+				//song.lock.LeaveWrite();
+				//return;
 			}
 			rt.scores.SetCount(GENDER_COUNT);
 			for(int i = 0; i < GENDER_COUNT; i++) {
@@ -310,9 +449,7 @@ void AI_Task::Process_MakeReverseMaskTask() {
 			prev = &t;
 		}
 	}
-	
 	song.lock.LeaveWrite();
-	m.lock.LeaveWrite();
 	
 	// Try to load existing results
 	for (ReverseTask& rt : song.rev_common_mask_tasks)
@@ -322,11 +459,10 @@ void AI_Task::Process_MakeReverseMaskTask() {
 	
 }
 
-void AI_Task::Process_MakeReversePattern() {
+void Task::Process_MakeReversePattern() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
 	AttrScore& as = db.attrscores;
-	TaskMgr& m = TaskMgr::Single();
 	if (!p.song) {
 		SetError("no song pointer set");
 		return;
@@ -334,19 +470,16 @@ void AI_Task::Process_MakeReversePattern() {
 	Song& song = *p.song;
 	
 	// Check that impact scores are ready
-	for (AI_Task& t : m.tasks) {
+	/*for (Task& t : m.tasks) {
 		if (t.type == TASK_MAKE_IMPACT_SCORING_TASKS && t.p.song == p.song) {
 			if (!t.ready || t.failed) {
 				SetWaiting();
 				return;
 			}
 		}
-	}
+	}*/
 	
-	m.lock.EnterWrite();
-	
-	AI_Task& chk = m.tasks.Add();
-	chk.type = TASK_MAKE_LYRICS_TASK;
+	Task& chk = ResultTask(TASK_MAKE_LYRICS_TASK);
 	chk.p = p;
 	int mode = p.mode;
 	ASSERT(mode == 0); // all are being done in one mode
@@ -380,31 +513,26 @@ void AI_Task::Process_MakeReversePattern() {
 				//PatternSnap& snap = *snaps[i];
 				//PatternSnap& rev_snap = *rev_snaps[i];
 				ReverseTask& rt = song.rev_pattern_tasks.Add();
-				AI_Task& t = m.tasks.Add();
-				t.type = TASK_REVERSEPATTERN;
+				Task& t = ResultTask(TASK_REVERSEPATTERN);
 				t.p = this->p;
 				t.task = &rt;
 				//t.id = i;
 				//t.total = total;
-				rt.type = t.type;
-				//rt.snap = &brk.snap[mode];
-				//rt.rev_snap = &brk.snap[rev_mode];
 				rt.ctx = &brk;
-				chk.depends_on << &t;
-				m.total++;
+				rt.type = TASK_REVERSEPATTERN;
 				
 				
 				// Input arguments ( = hash affecting values)
 				
 				// Snapshot text (for hash purposes only)
 				rt.txt = brk.snap[0].txt; // + "; " + brk.snap[1].txt;
-				if (rt.txt.IsEmpty()) {
+				/*if (rt.txt.IsEmpty()) {
 					SetError("snap text empty");
 					t.failed = true;
 					song.lock.LeaveWrite();
 					m.lock.LeaveWrite();
 					return;
-				}
+				}*/
 				
 				
 				// Add mask from genders
@@ -413,11 +541,13 @@ void AI_Task::Process_MakeReversePattern() {
 				rt.mask_attrs.Clear();
 				for(int i = 0; i < GENDER_COUNT; i++) {
 					int code = 1 << i;
-					const PatternSnap& snap = rt.ctx->snap[i];
+					const PatternSnap& snap = rt.ctx->snap[MALE_REVERSED + i];
+					ASSERT(!snap.mask.IsEmpty());
 					for (const SnapAttrStr& sa : snap.mask.GetKeys()) {
 						rt.mask_attrs.GetAdd(sa, 0) += code;
 					}
 				}
+				ASSERT(!rt.mask_attrs.IsEmpty());
 				SortByKey(rt.mask_attrs, SnapAttrStr()); // required for same hash value
 				SortByValue(rt.mask_attrs, StdGreater<int>());
 				
@@ -433,7 +563,6 @@ void AI_Task::Process_MakeReversePattern() {
 					SetError("no snap mask attributes");
 					t.failed = true;
 					song.lock.LeaveWrite();
-					m.lock.LeaveWrite();
 					return;
 				}
 				
@@ -490,38 +619,28 @@ void AI_Task::Process_MakeReversePattern() {
 		}
 	}
 	song.lock.LeaveWrite();
-	m.lock.LeaveWrite();
 }
 
-void AI_Task::Process_MakeLyricsTask() {
+void Task::Process_MakeLyricsTask() {
 	Database& db = Database::Single();
-	TaskMgr& m = TaskMgr::Single();
 	if (!p.song) {
 		SetError("no song pointer set");
 		return;
 	}
 	
-	m.lock.EnterWrite();
-	
 	Song& song = *p.song;
-	Vector<AI_Task*> tasks;
+	Vector<Task*> tasks;
 	for (Part& part : song.parts) {
-		AI_Task& t = m.tasks.Add();
-		t.type = TASK_LYRICS;
+		Task& t = ResultTask(TASK_LYRICS);
 		t.p = p;
 		t.p.part = &part;
 		t.args << "rev";
-		t.CreateInput();
 		tasks << &t;
 	}
 	
 	if (GetCurrentLanguage() != LNG_('E', 'N', 'U', 'S')) {
-		AI_Task& t = m.tasks.Add();
-		t.type = TASK_LYRICS_TRANSLATE;
+		Task& t = ResultTask(TASK_LYRICS_TRANSLATE);
 		t.p = p;
-		t.depends_on <<= tasks;
 		t.args << "rev" << GetCurrentLanguageString();
 	}
-	
-	m.lock.LeaveWrite();
 }

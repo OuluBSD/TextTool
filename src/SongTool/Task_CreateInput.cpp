@@ -1,6 +1,6 @@
 #include "SongTool.h"
 
-void AI_Task::CreateInput_StoryArc() {
+void Task::CreateInput_StoryArc() {
 	Database& db = Database::Single();
 	if (!p.song) {
 		SetError("no song pointer set");
@@ -51,7 +51,7 @@ void AI_Task::CreateInput_StoryArc() {
 	input = s;
 }
 
-void AI_Task::CreateInput_Impact() {
+void Task::CreateInput_Impact() {
 	Database& db = Database::Single();
 	if (!p.line) {
 		SetError("no line pointer set");
@@ -150,7 +150,7 @@ ${ENTRIES}
 ${FIRSTENTRY}:
 Combination string:)ATRSCROO";
 
-void AI_Task::CreateInput_ImpactScoring() {
+void Task::CreateInput_ImpactScoring() {
 	//CombineHash hash;
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
@@ -175,6 +175,7 @@ void AI_Task::CreateInput_ImpactScoring() {
 		ASSERT(impact.GetCount());
 		
 		PatternSnap* snap = song.FindSnapByImpact(impact);
+		ASSERT(snap);
 		if (snap && snap->impact_score.GetCount() == sc)
 			continue;
 		
@@ -183,7 +184,7 @@ void AI_Task::CreateInput_ImpactScoring() {
 			continue;*/
 		
 		// Add line to ai prompt
-		entries << "Line " << i+2 << ", \"" << impact << "\"\n";
+		entries << "Line " << entry_count+2 << ", \"" << impact << "\"\n";
 		
 		// Make FIRSTENTRY prompt on first seen value
 		if (!entry_count)
@@ -193,7 +194,7 @@ void AI_Task::CreateInput_ImpactScoring() {
 	
 	// This task shouldn't exist, if there is nothing to solve
 	if (entry_count == 0) {
-		SetError(DeQtf(t_("Nothing to ask from AI here")));
+		SetFastExit();
 		return;
 	}
 	
@@ -203,7 +204,7 @@ void AI_Task::CreateInput_ImpactScoring() {
 	response_length = 2*1024;
 }
 
-void AI_Task::CreateInput_PatternMask() {
+void Task::CreateInput_PatternMask() {
 	//CombineHash hash;
 	Database& db = Database::Single();
 	if (!p.song) {
@@ -274,7 +275,7 @@ void AI_Task::CreateInput_PatternMask() {
 	response_length = 2*1024;
 }
 
-void AI_Task::CreateInput_Pattern() {
+void Task::CreateInput_Pattern() {
 	//CombineHash hash;
 	Database& db = Database::Single();
 	if (!p.song) {
@@ -350,7 +351,7 @@ void AI_Task::CreateInput_Pattern() {
 	response_length = 2*1024;
 }
 
-void AI_Task::CreateInput_Analysis() {
+void Task::CreateInput_Analysis() {
 	//CombineHash hash;
 	Database& db = Database::Single();
 	Ptrs& p = this->p;
@@ -370,13 +371,13 @@ void AI_Task::CreateInput_Analysis() {
 	}
 	
 	String s;
-	String vocalist_visual = args[0];
-	String title = args[1];
+	String vocalist_visual = p.artist->vocalist_visual;
+	String title = args[0];
 	String first;
 	
 	s << Capitalize(title) << ":\n";
 	//hash << ToLower(title);
-	for(int i = 2; i < args.GetCount(); i++) {
+	for(int i = 1; i < args.GetCount(); i++) {
 		String a = ToLower(args[i]);
 		s << "- " << a << "\n";
 		//hash << ToLower(a);
@@ -497,7 +498,7 @@ ${ENTRIES}
 ${FIRSTENTRY}:
 Combination string:)ATRSCROO";
 
-void AI_Task::CreateInput_AttrScores() {
+void Task::CreateInput_AttrScores() {
 	//CombineHash hash;
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
@@ -505,7 +506,6 @@ void AI_Task::CreateInput_AttrScores() {
 	Ptrs& p = this->p;
 	Song& song = *p.song;
 	ASSERT(p.mode >= 0);
-	SongHeader& header = song.headers[p.mode];
 	
 	String prompt;
 	String entries;
@@ -519,8 +519,7 @@ void AI_Task::CreateInput_AttrScores() {
 	
 	
 	// Try making prompt with errors first
-	Song& a = *this->p.song;
-	a.GetAttributes(p.mode, attrs); // get attrs from snapshots
+	song.GetMaskAttributes(p.mode, attrs); // get attrs from masks
 	
 	
 	int entry_count = 0;
@@ -605,7 +604,7 @@ Close your eyes and I'll kiss you, 'cause with the birds I'll share (lonely view
 
 )TXT";
 
-void AI_Task::CreateInput_Lyrics() {
+void Task::CreateInput_Lyrics() {
 	Database& db = Database::Single();
 	
 	if (!this->p.part) {
@@ -668,7 +667,7 @@ void AI_Task::CreateInput_Lyrics() {
 	input = o;
 }
 
-void AI_Task::CreateInput_LyricsTranslate() {
+void Task::CreateInput_LyricsTranslate() {
 	bool rev_snap = args[0] == "rev";
 	int mode = rev_snap ? p.mode + 2 : p.mode;
 	Song& song = *p.song;

@@ -18,7 +18,6 @@ struct PatternSnap : PatternMask {
 	
 	
 	void Clear() {
-		PatternMask::Clear();
 		txt.Clear();
 		attributes.Clear();
 		partscore.Clear();
@@ -94,11 +93,18 @@ struct PatternSnap : PatternMask {
 	}
 	
 	template <class A, class B>
-	static void GetAttributes(int mode, A* owner, Array<B>& sub, Index<SnapAttrStr>& attrs) {
+	static void GetSnapAttributes(int mode, A* owner, Array<B>& sub, Index<SnapAttrStr>& attrs) {
 		for (const SnapAttrStr& a : owner->snap[mode].attributes.GetKeys())
 			attrs.FindAdd(a);
 		for (B& o : sub)
-			GetAttributes(mode, &o, o.GetSub(), attrs);
+			GetSnapAttributes(mode, &o, o.GetSub(), attrs);
+	}
+	template <class A, class B>
+	static void GetMaskAttributes(int mode, A* owner, Array<B>& sub, Index<SnapAttrStr>& attrs) {
+		for (const SnapAttrStr& a : owner->snap[mode].PatternMask::mask.GetKeys())
+			attrs.FindAdd(a);
+		for (B& o : sub)
+			GetMaskAttributes(mode, &o, o.GetSub(), attrs);
 	}
 	template <class A, class B>
 	static void GetLineSnapshots(int mode, A* owner, Array<B>& sub, const String& txt_line, Vector<PatternSnap*>& snaps) {
@@ -128,7 +134,8 @@ struct PatternSnap : PatternMask {
 	
 	#define PATTERNMASK_MACROS \
 		void GetSnapsLevel(int mode, int level, Vector<PatternSnap*>& level_snaps) {this->snap[mode].PatternSnap::GetSnapsLevel(mode, level, &snap[mode], GetSub(), level_snaps);} \
-		void GetAttributes(int mode, Index<SnapAttrStr>& attrs) {this->snap[mode].PatternSnap::GetAttributes(mode, this, GetSub(), attrs);} \
+		void GetSnapAttributes(int mode, Index<SnapAttrStr>& attrs) {this->snap[mode].PatternSnap::GetSnapAttributes(mode, this, GetSub(), attrs);} \
+		void GetMaskAttributes(int mode, Index<SnapAttrStr>& attrs) {this->snap[mode].PatternSnap::GetMaskAttributes(mode, this, GetSub(), attrs);} \
 		void GetLineSnapshots(int mode, const String& txt_line, Vector<PatternSnap*>& snaps) {this->snap[mode].PatternSnap::GetLineSnapshots(mode, this, GetSub(), txt_line, snaps);} \
 		String GetStructuredText(int mode, bool pretty, int indent=0) const {return this->snap[mode].PatternSnap::GetStructuredText(mode, pretty, indent, GetSub());} \
 		void ResolveId() {FOR_SNAP ResolveIdT(i, this, GetSub());} \
@@ -197,7 +204,7 @@ struct SnapContext {
 		for(int i = 0; i < PTR_COUNT; i++)
 			snap[i].owner = &ctx.snap[i];
 	}
-	void CopyPtrs(SnapContext& ctx) {
+	void CopyPtrs(const SnapContext& ctx) {
 		for(int i = 0; i < PTR_COUNT; i++)
 			snap[i].CopyPtrs(ctx.snap[i]);
 	}

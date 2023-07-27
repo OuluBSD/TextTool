@@ -9,7 +9,7 @@ class SongTool : public TopWindow {
 	CalendarPage	cal;
 	Editor			ed;
 	SeqCtrl			seq;
-	AI_Tasks		ai;
+	Tasks			ai;
 	TimeCallback	tc;
 	
 	int page = 0;

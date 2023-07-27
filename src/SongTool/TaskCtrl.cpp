@@ -1,7 +1,7 @@
 #include "SongTool.h"
 
 
-AI_Tasks::AI_Tasks() {
+Tasks::Tasks() {
 	Add(hsplit.HSizePos().VSizePos(0,30));
 	Add(lbl.LeftPos(5, 200-5).BottomPos(0,30));
 	Add(prog.HSizePos(200,0).BottomPos(0,30));
@@ -23,11 +23,11 @@ AI_Tasks::AI_Tasks() {
 	
 }
 
-void AI_Tasks::Data() {
+void Tasks::Data() {
 	TaskMgr& m = TaskMgr::Single();
 	
 	for(int i = 0; i < m.tasks.GetCount(); i++) {
-		AI_Task& t = m.tasks[i];
+		Task& t = m.tasks[i];
 		list.Set(i, 0, t.GetDescription());
 		String s;
 		if (t.failed)
@@ -53,13 +53,13 @@ void AI_Tasks::Data() {
 	DataTask();
 }
 
-void AI_Tasks::DataTask() {
+void Tasks::DataTask() {
 	TaskMgr& m = TaskMgr::Single();
 	if (!list.IsCursor())
 		return;
 	
 	int cursor = list.GetCursor();
-	AI_Task& t = m.tasks[cursor];
+	Task& t = m.tasks[cursor];
 	m.active_task = &t;
 	
 	if (cursor != data_cursor || (output.GetLength() == 0 && t.output.GetCount())) {
@@ -69,12 +69,12 @@ void AI_Tasks::DataTask() {
 	}
 }
 
-void AI_Tasks::ValueChange() {
+void Tasks::ValueChange() {
 	TaskMgr& m = TaskMgr::Single();
 	if (!m.active_task)
 		return;
 	
-	AI_Task& t = *m.active_task;
+	Task& t = *m.active_task;
 	t.output = TrimBoth(output.GetData());
 	t.changed = true;
 	t.output.Replace("\r", "");
@@ -82,28 +82,28 @@ void AI_Tasks::ValueChange() {
 	t.Store();
 }
 
-void AI_Tasks::ProcessItem() {
+void Tasks::ProcessItem() {
 	TaskMgr& m = TaskMgr::Single();
 	if (!list.IsCursor())
 		return;
 	int cursor = list.GetCursor();
-	AI_Task& t = m.tasks[cursor];
+	Task& t = m.tasks[cursor];
 	t.failed = false;
 	m.StartSingle(cursor);
 }
 
-void AI_Tasks::RetryItem() {
+void Tasks::RetryItem() {
 	TaskMgr& m = TaskMgr::Single();
 	if (!list.IsCursor())
 		return;
 	int cursor = list.GetCursor();
-	AI_Task& t = m.tasks[cursor];
+	Task& t = m.tasks[cursor];
 	t.Retry();
 	m.StartSingle(cursor);
 	this->output.Clear();
 }
 
-void AI_Tasks::OutputMenu(Bar& bar) {
+void Tasks::OutputMenu(Bar& bar) {
 	bar.Add(t_("Process output"), THISBACK(ProcessItem));
 	bar.Add(t_("Retry"), THISBACK(RetryItem));
 	

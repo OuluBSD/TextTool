@@ -4,28 +4,6 @@
 #define IMAGEFILE <SongTool/App.iml>
 #include <Draw/iml_source.h>
 
-/*
-Response is:
-{
-  "choices": [
-    {
-      "finish_reason": "length",
-      "index": 0,
-      "logprobs": null,
-      "text": "\n\nThis is indeed a test"
-    }
-  ],
-  "created": 1688998645,
-  "id": "cmpl-7alzZwP0jsA6Cp2BXtS9hd5Md2aIV",
-  "model": "text-davinci-003",
-  "object": "text_completion",
-  "usage": {
-    "completion_tokens": 7,
-    "prompt_tokens": 5,
-    "total_tokens": 12
-  }
-}
-*/
 
 GUI_APP_MAIN {
 	SetLanguage(GetSystemLNG());
@@ -33,6 +11,7 @@ GUI_APP_MAIN {
 	
 	// Load task manager
 	TaskMgr& m = TaskMgr::Single();
+	m.CreateDefaultTaskRules();
 	m.Load();
 	m.Start();
 	
@@ -51,6 +30,7 @@ GUI_APP_MAIN {
 			m.Store();
 		}
 	}
+	//LOG("OpenAI token: " << m.openai_token);
 	
 	
 	// Start OpenAI backend

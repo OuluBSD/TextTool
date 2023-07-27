@@ -1,5 +1,5 @@
-#ifndef _SongTool_AI_Tasks_h_
-#define _SongTool_AI_Tasks_h_
+#ifndef _SongTool_Tasks_h_
+#define _SongTool_Tasks_h_
 
 
 struct TaskMgr;
@@ -72,47 +72,19 @@ struct OpenAiResponse {
 	}
 };
 
-struct AI_Task {
-	enum {
-		TASK_PATTERNMASK,
-		TASK_ANALYSIS,
-		TASK_STORYARC,
-		TASK_IMPACT,
-		
-		TASK_MAKE_PATTERN_TASKS,
-		TASK_IMPACT_SCORING,
-		TASK_MAKE_IMPACT_SCORING_TASKS,
-		TASK_PATTERN,
-		
-		TASK_MAKE_ATTRSCORES_TASKS,
-		TASK_ATTRSCORES,
-		TASK_SONGSCORE,
-		
-		TASK_MAKE_REVERSE_IMPACT_TASK,
-		TASK_REVERSE_IMPACT,
-		
-		TASK_MAKE_REVERSE_MASK_TASK,
-		TASK_REVERSE_COMMON_MASK,
-		TASK_REVERSE_SEPARATE_MASK,
-		
-		TASK_MAKE_REVERSEPATTERN_TASK,
-		TASK_REVERSEPATTERN,
-		
-		TASK_MAKE_LYRICS_TASK,
-		TASK_LYRICS,
-		TASK_LYRICS_TRANSLATE,
-		
-		TASK_COUNT
-	};
-	
+struct TaskRule;
+
+struct Task {
+	TaskRule* rule = 0;
 	Vector<String> args;
 	String input;
 	String output;
-	int type = -1;
+	//int type = -1;
 	int response_length = 0;
 	String error;
 	bool skip_load = false;
 	bool ready = false;
+	bool fast_exit = false;
 	bool failed = false;
 	bool processing = false;
 	bool changed = false;
@@ -121,10 +93,14 @@ struct AI_Task {
 	hash_t hash = 0;
 	int tries = 0;
 	
-	Vector<AI_Task*> depends_on;
+	//Vector<Task*> depends_on;
 	Ptrs p;
 	ReverseTask* task = 0;
 	TaskMgr* mgr = 0;
+	
+	// temp
+	Array<Task> result_tasks;
+	Vector<Vector<String>> str_map;
 	
 	static constexpr int common_mask_gen_multiplier		= 8;
 	static constexpr int common_mask_max_values			= 10;
@@ -132,19 +108,25 @@ struct AI_Task {
 	static constexpr int separate_mask_gen_multiplier	= 8;
 	static constexpr int separate_mask_max_values		= 50;
 	static constexpr int separate_mask_gens				= 100;
-	static constexpr int snap_gen_multiplier	= 20;
-	static constexpr int snap_max_values		= 20;
-	static constexpr int snap_gens				= 100;
+	static constexpr int snap_gen_multiplier			= 20;
+	static constexpr int snap_max_values				= 20;
+	static constexpr int snap_gens						= 100;
 	
-	void Store();
+	Task& ResultTask(int r);
+	
+	void Store(bool force=false);
 	void Load();
 	bool RunOpenAI();
+	bool ProcessInput();
 	void Process();
 	void SetError(String s);
 	void SetWaiting() {wait_task = true;}
+	void SetFastExit() {fast_exit = true;}
 	String GetInputHash() const;
 	String GetOutputHash() const;
-	void CreateInput();
+	bool CheckArguments();
+	bool WriteResults();
+	bool ParseOriginalLyrics();
 	void CreateInput_StoryArc();
 	void CreateInput_PatternMask();
 	void CreateInput_Pattern();
@@ -154,7 +136,7 @@ struct AI_Task {
 	void CreateInput_LyricsTranslate();
 	void CreateInput_Impact();
 	void CreateInput_ImpactScoring();
-	void CreateInput_MakeImpactScoringTasks();
+	void Process_MakeImportTasks();
 	void Process_StoryArc();
 	void Process_PatternMask();
 	void Process_Pattern();
@@ -167,6 +149,7 @@ struct AI_Task {
 	void Process_ReverseImpact();
 	void Process_MakeReverseMaskTask();
 	void Process_ReverseCommonMask();
+	void Process_MaskScore();
 	void Process_ReverseSeparateMask();
 	void Process_MakeReversePattern();
 	void Process_MakeLyricsTask();
@@ -180,7 +163,6 @@ struct AI_Task {
 	void Retry();
 	String GetDescription() const;
 	String GetTypeString() const;
-	bool IsDepsReady(Index<AI_Task*>& seen) const;
 	bool AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str);
 	void AddAttrScoreId(AttrScoreGroup& ag, const SnapAttr& a);
 	

@@ -17,7 +17,6 @@ struct TaskResult {
 struct ReverseTask {
 	Array<TaskResult> results;
 	Vector<double> result_values;
-	int id = -1;
 	int type = -1;
 	int actual = 0, total = 1;
 	double values_min = +DBL_MAX;
@@ -37,14 +36,13 @@ struct ReverseTask {
 	SnapContext* ctx = 0;
 	VectorMap<SnapAttrStr,int> snap_attrs; // source snaps (not used)
 	
-	void Store();
+	void Store(bool force=false);
 	void LoadHash(hash_t h);
 	void Serialize(Stream& s) {
 		/*if (s.IsLoading()) lock.EnterWrite();
 		else lock.EnterRead();*/
 		s	% results
 			% result_values
-			% id
 			% type
 			% actual
 			% total

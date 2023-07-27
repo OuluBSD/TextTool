@@ -1,8 +1,8 @@
-#ifndef _SongTool_AI_TaskCtrl_h_
-#define _SongTool_AI_TaskCtrl_h_
+#ifndef _SongTool_TaskCtrl_h_
+#define _SongTool_TaskCtrl_h_
 
 
-class AI_Tasks : public Ctrl {
+class Tasks : public Ctrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl list;
 	DocEdit input, output;
@@ -11,8 +11,8 @@ class AI_Tasks : public Ctrl {
 	int data_cursor = -1;
 	
 public:
-	typedef AI_Tasks CLASSNAME;
-	AI_Tasks();
+	typedef Tasks CLASSNAME;
+	Tasks();
 	
 	void Data();
 	void DataTask();

@@ -108,7 +108,7 @@ struct Ptrs {
 	int GetActiveArtistIndex() const;
 	int GetActiveReleaseIndex() const;
 	int GetActiveSongIndex() const;
-	void CopyPtrs(Ptrs& p) {
+	void CopyPtrs(const Ptrs& p) {
 		*this = p;
 	}
 	String GetBreakInSongString() const;

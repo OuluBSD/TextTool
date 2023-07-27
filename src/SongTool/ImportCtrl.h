@@ -18,7 +18,6 @@ public:
 	//void OutputBar(Bar& bar);
 	//void RemoveLine();
 	void MakeTasks();
-	bool ParseOriginalLyrics();
 	
 	Callback WhenStructureChange;
 	

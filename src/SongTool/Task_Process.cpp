@@ -1,6 +1,6 @@
 #include "SongTool.h"
 
-void AI_Task::Process_StoryArc() {
+void Task::Process_StoryArc() {
 	Song& song = *this->p.song;
 	
 	String txt = input + output;
@@ -66,7 +66,7 @@ void AI_Task::Process_StoryArc() {
 	
 }
 
-void AI_Task::Process_Impact() {
+void Task::Process_Impact() {
 	String txt = input + output;
 	//LOG(txt);
 	
@@ -107,7 +107,7 @@ void AI_Task::Process_Impact() {
 	
 }
 
-void AI_Task::Process_ImpactScoring() {
+void Task::Process_ImpactScoring() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
 	int exp_count = g.scorings.GetCount();
@@ -136,11 +136,14 @@ void AI_Task::Process_ImpactScoring() {
 	
 	// Find the beginning of results
 	int a = txt.Find("line 2,");
-	if (a < 0) {SetError("no 'line2' found"); return;}
+	if (a < 0) {
+		SetError("no 'line2' found"); return;}
 	a = txt.Find("\n", a);
 	if (a < 0) {SetError("no newline found"); return;}
 	a = txt.Find("line 2,", a);
-	if (a < 0) {SetError("no second 'line2' found"); return;}
+	if (a < 0) {
+		//LOG(txt);
+		SetError("no second 'line2' found"); return;}
 	txt = txt.Mid(a);
 	//LOG(txt);
 	
@@ -297,8 +300,8 @@ void AI_Task::Process_ImpactScoring() {
 	
 }
 
-void AI_Task::Process_PatternMask() {
-	LOG("AI_Task::Process_PatternMask: begin");
+void Task::Process_PatternMask() {
+	LOG("Task::Process_PatternMask: begin");
 	Database& db = Database::Single();
 	Song& song = *p.song;
 	ASSERT(p.mode >= 0);
@@ -452,10 +455,10 @@ void AI_Task::Process_PatternMask() {
 		}
 	}
 	
-	LOG("AI_Task::Process_PatternMask: end (success)");
+	LOG("Task::Process_PatternMask: end (success)");
 }
 
-void AI_Task::Process_Pattern() {
+void Task::Process_Pattern() {
 	Database& db = Database::Single();
 	TaskMgr& m = TaskMgr::Single();
 	Attributes& g = db.attrs;
@@ -465,6 +468,20 @@ void AI_Task::Process_Pattern() {
 	int mode = p.mode;
 	
 	//SetError("test"); return;
+	
+	
+	// Connect line number to unique line
+	int offset_begin = StrInt(args[2]);
+	int offset_end = StrInt(args[3]);
+	VectorMap<int,int> intmap;
+	for(int i = 0, j = 0; i < song.headers[mode].unique_lines.GetCount(); i++) {
+		const String& l = song.headers[mode].unique_lines.GetKey(i);
+		if (i < offset_begin || i >= offset_end)
+			continue;
+		intmap.Add((j+1), i);
+		j++;
+	}
+	
 	
 	String txt = input + output;
 	txt.Replace("\r", "");
@@ -501,7 +518,11 @@ void AI_Task::Process_Pattern() {
 	
 	
 	// Parse results
-	VectorMap<String, VectorMap<String, Index<String>>> parsed;
+	struct Parsed : Moveable<Parsed> {
+		int unique_line_i;
+		VectorMap<String, Index<String>> map;
+	};
+	VectorMap<String, Parsed> parsed;
 	Vector<String> parts = Split(txt, "\n\n");
 	bool fail = false;
 	for(int i = 0; i < parts.GetCount(); i++) {
@@ -514,6 +535,20 @@ void AI_Task::Process_Pattern() {
 			fail = true;
 			break;
 		}
+		
+		a = header.Find(",");
+		if (a < 0) {
+			SetError(t_("Expected ','"));
+			fail = true;
+			break;
+		}
+		int line_num = StrInt(header.Mid(5,a-5));
+		int j = intmap.Find(line_num);
+		if (j < 0) {
+			SetError(t_("Line number couldn't be matched"));
+			break;
+		}
+		int unique_line_i = intmap[j];
 		
 		// Parse original line again
 		a = header.Find("\"");
@@ -528,7 +563,10 @@ void AI_Task::Process_Pattern() {
 		}
 		a += 1;
 		String line_txt = header.Mid(a, b-a);
-		VectorMap<String, Index<String>>& line_parsed = parsed.GetAdd(line_txt);
+		Parsed& line_parsed_struct = parsed.GetAdd(line_txt);
+		line_parsed_struct.unique_line_i = line_num;
+		
+		VectorMap<String, Index<String>>& line_parsed = line_parsed_struct.map;
 		
 		/*
 		int line_i = -1;
@@ -597,8 +635,10 @@ void AI_Task::Process_Pattern() {
 	// Add parsed data to database
 	for(int i = 0; i < parsed.GetCount(); i++) {
 		String line_txt = parsed.GetKey(i);
-		const VectorMap<String, Index<String>>& group_map = parsed[i];
-		Vector<SnapAttrStr>& line_attrs = song.headers[mode].unique_lines.GetAdd(line_txt);
+		const Parsed& parsed_struct = parsed[i];
+		const VectorMap<String, Index<String>>& group_map = parsed_struct.map;
+		
+		Vector<SnapAttrStr>& line_attrs = song.headers[mode].unique_lines[parsed_struct.unique_line_i];
 		//DUMPC(line_attrs);
 		
 		//DUMP(line_txt);
@@ -654,7 +694,7 @@ void AI_Task::Process_Pattern() {
 						}
 					}
 					else {
-						LOG("AI_Task::Process_Pattern: warning: not found: " << group_str << " -> " << item_str);
+						LOG("Task::Process_Pattern: warning: not found: " << group_str << " -> " << item_str);
 					}
 				}
 			}
@@ -662,13 +702,13 @@ void AI_Task::Process_Pattern() {
 	}
 }
 
-void AI_Task::Process_Analysis() {
-	LOG("AI_Task::Process_Analysis: begin");
+void Task::Process_Analysis() {
+	LOG("Task::Process_Analysis: begin");
 	Database& db = Database::Single();
 	Song& song = *p.song;
 	int mode = p.mode;
-	String vocalist_visual = args[0];
-	String title = args[1];
+	String vocalist_visual = p.artist->vocalist_visual;
+	String title = args[0];
 	
 	output.Replace("\n\n-", "\n-");
 	
@@ -760,10 +800,10 @@ void AI_Task::Process_Analysis() {
 	//LOG(result);
 	
 	
-	LOG("AI_Task::Process_Analysis: end (success)");
+	LOG("Task::Process_Analysis: end (success)");
 }
 
-void AI_Task::Process_AttrScores() {
+void Task::Process_AttrScores() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
 	int exp_count = g.scorings.GetCount();
@@ -788,7 +828,8 @@ void AI_Task::Process_AttrScores() {
 	
 	// Find the beginning of results
 	int a = txt.Find("line 2,");
-	if (a < 0) {SetError("no 'line2' found"); return;}
+	if (a < 0) {
+		SetError("no 'line2' found"); return;}
 	a = txt.Find("\n", a);
 	if (a < 0) {SetError("no newline found"); return;}
 	a = txt.Find("line 2,", a);
@@ -989,7 +1030,7 @@ void AI_Task::Process_AttrScores() {
 	
 }
 
-bool AI_Task::AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str) {
+bool Task::AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str) {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
 	SnapAttr a;
@@ -1027,7 +1068,7 @@ bool AI_Task::AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_s
 	return true;
 }
 
-void AI_Task::AddAttrScoreId(AttrScoreGroup& ag, const SnapAttr& a) {
+void Task::AddAttrScoreId(AttrScoreGroup& ag, const SnapAttr& a) {
 	Database& db = Database::Single();
 	
 	// Remove SnapAttr from previously added group
@@ -1116,7 +1157,7 @@ void GetMaskScores(const PatternSnap& snap, Vector<int>& scores) {
 	}
 }
 
-void AI_Task::Process_SongScores() {
+void Task::Process_SongScores() {
 	Database& db = Database::Single();
 	ASSERT(p.mode >= 0);
 	int mode = p.mode;
@@ -1161,7 +1202,7 @@ void AI_Task::Process_SongScores() {
 	}
 }
 
-void AI_Task::Process_Lyrics() {
+void Task::Process_Lyrics() {
 	bool rev_snap = args.GetCount() && args[0] == "rev";
 	Part& part = *p.part;
 	int mode = rev_snap ? p.mode+2 : p.mode;
@@ -1169,7 +1210,7 @@ void AI_Task::Process_Lyrics() {
 	txt = output;
 }
 
-void AI_Task::Process_LyricsTranslate() {
+void Task::Process_LyricsTranslate() {
 	bool rev_snap = args.GetCount() && args[0] == "rev";
 	Song& song = *p.song;
 	int mode = rev_snap ? p.mode+2 : p.mode;

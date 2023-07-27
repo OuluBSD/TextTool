@@ -42,7 +42,7 @@ using namespace Upp;
 #include "Attributes.h"
 #include "Database.h"
 
-#include "AI_Tasks.h"
+#include "Tasks.h"
 #include "TaskMgr.h"
 
 #include "AttrDataCtrl.h"
@@ -77,7 +77,7 @@ using namespace Upp;
 #include "FrontPage.h"
 #include "CalendarPage.h"
 #include "Editor.h"
-#include "AI_TaskCtrl.h"
+#include "TaskCtrl.h"
 
 #include "App.h"
 
