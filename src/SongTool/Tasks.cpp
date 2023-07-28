@@ -47,6 +47,74 @@ String Task::GetDescription() const {
 	return s;
 }
 
+bool Task::HasCreatedTasks() const {
+	TaskMgr& m = TaskMgr::Single();
+	for (const Task& t : m.tasks) {
+		if (t.created_by == this)
+			return true;
+	}
+	return false;
+}
+
+bool Task::IsCreatedTasksReady() const {
+	TaskMgr& m = TaskMgr::Single();
+	for (const Task& t : m.tasks) {
+		if (t.created_by != this)
+			continue;
+		if (!t.ready)
+			return false;
+	}
+	return true;
+}
+
+String Task::GetTaskDependencyString(bool have_ready_rules, bool rule_names) const {
+	TaskMgr& m = TaskMgr::Single();
+	String s;
+	Index<TaskRule*> rules;
+	
+	int i = 0;
+	for (const Task& t : m.tasks) {
+		if (t.ready != have_ready_rules) {
+			i++;
+			continue;
+		}
+		bool found = false;
+		for (TaskOutputType ot : this->rule->reqs) {
+			for (TaskOutputType ot0 : t.rule->results) {
+				if (ot == ot0) {
+					found = true;
+					break;
+				}
+			}
+		}
+		if (created_by == &t)
+			found = true;
+		if (found) {
+			if (rule_names) {
+				rules.FindAdd(t.rule);
+			}
+			else {
+				if (!s.IsEmpty()) s << ", ";
+				s << "#" << i;
+			}
+		}
+		i++;
+	}
+	
+	if (rule_names) {
+		for (int i = rules.GetCount()-1; i >= 0; i--) {
+			TaskRule* r = rules[i];
+			if (!s.IsEmpty()) s << ", ";
+			s << r->name;
+		}
+	}
+	return s;
+}
+
+String Task::GetTaskDepsWaitingString() const {
+	return GetTaskDependencyString(false, false);
+}
+
 String Task::GetTypeString() const {
 	return rule->name;
 }
@@ -135,7 +203,8 @@ void Task::Process() {
 	}
 	else {
 		if (ok) {
-			(this->*rule->process)();
+			if (rule->process)
+				(this->*rule->process)();
 		}
 		
 		if (wait_task) {
@@ -244,50 +313,54 @@ bool Task::WriteResults() {
 	
 	for (TaskOutputType t :  rule->results) {
 		switch (t) {
-			// flags for dependencies only
-			case O_ORDER_IMPORT: break;
-			case O_ORDER_IMPORT_DETAILED: break;
-			case O_ORDER_REVERSE: break;
-			
-			case O_DB_ATTRS: ASSERT(db.attrs.groups.GetCount());  break;
-			case O_DB_ATTR_SCORES: ASSERT(db.attrscores.groups.GetCount()); break;
-			
-			case O_TASKS:
-				m.lock.EnterWrite();
-				m.total += result_tasks.GetCount();
-				while (result_tasks.GetCount())
-					m.tasks.Add(result_tasks.Detach(0));
-				m.lock.LeaveWrite();
-				break;
-			
-			case O_SONG_MASK: break;
-			case O_SONG_ANALYSIS: break;
-			case O_SONG_DATA_STORYLINE: break;
-			case O_SONG_UNIQLINES: ASSERT(p.song->headers[0].unique_lines.GetCount()); ASSERT(p.song->headers[1].unique_lines.GetCount()); break;
-			case O_SONG_UNIQLINE_ATTRS: break;
-			case O_SONG_SNAP: break;
-			case O_SONG_REVERSED_MASK_COMMON: break;
-			case O_SONG_REVERSED_MASK: break;
-			case O_SONG_REVERSED_LYRICS: break;
-			case O_SONG_REVERSED_TRANSLATED_LYRICS: break;
-			
-			case O_PART_MASK: break;
-			case O_PART_MASK_SCORE: break;
-			case O_PART_DATA_STORYLINE: break;
-			case O_PART_SNAP: break;
-			case O_PART_SNAP_SCORE: break;
-			case O_PART_REVERSED_SNAP: break;
-			
-			case O_LINE_SNAP: break;
-			case O_LINE_SNAP_SCORE: break;
-			case O_LINE_REVERSED_SNAP: break;
-			
-			case O_BREAK_SNAP: break;
-			case O_BREAK_SNAP_SCORE: break;
-			case O_BREAK_IMPACT: break;
-			case O_BREAK_IMPACT_SCORES: break;
-			case O_BREAK_REVERSED_IMPACT: break;
-			case O_BREAK_REVERSED_SNAP: break;
+		// flags for dependencies only
+		case O_ORDER_IMPORT: break;
+		case O_ORDER_IMPORT_DETAILED: break;
+		case O_ORDER_REVERSE: break;
+		
+		case O_DB_ATTRS: ASSERT(db.attrs.groups.GetCount());  break;
+		case O_DB_ATTR_SCORES: ASSERT(db.attrscores.groups.GetCount()); break;
+		
+		case O_TASKS:
+			if (result_tasks.IsEmpty()) {
+				SetError("no tasks to add to queue");
+				return false;
+			}
+			m.lock.EnterWrite();
+			m.total += result_tasks.GetCount();
+			while (result_tasks.GetCount())
+				m.tasks.Add(result_tasks.Detach(0));
+			m.lock.LeaveWrite();
+			break;
+		
+		case O_SONG_MASK: break;
+		case O_SONG_ANALYSIS: break;
+		case O_SONG_DATA_STORYLINE: break;
+		case O_SONG_UNIQLINES: ASSERT(p.song->headers[0].unique_lines.GetCount()); ASSERT(p.song->headers[1].unique_lines.GetCount()); break;
+		case O_SONG_UNIQLINE_ATTRS: break;
+		case O_SONG_SNAP: break;
+		case O_SONG_REVERSED_MASK_COMMON: break;
+		case O_SONG_REVERSED_MASK: break;
+		case O_SONG_REVERSED_LYRICS: break;
+		case O_SONG_REVERSED_TRANSLATED_LYRICS: break;
+		
+		case O_PART_MASK: break;
+		case O_PART_MASK_SCORE: break;
+		case O_PART_DATA_STORYLINE: break;
+		case O_PART_SNAP: break;
+		case O_PART_SNAP_SCORE: break;
+		case O_PART_REVERSED_SNAP: break;
+		
+		case O_LINE_SNAP: break;
+		case O_LINE_SNAP_SCORE: break;
+		case O_LINE_REVERSED_SNAP: break;
+		
+		case O_BREAK_SNAP: break;
+		case O_BREAK_SNAP_SCORE: break;
+		case O_BREAK_IMPACT: break;
+		case O_BREAK_IMPACT_SCORES: break;
+		case O_BREAK_REVERSED_IMPACT: break;
+		case O_BREAK_REVERSED_SNAP: break;
 		}
 	}
 	
@@ -357,5 +430,6 @@ void Task::Retry() {
 Task& Task::ResultTask(int r) {
 	Task& t = result_tasks.Add();
 	t.rule = &TaskMgr::Single().GetRule(r);
+	t.created_by = this;
 	return t;
 }

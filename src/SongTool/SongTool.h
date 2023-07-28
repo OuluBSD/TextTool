@@ -69,6 +69,7 @@ using namespace Upp;
 #include "StoryCtrl.h"
 #include "StructureCtrl.h"
 #include "ImportCtrl.h"
+#include "LyricsCtrl.h"
 
 #include "LineEditCtrl.h"
 #include "Sequencer.h"

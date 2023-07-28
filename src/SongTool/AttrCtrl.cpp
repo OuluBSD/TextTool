@@ -9,6 +9,19 @@ AttrCtrl::AttrCtrl() {
 	UpdateGroupsToScoring();
 }
 
+void AttrCtrl::SetMode(int m) {
+	mode = m;
+	/*int is_rev = m / GENDER_COUNT;
+	if (!is_rev) {
+		mode = m;
+		other_mode = !m;
+	}
+	else {
+		mode = m;
+		other_mode = GENDER_COUNT + !(m % GENDER_COUNT);
+	}*/
+}
+
 void AttrCtrl::UpdateGroupsToScoring() {
 	Attributes& g = Database::Single().attrs;
 	active.SetCount(g.GetCount() * g.group_limit, false);

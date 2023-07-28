@@ -70,6 +70,8 @@ file
 	ReverseImpactCtrl.cpp,
 	ReverseCtrl.h,
 	ReverseCtrl.cpp,
+	LyricsCtrl.h,
+	LyricsCtrl.cpp,
 	RecruimentCtrl.h,
 	RecruimentCtrl.cpp,
 	SocialCtrl.h,

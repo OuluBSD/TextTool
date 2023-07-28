@@ -35,6 +35,7 @@ protected:
 	StructureCtrl		structure;
 	ImpactScoringCtrl	impact_scoring;
 	MaskScoringCtrl		mask_scoring;
+	LyricsCtrl			lyrics;
 	
 public:
 	typedef Editor CLASSNAME;

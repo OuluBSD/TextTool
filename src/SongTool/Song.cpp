@@ -90,6 +90,20 @@ void Song::LoadTitle(String title) {
 void Song::RealizeTaskSnaps(bool force) {
 	if (!force) {
 		bool all_ok = true;
+		if (!rev_impact.ctx)
+			all_ok = false;
+		for (ReverseTask& rt : rev_common_mask_tasks) {
+			if (!rt.ctx) {
+				all_ok = false;
+				break;
+			}
+		}
+		for (ReverseTask& rt : rev_separate_mask_tasks) {
+			if (!rt.ctx) {
+				all_ok = false;
+				break;
+			}
+		}
 		for (ReverseTask& rt : rev_pattern_tasks) {
 			if (!rt.ctx) {
 				all_ok = false;
@@ -102,10 +116,29 @@ void Song::RealizeTaskSnaps(bool force) {
 	for (Part& p : parts) {
 		Vector<SnapContext*> ctxs;
 		p.GetContextLevel(0, ctxs);
-		if (force)
+		if (force) {
+			rev_impact.ctx = 0;
+			for (ReverseTask& rt : rev_common_mask_tasks)
+				rt.ctx = 0;
+			for (ReverseTask& rt : rev_separate_mask_tasks)
+				rt.ctx = 0;
 			for (ReverseTask& rt : rev_pattern_tasks)
 				rt.ctx = 0;
+		}
 		for (SnapContext* c: ctxs) {
+			{
+				ReverseTask& rt = rev_impact;
+				if (!rt.ctx && rt.txt == c->snap[0].txt)
+					rt.ctx = c;
+			}
+			for (ReverseTask& rt : rev_common_mask_tasks) {
+				if (!rt.ctx && rt.txt == c->snap[0].txt)
+					rt.ctx = c;
+			}
+			for (ReverseTask& rt : rev_separate_mask_tasks) {
+				if (!rt.ctx && rt.txt == c->snap[0].txt)
+					rt.ctx = c;
+			}
 			for (ReverseTask& rt : rev_pattern_tasks) {
 				if (!rt.ctx && rt.txt == c->snap[0].txt)
 					rt.ctx = c;

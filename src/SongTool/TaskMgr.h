@@ -71,6 +71,7 @@ typedef enum : int {
 	
 	TASK_MAKE_ATTRSCORES_TASKS,
 	TASK_ATTRSCORES,
+	TASK_ATTRSCORES_READY,
 	TASK_SONGSCORE,
 	
 	TASK_MAKE_REVERSE_IMPACT_TASK,
@@ -107,6 +108,7 @@ struct TaskRule {
 	Vector<TaskOutputType> reqs;
 	Vector<TaskOutputType> results;
 	bool spawnable = false;
+	bool multi_spawnable = false;
 	
 	TaskRule& Input(void (Task::*fn)());
 	TaskRule& Arg(TaskArgType arg, int i0=0, int i1=0);
@@ -114,6 +116,7 @@ struct TaskRule {
 	TaskRule& Process(void (Task::*fn)());
 	TaskRule& Result(TaskOutputType arg);
 	TaskRule& Spawnable(bool b=true);
+	TaskRule& MultiSpawnable(bool b=true);
 	
 };
 

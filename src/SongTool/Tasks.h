@@ -90,6 +90,8 @@ struct Task {
 	bool changed = false;
 	bool whole_song = false;
 	bool wait_task = false;
+	bool allow_multi_spawn = false;
+	bool is_waiting_deps = false;
 	hash_t hash = 0;
 	int tries = 0;
 	
@@ -101,6 +103,7 @@ struct Task {
 	// temp
 	Array<Task> result_tasks;
 	Vector<Vector<String>> str_map;
+	Task* created_by = 0;
 	
 	static constexpr int common_mask_gen_multiplier		= 8;
 	static constexpr int common_mask_max_values			= 10;
@@ -109,7 +112,8 @@ struct Task {
 	static constexpr int separate_mask_max_values		= 50;
 	static constexpr int separate_mask_gens				= 100;
 	static constexpr int snap_gen_multiplier			= 20;
-	static constexpr int snap_max_values				= 20;
+	static constexpr int snap_max_values				= 10;
+	static constexpr int snap_max_per_mode				= snap_max_values / 3;
 	static constexpr int snap_gens						= 100;
 	
 	Task& ResultTask(int r);
@@ -124,6 +128,8 @@ struct Task {
 	void SetFastExit() {fast_exit = true;}
 	String GetInputHash() const;
 	String GetOutputHash() const;
+	bool HasCreatedTasks() const;
+	bool IsCreatedTasksReady() const;
 	bool CheckArguments();
 	bool WriteResults();
 	bool ParseOriginalLyrics();
@@ -149,7 +155,6 @@ struct Task {
 	void Process_ReverseImpact();
 	void Process_MakeReverseMaskTask();
 	void Process_ReverseCommonMask();
-	void Process_MaskScore();
 	void Process_ReverseSeparateMask();
 	void Process_MakeReversePattern();
 	void Process_MakeLyricsTask();
@@ -162,6 +167,8 @@ struct Task {
 	
 	void Retry();
 	String GetDescription() const;
+	String GetTaskDependencyString(bool have_ready_rules, bool rule_names) const;
+	String GetTaskDepsWaitingString() const;
 	String GetTypeString() const;
 	bool AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str);
 	void AddAttrScoreId(AttrScoreGroup& ag, const SnapAttr& a);

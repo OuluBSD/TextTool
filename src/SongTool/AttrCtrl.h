@@ -35,7 +35,7 @@ public:
 	void ContextMenu(Bar& bar, Point pt);
 	void AddGroup();
 	void AddEntry(int group);
-	void SetMode(int m) {mode = m;}
+	void SetMode(int m);
 	
 	void MouseMove(Point p, dword keyflags) override;
 	void LeftDown(Point p, dword keyflags) override;

@@ -11,10 +11,14 @@ Tasks::Tasks() {
 	hsplit.Horz() << list << vsplit;
 	vsplit.Vert() << input << output;
 	
+	list.AddColumn(t_("#"));
 	list.AddColumn(t_("Description"));
+	list.AddColumn(t_("Depends on"));
+	list.AddColumn(t_("Dep rules"));
+	list.AddColumn(t_("Deps waiting"));
 	list.AddColumn(t_("Status"));
 	list.AddColumn(t_("Mode"));
-	list.ColumnWidths("8 2 1");
+	list.ColumnWidths("1 4 2 4 2 2 1");
 	list <<= THISBACK(DataTask);
 	
 	output <<= THISBACK(ValueChange);
@@ -28,7 +32,11 @@ void Tasks::Data() {
 	
 	for(int i = 0; i < m.tasks.GetCount(); i++) {
 		Task& t = m.tasks[i];
-		list.Set(i, 0, t.GetDescription());
+		list.Set(i, 0, i);
+		list.Set(i, 1, t.GetDescription());
+		list.Set(i, 2, t.GetTaskDependencyString(true, false));
+		list.Set(i, 3, t.GetTaskDependencyString(true, true));
+		list.Set(i, 4, t.GetTaskDepsWaitingString());
 		String s;
 		if (t.failed)
 			s = t_("Error") + String(": ") + t.error;
@@ -36,10 +44,12 @@ void Tasks::Data() {
 			s = t_("Processing");
 		else if (t.ready)
 			s = t_("Ready");
+		else if (t.is_waiting_deps)
+			s = t_("Waiting dependencies");
 		if (t.tries > 0)
 			s << " (" << t_("tries") << " " << t.tries << ")";
-		list.Set(i, 1, s);
-		list.Set(i, 2, GetModeString(t.p.mode));
+		list.Set(i, 5, s);
+		list.Set(i, 6, GetModeString(t.p.mode));
 	}
 	list.SetCount(m.tasks.GetCount());
 	

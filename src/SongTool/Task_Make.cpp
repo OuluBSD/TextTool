@@ -228,20 +228,24 @@ void Task::Process_MakeAttrScores() {
 		
 		
 		// Skip groups, which doesn't match this task
-		if (gg.type != group_type.name)
+		ASSERT(gg.type.GetCount());
+		ASSERT(group_type.name.GetCount());
+		if (gg.type.GetCount() != group_type.name.GetCount() ||
+			ToLower(gg.type) != ToLower(group_type.name))
 			continue;
 		
 		// Check from 'attribute to score' conversion vector, if all is solved
-		if (a.group_i >= as.attr_to_score.GetCount())
-			break;
-		const Vector<int>& to_score_i = as.attr_to_score[a.group_i];
 		bool is_unresolved = false;
-		// Check if attribute is without score
-		if (a.item_i >= to_score_i.GetCount() || to_score_i[a.item_i] < 0) {
-			// Not found
+		if (a.group_i >= as.attr_to_score.GetCount())
 			is_unresolved = true;
+		else {
+			const Vector<int>& to_score_i = as.attr_to_score[a.group_i];
+			// Check if attribute is without score
+			if (a.item_i >= to_score_i.GetCount() || to_score_i[a.item_i] < 0) {
+				// Not found
+				is_unresolved = true;
+			}
 		}
-		
 		
 		// If group have attributes without known scores (then add task to get them)
 		if (is_unresolved) {
@@ -250,8 +254,8 @@ void Task::Process_MakeAttrScores() {
 	}
 	
 	if (unresolved_group_types.GetCount()) {
-		Task& chk = ResultTask(TASK_MAKE_ATTRSCORES_TASKS);
-		chk.p = this->p;
+		//Task& chk = ResultTask(TASK_MAKE_ATTRSCORES_TASKS);
+		//chk.p = this->p;
 		
 		for (int group_type_i : unresolved_group_types.GetKeys()) {
 			const Attributes::GroupType& group_type = attrs.group_types[group_type_i];
@@ -272,15 +276,22 @@ void Task::Process_MakeAttrScores() {
 				}
 			}*/
 		}
+		
+		// Allow TASK_MAKE_ATTRSCORES_TASKS to be spawned once again
+		allow_multi_spawn = true;
 	}
 	
 	// If all were resolved
 	else {
+		// Add dummy task to flag that O_DB_ATTR_SCORES is available
+		Task& tr = ResultTask(TASK_ATTRSCORES_READY);
+		tr.p = this->p;
+		
 		Task& t = ResultTask(TASK_SONGSCORE);
 		t.p = this->p;
 		
-		Task& chk = ResultTask(TASK_MAKE_REVERSE_IMPACT_TASK);
-		chk.p = this->p;
+		//Task& chk = ResultTask(TASK_MAKE_REVERSE_IMPACT_TASK);
+		//chk.p = this->p;
 	}
 }
 
@@ -299,8 +310,8 @@ void Task::Process_MakePatternTasks() {
 		return;
 	}
 	
-	Task& chk = ResultTask(TASK_MAKE_ATTRSCORES_TASKS);
-	chk.p = this->p;
+	//Task& chk = ResultTask(TASK_MAKE_ATTRSCORES_TASKS);
+	//chk.p = this->p;
 	
 	// Pattern tasks -> attribute score task maker
 	{
@@ -349,8 +360,8 @@ void Task::Process_MakeImpactScoringTasks() {
 	}
 	SortIndex(line_impacts, StdLess<String>());
 	
-	Task& chk = ResultTask(TASK_MAKE_IMPACT_SCORING_TASKS);
-	chk.p = this->p;
+	//Task& chk = ResultTask(TASK_MAKE_IMPACT_SCORING_TASKS);
+	//chk.p = this->p;
 	
 	int per_task = 30;
 	int tasks = 1 + (line_impacts.GetCount() + 1) / per_task;
@@ -369,8 +380,8 @@ void Task::Process_MakeImpactScoringTasks() {
 }
 
 void Task::Process_MakeReverseImpactTask() {
-	Task& chk = ResultTask(TASK_MAKE_REVERSE_MASK_TASK);
-	chk.p = p;
+	//Task& chk = ResultTask(TASK_MAKE_REVERSE_MASK_TASK);
+	//chk.p = p;
 	
 	Task& t0 = ResultTask(TASK_REVERSE_IMPACT);
 	t0.p = p;
@@ -404,11 +415,12 @@ void Task::Process_MakeReverseMaskTask() {
 	song.rev_common_mask_tasks.Clear();
 	song.rev_separate_mask_tasks.Clear();
 	
-	Task& chk = ResultTask(TASK_MAKE_REVERSEPATTERN_TASK);
-	chk.p = p;
+	//Task& chk = ResultTask(TASK_MAKE_REVERSEPATTERN_TASK);
+	//chk.p = p;
 	
 	for (Part& part : song.parts) {
 		Task* prev = 0;
+		// Tasks for common and separate parts
 		for(int i = 0; i < 2; i++) {
 			int rev_mode = p.mode == MALE ? MALE_REVERSED : FEMALE_REVERSED;
 			int type = i == 0 ? TASK_REVERSE_COMMON_MASK : TASK_REVERSE_SEPARATE_MASK;
@@ -469,6 +481,9 @@ void Task::Process_MakeReversePattern() {
 	}
 	Song& song = *p.song;
 	
+	
+	as.UpdateGroupsToScoring();
+	
 	// Check that impact scores are ready
 	/*for (Task& t : m.tasks) {
 		if (t.type == TASK_MAKE_IMPACT_SCORING_TASKS && t.p.song == p.song) {
@@ -479,8 +494,8 @@ void Task::Process_MakeReversePattern() {
 		}
 	}*/
 	
-	Task& chk = ResultTask(TASK_MAKE_LYRICS_TASK);
-	chk.p = p;
+	//Task& chk = ResultTask(TASK_MAKE_LYRICS_TASK);
+	//chk.p = p;
 	int mode = p.mode;
 	ASSERT(mode == 0); // all are being done in one mode
 	//int rev_mode = p.mode == MALE ? MALE_REVERSED : FEMALE_REVERSED;
@@ -492,7 +507,7 @@ void Task::Process_MakeReversePattern() {
 	song.lock.EnterWrite();
 	song.rev_pattern_tasks.Clear();
 	int part_i = -1;
-	for (Part& p : song.parts) {
+	for (Part& part : song.parts) {
 		part_i++;
 		
 		/*Vector<PatternSnap*> snaps, rev_snaps;
@@ -505,8 +520,10 @@ void Task::Process_MakeReversePattern() {
 			m.lock.LeaveWrite();
 			return;
 		}*/
-		for(int i = 0; i < p.lines.GetCount(); i++) {
-			Line& line = p.lines[i];
+		
+		
+		for(int i = 0; i < part.lines.GetCount(); i++) {
+			Line& line = part.lines[i];
 			for(int j = 0; j < line.breaks.GetCount(); j++) {
 				Break& brk = line.breaks[j];
 				
@@ -541,7 +558,7 @@ void Task::Process_MakeReversePattern() {
 				rt.mask_attrs.Clear();
 				for(int i = 0; i < GENDER_COUNT; i++) {
 					int code = 1 << i;
-					const PatternSnap& snap = rt.ctx->snap[MALE_REVERSED + i];
+					const PatternSnap& snap = part.snap[MALE_REVERSED + i];
 					ASSERT(!snap.mask.IsEmpty());
 					for (const SnapAttrStr& sa : snap.mask.GetKeys()) {
 						rt.mask_attrs.GetAdd(sa, 0) += code;
@@ -549,7 +566,7 @@ void Task::Process_MakeReversePattern() {
 				}
 				ASSERT(!rt.mask_attrs.IsEmpty());
 				SortByKey(rt.mask_attrs, SnapAttrStr()); // required for same hash value
-				SortByValue(rt.mask_attrs, StdGreater<int>());
+				SortByValue(rt.mask_attrs, StdLess<int>());
 				
 				for(int j = 0; j < rt.mask_attrs.GetCount(); j++) {
 					const SnapAttrStr& sa = rt.mask_attrs.GetKey(j);
@@ -559,12 +576,26 @@ void Task::Process_MakeReversePattern() {
 						rt.mask_attrs.Remove(j--);
 					}
 				}
-				if (rt.mask_attrs.IsEmpty()) {
+				// Check that previous code didn't remove all gender attributes
+				for(int i = 0; i < GENDER_COUNT; i++) {
+					int code = 1 << i;
+					int count = 0;
+					for(int j = 0; j < rt.mask_attrs.GetCount(); j++)
+						if (rt.mask_attrs[j] == code)
+							count++;
+					ASSERT(count);
+					if (!count) {
+						SetError("all gender attributes were removed because of lacking attribute scores");
+						song.lock.LeaveWrite();
+						return;
+					}
+				}
+				/*if (rt.mask_attrs.IsEmpty()) {
 					SetError("no snap mask attributes");
 					t.failed = true;
 					song.lock.LeaveWrite();
 					return;
-				}
+				}*/
 				
 				// Gender scores requires knowing common and separate attributes
 				// Calculate them here, as there is no database structure for that
@@ -577,16 +608,17 @@ void Task::Process_MakeReversePattern() {
 						snap_attrs.GetAdd(sa, 0) += code;
 					}
 				}
-				SortByValue(snap_attrs, StdGreater<int>());
+				SortByValue(snap_attrs, StdLess<int>());
 				
 				// Calculate scores for common and separate attribute vectors
 				Vector<Vector<double>>& src_scores = rt.scores;
-				src_scores.SetCount(COMMON_GENDER_WEIGHTED_COUNT);
-				for(int i = 0; i < COMMON_GENDER_COUNT; i++) {
+				src_scores.SetCount(GENDER_COMMON_WEIGHTED_COUNT);
+				for(int i = 0; i < GENDER_COMMON_COUNT; i++) {
 					Vector<double>& src_score = src_scores[i];
 					src_score.SetCount(0);
 					src_score.SetCount(gc, 0);
-					int match = i == 0 ? 3 : (1 << (i-1));
+					int match = i+1; static_assert(GENDER_COUNT == 2, "check this");
+					int no_score_count = 0;
 					int match_count = 0;
 					for(int j = 0; j < snap_attrs.GetCount(); j++) {
 						if (snap_attrs[j] != match)
@@ -594,20 +626,28 @@ void Task::Process_MakeReversePattern() {
 						const SnapAttrStr& sa = snap_attrs.GetKey(j);
 						ASSERT(sa.has_id);
 						int score_i = as.attr_to_score[sa.group_i][sa.item_i];
-						const auto& score = as.groups[score_i].scores;
-						ASSERT(score.GetCount() == gc);
-						for(int k = 0; k < gc; k++)
-							src_score[k] += score[k];
-						match_count++;
+						if (score_i >= 0) {
+							const auto& score = as.groups[score_i].scores;
+							ASSERT(score.GetCount() == gc);
+							for(int k = 0; k < gc; k++)
+								src_score[k] += score[k];
+							match_count++;
+						}
+						else no_score_count++;
 					}
-					ASSERT(match_count > 0);
+					if (!match_count) {
+						LOG("warning: no matches for mode: " << GetCommonModeString(i));
+					}
+					if (no_score_count) {
+						LOG("warning: no score count: " << no_score_count);
+					}
 				}
 				
 				// Calculate last score: weighted separate
 				{
-					const Vector<double>& src_score0 = src_scores[1]; // MALE
-					const Vector<double>& src_score1 = src_scores[2]; // FEMALE
-					Vector<double>& dst_score = src_scores[3];
+					const Vector<double>& src_score0 = src_scores[MALE];
+					const Vector<double>& src_score1 = src_scores[FEMALE];
+					Vector<double>& dst_score = src_scores[WEIGHTED];
 					dst_score.SetCount(gc);
 					CalculateWeightedGenderDifference(dst_score, src_score0, src_score1);
 				}

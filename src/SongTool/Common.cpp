@@ -93,6 +93,25 @@ Color GetGenderColor(int i) {
 	}
 }
 
+String GetModeString(int i) {
+	switch (i) {
+		case MALE:				return "Male";
+		case FEMALE:			return "Female";
+		case MALE_REVERSED:		return "Male Reversed";
+		case FEMALE_REVERSED:	return "Female Reversed";
+		default: return "<error>";
+	}
+}
+
+String GetCommonModeString(int i) {
+	if (i < GENDER_COUNT)
+		return GetModeString(i);
+	switch (i) {
+		case COMMON: return "Common";
+		case WEIGHTED: return "Weighted";
+		default: return "<error>";
+	}
+}
 
 
 

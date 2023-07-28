@@ -21,16 +21,25 @@ void ReverseCtrl::SetSource(int i) {
 	tasklist.AddColumn(t_("Name"));
 	tasklist.AddColumn(t_("Active"));
 	tasklist.AddColumn(t_("Progress"));
-	if (src == 1) {
+	if (src == 0) {
+		tasklist.AddColumn(t_("Attributes"));
+	}
+	else if (src == 1) {
 		tasklist.AddColumn(t_("Male Attributes"));
 		tasklist.AddColumn(t_("Female Attributes"));
 	}
-	else
-		tasklist.AddColumn(t_("Attributes"));
-	if (src == 1)
-		tasklist.ColumnWidths("2 2 2 9 9");
-	else
+	else if (src == 2) {
+		tasklist.AddColumn(t_("Male Attributes"));
+		tasklist.AddColumn(t_("Female Attributes"));
+		tasklist.AddColumn(t_("Common Attributes"));
+	}
+	
+	if (src == 0)
 		tasklist.ColumnWidths("1 1 1 9");
+	else if (src == 1)
+		tasklist.ColumnWidths("2 1 1 9 9");
+	else if (src == 2)
+		tasklist.ColumnWidths("3 1 1 9 9 9");
 	
 	tasklist <<= THISBACK(DataWorker);
 	
@@ -80,7 +89,14 @@ void ReverseCtrl::Data() {
 		tasklist.Set(row, 2, t.active ? t_("Active") : "");
 		tasklist.Set(row, 3, perc);
 		
-		int mode_count = src == 1 ? 2 : 1;
+		int mode_count = 0;
+		switch (src) {
+			case 0: mode_count = 1; break;
+			case 1: mode_count = 2; break;
+			case 2: mode_count = 3; break;
+			default: break;
+		}
+		
 		for (int mode = 0; mode < mode_count; mode++) {
 			if (t.result_attrs.IsEmpty())
 				continue;

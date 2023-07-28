@@ -111,7 +111,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		;
 	
 	AddRule(TASK_MAKE_ATTRSCORES_TASKS, "make attribute score tasks")
-		.Spawnable()
+		.MultiSpawnable()
 		.Require(O_ORDER_IMPORT)
 		.Require(O_DB_ATTRS)
 		.Require(O_SONG_MASK)
@@ -132,7 +132,10 @@ void TaskMgr::CreateDefaultTaskRules() {
 			.Arg(V_PTR_SONG)
 			.Arg(V_MODE, 0, GENDER_COUNT)
 		.Process(&Task::Process_AttrScores)
-			.Result(O_DB_ATTR_SCORES)
+		;
+	
+	AddRule(TASK_ATTRSCORES_READY, "attribute scores ready")
+		.Result(O_DB_ATTR_SCORES)
 		;
 	
 	AddRule(TASK_SONGSCORE, "song score")
@@ -153,6 +156,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_BREAK_IMPACT_SCORES)
 		.Process(&Task::Process_MakeReverseImpactTask)
 			.Arg(V_MODE, 0, 1)
+			.Result(O_TASKS)
 		;
 	
 	AddRule(TASK_REVERSE_IMPACT, "reverse impact")
@@ -169,6 +173,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_PART_MASK_SCORE)
 		.Process(&Task::Process_MakeReverseMaskTask)
 			.Arg(V_MODE, 0, 1)
+			.Result(O_TASKS)
 		;
 	
 	AddRule(TASK_REVERSE_COMMON_MASK, "reverse common mask")
@@ -197,6 +202,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_SONG_REVERSED_MASK)
 		.Process(&Task::Process_MakeReversePattern)
 			.Arg(V_MODE, 0, 1)
+			.Result(O_TASKS)
 		;
 	
 	AddRule(TASK_REVERSEPATTERN, "reverse pattern")
@@ -222,6 +228,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_BREAK_REVERSED_SNAP)
 		.Process(&Task::Process_MakeLyricsTask)
 			.Arg(V_MODE, MALE_REVERSED, PTR_COUNT)
+			.Result(O_TASKS)
 		;
 	
 	AddRule(TASK_LYRICS, "reversed lyrics")
@@ -295,9 +302,11 @@ void TaskMgr::ProcessSingle(int task_i) {
 	
 	Task& t = tasks[task_i];
 	
-	// Skip ready, failed and those with non-ready dependencies
 	Index<Task*> seen;
-	if (t.ready || t.failed || !IsDepsReady(t, seen))
+	t.is_waiting_deps = !IsDepsReady(t, seen);
+	
+	// Skip ready, failed and those with non-ready dependencies
+	if (t.ready || t.failed || t.is_waiting_deps)
 		;
 	else {
 		status = "Processing #" + IntStr(task_i);
@@ -371,6 +380,9 @@ TaskRule& TaskMgr::GetRule(int code) {
 }
 
 TaskRule& TaskMgr::AddRule(int code, String name) {
+	for (auto& r : rules) {
+		ASSERT(r.code != code);
+	}
 	TaskRule& r = rules.Add();
 	r.code = code;
 	r.name = name;
@@ -386,15 +398,28 @@ bool TaskMgr::SpawnTasks() {
 		if (r.spawnable) {
 			ASSERT(r.reqs.GetCount());
 			for (Song* s : task_songs.GetKeys()) {
-				bool exists_already = false;
+				Task* exists_already = 0;
 				for (Task& t : tasks) {
 					if (t.rule == &r && t.p.song == s) {
-						exists_already = true;
+						exists_already = &t;
 						break;
 					}
 				}
-				if (exists_already)
-					continue;
+				if (exists_already) {
+					// Some rules can be allowed to spawn multiple times
+					// if task has made successful tasks and have not been used to spawn another already
+					if (r.multi_spawnable && exists_already->allow_multi_spawn) {
+						if (!exists_already->ready ||
+							!exists_already->HasCreatedTasks() ||
+							!exists_already->IsCreatedTasksReady())
+							continue;
+						
+						// Use this flag only once
+						exists_already->allow_multi_spawn = false;
+					}
+					else
+						continue;
+				}
 				
 				bool found_all = true;
 				for (TaskOutputType tt : r.reqs) {
@@ -479,6 +504,12 @@ TaskRule& TaskRule::Result(TaskOutputType arg) {
 
 TaskRule& TaskRule::Spawnable(bool b) {
 	spawnable = b;
+	return *this;
+}
+
+TaskRule& TaskRule::MultiSpawnable(bool b) {
+	spawnable = b;
+	multi_spawnable = b;
 	return *this;
 }
 

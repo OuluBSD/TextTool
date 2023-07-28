@@ -68,21 +68,16 @@ enum {
 	PTR_COUNT,
 	GENDER_COUNT = MALE_REVERSED,
 	
-	COMMON_GENDER_COUNT = GENDER_COUNT + 1,
-	COMMON_GENDER_WEIGHTED_COUNT = GENDER_COUNT + 2,
+	GENDER_COMMON_COUNT = GENDER_COUNT + 1,
+	GENDER_COMMON_WEIGHTED_COUNT = GENDER_COUNT + 2,
+	COMMON = GENDER_COUNT,
+	WEIGHTED = GENDER_COMMON_COUNT,
 };
 
 #define CHKMODE(x) ASSERT(x >= 0 && x < PTR_COUNT);
 
-inline String GetModeString(int i) {
-	switch (i) {
-		case MALE:				return "Male";
-		case FEMALE:			return "Female";
-		case MALE_REVERSED:		return "Male Reversed";
-		case FEMALE_REVERSED:	return "Female Reversed";
-		default: return "<error>";
-	}
-}
+String GetModeString(int i);
+String GetCommonModeString(int i);
 
 struct Artist;
 struct Release;

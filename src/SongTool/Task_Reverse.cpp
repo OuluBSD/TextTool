@@ -259,7 +259,7 @@ void Task::Process_ReverseCommonMask() {
 		
 		// Calculate result for the trial (=energy)
 		double av_energy = 0;
-		for (int mode = 0; mode < 2; mode++) {
+		for (int mode = 0; mode < GENDER_COUNT; mode++) {
 			double energy = 0;
 			if (0) {
 				for(int i = 0; i < gc; i++) {
@@ -320,7 +320,7 @@ void Task::Process_ReverseCommonMask() {
 				}
 				energy = corr;
 			}
-			av_energy += energy * 0.5;
+			av_energy += energy * (1.0 / GENDER_COUNT);
 		}
 		
 		// Check if this is the best result so far
@@ -381,8 +381,6 @@ void Task::Process_ReverseCommonMask() {
 			
 			// Get the best trial solution from the optimizer
 			const Vector<double>& best = optimizer.GetBestSolution();
-			for(int j = 0; j < gc; j++)
-				sc[j] = 0;
 			
 			// Use same sorter as in trial solution algorithm
 			
@@ -419,12 +417,6 @@ void Task::Process_ReverseCommonMask() {
 	// Set as inactive and cache results, so duplicate work can be avoided.
 	task.active = false;
 	task.Store();
-}
-
-void Task::Process_MaskScore() {
-	
-	TODO
-	
 }
 
 void Task::Process_ReverseSeparateMask() {
@@ -479,12 +471,12 @@ void Task::Process_ReverseSeparateMask() {
 	Vector<double> score[GENDER_COUNT];
 	double* sc[GENDER_COUNT];
 	for(int i = 0; i < GENDER_COUNT; i++) {
-		score[i].SetCount(gc);
+		score[i].SetCount(gc,0);
 		sc[i] = score[i].Begin();
 	}
 	
 	// Create fast fixed sorter
-	FixedTopValueSorter<separate_mask_max_values> sorter[2];
+	FixedTopValueSorter<separate_mask_max_values> sorter[GENDER_COUNT];
 	
 	// Set probability for attribute to not be used
 	double mismatch_prob = max(0.5, 1.0 - (double)separate_mask_max_values / ma);
@@ -511,7 +503,7 @@ void Task::Process_ReverseSeparateMask() {
 		const Vector<double>& trial = optimizer.GetTrialSolution();
 		
 		// Reset score vector
-		for(int i = 0; i < 2; i++)
+		for(int i = 0; i < GENDER_COUNT; i++)
 			for(int j = 0; j < gc; j++)
 				sc[i][j] = 0;
 		
@@ -609,7 +601,7 @@ void Task::Process_ReverseSeparateMask() {
 				}
 				energy = corr;
 			}
-			av_energy += 0.5 * energy;
+			av_energy += energy * (1.0 / GENDER_COUNT);
 		}
 		
 		// Check if this is the best result so far
@@ -657,10 +649,10 @@ void Task::Process_ReverseSeparateMask() {
 		task.lock.EnterWrite();
 		
 		// Clear values (loop for genders)
-		for (int mode = 0; mode < 2; mode++) {
+		for (int mode = 0; mode < GENDER_COUNT; mode++) {
 			task.result_attrs[mode].Clear();
 			PatternSnap& snap = ctx.snap[MALE_REVERSED + mode];
-			snap.mask.Clear();
+			// DON'T CLEAR MASK HERE BECAUSE OF ALREADY WRITTEN COMMON ATTRS: snap.mask.Clear();
 			sorter[mode].Reset();
 			for(int j = 0; j < gc; j++)
 				sc[mode][j] = 0;
@@ -681,7 +673,7 @@ void Task::Process_ReverseSeparateMask() {
 		}
 		
 		// Get best values from the sorter (for all genders separately)
-		for (int mode = 0; mode < 2; mode++) {
+		for (int mode = 0; mode < GENDER_COUNT; mode++) {
 			int mc = min(common_mask_max_values, sorter[mode].count);
 			PatternSnap& snap = ctx.snap[MALE_REVERSED + mode];
 			for(int i = 0; i < mc; i++) {
@@ -721,10 +713,9 @@ void Task::Process_ReversePattern() {
 		return;
 	}
 	GeneticOptimizer& optimizer = task.optimizer;
-	ASSERT(task.scores.GetCount() == COMMON_GENDER_WEIGHTED_COUNT);
+	ASSERT(task.scores.GetCount() == GENDER_COMMON_WEIGHTED_COUNT);
 	ASSERT(task.ctx);
 	SnapContext& ctx = *task.ctx;
-	int ma = task.mask_attrs.GetCount();
 	
 	// Update group/item to score shortcut vector
 	db.attrscores.UpdateGroupsToScoring();
@@ -735,56 +726,59 @@ void Task::Process_ReversePattern() {
 	
 	// Get scorings for fast access
 	int gc = g.scorings.GetCount();
-	const double* comp[COMMON_GENDER_WEIGHTED_COUNT];
+	const double* comp[GENDER_COMMON_WEIGHTED_COUNT];
 	const SnapAttrStr* all_mas = task.mask_attrs.GetKeys().Begin();
-	for(int i = 0; i < COMMON_GENDER_WEIGHTED_COUNT; i++) {
+	for(int i = 0; i < GENDER_COMMON_WEIGHTED_COUNT; i++) {
 		ASSERT(task.scores[i].GetCount() == gc);
 		comp[i] = task.scores[i].Begin();
 	}
+	int ma = task.mask_attrs.GetCount();
 	
 	// The task has been prepared
 	task.active = true;
 	
 	// Temp vector for trial's score (for common + all genders)
-	Vector<double> score[COMMON_GENDER_WEIGHTED_COUNT];
-	double* sc[COMMON_GENDER_WEIGHTED_COUNT];
-	for(int i = 0; i < COMMON_GENDER_WEIGHTED_COUNT; i++) {
+	Vector<double> score[GENDER_COMMON_WEIGHTED_COUNT];
+	double* sc[GENDER_COMMON_WEIGHTED_COUNT];
+	for(int i = 0; i < GENDER_COMMON_WEIGHTED_COUNT; i++) {
 		score[i].SetCount(gc);
 		sc[i] = score[i].Begin();
 	}
 	
 	// Find ranges for common + genders
-	int offset[COMMON_GENDER_COUNT];
-	int length[COMMON_GENDER_COUNT];
-	//const SnapAttrStr* mas[COMMON_GENDER_COUNT];
+	int offset[GENDER_COMMON_COUNT];
+	int length[GENDER_COMMON_COUNT];
+	//const SnapAttrStr* mas[GENDER_COMMON_COUNT];
 	{
 		memset(offset, 0, sizeof(offset));
 		memset(length, 0, sizeof(length));
-		int prev = task.mask_attrs[0];
-		int mode = 0;
+		int mode = -1, prev_mode = -1;
 		for(int i = 0; i < task.mask_attrs.GetCount(); i++) {
-			length[mode]++;
 			int cur = task.mask_attrs[i];
-			if (cur != prev) {
-				mode++;
+			int mode = cur-1; static_assert(GENDER_COUNT == 2, "check this");
+			length[mode]++;
+			if (mode != prev_mode && prev_mode >= 0) {
 				offset[mode] = offset[mode-1] + length[mode-1];
-				prev = cur;
+			}
+			prev_mode = mode;
+		}
+		for(int i = 0; i < GENDER_COMMON_COUNT; i++) {
+			//mas[i] = all_mas + offset[i];
+			if (i > 0) {
+				ASSERT(offset[i] > offset[i-1]);
+			}
+			if (!length[i]) {
+				DUMPM(task.mask_attrs);
+				DUMPC(task.mask_attrs.GetKeys());
+				LOG("error: length 0 for mode: " << GetCommonModeString(i));
+				ASSERT(0);
 			}
 		}
-		length[mode]++;
-		mode++;
-		ASSERT(mode == COMMON_GENDER_COUNT);
-		/*for(int i = 0; i < COMMON_GENDER_COUNT; i++) {
-			mas[i] = all_mas + offset[i];
-		}*/
 	}
 	
 	// Create fast fixed sorter
-	FixedTopValueSorter<snap_max_values> sorter[COMMON_GENDER_COUNT];
-	
-	// Set probability for attribute to not be used
-	double mismatch_prob = max(0.5, 1.0 - (double)snap_max_values / ma);
-	
+	FixedTopValueSorter<snap_max_per_mode> sorter[GENDER_COMMON_COUNT];
+		
 	// If we are in running this task first time (and not continuing previous)
 	if (!optimizer.GetRound()) {
 		// Initialize optimizer
@@ -806,17 +800,19 @@ void Task::Process_ReversePattern() {
 		optimizer.Start();
 		const Vector<double>& trial = optimizer.GetTrialSolution();
 		
-		// Reset score vector
-		for(int i = 0; i < 2; i++)
-			for(int j = 0; j < gc; j++)
-				sc[i][j] = 0;
-		
 		// Collect probabilities for attributes
-		for(int mode = 0; mode < COMMON_GENDER_COUNT; mode++) {
+		// NOTE: sc[WEIGHTED==3] doesn't need to be zeroed (see CalculateWeightedGenderDifference)
+		for(int mode = 0; mode < GENDER_COMMON_COUNT; mode++) {
+			for(int j = 0; j < gc; j++)
+				sc[mode][j] = 0;
 			sorter[mode].Reset();
 			int begin = offset[mode];
 			int l = length[mode];
 			int end = begin + l;
+			
+			// Set probability for attribute to not be used
+			double mismatch_prob = max(0.5, 1.0 - (double)snap_max_per_mode / length[mode]);
+			
 			ASSERT(l > 0);
 			for(int j = begin; j < end; j++) {
 				double p = trial[j];
@@ -827,7 +823,7 @@ void Task::Process_ReversePattern() {
 			
 			
 			// Calculate score of the trial solution
-			int max_values = mode == 0 ? snap_max_values / 2 : snap_max_values;
+			int max_values = snap_max_per_mode; //mode == COMMON ? snap_max_values / 2 : snap_max_values;
 			int mc = min(max_values, sorter[mode].count);
 			for(int j = 0; j < mc; j++) {
 				int attr_i = sorter[mode].key[j];
@@ -843,12 +839,12 @@ void Task::Process_ReversePattern() {
 			}
 		}
 		
-		// Calculate weighted difference (3 = target, 1 = MALE, 2 = FEMALE)
-		CalculateWeightedGenderDifference(score[3], score[1], score[2]);
+		// Calculate weighted difference
+		CalculateWeightedGenderDifference(score[WEIGHTED], score[MALE], score[FEMALE]);
 		
 		// Calculate energy
 		double av_energy = 0;
-		for (int mode = 0; mode < COMMON_GENDER_WEIGHTED_COUNT; mode++) {
+		for (int mode = 0; mode < GENDER_COMMON_WEIGHTED_COUNT; mode++) {
 			double energy = 0;
 			/*if (0) {
 				int max_values = mode == 0 ? snap_max_values / 2 : snap_max_values;
@@ -879,7 +875,7 @@ void Task::Process_ReversePattern() {
 				for(int i = 0; i < gc; i++) {
 					double a = sc[mode][i];
 					double b = comp[mode][i];
-					if (!a) continue;
+					//if (!a) continue;
 					
 					// sum of elements of array X.
 			        sum_X = sum_X + a;
@@ -900,18 +896,19 @@ void Task::Process_ReversePattern() {
 				float corr = (float)(gc * sum_XY - sum_X * sum_Y) / sq;
 				
 				if (!IsFin(corr)) {
-					DUMP(sum_X);
+					/*DUMP(sum_X);
 					DUMP(sum_Y);
 					DUMP(sum_XY);
 					DUMP(squareSum_X);
 					DUMP(squareSum_Y);
 					DUMP(sq);
 					DUMP(mul);
-					ASSERT(0);
+					ASSERT(0);*/
+					corr = -1;
 				}
 				energy = corr;
 			}
-			av_energy += energy * (1.0 / (COMMON_GENDER_WEIGHTED_COUNT));
+			av_energy += energy * (1.0 / (GENDER_COMMON_WEIGHTED_COUNT));
 		}
 		
 		// Check if this is the best result so far
@@ -926,7 +923,7 @@ void Task::Process_ReversePattern() {
 		
 		// Collect best result
 		if (new_best) {
-			//LOG("Task #" << task.id << " best energy: " << av_energy);
+			LOG("Task #" << IntStr64((int64)this) << " best energy: " << av_energy);
 			task.lock.EnterWrite();
 			TaskResult& res = task.results.Add();
 			res.optimizer_score = av_energy;
@@ -959,6 +956,7 @@ void Task::Process_ReversePattern() {
 		task.lock.EnterWrite();
 		
 		// Clear values (loop for genders)
+		task.result_attrs.SetCount(GENDER_COUNT);
 		for (int mode = 0; mode < GENDER_COUNT; mode++) {
 			task.result_attrs[mode].Clear();
 			PatternSnap& snap = ctx.snap[MALE_REVERSED + mode];
@@ -966,7 +964,7 @@ void Task::Process_ReversePattern() {
 		}
 		
 		// Clear values (loop for common + separate genders)
-		for (int mode = 0; mode < COMMON_GENDER_COUNT; mode++) {
+		for (int mode = 0; mode < GENDER_COMMON_COUNT; mode++) {
 			sorter[mode].Reset();
 			for(int j = 0; j < gc; j++)
 				sc[mode][j] = 0;
@@ -974,17 +972,19 @@ void Task::Process_ReversePattern() {
 		
 		// Get the best trial solution from the optimizer
 		const Vector<double>& best = optimizer.GetBestSolution();
-		for(int j = 0; j < gc; j++)
-			sc[j] = 0;
 		
 		// Use same sorter as in trial solution algorithm
 		
 		// Add values to the sorter
-		for(int mode = 0; mode < COMMON_GENDER_COUNT; mode++) {
+		for(int mode = 0; mode < GENDER_COMMON_COUNT; mode++) {
 			int begin = offset[mode];
 			int l = length[mode];
 			int end = begin + l;
 			ASSERT(l > 0);
+			
+			// Set probability for attribute to not be used
+			double mismatch_prob = max(0.5, 1.0 - (double)snap_max_per_mode / length[mode]);
+			
 			for(int j = begin; j < end; j++) {
 				double p = best[j];
 				if (p < mismatch_prob)
@@ -993,12 +993,21 @@ void Task::Process_ReversePattern() {
 			}
 		}
 		
-		for(int mode = 0; mode < COMMON_GENDER_COUNT; mode++) {
-			int max_values = mode == 0 ? snap_max_values / 2 : snap_max_values;
+		// Separate loop is needed, because all sorters are being read
+		task.result_attrs.SetCount(GENDER_COMMON_COUNT);
+		for(int mode = 0; mode < GENDER_COMMON_COUNT; mode++) {
+			int max_values = snap_max_per_mode; //mode == COMMON ? snap_max_values / 2 : snap_max_values;
 			int mc = min(max_values, sorter[mode].count);
 			
+			task.result_attrs[mode].Clear();
+			
+			if (!mc) {
+				SetError("got no attributes for " + GetCommonModeString(mode));
+				return;
+			}
+			
 			// Add common attributes to all snaps
-			if (mode == 0) {
+			if (mode == COMMON) {
 				for (int mode0 = 0; mode0 < GENDER_COUNT; mode0++) {
 					PatternSnap& snap = ctx.snap[MALE_REVERSED + mode0];
 					for(int i = 0; i < mc; i++) {
@@ -1015,7 +1024,7 @@ void Task::Process_ReversePattern() {
 			}
 			// Add separate attributes to single genders
 			else {
-				PatternSnap& snap = ctx.snap[MALE_REVERSED + mode-1];
+				PatternSnap& snap = ctx.snap[MALE_REVERSED + mode];
 				for(int i = 0; i < mc; i++) {
 					int attr_i = sorter[mode].key[i];
 					const SnapAttrStr& sa = all_mas[attr_i];
@@ -1032,7 +1041,7 @@ void Task::Process_ReversePattern() {
 	}
 	
 	// merge common values to owners in snaps
-	for(int mode = 0; mode < COMMON_GENDER_COUNT; mode++)
+	for(int mode = 0; mode < GENDER_COUNT; mode++)
 		ctx.snap[MALE_REVERSED + mode].part->MergeOwner();
 	
 	if (optimizer.IsEnd())

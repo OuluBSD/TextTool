@@ -40,6 +40,7 @@ Editor::Editor() {
 	tablist.Add(t_("Song"), t_("Reverse: make common mask"));
 	tablist.Add(t_("Song"), t_("Reverse: make separate mask"));
 	tablist.Add(t_("Song"), t_("Reverse: make pattern"));
+	tablist.Add(t_("Song"), t_("Reversed Pattern"));
 	tablist.Add(t_("Song"), t_("Reverse: make lyrics"));
 	tablist.Add(t_("Song"), t_("Composition"));
 	tablist.Add(t_("Song"), t_("Production"));
@@ -85,6 +86,7 @@ Editor::Editor() {
 	base.Add(reverse[0].SizePos());
 	base.Add(reverse[1].SizePos());
 	base.Add(reverse[2].SizePos());
+	base.Add(lyrics.SizePos());
 	base.Add(reverse_impact.SizePos());
 	base.Add(rev_pattern.SizePos());
 	base.Add(story.SizePos());
@@ -131,6 +133,7 @@ void Editor::SetView(int i) {
 	structure.Hide();
 	impact_scoring.Hide();
 	mask_scoring.Hide();
+	lyrics.Hide();
 	
 	WhenStopUpdating();
 	
@@ -158,9 +161,10 @@ void Editor::SetView(int i) {
 		case 19: WhenStartUpdating(); reverse[1].Show(); break;
 		case 20: WhenStartUpdating(); reverse[2].Show(); break;
 		case 21: rev_pattern.Show(); break;
-		case 22: composition.Show(); break;
-		case 23: production.Show(); break;
-		case 24: rhymes.Show(); break;
+		case 22: lyrics.Show(); break;
+		case 23: composition.Show(); break;
+		case 24: production.Show(); break;
+		case 25: rhymes.Show(); break;
 	}
 	page = i;
 	DataPage();
@@ -190,9 +194,10 @@ void Editor::DataPage() {
 		case 19: reverse[1].Data(); break;
 		case 20: reverse[2].Data(); break;
 		case 21: rev_pattern.Data(); break;
-		case 22: composition.Data(); break;
-		case 23: production.Data(); break;
-		case 24: rhymes.Data(); break;
+		case 22: lyrics.Data(); break;
+		case 23: composition.Data(); break;
+		case 24: production.Data(); break;
+		case 25: rhymes.Data(); break;
 		default: break;
 	}
 }

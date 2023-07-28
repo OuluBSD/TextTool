@@ -28,6 +28,12 @@ PatternCtrl::PatternCtrl() {
 }
 
 void PatternCtrl::Data() {
+	for(int mode = 0; mode < GENDER_COUNT; mode++) {
+		AttrCtrl& attr = this->attr[mode];
+		int src_mode = use_rev_snap ? mode + GENDER_COUNT : mode;
+		attr.SetMode(src_mode);
+	}
+	
 	DataPatternTree();
 	DataPatternSnapAll();
 	DataListAll();
@@ -89,7 +95,7 @@ void PatternCtrl::OnListSel(int mode) {
 }
 
 void PatternCtrl::DataPatternSnap(int mode) {
-	attr[mode].SetMode(mode);
+	//NO! attr[mode].SetMode(mode);
 	attr[mode].Load();
 	attr[mode].Refresh();
 }
@@ -101,8 +107,7 @@ void PatternCtrl::DataList(int mode) {
 	if (!p.part || !p.snap)
 		return;
 	
-	if (use_rev_snap)
-		mode += GENDER_COUNT;
+	int src_mode = use_rev_snap ? mode + GENDER_COUNT : mode;
 	
 	Label& txt = this->txt[mode];
 	One<ArrayCtrl>& list0 = this->list[mode];
@@ -140,12 +145,12 @@ void PatternCtrl::DataList(int mode) {
 	ctrl.Add(list.HSizePos().TopPos(15,100));
 	
 	level_snaps.SetCount(0);
-	part.GetSnapsLevel(mode, level, level_snaps);
+	part.GetSnapsLevel(src_mode, level, level_snaps);
 	
 	{
 		group_items.Clear();
 		group_types.Clear();
-		part.snap[mode].GetGroupItems(group_items);
+		part.snap[src_mode].GetGroupItems(group_items);
 		db.attrs.FindGroupTypes(group_items.GetKeys(), group_types);
 		
 		list.AddColumn(t_("Position"));
@@ -234,10 +239,11 @@ void PatternCtrl::MergeOwner() {
 }
 
 void PatternCtrl::FocusTree(int mode) {
+	int src_mode = use_rev_snap ? mode + GENDER_COUNT : mode;
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx[mode];
 	for(int i = 0; i < tree_snaps.GetCount(); i++) {
-		if (&tree_snaps[i]->snap[mode] == p.snap) {
+		if (&tree_snaps[i]->snap[src_mode] == p.snap) {
 			tree.SetCursor(tree_snaps.GetKey(i));
 			break;
 		}
