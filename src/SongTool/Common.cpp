@@ -130,4 +130,20 @@ void Dummy() {
 
 
 
-
+String FixInvalidChars(const String& s) {
+	WString ws = s.ToWString();
+	WString out;
+	for(int i = 0; i < ws.GetCount(); i++) {
+		int chr = ws[i];
+		
+		// ascii
+		if ((chr >= 33 && chr <= 128) ||
+			(chr >= 192 && chr <= 255) ||
+			IsAlpha(chr) ||
+			IsSpace(chr) ||
+			IsDigit(chr)) {
+			out.Cat(chr);
+		}
+	}
+	return out.ToString();
+}

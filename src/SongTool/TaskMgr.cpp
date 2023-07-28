@@ -219,6 +219,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		;
 	
 	AddRule(TASK_MAKE_LYRICS_TASK, "make reversed lyrics task")
+		.Spawnable()
 		.Require(O_ORDER_REVERSE)
 		.Require(O_SONG_DATA_STORYLINE)
 		.Require(O_PART_DATA_STORYLINE)
@@ -281,6 +282,8 @@ void TaskMgr::Process() {
 		if (!got_ready) {
 			int tried_retry = 0;
 			for (Task& t : tasks) {
+				if (t.fatal_error)
+					continue;
 				if (t.failed && !t.ready && t.tries < max_tries) {
 					t.tries++;
 					t.Retry();

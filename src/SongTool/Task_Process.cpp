@@ -189,6 +189,7 @@ void Task::Process_ImpactScoring() {
 			}
 		}
 		impact = TrimBoth(impact);
+		impact = FixInvalidChars(impact);
 		
 		String search = "combination string:";
 		a = part.Find(search);
@@ -1205,7 +1206,18 @@ void Task::Process_SongScores() {
 void Task::Process_Lyrics() {
 	bool rev_snap = args.GetCount() && args[0] == "rev";
 	Part& part = *p.part;
-	int mode = rev_snap ? p.mode+2 : p.mode;
+	int mode = p.mode; //rev_snap ? p.mode+2 : p.mode;
+	
+	Vector<String> lines = Split(output, "\n", false);
+	if (lines.IsEmpty()) {
+		SetError("no output");
+		return;
+	}
+	lines[0] = TrimBoth(lines[0]);
+	if (lines[0].Right(1) == ":")
+		lines.Remove(0);
+	output = Join(lines, "\n");
+	
 	String& txt = part.snap[mode].data.GetAdd("gen.lyrics");
 	txt = output;
 }
@@ -1213,7 +1225,7 @@ void Task::Process_Lyrics() {
 void Task::Process_LyricsTranslate() {
 	bool rev_snap = args.GetCount() && args[0] == "rev";
 	Song& song = *p.song;
-	int mode = rev_snap ? p.mode+2 : p.mode;
+	int mode = p.mode; //rev_snap ? p.mode+2 : p.mode;
 	String lng = args[1].Left(5);
 	String key = "gen.lyrics";
 	key += "." + lng;

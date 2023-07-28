@@ -201,11 +201,9 @@ void Task::Process() {
 	if (fast_exit) {
 		ready = true;
 	}
-	else {
-		if (ok) {
-			if (rule->process)
-				(this->*rule->process)();
-		}
+	else if (ok) {
+		if (rule->process)
+			(this->*rule->process)();
 		
 		if (wait_task) {
 			wait_task = false;
@@ -381,6 +379,9 @@ bool Task::RunOpenAI() {
 	prompt.Replace("\t", "\\t");
 	prompt.Replace("\"", "\\\"");
 	
+	prompt = FixInvalidChars(prompt); // NOTE: warning: might break something
+	//prompt.Replace("\'", "\\\'");
+	
 	String txt = R"({
     "model": "text-davinci-003",
     "prompt": ")" + prompt + R"(",
@@ -406,9 +407,36 @@ bool Task::RunOpenAI() {
 	catch (std::runtime_error e) {
 		LOG(prompt);
 		LOG(txt);
+		fatal_error = true;
 		SetError(e.what());
 		return false;
 	}
+	catch (std::string e) {
+		LOG(prompt);
+		LOG(txt);
+		fatal_error = true;
+		SetError(e.c_str());
+		return false;
+	}
+	catch (NLOHMANN_JSON_NAMESPACE::detail::parse_error e) {
+		LOG(prompt);
+		LOG(txt);
+		LOG(e.what());
+		fatal_error = true;
+		SetError(e.what());
+		return false;
+	}
+	catch (std::exception e) {
+		LOG(prompt);
+		LOG(txt);
+		SetError(e.what());
+		fatal_error = true;
+		return false;
+	}
+	/*catch (...) {
+		SetError("unknown error");
+		return false;
+	}*/
 	
 	// Fix unicode formatting
 	output = ToUnicode(output, CHARSET_UTF8).ToString();
@@ -419,12 +447,15 @@ bool Task::RunOpenAI() {
 }
 
 void Task::Retry() {
+	input.Clear();
 	output.Clear();
 	skip_load = true;
 	failed = false;
+	fatal_error = false;
 	ready = false;
 	error.Clear();
 	changed = true;
+	tries = 0;
 }
 
 Task& Task::ResultTask(int r) {

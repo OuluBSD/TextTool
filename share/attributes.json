@@ -139,7 +139,13 @@
 				"trip",
 				"man",
 				"jaw",
-				"step"
+				"step",
+				"push",
+				"girl",
+				"push-up",
+				"southern",
+				"soft",
+				"crawl"
 			]
 		},
 		{
@@ -200,7 +206,14 @@
 				"look",
 				"going",
 				"speak",
-				"call"
+				"call",
+				"eyes",
+				"pushed",
+				"fallin'",
+				"loss",
+				"spoken",
+				"broken",
+				"outside"
 			]
 		},
 		{
@@ -223,7 +236,9 @@
 				"soft spoken",
 				"afraid",
 				"broken",
-				"good"
+				"good",
+				"sweet",
+				"ex-boyfriend's"
 			]
 		},
 		{
@@ -243,7 +258,12 @@
 				"'cause",
 				"know-it-all",
 				"lovingly",
-				"lower"
+				"lower",
+				"outside",
+				"all",
+				"over",
+				"soft",
+				"around"
 			]
 		},
 		{
@@ -278,7 +298,8 @@
 				"'cause",
 				"because",
 				"but",
-				"cause"
+				"cause",
+				"if"
 			]
 		},
 		{
@@ -290,7 +311,8 @@
 				"blue": 225
 			},
 			"values": [
-				"don't"
+				"don't",
+				"oh"
 			]
 		},
 		{
@@ -306,7 +328,14 @@
 				"comparative clause",
 				"coordinating conjunction",
 				"sentence structure",
-				"structure of chorus"
+				"structure of chorus",
+				"homophonic",
+				"rhyme",
+				"parallelism",
+				"clauses",
+				"interrogations",
+				"main clauses",
+				"subordinate clauses"
 			]
 		},
 		{
@@ -319,7 +348,10 @@
 			},
 			"values": [
 				"past tense",
-				"possessive"
+				"possessive",
+				"suffix",
+				"prefix",
+				"irregularity"
 			]
 		},
 		{
@@ -336,7 +368,10 @@
 				"repetition",
 				"paradox",
 				"meaning of words",
-				"meaning of lyrics"
+				"meaning of lyrics",
+				"ex-boyfriend's",
+				"sarcasm",
+				"figurative language"
 			]
 		},
 		{
@@ -350,7 +385,10 @@
 			"values": [
 				"unfiltered desires",
 				"sharing of sentiment",
-				"command"
+				"command",
+				"speech acts",
+				"expression",
+				"implied meaning"
 			]
 		},
 		{
@@ -365,7 +403,9 @@
 				"no specific pattern",
 				"repetition",
 				"melody",
-				"tone"
+				"tone",
+				"narrative structure",
+				"storytelling"
 			]
 		},
 		{
@@ -628,7 +668,21 @@
 				"crawl in the bed",
 				"toilet",
 				"outside",
-				"vantage point"
+				"vantage point",
+				"close your eyes",
+				"kiss you",
+				"drug injection",
+				"share lonely viewin'",
+				"kentucky girl",
+				"push-up bra",
+				"fallin' all over self",
+				"service station",
+				"know-it-all",
+				"push up",
+				"blood loss",
+				"southern girl",
+				"scarlet drawl",
+				"soft spoken with broken jaw"
 			]
 		},
 		{
@@ -651,7 +705,13 @@
 				"wave goodbye",
 				"lovingly against the wall",
 				"push up against wall",
-				"blood loss"
+				"blood loss",
+				"unfavorable",
+				"lick heart",
+				"taste health",
+				"closing eyes and kissing",
+				"licking heart and tasting health",
+				"stepping outside"
 			]
 		},
 		{
@@ -689,7 +749,10 @@
 				"goodbye",
 				"lovingly",
 				"kissing",
-				"waving goodbye"
+				"waving goodbye",
+				"negative connotations",
+				"licking",
+				"not brawling"
 			]
 		},
 		{
@@ -703,7 +766,8 @@
 			"values": [
 				"sharing",
 				"lick heart and taste health",
-				"share view"
+				"share view",
+				"atheistic"
 			]
 		},
 		{
@@ -745,7 +809,8 @@
 				"taking/using an illegal drug",
 				"leaving/escaping",
 				"physical",
-				"have sex"
+				"have sex",
+				"push"
 			]
 		},
 		{
@@ -771,7 +836,12 @@
 			"values": [
 				"kissing",
 				"sharing",
-				"sharing a lonely view"
+				"sharing a lonely view",
+				"close eyes",
+				"kiss",
+				"share loneliness",
+				"lick heart",
+				"taste health"
 			]
 		},
 		{
@@ -783,7 +853,10 @@
 				"blue": 199
 			},
 			"values": [
-
+				"ex-boyfriend",
+				"self",
+				"wife",
+				"birds"
 			]
 		},
 		{
@@ -819,7 +892,11 @@
 				"drawl",
 				"soft spoken",
 				"kindness",
-				"daring"
+				"daring",
+				"sarcastic",
+				"reckless",
+				"manly",
+				"good guy"
 			]
 		},
 		{
@@ -836,7 +913,8 @@
 				"loving another's health",
 				"lonely viewin",
 				"sharing",
-				"drug injection"
+				"drug injection",
+				"no information"
 			]
 		},
 		{
@@ -856,7 +934,9 @@
 				"lick your heart",
 				"drawl",
 				"crawl in the bed",
-				"talking to himself"
+				"talking to himself",
+				"mister know it-all",
+				"mister know-it-all"
 			]
 		},
 		{
@@ -876,7 +956,12 @@
 				"taste your skin and health",
 				"to make a trip to the moon",
 				"share the lonely view",
-				"share the view"
+				"share the view",
+				"no information",
+				"share loneliness",
+				"taste health",
+				"trip",
+				"moon"
 			]
 		},
 		{
@@ -895,7 +980,10 @@
 				"to get lower",
 				"to leave home",
 				"leaving home",
-				"highness"
+				"highness",
+				"no information",
+				"drug injection",
+				"birds"
 			]
 		},
 		{
@@ -910,7 +998,9 @@
 				"lonely view",
 				"toilet",
 				"service station",
-				"vantage point"
+				"vantage point",
+				"no information",
+				"leaving home"
 			]
 		},
 		{
@@ -936,7 +1026,9 @@
 				"push me up",
 				"blood loss",
 				"(my man is) soft spoken",
-				"(my ex-boyfriend's) scar tissue"
+				"(my ex-boyfriend's) scar tissue",
+				"around",
+				"against the wall"
 			]
 		},
 		{
@@ -967,7 +1059,12 @@
 				"lovingly",
 				"in a bathroom stall",
 				"with a broken jaw",
-				"that i wish you saw"
+				"that i wish you saw",
+				"soft",
+				"sarcastic",
+				"birds",
+				"young kentucky girl",
+				"autumn's sweet"
 			]
 		},
 		{
@@ -997,7 +1094,10 @@
 				"against the wall",
 				"a southern girl",
 				"step outside",
-				"so that you would be afraid of me"
+				"so that you would be afraid of me",
+				"kentucky",
+				"texas",
+				"service station"
 			]
 		},
 		{
@@ -1012,7 +1112,9 @@
 				"autumn",
 				"autumn sweet",
 				"i'll kiss you",
-				"i'll share this lonely viewin'"
+				"i'll share this lonely viewin'",
+				"share",
+				"trip"
 			]
 		},
 		{
@@ -1030,7 +1132,11 @@
 				"midnight",
 				"night",
 				"so that you would be afraid of me",
-				"not to brawl"
+				"not to brawl",
+				"close your eyes",
+				"fallin'",
+				"wave goodbye",
+				"walk outside"
 			]
 		},
 		{
@@ -1049,7 +1155,9 @@
 				"with the birds i'll share",
 				"like you want to have sex",
 				"with the birds i'll share this lonely viewin'",
-				"going to a trip"
+				"going to a trip",
+				"none.",
+				"lonely viewin'"
 			]
 		},
 		{
@@ -1405,7 +1513,29 @@
 				"a mixture of awe",
 				"delight and surprise.",
 				"confidence",
-				"defiance."
+				"defiance.",
+				"amused",
+				"vulnerable",
+				"calm",
+				"whimsical",
+				"happy",
+				"paranoid",
+				"stunned",
+				"contemplative",
+				"inflexible",
+				"startled",
+				"overwhelmed",
+				"serenading",
+				"staring intently",
+				"frowning",
+				"smiling",
+				"singing",
+				"flirty gaze",
+				"playful smirk",
+				"nodding",
+				"a sad smile",
+				"softly gazing",
+				"lips pursed"
 			]
 		},
 		{
@@ -1750,7 +1880,33 @@
 				"amble",
 				"standing straight",
 				"determined",
-				"moving away and standing tall."
+				"moving away and standing tall.",
+				"arms crossed",
+				"walking stiffly",
+				"throwing hands up",
+				"moving slowly",
+				"jaw clenching",
+				"shoulders rolling",
+				"shrugs slowly",
+				"checking over shoulder",
+				"feet shuffling",
+				"saluting",
+				"taking deep breath",
+				"tiptoeing",
+				"eyebrows furrowed",
+				"sitting down",
+				"holding back tears",
+				"swaying",
+				"sobbing",
+				"aggressive stance",
+				"an embrace",
+				"raising arms in the air",
+				"leaning in",
+				"pressing up against",
+				"swaying side to side",
+				"shoulders slumped",
+				"hands tucked in pockets",
+				"walking side by side"
 			]
 		},
 		{
@@ -1953,7 +2109,29 @@
 				"drawing imaginary lines with fingers in the air.",
 				"flicking fingers in the air",
 				"making sweeping gestures with open palms.",
-				"extending arms outward in a gesture of defiance."
+				"extending arms outward in a gesture of defiance.",
+				"fiddling with pocket",
+				"finger snipping",
+				"thumbing imaginary items",
+				"clutching shirt",
+				"waving hands",
+				"twisting hands",
+				"hands behind back",
+				"chuckling and pointing",
+				"hands forming frames",
+				"drawing in the air",
+				"hero-style salute",
+				"marching",
+				"open palms stretched up",
+				"drawing imaginary circles",
+				"hands on cheek",
+				"waving goodbye",
+				"clenched fists",
+				"an open palm",
+				"clasping hands",
+				"cupping hands",
+				"reaching up",
+				"interlocking fingers"
 			]
 		},
 		{
@@ -2012,7 +2190,28 @@
 				"dewy skin",
 				"pigtailed braids",
 				"soft peachy blush",
-				"scarlet drawl"
+				"scarlet drawl",
+				"messy hair",
+				"dark eye makeup",
+				"highlighted hair",
+				"bright lipstick",
+				"tousled hair",
+				"smoky eyeshadow",
+				"braided hair",
+				"minimal makeup",
+				"slicked hair",
+				"neutral makeup",
+				"mohawk",
+				"dramatic eyeliner",
+				"faux hawk",
+				"edgy lipstick",
+				"natural makeup",
+				"significant tattoos",
+				"bright eye shadows and deep eye liners",
+				"braids",
+				"bleached hair",
+				"faux dreadlocks",
+				"gel beard"
 			]
 		},
 		{
@@ -2066,7 +2265,29 @@
 				"outerspace attire",
 				"manly white caucasian male style",
 				"push-up bra",
-				"kentucky girl"
+				"kentucky girl",
+				"long-sleeved shirt",
+				"sweatshirt",
+				"sweatpants",
+				"graphic t-shirt",
+				"tank top",
+				"shorts",
+				"floral dress",
+				"sandals",
+				"denim jacket",
+				"punk-style jacket",
+				"leather jacket",
+				"dark colors",
+				"tattered and distressed styles",
+				"sexy",
+				"tight clothing",
+				"flowy skirts and shirts",
+				"sexy sundresses",
+				"jean shorts",
+				"crop tops",
+				"denim overalls and flannel shirts",
+				"oversized sweaters",
+				"knit caps"
 			]
 		},
 		{
@@ -2114,7 +2335,29 @@
 				"spacesuit",
 				"necklace",
 				"scar tissue",
-				"broken jaw"
+				"broken jaw",
+				"jewelry",
+				"phone",
+				"watch",
+				"belt",
+				"sunhat",
+				"statement necklace",
+				"fedora",
+				"bracelets",
+				"spiked necklace",
+				"rings",
+				"earrings",
+				"watches and chains",
+				"bandana",
+				"choker necklace",
+				"flower crown",
+				"anklets",
+				"headscarves and necklaces",
+				"cowboy hats",
+				"bolo ties",
+				"suspenders and leather belts",
+				"beaded necklaces",
+				"fingerless gloves"
 			]
 		},
 		{
@@ -2141,7 +2384,21 @@
 				"kite",
 				"wall",
 				"birds",
-				"autumn's sweet (autumn leave)"
+				"autumn's sweet (autumn leave)",
+				"beer",
+				"cigarettes",
+				"and a gun",
+				"motorcycle",
+				"bubblegum and lighter",
+				"glitter",
+				"bubbles",
+				"sunflower",
+				"picnic basket",
+				"horseshoes and blankets",
+				"fishing rod",
+				"bait",
+				"kites",
+				"frisbees"
 			]
 		},
 		{
@@ -2184,7 +2441,28 @@
 				"elegant",
 				"graceful",
 				"subtle",
-				"light"
+				"light",
+				"slide",
+				"split",
+				"dissolve",
+				"zoom",
+				"scene change",
+				"mirror",
+				"flip",
+				"soft",
+				"tender",
+				"romantic",
+				"and gentle",
+				"upbeat and joyful",
+				"sexy",
+				"bold",
+				"and passionate",
+				"sweet and passionate",
+				"slow and gentle",
+				"sentimental and wistful",
+				"intense and excited",
+				"smooth and night-timey",
+				"soft and romantic"
 			]
 		},
 		{
@@ -2217,7 +2495,23 @@
 				"crossfade",
 				"gradual",
 				"medium speed",
-				"quick"
+				"quick",
+				"cutaway",
+				"iris",
+				"pan",
+				"wipe",
+				"wiggle",
+				"outline",
+				"gradient",
+				"slowly fading in and out",
+				"dissolve and blend",
+				"smooth fade in and out",
+				"quick and sudden",
+				"soft and quick",
+				"slow and gradual",
+				"zooming and panning",
+				"flowing and misty",
+				"glowing and tender"
 			]
 		},
 		{
@@ -2249,7 +2543,25 @@
 				"needle drop",
 				"gradual",
 				"jump cut",
-				"sudden"
+				"sudden",
+				"cutaway clip",
+				"match cut",
+				"slow motion",
+				"picture in picture",
+				"time-lapse",
+				"freeze frame",
+				"chroma-key",
+				"overlay",
+				"flashbacks",
+				"memories",
+				"merging of two clips",
+				"quick cuts reflecting the intensity",
+				"rolling waves of clips",
+				"strong visuals",
+				"dancing frames",
+				"high speed editing",
+				"blending of individual scenes",
+				"flashes of memories"
 			]
 		},
 		{
@@ -2299,7 +2611,27 @@
 				"distortion",
 				"pitch shift",
 				"tremolo",
-				"chorus"
+				"chorus",
+				"color correction.",
+				"speed change.",
+				"halftone.",
+				"glitching.",
+				"vignette.",
+				"warping.",
+				"motion blur.",
+				"thermal.",
+				"high contrast.",
+				"dreamy and ethereal",
+				"blooming",
+				"upbeat choreography",
+				"soft",
+				"warm colors",
+				"starry night sky",
+				"nostalgic shots of countryside",
+				"sun-dappled shots of stone patterns",
+				"slow-motion playback",
+				"natural lighting",
+				"soft glow and pastel hues"
 			]
 		},
 		{
@@ -2342,7 +2674,10 @@
 				"bold",
 				"melancholic",
 				"majestic",
-				"illuminating"
+				"illuminating",
+				"intoxicating",
+				"hopeful",
+				"alluring"
 			]
 		},
 		{
@@ -2395,7 +2730,11 @@
 				"warm",
 				"steady",
 				"reinforcing",
-				"ethereal"
+				"ethereal",
+				"bright",
+				"punctuating",
+				"captivating",
+				"trance-like"
 			]
 		},
 		{
@@ -2449,7 +2788,12 @@
 				"comforting",
 				"free",
 				"enchanting",
-				"inviting"
+				"inviting",
+				"sad",
+				"aching",
+				"melancholy",
+				"lonely",
+				"isolated"
 			]
 		},
 		{
@@ -2498,7 +2842,11 @@
 				"light",
 				"mysterious",
 				"tender",
-				"whispering"
+				"whispering",
+				"intimate",
+				"gentle",
+				"dreamy",
+				"hypnotic"
 			]
 		},
 		{
@@ -2556,7 +2904,14 @@
 				"noble",
 				"sentimental",
 				"romantic",
-				"sensual"
+				"sensual",
+				"teal",
+				"cobalt",
+				"navy",
+				"maroon",
+				"crimson",
+				"burgundy",
+				"ebony"
 			]
 		}
 	],

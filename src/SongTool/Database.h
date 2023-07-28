@@ -63,20 +63,35 @@ inline String PatternSnap::GetStructuredText(int mode, bool pretty, int indent, 
 	const Attributes& g = Database::Single().attrs;
 	String s;
 	if (pretty) s.Cat('\t', indent);
-	if (song ||!part) {
+	if (song && !part) {
 		s << "song";
 	}
-	else if (part ||!line) {
+	else if (part && !line) {
 		s << "part " << part->name;
 	}
-	else if (line ||!brk) {
-		s << "line(" << id << ")";
+	else if (line && !brk) {
+		
+		String storyline = /*part->snap[mode].*/data.Get("storyline", "");
+		
+		s << "line(" << id;
+		
+		if (storyline.GetCount()) {
+			s << ", storyline: \"" << storyline << "\"";
+		}
+		
+		s << ")";
+	}
+	else if (brk) {
+		//String impact = /*brk->snap[mode].*/impact;
+		if (impact.GetCount()) {
+			s << "(impact: \"" << impact << "\") ";
+		}
 	}
 	s << "{";
 	if (pretty) s << "\n";
 	int i = 0;
 	Index<int> used_groups;
-	for (const SnapAttrStr& sa : this->snap[mode].attributes.GetKeys()) {
+	for (const SnapAttrStr& sa : /*this->snap[mode].*/attributes.GetKeys()) {
 		used_groups.FindAdd(sa.group_i);
 	}
 	
@@ -85,7 +100,7 @@ inline String PatternSnap::GetStructuredText(int mode, bool pretty, int indent, 
 		if (pretty) s.Cat('\t', indent+1);
 		s << ToLower(gg.description) << " {";
 		if (pretty) s << "\n";
-		for (const SnapAttrStr& sa : this->snap[mode].attributes.GetKeys()) {
+		for (const SnapAttrStr& sa : /*this->snap[mode].*/attributes.GetKeys()) {
 			ASSERT(sa.has_id);
 			if (sa.group_i != group_i)
 				continue;

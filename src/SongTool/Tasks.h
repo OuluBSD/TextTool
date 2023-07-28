@@ -86,6 +86,7 @@ struct Task {
 	bool ready = false;
 	bool fast_exit = false;
 	bool failed = false;
+	bool fatal_error = false;
 	bool processing = false;
 	bool changed = false;
 	bool whole_song = false;

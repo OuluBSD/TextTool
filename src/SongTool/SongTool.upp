@@ -2,9 +2,11 @@ uses
 	CtrlLib,
 	CodeEditor;
 
-library(WIN32) "curl libcurl.dll.a";
+library(WIN32 & CLANG) "curl libcurl.dll.a";
 
 library(POSIX) curl;
+
+library(WIN32 & MSC) libcurl;
 
 file
 	SongTool.h,

@@ -612,14 +612,17 @@ void Task::CreateInput_Lyrics() {
 		return;
 	}
 	
-	bool rev_snap = args.GetCount() && args[0] == "rev";
-	int mode = rev_snap ? p.mode + 2 : p.mode;
+	//bool rev_snap = args.GetCount() && args[0] == "rev";
+	int mode = p.mode; //rev_snap ? p.mode + 2 : p.mode;
 	Ptrs& ptrs = this->p;
 	
-	Artist& a = *ptrs.artist;
 	Song& s = *ptrs.song;
-	Release& r = *ptrs.release;
+	Artist& a = *s.snap[0].artist;
+	Release& r = *s.snap[0].release;
 	Part& p = *ptrs.part;
+	
+	s.FixPtrs();
+	
 	//Story& s = *db.active_story;
 	//Composition& c = *db.active_composition;
 	//Analysis& n = *db.active_analysis;
@@ -659,6 +662,8 @@ void Task::CreateInput_Lyrics() {
 		<< "Genre/Style: " << c.genre_style << "\n"
 		<< "\n\n";*/
 	
+	//LOG(p.GetStructuredText(mode, true));
+	//LOG(p.GetStructuredText(mode, false));
 	
 	o	<< example_conv << "\n\n\nStructured lyrics:\n";
 	o	<< p.GetStructuredText(mode, false) << "\n\n";
@@ -669,7 +674,7 @@ void Task::CreateInput_Lyrics() {
 
 void Task::CreateInput_LyricsTranslate() {
 	bool rev_snap = args[0] == "rev";
-	int mode = rev_snap ? p.mode + 2 : p.mode;
+	int mode = p.mode; //rev_snap ? p.mode + 2 : p.mode;
 	Song& song = *p.song;
 	
 	String lng = args[1].Left(5);
@@ -687,8 +692,6 @@ void Task::CreateInput_LyricsTranslate() {
 	s << "In English:\n" << lyrics;
 	s << "In " << lng << ":\n";
 	
-	StringStream ss;
-	SaveStreamBOMUtf8(ss, s);
-	input = ss.GetResult();
+	input = s;
 }
 

@@ -130,6 +130,7 @@ struct Context {
 Color GetPartColor(const String& name, Color def=Color(56,170,255));
 Color GetGenderColor(int i);
 
+String FixInvalidChars(const String& s);
 
 template <class T>
 void CalculateWeightedGenderDifference(Vector<double>& values, const Vector<T>& score, const Vector<T>& other_score);
