@@ -211,9 +211,9 @@ void AttrCtrl::Paint(Draw& d) {
 	entry_rects.SetCount(0);
 	
 	int div = grid.GetCount();
-	double cx = min(200.0, (double)sz.cx / div);
+	double cx = (int)min(200.0, (double)sz.cx / div);
 	for(int col = 0; col < grid.GetCount(); col++) {
-		int x = col * cx;
+		int x = (int)(col * cx);
 		int y = 0;
 		const VectorMap<int,Vector<int>>& col_groups = grid[col];
 		int groups = col_groups.GetCount();
@@ -222,15 +222,15 @@ void AttrCtrl::Paint(Draw& d) {
 			items += group.GetCount();
 		if (!items)
 			continue;
-		int lineh = min<int>(tgt_lineh * 1.33, sz.cy / items);
+		int lineh = min<int>((int)(tgt_lineh * 1.33), sz.cy / items);
 		for(int j = 0; j < col_groups.GetCount(); j++) {
 			int group_i = col_groups.GetKey(j);
-			PaintKeys(d, group_i, col_groups[j], x, cx, y, lineh, fnt);
+			PaintKeys(d, group_i, col_groups[j], x, (int)cx, y, lineh, fnt);
 		}
 	}
 }
 
-void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, int cx, int& y, float lineh, Font fnt) {
+void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, int cx, int& y, int lineh, Font fnt) {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
 	Attributes::Group& gg = g.groups[group];
@@ -287,19 +287,19 @@ void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, in
 			
 			// Mouse hovers
 			if (group == pressed.b && j == pressed.c)
-				bg_clr = Blend(clr, White(), 0.8*255);
+				bg_clr = Blend(clr, White(), (int)(0.8*255));
 			else if (group == sel.b && j == sel.c)
 				bg_clr = clr;
 			else if (active)
-				bg_clr = Blend(clr, GrayColor(64), 0.3*255);
+				bg_clr = Blend(clr, GrayColor(64), (int)(0.3*255));
 			else if (inherited_active || sub_active) {
-				bg_clr = Blend(clr, GrayColor(64), 0.97*255);
-				stripe_clr = Blend(clr, GrayColor(64), 0.3*255);
+				bg_clr = Blend(clr, GrayColor(64), (int)(0.97*255));
+				stripe_clr = Blend(clr, GrayColor(64), (int)(0.3*255));
 				vstripes = inherited_active;
 				hstripes = sub_active;
 			}
 			else
-				bg_clr = Blend(clr, GrayColor(64), 0.97*255);
+				bg_clr = Blend(clr, GrayColor(64), (int)(0.97*255));
 			
 			RectId& rid = entry_rects.Add();
 			rid.a = r;

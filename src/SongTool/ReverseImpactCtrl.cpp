@@ -70,8 +70,8 @@ void ReverseImpactPlotter::Paint(Draw& d) {
 	for(int i = 0; i < c; i++) {
 		double val = song.rev_impact.impact_results[i].b;
 		double f = (val - low) / diff;
-		int y = -sz.cy + f * sz.cy - w_2;
-		int x = i * cx - w_2;
+		int y = (int)(-sz.cy + f * sz.cy - w_2);
+		int x = (int)(i * cx - w_2);
 		if (polyline)
 			pts << Point(x,y);
 		else

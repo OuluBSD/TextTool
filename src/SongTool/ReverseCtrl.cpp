@@ -238,7 +238,7 @@ void TaskPlotter::Paint(Draw& d) {
 	double xf = 0;
 	while (it != end) {
 		double f = (*it - l) / diff;
-		int y = (1.0 - f) * sz.cy - w_2;
+		int y = (int)((1.0 - f) * sz.cy - w_2);
 		int x = (int)xf - w_2;
 		d.DrawRect(RectC(x, y, w, w), clr);
 		it++;

@@ -13,7 +13,7 @@ ImpactCtrl::ImpactCtrl() {
 		list.AddColumn(t_("Text"));
 		list.AddColumn(t_("Impact"));
 		list.ColumnWidths("1 2 5");
-		list.SetLineCy(list.GetLineCy() * 1.5);
+		list.SetLineCy((int)(list.GetLineCy() * 1.5));
 		
 		list.WhenAction << THISBACK1(SelectLine, i);
 	}

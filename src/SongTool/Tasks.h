@@ -106,7 +106,7 @@ struct Task {
 	Vector<Vector<String>> str_map;
 	Task* created_by = 0;
 	
-	static constexpr int common_mask_gen_multiplier		= 8;
+	static constexpr int common_mask_gen_multiplier		= 3;
 	static constexpr int common_mask_max_values			= 10;
 	static constexpr int common_mask_gens				= 200;
 	static constexpr int separate_mask_gen_multiplier	= 8;

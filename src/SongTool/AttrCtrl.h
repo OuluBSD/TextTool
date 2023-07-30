@@ -31,7 +31,7 @@ public:
 	void Load();
 	void Store();
 	void Paint(Draw& d) override;
-	void PaintKeys(Draw& d, int group_i, const Vector<int>& items, int x, int cx, int& y, float lineh, Font fnt);
+	void PaintKeys(Draw& d, int group_i, const Vector<int>& items, int x, int cx, int& y, int lineh, Font fnt);
 	void ContextMenu(Bar& bar, Point pt);
 	void AddGroup();
 	void AddEntry(int group);

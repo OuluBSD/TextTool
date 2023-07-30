@@ -79,8 +79,8 @@ void Task::Process_ReverseImpact() {
 							// Calculate correlation coefficient between score-vectors
 							const int* sc0 = score0.Begin();
 							const int* sc1 = score1.Begin();
-							int sum_X = 0, sum_Y = 0, sum_XY = 0;
-							int squareSum_X = 0, squareSum_Y = 0;
+							double sum_X = 0, sum_Y = 0, sum_XY = 0;
+							double squareSum_X = 0, squareSum_Y = 0;
 							for(int i = 0; i < gc; i++) {
 								double a = sc0[i];
 								double b = sc1[i];
@@ -99,9 +99,9 @@ void Task::Process_ReverseImpact() {
 						        squareSum_X = squareSum_X + a * a;
 						        squareSum_Y = squareSum_Y + b * b;
 							}
-							float mul = (gc * squareSum_Y - sum_Y * sum_Y);
-							float sq = sqrt((gc * squareSum_X - sum_X * sum_X) * mul);
-							float corr = (float)(gc * sum_XY - sum_X * sum_Y) / sq;
+							double mul = (gc * squareSum_Y - sum_Y * sum_Y);
+							double sq = sqrt((gc * squareSum_X - sum_X * sum_X) * mul);
+							double corr = (gc * sum_XY - sum_X * sum_Y) / sq;
 							
 							// Use average correlation of genders as heuristic value
 							corr_av += corr * (1.0 / GENDER_COUNT);
@@ -283,8 +283,8 @@ void Task::Process_ReverseCommonMask() {
 				}
 			}
 			else {
-				int sum_X = 0, sum_Y = 0, sum_XY = 0;
-				int squareSum_X = 0, squareSum_Y = 0;
+				double sum_X = 0, sum_Y = 0, sum_XY = 0;
+				double squareSum_X = 0, squareSum_Y = 0;
 				for(int i = 0; i < gc; i++) {
 					double a = sc[i];
 					double b = comp[mode][i];
@@ -304,9 +304,9 @@ void Task::Process_ReverseCommonMask() {
 			        squareSum_Y = squareSum_Y + b * b;
 				}
 				// use formula for calculating correlation coefficient.
-				float mul = (gc * squareSum_Y - sum_Y * sum_Y);
-				float sq = sqrt((gc * squareSum_X - sum_X * sum_X) * mul);
-				float corr = (float)(gc * sum_XY - sum_X * sum_Y) / sq;
+				double mul = (gc * squareSum_Y - sum_Y * sum_Y);
+				double sq = sqrt((gc * squareSum_X - sum_X * sum_X) * mul);
+				double corr = (gc * sum_XY - sum_X * sum_Y) / sq;
 				
 				if (!IsFin(corr)) {
 					DUMP(sum_X);
@@ -564,8 +564,8 @@ void Task::Process_ReverseSeparateMask() {
 				}
 			}
 			else {
-				int sum_X = 0, sum_Y = 0, sum_XY = 0;
-				int squareSum_X = 0, squareSum_Y = 0;
+				double sum_X = 0, sum_Y = 0, sum_XY = 0;
+				double squareSum_X = 0, squareSum_Y = 0;
 				for(int i = 0; i < gc; i++) {
 					double a = sc[mode][i];
 					double b = comp[mode][i];
@@ -585,9 +585,9 @@ void Task::Process_ReverseSeparateMask() {
 			        squareSum_Y = squareSum_Y + b * b;
 				}
 				// use formula for calculating correlation coefficient.
-				float mul = (gc * squareSum_Y - sum_Y * sum_Y);
-				float sq = sqrt((gc * squareSum_X - sum_X * sum_X) * mul);
-				float corr = (float)(gc * sum_XY - sum_X * sum_Y) / sq;
+				double mul = (gc * squareSum_Y - sum_Y * sum_Y);
+				double sq = sqrt((gc * squareSum_X - sum_X * sum_X) * mul);
+				double corr = (gc * sum_XY - sum_X * sum_Y) / sq;
 				
 				if (!IsFin(corr)) {
 					DUMP(sum_X);
@@ -870,8 +870,8 @@ void Task::Process_ReversePattern() {
 				}
 			}
 			else {
-				int sum_X = 0, sum_Y = 0, sum_XY = 0;
-				int squareSum_X = 0, squareSum_Y = 0;
+				double sum_X = 0, sum_Y = 0, sum_XY = 0;
+				double squareSum_X = 0, squareSum_Y = 0;
 				for(int i = 0; i < gc; i++) {
 					double a = sc[mode][i];
 					double b = comp[mode][i];
@@ -891,9 +891,9 @@ void Task::Process_ReversePattern() {
 			        squareSum_Y = squareSum_Y + b * b;
 				}
 				// use formula for calculating correlation coefficient.
-				float mul = (gc * squareSum_Y - sum_Y * sum_Y);
-				float sq = sqrt((gc * squareSum_X - sum_X * sum_X) * mul);
-				float corr = (float)(gc * sum_XY - sum_X * sum_Y) / sq;
+				double mul = (gc * squareSum_Y - sum_Y * sum_Y);
+				double sq = sqrt((gc * squareSum_X - sum_X * sum_X) * mul);
+				double corr = (float)(gc * sum_XY - sum_X * sum_Y) / sq;
 				
 				if (!IsFin(corr)) {
 					/*DUMP(sum_X);

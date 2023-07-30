@@ -577,22 +577,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "body language",
-										"i": "defensive posture."
-									},
-									{
-										"g": "facial expressions",
-										"i": "wide eyes"
-									},
-									{
-										"g": "artificial",
-										"i": "shocking"
-									},
-									{
-										"g": "body language",
-										"i": "tensed up stance"
-									}
+
 								],
 								"partscore": [
 
@@ -634,26 +619,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "fades",
-										"i": "fast"
-									},
-									{
-										"g": "hand motions",
-										"i": "victory"
-									},
-									{
-										"g": "props",
-										"i": "bait"
-									},
-									{
-										"g": "artificial",
-										"i": "shocking"
-									},
-									{
-										"g": "body language",
-										"i": "tensed up stance"
-									}
+
 								],
 								"partscore": [
 
@@ -926,26 +892,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "fades",
-										"i": "subtle"
-									},
-									{
-										"g": "contrast and unexpected elements",
-										"i": "close your eyes and kiss"
-									},
-									{
-										"g": "artificial",
-										"i": "shocking"
-									},
-									{
-										"g": "transitions",
-										"i": "soft"
-									},
-									{
-										"g": "body language",
-										"i": "proud posture."
-									}
+
 								],
 								"partscore": [
 
@@ -968,30 +915,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "ideas",
-										"i": "licking"
-									},
-									{
-										"g": "hand motions",
-										"i": "victory"
-									},
-									{
-										"g": "props",
-										"i": "bait"
-									},
-									{
-										"g": "artificial",
-										"i": "shocking"
-									},
-									{
-										"g": "transitions",
-										"i": "soft"
-									},
-									{
-										"g": "body language",
-										"i": "proud posture."
-									}
+
 								],
 								"partscore": [
 
@@ -1260,18 +1184,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "fades",
-										"i": "subtle"
-									},
-									{
-										"g": "artificial",
-										"i": "shocking"
-									},
-									{
-										"g": "artificial",
-										"i": "vivid"
-									}
+
 								],
 								"partscore": [
 
@@ -1313,26 +1226,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "facial expressions",
-										"i": "desire"
-									},
-									{
-										"g": "hand motions",
-										"i": "victory"
-									},
-									{
-										"g": "props",
-										"i": "bait"
-									},
-									{
-										"g": "artificial",
-										"i": "shocking"
-									},
-									{
-										"g": "artificial",
-										"i": "vivid"
-									}
+
 								],
 								"partscore": [
 
@@ -1588,26 +1482,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "hand motions",
-										"i": "pointing"
-									},
-									{
-										"g": "fades",
-										"i": "subtle"
-									},
-									{
-										"g": "artificial",
-										"i": "vivid"
-									},
-									{
-										"g": "transitions",
-										"i": "linear"
-									},
-									{
-										"g": "body language",
-										"i": "tensed up stance"
-									}
+
 								],
 								"partscore": [
 
@@ -1649,22 +1524,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "facial expressions",
-										"i": "desire"
-									},
-									{
-										"g": "artificial",
-										"i": "vivid"
-									},
-									{
-										"g": "transitions",
-										"i": "linear"
-									},
-									{
-										"g": "body language",
-										"i": "tensed up stance"
-									}
+
 								],
 								"partscore": [
 
@@ -1718,6 +1578,10 @@
 							{
 								"g": "nouns",
 								"i": "mister"
+							},
+							{
+								"g": "pronouns",
+								"i": "i"
 							},
 							{
 								"g": "verbs",
@@ -1874,6 +1738,10 @@
 							},
 							{
 								"g": "pronouns",
+								"i": "i"
+							},
+							{
+								"g": "pronouns",
 								"i": "you"
 							},
 							{
@@ -1947,6 +1815,22 @@
 							{
 								"g": "effects",
 								"i": "delay"
+							},
+							{
+								"g": "natural",
+								"i": "soft"
+							},
+							{
+								"g": "natural",
+								"i": "gentle"
+							},
+							{
+								"g": "natural",
+								"i": "faint"
+							},
+							{
+								"g": "natural",
+								"i": "shadowy"
 							},
 							{
 								"g": "artificial",
@@ -2248,6 +2132,22 @@
 										"i": "color palette"
 									},
 									{
+										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
 										"g": "diffused",
 										"i": "subtle"
 									},
@@ -2335,22 +2235,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "physical features",
-										"i": "scar tissue"
-									},
-									{
-										"g": "facial expressions",
-										"i": "resolute"
-									},
-									{
-										"g": "splices",
-										"i": "layered"
-									},
-									{
-										"g": "body language",
-										"i": "tensed up stance"
-									}
+
 								],
 								"partscore": [
 
@@ -2392,18 +2277,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "facial expressions",
-										"i": "desire"
-									},
-									{
-										"g": "splices",
-										"i": "layered"
-									},
-									{
-										"g": "body language",
-										"i": "tensed up stance"
-									}
+
 								],
 								"partscore": [
 
@@ -2625,6 +2499,22 @@
 									},
 									{
 										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
 										"i": "romantic"
 									},
 									{
@@ -2707,26 +2597,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "ideas",
-										"i": "sarcastic mister"
-									},
-									{
-										"g": "fades",
-										"i": "subtle"
-									},
-									{
-										"g": "transitions",
-										"i": "linear"
-									},
-									{
-										"g": "splices",
-										"i": "layered"
-									},
-									{
-										"g": "body language",
-										"i": "proud posture."
-									}
+
 								],
 								"partscore": [
 
@@ -2768,30 +2639,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "natural",
-										"i": "bold"
-									},
-									{
-										"g": "ideas",
-										"i": "licking"
-									},
-									{
-										"g": "facial expressions",
-										"i": "desire"
-									},
-									{
-										"g": "transitions",
-										"i": "linear"
-									},
-									{
-										"g": "splices",
-										"i": "layered"
-									},
-									{
-										"g": "body language",
-										"i": "proud posture."
-									}
+
 								],
 								"partscore": [
 
@@ -3049,6 +2897,22 @@
 									},
 									{
 										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
 										"i": "romantic"
 									},
 									{
@@ -3143,26 +3007,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "facial expressions",
-										"i": "wide eyes"
-									},
-									{
-										"g": "fades",
-										"i": "subtle"
-									},
-									{
-										"g": "splices",
-										"i": "quickly cut images"
-									},
-									{
-										"g": "weather",
-										"i": "autumn sweet"
-									},
-									{
-										"g": "body language",
-										"i": "tensed up stance"
-									}
+
 								],
 								"partscore": [
 
@@ -3204,30 +3049,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "fades",
-										"i": "fast"
-									},
-									{
-										"g": "ideas",
-										"i": "licking"
-									},
-									{
-										"g": "natural",
-										"i": "bold"
-									},
-									{
-										"g": "splices",
-										"i": "quickly cut images"
-									},
-									{
-										"g": "weather",
-										"i": "autumn sweet"
-									},
-									{
-										"g": "body language",
-										"i": "tensed up stance"
-									}
+
 								],
 								"partscore": [
 
@@ -3274,6 +3096,10 @@
 					"snap[0]": {
 						"txt": "(I'm saying to myself) close your eyes and (I say to myself that) I'll kiss you (with this drug injection), 'cause (I'm high and) with the birds I'll share (this lonely view).",
 						"attributes": [
+							{
+								"g": "pronouns",
+								"i": "i"
+							},
 							{
 								"g": "verbs",
 								"i": "kiss"
@@ -3472,6 +3298,10 @@
 								"i": "your"
 							},
 							{
+								"g": "pronouns",
+								"i": "i"
+							},
+							{
 								"g": "adverbs",
 								"i": "close"
 							},
@@ -3546,6 +3376,22 @@
 							{
 								"g": "effects",
 								"i": "pitch shift"
+							},
+							{
+								"g": "natural",
+								"i": "soft"
+							},
+							{
+								"g": "natural",
+								"i": "gentle"
+							},
+							{
+								"g": "natural",
+								"i": "faint"
+							},
+							{
+								"g": "natural",
+								"i": "shadowy"
 							},
 							{
 								"g": "natural",
@@ -4782,10 +4628,7 @@
 			"snap[2]": {
 				"txt": "",
 				"attributes": [
-					{
-						"g": "props",
-						"i": "microphone"
-					}
+
 				],
 				"partscore": [
 					0,
@@ -4810,10 +4653,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "A microphone, just for show\nIs what I'm cautiosly unloading\nClose your eyes and you'll know, That with the birds I'll share this lonely view \nScar tissue that I wish you saw\nSarcastic mister know-it-all\nClose your eyes and I'll kiss you, 'cause with the birds I'll share this autumn sweet"
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -4822,84 +4662,44 @@
 				],
 				"mask": [
 					{
-						"g": "body language",
-						"i": "tensed up stance"
+						"g": "locations",
+						"i": "step outside"
 					},
 					{
 						"g": "artificial",
-						"i": "vivid"
+						"i": "saturated"
 					},
 					{
-						"g": "body language",
-						"i": "proud posture."
-					},
-					{
-						"g": "splices",
-						"i": "layered"
+						"g": "diffused",
+						"i": "open"
 					},
 					{
 						"g": "artificial",
-						"i": "shocking"
-					},
-					{
-						"g": "splices",
-						"i": "quickly cut images"
-					},
-					{
-						"g": "artificial",
-						"i": "enhanced"
+						"i": "intense"
 					},
 					{
 						"g": "transitions",
-						"i": "linear"
+						"i": "elegant"
+					},
+					{
+						"g": "locations",
+						"i": "so that you would be afraid of me"
 					},
 					{
 						"g": "transitions",
-						"i": "soft"
-					},
-					{
-						"g": "weather",
-						"i": "autumn sweet"
-					},
-					{
-						"g": "hand motions",
-						"i": "pointing"
-					},
-					{
-						"g": "props",
-						"i": "microphone"
-					},
-					{
-						"g": "contrast and unexpected elements",
-						"i": "close your eyes and kiss"
+						"i": "dissolve"
 					},
 					{
 						"g": "facial expressions",
-						"i": "wide eyes"
+						"i": "desire"
+					},
+					{
+						"g": "diffused",
+						"i": "smooth"
 					},
 					{
 						"g": "facial expressions",
-						"i": "resolute"
-					},
-					{
-						"g": "body language",
-						"i": "defensive posture."
-					},
-					{
-						"g": "natural",
-						"i": "serene"
-					},
-					{
-						"g": "fades",
-						"i": "subtle"
-					},
-					{
-						"g": "ideas",
-						"i": "sarcastic mister"
-					},
-					{
-						"g": "physical features",
-						"i": "scar tissue"
+						"i": "sadness"
 					}
 				],
 				"maskscore": [
@@ -4934,10 +4734,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "Scar tissue that I wish you saw\nFades fast my victory bait\nShocking, the tension's in my stance\nDesire licking, victory bait, you won't believe what shocking vividness\nLinear, tense up my stance\nDesire for you, layered picture of contentment\nBold, licking fills me with pride\nFast fading, quickly cut images of autumn sweet, tense up my stance."
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -4946,80 +4743,44 @@
 				],
 				"mask": [
 					{
-						"g": "body language",
-						"i": "tensed up stance"
+						"g": "locations",
+						"i": "step outside"
 					},
 					{
 						"g": "artificial",
-						"i": "vivid"
+						"i": "saturated"
 					},
 					{
-						"g": "body language",
-						"i": "proud posture."
-					},
-					{
-						"g": "splices",
-						"i": "layered"
+						"g": "diffused",
+						"i": "open"
 					},
 					{
 						"g": "artificial",
-						"i": "shocking"
-					},
-					{
-						"g": "splices",
-						"i": "quickly cut images"
-					},
-					{
-						"g": "artificial",
-						"i": "enhanced"
+						"i": "intense"
 					},
 					{
 						"g": "transitions",
-						"i": "linear"
-					},
-					{
-						"g": "transitions",
-						"i": "soft"
-					},
-					{
-						"g": "weather",
-						"i": "autumn sweet"
+						"i": "elegant"
 					},
 					{
 						"g": "locations",
-						"i": "against the wall"
+						"i": "so that you would be afraid of me"
 					},
 					{
-						"g": "hand motions",
-						"i": "victory"
-					},
-					{
-						"g": "props",
-						"i": "bait"
-					},
-					{
-						"g": "imagery",
-						"i": "southern girl"
-					},
-					{
-						"g": "fades",
-						"i": "fast"
+						"g": "transitions",
+						"i": "dissolve"
 					},
 					{
 						"g": "facial expressions",
 						"i": "desire"
 					},
 					{
-						"g": "ideas",
-						"i": "licking"
+						"g": "diffused",
+						"i": "smooth"
 					},
 					{
-						"g": "natural",
-						"i": "alluring"
-					},
-					{
-						"g": "natural",
-						"i": "bold"
+						"g": "facial expressions",
+						"i": "sadness"
 					}
 				],
 				"maskscore": [
@@ -5199,6 +4960,54 @@
 									{
 										"g": "effects",
 										"i": "reverb"
+									},
+									{
+										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
+										"i": "romantic"
+									},
+									{
+										"g": "natural",
+										"i": "passionate"
+									},
+									{
+										"g": "natural",
+										"i": "glowing"
+									},
+									{
+										"g": "natural",
+										"i": "ethereal"
+									},
+									{
+										"g": "natural",
+										"i": "refreshing"
+									},
+									{
+										"g": "natural",
+										"i": "soothing"
+									},
+									{
+										"g": "natural",
+										"i": "majestic"
+									},
+									{
+										"g": "natural",
+										"i": "radiant"
 									}
 								],
 								"partscore": [
@@ -5260,26 +5069,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "imagery",
-										"i": "soft spoken"
-									},
-									{
-										"g": "quirks",
-										"i": "talking to himself"
-									},
-									{
-										"g": "personality traits",
-										"i": "kindness"
-									},
-									{
-										"g": "locations",
-										"i": "service station"
-									},
-									{
-										"g": "hair/makeup",
-										"i": "glossy lip balm"
-									}
+
 								],
 								"partscore": [
 
@@ -5321,22 +5111,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "transitions",
-										"i": "transitions between clips"
-									},
-									{
-										"g": "personality traits",
-										"i": "kindness"
-									},
-									{
-										"g": "locations",
-										"i": "service station"
-									},
-									{
-										"g": "hair/makeup",
-										"i": "glossy lip balm"
-									}
+
 								],
 								"partscore": [
 
@@ -5557,6 +5332,54 @@
 										"i": "out of focus"
 									},
 									{
+										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
+										"i": "romantic"
+									},
+									{
+										"g": "natural",
+										"i": "passionate"
+									},
+									{
+										"g": "natural",
+										"i": "glowing"
+									},
+									{
+										"g": "natural",
+										"i": "ethereal"
+									},
+									{
+										"g": "natural",
+										"i": "refreshing"
+									},
+									{
+										"g": "natural",
+										"i": "soothing"
+									},
+									{
+										"g": "natural",
+										"i": "majestic"
+									},
+									{
+										"g": "natural",
+										"i": "radiant"
+									},
+									{
 										"g": "ambient",
 										"i": "diffused"
 									},
@@ -5696,22 +5519,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "contrast and unexpected elements",
-										"i": "drug injection"
-									},
-									{
-										"g": "hand motions",
-										"i": "thumbing imaginary items"
-									},
-									{
-										"g": "time periods",
-										"i": "fall"
-									},
-									{
-										"g": "effects",
-										"i": "blurred vision"
-									}
+
 								],
 								"partscore": [
 
@@ -5753,26 +5561,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "color",
-										"i": "pink"
-									},
-									{
-										"g": "color",
-										"i": "red"
-									},
-									{
-										"g": "effects",
-										"i": "overlay"
-									},
-									{
-										"g": "time periods",
-										"i": "fall"
-									},
-									{
-										"g": "effects",
-										"i": "blurred vision"
-									}
+
 								],
 								"partscore": [
 
@@ -5819,7 +5608,122 @@
 					"snap[0]": {
 						"txt": "With the birds (that I see outside) I'll share this lonely viewin' (from this toilet)",
 						"attributes": [
-
+							{
+								"g": "nouns",
+								"i": "birds"
+							},
+							{
+								"g": "nouns",
+								"i": "view"
+							},
+							{
+								"g": "verbs",
+								"i": "see"
+							},
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "adjectives",
+								"i": "lonely"
+							},
+							{
+								"g": "adverbs",
+								"i": "outside"
+							},
+							{
+								"g": "prepositions",
+								"i": "from"
+							},
+							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
+								"g": "similes",
+								"i": "lonely view"
+							},
+							{
+								"g": "contrast and unexpected elements",
+								"i": "toilet"
+							},
+							{
+								"g": "moral interactions",
+								"i": "sharing"
+							},
+							{
+								"g": "ideas",
+								"i": "share this lonely view"
+							},
+							{
+								"g": "imagery",
+								"i": "with the birds"
+							},
+							{
+								"g": "symbols",
+								"i": "birds"
+							},
+							{
+								"g": "facial expressions",
+								"i": "relaxed"
+							},
+							{
+								"g": "body language",
+								"i": "feet shuffling"
+							},
+							{
+								"g": "transitions",
+								"i": "splice"
+							},
+							{
+								"g": "splices",
+								"i": "needle drop"
+							},
+							{
+								"g": "natural",
+								"i": "ethereal"
+							},
+							{
+								"g": "natural",
+								"i": "shining"
+							},
+							{
+								"g": "natural",
+								"i": "radiant"
+							},
+							{
+								"g": "natural",
+								"i": "faint"
+							},
+							{
+								"g": "natural",
+								"i": "shadowy"
+							},
+							{
+								"g": "natural",
+								"i": "sad"
+							},
+							{
+								"g": "artificial",
+								"i": "hyper-realistic"
+							},
+							{
+								"g": "artificial",
+								"i": "futuristic"
+							},
+							{
+								"g": "artificial",
+								"i": "flashing"
+							},
+							{
+								"g": "artificial",
+								"i": "glaring"
+							},
+							{
+								"g": "artificial",
+								"i": "shocking"
+							}
 						],
 						"partscore": [
 							52,
@@ -5861,7 +5765,202 @@
 					"snap[1]": {
 						"txt": "With the birds (that you can hear) I'll share this lonely viewin' (at this vantage point)",
 						"attributes": [
-
+							{
+								"g": "prepositions",
+								"i": "with"
+							},
+							{
+								"g": "prepositions",
+								"i": "at"
+							},
+							{
+								"g": "nouns",
+								"i": "birds"
+							},
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "adjectives",
+								"i": "lonely"
+							},
+							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
+								"g": "similes",
+								"i": "lonely view"
+							},
+							{
+								"g": "moral interactions",
+								"i": "sharing"
+							},
+							{
+								"g": "type of action in moral interaction",
+								"i": "sharing"
+							},
+							{
+								"g": "imagery",
+								"i": "with the birds"
+							},
+							{
+								"g": "body language",
+								"i": "letting go"
+							},
+							{
+								"g": "accessories",
+								"i": "feather earrings/necklace"
+							},
+							{
+								"g": "accessories",
+								"i": "necklaces"
+							},
+							{
+								"g": "accessories",
+								"i": "pearl earrings"
+							},
+							{
+								"g": "accessories",
+								"i": "silver chain"
+							},
+							{
+								"g": "transitions",
+								"i": "montage"
+							},
+							{
+								"g": "effects",
+								"i": "motion blur"
+							},
+							{
+								"g": "natural",
+								"i": "soft"
+							},
+							{
+								"g": "natural",
+								"i": "gentle"
+							},
+							{
+								"g": "natural",
+								"i": "faint"
+							},
+							{
+								"g": "natural",
+								"i": "shadowy"
+							},
+							{
+								"g": "natural",
+								"i": "romantic"
+							},
+							{
+								"g": "natural",
+								"i": "passionate"
+							},
+							{
+								"g": "natural",
+								"i": "glowing"
+							},
+							{
+								"g": "natural",
+								"i": "ethereal"
+							},
+							{
+								"g": "natural",
+								"i": "refreshing"
+							},
+							{
+								"g": "natural",
+								"i": "soothing"
+							},
+							{
+								"g": "natural",
+								"i": "majestic"
+							},
+							{
+								"g": "natural",
+								"i": "radiant"
+							},
+							{
+								"g": "ambient",
+								"i": "diffused"
+							},
+							{
+								"g": "ambient",
+								"i": "calm"
+							},
+							{
+								"g": "ambient",
+								"i": "subtle"
+							},
+							{
+								"g": "ambient",
+								"i": "suppressed"
+							},
+							{
+								"g": "ambient",
+								"i": "textured"
+							},
+							{
+								"g": "ambient",
+								"i": "subdued"
+							},
+							{
+								"g": "ambient",
+								"i": "dreamy"
+							},
+							{
+								"g": "ambient",
+								"i": "moody"
+							},
+							{
+								"g": "ambient",
+								"i": "mysterious"
+							},
+							{
+								"g": "ambient",
+								"i": "gloomy"
+							},
+							{
+								"g": "ambient",
+								"i": "suspenseful"
+							},
+							{
+								"g": "ambient",
+								"i": "tense"
+							},
+							{
+								"g": "ambient",
+								"i": "surreal"
+							},
+							{
+								"g": "ambient",
+								"i": "dreamlike"
+							},
+							{
+								"g": "ambient",
+								"i": "intense"
+							},
+							{
+								"g": "ambient",
+								"i": "eerie"
+							},
+							{
+								"g": "ambient",
+								"i": "unsettling"
+							},
+							{
+								"g": "ambient",
+								"i": "dark"
+							},
+							{
+								"g": "ambient",
+								"i": "foreboding"
+							},
+							{
+								"g": "ambient",
+								"i": "mystical"
+							}
 						],
 						"partscore": [
 							37,
@@ -6097,6 +6196,54 @@
 									{
 										"g": "effects",
 										"i": "reverb"
+									},
+									{
+										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
+										"i": "romantic"
+									},
+									{
+										"g": "natural",
+										"i": "passionate"
+									},
+									{
+										"g": "natural",
+										"i": "glowing"
+									},
+									{
+										"g": "natural",
+										"i": "ethereal"
+									},
+									{
+										"g": "natural",
+										"i": "refreshing"
+									},
+									{
+										"g": "natural",
+										"i": "soothing"
+									},
+									{
+										"g": "natural",
+										"i": "majestic"
+									},
+									{
+										"g": "natural",
+										"i": "radiant"
 									}
 								],
 								"partscore": [
@@ -6139,26 +6286,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "quirks",
-										"i": "talking to himself"
-									},
-									{
-										"g": "imagery",
-										"i": "soft spoken"
-									},
-									{
-										"g": "personality traits",
-										"i": "kindness"
-									},
-									{
-										"g": "locations",
-										"i": "service station"
-									},
-									{
-										"g": "hair/makeup",
-										"i": "glossy lip balm"
-									}
+
 								],
 								"partscore": [
 
@@ -6181,22 +6309,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "transitions",
-										"i": "transitions between clips"
-									},
-									{
-										"g": "personality traits",
-										"i": "kindness"
-									},
-									{
-										"g": "locations",
-										"i": "service station"
-									},
-									{
-										"g": "hair/makeup",
-										"i": "glossy lip balm"
-									}
+
 								],
 								"partscore": [
 
@@ -6379,6 +6492,54 @@
 										"i": "out of focus"
 									},
 									{
+										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
+										"i": "romantic"
+									},
+									{
+										"g": "natural",
+										"i": "passionate"
+									},
+									{
+										"g": "natural",
+										"i": "glowing"
+									},
+									{
+										"g": "natural",
+										"i": "ethereal"
+									},
+									{
+										"g": "natural",
+										"i": "refreshing"
+									},
+									{
+										"g": "natural",
+										"i": "soothing"
+									},
+									{
+										"g": "natural",
+										"i": "majestic"
+									},
+									{
+										"g": "natural",
+										"i": "radiant"
+									},
+									{
 										"g": "ambient",
 										"i": "diffused"
 									},
@@ -6499,22 +6660,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "hand motions",
-										"i": "thumbing imaginary items"
-									},
-									{
-										"g": "contrast and unexpected elements",
-										"i": "drug injection"
-									},
-									{
-										"g": "time periods",
-										"i": "fall"
-									},
-									{
-										"g": "effects",
-										"i": "blurred vision"
-									}
+
 								],
 								"partscore": [
 
@@ -6537,26 +6683,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "effects",
-										"i": "overlay"
-									},
-									{
-										"g": "color",
-										"i": "red"
-									},
-									{
-										"g": "color",
-										"i": "pink"
-									},
-									{
-										"g": "time periods",
-										"i": "fall"
-									},
-									{
-										"g": "effects",
-										"i": "blurred vision"
-									}
+
 								],
 								"partscore": [
 
@@ -6584,7 +6711,122 @@
 					"snap[0]": {
 						"txt": "With the birds (that I see outside) I'll share this lonely viewin' (from this toilet)",
 						"attributes": [
-
+							{
+								"g": "nouns",
+								"i": "birds"
+							},
+							{
+								"g": "nouns",
+								"i": "view"
+							},
+							{
+								"g": "verbs",
+								"i": "see"
+							},
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "adjectives",
+								"i": "lonely"
+							},
+							{
+								"g": "adverbs",
+								"i": "outside"
+							},
+							{
+								"g": "prepositions",
+								"i": "from"
+							},
+							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
+								"g": "similes",
+								"i": "lonely view"
+							},
+							{
+								"g": "contrast and unexpected elements",
+								"i": "toilet"
+							},
+							{
+								"g": "moral interactions",
+								"i": "sharing"
+							},
+							{
+								"g": "ideas",
+								"i": "share this lonely view"
+							},
+							{
+								"g": "imagery",
+								"i": "with the birds"
+							},
+							{
+								"g": "symbols",
+								"i": "birds"
+							},
+							{
+								"g": "facial expressions",
+								"i": "relaxed"
+							},
+							{
+								"g": "body language",
+								"i": "feet shuffling"
+							},
+							{
+								"g": "transitions",
+								"i": "splice"
+							},
+							{
+								"g": "splices",
+								"i": "needle drop"
+							},
+							{
+								"g": "natural",
+								"i": "ethereal"
+							},
+							{
+								"g": "natural",
+								"i": "shining"
+							},
+							{
+								"g": "natural",
+								"i": "radiant"
+							},
+							{
+								"g": "natural",
+								"i": "faint"
+							},
+							{
+								"g": "natural",
+								"i": "shadowy"
+							},
+							{
+								"g": "natural",
+								"i": "sad"
+							},
+							{
+								"g": "artificial",
+								"i": "hyper-realistic"
+							},
+							{
+								"g": "artificial",
+								"i": "futuristic"
+							},
+							{
+								"g": "artificial",
+								"i": "flashing"
+							},
+							{
+								"g": "artificial",
+								"i": "glaring"
+							},
+							{
+								"g": "artificial",
+								"i": "shocking"
+							}
 						],
 						"partscore": [
 							52,
@@ -6626,7 +6868,202 @@
 					"snap[1]": {
 						"txt": "With the birds (that you can hear) I'll share this lonely viewin' (at this vantage point)",
 						"attributes": [
-
+							{
+								"g": "prepositions",
+								"i": "with"
+							},
+							{
+								"g": "prepositions",
+								"i": "at"
+							},
+							{
+								"g": "nouns",
+								"i": "birds"
+							},
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "adjectives",
+								"i": "lonely"
+							},
+							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
+								"g": "similes",
+								"i": "lonely view"
+							},
+							{
+								"g": "moral interactions",
+								"i": "sharing"
+							},
+							{
+								"g": "type of action in moral interaction",
+								"i": "sharing"
+							},
+							{
+								"g": "imagery",
+								"i": "with the birds"
+							},
+							{
+								"g": "body language",
+								"i": "letting go"
+							},
+							{
+								"g": "accessories",
+								"i": "feather earrings/necklace"
+							},
+							{
+								"g": "accessories",
+								"i": "necklaces"
+							},
+							{
+								"g": "accessories",
+								"i": "pearl earrings"
+							},
+							{
+								"g": "accessories",
+								"i": "silver chain"
+							},
+							{
+								"g": "transitions",
+								"i": "montage"
+							},
+							{
+								"g": "effects",
+								"i": "motion blur"
+							},
+							{
+								"g": "natural",
+								"i": "soft"
+							},
+							{
+								"g": "natural",
+								"i": "gentle"
+							},
+							{
+								"g": "natural",
+								"i": "faint"
+							},
+							{
+								"g": "natural",
+								"i": "shadowy"
+							},
+							{
+								"g": "natural",
+								"i": "romantic"
+							},
+							{
+								"g": "natural",
+								"i": "passionate"
+							},
+							{
+								"g": "natural",
+								"i": "glowing"
+							},
+							{
+								"g": "natural",
+								"i": "ethereal"
+							},
+							{
+								"g": "natural",
+								"i": "refreshing"
+							},
+							{
+								"g": "natural",
+								"i": "soothing"
+							},
+							{
+								"g": "natural",
+								"i": "majestic"
+							},
+							{
+								"g": "natural",
+								"i": "radiant"
+							},
+							{
+								"g": "ambient",
+								"i": "diffused"
+							},
+							{
+								"g": "ambient",
+								"i": "calm"
+							},
+							{
+								"g": "ambient",
+								"i": "subtle"
+							},
+							{
+								"g": "ambient",
+								"i": "suppressed"
+							},
+							{
+								"g": "ambient",
+								"i": "textured"
+							},
+							{
+								"g": "ambient",
+								"i": "subdued"
+							},
+							{
+								"g": "ambient",
+								"i": "dreamy"
+							},
+							{
+								"g": "ambient",
+								"i": "moody"
+							},
+							{
+								"g": "ambient",
+								"i": "mysterious"
+							},
+							{
+								"g": "ambient",
+								"i": "gloomy"
+							},
+							{
+								"g": "ambient",
+								"i": "suspenseful"
+							},
+							{
+								"g": "ambient",
+								"i": "tense"
+							},
+							{
+								"g": "ambient",
+								"i": "surreal"
+							},
+							{
+								"g": "ambient",
+								"i": "dreamlike"
+							},
+							{
+								"g": "ambient",
+								"i": "intense"
+							},
+							{
+								"g": "ambient",
+								"i": "eerie"
+							},
+							{
+								"g": "ambient",
+								"i": "unsettling"
+							},
+							{
+								"g": "ambient",
+								"i": "dark"
+							},
+							{
+								"g": "ambient",
+								"i": "foreboding"
+							},
+							{
+								"g": "ambient",
+								"i": "mystical"
+							}
 						],
 						"partscore": [
 							37,
@@ -6873,22 +7310,6 @@
 					{
 						"g": "artificial",
 						"i": "shocking"
-					},
-					{
-						"g": "facial expressions",
-						"i": "relaxed"
-					},
-					{
-						"g": "body language",
-						"i": "feet shuffling"
-					},
-					{
-						"g": "transitions",
-						"i": "splice"
-					},
-					{
-						"g": "splices",
-						"i": "needle drop"
 					}
 				],
 				"partscore": [
@@ -7095,178 +7516,6 @@
 					{
 						"g": "transitions",
 						"i": "splice"
-					},
-					{
-						"g": "prepositions",
-						"i": "with"
-					},
-					{
-						"g": "prepositions",
-						"i": "at"
-					},
-					{
-						"g": "nouns",
-						"i": "birds"
-					},
-					{
-						"g": "verbs",
-						"i": "share"
-					},
-					{
-						"g": "adjectives",
-						"i": "lonely"
-					},
-					{
-						"g": "moral interactions",
-						"i": "sharing"
-					},
-					{
-						"g": "type of action in moral interaction",
-						"i": "sharing"
-					},
-					{
-						"g": "imagery",
-						"i": "with the birds"
-					},
-					{
-						"g": "body language",
-						"i": "letting go"
-					},
-					{
-						"g": "transitions",
-						"i": "montage"
-					},
-					{
-						"g": "effects",
-						"i": "motion blur"
-					},
-					{
-						"g": "natural",
-						"i": "soft"
-					},
-					{
-						"g": "natural",
-						"i": "gentle"
-					},
-					{
-						"g": "natural",
-						"i": "faint"
-					},
-					{
-						"g": "natural",
-						"i": "shadowy"
-					},
-					{
-						"g": "natural",
-						"i": "romantic"
-					},
-					{
-						"g": "natural",
-						"i": "passionate"
-					},
-					{
-						"g": "natural",
-						"i": "glowing"
-					},
-					{
-						"g": "natural",
-						"i": "ethereal"
-					},
-					{
-						"g": "natural",
-						"i": "refreshing"
-					},
-					{
-						"g": "natural",
-						"i": "soothing"
-					},
-					{
-						"g": "natural",
-						"i": "majestic"
-					},
-					{
-						"g": "natural",
-						"i": "radiant"
-					},
-					{
-						"g": "ambient",
-						"i": "diffused"
-					},
-					{
-						"g": "ambient",
-						"i": "calm"
-					},
-					{
-						"g": "ambient",
-						"i": "subtle"
-					},
-					{
-						"g": "ambient",
-						"i": "suppressed"
-					},
-					{
-						"g": "ambient",
-						"i": "textured"
-					},
-					{
-						"g": "ambient",
-						"i": "subdued"
-					},
-					{
-						"g": "ambient",
-						"i": "dreamy"
-					},
-					{
-						"g": "ambient",
-						"i": "moody"
-					},
-					{
-						"g": "ambient",
-						"i": "mysterious"
-					},
-					{
-						"g": "ambient",
-						"i": "gloomy"
-					},
-					{
-						"g": "ambient",
-						"i": "suspenseful"
-					},
-					{
-						"g": "ambient",
-						"i": "tense"
-					},
-					{
-						"g": "ambient",
-						"i": "surreal"
-					},
-					{
-						"g": "ambient",
-						"i": "dreamlike"
-					},
-					{
-						"g": "ambient",
-						"i": "intense"
-					},
-					{
-						"g": "ambient",
-						"i": "eerie"
-					},
-					{
-						"g": "ambient",
-						"i": "unsettling"
-					},
-					{
-						"g": "ambient",
-						"i": "dark"
-					},
-					{
-						"g": "ambient",
-						"i": "foreboding"
-					},
-					{
-						"g": "ambient",
-						"i": "mystical"
 					}
 				],
 				"partscore": [
@@ -7454,10 +7703,7 @@
 			"snap[2]": {
 				"txt": "",
 				"attributes": [
-					{
-						"g": "facial expressions",
-						"i": "conversation"
-					}
+
 				],
 				"partscore": [
 					0,
@@ -7482,10 +7728,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "Softly spoken with my eyes to the sky\nThumbing my way through imaginary items \nIn a fall that's blurring my vision I try\nInjection of something that makes me feel alright"
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -7493,86 +7736,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "props",
-						"i": "telescope"
-					},
-					{
-						"g": "time periods",
-						"i": "fall"
-					},
-					{
-						"g": "locations",
-						"i": "kentucky"
-					},
-					{
-						"g": "personality traits",
-						"i": "kindness"
-					},
-					{
-						"g": "weather",
-						"i": "autumn sweet"
-					},
-					{
-						"g": "hair/makeup",
-						"i": "glossy lip balm"
-					},
-					{
-						"g": "accessories",
-						"i": "silver hoop earrings"
-					},
-					{
-						"g": "hand motions",
-						"i": "fiddling with pocket"
-					},
-					{
-						"g": "effects",
-						"i": "blurred vision"
-					},
-					{
-						"g": "locations",
-						"i": "service station"
-					},
-					{
-						"g": "imagery",
-						"i": "soft spoken"
-					},
-					{
-						"g": "splices",
-						"i": "flashes of memories"
-					},
-					{
-						"g": "contrast and unexpected elements",
-						"i": "drug injection"
-					},
-					{
-						"g": "ambient",
-						"i": "dreamy"
-					},
-					{
-						"g": "hand motions",
-						"i": "thumbing imaginary items"
-					},
-					{
-						"g": "clothing",
-						"i": "one or two colors"
-					},
-					{
-						"g": "facial expressions",
-						"i": "conversation"
-					},
-					{
-						"g": "symbols",
-						"i": "kentucky girl"
-					},
-					{
-						"g": "quirks",
-						"i": "talking to himself"
-					},
-					{
-						"g": "effects",
-						"i": "slow-motion and dream-like atmosphere"
-					}
+
 				],
 				"maskscore": [
 
@@ -7606,10 +7770,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "Where the birds go when god dies \nWhere my car and I never drive\nWhen he leaves the station we'll see a lonely view\nSmoke from my lips, glossy with lip balm, in the night, pink and red"
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -7617,86 +7778,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "props",
-						"i": "telescope"
-					},
-					{
-						"g": "time periods",
-						"i": "fall"
-					},
-					{
-						"g": "locations",
-						"i": "kentucky"
-					},
-					{
-						"g": "personality traits",
-						"i": "kindness"
-					},
-					{
-						"g": "weather",
-						"i": "autumn sweet"
-					},
-					{
-						"g": "hair/makeup",
-						"i": "glossy lip balm"
-					},
-					{
-						"g": "accessories",
-						"i": "silver hoop earrings"
-					},
-					{
-						"g": "hand motions",
-						"i": "fiddling with pocket"
-					},
-					{
-						"g": "effects",
-						"i": "blurred vision"
-					},
-					{
-						"g": "locations",
-						"i": "service station"
-					},
-					{
-						"g": "color",
-						"i": "pink"
-					},
-					{
-						"g": "color",
-						"i": "moody"
-					},
-					{
-						"g": "dreams",
-						"i": "make it to the moon"
-					},
-					{
-						"g": "diffused",
-						"i": "dreamy"
-					},
-					{
-						"g": "imagery",
-						"i": "texas scarlet drawl"
-					},
-					{
-						"g": "color",
-						"i": "red"
-					},
-					{
-						"g": "moral interactions",
-						"i": "lovingly"
-					},
-					{
-						"g": "transitions",
-						"i": "transitions between clips"
-					},
-					{
-						"g": "facial expressions",
-						"i": "frowning"
-					},
-					{
-						"g": "effects",
-						"i": "overlay"
-					}
+
 				],
 				"maskscore": [
 
@@ -7949,26 +8031,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "props",
-										"i": "fishing rod"
-									},
-									{
-										"g": "facial expressions",
-										"i": "curiosity"
-									},
-									{
-										"g": "time periods",
-										"i": "sarcastic mister know-it-all"
-									},
-									{
-										"g": "fades",
-										"i": "soft"
-									},
-									{
-										"g": "facial expressions",
-										"i": "smirk"
-									}
+
 								],
 								"partscore": [
 
@@ -7991,30 +8054,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "facial expressions",
-										"i": "determined"
-									},
-									{
-										"g": "clothing",
-										"i": "cowboy shirt"
-									},
-									{
-										"g": "diffused",
-										"i": "piercing"
-									},
-									{
-										"g": "time periods",
-										"i": "sarcastic mister know-it-all"
-									},
-									{
-										"g": "fades",
-										"i": "soft"
-									},
-									{
-										"g": "facial expressions",
-										"i": "smirk"
-									}
+
 								],
 								"partscore": [
 
@@ -8275,26 +8315,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "adverbs",
-										"i": "still"
-									},
-									{
-										"g": "natural",
-										"i": "serene"
-									},
-									{
-										"g": "nouns",
-										"i": "trip"
-									},
-									{
-										"g": "fades",
-										"i": "soft"
-									},
-									{
-										"g": "adjectives",
-										"i": "know-it-all"
-									}
+
 								],
 								"partscore": [
 
@@ -8336,30 +8357,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "diffused",
-										"i": "glow"
-									},
-									{
-										"g": "props",
-										"i": "kites"
-									},
-									{
-										"g": "diffused",
-										"i": "piercing"
-									},
-									{
-										"g": "nouns",
-										"i": "trip"
-									},
-									{
-										"g": "fades",
-										"i": "soft"
-									},
-									{
-										"g": "adjectives",
-										"i": "know-it-all"
-									}
+
 								],
 								"partscore": [
 
@@ -8644,18 +8642,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "natural",
-										"i": "serene"
-									},
-									{
-										"g": "facial expressions",
-										"i": "curiosity"
-									},
-									{
-										"g": "themes",
-										"i": "health"
-									}
+
 								],
 								"partscore": [
 
@@ -8678,22 +8665,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "facial expressions",
-										"i": "determined"
-									},
-									{
-										"g": "diffused",
-										"i": "glow"
-									},
-									{
-										"g": "accessories",
-										"i": "neutral metal jewelry like chains and watches"
-									},
-									{
-										"g": "themes",
-										"i": "health"
-									}
+
 								],
 								"partscore": [
 
@@ -8942,22 +8914,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "accessories",
-										"i": "feather earrings/necklace"
-									},
-									{
-										"g": "facial expressions",
-										"i": "curiosity"
-									},
-									{
-										"g": "themes",
-										"i": "health"
-									},
-									{
-										"g": "facial expressions",
-										"i": "smirk"
-									}
+
 								],
 								"partscore": [
 
@@ -8999,26 +8956,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "accessories",
-										"i": "neutral metal jewelry like chains and watches"
-									},
-									{
-										"g": "facial expressions",
-										"i": "confident expression"
-									},
-									{
-										"g": "facial expressions",
-										"i": "determined"
-									},
-									{
-										"g": "themes",
-										"i": "health"
-									},
-									{
-										"g": "facial expressions",
-										"i": "smirk"
-									}
+
 								],
 								"partscore": [
 
@@ -9108,6 +9046,10 @@
 							{
 								"g": "similes",
 								"i": "young kentucky girl in a push-up bra"
+							},
+							{
+								"g": "atheistic interactions",
+								"i": "drug injection"
 							},
 							{
 								"g": "physical features",
@@ -9244,11 +9186,43 @@
 							},
 							{
 								"g": "natural",
+								"i": "soft"
+							},
+							{
+								"g": "natural",
+								"i": "gentle"
+							},
+							{
+								"g": "natural",
+								"i": "faint"
+							},
+							{
+								"g": "natural",
+								"i": "shadowy"
+							},
+							{
+								"g": "natural",
+								"i": "romantic"
+							},
+							{
+								"g": "natural",
+								"i": "passionate"
+							},
+							{
+								"g": "natural",
 								"i": "vibrant"
 							},
 							{
 								"g": "natural",
 								"i": "luminous"
+							},
+							{
+								"g": "natural",
+								"i": "glowing"
+							},
+							{
+								"g": "natural",
+								"i": "alluring"
 							},
 							{
 								"g": "artificial",
@@ -9394,6 +9368,10 @@
 										"i": "fall"
 									},
 									{
+										"g": "pronouns",
+										"i": "i"
+									},
+									{
 										"g": "adverbs",
 										"i": "all over"
 									},
@@ -9507,6 +9485,10 @@
 									},
 									{
 										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
 										"i": "gentle"
 									},
 									{
@@ -9590,22 +9572,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "facial expressions",
-										"i": "curiosity"
-									},
-									{
-										"g": "facial expressions",
-										"i": "smirk"
-									},
-									{
-										"g": "fades",
-										"i": "soft"
-									},
-									{
-										"g": "nouns",
-										"i": "trip"
-									}
+
 								],
 								"partscore": [
 
@@ -9628,30 +9595,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "facial expressions",
-										"i": "determined"
-									},
-									{
-										"g": "clothing",
-										"i": "cowboy shirt"
-									},
-									{
-										"g": "prepositions",
-										"i": "against"
-									},
-									{
-										"g": "facial expressions",
-										"i": "smirk"
-									},
-									{
-										"g": "fades",
-										"i": "soft"
-									},
-									{
-										"g": "nouns",
-										"i": "trip"
-									}
+
 								],
 								"partscore": [
 
@@ -9676,6 +9620,10 @@
 							"snap[0]": {
 								"txt": "(I say to myself) to lick your heart (blood)",
 								"attributes": [
+									{
+										"g": "pronouns",
+										"i": "i"
+									},
 									{
 										"g": "verbs",
 										"i": "lick"
@@ -9779,6 +9727,10 @@
 									},
 									{
 										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
 										"i": "tender"
 									},
 									{
@@ -9865,26 +9817,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "facial expressions",
-										"i": "curiosity"
-									},
-									{
-										"g": "accessories",
-										"i": "feather earrings/necklace"
-									},
-									{
-										"g": "facial expressions",
-										"i": "wistful"
-									},
-									{
-										"g": "themes",
-										"i": "health"
-									},
-									{
-										"g": "fades",
-										"i": "soft"
-									}
+
 								],
 								"partscore": [
 
@@ -9907,26 +9840,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "facial expressions",
-										"i": "determined"
-									},
-									{
-										"g": "accessories",
-										"i": "neutral metal jewelry like chains and watches"
-									},
-									{
-										"g": "facial expressions",
-										"i": "wistful"
-									},
-									{
-										"g": "themes",
-										"i": "health"
-									},
-									{
-										"g": "fades",
-										"i": "soft"
-									}
+
 								],
 								"partscore": [
 
@@ -9951,6 +9865,10 @@
 							"snap[0]": {
 								"txt": "and (I say to myself to) taste your health (via illegal drug) 'cause",
 								"attributes": [
+									{
+										"g": "pronouns",
+										"i": "i"
+									},
 									{
 										"g": "pronouns",
 										"i": "you"
@@ -10066,6 +9984,10 @@
 									},
 									{
 										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
 										"i": "subtle"
 									},
 									{
@@ -10113,18 +10035,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "facial expressions",
-										"i": "melancholic"
-									},
-									{
-										"g": "time periods",
-										"i": "sarcastic mister know-it-all"
-									},
-									{
-										"g": "facial expressions",
-										"i": "smirk"
-									}
+
 								],
 								"partscore": [
 
@@ -10147,26 +10058,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "diffused",
-										"i": "glow"
-									},
-									{
-										"g": "accessories",
-										"i": "neutral metal jewelry like chains and watches"
-									},
-									{
-										"g": "facial expressions",
-										"i": "melancholic"
-									},
-									{
-										"g": "time periods",
-										"i": "sarcastic mister know-it-all"
-									},
-									{
-										"g": "facial expressions",
-										"i": "smirk"
-									}
+
 								],
 								"partscore": [
 
@@ -10267,6 +10159,10 @@
 								"i": "taste health"
 							},
 							{
+								"g": "atheistic interactions",
+								"i": "drug injection"
+							},
+							{
 								"g": "facial expressions",
 								"i": "flirtatious"
 							},
@@ -10345,6 +10241,34 @@
 							},
 							{
 								"g": "natural",
+								"i": "soft"
+							},
+							{
+								"g": "natural",
+								"i": "gentle"
+							},
+							{
+								"g": "natural",
+								"i": "faint"
+							},
+							{
+								"g": "natural",
+								"i": "shadowy"
+							},
+							{
+								"g": "natural",
+								"i": "romantic"
+							},
+							{
+								"g": "natural",
+								"i": "passionate"
+							},
+							{
+								"g": "natural",
+								"i": "glowing"
+							},
+							{
+								"g": "natural",
 								"i": "ethereal"
 							},
 							{
@@ -10370,6 +10294,10 @@
 							{
 								"g": "natural",
 								"i": "warm"
+							},
+							{
+								"g": "natural",
+								"i": "alluring"
 							},
 							{
 								"g": "natural",
@@ -11234,10 +11162,7 @@
 			"snap[2]": {
 				"txt": "",
 				"attributes": [
-					{
-						"g": "transitions",
-						"i": "fluctuate"
-					}
+
 				],
 				"partscore": [
 					0,
@@ -11262,10 +11187,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "Still on my lonely trip, I just know-it-all\nFeather earrings, smirk on my face so bold\nClose my eyes and I'm lost in this wistful health (sarcastic mister know-it-all)"
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -11273,82 +11195,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "fades",
-						"i": "soft"
-					},
-					{
-						"g": "facial expressions",
-						"i": "smirk"
-					},
-					{
-						"g": "facial expressions",
-						"i": "wistful"
-					},
-					{
-						"g": "time periods",
-						"i": "sarcastic mister know-it-all"
-					},
-					{
-						"g": "adjectives",
-						"i": "know-it-all"
-					},
-					{
-						"g": "nouns",
-						"i": "trip"
-					},
-					{
-						"g": "nouns",
-						"i": "kentucky"
-					},
-					{
-						"g": "facial expressions",
-						"i": "melancholic"
-					},
-					{
-						"g": "fades",
-						"i": "natural"
-					},
-					{
-						"g": "themes",
-						"i": "health"
-					},
-					{
-						"g": "facial expressions",
-						"i": "curiosity"
-					},
-					{
-						"g": "natural",
-						"i": "serene"
-					},
-					{
-						"g": "artificial",
-						"i": "punctuating"
-					},
-					{
-						"g": "adverbs",
-						"i": "still"
-					},
-					{
-						"g": "accessories",
-						"i": "feather earrings/necklace"
-					},
-					{
-						"g": "accessories",
-						"i": "cowboy boots"
-					},
-					{
-						"g": "transitions",
-						"i": "fluctuate"
-					},
-					{
-						"g": "props",
-						"i": "fishing rod"
-					},
-					{
-						"g": "clothing",
-						"i": "push up bra"
-					}
+
 				],
 				"maskscore": [
 
@@ -11382,10 +11229,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "Against the grain of his chrome-plated wheels\nHe sails along an ocean of know-it-all zeal\nA gentle glow drenched in health, the outlaw cowboy shirt seems to be the trip I'm on"
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -11393,82 +11237,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "fades",
-						"i": "soft"
-					},
-					{
-						"g": "facial expressions",
-						"i": "smirk"
-					},
-					{
-						"g": "facial expressions",
-						"i": "wistful"
-					},
-					{
-						"g": "time periods",
-						"i": "sarcastic mister know-it-all"
-					},
-					{
-						"g": "adjectives",
-						"i": "know-it-all"
-					},
-					{
-						"g": "nouns",
-						"i": "trip"
-					},
-					{
-						"g": "nouns",
-						"i": "kentucky"
-					},
-					{
-						"g": "facial expressions",
-						"i": "melancholic"
-					},
-					{
-						"g": "fades",
-						"i": "natural"
-					},
-					{
-						"g": "themes",
-						"i": "health"
-					},
-					{
-						"g": "props",
-						"i": "kites"
-					},
-					{
-						"g": "adverbs",
-						"i": "so"
-					},
-					{
-						"g": "diffused",
-						"i": "glow"
-					},
-					{
-						"g": "diffused",
-						"i": "piercing"
-					},
-					{
-						"g": "facial expressions",
-						"i": "confident expression"
-					},
-					{
-						"g": "facial expressions",
-						"i": "determined"
-					},
-					{
-						"g": "accessories",
-						"i": "neutral metal jewelry like chains and watches"
-					},
-					{
-						"g": "clothing",
-						"i": "cowboy shirt"
-					},
-					{
-						"g": "prepositions",
-						"i": "against"
-					}
+
 				],
 				"maskscore": [
 
@@ -11628,6 +11397,54 @@
 									{
 										"g": "effects",
 										"i": "reverb"
+									},
+									{
+										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
+										"i": "romantic"
+									},
+									{
+										"g": "natural",
+										"i": "passionate"
+									},
+									{
+										"g": "natural",
+										"i": "glowing"
+									},
+									{
+										"g": "natural",
+										"i": "ethereal"
+									},
+									{
+										"g": "natural",
+										"i": "refreshing"
+									},
+									{
+										"g": "natural",
+										"i": "soothing"
+									},
+									{
+										"g": "natural",
+										"i": "majestic"
+									},
+									{
+										"g": "natural",
+										"i": "radiant"
 									}
 								],
 								"partscore": [
@@ -11670,22 +11487,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "color",
-										"i": "unify"
-									},
-									{
-										"g": "ideas",
-										"i": "step outside"
-									},
-									{
-										"g": "facial expressions",
-										"i": "expectant."
-									},
-									{
-										"g": "themes",
-										"i": "sharing lonely view"
-									}
+
 								],
 								"partscore": [
 
@@ -11708,22 +11510,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "similes",
-										"i": "young kentucky girl in a push-up bra"
-									},
-									{
-										"g": "ideas",
-										"i": "step outside"
-									},
-									{
-										"g": "facial expressions",
-										"i": "expectant."
-									},
-									{
-										"g": "themes",
-										"i": "sharing lonely view"
-									}
+
 								],
 								"partscore": [
 
@@ -11906,6 +11693,54 @@
 										"i": "out of focus"
 									},
 									{
+										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
+										"i": "romantic"
+									},
+									{
+										"g": "natural",
+										"i": "passionate"
+									},
+									{
+										"g": "natural",
+										"i": "glowing"
+									},
+									{
+										"g": "natural",
+										"i": "ethereal"
+									},
+									{
+										"g": "natural",
+										"i": "refreshing"
+									},
+									{
+										"g": "natural",
+										"i": "soothing"
+									},
+									{
+										"g": "natural",
+										"i": "majestic"
+									},
+									{
+										"g": "natural",
+										"i": "radiant"
+									},
+									{
 										"g": "ambient",
 										"i": "diffused"
 									},
@@ -12026,22 +11861,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "body language",
-										"i": "steady"
-									},
-									{
-										"g": "nouns",
-										"i": "drug injection"
-									},
-									{
-										"g": "effects",
-										"i": "slow shutter"
-									},
-									{
-										"g": "nouns",
-										"i": "drawl"
-									}
+
 								],
 								"partscore": [
 
@@ -12064,22 +11884,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "ambient",
-										"i": "eerie"
-									},
-									{
-										"g": "nouns",
-										"i": "drug injection"
-									},
-									{
-										"g": "effects",
-										"i": "slow shutter"
-									},
-									{
-										"g": "nouns",
-										"i": "drawl"
-									}
+
 								],
 								"partscore": [
 
@@ -12108,12 +11913,60 @@
 						"txt": "With the birds (that I see outside) I'll share this lonely viewin' (from this toilet)",
 						"attributes": [
 							{
+								"g": "nouns",
+								"i": "birds"
+							},
+							{
+								"g": "nouns",
+								"i": "view"
+							},
+							{
+								"g": "verbs",
+								"i": "see"
+							},
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "adjectives",
+								"i": "lonely"
+							},
+							{
+								"g": "adverbs",
+								"i": "outside"
+							},
+							{
 								"g": "prepositions",
 								"i": "from"
 							},
 							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
+								"g": "similes",
+								"i": "lonely view"
+							},
+							{
 								"g": "contrast and unexpected elements",
 								"i": "toilet"
+							},
+							{
+								"g": "moral interactions",
+								"i": "sharing"
+							},
+							{
+								"g": "ideas",
+								"i": "share this lonely view"
+							},
+							{
+								"g": "imagery",
+								"i": "with the birds"
+							},
+							{
+								"g": "symbols",
+								"i": "birds"
 							},
 							{
 								"g": "facial expressions",
@@ -12138,6 +11991,10 @@
 							{
 								"g": "natural",
 								"i": "shining"
+							},
+							{
+								"g": "natural",
+								"i": "radiant"
 							},
 							{
 								"g": "natural",
@@ -12233,6 +12090,14 @@
 								"i": "lonely"
 							},
 							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
+								"g": "similes",
+								"i": "lonely view"
+							},
+							{
 								"g": "moral interactions",
 								"i": "sharing"
 							},
@@ -12241,8 +12106,28 @@
 								"i": "sharing"
 							},
 							{
+								"g": "imagery",
+								"i": "with the birds"
+							},
+							{
 								"g": "body language",
 								"i": "letting go"
+							},
+							{
+								"g": "accessories",
+								"i": "feather earrings/necklace"
+							},
+							{
+								"g": "accessories",
+								"i": "necklaces"
+							},
+							{
+								"g": "accessories",
+								"i": "pearl earrings"
+							},
+							{
+								"g": "accessories",
+								"i": "silver chain"
 							},
 							{
 								"g": "transitions",
@@ -12251,6 +12136,134 @@
 							{
 								"g": "effects",
 								"i": "motion blur"
+							},
+							{
+								"g": "natural",
+								"i": "soft"
+							},
+							{
+								"g": "natural",
+								"i": "gentle"
+							},
+							{
+								"g": "natural",
+								"i": "faint"
+							},
+							{
+								"g": "natural",
+								"i": "shadowy"
+							},
+							{
+								"g": "natural",
+								"i": "romantic"
+							},
+							{
+								"g": "natural",
+								"i": "passionate"
+							},
+							{
+								"g": "natural",
+								"i": "glowing"
+							},
+							{
+								"g": "natural",
+								"i": "ethereal"
+							},
+							{
+								"g": "natural",
+								"i": "refreshing"
+							},
+							{
+								"g": "natural",
+								"i": "soothing"
+							},
+							{
+								"g": "natural",
+								"i": "majestic"
+							},
+							{
+								"g": "natural",
+								"i": "radiant"
+							},
+							{
+								"g": "ambient",
+								"i": "diffused"
+							},
+							{
+								"g": "ambient",
+								"i": "calm"
+							},
+							{
+								"g": "ambient",
+								"i": "subtle"
+							},
+							{
+								"g": "ambient",
+								"i": "suppressed"
+							},
+							{
+								"g": "ambient",
+								"i": "textured"
+							},
+							{
+								"g": "ambient",
+								"i": "subdued"
+							},
+							{
+								"g": "ambient",
+								"i": "dreamy"
+							},
+							{
+								"g": "ambient",
+								"i": "moody"
+							},
+							{
+								"g": "ambient",
+								"i": "mysterious"
+							},
+							{
+								"g": "ambient",
+								"i": "gloomy"
+							},
+							{
+								"g": "ambient",
+								"i": "suspenseful"
+							},
+							{
+								"g": "ambient",
+								"i": "tense"
+							},
+							{
+								"g": "ambient",
+								"i": "surreal"
+							},
+							{
+								"g": "ambient",
+								"i": "dreamlike"
+							},
+							{
+								"g": "ambient",
+								"i": "intense"
+							},
+							{
+								"g": "ambient",
+								"i": "eerie"
+							},
+							{
+								"g": "ambient",
+								"i": "unsettling"
+							},
+							{
+								"g": "ambient",
+								"i": "dark"
+							},
+							{
+								"g": "ambient",
+								"i": "foreboding"
+							},
+							{
+								"g": "ambient",
+								"i": "mystical"
 							}
 						],
 						"partscore": [
@@ -12316,10 +12329,7 @@
 					"snap[3]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "ambient",
-								"i": "moody"
-							}
+
 						],
 						"partscore": [
 
@@ -12490,6 +12500,54 @@
 									{
 										"g": "effects",
 										"i": "reverb"
+									},
+									{
+										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
+										"i": "romantic"
+									},
+									{
+										"g": "natural",
+										"i": "passionate"
+									},
+									{
+										"g": "natural",
+										"i": "glowing"
+									},
+									{
+										"g": "natural",
+										"i": "ethereal"
+									},
+									{
+										"g": "natural",
+										"i": "refreshing"
+									},
+									{
+										"g": "natural",
+										"i": "soothing"
+									},
+									{
+										"g": "natural",
+										"i": "majestic"
+									},
+									{
+										"g": "natural",
+										"i": "radiant"
 									}
 								],
 								"partscore": [
@@ -12532,22 +12590,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "color",
-										"i": "unify"
-									},
-									{
-										"g": "facial expressions",
-										"i": "expectant."
-									},
-									{
-										"g": "ideas",
-										"i": "step outside"
-									},
-									{
-										"g": "themes",
-										"i": "sharing lonely view"
-									}
+
 								],
 								"partscore": [
 
@@ -12570,18 +12613,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "facial expressions",
-										"i": "expectant."
-									},
-									{
-										"g": "ideas",
-										"i": "step outside"
-									},
-									{
-										"g": "themes",
-										"i": "sharing lonely view"
-									}
+
 								],
 								"partscore": [
 
@@ -12764,6 +12796,54 @@
 										"i": "out of focus"
 									},
 									{
+										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
+										"i": "romantic"
+									},
+									{
+										"g": "natural",
+										"i": "passionate"
+									},
+									{
+										"g": "natural",
+										"i": "glowing"
+									},
+									{
+										"g": "natural",
+										"i": "ethereal"
+									},
+									{
+										"g": "natural",
+										"i": "refreshing"
+									},
+									{
+										"g": "natural",
+										"i": "soothing"
+									},
+									{
+										"g": "natural",
+										"i": "majestic"
+									},
+									{
+										"g": "natural",
+										"i": "radiant"
+									},
+									{
 										"g": "ambient",
 										"i": "diffused"
 									},
@@ -12884,22 +12964,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "body language",
-										"i": "steady"
-									},
-									{
-										"g": "nouns",
-										"i": "drug injection"
-									},
-									{
-										"g": "nouns",
-										"i": "drawl"
-									},
-									{
-										"g": "effects",
-										"i": "slow shutter"
-									}
+
 								],
 								"partscore": [
 
@@ -12922,22 +12987,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "ambient",
-										"i": "subdued"
-									},
-									{
-										"g": "nouns",
-										"i": "drug injection"
-									},
-									{
-										"g": "nouns",
-										"i": "drawl"
-									},
-									{
-										"g": "effects",
-										"i": "slow shutter"
-									}
+
 								],
 								"partscore": [
 
@@ -12966,12 +13016,60 @@
 						"txt": "With the birds (that I see outside) I'll share this lonely viewin' (from this toilet)",
 						"attributes": [
 							{
+								"g": "nouns",
+								"i": "birds"
+							},
+							{
+								"g": "nouns",
+								"i": "view"
+							},
+							{
+								"g": "verbs",
+								"i": "see"
+							},
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "adjectives",
+								"i": "lonely"
+							},
+							{
+								"g": "adverbs",
+								"i": "outside"
+							},
+							{
 								"g": "prepositions",
 								"i": "from"
 							},
 							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
+								"g": "similes",
+								"i": "lonely view"
+							},
+							{
 								"g": "contrast and unexpected elements",
 								"i": "toilet"
+							},
+							{
+								"g": "moral interactions",
+								"i": "sharing"
+							},
+							{
+								"g": "ideas",
+								"i": "share this lonely view"
+							},
+							{
+								"g": "imagery",
+								"i": "with the birds"
+							},
+							{
+								"g": "symbols",
+								"i": "birds"
 							},
 							{
 								"g": "facial expressions",
@@ -12996,6 +13094,10 @@
 							{
 								"g": "natural",
 								"i": "shining"
+							},
+							{
+								"g": "natural",
+								"i": "radiant"
 							},
 							{
 								"g": "natural",
@@ -13091,6 +13193,14 @@
 								"i": "lonely"
 							},
 							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
+								"g": "similes",
+								"i": "lonely view"
+							},
+							{
 								"g": "moral interactions",
 								"i": "sharing"
 							},
@@ -13099,8 +13209,28 @@
 								"i": "sharing"
 							},
 							{
+								"g": "imagery",
+								"i": "with the birds"
+							},
+							{
 								"g": "body language",
 								"i": "letting go"
+							},
+							{
+								"g": "accessories",
+								"i": "feather earrings/necklace"
+							},
+							{
+								"g": "accessories",
+								"i": "necklaces"
+							},
+							{
+								"g": "accessories",
+								"i": "pearl earrings"
+							},
+							{
+								"g": "accessories",
+								"i": "silver chain"
 							},
 							{
 								"g": "transitions",
@@ -13109,6 +13239,134 @@
 							{
 								"g": "effects",
 								"i": "motion blur"
+							},
+							{
+								"g": "natural",
+								"i": "soft"
+							},
+							{
+								"g": "natural",
+								"i": "gentle"
+							},
+							{
+								"g": "natural",
+								"i": "faint"
+							},
+							{
+								"g": "natural",
+								"i": "shadowy"
+							},
+							{
+								"g": "natural",
+								"i": "romantic"
+							},
+							{
+								"g": "natural",
+								"i": "passionate"
+							},
+							{
+								"g": "natural",
+								"i": "glowing"
+							},
+							{
+								"g": "natural",
+								"i": "ethereal"
+							},
+							{
+								"g": "natural",
+								"i": "refreshing"
+							},
+							{
+								"g": "natural",
+								"i": "soothing"
+							},
+							{
+								"g": "natural",
+								"i": "majestic"
+							},
+							{
+								"g": "natural",
+								"i": "radiant"
+							},
+							{
+								"g": "ambient",
+								"i": "diffused"
+							},
+							{
+								"g": "ambient",
+								"i": "calm"
+							},
+							{
+								"g": "ambient",
+								"i": "subtle"
+							},
+							{
+								"g": "ambient",
+								"i": "suppressed"
+							},
+							{
+								"g": "ambient",
+								"i": "textured"
+							},
+							{
+								"g": "ambient",
+								"i": "subdued"
+							},
+							{
+								"g": "ambient",
+								"i": "dreamy"
+							},
+							{
+								"g": "ambient",
+								"i": "moody"
+							},
+							{
+								"g": "ambient",
+								"i": "mysterious"
+							},
+							{
+								"g": "ambient",
+								"i": "gloomy"
+							},
+							{
+								"g": "ambient",
+								"i": "suspenseful"
+							},
+							{
+								"g": "ambient",
+								"i": "tense"
+							},
+							{
+								"g": "ambient",
+								"i": "surreal"
+							},
+							{
+								"g": "ambient",
+								"i": "dreamlike"
+							},
+							{
+								"g": "ambient",
+								"i": "intense"
+							},
+							{
+								"g": "ambient",
+								"i": "eerie"
+							},
+							{
+								"g": "ambient",
+								"i": "unsettling"
+							},
+							{
+								"g": "ambient",
+								"i": "dark"
+							},
+							{
+								"g": "ambient",
+								"i": "foreboding"
+							},
+							{
+								"g": "ambient",
+								"i": "mystical"
 							}
 						],
 						"partscore": [
@@ -13254,6 +13512,10 @@
 										"i": "shining"
 									},
 									{
+										"g": "natural",
+										"i": "radiant"
+									},
+									{
 										"g": "artificial",
 										"i": "hyper-realistic"
 									},
@@ -13360,6 +13622,54 @@
 									{
 										"g": "effects",
 										"i": "reverb"
+									},
+									{
+										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
+										"i": "romantic"
+									},
+									{
+										"g": "natural",
+										"i": "passionate"
+									},
+									{
+										"g": "natural",
+										"i": "glowing"
+									},
+									{
+										"g": "natural",
+										"i": "ethereal"
+									},
+									{
+										"g": "natural",
+										"i": "refreshing"
+									},
+									{
+										"g": "natural",
+										"i": "soothing"
+									},
+									{
+										"g": "natural",
+										"i": "majestic"
+									},
+									{
+										"g": "natural",
+										"i": "radiant"
 									}
 								],
 								"partscore": [
@@ -13421,14 +13731,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "facial expressions",
-										"i": "expectant."
-									},
-									{
-										"g": "themes",
-										"i": "sharing lonely view"
-									}
+
 								],
 								"partscore": [
 
@@ -13470,18 +13773,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "similes",
-										"i": "young kentucky girl in a push-up bra"
-									},
-									{
-										"g": "facial expressions",
-										"i": "expectant."
-									},
-									{
-										"g": "themes",
-										"i": "sharing lonely view"
-									}
+
 								],
 								"partscore": [
 
@@ -13568,6 +13860,10 @@
 									{
 										"g": "splices",
 										"i": "uneven"
+									},
+									{
+										"g": "natural",
+										"i": "radiant"
 									},
 									{
 										"g": "artificial",
@@ -13665,6 +13961,54 @@
 									{
 										"g": "effects",
 										"i": "soft glow and pastel hues"
+									},
+									{
+										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
+										"i": "romantic"
+									},
+									{
+										"g": "natural",
+										"i": "passionate"
+									},
+									{
+										"g": "natural",
+										"i": "glowing"
+									},
+									{
+										"g": "natural",
+										"i": "ethereal"
+									},
+									{
+										"g": "natural",
+										"i": "refreshing"
+									},
+									{
+										"g": "natural",
+										"i": "soothing"
+									},
+									{
+										"g": "natural",
+										"i": "majestic"
+									},
+									{
+										"g": "natural",
+										"i": "radiant"
 									},
 									{
 										"g": "ambient",
@@ -13806,10 +14150,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "effects",
-										"i": "slow shutter"
-									}
+
 								],
 								"partscore": [
 
@@ -13832,14 +14173,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "ambient",
-										"i": "subdued"
-									},
-									{
-										"g": "effects",
-										"i": "slow shutter"
-									}
+
 								],
 								"partscore": [
 
@@ -13868,8 +14202,56 @@
 						"txt": "With the birds (that I see outside) I'll share this lonely view",
 						"attributes": [
 							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "verbs",
+								"i": "see"
+							},
+							{
+								"g": "nouns",
+								"i": "birds"
+							},
+							{
+								"g": "nouns",
+								"i": "view"
+							},
+							{
+								"g": "adjectives",
+								"i": "lonely"
+							},
+							{
+								"g": "adverbs",
+								"i": "outside"
+							},
+							{
 								"g": "prepositions",
 								"i": "with"
+							},
+							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
+								"g": "similes",
+								"i": "lonely view"
+							},
+							{
+								"g": "moral interactions",
+								"i": "sharing"
+							},
+							{
+								"g": "ideas",
+								"i": "share this lonely view"
+							},
+							{
+								"g": "imagery",
+								"i": "with the birds"
+							},
+							{
+								"g": "symbols",
+								"i": "birds"
 							},
 							{
 								"g": "facial expressions",
@@ -13933,12 +14315,40 @@
 						"txt": "With the birds (that you can hear) I'll share this lonely view",
 						"attributes": [
 							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
+								"g": "similes",
+								"i": "lonely view"
+							},
+							{
+								"g": "imagery",
+								"i": "with the birds"
+							},
+							{
 								"g": "imagery",
 								"i": "lonely view"
 							},
 							{
 								"g": "body language",
 								"i": "arms crossed"
+							},
+							{
+								"g": "accessories",
+								"i": "feather earrings/necklace"
+							},
+							{
+								"g": "accessories",
+								"i": "necklaces"
+							},
+							{
+								"g": "accessories",
+								"i": "pearl earrings"
+							},
+							{
+								"g": "accessories",
+								"i": "silver chain"
 							},
 							{
 								"g": "accessories",
@@ -13951,6 +14361,134 @@
 							{
 								"g": "effects",
 								"i": "nostalgic shots of countryside"
+							},
+							{
+								"g": "natural",
+								"i": "soft"
+							},
+							{
+								"g": "natural",
+								"i": "gentle"
+							},
+							{
+								"g": "natural",
+								"i": "faint"
+							},
+							{
+								"g": "natural",
+								"i": "shadowy"
+							},
+							{
+								"g": "natural",
+								"i": "romantic"
+							},
+							{
+								"g": "natural",
+								"i": "passionate"
+							},
+							{
+								"g": "natural",
+								"i": "glowing"
+							},
+							{
+								"g": "natural",
+								"i": "ethereal"
+							},
+							{
+								"g": "natural",
+								"i": "refreshing"
+							},
+							{
+								"g": "natural",
+								"i": "soothing"
+							},
+							{
+								"g": "natural",
+								"i": "majestic"
+							},
+							{
+								"g": "natural",
+								"i": "radiant"
+							},
+							{
+								"g": "ambient",
+								"i": "diffused"
+							},
+							{
+								"g": "ambient",
+								"i": "calm"
+							},
+							{
+								"g": "ambient",
+								"i": "subtle"
+							},
+							{
+								"g": "ambient",
+								"i": "suppressed"
+							},
+							{
+								"g": "ambient",
+								"i": "textured"
+							},
+							{
+								"g": "ambient",
+								"i": "subdued"
+							},
+							{
+								"g": "ambient",
+								"i": "dreamy"
+							},
+							{
+								"g": "ambient",
+								"i": "moody"
+							},
+							{
+								"g": "ambient",
+								"i": "mysterious"
+							},
+							{
+								"g": "ambient",
+								"i": "gloomy"
+							},
+							{
+								"g": "ambient",
+								"i": "suspenseful"
+							},
+							{
+								"g": "ambient",
+								"i": "tense"
+							},
+							{
+								"g": "ambient",
+								"i": "surreal"
+							},
+							{
+								"g": "ambient",
+								"i": "dreamlike"
+							},
+							{
+								"g": "ambient",
+								"i": "intense"
+							},
+							{
+								"g": "ambient",
+								"i": "eerie"
+							},
+							{
+								"g": "ambient",
+								"i": "unsettling"
+							},
+							{
+								"g": "ambient",
+								"i": "dark"
+							},
+							{
+								"g": "ambient",
+								"i": "foreboding"
+							},
+							{
+								"g": "ambient",
+								"i": "mystical"
 							}
 						],
 						"partscore": [
@@ -13993,14 +14531,7 @@
 					"snap[2]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "color",
-								"i": "unify"
-							},
-							{
-								"g": "ideas",
-								"i": "step outside"
-							}
+
 						],
 						"partscore": [
 
@@ -14023,14 +14554,7 @@
 					"snap[3]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "ambient",
-								"i": "moody"
-							},
-							{
-								"g": "ideas",
-								"i": "step outside"
-							}
+
 						],
 						"partscore": [
 
@@ -14172,10 +14696,6 @@
 					{
 						"g": "effects",
 						"i": "dreamy and ethereal"
-					},
-					{
-						"g": "natural",
-						"i": "radiant"
 					}
 				],
 				"partscore": [
@@ -14730,10 +15250,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "Chorus2\nCan you feel my scars? Can you inject my drawl?\nSlow motion shutter hallowed out of sight\nStep outside the frame and into the light\nShare my lonely view and bring the unity"
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -14741,86 +15258,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "nouns",
-						"i": "drawl"
-					},
-					{
-						"g": "effects",
-						"i": "slow shutter"
-					},
-					{
-						"g": "effects",
-						"i": "distortion"
-					},
-					{
-						"g": "effects",
-						"i": "vibrato"
-					},
-					{
-						"g": "clothing",
-						"i": "cargo pants"
-					},
-					{
-						"g": "effects",
-						"i": "blurred vision"
-					},
-					{
-						"g": "ideas",
-						"i": "step outside"
-					},
-					{
-						"g": "themes",
-						"i": "sharing lonely view"
-					},
-					{
-						"g": "facial expressions",
-						"i": "expectant."
-					},
-					{
-						"g": "nouns",
-						"i": "drug injection"
-					},
-					{
-						"g": "similes",
-						"i": "sarcastic mister know-it-all"
-					},
-					{
-						"g": "body language",
-						"i": "steady"
-					},
-					{
-						"g": "semantics",
-						"i": "meaning of lyrics"
-					},
-					{
-						"g": "environments",
-						"i": "young kentucky girl"
-					},
-					{
-						"g": "environments",
-						"i": "in a bathroom stall"
-					},
-					{
-						"g": "adjectives",
-						"i": "sweet"
-					},
-					{
-						"g": "similes",
-						"i": "up against wall"
-					},
-					{
-						"g": "splices",
-						"i": "match cut"
-					},
-					{
-						"g": "color",
-						"i": "vibrant"
-					},
-					{
-						"g": "color",
-						"i": "unify"
-					}
+
 				],
 				"maskscore": [
 
@@ -14829,10 +15267,7 @@
 			"snap[3]": {
 				"txt": "",
 				"attributes": [
-					{
-						"g": "body language",
-						"i": "joyous"
-					}
+
 				],
 				"partscore": [
 					0,
@@ -14857,10 +15292,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": " joyous\nSo love me like my drug injection\nI'm an outward bound Drawl\nSlow shutter to the scene, stepping out of 'lonely view',\nYoung kentucky girl in a push-up bra, expectant.\nMy outward bound, subdued slow shutter,\nStep outside of 'lonely view' again."
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -14868,86 +15300,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "nouns",
-						"i": "drawl"
-					},
-					{
-						"g": "effects",
-						"i": "slow shutter"
-					},
-					{
-						"g": "effects",
-						"i": "distortion"
-					},
-					{
-						"g": "effects",
-						"i": "vibrato"
-					},
-					{
-						"g": "clothing",
-						"i": "cargo pants"
-					},
-					{
-						"g": "effects",
-						"i": "blurred vision"
-					},
-					{
-						"g": "ideas",
-						"i": "step outside"
-					},
-					{
-						"g": "themes",
-						"i": "sharing lonely view"
-					},
-					{
-						"g": "facial expressions",
-						"i": "expectant."
-					},
-					{
-						"g": "nouns",
-						"i": "drug injection"
-					},
-					{
-						"g": "ambient",
-						"i": "eerie"
-					},
-					{
-						"g": "similes",
-						"i": "blood loss"
-					},
-					{
-						"g": "transitions",
-						"i": "fast jumps"
-					},
-					{
-						"g": "ambient",
-						"i": "subdued"
-					},
-					{
-						"g": "ambient",
-						"i": "moody"
-					},
-					{
-						"g": "metaphors",
-						"i": "scar tissue"
-					},
-					{
-						"g": "body language",
-						"i": "joyous"
-					},
-					{
-						"g": "diffused",
-						"i": "whispering"
-					},
-					{
-						"g": "similes",
-						"i": "soft spoken"
-					},
-					{
-						"g": "similes",
-						"i": "young kentucky girl in a push-up bra"
-					}
+
 				],
 				"maskscore": [
 
@@ -15147,18 +15500,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "inspiration",
-										"i": "so that you would be afraid of me"
-									},
-									{
-										"g": "hair/makeup",
-										"i": "soft natural colors"
-									},
-									{
-										"g": "clothing",
-										"i": "gladiator sandals"
-									}
+
 								],
 								"partscore": [
 
@@ -15200,18 +15542,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "diffused",
-										"i": "ethereal"
-									},
-									{
-										"g": "hair/makeup",
-										"i": "soft natural colors"
-									},
-									{
-										"g": "clothing",
-										"i": "gladiator sandals"
-									}
+
 								],
 								"partscore": [
 
@@ -15439,22 +15770,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "personality traits",
-										"i": "sarcastic"
-									},
-									{
-										"g": "effects",
-										"i": "slow shutter"
-									},
-									{
-										"g": "verbs",
-										"i": "wave"
-									},
-									{
-										"g": "quirks",
-										"i": "sarcastic mister know-it-all"
-									}
+
 								],
 								"partscore": [
 
@@ -15496,18 +15812,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "diffused",
-										"i": "subdued"
-									},
-									{
-										"g": "diffused",
-										"i": "open"
-									},
-									{
-										"g": "quirks",
-										"i": "sarcastic mister know-it-all"
-									}
+
 								],
 								"partscore": [
 
@@ -15771,30 +16076,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "verbs",
-										"i": "wave"
-									},
-									{
-										"g": "personality traits",
-										"i": "sarcastic"
-									},
-									{
-										"g": "themes",
-										"i": "health"
-									},
-									{
-										"g": "similes",
-										"i": "close your eyes"
-									},
-									{
-										"g": "hand motions",
-										"i": "hero-style salute"
-									},
-									{
-										"g": "hand motions",
-										"i": "cupping hands"
-									}
+
 								],
 								"partscore": [
 
@@ -15836,26 +16118,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "effects",
-										"i": "warping."
-									},
-									{
-										"g": "diffused",
-										"i": "open"
-									},
-									{
-										"g": "similes",
-										"i": "close your eyes"
-									},
-									{
-										"g": "hand motions",
-										"i": "hero-style salute"
-									},
-									{
-										"g": "hand motions",
-										"i": "cupping hands"
-									}
+
 								],
 								"partscore": [
 
@@ -16020,10 +16283,7 @@
 					"snap[3]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "body language",
-								"i": "checking over shoulder"
-							}
+
 						],
 						"partscore": [
 
@@ -16153,6 +16413,10 @@
 									},
 									{
 										"g": "fades",
+										"i": "soft"
+									},
+									{
+										"g": "fades",
 										"i": "subdued colors"
 									},
 									{
@@ -16227,26 +16491,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "adjectives",
-										"i": "sarcastic"
-									},
-									{
-										"g": "diffused",
-										"i": "seductive"
-									},
-									{
-										"g": "hand motions",
-										"i": "extending arms outward in a gesture of defiance."
-									},
-									{
-										"g": "clothing",
-										"i": "gladiator sandals"
-									},
-									{
-										"g": "quirks",
-										"i": "sarcastic mister know-it-all"
-									}
+
 								],
 								"partscore": [
 
@@ -16288,22 +16533,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "fades",
-										"i": "medium speed"
-									},
-									{
-										"g": "hand motions",
-										"i": "extending arms outward in a gesture of defiance."
-									},
-									{
-										"g": "clothing",
-										"i": "gladiator sandals"
-									},
-									{
-										"g": "quirks",
-										"i": "sarcastic mister know-it-all"
-									}
+
 								],
 								"partscore": [
 
@@ -16462,6 +16692,10 @@
 									},
 									{
 										"g": "fades",
+										"i": "soft"
+									},
+									{
+										"g": "fades",
 										"i": "quick"
 									},
 									{
@@ -16540,18 +16774,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "diffused",
-										"i": "hint"
-									},
-									{
-										"g": "verbs",
-										"i": "wave"
-									},
-									{
-										"g": "clothing",
-										"i": "denim overalls"
-									}
+
 								],
 								"partscore": [
 
@@ -16574,14 +16797,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "effects",
-										"i": "shadowing"
-									},
-									{
-										"g": "clothing",
-										"i": "denim overalls"
-									}
+
 								],
 								"partscore": [
 
@@ -16793,10 +17009,6 @@
 							{
 								"g": "natural",
 								"i": "tender"
-							},
-							{
-								"g": "fades",
-								"i": "soft"
 							}
 						],
 						"partscore": [
@@ -16839,10 +17051,7 @@
 					"snap[2]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "themes",
-								"i": "health"
-							}
+
 						],
 						"partscore": [
 
@@ -16865,14 +17074,7 @@
 					"snap[3]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "diffused",
-								"i": "open"
-							},
-							{
-								"g": "effects",
-								"i": "warping."
-							}
+
 						],
 						"partscore": [
 
@@ -17560,10 +17762,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "Sarcastic Mister know-it-all\nWave your arms and legs in the air\nSeductive hints for a way to heal\nYour gladiator sandals and denim overalls\nSo that you would be afraid of me\nHero-style salute and cupping hands\nA slow shutter of goodbye and wave\nA saracastic mister know-it-all"
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -17571,86 +17770,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "clothing",
-						"i": "denim overalls"
-					},
-					{
-						"g": "hand motions",
-						"i": "finger snipping"
-					},
-					{
-						"g": "hand motions",
-						"i": "hero-style salute"
-					},
-					{
-						"g": "quirks",
-						"i": "sarcastic mister know-it-all"
-					},
-					{
-						"g": "hand motions",
-						"i": "cupping hands"
-					},
-					{
-						"g": "hand motions",
-						"i": "extending arms outward in a gesture of defiance."
-					},
-					{
-						"g": "hand motions",
-						"i": "reaching up"
-					},
-					{
-						"g": "hair/makeup",
-						"i": "soft natural colors"
-					},
-					{
-						"g": "similes",
-						"i": "close your eyes"
-					},
-					{
-						"g": "clothing",
-						"i": "gladiator sandals"
-					},
-					{
-						"g": "effects",
-						"i": "slow shutter"
-					},
-					{
-						"g": "themes",
-						"i": "health"
-					},
-					{
-						"g": "personality traits",
-						"i": "sarcastic"
-					},
-					{
-						"g": "diffused",
-						"i": "seductive"
-					},
-					{
-						"g": "verbs",
-						"i": "wave"
-					},
-					{
-						"g": "diffused",
-						"i": "hint"
-					},
-					{
-						"g": "adjectives",
-						"i": "sarcastic"
-					},
-					{
-						"g": "environments",
-						"i": "sweet"
-					},
-					{
-						"g": "inspiration",
-						"i": "so that you would be afraid of me"
-					},
-					{
-						"g": "effects",
-						"i": "vignette."
-					}
+
 				],
 				"maskscore": [
 
@@ -17684,10 +17804,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "Checking over my shoulder, ethereal is the view\nSoft natural colors, gladiator sandals too\nSarcastic mister knows-it-all, you're diffused and open too\nClose your eyes and I'll kiss you, cause with the birds, I'll share this lonely view\nWarping, open is the view, hero-style salute to bid farewell to you\nCupping hands, medium speed my arm extending to defy and break through\nSarcastic mister knows-it-all, Denim overalls too, Shadowing, and I'm through"
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -17695,86 +17812,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "clothing",
-						"i": "denim overalls"
-					},
-					{
-						"g": "hand motions",
-						"i": "finger snipping"
-					},
-					{
-						"g": "hand motions",
-						"i": "hero-style salute"
-					},
-					{
-						"g": "quirks",
-						"i": "sarcastic mister know-it-all"
-					},
-					{
-						"g": "hand motions",
-						"i": "cupping hands"
-					},
-					{
-						"g": "hand motions",
-						"i": "extending arms outward in a gesture of defiance."
-					},
-					{
-						"g": "hand motions",
-						"i": "reaching up"
-					},
-					{
-						"g": "hair/makeup",
-						"i": "soft natural colors"
-					},
-					{
-						"g": "similes",
-						"i": "close your eyes"
-					},
-					{
-						"g": "clothing",
-						"i": "gladiator sandals"
-					},
-					{
-						"g": "diffused",
-						"i": "open"
-					},
-					{
-						"g": "body language",
-						"i": "checking over shoulder"
-					},
-					{
-						"g": "effects",
-						"i": "shadowing"
-					},
-					{
-						"g": "imagination",
-						"i": "autumn sweet"
-					},
-					{
-						"g": "diffused",
-						"i": "subdued"
-					},
-					{
-						"g": "fades",
-						"i": "medium speed"
-					},
-					{
-						"g": "effects",
-						"i": "warping."
-					},
-					{
-						"g": "props",
-						"i": "telescope"
-					},
-					{
-						"g": "diffused",
-						"i": "ethereal"
-					},
-					{
-						"g": "likes and dislikes",
-						"i": "autumn's sweet"
-					}
+
 				],
 				"maskscore": [
 
@@ -17920,6 +17958,10 @@
 										"i": "with the birds"
 									},
 									{
+										"g": "moral interactions",
+										"i": "sharing"
+									},
+									{
 										"g": "environments",
 										"i": "birds"
 									},
@@ -17954,6 +17996,10 @@
 									{
 										"g": "transitions",
 										"i": "montage"
+									},
+									{
+										"g": "fades",
+										"i": "soft"
 									},
 									{
 										"g": "fades",
@@ -18023,18 +18069,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "adjectives",
-										"i": "mister"
-									},
-									{
-										"g": "transitions",
-										"i": "linear"
-									},
-									{
-										"g": "effects",
-										"i": "distortion"
-									}
+
 								],
 								"partscore": [
 
@@ -18057,22 +18092,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "clothing",
-										"i": "cowboy shirt"
-									},
-									{
-										"g": "nouns",
-										"i": "birds"
-									},
-									{
-										"g": "transitions",
-										"i": "linear"
-									},
-									{
-										"g": "effects",
-										"i": "distortion"
-									}
+
 								],
 								"partscore": [
 
@@ -18258,6 +18278,10 @@
 										"i": "lonely view"
 									},
 									{
+										"g": "moral interactions",
+										"i": "sharing"
+									},
+									{
 										"g": "type of action in moral interaction",
 										"i": "sharing"
 									},
@@ -18292,6 +18316,10 @@
 									{
 										"g": "transitions",
 										"i": "fading"
+									},
+									{
+										"g": "fades",
+										"i": "soft"
 									},
 									{
 										"g": "fades",
@@ -18365,14 +18393,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "verbs",
-										"i": "look"
-									},
-									{
-										"g": "hand motions",
-										"i": "hands on cheek"
-									}
+
 								],
 								"partscore": [
 
@@ -18414,14 +18435,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "fades",
-										"i": "moderate"
-									},
-									{
-										"g": "adjectives",
-										"i": "sweet"
-									}
+
 								],
 								"partscore": [
 
@@ -18468,7 +18482,90 @@
 					"snap[0]": {
 						"txt": "With the birds (that I see outside) I'll share this lonely viewin' (at this service station)",
 						"attributes": [
-
+							{
+								"g": "moral interactions",
+								"i": "sharing"
+							},
+							{
+								"g": "interactions",
+								"i": "sharing"
+							},
+							{
+								"g": "interactions with",
+								"i": "birds"
+							},
+							{
+								"g": "likes and dislikes",
+								"i": "sharing"
+							},
+							{
+								"g": "goals",
+								"i": "sharing a lonely view"
+							},
+							{
+								"g": "motivations",
+								"i": "escapism from reality"
+							},
+							{
+								"g": "places",
+								"i": "service station"
+							},
+							{
+								"g": "environments",
+								"i": "lonely"
+							},
+							{
+								"g": "locations",
+								"i": "road trip"
+							},
+							{
+								"g": "time periods",
+								"i": "none."
+							},
+							{
+								"g": "hair/makeup",
+								"i": "shaggy blonde hair"
+							},
+							{
+								"g": "clothing",
+								"i": "vintage dress"
+							},
+							{
+								"g": "clothing",
+								"i": "black stilettos"
+							},
+							{
+								"g": "accessories",
+								"i": "beaded necklaces"
+							},
+							{
+								"g": "accessories",
+								"i": "wooden beads"
+							},
+							{
+								"g": "props",
+								"i": "kites"
+							},
+							{
+								"g": "props",
+								"i": "frisbees"
+							},
+							{
+								"g": "transitions",
+								"i": "wild and unpredictable"
+							},
+							{
+								"g": "fades",
+								"i": "quick"
+							},
+							{
+								"g": "splices",
+								"i": "progressive"
+							},
+							{
+								"g": "effects",
+								"i": "digital zoom"
+							}
 						],
 						"partscore": [
 							38,
@@ -18510,7 +18607,98 @@
 					"snap[1]": {
 						"txt": "With the birds (that you can see) I'll share this lonely viewin' (at this road trip)",
 						"attributes": [
-
+							{
+								"g": "nouns",
+								"i": "birds"
+							},
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "prepositions",
+								"i": "with"
+							},
+							{
+								"g": "prepositions",
+								"i": "at"
+							},
+							{
+								"g": "syntax",
+								"i": "sentence structure"
+							},
+							{
+								"g": "discourse",
+								"i": "repetition"
+							},
+							{
+								"g": "similes",
+								"i": "lonely view"
+							},
+							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
+								"g": "moral interactions",
+								"i": "sharing"
+							},
+							{
+								"g": "type of action in moral interaction",
+								"i": "sharing"
+							},
+							{
+								"g": "facial expressions",
+								"i": "curiosity"
+							},
+							{
+								"g": "body language",
+								"i": "resilience"
+							},
+							{
+								"g": "hand motions",
+								"i": "pointing"
+							},
+							{
+								"g": "hand motions",
+								"i": "open-arm gesture."
+							},
+							{
+								"g": "effects",
+								"i": "overlay"
+							},
+							{
+								"g": "effects",
+								"i": "speed ramping"
+							},
+							{
+								"g": "effects",
+								"i": "black and white"
+							},
+							{
+								"g": "transitions",
+								"i": "jump cut"
+							},
+							{
+								"g": "transitions",
+								"i": "slow/fast motion"
+							},
+							{
+								"g": "transitions",
+								"i": "linear"
+							},
+							{
+								"g": "fades",
+								"i": "quick and sudden"
+							},
+							{
+								"g": "fades",
+								"i": "medium speed"
+							},
+							{
+								"g": "natural",
+								"i": "soft"
+							}
 						],
 						"partscore": [
 							45,
@@ -18732,6 +18920,10 @@
 										"i": "with the birds"
 									},
 									{
+										"g": "moral interactions",
+										"i": "sharing"
+									},
+									{
 										"g": "environments",
 										"i": "birds"
 									},
@@ -18766,6 +18958,10 @@
 									{
 										"g": "transitions",
 										"i": "montage"
+									},
+									{
+										"g": "fades",
+										"i": "soft"
 									},
 									{
 										"g": "fades",
@@ -18816,18 +19012,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "adjectives",
-										"i": "mister"
-									},
-									{
-										"g": "nouns",
-										"i": "tissue"
-									},
-									{
-										"g": "transitions",
-										"i": "linear"
-									}
+
 								],
 								"partscore": [
 
@@ -18850,22 +19035,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "nouns",
-										"i": "birds"
-									},
-									{
-										"g": "clothing",
-										"i": "cowboy shirt"
-									},
-									{
-										"g": "nouns",
-										"i": "tissue"
-									},
-									{
-										"g": "transitions",
-										"i": "linear"
-									}
+
 								],
 								"partscore": [
 
@@ -19032,6 +19202,10 @@
 										"i": "lonely view"
 									},
 									{
+										"g": "moral interactions",
+										"i": "sharing"
+									},
+									{
 										"g": "type of action in moral interaction",
 										"i": "sharing"
 									},
@@ -19066,6 +19240,10 @@
 									{
 										"g": "transitions",
 										"i": "fading"
+									},
+									{
+										"g": "fades",
+										"i": "soft"
 									},
 									{
 										"g": "fades",
@@ -19120,14 +19298,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "verbs",
-										"i": "look"
-									},
-									{
-										"g": "hand motions",
-										"i": "hands on cheek"
-									}
+
 								],
 								"partscore": [
 
@@ -19150,14 +19321,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "fades",
-										"i": "moderate"
-									},
-									{
-										"g": "adjectives",
-										"i": "sweet"
-									}
+
 								],
 								"partscore": [
 
@@ -19185,7 +19349,90 @@
 					"snap[0]": {
 						"txt": "With the birds (that I see outside) I'll share this lonely viewin' (at this service station)",
 						"attributes": [
-
+							{
+								"g": "moral interactions",
+								"i": "sharing"
+							},
+							{
+								"g": "interactions",
+								"i": "sharing"
+							},
+							{
+								"g": "interactions with",
+								"i": "birds"
+							},
+							{
+								"g": "likes and dislikes",
+								"i": "sharing"
+							},
+							{
+								"g": "goals",
+								"i": "sharing a lonely view"
+							},
+							{
+								"g": "motivations",
+								"i": "escapism from reality"
+							},
+							{
+								"g": "places",
+								"i": "service station"
+							},
+							{
+								"g": "environments",
+								"i": "lonely"
+							},
+							{
+								"g": "locations",
+								"i": "road trip"
+							},
+							{
+								"g": "time periods",
+								"i": "none."
+							},
+							{
+								"g": "hair/makeup",
+								"i": "shaggy blonde hair"
+							},
+							{
+								"g": "clothing",
+								"i": "vintage dress"
+							},
+							{
+								"g": "clothing",
+								"i": "black stilettos"
+							},
+							{
+								"g": "accessories",
+								"i": "beaded necklaces"
+							},
+							{
+								"g": "accessories",
+								"i": "wooden beads"
+							},
+							{
+								"g": "props",
+								"i": "kites"
+							},
+							{
+								"g": "props",
+								"i": "frisbees"
+							},
+							{
+								"g": "transitions",
+								"i": "wild and unpredictable"
+							},
+							{
+								"g": "fades",
+								"i": "quick"
+							},
+							{
+								"g": "splices",
+								"i": "progressive"
+							},
+							{
+								"g": "effects",
+								"i": "digital zoom"
+							}
 						],
 						"partscore": [
 							38,
@@ -19227,7 +19474,98 @@
 					"snap[1]": {
 						"txt": "With the birds (that you can see) I'll share this lonely viewin' (at this road trip)",
 						"attributes": [
-
+							{
+								"g": "nouns",
+								"i": "birds"
+							},
+							{
+								"g": "verbs",
+								"i": "share"
+							},
+							{
+								"g": "prepositions",
+								"i": "with"
+							},
+							{
+								"g": "prepositions",
+								"i": "at"
+							},
+							{
+								"g": "syntax",
+								"i": "sentence structure"
+							},
+							{
+								"g": "discourse",
+								"i": "repetition"
+							},
+							{
+								"g": "similes",
+								"i": "lonely view"
+							},
+							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
+								"g": "moral interactions",
+								"i": "sharing"
+							},
+							{
+								"g": "type of action in moral interaction",
+								"i": "sharing"
+							},
+							{
+								"g": "facial expressions",
+								"i": "curiosity"
+							},
+							{
+								"g": "body language",
+								"i": "resilience"
+							},
+							{
+								"g": "hand motions",
+								"i": "pointing"
+							},
+							{
+								"g": "hand motions",
+								"i": "open-arm gesture."
+							},
+							{
+								"g": "effects",
+								"i": "overlay"
+							},
+							{
+								"g": "effects",
+								"i": "speed ramping"
+							},
+							{
+								"g": "effects",
+								"i": "black and white"
+							},
+							{
+								"g": "transitions",
+								"i": "jump cut"
+							},
+							{
+								"g": "transitions",
+								"i": "slow/fast motion"
+							},
+							{
+								"g": "transitions",
+								"i": "linear"
+							},
+							{
+								"g": "fades",
+								"i": "quick and sudden"
+							},
+							{
+								"g": "fades",
+								"i": "medium speed"
+							},
+							{
+								"g": "natural",
+								"i": "soft"
+							}
 						],
 						"partscore": [
 							45,
@@ -19422,66 +19760,6 @@
 					{
 						"g": "effects",
 						"i": "3d visuals"
-					},
-					{
-						"g": "places",
-						"i": "service station"
-					},
-					{
-						"g": "environments",
-						"i": "lonely"
-					},
-					{
-						"g": "locations",
-						"i": "road trip"
-					},
-					{
-						"g": "time periods",
-						"i": "none."
-					},
-					{
-						"g": "hair/makeup",
-						"i": "shaggy blonde hair"
-					},
-					{
-						"g": "clothing",
-						"i": "vintage dress"
-					},
-					{
-						"g": "clothing",
-						"i": "black stilettos"
-					},
-					{
-						"g": "accessories",
-						"i": "beaded necklaces"
-					},
-					{
-						"g": "accessories",
-						"i": "wooden beads"
-					},
-					{
-						"g": "props",
-						"i": "kites"
-					},
-					{
-						"g": "props",
-						"i": "frisbees"
-					},
-					{
-						"g": "transitions",
-						"i": "wild and unpredictable"
-					},
-					{
-						"g": "fades",
-						"i": "quick"
-					},
-					{
-						"g": "splices",
-						"i": "progressive"
-					},
-					{
-						"g": "effects",
-						"i": "digital zoom"
 					}
 				],
 				"partscore": [
@@ -19752,54 +20030,6 @@
 					{
 						"g": "fades",
 						"i": "cross fade out"
-					},
-					{
-						"g": "facial expressions",
-						"i": "curiosity"
-					},
-					{
-						"g": "body language",
-						"i": "resilience"
-					},
-					{
-						"g": "effects",
-						"i": "overlay"
-					},
-					{
-						"g": "effects",
-						"i": "speed ramping"
-					},
-					{
-						"g": "effects",
-						"i": "black and white"
-					},
-					{
-						"g": "transitions",
-						"i": "jump cut"
-					},
-					{
-						"g": "transitions",
-						"i": "slow/fast motion"
-					},
-					{
-						"g": "transitions",
-						"i": "linear"
-					},
-					{
-						"g": "fades",
-						"i": "quick and sudden"
-					},
-					{
-						"g": "fades",
-						"i": "medium speed"
-					},
-					{
-						"g": "natural",
-						"i": "soft"
-					},
-					{
-						"g": "fades",
-						"i": "soft"
 					}
 				],
 				"partscore": [
@@ -19983,14 +20213,7 @@
 			"snap[2]": {
 				"txt": "",
 				"attributes": [
-					{
-						"g": "verbs",
-						"i": "fallin'"
-					},
-					{
-						"g": "color",
-						"i": "pink"
-					}
+
 				],
 				"partscore": [
 					0,
@@ -20015,10 +20238,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "Fallin', mister, pink look, hands on cheek\nMister tissue, linear look, hands on cheek"
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -20026,86 +20246,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "fades",
-						"i": "cross fade out"
-					},
-					{
-						"g": "effects",
-						"i": "overlay"
-					},
-					{
-						"g": "fades",
-						"i": "dreamy wisps of clouds"
-					},
-					{
-						"g": "fades",
-						"i": "out / in"
-					},
-					{
-						"g": "facial expressions",
-						"i": "frown"
-					},
-					{
-						"g": "effects",
-						"i": "distortion"
-					},
-					{
-						"g": "color",
-						"i": "pink"
-					},
-					{
-						"g": "effects",
-						"i": "speed ramping"
-					},
-					{
-						"g": "nouns",
-						"i": "tissue"
-					},
-					{
-						"g": "transitions",
-						"i": "linear"
-					},
-					{
-						"g": "body language",
-						"i": "touching"
-					},
-					{
-						"g": "nouns",
-						"i": "scar tissue"
-					},
-					{
-						"g": "effects",
-						"i": "pitch shift"
-					},
-					{
-						"g": "hand motions",
-						"i": "hands on cheek"
-					},
-					{
-						"g": "verbs",
-						"i": "look"
-					},
-					{
-						"g": "adjectives",
-						"i": "mister"
-					},
-					{
-						"g": "verbs",
-						"i": "fallin'"
-					},
-					{
-						"g": "hand motions",
-						"i": "an open palm"
-					},
-					{
-						"g": "splices",
-						"i": "accurate"
-					},
-					{
-						"g": "semantics",
-						"i": "meaning of lyrics"
-					}
+
 				],
 				"maskscore": [
 
@@ -20114,14 +20255,7 @@
 			"snap[3]": {
 				"txt": "",
 				"attributes": [
-					{
-						"g": "verbs",
-						"i": "hear"
-					},
-					{
-						"g": "color",
-						"i": "pink"
-					}
+
 				],
 				"partscore": [
 					0,
@@ -20146,10 +20280,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "I hear pink birds in my cowboy shirt,\nLinin' up so sweet, distortion fades\nTissue, tissue, hear my birds sing,\nSo sweet and alone, so sweet and alone."
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -20157,86 +20288,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "fades",
-						"i": "cross fade out"
-					},
-					{
-						"g": "effects",
-						"i": "overlay"
-					},
-					{
-						"g": "fades",
-						"i": "dreamy wisps of clouds"
-					},
-					{
-						"g": "fades",
-						"i": "out / in"
-					},
-					{
-						"g": "facial expressions",
-						"i": "frown"
-					},
-					{
-						"g": "effects",
-						"i": "distortion"
-					},
-					{
-						"g": "color",
-						"i": "pink"
-					},
-					{
-						"g": "effects",
-						"i": "speed ramping"
-					},
-					{
-						"g": "nouns",
-						"i": "tissue"
-					},
-					{
-						"g": "transitions",
-						"i": "linear"
-					},
-					{
-						"g": "clothing",
-						"i": "cowboy shirt"
-					},
-					{
-						"g": "adjectives",
-						"i": "soft spoken"
-					},
-					{
-						"g": "facial expressions",
-						"i": "introspective"
-					},
-					{
-						"g": "adjectives",
-						"i": "soft"
-					},
-					{
-						"g": "fades",
-						"i": "moderate"
-					},
-					{
-						"g": "nouns",
-						"i": "birds"
-					},
-					{
-						"g": "adjectives",
-						"i": "sweet"
-					},
-					{
-						"g": "verbs",
-						"i": "hear"
-					},
-					{
-						"g": "adverbs",
-						"i": "really"
-					},
-					{
-						"g": "artificial",
-						"i": "exaggerated"
-					}
+
 				],
 				"maskscore": [
 
@@ -20255,6 +20307,10 @@
 									{
 										"g": "environments",
 										"i": "soft"
+									},
+									{
+										"g": "time periods",
+										"i": "none."
 									},
 									{
 										"g": "hair/makeup",
@@ -20480,22 +20536,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "fades",
-										"i": "out / in"
-									},
-									{
-										"g": "hand motions",
-										"i": "flicking fingers to beat a rhythm."
-									},
-									{
-										"g": "nouns",
-										"i": "bra"
-									},
-									{
-										"g": "discourse",
-										"i": "repetition"
-									}
+
 								],
 								"partscore": [
 
@@ -20537,26 +20578,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "clothing",
-										"i": "dark colors"
-									},
-									{
-										"g": "hair/makeup",
-										"i": "dramatic smoky eye"
-									},
-									{
-										"g": "effects",
-										"i": "distortion"
-									},
-									{
-										"g": "nouns",
-										"i": "bra"
-									},
-									{
-										"g": "discourse",
-										"i": "repetition"
-									}
+
 								],
 								"partscore": [
 
@@ -20623,6 +20645,10 @@
 									{
 										"g": "locations",
 										"i": "walk outside"
+									},
+									{
+										"g": "time periods",
+										"i": "none."
 									},
 									{
 										"g": "hair/makeup",
@@ -20848,22 +20874,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "hand motions",
-										"i": "flicking fingers to beat a rhythm."
-									},
-									{
-										"g": "hair/makeup",
-										"i": "streaky highlights"
-									},
-									{
-										"g": "clothing",
-										"i": "vintage dress"
-									},
-									{
-										"g": "nouns",
-										"i": "bra"
-									}
+
 								],
 								"partscore": [
 
@@ -20905,26 +20916,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "natural",
-										"i": "subtle"
-									},
-									{
-										"g": "clothing",
-										"i": "streetwear"
-									},
-									{
-										"g": "props",
-										"i": "microphone"
-									},
-									{
-										"g": "clothing",
-										"i": "vintage dress"
-									},
-									{
-										"g": "nouns",
-										"i": "bra"
-									}
+
 								],
 								"partscore": [
 
@@ -20983,6 +20975,10 @@
 									{
 										"g": "motivations",
 										"i": "no information"
+									},
+									{
+										"g": "time periods",
+										"i": "none."
 									},
 									{
 										"g": "hair/makeup",
@@ -21196,22 +21192,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "accessories",
-										"i": "beaded necklaces"
-									},
-									{
-										"g": "clothing",
-										"i": "punk-style jacket"
-									},
-									{
-										"g": "clothing",
-										"i": "vintage dress"
-									},
-									{
-										"g": "transitions",
-										"i": "fade in/out"
-									}
+
 								],
 								"partscore": [
 
@@ -21253,26 +21234,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "clothing",
-										"i": "dark colors"
-									},
-									{
-										"g": "hair/makeup",
-										"i": "dramatic smoky eye"
-									},
-									{
-										"g": "natural",
-										"i": "subtle"
-									},
-									{
-										"g": "clothing",
-										"i": "vintage dress"
-									},
-									{
-										"g": "transitions",
-										"i": "fade in/out"
-									}
+
 								],
 								"partscore": [
 
@@ -21565,14 +21527,7 @@
 					"snap[2]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "effects",
-								"i": "black and white"
-							},
-							{
-								"g": "ambient",
-								"i": "foreboding"
-							}
+
 						],
 						"partscore": [
 
@@ -21595,10 +21550,7 @@
 					"snap[3]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "ambient",
-								"i": "foreboding"
-							}
+
 						],
 						"partscore": [
 
@@ -21905,22 +21857,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "hair/makeup",
-										"i": "significant tattoos"
-									},
-									{
-										"g": "hand motions",
-										"i": "flicking fingers to beat a rhythm."
-									},
-									{
-										"g": "fades",
-										"i": "subdued colors"
-									},
-									{
-										"g": "fades",
-										"i": "slow"
-									}
+
 								],
 								"partscore": [
 
@@ -21962,14 +21899,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "fades",
-										"i": "subdued colors"
-									},
-									{
-										"g": "fades",
-										"i": "slow"
-									}
+
 								],
 								"partscore": [
 
@@ -22309,22 +22239,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "hand motions",
-										"i": "flicking fingers to beat a rhythm."
-									},
-									{
-										"g": "hair/makeup",
-										"i": "significant tattoos"
-									},
-									{
-										"g": "discourse",
-										"i": "repetition"
-									},
-									{
-										"g": "transitions",
-										"i": "fade in/out"
-									}
+
 								],
 								"partscore": [
 
@@ -22366,14 +22281,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "discourse",
-										"i": "repetition"
-									},
-									{
-										"g": "transitions",
-										"i": "fade in/out"
-									}
+
 								],
 								"partscore": [
 
@@ -22665,22 +22573,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "clothing",
-										"i": "punk-style jacket"
-									},
-									{
-										"g": "effects",
-										"i": "black and white"
-									},
-									{
-										"g": "ideas",
-										"i": "sarcastic mister"
-									},
-									{
-										"g": "transitions",
-										"i": "fade in/out"
-									}
+
 								],
 								"partscore": [
 
@@ -22722,14 +22615,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "ideas",
-										"i": "sarcastic mister"
-									},
-									{
-										"g": "transitions",
-										"i": "fade in/out"
-									}
+
 								],
 								"partscore": [
 
@@ -23066,14 +22952,7 @@
 					"snap[2]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "hair/makeup",
-								"i": "streaky highlights"
-							},
-							{
-								"g": "clothing",
-								"i": "vintage dress"
-							}
+
 						],
 						"partscore": [
 
@@ -23096,22 +22975,7 @@
 					"snap[3]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "hair/makeup",
-								"i": "dramatic smoky eye"
-							},
-							{
-								"g": "natural",
-								"i": "subtle"
-							},
-							{
-								"g": "props",
-								"i": "microphone"
-							},
-							{
-								"g": "clothing",
-								"i": "vintage dress"
-							}
+
 						],
 						"partscore": [
 
@@ -23875,10 +23739,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "Scar Tissue, I'm so high I wish I never came down\nTo share a lonely view of the world spinning 'round\nMy head is swimming, in a haze, all my colors streak\nA braided necklace, and a punk jacket, streaky highlights, vintage dress"
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -23886,86 +23747,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "fades",
-						"i": "subdued colors"
-					},
-					{
-						"g": "discourse",
-						"i": "repetition"
-					},
-					{
-						"g": "clothing",
-						"i": "vintage dress"
-					},
-					{
-						"g": "ideas",
-						"i": "sarcastic mister"
-					},
-					{
-						"g": "ambient",
-						"i": "foreboding"
-					},
-					{
-						"g": "ideas",
-						"i": "scar tissue"
-					},
-					{
-						"g": "transitions",
-						"i": "fade in/out"
-					},
-					{
-						"g": "nouns",
-						"i": "bra"
-					},
-					{
-						"g": "fades",
-						"i": "slow"
-					},
-					{
-						"g": "ambient",
-						"i": "mystical"
-					},
-					{
-						"g": "clothing",
-						"i": "punk-style jacket"
-					},
-					{
-						"g": "type of action in atheistic interaction",
-						"i": "have sex"
-					},
-					{
-						"g": "accessories",
-						"i": "beaded necklaces"
-					},
-					{
-						"g": "hand motions",
-						"i": "flicking fingers to beat a rhythm."
-					},
-					{
-						"g": "fades",
-						"i": "out / in"
-					},
-					{
-						"g": "effects",
-						"i": "black and white"
-					},
-					{
-						"g": "environments",
-						"i": "blood loss"
-					},
-					{
-						"g": "body language",
-						"i": "sobbing"
-					},
-					{
-						"g": "hair/makeup",
-						"i": "streaky highlights"
-					},
-					{
-						"g": "hair/makeup",
-						"i": "significant tattoos"
-					}
+
 				],
 				"maskscore": [
 
@@ -23999,10 +23781,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "My bra, my bra, my bra, my bra \nDramatic smoky eye and subtle streetwear \nMicrophone in hand, oh-so-daring, dark clothes\nFades to subdued colours, a slow yet uncertain course\nSarcastic mister, repetition fading in and out \nA message of resilience, that you cannot live without"
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -24010,86 +23789,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "fades",
-						"i": "subdued colors"
-					},
-					{
-						"g": "discourse",
-						"i": "repetition"
-					},
-					{
-						"g": "clothing",
-						"i": "vintage dress"
-					},
-					{
-						"g": "ideas",
-						"i": "sarcastic mister"
-					},
-					{
-						"g": "ambient",
-						"i": "foreboding"
-					},
-					{
-						"g": "ideas",
-						"i": "scar tissue"
-					},
-					{
-						"g": "transitions",
-						"i": "fade in/out"
-					},
-					{
-						"g": "nouns",
-						"i": "bra"
-					},
-					{
-						"g": "fades",
-						"i": "slow"
-					},
-					{
-						"g": "ambient",
-						"i": "mystical"
-					},
-					{
-						"g": "clothing",
-						"i": "dark colors"
-					},
-					{
-						"g": "metaphors",
-						"i": "lonely view"
-					},
-					{
-						"g": "accessories",
-						"i": "pearl earrings"
-					},
-					{
-						"g": "props",
-						"i": "microphone"
-					},
-					{
-						"g": "natural",
-						"i": "subtle"
-					},
-					{
-						"g": "verbs",
-						"i": "step"
-					},
-					{
-						"g": "hair/makeup",
-						"i": "dramatic smoky eye"
-					},
-					{
-						"g": "clothing",
-						"i": "streetwear"
-					},
-					{
-						"g": "metaphors",
-						"i": "autumn sweet"
-					},
-					{
-						"g": "effects",
-						"i": "distortion"
-					}
+
 				],
 				"maskscore": [
 
@@ -24105,6 +23805,10 @@
 							"snap[0]": {
 								"txt": "With the birds (that I see around me)",
 								"attributes": [
+									{
+										"g": "time periods",
+										"i": "none."
+									},
 									{
 										"g": "hair/makeup",
 										"i": "highlighted hair"
@@ -24333,22 +24037,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "transitions",
-										"i": "jump"
-									},
-									{
-										"g": "transitions",
-										"i": "cut"
-									},
-									{
-										"g": "inspiration",
-										"i": "leaving home"
-									},
-									{
-										"g": "hand motions",
-										"i": "flailing arms and moving away."
-									}
+
 								],
 								"partscore": [
 
@@ -24390,26 +24079,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "artificial",
-										"i": "bold"
-									},
-									{
-										"g": "nouns",
-										"i": "tissue"
-									},
-									{
-										"g": "transitions",
-										"i": "cut"
-									},
-									{
-										"g": "inspiration",
-										"i": "leaving home"
-									},
-									{
-										"g": "hand motions",
-										"i": "flailing arms and moving away."
-									}
+
 								],
 								"partscore": [
 
@@ -24460,6 +24130,10 @@
 									{
 										"g": "environments",
 										"i": "lonely"
+									},
+									{
+										"g": "time periods",
+										"i": "none."
 									},
 									{
 										"g": "clothing",
@@ -24685,18 +24359,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "props",
-										"i": "and a gun"
-									},
-									{
-										"g": "body language",
-										"i": "distress"
-									},
-									{
-										"g": "color",
-										"i": "teal"
-									}
+
 								],
 								"partscore": [
 
@@ -24738,22 +24401,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "color",
-										"i": "indigo"
-									},
-									{
-										"g": "nouns",
-										"i": "autumn"
-									},
-									{
-										"g": "body language",
-										"i": "distress"
-									},
-									{
-										"g": "color",
-										"i": "teal"
-									}
+
 								],
 								"partscore": [
 
@@ -24807,6 +24455,10 @@
 							{
 								"g": "environments",
 								"i": "lonely"
+							},
+							{
+								"g": "time periods",
+								"i": "none."
 							},
 							{
 								"g": "hair/makeup",
@@ -24910,6 +24562,14 @@
 								"i": "repetition"
 							},
 							{
+								"g": "similes",
+								"i": "lonely view"
+							},
+							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
 								"g": "moral interactions",
 								"i": "sharing"
 							},
@@ -25002,10 +24662,7 @@
 					"snap[2]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "nouns",
-								"i": "man"
-							}
+
 						],
 						"partscore": [
 
@@ -25028,10 +24685,7 @@
 					"snap[3]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "pronouns",
-								"i": "i"
-							}
+
 						],
 						"partscore": [
 
@@ -25059,6 +24713,10 @@
 								"txt": "With the birds (that I see around me)",
 								"attributes": [
 									{
+										"g": "time periods",
+										"i": "none."
+									},
+									{
 										"g": "hair/makeup",
 										"i": "highlighted hair"
 									},
@@ -25248,18 +24906,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "transitions",
-										"i": "jump"
-									},
-									{
-										"g": "imagery",
-										"i": "scar tissue"
-									},
-									{
-										"g": "effects",
-										"i": "speed change."
-									}
+
 								],
 								"partscore": [
 
@@ -25282,26 +24929,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "artificial",
-										"i": "bold"
-									},
-									{
-										"g": "nouns",
-										"i": "tissue"
-									},
-									{
-										"g": "color",
-										"i": "indigo"
-									},
-									{
-										"g": "imagery",
-										"i": "scar tissue"
-									},
-									{
-										"g": "effects",
-										"i": "speed change."
-									}
+
 								],
 								"partscore": [
 
@@ -25333,6 +24961,10 @@
 									{
 										"g": "environments",
 										"i": "lonely"
+									},
+									{
+										"g": "time periods",
+										"i": "none."
 									},
 									{
 										"g": "clothing",
@@ -25520,14 +25152,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "props",
-										"i": "and a gun"
-									},
-									{
-										"g": "color",
-										"i": "teal"
-									}
+
 								],
 								"partscore": [
 
@@ -25550,22 +25175,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "nouns",
-										"i": "autumn"
-									},
-									{
-										"g": "transitions",
-										"i": "fade in/out"
-									},
-									{
-										"g": "pronouns",
-										"i": "i"
-									},
-									{
-										"g": "color",
-										"i": "teal"
-									}
+
 								],
 								"partscore": [
 
@@ -25600,6 +25210,10 @@
 							{
 								"g": "environments",
 								"i": "lonely"
+							},
+							{
+								"g": "time periods",
+								"i": "none."
 							},
 							{
 								"g": "hair/makeup",
@@ -25703,6 +25317,14 @@
 								"i": "repetition"
 							},
 							{
+								"g": "similes",
+								"i": "lonely view"
+							},
+							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
 								"g": "moral interactions",
 								"i": "sharing"
 							},
@@ -25795,14 +25417,7 @@
 					"snap[2]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "nouns",
-								"i": "man"
-							},
-							{
-								"g": "body language",
-								"i": "distress"
-							}
+
 						],
 						"partscore": [
 
@@ -25825,10 +25440,7 @@
 					"snap[3]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "body language",
-								"i": "distress"
-							}
+
 						],
 						"partscore": [
 
@@ -25978,6 +25590,54 @@
 									{
 										"g": "effects",
 										"i": "reverb"
+									},
+									{
+										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
+										"i": "romantic"
+									},
+									{
+										"g": "natural",
+										"i": "passionate"
+									},
+									{
+										"g": "natural",
+										"i": "glowing"
+									},
+									{
+										"g": "natural",
+										"i": "ethereal"
+									},
+									{
+										"g": "natural",
+										"i": "refreshing"
+									},
+									{
+										"g": "natural",
+										"i": "soothing"
+									},
+									{
+										"g": "natural",
+										"i": "majestic"
+									},
+									{
+										"g": "natural",
+										"i": "radiant"
 									}
 								],
 								"partscore": [
@@ -26020,26 +25680,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "nouns",
-										"i": "man"
-									},
-									{
-										"g": "transitions",
-										"i": "jump"
-									},
-									{
-										"g": "inspiration",
-										"i": "leaving home"
-									},
-									{
-										"g": "transitions",
-										"i": "splice"
-									},
-									{
-										"g": "environments",
-										"i": "sweet"
-									}
+
 								],
 								"partscore": [
 
@@ -26062,26 +25703,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "artificial",
-										"i": "bold"
-									},
-									{
-										"g": "transitions",
-										"i": "fade in/out"
-									},
-									{
-										"g": "inspiration",
-										"i": "leaving home"
-									},
-									{
-										"g": "transitions",
-										"i": "splice"
-									},
-									{
-										"g": "environments",
-										"i": "sweet"
-									}
+
 								],
 								"partscore": [
 
@@ -26252,6 +25874,54 @@
 										"i": "soft glow and pastel hues"
 									},
 									{
+										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
+										"i": "romantic"
+									},
+									{
+										"g": "natural",
+										"i": "passionate"
+									},
+									{
+										"g": "natural",
+										"i": "glowing"
+									},
+									{
+										"g": "natural",
+										"i": "ethereal"
+									},
+									{
+										"g": "natural",
+										"i": "refreshing"
+									},
+									{
+										"g": "natural",
+										"i": "soothing"
+									},
+									{
+										"g": "natural",
+										"i": "majestic"
+									},
+									{
+										"g": "natural",
+										"i": "radiant"
+									},
+									{
 										"g": "ambient",
 										"i": "diffused"
 									},
@@ -26372,14 +26042,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "effects",
-										"i": "speed change."
-									},
-									{
-										"g": "color",
-										"i": "teal"
-									}
+
 								],
 								"partscore": [
 
@@ -26402,18 +26065,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "body language",
-										"i": "firm"
-									},
-									{
-										"g": "effects",
-										"i": "speed change."
-									},
-									{
-										"g": "color",
-										"i": "teal"
-									}
+
 								],
 								"partscore": [
 
@@ -26441,6 +26093,10 @@
 					"snap[0]": {
 						"txt": "With the birds (that I see around me) I'll share this lonely view",
 						"attributes": [
+							{
+								"g": "time periods",
+								"i": "none."
+							},
 							{
 								"g": "hair/makeup",
 								"i": "smokey eyeshadow"
@@ -26506,6 +26162,14 @@
 					"snap[1]": {
 						"txt": "With the birds (that you can hear) I'll share this lonely view",
 						"attributes": [
+							{
+								"g": "metaphors",
+								"i": "with the birds"
+							},
+							{
+								"g": "similes",
+								"i": "lonely view"
+							},
 							{
 								"g": "imagery",
 								"i": "with the birds"
@@ -26738,10 +26402,7 @@
 					"snap[3]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "nouns",
-								"i": "tissue"
-							}
+
 						],
 						"partscore": [
 
@@ -27324,10 +26985,7 @@
 			"snap[2]": {
 				"txt": "",
 				"attributes": [
-					{
-						"g": "semantics",
-						"i": "meaning of lyrics"
-					}
+
 				],
 				"partscore": [
 					0,
@@ -27352,10 +27010,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "Man with a gun  in his hand\nScar tissue that I wish you saw \nJumps with distress and then\nLeaves with a sweet teal speed change"
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -27363,86 +27018,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "inspiration",
-						"i": "leaving home"
-					},
-					{
-						"g": "effects",
-						"i": "speed change."
-					},
-					{
-						"g": "transitions",
-						"i": "splice"
-					},
-					{
-						"g": "color",
-						"i": "teal"
-					},
-					{
-						"g": "transitions",
-						"i": "cut"
-					},
-					{
-						"g": "hand motions",
-						"i": "flailing arms and moving away."
-					},
-					{
-						"g": "environments",
-						"i": "sweet"
-					},
-					{
-						"g": "interactions",
-						"i": "kissing"
-					},
-					{
-						"g": "imagery",
-						"i": "scar tissue"
-					},
-					{
-						"g": "body language",
-						"i": "distress"
-					},
-					{
-						"g": "props",
-						"i": "bubbles"
-					},
-					{
-						"g": "props",
-						"i": "motorcycle"
-					},
-					{
-						"g": "props",
-						"i": "glitter"
-					},
-					{
-						"g": "props",
-						"i": "picnic basket"
-					},
-					{
-						"g": "props",
-						"i": "cigarettes"
-					},
-					{
-						"g": "transitions",
-						"i": "jump"
-					},
-					{
-						"g": "props",
-						"i": "and a gun"
-					},
-					{
-						"g": "props",
-						"i": "sunflower"
-					},
-					{
-						"g": "nouns",
-						"i": "man"
-					},
-					{
-						"g": "semantics",
-						"i": "meaning of lyrics"
-					}
+
 				],
 				"maskscore": [
 
@@ -27476,10 +27052,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "I cut my scar tissue with indigo blue\nAutumn leaves drift away and I'm left feeling distress\nBold tissue, teal and speeding away from home\nFirmly I look behind me and inward I go"
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -27487,86 +27060,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "inspiration",
-						"i": "leaving home"
-					},
-					{
-						"g": "effects",
-						"i": "speed change."
-					},
-					{
-						"g": "transitions",
-						"i": "splice"
-					},
-					{
-						"g": "color",
-						"i": "teal"
-					},
-					{
-						"g": "transitions",
-						"i": "cut"
-					},
-					{
-						"g": "hand motions",
-						"i": "flailing arms and moving away."
-					},
-					{
-						"g": "environments",
-						"i": "sweet"
-					},
-					{
-						"g": "interactions",
-						"i": "kissing"
-					},
-					{
-						"g": "imagery",
-						"i": "scar tissue"
-					},
-					{
-						"g": "body language",
-						"i": "distress"
-					},
-					{
-						"g": "nouns",
-						"i": "tissue"
-					},
-					{
-						"g": "hand motions",
-						"i": "pointing"
-					},
-					{
-						"g": "transitions",
-						"i": "fade in/out"
-					},
-					{
-						"g": "artificial",
-						"i": "bold"
-					},
-					{
-						"g": "color",
-						"i": "indigo"
-					},
-					{
-						"g": "transitions",
-						"i": "crossfades"
-					},
-					{
-						"g": "pronouns",
-						"i": "i"
-					},
-					{
-						"g": "body language",
-						"i": "firm"
-					},
-					{
-						"g": "nouns",
-						"i": "autumn"
-					},
-					{
-						"g": "morphology",
-						"i": "irregularity"
-					}
+
 				],
 				"maskscore": [
 
@@ -28115,30 +27609,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "locations",
-										"i": "step outside"
-									},
-									{
-										"g": "likes and dislikes",
-										"i": "loving another's health"
-									},
-									{
-										"g": "clothing",
-										"i": "crop tops"
-									},
-									{
-										"g": "conjunctions",
-										"i": "and"
-									},
-									{
-										"g": "nouns",
-										"i": "ex-boyfriend"
-									},
-									{
-										"g": "inspiration",
-										"i": "so that you would be afraid of me"
-									}
+
 								],
 								"partscore": [
 
@@ -28161,26 +27632,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "likes and dislikes",
-										"i": "autumn's sweet"
-									},
-									{
-										"g": "splices",
-										"i": "freeze frame"
-									},
-									{
-										"g": "conjunctions",
-										"i": "and"
-									},
-									{
-										"g": "nouns",
-										"i": "ex-boyfriend"
-									},
-									{
-										"g": "inspiration",
-										"i": "so that you would be afraid of me"
-									}
+
 								],
 								"partscore": [
 
@@ -28434,26 +27886,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "likes and dislikes",
-										"i": "loving another's health"
-									},
-									{
-										"g": "natural",
-										"i": "hopeful"
-									},
-									{
-										"g": "places",
-										"i": "toilet"
-									},
-									{
-										"g": "places",
-										"i": "vantage point"
-									},
-									{
-										"g": "inspiration",
-										"i": "going to a trip"
-									}
+
 								],
 								"partscore": [
 
@@ -28476,30 +27909,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "props",
-										"i": "bait"
-									},
-									{
-										"g": "transitions",
-										"i": "sudden"
-									},
-									{
-										"g": "splices",
-										"i": "freeze frame"
-									},
-									{
-										"g": "places",
-										"i": "toilet"
-									},
-									{
-										"g": "places",
-										"i": "vantage point"
-									},
-									{
-										"g": "inspiration",
-										"i": "going to a trip"
-									}
+
 								],
 								"partscore": [
 
@@ -28737,22 +28147,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "likes and dislikes",
-										"i": "loving another's health"
-									},
-									{
-										"g": "prepositions",
-										"i": "at"
-									},
-									{
-										"g": "symbols",
-										"i": "birds"
-									},
-									{
-										"g": "conjunctions",
-										"i": "and"
-									}
+
 								],
 								"partscore": [
 
@@ -28775,30 +28170,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "artificial",
-										"i": "enhanced"
-									},
-									{
-										"g": "transitions",
-										"i": "sudden"
-									},
-									{
-										"g": "facial expressions",
-										"i": "expectant."
-									},
-									{
-										"g": "prepositions",
-										"i": "at"
-									},
-									{
-										"g": "symbols",
-										"i": "birds"
-									},
-									{
-										"g": "conjunctions",
-										"i": "and"
-									}
+
 								],
 								"partscore": [
 
@@ -29016,30 +28388,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "locations",
-										"i": "step outside"
-									},
-									{
-										"g": "natural",
-										"i": "hopeful"
-									},
-									{
-										"g": "clothing",
-										"i": "crop tops"
-									},
-									{
-										"g": "places",
-										"i": "blood loss"
-									},
-									{
-										"g": "inspiration",
-										"i": "going to a trip"
-									},
-									{
-										"g": "inspiration",
-										"i": "so that you would be afraid of me"
-									}
+
 								],
 								"partscore": [
 
@@ -29062,22 +28411,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "splices",
-										"i": "freeze frame"
-									},
-									{
-										"g": "places",
-										"i": "blood loss"
-									},
-									{
-										"g": "inspiration",
-										"i": "going to a trip"
-									},
-									{
-										"g": "inspiration",
-										"i": "so that you would be afraid of me"
-									}
+
 								],
 								"partscore": [
 
@@ -29112,6 +28446,10 @@
 							{
 								"g": "locations",
 								"i": "skin and health"
+							},
+							{
+								"g": "time periods",
+								"i": "none."
 							},
 							{
 								"g": "hair/makeup",
@@ -29192,6 +28530,10 @@
 							},
 							{
 								"g": "pronouns",
+								"i": "i"
+							},
+							{
+								"g": "pronouns",
 								"i": "you"
 							},
 							{
@@ -29265,6 +28607,22 @@
 							{
 								"g": "effects",
 								"i": "delay"
+							},
+							{
+								"g": "natural",
+								"i": "soft"
+							},
+							{
+								"g": "natural",
+								"i": "gentle"
+							},
+							{
+								"g": "natural",
+								"i": "faint"
+							},
+							{
+								"g": "natural",
+								"i": "shadowy"
 							},
 							{
 								"g": "artificial",
@@ -29418,6 +28776,10 @@
 								"txt": "Close your eyes (wife)",
 								"attributes": [
 									{
+										"g": "time periods",
+										"i": "none."
+									},
+									{
 										"g": "hair/makeup",
 										"i": "dramatic smoky eye"
 									},
@@ -29546,6 +28908,22 @@
 										"i": "color palette"
 									},
 									{
+										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
 										"g": "diffused",
 										"i": "subtle"
 									},
@@ -29614,22 +28992,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "likes and dislikes",
-										"i": "loving another's health"
-									},
-									{
-										"g": "inspiration",
-										"i": "going to a trip"
-									},
-									{
-										"g": "places",
-										"i": "blood loss"
-									},
-									{
-										"g": "symbols",
-										"i": "birds"
-									}
+
 								],
 								"partscore": [
 
@@ -29652,30 +29015,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "transitions",
-										"i": "epic"
-									},
-									{
-										"g": "artificial",
-										"i": "enhanced"
-									},
-									{
-										"g": "splices",
-										"i": "freeze frame"
-									},
-									{
-										"g": "inspiration",
-										"i": "going to a trip"
-									},
-									{
-										"g": "places",
-										"i": "blood loss"
-									},
-									{
-										"g": "symbols",
-										"i": "birds"
-									}
+
 								],
 								"partscore": [
 
@@ -29703,6 +29043,10 @@
 									{
 										"g": "environments",
 										"i": "lovingly"
+									},
+									{
+										"g": "time periods",
+										"i": "none."
 									},
 									{
 										"g": "hair/makeup",
@@ -29838,6 +29182,22 @@
 									},
 									{
 										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
 										"i": "romantic"
 									},
 									{
@@ -29901,18 +29261,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "clothing",
-										"i": "crop tops"
-									},
-									{
-										"g": "effects",
-										"i": "sepia"
-									},
-									{
-										"g": "inspiration",
-										"i": "going to a trip"
-									}
+
 								],
 								"partscore": [
 
@@ -29935,22 +29284,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "artificial",
-										"i": "enhanced"
-									},
-									{
-										"g": "splices",
-										"i": "freeze frame"
-									},
-									{
-										"g": "transitions",
-										"i": "epic"
-									},
-									{
-										"g": "inspiration",
-										"i": "going to a trip"
-									}
+
 								],
 								"partscore": [
 
@@ -29975,6 +29309,10 @@
 							"snap[0]": {
 								"txt": "'cause (I'm high and) with the birds I'll share (lonely view).",
 								"attributes": [
+									{
+										"g": "time periods",
+										"i": "none."
+									},
 									{
 										"g": "hair/makeup",
 										"i": "soft natural muted colors"
@@ -30117,6 +29455,22 @@
 									},
 									{
 										"g": "natural",
+										"i": "soft"
+									},
+									{
+										"g": "natural",
+										"i": "gentle"
+									},
+									{
+										"g": "natural",
+										"i": "faint"
+									},
+									{
+										"g": "natural",
+										"i": "shadowy"
+									},
+									{
+										"g": "natural",
 										"i": "romantic"
 									},
 									{
@@ -30192,26 +29546,7 @@
 							"snap[2]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "clothing",
-										"i": "crop tops"
-									},
-									{
-										"g": "physical features",
-										"i": "bloody bathroom stall"
-									},
-									{
-										"g": "conjunctions",
-										"i": "and"
-									},
-									{
-										"g": "nouns",
-										"i": "ex-boyfriend"
-									},
-									{
-										"g": "nouns",
-										"i": "eyes"
-									}
+
 								],
 								"partscore": [
 
@@ -30234,26 +29569,7 @@
 							"snap[3]": {
 								"txt": "",
 								"attributes": [
-									{
-										"g": "facial expressions",
-										"i": "expectant."
-									},
-									{
-										"g": "transitions",
-										"i": "sudden"
-									},
-									{
-										"g": "conjunctions",
-										"i": "and"
-									},
-									{
-										"g": "nouns",
-										"i": "ex-boyfriend"
-									},
-									{
-										"g": "nouns",
-										"i": "eyes"
-									}
+
 								],
 								"partscore": [
 
@@ -30284,6 +29600,10 @@
 							{
 								"g": "environments",
 								"i": "lovingly"
+							},
+							{
+								"g": "time periods",
+								"i": "none."
 							},
 							{
 								"g": "transitions",
@@ -30357,6 +29677,10 @@
 							{
 								"g": "pronouns",
 								"i": "your"
+							},
+							{
+								"g": "pronouns",
+								"i": "i"
 							},
 							{
 								"g": "adverbs",
@@ -30433,6 +29757,22 @@
 							{
 								"g": "effects",
 								"i": "pitch shift"
+							},
+							{
+								"g": "natural",
+								"i": "soft"
+							},
+							{
+								"g": "natural",
+								"i": "gentle"
+							},
+							{
+								"g": "natural",
+								"i": "faint"
+							},
+							{
+								"g": "natural",
+								"i": "shadowy"
 							},
 							{
 								"g": "natural",
@@ -30539,10 +29879,7 @@
 					"snap[2]": {
 						"txt": "",
 						"attributes": [
-							{
-								"g": "locations",
-								"i": "step outside"
-							}
+
 						],
 						"partscore": [
 
@@ -31309,10 +30646,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "I step outside and love another's health\nCrop tops 'cause I'm goin' on a trip\nAt the birds and the blood loss you can see\nAnd an ex-boyfriend so that you would be afraid of me\nSepia and a bloody bathroom stall\nGoing to a trip so that you would be afraid of me\nCrop tops and my eyes on your ex-boyfriend"
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -31320,86 +30654,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "symbols",
-						"i": "birds"
-					},
-					{
-						"g": "prepositions",
-						"i": "at"
-					},
-					{
-						"g": "nouns",
-						"i": "eyes"
-					},
-					{
-						"g": "inspiration",
-						"i": "going to a trip"
-					},
-					{
-						"g": "inspiration",
-						"i": "so that you would be afraid of me"
-					},
-					{
-						"g": "nouns",
-						"i": "ex-boyfriend"
-					},
-					{
-						"g": "places",
-						"i": "vantage point"
-					},
-					{
-						"g": "places",
-						"i": "toilet"
-					},
-					{
-						"g": "conjunctions",
-						"i": "and"
-					},
-					{
-						"g": "places",
-						"i": "blood loss"
-					},
-					{
-						"g": "transitions",
-						"i": "jagged"
-					},
-					{
-						"g": "effects",
-						"i": "sepia"
-					},
-					{
-						"g": "natural",
-						"i": "hopeful"
-					},
-					{
-						"g": "locations",
-						"i": "step outside"
-					},
-					{
-						"g": "physical features",
-						"i": "bloody bathroom stall"
-					},
-					{
-						"g": "likes and dislikes",
-						"i": "loving another's health"
-					},
-					{
-						"g": "clothing",
-						"i": "crop tops"
-					},
-					{
-						"g": "diffused",
-						"i": "balanced"
-					},
-					{
-						"g": "goals",
-						"i": "make it to the moon"
-					},
-					{
-						"g": "diffused",
-						"i": "serene"
-					}
+
 				],
 				"maskscore": [
 
@@ -31433,10 +30688,7 @@
 					0
 				],
 				"data": [
-					{
-						"key": "gen.lyrics",
-						"value": "Autumn's sweet, a sudden freeze frame\nI'm and ex-boyfriend so that you would be afraid of me.\nBait to take on my new adventure\nAt the toilet, the vantage point, with birds and enhanced\nsudden freeze frame, blood loss, going to a trip\nSo that you would be afraid of me, expectant eyes \nand enhanced freeze frame, epic journey, going to a trip."
-					}
+
 				],
 				"syllables": 0,
 				"impact": "",
@@ -31444,86 +30696,7 @@
 
 				],
 				"mask": [
-					{
-						"g": "symbols",
-						"i": "birds"
-					},
-					{
-						"g": "prepositions",
-						"i": "at"
-					},
-					{
-						"g": "nouns",
-						"i": "eyes"
-					},
-					{
-						"g": "inspiration",
-						"i": "going to a trip"
-					},
-					{
-						"g": "inspiration",
-						"i": "so that you would be afraid of me"
-					},
-					{
-						"g": "nouns",
-						"i": "ex-boyfriend"
-					},
-					{
-						"g": "places",
-						"i": "vantage point"
-					},
-					{
-						"g": "places",
-						"i": "toilet"
-					},
-					{
-						"g": "conjunctions",
-						"i": "and"
-					},
-					{
-						"g": "places",
-						"i": "blood loss"
-					},
-					{
-						"g": "interjections",
-						"i": "oh"
-					},
-					{
-						"g": "transitions",
-						"i": "sudden"
-					},
-					{
-						"g": "facial expressions",
-						"i": "expectant."
-					},
-					{
-						"g": "quirks",
-						"i": "drawl"
-					},
-					{
-						"g": "transitions",
-						"i": "epic"
-					},
-					{
-						"g": "likes and dislikes",
-						"i": "autumn's sweet"
-					},
-					{
-						"g": "splices",
-						"i": "freeze frame"
-					},
-					{
-						"g": "props",
-						"i": "bait"
-					},
-					{
-						"g": "artificial",
-						"i": "enhanced"
-					},
-					{
-						"g": "physical features",
-						"i": "scar tissue"
-					}
+
 				],
 				"maskscore": [
 
@@ -43912,58 +43085,58 @@
 		"8360938059761122738"
 	],
 	"rev_pattern_tasks": [
-		"-656865491640068516",
-		"-4084055625366227274",
-		"550475499786570914",
-		"1215027102902469135",
-		"-1709842272356934041",
-		"3854347190653535828",
-		"3520523965128103651",
-		"1434149821853021212",
-		"5564949678204034140",
-		"-2275488740851169780",
-		"6448281746698232104",
-		"7460767500706655459",
-		"-8758729258730930791",
-		"4580433143708665754",
-		"6662690117402664257",
-		"3532763175624162559",
-		"3368078433249483780",
-		"-5004990212184579723",
-		"6652311544604785131",
-		"-1369780842595869149",
-		"-8370360945048312569",
-		"7705900584240853919",
-		"6652311544604785131",
-		"5285510910656541077",
-		"6226513832141244723",
-		"-2320161903796791056",
-		"2997484311075105363",
-		"-4881995345982603105",
-		"-7510106240423984560",
-		"712917297729998663",
-		"-6438457666360252100",
-		"5769551681296279171",
-		"6443820729748921312",
-		"-8842418078011978784",
-		"1466000044474739907",
-		"8091820942013210108",
-		"6775254718017195621",
-		"-4012827218040392165",
-		"4742097542129434070",
-		"1342007731277712698",
-		"-7557997333527155485",
-		"-7009636318103633418",
-		"7744390397521558479",
-		"7191704757602382934",
-		"-2846054985185546713",
-		"8569173463942795448",
-		"-8688032459963847030",
-		"-2723502844690992674",
-		"-4078453602467624973",
-		"-4649650813663501069",
-		"-6015371600817539400",
-		"3934370237295696725"
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338",
+		"3964530291374013338"
 	],
 	"snap[0]": {
 		"txt": "",
@@ -45840,14 +45013,7 @@
 
 		],
 		"data": [
-			{
-				"key": "gen.lyrics",
-				"value": "verse1:\nA microphone, just for show\nIs what I'm cautiosly unloading\nClose your eyes and you'll know, That with the birds I'll share this lonely view \nScar tissue that I wish you saw\nSarcastic mister know-it-all\nClose your eyes and I'll kiss you, 'cause with the birds I'll share this autumn sweet\n\nchorus1:\nSoftly spoken with my eyes to the sky\nThumbing my way through imaginary items \nIn a fall that's blurring my vision I try\nInjection of something that makes me feel alright\n\nverse2:\nStill on my lonely trip, I just know-it-all\nFeather earrings, smirk on my face so bold\nClose my eyes and I'm lost in this wistful health (sarcastic mister know-it-all)\n\nchorus2:\nChorus2\nCan you feel my scars? Can you inject my drawl?\nSlow motion shutter hallowed out of sight\nStep outside the frame and into the light\nShare my lonely view and bring the unity\n\nverse3:\nSarcastic Mister know-it-all\nWave your arms and legs in the air\nSeductive hints for a way to heal\nYour gladiator sandals and denim overalls\nSo that you would be afraid of me\nHero-style salute and cupping hands\nA slow shutter of goodbye and wave\nA saracastic mister know-it-all\n\nchorus3:\nFallin', mister, pink look, hands on cheek\nMister tissue, linear look, hands on cheek\n\nverse4:\nScar Tissue, I'm so high I wish I never came down\nTo share a lonely view of the world spinning 'round\nMy head is swimming, in a haze, all my colors streak\nA braided necklace, and a punk jacket, streaky highlights, vintage dress\n\nchorus4:\nMan with a gun  in his hand\nScar tissue that I wish you saw \nJumps with distress and then\nLeaves with a sweet teal speed change\n\nverse5:\nI step outside and love another's health\nCrop tops 'cause I'm goin' on a trip\nAt the birds and the blood loss you can see\nAnd an ex-boyfriend so that you would be afraid of me\nSepia and a bloody bathroom stall\nGoing to a trip so that you would be afraid of me\nCrop tops and my eyes on your ex-boyfriend\n\n"
-			},
-			{
-				"key": "gen.lyrics.FI-FI",
-				"value": "Kohta 1:\nMikrofoni, vain n‰ytt‰miseksi\nOlen varovasti purkamassa \nSulje silm‰si ja tied‰t, ett‰ lintujen kanssa jaan t‰m‰n yksin‰isen n‰kym‰n \nArpi kudosta, jonka olisin halunnut n‰kev‰si\nIrc-misteri-tied‰-kaikki \nSulje silm‰si ja suudelmaan sinua, koska lintujen kanssa jaan t‰m‰n syksyisen hunajan\n\nKertos‰e 1:\nPehme‰sti puhutut silm‰ni taivaaseen \nPuikkokyn‰ni kautta kuvitteellisilla esineill‰ \nKuvaan, joka ep‰selvˆitt‰‰ n‰kˆkyky‰ni, kokeilen \nInjisioitavasta jotain, joka saa minut tuntemaan olevani oikeassa\n\nKohta 2:\nEdelleen yksin‰isell‰ matkallani, vain tied‰n-kaikki\nLinnunmunat korviksissa, katseeni rohkea \nSuljen silm‰ni ja hukun ihastuneeseen terveyteen \nIroninen misteri-tied‰-kaikki\n\nKertos‰e 2:\nVoitko tuntea arpini? Voitko injisoida kuiskaustani? \nHidastetulla suljinajalla \n\"Ulkopuolella kehyksest‰ ja valoon\" \nJaa minun yksin‰inen n‰kym‰ ja tuo yhteen\n\nKohta 3:\nIroninen Misteri Tied‰-Kaikki \nHeiluta k‰si‰ ja jalkoja ilmassa \nViettelevi‰ viittauksia suurempaan paranemiseen \nSinun gladiaattori sandalit ja denim overalls \nJotta peloittaisit minua\n\nKohta 4:\nArpi kudosta, niin korkealle, toivon etten koskaan tullut alas \nJakamaan yksin‰ist‰ n‰kemyst‰ maailmasta pyˆrim‰ss‰ ymp‰rill‰ \nP‰‰ni pyˆrii, haalistuneena, kaikki v‰rini juovat \nPunottu kaulakoru ja punk takki, ripotepinnoitteet, vintage-puku\n\nKertos‰e 3:\nAmpuva mies k‰dess‰‰n \nArpi kudosta, jonka toivoin n‰kev‰si \nHypp‰‰va paniikissa, ja sitten \nL‰htee makeaa teal-nopeuden muutoksella\n\nKohta 5:\nAstun ulos ja rakastan toisen terveytt‰ \nKangashousut, koska l‰hden matkalle \nLinnuille ja verta menett‰ville n‰et \nJa ex-poikayst‰v‰lle, jotta olisit peloissasi minusta \nSepia ja verinen k‰ym‰l‰kaappi \nL‰hte‰ matkalle, jotta pelk‰isit minua \nKangashousut ja silm‰ni ex-poikayst‰v‰n p‰‰ll‰ \n\nKertos‰e 4:\n\nKaaduvan, misterin, Pinkin olemuksen, kasvot k‰dess‰ \nMisterin kudoksen, linjallisen olemuksen, kasvot k‰dess‰ \n"
-			}
+
 		],
 		"syllables": 0,
 		"impact": "",
@@ -45870,14 +45036,7 @@
 
 		],
 		"data": [
-			{
-				"key": "gen.lyrics",
-				"value": "verse1:\nScar tissue that I wish you saw\nFades fast my victory bait\nShocking, the tension's in my stance\nDesire licking, victory bait, you won't believe what shocking vividness\nLinear, tense up my stance\nDesire for you, layered picture of contentment\nBold, licking fills me with pride\nFast fading, quickly cut images of autumn sweet, tense up my stance.\n\nchorus1:\nWhere the birds go when god dies \nWhere my car and I never drive\nWhen he leaves the station we'll see a lonely view\nSmoke from my lips, glossy with lip balm, in the night, pink and red\n\nverse2:\nAgainst the grain of his chrome-plated wheels\nHe sails along an ocean of know-it-all zeal\nA gentle glow drenched in health, the outlaw cowboy shirt seems to be the trip I'm on\n\nchorus2:\n joyous\nSo love me like my drug injection\nI'm an outward bound Drawl\nSlow shutter to the scene, stepping out of 'lonely view',\nYoung kentucky girl in a push-up bra, expectant.\nMy outward bound, subdued slow shutter,\nStep outside of 'lonely view' again.\n\nverse3:\nChecking over my shoulder, ethereal is the view\nSoft natural colors, gladiator sandals too\nSarcastic mister knows-it-all, you're diffused and open too\nClose your eyes and I'll kiss you, cause with the birds, I'll share this lonely view\nWarping, open is the view, hero-style salute to bid farewell to you\nCupping hands, medium speed my arm extending to defy and break through\nSarcastic mister knows-it-all, Denim overalls too, Shadowing, and I'm through\n\nchorus3:\nI hear pink birds in my cowboy shirt,\nLinin' up so sweet, distortion fades\nTissue, tissue, hear my birds sing,\nSo sweet and alone, so sweet and alone.\n\nverse4:\nMy bra, my bra, my bra, my bra \nDramatic smoky eye and subtle streetwear \nMicrophone in hand, oh-so-daring, dark clothes\nFades to subdued colours, a slow yet uncertain course\nSarcastic mister, repetition fading in and out \nA message of resilience, that you cannot live without\n\nchorus4:\nI cut my scar tissue with indigo blue\nAutumn leaves drift away and I'm left feeling distress\nBold tissue, teal and speeding away from home\nFirmly I look behind me and inward I go\n\nverse5:\nAutumn's sweet, a sudden freeze frame\nI'm and ex-boyfriend so that you would be afraid of me.\nBait to take on my new adventure\nAt the toilet, the vantage point, with birds and enhanced\nsudden freeze frame, blood loss, going to a trip\nSo that you would be afraid of me, expectant eyes \nand enhanced freeze frame, epic journey, going to a trip.\n\n"
-			},
-			{
-				"key": "gen.lyrics.FI-FI",
-				"value": "Kohtaus1: \nHaavaan muistoja joita toivon n‰kev‰si\nNopeasti h‰vi‰‰, voitto-purista\nH‰tk‰hdytt‰v‰, j‰nnitys tuntuu iskuista\nHalun syleily, voitto-purista, et usko mit‰ h‰tk‰hdytt‰v‰ eloisuus\nLineaarinen, j‰nnit‰ minun asentoan\nTahtoa sinuun, kerrostunut kuva tyytyv‰isyydesta\nRohkea, syleily minut t‰ynn‰ ylpeytt‰\nNopeasti h‰vi‰vi‰, nopeasti leikattuja syksyn makeita kuvia, j‰nnit‰ minun asentoan.\n\nKertos‰e1:\nMiss‰ linnut halki menev‰t, kun Jumala kuolee\nMiss‰ minun autoni ja min‰ ei koskaan aja\nKun h‰n poistuu asemalta n‰emme yksin‰isen n‰kym‰n\nSavu l‰htee huuliltani, kiilt‰v‰n‰ kosteusvoiteella, iltaan, punainen ja pinkki\n\nKohtaus2:\nVastoin ter‰ksisen pyˆr‰ns‰ virtaa\nH‰n seilailee osaamisen meren\nKaunis hehku peitt‰‰ terveyden, se rikollinen cowboy paita liikkumaan j‰nnitt‰en\n\nKertos‰e2:\nIloinen\nJoten rakastaja minua, kuin pakkotoisto\nOlen ulos laskeutuva yksitt‰inen\nHidastettu ter‰sikkuna, astuminen ulos yksin‰isest‰ n‰kym‰st‰,\nNuori kentuckyneito push-up rintaliiveiss‰, odotellen.\nMinun uloslaskeutuva, hillitty hidastettu ter‰sikkuna\nAstu ulos yksin‰isest‰ n‰kym‰st‰ uudelleen.\n\nKohtaus3:\nKatsomalla ohi kainaloideni, eetterinen on n‰kym‰\nPehmeit‰ luonnonv‰rej‰, gladiator sandaalitkin\nSarkastinen joku-kaikki-tiet‰‰, olet hajanainen ja avoin myˆs\nSulje silm‰si ja suutelen sinua, sill‰ lintujen kanssa jakamme t‰m‰ yksin‰isen n‰kym‰n\nKiertyv‰, avoin on n‰kym‰, sankarin tyylinen tervehdys hyv‰stell‰ksesi\nK‰mmenet, keskispeedin k‰teni laajenevat ylitt‰‰kseni ja rikkoakseni\nSarkastinen joku-kaikki-tiet‰‰, farkkutakit myˆs, Varjostus, ja olen l‰pi.\n\nKertos‰e3:\nKuulet punaiset linnut puvussani cowboy,\nRiviin joten makeasti, h‰m‰r‰ h‰vi‰‰\nKudosta, kudosta, kuulet lintujeni laulun,\nNiin makeasti ja yksin, niin makeasti ja yksin.\n\nKohtaus4:\nRintaliivini, rintaliivini, rintaliivini, rintaliivini\nDraamallinen savu-silm‰ ja subtuutti kaupunkityyli\nMikrofoni k‰dess‰, oh-niin-rohkea, tummat vaatteet\nH‰vi‰‰ hillityksi v‰reiksi, hitaan ja ep‰varmoiksi kurssiksi\nSarkastinen joku-kaikki-tiet‰‰, toisto h‰vi‰‰ sis‰‰n ja ulos\nViesti kest‰v‰isyydest‰, ett‰ et"
-			}
+
 		],
 		"syllables": 0,
 		"impact": "",

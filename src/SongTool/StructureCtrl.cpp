@@ -309,8 +309,8 @@ void StructureDrawer::Paint(Draw& d) {
 	double cx = sz.cx / (double)total_len;
 	int len_sum = 0;
 	for (Item& item : items) {
-		int x = len_sum * cx;
-		int w = (len_sum + item.len) * cx;
+		int x = (int)(len_sum * cx);
+		int w = (int)((len_sum + item.len) * cx);
 		d.DrawRect(RectC(x, 0, w, sz.cy), Blend(item.clr, White(), 128));
 		String key = Capitalize(item.part->name);
 		d.DrawText(x+5,5, key, fnt, Black());

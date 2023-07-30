@@ -75,9 +75,9 @@ Color HSVToRGB(double H, double S, double V) {
 		DUMP(b);
 	}
 	RGBA rgb;
-	rgb.r = r * 255;
-	rgb.g = g * 255;
-	rgb.b = b * 255;
+	rgb.r = (byte)(r * 255);
+	rgb.g = (byte)(g * 255);
+	rgb.b = (byte)(b * 255);
 	rgb.a = 255;
 	
 	return rgb;
@@ -291,9 +291,9 @@ void Plotter::Paint(Draw& d) {
 			for(int j = 0; j < len; j++) {
 				const Line& line = part.lines[j];
 				for(int k = 0; k < line.breaks.GetCount(); k++) {
-					int x = xoff + cx * pos;
+					int x = (int)(xoff + cx * pos);
 					RectId& rid = rids.Add();
-					rid.a = RectC(x, 0, cx, sz.cy);
+					rid.a = RectC(x, 0, (int)cx, sz.cy);
 					rid.b = i;
 					rid.c = j;
 					rid.d = k;
@@ -309,9 +309,9 @@ void Plotter::Paint(Draw& d) {
 			const Line& line = part->lines[i];
 			for(int j = 0; j < line.breaks.GetCount(); j++) {
 				const Break& brk = line.breaks[j];
-				int x = xoff + cx * pos;
+				int x = (int)(xoff + cx * pos);
 				RectId& rid = rids.Add();
-				rid.a = RectC(x, 0, cx, sz.cy);
+				rid.a = RectC(x, 0, (int)cx, sz.cy);
 				rid.b = part_i;
 				rid.c = i;
 				rid.d = j;
@@ -321,11 +321,11 @@ void Plotter::Paint(Draw& d) {
 	}
 	{
 		for(int i = 0; i < vert_lines.GetCount(); i++) {
-			int x = xoff + cx * vert_lines[i];
+			int x = (int)(xoff + cx * vert_lines[i]);
 			d.DrawLine(x, 0, x, sz.cy, 1, Black());
 		}
 		for(int i = 1; i < vert_x; i++) {
-			int x = cx * i;
+			int x = (int)(cx * i);
 			int y__ = sz.cy / 10;
 			int y_2 = sz.cy / 2;
 			int y0 = y_2 - y__;
@@ -428,8 +428,8 @@ void Plotter::Paint(Draw& d) {
 		for (auto& v : vv) {
 			Point& pt = polyline.Add();
 			double fy = (v + limit) / (2.0 * limit);
-			pt.x = x;
-			pt.y = (1.0 - fy) * sz.cy;
+			pt.x = (int)x;
+			pt.y = (int)((1.0 - fy) * sz.cy);
 			x += cx;
 		}
 		int lh = (focused_group == j) ? 3 : 1;
