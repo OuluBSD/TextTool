@@ -219,23 +219,33 @@ void Task::CreateInput_PatternMask() {
 	
 	String s;
 	String type = args[0];
-	String ai_txt = args[1];
-	String vocalist_visual = args[2];
+	String vocalist_visual = args[1];
 	String first;
-	if (ai_txt.IsEmpty()) ai_txt = "matching abstract values";
+	
+	String ai_txt = GetGroupContextNaturalDescription(p.group_ctx);
 	
 	s << "Groups of " << type << " attributes:\n";
 	//hash << ToLower(type);
+	int count = 0;
 	for(Attributes::Group& g : db.attrs.groups) {
+		Attributes::GroupType& gt = db.attrs.group_types[g.type_i];
+		
+		// Skip different group context
+		if (gt.group_ctx != p.group_ctx)
+			continue;
+		
 		if (g.type == type) {
 			String key = Capitalize(g.description);
 			if (first.IsEmpty())
 				first = key;
 			s << "- " << key << "\n";
 			//hash << ToLower(g.description);
+			count++;
 		}
 	}
 	s << "\n";
+	
+	if (!count) {SetError("internal error"); return;}
 	
 	
 	s << "Lyrics:\n";
@@ -263,7 +273,7 @@ void Task::CreateInput_PatternMask() {
 	//hash << ToLower(vocalist_visual);
 	//hash << ToLower(ai_txt);
 	s << vocalist_visual << "\nOne attribute from every group is required.\n\n";
-	s << "Groups with " << ai_txt << " (in format \"" << type << " group: Value 1, Value 2, etc\"):\n\n";
+	s << "Groups with " << ai_txt << " in format:\n- " << Capitalize(type) << ": Value 1, Value 2\n- Other: Value 1, Value 2\n\n";
 	
 	s << "Attributes of lyrics (parts " << parts << "):\n";
 	s << "" << song.parts[0].name << ":\n";
@@ -295,25 +305,31 @@ void Task::CreateInput_Pattern() {
 	
 	String s;
 	String type = args[0];
-	String ai_txt = args[1];
-	int offset_begin = StrInt(args[2]);
-	int offset_end = StrInt(args[3]);
+	String ai_txt = GetGroupContextNaturalDescription(p.group_ctx);
+	int offset_begin = StrInt(args[1]);
+	int offset_end = StrInt(args[2]);
 	String first_key;
 	
 	s << "Groups of attributes and allowed values:\n";
+	Vector<const Attributes::Group*> groups;
 	for(int i = 0; i < db.attrs.groups.GetCount(); i++) {
 		const Attributes::Group& gg = db.attrs.groups[i];
 		if (gg.type != type || gg.values.IsEmpty())
 			continue;
+		
+		// Skip different group context
+		const Attributes::GroupType& gt = db.attrs.group_types[gg.type_i];
+		if (gt.group_ctx != p.group_ctx)
+			continue;
+		
 		String key = Capitalize(gg.description);
 		s << "- " << key << "\n";
+		groups << &gg;
 	}
 	s << "\n";
 	
-	for(int i = 0; i < db.attrs.groups.GetCount(); i++) {
-		const Attributes::Group& gg = db.attrs.groups[i];
-		if (gg.type != type || gg.values.IsEmpty())
-			continue;
+	for (const Attributes::Group* ggp : groups) {
+		const Attributes::Group& gg = *ggp;
 		String key = Capitalize(gg.description);
 		s << key << ":\n";
 		//hash << ToLower(gg.description);
@@ -329,7 +345,7 @@ void Task::CreateInput_Pattern() {
 	s << "\n";
 	
 	if (first_key.IsEmpty()) {
-		SetError("No attribute groups available with the type of " + type);
+		SetFatalError("No attribute groups available with the type of " + type);
 		return;
 	}
 	
@@ -512,7 +528,7 @@ void Task::CreateInput_AttrScores() {
 	Index<SnapAttrStr> attrs;
 	
 	String type = args[0];
-	String ai_txt = args[1];
+	String ai_txt = GetGroupContextNaturalDescription(p.group_ctx);
 	
 	prompt += attrscore_prompt1;
 	prompt += attrscore_prompt2;
@@ -535,6 +551,12 @@ void Task::CreateInput_AttrScores() {
 		const Attributes::Group& gg = db.attrs.groups[a.group_i];
 		if (gg.type != type)
 			continue;
+		
+		// Skip different group context
+		const Attributes::GroupType& gt = db.attrs.group_types[gg.type_i];
+		if (gt.group_ctx != p.group_ctx)
+			continue;
+		
 		
 		// Get attribute's name
 		String key = gg.values[a.item_i];

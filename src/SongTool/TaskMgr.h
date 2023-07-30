@@ -53,7 +53,20 @@ typedef enum : int {
 	O_BREAK_REVERSED_IMPACT,
 	O_BREAK_REVERSED_SNAP,
 	
+	O_NEXT_CTX_JUMP, // allows next context to start being processed
+	
 } TaskOutputType;
+
+inline bool IsTaskSkippingContext(TaskOutputType tt) {
+	switch (tt) {
+		case O_ORDER_IMPORT:
+		case O_ORDER_IMPORT_DETAILED:
+		case O_NEXT_CTX_JUMP:
+			return true;
+		default:
+			return false;
+	}
+}
 
 typedef enum : int {
 	TASK_IMPORT_AND_REVERSE,
@@ -145,6 +158,7 @@ struct TaskMgr {
 	void CreateDefaultTaskRules();
 	bool SpawnTasks();
 	bool IsDepsReady(Task& t, Index<Task*>& seen) const;
+	GroupContext GetGroupContextLimit() const;
 	
 	void ImportSongAndMakeReversedSong(Song& s);
 	

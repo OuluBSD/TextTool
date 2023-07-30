@@ -106,7 +106,7 @@ struct Task {
 	Vector<Vector<String>> str_map;
 	Task* created_by = 0;
 	
-	static constexpr int common_mask_gen_multiplier		= 3;
+	static constexpr int common_mask_gen_multiplier		= 8;
 	static constexpr int common_mask_max_values			= 10;
 	static constexpr int common_mask_gens				= 200;
 	static constexpr int separate_mask_gen_multiplier	= 8;
@@ -125,12 +125,13 @@ struct Task {
 	bool ProcessInput();
 	void Process();
 	void SetError(String s);
+	void SetFatalError(String s) {SetError(s); fatal_error = true;}
 	void SetWaiting() {wait_task = true;}
 	void SetFastExit() {fast_exit = true;}
 	String GetInputHash() const;
 	String GetOutputHash() const;
-	bool HasCreatedTasks() const;
-	bool IsCreatedTasksReady() const;
+	bool HasCreatedTasks(GroupContext ctx) const;
+	bool IsCreatedTasksReady(GroupContext ctx) const;
 	bool CheckArguments();
 	bool WriteResults();
 	bool ParseOriginalLyrics();

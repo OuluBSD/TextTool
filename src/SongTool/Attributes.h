@@ -65,11 +65,11 @@ struct Attributes : DataFile {
 	};
 	struct GroupType : Moveable<GroupType> {
 		String name;
-		String ai_txt;
+		GroupContext group_ctx;
 		Color clr;
 		void Jsonize(JsonIO& json) {json
 			("name", name)
-			("ai_txt", ai_txt)
+			("group_ctx", (int&)group_ctx)
 			("clr", clr);
 			//if (json.IsLoading()) clr = Color(Random(256),Random(256),Random(256));
 		}
@@ -91,7 +91,7 @@ struct Attributes : DataFile {
 	void RealizeAttrIds();
 	void GetAll(Vector<SnapAttrStr>& attrs);
 	void FindGroupTypes(const Vector<int>& groups, Index<int>& group_types) const;
-	GroupType& AddGroupType(String type, String ai_txt);
+	GroupType& AddGroupType(String type, GroupContext group_ctx);
 	GroupType& GetGroupType(String type);
 	Group& AddGroup(String type, String desc);
 	int GetCount() const {return groups.GetCount();}
@@ -120,14 +120,7 @@ struct Attributes : DataFile {
 			Realize();
 		}
 	}
-	void Realize() {
-		if (groups.IsEmpty() || group_types.IsEmpty())
-			LoadDefaultGroups();
-		if (analysis.IsEmpty())
-			LoadDefaultAnalysis();
-		if (scorings.IsEmpty())
-			LoadDefaultAttrGroups();
-	}
+	void Realize();
 	void AddScoring(String s, Vector<Attributes::ScoringType>& scorings);
 	int FindGroup(String group_name);
 	

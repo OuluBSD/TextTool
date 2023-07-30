@@ -79,6 +79,19 @@ enum {
 String GetModeString(int i);
 String GetCommonModeString(int i);
 
+typedef enum : int {
+	CTX_INVALID = -1,
+	CTX_TEXT,
+	CTX_VISUAL,
+	
+	CTX_COUNT,
+	CTX_BEGIN = CTX_TEXT
+} GroupContext;
+
+
+String GetGroupContextString(GroupContext ctx);
+String GetGroupContextNaturalDescription(GroupContext ctx);
+
 struct Artist;
 struct Release;
 struct Song;
@@ -97,6 +110,7 @@ struct Ptrs {
 	Break*			brk = 0;
 	PatternSnap*	snap = 0;
 	int				mode = -1;
+	GroupContext	group_ctx = CTX_INVALID;
 	
 	void Clear() {memset(this, 0, sizeof(Ptrs));}
 	int GetActivePartIndex() const;
@@ -134,6 +148,8 @@ String FixInvalidChars(const String& s);
 
 template <class T>
 void CalculateWeightedGenderDifference(Vector<double>& values, const Vector<T>& score, const Vector<T>& other_score);
+
+
 
 
 

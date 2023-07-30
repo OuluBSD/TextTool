@@ -147,3 +147,25 @@ String FixInvalidChars(const String& s) {
 	}
 	return out.ToString();
 }
+
+
+
+
+
+String GetGroupContextString(GroupContext ctx) {
+	switch (ctx) {
+		case CTX_INVALID: return "Invalid";
+		case CTX_TEXT: return "Text";
+		case CTX_VISUAL: return "Visual";
+		default: ASSERT(0); return "<error>";
+	}
+}
+
+String GetGroupContextNaturalDescription(GroupContext ctx) {
+	switch (ctx) {
+		case CTX_INVALID: ASSERT(0); return "invalid";
+		case CTX_TEXT: return "matching abstract values";
+		case CTX_VISUAL: return "good values for a novel music video";
+		default: ASSERT(0); return "<error>";
+	}
+}

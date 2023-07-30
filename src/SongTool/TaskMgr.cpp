@@ -17,10 +17,11 @@ void TaskMgr::CreateDefaultTaskRules() {
 	
 	AddRule(TASK_PATTERNMASK, "pattern masks of parts of song")
 		.Require(O_ORDER_IMPORT)
+		.Require(O_NEXT_CTX_JUMP)
 		.Input(&Task::CreateInput_PatternMask)
 			.Arg(V_PTR_SONG)
 			.Arg(V_MODE, 0, GENDER_COUNT)
-			.Arg(V_ARGS, 3, 3)
+			.Arg(V_ARGS, 2, 2)
 		.Process(&Task::Process_PatternMask)
 			.Result(O_SONG_MASK)
 			.Result(O_PART_MASK)
@@ -216,6 +217,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 			.Result(O_PART_REVERSED_SNAP)
 			.Result(O_LINE_REVERSED_SNAP)
 			.Result(O_BREAK_REVERSED_SNAP)
+			.Result(O_NEXT_CTX_JUMP)
 		;
 	
 	AddRule(TASK_MAKE_LYRICS_TASK, "make reversed lyrics task")
@@ -305,6 +307,10 @@ void TaskMgr::ProcessSingle(int task_i) {
 	
 	Task& t = tasks[task_i];
 	
+	
+	
+	
+	
 	Index<Task*> seen;
 	t.is_waiting_deps = !IsDepsReady(t, seen);
 	
@@ -342,6 +348,11 @@ bool TaskMgr::IsDepsReady(Task& t, Index<Task*>& seen) const {
 			if (t0.ready) {
 				for (const TaskOutputType& o0 : r0.results) {
 					if (o == o0) {
+						// Special case (must be previous context)
+						if (o == O_NEXT_CTX_JUMP) {
+							if (t0.p.group_ctx != t.p.group_ctx-1)
+								continue;
+						}
 						found = true;
 						break;
 					}
@@ -349,6 +360,11 @@ bool TaskMgr::IsDepsReady(Task& t, Index<Task*>& seen) const {
 				if (found)
 					break;
 			}
+		}
+		// Special case: first context doesn't require this
+		if (o == O_NEXT_CTX_JUMP) {
+			if (t.p.group_ctx == CTX_BEGIN)
+				found = true;
 		}
 		if (!found)
 			return false;
@@ -392,74 +408,101 @@ TaskRule& TaskMgr::AddRule(int code, String name) {
 	return r;
 }
 
+GroupContext TaskMgr::GetGroupContextLimit() const {
+	int tt = 0;
+	for (const Task& t : tasks) {
+		if (t.rule->code == O_NEXT_CTX_JUMP && t.ready)
+			tt = max(tt, (int)t.p.group_ctx + 1);
+	}
+	return (GroupContext)(tt+1);
+}
+
 bool TaskMgr::SpawnTasks() {
 	int spawned = 0;
 	Index<Song*> task_songs;
 	for (Task& t : tasks)
 		task_songs.FindAdd(t.p.song);
+	GroupContext ctx_limit = GetGroupContextLimit();
 	for (TaskRule& r : rules) {
-		if (r.spawnable) {
-			ASSERT(r.reqs.GetCount());
-			for (Song* s : task_songs.GetKeys()) {
-				Task* exists_already = 0;
-				for (Task& t : tasks) {
-					if (t.rule == &r && t.p.song == s) {
-						exists_already = &t;
-						break;
-					}
-				}
-				if (exists_already) {
-					// Some rules can be allowed to spawn multiple times
-					// if task has made successful tasks and have not been used to spawn another already
-					if (r.multi_spawnable && exists_already->allow_multi_spawn) {
-						if (!exists_already->ready ||
-							!exists_already->HasCreatedTasks() ||
-							!exists_already->IsCreatedTasksReady())
-							continue;
-						
-						// Use this flag only once
-						exists_already->allow_multi_spawn = false;
-					}
-					else
-						continue;
-				}
-				
-				bool found_all = true;
-				for (TaskOutputType tt : r.reqs) {
-					bool found = false;
+		for (GroupContext ctx = CTX_TEXT; ctx != ctx_limit; ((int&)ctx)++) {
+			bool ctx_spawned = false;
+			if (r.spawnable) {
+				ASSERT(r.reqs.GetCount());
+				for (Song* s : task_songs.GetKeys()) {
+					Task* exists_already = 0;
 					for (Task& t : tasks) {
-						for (TaskOutputType t0 : t.rule->results) {
-							if (t0 == tt) {
-								found = true;
-								break;
-							}
+						if (t.rule == &r && t.p.song == s && t.p.group_ctx == ctx) {
+							exists_already = &t;
+							break;
 						}
-						if (found) break;
 					}
-					if (!found) {
-						found_all = false;
-						break;
+					if (exists_already) {
+						// Some rules can be allowed to spawn multiple times
+						// if task has made successful tasks and have not been used to spawn another already
+						if (r.multi_spawnable && exists_already->allow_multi_spawn) {
+							if (!exists_already->ready ||
+								!exists_already->HasCreatedTasks(ctx) ||
+								!exists_already->IsCreatedTasksReady(ctx))
+								continue;
+							
+							// Use this flag only once
+							exists_already->allow_multi_spawn = false;
+						}
+						else
+							continue;
 					}
-				}
-				if (!found_all)
-					continue;
-				
-				int mode_begin = -1, mode_end = 0;
-				for (const TaskRule::ArgTuple& arg : r.args) {
-					if (arg.a == V_MODE) {
-						mode_begin = arg.b;
-						mode_end = arg.c;
+					
+					bool found_all = true;
+					for (TaskOutputType tt : r.reqs) {
+						bool skips_ctx = IsTaskSkippingContext(tt);
+						bool found = false;
+						for (Task& t : tasks) {
+							if (t.p.group_ctx != ctx && !skips_ctx)
+								continue;
+							for (TaskOutputType t0 : t.rule->results) {
+								if (t0 == tt) {
+									found = true;
+									break;
+								}
+							}
+							if (found) break;
+						}
+						// Special case
+						if (tt == O_NEXT_CTX_JUMP) {
+							if (tt == CTX_BEGIN)
+								found = true;
+						}
+						if (!found) {
+							found_all = false;
+							break;
+						}
 					}
-				}
-				
-				for (int mode = mode_begin; mode < mode_end; mode++) {
-					Task& t = tasks.Add();
-					t.rule = &r;
-					t.p.CopyPtrs(s->snap[0]);
-					t.p.mode = mode;
-					spawned++;
+					if (!found_all)
+						continue;
+					
+					int mode_begin = -1, mode_end = 0;
+					for (const TaskRule::ArgTuple& arg : r.args) {
+						if (arg.a == V_MODE) {
+							mode_begin = arg.b;
+							mode_end = arg.c;
+						}
+					}
+					
+					for (int mode = mode_begin; mode < mode_end; mode++) {
+						Task& t = tasks.Add();
+						t.rule = &r;
+						t.p.CopyPtrs(s->snap[0]);
+						t.p.mode = mode;
+						t.p.group_ctx = ctx;
+						spawned++;
+						ctx_spawned = true;
+					}
 				}
 			}
+			
+			// Only for the last context that allowed spawning
+			if (ctx_spawned)
+				break;
 		}
 	}
 	return spawned > 0;

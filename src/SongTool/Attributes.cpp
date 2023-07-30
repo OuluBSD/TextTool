@@ -22,15 +22,20 @@ void Attributes::Load() {
 	LoadFromJsonFile(*this, json_path);
 }
 
+void Attributes::Realize() {
+	if (groups.IsEmpty() || group_types.IsEmpty())
+		LoadDefaultGroups();
+	if (analysis.IsEmpty())
+		LoadDefaultAnalysis();
+	if (scorings.IsEmpty())
+		LoadDefaultAttrGroups();
+}
+
 void Attributes::LoadDefaultGroups() {
 	group_types.Clear();
 	groups.Clear();
 	
-	// Groups with ... (in format "lighting group: Value 1, Value 2, etc"):
-	String known = "matching abstract values";
-	String not_known = "good values for a novel music video";
-	
-	AddGroupType("language", known);
+	AddGroupType("language", CTX_TEXT);
 	AddGroup("language", "Nouns");
 	AddGroup("language", "Pronouns");
 	AddGroup("language", "Verbs");
@@ -45,7 +50,7 @@ void Attributes::LoadDefaultGroups() {
 	AddGroup("language", "Pragmatics");
 	AddGroup("language", "Discourse");
 	
-	AddGroupType("writing", known);
+	AddGroupType("writing", CTX_TEXT);
 	AddGroup("writing", "Types of sentences");
 	AddGroup("writing", "Dramatic sentences");
 	AddGroup("writing", "Dramatic scenarios");
@@ -64,7 +69,7 @@ void Attributes::LoadDefaultGroups() {
 	AddGroup("writing", "Satire");
 	AddGroup("writing", "Foreshadowing");
 
-	AddGroupType("characters", known);
+	AddGroupType("characters", CTX_TEXT);
 	AddGroup("characters", "Contrast and Unexpected Elements");
 	AddGroup("characters", "Moral interactions");
 	AddGroup("characters", "Moral interactions with");
@@ -84,7 +89,7 @@ void Attributes::LoadDefaultGroups() {
 	AddGroup("characters", "Motivations");
 	AddGroup("characters", "Backstories");
 	
-	AddGroupType("setting", known);
+	AddGroupType("setting", CTX_TEXT);
 	AddGroup("setting", "Places");
 	AddGroup("setting", "Environments");
 	AddGroup("setting", "Locations");
@@ -92,7 +97,7 @@ void Attributes::LoadDefaultGroups() {
 	AddGroup("setting", "Time of day");
 	AddGroup("setting", "Time periods");
 	
-	AddGroupType("creativity", known);
+	AddGroupType("creativity", CTX_TEXT);
 	AddGroup("creativity", "Ideas");
 	AddGroup("creativity", "Imagination");
 	AddGroup("creativity", "Inspiration");
@@ -105,7 +110,7 @@ void Attributes::LoadDefaultGroups() {
 	AddGroup("creativity", "Similes");
 	AddGroup("creativity", "Personification");
 	
-	AddGroupType("performance", not_known);
+	AddGroupType("performance", CTX_VISUAL);
 	AddGroup("performance", "Acting Styles");
 	AddGroup("performance", "Tones");
 	AddGroup("performance", "Voiceover Tones");
@@ -147,24 +152,24 @@ void Attributes::LoadDefaultGroups() {
 	AddGroup("performance", "Dramatic exercises");
 	AddGroup("performance", "Improvisation");
 	
-	AddGroupType("gestures", not_known);
+	AddGroupType("gestures", CTX_VISUAL);
 	AddGroup("gestures", "Hand motions");
 	AddGroup("gestures", "Facial expressions");
 	AddGroup("gestures", "Body language");
 	
-	AddGroupType("costuming", not_known);
+	AddGroupType("costuming", CTX_VISUAL);
 	AddGroup("costuming", "Hair/makeup");
 	AddGroup("costuming", "Clothing");
 	AddGroup("costuming", "Accessories");
 	AddGroup("costuming", "Props");
 	
-	AddGroupType("editing", not_known);
+	AddGroupType("editing", CTX_VISUAL);
 	AddGroup("editing", "Transitions");
 	AddGroup("editing", "Fades");
 	AddGroup("editing", "Splices");
 	AddGroup("editing", "Effects");
 	
-	AddGroupType("lighting", not_known);
+	AddGroupType("lighting", CTX_VISUAL);
 	AddGroup("lighting", "Natural");
 	AddGroup("lighting", "Artificial");
 	AddGroup("lighting", "Ambient");
@@ -258,7 +263,7 @@ void Attributes::RealizeAttrIds() {
 	}
 }
 
-Attributes::GroupType& Attributes::AddGroupType(String type, String ai_txt) {
+Attributes::GroupType& Attributes::AddGroupType(String type, GroupContext group_ctx) {
 	for (Attributes::GroupType& gt : group_types) {
 		ASSERT(gt.name != type);
 		if (gt.name == type)
@@ -266,7 +271,7 @@ Attributes::GroupType& Attributes::AddGroupType(String type, String ai_txt) {
 	}
 	Attributes::GroupType& gt = group_types.Add();
 	gt.name = type;
-	gt.ai_txt = ai_txt;
+	gt.group_ctx = group_ctx;
 	gt.clr = Color(Random(256), Random(256), Random(256));
 	return gt;
 }

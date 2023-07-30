@@ -18,7 +18,8 @@ Tasks::Tasks() {
 	list.AddColumn(t_("Deps waiting"));
 	list.AddColumn(t_("Status"));
 	list.AddColumn(t_("Mode"));
-	list.ColumnWidths("1 4 2 4 2 2 1");
+	list.AddColumn(t_("Context"));
+	list.ColumnWidths("1 4 2 4 2 2 1 1");
 	list <<= THISBACK(DataTask);
 	
 	output <<= THISBACK(ValueChange);
@@ -50,6 +51,7 @@ void Tasks::Data() {
 			s << " (" << t_("tries") << " " << t.tries << ")";
 		list.Set(i, 5, s);
 		list.Set(i, 6, GetModeString(t.p.mode));
+		list.Set(i, 7, GetGroupContextString(t.p.group_ctx));
 	}
 	list.SetCount(m.tasks.GetCount());
 	

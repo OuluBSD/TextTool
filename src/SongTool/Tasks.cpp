@@ -47,19 +47,19 @@ String Task::GetDescription() const {
 	return s;
 }
 
-bool Task::HasCreatedTasks() const {
+bool Task::HasCreatedTasks(GroupContext ctx) const {
 	TaskMgr& m = TaskMgr::Single();
 	for (const Task& t : m.tasks) {
-		if (t.created_by == this)
+		if (t.created_by == this && t.p.group_ctx == ctx)
 			return true;
 	}
 	return false;
 }
 
-bool Task::IsCreatedTasksReady() const {
+bool Task::IsCreatedTasksReady(GroupContext ctx) const {
 	TaskMgr& m = TaskMgr::Single();
 	for (const Task& t : m.tasks) {
-		if (t.created_by != this)
+		if (t.created_by != this || t.p.group_ctx != ctx)
 			continue;
 		if (!t.ready)
 			return false;
@@ -240,50 +240,50 @@ bool Task::CheckArguments() {
 			break;
 		case V_PTR_SONG:
 			if (!p.song) {
-				SetError("song pointer is missing");
+				SetFatalError("song pointer is missing");
 				return false;
 			}
 			break;
 		case V_PTR_LINE:
 			if (!p.line) {
-				SetError("line pointer is missing");
+				SetFatalError("line pointer is missing");
 				return false;
 			}
 			break;
 		case V_PTR_SONG_UNIQUELINES:
 			if (!p.song->headers[0].unique_lines.GetCount() ||
 				!p.song->headers[1].unique_lines.GetCount()) {
-				SetError("song's unique lines are missing");
+				SetFatalError("song's unique lines are missing");
 				return false;
 			}
 			break;
 		case V_MODE:
 			if (p.mode < 0) {
-				SetError("mode is not set");
+				SetFatalError("mode is not set");
 				return false;
 			}
 			if (p.mode < i0 || p.mode >= i1) {
-				SetError("mode is not in range");
+				SetFatalError("mode is not in range");
 				return false;
 			}
 			break;
 		case V_ARGS:
 			if (args.GetCount() < i0 || args.GetCount() > i1) {
-				SetError("argument count is not in range");
+				SetFatalError("argument count is not in range");
 				return false;
 			}
 			break;
 		case V_SONG_LYRICS:
 			for(int i = 0; i < GENDER_COUNT; i++) {
 				if (p.song->headers[i].content.IsEmpty()) {
-					SetError("lyrics are missing for gender " + GetModeString(i));
+					SetFatalError("lyrics are missing for gender " + GetModeString(i));
 					return false;
 				}
 			}
 			break;
 		case V_SONG_PARTS:
 			if (p.song->parts.IsEmpty()) {
-				SetError("no parts in song");
+				SetFatalError("no parts in song");
 				return false;
 			}
 			break;
@@ -292,7 +292,7 @@ bool Task::CheckArguments() {
 				for (Part& part : p.song->parts) {
 					for (Line& line : part.lines) {
 						if (line.snap[i].txt.IsEmpty()) {
-							SetError("text is missing for gender " + GetModeString(i));
+							SetFatalError("text is missing for gender " + GetModeString(i));
 							return false;
 						}
 					}

@@ -399,9 +399,9 @@ void Task::Process_PatternMask() {
 			if (line.Left(1) == "-") line = TrimBoth(line.Mid(1));
 			int colon = line.Find(":");
 			if (colon < 0) {
-				/*SetError("semicolon not found at " + key + " line " + IntStr(j-1));
-				return;*/
-				continue;
+				SetError("semicolon not found at " + key + " line " + IntStr(j-1));
+				return;
+				//continue;
 			}
 			String group = TrimBoth(line.Left(colon));
 			Vector<String>& parsed_values = parsed_key.GetAdd(group);
@@ -414,16 +414,24 @@ void Task::Process_PatternMask() {
 		}
 	}
 	
+	Index<String> unwritten_parts;
+	for (Part& part : song.parts)
+		unwritten_parts << ToLower(part.name);
+	
 	// Process parsed values
 	for(int i = 0; i < parsed.GetCount(); i++) {
 		const String& part_key = parsed.GetKey(i);
 		const VectorMap<String, Vector<String>>& parsed_key = parsed[i];
 		int pm_i = song.FindPartIdx(part_key);
 		if (pm_i < 0) {
+			if (unwritten_parts.IsEmpty())
+				break;
 			SetError("part was not found: " + part_key);
 			return;
 		}
 		Part& part = song.parts[pm_i];
+		
+		unwritten_parts.RemoveKey(part.name);
 		
 		for(int j = 0; j < parsed_key.GetCount(); j++) {
 			const String& group = parsed_key.GetKey(j);
@@ -472,8 +480,8 @@ void Task::Process_Pattern() {
 	
 	
 	// Connect line number to unique line
-	int offset_begin = StrInt(args[2]);
-	int offset_end = StrInt(args[3]);
+	int offset_begin = StrInt(args[1]);
+	int offset_end = StrInt(args[2]);
 	VectorMap<int,int> intmap;
 	for(int i = 0, j = 0; i < song.headers[mode].unique_lines.GetCount(); i++) {
 		const String& l = song.headers[mode].unique_lines.GetKey(i);
@@ -911,7 +919,8 @@ void Task::Process_AttrScores() {
 			bool found = false;
 			for(int i = 0; i < g.groups.GetCount(); i++) {
 				Attributes::Group& gg = g.groups[i];
-				if (ToLower(gg.description) == group) {
+				const Attributes::GroupType& gt = db.attrs.group_types[gg.type_i];
+				if (ToLower(gg.description) == group && gt.group_ctx == p.group_ctx) {
 					for(int j = 0; j < gg.values.GetCount(); j++) {
 						String v = gg.values[j];
 						if (ToLower(v) == key) {
@@ -1043,6 +1052,11 @@ bool Task::AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str)
 	// Find matching group and value (using lowercase strings)
 	for(int i = 0; i < g.groups.GetCount(); i++) {
 		Attributes::Group& gg = g.groups[i];
+		
+		// Skip different group context
+		const Attributes::GroupType& gt = db.attrs.group_types[gg.type_i];
+		if (gt.group_ctx != p.group_ctx)
+			continue;
 		
 		//LOG("'" << group << "' vs '" << ToLower(gg.description) << "'");
 		if (group.GetCount() && ToLower(gg.description) != group)

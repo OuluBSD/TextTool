@@ -12,25 +12,31 @@ void Task::Process_MakeImportTasks() {
 		if (!ParseOriginalLyrics())
 			return;
 	}
-	{
+	
+	for (GroupContext ctx = CTX_TEXT; ctx != CTX_COUNT; ((int&)ctx)++) {
 		for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
 			for(int j = 0; j < GENDER_COUNT; j++) {
 				const Attributes::GroupType& group_type = db.attrs.group_types[i];
-					
+				
+				// Skip different context
+				if (group_type.group_ctx != ctx)
+					continue;
+				
 				// Add task for type
 				Task& t = ResultTask(TASK_PATTERNMASK);
 				t.p = p;
 				t.p.mode = j;
-				t.args << group_type.name << group_type.ai_txt << artist.vocalist_visual;
+				t.p.group_ctx = ctx;
+				t.args << group_type.name << artist.vocalist_visual;
 			}
 		}
 	}
-	
 	{
 		for(int j = 0; j < GENDER_COUNT; j++) {
 			Task& t = ResultTask(TASK_STORYARC);
 			t.p = p;
 			t.p.mode = j;
+			t.p.group_ctx = CTX_TEXT;
 		}
 	}
 	
@@ -49,6 +55,7 @@ void Task::Process_MakeImportTasks() {
 				t.p.CopyPtrs(*snap);
 				t.p.snap = snap;
 				t.p.mode = j;
+				t.p.group_ctx = CTX_TEXT;
 				ASSERT(t.p.snap && t.p.line);
 			}
 		}
@@ -59,6 +66,7 @@ void Task::Process_MakeImportTasks() {
 			Task& t = ResultTask(TASK_MAKE_IMPACT_SCORING_TASKS);
 			t.p = p;
 			t.p.mode = j;
+			t.p.group_ctx = CTX_TEXT;
 		}
 	}
 	
@@ -75,6 +83,7 @@ void Task::Process_MakeImportTasks() {
 					t.args << artist.vocalist_visual;
 					t.args << key;
 					t.whole_song = whole_song;
+					t.p.group_ctx = CTX_TEXT;
 					
 					const Vector<String>& v = db.attrs.analysis[i];
 					for(int j = 0; j < v.GetCount(); j++)
@@ -226,6 +235,9 @@ void Task::Process_MakeAttrScores() {
 		ASSERT(gg.type_i >= 0);
 		const Attributes::GroupType& group_type = attrs.group_types[gg.type_i];
 		
+		// Skip different context
+		if (group_type.group_ctx != p.group_ctx)
+			continue;
 		
 		// Skip groups, which doesn't match this task
 		ASSERT(gg.type.GetCount());
@@ -262,7 +274,7 @@ void Task::Process_MakeAttrScores() {
 			
 			Task& t = ResultTask(TASK_ATTRSCORES);
 			t.p = this->p;
-			t.args << group_type.name << group_type.ai_txt;
+			t.args << group_type.name;
 			
 			// Prevent stupid loops
 			/*
@@ -318,10 +330,14 @@ void Task::Process_MakePatternTasks() {
 		for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
 			const Attributes::GroupType& group_type = db.attrs.group_types[i];
 			
+			// Skip different context
+			if (group_type.group_ctx != p.group_ctx)
+				continue;
+			
 			for(int j = 0; j < tasks; j++) {
 				Task& t = ResultTask(TASK_PATTERN);
 				t.p = this->p;
-				t.args << group_type.name << group_type.ai_txt << IntStr(j * per_task) << IntStr((j + 1) * per_task);
+				t.args << group_type.name << IntStr(j * per_task) << IntStr((j + 1) * per_task);
 			}
 		}
 	}

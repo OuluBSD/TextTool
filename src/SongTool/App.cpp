@@ -11,7 +11,13 @@ SongTool::SongTool() {
 	is_maximized = false;
 	Load();
 	
-	ed.WhenStartUpdating << [this](){tc.Set(-500, THISBACK(Data));};
+	ed.WhenStartUpdating << [this](){
+		#ifdef flagDEBUG
+		tc.Set(-500, THISBACK(Data));
+		#else
+		tc.Set(-100, THISBACK(Data));
+		#endif
+	};
 	ed.WhenStopUpdating << [this](){tc.Kill();};
 	ed.PostInit();
 	
