@@ -136,7 +136,14 @@
 				"health",
 				"southern girl",
 				"ma",
-				"pa"
+				"pa",
+				"sarcastic mister",
+				"bathroom stall",
+				"texas scarlet",
+				"soft spoken",
+				"broken jaw",
+				"service station",
+				"vantage point"
 			]
 		},
 		{
@@ -160,7 +167,9 @@
 				"our",
 				"myself",
 				"outside",
-				"around"
+				"around",
+				"them",
+				"my"
 			]
 		},
 		{
@@ -197,7 +206,8 @@
 				"step",
 				"crawl",
 				"soft",
-				"see"
+				"see",
+				"say"
 			]
 		},
 		{
@@ -218,7 +228,9 @@
 				"soft",
 				"texas",
 				"broken",
-				"mister"
+				"mister",
+				"all",
+				"know-it-all"
 			]
 		},
 		{
@@ -242,7 +254,9 @@
 				"close",
 				"high",
 				"softly",
-				"know-it-all"
+				"know-it-all",
+				"closely",
+				"wish"
 			]
 		},
 		{
@@ -269,7 +283,9 @@
 				"over",
 				"up",
 				"in",
-				"of"
+				"of",
+				"for",
+				"so that"
 			]
 		},
 		{
@@ -299,7 +315,10 @@
 			},
 			"values": [
 				"oh",
-				"worry"
+				"worry",
+				"'soft spoken'",
+				"huh",
+				"don't"
 			]
 		},
 		{
@@ -322,7 +341,13 @@
 				"subject-verb",
 				"clauses",
 				"phrases",
-				"sentences"
+				"sentences",
+				"simple sentence structure",
+				"repetition of lines",
+				"complex sentence structure",
+				"complex sentences",
+				"no errors",
+				"metaphors"
 			]
 		},
 		{
@@ -337,7 +362,11 @@
 				"irregularity",
 				"'cause",
 				"singular/plural",
-				"irregular forms"
+				"irregular forms",
+				"plural nouns: birds",
+				"-ing verb forms",
+				"no errors",
+				"word order"
 			]
 		},
 		{
@@ -355,7 +384,15 @@
 				"road trip",
 				"positive",
 				"meaning",
-				"denotation"
+				"denotation",
+				"romantic imagery",
+				"longing",
+				"desirous imagery",
+				"desperate imagery",
+				"moving imagery",
+				"personification of birds",
+				"expressions are meaningful",
+				"contextualization"
 			]
 		},
 		{
@@ -371,7 +408,12 @@
 				"conversation",
 				"suggestiveness",
 				"comforting",
-				"context-dependent expression"
+				"context-dependent expression",
+				"positive message of moving forward",
+				"showing sensations in song",
+				"messages are interpreted correctly",
+				"situation",
+				"emotion"
 			]
 		},
 		{
@@ -387,7 +429,10 @@
 				"view",
 				"repetition",
 				"dialogue",
-				"narration"
+				"narration",
+				"referencing previous verse",
+				"clear story structure",
+				"narrative"
 			]
 		},
 		{
@@ -400,7 +445,8 @@
 			},
 			"values": [
 				"sarcastic",
-				"soft spoken"
+				"soft spoken",
+				"dramatic sentences"
 			]
 		},
 		{
@@ -414,7 +460,9 @@
 			"values": [
 				"\"push me up (lovingly) against the wall (like you want to have sex)\"",
 				"\"(my man is) soft spoken with a broken jaw\"",
-				"i'll make it to the moon"
+				"i'll make it to the moon",
+				"'blood loss in a bathroom stall'",
+				"soft spoken with a broken jaw"
 			]
 		},
 		{
@@ -427,7 +475,8 @@
 			},
 			"values": [
 				"toilet",
-				"vantage point"
+				"vantage point",
+				"push me up against the wall"
 			]
 		},
 		{
@@ -443,7 +492,11 @@
 				"\"(but he will) step outside",
 				"but not to brawl (because he’s a good guy)\"",
 				"wish",
-				"broken jaw"
+				"broken jaw",
+				"sarcastic mister know-it-all",
+				"'from this vantage point'",
+				"scar tissue",
+				"autumn's sweet"
 			]
 		},
 		{
@@ -469,7 +522,9 @@
 			"values": [
 				"\"a southern girl with a scarlet (red as blood) drawl\"",
 				"toilet",
-				"vantage point"
+				"vantage point",
+				"'share this lonely viewin'",
+				"step outside but not to brawl"
 			]
 		},
 		{
@@ -482,7 +537,9 @@
 			},
 			"values": [
 				"mister know-it-all",
-				"call it fall"
+				"call it fall",
+				"sarcastic mister know-it-all",
+				"trip to the moon"
 			]
 		},
 		{
@@ -496,7 +553,10 @@
 			"values": [
 				"\"with the birds (that you can hear) i’ll share this lonely view\"",
 				"close your eyes",
-				"have to crawl"
+				"have to crawl",
+				"'from this toilet'",
+				"'i'm high and with the birds i'll share'",
+				"young kentucky girl in a push-up bra"
 			]
 		},
 		{
@@ -511,7 +571,9 @@
 				"\"scar tissue\"",
 				"\"with the birds (that you can hear) i’ll share this lonely viewin' (at this vantage point)\"",
 				"\"with the birds (that you can hear) i’ll share this lonely viewin' (at our walk outside)\"",
-				"share"
+				"share",
+				"'share this lonely viewin'",
+				"sharing a lonely viewin'"
 			]
 		},
 		{
@@ -534,7 +596,10 @@
 				"share",
 				"sarcastic mister know-it-all",
 				"lonely viewin'",
-				"as sweet as autumn's fall"
+				"as sweet as autumn's fall",
+				"'like a young kentucky girl in a push-up bra'",
+				"with the birds i'll share",
+				"describing loneliness like a bird that you can hear"
 			]
 		},
 		{
@@ -560,7 +625,13 @@
 				"scar tissue",
 				"blood",
 				"birds",
-				"loneliness"
+				"loneliness",
+				"'i'll kiss you with a drug injection'",
+				"lonely viewin'",
+				"drug injection",
+				"using crawl",
+				"push me up against the wall as a metaphor of sexual desire",
+				"describing courage like a crawling to the moon"
 			]
 		},
 		{
@@ -581,7 +652,10 @@
 				"sarcastic",
 				"wave goodbye to ma and pa",
 				"birds sharing the view",
-				"waves goodbye to ma and pa"
+				"waves goodbye to ma and pa",
+				"young kentucky girl in a push-up bra",
+				"blood loss in a bathroom stall",
+				"describing loneliness like a character/ figure that you can hear"
 			]
 		},
 		{
@@ -596,7 +670,10 @@
 				"\"i’ll kiss you",
 				"'cause with the birds i’ll share\"",
 				"lick your heart",
-				"kiss you"
+				"kiss you",
+				"'i'll make it to the moon if i have to crawl'",
+				"going to the moon if i have to crawl",
+				"wish you saw"
 			]
 		},
 		{
@@ -610,7 +687,9 @@
 			"values": [
 				"\"sarcastic mister know-it-all\"",
 				"taste your health",
-				"with the birds"
+				"with the birds",
+				"'from this toilet'",
+				"taste your skin and health"
 			]
 		},
 		{
@@ -624,7 +703,9 @@
 			"values": [
 				"\"fallin' all over myself (to get lower) to lick your heart (and pussy) and taste your (skin and) health  'cause\"",
 				"\"i’ll make it to the moon if i have to crawl (in the bed) and\"",
-				"service station"
+				"service station",
+				"'share this lonely viewin'",
+				"sharing a lonely view"
 			]
 		},
 		{
@@ -637,7 +718,15 @@
 			},
 			"values": [
 				"\"i wave goodbye to ma and pa (as i am leaving home) 'cause i'm going to a trip and with the birds i’ll share (this lonely view)\"",
-				"southern girl"
+				"southern girl",
+				"playful physicality",
+				"interpretation of dialogues",
+				"expression of emotions",
+				"work with band/musicians",
+				"emphasis on words",
+				"dramatic exercises",
+				"'scarlet drawl'",
+				"road trip"
 			]
 		},
 		{
@@ -649,7 +738,9 @@
 				"blue": 130
 			},
 			"values": [
-				"wave goodbye to ma and pa"
+				"wave goodbye to ma and pa",
+				"'i'll make it to the moon if i have to crawl'",
+				"close your eyes and i'll kiss you"
 			]
 		},
 		{
@@ -695,7 +786,14 @@
 				"southern drawl",
 				"broken jaw",
 				"autumn sweet",
-				"moon crawling"
+				"moon crawling",
+				"young kentucky girl in push-up brave",
+				"southern girl with a texas scarlet drawl",
+				"soft spoken with a broken jaw",
+				"scar tissue seen despite wish for invisibility",
+				"being pushed lovingly",
+				"blood loss in a bathroom stall",
+				"soft-spoken man with broken jaw"
 			]
 		},
 		{
@@ -723,7 +821,14 @@
 				"lovingly pushing",
 				"looking",
 				"saying goodbye to family",
-				"soft spoken"
+				"soft spoken",
+				"kissing despite drug use",
+				"trying to show love despite misfortunes",
+				"trying to get to the moon to escape current circumstances",
+				"kissing as a way of expressing feelings despite external fear",
+				"showing affection in physical pushing",
+				"leaving home to travel",
+				"stepping outside of comfort zone to protect partner"
 			]
 		},
 		{
@@ -759,7 +864,12 @@
 				"lovingly",
 				"wanting to have sex",
 				"going on a trip",
-				"stepping outside"
+				"stepping outside",
+				"licking heart",
+				"waving goodbye",
+				"crawling",
+				"physical action of pushing",
+				"leaving home"
 			]
 		},
 		{
@@ -775,7 +885,13 @@
 				"demonstrating moral restraint",
 				"understanding of universal justice",
 				"plea to divine",
-				"value of life"
+				"value of life",
+				"expressing love and caring despite external fear",
+				"offer companionship and solace.",
+				"expressing love in physical action.",
+				"leaving home to strive for a better life.",
+				"protecting partner even at risk to self.",
+				"expressing love and caring despite external fear."
 			]
 		},
 		{
@@ -797,7 +913,10 @@
 				"sharing",
 				"wanting to have sex",
 				"going on a trip",
-				"stepping outside"
+				"stepping outside",
+				"drug use",
+				"sharing of solitary view with the birds",
+				"sharing of solitude with birds"
 			]
 		},
 		{
@@ -811,7 +930,8 @@
 			"values": [
 				"unknown",
 				"pa and ma",
-				"ma and pa"
+				"ma and pa",
+				"birds"
 			]
 		},
 		{
@@ -832,7 +952,11 @@
 				"lovingly pushing",
 				"looking",
 				"saying goodbye to family",
-				"soft spoken"
+				"soft spoken",
+				"injecting",
+				"taking a drug injection",
+				"sharing a viewpoint",
+				"sharing of solitary view"
 			]
 		},
 		{
@@ -921,7 +1045,8 @@
 				"southern drawl",
 				"soft spoken",
 				"funny",
-				"viewin'"
+				"viewin'",
+				"reflective"
 			]
 		},
 		{
@@ -939,7 +1064,8 @@
 				"not afraid",
 				"lonliness",
 				"adventure",
-				"open air"
+				"open air",
+				"enjoying nature and the outdoors despite being down"
 			]
 		},
 		{
@@ -960,7 +1086,8 @@
 				"soft-spoken",
 				"vantage point",
 				"road trip",
-				"walk outside"
+				"walk outside",
+				"talking to birds"
 			]
 		},
 		{
@@ -983,7 +1110,8 @@
 				"taste health",
 				"reaching the moon",
 				"show him scar tissue",
-				"get to moon"
+				"get to moon",
+				"finding comfort in unusual places"
 			]
 		},
 		{
@@ -1001,7 +1129,8 @@
 				"drug use",
 				"self-discovery",
 				"breaking chains",
-				"make him afraid"
+				"make him afraid",
+				"introspection and contemplation"
 			]
 		},
 		{
@@ -1038,7 +1167,14 @@
 				"bathroom stall",
 				"a vantage point",
 				"previous boyfriend's house",
-				"ex-boyfriend's"
+				"ex-boyfriend's",
+				"nighttime",
+				"abandoned toilet",
+				"public toilet",
+				"inside a building",
+				"hilltop",
+				"unspecified location",
+				"outdoor area"
 			]
 		},
 		{
@@ -1066,7 +1202,13 @@
 				"lonely viewin'",
 				"lovingly",
 				"menstruation",
-				"soft spoken"
+				"soft spoken",
+				"dark",
+				"mysterious",
+				"intimate",
+				"calm",
+				"quiet",
+				"brightly lit"
 			]
 		},
 		{
@@ -1091,7 +1233,9 @@
 				"stall",
 				"road",
 				"close your eyes",
-				"southern"
+				"southern",
+				"suburban or urban street",
+				"rural or open space"
 			]
 		},
 		{
@@ -1106,7 +1250,12 @@
 				"autumn",
 				"share",
 				"trip",
-				"autumn's sweet (fall)"
+				"autumn's sweet (fall)",
+				"rainy",
+				"misty",
+				"clear",
+				"sunny",
+				"clear sky"
 			]
 		},
 		{
@@ -1125,7 +1274,10 @@
 				"evening",
 				"day",
 				"morning",
-				"outside"
+				"outside",
+				"late evening",
+				"late evening/night",
+				"mid-evening"
 			]
 		},
 		{
@@ -1187,7 +1339,12 @@
 				"step outside.",
 				"share the view",
 				"with the birds i'll share this lonely viewin'",
-				"my ex-boyfriend's scar tissue"
+				"my ex-boyfriend's scar tissue",
+				"metaphors",
+				"blood loss",
+				"symbolism of scar tissue",
+				"personification of sarcastic mister",
+				"exploring the contrast between home/family and adventure"
 			]
 		},
 		{
@@ -1209,7 +1366,13 @@
 				"close your eyes and i'll kiss you",
 				"birds",
 				"close your eyes and kiss you",
-				"from this toilet"
+				"from this toilet",
+				"personification",
+				"southern girl",
+				"sarcastic mister know-it-all",
+				"sarcasm",
+				"telling a short story in a lyrics",
+				"personification of “southern girl”"
 			]
 		},
 		{
@@ -1228,7 +1391,12 @@
 				"share",
 				"with the birds i'll share this lonely view",
 				"share this lonely viewin'",
-				"'cause with the birds i'll share"
+				"'cause with the birds i'll share",
+				"dreams",
+				"texas scarlet drawl",
+				"kissing wife",
+				"feeling of being afraid",
+				"awakening sensation of leaving the safety (home)"
 			]
 		},
 		{
@@ -1248,7 +1416,9 @@
 				"vantage point",
 				"autumn sweet",
 				"birds",
-				"drug injection"
+				"drug injection",
+				"birds as metaphorical companions of loneliness",
+				"birds as companions of the lonely road"
 			]
 		},
 		{
@@ -1284,7 +1454,10 @@
 				"close your eyes and i'll kiss you",
 				"view",
 				"push up against the wall",
-				"kentucky girl in a push-up bra"
+				"kentucky girl in a push-up bra",
+				"lonely viewing",
+				"vantage point of loneliness",
+				"visualising lonely road trip"
 			]
 		},
 		{
@@ -1306,7 +1479,12 @@
 				"reward",
 				"lonely view",
 				"lonely viewin'",
-				"lower to lick your heart and taste your health"
+				"lower to lick your heart and taste your health",
+				"toilet",
+				"service station",
+				"vantage point",
+				"concept of shared loneliness",
+				"concept of shared loneliness while travelling"
 			]
 		},
 		{
@@ -1328,7 +1506,9 @@
 				"taste your health",
 				"young kentucky girl with a push-up bra",
 				"share this lonely viewin'",
-				"make it to the moon if i have to crawl"
+				"make it to the moon if i have to crawl",
+				"making a journey to the moon if needed",
+				"aiming for the moon"
 			]
 		},
 		{
@@ -1354,7 +1534,13 @@
 				"freedom",
 				"solitude",
 				"lonely viewin’",
-				"trip"
+				"trip",
+				"young kentucky girl",
+				"soft spoken broken jaw",
+				"romance",
+				"hormonal drive",
+				"support from others",
+				"stories of overcoming hardships"
 			]
 		},
 		{
@@ -1402,7 +1588,8 @@
 				"blue": 174
 			},
 			"values": [
-
+				"exaggeration",
+				"expression of emotions"
 			]
 		},
 		{
@@ -1414,7 +1601,8 @@
 				"blue": 193
 			},
 			"values": [
-
+				"voiceover tones",
+				"vocal techniques"
 			]
 		},
 		{
@@ -1438,7 +1626,17 @@
 				"blue": 121
 			},
 			"values": [
-
+				"expression",
+				"movement of the body",
+				"intimate",
+				"protective",
+				"romantic",
+				"inviting",
+				"rebellious",
+				"joyful",
+				"loving",
+				"supportive",
+				"embracing"
 			]
 		},
 		{
@@ -1450,7 +1648,37 @@
 				"blue": 47
 			},
 			"values": [
-
+				"expression",
+				"utilization of facial makeup",
+				"intimate",
+				"alluring",
+				"flirting",
+				"authentic",
+				"determined",
+				"disruptive",
+				"loving",
+				"tender",
+				"engaging",
+				"adoring",
+				"sarcastic",
+				"closed",
+				"viewing",
+				"weak",
+				"taste",
+				"scarlet",
+				"broken",
+				"autumn's sweet",
+				"sorrowful",
+				"reflective",
+				"receptive",
+				"hopeful",
+				"determination",
+				"passion",
+				"soft",
+				"longing",
+				"sadness",
+				"bright",
+				"full of adventure"
 			]
 		},
 		{
@@ -1462,7 +1690,16 @@
 				"blue": 81
 			},
 			"values": [
-
+				"utilization of pauses",
+				"creation of suspense",
+				"ecstatic",
+				"exciting",
+				"sumptuous",
+				"romantic",
+				"wild",
+				"dramatic",
+				"hopeful",
+				"athletic"
 			]
 		},
 		{
@@ -1474,7 +1711,18 @@
 				"blue": 19
 			},
 			"values": [
-
+				"choose of props",
+				"utilization of voice inflection",
+				"audio techniques",
+				"cadence",
+				"positive",
+				"stylish",
+				"great",
+				"shiny",
+				"adventurous",
+				"edgy",
+				"simple",
+				"sweet"
 			]
 		},
 		{
@@ -1486,7 +1734,8 @@
 				"blue": 108
 			},
 			"values": [
-
+				"intentional choice of words",
+				"character development"
 			]
 		},
 		{
@@ -1510,7 +1759,12 @@
 				"blue": 80
 			},
 			"values": [
-
+				"timing",
+				"behind the camera elements",
+				"mise-en-scene",
+				"directional cues",
+				"improvisation",
+				"body language"
 			]
 		},
 		{
@@ -1522,7 +1776,18 @@
 				"blue": 65
 			},
 			"values": [
-
+				"interplay between performer and audience",
+				"narrative arcs",
+				"inflection",
+				"volume of voice",
+				"focused",
+				"confident",
+				"exotic",
+				"dynamic",
+				"animistic",
+				"unique",
+				"loving",
+				"harmonious"
 			]
 		},
 		{
@@ -1546,7 +1811,14 @@
 				"blue": 190
 			},
 			"values": [
-
+				"precise",
+				"energetic",
+				"clever",
+				"spontaneous",
+				"intense",
+				"compelling",
+				"sensitive",
+				"graceful"
 			]
 		},
 		{
@@ -1738,7 +2010,23 @@
 				"blue": 82
 			},
 			"values": [
-
+				"pushing",
+				"crawling",
+				"viewing",
+				"falling",
+				"wall",
+				"bathroom stall",
+				"soft-speak",
+				"kissing",
+				"hunching of the shoulders",
+				"arms crossed",
+				"leaning in",
+				"full attention",
+				"squaring of the shoulders",
+				"chest out",
+				"wringing of hands",
+				"head bowed",
+				"arms crossed yet still relaxed"
 			]
 		},
 		{
@@ -1882,7 +2170,27 @@
 				"blue": 241
 			},
 			"values": [
-
+				"wishing",
+				"pushing",
+				"sharing",
+				"falling",
+				"waving",
+				"soft-speaking",
+				"crawling",
+				"kissing",
+				"a gentle caressing of the face",
+				"emphasizing specific points",
+				"arms outstretched",
+				"palms opening and closing",
+				"quick tightening of the fists",
+				"hands poised as if ready to fight",
+				"palms cupped",
+				"as if cradling a bird",
+				"hand wiping away tears",
+				"holding a single tissue",
+				"as if framing the view",
+				"soft touches",
+				"gentle squeezes"
 			]
 		},
 		{
@@ -1966,7 +2274,24 @@
 				"blue": 97
 			},
 			"values": [
-
+				"quick",
+				"smooth",
+				"abrupt",
+				"sudden",
+				"explosive",
+				"dynamic",
+				"fast",
+				"rapid",
+				"tunneling",
+				"haunting",
+				"cruising",
+				"fluid",
+				"serene",
+				"artful",
+				"subtle",
+				"soothing",
+				"graceful",
+				"elegant"
 			]
 		},
 		{
@@ -1978,7 +2303,18 @@
 				"blue": 32
 			},
 			"values": [
-
+				"gradual",
+				"subtle",
+				"slow",
+				"fast",
+				"sharp",
+				"gentle",
+				"refined",
+				"deliberate",
+				"soft",
+				"gradually fading",
+				"encapsulating",
+				"calming"
 			]
 		},
 		{
@@ -1990,7 +2326,24 @@
 				"blue": 50
 			},
 			"values": [
-
+				"short",
+				"fluid",
+				"lengthy",
+				"articulated",
+				"intricate",
+				"precise",
+				"structured",
+				"layered",
+				"delicate",
+				"varied",
+				"complex",
+				"multifaceted",
+				"transient",
+				"melodic",
+				"discrete",
+				"listenable",
+				"poetic",
+				"lyrically inspired"
 			]
 		},
 		{
@@ -2002,7 +2355,24 @@
 				"blue": 39
 			},
 			"values": [
-
+				"intricate",
+				"detail-oriented",
+				"dramatic",
+				"expressive",
+				"hypnotic",
+				"trance-like",
+				"ambitious",
+				"layered",
+				"brooding",
+				"gently-weaved",
+				"surreal",
+				"magnetic",
+				"wistful",
+				"nostalgic",
+				"dreamy",
+				"uplifting",
+				"delicate",
+				"gentle"
 			]
 		},
 		{
@@ -2014,7 +2384,15 @@
 				"blue": 82
 			},
 			"values": [
-
+				"sarcastic",
+				"young",
+				"outside",
+				"wall",
+				"bathroom stall",
+				"soft spoken",
+				"broken jaw",
+				"around me",
+				"close your eyes"
 			]
 		},
 		{
@@ -2026,7 +2404,9 @@
 				"blue": 62
 			},
 			"values": [
-
+				"drug injection",
+				"toilet",
+				"service station"
 			]
 		},
 		{
@@ -2038,7 +2418,12 @@
 				"blue": 190
 			},
 			"values": [
-
+				"close your eyes",
+				"lonely viewing",
+				"lick your heart",
+				"wave goodbye",
+				"make it to the moon",
+				"kiss you"
 			]
 		},
 		{
@@ -2050,7 +2435,9 @@
 				"blue": 143
 			},
 			"values": [
-
+				"high",
+				"share",
+				"taste your health"
 			]
 		},
 		{
@@ -2062,7 +2449,11 @@
 				"blue": 94
 			},
 			"values": [
-
+				"kentucky girl",
+				"push-up bra",
+				"southern girl",
+				"scarlet drawl",
+				"autumn sweet (fall)"
 			]
 		}
 	],

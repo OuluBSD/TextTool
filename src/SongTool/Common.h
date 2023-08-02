@@ -81,11 +81,11 @@ String GetCommonModeString(int i);
 
 typedef enum : int {
 	CTX_INVALID = -1,
-	CTX_TEXT,
 	CTX_VISUAL,
+	CTX_TEXT,
 	
 	CTX_COUNT,
-	CTX_BEGIN = CTX_TEXT
+	CTX_BEGIN = CTX_VISUAL
 } GroupContext;
 
 

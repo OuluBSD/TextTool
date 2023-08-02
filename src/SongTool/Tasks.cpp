@@ -359,6 +359,7 @@ bool Task::WriteResults() {
 		case O_BREAK_IMPACT_SCORES: break;
 		case O_BREAK_REVERSED_IMPACT: break;
 		case O_BREAK_REVERSED_SNAP: break;
+		case O_NEXT_CTX_JUMP: break;
 		}
 	}
 	

@@ -309,14 +309,19 @@ void Task::Process_ReverseCommonMask() {
 				double corr = (gc * sum_XY - sum_X * sum_Y) / sq;
 				
 				if (!IsFin(corr)) {
-					DUMP(sum_X);
-					DUMP(sum_Y);
-					DUMP(sum_XY);
-					DUMP(squareSum_X);
-					DUMP(squareSum_Y);
-					DUMP(sq);
-					DUMP(mul);
-					ASSERT(0);
+					if (1) {
+						corr = -1;
+					}
+					else {
+						DUMP(sum_X);
+						DUMP(sum_Y);
+						DUMP(sum_XY);
+						DUMP(squareSum_X);
+						DUMP(squareSum_Y);
+						DUMP(sq);
+						DUMP(mul);
+						ASSERT(0);
+					}
 				}
 				energy = corr;
 			}
@@ -590,14 +595,19 @@ void Task::Process_ReverseSeparateMask() {
 				double corr = (gc * sum_XY - sum_X * sum_Y) / sq;
 				
 				if (!IsFin(corr)) {
-					DUMP(sum_X);
-					DUMP(sum_Y);
-					DUMP(sum_XY);
-					DUMP(squareSum_X);
-					DUMP(squareSum_Y);
-					DUMP(sq);
-					DUMP(mul);
-					ASSERT(0);
+					if (1) {
+						corr = -1;
+					}
+					else {
+						DUMP(sum_X);
+						DUMP(sum_Y);
+						DUMP(sum_XY);
+						DUMP(squareSum_X);
+						DUMP(squareSum_Y);
+						DUMP(sq);
+						DUMP(mul);
+						ASSERT(0);
+					}
 				}
 				energy = corr;
 			}

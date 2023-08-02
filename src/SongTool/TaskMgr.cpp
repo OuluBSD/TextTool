@@ -424,9 +424,13 @@ bool TaskMgr::SpawnTasks() {
 		task_songs.FindAdd(t.p.song);
 	GroupContext ctx_limit = GetGroupContextLimit();
 	for (TaskRule& r : rules) {
-		for (GroupContext ctx = CTX_TEXT; ctx != ctx_limit; ((int&)ctx)++) {
+		for (GroupContext ctx = CTX_BEGIN; ctx != ctx_limit; ((int&)ctx)++) {
 			bool ctx_spawned = false;
 			if (r.spawnable) {
+				bool verbose = false; //r.code == TASK_MAKE_REVERSE_MASK_TASK && task_songs.GetCount();
+				if (verbose) {
+					DUMP((int)ctx);
+				}
 				ASSERT(r.reqs.GetCount());
 				for (Song* s : task_songs.GetKeys()) {
 					Task* exists_already = 0;
@@ -453,7 +457,9 @@ bool TaskMgr::SpawnTasks() {
 					}
 					
 					bool found_all = true;
+					int dbg_i = -1;
 					for (TaskOutputType tt : r.reqs) {
+						dbg_i++;
 						bool skips_ctx = IsTaskSkippingContext(tt);
 						bool found = false;
 						for (Task& t : tasks) {
@@ -469,10 +475,14 @@ bool TaskMgr::SpawnTasks() {
 						}
 						// Special case
 						if (tt == O_NEXT_CTX_JUMP) {
-							if (tt == CTX_BEGIN)
+							if (ctx == CTX_BEGIN)
 								found = true;
 						}
 						if (!found) {
+							if (verbose) {
+								DUMP(dbg_i);
+								DUMP((int)tt);
+							}
 							found_all = false;
 							break;
 						}

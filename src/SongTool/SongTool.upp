@@ -9,6 +9,7 @@ library(POSIX) curl;
 library(WIN32 & MSC) libcurl;
 
 file
+	TODO.txt,
 	SongTool.h,
 	SongTool.cpp,
 	SongTool.rc,

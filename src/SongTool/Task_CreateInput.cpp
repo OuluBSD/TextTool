@@ -364,7 +364,7 @@ void Task::CreateInput_Pattern() {
 	//failed = true;
 	//this->hash = hash;
 	input = s;
-	response_length = 2*1024;
+	response_length = 1024*3/2;
 }
 
 void Task::CreateInput_Analysis() {

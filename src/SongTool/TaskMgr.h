@@ -61,6 +61,7 @@ inline bool IsTaskSkippingContext(TaskOutputType tt) {
 	switch (tt) {
 		case O_ORDER_IMPORT:
 		case O_ORDER_IMPORT_DETAILED:
+		case O_ORDER_REVERSE:
 		case O_NEXT_CTX_JUMP:
 			return true;
 		default:

@@ -13,7 +13,7 @@ void Task::Process_MakeImportTasks() {
 			return;
 	}
 	
-	for (GroupContext ctx = CTX_TEXT; ctx != CTX_COUNT; ((int&)ctx)++) {
+	for (GroupContext ctx = CTX_BEGIN; ctx != CTX_COUNT; ((int&)ctx)++) {
 		for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
 			for(int j = 0; j < GENDER_COUNT; j++) {
 				const Attributes::GroupType& group_type = db.attrs.group_types[i];
@@ -36,7 +36,7 @@ void Task::Process_MakeImportTasks() {
 			Task& t = ResultTask(TASK_STORYARC);
 			t.p = p;
 			t.p.mode = j;
-			t.p.group_ctx = CTX_TEXT;
+			t.p.group_ctx = CTX_BEGIN;
 		}
 	}
 	
@@ -55,7 +55,7 @@ void Task::Process_MakeImportTasks() {
 				t.p.CopyPtrs(*snap);
 				t.p.snap = snap;
 				t.p.mode = j;
-				t.p.group_ctx = CTX_TEXT;
+				t.p.group_ctx = CTX_BEGIN;
 				ASSERT(t.p.snap && t.p.line);
 			}
 		}
@@ -66,7 +66,7 @@ void Task::Process_MakeImportTasks() {
 			Task& t = ResultTask(TASK_MAKE_IMPACT_SCORING_TASKS);
 			t.p = p;
 			t.p.mode = j;
-			t.p.group_ctx = CTX_TEXT;
+			t.p.group_ctx = CTX_BEGIN;
 		}
 	}
 	
@@ -83,7 +83,7 @@ void Task::Process_MakeImportTasks() {
 					t.args << artist.vocalist_visual;
 					t.args << key;
 					t.whole_song = whole_song;
-					t.p.group_ctx = CTX_TEXT;
+					t.p.group_ctx = CTX_BEGIN;
 					
 					const Vector<String>& v = db.attrs.analysis[i];
 					for(int j = 0; j < v.GetCount(); j++)
