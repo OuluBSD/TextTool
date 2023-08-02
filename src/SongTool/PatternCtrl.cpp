@@ -41,7 +41,7 @@ void PatternCtrl::Data() {
 
 void PatternCtrl::DataPatternTree() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	if (!p.song)
 		return;
 	
@@ -72,9 +72,9 @@ void PatternCtrl::OnTreeSel() {
 		Part& part = *tree_parts[j];
 		SnapContext& ctx = *tree_snaps[i];
 		for(int k = 0; k < PTR_COUNT; k++) {
-			Ptrs& p = db.ctx[k];
+			Ptrs& p = db.ctx.p;
 			p.part = &part;
-			p.snap = &ctx.snap[k];
+			db.ctx.snap[k] = &ctx.snap[k];
 		}
 		FocusListAll();
 		DataListAll();
@@ -84,11 +84,11 @@ void PatternCtrl::OnTreeSel() {
 
 void PatternCtrl::OnListSel(int mode) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[mode];
+	Ptrs& p = db.ctx.p;
 	int cursor = list[mode]->GetCursor();
 	if (cursor >= 0 && cursor < level_snaps[mode].GetCount()) {
 		PatternSnap& snap = *level_snaps[mode][cursor];
-		p.snap = &snap;
+		db.ctx.snap[mode] = &snap;
 		FocusTree(mode);
 		DataPatternSnap(mode);
 	}
@@ -102,9 +102,9 @@ void PatternCtrl::DataPatternSnap(int mode) {
 
 void PatternCtrl::DataList(int mode) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[mode];
+	Ptrs& p = db.ctx.p;
 	
-	if (!p.part || !p.snap)
+	if (!p.part || !db.ctx.snap[mode])
 		return;
 	
 	int src_mode = use_rev_snap ? mode + GENDER_COUNT : mode;
@@ -118,7 +118,7 @@ void PatternCtrl::DataList(int mode) {
 	if (g.groups.IsEmpty()) return;
 	
 	Part& part = *p.part;
-	PatternSnap& s = *p.snap;
+	PatternSnap& s = *db.ctx.snap[mode];
 	int level = s.GetLevel();
 	
 	Vector<PatternSnap*>& level_snaps = this->level_snaps[mode];
@@ -231,8 +231,8 @@ void PatternCtrl::DataList(int mode) {
 
 void PatternCtrl::MergeOwner() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
-	if (!p.part || !p.snap)
+	Ptrs& p = db.ctx.p;
+	if (!p.part)
 		return;
 	p.part->MergeOwner();
 	Data();
@@ -241,9 +241,9 @@ void PatternCtrl::MergeOwner() {
 void PatternCtrl::FocusTree(int mode) {
 	int src_mode = use_rev_snap ? mode + GENDER_COUNT : mode;
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[mode];
+	Ptrs& p = db.ctx.p;
 	for(int i = 0; i < tree_snaps.GetCount(); i++) {
-		if (&tree_snaps[i]->snap[src_mode] == p.snap) {
+		if (&tree_snaps[i]->snap[src_mode] == db.ctx.snap[mode]) {
 			tree.SetCursor(tree_snaps.GetKey(i));
 			break;
 		}
@@ -252,9 +252,9 @@ void PatternCtrl::FocusTree(int mode) {
 
 void PatternCtrl::FocusList(int mode) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[mode];
+	Ptrs& p = db.ctx.p;
 	for(int i = 0; i < level_snaps[mode].GetCount(); i++) {
-		if (level_snaps[mode][i] == p.snap) {
+		if (level_snaps[mode][i] == db.ctx.snap[mode]) {
 			list[mode]->SetCursor(i);
 			break;
 		}

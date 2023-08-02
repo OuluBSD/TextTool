@@ -22,7 +22,7 @@ ImpactCtrl::ImpactCtrl() {
 
 void ImpactCtrl::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	Song& song = *p.song;
 	Part& part = *p.part;
 	

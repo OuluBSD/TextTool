@@ -108,7 +108,6 @@ struct Ptrs {
 	Part*			part = 0;
 	Line*			line = 0;
 	Break*			brk = 0;
-	PatternSnap*	snap = 0;
 	int				mode = -1;
 	GroupContext	group_ctx = CTX_INVALID;
 	
@@ -125,18 +124,20 @@ struct Ptrs {
 };
 
 struct Context {
-	Ptrs			p[PTR_COUNT];
+	Ptrs			p;
+	PatternSnap*	snap[PTR_COUNT] = {0,0,0,0};
+	
 	AttrScoreGroup*	active_scoregroup = 0;
 	bool			active_wholesong = false;
 	
 	
 	Context() {
-		for(int i = 0; i < PTR_COUNT; i++)
-			p[i].mode = i;
+		//for(int i = 0; i < PTR_COUNT; i++)
+		//	p[i].mode = i;
 	}
-	bool HasSong() const {for(int i = 0; i < PTR_COUNT; i++) if (!p[i].song) return false; return true;}
+	bool HasSong() const {return p.song;}
 	
-	Ptrs& operator[](int i) {ASSERT(i >= 0 && i < PTR_COUNT); return p[i];}
+	//Ptrs& operator[](int i) {ASSERT(i >= 0 && i < PTR_COUNT); return p[i];}
 };
 
 

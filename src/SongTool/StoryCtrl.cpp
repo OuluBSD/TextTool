@@ -20,7 +20,7 @@ StoryCtrl::StoryCtrl() {
 
 void StoryCtrl::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	Song& song = *p.song;
 	
 	for (int mode = 0; mode < GENDER_COUNT; mode++) {

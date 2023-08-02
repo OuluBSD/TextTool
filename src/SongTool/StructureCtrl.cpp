@@ -57,7 +57,7 @@ void StructureCtrl::Data() {
 
 void StructureCtrl::DataSong() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	if (!p.song) {
 		part_list.Clear();
 		line_list.Clear();
@@ -97,7 +97,7 @@ void StructureCtrl::DataPart() {
 	if (!part_list.IsCursor())
 		return;
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	Song& s = *p.song;
 	
 	int c = part_list.GetCursor();
@@ -127,7 +127,7 @@ void StructureCtrl::DataLine() {
 	if (!part_list.IsCursor() || !line_list.IsCursor())
 		return;
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	Song& s = *p.song;
 	
 	int part_c = part_list.GetCursor();
@@ -169,7 +169,7 @@ void StructureCtrl::DataBreak() {
 	if (!part_list.IsCursor() || !line_list.IsCursor() || !break_list.IsCursor())
 		return;
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	Song& s = *p.song;
 	
 	int c = part_list.GetCursor();
@@ -192,7 +192,7 @@ void StructureCtrl::DataBreak() {
 
 void StructureCtrl::DataList() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	Song& song = *p.song;
 	
 	int c = part_list.GetCursor();
@@ -279,7 +279,7 @@ StructureDrawer::StructureDrawer() {
 
 void StructureDrawer::Paint(Draw& d) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	int mode = ctrl->mode;
 	
 	Size sz = GetSize();

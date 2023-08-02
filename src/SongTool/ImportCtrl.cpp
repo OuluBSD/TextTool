@@ -21,7 +21,7 @@ ImportCtrl::ImportCtrl() {
 
 void ImportCtrl::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	if (!p.song)
 		return;
 	
@@ -31,7 +31,7 @@ void ImportCtrl::Data() {
 
 void ImportCtrl::OnValueChange() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	if (!p.song)
 		return;
 	
@@ -68,8 +68,8 @@ void ImportCtrl::AddMessage(int line, int severity, String msg) {
 void ImportCtrl::MakeTasks() {
 	TaskMgr& m = TaskMgr::Single();
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
-	Ptrs& p_rev = db.ctx[MALE_REVERSED];
+	Ptrs& p = db.ctx.p;
+	//Ptrs& p_rev = db.ctx[MALE_REVERSED];
 	if (!p.song || !p.artist)
 		return;
 	Song& s = *p.song;

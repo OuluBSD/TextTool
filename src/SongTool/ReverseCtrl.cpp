@@ -53,7 +53,7 @@ void ReverseCtrl::SetSource(int i) {
 void ReverseCtrl::Data() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	
 	if (g.groups.IsEmpty()) return;
 	
@@ -132,7 +132,7 @@ void ReverseCtrl::Data() {
 
 void ReverseCtrl::DataWorker() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	if (!p.song)
 		return;
 	Song& song = *p.song;

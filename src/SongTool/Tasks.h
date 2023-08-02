@@ -98,6 +98,7 @@ struct Task {
 	
 	//Vector<Task*> depends_on;
 	Ptrs p;
+	PatternSnap* snap = 0;
 	ReverseTask* task = 0;
 	TaskMgr* mgr = 0;
 	

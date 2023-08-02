@@ -17,7 +17,7 @@ Sequencer::Sequencer() {
 
 void Sequencer::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	
 	if (!p.song)
 		return;

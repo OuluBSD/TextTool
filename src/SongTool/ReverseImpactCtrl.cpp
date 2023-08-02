@@ -14,8 +14,8 @@ ReverseImpactCtrl::ReverseImpactCtrl() {
 
 void ReverseImpactCtrl::Data() {
 	Database& db = Database::Single();
-	if (!db.ctx.p[0].song) return;
-	Song& song = *db.ctx.p[0].song;
+	if (!db.ctx.p.song) return;
+	Song& song = *db.ctx.p.song;
 	
 	song.lock.EnterRead();
 	
@@ -50,8 +50,8 @@ void ReverseImpactPlotter::Paint(Draw& d) {
 	d.DrawRect(sz, White());
 	
 	Database& db = Database::Single();
-	if (!db.ctx.p[0].song) return;
-	Song& song = *db.ctx.p[0].song;
+	if (!db.ctx.p.song) return;
+	Song& song = *db.ctx.p.song;
 	
 	
 	song.lock.EnterRead();

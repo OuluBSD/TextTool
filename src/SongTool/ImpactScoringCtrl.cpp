@@ -36,7 +36,7 @@ ImpactScoringCtrl::ImpactScoringCtrl() {
 
 void ImpactScoringCtrl::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	if (p.song) {
 		//p.song->RealizeImpacts();
 		
@@ -56,7 +56,7 @@ void ImpactScoringCtrl::Data() {
 
 void ImpactScoringCtrl::DataList(int mode) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	if (!p.song)
 		return;
 	Song& song = *p.song;
@@ -167,7 +167,7 @@ void ImpactScoringCtrl::DataList(int mode) {
 
 void ImpactScoringCtrl::ListValueChanged(int mode, int pos, int scoring) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	
 	if (!p.song)
 		return;

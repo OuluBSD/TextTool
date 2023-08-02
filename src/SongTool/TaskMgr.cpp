@@ -386,7 +386,7 @@ void TaskMgr::ImportSongAndMakeReversedSong(Song& s) {
 	
 	Task& t = tasks.Add();
 	t.rule = &r;
-	t.p.CopyPtrs(db.ctx.p[0]);
+	t.p.CopyPtrs(db.ctx.p);
 	
 }
 

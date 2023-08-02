@@ -58,7 +58,7 @@ void PatternScoringCtrl::AddPreset() {
 
 void PatternScoringCtrl::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	if (p.song) {
 		if (db.ctx.active_wholesong) {
 			for (int mode = 0; mode < GENDER_COUNT; mode++)
@@ -89,7 +89,7 @@ void PatternScoringCtrl::Data() {
 
 void PatternScoringCtrl::DataList(int mode) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	if (!p.song)
 		return;
 	Song& o = *p.song;
@@ -169,7 +169,7 @@ void PatternScoringCtrl::DataList(int mode) {
 
 void PatternScoringCtrl::ListValueChanged(int mode, int pos, int scoring) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	
 	if (!p.song)
 		return;
@@ -279,7 +279,7 @@ void PatternScoringCtrl::UpdatePreset() {
 
 void PatternScoringCtrl::ApplyPreset() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	if (!list.IsCursor() || !presets.IsCursor())
 		return;
 	if (!p.part)

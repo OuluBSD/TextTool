@@ -127,7 +127,7 @@ void AttrScoreCtrl::DataAttrScore() {
 	String title = attrscores.Get(cursor, 0);
 	
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	AttrScoreGroup& o = db.attrscores.groups[cursor];
 	db.ctx.active_scoregroup = &o;
 	
@@ -290,7 +290,7 @@ void AttrScoreCtrl::OnEntrySel() {
 
 void AttrScoreCtrl::CheckErrors() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	Attributes& g = db.attrs;
 	if (!p.part)
 		return;

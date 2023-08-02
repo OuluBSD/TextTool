@@ -31,13 +31,14 @@ void AttrCtrl::UpdateGroupsToScoring() {
 
 void AttrCtrl::Load() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[mode];
 	Attributes& g = db.attrs;
-	if (!p.snap)
+	Ptrs& p = db.ctx.p;
+	PatternSnap* snap = db.ctx.snap[mode];
+	if (!snap)
 		return;
 	
 	for (bool& b : active) b = false;
-	for (const SnapAttrStr& a : p.snap->attributes) {
+	for (const SnapAttrStr& a : snap->attributes) {
 		int id = a.group_i * g.group_limit + a.item_i;
 		ASSERT(id >= 0 && id < active.GetCount());
 		if (id >= 0 && id < active.GetCount())
@@ -46,7 +47,7 @@ void AttrCtrl::Load() {
 	
 	for (bool& b : inherited_active) b = false;
 	for (bool& b : sub_active) b = false;
-	PatternSnap* owner = p.snap->owner;
+	PatternSnap* owner = snap->owner;
 	while (owner) {
 		for (const SnapAttrStr& a : owner->attributes) {
 			int id = a.group_i * g.group_limit + a.item_i;
@@ -58,16 +59,16 @@ void AttrCtrl::Load() {
 		}
 		owner = owner->owner;
 	}
-	int level = p.snap->GetLevel();
+	int level = snap->GetLevel();
 	for (int l = level-1; l >= 0; l--) {
 		Vector<PatternSnap*> sub;
 		switch (level) {
-			case 0: p.snap->brk->GetSnapsLevel(mode, l, sub); break;
-			case 1: p.snap->line->GetSnapsLevel(mode, l, sub); break;
-			case 2: p.snap->part->GetSnapsLevel(mode, l, sub); break;
-			case 3: p.snap->song->GetSnapsLevel(mode, l, sub); break;
-			case 4: p.snap->release->GetSnapsLevel(mode, l, sub); break;
-			case 5: p.snap->artist->GetSnapsLevel(mode, l, sub); break;
+			case 0: snap->brk->GetSnapsLevel(mode, l, sub); break;
+			case 1: snap->line->GetSnapsLevel(mode, l, sub); break;
+			case 2: snap->part->GetSnapsLevel(mode, l, sub); break;
+			case 3: snap->song->GetSnapsLevel(mode, l, sub); break;
+			case 4: snap->release->GetSnapsLevel(mode, l, sub); break;
+			case 5: snap->artist->GetSnapsLevel(mode, l, sub); break;
 		}
 		for (PatternSnap* s : sub) {
 			for (const SnapAttrStr& a : s->attributes) {
@@ -82,12 +83,12 @@ void AttrCtrl::Load() {
 
 void AttrCtrl::Store() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[mode];
+	PatternSnap* snap = db.ctx.snap[mode];
 	Attributes& g = db.attrs;
-	if (!p.snap)
+	if (!snap)
 		return;
 	
-	p.snap->attributes.Clear();
+	snap->attributes.Clear();
 	
 	int id = 0;
 	for (bool& b : active) {
@@ -96,7 +97,7 @@ void AttrCtrl::Store() {
 			attr.item_i = id % g.group_limit;
 			attr.group_i = id / g.group_limit;
 			attr.RealizeId();
-			p.snap->attributes.Add(attr);
+			snap->attributes.Add(attr);
 		}
 		id++;
 	}
@@ -104,7 +105,7 @@ void AttrCtrl::Store() {
 
 void AttrCtrl::Paint(Draw& d) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[mode];
+	Ptrs& p = db.ctx.p;
 	Attributes& g = db.attrs;
 	Color bg = GrayColor(32);
 	Size sz = GetSize();
@@ -376,7 +377,7 @@ void AttrCtrl::MouseLeave() {
 
 void AttrCtrl::LeftDown(Point pt, dword keyflags) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[mode];
+	PatternSnap* snap = db.ctx.snap[mode];
 	Attributes& g = db.attrs;
 	for(RectId& rid : entry_rects) {
 		if (rid.a.Contains(pt)) {
@@ -388,15 +389,15 @@ void AttrCtrl::LeftDown(Point pt, dword keyflags) {
 			int id = a.group_i * g.group_limit + a.item_i;
 			if (id >= 0 && id < active.GetCount()) {
 				bool& b = active[id];
-				if (p.snap) {
+				if (snap) {
 					b = !b;
 					if (!b) {
-						int i = p.snap->attributes.Find(a);
+						int i = snap->attributes.Find(a);
 						ASSERT(i >= 0);
-						p.snap->attributes.Remove(i);
+						snap->attributes.Remove(i);
 					}
 					else {
-						p.snap->attributes.Add(a);
+						snap->attributes.Add(a);
 					}
 					Update();
 				}

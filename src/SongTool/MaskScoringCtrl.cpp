@@ -36,7 +36,7 @@ MaskScoringCtrl::MaskScoringCtrl() {
 
 void MaskScoringCtrl::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	if (p.song) {
 		if (db.ctx.active_wholesong) {
 			for (int mode = 0; mode < GENDER_COUNT; mode++)
@@ -54,7 +54,7 @@ void MaskScoringCtrl::Data() {
 
 void MaskScoringCtrl::DataList(int mode) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	if (!p.song)
 		return;
 	Song& song = *p.song;
@@ -101,7 +101,7 @@ void MaskScoringCtrl::DataList(int mode) {
 
 void MaskScoringCtrl::ListValueChanged(int mode, int pos, int scoring) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	
 	if (!p.song)
 		return;

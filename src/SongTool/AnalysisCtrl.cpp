@@ -27,7 +27,7 @@ AnalysisCtrl::AnalysisCtrl() {
 
 void AnalysisCtrl::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[0];
+	Ptrs& p = db.ctx.p;
 	Song& song = *p.song;
 	Part& part = *p.part;
 	
@@ -57,7 +57,7 @@ void AnalysisCtrl::Data() {
 
 void AnalysisCtrl::DataCursor(int match) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[0];
+	Ptrs& p = db.ctx.p;
 	Song& song = *p.song;
 	Part& part = *p.part;
 	

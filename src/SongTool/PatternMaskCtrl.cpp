@@ -24,7 +24,7 @@ PatternMaskCtrl::PatternMaskCtrl() {
 
 void PatternMaskCtrl::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx[MALE];
+	Ptrs& p = db.ctx.p;
 	Song& song = *p.song;
 	Attributes& a = db.attrs;
 	if (!db.ctx.active_wholesong && !p.part)

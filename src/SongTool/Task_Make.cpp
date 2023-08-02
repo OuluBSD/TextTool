@@ -53,10 +53,10 @@ void Task::Process_MakeImportTasks() {
 				
 				Task& t = ResultTask(TASK_IMPACT);
 				t.p.CopyPtrs(*snap);
-				t.p.snap = snap;
+				t.snap = snap;
 				t.p.mode = j;
 				t.p.group_ctx = CTX_BEGIN;
-				ASSERT(t.p.snap && t.p.line);
+				ASSERT(t.snap && t.p.line);
 			}
 		}
 	}
