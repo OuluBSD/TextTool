@@ -80,38 +80,60 @@ Color GetPartColor(const String& key, Color def) {
 		return def;
 }
 
-Color GetGenderColor(int i) {
-	switch (i) {
+Color GetGenderColor(SnapMode m) {
+	switch (m) {
 		case MALE:
-		case MALE_REVERSED:
 			return Color(41, 59, 202);
 		case FEMALE:
-		case FEMALE_REVERSED:
 			return Color(255, 42, 200);
 		default:
 			return GrayColor();
 	}
 }
 
-String GetModeString(int i) {
-	switch (i) {
+String GetSnapString(const SnapArg& a) {
+	String s;
+	s	<< GetContextString(a.ctx) << ", "
+		<< GetModeString(a.mode) << ", "
+		<< GetReverseString(a.rev);
+	return s;
+}
+
+String GetModeString(SnapMode m) {
+	switch (m) {
 		case MALE:				return "Male";
 		case FEMALE:			return "Female";
-		case MALE_REVERSED:		return "Male Reversed";
-		case FEMALE_REVERSED:	return "Female Reversed";
 		default: return "<error>";
 	}
 }
 
-String GetCommonModeString(int i) {
-	if (i < GENDER_COUNT)
-		return GetModeString(i);
-	switch (i) {
+String GetCommonModeString(SnapMode m) {
+	if (m < GENDER_COUNT)
+		return GetModeString(m);
+	switch (m) {
 		case COMMON: return "Common";
 		case WEIGHTED: return "Weighted";
 		default: return "<error>";
 	}
 }
+
+String GetContextString(GroupContext ctx) {
+	switch (ctx) {
+		case GroupContext::CTX_VISUAL: return "Visual";
+		case GroupContext::CTX_TEXT: return "Text";
+		default: return "<error>";
+	}
+}
+
+String GetReverseString(RevMode rev) {
+	switch (rev) {
+		case RevMode::FORWARD: return "Forward";
+		case RevMode::BACKWARD: return "Backward";
+		default: return "<error>";
+	}
+}
+
+
 
 
 

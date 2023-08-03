@@ -76,7 +76,7 @@ void ReverseCtrl::Data() {
 		
 		t.lock.EnterRead();
 		
-		PatternSnap& snap = t.ctx->snap[0];
+		const PatternSnap& snap = t.ctx->Get0();
 		String name =
 			g.Translate(snap.part->name) + ": " +
 			IntStr(snap.id) /*+ "/" +

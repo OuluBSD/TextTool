@@ -301,7 +301,7 @@ void AttrScoreCtrl::CheckErrors() {
 	
 	Part& part = *p.part;
 	
-	part.GetSnapAttributes(p.mode, attrs);
+	part.GetSnapAttributes(p.a, attrs);
 	
 	
 	int i = 0;

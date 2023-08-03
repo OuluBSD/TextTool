@@ -1,7 +1,7 @@
 #include "SongTool.h"
 
 
-void Line::ParseLine(Song& song, int mode, const String& txt) {
+void Line::ParseLine(Song& song, const SnapArg& a, const String& txt) {
 	Vector<String> parts = Split(txt, "[br]");
 	breaks.SetCount(parts.GetCount());
 	for(int i = 0; i < breaks.GetCount(); i++) {
@@ -21,8 +21,8 @@ void Line::ParseLine(Song& song, int mode, const String& txt) {
 	FixPtrs();
 }
 
-int Line::GetLength(int mode) const {
-	CHKMODE(mode);
+int Line::GetLength(const SnapArg& a) const {
+	a.Chk();
 	int len = 0;
 	for (const Break& brk : breaks)
 		len += brk.GetLength(mode);

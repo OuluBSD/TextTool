@@ -29,7 +29,7 @@ struct Song :
 	Vector<String>		structure;
 	Array<Part>			parts;
 	Array<Track>		tracks;
-	SongHeader			headers[PTR_COUNT];
+	PArr<SongHeader>	headers;
 	
 	//Array<Impact>		impacts;
 	
@@ -64,8 +64,8 @@ struct Song :
 			("tracks", tracks)
 			;
 		
-		for(int i = 0; i < PTR_COUNT; i++)
-			json("headers[" + IntStr(i) + "]", headers[i]);
+		for(const SnapArg& a : SnapArgs())
+			json("headers[" + a.SubscriptString() + "]", headers[a]);
 		
 		// rev_pattern_tasks
 		if (json.IsLoading()) {
@@ -178,7 +178,7 @@ struct Song :
 		FixPtrs();
 		return p;
 	}
-	int GetLength(int mode) const;
+	int GetLength(const SnapArg& a) const;
 	
 	PATTERNMASK_MACROS
 };

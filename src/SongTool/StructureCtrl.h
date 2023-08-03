@@ -30,7 +30,7 @@ class StructureCtrl : public Ctrl {
 	ArrayCtrl			list;
 	StructureDrawer		drawer;
 public:
-	int					mode = MALE;
+	SnapArg				a = ZeroArg();
 	
 public:
 	typedef StructureCtrl CLASSNAME;

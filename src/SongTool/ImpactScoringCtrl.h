@@ -3,9 +3,10 @@
 
 
 class ImpactScoringCtrl : public Ctrl {
-	Plotter plotter[GENDER_COUNT];
-	ArrayCtrl list[GENDER_COUNT];
-	Splitter vsplit[GENDER_COUNT], mainsplit;
+	PArr<Plotter> plotter;
+	PArr<ArrayCtrl> list;
+	PArr<Splitter> vsplit;
+	Splitter mainsplit;
 	
 	void ListMenu(Bar& bar);
 public:
@@ -13,9 +14,9 @@ public:
 	ImpactScoringCtrl();
 	
 	void Data();
-	void DataListAll() {for (int mode = 0; mode < GENDER_COUNT; mode++) DataList(mode);}
-	void DataList(int mode);
-	void ListValueChanged(int mode, int pos, int scoring);
+	void DataListAll() {for(const SnapArg& a : SnapArgs()) DataList(a);}
+	void DataList(const SnapArg& a);
+	void ListValueChanged(const SnapArg& a, int pos, int scoring);
 	
 	static const int group_begin = 4;
 	

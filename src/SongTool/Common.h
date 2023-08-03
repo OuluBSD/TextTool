@@ -59,25 +59,34 @@ struct DataFile {
 	
 };
 
-enum {
+typedef enum : int {
+	MODE_INVALID = -1,
+	
 	MALE,
 	FEMALE,
-	MALE_REVERSED,
-	FEMALE_REVERSED,
 	
-	PTR_COUNT,
-	GENDER_COUNT = MALE_REVERSED,
+	MODE_COUNT,
+	MODE_BEGIN = MALE,
 	
+	GENDER_COUNT = MODE_COUNT,
 	GENDER_COMMON_COUNT = GENDER_COUNT + 1,
 	GENDER_COMMON_WEIGHTED_COUNT = GENDER_COUNT + 2,
 	COMMON = GENDER_COUNT,
 	WEIGHTED = GENDER_COMMON_COUNT,
-};
+} SnapMode;
 
-#define CHKMODE(x) ASSERT(x >= 0 && x < PTR_COUNT);
+typedef enum : int {
+	REV_INVALID = -1,
+	
+	FORWARD,
+	BACKWARD,
+	
+	REV_COUNT,
+	REV_BEGIN = FORWARD,
+} RevMode;
 
-String GetModeString(int i);
-String GetCommonModeString(int i);
+String GetModeString(SnapMode m);
+String GetCommonModeString(SnapMode m);
 
 typedef enum : int {
 	CTX_INVALID = -1,
@@ -85,8 +94,14 @@ typedef enum : int {
 	CTX_TEXT,
 	
 	CTX_COUNT,
-	CTX_BEGIN = CTX_VISUAL
+	CTX_BEGIN = CTX_VISUAL,
+	CTX_END = CTX_COUNT,
 } GroupContext;
+
+
+enum {
+	PTR_COUNT = (int)MODE_COUNT * (int)CTX_COUNT * (int)REV_COUNT,
+};
 
 
 String GetGroupContextString(GroupContext ctx);
@@ -101,6 +116,118 @@ struct Break;
 struct PatternSnap;
 struct AttrScoreGroup;
 
+struct SnapArg : Moveable<SnapArg> {
+	GroupContext	ctx = CTX_INVALID;
+	SnapMode		mode = MODE_INVALID;
+	RevMode			rev = REV_INVALID;
+	
+	SnapArg() {}
+	SnapArg(GroupContext c, SnapMode m, RevMode r) : ctx(c), mode(m), rev(r) {}
+	SnapArg(const SnapArg& a) : ctx(a.ctx), mode(a.mode), rev(a.rev) {}
+	void Chk() const {
+		ASSERT(ctx >= CTX_BEGIN && ctx < CTX_END);
+		ASSERT(mode >= MODE_BEGIN && mode < MODE_COUNT);
+		ASSERT(rev >= REV_BEGIN && rev < REV_COUNT);
+	}
+	bool operator==(const SnapArg& a) const {
+		return
+			ctx == a.ctx &&
+			mode == a.mode &&
+			rev == a.rev;
+	}
+	void Set(int i) {
+		int j = i / (MODE_COUNT * 2);
+		ctx = (GroupContext)j;
+		i = i % (MODE_COUNT * 2);
+		j = i / 2;
+		mode = (SnapMode)j;
+		i = i % 2;
+		rev = (RevMode)i;
+	}
+	int Get() const {
+		Chk();
+		return (int)ctx * (2*MODE_COUNT) + (int)mode*2 + (int)rev;
+	}
+	int GetMode() const {return (int)mode;}
+	String SubscriptString() const {
+		Chk();
+		return "[" + IntStr(ctx) + "][" + IntStr(mode) + "][" + IntStr(rev) + "]";
+	}
+	void InverseDir() {
+		switch (rev) {
+			case FORWARD: rev = BACKWARD; break;
+			case BACKWARD: rev = FORWARD; break;
+			default: break;
+		}
+	}
+	void InverseMode() {
+		switch (mode) {
+			case MALE: mode = FEMALE; break;
+			case FEMALE: mode = MALE; break;
+			default: break;
+		}
+	}
+	void operator=(const SnapArg& a) {ctx = a.ctx; mode = a.mode; rev = a.rev;}
+	operator int() const {return Get();}
+	
+};
+
+template <class T>
+struct PArr {
+	T obj[CTX_COUNT][MODE_COUNT][REV_COUNT];
+	
+	PArr() {}
+	
+	T& operator[](const SnapArg& a) {
+		a.Chk();
+		return obj[a.ctx][a.mode][a.rev];
+	}
+	const T& operator[](const SnapArg& a) const {
+		a.Chk();
+		return obj[a.ctx][a.mode][a.rev];
+	}
+	
+	T* begin() {
+		T* o = &obj[0][0][0];
+		return o;
+	}
+	T* end() {
+		T* o = &obj[0][0][0];
+		o += PTR_COUNT;
+		return o;
+	}
+};
+
+String GetSnapString(const SnapArg& a);
+
+inline SnapArg ZeroArg() {
+	SnapArg a;
+	a.ctx = CTX_BEGIN;
+	a.mode = MODE_BEGIN;
+	a.rev = REV_BEGIN;
+	return a;
+}
+
+inline const Vector<SnapArg>& SnapArgs() {
+	static thread_local Vector<SnapArg> a;
+	if (a.IsEmpty()) {
+		for (int i = 0; i < CTX_COUNT; i++)
+			for(int j = 0; j < MODE_COUNT; j++)
+				for(int k = 0; k < REV_COUNT; k++)
+					a.Add(SnapArg((GroupContext)i, (SnapMode)j, (RevMode)k));
+	}
+	return a;
+}
+
+inline const Vector<SnapArg>& GenderArgs() {
+	static thread_local Vector<SnapArg> a;
+	if (a.IsEmpty()) {
+		for(int j = 0; j < GENDER_COUNT; j++)
+			a.Add(SnapArg(CTX_BEGIN, (SnapMode)j, REV_BEGIN));
+	}
+	return a;
+}
+
 struct Ptrs {
 	Artist*			artist = 0;
 	Release*		release = 0;
@@ -108,8 +235,7 @@ struct Ptrs {
 	Part*			part = 0;
 	Line*			line = 0;
 	Break*			brk = 0;
-	int				mode = -1;
-	GroupContext	group_ctx = CTX_INVALID;
+	SnapArg			a;
 	
 	void Clear() {memset(this, 0, sizeof(Ptrs));}
 	int GetActivePartIndex() const;
@@ -117,33 +243,39 @@ struct Ptrs {
 	int GetActiveReleaseIndex() const;
 	int GetActiveSongIndex() const;
 	void CopyPtrs(const Ptrs& p) {
-		*this = p;
+		memcpy(this, &p, sizeof(Ptrs));
 	}
 	String GetBreakInSongString() const;
 	String GetBreakInDatabaseString() const;
 };
 
 struct Context {
-	Ptrs			p;
-	PatternSnap*	snap[PTR_COUNT] = {0,0,0,0};
+	Ptrs				p;
+	PArr<PatternSnap*>	snap;
 	
-	AttrScoreGroup*	active_scoregroup = 0;
-	bool			active_wholesong = false;
+	AttrScoreGroup*		active_scoregroup = 0;
+	bool				active_wholesong = false;
 	
 	
 	Context() {
-		//for(int i = 0; i < PTR_COUNT; i++)
-		//	p[i].mode = i;
+		PatternSnap** it = snap.begin();
+		PatternSnap** end = snap.end();
+		while (it != end) {
+			*it = 0;
+			it++;
+		}
 	}
 	bool HasSong() const {return p.song;}
 	
-	//Ptrs& operator[](int i) {ASSERT(i >= 0 && i < PTR_COUNT); return p[i];}
+	//Ptrs& operator[](int i) {ASSERT(i >= 0 && i < MODE_COUNT); return p[i];}
 };
 
 
 
 Color GetPartColor(const String& name, Color def=Color(56,170,255));
-Color GetGenderColor(int i);
+String GetContextString(GroupContext ctx);
+String GetReverseString(RevMode rev);
+Color GetGenderColor(SnapMode m);
 
 String FixInvalidChars(const String& s);
 

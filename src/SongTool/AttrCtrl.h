@@ -10,7 +10,7 @@ class AttrCtrl : public Ctrl {
 	Vector<RectId> group_title_rects;
 	Vector<RectId> entry_rects;
 	RectId sel, pressed;
-	int mode = 0;
+	SnapArg a = ZeroArg();
 	
 	Vector<bool> active;
 	Vector<bool> inherited_active;
@@ -35,7 +35,7 @@ public:
 	void ContextMenu(Bar& bar, Point pt);
 	void AddGroup();
 	void AddEntry(int group);
-	void SetMode(int m);
+	void SetMode(const SnapArg& a);
 	
 	void MouseMove(Point p, dword keyflags) override;
 	void LeftDown(Point p, dword keyflags) override;

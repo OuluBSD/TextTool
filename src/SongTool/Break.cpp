@@ -1,8 +1,8 @@
 #include "SongTool.h"
 
-int Break::GetLength(int mode) const {
-	CHKMODE(mode);
-	const PatternSnap& snap = this->snap[mode];
+int Break::GetLength(const SnapArg& a) const {
+	a.Chk();
+	const PatternSnap& snap = this->Get(a);
 	if (snap.syllables == 0 && snap.txt.GetCount())  {
 		PatternSnap& s = const_cast<PatternSnap&>(snap);
 		s.syllables = max(1, s.txt.GetCount() / 3);

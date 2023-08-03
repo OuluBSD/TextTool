@@ -259,7 +259,7 @@ void Task::Process_ReverseCommonMask() {
 		
 		// Calculate result for the trial (=energy)
 		double av_energy = 0;
-		for (int mode = 0; mode < GENDER_COUNT; mode++) {
+		for (const SnapArg& a : GenderArgs()) {
 			double energy = 0;
 			if (0) {
 				for(int i = 0; i < gc; i++) {
@@ -378,7 +378,7 @@ void Task::Process_ReverseCommonMask() {
 		result_attrs.Clear();
 		
 		// Loop for genders
-		for (int mode = 0; mode < GENDER_COUNT; mode++) {
+		for (const SnapArg& a : GenderArgs()) {
 			
 			// Write to 'reversed' objects instead of source value objects
 			PatternSnap& snap = ctx.snap[MALE_REVERSED + mode];
@@ -527,7 +527,7 @@ void Task::Process_ReverseSeparateMask() {
 		
 		
 		// Calculate score of the trial solution (for all genders)
-		for (int mode = 0; mode < GENDER_COUNT; mode++) {
+		for (const SnapArg& a : GenderArgs()) {
 			int mc = min(separate_mask_max_values, sorter[mode].count);
 			for(int i = 0; i < mc; i++) {
 				int attr_i = sorter[mode].key[i];
@@ -544,7 +544,7 @@ void Task::Process_ReverseSeparateMask() {
 		
 		// Calculate result for all genders (and use average)
 		double av_energy = 0;
-		for (int mode = 0; mode < GENDER_COUNT; mode++) {
+		for (const SnapArg& a : GenderArgs()) {
 			double energy = 0;
 			if (0) {
 				int mc = min(separate_mask_max_values, sorter[mode].count);
@@ -659,7 +659,7 @@ void Task::Process_ReverseSeparateMask() {
 		task.lock.EnterWrite();
 		
 		// Clear values (loop for genders)
-		for (int mode = 0; mode < GENDER_COUNT; mode++) {
+		for (const SnapArg& a : GenderArgs()) {
 			task.result_attrs[mode].Clear();
 			PatternSnap& snap = ctx.snap[MALE_REVERSED + mode];
 			// DON'T CLEAR MASK HERE BECAUSE OF ALREADY WRITTEN COMMON ATTRS: snap.mask.Clear();
@@ -683,7 +683,7 @@ void Task::Process_ReverseSeparateMask() {
 		}
 		
 		// Get best values from the sorter (for all genders separately)
-		for (int mode = 0; mode < GENDER_COUNT; mode++) {
+		for (const SnapArg& a : GenderArgs()) {
 			int mc = min(common_mask_max_values, sorter[mode].count);
 			PatternSnap& snap = ctx.snap[MALE_REVERSED + mode];
 			for(int i = 0; i < mc; i++) {
@@ -967,7 +967,7 @@ void Task::Process_ReversePattern() {
 		
 		// Clear values (loop for genders)
 		task.result_attrs.SetCount(GENDER_COUNT);
-		for (int mode = 0; mode < GENDER_COUNT; mode++) {
+		for (const SnapArg& a : GenderArgs()) {
 			task.result_attrs[mode].Clear();
 			PatternSnap& snap = ctx.snap[MALE_REVERSED + mode];
 			snap.attributes.Clear();
@@ -1051,7 +1051,7 @@ void Task::Process_ReversePattern() {
 	}
 	
 	// merge common values to owners in snaps
-	for(int mode = 0; mode < GENDER_COUNT; mode++)
+	for(const SnapArg& a : GenderArgs())
 		ctx.snap[MALE_REVERSED + mode].part->MergeOwner();
 	
 	if (optimizer.IsEnd())

@@ -3,16 +3,17 @@
 
 
 class AnalysisCtrl : public Ctrl {
-	ArrayCtrl data[GENDER_COUNT];
-	DocEdit edit[GENDER_COUNT], full[GENDER_COUNT];
-	Splitter hsplit, vsplit[GENDER_COUNT];
+	PArr<ArrayCtrl> data;
+	PArr<DocEdit> edit, full;
+	Splitter hsplit;
+	PArr<Splitter> vsplit;
 	
 public:
 	typedef AnalysisCtrl CLASSNAME;
 	AnalysisCtrl();
 	
 	void Data();
-	void DataCursor(int match);
+	void DataCursor(const SnapArg& match);
 	
 	
 };

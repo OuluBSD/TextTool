@@ -4,14 +4,14 @@
 
 class ImpactCtrl : public Ctrl {
 	Splitter vsplit;
-	ArrayCtrl list[GENDER_COUNT];
+	PArr<ArrayCtrl> list;
 	
 public:
 	typedef ImpactCtrl CLASSNAME;
 	ImpactCtrl();
 	
 	void Data();
-	void SelectLine(int match);
+	void SelectLine(const SnapArg& match);
 	
 	
 };

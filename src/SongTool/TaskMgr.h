@@ -8,6 +8,7 @@ typedef enum : int {
 	V_PTR_LINE,
 	V_PTR_SONG_UNIQUELINES,
 	V_MODE,
+	V_REV,
 	V_ARGS,
 	V_SONG_LYRICS,
 	V_SONG_PARTS,

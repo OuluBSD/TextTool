@@ -147,15 +147,16 @@ void Plotter::PartSnaps() {
 }
 
 void Plotter::AddValue(SnapContext& ctx) {
-	int other_mode = !mode;
+	SnapArg other = a;
+	other.InverseMode();
 	if (src == 0) {
-		AddValue(ctx.snap[mode].impact_score, ctx.snap[other_mode].impact_score);
+		AddValue(ctx.Get(a).impact_score, ctx.Get(other).impact_score);
 	}
 	else if (src == 1) {
-		AddValue(ctx.snap[mode].maskscore, ctx.snap[other_mode].maskscore);
+		AddValue(ctx.Get(a).maskscore, ctx.Get(other).maskscore);
 	}
 	else if (src == 2) {
-		AddValue(ctx.snap[mode].partscore, ctx.snap[other_mode].partscore);
+		AddValue(ctx.Get(a).partscore, ctx.Get(other).partscore);
 	}
 }
 
@@ -206,8 +207,6 @@ void Plotter::Paint(Draw& d) {
 	bool cumulative_view = view == VIEW_CUMULATIVE || view == VIEW_CUMULATIVE_WEIGHTED;
 	bool genderdiff_view = view == VIEW_GENDERDIFF;
 	bool genderdiff_weighted_view = view == VIEW_GENDERDIFF_WEIGHTED;
-	
-	int other_mode = !mode;
 	
 	d.DrawRect(sz, White());
 	
@@ -445,7 +444,7 @@ void Plotter::Paint(Draw& d) {
 	
 	
 	if (last_brk) {
-		const String& txt = last_brk->snap[mode].txt;
+		const String& txt = last_brk->Get(a).txt;
 		Size tsz = GetTextSize(txt, fnt);
 		int x = (sz.cx - tsz.cx) / 2;
 		Rect r = RectC(x, 0, tsz.cx, tsz.cy);
@@ -493,7 +492,7 @@ void Plotter::MouseWheel(Point p, int zdelta, dword keyflags) {
 			Part& part = song->parts[part_i];
 			Line& line = part.lines[line_i];
 			Break& brk = line.breaks[brk_i];
-			auto& score = brk.snap[mode].partscore[focused_group_i];
+			auto& score = brk.Get(a).partscore[focused_group_i];
 			score += change;
 			
 			if (list) {

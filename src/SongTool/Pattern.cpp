@@ -47,7 +47,7 @@ void PatternSnap::FindAddAttr(const SnapAttrStr& sa) {
 void Song::ReloadStructure() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx.p;
-	for(int i = 0; i < PTR_COUNT; i++)
+	for(int i = 0; i < MODE_COUNT; i++)
 		db.ctx.snap[i] = 0;
 	
 	this->parts.Clear();

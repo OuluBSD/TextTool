@@ -26,7 +26,7 @@ void Task::Process_MakeImportTasks() {
 				Task& t = ResultTask(TASK_PATTERNMASK);
 				t.p = p;
 				t.p.mode = j;
-				t.p.group_ctx = ctx;
+				t.p.a.ctx = ctx;
 				t.args << group_type.name << artist.vocalist_visual;
 			}
 		}
@@ -36,7 +36,7 @@ void Task::Process_MakeImportTasks() {
 			Task& t = ResultTask(TASK_STORYARC);
 			t.p = p;
 			t.p.mode = j;
-			t.p.group_ctx = CTX_BEGIN;
+			t.p.a.ctx = CTX_BEGIN;
 		}
 	}
 	
@@ -55,7 +55,7 @@ void Task::Process_MakeImportTasks() {
 				t.p.CopyPtrs(*snap);
 				t.snap = snap;
 				t.p.mode = j;
-				t.p.group_ctx = CTX_BEGIN;
+				t.p.a.ctx = CTX_BEGIN;
 				ASSERT(t.snap && t.p.line);
 			}
 		}
@@ -66,7 +66,7 @@ void Task::Process_MakeImportTasks() {
 			Task& t = ResultTask(TASK_MAKE_IMPACT_SCORING_TASKS);
 			t.p = p;
 			t.p.mode = j;
-			t.p.group_ctx = CTX_BEGIN;
+			t.p.a.ctx = CTX_BEGIN;
 		}
 	}
 	
@@ -83,7 +83,7 @@ void Task::Process_MakeImportTasks() {
 					t.args << artist.vocalist_visual;
 					t.args << key;
 					t.whole_song = whole_song;
-					t.p.group_ctx = CTX_BEGIN;
+					t.p.a.ctx = CTX_BEGIN;
 					
 					const Vector<String>& v = db.attrs.analysis[i];
 					for(int j = 0; j < v.GetCount(); j++)
@@ -156,11 +156,11 @@ bool Task::ParseOriginalLyrics() {
 	
 	// Parse lyric parts and lines
 	Vector<Vector<String>>& unique_lines = str_map;
-	for(int i = 0; i < PTR_COUNT; i++)
+	for(int i = 0; i < MODE_COUNT; i++)
 		song.headers[i].unique_lines.Clear();
 	
 	
-	for(int mode = 0; mode < GENDER_COUNT; mode++) {
+	for(const SnapArg& a : GenderArgs()) {
 		String c = song.headers[mode].content;
 		c.Replace("\r", "");
 		Vector<String> parts = Split(c, "\n\n");
@@ -236,7 +236,7 @@ void Task::Process_MakeAttrScores() {
 		const Attributes::GroupType& group_type = attrs.group_types[gg.type_i];
 		
 		// Skip different context
-		if (group_type.group_ctx != p.group_ctx)
+		if (group_type.group_ctx != p.a.ctx)
 			continue;
 		
 		// Skip groups, which doesn't match this task
@@ -331,7 +331,7 @@ void Task::Process_MakePatternTasks() {
 			const Attributes::GroupType& group_type = db.attrs.group_types[i];
 			
 			// Skip different context
-			if (group_type.group_ctx != p.group_ctx)
+			if (group_type.group_ctx != p.a.ctx)
 				continue;
 			
 			for(int j = 0; j < tasks; j++) {

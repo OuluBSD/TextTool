@@ -50,8 +50,8 @@ void Tasks::Data() {
 		if (t.tries > 0)
 			s << " (" << t_("tries") << " " << t.tries << ")";
 		list.Set(i, 5, s);
-		list.Set(i, 6, GetModeString(t.p.mode));
-		list.Set(i, 7, GetGroupContextString(t.p.group_ctx));
+		list.Set(i, 6, GetModeString(t.p.a.mode));
+		list.Set(i, 7, GetGroupContextString(t.p.a.ctx));
 	}
 	list.SetCount(m.tasks.GetCount());
 	

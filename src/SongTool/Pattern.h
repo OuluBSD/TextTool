@@ -45,14 +45,14 @@ struct PatternSnap : PatternMask {
 	void FindAddAttr(const SnapAttrStr& sa);
 	
 	template <class A, class B>
-	static void MergeOwner(int mode, A* owner, Array<B>& sub) {
+	static void MergeOwnerT(const SnapArg& a, A* owner, Array<B>& sub) {
 		if (sub.GetCount() >= 2) {
 			for (B& o : sub)
-				MergeOwner(mode, &o, o.GetSub());
+				MergeOwnerT(a, &o, o.GetSub());
 			
 			VectorMap<SnapAttrStr, int> attrs;
 			for (B& o : sub) {
-				for (const SnapAttrStr& sa : o.snap[mode].PatternSnap::attributes)
+				for (const SnapAttrStr& sa : o.Get(a).PatternSnap::attributes)
 					attrs.GetAdd(sa, 0)++;
 			}
 			int c = sub.GetCount();
@@ -61,16 +61,16 @@ struct PatternSnap : PatternMask {
 					continue;
 				const SnapAttrStr& common = attrs.GetKey(i);
 				for (B& o : sub)
-					o.snap[mode].attributes.RemoveKey(common);
-				owner->snap[mode].PatternSnap::FindAddAttr(common);
+					o.Get(a).attributes.RemoveKey(common);
+				owner->Get(a).PatternSnap::FindAddAttr(common);
 			}
 		}
 	}
 	template <class A, class B>
-	static void DeepClearSnap(int mode, A* owner, Array<B>& sub) {
-		owner->snap[mode].PatternSnap::Clear();
+	static void DeepClearSnapT(const SnapArg& a, A* owner, Array<B>& sub) {
+		owner->Get(a).PatternSnap::Clear();
 		for (B& o : sub)
-			DeepClearSnap(mode, &o, o.GetSub());
+			DeepClearSnapT(a, &o, o.GetSub());
 	}
 	int GetLevel() const {
 		if (Ptrs::brk) return 0;
@@ -84,77 +84,98 @@ struct PatternSnap : PatternMask {
 	
 	
 	template <class B>
-	static void GetSnapsLevel(int mode, int level, PatternSnap* owner, Array<B>& sub, Vector<PatternSnap*>& level_snaps) {
+	static void GetSnapsLevel(const SnapArg& a, int level, PatternSnap* owner, Array<B>& sub, Vector<PatternSnap*>& level_snaps) {
 		if (owner->GetLevel() == level)
 			level_snaps.Add(owner);
 		else
 			for (B& o : sub)
-				GetSnapsLevel(mode, level, &o.snap[mode], o.GetSub(), level_snaps);
+				GetSnapsLevel(a, level, &o.Get(a), o.GetSub(), level_snaps);
 	}
 	
 	template <class A, class B>
-	static void GetSnapAttributes(int mode, A* owner, Array<B>& sub, Index<SnapAttrStr>& attrs) {
-		for (const SnapAttrStr& a : owner->snap[mode].attributes.GetKeys())
+	static void GetSnapAttributes(const SnapArg& a, A* owner, Array<B>& sub, Index<SnapAttrStr>& attrs) {
+		for (const SnapAttrStr& a : owner->Get(a).attributes.GetKeys())
 			attrs.FindAdd(a);
 		for (B& o : sub)
-			GetSnapAttributes(mode, &o, o.GetSub(), attrs);
+			GetSnapAttributes(a, &o, o.GetSub(), attrs);
 	}
 	template <class A, class B>
-	static void GetMaskAttributes(int mode, A* owner, Array<B>& sub, Index<SnapAttrStr>& attrs) {
-		for (const SnapAttrStr& a : owner->snap[mode].PatternMask::mask.GetKeys())
+	static void GetMaskAttributes(const SnapArg& a, A* owner, Array<B>& sub, Index<SnapAttrStr>& attrs) {
+		for (const SnapAttrStr& a : owner->Get(a).PatternMask::mask.GetKeys())
 			attrs.FindAdd(a);
 		for (B& o : sub)
-			GetMaskAttributes(mode, &o, o.GetSub(), attrs);
+			GetMaskAttributes(a, &o, o.GetSub(), attrs);
 	}
 	template <class A, class B>
-	static void GetLineSnapshots(int mode, A* owner, Array<B>& sub, const String& txt_line, Vector<PatternSnap*>& snaps) {
-		if (ToLower(owner->snap[mode].txt) == txt_line)
-			snaps.Add(&owner->snap[mode]);
+	static void GetLineSnapshots(const SnapArg& a, A* owner, Array<B>& sub, const String& txt_line, Vector<PatternSnap*>& snaps) {
+		if (ToLower(owner->Get(a).txt) == txt_line)
+			snaps.Add(&owner->Get(a));
 		for (B& o : sub)
-			GetLineSnapshots(mode, &o, o.GetSub(), txt_line, snaps);
+			GetLineSnapshots(a, &o, o.GetSub(), txt_line, snaps);
 	}
 	template <class A, class B>
-	static void ResolveIdT(int mode, A* owner, Array<B>& sub) {
-		owner->snap[mode].PatternSnap::ResolveId();
-		for (B& o : sub) ResolveIdT(mode, &o, o.GetSub());
+	static void ResolveIdT(const SnapArg& a, A* owner, Array<B>& sub) {
+		owner->Get(a).PatternSnap::ResolveId();
+		for (B& o : sub) ResolveIdT(a, &o, o.GetSub());
 	}
 	
 	template <class A, class B>
-	static void ClearAttrs(int mode, A* owner, Array<B>& sub) {
-		owner->snap[mode].PatternSnap::attributes.Clear();
-		owner->snap[mode].PatternSnap::partscore.Clear();
-		for (B& o : sub) ClearAttrs(mode, &o, o.GetSub());
+	static void ClearAttrsT(const SnapArg& a, A* owner, Array<B>& sub) {
+		owner->Get(a).PatternSnap::attributes.Clear();
+		owner->Get(a).PatternSnap::partscore.Clear();
+		for (B& o : sub) ClearAttrsT(a, &o, o.GetSub());
 	}
 	
 	template <class B>
-	String GetStructuredText(int mode, bool pretty, int indent, const Array<B>& sub) const;
+	String GetStructuredText(const SnapArg& a, bool pretty, int indent, const Array<B>& sub) const;
 
 	
-	#define FOR_SNAP for (int i = 0; i < PTR_COUNT; i++) this->snap[i].
+	#define FOR_SNAP for(const SnapArg& a : SnapArgs())
 	
 	#define PATTERNMASK_MACROS \
-		void GetSnapsLevel(int mode, int level, Vector<PatternSnap*>& level_snaps) {this->snap[mode].PatternSnap::GetSnapsLevel(mode, level, &snap[mode], GetSub(), level_snaps);} \
-		void GetSnapAttributes(int mode, Index<SnapAttrStr>& attrs) {this->snap[mode].PatternSnap::GetSnapAttributes(mode, this, GetSub(), attrs);} \
-		void GetMaskAttributes(int mode, Index<SnapAttrStr>& attrs) {this->snap[mode].PatternSnap::GetMaskAttributes(mode, this, GetSub(), attrs);} \
-		void GetLineSnapshots(int mode, const String& txt_line, Vector<PatternSnap*>& snaps) {this->snap[mode].PatternSnap::GetLineSnapshots(mode, this, GetSub(), txt_line, snaps);} \
-		String GetStructuredText(int mode, bool pretty, int indent=0) const {return this->snap[mode].PatternSnap::GetStructuredText(mode, pretty, indent, GetSub());} \
-		void ResolveId() {FOR_SNAP ResolveIdT(i, this, GetSub());} \
-		void MergeOwner() {FOR_SNAP PatternSnap::MergeOwner(i, this, GetSub());} \
-		void ClearAttrs() {FOR_SNAP PatternSnap::ClearAttrs(i, this, GetSub());} \
-		void DeepClearSnap() {FOR_SNAP PatternSnap::DeepClearSnap(i, this, GetSub());} \
+		void GetSnapsLevel(const SnapArg& a, int level, Vector<PatternSnap*>& level_snaps) {this->Get(a).PatternSnap::GetSnapsLevel(a, level, &Get(a), GetSub(), level_snaps);} \
+		void GetSnapAttributes(const SnapArg& a, Index<SnapAttrStr>& attrs) {this->Get(a).PatternSnap::GetSnapAttributes(a, this, GetSub(), attrs);} \
+		void GetMaskAttributes(const SnapArg& a, Index<SnapAttrStr>& attrs) {this->Get(a).PatternSnap::GetMaskAttributes(a, this, GetSub(), attrs);} \
+		void GetLineSnapshots(const SnapArg& a, const String& txt_line, Vector<PatternSnap*>& snaps) {this->Get(a).PatternSnap::GetLineSnapshots(a, this, GetSub(), txt_line, snaps);} \
+		String GetStructuredText(const SnapArg& a, bool pretty, int indent=0) const {return this->Get(a).PatternSnap::GetStructuredText(a, pretty, indent, GetSub());} \
+		void ResolveId() {FOR_SNAP PatternSnap::ResolveIdT(a, this, GetSub());} \
+		void MergeOwner() {FOR_SNAP PatternSnap::MergeOwnerT(a, this, GetSub());} \
+		void ClearAttrs() {FOR_SNAP PatternSnap::ClearAttrsT(a, this, GetSub());} \
+		void DeepClearSnap() {FOR_SNAP PatternSnap::DeepClearSnapT(a, this, GetSub());} \
 		void GetContextLevel(int level, Vector<SnapContext*>& ctxs) {SnapContext::GetContextLevelT(this, GetSub(), level, ctxs);}
 	
 };
 
 
 struct SnapContext {
-	PatternSnap snap[PTR_COUNT];
 	
+private:
+	PatternSnap snap[CTX_COUNT][MODE_COUNT][REV_COUNT];
+	
+public:
+	
+	PatternSnap& Get(const SnapArg& a) {
+		ASSERT(a.ctx >= CTX_BEGIN && a.ctx < CTX_COUNT);
+		ASSERT(a.mode >= 0 && a.mode < MODE_COUNT);
+		ASSERT(a.rev >= 0 && a.rev < REV_COUNT);
+		return snap[a.ctx][a.mode][a.rev];
+	}
+	
+	const PatternSnap& Get(const SnapArg& a) const {
+		ASSERT(a.ctx >= CTX_BEGIN && a.ctx < CTX_COUNT);
+		ASSERT(a.mode >= 0 && a.mode < MODE_COUNT);
+		ASSERT(a.rev >= 0 && a.rev < REV_COUNT);
+		return snap[a.ctx][a.mode][a.rev];
+	}
+	
+	const PatternSnap& Get0() const {
+		return snap[0][0][0];
+	}
 	
 	
 	template <class A, class B>
 	static void GetContextLevelT(A* owner, Array<B>& sub, int level, Vector<SnapContext*>& ctxs) {
-		int level0 = owner->snap[0].GetLevel();
+		int level0 = owner->Get0().GetLevel();
 		if (level == level0)
 			ctxs.Add(owner);
 		for (B& o : sub)
@@ -163,54 +184,54 @@ struct SnapContext {
 	
 	void MergeOwner();
 	void Clear() {
-		for(int i = 0; i < PTR_COUNT; i++)
-			snap[i].PatternSnap::Clear();
+		for(const SnapArg& a : SnapArgs())
+			Get(a).PatternSnap::Clear();
 	}
 	void ResolveId() {
-		for(int i = 0; i < PTR_COUNT; i++)
-			snap[i].PatternSnap::ResolveId();
+		for(const SnapArg& a : SnapArgs())
+			Get(a).PatternSnap::ResolveId();
 	}
 	void Jsonize(JsonIO& json) {
-		for(int i = 0; i < PTR_COUNT; i++)
-			json("snap[" + IntStr(i) + "]", snap[i]);
+		for(const SnapArg& a : SnapArgs())
+			json("snap" + a.SubscriptString(), Get(a));
 	}
-	void SetArtistPtr(Artist* a) {
-		for(int i = 0; i < PTR_COUNT; i++)
-			snap[i].Ptrs::artist = a;
+	void SetArtistPtr(Artist* art) {
+		for(const SnapArg& a : SnapArgs())
+			Get(a).Ptrs::artist = art;
 	}
 	void SetReleasePtr(Release* r) {
-		for(int i = 0; i < PTR_COUNT; i++)
-			snap[i].Ptrs::release = r;
+		for(const SnapArg& a : SnapArgs())
+			Get(a).Ptrs::release = r;
 	}
 	void SetSongPtr(Song* s) {
-		for(int i = 0; i < PTR_COUNT; i++)
-			snap[i].Ptrs::song = s;
+		for(const SnapArg& a : SnapArgs())
+			Get(a).Ptrs::song = s;
 	}
 	void SetPartPtr(Part* p) {
-		for(int i = 0; i < PTR_COUNT; i++)
-			snap[i].Ptrs::part = p;
+		for(const SnapArg& a : SnapArgs())
+			Get(a).Ptrs::part = p;
 	}
 	void SetLinePtr(Line* l) {
-		for(int i = 0; i < PTR_COUNT; i++)
-			snap[i].Ptrs::line = l;
+		for(const SnapArg& a : SnapArgs())
+			Get(a).Ptrs::line = l;
 	}
 	void SetBreakPtr(Break* b) {
-		for(int i = 0; i < PTR_COUNT; i++)
-			snap[i].Ptrs::brk = b;
+		for(const SnapArg& a : SnapArgs())
+			Get(a).Ptrs::brk = b;
 	}
 	
 	
 	void SetOwner(SnapContext& ctx) {
-		for(int i = 0; i < PTR_COUNT; i++)
-			snap[i].owner = &ctx.snap[i];
+		for(const SnapArg& a : SnapArgs())
+			Get(a).owner = &ctx.Get(a);
 	}
 	void CopyPtrs(const SnapContext& ctx) {
-		for(int i = 0; i < PTR_COUNT; i++)
-			snap[i].CopyPtrs(ctx.snap[i]);
+		for(const SnapArg& a : SnapArgs())
+			Get(a).CopyPtrs(ctx.Get(a));
 	}
 	void SetId(int id) {
-		for(int i = 0; i < PTR_COUNT; i++)
-			snap[i].SetId(id);
+		for(const SnapArg& a : SnapArgs())
+			Get(a).SetId(id);
 	}
 };
 

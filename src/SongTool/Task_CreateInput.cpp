@@ -9,8 +9,8 @@ void Task::CreateInput_StoryArc() {
 	
 	Ptrs& p = this->p;
 	Song& song = *p.song;
-	int mode = p.mode;
-	ASSERT(mode >= 0);
+	SnapArg a = p.a;
+	ASSERT(a.mode != MODE_INVALID);
 	
 	if (song.parts.IsEmpty()) {
 		SetError("no parts in song");
@@ -31,7 +31,7 @@ void Task::CreateInput_StoryArc() {
 		Array<Line>& lines = part.lines;
 		for(int j = 0; j < lines.GetCount(); j++) {
 			Line& line = lines[j];
-			s << line.snap[mode].txt << "\n";
+			s << line.Get(a).txt << "\n";
 		}
 		
 		s << "\n";
@@ -61,27 +61,27 @@ void Task::CreateInput_Impact() {
 	Ptrs& p = this->p;
 	Song& song = *p.song;
 	Line& line = *p.line;
-	int mode = p.mode;
-	ASSERT(mode >= 0);
+	SnapArg a = p.a;
+	ASSERT(a.mode != MODE_INVALID);
 	
 	
 	String s;
 	s << "Lyrics with breaks [br]:\n";
 	for(int i = 0; i < line.breaks.GetCount(); i++) {
 		if (i) s << " [br] ";
-		s << line.breaks[i].snap[p.mode].txt;
+		s << line.breaks[i].Get(a).txt;
 	}
 	s << "\n\nLyrics divided in parts:\n";
 	for(int i = 0; i < line.breaks.GetCount(); i++) {
 		Break& brk = line.breaks[i];
-		s << "Part " << i+1 << ", \"" << brk.snap[p.mode].txt << "\"\n";
+		s << "Part " << i+1 << ", \"" << brk.Get(a).txt << "\"\n";
 	}
 	s << "\n";
 	
 	//s << "Impact of lyrics of parts between breaks in short:\n"
 	//s << "How lyrics impacts listener in absolute in short:\n"
 	s << "How the listener is impacted in short:\n"
-		"Part 1, \"" << line.breaks[0].snap[p.mode].txt << "\":";
+		"Part 1, \"" << line.breaks[0].Get(a).txt << "\":";
 	
 	input = s;
 }
@@ -157,8 +157,9 @@ void Task::CreateInput_ImpactScoring() {
 	AttrScore& as = db.attrscores;
 	Ptrs& p = this->p;
 	Song& song = *p.song;
-	ASSERT(p.mode >= 0);
-	SongHeader& header = song.headers[p.mode];
+	SnapArg a = p.a;
+	ASSERT(a.mode != MODE_INVALID);
+	SongHeader& header = song.headers[a];
 	int sc = g.scorings.GetCount();
 	
 	String prompt;
@@ -214,15 +215,15 @@ void Task::CreateInput_PatternMask() {
 	
 	Ptrs& p = this->p;
 	Song& song = *p.song;
-	int mode = p.mode;
-	ASSERT(mode >= 0);
+	SnapArg a = p.a;
+	ASSERT(a.mode != MODE_INVALID);
 	
 	String s;
 	String type = args[0];
 	String vocalist_visual = args[1];
 	String first;
 	
-	String ai_txt = GetGroupContextNaturalDescription(p.group_ctx);
+	String ai_txt = GetGroupContextNaturalDescription(p.a.ctx);
 	
 	s << "Groups of " << type << " attributes:\n";
 	//hash << ToLower(type);
@@ -231,7 +232,7 @@ void Task::CreateInput_PatternMask() {
 		Attributes::GroupType& gt = db.attrs.group_types[g.type_i];
 		
 		// Skip different group context
-		if (gt.group_ctx != p.group_ctx)
+		if (gt.group_ctx != p.a.ctx)
 			continue;
 		
 		if (g.type == type) {
@@ -261,7 +262,7 @@ void Task::CreateInput_PatternMask() {
 		Array<Line>& lines = part.lines;
 		for(int j = 0; j < lines.GetCount(); j++) {
 			Line& line = lines[j];
-			s << line.snap[mode].txt << "\n";
+			s << line.Get(a).txt << "\n";
 			//hash << ToLower(line.txt);
 		}
 		
@@ -295,9 +296,9 @@ void Task::CreateInput_Pattern() {
 	
 	Ptrs& p = this->p;
 	Song& song = *p.song;
-	int mode = p.mode;
-	ASSERT(mode >= 0);
-	SongHeader& header = song.headers[mode];
+	SnapArg a = p.a;
+	ASSERT(a.mode != MODE_INVALID);
+	SongHeader& header = song.headers[a];
 	if (header.unique_lines.IsEmpty()) {
 		SetError("no unique lines");
 		return;
@@ -305,7 +306,7 @@ void Task::CreateInput_Pattern() {
 	
 	String s;
 	String type = args[0];
-	String ai_txt = GetGroupContextNaturalDescription(p.group_ctx);
+	String ai_txt = GetGroupContextNaturalDescription(p.a.ctx);
 	int offset_begin = StrInt(args[1]);
 	int offset_end = StrInt(args[2]);
 	String first_key;
@@ -319,7 +320,7 @@ void Task::CreateInput_Pattern() {
 		
 		// Skip different group context
 		const Attributes::GroupType& gt = db.attrs.group_types[gg.type_i];
-		if (gt.group_ctx != p.group_ctx)
+		if (gt.group_ctx != p.a.ctx)
 			continue;
 		
 		String key = Capitalize(gg.description);
@@ -371,10 +372,10 @@ void Task::CreateInput_Analysis() {
 	//CombineHash hash;
 	Database& db = Database::Single();
 	Ptrs& p = this->p;
-	int mode = p.mode;
 	Song& song = *p.song;
-	ASSERT(p.mode >= 0);
-	SongHeader& header = song.headers[mode];
+	SnapArg a = p.a;
+	ASSERT(a.mode != MODE_INVALID);
+	SongHeader& header = song.headers[a];
 	
 	if (!p.song) {
 		SetError("no song pointer set");
@@ -414,7 +415,7 @@ void Task::CreateInput_Analysis() {
 		Array<Line>& lines = part.lines;
 		for(int j = 0; j < lines.GetCount(); j++) {
 			Line& line = lines[j];
-			const String& txt = line.snap[mode].txt;
+			const String& txt = line.Get(a).txt;
 			s << txt << "\n";
 			ASSERT(txt.GetCount());
 			//hash << ToLower(line.txt);
@@ -521,21 +522,22 @@ void Task::CreateInput_AttrScores() {
 	AttrScore& as = db.attrscores;
 	Ptrs& p = this->p;
 	Song& song = *p.song;
-	ASSERT(p.mode >= 0);
+	SnapArg a = p.a;
+	ASSERT(a.mode != MODE_INVALID);
 	
 	String prompt;
 	String entries;
 	Index<SnapAttrStr> attrs;
 	
 	String type = args[0];
-	String ai_txt = GetGroupContextNaturalDescription(p.group_ctx);
+	String ai_txt = GetGroupContextNaturalDescription(p.a.ctx);
 	
 	prompt += attrscore_prompt1;
 	prompt += attrscore_prompt2;
 	
 	
 	// Try making prompt with errors first
-	song.GetMaskAttributes(p.mode, attrs); // get attrs from masks
+	song.GetMaskAttributes(a, attrs); // get attrs from masks
 	
 	
 	int entry_count = 0;
@@ -554,7 +556,7 @@ void Task::CreateInput_AttrScores() {
 		
 		// Skip different group context
 		const Attributes::GroupType& gt = db.attrs.group_types[gg.type_i];
-		if (gt.group_ctx != p.group_ctx)
+		if (gt.group_ctx != p.a.ctx)
 			continue;
 		
 		
@@ -635,12 +637,13 @@ void Task::CreateInput_Lyrics() {
 	}
 	
 	//bool rev_snap = args.GetCount() && args[0] == "rev";
-	int mode = p.mode; //rev_snap ? p.mode + 2 : p.mode;
+	SnapArg a = p.a;
+	ASSERT(a.mode != MODE_INVALID);
 	Ptrs& ptrs = this->p;
 	
 	Song& s = *ptrs.song;
-	Artist& a = *s.snap[0].artist;
-	Release& r = *s.snap[0].release;
+	Artist& ar = *s.Get0().artist;
+	Release& r = *s.Get0().release;
 	Part& p = *ptrs.part;
 	
 	s.FixPtrs();
@@ -649,15 +652,15 @@ void Task::CreateInput_Lyrics() {
 	//Composition& c = *db.active_composition;
 	//Analysis& n = *db.active_analysis;
 	//Pattern& p = *db.active_pattern;
-	ASSERT(ptrs.mode >= 0);
+	ASSERT(a.mode >= 0);
 	
 	String o;
-	o	<< "Artist name: " << a.name << "\n"
-		<< "Year of birth: " << a.year_of_birth << "\n"
-		<< "Year of beginning of the career: " << a.year_of_career_begin << "\n"
-		<< "Music genre: " << a.musical_style << "\n"
-		<< "Voice: " << a.vibe_of_voice << "\n"
-		<< "Vocalist visually: " << a.vocalist_visual << "\n"
+	o	<< "Artist name: " << ar.name << "\n"
+		<< "Year of birth: " << ar.year_of_birth << "\n"
+		<< "Year of beginning of the career: " << ar.year_of_career_begin << "\n"
+		<< "Music genre: " << ar.musical_style << "\n"
+		<< "Voice: " << ar.vibe_of_voice << "\n"
+		<< "Vocalist visually: " << ar.vocalist_visual << "\n"
 		<< "\n\n";
 		
 	o	<< "Title of lyrics: " << s.title << "\n"
@@ -688,7 +691,7 @@ void Task::CreateInput_Lyrics() {
 	//LOG(p.GetStructuredText(mode, false));
 	
 	o	<< example_conv << "\n\n\nStructured lyrics:\n";
-	o	<< p.GetStructuredText(mode, false) << "\n\n";
+	o	<< p.GetStructuredText(a, false) << "\n\n";
 	o	<< "\nLyrics:\n";
 	
 	input = o;
@@ -696,7 +699,8 @@ void Task::CreateInput_Lyrics() {
 
 void Task::CreateInput_LyricsTranslate() {
 	bool rev_snap = args[0] == "rev";
-	int mode = p.mode; //rev_snap ? p.mode + 2 : p.mode;
+	SnapArg a = p.a;
+	ASSERT(a.mode != MODE_INVALID);
 	Song& song = *p.song;
 	
 	String lng = args[1].Left(5);
@@ -707,9 +711,9 @@ void Task::CreateInput_LyricsTranslate() {
 	String s, lyrics;
 	for (Part& part : song.parts) {
 		lyrics << part.name << ":\n";
-		lyrics << part.snap[mode].data.GetAdd(key) << "\n\n";
+		lyrics << part.Get(a).data.GetAdd(key) << "\n\n";
 	}
-	song.snap[mode].data.GetAdd(key) = lyrics;
+	song.Get(a).data.GetAdd(key) = lyrics;
 	
 	s << "In English:\n" << lyrics;
 	s << "In " << lng << ":\n";

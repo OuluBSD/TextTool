@@ -4,13 +4,13 @@
 
 class StoryCtrl : public Ctrl {
 	Splitter vsplit;
-	ArrayCtrl list[2];
+	PArr<ArrayCtrl> list;
 	
 public:
 	typedef StoryCtrl CLASSNAME;
 	StoryCtrl();
 	
-	void SelectLine(int match);
+	void SelectLine(const SnapArg& match);
 	void Data();
 	
 	

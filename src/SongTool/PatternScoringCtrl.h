@@ -3,10 +3,10 @@
 
 
 class PatternScoringCtrl : public Ctrl {
-	Plotter plotter[GENDER_COUNT];
-	ArrayCtrl list[GENDER_COUNT];
-	//ArrayCtrl presets;
-	Splitter vsplit[GENDER_COUNT], mainsplit;
+	PArr<Plotter> plotter;
+	PArr<ArrayCtrl> list;
+	PArr<Splitter> vsplit;
+	Splitter mainsplit;
 	
 	
 	
@@ -17,15 +17,15 @@ public:
 	PatternScoringCtrl();
 	
 	void Data();
-	void DataListAll() {for (int mode = 0; mode < GENDER_COUNT; mode++) DataList(mode);}
-	void DataList(int mode);
+	void DataListAll() {for (const SnapArg& a : GenderArgs()) DataList(a);}
+	void DataList(const SnapArg& a);
 	//void DataPresets();
 	//void AddPreset();
 	/*void SavePreset();
 	void UpdatePreset();
 	void ApplyPreset();
 	void RemovePreset();*/
-	void ListValueChanged(int mode, int pos, int scoring);
+	void ListValueChanged(const SnapArg& a, int pos, int scoring);
 	
 	
 	static const int group_begin = 4;

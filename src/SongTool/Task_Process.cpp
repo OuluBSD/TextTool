@@ -45,7 +45,7 @@ void Task::Process_StoryArc() {
 						//DUMP(part_key);
 						//DUMP(part_key_without_spaces);
 						if (part.name == part_key || part.name == part_key_without_spaces)
-							part.snap[p.mode].data.GetAdd("storyline") = s;
+							part.Get(p.a).data.GetAdd("storyline") = s;
 					}
 				}
 				else {
@@ -59,7 +59,7 @@ void Task::Process_StoryArc() {
 					if (i > 1) value += "\n";
 					value += lines[i];
 				}
-				p.song->snap[p.mode].data.GetAdd(key) = value;
+				p.song->Get(p.a).data.GetAdd(key) = value;
 			}
 		}
 	}
@@ -102,7 +102,7 @@ void Task::Process_Impact() {
 		l = TrimBoth(l.Mid(a+1));
 		
 		Break& brk = line.breaks[i-1];
-		brk.snap[p.mode].impact = l;
+		brk.Get(p.a).impact = l;
 	}
 	
 }
@@ -305,7 +305,7 @@ void Task::Process_PatternMask() {
 	LOG("Task::Process_PatternMask: begin");
 	Database& db = Database::Single();
 	Song& song = *p.song;
-	ASSERT(p.mode >= 0);
+	ASSERT(p.mode >= 0);§
 	int mode = p.mode;
 	
 	input.Replace("\r","");
@@ -920,7 +920,7 @@ void Task::Process_AttrScores() {
 			for(int i = 0; i < g.groups.GetCount(); i++) {
 				Attributes::Group& gg = g.groups[i];
 				const Attributes::GroupType& gt = db.attrs.group_types[gg.type_i];
-				if (ToLower(gg.description) == group && gt.group_ctx == p.group_ctx) {
+				if (ToLower(gg.description) == group && gt.group_ctx == p.a.ctx) {
 					for(int j = 0; j < gg.values.GetCount(); j++) {
 						String v = gg.values[j];
 						if (ToLower(v) == key) {
@@ -1055,7 +1055,7 @@ bool Task::AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str)
 		
 		// Skip different group context
 		const Attributes::GroupType& gt = db.attrs.group_types[gg.type_i];
-		if (gt.group_ctx != p.group_ctx)
+		if (gt.group_ctx != p.a.ctx)
 			continue;
 		
 		//LOG("'" << group << "' vs '" << ToLower(gg.description) << "'");

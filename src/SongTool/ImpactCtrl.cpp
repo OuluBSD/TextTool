@@ -6,8 +6,8 @@ ImpactCtrl::ImpactCtrl() {
 	
 	vsplit.Vert();
 	
-	for(int i = 0; i < GENDER_COUNT; i++) {
-		ArrayCtrl& list = this->list[i];
+	for(const SnapArg& a : GenderArgs()) {
+		ArrayCtrl& list = this->list[a];
 		vsplit << list;
 		list.AddColumn(t_("Position"));
 		list.AddColumn(t_("Text"));
@@ -15,7 +15,7 @@ ImpactCtrl::ImpactCtrl() {
 		list.ColumnWidths("1 2 5");
 		list.SetLineCy((int)(list.GetLineCy() * 1.5));
 		
-		list.WhenAction << THISBACK1(SelectLine, i);
+		list.WhenAction << THISBACK1(SelectLine, a);
 	}
 	
 }
@@ -26,15 +26,15 @@ void ImpactCtrl::Data() {
 	Song& song = *p.song;
 	Part& part = *p.part;
 	
-	for (int mode = 0; mode < GENDER_COUNT; mode++) {
-		ArrayCtrl& list = this->list[mode];
+	for (const SnapArg& a : GenderArgs()) {
+		ArrayCtrl& list = this->list[a];
 		Index<int> story_values;
 		Vector<PatternSnap*> snaps;
 		
 		if (db.ctx.active_wholesong)
-			song.GetSnapsLevel(mode, 0, snaps);
+			song.GetSnapsLevel(a, 0, snaps);
 		else
-			part.GetSnapsLevel(mode, 0, snaps);
+			part.GetSnapsLevel(a, 0, snaps);
 		
 		for(int i = 0; i < snaps.GetCount(); i++) {
 			PatternSnap& snap = *snaps[i];
@@ -61,27 +61,25 @@ void ImpactCtrl::Data() {
 	}
 }
 
-void ImpactCtrl::SelectLine(int match) {
+void ImpactCtrl::SelectLine(const SnapArg& match) {
 	
 	// Select same kay in other lists too
-	if (match >= 0 && match < GENDER_COUNT) {
-		ArrayCtrl& list = this->list[match];
-		if (list.IsCursor()) {
-			String key = AttrText(list.Get(list.GetCursor(), 0)).text.ToString();
-			for(int i = 0; i < GENDER_COUNT; i++) {
-				if (i == match) continue;
-				ArrayCtrl& list = this->list[i];
-				bool found = false;
-				for(int j = 0; j < list.GetCount(); j++) {
-					if (AttrText(list.Get(j, 0)).text.ToString() == key) {
-						list.SetCursor(j);
-						found = true;
-						break;
-					}
+	ArrayCtrl& list = this->list[match];
+	if (list.IsCursor()) {
+		String key = AttrText(list.Get(list.GetCursor(), 0)).text.ToString();
+		for (const SnapArg& a : GenderArgs()) {
+			if (a == match) continue;
+			ArrayCtrl& list = this->list[a];
+			bool found = false;
+			for(int j = 0; j < list.GetCount(); j++) {
+				if (AttrText(list.Get(j, 0)).text.ToString() == key) {
+					list.SetCursor(j);
+					found = true;
+					break;
 				}
-				if (!found)
-					list.KillCursor();
 			}
+			if (!found)
+				list.KillCursor();
 		}
 	}
 }

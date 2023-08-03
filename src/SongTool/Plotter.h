@@ -19,7 +19,7 @@ class Plotter : public Ctrl {
 	
 	int view = 0;
 	int src = 0;
-	int mode = MALE;
+	SnapArg a = ZeroArg();
 	bool whole_song = false;
 	int focused_group = 0, focused_group_i = 0;
 	int draw_count = 0;
@@ -57,7 +57,7 @@ public:
 	void MouseWheel(Point p, int zdelta, dword keyflags) override;
 	void MouseMove(Point p, dword keyflags) override;
 	
-	void SetMode(int mode) {this->mode = mode;}
+	void SetMode(const SnapArg& a) {this->a = a;}
 	void SetSource(int s) {this->src = s;}
 	
 	const RectId* FindPos(Point p);

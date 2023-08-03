@@ -7,6 +7,7 @@ class ImportCtrl : public WithImport<Ctrl> {
 	Splitter hsplit;
 	ArrayCtrl messages;
 	
+	SnapArg a[2];
 	
 	void AddMessage(int line, int severity, String msg);
 public:

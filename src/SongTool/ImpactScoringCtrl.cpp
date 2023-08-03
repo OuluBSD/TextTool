@@ -5,13 +5,13 @@ ImpactScoringCtrl::ImpactScoringCtrl() {
 	Add(mainsplit.SizePos());
 	mainsplit.Vert();
 	
-	for (int mode = 0; mode < GENDER_COUNT; mode++) {
-		Splitter& vsplit = this->vsplit[mode];
-		Plotter& plotter = this->plotter[mode];
-		ArrayCtrl& list = this->list[mode];
+	for (const SnapArg& a : GenderArgs()) {
+		Splitter& vsplit = this->vsplit[a];
+		Plotter& plotter = this->plotter[a];
+		ArrayCtrl& list = this->list[a];
 		
 		plotter.list = &list;
-		plotter.SetMode(mode);
+		plotter.SetMode(a);
 		plotter.SetSource(0);
 		
 		mainsplit << plotter << list;// << presets;
@@ -41,29 +41,31 @@ void ImpactScoringCtrl::Data() {
 		//p.song->RealizeImpacts();
 		
 		if (db.ctx.active_wholesong) {
-			for (int mode = 0; mode < GENDER_COUNT; mode++)
-				plotter[mode].SetWholeSong(*p.song);
+			for (const SnapArg& a : GenderArgs()) {
+				plotter[a].SetWholeSong(*p.song);
+			}
 		}
 		else {
 			Part& part = *p.part;
-			for (int mode = 0; mode < GENDER_COUNT; mode++)
-				plotter[mode].SetPart(part);
+			for (const SnapArg& a : GenderArgs()) {
+				plotter[a].SetPart(part);
+			}
 		}
 	}
 	
 	DataListAll();
 }
 
-void ImpactScoringCtrl::DataList(int mode) {
+void ImpactScoringCtrl::DataList(const SnapArg& a) {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx.p;
 	if (!p.song)
 		return;
 	Song& song = *p.song;
 	
-	Splitter& vsplit = this->vsplit[mode];
-	Plotter& plotter = this->plotter[mode];
-	ArrayCtrl& list = this->list[mode];
+	Splitter& vsplit = this->vsplit[a];
+	Plotter& plotter = this->plotter[a];
+	ArrayCtrl& list = this->list[a];
 	
 	int sc = db.attrs.scorings.GetCount();
 	
@@ -85,7 +87,7 @@ void ImpactScoringCtrl::DataList(int mode) {
 				Line& line = part.lines[j];
 				for(int k = 0; k < line.breaks.GetCount(); k++) {
 					Break& brk = line.breaks[k];
-					PatternSnap& snap = brk.snap[mode];
+					PatternSnap& snap = brk.Get(a);
 					
 					list.Set(total, 0, part_i);
 					list.Set(total, 1, j);
@@ -109,7 +111,7 @@ void ImpactScoringCtrl::DataList(int mode) {
 							list.Set(total, k1, value);
 							
 							Ctrl* c = new EditIntNotNullSpin;
-							*c <<= THISBACK3(ListValueChanged, mode, total, j);
+							*c <<= THISBACK3(ListValueChanged, a, total, j);
 							list.SetCtrl(total, k2, c);
 						}
 					}
@@ -131,7 +133,7 @@ void ImpactScoringCtrl::DataList(int mode) {
 			Line& line = part.lines[i];
 			for(int k = 0; k < line.breaks.GetCount(); k++) {
 				Break& brk = line.breaks[k];
-				PatternSnap& snap = brk.snap[mode];
+				PatternSnap& snap = brk.Get(a);
 				
 				list.Set(total, 0, part_i);
 				list.Set(total, 1, i);
@@ -154,7 +156,7 @@ void ImpactScoringCtrl::DataList(int mode) {
 						list.Set(total, k1, value);
 						
 						Ctrl* c = new EditIntNotNullSpin;
-						*c <<= THISBACK3(ListValueChanged, mode, total, j);
+						*c <<= THISBACK3(ListValueChanged, a, total, j);
 						list.SetCtrl(total, k2, c);
 					}
 				}
@@ -165,7 +167,7 @@ void ImpactScoringCtrl::DataList(int mode) {
 	}
 }
 
-void ImpactScoringCtrl::ListValueChanged(int mode, int pos, int scoring) {
+void ImpactScoringCtrl::ListValueChanged(const SnapArg& a, int pos, int scoring) {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx.p;
 	
@@ -173,9 +175,9 @@ void ImpactScoringCtrl::ListValueChanged(int mode, int pos, int scoring) {
 		return;
 	Song& song = *p.song;
 	
-	Splitter& vsplit = this->vsplit[mode];
-	Plotter& plotter = this->plotter[mode];
-	ArrayCtrl& list = this->list[mode];
+	Splitter& vsplit = this->vsplit[a];
+	Plotter& plotter = this->plotter[a];
+	ArrayCtrl& list = this->list[a];
 	
 	int part_i = list.Get(pos, 0);
 	int line_i = list.Get(pos, 1);
@@ -185,10 +187,10 @@ void ImpactScoringCtrl::ListValueChanged(int mode, int pos, int scoring) {
 	Line& line = part.lines[line_i];
 	Break& brk = line.breaks[brk_i];
 	
-	if (brk.snap[mode].partscore.GetCount() != db.attrs.scorings.GetCount())
-		brk.snap[mode].partscore.SetCount(db.attrs.scorings.GetCount(), 0);
+	if (brk.Get(a).partscore.GetCount() != db.attrs.scorings.GetCount())
+		brk.Get(a).partscore.SetCount(db.attrs.scorings.GetCount(), 0);
 	
-	auto& dst = brk.snap[mode].partscore[scoring];
+	auto& dst = brk.Get(a).partscore[scoring];
 	int value = list.Get(pos, group_begin+scoring);
 	dst = value;
 	

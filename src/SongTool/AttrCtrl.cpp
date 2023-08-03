@@ -9,8 +9,9 @@ AttrCtrl::AttrCtrl() {
 	UpdateGroupsToScoring();
 }
 
-void AttrCtrl::SetMode(int m) {
-	mode = m;
+void AttrCtrl::SetMode(const SnapArg& a) {
+	this->a = a;
+	//mode = m;
 	/*int is_rev = m / GENDER_COUNT;
 	if (!is_rev) {
 		mode = m;
@@ -33,7 +34,7 @@ void AttrCtrl::Load() {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
 	Ptrs& p = db.ctx.p;
-	PatternSnap* snap = db.ctx.snap[mode];
+	PatternSnap* snap = db.ctx.snap[a];
 	if (!snap)
 		return;
 	
@@ -63,12 +64,12 @@ void AttrCtrl::Load() {
 	for (int l = level-1; l >= 0; l--) {
 		Vector<PatternSnap*> sub;
 		switch (level) {
-			case 0: snap->brk->GetSnapsLevel(mode, l, sub); break;
-			case 1: snap->line->GetSnapsLevel(mode, l, sub); break;
-			case 2: snap->part->GetSnapsLevel(mode, l, sub); break;
-			case 3: snap->song->GetSnapsLevel(mode, l, sub); break;
-			case 4: snap->release->GetSnapsLevel(mode, l, sub); break;
-			case 5: snap->artist->GetSnapsLevel(mode, l, sub); break;
+			case 0: snap->brk->GetSnapsLevel(a, l, sub); break;
+			case 1: snap->line->GetSnapsLevel(a, l, sub); break;
+			case 2: snap->part->GetSnapsLevel(a, l, sub); break;
+			case 3: snap->song->GetSnapsLevel(a, l, sub); break;
+			case 4: snap->release->GetSnapsLevel(a, l, sub); break;
+			case 5: snap->artist->GetSnapsLevel(a, l, sub); break;
 		}
 		for (PatternSnap* s : sub) {
 			for (const SnapAttrStr& a : s->attributes) {
@@ -83,7 +84,7 @@ void AttrCtrl::Load() {
 
 void AttrCtrl::Store() {
 	Database& db = Database::Single();
-	PatternSnap* snap = db.ctx.snap[mode];
+	PatternSnap* snap = db.ctx.snap[a];
 	Attributes& g = db.attrs;
 	if (!snap)
 		return;
@@ -142,7 +143,7 @@ void AttrCtrl::Paint(Draw& d) {
 		{
 			group_items.Clear();
 			group_types.Clear();
-			part.snap[mode].GetGroupItems(group_items);
+			part.Get(a).GetGroupItems(group_items);
 			db.attrs.FindGroupTypes(group_items.GetKeys(), group_types);
 		}
 		
@@ -377,7 +378,7 @@ void AttrCtrl::MouseLeave() {
 
 void AttrCtrl::LeftDown(Point pt, dword keyflags) {
 	Database& db = Database::Single();
-	PatternSnap* snap = db.ctx.snap[mode];
+	PatternSnap* snap = db.ctx.snap[a];
 	Attributes& g = db.attrs;
 	for(RectId& rid : entry_rects) {
 		if (rid.a.Contains(pt)) {

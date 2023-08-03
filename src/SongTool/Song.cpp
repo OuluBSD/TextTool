@@ -155,8 +155,8 @@ void Song::RealizeProduction() {
 	}
 }
 
-int Song::GetLength(int mode) const {
-	CHKMODE(mode);
+int Song::GetLength(const SnapArg& a) const {
+	a.Chk();
 	int len = 0;
 	for (const Part& p : parts)
 		len += p.GetLength(mode);

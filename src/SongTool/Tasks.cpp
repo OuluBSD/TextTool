@@ -50,7 +50,7 @@ String Task::GetDescription() const {
 bool Task::HasCreatedTasks(GroupContext ctx) const {
 	TaskMgr& m = TaskMgr::Single();
 	for (const Task& t : m.tasks) {
-		if (t.created_by == this && t.p.group_ctx == ctx)
+		if (t.created_by == this && t.p.a.ctx == ctx)
 			return true;
 	}
 	return false;
@@ -59,7 +59,7 @@ bool Task::HasCreatedTasks(GroupContext ctx) const {
 bool Task::IsCreatedTasksReady(GroupContext ctx) const {
 	TaskMgr& m = TaskMgr::Single();
 	for (const Task& t : m.tasks) {
-		if (t.created_by != this || t.p.group_ctx != ctx)
+		if (t.created_by != this || t.p.a.ctx != ctx)
 			continue;
 		if (!t.ready)
 			return false;
@@ -251,18 +251,19 @@ bool Task::CheckArguments() {
 			}
 			break;
 		case V_PTR_SONG_UNIQUELINES:
-			if (!p.song->headers[0].unique_lines.GetCount() ||
-				!p.song->headers[1].unique_lines.GetCount()) {
-				SetFatalError("song's unique lines are missing");
-				return false;
+			for (const SnapArg& a : SnapArgs()) {
+				if (!p.song->headers[a].unique_lines.GetCount()) {
+					SetFatalError("song's unique lines are missing");
+					return false;
+				}
 			}
 			break;
 		case V_MODE:
-			if (p.mode < 0) {
+			if (p.a.mode < 0) {
 				SetFatalError("mode is not set");
 				return false;
 			}
-			if (p.mode < i0 || p.mode >= i1) {
+			if (p.a.mode < i0 || p.a.mode >= i1) {
 				SetFatalError("mode is not in range");
 				return false;
 			}
@@ -274,9 +275,9 @@ bool Task::CheckArguments() {
 			}
 			break;
 		case V_SONG_LYRICS:
-			for(int i = 0; i < GENDER_COUNT; i++) {
-				if (p.song->headers[i].content.IsEmpty()) {
-					SetFatalError("lyrics are missing for gender " + GetModeString(i));
+			for (const SnapArg& a : SnapArgs()) {
+				if (p.song->headers[a].content.IsEmpty()) {
+					SetFatalError("lyrics are missing for gender " + GetSnapString(a));
 					return false;
 				}
 			}
@@ -288,16 +289,19 @@ bool Task::CheckArguments() {
 			}
 			break;
 		case V_LINE_TXT:
-			for(int i = 0; i < GENDER_COUNT; i++) {
+			for (const SnapArg& a : SnapArgs()) {
 				for (Part& part : p.song->parts) {
 					for (Line& line : part.lines) {
-						if (line.snap[i].txt.IsEmpty()) {
-							SetFatalError("text is missing for gender " + GetModeString(i));
+						if (line.Get(a).txt.IsEmpty()) {
+							SetFatalError("text is missing for gender " + GetSnapString(a));
 							return false;
 						}
 					}
 				}
 			}
+			break;
+		case V_REV:
+			TODO
 			break;
 		}
 	}
@@ -334,7 +338,11 @@ bool Task::WriteResults() {
 		case O_SONG_MASK: break;
 		case O_SONG_ANALYSIS: break;
 		case O_SONG_DATA_STORYLINE: break;
-		case O_SONG_UNIQLINES: ASSERT(p.song->headers[0].unique_lines.GetCount()); ASSERT(p.song->headers[1].unique_lines.GetCount()); break;
+		case O_SONG_UNIQLINES:
+			for (const SnapArg& a : SnapArgs()) {
+				ASSERT(p.song->headers[a].unique_lines.GetCount());
+			}
+			break;
 		case O_SONG_UNIQLINE_ATTRS: break;
 		case O_SONG_SNAP: break;
 		case O_SONG_REVERSED_MASK_COMMON: break;

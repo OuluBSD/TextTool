@@ -16,7 +16,7 @@ struct Break :
 	}
 	static Array<Break>& GetSub() {static Array<Break> b; return b;} // for SnapContext::MergeOwner compat
 	
-	int GetLength(int mode) const;
+	int GetLength(const SnapArg& a) const;
 	
 	PATTERNMASK_MACROS
 };

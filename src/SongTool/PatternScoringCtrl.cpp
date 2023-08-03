@@ -4,13 +4,13 @@ PatternScoringCtrl::PatternScoringCtrl() {
 	Add(mainsplit.SizePos());
 	mainsplit.Vert();
 	
-	for (int mode = 0; mode < GENDER_COUNT; mode++) {
-		Splitter& vsplit = this->vsplit[mode];
-		Plotter& plotter = this->plotter[mode];
-		ArrayCtrl& list = this->list[mode];
+	for (const SnapArg& a : GenderArgs()) {
+		Splitter& vsplit = this->vsplit[a];
+		Plotter& plotter = this->plotter[a];
+		ArrayCtrl& list = this->list[a];
 		
 		plotter.list = &list;
-		plotter.SetMode(mode);
+		plotter.SetMode(a);
 		plotter.SetSource(2);
 		
 		mainsplit << plotter << list;// << presets;
@@ -61,13 +61,13 @@ void PatternScoringCtrl::Data() {
 	Ptrs& p = db.ctx.p;
 	if (p.song) {
 		if (db.ctx.active_wholesong) {
-			for (int mode = 0; mode < GENDER_COUNT; mode++)
-				plotter[mode].SetWholeSong(*p.song);
+			for (const SnapArg& a : GenderArgs())
+				plotter[a].SetWholeSong(*p.song);
 		}
 		else {
 			Part& part = *p.part;
-			for (int mode = 0; mode < GENDER_COUNT; mode++)
-				plotter[mode].SetPart(part);
+			for (const SnapArg& a : GenderArgs())
+				plotter[a].SetPart(part);
 		}
 	}
 	
@@ -87,16 +87,16 @@ void PatternScoringCtrl::Data() {
 	presets.SetCount(db.attrscores.presets.GetCount());
 }*/
 
-void PatternScoringCtrl::DataList(int mode) {
+void PatternScoringCtrl::DataList(const SnapArg& a) {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx.p;
 	if (!p.song)
 		return;
 	Song& o = *p.song;
 	
-	Splitter& vsplit = this->vsplit[mode];
-	Plotter& plotter = this->plotter[mode];
-	ArrayCtrl& list = this->list[mode];
+	Splitter& vsplit = this->vsplit[a];
+	Plotter& plotter = this->plotter[a];
+	ArrayCtrl& list = this->list[a];
 	
 	// Whole song
 	if (db.ctx.active_wholesong) {
@@ -118,14 +118,14 @@ void PatternScoringCtrl::DataList(int mode) {
 					list.Set(total, 1, j);
 					list.Set(total, 2, k);
 					list.Set(total, 3, part_name + ":" + IntStr(j) + ":" + IntStr(k));
-					for(int j = 0; j < brk.snap[mode].partscore.GetCount(); j++) {
-						int value = brk.snap[mode].partscore[j];
+					for(int j = 0; j < brk.Get(a).partscore.GetCount(); j++) {
+						int value = brk.Get(a).partscore[j];
 						int k1 = group_begin+j;
 						int k2 = group_begin-3+j; // skip 3 index columns for visible Ctrls
 						list.Set(total, k1, value);
 						
 						Ctrl* c = new EditIntNotNullSpin;
-						*c <<= THISBACK3(ListValueChanged, mode, total, j);
+						*c <<= THISBACK3(ListValueChanged, a, total, j);
 						list.SetCtrl(total, k2, c);
 					}
 					total++;
@@ -150,14 +150,14 @@ void PatternScoringCtrl::DataList(int mode) {
 				list.Set(total, 1, i);
 				list.Set(total, 2, k);
 				list.Set(total, 3, part_name + ":" + IntStr(i) + ":" + IntStr(k));
-				for(int j = 0; j < brk.snap[mode].partscore.GetCount(); j++) {
-					int value = brk.snap[mode].partscore[j];
+				for(int j = 0; j < brk.Get(a).partscore.GetCount(); j++) {
+					int value = brk.Get(a).partscore[j];
 					int k1 = group_begin+j;
 					int k2 = group_begin-3+j; // skip 3 index columns for visible Ctrls
 					list.Set(total, k1, value);
 					
 					Ctrl* c = new EditIntNotNullSpin;
-					*c <<= THISBACK3(ListValueChanged, mode, total, j);
+					*c <<= THISBACK3(ListValueChanged, a, total, j);
 					list.SetCtrl(total, k2, c);
 				}
 				total++;
@@ -167,7 +167,7 @@ void PatternScoringCtrl::DataList(int mode) {
 	}
 }
 
-void PatternScoringCtrl::ListValueChanged(int mode, int pos, int scoring) {
+void PatternScoringCtrl::ListValueChanged(const SnapArg& a, int pos, int scoring) {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx.p;
 	
@@ -175,9 +175,9 @@ void PatternScoringCtrl::ListValueChanged(int mode, int pos, int scoring) {
 		return;
 	Song& song = *p.song;
 	
-	Splitter& vsplit = this->vsplit[mode];
-	Plotter& plotter = this->plotter[mode];
-	ArrayCtrl& list = this->list[mode];
+	Splitter& vsplit = this->vsplit[a];
+	Plotter& plotter = this->plotter[a];
+	ArrayCtrl& list = this->list[a];
 	
 	int part_i = list.Get(pos, 0);
 	int line_i = list.Get(pos, 1);
@@ -187,10 +187,10 @@ void PatternScoringCtrl::ListValueChanged(int mode, int pos, int scoring) {
 	Line& line = part.lines[line_i];
 	Break& brk = line.breaks[brk_i];
 	
-	if (brk.snap[mode].partscore.GetCount() != db.attrs.scorings.GetCount())
-		brk.snap[mode].partscore.SetCount(db.attrs.scorings.GetCount(), 0);
+	if (brk.Get(a).partscore.GetCount() != db.attrs.scorings.GetCount())
+		brk.Get(a).partscore.SetCount(db.attrs.scorings.GetCount(), 0);
 	
-	auto& dst = brk.snap[mode].partscore[scoring];
+	auto& dst = brk.Get(a).partscore[scoring];
 	int value = list.Get(pos, group_begin+scoring);
 	dst = value;
 	
@@ -220,7 +220,7 @@ void PatternScoringCtrl::PresetMenu(Bar& bar) {
 	
 }
 
-void PatternScoringCtrl::SavePreset(int mode) {
+void PatternScoringCtrl::SavePreset(const SnapArg& a) {
 	Splitter& vsplit = this->vsplit[mode];
 	Plotter& plotter = this->plotter[mode];
 	ArrayCtrl& list = this->list[mode];

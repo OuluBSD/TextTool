@@ -59,7 +59,7 @@ struct Database {
 
 
 template <class B>
-inline String PatternSnap::GetStructuredText(int mode, bool pretty, int indent, const Array<B>& sub) const {
+inline String PatternSnap::GetStructuredText(const SnapArg& a, bool pretty, int indent, const Array<B>& sub) const {
 	const Attributes& g = Database::Single().attrs;
 	String s;
 	if (pretty) s.Cat('\t', indent);
@@ -116,7 +116,7 @@ inline String PatternSnap::GetStructuredText(int mode, bool pretty, int indent, 
 		if (pretty) s << "\n";
 	}
 	for (const B& o : sub)
-		s << o.GetStructuredText(mode, pretty, indent+1);
+		s << o.GetStructuredText(a, pretty, indent+1);
 	if (pretty) s.Cat('\t', indent);
 	s << "}";
 	if (pretty) s << "\n";

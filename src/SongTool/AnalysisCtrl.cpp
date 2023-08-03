@@ -5,11 +5,11 @@ AnalysisCtrl::AnalysisCtrl() {
 	Add(hsplit.SizePos());
 	hsplit.Horz();
 	
-	for(int i = 0; i < GENDER_COUNT; i++) {
-		ArrayCtrl& data = this->data[i];
-		DocEdit& edit = this->edit[i];
-		DocEdit& full = this->full[i];
-		Splitter& vsplit = this->vsplit[i];
+	for(const SnapArg& a : GenderArgs()) {
+		ArrayCtrl& data = this->data[a];
+		DocEdit& edit = this->edit[a];
+		DocEdit& full = this->full[a];
+		Splitter& vsplit = this->vsplit[a];
 		
 		hsplit << vsplit;
 		vsplit.Vert() << edit << data << full;
@@ -20,7 +20,7 @@ AnalysisCtrl::AnalysisCtrl() {
 		data.AddColumn(t_("Value"));
 		data.ColumnWidths("1 4");
 		
-		data <<= THISBACK1(DataCursor, i);
+		data <<= THISBACK1(DataCursor, a);
 	}
 	
 }
@@ -31,56 +31,56 @@ void AnalysisCtrl::Data() {
 	Song& song = *p.song;
 	Part& part = *p.part;
 	
-	for (int mode = 0; mode < GENDER_COUNT; mode++) {
+	for (const SnapArg& a : GenderArgs()) {
 		PatternSnap& snap =
-			db.ctx.active_wholesong ? song.snap[mode] : part.snap[mode];
-		Analysis& a =
-			db.ctx.active_wholesong ? song.headers[mode].analysis : part.analysis[mode];
+			db.ctx.active_wholesong ? song.Get(a) : part.Get(a);
+		Analysis& an =
+			db.ctx.active_wholesong ? song.headers[a].analysis : part.analysis[a];
 		
-		DocEdit& full = this->full[mode];
-		ArrayCtrl& data = this->data[mode];
+		DocEdit& full = this->full[a];
+		ArrayCtrl& data = this->data[a];
 		
 		if (db.ctx.active_wholesong)
-			edit[mode].SetData(song.headers[mode].content);
+			edit[a].SetData(song.headers[a].content);
 		else
-			edit[mode].SetData(snap.txt);
+			edit[a].SetData(snap.txt);
 		
-		for(int i = 0; i < a.data.GetCount(); i++) {
-			data.Set(i, 0, a.data.GetKey(i));
-			data.Set(i, 1, a.data[i]);
+		for(int i = 0; i < an.data.GetCount(); i++) {
+			data.Set(i, 0, an.data.GetKey(i));
+			data.Set(i, 1, an.data[i]);
 		}
-		data.SetCount(a.data.GetCount());
+		data.SetCount(an.data.GetCount());
 	}
 	
-	DataCursor(-1);
+	DataCursor(SnapArg());
 }
 
-void AnalysisCtrl::DataCursor(int match) {
+void AnalysisCtrl::DataCursor(const SnapArg& match) {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx.p;
 	Song& song = *p.song;
 	Part& part = *p.part;
 	
-	for (int mode = 0; mode < GENDER_COUNT; mode++) {
-		Analysis& a =
-			db.ctx.active_wholesong ? song.headers[mode].analysis : part.analysis[mode];
+	for (const SnapArg& a : GenderArgs()) {
+		Analysis& an =
+			db.ctx.active_wholesong ? song.headers[a].analysis : part.analysis[a];
 		
-		DocEdit& full = this->full[mode];
-		ArrayCtrl& data = this->data[mode];
+		DocEdit& full = this->full[a];
+		ArrayCtrl& data = this->data[a];
 		if (data.IsCursor()) {
-			full.SetData(a.data[data.GetCursor()]);
+			full.SetData(an.data[data.GetCursor()]);
 		}
 		else full.Clear();
 	}
 	
 	// Select same kay in other lists too
-	if (match >= 0 && match < GENDER_COUNT) {
+	for (const SnapArg& match : GenderArgs()) {
 		ArrayCtrl& list = this->data[match];
 		if (list.IsCursor()) {
 			String key = list.Get(list.GetCursor(), 0);
-			for(int i = 0; i < GENDER_COUNT; i++) {
-				if (i == match) continue;
-				ArrayCtrl& list = this->data[i];
+			for (const SnapArg& a : GenderArgs()) {
+				if (a == match) continue;
+				ArrayCtrl& list = this->data[a];
 				bool found = false;
 				for(int j = 0; j < list.GetCount(); j++) {
 					if (list.Get(j, 0) == key) {

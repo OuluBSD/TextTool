@@ -42,12 +42,11 @@ StructureCtrl::StructureCtrl() {
 	list.ColumnWidths("1 1 6");
 	
 	// Mode droplist
-	mode = MALE;
-	for(int i = 0; i < PTR_COUNT; i++) {
-		import_str.mode.Add(GetModeString(i));
+	for(const SnapArg& a : SnapArgs()) {
+		import_str.mode.Add(GetSnapString(a));
 	}
-	import_str.mode.SetIndex(mode);
-	import_str.mode.WhenAction << [this]() {this->mode = import_str.mode.GetIndex(); Data();};
+	import_str.mode.SetIndex(a.Get());
+	import_str.mode.WhenAction << [this]() {this->a.Set(import_str.mode.GetIndex()); Data();};
 	
 }
 
@@ -82,7 +81,7 @@ void StructureCtrl::DataSong() {
 			part_list.Set(i, 0, j);
 			part_list.Set(i, 1, i);
 			part_list.Set(i, 2, part.name);
-			part_list.Set(i, 3, part.GetLength(mode));
+			part_list.Set(i, 3, part.GetLength(this->a));
 		}
 	}
 	part_list.SetCount(s.parts.GetCount());
@@ -111,8 +110,8 @@ void StructureCtrl::DataPart() {
 			Line& line = part.lines[i];
 			
 			line_list.Set(i, 0, i);
-			line_list.Set(i, 1, line.snap[mode].txt);
-			line_list.Set(i, 2, line.GetLength(mode));
+			line_list.Set(i, 1, line.Get(a).txt);
+			line_list.Set(i, 2, line.GetLength(a));
 		}
 		line_list.SetCount(part.lines.GetCount());
 		
@@ -144,14 +143,14 @@ void StructureCtrl::DataLine() {
 			Break& brk = line.breaks[i];
 			
 			break_list.Set(i, 0, i);
-			break_list.Set(i, 1, brk.snap[mode].txt);
-			break_list.Set(i, 2, brk.GetLength(mode));
+			break_list.Set(i, 1, brk.Get(a).txt);
+			break_list.Set(i, 2, brk.GetLength(a));
 			
 			EditIntSpin* edit = new EditIntSpin;
 			edit->WhenAction << [&, this, edit, line_i, part_c]() {
-				brk.snap[this->mode].syllables = edit->GetData();
-				line_list.Set(line_i, 2, line.GetLength(mode));
-				part_list.Set(part_c, 3, part.GetLength(mode));
+				brk.Get(a).syllables = edit->GetData();
+				line_list.Set(line_i, 2, line.GetLength(a));
+				part_list.Set(part_c, 3, part.GetLength(a));
 				this->drawer.Refresh();
 			};
 			break_list.SetCtrl(i, 2, edit);
@@ -211,51 +210,51 @@ void StructureCtrl::DataList() {
 		
 		list.Set(list_i, 0, t_("Break"));
 		list.Set(list_i, 1, t_("Text"));
-		list.Set(list_i, 2, brk.snap[mode].txt);
+		list.Set(list_i, 2, brk.Get(a).txt);
 		list_i++;
 		
-		if (brk.snap[mode].impact.GetCount()) {
+		if (brk.Get(a).impact.GetCount()) {
 			list.Set(list_i, 0, t_("Break"));
 			list.Set(list_i, 1, t_("Impact"));
-			list.Set(list_i, 2, brk.snap[mode].impact);
+			list.Set(list_i, 2, brk.Get(a).impact);
 			list_i++;
 		}
 		
-		for(int i = 0; i < brk.snap[mode].data.GetCount(); i++) {
+		for(int i = 0; i < brk.Get(a).data.GetCount(); i++) {
 			list.Set(list_i, 0, t_("Break"));
-			list.Set(list_i, 1, brk.snap[mode].data.GetKey(i));
-			list.Set(list_i, 2, brk.snap[mode].data[i]);
+			list.Set(list_i, 1, brk.Get(a).data.GetKey(i));
+			list.Set(list_i, 2, brk.Get(a).data[i]);
 			list_i++;
 		}
 		
 		list.Set(list_i, 0, t_("Line"));
 		list.Set(list_i, 1, t_("Text"));
-		list.Set(list_i, 2, line.snap[mode].txt);
+		list.Set(list_i, 2, line.Get(a).txt);
 		list_i++;
 		
-		for(int i = 0; i < line.snap[mode].data.GetCount(); i++) {
+		for(int i = 0; i < line.Get(a).data.GetCount(); i++) {
 			list.Set(list_i, 0, t_("Line"));
-			list.Set(list_i, 1, line.snap[mode].data.GetKey(i));
-			list.Set(list_i, 2, line.snap[mode].data[i]);
+			list.Set(list_i, 1, line.Get(a).data.GetKey(i));
+			list.Set(list_i, 2, line.Get(a).data[i]);
 			list_i++;
 		}
 		
 		list.Set(list_i, 0, t_("Part"));
 		list.Set(list_i, 1, t_("Text"));
-		list.Set(list_i, 2, part.snap[mode].txt);
+		list.Set(list_i, 2, part.Get(a).txt);
 		list_i++;
 		
-		for(int i = 0; i < part.snap[mode].data.GetCount(); i++) {
+		for(int i = 0; i < part.Get(a).data.GetCount(); i++) {
 			list.Set(list_i, 0, t_("Part"));
-			list.Set(list_i, 1, part.snap[mode].data.GetKey(i));
-			list.Set(list_i, 2, part.snap[mode].data[i]);
+			list.Set(list_i, 1, part.Get(a).data.GetKey(i));
+			list.Set(list_i, 2, part.Get(a).data[i]);
 			list_i++;
 		}
 		
-		for(int i = 0; i < song.snap[mode].data.GetCount(); i++) {
+		for(int i = 0; i < song.Get(a).data.GetCount(); i++) {
 			list.Set(list_i, 0, t_("Song"));
-			list.Set(list_i, 1, song.snap[mode].data.GetKey(i));
-			list.Set(list_i, 2, song.snap[mode].data[i]);
+			list.Set(list_i, 1, song.Get(a).data.GetKey(i));
+			list.Set(list_i, 2, song.Get(a).data[i]);
 			list_i++;
 		}
 		
@@ -280,7 +279,7 @@ StructureDrawer::StructureDrawer() {
 void StructureDrawer::Paint(Draw& d) {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx.p;
-	int mode = ctrl->mode;
+	SnapArg a = ctrl->a;
 	
 	Size sz = GetSize();
 	
@@ -297,7 +296,7 @@ void StructureDrawer::Paint(Draw& d) {
 		
 		Item& item = items.Add();
 		item.part = part;
-		item.len = part->GetLength(mode);
+		item.len = part->GetLength(a);
 		item.clr = GetPartColor(key, Color(Random(256), Random(256), Random(256)));
 		
 		total_len += item.len;

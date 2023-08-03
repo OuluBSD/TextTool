@@ -230,7 +230,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_LINE_REVERSED_SNAP)
 		.Require(O_BREAK_REVERSED_SNAP)
 		.Process(&Task::Process_MakeLyricsTask)
-			.Arg(V_MODE, MALE_REVERSED, PTR_COUNT)
+			.Arg(V_REV, BACKWARD, REV_COUNT)
 			.Result(O_TASKS)
 		;
 	
@@ -245,7 +245,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Input(&Task::CreateInput_Lyrics)
 		.Process(&Task::Process_Lyrics)
 			.Result(O_SONG_REVERSED_LYRICS)
-			.Arg(V_MODE, MALE_REVERSED, PTR_COUNT)
+			.Arg(V_REV, BACKWARD, REV_COUNT)
 		;
 	
 	AddRule(TASK_LYRICS_TRANSLATE, "reversed lyrics translate")
@@ -254,7 +254,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Input(&Task::CreateInput_LyricsTranslate)
 		.Process(&Task::Process_LyricsTranslate)
 			.Result(O_SONG_REVERSED_TRANSLATED_LYRICS)
-			.Arg(V_MODE, MALE_REVERSED, PTR_COUNT)
+			.Arg(V_REV, BACKWARD, REV_COUNT)
 		;
 	
 	
@@ -350,7 +350,7 @@ bool TaskMgr::IsDepsReady(Task& t, Index<Task*>& seen) const {
 					if (o == o0) {
 						// Special case (must be previous context)
 						if (o == O_NEXT_CTX_JUMP) {
-							if (t0.p.group_ctx != t.p.group_ctx-1)
+							if (t0.p.a.ctx != t.p.a.ctx-1)
 								continue;
 						}
 						found = true;
@@ -363,7 +363,7 @@ bool TaskMgr::IsDepsReady(Task& t, Index<Task*>& seen) const {
 		}
 		// Special case: first context doesn't require this
 		if (o == O_NEXT_CTX_JUMP) {
-			if (t.p.group_ctx == CTX_BEGIN)
+			if (t.p.a.ctx == CTX_BEGIN)
 				found = true;
 		}
 		if (!found)
@@ -412,7 +412,7 @@ GroupContext TaskMgr::GetGroupContextLimit() const {
 	int tt = 0;
 	for (const Task& t : tasks) {
 		if (t.rule->code == O_NEXT_CTX_JUMP && t.ready)
-			tt = max(tt, (int)t.p.group_ctx + 1);
+			tt = max(tt, (int)t.p.a.ctx + 1);
 	}
 	return (GroupContext)(tt+1);
 }
@@ -435,7 +435,7 @@ bool TaskMgr::SpawnTasks() {
 				for (Song* s : task_songs.GetKeys()) {
 					Task* exists_already = 0;
 					for (Task& t : tasks) {
-						if (t.rule == &r && t.p.song == s && t.p.group_ctx == ctx) {
+						if (t.rule == &r && t.p.song == s && t.p.a.ctx == ctx) {
 							exists_already = &t;
 							break;
 						}
@@ -463,7 +463,7 @@ bool TaskMgr::SpawnTasks() {
 						bool skips_ctx = IsTaskSkippingContext(tt);
 						bool found = false;
 						for (Task& t : tasks) {
-							if (t.p.group_ctx != ctx && !skips_ctx)
+							if (t.p.a.ctx != ctx && !skips_ctx)
 								continue;
 							for (TaskOutputType t0 : t.rule->results) {
 								if (t0 == tt) {
@@ -501,9 +501,9 @@ bool TaskMgr::SpawnTasks() {
 					for (int mode = mode_begin; mode < mode_end; mode++) {
 						Task& t = tasks.Add();
 						t.rule = &r;
-						t.p.CopyPtrs(s->snap[0]);
-						t.p.mode = mode;
-						t.p.group_ctx = ctx;
+						t.p.CopyPtrs(s->Get0());
+						t.p.a.mode = (SnapMode)mode;
+						t.p.a.ctx = ctx;
 						spawned++;
 						ctx_spawned = true;
 					}
