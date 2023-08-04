@@ -9,12 +9,14 @@ ImportCtrl::ImportCtrl()
 	messages.AddColumn(t_("Message"));
 	messages.ColumnWidths("1 3 15");
 
-	input[0] <<= THISBACK(OnValueChange);
-	input[1] <<= THISBACK(OnValueChange);
 	make_tasks <<= THISBACK(MakeTasks);
 
 	vsplit.Vert() << hsplit << messages;
-	hsplit.Horz() << input[0] << input[1];
+	hsplit.Horz();
+	for(int i = 0; i < HUMAN_INPUT_MODE_COUNT; i++) {
+		input[i] <<= THISBACK(OnValueChange);
+		hsplit << input[i];
+	}
 	vsplit.SetPos(8000);
 }
 
@@ -24,13 +26,15 @@ void ImportCtrl::Data()
 	Ptrs& p = db.ctx.p;
 	if(!p.song)
 		return;
-
-	a[0] = p.a;
-	a[1] = p.a;
-	a[0].mode = MALE;
-	a[1].mode = FEMALE;
-	for(int i = 0; i < GENDER_COUNT; i++)
+	if(!p.a.Is())
+		return;
+	
+	for(int i = 0; i < HUMAN_INPUT_MODE_COUNT; i++) {
+		a[i] = p.a;
+		a[i].ctx = CTX_TEXT;
+		a[i].mode = (SnapMode)i;
 		input[i].SetData(p.song->headers[a[i]].content);
+	}
 }
 
 void ImportCtrl::OnValueChange()
@@ -40,7 +44,7 @@ void ImportCtrl::OnValueChange()
 	if(!p.song)
 		return;
 
-	for(int i = 0; i < GENDER_COUNT; i++)
+	for(int i = 0; i < HUMAN_INPUT_MODE_COUNT; i++)
 		p.song->headers[a[i]].content = input[i].GetData();
 }
 

@@ -3,7 +3,7 @@
 void Task::CreateInput_StoryArc() {
 	Database& db = Database::Single();
 	if (!p.song) {
-		SetError("no song pointer set");
+		SetFatalError("no song pointer set");
 		return;
 	}
 	
@@ -13,7 +13,7 @@ void Task::CreateInput_StoryArc() {
 	ASSERT(a.mode != MODE_INVALID);
 	
 	if (song.parts.IsEmpty()) {
-		SetError("no parts in song");
+		SetFatalError("no parts in song");
 		return;
 	}
 	
@@ -51,10 +51,79 @@ void Task::CreateInput_StoryArc() {
 	input = s;
 }
 
+void Task::CreateInput_StoryArcWeighted() {
+	Ptrs& p = this->p;
+	Song& song = *p.song;
+	String s;
+	String parts;
+	
+	SnapArg a0 = p.a;
+	SnapArg a1 = p.a;
+	a0.mode = MALE;
+	a1.mode = FEMALE;
+	
+	s <<	"An example of the process:\n"
+			"Input: Description A of X: \"The narrator is feeling sarcastic and isolated\"\n"
+			"Input: Description B of X: \"The protagonist reflects on her past relationship.\"\n"
+			"Result: Self-aware meta-transition from A to B: \"The narrator's former lightheadedness is replaced by a sarcastically disaffected, almost-forgotten reflection of her past relationship.\"\n"
+			"\n";
+	
+	Index<String>& song_keys = tmp_stridx;
+	song_keys << "shortened absolute story arc";
+	song_keys << "shortened absolute story arc of whole song";
+	song_keys << "theme of the whole song";
+	song_keys << "storyline";
+	
+	int item = 0;
+	for(int i = 0; i < tmp_stridx.GetCount(); i++) {
+		String key = tmp_stridx[i];
+		const PatternSnap& snap0 = song.snap[a0];
+		const PatternSnap& snap1 = song.snap[a1];
+		String storyline0 = snap0.data.Get(key, "");
+		String storyline1 = snap1.data.Get(key, "");
+		if (!storyline0.IsEmpty() && !storyline1.IsEmpty()) {
+			s	<< "- Line " << item+1 << ", Description A of X: \""
+				<< storyline0 << "\", Description B of X: \"" << storyline1
+				<< "\"\n";
+			tmp_ctx << static_cast<SnapContext*>(&song);
+			item++;
+		}
+		else tmp_stridx.Remove(i--);
+	}
+	for(int i = 0; i < song.parts.GetCount(); i++) {
+		Part& part = song.parts[i];
+		{
+			const PatternSnap& snap0 = part.snap[a0];
+			const PatternSnap& snap1 = part.snap[a1];
+			song_keys << "storyline";
+			String storyline0 = snap0.data.Get("storyline", "");
+			String storyline1 = snap1.data.Get("storyline", "");
+			if (!storyline0.IsEmpty() && !storyline1.IsEmpty()) {
+				s	<< "- Line " << item+1 << ", Description A of X: \""
+					<< storyline0 << "\", Description B of X: \"" << storyline1
+					<< "\"\n";
+				tmp_ctx << static_cast<SnapContext*>(&part);
+				item++;
+			}
+		}
+	}
+	s << "\n\n";
+	
+	s << "List of results:\n- Line 1, Result: \"";
+	
+	if (!item) {
+		SetFatalError("no storylines");
+		return;
+	}
+	
+	//LOG(s);
+	input = s;
+}
+
 void Task::CreateInput_Impact() {
 	Database& db = Database::Single();
 	if (!p.line) {
-		SetError("no line pointer set");
+		SetFatalError("no line pointer set");
 		return;
 	}
 	
@@ -83,6 +152,121 @@ void Task::CreateInput_Impact() {
 	s << "How the listener is impacted in short:\n"
 		"Part 1, \"" << line.breaks[0].Get(a).txt << "\":";
 	
+	input = s;
+}
+
+void Task::CreateInput_ImpactWeighted() {
+	Ptrs& p = this->p;
+	if (!p.line) {
+		SetFatalError("no line pointer set");
+		return;
+	}
+	Song& song = *p.song;
+	Line& line = *p.line;
+	String s;
+	String parts;
+	
+	SnapArg a0 = p.a;
+	SnapArg a1 = p.a;
+	a0.mode = MALE;
+	a1.mode = FEMALE;
+	SnapArg a_other = a0 == p.a ? a1 : a0;
+	
+	s <<	"An example of the process:\n"
+			"Input: Description A of X: \"The narrator is feeling sarcastic and isolated\"\n"
+			"Input: Description B of X: \"The protagonist reflects on her past relationship.\"\n"
+			"Result: Self-aware meta-transition from A to B: \"The narrator's former lightheadedness is replaced by a sarcastically disaffected, almost-forgotten reflection of her past relationship.\"\n"
+			"\n";
+	
+	
+	
+	int item = 0;
+	bool waiting = false;
+	for(int i = 0; i < line.breaks.GetCount(); i++) {
+		Break& brk = line.breaks[i];
+		PatternSnap& snap0 = brk.snap[a0];
+		PatternSnap& snap1 = brk.snap[a1];
+		
+		if (!snap0.impact.IsEmpty() && !snap1.impact.IsEmpty()) {
+			s	<< "- Line " << item+1 << ", Description A of X: \""
+				<< snap0.impact << "\", Description B of X: \"" << snap1.impact
+				<< "\"\n";
+			tmp_ctx << static_cast<SnapContext*>(&brk);
+			item++;
+		}
+		else if (brk.snap[a_other].impact.IsEmpty())
+			waiting = true;
+	}
+	s << "\n\n";
+	
+	s << "List of results:\n- Line 1, Result: \"";
+	
+	if (!item) {
+		if (waiting)
+			SetWaiting();
+		else
+			SetFatalError("no impacts");
+		return;
+	}
+	
+	//LOG(s);
+	input = s;
+}
+
+void Task::CreateInput_ForwardLyricsWeighted() {
+	Ptrs& p = this->p;
+	if (!p.line) {
+		SetFatalError("no line pointer set");
+		return;
+	}
+	Song& song = *p.song;
+	Line& line = *p.line;
+	String s;
+	String parts;
+	
+	SnapArg a1 = p.a;
+	a1.mode = COMMON;
+	
+	s	<< "Examples of the process:\n"
+		<< "- Input: Words: 2, Input: Impact: \"The somber atmosphere invites the listener to consider the emotional repercussions of shielding themselves from pain, while simultaneously evoking a sense of looming danger around the narrator.\", Result: \"Open walls\"\n"
+		<< "- Input: Words: 5, Input: Impact: \"The listener's contemplation on their own defensive behavior as a result of not expressing emotions juxtaposes with the narrator's sly intent to inspire fear in them.\", Result: \"Beware what's coming next\"\n"
+		<< "- Input: Words: 5, Input: Impact: \"The invitation to contemplate one's emotional wounds combined with the narrator's cunningly crafted fear-inducing attitude, creates an atmosphere of distress and confusion.\", Result: \"Go dig your graves\"\n"
+		<< "- Input: Words: 3, Input: Impact: \"The listener's anticipation and excitement are slowly shifted to a more restful, self-assured comfort as they accept the assurance of safety that comes with the speaker's promise of affection.\", Result: \"Trust in me\"\n"
+		<< "\n\n";
+	
+	s << "List of inputs:\n";
+	
+	int item = 0;
+	bool waiting = false;
+	for(int i = 0; i < line.breaks.GetCount(); i++) {
+		Break& brk = line.breaks[i];
+		PatternSnap& snap0 = brk.snap[p.a];
+		PatternSnap& snap1 = brk.snap[a1];
+		
+		if (!snap1.txt.IsEmpty() && !snap0.impact.IsEmpty()) {
+			int words = CountWords(snap1.txt);
+			s	<< "- Line " << item+1
+				<< ", Input: Words: " << words + 2
+				<< ", Input: Impact: \"" << snap0.impact << "\"\n";
+			tmp_ctx << static_cast<SnapContext*>(&brk);
+			item++;
+		}
+		else if (!snap0.impact.IsEmpty())
+			waiting = true;
+	}
+	s << "\n\n";
+	
+	s << "List of results:\n- Line 1, Result: \"";
+	
+	if (!item) {
+		if (waiting)
+			SetWaiting();
+		else
+			SetFatalError("no impacts");
+		return;
+	}
+	
+	//LOG(s);
 	input = s;
 }
 
@@ -209,7 +393,7 @@ void Task::CreateInput_PatternMask() {
 	//CombineHash hash;
 	Database& db = Database::Single();
 	if (!p.song) {
-		SetError("no song pointer set");
+		SetFatalError("no song pointer set");
 		return;
 	}
 	
@@ -246,11 +430,12 @@ void Task::CreateInput_PatternMask() {
 	}
 	s << "\n";
 	
-	if (!count) {SetError("internal error"); return;}
+	if (!count) {SetFatalError("internal error"); return;}
 	
 	
 	s << "Lyrics:\n";
 	String parts;
+	bool any_has_txt = false;
 	for(int i = 0; i < song.parts.GetCount(); i++) {
 		Part& part = song.parts[i];
 		s << part.name << "\n";
@@ -262,13 +447,22 @@ void Task::CreateInput_PatternMask() {
 		Array<Line>& lines = part.lines;
 		for(int j = 0; j < lines.GetCount(); j++) {
 			Line& line = lines[j];
-			s << line.Get(a).txt << "\n";
+			String txt = line.Get(a).txt;
+			if (!txt.IsEmpty())
+				any_has_txt = true;
+			s << txt << "\n";
 			//hash << ToLower(line.txt);
 		}
 		
 		s << "\n";
 	}
 	s << "\n\n";
+	
+	if (!any_has_txt) {
+		SetFatalError("no text is in lines");
+		return;
+	}
+	
 	//s << "Empty groups are omitted or marked as N/A.\n";
 	//s << "Multiple values are separated with a comma.\n\n";
 	//hash << ToLower(vocalist_visual);
@@ -290,7 +484,7 @@ void Task::CreateInput_Pattern() {
 	//CombineHash hash;
 	Database& db = Database::Single();
 	if (!p.song) {
-		SetError("no song pointer set");
+		SetFatalError("no song pointer set");
 		return;
 	}
 	
@@ -300,7 +494,7 @@ void Task::CreateInput_Pattern() {
 	ASSERT(a.mode != MODE_INVALID);
 	SongHeader& header = song.headers[a];
 	if (header.unique_lines.IsEmpty()) {
-		SetError("no unique lines");
+		SetFatalError("no unique lines");
 		return;
 	}
 	
@@ -374,16 +568,16 @@ void Task::CreateInput_Analysis() {
 	Ptrs& p = this->p;
 	Song& song = *p.song;
 	SnapArg a = p.a;
-	ASSERT(a.mode != MODE_INVALID);
+	a.Chk();
 	SongHeader& header = song.headers[a];
 	
 	if (!p.song) {
-		SetError("no song pointer set");
+		SetFatalError("no song pointer set");
 		return;
 	}
 	
 	if (song.parts.IsEmpty()) {
-		SetError("Empty song");
+		SetFatalError("Empty song");
 		return;
 	}
 	
@@ -431,6 +625,8 @@ void Task::CreateInput_Analysis() {
 	//s << "One attribute from every group is required.\n\n";
 	s << "Multiple answers are required.\n\n";
 	
+	s << "Formatting example:\n- Literary Devices: Alliteration, rhyme, metaphor\n\n";
+
 	if (whole_song)
 		s << "Verbose " << title << " of lyrics for whole lyrics:\n";
 	else
@@ -606,7 +802,7 @@ void Task::CreateInput_AttrScores() {
 	
 	// This task shouldn't exist, if there is nothing to solve
 	if (entry_count == 0) {
-		SetError(DeQtf(t_("Nothing to ask from AI here")));
+		SetFatalError(DeQtf(t_("Nothing to ask from AI here")));
 		return;
 	}
 	
@@ -632,7 +828,7 @@ void Task::CreateInput_Lyrics() {
 	Database& db = Database::Single();
 	
 	if (!this->p.part) {
-		SetError("no part pointers");
+		SetFatalError("no part pointers");
 		return;
 	}
 	

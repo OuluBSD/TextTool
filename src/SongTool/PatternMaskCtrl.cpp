@@ -5,7 +5,7 @@ PatternMaskCtrl::PatternMaskCtrl() {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz();
-	for (const SnapArg& a : GenderArgs()) {
+	for (const SnapArg& a : ModeArgs()) {
 		Splitter& vsplit = this->vsplit[a];
 		ArrayCtrl& data = this->data[a];
 		DocEdit& lyrics = this->lyrics[a];
@@ -30,7 +30,7 @@ void PatternMaskCtrl::Data() {
 	if (!db.ctx.active_wholesong && !p.part)
 		return;
 	
-	for(const SnapArg& a : GenderArgs()) {
+	for(const SnapArg& a : ModeArgs()) {
 		Splitter& vsplit = this->vsplit[a];
 		ArrayCtrl& data = this->data[a];
 		DocEdit& lyrics = this->lyrics[a];
@@ -42,7 +42,7 @@ void PatternMaskCtrl::Data() {
 			const SnapAttrStr& sa = snap.mask[j];
 			
 			bool only_in_this = true;
-			for (const SnapArg& a0 : GenderArgs()) {
+			for (const SnapArg& a0 : ModeArgs()) {
 				if (&a == &a0) continue;
 				PatternSnap& snap0 = (db.ctx.active_wholesong ? song.Get(a0) : p.part->Get(a0));
 				if (snap0.mask.Find(sa) >= 0)
@@ -66,7 +66,7 @@ void PatternMaskCtrl::SelectLine(const SnapArg& match) {
 	if (list.IsCursor()) {
 		String group = AttrText(list.Get(list.GetCursor(), 0)).text.ToString();
 		String value = AttrText(list.Get(list.GetCursor(), 1)).text.ToString();
-		for (const SnapArg& a : GenderArgs()) {
+		for (const SnapArg& a : ModeArgs()) {
 			if (a == match) continue;
 			ArrayCtrl& list = this->data[a];
 			bool found = false;

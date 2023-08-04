@@ -19,7 +19,7 @@
 
 
 void SnapContext::MergeOwner() {
-	int level = snap[0].GetLevel();
+	int level = Get0().GetLevel();
 	if (level == 0) static_cast<Break*>(this)->MergeOwner();
 	if (level == 1) static_cast<Line*>(this)->MergeOwner();
 	if (level == 2) static_cast<Part*>(this)->MergeOwner();
@@ -47,8 +47,8 @@ void PatternSnap::FindAddAttr(const SnapAttrStr& sa) {
 void Song::ReloadStructure() {
 	Database& db = Database::Single();
 	Ptrs& p = db.ctx.p;
-	for(int i = 0; i < MODE_COUNT; i++)
-		db.ctx.snap[i] = 0;
+	for(const SnapArg& a : AllArgs())
+		db.ctx.snap[a] = 0;
 	
 	this->parts.Clear();
 	this->structure = Split(this->structure_str, ",");

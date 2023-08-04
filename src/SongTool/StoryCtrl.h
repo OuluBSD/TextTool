@@ -4,7 +4,7 @@
 
 class StoryCtrl : public Ctrl {
 	Splitter vsplit;
-	PArr<ArrayCtrl> list;
+	MArr<ArrayCtrl> list;
 	
 public:
 	typedef StoryCtrl CLASSNAME;

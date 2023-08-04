@@ -4,10 +4,10 @@
 StoryCtrl::StoryCtrl() {
 	Add(vsplit.SizePos());
 	
-	for (const SnapArg& a : GenderArgs())
+	for (const SnapArg& a : ModeArgs())
 		vsplit.Vert() << list[a];
 	
-	for (const SnapArg& a : GenderArgs()) {
+	for (const SnapArg& a : ModeArgs()) {
 		ArrayCtrl& list = this->list[a];
 		list.AddColumn(t_("Key"));
 		list.AddColumn(t_("Value"));
@@ -24,7 +24,7 @@ void StoryCtrl::Data() {
 	Ptrs& p = db.ctx.p;
 	Song& song = *p.song;
 	
-	for (const SnapArg& a : GenderArgs()) {
+	for (const SnapArg& a : ModeArgs()) {
 		ArrayCtrl& list = this->list[a];
 		Index<int> story_values;
 		
@@ -82,7 +82,7 @@ void StoryCtrl::SelectLine(const SnapArg& match) {
 	ArrayCtrl& list = this->list[match];
 	if (list.IsCursor()) {
 		String key = AttrText(list.Get(list.GetCursor(), 0)).text.ToString();
-		for(const SnapArg& a : GenderArgs()) {
+		for(const SnapArg& a : ModeArgs()) {
 			if (a == match) continue;
 			ArrayCtrl& list = this->list[a];
 			bool found = false;

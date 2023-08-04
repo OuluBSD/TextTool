@@ -8,16 +8,16 @@ void Line::ParseLine(Song& song, const SnapArg& a, const String& txt) {
 		String& s = parts[i];
 		s = TrimBoth(s);
 		Break& b = breaks[i];
-		PatternSnap& snap = b.snap[mode];
+		PatternSnap& snap = b.snap[a];
 		snap.Clear();
 		snap.txt = s;
 		snap.syllables = max(1, s.GetCount() / 3); // 3 chars per syllable by average
-		song.headers[mode].unique_lines.GetAdd(s);
+		song.headers[a].unique_lines.GetAdd(s);
 	}
 	String joined = Join(parts, " ");
-	this->snap[mode].txt = joined;
-	ASSERT(this->snap[mode].txt.GetCount());
-	song.headers[mode].unique_lines.GetAdd(joined);
+	this->snap[a].txt = joined;
+	ASSERT(this->snap[a].txt.GetCount());
+	song.headers[a].unique_lines.GetAdd(joined);
 	FixPtrs();
 }
 
@@ -25,7 +25,7 @@ int Line::GetLength(const SnapArg& a) const {
 	a.Chk();
 	int len = 0;
 	for (const Break& brk : breaks)
-		len += brk.GetLength(mode);
+		len += brk.GetLength(a);
 	return len;
 }
 

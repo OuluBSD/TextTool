@@ -6,7 +6,8 @@ void Task::Process_ReverseImpact() {
 	const TaskMgr& mgr = *this->mgr;
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
-	ASSERT(p.mode == 0);
+	SnapArg& a = p.a;
+	a.Chk();
 	int gc = db.attrs.scorings.GetCount();
 	Song& song0 = *p.song;
 	
@@ -36,8 +37,8 @@ void Task::Process_ReverseImpact() {
 		
 		// Don't do useless work: skip if impact score is ready
 		bool ready = true;
-		for(int i = 0; i < 2; i++) {
-			if (ctx0->snap[i].impact_score.IsEmpty()) {
+		for (const SnapArg& a : ModeArgs()) {
+			if (ctx0->Get(a).impact_score.IsEmpty()) {
 				ready = false;
 				break;
 			}
@@ -66,9 +67,9 @@ void Task::Process_ReverseImpact() {
 						double corr_av = 0;
 						
 						// Loop major genders
-						for(int i = 0; i < GENDER_COUNT; i++) {
-							const Vector<int>& score0 = ctx0->snap[i].impact_score;
-							const Vector<int>& score1 = ctx1->snap[i].impact_score;
+						for (const SnapArg& a : ModeArgs()) {
+							const Vector<int>& score0 = ctx0->Get(a).impact_score;
+							const Vector<int>& score1 = ctx1->Get(a).impact_score;
 							
 							// Check that score-vector matches the count of score-types in database
 							if (score0.GetCount() != gc || score1.GetCount() != gc) {
@@ -104,14 +105,13 @@ void Task::Process_ReverseImpact() {
 							double corr = (gc * sum_XY - sum_X * sum_Y) / sq;
 							
 							// Use average correlation of genders as heuristic value
-							corr_av += corr * (1.0 / GENDER_COUNT);
+							corr_av += corr * (1.0 / MODE_COUNT);
 						}
 						
 						// Update the best value
 						if (corr_av > best_corr_av) {
 							best_corr_av = corr_av;
 							best_ctx = ctx1;
-							Ptrs& p = ctx1->snap[0];
 						}
 					}
 				}
@@ -123,9 +123,9 @@ void Task::Process_ReverseImpact() {
 			// Write essential results (impact scores in Breaks)
 			
 			// Loop major genders for snapshots in the context
-			for(int i = 0; i < GENDER_COUNT; i++) {
-				PatternSnap& snap0 = ctx0->snap[MALE_REVERSED + i];
-				const PatternSnap& snap1 = best_ctx->snap[MALE + i];
+			for (const auto& g : ModeRevArgs()) {
+				PatternSnap& snap0 = ctx0->Get(g.b); // BACKWARD
+				const PatternSnap& snap1 = best_ctx->Get(g.a); // FORWARD
 				snap0.impact = snap1.impact;
 				snap0.impact_score <<= snap1.impact_score;
 			}
@@ -133,8 +133,8 @@ void Task::Process_ReverseImpact() {
 			// Write non-essential results
 			
 			// Get location of Break class for target and source
-			String loc = ctx0->snap[0].GetBreakInSongString();
-			String best_loc = best_ctx->snap[0].GetBreakInDatabaseString();
+			String loc = ctx0->Get0().GetBreakInSongString();
+			String best_loc = best_ctx->Get0().GetBreakInDatabaseString();
 			
 			// Write results to the song object
 			song0.lock.EnterWrite();
@@ -151,9 +151,9 @@ void Task::Process_ReverseCommonMask() {
 	const TaskMgr& mgr = *this->mgr;
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
-	ASSERT(p.mode >= 0);
-	int mode = p.mode;
-	ASSERT(mode == MALE);
+	SnapArg& a = p.a;
+	a.Chk();
+	ASSERT(a == ZeroArg());
 	ReverseTask& task = *this->task;
 	ASSERT(task.ctx);
 	SnapContext& ctx = *task.ctx;
@@ -168,11 +168,12 @@ void Task::Process_ReverseCommonMask() {
 	
 	// Get scorings for fast access
 	int gc = g.scorings.GetCount(); // TODO rename gc
-	ASSERT(ctx.snap[0].partscore.GetCount() == gc);
-	ASSERT(ctx.snap[1].partscore.GetCount() == gc);
-	const int* comp[2];
-	comp[0] = ctx.snap[0].partscore.Begin();
-	comp[1] = ctx.snap[1].partscore.Begin();
+	PArr<const int*> comp;
+	for (const SnapArg& a : ModeArgs()) {
+		const auto& ps = ctx.Get(a).partscore;
+		ASSERT(ps.GetCount() == gc);
+		comp[a] = ps.Begin();
+	}
 	
 	// Get all attribute groups and items in the database to single vector
 	Vector<SnapAttrStr> attrs;
@@ -259,13 +260,13 @@ void Task::Process_ReverseCommonMask() {
 		
 		// Calculate result for the trial (=energy)
 		double av_energy = 0;
-		for (const SnapArg& a : GenderArgs()) {
+		for (const SnapArg& a : ModeArgs()) {
 			double energy = 0;
 			if (0) {
 				for(int i = 0; i < gc; i++) {
-					double a = sc[i];
-					double b = comp[mode][i];
-					double diff = fabs(a - b);
+					double g = sc[i];
+					double h = comp[a][i];
+					double diff = fabs(g - h);
 					energy -= diff;
 				}
 				double penalty = (common_mask_max_values - mc) * 0.1;
@@ -273,11 +274,11 @@ void Task::Process_ReverseCommonMask() {
 			}
 			else if (0) {
 				for(int i = 0; i < gc; i++) {
-					double a = sc[i];
-					double b = comp[mode][i];
-					double diff = fabs(a - b);
-					bool sgn_mismatch = (a > 0) == (b > 0);
-					bool large_value = fabs(a) > fabs(b);
+					double g = sc[i];
+					double h = comp[a][i];
+					double diff = fabs(g - h);
+					bool sgn_mismatch = (g > 0) == (h > 0);
+					bool large_value = fabs(g) > fabs(h);
 					double mul = (sgn_mismatch ? 2 : 1) * (large_value ? 2 : 1);
 					energy -= diff * mul;
 				}
@@ -286,22 +287,22 @@ void Task::Process_ReverseCommonMask() {
 				double sum_X = 0, sum_Y = 0, sum_XY = 0;
 				double squareSum_X = 0, squareSum_Y = 0;
 				for(int i = 0; i < gc; i++) {
-					double a = sc[i];
-					double b = comp[mode][i];
-					if (!a) continue;
+					double g = sc[i];
+					double h = comp[a][i];
+					if (!g) continue;
 					
 					// sum of elements of array X.
-			        sum_X = sum_X + a;
+			        sum_X = sum_X + g;
 			 
 			        // sum of elements of array Y.
-			        sum_Y = sum_Y + b;
+			        sum_Y = sum_Y + h;
 			 
 			        // sum of X[i] * Y[i].
-			        sum_XY = sum_XY + a * b;
+			        sum_XY = sum_XY + g * h;
 			 
 			        // sum of square of array elements.
-			        squareSum_X = squareSum_X + a * a;
-			        squareSum_Y = squareSum_Y + b * b;
+			        squareSum_X = squareSum_X + g * g;
+			        squareSum_Y = squareSum_Y + h * h;
 				}
 				// use formula for calculating correlation coefficient.
 				double mul = (gc * squareSum_Y - sum_Y * sum_Y);
@@ -325,7 +326,7 @@ void Task::Process_ReverseCommonMask() {
 				}
 				energy = corr;
 			}
-			av_energy += energy * (1.0 / GENDER_COUNT);
+			av_energy += energy * (1.0 / MODE_COUNT);
 		}
 		
 		// Check if this is the best result so far
@@ -377,11 +378,11 @@ void Task::Process_ReverseCommonMask() {
 		auto& result_attrs = task.result_attrs[0];
 		result_attrs.Clear();
 		
-		// Loop for genders
-		for (const SnapArg& a : GenderArgs()) {
+		// Loop for modes
+		for (const auto& g : ModeRevArgs()) {
 			
 			// Write to 'reversed' objects instead of source value objects
-			PatternSnap& snap = ctx.snap[MALE_REVERSED + mode];
+			PatternSnap& snap = ctx.Get(g.b); // BACKWARD
 			snap.mask.Clear();
 			
 			// Get the best trial solution from the optimizer
@@ -429,12 +430,16 @@ void Task::Process_ReverseSeparateMask() {
 	const TaskMgr& mgr = *this->mgr;
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
-	ASSERT(p.mode >= 0);
-	int mode = p.mode;
+	SnapArg& a = p.a;
+	a.Chk();
+	ASSERT(a == ZeroArg());
 	ReverseTask& task = *this->task;
 	ASSERT(task.ctx);
 	SnapContext& ctx = *task.ctx;
 	GeneticOptimizer& optimizer = task.optimizer;
+	
+	TODO // broken
+	#if 0
 	
 	// Update group/item to score shortcut vector
 	db.attrscores.UpdateGroupsToScoring();
@@ -445,10 +450,10 @@ void Task::Process_ReverseSeparateMask() {
 	
 	// Get scorings for fast access
 	int gc = g.scorings.GetCount();
-	ASSERT(ctx.snap[0].partscore.GetCount() == gc);
+	ASSERT(ctx.Get0().partscore.GetCount() == gc);
 	ASSERT(ctx.snap[1].partscore.GetCount() == gc);
 	const int* comp[2];
-	comp[0] = ctx.snap[0].partscore.Begin();
+	comp[0] = ctx.Get0().partscore.Begin();
 	comp[1] = ctx.snap[1].partscore.Begin();
 	
 	// Get all attribute groups and items in the database to single vector
@@ -527,7 +532,7 @@ void Task::Process_ReverseSeparateMask() {
 		
 		
 		// Calculate score of the trial solution (for all genders)
-		for (const SnapArg& a : GenderArgs()) {
+		for (const SnapArg& a : ModeArgs()) {
 			int mc = min(separate_mask_max_values, sorter[mode].count);
 			for(int i = 0; i < mc; i++) {
 				int attr_i = sorter[mode].key[i];
@@ -544,7 +549,7 @@ void Task::Process_ReverseSeparateMask() {
 		
 		// Calculate result for all genders (and use average)
 		double av_energy = 0;
-		for (const SnapArg& a : GenderArgs()) {
+		for (const SnapArg& a : ModeArgs()) {
 			double energy = 0;
 			if (0) {
 				int mc = min(separate_mask_max_values, sorter[mode].count);
@@ -658,8 +663,8 @@ void Task::Process_ReverseSeparateMask() {
 	{
 		task.lock.EnterWrite();
 		
-		// Clear values (loop for genders)
-		for (const SnapArg& a : GenderArgs()) {
+		// Clear values (loop for modes)
+		for (const SnapArg& a : ModeArgs()) {
 			task.result_attrs[mode].Clear();
 			PatternSnap& snap = ctx.snap[MALE_REVERSED + mode];
 			// DON'T CLEAR MASK HERE BECAUSE OF ALREADY WRITTEN COMMON ATTRS: snap.mask.Clear();
@@ -683,7 +688,7 @@ void Task::Process_ReverseSeparateMask() {
 		}
 		
 		// Get best values from the sorter (for all genders separately)
-		for (const SnapArg& a : GenderArgs()) {
+		for (const SnapArg& a : ModeArgs()) {
 			int mc = min(common_mask_max_values, sorter[mode].count);
 			PatternSnap& snap = ctx.snap[MALE_REVERSED + mode];
 			for(int i = 0; i < mc; i++) {
@@ -708,9 +713,14 @@ void Task::Process_ReverseSeparateMask() {
 	// Set as inactive and cache results, so duplicate work can be avoided.
 	task.active = false;
 	task.Store();
+	
+	#endif
 }
 
 void Task::Process_ReversePattern() {
+	TODO // broken
+	#if 0
+	
 	// Gather stack references for easy access
 	const TaskMgr& mgr = *this->mgr;
 	Database& db = Database::Single();
@@ -722,6 +732,7 @@ void Task::Process_ReversePattern() {
 		SetError("no snap mask attributes");
 		return;
 	}
+	
 	GeneticOptimizer& optimizer = task.optimizer;
 	ASSERT(task.scores.GetCount() == GENDER_COMMON_WEIGHTED_COUNT);
 	ASSERT(task.ctx);
@@ -965,9 +976,9 @@ void Task::Process_ReversePattern() {
 	{
 		task.lock.EnterWrite();
 		
-		// Clear values (loop for genders)
+		// Clear values (loop for modes)
 		task.result_attrs.SetCount(GENDER_COUNT);
-		for (const SnapArg& a : GenderArgs()) {
+		for (const SnapArg& a : ModeArgs()) {
 			task.result_attrs[mode].Clear();
 			PatternSnap& snap = ctx.snap[MALE_REVERSED + mode];
 			snap.attributes.Clear();
@@ -1051,7 +1062,7 @@ void Task::Process_ReversePattern() {
 	}
 	
 	// merge common values to owners in snaps
-	for(const SnapArg& a : GenderArgs())
+	for(const SnapArg& a : ModeArgs())
 		ctx.snap[MALE_REVERSED + mode].part->MergeOwner();
 	
 	if (optimizer.IsEnd())
@@ -1059,4 +1070,5 @@ void Task::Process_ReversePattern() {
 	
 	task.active = false;
 	task.Store();
+	#endif
 }

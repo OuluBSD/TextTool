@@ -1,5 +1,10 @@
 #include "SongTool.h"
 
+Database::Database() {
+	ctx.p.a = ZeroArg();
+	
+}
+
 String Database::GetArtistsDir() const {
 	return dir + DIR_SEPS "share" DIR_SEPS "artists" DIR_SEPS;
 }

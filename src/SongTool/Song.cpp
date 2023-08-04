@@ -9,7 +9,7 @@ void Song::RealizeImpacts() {
 	for (Part& part : parts) {
 		for (Line& line : part.lines) {
 			for (Break& brk : line.breaks) {
-				for(int i = 0; i < GENDER_COUNT; i++) {
+				for(int i = 0; i < MODE_COUNT; i++) {
 					PatternSnap& snap = brk.snap[i];
 					if (snap.impact)
 						continue;
@@ -31,8 +31,8 @@ PatternSnap* Song::FindSnapByImpact(String impact_txt) {
 	for (Part& part : parts) {
 		for (Line& line : part.lines) {
 			for (Break& brk : line.breaks) {
-				for(int i = 0; i < GENDER_COUNT; i++) {
-					PatternSnap& snap = brk.snap[i];
+				for(const SnapArg& a : ModeArgs()) {
+					PatternSnap& snap = brk.snap[a];
 					String impact = ToLower(snap.impact);
 					if (impact == impact_txt)
 						return &snap;
@@ -128,19 +128,19 @@ void Song::RealizeTaskSnaps(bool force) {
 		for (SnapContext* c: ctxs) {
 			{
 				ReverseTask& rt = rev_impact;
-				if (!rt.ctx && rt.txt == c->snap[0].txt)
+				if (!rt.ctx && rt.txt == c->Get0().txt)
 					rt.ctx = c;
 			}
 			for (ReverseTask& rt : rev_common_mask_tasks) {
-				if (!rt.ctx && rt.txt == c->snap[0].txt)
+				if (!rt.ctx && rt.txt == c->Get0().txt)
 					rt.ctx = c;
 			}
 			for (ReverseTask& rt : rev_separate_mask_tasks) {
-				if (!rt.ctx && rt.txt == c->snap[0].txt)
+				if (!rt.ctx && rt.txt == c->Get0().txt)
 					rt.ctx = c;
 			}
 			for (ReverseTask& rt : rev_pattern_tasks) {
-				if (!rt.ctx && rt.txt == c->snap[0].txt)
+				if (!rt.ctx && rt.txt == c->Get0().txt)
 					rt.ctx = c;
 			}
 		}
@@ -159,7 +159,7 @@ int Song::GetLength(const SnapArg& a) const {
 	a.Chk();
 	int len = 0;
 	for (const Part& p : parts)
-		len += p.GetLength(mode);
+		len += p.GetLength(a);
 	return len;
 }
 

@@ -66,6 +66,53 @@ void Task::Process_StoryArc() {
 	
 }
 
+void Task::Process_StoryArcWeighted() {
+	String txt = input + output;
+	//LOG(txt);
+	
+	int c0 = txt.Find("List of results:");
+	if (c0 < 0) {SetError("unexpected output"); return;}
+	c0 = txt.Find("\n", c0);
+	if (c0 < 0) {SetError("unexpected output"); return;}
+	c0++;
+	txt = txt.Mid(c0);
+	
+	txt.Replace("\r", "");
+	Vector<String> lines = Split(txt, "\n");
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		if (line.Find("- Line ") != 0) {
+			lines.Remove(i--);
+			continue;
+		}
+		int c0 = line.Find("\"");
+		if (c0 < 0) {SetError("unexpected output"); return;}
+		c0++;
+		int c1 = line.ReverseFind("\"");
+		if (c1 < 0) {SetError("unexpected output"); return;}
+		line = TrimBoth(line.Mid(c0, c1-c0));
+	}
+	
+	if (lines.GetCount() != tmp_ctx.GetCount()) {
+		SetError("line and context count mismatch");
+		return;
+	}
+	
+	Index<String>& song_keys = tmp_stridx;
+	ASSERT(song_keys.GetCount() == lines.GetCount());
+	
+	SnapArg a(CTX_TEXT, WEIGHTED, FORWARD);
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		SnapContext& ctx = *tmp_ctx[i];
+		const String& line = lines[i];
+		PatternSnap& snap = ctx.snap[a];
+		String key = song_keys[i];
+		snap.data.GetAdd(key) = line;
+	}
+}
+
 void Task::Process_Impact() {
 	String txt = input + output;
 	//LOG(txt);
@@ -102,7 +149,93 @@ void Task::Process_Impact() {
 		l = TrimBoth(l.Mid(a+1));
 		
 		Break& brk = line.breaks[i-1];
+		ASSERT(brk.Get(p.a).impact.IsEmpty());
 		brk.Get(p.a).impact = l;
+	}
+	
+}
+
+void Task::Process_ImpactWeighted() {
+	String txt = input + output;
+	//LOG(txt);
+	
+	int c0 = txt.Find("List of results:");
+	if (c0 < 0) {SetError("unexpected output"); return;}
+	c0 = txt.Find("\n", c0);
+	if (c0 < 0) {SetError("unexpected output"); return;}
+	c0++;
+	txt = txt.Mid(c0);
+	
+	txt.Replace("\r", "");
+	Vector<String> lines = Split(txt, "\n");
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		if (line.Find("- Line ") != 0) {
+			lines.Remove(i--);
+			continue;
+		}
+		int c0 = line.Find("\"");
+		if (c0 < 0) {SetError("unexpected output"); return;}
+		c0++;
+		int c1 = line.ReverseFind("\"");
+		if (c1 < 0) {SetError("unexpected output"); return;}
+		line = TrimBoth(line.Mid(c0, c1-c0));
+	}
+	
+	if (lines.GetCount() != tmp_ctx.GetCount()) {
+		SetError("line and context count mismatch");
+		return;
+	}
+	
+	SnapArg a(CTX_TEXT, WEIGHTED, FORWARD);
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		SnapContext& ctx = *tmp_ctx[i];
+		const String& line = lines[i];
+		PatternSnap& snap = ctx.snap[a];
+		snap.impact = line;
+	}
+}
+
+void Task::Process_ForwardLyricsWeighted() {
+	String txt = input + output;
+	//LOG(txt);
+	
+	int c0 = txt.Find("List of results:");
+	if (c0 < 0) {SetError("unexpected output"); return;}
+	c0 = txt.Find("\n", c0);
+	if (c0 < 0) {SetError("unexpected output"); return;}
+	c0++;
+	txt = txt.Mid(c0);
+	
+	txt.Replace("\r", "");
+	Vector<String> lines = Split(txt, "\n");
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		if (line.Find("- Line ") != 0) {
+			lines.Remove(i--);
+			continue;
+		}
+		int c0 = line.Find("\"");
+		if (c0 < 0) {SetError("unexpected output"); return;}
+		c0++;
+		int c1 = line.ReverseFind("\"");
+		if (c1 < 0) {SetError("unexpected output"); return;}
+		line = TrimBoth(line.Mid(c0, c1-c0));
+	}
+	
+	if (lines.GetCount() != tmp_ctx.GetCount()) {
+		SetError("line and context count mismatch");
+		return;
+	}
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		SnapContext& ctx = *tmp_ctx[i];
+		const String& line = lines[i];
+		PatternSnap& snap = ctx.snap[p.a];
+		snap.txt = line;
 	}
 	
 }
@@ -305,66 +438,60 @@ void Task::Process_PatternMask() {
 	LOG("Task::Process_PatternMask: begin");
 	Database& db = Database::Single();
 	Song& song = *p.song;
-	ASSERT(p.mode >= 0);§
-	int mode = p.mode;
+	SnapArg& a = p.a;
+	a.Chk();
 	
 	input.Replace("\r","");
 	output.Replace("\r","");
-	#if 0
-	int a = input.GetCount() - 1;
-	a -= song.parts.GetKey(0).GetCount() + 1; // input has this extra, which has to be backspaced
-	String result = output.Mid(a);
-	#else
-	int a = input.GetCount() - 3 - song.parts[0].name.GetCount();
-	String result = input.Mid(a) + output;
-	#endif
+	int pos = input.GetCount() - 3 - song.parts[0].name.GetCount();
+	String result = input.Mid(pos) + output;
 	//LOG(result);
 	
 	// Add pronouns
 	for(int i = 0; i < song.parts.GetCount(); i++) {
-		Part& p = song.parts[i];
-		for(const Line& line : p.lines) {
-			Vector<String> parts = Split(line.snap[mode].txt, " ");
-			for (String part : parts) {
-				part = ToLower(part);
-				int a = part.Find("'");
-				if (a >= 0)
-					part = part.Left(a);
+		Part& part = song.parts[i];
+		for(const Line& line : part.lines) {
+			Vector<String> parts = Split(line.Get(a).txt, " ");
+			for (String s : parts) {
+				s = ToLower(s);
+				int pos = s.Find("'");
+				if (pos >= 0)
+					s = s.Left(pos);
 				
-				if (part == "i" ||
-					part == "you" ||
-					part == "he" ||
-					part == "she" ||
-					part == "it" ||
-					part == "we" ||
-					part == "they" ||
-					part == "one" ||
-					part == "my" ||
-					part == "your" ||
-					part == "his" ||
-					part == "her" ||
-					part == "its" ||
-					part == "our" ||
-					part == "their" ||
-					part == "mine" ||
-					part == "yours" ||
-					part == "his" ||
-					part == "hers" ||
-					part == "ours" ||
-					part == "theirs" ||
-					part == "me" ||
-					part == "him" ||
-					part == "us" ||
-					part == "them"
+				if (s == "i" ||
+					s == "you" ||
+					s == "he" ||
+					s == "she" ||
+					s == "it" ||
+					s == "we" ||
+					s == "they" ||
+					s == "one" ||
+					s == "my" ||
+					s == "your" ||
+					s == "his" ||
+					s == "her" ||
+					s == "its" ||
+					s == "our" ||
+					s == "their" ||
+					s == "mine" ||
+					s == "yours" ||
+					s == "his" ||
+					s == "hers" ||
+					s == "ours" ||
+					s == "theirs" ||
+					s == "me" ||
+					s == "him" ||
+					s == "us" ||
+					s == "them"
 					) {
 					SnapAttrStr sas;
 					sas.group = "pronouns";
-					sas.item = part;
+					sas.item = s;
 					SnapAttr sa = db.attrs.GetAddAttr(sas.group, sas.item);
 					sas.group_i = sa.group;
 					sas.item_i = sa.item;
 					sas.has_id = true;
-					p.snap[mode].mask.FindAdd(sas);
+					part.Get(a).mask.FindAdd(sas);
 				}
 			}
 		}
@@ -453,8 +580,8 @@ void Task::Process_PatternMask() {
 					sas.group_i = sa.group;
 					sas.item_i = sa.item;
 					sas.has_id = true;
-					part.snap[mode].mask.FindAdd(sas);
-					song.snap[mode].mask.FindAdd(sas);
+					part.Get(a).mask.FindAdd(sas);
+					song.Get(a).mask.FindAdd(sas);
 					//LOG(part_key << " -> " << group << " -> " << value);
 				}
 				else {
@@ -473,8 +600,8 @@ void Task::Process_Pattern() {
 	Attributes& g = db.attrs;
 	AttrScore& as = db.attrscores;
 	Song& song = *this->p.song;
-	ASSERT(p.mode >= 0);
-	int mode = p.mode;
+	SnapArg& a = p.a;
+	p.a.Chk();
 	
 	//SetError("test"); return;
 	
@@ -483,8 +610,8 @@ void Task::Process_Pattern() {
 	int offset_begin = StrInt(args[1]);
 	int offset_end = StrInt(args[2]);
 	VectorMap<int,int> intmap;
-	for(int i = 0, j = 0; i < song.headers[mode].unique_lines.GetCount(); i++) {
-		const String& l = song.headers[mode].unique_lines.GetKey(i);
+	for(int i = 0, j = 0; i < song.headers[a].unique_lines.GetCount(); i++) {
+		const String& l = song.headers[a].unique_lines.GetKey(i);
 		if (i < offset_begin || i >= offset_end)
 			continue;
 		intmap.Add((j+1), i);
@@ -496,15 +623,15 @@ void Task::Process_Pattern() {
 	txt.Replace("\r", "");
 	
 	// Find beginning of results
-	int a = txt.Find("Attributes (in format \"Group: Attribute\")");
-	if (a < 0) {
+	int pos = txt.Find("Attributes (in format \"Group: Attribute\")");
+	if (pos < 0) {
 		//LOG(txt);
 		SetError(t_("Didn't find 'Attributes' string"));
 		return;
 	}
-	a = txt.Find("\n", a);
-	if (a < 0) return;
-	txt = txt.Mid(a+1);
+	pos = txt.Find("\n", pos);
+	if (pos < 0) return;
+	txt = txt.Mid(pos+1);
 	
 	// Trim lines with some spaces left
 	txt = ToLower(txt);
@@ -545,13 +672,13 @@ void Task::Process_Pattern() {
 			break;
 		}
 		
-		a = header.Find(",");
-		if (a < 0) {
+		pos = header.Find(",");
+		if (pos < 0) {
 			SetError(t_("Expected ','"));
 			fail = true;
 			break;
 		}
-		int line_num = StrInt(header.Mid(5,a-5));
+		int line_num = StrInt(header.Mid(5,pos-5));
 		int j = intmap.Find(line_num);
 		if (j < 0) {
 			SetError(t_("Line number couldn't be matched"));
@@ -560,20 +687,20 @@ void Task::Process_Pattern() {
 		int unique_line_i = intmap[j];
 		
 		// Parse original line again
-		a = header.Find("\"");
-		if (a < 0) {
+		pos = header.Find("\"");
+		if (pos < 0) {
 			SetError(t_("Expected '\"'"));
 			fail = true;
 			break;
 		}
-		int b = header.Find("\"", a+1);
+		int b = header.Find("\"", pos+1);
 		if (b < 0) {
 			b = header.GetCount();
 		}
-		a += 1;
-		String line_txt = header.Mid(a, b-a);
+		pos += 1;
+		String line_txt = header.Mid(pos, b-pos);
 		Parsed& line_parsed_struct = parsed.GetAdd(line_txt);
-		line_parsed_struct.unique_line_i = line_num;
+		line_parsed_struct.unique_line_i = line_num - 1;
 		
 		VectorMap<String, Index<String>>& line_parsed = line_parsed_struct.map;
 		
@@ -602,8 +729,8 @@ void Task::Process_Pattern() {
 			}
 			
 			s = TrimBoth(s.Mid(1));
-			a = s.Find(":");
-			if (a < 0) {
+			pos = s.Find(":");
+			if (pos < 0) {
 				#if 0
 				SetError(t_("Expected ':'"));
 				fail = true;
@@ -614,8 +741,8 @@ void Task::Process_Pattern() {
 				#endif
 			}
 			
-			String group_str = ToLower(TrimBoth(s.Left(a)));
-			String item_str = ToLower(TrimBoth(s.Mid(a+1)));
+			String group_str = ToLower(TrimBoth(s.Left(pos)));
+			String item_str = ToLower(TrimBoth(s.Mid(pos+1)));
 			
 			Vector<String> items = Split(item_str, ",");
 			for (String& item_str : items) {
@@ -647,12 +774,17 @@ void Task::Process_Pattern() {
 		const Parsed& parsed_struct = parsed[i];
 		const VectorMap<String, Index<String>>& group_map = parsed_struct.map;
 		
-		Vector<SnapAttrStr>& line_attrs = song.headers[mode].unique_lines[parsed_struct.unique_line_i];
+		auto& unique_lines = song.headers[a].unique_lines;
+		if (unique_lines.GetCount() <= parsed_struct.unique_line_i) {
+			DUMPM(unique_lines);
+			DUMPM(group_map);
+		}
+		Vector<SnapAttrStr>& line_attrs = unique_lines[parsed_struct.unique_line_i];
 		//DUMPC(line_attrs);
 		
 		//DUMP(line_txt);
 		Vector<PatternSnap*> snaps;
-		song.GetLineSnapshots(mode, line_txt, snaps);
+		song.GetLineSnapshots(a, line_txt, snaps);
 		//DUMP(snaps.GetCount());
 		
 		for(int j = 0; j < group_map.GetCount(); j++) {
@@ -715,15 +847,16 @@ void Task::Process_Analysis() {
 	LOG("Task::Process_Analysis: begin");
 	Database& db = Database::Single();
 	Song& song = *p.song;
-	int mode = p.mode;
+	SnapArg& a = p.a;
+	a.Chk();
 	String vocalist_visual = p.artist->vocalist_visual;
 	String title = args[0];
 	
 	output.Replace("\n\n-", "\n-");
 	
 	if (!whole_song) {
-		int a = input.GetCount() - 3 - song.parts[0].name.GetCount();
-		String result = input.Mid(a) + output;
+		int c = input.GetCount() - 3 - song.parts[0].name.GetCount();
+		String result = input.Mid(c) + output;
 		
 		// Parse result text
 		Vector<String> parts = Split(result, "\n\n");
@@ -766,8 +899,8 @@ void Task::Process_Analysis() {
 			for(int i = 0; i < part_values.GetCount(); i++) {
 				String k = part_values.GetKey(i);
 				String v = part_values[i];
-				Analysis& a = part.analysis[mode];
-				a.data.GetAdd(k) = v;
+				Analysis& an = part.analysis[a];
+				an.data.GetAdd(k) = v;
 				//LOG(key << " -> " << k << " = \"" << v << "\"");
 			}
 		}
@@ -797,12 +930,12 @@ void Task::Process_Analysis() {
 		}
 		
 		// Add values to database
-		Analysis& a = song.headers[mode].analysis;
+		Analysis& an = song.headers[a].analysis;
 		for(int i = 0; i < parsed_key.GetCount(); i++) {
 			String k = parsed_key.GetKey(i);
 			String v = parsed_key[i];
 			
-			a.data.GetAdd(k) = v;
+			an.data.GetAdd(k) = v;
 			LOG(key << " -> " << k << " = \"" << v << "\"");
 		}
 	}
@@ -1174,8 +1307,8 @@ void GetMaskScores(const PatternSnap& snap, Vector<int>& scores) {
 
 void Task::Process_SongScores() {
 	Database& db = Database::Single();
-	ASSERT(p.mode >= 0);
-	int mode = p.mode;
+	SnapArg& a = p.a;
+	a.Chk();
 	if (!p.song)
 		return;
 	
@@ -1190,29 +1323,29 @@ void Task::Process_SongScores() {
 		Vector<PatternSnap*> level_snaps;
 		
 		level_snaps.Clear();
-		f.GetSnapsLevel(mode, 2, level_snaps);
+		f.GetSnapsLevel(a, 2, level_snaps);
 		for(int i = 0; i < level_snaps.GetCount(); i++) {
 			PatternSnap& snap = *level_snaps[i];
 			Part& part = *snap.part;
-			GetScores(snap, part.snap[mode].partscore);
-			GetMaskScores(snap, part.snap[mode].maskscore);
+			GetScores(snap, part.Get(a).partscore);
+			GetMaskScores(snap, part.Get(a).maskscore);
 		}
 		
 		level_snaps.Clear();
-		f.GetSnapsLevel(mode, 1, level_snaps);
+		f.GetSnapsLevel(a, 1, level_snaps);
 		for(int i = 0; i < level_snaps.GetCount(); i++) {
 			PatternSnap& snap = *level_snaps[i];
 			Line& line = *snap.line;
-			GetScores(snap, line.snap[mode].partscore);
+			GetScores(snap, line.Get(a).partscore);
 		}
 		
 		level_snaps.Clear();
-		f.GetSnapsLevel(mode, 0, level_snaps);
+		f.GetSnapsLevel(a, 0, level_snaps);
 		for(int i = 0; i < level_snaps.GetCount(); i++) {
 			PatternSnap& snap = *level_snaps[i];
 			ASSERT(snap.brk);
 			Break& brk = *snap.brk;
-			GetScores(snap, brk.snap[mode].partscore);
+			GetScores(snap, brk.Get(a).partscore);
 		}
 	}
 }
@@ -1220,7 +1353,8 @@ void Task::Process_SongScores() {
 void Task::Process_Lyrics() {
 	bool rev_snap = args.GetCount() && args[0] == "rev";
 	Part& part = *p.part;
-	int mode = p.mode; //rev_snap ? p.mode+2 : p.mode;
+	SnapArg& a = p.a;
+	a.Chk();
 	
 	Vector<String> lines = Split(output, "\n", false);
 	if (lines.IsEmpty()) {
@@ -1232,17 +1366,18 @@ void Task::Process_Lyrics() {
 		lines.Remove(0);
 	output = Join(lines, "\n");
 	
-	String& txt = part.snap[mode].data.GetAdd("gen.lyrics");
+	String& txt = part.Get(a).data.GetAdd("gen.lyrics");
 	txt = output;
 }
 
 void Task::Process_LyricsTranslate() {
 	bool rev_snap = args.GetCount() && args[0] == "rev";
 	Song& song = *p.song;
-	int mode = p.mode; //rev_snap ? p.mode+2 : p.mode;
+	SnapArg& a = p.a;
+	a.Chk();
 	String lng = args[1].Left(5);
 	String key = "gen.lyrics";
 	key += "." + lng;
-	String& dst = song.snap[mode].data.GetAdd(key);
+	String& dst = song.Get(a).data.GetAdd(key);
 	dst = output;
 }

@@ -8,7 +8,7 @@ PatternCtrl::PatternCtrl() {
 	hsplit.SetPos(800);
 	
 	vsplit.Vert();
-	for(const SnapArg& a : GenderArgs()) {
+	for(const SnapArg& a : ModeArgs()) {
 		AttrCtrl& attr = this->attr[a];
 		Label& txt = this->txt[a];
 		Ctrl& ctrl = this->ctrl[a];
@@ -28,7 +28,7 @@ PatternCtrl::PatternCtrl() {
 }
 
 void PatternCtrl::Data() {
-	for(SnapArg a : GenderArgs()) {
+	for(SnapArg a : ModeArgs()) {
 		AttrCtrl& attr = this->attr[a];
 		if (use_rev_snap)
 			a.InverseDir();
@@ -73,7 +73,7 @@ void PatternCtrl::OnTreeSel() {
 		SnapContext& ctx = *tree_snaps[i];
 		Ptrs& p = db.ctx.p;
 		p.part = tree_parts[j];
-		for(const SnapArg& a : SnapArgs()) {
+		for(const SnapArg& a : AllArgs()) {
 			db.ctx.snap[a] = &ctx.Get(a);
 		}
 		FocusListAll();
@@ -267,13 +267,13 @@ void PatternCtrl::FocusList(const SnapArg& a) {
 void PatternCtrl::SelectLine(const SnapArg& match) {
 	
 	// Select same kay in other lists too
-	if (match >= 0 && match < GENDER_COUNT) {
+	if (match >= 0 && match < MODE_COUNT) {
 		if (!this->list[match])
 			return;
 		ArrayCtrl& list = *this->list[match];
 		if (list.IsCursor()) {
 			String key = AttrText(list.Get(list.GetCursor(), 0)).text.ToString();
-			for(const SnapArg& a : GenderArgs()) {
+			for(const SnapArg& a : ModeArgs()) {
 				if (a == match) continue;
 				ArrayCtrl& list = *this->list[a];
 				bool found = false;

@@ -64,7 +64,7 @@ struct Song :
 			("tracks", tracks)
 			;
 		
-		for(const SnapArg& a : SnapArgs())
+		for(const SnapArg& a : AllArgs())
 			json("headers[" + a.SubscriptString() + "]", headers[a]);
 		
 		// rev_pattern_tasks

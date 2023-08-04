@@ -3,9 +3,9 @@
 
 
 class PatternMaskCtrl : public Ctrl {
-	PArr<ArrayCtrl> data;
-	PArr<DocEdit> lyrics;
-	PArr<Splitter> vsplit;
+	MArr<ArrayCtrl> data;
+	MArr<DocEdit> lyrics;
+	MArr<Splitter> vsplit;
 	Splitter hsplit;
 	
 public:

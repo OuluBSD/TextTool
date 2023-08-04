@@ -3,10 +3,10 @@
 
 
 class AnalysisCtrl : public Ctrl {
-	PArr<ArrayCtrl> data;
-	PArr<DocEdit> edit, full;
+	MArr<ArrayCtrl> data;
+	MArr<DocEdit> edit, full;
 	Splitter hsplit;
-	PArr<Splitter> vsplit;
+	MArr<Splitter> vsplit;
 	
 public:
 	typedef AnalysisCtrl CLASSNAME;

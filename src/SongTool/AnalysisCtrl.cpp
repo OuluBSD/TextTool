@@ -5,7 +5,7 @@ AnalysisCtrl::AnalysisCtrl() {
 	Add(hsplit.SizePos());
 	hsplit.Horz();
 	
-	for(const SnapArg& a : GenderArgs()) {
+	for(const SnapArg& a : HumanInputTextArgs()) {
 		ArrayCtrl& data = this->data[a];
 		DocEdit& edit = this->edit[a];
 		DocEdit& full = this->full[a];
@@ -31,7 +31,7 @@ void AnalysisCtrl::Data() {
 	Song& song = *p.song;
 	Part& part = *p.part;
 	
-	for (const SnapArg& a : GenderArgs()) {
+	for (const SnapArg& a : HumanInputTextArgs()) {
 		PatternSnap& snap =
 			db.ctx.active_wholesong ? song.Get(a) : part.Get(a);
 		Analysis& an =
@@ -61,7 +61,7 @@ void AnalysisCtrl::DataCursor(const SnapArg& match) {
 	Song& song = *p.song;
 	Part& part = *p.part;
 	
-	for (const SnapArg& a : GenderArgs()) {
+	for (const SnapArg& a : HumanInputTextArgs()) {
 		Analysis& an =
 			db.ctx.active_wholesong ? song.headers[a].analysis : part.analysis[a];
 		
@@ -74,11 +74,11 @@ void AnalysisCtrl::DataCursor(const SnapArg& match) {
 	}
 	
 	// Select same kay in other lists too
-	for (const SnapArg& match : GenderArgs()) {
+	for (const SnapArg& match : HumanInputTextArgs()) {
 		ArrayCtrl& list = this->data[match];
 		if (list.IsCursor()) {
 			String key = list.Get(list.GetCursor(), 0);
-			for (const SnapArg& a : GenderArgs()) {
+			for (const SnapArg& a : HumanInputTextArgs()) {
 				if (a == match) continue;
 				ArrayCtrl& list = this->data[a];
 				bool found = false;

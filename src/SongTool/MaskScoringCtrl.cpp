@@ -5,7 +5,7 @@ MaskScoringCtrl::MaskScoringCtrl() {
 	Add(mainsplit.SizePos());
 	mainsplit.Vert();
 	
-	for (const SnapArg& a : GenderArgs()) {
+	for (const SnapArg& a : ModeArgs()) {
 		Splitter& vsplit = this->vsplit[a];
 		Plotter& plotter = this->plotter[a];
 		ArrayCtrl& list = this->list[a];
@@ -39,12 +39,12 @@ void MaskScoringCtrl::Data() {
 	Ptrs& p = db.ctx.p;
 	if (p.song) {
 		if (db.ctx.active_wholesong) {
-			for (const SnapArg& a : GenderArgs())
+			for (const SnapArg& a : ModeArgs())
 				plotter[a].SetWholeSong(*p.song);
 		}
 		else {
 			Part& part = *p.part;
-			for (const SnapArg& a : GenderArgs())
+			for (const SnapArg& a : ModeArgs())
 				plotter[a].SetPart(part);
 		}
 	}

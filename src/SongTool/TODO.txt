@@ -1,6 +1,30 @@
-- visual/text context slots in snaps
+- common mask: build from F-M and remove common from F-M
+- common snap: build from F-M and remove common from F-M
+- fix impact scoring with prompt
+- fix pattern mask scoring by calculating weighted
+- fix pattern snap scoring by calculating weighted
+- visual pipeline before reversing
+
 
 - visual release: list of ...
 	- visual songs: list of ...
 	- visual parts: list of ...
 - text release. etc.
+
+- edit in COMMON WEIGHTED
+	- and VISUAL first
+
+- conversion
+	- M-F --> COMMON WEIGHTED
+		- find COMMON (match + maybe prompt)
+		- calculate WEIGHTED
+		- optimize or prompt attributes for WEIGHTED
+	- COMMON WEIGHTED --> M-F
+		- scoring of M is COMMON minus half of WEIGHTED, F is COMMON plus half of WEIGHTED
+		- optimize or prompt M-F attributes from scoring
+
+
+DONE:
+(3.8.2023)
+- visual/text context slots in snaps
+- WEIGHTED impact

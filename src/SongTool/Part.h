@@ -20,7 +20,7 @@ struct Part :
 			("lines", lines)
 			("composition", composition)
 			;
-		for(const SnapArg& a : SnapArgs())
+		for(const SnapArg& a : AllArgs())
 			json("analysis" + a.SubscriptString(), analysis[a]);
 		SnapContext::Jsonize(json);
 	}

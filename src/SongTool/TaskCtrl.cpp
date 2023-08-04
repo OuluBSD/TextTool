@@ -17,9 +17,10 @@ Tasks::Tasks() {
 	list.AddColumn(t_("Dep rules"));
 	list.AddColumn(t_("Deps waiting"));
 	list.AddColumn(t_("Status"));
-	list.AddColumn(t_("Mode"));
 	list.AddColumn(t_("Context"));
-	list.ColumnWidths("1 4 2 4 2 2 1 1");
+	list.AddColumn(t_("Mode"));
+	list.AddColumn(t_("Reverse"));
+	list.ColumnWidths("1 4 2 4 2 2 1 1 1");
 	list <<= THISBACK(DataTask);
 	
 	output <<= THISBACK(ValueChange);
@@ -50,8 +51,9 @@ void Tasks::Data() {
 		if (t.tries > 0)
 			s << " (" << t_("tries") << " " << t.tries << ")";
 		list.Set(i, 5, s);
-		list.Set(i, 6, GetModeString(t.p.a.mode));
-		list.Set(i, 7, GetGroupContextString(t.p.a.ctx));
+		list.Set(i, 6, GetGroupContextString(t.p.a.ctx));
+		list.Set(i, 7, GetModeString(t.p.a.mode));
+		list.Set(i, 8, GetDirectionString(t.p.a.dir));
 	}
 	list.SetCount(m.tasks.GetCount());
 	

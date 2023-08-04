@@ -42,11 +42,14 @@ StructureCtrl::StructureCtrl() {
 	list.ColumnWidths("1 1 6");
 	
 	// Mode droplist
-	for(const SnapArg& a : SnapArgs()) {
+	for(const SnapArg& a : HumanInputTextArgs()) {
 		import_str.mode.Add(GetSnapString(a));
 	}
 	import_str.mode.SetIndex(a.Get());
-	import_str.mode.WhenAction << [this]() {this->a.Set(import_str.mode.GetIndex()); Data();};
+	import_str.mode.WhenAction << [this]() {
+		this->a = HumanInputTextArgs()[import_str.mode.GetIndex()];
+		Data();
+	};
 	
 }
 
@@ -67,6 +70,7 @@ void StructureCtrl::DataSong() {
 	Artist& a = *p.artist;
 	Release& r = *p.release;
 	
+	import_str.structure.SetData(s.structure_str);
 	
 	for(int i = 0; i < s.structure.GetCount(); i++) {
 		String key = s.structure[i];

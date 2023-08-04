@@ -95,7 +95,7 @@ String GetSnapString(const SnapArg& a) {
 	String s;
 	s	<< GetContextString(a.ctx) << ", "
 		<< GetModeString(a.mode) << ", "
-		<< GetReverseString(a.rev);
+		<< GetDirectionString(a.dir);
 	return s;
 }
 
@@ -103,19 +103,22 @@ String GetModeString(SnapMode m) {
 	switch (m) {
 		case MALE:				return "Male";
 		case FEMALE:			return "Female";
+		case COMMON:			return "Common";
+		case WEIGHTED:			return "Weighted";
 		default: return "<error>";
 	}
 }
 
-String GetCommonModeString(SnapMode m) {
+/*String GetCommonModeString(int i) {
+	SnapMode m = (SnapMode)i;
 	if (m < GENDER_COUNT)
 		return GetModeString(m);
-	switch (m) {
+	switch (i) {
 		case COMMON: return "Common";
 		case WEIGHTED: return "Weighted";
 		default: return "<error>";
 	}
-}
+}*/
 
 String GetContextString(GroupContext ctx) {
 	switch (ctx) {
@@ -125,10 +128,10 @@ String GetContextString(GroupContext ctx) {
 	}
 }
 
-String GetReverseString(RevMode rev) {
-	switch (rev) {
-		case RevMode::FORWARD: return "Forward";
-		case RevMode::BACKWARD: return "Backward";
+String GetDirectionString(DirMode dir) {
+	switch (dir) {
+		case DirMode::FORWARD: return "Forward";
+		case DirMode::BACKWARD: return "Backward";
 		default: return "<error>";
 	}
 }
@@ -190,4 +193,14 @@ String GetGroupContextNaturalDescription(GroupContext ctx) {
 		case CTX_VISUAL: return "good values for a novel music video";
 		default: ASSERT(0); return "<error>";
 	}
+}
+
+int CountWords(const String& s) {
+	int wc = 0;
+	Vector<String> words = Split(s, " ");
+	for (String& w : words) {
+		Vector<String> parts = Split(w, "-");
+		wc += parts.GetCount();
+	}
+	return wc;
 }

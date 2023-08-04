@@ -8,8 +8,17 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Process(&Task::Process_MakeImportTasks)
 			.Arg(V_PTR_SONG)
 			.Arg(V_SONG_LYRICS)
+			.Result(O_TASKS)
 			.Result(O_ORDER_IMPORT)
 			.Result(O_ORDER_IMPORT_DETAILED)
+		;
+	
+	AddRule(TASK_CONTEXT_IMPORT_AND_REVERSE, "import context")
+		.Require(O_ORDER_IMPORT)
+		.Require(O_NEXT_CTX_JUMP)
+		.Process(&Task::Process_MakeContextImportTasks)
+			.Arg(V_PTR_SONG)
+			.Arg(V_SONG_LYRICS)
 			.Result(O_ORDER_REVERSE)
 			.Result(O_SONG_UNIQLINES)
 			.Result(O_TASKS)
@@ -17,10 +26,9 @@ void TaskMgr::CreateDefaultTaskRules() {
 	
 	AddRule(TASK_PATTERNMASK, "pattern masks of parts of song")
 		.Require(O_ORDER_IMPORT)
-		.Require(O_NEXT_CTX_JUMP)
 		.Input(&Task::CreateInput_PatternMask)
 			.Arg(V_PTR_SONG)
-			.Arg(V_MODE, 0, GENDER_COUNT)
+			.Arg(V_MODE, 0, MODE_COUNT)
 			.Arg(V_ARGS, 2, 2)
 		.Process(&Task::Process_PatternMask)
 			.Result(O_SONG_MASK)
@@ -33,7 +41,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Input(&Task::CreateInput_Analysis)
 			.Arg(V_PTR_SONG)
 			.Arg(V_SONG_PARTS)
-			.Arg(V_MODE, 0, GENDER_COUNT)
+			.Arg(V_MODE, 0, MODE_COUNT)
 		.Process(&Task::Process_Analysis)
 			.Arg(V_ARGS, 1, INT_MAX)
 			.Result(O_SONG_ANALYSIS)
@@ -44,11 +52,20 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Input(&Task::CreateInput_StoryArc)
 			.Arg(V_PTR_SONG)
 			.Arg(V_SONG_PARTS)
-			.Arg(V_MODE, 0, GENDER_COUNT)
-			.Arg(V_LINE_TXT)
+			.Arg(V_MODE, 0, MODE_COUNT)
+			.Arg(V_HUMAN_INPUT_LINE_TXT)
 		.Process(&Task::Process_StoryArc)
 			.Result(O_PART_DATA_STORYLINE)
 			.Result(O_SONG_DATA_STORYLINE)
+		;
+	
+	AddRule(TASK_STORYARC_WEIGHTED, "story arc WEIGHTED mode")
+		.Require(O_PART_DATA_STORYLINE)
+		.Require(O_SONG_DATA_STORYLINE)
+		.Input(&Task::CreateInput_StoryArcWeighted)
+		.Process(&Task::Process_StoryArcWeighted)
+			.Result(O_PART_DATA_STORYLINE_WEIGHTED)
+			.Result(O_SONG_DATA_STORYLINE_WEIGHTED)
 		;
 	
 	AddRule(TASK_IMPACT, "impacts")
@@ -56,27 +73,52 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Input(&Task::CreateInput_Impact)
 			.Arg(V_PTR_SONG)
 			.Arg(V_PTR_LINE)
-			.Arg(V_MODE, 0, GENDER_COUNT)
+			.Arg(V_MODE, 0, MODE_COUNT)
 		.Process(&Task::Process_Impact)
 			.Result(O_BREAK_IMPACT)
+		;
+	
+	AddRule(TASK_IMPACT_WEIGHTED, "weighted impacts")
+		.Require(O_ORDER_IMPORT)
+		.Require(O_BREAK_IMPACT)
+		.Input(&Task::CreateInput_ImpactWeighted)
+			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_LINE)
+			.Arg(V_MODE, 0, MODE_COUNT)
+		.Process(&Task::Process_ImpactWeighted)
+			.Result(O_BREAK_IMPACT_WEIGHTED)
+		;
+	
+	AddRule(TASK_FORWARD_LYRICS_WEIGHTED, "lyrics from weighted impacts")
+		.Require(O_ORDER_IMPORT)
+		.Require(O_BREAK_IMPACT_WEIGHTED)
+		.Input(&Task::CreateInput_ForwardLyricsWeighted)
+			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_LINE)
+			.Arg(V_MODE, 0, MODE_COUNT)
+		.Process(&Task::Process_ForwardLyricsWeighted)
+			.Result(O_BREAK_LYRICS_WEIGHTED)
 		;
 	
 	AddRule(TASK_MAKE_IMPACT_SCORING_TASKS, "make impact scoring tasks")
 		.Spawnable()
 		.Require(O_ORDER_IMPORT)
 		.Require(O_BREAK_IMPACT)
+		.Require(O_BREAK_IMPACT_WEIGHTED)
+		.Require(O_BREAK_LYRICS_WEIGHTED)
 		.Process(&Task::Process_MakeImpactScoringTasks)
 			.Arg(V_PTR_SONG)
-			.Arg(V_MODE, 0, GENDER_COUNT)
+			.Arg(V_MODE, 0, MODE_COUNT)
 			.Result(O_TASKS)
 		;
 	
 	AddRule(TASK_IMPACT_SCORING, "impact scoring")
 		.Require(O_ORDER_IMPORT)
 		.Require(O_BREAK_IMPACT)
+		.Require(O_BREAK_IMPACT_WEIGHTED)
 		.Input(&Task::CreateInput_ImpactScoring)
 			.Arg(V_PTR_SONG)
-			.Arg(V_MODE, 0, GENDER_COUNT)
+			.Arg(V_MODE, 0, MODE_COUNT)
 		.Process(&Task::Process_ImpactScoring)
 			.Arg(V_ATTR_SCORING)
 			.Result(O_BREAK_IMPACT_SCORES)
@@ -89,7 +131,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_PART_MASK)
 		.Process(&Task::Process_MakePatternTasks)
 			.Arg(V_PTR_SONG)
-			.Arg(V_MODE, 0, GENDER_COUNT)
+			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
 			.Arg(V_PTR_SONG_UNIQUELINES)
 			.Result(O_TASKS)
 		;
@@ -101,7 +143,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_SONG_UNIQLINES)
 		.Input(&Task::CreateInput_Pattern)
 			.Arg(V_PTR_SONG)
-			.Arg(V_MODE, 0, GENDER_COUNT)
+			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
 		.Process(&Task::Process_Pattern)
 			.Result(O_SONG_UNIQLINE_ATTRS)
 			//.Result(O_SONG_SNAP)
@@ -120,7 +162,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_SONG_UNIQLINE_ATTRS)
 		.Process(&Task::Process_MakeAttrScores)
 			.Arg(V_PTR_SONG)
-			.Arg(V_MODE, 0, GENDER_COUNT)
+			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
 			.Result(O_TASKS)
 		;
 	
@@ -131,7 +173,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_PART_MASK)
 		.Input(&Task::CreateInput_AttrScores)
 			.Arg(V_PTR_SONG)
-			.Arg(V_MODE, 0, GENDER_COUNT)
+			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
 		.Process(&Task::Process_AttrScores)
 		;
 	
@@ -144,7 +186,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_DB_ATTR_SCORES)
 		.Process(&Task::Process_SongScores)
 			.Arg(V_PTR_SONG)
-			.Arg(V_MODE, 0, GENDER_COUNT)
+			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
 			.Result(O_PART_MASK_SCORE)
 			.Result(O_PART_SNAP_SCORE)
 			.Result(O_LINE_SNAP_SCORE)
@@ -153,6 +195,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 	
 	AddRule(TASK_MAKE_REVERSE_IMPACT_TASK, "make reverse impact tasks")
 		.Spawnable()
+		.Require(O_NEVER)
 		.Require(O_ORDER_REVERSE)
 		.Require(O_BREAK_IMPACT_SCORES)
 		.Process(&Task::Process_MakeReverseImpactTask)
@@ -170,6 +213,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 	
 	AddRule(TASK_MAKE_REVERSE_MASK_TASK, "make reverse mask tasks")
 		.Spawnable()
+		.Require(O_NEVER)
 		.Require(O_ORDER_REVERSE)
 		.Require(O_PART_MASK_SCORE)
 		.Process(&Task::Process_MakeReverseMaskTask)
@@ -196,6 +240,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 	
 	AddRule(TASK_MAKE_REVERSEPATTERN_TASK, "make reverse pattern tasks")
 		.Spawnable()
+		.Require(O_NEVER)
 		.Require(O_ORDER_REVERSE)
 		.Require(O_PART_SNAP_SCORE)
 		.Require(O_LINE_SNAP_SCORE)
@@ -220,17 +265,20 @@ void TaskMgr::CreateDefaultTaskRules() {
 			.Result(O_NEXT_CTX_JUMP)
 		;
 	
+	
 	AddRule(TASK_MAKE_LYRICS_TASK, "make reversed lyrics task")
 		.Spawnable()
 		.Require(O_ORDER_REVERSE)
 		.Require(O_SONG_DATA_STORYLINE)
 		.Require(O_PART_DATA_STORYLINE)
+		.Require(O_SONG_DATA_STORYLINE_WEIGHTED)
+		.Require(O_PART_DATA_STORYLINE_WEIGHTED)
 		.Require(O_BREAK_REVERSED_IMPACT)
 		.Require(O_PART_REVERSED_SNAP)
 		.Require(O_LINE_REVERSED_SNAP)
 		.Require(O_BREAK_REVERSED_SNAP)
 		.Process(&Task::Process_MakeLyricsTask)
-			.Arg(V_REV, BACKWARD, REV_COUNT)
+			.Arg(V_DIR, BACKWARD, DIR_COUNT)
 			.Result(O_TASKS)
 		;
 	
@@ -238,6 +286,8 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_ORDER_REVERSE)
 		.Require(O_SONG_DATA_STORYLINE)
 		.Require(O_PART_DATA_STORYLINE)
+		.Require(O_SONG_DATA_STORYLINE_WEIGHTED)
+		.Require(O_PART_DATA_STORYLINE_WEIGHTED)
 		.Require(O_BREAK_REVERSED_IMPACT)
 		.Require(O_PART_REVERSED_SNAP)
 		.Require(O_LINE_REVERSED_SNAP)
@@ -245,7 +295,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Input(&Task::CreateInput_Lyrics)
 		.Process(&Task::Process_Lyrics)
 			.Result(O_SONG_REVERSED_LYRICS)
-			.Arg(V_REV, BACKWARD, REV_COUNT)
+			.Arg(V_DIR, BACKWARD, DIR_COUNT)
 		;
 	
 	AddRule(TASK_LYRICS_TRANSLATE, "reversed lyrics translate")
@@ -254,7 +304,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Input(&Task::CreateInput_LyricsTranslate)
 		.Process(&Task::Process_LyricsTranslate)
 			.Result(O_SONG_REVERSED_TRANSLATED_LYRICS)
-			.Arg(V_REV, BACKWARD, REV_COUNT)
+			.Arg(V_DIR, BACKWARD, DIR_COUNT)
 		;
 	
 	
@@ -387,6 +437,8 @@ void TaskMgr::ImportSongAndMakeReversedSong(Song& s) {
 	Task& t = tasks.Add();
 	t.rule = &r;
 	t.p.CopyPtrs(db.ctx.p);
+	t.p.a = ZeroArg();
+	
 	
 }
 

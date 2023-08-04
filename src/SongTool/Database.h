@@ -10,6 +10,7 @@ struct Database {
 	Context			ctx;
 	String			dir;
 	
+	Database();
 	Array<Artist>& GetSub() {return artists;}
 	const Array<Artist>& GetSub() const {return artists;}
 	void Clear() {artists.Clear();}

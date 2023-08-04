@@ -130,7 +130,7 @@ struct PatternSnap : PatternMask {
 	String GetStructuredText(const SnapArg& a, bool pretty, int indent, const Array<B>& sub) const;
 
 	
-	#define FOR_SNAP for(const SnapArg& a : SnapArgs())
+	#define FOR_SNAP for(const SnapArg& a : AllArgs())
 	
 	#define PATTERNMASK_MACROS \
 		void GetSnapsLevel(const SnapArg& a, int level, Vector<PatternSnap*>& level_snaps) {this->Get(a).PatternSnap::GetSnapsLevel(a, level, &Get(a), GetSub(), level_snaps);} \
@@ -148,28 +148,19 @@ struct PatternSnap : PatternMask {
 
 
 struct SnapContext {
+	PArr<PatternSnap> snap;
 	
-private:
-	PatternSnap snap[CTX_COUNT][MODE_COUNT][REV_COUNT];
-	
-public:
 	
 	PatternSnap& Get(const SnapArg& a) {
-		ASSERT(a.ctx >= CTX_BEGIN && a.ctx < CTX_COUNT);
-		ASSERT(a.mode >= 0 && a.mode < MODE_COUNT);
-		ASSERT(a.rev >= 0 && a.rev < REV_COUNT);
-		return snap[a.ctx][a.mode][a.rev];
+		return snap[a];
 	}
 	
 	const PatternSnap& Get(const SnapArg& a) const {
-		ASSERT(a.ctx >= CTX_BEGIN && a.ctx < CTX_COUNT);
-		ASSERT(a.mode >= 0 && a.mode < MODE_COUNT);
-		ASSERT(a.rev >= 0 && a.rev < REV_COUNT);
-		return snap[a.ctx][a.mode][a.rev];
+		return snap[a];
 	}
 	
 	const PatternSnap& Get0() const {
-		return snap[0][0][0];
+		return snap[ZeroArg()];
 	}
 	
 	
@@ -184,53 +175,53 @@ public:
 	
 	void MergeOwner();
 	void Clear() {
-		for(const SnapArg& a : SnapArgs())
+		for(const SnapArg& a : AllArgs())
 			Get(a).PatternSnap::Clear();
 	}
 	void ResolveId() {
-		for(const SnapArg& a : SnapArgs())
+		for(const SnapArg& a : AllArgs())
 			Get(a).PatternSnap::ResolveId();
 	}
 	void Jsonize(JsonIO& json) {
-		for(const SnapArg& a : SnapArgs())
+		for(const SnapArg& a : AllArgs())
 			json("snap" + a.SubscriptString(), Get(a));
 	}
 	void SetArtistPtr(Artist* art) {
-		for(const SnapArg& a : SnapArgs())
+		for(const SnapArg& a : AllArgs())
 			Get(a).Ptrs::artist = art;
 	}
 	void SetReleasePtr(Release* r) {
-		for(const SnapArg& a : SnapArgs())
+		for(const SnapArg& a : AllArgs())
 			Get(a).Ptrs::release = r;
 	}
 	void SetSongPtr(Song* s) {
-		for(const SnapArg& a : SnapArgs())
+		for(const SnapArg& a : AllArgs())
 			Get(a).Ptrs::song = s;
 	}
 	void SetPartPtr(Part* p) {
-		for(const SnapArg& a : SnapArgs())
+		for(const SnapArg& a : AllArgs())
 			Get(a).Ptrs::part = p;
 	}
 	void SetLinePtr(Line* l) {
-		for(const SnapArg& a : SnapArgs())
+		for(const SnapArg& a : AllArgs())
 			Get(a).Ptrs::line = l;
 	}
 	void SetBreakPtr(Break* b) {
-		for(const SnapArg& a : SnapArgs())
+		for(const SnapArg& a : AllArgs())
 			Get(a).Ptrs::brk = b;
 	}
 	
 	
 	void SetOwner(SnapContext& ctx) {
-		for(const SnapArg& a : SnapArgs())
+		for(const SnapArg& a : AllArgs())
 			Get(a).owner = &ctx.Get(a);
 	}
 	void CopyPtrs(const SnapContext& ctx) {
-		for(const SnapArg& a : SnapArgs())
+		for(const SnapArg& a : AllArgs())
 			Get(a).CopyPtrs(ctx.Get(a));
 	}
 	void SetId(int id) {
-		for(const SnapArg& a : SnapArgs())
+		for(const SnapArg& a : AllArgs())
 			Get(a).SetId(id);
 	}
 };

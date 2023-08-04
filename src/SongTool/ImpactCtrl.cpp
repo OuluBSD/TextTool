@@ -6,7 +6,7 @@ ImpactCtrl::ImpactCtrl() {
 	
 	vsplit.Vert();
 	
-	for(const SnapArg& a : GenderArgs()) {
+	for(const SnapArg& a : ModeArgs()) {
 		ArrayCtrl& list = this->list[a];
 		vsplit << list;
 		list.AddColumn(t_("Position"));
@@ -26,7 +26,7 @@ void ImpactCtrl::Data() {
 	Song& song = *p.song;
 	Part& part = *p.part;
 	
-	for (const SnapArg& a : GenderArgs()) {
+	for (const SnapArg& a : ModeArgs()) {
 		ArrayCtrl& list = this->list[a];
 		Index<int> story_values;
 		Vector<PatternSnap*> snaps;
@@ -67,7 +67,7 @@ void ImpactCtrl::SelectLine(const SnapArg& match) {
 	ArrayCtrl& list = this->list[match];
 	if (list.IsCursor()) {
 		String key = AttrText(list.Get(list.GetCursor(), 0)).text.ToString();
-		for (const SnapArg& a : GenderArgs()) {
+		for (const SnapArg& a : ModeArgs()) {
 			if (a == match) continue;
 			ArrayCtrl& list = this->list[a];
 			bool found = false;

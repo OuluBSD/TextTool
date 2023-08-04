@@ -3,9 +3,9 @@
 
 
 class ImpactScoringCtrl : public Ctrl {
-	PArr<Plotter> plotter;
-	PArr<ArrayCtrl> list;
-	PArr<Splitter> vsplit;
+	MArr<Plotter> plotter;
+	MArr<ArrayCtrl> list;
+	MArr<Splitter> vsplit;
 	Splitter mainsplit;
 	
 	void ListMenu(Bar& bar);
@@ -14,7 +14,7 @@ public:
 	ImpactScoringCtrl();
 	
 	void Data();
-	void DataListAll() {for(const SnapArg& a : SnapArgs()) DataList(a);}
+	void DataListAll() {for(const SnapArg& a : AllArgs()) DataList(a);}
 	void DataList(const SnapArg& a);
 	void ListValueChanged(const SnapArg& a, int pos, int scoring);
 	

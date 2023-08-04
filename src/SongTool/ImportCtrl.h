@@ -3,11 +3,11 @@
 
 
 class ImportCtrl : public WithImport<Ctrl> {
-	DocEdit input[2];
+	DocEdit input[HUMAN_INPUT_MODE_COUNT];
 	Splitter hsplit;
 	ArrayCtrl messages;
 	
-	SnapArg a[2];
+	SnapArg a[HUMAN_INPUT_MODE_COUNT];
 	
 	void AddMessage(int line, int severity, String msg);
 public:

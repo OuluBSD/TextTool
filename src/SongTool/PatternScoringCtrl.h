@@ -3,9 +3,9 @@
 
 
 class PatternScoringCtrl : public Ctrl {
-	PArr<Plotter> plotter;
-	PArr<ArrayCtrl> list;
-	PArr<Splitter> vsplit;
+	MArr<Plotter> plotter;
+	MArr<ArrayCtrl> list;
+	MArr<Splitter> vsplit;
 	Splitter mainsplit;
 	
 	
@@ -17,7 +17,7 @@ public:
 	PatternScoringCtrl();
 	
 	void Data();
-	void DataListAll() {for (const SnapArg& a : GenderArgs()) DataList(a);}
+	void DataListAll() {for (const SnapArg& a : ModeArgs()) DataList(a);}
 	void DataList(const SnapArg& a);
 	//void DataPresets();
 	//void AddPreset();

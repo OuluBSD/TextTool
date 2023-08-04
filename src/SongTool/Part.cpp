@@ -5,7 +5,7 @@ int Part::GetLength(const SnapArg& a) const {
 	a.Chk();
 	int len = 0;
 	for (const Line& l : lines)
-		len += l.GetLength(mode);
+		len += l.GetLength(a);
 	return len;
 }
 

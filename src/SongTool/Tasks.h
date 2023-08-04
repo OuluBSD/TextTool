@@ -100,11 +100,14 @@ struct Task {
 	Ptrs p;
 	PatternSnap* snap = 0;
 	ReverseTask* task = 0;
+	SnapContext* ctx = 0;
 	TaskMgr* mgr = 0;
 	
 	// temp
 	Array<Task> result_tasks;
 	Vector<Vector<String>> str_map;
+	Vector<SnapContext*> tmp_ctx;
+	Index<String> tmp_stridx;
 	Task* created_by = 0;
 	
 	static constexpr int common_mask_gen_multiplier		= 8;
@@ -137,6 +140,7 @@ struct Task {
 	bool WriteResults();
 	bool ParseOriginalLyrics();
 	void CreateInput_StoryArc();
+	void CreateInput_StoryArcWeighted();
 	void CreateInput_PatternMask();
 	void CreateInput_Pattern();
 	void CreateInput_Analysis();
@@ -144,9 +148,13 @@ struct Task {
 	void CreateInput_Lyrics();
 	void CreateInput_LyricsTranslate();
 	void CreateInput_Impact();
+	void CreateInput_ImpactWeighted();
 	void CreateInput_ImpactScoring();
+	void CreateInput_ForwardLyricsWeighted();
 	void Process_MakeImportTasks();
+	void Process_MakeContextImportTasks();
 	void Process_StoryArc();
+	void Process_StoryArcWeighted();
 	void Process_PatternMask();
 	void Process_Pattern();
 	void Process_Analysis();
@@ -165,8 +173,10 @@ struct Task {
 	void Process_Lyrics();
 	void Process_LyricsTranslate();
 	void Process_Impact();
+	void Process_ImpactWeighted();
 	void Process_ImpactScoring();
 	void Process_MakeImpactScoringTasks();
+	void Process_ForwardLyricsWeighted();
 	
 	void Retry();
 	String GetDescription() const;
