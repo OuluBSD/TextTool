@@ -142,6 +142,7 @@ struct Task {
 	void CreateInput_StoryArc();
 	void CreateInput_StoryArcWeighted();
 	void CreateInput_PatternMask();
+	void CreateInput_PatternMaskWeighted();
 	void CreateInput_Pattern();
 	void CreateInput_Analysis();
 	void CreateInput_AttrScores();
@@ -156,6 +157,7 @@ struct Task {
 	void Process_StoryArc();
 	void Process_StoryArcWeighted();
 	void Process_PatternMask();
+	void Process_PatternMaskWeighted();
 	void Process_Pattern();
 	void Process_Analysis();
 	void Process_MakePatternTasks();

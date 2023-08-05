@@ -23,8 +23,15 @@
 		- scoring of M is COMMON minus half of WEIGHTED, F is COMMON plus half of WEIGHTED
 		- optimize or prompt M-F attributes from scoring
 
+- note: weighted impact is also something, what "could be sold" from the ugly first drift of the writer
+	- if it is negative (see scoring), it won't be "bought" by people
+		- maybe check this while reversing impacts
 
 DONE:
 (3.8.2023)
 - visual/text context slots in snaps
 - WEIGHTED impact
+(4.8.2023)
+- separate lyrics more, because now there's COMMON
+- fix pattern mask ai prompt issues
+- weighted pattern mask using ai

@@ -36,6 +36,21 @@ void TaskMgr::CreateDefaultTaskRules() {
 			.Result(O_DB_ATTRS)
 		;
 	
+	AddRule(TASK_PATTERNMASK_WEIGHTED, "weighted pattern masks")
+		.Require(O_ORDER_IMPORT)
+		.Require(O_SONG_MASK)
+		.Require(O_PART_MASK)
+		.Require(O_BREAK_LYRICS_WEIGHTED)
+		.Input(&Task::CreateInput_PatternMaskWeighted)
+			.Arg(V_PTR_SONG)
+			.Arg(V_MODE, 0, MODE_COUNT)
+			.Arg(V_ARGS, 2, 2)
+		.Process(&Task::Process_PatternMaskWeighted)
+			.Result(O_SONG_MASK_WEIGHTED)
+			.Result(O_PART_MASK_WEIGHTED)
+			.Result(O_DB_ATTRS)
+		;
+	
 	AddRule(TASK_ANALYSIS, "analysis of parts of song")
 		.Require(O_ORDER_IMPORT_DETAILED)
 		.Input(&Task::CreateInput_Analysis)
@@ -129,6 +144,8 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_ORDER_IMPORT)
 		.Require(O_SONG_MASK)
 		.Require(O_PART_MASK)
+		.Require(O_SONG_MASK_WEIGHTED)
+		.Require(O_PART_MASK_WEIGHTED)
 		.Process(&Task::Process_MakePatternTasks)
 			.Arg(V_PTR_SONG)
 			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
@@ -427,10 +444,22 @@ bool TaskMgr::IsDepsReady(Task& t, Index<Task*>& seen) const {
 void TaskMgr::ImportSongAndMakeReversedSong(Song& s) {
 	Database& db = Database::Single();
 	TaskRule& r = GetRule(TASK_IMPORT_AND_REVERSE);
-	for (Task& t : tasks) {
-		if (t.rule == &r) {
-			LOG("TaskMgr::ImportSongAndMakeReversedSong: error: task exists already");
-			return;
+	
+	if (1) {
+		Vector<int> rm_list;
+		for(int i = 0; i < tasks.GetCount(); i++) {
+			Task& t = tasks[i];
+			if (t.p.song == &s)
+				rm_list << i;
+		}
+		tasks.Remove(rm_list);
+	}
+	else {
+		for (Task& t : tasks) {
+			if (t.rule == &r) {
+				LOG("TaskMgr::ImportSongAndMakeReversedSong: error: task exists already");
+				return;
+			}
 		}
 	}
 	

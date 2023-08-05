@@ -77,13 +77,17 @@ void Task::Process_StoryArcWeighted() {
 	c0++;
 	txt = txt.Mid(c0);
 	
+	Index<String>& song_keys = tmp_stridx;
+	
 	txt.Replace("\r", "");
 	Vector<String> lines = Split(txt, "\n");
 	
 	for(int i = 0; i < lines.GetCount(); i++) {
 		String& line = lines[i];
 		if (line.Find("- Line ") != 0) {
-			lines.Remove(i--);
+			lines.Remove(i);
+			song_keys.Remove(i);
+			i--;
 			continue;
 		}
 		int c0 = line.Find("\"");
@@ -99,8 +103,10 @@ void Task::Process_StoryArcWeighted() {
 		return;
 	}
 	
-	Index<String>& song_keys = tmp_stridx;
-	ASSERT(song_keys.GetCount() == lines.GetCount());
+	if (song_keys.GetCount() != lines.GetCount()) {
+		SetError("unexpected count of results");
+		return;
+	}
 	
 	SnapArg a(CTX_TEXT, WEIGHTED, FORWARD);
 	
@@ -445,11 +451,15 @@ void Task::Process_PatternMask() {
 	output.Replace("\r","");
 	int pos = input.GetCount() - 3 - song.parts[0].name.GetCount();
 	String result = input.Mid(pos) + output;
+	pos = result.Find("\n");
+	if (pos < 0) {SetError("unexpected output"); return;}
+	pos++;
+	result = result.Mid(pos);
 	//LOG(result);
 	
 	// Add pronouns
-	for(int i = 0; i < song.parts.GetCount(); i++) {
-		Part& part = song.parts[i];
+	{
+		Part& part = *p.part;
 		for(const Line& line : part.lines) {
 			Vector<String> parts = Split(line.Get(a).txt, " ");
 			for (String s : parts) {
@@ -497,72 +507,50 @@ void Task::Process_PatternMask() {
 		}
 	}
 	
+	
 	// Fix bad formatting from ai (Title:\n\n- values\n- values)
-	Vector<String> parts_ = Split(result, "\n\n");
-	Vector<Vector<String>> parts;
-	parts.SetCount(parts_.GetCount());
-	for(int i = 0; i < parts.GetCount(); i++) {
-		parts[i] = Split(parts_[i], "\n");
-	}
-	for(int i = 0; i < parts.GetCount()-1; i++) {
-		if (parts[i].GetCount() == 1 && parts[i+1][0].Left(1) == "-") {
-			parts[i].Append(parts[i+1]);
-			parts.Remove(i+1);
-		}
-	}
-	//DUMPCC(parts);
+	Vector<String> lines = Split(result, "\n");
+	//DUMPC(lines);
 	
 	// Parse result text
-	VectorMap<String, VectorMap<String, Vector<String>>> parsed;
-	for(int i = 0; i < parts.GetCount(); i++) {
-		Vector<String>& lines = parts[i];
-		String key = ToLower(TrimBoth(lines[0])).ToWString().ToString();
-		if (key.Right(1) == ":") key = key.Left(key.GetCount()-1);
-		VectorMap<String, Vector<String>>& parsed_key = parsed.GetAdd(key);
-		
-		for(int j = 1; j < lines.GetCount(); j++) {
+	VectorMap<String, Vector<String>> parsed;
+	{
+		for(int j = 0; j < lines.GetCount(); j++) {
 			String line = ToLower(TrimBoth(lines[j]));
 			if (line.IsEmpty()) break;
 			if (line.Left(1) == "-") line = TrimBoth(line.Mid(1));
 			int colon = line.Find(":");
 			if (colon < 0) {
-				SetError("semicolon not found at " + key + " line " + IntStr(j-1));
+				SetError("semicolon not found at line " + IntStr(j));
 				return;
-				//continue;
 			}
 			String group = TrimBoth(line.Left(colon));
-			Vector<String>& parsed_values = parsed_key.GetAdd(group);
+			Vector<String>& parsed_values = parsed.GetAdd(group);
 			
 			String values_str = TrimBoth(line.Mid(colon+1));
-			parsed_values = Split(values_str, ",");
-			for (String& value : parsed_values) {
+			Vector<String> line_values = Split(values_str, ",");
+			for (String& value : line_values) {
 				value = TrimBoth(value);
+				if (value.Left(1) == "\"" && value.Right(1) == "\"")
+					value = value.Mid(1, value.GetCount()-2);
+				if (value == "value 1" ||value == "value 2") {
+					//LOG(result);
+					//DUMPC(lines);
+					SetError("stupid ai result");
+					return;
+				}
+				parsed_values.Add(value);
 			}
 		}
 	}
 	
-	Index<String> unwritten_parts;
-	for (Part& part : song.parts)
-		unwritten_parts << ToLower(part.name);
-	
 	// Process parsed values
-	for(int i = 0; i < parsed.GetCount(); i++) {
-		const String& part_key = parsed.GetKey(i);
-		const VectorMap<String, Vector<String>>& parsed_key = parsed[i];
-		int pm_i = song.FindPartIdx(part_key);
-		if (pm_i < 0) {
-			if (unwritten_parts.IsEmpty())
-				break;
-			SetError("part was not found: " + part_key);
-			return;
-		}
-		Part& part = song.parts[pm_i];
+	{
+		Part& part = *p.part;
 		
-		unwritten_parts.RemoveKey(part.name);
-		
-		for(int j = 0; j < parsed_key.GetCount(); j++) {
-			const String& group = parsed_key.GetKey(j);
-			const Vector<String>& values = parsed_key[j];
+		for(int j = 0; j < parsed.GetCount(); j++) {
+			const String& group = parsed.GetKey(j);
+			const Vector<String>& values = parsed[j];
 			
 			for(int k = 0; k < values.GetCount(); k++) {
 				String value = ToLower(values[k]);
@@ -572,7 +560,17 @@ void Task::Process_PatternMask() {
 				
 				// Realize pattern snapshot attribute
 				int group_i = db.attrs.FindGroup(group);
-				if (group_i >= 0) {
+				
+				// TODO: warning: this causes re-prompting from AI (because of different input)
+				if (group_i < 0) {
+					String type = args[0];
+					Attributes::Group& g = db.attrs.AddGroup(type, group, false);
+					group_i = db.attrs.groups.GetCount()-1;
+					ASSERT(&db.attrs.groups[group_i] == &g);
+				}
+				
+				if (group_i >= 0)
+				{
 					SnapAttr sa = db.attrs.GetAddAttr(group, value); // ugly semantics
 					SnapAttrStr sas;
 					sas.group = group;
@@ -592,6 +590,86 @@ void Task::Process_PatternMask() {
 	}
 	
 	LOG("Task::Process_PatternMask: end (success)");
+}
+
+void Task::Process_PatternMaskWeighted() {
+	Database& db = Database::Single();
+	Attributes& attrs = db.attrs;
+	
+	Ptrs& p = this->p;
+	Song& song = *p.song;
+	Part& part = *p.part;
+	String s;
+	String parts;
+	
+	ASSERT(p.a.mode == WEIGHTED);
+	SnapArg a = p.a;
+	
+	PatternMask& part_mask = part.snap[a];
+	PatternMask& song_mask = song.snap[a];
+	
+	String result = "-" + output;
+	//LOG(result);
+	
+	Vector<String> lines = Split(result, "\n");
+	
+	VectorMap<String, Index<String>> parsed;
+	
+	for (String& line : lines) {
+		int cur = line.Find(":");
+		if (cur < 0) {SetError("no column"); return;}
+		String key = ToLower(TrimBoth(line.Mid(1, cur-1)));
+		line = ToLower(TrimBoth(line.Mid(cur+1)));
+		if (line.Find(" .vs ") >= 0) {
+			SetError("stupid ai result");
+			return;
+		}
+		Index<String>& items = parsed.GetAdd(key);
+		if (line.Find(",") >= 0) {
+			Vector<String> parts = Split(line, ",");
+			for (const String& s : parts)
+				items.FindAdd(s);
+		}
+		else if (line.Find("/")) {
+			Vector<String> parts = Split(line, "/");
+			for (const String& s : parts)
+				items.FindAdd(s);
+		}
+		else
+			items.FindAdd(line);
+	}
+	
+	// Use parsed data
+	for(int i = 0; i < parsed.GetCount(); i++) {
+		String group_str = parsed.GetKey(i);
+		const Index<String>& items = parsed[i];
+		
+		int group_i = attrs.FindGroup(group_str);
+		if (group_i < 0) {
+			String type = args[0];
+			attrs.AddGroup(type, group_str, false);
+		}
+		
+		for(int j = 0; j < items.GetCount(); j++) {
+			SnapAttr sa = attrs.GetAddAttr(group_str, items[j]);
+			SnapAttrStr sas;
+			sas.group = group_str;
+			sas.item = items[j];
+			sas.group_i = sa.group;
+			sas.item_i = sa.item;
+			sas.has_id = true;
+			part_mask.mask.FindAdd(sas);
+			song_mask.mask.FindAdd(sas);
+		}
+	}
+	
+	
+	// TODO move?
+	// Also, fix lyrics here
+	ASSERT(p.a.mode == WEIGHTED);
+	SongHeader& h = song.headers[p.a];
+	h.content = song.CreateLyricsFromBreaks(p.a);
+	
 }
 
 void Task::Process_Pattern() {

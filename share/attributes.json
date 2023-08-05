@@ -4,62 +4,62 @@
 			"name": "language",
 			"group_ctx": 0,
 			"clr": {
-				"red": 163,
-				"green": 52,
-				"blue": 100
+				"red": 135,
+				"green": 124,
+				"blue": 32
 			}
 		},
 		{
 			"name": "writing",
 			"group_ctx": 0,
 			"clr": {
-				"red": 233,
-				"green": 251,
-				"blue": 52
+				"red": 81,
+				"green": 213,
+				"blue": 60
 			}
 		},
 		{
 			"name": "characters",
 			"group_ctx": 0,
 			"clr": {
-				"red": 120,
-				"green": 231,
-				"blue": 56
+				"red": 64,
+				"green": 109,
+				"blue": 49
 			}
 		},
 		{
 			"name": "setting",
 			"group_ctx": 0,
 			"clr": {
-				"red": 142,
-				"green": 249,
-				"blue": 76
+				"red": 215,
+				"green": 252,
+				"blue": 70
 			}
 		},
 		{
 			"name": "creativity",
 			"group_ctx": 0,
 			"clr": {
-				"red": 177,
-				"green": 54,
-				"blue": 204
+				"red": 126,
+				"green": 214,
+				"blue": 75
 			}
 		},
 		{
 			"name": "performance",
 			"group_ctx": 1,
 			"clr": {
-				"red": 30,
-				"green": 65,
-				"blue": 187
+				"red": 72,
+				"green": 80,
+				"blue": 204
 			}
 		},
 		{
 			"name": "gestures",
 			"group_ctx": 1,
 			"clr": {
-				"red": 217,
-				"green": 9,
+				"red": 166,
+				"green": 62,
 				"blue": 71
 			}
 		},
@@ -67,27 +67,27 @@
 			"name": "costuming",
 			"group_ctx": 1,
 			"clr": {
-				"red": 185,
-				"green": 141,
-				"blue": 101
+				"red": 19,
+				"green": 112,
+				"blue": 142
 			}
 		},
 		{
 			"name": "editing",
 			"group_ctx": 1,
 			"clr": {
-				"red": 250,
-				"green": 180,
-				"blue": 119
+				"red": 158,
+				"green": 67,
+				"blue": 251
 			}
 		},
 		{
 			"name": "lighting",
 			"group_ctx": 1,
 			"clr": {
-				"red": 160,
-				"green": 41,
-				"blue": 185
+				"red": 43,
+				"green": 247,
+				"blue": 10
 			}
 		}
 	],
@@ -96,2426 +96,3449 @@
 			"description": "nouns",
 			"type": "language",
 			"color": {
-				"red": 187,
-				"green": 160,
-				"blue": 212
+				"red": 207,
+				"green": 244,
+				"blue": 25
 			},
 			"values": [
-				"scar",
-				"tissue",
-				"mister",
-				"birds",
-				"push",
-				"wall",
-				"kentucky",
-				"girl",
-				"push-up",
-				"blood",
-				"bathroom",
-				"stall",
-				"southern",
-				"texas",
-				"drawl",
-				"soft",
-				"jaw",
-				"step",
-				"autumn",
-				"moon",
-				"crawl",
-				"ex-boyfriend",
-				"scar tissue",
-				"eyes",
-				"kiss",
-				"view",
-				"blood loss",
-				"man",
-				"walk",
-				"kentucky girl",
-				"push-up bra",
-				"heart",
-				"health",
-				"southern girl",
-				"ma",
-				"pa",
-				"sarcastic mister",
-				"bathroom stall",
-				"texas scarlet",
-				"soft spoken",
-				"broken jaw",
-				"service station",
-				"vantage point"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "pronouns",
 			"type": "language",
 			"color": {
-				"red": 136,
-				"green": 50,
-				"blue": 12
+				"red": 45,
+				"green": 120,
+				"blue": 48
 			},
 			"values": [
+				"my",
 				"i",
 				"you",
-				"your",
 				"me",
-				"we",
 				"it",
-				"ma",
-				"pa",
+				"we",
+				"your",
+				"us",
 				"he",
 				"our",
-				"myself",
-				"outside",
-				"around",
-				"them",
-				"my"
-			]
+				"both"
+			],
+			"managed": true
 		},
 		{
 			"description": "verbs",
 			"type": "language",
 			"color": {
-				"red": 34,
-				"green": 73,
-				"blue": 103
+				"red": 230,
+				"green": 140,
+				"blue": 140
 			},
 			"values": [
-				"wish",
-				"saw",
-				"sarcastic",
-				"know-it-all",
-				"close",
-				"eyes",
-				"kiss",
-				"share",
-				"pushed",
-				"fallin'",
-				"lick",
-				"taste",
-				"loss",
-				"wave",
-				"goodbye",
-				"spoken",
-				"broken",
-				"outside",
-				"make",
-				"push",
-				"fall",
-				"going",
-				"step",
-				"crawl",
-				"soft",
-				"see",
-				"say"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "adjectives",
 			"type": "language",
 			"color": {
-				"red": 247,
-				"green": 121,
-				"blue": 138
+				"red": 177,
+				"green": 192,
+				"blue": 251
 			},
 			"values": [
-				"sarcastic",
-				"lonely",
-				"young",
-				"scarlet",
-				"sweet",
-				"lower",
-				"soft",
-				"texas",
-				"broken",
-				"mister",
-				"all",
-				"know-it-all"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "adverbs",
 			"type": "language",
 			"color": {
-				"red": 26,
-				"green": 33,
-				"blue": 207
+				"red": 164,
+				"green": 149,
+				"blue": 164
 			},
 			"values": [
-				"really",
-				"outside",
-				"all",
-				"over",
-				"soft",
-				"around",
-				"so",
-				"lovingly",
-				"lower",
-				"close",
-				"high",
-				"softly",
-				"know-it-all",
-				"closely",
-				"wish"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "prepositions",
 			"type": "language",
 			"color": {
-				"red": 74,
-				"green": 153,
-				"blue": 18
+				"red": 91,
+				"green": 41,
+				"blue": 116
 			},
 			"values": [
-				"with",
-				"against",
-				"to",
-				"'cause",
-				"at",
-				"lovingly",
-				"like",
-				"due to",
-				"ma",
-				"pa",
-				"outside",
-				"from",
-				"over",
-				"up",
-				"in",
-				"of",
-				"for",
-				"so that"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "conjunctions",
 			"type": "language",
 			"color": {
-				"red": 159,
-				"green": 49,
-				"blue": 64
+				"red": 199,
+				"green": 13,
+				"blue": 156
 			},
 			"values": [
-				"but",
-				"and",
-				"'cause",
-				"if",
-				"because",
-				"cause"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "interjections",
 			"type": "language",
 			"color": {
-				"red": 1,
-				"green": 8,
-				"blue": 14
+				"red": 50,
+				"green": 151,
+				"blue": 18
 			},
 			"values": [
-				"oh",
-				"worry",
-				"'soft spoken'",
-				"huh",
-				"don't"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "syntax",
 			"type": "language",
 			"color": {
-				"red": 80,
-				"green": 247,
-				"blue": 66
+				"red": 39,
+				"green": 102,
+				"blue": 104
 			},
 			"values": [
-				"homophonic",
-				"rhyme",
-				"parallelism",
-				"main clauses",
-				"subordinate clauses",
-				"sentence structure",
-				"repetition",
-				"subject-verb-object",
-				"subject-verb",
-				"clauses",
-				"phrases",
-				"sentences",
-				"simple sentence structure",
-				"repetition of lines",
-				"complex sentence structure",
-				"complex sentences",
-				"no errors",
-				"metaphors"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "morphology",
 			"type": "language",
 			"color": {
-				"red": 172,
-				"green": 237,
-				"blue": 146
+				"red": 166,
+				"green": 206,
+				"blue": 202
 			},
 			"values": [
-				"irregularity",
-				"'cause",
-				"singular/plural",
-				"irregular forms",
-				"plural nouns: birds",
-				"-ing verb forms",
-				"no errors",
-				"word order"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "semantics",
 			"type": "language",
 			"color": {
-				"red": 214,
-				"green": 199,
-				"blue": 202
+				"red": 30,
+				"green": 62,
+				"blue": 1
 			},
 			"values": [
-				"figurative language",
-				"wishes",
-				"sarcasm",
-				"road trip",
-				"positive",
-				"meaning",
-				"denotation",
-				"romantic imagery",
-				"longing",
-				"desirous imagery",
-				"desperate imagery",
-				"moving imagery",
-				"personification of birds",
-				"expressions are meaningful",
-				"contextualization"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "pragmatics",
 			"type": "language",
 			"color": {
-				"red": 131,
-				"green": 24,
-				"blue": 218
+				"red": 28,
+				"green": 46,
+				"blue": 141
 			},
 			"values": [
-				"implied meaning",
-				"conversation",
-				"suggestiveness",
-				"comforting",
-				"context-dependent expression",
-				"positive message of moving forward",
-				"showing sensations in song",
-				"messages are interpreted correctly",
-				"situation",
-				"emotion"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "discourse",
 			"type": "language",
 			"color": {
-				"red": 241,
-				"green": 137,
-				"blue": 113
+				"red": 180,
+				"green": 67,
+				"blue": 225
 			},
 			"values": [
-				"storytelling",
-				"view",
-				"repetition",
-				"dialogue",
-				"narration",
-				"referencing previous verse",
-				"clear story structure",
-				"narrative"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "types of sentences",
 			"type": "writing",
 			"color": {
-				"red": 82,
-				"green": 74,
-				"blue": 244
+				"red": 45,
+				"green": 46,
+				"blue": 68
 			},
 			"values": [
-				"sarcastic",
-				"soft spoken",
-				"dramatic sentences",
-				"dramatic",
-				"hyperbole"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "dramatic sentences",
 			"type": "writing",
 			"color": {
-				"red": 236,
-				"green": 90,
-				"blue": 146
+				"red": 248,
+				"green": 102,
+				"blue": 177
 			},
 			"values": [
-				"\"push me up (lovingly) against the wall (like you want to have sex)\"",
-				"\"(my man is) soft spoken with a broken jaw\"",
-				"i'll make it to the moon",
-				"'blood loss in a bathroom stall'",
-				"soft spoken with a broken jaw",
-				"scar tissue that i wish you saw",
-				"sarcastic mister know-it-all. close your eyes and i'll kiss you."
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "dramatic scenarios",
 			"type": "writing",
 			"color": {
-				"red": 7,
-				"green": 13,
-				"blue": 225
+				"red": 214,
+				"green": 60,
+				"blue": 182
 			},
 			"values": [
-				"toilet",
-				"vantage point",
-				"push me up against the wall"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "dramatic expressions",
 			"type": "writing",
 			"color": {
-				"red": 217,
-				"green": 233,
-				"blue": 6
+				"red": 196,
+				"green": 22,
+				"blue": 78
 			},
 			"values": [
-				"\"young kentucky girl in a push-up bra\"",
-				"\"(but he will) step outside",
-				"but not to brawl (because he’s a good guy)\"",
-				"wish",
-				"broken jaw",
-				"sarcastic mister know-it-all",
-				"'from this vantage point'",
-				"scar tissue",
-				"autumn's sweet"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "comedic sentences",
 			"type": "writing",
 			"color": {
-				"red": 5,
-				"green": 208,
-				"blue": 224
+				"red": 174,
+				"green": 180,
+				"blue": 95
 			},
 			"values": [
-				"\"blood loss (due to menstruation) in a bathroom stall\""
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "comedic scenarios",
 			"type": "writing",
 			"color": {
-				"red": 38,
-				"green": 197,
-				"blue": 30
+				"red": 96,
+				"green": 127,
+				"blue": 45
 			},
 			"values": [
-				"\"a southern girl with a scarlet (red as blood) drawl\"",
-				"toilet",
-				"vantage point",
-				"'share this lonely viewin'",
-				"step outside but not to brawl"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "comedic expressions",
 			"type": "writing",
 			"color": {
-				"red": 106,
-				"green": 204,
-				"blue": 62
+				"red": 204,
+				"green": 45,
+				"blue": 206
 			},
 			"values": [
-				"mister know-it-all",
-				"call it fall",
-				"sarcastic mister know-it-all",
-				"trip to the moon",
-				"with the birds i'll share this lonely viewin'"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "humorous expressions",
 			"type": "writing",
 			"color": {
-				"red": 41,
-				"green": 199,
-				"blue": 147
+				"red": 148,
+				"green": 223,
+				"blue": 120
 			},
 			"values": [
-				"\"with the birds (that you can hear) i’ll share this lonely view\"",
-				"close your eyes",
-				"have to crawl",
-				"'from this toilet'",
-				"'i'm high and with the birds i'll share'",
-				"young kentucky girl in a push-up bra",
-				"with the birds i'll share this lonely viewin'"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "cliches",
 			"type": "writing",
 			"color": {
-				"red": 160,
-				"green": 60,
-				"blue": 125
+				"red": 165,
+				"green": 164,
+				"blue": 193
 			},
 			"values": [
-				"\"scar tissue\"",
-				"\"with the birds (that you can hear) i’ll share this lonely viewin' (at this vantage point)\"",
-				"\"with the birds (that you can hear) i’ll share this lonely viewin' (at our walk outside)\"",
-				"share",
-				"'share this lonely viewin'",
-				"sharing a lonely viewin'",
-				"with the birds i'll share this lonely viewin'"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "similes",
 			"type": "writing",
 			"color": {
-				"red": 34,
-				"green": 54,
-				"blue": 83
+				"red": 203,
+				"green": 230,
+				"blue": 59
 			},
 			"values": [
-				"fall over themselves",
-				"soft spoken",
-				"close your eyes and kiss you",
-				"like a young kentucky girl",
-				"wave goodbye",
-				"like a moon.",
-				"\"with the birds (that you can hear) i’ll share this lonely viewin' (at this vantage point)\"",
-				"\"with the birds (that you can see) i’ll share this lonely viewin' (at this road trip)\"",
-				"share",
-				"sarcastic mister know-it-all",
-				"lonely viewin'",
-				"as sweet as autumn's fall",
-				"'like a young kentucky girl in a push-up bra'",
-				"with the birds i'll share",
-				"describing loneliness like a bird that you can hear",
-				"push me up against the wall",
-				"broken jaw"
-			]
+				"scar tissue in my elbow flexors",
+				"kiss with this drug injection",
+				"like going to the moon"
+			],
+			"managed": true
 		},
 		{
 			"description": "metaphors",
 			"type": "writing",
 			"color": {
-				"red": 64,
-				"green": 112,
-				"blue": 179
+				"red": 42,
+				"green": 98,
+				"blue": 26
 			},
 			"values": [
-				"sarcastic mister know-it-all",
+				"push-up bra",
+				"health",
+				"high on drugs",
+				"share the view with the birds",
+				"push against the wall for strength",
 				"young kentucky girl",
-				"southern girl",
-				"make it to the moon",
-				"mister know-it-all",
-				"scarlet drawl",
-				"blood loss in a bathroom stall",
-				"southern girl with a scarlet drawl",
-				"\"with the birds (that you can hear) i’ll share this lonely viewin' (at this vantage point)\"",
-				"\"with the birds (that you can hear) i’ll share this lonely viewin' (at our walk outside)\"",
-				"push me up against the wall",
-				"scar tissue",
-				"blood",
-				"birds",
-				"loneliness",
-				"'i'll kiss you with a drug injection'",
+				"reward",
+				"sharing",
+				"kissing",
 				"lonely viewin'",
-				"drug injection",
-				"using crawl",
-				"push me up against the wall as a metaphor of sexual desire",
-				"describing courage like a crawling to the moon",
-				"young kentucky girl in a push-up bra",
-				"bathroom stall"
-			]
+				"extended",
+				"concealed"
+			],
+			"managed": true
 		},
 		{
 			"description": "personification",
 			"type": "writing",
 			"color": {
-				"red": 99,
-				"green": 225,
-				"blue": 138
+				"red": 77,
+				"green": 117,
+				"blue": 162
 			},
 			"values": [
+				"autumn's sweet",
+				"sharing",
+				"taste of own health",
+				"sharing view with birds",
+				"heroin shot",
 				"birds",
-				"wave goodbye",
-				"birds outside",
-				"\"with the birds (that you can hear) i’ll share this lonely viewin' (at this vantage point)\"",
-				"\"with the birds (that you can see) i’ll share this lonely viewin' (at this road trip)\"",
-				"young kentucky girl",
-				"sarcastic",
-				"wave goodbye to ma and pa",
+				"mister know-it-all",
+				"scarlet toilet flush",
+				"birds seeing us kissing",
+				"birds seeing",
+				"soft spoken",
+				"won't brawl",
 				"birds sharing the view",
-				"waves goodbye to ma and pa",
-				"young kentucky girl in a push-up bra",
-				"blood loss in a bathroom stall",
-				"describing loneliness like a character/ figure that you can hear",
-				"a southern girl with a scarlet drawl",
-				"autumn",
-				"moon"
-			]
+				"sarcasm",
+				"kissing",
+				"viewing",
+				"birds sharing view",
+				"i'll make it to the moon if i have to crawl",
+				"compassionate",
+				"understanding",
+				"personifying birds",
+				"heroin shot vs. birds",
+				"birds in the sky beholdin'"
+			],
+			"managed": true
 		},
 		{
 			"description": "hyperboles",
 			"type": "writing",
 			"color": {
-				"red": 71,
-				"green": 99,
-				"blue": 200
+				"red": 53,
+				"green": 247,
+				"blue": 231
 			},
 			"values": [
-				"\"i’ll kiss you",
-				"'cause with the birds i’ll share\"",
-				"lick your heart",
-				"kiss you",
-				"'i'll make it to the moon if i have to crawl'",
-				"going to the moon if i have to crawl",
-				"wish you saw"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "allusions",
 			"type": "writing",
 			"color": {
-				"red": 153,
-				"green": 136,
-				"blue": 49
+				"red": 18,
+				"green": 250,
+				"blue": 25
 			},
 			"values": [
-				"\"sarcastic mister know-it-all\"",
-				"taste your health",
-				"with the birds",
-				"'from this toilet'",
-				"taste your skin and health",
-				"blood loss in a bathroom stall"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "irony",
 			"type": "writing",
 			"color": {
-				"red": 59,
-				"green": 81,
-				"blue": 105
+				"red": 176,
+				"green": 116,
+				"blue": 125
 			},
 			"values": [
-				"\"fallin' all over myself (to get lower) to lick your heart (and pussy) and taste your (skin and) health  'cause\"",
-				"\"i’ll make it to the moon if i have to crawl (in the bed) and\"",
-				"service station",
-				"'share this lonely viewin'",
-				"sharing a lonely view",
-				"soft spoken with a broken jaw"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "satire",
 			"type": "writing",
 			"color": {
-				"red": 211,
-				"green": 111,
-				"blue": 60
+				"red": 155,
+				"green": 69,
+				"blue": 240
 			},
 			"values": [
-				"\"i wave goodbye to ma and pa (as i am leaving home) 'cause i'm going to a trip and with the birds i’ll share (this lonely view)\"",
-				"southern girl",
-				"playful physicality",
-				"interpretation of dialogues",
-				"expression of emotions",
-				"work with band/musicians",
-				"emphasis on words",
-				"dramatic exercises",
-				"'scarlet drawl'",
-				"road trip",
-				"i'm going to a trip and with the birds i'll share"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "foreshadowing",
 			"type": "writing",
 			"color": {
-				"red": 52,
-				"green": 38,
-				"blue": 130
+				"red": 58,
+				"green": 130,
+				"blue": 250
 			},
 			"values": [
-				"wave goodbye to ma and pa",
-				"'i'll make it to the moon if i have to crawl'",
-				"close your eyes and i'll kiss you",
-				"scar tissue that i wish you saw"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "contrast and unexpected elements",
 			"type": "characters",
 			"color": {
-				"red": 155,
-				"green": 75,
-				"blue": 12
+				"red": 186,
+				"green": 54,
+				"blue": 113
 			},
 			"values": [
-				"scar tissue",
-				"sarcastic mister",
-				"know-it-all",
-				"push up",
-				"kentucky girl",
-				"push-up bra",
-				"blood loss",
-				"southern girl",
-				"scarlet drawl",
-				"soft spoken with broken jaw",
-				"drug injection;",
-				"closed eyes",
-				"kiss",
-				"birds",
-				"lick heart blood",
-				"taste health",
-				"blood loss in bathroom stall",
-				"southern girl with texas drawl",
-				"soft speaking with broken jaw",
-				"make it to the moon if i have to crawl",
-				"push and pull of unexpected emotions",
-				"sarcastic mister know-it-all",
-				"drug injection",
-				"young girl",
-				"reputation of southern girl",
-				"drug user",
-				"making it to moon",
-				"sarcasm",
-				"push up bra",
-				"licking heart and health",
+				"lonely viewing",
+				"birds outside toilet window",
 				"bathroom stall",
-				"southern drawl",
-				"broken jaw",
-				"autumn sweet",
-				"moon crawling",
-				"young kentucky girl in push-up brave",
-				"southern girl with a texas scarlet drawl",
-				"soft spoken with a broken jaw",
-				"scar tissue seen despite wish for invisibility",
-				"being pushed lovingly",
+				"southern girl",
+				"texas drawl",
+				"sarcasm",
+				"surprise kiss",
+				"rebellion",
+				"sexuality",
 				"blood loss in a bathroom stall",
-				"soft-spoken man with broken jaw",
-				"no mention"
-			]
+				"a southern girl with a scarlet drawl",
+				"sharing love",
+				"romantic companionship",
+				"bathroom stall vs. blood loss",
+				"southern girl vs. kissing"
+			],
+			"managed": true
 		},
 		{
 			"description": "moral interactions",
 			"type": "characters",
 			"color": {
-				"red": 40,
-				"green": 56,
-				"blue": 90
+				"red": 162,
+				"green": 0,
+				"blue": 165
 			},
 			"values": [
-				"closing eyes and kissing",
-				"sharing",
-				"licking heart and tasting health",
-				"stepping outside",
-				"sharing;",
-				"sharing a view with birds",
-				"sarcastic intentions",
-				"self-worth issues",
-				"acceptance of fate",
-				"self-love issues",
-				"self-value",
-				"kiss you",
-				"wishing to be feared",
-				"lovingly pushing",
-				"looking",
-				"saying goodbye to family",
-				"soft spoken",
-				"kissing despite drug use",
-				"trying to show love despite misfortunes",
-				"trying to get to the moon to escape current circumstances",
-				"kissing as a way of expressing feelings despite external fear",
-				"showing affection in physical pushing",
-				"leaving home to travel",
-				"stepping outside of comfort zone to protect partner",
-				"kiss",
-				"no mention"
-			]
+				"wave goodbye to ma and pa",
+				"leaving home",
+				"kissing",
+				"wave goodbye to ma and pa vs. leaving home"
+			],
+			"managed": true
 		},
 		{
 			"description": "moral interactions with",
 			"type": "characters",
 			"color": {
-				"red": 215,
-				"green": 148,
-				"blue": 174
+				"red": 242,
+				"green": 12,
+				"blue": 152
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "type of action in moral interaction",
 			"type": "characters",
 			"color": {
-				"red": 158,
-				"green": 188,
-				"blue": 100
+				"red": 8,
+				"green": 172,
+				"blue": 20
 			},
 			"values": [
-				"kissing",
-				"sharing",
-				"licking",
-				"not brawling",
-				"kiss;",
-				"lick heart and taste health;",
-				"wave goodbye;",
-				"unknown",
-				"lick your heart",
-				"lovingly",
-				"wanting to have sex",
-				"going on a trip",
-				"stepping outside",
-				"licking heart",
+				"saying goodbye",
 				"waving goodbye",
-				"crawling",
-				"physical action of pushing",
-				"leaving home",
-				"close your eyes",
-				"kiss",
-				"no mention"
-			]
+				"kissing",
+				"lusting",
+				"romantic pursuit",
+				"wave goodbye to ma and pa",
+				"saying goodbye vs. kissing"
+			],
+			"managed": true
 		},
 		{
 			"description": "religiously moral",
 			"type": "characters",
 			"color": {
-				"red": 19,
-				"green": 32,
-				"blue": 8
+				"red": 169,
+				"green": 41,
+				"blue": 203
 			},
 			"values": [
-				"prayer;",
-				"demonstrating moral restraint",
-				"understanding of universal justice",
-				"plea to divine",
-				"value of life",
-				"expressing love and caring despite external fear",
-				"offer companionship and solace.",
-				"expressing love in physical action.",
-				"leaving home to strive for a better life.",
-				"protecting partner even at risk to self.",
-				"expressing love and caring despite external fear."
-			]
+				"waving goodbye to ma and pa",
+				"abstinence",
+				"self-control"
+			],
+			"managed": true
 		},
 		{
 			"description": "atheistic interactions",
 			"type": "characters",
 			"color": {
-				"red": 189,
-				"green": 148,
-				"blue": 80
+				"red": 30,
+				"green": 80,
+				"blue": 23
 			},
 			"values": [
-				"sharing;",
-				"unknown",
-				"saying goodbye to pa and ma",
-				"saying goodbye to ma and pa",
-				"accepting reality",
-				"push me up against the wall",
-				"kissing",
-				"sharing",
-				"wanting to have sex",
-				"going on a trip",
-				"stepping outside",
-				"drug use",
-				"sharing of solitary view with the birds",
-				"sharing of solitude with birds"
-			]
+				"injecting heroin",
+				"road trip",
+				"impulsiveness",
+				"indulgence",
+				"injecting heroin vs. taking a road trip"
+			],
+			"managed": true
 		},
 		{
 			"description": "atheistic interactions with",
 			"type": "characters",
 			"color": {
-				"red": 218,
-				"green": 98,
-				"blue": 255
+				"red": 46,
+				"green": 62,
+				"blue": 175
 			},
 			"values": [
-				"unknown",
-				"pa and ma",
-				"ma and pa",
-				"birds"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "type of action in atheistic interaction",
 			"type": "characters",
 			"color": {
-				"red": 186,
-				"green": 2,
-				"blue": 244
+				"red": 56,
+				"green": 38,
+				"blue": 26
 			},
 			"values": [
-				"drug injection;",
-				"unknown",
-				"saying goodbye",
-				"embracing personal power",
-				"wave goodbye",
-				"wishing to be feared",
-				"lovingly pushing",
-				"looking",
-				"saying goodbye to family",
-				"soft spoken",
-				"injecting",
-				"taking a drug injection",
-				"sharing a viewpoint",
-				"sharing of solitary view"
-			]
+				"taking drugs",
+				"taking a road trip",
+				"defiance",
+				"hedonism",
+				"taking drugs vs. taking a road trip"
+			],
+			"managed": true
 		},
 		{
 			"description": "religiously moral",
 			"type": "characters",
 			"color": {
-				"red": 69,
-				"green": 169,
-				"blue": 81
+				"red": 192,
+				"green": 80,
+				"blue": 239
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "interactions",
 			"type": "characters",
 			"color": {
-				"red": 2,
-				"green": 101,
-				"blue": 78
+				"red": 47,
+				"green": 45,
+				"blue": 121
 			},
 			"values": [
-				"sharing a view"
-			]
+				"sharing",
+				"kiss",
+				"feeling hope"
+			],
+			"managed": true
 		},
 		{
 			"description": "interactions with",
 			"type": "characters",
 			"color": {
-				"red": 143,
-				"green": 168,
-				"blue": 233
+				"red": 30,
+				"green": 40,
+				"blue": 134
 			},
 			"values": [
-				"self",
-				"substance",
-				"birds",
-				"family",
-				"his ex-boyfriend"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "physical features",
 			"type": "characters",
 			"color": {
-				"red": 217,
-				"green": 82,
-				"blue": 208
+				"red": 22,
+				"green": 117,
+				"blue": 94
 			},
 			"values": [
-				"toilet.",
-				"outside.",
-				"around.",
-				"closed eyes",
-				"push-up bra",
-				"texas drawl",
-				"broken jaw",
-				"blood loss",
-				"lonely view",
-				"bathroom stall",
-				"breed physical resilience",
-				"caucasian",
-				"hearing birds",
-				"seeing birds"
-			]
+				"youthfulness",
+				"attractiveness"
+			],
+			"managed": true
 		},
 		{
 			"description": "personality traits",
 			"type": "characters",
 			"color": {
-				"red": 43,
-				"green": 154,
-				"blue": 250
+				"red": 237,
+				"green": 225,
+				"blue": 171
 			},
 			"values": [
-				"manly",
-				"good guy",
-				"sarcastic.",
-				"weak and rewarded.",
-				"southern drawl.",
-				"soft spoken.",
-				"kindness",
+				"weak due to drugs",
+				"adventurous",
+				"independent",
 				"sarcastic",
-				"kentucky drawl",
-				"southern drawl",
-				"soft spoken",
-				"funny",
-				"viewin'",
-				"reflective",
-				"no mention"
-			]
+				"know-it-all",
+				"confidence",
+				"boldness",
+				"weak due to drugs vs. adventurous"
+			],
+			"managed": true
 		},
 		{
 			"description": "likes and dislikes",
 			"type": "characters",
 			"color": {
 				"red": 239,
-				"green": 203,
-				"blue": 157
+				"green": 173,
+				"blue": 85
 			},
 			"values": [
-				"sarcastic talking",
-				"unknown",
-				"moral and immoral",
-				"not afraid",
-				"lonliness",
-				"adventure",
-				"open air",
-				"enjoying nature and the outdoors despite being down",
-				"no mention"
-			]
+				"likes taking drugs",
+				"passion",
+				"pleasure",
+				"likes taking drugs vs. likes exploring"
+			],
+			"managed": true
 		},
 		{
 			"description": "quirks",
 			"type": "characters",
 			"color": {
-				"red": 211,
-				"green": 112,
-				"blue": 53
+				"red": 186,
+				"green": 5,
+				"blue": 87
 			},
 			"values": [
-				"unknown",
-				"soft speaking",
-				"kentucky drawl",
-				"injecting drugs",
-				"drug use",
-				"possibily of having to crawl",
-				"soft-spoken",
-				"vantage point",
-				"road trip",
-				"walk outside",
-				"talking to birds",
-				"no mention"
-			]
+				"southern girl speaking with texas drawl",
+				"being a southern girl",
+				"temptation",
+				"impulsiveness",
+				"southern girl speaking with texas drawl vs. being a southern girl"
+			],
+			"managed": true
 		},
 		{
 			"description": "goals",
 			"type": "characters",
 			"color": {
-				"red": 148,
-				"green": 123,
-				"blue": 208
+				"red": 247,
+				"green": 163,
+				"blue": 134
 			},
 			"values": [
-				"trip",
-				"moon",
-				"to kiss",
-				"sharing a view",
-				"lick heartblood and taste health",
-				"say goodbye",
-				"make it to the moon",
-				"reach the moon",
-				"taste health",
-				"reaching the moon",
-				"show him scar tissue",
-				"get to moon",
-				"finding comfort in unusual places",
-				"no mention",
-				"share this lonely view"
-			]
+				"get high",
+				"taking a road trip",
+				"romantic love",
+				"physicality",
+				"going on a trip",
+				"get high vs. taking a road trip"
+			],
+			"managed": true
 		},
 		{
 			"description": "motivations",
 			"type": "characters",
 			"color": {
-				"red": 233,
-				"green": 146,
-				"blue": 0
+				"red": 194,
+				"green": 142,
+				"blue": 252
 			},
 			"values": [
-				"unknown",
-				"kindness",
-				"love",
-				"drug use",
-				"self-discovery",
-				"breaking chains",
-				"make him afraid",
-				"introspection and contemplation",
-				"no mention",
-				"share this lonely view"
-			]
+				"take drugs",
+				"exploring the world",
+				"rebellion",
+				"appreciation",
+				"share (this lonely view)",
+				"take drugs vs. exploring the world"
+			],
+			"managed": true
 		},
 		{
 			"description": "backstories",
 			"type": "characters",
 			"color": {
-				"red": 131,
-				"green": 105,
-				"blue": 51
+				"red": 4,
+				"green": 126,
+				"blue": 253
 			},
 			"values": [
-				"leaving home",
-				"unspecified",
-				"no mention"
-			]
+				"taking drugs in a bathroom stall",
+				"attraction",
+				"longing",
+				"taking drugs in a bathroom stall vs. leaving home"
+			],
+			"managed": true
 		},
 		{
 			"description": "places",
 			"type": "setting",
 			"color": {
-				"red": 44,
-				"green": 87,
-				"blue": 63
+				"red": 187,
+				"green": 54,
+				"blue": 183
 			},
 			"values": [
-				"bathroom",
-				"toilet",
-				"wall",
-				"outside",
-				"service station",
-				"vantage point",
-				"around",
-				"my ex-boyfriend's",
-				"against the wall",
-				"bathroom stall",
-				"a vantage point",
-				"previous boyfriend's house",
-				"ex-boyfriend's",
-				"nighttime",
-				"abandoned toilet",
-				"public toilet",
-				"inside a building",
-				"hilltop",
-				"unspecified location",
-				"outdoor area",
-				"kentucky",
-				"alabama"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "environments",
 			"type": "setting",
 			"color": {
-				"red": 109,
-				"green": 9,
-				"blue": 11
+				"red": 247,
+				"green": 127,
+				"blue": 251
 			},
 			"values": [
-				"lonely",
-				"weak",
-				"soft",
-				"sarcastic",
-				"birds",
-				"young kentucky girl",
-				"autumn's sweet",
-				"isolated",
-				"sexual",
-				"small",
-				"loving",
-				"bathroom",
-				"scar tissue",
-				"lonely viewin'",
-				"lovingly",
-				"menstruation",
-				"soft spoken",
-				"dark",
-				"mysterious",
-				"intimate",
-				"calm",
-				"quiet",
-				"brightly lit"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "locations",
 			"type": "setting",
 			"color": {
-				"red": 71,
-				"green": 100,
-				"blue": 15
+				"red": 247,
+				"green": 243,
+				"blue": 160
 			},
 			"values": [
-				"toilet",
-				"kentucky",
-				"texas",
-				"service station",
-				"moon",
-				"vantage point",
-				"road trip",
-				"walk outside",
-				"room",
-				"inside",
-				"stall",
-				"road",
-				"close your eyes",
-				"southern",
-				"suburban or urban street",
-				"rural or open space",
-				"heart"
-			]
+				"wave goodbye",
+				"wave goodbye vs. kissing"
+			],
+			"managed": true
 		},
 		{
 			"description": "weather",
 			"type": "setting",
 			"color": {
-				"red": 71,
-				"green": 119,
-				"blue": 75
+				"red": 80,
+				"green": 136,
+				"blue": 238
 			},
 			"values": [
-				"autumn",
-				"share",
-				"trip",
-				"autumn's sweet (fall)",
-				"rainy",
-				"misty",
-				"clear",
-				"sunny",
-				"clear sky"
-			]
+				"lonely view",
+				"autumn/fall"
+			],
+			"managed": true
 		},
 		{
 			"description": "time of day",
 			"type": "setting",
 			"color": {
-				"red": 233,
-				"green": 202,
-				"blue": 96
+				"red": 210,
+				"green": 89,
+				"blue": 92
 			},
 			"values": [
-				"close your eyes",
-				"fallin'",
-				"wave goodbye",
-				"walk outside",
-				"evening",
-				"day",
-				"morning",
-				"outside",
-				"late evening",
-				"late evening/night",
-				"mid-evening"
-			]
+				"high with birds"
+			],
+			"managed": true
 		},
 		{
 			"description": "time periods",
 			"type": "setting",
 			"color": {
-				"red": 232,
-				"green": 12,
-				"blue": 168
+				"red": 90,
+				"green": 107,
+				"blue": 212
 			},
 			"values": [
-				"none.",
-				"lonely viewin'",
-				"past",
-				"present",
-				"fall",
-				"trip"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "ideas",
 			"type": "creativity",
 			"color": {
-				"red": 250,
-				"green": 118,
-				"blue": 136
+				"red": 125,
+				"green": 184,
+				"blue": 175
 			},
 			"values": [
-				"scar tissue",
-				"sarcastic mister know-it-all",
-				"kiss",
-				"drug injection",
-				"high",
-				"birds",
-				"lonely view",
-				"toilet",
-				"push up against the wall",
-				"young kentucky girl",
-				"push-up bra",
-				"fall over themselves",
-				"lick heart",
-				"taste health",
-				"service station",
-				"blood loss in bathroom stall",
-				"southern girl",
-				"texas",
-				"scarlet drawl",
-				"wave goodbye",
-				"vantage point",
-				"soft spoken broken jaw",
-				"step outside",
-				"not to brawl",
-				"autumn sweet",
-				"make it to the moon",
-				"crawl",
-				"lick your heart and taste your health.",
-				"soft spoken man",
-				"broken jaw",
-				"step outside.",
-				"share the view",
-				"with the birds i'll share this lonely viewin'",
-				"my ex-boyfriend's scar tissue",
-				"metaphors",
-				"blood loss",
-				"symbolism of scar tissue",
-				"personification of sarcastic mister",
-				"exploring the contrast between home/family and adventure",
-				"sarcasm",
-				"contrast",
-				"sharing"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "imagination",
 			"type": "creativity",
 			"color": {
-				"red": 0,
-				"green": 201,
-				"blue": 138
+				"red": 91,
+				"green": 32,
+				"blue": 7
 			},
 			"values": [
-				"young kentucky girl",
-				"push up bra.",
-				"autumn sweet",
-				"crawl in bed.",
-				"kentucky girl",
-				"push-up bra",
-				"wish you saw",
-				"close your eyes and i'll kiss you",
-				"birds",
-				"close your eyes and kiss you",
-				"from this toilet",
-				"personification",
-				"southern girl",
-				"sarcastic mister know-it-all",
-				"sarcasm",
-				"telling a short story in a lyrics",
-				"personification of “southern girl”",
-				"scar tissue",
-				"kisses",
-				"shared view",
-				"heart",
-				"taste",
-				"scarlet drawl",
-				"moon"
-			]
+				"view with the birds",
+				"world-building",
+				"vivid imagery",
+				"symbols",
+				"imagery",
+				"romanticizing"
+			],
+			"managed": true
 		},
 		{
 			"description": "inspiration",
 			"type": "creativity",
 			"color": {
-				"red": 133,
-				"green": 186,
-				"blue": 26
+				"red": 160,
+				"green": 88,
+				"blue": 186
 			},
 			"values": [
-				"falling all over oneself to get lower.",
-				"going to a trip",
-				"walk outside.",
-				"share this lonely view",
-				"share",
-				"with the birds i'll share this lonely view",
-				"share this lonely viewin'",
-				"'cause with the birds i'll share",
-				"dreams",
-				"texas scarlet drawl",
-				"kissing wife",
-				"feeling of being afraid",
-				"awakening sensation of leaving the safety (home)",
-				"shared view",
-				"lonely viewin'",
-				"lick your heart",
-				"trip",
-				"have to crawl",
-				"sarcasm"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "symbols",
 			"type": "creativity",
 			"color": {
-				"red": 93,
-				"green": 138,
-				"blue": 128
+				"red": 64,
+				"green": 31,
+				"blue": 59
 			},
 			"values": [
-				"scar tissue",
-				"toilet",
-				"push-up bra",
-				"service station",
-				"scarlet drawl",
-				"vantage point",
-				"autumn sweet",
 				"birds",
-				"drug injection",
-				"birds as metaphorical companions of loneliness",
-				"birds as companions of the lonely road",
-				"wall"
-			]
+				"toilet window",
+				"high"
+			],
+			"managed": true
 		},
 		{
 			"description": "imagery",
 			"type": "creativity",
 			"color": {
-				"red": 33,
-				"green": 213,
-				"blue": 198
+				"red": 21,
+				"green": 207,
+				"blue": 108
 			},
 			"values": [
+				"scar tissue",
+				"elbow flexors",
 				"birds",
-				"lonely view",
-				"toilet",
-				"young kentucky girl",
-				"push-up bra",
-				"drug injection",
-				"service station",
+				"viewing",
+				"wall",
+				"kentucky girl",
+				"blood",
+				"nature",
+				"contemplation",
 				"bathroom stall",
-				"southern girl",
-				"texas",
-				"scarlet drawl",
-				"vantage point",
-				"broken jaw",
-				"outside",
-				"brawl",
-				"autumn sweet",
+				"southern accent",
+				"lonely view",
+				"sensory",
+				"aesthetic",
+				"service station",
 				"moon",
-				"road trip",
-				"walk outside",
-				"close your eyes",
-				"kiss you",
-				"close your eyes and i'll kiss you",
-				"view",
-				"push up against the wall",
-				"kentucky girl in a push-up bra",
+				"visual",
+				"aural",
+				"similes",
+				"metaphors",
+				"descriptive",
+				"vivid",
+				"toilet",
+				"window",
+				"metaphor",
+				"auditory",
+				"broken jaw",
+				"crawl to the moon",
+				"reflection",
+				"flexors",
+				"trouble",
+				"drug injection",
+				"toilet window",
 				"lonely viewing",
-				"vantage point of loneliness",
-				"visualising lonely road trip",
-				"kentucky girl"
-			]
+				"heroin shot",
+				"push-up bra",
+				"taste of health",
+				"bathroom",
+				"texas drawl",
+				"personification",
+				"autumn",
+				"fall",
+				"high",
+				"vantage point",
+				"scarlet scar tissue",
+				"kiss",
+				"evoking visual",
+				"olfactory",
+				"gustatory",
+				"or tactile sensations",
+				"physical",
+				"emotional",
+				"romance",
+				"descriptive images",
+				"visual metaphors",
+				"space",
+				"walk outside",
+				"tactile",
+				"blood loss",
+				"southern girl",
+				"scarlet toilet flush",
+				"ma and pa",
+				"road trip",
+				"kissing",
+				"kisses",
+				"kentucky",
+				"symbols",
+				"imagination",
+				"scarlet",
+				"waving goodbye",
+				"autumn's sweet",
+				"crawling to bed",
+				"walk",
+				"eyes",
+				"viewin'",
+				"lonely",
+				"lick your heart",
+				"scarlet drawl",
+				"step outside",
+				"kinesthetic",
+				"call it fall",
+				"bra",
+				"heart",
+				"health",
+				"soft spoken with a broken jaw",
+				"but not to brawl",
+				"we call it fall",
+				"romantic",
+				"grand",
+				"metaphor vs. blood loss",
+				"bathroom vs. toilet flush",
+				"nature vs. road trip",
+				"vivid descriptions",
+				"autumn sweet"
+			],
+			"managed": true
 		},
 		{
 			"description": "abstractions",
 			"type": "creativity",
 			"color": {
-				"red": 203,
-				"green": 98,
-				"blue": 90
+				"red": 113,
+				"green": 57,
+				"blue": 27
 			},
 			"values": [
-				"birds",
-				"share",
-				"view",
-				"scar tissue",
-				"sarcastic mister know-it-all",
-				"fear",
-				"lonely viewing",
-				"reward",
-				"lonely view",
-				"lonely viewin'",
-				"lower to lick your heart and taste your health",
-				"toilet",
-				"service station",
-				"vantage point",
-				"concept of shared loneliness",
-				"concept of shared loneliness while travelling",
-				"health",
-				"wave goodbye"
-			]
+				"loneliness",
+				"menstruation",
+				"leaving home",
+				"kissing",
+				"creativity",
+				"other",
+				"yearning",
+				"desirous"
+			],
+			"managed": true
 		},
 		{
 			"description": "dreams",
 			"type": "creativity",
 			"color": {
-				"red": 3,
-				"green": 241,
-				"blue": 144
+				"red": 92,
+				"green": 10,
+				"blue": 181
 			},
 			"values": [
-				"lonely view",
-				"ex-boyfriends",
-				"scar tissue",
-				"bathroom stall",
-				"blood loss",
-				"southern girl.",
-				"kiss you",
-				"taste your health",
-				"young kentucky girl with a push-up bra",
-				"share this lonely viewin'",
-				"make it to the moon if i have to crawl",
-				"making a journey to the moon if needed",
-				"aiming for the moon",
-				"trip",
-				"making it to the moon"
-			]
+				"loneliness",
+				"sharing"
+			],
+			"managed": true
 		},
 		{
 			"description": "themes",
 			"type": "creativity",
 			"color": {
-				"red": 98,
-				"green": 190,
-				"blue": 178
+				"red": 186,
+				"green": 237,
+				"blue": 200
 			},
 			"values": [
-				"fear",
-				"kiss",
-				"love",
-				"leaving home",
-				"health.",
-				"share this lonely view",
-				"drug injection",
+				"self-medication",
+				"nature",
+				"trouble",
+				"drugs",
+				"strength",
+				"reward",
+				"addiction",
 				"loneliness",
-				"viewing",
-				"illness",
-				"health",
-				"freedom",
-				"solitude",
-				"lonely viewin’",
-				"trip",
-				"young kentucky girl",
-				"soft spoken broken jaw",
-				"romance",
-				"hormonal drive",
-				"support from others",
-				"stories of overcoming hardships",
-				"loss",
-				"temptation",
-				"adventure",
-				"perseverance"
-			]
+				"companionship"
+			],
+			"managed": true
 		},
 		{
 			"description": "metaphors",
 			"type": "creativity",
 			"color": {
-				"red": 138,
-				"green": 218,
-				"blue": 99
+				"red": 179,
+				"green": 41,
+				"blue": 38
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "similes",
 			"type": "creativity",
 			"color": {
-				"red": 149,
-				"green": 161,
-				"blue": 156
+				"red": 116,
+				"green": 98,
+				"blue": 98
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "personification",
 			"type": "creativity",
 			"color": {
-				"red": 82,
-				"green": 12,
-				"blue": 135
+				"red": 36,
+				"green": 192,
+				"blue": 30
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "acting styles",
 			"type": "performance",
 			"color": {
-				"red": 77,
-				"green": 220,
-				"blue": 174
+				"red": 57,
+				"green": 79,
+				"blue": 225
 			},
 			"values": [
-				"exaggeration",
-				"expression of emotions"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "tones",
 			"type": "performance",
 			"color": {
-				"red": 25,
-				"green": 34,
-				"blue": 193
+				"red": 237,
+				"green": 170,
+				"blue": 254
 			},
 			"values": [
-				"voiceover tones",
-				"vocal techniques"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "voiceover tones",
 			"type": "performance",
 			"color": {
-				"red": 16,
-				"green": 115,
-				"blue": 52
+				"red": 191,
+				"green": 1,
+				"blue": 66
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "physical gestures",
 			"type": "performance",
 			"color": {
-				"red": 229,
-				"green": 20,
-				"blue": 121
+				"red": 98,
+				"green": 32,
+				"blue": 159
 			},
 			"values": [
-				"expression",
-				"movement of the body",
-				"intimate",
-				"protective",
-				"romantic",
-				"inviting",
-				"rebellious",
-				"joyful",
-				"loving",
-				"supportive",
-				"embracing"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "facial expressions",
 			"type": "performance",
 			"color": {
-				"red": 200,
-				"green": 158,
-				"blue": 47
+				"red": 71,
+				"green": 104,
+				"blue": 100
 			},
 			"values": [
-				"expression",
-				"utilization of facial makeup",
-				"intimate",
-				"alluring",
-				"flirting",
-				"authentic",
-				"determined",
-				"disruptive",
-				"loving",
-				"tender",
-				"engaging",
-				"adoring",
-				"sarcastic",
-				"closed",
-				"viewing",
-				"weak",
-				"taste",
-				"scarlet",
-				"broken",
-				"autumn's sweet",
-				"sorrowful",
-				"reflective",
-				"receptive",
-				"hopeful",
-				"determination",
-				"passion",
-				"soft",
-				"longing",
-				"sadness",
-				"bright",
-				"full of adventure"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "dance moves",
 			"type": "performance",
 			"color": {
-				"red": 87,
-				"green": 164,
-				"blue": 81
+				"red": 169,
+				"green": 244,
+				"blue": 102
 			},
 			"values": [
-				"utilization of pauses",
-				"creation of suspense",
-				"ecstatic",
-				"exciting",
-				"sumptuous",
-				"romantic",
-				"wild",
-				"dramatic",
-				"hopeful",
-				"athletic"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "costumes",
 			"type": "performance",
 			"color": {
-				"red": 56,
-				"green": 14,
-				"blue": 19
+				"red": 95,
+				"green": 215,
+				"blue": 29
 			},
 			"values": [
-				"choose of props",
-				"utilization of voice inflection",
-				"audio techniques",
-				"cadence",
-				"positive",
-				"stylish",
-				"great",
-				"shiny",
-				"adventurous",
-				"edgy",
-				"simple",
-				"sweet"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "choose of props",
 			"type": "performance",
 			"color": {
-				"red": 208,
-				"green": 58,
-				"blue": 108
+				"red": 15,
+				"green": 236,
+				"blue": 200
 			},
 			"values": [
-				"intentional choice of words",
-				"character development"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "satire",
 			"type": "performance",
 			"color": {
-				"red": 35,
-				"green": 1,
-				"blue": 22
+				"red": 36,
+				"green": 102,
+				"blue": 203
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "parody",
 			"type": "performance",
 			"color": {
-				"red": 188,
-				"green": 39,
-				"blue": 80
+				"red": 103,
+				"green": 172,
+				"blue": 230
 			},
 			"values": [
-				"timing",
-				"behind the camera elements",
-				"mise-en-scene",
-				"directional cues",
-				"improvisation",
-				"body language"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "theatrical conventions",
 			"type": "performance",
 			"color": {
-				"red": 33,
-				"green": 255,
-				"blue": 65
+				"red": 234,
+				"green": 202,
+				"blue": 31
 			},
 			"values": [
-				"interplay between performer and audience",
-				"narrative arcs",
-				"inflection",
-				"volume of voice",
-				"focused",
-				"confident",
-				"exotic",
-				"dynamic",
-				"animistic",
-				"unique",
-				"loving",
-				"harmonious"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "vocal techniques",
 			"type": "performance",
 			"color": {
-				"red": 81,
-				"green": 60,
-				"blue": 5
+				"red": 152,
+				"green": 226,
+				"blue": 177
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "timing",
 			"type": "performance",
 			"color": {
-				"red": 30,
-				"green": 4,
-				"blue": 190
+				"red": 48,
+				"green": 150,
+				"blue": 113
 			},
 			"values": [
-				"precise",
-				"energetic",
-				"clever",
-				"spontaneous",
-				"intense",
-				"compelling",
-				"sensitive",
-				"graceful"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "interplay between performer and audience",
 			"type": "performance",
 			"color": {
-				"red": 18,
-				"green": 13,
-				"blue": 108
+				"red": 98,
+				"green": 9,
+				"blue": 51
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "expression of emotions",
 			"type": "performance",
 			"color": {
-				"red": 38,
-				"green": 88,
-				"blue": 80
+				"red": 102,
+				"green": 113,
+				"blue": 180
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "narrative arcs",
 			"type": "performance",
 			"color": {
-				"red": 211,
-				"green": 129,
-				"blue": 192
+				"red": 231,
+				"green": 88,
+				"blue": 134
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "character development",
 			"type": "performance",
 			"color": {
-				"red": 164,
-				"green": 18,
-				"blue": 196
+				"red": 187,
+				"green": 72,
+				"blue": 207
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "movement of the body",
 			"type": "performance",
 			"color": {
-				"red": 152,
-				"green": 93,
-				"blue": 99
+				"red": 210,
+				"green": 179,
+				"blue": 4
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "exaggeration",
 			"type": "performance",
 			"color": {
-				"red": 46,
-				"green": 249,
-				"blue": 155
+				"red": 139,
+				"green": 124,
+				"blue": 57
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "use of facial makeup",
 			"type": "performance",
 			"color": {
-				"red": 132,
-				"green": 121,
-				"blue": 213
+				"red": 247,
+				"green": 230,
+				"blue": 35
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "utilization of voice inflection",
 			"type": "performance",
 			"color": {
-				"red": 171,
-				"green": 74,
-				"blue": 234
+				"red": 131,
+				"green": 70,
+				"blue": 242
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "expressiveness",
 			"type": "performance",
 			"color": {
-				"red": 185,
-				"green": 196,
-				"blue": 144
+				"red": 209,
+				"green": 79,
+				"blue": 20
 			},
 			"values": [
-
-			]
+				"evocative",
+				"descriptive"
+			],
+			"managed": true
 		},
 		{
 			"description": "intentional choice of words",
 			"type": "performance",
 			"color": {
-				"red": 88,
-				"green": 206,
-				"blue": 69
+				"red": 11,
+				"green": 29,
+				"blue": 241
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "utilization of pauses",
 			"type": "performance",
 			"color": {
-				"red": 157,
-				"green": 123,
-				"blue": 243
+				"red": 57,
+				"green": 152,
+				"blue": 201
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "creation of suspense",
 			"type": "performance",
 			"color": {
-				"red": 2,
-				"green": 41,
-				"blue": 30
+				"red": 5,
+				"green": 51,
+				"blue": 94
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "playful physicality",
 			"type": "performance",
 			"color": {
-				"red": 97,
-				"green": 72,
-				"blue": 171
+				"red": 230,
+				"green": 15,
+				"blue": 68
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "interpretation of dialogues",
 			"type": "performance",
 			"color": {
-				"red": 168,
-				"green": 233,
-				"blue": 76
+				"red": 175,
+				"green": 72,
+				"blue": 101
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "behind the camera elements",
 			"type": "performance",
 			"color": {
-				"red": 21,
-				"green": 29,
-				"blue": 20
+				"red": 94,
+				"green": 249,
+				"blue": 148
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "body language",
 			"type": "performance",
 			"color": {
-				"red": 186,
-				"green": 143,
-				"blue": 82
+				"red": 204,
+				"green": 137,
+				"blue": 146
 			},
 			"values": [
-				"pushing",
-				"crawling",
-				"viewing",
-				"falling",
-				"wall",
-				"bathroom stall",
-				"soft-speak",
-				"kissing",
-				"hunching of the shoulders",
-				"arms crossed",
-				"leaning in",
-				"full attention",
-				"squaring of the shoulders",
-				"chest out",
-				"wringing of hands",
-				"head bowed",
-				"arms crossed yet still relaxed"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "inflection",
 			"type": "performance",
 			"color": {
-				"red": 175,
-				"green": 202,
-				"blue": 68
+				"red": 18,
+				"green": 25,
+				"blue": 173
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "volume of voice",
 			"type": "performance",
 			"color": {
-				"red": 95,
-				"green": 103,
-				"blue": 224
+				"red": 40,
+				"green": 1,
+				"blue": 205
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "nonverbal cues",
 			"type": "performance",
 			"color": {
-				"red": 231,
-				"green": 240,
-				"blue": 51
+				"red": 48,
+				"green": 82,
+				"blue": 176
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "work with band/musicians",
 			"type": "performance",
 			"color": {
-				"red": 32,
-				"green": 236,
-				"blue": 213
+				"red": 227,
+				"green": 216,
+				"blue": 253
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "mise-en-scene",
 			"type": "performance",
 			"color": {
-				"red": 202,
-				"green": 100,
-				"blue": 217
+				"red": 249,
+				"green": 153,
+				"blue": 100
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "directional cues",
 			"type": "performance",
 			"color": {
-				"red": 38,
-				"green": 252,
-				"blue": 170
+				"red": 17,
+				"green": 0,
+				"blue": 221
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "audio techniques",
 			"type": "performance",
 			"color": {
-				"red": 81,
-				"green": 15,
-				"blue": 144
+				"red": 3,
+				"green": 88,
+				"blue": 174
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "cadence",
 			"type": "performance",
 			"color": {
-				"red": 22,
-				"green": 100,
-				"blue": 0
+				"red": 160,
+				"green": 243,
+				"blue": 228
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "emphasis on words",
 			"type": "performance",
 			"color": {
-				"red": 178,
-				"green": 91,
-				"blue": 153
+				"red": 93,
+				"green": 196,
+				"blue": 86
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "dramatic exercises",
 			"type": "performance",
 			"color": {
-				"red": 127,
-				"green": 120,
-				"blue": 131
+				"red": 20,
+				"green": 96,
+				"blue": 198
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "improvisation",
 			"type": "performance",
 			"color": {
-				"red": 206,
-				"green": 135,
-				"blue": 78
+				"red": 159,
+				"green": 74,
+				"blue": 133
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "hand motions",
 			"type": "gestures",
 			"color": {
-				"red": 44,
-				"green": 221,
-				"blue": 241
+				"red": 248,
+				"green": 164,
+				"blue": 163
 			},
 			"values": [
-				"wishing",
-				"pushing",
-				"sharing",
-				"falling",
-				"waving",
-				"soft-speaking",
-				"crawling",
-				"kissing",
-				"a gentle caressing of the face",
-				"emphasizing specific points",
-				"arms outstretched",
-				"palms opening and closing",
-				"quick tightening of the fists",
-				"hands poised as if ready to fight",
-				"palms cupped",
-				"as if cradling a bird",
-				"hand wiping away tears",
-				"holding a single tissue",
-				"as if framing the view",
-				"soft touches",
-				"gentle squeezes"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "facial expressions",
 			"type": "gestures",
 			"color": {
-				"red": 34,
-				"green": 88,
-				"blue": 6
+				"red": 54,
+				"green": 176,
+				"blue": 79
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "body language",
 			"type": "gestures",
 			"color": {
-				"red": 147,
-				"green": 242,
-				"blue": 163
+				"red": 54,
+				"green": 35,
+				"blue": 213
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "hair/makeup",
 			"type": "costuming",
 			"color": {
-				"red": 29,
-				"green": 165,
-				"blue": 19
+				"red": 193,
+				"green": 147,
+				"blue": 248
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "clothing",
 			"type": "costuming",
 			"color": {
-				"red": 251,
-				"green": 161,
-				"blue": 51
+				"red": 66,
+				"green": 13,
+				"blue": 49
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "accessories",
 			"type": "costuming",
 			"color": {
-				"red": 52,
-				"green": 41,
-				"blue": 131
+				"red": 136,
+				"green": 76,
+				"blue": 3
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "props",
 			"type": "costuming",
 			"color": {
-				"red": 85,
-				"green": 11,
-				"blue": 130
+				"red": 25,
+				"green": 72,
+				"blue": 193
 			},
 			"values": [
 
-			]
+			],
+			"managed": true
 		},
 		{
 			"description": "transitions",
 			"type": "editing",
 			"color": {
-				"red": 230,
-				"green": 179,
-				"blue": 97
+				"red": 163,
+				"green": 252,
+				"blue": 52
 			},
 			"values": [
-				"quick",
-				"smooth",
-				"abrupt",
-				"sudden",
-				"explosive",
-				"dynamic",
-				"fast",
-				"rapid",
-				"tunneling",
-				"haunting",
-				"cruising",
-				"fluid",
-				"serene",
-				"artful",
-				"subtle",
-				"soothing",
-				"graceful",
-				"elegant"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "fades",
 			"type": "editing",
 			"color": {
-				"red": 83,
-				"green": 240,
-				"blue": 32
+				"red": 29,
+				"green": 247,
+				"blue": 221
 			},
 			"values": [
-				"gradual",
-				"subtle",
-				"slow",
-				"fast",
-				"sharp",
-				"gentle",
-				"refined",
-				"deliberate",
-				"soft",
-				"gradually fading",
-				"encapsulating",
-				"calming"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "splices",
 			"type": "editing",
 			"color": {
-				"red": 57,
-				"green": 181,
-				"blue": 50
+				"red": 89,
+				"green": 167,
+				"blue": 13
 			},
 			"values": [
-				"short",
-				"fluid",
-				"lengthy",
-				"articulated",
-				"intricate",
-				"precise",
-				"structured",
-				"layered",
-				"delicate",
-				"varied",
-				"complex",
-				"multifaceted",
-				"transient",
-				"melodic",
-				"discrete",
-				"listenable",
-				"poetic",
-				"lyrically inspired"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "effects",
 			"type": "editing",
 			"color": {
-				"red": 142,
-				"green": 137,
-				"blue": 39
+				"red": 101,
+				"green": 102,
+				"blue": 203
 			},
 			"values": [
-				"intricate",
-				"detail-oriented",
-				"dramatic",
-				"expressive",
-				"hypnotic",
-				"trance-like",
-				"ambitious",
-				"layered",
-				"brooding",
-				"gently-weaved",
-				"surreal",
-				"magnetic",
-				"wistful",
-				"nostalgic",
-				"dreamy",
-				"uplifting",
-				"delicate",
-				"gentle"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "natural",
 			"type": "lighting",
 			"color": {
-				"red": 74,
-				"green": 240,
-				"blue": 82
+				"red": 32,
+				"green": 76,
+				"blue": 181
 			},
 			"values": [
-				"sarcastic",
-				"young",
-				"outside",
-				"wall",
-				"bathroom stall",
-				"soft spoken",
-				"broken jaw",
-				"around me",
-				"close your eyes"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "artificial",
 			"type": "lighting",
 			"color": {
-				"red": 21,
-				"green": 123,
-				"blue": 62
+				"red": 75,
+				"green": 6,
+				"blue": 97
 			},
 			"values": [
-				"drug injection",
-				"toilet",
-				"service station"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "ambient",
 			"type": "lighting",
 			"color": {
-				"red": 41,
-				"green": 104,
-				"blue": 190
+				"red": 71,
+				"green": 22,
+				"blue": 221
 			},
 			"values": [
-				"close your eyes",
-				"lonely viewing",
-				"lick your heart",
-				"wave goodbye",
-				"make it to the moon",
-				"kiss you"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "diffused",
 			"type": "lighting",
 			"color": {
-				"red": 252,
-				"green": 39,
-				"blue": 143
+				"red": 202,
+				"green": 112,
+				"blue": 227
 			},
 			"values": [
-				"high",
-				"share",
-				"taste your health"
-			]
+
+			],
+			"managed": true
 		},
 		{
 			"description": "color",
 			"type": "lighting",
 			"color": {
-				"red": 234,
-				"green": 68,
-				"blue": 94
+				"red": 100,
+				"green": 116,
+				"blue": 162
 			},
 			"values": [
-				"kentucky girl",
-				"push-up bra",
+
+			],
+			"managed": true
+		},
+		{
+			"description": "emotion",
+			"type": "language",
+			"color": {
+				"red": 227,
+				"green": 240,
+				"blue": 104
+			},
+			"values": [
+				"trouble",
+				"sarcastic",
+				"drug injection",
+				"anxiety",
+				"longing",
+				"mood",
+				"tone",
+				"loneliness",
+				"sadness",
+				"despondency",
+				"desperation",
+				"hope",
+				"serenity",
+				"yearning",
+				"despair",
+				"isolation",
+				"peaceful",
+				"soft spoken",
+				"fear",
+				"love",
+				"sarcasticism",
+				"goodbye",
+				"kissing",
+				"caring",
+				"strong",
+				"intense",
+				"romantic",
+				"intimate",
+				"loss",
+				"adventure",
+				"romance",
+				"gratitude",
+				"passion",
+				"intensity",
+				"joy",
+				"wonder",
+				"excitement",
+				"timbre",
+				"pain",
+				"admiration",
+				"comforting",
+				"uplifting",
+				"sad",
+				"lonely",
+				"desire",
+				"optimism",
+				"uplifted",
+				"despair vs. adventure",
+				"weakness vs. pain",
+				"joyousness"
+			],
+			"managed": false
+		},
+		{
+			"description": "sound",
+			"type": "language",
+			"color": {
+				"red": 208,
+				"green": 89,
+				"blue": 63
+			},
+			"values": [
+				"rhyme",
+				"repetition",
+				"alliteration",
+				"singing",
+				"drawl",
+				"onomatopoeia",
+				"melancholy"
+			],
+			"managed": false
+		},
+		{
+			"description": "word choice",
+			"type": "language",
+			"color": {
+				"red": 48,
+				"green": 85,
+				"blue": 192
+			},
+			"values": [
+				"lonely",
+				"window",
+				"romantic",
+				"emotion-evoking"
+			],
+			"managed": false
+		},
+		{
+			"description": "mood",
+			"type": "language",
+			"color": {
+				"red": 254,
+				"green": 24,
+				"blue": 220
+			},
+			"values": [
+				"lonesome",
+				"desperation",
+				"weakness",
+				"loneliness",
+				"dark",
+				"foreboding",
+				"gloomy",
+				"despondent",
+				"lonely",
+				"meditative",
+				"melancholic",
+				"quiet",
+				"reflection",
+				"value 1 (tone)",
+				"value 2 (atmosphere)",
+				"sarcastic",
+				"despairing",
+				"introspective",
+				"peaceful",
+				"resilience",
+				"gratitude",
+				"melancholy",
+				"forlorn",
+				"reflective",
+				"romantic",
+				"hopeful",
+				"cynical",
+				"amorous",
+				"sentimental",
+				"passionate",
+				"nostalgic",
+				"desirous",
+				"farewell",
+				"sad",
+				"desiring",
+				"progressive",
+				"dynamic",
+				"cheerful",
+				"remembrance"
+			],
+			"managed": false
+		},
+		{
+			"description": "rhyme scheme",
+			"type": "language",
+			"color": {
+				"red": 244,
+				"green": 163,
+				"blue": 95
+			},
+			"values": [
+				"abac",
+				"aab",
+				"aa",
+				"aba",
+				"wave goodbye to ma and pa",
+				"road trip and the birds see us kissing",
+				"aabb",
+				"abab",
+				"scar tissue-saw",
+				"know-it-all-kiss you",
+				"abba",
+				"internal"
+			],
+			"managed": false
+		},
+		{
+			"description": "rhythm",
+			"type": "language",
+			"color": {
+				"red": 208,
+				"green": 229,
+				"blue": 7
+			},
+			"values": [
+				"syncopated",
+				"prose",
+				"duple",
+				"quadruple",
+				"iambic",
+				"trochaic",
+				"suggestive",
+				"steady",
+				"slow",
+				"trip",
+				"share",
+				"emotive",
+				"anapestic"
+			],
+			"managed": false
+		},
+		{
+			"description": "emotions",
+			"type": "language",
+			"color": {
+				"red": 164,
+				"green": 110,
+				"blue": 163
+			},
+			"values": [
+				"strength",
+				"reward",
+				"resentment",
+				"longing",
+				"weakness",
+				"high",
+				"loneliness",
+				"contentment",
+				"joyful",
+				"love",
+				"yearning",
+				"romance",
+				"passion",
+				"desire",
+				"sorrow",
+				"high vs. excitement",
+				"peaceful",
+				"quiet"
+			],
+			"managed": false
+		},
+		{
+			"description": "sensory",
+			"type": "language",
+			"color": {
+				"red": 64,
+				"green": 27,
+				"blue": 105
+			},
+			"values": [
+				"taste",
+				"lick",
+				"visual",
+				"auditory"
+			],
+			"managed": false
+		},
+		{
+			"description": "rhyme",
+			"type": "language",
+			"color": {
+				"red": 35,
+				"green": 229,
+				"blue": 50
+			},
+			"values": [
+				"aab",
+				"broken jaw",
+				"fall",
+				"internal",
+				"end line",
+				"end",
+				"repetitive",
+				"subtle",
+				"value 1(pattern)",
+				"value 2 (meter)",
+				"aabb",
+				"end rhymes",
+				"internal rhymes",
+				"external",
+				"internal rhyme",
+				"end rhyme",
+				"share",
+				"viewin'",
+				"push-up/up",
+				"health/taste",
+				"wall/fall",
+				"exact",
+				"soft spoken with a broken jaw",
+				"push-up",
+				"fallin'",
+				"lick",
+				"taste",
+				"lyric",
+				"joyous"
+			],
+			"managed": false
+		},
+		{
+			"description": "musicality",
+			"type": "language",
+			"color": {
+				"red": 65,
+				"green": 69,
+				"blue": 4
+			},
+			"values": [
+				"meter",
+				"pitch",
+				"rhythm",
+				"melody",
+				"melodic",
+				"rhythmic"
+			],
+			"managed": false
+		},
+		{
+			"description": "linguistic",
+			"type": "language",
+			"color": {
+				"red": 72,
+				"green": 65,
+				"blue": 213
+			},
+			"values": [
+				"morphology",
+				"syntax",
+				"vocabulary",
+				"subtlety"
+			],
+			"managed": false
+		},
+		{
+			"description": "theme",
+			"type": "language",
+			"color": {
+				"red": 242,
+				"green": 191,
+				"blue": 235
+			},
+			"values": [
+				"drug use",
+				"goodbye to family",
+				"contrast",
+				"coexistence",
+				"addiction",
+				"survival",
+				"surmounting difficulties",
+				"reaching for dreams",
+				"love",
+				"companionship",
+				"journey",
+				"parting",
+				"joy amidst loneliness"
+			],
+			"managed": false
+		},
+		{
+			"description": "meter",
+			"type": "language",
+			"color": {
+				"red": 47,
+				"green": 56,
+				"blue": 202
+			},
+			"values": [
+				"rhyme",
+				"cadence",
+				"iambic",
+				"trochaic",
+				"slow",
+				"medium",
+				"tetrameter",
+				"iambs",
+				"trochaic meter",
+				"anapestic meter",
+				"regular",
+				"irregular",
+				"sprightly",
+				"syllabic pattern"
+			],
+			"managed": false
+		},
+		{
+			"description": "metaphor",
+			"type": "language",
+			"color": {
+				"red": 212,
+				"green": 114,
+				"blue": 180
+			},
+			"values": [
+				"high",
+				"make it to moon",
+				"comparison",
+				"representation",
+				"lonely viewing",
+				"comparison without using “like” or “as”",
+				"viewing shared with birds",
+				"scar tissue",
+				"sarcastic mister know-it-all",
+				"blood loss",
+				"toilet flush",
+				"road trip",
+				"birds",
+				"loneliness",
+				"birds as companions",
+				"crawl to the moon",
+				"trip",
+				"birds sharing view",
+				"connecting people",
+				"drug use vs. blood loss",
+				"goodbye to family vs. kiss",
+				"kissing the lonely viewin'",
+				"shared view"
+			],
+			"managed": false
+		},
+		{
+			"description": "repetition",
+			"type": "language",
+			"color": {
+				"red": 149,
+				"green": 61,
+				"blue": 205
+			},
+			"values": [
+				"high",
+				"make it to moon",
+				"close your eyes",
+				"with the birds that see us kissing",
+				"repeating a phrase or word",
+				"share",
+				"viewin'",
+				"soft spoken",
+				"fall",
+				"birds that see us kissing"
+			],
+			"managed": false
+		},
+		{
+			"description": "alliteration",
+			"type": "language",
+			"color": {
+				"red": 40,
+				"green": 179,
+				"blue": 11
+			},
+			"values": [
+				"sounds",
+				"letters",
+				"repetition of sounds",
+				"lonely viewing",
+				"consonance",
+				"assonance",
+				"repeating of a consonant sound",
+				"sarcasic mister",
+				"close your eyes",
+				"soft spoken",
+				"broken jaw"
+			],
+			"managed": false
+		},
+		{
+			"description": "wordplay",
+			"type": "writing",
+			"color": {
+				"red": 231,
+				"green": 10,
+				"blue": 239
+			},
+			"values": [
+				"rhyme",
+				"alliteration",
+				"sarcasm",
+				"metaphors",
+				"similes",
+				"personification",
+				"rhymes",
+				"puns"
+			],
+			"managed": false
+		},
+		{
+			"description": "tone",
+			"type": "writing",
+			"color": {
+				"red": 6,
+				"green": 120,
+				"blue": 203
+			},
+			"values": [
+				"gritty",
+				"provocative",
+				"cynical",
+				"vulnerable",
+				"mocking",
+				"pessimistic",
+				"sorrowful",
+				"melancholic",
+				"reflective",
+				"quiet",
+				"determination",
+				"bravery",
+				"introspective",
+				"contemplative",
+				"calm",
+				"poignant",
+				"sad",
+				"lonely",
+				"seductive",
+				"sexual",
+				"soft",
+				"sweet",
+				"sensual",
+				"romantic",
+				"erotic",
+				"sarcasm",
+				"playfulness",
+				"intimate",
+				"alluring",
+				"sentimental",
+				"lighthearted",
+				"bittersweet"
+			],
+			"managed": false
+		},
+		{
+			"description": "rhetorical technique",
+			"type": "writing",
+			"color": {
+				"red": 145,
+				"green": 2,
+				"blue": 13
+			},
+			"values": [
+				"repetition",
+				"alliteration"
+			],
+			"managed": false
+		},
+		{
+			"description": "structure",
+			"type": "writing",
+			"color": {
+				"red": 209,
+				"green": 57,
+				"blue": 128
+			},
+			"values": [
+				"stanzas",
+				"refrain"
+			],
+			"managed": false
+		},
+		{
+			"description": "meaning",
+			"type": "writing",
+			"color": {
+				"red": 95,
+				"green": 135,
+				"blue": 92
+			},
+			"values": [
+				"soft-spoken",
+				"peaceful",
+				"autumn's sweet",
+				"value 1 (emotional content)",
+				"value 2 (intellectual content)",
+				"addiction",
+				"saying goodbye",
+				"addiction vs. menstruation",
+				"saying goodbye vs. leaving home"
+			],
+			"managed": false
+		},
+		{
+			"description": "language",
+			"type": "writing",
+			"color": {
+				"red": 161,
+				"green": 38,
+				"blue": 126
+			},
+			"values": [
+				"metaphors",
+				"similes",
+				"clichés",
+				"poetic",
+				"metaphorical",
+				"simile",
+				"metaphor",
+				"personification",
+				"linked",
+				"colloquialism",
+				"sarcasm",
+				"allusion",
+				"imagery-evoking"
+			],
+			"managed": false
+		},
+		{
+			"description": "figures of speech",
+			"type": "writing",
+			"color": {
+				"red": 241,
+				"green": 85,
+				"blue": 34
+			},
+			"values": [
+				"repetition",
+				"alliteration"
+			],
+			"managed": false
+		},
+		{
+			"description": "style",
+			"type": "characters",
+			"color": {
+				"red": 122,
+				"green": 168,
+				"blue": 121
+			},
+			"values": [
+				"dark",
+				"edgy",
+				"reflective",
+				"insightful",
+				"descriptive",
+				"sensual",
+				"playful"
+			],
+			"managed": false
+		},
+		{
+			"description": "ambience",
+			"type": "characters",
+			"color": {
+				"red": 7,
+				"green": 224,
+				"blue": 163
+			},
+			"values": [
+				"isolation",
+				"nature",
+				"adventure"
+			],
+			"managed": false
+		},
+		{
+			"description": "peacefulness",
+			"type": "characters",
+			"color": {
+				"red": 243,
+				"green": 73,
+				"blue": 175
+			},
+			"values": [
+				"soft spoken",
+				"peaceful when high"
+			],
+			"managed": false
+		},
+		{
+			"description": "resilience",
+			"type": "characters",
+			"color": {
+				"red": 72,
+				"green": 163,
+				"blue": 187
+			},
+			"values": [
+				"broken jaw",
+				"make it to the moon if have to crawl",
+				"positivity",
+				"strength"
+			],
+			"managed": false
+		},
+		{
+			"description": "nature",
+			"type": "characters",
+			"color": {
+				"red": 249,
+				"green": 68,
+				"blue": 25
+			},
+			"values": [
+				"autumn sweet",
+				"call it fall",
+				"peaceful",
+				"naturalistic",
+				"ethereal",
+				"dreamlike",
+				"bird-watching",
+				"walking"
+			],
+			"managed": false
+		},
+		{
+			"description": "rhyming words",
+			"type": "characters",
+			"color": {
+				"red": 118,
+				"green": 3,
+				"blue": 6
+			},
+			"values": [
+				"value 1 (same or similar sounding words)"
+			],
+			"managed": false
+		},
+		{
+			"description": "subject",
+			"type": "characters",
+			"color": {
+				"red": 21,
+				"green": 174,
+				"blue": 149
+			},
+			"values": [
+				"value 1 (narrative)",
+				"value 2 (theme)"
+			],
+			"managed": false
+		},
+		{
+			"description": "place",
+			"type": "setting",
+			"color": {
+				"red": 234,
+				"green": 15,
+				"blue": 159
+			},
+			"values": [
+				"bathroom stall",
+				"southern girl with texas drawl",
+				"service station",
+				"bathroom stall vs. road trip"
+			],
+			"managed": false
+		},
+		{
+			"description": "environment",
+			"type": "setting",
+			"color": {
+				"red": 168,
+				"green": 13,
+				"blue": 238
+			},
+			"values": [
+				"ma and pa sings in bathroom door",
+				"peaceful",
+				"high",
+				"ma and pa sings in bathroom door vs. birds seeing us kissing"
+			],
+			"managed": false
+		},
+		{
+			"description": "time period",
+			"type": "setting",
+			"color": {
+				"red": 185,
+				"green": 8,
+				"blue": 170
+			},
+			"values": [
+				"none specified"
+			],
+			"managed": false
+		},
+		{
+			"description": "symbolism",
+			"type": "creativity",
+			"color": {
+				"red": 40,
+				"green": 233,
+				"blue": 57
+			},
+			"values": [
+				"blood",
+				"heroin shot",
+				"allegory",
+				"metaphor",
+				"nature",
+				"birds"
+			],
+			"managed": false
+		},
+		{
+			"description": "simile",
+			"type": "language",
+			"color": {
+				"red": 124,
+				"green": 69,
+				"blue": 230
+			},
+			"values": [
+				"comparison using “like” or “as”",
+				"sharing a view",
+				"comparison using like or as"
+			],
+			"managed": false
+		},
+		{
+			"description": "vocabulary",
+			"type": "language",
+			"color": {
+				"red": 160,
+				"green": 60,
+				"blue": 217
+			},
+			"values": [
+				"vulgar",
+				"descriptive",
+				"everyday words"
+			],
+			"managed": false
+		},
+		{
+			"description": "imagery & metaphors",
+			"type": "language",
+			"color": {
+				"red": 205,
+				"green": 198,
+				"blue": 193
+			},
+			"values": [
+				"blood loss",
+				"bathroom stall",
 				"southern girl",
-				"scarlet drawl",
-				"autumn sweet (fall)"
-			]
+				"scarlet toilet flush",
+				"waving goodbye",
+				"road trip",
+				"birds",
+				"goodbye vs. road trip"
+			],
+			"managed": false
+		},
+		{
+			"description": "rhyme & alliteration",
+			"type": "language",
+			"color": {
+				"red": 251,
+				"green": 129,
+				"blue": 142
+			},
+			"values": [
+				"flush",
+				"goodbye",
+				"pa",
+				"flush vs. goodbye"
+			],
+			"managed": false
+		},
+		{
+			"description": "feelings",
+			"type": "language",
+			"color": {
+				"red": 255,
+				"green": 25,
+				"blue": 8
+			},
+			"values": [
+				"joy",
+				"nostalgia"
+			],
+			"managed": false
+		},
+		{
+			"description": "connectivity",
+			"type": "writing",
+			"color": {
+				"red": 14,
+				"green": 206,
+				"blue": 74
+			},
+			"values": [
+				"relationship between characters",
+				"external forces"
+			],
+			"managed": false
+		},
+		{
+			"description": "heterogeneity",
+			"type": "writing",
+			"color": {
+				"red": 74,
+				"green": 178,
+				"blue": 136
+			},
+			"values": [
+				"varied rhyme schemes",
+				"multiple spins on similar topics"
+			],
+			"managed": false
+		},
+		{
+			"description": "textures",
+			"type": "writing",
+			"color": {
+				"red": 129,
+				"green": 0,
+				"blue": 53
+			},
+			"values": [
+				"metaphors",
+				"similes",
+				"allusions"
+			],
+			"managed": false
+		},
+		{
+			"description": "melodic",
+			"type": "writing",
+			"color": {
+				"red": 35,
+				"green": 189,
+				"blue": 56
+			},
+			"values": [
+				"meter",
+				"rhythmic patterns",
+				"inventive structure"
+			],
+			"managed": false
+		},
+		{
+			"description": "format",
+			"type": "writing",
+			"color": {
+				"red": 117,
+				"green": 66,
+				"blue": 136
+			},
+			"values": [
+				"verse",
+				"chorus"
+			],
+			"managed": false
+		},
+		{
+			"description": "detail",
+			"type": "writing",
+			"color": {
+				"red": 22,
+				"green": 6,
+				"blue": 63
+			},
+			"values": [
+				"intimate",
+				"expressive"
+			],
+			"managed": false
+		},
+		{
+			"description": "assonance",
+			"type": "writing",
+			"color": {
+				"red": 66,
+				"green": 111,
+				"blue": 75
+			},
+			"values": [
+				"repeating of a vowel sound",
+				"wish you saw",
+				"know-it-all"
+			],
+			"managed": false
+		},
+		{
+			"description": "internal rhyme",
+			"type": "writing",
+			"color": {
+				"red": 74,
+				"green": 175,
+				"blue": 7
+			},
+			"values": [
+				"rhyme within a single line of verse"
+			],
+			"managed": false
+		},
+		{
+			"description": "figurative language",
+			"type": "writing",
+			"color": {
+				"red": 147,
+				"green": 149,
+				"blue": 178
+			},
+			"values": [
+				"similes",
+				"metaphors",
+				"personification",
+				"symbolism"
+			],
+			"managed": false
+		},
+		{
+			"description": "poetic devices",
+			"type": "writing",
+			"color": {
+				"red": 21,
+				"green": 209,
+				"blue": 26
+			},
+			"values": [
+				"personification",
+				"hyperbole",
+				"allusion",
+				"irony",
+				"satire",
+				"foreshadowing"
+			],
+			"managed": false
+		},
+		{
+			"description": "hope",
+			"type": "characters",
+			"color": {
+				"red": 132,
+				"green": 51,
+				"blue": 72
+			},
+			"values": [
+				"fearlessness",
+				"affection",
+				"optimistic",
+				"uplifting"
+			],
+			"managed": false
+		},
+		{
+			"description": "love",
+			"type": "characters",
+			"color": {
+				"red": 245,
+				"green": 228,
+				"blue": 156
+			},
+			"values": [
+				"romantic",
+				"intimate"
+			],
+			"managed": false
+		},
+		{
+			"description": "change",
+			"type": "characters",
+			"color": {
+				"red": 243,
+				"green": 245,
+				"blue": 198
+			},
+			"values": [
+				"dynamic",
+				"progressive"
+			],
+			"managed": false
+		},
+		{
+			"description": "longing",
+			"type": "characters",
+			"color": {
+				"red": 117,
+				"green": 220,
+				"blue": 182
+			},
+			"values": [
+				"yearning",
+				"desirous"
+			],
+			"managed": false
+		},
+		{
+			"description": "passion",
+			"type": "characters",
+			"color": {
+				"red": 253,
+				"green": 212,
+				"blue": 157
+			},
+			"values": [
+				"intensity",
+				"desire"
+			],
+			"managed": false
+		},
+		{
+			"description": "desire",
+			"type": "characters",
+			"color": {
+				"red": 248,
+				"green": 136,
+				"blue": 109
+			},
+			"values": [
+				"attraction",
+				"appetite"
+			],
+			"managed": false
+		},
+		{
+			"description": "explicitness",
+			"type": "characters",
+			"color": {
+				"red": 229,
+				"green": 106,
+				"blue": 52
+			},
+			"values": [
+				"boldness",
+				"explicitness"
+			],
+			"managed": false
+		},
+		{
+			"description": "setting",
+			"type": "characters",
+			"color": {
+				"red": 34,
+				"green": 255,
+				"blue": 255
+			},
+			"values": [
+				"vantage point",
+				"birds",
+				"road trip",
+				"nature",
+				"outside",
+				"fall"
+			],
+			"managed": false
+		},
+		{
+			"description": "contrast",
+			"type": "characters",
+			"color": {
+				"red": 206,
+				"green": 231,
+				"blue": 69
+			},
+			"values": [
+				"blood loss vs. kissing",
+				"old enough to leave home vs. road trip",
+				"wave goodbye",
+				"trip",
+				"lonely view"
+			],
+			"managed": false
+		},
+		{
+			"description": "unexpected",
+			"type": "characters",
+			"color": {
+				"red": 246,
+				"green": 98,
+				"blue": 86
+			},
+			"values": [
+				"scarlet toilet flush",
+				"birds seeing us kissing"
+			],
+			"managed": false
+		},
+		{
+			"description": "creativity",
+			"type": "characters",
+			"color": {
+				"red": 93,
+				"green": 65,
+				"blue": 95
+			},
+			"values": [
+				"imagery",
+				"wordplay",
+				"innovative",
+				"original"
+			],
+			"managed": false
+		},
+		{
+			"description": "emotionality",
+			"type": "characters",
+			"color": {
+				"red": 81,
+				"green": 70,
+				"blue": 162
+			},
+			"values": [
+				"romance",
+				"nostalgia"
+			],
+			"managed": false
+		},
+		{
+			"description": "softness",
+			"type": "characters",
+			"color": {
+				"red": 130,
+				"green": 19,
+				"blue": 140
+			},
+			"values": [
+				"my boyfriend is soft spoken when he talks to me"
+			],
+			"managed": false
+		},
+		{
+			"description": "refrain from violence",
+			"type": "characters",
+			"color": {
+				"red": 210,
+				"green": 237,
+				"blue": 142
+			},
+			"values": [
+				"sometimes he will step outside",
+				"but he won't brawl",
+				"won't brawl"
+			],
+			"managed": false
+		},
+		{
+			"description": "moral action",
+			"type": "characters",
+			"color": {
+				"red": 181,
+				"green": 133,
+				"blue": 5
+			},
+			"values": [
+				"because he's a good guy."
+			],
+			"managed": false
+		},
+		{
+			"description": "enjoyment of nature",
+			"type": "characters",
+			"color": {
+				"red": 172,
+				"green": 179,
+				"blue": 224
+			},
+			"values": [
+				"we are walking outside and autumn's sweet",
+				"we call it fall.",
+				"autumn sweet",
+				"call it fall"
+			],
+			"managed": false
+		},
+		{
+			"description": "wonderment",
+			"type": "characters",
+			"color": {
+				"red": 182,
+				"green": 36,
+				"blue": 105
+			},
+			"values": [
+				"i feel like going to the moon",
+				"moon"
+			],
+			"managed": false
+		},
+		{
+			"description": "affection and comfort",
+			"type": "characters",
+			"color": {
+				"red": 104,
+				"green": 214,
+				"blue": 164
+			},
+			"values": [
+				"when i crawl to you in the bed"
+			],
+			"managed": false
+		},
+		{
+			"description": "emotional depth",
+			"type": "characters",
+			"color": {
+				"red": 210,
+				"green": 106,
+				"blue": 11
+			},
+			"values": [
+				"intimacy",
+				"solitude"
+			],
+			"managed": false
+		},
+		{
+			"description": "atmosphere",
+			"type": "setting",
+			"color": {
+				"red": 95,
+				"green": 187,
+				"blue": 249
+			},
+			"values": [
+				"peaceful",
+				"romantic",
+				"cozy",
+				"senstive",
+				"elegiac",
+				"quiet",
+				"mellow",
+				"reflective",
+				"sensitive"
+			],
+			"managed": false
+		},
+		{
+			"description": "situation",
+			"type": "setting",
+			"color": {
+				"red": 232,
+				"green": 125,
+				"blue": 28
+			},
+			"values": [
+				"on a journey",
+				"leaving home",
+				"high with birds vs. taking a road trip"
+			],
+			"managed": false
+		},
+		{
+			"description": "description",
+			"type": "setting",
+			"color": {
+				"red": 225,
+				"green": 3,
+				"blue": 124
+			},
+			"values": [
+				"southern girl",
+				"scarlet toilet flush",
+				"texas drawl vs. southern girl"
+			],
+			"managed": false
+		},
+		{
+			"description": "timeframe",
+			"type": "setting",
+			"color": {
+				"red": 44,
+				"green": 210,
+				"blue": 39
+			},
+			"values": [
+				"present day",
+				"future"
+			],
+			"managed": false
+		},
+		{
+			"description": "location",
+			"type": "setting",
+			"color": {
+				"red": 95,
+				"green": 174,
+				"blue": 222
+			},
+			"values": [
+				"outside",
+				"bedroom"
+			],
+			"managed": false
+		},
+		{
+			"description": "empathy",
+			"type": "creativity",
+			"color": {
+				"red": 129,
+				"green": 137,
+				"blue": 205
+			},
+			"values": [
+				"compassion",
+				"understanding"
+			],
+			"managed": false
+		},
+		{
+			"description": "expression",
+			"type": "creativity",
+			"color": {
+				"red": 77,
+				"green": 216,
+				"blue": 222
+			},
+			"values": [
+				"descriptions",
+				"metaphors",
+				"soft-spoken",
+				"broken jaw",
+				"personification"
+			],
+			"managed": false
+		},
+		{
+			"description": "wit",
+			"type": "creativity",
+			"color": {
+				"red": 251,
+				"green": 251,
+				"blue": 207
+			},
+			"values": [
+				"humor",
+				"playfulness"
+			],
+			"managed": false
+		},
+		{
+			"description": "music",
+			"type": "creativity",
+			"color": {
+				"red": 175,
+				"green": 225,
+				"blue": 109
+			},
+			"values": [
+				"rhythm",
+				"melody"
+			],
+			"managed": false
+		},
+		{
+			"description": "poeticism",
+			"type": "writing",
+			"color": {
+				"red": 93,
+				"green": 77,
+				"blue": 187
+			},
+			"values": [
+				"poignant",
+				"evocative"
+			],
+			"managed": false
+		},
+		{
+			"description": "sensuous imagery",
+			"type": "writing",
+			"color": {
+				"red": 224,
+				"green": 111,
+				"blue": 134
+			},
+			"values": [
+				"push me up against the wall",
+				"young kentucky girl in a push-up bra"
+			],
+			"managed": false
+		},
+		{
+			"description": "allusion",
+			"type": "writing",
+			"color": {
+				"red": 65,
+				"green": 202,
+				"blue": 215
+			},
+			"values": [
+				"lick your heart and taste your health"
+			],
+			"managed": false
+		},
+		{
+			"description": "clever metaphor",
+			"type": "writing",
+			"color": {
+				"red": 197,
+				"green": 119,
+				"blue": 105
+			},
+			"values": [
+				"fallin' all over myself"
+			],
+			"managed": false
+		},
+		{
+			"description": "rhyming",
+			"type": "writing",
+			"color": {
+				"red": 57,
+				"green": 148,
+				"blue": 70
+			},
+			"values": [
+				"internal",
+				"external"
+			],
+			"managed": false
+		},
+		{
+			"description": "onomatopoeia",
+			"type": "writing",
+			"color": {
+				"red": 223,
+				"green": 115,
+				"blue": 39
+			},
+			"values": [
+				"word sounds",
+				"letter sounds"
+			],
+			"managed": false
+		},
+		{
+			"description": "determination",
+			"type": "writing",
+			"color": {
+				"red": 181,
+				"green": 216,
+				"blue": 179
+			},
+			"values": [
+				"crawling to the moon"
+			],
+			"managed": false
+		},
+		{
+			"description": "optimism",
+			"type": "characters",
+			"color": {
+				"red": 38,
+				"green": 100,
+				"blue": 65
+			},
+			"values": [
+				"determination",
+				"perseverance"
+			],
+			"managed": false
+		},
+		{
+			"description": "adventure",
+			"type": "characters",
+			"color": {
+				"red": 128,
+				"green": 122,
+				"blue": 111
+			},
+			"values": [
+				"risk",
+				"exploration"
+			],
+			"managed": false
+		},
+		{
+			"description": "aesthetics",
+			"type": "setting",
+			"color": {
+				"red": 248,
+				"green": 184,
+				"blue": 39
+			},
+			"values": [
+				"intimate",
+				"wistful"
+			],
+			"managed": false
+		},
+		{
+			"description": "person",
+			"type": "setting",
+			"color": {
+				"red": 106,
+				"green": 90,
+				"blue": 230
+			},
+			"values": [
+				"southern girl"
+			],
+			"managed": false
+		},
+		{
+			"description": "narrator",
+			"type": "setting",
+			"color": {
+				"red": 175,
+				"green": 83,
+				"blue": 88
+			},
+			"values": [
+				"third-person"
+			],
+			"managed": false
+		},
+		{
+			"description": "imaginative descriptions",
+			"type": "creativity",
+			"color": {
+				"red": 255,
+				"green": 53,
+				"blue": 59
+			},
+			"values": [
+				"blood loss",
+				"southern girl",
+				"scarlet drawl"
+			],
+			"managed": false
+		},
+		{
+			"description": "texture",
+			"type": "language",
+			"color": {
+				"red": 236,
+				"green": 213,
+				"blue": 21
+			},
+			"values": [
+				"allusions"
+			],
+			"managed": false
+		},
+		{
+			"description": "imagetext",
+			"type": "language",
+			"color": {
+				"red": 5,
+				"green": 45,
+				"blue": 100
+			},
+			"values": [
+				"contrasting images"
+			],
+			"managed": false
+		},
+		{
+			"description": "morality",
+			"type": "language",
+			"color": {
+				"red": 187,
+				"green": 244,
+				"blue": 199
+			},
+			"values": [
+				"good guy"
+			],
+			"managed": false
+		},
+		{
+			"description": "affections and comfort",
+			"type": "language",
+			"color": {
+				"red": 65,
+				"green": 81,
+				"blue": 11
+			},
+			"values": [
+				"crawl to you"
+			],
+			"managed": false
 		}
 	],
 	"translation": [

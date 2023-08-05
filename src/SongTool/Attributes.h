@@ -27,6 +27,7 @@ struct Attributes : DataFile {
 		Color clr;
 		String description;
 		String type;
+		bool managed = false;
 		
 		// temp values
 		int type_i = -1;
@@ -41,6 +42,7 @@ struct Attributes : DataFile {
 				("type", type)
 				("color", clr)
 				("values", values)
+				("managed", managed)
 				;
 		}
 		bool HasValue(String v) const {
@@ -93,7 +95,7 @@ struct Attributes : DataFile {
 	void FindGroupTypes(const Vector<int>& groups, Index<int>& group_types) const;
 	GroupType& AddGroupType(String type, GroupContext group_ctx);
 	GroupType& GetGroupType(String type);
-	Group& AddGroup(String type, String desc);
+	Group& AddGroup(String type, String desc, bool managed);
 	int GetCount() const {return groups.GetCount();}
 	int GetItemCount() const {
 		int i = 0;

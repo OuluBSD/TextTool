@@ -23,7 +23,7 @@ void Attributes::Load() {
 }
 
 void Attributes::Realize() {
-	if (groups.IsEmpty() || group_types.IsEmpty())
+	//if (groups.IsEmpty() || group_types.IsEmpty())
 		LoadDefaultGroups();
 	if (analysis.IsEmpty())
 		LoadDefaultAnalysis();
@@ -36,146 +36,145 @@ void Attributes::LoadDefaultGroups() {
 	groups.Clear();
 	
 	AddGroupType("language", CTX_TEXT);
-	AddGroup("language", "Nouns");
-	AddGroup("language", "Pronouns");
-	AddGroup("language", "Verbs");
-	AddGroup("language", "Adjectives");
-	AddGroup("language", "Adverbs");
-	AddGroup("language", "Prepositions");
-	AddGroup("language", "Conjunctions");
-	AddGroup("language", "Interjections");
-	AddGroup("language", "Syntax");
-	AddGroup("language", "Morphology");
-	AddGroup("language", "Semantics");
-	AddGroup("language", "Pragmatics");
-	AddGroup("language", "Discourse");
+	AddGroup("language", "Nouns", true);
+	AddGroup("language", "Pronouns", true);
+	AddGroup("language", "Verbs", true);
+	AddGroup("language", "Adjectives", true);
+	AddGroup("language", "Adverbs", true);
+	AddGroup("language", "Prepositions", true);
+	AddGroup("language", "Conjunctions", true);
+	AddGroup("language", "Interjections", true);
+	AddGroup("language", "Syntax", true);
+	AddGroup("language", "Morphology", true);
+	AddGroup("language", "Semantics", true);
+	AddGroup("language", "Pragmatics", true);
+	AddGroup("language", "Discourse", true);
 	
 	AddGroupType("writing", CTX_TEXT);
-	AddGroup("writing", "Types of sentences");
-	AddGroup("writing", "Dramatic sentences");
-	AddGroup("writing", "Dramatic scenarios");
-	AddGroup("writing", "Dramatic expressions");
-	AddGroup("writing", "Comedic sentences");
-	AddGroup("writing", "Comedic scenarios");
-	AddGroup("writing", "Comedic expressions");
-	AddGroup("writing", "Humorous expressions");
-	AddGroup("writing", "Cliches");
-	AddGroup("writing", "Similes");
-	AddGroup("writing", "Metaphors");
-	AddGroup("writing", "Personification");
-	AddGroup("writing", "Hyperboles");
-	AddGroup("writing", "Allusions");
-	AddGroup("writing", "Irony");
-	AddGroup("writing", "Satire");
-	AddGroup("writing", "Foreshadowing");
+	AddGroup("writing", "Types of sentences", true);
+	AddGroup("writing", "Dramatic sentences", true);
+	AddGroup("writing", "Dramatic scenarios", true);
+	AddGroup("writing", "Dramatic expressions", true);
+	AddGroup("writing", "Comedic sentences", true);
+	AddGroup("writing", "Comedic scenarios", true);
+	AddGroup("writing", "Comedic expressions", true);
+	AddGroup("writing", "Humorous expressions", true);
+	AddGroup("writing", "Cliches", true);
+	AddGroup("writing", "Similes", true);
+	AddGroup("writing", "Metaphors", true);
+	AddGroup("writing", "Personification", true);
+	AddGroup("writing", "Hyperboles", true);
+	AddGroup("writing", "Allusions", true);
+	AddGroup("writing", "Irony", true);
+	AddGroup("writing", "Satire", true);
+	AddGroup("writing", "Foreshadowing", true);
 
 	AddGroupType("characters", CTX_TEXT);
-	AddGroup("characters", "Contrast and Unexpected Elements");
-	AddGroup("characters", "Moral interactions");
-	AddGroup("characters", "Moral interactions with");
-	AddGroup("characters", "Type of action in moral interaction");
-	AddGroup("characters", "Religiously moral");
-	AddGroup("characters", "Atheistic interactions");
-	AddGroup("characters", "Atheistic interactions with");
-	AddGroup("characters", "Type of action in atheistic interaction");
-	AddGroup("characters", "Religiously moral");
-	AddGroup("characters", "Interactions");
-	AddGroup("characters", "Interactions with");
-	AddGroup("characters", "Physical features");
-	AddGroup("characters", "Personality traits");
-	AddGroup("characters", "Likes and dislikes");
-	AddGroup("characters", "Quirks");
-	AddGroup("characters", "Goals");
-	AddGroup("characters", "Motivations");
-	AddGroup("characters", "Backstories");
+	AddGroup("characters", "Contrast and Unexpected Elements", true);
+	AddGroup("characters", "Moral interactions", true);
+	AddGroup("characters", "Moral interactions with", true);
+	AddGroup("characters", "Type of action in moral interaction", true);
+	AddGroup("characters", "Religiously moral", true);
+	AddGroup("characters", "Atheistic interactions", true);
+	AddGroup("characters", "Atheistic interactions with", true);
+	AddGroup("characters", "Type of action in atheistic interaction", true);
+	AddGroup("characters", "Religiously moral", true);
+	AddGroup("characters", "Interactions", true);
+	AddGroup("characters", "Interactions with", true);
+	AddGroup("characters", "Physical features", true);
+	AddGroup("characters", "Personality traits", true);
+	AddGroup("characters", "Likes and dislikes", true);
+	AddGroup("characters", "Quirks", true);
+	AddGroup("characters", "Goals", true);
+	AddGroup("characters", "Motivations", true);
+	AddGroup("characters", "Backstories", true);
 	
 	AddGroupType("setting", CTX_TEXT);
-	AddGroup("setting", "Places");
-	AddGroup("setting", "Environments");
-	AddGroup("setting", "Locations");
-	AddGroup("setting", "Weather");
-	AddGroup("setting", "Time of day");
-	AddGroup("setting", "Time periods");
+	AddGroup("setting", "Places", true);
+	AddGroup("setting", "Environments", true);
+	AddGroup("setting", "Locations", true);
+	AddGroup("setting", "Weather", true);
+	AddGroup("setting", "Time of day", true);
+	AddGroup("setting", "Time periods", true);
 	
 	AddGroupType("creativity", CTX_TEXT);
-	AddGroup("creativity", "Ideas");
-	AddGroup("creativity", "Imagination");
-	AddGroup("creativity", "Inspiration");
-	AddGroup("creativity", "Symbols");
-	AddGroup("creativity", "Imagery");
-	AddGroup("creativity", "Abstractions");
-	AddGroup("creativity", "Dreams");
-	AddGroup("creativity", "Themes");
-	AddGroup("creativity", "Metaphors");
-	AddGroup("creativity", "Similes");
-	AddGroup("creativity", "Personification");
+	AddGroup("creativity", "Ideas", true);
+	AddGroup("creativity", "Imagination", true);
+	AddGroup("creativity", "Inspiration", true);
+	AddGroup("creativity", "Symbols", true);
+	AddGroup("creativity", "Imagery", true);
+	AddGroup("creativity", "Abstractions", true);
+	AddGroup("creativity", "Dreams", true);
+	AddGroup("creativity", "Themes", true);
+	AddGroup("creativity", "Metaphors", true);
+	AddGroup("creativity", "Similes", true);
+	AddGroup("creativity", "Personification", true);
 	
 	AddGroupType("performance", CTX_VISUAL);
-	AddGroup("performance", "Acting Styles");
-	AddGroup("performance", "Tones");
-	AddGroup("performance", "Voiceover Tones");
-	AddGroup("performance", "Physical gestures");
-	AddGroup("performance", "Facial expressions");
-	AddGroup("performance", "Dance moves");
-	AddGroup("performance", "Costumes");
-	AddGroup("performance", "Choose of props");
-	AddGroup("performance", "Satire");
-	AddGroup("performance", "Parody");
-	AddGroup("performance", "Theatrical conventions");
-	AddGroup("performance", "Vocal techniques");
-	AddGroup("performance", "Timing");
-	AddGroup("performance", "Interplay between performer and audience");
-	AddGroup("performance", "Expression of emotions");
-	AddGroup("performance", "Narrative arcs");
-	AddGroup("performance", "Character development");
-	AddGroup("performance", "Movement of the body");
-	AddGroup("performance", "Exaggeration");
-	AddGroup("performance", "Use of facial makeup");
-	AddGroup("performance", "Utilization of voice inflection");
-	AddGroup("performance", "Expressiveness");
-	AddGroup("performance", "Intentional choice of words");
-	AddGroup("performance", "Utilization of pauses");
-	AddGroup("performance", "Creation of suspense");
-	AddGroup("performance", "Playful physicality");
-	AddGroup("performance", "Interpretation of dialogues");
-	AddGroup("performance", "Behind the camera elements");
-	AddGroup("performance", "Body language");
-	AddGroup("performance", "Inflection");
-	AddGroup("performance", "Volume of voice");
-	AddGroup("performance", "Nonverbal cues");
-	AddGroup("performance", "Work with band/musicians");
-	AddGroup("performance", "Mise-en-scene");
-	AddGroup("performance", "Directional cues");
-	AddGroup("performance", "Audio techniques");
-	AddGroup("performance", "Cadence");
-	AddGroup("performance", "Emphasis on words");
-	AddGroup("performance", "Dramatic exercises");
-	AddGroup("performance", "Improvisation");
+	AddGroup("performance", "Acting Styles", true);
+	AddGroup("performance", "Tones", true);
+	AddGroup("performance", "Voiceover Tones", true);
+	AddGroup("performance", "Physical gestures", true);
+	AddGroup("performance", "Facial expressions", true);
+	AddGroup("performance", "Dance moves", true);
+	AddGroup("performance", "Costumes", true);
+	AddGroup("performance", "Choose of props", true);
+	AddGroup("performance", "Satire", true);
+	AddGroup("performance", "Parody", true);
+	AddGroup("performance", "Theatrical conventions", true);
+	AddGroup("performance", "Vocal techniques", true);
+	AddGroup("performance", "Timing", true);
+	AddGroup("performance", "Interplay between performer and audience", true);
+	AddGroup("performance", "Expression of emotions", true);
+	AddGroup("performance", "Narrative arcs", true);
+	AddGroup("performance", "Character development", true);
+	AddGroup("performance", "Movement of the body", true);
+	AddGroup("performance", "Exaggeration", true);
+	AddGroup("performance", "Use of facial makeup", true);
+	AddGroup("performance", "Utilization of voice inflection", true);
+	AddGroup("performance", "Expressiveness", true);
+	AddGroup("performance", "Intentional choice of words", true);
+	AddGroup("performance", "Utilization of pauses", true);
+	AddGroup("performance", "Creation of suspense", true);
+	AddGroup("performance", "Playful physicality", true);
+	AddGroup("performance", "Interpretation of dialogues", true);
+	AddGroup("performance", "Behind the camera elements", true);
+	AddGroup("performance", "Body language", true);
+	AddGroup("performance", "Inflection", true);
+	AddGroup("performance", "Volume of voice", true);
+	AddGroup("performance", "Nonverbal cues", true);
+	AddGroup("performance", "Work with band/musicians", true);
+	AddGroup("performance", "Mise-en-scene", true);
+	AddGroup("performance", "Directional cues", true);
+	AddGroup("performance", "Audio techniques", true);
+	AddGroup("performance", "Cadence", true);
+	AddGroup("performance", "Emphasis on words", true);
+	AddGroup("performance", "Dramatic exercises", true);
+	AddGroup("performance", "Improvisation", true);
 	
 	AddGroupType("gestures", CTX_VISUAL);
-	AddGroup("gestures", "Hand motions");
-	AddGroup("gestures", "Facial expressions");
-	AddGroup("gestures", "Body language");
+	AddGroup("gestures", "Hand motions", true);
+	AddGroup("gestures", "Facial expressions", true);
+	AddGroup("gestures", "Body language", true);
 	
 	AddGroupType("costuming", CTX_VISUAL);
-	AddGroup("costuming", "Hair/makeup");
-	AddGroup("costuming", "Clothing");
-	AddGroup("costuming", "Accessories");
-	AddGroup("costuming", "Props");
+	AddGroup("costuming", "Hair/makeup", true);
+	AddGroup("costuming", "Clothing", true);
+	AddGroup("costuming", "Accessories", true);
+	AddGroup("costuming", "Props", true);
 	
 	AddGroupType("editing", CTX_VISUAL);
-	AddGroup("editing", "Transitions");
-	AddGroup("editing", "Fades");
-	AddGroup("editing", "Splices");
-	AddGroup("editing", "Effects");
+	AddGroup("editing", "Transitions", true);
+	AddGroup("editing", "Fades", true);
+	AddGroup("editing", "Splices", true);
+	AddGroup("editing", "Effects", true);
 	
 	AddGroupType("lighting", CTX_VISUAL);
-	AddGroup("lighting", "Natural");
-	AddGroup("lighting", "Artificial");
-	AddGroup("lighting", "Ambient");
-	AddGroup("lighting", "Diffused");
-	AddGroup("lighting", "Color");
-	
+	AddGroup("lighting", "Natural", true);
+	AddGroup("lighting", "Artificial", true);
+	AddGroup("lighting", "Ambient", true);
+	AddGroup("lighting", "Diffused", true);
+	AddGroup("lighting", "Color", true);
 
 }
 
@@ -285,7 +284,7 @@ Attributes::GroupType& Attributes::GetGroupType(String type) {
 	return group_types[0];
 }
 
-Attributes::Group& Attributes::AddGroup(String type, String desc) {
+Attributes::Group& Attributes::AddGroup(String type, String desc, bool managed) {
 	ASSERT(!type.IsEmpty());
 	ASSERT(!desc.IsEmpty());
 	GroupType& gt = GetGroupType(type);
@@ -293,6 +292,7 @@ Attributes::Group& Attributes::AddGroup(String type, String desc) {
 	g.description = ToLower(desc);
 	g.type = ToLower(type);
 	g.clr = Color(Random(256), Random(256), Random(256));
+	g.managed = managed;
 	
 	for(int i = 0; i < group_types.GetCount(); i++) {
 		if (g.type == group_types[i].name) {

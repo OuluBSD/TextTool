@@ -1,9 +1,9 @@
 #include "SongTool.h"
 
 
-void SnapAttrStr::RealizeId() const {
+bool SnapAttrStr::RealizeId() const {
 	if (has_id)
-		return;
+		return true;
 	SnapAttrStr& sa = const_cast<SnapAttrStr&>(*this);
 	Database& db = Database::Single();
 	sa.group_i = -1;
@@ -15,18 +15,20 @@ void SnapAttrStr::RealizeId() const {
 			for(int j = 0; j < gg.values.GetCount(); j++) {
 				if (gg.values[j] == item) {
 					sa.item_i = j;
-					return;
+					return true;
 				}
 			}
-			DUMPC(gg.values);
+			/*DUMPC(gg.values);
 			DUMP(sa.group);
 			DUMP(sa.item);
-			ASSERT_(0, "item not found");
+			ASSERT_(0, "item not found");*/
+			return false;
 		}
 	}
-	DUMP(sa.group);
+	/*DUMP(sa.group);
 	DUMP(sa.item);
-	ASSERT_(0, "group and item not found");
+	ASSERT_(0, "group and item not found");*/
+	return false;
 }
 
 void SnapAttrStr::Load(const SnapAttr& sa) {
@@ -156,6 +158,7 @@ void Dummy() {
 
 
 String FixInvalidChars(const String& s) {
+	#if 0
 	WString ws = s.ToWString();
 	WString out;
 	for(int i = 0; i < ws.GetCount(); i++) {
@@ -171,6 +174,9 @@ String FixInvalidChars(const String& s) {
 		}
 	}
 	return out.ToString();
+	#else
+	return ToCharset(CHARSET_UTF8, s);
+	#endif
 }
 
 

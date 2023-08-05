@@ -40,7 +40,7 @@ struct SnapAttrStr : Moveable<SnapAttrStr> {
 			("i", item)
 			;
 	}
-	void RealizeId() const;
+	bool RealizeId() const;
 	void Load(const SnapAttr& sa);
 	void Serialize(Stream& s) {s % group % item % group_i % item_i % has_id;}
 	String ToString() const {return group + ":" + item;}
@@ -310,6 +310,15 @@ inline const Vector<SnapArg>& ContextArgs() {
 	if (a.IsEmpty()) {
 		for (int i = 0; i < CTX_COUNT; i++)
 			a.Add(SnapArg((GroupContext)i, MODE_BEGIN, DIR_BEGIN));
+	}
+	return a;
+}
+
+inline const Vector<SnapArg>& WeightedContextArgs() {
+	static thread_local Vector<SnapArg> a;
+	if (a.IsEmpty()) {
+		for (int i = 0; i < CTX_COUNT; i++)
+			a.Add(SnapArg((GroupContext)i, WEIGHTED, DIR_BEGIN));
 	}
 	return a;
 }

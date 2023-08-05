@@ -28,16 +28,38 @@ void Task::Process_MakeContextImportTasks() {
 		if (a.ctx != p.a.ctx) continue;
 		for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
 			const Attributes::GroupType& group_type = db.attrs.group_types[i];
-			
-			// Skip different context
-			if (group_type.group_ctx != a.ctx)
-				continue;
-			
-			// Add task for type
-			Task& t = ResultTask(TASK_PATTERNMASK);
-			t.p = p;
-			t.p.a = a;
-			t.args << group_type.name << artist.vocalist_visual;
+			for (Part& part : song.parts) {
+				
+				// Skip different context
+				if (group_type.group_ctx != a.ctx)
+					continue;
+				
+				// Add task for type
+				Task& t = ResultTask(TASK_PATTERNMASK);
+				t.p = p;
+				t.p.part = &part;
+				t.p.a = a;
+				t.args << group_type.name << artist.vocalist_visual;
+			}
+		}
+	}
+	for (const SnapArg& a : WeightedContextArgs()) {
+		if (a.ctx != p.a.ctx) continue;
+		for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
+			const Attributes::GroupType& group_type = db.attrs.group_types[i];
+			for (Part& part : song.parts) {
+				
+				// Skip different context
+				if (group_type.group_ctx != a.ctx)
+					continue;
+				
+				// Add task for type
+				Task& t = ResultTask(TASK_PATTERNMASK_WEIGHTED);
+				t.p = p;
+				t.p.part = &part;
+				t.p.a = a;
+				t.args << group_type.name << artist.vocalist_visual;
+			}
 		}
 	}
 	{
@@ -202,7 +224,7 @@ bool Task::ParseOriginalLyrics() {
 						break;
 					}
 				}
-				SetError("structure mismatch at '" + mismatch + "'");
+				SetFatalError("structure mismatch at '" + mismatch + "'");
 				return false;
 			}
 		}

@@ -32,8 +32,15 @@ struct PatternMask : Ptrs {
 		}
 	}
 	void ResolveId() {
+		#if 0
 		for (const SnapAttrStr& sa : mask.GetKeys())
 			sa.RealizeId();
+		#else
+		for(int i = 0; i < mask.GetCount(); i++) {
+			if (!mask[i].RealizeId())
+				mask.Remove(i--);
+		}
+		#endif
 	}
 };
 

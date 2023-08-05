@@ -180,6 +180,8 @@ struct Song :
 	}
 	int GetLength(const SnapArg& a) const;
 	
+	String CreateLyricsFromBreaks(const SnapArg& a) const;
+	
 	PATTERNMASK_MACROS
 };
 

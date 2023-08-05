@@ -486,7 +486,7 @@ void AttrCtrl::AddGroup() {
 	);
 	if (!b) return;
 	
-	Attributes::Group& gg = g.AddGroup(type, name);
+	Attributes::Group& gg = g.AddGroup(type, name, true);
 	gg.clr = Color(Random(256), Random(256), Random(256));
 	gg.description = desc;
 	

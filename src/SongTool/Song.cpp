@@ -172,3 +172,20 @@ int Song::GetPartIdx(const Part& p0) const {
 	}
 	return -1;
 }
+
+String Song::CreateLyricsFromBreaks(const SnapArg& a) const {
+	String s;
+	for (const Part& p : parts) {
+		s << p.name << ":\n";
+		for (const Line& l : p.lines) {
+			int brk_i = 0;
+			for (const Break& b : l.breaks) {
+				if (brk_i++) s << " [br] ";
+				s << b.snap[a].txt;
+			}
+			s << "\n";
+		}
+		s << "\n";
+	}
+	return s;
+}

@@ -419,6 +419,10 @@ void Task::CreateInput_PatternMask() {
 		if (gt.group_ctx != p.a.ctx)
 			continue;
 		
+		// Skip unmanaged groups to avoid asking ai again and again
+		if (!g.managed)
+			continue;
+		
 		if (g.type == type) {
 			String key = Capitalize(g.description);
 			if (first.IsEmpty())
@@ -436,13 +440,13 @@ void Task::CreateInput_PatternMask() {
 	s << "Lyrics:\n";
 	String parts;
 	bool any_has_txt = false;
-	for(int i = 0; i < song.parts.GetCount(); i++) {
-		Part& part = song.parts[i];
-		s << part.name << "\n";
-		//hash << ToLower(part.name);
+	{
+		Part& part = *p.part;
+		//s << part.name << "\n";
+		////hash << ToLower(part.name);
 		
-		if (!parts.IsEmpty()) parts << ", ";
-		parts << part.name;
+		//if (!parts.IsEmpty()) parts << ", ";
+		//parts << part.name;
 		
 		Array<Line>& lines = part.lines;
 		for(int j = 0; j < lines.GetCount(); j++) {
@@ -465,19 +469,77 @@ void Task::CreateInput_PatternMask() {
 	
 	//s << "Empty groups are omitted or marked as N/A.\n";
 	//s << "Multiple values are separated with a comma.\n\n";
-	//hash << ToLower(vocalist_visual);
-	//hash << ToLower(ai_txt);
-	s << vocalist_visual << "\nOne attribute from every group is required.\n\n";
+	
+	//s << vocalist_visual << "\nOne attribute from every group is required.\n\n";
 	s << "Groups with " << ai_txt << " in format:\n- " << Capitalize(type) << ": Value 1, Value 2\n- Other: Value 1, Value 2\n\n";
 	
-	s << "Attributes of lyrics (parts " << parts << "):\n";
-	s << "" << song.parts[0].name << ":\n";
+	//s << "Attributes of lyrics (parts " << parts << "):\n";
+	s << "Attributes of lyrics:\n";
+	//s << "" << song.parts[0].name << ":\n";
 	//s << "- " << first << ":";
 	s << "-";
 	
 	input = s;
 	//this->hash = hash;
 	response_length = 2*1024;
+}
+
+void Task::CreateInput_PatternMaskWeighted() {
+	Ptrs& p = this->p;
+	Song& song = *p.song;
+	Part& part = *p.part;
+	String s;
+	String parts;
+	
+	SnapArg a0 = p.a;
+	SnapArg a1 = p.a;
+	a0.mode = MALE;
+	a1.mode = FEMALE;
+	
+	PatternMask& mask0 = part.snap[a0];
+	PatternMask& mask1 = part.snap[a1];
+	
+	s <<	"Example of the process:\n"
+			"\n"
+			"Attribute-list A describing sentence X:\n"
+			"- noun: I\n"
+			"- noun: you\n"
+			"- verb: like\n"
+			"\n"
+			"Attribute-list B describing sentence X:\n"
+			"- noun: you\n"
+			"- verb: are\n"
+			"- adjective: nice\n"
+			"\n"
+			"Difference-aware meta-transition attribute-list from A to B:\n"
+			"- pronoun: I\n"
+			"- verb: admire\n"
+			"- adjective: your\n"
+			"\n"
+			"\n";
+	
+	
+	s << "Task 1:\n\n";
+	
+	s << "Attribute-list A describing sentence X:\n";
+	for(const SnapAttrStr& sa : mask0.mask) {
+		ASSERT(sa.group.GetCount() && sa.item.GetCount());
+		s << "- " << sa.group << ": " << sa.item << "\n";
+	}
+	s << "\n";
+	
+	s << "Attribute-list B describing sentence X:\n";
+	for(const SnapAttrStr& sa : mask1.mask) {
+		ASSERT(sa.group.GetCount() && sa.item.GetCount());
+		s << "- " << sa.group << ": " << sa.item << "\n";
+	}
+	s << "\n";
+	
+	s << "Difference-aware meta-transition attribute-list from A to B:\n";
+	s << "-";
+	
+	//LOG(s);
+	input = s;
 }
 
 void Task::CreateInput_Pattern() {
@@ -510,6 +572,10 @@ void Task::CreateInput_Pattern() {
 	for(int i = 0; i < db.attrs.groups.GetCount(); i++) {
 		const Attributes::Group& gg = db.attrs.groups[i];
 		if (gg.type != type || gg.values.IsEmpty())
+			continue;
+		
+		// Skip unmanaged groups to avoid asking ai again and again
+		if (!gg.managed)
 			continue;
 		
 		// Skip different group context
