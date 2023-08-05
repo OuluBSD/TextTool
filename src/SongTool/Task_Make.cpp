@@ -80,38 +80,29 @@ void Task::Process_MakeContextImportTasks() {
 	}
 	
 	{
-		Vector<SnapContext*> snaps;
-		song.GetContextLevel(1, snaps);
 		for (const SnapArg& a : TextInputModeArgs()) {
 			if (a.ctx != p.a.ctx) continue;
 			SongHeader& h = song.headers[a];
 			auto& unique_lines = h.unique_lines;
 			unique_lines.Clear();
-			for (SnapContext* ctx : snaps) {
-				PatternSnap& snap = ctx->snap[a];
-				
-				if (unique_lines.Find(snap.txt) >= 0)
-					continue;
-				unique_lines.Add(snap.txt);
-				/*
-				{
-					Task& t = ResultTask(TASK_IMPACT);
-					t.p.CopyPtrs(snap);
-					t.ctx = ctx;
-					t.snap = &snap;
-					t.p.a = a;
-					ASSERT(t.snap && t.p.line);
+		}
+		for (int level = 0; level < 3; level++) {
+			Vector<SnapContext*> snaps;
+			song.GetContextLevel(level, snaps);
+			for (const SnapArg& a : TextInputModeArgs()) {
+				if (a.ctx != p.a.ctx) continue;
+				SongHeader& h = song.headers[a];
+				auto& unique_lines = h.unique_lines;
+				for (SnapContext* ctx : snaps) {
+					PatternSnap& snap = ctx->snap[a];
+					if (snap.txt.IsEmpty() || unique_lines.Find(snap.txt) >= 0)
+						continue;
+					unique_lines.Add(snap.txt);
 				}
-				{
-					Task& t = ResultTask(TASK_IMPACT_WEIGHTED);
-					t.p.CopyPtrs(snap);
-					t.ctx = ctx;
-					t.snap = &snap;
-					t.p.a = a;
-					ASSERT(t.snap && t.p.line);
-				}*/
 			}
 		}
+	}
+	{
 		for (Part& part : song.parts) {
 			for (Line& line : part.lines) {
 				for (const SnapArg& a : TextInputModeArgs()) {

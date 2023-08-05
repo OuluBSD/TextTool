@@ -1,3 +1,5 @@
+- list for snaps like it is for mask
+
 - common mask: build from F-M and remove common from F-M
 - common snap: build from F-M and remove common from F-M
 - fix impact scoring with prompt

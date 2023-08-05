@@ -21,7 +21,7 @@ protected:
 	TaskMgrCtrl			task;
 	ImportCtrl			importer;
 	PatternMaskCtrl		patmask;
-	PatternCtrl			pattern, rev_pattern;
+	PatternView			pattern, rev_pattern;
 	CompositionCtrl		composition;
 	AnalysisCtrl		analysis;
 	ProductionCtrl		production;

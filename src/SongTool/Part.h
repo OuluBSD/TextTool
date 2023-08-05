@@ -39,6 +39,7 @@ struct Part :
 	const Array<Line>& GetSub() const {return lines;}
 	int GetLength(const SnapArg& a) const;
 	int GetLineIdx(const Line& l) const;
+	String CreateLyricsFromBreaks(const SnapArg& a, bool add_comma) const;
 	
 	PATTERNMASK_MACROS
 };

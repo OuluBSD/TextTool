@@ -3,38 +3,73 @@
 
 
 class PatternCtrl : public Ctrl {
-	Splitter hsplit, vsplit;
-	TreeCtrl tree;
-	MArr<Label> txt;
-	MArr<One<ArrayCtrl>> list;
-	MArr<Ctrl> ctrl;
-	MArr<AttrCtrl> attr;
+	Label txt;
+	One<ArrayCtrl> list;
+	Ctrl ctrl;
+	AttrCtrl attr;
+	SnapArg a;
 	
 public:
-	VectorMap<int, SnapContext*> tree_snaps;
-	VectorMap<int, Part*> tree_parts;
 	
-	MArr<Vector<PatternSnap*>> level_snaps;
-	MArr<Index<int>> group_types;
-	MArr<VectorMap<int, Vector<int>>> group_items;
+	Vector<PatternSnap*> level_snaps;
+	Index<int> group_types;
+	VectorMap<int, Vector<int>> group_items;
 	
 public:
 	typedef PatternCtrl CLASSNAME;
 	PatternCtrl();
 	
 	void Data();
+	void OnListSel();
+	void DataPatternSnap();
+	void DataList();
+	void MergeOwner();
+	void FocusList();
+	void SelectLine(const SnapArg& match);
+	void SetMode(const SnapArg& a);
+	
+	Callback WhenFocusTree;
+	
+};
+
+
+class PatternList : public Ctrl {
+	MArr<ArrayCtrl> data;
+	MArr<DocEdit> lyrics;
+	MArr<Splitter> vsplit;
+	Splitter hsplit;
+	
+public:
+	typedef PatternList CLASSNAME;
+	PatternList();
+	
+	void Data();
+	void SelectLine(const SnapArg& match);
+	
+	
+};
+
+class PatternView : public Ctrl {
+	Splitter hsplit;
+	TreeCtrl tree;
+	TabCtrl tabs;
+	PatternCtrl pattern[MODE_COUNT];
+	PatternList list;
+	
+public:
+	VectorMap<int, SnapContext*> tree_snaps;
+	VectorMap<int, Part*> tree_parts;
+	SnapArg a[1+MODE_COUNT];
+	
+public:
+	typedef PatternView CLASSNAME;
+	PatternView();
+	
+	void Data();
+	void UseRev();
 	void DataPatternTree();
 	void OnTreeSel();
-	void OnListSel(const SnapArg& a);
-	void DataPatternSnap(const SnapArg& a);
-	void DataPatternSnapAll() {for(const SnapArg& a : AllArgs()) DataPatternSnap(a);}
-	void DataList(const SnapArg& a);
-	void DataListAll() {for(const SnapArg& a : AllArgs()) DataList(a);}
-	void MergeOwner();
-	void FocusTree(const SnapArg& a);
-	void FocusList(const SnapArg& a);
-	void FocusListAll() {for(const SnapArg& a : AllArgs()) FocusList(a);}
-	void SelectLine(const SnapArg& match);
+	void FocusTree();
 	
 	template <class T>
 	void DataPatternTreeNode(Part& part, T& snap, int parent) {
@@ -47,8 +82,6 @@ public:
 			DataPatternTreeNode(part, sub, id);
 		}
 	}
-
-	bool use_rev_snap = false;
 	
 };
 

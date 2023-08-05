@@ -18,3 +18,19 @@ int Part::GetLineIdx(const Line& l0) const {
 	}
 	return -1;
 }
+
+String Part::CreateLyricsFromBreaks(const SnapArg& a, bool add_comma) const {
+	String s;
+	for (const Line& l : lines) {
+		if (!s.IsEmpty()) s << "; ";
+		int brk_i = 0;
+		for (const Break& b : l.breaks) {
+			if (brk_i++) {
+				if (add_comma) s << ",";
+				s << " ";
+			}
+			s << b.snap[a].txt;
+		}
+	}
+	return s;
+}

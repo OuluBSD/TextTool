@@ -23,7 +23,7 @@ void Attributes::Load() {
 }
 
 void Attributes::Realize() {
-	//if (groups.IsEmpty() || group_types.IsEmpty())
+	if (groups.IsEmpty() || group_types.IsEmpty())
 		LoadDefaultGroups();
 	if (analysis.IsEmpty())
 		LoadDefaultAnalysis();

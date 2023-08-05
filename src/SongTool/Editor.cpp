@@ -97,7 +97,7 @@ Editor::Editor() {
 	for(int i = 0; i < 3; i++)
 		reverse[i].SetSource(i);
 	
-	rev_pattern.use_rev_snap = true;
+	rev_pattern.UseRev();
 	
 	PostCallback(THISBACK(Data)); // sets active artist, song, etc.
 }

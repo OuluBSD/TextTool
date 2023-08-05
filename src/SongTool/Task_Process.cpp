@@ -619,12 +619,12 @@ void Task::Process_PatternMaskWeighted() {
 		int cur = line.Find(":");
 		if (cur < 0) {SetError("no column"); return;}
 		String key = ToLower(TrimBoth(line.Mid(1, cur-1)));
+		Index<String>& items = parsed.GetAdd(key);
 		line = ToLower(TrimBoth(line.Mid(cur+1)));
-		if (line.Find(" .vs ") >= 0) {
+		if (line.Find(" vs. ") >= 0) {
 			SetError("stupid ai result");
 			return;
 		}
-		Index<String>& items = parsed.GetAdd(key);
 		if (line.Find(",") >= 0) {
 			Vector<String> parts = Split(line, ",");
 			for (const String& s : parts)
@@ -669,7 +669,10 @@ void Task::Process_PatternMaskWeighted() {
 	ASSERT(p.a.mode == WEIGHTED);
 	SongHeader& h = song.headers[p.a];
 	h.content = song.CreateLyricsFromBreaks(p.a);
-	
+	song.snap[p.a].txt = h.content;
+	for (Part& part : song.parts) {
+		part.snap[p.a].txt = part.CreateLyricsFromBreaks(p.a, true);
+	}
 }
 
 void Task::Process_Pattern() {

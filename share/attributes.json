@@ -4,90 +4,90 @@
 			"name": "language",
 			"group_ctx": 0,
 			"clr": {
-				"red": 135,
-				"green": 124,
-				"blue": 32
+				"red": 170,
+				"green": 4,
+				"blue": 109
 			}
 		},
 		{
 			"name": "writing",
 			"group_ctx": 0,
 			"clr": {
-				"red": 81,
-				"green": 213,
-				"blue": 60
+				"red": 16,
+				"green": 135,
+				"blue": 71
 			}
 		},
 		{
 			"name": "characters",
 			"group_ctx": 0,
 			"clr": {
-				"red": 64,
-				"green": 109,
-				"blue": 49
+				"red": 1,
+				"green": 223,
+				"blue": 51
 			}
 		},
 		{
 			"name": "setting",
 			"group_ctx": 0,
 			"clr": {
-				"red": 215,
-				"green": 252,
-				"blue": 70
+				"red": 242,
+				"green": 71,
+				"blue": 189
 			}
 		},
 		{
 			"name": "creativity",
 			"group_ctx": 0,
 			"clr": {
-				"red": 126,
-				"green": 214,
-				"blue": 75
+				"red": 234,
+				"green": 35,
+				"blue": 73
 			}
 		},
 		{
 			"name": "performance",
 			"group_ctx": 1,
 			"clr": {
-				"red": 72,
-				"green": 80,
-				"blue": 204
+				"red": 109,
+				"green": 32,
+				"blue": 112
 			}
 		},
 		{
 			"name": "gestures",
 			"group_ctx": 1,
 			"clr": {
-				"red": 166,
-				"green": 62,
-				"blue": 71
+				"red": 130,
+				"green": 222,
+				"blue": 35
 			}
 		},
 		{
 			"name": "costuming",
 			"group_ctx": 1,
 			"clr": {
-				"red": 19,
-				"green": 112,
-				"blue": 142
+				"red": 230,
+				"green": 84,
+				"blue": 185
 			}
 		},
 		{
 			"name": "editing",
 			"group_ctx": 1,
 			"clr": {
-				"red": 158,
-				"green": 67,
-				"blue": 251
+				"red": 136,
+				"green": 44,
+				"blue": 8
 			}
 		},
 		{
 			"name": "lighting",
 			"group_ctx": 1,
 			"clr": {
-				"red": 43,
-				"green": 247,
-				"blue": 10
+				"red": 56,
+				"green": 4,
+				"blue": 16
 			}
 		}
 	],
@@ -96,9 +96,9 @@
 			"description": "nouns",
 			"type": "language",
 			"color": {
-				"red": 207,
-				"green": 244,
-				"blue": 25
+				"red": 137,
+				"green": 121,
+				"blue": 170
 			},
 			"values": [
 
@@ -109,9 +109,9 @@
 			"description": "pronouns",
 			"type": "language",
 			"color": {
-				"red": 45,
-				"green": 120,
-				"blue": 48
+				"red": 142,
+				"green": 215,
+				"blue": 200
 			},
 			"values": [
 				"my",
@@ -124,7 +124,9 @@
 				"us",
 				"he",
 				"our",
-				"both"
+				"both",
+				"my to i",
+				"me to us"
 			],
 			"managed": true
 		},
@@ -132,9 +134,9 @@
 			"description": "verbs",
 			"type": "language",
 			"color": {
-				"red": 230,
-				"green": 140,
-				"blue": 140
+				"red": 143,
+				"green": 2,
+				"blue": 203
 			},
 			"values": [
 
@@ -145,9 +147,9 @@
 			"description": "adjectives",
 			"type": "language",
 			"color": {
-				"red": 177,
-				"green": 192,
-				"blue": 251
+				"red": 102,
+				"green": 16,
+				"blue": 28
 			},
 			"values": [
 
@@ -158,9 +160,9 @@
 			"description": "adverbs",
 			"type": "language",
 			"color": {
-				"red": 164,
-				"green": 149,
-				"blue": 164
+				"red": 56,
+				"green": 34,
+				"blue": 77
 			},
 			"values": [
 
@@ -171,9 +173,9 @@
 			"description": "prepositions",
 			"type": "language",
 			"color": {
-				"red": 91,
-				"green": 41,
-				"blue": 116
+				"red": 240,
+				"green": 238,
+				"blue": 60
 			},
 			"values": [
 
@@ -184,9 +186,9 @@
 			"description": "conjunctions",
 			"type": "language",
 			"color": {
-				"red": 199,
-				"green": 13,
-				"blue": 156
+				"red": 149,
+				"green": 73,
+				"blue": 88
 			},
 			"values": [
 
@@ -197,9 +199,9 @@
 			"description": "interjections",
 			"type": "language",
 			"color": {
-				"red": 50,
-				"green": 151,
-				"blue": 18
+				"red": 190,
+				"green": 53,
+				"blue": 191
 			},
 			"values": [
 
@@ -210,9 +212,9 @@
 			"description": "syntax",
 			"type": "language",
 			"color": {
-				"red": 39,
-				"green": 102,
-				"blue": 104
+				"red": 240,
+				"green": 218,
+				"blue": 190
 			},
 			"values": [
 
@@ -223,9 +225,9 @@
 			"description": "morphology",
 			"type": "language",
 			"color": {
-				"red": 166,
-				"green": 206,
-				"blue": 202
+				"red": 141,
+				"green": 12,
+				"blue": 18
 			},
 			"values": [
 
@@ -236,9 +238,9 @@
 			"description": "semantics",
 			"type": "language",
 			"color": {
-				"red": 30,
-				"green": 62,
-				"blue": 1
+				"red": 0,
+				"green": 200,
+				"blue": 106
 			},
 			"values": [
 
@@ -249,9 +251,9 @@
 			"description": "pragmatics",
 			"type": "language",
 			"color": {
-				"red": 28,
-				"green": 46,
-				"blue": 141
+				"red": 174,
+				"green": 57,
+				"blue": 188
 			},
 			"values": [
 
@@ -262,9 +264,9 @@
 			"description": "discourse",
 			"type": "language",
 			"color": {
-				"red": 180,
-				"green": 67,
-				"blue": 225
+				"red": 255,
+				"green": 254,
+				"blue": 146
 			},
 			"values": [
 
@@ -275,9 +277,9 @@
 			"description": "types of sentences",
 			"type": "writing",
 			"color": {
-				"red": 45,
-				"green": 46,
-				"blue": 68
+				"red": 11,
+				"green": 225,
+				"blue": 82
 			},
 			"values": [
 
@@ -288,9 +290,9 @@
 			"description": "dramatic sentences",
 			"type": "writing",
 			"color": {
-				"red": 248,
-				"green": 102,
-				"blue": 177
+				"red": 109,
+				"green": 67,
+				"blue": 156
 			},
 			"values": [
 
@@ -301,9 +303,9 @@
 			"description": "dramatic scenarios",
 			"type": "writing",
 			"color": {
-				"red": 214,
-				"green": 60,
-				"blue": 182
+				"red": 1,
+				"green": 55,
+				"blue": 7
 			},
 			"values": [
 
@@ -314,9 +316,9 @@
 			"description": "dramatic expressions",
 			"type": "writing",
 			"color": {
-				"red": 196,
-				"green": 22,
-				"blue": 78
+				"red": 155,
+				"green": 28,
+				"blue": 72
 			},
 			"values": [
 
@@ -327,9 +329,9 @@
 			"description": "comedic sentences",
 			"type": "writing",
 			"color": {
-				"red": 174,
-				"green": 180,
-				"blue": 95
+				"red": 159,
+				"green": 186,
+				"blue": 152
 			},
 			"values": [
 
@@ -340,9 +342,9 @@
 			"description": "comedic scenarios",
 			"type": "writing",
 			"color": {
-				"red": 96,
-				"green": 127,
-				"blue": 45
+				"red": 161,
+				"green": 80,
+				"blue": 208
 			},
 			"values": [
 
@@ -353,9 +355,9 @@
 			"description": "comedic expressions",
 			"type": "writing",
 			"color": {
-				"red": 204,
-				"green": 45,
-				"blue": 206
+				"red": 81,
+				"green": 103,
+				"blue": 203
 			},
 			"values": [
 
@@ -366,9 +368,9 @@
 			"description": "humorous expressions",
 			"type": "writing",
 			"color": {
-				"red": 148,
-				"green": 223,
-				"blue": 120
+				"red": 186,
+				"green": 86,
+				"blue": 123
 			},
 			"values": [
 
@@ -379,9 +381,9 @@
 			"description": "cliches",
 			"type": "writing",
 			"color": {
-				"red": 165,
-				"green": 164,
-				"blue": 193
+				"red": 150,
+				"green": 157,
+				"blue": 158
 			},
 			"values": [
 
@@ -392,9 +394,9 @@
 			"description": "similes",
 			"type": "writing",
 			"color": {
-				"red": 203,
-				"green": 230,
-				"blue": 59
+				"red": 127,
+				"green": 41,
+				"blue": 204
 			},
 			"values": [
 				"scar tissue in my elbow flexors",
@@ -407,9 +409,9 @@
 			"description": "metaphors",
 			"type": "writing",
 			"color": {
-				"red": 42,
-				"green": 98,
-				"blue": 26
+				"red": 91,
+				"green": 193,
+				"blue": 135
 			},
 			"values": [
 				"push-up bra",
@@ -431,9 +433,9 @@
 			"description": "personification",
 			"type": "writing",
 			"color": {
-				"red": 77,
-				"green": 117,
-				"blue": 162
+				"red": 179,
+				"green": 134,
+				"blue": 172
 			},
 			"values": [
 				"autumn's sweet",
@@ -457,8 +459,10 @@
 				"compassionate",
 				"understanding",
 				"personifying birds",
-				"heroin shot vs. birds",
-				"birds in the sky beholdin'"
+				"birds in the sky beholdin'",
+				"open road",
+				"heroin shot to scarlet toilet flush",
+				"birds to birds"
 			],
 			"managed": true
 		},
@@ -466,9 +470,9 @@
 			"description": "hyperboles",
 			"type": "writing",
 			"color": {
-				"red": 53,
-				"green": 247,
-				"blue": 231
+				"red": 119,
+				"green": 243,
+				"blue": 7
 			},
 			"values": [
 
@@ -479,9 +483,9 @@
 			"description": "allusions",
 			"type": "writing",
 			"color": {
-				"red": 18,
-				"green": 250,
-				"blue": 25
+				"red": 197,
+				"green": 229,
+				"blue": 11
 			},
 			"values": [
 
@@ -492,9 +496,9 @@
 			"description": "irony",
 			"type": "writing",
 			"color": {
-				"red": 176,
+				"red": 57,
 				"green": 116,
-				"blue": 125
+				"blue": 48
 			},
 			"values": [
 
@@ -505,9 +509,9 @@
 			"description": "satire",
 			"type": "writing",
 			"color": {
-				"red": 155,
-				"green": 69,
-				"blue": 240
+				"red": 138,
+				"green": 150,
+				"blue": 86
 			},
 			"values": [
 
@@ -518,9 +522,9 @@
 			"description": "foreshadowing",
 			"type": "writing",
 			"color": {
-				"red": 58,
-				"green": 130,
-				"blue": 250
+				"red": 146,
+				"green": 185,
+				"blue": 211
 			},
 			"values": [
 
@@ -531,9 +535,9 @@
 			"description": "contrast and unexpected elements",
 			"type": "characters",
 			"color": {
-				"red": 186,
-				"green": 54,
-				"blue": 113
+				"red": 90,
+				"green": 112,
+				"blue": 171
 			},
 			"values": [
 				"lonely viewing",
@@ -549,8 +553,16 @@
 				"a southern girl with a scarlet drawl",
 				"sharing love",
 				"romantic companionship",
-				"bathroom stall vs. blood loss",
-				"southern girl vs. kissing"
+				"blood loss versus kisses",
+				"old enough to leave home versus road trip",
+				"bathroom stall versus open road",
+				"bathroom stall to scarlet toilet flush",
+				"southern girl to birds seeing us kissing",
+				"texas drawl to old enough to leave home",
+				"blood loss vs kissing",
+				"old enough to leave home vs road trip",
+				"scarlet toilet flush",
+				"birds seeing us kissing"
 			],
 			"managed": true
 		},
@@ -558,15 +570,15 @@
 			"description": "moral interactions",
 			"type": "characters",
 			"color": {
-				"red": 162,
-				"green": 0,
-				"blue": 165
+				"red": 69,
+				"green": 248,
+				"blue": 3
 			},
 			"values": [
 				"wave goodbye to ma and pa",
 				"leaving home",
 				"kissing",
-				"wave goodbye to ma and pa vs. leaving home"
+				"wave goodbye to ma and pa to kissing"
 			],
 			"managed": true
 		},
@@ -574,9 +586,9 @@
 			"description": "moral interactions with",
 			"type": "characters",
 			"color": {
-				"red": 242,
-				"green": 12,
-				"blue": 152
+				"red": 25,
+				"green": 106,
+				"blue": 222
 			},
 			"values": [
 
@@ -587,9 +599,9 @@
 			"description": "type of action in moral interaction",
 			"type": "characters",
 			"color": {
-				"red": 8,
-				"green": 172,
-				"blue": 20
+				"red": 236,
+				"green": 39,
+				"blue": 213
 			},
 			"values": [
 				"saying goodbye",
@@ -598,7 +610,7 @@
 				"lusting",
 				"romantic pursuit",
 				"wave goodbye to ma and pa",
-				"saying goodbye vs. kissing"
+				"saying goodbye to waving goodbye"
 			],
 			"managed": true
 		},
@@ -606,14 +618,15 @@
 			"description": "religiously moral",
 			"type": "characters",
 			"color": {
-				"red": 169,
-				"green": 41,
-				"blue": 203
+				"red": 18,
+				"green": 188,
+				"blue": 13
 			},
 			"values": [
 				"waving goodbye to ma and pa",
 				"abstinence",
-				"self-control"
+				"self-control",
+				"saying goodbye to family"
 			],
 			"managed": true
 		},
@@ -621,16 +634,17 @@
 			"description": "atheistic interactions",
 			"type": "characters",
 			"color": {
-				"red": 30,
-				"green": 80,
-				"blue": 23
+				"red": 28,
+				"green": 63,
+				"blue": 49
 			},
 			"values": [
 				"injecting heroin",
 				"road trip",
 				"impulsiveness",
 				"indulgence",
-				"injecting heroin vs. taking a road trip"
+				"injecting heroin to taking a road trip",
+				"taking a road trip"
 			],
 			"managed": true
 		},
@@ -638,9 +652,9 @@
 			"description": "atheistic interactions with",
 			"type": "characters",
 			"color": {
-				"red": 46,
-				"green": 62,
-				"blue": 175
+				"red": 17,
+				"green": 69,
+				"blue": 213
 			},
 			"values": [
 
@@ -651,16 +665,16 @@
 			"description": "type of action in atheistic interaction",
 			"type": "characters",
 			"color": {
-				"red": 56,
-				"green": 38,
-				"blue": 26
+				"red": 5,
+				"green": 61,
+				"blue": 210
 			},
 			"values": [
 				"taking drugs",
 				"taking a road trip",
 				"defiance",
 				"hedonism",
-				"taking drugs vs. taking a road trip"
+				"taking drugs to explore the world"
 			],
 			"managed": true
 		},
@@ -668,9 +682,9 @@
 			"description": "religiously moral",
 			"type": "characters",
 			"color": {
-				"red": 192,
-				"green": 80,
-				"blue": 239
+				"red": 53,
+				"green": 208,
+				"blue": 190
 			},
 			"values": [
 
@@ -681,9 +695,9 @@
 			"description": "interactions",
 			"type": "characters",
 			"color": {
-				"red": 47,
-				"green": 45,
-				"blue": 121
+				"red": 79,
+				"green": 2,
+				"blue": 187
 			},
 			"values": [
 				"sharing",
@@ -696,9 +710,9 @@
 			"description": "interactions with",
 			"type": "characters",
 			"color": {
-				"red": 30,
-				"green": 40,
-				"blue": 134
+				"red": 251,
+				"green": 211,
+				"blue": 221
 			},
 			"values": [
 
@@ -709,9 +723,9 @@
 			"description": "physical features",
 			"type": "characters",
 			"color": {
-				"red": 22,
-				"green": 117,
-				"blue": 94
+				"red": 127,
+				"green": 172,
+				"blue": 26
 			},
 			"values": [
 				"youthfulness",
@@ -723,9 +737,9 @@
 			"description": "personality traits",
 			"type": "characters",
 			"color": {
-				"red": 237,
-				"green": 225,
-				"blue": 171
+				"red": 115,
+				"green": 173,
+				"blue": 105
 			},
 			"values": [
 				"weak due to drugs",
@@ -735,7 +749,8 @@
 				"know-it-all",
 				"confidence",
 				"boldness",
-				"weak due to drugs vs. adventurous"
+				"daring",
+				"weak due to drugs to adventurous"
 			],
 			"managed": true
 		},
@@ -743,15 +758,15 @@
 			"description": "likes and dislikes",
 			"type": "characters",
 			"color": {
-				"red": 239,
-				"green": 173,
-				"blue": 85
+				"red": 202,
+				"green": 190,
+				"blue": 150
 			},
 			"values": [
 				"likes taking drugs",
 				"passion",
 				"pleasure",
-				"likes taking drugs vs. likes exploring"
+				"likes taking drugs to independent"
 			],
 			"managed": true
 		},
@@ -759,16 +774,18 @@
 			"description": "quirks",
 			"type": "characters",
 			"color": {
-				"red": 186,
-				"green": 5,
-				"blue": 87
+				"red": 249,
+				"green": 78,
+				"blue": 62
 			},
 			"values": [
 				"southern girl speaking with texas drawl",
 				"being a southern girl",
 				"temptation",
 				"impulsiveness",
-				"southern girl speaking with texas drawl vs. being a southern girl"
+				"southern girl",
+				"southern girl talking with texas drawl",
+				"southern girl speaking with texas drawl to being a southern girl"
 			],
 			"managed": true
 		},
@@ -776,9 +793,9 @@
 			"description": "goals",
 			"type": "characters",
 			"color": {
-				"red": 247,
-				"green": 163,
-				"blue": 134
+				"red": 70,
+				"green": 241,
+				"blue": 172
 			},
 			"values": [
 				"get high",
@@ -786,7 +803,9 @@
 				"romantic love",
 				"physicality",
 				"going on a trip",
-				"get high vs. taking a road trip"
+				"explore the world",
+				"get high to taking a road trip",
+				"exploring the world"
 			],
 			"managed": true
 		},
@@ -794,9 +813,9 @@
 			"description": "motivations",
 			"type": "characters",
 			"color": {
-				"red": 194,
-				"green": 142,
-				"blue": 252
+				"red": 140,
+				"green": 36,
+				"blue": 212
 			},
 			"values": [
 				"take drugs",
@@ -804,7 +823,8 @@
 				"rebellion",
 				"appreciation",
 				"share (this lonely view)",
-				"take drugs vs. exploring the world"
+				"freedom",
+				"take drugs to exploring the world"
 			],
 			"managed": true
 		},
@@ -812,15 +832,16 @@
 			"description": "backstories",
 			"type": "characters",
 			"color": {
-				"red": 4,
-				"green": 126,
-				"blue": 253
+				"red": 222,
+				"green": 68,
+				"blue": 159
 			},
 			"values": [
 				"taking drugs in a bathroom stall",
 				"attraction",
 				"longing",
-				"taking drugs in a bathroom stall vs. leaving home"
+				"leaving home",
+				"taking drugs in a bathroom stall to menstruation"
 			],
 			"managed": true
 		},
@@ -828,9 +849,9 @@
 			"description": "places",
 			"type": "setting",
 			"color": {
-				"red": 187,
-				"green": 54,
-				"blue": 183
+				"red": 31,
+				"green": 217,
+				"blue": 149
 			},
 			"values": [
 
@@ -841,9 +862,9 @@
 			"description": "environments",
 			"type": "setting",
 			"color": {
-				"red": 247,
-				"green": 127,
-				"blue": 251
+				"red": 157,
+				"green": 190,
+				"blue": 15
 			},
 			"values": [
 
@@ -854,13 +875,13 @@
 			"description": "locations",
 			"type": "setting",
 			"color": {
-				"red": 247,
-				"green": 243,
-				"blue": 160
+				"red": 73,
+				"green": 219,
+				"blue": 117
 			},
 			"values": [
 				"wave goodbye",
-				"wave goodbye vs. kissing"
+				"wave goodbye to wave goodbye"
 			],
 			"managed": true
 		},
@@ -868,13 +889,15 @@
 			"description": "weather",
 			"type": "setting",
 			"color": {
-				"red": 80,
-				"green": 136,
-				"blue": 238
+				"red": 219,
+				"green": 98,
+				"blue": 223
 			},
 			"values": [
 				"lonely view",
-				"autumn/fall"
+				"autumn/fall",
+				"open road",
+				"lonely view to scarlet"
 			],
 			"managed": true
 		},
@@ -882,12 +905,14 @@
 			"description": "time of day",
 			"type": "setting",
 			"color": {
-				"red": 210,
-				"green": 89,
-				"blue": 92
+				"red": 251,
+				"green": 170,
+				"blue": 238
 			},
 			"values": [
-				"high with birds"
+				"high with birds",
+				"evening",
+				"high with birds to flush"
 			],
 			"managed": true
 		},
@@ -895,9 +920,9 @@
 			"description": "time periods",
 			"type": "setting",
 			"color": {
-				"red": 90,
-				"green": 107,
-				"blue": 212
+				"red": 51,
+				"green": 132,
+				"blue": 131
 			},
 			"values": [
 
@@ -908,9 +933,9 @@
 			"description": "ideas",
 			"type": "creativity",
 			"color": {
-				"red": 125,
-				"green": 184,
-				"blue": 175
+				"red": 108,
+				"green": 141,
+				"blue": 169
 			},
 			"values": [
 
@@ -921,9 +946,9 @@
 			"description": "imagination",
 			"type": "creativity",
 			"color": {
-				"red": 91,
-				"green": 32,
-				"blue": 7
+				"red": 75,
+				"green": 115,
+				"blue": 113
 			},
 			"values": [
 				"view with the birds",
@@ -939,9 +964,9 @@
 			"description": "inspiration",
 			"type": "creativity",
 			"color": {
-				"red": 160,
-				"green": 88,
-				"blue": 186
+				"red": 151,
+				"green": 116,
+				"blue": 88
 			},
 			"values": [
 
@@ -952,9 +977,9 @@
 			"description": "symbols",
 			"type": "creativity",
 			"color": {
-				"red": 64,
-				"green": 31,
-				"blue": 59
+				"red": 149,
+				"green": 60,
+				"blue": 158
 			},
 			"values": [
 				"birds",
@@ -967,9 +992,9 @@
 			"description": "imagery",
 			"type": "creativity",
 			"color": {
-				"red": 21,
-				"green": 207,
-				"blue": 108
+				"red": 117,
+				"green": 125,
+				"blue": 81
 			},
 			"values": [
 				"scar tissue",
@@ -1061,11 +1086,18 @@
 				"we call it fall",
 				"romantic",
 				"grand",
-				"metaphor vs. blood loss",
-				"bathroom vs. toilet flush",
-				"nature vs. road trip",
 				"vivid descriptions",
-				"autumn sweet"
+				"autumn sweet",
+				"symbolism",
+				"imagery",
+				"bathroom stall to road trip",
+				"southern accent to southern girl",
+				"birds to birds",
+				"lonely view to blood loss",
+				"metaphor to scarlet",
+				"bathroom to toilet",
+				"texas drawl to goodbye",
+				"bird"
 			],
 			"managed": true
 		},
@@ -1073,9 +1105,9 @@
 			"description": "abstractions",
 			"type": "creativity",
 			"color": {
-				"red": 113,
-				"green": 57,
-				"blue": 27
+				"red": 2,
+				"green": 200,
+				"blue": 89
 			},
 			"values": [
 				"loneliness",
@@ -1093,9 +1125,9 @@
 			"description": "dreams",
 			"type": "creativity",
 			"color": {
-				"red": 92,
-				"green": 10,
-				"blue": 181
+				"red": 224,
+				"green": 168,
+				"blue": 131
 			},
 			"values": [
 				"loneliness",
@@ -1107,9 +1139,9 @@
 			"description": "themes",
 			"type": "creativity",
 			"color": {
-				"red": 186,
-				"green": 237,
-				"blue": 200
+				"red": 9,
+				"green": 212,
+				"blue": 234
 			},
 			"values": [
 				"self-medication",
@@ -1128,9 +1160,9 @@
 			"description": "metaphors",
 			"type": "creativity",
 			"color": {
-				"red": 179,
-				"green": 41,
-				"blue": 38
+				"red": 102,
+				"green": 17,
+				"blue": 75
 			},
 			"values": [
 
@@ -1141,9 +1173,9 @@
 			"description": "similes",
 			"type": "creativity",
 			"color": {
-				"red": 116,
-				"green": 98,
-				"blue": 98
+				"red": 23,
+				"green": 102,
+				"blue": 174
 			},
 			"values": [
 
@@ -1154,9 +1186,9 @@
 			"description": "personification",
 			"type": "creativity",
 			"color": {
-				"red": 36,
-				"green": 192,
-				"blue": 30
+				"red": 77,
+				"green": 90,
+				"blue": 44
 			},
 			"values": [
 
@@ -1167,9 +1199,9 @@
 			"description": "acting styles",
 			"type": "performance",
 			"color": {
-				"red": 57,
-				"green": 79,
-				"blue": 225
+				"red": 116,
+				"green": 184,
+				"blue": 20
 			},
 			"values": [
 
@@ -1180,9 +1212,9 @@
 			"description": "tones",
 			"type": "performance",
 			"color": {
-				"red": 237,
-				"green": 170,
-				"blue": 254
+				"red": 48,
+				"green": 167,
+				"blue": 247
 			},
 			"values": [
 
@@ -1193,9 +1225,9 @@
 			"description": "voiceover tones",
 			"type": "performance",
 			"color": {
-				"red": 191,
-				"green": 1,
-				"blue": 66
+				"red": 182,
+				"green": 153,
+				"blue": 83
 			},
 			"values": [
 
@@ -1206,9 +1238,9 @@
 			"description": "physical gestures",
 			"type": "performance",
 			"color": {
-				"red": 98,
-				"green": 32,
-				"blue": 159
+				"red": 40,
+				"green": 29,
+				"blue": 236
 			},
 			"values": [
 
@@ -1219,9 +1251,9 @@
 			"description": "facial expressions",
 			"type": "performance",
 			"color": {
-				"red": 71,
-				"green": 104,
-				"blue": 100
+				"red": 104,
+				"green": 178,
+				"blue": 9
 			},
 			"values": [
 
@@ -1232,9 +1264,9 @@
 			"description": "dance moves",
 			"type": "performance",
 			"color": {
-				"red": 169,
-				"green": 244,
-				"blue": 102
+				"red": 124,
+				"green": 72,
+				"blue": 34
 			},
 			"values": [
 
@@ -1245,9 +1277,9 @@
 			"description": "costumes",
 			"type": "performance",
 			"color": {
-				"red": 95,
-				"green": 215,
-				"blue": 29
+				"red": 210,
+				"green": 111,
+				"blue": 82
 			},
 			"values": [
 
@@ -1258,9 +1290,9 @@
 			"description": "choose of props",
 			"type": "performance",
 			"color": {
-				"red": 15,
-				"green": 236,
-				"blue": 200
+				"red": 194,
+				"green": 253,
+				"blue": 115
 			},
 			"values": [
 
@@ -1271,9 +1303,9 @@
 			"description": "satire",
 			"type": "performance",
 			"color": {
-				"red": 36,
-				"green": 102,
-				"blue": 203
+				"red": 86,
+				"green": 10,
+				"blue": 221
 			},
 			"values": [
 
@@ -1284,9 +1316,9 @@
 			"description": "parody",
 			"type": "performance",
 			"color": {
-				"red": 103,
-				"green": 172,
-				"blue": 230
+				"red": 116,
+				"green": 126,
+				"blue": 253
 			},
 			"values": [
 
@@ -1297,9 +1329,9 @@
 			"description": "theatrical conventions",
 			"type": "performance",
 			"color": {
-				"red": 234,
-				"green": 202,
-				"blue": 31
+				"red": 198,
+				"green": 95,
+				"blue": 102
 			},
 			"values": [
 
@@ -1310,9 +1342,9 @@
 			"description": "vocal techniques",
 			"type": "performance",
 			"color": {
-				"red": 152,
-				"green": 226,
-				"blue": 177
+				"red": 240,
+				"green": 52,
+				"blue": 156
 			},
 			"values": [
 
@@ -1323,9 +1355,9 @@
 			"description": "timing",
 			"type": "performance",
 			"color": {
-				"red": 48,
-				"green": 150,
-				"blue": 113
+				"red": 255,
+				"green": 44,
+				"blue": 197
 			},
 			"values": [
 
@@ -1336,9 +1368,9 @@
 			"description": "interplay between performer and audience",
 			"type": "performance",
 			"color": {
-				"red": 98,
-				"green": 9,
-				"blue": 51
+				"red": 50,
+				"green": 143,
+				"blue": 3
 			},
 			"values": [
 
@@ -1349,9 +1381,9 @@
 			"description": "expression of emotions",
 			"type": "performance",
 			"color": {
-				"red": 102,
-				"green": 113,
-				"blue": 180
+				"red": 135,
+				"green": 238,
+				"blue": 201
 			},
 			"values": [
 
@@ -1362,9 +1394,9 @@
 			"description": "narrative arcs",
 			"type": "performance",
 			"color": {
-				"red": 231,
-				"green": 88,
-				"blue": 134
+				"red": 249,
+				"green": 238,
+				"blue": 64
 			},
 			"values": [
 
@@ -1375,9 +1407,9 @@
 			"description": "character development",
 			"type": "performance",
 			"color": {
-				"red": 187,
-				"green": 72,
-				"blue": 207
+				"red": 243,
+				"green": 226,
+				"blue": 71
 			},
 			"values": [
 
@@ -1388,9 +1420,9 @@
 			"description": "movement of the body",
 			"type": "performance",
 			"color": {
-				"red": 210,
-				"green": 179,
-				"blue": 4
+				"red": 194,
+				"green": 237,
+				"blue": 227
 			},
 			"values": [
 
@@ -1401,9 +1433,9 @@
 			"description": "exaggeration",
 			"type": "performance",
 			"color": {
-				"red": 139,
-				"green": 124,
-				"blue": 57
+				"red": 41,
+				"green": 39,
+				"blue": 152
 			},
 			"values": [
 
@@ -1414,9 +1446,9 @@
 			"description": "use of facial makeup",
 			"type": "performance",
 			"color": {
-				"red": 247,
-				"green": 230,
-				"blue": 35
+				"red": 139,
+				"green": 233,
+				"blue": 235
 			},
 			"values": [
 
@@ -1427,9 +1459,9 @@
 			"description": "utilization of voice inflection",
 			"type": "performance",
 			"color": {
-				"red": 131,
-				"green": 70,
-				"blue": 242
+				"red": 152,
+				"green": 111,
+				"blue": 114
 			},
 			"values": [
 
@@ -1440,9 +1472,9 @@
 			"description": "expressiveness",
 			"type": "performance",
 			"color": {
-				"red": 209,
-				"green": 79,
-				"blue": 20
+				"red": 10,
+				"green": 226,
+				"blue": 25
 			},
 			"values": [
 				"evocative",
@@ -1454,9 +1486,9 @@
 			"description": "intentional choice of words",
 			"type": "performance",
 			"color": {
-				"red": 11,
-				"green": 29,
-				"blue": 241
+				"red": 250,
+				"green": 214,
+				"blue": 161
 			},
 			"values": [
 
@@ -1467,9 +1499,9 @@
 			"description": "utilization of pauses",
 			"type": "performance",
 			"color": {
-				"red": 57,
-				"green": 152,
-				"blue": 201
+				"red": 12,
+				"green": 110,
+				"blue": 94
 			},
 			"values": [
 
@@ -1480,9 +1512,9 @@
 			"description": "creation of suspense",
 			"type": "performance",
 			"color": {
-				"red": 5,
-				"green": 51,
-				"blue": 94
+				"red": 225,
+				"green": 71,
+				"blue": 17
 			},
 			"values": [
 
@@ -1493,9 +1525,9 @@
 			"description": "playful physicality",
 			"type": "performance",
 			"color": {
-				"red": 230,
-				"green": 15,
-				"blue": 68
+				"red": 128,
+				"green": 193,
+				"blue": 7
 			},
 			"values": [
 
@@ -1506,9 +1538,9 @@
 			"description": "interpretation of dialogues",
 			"type": "performance",
 			"color": {
-				"red": 175,
-				"green": 72,
-				"blue": 101
+				"red": 44,
+				"green": 210,
+				"blue": 74
 			},
 			"values": [
 
@@ -1519,9 +1551,9 @@
 			"description": "behind the camera elements",
 			"type": "performance",
 			"color": {
-				"red": 94,
-				"green": 249,
-				"blue": 148
+				"red": 176,
+				"green": 208,
+				"blue": 242
 			},
 			"values": [
 
@@ -1532,9 +1564,9 @@
 			"description": "body language",
 			"type": "performance",
 			"color": {
-				"red": 204,
-				"green": 137,
-				"blue": 146
+				"red": 164,
+				"green": 79,
+				"blue": 244
 			},
 			"values": [
 
@@ -1545,9 +1577,9 @@
 			"description": "inflection",
 			"type": "performance",
 			"color": {
-				"red": 18,
-				"green": 25,
-				"blue": 173
+				"red": 171,
+				"green": 245,
+				"blue": 76
 			},
 			"values": [
 
@@ -1558,9 +1590,9 @@
 			"description": "volume of voice",
 			"type": "performance",
 			"color": {
-				"red": 40,
-				"green": 1,
-				"blue": 205
+				"red": 73,
+				"green": 188,
+				"blue": 233
 			},
 			"values": [
 
@@ -1571,9 +1603,9 @@
 			"description": "nonverbal cues",
 			"type": "performance",
 			"color": {
-				"red": 48,
-				"green": 82,
-				"blue": 176
+				"red": 242,
+				"green": 189,
+				"blue": 236
 			},
 			"values": [
 
@@ -1584,9 +1616,9 @@
 			"description": "work with band/musicians",
 			"type": "performance",
 			"color": {
-				"red": 227,
-				"green": 216,
-				"blue": 253
+				"red": 243,
+				"green": 209,
+				"blue": 170
 			},
 			"values": [
 
@@ -1597,9 +1629,9 @@
 			"description": "mise-en-scene",
 			"type": "performance",
 			"color": {
-				"red": 249,
-				"green": 153,
-				"blue": 100
+				"red": 246,
+				"green": 173,
+				"blue": 72
 			},
 			"values": [
 
@@ -1610,9 +1642,9 @@
 			"description": "directional cues",
 			"type": "performance",
 			"color": {
-				"red": 17,
-				"green": 0,
-				"blue": 221
+				"red": 230,
+				"green": 53,
+				"blue": 155
 			},
 			"values": [
 
@@ -1623,9 +1655,9 @@
 			"description": "audio techniques",
 			"type": "performance",
 			"color": {
-				"red": 3,
-				"green": 88,
-				"blue": 174
+				"red": 246,
+				"green": 80,
+				"blue": 154
 			},
 			"values": [
 
@@ -1636,9 +1668,9 @@
 			"description": "cadence",
 			"type": "performance",
 			"color": {
-				"red": 160,
-				"green": 243,
-				"blue": 228
+				"red": 2,
+				"green": 24,
+				"blue": 69
 			},
 			"values": [
 
@@ -1649,9 +1681,9 @@
 			"description": "emphasis on words",
 			"type": "performance",
 			"color": {
-				"red": 93,
-				"green": 196,
-				"blue": 86
+				"red": 138,
+				"green": 79,
+				"blue": 215
 			},
 			"values": [
 
@@ -1662,9 +1694,9 @@
 			"description": "dramatic exercises",
 			"type": "performance",
 			"color": {
-				"red": 20,
-				"green": 96,
-				"blue": 198
+				"red": 104,
+				"green": 14,
+				"blue": 220
 			},
 			"values": [
 
@@ -1675,9 +1707,9 @@
 			"description": "improvisation",
 			"type": "performance",
 			"color": {
-				"red": 159,
-				"green": 74,
-				"blue": 133
+				"red": 6,
+				"green": 218,
+				"blue": 238
 			},
 			"values": [
 
@@ -1688,9 +1720,9 @@
 			"description": "hand motions",
 			"type": "gestures",
 			"color": {
-				"red": 248,
-				"green": 164,
-				"blue": 163
+				"red": 234,
+				"green": 184,
+				"blue": 180
 			},
 			"values": [
 
@@ -1701,9 +1733,9 @@
 			"description": "facial expressions",
 			"type": "gestures",
 			"color": {
-				"red": 54,
-				"green": 176,
-				"blue": 79
+				"red": 193,
+				"green": 190,
+				"blue": 35
 			},
 			"values": [
 
@@ -1714,9 +1746,9 @@
 			"description": "body language",
 			"type": "gestures",
 			"color": {
-				"red": 54,
-				"green": 35,
-				"blue": 213
+				"red": 233,
+				"green": 89,
+				"blue": 43
 			},
 			"values": [
 
@@ -1727,9 +1759,9 @@
 			"description": "hair/makeup",
 			"type": "costuming",
 			"color": {
-				"red": 193,
-				"green": 147,
-				"blue": 248
+				"red": 202,
+				"green": 56,
+				"blue": 149
 			},
 			"values": [
 
@@ -1740,9 +1772,9 @@
 			"description": "clothing",
 			"type": "costuming",
 			"color": {
-				"red": 66,
-				"green": 13,
-				"blue": 49
+				"red": 232,
+				"green": 148,
+				"blue": 84
 			},
 			"values": [
 
@@ -1753,9 +1785,9 @@
 			"description": "accessories",
 			"type": "costuming",
 			"color": {
-				"red": 136,
-				"green": 76,
-				"blue": 3
+				"red": 58,
+				"green": 79,
+				"blue": 233
 			},
 			"values": [
 
@@ -1766,9 +1798,9 @@
 			"description": "props",
 			"type": "costuming",
 			"color": {
-				"red": 25,
-				"green": 72,
-				"blue": 193
+				"red": 248,
+				"green": 156,
+				"blue": 55
 			},
 			"values": [
 
@@ -1779,9 +1811,9 @@
 			"description": "transitions",
 			"type": "editing",
 			"color": {
-				"red": 163,
-				"green": 252,
-				"blue": 52
+				"red": 95,
+				"green": 190,
+				"blue": 96
 			},
 			"values": [
 
@@ -1792,9 +1824,9 @@
 			"description": "fades",
 			"type": "editing",
 			"color": {
-				"red": 29,
-				"green": 247,
-				"blue": 221
+				"red": 109,
+				"green": 166,
+				"blue": 226
 			},
 			"values": [
 
@@ -1805,9 +1837,9 @@
 			"description": "splices",
 			"type": "editing",
 			"color": {
-				"red": 89,
-				"green": 167,
-				"blue": 13
+				"red": 163,
+				"green": 244,
+				"blue": 29
 			},
 			"values": [
 
@@ -1818,9 +1850,9 @@
 			"description": "effects",
 			"type": "editing",
 			"color": {
-				"red": 101,
-				"green": 102,
-				"blue": 203
+				"red": 114,
+				"green": 155,
+				"blue": 103
 			},
 			"values": [
 
@@ -1831,9 +1863,9 @@
 			"description": "natural",
 			"type": "lighting",
 			"color": {
-				"red": 32,
-				"green": 76,
-				"blue": 181
+				"red": 148,
+				"green": 227,
+				"blue": 219
 			},
 			"values": [
 
@@ -1844,9 +1876,9 @@
 			"description": "artificial",
 			"type": "lighting",
 			"color": {
-				"red": 75,
-				"green": 6,
-				"blue": 97
+				"red": 119,
+				"green": 46,
+				"blue": 119
 			},
 			"values": [
 
@@ -1857,9 +1889,9 @@
 			"description": "ambient",
 			"type": "lighting",
 			"color": {
-				"red": 71,
-				"green": 22,
-				"blue": 221
+				"red": 254,
+				"green": 233,
+				"blue": 63
 			},
 			"values": [
 
@@ -1870,9 +1902,9 @@
 			"description": "diffused",
 			"type": "lighting",
 			"color": {
-				"red": 202,
-				"green": 112,
-				"blue": 227
+				"red": 133,
+				"green": 40,
+				"blue": 170
 			},
 			"values": [
 
@@ -1883,9 +1915,9 @@
 			"description": "color",
 			"type": "lighting",
 			"color": {
-				"red": 100,
-				"green": 116,
-				"blue": 162
+				"red": 185,
+				"green": 10,
+				"blue": 131
 			},
 			"values": [
 
@@ -1896,9 +1928,9 @@
 			"description": "emotion",
 			"type": "language",
 			"color": {
-				"red": 227,
-				"green": 240,
-				"blue": 104
+				"red": 14,
+				"green": 17,
+				"blue": 7
 			},
 			"values": [
 				"trouble",
@@ -1948,9 +1980,10 @@
 				"desire",
 				"optimism",
 				"uplifted",
-				"despair vs. adventure",
-				"weakness vs. pain",
-				"joyousness"
+				"joyousness",
+				"freedom",
+				"mixed emotions",
+				"weakness"
 			],
 			"managed": false
 		},
@@ -1958,9 +1991,9 @@
 			"description": "sound",
 			"type": "language",
 			"color": {
-				"red": 208,
-				"green": 89,
-				"blue": 63
+				"red": 115,
+				"green": 232,
+				"blue": 230
 			},
 			"values": [
 				"rhyme",
@@ -1969,7 +2002,9 @@
 				"singing",
 				"drawl",
 				"onomatopoeia",
-				"melancholy"
+				"melancholy",
+				"singing to flush",
+				"drawl to goodbye"
 			],
 			"managed": false
 		},
@@ -1977,9 +2012,9 @@
 			"description": "word choice",
 			"type": "language",
 			"color": {
-				"red": 48,
-				"green": 85,
-				"blue": 192
+				"red": 81,
+				"green": 212,
+				"blue": 13
 			},
 			"values": [
 				"lonely",
@@ -1993,9 +2028,9 @@
 			"description": "mood",
 			"type": "language",
 			"color": {
-				"red": 254,
-				"green": 24,
-				"blue": 220
+				"red": 144,
+				"green": 150,
+				"blue": 87
 			},
 			"values": [
 				"lonesome",
@@ -2036,7 +2071,15 @@
 				"progressive",
 				"dynamic",
 				"cheerful",
-				"remembrance"
+				"remembrance",
+				"emotional",
+				"adventure",
+				"freedom",
+				"desperation to loss",
+				"weakness to longing",
+				"loneliness to adventure",
+				"gloomy to excitement",
+				"despondent to pain"
 			],
 			"managed": false
 		},
@@ -2044,9 +2087,9 @@
 			"description": "rhyme scheme",
 			"type": "language",
 			"color": {
-				"red": 244,
-				"green": 163,
-				"blue": 95
+				"red": 5,
+				"green": 129,
+				"blue": 246
 			},
 			"values": [
 				"abac",
@@ -2068,9 +2111,9 @@
 			"description": "rhythm",
 			"type": "language",
 			"color": {
-				"red": 208,
-				"green": 229,
-				"blue": 7
+				"red": 122,
+				"green": 3,
+				"blue": 202
 			},
 			"values": [
 				"syncopated",
@@ -2085,7 +2128,8 @@
 				"trip",
 				"share",
 				"emotive",
-				"anapestic"
+				"anapestic",
+				"prose to wave goodbye"
 			],
 			"managed": false
 		},
@@ -2093,9 +2137,9 @@
 			"description": "emotions",
 			"type": "language",
 			"color": {
-				"red": 164,
-				"green": 110,
-				"blue": 163
+				"red": 186,
+				"green": 10,
+				"blue": 71
 			},
 			"values": [
 				"strength",
@@ -2113,9 +2157,11 @@
 				"passion",
 				"desire",
 				"sorrow",
-				"high vs. excitement",
 				"peaceful",
-				"quiet"
+				"quiet",
+				"weakness to longing",
+				"high to adventure",
+				"loneliness to excitement"
 			],
 			"managed": false
 		},
@@ -2123,9 +2169,9 @@
 			"description": "sensory",
 			"type": "language",
 			"color": {
-				"red": 64,
-				"green": 27,
-				"blue": 105
+				"red": 32,
+				"green": 198,
+				"blue": 26
 			},
 			"values": [
 				"taste",
@@ -2139,9 +2185,9 @@
 			"description": "rhyme",
 			"type": "language",
 			"color": {
-				"red": 35,
-				"green": 229,
-				"blue": 50
+				"red": 175,
+				"green": 34,
+				"blue": 160
 			},
 			"values": [
 				"aab",
@@ -2172,7 +2218,9 @@
 				"lick",
 				"taste",
 				"lyric",
-				"joyous"
+				"joyous",
+				"internal to pa",
+				"end to flush"
 			],
 			"managed": false
 		},
@@ -2180,9 +2228,9 @@
 			"description": "musicality",
 			"type": "language",
 			"color": {
-				"red": 65,
-				"green": 69,
-				"blue": 4
+				"red": 151,
+				"green": 168,
+				"blue": 80
 			},
 			"values": [
 				"meter",
@@ -2198,9 +2246,9 @@
 			"description": "linguistic",
 			"type": "language",
 			"color": {
-				"red": 72,
-				"green": 65,
-				"blue": 213
+				"red": 198,
+				"green": 237,
+				"blue": 104
 			},
 			"values": [
 				"morphology",
@@ -2214,9 +2262,9 @@
 			"description": "theme",
 			"type": "language",
 			"color": {
-				"red": 242,
-				"green": 191,
-				"blue": 235
+				"red": 36,
+				"green": 233,
+				"blue": 125
 			},
 			"values": [
 				"drug use",
@@ -2231,7 +2279,9 @@
 				"companionship",
 				"journey",
 				"parting",
-				"joy amidst loneliness"
+				"joy amidst loneliness",
+				"drug use to leaving home",
+				"goodbye to family to kissing"
 			],
 			"managed": false
 		},
@@ -2239,9 +2289,9 @@
 			"description": "meter",
 			"type": "language",
 			"color": {
-				"red": 47,
-				"green": 56,
-				"blue": 202
+				"red": 7,
+				"green": 91,
+				"blue": 71
 			},
 			"values": [
 				"rhyme",
@@ -2257,7 +2307,9 @@
 				"regular",
 				"irregular",
 				"sprightly",
-				"syllabic pattern"
+				"syllabic pattern",
+				"iambic to goodbye",
+				"trochaic to pa"
 			],
 			"managed": false
 		},
@@ -2265,9 +2317,9 @@
 			"description": "metaphor",
 			"type": "language",
 			"color": {
-				"red": 212,
-				"green": 114,
-				"blue": 180
+				"red": 59,
+				"green": 184,
+				"blue": 30
 			},
 			"values": [
 				"high",
@@ -2289,8 +2341,6 @@
 				"trip",
 				"birds sharing view",
 				"connecting people",
-				"drug use vs. blood loss",
-				"goodbye to family vs. kiss",
 				"kissing the lonely viewin'",
 				"shared view"
 			],
@@ -2300,9 +2350,9 @@
 			"description": "repetition",
 			"type": "language",
 			"color": {
-				"red": 149,
-				"green": 61,
-				"blue": 205
+				"red": 2,
+				"green": 18,
+				"blue": 103
 			},
 			"values": [
 				"high",
@@ -2322,9 +2372,9 @@
 			"description": "alliteration",
 			"type": "language",
 			"color": {
-				"red": 40,
-				"green": 179,
-				"blue": 11
+				"red": 197,
+				"green": 128,
+				"blue": 140
 			},
 			"values": [
 				"sounds",
@@ -2345,9 +2395,9 @@
 			"description": "wordplay",
 			"type": "writing",
 			"color": {
-				"red": 231,
-				"green": 10,
-				"blue": 239
+				"red": 19,
+				"green": 150,
+				"blue": 41
 			},
 			"values": [
 				"rhyme",
@@ -2365,9 +2415,9 @@
 			"description": "tone",
 			"type": "writing",
 			"color": {
-				"red": 6,
-				"green": 120,
-				"blue": 203
+				"red": 147,
+				"green": 86,
+				"blue": 4
 			},
 			"values": [
 				"gritty",
@@ -2401,7 +2451,8 @@
 				"alluring",
 				"sentimental",
 				"lighthearted",
-				"bittersweet"
+				"bittersweet",
+				"hopefulness"
 			],
 			"managed": false
 		},
@@ -2410,8 +2461,8 @@
 			"type": "writing",
 			"color": {
 				"red": 145,
-				"green": 2,
-				"blue": 13
+				"green": 234,
+				"blue": 46
 			},
 			"values": [
 				"repetition",
@@ -2423,13 +2474,15 @@
 			"description": "structure",
 			"type": "writing",
 			"color": {
-				"red": 209,
-				"green": 57,
-				"blue": 128
+				"red": 59,
+				"green": 68,
+				"blue": 177
 			},
 			"values": [
 				"stanzas",
-				"refrain"
+				"refrain",
+				"stanzas to toilet flush",
+				"refrain to road trip"
 			],
 			"managed": false
 		},
@@ -2438,8 +2491,8 @@
 			"type": "writing",
 			"color": {
 				"red": 95,
-				"green": 135,
-				"blue": 92
+				"green": 13,
+				"blue": 237
 			},
 			"values": [
 				"soft-spoken",
@@ -2449,8 +2502,10 @@
 				"value 2 (intellectual content)",
 				"addiction",
 				"saying goodbye",
-				"addiction vs. menstruation",
-				"saying goodbye vs. leaving home"
+				"emancipation",
+				"independence",
+				"addiction to leaving home",
+				"saying goodbye to kissing"
 			],
 			"managed": false
 		},
@@ -2458,9 +2513,9 @@
 			"description": "language",
 			"type": "writing",
 			"color": {
-				"red": 161,
-				"green": 38,
-				"blue": 126
+				"red": 24,
+				"green": 94,
+				"blue": 62
 			},
 			"values": [
 				"metaphors",
@@ -2483,9 +2538,9 @@
 			"description": "figures of speech",
 			"type": "writing",
 			"color": {
-				"red": 241,
-				"green": 85,
-				"blue": 34
+				"red": 100,
+				"green": 194,
+				"blue": 82
 			},
 			"values": [
 				"repetition",
@@ -2497,9 +2552,9 @@
 			"description": "style",
 			"type": "characters",
 			"color": {
-				"red": 122,
-				"green": 168,
-				"blue": 121
+				"red": 93,
+				"green": 223,
+				"blue": 22
 			},
 			"values": [
 				"dark",
@@ -2516,9 +2571,9 @@
 			"description": "ambience",
 			"type": "characters",
 			"color": {
-				"red": 7,
-				"green": 224,
-				"blue": 163
+				"red": 103,
+				"green": 65,
+				"blue": 161
 			},
 			"values": [
 				"isolation",
@@ -2531,9 +2586,9 @@
 			"description": "peacefulness",
 			"type": "characters",
 			"color": {
-				"red": 243,
-				"green": 73,
-				"blue": 175
+				"red": 130,
+				"green": 159,
+				"blue": 115
 			},
 			"values": [
 				"soft spoken",
@@ -2545,9 +2600,9 @@
 			"description": "resilience",
 			"type": "characters",
 			"color": {
-				"red": 72,
-				"green": 163,
-				"blue": 187
+				"red": 200,
+				"green": 72,
+				"blue": 49
 			},
 			"values": [
 				"broken jaw",
@@ -2561,9 +2616,9 @@
 			"description": "nature",
 			"type": "characters",
 			"color": {
-				"red": 249,
-				"green": 68,
-				"blue": 25
+				"red": 212,
+				"green": 185,
+				"blue": 178
 			},
 			"values": [
 				"autumn sweet",
@@ -2581,9 +2636,9 @@
 			"description": "rhyming words",
 			"type": "characters",
 			"color": {
-				"red": 118,
-				"green": 3,
-				"blue": 6
+				"red": 67,
+				"green": 139,
+				"blue": 214
 			},
 			"values": [
 				"value 1 (same or similar sounding words)"
@@ -2594,9 +2649,9 @@
 			"description": "subject",
 			"type": "characters",
 			"color": {
-				"red": 21,
-				"green": 174,
-				"blue": 149
+				"red": 208,
+				"green": 57,
+				"blue": 12
 			},
 			"values": [
 				"value 1 (narrative)",
@@ -2608,15 +2663,17 @@
 			"description": "place",
 			"type": "setting",
 			"color": {
-				"red": 234,
-				"green": 15,
-				"blue": 159
+				"red": 22,
+				"green": 217,
+				"blue": 106
 			},
 			"values": [
 				"bathroom stall",
 				"southern girl with texas drawl",
 				"service station",
-				"bathroom stall vs. road trip"
+				"texas drawl",
+				"bathroom stall to road trip",
+				"southern girl with texas drawl to leaving home"
 			],
 			"managed": false
 		},
@@ -2624,15 +2681,17 @@
 			"description": "environment",
 			"type": "setting",
 			"color": {
-				"red": 168,
-				"green": 13,
-				"blue": 238
+				"red": 38,
+				"green": 49,
+				"blue": 181
 			},
 			"values": [
 				"ma and pa sings in bathroom door",
 				"peaceful",
 				"high",
-				"ma and pa sings in bathroom door vs. birds seeing us kissing"
+				"ma and pa singing from the bathroom door",
+				"ma and pa sings in bathroom door to kissing",
+				"wave goodbye"
 			],
 			"managed": false
 		},
@@ -2640,12 +2699,13 @@
 			"description": "time period",
 			"type": "setting",
 			"color": {
-				"red": 185,
-				"green": 8,
-				"blue": 170
+				"red": 39,
+				"green": 254,
+				"blue": 90
 			},
 			"values": [
-				"none specified"
+				"none specified",
+				"none specified to road trip"
 			],
 			"managed": false
 		},
@@ -2653,9 +2713,9 @@
 			"description": "symbolism",
 			"type": "creativity",
 			"color": {
-				"red": 40,
-				"green": 233,
-				"blue": 57
+				"red": 98,
+				"green": 195,
+				"blue": 80
 			},
 			"values": [
 				"blood",
@@ -2671,9 +2731,9 @@
 			"description": "simile",
 			"type": "language",
 			"color": {
-				"red": 124,
-				"green": 69,
-				"blue": 230
+				"red": 216,
+				"green": 4,
+				"blue": 54
 			},
 			"values": [
 				"comparison using “like” or “as”",
@@ -2686,9 +2746,9 @@
 			"description": "vocabulary",
 			"type": "language",
 			"color": {
-				"red": 160,
-				"green": 60,
-				"blue": 217
+				"red": 200,
+				"green": 173,
+				"blue": 244
 			},
 			"values": [
 				"vulgar",
@@ -2701,9 +2761,9 @@
 			"description": "imagery & metaphors",
 			"type": "language",
 			"color": {
-				"red": 205,
-				"green": 198,
-				"blue": 193
+				"red": 52,
+				"green": 50,
+				"blue": 67
 			},
 			"values": [
 				"blood loss",
@@ -2712,8 +2772,7 @@
 				"scarlet toilet flush",
 				"waving goodbye",
 				"road trip",
-				"birds",
-				"goodbye vs. road trip"
+				"birds"
 			],
 			"managed": false
 		},
@@ -2721,15 +2780,14 @@
 			"description": "rhyme & alliteration",
 			"type": "language",
 			"color": {
-				"red": 251,
-				"green": 129,
-				"blue": 142
+				"red": 109,
+				"green": 19,
+				"blue": 150
 			},
 			"values": [
 				"flush",
 				"goodbye",
-				"pa",
-				"flush vs. goodbye"
+				"pa"
 			],
 			"managed": false
 		},
@@ -2737,9 +2795,9 @@
 			"description": "feelings",
 			"type": "language",
 			"color": {
-				"red": 255,
-				"green": 25,
-				"blue": 8
+				"red": 243,
+				"green": 132,
+				"blue": 119
 			},
 			"values": [
 				"joy",
@@ -2751,9 +2809,9 @@
 			"description": "connectivity",
 			"type": "writing",
 			"color": {
-				"red": 14,
-				"green": 206,
-				"blue": 74
+				"red": 139,
+				"green": 93,
+				"blue": 10
 			},
 			"values": [
 				"relationship between characters",
@@ -2765,9 +2823,9 @@
 			"description": "heterogeneity",
 			"type": "writing",
 			"color": {
-				"red": 74,
-				"green": 178,
-				"blue": 136
+				"red": 159,
+				"green": 29,
+				"blue": 191
 			},
 			"values": [
 				"varied rhyme schemes",
@@ -2779,9 +2837,9 @@
 			"description": "textures",
 			"type": "writing",
 			"color": {
-				"red": 129,
-				"green": 0,
-				"blue": 53
+				"red": 26,
+				"green": 227,
+				"blue": 160
 			},
 			"values": [
 				"metaphors",
@@ -2794,9 +2852,9 @@
 			"description": "melodic",
 			"type": "writing",
 			"color": {
-				"red": 35,
-				"green": 189,
-				"blue": 56
+				"red": 9,
+				"green": 15,
+				"blue": 81
 			},
 			"values": [
 				"meter",
@@ -2809,9 +2867,9 @@
 			"description": "format",
 			"type": "writing",
 			"color": {
-				"red": 117,
-				"green": 66,
-				"blue": 136
+				"red": 198,
+				"green": 248,
+				"blue": 0
 			},
 			"values": [
 				"verse",
@@ -2823,9 +2881,9 @@
 			"description": "detail",
 			"type": "writing",
 			"color": {
-				"red": 22,
-				"green": 6,
-				"blue": 63
+				"red": 229,
+				"green": 84,
+				"blue": 252
 			},
 			"values": [
 				"intimate",
@@ -2837,9 +2895,9 @@
 			"description": "assonance",
 			"type": "writing",
 			"color": {
-				"red": 66,
-				"green": 111,
-				"blue": 75
+				"red": 90,
+				"green": 74,
+				"blue": 123
 			},
 			"values": [
 				"repeating of a vowel sound",
@@ -2852,9 +2910,9 @@
 			"description": "internal rhyme",
 			"type": "writing",
 			"color": {
-				"red": 74,
-				"green": 175,
-				"blue": 7
+				"red": 86,
+				"green": 19,
+				"blue": 33
 			},
 			"values": [
 				"rhyme within a single line of verse"
@@ -2865,9 +2923,9 @@
 			"description": "figurative language",
 			"type": "writing",
 			"color": {
-				"red": 147,
-				"green": 149,
-				"blue": 178
+				"red": 13,
+				"green": 32,
+				"blue": 254
 			},
 			"values": [
 				"similes",
@@ -2881,9 +2939,9 @@
 			"description": "poetic devices",
 			"type": "writing",
 			"color": {
-				"red": 21,
-				"green": 209,
-				"blue": 26
+				"red": 26,
+				"green": 212,
+				"blue": 143
 			},
 			"values": [
 				"personification",
@@ -2899,9 +2957,9 @@
 			"description": "hope",
 			"type": "characters",
 			"color": {
-				"red": 132,
-				"green": 51,
-				"blue": 72
+				"red": 17,
+				"green": 71,
+				"blue": 46
 			},
 			"values": [
 				"fearlessness",
@@ -2915,9 +2973,9 @@
 			"description": "love",
 			"type": "characters",
 			"color": {
-				"red": 245,
-				"green": 228,
-				"blue": 156
+				"red": 45,
+				"green": 217,
+				"blue": 117
 			},
 			"values": [
 				"romantic",
@@ -2929,9 +2987,9 @@
 			"description": "change",
 			"type": "characters",
 			"color": {
-				"red": 243,
-				"green": 245,
-				"blue": 198
+				"red": 177,
+				"green": 1,
+				"blue": 162
 			},
 			"values": [
 				"dynamic",
@@ -2943,9 +3001,9 @@
 			"description": "longing",
 			"type": "characters",
 			"color": {
-				"red": 117,
-				"green": 220,
-				"blue": 182
+				"red": 76,
+				"green": 232,
+				"blue": 162
 			},
 			"values": [
 				"yearning",
@@ -2957,9 +3015,9 @@
 			"description": "passion",
 			"type": "characters",
 			"color": {
-				"red": 253,
-				"green": 212,
-				"blue": 157
+				"red": 214,
+				"green": 183,
+				"blue": 209
 			},
 			"values": [
 				"intensity",
@@ -2971,9 +3029,9 @@
 			"description": "desire",
 			"type": "characters",
 			"color": {
-				"red": 248,
-				"green": 136,
-				"blue": 109
+				"red": 221,
+				"green": 125,
+				"blue": 70
 			},
 			"values": [
 				"attraction",
@@ -2985,9 +3043,9 @@
 			"description": "explicitness",
 			"type": "characters",
 			"color": {
-				"red": 229,
-				"green": 106,
-				"blue": 52
+				"red": 196,
+				"green": 126,
+				"blue": 106
 			},
 			"values": [
 				"boldness",
@@ -2999,9 +3057,9 @@
 			"description": "setting",
 			"type": "characters",
 			"color": {
-				"red": 34,
-				"green": 255,
-				"blue": 255
+				"red": 232,
+				"green": 158,
+				"blue": 52
 			},
 			"values": [
 				"vantage point",
@@ -3017,9 +3075,9 @@
 			"description": "contrast",
 			"type": "characters",
 			"color": {
-				"red": 206,
-				"green": 231,
-				"blue": 69
+				"red": 174,
+				"green": 92,
+				"blue": 180
 			},
 			"values": [
 				"blood loss vs. kissing",
@@ -3034,9 +3092,9 @@
 			"description": "unexpected",
 			"type": "characters",
 			"color": {
-				"red": 246,
-				"green": 98,
-				"blue": 86
+				"red": 247,
+				"green": 230,
+				"blue": 135
 			},
 			"values": [
 				"scarlet toilet flush",
@@ -3048,9 +3106,9 @@
 			"description": "creativity",
 			"type": "characters",
 			"color": {
-				"red": 93,
-				"green": 65,
-				"blue": 95
+				"red": 37,
+				"green": 169,
+				"blue": 57
 			},
 			"values": [
 				"imagery",
@@ -3064,9 +3122,9 @@
 			"description": "emotionality",
 			"type": "characters",
 			"color": {
-				"red": 81,
-				"green": 70,
-				"blue": 162
+				"red": 211,
+				"green": 148,
+				"blue": 103
 			},
 			"values": [
 				"romance",
@@ -3078,9 +3136,9 @@
 			"description": "softness",
 			"type": "characters",
 			"color": {
-				"red": 130,
-				"green": 19,
-				"blue": 140
+				"red": 250,
+				"green": 194,
+				"blue": 11
 			},
 			"values": [
 				"my boyfriend is soft spoken when he talks to me"
@@ -3091,9 +3149,9 @@
 			"description": "refrain from violence",
 			"type": "characters",
 			"color": {
-				"red": 210,
-				"green": 237,
-				"blue": 142
+				"red": 165,
+				"green": 94,
+				"blue": 155
 			},
 			"values": [
 				"sometimes he will step outside",
@@ -3106,9 +3164,9 @@
 			"description": "moral action",
 			"type": "characters",
 			"color": {
-				"red": 181,
-				"green": 133,
-				"blue": 5
+				"red": 143,
+				"green": 195,
+				"blue": 80
 			},
 			"values": [
 				"because he's a good guy."
@@ -3119,9 +3177,9 @@
 			"description": "enjoyment of nature",
 			"type": "characters",
 			"color": {
-				"red": 172,
-				"green": 179,
-				"blue": 224
+				"red": 86,
+				"green": 195,
+				"blue": 51
 			},
 			"values": [
 				"we are walking outside and autumn's sweet",
@@ -3135,9 +3193,9 @@
 			"description": "wonderment",
 			"type": "characters",
 			"color": {
-				"red": 182,
-				"green": 36,
-				"blue": 105
+				"red": 216,
+				"green": 224,
+				"blue": 74
 			},
 			"values": [
 				"i feel like going to the moon",
@@ -3149,9 +3207,9 @@
 			"description": "affection and comfort",
 			"type": "characters",
 			"color": {
-				"red": 104,
-				"green": 214,
-				"blue": 164
+				"red": 52,
+				"green": 89,
+				"blue": 147
 			},
 			"values": [
 				"when i crawl to you in the bed"
@@ -3162,9 +3220,9 @@
 			"description": "emotional depth",
 			"type": "characters",
 			"color": {
-				"red": 210,
-				"green": 106,
-				"blue": 11
+				"red": 178,
+				"green": 125,
+				"blue": 122
 			},
 			"values": [
 				"intimacy",
@@ -3176,9 +3234,9 @@
 			"description": "atmosphere",
 			"type": "setting",
 			"color": {
-				"red": 95,
-				"green": 187,
-				"blue": 249
+				"red": 103,
+				"green": 139,
+				"blue": 61
 			},
 			"values": [
 				"peaceful",
@@ -3197,14 +3255,13 @@
 			"description": "situation",
 			"type": "setting",
 			"color": {
-				"red": 232,
-				"green": 125,
-				"blue": 28
+				"red": 192,
+				"green": 197,
+				"blue": 234
 			},
 			"values": [
 				"on a journey",
-				"leaving home",
-				"high with birds vs. taking a road trip"
+				"leaving home"
 			],
 			"managed": false
 		},
@@ -3212,14 +3269,13 @@
 			"description": "description",
 			"type": "setting",
 			"color": {
-				"red": 225,
-				"green": 3,
-				"blue": 124
+				"red": 223,
+				"green": 109,
+				"blue": 166
 			},
 			"values": [
 				"southern girl",
-				"scarlet toilet flush",
-				"texas drawl vs. southern girl"
+				"scarlet toilet flush"
 			],
 			"managed": false
 		},
@@ -3227,9 +3283,9 @@
 			"description": "timeframe",
 			"type": "setting",
 			"color": {
-				"red": 44,
-				"green": 210,
-				"blue": 39
+				"red": 157,
+				"green": 72,
+				"blue": 64
 			},
 			"values": [
 				"present day",
@@ -3241,9 +3297,9 @@
 			"description": "location",
 			"type": "setting",
 			"color": {
-				"red": 95,
-				"green": 174,
-				"blue": 222
+				"red": 204,
+				"green": 15,
+				"blue": 226
 			},
 			"values": [
 				"outside",
@@ -3255,9 +3311,9 @@
 			"description": "empathy",
 			"type": "creativity",
 			"color": {
-				"red": 129,
-				"green": 137,
-				"blue": 205
+				"red": 242,
+				"green": 149,
+				"blue": 47
 			},
 			"values": [
 				"compassion",
@@ -3269,9 +3325,9 @@
 			"description": "expression",
 			"type": "creativity",
 			"color": {
-				"red": 77,
-				"green": 216,
-				"blue": 222
+				"red": 149,
+				"green": 24,
+				"blue": 115
 			},
 			"values": [
 				"descriptions",
@@ -3286,9 +3342,9 @@
 			"description": "wit",
 			"type": "creativity",
 			"color": {
-				"red": 251,
-				"green": 251,
-				"blue": 207
+				"red": 184,
+				"green": 165,
+				"blue": 59
 			},
 			"values": [
 				"humor",
@@ -3300,9 +3356,9 @@
 			"description": "music",
 			"type": "creativity",
 			"color": {
-				"red": 175,
-				"green": 225,
-				"blue": 109
+				"red": 235,
+				"green": 22,
+				"blue": 43
 			},
 			"values": [
 				"rhythm",
@@ -3314,9 +3370,9 @@
 			"description": "poeticism",
 			"type": "writing",
 			"color": {
-				"red": 93,
-				"green": 77,
-				"blue": 187
+				"red": 225,
+				"green": 9,
+				"blue": 232
 			},
 			"values": [
 				"poignant",
@@ -3328,9 +3384,9 @@
 			"description": "sensuous imagery",
 			"type": "writing",
 			"color": {
-				"red": 224,
-				"green": 111,
-				"blue": 134
+				"red": 125,
+				"green": 37,
+				"blue": 121
 			},
 			"values": [
 				"push me up against the wall",
@@ -3342,9 +3398,9 @@
 			"description": "allusion",
 			"type": "writing",
 			"color": {
-				"red": 65,
-				"green": 202,
-				"blue": 215
+				"red": 103,
+				"green": 215,
+				"blue": 173
 			},
 			"values": [
 				"lick your heart and taste your health"
@@ -3355,9 +3411,9 @@
 			"description": "clever metaphor",
 			"type": "writing",
 			"color": {
-				"red": 197,
-				"green": 119,
-				"blue": 105
+				"red": 174,
+				"green": 139,
+				"blue": 161
 			},
 			"values": [
 				"fallin' all over myself"
@@ -3368,9 +3424,9 @@
 			"description": "rhyming",
 			"type": "writing",
 			"color": {
-				"red": 57,
-				"green": 148,
-				"blue": 70
+				"red": 36,
+				"green": 241,
+				"blue": 2
 			},
 			"values": [
 				"internal",
@@ -3382,9 +3438,9 @@
 			"description": "onomatopoeia",
 			"type": "writing",
 			"color": {
-				"red": 223,
-				"green": 115,
-				"blue": 39
+				"red": 129,
+				"green": 231,
+				"blue": 98
 			},
 			"values": [
 				"word sounds",
@@ -3396,9 +3452,9 @@
 			"description": "determination",
 			"type": "writing",
 			"color": {
-				"red": 181,
-				"green": 216,
-				"blue": 179
+				"red": 219,
+				"green": 138,
+				"blue": 45
 			},
 			"values": [
 				"crawling to the moon"
@@ -3409,9 +3465,9 @@
 			"description": "optimism",
 			"type": "characters",
 			"color": {
-				"red": 38,
-				"green": 100,
-				"blue": 65
+				"red": 127,
+				"green": 14,
+				"blue": 46
 			},
 			"values": [
 				"determination",
@@ -3423,9 +3479,9 @@
 			"description": "adventure",
 			"type": "characters",
 			"color": {
-				"red": 128,
-				"green": 122,
-				"blue": 111
+				"red": 244,
+				"green": 137,
+				"blue": 156
 			},
 			"values": [
 				"risk",
@@ -3437,9 +3493,9 @@
 			"description": "aesthetics",
 			"type": "setting",
 			"color": {
-				"red": 248,
-				"green": 184,
-				"blue": 39
+				"red": 6,
+				"green": 246,
+				"blue": 127
 			},
 			"values": [
 				"intimate",
@@ -3451,9 +3507,9 @@
 			"description": "person",
 			"type": "setting",
 			"color": {
-				"red": 106,
-				"green": 90,
-				"blue": 230
+				"red": 21,
+				"green": 27,
+				"blue": 162
 			},
 			"values": [
 				"southern girl"
@@ -3464,9 +3520,9 @@
 			"description": "narrator",
 			"type": "setting",
 			"color": {
-				"red": 175,
-				"green": 83,
-				"blue": 88
+				"red": 244,
+				"green": 209,
+				"blue": 236
 			},
 			"values": [
 				"third-person"
@@ -3477,9 +3533,9 @@
 			"description": "imaginative descriptions",
 			"type": "creativity",
 			"color": {
-				"red": 255,
-				"green": 53,
-				"blue": 59
+				"red": 156,
+				"green": 224,
+				"blue": 188
 			},
 			"values": [
 				"blood loss",
@@ -3492,9 +3548,9 @@
 			"description": "texture",
 			"type": "language",
 			"color": {
-				"red": 236,
-				"green": 213,
-				"blue": 21
+				"red": 201,
+				"green": 46,
+				"blue": 108
 			},
 			"values": [
 				"allusions"
@@ -3505,9 +3561,9 @@
 			"description": "imagetext",
 			"type": "language",
 			"color": {
-				"red": 5,
-				"green": 45,
-				"blue": 100
+				"red": 143,
+				"green": 171,
+				"blue": 91
 			},
 			"values": [
 				"contrasting images"
@@ -3518,9 +3574,9 @@
 			"description": "morality",
 			"type": "language",
 			"color": {
-				"red": 187,
-				"green": 244,
-				"blue": 199
+				"red": 241,
+				"green": 131,
+				"blue": 14
 			},
 			"values": [
 				"good guy"
@@ -3531,12 +3587,241 @@
 			"description": "affections and comfort",
 			"type": "language",
 			"color": {
-				"red": 65,
-				"green": 81,
-				"blue": 11
+				"red": 58,
+				"green": 164,
+				"blue": 156
 			},
 			"values": [
 				"crawl to you"
+			],
+			"managed": false
+		},
+		{
+			"description": "contrast and unexpected element",
+			"type": "writing",
+			"color": {
+				"red": 177,
+				"green": 51,
+				"blue": 117
+			},
+			"values": [
+				"bathroom stall",
+				"southern girl",
+				"texas drawl",
+				"scarlet toilet flush",
+				"waving goodbye",
+				"road trip",
+				"birds"
+			],
+			"managed": false
+		},
+		{
+			"description": "emotional interaction",
+			"type": "writing",
+			"color": {
+				"red": 242,
+				"green": 21,
+				"blue": 135
+			},
+			"values": [
+				"goodbye",
+				"kissing"
+			],
+			"managed": false
+		},
+		{
+			"description": "personality trait",
+			"type": "writing",
+			"color": {
+				"red": 40,
+				"green": 158,
+				"blue": 116
+			},
+			"values": [
+				"adventurous",
+				"independent"
+			],
+			"managed": false
+		},
+		{
+			"description": "goal",
+			"type": "writing",
+			"color": {
+				"red": 122,
+				"green": 175,
+				"blue": 207
+			},
+			"values": [
+				"exploring the world"
+			],
+			"managed": false
+		},
+		{
+			"description": "motivation",
+			"type": "writing",
+			"color": {
+				"red": 125,
+				"green": 239,
+				"blue": 184
+			},
+			"values": [
+				"take a road trip"
+			],
+			"managed": false
+		},
+		{
+			"description": "storyline",
+			"type": "writing",
+			"color": {
+				"red": 25,
+				"green": 10,
+				"blue": 227
+			},
+			"values": [
+				"going on a journey",
+				"leaving home",
+				"saying goodbye",
+				"kissing"
+			],
+			"managed": false
+		},
+		{
+			"description": "mechanic (sound)",
+			"type": "writing",
+			"color": {
+				"red": 20,
+				"green": 219,
+				"blue": 65
+			},
+			"values": [
+				"singing",
+				"drawl"
+			],
+			"managed": false
+		},
+		{
+			"description": "mechanic (structure)",
+			"type": "writing",
+			"color": {
+				"red": 130,
+				"green": 55,
+				"blue": 31
+			},
+			"values": [
+				"stanza",
+				"refrain"
+			],
+			"managed": false
+		},
+		{
+			"description": "mechanic (rhyme)",
+			"type": "writing",
+			"color": {
+				"red": 14,
+				"green": 20,
+				"blue": 49
+			},
+			"values": [
+				"internal",
+				"end"
+			],
+			"managed": false
+		},
+		{
+			"description": "mechanic (meter)",
+			"type": "writing",
+			"color": {
+				"red": 171,
+				"green": 43,
+				"blue": 153
+			},
+			"values": [
+				"iambic",
+				"trochaic"
+			],
+			"managed": false
+		},
+		{
+			"description": "morally interactive",
+			"type": "characters",
+			"color": {
+				"red": 134,
+				"green": 178,
+				"blue": 124
+			},
+			"values": [
+				"saying goodbye",
+				"kissing goodbye",
+				"taking a road trip"
+			],
+			"managed": false
+		},
+		{
+			"description": "atheistically interactive",
+			"type": "characters",
+			"color": {
+				"red": 145,
+				"green": 175,
+				"blue": 1
+			},
+			"values": [
+				"leaving home",
+				"taking a road trip"
+			],
+			"managed": false
+		},
+		{
+			"description": "rhyme and alliteration",
+			"type": "setting",
+			"color": {
+				"red": 209,
+				"green": 208,
+				"blue": 39
+			},
+			"values": [
+				"flush",
+				"goodbye",
+				"pa"
+			],
+			"managed": false
+		},
+		{
+			"description": "motivtions",
+			"type": "setting",
+			"color": {
+				"red": 112,
+				"green": 251,
+				"blue": 145
+			},
+			"values": [
+				"take drugs",
+				"take a road trip"
+			],
+			"managed": false
+		},
+		{
+			"description": "quirk",
+			"type": "setting",
+			"color": {
+				"red": 205,
+				"green": 87,
+				"blue": 77
+			},
+			"values": [
+				"southern girl speaking with a texas drawl"
+			],
+			"managed": false
+		},
+		{
+			"description": "backdropstories",
+			"type": "setting",
+			"color": {
+				"red": 125,
+				"green": 133,
+				"blue": 150
+			},
+			"values": [
+				"taking drugs in a bathroom stall"
 			],
 			"managed": false
 		}
