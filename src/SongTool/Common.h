@@ -109,6 +109,7 @@ enum {
 };
 
 
+String GetUnknownText(GroupContext g);
 String GetGroupContextString(GroupContext ctx);
 String GetGroupContextNaturalDescription(GroupContext ctx);
 

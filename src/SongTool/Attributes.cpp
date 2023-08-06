@@ -175,7 +175,13 @@ void Attributes::LoadDefaultGroups() {
 	AddGroup("lighting", "Ambient", true);
 	AddGroup("lighting", "Diffused", true);
 	AddGroup("lighting", "Color", true);
-
+	
+	
+	
+	
+	AddGroupType("unknown text", CTX_TEXT);
+	AddGroupType("unknown visual", CTX_VISUAL);
+	
 }
 
 void Attributes::LoadDefaultAnalysis() {

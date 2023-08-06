@@ -37,3 +37,8 @@ DONE:
 - separate lyrics more, because now there's COMMON
 - fix pattern mask ai prompt issues
 - weighted pattern mask using ai
+(6.8.2023)
+- fix PatternView tree
+- fix PatternCtrl issues
+- fix Pattern ai input issue
+- weighted snaps ai task

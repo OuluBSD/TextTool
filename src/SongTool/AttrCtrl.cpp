@@ -41,7 +41,8 @@ void AttrCtrl::Load() {
 	for (bool& b : active) b = false;
 	for (const SnapAttrStr& a : snap->attributes) {
 		int id = a.group_i * g.group_limit + a.item_i;
-		ASSERT(id >= 0 && id < active.GetCount());
+		if (id >= active.GetCount())
+			active.SetCount(id+1, false);
 		if (id >= 0 && id < active.GetCount())
 			active[id] = true;
 	}
@@ -53,7 +54,8 @@ void AttrCtrl::Load() {
 		for (const SnapAttrStr& a : owner->attributes) {
 			int id = a.group_i * g.group_limit + a.item_i;
 			
-			ASSERT(id >= 0 && id < inherited_active.GetCount());
+			if (id >= inherited_active.GetCount())
+				inherited_active.SetCount(id+1, false);
 			if (id >= 0 && id < inherited_active.GetCount())
 				inherited_active[id] = true;
 			
@@ -74,7 +76,8 @@ void AttrCtrl::Load() {
 		for (PatternSnap* s : sub) {
 			for (const SnapAttrStr& a : s->attributes) {
 				int id = a.group_i * g.group_limit + a.item_i;
-				ASSERT(id >= 0 && id < sub_active.GetCount());
+				if (id >= sub_active.GetCount())
+					sub_active.SetCount(id+1, false);
 				if (id >= 0 && id < sub_active.GetCount())
 					sub_active[id] = true;
 			}

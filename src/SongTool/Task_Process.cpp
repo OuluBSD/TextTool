@@ -621,7 +621,7 @@ void Task::Process_PatternMaskWeighted() {
 		String key = ToLower(TrimBoth(line.Mid(1, cur-1)));
 		Index<String>& items = parsed.GetAdd(key);
 		line = ToLower(TrimBoth(line.Mid(cur+1)));
-		if (line.Find(" vs. ") >= 0) {
+		if (line.Find(" vs. ") >= 0 || line.Find(" - ") >= 0) {
 			SetError("stupid ai result");
 			return;
 		}
@@ -647,7 +647,9 @@ void Task::Process_PatternMaskWeighted() {
 		int group_i = attrs.FindGroup(group_str);
 		if (group_i < 0) {
 			String type = args[0];
-			attrs.AddGroup(type, group_str, false);
+			Attributes::Group& g = attrs.AddGroup(type, group_str, false);
+			group_i = db.attrs.groups.GetCount()-1;
+			ASSERT(&db.attrs.groups[group_i] == &g);
 		}
 		
 		for(int j = 0; j < items.GetCount(); j++) {
@@ -913,13 +915,93 @@ void Task::Process_Pattern() {
 						for (PatternSnap* snap : snaps) {
 							//LOG(snap->txt << " --> " << attr.group << ", " << attr.item);
 							snap->FindAddAttr(attr);
+							
+							// Add to mask... which is questionable
+							if (1) {
+								snap->part->snap[a].mask.FindAdd(attr);
+								snap->song->snap[a].mask.FindAdd(attr);
+							}
 						}
+						
 					}
 					else {
 						LOG("Task::Process_Pattern: warning: not found: " << group_str << " -> " << item_str);
 					}
 				}
 			}
+		}
+	}
+}
+
+void Task::Process_PatternWeighted() {
+	Database& db = Database::Single();
+	Attributes& attrs = db.attrs;
+	
+	Ptrs& p = this->p;
+	Song& song = *p.song;
+	Part& part = *p.part;
+	String s;
+	String parts;
+	
+	ASSERT(p.a.mode == WEIGHTED);
+	SnapArg a = p.a;
+	
+	String unknown_type = GetUnknownText(a.ctx);
+	
+	PatternSnap& snap = this->ctx->snap[a];
+	
+	String result = "-" + output;
+	//LOG(result);
+	
+	Vector<String> lines = Split(result, "\n");
+	
+	VectorMap<String, Index<String>> parsed;
+	
+	for (String& line : lines) {
+		int cur = line.Find(":");
+		if (cur < 0) {SetError("no column"); return;}
+		String key = ToLower(TrimBoth(line.Mid(1, cur-1)));
+		Index<String>& items = parsed.GetAdd(key);
+		line = ToLower(TrimBoth(line.Mid(cur+1)));
+		if (line.Find(" vs. ") >= 0 || line.Find(" - ") >= 0) {
+			SetError("stupid ai result");
+			return;
+		}
+		if (line.Find(",") >= 0) {
+			Vector<String> parts = Split(line, ",");
+			for (const String& s : parts)
+				items.FindAdd(s);
+		}
+		else if (line.Find("/")) {
+			Vector<String> parts = Split(line, "/");
+			for (const String& s : parts)
+				items.FindAdd(s);
+		}
+		else
+			items.FindAdd(line);
+	}
+	
+	// Use parsed data
+	for(int i = 0; i < parsed.GetCount(); i++) {
+		String group_str = parsed.GetKey(i);
+		const Index<String>& items = parsed[i];
+		
+		int group_i = attrs.FindGroup(group_str);
+		if (group_i < 0) {
+			Attributes::Group& g = attrs.AddGroup(unknown_type, group_str, false);
+			group_i = db.attrs.groups.GetCount()-1;
+			ASSERT(&db.attrs.groups[group_i] == &g);
+		}
+		
+		for(int j = 0; j < items.GetCount(); j++) {
+			SnapAttr sa = attrs.GetAddAttr(group_str, items[j]);
+			SnapAttrStr sas;
+			sas.group = group_str;
+			sas.item = items[j];
+			sas.group_i = sa.group;
+			sas.item_i = sa.item;
+			sas.has_id = true;
+			snap.attributes.FindAdd(sas);
 		}
 	}
 }

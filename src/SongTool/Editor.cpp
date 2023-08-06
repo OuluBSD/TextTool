@@ -135,6 +135,8 @@ void Editor::SetView(int i) {
 	mask_scoring.Hide();
 	lyrics.Hide();
 	
+	parts.Enable();
+	
 	WhenStopUpdating();
 	
 	switch (i) {
@@ -151,7 +153,7 @@ void Editor::SetView(int i) {
 		case 9: story.Show(); break;
 		case 10: impact.Show(); break;
 		case 11: patmask.Show(); break;
-		case 12: pattern.Show(); break;
+		case 12: parts.Disable(); pattern.Show(); break;
 		case 13: attrscore.Show(); break;
 		case 14: impact_scoring.Show(); break;
 		case 15: mask_scoring.Show(); break;

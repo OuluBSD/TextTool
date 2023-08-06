@@ -33,6 +33,7 @@ void PatternCtrl::OnListSel() {
 		db.ctx.snap[a] = &snap;
 		WhenFocusTree();
 		DataPatternSnap();
+		list->SetFocus();
 	}
 }
 
@@ -50,7 +51,7 @@ void PatternCtrl::DataList() {
 		return;
 	
 	SnapArg src = a;
-	src.InverseDir();
+	//src.InverseDir();
 	int src_mode = src.Get();
 	
 	One<ArrayCtrl>& list0 = this->list;
@@ -252,39 +253,58 @@ PatternList::PatternList() {
 }
 
 void PatternList::Data() {
-	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
-	Song& song = *p.song;
-	Attributes& a = db.attrs;
-	if (!db.ctx.active_wholesong && !p.part)
-		return;
-	
 	for(const SnapArg& a : ModeArgs()) {
 		Splitter& vsplit = this->vsplit[a];
 		ArrayCtrl& data = this->data[a];
 		DocEdit& lyrics = this->lyrics[a];
-		PatternSnap& snap = db.ctx.active_wholesong ? song.Get(a) : p.part->Get(a);
+		String txt;
 		
-		lyrics.SetData(db.ctx.active_wholesong ? song.headers[a].content : snap.txt);
-		
-		for(int j = 0; j < snap.attributes.GetCount(); j++) {
-			const SnapAttrStr& sa = snap.attributes[j];
-			
-			bool only_in_this = true;
-			for (const SnapArg& a0 : ModeArgs()) {
-				if (&a == &a0) continue;
-				PatternSnap& snap0 = (db.ctx.active_wholesong ? song.Get(a0) : p.part->Get(a0));
-				if (snap0.attributes.Find(sa) >= 0)
-					only_in_this = false;
-			}
-			
-			Color gclr = GetGenderColor(a.mode);
-			Color clr = Blend(only_in_this ? gclr : White(), White(), 256-32);
-			
-			data.Set(j, 0, AttrText(sa.group).NormalPaper(clr));
-			data.Set(j, 1, AttrText(sa.item).NormalPaper(clr));
+		SnapContext* ctx = 0;
+		if (p.brk) {
+			ctx = p.brk;
 		}
-		data.SetCount(snap.attributes.GetCount());
+		else if (p.line) {
+			ctx = p.line;
+		}
+		else if (p.part) {
+			ctx = p.part;
+		}
+		else if (p.song) {
+			ctx = p.song;
+			txt = p.song->headers[a].content;
+		}
+		
+		if (ctx) {
+			PatternSnap& snap = ctx->snap[a];
+			
+			if (txt.IsEmpty()) txt = snap.txt;
+			
+			lyrics.SetData(txt);
+			
+			for(int j = 0; j < snap.attributes.GetCount(); j++) {
+				const SnapAttrStr& sa = snap.attributes[j];
+				
+				bool in_all = true;
+				for (const SnapArg& a0 : ModeArgs()) {
+					if (&a == &a0) continue;
+					PatternSnap& snap0 = ctx->Get(a0);
+					if (snap0.attributes.Find(sa) < 0) {
+						in_all = false;
+						break;
+					}
+				}
+				
+				Color gclr = GetGenderColor(a.mode);
+				Color clr = Blend(!in_all ? gclr : White(), White(), 256-32);
+				
+				data.Set(j, 0, AttrText(sa.group).NormalPaper(clr));
+				data.Set(j, 1, AttrText(sa.item).NormalPaper(clr));
+			}
+			data.SetCount(snap.attributes.GetCount());
+		}
+		else {
+			data.Clear();
+		}
 	}
 }
 
@@ -400,27 +420,31 @@ void PatternView::DataPatternTree() {
 
 void PatternView::OnTreeSel() {
 	Database& db = Database::Single();
+	Ptrs& p = db.ctx.p;
 	int cursor = tree.GetCursor();
 	int i = tree_snaps.Find(cursor);
 	int j = tree_parts.Find(cursor);
-	if (i >= 0 && j >= 0) {
-		SnapContext& ctx = *tree_snaps[i];
+	if (!cursor || (i >= 0 && j >= 0)) {
+		SnapContext& ctx = cursor == 0 ? *p.song : *tree_snaps[i];
 		Ptrs& p = db.ctx.p;
-		p.part = tree_parts[j];
+		p.part = cursor == 0 ? 0 : tree_parts[j];
 		
-		int t = tabs.Get();
-		if (t >= 1 && t < MODE_COUNT+1) {
-			const SnapArg& a = this->a[t];
-			db.ctx.snap[a] = &ctx.Get(a);
-			
-			PatternCtrl& pc = pattern[t-1];
-			pc.FocusList();
-			pc.DataList();
-			pc.DataPatternSnap();
+		for (int t = 0; t < MODE_COUNT+1; t++) {
+			if (t >= 1 && t < MODE_COUNT+1) {
+				const SnapArg& a = this->a[t];
+				db.ctx.snap[a] = &ctx.Get(a);
+				
+				PatternCtrl& pc = pattern[t-1];
+				pc.FocusList();
+				pc.DataList();
+				pc.DataPatternSnap();
+			}
+			else {
+				list.p.CopyPtrs(ctx.Get(ZeroArg()));
+				list.Data();
+			}
 		}
-		else {
-			list.Data();
-		}
+		tree.SetFocus();
 	}
 }
 
@@ -434,6 +458,7 @@ void PatternView::FocusTree() {
 		for(int i = 0; i < tree_snaps.GetCount(); i++) {
 			if (&tree_snaps[i]->Get(a) == db.ctx.snap[a]) {
 				tree.SetCursor(tree_snaps.GetKey(i));
+				tree.SetFocus();
 				break;
 			}
 		}

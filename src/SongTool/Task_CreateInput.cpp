@@ -434,6 +434,7 @@ void Task::CreateInput_PatternMask() {
 	}
 	s << "\n";
 	
+	if (!count && type == GetUnknownText(a.ctx)) {SetFastExit(); return;}
 	if (!count) {SetFatalError("internal error"); return;}
 	
 	
@@ -606,26 +607,90 @@ void Task::CreateInput_Pattern() {
 	s << "\n";
 	
 	if (first_key.IsEmpty()) {
-		SetFatalError("No attribute groups available with the type of " + type);
+		if (type == GetUnknownText(a.ctx))
+			SetFastExit();
+		else
+			SetFatalError("No attribute groups available with the type of " + type);
 		return;
 	}
 	
 	s << "\n\n\nLyrics:\n";
+	String first_line;
 	for(int i = 0, j = 0; i < header.unique_lines.GetCount(); i++) {
 		const String& l = header.unique_lines.GetKey(i);
 		if (i < offset_begin || i >= offset_end)
 			continue;
+		if (!j)
+			first_line = l;
 		s << "Line " << (j+1) << ", \"" << l << "\"\n";
 		//hash << ToLower(l);
 		j++;
 	}
 	s << "\nMultiple answers are required.\n\n";
-	s << "\n\nAttributes (in format \"Group: Attribute\") for all lines:\nLine 1, \"" << header.unique_lines.GetKey(0) << "\"\n-";
+	s << "\n\nAttributes (in format \"Group: Attribute\") for all lines:\nLine 1, \"" << first_line << "\"\n-";
 	
 	//failed = true;
 	//this->hash = hash;
 	input = s;
 	response_length = 1024*3/2;
+}
+
+void Task::CreateInput_PatternWeighted() {
+	Ptrs& p = this->p;
+	Song& song = *p.song;
+	Part& part = *p.part;
+	String s;
+	String parts;
+	
+	SnapArg a0 = p.a;
+	SnapArg a1 = p.a;
+	a0.mode = MALE;
+	a1.mode = FEMALE;
+	
+	PatternSnap& snap0 = this->ctx->snap[a0];
+	PatternSnap& snap1 = this->ctx->snap[a1];
+	
+	s <<	"Example of the process:\n"
+			"\n"
+			"Attribute-list A describing sentence X:\n"
+			"- noun: I\n"
+			"- noun: you\n"
+			"- verb: like\n"
+			"\n"
+			"Attribute-list B describing sentence X:\n"
+			"- noun: you\n"
+			"- verb: are\n"
+			"- adjective: nice\n"
+			"\n"
+			"Difference-aware meta-transition attribute-list from A to B:\n"
+			"- pronoun: I\n"
+			"- verb: admire\n"
+			"- adjective: your\n"
+			"\n"
+			"\n";
+	
+	
+	s << "Task 1:\n\n";
+	
+	s << "Attribute-list A describing sentence X:\n";
+	for(const SnapAttrStr& sa : snap0.attributes) {
+		ASSERT(sa.group.GetCount() && sa.item.GetCount());
+		s << "- " << sa.group << ": " << sa.item << "\n";
+	}
+	s << "\n";
+	
+	s << "Attribute-list B describing sentence X:\n";
+	for(const SnapAttrStr& sa : snap1.attributes) {
+		ASSERT(sa.group.GetCount() && sa.item.GetCount());
+		s << "- " << sa.group << ": " << sa.item << "\n";
+	}
+	s << "\n";
+	
+	s << "Difference-aware meta-transition attribute-list from A to B:\n";
+	s << "-";
+	
+	//LOG(s);
+	input = s;
 }
 
 void Task::CreateInput_Analysis() {

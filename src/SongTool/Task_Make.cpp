@@ -395,9 +395,6 @@ void Task::Process_MakePatternTasks() {
 	Song& song = *p.song;
 	SongHeader& header = song.headers[a];
 	
-	int per_task = 30;
-	int tasks = 1 + header.unique_lines.GetCount() / per_task;
-	
 	if (!p.song) {
 		SetError("no song pointer set");
 		return;
@@ -407,7 +404,10 @@ void Task::Process_MakePatternTasks() {
 	//chk.p = this->p;
 	
 	// Pattern tasks -> attribute score task maker
-	{
+	if (a.mode < HUMAN_INPUT_MODE_COUNT) {
+		int per_task = 30;
+		int tasks = 1 + header.unique_lines.GetCount() / per_task;
+		
 		for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
 			const Attributes::GroupType& group_type = db.attrs.group_types[i];
 			
@@ -420,6 +420,29 @@ void Task::Process_MakePatternTasks() {
 				t.p = this->p;
 				t.args << group_type.name << IntStr(j * per_task) << IntStr((j + 1) * per_task);
 			}
+		}
+	}
+	else {
+		for (Part& part : song.parts) {
+			for (Line& line : part.lines) {
+				for (Break& brk : line.breaks) {
+					
+					Task& t = ResultTask(TASK_PATTERN_WEIGHTED);
+					t.p = this->p;
+					t.ctx = &brk;
+					t.snap = &brk.snap[a];
+				}
+				
+				Task& t = ResultTask(TASK_PATTERN_WEIGHTED);
+				t.p = this->p;
+				t.ctx = &line;
+				t.snap = &line.snap[a];
+			}
+				
+			Task& t = ResultTask(TASK_PATTERN_WEIGHTED);
+			t.p = this->p;
+			t.ctx = &part;
+			t.snap = &part.snap[a];
 		}
 	}
 }

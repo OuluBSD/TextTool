@@ -210,3 +210,11 @@ int CountWords(const String& s) {
 	}
 	return wc;
 }
+
+String GetUnknownText(GroupContext g) {
+	switch (g) {
+		case CTX_TEXT: return "unknown text";
+		case CTX_VISUAL: return "unknown visual";
+		default: TODO; return "";
+	}
+}
