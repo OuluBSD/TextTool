@@ -174,11 +174,13 @@ void Plotter::AddValue(const Vector<int>& score, const Vector<int>& other_score)
 	bool genderdiff_view = view == VIEW_GENDERDIFF;
 	int c = g.scorings.GetCount();
 	
-	tmp_score.SetCount(c,0);
 	
 	// Read values to stack variables
 	if (genderdiff_weighted_view) {
+		tmp_score.SetCount(c,0);
 		CalculateWeightedGenderDifference(tmp_score, score, other_score);
+		for(int i = 0; i < c; i++)
+			values[i].Add(tmp_score[i]);
 	}
 	else if (genderdiff_view) {
 		int c0 = min(c, min(
@@ -196,8 +198,6 @@ void Plotter::AddValue(const Vector<int>& score, const Vector<int>& other_score)
 			values[k].Add(score[k]);
 	}
 	
-	for(int i = 0; i < c; i++)
-		values[i].Add(tmp_score[i]);
 }
 
 void Plotter::Paint(Draw& d) {

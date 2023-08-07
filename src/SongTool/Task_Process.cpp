@@ -1002,6 +1002,12 @@ void Task::Process_PatternWeighted() {
 			sas.item_i = sa.item;
 			sas.has_id = true;
 			snap.attributes.FindAdd(sas);
+			
+			// Add to mask... which is questionable
+			if (1) {
+				snap.part->snap[a].mask.FindAdd(sas);
+				snap.song->snap[a].mask.FindAdd(sas);
+			}
 		}
 	}
 }
@@ -1339,7 +1345,7 @@ void Task::Process_AttrScores() {
 bool Task::AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str) {
 	Database& db = Database::Single();
 	Attributes& g = db.attrs;
-	SnapAttr a;
+	SnapAttrStr a;
 	bool found = false;
 	
 	String lname = ToLower(entry_str);
@@ -1360,8 +1366,7 @@ bool Task::AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str)
 		
 		for(int j = 0; j < gg.values.GetCount(); j++) {
 			if (ToLower(gg.values[j]) == lname) {
-				a.group = i;
-				a.item = j;
+				a.SetFromId(i, j);
 				found = true;
 				break;
 			}
@@ -1379,13 +1384,13 @@ bool Task::AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str)
 	return true;
 }
 
-void Task::AddAttrScoreId(AttrScoreGroup& ag, const SnapAttr& a) {
+void Task::AddAttrScoreId(AttrScoreGroup& ag, const SnapAttrStr& a) {
 	Database& db = Database::Single();
 	
 	// Remove SnapAttr from previously added group
 	for (AttrScoreGroup& ag0 : db.attrscores.groups) {
 		for(int i = 0; i < ag0.attrs.GetCount(); i++) {
-			const SnapAttr& a0 = ag0.attrs[i];
+			const SnapAttrStr& a0 = ag0.attrs[i];
 			if (a0 == a) {
 				// Return if value is already in the target group
 				if (&ag0 == &ag)
@@ -1399,6 +1404,7 @@ void Task::AddAttrScoreId(AttrScoreGroup& ag, const SnapAttr& a) {
 	}
 	
 	// Add to the group
+	ASSERT(a.has_id);
 	ag.attrs.Add(a);
 }
 
@@ -1414,7 +1420,7 @@ void GetScores(const PatternSnap& snap, Vector<int>& scores) {
 			SnapAttr a0;
 			
 			int match_count = 0;
-			for (const SnapAttr& a0 : g.attrs) {
+			for (const SnapAttrStr& a0 : g.attrs) {
 				for (const SnapAttrStr& a1 : s->attributes.GetKeys()) {
 					if (a1 == a0)
 						match_count++;
@@ -1447,7 +1453,7 @@ void GetMaskScores(const PatternSnap& snap, Vector<int>& scores) {
 			SnapAttr a0;
 			
 			int match_count = 0;
-			for (const SnapAttr& a0 : g.attrs) {
+			for (const SnapAttrStr& a0 : g.attrs) {
 				for (const SnapAttrStr& a1 : s->mask.GetKeys()) {
 					if (a1 == a0)
 						match_count++;

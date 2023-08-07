@@ -188,7 +188,7 @@ struct Task {
 	String GetTaskDepsWaitingString() const;
 	String GetTypeString() const;
 	bool AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str);
-	void AddAttrScoreId(AttrScoreGroup& ag, const SnapAttr& a);
+	void AddAttrScoreId(AttrScoreGroup& ag, const SnapAttrStr& a);
 	
 };
 

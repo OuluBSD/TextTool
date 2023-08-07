@@ -50,6 +50,7 @@ void AttrCtrl::Load() {
 	for (bool& b : inherited_active) b = false;
 	for (bool& b : sub_active) b = false;
 	PatternSnap* owner = snap->owner;
+	int owner_i = 0, owner_count = 1;
 	while (owner) {
 		for (const SnapAttrStr& a : owner->attributes) {
 			int id = a.group_i * g.group_limit + a.item_i;
@@ -61,6 +62,8 @@ void AttrCtrl::Load() {
 			
 		}
 		owner = owner->owner;
+		if (++owner_i >= owner_count)
+			break;
 	}
 	int level = snap->GetLevel();
 	for (int l = level-1; l >= 0; l--) {

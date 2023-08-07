@@ -135,10 +135,18 @@ void AttrScoreCtrl::DataAttrScore() {
 	scoregroup_data.SetData(o.ToString());
 	
 	for(int i = 0; i < o.attrs.GetCount(); i++) {
-		const SnapAttr& a = o.attrs[i];
-		const auto& gr = db.attrs.groups[a.group];
-		entries.Set(i, 0, Capitalize(db.attrs.Translate(gr.description)));
-		entries.Set(i, 1, Capitalize(db.attrs.Translate(gr.values[a.item])));
+		const SnapAttrStr& a = o.attrs[i];
+		if (a.group_i < 0 || a.group_i >= db.attrs.groups.GetCount())
+			entries.Set(i, 1, "<error>" + a.group + ":" + a.item);
+		else {
+			const auto& gr = db.attrs.groups[a.group_i];
+			entries.Set(i, 0, Capitalize(db.attrs.Translate(gr.description)));
+			
+			if (a.item_i < 0 || a.item_i >= gr.values.GetCount())
+				entries.Set(i, 1, "<error>" + a.group + ":" + a.item);
+			else
+				entries.Set(i, 1, Capitalize(db.attrs.Translate(gr.values[a.item_i])));
+		}
 	}
 	entries.SetCount(o.attrs.GetCount());
 	
@@ -205,7 +213,7 @@ bool AttrScoreCtrl::AddAttrScoreEntry(String group, String entry_str) {
 	Database& db = Database::Single();
 	
 	bool found = false;
-	SnapAttr a;
+	SnapAttrStr a;
 	Attributes& g = db.attrs;
 	String lname = ToLower(entry_str);
 	for(int i = 0; i < g.groups.GetCount(); i++) {
@@ -217,8 +225,11 @@ bool AttrScoreCtrl::AddAttrScoreEntry(String group, String entry_str) {
 		
 		for(int j = 0; j < gg.values.GetCount(); j++) {
 			if (ToLower(gg.values[j]) == lname) {
-				a.group = i;
-				a.item = j;
+				a.group_i = i;
+				a.item_i = j;
+				a.group = group;
+				a.item = entry_str;
+				a.has_id = true;
 				found = true;
 				break;
 			}
@@ -236,12 +247,12 @@ bool AttrScoreCtrl::AddAttrScoreEntry(String group, String entry_str) {
 	return true;
 }
 
-void AttrScoreCtrl::AddAttrScoreId(const SnapAttr& a) {
+void AttrScoreCtrl::AddAttrScoreId(const SnapAttrStr& a) {
 	Database& db = Database::Single();
 	//bool found = false;
 	for (AttrScoreGroup& ag : db.attrscores.groups) {
 		for(int i = 0; i < ag.attrs.GetCount(); i++) {
-			const SnapAttr& a0 = ag.attrs[i];
+			const SnapAttrStr& a0 = ag.attrs[i];
 			if (a0 == a) {
 				//PromptOK(DeQtf(Format(t_("Entry was already in the group '%s'"), ag.GetName())));
 				//return;
@@ -254,6 +265,7 @@ void AttrScoreCtrl::AddAttrScoreId(const SnapAttr& a) {
 	
 	int active_idx = db.GetActiveScoreGroupIndex();
 	//if (!found)
+	ASSERT(a.has_id);
 	db.ctx.active_scoregroup->attrs.Add(a);
 	
 	db.attrscores.attr_to_score.Clear();
@@ -276,9 +288,10 @@ void AttrScoreCtrl::AddAttrScoreId(const SnapAttr& a) {
 void AttrScoreCtrl::AddSrcEntryToScoringGroup() {
 	if (!src_entries.IsCursor() || !src_entrygroups.IsCursor())
 		return;
-	SnapAttr a;
-	a.group = src_entrygroups.GetCursor();
-	a.item = src_entries.GetCursor();
+	SnapAttrStr a;
+	a.SetFromId(
+		src_entrygroups.GetCursor(),
+		src_entries.GetCursor());
 	AddAttrScoreId(a);
 }
 

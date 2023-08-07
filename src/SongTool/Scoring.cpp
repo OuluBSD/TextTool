@@ -61,9 +61,17 @@ bool AttrScore::UpdateGroupsToScoring() {
 			// Loop groups of AttrScoreGroup, and match group&entry (==SnapAttr) value
 			bool found = false;
 			int asg_i = 0;
-			for (const AttrScoreGroup& asg : groups) {
-				for (const SnapAttr& sa : asg.attrs) {
-					if (sa.group == i && sa.item == j) {
+			for (AttrScoreGroup& asg : groups) {
+				/*for(int i = 0; i < asg.attrs.GetCount(); i++) {
+					const SnapAttrStr& sa = asg.attrs[i];
+					if (!sa.has_id) {
+						asg.attrs.Remove(i--);
+						continue;
+					}
+				}*/
+				for (const SnapAttrStr& sa : asg.attrs) {
+					ASSERT(sa.has_id);
+					if (sa.group_i == i && sa.item_i == j) {
 						// Match found
 						v = asg_i;
 						found = true;

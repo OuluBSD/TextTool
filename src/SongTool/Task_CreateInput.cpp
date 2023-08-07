@@ -940,7 +940,7 @@ void Task::CreateInput_AttrScores() {
 	prompt.Replace("${ENTRIES}", entries);
 	//this->hash = hash;
 	input = prompt;
-	response_length = 2*1024;
+	response_length = 1024*3/2;
 }
 
 const char* example_conv = R"TXT(

@@ -1,6 +1,16 @@
 #include "SongTool.h"
 
 
+void SnapAttrStr::SetFromId(int group, int item) {
+	group_i = group;
+	item_i = item;
+	Database& db = Database::Single();
+	const Attributes::Group& gg = db.attrs.groups[group];
+	this->group = gg.description;
+	this->item = gg.values[item];
+	has_id = true;
+}
+
 bool SnapAttrStr::RealizeId() const {
 	if (has_id)
 		return true;
@@ -15,6 +25,7 @@ bool SnapAttrStr::RealizeId() const {
 			for(int j = 0; j < gg.values.GetCount(); j++) {
 				if (gg.values[j] == item) {
 					sa.item_i = j;
+					sa.has_id = true;
 					return true;
 				}
 			}

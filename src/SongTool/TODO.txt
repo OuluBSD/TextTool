@@ -42,3 +42,5 @@ DONE:
 - fix PatternCtrl issues
 - fix Pattern ai input issue
 - weighted snaps ai task
+(7.8.2023)
+- fix plotter bug

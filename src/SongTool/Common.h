@@ -42,6 +42,7 @@ struct SnapAttrStr : Moveable<SnapAttrStr> {
 	}
 	bool RealizeId() const;
 	void Load(const SnapAttr& sa);
+	void SetFromId(int group, int item);
 	void Serialize(Stream& s) {s % group % item % group_i % item_i % has_id;}
 	String ToString() const {return group + ":" + item;}
 	hash_t GetHashValue() const {CombineHash c; c << group << item; return c;}

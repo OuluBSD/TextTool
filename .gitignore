@@ -1,1 +1,5 @@
-share/**
+/share/**
+/share/*
+/share
+share/*.json
+

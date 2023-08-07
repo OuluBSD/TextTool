@@ -13,7 +13,7 @@
 };*/
 
 struct AttrScoreGroup {
-	Vector<SnapAttr> attrs;
+	Vector<SnapAttrStr> attrs;
 	Vector<int> scores;
 	String name;
 	
@@ -23,9 +23,22 @@ struct AttrScoreGroup {
 			("scores", scores)
 			("name", name)
 			;
-		if (json.IsLoading())
+		if (json.IsLoading()) {
+			Clean();
 			Realize();
+		}
 	}
+	
+	void Clean() {
+		for(int i = 0; i < attrs.GetCount(); i++) {
+			const SnapAttrStr& sa = attrs[i];
+			if (attrs[i].group.IsEmpty() || attrs[i].item.IsEmpty())
+				attrs.Remove(i--);
+			else if (!sa.RealizeId())
+				attrs.Remove(i--);
+		}
+	}
+	
 	void Realize();
 	String GetName() const {
 		if (!name.IsEmpty())
@@ -85,6 +98,10 @@ struct AttrScore : DataFile {
 			("groups", groups)
 			("presets", presets)
 		;
+		if (json.IsLoading()) {
+			for (AttrScoreGroup& g : groups)
+				g.Clean();
+		}
 	}
 	bool UpdateGroupsToScoring();
 };

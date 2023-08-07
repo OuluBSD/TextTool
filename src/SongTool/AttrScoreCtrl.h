@@ -23,7 +23,7 @@ public:
 	void AddAttrScoreGroup();
 	bool AddAttrScore();
 	bool AddAttrScoreEntry(String group, String entry_str);
-	void AddAttrScoreId(const SnapAttr& a);
+	void AddAttrScoreId(const SnapAttrStr& a);
 	void AddSrcEntryToScoringGroup();
 	void OnEntrySel();
 	void CheckErrors();
