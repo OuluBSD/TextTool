@@ -931,16 +931,18 @@ void Task::CreateInput_AttrScores() {
 	}
 	#endif
 	
-	// This task shouldn't exist, if there is nothing to solve
-	if (entry_count == 0) {
-		SetFatalError(DeQtf(t_("Nothing to ask from AI here")));
-		return;
-	}
-	
 	prompt.Replace("${ENTRIES}", entries);
 	//this->hash = hash;
 	input = prompt;
 	response_length = 1024*3/2;
+	
+	// This task shouldn't exist, if there is nothing to solve
+	if (entry_count == 0) {
+		//SetFatalError(DeQtf(t_("Nothing to ask from AI here")));
+		SetFastExit();
+		return;
+	}
+	
 }
 
 const char* example_conv = R"TXT(

@@ -29,43 +29,44 @@ typedef enum : int {
 	O_TASKS,
 	
 	O_SONG_MASK,
-	O_SONG_MASK_WEIGHTED,
+	//O_SONG_MASK_WEIGHTED,
 	O_SONG_ANALYSIS,
 	O_SONG_DATA_STORYLINE,
-	O_SONG_DATA_STORYLINE_WEIGHTED,
+	//O_SONG_DATA_STORYLINE_WEIGHTED,
 	O_SONG_UNIQLINES,
 	O_SONG_UNIQLINE_ATTRS,
 	O_SONG_SNAP,
-	O_SONG_SNAP_WEIGHTED,
+	//O_SONG_SNAP_WEIGHTED,
 	O_SONG_REVERSED_MASK_COMMON,
 	O_SONG_REVERSED_MASK,
 	O_SONG_REVERSED_LYRICS,
 	O_SONG_REVERSED_TRANSLATED_LYRICS,
 	
 	O_PART_MASK,
-	O_PART_MASK_WEIGHTED,
+	//O_PART_MASK_WEIGHTED,
 	O_PART_MASK_SCORE,
 	O_PART_DATA_STORYLINE,
-	O_PART_DATA_STORYLINE_WEIGHTED,
+	//O_PART_DATA_STORYLINE_WEIGHTED,
 	O_PART_SNAP,
 	O_PART_SNAP_SCORE,
-	O_PART_SNAP_WEIGHTED,
+	//O_PART_SNAP_WEIGHTED,
 	O_PART_REVERSED_SNAP,
 	
 	O_LINE_SNAP,
 	O_LINE_SNAP_SCORE,
-	O_LINE_SNAP_WEIGHTED,
+	//O_LINE_SNAP_WEIGHTED,
 	O_LINE_REVERSED_SNAP,
 	
 	O_BREAK_SNAP,
 	O_BREAK_SNAP_SCORE,
-	O_BREAK_SNAP_WEIGHTED,
+	//O_BREAK_SNAP_WEIGHTED,
 	O_BREAK_IMPACT,
 	O_BREAK_IMPACT_SCORES,
 	O_BREAK_REVERSED_IMPACT,
 	O_BREAK_REVERSED_SNAP,
-	O_BREAK_IMPACT_WEIGHTED,
-	O_BREAK_LYRICS_WEIGHTED,
+	//O_BREAK_IMPACT_WEIGHTED,
+	O_BREAK_LYRICS,
+	//O_BREAK_LYRICS_WEIGHTED,
 	
 	O_NEXT_CTX_JUMP, // allows next context to start being processed
 	
@@ -143,14 +144,18 @@ struct TaskRule {
 	Vector<TaskOutputType> results;
 	bool spawnable = false;
 	bool multi_spawnable = false;
+	bool allow_cross_mode = false;
+	VectorMap<int, Tuple2<int,int>> req_mode_ranges;
 	
 	TaskRule& Input(void (Task::*fn)());
 	TaskRule& Arg(TaskArgType arg, int i0=0, int i1=0);
 	TaskRule& Require(TaskOutputType arg);
+	TaskRule& RequireMode(TaskOutputType arg, SnapMode begin, SnapMode end);
 	TaskRule& Process(void (Task::*fn)());
 	TaskRule& Result(TaskOutputType arg);
 	TaskRule& Spawnable(bool b=true);
 	TaskRule& MultiSpawnable(bool b=true);
+	TaskRule& CrossMode(bool b=true);
 	
 };
 

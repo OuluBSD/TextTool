@@ -11,6 +11,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 			.Result(O_TASKS)
 			.Result(O_ORDER_IMPORT)
 			.Result(O_ORDER_IMPORT_DETAILED)
+			.CrossMode()
 		;
 	
 	AddRule(TASK_CONTEXT_IMPORT_AND_REVERSE, "import context")
@@ -22,6 +23,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 			.Result(O_ORDER_REVERSE)
 			.Result(O_SONG_UNIQLINES)
 			.Result(O_TASKS)
+			.CrossMode()
 		;
 	
 	AddRule(TASK_PATTERNMASK, "pattern masks of parts of song")
@@ -38,16 +40,16 @@ void TaskMgr::CreateDefaultTaskRules() {
 	
 	AddRule(TASK_PATTERNMASK_WEIGHTED, "weighted pattern masks")
 		.Require(O_ORDER_IMPORT)
-		.Require(O_SONG_MASK)
-		.Require(O_PART_MASK)
-		.Require(O_BREAK_LYRICS_WEIGHTED)
+		.RequireMode(O_SONG_MASK, MODE_BEGIN, FEMALE)
+		.RequireMode(O_PART_MASK, MODE_BEGIN, FEMALE)
+		.Require(O_BREAK_LYRICS) //_WEIGHTED)
 		.Input(&Task::CreateInput_PatternMaskWeighted)
 			.Arg(V_PTR_SONG)
 			.Arg(V_MODE, 0, MODE_COUNT)
 			.Arg(V_ARGS, 2, 2)
 		.Process(&Task::Process_PatternMaskWeighted)
-			.Result(O_SONG_MASK_WEIGHTED)
-			.Result(O_PART_MASK_WEIGHTED)
+			.Result(O_SONG_MASK) //_WEIGHTED)
+			.Result(O_PART_MASK) //_WEIGHTED)
 			.Result(O_DB_ATTRS)
 		;
 	
@@ -75,12 +77,12 @@ void TaskMgr::CreateDefaultTaskRules() {
 		;
 	
 	AddRule(TASK_STORYARC_WEIGHTED, "story arc WEIGHTED mode")
-		.Require(O_PART_DATA_STORYLINE)
-		.Require(O_SONG_DATA_STORYLINE)
+		.RequireMode(O_PART_DATA_STORYLINE, MODE_BEGIN, FEMALE)
+		.RequireMode(O_SONG_DATA_STORYLINE, MODE_BEGIN, FEMALE)
 		.Input(&Task::CreateInput_StoryArcWeighted)
 		.Process(&Task::Process_StoryArcWeighted)
-			.Result(O_PART_DATA_STORYLINE_WEIGHTED)
-			.Result(O_SONG_DATA_STORYLINE_WEIGHTED)
+			.Result(O_PART_DATA_STORYLINE) //_WEIGHTED)
+			.Result(O_SONG_DATA_STORYLINE) //_WEIGHTED)
 		;
 	
 	AddRule(TASK_IMPACT, "impacts")
@@ -95,32 +97,32 @@ void TaskMgr::CreateDefaultTaskRules() {
 	
 	AddRule(TASK_IMPACT_WEIGHTED, "weighted impacts")
 		.Require(O_ORDER_IMPORT)
-		.Require(O_BREAK_IMPACT)
+		.RequireMode(O_BREAK_IMPACT, MODE_BEGIN, FEMALE)
 		.Input(&Task::CreateInput_ImpactWeighted)
 			.Arg(V_PTR_SONG)
 			.Arg(V_PTR_LINE)
 			.Arg(V_MODE, 0, MODE_COUNT)
 		.Process(&Task::Process_ImpactWeighted)
-			.Result(O_BREAK_IMPACT_WEIGHTED)
+			.Result(O_BREAK_IMPACT) //_WEIGHTED)
 		;
 	
 	AddRule(TASK_FORWARD_LYRICS_WEIGHTED, "lyrics from weighted impacts")
 		.Require(O_ORDER_IMPORT)
-		.Require(O_BREAK_IMPACT_WEIGHTED)
+		.Require(O_BREAK_IMPACT) //_WEIGHTED)
 		.Input(&Task::CreateInput_ForwardLyricsWeighted)
 			.Arg(V_PTR_SONG)
 			.Arg(V_PTR_LINE)
 			.Arg(V_MODE, 0, MODE_COUNT)
 		.Process(&Task::Process_ForwardLyricsWeighted)
-			.Result(O_BREAK_LYRICS_WEIGHTED)
+			.Result(O_BREAK_LYRICS) //_WEIGHTED)
 		;
 	
 	AddRule(TASK_MAKE_IMPACT_SCORING_TASKS, "make impact scoring tasks")
 		.Spawnable()
 		.Require(O_ORDER_IMPORT)
 		.Require(O_BREAK_IMPACT)
-		.Require(O_BREAK_IMPACT_WEIGHTED)
-		.Require(O_BREAK_LYRICS_WEIGHTED)
+		.RequireMode(O_BREAK_IMPACT, WEIGHTED, WEIGHTED)
+		.RequireMode(O_BREAK_LYRICS, WEIGHTED, WEIGHTED)
 		.Process(&Task::Process_MakeImpactScoringTasks)
 			.Arg(V_PTR_SONG)
 			.Arg(V_MODE, 0, MODE_COUNT)
@@ -130,7 +132,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 	AddRule(TASK_IMPACT_SCORING, "impact scoring")
 		.Require(O_ORDER_IMPORT)
 		.Require(O_BREAK_IMPACT)
-		.Require(O_BREAK_IMPACT_WEIGHTED)
+		.RequireMode(O_BREAK_IMPACT, WEIGHTED, WEIGHTED)
 		.Input(&Task::CreateInput_ImpactScoring)
 			.Arg(V_PTR_SONG)
 			.Arg(V_MODE, 0, MODE_COUNT)
@@ -144,8 +146,6 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_ORDER_IMPORT)
 		.Require(O_SONG_MASK)
 		.Require(O_PART_MASK)
-		.Require(O_SONG_MASK_WEIGHTED)
-		.Require(O_PART_MASK_WEIGHTED)
 		.Process(&Task::Process_MakePatternTasks)
 			.Arg(V_PTR_SONG)
 			.Arg(V_MODE, 0, MODE_COUNT)
@@ -172,18 +172,18 @@ void TaskMgr::CreateDefaultTaskRules() {
 	
 	AddRule(TASK_PATTERN_WEIGHTED, "pattern weighted")
 		.Require(O_ORDER_IMPORT)
-		.Require(O_PART_SNAP)
-		.Require(O_LINE_SNAP)
-		.Require(O_BREAK_SNAP)
+		.RequireMode(O_PART_SNAP, MALE, FEMALE)
+		.RequireMode(O_LINE_SNAP, MALE, FEMALE)
+		.RequireMode(O_BREAK_SNAP, MALE, FEMALE)
 		.Input(&Task::CreateInput_PatternWeighted)
 			.Arg(V_PTR_SONG)
 			.Arg(V_MODE, WEIGHTED, MODE_COUNT)
 		.Process(&Task::Process_PatternWeighted)
 			.Result(O_SONG_UNIQLINE_ATTRS)
 			//.Result(O_SONG_SNAP)
-			.Result(O_PART_SNAP_WEIGHTED)
-			.Result(O_LINE_SNAP_WEIGHTED)
-			.Result(O_BREAK_SNAP_WEIGHTED)
+			.Result(O_PART_SNAP)
+			.Result(O_LINE_SNAP)
+			.Result(O_BREAK_SNAP)
 		;
 	
 	AddRule(TASK_MAKE_ATTRSCORES_TASKS, "make attribute score tasks")
@@ -220,9 +220,9 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_PART_SNAP)
 		.Require(O_LINE_SNAP)
 		.Require(O_BREAK_SNAP)
-		.Require(O_PART_SNAP_WEIGHTED)
-		.Require(O_LINE_SNAP_WEIGHTED)
-		.Require(O_BREAK_SNAP_WEIGHTED)
+		.Require(O_PART_SNAP)
+		.Require(O_LINE_SNAP)
+		.Require(O_BREAK_SNAP)
 		.Process(&Task::Process_SongScores)
 			.Arg(V_PTR_SONG)
 			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
@@ -310,8 +310,6 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_ORDER_REVERSE)
 		.Require(O_SONG_DATA_STORYLINE)
 		.Require(O_PART_DATA_STORYLINE)
-		.Require(O_SONG_DATA_STORYLINE_WEIGHTED)
-		.Require(O_PART_DATA_STORYLINE_WEIGHTED)
 		.Require(O_BREAK_REVERSED_IMPACT)
 		.Require(O_PART_REVERSED_SNAP)
 		.Require(O_LINE_REVERSED_SNAP)
@@ -325,8 +323,6 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_ORDER_REVERSE)
 		.Require(O_SONG_DATA_STORYLINE)
 		.Require(O_PART_DATA_STORYLINE)
-		.Require(O_SONG_DATA_STORYLINE_WEIGHTED)
-		.Require(O_PART_DATA_STORYLINE_WEIGHTED)
 		.Require(O_BREAK_REVERSED_IMPACT)
 		.Require(O_PART_REVERSED_SNAP)
 		.Require(O_LINE_REVERSED_SNAP)
@@ -432,29 +428,63 @@ bool TaskMgr::IsDepsReady(Task& t, Index<Task*>& seen) const {
 	TaskRule& r = *t.rule;
 	for (TaskOutputType& o : r.reqs) {
 		bool found = false;
-		for (const Task& t0 : tasks) {
-			const TaskRule& r0 = *t0.rule;
-			if (t0.ready) {
-				for (const TaskOutputType& o0 : r0.results) {
-					if (o == o0) {
-						// Special case (must be previous context)
-						if (o == O_NEXT_CTX_JUMP) {
-							if (t0.p.a.ctx != t.p.a.ctx-1)
-								continue;
+		int user_mode_range_i = r.req_mode_ranges.Find(o);
+		bool user_mode_range = user_mode_range_i >= 0;
+		
+		if (user_mode_range) {
+			const auto& range = r.req_mode_ranges[user_mode_range_i];
+			found = true;
+			for (int m = range.a; m <= range.b; m++) {
+				bool mode_found = false;
+				for (const Task& t0 : tasks) {
+					if (t0.p.a.mode != (SnapMode)m)
+						continue;
+					const TaskRule& r0 = *t0.rule;
+					if (t0.ready) {
+						for (const TaskOutputType& o0 : r0.results) {
+							if (o == o0) {
+								mode_found = true;
+								break;
+							}
 						}
-						found = true;
-						break;
+						if (mode_found)
+							break;
 					}
 				}
-				if (found)
+				if (!mode_found) {
+					found = false;
 					break;
+				}
 			}
 		}
-		// Special case: first context doesn't require this
-		if (o == O_NEXT_CTX_JUMP) {
-			if (t.p.a.ctx == CTX_BEGIN)
-				found = true;
+		else {
+			for (const Task& t0 : tasks) {
+				if (!t0.rule->allow_cross_mode && t.p.a.mode != t0.p.a.mode)
+					continue;
+				const TaskRule& r0 = *t0.rule;
+				if (t0.ready) {
+					for (const TaskOutputType& o0 : r0.results) {
+						if (o == o0) {
+							// Special case (must be previous context)
+							if (o == O_NEXT_CTX_JUMP) {
+								if (t0.p.a.ctx != t.p.a.ctx-1)
+									continue;
+							}
+							found = true;
+							break;
+						}
+					}
+					if (found)
+						break;
+				}
+			}
+			// Special case: first context doesn't require this
+			if (o == O_NEXT_CTX_JUMP) {
+				if (t.p.a.ctx == CTX_BEGIN)
+					found = true;
+			}
 		}
+		
 		if (!found)
 			return false;
 	}
@@ -530,7 +560,7 @@ bool TaskMgr::SpawnTasks() {
 		for (GroupContext ctx = CTX_BEGIN; ctx != ctx_limit; ((int&)ctx)++) {
 			bool ctx_spawned = false;
 			if (r.spawnable) {
-				bool verbose = false; //r.code == TASK_MAKE_REVERSE_MASK_TASK && task_songs.GetCount();
+				bool verbose = false; //r.code == TASK_MAKE_IMPACT_SCORING_TASKS && task_songs.GetCount();
 				if (verbose) {
 					DUMP((int)ctx);
 				}
@@ -651,6 +681,15 @@ TaskRule& TaskRule::Require(TaskOutputType arg) {
 	return *this;
 }
 
+TaskRule& TaskRule::RequireMode(TaskOutputType arg, SnapMode begin, SnapMode end) {
+	reqs.Add(arg);
+	ASSERT(req_mode_ranges.Find(arg) < 0);
+	auto& t = req_mode_ranges.Add(arg);
+	t.a = begin;
+	t.b = end;
+	return *this;
+}
+
 TaskRule& TaskRule::Process(void (Task::*fn)()) {
 	process = fn;
 	return *this;
@@ -672,3 +711,7 @@ TaskRule& TaskRule::MultiSpawnable(bool b) {
 	return *this;
 }
 
+TaskRule& TaskRule::CrossMode(bool b) {
+	allow_cross_mode = b;
+	return *this;
+}
