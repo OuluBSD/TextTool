@@ -231,10 +231,14 @@ public:
 	MArr() {}
 	
 	T& operator[](const SnapArg& a) {
+		ASSERT(a.ctx == CTX_TEXT);
+		ASSERT(a.dir == FORWARD);
 		a.Chk();
 		return obj[a.mode];
 	}
 	const T& operator[](const SnapArg& a) const {
+		ASSERT(a.ctx == CTX_TEXT);
+		ASSERT(a.dir == FORWARD);
 		a.Chk();
 		return obj[a.mode];
 	}

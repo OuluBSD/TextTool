@@ -126,7 +126,11 @@ void Plotter::WholeSongSnaps() {
 				Break& brk = line.breaks[k];
 				AddValue(brk);
 			}
+			vert_x += line.breaks.GetCount();
+			ASSERT(values[0].GetCount() == vert_x);
 		}
+		ASSERT(values[0].GetCount() == vert_x);
+		vert_lines.Add(vert_x);
 	}
 }
 
@@ -143,6 +147,8 @@ void Plotter::PartSnaps() {
 			Break& brk = line.breaks[k];
 			AddValue(brk);
 		}
+		vert_x += line.breaks.GetCount();
+		vert_lines.Add(vert_x);
 	}
 }
 
@@ -157,6 +163,9 @@ void Plotter::AddValue(SnapContext& ctx) {
 	}
 	else if (src == 2) {
 		AddValue(ctx.Get(a).partscore, ctx.Get(other).partscore);
+	}
+	else {
+		AddEmptyValue();
 	}
 }
 
@@ -178,24 +187,38 @@ void Plotter::AddValue(const Vector<int>& score, const Vector<int>& other_score)
 	// Read values to stack variables
 	if (genderdiff_weighted_view) {
 		tmp_score.SetCount(c,0);
-		CalculateWeightedGenderDifference(tmp_score, score, other_score);
-		for(int i = 0; i < c; i++)
-			values[i].Add(tmp_score[i]);
+		if (score.GetCount() < c || other_score.GetCount() < c) {
+			for(int i = 0; i < c; i++)
+				values[i].Add(0);
+		}
+		else {
+			CalculateWeightedGenderDifference(tmp_score, score, other_score);
+			for(int i = 0; i < c; i++)
+				values[i].Add(tmp_score[i]);
+		}
 	}
 	else if (genderdiff_view) {
-		int c0 = min(c, min(
-			other_score.GetCount(),
-			score.GetCount()));
-		for(int k = 0; k < c0; k++)
-			values[k].Add(
-				score[k] -
-				other_score[k]
-				);
+		if (c != score.GetCount() || c != other_score.GetCount()) {
+			for(int k = 0; k < c; k++)
+				values[k].Add(0);
+		}
+		else {
+			for(int k = 0; k < c; k++)
+				values[k].Add(
+					score[k] -
+					other_score[k]
+					);
+		}
 	}
 	else {
-		int c0 = min(c, score.GetCount());
-		for(int k = 0; k < c0; k++)
-			values[k].Add(score[k]);
+		if (c != score.GetCount()) {
+			for(int k = 0; k < c; k++)
+				values[k].Add(0);
+		}
+		else {
+			for(int k = 0; k < c; k++)
+				values[k].Add(score[k]);
+		}
 	}
 	
 }
@@ -223,7 +246,7 @@ void Plotter::Paint(Draw& d) {
 	vert_lines.SetCount(0);
 	
 	String part_key;
-	int vert_x = 0;
+	vert_x = 0;
 	Vector<int> caps;
 	if (src == 1) {
 		WholeSongParts();
@@ -235,7 +258,7 @@ void Plotter::Paint(Draw& d) {
 		PartSnaps();
 	}
 	
-	if (whole_song) {
+	/*if (whole_song) {
 		// Get key string for the whole song
 		for(int i = 0; i < song->structure.GetCount(); i++) {
 			String key = song->structure[i];
@@ -260,7 +283,7 @@ void Plotter::Paint(Draw& d) {
 			vert_x += line.breaks.GetCount();
 			vert_lines.Add(vert_x);
 		}
-	}
+	}*/
 	
 	// Weighted value (constant sum of scoring groups)
 	if (weighted_view) {
@@ -279,7 +302,7 @@ void Plotter::Paint(Draw& d) {
 	}
 	
 	rids.Clear();
-	double cx = (double)sz.cx / (vert_x-1);
+	double cx = (double)sz.cx / (vert_x/*-1*/);
 	double xoff = absolute_view || genderdiff_view || genderdiff_weighted_view ? -cx / 2 : 0;
 	if (whole_song) {
 		int pos = 0;
@@ -422,7 +445,7 @@ void Plotter::Paint(Draw& d) {
 		double h = (double)i / c;
 		Color clr = HSVToRGB(h, 1, 0.9);
 		polyline.SetCount(0);
-		double cx = (double)sz.cx / (vv.GetCount()-1);
+		double cx = (double)sz.cx / (vv.GetCount()/*-1*/);
 		double x = 0;
 		for (auto& v : vv) {
 			Point& pt = polyline.Add();
@@ -470,7 +493,8 @@ void Plotter::RightDown(Point p, dword keyflags) {
 }
 
 void Plotter::MouseWheel(Point p, int zdelta, dword keyflags) {
-	Database& d = Database::Single();
+	Database& db = Database::Single();
+	int c = db.attrs.scorings.GetCount();
 	if (keyflags & K_SHIFT) {
 		if (zdelta > 0)
 			focused_group = (focused_group + 1) % draw_count;
@@ -492,8 +516,30 @@ void Plotter::MouseWheel(Point p, int zdelta, dword keyflags) {
 			Part& part = song->parts[part_i];
 			Line& line = part.lines[line_i];
 			Break& brk = line.breaks[brk_i];
-			auto& score = brk.Get(a).partscore[focused_group_i];
-			score += change;
+			PatternSnap& snap = brk.Get(a);
+			
+			int score_value = 0;
+			if (src == 0) {
+				if (snap.impact_score.GetCount() != c)
+					snap.impact_score.SetCount(c, 0);
+				auto& score = snap.impact_score[focused_group_i];
+				score += change;
+				score_value = score;
+			}
+			else if (src == 1) {
+				if (snap.maskscore.GetCount() != c)
+					snap.maskscore.SetCount(c, 0);
+				auto& score = snap.maskscore[focused_group_i];
+				score += change;
+				score_value = score;
+			}
+			else if (src == 2) {
+				if (snap.partscore.GetCount() != c)
+					snap.partscore.SetCount(c, 0);
+				auto& score = snap.partscore[focused_group_i];
+				score += change;
+				score_value = score;
+			}
 			
 			if (list) {
 				ArrayCtrl& list = *this->list;
@@ -503,7 +549,7 @@ void Plotter::MouseWheel(Point p, int zdelta, dword keyflags) {
 					int brk_i0 = list.Get(i, 2);
 					if (part_i0 == part_i && line_i0 == line_i && brk_i0 == brk_i) {
 						int col = PatternScoringCtrl::group_begin + focused_group_i;
-						list.Set(i, col, score);
+						list.Set(i, col, score_value);
 						list.SetCursor(i);
 						break;
 					}

@@ -5,6 +5,8 @@ ImpactScoringCtrl::ImpactScoringCtrl() {
 	Add(mainsplit.SizePos());
 	mainsplit.Vert();
 	
+	int tabs = 0;
+	
 	for (const SnapArg& a : ModeArgs()) {
 		Splitter& vsplit = this->vsplit[a];
 		Plotter& plotter = this->plotter[a];
@@ -15,6 +17,7 @@ ImpactScoringCtrl::ImpactScoringCtrl() {
 		plotter.SetSource(0);
 		
 		mainsplit << plotter << list;// << presets;
+		tabs += 2;
 		
 		Attributes& g = Database::Single().attrs;
 		list.AddIndex();
@@ -32,6 +35,11 @@ ImpactScoringCtrl::ImpactScoringCtrl() {
 		list.WhenBar << THISBACK(ListMenu);
 	}
 	
+	int cy = 10000 / tabs;
+	for(int i = 1; i < tabs; i+=2) {
+		int pos = i * cy + cy * 29 / 30;
+		mainsplit.SetPos(pos, i-1);
+	}
 }
 
 void ImpactScoringCtrl::Data() {
@@ -114,6 +122,7 @@ void ImpactScoringCtrl::DataList(const SnapArg& a) {
 							*c <<= THISBACK3(ListValueChanged, a, total, j);
 							list.SetCtrl(total, k2, c);
 						}
+						//list.Set(total, k1, (int)Random(10));
 					}
 					total++;
 				}

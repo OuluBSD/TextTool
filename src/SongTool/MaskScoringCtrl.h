@@ -14,7 +14,7 @@ public:
 	MaskScoringCtrl();
 	
 	void Data();
-	void DataListAll() {for(const SnapArg& a : AllArgs()) DataList(a);}
+	void DataListAll() {for(const SnapArg& a : ModeArgs()) DataList(a);}
 	void DataList(const SnapArg& a);
 	void ListValueChanged(const SnapArg& a, int pos, int scoring);
 	

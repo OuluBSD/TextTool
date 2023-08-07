@@ -33,6 +33,7 @@ class Plotter : public Ctrl {
 	Vector<bool> draw_group;
 	Vector<int> vert_lines;
 	Vector<RectId> rids;
+	int vert_x;
 	
 	
 	void AddValue(SnapContext& ctx);
