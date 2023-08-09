@@ -2,57 +2,71 @@
 #define _SongTool_Song_h_
 
 
+#if 0
 struct SongHeader {
+	// Local
 	VectorMap<String,String>				data;
-	String									content;
 	VectorMap<String, Vector<SnapAttrStr>>	unique_lines;
 	Analysis								analysis;
 	
+	void Serialize(Stream& s) {
+		s	% data
+			% content
+			% unique_lines
+			% analysis;
+	}
 	void Jsonize(JsonIO& json) {
 		json
-			("data", data)
 			("content", content)
+			/*("data", data)
 			("unique_lines", unique_lines)
-			("analysis", analysis)
+			("analysis", analysis)*/
 			;
 	}
 };
+#endif
 
 struct Song :
-	DataFile,
-	SnapContext
+	DataFile
 {
+	// Public
 	String				artist;
 	String				title;
 	String				prj_name;
 	String				structure_str;
 	Vector<String>		structure;
-	Array<Part>			parts;
-	Array<Track>		tracks;
-	PArr<SongHeader>	headers;
+	MArr<String>		content;
 	
-	//Array<Impact>		impacts;
-	
-	// Local data only (not shared)
-	ReverseTask			rev_impact;
-	Array<ReverseTask>	rev_common_mask_tasks;
-	Array<ReverseTask>	rev_separate_mask_tasks;
-	Array<ReverseTask>	rev_pattern_tasks;
-	
-	RWMutex				lock;
+	// Temp
+	Pipe*				pipe = 0;
 	
 	//Song();
 	/*Impact* FindImpact(String impact_txt);
 	Impact* FindImpactByText(String txt);
 	Impact& GetAddImpact(String impact_txt, String brk_txt);
 	void RealizeImpacts();*/
-	PatternSnap* FindSnapByImpact(String impact_txt);
 	void Store();
 	void LoadTitle(String title);
 	void ReloadStructure();
-	void RealizeProduction();
-	void RealizeTaskSnaps(bool force=false);
-	int GetPartIdx(const Part& p) const;
+	void Serialize(Stream& s) {
+		TODO
+		/*s	% artist
+			% title
+			% prj_name
+			% structure_str
+			% structure
+			% content
+			
+			% parts
+			% tracks
+			% headers
+			% rev_impact
+			% rev_common_mask_tasks
+			% rev_separate_mask_tasks
+			% rev_pattern_tasks
+			;
+		SnapContext::Serialize(s);*/
+	}
 	void Jsonize(JsonIO& json) {
 		json
 			("artist", artist)
@@ -60,11 +74,12 @@ struct Song :
 			("prj_name", prj_name)
 			("structure_str", structure_str)
 			("structure", structure)
-			("parts", parts)
-			("tracks", tracks)
+			("content", content)
 			;
 		
-		for(const SnapArg& a : AllArgs())
+		//for(const SnapArg& a : HumanInputTextArgs())
+		//	json("headers[" + a.SubscriptString() + "]", headers[a]);
+		/*for(const SnapArg& a : AllArgs())
 			json("headers[" + a.SubscriptString() + "]", headers[a]);
 		
 		// rev_pattern_tasks
@@ -110,27 +125,12 @@ struct Song :
 				json("rev_pattern_tasks", hashes);
 			}
 		}
-		SnapContext::Jsonize(json);
-	}
-	void FixPtrs() {
-		SetSongPtr(this);
-		int id = 0;
-		for (Part& p : parts) {
-			p.CopyPtrs(*this);
-			p.SetOwner(*this);
-			p.SetId(id++);
-			p.FixPtrs();
-		}
-	}
-	bool operator()(const Song& a, const Song& b) const {
-		return a.file_title < b.file_title;
+		SnapContext::Jsonize(json);*/
 	}
 	/*void MergeOwner() {
 		for (Part& p : parts)
 			p.MergeOwner();
 	}*/
-	Array<Part>& GetSub() {return parts;}
-	const Array<Part>& GetSub() const {return parts;}
 	/*String GetStructuredText(bool pretty, int indent = 0) const {
 		String s;
 		for(const Part& p : parts) {
@@ -149,40 +149,6 @@ struct Song :
 		}
 		return s;
 	}*/
-	int FindPartIdx(const String& name) const {
-		int i = 0;
-		for (const Part& p : parts) {
-			if (p.name == name)
-				return i;
-			i++;
-		}
-		return -1;
-	}
-	const Part* FindPart(const String& name) const {
-		for (const Part& p : parts)
-			if (p.name == name)
-				return &p;
-		return 0;
-	}
-	Part* FindPart(const String& name) {
-		for (Part& p : parts)
-			if (p.name == name)
-				return &p;
-		return 0;
-	}
-	Part& GetAddPart(String name) {
-		Part* ptr = FindPart(name);
-		if (ptr) return *ptr;
-		Part& p = parts.Add();
-		p.name = name;
-		FixPtrs();
-		return p;
-	}
-	int GetLength(const SnapArg& a) const;
-	
-	String CreateLyricsFromBreaks(const SnapArg& a) const;
-	
-	PATTERNMASK_MACROS
 };
 
 

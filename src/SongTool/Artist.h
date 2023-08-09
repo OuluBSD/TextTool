@@ -3,9 +3,9 @@
 
 
 struct Artist :
-	DataFile,
-	SnapContext
+	DataFile
 {
+	// Public
 	String name;
 	int year_of_birth = 0;
 	int year_of_career_begin = 0;
@@ -16,6 +16,7 @@ struct Artist :
 	String electronic_instruments;
 	String vocalist_visual;
 	
+	// Public (separate files)
 	Array<Release> releases;
 	
 	void Clear() {
@@ -31,7 +32,7 @@ struct Artist :
 	}
 	void Store();
 	void LoadTitle(String title);
-	void FixPtrs() {
+	/*void FixPtrs() {
 		SetArtistPtr(this);
 		int id = 0;
 		for (Release& r : releases) {
@@ -40,9 +41,22 @@ struct Artist :
 			r.SetId(id++);
 			r.FixPtrs();
 		}
-	}
+	}*/
 	Array<Release>& GetSub() {return releases;}
 	const Array<Release>& GetSub() const {return releases;}
+	void Serialize(Stream& s) {
+		s	% name
+			% year_of_birth
+			% year_of_career_begin
+			% biography
+			% musical_style
+			% vibe_of_voice
+			% acoustic_instruments
+			% electronic_instruments
+			% vocalist_visual
+			% releases;
+		//SnapContext::Serialize(s);
+	}
 	void Jsonize(JsonIO& json) {
 		json
 			("name", name)
@@ -67,9 +81,9 @@ struct Artist :
 			for (String n : names) releases.Add().LoadTitle(n);
 			Sort(releases, Release());
 			
-			FixPtrs();
+			//FixPtrs();
 		}
-		SnapContext::Jsonize(json);
+		//SnapContext::Jsonize(json);
 	}
 	
 	bool operator()(const Artist& a, const Artist& b) const {
@@ -78,7 +92,6 @@ struct Artist :
 	}
 	
 	
-	PATTERNMASK_MACROS
 };
 
 

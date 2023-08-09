@@ -22,7 +22,7 @@ BasicInfoCtrl::BasicInfoCtrl() {
 
 void BasicInfoCtrl::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	
 	if (p.artist) {
 		Artist& a = *p.artist;
@@ -56,7 +56,7 @@ void BasicInfoCtrl::Data() {
 
 void BasicInfoCtrl::OnValueChange() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	
 	if (p.artist) {
 		Artist& o = *p.artist;

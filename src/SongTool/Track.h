@@ -18,12 +18,10 @@ struct Track {
 	Array<Block>	blocks;
 	
 	
-	void Jsonize(JsonIO& json) {
-		json
-			("name", name)
-			("type", (int&)type)
-			("blocks", blocks)
-			;
+	void Serialize(Stream& s) {
+		s	% name
+			% (int&)type
+			% blocks;
 	}
 };
 

@@ -18,13 +18,16 @@ AttrDataCtrl::AttrDataCtrl() {
 
 void AttrDataCtrl::Data() {
 	Database& db = Database::Single();
+	if (!db.ctx.ed.song || !db.ctx.ed.song->pipe)
+		return;
+	Pipe& pipe = *db.ctx.ed.song->pipe;
 	
-	for(int i = 0; i < db.attrs.groups.GetCount(); i++) {
-		Attributes::Group& gg = db.attrs.groups[i];
+	for(int i = 0; i < pipe.attr_groups.GetCount(); i++) {
+		Attr::Group& gg = pipe.attr_groups[i];
 		groups.Set(i, 0, gg.type);
 		groups.Set(i, 1, gg.description);
 	}
-	groups.SetCount(db.attrs.groups.GetCount());
+	groups.SetCount(pipe.attr_groups.GetCount());
 	
 	if (!groups.IsCursor() && groups.GetCount())
 		groups.SetCursor(0);
@@ -34,12 +37,15 @@ void AttrDataCtrl::Data() {
 
 void AttrDataCtrl::DataGroup() {
 	Database& db = Database::Single();
+	if (!db.ctx.ed.song || !db.ctx.ed.song->pipe)
+		return;
+	Pipe& pipe = *db.ctx.ed.song->pipe;
 	
 	if (!groups.IsCursor())
 		return;
 	
 	int cursor = groups.GetCursor();
-	Attributes::Group& gg = db.attrs.groups[cursor];
+	Attr::Group& gg = pipe.attr_groups[cursor];
 	
 	for(int i = 0; i < gg.values.GetCount(); i++) {
 		items.Set(i, 0, gg.values[i]);

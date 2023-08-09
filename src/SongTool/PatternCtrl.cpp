@@ -26,7 +26,7 @@ void PatternCtrl::Data() {
 
 void PatternCtrl::OnListSel() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	int cursor = list->GetCursor();
 	if (cursor >= 0 && cursor < level_snaps.GetCount()) {
 		PatternSnap& snap = *level_snaps[cursor];
@@ -45,9 +45,13 @@ void PatternCtrl::DataPatternSnap() {
 
 void PatternCtrl::DataList() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
+	Song& song = *p.song;
+	if (!song.pipe) return;
+	Pipe& pipe = *song.pipe;
+	PipePtrs& pp = pipe.p;
 	
-	if (!p.part || !db.ctx.snap[a])
+	if (!pp.part || !db.ctx.snap[a])
 		return;
 	
 	SnapArg src = a;
@@ -57,10 +61,10 @@ void PatternCtrl::DataList() {
 	One<ArrayCtrl>& list0 = this->list;
 	
 	Database& d = Database::Single();
-	Attributes& g = d.attrs;
-	if (g.groups.IsEmpty()) return;
+	Attributes& g = pipe;
+	if (g.attr_groups.IsEmpty()) return;
 	
-	Part& part = *p.part;
+	Part& part = *pp.part;
 	PatternSnap& s = *db.ctx.snap[a];
 	int level = s.GetLevel();
 	
@@ -90,7 +94,7 @@ void PatternCtrl::DataList() {
 		group_items.Clear();
 		group_types.Clear();
 		part.Get(src).GetGroupItems(group_items);
-		db.attrs.FindGroupTypes(group_items.GetKeys(), group_types);
+		pipe.Attributes::FindGroupTypes(group_items.GetKeys(), group_types);
 		
 		list.AddColumn(t_("Position"));
 		String col_width_str = "2";
@@ -114,8 +118,8 @@ void PatternCtrl::DataList() {
 					}
 				}
 				if (has_items) {
-					Attributes::Group& gg = g.groups[group_i];
-					String key = g.Translate(gg.description);
+					Attr::Group& gg = g.attr_groups[group_i];
+					String key = db.Translate(gg.description);
 					list.AddColumn(key);
 					col_width_str << " 1";
 				}
@@ -170,16 +174,20 @@ void PatternCtrl::DataList() {
 
 void PatternCtrl::MergeOwner() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
-	if (!p.part)
+	EditorPtrs& p = db.ctx.ed;
+	Song& song = *p.song;
+	if (!song.pipe) return;
+	Pipe& pipe = *song.pipe;
+	PipePtrs& pp = pipe.p;
+	if (!pp.part)
 		return;
-	p.part->MergeOwner();
+	pp.part->MergeOwner();
 	Data();
 }
 
 void PatternCtrl::FocusList() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	for(int i = 0; i < level_snaps.GetCount(); i++) {
 		if (level_snaps[i] == db.ctx.snap[a]) {
 			list->SetCursor(i);
@@ -269,9 +277,9 @@ void PatternList::Data() {
 		else if (p.part) {
 			ctx = p.part;
 		}
-		else if (p.song) {
-			ctx = p.song;
-			txt = p.song->headers[a].content;
+		else if (p.pipe) {
+			ctx = p.pipe;
+			txt = p.pipe->content[a];
 		}
 		
 		if (ctx) {
@@ -396,11 +404,10 @@ void PatternView::UseRev(){
 
 void PatternView::DataPatternTree() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
-	if (!p.song)
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
 		return;
-	
-	Song& o = *p.song;
+	Pipe& pipe = *p.song->pipe;
 	int cursor = tree.IsCursor() ? tree.GetCursor() : 0;
 	
 	tree_snaps.Clear();
@@ -408,8 +415,8 @@ void PatternView::DataPatternTree() {
 	tree.Clear();
 	tree.SetRoot(AppImg::Root(), "Root");
 	
-	for(int i = 0; i < o.parts.GetCount(); i++) {
-		Part& part = o.parts[i];
+	for(int i = 0; i < pipe.parts.GetCount(); i++) {
+		Part& part = pipe.parts[i];
 		String s = part.name + " :" + IntStr(part.lines.GetCount());
 		int id = tree.Add(0, AppImg::Part(), s);
 		DataPatternTreeNode(part, part, id);
@@ -420,14 +427,17 @@ void PatternView::DataPatternTree() {
 
 void PatternView::OnTreeSel() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
+		return;
+	Pipe& pipe = *p.song->pipe;
+	PipePtrs& pp = pipe.p;
 	int cursor = tree.GetCursor();
 	int i = tree_snaps.Find(cursor);
 	int j = tree_parts.Find(cursor);
 	if (!cursor || (i >= 0 && j >= 0)) {
-		SnapContext& ctx = cursor == 0 ? *p.song : *tree_snaps[i];
-		Ptrs& p = db.ctx.p;
-		p.part = cursor == 0 ? 0 : tree_parts[j];
+		SnapContext& ctx = cursor == 0 ? pipe : *tree_snaps[i];
+		pp.part = cursor == 0 ? 0 : tree_parts[j];
 		
 		for (int t = 0; t < MODE_COUNT+1; t++) {
 			if (t >= 1 && t < MODE_COUNT+1) {
@@ -454,7 +464,7 @@ void PatternView::FocusTree() {
 		const SnapArg& a = this->a[t];
 		
 		Database& db = Database::Single();
-		Ptrs& p = db.ctx.p;
+		EditorPtrs& p = db.ctx.ed;
 		for(int i = 0; i < tree_snaps.GetCount(); i++) {
 			if (&tree_snaps[i]->Get(a) == db.ctx.snap[a]) {
 				tree.SetCursor(tree_snaps.GetKey(i));

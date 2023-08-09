@@ -12,12 +12,12 @@ void Line::ParseLine(Song& song, const SnapArg& a, const String& txt) {
 		snap.Clear();
 		snap.txt = s;
 		snap.syllables = max(1, s.GetCount() / 3); // 3 chars per syllable by average
-		song.headers[a].unique_lines.GetAdd(s);
+		//song.headers[a].unique_lines.GetAdd(s);
 	}
-	String joined = Join(parts, " ");
+	/*String joined = Join(parts, " ");
 	this->snap[a].txt = joined;
 	ASSERT(this->snap[a].txt.GetCount());
-	song.headers[a].unique_lines.GetAdd(joined);
+	song.headers[a].unique_lines.GetAdd(joined);*/
 	FixPtrs();
 }
 

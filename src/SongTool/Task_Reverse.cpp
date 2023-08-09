@@ -3,32 +3,36 @@
 
 void Task::Process_ReverseImpact() {
 	// Gather references for easy access
-	const TaskMgr& mgr = *this->mgr;
-	Database& db = Database::Single();
-	Attributes& g = db.attrs;
+	const TaskMgr& mgr = GetTaskMgr();
+	//Database& db = Database::Single();
+	Pipe& pipe0 = *p.pipe;
+	Attributes& g = pipe0;
+	AttrScore& as = pipe0;
 	SnapArg& a = p.a;
 	a.Chk();
-	int gc = db.attrs.scorings.GetCount();
-	Song& song0 = *p.song;
-	
+	int gc = g.attr_scorings.GetCount();
+	ASSERT(pipe0.rev_impact >= 0);
+	ReverseTask& rt = pipe0.rev_tasks[pipe0.rev_impact];
 	
 	// Get all Break classes as SnapContext pointers (Break inherits SnapContext)
 	// These represents target objects in song-structure.
 	Vector<SnapContext*> ctxs0;
-	song0.GetContextLevel(0, ctxs0);
+	pipe0.GetContextLevel(0, ctxs0);
 	
 	// Clear result vector (with locks for gui)
-	song0.lock.EnterWrite();
-	song0.rev_impact.impact_results.Clear();
-	song0.lock.LeaveWrite();
+	pipe0.lock.EnterWrite();
+	rt.impact_results.Clear();
+	pipe0.lock.LeaveWrite();
 	
 	// Check if we have special development case, in which only one proper song is added (early dev)
 	// Then, allow itself to be used as resource.
+	TODO // see all db looping
+	#if 0
 	int valid_song_count = 0;
 	for (Artist& art : db.artists)
 		for (Release& rel : art.releases)
 			for (Song& song1 : rel.songs)
-				if (&song1 != &song0 && song1.parts.GetCount())
+				if (&song1 != &pipe0 && song1.parts.GetCount())
 					valid_song_count++;
 	bool accept_dbg_same_song = valid_song_count == 0;
 	
@@ -54,8 +58,8 @@ void Task::Process_ReverseImpact() {
 			for (Release& rel : art.releases) {
 				for (Song& song1 : rel.songs) {
 					// Accept same song in a special case
-					if (!accept_dbg_same_song && &song1 == &song0)
-						continue;
+					/*if (!accept_dbg_same_song && &song1 == &song0)
+						continue;*/
 					
 					// Get Break classes of the other song
 					Vector<SnapContext*> ctxs1;
@@ -144,13 +148,17 @@ void Task::Process_ReverseImpact() {
 			song0.lock.LeaveWrite();
 		}
 	}
+	#endif
 }
 
 void Task::Process_ReverseCommonMask() {
 	// Gather stack references for easy access
-	const TaskMgr& mgr = *this->mgr;
-	Database& db = Database::Single();
-	Attributes& g = db.attrs;
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	
+	//Database& db = Database::Single();
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
+	AttrScore& as = pipe;
 	SnapArg& a = p.a;
 	a.Chk();
 	ASSERT(a == ZeroArg());
@@ -160,14 +168,14 @@ void Task::Process_ReverseCommonMask() {
 	GeneticOptimizer& optimizer = task.optimizer;
 	
 	// Update group/item to score shortcut vector
-	db.attrscores.UpdateGroupsToScoring();
+	as.UpdateGroupsToScoring();
 	
 	// Get attribute-groups for high performance access
-	const Attributes::Group* gp = g.groups.Begin();
-	int group_count = g.groups.GetCount();
+	const Attr::Group* gp = g.attr_groups.Begin();
+	int group_count = g.attr_groups.GetCount();
 	
 	// Get scorings for fast access
-	int gc = g.scorings.GetCount(); // TODO rename gc
+	int gc = g.attr_scorings.GetCount(); // TODO rename gc
 	PArr<const int*> comp;
 	for (const SnapArg& a : ModeArgs()) {
 		const auto& ps = ctx.Get(a).partscore;
@@ -182,7 +190,7 @@ void Task::Process_ReverseCommonMask() {
 	// Remove attributes, which doesn't have scores yet
 	for(int i = 0; i < attrs.GetCount(); i++) {
 		const SnapAttrStr& sa = attrs[i];
-		int& score = db.attrscores.attr_to_score[sa.group_i][sa.item_i];
+		int& score = as.attr_to_score[sa.group_i][sa.item_i];
 		if (score < 0)
 			attrs.Remove(i--);
 	}
@@ -249,9 +257,9 @@ void Task::Process_ReverseCommonMask() {
 		for(int i = 0; i < mc; i++) {
 			int attr_i = sorter.key[i];
 			const SnapAttrStr& sa = mas[attr_i];
-			int score = db.attrscores.attr_to_score[sa.group_i][sa.item_i];
+			int score = as.attr_to_score[sa.group_i][sa.item_i];
 			ASSERT(score >= 0);
-			const AttrScoreGroup& ag = db.attrscores.groups[score];
+			const AttrScoreGroup& ag = as.score_groups[score];
 			ASSERT(ag.scores.GetCount() == gc);
 			const int* fsc = ag.scores.Begin();
 			for(int j = 0; j < gc; j++)
@@ -427,9 +435,9 @@ void Task::Process_ReverseCommonMask() {
 
 void Task::Process_ReverseSeparateMask() {
 	// Gather stack references for easy access
-	const TaskMgr& mgr = *this->mgr;
-	Database& db = Database::Single();
-	Attributes& g = db.attrs;
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
 	SnapArg& a = p.a;
 	a.Chk();
 	ASSERT(a == ZeroArg());
@@ -445,7 +453,7 @@ void Task::Process_ReverseSeparateMask() {
 	db.attrscores.UpdateGroupsToScoring();
 	
 	// Get attribute-groups for high performance access
-	const Attributes::Group* gp = g.groups.Begin();
+	const Attr::Group* gp = g.groups.Begin();
 	int group_count = g.groups.GetCount();
 	
 	// Get scorings for fast access
@@ -539,7 +547,7 @@ void Task::Process_ReverseSeparateMask() {
 				const SnapAttrStr& sa = mas[attr_i];
 				int score = db.attrscores.attr_to_score[sa.group_i][sa.item_i];
 				ASSERT(score >= 0);
-				const AttrScoreGroup& ag = db.attrscores.groups[score];
+				const AttrScoreGroup& ag = db.score_groups[score];
 				ASSERT(ag.scores.GetCount() == gc);
 				const int* fsc = ag.scores.Begin();
 				for(int j = 0; j < gc; j++)
@@ -742,7 +750,7 @@ void Task::Process_ReversePattern() {
 	db.attrscores.UpdateGroupsToScoring();
 	
 	// Get attribute-groups for high performance access
-	const Attributes::Group* gp = g.groups.Begin();
+	const Attr::Group* gp = g.groups.Begin();
 	int group_count = g.groups.GetCount();
 	
 	// Get scorings for fast access
@@ -852,7 +860,7 @@ void Task::Process_ReversePattern() {
 				const SnapAttrStr& sa = all_mas[attr_i];
 				int score = db.attrscores.attr_to_score[sa.group_i][sa.item_i];
 				ASSERT(score >= 0);
-				const AttrScoreGroup& ag = db.attrscores.groups[score];
+				const AttrScoreGroup& ag = db.score_groups[score];
 				ASSERT(ag.scores.GetCount() == gc);
 				const int* fsc = ag.scores.Begin();
 				for(int k = 0; k < gc; k++)

@@ -27,29 +27,31 @@ AnalysisCtrl::AnalysisCtrl() {
 
 void AnalysisCtrl::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	Song& song = *p.song;
-	Part& part = *p.part;
+	Pipe& pipe = *song.pipe;
+	PipePtrs& pp = pipe.p;
+	Part& part = *pp.part;
 	
 	for (const SnapArg& a : HumanInputTextArgs()) {
 		PatternSnap& snap =
-			db.ctx.active_wholesong ? song.Get(a) : part.Get(a);
-		Analysis& an =
-			db.ctx.active_wholesong ? song.headers[a].analysis : part.analysis[a];
+			db.ctx.active_wholesong ? pipe.Get(a) : part.Get(a);
+		const auto& an =
+			db.ctx.active_wholesong ? pipe.analysis[a] : part.analysis[a];
 		
 		DocEdit& full = this->full[a];
 		ArrayCtrl& data = this->data[a];
 		
 		if (db.ctx.active_wholesong)
-			edit[a].SetData(song.headers[a].content);
+			edit[a].SetData(pipe.content[a]);
 		else
 			edit[a].SetData(snap.txt);
 		
-		for(int i = 0; i < an.data.GetCount(); i++) {
-			data.Set(i, 0, an.data.GetKey(i));
-			data.Set(i, 1, an.data[i]);
+		for(int i = 0; i < an.GetCount(); i++) {
+			data.Set(i, 0, an.GetKey(i));
+			data.Set(i, 1, an[i]);
 		}
-		data.SetCount(an.data.GetCount());
+		data.SetCount(an.GetCount());
 	}
 	
 	DataCursor(SnapArg());
@@ -57,18 +59,19 @@ void AnalysisCtrl::Data() {
 
 void AnalysisCtrl::DataCursor(const SnapArg& match) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	Song& song = *p.song;
-	Part& part = *p.part;
+	Pipe& pipe = *song.pipe;
+	Part& part = *pipe.p.part;
 	
 	for (const SnapArg& a : HumanInputTextArgs()) {
-		Analysis& an =
-			db.ctx.active_wholesong ? song.headers[a].analysis : part.analysis[a];
+		const auto& an =
+			db.ctx.active_wholesong ? pipe.analysis[a] : part.analysis[a];
 		
 		DocEdit& full = this->full[a];
 		ArrayCtrl& data = this->data[a];
 		if (data.IsCursor()) {
-			full.SetData(an.data[data.GetCursor()]);
+			full.SetData(an[data.GetCursor()]);
 		}
 		else full.Clear();
 	}

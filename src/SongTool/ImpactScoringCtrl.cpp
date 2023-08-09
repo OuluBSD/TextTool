@@ -5,12 +5,27 @@ ImpactScoringCtrl::ImpactScoringCtrl() {
 	Add(mainsplit.SizePos());
 	mainsplit.Vert();
 	
+}
+
+void ImpactScoringCtrl::Realize(Pipe& p) {
+	Database& db = Database::Single();
+	Attributes& g = p;
+	
+	if (last_pipe == &p)
+		return;
+	last_pipe = &p;
+	
+	mainsplit.Clear();
+	
 	int tabs = 0;
 	
 	for (const SnapArg& a : ModeArgs()) {
 		Splitter& vsplit = this->vsplit[a];
 		Plotter& plotter = this->plotter[a];
-		ArrayCtrl& list = this->list[a];
+		One<ArrayCtrl>& list0 = this->list[a];
+		list0.Clear();
+		list0.Create();
+		ArrayCtrl& list = *list0;
 		
 		plotter.list = &list;
 		plotter.SetMode(a);
@@ -19,16 +34,15 @@ ImpactScoringCtrl::ImpactScoringCtrl() {
 		mainsplit << plotter << list;// << presets;
 		tabs += 2;
 		
-		Attributes& g = Database::Single().attrs;
 		list.AddIndex();
 		list.AddIndex();
 		list.AddIndex();
 		list.AddColumn(t_("Position"));
-		for (Attributes::ScoringType& t : g.scorings) {
+		for (Attr::ScoringType& t : g.attr_scorings) {
 			list.AddColumn(
-				//g.Translate(t.klass) + ": " +
-				g.Translate(t.axes0) + "/" +
-				g.Translate(t.axes1)
+				//db.Translate(t.klass) + ": " +
+				db.Translate(t.axes0) + "/" +
+				db.Translate(t.axes1)
 				);
 		}
 		
@@ -44,17 +58,20 @@ ImpactScoringCtrl::ImpactScoringCtrl() {
 
 void ImpactScoringCtrl::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
-	if (p.song) {
+	EditorPtrs& p = db.ctx.ed;
+	if (p.song && p.song->pipe) {
+		Pipe& pipe = *p.song->pipe;
+		PipePtrs& pp = pipe.p;
+		Realize(pipe);
 		//p.song->RealizeImpacts();
 		
 		if (db.ctx.active_wholesong) {
 			for (const SnapArg& a : ModeArgs()) {
-				plotter[a].SetWholeSong(*p.song);
+				plotter[a].SetWholeSong(pipe);
 			}
 		}
 		else {
-			Part& part = *p.part;
+			Part& part = *pp.part;
 			for (const SnapArg& a : ModeArgs()) {
 				plotter[a].SetPart(part);
 			}
@@ -66,30 +83,35 @@ void ImpactScoringCtrl::Data() {
 
 void ImpactScoringCtrl::DataList(const SnapArg& a) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
-	if (!p.song)
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
 		return;
 	Song& song = *p.song;
+	Pipe& pipe = *song.pipe;
+	PipePtrs& pp = pipe.p;
 	
 	Splitter& vsplit = this->vsplit[a];
 	Plotter& plotter = this->plotter[a];
-	ArrayCtrl& list = this->list[a];
+	One<ArrayCtrl>& list0 = this->list[a];
+	list0.Clear();
+	list0.Create();
+	ArrayCtrl& list = *list0;
 	
-	int sc = db.attrs.scorings.GetCount();
+	int sc = pipe.attr_scorings.GetCount();
 	
 	//DUMPC(song.impacts.GetKeys());
 	
 	// Whole song
 	if (db.ctx.active_wholesong) {
 		list.SetCount(0);
-		plotter.SetWholeSong(song);
+		plotter.SetWholeSong(pipe);
 		int total = 0;
-		for(int i = 0; i < song.structure.GetCount(); i++) {
-			String part_key = song.structure[i];
-			int part_i = song.FindPartIdx(part_key);
+		for(int i = 0; i < pipe.structure.GetCount(); i++) {
+			String part_key = pipe.structure[i];
+			int part_i = pipe.FindPartIdx(part_key);
 			if (part_i < 0) continue;
-			Part& part = song.parts[part_i];
-			String part_name = db.attrs.Translate(part.name);
+			Part& part = pipe.parts[part_i];
+			String part_name = db.Translate(part.name);
 			
 			for(int j = 0; j < part.lines.GetCount(); j++) {
 				Line& line = part.lines[j];
@@ -131,12 +153,12 @@ void ImpactScoringCtrl::DataList(const SnapArg& a) {
 		list.SetCount(total);
 	}
 	else {
-		if (!p.part)
+		if (!pp.part)
 			return;
-		Part& part = *p.part;
+		Part& part = *pp.part;
 		plotter.SetPart(part);
-		String part_name = db.attrs.Translate(part.name);
-		int part_i = p.GetActivePartIndex();
+		String part_name = db.Translate(part.name);
+		int part_i = pp.GetActivePartIndex();
 		int total = 0;
 		for(int i = 0; i < part.lines.GetCount(); i++) {
 			Line& line = part.lines[i];
@@ -178,26 +200,29 @@ void ImpactScoringCtrl::DataList(const SnapArg& a) {
 
 void ImpactScoringCtrl::ListValueChanged(const SnapArg& a, int pos, int scoring) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	
-	if (!p.song)
+	if (!p.song || !p.song->pipe)
 		return;
-	Song& song = *p.song;
+	Pipe& pipe = *p.song->pipe;
 	
 	Splitter& vsplit = this->vsplit[a];
 	Plotter& plotter = this->plotter[a];
-	ArrayCtrl& list = this->list[a];
+	One<ArrayCtrl>& list0 = this->list[a];
+	list0.Clear();
+	list0.Create();
+	ArrayCtrl& list = *list0;
 	
 	int part_i = list.Get(pos, 0);
 	int line_i = list.Get(pos, 1);
 	int brk_i = list.Get(pos, 2);
 	
-	Part& part = song.parts[part_i];
+	Part& part = pipe.parts[part_i];
 	Line& line = part.lines[line_i];
 	Break& brk = line.breaks[brk_i];
 	
-	if (brk.Get(a).partscore.GetCount() != db.attrs.scorings.GetCount())
-		brk.Get(a).partscore.SetCount(db.attrs.scorings.GetCount(), 0);
+	if (brk.Get(a).partscore.GetCount() != pipe.attr_scorings.GetCount())
+		brk.Get(a).partscore.SetCount(pipe.attr_scorings.GetCount(), 0);
 	
 	auto& dst = brk.Get(a).partscore[scoring];
 	int value = list.Get(pos, group_begin+scoring);

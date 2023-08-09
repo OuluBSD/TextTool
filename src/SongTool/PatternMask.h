@@ -1,7 +1,7 @@
 #ifndef _SongTool_PatternMask_h_
 #define _SongTool_PatternMask_h_
 
-struct PatternMask : Ptrs {
+struct PatternMask : PipePtrs {
 	Index<SnapAttrStr>	mask;
 	Vector<int>			maskscore;
 	
@@ -13,12 +13,16 @@ struct PatternMask : Ptrs {
 	void Add(const SnapAttrStr& sa) {
 		mask.FindAdd(sa);
 	}
-	void Jsonize(JsonIO& json) {
+	void Serialize(Stream& s) {
+		s	% mask
+			% maskscore;
+	}
+	/*void Jsonize(JsonIO& json) {
 		json
 			("mask", mask)
 			("maskscore", maskscore)
 			;
-	}
+	}*/
 	void GetGroups(Index<int>& groups) {
 		for (const SnapAttrStr& sa : mask.GetKeys()) {
 			sa.RealizeId();

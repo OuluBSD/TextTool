@@ -91,35 +91,41 @@ Plotter::Plotter() {
 }
 
 void Plotter::WholeSongParts() {
-	if (!song)
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
 		return;
+	Song& song = *p.song;
+	Pipe& pipe = *p.song->pipe;
 	for (auto& v : values) v.SetCount(0);
-	for(int i = 0; i < song->structure.GetCount(); i++) {
-		String key = song->structure[i];
-		int j = song->FindPartIdx(key);
+	for(int i = 0; i < pipe.structure.GetCount(); i++) {
+		String key = pipe.structure[i];
+		int j = pipe.FindPartIdx(key);
 		if (j < 0)
 			return;
-		Part& part = song->parts[j];
+		Part& part = pipe.parts[j];
 		AddValue(part);
 	}
 }
 
 void Plotter::WholeSongSnaps() {
-	if (!song)
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
 		return;
 	for (auto& v : values) v.SetCount(0);
-	for(int i = 0; i < song->structure.GetCount(); i++) {
-		String key = song->structure[i];
-		int j = song->FindPartIdx(key);
+	for(int i = 0; i < pipe->structure.GetCount(); i++) {
+		String key = pipe->structure[i];
+		int j = pipe->FindPartIdx(key);
 		if (j < 0) {
 			return;
 			DUMP(i);
-			DUMPC(song->structure);
-			DUMPC(song->parts);
+			DUMPC(pipe->structure);
+			DUMPC(pipe->parts);
 		}
 		ASSERT(j >= 0);
 		
-		Part& part = song->parts[j];
+		Part& part = pipe->parts[j];
 		for(int j = 0; j < part.lines.GetCount(); j++) {
 			Line& line = part.lines[j];
 			for(int k = 0; k < line.breaks.GetCount(); k++) {
@@ -135,8 +141,15 @@ void Plotter::WholeSongSnaps() {
 }
 
 void Plotter::PartSnaps() {
-	Attributes& g = Database::Single().attrs;
-	int c = g.scorings.GetCount();
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
+		return;
+	Song& song = *p.song;
+	Pipe& pipe = *p.song->pipe;
+	Attributes& g = pipe;
+	
+	int c = g.attr_scorings.GetCount();
 	if (!part)
 		return;
 	for(int j = 0; j < this->values.GetCount(); j++)
@@ -170,18 +183,29 @@ void Plotter::AddValue(SnapContext& ctx) {
 }
 
 void Plotter::AddEmptyValue() {
-	Attributes& g = Database::Single().attrs;
-	int c = g.scorings.GetCount();
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
+		return;
+	Pipe& pipe = *p.song->pipe;
+	Attributes& g = pipe;
+	
+	int c = g.attr_scorings.GetCount();
 	for(int i = 0; i < c; i++)
 		values[i].Add(0);
 }
 
 void Plotter::AddValue(const Vector<int>& score, const Vector<int>& other_score) {
-	Attributes& g = Database::Single().attrs;
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
+		return;
+	Pipe& pipe = *p.song->pipe;
+	Attributes& g = pipe;
 	
 	bool genderdiff_weighted_view = view == VIEW_GENDERDIFF_WEIGHTED;
 	bool genderdiff_view = view == VIEW_GENDERDIFF;
-	int c = g.scorings.GetCount();
+	int c = g.attr_scorings.GetCount();
 	
 	
 	// Read values to stack variables
@@ -224,6 +248,14 @@ void Plotter::AddValue(const Vector<int>& score, const Vector<int>& other_score)
 }
 
 void Plotter::Paint(Draw& d) {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
+		return;
+	Song& song = *p.song;
+	Pipe& pipe = *p.song->pipe;
+	Attributes& g = pipe;
+	
 	Size sz = GetSize();
 	bool absolute_view = view == VIEW_ABSOLUTE  || view == VIEW_ABSOLUTE_WEIGHTED;
 	bool weighted_view = view == VIEW_ABSOLUTE_WEIGHTED || view == VIEW_CUMULATIVE_WEIGHTED;
@@ -236,10 +268,8 @@ void Plotter::Paint(Draw& d) {
 	Color txt_clr = Black();
 	Font fnt = Monospace(10);
 	
-	Attributes& g = Database::Single().attrs;
-	
 	int y = sz.cy-15;
-	int c = g.scorings.GetCount();
+	int c = g.attr_scorings.GetCount();
 	
 	values.SetCount(c);
 	draw_group.SetCount(c);
@@ -260,12 +290,12 @@ void Plotter::Paint(Draw& d) {
 	
 	/*if (whole_song) {
 		// Get key string for the whole song
-		for(int i = 0; i < song->structure.GetCount(); i++) {
-			String key = song->structure[i];
-			int j = song->FindPartIdx(key);
+		for(int i = 0; i < pipe->structure.GetCount(); i++) {
+			String key = pipe->structure[i];
+			int j = pipe->FindPartIdx(key);
 			if (j < 0)
 				return;
-			Part& part = song->parts[j];
+			Part& part = pipe->parts[j];
 			if (i)
 				part_key << ", ";
 			part_key << g.Translate(key);
@@ -306,9 +336,9 @@ void Plotter::Paint(Draw& d) {
 	double xoff = absolute_view || genderdiff_view || genderdiff_weighted_view ? -cx / 2 : 0;
 	if (whole_song) {
 		int pos = 0;
-		for(int i = 0; i < song->structure.GetCount(); i++) {
-			const String& part_key = song->structure[i];
-			const Part& part = *song->FindPart(part_key);
+		for(int i = 0; i < pipe.structure.GetCount(); i++) {
+			const String& part_key = pipe.structure[i];
+			const Part& part = *pipe.FindPart(part_key);
 			int len = part.lines.GetCount();
 			for(int j = 0; j < len; j++) {
 				const Line& line = part.lines[j];
@@ -326,9 +356,10 @@ void Plotter::Paint(Draw& d) {
 	}
 	else {
 		int pos = 0;
-		int part_i = song->GetPartIdx(*part);
-		for(int i = 0; i < part->lines.GetCount(); i++) {
-			const Line& line = part->lines[i];
+		int part_i = pipe.GetPartIdx(*part);
+		Part& part = pipe.parts[part_i];
+		for(int i = 0; i < part.lines.GetCount(); i++) {
+			const Line& line = part.lines[i];
 			for(int j = 0; j < line.breaks.GetCount(); j++) {
 				const Break& brk = line.breaks[j];
 				int x = (int)(xoff + cx * pos);
@@ -403,11 +434,11 @@ void Plotter::Paint(Draw& d) {
 		if (!draw_group[i])
 			continue;
 		
-		const Attributes::ScoringType& s = g.scorings[i];
+		const Attr::ScoringType& s = g.attr_scorings[i];
 		String str =
-			g.Translate(s.klass) + ": " +
-			g.Translate(s.axes0) + " / " +
-			g.Translate(s.axes1);
+			db.Translate(s.klass) + ": " +
+			db.Translate(s.axes0) + " / " +
+			db.Translate(s.axes1);
 		
 		double h = (double)i / c;
 		Color clr = HSVToRGB(h, 1, 0.5);
@@ -492,9 +523,16 @@ void Plotter::RightDown(Point p, dword keyflags) {
 	Refresh();
 }
 
-void Plotter::MouseWheel(Point p, int zdelta, dword keyflags) {
+void Plotter::MouseWheel(Point pt, int zdelta, dword keyflags) {
 	Database& db = Database::Single();
-	int c = db.attrs.scorings.GetCount();
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
+		return;
+	Song& song = *p.song;
+	Pipe& pipe = *p.song->pipe;
+	Attributes& g = pipe;
+	
+	int c = g.attr_scorings.GetCount();
 	if (keyflags & K_SHIFT) {
 		if (zdelta > 0)
 			focused_group = (focused_group + 1) % draw_count;
@@ -503,17 +541,17 @@ void Plotter::MouseWheel(Point p, int zdelta, dword keyflags) {
 	}
 	else {
 		//DUMPC(rids);
-		const RectId* rid = FindPos(p);
+		const RectId* rid = FindPos(pt);
 		if (rid) {
 			int change = zdelta > 0 ? +1 : -1;
-			const String& part_key = song->structure[rid->b];
-			int part_i = song->FindPartIdx(part_key);
+			const String& part_key = pipe.structure[rid->b];
+			int part_i = pipe.FindPartIdx(part_key);
 			int line_i = rid->c;
 			int brk_i = rid->d;
 			
 			if (part_i < 0)
 				return;
-			Part& part = song->parts[part_i];
+			Part& part = pipe.parts[part_i];
 			Line& line = part.lines[line_i];
 			Break& brk = line.breaks[brk_i];
 			PatternSnap& snap = brk.Get(a);
@@ -563,8 +601,8 @@ void Plotter::MouseWheel(Point p, int zdelta, dword keyflags) {
 void Plotter::MouseMove(Point p, dword keyflags) {
 	const RectId* rid = FindPos(p);
 	if (rid) {
-		const String& part_key = song->structure[rid->b];
-		Part& part = *song->FindPart(part_key);
+		const String& part_key = pipe->structure[rid->b];
+		Part& part = *pipe->FindPart(part_key);
 		Line& line = part.lines[rid->c];
 		Break& brk = line.breaks[rid->d];
 		if (&brk != last_brk) {

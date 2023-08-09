@@ -1,7 +1,7 @@
 #include "SongTool.h"
 
 void Task::Process_StoryArc() {
-	Song& song = *this->p.song;
+	Pipe& pipe = *this->p.pipe;
 	
 	String txt = input + output;
 	//LOG(txt);
@@ -29,8 +29,8 @@ void Task::Process_StoryArc() {
 			key.Replace(":", "");
 			if (key.Find("toryline in parts") >= 0) {
 				int items = lines.GetCount()-1;
-				if (items >= song.parts.GetCount()) {
-					for(int i = 0; i < song.parts.GetCount(); i++) {
+				if (items >= pipe.parts.GetCount()) {
+					for(int i = 0; i < pipe.parts.GetCount(); i++) {
 						String s = TrimBoth(lines[1+i]);
 						String part_key;
 						int j = s.Find(":");
@@ -40,7 +40,7 @@ void Task::Process_StoryArc() {
 						}
 						String part_key_without_spaces = part_key;
 						part_key_without_spaces.Replace(" ", "");
-						Part& part = song.parts[i];
+						Part& part = pipe.parts[i];
 						//DUMP(part.name);
 						//DUMP(part_key);
 						//DUMP(part_key_without_spaces);
@@ -59,7 +59,7 @@ void Task::Process_StoryArc() {
 					if (i > 1) value += "\n";
 					value += lines[i];
 				}
-				p.song->Get(p.a).data.GetAdd(key) = value;
+				p.pipe->Get(p.a).data.GetAdd(key) = value;
 			}
 		}
 	}
@@ -77,7 +77,7 @@ void Task::Process_StoryArcWeighted() {
 	c0++;
 	txt = txt.Mid(c0);
 	
-	Index<String>& song_keys = tmp_stridx;
+	Index<String>& pipe_keys = tmp_stridx;
 	
 	txt.Replace("\r", "");
 	Vector<String> lines = Split(txt, "\n");
@@ -86,7 +86,7 @@ void Task::Process_StoryArcWeighted() {
 		String& line = lines[i];
 		if (line.Find("- Line ") != 0) {
 			lines.Remove(i);
-			song_keys.Remove(i);
+			pipe_keys.Remove(i);
 			i--;
 			continue;
 		}
@@ -103,7 +103,7 @@ void Task::Process_StoryArcWeighted() {
 		return;
 	}
 	
-	if (song_keys.GetCount() != lines.GetCount()) {
+	if (pipe_keys.GetCount() != lines.GetCount()) {
 		SetError("unexpected count of results");
 		return;
 	}
@@ -114,7 +114,7 @@ void Task::Process_StoryArcWeighted() {
 		SnapContext& ctx = *tmp_ctx[i];
 		const String& line = lines[i];
 		PatternSnap& snap = ctx.snap[a];
-		String key = song_keys[i];
+		String key = pipe_keys[i];
 		snap.data.GetAdd(key) = line;
 	}
 }
@@ -247,10 +247,9 @@ void Task::Process_ForwardLyricsWeighted() {
 }
 
 void Task::Process_ImpactScoring() {
-	Database& db = Database::Single();
-	Attributes& g = db.attrs;
-	int exp_count = g.scorings.GetCount();
-	Song& song = *p.song;
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
+	int exp_count = g.attr_scorings.GetCount();
 	
 	String txt = input + output;
 	
@@ -427,7 +426,7 @@ void Task::Process_ImpactScoring() {
 		
 		// char 80 persists in the string. Try finding without trailing characters
 		for(int i = 0; i < 3 && !snap; i++) {
-			snap = song.FindSnapByImpact(impact.Left(impact.GetCount()-i));
+			snap = pipe.FindSnapByImpact(impact.Left(impact.GetCount()-i));
 		}
 		/*if(!snap) {
 			DUMPC(impact);
@@ -443,13 +442,14 @@ void Task::Process_ImpactScoring() {
 void Task::Process_PatternMask() {
 	LOG("Task::Process_PatternMask: begin");
 	Database& db = Database::Single();
-	Song& song = *p.song;
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
 	SnapArg& a = p.a;
 	a.Chk();
 	
 	input.Replace("\r","");
 	output.Replace("\r","");
-	int pos = input.GetCount() - 3 - song.parts[0].name.GetCount();
+	int pos = input.GetCount() - 3 - pipe.parts[0].name.GetCount();
 	String result = input.Mid(pos) + output;
 	pos = result.Find("\n");
 	if (pos < 0) {SetError("unexpected output"); return;}
@@ -497,7 +497,7 @@ void Task::Process_PatternMask() {
 					SnapAttrStr sas;
 					sas.group = "pronouns";
 					sas.item = s;
-					SnapAttr sa = db.attrs.GetAddAttr(sas.group, sas.item);
+					SnapAttr sa = g.GetAddAttr(sas.group, sas.item);
 					sas.group_i = sa.group;
 					sas.item_i = sa.item;
 					sas.has_id = true;
@@ -559,19 +559,19 @@ void Task::Process_PatternMask() {
 				ASSERT(value.Find(",") < 0);
 				
 				// Realize pattern snapshot attribute
-				int group_i = db.attrs.FindGroup(group);
+				int group_i = g.FindGroup(group);
 				
 				// TODO: warning: this causes re-prompting from AI (because of different input)
 				if (group_i < 0) {
 					String type = args[0];
-					Attributes::Group& g = db.attrs.AddGroup(type, group, false);
-					group_i = db.attrs.groups.GetCount()-1;
-					ASSERT(&db.attrs.groups[group_i] == &g);
+					Attr::Group& gg = g.AddGroup(type, group, false);
+					group_i = pipe.attr_groups.GetCount()-1;
+					ASSERT(&pipe.attr_groups[group_i] == &gg);
 				}
 				
 				if (group_i >= 0)
 				{
-					SnapAttr sa = db.attrs.GetAddAttr(group, value); // ugly semantics
+					SnapAttr sa = g.GetAddAttr(group, value); // ugly semantics
 					SnapAttrStr sas;
 					sas.group = group;
 					sas.item = value;
@@ -579,7 +579,7 @@ void Task::Process_PatternMask() {
 					sas.item_i = sa.item;
 					sas.has_id = true;
 					part.Get(a).mask.FindAdd(sas);
-					song.Get(a).mask.FindAdd(sas);
+					pipe.Get(a).mask.FindAdd(sas);
 					//LOG(part_key << " -> " << group << " -> " << value);
 				}
 				else {
@@ -593,12 +593,10 @@ void Task::Process_PatternMask() {
 }
 
 void Task::Process_PatternMaskWeighted() {
-	Database& db = Database::Single();
-	Attributes& attrs = db.attrs;
-	
-	Ptrs& p = this->p;
-	Song& song = *p.song;
+	PipePtrs& p = this->p;
+	Pipe& pipe = *p.pipe;
 	Part& part = *p.part;
+	Attributes& attrs = pipe;
 	String s;
 	String parts;
 	
@@ -606,7 +604,7 @@ void Task::Process_PatternMaskWeighted() {
 	SnapArg a = p.a;
 	
 	PatternMask& part_mask = part.snap[a];
-	PatternMask& song_mask = song.snap[a];
+	PatternMask& pipe_mask = pipe.snap[a];
 	
 	String result = "-" + output;
 	//LOG(result);
@@ -647,9 +645,9 @@ void Task::Process_PatternMaskWeighted() {
 		int group_i = attrs.FindGroup(group_str);
 		if (group_i < 0) {
 			String type = args[0];
-			Attributes::Group& g = attrs.AddGroup(type, group_str, false);
-			group_i = db.attrs.groups.GetCount()-1;
-			ASSERT(&db.attrs.groups[group_i] == &g);
+			Attr::Group& g = attrs.AddGroup(type, group_str, false);
+			group_i = pipe.attr_groups.GetCount()-1;
+			ASSERT(&pipe.attr_groups[group_i] == &g);
 		}
 		
 		for(int j = 0; j < items.GetCount(); j++) {
@@ -661,7 +659,7 @@ void Task::Process_PatternMaskWeighted() {
 			sas.item_i = sa.item;
 			sas.has_id = true;
 			part_mask.mask.FindAdd(sas);
-			song_mask.mask.FindAdd(sas);
+			pipe_mask.mask.FindAdd(sas);
 		}
 	}
 	
@@ -669,20 +667,20 @@ void Task::Process_PatternMaskWeighted() {
 	// TODO move?
 	// Also, fix lyrics here
 	ASSERT(p.a.mode == WEIGHTED);
-	SongHeader& h = song.headers[p.a];
-	h.content = song.CreateLyricsFromBreaks(p.a);
-	song.snap[p.a].txt = h.content;
-	for (Part& part : song.parts) {
+	String& content = pipe.content[p.a];
+	content = pipe.CreateLyricsFromBreaks(p.a);
+	pipe.snap[p.a].txt = content;
+	for (Part& part : pipe.parts) {
 		part.snap[p.a].txt = part.CreateLyricsFromBreaks(p.a, true);
 	}
 }
 
 void Task::Process_Pattern() {
 	Database& db = Database::Single();
-	TaskMgr& m = TaskMgr::Single();
-	Attributes& g = db.attrs;
-	AttrScore& as = db.attrscores;
-	Song& song = *this->p.song;
+	TaskMgr& m = GetTaskMgr();
+	Pipe& pipe = *this->p.pipe;
+	Attributes& g = pipe;
+	AttrScore& as = pipe;
 	SnapArg& a = p.a;
 	p.a.Chk();
 	
@@ -693,8 +691,11 @@ void Task::Process_Pattern() {
 	int offset_begin = StrInt(args[1]);
 	int offset_end = StrInt(args[2]);
 	VectorMap<int,int> intmap;
-	for(int i = 0, j = 0; i < song.headers[a].unique_lines.GetCount(); i++) {
-		const String& l = song.headers[a].unique_lines.GetKey(i);
+	
+	TODO
+	#if 0
+	for(int i = 0, j = 0; i < pipe.headers[a].unique_lines.GetCount(); i++) {
+		const String& l = pipe.headers[a].unique_lines.GetKey(i);
 		if (i < offset_begin || i >= offset_end)
 			continue;
 		intmap.Add((j+1), i);
@@ -789,15 +790,15 @@ void Task::Process_Pattern() {
 		
 		/*
 		int line_i = -1;
-		for(int j = 0; j < song.line_attrs.GetCount(); j++) {
-			ArchivedSong::Line& l = song.line_attrs[j];
+		for(int j = 0; j < pipe.line_attrs.GetCount(); j++) {
+			ArchivedSong::Line& l = pipe.line_attrs[j];
 			if (l.line == txt) {
 				line_i = j;
 				break;
 			}
 		}
 		
-		ArchivedSong::Line& l = line_i < 0 ? song.line_attrs.Add() : song.line_attrs[line_i];
+		ArchivedSong::Line& l = line_i < 0 ? pipe.line_attrs.Add() : pipe.line_attrs[line_i];
 		l.line = txt;
 		*/
 		
@@ -849,7 +850,7 @@ void Task::Process_Pattern() {
 		
 	}
 	//DUMPM(parsed);
-	//DUMPC(db.attrs.groups);
+	//DUMPC(db.attr_groups);
 	
 	// Add parsed data to database
 	for(int i = 0; i < parsed.GetCount(); i++) {
@@ -857,7 +858,7 @@ void Task::Process_Pattern() {
 		const Parsed& parsed_struct = parsed[i];
 		const VectorMap<String, Index<String>>& group_map = parsed_struct.map;
 		
-		auto& unique_lines = song.headers[a].unique_lines;
+		auto& unique_lines = pipe.headers[a].unique_lines;
 		if (unique_lines.GetCount() <= parsed_struct.unique_line_i) {
 			DUMPM(unique_lines);
 			DUMPM(group_map);
@@ -867,7 +868,7 @@ void Task::Process_Pattern() {
 		
 		//DUMP(line_txt);
 		Vector<PatternSnap*> snaps;
-		song.GetLineSnapshots(a, line_txt, snaps);
+		pipe.GetLineSnapshots(a, line_txt, snaps);
 		//DUMP(snaps.GetCount());
 		
 		for(int j = 0; j < group_map.GetCount(); j++) {
@@ -919,7 +920,7 @@ void Task::Process_Pattern() {
 							// Add to mask... which is questionable
 							if (1) {
 								snap->part->snap[a].mask.FindAdd(attr);
-								snap->song->snap[a].mask.FindAdd(attr);
+								snap->pipe->snap[a].mask.FindAdd(attr);
 							}
 						}
 						
@@ -931,15 +932,14 @@ void Task::Process_Pattern() {
 			}
 		}
 	}
+	#endif
 }
 
 void Task::Process_PatternWeighted() {
-	Database& db = Database::Single();
-	Attributes& attrs = db.attrs;
-	
-	Ptrs& p = this->p;
-	Song& song = *p.song;
+	PipePtrs& p = this->p;
+	Pipe& pipe = *p.pipe;
 	Part& part = *p.part;
+	Attributes& attrs = pipe;
 	String s;
 	String parts;
 	
@@ -988,9 +988,9 @@ void Task::Process_PatternWeighted() {
 		
 		int group_i = attrs.FindGroup(group_str);
 		if (group_i < 0) {
-			Attributes::Group& g = attrs.AddGroup(unknown_type, group_str, false);
-			group_i = db.attrs.groups.GetCount()-1;
-			ASSERT(&db.attrs.groups[group_i] == &g);
+			Attr::Group& g = attrs.AddGroup(unknown_type, group_str, false);
+			group_i = pipe.attr_groups.GetCount()-1;
+			ASSERT(&pipe.attr_groups[group_i] == &g);
 		}
 		
 		for(int j = 0; j < items.GetCount(); j++) {
@@ -1006,7 +1006,7 @@ void Task::Process_PatternWeighted() {
 			// Add to mask... which is questionable
 			if (1) {
 				snap.part->snap[a].mask.FindAdd(sas);
-				snap.song->snap[a].mask.FindAdd(sas);
+				snap.pipe->snap[a].mask.FindAdd(sas);
 			}
 		}
 	}
@@ -1014,17 +1014,16 @@ void Task::Process_PatternWeighted() {
 
 void Task::Process_Analysis() {
 	LOG("Task::Process_Analysis: begin");
-	Database& db = Database::Single();
-	Song& song = *p.song;
+	Pipe& pipe = *p.pipe;
 	SnapArg& a = p.a;
 	a.Chk();
-	String vocalist_visual = p.artist->vocalist_visual;
+	String vocalist_visual = pipe.vocalist_visual;
 	String title = args[0];
 	
 	output.Replace("\n\n-", "\n-");
 	
 	if (!whole_song) {
-		int c = input.GetCount() - 3 - song.parts[0].name.GetCount();
+		int c = input.GetCount() - 3 - pipe.parts[0].name.GetCount();
 		String result = input.Mid(c) + output;
 		
 		// Parse result text
@@ -1058,18 +1057,18 @@ void Task::Process_Analysis() {
 			const VectorMap<String, String>& part_values = parsed[i];
 			
 			// Find Part
-			int part_i = song.FindPartIdx(key);
+			int part_i = pipe.FindPartIdx(key);
 			if (part_i < 0) {
 				SetError("part not found: " + key);
 				return;
 			}
-			Part& part = song.parts[part_i];
+			Part& part = pipe.parts[part_i];
 			
 			for(int i = 0; i < part_values.GetCount(); i++) {
 				String k = part_values.GetKey(i);
 				String v = part_values[i];
-				Analysis& an = part.analysis[a];
-				an.data.GetAdd(k) = v;
+				auto& an = part.analysis[a];
+				an.GetAdd(k) = v;
 				//LOG(key << " -> " << k << " = \"" << v << "\"");
 			}
 		}
@@ -1099,12 +1098,12 @@ void Task::Process_Analysis() {
 		}
 		
 		// Add values to database
-		Analysis& an = song.headers[a].analysis;
+		auto& an = pipe.analysis[a];
 		for(int i = 0; i < parsed_key.GetCount(); i++) {
 			String k = parsed_key.GetKey(i);
 			String v = parsed_key[i];
 			
-			an.data.GetAdd(k) = v;
+			an.GetAdd(k) = v;
 			LOG(key << " -> " << k << " = \"" << v << "\"");
 		}
 	}
@@ -1116,8 +1115,10 @@ void Task::Process_Analysis() {
 
 void Task::Process_AttrScores() {
 	Database& db = Database::Single();
-	Attributes& g = db.attrs;
-	int exp_count = g.scorings.GetCount();
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
+	AttrScore& as = pipe;
+	int exp_count = g.attr_scorings.GetCount();
 	
 	String txt = input + output;
 	
@@ -1219,9 +1220,9 @@ void Task::Process_AttrScores() {
 			String score_str = map[j];
 			
 			bool found = false;
-			for(int i = 0; i < g.groups.GetCount(); i++) {
-				Attributes::Group& gg = g.groups[i];
-				const Attributes::GroupType& gt = db.attrs.group_types[gg.type_i];
+			for(int i = 0; i < g.attr_groups.GetCount(); i++) {
+				Attr::Group& gg = g.attr_groups[i];
+				const Attr::GroupType& gt = pipe.group_types[gg.type_i];
 				if (ToLower(gg.description) == group && gt.group_ctx == p.a.ctx) {
 					for(int j = 0; j < gg.values.GetCount(); j++) {
 						String v = gg.values[j];
@@ -1323,7 +1324,7 @@ void Task::Process_AttrScores() {
 			
 			
 			// Handle combination: get group based on score integers
-			AttrScoreGroup& ag = db.attrscores.GetAdd(score_ints);
+			AttrScoreGroup& ag = as.GetAdd(score_ints);
 			
 			
 			// Add key to the group
@@ -1334,17 +1335,19 @@ void Task::Process_AttrScores() {
 	}
 	
 	// Reset values
-	db.attrscores.attr_to_score.Clear();
+	as.attr_to_score.Clear();
 	
 	// Calculate all connections again
-	if (!db.attrscores.UpdateGroupsToScoring())
+	if (!as.UpdateGroupsToScoring())
 		SetError("realizing attribute scores failed");
 	
 }
 
 bool Task::AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str) {
 	Database& db = Database::Single();
-	Attributes& g = db.attrs;
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
+	AttrScore& as = pipe;
 	SnapAttrStr a;
 	bool found = false;
 	
@@ -1352,11 +1355,11 @@ bool Task::AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str)
 	group = ToLower(group);
 	
 	// Find matching group and value (using lowercase strings)
-	for(int i = 0; i < g.groups.GetCount(); i++) {
-		Attributes::Group& gg = g.groups[i];
+	for(int i = 0; i < g.attr_groups.GetCount(); i++) {
+		Attr::Group& gg = g.attr_groups[i];
 		
 		// Skip different group context
-		const Attributes::GroupType& gt = db.attrs.group_types[gg.type_i];
+		const Attr::GroupType& gt = g.group_types[gg.type_i];
 		if (gt.group_ctx != p.a.ctx)
 			continue;
 		
@@ -1386,9 +1389,12 @@ bool Task::AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str)
 
 void Task::AddAttrScoreId(AttrScoreGroup& ag, const SnapAttrStr& a) {
 	Database& db = Database::Single();
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
+	AttrScore& as = pipe;
 	
 	// Remove SnapAttr from previously added group
-	for (AttrScoreGroup& ag0 : db.attrscores.groups) {
+	for (AttrScoreGroup& ag0 : as.score_groups) {
 		for(int i = 0; i < ag0.attrs.GetCount(); i++) {
 			const SnapAttrStr& a0 = ag0.attrs[i];
 			if (a0 == a) {
@@ -1408,15 +1414,18 @@ void Task::AddAttrScoreId(AttrScoreGroup& ag, const SnapAttrStr& a) {
 	ag.attrs.Add(a);
 }
 
-void GetScores(const PatternSnap& snap, Vector<int>& scores) {
-	Database& db = Database::Single();
+void Task::GetScores(const PatternSnap& snap, Vector<int>& scores) {
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
+	AttrScore& as = pipe;
+	
 	const PatternSnap* s = &snap;
-	int c = db.attrs.scorings.GetCount();
+	int c = g.attr_scorings.GetCount();
 	scores.SetCount(c);
 	for(auto& v : scores) v = 0;
 	
 	while (s) {
-		for (const AttrScoreGroup& g : db.attrscores.groups) {
+		for (const AttrScoreGroup& g : as.score_groups) {
 			SnapAttr a0;
 			
 			int match_count = 0;
@@ -1441,15 +1450,19 @@ void GetScores(const PatternSnap& snap, Vector<int>& scores) {
 	}
 }
 
-void GetMaskScores(const PatternSnap& snap, Vector<int>& scores) {
+void Task::GetMaskScores(const PatternSnap& snap, Vector<int>& scores) {
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
+	AttrScore& as = pipe;
+	
 	Database& db = Database::Single();
 	const PatternSnap* s = &snap;
-	int c = db.attrs.scorings.GetCount();
+	int c = g.attr_scorings.GetCount();
 	scores.SetCount(c);
 	for(auto& v : scores) v = 0;
 	
 	while (s) {
-		for (const AttrScoreGroup& g : db.attrscores.groups) {
+		for (const AttrScoreGroup& g : as.score_groups) {
 			SnapAttr a0;
 			
 			int match_count = 0;
@@ -1475,18 +1488,15 @@ void GetMaskScores(const PatternSnap& snap, Vector<int>& scores) {
 }
 
 void Task::Process_SongScores() {
-	Database& db = Database::Single();
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
+	AttrScore& as = pipe;
 	SnapArg& a = p.a;
 	a.Chk();
-	if (!p.song)
-		return;
-	
-	Song& s = *p.song;
-	Attributes& g = db.attrs;
 	
 	Vector<int> scores;
-	for(int i = 0; i < s.parts.GetCount(); i++) {
-		Part& f = s.parts[i];
+	for(int i = 0; i < pipe.parts.GetCount(); i++) {
+		Part& f = pipe.parts[i];
 		const String& key = f.name;
 		
 		Vector<PatternSnap*> level_snaps;
@@ -1541,12 +1551,12 @@ void Task::Process_Lyrics() {
 
 void Task::Process_LyricsTranslate() {
 	bool rev_snap = args.GetCount() && args[0] == "rev";
-	Song& song = *p.song;
+	Pipe& pipe = *p.pipe;
 	SnapArg& a = p.a;
 	a.Chk();
 	String lng = args[1].Left(5);
 	String key = "gen.lyrics";
 	key += "." + lng;
-	String& dst = song.Get(a).data.GetAdd(key);
+	String& dst = pipe.Get(a).data.GetAdd(key);
 	dst = output;
 }

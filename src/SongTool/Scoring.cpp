@@ -1,10 +1,10 @@
 #include "SongTool.h"
 
-void AttrScoreGroup::Realize() {
-	Attributes& g = Database::Single().attrs;
+/*void AttrScoreGroup::Realize() {
+	Attributes& g = *snap.pipe;
 	if (scores.GetCount() < g.scorings.GetCount())
 		scores.SetCount(g.scorings.GetCount(), 0);
-}
+}*/
 
 
 
@@ -12,7 +12,12 @@ AttrScore::AttrScore() {
 	file_title = "attrscore";
 }
 
-void AttrScore::Store() {
+int AttrScore::GetActiveScoreGroupIndex() const {
+	Database& db = Database::Single();
+	return VectorFindPtr(db.ctx.active_scoregroup, score_groups);
+}
+
+/*void AttrScore::Store() {
 	String dir = Database::Single().dir;
 	RealizeDirectory(dir);
 	String json_path = dir + DIR_SEPS "share" DIR_SEPS + file_title + ".json";
@@ -25,22 +30,23 @@ void AttrScore::Load() {
 	String json_path = dir + DIR_SEPS "share" DIR_SEPS + file_title + ".json";
 	//DUMP(json_path);
 	LoadFromJsonFile(*this, json_path);
-}
+}*/
 
 bool AttrScore::UpdateGroupsToScoring() {
 	// Connect attribute group&items to score groups
 	// These classes are kept separate, because they center around different concepts.
 	
-	Attributes& g = Database::Single().attrs;
+	Pipe& pipe = *static_cast<Pipe*>(this);
+	Attributes& g = pipe;
 	
 	// Realize conversion vector
-	int gc = g.groups.GetCount();
+	int gc = g.attr_groups.GetCount();
 	this->attr_to_score.SetCount(gc);
 	
 	// Loop Attributes groups and entries
 	int total = 0, not_found = 0;
 	for(int i = 0; i < gc; i++) {
-		Attributes::Group& gg = g.groups[i];
+		Attr::Group& gg = g.attr_groups[i];
 		int vc = gg.values.GetCount();
 		
 		// Realize conversion vector
@@ -61,7 +67,7 @@ bool AttrScore::UpdateGroupsToScoring() {
 			// Loop groups of AttrScoreGroup, and match group&entry (==SnapAttr) value
 			bool found = false;
 			int asg_i = 0;
-			for (AttrScoreGroup& asg : groups) {
+			for (AttrScoreGroup& asg : score_groups) {
 				/*for(int i = 0; i < asg.attrs.GetCount(); i++) {
 					const SnapAttrStr& sa = asg.attrs[i];
 					if (!sa.has_id) {
@@ -98,7 +104,7 @@ bool AttrScore::UpdateGroupsToScoring() {
 
 
 /*void PartScore::Realize() {
-	Attributes& g = Database::Single().attrs;
+	Attributes& g = *snap.pipe;
 	values.SetCount(g.scorings.GetCount());
 	for (auto& v : values)
 		v.SetCount(len, 0);
@@ -106,9 +112,11 @@ bool AttrScore::UpdateGroupsToScoring() {
 
 
 String AttrScoreGroup::ToString() const {
-	Attributes& g = Database::Single().attrs;
-	
 	String s;
+	TODO
+	#if 0
+	Attributes& g = *snap.pipe;
+	
 	if (name.GetCount())
 		s << t_("Name") << ": " << name << "\n";
 	
@@ -121,12 +129,13 @@ String AttrScoreGroup::ToString() const {
 			continue;
 		}
 		
-		const Attributes::ScoringType& t = g.scorings[i];
+		const Attr::ScoringType& t = g.scorings[i];
 		String name =
 			Capitalize(g.Translate(t.klass)) + ": " + (sc > 0 ? "+" : "-") + " (" +
 			Capitalize(g.Translate(sc > 0 ? t.axes0 : t.axes1)) + ")";
 		s << name << "\n";
 	}
-	
+	#endif
 	return s;
 }
+

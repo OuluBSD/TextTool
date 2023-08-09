@@ -1,13 +1,12 @@
 #include "SongTool.h"
 
 
-int Attributes::trans_i = -1;
 
 Attributes::Attributes() {
 	file_title = "attributes";
 }
 
-void Attributes::Store() {
+/*void Attributes::Store() {
 	String dir = Database::Single().dir;
 	RealizeDirectory(dir);
 	String json_path = dir + DIR_SEPS "share" DIR_SEPS + file_title + ".json";
@@ -20,20 +19,20 @@ void Attributes::Load() {
 	String json_path = dir + DIR_SEPS "share" DIR_SEPS + file_title + ".json";
 	//DUMP(json_path);
 	LoadFromJsonFile(*this, json_path);
-}
+}*/
 
 void Attributes::Realize() {
-	if (groups.IsEmpty() || group_types.IsEmpty())
+	if (attr_groups.IsEmpty() || group_types.IsEmpty())
 		LoadDefaultGroups();
-	if (analysis.IsEmpty())
+	if (attr_analysis.IsEmpty())
 		LoadDefaultAnalysis();
-	if (scorings.IsEmpty())
+	if (attr_scorings.IsEmpty())
 		LoadDefaultAttrGroups();
 }
 
 void Attributes::LoadDefaultGroups() {
 	group_types.Clear();
-	groups.Clear();
+	attr_groups.Clear();
 	
 	AddGroupType("language", CTX_TEXT);
 	AddGroup("language", "Nouns", true);
@@ -185,8 +184,8 @@ void Attributes::LoadDefaultGroups() {
 }
 
 void Attributes::LoadDefaultAnalysis() {
-	analysis.Clear();
-	analysis.Add("story analysis")
+	attr_analysis.Clear();
+	attr_analysis.Add("story analysis")
 		<< "meaning"
 		<< "literary devices"
 		<< "emotion"
@@ -196,7 +195,7 @@ void Attributes::LoadDefaultAnalysis() {
 		<< "stroryline"
 		<< "implications"
 		;
-	analysis.Add("psychological analysis of conscious values")
+	attr_analysis.Add("psychological analysis of conscious values")
 		<< "life choices"
 		<< "changing the world"
 		<< "overcoming adversity"
@@ -208,7 +207,7 @@ void Attributes::LoadDefaultAnalysis() {
 		<< "faith"
 		<< "loss"
 		;
-	analysis.Add("psychological analysis of subconscious values")
+	attr_analysis.Add("psychological analysis of subconscious values")
 		<< "love"
 		<< "loss and longing"
 		<< "memories"
@@ -233,30 +232,30 @@ void Attributes::LoadDefaultAnalysis() {
 }
 
 void Attributes::LoadDefaultAttrGroups() {
-	AddScoring(("Integrity: honest/twisted"), scorings);
-	AddScoring(("Social: libertarian/authoritarian"), scorings);
-	AddScoring(("Economic: liberal/conservative"), scorings);
-	AddScoring(("Culture: individualism/collective"), scorings);
-	AddScoring(("Human strength: strong/weak"), scorings);
-	AddScoring(("Motivation: rewarding/punishing"), scorings);
-	AddScoring(("Sexualization: sexual/non-sexual"), scorings);
-	AddScoring(("Beliefs: spiritual/secular"), scorings);
-	AddScoring(("Expectations: acceptance/perfection"), scorings);
-	AddScoring(("Mood: joyful/melancholic"), scorings);
-	AddScoring(("Mood: playful/serious"), scorings);
-	AddScoring(("Mood: uplifting/heavy"), scorings);
-	AddScoring(("Mood: lighthearted/somber"), scorings);
-	AddScoring(("Mood: humorous/dramatic"), scorings);
-	AddScoring(("Attitude: hopeful/despair"), scorings);
-	AddScoring(("Attitude: optimistic/pessimistic"), scorings);
-	AddScoring(("Attitude: open/closed"), scorings);
-	AddScoring(("Sexual Orientation: heterosexual/homosexual"), scorings);
-	AddScoring(("Sexual Preference: kinky/normal"), scorings);
-	AddScoring(("Physical Preference: enhancement/natural"), scorings);
+	AddScoring(("Integrity: honest/twisted"), attr_scorings);
+	AddScoring(("Social: libertarian/authoritarian"), attr_scorings);
+	AddScoring(("Economic: liberal/conservative"), attr_scorings);
+	AddScoring(("Culture: individualism/collective"), attr_scorings);
+	AddScoring(("Human strength: strong/weak"), attr_scorings);
+	AddScoring(("Motivation: rewarding/punishing"), attr_scorings);
+	AddScoring(("Sexualization: sexual/non-sexual"), attr_scorings);
+	AddScoring(("Beliefs: spiritual/secular"), attr_scorings);
+	AddScoring(("Expectations: acceptance/perfection"), attr_scorings);
+	AddScoring(("Mood: joyful/melancholic"), attr_scorings);
+	AddScoring(("Mood: playful/serious"), attr_scorings);
+	AddScoring(("Mood: uplifting/heavy"), attr_scorings);
+	AddScoring(("Mood: lighthearted/somber"), attr_scorings);
+	AddScoring(("Mood: humorous/dramatic"), attr_scorings);
+	AddScoring(("Attitude: hopeful/despair"), attr_scorings);
+	AddScoring(("Attitude: optimistic/pessimistic"), attr_scorings);
+	AddScoring(("Attitude: open/closed"), attr_scorings);
+	AddScoring(("Sexual Orientation: heterosexual/homosexual"), attr_scorings);
+	AddScoring(("Sexual Preference: kinky/normal"), attr_scorings);
+	AddScoring(("Physical Preference: enhancement/natural"), attr_scorings);
 }
 
 void Attributes::RealizeAttrIds() {
-	for (Group& gg : groups) {
+	for (Group& gg : attr_groups) {
 		if (gg.type_i >= 0) continue;
 		for(int i = 0; i < group_types.GetCount(); i++) {
 			if (gg.type == group_types[i].name) {
@@ -268,21 +267,21 @@ void Attributes::RealizeAttrIds() {
 	}
 }
 
-Attributes::GroupType& Attributes::AddGroupType(String type, GroupContext group_ctx) {
-	for (Attributes::GroupType& gt : group_types) {
+Attr::GroupType& Attributes::AddGroupType(String type, GroupContext group_ctx) {
+	for (Attr::GroupType& gt : group_types) {
 		ASSERT(gt.name != type);
 		if (gt.name == type)
 			return gt;
 	}
-	Attributes::GroupType& gt = group_types.Add();
+	Attr::GroupType& gt = group_types.Add();
 	gt.name = type;
 	gt.group_ctx = group_ctx;
 	gt.clr = Color(Random(256), Random(256), Random(256));
 	return gt;
 }
 
-Attributes::GroupType& Attributes::GetGroupType(String type) {
-	for (Attributes::GroupType& gt : group_types) {
+Attr::GroupType& Attributes::GetGroupType(String type) {
+	for (Attr::GroupType& gt : group_types) {
 		if (gt.name == type)
 			return gt;
 	}
@@ -290,11 +289,11 @@ Attributes::GroupType& Attributes::GetGroupType(String type) {
 	return group_types[0];
 }
 
-Attributes::Group& Attributes::AddGroup(String type, String desc, bool managed) {
+Attr::Group& Attributes::AddGroup(String type, String desc, bool managed) {
 	ASSERT(!type.IsEmpty());
 	ASSERT(!desc.IsEmpty());
 	GroupType& gt = GetGroupType(type);
-	Group& g = groups.Add();
+	Group& g = attr_groups.Add();
 	g.description = ToLower(desc);
 	g.type = ToLower(type);
 	g.clr = Color(Random(256), Random(256), Random(256));
@@ -315,7 +314,7 @@ bool Attributes::FindAttr(String group, String item, SnapAttr& sa) const {
 	group = ToLower(group);
 	item = ToLower(item);
 	int group_i = 0;
-	for (const Group& gg : groups) {
+	for (const Group& gg : attr_groups) {
 		if (gg.description == group) {
 			for(int i = 0; i < gg.values.GetCount(); i++) {
 				if (ToLower(gg.values[i]) == item) {
@@ -336,8 +335,8 @@ SnapAttr Attributes::GetAddAttr(String group, String item) {
 	SnapAttr sa;
 	String lgroup = ToLower(group);
 	String litem = ToLower(item);
-	for(int i = 0; i < groups.GetCount(); i++) {
-		Group& gg = groups[i];
+	for(int i = 0; i < attr_groups.GetCount(); i++) {
+		Group& gg = attr_groups[i];
 		if (ToLower(gg.description) == lgroup) {
 			sa.group = i;
 			for(int j = 0; j < gg.values.GetCount(); j++) {
@@ -353,9 +352,9 @@ SnapAttr Attributes::GetAddAttr(String group, String item) {
 		}
 	}
 	#if 0
-	sa.group = groups.GetCount();
+	sa.group = attr_groups.GetCount();
 	sa.item = 0;
-	Group& gg = groups.Add();
+	Group& gg = attr_groups.Add();
 	gg.description = ToLower(group);
 	gg.clr = Color(Random(256), Random(256), Random(256));
 	ASSERT(item.Find(",") < 0);
@@ -373,42 +372,26 @@ SnapAttr Attributes::GetAddAttr(String group, String item) {
 	#endif
 }
 
-void Attributes::AddScoring(String s, Vector<Attributes::ScoringType>& scorings) {
+void Attributes::AddScoring(String s, Vector<Attr::ScoringType>& scorings) {
+	Database& db = Database::Single();
+	
 	int a = s.Find(":");
 	
-	Attributes::ScoringType& t = scorings.Add();
+	Attr::ScoringType& t = scorings.Add();
 	t.klass = s.Left(a);
 	s =  s.Mid(a+2);
 	a = s.Find("/");
 	t.axes0 = s.Left(a);
 	t.axes1 = s.Mid(a+1);
 	
-	Translate(t.klass);
-	Translate(t.axes0);
-	Translate(t.axes1);
-}
-
-String Attributes::Translate(const String& s) {
-	if (trans_i < 0)
-		return s;
-	Translation& t = this->translation[trans_i];
-	int i = t.data.Find(s);
-	String o;
-	if (i >= 0)
-		o = t.data[i];
-	if (i < 0 || o.IsEmpty()) {
-		i = t.data.Find(ToLower(s));
-		if (i >= 0)
-			o = t.data[i];
-		else
-			t.data.Add(ToLower(s));
-	}
-	return o.IsEmpty() ? s : o;
+	db.Translate(t.klass);
+	db.Translate(t.axes0);
+	db.Translate(t.axes1);
 }
 
 int Attributes::FindGroup(String group_name) {
-	for(int i = 0; i < groups.GetCount(); i++) {
-		if (ToLower(groups[i].description) == group_name)
+	for(int i = 0; i < attr_groups.GetCount(); i++) {
+		if (ToLower(attr_groups[i].description) == group_name)
 			return i;
 	}
 	return -1;
@@ -416,7 +399,7 @@ int Attributes::FindGroup(String group_name) {
 
 void Attributes::FindGroupTypes(const Vector<int>& group_ids, Index<int>& group_type_ids) const {
 	for (int group_i : group_ids) {
-		const Group& g = groups[group_i];
+		const Group& g = attr_groups[group_i];
 		ASSERT(!g.type.IsEmpty());
 		if (g.type_i < 0) {
 			Group& mg = const_cast<Group&>(g);
@@ -435,7 +418,7 @@ void Attributes::FindGroupTypes(const Vector<int>& group_ids, Index<int>& group_
 
 void Attributes::GetAll(Vector<SnapAttrStr>& attrs) {
 	int group_i = 0;
-	for (Group& g : groups) {
+	for (Group& g : attr_groups) {
 		int item_i = 0;
 		for (String& value : g.values) {
 			SnapAttrStr& sa = attrs.Add();

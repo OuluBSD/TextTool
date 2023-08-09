@@ -17,23 +17,23 @@ Sequencer::Sequencer() {
 
 void Sequencer::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	
-	if (!p.song)
+	if (!p.song ||!p.song->pipe)
 		return;
-	Song& song = *p.song;
+	Pipe& pipe = *p.song->pipe;
 	
-	RealizeSubCtrls(headers, headers.list, song.tracks);
+	RealizeSubCtrls(headers, headers.list, pipe.tracks);
 	for(int i = 0; i < headers.list.GetCount(); i++) {
 		SeqLineHeaderCtrl& header = headers.list[i];
-		Track& track = song.tracks[i];
+		Track& track = pipe.tracks[i];
 		header.track = &track;
 	}
 	
-	RealizeSubCtrls(lines, lines.list, song.tracks);
+	RealizeSubCtrls(lines, lines.list, pipe.tracks);
 	for(int i = 0; i < lines.list.GetCount(); i++) {
 		SeqLineCtrl& line = lines.list[i];
-		Track& track = song.tracks[i];
+		Track& track = pipe.tracks[i];
 		line.track = &track;
 	}
 	

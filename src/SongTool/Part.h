@@ -4,26 +4,32 @@
 struct Part :
 	SnapContext
 {
+	// Local
 	String name;
-	
-	Array<Line>			lines;
-	Composition			composition;
-	PArr<Analysis>		analysis;
+	Array<Line>						lines;
+	Composition						composition;
+	MArr<VectorMap<String,String>>	analysis;
 	
 	void Clear() {
 		lines.Clear();
 		SnapContext::Clear();
 	}
-	void Jsonize(JsonIO& json) {
+	void Serialize(Stream& s) {
+		s	% name
+			% lines
+			% composition
+			% analysis;
+		SnapContext::Serialize(s);
+	}
+	/*void Jsonize(JsonIO& json) {
 		json
 			("name", name)
 			("lines", lines)
 			("composition", composition)
+			("analysis", analysis)
 			;
-		for(const SnapArg& a : AllArgs())
-			json("analysis" + a.SubscriptString(), analysis[a]);
 		SnapContext::Jsonize(json);
-	}
+	}*/
 	String ToString() const {return name + ", lines=" + IntStr(lines.GetCount());}
 	void FixPtrs() {
 		SetPartPtr(this);

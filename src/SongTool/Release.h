@@ -3,11 +3,13 @@
 
 
 struct Release :
-	DataFile,
-	SnapContext
+	DataFile
 {
+	// Public
 	String			title;
 	Date			date;
+	
+	// Public (separate files)
 	Array<Song>		songs;
 	
 	
@@ -15,6 +17,11 @@ struct Release :
 	void Store();
 	void LoadTitle(String title);
 	//Song& RealizeReversed(Song& s);
+	void Serialize(Stream& s) {
+		s	% title
+			% date
+			% songs;
+	}
 	void Jsonize(JsonIO& json) {
 		json
 			("title", title)
@@ -35,9 +42,8 @@ struct Release :
 				for (String n : names) songs.Add().LoadTitle(n);
 			}
 		}
-		SnapContext::Jsonize(json);
 	}
-	void FixPtrs() {
+	/*void FixPtrs() {
 		SetReleasePtr(this);
 		int id = 0;
 		for (Song& s : songs) {
@@ -46,7 +52,7 @@ struct Release :
 			s.SetId(id++);
 			s.FixPtrs();
 		}
-	}
+	}*/
 	Array<Song>& GetSub() {return songs;}
 	const Array<Song>& GetSub() const {return songs;}
 	bool operator()(const Release& a, const Release& b) const {
@@ -55,7 +61,6 @@ struct Release :
 	}
 	
 	
-	PATTERNMASK_MACROS
 };
 
 

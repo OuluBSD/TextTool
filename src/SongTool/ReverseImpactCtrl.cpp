@@ -14,25 +14,29 @@ ReverseImpactCtrl::ReverseImpactCtrl() {
 
 void ReverseImpactCtrl::Data() {
 	Database& db = Database::Single();
-	if (!db.ctx.p.song) return;
-	Song& song = *db.ctx.p.song;
+	if (!db.ctx.ed.song) return;
+	Song& song = *db.ctx.ed.song;
+	Pipe& pipe = *song.pipe;
 	
-	song.lock.EnterRead();
+	pipe.lock.EnterRead();
 	
-	
-	int c = song.rev_impact.impact_results.GetCount();
-	for(int i = 0; i < c; i++) {
-		String key = song.rev_impact.impact_results.GetKey(i);
-		const Tuple2<String, double>& res = song.rev_impact.impact_results[i];
-		const String& src = res.a;
-		double val = res.b;
-		list.Set(i, 0, key);
-		list.Set(i, 1, src);
-		list.Set(i, 2, val);
+	if (pipe.rev_impact >= 0) {
+		ReverseTask& t = pipe.rev_tasks[pipe.rev_impact];
+		int c = t.impact_results.GetCount();
+		for(int i = 0; i < c; i++) {
+			String key = t.impact_results.GetKey(i);
+			const Tuple2<String, double>& res = t.impact_results[i];
+			const String& src = res.a;
+			double val = res.b;
+			list.Set(i, 0, key);
+			list.Set(i, 1, src);
+			list.Set(i, 2, val);
+		}
+		list.SetCount(c);
 	}
-	list.SetCount(c);
+	else list.Clear();
 	
-	song.lock.LeaveRead();
+	pipe.lock.LeaveRead();
 	
 	plotter.Refresh();
 }
@@ -50,14 +54,17 @@ void ReverseImpactPlotter::Paint(Draw& d) {
 	d.DrawRect(sz, White());
 	
 	Database& db = Database::Single();
-	if (!db.ctx.p.song) return;
-	Song& song = *db.ctx.p.song;
+	if (!db.ctx.ed.song) return;
+	Song& song = *db.ctx.ed.song;
+	Pipe& pipe = *song.pipe;
 	
 	
-	song.lock.EnterRead();
+	pipe.lock.EnterRead();
 	
-	int c = song.rev_impact.impact_results.GetCount();
-	if (c < 2) {song.lock.LeaveRead(); return;}
+	if (pipe.rev_impact < 0) {pipe.lock.LeaveRead(); return;}
+	ReverseTask& t = pipe.rev_tasks[pipe.rev_impact];
+	int c = t.impact_results.GetCount();
+	if (c < 2) {pipe.lock.LeaveRead(); return;}
 	
 	double cx = (double)sz.cx / (c-1);
 	
@@ -68,7 +75,7 @@ void ReverseImpactPlotter::Paint(Draw& d) {
 	int w_2 = w / 2;
 	Vector<Point> pts;
 	for(int i = 0; i < c; i++) {
-		double val = song.rev_impact.impact_results[i].b;
+		double val = t.impact_results[i].b;
 		double f = (val - low) / diff;
 		int y = (int)(-sz.cy + f * sz.cy - w_2);
 		int x = (int)(i * cx - w_2);
@@ -80,6 +87,6 @@ void ReverseImpactPlotter::Paint(Draw& d) {
 	if (polyline)
 		d.DrawPolyline(pts, w, Blue());
 	
-	song.lock.LeaveRead();
+	pipe.lock.LeaveRead();
 	
 }

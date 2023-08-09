@@ -1,3 +1,12 @@
+- task hashes
+- task strucutre
+- split too large pattern tasks
+
+- hashed bits to avoid too much prompting
+	- sorted json for bits
+	- also bin files for bits
+- clear song/artist etc json files, and use mostly bin (rely on process + prompt json)
+
 - list for snaps like it is for mask
 
 - common mask: build from F-M and remove common from F-M

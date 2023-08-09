@@ -36,14 +36,18 @@ using namespace Upp;
 #include "Part.h"
 #include "Block.h"
 #include "Track.h"
+#include "Attributes.h"
+
+#include "TaskCommon.h"
+#include "Cache.h"
+#include "Tasks.h"
+#include "TaskMgr.h"
+
+#include "Pipeline.h"
 #include "Song.h"
 #include "Release.h"
 #include "Artist.h"
-#include "Attributes.h"
 #include "Database.h"
-
-#include "Tasks.h"
-#include "TaskMgr.h"
 
 #include "AttrDataCtrl.h"
 #include "BasicInfoCtrl.h"

@@ -2,10 +2,10 @@
 
 void Task::Process_MakeImportTasks() {
 	const Database& db = Database::Single();
-	Song& song = *p.song;
+	Pipe& pipe = GetPipe();
 	
 	{
-		song.DeepClearSnap();
+		pipe.DeepClearSnap();
 		
 		if (!ParseOriginalLyrics())
 			return;
@@ -20,15 +20,14 @@ void Task::Process_MakeImportTasks() {
 
 void Task::Process_MakeContextImportTasks() {
 	const Database& db = Database::Single();
-	Song& song = *p.song;
-	const Artist& artist = *p.artist;
-	ASSERT(p.artist);
+	Pipe& pipe = GetPipe();
+	ASSERT(pipe.vocalist_visual.GetCount());
 	
 	for (const SnapArg& a : HumanInputContextArgs()) {
 		if (a.ctx != p.a.ctx) continue;
-		for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
-			const Attributes::GroupType& group_type = db.attrs.group_types[i];
-			for (Part& part : song.parts) {
+		for(int i = 0; i < pipe.group_types.GetCount(); i++) {
+			const Attr::GroupType& group_type = pipe.group_types[i];
+			for (Part& part : pipe.parts) {
 				
 				// Skip different context
 				if (group_type.group_ctx != a.ctx)
@@ -39,15 +38,15 @@ void Task::Process_MakeContextImportTasks() {
 				t.p = p;
 				t.p.part = &part;
 				t.p.a = a;
-				t.args << group_type.name << artist.vocalist_visual;
+				t.args << group_type.name << pipe.vocalist_visual;
 			}
 		}
 	}
 	for (const SnapArg& a : WeightedContextArgs()) {
 		if (a.ctx != p.a.ctx) continue;
-		for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
-			const Attributes::GroupType& group_type = db.attrs.group_types[i];
-			for (Part& part : song.parts) {
+		for(int i = 0; i < pipe.group_types.GetCount(); i++) {
+			const Attr::GroupType& group_type = pipe.group_types[i];
+			for (Part& part : pipe.parts) {
 				
 				// Skip different context
 				if (group_type.group_ctx != a.ctx)
@@ -58,7 +57,7 @@ void Task::Process_MakeContextImportTasks() {
 				t.p = p;
 				t.p.part = &part;
 				t.p.a = a;
-				t.args << group_type.name << artist.vocalist_visual;
+				t.args << group_type.name << pipe.vocalist_visual;
 			}
 		}
 	}
@@ -80,6 +79,8 @@ void Task::Process_MakeContextImportTasks() {
 	}
 	
 	{
+		TODO
+		#if 0
 		for (const SnapArg& a : TextInputModeArgs()) {
 			if (a.ctx != p.a.ctx) continue;
 			SongHeader& h = song.headers[a];
@@ -101,9 +102,10 @@ void Task::Process_MakeContextImportTasks() {
 				}
 			}
 		}
+		#endif
 	}
 	{
-		for (Part& part : song.parts) {
+		for (Part& part : pipe.parts) {
 			for (Line& line : part.lines) {
 				for (const SnapArg& a : TextInputModeArgs()) {
 					PatternSnap& snap = line.snap[a];
@@ -151,20 +153,20 @@ void Task::Process_MakeContextImportTasks() {
 	
 	{
 		for (int whole_song = 0; whole_song < 2; whole_song++) {
-			for(int i = 0; i < db.attrs.analysis.GetCount(); i++) {
+			for(int i = 0; i < pipe.attr_analysis.GetCount(); i++) {
 				for (const SnapArg& a : TextInputModeArgs()) {
 					if (a.ctx != p.a.ctx) continue;
-					String key = db.attrs.analysis.GetKey(i);
+					String key = pipe.attr_analysis.GetKey(i);
 					
 					// Add task for analysis type
 					Task& t = ResultTask(TASK_ANALYSIS);
 					t.p = p;
-					t.args << artist.vocalist_visual;
+					t.args << pipe.vocalist_visual;
 					t.args << key;
 					t.whole_song = whole_song;
 					t.p.a = a;
 					
-					const Vector<String>& v = db.attrs.analysis[i];
+					const Vector<String>& v = pipe.attr_analysis[i];
 					for(int j = 0; j < v.GetCount(); j++)
 						t.args << v[j];
 				}
@@ -175,14 +177,14 @@ void Task::Process_MakeContextImportTasks() {
 
 bool Task::ParseOriginalLyrics() {
 	Database& db = Database::Single();
-	if (!p.song)
+	if (!p.pipe)
 		return false;
 	
 	
-	Song& song = *p.song;
+	Pipe& pipe = *p.pipe;
 	String structure_str;
 	for (const SnapArg& a : TextInputModeArgs()) {
-		String c = song.headers[a].content;
+		String c = pipe.content[a];
 		c.Replace("\r", "");
 		Vector<String> parts = Split(c, "\n\n");
 		
@@ -221,21 +223,23 @@ bool Task::ParseOriginalLyrics() {
 		}
 	}
 	
-	song.lock.EnterWrite();
+	pipe.lock.EnterWrite();
 	
-	song.parts.Clear();
-	song.structure.Clear();
+	pipe.parts.Clear();
+	pipe.structure.Clear();
 	
 	// Structure string
-	song.structure_str = structure_str;
-	song.structure.Clear();
+	pipe.structure_str = structure_str;
+	pipe.structure.Clear();
 	
 	//DUMP(a.structure_str);
-	song.ReloadStructure(); // p.unique_parts is filled here
+	TODO //--> pipe.ReloadStructure(); // p.unique_parts is filled here
 	
 	// Parse lyric parts and lines
 	Vector<Vector<String>>& unique_lines = str_map;
-	for (const SnapArg& a : AllArgs())
+	
+	TODO
+	/*for (const SnapArg& a : AllArgs())
 		song.headers[a].unique_lines.Clear();
 	
 	
@@ -273,11 +277,11 @@ bool Task::ParseOriginalLyrics() {
 				}
 			}
 		}
-	}
+	}*/
 	
-	song.FixPtrs();
-	song.RealizeTaskSnaps(true);
-	song.lock.LeaveWrite();
+	pipe.FixPtrs();
+	pipe.RealizeTaskSnaps(true);
+	pipe.lock.LeaveWrite();
 	
 	return true;
 }
@@ -285,17 +289,17 @@ bool Task::ParseOriginalLyrics() {
 
 void Task::Process_MakeAttrScores() {
 	Database& db = Database::Single();
-	Attributes& attrs = db.attrs;
-	AttrScore& as = db.attrscores;
-	if (!p.song) {
+	if (!p.pipe) {
 		SetError("no song pointer set");
 		return;
 	}
+	Pipe& pipe = *this->p.pipe;
+	Attributes& attrs = pipe;
+	AttrScore& as = pipe;
 	
-	if (as.groups.IsEmpty())
+	if (as.score_groups.IsEmpty())
 		as.attr_to_score.Clear();
 	
-	Song& song = *this->p.song;
 	SnapArg& a = p.a;
 	a.dir = FORWARD;
 	a.Chk();
@@ -306,14 +310,14 @@ void Task::Process_MakeAttrScores() {
 	}
 	
 	Index<SnapAttrStr> song_attrs;
-	song.GetMaskAttributes(a, song_attrs); // get attrs from snapshots
+	pipe.GetMaskAttributes(a, song_attrs); // get attrs from snapshots
 	
 	Index<int> unresolved_group_types;
 	for (const SnapAttrStr& a : song_attrs.GetKeys()) {
 		ASSERT(a.has_id);
-		const Attributes::Group& gg = attrs.groups[a.group_i];
+		const Attr::Group& gg = attrs.attr_groups[a.group_i];
 		ASSERT(gg.type_i >= 0);
-		const Attributes::GroupType& group_type = attrs.group_types[gg.type_i];
+		const Attr::GroupType& group_type = attrs.group_types[gg.type_i];
 		
 		// Skip different context
 		if (group_type.group_ctx != p.a.ctx)
@@ -350,7 +354,7 @@ void Task::Process_MakeAttrScores() {
 		//chk.p = this->p;
 		
 		for (int group_type_i : unresolved_group_types.GetKeys()) {
-			const Attributes::GroupType& group_type = attrs.group_types[group_type_i];
+			const Attr::GroupType& group_type = attrs.group_types[group_type_i];
 			
 			Task& t = ResultTask(TASK_ATTRSCORES);
 			t.p = this->p;
@@ -392,10 +396,13 @@ void Task::Process_MakePatternTasks() {
 	SnapArg& a = p.a;
 	a.dir = FORWARD;
 	a.Chk();
-	Song& song = *p.song;
+	Pipe& pipe = *p.pipe;
+	
+	TODO
+	#if 0
 	SongHeader& header = song.headers[a];
 	
-	if (!p.song) {
+	if (!p.song || !p.song->pipe) {
 		SetError("no song pointer set");
 		return;
 	}
@@ -409,7 +416,7 @@ void Task::Process_MakePatternTasks() {
 		int tasks = 1 + header.unique_lines.GetCount() / per_task;
 		
 		for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
-			const Attributes::GroupType& group_type = db.attrs.group_types[i];
+			const Attr::GroupType& group_type = db.attrs.group_types[i];
 			
 			// Skip different context
 			if (group_type.group_ctx != p.a.ctx)
@@ -445,24 +452,24 @@ void Task::Process_MakePatternTasks() {
 			t.snap = &part.snap[a];
 		}
 	}
+	#endif
 }
 
 void Task::Process_MakeImpactScoringTasks() {
 	Database& db = Database::Single();
 	SnapArg& a = p.a;
 	a.Chk();
-	Song& song = *p.song;
-	SongHeader& header = song.headers[a];
+	Pipe& pipe = *p.pipe;
 	
-	if (!p.song) {
-		SetError("no song pointer set");
+	if (!p.pipe) {
+		SetError("no pipeline pointer set");
 		return;
 	}
 	
 
 	Index<String> line_impacts;
-	for(int i = 0; i < song.parts.GetCount(); i++) {
-		Part& part = song.parts[i];
+	for(int i = 0; i < pipe.parts.GetCount(); i++) {
+		Part& part = pipe.parts[i];
 		for(int j = 0; j < part.lines.GetCount(); j++) {
 			Line& line = part.lines[j];
 			for(int k = 0; k < line.breaks.GetCount(); k++) {
@@ -510,9 +517,9 @@ void Task::Process_MakeReverseImpactTask() {
 
 void Task::Process_MakeReverseMaskTask() {
 	Database& db = Database::Single();
-	Attributes& g = db.attrs;
-	Song& song = *p.song;
-	int gc = g.scorings.GetCount();
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
+	int gc = g.attr_scorings.GetCount();
 	SnapArg& a = p.a;
 	a.dir = BACKWARD;
 	a.Chk();
@@ -535,9 +542,9 @@ void Task::Process_MakeReverseMaskTask() {
 		}
 	}*/
 	
-	song.lock.EnterWrite();
-	song.rev_common_mask_tasks.Clear();
-	song.rev_separate_mask_tasks.Clear();
+	pipe.lock.EnterWrite();
+	pipe.rev_common_mask_tasks.Clear();
+	pipe.rev_separate_mask_tasks.Clear();
 	
 	//Task& chk = ResultTask(TASK_MAKE_REVERSEPATTERN_TASK);
 	//chk.p = p;
@@ -602,13 +609,13 @@ void Task::Process_MakeReverseMaskTask() {
 
 void Task::Process_MakeReversePattern() {
 	Database& db = Database::Single();
-	Attributes& g = db.attrs;
-	AttrScore& as = db.attrscores;
-	if (!p.song) {
+	if (!p.pipe) {
 		SetError("no song pointer set");
 		return;
 	}
-	Song& song = *p.song;
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
+	AttrScore& as = pipe;
 	
 	as.UpdateGroupsToScoring();
 	
@@ -617,8 +624,8 @@ void Task::Process_MakeReversePattern() {
 	a.Chk();
 	ASSERT(a == ZeroArg()); // all are being done in one mode
 	
-	int gc = g.scorings.GetCount();
-	int ac = db.attrscores.groups.GetCount();
+	int gc = g.attr_scorings.GetCount();
+	int ac = as.score_groups.GetCount();
 	int total = ac * snap_gen_multiplier * snap_gens;
 	
 	TODO // broken
@@ -773,16 +780,16 @@ void Task::Process_MakeReversePattern() {
 
 void Task::Process_MakeLyricsTask() {
 	Database& db = Database::Single();
-	if (!p.song) {
+	if (!p.pipe) {
 		SetError("no song pointer set");
 		return;
 	}
 	
 	p.a.dir = BACKWARD;
 	
-	Song& song = *p.song;
+	Pipe& pipe = *p.pipe;
 	Vector<Task*> tasks;
-	for (Part& part : song.parts) {
+	for (Part& part : pipe.parts) {
 		Task& t = ResultTask(TASK_LYRICS);
 		t.p = p;
 		t.p.part = &part;

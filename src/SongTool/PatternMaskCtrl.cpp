@@ -24,19 +24,22 @@ PatternMaskCtrl::PatternMaskCtrl() {
 
 void PatternMaskCtrl::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	Song& song = *p.song;
-	Attributes& a = db.attrs;
-	if (!db.ctx.active_wholesong && !p.part)
+	if (!song.pipe) return;
+	Pipe& pipe = *song.pipe;
+	Attributes& a = pipe;
+	PipePtrs& pp = pipe.p;
+	if (!db.ctx.active_wholesong && !pp.part)
 		return;
 	
 	for(const SnapArg& a : ModeArgs()) {
 		Splitter& vsplit = this->vsplit[a];
 		ArrayCtrl& data = this->data[a];
 		DocEdit& lyrics = this->lyrics[a];
-		PatternSnap& snap = db.ctx.active_wholesong ? song.Get(a) : p.part->Get(a);
+		PatternSnap& snap = db.ctx.active_wholesong ? pipe.Get(a) : pp.part->Get(a);
 		
-		lyrics.SetData(db.ctx.active_wholesong ? song.headers[a].content : snap.txt);
+		lyrics.SetData(db.ctx.active_wholesong ? pipe.content[a] : snap.txt);
 		
 		for(int j = 0; j < snap.mask.GetCount(); j++) {
 			const SnapAttrStr& sa = snap.mask[j];
@@ -44,7 +47,7 @@ void PatternMaskCtrl::Data() {
 			bool only_in_this = true;
 			for (const SnapArg& a0 : ModeArgs()) {
 				if (&a == &a0) continue;
-				PatternSnap& snap0 = (db.ctx.active_wholesong ? song.Get(a0) : p.part->Get(a0));
+				PatternSnap& snap0 = (db.ctx.active_wholesong ? pipe.Get(a0) : pp.part->Get(a0));
 				if (snap0.mask.Find(sa) >= 0)
 					only_in_this = false;
 			}

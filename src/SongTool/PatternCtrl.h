@@ -46,7 +46,7 @@ public:
 	void Data();
 	void SelectLine(const SnapArg& match);
 	
-	Ptrs p;
+	PipePtrs p;
 	
 };
 

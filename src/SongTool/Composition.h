@@ -24,7 +24,18 @@ struct Composition {
 		texture.Clear();
 		genre_style.Clear();
 	}
-	void Jsonize(JsonIO& json) {
+	void Serialize(Stream& s) {
+		s	% year
+			% title
+			% tempo
+			% beat
+			% melody
+			% chord_progression
+			% key_and_mode
+			% texture
+			% genre_style;
+	}
+	/*void Jsonize(JsonIO& json) {
 		json
 			("year", year)
 			("title", title)
@@ -36,7 +47,7 @@ struct Composition {
 			("texture", texture)
 			("genre_style", genre_style)
 			;
-	}
+	}*/
 	bool operator()(const Composition& a, const Composition& b) const {
 		if (a.year != b.year) return a.year < b.year;
 		return a.title < b.title;

@@ -7,6 +7,7 @@ class PatternCtrl;
 
 class AttrCtrl : public Ctrl {
 	using RectId = Tuple3<Rect, int, int>;
+	
 	Vector<RectId> group_title_rects;
 	Vector<RectId> entry_rects;
 	RectId sel, pressed;

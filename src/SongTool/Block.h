@@ -11,12 +11,10 @@ struct BeatTime {
 		ASSERT(parts >= 0 && parts < bar_div);
 		return (double)bar + (double)parts / (double)bar_div;
 	}
-	void Jsonize(JsonIO& json) {
-		json
-			("bar", bar)
-			("parts", parts)
-			("bar_div", bar_div)
-			;
+	void Serialize(Stream& s) {
+		s	% bar
+			% parts
+			% bar_div;
 	}
 };
 
@@ -25,12 +23,16 @@ struct Block {
 	
 	
 	
-	void Jsonize(JsonIO& json) {
+	void Serialize(Stream& s) {
+		s	% begin
+			% end;
+	}
+	/*void Jsonize(JsonIO& json) {
 		json
 			("begin", begin)
 			("end", end)
 			;
-	}
+	}*/
 };
 
 

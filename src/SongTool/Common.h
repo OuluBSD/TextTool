@@ -12,13 +12,16 @@ struct SnapAttr : Moveable<SnapAttr> {
 		group = 0;
 		item = 0;
 	}
-	void Jsonize(JsonIO& json) {
+	void Serialize(Stream& s) {
+		s	% group
+			% item;
+	}
+	/*void Jsonize(JsonIO& json) {
 		json
 			("g", group)
 			("i", item)
 			;
-	}
-	void Serialize(Stream& s) {s % group % item;}
+	}*/
 	String ToString() const {return IntStr(group) + ":" + IntStr(item);}
 	hash_t GetHashValue() const {CombineHash c; c.Put(group); c.Put(item); return c;}
 };
@@ -28,6 +31,13 @@ struct SnapAttrStr : Moveable<SnapAttrStr> {
 	int group_i = -1, item_i = -1;
 	bool has_id = false;
 	
+	void Serialize(Stream& s) {
+		s	% group
+			% item
+			% group_i
+			% item_i
+			% has_id;
+	}
 	bool operator==(const SnapAttrStr& a) const {return group == a.group && item == a.item;}
 	bool operator==(const SnapAttr& a) const {RealizeId(); return group_i == a.group && item_i == a.item;}
 	void Clear() {
@@ -43,7 +53,6 @@ struct SnapAttrStr : Moveable<SnapAttrStr> {
 	bool RealizeId() const;
 	void Load(const SnapAttr& sa);
 	void SetFromId(int group, int item);
-	void Serialize(Stream& s) {s % group % item % group_i % item_i % has_id;}
 	String ToString() const {return group + ":" + item;}
 	hash_t GetHashValue() const {CombineHash c; c << group << item; return c;}
 	bool operator()(const SnapAttrStr& a, const SnapAttrStr& b) const {
@@ -58,6 +67,9 @@ struct SnapAttrStr : Moveable<SnapAttrStr> {
 struct DataFile {
 	String file_title;
 	
+	bool operator()(const DataFile& a, const DataFile& b) const {
+		return a.file_title < b.file_title;
+	}
 };
 
 typedef enum : int {
@@ -117,6 +129,7 @@ String GetGroupContextNaturalDescription(GroupContext ctx);
 struct Artist;
 struct Release;
 struct Song;
+struct Pipe;
 struct Part;
 struct Line;
 struct Break;
@@ -131,6 +144,11 @@ struct SnapArg : Moveable<SnapArg> {
 	SnapArg() {}
 	SnapArg(GroupContext c, SnapMode m, DirMode r) : ctx(c), mode(m), dir(r) {}
 	SnapArg(const SnapArg& a) : ctx(a.ctx), mode(a.mode), dir(a.dir) {}
+	void Serialize(Stream& s) {
+		s	% (int&)ctx
+			% (int&)mode
+			% (int&)dir;
+	}
 	bool Is() const {
 		return	ctx >= CTX_BEGIN && ctx < CTX_END &&
 				mode >= MODE_BEGIN && mode < MODE_COUNT &&
@@ -182,13 +200,13 @@ struct SnapArg : Moveable<SnapArg> {
 	}
 	void operator=(const SnapArg& a) {ctx = a.ctx; mode = a.mode; dir = a.dir;}
 	operator int() const {return Get();}
-	void Jsonize(JsonIO& json) {
+	/*void Jsonize(JsonIO& json) {
 		json
 			("ctx", (int&)ctx)
 			("mode", (int&)mode)
 			("dir", (int&)dir)
 			;
-	}
+	}*/
 	
 };
 
@@ -201,6 +219,19 @@ public:
 	
 	PArr() {}
 	
+	void Jsonize(JsonIO& json) {
+		for(int i = 0; i < CTX_COUNT; i++)
+			for(int j = 0; j < MODE_COUNT; j++)
+				for(int k = 0; k < DIR_COUNT; k++)
+					json
+						("obj[" + IntStr(i) + "][" + IntStr(j) + "][" + IntStr(k) + "]", obj[i][j][k]);
+	}
+	void Serialize(Stream& s) {
+		for(int i = 0; i < CTX_COUNT; i++)
+			for(int j = 0; j < MODE_COUNT; j++)
+				for(int k = 0; k < DIR_COUNT; k++)
+					s % obj[i][j][k];
+	}
 	T& operator[](const SnapArg& a) {
 		a.Chk();
 		return obj[a.ctx][a.mode][a.dir];
@@ -230,6 +261,15 @@ public:
 	
 	MArr() {}
 	
+	void Serialize(Stream& s) {
+		for(int j = 0; j < MODE_COUNT; j++)
+			s % obj[j];
+	}
+	void Jsonize(JsonIO& json) {
+		for(int j = 0; j < MODE_COUNT; j++)
+			json
+				("obj[" + IntStr(j) + "]", obj[j]);
+	}
 	T& operator[](const SnapArg& a) {
 		ASSERT(a.ctx == CTX_TEXT);
 		ASSERT(a.dir == FORWARD);
@@ -358,29 +398,35 @@ inline const Vector<SnapArg>& HumanInputTextArgs() {
 	return a;
 }
 
-struct Ptrs {
+struct EditorPtrs {
 	Artist*			artist = 0;
 	Release*		release = 0;
 	Song*			song = 0;
+	
+	int GetActiveArtistIndex() const;
+	int GetActiveReleaseIndex() const;
+	int GetActiveSongIndex() const;
+	String GetBreakInDatabaseString() const;
+	
+};
+
+struct PipePtrs {
+	Pipe*			pipe = 0;
 	Part*			part = 0;
 	Line*			line = 0;
 	Break*			brk = 0;
 	SnapArg			a;
 	
-	void Clear() {memset(this, 0, sizeof(Ptrs));}
+	void Clear() {memset(this, 0, sizeof(PipePtrs));}
 	int GetActivePartIndex() const;
-	int GetActiveArtistIndex() const;
-	int GetActiveReleaseIndex() const;
-	int GetActiveSongIndex() const;
-	void CopyPtrs(const Ptrs& p) {
-		memcpy(this, &p, sizeof(Ptrs));
+	void CopyPtrs(const PipePtrs& p) {
+		memcpy(this, &p, sizeof(PipePtrs));
 	}
 	String GetBreakInSongString() const;
-	String GetBreakInDatabaseString() const;
 };
 
 struct Context {
-	Ptrs				p;
+	EditorPtrs			ed;
 	PArr<PatternSnap*>	snap;
 	
 	AttrScoreGroup*		active_scoregroup = 0;
@@ -395,7 +441,7 @@ struct Context {
 			it++;
 		}
 	}
-	bool HasSong() const {return p.song;}
+	bool HasSong() const {return ed.song;}
 	
 	//Ptrs& operator[](int i) {ASSERT(i >= 0 && i < MODE_COUNT); return p[i];}
 };

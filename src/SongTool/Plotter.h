@@ -24,7 +24,7 @@ class Plotter : public Ctrl {
 	int focused_group = 0, focused_group_i = 0;
 	int draw_count = 0;
 	Part* part = 0;
-	Song* song = 0;
+	Pipe* pipe = 0;
 	Break* last_brk = 0;
 	
 	Vector<double> tmp_score;
@@ -48,7 +48,7 @@ class Plotter : public Ctrl {
 public:
 	Plotter();
 	
-	void SetWholeSong(Song& s) {whole_song = true; song = &s; last_brk = 0; Refresh();}
+	void SetWholeSong(Pipe& p) {whole_song = true; pipe = &p; last_brk = 0; Refresh();}
 	void SetPart(Part& p) {whole_song = false; part = &p; last_brk = 0; Refresh();}
 	void Paint(Draw& d) override;
 	

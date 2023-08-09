@@ -2,136 +2,6 @@
 #define _SongTool_TaskMgr_h_
 
 
-typedef enum : int {
-	V_ATTR_SCORING,
-	V_PTR_SONG,
-	V_PTR_LINE,
-	V_PTR_SONG_UNIQUELINES,
-	V_MODE,
-	V_DIR,
-	V_ARGS,
-	V_SONG_LYRICS,
-	V_SONG_PARTS,
-	V_LINE_TXT,
-	V_HUMAN_INPUT_LINE_TXT,
-} TaskArgType;
-
-typedef enum : int {
-	O_NEVER,
-	
-	O_ORDER_IMPORT,
-	O_ORDER_IMPORT_DETAILED,
-	O_ORDER_REVERSE,
-	
-	O_DB_ATTRS,
-	O_DB_ATTR_SCORES,
-	
-	O_TASKS,
-	
-	O_SONG_MASK,
-	//O_SONG_MASK_WEIGHTED,
-	O_SONG_ANALYSIS,
-	O_SONG_DATA_STORYLINE,
-	//O_SONG_DATA_STORYLINE_WEIGHTED,
-	O_SONG_UNIQLINES,
-	O_SONG_UNIQLINE_ATTRS,
-	O_SONG_SNAP,
-	//O_SONG_SNAP_WEIGHTED,
-	O_SONG_REVERSED_MASK_COMMON,
-	O_SONG_REVERSED_MASK,
-	O_SONG_REVERSED_LYRICS,
-	O_SONG_REVERSED_TRANSLATED_LYRICS,
-	
-	O_PART_MASK,
-	//O_PART_MASK_WEIGHTED,
-	O_PART_MASK_SCORE,
-	O_PART_DATA_STORYLINE,
-	//O_PART_DATA_STORYLINE_WEIGHTED,
-	O_PART_SNAP,
-	O_PART_SNAP_SCORE,
-	//O_PART_SNAP_WEIGHTED,
-	O_PART_REVERSED_SNAP,
-	
-	O_LINE_SNAP,
-	O_LINE_SNAP_SCORE,
-	//O_LINE_SNAP_WEIGHTED,
-	O_LINE_REVERSED_SNAP,
-	
-	O_BREAK_SNAP,
-	O_BREAK_SNAP_SCORE,
-	//O_BREAK_SNAP_WEIGHTED,
-	O_BREAK_IMPACT,
-	O_BREAK_IMPACT_SCORES,
-	O_BREAK_REVERSED_IMPACT,
-	O_BREAK_REVERSED_SNAP,
-	//O_BREAK_IMPACT_WEIGHTED,
-	O_BREAK_LYRICS,
-	//O_BREAK_LYRICS_WEIGHTED,
-	
-	O_NEXT_CTX_JUMP, // allows next context to start being processed
-	
-} TaskOutputType;
-
-inline bool IsTaskSkippingContext(TaskOutputType tt) {
-	switch (tt) {
-		case O_ORDER_IMPORT:
-		case O_ORDER_IMPORT_DETAILED:
-		case O_ORDER_REVERSE:
-		case O_NEXT_CTX_JUMP:
-			return true;
-		default:
-			return false;
-	}
-}
-
-typedef enum : int {
-	TASK_IMPORT_AND_REVERSE,
-	TASK_CONTEXT_IMPORT_AND_REVERSE,
-	
-	TASK_PATTERNMASK,
-	TASK_PATTERNMASK_WEIGHTED,
-	TASK_ANALYSIS,
-	TASK_STORYARC,
-	TASK_STORYARC_WEIGHTED,
-	TASK_IMPACT,
-	TASK_IMPACT_WEIGHTED,
-	TASK_FORWARD_LYRICS_WEIGHTED,
-	
-	TASK_MAKE_IMPACT_SCORING_TASKS,
-	TASK_IMPACT_SCORING,
-	
-	TASK_MAKE_PATTERN_TASKS,
-	TASK_PATTERN,
-	TASK_PATTERN_WEIGHTED,
-	
-	TASK_MAKE_ATTRSCORES_TASKS,
-	TASK_ATTRSCORES,
-	TASK_ATTRSCORES_READY,
-	TASK_SONGSCORE,
-	
-	TASK_MAKE_REVERSE_IMPACT_TASK,
-	TASK_REVERSE_IMPACT,
-	
-	TASK_MAKE_REVERSE_MASK_TASK,
-	TASK_REVERSE_COMMON_MASK,
-	TASK_REVERSE_SEPARATE_MASK,
-	
-	TASK_MAKE_REVERSEPATTERN_TASK,
-	TASK_REVERSEPATTERN,
-	
-	TASK_MAKE_LYRICS_TASK,
-	TASK_LYRICS,
-	TASK_LYRICS_TRANSLATE,
-	
-	TASK_COUNT
-} TaskType;
-
-NAMESPACE_UPP
-NTL_MOVEABLE(TaskArgType)
-NTL_MOVEABLE(TaskOutputType)
-NTL_MOVEABLE(TaskType)
-END_UPP_NAMESPACE
-
 struct TaskRule {
 	using ArgTuple = Tuple3<TaskArgType, int, int>;
 	
@@ -142,9 +12,11 @@ struct TaskRule {
 	Vector<ArgTuple> args;
 	Vector<TaskOutputType> reqs;
 	Vector<TaskOutputType> results;
+	Vector<TaskArgType> hashes;
 	bool spawnable = false;
 	bool multi_spawnable = false;
 	bool allow_cross_mode = false;
+	bool separate_items = false;
 	VectorMap<int, Tuple2<int,int>> req_mode_ranges;
 	
 	TaskRule& Input(void (Task::*fn)());
@@ -156,44 +28,53 @@ struct TaskRule {
 	TaskRule& Spawnable(bool b=true);
 	TaskRule& MultiSpawnable(bool b=true);
 	TaskRule& CrossMode(bool b=true);
+	TaskRule& Hash(TaskArgType t);
+	TaskRule& SeparateItems(bool b=true);
 	
 };
 
 struct TaskMgr {
-	String openai_token;
 	Array<Task> tasks;
-	Array<TaskRule> rules;
 	
 	RWMutex lock;
 	Mutex task_lock;
-	bool running = false, stopped = true;
 	Task* active_task = 0;
 	int actual = 0, total = 0;
 	String status;
-	int max_tries = 3;
 	
 	typedef TaskMgr CLASSNAME;
-	void Start() {running = true; stopped = false; Thread::Start(THISBACK(Process));}
-	void Stop() {running = false; while (!stopped) Sleep(100);}
 	void Process();
 	void ProcessSingle(int task_i);
 	void StartSingle(int task_i) {Thread::Start(THISBACK1(ProcessSingle, task_i));}
-	void Load();
-	void Store();
-	void Serialize(Stream& s) {s % openai_token;}
-	void CreateDefaultTaskRules();
 	bool SpawnTasks();
 	bool IsDepsReady(Task& t, Index<Task*>& seen) const;
 	GroupContext GetGroupContextLimit() const;
 	
-	void ImportSongAndMakeReversedSong(Song& s);
+	void ImportSongAndMakeReversedSong(Pipe& p);
 	
-	TaskRule& AddRule(int code, String name);
-	TaskRule& GetRule(int code);
-	
-	static TaskMgr& Single() {static TaskMgr m; return m;}
 	
 };
 
+struct TaskMgrConfig {
+	String openai_token;
+	Array<TaskRule> rules;
+	bool running = false, stopped = true;
+	int max_tries = 3;
+	
+	typedef TaskMgrConfig CLASSNAME;
+	void Load();
+	void Store();
+	void Serialize(Stream& s) {s % openai_token;}
+	void CreateDefaultTaskRules();
+	void Start() {running = true; stopped = false; Thread::Start(THISBACK(Process));}
+	void Stop() {running = false; while (!stopped) Sleep(100);}
+	void Process();
+	
+	TaskRule& AddRule(int code, String name);
+	TaskRule& GetRule(int code);
+	const TaskRule& GetRule(int code) const;
+	
+	static TaskMgrConfig& Single() {static TaskMgrConfig m; return m;}
+};
 
 #endif

@@ -5,16 +5,22 @@
 struct Line :
 	SnapContext
 {
+	// Local
 	Array<Break>				breaks;
 	VectorMap<String,String>	data;
 	
-	void Jsonize(JsonIO& json) {
+	void Serialize(Stream& s) {
+		s	% breaks
+			% data;
+		SnapContext::Serialize(s);
+	}
+	/*void Jsonize(JsonIO& json) {
 		json
 			("breaks", breaks)
 			("data", data)
 			;
 		SnapContext::Jsonize(json);
-	}
+	}*/
 	void FixPtrs() {
 		this->SetLinePtr(this);
 		int id = 0;

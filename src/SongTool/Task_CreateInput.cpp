@@ -2,17 +2,17 @@
 
 void Task::CreateInput_StoryArc() {
 	Database& db = Database::Single();
-	if (!p.song) {
+	if (!p.pipe) {
 		SetFatalError("no song pointer set");
 		return;
 	}
 	
-	Ptrs& p = this->p;
-	Song& song = *p.song;
+	PipePtrs& p = this->p;
+	Pipe& pipe = *p.pipe;
 	SnapArg a = p.a;
 	ASSERT(a.mode != MODE_INVALID);
 	
-	if (song.parts.IsEmpty()) {
+	if (pipe.parts.IsEmpty()) {
 		SetFatalError("no parts in song");
 		return;
 	}
@@ -21,8 +21,8 @@ void Task::CreateInput_StoryArc() {
 	
 	s << "Lyrics:\n";
 	String parts;
-	for(int i = 0; i < song.parts.GetCount(); i++) {
-		Part& part = song.parts[i];
+	for(int i = 0; i < pipe.parts.GetCount(); i++) {
+		Part& part = pipe.parts[i];
 		s << part.name << "\n";
 		
 		if (!parts.IsEmpty()) parts << ", ";
@@ -43,7 +43,7 @@ void Task::CreateInput_StoryArc() {
 	  << "- Shortened absolute story arc\n"
 	  << "- Shortened absolute story arc of whole song\n"
 	  << "- Theme of the whole song\n"
-	  << "- Storyline in parts (" << song.parts[0].name << ", etc.)\n"
+	  << "- Storyline in parts (" << pipe.parts[0].name << ", etc.)\n"
 	  << "\n"
 	;
 	s << "Results for data topics:\nStory arc:\n";
@@ -52,8 +52,8 @@ void Task::CreateInput_StoryArc() {
 }
 
 void Task::CreateInput_StoryArcWeighted() {
-	Ptrs& p = this->p;
-	Song& song = *p.song;
+	PipePtrs& p = this->p;
+	Pipe& pipe = *p.pipe;
 	String s;
 	String parts;
 	
@@ -77,21 +77,21 @@ void Task::CreateInput_StoryArcWeighted() {
 	int item = 0;
 	for(int i = 0; i < tmp_stridx.GetCount(); i++) {
 		String key = tmp_stridx[i];
-		const PatternSnap& snap0 = song.snap[a0];
-		const PatternSnap& snap1 = song.snap[a1];
+		const PatternSnap& snap0 = pipe.snap[a0];
+		const PatternSnap& snap1 = pipe.snap[a1];
 		String storyline0 = snap0.data.Get(key, "");
 		String storyline1 = snap1.data.Get(key, "");
 		if (!storyline0.IsEmpty() && !storyline1.IsEmpty()) {
 			s	<< "- Line " << item+1 << ", Description A of X: \""
 				<< storyline0 << "\", Description B of X: \"" << storyline1
 				<< "\"\n";
-			tmp_ctx << static_cast<SnapContext*>(&song);
+			tmp_ctx << static_cast<SnapContext*>(&pipe);
 			item++;
 		}
 		else tmp_stridx.Remove(i--);
 	}
-	for(int i = 0; i < song.parts.GetCount(); i++) {
-		Part& part = song.parts[i];
+	for(int i = 0; i < pipe.parts.GetCount(); i++) {
+		Part& part = pipe.parts[i];
 		{
 			const PatternSnap& snap0 = part.snap[a0];
 			const PatternSnap& snap1 = part.snap[a1];
@@ -127,8 +127,8 @@ void Task::CreateInput_Impact() {
 		return;
 	}
 	
-	Ptrs& p = this->p;
-	Song& song = *p.song;
+	PipePtrs& p = this->p;
+	Pipe& pipe = *p.pipe;
 	Line& line = *p.line;
 	SnapArg a = p.a;
 	ASSERT(a.mode != MODE_INVALID);
@@ -156,12 +156,12 @@ void Task::CreateInput_Impact() {
 }
 
 void Task::CreateInput_ImpactWeighted() {
-	Ptrs& p = this->p;
+	PipePtrs& p = this->p;
 	if (!p.line) {
 		SetFatalError("no line pointer set");
 		return;
 	}
-	Song& song = *p.song;
+	Pipe& pipe = *p.pipe;
 	Line& line = *p.line;
 	String s;
 	String parts;
@@ -214,12 +214,12 @@ void Task::CreateInput_ImpactWeighted() {
 }
 
 void Task::CreateInput_ForwardLyricsWeighted() {
-	Ptrs& p = this->p;
+	PipePtrs& p = this->p;
 	if (!p.line) {
 		SetFatalError("no line pointer set");
 		return;
 	}
-	Song& song = *p.song;
+	Pipe& pipe = *p.pipe;
 	Line& line = *p.line;
 	String s;
 	String parts;
@@ -337,14 +337,13 @@ Combination string:)ATRSCROO";
 void Task::CreateInput_ImpactScoring() {
 	//CombineHash hash;
 	Database& db = Database::Single();
-	Attributes& g = db.attrs;
-	AttrScore& as = db.attrscores;
-	Ptrs& p = this->p;
-	Song& song = *p.song;
+	PipePtrs& p = this->p;
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
+	AttrScore& as = pipe;
 	SnapArg a = p.a;
 	ASSERT(a.mode != MODE_INVALID);
-	SongHeader& header = song.headers[a];
-	int sc = g.scorings.GetCount();
+	int sc = g.attr_scorings.GetCount();
 	
 	String prompt;
 	String entries;
@@ -359,17 +358,18 @@ void Task::CreateInput_ImpactScoring() {
 		String impact = ToLower(args[i]);
 		ASSERT(impact.GetCount());
 		
-		PatternSnap* snap = song.FindSnapByImpact(impact);
+		PatternSnap* snap = pipe.FindSnapByImpact(impact);
 		ASSERT(snap);
 		if (snap && snap->impact_score.GetCount() == sc)
 			continue;
 		
-		/*Impact* im = song.FindImpact(impact);
+		/*Impact* im = pipe.FindImpact(impact);
 		if (im)
 			continue;*/
 		
 		// Add line to ai prompt
-		entries << "Line " << entry_count+2 << ", \"" << impact << "\"\n";
+		entries << "Line " << 
++2 << ", \"" << impact << "\"\n";
 		
 		// Make FIRSTENTRY prompt on first seen value
 		if (!entry_count)
@@ -392,13 +392,15 @@ void Task::CreateInput_ImpactScoring() {
 void Task::CreateInput_PatternMask() {
 	//CombineHash hash;
 	Database& db = Database::Single();
-	if (!p.song) {
+	if (!p.pipe) {
 		SetFatalError("no song pointer set");
 		return;
 	}
 	
-	Ptrs& p = this->p;
-	Song& song = *p.song;
+	TODO // abstraction
+	
+	PipePtrs& p = this->p;
+	Pipe& pipe = *p.pipe;
 	SnapArg a = p.a;
 	ASSERT(a.mode != MODE_INVALID);
 	
@@ -412,8 +414,8 @@ void Task::CreateInput_PatternMask() {
 	s << "Groups of " << type << " attributes:\n";
 	//hash << ToLower(type);
 	int count = 0;
-	for(Attributes::Group& g : db.attrs.groups) {
-		Attributes::GroupType& gt = db.attrs.group_types[g.type_i];
+	for(Attr::Group& g : pipe.attr_groups) {
+		Attr::GroupType& gt = pipe.group_types[g.type_i];
 		
 		// Skip different group context
 		if (gt.group_ctx != p.a.ctx)
@@ -476,7 +478,7 @@ void Task::CreateInput_PatternMask() {
 	
 	//s << "Attributes of lyrics (parts " << parts << "):\n";
 	s << "Attributes of lyrics:\n";
-	//s << "" << song.parts[0].name << ":\n";
+	//s << "" << pipe.parts[0].name << ":\n";
 	//s << "- " << first << ":";
 	s << "-";
 	
@@ -486,8 +488,8 @@ void Task::CreateInput_PatternMask() {
 }
 
 void Task::CreateInput_PatternMaskWeighted() {
-	Ptrs& p = this->p;
-	Song& song = *p.song;
+	PipePtrs& p = this->p;
+	Pipe& pipe = *p.pipe;
 	Part& part = *p.part;
 	String s;
 	String parts;
@@ -546,20 +548,21 @@ void Task::CreateInput_PatternMaskWeighted() {
 void Task::CreateInput_Pattern() {
 	//CombineHash hash;
 	Database& db = Database::Single();
-	if (!p.song) {
+	if (!p.pipe) {
 		SetFatalError("no song pointer set");
 		return;
 	}
 	
-	Ptrs& p = this->p;
-	Song& song = *p.song;
+	PipePtrs& p = this->p;
+	Pipe& pipe = *p.pipe;
 	SnapArg a = p.a;
 	ASSERT(a.mode != MODE_INVALID);
-	SongHeader& header = song.headers[a];
+	
+	/*SongHeader& header = pipe.headers[a];
 	if (header.unique_lines.IsEmpty()) {
 		SetFatalError("no unique lines");
 		return;
-	}
+	}*/
 	
 	String s;
 	String type = args[0];
@@ -569,9 +572,9 @@ void Task::CreateInput_Pattern() {
 	String first_key;
 	
 	s << "Groups of attributes and allowed values:\n";
-	Vector<const Attributes::Group*> groups;
-	for(int i = 0; i < db.attrs.groups.GetCount(); i++) {
-		const Attributes::Group& gg = db.attrs.groups[i];
+	Vector<const Attr::Group*> groups;
+	for(int i = 0; i < pipe.attr_groups.GetCount(); i++) {
+		const Attr::Group& gg = pipe.attr_groups[i];
 		if (gg.type != type || gg.values.IsEmpty())
 			continue;
 		
@@ -580,7 +583,7 @@ void Task::CreateInput_Pattern() {
 			continue;
 		
 		// Skip different group context
-		const Attributes::GroupType& gt = db.attrs.group_types[gg.type_i];
+		const Attr::GroupType& gt = pipe.group_types[gg.type_i];
 		if (gt.group_ctx != p.a.ctx)
 			continue;
 		
@@ -590,8 +593,8 @@ void Task::CreateInput_Pattern() {
 	}
 	s << "\n";
 	
-	for (const Attributes::Group* ggp : groups) {
-		const Attributes::Group& gg = *ggp;
+	for (const Attr::Group* ggp : groups) {
+		const Attr::Group& gg = *ggp;
 		String key = Capitalize(gg.description);
 		s << key << ":\n";
 		//hash << ToLower(gg.description);
@@ -616,7 +619,8 @@ void Task::CreateInput_Pattern() {
 	
 	s << "\n\n\nLyrics:\n";
 	String first_line;
-	for(int i = 0, j = 0; i < header.unique_lines.GetCount(); i++) {
+	TODO
+	/*for(int i = 0, j = 0; i < header.unique_lines.GetCount(); i++) {
 		const String& l = header.unique_lines.GetKey(i);
 		if (i < offset_begin || i >= offset_end)
 			continue;
@@ -625,7 +629,7 @@ void Task::CreateInput_Pattern() {
 		s << "Line " << (j+1) << ", \"" << l << "\"\n";
 		//hash << ToLower(l);
 		j++;
-	}
+	}*/
 	s << "\nMultiple answers are required.\n\n";
 	s << "\n\nAttributes (in format \"Group: Attribute\") for all lines:\nLine 1, \"" << first_line << "\"\n-";
 	
@@ -636,8 +640,8 @@ void Task::CreateInput_Pattern() {
 }
 
 void Task::CreateInput_PatternWeighted() {
-	Ptrs& p = this->p;
-	Song& song = *p.song;
+	PipePtrs& p = this->p;
+	Pipe& pipe = *p.pipe;
 	Part& part = *p.part;
 	String s;
 	String parts;
@@ -696,24 +700,23 @@ void Task::CreateInput_PatternWeighted() {
 void Task::CreateInput_Analysis() {
 	//CombineHash hash;
 	Database& db = Database::Single();
-	Ptrs& p = this->p;
-	Song& song = *p.song;
+	PipePtrs& p = this->p;
+	Pipe& pipe = *p.pipe;
 	SnapArg a = p.a;
 	a.Chk();
-	SongHeader& header = song.headers[a];
 	
-	if (!p.song) {
+	if (!p.pipe) {
 		SetFatalError("no song pointer set");
 		return;
 	}
 	
-	if (song.parts.IsEmpty()) {
+	if (pipe.parts.IsEmpty()) {
 		SetFatalError("Empty song");
 		return;
 	}
 	
 	String s;
-	String vocalist_visual = p.artist->vocalist_visual;
+	String vocalist_visual = pipe.vocalist_visual;
 	String title = args[0];
 	String first;
 	
@@ -728,8 +731,8 @@ void Task::CreateInput_Analysis() {
 	
 	s << "Lyrics:\n";
 	String parts;
-	for(int i = 0; i < song.parts.GetCount(); i++) {
-		Part& part = song.parts[i];
+	for(int i = 0; i < pipe.parts.GetCount(); i++) {
+		Part& part = pipe.parts[i];
 		
 		if (!whole_song)
 			s << part.name << "\n";
@@ -764,12 +767,12 @@ void Task::CreateInput_Analysis() {
 		s << "Verbose " << title << " of lyrics for all parts:\n";
 	
 	if (!whole_song) {
-		for(int i = 0; i < song.parts.GetCount(); i++) {
-			String key = song.parts[i].name;
+		for(int i = 0; i < pipe.parts.GetCount(); i++) {
+			String key = pipe.parts[i].name;
 			s << "- " << key << "\n";
 		}
 		s << "\n\n";
-		s << "" << song.parts[0].name << ":\n";
+		s << "" << pipe.parts[0].name << ":\n";
 	}
 	s << "-";
 	
@@ -845,10 +848,10 @@ Combination string:)ATRSCROO";
 void Task::CreateInput_AttrScores() {
 	//CombineHash hash;
 	Database& db = Database::Single();
-	Attributes& g = db.attrs;
-	AttrScore& as = db.attrscores;
-	Ptrs& p = this->p;
-	Song& song = *p.song;
+	PipePtrs& p = this->p;
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
+	AttrScore& as = pipe;
 	SnapArg a = p.a;
 	ASSERT(a.mode != MODE_INVALID);
 	
@@ -864,7 +867,7 @@ void Task::CreateInput_AttrScores() {
 	
 	
 	// Try making prompt with errors first
-	song.GetMaskAttributes(a, attrs); // get attrs from masks
+	pipe.GetMaskAttributes(a, attrs); // get attrs from masks
 	
 	
 	int entry_count = 0;
@@ -872,17 +875,17 @@ void Task::CreateInput_AttrScores() {
 		ASSERT(a.has_id);
 		
 		// Skip attributes with known score values
-		int score = db.attrscores.attr_to_score[a.group_i][a.item_i];
+		int score = as.attr_to_score[a.group_i][a.item_i];
 		if (score >= 0)
 			continue;
 		
 		// Skip groups, which doesn't match this task
-		const Attributes::Group& gg = db.attrs.groups[a.group_i];
+		const Attr::Group& gg = g.attr_groups[a.group_i];
 		if (gg.type != type)
 			continue;
 		
 		// Skip different group context
-		const Attributes::GroupType& gt = db.attrs.group_types[gg.type_i];
+		const Attr::GroupType& gt = g.group_types[gg.type_i];
 		if (gt.group_ctx != p.a.ctx)
 			continue;
 		
@@ -909,7 +912,7 @@ void Task::CreateInput_AttrScores() {
 		
 		for(int i = 0; i < g.groups.GetCount(); i++) {
 			// Skip groups, which doesn't match this task
-			Attributes::Group& gg = g.groups[i];
+			Attr::Group& gg = g.groups[i];
 			if (gg.type != type)
 				continue;
 			
@@ -968,8 +971,10 @@ void Task::CreateInput_Lyrics() {
 	//bool rev_snap = args.GetCount() && args[0] == "rev";
 	SnapArg a = p.a;
 	ASSERT(a.mode != MODE_INVALID);
-	Ptrs& ptrs = this->p;
+	PipePtrs& ptrs = this->p;
 	
+	TODO
+	#if 0
 	Song& s = *ptrs.song;
 	Artist& ar = *s.Get0().artist;
 	Release& r = *s.Get0().release;
@@ -1024,13 +1029,14 @@ void Task::CreateInput_Lyrics() {
 	o	<< "\nLyrics:\n";
 	
 	input = o;
+	#endif
 }
 
 void Task::CreateInput_LyricsTranslate() {
 	bool rev_snap = args[0] == "rev";
 	SnapArg a = p.a;
 	ASSERT(a.mode != MODE_INVALID);
-	Song& song = *p.song;
+	Pipe& pipe = *p.pipe;
 	
 	String lng = args[1].Left(5);
 	if (lng == LNGAsText(LNG_('F','I','F','I')))
@@ -1038,11 +1044,11 @@ void Task::CreateInput_LyricsTranslate() {
 	String key = "gen.lyrics";
 	
 	String s, lyrics;
-	for (Part& part : song.parts) {
+	for (Part& part : pipe.parts) {
 		lyrics << part.name << ":\n";
 		lyrics << part.Get(a).data.GetAdd(key) << "\n\n";
 	}
-	song.Get(a).data.GetAdd(key) = lyrics;
+	pipe.Get(a).data.GetAdd(key) = lyrics;
 	
 	s << "In English:\n" << lyrics;
 	s << "In " << lng << ":\n";

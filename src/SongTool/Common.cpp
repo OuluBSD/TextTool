@@ -2,24 +2,29 @@
 
 
 void SnapAttrStr::SetFromId(int group, int item) {
+	TODO
+	#if 0
 	group_i = group;
 	item_i = item;
 	Database& db = Database::Single();
-	const Attributes::Group& gg = db.attrs.groups[group];
+	const Attr::Group& gg = db.attr_groups[group];
 	this->group = gg.description;
 	this->item = gg.values[item];
 	has_id = true;
+	#endif
 }
 
 bool SnapAttrStr::RealizeId() const {
+	TODO
+	#if 0
 	if (has_id)
 		return true;
 	SnapAttrStr& sa = const_cast<SnapAttrStr&>(*this);
 	Database& db = Database::Single();
 	sa.group_i = -1;
 	sa.item_i = -1;
-	for(int i = 0; i < db.attrs.groups.GetCount(); i++) {
-		const Attributes::Group& gg = db.attrs.groups[i];
+	for(int i = 0; i < db.attr_groups.GetCount(); i++) {
+		const Attr::Group& gg = db.attr_groups[i];
 		if (gg.description == group) {
 			sa.group_i = i;
 			for(int j = 0; j < gg.values.GetCount(); j++) {
@@ -39,10 +44,13 @@ bool SnapAttrStr::RealizeId() const {
 	/*DUMP(sa.group);
 	DUMP(sa.item);
 	ASSERT_(0, "group and item not found");*/
+	#endif
 	return false;
 }
 
 void SnapAttrStr::Load(const SnapAttr& sa) {
+	TODO
+	#if 0
 	group_i = sa.group;
 	item_i = sa.item;
 	group.Clear();
@@ -50,21 +58,22 @@ void SnapAttrStr::Load(const SnapAttr& sa) {
 	has_id = false;
 	if (group_i < 0 || item_i < 0) {ASSERT(0); return;}
 	Database& db = Database::Single();
-	ASSERT(group_i < db.attrs.groups.GetCount());
-	if (group_i >= db.attrs.groups.GetCount()) {ASSERT(0); return;}
-	Attributes::Group& g = db.attrs.groups[group_i];
+	ASSERT(group_i < db.attr_groups.GetCount());
+	if (group_i >= db.attr_groups.GetCount()) {ASSERT(0); return;}
+	Attr::Group& g = db.attr_groups[group_i];
 	if (item_i >= g.values.GetCount()) {ASSERT(0); return;}
 	group = g.description;
 	item = g.values[item_i];
 	has_id = true;
+	#endif
 }
 
-int Ptrs::GetActivePartIndex() const {if (!song) return -1; return VectorFindPtr(part, song->parts);}
-int Ptrs::GetActiveArtistIndex() const {return VectorFindPtr(artist, Database::Single().artists);}
-int Ptrs::GetActiveReleaseIndex() const {if (!artist) return -1; return VectorFindPtr(release, artist->releases);}
-int Ptrs::GetActiveSongIndex() const {if (!release) return -1; return VectorFindPtr(song, release->songs);}
+int PipePtrs::GetActivePartIndex() const {if (!pipe) return -1; return VectorFindPtr(part, pipe->parts);}
+int EditorPtrs::GetActiveArtistIndex() const {return VectorFindPtr(artist, Database::Single().artists);}
+int EditorPtrs::GetActiveReleaseIndex() const {if (!artist) return -1; return VectorFindPtr(release, artist->releases);}
+int EditorPtrs::GetActiveSongIndex() const {if (!release) return -1; return VectorFindPtr(song, release->songs);}
 
-String Ptrs::GetBreakInSongString() const {
+String PipePtrs::GetBreakInSongString() const {
 	String s;
 	if (part) s << part->name;
 	if (line) s << ": " << part->GetLineIdx(*line);
@@ -72,13 +81,13 @@ String Ptrs::GetBreakInSongString() const {
 	return s;
 }
 
-String Ptrs::GetBreakInDatabaseString() const {
+String EditorPtrs::GetBreakInDatabaseString() const {
 	String s;
 	if (artist) s << artist->name + " - ";
 	if (release) s << release->title + " - ";
 	if (song) s << song->title;
 	s << ": ";
-	s << GetBreakInSongString();
+	s << song->pipe->p.GetBreakInSongString();
 	return s;
 }
 

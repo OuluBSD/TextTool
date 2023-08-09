@@ -37,7 +37,7 @@ SongTool::SongTool() {
 
 SongTool::~SongTool() {
 	// Stop task manager
-	TaskMgr::Single().running = false;
+	TaskMgrConfig::Single().running = false;
 	
 	SaveWindowPos();
 	Store();
@@ -74,7 +74,7 @@ void SongTool::SetOpenAIToken() {
 	);
 	if (!b) return;
 	
-	TaskMgr& m = TaskMgr::Single();
+	TaskMgrConfig& m = TaskMgrConfig::Single();
 	m.openai_token = token;
 	m.Store();
 	

@@ -11,12 +11,12 @@ struct OpenAiResponse {
 		int index;
 		Vector<double> logprobs;
 		
-		void Jsonize(JsonIO& json) {
+		/*void Jsonize(JsonIO& json) {
 			json("text", text)
 				("finish_reason", finish_reason)
 				("logprobs", logprobs)
 				("index", index);
-		}
+		}*/
 		String ToString() const {
 			String s;
 			s	<< "text: " << text << "\n"
@@ -32,11 +32,11 @@ struct OpenAiResponse {
 		int completion_tokens;
 		int prompt_tokens;
 		int total_tokens;
-		void Jsonize(JsonIO& json) {
+		/*void Jsonize(JsonIO& json) {
 			json("completion_tokens", completion_tokens)
 				("prompt_tokens", prompt_tokens)
 				("total_tokens", total_tokens);
-		}
+		}*/
 		String ToString() const {
 			String s;
 			s	<< "completion_tokens: " << completion_tokens << "\n"
@@ -51,7 +51,7 @@ struct OpenAiResponse {
 	String object;
 	Usage usage;
 	
-	void Jsonize(JsonIO& json) {
+	/*void Jsonize(JsonIO& json) {
 		json
 			("choices", choices)
 			("id", id)
@@ -59,7 +59,7 @@ struct OpenAiResponse {
 			("object", object)
 			("usage", usage)
 			;
-	}
+	}*/
 	String ToString() const {
 		String s;
 		for(auto& c : choices)
@@ -75,11 +75,11 @@ struct OpenAiResponse {
 struct TaskRule;
 
 struct Task {
-	TaskRule* rule = 0;
+	const TaskRule* rule = 0;
+	
 	Vector<String> args;
 	String input;
 	String output;
-	//int type = -1;
 	int response_length = 0;
 	String error;
 	bool skip_load = false;
@@ -96,14 +96,12 @@ struct Task {
 	hash_t hash = 0;
 	int tries = 0;
 	
-	//Vector<Task*> depends_on;
-	Ptrs p;
+	PipePtrs p;
 	PatternSnap* snap = 0;
 	ReverseTask* task = 0;
 	SnapContext* ctx = 0;
-	TaskMgr* mgr = 0;
 	
-	// temp
+	// Temp
 	Array<Task> result_tasks;
 	Vector<Vector<String>> str_map;
 	Vector<SnapContext*> tmp_ctx;
@@ -190,10 +188,12 @@ struct Task {
 	bool AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str);
 	void AddAttrScoreId(AttrScoreGroup& ag, const SnapAttrStr& a);
 	
+	TaskMgr& GetTaskMgr();
+	Pipe& GetPipe();
+	void GetScores(const PatternSnap& snap, Vector<int>& scores);
+	void GetMaskScores(const PatternSnap& snap, Vector<int>& scores);
 };
 
-void GetScores(const PatternSnap& snap, Vector<int>& scores);
-void GetMaskScores(const PatternSnap& snap, Vector<int>& scores);
 
 
 #endif

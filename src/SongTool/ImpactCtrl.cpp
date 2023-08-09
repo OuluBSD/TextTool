@@ -22,9 +22,11 @@ ImpactCtrl::ImpactCtrl() {
 
 void ImpactCtrl::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	Song& song = *p.song;
-	Part& part = *p.part;
+	if (!song.pipe) return;
+	Pipe& pipe = *song.pipe;
+	Part& part = *pipe.p.part;
 	
 	for (const SnapArg& a : ModeArgs()) {
 		ArrayCtrl& list = this->list[a];
@@ -32,7 +34,7 @@ void ImpactCtrl::Data() {
 		Vector<PatternSnap*> snaps;
 		
 		if (db.ctx.active_wholesong)
-			song.GetSnapsLevel(a, 0, snaps);
+			pipe.GetSnapsLevel(a, 0, snaps);
 		else
 			part.GetSnapsLevel(a, 0, snaps);
 		

@@ -48,28 +48,36 @@ String Task::GetDescription() const {
 }
 
 bool Task::HasCreatedTasks(GroupContext ctx) const {
-	TaskMgr& m = TaskMgr::Single();
+	TODO
+	#if 0
+	TaskMgr& m = GetTaskMgr();
 	for (const Task& t : m.tasks) {
 		if (t.created_by == this && t.p.a.ctx == ctx)
 			return true;
 	}
+	#endif
 	return false;
 }
 
 bool Task::IsCreatedTasksReady(GroupContext ctx) const {
-	TaskMgr& m = TaskMgr::Single();
+	TODO
+	#if 0
+	TaskMgr& m = GetTaskMgr();
 	for (const Task& t : m.tasks) {
 		if (t.created_by != this || t.p.a.ctx != ctx)
 			continue;
 		if (!t.ready)
 			return false;
 	}
+	#endif
 	return true;
 }
 
 String Task::GetTaskDependencyString(bool have_ready_rules, bool rule_names) const {
-	TaskMgr& m = TaskMgr::Single();
 	String s;
+	TODO
+	#if 0
+	TaskMgr& m = GetTaskMgr();
 	Index<TaskRule*> rules;
 	
 	int i = 0;
@@ -108,6 +116,7 @@ String Task::GetTaskDependencyString(bool have_ready_rules, bool rule_names) con
 			s << r->name;
 		}
 	}
+	#endif
 	return s;
 }
 
@@ -227,7 +236,7 @@ void Task::Process() {
 }
 
 bool Task::CheckArguments() {
-	TaskRule& r = *rule;
+	const TaskRule& r = *rule;
 	
 	for (const TaskRule::ArgTuple& arg : r.args) {
 		TaskArgType type = arg.a;
@@ -238,9 +247,9 @@ bool Task::CheckArguments() {
 		case V_ATTR_SCORING:
 			//TODO
 			break;
-		case V_PTR_SONG:
-			if (!p.song) {
-				SetFatalError("song pointer is missing");
+		case V_PTR_PIPE:
+			if (!p.pipe) {
+				SetFatalError("pipeline pointer is missing");
 				return false;
 			}
 			break;
@@ -250,14 +259,14 @@ bool Task::CheckArguments() {
 				return false;
 			}
 			break;
-		case V_PTR_SONG_UNIQUELINES:
+		/*case V_PTR_PIPE_UNIQUELINES:
 			for (const SnapArg& a : HumanInputTextArgs()) {
 				if (!p.song->headers[a].unique_lines.GetCount()) {
-					SetFatalError("song's unique lines are missing");
+					SetFatalError("pipelines's unique lines are missing");
 					return false;
 				}
 			}
-			break;
+			break;*/
 		case V_MODE:
 			if (p.a.mode < 0) {
 				SetFatalError("mode is not set");
@@ -286,21 +295,21 @@ bool Task::CheckArguments() {
 			break;
 		case V_SONG_LYRICS:
 			for (const SnapArg& a : TextInputModeArgs()) {
-				if (p.song->headers[a].content.IsEmpty()) {
+				if (p.pipe->content[a].IsEmpty()) {
 					SetFatalError("lyrics are missing for mode " + GetSnapString(a));
 					return false;
 				}
 			}
 			break;
 		case V_SONG_PARTS:
-			if (p.song->parts.IsEmpty()) {
+			if (p.pipe->parts.IsEmpty()) {
 				SetFatalError("no parts in song");
 				return false;
 			}
 			break;
 		case V_LINE_TXT:
 			for (const SnapArg& a : AllArgs()) {
-				for (Part& part : p.song->parts) {
+				for (Part& part : p.pipe->parts) {
 					for (Line& line : part.lines) {
 						if (line.Get(a).txt.IsEmpty()) {
 							SetFatalError("text is missing for mode " + GetSnapString(a));
@@ -312,7 +321,7 @@ bool Task::CheckArguments() {
 			break;
 		case V_HUMAN_INPUT_LINE_TXT:
 			for (const SnapArg& a : HumanInputTextArgs()) {
-				for (Part& part : p.song->parts) {
+				for (Part& part : p.pipe->parts) {
 					for (Line& line : part.lines) {
 						if (line.Get(a).txt.IsEmpty()) {
 							SetFatalError("text is missing for mode " + GetSnapString(a));
@@ -322,6 +331,8 @@ bool Task::CheckArguments() {
 				}
 			}
 			break;
+		default:
+			TODO break;
 		}
 	}
 	
@@ -330,7 +341,8 @@ bool Task::CheckArguments() {
 
 bool Task::WriteResults() {
 	Database& db = Database::Single();
-	TaskMgr& m = TaskMgr::Single();
+	TaskMgr& m = GetTaskMgr();
+	Pipe& pipe = GetPipe();
 	
 	for (TaskOutputType t :  rule->results) {
 		switch (t) {
@@ -339,8 +351,8 @@ bool Task::WriteResults() {
 		case O_ORDER_IMPORT_DETAILED: break;
 		case O_ORDER_REVERSE: break;
 		
-		case O_DB_ATTRS: ASSERT(db.attrs.groups.GetCount());  break;
-		case O_DB_ATTR_SCORES: ASSERT(db.attrscores.groups.GetCount()); break;
+		case O_DB_ATTRS: ASSERT(pipe.attr_groups.GetCount());  break;
+		case O_DB_ATTR_SCORES: ASSERT(pipe.score_groups.GetCount()); break;
 		
 		case O_TASKS:
 			if (result_tasks.IsEmpty()) {
@@ -358,9 +370,10 @@ bool Task::WriteResults() {
 		case O_SONG_ANALYSIS: break;
 		case O_SONG_DATA_STORYLINE: break;
 		case O_SONG_UNIQLINES:
-			for (const SnapArg& a : TextInputModeArgs()) {
-				ASSERT(p.song->headers[a].unique_lines.GetCount());
-			}
+			TODO
+			/*for (const SnapArg& a : TextInputModeArgs()) {
+				ASSERT(p.pipe->headers[a].unique_lines.GetCount());
+			}*/
 			break;
 		case O_SONG_UNIQLINE_ATTRS: break;
 		case O_SONG_SNAP: break;
@@ -387,6 +400,7 @@ bool Task::WriteResults() {
 		case O_BREAK_REVERSED_IMPACT: break;
 		case O_BREAK_REVERSED_SNAP: break;
 		case O_NEXT_CTX_JUMP: break;
+		default: TODO break;
 		}
 	}
 	
@@ -424,7 +438,9 @@ bool Task::RunOpenAI() {
 	    //LOG("Response is:\n" << completion.dump(2));
 	    
 	    OpenAiResponse response;
-	    LoadFromJson(response, String(completion.dump(2)));
+	    
+	    TODO // persistency subsystem
+	    //LoadFromJson(response, String(completion.dump(2)));
 	    //LOG(response.ToString());
 	    
 	    if (response.choices.GetCount())
@@ -488,7 +504,19 @@ void Task::Retry() {
 
 Task& Task::ResultTask(int r) {
 	Task& t = result_tasks.Add();
-	t.rule = &TaskMgr::Single().GetRule(r);
+	t.rule = &TaskMgrConfig::Single().GetRule(r);
 	t.created_by = this;
 	return t;
+}
+
+TaskMgr& Task::GetTaskMgr() {
+	TODO
+	TaskMgr* p;
+	return *p;
+}
+
+Pipe& Task::GetPipe() {
+	TODO
+	Pipe* p;
+	return *p;
 }

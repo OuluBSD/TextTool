@@ -24,7 +24,11 @@ void AttrCtrl::SetMode(const SnapArg& a) {
 }
 
 void AttrCtrl::UpdateGroupsToScoring() {
-	Attributes& g = Database::Single().attrs;
+	Database& db = Database::Single();
+	PatternSnap* snap = db.ctx.snap[a];
+	ASSERT(snap);
+	if (!snap) return;
+	Attributes& g = *snap->pipe;
 	active.SetCount(g.GetCount() * g.group_limit, false);
 	inherited_active.SetCount(g.GetCount() * g.group_limit, false);
 	sub_active.SetCount(g.GetCount() * g.group_limit, false);
@@ -32,11 +36,11 @@ void AttrCtrl::UpdateGroupsToScoring() {
 
 void AttrCtrl::Load() {
 	Database& db = Database::Single();
-	Attributes& g = db.attrs;
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	PatternSnap* snap = db.ctx.snap[a];
 	if (!snap)
 		return;
+	Attributes& g = *snap->pipe;
 	
 	for (bool& b : active) b = false;
 	for (const SnapAttrStr& a : snap->attributes) {
@@ -72,9 +76,9 @@ void AttrCtrl::Load() {
 			case 0: snap->brk->GetSnapsLevel(a, l, sub); break;
 			case 1: snap->line->GetSnapsLevel(a, l, sub); break;
 			case 2: snap->part->GetSnapsLevel(a, l, sub); break;
-			case 3: snap->song->GetSnapsLevel(a, l, sub); break;
-			case 4: snap->release->GetSnapsLevel(a, l, sub); break;
-			case 5: snap->artist->GetSnapsLevel(a, l, sub); break;
+			case 3: snap->pipe->GetSnapsLevel(a, l, sub); break;
+			//case 4: snap->release->GetSnapsLevel(a, l, sub); break;
+			//case 5: snap->artist->GetSnapsLevel(a, l, sub); break;
 		}
 		for (PatternSnap* s : sub) {
 			for (const SnapAttrStr& a : s->attributes) {
@@ -91,7 +95,7 @@ void AttrCtrl::Load() {
 void AttrCtrl::Store() {
 	Database& db = Database::Single();
 	PatternSnap* snap = db.ctx.snap[a];
-	Attributes& g = db.attrs;
+	Attributes& g = *snap->pipe;
 	if (!snap)
 		return;
 	
@@ -112,16 +116,18 @@ void AttrCtrl::Store() {
 
 void AttrCtrl::Paint(Draw& d) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
-	Attributes& g = db.attrs;
+	EditorPtrs& p = db.ctx.ed;
+	PatternSnap* snap = db.ctx.snap[a];
+	PipePtrs& pp = snap->pipe->p;
+	Attributes& g = *snap->pipe;
 	Color bg = GrayColor(32);
 	Size sz = GetSize();
 	
 	d.DrawRect(sz, bg);
 	
-	if (!p.part)
+	if (!pp.part)
 		return;
-	Part& part = *p.part;
+	Part& part = *pp.part;
 	
 	int tgt_lineh = 18;
 	Font fnt = SansSerif(15);
@@ -150,7 +156,7 @@ void AttrCtrl::Paint(Draw& d) {
 			group_items.Clear();
 			group_types.Clear();
 			part.Get(a).GetGroupItems(group_items);
-			db.attrs.FindGroupTypes(group_items.GetKeys(), group_types);
+			g.FindGroupTypes(group_items.GetKeys(), group_types);
 		}
 		
 		// Sort by group type first
@@ -163,7 +169,7 @@ void AttrCtrl::Paint(Draw& d) {
 			for (int group_type : group_types.GetKeys()) {
 				for(int i = 0; i < group_items.GetCount(); i++) {
 					int group_i = group_items.GetKey(i);
-					const Attributes::Group& gg = g.groups[group_i];
+					const Attr::Group& gg = g.attr_groups[group_i];
 					ASSERT(gg.type_i >= 0);
 					if (gg.type_i != group_type)
 						continue;
@@ -240,8 +246,10 @@ void AttrCtrl::Paint(Draw& d) {
 
 void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, int cx, int& y, int lineh, Font fnt) {
 	Database& db = Database::Single();
-	Attributes& g = db.attrs;
-	Attributes::Group& gg = g.groups[group];
+	PatternSnap* snap = db.ctx.snap[a];
+	PipePtrs& pp = snap->pipe->p;
+	Attributes& g = *snap->pipe;
+	Attr::Group& gg = g.attr_groups[group];
 	int x0 = x;
 	int y0 = y;
 	int x1 = x + cx;
@@ -252,10 +260,10 @@ void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, in
 	Color clr = gg.clr;
 	
 	if (gg.type_i >= 0)
-		clr = db.attrs.group_types[gg.type_i].clr;
+		clr = g.group_types[gg.type_i].clr;
 	
 	// realize snapshots
-	int snap_size = g.groups.GetCount() * g.group_limit;
+	int snap_size = g.attr_groups.GetCount() * g.group_limit;
 	active.SetCount(snap_size, false);
 	inherited_active.SetCount(snap_size, false);
 	sub_active.SetCount(snap_size, false);
@@ -275,7 +283,7 @@ void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, in
 		int xoff = 4;
 		if (!i) {
 			bg_clr = Black(); //clr;
-			txt = g.Translate(gg.description);
+			txt = db.Translate(gg.description);
 			txt_fnt.Bold();
 			Size sz = GetTextSize(txt, txt_fnt);
 			xoff = (cx - sz.cx) / 2;
@@ -287,7 +295,7 @@ void AttrCtrl::PaintKeys(Draw& d, int group, const Vector<int>& items, int x, in
 		}
 		else {
 			int j = items[i-1];
-			txt = g.Translate(gg.values[j]);
+			txt = db.Translate(gg.values[j]);
 			int id = group * g.group_limit + j;
 			bool active = this->active[id];
 			bool inherited_active = this->inherited_active[id];
@@ -385,7 +393,9 @@ void AttrCtrl::MouseLeave() {
 void AttrCtrl::LeftDown(Point pt, dword keyflags) {
 	Database& db = Database::Single();
 	PatternSnap* snap = db.ctx.snap[a];
-	Attributes& g = db.attrs;
+	PipePtrs& pp = snap->pipe->p;
+	Attributes& g = *snap->pipe;
+	
 	for(RectId& rid : entry_rects) {
 		if (rid.a.Contains(pt)) {
 			SnapAttrStr a;
@@ -430,19 +440,26 @@ void AttrCtrl::Update() {
 }
 
 void AttrCtrl::ContextMenu(Bar& bar, Point pt) {
+	Database& db = Database::Single();
+	PatternSnap* snap = db.ctx.snap[a];
+	PipePtrs& pp = snap->pipe->p;
+	Attributes& g = *snap->pipe;
+	
 	bar.Add(t_("Add group"), THISBACK(AddGroup));
 	
 	for (RectId& rid : group_title_rects) {
 		if (rid.a.Contains(pt)) {
-			Attributes& g = Database::Single().attrs;
-			String group = g.Translate(g.groups[rid.b].description);
+			String group = db.Translate(g.attr_groups[rid.b].description);
 			bar.Add(Format(t_("Add entry to group '%s'"), group), THISBACK1(AddEntry, rid.b));
 		}
 	}
 }
 
 void AttrCtrl::AddGroup() {
-	Attributes& g = Database::Single().attrs;
+	Database& db = Database::Single();
+	PatternSnap* snap = db.ctx.snap[a];
+	PipePtrs& pp = snap->pipe->p;
+	Attributes& g = *snap->pipe;
 	
 	// Name
 	String name;
@@ -467,7 +484,7 @@ void AttrCtrl::AddGroup() {
 	
 	// Translation
 	String trans;
-	if (g.trans_i >= 0) {
+	if (db.trans_i >= 0) {
 		b = EditTextNotNull(
 			trans,
 			t_("Translation of the group"),
@@ -492,12 +509,12 @@ void AttrCtrl::AddGroup() {
 	);
 	if (!b) return;
 	
-	Attributes::Group& gg = g.AddGroup(type, name, true);
+	Attr::Group& gg = g.AddGroup(type, name, true);
 	gg.clr = Color(Random(256), Random(256), Random(256));
 	gg.description = desc;
 	
-	if (g.trans_i >= 0 && trans.GetCount()) {
-		Attributes::Translation& t = g.translation[g.trans_i];
+	if (db.trans_i >= 0 && trans.GetCount()) {
+		Translation& t = db.translation[db.trans_i];
 		t.data.Add(desc, trans);
 	}
 	
@@ -507,11 +524,13 @@ void AttrCtrl::AddGroup() {
 }
 
 void AttrCtrl::AddEntry(int group) {
-	Attributes& g = Database::Single().attrs;
-	if (group < 0 || group >= g.groups.GetCount())
+	Database& db = Database::Single();
+	PatternSnap* snap = db.ctx.snap[a];
+	Attributes& g = *snap->pipe;
+	if (group < 0 || group >= g.attr_groups.GetCount())
 		return;
 	
-	Attributes::Group& gg = g.groups[group];
+	Attr::Group& gg = g.attr_groups[group];
 	
 	// Description
 	String desc;
@@ -527,7 +546,7 @@ void AttrCtrl::AddEntry(int group) {
 	
 	// Translation
 	String trans;
-	if (g.trans_i >= 0) {
+	if (db.trans_i >= 0) {
 		b = EditTextNotNull(
 			trans,
 			t_("Translation of the entry"),
@@ -544,8 +563,8 @@ void AttrCtrl::AddEntry(int group) {
 	
 	gg.values.Add(desc);
 	
-	if (g.trans_i >= 0 && trans.GetCount()) {
-		Attributes::Translation& t = g.translation[g.trans_i];
+	if (db.trans_i >= 0 && trans.GetCount()) {
+		Translation& t = db.translation[db.trans_i];
 		t.data.Add(desc, trans);
 	}
 	

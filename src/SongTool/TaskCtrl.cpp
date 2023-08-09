@@ -30,8 +30,10 @@ Tasks::Tasks() {
 }
 
 void Tasks::Data() {
-	TaskMgr& m = TaskMgr::Single();
+	TaskMgrConfig& m = TaskMgrConfig::Single();
 	
+	TODO
+	#if 0
 	for(int i = 0; i < m.tasks.GetCount(); i++) {
 		Task& t = m.tasks[i];
 		list.Set(i, 0, i);
@@ -65,10 +67,14 @@ void Tasks::Data() {
 	lbl.SetLabel(m.status.IsEmpty() ? String(t_("Idle")) : m.status);
 	
 	DataTask();
+	#endif
 }
 
 void Tasks::DataTask() {
-	TaskMgr& m = TaskMgr::Single();
+	TaskMgrConfig& m = TaskMgrConfig::Single();
+	
+	TODO
+	#if 0
 	if (!list.IsCursor())
 		return;
 	
@@ -81,10 +87,14 @@ void Tasks::DataTask() {
 		output.SetData(t.output.ToWString());
 		data_cursor = cursor;
 	}
+	#endif
 }
 
 void Tasks::ValueChange() {
-	TaskMgr& m = TaskMgr::Single();
+	TaskMgrConfig& m = TaskMgrConfig::Single();
+	
+	TODO
+	#if 0
 	if (!m.active_task)
 		return;
 	
@@ -94,20 +104,28 @@ void Tasks::ValueChange() {
 	t.output.Replace("\r", "");
 	
 	t.Store();
+	#endif
 }
 
 void Tasks::ProcessItem() {
-	TaskMgr& m = TaskMgr::Single();
+	TaskMgrConfig& m = TaskMgrConfig::Single();
+	
+	TODO
+	#if 0
 	if (!list.IsCursor())
 		return;
 	int cursor = list.GetCursor();
 	Task& t = m.tasks[cursor];
 	t.failed = false;
 	m.StartSingle(cursor);
+	#endif
 }
 
 void Tasks::RetryItem() {
-	TaskMgr& m = TaskMgr::Single();
+	TaskMgrConfig& m = TaskMgrConfig::Single();
+	
+	TODO
+	#if 0
 	if (!list.IsCursor())
 		return;
 	int cursor = list.GetCursor();
@@ -115,6 +133,7 @@ void Tasks::RetryItem() {
 	t.Retry();
 	m.StartSingle(cursor);
 	this->output.Clear();
+	#endif
 }
 
 void Tasks::OutputMenu(Bar& bar) {

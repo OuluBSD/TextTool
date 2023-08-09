@@ -10,7 +10,7 @@ GUI_APP_MAIN {
 	
 	
 	// Load task manager
-	TaskMgr& m = TaskMgr::Single();
+	TaskMgrConfig& m = TaskMgrConfig::Single();
 	m.CreateDefaultTaskRules();
 	m.Load();
 	m.Start();
@@ -54,9 +54,6 @@ GUI_APP_MAIN {
 		    }
 		    )"_json);
 		    LOG("Response is:\n" << completion.dump(2));
-		    OpenAiResponse response;
-		    LoadFromJson(response, String(completion.dump(2)));
-		    LOG(response.ToString());
 		    return;
 		}
 		else if (cmd == "-proxy" && i+1 < cmds.GetCount()) {

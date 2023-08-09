@@ -52,25 +52,25 @@ void ReverseCtrl::SetSource(int i) {
 
 void ReverseCtrl::Data() {
 	Database& db = Database::Single();
-	Attributes& g = db.attrs;
-	Ptrs& p = db.ctx.p;
-	
-	if (g.groups.IsEmpty()) return;
-	
-	this->snaplist.Clear();
-	if (!p.song)
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
 		return;
 	Song& song = *p.song;
+	Pipe& pipe = *song.pipe;
+	Attributes& g = pipe;
+	if (g.attr_groups.IsEmpty()) return;
 	
-	song.lock.EnterRead();
+	this->snaplist.Clear();
 	
-	song.RealizeTaskSnaps();
+	pipe.lock.EnterRead();
 	
-	Array<ReverseTask>& tasks = src == 0 ? song.rev_common_mask_tasks : (src == 1 ? song.rev_separate_mask_tasks : song.rev_pattern_tasks);
+	pipe.RealizeTaskSnaps();
+	
+	const Vector<int>& tasks = src == 0 ? pipe.rev_common_mask_tasks : (src == 1 ? pipe.rev_separate_mask_tasks : pipe.rev_pattern_tasks);
 	
 	int row = 0;
 	for(int i = 0; i < tasks.GetCount(); i++) {
-		ReverseTask& t = tasks[i];
+		ReverseTask& t = pipe.rev_tasks[tasks[i]];
 		
 		if (!t.ctx) {continue;}
 		
@@ -78,7 +78,7 @@ void ReverseCtrl::Data() {
 		
 		const PatternSnap& snap = t.ctx->Get0();
 		String name =
-			g.Translate(snap.part->name) + ": " +
+			db.Translate(snap.part->name) + ": " +
 			IntStr(snap.id) /*+ "/" +
 			IntStr(t.snap->len)*/
 			;
@@ -104,9 +104,9 @@ void ReverseCtrl::Data() {
 			for(int j = 0; j < t.result_attrs[mode].GetCount(); j++) {
 				const SnapAttrStr& sa = t.result_attrs[mode][j];
 				if (!s.IsEmpty()) s << ", ";
-				Attributes::Group& gg = g.groups[sa.group_i];
+				Attr::Group& gg = g.attr_groups[sa.group_i];
 				String value = gg.values[sa.item_i];
-				s << Capitalize(g.Translate(gg.description)) << ": " << Capitalize(g.Translate(value));
+				s << Capitalize(db.Translate(gg.description)) << ": " << Capitalize(db.Translate(value));
 			}
 			tasklist.Set(row, 4 + mode, s);
 		}
@@ -115,7 +115,7 @@ void ReverseCtrl::Data() {
 		row++;
 	}
 	tasklist.SetCount(row);
-	song.lock.LeaveRead();
+	pipe.lock.LeaveRead();
 	
 	/*String key = "gen.lyrics";
 	String key_translated = "gen.lyrics." + GetCurrentLanguageString().Left(5);
@@ -132,10 +132,12 @@ void ReverseCtrl::Data() {
 
 void ReverseCtrl::DataWorker() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
-	if (!p.song)
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
 		return;
 	Song& song = *p.song;
+	Pipe& pipe = *song.pipe;
+	Attributes& g = pipe;
 	
 	if (!tasklist.IsCursor())
 		return;
@@ -143,12 +145,12 @@ void ReverseCtrl::DataWorker() {
 	int cursor = tasklist.GetCursor();
 	int id = tasklist.Get(cursor, 0);
 	
-	song.lock.EnterRead();
+	pipe.lock.EnterRead();
 	
-	Array<ReverseTask>& tasks = src == 0 ? song.rev_common_mask_tasks : (src == 1 ? song.rev_separate_mask_tasks : song.rev_pattern_tasks);
-	if (id < 0 || id >= tasks.GetCount()) {song.lock.LeaveRead(); return;}
+	const Vector<int>& tasks = src == 0 ? pipe.rev_common_mask_tasks : (src == 1 ? pipe.rev_separate_mask_tasks : pipe.rev_pattern_tasks);
+	if (id < 0 || id >= tasks.GetCount()) {pipe.lock.LeaveRead(); return;}
 	
-	ReverseTask& t = tasks[id];
+	ReverseTask& t = pipe.rev_tasks[tasks[id]];
 	this->task.plotter.Set(t);
 	this->task.plotter.Refresh();
 	t.lock.EnterRead();
@@ -168,13 +170,14 @@ void ReverseCtrl::DataWorker() {
 	// Total progess over all tasks
 	int total_total = 0;
 	int total_actual = 0;
-	for (ReverseTask& t : song.rev_pattern_tasks) {
+	for (int i : pipe.rev_pattern_tasks) {
+		ReverseTask& t = pipe.rev_tasks[i];
 		total_total += t.total;
 		total_actual += t.actual;
 	}
 	task.total_prog.Set(total_actual, total_total);
 	
-	song.lock.LeaveRead();
+	pipe.lock.LeaveRead();
 }
 
 

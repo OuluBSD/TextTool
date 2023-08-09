@@ -1,7 +1,9 @@
 #include "SongTool.h"
 
+int Database::trans_i = -1;
+
+
 Database::Database() {
-	ctx.p.a = ZeroArg();
 	
 }
 
@@ -18,24 +20,27 @@ String Database::GetSongsDir() const {
 }
 
 void Database::Store() {
-	StoreAsJsonFile(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json", true);
+	TODO //StoreAsJsonFile(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json", true);
 }
 
 void Database::Load() {
+	TODO
+	#if 0
 	Clear();
 	LoadFromJsonFile(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json");
-	bool initial = attrs.groups.IsEmpty();
+	bool initial = attr_groups.IsEmpty();
 	attrs.Realize();
 	if (!initial)
 		RealizeAttrIds();
+	#endif
 }
 
-void Database::RealizeAttrIds() {
+/*void Database::RealizeAttrIds() {
 	for (Artist& a : artists) {
 		a.ResolveId();
 	}
 	attrs.RealizeAttrIds();
-}
+}*/
 
 void Database::FindOrphaned() {
 	{
@@ -59,5 +64,23 @@ void Database::FindOrphaned() {
 		}
 		while (ff.Next());
 	}
+}
+
+String Database::Translate(const String& s) {
+	if (trans_i < 0)
+		return s;
+	Translation& t = this->translation[trans_i];
+	int i = t.data.Find(s);
+	String o;
+	if (i >= 0)
+		o = t.data[i];
+	if (i < 0 || o.IsEmpty()) {
+		i = t.data.Find(ToLower(s));
+		if (i >= 0)
+			o = t.data[i];
+		else
+			t.data.Add(ToLower(s));
+	}
+	return o.IsEmpty() ? s : o;
 }
 

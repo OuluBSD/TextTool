@@ -59,36 +59,37 @@ void StructureCtrl::Data() {
 
 void StructureCtrl::DataSong() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
-	if (!p.song) {
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe) {
 		part_list.Clear();
 		line_list.Clear();
 		break_list.Clear();
 		return;
 	}
-	Song& s = *p.song;
 	Artist& a = *p.artist;
 	Release& r = *p.release;
+	Song& s = *p.song;
+	Pipe& e = *s.pipe;
 	
 	import_str.structure.SetData(s.structure_str);
 	
 	for(int i = 0; i < s.structure.GetCount(); i++) {
 		String key = s.structure[i];
-		int j = s.FindPartIdx(key);
+		int j = e.FindPartIdx(key);
 		if (j < 0) {
 			part_list.Set(i, 0, -1);
 			part_list.Set(i, 1, i);
 			part_list.Set(i, 2, "<error>");
 		}
 		else {
-			Part& part = s.parts[j];
+			Part& part = e.parts[j];
 			part_list.Set(i, 0, j);
 			part_list.Set(i, 1, i);
 			part_list.Set(i, 2, part.name);
 			part_list.Set(i, 3, part.GetLength(this->a));
 		}
 	}
-	part_list.SetCount(s.parts.GetCount());
+	part_list.SetCount(e.parts.GetCount());
 	
 	if (!part_list.IsCursor() && part_list.GetCount())
 		part_list.SetCursor(0);
@@ -100,8 +101,9 @@ void StructureCtrl::DataPart() {
 	if (!part_list.IsCursor())
 		return;
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	Song& s = *p.song;
+	Pipe& e = *s.pipe;
 	
 	int c = part_list.GetCursor();
 	int part_i = part_list.Get(c, 0);
@@ -109,7 +111,7 @@ void StructureCtrl::DataPart() {
 		line_list.Clear();
 	}
 	else {
-		Part& part = s.parts[part_i];
+		Part& part = e.parts[part_i];
 		for(int i = 0; i < part.lines.GetCount(); i++) {
 			Line& line = part.lines[i];
 			
@@ -130,8 +132,9 @@ void StructureCtrl::DataLine() {
 	if (!part_list.IsCursor() || !line_list.IsCursor())
 		return;
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	Song& s = *p.song;
+	Pipe& e = *s.pipe;
 	
 	int part_c = part_list.GetCursor();
 	int part_i = part_list.Get(part_c, 0);
@@ -140,7 +143,7 @@ void StructureCtrl::DataLine() {
 		line_list.Clear();
 	}
 	else {
-		Part& part = s.parts[part_i];
+		Part& part = e.parts[part_i];
 		Line& line = part.lines[line_i];
 		
 		for(int i = 0; i < line.breaks.GetCount(); i++) {
@@ -172,8 +175,9 @@ void StructureCtrl::DataBreak() {
 	if (!part_list.IsCursor() || !line_list.IsCursor() || !break_list.IsCursor())
 		return;
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	Song& s = *p.song;
+	Pipe& e = *s.pipe;
 	
 	int c = part_list.GetCursor();
 	int part_i = part_list.Get(c, 0);
@@ -183,7 +187,7 @@ void StructureCtrl::DataBreak() {
 		break_list.Clear();
 	}
 	else {
-		Part& part = s.parts[part_i];
+		Part& part = e.parts[part_i];
 		Line& line = part.lines[line_i];
 		Break& brk = line.breaks[brk_i];
 		
@@ -195,8 +199,9 @@ void StructureCtrl::DataBreak() {
 
 void StructureCtrl::DataList() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	Song& song = *p.song;
+	Pipe& pipe = *song.pipe;
 	
 	int c = part_list.GetCursor();
 	int part_i = part_list.Get(c, 0);
@@ -206,7 +211,7 @@ void StructureCtrl::DataList() {
 		break_list.Clear();
 	}
 	else {
-		Part& part = song.parts[part_i];
+		Part& part = pipe.parts[part_i];
 		Line& line = part.lines[line_i];
 		Break& brk = line.breaks[brk_i];
 		
@@ -255,10 +260,10 @@ void StructureCtrl::DataList() {
 			list_i++;
 		}
 		
-		for(int i = 0; i < song.Get(a).data.GetCount(); i++) {
+		for(int i = 0; i < pipe.Get(a).data.GetCount(); i++) {
 			list.Set(list_i, 0, t_("Song"));
-			list.Set(list_i, 1, song.Get(a).data.GetKey(i));
-			list.Set(list_i, 2, song.Get(a).data[i]);
+			list.Set(list_i, 1, pipe.Get(a).data.GetKey(i));
+			list.Set(list_i, 2, pipe.Get(a).data[i]);
 			list_i++;
 		}
 		
@@ -282,7 +287,7 @@ StructureDrawer::StructureDrawer() {
 
 void StructureDrawer::Paint(Draw& d) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	SnapArg a = ctrl->a;
 	
 	Size sz = GetSize();
@@ -290,12 +295,13 @@ void StructureDrawer::Paint(Draw& d) {
 	d.DrawRect(sz, White());
 	
 	Song& song = *p.song;
+	Pipe& pipe = *song.pipe;
 	
 	items.SetCount(0);
 	int total_len = 0;
 	for(int i = 0; i < song.structure.GetCount(); i++) {
 		const String& key = song.structure[i];
-		Part* part = song.FindPart(key);
+		Part* part = pipe.FindPart(key);
 		if (!part) continue;
 		
 		Item& item = items.Add();

@@ -7,9 +7,8 @@ struct Break :
 {
 	
 	
-	void Jsonize(JsonIO& json) {
-		
-		SnapContext::Jsonize(json);
+	void Serialize(Stream& s) {
+		SnapContext::Serialize(s);
 	}
 	void FixPtrs() {
 		SetBreakPtr(this);

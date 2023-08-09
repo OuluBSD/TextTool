@@ -1,32 +1,27 @@
 #ifndef _SongTool_Scoring_h_
 #define _SongTool_Scoring_h_
 
-/*struct PartScore {
-	Vector<Vector<int>> values;
-	
-	void Jsonize(JsonIO& json) {
-		json
-			("values", values)
-			;
-	}
-	int GetLen() const {return values.GetCount() ? values[0].GetCount() : 0;}
-};*/
 
 struct AttrScoreGroup {
 	Vector<SnapAttrStr> attrs;
 	Vector<int> scores;
 	String name;
 	
+	void Serialize(Stream& s) {
+		s	% attrs
+			% scores
+			% name;
+	}
 	void Jsonize(JsonIO& json) {
 		json
 			("attrs", attrs)
 			("scores", scores)
 			("name", name)
 			;
-		if (json.IsLoading()) {
+		/*if (json.IsLoading()) {
 			Clean();
 			Realize();
-		}
+		}*/
 	}
 	
 	void Clean() {
@@ -72,8 +67,8 @@ struct AttrScoreGroup {
 };
 
 struct AttrScore : DataFile {
-	Array<AttrScoreGroup> groups;
-	VectorMap<String, Vector<int>> presets;
+	Array<AttrScoreGroup> score_groups;
+	//VectorMap<String, Vector<int>> presets;
 	
 	// Temp
 	Vector<Vector<int>> attr_to_score;
@@ -83,27 +78,34 @@ struct AttrScore : DataFile {
 	void Store();
 	void Load();
 	AttrScoreGroup& GetAdd(const Vector<int>& scores) {
-		for (AttrScoreGroup& g : groups)
+		for (AttrScoreGroup& g : score_groups)
 			if (g.Is(scores))
 				return g;
-		AttrScoreGroup& g = groups.Add();
+		AttrScoreGroup& g = score_groups.Add();
 		g.scores <<= scores;
 		return g;
 	}
 	void Clear() {
-		groups.Clear();
+		score_groups.Clear();
+	}
+	void Serialize(Stream& s) {
+		s	% score_groups
+			//% presets
+			% attr_to_score;
 	}
 	void Jsonize(JsonIO& json) {
 		json
-			("groups", groups)
-			("presets", presets)
+			("score_groups", score_groups)
+			("attr_to_score", attr_to_score)
+			//("presets", presets)
 		;
 		if (json.IsLoading()) {
-			for (AttrScoreGroup& g : groups)
+			for (AttrScoreGroup& g : score_groups)
 				g.Clean();
 		}
 	}
 	bool UpdateGroupsToScoring();
+	int GetActiveScoreGroupIndex() const;
 };
 
 #if 0
@@ -117,13 +119,13 @@ struct PatternScore {
 		parts.Clear();
 		unique_parts.Clear();
 	}
-	void Jsonize(JsonIO& json) {
+	/*void Jsonize(JsonIO& json) {
 		json
 			("structure", structure)
 			("parts", parts)
 			("unique_parts", unique_parts)
 			;
-	}
+	}*/
 	/*bool operator()(const PatternScore& a, const PatternScore& b) const {
 		return a.file_title < b.file_title;
 	}*/

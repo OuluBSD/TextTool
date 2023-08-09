@@ -2,6 +2,12 @@
 
 
 MaskScoringCtrl::MaskScoringCtrl() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
+		return;
+	Pipe& pipe = *p.song->pipe;
+	
 	Add(mainsplit.SizePos());
 	mainsplit.Vert();
 	
@@ -16,16 +22,16 @@ MaskScoringCtrl::MaskScoringCtrl() {
 		
 		mainsplit << plotter << list;// << presets;
 		
-		Attributes& g = Database::Single().attrs;
+		Attributes& g = pipe;
 		list.AddIndex();
 		list.AddIndex();
 		list.AddIndex();
 		list.AddColumn(t_("Position"));
-		for (Attributes::ScoringType& t : g.scorings) {
+		for (Attr::ScoringType& t : g.attr_scorings) {
 			list.AddColumn(
 				//g.Translate(t.klass) + ": " +
-				g.Translate(t.axes0) + "/" +
-				g.Translate(t.axes1)
+				db.Translate(t.axes0) + "/" +
+				db.Translate(t.axes1)
 				);
 		}
 		
@@ -36,14 +42,18 @@ MaskScoringCtrl::MaskScoringCtrl() {
 
 void MaskScoringCtrl::Data() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
+		return;
+	Pipe& pipe = *p.song->pipe;
+	
 	if (p.song) {
 		if (db.ctx.active_wholesong) {
 			for (const SnapArg& a : ModeArgs())
-				plotter[a].SetWholeSong(*p.song);
+				plotter[a].SetWholeSong(pipe);
 		}
 		else {
-			Part& part = *p.part;
+			Part& part = *pipe.p.part;
 			for (const SnapArg& a : ModeArgs())
 				plotter[a].SetPart(part);
 		}
@@ -54,30 +64,31 @@ void MaskScoringCtrl::Data() {
 
 void MaskScoringCtrl::DataList(const SnapArg& a) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
-	if (!p.song)
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.song || !p.song->pipe)
 		return;
 	Song& song = *p.song;
+	Pipe& pipe = *p.song->pipe;
 	
 	Splitter& vsplit = this->vsplit[a];
 	Plotter& plotter = this->plotter[a];
 	ArrayCtrl& list = this->list[a];
 	
-	int sc = db.attrs.scorings.GetCount();
+	int sc = pipe.attr_scorings.GetCount();
 	
 	//DUMPC(song.impacts.GetKeys());
 	
 	// Whole song
 	{
 		list.SetCount(0);
-		plotter.SetWholeSong(song);
+		plotter.SetWholeSong(pipe);
 		int total = 0;
-		for(int i = 0; i < song.structure.GetCount(); i++) {
-			String part_key = song.structure[i];
-			int part_i = song.FindPartIdx(part_key);
+		for(int i = 0; i < pipe.structure.GetCount(); i++) {
+			String part_key = pipe.structure[i];
+			int part_i = pipe.FindPartIdx(part_key);
 			if (part_i < 0) continue;
-			Part& part = song.parts[part_i];
-			String part_name = db.attrs.Translate(part.name);
+			Part& part = pipe.parts[part_i];
+			String part_name = db.Translate(part.name);
 			
 			list.Set(total, 0, part_i);
 			list.Set(total, 1, -1);
@@ -101,11 +112,12 @@ void MaskScoringCtrl::DataList(const SnapArg& a) {
 
 void MaskScoringCtrl::ListValueChanged(const SnapArg& a, int pos, int scoring) {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	
-	if (!p.song)
+	if (!p.song || !p.song->pipe)
 		return;
 	Song& song = *p.song;
+	Pipe& pipe = *p.song->pipe;
 	
 	Splitter& vsplit = this->vsplit[a];
 	Plotter& plotter = this->plotter[a];
@@ -114,11 +126,11 @@ void MaskScoringCtrl::ListValueChanged(const SnapArg& a, int pos, int scoring) {
 	int part_i = list.Get(pos, 0);
 	int line_i = list.Get(pos, 1);
 	
-	Part& part = song.parts[part_i];
+	Part& part = pipe.parts[part_i];
 	Line& line = part.lines[line_i];
 	
-	if (line.Get(a).maskscore.GetCount() != db.attrs.scorings.GetCount())
-		line.Get(a).maskscore.SetCount(db.attrs.scorings.GetCount(), 0);
+	if (line.Get(a).maskscore.GetCount() != pipe.attr_scorings.GetCount())
+		line.Get(a).maskscore.SetCount(pipe.attr_scorings.GetCount(), 0);
 	
 	auto& dst = line.Get(a).maskscore[scoring];
 	int value = list.Get(pos, group_begin+scoring);

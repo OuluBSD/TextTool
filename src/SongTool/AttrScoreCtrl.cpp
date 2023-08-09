@@ -52,15 +52,20 @@ void AttrScoreCtrl::SrcEntryMenu(Bar& b) {
 
 void AttrScoreCtrl::Data() {
 	Database& db = Database::Single();
-	for(int i = 0; i < db.attrscores.groups.GetCount(); i++) {
-		AttrScoreGroup& a = db.attrscores.groups[i];
+	Song& song = *db.ctx.ed.song;
+	Pipe& pipe = *song.pipe;
+	PipePtrs& pp = pipe.p;
+	Attributes& g = pipe;
+	
+	for(int i = 0; i < pipe.score_groups.GetCount(); i++) {
+		AttrScoreGroup& a = pipe.score_groups[i];
 		attrscores.Set(i, 0, a.GetName());
 		attrscores.Set(i, 1, a.attrs.GetCount());
 	}
-	attrscores.SetCount(db.attrscores.groups.GetCount());
+	attrscores.SetCount(pipe.score_groups.GetCount());
 	
-	int cursor = max(0, db.GetActiveScoreGroupIndex());
-	if (cursor >= 0 && cursor < db.attrscores.groups.GetCount())
+	int cursor = max(0, pipe.GetActiveScoreGroupIndex());
+	if (cursor >= 0 && cursor < pipe.score_groups.GetCount())
 		attrscores.SetCursor(cursor);
 	
 	DataAttrList();
@@ -73,13 +78,16 @@ void AttrScoreCtrl::Data() {
 
 void AttrScoreCtrl::DataAttrList() {
 	Database& db = Database::Single();
+	Song& song = *db.ctx.ed.song;
+	Pipe& pipe = *song.pipe;
+	PipePtrs& pp = pipe.p;
+	Attributes& g = pipe;
 	
-	db.attrscores.UpdateGroupsToScoring();
+	pipe.UpdateGroupsToScoring();
 	
-	Attributes& g = db.attrs;
-	for(int i = 0; i < g.groups.GetCount(); i++) {
-		Attributes::Group& gg = db.attrs.groups[i];
-		src_entrygroups.Set(i, 0, Capitalize(g.Translate(gg.description)));
+	for(int i = 0; i < g.attr_groups.GetCount(); i++) {
+		Attr::Group& gg = pipe.attr_groups[i];
+		src_entrygroups.Set(i, 0, Capitalize(db.Translate(gg.description)));
 		src_entrygroups.Set(i, 1, gg.values.GetCount());
 		
 	}
@@ -91,22 +99,26 @@ void AttrScoreCtrl::DataAttrList() {
 }
 
 void AttrScoreCtrl::DataGroup() {
+	Database& db = Database::Single();
+	Song& song = *db.ctx.ed.song;
+	Pipe& pipe = *song.pipe;
+	PipePtrs& pp = pipe.p;
+	Attributes& g = pipe;
+	
 	if (!src_entrygroups.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
-	Attributes& g = db.attrs;
 	int cursor = src_entrygroups.GetCursor();
-	Attributes::Group& gg = db.attrs.groups[cursor];
+	Attr::Group& gg = g.attr_groups[cursor];
 	
 	for(int i = 0; i < gg.values.GetCount(); i++) {
 		String v = gg.values[i];
-		src_entries.Set(i, 0, Capitalize(g.Translate(v)));
+		src_entries.Set(i, 0, Capitalize(db.Translate(v)));
 		
 		String score_txt;
-		int score_i = db.attrscores.attr_to_score[cursor][i];
+		int score_i = pipe.attr_to_score[cursor][i];
 		if (score_i >= 0)
-			score_txt = db.attrscores.groups[score_i].GetName();
+			score_txt = pipe.score_groups[score_i].GetName();
 		/*else {
 			DUMP(cursor);
 			DUMP(i);
@@ -120,15 +132,20 @@ void AttrScoreCtrl::DataGroup() {
 }
 
 void AttrScoreCtrl::DataAttrScore() {
+	Database& db = Database::Single();
+	Song& song = *db.ctx.ed.song;
+	Pipe& pipe = *song.pipe;
+	PipePtrs& pp = pipe.p;
+	Attributes& g = pipe;
+	
 	if (!attrscores.IsCursor())
 		return;
 	
 	int cursor = attrscores.GetCursor();
 	String title = attrscores.Get(cursor, 0);
 	
-	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
-	AttrScoreGroup& o = db.attrscores.groups[cursor];
+	EditorPtrs& p = db.ctx.ed;
+	AttrScoreGroup& o = pipe.score_groups[cursor];
 	db.ctx.active_scoregroup = &o;
 	
 	//structure.SetData(o.structure);
@@ -136,16 +153,16 @@ void AttrScoreCtrl::DataAttrScore() {
 	
 	for(int i = 0; i < o.attrs.GetCount(); i++) {
 		const SnapAttrStr& a = o.attrs[i];
-		if (a.group_i < 0 || a.group_i >= db.attrs.groups.GetCount())
+		if (a.group_i < 0 || a.group_i >= pipe.attr_groups.GetCount())
 			entries.Set(i, 1, "<error>" + a.group + ":" + a.item);
 		else {
-			const auto& gr = db.attrs.groups[a.group_i];
-			entries.Set(i, 0, Capitalize(db.attrs.Translate(gr.description)));
+			const auto& gr = pipe.attr_groups[a.group_i];
+			entries.Set(i, 0, Capitalize(db.Translate(gr.description)));
 			
 			if (a.item_i < 0 || a.item_i >= gr.values.GetCount())
 				entries.Set(i, 1, "<error>" + a.group + ":" + a.item);
 			else
-				entries.Set(i, 1, Capitalize(db.attrs.Translate(gr.values[a.item_i])));
+				entries.Set(i, 1, Capitalize(db.Translate(gr.values[a.item_i])));
 		}
 	}
 	entries.SetCount(o.attrs.GetCount());
@@ -155,7 +172,7 @@ void AttrScoreCtrl::DataAttrScore() {
 /*
 void AttrScoreCtrl::AddAttrScoreGroup() {
 	Database& db = Database::Single();
-	int exp_count = db.attrs.scorings.GetCount();
+	int exp_count = db.attr_scorings.GetCount();
 	
 	String score_str;
 	bool b = EditTextNotNull(
@@ -208,16 +225,19 @@ bool AttrScoreCtrl::AddAttrScore() {
 }*/
 
 bool AttrScoreCtrl::AddAttrScoreEntry(String group, String entry_str) {
-	group = ToLower(group);
-	
 	Database& db = Database::Single();
+	Song& song = *db.ctx.ed.song;
+	Pipe& pipe = *song.pipe;
+	PipePtrs& pp = pipe.p;
+	Attributes& g = pipe;
+	
+	group = ToLower(group);
 	
 	bool found = false;
 	SnapAttrStr a;
-	Attributes& g = db.attrs;
 	String lname = ToLower(entry_str);
-	for(int i = 0; i < g.groups.GetCount(); i++) {
-		Attributes::Group& gg = g.groups[i];
+	for(int i = 0; i < g.attr_groups.GetCount(); i++) {
+		Attr::Group& gg = g.attr_groups[i];
 		
 		//LOG("'" << group << "' vs '" << ToLower(gg.description) << "'");
 		if (group.GetCount() && ToLower(gg.description) != group)
@@ -249,8 +269,13 @@ bool AttrScoreCtrl::AddAttrScoreEntry(String group, String entry_str) {
 
 void AttrScoreCtrl::AddAttrScoreId(const SnapAttrStr& a) {
 	Database& db = Database::Single();
+	Song& song = *db.ctx.ed.song;
+	Pipe& pipe = *song.pipe;
+	PipePtrs& pp = pipe.p;
+	Attributes& g = pipe;
+	
 	//bool found = false;
-	for (AttrScoreGroup& ag : db.attrscores.groups) {
+	for (AttrScoreGroup& ag : pipe.score_groups) {
 		for(int i = 0; i < ag.attrs.GetCount(); i++) {
 			const SnapAttrStr& a0 = ag.attrs[i];
 			if (a0 == a) {
@@ -263,15 +288,15 @@ void AttrScoreCtrl::AddAttrScoreId(const SnapAttrStr& a) {
 		}
 	}
 	
-	int active_idx = db.GetActiveScoreGroupIndex();
+	int active_idx = pipe.GetActiveScoreGroupIndex();
 	//if (!found)
 	ASSERT(a.has_id);
 	db.ctx.active_scoregroup->attrs.Add(a);
 	
-	db.attrscores.attr_to_score.Clear();
-	db.attrscores.UpdateGroupsToScoring();
+	pipe.attr_to_score.Clear();
+	pipe.UpdateGroupsToScoring();
 	
-	DUMP(db.attrscores.attr_to_score[5][0]);
+	DUMP(pipe.attr_to_score[5][0]);
 	/*auto& vv = db.attrscores.attr_to_score;
 	if (a.group >= vv.GetCount())
 		vv.SetCount(a.group+1);
@@ -303,32 +328,35 @@ void AttrScoreCtrl::OnEntrySel() {
 
 void AttrScoreCtrl::CheckErrors() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
-	Attributes& g = db.attrs;
-	if (!p.part)
+	Song& song = *db.ctx.ed.song;
+	Pipe& pipe = *song.pipe;
+	PipePtrs& pp = pipe.p;
+	Attributes& g = pipe;
+	
+	if (!pp.part)
 		return;
 	
-	db.attrscores.UpdateGroupsToScoring();
+	pipe.UpdateGroupsToScoring();
 	
 	Index<SnapAttrStr> attrs;
 	
-	Part& part = *p.part;
+	Part& part = *pp.part;
 	
-	part.GetSnapAttributes(p.a, attrs);
+	part.GetSnapAttributes(pp.a, attrs);
 	
 	
 	int i = 0;
 	part_errors.Clear();
 	for (const SnapAttrStr& a : attrs.GetKeys()) {
 		a.RealizeId();
-		int score = db.attrscores.attr_to_score[a.group_i][a.item_i];
+		int score = pipe.attr_to_score[a.group_i][a.item_i];
 		if (score >= 0)
 			continue;
 		
-		const Attributes::Group& gg = db.attrs.groups[a.group_i];
+		const Attr::Group& gg = pipe.attr_groups[a.group_i];
 		String key = gg.values[a.item_i];
 		//part_errors.Set(i, 0, Capitalize(g.Translate(key)));
-		part_errors.Add(Capitalize(g.Translate(key)));
+		part_errors.Add(Capitalize(db.Translate(key)));
 		i++;
 	}
 	//part_errors.SetCount(i);
@@ -337,22 +365,25 @@ void AttrScoreCtrl::CheckErrors() {
 
 void AttrScoreCtrl::OpenPromptScores() {
 	Database& db = Database::Single();
-	Attributes& g = db.attrs;
+	Song& song = *db.ctx.ed.song;
+	Pipe& pipe = *song.pipe;
+	PipePtrs& pp = pipe.p;
+	Attributes& g = pipe;
 	
-	for(int i = 0; i < g.scorings.GetCount(); i++) {
-		const Attributes::ScoringType& t = g.scorings[i];
+	for(int i = 0; i < g.attr_scorings.GetCount(); i++) {
+		const Attr::ScoringType& t = g.attr_scorings[i];
 		attrwords.list.Set(i, 0,
-			Capitalize(g.Translate(t.klass)) + ": " +
-			Capitalize(g.Translate(t.axes0)) + "/" +
-			Capitalize(g.Translate(t.axes1))
+			Capitalize(db.Translate(t.klass)) + ": " +
+			Capitalize(db.Translate(t.axes0)) + "/" +
+			Capitalize(db.Translate(t.axes1))
 		);
 		attrwords.list.Set(i, 1, 0);
 		attrwords.list.SetCtrl(i, 1, new EditIntNotNullSpin);
 	}
 	
 	attrwords.groups.Clear();
-	for(int i = 0; i < g.groups.GetCount(); i++) {
-		attrwords.groups.Add(g.Translate(g.groups[i].description));
+	for(int i = 0; i < g.attr_groups.GetCount(); i++) {
+		attrwords.groups.Add(db.Translate(g.attr_groups[i].description));
 	}
 	attrwords.groups.SetIndex(0);
 	attrwords.add_task.WhenAction = THISBACK(AddAttrTask);
@@ -362,7 +393,12 @@ void AttrScoreCtrl::OpenPromptScores() {
 
 void AttrScoreCtrl::AddAttrScoreGroup() {
 	Database& db = Database::Single();
-	int exp_count = db.attrs.scorings.GetCount();
+	Song& song = *db.ctx.ed.song;
+	Pipe& pipe = *song.pipe;
+	PipePtrs& pp = pipe.p;
+	Attributes& g = pipe;
+	
+	int exp_count = g.attr_scorings.GetCount();
 	
 	String score_str;
 	bool b = EditTextNotNull(
@@ -389,9 +425,9 @@ void AttrScoreCtrl::AddAttrScoreGroup() {
 		score_ints.Add(i);
 	}
 	
-	AttrScoreGroup& g = db.attrscores.GetAdd(score_ints);
+	AttrScoreGroup& gg = pipe.AttrScore::GetAdd(score_ints);
 	
-	db.ctx.active_scoregroup = &g;
+	db.ctx.active_scoregroup = &gg;
 	
 	Data();
 }

@@ -24,7 +24,7 @@ struct PatternSnap : PatternMask {
 		data.Clear();
 		PatternMask::Clear();
 	}
-	void Jsonize(JsonIO& json) {
+	/*void Jsonize(JsonIO& json) {
 		json
 			("txt",				txt)
 			("attributes",		attributes)
@@ -35,7 +35,7 @@ struct PatternSnap : PatternMask {
 			("impact_score",	impact_score)
 			;
 		PatternMask::Jsonize(json);
-	}
+	}*/
 	void SetId(int i) {id = i;}
 	void ResolveId() {
 		for (const SnapAttrStr& sa : attributes.GetKeys())
@@ -73,13 +73,14 @@ struct PatternSnap : PatternMask {
 			DeepClearSnapT(a, &o, o.GetSub());
 	}
 	int GetLevel() const {
-		if (Ptrs::brk) return 0;
-		if (Ptrs::line) return 1;
-		if (Ptrs::part) return 2;
-		if (Ptrs::song) return 3;
-		if (Ptrs::release) return 4;
-		if (Ptrs::artist) return 5;
-		return 6;
+		if (PipePtrs::brk) return 0;
+		if (PipePtrs::line) return 1;
+		if (PipePtrs::part) return 2;
+		if (PipePtrs::pipe) return 3;
+		//if (Ptrs::song) return 3;
+		//if (Ptrs::release) return 4;
+		//if (Ptrs::artist) return 5;
+		return 4;
 	}
 	
 	
@@ -151,6 +152,9 @@ struct SnapContext {
 	PArr<PatternSnap> snap;
 	
 	
+	void Serialize(Stream& s) {
+		s % snap;
+	}
 	PatternSnap& Get(const SnapArg& a) {
 		return snap[a];
 	}
@@ -182,11 +186,11 @@ struct SnapContext {
 		for(const SnapArg& a : AllArgs())
 			Get(a).PatternSnap::ResolveId();
 	}
-	void Jsonize(JsonIO& json) {
+	/*void Jsonize(JsonIO& json) {
 		for(const SnapArg& a : AllArgs())
 			json("snap" + a.SubscriptString(), Get(a));
-	}
-	void SetArtistPtr(Artist* art) {
+	}*/
+	/*void SetArtistPtr(Artist* art) {
 		for(const SnapArg& a : AllArgs())
 			Get(a).Ptrs::artist = art;
 	}
@@ -197,18 +201,22 @@ struct SnapContext {
 	void SetSongPtr(Song* s) {
 		for(const SnapArg& a : AllArgs())
 			Get(a).Ptrs::song = s;
+	}*/
+	void SetPipePtr(Pipe* p) {
+		for(const SnapArg& a : AllArgs())
+			Get(a).PipePtrs::pipe = p;
 	}
 	void SetPartPtr(Part* p) {
 		for(const SnapArg& a : AllArgs())
-			Get(a).Ptrs::part = p;
+			Get(a).PipePtrs::part = p;
 	}
 	void SetLinePtr(Line* l) {
 		for(const SnapArg& a : AllArgs())
-			Get(a).Ptrs::line = l;
+			Get(a).PipePtrs::line = l;
 	}
 	void SetBreakPtr(Break* b) {
 		for(const SnapArg& a : AllArgs())
-			Get(a).Ptrs::brk = b;
+			Get(a).PipePtrs::brk = b;
 	}
 	
 	

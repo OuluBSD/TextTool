@@ -2,11 +2,11 @@
 
 
 
-void TaskMgr::CreateDefaultTaskRules() {
+void TaskMgrConfig::CreateDefaultTaskRules() {
 	
 	AddRule(TASK_IMPORT_AND_REVERSE, "import song and make reversed song")
 		.Process(&Task::Process_MakeImportTasks)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_SONG_LYRICS)
 			.Result(O_TASKS)
 			.Result(O_ORDER_IMPORT)
@@ -18,7 +18,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_ORDER_IMPORT)
 		.Require(O_NEXT_CTX_JUMP)
 		.Process(&Task::Process_MakeContextImportTasks)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_SONG_LYRICS)
 			.Result(O_ORDER_REVERSE)
 			.Result(O_SONG_UNIQLINES)
@@ -29,13 +29,16 @@ void TaskMgr::CreateDefaultTaskRules() {
 	AddRule(TASK_PATTERNMASK, "pattern masks of parts of song")
 		.Require(O_ORDER_IMPORT)
 		.Input(&Task::CreateInput_PatternMask)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, 0, MODE_COUNT)
 			.Arg(V_ARGS, 2, 2)
 		.Process(&Task::Process_PatternMask)
 			.Result(O_SONG_MASK)
 			.Result(O_PART_MASK)
 			.Result(O_DB_ATTRS)
+		.Hash(V_ATTRS)
+		.Hash(V_TXT)
+		.SeparateItems()
 		;
 	
 	AddRule(TASK_PATTERNMASK_WEIGHTED, "weighted pattern masks")
@@ -44,36 +47,40 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.RequireMode(O_PART_MASK, MODE_BEGIN, FEMALE)
 		.Require(O_BREAK_LYRICS) //_WEIGHTED)
 		.Input(&Task::CreateInput_PatternMaskWeighted)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, 0, MODE_COUNT)
 			.Arg(V_ARGS, 2, 2)
 		.Process(&Task::Process_PatternMaskWeighted)
 			.Result(O_SONG_MASK) //_WEIGHTED)
 			.Result(O_PART_MASK) //_WEIGHTED)
 			.Result(O_DB_ATTRS)
+		.Hash(V_MALE_FEMALE_MASK)
+		.SeparateItems()
 		;
 	
 	AddRule(TASK_ANALYSIS, "analysis of parts of song")
 		.Require(O_ORDER_IMPORT_DETAILED)
 		.Input(&Task::CreateInput_Analysis)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_SONG_PARTS)
 			.Arg(V_MODE, 0, MODE_COUNT)
 		.Process(&Task::Process_Analysis)
 			.Arg(V_ARGS, 1, INT_MAX)
 			.Result(O_SONG_ANALYSIS)
+		.Hash(V_TXT)
 		;
 	
 	AddRule(TASK_STORYARC, "story arc of song")
 		.Require(O_ORDER_IMPORT)
 		.Input(&Task::CreateInput_StoryArc)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_SONG_PARTS)
 			.Arg(V_MODE, 0, MODE_COUNT)
 			.Arg(V_HUMAN_INPUT_LINE_TXT)
 		.Process(&Task::Process_StoryArc)
 			.Result(O_PART_DATA_STORYLINE)
 			.Result(O_SONG_DATA_STORYLINE)
+		.Hash(V_TXT)
 		;
 	
 	AddRule(TASK_STORYARC_WEIGHTED, "story arc WEIGHTED mode")
@@ -88,7 +95,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 	AddRule(TASK_IMPACT, "impacts")
 		.Require(O_ORDER_IMPORT)
 		.Input(&Task::CreateInput_Impact)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_PTR_LINE)
 			.Arg(V_MODE, 0, MODE_COUNT)
 		.Process(&Task::Process_Impact)
@@ -99,7 +106,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_ORDER_IMPORT)
 		.RequireMode(O_BREAK_IMPACT, MODE_BEGIN, FEMALE)
 		.Input(&Task::CreateInput_ImpactWeighted)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_PTR_LINE)
 			.Arg(V_MODE, 0, MODE_COUNT)
 		.Process(&Task::Process_ImpactWeighted)
@@ -110,7 +117,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_ORDER_IMPORT)
 		.Require(O_BREAK_IMPACT) //_WEIGHTED)
 		.Input(&Task::CreateInput_ForwardLyricsWeighted)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_PTR_LINE)
 			.Arg(V_MODE, 0, MODE_COUNT)
 		.Process(&Task::Process_ForwardLyricsWeighted)
@@ -124,7 +131,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.RequireMode(O_BREAK_IMPACT, WEIGHTED, WEIGHTED)
 		.RequireMode(O_BREAK_LYRICS, WEIGHTED, WEIGHTED)
 		.Process(&Task::Process_MakeImpactScoringTasks)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, 0, MODE_COUNT)
 			.Result(O_TASKS)
 		;
@@ -134,7 +141,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_BREAK_IMPACT)
 		.RequireMode(O_BREAK_IMPACT, WEIGHTED, WEIGHTED)
 		.Input(&Task::CreateInput_ImpactScoring)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, 0, MODE_COUNT)
 		.Process(&Task::Process_ImpactScoring)
 			.Arg(V_ATTR_SCORING)
@@ -147,9 +154,9 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_SONG_MASK)
 		.Require(O_PART_MASK)
 		.Process(&Task::Process_MakePatternTasks)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, 0, MODE_COUNT)
-			.Arg(V_PTR_SONG_UNIQUELINES)
+			//.Arg(V_PTR_PIPE_UNIQUELINES)
 			.Result(O_TASKS)
 		;
 	
@@ -159,7 +166,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_PART_MASK)
 		.Require(O_SONG_UNIQLINES)
 		.Input(&Task::CreateInput_Pattern)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
 		.Process(&Task::Process_Pattern)
 			.Result(O_SONG_UNIQLINE_ATTRS)
@@ -176,7 +183,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.RequireMode(O_LINE_SNAP, MALE, FEMALE)
 		.RequireMode(O_BREAK_SNAP, MALE, FEMALE)
 		.Input(&Task::CreateInput_PatternWeighted)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, WEIGHTED, MODE_COUNT)
 		.Process(&Task::Process_PatternWeighted)
 			.Result(O_SONG_UNIQLINE_ATTRS)
@@ -194,7 +201,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_PART_MASK)
 		.Require(O_SONG_UNIQLINE_ATTRS)
 		.Process(&Task::Process_MakeAttrScores)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
 			.Result(O_TASKS)
 		;
@@ -205,7 +212,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_SONG_MASK)
 		.Require(O_PART_MASK)
 		.Input(&Task::CreateInput_AttrScores)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
 		.Process(&Task::Process_AttrScores)
 		;
@@ -224,7 +231,7 @@ void TaskMgr::CreateDefaultTaskRules() {
 		.Require(O_LINE_SNAP)
 		.Require(O_BREAK_SNAP)
 		.Process(&Task::Process_SongScores)
-			.Arg(V_PTR_SONG)
+			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
 			.Result(O_PART_MASK_SCORE)
 			.Result(O_PART_SNAP_SCORE)
@@ -345,10 +352,20 @@ void TaskMgr::CreateDefaultTaskRules() {
 	
 }
 
-void TaskMgr::Process() {
+void TaskMgrConfig::Load() {
+	LoadFromFile(*this, ConfigFile("taskmgr.bin"));
+}
+
+void TaskMgrConfig::Store() {
+	StoreToFile(*this, ConfigFile("taskmgr.bin"));
+}
+
+void TaskMgrConfig::Process() {
 	
 	while (running) {
-		this->total = tasks.GetCount();
+		
+		TODO
+		/*this->total = tasks.GetCount();
 		
 		int ready = 0, got_ready = 0;
 		for(int i = 0; i < tasks.GetCount() && running && !Thread::IsShutdownThreads(); i++) {
@@ -382,9 +399,66 @@ void TaskMgr::Process() {
 			}
 		}
 		
-		Sleep(10);
+		Sleep(10);*/
 	}
 	stopped = true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void TaskMgr::Process() {
+	//while (running) {
+	this->total = tasks.GetCount();
+	
+	TODO
+	#if 0
+	int ready = 0, got_ready = 0;
+	for(int i = 0; i < tasks.GetCount() && running && !Thread::IsShutdownThreads(); i++) {
+		Task& t = tasks[i];
+		if (!t.ready) {
+			ProcessSingle(i);
+			if (t.ready) {
+				actual++;
+				ready++;
+				got_ready++;
+			}
+		}
+		else
+			ready++;
+	}
+	this->actual = ready;
+	
+	if (!got_ready) {
+		int tried_retry = 0;
+		for (Task& t : tasks) {
+			if (t.fatal_error)
+				continue;
+			if (t.failed && !t.ready && t.tries < max_tries) {
+				t.tries++;
+				t.Retry();
+				tried_retry++;
+			}
+		}
+		if (!tried_retry) {
+			SpawnTasks();
+		}
+	}
+	#endif
+	
+	//Sleep(10);
+	//}
+	//stopped = true;
 }
 
 void TaskMgr::ProcessSingle(int task_i) {
@@ -404,7 +478,6 @@ void TaskMgr::ProcessSingle(int task_i) {
 		;
 	else {
 		status = "Processing #" + IntStr(task_i);
-		t.mgr = this;
 		t.Process();
 		status = "";
 	}
@@ -412,21 +485,11 @@ void TaskMgr::ProcessSingle(int task_i) {
 	task_lock.Leave();
 }
 
-void TaskMgr::Load() {
-	LoadFromFile(*this, ConfigFile("taskmgr.bin"));
-}
-
-void TaskMgr::Store() {
-	StoreToFile(*this, ConfigFile("taskmgr.bin"));
-	for (Task& t : tasks)
-		t.Store();
-}
-
 bool TaskMgr::IsDepsReady(Task& t, Index<Task*>& seen) const {
 	bool all_ready = true;
 	ASSERT(t.rule);
-	TaskRule& r = *t.rule;
-	for (TaskOutputType& o : r.reqs) {
+	const TaskRule& r = *t.rule;
+	for (const TaskOutputType& o : r.reqs) {
 		bool found = false;
 		int user_mode_range_i = r.req_mode_ranges.Find(o);
 		bool user_mode_range = user_mode_range_i >= 0;
@@ -493,15 +556,16 @@ bool TaskMgr::IsDepsReady(Task& t, Index<Task*>& seen) const {
 
 
 
-void TaskMgr::ImportSongAndMakeReversedSong(Song& s) {
+void TaskMgr::ImportSongAndMakeReversedSong(Pipe& p) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
-	TaskRule& r = GetRule(TASK_IMPORT_AND_REVERSE);
+	const TaskRule& r = mgr.GetRule(TASK_IMPORT_AND_REVERSE);
 	
 	if (1) {
 		Vector<int> rm_list;
 		for(int i = 0; i < tasks.GetCount(); i++) {
 			Task& t = tasks[i];
-			if (t.p.song == &s)
+			if (t.p.pipe == &p)
 				rm_list << i;
 		}
 		tasks.Remove(rm_list);
@@ -517,13 +581,13 @@ void TaskMgr::ImportSongAndMakeReversedSong(Song& s) {
 	
 	Task& t = tasks.Add();
 	t.rule = &r;
-	t.p.CopyPtrs(db.ctx.p);
+	t.p.CopyPtrs(p.p);
 	t.p.a = ZeroArg();
 	
 	
 }
 
-TaskRule& TaskMgr::GetRule(int code) {
+TaskRule& TaskMgrConfig::GetRule(int code) {
 	for (TaskRule& r : rules)
 		if (r.code == code)
 			return r;
@@ -531,7 +595,15 @@ TaskRule& TaskMgr::GetRule(int code) {
 	return r;
 }
 
-TaskRule& TaskMgr::AddRule(int code, String name) {
+const TaskRule& TaskMgrConfig::GetRule(int code) const {
+	for (const TaskRule& r : rules)
+		if (r.code == code)
+			return r;
+	static TaskRule r;
+	return r;
+}
+
+TaskRule& TaskMgrConfig::AddRule(int code, String name) {
 	for (auto& r : rules) {
 		ASSERT(r.code != code);
 	}
@@ -551,12 +623,14 @@ GroupContext TaskMgr::GetGroupContextLimit() const {
 }
 
 bool TaskMgr::SpawnTasks() {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	
 	int spawned = 0;
-	Index<Song*> task_songs;
+	Index<Pipe*> task_songs;
 	for (Task& t : tasks)
-		task_songs.FindAdd(t.p.song);
+		task_songs.FindAdd(t.p.pipe);
 	GroupContext ctx_limit = GetGroupContextLimit();
-	for (TaskRule& r : rules) {
+	for (const TaskRule& r : mgr.rules) {
 		for (GroupContext ctx = CTX_BEGIN; ctx != ctx_limit; ((int&)ctx)++) {
 			bool ctx_spawned = false;
 			if (r.spawnable) {
@@ -565,10 +639,10 @@ bool TaskMgr::SpawnTasks() {
 					DUMP((int)ctx);
 				}
 				ASSERT(r.reqs.GetCount());
-				for (Song* s : task_songs.GetKeys()) {
+				for (Pipe* s : task_songs.GetKeys()) {
 					Task* exists_already = 0;
 					for (Task& t : tasks) {
-						if (t.rule == &r && t.p.song == s && t.p.a.ctx == ctx) {
+						if (t.rule == &r && t.p.pipe == s && t.p.a.ctx == ctx) {
 							exists_already = &t;
 							break;
 						}
@@ -715,3 +789,14 @@ TaskRule& TaskRule::CrossMode(bool b) {
 	allow_cross_mode = b;
 	return *this;
 }
+
+TaskRule& TaskRule::Hash(TaskArgType t) {
+	hashes.Add(t);
+	return *this;
+}
+
+TaskRule& TaskRule::SeparateItems(bool b) {
+	separate_items = b;
+	return *this;
+}
+

@@ -4,10 +4,12 @@
 
 class ImpactScoringCtrl : public Ctrl {
 	MArr<Plotter> plotter;
-	MArr<ArrayCtrl> list;
+	MArr<One<ArrayCtrl>> list;
 	MArr<Splitter> vsplit;
 	Splitter mainsplit;
+	Pipe* last_pipe = 0;
 	
+	void Realize(Pipe& p);
 	void ListMenu(Bar& bar);
 public:
 	typedef ImpactScoringCtrl CLASSNAME;

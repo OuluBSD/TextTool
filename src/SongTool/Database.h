@@ -1,12 +1,36 @@
 #ifndef _SongTool_Database_h_
 #define _SongTool_Database_h_
 
+struct Translation : Moveable<Translation> {
+	VectorMap<String, String> data;
+	
+	Translation& Add(String key, String value) {data.GetAdd(key) = value; return *this;}
+	void Serialize(Stream& s) {
+		s % data;
+	}
+	void Jsonize(JsonIO& json) {
+		if (json.IsStoring())
+			SortByKey(data, StdLess<String>());
+		json
+			("data", data)
+			;
+		if (json.IsLoading()) {
+			VectorMap<String, String> tmp;
+			for(int i = 0; i < data.GetCount(); i++)
+				tmp.Add(ToLower(data.GetKey(i)), ToLower(data[i]));
+			Swap(tmp, data);
+		}
+	}
+};
+
+
 
 struct Database {
+	// Public
 	Array<Artist>	artists;
-	Attributes		attrs;
-	AttrScore		attrscores;
+	VectorMap<String, Translation> translation;
 	
+	// Temp
 	Context			ctx;
 	String			dir;
 	
@@ -16,38 +40,49 @@ struct Database {
 	void Clear() {artists.Clear();}
 	void Store();
 	void Load();
-	void RealizeAttrIds();
+	//void RealizeAttrIds();
 	void FindOrphaned();
+	void Serialize(Stream& s) {
+		s	% artists
+			% translation
+			/*% attrs
+			% attrscores*/;
+	}
 	void Jsonize(JsonIO& json) {
-		/*json
-			;*/
+		json ("translation", translation);
 		if (json.IsStoring()) {
 			Vector<String> names;
 			for (Artist& a : artists) {a.Store(); names.Add(a.file_title);}
 			json("artists", names);
-			attrscores.Store();
-			attrs.Store();
+			//attrscores.Store();
+			//attrs.Store();
 		}
 		if (json.IsLoading()) {
+			String lng = GetCurrentLanguageString().Left(5);
+			trans_i = translation.Find(lng);
+			
 			Vector<String> names;
 			json("artists", names);
 			for (String n : names) artists.Add().LoadTitle(n);
 			Sort(artists, Artist());
 			//FindOrphaned();
+			/*
 			attrs.Load();
 			attrscores.Load();
-			
-			if (attrs.groups.IsEmpty())
+			if (attr_groups.IsEmpty())
 				for (Artist& a : artists)
-					a.ClearAttrs();
+					a.ClearAttrs();*/
 		}
 	}
 	String GetArtistsDir() const;
 	String GetReleasesDir() const;
 	String GetSongsDir() const;
-	int GetActiveScoreGroupIndex() const {return VectorFindPtr(ctx.active_scoregroup, attrscores.groups);};
+	
+	String Translate(const String& s);
 	
 	static Database& Single() {static Database db; return db;}
+	
+	static int trans_i; // active language translation index
 	
 };
 
@@ -61,10 +96,10 @@ struct Database {
 
 template <class B>
 inline String PatternSnap::GetStructuredText(const SnapArg& a, bool pretty, int indent, const Array<B>& sub) const {
-	const Attributes& g = Database::Single().attrs;
+	const Attributes& g = *pipe;
 	String s;
 	if (pretty) s.Cat('\t', indent);
-	if (song && !part) {
+	if (pipe && !part) {
 		s << "song";
 	}
 	else if (part && !line) {
@@ -97,7 +132,7 @@ inline String PatternSnap::GetStructuredText(const SnapArg& a, bool pretty, int 
 	}
 	
 	for (int group_i : used_groups.GetKeys()) {
-		const Attributes::Group& gg = g.groups[group_i];
+		const Attr::Group& gg = g.attr_groups[group_i];
 		if (pretty) s.Cat('\t', indent+1);
 		s << ToLower(gg.description) << " {";
 		if (pretty) s << "\n";
@@ -126,7 +161,9 @@ inline String PatternSnap::GetStructuredText(const SnapArg& a, bool pretty, int 
 
 template <class T>
 void CalculateWeightedGenderDifference(Vector<double>& values, const Vector<T>& score, const Vector<T>& other_score) {
-	Attributes& g = Database::Single().attrs;
+	TODO
+	#if 0
+	Attributes& g = *snap.pipe;
 	int c = g.scorings.GetCount();
 	
 	ASSERT(score.GetCount() == c);
@@ -176,7 +213,7 @@ void CalculateWeightedGenderDifference(Vector<double>& values, const Vector<T>& 
 				);
 		}
 	}
-
+	#endif
 }
 
 #endif

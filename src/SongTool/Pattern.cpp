@@ -23,9 +23,9 @@ void SnapContext::MergeOwner() {
 	if (level == 0) static_cast<Break*>(this)->MergeOwner();
 	if (level == 1) static_cast<Line*>(this)->MergeOwner();
 	if (level == 2) static_cast<Part*>(this)->MergeOwner();
-	if (level == 3) static_cast<Song*>(this)->MergeOwner();
-	if (level == 4) static_cast<Release*>(this)->MergeOwner();
-	if (level == 5) static_cast<Artist*>(this)->MergeOwner();
+	if (level == 3) static_cast<Pipe*>(this)->MergeOwner();
+	//if (level == 4) static_cast<Release*>(this)->MergeOwner();
+	//if (level == 5) static_cast<Artist*>(this)->MergeOwner();
 }
 
 void PatternSnap::FindAddAttr(const SnapAttrStr& sa) {
@@ -46,10 +46,13 @@ void PatternSnap::FindAddAttr(const SnapAttrStr& sa) {
 
 void Song::ReloadStructure() {
 	Database& db = Database::Single();
-	Ptrs& p = db.ctx.p;
+	EditorPtrs& p = db.ctx.ed;
 	for(const SnapArg& a : AllArgs())
 		db.ctx.snap[a] = 0;
 	
+	TODO
+	
+	#if 0
 	this->parts.Clear();
 	this->structure = Split(this->structure_str, ",");
 	
@@ -108,4 +111,5 @@ void Song::ReloadStructure() {
 	for (Part& part : this->parts) {
 		part.FixPtrs();
 	}
+	#endif
 }
