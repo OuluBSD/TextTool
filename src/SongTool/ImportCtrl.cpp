@@ -24,16 +24,11 @@ void ImportCtrl::Data()
 {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
-	if (!p.song || !p.song->pipe)
-		return;
-	PipePtrs& pp = p.song->pipe->p;
-	if(!pp.a.Is())
+	if (!p.song)
 		return;
 	
 	for(int i = 0; i < HUMAN_INPUT_MODE_COUNT; i++) {
-		a[i] = pp.a;
-		a[i].ctx = CTX_TEXT;
-		a[i].mode = (SnapMode)i;
+		a[i] = SnapArg(CTX_TEXT, (SnapMode)i, FORWARD);
 		input[i].SetData(p.song->content[a[i]]);
 	}
 }
@@ -42,7 +37,7 @@ void ImportCtrl::OnValueChange()
 {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
-	if (!p.song || !p.song->pipe)
+	if (!p.song)
 		return;
 
 	for(int i = 0; i < HUMAN_INPUT_MODE_COUNT; i++)
@@ -89,19 +84,27 @@ void ImportCtrl::MakeTasks()
 	// Ptrs& p_rev = db.ctx[MALE_REVERSED];
 	if(!p.song || !p.artist)
 		return;
-	Song& s = *p.song;
+	
+	Pipe& pipe = db.pipes.Add();
+	
 	Artist& a = *p.artist;
 	Release& r = *p.release;
-	Pipe& e = *s.pipe;
-	TaskMgr& m = e;
-
-	/*Song& rs = r.RealizeReversed(s);
-	p_rev.Ptrs::Clear();
-	p_rev.artist = &a;
-	p_rev.release = &r;
-	p_rev.song = &rs;*/
-
+	
+	Song& song = *p.song;
+	song.pipe = &pipe;
+	pipe.song = &song;
+	
+	
+	// Copy data from Song to Pipe
+	pipe.vocalist_visual = a.vocalist_visual;
+	for (const SnapArg& a : HumanInputTextArgs()) {
+		pipe.content[a] = song.content[a];
+	}
+	pipe.Attributes::Realize();
+	
+	
 	messages.Clear();
 
-	m.ImportSongAndMakeReversedSong(e);
+	TaskMgr& m = pipe;
+	m.ImportSongAndMakeReversedSong(pipe);
 }

@@ -1,7 +1,7 @@
 #include "SongTool.h"
 
 
-void Line::ParseLine(Song& song, const SnapArg& a, const String& txt) {
+void Line::ParseLine(const SnapArg& a, const String& txt) {
 	Vector<String> parts = Split(txt, "[br]");
 	breaks.SetCount(parts.GetCount());
 	for(int i = 0; i < breaks.GetCount(); i++) {
@@ -14,10 +14,10 @@ void Line::ParseLine(Song& song, const SnapArg& a, const String& txt) {
 		snap.syllables = max(1, s.GetCount() / 3); // 3 chars per syllable by average
 		//song.headers[a].unique_lines.GetAdd(s);
 	}
-	/*String joined = Join(parts, " ");
+	String joined = Join(parts, " ");
 	this->snap[a].txt = joined;
 	ASSERT(this->snap[a].txt.GetCount());
-	song.headers[a].unique_lines.GetAdd(joined);*/
+	//song.headers[a].unique_lines.GetAdd(joined);
 	FixPtrs();
 }
 

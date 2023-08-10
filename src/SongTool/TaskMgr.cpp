@@ -21,7 +21,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 			.Arg(V_PTR_PIPE)
 			.Arg(V_SONG_LYRICS)
 			.Result(O_ORDER_REVERSE)
-			.Result(O_SONG_UNIQLINES)
+			//.Result(O_SONG_UNIQLINES)
 			.Result(O_TASKS)
 			.CrossMode()
 		;
@@ -164,7 +164,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Require(O_ORDER_IMPORT)
 		.Require(O_SONG_MASK)
 		.Require(O_PART_MASK)
-		.Require(O_SONG_UNIQLINES)
+		//.Require(O_SONG_UNIQLINES)
 		.Input(&Task::CreateInput_Pattern)
 			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
@@ -361,46 +361,22 @@ void TaskMgrConfig::Store() {
 }
 
 void TaskMgrConfig::Process() {
+	Database& db = Database::Single();
 	
 	while (running) {
-		
-		TODO
-		/*this->total = tasks.GetCount();
-		
-		int ready = 0, got_ready = 0;
-		for(int i = 0; i < tasks.GetCount() && running && !Thread::IsShutdownThreads(); i++) {
-			Task& t = tasks[i];
-			if (!t.ready) {
-				ProcessSingle(i);
-				if (t.ready) {
-					actual++;
-					ready++;
-					got_ready++;
+		for (Artist& art : db.artists) {
+			for (Release& rel : art.releases) {
+				for (Song& song : rel.songs) {
+					if (song.pipe) {
+						Pipe& pipe = *song.pipe;
+						pipe.TaskMgr::Process();
+					}
 				}
 			}
-			else
-				ready++;
 		}
-		this->actual = ready;
-		
-		if (!got_ready) {
-			int tried_retry = 0;
-			for (Task& t : tasks) {
-				if (t.fatal_error)
-					continue;
-				if (t.failed && !t.ready && t.tries < max_tries) {
-					t.tries++;
-					t.Retry();
-					tried_retry++;
-				}
-			}
-			if (!tried_retry) {
-				SpawnTasks();
-			}
-		}
-		
-		Sleep(10);*/
+		Sleep(10);
 	}
+	
 	stopped = true;
 }
 
@@ -418,13 +394,12 @@ void TaskMgrConfig::Process() {
 
 
 void TaskMgr::Process() {
-	//while (running) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	
 	this->total = tasks.GetCount();
 	
-	TODO
-	#if 0
 	int ready = 0, got_ready = 0;
-	for(int i = 0; i < tasks.GetCount() && running && !Thread::IsShutdownThreads(); i++) {
+	for(int i = 0; i < tasks.GetCount() && mgr.running && !Thread::IsShutdownThreads(); i++) {
 		Task& t = tasks[i];
 		if (!t.ready) {
 			ProcessSingle(i);
@@ -444,7 +419,7 @@ void TaskMgr::Process() {
 		for (Task& t : tasks) {
 			if (t.fatal_error)
 				continue;
-			if (t.failed && !t.ready && t.tries < max_tries) {
+			if (t.failed && !t.ready && t.tries < mgr.max_tries) {
 				t.tries++;
 				t.Retry();
 				tried_retry++;
@@ -454,21 +429,12 @@ void TaskMgr::Process() {
 			SpawnTasks();
 		}
 	}
-	#endif
-	
-	//Sleep(10);
-	//}
-	//stopped = true;
 }
 
 void TaskMgr::ProcessSingle(int task_i) {
 	task_lock.Enter();
 	
 	Task& t = tasks[task_i];
-	
-	
-	
-	
 	
 	Index<Task*> seen;
 	t.is_waiting_deps = !IsDepsReady(t, seen);
@@ -581,8 +547,9 @@ void TaskMgr::ImportSongAndMakeReversedSong(Pipe& p) {
 	
 	Task& t = tasks.Add();
 	t.rule = &r;
-	t.p.CopyPtrs(p.p);
+	//t.p.CopyPtrs(p.p);
 	t.p.a = ZeroArg();
+	t.p.pipe = &p;
 	
 	
 }

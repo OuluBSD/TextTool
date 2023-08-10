@@ -30,6 +30,9 @@ struct Database {
 	Array<Artist>	artists;
 	VectorMap<String, Translation> translation;
 	
+	// Local (separate)
+	Array<Pipe>		pipes;
+	
 	// Temp
 	Context			ctx;
 	String			dir;

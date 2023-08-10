@@ -33,7 +33,7 @@ struct Line :
 	}
 	Array<Break>& GetSub() {return breaks;}
 	const Array<Break>& GetSub() const {return breaks;}
-	void ParseLine(Song& song, const SnapArg& a, const String& txt);
+	void ParseLine(const SnapArg& a, const String& txt);
 	int GetLength(const SnapArg& a) const;
 	int GetBreakIdx(const Break& b0) const;
 	

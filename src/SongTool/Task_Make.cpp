@@ -78,9 +78,9 @@ void Task::Process_MakeContextImportTasks() {
 		}
 	}
 	
+	// TODO remove this useless code
+	#if 0
 	{
-		TODO
-		#if 0
 		for (const SnapArg& a : TextInputModeArgs()) {
 			if (a.ctx != p.a.ctx) continue;
 			SongHeader& h = song.headers[a];
@@ -102,8 +102,9 @@ void Task::Process_MakeContextImportTasks() {
 				}
 			}
 		}
-		#endif
 	}
+	#endif
+	
 	{
 		for (Part& part : pipe.parts) {
 			for (Line& line : part.lines) {
@@ -233,18 +234,20 @@ bool Task::ParseOriginalLyrics() {
 	pipe.structure.Clear();
 	
 	//DUMP(a.structure_str);
-	TODO //--> pipe.ReloadStructure(); // p.unique_parts is filled here
+	if (!pipe.ReloadStructure()) {
+		SetFatalError("structure reload failed");
+		return false;
+	}
 	
 	// Parse lyric parts and lines
-	Vector<Vector<String>>& unique_lines = str_map;
 	
-	TODO
-	/*for (const SnapArg& a : AllArgs())
-		song.headers[a].unique_lines.Clear();
+	/*Vector<Vector<String>>& unique_lines = str_map;
+	for (const SnapArg& a : AllArgs())
+		song.headers[a].unique_lines.Clear();*/
 	
 	
 	for(const SnapArg& a : TextInputModeArgs()) {
-		String c = song.headers[a].content;
+		String c = pipe.content[a];
 		c.Replace("\r", "");
 		Vector<String> parts = Split(c, "\n\n");
 		
@@ -257,7 +260,7 @@ bool Task::ParseOriginalLyrics() {
 					part_title = part_title.Left(part_title.GetCount()-1);
 				
 				if (lc) {
-					Part& part = song.GetAddPart(part_title);
+					Part& part = pipe.GetAddPart(part_title);
 					Array<Line>& parsed_lines = part.lines;
 					parsed_lines.SetCount(lines.GetCount()-1);
 					String& txt = part.Get(a).txt;
@@ -266,18 +269,18 @@ bool Task::ParseOriginalLyrics() {
 					for(int j = 1; j < lines.GetCount(); j++) {
 						String tl = TrimBoth(lines[j]);
 						Line& l = parsed_lines[j-1];
-						l.ParseLine(song, a, tl);
+						l.ParseLine(a, tl);
 						ASSERT(l.Get(a).txt.GetCount());
 						
 						if (!txt.IsEmpty()) txt << "; ";
 						txt << l.Get(a).txt;
 					}
 					
-					song.headers[a].unique_lines.GetAdd(txt);
+					//song.headers[a].unique_lines.GetAdd(txt);
 				}
 			}
 		}
-	}*/
+	}
 	
 	pipe.FixPtrs();
 	pipe.RealizeTaskSnaps(true);

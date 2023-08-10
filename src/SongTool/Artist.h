@@ -3,7 +3,8 @@
 
 
 struct Artist :
-	DataFile
+	DataFile,
+	EditorPtrs
 {
 	// Public
 	String name;

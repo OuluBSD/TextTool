@@ -32,6 +32,7 @@ void Task::SetError(String s) {
 }
 
 String Task::GetInputHash() const {
+	String input = this->input.AsString();
 	hash_t h = this->hash ? this->hash : input.GetHashValue();
 	return HexString((void*)&h, sizeof(h));
 }
@@ -75,10 +76,10 @@ bool Task::IsCreatedTasksReady(GroupContext ctx) const {
 
 String Task::GetTaskDependencyString(bool have_ready_rules, bool rule_names) const {
 	String s;
-	TODO
-	#if 0
-	TaskMgr& m = GetTaskMgr();
-	Index<TaskRule*> rules;
+	
+	ASSERT(p.pipe);
+	TaskMgr& m = *p.pipe;
+	Index<const TaskRule*> rules;
 	
 	int i = 0;
 	for (const Task& t : m.tasks) {
@@ -111,12 +112,11 @@ String Task::GetTaskDependencyString(bool have_ready_rules, bool rule_names) con
 	
 	if (rule_names) {
 		for (int i = rules.GetCount()-1; i >= 0; i--) {
-			TaskRule* r = rules[i];
+			const TaskRule* r = rules[i];
 			if (!s.IsEmpty()) s << ", ";
 			s << r->name;
 		}
 	}
-	#endif
 	return s;
 }
 
@@ -172,15 +172,27 @@ bool Task::ProcessInput() {
 		return ok;
 	
 	// Create input with given function
-	if (input.IsEmpty() && rule->input) {
+	if (rule->input) {
+		input.Clear();
 		(this->*rule->input)();
 		if (fast_exit)
 			return true;
+		
+		if (1) {
+			String in = input.AsString();
+			if (rule->code != TASK_PATTERNMASK && in.GetCount()) {
+				LOG(in);
+				LOG("");
+			}
+			if (rule->code == TASK_STORYARC_WEIGHTED) {
+				TODO
+			}
+		}
+		
 		Load();
 	}
 	
 	// Remove Win32 uselessness (\r in newline)
-	input.Replace("\r","");
 	output = TrimBoth(output);
 	
 	// Request output from completion-mode AI
@@ -369,12 +381,11 @@ bool Task::WriteResults() {
 		case O_SONG_MASK: break;
 		case O_SONG_ANALYSIS: break;
 		case O_SONG_DATA_STORYLINE: break;
-		case O_SONG_UNIQLINES:
-			TODO
-			/*for (const SnapArg& a : TextInputModeArgs()) {
+		/*case O_SONG_UNIQLINES:
+			for (const SnapArg& a : TextInputModeArgs()) {
 				ASSERT(p.pipe->headers[a].unique_lines.GetCount());
-			}*/
-			break;
+			}
+			break;*/
 		case O_SONG_UNIQLINE_ATTRS: break;
 		case O_SONG_SNAP: break;
 		case O_SONG_REVERSED_MASK_COMMON: break;
@@ -410,11 +421,11 @@ bool Task::WriteResults() {
 bool Task::RunOpenAI() {
 	output.Clear();
 	
-	if (!response_length) {
+	if (!input.response_length) {
 		LOG("warning: no response length set");
-		response_length = 1024;
+		input.response_length = 1024;
 	}
-	String prompt = input;
+	String prompt = input.AsString();
 	//LOG(prompt);
 	
 	prompt.Replace("\n", "\\n");
@@ -427,7 +438,7 @@ bool Task::RunOpenAI() {
 	String txt = R"({
     "model": "text-davinci-003",
     "prompt": ")" + prompt + R"(",
-    "max_tokens": )" + IntStr(response_length) + R"(,
+    "max_tokens": )" + IntStr(input.response_length) + R"(,
     "temperature": 1
 })";
     //LOG(txt);
@@ -439,8 +450,7 @@ bool Task::RunOpenAI() {
 	    
 	    OpenAiResponse response;
 	    
-	    TODO // persistency subsystem
-	    //LoadFromJson(response, String(completion.dump(2)));
+	    LoadFromJson(response, String(completion.dump(2)));
 	    //LOG(response.ToString());
 	    
 	    if (response.choices.GetCount())
@@ -506,17 +516,16 @@ Task& Task::ResultTask(int r) {
 	Task& t = result_tasks.Add();
 	t.rule = &TaskMgrConfig::Single().GetRule(r);
 	t.created_by = this;
+	t.p.pipe = this->p.pipe;
+	ASSERT(t.p.pipe);
 	return t;
 }
 
 TaskMgr& Task::GetTaskMgr() {
-	TODO
-	TaskMgr* p;
-	return *p;
+	return GetPipe();
 }
 
 Pipe& Task::GetPipe() {
-	TODO
-	Pipe* p;
-	return *p;
+	ASSERT(p.pipe);
+	return *p.pipe;
 }

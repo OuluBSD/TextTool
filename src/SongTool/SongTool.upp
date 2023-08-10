@@ -104,6 +104,8 @@ file
 	Task_CreateInput.cpp,
 	Task_Process.cpp,
 	Task_Reverse.cpp,
+	TaskAbstraction.h,
+	TaskAbstraction.cpp,
 	Cache.h,
 	Cache.cpp,
 	TaskCommon.h,

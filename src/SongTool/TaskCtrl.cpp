@@ -30,10 +30,15 @@ Tasks::Tasks() {
 }
 
 void Tasks::Data() {
-	TaskMgrConfig& m = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.song->pipe) {
+		list.Clear();
+		return;
+	}
+	Pipe& pipe = *p.song->pipe;
+	TaskMgr& m = pipe;
 	
-	TODO
-	#if 0
 	for(int i = 0; i < m.tasks.GetCount(); i++) {
 		Task& t = m.tasks[i];
 		list.Set(i, 0, i);
@@ -67,14 +72,18 @@ void Tasks::Data() {
 	lbl.SetLabel(m.status.IsEmpty() ? String(t_("Idle")) : m.status);
 	
 	DataTask();
-	#endif
 }
 
 void Tasks::DataTask() {
-	TaskMgrConfig& m = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.song->pipe) {
+		list.Clear();
+		return;
+	}
+	Pipe& pipe = *p.song->pipe;
+	TaskMgr& m = pipe;
 	
-	TODO
-	#if 0
 	if (!list.IsCursor())
 		return;
 	
@@ -83,18 +92,22 @@ void Tasks::DataTask() {
 	m.active_task = &t;
 	
 	if (cursor != data_cursor || (output.GetLength() == 0 && t.output.GetCount())) {
-		input.SetData(t.input.ToWString());
+		input.SetData(t.input.AsString().ToWString());
 		output.SetData(t.output.ToWString());
 		data_cursor = cursor;
 	}
-	#endif
 }
 
 void Tasks::ValueChange() {
-	TaskMgrConfig& m = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.song->pipe) {
+		list.Clear();
+		return;
+	}
+	Pipe& pipe = *p.song->pipe;
+	TaskMgr& m = pipe;
 	
-	TODO
-	#if 0
 	if (!m.active_task)
 		return;
 	
@@ -104,28 +117,36 @@ void Tasks::ValueChange() {
 	t.output.Replace("\r", "");
 	
 	t.Store();
-	#endif
 }
 
 void Tasks::ProcessItem() {
-	TaskMgrConfig& m = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.song->pipe) {
+		list.Clear();
+		return;
+	}
+	Pipe& pipe = *p.song->pipe;
+	TaskMgr& m = pipe;
 	
-	TODO
-	#if 0
 	if (!list.IsCursor())
 		return;
 	int cursor = list.GetCursor();
 	Task& t = m.tasks[cursor];
 	t.failed = false;
 	m.StartSingle(cursor);
-	#endif
 }
 
 void Tasks::RetryItem() {
-	TaskMgrConfig& m = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.song->pipe) {
+		list.Clear();
+		return;
+	}
+	Pipe& pipe = *p.song->pipe;
+	TaskMgr& m = pipe;
 	
-	TODO
-	#if 0
 	if (!list.IsCursor())
 		return;
 	int cursor = list.GetCursor();
@@ -133,7 +154,6 @@ void Tasks::RetryItem() {
 	t.Retry();
 	m.StartSingle(cursor);
 	this->output.Clear();
-	#endif
 }
 
 void Tasks::OutputMenu(Bar& bar) {

@@ -3,10 +3,10 @@
 void Task::Process_StoryArc() {
 	Pipe& pipe = *this->p.pipe;
 	
-	String txt = input + output;
+	String txt = this->input.AsString() + output;
 	//LOG(txt);
 	
-	int a = txt.Find("Story arc:");
+	int a = txt.Find("Results for");
 	String result = txt.Mid(a);
 	result.Replace("\r", "");
 	{
@@ -16,7 +16,7 @@ void Task::Process_StoryArc() {
 			l = TrimBoth(l);
 		result = Join(lines, "\n");
 	}
-	LOG(result);
+	//LOG(result);
 	
 	Vector<String> parts = Split(result, "\n\n");
 	DUMPC(parts);
@@ -24,7 +24,7 @@ void Task::Process_StoryArc() {
 	for (String& part : parts) {
 		Vector<String> lines = Split(part, "\n");
 		if (lines.GetCount() >= 2) {
-			DUMPC(lines);
+			//DUMPC(lines);
 			String key = TrimBoth(ToLower(lines[0]));
 			key.Replace(":", "");
 			if (key.Find("toryline in parts") >= 0) {
@@ -67,7 +67,7 @@ void Task::Process_StoryArc() {
 }
 
 void Task::Process_StoryArcWeighted() {
-	String txt = input + output;
+	String txt = this->input.AsString() + output;
 	//LOG(txt);
 	
 	int c0 = txt.Find("List of results:");
@@ -77,6 +77,8 @@ void Task::Process_StoryArcWeighted() {
 	c0++;
 	txt = txt.Mid(c0);
 	
+	TODO
+	#if 0
 	Index<String>& pipe_keys = tmp_stridx;
 	
 	txt.Replace("\r", "");
@@ -117,10 +119,11 @@ void Task::Process_StoryArcWeighted() {
 		String key = pipe_keys[i];
 		snap.data.GetAdd(key) = line;
 	}
+	#endif
 }
 
 void Task::Process_Impact() {
-	String txt = input + output;
+	String txt = this->input.AsString() + output;
 	//LOG(txt);
 	
 	
@@ -144,6 +147,8 @@ void Task::Process_Impact() {
 		return;
 	}
 	
+	TODO
+	
 	for(int i = 1; i < lines.GetCount(); i++) {
 		String& l = lines[i];
 		int a = l.Find(":");
@@ -162,7 +167,7 @@ void Task::Process_Impact() {
 }
 
 void Task::Process_ImpactWeighted() {
-	String txt = input + output;
+	String txt = this->input.AsString() + output;
 	//LOG(txt);
 	
 	int c0 = txt.Find("List of results:");
@@ -193,6 +198,8 @@ void Task::Process_ImpactWeighted() {
 		SetError("line and context count mismatch");
 		return;
 	}
+	
+	TODO
 	
 	SnapArg a(CTX_TEXT, WEIGHTED, FORWARD);
 	
@@ -205,7 +212,7 @@ void Task::Process_ImpactWeighted() {
 }
 
 void Task::Process_ForwardLyricsWeighted() {
-	String txt = input + output;
+	String txt = this->input.AsString() + output;
 	//LOG(txt);
 	
 	int c0 = txt.Find("List of results:");
@@ -236,6 +243,8 @@ void Task::Process_ForwardLyricsWeighted() {
 		SetError("line and context count mismatch");
 		return;
 	}
+	
+	TODO
 	
 	for(int i = 0; i < lines.GetCount(); i++) {
 		SnapContext& ctx = *tmp_ctx[i];
@@ -251,7 +260,7 @@ void Task::Process_ImpactScoring() {
 	Attributes& g = pipe;
 	int exp_count = g.attr_scorings.GetCount();
 	
-	String txt = input + output;
+	String txt = this->input.AsString() + output;
 	
 	// Regularize newline separation
 	txt.Replace("\r", "");
@@ -347,6 +356,8 @@ void Task::Process_ImpactScoring() {
 	}
 	//DUMPM(parsed);
 	
+	
+	TODO
 	
 	
 	// Add parsed data to the database
@@ -447,7 +458,7 @@ void Task::Process_PatternMask() {
 	SnapArg& a = p.a;
 	a.Chk();
 	
-	input.Replace("\r","");
+	String input = this->input.AsString();
 	output.Replace("\r","");
 	int pos = input.GetCount() - 3 - pipe.parts[0].name.GetCount();
 	String result = input.Mid(pos) + output;
@@ -637,6 +648,8 @@ void Task::Process_PatternMaskWeighted() {
 			items.FindAdd(line);
 	}
 	
+	TODO
+	
 	// Use parsed data
 	for(int i = 0; i < parsed.GetCount(); i++) {
 		String group_str = parsed.GetKey(i);
@@ -703,7 +716,7 @@ void Task::Process_Pattern() {
 	}
 	
 	
-	String txt = input + output;
+	String txt = this->input.AsString() + output;
 	txt.Replace("\r", "");
 	
 	// Find beginning of results
@@ -982,6 +995,8 @@ void Task::Process_PatternWeighted() {
 	}
 	
 	// Use parsed data
+	TODO
+	
 	for(int i = 0; i < parsed.GetCount(); i++) {
 		String group_str = parsed.GetKey(i);
 		const Index<String>& items = parsed[i];
@@ -1020,7 +1035,10 @@ void Task::Process_Analysis() {
 	String vocalist_visual = pipe.vocalist_visual;
 	String title = args[0];
 	
+	String input = this->input.AsString();
 	output.Replace("\n\n-", "\n-");
+	
+	TODO
 	
 	if (!whole_song) {
 		int c = input.GetCount() - 3 - pipe.parts[0].name.GetCount();
@@ -1120,7 +1138,7 @@ void Task::Process_AttrScores() {
 	AttrScore& as = pipe;
 	int exp_count = g.attr_scorings.GetCount();
 	
-	String txt = input + output;
+	String txt = this->input.AsString() + output;
 	
 	// Regularize newline separation
 	txt.Replace("\r", "");
@@ -1209,6 +1227,8 @@ void Task::Process_AttrScores() {
 			parsed.GetAdd(group).GetAdd(key) = ToLower(score_str);
 	}
 	//DUMPM(parsed);
+	
+	TODO
 	
 	
 	// Check that groups and entries exists.
@@ -1494,6 +1514,8 @@ void Task::Process_SongScores() {
 	SnapArg& a = p.a;
 	a.Chk();
 	
+	TODO
+	
 	Vector<int> scores;
 	for(int i = 0; i < pipe.parts.GetCount(); i++) {
 		Part& f = pipe.parts[i];
@@ -1545,6 +1567,8 @@ void Task::Process_Lyrics() {
 		lines.Remove(0);
 	output = Join(lines, "\n");
 	
+	TODO
+	
 	String& txt = part.Get(a).data.GetAdd("gen.lyrics");
 	txt = output;
 }
@@ -1559,4 +1583,7 @@ void Task::Process_LyricsTranslate() {
 	key += "." + lng;
 	String& dst = pipe.Get(a).data.GetAdd(key);
 	dst = output;
+	
+	TODO
+	
 }

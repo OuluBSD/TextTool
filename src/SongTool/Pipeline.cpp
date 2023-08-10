@@ -33,7 +33,9 @@ int Pipe::GetPartIdx(const Part& p0) const {
 }
 
 void Pipe::RealizeTaskSnaps(bool force) {
-	TODO
+	
+	// TODO remove this... these pointers should be fixed by Pipe ptr issue fix
+	
 	#if 0
 	if (!force) {
 		bool all_ok = true;
@@ -131,4 +133,72 @@ String Pipe::CreateLyricsFromBreaks(const SnapArg& a) const {
 		s << "\n";
 	}
 	return s;
+}
+
+bool Pipe::ReloadStructure() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	for(const SnapArg& a : AllArgs())
+		db.ctx.snap[a] = 0;
+	
+	this->parts.Clear();
+	this->structure = Split(this->structure_str, ",");
+	
+	Index<String> part_seen;
+	
+	for (String& p : structure) {
+		p = TrimBoth(p);
+		
+		// Split name and beat count
+		int i = p.Find(":");
+		String name;
+		
+		if (i < 0) {
+			i = this->FindPartIdx(p);
+			if (i >= 0) {
+				name = p; // ok
+			}
+			else {
+				LOG("error: no ':' character and beat length");
+				return false;
+			}
+		}
+		else {
+			name = p.Left(i);
+			int beats = StrInt(p.Mid(i+1));
+			p = name; // trim : from string in structure vector
+			
+			// Check for beat length error
+			i = this->FindPartIdx(name);
+			if (i >= 0) {
+				Part& part = this->parts[i];
+				int len = part.lines.GetCount();
+				if (len != beats) {
+					if (part_seen.Find(name) < 0) {
+						part.lines.SetCount(beats);
+					}
+					else {
+						LOG("error: part length mismatch");
+						return false;
+					}
+				}
+			}
+			else {
+				Part& part = this->GetAddPart(name);
+				part.lines.SetCount(beats);
+			}
+		}
+		
+		// Add part
+		this->GetAddPart(name);
+		part_seen.FindAdd(name);
+	}
+	
+	//DUMPM(this->parts);
+	//DUMPC(this->structure);
+	for (Part& part : this->parts) {
+		part.FixPtrs();
+	}
+	
+	return true;
 }

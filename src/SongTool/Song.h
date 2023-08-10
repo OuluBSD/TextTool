@@ -27,7 +27,8 @@ struct SongHeader {
 #endif
 
 struct Song :
-	DataFile
+	DataFile,
+	EditorPtrs
 {
 	// Public
 	String				artist;

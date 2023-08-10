@@ -11,12 +11,12 @@ struct OpenAiResponse {
 		int index;
 		Vector<double> logprobs;
 		
-		/*void Jsonize(JsonIO& json) {
+		void Jsonize(JsonIO& json) {
 			json("text", text)
 				("finish_reason", finish_reason)
 				("logprobs", logprobs)
 				("index", index);
-		}*/
+		}
 		String ToString() const {
 			String s;
 			s	<< "text: " << text << "\n"
@@ -32,11 +32,11 @@ struct OpenAiResponse {
 		int completion_tokens;
 		int prompt_tokens;
 		int total_tokens;
-		/*void Jsonize(JsonIO& json) {
+		void Jsonize(JsonIO& json) {
 			json("completion_tokens", completion_tokens)
 				("prompt_tokens", prompt_tokens)
 				("total_tokens", total_tokens);
-		}*/
+		}
 		String ToString() const {
 			String s;
 			s	<< "completion_tokens: " << completion_tokens << "\n"
@@ -51,7 +51,7 @@ struct OpenAiResponse {
 	String object;
 	Usage usage;
 	
-	/*void Jsonize(JsonIO& json) {
+	void Jsonize(JsonIO& json) {
 		json
 			("choices", choices)
 			("id", id)
@@ -59,7 +59,7 @@ struct OpenAiResponse {
 			("object", object)
 			("usage", usage)
 			;
-	}*/
+	}
 	String ToString() const {
 		String s;
 		for(auto& c : choices)
@@ -78,9 +78,8 @@ struct Task {
 	const TaskRule* rule = 0;
 	
 	Vector<String> args;
-	String input;
+	//String input;
 	String output;
-	int response_length = 0;
 	String error;
 	bool skip_load = false;
 	bool ready = false;
@@ -101,11 +100,12 @@ struct Task {
 	ReverseTask* task = 0;
 	SnapContext* ctx = 0;
 	
+	TaskContent input;
+	
 	// Temp
 	Array<Task> result_tasks;
 	Vector<Vector<String>> str_map;
 	Vector<SnapContext*> tmp_ctx;
-	Index<String> tmp_stridx;
 	Task* created_by = 0;
 	
 	static constexpr int common_mask_gen_multiplier		= 8;

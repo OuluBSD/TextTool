@@ -20,19 +20,16 @@ String Database::GetSongsDir() const {
 }
 
 void Database::Store() {
-	TODO //StoreAsJsonFile(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json", true);
+	StoreAsJsonFile(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json", true);
 }
 
 void Database::Load() {
-	TODO
-	#if 0
 	Clear();
 	LoadFromJsonFile(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json");
-	bool initial = attr_groups.IsEmpty();
+/*	bool initial = attr_groups.IsEmpty();
 	attrs.Realize();
 	if (!initial)
-		RealizeAttrIds();
-	#endif
+		RealizeAttrIds();*/
 }
 
 /*void Database::RealizeAttrIds() {

@@ -39,6 +39,7 @@ using namespace Upp;
 #include "Attributes.h"
 
 #include "TaskCommon.h"
+#include "TaskAbstraction.h"
 #include "Cache.h"
 #include "Tasks.h"
 #include "TaskMgr.h"

@@ -26,8 +26,8 @@ void AttrCtrl::SetMode(const SnapArg& a) {
 void AttrCtrl::UpdateGroupsToScoring() {
 	Database& db = Database::Single();
 	PatternSnap* snap = db.ctx.snap[a];
-	ASSERT(snap);
-	if (!snap) return;
+	if (!snap)
+		return;
 	Attributes& g = *snap->pipe;
 	active.SetCount(g.GetCount() * g.group_limit, false);
 	inherited_active.SetCount(g.GetCount() * g.group_limit, false);

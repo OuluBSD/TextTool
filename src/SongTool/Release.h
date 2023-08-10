@@ -3,7 +3,8 @@
 
 
 struct Release :
-	DataFile
+	DataFile,
+	EditorPtrs
 {
 	// Public
 	String			title;

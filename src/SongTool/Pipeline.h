@@ -57,6 +57,7 @@ struct Pipe :
 	int GetPartIdx(const Part& p) const;
 	void RealizeTaskSnaps(bool force=false);
 	PatternSnap* FindSnapByImpact(String impact_txt);
+	bool ReloadStructure();
 	void FixPtrs() {
 		SetPipePtr(this);
 		int id = 0;
