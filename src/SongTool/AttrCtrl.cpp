@@ -95,6 +95,7 @@ void AttrCtrl::Load() {
 void AttrCtrl::Store() {
 	Database& db = Database::Single();
 	PatternSnap* snap = db.ctx.snap[a];
+	Pipe& pipe = *snap->pipe;
 	Attributes& g = *snap->pipe;
 	if (!snap)
 		return;
@@ -107,7 +108,7 @@ void AttrCtrl::Store() {
 			SnapAttrStr attr;
 			attr.item_i = id % g.group_limit;
 			attr.group_i = id / g.group_limit;
-			attr.RealizeId();
+			attr.RealizeId(pipe);
 			snap->attributes.Add(attr);
 		}
 		id++;
@@ -395,13 +396,14 @@ void AttrCtrl::LeftDown(Point pt, dword keyflags) {
 	PatternSnap* snap = db.ctx.snap[a];
 	PipePtrs& pp = snap->pipe->p;
 	Attributes& g = *snap->pipe;
+	Pipe& pipe = *snap->pipe;
 	
 	for(RectId& rid : entry_rects) {
 		if (rid.a.Contains(pt)) {
 			SnapAttrStr a;
 			a.group_i = rid.b;
 			a.item_i = rid.c;
-			a.RealizeId();
+			a.RealizeId(pipe);
 			pressed = rid;
 			int id = a.group_i * g.group_limit + a.item_i;
 			if (id >= 0 && id < active.GetCount()) {

@@ -4,6 +4,10 @@
 
 #define TODO Panic("TODO");
 
+
+struct Pipe;
+
+
 struct SnapAttr : Moveable<SnapAttr> {
 	int group = 0, item = 0;
 	
@@ -39,7 +43,7 @@ struct SnapAttrStr : Moveable<SnapAttrStr> {
 			% has_id;
 	}
 	bool operator==(const SnapAttrStr& a) const {return group == a.group && item == a.item;}
-	bool operator==(const SnapAttr& a) const {RealizeId(); return group_i == a.group && item_i == a.item;}
+	bool operator==(const SnapAttr& a) const {ASSERT(has_id); return group_i == a.group && item_i == a.item;}
 	void Clear() {
 		group = "";
 		item = "";
@@ -50,9 +54,9 @@ struct SnapAttrStr : Moveable<SnapAttrStr> {
 			("i", item)
 			;
 	}
-	bool RealizeId() const;
+	bool RealizeId(Pipe& pipe) const;
 	void Load(const SnapAttr& sa);
-	void SetFromId(int group, int item);
+	void SetFromId(Pipe& pipe, int group, int item);
 	String ToString() const {return group + ":" + item;}
 	hash_t GetHashValue() const {CombineHash c; c << group << item; return c;}
 	bool operator()(const SnapAttrStr& a, const SnapAttrStr& b) const {

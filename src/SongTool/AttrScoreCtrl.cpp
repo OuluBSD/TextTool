@@ -149,7 +149,7 @@ void AttrScoreCtrl::DataAttrScore() {
 	db.ctx.active_scoregroup = &o;
 	
 	//structure.SetData(o.structure);
-	scoregroup_data.SetData(o.ToString());
+	scoregroup_data.SetData(o.ToString(pipe));
 	
 	for(int i = 0; i < o.attrs.GetCount(); i++) {
 		const SnapAttrStr& a = o.attrs[i];
@@ -311,10 +311,15 @@ void AttrScoreCtrl::AddAttrScoreId(const SnapAttrStr& a) {
 }
 
 void AttrScoreCtrl::AddSrcEntryToScoringGroup() {
+	Database& db = Database::Single();
+	Song& song = *db.ctx.ed.song;
+	Pipe& pipe = *song.pipe;
+	
 	if (!src_entries.IsCursor() || !src_entrygroups.IsCursor())
 		return;
 	SnapAttrStr a;
 	a.SetFromId(
+		pipe,
 		src_entrygroups.GetCursor(),
 		src_entries.GetCursor());
 	AddAttrScoreId(a);
@@ -348,7 +353,7 @@ void AttrScoreCtrl::CheckErrors() {
 	int i = 0;
 	part_errors.Clear();
 	for (const SnapAttrStr& a : attrs.GetKeys()) {
-		a.RealizeId();
+		a.RealizeId(pipe);
 		int score = pipe.attr_to_score[a.group_i][a.item_i];
 		if (score >= 0)
 			continue;

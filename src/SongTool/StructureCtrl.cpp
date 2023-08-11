@@ -296,6 +296,8 @@ void StructureDrawer::Paint(Draw& d) {
 	
 	Song& song = *p.song;
 	Pipe& pipe = *song.pipe;
+	if (!song.pipe)
+		return;
 	
 	items.SetCount(0);
 	int total_len = 0;

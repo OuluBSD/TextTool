@@ -12,7 +12,7 @@ String GetSnapGroupString(PatternSnap& snap, int group_i, Index<String>& skip_li
 	
 	String s;
 	for(const SnapAttrStr& a : snap.attributes.GetKeys()) {
-		a.RealizeId();
+		a.RealizeId(*snap.pipe);
 		if (a.group_i != group_i)
 			continue;
 		
@@ -33,7 +33,7 @@ bool HasSnapGroupString(PatternSnap& snap, int group_i) {
 	Attr::Group& gg = g.attr_groups[group_i];
 	
 	for(const SnapAttrStr& a : snap.attributes.GetKeys()) {
-		a.RealizeId();
+		a.RealizeId(*snap.pipe);
 		if (a.group_i != group_i)
 			continue;
 		

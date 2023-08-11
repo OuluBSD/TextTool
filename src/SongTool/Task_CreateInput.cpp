@@ -655,8 +655,10 @@ void Task::CreateInput_Pattern() {
 		TaskTitledList& values = input_group_values.AddSub();
 		values.Title(gg.description);
 		values.Capitalize();
-		for(int j = 0; j < gg.values.GetCount(); j++) {
-			const String& v = gg.values[j];
+		for(const SnapAttrStr& sa : mask.mask) {
+			if (sa.group_i != group_i)
+				continue;
+			const String& v = gg.values[sa.item_i];
 			ASSERT(v.Find(",") < 0);
 			values.Add(v);
 		}
@@ -680,7 +682,7 @@ void Task::CreateInput_Pattern() {
 				
 	String first_line;
 	for(int i = 0, j = 0; i < unique_lines.GetCount(); i++) {
-		const String& l = unique_lines[i];
+		const String& l = unique_lines.GetKey(i);
 		if (i < offset_begin || i >= offset_end)
 			continue;
 		if (!j)
@@ -696,6 +698,7 @@ void Task::CreateInput_Pattern() {
 	TaskTitledList& result = input.PreAnswer();
 	result			.Title("Attributes (in format \"Group: Attribute\") for all lines")
 					.CountLines()
+					.NoListChar()
 					.ValueInQuotes()
 					.Add(first_line);
 	
@@ -732,24 +735,32 @@ void Task::CreateInput_PatternWeighted() {
 	ex1.Add("noun", "you");
 	ex1.Add("verb", "like");
 	
-	ex1.Add("noun", "you");
-	ex1.Add("verb", "are");
-	ex1.Add("adjective", "nice");
+	ex2.Add("noun", "you");
+	ex2.Add("verb", "are");
+	ex2.Add("adjective", "nice");
 	
-	ex1.Add("pronoun", "I");
-	ex1.Add("verb", "admire");
-	ex1.Add("adjective", "your");
+	ex3.Add("pronoun", "I");
+	ex3.Add("verb", "admire");
+	ex3.Add("adjective", "your");
 	
 	TaskTitledList& task = input.AddSub();
 	task.Title("Task 1");
 	
 	TaskTitledList& in1 = task.AddSub();
 	TaskTitledList& in2 = task.AddSub();
-	TaskTitledList& res = task.AddSub();
+	TaskTitledList& res = input.PreAnswer();
 	in1.Title("Attribute-list A describing sentence X");
 	in2.Title("Attribute-list B describing sentence X");
 	res.Title("Difference-aware meta-transition attribute-list from A to B");
 	res.EmptyLine();
+	if (snap0.attributes.IsEmpty()) {
+		SetFatalError("Snapshot from male is empty");
+		return;
+	}
+	if (snap1.attributes.IsEmpty()) {
+		SetFatalError("Snapshot from female is empty");
+		return;
+	}
 	for(const SnapAttrStr& sa : snap0.attributes) {
 		ASSERT(sa.group.GetCount() && sa.item.GetCount());
 		in1.Add(sa.group, sa.item);
@@ -921,7 +932,8 @@ void Task::CreateInput_AttrScores() {
 	TaskTitledList& result_example = input.AddSub();
 	result_example	.Title("Combination string from results")
 					.CountLinesAlpha()
-					.NoSeparator();
+					.NoSeparator()
+					.InlineList();
 	for(int i = 0; i < 3 && i < g.attr_scorings.GetCount(); i++) {
 		const Attr::ScoringType& t = g.attr_scorings[i];
 		result_example.Add(t.klass, "+" + t.axes0 + "/-" + t.axes1);
@@ -962,20 +974,21 @@ void Task::CreateInput_AttrScores() {
 	// Line 1, Pronouns: "I"
 	// -a Integrity: honest/twisted: +1 honest
 	TaskTitledList& detailed = input.AddSub();
-	detailed		.Title("Pronouns", "I")
-					.CountLines()
-					.ValueInQuotes();
+	detailed		.Title("Scores per entry")
+					.CountSub().CountLines();
 	TaskTitledList& ex1 = detailed.AddSub();
 	ex1				.Title("Pronouns", "I")
 					.CountLinesAlpha()
+					.Separator(" ")
 					.CombinationString();
 	// Line 1, Pronouns: "I"
 	// Combination string: a+1 b0 c0 d+1 e0 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n0 o+1 p+1 q0 r0 s0 t0
 	TaskTitledList& summary = input.AddSub();
-	summary			.CountLines()
-					.ValueInQuotes();
-	TaskTitledList& ex1s = input.AddSub();
-	ex1s			.CombinationString();
+	summary			.CountSub().CountLines();
+	TaskTitledList& ex1s = summary.AddSub();
+	ex1s			.Title("Pronouns", "I")
+					.Separator(" ")
+					.CombinationString();
 	for(int i = 0; i < example_values.GetCount() && i < g.attr_scorings.GetCount(); i++) {
 		const Attr::ScoringType& t = g.attr_scorings[i];
 		int value = example_values[i];
@@ -983,7 +996,7 @@ void Task::CreateInput_AttrScores() {
 		if      (value > 0) line << "+" << value << " " << t.axes0;
 		else if (value > 0) line << "-" << value << " " << t.axes1;
 		else line << "0";
-		axes.Add(t.klass, line);
+		ex1.Add(t.klass, line);
 		ex1.scores << value;
 		ex1s.scores << value;
 	}
@@ -996,13 +1009,13 @@ void Task::CreateInput_AttrScores() {
 	
 	// Entries
 	TaskTitledList& entries = input.AddSub();
-	entries		.CountLines()
+	entries		.Title("Entries")
+				.CountLines()
+				.LineBegin(2);
+	TaskTitledList& results = input.PreAnswer();
+	results		.Title("Lines with resulting combination strings")
+				.CountLines()
 				.LineBegin(2)
-				.ValueInQuotes();
-	TaskTitledList& results = input.AddSub();
-	results		.CountLines()
-				.LineBegin(2)
-				.ValueInQuotes()
 				.CombinationString();
 	int entry_count = 0;
 	for (const SnapAttrStr& a : attrs.GetKeys()) {

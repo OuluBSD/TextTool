@@ -137,8 +137,8 @@ public:
 	void SetFastExit() {fast_exit = true;}
 	String GetInputHash() const;
 	String GetOutputHash() const;
-	bool HasCreatedTasks(GroupContext ctx) const;
-	bool IsCreatedTasksReady(GroupContext ctx) const;
+	bool HasCreatedTasks(const TaskMgr& m, GroupContext ctx) const;
+	bool IsCreatedTasksReady(const TaskMgr& m, GroupContext ctx) const;
 	bool CheckArguments();
 	bool WriteResults();
 	bool ParseOriginalLyrics();

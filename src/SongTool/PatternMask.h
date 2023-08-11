@@ -25,13 +25,13 @@ struct PatternMask : PipePtrs {
 	}*/
 	void GetGroups(Index<int>& groups) {
 		for (const SnapAttrStr& sa : mask.GetKeys()) {
-			sa.RealizeId();
+			sa.RealizeId(*pipe);
 			groups.FindAdd(sa.group_i);
 		}
 	}
 	void GetGroupItems(VectorMap<int, Vector<int>>& group_items) {
 		for (const SnapAttrStr& sa : mask.GetKeys()) {
-			sa.RealizeId();
+			sa.RealizeId(*pipe);
 			group_items.GetAdd(sa.group_i).Add(sa.item_i);
 		}
 	}
@@ -41,7 +41,7 @@ struct PatternMask : PipePtrs {
 			sa.RealizeId();
 		#else
 		for(int i = 0; i < mask.GetCount(); i++) {
-			if (!mask[i].RealizeId())
+			if (!mask[i].RealizeId(*pipe))
 				mask.Remove(i--);
 		}
 		#endif

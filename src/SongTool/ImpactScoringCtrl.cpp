@@ -76,9 +76,10 @@ void ImpactScoringCtrl::Data() {
 				plotter[a].SetPart(part);
 			}
 		}
+		
+		DataListAll();
 	}
 	
-	DataListAll();
 }
 
 void ImpactScoringCtrl::DataList(const SnapArg& a) {
@@ -104,6 +105,8 @@ void ImpactScoringCtrl::DataList(const SnapArg& a) {
 	// Whole song
 	if (db.ctx.active_wholesong) {
 		list.SetCount(0);
+		if (list.GetColumnCount() == 0)
+			return;
 		plotter.SetWholeSong(pipe);
 		int total = 0;
 		for(int i = 0; i < pipe.structure.GetCount(); i++) {

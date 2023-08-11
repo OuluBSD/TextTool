@@ -54,4 +54,6 @@ DONE:
 (7.8.2023)
 - fix plotter bug
 - hide list and show more plotter
+(11.8.2023)
+- hash ordered cache list
 

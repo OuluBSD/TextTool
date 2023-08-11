@@ -29,7 +29,13 @@ struct AttrScoreGroup {
 			const SnapAttrStr& sa = attrs[i];
 			if (attrs[i].group.IsEmpty() || attrs[i].item.IsEmpty())
 				attrs.Remove(i--);
-			else if (!sa.RealizeId())
+		}
+	}
+	void Clean(Pipe& pipe) {
+		Clean();
+		for(int i = 0; i < attrs.GetCount(); i++) {
+			const SnapAttrStr& sa = attrs[i];
+			if (!sa.RealizeId(pipe))
 				attrs.Remove(i--);
 		}
 	}
@@ -62,7 +68,7 @@ struct AttrScoreGroup {
 				return false;
 		return true;
 	}
-	String ToString() const;
+	String ToString(Pipe& pipe) const;
 	
 };
 

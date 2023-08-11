@@ -111,11 +111,10 @@ bool AttrScore::UpdateGroupsToScoring() {
 }*/
 
 
-String AttrScoreGroup::ToString() const {
+String AttrScoreGroup::ToString(Pipe& pipe) const {
+	Database& db = Database::Single();
 	String s;
-	TODO
-	#if 0
-	Attributes& g = *snap.pipe;
+	Attributes& g = pipe;
 	
 	if (name.GetCount())
 		s << t_("Name") << ": " << name << "\n";
@@ -124,18 +123,17 @@ String AttrScoreGroup::ToString() const {
 		int sc = scores[i];
 		if (!sc) continue;
 		
-		if (i >= g.scorings.GetCount()) {
+		if (i >= g.attr_scorings.GetCount()) {
 			s << "error\n";
 			continue;
 		}
 		
-		const Attr::ScoringType& t = g.scorings[i];
+		const Attr::ScoringType& t = g.attr_scorings[i];
 		String name =
-			Capitalize(g.Translate(t.klass)) + ": " + (sc > 0 ? "+" : "-") + " (" +
-			Capitalize(g.Translate(sc > 0 ? t.axes0 : t.axes1)) + ")";
+			Capitalize(db.Translate(t.klass)) + ": " + (sc > 0 ? "+" : "-") + " (" +
+			Capitalize(db.Translate(sc > 0 ? t.axes0 : t.axes1)) + ")";
 		s << name << "\n";
 	}
-	#endif
 	return s;
 }
 

@@ -94,8 +94,13 @@ void TaskTitledList::LineBegin(int i, String& s) const {
 	}
 	
 	if (count_lines) {
-		if (!no_listchar && !inline_list)
+		bool skip_space = false;
+		if (!no_listchar && !inline_list) {
 			s << "-";
+		}
+		else
+			skip_space = true;
+		
 		if (line_in_alpha) {
 			int limit = 'z' - 'a' + 1;
 			int chr = i % limit;
@@ -104,7 +109,8 @@ void TaskTitledList::LineBegin(int i, String& s) const {
 			if (mul > 0) s << mul;
 		}
 		else {
-			s.Cat(' ');
+			if (!skip_space)
+				s.Cat(' ');
 			s << "Line " << line_begin + i;
 		}
 		if (!no_separator) {

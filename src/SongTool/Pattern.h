@@ -39,7 +39,7 @@ struct PatternSnap : PatternMask {
 	void SetId(int i) {id = i;}
 	void ResolveId() {
 		for (const SnapAttrStr& sa : attributes.GetKeys())
-			sa.RealizeId();
+			sa.RealizeId(*pipe);
 		PatternMask::ResolveId();
 	}
 	void FindAddAttr(const SnapAttrStr& sa);

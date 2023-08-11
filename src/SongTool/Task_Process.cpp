@@ -697,6 +697,7 @@ void Task::Process_Pattern() {
 	Database& db = Database::Single();
 	TaskMgr& m = GetTaskMgr();
 	Pipe& pipe = *this->p.pipe;
+	Part& part = *p.part;
 	Attributes& g = pipe;
 	AttrScore& as = pipe;
 	SnapArg& a = p.a;
@@ -706,14 +707,15 @@ void Task::Process_Pattern() {
 	
 	
 	// Connect line number to unique line
-	int offset_begin = StrInt(args[1]);
-	int offset_end = StrInt(args[2]);
+	int offset_begin = StrInt(args[0]);
+	int offset_end = StrInt(args[1]);
 	VectorMap<int,int> intmap;
 	
-	LOG(this->input.AsString() + output); TODO
-	#if 0
-	for(int i = 0, j = 0; i < pipe.headers[a].unique_lines.GetCount(); i++) {
-		const String& l = pipe.headers[a].unique_lines.GetKey(i);
+	LOG(this->input.AsString() + output);
+	auto& unique_lines = part.unique_lines[a];
+	
+	for(int i = 0, j = 0; i < unique_lines.GetCount(); i++) {
+		const String& l = unique_lines.GetKey(i);
 		if (i < offset_begin || i >= offset_end)
 			continue;
 		intmap.Add((j+1), i);
@@ -876,7 +878,6 @@ void Task::Process_Pattern() {
 		const Parsed& parsed_struct = parsed[i];
 		const VectorMap<String, Index<String>>& group_map = parsed_struct.map;
 		
-		auto& unique_lines = pipe.headers[a].unique_lines;
 		if (unique_lines.GetCount() <= parsed_struct.unique_line_i) {
 			DUMPM(unique_lines);
 			DUMPM(group_map);
@@ -904,8 +905,8 @@ void Task::Process_Pattern() {
 						group_str += "s";
 					if ((group_found || plural_group_found) && attr.item == item_str) {
 						found = true;
-						attr.RealizeId();
-						ASSERT(g.groups[attr.group_i].description == attr.group);
+						attr.RealizeId(pipe);
+						ASSERT(g.attr_groups[attr.group_i].description == attr.group);
 						for (PatternSnap* snap : snaps) {
 							//LOG(snap->txt << " --> " << attr.group << ", " << attr.item);
 							snap->FindAddAttr(attr);
@@ -915,8 +916,8 @@ void Task::Process_Pattern() {
 				}
 				if (!found) {
 					SnapAttr sa;
-					bool found = db.attrs.FindAttr(group_str, item_str, sa);
-					bool found_plural = found || db.attrs.FindAttr(group_str + "s", item_str, sa);
+					bool found = pipe.FindAttr(group_str, item_str, sa);
+					bool found_plural = found || pipe.FindAttr(group_str + "s", item_str, sa);
 					if (!found && found_plural) {
 						group_str += "s";
 					}
@@ -930,7 +931,7 @@ void Task::Process_Pattern() {
 						
 						//LOG(line_txt << " ---> " << group_str << ", " << item_str);
 						
-						ASSERT(g.groups[attr.group_i].description == attr.group);
+						ASSERT(g.attr_groups[attr.group_i].description == attr.group);
 						for (PatternSnap* snap : snaps) {
 							//LOG(snap->txt << " --> " << attr.group << ", " << attr.item);
 							snap->FindAddAttr(attr);
@@ -950,7 +951,6 @@ void Task::Process_Pattern() {
 			}
 		}
 	}
-	#endif
 }
 
 void Task::Process_PatternWeighted() {
@@ -969,7 +969,7 @@ void Task::Process_PatternWeighted() {
 	PatternSnap& snap = this->ctx->snap[a];
 	
 	String result = "-" + output;
-	//LOG(result);
+	//LOG(input.AsString() + output);
 	
 	Vector<String> lines = Split(result, "\n");
 	
@@ -1000,8 +1000,6 @@ void Task::Process_PatternWeighted() {
 	}
 	
 	// Use parsed data
-	LOG(this->input.AsString() + output); TODO
-	
 	for(int i = 0; i < parsed.GetCount(); i++) {
 		String group_str = parsed.GetKey(i);
 		const Index<String>& items = parsed[i];
@@ -1175,11 +1173,12 @@ void Task::Process_AttrScores() {
 	// Parse results
 	VectorMap<String, VectorMap<String, String>> parsed;
 	Vector<String> parts = Split(txt, "\n\n");
+	//DUMPC(parts);
 	for (String& part : parts) {
-		part.Replace("\n", "");
+		//LOG(part);
 		
-		// Split at ':'
-		int a = part.Find(":");
+		// Split at '\n'
+		int a = part.Find("\n");
 		if (a < 0)
 			continue;
 		String group = ToLower(part.Left(a));
@@ -1190,23 +1189,14 @@ void Task::Process_AttrScores() {
 		if (a < 0)
 			continue;
 		group = ToLower(TrimBoth(group.Mid(a+1)));
+		a = group.Find(":");
+		if (a < 0)
+			continue;
+		String items = group.Mid(a+1);
+		group = group.Left(a);
 		
-		Index<String> keys;
-		//DUMP(part);
-		a = 0;
-		while (1) {
-			a = part.Find("\"", a);
-			//DUMP(a);
-			if (a < 0)
-				break;
-			a++;
-			int b = part.Find("\"", a);
-			if (b < 0)
-				break;
-			String key = part.Mid(a, b-a);
-			keys.FindAdd(ToLower(key));
-			a = b+1;
-		}
+		Vector<String> keys = Split(items, ",");
+		for (String& k : keys) k = TrimBoth(k);
 		
 		if (keys.IsEmpty())
 			continue;
@@ -1228,12 +1218,10 @@ void Task::Process_AttrScores() {
 		}
 		ASSERT(score_str.Find("combination string") < 0);
 		
-		for (String key : keys.GetKeys())
+		for (String key : keys)
 			parsed.GetAdd(group).GetAdd(key) = ToLower(score_str);
 	}
 	//DUMPM(parsed);
-	
-	LOG(this->input.AsString() + output); TODO
 	
 	
 	// Check that groups and entries exists.
@@ -1394,7 +1382,7 @@ bool Task::AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str)
 		
 		for(int j = 0; j < gg.values.GetCount(); j++) {
 			if (ToLower(gg.values[j]) == lname) {
-				a.SetFromId(i, j);
+				a.SetFromId(pipe, i, j);
 				found = true;
 				break;
 			}

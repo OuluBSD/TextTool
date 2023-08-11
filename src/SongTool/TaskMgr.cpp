@@ -177,7 +177,6 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 			.Result(O_LINE_SNAP)
 			.Result(O_BREAK_SNAP)
 			.Result(O_DB_ATTRS)
-		.DebugInput()
 		;
 	
 	AddRule(TASK_PATTERN_WEIGHTED, "pattern weighted")
@@ -194,7 +193,6 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 			.Result(O_PART_SNAP)
 			.Result(O_LINE_SNAP)
 			.Result(O_BREAK_SNAP)
-		.DebugInput()
 		;
 	
 	AddRule(TASK_MAKE_ATTRSCORES_TASKS, "make attribute score tasks")
@@ -220,7 +218,6 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
 		.Process(&Task::Process_AttrScores)
-		.DebugInput()
 		;
 	
 	AddRule(TASK_ATTRSCORES_READY, "attribute scores ready")
@@ -720,8 +717,8 @@ bool TaskMgr::SpawnTasks() {
 						// if task has made successful tasks and have not been used to spawn another already
 						if (r.multi_spawnable && exists_already->allow_multi_spawn) {
 							if (!exists_already->ready ||
-								!exists_already->HasCreatedTasks(ctx) ||
-								!exists_already->IsCreatedTasksReady(ctx))
+								!exists_already->HasCreatedTasks(*this, ctx) ||
+								!exists_already->IsCreatedTasksReady(*this, ctx))
 								continue;
 							
 							// Use this flag only once

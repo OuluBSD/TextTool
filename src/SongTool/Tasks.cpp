@@ -48,29 +48,21 @@ String Task::GetDescription() const {
 	return s;
 }
 
-bool Task::HasCreatedTasks(GroupContext ctx) const {
-	TODO
-	#if 0
-	TaskMgr& m = GetTaskMgr();
+bool Task::HasCreatedTasks(const TaskMgr& m, GroupContext ctx) const {
 	for (const Task& t : m.tasks) {
 		if (t.created_by == this && t.p.a.ctx == ctx)
 			return true;
 	}
-	#endif
 	return false;
 }
 
-bool Task::IsCreatedTasksReady(GroupContext ctx) const {
-	TODO
-	#if 0
-	TaskMgr& m = GetTaskMgr();
+bool Task::IsCreatedTasksReady(const TaskMgr& m, GroupContext ctx) const {
 	for (const Task& t : m.tasks) {
 		if (t.created_by != this || t.p.a.ctx != ctx)
 			continue;
 		if (!t.ready)
 			return false;
 	}
-	#endif
 	return true;
 }
 
@@ -177,6 +169,9 @@ bool Task::ProcessInput() {
 		(this->*rule->input)();
 		if (fast_exit)
 			return true;
+		
+		if (failed)
+			return false;
 		
 		if (1) {
 			String in = input.AsString();

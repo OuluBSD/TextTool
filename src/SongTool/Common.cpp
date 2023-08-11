@@ -1,30 +1,23 @@
 #include "SongTool.h"
 
 
-void SnapAttrStr::SetFromId(int group, int item) {
-	TODO
-	#if 0
+void SnapAttrStr::SetFromId(Pipe& pipe, int group, int item) {
 	group_i = group;
 	item_i = item;
-	Database& db = Database::Single();
-	const Attr::Group& gg = db.attr_groups[group];
+	const Attr::Group& gg = pipe.attr_groups[group];
 	this->group = gg.description;
 	this->item = gg.values[item];
 	has_id = true;
-	#endif
 }
 
-bool SnapAttrStr::RealizeId() const {
-	TODO
-	#if 0
+bool SnapAttrStr::RealizeId(Pipe& pipe) const {
 	if (has_id)
 		return true;
 	SnapAttrStr& sa = const_cast<SnapAttrStr&>(*this);
-	Database& db = Database::Single();
 	sa.group_i = -1;
 	sa.item_i = -1;
-	for(int i = 0; i < db.attr_groups.GetCount(); i++) {
-		const Attr::Group& gg = db.attr_groups[i];
+	for(int i = 0; i < pipe.attr_groups.GetCount(); i++) {
+		const Attr::Group& gg = pipe.attr_groups[i];
 		if (gg.description == group) {
 			sa.group_i = i;
 			for(int j = 0; j < gg.values.GetCount(); j++) {
@@ -44,7 +37,6 @@ bool SnapAttrStr::RealizeId() const {
 	/*DUMP(sa.group);
 	DUMP(sa.item);
 	ASSERT_(0, "group and item not found");*/
-	#endif
 	return false;
 }
 
