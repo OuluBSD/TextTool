@@ -23,6 +23,7 @@ String TaskTitledList::GetTreeString(int indent) const {
 	if (no_listchar) s << in << "no_listchar: true\n";
 	if (title_in_quotes) s << in << "title_in_quotes: true\n";
 	if (value_in_quotes) s << in << "value_in_quotes: true\n";
+	if (count_sub) s << in << "count_sub: true\n";
 	if (count_lines) s << in << "count_lines: true\n";
 	if (inline_list) s << in << "inline_list: true\n";
 	if (no_separator) s << in << "no_separator: true\n";
@@ -82,65 +83,110 @@ String TaskContent::GetTreeString() const {
 	return s;
 }
 
+void TaskTitledList::LineBegin(int i, String& s) const {
+	if (inline_list && i > 0) {
+		if (no_separator)
+			s << " ";
+		else if (separator.IsEmpty())
+			s << ", ";
+		else
+			s << separator;
+	}
+	
+	if (count_lines) {
+		if (!no_listchar && !inline_list)
+			s << "-";
+		if (line_in_alpha) {
+			int limit = 'z' - 'a' + 1;
+			int chr = i % limit;
+			int mul = i / limit;
+			s.Cat('a' + chr);
+			if (mul > 0) s << mul;
+		}
+		else {
+			s.Cat(' ');
+			s << "Line " << line_begin + i;
+		}
+		if (!no_separator) {
+			if (separator.GetCount())
+				s << separator;
+			else
+				s << ", ";
+		}
+	}
+	else {
+		if (!no_listchar && !inline_list)
+			s << "- ";
+	}
+}
+
 String TaskTitledList::AsString() const {
 	String s;
 	
-	if (title_in_quotes)
-		s << "\"";
-	if (title_format_str.GetCount()) {
-		String title = Format(title_format_str, title_args);
-		if (capitalize)
-			title = ::Capitalize(title);
-		s << title;
-	}
-	if (title_in_quotes)
-		s << "\"";
+	bool parenthesis = inline_list && no_separator;
 	
-	if (title_value.GetCount()) {
-		s << ": ";
-		if (value_in_quotes)
+	if (!title_format_str.IsEmpty() || !title_value.IsEmpty()) {
+		if (title_in_quotes)
 			s << "\"";
-		if (capitalize)
-			s << ::Capitalize(title_value);
-		else
-			s << title_value;
-		if (value_in_quotes)
+		if (!title_format_str.IsEmpty()) {
+			String title = Format(title_format_str, title_args);
+			if (capitalize)
+				title = ::Capitalize(title);
+			s << title;
+		}
+		if (title_in_quotes)
 			s << "\"";
+		
+		if (!title_value.IsEmpty()) {
+			s << ": ";
+			if (value_in_quotes)
+				s << "\"";
+			if (capitalize)
+				s << ::Capitalize(title_value);
+			else
+				s << title_value;
+			if (value_in_quotes)
+				s << "\"";
+		}
+		if (!no_colon)
+			s << ":";
+		
+		s << "\n";
 	}
-	if (!no_colon)
-		s << ":";
 	
-	s << "\n";
-	
+	int line = -1;
+	if (!values.IsEmpty()) {
+		for(int i = 0; i < values.GetCount(); i++) {
+			++line;
+			LineBegin(line, s);
+			
+			String value = values[i];
+			if (capitalize) {
+				value = ::Capitalize(value);
+			}
+			if (value.GetCount()) {
+				if (parenthesis)
+					s.Cat('(');
+				if (value_in_quotes)
+					s.Cat('\"');
+				s << value;
+				if (value_in_quotes)
+					s.Cat('\"');
+				if (parenthesis)
+					s.Cat(')');
+			}
+			
+			if (result_list && i == values.GetCount() - 1)
+				; // pass
+			else if (!inline_list)
+				s << "\n";
+		}
+	}
 	
 	if (!items.IsEmpty()) {
 		for(int i = 0; i < items.GetCount(); i++) {
-			if (count_lines) {
-				if (!no_listchar)
-					s << "-";
-				if (line_in_alpha) {
-					int limit = 'z' - 'a' + 1;
-					int chr = i % limit;
-					int mul = i / limit;
-					s.Cat('a' + chr);
-					if (mul > 0) s << mul;
-					s.Cat(' ');
-				}
-				else {
-					s.Cat(' ');
-					s << "Line " << line_begin + i << ", ";
-				}
-				if (!no_separator) {
-					if (separator.GetCount())
-						s << separator;
-					else
-						s << ", ";
-				}
-			}
-			else {
-				if (!no_listchar)
-					s << "- ";
-			}
+			++line;
+			LineBegin(line, s);
 			
 			String key = items.GetKey(i);
 			String value = items[i];
@@ -148,38 +194,68 @@ String TaskTitledList::AsString() const {
 				key = ::Capitalize(key);
 				value = ::Capitalize(value);
 			}
+			if (parenthesis)
+				s.Cat('(');
 			if (key.GetCount())
-				s << key << ": ";
-			if (value_in_quotes)
-				s.Cat('\"');
-			s << value;
-			if (value_in_quotes)
-				s.Cat('\"');
-			
-			if (inline_list) {
-				if (no_separator)
-					s << " ";
-				else if (separator.IsEmpty())
-					s << ", ";
-				else
-					s << separator;
+				s << key << ":";
+			if (key.GetCount() && value.GetCount())
+				s.Cat(' ');
+			if (value.GetCount()) {
+				if (value_in_quotes)
+					s.Cat('\"');
+				s << value;
+				if (value_in_quotes)
+					s.Cat('\"');
 			}
-			else
+			if (parenthesis)
+				s.Cat(')');
+			
+			if (result_list && i == items.GetCount() - 1)
+				; // pass
+			else if (!inline_list)
 				s << "\n";
 		}
 	}
 	
-	for (const TaskTitledList& list : sub) {
+	for(int i = 0; i < sub.GetCount(); i++) {
+		const TaskTitledList& list = sub[i];
+		++line;
+		if (list.inline_list || count_sub) {
+			LineBegin(line, s);
+		}
 		s << list.AsString();
-		s << "\n";
+		if (result_list && i == sub.GetCount() - 1)
+			; // pass
+		else
+			s << "\n";
 	}
 	
 	if (combination_string) {
-		TODO
+		if (s.Right(1) != "\n")
+			s << "\n";
+		
+		String comb_str;
+		for(int i = 0; i < scores.GetCount(); i++) {
+			int score = scores[i];
+			if (i) comb_str.Cat(' ');
+			int chr = i % ('z' - 'a');
+			int mod = i / ('z' - 'a');
+			comb_str.Cat('a' + chr);
+			if (mod > 0)
+				comb_str << mod << "_";
+			if      (score > 0) comb_str.Cat('+');
+			else if (score < 0) comb_str.Cat('-');
+			comb_str << score;
+		}
+		s << "Combination string:";
+		if (comb_str.GetCount())
+			s << " " << comb_str << "\n";
 	}
 	
 	if (empty_line) {
-		s << "-";
+		LineBegin(0, s);
+		if (s.Right(1) == " ")
+			s = s.Left(s.GetCount()-1);
 	}
 	
 	return s;
@@ -188,7 +264,7 @@ String TaskTitledList::AsString() const {
 String TaskContent::AsString() const {
 	String s;
 	
-	LOG(GetTreeString());
+	//LOG(GetTreeString());
 	
 	for (const TaskTitledList& list : titled_lists) {
 		s << list.AsString();
@@ -198,6 +274,8 @@ String TaskContent::AsString() const {
 	if (pre_answer) {
 		s << pre_answer->AsString();
 	}
+	
+	//LOG(s);
 	
 	return s;
 }

@@ -401,12 +401,8 @@ void Task::Process_MakePatternTasks() {
 	a.Chk();
 	Pipe& pipe = *p.pipe;
 	
-	TODO
-	#if 0
-	SongHeader& header = song.headers[a];
-	
-	if (!p.song || !p.song->pipe) {
-		SetError("no song pointer set");
+	if (!p.pipe) {
+		SetError("no pipe pointer set");
 		return;
 	}
 	
@@ -415,25 +411,38 @@ void Task::Process_MakePatternTasks() {
 	
 	// Pattern tasks -> attribute score task maker
 	if (a.mode < HUMAN_INPUT_MODE_COUNT) {
-		int per_task = 30;
-		int tasks = 1 + header.unique_lines.GetCount() / per_task;
-		
-		for(int i = 0; i < db.attrs.group_types.GetCount(); i++) {
-			const Attr::GroupType& group_type = db.attrs.group_types[i];
+		for (Part& part : pipe.parts) {
+			auto& unique_lines = part.unique_lines[a];
+			unique_lines.Clear();
+			for (Line& line : part.lines) {
+				for (Break& brk : line.breaks) {
+					auto& txt = brk.snap[a].txt;
+					if (txt.GetCount())
+						unique_lines.FindAdd(txt);
+				}
+				auto& txt = line.snap[a].txt;
+				if (txt.GetCount())
+					unique_lines.FindAdd(txt);
+			}
+			auto& txt = part.snap[a].txt;
+			if (txt.GetCount())
+				unique_lines.FindAdd(txt);
 			
-			// Skip different context
-			if (group_type.group_ctx != p.a.ctx)
-				continue;
+			int per_task = 30;
+			int tasks = 1 + unique_lines.GetCount() / per_task;
 			
 			for(int j = 0; j < tasks; j++) {
 				Task& t = ResultTask(TASK_PATTERN);
 				t.p = this->p;
-				t.args << group_type.name << IntStr(j * per_task) << IntStr((j + 1) * per_task);
+				t.p.part = &part;
+				t.snap = &part.snap[a];
+				t.args << IntStr(j * per_task) << IntStr((j + 1) * per_task);
 			}
 		}
+		
 	}
 	else {
-		for (Part& part : song.parts) {
+		for (Part& part : pipe.parts) {
 			for (Line& line : part.lines) {
 				for (Break& brk : line.breaks) {
 					
@@ -448,14 +457,13 @@ void Task::Process_MakePatternTasks() {
 				t.ctx = &line;
 				t.snap = &line.snap[a];
 			}
-				
+			
 			Task& t = ResultTask(TASK_PATTERN_WEIGHTED);
 			t.p = this->p;
 			t.ctx = &part;
 			t.snap = &part.snap[a];
 		}
 	}
-	#endif
 }
 
 void Task::Process_MakeImpactScoringTasks() {

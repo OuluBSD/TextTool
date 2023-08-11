@@ -25,6 +25,7 @@ void Task::CreateInput_StoryArc() {
 		TaskTitledList& part_lyrics = lyrics.AddSub();
 		part_lyrics.Title(part.name);
 		part_lyrics.NoColon();
+		part_lyrics.NoListChar();
 		
 		Array<Line>& lines = part.lines;
 		for(int j = 0; j < lines.GetCount(); j++) {
@@ -39,7 +40,7 @@ void Task::CreateInput_StoryArc() {
 	data_topics.Add("Shortened absolute story arc");
 	data_topics.Add("Shortened absolute story arc of whole song");
 	data_topics.Add("Theme of the whole song");
-	data_topics.Add("Storyline in parts (" << pipe.parts[0].name << ", etc.)");
+	data_topics.Add("Storyline of separate parts in separate sections (" << pipe.parts[0].name << ", " << pipe.parts[1].name << ", etc.)");
 	
 	TaskTitledList& pre_answer = input.PreAnswer();
 	pre_answer.Title("Results for data topics");
@@ -88,6 +89,7 @@ void Task::CreateInput_StoryArcWeighted() {
 		if (!value0.IsEmpty() && !value1.IsEmpty()) {
 			TaskTitledList& line = input_data.AddSub();
 			line.InlineList();
+			line.ValueInQuotes();
 			line.Add("Description A of X", value0);
 			line.Add("Description B of X", value1);
 			line.Arg(key);
@@ -107,6 +109,8 @@ void Task::CreateInput_StoryArcWeighted() {
 			if (!storyline0.IsEmpty() && !storyline1.IsEmpty()) {
 				TaskTitledList& line = input_data.AddSub();
 				line.InlineList();
+				line.ValueInQuotes();
+				line.NoListChar();
 				line.Add("Description A of X", storyline0);
 				line.Add("Description B of X", storyline1);
 				line.Arg(key);
@@ -120,7 +124,7 @@ void Task::CreateInput_StoryArcWeighted() {
 	pre_answer
 		.Title("List of results")
 		.CountLines()
-		.Add("Result");
+		.Add("Result", "");
 	
 	if (!item) {
 		SetFatalError("no storylines");
@@ -160,9 +164,12 @@ void Task::CreateInput_Impact() {
 	}
 	
 	TaskTitledList& pre_answer = input.PreAnswer();
-	pre_answer.Title("How the listener is impacted in short");
+	pre_answer.Title("How the listener is impacted in short (no lyrics lines in answers! Don't start with the lyrics input!)");
 	pre_answer.CountLines("Part");
-	pre_answer.Add(line.breaks[0].Get(a).txt, "");
+	pre_answer.ValueInQuotes();
+	//pre_answer.Separator(":");
+	//pre_answer.Add(line.breaks[0].Get(a).txt);
+	pre_answer.EmptyLine();
 	
 }
 
@@ -218,7 +225,7 @@ void Task::CreateInput_ImpactWeighted() {
 	pre_answer
 		.Title("List of results")
 		.CountLines()
-		.Add("Result");
+		.Add("Result", "");
 	
 	if (!item) {
 		if (waiting)
@@ -297,7 +304,7 @@ void Task::CreateInput_ForwardLyricsWeighted() {
 	pre_answer
 		.Title("List of results")
 		.CountLines()
-		.Add("Result");
+		.Add("Result", "");
 	
 	if (!item) {
 		if (waiting)
@@ -333,6 +340,7 @@ void Task::CreateInput_ImpactScoring() {
 	TaskTitledList& result_example = input.AddSub();
 	result_example	.Title("Combination string from results")
 					.CountLinesAlpha()
+					.InlineList()
 					.NoSeparator();
 	for(int i = 0; i < 3 && i < g.attr_scorings.GetCount(); i++) {
 		const Attr::ScoringType& t = g.attr_scorings[i];
@@ -375,19 +383,24 @@ void Task::CreateInput_ImpactScoring() {
 	// -a Integrity: honest/twisted: +1 honest
 	TaskTitledList& detailed = input.AddSub();
 	detailed		.Title("Scores per entry")
-					.CountLines()
+					.CountSub().CountLines()
 					.ValueInQuotes();
 	TaskTitledList& ex1 = detailed.AddSub();
 	ex1				.Title("The narrator is happy and likes trains")
+					.TitleInQuotes()
 					.CountLinesAlpha()
+					.Separator(" ")
 					.CombinationString();
 	// Line 1, "The narrator is happy and likes trains"
 	// Combination string: a+1 b0 c0 d+1 e0 f+1 g0 h0 i+1 j+1 k+1 l+1 m+1 n0 o+1 p+1 q0 r0 s0 t0
 	TaskTitledList& summary = input.AddSub();
-	summary			.CountLines()
+	summary			.CountSub().CountLines()
 					.ValueInQuotes();
-	TaskTitledList& ex1s = input.AddSub();
-	ex1s			.CombinationString();
+	TaskTitledList& ex1s = summary.AddSub();
+	ex1s			.Title("The narrator is happy and likes trains")
+					.TitleInQuotes()
+					.Separator(" ")
+					.CombinationString();
 	for(int i = 0; i < example_values.GetCount() && i < g.attr_scorings.GetCount(); i++) {
 		const Attr::ScoringType& t = g.attr_scorings[i];
 		int value = example_values[i];
@@ -395,7 +408,7 @@ void Task::CreateInput_ImpactScoring() {
 		if      (value > 0) line << "+" << value << " " << t.axes0;
 		else if (value > 0) line << "-" << value << " " << t.axes1;
 		else line << "0";
-		axes.Add(t.klass, line);
+		ex1.Add(t.klass, line);
 		ex1.scores << value;
 		ex1s.scores << value;
 	}
@@ -403,11 +416,13 @@ void Task::CreateInput_ImpactScoring() {
 	
 	// Entries
 	TaskTitledList& entries = input.AddSub();
-	entries		.CountLines()
+	entries		.Title("Entries")
+				.CountLines()
 				.LineBegin(2)
 				.ValueInQuotes();
-	TaskTitledList& results = input.AddSub();
-	results		.CountLines()
+	TaskTitledList& results = input.PreAnswer();
+	results		.Title("Lines with resulting combination strings")
+				.CountLines()
 				.LineBegin(2)
 				.ValueInQuotes()
 				.CombinationString();
@@ -561,12 +576,13 @@ void Task::CreateInput_PatternMaskWeighted() {
 			.Add("verb", "admire")
 			.Add("adjective", "your");
 	
+	input.AddSub().Title("Task 1");
+	
 	TaskTitledList& task = input.AddSub();
-	task.Title("Task 1");
 	
 	TaskTitledList& in_a = task.AddSub();
 	TaskTitledList& in_b = task.AddSub();
-	TaskTitledList& result = task.AddSub();
+	TaskTitledList& result = input.PreAnswer();
 	
 	in_a.Title("Attribute-list A describing sentence X");
 	for(const SnapAttrStr& sa : mask0.mask) {
@@ -587,34 +603,39 @@ void Task::CreateInput_PatternMaskWeighted() {
 
 void Task::CreateInput_Pattern() {
 	Database& db = Database::Single();
-	if (!p.pipe) {
+	if (!p.pipe || !p.part) {
 		SetFatalError("no song pointer set");
 		return;
 	}
 	
 	PipePtrs& p = this->p;
 	Pipe& pipe = *p.pipe;
+	Part& part = *p.part;
 	SnapArg a = p.a;
 	ASSERT(a.mode != MODE_INVALID);
+	PatternSnap& snap = *this->snap;
+	PatternMask& mask = snap.part->snap[a];
 	
-	String type = args[0];
+	auto& unique_lines = part.unique_lines[a];
+	
 	String ai_txt = GetGroupContextNaturalDescription(p.a.ctx);
-	int offset_begin = StrInt(args[1]);
-	int offset_end = StrInt(args[2]);
+	int offset_begin = StrInt(args[0]);
+	int offset_end = StrInt(args[1]);
 	const Attr::Group* first_key = 0;
 	
 	TaskTitledList& input_groups = input.AddSub();
 	input_groups.Title("Groups of attributes and allowed values");
 	input_groups.Capitalize(); // values
 	
-	for(int i = 0; i < pipe.attr_groups.GetCount(); i++) {
-		const Attr::Group& gg = pipe.attr_groups[i];
-		if (gg.type != type || gg.values.IsEmpty())
-			continue;
-		
-		// Skip unmanaged groups to avoid asking ai again and again
-		if (!gg.managed)
-			continue;
+	Index<int> mask_groups;
+	for(const SnapAttrStr& sa : mask.mask) {
+		ASSERT(sa.has_id);
+		mask_groups.FindAdd(sa.group_i);
+	}
+	
+	for(int i = 0; i < mask_groups.GetCount(); i++) {
+		int group_i = mask_groups[i];
+		const Attr::Group& gg = pipe.attr_groups[group_i];
 		
 		// Skip different group context
 		const Attr::GroupType& gt = pipe.group_types[gg.type_i];
@@ -627,9 +648,11 @@ void Task::CreateInput_Pattern() {
 	
 	TaskTitledList& input_group_values = input.AddSub();
 	input_group_values.Title("Group values");
-	for (const Attr::Group* ggp : input_groups.groups) {
+	for(int i = 0; i < mask_groups.GetCount(); i++) {
+		int group_i = mask_groups[i];
+		const Attr::Group& gg = pipe.attr_groups[group_i];
+		
 		TaskTitledList& values = input_group_values.AddSub();
-		const Attr::Group& gg = *ggp;
 		values.Title(gg.description);
 		values.Capitalize();
 		for(int j = 0; j < gg.values.GetCount(); j++) {
@@ -638,38 +661,40 @@ void Task::CreateInput_Pattern() {
 			values.Add(v);
 		}
 		if (!first_key)
-			first_key = ggp;
+			first_key = &gg;
 	}
 	
 	if (!first_key) {
-		if (type == GetUnknownText(a.ctx))
+		/*if (type == GetUnknownText(a.ctx))
 			SetFastExit();
 		else
-			SetFatalError("No attribute groups available with the type of " + type);
+			SetFatalError("No attribute groups available with the type of " + type);*/
+		SetFatalError("No first key");
 		return;
 	}
 	
 	TaskTitledList& input_lyrics = input.AddSub();
-	input_lyrics.Title("Lyrics");
-	
+	input_lyrics	.Title("Lyrics")
+					.ValueInQuotes()
+					.CountLines();
+				
 	String first_line;
-	SetFatalError("TODO");
-	/*for(int i = 0, j = 0; i < header.unique_lines.GetCount(); i++) {
-		const String& l = header.unique_lines.GetKey(i);
+	for(int i = 0, j = 0; i < unique_lines.GetCount(); i++) {
+		const String& l = unique_lines[i];
 		if (i < offset_begin || i >= offset_end)
 			continue;
 		if (!j)
 			first_line = l;
-		s << "Line " << (j+1) << ", \"" << l << "\"\n";
-		//hash << ToLower(l);
+		input_lyrics.Add(l);
 		j++;
-	}*/
+	}
 	
 	// Instruction
 	input.AddSub().NoColon().Title("Multiple answers are required.");
 	
 	// Result
-	input.AddSub()	.Title("Attributes (in format \"Group: Attribute\") for all lines")
+	TaskTitledList& result = input.PreAnswer();
+	result			.Title("Attributes (in format \"Group: Attribute\") for all lines")
 					.CountLines()
 					.ValueInQuotes()
 					.Add(first_line);
@@ -765,12 +790,14 @@ void Task::CreateInput_Analysis() {
 	
 	TaskTitledList& lyrics = input.AddSub();
 	lyrics.Title("Lyrics");
+	lyrics.NoListChar();
 	for(int i = 0; i < pipe.parts.GetCount(); i++) {
 		Part& part = pipe.parts[i];
 		
 		if (!whole_song) {
 			TaskTitledList& input_part = lyrics.AddSub();
 			input_part.Title(part.name);
+			input_part.NoListChar();
 			
 			Array<Line>& lines = part.lines;
 			for(int j = 0; j < lines.GetCount(); j++) {
@@ -796,7 +823,7 @@ void Task::CreateInput_Analysis() {
 	
 	// Instructions
 	input.AddSub().NoColon().Title(vocalist_visual);
-	input.AddSub().NoColon().Title("Multiple answers are required.");
+	input.AddSub().NoColon().Title("Multiple answers are required. Separate to all parts are required.");
 	
 	// Formatting
 	TaskTitledList& format = input.AddSub();
@@ -805,7 +832,7 @@ void Task::CreateInput_Analysis() {
 	
 	// Result
 	if (whole_song) {
-		TaskTitledList& result = input.AddSub();
+		TaskTitledList& result = input.PreAnswer();
 		result.FormatArg(title);
 		result.Title("Verbose %s of lyrics for whole lyrics");
 		result.EmptyLine();
@@ -819,7 +846,7 @@ void Task::CreateInput_Analysis() {
 			info.Add(key);
 		}
 		
-		TaskTitledList& result = input.AddSub();
+		TaskTitledList& result = input.PreAnswer();
 		result.Title(pipe.parts[0].name);
 		result.EmptyLine();
 	}

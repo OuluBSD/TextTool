@@ -128,6 +128,13 @@ struct Song :
 		}
 		SnapContext::Jsonize(json);*/
 	}
+	void FixPtrs() {
+		{
+			EditorPtrs::release = EditorPtrs::release;
+			EditorPtrs::artist = EditorPtrs::artist;
+			EditorPtrs::song = this;
+		}
+	}
 	/*void MergeOwner() {
 		for (Part& p : parts)
 			p.MergeOwner();

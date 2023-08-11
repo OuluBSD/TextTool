@@ -33,7 +33,7 @@ void Task::SetError(String s) {
 
 String Task::GetInputHash() const {
 	String input = this->input.AsString();
-	hash_t h = this->hash ? this->hash : input.GetHashValue();
+	hash_t h = input.GetHashValue();
 	return HexString((void*)&h, sizeof(h));
 }
 
@@ -180,11 +180,9 @@ bool Task::ProcessInput() {
 		
 		if (1) {
 			String in = input.AsString();
-			if (rule->code != TASK_PATTERNMASK && in.GetCount()) {
+			if (rule->debug_input) {
 				LOG(in);
-				LOG("");
-			}
-			if (rule->code == TASK_STORYARC_WEIGHTED) {
+				LOG("Last 3 chars: \"" + in.Right(3) + "\"");
 				TODO
 			}
 		}
@@ -373,8 +371,11 @@ bool Task::WriteResults() {
 			}
 			m.lock.EnterWrite();
 			m.total += result_tasks.GetCount();
-			while (result_tasks.GetCount())
-				m.tasks.Add(result_tasks.Detach(0));
+			while (result_tasks.GetCount()) {
+				Task* t = result_tasks.Detach(0);
+				t->id = ++created_task_count;
+				m.tasks.Add(t);
+			}
 			m.lock.LeaveWrite();
 			break;
 		
@@ -383,7 +384,7 @@ bool Task::WriteResults() {
 		case O_SONG_DATA_STORYLINE: break;
 		/*case O_SONG_UNIQLINES:
 			for (const SnapArg& a : TextInputModeArgs()) {
-				ASSERT(p.pipe->headers[a].unique_lines.GetCount());
+				ASSERT(p.pipe->unique_lines[a].GetCount());
 			}
 			break;*/
 		case O_SONG_UNIQLINE_ATTRS: break;
@@ -411,7 +412,8 @@ bool Task::WriteResults() {
 		case O_BREAK_REVERSED_IMPACT: break;
 		case O_BREAK_REVERSED_SNAP: break;
 		case O_NEXT_CTX_JUMP: break;
-		default: TODO break;
+		case O_BREAK_LYRICS: break;
+		default: break;
 		}
 	}
 	
@@ -528,4 +530,26 @@ TaskMgr& Task::GetTaskMgr() {
 Pipe& Task::GetPipe() {
 	ASSERT(p.pipe);
 	return *p.pipe;
+}
+
+hash_t Task::GetOrderHash() const {
+	hash_t& hash = order_hash;
+	if (hash)
+		return hash;
+	CombineHash ch;
+	const Task* t = this;
+	while (t) {
+		ch << t->rule->code << t->id;
+		t = t->created_by;
+	}
+	hash = ch;
+	ASSERT(hash || !created_by);
+	return hash;
+}
+
+String Task::GetInfoInline() const {
+	String s;
+	s << rule->name;
+	if (id) s << "[" << id << "]";
+	return s;
 }

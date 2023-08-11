@@ -17,6 +17,7 @@ struct TaskRule {
 	bool multi_spawnable = false;
 	bool allow_cross_mode = false;
 	bool separate_items = false;
+	bool debug_input = false;
 	VectorMap<int, Tuple2<int,int>> req_mode_ranges;
 	
 	TaskRule& Input(void (Task::*fn)());
@@ -30,6 +31,7 @@ struct TaskRule {
 	TaskRule& CrossMode(bool b=true);
 	TaskRule& Hash(TaskArgType t);
 	TaskRule& SeparateItems(bool b=true);
+	TaskRule& DebugInput(bool b=true);
 	
 };
 
@@ -42,13 +44,30 @@ struct TaskMgr {
 	int actual = 0, total = 0;
 	String status;
 	
+	// Local
+	Vector<hash_t> task_order;
+	int task_i = 0;
+	
+	// Temp
+	Vector<String> task_order_dbg;
+	mutable hash_t hash = 0;
+	int iters = 0;
+	
 	typedef TaskMgr CLASSNAME;
+	
+	// Task order is stored to avoid cache miss, when AI gives bad results and task is skipped.
+	void LoadTaskOrder();
+	void StoreTaskOrder();
+	void Serialize(Stream& s) {s % task_order;}
+	
 	void Process();
 	void ProcessSingle(int task_i);
 	void StartSingle(int task_i) {Thread::Start(THISBACK1(ProcessSingle, task_i));}
 	bool SpawnTasks();
 	bool IsDepsReady(Task& t, Index<Task*>& seen) const;
 	GroupContext GetGroupContextLimit() const;
+	
+	hash_t GetSongHash() const;
 	
 	void ImportSongAndMakeReversedSong(Pipe& p);
 	

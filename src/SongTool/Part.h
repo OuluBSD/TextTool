@@ -9,6 +9,7 @@ struct Part :
 	Array<Line>						lines;
 	Composition						composition;
 	MArr<VectorMap<String,String>>	analysis;
+	MArr<Index<String>>				unique_lines;
 	
 	void Clear() {
 		lines.Clear();

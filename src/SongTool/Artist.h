@@ -82,11 +82,17 @@ struct Artist :
 			for (String n : names) releases.Add().LoadTitle(n);
 			Sort(releases, Release());
 			
-			//FixPtrs();
+			FixPtrs();
 		}
 		//SnapContext::Jsonize(json);
 	}
 	
+	void FixPtrs() {
+		for (Release& r : releases) {
+			r.EditorPtrs::artist = this;
+			r.FixPtrs();
+		}
+	}
 	bool operator()(const Artist& a, const Artist& b) const {
 		if (a.year_of_birth != b.year_of_birth) return a.year_of_birth < b.year_of_birth;
 		return a.name < b.name;

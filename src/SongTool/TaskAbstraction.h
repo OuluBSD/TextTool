@@ -13,17 +13,20 @@ struct TaskTitledList {
 	bool no_listchar = false;
 	bool title_in_quotes = false;
 	bool value_in_quotes = false;
+	bool count_sub = false;
 	bool count_lines = false;
 	bool inline_list = false;
 	bool no_separator = false;
 	bool combination_string = false;
 	bool empty_line = false;
 	bool capitalize = false;
+	bool result_list = false;
 	int line_begin = 1;
 	
 	Vector<int> scores;
 	
 	VectorMap<String,String> items;
+	Vector<String> values;
 	Array<TaskTitledList> sub;
 	
 	// Temp
@@ -33,12 +36,14 @@ struct TaskTitledList {
 	
 	TaskTitledList& Title(String title_fmt, String value=String()) {title_format_str = title_fmt; title_value = value; return *this;}
 	TaskTitledList& FormatArg(String s) {title_args << s; return *this;}
-	TaskTitledList& Add(String s) {items.Add("", s); return *this;}
+	TaskTitledList& Add(String s) {values.Add(s); return *this;}
 	TaskTitledList& Add(String key, String value) {items.Add(key, value); return *this;}
 	TaskTitledList& Add(String key, int value) {items.Add(key, IntStr(value)); return *this;}
 	TaskTitledList& NoColon(bool b=true) {no_colon = b; return *this;}
 	TaskTitledList& NoListChar(bool b=true) {no_listchar = b; return *this;}
+	TaskTitledList& TitleInQuotes(bool b=true) {title_in_quotes = b; return *this;}
 	TaskTitledList& ValueInQuotes(bool b=true) {value_in_quotes = b; return *this;}
+	TaskTitledList& CountSub(bool b=true) {count_sub = b; return *this;}
 	TaskTitledList& CountLines(bool b=true) {count_lines = b; return *this;}
 	TaskTitledList& CountLinesAlpha(bool b=true) {line_in_alpha = true; count_lines = b; return *this;}
 	TaskTitledList& CountLines(String line_str, bool b=true) {this->line_str = line_str; count_lines = b; return *this;}
@@ -56,6 +61,12 @@ struct TaskTitledList {
 	String AsString() const;
 	String GetTreeString(int indent) const;
 	
+	TaskTitledList& operator[](int i) {return sub[i];}
+	const TaskTitledList& operator[](int i) const {return sub[i];}
+	
+private:
+	void LineBegin(int i, String& s) const;
+	
 };
 
 struct TaskContent {
@@ -68,12 +79,29 @@ struct TaskContent {
 		pre_answer.Clear();
 		response_length = 0;
 	}
-	TaskTitledList& PreAnswer() {if (pre_answer.IsEmpty()) pre_answer.Create(); return *pre_answer;}
+	TaskTitledList& PreAnswer() {
+		if (pre_answer.IsEmpty()) {
+			pre_answer.Create();
+			pre_answer->result_list = true;
+		}
+		return *pre_answer;
+	}
 	TaskTitledList& AddSub() {return titled_lists.Add();}
 	
 	bool IsEmpty() const {return titled_lists.IsEmpty() && pre_answer.IsEmpty();}
 	String AsString() const;
 	String GetTreeString() const;
+	
+	int GetCount() const {return titled_lists.GetCount() + (pre_answer.IsEmpty() ? 0 : 1);}
+	TaskTitledList& operator[](int i) {
+		if (i == titled_lists.GetCount())
+			return *pre_answer;
+		return titled_lists[i];
+	}
+	const TaskTitledList& operator[](int i) const {
+		if (i == titled_lists.GetCount())
+			return *pre_answer;
+		return titled_lists[i];}
 	
 };
 

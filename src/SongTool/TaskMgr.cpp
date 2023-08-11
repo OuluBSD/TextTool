@@ -134,6 +134,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, 0, MODE_COUNT)
 			.Result(O_TASKS)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_IMPACT_SCORING, "impact scoring")
@@ -158,6 +159,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 			.Arg(V_MODE, 0, MODE_COUNT)
 			//.Arg(V_PTR_PIPE_UNIQUELINES)
 			.Result(O_TASKS)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_PATTERN, "pattern")
@@ -175,6 +177,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 			.Result(O_LINE_SNAP)
 			.Result(O_BREAK_SNAP)
 			.Result(O_DB_ATTRS)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_PATTERN_WEIGHTED, "pattern weighted")
@@ -191,6 +194,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 			.Result(O_PART_SNAP)
 			.Result(O_LINE_SNAP)
 			.Result(O_BREAK_SNAP)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_MAKE_ATTRSCORES_TASKS, "make attribute score tasks")
@@ -204,6 +208,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
 			.Result(O_TASKS)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_ATTRSCORES, "attribute scores")
@@ -215,10 +220,12 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 			.Arg(V_PTR_PIPE)
 			.Arg(V_MODE, 0, HUMAN_INPUT_MODE_COUNT)
 		.Process(&Task::Process_AttrScores)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_ATTRSCORES_READY, "attribute scores ready")
 		.Result(O_DB_ATTR_SCORES)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_SONGSCORE, "song score")
@@ -237,6 +244,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 			.Result(O_PART_SNAP_SCORE)
 			.Result(O_LINE_SNAP_SCORE)
 			.Result(O_BREAK_SNAP_SCORE)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_MAKE_REVERSE_IMPACT_TASK, "make reverse impact tasks")
@@ -246,6 +254,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Require(O_BREAK_IMPACT_SCORES)
 		.Process(&Task::Process_MakeReverseImpactTask)
 			.Arg(V_MODE, 0, 1)
+		.DebugInput()
 			.Result(O_TASKS)
 		;
 	
@@ -255,6 +264,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_ReverseImpact)
 			.Arg(V_MODE, 0, 1)
 			.Result(O_BREAK_REVERSED_IMPACT)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_MAKE_REVERSE_MASK_TASK, "make reverse mask tasks")
@@ -265,6 +275,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_MakeReverseMaskTask)
 			.Arg(V_MODE, 0, 1)
 			.Result(O_TASKS)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_REVERSE_COMMON_MASK, "reverse common mask")
@@ -273,6 +284,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_ReverseCommonMask)
 			.Arg(V_MODE, 0, 1)
 			.Result(O_SONG_REVERSED_MASK_COMMON)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_REVERSE_SEPARATE_MASK, "reverse separate mask")
@@ -282,6 +294,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_ReverseSeparateMask)
 			.Arg(V_MODE, 0, 1)
 			.Result(O_SONG_REVERSED_MASK)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_MAKE_REVERSEPATTERN_TASK, "make reverse pattern tasks")
@@ -295,6 +308,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_MakeReversePattern)
 			.Arg(V_MODE, 0, 1)
 			.Result(O_TASKS)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_REVERSEPATTERN, "reverse pattern")
@@ -309,6 +323,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 			.Result(O_LINE_REVERSED_SNAP)
 			.Result(O_BREAK_REVERSED_SNAP)
 			.Result(O_NEXT_CTX_JUMP)
+		.DebugInput()
 		;
 	
 	
@@ -324,6 +339,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_MakeLyricsTask)
 			.Arg(V_DIR, BACKWARD, DIR_COUNT)
 			.Result(O_TASKS)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_LYRICS, "reversed lyrics")
@@ -338,6 +354,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_Lyrics)
 			.Result(O_SONG_REVERSED_LYRICS)
 			.Arg(V_DIR, BACKWARD, DIR_COUNT)
+		.DebugInput()
 		;
 	
 	AddRule(TASK_LYRICS_TRANSLATE, "reversed lyrics translate")
@@ -347,6 +364,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_LyricsTranslate)
 			.Result(O_SONG_REVERSED_TRANSLATED_LYRICS)
 			.Arg(V_DIR, BACKWARD, DIR_COUNT)
+		.DebugInput()
 		;
 	
 	
@@ -393,12 +411,74 @@ void TaskMgrConfig::Process() {
 
 
 
+void TaskMgr::LoadTaskOrder() {
+	String dir = ConfigFile("taskmgr");
+	RealizeDirectory(dir);
+	String fname = IntStr64(GetSongHash()) + ".bin";
+	String path = AppendFileName(dir, fname);
+	if (FileExists(path))
+		LoadFromFile(*this, path);
+}
+
+void TaskMgr::StoreTaskOrder() {
+	String dir = ConfigFile("taskmgr");
+	RealizeDirectory(dir);
+	String fname = IntStr64(GetSongHash()) + ".bin";
+	String path = AppendFileName(dir, fname);
+	StoreToFile(*this, path);
+}
+
 void TaskMgr::Process() {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	
-	this->total = tasks.GetCount();
+	if (!iters) {
+		LoadTaskOrder();
+	}
+	iters++;
 	
 	int ready = 0, got_ready = 0;
+	
+	this->total = tasks.GetCount();
+	
+	bool shorten_task_order = false;
+	
+	while (task_i < task_order.GetCount()) {
+		hash_t task_hash0 = task_order[task_i];
+		bool task_ready = false;
+		for(int i = 0; i < tasks.GetCount() && mgr.running && !Thread::IsShutdownThreads(); i++) {
+			Task& t = tasks[i];
+			hash_t task_hash1 = t.GetOrderHash();
+			if (task_hash0 == task_hash1) {
+				if (!t.ready) {
+					ProcessSingle(i);
+					if (t.ready) {
+						task_order_dbg << t.GetInfoInline();
+						actual++;
+						ready++;
+						got_ready++;
+						task_ready = true;
+						// StoreTaskOrder(); // No need to store, because it follows old list
+					}
+				}
+				else
+					task_ready = true; // TODO almost an error, is it?
+				break;
+			}
+		}
+		if (task_ready) {
+			task_i++;
+		}
+		else {
+			// Task failed, but it's not necessarily fail of ordered task processing.
+			
+			// Possible reasons:
+			// - task is being spawned in the end of this function
+			// - the AI task input was changed and it caused some new problems.
+			shorten_task_order = true;
+			break;
+		}
+	}
+	
 	for(int i = 0; i < tasks.GetCount() && mgr.running && !Thread::IsShutdownThreads(); i++) {
 		Task& t = tasks[i];
 		if (!t.ready) {
@@ -407,6 +487,27 @@ void TaskMgr::Process() {
 				actual++;
 				ready++;
 				got_ready++;
+				task_i++;
+				task_order_dbg << t.GetInfoInline();
+				
+				hash_t hash = t.GetOrderHash();
+				if (shorten_task_order) {
+					// If somehow we ended up being in the right hash (then keep going)
+					// TODO: strengthen this! it's very weak mechanism to get back
+					if (task_i < task_order.GetCount() && task_order[task_i] == hash) {
+						task_i++;
+						break; // loop indirectly back to ordered hash processing
+					}
+					// CACHE MISS!
+					else {
+						task_order.SetCount(task_i); // the failure is certain here.
+						task_order << hash;
+					}
+				}
+				else
+					task_order << hash;
+				
+				StoreTaskOrder();
 			}
 		}
 		else
@@ -692,6 +793,23 @@ bool TaskMgr::SpawnTasks() {
 	return spawned > 0;
 }
 
+hash_t TaskMgr::GetSongHash() const {
+	if (hash)
+		return hash;
+	
+	const Pipe& pipe = static_cast<const Pipe&>(*this);
+	ASSERT(pipe.song);
+	Song& song = *pipe.song;
+	
+	CombineHash ch;
+	ch << song.EditorPtrs::artist->name;
+	ch << song.EditorPtrs::release->title;
+	ch << song.title;
+	hash = ch;
+	ASSERT(hash != 0);
+	return hash;
+}
+
 
 
 
@@ -764,6 +882,11 @@ TaskRule& TaskRule::Hash(TaskArgType t) {
 
 TaskRule& TaskRule::SeparateItems(bool b) {
 	separate_items = b;
+	return *this;
+}
+
+TaskRule& TaskRule::DebugInput(bool b) {
+	debug_input = b;
 	return *this;
 }
 

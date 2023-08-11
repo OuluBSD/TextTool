@@ -75,6 +75,13 @@ struct OpenAiResponse {
 struct TaskRule;
 
 struct Task {
+	
+private:
+	int created_task_count = 0;
+	int id = 0;
+	mutable hash_t order_hash = 0;
+	
+public:
 	const TaskRule* rule = 0;
 	
 	Vector<String> args;
@@ -92,7 +99,6 @@ struct Task {
 	bool wait_task = false;
 	bool allow_multi_spawn = false;
 	bool is_waiting_deps = false;
-	hash_t hash = 0;
 	int tries = 0;
 	
 	PipePtrs p;
@@ -105,7 +111,6 @@ struct Task {
 	// Temp
 	Array<Task> result_tasks;
 	Vector<Vector<String>> str_map;
-	Vector<SnapContext*> tmp_ctx;
 	Task* created_by = 0;
 	
 	static constexpr int common_mask_gen_multiplier		= 8;
@@ -187,6 +192,8 @@ struct Task {
 	String GetTypeString() const;
 	bool AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str);
 	void AddAttrScoreId(AttrScoreGroup& ag, const SnapAttrStr& a);
+	hash_t GetOrderHash() const;
+	String GetInfoInline() const;
 	
 	TaskMgr& GetTaskMgr();
 	Pipe& GetPipe();
