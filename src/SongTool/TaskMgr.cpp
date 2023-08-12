@@ -499,7 +499,7 @@ void TaskMgr::Process() {
 					}
 					// CACHE MISS!
 					else {
-						DUMPC(task_order_dbg);
+						//DUMPC(task_order_dbg);
 						task_order.SetCount(task_i); // the failure is certain here.
 						task_order << hash;
 						task_order_cache_missed = true;

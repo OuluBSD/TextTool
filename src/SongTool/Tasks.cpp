@@ -489,6 +489,8 @@ bool Task::RunOpenAI() {
 		return false;
 	}*/
 	
+	//LOG(IntStr64(input.AsString().GetHashValue()));
+	
 	// Fix unicode formatting
 	output = ToUnicode(output, CHARSET_UTF8).ToString();
 	
@@ -500,7 +502,7 @@ bool Task::RunOpenAI() {
 void Task::Retry() {
 	input.Clear();
 	output.Clear();
-	skip_load = true;
+	//skip_load = true;
 	failed = false;
 	fatal_error = false;
 	ready = false;

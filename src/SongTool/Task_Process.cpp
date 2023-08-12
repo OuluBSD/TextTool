@@ -1218,8 +1218,12 @@ void Task::Process_AttrScores() {
 		}
 		ASSERT(score_str.Find("combination string") < 0);
 		
-		for (String key : keys)
+		for (String& key : keys) {
+			/*if (key.Find("value 1 -") == 0 || key.Find("value 2 -") == 0) {
+				key = key.Mid(9);
+			}*/
 			parsed.GetAdd(group).GetAdd(key) = ToLower(score_str);
+		}
 	}
 	//DUMPM(parsed);
 	
