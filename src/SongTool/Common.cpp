@@ -115,8 +115,8 @@ String GetSnapString(const SnapArg& a) {
 
 String GetModeString(SnapMode m) {
 	switch (m) {
-		case MALE:				return "Male";
-		case FEMALE:			return "Female";
+		case MALE:				return "True";
+		case FEMALE:			return "False";
 		case COMMON:			return "Common";
 		case WEIGHTED:			return "Weighted";
 		default: return "<error>";

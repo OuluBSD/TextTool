@@ -439,40 +439,42 @@ void TaskMgr::Process() {
 	
 	bool shorten_task_order = false;
 	
-	while (task_i < task_order.GetCount()) {
-		hash_t task_hash0 = task_order[task_i];
-		bool task_ready = false;
-		for(int i = 0; i < tasks.GetCount() && mgr.running && !Thread::IsShutdownThreads(); i++) {
-			Task& t = tasks[i];
-			hash_t task_hash1 = t.GetOrderHash();
-			if (task_hash0 == task_hash1) {
-				if (!t.ready) {
-					ProcessSingle(i);
-					if (t.ready) {
-						task_order_dbg << t.GetInfoInline();
-						actual++;
-						ready++;
-						got_ready++;
-						task_ready = true;
-						// StoreTaskOrder(); // No need to store, because it follows old list
+	if (!task_order_cache_missed) {
+		while (task_i < task_order.GetCount()) {
+			hash_t task_hash0 = task_order[task_i];
+			bool task_ready = false;
+			for(int i = 0; i < tasks.GetCount() && mgr.running && !Thread::IsShutdownThreads(); i++) {
+				Task& t = tasks[i];
+				hash_t task_hash1 = t.GetOrderHash();
+				if (task_hash0 == task_hash1) {
+					if (!t.ready) {
+						ProcessSingle(i);
+						if (t.ready) {
+							task_order_dbg << t.GetInfoInline();
+							actual++;
+							ready++;
+							got_ready++;
+							task_ready = true;
+							// StoreTaskOrder(); // No need to store, because it follows old list
+						}
 					}
+					else
+						task_ready = true; // TODO almost an error, is it?
+					break;
 				}
-				else
-					task_ready = true; // TODO almost an error, is it?
+			}
+			if (task_ready) {
+				task_i++;
+			}
+			else {
+				// Task failed, but it's not necessarily fail of ordered task processing.
+				
+				// Possible reasons:
+				// - task is being spawned in the end of this function
+				// - the AI task input was changed and it caused some new problems.
+				shorten_task_order = true;
 				break;
 			}
-		}
-		if (task_ready) {
-			task_i++;
-		}
-		else {
-			// Task failed, but it's not necessarily fail of ordered task processing.
-			
-			// Possible reasons:
-			// - task is being spawned in the end of this function
-			// - the AI task input was changed and it caused some new problems.
-			shorten_task_order = true;
-			break;
 		}
 	}
 	
@@ -497,12 +499,17 @@ void TaskMgr::Process() {
 					}
 					// CACHE MISS!
 					else {
+						DUMPC(task_order_dbg);
 						task_order.SetCount(task_i); // the failure is certain here.
 						task_order << hash;
+						task_order_cache_missed = true;
 					}
+					shorten_task_order = false;
 				}
-				else
+				else {
 					task_order << hash;
+					//DUMPC(task_order_dbg);
+				}
 				
 				StoreTaskOrder();
 			}
@@ -776,6 +783,7 @@ bool TaskMgr::SpawnTasks() {
 						t.p.CopyPtrs(s->Get0());
 						t.p.a.mode = (SnapMode)mode;
 						t.p.a.ctx = ctx;
+						t.id = ++spawn_id;
 						spawned++;
 						ctx_spawned = true;
 					}

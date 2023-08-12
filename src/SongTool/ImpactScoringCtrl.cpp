@@ -59,26 +59,28 @@ void ImpactScoringCtrl::Realize(Pipe& p) {
 void ImpactScoringCtrl::Data() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
-	if (p.song && p.song->pipe) {
-		Pipe& pipe = *p.song->pipe;
-		PipePtrs& pp = pipe.p;
-		Realize(pipe);
-		//p.song->RealizeImpacts();
-		
-		if (db.ctx.active_wholesong) {
-			for (const SnapArg& a : ModeArgs()) {
-				plotter[a].SetWholeSong(pipe);
-			}
+	if (!p.song) return;
+	Song& song = *p.song;
+	if (!song.pipe) return;
+	
+	Pipe& pipe = *p.song->pipe;
+	PipePtrs& pp = pipe.p;
+	Realize(pipe);
+	//p.song->RealizeImpacts();
+	
+	if (db.ctx.active_wholesong) {
+		for (const SnapArg& a : ModeArgs()) {
+			plotter[a].SetWholeSong(pipe);
 		}
-		else {
-			Part& part = *pp.part;
-			for (const SnapArg& a : ModeArgs()) {
-				plotter[a].SetPart(part);
-			}
-		}
-		
-		DataListAll();
 	}
+	else {
+		Part& part = *pp.part;
+		for (const SnapArg& a : ModeArgs()) {
+			plotter[a].SetPart(part);
+		}
+	}
+	
+	DataListAll();
 	
 }
 

@@ -50,8 +50,10 @@ struct TaskMgr {
 	
 	// Temp
 	Vector<String> task_order_dbg;
+	bool task_order_cache_missed = false;
 	mutable hash_t hash = 0;
 	int iters = 0;
+	int spawn_id = 0;
 	
 	typedef TaskMgr CLASSNAME;
 	

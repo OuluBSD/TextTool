@@ -16,6 +16,7 @@ void ReverseImpactCtrl::Data() {
 	Database& db = Database::Single();
 	if (!db.ctx.ed.song) return;
 	Song& song = *db.ctx.ed.song;
+	if (!song.pipe) return;
 	Pipe& pipe = *song.pipe;
 	
 	pipe.lock.EnterRead();

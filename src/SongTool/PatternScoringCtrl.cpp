@@ -70,7 +70,8 @@ void PatternScoringCtrl::Data() {
 	
 	if (p.song) {
 		Song& song = *p.song;
-		Pipe& pipe = *p.song->pipe;
+		if (!song.pipe) return;
+		Pipe& pipe = *song.pipe;
 		
 		if (db.ctx.active_wholesong) {
 			for (const SnapArg& a : ModeArgs())

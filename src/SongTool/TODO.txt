@@ -1,3 +1,9 @@
+- errors
+	- no whole song values in story arc
+	- single lines missing in weighted impacts
+	- empty snapshots (check again though, might chance)
+
+
 - task hashes
 - task strucutre
 - split too large pattern tasks
@@ -56,4 +62,5 @@ DONE:
 - hide list and show more plotter
 (11.8.2023)
 - hash ordered cache list
-
+(12.8.2023)
+- cache miss fix

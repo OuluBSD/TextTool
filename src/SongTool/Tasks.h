@@ -76,7 +76,8 @@ struct TaskRule;
 
 struct Task {
 	
-private:
+protected:
+	friend class TaskMgr;
 	int created_task_count = 0;
 	int id = 0;
 	mutable hash_t order_hash = 0;

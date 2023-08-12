@@ -56,6 +56,7 @@ void AttrScoreCtrl::Data() {
 	Pipe& pipe = *song.pipe;
 	PipePtrs& pp = pipe.p;
 	Attributes& g = pipe;
+	if (!song.pipe) return;
 	
 	for(int i = 0; i < pipe.score_groups.GetCount(); i++) {
 		AttrScoreGroup& a = pipe.score_groups[i];

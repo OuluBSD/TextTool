@@ -546,5 +546,6 @@ String Task::GetInfoInline() const {
 	String s;
 	s << rule->name;
 	if (id) s << "[" << id << "]";
+	s << " " << IntStr64(GetOrderHash());
 	return s;
 }

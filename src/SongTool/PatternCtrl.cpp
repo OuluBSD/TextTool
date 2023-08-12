@@ -379,6 +379,11 @@ PatternView::PatternView() {
 }
 
 void PatternView::Data() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	Song& song = *p.song;
+	if (!song.pipe) return;
+	
 	DataPatternTree();
 	
 	int tab = tabs.Get();

@@ -29,6 +29,7 @@ void AnalysisCtrl::Data() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	Song& song = *p.song;
+	if (!song.pipe) return;
 	Pipe& pipe = *song.pipe;
 	PipePtrs& pp = pipe.p;
 	Part& part = *pp.part;
