@@ -86,14 +86,18 @@ void Task::Process_StoryArcWeighted() {
 	txt = txt.Mid(c0);
 	
 	
-	txt.Replace("\n\n", "<ACTUAL NEWLINE>");
+	txt.Replace("\n", "\n\n");
+	txt.Replace("\n\n\n", "\n\n");
+	txt.Replace("\n\n", "\n");
+	/*txt.Replace("\n\n", "<ACTUAL NEWLINE>");
 	txt.Replace("\n", " ");
-	txt.Replace("<ACTUAL NEWLINE>", "\n");
+	txt.Replace("<ACTUAL NEWLINE>", "\n");*/
 	
 	txt.Replace("\r", "");
 	Vector<String> lines = Split(txt, "\n");
 	
 	//LOG(txt);
+	//DUMPC(lines);
 	
 	Vector<int> result_i;
 	for(int i = 0; i < lines.GetCount(); i++)
@@ -114,6 +118,11 @@ void Task::Process_StoryArcWeighted() {
 	}
 	
 	SnapArg a(CTX_TEXT, WEIGHTED, FORWARD);
+	
+	if (result_i.GetCount() != input_list.sub.GetCount()) {
+		SetError("input output line count mismatch");
+		return;
+	}
 	
 	for(int i = 0; i < result_i.GetCount(); i++) {
 		int j = result_i[i];
