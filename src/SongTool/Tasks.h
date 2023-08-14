@@ -186,7 +186,7 @@ public:
 	void Process_MakeImpactScoringTasks();
 	void Process_ForwardLyricsWeighted();
 	
-	void Retry();
+	void Retry(bool skip_prompt);
 	String GetDescription() const;
 	String GetTaskDependencyString(bool have_ready_rules, bool rule_names) const;
 	String GetTaskDepsWaitingString() const;

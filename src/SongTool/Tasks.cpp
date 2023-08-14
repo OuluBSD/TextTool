@@ -497,10 +497,12 @@ bool Task::RunOpenAI() {
 	return output.GetCount() > 0;
 }
 
-void Task::Retry() {
-	input.Clear();
-	output.Clear();
-	skip_load = true;
+void Task::Retry(bool skip_prompt) {
+	if (!skip_prompt) {
+		input.Clear();
+		output.Clear();
+	}
+	//skip_load = true;
 	failed = false;
 	fatal_error = false;
 	ready = false;
