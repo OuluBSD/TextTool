@@ -23,6 +23,11 @@
 - visual pipeline before reversing
 
 
+
+- give lyrics in different artist styles
+	- list of popular artists
+
+
 - visual release: list of ...
 	- visual songs: list of ...
 	- visual parts: list of ...

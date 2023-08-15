@@ -87,7 +87,7 @@ public:
 	const TaskRule* rule = 0;
 	
 	Vector<String> args;
-	//String input;	String output;
+	String output;
 	String error;
 	bool skip_load = false;
 	bool ready = false;
