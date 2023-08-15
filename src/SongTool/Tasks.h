@@ -77,17 +77,17 @@ struct TaskRule;
 struct Task {
 	
 protected:
-	friend class TaskMgr;
+	friend struct TaskMgr;
 	int created_task_count = 0;
 	int id = 0;
 	mutable hash_t order_hash = 0;
 	
 public:
+
 	const TaskRule* rule = 0;
 	
 	Vector<String> args;
-	//String input;
-	String output;
+	//String input;	String output;
 	String error;
 	bool skip_load = false;
 	bool ready = false;
@@ -186,7 +186,7 @@ public:
 	void Process_MakeImpactScoringTasks();
 	void Process_ForwardLyricsWeighted();
 	
-	void Retry();
+	void Retry(bool skip_prompt);
 	String GetDescription() const;
 	String GetTaskDependencyString(bool have_ready_rules, bool rule_names) const;
 	String GetTaskDepsWaitingString() const;

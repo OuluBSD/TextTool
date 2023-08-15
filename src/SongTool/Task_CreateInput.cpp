@@ -114,7 +114,7 @@ void Task::CreateInput_StoryArcWeighted() {
 				line.Add("Description A of X", storyline0);
 				line.Add("Description B of X", storyline1);
 				line.Arg(key);
-				line.Context(static_cast<SnapContext*>(&pipe));
+				line.Context(static_cast<SnapContext*>(&part));
 				item++;
 			}
 		}
