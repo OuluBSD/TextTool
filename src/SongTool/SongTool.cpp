@@ -81,7 +81,19 @@ GUI_APP_MAIN {
 	
 	// Run main program
 	{
-		SongTool().Run();
+		SongTool t;
+		
+		bool advanced = false;
+		for (const String& arg : CommandLine())
+			if (arg == "-a")
+				advanced = true;
+		
+		if (advanced)
+			t.GetEditor().InitAdvanced();
+		else
+			t.GetEditor().InitSimplified();
+		
+		t.Run();
 	}
 	
 	

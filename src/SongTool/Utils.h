@@ -1,6 +1,15 @@
 #ifndef _SongTool_Utils_h_
 #define _SongTool_Utils_h_
 
+
+class SongToolCtrl : public Ctrl {
+	
+	
+public:
+	virtual ~SongToolCtrl() {}
+	virtual void Data() = 0;
+};
+
 struct PatternSnap;
 
 bool HasSnapGroupString(PatternSnap& snap, int group);

@@ -23,7 +23,7 @@ public:
 };
 
 
-class StructureCtrl : public Ctrl {
+class StructureCtrl : public SongToolCtrl {
 	WithStructure<Ctrl>	import_str;
 	Splitter			hsplit, vsplit0, vsplit1;
 	ArrayCtrl			part_list, line_list, break_list;

@@ -4,6 +4,13 @@
 	- empty snapshots (check again though, might chance)
 
 
+
+
+- structural pipeline
+	- find existing structurally matching example, when converting structure to lyrics
+		- don't use just any conversion example for ai
+
+
 - task hashes
 - task strucutre
 - split too large pattern tasks

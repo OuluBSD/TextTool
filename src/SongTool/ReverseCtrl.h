@@ -30,7 +30,7 @@ public:
 };
 
 
-class ReverseCtrl : public Ctrl {
+class ReverseCtrl : public SongToolCtrl {
 	//Array<ReverseTask> tasks;
 	
 	Splitter mainsplit, hsplit, vsplit;

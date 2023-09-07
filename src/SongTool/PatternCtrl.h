@@ -50,7 +50,7 @@ public:
 	
 };
 
-class PatternView : public Ctrl {
+class PatternView : public SongToolCtrl {
 	Splitter hsplit;
 	TreeCtrl tree;
 	TabCtrl tabs;

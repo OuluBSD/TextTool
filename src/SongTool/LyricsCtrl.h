@@ -2,7 +2,7 @@
 #define _SongTool_LyricsCtrl_h_
 
 
-class LyricsCtrl : public Ctrl {
+class LyricsCtrl : public SongToolCtrl {
 	
 	
 public:

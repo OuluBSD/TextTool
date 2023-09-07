@@ -16,7 +16,7 @@ public:
 };
 
 
-class ReverseImpactCtrl : public Ctrl {
+class ReverseImpactCtrl : public SongToolCtrl {
 	Splitter				split;
 	ArrayCtrl				list;
 	ReverseImpactPlotter	plotter;

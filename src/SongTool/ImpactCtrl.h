@@ -2,7 +2,7 @@
 #define _SongTool_ImpactCtrl_h_
 
 
-class ImpactCtrl : public Ctrl {
+class ImpactCtrl : public SongToolCtrl {
 	Splitter vsplit;
 	MArr<ArrayCtrl> list;
 	

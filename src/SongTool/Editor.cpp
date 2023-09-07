@@ -19,32 +19,6 @@ Editor::Editor() {
 	tablist.AddColumn("");
 	tablist.AddColumn("");
 	tablist.ColumnWidths("1 3");
-	tablist.Add(t_("All"), t_("Info"));
-	tablist.Add(t_("All"), t_("Attributes"));
-	tablist.Add(t_("Release"), t_("Recruitment"));
-	tablist.Add(t_("Release"), t_("Social media campaign"));
-	tablist.Add(t_("Release"), t_("Calendar"));
-	tablist.Add(t_("Release"), t_("Tasks"));
-	tablist.Add(t_("Song"), t_("Importer"));
-	tablist.Add(t_("Song"), t_("Structure"));
-	tablist.Add(t_("Song"), t_("Analysis"));
-	tablist.Add(t_("Song"), t_("Story"));
-	tablist.Add(t_("Song"), t_("Impact"));
-	tablist.Add(t_("Song"), t_("Pattern mask"));
-	tablist.Add(t_("Song"), t_("Pattern"));
-	tablist.Add(t_("Song"), t_("Attribute scoring"));
-	tablist.Add(t_("Song"), t_("Impact scoring"));
-	tablist.Add(t_("Song"), t_("Pattern mask scoring"));
-	tablist.Add(t_("Song"), t_("Pattern scoring"));
-	tablist.Add(t_("Song"), t_("Reverse: make impacts"));
-	tablist.Add(t_("Song"), t_("Reverse: make common mask"));
-	tablist.Add(t_("Song"), t_("Reverse: make separate mask"));
-	tablist.Add(t_("Song"), t_("Reverse: make pattern"));
-	tablist.Add(t_("Song"), t_("Reversed Pattern"));
-	tablist.Add(t_("Song"), t_("Reverse: make lyrics"));
-	tablist.Add(t_("Song"), t_("Composition"));
-	tablist.Add(t_("Song"), t_("Production"));
-	tablist.Add(t_("Song"), t_("Rhymes"));
 	tablist.SetCursor(0);
 	
 	artists.AddColumn(t_("Artist"));
@@ -67,33 +41,6 @@ Editor::Editor() {
 	
 	info.editor = this;
 	
-	base.Add(info.SizePos());
-	base.Add(attr.SizePos());
-	base.Add(recru.SizePos());
-	base.Add(social.SizePos());
-	base.Add(cal.SizePos());
-	base.Add(task.SizePos());
-	base.Add(importer.SizePos());
-	base.Add(patmask.SizePos());
-	base.Add(pattern.SizePos());
-	base.Add(attrscore.SizePos());
-	base.Add(scoring.SizePos());
-	base.Add(composition.SizePos());
-	base.Add(analysis.SizePos());
-	base.Add(impact.SizePos());
-	base.Add(production.SizePos());
-	base.Add(rhymes.SizePos());
-	base.Add(reverse[0].SizePos());
-	base.Add(reverse[1].SizePos());
-	base.Add(reverse[2].SizePos());
-	base.Add(lyrics.SizePos());
-	base.Add(reverse_impact.SizePos());
-	base.Add(rev_pattern.SizePos());
-	base.Add(story.SizePos());
-	base.Add(structure.SizePos());
-	base.Add(impact_scoring.SizePos());
-	base.Add(mask_scoring.SizePos());
-	
 	for(int i = 0; i < 3; i++)
 		reverse[i].SetSource(i);
 	
@@ -102,106 +49,80 @@ Editor::Editor() {
 	PostCallback(THISBACK(Data)); // sets active artist, song, etc.
 }
 
+void Editor::AddItem(String g, String i, SongToolCtrl& c) {
+	ListItem& it = items.Add();
+	it.group = g;
+	it.item = i;
+	it.ctrl = &c;
+}
+
+void Editor::InitListItems() {
+	for (const ListItem& it : items) {
+		tablist.Add(it.group, it.item);
+		base.Add(it.ctrl->SizePos());
+	}
+}
+
+void Editor::InitSimplified() {
+	
+	
+	InitListItems();
+}
+
+void Editor::InitAdvanced() {
+	AddItem(t_("All"), t_("Info"), info);
+	AddItem(t_("All"), t_("Attributes"), attr);
+	AddItem(t_("Release"), t_("Recruitment"), recru);
+	AddItem(t_("Release"), t_("Social media campaign"), social);
+	AddItem(t_("Release"), t_("Calendar"), cal);
+	AddItem(t_("Release"), t_("Tasks"), task);
+	AddItem(t_("Song"), t_("Importer"), importer);
+	AddItem(t_("Song"), t_("Structure"), structure);
+	AddItem(t_("Song"), t_("Analysis"), analysis);
+	AddItem(t_("Song"), t_("Story"), story);
+	AddItem(t_("Song"), t_("Impact"), impact);
+	AddItem(t_("Song"), t_("Pattern mask"), patmask);
+	AddItem(t_("Song"), t_("Pattern"), pattern);
+	AddItem(t_("Song"), t_("Attribute scoring"), attrscore);
+	AddItem(t_("Song"), t_("Impact scoring"), impact_scoring);
+	AddItem(t_("Song"), t_("Pattern mask scoring"), mask_scoring);
+	AddItem(t_("Song"), t_("Pattern scoring"), scoring);
+	AddItem(t_("Song"), t_("Reverse: make impacts"), reverse_impact);
+	AddItem(t_("Song"), t_("Reverse: make common mask"), reverse[0]);
+	AddItem(t_("Song"), t_("Reverse: make separate mask"), reverse[1]);
+	AddItem(t_("Song"), t_("Reverse: make pattern"), reverse[2]);
+	AddItem(t_("Song"), t_("Reversed Pattern"), rev_pattern);
+	AddItem(t_("Song"), t_("Reverse: make lyrics"), lyrics);
+	AddItem(t_("Song"), t_("Composition"), composition);
+	AddItem(t_("Song"), t_("Production"), production);
+	AddItem(t_("Song"), t_("Rhymes"), rhymes);
+	
+	InitListItems();
+}
+
 void Editor::Init() {
 	tablist.SetCursor(page);
 	SetView(page);
 }
 
 void Editor::SetView(int i) {
-	info.Hide();
-	attr.Hide();
-	recru.Hide();
-	social.Hide();
-	cal.Hide();
-	task.Hide();
-	importer.Hide();
-	patmask.Hide();
-	pattern.Hide();
-	attrscore.Hide();
-	scoring.Hide();
-	reverse[0].Hide();
-	reverse[1].Hide();
-	reverse[2].Hide();
-	reverse_impact.Hide();
-	rev_pattern.Hide();
-	composition.Hide();
-	analysis.Hide();
-	production.Hide();
-	rhymes.Hide();
-	impact.Hide();
-	story.Hide();
-	structure.Hide();
-	impact_scoring.Hide();
-	mask_scoring.Hide();
-	lyrics.Hide();
+	for (const ListItem& it : items)
+		it.ctrl->Hide();
 	
 	parts.Enable();
 	
 	WhenStopUpdating();
 	
-	switch (i) {
-		default: i = 0;
-		case 0: info.Show(); break;
-		case 1: attr.Show(); break;
-		case 2: recru.Show(); break;
-		case 3: social.Show(); break;
-		case 4: cal.Show(); break;
-		case 5: task.Show(); break;
-		case 6: importer.Show(); break;
-		case 7: structure.Show(); break;
-		case 8: analysis.Show(); break;
-		case 9: story.Show(); break;
-		case 10: impact.Show(); break;
-		case 11: patmask.Show(); break;
-		case 12: parts.Disable(); pattern.Show(); break;
-		case 13: attrscore.Show(); break;
-		case 14: impact_scoring.Show(); break;
-		case 15: mask_scoring.Show(); break;
-		case 16: scoring.Show(); break;
-		case 17: WhenStartUpdating(); reverse_impact.Show(); break;
-		case 18: WhenStartUpdating(); reverse[0].Show(); break;
-		case 19: WhenStartUpdating(); reverse[1].Show(); break;
-		case 20: WhenStartUpdating(); reverse[2].Show(); break;
-		case 21: rev_pattern.Show(); break;
-		case 22: lyrics.Show(); break;
-		case 23: composition.Show(); break;
-		case 24: production.Show(); break;
-		case 25: rhymes.Show(); break;
-	}
+	if (i >= 0 && i < items.GetCount())
+		items[i].ctrl->Show();
+	
 	page = i;
 	DataPage();
 }
 
 void Editor::DataPage() {
-	switch (page) {
-		case 0: info.Data(); break;
-		case 1: attr.Data(); break;
-		case 2: recru.Data(); break;
-		case 3: social.Data(); break;
-		case 4: cal.Data(); break;
-		case 5: task.Data(); break;
-		case 6: importer.Data(); break;
-		case 7: structure.Data(); break;
-		case 8: analysis.Data(); break;
-		case 9: story.Data(); break;
-		case 10: impact.Data(); break;
-		case 11: patmask.Data(); break;
-		case 12: pattern.Data(); break;
-		case 13: attrscore.Data(); break;
-		case 14: impact_scoring.Data(); break;
-		case 15: mask_scoring.Data(); break;
-		case 16: scoring.Data(); break;
-		case 17: reverse_impact.Data(); break;
-		case 18: reverse[0].Data(); break;
-		case 19: reverse[1].Data(); break;
-		case 20: reverse[2].Data(); break;
-		case 21: rev_pattern.Data(); break;
-		case 22: lyrics.Data(); break;
-		case 23: composition.Data(); break;
-		case 24: production.Data(); break;
-		case 25: rhymes.Data(); break;
-		default: break;
-	}
+	if (page >= 0 && page < items.GetCount())
+		items[page].ctrl->Data();
 }
 
 void Editor::UpdateView() {

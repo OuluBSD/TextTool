@@ -2,7 +2,7 @@
 #define _SongTool_RecruimentCtrl_h_
 
 
-class RecruimentCtrl : public Ctrl {
+class RecruimentCtrl : public SongToolCtrl {
 	
 	
 public:

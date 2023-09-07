@@ -2,7 +2,7 @@
 #define _SongTool_AttrDataCtrl_h_
 
 
-class AttrDataCtrl : public Ctrl {
+class AttrDataCtrl : public SongToolCtrl {
 	Splitter split;
 	ArrayCtrl groups, items;
 	

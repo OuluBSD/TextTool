@@ -4,13 +4,20 @@
 
 
 class SongTool : public TopWindow {
-	MenuBar			menu;
-	FrontPage		fp;
-	CalendarPage	cal;
-	Editor			ed;
-	SeqCtrl			seq;
-	Tasks			ai;
-	TimeCallback	tc;
+	typedef enum {
+		MODE_INVALID,
+		MODE_SIMPLIFIED,
+		MODE_ADVANCED,
+	} AppMode;
+	
+	MenuBar				menu;
+	FrontPage			fp;
+	CalendarPage		cal;
+	Editor				ed;
+	SeqCtrl				seq;
+	Tasks				ai;
+	TimeCallback		tc;
+	AppMode				mode = MODE_INVALID;
 	
 	int page = 0;
 	Rect last_window;
@@ -35,6 +42,9 @@ public:
 	void MakeTasks();
 	void SaveWindowPos();
 	void LoadWindowPos();
+	
+	Editor& GetEditor() {return ed;}
+	
 };
 
 

@@ -2,7 +2,7 @@
 #define _SongTool_AttrScoreCtrl_h_
 
 
-class AttrScoreCtrl : public WithAttrScore<Ctrl> {
+class AttrScoreCtrl : public WithAttrScore<SongToolCtrl> {
 	ArrayCtrl attrscores, entries;
 	ArrayCtrl src_entrygroups, src_entries;
 	DocEdit scoregroup_data;

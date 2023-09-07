@@ -2,7 +2,7 @@
 #define _SongTool_TaskMgrCtrl_h_
 
 
-class TaskMgrCtrl : public Ctrl {
+class TaskMgrCtrl : public SongToolCtrl {
 	
 	
 public:

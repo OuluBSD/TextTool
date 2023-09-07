@@ -2,7 +2,7 @@
 #define _SongTool_SocialCtrl_h_
 
 
-class SocialCtrl : public Ctrl {
+class SocialCtrl : public SongToolCtrl {
 	
 	
 public:

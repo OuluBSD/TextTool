@@ -3,7 +3,7 @@
 
 class Editor;
 
-class BasicInfoCtrl : public WithInfo<Ctrl> {
+class BasicInfoCtrl : public WithInfo<SongToolCtrl> {
 	
 	
 public:

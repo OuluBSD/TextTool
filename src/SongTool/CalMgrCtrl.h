@@ -2,7 +2,7 @@
 #define _SongTool_CalMgrCtrl_h_
 
 
-class CalMgrCtrl : public Ctrl {
+class CalMgrCtrl : public SongToolCtrl {
 	
 	
 public:

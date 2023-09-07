@@ -2,7 +2,7 @@
 #define _SongTool_StoryCtrl_h_
 
 
-class StoryCtrl : public Ctrl {
+class StoryCtrl : public SongToolCtrl {
 	Splitter vsplit;
 	MArr<ArrayCtrl> list;
 	

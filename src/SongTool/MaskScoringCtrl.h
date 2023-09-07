@@ -2,7 +2,7 @@
 #define _SongTool_MaskScoringCtrl_h_
 
 
-class MaskScoringCtrl : public Ctrl {
+class MaskScoringCtrl : public SongToolCtrl {
 	MArr<Plotter> plotter;
 	MArr<ArrayCtrl> list;
 	MArr<Splitter> vsplit;

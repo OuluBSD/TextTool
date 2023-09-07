@@ -2,7 +2,7 @@
 #define _SongTool_ImpactScoringCtrl_h_
 
 
-class ImpactScoringCtrl : public Ctrl {
+class ImpactScoringCtrl : public SongToolCtrl {
 	MArr<Plotter> plotter;
 	MArr<One<ArrayCtrl>> list;
 	MArr<Splitter> vsplit;

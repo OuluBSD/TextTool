@@ -2,7 +2,7 @@
 #define _SongTool_CompositionCtrl_h_
 
 
-class CompositionCtrl : public WithComposition<Ctrl> {
+class CompositionCtrl : public WithComposition<SongToolCtrl> {
 	
 	
 public:

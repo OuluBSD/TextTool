@@ -2,7 +2,7 @@
 #define _SongTool_PatternScoringCtrl_h_
 
 
-class PatternScoringCtrl : public Ctrl {
+class PatternScoringCtrl : public SongToolCtrl {
 	MArr<Plotter> plotter;
 	MArr<ArrayCtrl> list;
 	MArr<Splitter> vsplit;

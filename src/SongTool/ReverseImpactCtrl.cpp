@@ -55,7 +55,7 @@ void ReverseImpactPlotter::Paint(Draw& d) {
 	d.DrawRect(sz, White());
 	
 	Database& db = Database::Single();
-	if (!db.ctx.ed.song) return;
+	if (!db.ctx.ed.song || !db.ctx.ed.song->pipe) return;
 	Song& song = *db.ctx.ed.song;
 	Pipe& pipe = *song.pipe;
 	

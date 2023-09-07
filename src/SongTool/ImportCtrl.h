@@ -2,7 +2,7 @@
 #define _SongTool_ImportCtrl_h_
 
 
-class ImportCtrl : public WithImport<Ctrl> {
+class ImportCtrl : public WithImport<SongToolCtrl> {
 	DocEdit input[HUMAN_INPUT_MODE_COUNT];
 	Splitter hsplit;
 	ArrayCtrl messages;

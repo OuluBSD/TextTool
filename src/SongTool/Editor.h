@@ -4,6 +4,16 @@
 
 class Editor : public Ctrl {
 	
+private:
+	struct ListItem : Moveable<ListItem> {
+		String group, item;
+		SongToolCtrl* ctrl = 0;
+	};
+	Vector<ListItem> items;
+	
+	void AddItem(String g, String i, SongToolCtrl& c);
+	void InitListItems();
+	
 protected:
 	friend class BasicInfoCtrl;
 	friend class SongTool;
@@ -13,6 +23,9 @@ protected:
 	Ctrl				base;
 	int					page = 0;
 	
+	// Simplified
+	
+	// Advanced
 	BasicInfoCtrl		info;
 	AttrDataCtrl		attr;
 	RecruimentCtrl		recru;
@@ -67,6 +80,9 @@ public:
 	void AddSong();
 	void RenameSong();
 	void RemoveSong();
+	
+	void InitSimplified();
+	void InitAdvanced();
 	
 	Callback WhenStartUpdating, WhenStopUpdating;
 	
