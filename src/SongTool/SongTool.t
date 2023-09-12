@@ -12,8 +12,11 @@ fiFI("OpenAI avainkoodi")
 T_("Artist")
 fiFI("Artisti")
 
-T_("Name:")
-fiFI("Nimi:")
+T_("Native Name:")
+fiFI("Alkuper\303\244inen nimi:")
+
+T_("English Name:")
+fiFI("Englantilainen nimi:")
 
 T_("Year of birth:")
 fiFI("Syntym\303\244vuosi:")
@@ -42,8 +45,11 @@ fiFI("Vokalisti visuaalisesti:")
 T_("Album")
 fiFI("Albumi")
 
-T_("Title:")
-fiFI("Otsikko:")
+T_("Native Title:")
+fiFI("Alkuper\303\244inen otsikko:")
+
+T_("English Title:")
+fiFI("Englantilainen otsikko:")
 
 T_("Date:")
 fiFI("P\303\244iv\303\244m\303\244\303\244r\303\244:")
@@ -61,7 +67,7 @@ T_("Import from lyrics with AI")
 fiFI("Tuo lyriikat teko\303\244lyll\303\244")
 
 T_("Import")
-fiFI("")
+fiFI("Tuo")
 
 T_("Add group for entries with the same score")
 fiFI("Lis\303\244\303\244 ryhm\303\244 merkinn\303\266ille, joilla on sama pistem\303\244\303\244r\303\244")
@@ -137,7 +143,7 @@ T_("Import from music composition")
 fiFI("Tuo s\303\244vellyksest\303\244")
 
 T_("Mode")
-fiFI("")
+fiFI("Moodi")
 
 T_("Reload")
 fiFI("Lataa uudelleen")
@@ -173,7 +179,7 @@ T_("View AI Tasks")
 fiFI("Katso teko\303\244ly-teht\303\244vi\303\244")
 
 T_("View Sequencer")
-fiFI("")
+fiFI("N\303\244yt\303\244 sekvensseri")
 
 T_("Tools")
 fiFI("Ty\303\266kalut")
@@ -212,58 +218,58 @@ T_("Info")
 fiFI("Info")
 
 T_("Briefing")
-fiFI("")
+fiFI("Tiedotus")
 
 T_("Ideas")
-fiFI("")
+fiFI("Ideat")
 
 T_("Checklist")
-fiFI("")
+fiFI("Tarkistuslista")
 
 T_("Text Structure")
-fiFI("")
+fiFI("Tekstin rakenne")
 
 T_("Create Translation, Native To English")
-fiFI("")
+fiFI("Luo englanninkielinen k\303\244\303\244nn\303\266s")
 
 T_("Create From English")
-fiFI("")
+fiFI("Luo englanninkielisest\303\244")
 
 T_("Edit")
-fiFI("")
+fiFI("Muokkaa")
 
 T_("To Text")
-fiFI("")
+fiFI("Vie tekstiksi")
 
 T_("Text")
-fiFI("")
+fiFI("Teksti")
 
 T_("Edit Native")
-fiFI("")
+fiFI("Muokkaa alkuper\303\244ist\303\244")
 
 T_("Edit English")
-fiFI("")
+fiFI("Muokkaa englantilaista")
 
 T_("Production")
 fiFI("Tuotanto")
 
 T_("Music Video Structure")
-fiFI("")
+fiFI("Musiikkivideon rakenne")
 
 T_("Create From Existing")
-fiFI("")
+fiFI("Luo olemassa olevasta")
 
 T_("To Plan")
-fiFI("")
+fiFI("Vie suunnitelmaksi")
 
 T_("Music Video Production")
-fiFI("")
+fiFI("Musiikkivideon tuotanto")
 
 T_("Cover Image")
-fiFI("")
+fiFI("Kansikuva")
 
 T_("Pitching")
-fiFI("")
+fiFI("Myyntipuhe")
 
 T_("Release")
 fiFI("Julkaisu")
@@ -284,7 +290,7 @@ T_("Importer")
 fiFI("Tuonti")
 
 T_("Structure")
-fiFI("")
+fiFI("Rakenne")
 
 T_("Analysis")
 fiFI("Analyysi")
@@ -293,7 +299,7 @@ T_("Story")
 fiFI("Kertomus")
 
 T_("Impact")
-fiFI("")
+fiFI("Vaikutus")
 
 T_("Pattern mask")
 fiFI("Kaaviomaski")
@@ -305,31 +311,31 @@ T_("Attribute scoring")
 fiFI("Ominaisuuksien pisteytys")
 
 T_("Impact scoring")
-fiFI("")
+fiFI("Vaikutuksen pisteytys")
 
 T_("Pattern mask scoring")
-fiFI("")
+fiFI("Kaaviomaskin pisteytys")
 
 T_("Pattern scoring")
-fiFI("")
+fiFI("Kaavion pisteytys")
 
 T_("Reverse: make impacts")
-fiFI("")
+fiFI("K\303\244\303\244nteinen: luo vaikutukset")
 
 T_("Reverse: make common mask")
-fiFI("")
+fiFI("K\303\244\303\244nteinen: luo yhteinen maski")
 
 T_("Reverse: make separate mask")
-fiFI("")
+fiFI("K\303\244\303\244nteinen: luo erillinen maski")
 
 T_("Reverse: make pattern")
-fiFI("")
+fiFI("K\303\244\303\244nteinen: luo kaavio")
 
 T_("Reversed Pattern")
-fiFI("")
+fiFI("K\303\244\303\244nteinen kaavio")
 
 T_("Reverse: make lyrics")
-fiFI("")
+fiFI("K\303\244\303\244nteinen: luo lyriikat")
 
 T_("Rhymes")
 fiFI("Riimit")
@@ -364,20 +370,20 @@ fiFI("Uudelleennime\303\244 laulu")
 T_("Delete Song")
 fiFI("Poista laulu")
 
-T_("Artist's name")
-fiFI("Artistin nimi")
+T_("Artist's English name")
+fiFI("Artistin englantilainen nimi")
 
 T_("Artist exist already")
 fiFI("Artisti on jo olemassa")
 
-T_("Release's title")
-fiFI("Julkaisun nimi")
+T_("Release's English title")
+fiFI("Julkaisun englantilainen otsikko")
 
 T_("Release exist already")
 fiFI("Julkaisu on jo olemassa")
 
-T_("Song's title")
-fiFI("Laulun nimi")
+T_("Song's English title")
+fiFI("Laulun englantilainen otsikko")
 
 T_("Song exist already")
 fiFI("Laulu on jo olemassa")
@@ -389,25 +395,25 @@ T_("Idle")
 fiFI("Tyhj\303\244k\303\244ynti")
 
 T_("#")
-fiFI("")
+fiFI("No.")
 
 T_("Description")
 fiFI("Selitys")
 
 T_("Depends on")
-fiFI("")
+fiFI("Riippuu seuraavasta")
 
 T_("Dep rules")
-fiFI("")
+fiFI("Riippuvuus-s\303\244\303\244nn\303\266t")
 
 T_("Deps waiting")
-fiFI("")
+fiFI("Riippuvuudet odottamassa")
 
 T_("Status")
 fiFI("Tilanne")
 
 T_("Context")
-fiFI("")
+fiFI("Konteksti")
 
 T_("Reverse")
 fiFI("K\303\244\303\244nteinen")
@@ -422,10 +428,10 @@ T_("Ready")
 fiFI("Valmis")
 
 T_("Waiting dependencies")
-fiFI("")
+fiFI("Odottaa riippuvuuksia")
 
 T_("tries")
-fiFI("")
+fiFI("yrityksi\303\244")
 
 T_("Process output")
 fiFI("Prosessoi ulostulo-teksti")
@@ -434,7 +440,7 @@ T_("Retry")
 fiFI("Yrit\303\244 uudelleen")
 
 T_("Retry cached prompt")
-fiFI("")
+fiFI("Yrit\303\244 uudelleen v\303\244limuistissa oleva kehote")
 
 
 // Simplified.lay
@@ -443,120 +449,192 @@ T_("Value")
 fiFI("Arvo")
 
 T_("Key:")
-fiFI("")
+fiFI("Avain:")
 
 T_("Description:")
-fiFI("")
+fiFI("Selitys:")
 
 T_("Value:")
-fiFI("")
+fiFI("Arvo:")
+
+T_("Idea")
+fiFI("Idea")
+
+T_("Title:")
+fiFI("Otsikko:")
+
+T_("Target song:")
+fiFI("Konde kappale:")
+
+T_("Reference song:")
+fiFI("Viitekappale:")
 
 
 // AlbumBriefing.h
 
 T_("General History")
-fiFI("")
+fiFI("Yleinen historia")
 
 T_("Common factors in the history of songs")
-fiFI("")
+fiFI("Yhteisi\303\244 tekij\303\266it\303\244 laulujen historiassa")
 
 T_("Life in the beginning")
-fiFI("")
+fiFI("El\303\244m\303\244 alussa")
 
 T_("Life of the author in the beginning of the album timeline")
-fiFI("")
+fiFI("Kirjoittajan el\303\244m\303\244 albumin aikajanan alussa")
 
 T_("Life in the end")
-fiFI("")
+fiFI("El\303\244m\303\244 lopussa")
 
 T_("Life of the author in the end of the album timeline")
-fiFI("")
+fiFI("Kirjoittajan el\303\244m\303\244 albumin aikajanan lopussa")
 
 T_("Limitations of the beginning")
-fiFI("")
+fiFI("Alkuajan rajoitukset")
 
 T_("Significant events that happened immediately before all songs in this "
      "album")
-fiFI("")
+fiFI("Merkitt\303\244vi\303\244 tapahtumia, jotka tapahtuivat juuri ennen kaikkia t\303\244m\303\244n albumin kappaleita")
 
 T_("Limitations of the end")
-fiFI("")
+fiFI("Lopun rajoitukset")
 
 T_("Significant events that happened immediately after all songs in this album")
-fiFI("")
+fiFI("Merkitt\303\244vi\303\244 tapahtumia, jotka tapahtuivat v\303\244litt\303\266m\303\244sti kaikkien t\303\244m\303\244n albumin kappaleiden j\303\244lkeen")
 
 T_("School of the Author")
-fiFI("")
+fiFI("Tekij\303\244n koulu")
 
 T_("Where did the author go to school and what was it like there?")
-fiFI("")
+fiFI("Miss\303\244 tekij\303\244 k\303\244vi koulua ja millaista siell\303\244 oli?")
 
 T_("Relationships of the Author")
-fiFI("")
+fiFI("Tekij\303\244n suhteet")
 
 T_("What kind of dating relationships did the author have?")
-fiFI("")
+fiFI("Millaisia deittailusuhteita tekij\303\244ll\303\244 oli?")
 
 T_("Nerdiness of the Author")
-fiFI("")
+fiFI("Tekij\303\244n n\303\266rttim\303\244isyys")
 
 T_("What did the author do on the computer in general?")
-fiFI("")
+fiFI("Mit\303\244 tekij\303\244 ylip\303\244\303\244t\303\244\303\244n teki tietokoneella?")
 
 T_("Music Production of the Author")
-fiFI("")
+fiFI("Tekij\303\244n musiikkituotanto")
 
 T_("How did the author contribute to his/her career as a music producer?")
-fiFI("")
+fiFI("Miten tekij\303\244 vaikutti uraansa musiikkituottajana?")
 
 T_("Physical Exercise of the Author")
-fiFI("")
+fiFI("Tekij\303\244n fyysinen harjoitus")
 
 T_("How did the author maintain his/her physical condition?")
-fiFI("")
+fiFI("Miten tekij\303\244 s\303\244ilytti fyysisen kuntonsa?")
 
 T_("Art of the Author")
-fiFI("")
+fiFI("Tekij\303\244n taide")
 
 T_("What kind of art did the artist make?")
-fiFI("")
+fiFI("Millaista taidetta tekij\303\244 teki?")
 
 T_("Family of the Author")
-fiFI("")
+fiFI("Tekij\303\244n perhe")
 
 T_("What kind of family did the author live in or what important family members "
      "did he/she have?")
-fiFI("")
+fiFI("Millaisessa perheess\303\244 tekij\303\244 asui tai mit\303\244 t\303\244rkeit\303\244 perheenj\303\244seni\303\244 h\303\244nell\303\244 oli?")
 
 T_("Positive Headspace of the Author")
-fiFI("")
+fiFI("Tekij\303\244n positiivinen ajatusmaailma")
 
 T_("In what way did the author express his/her positivity in the text?")
-fiFI("")
+fiFI("Mill\303\244 tavalla tekij\303\244 ilmaisi positiivisuutensa tekstiss\303\244?")
 
 T_("Negative Headspace of the Author")
-fiFI("")
+fiFI("Tekij\303\244n negatiivinen ajatusmaailma")
 
 T_("In what way did the author express his/her negativity in the text?")
-fiFI("")
+fiFI("Mill\303\244 tavalla tekij\303\244 ilmaisi negatiivisuutensa tekstiss\303\244?")
 
 T_("Composition Theme")
-fiFI("")
+fiFI("S\303\244vellyksen teema")
 
 T_("Common musical style of songs")
-fiFI("")
+fiFI("Laulujen yleinen musiikkityyli")
 
 T_("Lyrical Theme")
-fiFI("")
+fiFI("Lyyrinen teema")
 
 T_("Common lyrical style of songs")
-fiFI("")
+fiFI("Laulujen yleinen lyyrinen tyyli")
 
 T_("Production Theme")
-fiFI("")
+fiFI("Tuotannon teema")
 
 T_("Common genre and production limitations and features of songs")
-fiFI("")
+fiFI("Kappaleiden yleiset genre- ja tuotantorajoitukset ja ominaisuudet")
+
+
+// AlbumIdeas.cpp
+
+T_("Add Idea")
+fiFI("Lis\303\244\303\244 idea")
+
+T_("Remove Idea")
+fiFI("Poista idea")
+
+T_("Idea's title")
+fiFI("Idean otsikko")
+
+T_("Idea with that title exist already")
+fiFI("Tuollainen idea on jo olemassa")
+
+
+// ChecklistComposition.h
+
+T_("chord pad")
+fiFI("sointu pad")
+
+T_("vocal melody")
+fiFI("laulun melodia")
+
+T_("mid solo (instrumental theme)")
+fiFI("keski-soolo (instrumentaali-osion teema)")
+
+T_("high solo (e.g. bridge climax solo)")
+fiFI("yl\303\244-soolo (esim. bridgen kliimaksi soolo)")
+
+T_("mid fills (e.g. between singing)")
+fiFI("keski-t\303\244ydennys (esim. laulujen v\303\244liss\303\244)")
+
+T_("high rhythm (e.g. high muted guitar)")
+fiFI("yl\303\244-rytmi (esim. korkeat dempatut kitarat)")
+
+T_("mid rhythm (low guitar, e.g. strumming)")
+fiFI("keski-rytmi (matala kitara, esim. r\303\244mpytys)")
+
+T_("low rhythm (bass)")
+fiFI("ala-rytmi (basso-kitara)")
+
+T_("low solo (bass solo)")
+fiFI("ala-soolo (basso-kitaran soolo)")
+
+T_("impacts")
+fiFI("iskut")
+
+T_("texture pad (arp)")
+fiFI("tekstuuri-padi (arpeggiaatti)")
+
+T_("drums")
+fiFI("rummut")
+
+T_("hand drums")
+fiFI("k\303\244sirummut")
+
+T_("drumkit")
+fiFI("rumpusetti")
 
 
 // AttrDataCtrl.cpp
@@ -577,31 +655,31 @@ T_("Line")
 fiFI("Laini")
 
 T_("Severity")
-fiFI("")
+fiFI("Vakavuus")
 
 T_("Message")
-fiFI("")
+fiFI("Viesti")
 
 
 // StructureCtrl.cpp
 
 T_("Part name")
-fiFI("")
+fiFI("Osan nimi")
 
 T_("Length")
-fiFI("")
+fiFI("Pituus")
 
 T_("Line text")
-fiFI("")
+fiFI("Rivin teksti")
 
 T_("Break text")
-fiFI("")
+fiFI("Palan teksti")
 
 T_("Source")
-fiFI("")
+fiFI("L\303\244hde")
 
 T_("Break")
-fiFI("")
+fiFI("Pala")
 
 
 // ImpactCtrl.cpp
@@ -721,10 +799,10 @@ T_("weighted accumulated value")
 fiFI("painotettu kertynyt arvo")
 
 T_("gender difference value")
-fiFI("")
+fiFI("sukupuolieron arvo")
 
 T_("weighted gender difference value")
-fiFI("")
+fiFI("painotettu sukupuolieron arvo")
 
 
 // ReverseImpactCtrl.cpp
@@ -745,13 +823,13 @@ T_("Progress")
 fiFI("Edistyminen")
 
 T_("Male Attributes")
-fiFI("")
+fiFI("Miesten ominaisuudet")
 
 T_("Female Attributes")
-fiFI("")
+fiFI("Naisten ominaisuudet")
 
 T_("Common Attributes")
-fiFI("")
+fiFI("Yhteiset ominaisuudet")
 
 T_("Number")
 fiFI("Numero")
@@ -769,7 +847,7 @@ T_("error: '%s' got %d scores (expected %d)")
 fiFI("virhe: '%s' sai %d pistett\303\244 (odotettiin %d)")
 
 T_("error: fail with impact '%s'")
-fiFI("")
+fiFI("virhe: ep\303\244onnistuu iskulla '%s'")
 
 T_("Didn't find 'Attributes' string")
 fiFI("'Attributes' teksti ei l\303\266ytynyt")
@@ -778,10 +856,10 @@ T_("Expected header string")
 fiFI("Odotettiin otsake-teksti\303\244")
 
 T_("Expected ','")
-fiFI("")
+fiFI("Odotettu ','")
 
 T_("Line number couldn't be matched")
-fiFI("")
+fiFI("Rivinumeroa ei voitu t\303\244sm\303\244ytt\303\244\303\244")
 
 T_("Expected '\"'")
 fiFI("Odotettiin '\"'")
@@ -799,10 +877,22 @@ fiFI("virhe: ep\303\244onnistuminen avaimella %s")
 // Task_Reverse.cpp
 
 T_("Interrupted")
-fiFI("")
+fiFI("Keskeytetty")
 
 
 // Obsolete
+
+T_("Name:")
+fiFI("Nimi:")
+
+T_("Artist's name")
+fiFI("Artistin nimi")
+
+T_("Release's title")
+fiFI("Julkaisun nimi")
+
+T_("Song's title")
+fiFI("Laulun nimi")
 
 T_("The meaning:")
 fiFI("Tarkoitus")

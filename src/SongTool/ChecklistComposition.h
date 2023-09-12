@@ -3,17 +3,19 @@
 
 
 #define CHK_COMPOSITION_LIST \
-	CHK_COMP(CHORD_PAD, "chord pad") \
-	CHK_COMP(VOCAL_MELODY, "vocal melody") \
-	CHK_COMP(MID_SOLO, "mid solo (instrumental theme)") \
-	CHK_COMP(HIGH_SOLO, "high solo (e.g. bridge climax solo)") \
-	CHK_COMP(MID_SOLO_FILLS, "mid solo fills (e.g. between singing)") \
-	CHK_COMP(HIGH_RHYTHM, "high rhythm (e.g. high muted guitar)") \
-	CHK_COMP(MID_RHYTHM, "mid rhythm (low guitar, e.g. strumming)") \
-	CHK_COMP(LOW_RHYTHM, "low rhythm (bass)") \
-	CHK_COMP(LOW_SOLO, "low solo (bass solo)") \
-	CHK_COMP(IMPACTS, "impacts") \
-	CHK_COMP(TEXTURE_PAD, "texture pad (arp)")
+	CHK_COMP(CHORD_PAD, t_("chord pad")) \
+	CHK_COMP(VOCAL_MELODY, t_("vocal melody")) \
+	CHK_COMP(DRUMKIT, t_("drumkit")) \
+	CHK_COMP(HAND_DRUMS, t_("hand drums")) \
+	CHK_COMP(LOW_RHYTHM, t_("low rhythm (bass)")) \
+	CHK_COMP(MID_RHYTHM, t_("mid rhythm (low guitar, e.g. strumming)")) \
+	CHK_COMP(HIGH_RHYTHM, t_("high rhythm (e.g. high muted guitar)")) \
+	CHK_COMP(LOW_SOLO, t_("low solo (bass solo)")) \
+	CHK_COMP(MID_SOLO, t_("mid solo (instrumental theme)")) \
+	CHK_COMP(HIGH_SOLO, t_("high solo (e.g. bridge climax solo)")) \
+	CHK_COMP(MID_SOLO_FILLS, t_("mid fills (e.g. between singing)")) \
+	CHK_COMP(IMPACTS, t_("impacts")) \
+	CHK_COMP(TEXTURE_PAD, t_("texture pad (arp)"))
 
 
 class ChecklistBase : public SongToolCtrl {

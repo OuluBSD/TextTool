@@ -61,6 +61,18 @@
 		{
 			"key": "TEXTURE_PAD_VALUE",
 			"value": "1"
+		},
+		{
+			"key": "DRUMS_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "DRUMKIT_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "HAND_DRUMS_VALUE",
+			"value": "1"
 		}
 	]
 }
