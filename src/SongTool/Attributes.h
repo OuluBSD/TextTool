@@ -1,7 +1,38 @@
 #ifndef _SongTool_Attributes_h_
 #define _SongTool_Attributes_h_
 
+#define ATTR_LIST \
+	ATTR_ITEM(INTEGRITY, "Integrity", " honest", "twisted") \
+	ATTR_ITEM(SOCIAL, "Social", " libertarian", "authoritarian") \
+	ATTR_ITEM(ECONOMIC, "Economic", " liberal", "conservative") \
+	ATTR_ITEM(CULTURE, "Culture", " individualism", "collective") \
+	ATTR_ITEM(HUMAN_STRENGTH, "Human strength", " strong", "weak") \
+	ATTR_ITEM(MOTIVATION, "Motivation", " rewarding", "punishing") \
+	ATTR_ITEM(SEXUALIZATION, "Sexualization", " sexual", "non-sexual") \
+	ATTR_ITEM(BELIEFS, "Beliefs", " spiritual", "secular") \
+	ATTR_ITEM(EXPECTATIONS, "Expectations", " acceptance", "perfection") \
+	ATTR_ITEM(MOOD_JOYFUL_MELANCHOLIC, "Mood", " joyful", "melancholic") \
+	ATTR_ITEM(MOOD_PLAYFUL_SERIOUS, "Mood", " playful", "serious") \
+	ATTR_ITEM(MOOD_UPLIFTING_HEAVY, "Mood", " uplifting", "heavy") \
+	ATTR_ITEM(MOOD_LIGHTHEARTED_SOMBER, "Mood", " lighthearted", "somber") \
+	ATTR_ITEM(MOOD_HUMOROUS_DRAMATIC, "Mood", " humorous", "dramatic") \
+	ATTR_ITEM(ATTITUDE_HOPEFUL_DESPAIR, "Attitude", " hopeful", "despair") \
+	ATTR_ITEM(ATTITUDE_OPTIMISTIC_PESSIMISTIC, "Attitude", " optimistic", "pessimistic") \
+	ATTR_ITEM(ATTITUDE_ATTITUDE_OPEN_CLOSED, "Attitude", " open", "closed") \
+	ATTR_ITEM(SEXUAL_ORIENTATION, "Sexual Orientation", " heterosexual", "homosexual") \
+	ATTR_ITEM(SEXUAL_PREFERENCE, "Sexual Preference", " kinky", "normal") \
+	ATTR_ITEM(PHYSICAL_PREFERENCE, "Physical Preference", " enhancement", "natural") \
+
+
 namespace Attr {
+
+enum {
+#define ATTR_ITEM(e, g, i0, i1) e,
+ATTR_LIST
+#undef ATTR_ITEM
+ATTR_COUNT
+};
+
 struct Group : Moveable<Group> {
 	Vector<String> values;
 	Color clr;

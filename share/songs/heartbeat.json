@@ -14,6 +14,25 @@
 		"obj[3]": ""
 	},
 	"data": [
-
+		{
+			"key": "ATTR_REFERENCE_SONG",
+			"value": ""
+		},
+		{
+			"key": "ATTR_GENERIC_CULTURE",
+			"value": ""
+		},
+		{
+			"key": "POLL_INTEGRITY",
+			"value": "0"
+		},
+		{
+			"key": "POLL_SOCIAL",
+			"value": "0"
+		},
+		{
+			"key": "POLL_MOOD_UPLIFTING_HEAVY",
+			"value": "0"
+		}
 	]
 }

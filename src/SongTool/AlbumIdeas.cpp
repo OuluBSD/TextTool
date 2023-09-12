@@ -10,8 +10,8 @@ AlbumIdeas::AlbumIdeas() {
 	hsplit << list << idea;
 	hsplit.SetPos(2000);
 	
-	list.AddColumn("Name");
-	list.NoHeader();
+	list.AddColumn("Title");
+	//list.NoHeader();
 	list.WhenBar << THISBACK(OnListMenu);
 	list.WhenCursor << THISBACK(IdeaData);
 	

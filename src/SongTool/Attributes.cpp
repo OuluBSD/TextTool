@@ -232,26 +232,9 @@ void Attributes::LoadDefaultAnalysis() {
 }
 
 void Attributes::LoadDefaultAttrGroups() {
-	AddScoring(("Integrity: honest/twisted"), attr_scorings);
-	AddScoring(("Social: libertarian/authoritarian"), attr_scorings);
-	AddScoring(("Economic: liberal/conservative"), attr_scorings);
-	AddScoring(("Culture: individualism/collective"), attr_scorings);
-	AddScoring(("Human strength: strong/weak"), attr_scorings);
-	AddScoring(("Motivation: rewarding/punishing"), attr_scorings);
-	AddScoring(("Sexualization: sexual/non-sexual"), attr_scorings);
-	AddScoring(("Beliefs: spiritual/secular"), attr_scorings);
-	AddScoring(("Expectations: acceptance/perfection"), attr_scorings);
-	AddScoring(("Mood: joyful/melancholic"), attr_scorings);
-	AddScoring(("Mood: playful/serious"), attr_scorings);
-	AddScoring(("Mood: uplifting/heavy"), attr_scorings);
-	AddScoring(("Mood: lighthearted/somber"), attr_scorings);
-	AddScoring(("Mood: humorous/dramatic"), attr_scorings);
-	AddScoring(("Attitude: hopeful/despair"), attr_scorings);
-	AddScoring(("Attitude: optimistic/pessimistic"), attr_scorings);
-	AddScoring(("Attitude: open/closed"), attr_scorings);
-	AddScoring(("Sexual Orientation: heterosexual/homosexual"), attr_scorings);
-	AddScoring(("Sexual Preference: kinky/normal"), attr_scorings);
-	AddScoring(("Physical Preference: enhancement/natural"), attr_scorings);
+	#define ATTR_ITEM(E, G, I0, I1) AddScoring(G ": " I0 "/" I1, attr_scorings);
+	ATTR_LIST
+	#undef ATTR_ITEM
 }
 
 void Attributes::RealizeAttrIds() {

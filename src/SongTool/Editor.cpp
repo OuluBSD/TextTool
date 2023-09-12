@@ -26,7 +26,7 @@ Editor::Editor(SongTool* app) : app(*app) {
 	
 	releases.AddColumn(t_("Title"));
 	releases.AddColumn(t_("Date"));
-	releases.ColumnWidths("3 1");
+	releases.ColumnWidths("3 2");
 	releases <<= THISBACK(DataRelease);
 	
 	songs.AddColumn(t_("Title"));
