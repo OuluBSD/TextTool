@@ -16,11 +16,29 @@
 	CHK_COMP(TEXTURE_PAD, "texture pad (arp)")
 
 
-class ChecklistComposition : public SongToolCtrl {
+class ChecklistBase : public SongToolCtrl {
 	ArrayCtrl list;
-	Vector<String> keys;
 	Vector<Option*> opts;
 	Vector<EditString*> edits;
+	
+	void Init();
+	
+protected:
+	Vector<String> descs;
+	Vector<String> keys;
+	
+public:
+	typedef ChecklistBase CLASSNAME;
+	ChecklistBase();
+	
+	void Data();
+	void OnOptionChange(int i);
+	void OnValueChange(int i);
+	virtual void InitKeys() = 0;
+	
+};
+
+class ChecklistComposition : public ChecklistBase {
 	
 	enum {
 		#define CHK_COMP(e, s) e,
@@ -33,11 +51,8 @@ public:
 	typedef ChecklistComposition CLASSNAME;
 	ChecklistComposition();
 	
-	void Data();
-	void OnOptionChange(int i);
-	void OnValueChange(int i);
+	void InitKeys() override;
 	
 };
-
 
 #endif

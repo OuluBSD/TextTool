@@ -2,6 +2,18 @@
 
 
 ChecklistComposition::ChecklistComposition() {
+	
+}
+
+void ChecklistComposition::InitKeys() {
+	#define CHK_COMP(e, s) descs.Add(s); keys.Add(#e);
+	CHK_COMPOSITION_LIST
+	#undef CHK_COMP
+}
+
+
+
+ChecklistBase::ChecklistBase() {
 	Add(list.SizePos());
 	
 	list.AddColumn("Key");
@@ -9,12 +21,16 @@ ChecklistComposition::ChecklistComposition() {
 	list.AddColumn("Comments");
 	list.ColumnWidths("6 1 24");
 	
-	#define CHK_COMP(e, s) list.Add(s); keys.Add(#e);
-	CHK_COMPOSITION_LIST
-	#undef CHK_COMP
-	for(int i = 0; i < list.GetCount(); i++) {
+}
+
+void ChecklistBase::Init() {
+	InitKeys();
+	
+	for(int i = 0; i < descs.GetCount(); i++) {
+		list.Set(i, 0, descs[i]);
+		
 		Option* o = new Option;
-		opts.Add(o);
+		opts << o;
 		o->WhenAction << THISBACK1(OnOptionChange, i);
 		list.SetCtrl(i, 1, o);
 		
@@ -25,11 +41,14 @@ ChecklistComposition::ChecklistComposition() {
 	}
 }
 
-void ChecklistComposition::Data() {
+void ChecklistBase::Data() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if (!p.song) return;
 	Song& song = *p.song;
+	
+	if (list.GetCount() == 0)
+		Init();
 	
 	for(int i = 0; i < list.GetCount(); i++) {
 		int b = StrInt(song.data.Get(keys[i] + "_VALUE", "0"));
@@ -37,10 +56,9 @@ void ChecklistComposition::Data() {
 		String comment = song.data.Get(keys[i] + "_COMMENT", "");
 		list.Set(i, 2, comment);
 	}
-	
 }
 
-void ChecklistComposition::OnValueChange(int i) {
+void ChecklistBase::OnValueChange(int i) {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if (!p.song) return;
@@ -54,7 +72,7 @@ void ChecklistComposition::OnValueChange(int i) {
 	song.data.GetAdd(key) = value;
 }
 
-void ChecklistComposition::OnOptionChange(int i) {
+void ChecklistBase::OnOptionChange(int i) {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if (!p.song) return;

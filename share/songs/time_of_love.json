@@ -16,11 +16,51 @@
 	"data": [
 		{
 			"key": "CHORD_PAD_VALUE",
-			"value": "0"
+			"value": "1"
 		},
 		{
 			"key": "CHORD_PAD_COMMENT",
 			"value": ""
+		},
+		{
+			"key": "VOCAL_MELODY_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "MID_SOLO_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "HIGH_SOLO_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "MID_SOLO_FILLS_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "HIGH_RHYTHM_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "MID_RHYTHM_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "LOW_RHYTHM_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "LOW_SOLO_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "IMPACTS_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "TEXTURE_PAD_VALUE",
+			"value": "1"
 		}
 	]
 }
