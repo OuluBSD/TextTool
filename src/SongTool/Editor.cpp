@@ -64,7 +64,36 @@ void Editor::InitListItems() {
 }
 
 void Editor::InitSimplified() {
+	/*
 	
+	- native language to English
+	- English to "json-style structured format"
+	- text editor for structured format
+		- list of notes
+	- structured format to English
+	- English to native language
+	
+	1. edit native language version next to English direct translation
+	2. edit English release version (which may differ from native significantly)
+		- iteratively (with timeline)
+			- editor for lyrics
+			- ai evaluation
+				- generate naive interpretation (show next to the original line)
+					- generate f-m difference (show also)
+				- error list
+					- negative attributes (separate f-m)
+					- bad impact scoring
+				- info list
+					- recognized
+						- protagonist
+						- antagonist
+						- friends
+						- enemies
+	- generate
+		- text input for generative image ai
+		- playlist pitching text
+			- translation to native language
+	*/
 	
 	InitListItems();
 }
