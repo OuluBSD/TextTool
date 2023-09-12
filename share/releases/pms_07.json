@@ -1,0 +1,79 @@
+{
+	"title": "PMS 07",
+	"english_title": "PMS 07",
+	"date": "2023-11-02",
+	"data": [
+		{
+			"key": "GENERAL_HISTORY",
+			"value": "These songs were used by a rapper as the basis for hobbyist publications. These 2 songs had received a total of approx. 400,000 listens with him. These were published on the Finnish mikseri.net website in late 2006 and summer 2007."
+		},
+		{
+			"key": "LIFE_BEGINNING",
+			"value": "It is the first half of the year 2007. The author was in the second year of high school and was in the first relationship of his life, which he was proud of and which had a strong effect on him."
+		},
+		{
+			"key": "LIFE_END",
+			"value": "It was the summer when the author was almost an adult. However, nothing warmed in the right direction, but he did not get discouraged and focused on his own life. Her relationship was about to fall apart in a rare catastrophic way, because the woman was getting bad drug and mental health problems from her new friends at Oulu Lyseo high school. Still, the woman herself did not accept it as an obvious truth, but secretly created her own delusional world, which was coming to bite this author secretly in the back. The author was getting serious decades-long traumas in his relationship life."
+		},
+		{
+			"key": "LIMITS_BEGIN",
+			"value": "The author broke up for the first time in his relationship, which led to on-off dating."
+		},
+		{
+			"key": "LIMITS_END",
+			"value": "On-off dating led to watching the woman's problems pile up and watching her self-destruct, leading to bad relationship traumas."
+		},
+		{
+			"key": "LIFE_SCHOOL",
+			"value": "Tampere Rudolf Steiner high school Oulu office in Oulu, Finland."
+		},
+		{
+			"key": "LIFE_RELATIONSHIPS",
+			"value": "On-off dating and lots of sex"
+		},
+		{
+			"key": "LIFE_NERDINESS",
+			"value": "Using Windows XP and learning Ubuntu. Dual boot."
+		},
+		{
+			"key": "LIFE_MUSIC_PRODUCTION",
+			"value": "The author learned to use Cubase 5 and Antares Auto-Tune. However, he did not dare to take the mic, which negatively affected his production career."
+		},
+		{
+			"key": "LIFE_PHYSICAL_EXERCISE",
+			"value": "Walking the dog."
+		},
+		{
+			"key": "LIFE_ART",
+			"value": "Making hip-hop beats with Cubase, making tablature with Guitar Pro 5, playing acoustic guitar at home. Visual art was done regularly at the Steiner School."
+		},
+		{
+			"key": "LIFE_FAMILY",
+			"value": "His divorced parents were dating, all his grandparents were divorced. He was involved with his cousins. He went to the same school with his sister. He visited his father with his sister every 2 weeks."
+		},
+		{
+			"key": "HEADSPACE_POSITIVITY",
+			"value": "He tried to make rap lyrics where he praised himself. It didn't come out strong."
+		},
+		{
+			"key": "HEADSPACE_NEGATIVITY",
+			"value": "He made beautiful ballads where he talked about the breakup by telling his ex \"have a good trip\"."
+		},
+		{
+			"key": "THEME_COMPOSITION",
+			"value": "Combining band music and electronic music."
+		},
+		{
+			"key": "THEME_LYRICAL",
+			"value": "Personal, metaphorical."
+		},
+		{
+			"key": "THEME_PRODUCTION",
+			"value": "Rock hiphop."
+		}
+	],
+	"songs": [
+		"heartbeat",
+		"time_of_love"
+	]
+}

@@ -1,0 +1,55 @@
+{
+	"name": "Vaikeat Ajat",
+	"english_name": "Difficult Times",
+	"year_of_birth": 1989,
+	"year_of_career_begin": 2001,
+	"biography": "The band is personified by the singer, who started producing music already in 2001 and has maintained one music project ever since. The final name of the band was only found in 2007, but all the activities were one continuation.\r\n\r\nThe singer Seppo Pakonen is from Oulu, Finland. The band takes strong influences from American 90s hip-hop, grunge, classic rock, and Finnish alternative rock.",
+	"musical_style": "finnish rap, rock-rap, pop, alternative pop",
+	"vibe_of_voice": "Sophisticated, rich, manly",
+	"acoustic_instruments": "Guitar",
+	"electronic_instruments": "Pad, extra synths, impacts",
+	"vocalist_visual": "174cm male with short dark brown hair, relaxed and colorful clothing",
+	"data": [
+		{
+			"key": "GENERAL_HISTORY",
+			"value": "This was a \"trash\" opening track to get you going. The threshold for publication for the producer/singer/songwriter was high, and only the preparation of such a safe song made publication possible."
+		},
+		{
+			"key": "LIFE_BEGINNING",
+			"value": "The author was studying music production in Lappia, Tornio, Finland."
+		},
+		{
+			"key": "LIFE_END",
+			"value": "Same as the beginning."
+		},
+		{
+			"key": "LIMITS_END",
+			"value": "Clearly, the singing ability was a little lacking, but on the other hand it was also clear that some other students publish lower production quality with a lower threshold."
+		},
+		{
+			"key": "LIMITS_BEGIN",
+			"value": "At school, one of the tasks was to mix a song played by professional musicians who were students. The song left the impression that the creator himself is capable of the same result, and here is the result."
+		},
+		{
+			"key": "LIFE_SCHOOL",
+			"value": "Vocational college Lappia"
+		},
+		{
+			"key": "LIFE_RELATIONSHIPS",
+			"value": "None"
+		},
+		{
+			"key": "LIFE_NERDINESS",
+			"value": "C++ programmer using Windows, Conemu quake-like terminal with a lot of tools. Fluent user of FreeBSD and Linux."
+		}
+	],
+	"releases": [
+		"my_page",
+		"pms_07",
+		"dirty_together_07-10",
+		"hello_lonely_01-06",
+		"missed_beats_07-09",
+		"missed_jamz_07-09",
+		"loathing_inc_10"
+	]
+}
