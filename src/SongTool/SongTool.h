@@ -50,6 +50,8 @@ using namespace Upp;
 #include "Artist.h"
 #include "Database.h"
 
+#include "AlbumBriefing.h"
+#include "AlbumIdeas.h"
 #include "CoverImage.h"
 #include "Pitching.h"
 #include "SongBriefing.h"

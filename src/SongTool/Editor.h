@@ -24,6 +24,8 @@ protected:
 	int					page = 0;
 	
 	// Simplified
+	AlbumBriefing					album_briefing;
+	AlbumIdeas						album_ideas;
 	CoverImage						cover_image;
 	Pitching						pitching;
 	SongBriefing					song_briefing;

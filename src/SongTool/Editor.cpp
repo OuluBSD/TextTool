@@ -99,6 +99,9 @@ void Editor::InitSimplified() {
 	*/
 	AddItem(t_("All"), t_("Info"), info);
 	
+	AddItem(t_("Album"), t_("Briefing"), album_briefing);
+	AddItem(t_("Album"), t_("Ideas"), album_ideas);
+	
 	AddItem(t_("Song"), t_("Briefing"), song_briefing); // initial ideas, notes, etc.
 	
 	AddItem(t_("Composition"), t_("Checklist"), checklist_composition);
