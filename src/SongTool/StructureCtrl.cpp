@@ -294,10 +294,10 @@ void StructureDrawer::Paint(Draw& d) {
 	
 	d.DrawRect(sz, White());
 	
+	if (!p.song || !p.song->pipe)
+		return;
 	Song& song = *p.song;
 	Pipe& pipe = *song.pipe;
-	if (!song.pipe)
-		return;
 	
 	items.SetCount(0);
 	int total_len = 0;

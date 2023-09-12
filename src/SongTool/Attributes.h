@@ -19,6 +19,7 @@
 	ATTR_ITEM(ATTITUDE_HOPEFUL_DESPAIR, "Attitude", "hopeful", "despair") \
 	ATTR_ITEM(ATTITUDE_OPTIMISTIC_PESSIMISTIC, "Attitude", "optimistic", "pessimistic") \
 	ATTR_ITEM(ATTITUDE_ATTITUDE_OPEN_CLOSED, "Attitude", "open", "closed") \
+	ATTR_ITEM(SEXUAL_ACTING, "Sexual Acting", "confident", "sensitive") \
 	ATTR_ITEM(SEXUAL_ORIENTATION, "Sexual Orientation", "heterosexual", "homosexual") \
 	ATTR_ITEM(SEXUAL_PREFERENCE, "Sexual Preference", "kinky", "normal") \
 	ATTR_ITEM(PHYSICAL_PREFERENCE, "Physical Preference", "enhancement", "natural") \

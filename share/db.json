@@ -29,6 +29,10 @@
 						"value": "kollektiivinen"
 					},
 					{
+						"key": "confident",
+						"value": "itsevarma"
+					},
+					{
 						"key": "conservative",
 						"value": "konservatiivinen"
 					},
@@ -173,12 +177,20 @@
 						"value": "sekulaarinen"
 					},
 					{
+						"key": "sensitive",
+						"value": "herkkä"
+					},
+					{
 						"key": "serious",
 						"value": "vakava"
 					},
 					{
 						"key": "sexual",
 						"value": "seksuaalinen"
+					},
+					{
+						"key": "sexual acting",
+						"value": "seksuaalinen käyttäytyminen"
 					},
 					{
 						"key": "sexual orientation",
