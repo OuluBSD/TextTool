@@ -24,6 +24,25 @@ protected:
 	int					page = 0;
 	
 	// Simplified
+	CoverImage						cover_image;
+	Pitching						pitching;
+	SongBriefing					song_briefing;
+	ChecklistComposition			checklist_composition;
+	TxtStructTranslate				structure_native_english;
+	TxtStructFromEnglish			structure_from_english;
+	TxtStructEdit					structure_edit;
+	TxtStructToText					structure_to_text;
+	TxtEditNative					text_edit_native;
+	TxtEditEnglish					text_edit_english;
+	ChecklistProduction				checklist_production;
+	MusicVideoImport				videostruct_import;
+	MusicVideoEdit					videostruct_edit;
+	MusicVideoToPlan				videostruct_to_plan;
+	ChecklistMusicVideoProduction	video_checklist;
+	ChecklistRelease				release_checklist;
+	
+	
+	
 	
 	// Advanced
 	BasicInfoCtrl		info;

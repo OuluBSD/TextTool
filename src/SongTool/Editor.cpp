@@ -18,7 +18,7 @@ Editor::Editor() {
 	tablist.NoHeader();
 	tablist.AddColumn("");
 	tablist.AddColumn("");
-	tablist.ColumnWidths("1 3");
+	tablist.ColumnWidths("2 3");
 	tablist.SetCursor(0);
 	
 	artists.AddColumn(t_("Artist"));
@@ -93,7 +93,36 @@ void Editor::InitSimplified() {
 		- text input for generative image ai
 		- playlist pitching text
 			- translation to native language
+			
+	- music video pipeline
+	
 	*/
+	AddItem(t_("All"), t_("Info"), info);
+	
+	AddItem(t_("Song"), t_("Briefing"), song_briefing); // initial ideas, notes, etc.
+	
+	AddItem(t_("Composition"), t_("Checklist"), checklist_composition);
+	
+	AddItem(t_("Text Structure"), t_("Create Translation, Native To English"), structure_native_english);
+	AddItem(t_("Text Structure"), t_("Create From English"), structure_from_english);
+	AddItem(t_("Text Structure"), t_("Edit"), structure_edit);
+	AddItem(t_("Text Structure"), t_("To Text"), structure_to_text);
+	
+	AddItem(t_("Text"), t_("Edit Native"), text_edit_native);
+	AddItem(t_("Text"), t_("Edit English"), text_edit_english);
+	
+	AddItem(t_("Production"), t_("Checklist"), checklist_production);
+	
+	AddItem(t_("Music Video Structure"), t_("Create From Existing"), videostruct_import);
+	AddItem(t_("Music Video Structure"), t_("Edit"), videostruct_edit);
+	AddItem(t_("Music Video Structure"), t_("To Plan"), videostruct_to_plan);
+	
+	AddItem(t_("Music Video Production"), t_("Checklist"), video_checklist);
+	
+	AddItem(t_("Album"), t_("Cover Image"), cover_image);
+	AddItem(t_("Album"), t_("Pitching"), pitching);
+	
+	AddItem(t_("Release"), t_("Checklist"), release_checklist);
 	
 	InitListItems();
 }

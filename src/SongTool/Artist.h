@@ -80,7 +80,7 @@ struct Artist :
 			Vector<String> names;
 			json("releases", names);
 			for (String n : names) releases.Add().LoadTitle(n);
-			Sort(releases, Release());
+			//Sort(releases, Release());
 			
 			FixPtrs();
 		}
