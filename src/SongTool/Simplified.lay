@@ -9,3 +9,15 @@ LAYOUT(KeyValueList, 400, 284)
 	ITEM(Upp::DocEdit, value, HSizePosZ(100, 12).BottomPosZ(8, 56))
 END_LAYOUT
 
+LAYOUT(AlbumIdeas, 400, 228)
+	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Idea")).HSizePosZ(4, 4).VSizePosZ(4, 4))
+	ITEM(Upp::Label, dv___1, SetLabel(t_("Title:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 84).TopPosZ(20, 19))
+	ITEM(Upp::EditString, title, HSizePosZ(100, 12).TopPosZ(20, 19))
+	ITEM(Upp::Label, dv___3, SetLabel(t_("Target song:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 84).TopPosZ(44, 19))
+	ITEM(Upp::EditString, target, HSizePosZ(100, 12).TopPosZ(44, 19))
+	ITEM(Upp::Label, dv___5, SetLabel(t_("Reference song:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 84).TopPosZ(68, 19))
+	ITEM(Upp::EditString, ref, HSizePosZ(100, 12).TopPosZ(68, 19))
+	ITEM(Upp::Label, dv___7, SetLabel(t_("Description:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 84).TopPosZ(92, 19))
+	ITEM(Upp::DocEdit, desc, HSizePosZ(100, 12).VSizePosZ(92, 12))
+END_LAYOUT
+

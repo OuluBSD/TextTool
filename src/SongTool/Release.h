@@ -7,13 +7,14 @@ struct Release :
 	EditorPtrs
 {
 	// Public
-	String			native_title;
-	String			english_title;
-	Date			date;
+	String						native_title;
+	String						english_title;
+	Date						date;
+	VectorMap<String,String>	data;
+	Array<SongIdea>				ideas;
 	
 	// Public (separate files)
 	Array<Song>		songs;
-	VectorMap<String,String>	data;
 	
 	
 	
@@ -24,6 +25,7 @@ struct Release :
 		s	% native_title
 			% english_title
 			% date
+			% ideas
 			% songs;
 	}
 	void Jsonize(JsonIO& json) {
@@ -32,6 +34,7 @@ struct Release :
 			("english_title", english_title)
 			("date", date)
 			("data", data)
+			("ideas", ideas)
 			;
 		if (json.IsStoring()) {
 			{

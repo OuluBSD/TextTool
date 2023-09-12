@@ -72,6 +72,26 @@
 			"value": "Pop rock"
 		}
 	],
+	"ideas": [
+		{
+			"title": "te2st 2",
+			"target_song": "2",
+			"reference_song": "2",
+			"description": ""
+		},
+		{
+			"title": "tsgfasdfasdf asdf",
+			"target_song": "",
+			"reference_song": "",
+			"description": ""
+		},
+		{
+			"title": "23452345",
+			"target_song": "tasdf",
+			"reference_song": "",
+			"description": ""
+		}
+	],
 	"songs": [
 		"my_page"
 	]

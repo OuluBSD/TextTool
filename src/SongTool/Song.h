@@ -2,6 +2,26 @@
 #define _SongTool_Song_h_
 
 
+struct SongIdea {
+	String title, target_song, reference_song, description;
+	
+	void Serialize(Stream& s) {
+		s % title
+		  % target_song
+		  % reference_song
+		  % description
+		  ;
+	}
+	void Jsonize(JsonIO& json) {
+		json
+			("title", title)
+			("target_song", target_song)
+			("reference_song", reference_song)
+			("description", description)
+			;
+	}
+};
+
 #if 0
 struct SongHeader {
 	// Local

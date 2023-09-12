@@ -3,6 +3,10 @@
 
 
 class AlbumIdeas : public SongToolCtrl {
+	Splitter hsplit;
+	ArrayCtrl list;
+	WithAlbumIdeas<Ctrl> idea;
+	
 	
 	
 public:
@@ -10,6 +14,12 @@ public:
 	AlbumIdeas();
 	
 	void Data();
+	void Clear();
+	void IdeaData();
+	void OnListMenu(Bar& bar);
+	void AddIdea();
+	void RemoveIdea();
+	void OnValueChange();
 	
 };
 
