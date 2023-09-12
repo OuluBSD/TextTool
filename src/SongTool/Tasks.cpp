@@ -432,12 +432,12 @@ bool Task::RunOpenAI() {
 	prompt = FixInvalidChars(prompt); // NOTE: warning: might break something
 	//prompt.Replace("\'", "\\\'");
 	
-	String txt = R"({
+	String txt = R"_({
     "model": "text-davinci-003",
-    "prompt": ")" + prompt + R"(",
-    "max_tokens": )" + IntStr(input.response_length) + R"(,
+    "prompt": ")_" + prompt + R"_(",
+    "max_tokens": )_" + IntStr(input.response_length) + R"_(,
     "temperature": 1
-})";
+})_";
     //LOG(txt);
 	
 	try {

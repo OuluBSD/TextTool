@@ -7,11 +7,13 @@ struct Release :
 	EditorPtrs
 {
 	// Public
-	String			title;
+	String			native_title;
+	String			english_title;
 	Date			date;
 	
 	// Public (separate files)
 	Array<Song>		songs;
+	VectorMap<String,String>	data;
 	
 	
 	
@@ -19,14 +21,17 @@ struct Release :
 	void LoadTitle(String title);
 	//Song& RealizeReversed(Song& s);
 	void Serialize(Stream& s) {
-		s	% title
+		s	% native_title
+			% english_title
 			% date
 			% songs;
 	}
 	void Jsonize(JsonIO& json) {
 		json
-			("title", title)
+			("title", native_title)
+			("english_title", english_title)
 			("date", date)
+			("data", data)
 			;
 		if (json.IsStoring()) {
 			{
@@ -56,7 +61,7 @@ struct Release :
 	const Array<Song>& GetSub() const {return songs;}
 	bool operator()(const Release& a, const Release& b) const {
 		if (a.date != b.date) return a.date < b.date;
-		return a.title < b.title;
+		return a.native_title < b.native_title;
 	}
 	
 	

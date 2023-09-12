@@ -11,6 +11,7 @@ public:
 	BasicInfoCtrl();
 	
 	void Data();
+	void Clear();
 	void OnValueChange();
 	
 	Editor* editor = 0;

@@ -14,6 +14,9 @@ using namespace Upp;
 #define LAYOUTFILE <SongTool/App.lay>
 #include <CtrlCore/lay.h>
 
+#define LAYOUTFILE <SongTool/Simplified.lay>
+#include <CtrlCore/lay.h>
+
 #include "OpenAI.h"
 
 #include "Utils.h"

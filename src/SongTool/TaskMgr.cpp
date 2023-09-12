@@ -807,9 +807,9 @@ hash_t TaskMgr::GetSongHash() const {
 	Song& song = *pipe.song;
 	
 	CombineHash ch;
-	ch << song.EditorPtrs::artist->name;
-	ch << song.EditorPtrs::release->title;
-	ch << song.title;
+	ch << song.EditorPtrs::artist->native_name;
+	ch << song.EditorPtrs::release->native_title;
+	ch << song.native_title;
 	hash = ch;
 	ASSERT(hash != 0);
 	return hash;

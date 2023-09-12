@@ -60,17 +60,8 @@ fiFI("Projektinimi:")
 T_("Import from lyrics with AI")
 fiFI("Tuo lyriikat teko\303\244lyll\303\244")
 
-T_("Make Tasks")
-fiFI("Luo Teht\303\244v\303\244t")
-
-T_("Import from music composition")
-fiFI("Tuo s\303\244vellyksest\303\244")
-
-T_("Structure:")
-fiFI("Rakenne:")
-
-T_("Reload")
-fiFI("Lataa uudelleen")
+T_("Import")
+fiFI("")
 
 T_("Add group for entries with the same score")
 fiFI("Lis\303\244\303\244 ryhm\303\244 merkinn\303\266ille, joilla on sama pistem\303\244\303\244r\303\244")
@@ -93,57 +84,6 @@ fiFI("Etusivu")
 T_("Calendar")
 fiFI("Kalenteri")
 
-T_("Story")
-fiFI("Kertomus")
-
-T_("The meaning:")
-fiFI("Tarkoitus")
-
-T_("The meaning or message behind the lyrics")
-fiFI("Sanojen takana oleva merkitys tai viesti")
-
-T_("Lit. devices:")
-fiFI("Kirjallisuuden v\303\244lineet")
-
-T_("The use of literary devices, such as alliteration, metaphor, or imagery")
-fiFI("Kirjallisten v\303\244lineiden, kuten alliteraatioiden, metaforien tai "
-     "kuvien k\303\244ytt\303\266")
-
-T_("Emotion:")
-fiFI("Tunne:")
-
-T_("The emotion that the songwriter is trying to convey")
-fiFI("Tunne, jonka lauluntekij\303\244 yritt\303\244\303\244 v\303\244litt\303\244\303\244")
-
-T_("References:")
-fiFI("Viitteet:")
-
-T_("The cultural references used in the song")
-fiFI("Laulussa k\303\244ytetyt kulttuuriviittaukset")
-
-T_("The musical structure or elements of the song, such as the chord progression, "
-     "rhythm, and melody")
-fiFI("Kappaleen musiikillinen rakenne tai elementit, kuten sointukulku, rytmi "
-     "ja melodia")
-
-T_("History:")
-fiFI("Historia:")
-
-T_("The history of the song and its significance in a particular era")
-fiFI("Kappaleen historia ja merkitys tietyll\303\244 aikakaudella")
-
-T_("Storyline:")
-fiFI("Tarina:")
-
-T_("The storyline and narrative of the song")
-fiFI("Kappaleen tarina ja kerronta")
-
-T_("Implications:")
-fiFI("Seuraukset")
-
-T_("The social and political implications of the song")
-fiFI("Laulun sosiaaliset ja poliittiset vaikutukset")
-
 T_("Composition")
 fiFI("S\303\244vellys")
 
@@ -153,20 +93,54 @@ fiFI("Tempo:")
 T_("Beat/Rhythm:")
 fiFI("Isku/rytmi:")
 
+T_("The meaning or message behind the lyrics")
+fiFI("Sanojen takana oleva merkitys tai viesti")
+
 T_("Melody:")
 fiFI("Melodia:")
+
+T_("The use of literary devices, such as alliteration, metaphor, or imagery")
+fiFI("Kirjallisten v\303\244lineiden, kuten alliteraatioiden, metaforien tai "
+     "kuvien k\303\244ytt\303\266")
 
 T_("Chord Progressions:")
 fiFI("Sointukulku:")
 
+T_("The emotion that the songwriter is trying to convey")
+fiFI("Tunne, jonka lauluntekij\303\244 yritt\303\244\303\244 v\303\244litt\303\244\303\244")
+
 T_("Key and Mode:")
 fiFI("Avain ja moodi:")
+
+T_("The cultural references used in the song")
+fiFI("Laulussa k\303\244ytetyt kulttuuriviittaukset")
 
 T_("Texture:")
 fiFI("Tekstuuri:")
 
+T_("The history of the song and its significance in a particular era")
+fiFI("Kappaleen historia ja merkitys tietyll\303\244 aikakaudella")
+
+T_("Structure:")
+fiFI("Rakenne:")
+
+T_("The storyline and narrative of the song")
+fiFI("Kappaleen tarina ja kerronta")
+
 T_("Genre/Style:")
 fiFI("Genre/Tyyli:")
+
+T_("The social and political implications of the song")
+fiFI("Laulun sosiaaliset ja poliittiset vaikutukset")
+
+T_("Import from music composition")
+fiFI("Tuo s\303\244vellyksest\303\244")
+
+T_("Mode")
+fiFI("")
+
+T_("Reload")
+fiFI("Lataa uudelleen")
 
 
 // App.cpp
@@ -198,65 +172,23 @@ fiFI("Katso editoria")
 T_("View AI Tasks")
 fiFI("Katso teko\303\244ly-teht\303\244vi\303\244")
 
+T_("View Sequencer")
+fiFI("")
+
 T_("Tools")
 fiFI("Ty\303\266kalut")
 
 T_("Show orphaned files")
 fiFI("N\303\244yt\303\244 orpoutuneet tiedostot")
 
+T_("Make Tasks")
+fiFI("Luo Teht\303\244v\303\244t")
+
 T_("Restart is required for applying the new token")
 fiFI("Uudelleenk\303\244ynnistys vaaditaan uuden avainkoodin k\303\244ytt\303\244miseksi")
 
 
 // Editor.cpp
-
-T_("All")
-fiFI("Kaikki")
-
-T_("Info")
-fiFI("Info")
-
-T_("Attributes")
-fiFI("Attribuutit")
-
-T_("Release")
-fiFI("Julkaisu")
-
-T_("Recruitment")
-fiFI("Rekrytointi")
-
-T_("Social media campaign")
-fiFI("Sosiaalisen median kampanja")
-
-T_("Tasks")
-fiFI("Teht\303\244v\303\244t")
-
-T_("Importer")
-fiFI("Tuonti")
-
-T_("Analysis")
-fiFI("Analyysi")
-
-T_("Pattern mask")
-fiFI("Kaaviomaski")
-
-T_("Pattern")
-fiFI("Kaavio")
-
-T_("Attribute scoring")
-fiFI("Ominaisuuksien pisteytys")
-
-T_("Scoring")
-fiFI("Pisteytys")
-
-T_("Reverse")
-fiFI("K\303\244\303\244nteinen")
-
-T_("Production")
-fiFI("Tuotanto")
-
-T_("Rhymes")
-fiFI("Riimit")
 
 T_("Title")
 fiFI("Otsikko")
@@ -272,6 +204,135 @@ fiFI("Osa")
 
 T_("Lines")
 fiFI("Lainit")
+
+T_("All")
+fiFI("Kaikki")
+
+T_("Info")
+fiFI("Info")
+
+T_("Briefing")
+fiFI("")
+
+T_("Ideas")
+fiFI("")
+
+T_("Checklist")
+fiFI("")
+
+T_("Text Structure")
+fiFI("")
+
+T_("Create Translation, Native To English")
+fiFI("")
+
+T_("Create From English")
+fiFI("")
+
+T_("Edit")
+fiFI("")
+
+T_("To Text")
+fiFI("")
+
+T_("Text")
+fiFI("")
+
+T_("Edit Native")
+fiFI("")
+
+T_("Edit English")
+fiFI("")
+
+T_("Production")
+fiFI("Tuotanto")
+
+T_("Music Video Structure")
+fiFI("")
+
+T_("Create From Existing")
+fiFI("")
+
+T_("To Plan")
+fiFI("")
+
+T_("Music Video Production")
+fiFI("")
+
+T_("Cover Image")
+fiFI("")
+
+T_("Pitching")
+fiFI("")
+
+T_("Release")
+fiFI("Julkaisu")
+
+T_("Attributes")
+fiFI("Attribuutit")
+
+T_("Recruitment")
+fiFI("Rekrytointi")
+
+T_("Social media campaign")
+fiFI("Sosiaalisen median kampanja")
+
+T_("Tasks")
+fiFI("Teht\303\244v\303\244t")
+
+T_("Importer")
+fiFI("Tuonti")
+
+T_("Structure")
+fiFI("")
+
+T_("Analysis")
+fiFI("Analyysi")
+
+T_("Story")
+fiFI("Kertomus")
+
+T_("Impact")
+fiFI("")
+
+T_("Pattern mask")
+fiFI("Kaaviomaski")
+
+T_("Pattern")
+fiFI("Kaavio")
+
+T_("Attribute scoring")
+fiFI("Ominaisuuksien pisteytys")
+
+T_("Impact scoring")
+fiFI("")
+
+T_("Pattern mask scoring")
+fiFI("")
+
+T_("Pattern scoring")
+fiFI("")
+
+T_("Reverse: make impacts")
+fiFI("")
+
+T_("Reverse: make common mask")
+fiFI("")
+
+T_("Reverse: make separate mask")
+fiFI("")
+
+T_("Reverse: make pattern")
+fiFI("")
+
+T_("Reversed Pattern")
+fiFI("")
+
+T_("Reverse: make lyrics")
+fiFI("")
+
+T_("Rhymes")
+fiFI("Riimit")
 
 T_("Whole song")
 fiFI("Koko kappale")
@@ -322,16 +383,34 @@ T_("Song exist already")
 fiFI("Laulu on jo olemassa")
 
 
-// AI_TaskCtrl.cpp
+// TaskCtrl.cpp
 
 T_("Idle")
 fiFI("Tyhj\303\244k\303\244ynti")
 
+T_("#")
+fiFI("")
+
 T_("Description")
 fiFI("Selitys")
 
+T_("Depends on")
+fiFI("")
+
+T_("Dep rules")
+fiFI("")
+
+T_("Deps waiting")
+fiFI("")
+
 T_("Status")
 fiFI("Tilanne")
+
+T_("Context")
+fiFI("")
+
+T_("Reverse")
+fiFI("K\303\244\303\244nteinen")
 
 T_("Error")
 fiFI("Virhe")
@@ -342,11 +421,142 @@ fiFI("Prosessoi")
 T_("Ready")
 fiFI("Valmis")
 
+T_("Waiting dependencies")
+fiFI("")
+
+T_("tries")
+fiFI("")
+
 T_("Process output")
 fiFI("Prosessoi ulostulo-teksti")
 
 T_("Retry")
 fiFI("Yrit\303\244 uudelleen")
+
+T_("Retry cached prompt")
+fiFI("")
+
+
+// Simplified.lay
+
+T_("Value")
+fiFI("Arvo")
+
+T_("Key:")
+fiFI("")
+
+T_("Description:")
+fiFI("")
+
+T_("Value:")
+fiFI("")
+
+
+// AlbumBriefing.h
+
+T_("General History")
+fiFI("")
+
+T_("Common factors in the history of songs")
+fiFI("")
+
+T_("Life in the beginning")
+fiFI("")
+
+T_("Life of the author in the beginning of the album timeline")
+fiFI("")
+
+T_("Life in the end")
+fiFI("")
+
+T_("Life of the author in the end of the album timeline")
+fiFI("")
+
+T_("Limitations of the beginning")
+fiFI("")
+
+T_("Significant events that happened immediately before all songs in this "
+     "album")
+fiFI("")
+
+T_("Limitations of the end")
+fiFI("")
+
+T_("Significant events that happened immediately after all songs in this album")
+fiFI("")
+
+T_("School of the Author")
+fiFI("")
+
+T_("Where did the author go to school and what was it like there?")
+fiFI("")
+
+T_("Relationships of the Author")
+fiFI("")
+
+T_("What kind of dating relationships did the author have?")
+fiFI("")
+
+T_("Nerdiness of the Author")
+fiFI("")
+
+T_("What did the author do on the computer in general?")
+fiFI("")
+
+T_("Music Production of the Author")
+fiFI("")
+
+T_("How did the author contribute to his/her career as a music producer?")
+fiFI("")
+
+T_("Physical Exercise of the Author")
+fiFI("")
+
+T_("How did the author maintain his/her physical condition?")
+fiFI("")
+
+T_("Art of the Author")
+fiFI("")
+
+T_("What kind of art did the artist make?")
+fiFI("")
+
+T_("Family of the Author")
+fiFI("")
+
+T_("What kind of family did the author live in or what important family members "
+     "did he/she have?")
+fiFI("")
+
+T_("Positive Headspace of the Author")
+fiFI("")
+
+T_("In what way did the author express his/her positivity in the text?")
+fiFI("")
+
+T_("Negative Headspace of the Author")
+fiFI("")
+
+T_("In what way did the author express his/her negativity in the text?")
+fiFI("")
+
+T_("Composition Theme")
+fiFI("")
+
+T_("Common musical style of songs")
+fiFI("")
+
+T_("Lyrical Theme")
+fiFI("")
+
+T_("Common lyrical style of songs")
+fiFI("")
+
+T_("Production Theme")
+fiFI("")
+
+T_("Common genre and production limitations and features of songs")
+fiFI("")
 
 
 // AttrDataCtrl.cpp
@@ -366,20 +576,35 @@ fiFI("Avain")
 T_("Line")
 fiFI("Laini")
 
-T_("Remove line")
-fiFI("Poista laini")
+T_("Severity")
+fiFI("")
 
-T_("Unexpected mismatch: %d vs %d")
-fiFI("Odottamaton t\303\244sm\303\244\303\244m\303\244tt\303\266myys: %d vastaan %d")
-
-
-// AnalysisCtrl.cpp
-
-T_("Value")
-fiFI("Arvo")
+T_("Message")
+fiFI("")
 
 
-// PatternCtrl.cpp
+// StructureCtrl.cpp
+
+T_("Part name")
+fiFI("")
+
+T_("Length")
+fiFI("")
+
+T_("Line text")
+fiFI("")
+
+T_("Break text")
+fiFI("")
+
+T_("Source")
+fiFI("")
+
+T_("Break")
+fiFI("")
+
+
+// ImpactCtrl.cpp
 
 T_("Position")
 fiFI("Kohta")
@@ -420,6 +645,9 @@ fiFI("Merkint\303\244 '%s' on jo olemassa")
 
 // AttrScoreCtrl.cpp
 
+T_("Scoring")
+fiFI("Pisteytys")
+
 T_("Entry count")
 fiFI("Merkint\303\266jen m\303\244\303\244r\303\244")
 
@@ -457,19 +685,7 @@ T_("error: expected values between -5 and +5 (got %d)")
 fiFI("virhe: odotetut arvot v\303\244lill\303\244 -5 ja +5 (sain %d)")
 
 
-// ScoringCtrl.cpp
-
-T_("Name")
-fiFI("Nimi")
-
-T_("Preset's name")
-fiFI("Esiasetuksen nimi")
-
-T_("Save as preset")
-fiFI("Tallenna esiasetuksena")
-
-T_("Update focused preset")
-fiFI("P\303\244ivit\303\244 kohdistettu esiasetus")
+// PatternScoringCtrl.cpp
 
 T_("Add preset")
 fiFI("Lis\303\244\303\244 esiasetus")
@@ -481,6 +697,9 @@ T_("Remove preset")
 fiFI("Poista esiasetus")
 
 T_("Name of the preset")
+fiFI("Esiasetuksen nimi")
+
+T_("Preset's name")
 fiFI("Esiasetuksen nimi")
 
 T_("Preset '%s' already exists")
@@ -501,14 +720,38 @@ fiFI("painotettu itseisarvo")
 T_("weighted accumulated value")
 fiFI("painotettu kertynyt arvo")
 
+T_("gender difference value")
+fiFI("")
+
+T_("weighted gender difference value")
+fiFI("")
+
+
+// ReverseImpactCtrl.cpp
+
+T_("Score")
+fiFI("Pisteytys")
+
 
 // ReverseCtrl.cpp
+
+T_("Name")
+fiFI("Nimi")
 
 T_("Active")
 fiFI("Aktiivinen")
 
 T_("Progress")
 fiFI("Edistyminen")
+
+T_("Male Attributes")
+fiFI("")
+
+T_("Female Attributes")
+fiFI("")
+
+T_("Common Attributes")
+fiFI("")
 
 T_("Number")
 fiFI("Numero")
@@ -520,7 +763,85 @@ T_("Result")
 fiFI("Tulos")
 
 
-// AI_Tasks.cpp
+// Task_Process.cpp
+
+T_("error: '%s' got %d scores (expected %d)")
+fiFI("virhe: '%s' sai %d pistett\303\244 (odotettiin %d)")
+
+T_("error: fail with impact '%s'")
+fiFI("")
+
+T_("Didn't find 'Attributes' string")
+fiFI("'Attributes' teksti ei l\303\266ytynyt")
+
+T_("Expected header string")
+fiFI("Odotettiin otsake-teksti\303\244")
+
+T_("Expected ','")
+fiFI("")
+
+T_("Line number couldn't be matched")
+fiFI("")
+
+T_("Expected '\"'")
+fiFI("Odotettiin '\"'")
+
+T_("Expected '-'")
+fiFI("Odotettiin '-'")
+
+T_("Expected ':'")
+fiFI("Odotettiin ':'")
+
+T_("error: fail with key %s")
+fiFI("virhe: ep\303\244onnistuminen avaimella %s")
+
+
+// Task_Reverse.cpp
+
+T_("Interrupted")
+fiFI("")
+
+
+// Obsolete
+
+T_("The meaning:")
+fiFI("Tarkoitus")
+
+T_("Lit. devices:")
+fiFI("Kirjallisuuden v\303\244lineet")
+
+T_("Emotion:")
+fiFI("Tunne:")
+
+T_("References:")
+fiFI("Viitteet:")
+
+T_("The musical structure or elements of the song, such as the chord progression, "
+     "rhythm, and melody")
+fiFI("Kappaleen musiikillinen rakenne tai elementit, kuten sointukulku, rytmi "
+     "ja melodia")
+
+T_("History:")
+fiFI("Historia:")
+
+T_("Storyline:")
+fiFI("Tarina:")
+
+T_("Implications:")
+fiFI("Seuraukset")
+
+T_("Remove line")
+fiFI("Poista laini")
+
+T_("Unexpected mismatch: %d vs %d")
+fiFI("Odottamaton t\303\244sm\303\244\303\244m\303\244tt\303\266myys: %d vastaan "
+     "%d")
+
+T_("Save as preset")
+fiFI("Tallenna esiasetuksena")
+
+T_("Update focused preset")
+fiFI("P\303\244ivit\303\244 kohdistettu esiasetus")
 
 T_("Make pattern tasks")
 fiFI("Luo kaavion teht\303\244v\303\244t")
@@ -540,33 +861,6 @@ fiFI("K\303\244\303\244nteinen kaavio")
 T_("Lyrics")
 fiFI("Lyriikat")
 
-
-// Task_Process.cpp
-
-T_("Didn't find 'Attributes' string")
-fiFI("'Attributes' teksti ei l\303\266ytynyt")
-
-T_("Expected header string")
-fiFI("Odotettiin otsake-teksti\303\244")
-
-T_("Expected '\"'")
-fiFI("Odotettiin '\"'")
-
-T_("Expected '-'")
-fiFI("Odotettiin '-'")
-
-T_("Expected ':'")
-fiFI("Odotettiin ':'")
-
-T_("error: '%s' got %d scores (expected %d)")
-fiFI("virhe: '%s' sai %d pistett\303\244 (odotettiin %d)")
-
-T_("error: fail with key %s")
-fiFI("virhe: ep\303\244onnistuminen avaimella %s")
-
-
-// Obsolete
-
 T_("Struct:")
 fiFI("Rakenne:")
 
@@ -581,9 +875,6 @@ fiFI("Lis\303\244\303\244")
 
 T_("Pattern mask preset")
 fiFI("Kaaviomaskin esiasetus")
-
-T_("Score")
-fiFI("Pisteytys")
 
 T_("Load active pattern")
 fiFI("Lataa aktiivinen kaavio")

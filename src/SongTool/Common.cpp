@@ -75,9 +75,9 @@ String PipePtrs::GetBreakInSongString() const {
 
 String EditorPtrs::GetBreakInDatabaseString() const {
 	String s;
-	if (artist) s << artist->name + " - ";
-	if (release) s << release->title + " - ";
-	if (song) s << song->title;
+	if (artist) s << artist->native_name + " - ";
+	if (release) s << release->native_title + " - ";
+	if (song) s << song->native_title;
 	s << ": ";
 	s << song->pipe->p.GetBreakInSongString();
 	return s;

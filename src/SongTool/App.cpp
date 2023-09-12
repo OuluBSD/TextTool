@@ -2,7 +2,7 @@
 
 
 
-SongTool::SongTool() {
+SongTool::SongTool() : ed(this) {
 	Title("SongTool");
 	MaximizeBox().MinimizeBox().Sizeable();
 	Icon(AppImg::icon());
@@ -19,20 +19,17 @@ SongTool::SongTool() {
 		#endif
 	};
 	ed.WhenStopUpdating << [this](){tc.Kill();};
-	ed.PostInit();
 	
 	Add(fp.SizePos());
 	Add(cal.SizePos());
 	Add(ed.SizePos());
 	Add(seq.SizePos());
 	Add(ai.SizePos());
-	SetView(page);
 	
 	AddFrame(menu);
 	menu.Set(THISBACK(MainMenu));
-	PostCallback(THISBACK(LoadWindowPos));
-	PostCallback(THISBACK(Data));
 	
+	PostInit();
 }
 
 SongTool::~SongTool() {
@@ -41,6 +38,14 @@ SongTool::~SongTool() {
 	
 	SaveWindowPos();
 	Store();
+}
+
+void SongTool::Init() {
+	ed.Init();
+	ed.Data(); // sets active artist, song, etc.
+	
+	LoadWindowPos();
+	SetView(page);
 }
 
 void SongTool::MainMenu(Bar& bar) {
@@ -120,7 +125,7 @@ void SongTool::SetView(int i) {
 		case 0: fp.Show(); break;
 		case 1: cal.Show(); break;
 		case 2: ed.Show(); break;
-		case 3: ai.Show(); tc.Set(-500, THISBACK(Data)); break;
+		case 3: ai.Show(); PostCallback(THISBACK(StartUpdating)); break;
 		case 4: seq.Show(); break;
 	}
 	
@@ -128,6 +133,10 @@ void SongTool::SetView(int i) {
 	Store();
 	
 	Data();
+}
+
+void SongTool::StartUpdating() {
+	tc.Set(-500, THISBACK(Data));
 }
 
 void SongTool::MakeTasks() {

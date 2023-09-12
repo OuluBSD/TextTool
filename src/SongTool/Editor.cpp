@@ -1,7 +1,7 @@
 #include "SongTool.h"
 
 
-Editor::Editor() {
+Editor::Editor(SongTool* app) : app(*app) {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << menusplit << base;
@@ -29,9 +29,10 @@ Editor::Editor() {
 	releases.ColumnWidths("3 1");
 	releases <<= THISBACK(DataRelease);
 	
-	songs.AddColumn(t_("Artist"));
 	songs.AddColumn(t_("Title"));
 	songs.AddColumn(t_("Project name"));
+	songs.AddColumn(t_("Artist"));
+	songs.ColumnWidths("2 2 1");
 	songs <<= THISBACK(DataSong);
 	
 	parts.AddColumn(t_("Part"));
@@ -45,8 +46,6 @@ Editor::Editor() {
 		reverse[i].SetSource(i);
 	
 	rev_pattern.UseRev();
-	
-	PostCallback(THISBACK(Data)); // sets active artist, song, etc.
 }
 
 void Editor::AddItem(String g, String i, SongToolCtrl& c) {
@@ -162,8 +161,10 @@ void Editor::InitAdvanced() {
 }
 
 void Editor::Init() {
+	LoadLast();
 	tablist.SetCursor(page);
 	SetView(page);
+	Data();
 }
 
 void Editor::SetView(int i) {
@@ -182,8 +183,45 @@ void Editor::SetView(int i) {
 }
 
 void Editor::DataPage() {
+	StoreLast();
+	
 	if (page >= 0 && page < items.GetCount())
 		items[page].ctrl->Data();
+}
+
+void Editor::LoadLast() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	p.artist = 0;
+	p.release = 0;
+	p.song = 0;
+	for (Artist& a : db.artists) {
+		if (a.native_name == app.last_artist) {
+			p.artist = &a;
+			for (Release& r : a.releases) {
+				if (r.native_title == app.last_release) {
+					p.release = &r;
+					for (Song& s : r.songs) {
+						if (s.native_title == app.last_song) {
+							p.song = &s;
+							break;
+						}
+					}
+					break;
+				}
+			}
+			break;
+		}
+	}
+}
+
+void Editor::StoreLast() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	app.last_artist = p.artist ? p.artist->native_name : String();
+	app.last_release = p.release ? p.release->native_title : String();
+	app.last_song = p.song ? p.song->native_title : String();
+	app.Store();
 }
 
 void Editor::UpdateView() {
@@ -197,7 +235,7 @@ void Editor::Data() {
 	
 	for(int i = 0; i < db.artists.GetCount(); i++) {
 		Artist& a = db.artists[i];
-		artists.Set(i, 0, a.name);
+		artists.Set(i, 0, a.native_name);
 	}
 	artists.SetCount(db.artists.GetCount());
 	
@@ -210,16 +248,21 @@ void Editor::Data() {
 
 void Editor::DataArtist() {
 	Database& db = Database::Single();
-	if (!artists.IsCursor())
-		return;
-	
 	EditorPtrs& p = db.ctx.ed;
+	if (!artists.IsCursor()) {
+		p.artist = 0;
+		p.release = 0;
+		p.song = 0;
+		DataPage();
+		return;
+	}
+	
 	p.artist = &db.artists[artists.GetCursor()];
 	Artist& a = *p.artist;
 	
 	for(int i = 0; i < a.releases.GetCount(); i++) {
 		Release& r = a.releases[i];
-		releases.Set(i, 0, r.title);
+		releases.Set(i, 0, r.native_title);
 		releases.Set(i, 1, r.date);
 	}
 	releases.SetCount(a.releases.GetCount());
@@ -234,8 +277,12 @@ void Editor::DataArtist() {
 void Editor::DataRelease() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
-	if (!releases.IsCursor() || !p.artist)
+	if (!releases.IsCursor() || !p.artist) {
+		p.release = 0;
+		p.song = 0;
+		DataPage();
 		return;
+	}
 	
 	p.release = &p.artist->releases[releases.GetCursor()];
 	Artist& a = *p.artist;
@@ -243,9 +290,9 @@ void Editor::DataRelease() {
 	
 	for(int i = 0; i < r.songs.GetCount(); i++) {
 		Song& s = r.songs[i];
-		songs.Set(i, 0, s.artist);
-		songs.Set(i, 1, s.title);
-		songs.Set(i, 2, s.prj_name);
+		songs.Set(i, 0, s.native_title);
+		songs.Set(i, 1, s.prj_name);
+		songs.Set(i, 2, s.artist);
 	}
 	songs.SetCount(r.songs.GetCount());
 	
@@ -259,16 +306,21 @@ void Editor::DataRelease() {
 void Editor::DataSong() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
-	if (!songs.IsCursor() || !p.artist || !p.release)
+	if (!songs.IsCursor() || !p.artist || !p.release) {
+		p.song = 0;
+		DataPage();
 		return;
+	}
 	
 	p.song = &p.release->songs[songs.GetCursor()];
 	Artist& a = *p.artist;
 	Release& r = *p.release;
 	Song& s = *p.song;
 	
-	if (!s.pipe)
+	if (!s.pipe) {
+		DataPage();
 		return;
+	}
 	Pipe& e = *s.pipe;
 	
 	for(int i = 0; i < e.parts.GetCount()+1; i++) {
@@ -361,7 +413,7 @@ void Editor::AddArtist() {
 	bool b = EditTextNotNull(
 		name,
 		t_("Add Artist"),
-		t_("Artist's name"),
+		t_("Artist's English name"),
 		0
 	);
 	if (!b) return;
@@ -369,7 +421,7 @@ void Editor::AddArtist() {
 	int artist_i = -1;
 	for(int i = 0; i < db.artists.GetCount(); i++) {
 		Artist& a = db.artists[i];
-		if (a.name == name) {
+		if (a.english_name == name) {
 			artist_i = i;
 			break;
 		}
@@ -383,7 +435,7 @@ void Editor::AddArtist() {
 	
 	Artist& a = db.artists.Add();
 	a.file_title = MakeTitle(name);
-	a.name = name;
+	a.english_name = name;
 	p.artist = &a;
 	
 	Data();
@@ -399,12 +451,12 @@ void Editor::RenameArtist() {
 	bool b = EditTextNotNull(
 		name,
 		t_("Rename Artist"),
-		t_("Artist's name"),
+		t_("Artist's English name"),
 		0
 	);
 	if (!b) return;
 	
-	p.artist->name = name;
+	p.artist->english_name = name;
 	
 	Data();
 }
@@ -431,7 +483,7 @@ void Editor::AddRelease() {
 	bool b = EditTextNotNull(
 		title,
 		t_("Add Release"),
-		t_("Release's title"),
+		t_("Release's English title"),
 		0
 	);
 	if (!b) return;
@@ -439,7 +491,7 @@ void Editor::AddRelease() {
 	int rel_i = -1;
 	for(int i = 0; i < a.releases.GetCount(); i++) {
 		Release& r = a.releases[i];
-		if (r.title == title) {
+		if (r.english_title == title) {
 			rel_i = i;
 			break;
 		}
@@ -451,7 +503,7 @@ void Editor::AddRelease() {
 	
 	Release& r = a.releases.Add();
 	r.file_title = MakeTitle(title);
-	r.title = title;
+	r.english_title = title;
 	p.release = &r;
 	
 	DataArtist();
@@ -467,12 +519,12 @@ void Editor::RenameRelease() {
 	bool b = EditTextNotNull(
 		title,
 		t_("Rename Release"),
-		t_("Release's title"),
+		t_("Release's English title"),
 		0
 	);
 	if (!b) return;
 	
-	p.release->title = title;
+	p.release->english_title = title;
 	
 	DataArtist();
 }
@@ -500,7 +552,7 @@ void Editor::AddSong() {
 	bool b = EditTextNotNull(
 		title,
 		t_("Add Song"),
-		t_("Song's title"),
+		t_("Song's English title"),
 		0
 	);
 	if (!b) return;
@@ -508,7 +560,7 @@ void Editor::AddSong() {
 	int rel_i = -1;
 	for(int i = 0; i < r.songs.GetCount(); i++) {
 		Song& s = r.songs[i];
-		if (s.title == title) {
+		if (s.english_title == title) {
 			rel_i = i;
 			break;
 		}
@@ -520,7 +572,7 @@ void Editor::AddSong() {
 	
 	Song& s = r.songs.Add();
 	s.file_title = MakeTitle(title);
-	s.title = title;
+	s.english_title = title;
 	p.song = &s;
 	
 	DataArtist();
@@ -536,12 +588,12 @@ void Editor::RenameSong() {
 	bool b = EditTextNotNull(
 		title,
 		t_("Rename Song"),
-		t_("Song's title"),
+		t_("Song's English title"),
 		0
 	);
 	if (!b) return;
 	
-	p.song->title = title.ToString();
+	p.song->english_title = title.ToString();
 	
 	DataRelease();
 }

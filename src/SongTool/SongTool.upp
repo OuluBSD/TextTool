@@ -39,6 +39,7 @@ file
 	LineEditCtrl.cpp,
 	TimelineCtrl.cpp,
 	"Simplified Editor Ctrls" readonly separator,
+	Simplified.lay,
 	AlbumBriefing.h,
 	AlbumBriefing.cpp,
 	AlbumIdeas.h,

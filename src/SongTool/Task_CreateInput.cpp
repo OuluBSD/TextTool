@@ -1094,13 +1094,13 @@ void Task::CreateInput_Lyrics() {
 	ASSERT(a.mode >= 0);
 	
 	TaskTitledList& info = input.AddSub();
-	info.Add("Artist name", ar.name);
+	info.Add("Artist name", ar.native_name);
 	info.Add("Year of birth", ar.year_of_birth);
 	info.Add("Year of beginning of the career", ar.year_of_career_begin);
 	info.Add("Music genre", ar.musical_style);
 	info.Add("Voice", ar.vibe_of_voice);
 	info.Add("Vocalist visually", ar.vocalist_visual);
-	info.Add("Title of lyrics", s.title);
+	info.Add("Title of lyrics", s.native_title);
 	info.Add("Year", (int)r.date.year);
 	/*info.Add("Meaning", s.meaning);
 	info.Add("Literary devices", s.devices);

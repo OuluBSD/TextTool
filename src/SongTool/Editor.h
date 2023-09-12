@@ -1,6 +1,7 @@
 #ifndef _SongTool_Editor_h_
 #define _SongTool_Editor_h_
 
+class SongTool;
 
 class Editor : public Ctrl {
 	
@@ -73,11 +74,10 @@ protected:
 	
 public:
 	typedef Editor CLASSNAME;
-	Editor();
+	Editor(SongTool* app);
 	
 	void Serialize(Stream& s) {s % page;}
 	void Init();
-	void PostInit() {PostCallback(THISBACK(Init));}
 	void UpdateView();
 	void Data();
 	void DataArtist();
@@ -86,6 +86,8 @@ public:
 	void DataPart();
 	void DataPage();
 	void SetView(int i);
+	void LoadLast();
+	void StoreLast();
 	
 	void ArtistMenu(Bar& bar);
 	void ReleaseMenu(Bar& bar);
@@ -106,6 +108,7 @@ public:
 	void InitAdvanced();
 	
 	Callback WhenStartUpdating, WhenStopUpdating;
+	SongTool& app;
 	
 };
 

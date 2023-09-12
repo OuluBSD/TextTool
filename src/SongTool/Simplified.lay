@@ -1,0 +1,11 @@
+LAYOUT(KeyValueList, 400, 284)
+	ITEM(Upp::ArrayCtrl, list, HSizePosZ(0, 0).VSizePosZ(0, 132))
+	ITEM(Upp::LabelBox, dv___1, SetLabel(t_("Value")).HSizePosZ(4, 4).BottomPosZ(4, 128))
+	ITEM(Upp::Label, dv___2, SetLabel(t_("Key:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 84).BottomPosZ(93, 19))
+	ITEM(Upp::Label, dv___3, SetLabel(t_("Description:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 84).BottomPosZ(69, 19))
+	ITEM(Upp::Label, dv___4, SetLabel(t_("Value:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 84).BottomPosZ(45, 19))
+	ITEM(Upp::EditString, key, SetEditable(false).WantFocus(false).HSizePosZ(100, 12).BottomPosZ(93, 19))
+	ITEM(Upp::EditString, description, SetEditable(false).WantFocus(false).HSizePosZ(100, 12).BottomPosZ(69, 19))
+	ITEM(Upp::DocEdit, value, HSizePosZ(100, 12).BottomPosZ(8, 56))
+END_LAYOUT
+

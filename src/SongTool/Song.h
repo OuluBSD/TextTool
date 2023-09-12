@@ -32,11 +32,13 @@ struct Song :
 {
 	// Public
 	String				artist;
-	String				title;
+	String				native_title;
+	String				english_title;
 	String				prj_name;
 	String				structure_str;
 	Vector<String>		structure;
 	MArr<String>		content;
+	VectorMap<String,String>	data;
 	
 	// Temp
 	Pipe*				pipe = 0;
@@ -71,11 +73,13 @@ struct Song :
 	void Jsonize(JsonIO& json) {
 		json
 			("artist", artist)
-			("title", title)
+			("title", native_title)
+			("english_title", english_title)
 			("prj_name", prj_name)
 			("structure_str", structure_str)
 			("structure", structure)
 			("content", content)
+			("data", data)
 			;
 		
 		//for(const SnapArg& a : HumanInputTextArgs())

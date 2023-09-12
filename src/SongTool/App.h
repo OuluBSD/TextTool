@@ -27,6 +27,11 @@ class SongTool : public TopWindow {
 	void Load() {LoadFromFile(*this, ConfigFile("cookie.bin"));}
 	void Store() {StoreToFile(*this, ConfigFile("cookie.bin"));}
 	
+protected:
+	friend class Editor;
+	
+	String last_artist, last_release, last_song;
+	
 public:
 	typedef SongTool CLASSNAME;
 	SongTool();
@@ -34,14 +39,17 @@ public:
 	
 	void MainMenu(Bar& b);
 	void SetOpenAIToken();
+	void Init();
+	void PostInit() {PostCallback(THISBACK(Init));}
 	void Data();
 	void SetView(int i);
-	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed;}
+	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed % last_artist % last_release % last_song;}
 	void Layout() override {SaveWindowPos();}
 	void ShowOrphanedFiles();
 	void MakeTasks();
 	void SaveWindowPos();
 	void LoadWindowPos();
+	void StartUpdating();
 	
 	Editor& GetEditor() {return ed;}
 	

@@ -7,7 +7,8 @@ struct Artist :
 	EditorPtrs
 {
 	// Public
-	String name;
+	String native_name;
+	String english_name;
 	int year_of_birth = 0;
 	int year_of_career_begin = 0;
 	String biography;
@@ -16,12 +17,13 @@ struct Artist :
 	String acoustic_instruments;
 	String electronic_instruments;
 	String vocalist_visual;
+	VectorMap<String,String>	data;
 	
 	// Public (separate files)
 	Array<Release> releases;
 	
 	void Clear() {
-		name.Clear();
+		native_name.Clear();
 		year_of_birth = 0;
 		year_of_career_begin = 0;
 		biography.Clear();
@@ -46,7 +48,8 @@ struct Artist :
 	Array<Release>& GetSub() {return releases;}
 	const Array<Release>& GetSub() const {return releases;}
 	void Serialize(Stream& s) {
-		s	% name
+		s	% native_name
+			% english_name
 			% year_of_birth
 			% year_of_career_begin
 			% biography
@@ -55,12 +58,15 @@ struct Artist :
 			% acoustic_instruments
 			% electronic_instruments
 			% vocalist_visual
-			% releases;
+			% releases
+			% data
+			;
 		//SnapContext::Serialize(s);
 	}
 	void Jsonize(JsonIO& json) {
 		json
-			("name", name)
+			("name", native_name)
+			("english_name", english_name)
 			("year_of_birth", year_of_birth)
 			("year_of_career_begin", year_of_career_begin)
 			("biography", biography)
@@ -69,6 +75,7 @@ struct Artist :
 			("acoustic_instruments", acoustic_instruments)
 			("electronic_instruments", electronic_instruments)
 			("vocalist_visual", vocalist_visual)
+			("data", data)
 			;
 		if (json.IsStoring()) {
 			Vector<String> names;
@@ -95,7 +102,7 @@ struct Artist :
 	}
 	bool operator()(const Artist& a, const Artist& b) const {
 		if (a.year_of_birth != b.year_of_birth) return a.year_of_birth < b.year_of_birth;
-		return a.name < b.name;
+		return a.native_name < b.native_name;
 	}
 	
 	
