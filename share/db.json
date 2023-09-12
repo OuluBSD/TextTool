@@ -9,6 +9,10 @@
 						"value": "hyväksyvä"
 					},
 					{
+						"key": "adventurous",
+						"value": "seikkaileva"
+					},
+					{
 						"key": "attitude",
 						"value": "asenne"
 					},
@@ -117,8 +121,16 @@
 						"value": "hilpeä"
 					},
 					{
+						"key": "limited",
+						"value": "rajoittunut"
+					},
+					{
 						"key": "melancholic",
 						"value": "melankolinen"
+					},
+					{
+						"key": "monogamy",
+						"value": "yksiavioisuus"
 					},
 					{
 						"key": "mood",
@@ -165,6 +177,10 @@
 						"value": "leikkisä"
 					},
 					{
+						"key": "polygamy",
+						"value": "moniavioisuus"
+					},
+					{
 						"key": "punishing",
 						"value": "rankaiseva"
 					},
@@ -193,12 +209,20 @@
 						"value": "seksuaalinen käyttäytyminen"
 					},
 					{
+						"key": "sexual commitment",
+						"value": "seksuaalinen sitoutuminen"
+					},
+					{
 						"key": "sexual orientation",
 						"value": "seksuaalinen suuntautuneisuus"
 					},
 					{
 						"key": "sexual preference",
 						"value": "seksuaalinen mieltymys"
+					},
+					{
+						"key": "sexuality",
+						"value": "seksuaalisuus"
 					},
 					{
 						"key": "sexualization",
