@@ -33,6 +33,34 @@
 		{
 			"key": "POLL_MOOD_UPLIFTING_HEAVY",
 			"value": "0"
+		},
+		{
+			"key": "ATTR_IMPACT_ATTITUDE_HOPEFUL_DESPAIR",
+			"value": ""
+		},
+		{
+			"key": "CHORD_PAD_COMMENT",
+			"value": ""
+		},
+		{
+			"key": "VOCAL_MELODY_COMMENT",
+			"value": ""
+		},
+		{
+			"key": "CHORD_PAD_VALUE",
+			"value": "0"
+		},
+		{
+			"key": "VOCAL_MELODY_VALUE",
+			"value": "0"
+		},
+		{
+			"key": "MID_SOLO_FILLS_VALUE",
+			"value": "0"
+		},
+		{
+			"key": "MID_SOLO_FILLS_COMMENT",
+			"value": ""
 		}
 	]
 }

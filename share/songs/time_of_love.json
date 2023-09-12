@@ -14,6 +14,13 @@
 		"obj[3]": ""
 	},
 	"data": [
-
+		{
+			"key": "CHORD_PAD_VALUE",
+			"value": "0"
+		},
+		{
+			"key": "CHORD_PAD_COMMENT",
+			"value": ""
+		}
 	]
 }
