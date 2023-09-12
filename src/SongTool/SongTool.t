@@ -495,19 +495,22 @@ fiFI("Alkuajan rajoitukset")
 
 T_("Significant events that happened immediately before all songs in this "
      "album")
-fiFI("Merkitt\303\244vi\303\244 tapahtumia, jotka tapahtuivat juuri ennen kaikkia t\303\244m\303\244n albumin kappaleita")
+fiFI("Merkitt\303\244vi\303\244 tapahtumia, jotka tapahtuivat juuri ennen kaikkia "
+     "t\303\244m\303\244n albumin kappaleita")
 
 T_("Limitations of the end")
 fiFI("Lopun rajoitukset")
 
 T_("Significant events that happened immediately after all songs in this album")
-fiFI("Merkitt\303\244vi\303\244 tapahtumia, jotka tapahtuivat v\303\244litt\303\266m\303\244sti kaikkien t\303\244m\303\244n albumin kappaleiden j\303\244lkeen")
+fiFI("Merkitt\303\244vi\303\244 tapahtumia, jotka tapahtuivat v\303\244litt\303\266m\303\244sti "
+     "kaikkien t\303\244m\303\244n albumin kappaleiden j\303\244lkeen")
 
 T_("School of the Author")
 fiFI("Tekij\303\244n koulu")
 
 T_("Where did the author go to school and what was it like there?")
-fiFI("Miss\303\244 tekij\303\244 k\303\244vi koulua ja millaista siell\303\244 oli?")
+fiFI("Miss\303\244 tekij\303\244 k\303\244vi koulua ja millaista siell\303\244 "
+     "oli?")
 
 T_("Relationships of the Author")
 fiFI("Tekij\303\244n suhteet")
@@ -519,7 +522,8 @@ T_("Nerdiness of the Author")
 fiFI("Tekij\303\244n n\303\266rttim\303\244isyys")
 
 T_("What did the author do on the computer in general?")
-fiFI("Mit\303\244 tekij\303\244 ylip\303\244\303\244t\303\244\303\244n teki tietokoneella?")
+fiFI("Mit\303\244 tekij\303\244 ylip\303\244\303\244t\303\244\303\244n teki "
+     "tietokoneella?")
 
 T_("Music Production of the Author")
 fiFI("Tekij\303\244n musiikkituotanto")
@@ -544,7 +548,8 @@ fiFI("Tekij\303\244n perhe")
 
 T_("What kind of family did the author live in or what important family members "
      "did he/she have?")
-fiFI("Millaisessa perheess\303\244 tekij\303\244 asui tai mit\303\244 t\303\244rkeit\303\244 perheenj\303\244seni\303\244 h\303\244nell\303\244 oli?")
+fiFI("Millaisessa perheess\303\244 tekij\303\244 asui tai mit\303\244 t\303\244rkeit\303\244 "
+     "perheenj\303\244seni\303\244 h\303\244nell\303\244 oli?")
 
 T_("Positive Headspace of the Author")
 fiFI("Tekij\303\244n positiivinen ajatusmaailma")
@@ -592,6 +597,55 @@ T_("Idea with that title exist already")
 fiFI("Tuollainen idea on jo olemassa")
 
 
+// SongBriefing.cpp
+
+T_("Key")
+fiFI("Avain")
+
+T_("Group")
+fiFI("Ryhm\303\244")
+
+T_("Positive")
+fiFI("Positiivisuus")
+
+T_("Negative")
+fiFI("Negatiivisuus")
+
+T_("Very ")
+fiFI("Eritt\303\244in ")
+
+T_("Sligthly ")
+fiFI("Liev\303\244sti ")
+
+T_("Neutral")
+fiFI("Neutraali")
+
+T_("Reference song")
+fiFI("Viitekappale")
+
+T_("Birth of song")
+fiFI("Kappaleen synty")
+
+T_("Generic %")
+fiFI("Yleinen %s")
+
+T_("Impact %")
+fiFI("Iskev\303\244 %s")
+
+T_("Which song is used as the structural reference for lyrics?")
+fiFI("Mit\303\244 kappaletta k\303\244ytet\303\244\303\244n sanoitusten rakenteellisena "
+     "viittauksena?")
+
+T_("How the song was born?")
+fiFI("Miten kappale syntyi?")
+
+T_("Generic information around %s")
+fiFI("Yleist\303\244 tietoa aiheesta \"%s\"")
+
+T_("Desired impact of %s")
+fiFI("Aiheen \"%s\" toivottu iskevyys ihmisten kokemuksissa")
+
+
 // ChecklistComposition.h
 
 T_("chord pad")
@@ -599,6 +653,24 @@ fiFI("sointu pad")
 
 T_("vocal melody")
 fiFI("laulun melodia")
+
+T_("drumkit")
+fiFI("rumpusetti")
+
+T_("hand drums")
+fiFI("k\303\244sirummut")
+
+T_("low rhythm (bass)")
+fiFI("ala-rytmi (basso-kitara)")
+
+T_("mid rhythm (low guitar, e.g. strumming)")
+fiFI("keski-rytmi (matala kitara, esim. r\303\244mpytys)")
+
+T_("high rhythm (e.g. high muted guitar)")
+fiFI("yl\303\244-rytmi (esim. korkeat dempatut kitarat)")
+
+T_("low solo (bass solo)")
+fiFI("ala-soolo (basso-kitaran soolo)")
 
 T_("mid solo (instrumental theme)")
 fiFI("keski-soolo (instrumentaali-osion teema)")
@@ -609,32 +681,11 @@ fiFI("yl\303\244-soolo (esim. bridgen kliimaksi soolo)")
 T_("mid fills (e.g. between singing)")
 fiFI("keski-t\303\244ydennys (esim. laulujen v\303\244liss\303\244)")
 
-T_("high rhythm (e.g. high muted guitar)")
-fiFI("yl\303\244-rytmi (esim. korkeat dempatut kitarat)")
-
-T_("mid rhythm (low guitar, e.g. strumming)")
-fiFI("keski-rytmi (matala kitara, esim. r\303\244mpytys)")
-
-T_("low rhythm (bass)")
-fiFI("ala-rytmi (basso-kitara)")
-
-T_("low solo (bass solo)")
-fiFI("ala-soolo (basso-kitaran soolo)")
-
 T_("impacts")
 fiFI("iskut")
 
 T_("texture pad (arp)")
 fiFI("tekstuuri-padi (arpeggiaatti)")
-
-T_("drums")
-fiFI("rummut")
-
-T_("hand drums")
-fiFI("k\303\244sirummut")
-
-T_("drumkit")
-fiFI("rumpusetti")
 
 
 // AttrDataCtrl.cpp
@@ -644,9 +695,6 @@ fiFI("Tyyppi")
 
 T_("Group description")
 fiFI("Ryhm\303\244n selitys")
-
-T_("Key")
-fiFI("Avain")
 
 
 // ImportCtrl.cpp
@@ -728,9 +776,6 @@ fiFI("Pisteytys")
 
 T_("Entry count")
 fiFI("Merkint\303\266jen m\303\244\303\244r\303\244")
-
-T_("Group")
-fiFI("Ryhm\303\244")
 
 T_("Entry")
 fiFI("Merkint\303\244")
@@ -881,6 +926,9 @@ fiFI("Keskeytetty")
 
 
 // Obsolete
+
+T_("drums")
+fiFI("rummut")
 
 T_("Name:")
 fiFI("Nimi:")
@@ -1676,9 +1724,6 @@ fiFI("Haastava")
 
 T_("Encouraging")
 fiFI("Kannustava")
-
-T_("Neutral")
-fiFI("Neutraali")
 
 T_("Poignant")
 fiFI("Koskettava")

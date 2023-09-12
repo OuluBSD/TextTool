@@ -1,6 +1,228 @@
 {
 	"translation": [
-
+		{
+			"key": "FI-FI",
+			"value": {
+				"data": [
+					{
+						"key": "acceptance",
+						"value": "hyväksyvä"
+					},
+					{
+						"key": "attitude",
+						"value": "asenne"
+					},
+					{
+						"key": "authoritarian",
+						"value": "autoritaarinen"
+					},
+					{
+						"key": "beliefs",
+						"value": "uskomukset"
+					},
+					{
+						"key": "closed",
+						"value": "sulkeutunut"
+					},
+					{
+						"key": "collective",
+						"value": "kollektiivinen"
+					},
+					{
+						"key": "conservative",
+						"value": "konservatiivinen"
+					},
+					{
+						"key": "culture",
+						"value": "kulttuuri"
+					},
+					{
+						"key": "despair",
+						"value": "toivoton"
+					},
+					{
+						"key": "dramatic",
+						"value": "dramaattinen"
+					},
+					{
+						"key": "economic",
+						"value": "ekonomisuus"
+					},
+					{
+						"key": "enhancement",
+						"value": "kehoa muokkaava"
+					},
+					{
+						"key": "expectations",
+						"value": "odotukset"
+					},
+					{
+						"key": "heavy",
+						"value": "raskas"
+					},
+					{
+						"key": "heterosexual",
+						"value": "heteroseksuaalinen"
+					},
+					{
+						"key": "homosexual",
+						"value": "homoseksuaalinen"
+					},
+					{
+						"key": "honest",
+						"value": "rehellinen"
+					},
+					{
+						"key": "hopeful",
+						"value": "toiveikas"
+					},
+					{
+						"key": "human strength",
+						"value": "ihmisen voimakkuus"
+					},
+					{
+						"key": "humorous",
+						"value": "humoristinen"
+					},
+					{
+						"key": "individualism",
+						"value": "yksilökeskeinen"
+					},
+					{
+						"key": "integrity",
+						"value": "aitous"
+					},
+					{
+						"key": "joyful",
+						"value": "iloinen"
+					},
+					{
+						"key": "kinky",
+						"value": "perverssi"
+					},
+					{
+						"key": "liberal",
+						"value": "liberaali"
+					},
+					{
+						"key": "libertarian",
+						"value": "libertaarinen"
+					},
+					{
+						"key": "lighthearted",
+						"value": "hilpeä"
+					},
+					{
+						"key": "melancholic",
+						"value": "melankolinen"
+					},
+					{
+						"key": "mood",
+						"value": "tunnelma"
+					},
+					{
+						"key": "motivation",
+						"value": "motivaatio"
+					},
+					{
+						"key": "natural",
+						"value": "luonnollinen"
+					},
+					{
+						"key": "non-sexual",
+						"value": "ei-seksuaalinen"
+					},
+					{
+						"key": "normal",
+						"value": "normaali"
+					},
+					{
+						"key": "open",
+						"value": "avoin"
+					},
+					{
+						"key": "optimistic",
+						"value": "optimistinen"
+					},
+					{
+						"key": "perfection",
+						"value": "täydellinen"
+					},
+					{
+						"key": "pessimistic",
+						"value": "pessimistinen"
+					},
+					{
+						"key": "physical preference",
+						"value": "fyysinen mieltymys"
+					},
+					{
+						"key": "playful",
+						"value": "leikkisä"
+					},
+					{
+						"key": "punishing",
+						"value": "rankaiseva"
+					},
+					{
+						"key": "rewarding",
+						"value": "palkitseva"
+					},
+					{
+						"key": "secular",
+						"value": "sekulaarinen"
+					},
+					{
+						"key": "serious",
+						"value": "vakava"
+					},
+					{
+						"key": "sexual",
+						"value": "seksuaalinen"
+					},
+					{
+						"key": "sexual orientation",
+						"value": "seksuaalinen suuntautuneisuus"
+					},
+					{
+						"key": "sexual preference",
+						"value": "seksuaalinen mieltymys"
+					},
+					{
+						"key": "sexualization",
+						"value": "seksualisointi"
+					},
+					{
+						"key": "social",
+						"value": "sosiaalisuus"
+					},
+					{
+						"key": "somber",
+						"value": "synkkä"
+					},
+					{
+						"key": "spiritual",
+						"value": "henkinen"
+					},
+					{
+						"key": "strong",
+						"value": "vahva"
+					},
+					{
+						"key": "twisted",
+						"value": "kieroutunut"
+					},
+					{
+						"key": "uplifting",
+						"value": "kohottava"
+					},
+					{
+						"key": "weak",
+						"value": "heikko"
+					}
+				]
+			}
+		}
 	],
 	"artists": [
 		"red_hot_chili_peppers",

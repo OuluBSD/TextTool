@@ -23,6 +23,17 @@
 		"obj[3]": ""
 	},
 	"data": [
-
+		{
+			"key": "POLL_INTEGRITY",
+			"value": "0"
+		},
+		{
+			"key": "POLL_SOCIAL",
+			"value": "0"
+		},
+		{
+			"key": "POLL_HUMAN_STRENGTH",
+			"value": "0"
+		}
 	]
 }

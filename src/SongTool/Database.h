@@ -62,7 +62,7 @@ struct Database {
 		}
 		if (json.IsLoading()) {
 			String lng = GetCurrentLanguageString().Left(5);
-			trans_i = translation.Find(lng);
+			trans_i = translation.FindAdd(lng);
 			
 			Vector<String> names;
 			json("artists", names);
