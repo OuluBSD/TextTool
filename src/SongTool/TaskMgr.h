@@ -74,6 +74,7 @@ struct TaskMgr {
 	
 	void ImportSongAndMakeReversedSong();
 	void TranslateSongData(String orig_lang, String orig_key, String trans_lang, String trans_key, Callback WhenDone);
+	void UnpackStructureSongData(String orig_key, String struct_key, Callback WhenDone);
 	
 	
 };

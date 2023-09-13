@@ -3,6 +3,7 @@
 
 #include <CtrlLib/CtrlLib.h>
 #include <CodeEditor/CodeEditor.h>
+#include <Esc/Esc.h>
 #define TFILE <SongTool/SongTool.t>
 #include <Core/t.h>
 using namespace Upp;
@@ -53,24 +54,25 @@ using namespace Upp;
 #include "Artist.h"
 #include "Database.h"
 
+#include "TranslatorToolBase.h"
+#include "ChecklistBase.h"
+#include "EditorBottom.h"
+#include "EditorCtrl.h"
+
+#include "Checklists.h"
 #include "AlbumBriefing.h"
 #include "AlbumIdeas.h"
 #include "CoverImage.h"
 #include "Pitching.h"
 #include "SongBriefing.h"
-#include "ChecklistComposition.h"
-#include "TxtStructTranslate.h"
-#include "TxtStructFromEnglish.h"
+#include "TxtInTranslate.h"
 #include "TxtStructEdit.h"
 #include "TxtStructToText.h"
 #include "TxtEditNative.h"
 #include "TxtEditEnglish.h"
-#include "ChecklistProduction.h"
 #include "MusicVideoImport.h"
 #include "MusicVideoEdit.h"
 #include "MusicVideoToPlan.h"
-#include "ChecklistMusicVideoProduction.h"
-#include "ChecklistRelease.h"
 
 #include "AttrDataCtrl.h"
 #include "BasicInfoCtrl.h"

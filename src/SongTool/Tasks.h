@@ -159,6 +159,7 @@ public:
 	void CreateInput_ImpactScoring();
 	void CreateInput_ForwardLyricsWeighted();
 	void CreateInput_TranslateSongData();
+	void CreateInput_UnpackStructureSongData();
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
 	void Process_StoryArc();
@@ -188,6 +189,7 @@ public:
 	void Process_MakeImpactScoringTasks();
 	void Process_ForwardLyricsWeighted();
 	void Process_TranslateSongData();
+	void Process_UnpackStructureSongData();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

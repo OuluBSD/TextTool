@@ -1612,3 +1612,12 @@ void Task::Process_TranslateSongData() {
 	String& trans_txt = song.data.GetAdd(trans_key);
 	trans_txt = output;
 }
+
+void Task::Process_UnpackStructureSongData() {
+	String orig_key = args[0];
+	String struct_key = args[1];
+	
+	Song& song = *p.pipe->song;
+	String& struct_txt = song.data.GetAdd(struct_key);
+	struct_txt = output;
+}

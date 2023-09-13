@@ -3,8 +3,8 @@
 
 
 TranslatorToolCtrl::TranslatorToolCtrl() {
-	Add(hsplit.HSizePos().VSizePos(0,30));
-	Add(translate.BottomPos(1,28).HCenterPos(120));
+	Add(hsplit.HSizePos().VSizePos(30,0));
+	Add(translate.TopPos(1,28).HCenterPos(120));
 	
 	hsplit.Horz() << orig << trans;
 	
@@ -40,11 +40,17 @@ void TranslatorToolCtrl::Translate() {
 	
 	p.RealizePipe();
 	
-	String orig_lng = GetCurrentLanguageString().Left(5);
-	String trans_lng = "EN-US";
-	
-	TaskMgr& m = *p.song->pipe;
-	m.TranslateSongData(orig_lng, key, trans_lng, trans_key, THISBACK(OnTranslatedRecv));
+	if (fn == FN_TRANSLATE_NL) {
+		String orig_lng = GetCurrentLanguageString().Left(5);
+		String trans_lng = "EN-US";
+		
+		TaskMgr& m = *p.song->pipe;
+		m.TranslateSongData(orig_lng, key, trans_lng, trans_key, THISBACK(OnTranslatedRecv));
+	}
+	else if (fn == FN_UNPACK_STRUCTURE) {
+		TaskMgr& m = *p.song->pipe;
+		m.UnpackStructureSongData(key, trans_key, THISBACK(OnTranslatedRecv));
+	}
 }
 
 String TranslatorToolCtrl::GetOriginalText() const {
@@ -130,9 +136,3 @@ void TranslatorToolCtrl::OnTranslatedRecv() {
 
 
 
-
-TxtStructTranslate::TxtStructTranslate() {
-	key = "REFERENCE_SONG__NATIVE_TEXT";
-	trans_key = "REFERENCE_SONG__ENGLISH_TEXT";
-	song = true;
-}

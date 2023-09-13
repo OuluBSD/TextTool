@@ -1,18 +1,6 @@
 #include "SongTool.h"
 
 
-ChecklistComposition::ChecklistComposition() {
-	
-}
-
-void ChecklistComposition::InitKeys() {
-	#define CHK_COMP(e, s) descs.Add(s); keys.Add(#e);
-	CHK_COMPOSITION_LIST
-	#undef CHK_COMP
-}
-
-
-
 ChecklistBase::ChecklistBase() {
 	Add(list.SizePos());
 	

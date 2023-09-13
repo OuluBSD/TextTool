@@ -11,6 +11,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_TranslateSongData)
 		;
 	
+	AddRule(TASK_UNPACK_STRUCTURE_SONG_DATA, "translate song data")
+		.Input(&Task::CreateInput_UnpackStructureSongData)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 2, 2)
+		.Process(&Task::Process_UnpackStructureSongData)
+		;
+	
 	
 	
 	
@@ -680,6 +687,20 @@ void TaskMgr::TranslateSongData(String orig_lang, String orig_key, String trans_
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
 	t.args << orig_lang << orig_key << trans_lang << trans_key;
+	t.WhenDone << WhenDone;
+}
+
+void TaskMgr::UnpackStructureSongData(String orig_key, String struct_key, Callback WhenDone) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_UNPACK_STRUCTURE_SONG_DATA);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args <<  orig_key << struct_key;
 	t.WhenDone << WhenDone;
 }
 

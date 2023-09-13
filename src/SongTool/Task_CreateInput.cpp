@@ -1179,3 +1179,75 @@ void Task::CreateInput_TranslateSongData() {
 	
 	input.response_length = 1024*2;
 }
+
+
+const char* struct_unpack_orig = R"_(
+I didn't want to fight, I don't want to break up
+I never imagined this would end.
+I didn't mean to break you, make us like this
+but no matter how much I love, one of us hurts the other again.)_";
+
+
+const char* struct_unpack_trans = R"_(
+me {
+	not wanting {
+		to fight
+		to break up
+	}
+	never ( imagined ) {
+		this ( end )
+	}
+	not meaning {
+		to break ( my romantic partner )
+		to make ( me and my romantic partner ) {
+			like ( this )
+		}
+	}
+}
+me and my romantic partner {
+	loving {
+		one ( of me and my romantic partner ) {
+			hurting ( other ) {
+				again
+			}
+		}
+	}
+})_";
+
+
+
+void Task::CreateInput_UnpackStructureSongData() {
+	String orig_key = args[0];
+	String struct_key = args[1];
+	
+	{
+		Vector<String> lines = Split(struct_unpack_orig, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Original lyrics");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	{
+		Vector<String> lines = Split(struct_unpack_trans, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Structurally deconstructed lyrics");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	{
+		Song& song = *p.pipe->song;
+		String orig_txt = song.data.Get(orig_key, "");
+		orig_txt.Replace("\r", "");
+		Vector<String> lines = Split(orig_txt, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Original lyrics");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	TaskTitledList& results = input.PreAnswer();
+	results		.Title("Structurally deconstructed lyrics");
+	
+	input.response_length = 1024*2;
+}

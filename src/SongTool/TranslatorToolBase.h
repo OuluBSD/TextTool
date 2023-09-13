@@ -8,7 +8,12 @@ class TranslatorToolCtrl : public SongToolCtrl {
 	Button translate;
 	
 protected:
+	enum {
+		FN_TRANSLATE_NL,
+		FN_UNPACK_STRUCTURE,
+	};
 	String key, trans_key;
+	int fn = FN_TRANSLATE_NL;
 	bool artist = 0;
 	bool release = 0;
 	bool song = 0;
@@ -25,16 +30,6 @@ public:
 	void OnTranslatedRecv();
 	String GetOriginalText() const;
 	String GetTranslatedText() const;
-	
-};
-
-class TxtStructTranslate : public TranslatorToolCtrl {
-	
-	
-public:
-	typedef TxtStructTranslate CLASSNAME;
-	TxtStructTranslate();
-	
 	
 };
 

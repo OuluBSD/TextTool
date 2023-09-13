@@ -73,6 +73,18 @@
 		{
 			"key": "REFERENCE_SONG__ENGLISH_TEXT",
 			"value": "verse 1:\r\nHello good fairy wave a magic wand\r\nOr witch princess, treat, green wonder potion\r\nNo rabbit in the hat, no more salt\r\nCould someone make my wish come true for once?\r\n\r\nchorus:\r\nAbracadabra, this must work\r\nAbracadabra, start loving me\r\n\r\nverse 2:\r\nI'll eat those bat claws and lizard soup\r\nLike a humble novice I recite spells tonight\r\nCan you see the light in the crystal ball\r\nOr do I torture my body in vain dreams\r\n\r\nbridge:\r\nI looked through the Scout's Handbook and the information book for young people\r\nYeah, I'll kiss the last frog, for the look of one woman"
+		},
+		{
+			"key": "ATTR_REFERENCE_SONG",
+			"value": "Tornion Lappian muusikot - Abrakadabra (alkuperäinen esittäjä Mikko Kuustonen)"
+		},
+		{
+			"key": "ATTR_BIRTH_OF_SONG",
+			"value": "Miksasin koulutehtävänä ammattilaismuusikoiden Abrakadabra kappaletta ja ajattelin pystyväni samaan. Tuntui turhalta nauhoittaa sama kappale, joten tein oman, jossa on vielä löyhästi kuultavista ei-kopiosuojattuja ominaisuuksia Abrakadabrasta."
+		},
+		{
+			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
+			"value": "verse 1 {\n\tinvocation {\n\t\tHello ( good fairy ) \n\t\twaving ( magic wand )\n\t\tor ( witch princess )\n\t\ttreating ( green wonder potion )\n\t}\n\tno {\n\t\trabbit ( in the hat )\n\t\tsalt\n\t}\n\twishing { \n\t\tmy ( wish ) {\n\t\t\tcome ( true ) {\n\t\t\t\tonce\n\t\t\t}\n\t\t}\n\t}\n}\nchorus {\n\tchanting {\n\t\tAbracadabra\n\t\tthis ( must work )\n\t\tAbracadabra\n\t\tstart ( loving me )\n\t}\n}\nverse 2 { \n\teating {\n\t\tbat claws\n\t\tlizard soup\n\t}\n\treciting ( spells ) {\n\t\ttonight\n\t}\n\tseeing {\n\t\tlight ( in the crystal ball )\n\t}\n\ttorturing {\n\t\tmy ( body ) {\n\t\t\tin ( vain dreams )\n\t\t}\n\t}\n}\nbridge {\n\tlooking {\n\t\tthrough ( Scout's Handbook )\n\t\tinformation ( book ) {\n\t\t\tfor ( young people )\n\t\t}\n\t}\n\tkissing {\n\t\tlast ( frog ) {\n\t\t\tfor ( look ) {\n\t\t\t\tof ( one woman )\n\t\t\t}\n\t\t}\n\t}\n}"
 		}
 	]
 }
