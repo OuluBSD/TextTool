@@ -18,6 +18,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_UnpackStructureSongData)
 		;
 	
+	AddRule(TASK_CHECK_ERRORS_IN_SONG_DATA, "check errors in structural song data")
+		.Input(&Task::CreateInput_CheckSongStructureErrors)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 2, 2)
+		.Process(&Task::Process_CheckSongStructureErrors)
+		;
+	
 	
 	
 	
@@ -700,7 +707,21 @@ void TaskMgr::UnpackStructureSongData(String orig_key, String struct_key, Callba
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
-	t.args <<  orig_key << struct_key;
+	t.args << orig_key << struct_key;
+	t.WhenDone << WhenDone;
+}
+
+void TaskMgr::CheckSongStructureErrors(String main_key, String results_key, Callback WhenDone) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_CHECK_ERRORS_IN_SONG_DATA);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << main_key << results_key;
 	t.WhenDone << WhenDone;
 }
 

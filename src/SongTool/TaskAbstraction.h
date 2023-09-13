@@ -15,6 +15,8 @@ struct TaskTitledList {
 	bool value_in_quotes = false;
 	bool count_sub = false;
 	bool count_lines = false;
+	bool numbered_lines = false;
+	bool no_numbered_lines_space = false;
 	bool inline_list = false;
 	bool no_separator = false;
 	bool combination_string = false;
@@ -57,6 +59,8 @@ struct TaskTitledList {
 	TaskTitledList& Separator(String s) {separator = s; return *this;}
 	TaskTitledList& LineBegin(int line_begin) {this->line_begin = line_begin; return *this;}
 	TaskTitledList& Context(SnapContext* ctx) {this->ctx = ctx; return *this;}
+	TaskTitledList& NumberedLines(bool b=true) {numbered_lines = b; return *this;}
+	TaskTitledList& NoNumberedLinesSpace(bool b=true) {no_numbered_lines_space = b; return *this;}
 	
 	String AsString() const;
 	String GetTreeString(int indent) const;

@@ -7,7 +7,7 @@ class TxtStructEdit : public EditorCtrl {
 	Button check_errors;
 	Button convert_to_native;
 	Button evaluate_audience;
-	
+	String error_result_key;
 	
 public:
 	typedef TxtStructEdit CLASSNAME;
@@ -19,6 +19,8 @@ public:
 	void CheckErrors();
 	void ConvertToNative();
 	void EvaluateAudience();
+	void OnErrorsRecv();
+	void PostOnErrorsRecv() {PostCallback(THISBACK(OnErrorsRecv));}
 };
 
 

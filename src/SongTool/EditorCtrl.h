@@ -8,9 +8,12 @@ class EditorCtrl : public SongToolCtrl {
 	
 protected:
 	bool have_third_view = false;
+	bool have_group_bad_better = false;
 	Ctrl top_bar;
+	String main_key;
 	
 	virtual void Init();
+	virtual void OnMainChange();
 	
 protected:
 	
@@ -32,9 +35,6 @@ protected:
 	} StateType;
 	StateType state = IDLE;
 	
-	// Compiling
-	Vector<ProcMsg> errors;
-	Mutex lock;
 	
 	
 	
@@ -56,6 +56,7 @@ protected:
 		int    kind;
 		String message;
 		String error_pos;
+		String parts[3];
 		
 		ErrorInfo() { lineno = linepos = kind = 0; }
 	};
@@ -82,7 +83,7 @@ protected:
 	WString FormatErrorLine(String text, int& linecy);
 	
 	void SetTabText(int i, String key, int line, int col);
-	void OnMessage(ProcMsg e);
+	void OnMessage(const ProcMsg& e);
 	
 	
 public:
@@ -97,6 +98,10 @@ public:
 	void ProcessCompiling();
 	void SaveFile();
 	
+	
+	// Compiling
+	Vector<ProcMsg> errors;
+	Mutex lock;
 	
 	// Debugger
 	void FocusLine(ArrayCtrl* list);

@@ -93,7 +93,12 @@ void TaskTitledList::LineBegin(int i, String& s) const {
 			s << separator;
 	}
 	
-	if (count_lines) {
+	if (numbered_lines) {
+		s << line_begin + i << ".";
+		if (!no_numbered_lines_space)
+			s << " ";
+	}
+	else if (count_lines) {
 		bool skip_space = false;
 		if (!no_listchar && !inline_list) {
 			s << "-";

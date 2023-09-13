@@ -512,6 +512,7 @@ struct ProcMsg : Moveable<ProcMsg>, public FileLocation {
 	int severity = 0;
 	String src;
 	String msg;
+	String parts[3];
 
 	ProcMsg() {}
 	ProcMsg(const ProcMsg& e) { *this = e; }
@@ -526,6 +527,9 @@ struct ProcMsg : Moveable<ProcMsg>, public FileLocation {
 		return	severity == t.severity &&
 				src == t.src &&
 				msg == t.msg &&
+				parts[0] == t.parts[0] &&
+				parts[1] == t.parts[1] &&
+				parts[2] == t.parts[2] &&
 				FileLocation::operator==(t);
 	}
 	
@@ -534,6 +538,9 @@ struct ProcMsg : Moveable<ProcMsg>, public FileLocation {
 		severity = e.severity;
 		src = e.src;
 		msg = e.msg;
+		parts[0] = e.parts[0];
+		parts[1] = e.parts[1];
+		parts[2] = e.parts[2];
 	}
 	
 	void Serialize(Stream& s) {FileLocation::Serialize(s); s % severity % src % msg;}

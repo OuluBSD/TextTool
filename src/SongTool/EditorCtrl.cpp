@@ -45,7 +45,6 @@ void EditorCtrl::Init() {
 	
 	SetupError(error, "Message");
 	error.AddIndex("NOTES");
-	error.ColumnWidths("207 41 834");
 	error.WhenBar = THISBACK(ErrorMenu);
 	
 	SetupError(ffound, "Source");
@@ -61,6 +60,8 @@ void EditorCtrl::Init() {
 	hsplit_code << main;
 	InitEditor(main);
 	//InitEditor(right);
+	
+	main.WhenAction << THISBACK(OnMainChange);
 	
 	other.SetFont(Monospace(12));
 	
@@ -78,8 +79,30 @@ void EditorCtrl::Init() {
 }
 
 void EditorCtrl::Data() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist)
+		return;
+	Song& song = *p.song;
+	
 	if (!has_init)
 		Init();
+	
+	String main_txt = song.data.Get(main_key, "");
+	main.SetData(main_txt);
+}
+
+void EditorCtrl::OnMainChange() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist)
+		return;
+	Song& song = *p.song;
+	if (main_key.IsEmpty())
+		return;
+	
+	String txt = main.GetData();
+	song.data.GetAdd(main_key) = txt;
 }
 
 void EditorCtrl::SetTabText(int i, String key, int line, int col) {
@@ -155,7 +178,7 @@ void EditorCtrl::ProcessCompiling() {
 	SaveFile();
 }
 
-void EditorCtrl::OnMessage(ProcMsg e) {
+void EditorCtrl::OnMessage(const ProcMsg& e) {
 	lock.Enter();
 	errors.Add(e);
 	lock.Leave();
@@ -173,8 +196,17 @@ void EditorCtrl::OnMessage(ProcMsg e) {
 	ei.linepos = e.col;
 	ei.kind = e.severity;
 	ei.message = e.msg;
+	for(int i = 0; i < 3; i++)
+		ei.parts[i] = e.parts[i];
 	
-	error.Add(e.file, e.line, AttrText(e.GetSeverityString() + ": " + e.msg).NormalPaper(bg), RawToValue(ei));
+	if (have_group_bad_better)
+		error.Add(e.file, e.line,
+			AttrText(e.GetSeverityString() + ": " + e.parts[0]).NormalPaper(bg),
+			AttrText(e.parts[1]).NormalPaper(bg),
+			AttrText(e.parts[2]).NormalPaper(bg),
+			RawToValue(ei));
+	else
+		error.Add(e.file, e.line, AttrText(e.GetSeverityString() + ": " + e.msg).NormalPaper(bg), RawToValue(ei));
 }
 
 void EditorCtrl::FocusLine(ArrayCtrl* list) {

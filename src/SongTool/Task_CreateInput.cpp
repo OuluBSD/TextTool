@@ -1251,3 +1251,90 @@ void Task::CreateInput_UnpackStructureSongData() {
 	
 	input.response_length = 1024*2;
 }
+
+const char* check_song_struct_errors_ex = R"_(
+me {
+	not wanting {
+		to fight
+		to break up
+	}
+})_";
+
+void Task::CreateInput_CheckSongStructureErrors() {
+	String main_key = args[0];
+	
+	{
+		Vector<String> lines = Split(struct_unpack_orig, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Original lyrics \"Text A\"");
+		list		.NoListChar();
+		list		.Add("I didn't want to fight, I don't want to break up");
+	}
+	{
+		Vector<String> lines = Split(check_song_struct_errors_ex, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Structurally deconstructed lyrics \"Text A\"");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	{
+		Song& song = *p.pipe->song;
+		String orig_txt = song.data.Get(main_key, "");
+		orig_txt.Replace("\r", "");
+		Vector<String> lines = Split(orig_txt, "\n", true);
+		TaskTitledList& list = input.AddSub()
+			// SOMEHOW THE CORRECT TITLE GIVES WORSE RESULTS!
+				//.Title("Structurally deconstructed lyrics \"Text B\"");
+			.Title("Original lyrics \"Text B\"");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("rate 0-5");
+		//list		.NoListChar()
+		//			.InlineList();
+		list		.NumberedLines()
+					.NoNumberedLinesSpace(); // Somehow this improves the result SIGNIFICANTLY
+		list		.Add("lyrical fumbling")
+					.Add("confusion")
+					.Add("unnecessary words")
+					.Add("looseness")
+					.Add("pronoun incorrectness")
+					.Add("unnecessary adjectives")
+					.Add("overuse of verbs")
+					.Add("repetition")
+					.Add("overdramatic")
+					.Add("awkwardness")
+					.Add("syntax errors")
+					.Add("odd phrasing")
+					.Add("poor transitions")
+					.Add("long-windedness")
+					.Add("abrupt endings")
+					.Add("redundancy")
+					.Add("choppiness")
+					.Add("lack of coherence")
+					.Add("thing cliche")
+					.Add("unclear")
+					.Add("misused words")
+					.Add("unnatural")
+					;
+	}
+	
+	if (0) {
+		TaskTitledList& results = input.PreAnswer();
+		results		.Title("Results in \"Text B\"")
+					.CountLines();
+		TaskTitledList& first = results.AddSub();
+		first		.Title("Lines with 'lyrical fumbling' (and improvements)");
+		first		.EmptyLine();
+	}
+	else {
+		TaskTitledList& results = input.PreAnswer();
+		results		.Title("1. Lines with lyrical fumbling (and improvements) in \"Text B\"");
+		results		.EmptyLine();
+	}
+	
+	input.response_length = 1024*2;
+}

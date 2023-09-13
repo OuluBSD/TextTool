@@ -103,9 +103,17 @@ void EditorCtrl::SetupError(ArrayCtrl& error, const char *s)
 {
 	error.AddColumn("File").SetDisplay(Single<EditorCtrl::FoundFileDisplay>());
 	error.AddColumn("Line").SetDisplay(Single<EditorCtrl::TopAlignedDisplay>());
-	error.AddColumn(s);
+	if (have_group_bad_better) {
+		error.AddColumn("Category");
+		error.AddColumn("Bad");
+		error.AddColumn("Better");
+		error.ColumnWidths("184 44 100 100 100");
+	}
+	else {
+		error.AddColumn(s);
+		error.ColumnWidths("184 44 298");
+	}
 	error.AddIndex("INFO");
-	error.ColumnWidths("184 44 298");
 	error.NoWantFocus();
 	error.WhenAction = THISBACK1(FocusLine, &error);
 }
@@ -146,12 +154,19 @@ void EditorCtrl::SelError()
 				error.Set(ii, 0, f.file);
 				error.Set(ii, 1, f.lineno);
 				int linecy;
-				if(f.error_pos.GetCount()) {
-					error.Set(ii, 2, FormatErrorLineEP(f.message, f.error_pos, linecy));
-					error.SetDisplay(ii, 2, Single<ElepDisplay>());
+				if (have_group_bad_better) {
+					if(f.error_pos.GetCount()) {
+						error.Set(ii, 2, FormatErrorLineEP(f.message, f.error_pos, linecy));
+						error.SetDisplay(ii, 2, Single<ElepDisplay>());
+					}
+					else
+						error.Set(ii, 2, FormatErrorLine(f.message, linecy));
 				}
-				else
-					error.Set(ii, 2, FormatErrorLine(f.message, linecy));
+				else {
+					error.Set(ii, 2, f.parts[0]);
+					error.Set(ii, 3, f.parts[1]);
+					error.Set(ii, 4, f.parts[2]);
+				}
 				error.Set(ii, "INFO", n[i]);
 				error.Set(ii, "NOTES", "0");
 				error.SetLineCy(ii, linecy);

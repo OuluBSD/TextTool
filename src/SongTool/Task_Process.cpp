@@ -1621,3 +1621,21 @@ void Task::Process_UnpackStructureSongData() {
 	String& struct_txt = song.data.GetAdd(struct_key);
 	struct_txt = output;
 }
+
+void Task::Process_CheckSongStructureErrors() {
+	String main_key = args[0];
+	String result_key = args[1];
+	
+	String input_str = input.AsString();
+	int a = input_str.Find("1. Lines with");
+	if (a >= 0)
+		input_str = input_str.Mid(a);
+	else {
+		SetError("unexpected input string");
+		return;
+	}
+	
+	Pipe& pipe = *p.pipe;
+	String& result_txt = pipe.data.GetAdd(result_key);
+	result_txt = input_str + output;
+}

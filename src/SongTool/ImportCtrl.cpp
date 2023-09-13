@@ -3,7 +3,7 @@
 ImportCtrl::ImportCtrl()
 {
 	CtrlLayout(*this);
-
+	
 	messages.AddColumn(t_("Line"));
 	messages.AddColumn(t_("Severity"));
 	messages.AddColumn(t_("Message"));

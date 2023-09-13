@@ -160,6 +160,7 @@ public:
 	void CreateInput_ForwardLyricsWeighted();
 	void CreateInput_TranslateSongData();
 	void CreateInput_UnpackStructureSongData();
+	void CreateInput_CheckSongStructureErrors();
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
 	void Process_StoryArc();
@@ -190,6 +191,7 @@ public:
 	void Process_ForwardLyricsWeighted();
 	void Process_TranslateSongData();
 	void Process_UnpackStructureSongData();
+	void Process_CheckSongStructureErrors();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;
