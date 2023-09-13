@@ -65,6 +65,14 @@
 		{
 			"key": "HAND_DRUMS_VALUE",
 			"value": "1"
+		},
+		{
+			"key": "REFERENCE_SONG__NATIVE_TEXT",
+			"value": "verse 1:\r\nHei hyvä haltija heilauta taikasauvaa\r\nTai noitaruhtinatar, hoida, vihreää ihmejuomaa\r\nEi kaniinia hatusta, ei enempää suolaa\r\nVoisiko joku tämän kerran toiveeni toteuttaa\r\n\r\nchorus:\r\nAbrakadabra, tän täytyy toimia\r\nAbrakadabra, ala rakastaa minua\r\n\r\nverse 2:\r\nNe lepakonkynnet, ja liskonkeiton syön\r\nKuin nöyrä noviisi loitsuja luen tän yön\r\nNäkyykö valoa kristallipallossa\r\nVai piinaanko ruumistani turhissa unelmissa\r\n\r\nbridge:\r\nSelasin Sudenpentujen käsikirjan ja Pikku Jättiläisen\r\nJoo suutelen sammakon viimeisen katseesta yhden naisen\r\n"
+		},
+		{
+			"key": "REFERENCE_SONG__ENGLISH_TEXT",
+			"value": "verse 1:\r\nHello good fairy wave a magic wand\r\nOr witch princess, treat, green wonder potion\r\nNo rabbit in the hat, no more salt\r\nCould someone make my wish come true for once?\r\n\r\nchorus:\r\nAbracadabra, this must work\r\nAbracadabra, start loving me\r\n\r\nverse 2:\r\nI'll eat those bat claws and lizard soup\r\nLike a humble novice I recite spells tonight\r\nCan you see the light in the crystal ball\r\nOr do I torture my body in vain dreams\r\n\r\nbridge:\r\nI looked through the Scout's Handbook and the information book for young people\r\nYeah, I'll kiss the last frog, for the look of one woman"
 		}
 	]
 }

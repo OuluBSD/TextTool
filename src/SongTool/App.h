@@ -50,6 +50,7 @@ public:
 	void SaveWindowPos();
 	void LoadWindowPos();
 	void StartUpdating();
+	void DoMainAction(int action);
 	
 	Editor& GetEditor() {return ed;}
 	

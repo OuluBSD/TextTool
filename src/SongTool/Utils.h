@@ -8,6 +8,8 @@ class SongToolCtrl : public Ctrl {
 public:
 	virtual ~SongToolCtrl() {}
 	virtual void Data() = 0;
+	virtual void DoMainAction(int i=0) {}
+	
 };
 
 struct PatternSnap;

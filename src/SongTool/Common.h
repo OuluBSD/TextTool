@@ -412,6 +412,8 @@ struct EditorPtrs {
 	int GetActiveSongIndex() const;
 	String GetBreakInDatabaseString() const;
 	
+	void RealizePipe();
+	
 };
 
 struct PipePtrs {

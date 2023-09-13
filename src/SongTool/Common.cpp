@@ -83,6 +83,22 @@ String EditorPtrs::GetBreakInDatabaseString() const {
 	return s;
 }
 
+void EditorPtrs::RealizePipe() {
+	Database& db = Database::Single();
+	
+	if (!song || !artist)
+		return;
+	if (song->pipe)
+		return;
+	
+	Pipe& pipe = db.pipes.Add();
+	Artist& a = *artist;
+	Release& r = *release;
+	
+	song->pipe = &pipe;
+	pipe.song = song;
+}
+
 Color GetPartColor(const String& key, Color def) {
 	if (key.Find("verse") == 0)
 		return Color(226, 85, 0);

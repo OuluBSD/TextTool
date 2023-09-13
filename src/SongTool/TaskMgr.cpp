@@ -4,6 +4,17 @@
 
 void TaskMgrConfig::CreateDefaultTaskRules() {
 	
+	AddRule(TASK_TRANSLATE_SONG_DATA, "translate song data")
+		.Input(&Task::CreateInput_TranslateSongData)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 4, 4)
+		.Process(&Task::Process_TranslateSongData)
+		;
+	
+	
+	
+	
+	
 	AddRule(TASK_IMPORT_AND_REVERSE, "import song and make reversed song")
 		.Process(&Task::Process_MakeImportTasks)
 			.Arg(V_PTR_PIPE)
@@ -625,12 +636,11 @@ bool TaskMgr::IsDepsReady(Task& t, Index<Task*>& seen) const {
 	return true;
 }
 
-
-
-void TaskMgr::ImportSongAndMakeReversedSong(Pipe& p) {
+void TaskMgr::ImportSongAndMakeReversedSong() {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_IMPORT_AND_REVERSE);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
 	if (1) {
 		Vector<int> rm_list;
@@ -657,6 +667,20 @@ void TaskMgr::ImportSongAndMakeReversedSong(Pipe& p) {
 	t.p.pipe = &p;
 	
 	
+}
+
+void TaskMgr::TranslateSongData(String orig_lang, String orig_key, String trans_lang, String trans_key, Callback WhenDone) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_TRANSLATE_SONG_DATA);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << orig_lang << orig_key << trans_lang << trans_key;
+	t.WhenDone << WhenDone;
 }
 
 TaskRule& TaskMgrConfig::GetRule(int code) {

@@ -64,6 +64,7 @@ void SongTool::MainMenu(Bar& bar) {
 		bar.Add(t_("View Sequencer"), THISBACK1(SetView, 4)).Key(K_ALT_5);
 	});
 	bar.Sub(t_("Tools"), [this](Bar& bar) {
+		bar.Add(t_("Start primary action of the active view"), THISBACK1(DoMainAction, 0)).Key(K_F5);
 		bar.Add(t_("Show orphaned files"), THISBACK(ShowOrphanedFiles));
 		bar.Add(t_("Make Tasks"), THISBACK(MakeTasks)).Key(K_CTRL_R);
 	});
@@ -109,6 +110,16 @@ void SongTool::Data() {
 		case 2: ed.Data(); break;
 		case 3: ai.Data(); break;
 		case 4: seq.Data(); break;
+	}
+}
+
+void SongTool::DoMainAction(int i) {
+	switch (page) {
+		//case 0: fp.DoMainAction(i); break;
+		//case 1: cal.DoMainAction(i); break;
+		case 2: ed.DoMainAction(i); break;
+		//case 3: ai.DoMainAction(i); break;
+		//case 4: seq.DoMainAction(i); break;
 	}
 }
 

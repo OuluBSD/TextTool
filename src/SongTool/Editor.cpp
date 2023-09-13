@@ -189,6 +189,11 @@ void Editor::DataPage() {
 		items[page].ctrl->Data();
 }
 
+void Editor::DoMainAction(int action) {
+	if (page >= 0 && page < items.GetCount())
+		items[page].ctrl->DoMainAction(action);
+}
+
 void Editor::LoadLast() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;

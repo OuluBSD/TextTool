@@ -113,6 +113,7 @@ public:
 	Array<Task> result_tasks;
 	Vector<Vector<String>> str_map;
 	Task* created_by = 0;
+	Event<> WhenDone;
 	
 	static constexpr int common_mask_gen_multiplier		= 8;
 	static constexpr int common_mask_max_values			= 10;
@@ -157,6 +158,7 @@ public:
 	void CreateInput_ImpactWeighted();
 	void CreateInput_ImpactScoring();
 	void CreateInput_ForwardLyricsWeighted();
+	void CreateInput_TranslateSongData();
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
 	void Process_StoryArc();
@@ -185,6 +187,7 @@ public:
 	void Process_ImpactScoring();
 	void Process_MakeImpactScoringTasks();
 	void Process_ForwardLyricsWeighted();
+	void Process_TranslateSongData();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

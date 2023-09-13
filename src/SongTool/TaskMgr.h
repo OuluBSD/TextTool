@@ -56,6 +56,7 @@ struct TaskMgr {
 	int spawn_id = 0;
 	
 	typedef TaskMgr CLASSNAME;
+	virtual ~TaskMgr() {}
 	
 	// Task order is stored to avoid cache miss, when AI gives bad results and task is skipped.
 	void LoadTaskOrder();
@@ -71,7 +72,8 @@ struct TaskMgr {
 	
 	hash_t GetSongHash() const;
 	
-	void ImportSongAndMakeReversedSong(Pipe& p);
+	void ImportSongAndMakeReversedSong();
+	void TranslateSongData(String orig_lang, String orig_key, String trans_lang, String trans_key, Callback WhenDone);
 	
 	
 };

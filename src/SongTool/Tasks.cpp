@@ -237,6 +237,9 @@ void Task::Process() {
 	skip_load = false;
 	processing = false;
 	
+	if (ready)
+		WhenDone();
+	
 	//LOG("Task::Process: end of " << rule->name);
 }
 
@@ -294,7 +297,7 @@ bool Task::CheckArguments() {
 			break;
 		case V_ARGS:
 			if (args.GetCount() < i0 || args.GetCount() > i1) {
-				SetFatalError("argument count is not in range");
+				SetFatalError(t_("argument count is not in range"));
 				return false;
 			}
 			break;

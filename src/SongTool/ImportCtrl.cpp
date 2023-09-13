@@ -106,5 +106,5 @@ void ImportCtrl::MakeTasks()
 	messages.Clear();
 
 	TaskMgr& m = pipe;
-	m.ImportSongAndMakeReversedSong(pipe);
+	m.ImportSongAndMakeReversedSong();
 }

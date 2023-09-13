@@ -86,6 +86,8 @@ inline bool IsTaskSkippingContext(TaskOutputType tt) {
 }
 
 typedef enum : int {
+	TASK_TRANSLATE_SONG_DATA,
+	
 	TASK_IMPORT_AND_REVERSE,
 	TASK_CONTEXT_IMPORT_AND_REVERSE,
 	

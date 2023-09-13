@@ -101,6 +101,14 @@
 		{
 			"key": "HAND_DRUMS_VALUE",
 			"value": "1"
+		},
+		{
+			"key": "REFERENCE_SONG__NATIVE_TEXT",
+			"value": ""
+		},
+		{
+			"key": "REFERENCE_SONG__ENGLISH_TEXT",
+			"value": ""
 		}
 	]
 }

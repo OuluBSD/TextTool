@@ -1601,3 +1601,14 @@ void Task::Process_LyricsTranslate() {
 	LOG(this->input.AsString() + output); TODO
 	
 }
+
+void Task::Process_TranslateSongData() {
+	String orig_lng = args[0];
+	String orig_key = args[1];
+	String trans_lng = args[2];
+	String trans_key = args[3];
+	
+	Song& song = *p.pipe->song;
+	String& trans_txt = song.data.GetAdd(trans_key);
+	trans_txt = output;
+}

@@ -1158,3 +1158,24 @@ void Task::CreateInput_LyricsTranslate() {
 	// Done!
 }
 
+void Task::CreateInput_TranslateSongData() {
+	String orig_lng = args[0];
+	String orig_key = args[1];
+	String trans_lng = args[2];
+	String trans_key = args[3];
+	
+	Song& song = *p.pipe->song;
+	String orig_txt = song.data.Get(orig_key, "");
+	orig_txt.Replace("\r", "");
+	Vector<String> lines = Split(orig_txt, "\n", false);
+	
+	TaskTitledList& in_orig = input.AddSub().Title("Text 1 in " + orig_lng);
+	in_orig		.NoListChar();
+	for (const String& line : lines)
+		in_orig		.Add(line);
+	
+	TaskTitledList& results = input.PreAnswer();
+	results		.Title("Text 1 in " + trans_lng);
+	
+	input.response_length = 1024*2;
+}
