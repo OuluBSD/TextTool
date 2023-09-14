@@ -9,11 +9,27 @@ class EditorCtrl : public SongToolCtrl {
 protected:
 	bool have_third_view = false;
 	bool have_group_bad_better = false;
+	bool have_errors_in_other = false;
 	Ctrl top_bar;
 	String main_key;
+	String other_key;
+	String third_key;
+	String error_result_key;
+	String main_natural_english_key;
+	String audience_evaluation_key;
 	
 	virtual void Init();
 	virtual void OnMainChange();
+	virtual void OnOtherChange();
+	virtual void OnThirdChange();
+	
+	struct AudiencePerson : Moveable<AudiencePerson> {
+		String name;
+		int born, age;
+		String likes;
+		String reaction, comment;
+	};
+	Vector<AudiencePerson> audience_data;
 	
 protected:
 	
@@ -100,6 +116,10 @@ public:
 	void Compile();
 	void ProcessCompiling();
 	void SaveFile();
+	void OnErrorsRecv();
+	void OnAudienceEvaluationReady();
+	void OnAudienceDataReady();
+	void EvaluateAudience();
 	
 	
 	// Compiling

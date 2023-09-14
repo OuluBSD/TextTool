@@ -67,7 +67,6 @@ using namespace Upp;
 #include "SongBriefing.h"
 #include "TxtInTranslate.h"
 #include "TxtStructEdit.h"
-#include "TxtStructToText.h"
 #include "TxtEditNative.h"
 #include "TxtEditEnglish.h"
 #include "MusicVideoImport.h"

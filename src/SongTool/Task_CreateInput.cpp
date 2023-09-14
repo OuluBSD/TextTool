@@ -1368,6 +1368,84 @@ void Task::CreateInput_CheckSongStructureErrors() {
 	input.response_length = 1024*2;
 }
 
+void Task::CreateInput_CheckSongNaturalErrors() {
+	String main_key = args[0];
+	
+	{
+		Song& song = *p.pipe->song;
+		String orig_txt = song.data.Get(main_key, "");
+		orig_txt.Replace("\r", "");
+		Vector<String> lines = Split(orig_txt, "\n", true);
+		TaskTitledList& list = input.AddSub()
+			// SOMEHOW THE CORRECT TITLE GIVES WORSE RESULTS!
+				//.Title("Structurally deconstructed lyrics \"Text B\"");
+			.Title("Original lyrics \"Text A\"");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	int list_len = 0;
+	{
+		TaskTitledList& list = input.AddSub().Title("rate 0-5");
+		//list		.NoListChar()
+		//			.InlineList();
+		list		.NumberedLines()
+					//.NoNumberedLinesSpace() // Somehow this improves the result SIGNIFICANTLY
+					;
+		list		.Add("lyrical fumbling")
+					.Add("confusion")
+					.Add("unnecessary words")
+					.Add("looseness")
+					.Add("pronoun incorrectness")
+					.Add("unnecessary adjectives")
+					.Add("overuse of verbs")
+					.Add("repetition")
+					.Add("overdramatic")
+					.Add("awkwardness")
+					.Add("syntax errors")
+					.Add("odd phrasing")
+					.Add("poor transitions")
+					.Add("long-windedness")
+					.Add("abrupt endings")
+					.Add("redundancy")
+					.Add("choppiness")
+					.Add("lack of coherence")
+					.Add("thing cliche")
+					.Add("unclear")
+					.Add("misused words")
+					.Add("unnatural")
+					;
+		list_len = list.values.GetCount();
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Example answer");
+		list	.CountSub()
+				.NumberedLines();
+		
+		TaskTitledList& first = list.AddSub();
+		first.Title("Lines with lyrical fumbling (and improvements) in \"Text B\"");
+		
+		first	.Add("\"for ( look )\" -> \"for a ( look )\"")
+				.Add("\"other bad 1\" -> \"other better 1\"")
+				.Add("\"other bad 2\" -> \"other better 2\"")
+				.Add("etc")
+				;
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("All 1-" + IntStr(list_len));
+		
+		TaskTitledList& first = results.AddSub();
+		first		.Title("1. Lines with lyrical fumbling (and improvements) in \"Text A\"");
+		first		.EmptyLine();
+	}
+	
+	input.response_length = 1024*2;
+}
+
 void Task::CreateInput_ConvertSongStructureToEnglish() {
 	String src_key = args[0];
 	String dst_key = args[1];
@@ -1436,7 +1514,7 @@ void Task::CreateInput_EvaluateSongAudience() {
 		TaskTitledList& first = results.AddSub();
 		//first		.Title("1. What kind of 'reaction' would " + first_person + " get and what would she/he 'think' of the song");
 		//first.Add("reaction:");
-		first		.Title("1. What " + first_person + " would think while hearing the song with these lyrics. Only about lyrics");
+		first		.Title("1. What " + first_person + " would think while hearing the song with these lyrics. Initial reaction and critically important and negative things in lyrics only");
 		first		.EmptyLine();
 	}
 	

@@ -161,6 +161,7 @@ public:
 	void CreateInput_TranslateSongData();
 	void CreateInput_UnpackStructureSongData();
 	void CreateInput_CheckSongStructureErrors();
+	void CreateInput_CheckSongNaturalErrors();
 	void CreateInput_ConvertSongStructureToEnglish();
 	void CreateInput_EvaluateSongAudience();
 	void Process_MakeImportTasks();
@@ -194,6 +195,7 @@ public:
 	void Process_TranslateSongData();
 	void Process_UnpackStructureSongData();
 	void Process_CheckSongStructureErrors();
+	void Process_CheckSongNaturalErrors();
 	void Process_ConvertSongStructureToEnglish();
 	void Process_EvaluateSongAudience();
 	

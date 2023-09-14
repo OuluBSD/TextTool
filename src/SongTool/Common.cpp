@@ -250,7 +250,7 @@ String GetUnknownText(GroupContext g) {
 void TextMatchFinder::Parse(String txt) {
 	txt.Replace("\r", "");
 	WString wtxt = txt.ToWString();
-	Vector<WString> txt_lines = Split(wtxt, String("\n").ToWString());
+	Vector<WString> txt_lines = Split(wtxt, String("\n").ToWString(), false);
 	
 	lines.Clear();
 	int y = 0;

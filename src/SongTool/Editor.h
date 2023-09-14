@@ -34,7 +34,6 @@ protected:
 	TxtStructTranslate				structure_native_english;
 	TxtStructFromEnglish			structure_from_english;
 	TxtStructEdit					structure_edit;
-	TxtStructToText					structure_to_text;
 	TxtEditNative					text_edit_native;
 	TxtEditEnglish					text_edit_english;
 	ChecklistProduction				checklist_production;

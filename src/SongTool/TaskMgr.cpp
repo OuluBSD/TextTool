@@ -18,11 +18,18 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_UnpackStructureSongData)
 		;
 	
-	AddRule(TASK_CHECK_ERRORS_IN_SONG_DATA, "check errors in structural song data")
+	AddRule(TASK_CHECK_ERRORS_IN_SONG_STRUCT_DATA, "check errors in structural song data")
 		.Input(&Task::CreateInput_CheckSongStructureErrors)
 			.Arg(V_PTR_PIPE)
 			.Arg(V_ARGS, 2, 2)
 		.Process(&Task::Process_CheckSongStructureErrors)
+		;
+	
+	AddRule(TASK_CHECK_ERRORS_IN_SONG_NL_DATA, "check errors in natural language song data")
+		.Input(&Task::CreateInput_CheckSongNaturalErrors)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 2, 2)
+		.Process(&Task::Process_CheckSongNaturalErrors)
 		;
 	
 	AddRule(TASK_CONVERT_SONG_STRUCTURE_TO_ENGLISH, "convert song structure to english")
@@ -728,7 +735,21 @@ void TaskMgr::UnpackStructureSongData(String orig_key, String struct_key, Callba
 void TaskMgr::CheckSongStructureErrors(String main_key, String results_key, Callback WhenDone) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
-	const TaskRule& r = mgr.GetRule(TASK_CHECK_ERRORS_IN_SONG_DATA);
+	const TaskRule& r = mgr.GetRule(TASK_CHECK_ERRORS_IN_SONG_STRUCT_DATA);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << main_key << results_key;
+	t.WhenDone << WhenDone;
+}
+
+void TaskMgr::CheckSongNaturalErrors(String main_key, String results_key, Callback WhenDone) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_CHECK_ERRORS_IN_SONG_NL_DATA);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
 	Task& t = tasks.Add();

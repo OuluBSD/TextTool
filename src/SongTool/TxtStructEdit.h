@@ -7,18 +7,9 @@ class TxtStructEdit : public EditorCtrl {
 	Button check_errors;
 	Button convert_to_native;
 	Button evaluate_audience;
-	String error_result_key;
-	String main_natural_key;
+	String unpacked_struct_key;
 	String main_natural_native_key;
-	String audience_evaluation_key;
-	
-	struct AudiencePerson : Moveable<AudiencePerson> {
-		String name;
-		int born, age;
-		String likes;
-		String reaction, comment;
-	};
-	Vector<AudiencePerson> audience_data;
+	String reference_unpacked_english;
 	
 public:
 	typedef TxtStructEdit CLASSNAME;
@@ -29,12 +20,11 @@ public:
 	void ImportReferenceStruct();
 	void CheckErrors();
 	void ConvertToNative();
-	void EvaluateAudience();
-	void OnErrorsRecv();
+	void EvaluateAudience() {EditorCtrl::EvaluateAudience();}
+	void OnErrorsRecv() {EditorCtrl::OnErrorsRecv();}
 	void OnNaturalExportReady();
 	void OnNaturalNativeExportReady();
-	void OnAudienceEvaluationReady();
-	void OnAudienceDataReady();
+	void OnAudienceEvaluationReady() {EditorCtrl::OnAudienceEvaluationReady();}
 	void UpdateExportData();
 	void PostOnErrorsRecv() {PostCallback(THISBACK(OnErrorsRecv));}
 };

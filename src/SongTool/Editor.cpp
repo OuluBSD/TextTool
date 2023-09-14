@@ -108,7 +108,6 @@ void Editor::InitSimplified() {
 	AddItem(t_("Text Structure"), t_("Create Translation, Native To English"), structure_native_english);
 	AddItem(t_("Text Structure"), t_("Create From English"), structure_from_english);
 	AddItem(t_("Text Structure"), t_("Edit"), structure_edit);
-	AddItem(t_("Text Structure"), t_("To Text"), structure_to_text);
 	
 	AddItem(t_("Text"), t_("Edit Native"), text_edit_native);
 	AddItem(t_("Text"), t_("Edit English"), text_edit_english);
