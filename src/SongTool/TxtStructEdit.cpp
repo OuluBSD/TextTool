@@ -117,6 +117,11 @@ void TxtStructEdit::OnErrorsRecv() {
 	beginnings << "Lines that ";
 	beginnings << "Lines ";
 	
+	Vector<Point> errors;
+	
+	TextMatchFinder finder(main.GetData());
+	
+	Array<ProcMsg> msgs;
 	for(String& part : parts) {
 		int a = -1;
 		for (String& b : beginnings) {
@@ -141,12 +146,37 @@ void TxtStructEdit::OnErrorsRecv() {
 		}
 		String key = part.Mid(a, b-a);
 		LOG(key);
+		LOG(part);
 		
-		Vector<String> part_results = Split(part, "\n");
+		bool all_has_lines = true;
+		{
+			Vector<String> part_lines = Split(part, "\n");
+			for(int i = 1; i < part_lines.GetCount(); i++) {
+				String& l = part_lines[i];
+				if (l.GetCount() && l[0] != '-') {
+					all_has_lines = false;
+					break;
+				}
+			}
+		}
+		
+		Vector<String> part_results;
+		if (!all_has_lines) {
+			part_results = Split(part, "\n-");
+			for (String& part_result : part_results) {
+				part_result.Replace("\n", " ");
+			}
+		}
+		else {
+			part_results = Split(part, "\n");
+		}
+		if (part_results.IsEmpty())
+			continue;
 		part_results.Remove(0);
-		DUMPC(part_results);
+		//DUMPC(part_results);
 		
 		for (String& part_result : part_results) {
+		
 			if (part_result.Left(1) == "-")
 				part_result = TrimBoth(part_result.Mid(1)); // remove "-"
 			
@@ -162,26 +192,47 @@ void TxtStructEdit::OnErrorsRecv() {
 				better = TrimBoth(part_result.Mid(b+5));
 				better = better.Mid(1, better.GetCount()-2);
 				
-				ProcMsg err;
+				ProcMsg& err = msgs.Add();
 				err.severity = PROCMSG_ERROR;
 				err.parts[0] = key;
 				err.parts[1] = bad;
 				err.parts[2] = better;
-				OnMessage(err);
+				
+				Point pt;
+				if (finder.Find(bad, pt)) {
+					errors << pt;
+					err.line = pt.y+1;
+					err.col = pt.x+1;
+				}
+				
 			}
 			else {
 				bad = TrimBoth(part_result.Mid(a));
 				bad = bad.Mid(1, bad.GetCount()-2);
 				
-				ProcMsg err;
+				ProcMsg& err = msgs.Add();
 				err.severity = PROCMSG_ERROR;
 				err.parts[0] = key;
 				err.parts[1] = bad;
 				err.parts[2] = "";
-				OnMessage(err);
+				
+				Point pt;
+				if (finder.Find(bad, pt)) {
+					errors << pt;
+					err.line = pt.y+1;
+					err.col = pt.x+1;
+				}
+				
 			}
 		}
 	}
+	
+	Sort(msgs, ProcMsg());
+	for (ProcMsg& m : msgs)
+		OnMessage(m);
+	
+	main.Errors(std::move(errors));
+	
 	
 	SetBottom(BERRORS);
 }

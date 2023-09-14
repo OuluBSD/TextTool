@@ -58,6 +58,7 @@ protected:
 		String error_pos;
 		String parts[3];
 		
+		ErrorInfo(const Nuller&) {lineno = linepos = kind = 0;}
 		ErrorInfo() { lineno = linepos = kind = 0; }
 	};
 	RightTabs btabs;

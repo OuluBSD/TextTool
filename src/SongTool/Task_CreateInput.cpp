@@ -1291,12 +1291,14 @@ void Task::CreateInput_CheckSongStructureErrors() {
 			list		.Add(line);
 	}
 	
+	int list_len = 0;
 	{
 		TaskTitledList& list = input.AddSub().Title("rate 0-5");
 		//list		.NoListChar()
 		//			.InlineList();
 		list		.NumberedLines()
-					.NoNumberedLinesSpace(); // Somehow this improves the result SIGNIFICANTLY
+					//.NoNumberedLinesSpace() // Somehow this improves the result SIGNIFICANTLY
+					;
 		list		.Add("lyrical fumbling")
 					.Add("confusion")
 					.Add("unnecessary words")
@@ -1320,6 +1322,22 @@ void Task::CreateInput_CheckSongStructureErrors() {
 					.Add("misused words")
 					.Add("unnatural")
 					;
+		list_len = list.values.GetCount();
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Example answer");
+		list	.CountSub()
+				.NumberedLines();
+		
+		TaskTitledList& first = list.AddSub();
+		first.Title("Lines with lyrical fumbling (and improvements) in \"Text C\"");
+		
+		first	.Add("\"for ( look )\" -> \"for a ( look )\"")
+				.Add("\"other bad 1\" -> \"other better 1\"")
+				.Add("\"other bad 2\" -> \"other better 2\"")
+				.Add("etc")
+				;
 	}
 	
 	if (0) {
@@ -1330,10 +1348,18 @@ void Task::CreateInput_CheckSongStructureErrors() {
 		first		.Title("Lines with 'lyrical fumbling' (and improvements)");
 		first		.EmptyLine();
 	}
-	else {
+	else if (0) {
 		TaskTitledList& results = input.PreAnswer();
 		results		.Title("1. Lines with lyrical fumbling (and improvements) in \"Text B\"");
 		results		.EmptyLine();
+	}
+	else {
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("All 1-" + IntStr(list_len));
+		
+		TaskTitledList& first = results.AddSub();
+		first		.Title("1. Lines with lyrical fumbling (and improvements) in \"Text B\"");
+		first		.EmptyLine();
 	}
 	
 	input.response_length = 1024*2;

@@ -246,3 +246,57 @@ String GetUnknownText(GroupContext g) {
 		default: TODO; return "";
 	}
 }
+
+void TextMatchFinder::Parse(String txt) {
+	txt.Replace("\r", "");
+	WString wtxt = txt.ToWString();
+	Vector<WString> txt_lines = Split(wtxt, String("\n").ToWString());
+	
+	lines.Clear();
+	int y = 0;
+	for (WString& l : txt_lines) {
+		Line& line = lines.Add();
+		line.orig_txt = l;
+		line.no = y++;
+		
+		for(int i = 0; i < line.orig_txt.GetCount(); i++) {
+			int chr = line.orig_txt[i];
+			if (!IsSpace(chr)) {
+				line.spaceless_txt.Cat(chr);
+				line.spaceless_orig_cursor.Add(i);
+			}
+		}
+	}
+}
+
+bool TextMatchFinder::Find(String line, Point& pt) {
+	WString wline = line.ToWString();
+	
+	WString spaceless_wline;
+	for(int i = 0; i < wline.GetCount(); i++) {
+		int chr = wline[i];
+		if (!IsSpace(chr))
+			spaceless_wline.Cat(chr);
+	}
+	if (spaceless_wline.IsEmpty())
+		return false;
+	
+	//int max_tries = min(40, spaceless_wline.GetCount()-1);
+	int max_tries = spaceless_wline.GetCount()-1;
+	
+	for (int tries = 0; tries < max_tries; tries++) {
+		WString find_str = spaceless_wline.Left(spaceless_wline.GetCount()-tries);
+		if (find_str.IsEmpty()) break;
+		
+		for (Line& l : lines) {
+			int a = l.spaceless_txt.Find(find_str);
+			if (a >= 0) {
+				pt.y = l.no;
+				pt.x = l.spaceless_orig_cursor[a];
+				return true;
+			}
+		}
+	}
+	return false;
+}
+	

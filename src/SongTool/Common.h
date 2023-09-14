@@ -501,6 +501,10 @@ struct FileLocation : Moveable<FileLocation> {
 		if (line != l.line) return line > l.line;
 		return col > l.col;
 	}
+	bool operator()(const FileLocation& a, const FileLocation& b) const {
+		if (a.line != b.line) return a.line < b.line;
+		return a.col < b.col;
+	}
 	String ToString() const {return file + ":" + IntStr(line) + ":" + IntStr(col);}
 	
 };
@@ -577,6 +581,26 @@ struct ProcMsg : Moveable<ProcMsg>, public FileLocation {
 	}
 };
 
+
+
+
+
+class TextMatchFinder {
+	struct Line : Moveable<Line> {
+		int no;
+		WString orig_txt;
+		WString spaceless_txt;
+		Vector<int> spaceless_orig_cursor;
+	};
+	Vector<Line> lines;
+	
+public:
+	TextMatchFinder(String txt) {Parse(txt);}
+	
+	void Parse(String txt);
+	bool Find(String line, Point& pt);
+	
+};
 
 
 #endif

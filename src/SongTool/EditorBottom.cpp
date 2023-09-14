@@ -107,7 +107,7 @@ void EditorCtrl::SetupError(ArrayCtrl& error, const char *s)
 		error.AddColumn("Category");
 		error.AddColumn("Bad");
 		error.AddColumn("Better");
-		error.ColumnWidths("184 44 100 100 100");
+		error.ColumnWidths("20 10 40 100 100");
 	}
 	else {
 		error.AddColumn(s);

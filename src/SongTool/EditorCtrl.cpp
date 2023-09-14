@@ -210,7 +210,17 @@ void EditorCtrl::OnMessage(const ProcMsg& e) {
 }
 
 void EditorCtrl::FocusLine(ArrayCtrl* list) {
-	
+	if (list->IsCursor()) {
+		int c = list->GetCursor();
+		int acol = have_group_bad_better ? 5 : 3;
+		
+		ErrorInfo ei = list->Get(acol).Get<ErrorInfo>();
+		if (ei.lineno >= 0 && ei.linepos >= 0) {
+			int64 cur = main.GetPos(ei.lineno-1, ei.linepos-1);
+			if (cur > 0)
+				main.SetCursor(cur);
+		}
+	}
 }
 
 void EditorCtrl::SaveFile() {

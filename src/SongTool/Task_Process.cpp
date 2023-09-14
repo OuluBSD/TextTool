@@ -1627,7 +1627,7 @@ void Task::Process_CheckSongStructureErrors() {
 	String result_key = args[1];
 	
 	String input_str = input.AsString();
-	int a = input_str.Find("1. Lines with");
+	int a = input_str.ReverseFind("1. Lines with");
 	if (a >= 0)
 		input_str = input_str.Mid(a);
 	else {
