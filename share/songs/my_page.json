@@ -89,6 +89,18 @@
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE",
 			"value": "verse 1 {\r\n\tinvocation {\r\n\t\tHello ( good fairy ) \r\n\t\twaving ( magic wand )\r\n\t\tor ( witch princess )\r\n\t\ttreating ( green wonder potion )\r\n\t}\r\n\tno {\r\n\t\trabbit ( in the hat )\r\n\t\tsalt\r\n\t}\r\n\twishing {\r\n\t\tmy ( wish ) {\r\n\t\t\tcome ( true ) {\r\n\t\t\t\tonce\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\nchorus {\r\n\tchanting {\r\n\t\tAbracadabra\r\n\t\tthis ( must work )\r\n\t\tAbracadabraz\r\n\t\tstart ( loving me )\r\n\t}\r\n}\r\nverse 2 {\r\n\teating {\r\n\t\tbat claws\r\n\t\tlizard soup\r\n\t}\r\n\treciting ( spells ) {\r\n\t\ttonight\r\n\t}\r\n\tseeing {\r\n\t\tlight ( in the crystal ball )\r\n\t}\r\n\ttorturing {\r\n\t\tmy ( body ) {\r\n\t\t\tin ( vain dreams )\r\n\t\t}\r\n\t}\r\n}\r\nbridge {\r\n\tlooking {\r\n\t\tthrough ( Scout's Handbook )\r\n\t\tinformation ( book ) {\r\n\t\t\tfor ( young people )\r\n\t\t}\r\n\t}\r\n\tkissing {\r\n\t\tlast ( frog ) {\r\n\t\t\tfor ( look ) {\r\n\t\t\t\tof ( one woman )\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+		},
+		{
+			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL",
+			"value": "Verse 1:\nHello, good fairy waving her wand,\nor witch princess with her wonder potion,\nno rabbit in the hat or salt,\njust wishing my wish would come true once.\n\nChorus:\nAbracadabra, this must work,\nAbracadabraz, start loving me.\n\nVerse 2:\nEating bat claws, lizard soup,\nreciting spells tonight,\nseeing light in the crystal ball,\ntorturing my body in vain dreams.\n\nBridge:\nLooking through my scout's handbook,\ninformation book for young people,\nKiss the last frog for look of one woman."
+		},
+		{
+			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL_NATIVE",
+			"value": "Kohtaus 1:\nHei, hyvä keijus heiluttelemassa taikasauvaansa, \ntai noitanprinsessa ihmejuomallaan, \nei kaninhattua tai suolaa, \nvain toivoen toiveeni toteutuvan kerran.\n\nKertosäe: \nAbracadabra, tämän pitäisi toimia, \nAbracadabraz, ala rakastamaan minua.\n\nKohtaus 2:\nSyömässä lintujen kynsiä, liskojen keittoa, \nloitsien lukemista tänä iltana, \nvalon näkemistä kristallipallosta, \nturhaan pilaamalla unia. \n\nSillan:\nKatselemaan väijyjäni käsikirjaa, \nnuorisolle tarkoitettua tietokirjaa, \nsuudella viimeinen sammakko saadaksesi yhden naisen muodon."
+		},
+		{
+			"key": "ENGLISH_UNPACKED_STRUCTURE_AUDIENCE",
+			"value": "1. What Mila Smith (born 2009, likes K-Pop) would think while hearing the song with these lyrics. Only about lyrics:\n- Abracadabra, this must work\n- Abracadabraz, start loving me\n- Eating bat claws, lizard soup, reciting spells tonight\n- Seeing light in the crystal ball, torturing my body in vain dreams\n\nMila Smith would interpret these lyrics as a magical plea for love, with the magical symbolism of eating bat claws and reciting spells representative of a desire to embark upon a journey to achieve something that many might consider impossible. It also implies that the pursuit of this love may cause some pain or struggle, making it seem like a risky journey that is still worth taking."
 		}
 	]
 }

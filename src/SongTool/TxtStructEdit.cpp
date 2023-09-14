@@ -7,6 +7,9 @@ TxtStructEdit::TxtStructEdit() {
 	have_group_bad_better = true;
 	main_key = "ENGLISH_UNPACKED_STRUCTURE";
 	error_result_key = "ENGLISH_UNPACKED_STRUCTURE_ERRORS";
+	main_natural_key = "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL";
+	main_natural_native_key = "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL_NATIVE";
+	audience_evaluation_key = "ENGLISH_UNPACKED_STRUCTURE_AUDIENCE";
 }
 
 void TxtStructEdit::Init() {
@@ -64,11 +67,77 @@ void TxtStructEdit::CheckErrors() {
 }
 
 void TxtStructEdit::ConvertToNative() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist || main_key.IsEmpty() || main_natural_key.IsEmpty())
+		return;
 	
+	p.RealizePipe();
+	
+	p.song->data.GetAdd(main_natural_key).Clear();
+	p.song->data.GetAdd(main_natural_native_key).Clear();
+	
+	{
+		TaskMgr& m = *p.song->pipe;
+		m.ConvertSongStructureToEnglish(main_key, main_natural_key, THISBACK(OnNaturalExportReady));
+	}
+}
+
+void TxtStructEdit::OnNaturalExportReady() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist || main_natural_key.IsEmpty() || main_natural_native_key.IsEmpty())
+		return;
+	
+	p.RealizePipe();
+	
+	{
+		String orig_lng = GetCurrentLanguageString().Left(5);
+		String trans_lng = "EN-US";
+		
+		TaskMgr& m = *p.song->pipe;
+		m.TranslateSongData(trans_lng, main_natural_key, orig_lng, main_natural_native_key, THISBACK(OnNaturalNativeExportReady));
+	}
+	
+	PostCallback(THISBACK(UpdateExportData));
+}
+
+void TxtStructEdit::OnNaturalNativeExportReady() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist || main_natural_native_key.IsEmpty())
+		return;
+	
+	PostCallback(THISBACK(UpdateExportData));
+}
+
+void TxtStructEdit::UpdateExportData() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist || main_natural_key.IsEmpty() || main_natural_native_key.IsEmpty())
+		return;
+	
+	other.SetData(p.song->data.Get(main_natural_key, ""));
+	third.SetData(p.song->data.Get(main_natural_native_key, ""));
 }
 
 void TxtStructEdit::EvaluateAudience() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist || audience_evaluation_key.IsEmpty() || main_natural_key.IsEmpty())
+		return;
 	
+	audience.Clear();
+	audience_data.Clear();
+	
+	p.RealizePipe();
+	
+	p.song->data.GetAdd(audience_evaluation_key).Clear();
+	
+	{
+		TaskMgr& m = *p.song->pipe;
+		m.EvaluateSongAudience(main_natural_key, audience_evaluation_key, THISBACK(OnAudienceEvaluationReady));
+	}
 }
 
 void TxtStructEdit::DoMainAction(int i) {
@@ -227,6 +296,7 @@ void TxtStructEdit::OnErrorsRecv() {
 		}
 	}
 	
+	this->error.Clear();
 	Sort(msgs, ProcMsg());
 	for (ProcMsg& m : msgs)
 		OnMessage(m);
@@ -237,4 +307,113 @@ void TxtStructEdit::OnErrorsRecv() {
 	SetBottom(BERRORS);
 }
 
+void TxtStructEdit::OnAudienceEvaluationReady() {
+	audience_data.Clear();
+	
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist || audience_evaluation_key.IsEmpty())
+		return;
+	
+	String results = p.song->data.Get(audience_evaluation_key, "");
+	//LOG(results);
+	
+	{
+		results.Replace("\r","");
+		Vector<String> lines = Split(results, "\n", false);
+		int i = -1;
+		for(int i = 0; i < lines.GetCount(); i++) {
+			String& l = lines[i];
+			l = TrimBoth(l);
+			
+			if (l.IsEmpty() && (i == 0 || lines[i-1].IsEmpty())) {
+				lines.Remove(i--);
+				continue;
+			}
+			
+			// Ensure that there is at least 1 empty line between parts
+			if (i > 0 && IsDigit(l[0]) && !lines[i-1].IsEmpty()) {
+				lines.Insert(i);
+				continue;
+			}
+		}
+		results = Join(lines, "\n", false);
+	}
+	
+	Time now = GetSysTime();
+	
+	Vector<String> parts = Split(results, "\n\n");
+	
+	for (String& part : parts) {
+		Vector<String> lines = Split(part, "\n");
+		
+		AudiencePerson& person = audience_data.Add();
+		
+		if (lines.GetCount() == 2) {
+			String header = lines[0];
+			String output = lines[1];
+			
+			{
+				int a, b;
+				a = header.Find("What ");
+				if (a < 0) continue;
+				a += 5;
+				b = header.Find("(", a);
+				if (b < 0) continue;
+				person.name = header.Mid(a, b-a);
+				
+				a=b;
+				a = header.Find("born ", a);
+				if (a < 0) continue;
+				a += 5;
+				b = header.Find(",", a);
+				if (b < 0) continue;
+				person.born = StrInt(header.Mid(a, b-a));
+				person.age = now.year - person.born;
+				
+				a=b;
+				a = header.Find("likes ", a);
+				if (a < 0) continue;
+				a += 6;
+				b = header.Find(")", a);
+				if (b < 0) continue;
+				person.likes = header.Mid(a, b-a);
+			}
+			
+			{
+				if (output.Left(1) == "-") output = TrimBoth(output.Mid(1));
+				
+				int punct = 0;
+				WString line = output.ToWString();
+				
+				for(int i = 1; i < line.GetCount(); i++) {
+					int chr = line[i];
+					if (chr == '!' || chr == '.' || chr == '?') {
+						punct = i+1;
+						break;
+					}
+				}
+				
+				person.reaction = line.Left(punct).ToString();
+				person.comment = TrimBoth(line.Mid(punct).ToString());
+			}
+		}
+	}
+	
+	PostCallback(THISBACK(OnAudienceDataReady));
+}
 
+void TxtStructEdit::OnAudienceDataReady() {
+	for(int i = 0; i < audience_data.GetCount(); i++) {
+		AudiencePerson& person = audience_data[i];
+		
+		audience.Set(i, 0, person.name);
+		audience.Set(i, 1, Format(t_("%d (age %d)"), person.born, person.age));
+		audience.Set(i, 2, person.likes);
+		audience.Set(i, 3, person.reaction);
+		audience.Set(i, 4, person.comment);
+	}
+	audience.SetCount(audience_data.GetCount());
+	
+	SetBottom(BAUDIENCE);
+}

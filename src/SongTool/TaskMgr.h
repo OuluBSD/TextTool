@@ -76,6 +76,8 @@ struct TaskMgr {
 	void TranslateSongData(String orig_lang, String orig_key, String trans_lang, String trans_key, Callback WhenDone);
 	void UnpackStructureSongData(String orig_key, String struct_key, Callback WhenDone);
 	void CheckSongStructureErrors(String main_key, String results_key, Callback WhenDone);
+	void ConvertSongStructureToEnglish(String src_key, String dst_key, Callback WhenDone);
+	void EvaluateSongAudience(String src_key, String dst_key, Callback WhenDone);
 	
 	
 };

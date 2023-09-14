@@ -63,14 +63,16 @@ protected:
 	};
 	RightTabs btabs;
 	Ptr<Ctrl>   bottomctrl;
-	enum Bottoms { BCLOSE, BCONSOLE, BERRORS, BFINDINFILES, BCALC, BDEBUG };
+	enum Bottoms { BCLOSE, BCONSOLE, BERRORS, BAUDIENCE, BFINDINFILES, BCALC, BDEBUG };
 	LineEdit    console;
 	ArrayCtrl   ffound;
 	ArrayCtrl   error;
+	ArrayCtrl   audience;
 	TheCalc      calc;
 	StaticRect  bottom;
 	bool        removing_notes;
 	void SetupError(ArrayCtrl& error, const char *s);
+	void SetupAudience(ArrayCtrl& audience);
 	void ErrorMenu(Bar& bar);
 	void FFoundMenu(Bar& bar);
 	void SelError();

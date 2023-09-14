@@ -25,6 +25,20 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_CheckSongStructureErrors)
 		;
 	
+	AddRule(TASK_CONVERT_SONG_STRUCTURE_TO_ENGLISH, "convert song structure to english")
+		.Input(&Task::CreateInput_ConvertSongStructureToEnglish)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 2, 2)
+		.Process(&Task::Process_ConvertSongStructureToEnglish)
+		;
+	
+	AddRule(TASK_EVALUATE_SONG_AUDIENCE, "evaluate song audience")
+		.Input(&Task::CreateInput_EvaluateSongAudience)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 3, 20)
+		.Process(&Task::Process_EvaluateSongAudience)
+		;
+	
 	
 	
 	
@@ -723,6 +737,48 @@ void TaskMgr::CheckSongStructureErrors(String main_key, String results_key, Call
 	t.p.pipe = &p;
 	t.args << main_key << results_key;
 	t.WhenDone << WhenDone;
+}
+
+void TaskMgr::ConvertSongStructureToEnglish(String src_key, String dst_key, Callback WhenDone) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_CONVERT_SONG_STRUCTURE_TO_ENGLISH);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << src_key << dst_key;
+	t.WhenDone << WhenDone;
+}
+
+void TaskMgr::EvaluateSongAudience(String src_key, String dst_key, Callback WhenDone) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_EVALUATE_SONG_AUDIENCE);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << src_key << dst_key;
+	t.WhenDone << WhenDone;
+	
+	t.args
+			<< "Mila Smith (born 2009, likes KoreaPop)"
+			<< "Paul Lee (born 2003, likes Rap)"
+			<< "Tina Smith (born 1996, likes Pop)"
+			<< "Bobby Reynolds (born 1995, likes Rock)"
+			<< "Rachel Johnson (born 1992, likes Pop)"
+			<< "Shawn Johnson (born 1991, likes Rock)"
+			<< "Jake White (born 1989, likes Pop)"
+			<< "Cyrus McCall (born 1988, likes Rap)"
+			<< "Kelly Taylor (born 1987, likes Rock)"
+			<< "Mike Richards (born 1977, likes Metal)"
+			;
+	
 }
 
 TaskRule& TaskMgrConfig::GetRule(int code) {

@@ -1639,3 +1639,30 @@ void Task::Process_CheckSongStructureErrors() {
 	String& result_txt = pipe.data.GetAdd(result_key);
 	result_txt = input_str + output;
 }
+
+void Task::Process_ConvertSongStructureToEnglish() {
+	String src_key = args[0];
+	String dst_key = args[1];
+	
+	Song& song = *p.pipe->song;
+	String& dst_txt = song.data.GetAdd(dst_key);
+	dst_txt = output;
+}
+
+void Task::Process_EvaluateSongAudience() {
+	String src_key = args[0];
+	String dst_key = args[1];
+	
+	String input_str = input.AsString();
+	int a = input_str.ReverseFind("1.");
+	if (a >= 0)
+		input_str = input_str.Mid(a);
+	else {
+		SetError("unexpected input string");
+		return;
+	}
+	
+	Song& song = *p.pipe->song;
+	String& result_txt = song.data.GetAdd(dst_key);
+	result_txt = input_str + output;
+}

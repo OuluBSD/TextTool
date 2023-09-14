@@ -1182,6 +1182,7 @@ void Task::CreateInput_TranslateSongData() {
 
 
 const char* struct_unpack_orig = R"_(
+chorus:
 I didn't want to fight, I don't want to break up
 I never imagined this would end.
 I didn't mean to break you, make us like this
@@ -1189,26 +1190,28 @@ but no matter how much I love, one of us hurts the other again.)_";
 
 
 const char* struct_unpack_trans = R"_(
-me {
-	not wanting {
-		to fight
-		to break up
-	}
-	never ( imagined ) {
-		this ( end )
-	}
-	not meaning {
-		to break ( my romantic partner )
-		to make ( me and my romantic partner ) {
-			like ( this )
+chorus {
+	me {
+		not wanting {
+			to fight
+			to break up
+		}
+		never ( imagined ) {
+			this ( end )
+		}
+		not meaning {
+			to break ( my romantic partner )
+			to make ( me and my romantic partner ) {
+				like ( this )
+			}
 		}
 	}
-}
-me and my romantic partner {
-	loving {
-		one ( of me and my romantic partner ) {
-			hurting ( other ) {
-				again
+	me and my romantic partner {
+		loving {
+			one ( of me and my romantic partner ) {
+				hurting ( other ) {
+					again
+				}
 			}
 		}
 	}
@@ -1359,6 +1362,81 @@ void Task::CreateInput_CheckSongStructureErrors() {
 		
 		TaskTitledList& first = results.AddSub();
 		first		.Title("1. Lines with lyrical fumbling (and improvements) in \"Text B\"");
+		first		.EmptyLine();
+	}
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_ConvertSongStructureToEnglish() {
+	String src_key = args[0];
+	String dst_key = args[1];
+	
+	{
+		Vector<String> lines = Split(struct_unpack_trans, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Structurally deconstructed lyrics");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	{
+		Vector<String> lines = Split(struct_unpack_orig, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Original lyrics");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	{
+		Song& song = *p.pipe->song;
+		String orig_txt = song.data.Get(src_key, "");
+		orig_txt.Replace("\r", "");
+		Vector<String> lines = Split(orig_txt, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Structurally deconstructed lyrics");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	TaskTitledList& results = input.PreAnswer();
+	results		.Title("Original lyrics");
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_EvaluateSongAudience() {
+	String src_key = args[0];
+	String dst_key = args[1];
+	
+	int person_count = args.GetCount()-2;
+	String first_person = args[2];
+	
+	{
+		Song& song = *p.pipe->song;
+		String orig_txt = song.data.Get(src_key, "");
+		orig_txt.Replace("\r", "");
+		Vector<String> lines = Split(orig_txt, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Lyrics");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	{
+		TaskTitledList& list = input.AddSub().Title("Persons");
+		list.NumberedLines();
+		for(int i = 2; i < args.GetCount(); i++) {
+			list.Add(args[i]);
+		}
+	}
+	{
+		
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("All 1-" + IntStr(person_count));
+		
+		TaskTitledList& first = results.AddSub();
+		//first		.Title("1. What kind of 'reaction' would " + first_person + " get and what would she/he 'think' of the song");
+		//first.Add("reaction:");
+		first		.Title("1. What " + first_person + " would think while hearing the song with these lyrics. Only about lyrics");
 		first		.EmptyLine();
 	}
 	

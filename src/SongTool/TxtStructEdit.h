@@ -8,6 +8,17 @@ class TxtStructEdit : public EditorCtrl {
 	Button convert_to_native;
 	Button evaluate_audience;
 	String error_result_key;
+	String main_natural_key;
+	String main_natural_native_key;
+	String audience_evaluation_key;
+	
+	struct AudiencePerson : Moveable<AudiencePerson> {
+		String name;
+		int born, age;
+		String likes;
+		String reaction, comment;
+	};
+	Vector<AudiencePerson> audience_data;
 	
 public:
 	typedef TxtStructEdit CLASSNAME;
@@ -20,6 +31,11 @@ public:
 	void ConvertToNative();
 	void EvaluateAudience();
 	void OnErrorsRecv();
+	void OnNaturalExportReady();
+	void OnNaturalNativeExportReady();
+	void OnAudienceEvaluationReady();
+	void OnAudienceDataReady();
+	void UpdateExportData();
 	void PostOnErrorsRecv() {PostCallback(THISBACK(OnErrorsRecv));}
 };
 

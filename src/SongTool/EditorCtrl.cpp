@@ -37,17 +37,20 @@ void EditorCtrl::Init() {
 	bottom.SetFrame(btabs);
 	bottom.Add(console.SizePos().SetFrame(NullFrame()));
 	bottom.Add(error.SizePos().SetFrame(NullFrame()));
+	bottom.Add(audience.SizePos().SetFrame(NullFrame()));
 	bottom.Add(ffound.SizePos().SetFrame(NullFrame()));
 	bottom.Add(calc.SizePos().SetFrame(NullFrame()));
 	btabs <<= THISBACK(SyncBottom);
 	BTabs();
 	SwapBottom();
 	
-	SetupError(error, "Message");
+	SetupError(error, t_("Message"));
 	error.AddIndex("NOTES");
 	error.WhenBar = THISBACK(ErrorMenu);
 	
-	SetupError(ffound, "Source");
+	SetupAudience(audience);
+	
+	SetupError(ffound, t_("Source"));
 	ffound.ColumnWidths("207 41 834");
 	ffound.ColumnAt(0).SetDisplay(Single<FoundFileDisplay>());
 	ffound.ColumnAt(2).SetDisplay(Single<FoundDisplay>());
@@ -90,6 +93,11 @@ void EditorCtrl::Data() {
 	
 	String main_txt = song.data.Get(main_key, "");
 	main.SetData(main_txt);
+	
+	error.Clear();
+	main.Errors(Vector<Point>());
+	
+	audience.Clear();
 }
 
 void EditorCtrl::OnMainChange() {

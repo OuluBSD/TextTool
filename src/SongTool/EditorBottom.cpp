@@ -4,13 +4,14 @@
 void EditorCtrl::BTabs()
 {
 	btabs.Clear();
-	btabs.Add(AppImg::close, "Close (Esc)");
-	btabs.Add(AppImg::console, "Console");
-	btabs.Add(AppImg::errors, "Errors");
-	btabs.Add(AppImg::console2, "Find in files");
-	btabs.Add(AppImg::calc, "Calculator");
+	btabs.Add(AppImg::close, t_("Close (Esc)"));
+	btabs.Add(AppImg::console, t_("Console"));
+	btabs.Add(AppImg::errors, t_("Errors"));
+	btabs.Add(AppImg::audience, t_("Audience"));
+	btabs.Add(AppImg::console2, t_("Find in files"));
+	btabs.Add(AppImg::calc, t_("Calculator"));
 	if(bottomctrl)
-		btabs.Add(AppImg::debug, "Debug");
+		btabs.Add(AppImg::debug, t_("Debug"));
 }
 
 void EditorCtrl::SyncBottom()
@@ -25,6 +26,7 @@ void EditorCtrl::SyncBottom()
 	console.Show(q == BCONSOLE);
 	error.Show(q == BERRORS);
 	ffound.Show(q == BFINDINFILES);
+	audience.Show(q == BAUDIENCE);
 	calc.Show(q == BCALC);
 	if(bottomctrl)
 		bottomctrl->Show(q == BDEBUG);
@@ -101,12 +103,12 @@ void EditorCtrl::IdeActivateBottom()
 
 void EditorCtrl::SetupError(ArrayCtrl& error, const char *s)
 {
-	error.AddColumn("File").SetDisplay(Single<EditorCtrl::FoundFileDisplay>());
-	error.AddColumn("Line").SetDisplay(Single<EditorCtrl::TopAlignedDisplay>());
+	error.AddColumn(t_("File")).SetDisplay(Single<EditorCtrl::FoundFileDisplay>());
+	error.AddColumn(t_("Line")).SetDisplay(Single<EditorCtrl::TopAlignedDisplay>());
 	if (have_group_bad_better) {
-		error.AddColumn("Category");
-		error.AddColumn("Bad");
-		error.AddColumn("Better");
+		error.AddColumn(t_("Category"));
+		error.AddColumn(t_("Bad"));
+		error.AddColumn(t_("Better"));
 		error.ColumnWidths("20 10 40 100 100");
 	}
 	else {
@@ -118,17 +120,28 @@ void EditorCtrl::SetupError(ArrayCtrl& error, const char *s)
 	error.WhenAction = THISBACK1(FocusLine, &error);
 }
 
+void EditorCtrl::SetupAudience(ArrayCtrl& audience)
+{
+	audience.AddColumn(t_("Name"));
+	audience.AddColumn(t_("Birthyear (age)"));
+	audience.AddColumn(t_("Favourite Genre"));
+	audience.AddColumn(t_("Reaction"));
+	audience.AddColumn(t_("Comment"));
+	audience.NoWantFocus();
+	audience.ColumnWidths("2 2 2 4 20");
+}
+
 void EditorCtrl::ErrorMenu(Bar& bar)
 {
-	bar.Add(error.IsCursor(), "Copy", THISBACK1(CopyError, false));
-	bar.Add("Copy all", THISBACK1(CopyError, true));
+	bar.Add(error.IsCursor(), t_("Copy"), THISBACK1(CopyError, false));
+	bar.Add(t_("Copy all"), THISBACK1(CopyError, true));
 }
 
 
 void EditorCtrl::FFoundMenu(Bar& bar)
 {
-	bar.Add("Copy text", THISBACK1(CopyFound, false));
-	bar.Add("Copy all", THISBACK1(CopyFound, true));
+	bar.Add(t_("Copy text"), THISBACK1(CopyFound, false));
+	bar.Add(t_("Copy all"), THISBACK1(CopyFound, true));
 }
 
 void EditorCtrl::SelError()
