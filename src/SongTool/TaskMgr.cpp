@@ -46,6 +46,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_EvaluateSongAudience)
 		;
 	
+	AddRule(TASK_MAKE_SONG_POETIC, "make more poetic lyrics")
+		.Input(&Task::CreateInput_MakePoetic)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 3, 3)
+		.Process(&Task::Process_MakePoetic)
+		;
+	
 	
 	
 	
@@ -800,6 +807,20 @@ void TaskMgr::EvaluateSongAudience(String src_key, String dst_key, Callback When
 			<< "Mike Richards (born 1977, likes Metal)"
 			;
 	
+}
+
+void TaskMgr::MakePoetic(String style, String src_key, String dst_key, Callback WhenDone) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_MAKE_SONG_POETIC);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << style << src_key << dst_key;
+	t.WhenDone << WhenDone;
 }
 
 TaskRule& TaskMgrConfig::GetRule(int code) {

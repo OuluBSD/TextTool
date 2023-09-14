@@ -79,6 +79,7 @@ struct TaskMgr {
 	void CheckSongNaturalErrors(String main_key, String results_key, Callback WhenDone);
 	void ConvertSongStructureToEnglish(String src_key, String dst_key, Callback WhenDone);
 	void EvaluateSongAudience(String src_key, String dst_key, Callback WhenDone);
+	void MakePoetic(String style, String src_key, String dst_key, Callback WhenDone);
 	
 	
 };

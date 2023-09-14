@@ -1507,7 +1507,6 @@ void Task::CreateInput_EvaluateSongAudience() {
 		}
 	}
 	{
-		
 		TaskTitledList& results = input.PreAnswer();
 		results.Title("All 1-" + IntStr(person_count));
 		
@@ -1519,4 +1518,29 @@ void Task::CreateInput_EvaluateSongAudience() {
 	}
 	
 	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_MakePoetic() {
+	String style = args[0];
+	String src_key = args[1];
+	String dst_key = args[2];
+	
+	bool rev_snap = args[0] == "rev";
+	SnapArg a = p.a;
+	ASSERT(a.mode != MODE_INVALID);
+	Pipe& pipe = *p.pipe;
+	
+	{
+		Song& song = *p.pipe->song;
+		String orig_txt = song.data.Get(src_key, "");
+		orig_txt.Replace("\r", "");
+		Vector<String> lines = Split(orig_txt, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Lyrics in original style");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	TaskTitledList& answer = input.PreAnswer().Title("Same lyrics in " + style + " style");
+	
 }

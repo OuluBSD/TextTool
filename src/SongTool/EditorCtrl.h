@@ -7,6 +7,7 @@ class EditorCtrl : public SongToolCtrl {
 	
 	
 protected:
+	bool highligh_struct = false;
 	bool have_third_view = false;
 	bool have_group_bad_better = false;
 	bool have_errors_in_other = false;

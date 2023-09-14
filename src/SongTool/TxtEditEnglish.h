@@ -7,6 +7,10 @@ class TxtEditEnglish : public EditorCtrl {
 	Button make_poetic;
 	Button check_errors;
 	Button evaluate_audience;
+	DropList artist_style;
+	String user_natural_english_key;
+	String user_natural_english_trans_key;
+	String auto_poetic_english_key;
 	
 	
 public:
@@ -19,6 +23,10 @@ public:
 	void MakePoetic();
 	void CheckErrors();
 	void EvaluateAudience() {EditorCtrl::EvaluateAudience();}
+	void OnPoeticRecv();
+	void PostOnPoeticRecv() {PostCallback(THISBACK(OnPoeticRecv));}
+	void OnErrorsRecv() {EditorCtrl::OnErrorsRecv();}
+	void PostOnErrorsRecv() {PostCallback(THISBACK(OnErrorsRecv));}
 	
 };
 

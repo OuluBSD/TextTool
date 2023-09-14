@@ -10,8 +10,8 @@ TxtEditNative::TxtEditNative() {
 	user_natural_native_key = "NATURAL_NATIVE_OF_AUTHOR";
 	user_natural_english_trans_key = "ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR";
 	auto_natural_english_trans_key = "AUTOMATIC_ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR";
-	error_result_key = "ERRORS_IN_ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR";
 	
+	error_result_key = "ERRORS_IN_ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR";
 	main_natural_english_key = user_natural_english_trans_key;
 	audience_evaluation_key = "ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR_AUDIENCE";
 	main_key = user_natural_native_key;

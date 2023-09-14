@@ -26,7 +26,6 @@ public:
 	void UpdateTranslated();
 	void OnErrorsRecv() {EditorCtrl::OnErrorsRecv();}
 	void PostOnErrorsRecv() {PostCallback(THISBACK(OnErrorsRecv));}
-	void OnAudienceEvaluationReady() {EditorCtrl::OnAudienceEvaluationReady();}
 	
 };
 

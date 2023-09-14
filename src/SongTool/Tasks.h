@@ -164,6 +164,7 @@ public:
 	void CreateInput_CheckSongNaturalErrors();
 	void CreateInput_ConvertSongStructureToEnglish();
 	void CreateInput_EvaluateSongAudience();
+	void CreateInput_MakePoetic();
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
 	void Process_StoryArc();
@@ -198,6 +199,7 @@ public:
 	void Process_CheckSongNaturalErrors();
 	void Process_ConvertSongStructureToEnglish();
 	void Process_EvaluateSongAudience();
+	void Process_MakePoetic();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

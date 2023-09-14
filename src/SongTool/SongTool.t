@@ -184,6 +184,18 @@ fiFI("N\303\244yt\303\244 sekvensseri")
 T_("Tools")
 fiFI("Ty\303\266kalut")
 
+T_("Do the 1st action")
+fiFI("Tee 1. toimenpide")
+
+T_("Do the 2nd action")
+fiFI("Tee 2. toimenpide")
+
+T_("Do the 3rd action")
+fiFI("Tee 3. toimenpide")
+
+T_("Do the 4th action")
+fiFI("Tee 4. toimenpide")
+
 T_("Show orphaned files")
 fiFI("N\303\244yt\303\244 orpoutuneet tiedostot")
 
@@ -237,9 +249,6 @@ fiFI("Luo englanninkielisest\303\244")
 
 T_("Edit")
 fiFI("Muokkaa")
-
-T_("To Text")
-fiFI("Vie tekstiksi")
 
 T_("Text")
 fiFI("Teksti")
@@ -441,6 +450,87 @@ fiFI("Yrit\303\244 uudelleen")
 
 T_("Retry cached prompt")
 fiFI("Yrit\303\244 uudelleen v\303\244limuistissa oleva kehote")
+
+
+// TranslatorToolBase.cpp
+
+T_("Translate")
+fiFI("K\303\244\303\244nn\303\244")
+
+
+// EditorCtrl.cpp
+
+T_("Message")
+fiFI("Viesti")
+
+T_("Source")
+fiFI("L\303\244hde")
+
+T_("%d (age %d)")
+fiFI("%d (ik\303\244 %d)")
+
+
+// EditorBottom.cpp
+
+T_("Close (Esc)")
+fiFI("Sulje (Esc)")
+
+T_("Console")
+fiFI("Konsoli")
+
+T_("Errors")
+fiFI("Virheet")
+
+T_("Audience")
+fiFI("Yleis\303\266")
+
+T_("Find in files")
+fiFI("Etsi tiedostoista")
+
+T_("Calculator")
+fiFI("Laskin")
+
+T_("Debug")
+fiFI("Debuggeri")
+
+T_("File")
+fiFI("Tiedosto")
+
+T_("Line")
+fiFI("Laini")
+
+T_("Category")
+fiFI("Kategoria")
+
+T_("Bad")
+fiFI("Huono")
+
+T_("Better")
+fiFI("Parempi")
+
+T_("Name")
+fiFI("Nimi")
+
+T_("Birthyear (age)")
+fiFI("Syntym\303\244vuosi (ik\303\244)")
+
+T_("Favourite Genre")
+fiFI("Suosikki genre")
+
+T_("Reaction")
+fiFI("Reaktio")
+
+T_("Comment")
+fiFI("Kommentti")
+
+T_("Copy")
+fiFI("Kopioi")
+
+T_("Copy all")
+fiFI("Kopioi kaikki")
+
+T_("Copy text")
+fiFI("Kopioi teksti")
 
 
 // Simplified.lay
@@ -646,7 +736,46 @@ T_("Desired impact of %s")
 fiFI("Aiheen \"%s\" toivottu iskevyys ihmisten kokemuksissa")
 
 
-// ChecklistComposition.h
+// TxtStructEdit.cpp
+
+T_("Copy the struct of the reference song")
+fiFI("Kopioi viitekappaleen rakenne")
+
+T_("Check for problems in the song structure")
+fiFI("Tarkista, onko kappaleen rakenteessa ongelmia")
+
+T_("Convert the structure to a native text")
+fiFI("Muunna rakenne alkuper\303\244istekstiksi")
+
+T_("Evaluate the english text with an AI audience")
+fiFI("Arvioi eng. teksti\303\244 teko\303\244lyyleis\303\266n kanssa")
+
+T_("Do you want to overwrite existing text? This cannot be undone.")
+fiFI("Haluatko korvata olemassa olevan tekstin? T\303\244t\303\244 ei voi peruuttaa")
+
+
+// TxtEditNative.cpp
+
+T_("Import the native text converted from structure")
+fiFI("Tuo rakenteesta muunnettu alkuper\303\244inen teksti")
+
+T_("Translate native text of the user to english")
+fiFI("K\303\244\303\244nn\303\244 k\303\244ytt\303\244j\303\244n alkuper\303\244inen teksti englanniksi")
+
+T_("Check for problems in the english translation")
+fiFI("Tarkista eng. k\303\244\303\244nn\303\266ksen ongelmat")
+
+
+// TxtEditEnglish.cpp
+
+T_("Import the direct translation of the native text")
+fiFI("Tuo alkuper\303\244isen tekstin suora k\303\244\303\244nn\303\266s")
+
+T_("Make poetic english with the given style")
+fiFI("Tee runollinen englanti annetulla tyylill\303\244")
+
+
+// Checklists.h
 
 T_("chord pad")
 fiFI("sointu pad")
@@ -699,14 +828,8 @@ fiFI("Ryhm\303\244n selitys")
 
 // ImportCtrl.cpp
 
-T_("Line")
-fiFI("Laini")
-
 T_("Severity")
 fiFI("Vakavuus")
-
-T_("Message")
-fiFI("Viesti")
 
 
 // StructureCtrl.cpp
@@ -722,9 +845,6 @@ fiFI("Rivin teksti")
 
 T_("Break text")
 fiFI("Palan teksti")
-
-T_("Source")
-fiFI("L\303\244hde")
 
 T_("Break")
 fiFI("Pala")
@@ -858,9 +978,6 @@ fiFI("Pisteytys")
 
 // ReverseCtrl.cpp
 
-T_("Name")
-fiFI("Nimi")
-
 T_("Active")
 fiFI("Aktiivinen")
 
@@ -884,6 +1001,12 @@ fiFI("Optimoijan pisteet")
 
 T_("Result")
 fiFI("Tulos")
+
+
+// Tasks.cpp
+
+T_("argument count is not in range")
+fiFI("argumenttien m\303\244\303\244r\303\244 ei ole alueella")
 
 
 // Task_Process.cpp
@@ -926,6 +1049,9 @@ fiFI("Keskeytetty")
 
 
 // Obsolete
+
+T_("To Text")
+fiFI("Vie tekstiksi")
 
 T_("drums")
 fiFI("rummut")

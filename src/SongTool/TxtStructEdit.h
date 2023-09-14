@@ -24,7 +24,6 @@ public:
 	void OnErrorsRecv() {EditorCtrl::OnErrorsRecv();}
 	void OnNaturalExportReady();
 	void OnNaturalNativeExportReady();
-	void OnAudienceEvaluationReady() {EditorCtrl::OnAudienceEvaluationReady();}
 	void UpdateExportData();
 	void PostOnErrorsRecv() {PostCallback(THISBACK(OnErrorsRecv));}
 };

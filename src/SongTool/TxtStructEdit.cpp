@@ -3,13 +3,14 @@
 
 
 TxtStructEdit::TxtStructEdit() {
+	highligh_struct = true;
 	have_third_view = true;
 	have_group_bad_better = true;
 	unpacked_struct_key = "ENGLISH_UNPACKED_STRUCTURE";
-	error_result_key = "ENGLISH_UNPACKED_STRUCTURE_ERRORS";
 	main_natural_native_key = "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL_NATIVE";
 	reference_unpacked_english = "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE";
 	
+	error_result_key = "ENGLISH_UNPACKED_STRUCTURE_ERRORS";
 	main_natural_english_key = "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL";
 	audience_evaluation_key = "ENGLISH_UNPACKED_STRUCTURE_AUDIENCE";
 	main_key = unpacked_struct_key;

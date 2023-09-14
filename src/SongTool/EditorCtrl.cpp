@@ -175,7 +175,7 @@ void EditorCtrl::SetTabText(int i, String key, int line, int col) {
 }
 
 void EditorCtrl::InitEditor(CodeEditor& codeedit) {
-	String highlight = "cpp";
+	String highlight = highligh_struct ? "cpp" : "";
 	
 	codeedit.DefaultHlStyles();
 	codeedit.Highlight(highlight);
@@ -411,8 +411,11 @@ void EditorCtrl::OnErrorsRecv() {
 		if (b < 0) {
 			b = part.Find(" in ");
 			if (b < 0) {
-				LOG("error: unexpected result");
-				continue;
+				b = part.Find(":");
+				if (b < 0) {
+					LOG("error: unexpected result");
+					continue;
+				}
 			}
 		}
 		String key = part.Mid(a, b-a);

@@ -1684,3 +1684,13 @@ void Task::Process_EvaluateSongAudience() {
 	String& result_txt = song.data.GetAdd(dst_key);
 	result_txt = input_str + output;
 }
+
+void Task::Process_MakePoetic() {
+	String style = args[0];
+	String src_key = args[1];
+	String dst_key = args[2];
+	
+	Song& song = *p.pipe->song;
+	String& trans_txt = song.data.GetAdd(dst_key);
+	trans_txt = output;
+}
