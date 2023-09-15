@@ -4,6 +4,12 @@
 
 void TaskMgrConfig::CreateDefaultTaskRules() {
 	
+	AddRule(TASK_TRANSLATE, "translate")
+		.Input(&Task::CreateInput_Translate)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 3, 3)
+		.Process(&Task::Process_Translate)
+		;
 	AddRule(TASK_TRANSLATE_SONG_DATA, "translate song data")
 		.Input(&Task::CreateInput_TranslateSongData)
 			.Arg(V_PTR_PIPE)
@@ -32,6 +38,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_CheckSongNaturalErrors)
 		;
 	
+	AddRule(TASK_CHECK_ERRORS_IN_SCREENPLAY_STRUCT_DATA, "check errors in structural screenplay data")
+		.Input(&Task::CreateInput_CheckScreenplayStructureErrors)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_CheckScreenplayStructureErrors)
+		;
+	
 	AddRule(TASK_CONVERT_SONG_STRUCTURE_TO_ENGLISH, "convert song structure to english")
 		.Input(&Task::CreateInput_ConvertSongStructureToEnglish)
 			.Arg(V_PTR_PIPE)
@@ -42,7 +55,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 	AddRule(TASK_EVALUATE_SONG_AUDIENCE, "evaluate song audience")
 		.Input(&Task::CreateInput_EvaluateSongAudience)
 			.Arg(V_PTR_PIPE)
-			.Arg(V_ARGS, 3, 20)
+			.Arg(V_ARGS, 4, 20)
 		.Process(&Task::Process_EvaluateSongAudience)
 		;
 	
@@ -52,6 +65,28 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 			.Arg(V_ARGS, 3, 3)
 		.Process(&Task::Process_MakePoetic)
 		;
+	
+	AddRule(TASK_CONVERT_SCREENPLAY_TO_STRUCTURE, "convert screenplay to structure")
+		.Input(&Task::CreateInput_ConvertScreenplayToStructure)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_ConvertScreenplayToStructure)
+		;
+	
+	AddRule(TASK_CONVERT_STRUCTURE_TO_SCREENPLAY, "convert structure to screenplay")
+		.Input(&Task::CreateInput_ConvertStructureToScreenplay)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_ConvertStructureToScreenplay)
+		;
+	
+	AddRule(TASK_CONVERT_SCREENPLAY_TO_PLAN, "convert screenplay to production plan")
+		.Input(&Task::CreateInput_ConvertScreenplayToPlan)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 2, 2)
+		.Process(&Task::Process_ConvertScreenplayToPlan)
+		;
+	
 	
 	
 	
@@ -725,6 +760,34 @@ void TaskMgr::TranslateSongData(String orig_lang, String orig_key, String trans_
 	t.WhenDone << WhenDone;
 }
 
+void TaskMgr::ConvertScreenplayToPlan(String orig_key, String plan_key, Callback WhenDone) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_CONVERT_SCREENPLAY_TO_PLAN);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << orig_key << plan_key;
+	t.WhenDone << WhenDone;
+}
+
+void TaskMgr::Translate(String orig_lang, String orig_txt, String trans_lang, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_TRANSLATE);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << orig_lang << orig_txt << trans_lang;
+	t.WhenResult << WhenResult;
+}
+
 void TaskMgr::UnpackStructureSongData(String orig_key, String struct_key, Callback WhenDone) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
@@ -751,6 +814,20 @@ void TaskMgr::CheckSongStructureErrors(String main_key, String results_key, Call
 	t.p.pipe = &p;
 	t.args << main_key << results_key;
 	t.WhenDone << WhenDone;
+}
+
+void TaskMgr::CheckScreenplayStructureErrors(String txt, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_CHECK_ERRORS_IN_SCREENPLAY_STRUCT_DATA);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << txt;
+	t.WhenResult << WhenResult;
 }
 
 void TaskMgr::CheckSongNaturalErrors(String main_key, String results_key, Callback WhenDone) {
@@ -781,7 +858,7 @@ void TaskMgr::ConvertSongStructureToEnglish(String src_key, String dst_key, Call
 	t.WhenDone << WhenDone;
 }
 
-void TaskMgr::EvaluateSongAudience(String src_key, String dst_key, Callback WhenDone) {
+void TaskMgr::EvaluateSongAudience(String src_key, String dst_key, int mode, Callback WhenDone) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_EVALUATE_SONG_AUDIENCE);
@@ -791,10 +868,11 @@ void TaskMgr::EvaluateSongAudience(String src_key, String dst_key, Callback When
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
-	t.args << src_key << dst_key;
+	t.args << src_key << dst_key << IntStr(mode);
 	t.WhenDone << WhenDone;
 	
 	t.args
+			<< "Steve Packard (born 2013, likes Pop-Rock)"
 			<< "Mila Smith (born 2009, likes KoreaPop)"
 			<< "Paul Lee (born 2003, likes Rap)"
 			<< "Tina Smith (born 1996, likes Pop)"
@@ -821,6 +899,34 @@ void TaskMgr::MakePoetic(String style, String src_key, String dst_key, Callback 
 	t.p.pipe = &p;
 	t.args << style << src_key << dst_key;
 	t.WhenDone << WhenDone;
+}
+
+void TaskMgr::ConvertScreenplayToStructure(String orig_txt, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_CONVERT_SCREENPLAY_TO_STRUCTURE);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << orig_txt;
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::ConvertStructureToScreenplay(String orig_txt, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_CONVERT_STRUCTURE_TO_SCREENPLAY);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << orig_txt;
+	t.WhenResult << WhenResult;
 }
 
 TaskRule& TaskMgrConfig::GetRule(int code) {

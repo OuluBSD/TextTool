@@ -114,6 +114,7 @@ public:
 	Vector<Vector<String>> str_map;
 	Task* created_by = 0;
 	Event<> WhenDone;
+	Event<String> WhenResult;
 	
 	static constexpr int common_mask_gen_multiplier		= 8;
 	static constexpr int common_mask_max_values			= 10;
@@ -158,6 +159,7 @@ public:
 	void CreateInput_ImpactWeighted();
 	void CreateInput_ImpactScoring();
 	void CreateInput_ForwardLyricsWeighted();
+	void CreateInput_Translate();
 	void CreateInput_TranslateSongData();
 	void CreateInput_UnpackStructureSongData();
 	void CreateInput_CheckSongStructureErrors();
@@ -165,6 +167,10 @@ public:
 	void CreateInput_ConvertSongStructureToEnglish();
 	void CreateInput_EvaluateSongAudience();
 	void CreateInput_MakePoetic();
+	void CreateInput_ConvertScreenplayToStructure();
+	void CreateInput_ConvertStructureToScreenplay();
+	void CreateInput_CheckScreenplayStructureErrors();
+	void CreateInput_ConvertScreenplayToPlan();
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
 	void Process_StoryArc();
@@ -193,6 +199,7 @@ public:
 	void Process_ImpactScoring();
 	void Process_MakeImpactScoringTasks();
 	void Process_ForwardLyricsWeighted();
+	void Process_Translate();
 	void Process_TranslateSongData();
 	void Process_UnpackStructureSongData();
 	void Process_CheckSongStructureErrors();
@@ -200,6 +207,10 @@ public:
 	void Process_ConvertSongStructureToEnglish();
 	void Process_EvaluateSongAudience();
 	void Process_MakePoetic();
+	void Process_ConvertScreenplayToStructure();
+	void Process_ConvertStructureToScreenplay();
+	void Process_CheckScreenplayStructureErrors();
+	void Process_ConvertScreenplayToPlan();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

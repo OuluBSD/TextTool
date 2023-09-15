@@ -193,6 +193,15 @@ void Editor::DoMainAction(int action) {
 		items[page].ctrl->DoMainAction(action);
 }
 
+void Editor::MoveTab(int d) {
+	if (tablist.IsCursor()) {
+		int c = tablist.GetCursor();
+		c += d;
+		if (c >= 0 && c < tablist.GetCount())
+			tablist.SetCursor(c);
+	}
+}
+
 void Editor::LoadLast() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;

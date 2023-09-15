@@ -456,10 +456,7 @@ void EditorCtrl::OnErrorsRecv() {
 			String bad, better;
 			int a = part_result.Find("\"");
 			int b = part_result.Find("\" -> \"");
-			if (a < 0) {
-				//
-			}
-			else if (b >= 0) {
+			if (b >= 0) {
 				bad = TrimBoth(part_result.Mid(a, b+1-a));
 				bad = bad.Mid(1, bad.GetCount()-2);
 				better = TrimBoth(part_result.Mid(b+5));
@@ -481,7 +478,12 @@ void EditorCtrl::OnErrorsRecv() {
 			}
 			else {
 				bad = TrimBoth(part_result.Mid(a));
-				bad = bad.Mid(1, bad.GetCount()-2);
+				if (a == 0)
+					bad = bad.Mid(1, bad.GetCount()-2);
+				
+				if (bad == "None." || bad == "None" || bad == "N/A"|| bad == "etc" ||
+					bad == "other better 1" || bad == "other better 2")
+					continue;
 				
 				ProcMsg& err = msgs.Add();
 				err.severity = PROCMSG_ERROR;
@@ -528,7 +530,7 @@ void EditorCtrl::EvaluateAudience() {
 	
 	{
 		TaskMgr& m = *p.song->pipe;
-		m.EvaluateSongAudience(main_natural_english_key, audience_evaluation_key, THISBACK(OnAudienceEvaluationReady));
+		m.EvaluateSongAudience(main_natural_english_key, audience_evaluation_key, audience_mode, THISBACK(OnAudienceEvaluationReady));
 	}
 }
 

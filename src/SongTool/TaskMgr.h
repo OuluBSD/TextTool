@@ -73,13 +73,18 @@ struct TaskMgr {
 	hash_t GetSongHash() const;
 	
 	void ImportSongAndMakeReversedSong();
+	void Translate(String orig_lang, String orig_txt, String trans_lang, Event<String> WhenResult);
 	void TranslateSongData(String orig_lang, String orig_key, String trans_lang, String trans_key, Callback WhenDone);
 	void UnpackStructureSongData(String orig_key, String struct_key, Callback WhenDone);
 	void CheckSongStructureErrors(String main_key, String results_key, Callback WhenDone);
 	void CheckSongNaturalErrors(String main_key, String results_key, Callback WhenDone);
 	void ConvertSongStructureToEnglish(String src_key, String dst_key, Callback WhenDone);
-	void EvaluateSongAudience(String src_key, String dst_key, Callback WhenDone);
+	void EvaluateSongAudience(String src_key, String dst_key, int mode, Callback WhenDone);
 	void MakePoetic(String style, String src_key, String dst_key, Callback WhenDone);
+	void ConvertScreenplayToPlan(String src_key, String dst_key, Callback WhenDone);
+	void ConvertScreenplayToStructure(String orig_txt, Event<String> WhenResult);
+	void ConvertStructureToScreenplay(String orig_txt, Event<String> WhenResult);
+	void CheckScreenplayStructureErrors(String txt, Event<String> WhenResult);
 	
 	
 };

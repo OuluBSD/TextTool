@@ -1158,6 +1158,24 @@ void Task::CreateInput_LyricsTranslate() {
 	// Done!
 }
 
+void Task::CreateInput_Translate() {
+	String orig_lng = args[0];
+	String orig_txt = args[1];
+	String trans_lng = args[2];
+	
+	Vector<String> lines = Split(orig_txt, "\n", false);
+	
+	TaskTitledList& in_orig = input.AddSub().Title("Text 1 in " + orig_lng);
+	in_orig		.NoListChar();
+	for (const String& line : lines)
+		in_orig		.Add(line);
+	
+	TaskTitledList& results = input.PreAnswer();
+	results		.Title("Text 1 in " + trans_lng);
+	
+	input.response_length = 1024*2;
+}
+
 void Task::CreateInput_TranslateSongData() {
 	String orig_lng = args[0];
 	String orig_key = args[1];
@@ -1485,9 +1503,10 @@ void Task::CreateInput_ConvertSongStructureToEnglish() {
 void Task::CreateInput_EvaluateSongAudience() {
 	String src_key = args[0];
 	String dst_key = args[1];
+	int mode = StrInt(args[2]);
 	
-	int person_count = args.GetCount()-2;
-	String first_person = args[2];
+	int person_count = args.GetCount()-3;
+	String first_person = args[3];
 	
 	{
 		Song& song = *p.pipe->song;
@@ -1502,7 +1521,7 @@ void Task::CreateInput_EvaluateSongAudience() {
 	{
 		TaskTitledList& list = input.AddSub().Title("Persons");
 		list.NumberedLines();
-		for(int i = 2; i < args.GetCount(); i++) {
+		for(int i = 3; i < args.GetCount(); i++) {
 			list.Add(args[i]);
 		}
 	}
@@ -1513,7 +1532,10 @@ void Task::CreateInput_EvaluateSongAudience() {
 		TaskTitledList& first = results.AddSub();
 		//first		.Title("1. What kind of 'reaction' would " + first_person + " get and what would she/he 'think' of the song");
 		//first.Add("reaction:");
-		first		.Title("1. What " + first_person + " would think while hearing the song with these lyrics. Initial reaction and critically important and negative things in lyrics only");
+		if (mode == 0)
+			first		.Title("1. What " + first_person + " would think while hearing the song with these lyrics. Initial reaction and critically important and negative things in lyrics only");
+		else
+			first		.Title("1. What " + first_person + " would think while seeing the music video with this screenplay. Initial reaction and critically important and negative things in screenplay only");
 		first		.EmptyLine();
 	}
 	
@@ -1543,4 +1565,214 @@ void Task::CreateInput_MakePoetic() {
 	
 	TaskTitledList& answer = input.PreAnswer().Title("Same lyrics in " + style + " style");
 	
+}
+
+
+
+const char* orig_screenplay_ex = R"_(
+Intro:
+0:00 B2: An automobile hood against the desert from the side. 
+0:05 B1: A hand grabs the top corner of the convertible's front. 
+0:07 B1: The shot transitions from the hood of the car to the driver's side, showing a long-haired guitarist in the driver's seat and a singer in the passenger's.)_";
+
+const char* struct_screenplay_ex = R"_(
+intro {
+	b2 (0:00) {
+		an automobile hood {
+			against ( desert )
+			from ( side)
+		}
+		never ( imagined ) {
+			this ( end )
+		}
+	}
+	b1 {
+		time ( 0:05 ) {
+			a hand ( grabs ) {
+				front glass ( of convertible )
+			}
+		}
+		time ( 0:07 ) {
+			transition
+			car ( hood )
+			guitarist ( long-haired) {
+				in the driver' seat
+			}
+			singer {
+				passenger
+			}
+		}
+	}
+})_";
+
+void Task::CreateInput_ConvertScreenplayToStructure() {
+	String orig_txt = args[0];
+	
+	{
+		Vector<String> lines = Split(orig_screenplay_ex, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Original screenplay \"A\"");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	{
+		Vector<String> lines = Split(struct_screenplay_ex, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Structurally deconstructed screenplay \"A\"");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	{
+		Vector<String> lines = Split(orig_txt, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Original screenplay \"B\"");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	TaskTitledList& results = input.PreAnswer();
+	results		.Title("Structurally deconstructed screenplay \"B\"");
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_ConvertStructureToScreenplay() {
+	String orig_txt = args[0];
+	
+	{
+		Vector<String> lines = Split(struct_screenplay_ex, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Structurally deconstructed screenplay \"A\"");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	{
+		Vector<String> lines = Split(orig_screenplay_ex, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Original screenplay \"A\"");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	{
+		Vector<String> lines = Split(orig_txt, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Structurally deconstructed screenplay \"B\"");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	TaskTitledList& results = input.PreAnswer();
+	results		.Title("Original screenplay \"B\"");
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_CheckScreenplayStructureErrors() {
+	String orig_txt = args[0];
+	
+	{
+		Vector<String> lines = Split(orig_screenplay_ex, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Original screenplay \"A\"");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	{
+		Vector<String> lines = Split(struct_screenplay_ex, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Structurally deconstructed screenplay \"A\"");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	{
+		orig_txt.Replace("\r", "");
+		Vector<String> lines = Split(orig_txt, "\n", true);
+		TaskTitledList& list = input.AddSub()
+			.Title("Structurally deconstructed screenplay \"B\"");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	int list_len = 0;
+	{
+		TaskTitledList& list = input.AddSub().Title("rate 0-5");
+		list		.NumberedLines()
+					;
+		list		.Add("screenplay fumbling")
+					.Add("confusion")
+					.Add("unnecessary visual details")
+					.Add("looseness")
+					.Add("symbol incorrectness")
+					.Add("unnecessary attributes")
+					.Add("overuse of actions")
+					.Add("repetition")
+					.Add("overdramatic")
+					.Add("awkwardness")
+					.Add("sanity errors")
+					.Add("odd image")
+					.Add("poor transitions")
+					.Add("long-windedness")
+					.Add("abrupt endings")
+					.Add("redundancy")
+					.Add("choppiness")
+					.Add("lack of coherence")
+					.Add("thing cliche")
+					.Add("unclear")
+					.Add("misused symbols")
+					.Add("unnatural")
+					;
+		list_len = list.values.GetCount();
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Example answer");
+		list	.CountSub()
+				.NumberedLines();
+		
+		TaskTitledList& first = list.AddSub();
+		first.Title("Lines with screenplay fumbling (and improvements) in \"C\"");
+		
+		first	.Add("\"an automobile hood\" -> \"supercar ( hood )\"")
+				.Add("\"other bad 1\" -> \"other better 1\"")
+				.Add("\"other bad 2\" -> \"other better 2\"")
+				.Add("etc")
+				;
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("All 1-" + IntStr(list_len) + " for \"B\"");
+		
+		TaskTitledList& first = results.AddSub();
+		first		.Title("1. Lines with screenplay fumbling (and improvements) in \"B\"");
+		first		.EmptyLine();
+	}
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_ConvertScreenplayToPlan() {
+	String orig_key = args[0];
+	
+	Song& song = *p.pipe->song;
+	String orig_txt = song.data.Get(orig_key, "");
+	orig_txt.Replace("\r", "");
+	Vector<String> lines = Split(orig_txt, "\n", false);
+	
+	TaskTitledList& in_orig = input.AddSub().Title("Screenplay");
+	in_orig		.NoListChar();
+	for (const String& line : lines)
+		in_orig		.Add(line);
+	
+	TaskTitledList& results = input.PreAnswer();
+	results		.Title("Production plan for this screenplay, with minimum work");
+	
+	TaskTitledList& first = results.AddSub();
+	first		.Title("Day 1");
+	
+	input.response_length = 1024*2;
 }

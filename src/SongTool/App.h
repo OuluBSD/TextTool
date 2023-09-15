@@ -51,6 +51,7 @@ public:
 	void LoadWindowPos();
 	void StartUpdating();
 	void DoMainAction(int action);
+	void MoveTab(int d);
 	
 	Editor& GetEditor() {return ed;}
 	

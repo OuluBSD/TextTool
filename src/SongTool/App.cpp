@@ -62,12 +62,19 @@ void SongTool::MainMenu(Bar& bar) {
 		bar.Add(t_("View Editor"), THISBACK1(SetView, 2)).Key(K_ALT_3);
 		bar.Add(t_("View AI Tasks"), THISBACK1(SetView, 3)).Key(K_ALT_4);
 		bar.Add(t_("View Sequencer"), THISBACK1(SetView, 4)).Key(K_ALT_5);
+		bar.Separator();
+		bar.Add(t_("Move to higher tab"), THISBACK1(MoveTab, -1)).Key(K_CTRL_1);
+		bar.Add(t_("Move to lower tab"), THISBACK1(MoveTab, +1)).Key(K_CTRL_2);
 	});
 	bar.Sub(t_("Tools"), [this](Bar& bar) {
 		bar.Add(t_("Do the 1st action"), THISBACK1(DoMainAction, 0)).Key(K_F5);
 		bar.Add(t_("Do the 2nd action"), THISBACK1(DoMainAction, 1)).Key(K_F6);
 		bar.Add(t_("Do the 3rd action"), THISBACK1(DoMainAction, 2)).Key(K_F7);
 		bar.Add(t_("Do the 4th action"), THISBACK1(DoMainAction, 3)).Key(K_F8);
+		bar.Add(t_("Do the 5th action"), THISBACK1(DoMainAction, 4)).Key(K_F9);
+		bar.Add(t_("Do the 6th action"), THISBACK1(DoMainAction, 5)).Key(K_F10);
+		bar.Add(t_("Do the 7th action"), THISBACK1(DoMainAction, 6)).Key(K_F11);
+		bar.Add(t_("Do the 8th action"), THISBACK1(DoMainAction, 7)).Key(K_F12);
 		bar.Separator();
 		bar.Add(t_("Show orphaned files"), THISBACK(ShowOrphanedFiles));
 		bar.Add(t_("Make Tasks"), THISBACK(MakeTasks)).Key(K_CTRL_R);
@@ -124,6 +131,16 @@ void SongTool::DoMainAction(int i) {
 		case 2: ed.DoMainAction(i); break;
 		//case 3: ai.DoMainAction(i); break;
 		//case 4: seq.DoMainAction(i); break;
+	}
+}
+
+void SongTool::MoveTab(int i) {
+	switch (page) {
+		//case 0: fp.MoveTab(i); break;
+		//case 1: cal.MoveTab(i); break;
+		case 2: ed.MoveTab(i); break;
+		//case 3: ai.MoveTab(i); break;
+		//case 4: seq.MoveTab(i); break;
 	}
 }
 

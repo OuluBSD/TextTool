@@ -7,7 +7,7 @@ ChecklistBase::ChecklistBase() {
 	list.AddColumn("Key");
 	list.AddColumn("Ready?");
 	list.AddColumn("Comments");
-	list.ColumnWidths("6 1 24");
+	list.ColumnWidths("12 1 24");
 	
 }
 

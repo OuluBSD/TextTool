@@ -760,7 +760,8 @@ T_("Import the native text converted from structure")
 fiFI("Tuo rakenteesta muunnettu alkuper\303\244inen teksti")
 
 T_("Translate native text of the user to english")
-fiFI("K\303\244\303\244nn\303\244 k\303\244ytt\303\244j\303\244n alkuper\303\244inen teksti englanniksi")
+fiFI("K\303\244\303\244nn\303\244 k\303\244ytt\303\244j\303\244n alkuper\303\244inen "
+     "teksti englanniksi")
 
 T_("Check for problems in the english translation")
 fiFI("Tarkista eng. k\303\244\303\244nn\303\266ksen ongelmat")
@@ -815,6 +816,106 @@ fiFI("iskut")
 
 T_("texture pad (arp)")
 fiFI("tekstuuri-padi (arpeggiaatti)")
+
+T_("Finish lyrics with at least easy singing and guitar strumming")
+fiFI("Viimeistele sanat ainakin kevyell\303\244 laululla ja kitaran soitolla")
+
+T_("Finish composition with at least chord track, simple drums, structure")
+fiFI("Viimeistele s\303\244vellys v\303\244hint\303\244\303\244n sointukappaleella, yksinkertaisilla rummuilla, rakenteella")
+
+T_("Finish vocal notes in composition, if song has 2+ simultaneous vocal melody")
+fiFI("Viimeistele laulun nuotit, jos kappaleessa on 2+ samanaikaista laulumelodiaa")
+
+T_("Export composition to MIDI with bpm in name")
+fiFI("Vie s\303\244vellys MIDI:hen ja lis\303\244\303\244 nimeen my\303\266s BPM")
+
+T_("Make project from DAW project template and MIDI file")
+fiFI("Tee projekti DAW-projektimallista ja MIDI-tiedostosta")
+
+T_("Make chord pad track with good sound presets")
+fiFI("Tee soinnutuksen pad-raita hyv\303\244ll\303\244 soundilla")
+
+T_("Create final drumkit-track using draft MIDI as reference")
+fiFI("Luo lopullinen rumpu-raita k\303\244ytt\303\244m\303\244ll\303\244 MIDI-luonnoksia viitteen\303\244")
+
+T_("Create hand drums track")
+fiFI("Luo k\303\244sirumpuraita")
+
+T_("Record high rhythm track (e.g. high muted guitar)")
+fiFI("Nauhoita korkea rytmiraita (esim. korkealle mykistetty kitara)")
+
+T_("Record low rhythm track (bass)")
+fiFI("Nauhoita matala rytmiraita (basso)")
+
+T_("Record mid rhythm (low guitar, e.g. strumming)")
+fiFI("Nauhoita keski-rytmiraita (matala kitara, esim. r\303\244mpytys")
+
+T_("Record mid solo (instrumental theme)")
+fiFI("Nauhoita keski-soolo (esim. instrumentaaliteema)")
+
+T_("Record low solo (bass solo)")
+fiFI("Nauhoita matala soolo (bassosoolo)")
+
+T_("Record high solo (e.g. bridge climax solo)")
+fiFI("Nauhoita korkea soolo (bridgen kliimaksi-soolo)")
+
+T_("Record mid fills (e.g. between singing)")
+fiFI("Nauhoita keski-t\303\244ydennykset (esim. laulujen v\303\244liss\303\244)")
+
+T_("Fix the timing of recorded instruments with the Free Warp tool")
+fiFI("Korjaa tallennettujen instrumenttien ajoitus Free Warp -ty\303\266kalulla")
+
+T_("Make texture pad track (arp)")
+fiFI("Tee tekstuuri-pad raita (arp)")
+
+T_("Make impact track")
+fiFI("Tee impakti-raita")
+
+T_("Make transition track (e.g. noise filter sweep, crash swells)")
+fiFI("Tee transitio-raita (esim. noise-filter swiipit, crash swellit)")
+
+T_("Make sound effect track (e.g. storyline, environment background, vehicles)")
+fiFI("Tee \303\244\303\244niefekti-raita (esim. tarinan tausta, ymp\303\244rist\303\266n \303\244\303\244net, ajoneuvot)")
+
+T_("Make pronunciation track using text to speech synthesis")
+fiFI("Tee \303\244\303\244nt\303\244misraita tekstist\303\244 puheeksi -synteesin avulla")
+
+T_("Record pronunciation track using own voice in correct tempo, but without "
+     "pitch")
+fiFI("Nauhoita \303\244\303\244nt\303\244misraita omalla \303\244\303\244nell\303\244 oikeassa tempossa, mutta ilman s\303\244velkorkeutta")
+
+T_("Export background music track for vocal recording")
+fiFI("Vie taustamusiikkiraita laulu\303\244\303\244nityst\303\244 varten")
+
+T_("Export pronounciation track for vocal recording")
+fiFI("Vie \303\244\303\244nt\303\244misraita laulu\303\244\303\244nityst\303\244 varten")
+
+T_("Record the vocal track one short phrase at a time")
+fiFI("Nauhoita lauluraita yksi lyhyt lause kerrallaan")
+
+T_("Put together a vocal track from the best phrases")
+fiFI("Kokoa laulukappale parhaista lauseista")
+
+T_("Correct the timing of vocals with the free-warp tool")
+fiFI("Korjaa laulun ajoitus free-warp-ty\303\266kalulla")
+
+T_("Fix the pitch of the vocal track with the VariAudio tool")
+fiFI("Korjaa lauluraidan s\303\244velkorkeus VariAudio-ty\303\266kalulla")
+
+T_("Vocal track effects with iZotope Nectar automatic analysis")
+fiFI("Lauluraitaefektit iZotope Nectar -automaattisella analyysill\303\244")
+
+T_("Instrument track effects with iZotope Neutron automatic analysis")
+fiFI("Instrumenttiraitaefektit iZotope Neutron -automaattisella analyysill\303\244")
+
+T_("EQ spectral balance for all tracks with SmartEQ grouping")
+fiFI("EQ-spektritasapaino kaikille raidoille SmartEQ-ryhmittelyll\303\244")
+
+T_("Create master track effects with iZotope Ozone analysis")
+fiFI("Luo p\303\244\303\244raitatehosteita iZotope Ozone -analyysill\303\244")
+
+T_("Export audio with the full name and a version number")
+fiFI("Vie \303\244\303\244ni koko nimell\303\244 ja versionumerolla")
 
 
 // AttrDataCtrl.cpp

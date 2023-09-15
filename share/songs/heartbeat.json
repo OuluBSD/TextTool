@@ -109,6 +109,10 @@
 		{
 			"key": "REFERENCE_SONG__ENGLISH_TEXT",
 			"value": ""
+		},
+		{
+			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
+			"value": ""
 		}
 	]
 }

@@ -1602,6 +1602,10 @@ void Task::Process_LyricsTranslate() {
 	
 }
 
+void Task::Process_Translate() {
+	WhenResult(output);
+}
+
 void Task::Process_TranslateSongData() {
 	String orig_lng = args[0];
 	String orig_key = args[1];
@@ -1611,6 +1615,15 @@ void Task::Process_TranslateSongData() {
 	Song& song = *p.pipe->song;
 	String& trans_txt = song.data.GetAdd(trans_key);
 	trans_txt = output;
+}
+
+void Task::Process_ConvertScreenplayToPlan() {
+	String orig_key = args[0];
+	String plan_key = args[1];
+	
+	Song& song = *p.pipe->song;
+	String& trans_txt = song.data.GetAdd(plan_key);
+	trans_txt = "Day 1:\n" + output;
 }
 
 void Task::Process_UnpackStructureSongData() {
@@ -1693,4 +1706,29 @@ void Task::Process_MakePoetic() {
 	Song& song = *p.pipe->song;
 	String& trans_txt = song.data.GetAdd(dst_key);
 	trans_txt = output;
+}
+
+void Task::Process_ConvertScreenplayToStructure() {
+	WhenResult(output);
+}
+
+void Task::Process_ConvertStructureToScreenplay() {
+	WhenResult(output);
+}
+
+void Task::Process_CheckScreenplayStructureErrors() {
+	String input_str = input.AsString();
+	int a = input_str.ReverseFind("1. Lines with");
+	if (a >= 0)
+		input_str = input_str.Mid(a);
+	else {
+		SetError("unexpected input string");
+		return;
+	}
+	
+	Pipe& pipe = *p.pipe;
+	String result_txt;
+	result_txt = input_str + output;
+	
+	WhenResult(result_txt);
 }
