@@ -72,6 +72,37 @@ struct OpenAiResponse {
 	}
 };
 
+struct DalleResponse {
+	struct Data : Moveable<Data> {
+		String b64_json;
+		
+		void Jsonize(JsonIO& json) {
+			json("b64_json", b64_json);
+		}
+		String ToString() const {
+			String s;
+			s	<< "b64_json: " << b64_json << "\n";
+			return s;
+		}
+	};
+	
+	int64 created = 0;
+	Vector<Data> data;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("created", created)
+			("data", data)
+			;
+	}
+	String ToString() const {
+		String s;
+		s << "created: " << created << "\n";
+		s << data.ToString();
+		return s;
+	}
+};
+
 struct TaskRule;
 
 struct Task {

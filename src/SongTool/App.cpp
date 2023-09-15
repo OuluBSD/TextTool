@@ -62,6 +62,7 @@ void SongTool::MainMenu(Bar& bar) {
 		bar.Add(t_("View Editor"), THISBACK1(SetView, 2)).Key(K_ALT_3);
 		bar.Add(t_("View AI Tasks"), THISBACK1(SetView, 3)).Key(K_ALT_4);
 		bar.Add(t_("View Sequencer"), THISBACK1(SetView, 4)).Key(K_ALT_5);
+		bar.Add(t_("View AI Image Generator"), THISBACK1(SetView, 5)).Key(K_ALT_6);
 		bar.Separator();
 		bar.Add(t_("Move to higher tab"), THISBACK1(MoveTab, -1)).Key(K_CTRL_1);
 		bar.Add(t_("Move to lower tab"), THISBACK1(MoveTab, +1)).Key(K_CTRL_2);
@@ -150,6 +151,7 @@ void SongTool::SetView(int i) {
 	ed.Hide();
 	ai.Hide();
 	seq.Hide();
+	
 	tc.Kill();
 	
 	switch (i) {

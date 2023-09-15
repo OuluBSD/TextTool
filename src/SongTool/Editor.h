@@ -42,6 +42,7 @@ protected:
 	MusicVideoToPlan				videostruct_to_plan;
 	ChecklistMusicVideoProduction	video_checklist;
 	ChecklistRelease				release_checklist;
+	ImageGenTool					image_gen;
 	
 	
 	

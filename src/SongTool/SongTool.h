@@ -72,6 +72,7 @@ using namespace Upp;
 #include "MusicVideoImport.h"
 #include "MusicVideoEdit.h"
 #include "MusicVideoToPlan.h"
+#include "ImageGenTool.h"
 
 #include "AttrDataCtrl.h"
 #include "BasicInfoCtrl.h"

@@ -1,7 +1,8 @@
 uses
 	CtrlLib,
 	CodeEditor,
-	Esc;
+	Esc,
+	plugin/jpg;
 
 library(WIN32 & CLANG) "curl libcurl.dll.a";
 
@@ -78,6 +79,8 @@ file
 	CoverImage.cpp,
 	Pitching.h,
 	Pitching.cpp,
+	ImageGenTool.h,
+	ImageGenTool.cpp,
 	"Editor Ctrls" readonly separator,
 	AttrDataCtrl.h,
 	AttrDataCtrl.cpp,

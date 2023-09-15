@@ -125,6 +125,8 @@ void Editor::InitSimplified() {
 	
 	AddItem(t_("Release"), t_("Checklist"), release_checklist);
 	
+	AddItem(t_("Extra"), t_("AI Image Generator"), image_gen);
+	
 	InitListItems();
 }
 
