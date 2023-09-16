@@ -4,6 +4,7 @@
 #include <CtrlLib/CtrlLib.h>
 #include <CodeEditor/CodeEditor.h>
 #include <Esc/Esc.h>
+#include <plugin/jpg/jpg.h>
 #define TFILE <SongTool/SongTool.t>
 #include <Core/t.h>
 using namespace Upp;

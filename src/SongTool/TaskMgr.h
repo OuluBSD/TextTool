@@ -18,6 +18,8 @@ struct TaskRule {
 	bool allow_cross_mode = false;
 	bool separate_items = false;
 	bool debug_input = false;
+	bool image_task = false;
+	bool imageedit_task = false;
 	VectorMap<int, Tuple2<int,int>> req_mode_ranges;
 	
 	TaskRule& Input(void (Task::*fn)());
@@ -32,6 +34,8 @@ struct TaskRule {
 	TaskRule& Hash(TaskArgType t);
 	TaskRule& SeparateItems(bool b=true);
 	TaskRule& DebugInput(bool b=true);
+	TaskRule& ImageTask(bool b=true);
+	TaskRule& ImageEditTask(bool b=true);
 	
 };
 
@@ -85,7 +89,8 @@ struct TaskMgr {
 	void ConvertScreenplayToStructure(String orig_txt, Event<String> WhenResult);
 	void ConvertStructureToScreenplay(String orig_txt, Event<String> WhenResult);
 	void CheckScreenplayStructureErrors(String txt, Event<String> WhenResult);
-	
+	void CreateImage(String prompt, int count, Event<Array<Image>&> WhenResult, int reduce_size_mode=0, Event<> WhenError=Event<>());
+	void EditImage(Image orig, Image mask, String prompt, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
 	
 };
 

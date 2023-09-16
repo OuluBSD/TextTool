@@ -1776,3 +1776,46 @@ void Task::CreateInput_ConvertScreenplayToPlan() {
 	
 	input.response_length = 1024*2;
 }
+
+void Task::CreateInput_CreateImage() {
+	int count = StrInt(args[1]);
+	int reduce_size_mode = StrInt(args[2]);
+	int size = 0;
+	switch (reduce_size_mode) {
+		case 0: size = 1024; break;
+		case 1: size = 512; break;
+		case 2: size = 256; break;
+		default:
+			SetError("invalid 'reduce_size_mode'");
+			return;
+	}
+	image_sz = IntStr(size) + "x" + IntStr(size);
+	image_n = IntStr(count);
+	
+	input.PreAnswer().NoColon().Title(args[0]);
+}
+
+void Task::CreateInput_EditImage() {
+	int count = StrInt(args[1]);
+	Image orig = send_images[0];
+	int size = 0;
+	Size sz = orig.GetSize();
+	if (sz.cx != sz.cy) {
+		SetError("Image must be square");
+		return;
+	}
+	switch (sz.cx) {
+		case 1024: size = 1024; break;
+		case 512: size = 512; break;
+		case 256: size = 256; break;
+		default:
+			SetError("invalid 'size'");
+			return;
+	}
+	image_sz = IntStr(size) + "x" + IntStr(size);
+	image_n = IntStr(count);
+	
+	input.PreAnswer().NoColon().Title(args[0]);
+	
+	skip_load = true;
+}

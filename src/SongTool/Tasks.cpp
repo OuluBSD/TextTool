@@ -24,11 +24,29 @@ void Task::Load() {
 	String file = dir + filename;
 	if (FileExists(file))
 		output = LoadFileBOM(file);
+	if (rule && rule->image_task) {
+		String dir = ConfigFile("images");
+		Vector<String> rel_paths = Split(output, "\n");
+		recv_images.Clear();
+		bool fail = false;
+		for (String& rel_path : rel_paths) {
+			String path = AppendFileName(dir, rel_path);
+			Image& img = recv_images.Add();
+			img = StreamRaster::LoadFileAny(path);
+			if (img.IsEmpty())
+				fail = true;
+		}
+		if (fail) {
+			recv_images.Clear();
+			output.Clear();
+		}
+	}
 }
 
 void Task::SetError(String s) {
 	failed = true;
 	error = s;
+	WhenError();
 }
 
 String Task::GetInputHash() const {
@@ -419,6 +437,124 @@ bool Task::WriteResults() {
 }
 
 bool Task::RunOpenAI() {
+	if (rule->image_task)
+		return RunOpenAI_Image();
+	else
+		return RunOpenAI_Completion();
+}
+
+bool Task::RunOpenAI_Image() {
+	output.Clear();
+	
+	String prompt = input.AsString();
+	
+	prompt.Replace("\n", " ");
+	prompt.Replace("\t", " ");
+	prompt.Replace("\"", "\\\"");
+	prompt = TrimBoth(prompt);
+	
+	prompt = FixInvalidChars(prompt); // NOTE: warning: might break something
+	
+	if (image_n.IsEmpty() || image_sz.IsEmpty()) {
+		SetError("No image arguments set");
+		return false;
+	}
+	
+	String recv;
+	try {
+		if (rule->imageedit_task) {
+			if (send_images.GetCount() != 1) {
+				SetError("expected sendable images");
+				return false;
+			}
+			String file_path0 = ConfigFile("tmp0.png");
+			//String file_path1 = ConfigFile("tmp1.png");
+			PNGEncoder().SaveFile(file_path0, send_images[0]);
+			//PNGEncoder().SaveFile(file_path1, send_images[1]);
+			
+			openai::Json json({
+			    { "image", file_path0.Begin()},
+			    //{ "mask", file_path1.Begin()},
+			    { "prompt", prompt.Begin()},
+			    { "n", StrInt(image_n) },
+			    { "size", image_sz },
+			    { "response_format", "b64_json" }
+			});
+			auto img = openai::image().edit(json);
+			recv = String(img.dump(2));
+		}
+		else {
+			openai::Json json({
+			    { "prompt", prompt.Begin()},
+			    { "n", StrInt(image_n) },
+			    { "size", image_sz },
+			    { "response_format", "b64_json" }
+			});
+			auto img = openai::image().create(json);
+			recv = String(img.dump(2));
+		}
+	}
+	catch (std::runtime_error e) {
+		LOG(prompt);
+		fatal_error = true;
+		SetError(e.what());
+		return false;
+	}
+	catch (std::string e) {
+		LOG(prompt);
+		fatal_error = true;
+		SetError(e.c_str());
+		return false;
+	}
+	catch (NLOHMANN_JSON_NAMESPACE::detail::parse_error e) {
+		LOG(prompt);
+		LOG(e.what());
+		fatal_error = true;
+		SetError(e.what());
+		return false;
+	}
+	catch (std::exception e) {
+		LOG(prompt);
+		SetError(e.what());
+		fatal_error = true;
+		return false;
+	}
+    DalleResponse response;
+    LoadFromJson(response, recv);
+    
+    output.Clear();
+    recv_images.Clear();
+    
+    for(int i = 0; i < response.data.GetCount(); i++) {
+	    String img_str = Base64Decode(response.data[i].b64_json);
+	    
+		Image& in = recv_images.Add();
+		in = StreamRaster::LoadStringAny(img_str);
+		
+		// Get file path
+		String part_str = " " + IntStr(i+1) + "/" + IntStr(response.data.GetCount());
+		if (rule->imageedit_task)
+			part_str << " " << IntStr64(Random64());
+		String dir = ConfigFile("images");
+		String filename = Base64Encode(prompt + part_str) + ".png";
+		String rel_path = AppendFileName(image_sz, filename);
+		String path = AppendFileName(dir, rel_path);
+		RealizeDirectory(GetFileDirectory(path));
+		
+		// Store to file
+		PNGEncoder enc;
+		enc.SaveFile(path, in);
+		
+		// Add file path to output
+		output << rel_path << "\n";
+    }
+	
+	changed = true;
+	Store();
+	return output.GetCount() > 0;
+}
+
+bool Task::RunOpenAI_Completion() {
 	output.Clear();
 	
 	if (!input.response_length) {

@@ -87,6 +87,23 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_ConvertScreenplayToPlan)
 		;
 	
+	AddRule(TASK_CREATE_IMAGE, "create image")
+		.ImageTask()
+		.Input(&Task::CreateInput_CreateImage)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 3, 3)
+		.Process(&Task::Process_CreateImage)
+		;
+	
+	AddRule(TASK_EDIT_IMAGE, "edit image")
+		.ImageTask()
+		.ImageEditTask()
+		.Input(&Task::CreateInput_EditImage)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 2, 2)
+		.Process(&Task::Process_EditImage)
+		;
+	
 	
 	
 	
@@ -929,6 +946,65 @@ void TaskMgr::ConvertStructureToScreenplay(String orig_txt, Event<String> WhenRe
 	t.WhenResult << WhenResult;
 }
 
+void TaskMgr::CreateImage(String prompt, int count, Event<Array<Image>&> WhenResult, int reduce_size_mode, Event<> WhenError) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_CREATE_IMAGE);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << prompt << IntStr(count) << IntStr(reduce_size_mode);
+	t.WhenResultImages << WhenResult;
+	t.WhenError << WhenError;
+}
+
+void TaskMgr::EditImage(Image orig, Image mask, String prompt, int count, Event<Array<Image>&> WhenResult, Event<> WhenError) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_EDIT_IMAGE);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	if (orig.GetSize() != mask.GetSize()) {
+		WhenError();
+	}
+	
+	{
+		Size sz = orig.GetSize();
+		ImageBuffer ib(sz);
+		RGBA* dst = ib.Begin();
+		const RGBA* orig_it = orig.Begin();
+		const RGBA* mask_it = mask.Begin();
+		const RGBA* mask_end = mask.End();
+		RGBA dark;
+		dark.r = 0;
+		dark.g = 0;
+		dark.b = 0;
+		dark.a = 0;
+		while (mask_it != mask_end) {
+			if (mask_it->a == 0)
+				*dst = *orig_it;
+			else
+				*dst = dark;
+			mask_it++;
+			orig_it++;
+			dst++;
+		}
+		orig = ib;
+	}
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.send_images << orig;// << mask;
+	t.args << prompt << IntStr(count);
+	t.WhenResultImages << WhenResult;
+	t.WhenError << WhenError;
+}
+
 TaskRule& TaskMgrConfig::GetRule(int code) {
 	for (TaskRule& r : rules)
 		if (r.code == code)
@@ -1162,6 +1238,16 @@ TaskRule& TaskRule::SeparateItems(bool b) {
 
 TaskRule& TaskRule::DebugInput(bool b) {
 	debug_input = b;
+	return *this;
+}
+
+TaskRule& TaskRule::ImageTask(bool b) {
+	image_task = b;
+	return *this;
+}
+
+TaskRule& TaskRule::ImageEditTask(bool b) {
+	imageedit_task = b;
 	return *this;
 }
 

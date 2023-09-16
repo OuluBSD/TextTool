@@ -1732,3 +1732,11 @@ void Task::Process_CheckScreenplayStructureErrors() {
 	
 	WhenResult(result_txt);
 }
+
+void Task::Process_CreateImage() {
+	WhenResultImages(recv_images);
+}
+
+void Task::Process_EditImage() {
+	WhenResultImages(recv_images);
+}

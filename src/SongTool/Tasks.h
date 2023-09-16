@@ -146,6 +146,10 @@ public:
 	Task* created_by = 0;
 	Event<> WhenDone;
 	Event<String> WhenResult;
+	Event<Array<Image>&> WhenResultImages;
+	Event<> WhenError;
+	String image_n, image_sz;
+	Array<Image> send_images, recv_images;
 	
 	static constexpr int common_mask_gen_multiplier		= 8;
 	static constexpr int common_mask_max_values			= 10;
@@ -163,6 +167,8 @@ public:
 	void Store(bool force=false);
 	void Load();
 	bool RunOpenAI();
+	bool RunOpenAI_Completion();
+	bool RunOpenAI_Image();
 	bool ProcessInput();
 	void Process();
 	void SetError(String s);
@@ -202,6 +208,8 @@ public:
 	void CreateInput_ConvertStructureToScreenplay();
 	void CreateInput_CheckScreenplayStructureErrors();
 	void CreateInput_ConvertScreenplayToPlan();
+	void CreateInput_CreateImage();
+	void CreateInput_EditImage();
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
 	void Process_StoryArc();
@@ -242,6 +250,8 @@ public:
 	void Process_ConvertStructureToScreenplay();
 	void Process_CheckScreenplayStructureErrors();
 	void Process_ConvertScreenplayToPlan();
+	void Process_CreateImage();
+	void Process_EditImage();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;
