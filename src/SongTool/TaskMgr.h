@@ -20,6 +20,7 @@ struct TaskRule {
 	bool debug_input = false;
 	bool image_task = false;
 	bool imageedit_task = false;
+	bool imagevariate_task = false;
 	VectorMap<int, Tuple2<int,int>> req_mode_ranges;
 	
 	TaskRule& Input(void (Task::*fn)());
@@ -36,6 +37,7 @@ struct TaskRule {
 	TaskRule& DebugInput(bool b=true);
 	TaskRule& ImageTask(bool b=true);
 	TaskRule& ImageEditTask(bool b=true);
+	TaskRule& ImageVariateTask(bool b=true);
 	
 };
 
@@ -91,6 +93,7 @@ struct TaskMgr {
 	void CheckScreenplayStructureErrors(String txt, Event<String> WhenResult);
 	void CreateImage(String prompt, int count, Event<Array<Image>&> WhenResult, int reduce_size_mode=0, Event<> WhenError=Event<>());
 	void EditImage(Image orig, Image mask, String prompt, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
+	void VariateImage(Image orig, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
 	
 };
 

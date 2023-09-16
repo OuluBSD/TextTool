@@ -104,6 +104,15 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_EditImage)
 		;
 	
+	AddRule(TASK_VARIATE_IMAGE, "variate image")
+		.ImageTask()
+		.ImageVariateTask()
+		.Input(&Task::CreateInput_VariateImage)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_VariateImage)
+		;
+	
 	
 	
 	
@@ -969,6 +978,7 @@ void TaskMgr::EditImage(Image orig, Image mask, String prompt, int count, Event<
 	
 	if (orig.GetSize() != mask.GetSize()) {
 		WhenError();
+		return;
 	}
 	
 	{
@@ -999,8 +1009,24 @@ void TaskMgr::EditImage(Image orig, Image mask, String prompt, int count, Event<
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
-	t.send_images << orig;// << mask;
+	t.send_images << orig;
 	t.args << prompt << IntStr(count);
+	t.WhenResultImages << WhenResult;
+	t.WhenError << WhenError;
+}
+
+void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResult, Event<> WhenError) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_VARIATE_IMAGE);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.send_images << orig;
+	t.args << IntStr(count);
 	t.WhenResultImages << WhenResult;
 	t.WhenError << WhenError;
 }
@@ -1248,6 +1274,11 @@ TaskRule& TaskRule::ImageTask(bool b) {
 
 TaskRule& TaskRule::ImageEditTask(bool b) {
 	imageedit_task = b;
+	return *this;
+}
+
+TaskRule& TaskRule::ImageVariateTask(bool b) {
+	imagevariate_task = b;
 	return *this;
 }
 

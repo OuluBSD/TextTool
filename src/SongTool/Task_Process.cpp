@@ -1740,3 +1740,7 @@ void Task::Process_CreateImage() {
 void Task::Process_EditImage() {
 	WhenResultImages(recv_images);
 }
+
+void Task::Process_VariateImage() {
+	WhenResultImages(recv_images);
+}

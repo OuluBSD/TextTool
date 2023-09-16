@@ -106,7 +106,7 @@ protected:
 	DropList mode;
 	DropList color;
 	EditIntSpin width;
-	Button upload1, generate1, translate1;
+	Button upload1, generate1, variate, translate1;
 	Ctrl editor_frame;
 	EditImage editor;
 	ScrollBar vsb, hsb;
@@ -120,6 +120,7 @@ public:
 	void DoMainAction(int i=0) override;
 	void Generate();
 	void GenerateFromEditor();
+	void VariateFromEditor();
 	void GenerateArgs(String prompt, int n);
 	void EnableAll();
 	void Upload();

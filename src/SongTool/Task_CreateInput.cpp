@@ -1819,3 +1819,28 @@ void Task::CreateInput_EditImage() {
 	
 	skip_load = true;
 }
+
+void Task::CreateInput_VariateImage() {
+	int count = StrInt(args[0]);
+	Image orig = send_images[0];
+	int size = 0;
+	Size sz = orig.GetSize();
+	if (sz.cx != sz.cy) {
+		SetFatalError("Image must be square");
+		return;
+	}
+	switch (sz.cx) {
+		case 1024: size = 1024; break;
+		case 512: size = 512; break;
+		case 256: size = 256; break;
+		default:
+			SetFatalError("invalid 'size'");
+			return;
+	}
+	image_sz = IntStr(size) + "x" + IntStr(size);
+	image_n = IntStr(count);
+	
+	input.PreAnswer().NoColon().Title("DUMMY PROMPT! NEVER SENT IN VARIATE MODE! PREVENTS FAILING FOR 'NO-INPUT'");
+	
+	//skip_load = true;
+}

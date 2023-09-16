@@ -210,6 +210,7 @@ public:
 	void CreateInput_ConvertScreenplayToPlan();
 	void CreateInput_CreateImage();
 	void CreateInput_EditImage();
+	void CreateInput_VariateImage();
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
 	void Process_StoryArc();
@@ -252,6 +253,7 @@ public:
 	void Process_ConvertScreenplayToPlan();
 	void Process_CreateImage();
 	void Process_EditImage();
+	void Process_VariateImage();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

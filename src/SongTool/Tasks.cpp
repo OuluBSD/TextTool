@@ -468,19 +468,33 @@ bool Task::RunOpenAI_Image() {
 				return false;
 			}
 			String file_path0 = ConfigFile("tmp0.png");
-			//String file_path1 = ConfigFile("tmp1.png");
 			PNGEncoder().SaveFile(file_path0, send_images[0]);
-			//PNGEncoder().SaveFile(file_path1, send_images[1]);
 			
 			openai::Json json({
 			    { "image", file_path0.Begin()},
-			    //{ "mask", file_path1.Begin()},
 			    { "prompt", prompt.Begin()},
 			    { "n", StrInt(image_n) },
 			    { "size", image_sz },
 			    { "response_format", "b64_json" }
 			});
 			auto img = openai::image().edit(json);
+			recv = String(img.dump(2));
+		}
+		else if (rule->imagevariate_task){
+			if (send_images.GetCount() != 1) {
+				SetError("expected sendable images");
+				return false;
+			}
+			String file_path0 = ConfigFile("tmp0.png");
+			PNGEncoder().SaveFile(file_path0, send_images[0]);
+			
+			openai::Json json({
+			    { "image", file_path0.Begin()},
+			    { "n", StrInt(image_n) },
+			    { "size", image_sz },
+			    { "response_format", "b64_json" }
+			});
+			auto img = openai::image().variation(json);
 			recv = String(img.dump(2));
 		}
 		else {
@@ -533,8 +547,8 @@ bool Task::RunOpenAI_Image() {
 		
 		// Get file path
 		String part_str = " " + IntStr(i+1) + "/" + IntStr(response.data.GetCount());
-		if (rule->imageedit_task)
-			part_str << " " << IntStr64(Random64());
+		if (rule->imageedit_task || rule->imagevariate_task)
+			part_str << " " << IntStr64(Random64()); // add never-matching random number to name for editing and variation creation purposes
 		String dir = ConfigFile("images");
 		String filename = Base64Encode(prompt + part_str) + ".png";
 		String rel_path = AppendFileName(image_sz, filename);

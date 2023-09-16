@@ -22,8 +22,8 @@ ImageGenTool::ImageGenTool() {
 	hsplit.Horz() << main << list;
 	hsplit.SetPos(8000);
 	
-	int bw = 150;
-	int bw2 = 75;
+	int bw = 120;
+	int bw2 = bw/2;
 	int barh = 30;
 	main.Add(prompt.HSizePos(0,4*bw).TopPos(1,barh-2));
 	main.Add(translate.RightPos(3*bw,bw).TopPos(1,barh-2));
@@ -53,13 +53,14 @@ ImageGenTool::ImageGenTool() {
 	
 	
 	// Edit
-	edit.Add(prompt1.HSizePos(0,5*bw).TopPos(1,barh-2));
-	edit.Add(translate1.RightPos(4*bw,bw).TopPos(1,barh-2));
-	edit.Add(mode.RightPos(3*bw+bw2,bw2).TopPos(1,barh-2));
-	edit.Add(color.RightPos(3*bw,bw2).TopPos(1,barh-2));
-	edit.Add(width.RightPos(2*bw,bw).TopPos(1,barh-2));
-	edit.Add(upload1.RightPos(bw,bw).TopPos(1,barh-2));
-	edit.Add(generate1.RightPos(0,bw).TopPos(1,barh-2));
+	edit.Add(prompt1.HSizePos(0,6*bw).TopPos(1,barh-2));
+	edit.Add(translate1.RightPos(5*bw,bw).TopPos(1,barh-2));
+	edit.Add(mode.RightPos(4*bw+bw2,bw2).TopPos(1,barh-2));
+	edit.Add(color.RightPos(4*bw,bw2).TopPos(1,barh-2));
+	edit.Add(width.RightPos(3*bw,bw).TopPos(1,barh-2));
+	edit.Add(upload1.RightPos(2*bw,bw).TopPos(1,barh-2));
+	edit.Add(generate1.RightPos(bw,bw).TopPos(1,barh-2));
+	edit.Add(variate.RightPos(0,bw).TopPos(1,barh-2));
 	edit.Add(editor_frame.HSizePos().VSizePos(barh,0));
 	
 	colors.Add({t_("White"), White()});
@@ -103,9 +104,11 @@ ImageGenTool::ImageGenTool() {
 	translate1.SetLabel(t_("Translate"));
 	generate1.SetLabel(t_("Generate"));
 	upload1.SetLabel(t_("Upload"));
+	variate.SetLabel(t_("Variate"));
 	translate1 << THISBACK1(Translate, true);
 	generate1 << THISBACK(GenerateFromEditor);
 	upload1 << THISBACK(Upload);
+	variate << THISBACK(VariateFromEditor);
 	
 	vsb.Vert();
 	vsb.SetTotal(page_side);
@@ -145,6 +148,7 @@ void ImageGenTool::DoMainAction(int i) {
 		if (i == 0) Translate(1);
 		if (i == 1) Upload();
 		if (i == 2) GenerateFromEditor();
+		if (i == 3) VariateFromEditor();
 	}
 }
 
@@ -323,6 +327,43 @@ void ImageGenTool::GenerateFromEditor() {
 	prompt1.Disable();
 	generate1.Disable();
 	upload1.Disable();
+	variate.Disable();
+}
+
+void ImageGenTool::VariateFromEditor() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist)
+		return;
+	
+	p.RealizePipe();
+	
+	{
+		String prompt_str = prompt1.GetData();
+		// Prompt is optional
+		if (prompt_str.IsEmpty()) {
+			prompt_str = "variation";
+		}
+		prompt_str += " " + IntStr64(Random64());
+		
+		if (editor.image.IsEmpty()) {
+			PromptOK(t_("Image is empty"));
+			return;
+		}
+		
+		int n = count.GetData();
+		
+		TaskMgr& m = *p.song->pipe;
+		m.VariateImage(editor.image, n, THISBACK2(OnEditReady, prompt_str, n), THISBACK(EnableAll));
+	}
+	
+	mode.Disable();
+	color.Disable();
+	translate1.Disable();
+	prompt1.Disable();
+	generate1.Disable();
+	upload1.Disable();
+	variate.Disable();
 }
 
 void ImageGenTool::EditImage(const Image& img, String prompt, int use_current_prompt) {
@@ -363,6 +404,7 @@ void ImageGenTool::EnableAll() {
 	prompt1.Enable();
 	generate1.Enable();
 	upload1.Enable();
+	variate.Enable();
 }
 
 void ImageGenTool::OnEditReady(Array<Image>& imgs, String prompt, int n) {
