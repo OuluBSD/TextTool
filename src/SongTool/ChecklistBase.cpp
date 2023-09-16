@@ -4,9 +4,9 @@
 ChecklistBase::ChecklistBase() {
 	Add(list.SizePos());
 	
-	list.AddColumn("Key");
-	list.AddColumn("Ready?");
-	list.AddColumn("Comments");
+	list.AddColumn(t_("Key"));
+	list.AddColumn(t_("Ready?"));
+	list.AddColumn(t_("Comments"));
 	list.ColumnWidths("12 1 24");
 	
 }

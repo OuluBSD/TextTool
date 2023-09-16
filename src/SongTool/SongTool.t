@@ -181,6 +181,15 @@ fiFI("Katso teko\303\244ly-teht\303\244vi\303\244")
 T_("View Sequencer")
 fiFI("N\303\244yt\303\244 sekvensseri")
 
+T_("View AI Image Generator")
+fiFI("N\303\244yt\303\244 AI Kuva-generaattori")
+
+T_("Move to higher tab")
+fiFI("Siirry korkeammalle v\303\244lilehdelle")
+
+T_("Move to lower tab")
+fiFI("Siirry alempaan v\303\244lilehteen")
+
 T_("Tools")
 fiFI("Ty\303\266kalut")
 
@@ -195,6 +204,18 @@ fiFI("Tee 3. toimenpide")
 
 T_("Do the 4th action")
 fiFI("Tee 4. toimenpide")
+
+T_("Do the 5th action")
+fiFI("Tee 5. toimenpide")
+
+T_("Do the 6th action")
+fiFI("Tee 6. toimenpide")
+
+T_("Do the 7th action")
+fiFI("Tee 7. toimenpide")
+
+T_("Do the 8th action")
+fiFI("Tee 8. toimenpide")
 
 T_("Show orphaned files")
 fiFI("N\303\244yt\303\244 orpoutuneet tiedostot")
@@ -282,6 +303,12 @@ fiFI("Myyntipuhe")
 
 T_("Release")
 fiFI("Julkaisu")
+
+T_("Extra")
+fiFI("Ekstra")
+
+T_("AI Image Generator")
+fiFI("AI kuvageneraattori")
 
 T_("Attributes")
 fiFI("Attribuutit")
@@ -458,6 +485,18 @@ T_("Translate")
 fiFI("K\303\244\303\244nn\303\244")
 
 
+// ChecklistBase.cpp
+
+T_("Key")
+fiFI("Avain")
+
+T_("Ready?")
+fiFI("Valmis?")
+
+T_("Comments")
+fiFI("Kommentit")
+
+
 // EditorCtrl.cpp
 
 T_("Message")
@@ -531,6 +570,24 @@ fiFI("Kopioi kaikki")
 
 T_("Copy text")
 fiFI("Kopioi teksti")
+
+
+// ImagePlayerBase.cpp
+
+T_("Sort-value")
+fiFI("Lajittelu-arvo")
+
+T_("Image")
+fiFI("Kuva")
+
+T_("Prompt")
+fiFI("Kehote")
+
+T_("Play")
+fiFI("Soita")
+
+T_("Stop")
+fiFI("Pys\303\244yt\303\244")
 
 
 // Simplified.lay
@@ -689,9 +746,6 @@ fiFI("Tuollainen idea on jo olemassa")
 
 // SongBriefing.cpp
 
-T_("Key")
-fiFI("Avain")
-
 T_("Group")
 fiFI("Ryhm\303\244")
 
@@ -742,13 +796,13 @@ T_("Copy the struct of the reference song")
 fiFI("Kopioi viitekappaleen rakenne")
 
 T_("Check for problems in the song structure")
-fiFI("Tarkista, onko kappaleen rakenteessa ongelmia")
+fiFI("Tarkista kappaleen rakenne")
 
 T_("Convert the structure to a native text")
 fiFI("Muunna rakenne alkuper\303\244istekstiksi")
 
 T_("Evaluate the english text with an AI audience")
-fiFI("Arvioi eng. teksti\303\244 teko\303\244lyyleis\303\266n kanssa")
+fiFI("Arvioi eng. teko\303\244ly-yleis\303\266ll\303\244")
 
 T_("Do you want to overwrite existing text? This cannot be undone.")
 fiFI("Haluatko korvata olemassa olevan tekstin? T\303\244t\303\244 ei voi peruuttaa")
@@ -821,13 +875,15 @@ T_("Finish lyrics with at least easy singing and guitar strumming")
 fiFI("Viimeistele sanat ainakin kevyell\303\244 laululla ja kitaran soitolla")
 
 T_("Finish composition with at least chord track, simple drums, structure")
-fiFI("Viimeistele s\303\244vellys v\303\244hint\303\244\303\244n sointukappaleella, yksinkertaisilla rummuilla, rakenteella")
+fiFI("Viimeistele s\303\244vellys v\303\244hint\303\244\303\244n sointukappaleella, "
+     "yksinkertaisilla rummuilla, rakenteella")
 
 T_("Finish vocal notes in composition, if song has 2+ simultaneous vocal melody")
 fiFI("Viimeistele laulun nuotit, jos kappaleessa on 2+ samanaikaista laulumelodiaa")
 
 T_("Export composition to MIDI with bpm in name")
-fiFI("Vie s\303\244vellys MIDI:hen ja lis\303\244\303\244 nimeen my\303\266s BPM")
+fiFI("Vie s\303\244vellys MIDI:hen ja lis\303\244\303\244 nimeen my\303\266s "
+     "BPM")
 
 T_("Make project from DAW project template and MIDI file")
 fiFI("Tee projekti DAW-projektimallista ja MIDI-tiedostosta")
@@ -836,7 +892,8 @@ T_("Make chord pad track with good sound presets")
 fiFI("Tee soinnutuksen pad-raita hyv\303\244ll\303\244 soundilla")
 
 T_("Create final drumkit-track using draft MIDI as reference")
-fiFI("Luo lopullinen rumpu-raita k\303\244ytt\303\244m\303\244ll\303\244 MIDI-luonnoksia viitteen\303\244")
+fiFI("Luo lopullinen rumpu-raita k\303\244ytt\303\244m\303\244ll\303\244 MIDI-luonnoksia "
+     "viitteen\303\244")
 
 T_("Create hand drums track")
 fiFI("Luo k\303\244sirumpuraita")
@@ -875,20 +932,24 @@ T_("Make transition track (e.g. noise filter sweep, crash swells)")
 fiFI("Tee transitio-raita (esim. noise-filter swiipit, crash swellit)")
 
 T_("Make sound effect track (e.g. storyline, environment background, vehicles)")
-fiFI("Tee \303\244\303\244niefekti-raita (esim. tarinan tausta, ymp\303\244rist\303\266n \303\244\303\244net, ajoneuvot)")
+fiFI("Tee \303\244\303\244niefekti-raita (esim. tarinan tausta, ymp\303\244rist\303\266n "
+     "\303\244\303\244net, ajoneuvot)")
 
 T_("Make pronunciation track using text to speech synthesis")
-fiFI("Tee \303\244\303\244nt\303\244misraita tekstist\303\244 puheeksi -synteesin avulla")
+fiFI("Tee \303\244\303\244nt\303\244misraita tekstist\303\244 puheeksi -synteesin "
+     "avulla")
 
 T_("Record pronunciation track using own voice in correct tempo, but without "
      "pitch")
-fiFI("Nauhoita \303\244\303\244nt\303\244misraita omalla \303\244\303\244nell\303\244 oikeassa tempossa, mutta ilman s\303\244velkorkeutta")
+fiFI("Nauhoita \303\244\303\244nt\303\244misraita omalla \303\244\303\244nell\303\244 "
+     "oikeassa tempossa, mutta ilman s\303\244velkorkeutta")
 
 T_("Export background music track for vocal recording")
 fiFI("Vie taustamusiikkiraita laulu\303\244\303\244nityst\303\244 varten")
 
 T_("Export pronounciation track for vocal recording")
-fiFI("Vie \303\244\303\244nt\303\244misraita laulu\303\244\303\244nityst\303\244 varten")
+fiFI("Vie \303\244\303\244nt\303\244misraita laulu\303\244\303\244nityst\303\244 "
+     "varten")
 
 T_("Record the vocal track one short phrase at a time")
 fiFI("Nauhoita lauluraita yksi lyhyt lause kerrallaan")
@@ -916,6 +977,206 @@ fiFI("Luo p\303\244\303\244raitatehosteita iZotope Ozone -analyysill\303\244")
 
 T_("Export audio with the full name and a version number")
 fiFI("Vie \303\244\303\244ni koko nimell\303\244 ja versionumerolla")
+
+T_("Create project file")
+fiFI("Luo projektitiedosto")
+
+T_("Record webcam-quality reference video for the song")
+fiFI("Nauhoita web-kameralaatuista referenssivideota kappaleesta")
+
+T_("Add AI generated images to the timeline")
+fiFI("Lis\303\244\303\244 teko\303\244lyn luomia kuvia aikajanalle")
+
+T_("Record A-Roll 1 footage (e.g. singer watching to the camera)")
+fiFI("Nauhoita A-Roll 1 -materiaalia (esim. laulaja katsomassa kameraan)")
+
+T_("Record A-Roll 2 footage (e.g. singer from side)")
+fiFI("Nauhoita A-Roll 2 -materiaalia (esim. laulaja sivulta)")
+
+T_("Record A-Roll 3 footage (e.g. the whole band, guitar player only)")
+fiFI("Nauhoita A-Roll 3 -materiaalia (esim. koko b\303\244ndi, vain kitaristi)")
+
+T_("Record B-Roll 1 footage (e.g. immediate environment)")
+fiFI("Tallenna B-Roll 1 -materiaalia (esim. l\303\244hiymp\303\244rist\303\266)")
+
+T_("Record B-Roll 2 footage (e.g. outside the house environment)")
+fiFI("Tallenna B-Roll 2 -materiaalia (esim. talon ulkopuolella)")
+
+T_("Record B-Roll 3 footage (e.g. local area)")
+fiFI("Tallenna B-Roll 3 -materiaalia (esim. l\303\244hialueelta)")
+
+T_("Split useful parts of the footage")
+fiFI("Jaa hy\303\266dylliset osat materiaalista")
+
+T_("Stack takes of the same sections")
+fiFI("Pinoa samojen osien otokset")
+
+T_("Compile best-of-roll footage track of footage tracks")
+fiFI("Kokoa paras videomateriaali kuvamateriaaliraidoista")
+
+T_("Compile the single best-of-footage track")
+fiFI("Kokoa yksi paras raita")
+
+T_("Add texts")
+fiFI("Lis\303\244\303\244 tekstej\303\244")
+
+T_("Adjust colors")
+fiFI("S\303\244\303\244d\303\244 v\303\244rej\303\244")
+
+T_("Add effects")
+fiFI("Lis\303\244\303\244 tehosteita")
+
+T_("Export master audio")
+fiFI("Vie master-\303\244\303\244ni")
+
+T_("Finish cover art")
+fiFI("Viimeistele kansikuva")
+
+T_("Finish pitching text for playlists")
+fiFI("Viimeistele soittolistojen mainospuhe-teksti")
+
+T_("Send to DistroKid")
+fiFI("L\303\244het\303\244 DistroKidille")
+
+T_("Send to Gramex")
+fiFI("L\303\244het\303\244 Gramexille")
+
+T_("Send to Teosto")
+fiFI("L\303\244het\303\244 Teostoon")
+
+T_("Pitch your song at Spotify for Artists page")
+fiFI("Mainosta kappaletta Spotify for Artists -sivulla")
+
+
+// MusicVideoImport.cpp
+
+T_("Translate to english")
+fiFI("K\303\244\303\244nn\303\244 englanniksi")
+
+T_("Convert to structure")
+fiFI("Muunna rakenteeksi")
+
+
+// MusicVideoEdit.cpp
+
+T_("Copy the struct of the reference screenplay")
+fiFI("Kopioi viitek\303\244sikirjoituksen rakenne")
+
+T_("Check for problems in the screenplay structure")
+fiFI("Tarkista, onko k\303\244sikirjoituksen rakenteessa ongelmia")
+
+T_("Convert the structure to a screenplay")
+fiFI("Muunna rakenne k\303\244sikirjoitukseksi")
+
+T_("Convert the structure to a production plan")
+fiFI("Muunna rakenne tuotantosuunnitelmaksi")
+
+T_("Evaluate the english screenplay with an AI audience")
+fiFI("Arvioi englanninkielist\303\244 k\303\244sikirjoitusta teko\303\244lyyleis\303\266n "
+     "kanssa")
+
+
+// MusicVideoToPlan.cpp
+
+T_("Import the english screenplay")
+fiFI("Tuo englanninkielinen k\303\244sikirjoitus")
+
+T_("Make single image")
+fiFI("Tee yksi kuva")
+
+T_("Make all images")
+fiFI("Tee kaikki kuvat")
+
+T_("Are you sure you want to replace everything in the list?")
+fiFI("Haluatko varmasti korvata kaiken luettelon?")
+
+
+// CoverImage.cpp
+
+T_("Create suggestions for prompts")
+fiFI("Luo ehdotuksia kehotteille")
+
+T_("Are you sure that you want to replace all in the list?")
+fiFI("Oletko varma, ett\303\244 haluat korvata kaikki luettelossa olevat?")
+
+
+// Pitching.cpp
+
+T_("Translate native artist's process to english")
+fiFI("K\303\244\303\244nn\303\244 taiteilijan prosessi englanniksi")
+
+T_("Make feedback based on all release data")
+fiFI("Luo palaute julkaisun perusteella")
+
+T_("Make pitch based on all release data")
+fiFI("Tee mainospuhe julkaisun perusteella")
+
+T_("Are you sure that you want to replace all in the english editor?")
+fiFI("Oletko varma, ett\303\244 haluat korvata kaikki englanninkielisess\303\244 "
+     "editorissa?")
+
+T_("Are you sure that you want to replace all in the feedback editor?")
+fiFI("Oletko varma, ett\303\244 haluat korvata kaikki palauteeditorissa?")
+
+T_("Are you sure that you want to replace all in the pitching editor?")
+fiFI("Oletko varma, ett\303\244 haluat korvata kaikki mainospuhe-editorissa?")
+
+
+// ImageGenTool.cpp
+
+T_("Show")
+fiFI("N\303\244yt\303\244")
+
+T_("Generate")
+fiFI("Generoi")
+
+T_("Upload")
+fiFI("L\303\244het\303\244")
+
+T_("Preview")
+fiFI("Esikatselu")
+
+T_("White")
+fiFI("Valkoinen")
+
+T_("Red")
+fiFI("Punainen")
+
+T_("Violet")
+fiFI("Violetti")
+
+T_("Yellow")
+fiFI("Keltainen")
+
+T_("Orange")
+fiFI("Oranssi")
+
+T_("Brown")
+fiFI("Ruskea")
+
+T_("Draw")
+fiFI("Piirr\303\244")
+
+T_("Erase")
+fiFI("Kumita")
+
+T_("Variate")
+fiFI("Luo vaihtelua")
+
+T_("Prompt string is empty")
+fiFI("Kehotemerkkijono on tyhj\303\244")
+
+T_("Image is empty")
+fiFI("Kuva on tyhj\303\244")
+
+T_("Mask is empty")
+fiFI("Maski on tyhj\303\244")
+
+T_("Edit image")
+fiFI("Muokkaa kuvaa")
+
+T_("Save image as")
+fiFI("Tallenna kuva nimell\303\244")
 
 
 // AttrDataCtrl.cpp
@@ -1267,9 +1528,6 @@ fiFI("Parsi")
 
 T_("Copy to Clipboard")
 fiFI("Kopioi leikep\303\266yd\303\244lle")
-
-T_("Generate")
-fiFI("Generoi")
 
 T_("Artist:")
 fiFI("Artisti:")
