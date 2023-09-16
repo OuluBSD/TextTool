@@ -50,7 +50,10 @@ void Task::SetError(String s) {
 }
 
 String Task::GetInputHash() const {
-	String input = this->input.AsString();
+	String input =
+		raw_input.GetCount() ?
+			raw_input :
+			this->input.AsString();
 	hash_t h = input.GetHashValue();
 	return HexString((void*)&h, sizeof(h));
 }
@@ -177,37 +180,42 @@ void Task::CreateInput() {
 bool Task::ProcessInput() {
 	bool ok = true;
 	
-	// Return if this task won't have input function
-	if (!rule->input)
-		return ok;
-	
-	// Create input with given function
-	if (rule->input) {
-		input.Clear();
-		(this->*rule->input)();
-		if (fast_exit)
-			return true;
-		
-		if (failed)
-			return false;
-		
-		if (1) {
-			String in = input.AsString();
-			if (rule->debug_input) {
-				LOG(in);
-				LOG("Last 3 chars: \"" + in.Right(3) + "\"");
-				TODO
-			}
-		}
-		
+	if (raw_input.GetCount()) {
 		Load();
+	}
+	else {
+		// Return if this task won't have input function
+		if (!rule->input)
+			return ok;
+		
+		// Create input with given function
+		if (rule->input) {
+			input.Clear();
+			(this->*rule->input)();
+			if (fast_exit)
+				return true;
+			
+			if (failed)
+				return false;
+			
+			if (1) {
+				String in = input.AsString();
+				if (rule->debug_input) {
+					LOG(in);
+					LOG("Last 3 chars: \"" + in.Right(3) + "\"");
+					TODO
+				}
+			}
+			
+			Load();
+		}
 	}
 	
 	// Remove Win32 uselessness (\r in newline)
 	output = TrimBoth(output);
 	
 	// Request output from completion-mode AI
-	if (!input.IsEmpty() && output.IsEmpty()) {
+	if ((!raw_input.IsEmpty() || !input.IsEmpty()) && output.IsEmpty()) {
 		ok = RunOpenAI();
 	}
 	
@@ -446,7 +454,10 @@ bool Task::RunOpenAI() {
 bool Task::RunOpenAI_Image() {
 	output.Clear();
 	
-	String prompt = input.AsString();
+	String prompt =
+		raw_input.GetCount() ?
+			raw_input :
+			input.AsString();
 	
 	prompt.Replace("\n", " ");
 	prompt.Replace("\t", " ");
@@ -575,9 +586,13 @@ bool Task::RunOpenAI_Completion() {
 		LOG("warning: no response length set");
 		input.response_length = 1024;
 	}
-	String prompt = input.AsString();
+	String prompt =
+		raw_input.GetCount() ?
+			raw_input :
+			input.AsString();
 	//LOG(prompt);
 	
+	prompt.Replace("\r", "");
 	prompt.Replace("\n", "\\n");
 	prompt.Replace("\t", "\\t");
 	prompt.Replace("\"", "\\\"");

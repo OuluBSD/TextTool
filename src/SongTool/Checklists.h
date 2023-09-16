@@ -130,6 +130,13 @@ public:
 
 
 #define CHK_RELEASE_LIST \
+	CHK_RELEASE(EXPORT_MASTER, t_("Export master audio")) \
+	CHK_RELEASE(FINISH_COVER_ART, t_("Finish cover art")) \
+	CHK_RELEASE(FINISH_PITCHING_TEXT, t_("Finish pitching text for playlists")) \
+	CHK_RELEASE(SEND_TO_DISTROKID, t_("Send to DistroKid")) \
+	CHK_RELEASE(SEND_TO_GRAMEX, t_("Send to Gramex")) \
+	CHK_RELEASE(SEND_TO_TEOSTO, t_("Send to Teosto")) \
+	CHK_RELEASE(PITCH_IN_SPOTIFY, t_("Pitch your song at Spotify for Artists page")) \
 	//CHK_RELEASE(, t_("")) \
 
 class ChecklistRelease : public ChecklistBase {

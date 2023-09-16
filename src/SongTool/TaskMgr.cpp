@@ -45,6 +45,11 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_CheckScreenplayStructureErrors)
 		;
 	
+	AddRule(TASK_RAW_COMPLETION, "raw prompt completion")
+			.Arg(V_PTR_PIPE)
+		.Process(&Task::Process_RawCompletion)
+		;
+	
 	AddRule(TASK_CONVERT_SONG_STRUCTURE_TO_ENGLISH, "convert song structure to english")
 		.Input(&Task::CreateInput_ConvertSongStructureToEnglish)
 			.Arg(V_PTR_PIPE)
@@ -853,6 +858,20 @@ void TaskMgr::CheckScreenplayStructureErrors(String txt, Event<String> WhenResul
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
 	t.args << txt;
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::RawCompletion(String prompt, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_RAW_COMPLETION);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.raw_input = prompt;
 	t.WhenResult << WhenResult;
 }
 

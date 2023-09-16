@@ -92,7 +92,10 @@ void Tasks::DataTask() {
 	m.active_task = &t;
 	
 	if (cursor != data_cursor || (output.GetLength() == 0 && t.output.GetCount())) {
-		input.SetData(t.input.AsString().ToWString());
+		if (t.raw_input.GetCount())
+			input.SetData(t.raw_input);
+		else
+			input.SetData(t.input.AsString().ToWString());
 		output.SetData(t.output.ToWString());
 		data_cursor = cursor;
 	}

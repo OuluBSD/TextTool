@@ -53,6 +53,8 @@ file
 	EditorBottom.cpp,
 	EditorRightTabs.cpp,
 	Calculator.cpp,
+	ImagePlayerBase.h,
+	ImagePlayerBase.cpp,
 	"Simplified Editor Ctrls" readonly separator,
 	Simplified.lay,
 	AlbumBriefing.h,

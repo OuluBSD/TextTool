@@ -603,4 +603,19 @@ public:
 };
 
 
+
+struct CoverSuggestionData {
+	String artist;
+	String album;
+	int year;
+	String genre;
+	String singer_description;
+	int count_of_songs;
+	
+	struct Song {
+		String name, lyrics;
+	};
+	Array<Song> songs;
+};
+
 #endif

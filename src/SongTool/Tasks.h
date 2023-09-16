@@ -139,6 +139,7 @@ public:
 	SnapContext* ctx = 0;
 	
 	TaskContent input;
+	String raw_input;
 	
 	// Temp
 	Array<Task> result_tasks;
@@ -211,6 +212,7 @@ public:
 	void CreateInput_CreateImage();
 	void CreateInput_EditImage();
 	void CreateInput_VariateImage();
+	void CreateInput_RawCompletion();
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
 	void Process_StoryArc();
@@ -254,6 +256,7 @@ public:
 	void Process_CreateImage();
 	void Process_EditImage();
 	void Process_VariateImage();
+	void Process_RawCompletion();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

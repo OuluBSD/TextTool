@@ -59,6 +59,7 @@ using namespace Upp;
 #include "ChecklistBase.h"
 #include "EditorBottom.h"
 #include "EditorCtrl.h"
+#include "ImagePlayerBase.h"
 
 #include "Checklists.h"
 #include "AlbumBriefing.h"

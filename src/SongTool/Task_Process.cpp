@@ -1744,3 +1744,7 @@ void Task::Process_EditImage() {
 void Task::Process_VariateImage() {
 	WhenResultImages(recv_images);
 }
+
+void Task::Process_RawCompletion() {
+	WhenResult(output);
+}
