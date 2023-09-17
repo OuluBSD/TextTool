@@ -16,6 +16,7 @@ public:
 	
 	void Data();
 	void DataTask();
+	void ToolMenu(Bar& bar) {}
 	void ValueChange();
 	void ProcessItem();
 	void RetryItem(bool skip_prompt);

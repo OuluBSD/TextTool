@@ -7,6 +7,8 @@
 #include <plugin/jpg/jpg.h>
 #define TFILE <SongTool/SongTool.t>
 #include <Core/t.h>
+#include <BlueBar/BlueBar.h>
+#include <RedBar/RedBar.h>
 using namespace Upp;
 
 #define IMAGECLASS AppImg

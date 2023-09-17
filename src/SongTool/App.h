@@ -11,6 +11,9 @@ class SongTool : public TopWindow {
 	} AppMode;
 	
 	MenuBar				menu;
+	ToolBar				toolbar;
+	StatusBar			statusbar;
+	
 	FrontPage			fp;
 	CalendarPage		cal;
 	Editor				ed;
@@ -52,6 +55,8 @@ public:
 	void StartUpdating();
 	void DoMainAction(int action);
 	void MoveTab(int d);
+	void SetBar();
+	void MainBar(Bar& bar);
 	
 	Editor& GetEditor() {return ed;}
 	

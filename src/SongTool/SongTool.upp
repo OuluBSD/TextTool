@@ -4,7 +4,9 @@ uses
 	Esc,
 	plugin/jpg,
 	plugin/jpg,
-	plugin/gif;
+	plugin/gif,
+	BlueBar,
+	RedBar;
 
 library(WIN32 & CLANG) "curl libcurl.dll.a";
 
@@ -85,6 +87,8 @@ file
 	Pitching.cpp,
 	ImageGenTool.h,
 	ImageGenTool.cpp,
+	CalMgrCtrl.h,
+	CalMgrCtrl.cpp,
 	"Editor Ctrls" readonly separator,
 	AttrDataCtrl.h,
 	AttrDataCtrl.cpp,
@@ -126,8 +130,6 @@ file
 	RecruimentCtrl.cpp,
 	SocialCtrl.h,
 	SocialCtrl.cpp,
-	CalMgrCtrl.h,
-	CalMgrCtrl.cpp,
 	TaskMgrCtrl.h,
 	TaskMgrCtrl.cpp,
 	CompositionCtrl.h,

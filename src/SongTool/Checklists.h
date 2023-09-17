@@ -3,24 +3,26 @@
 
 
 #define CHK_COMPOSITION_LIST \
-	CHK_COMP(CHORD_PAD, t_("chord pad")) \
-	CHK_COMP(VOCAL_MELODY, t_("vocal melody")) \
-	CHK_COMP(DRUMKIT, t_("drumkit")) \
-	CHK_COMP(HAND_DRUMS, t_("hand drums")) \
-	CHK_COMP(LOW_RHYTHM, t_("low rhythm (bass)")) \
-	CHK_COMP(MID_RHYTHM, t_("mid rhythm (low guitar, e.g. strumming)")) \
-	CHK_COMP(HIGH_RHYTHM, t_("high rhythm (e.g. high muted guitar)")) \
-	CHK_COMP(LOW_SOLO, t_("low solo (bass solo)")) \
-	CHK_COMP(MID_SOLO, t_("mid solo (instrumental theme)")) \
-	CHK_COMP(HIGH_SOLO, t_("high solo (e.g. bridge climax solo)")) \
-	CHK_COMP(MID_SOLO_FILLS, t_("mid fills (e.g. between singing)")) \
-	CHK_COMP(IMPACTS, t_("impacts")) \
-	CHK_COMP(TEXTURE_PAD, t_("texture pad (arp)"))
+	CHK_COMP(15,	CHORDS, t_("chords")) \
+	CHK_COMP(5,		CHORD_PAD, t_("chord pad")) \
+	CHK_COMP(15,	VOCAL_MELODY, t_("vocal melody")) \
+	CHK_COMP(15,	VOCAL_MELODY_2ND, t_("2nd vocal melody")) \
+	CHK_COMP(5,		DRUMKIT, t_("drumkit")) \
+	CHK_COMP(5,		HAND_DRUMS, t_("hand drums")) \
+	CHK_COMP(10,	LOW_RHYTHM, t_("low rhythm (bass)")) \
+	CHK_COMP(10,	MID_RHYTHM, t_("mid rhythm (low guitar, e.g. strumming)")) \
+	CHK_COMP(10,	HIGH_RHYTHM, t_("high rhythm (e.g. high muted guitar)")) \
+	CHK_COMP(10,	LOW_SOLO, t_("low solo (bass solo)")) \
+	CHK_COMP(10,	MID_SOLO, t_("mid solo (instrumental theme)")) \
+	CHK_COMP(20,	HIGH_SOLO, t_("high solo (e.g. bridge climax solo)")) \
+	CHK_COMP(10,	MID_SOLO_FILLS, t_("mid fills (e.g. between singing)")) \
+	CHK_COMP(5,		IMPACTS, t_("impacts")) \
+	CHK_COMP(5,		TEXTURE_PAD, t_("texture pad (arp)"))
 
 class ChecklistComposition : public ChecklistBase {
 	
 	enum {
-		#define CHK_COMP(e, s) e,
+		#define CHK_COMP(time, e, s) e,
 		CHK_COMPOSITION_LIST
 		#undef CHK_COMP
 		ITEM_LIST
@@ -37,45 +39,49 @@ public:
 
 
 #define CHK_PRODUCTION_LIST \
-	CHK_PRODUCTION(FINISH_VOCAL, t_("Finish lyrics with at least easy singing and guitar strumming")) \
-	CHK_PRODUCTION(FINISH_COMPOSITION, t_("Finish composition with at least chord track, simple drums, structure")) \
-	CHK_PRODUCTION(FINISH_2ND_VOCAL, t_("Finish vocal notes in composition, if song has 2+ simultaneous vocal melody")) \
-	CHK_PRODUCTION(EXPORT_MIDI, t_("Export composition to MIDI with bpm in name")) \
-	CHK_PRODUCTION(MAKE_PROJECT, t_("Make project from DAW project template and MIDI file")) \
-	CHK_PRODUCTION(MAKE_CHORD_PAD, t_("Make chord pad track with good sound presets")) \
-	CHK_PRODUCTION(CREATE_DRUMKIT_TRACK, t_("Create final drumkit-track using draft MIDI as reference")) \
-	CHK_PRODUCTION(CREATE_HAND_DRUMS_TRACK, t_("Create hand drums track")) \
-	CHK_PRODUCTION(RECORD_HIGH_RHYTHM, t_("Record high rhythm track (e.g. high muted guitar)")) \
-	CHK_PRODUCTION(RECORD_LOW_RHYTHM, t_("Record low rhythm track (bass)")) \
-	CHK_PRODUCTION(RECORD_MID_RHYTHM, t_("Record mid rhythm (low guitar, e.g. strumming)")) \
-	CHK_PRODUCTION(RECORD_MID_SOLO, t_("Record mid solo (instrumental theme)")) \
-	CHK_PRODUCTION(RECORD_LOW_SOLO, t_("Record low solo (bass solo)")) \
-	CHK_PRODUCTION(RECORD_HIGH_SOLO, t_("Record high solo (e.g. bridge climax solo)")) \
-	CHK_PRODUCTION(RECORD_MID_FILLS, t_("Record mid fills (e.g. between singing)")) \
-	CHK_PRODUCTION(FIX_TIMING_OF_RECORDINGS, t_("Fix the timing of recorded instruments with the Free Warp tool")) \
-	CHK_PRODUCTION(MAKE_TEXTURE_PAD, t_("Make texture pad track (arp)")) \
-	CHK_PRODUCTION(MAKE_IMPACT_TRACK, t_("Make impact track")) \
-	CHK_PRODUCTION(MAKE_TRANSITION_TRACK, t_("Make transition track (e.g. noise filter sweep, crash swells)")) \
-	CHK_PRODUCTION(MAKE_SOUND_FX_TRACK, t_("Make sound effect track (e.g. storyline, environment background, vehicles)")) \
-	CHK_PRODUCTION(MAKE_PRONOUNCIATION_TRACK_TTS, t_("Make pronunciation track using text to speech synthesis")) \
-	CHK_PRODUCTION(RECORD_PRONOUNCIATION_TRACK, t_("Record pronunciation track using own voice in correct tempo, but without pitch")) \
-	CHK_PRODUCTION(EXPORT_BACKGROUND, t_("Export background music track for vocal recording")) \
-	CHK_PRODUCTION(EXPORT_PRONOUNCIATION_TRACK, t_("Export pronounciation track for vocal recording")) \
-	CHK_PRODUCTION(RECORD_VOCALS, t_("Record the vocal track one short phrase at a time")) \
-	CHK_PRODUCTION(COMPILE_VOCALS, t_("Put together a vocal track from the best phrases")) \
-	CHK_PRODUCTION(FIX_VOCAL_TIMING, t_("Correct the timing of vocals with the free-warp tool")) \
-	CHK_PRODUCTION(FIX_VOCAL_PITCH, t_("Fix the pitch of the vocal track with the VariAudio tool")) \
-	CHK_PRODUCTION(VOCAL_FX, t_("Vocal track effects with iZotope Nectar automatic analysis")) \
-	CHK_PRODUCTION(INSTRUMENT_FX, t_("Instrument track effects with iZotope Neutron automatic analysis")) \
-	CHK_PRODUCTION(EQ_SPECTRAL_BALANCE, t_("EQ spectral balance for all tracks with SmartEQ grouping")) \
-	CHK_PRODUCTION(MASTER_FX, t_("Create master track effects with iZotope Ozone analysis")) \
-	CHK_PRODUCTION(EXPORT_AUDIO, t_("Export audio with the full name and a version number")) \
+	CHK_PRODUCTION(10,		FINISH_ENGLISH_VOCAL_STRUCTURE, t_("Search for a good reference song and convert it to a structure")) \
+	CHK_PRODUCTION(5,		FINISH_WHAT_TO_SAY, t_("Decide what you want to say in lyrics")) \
+	CHK_PRODUCTION(10,		FINISH_FINISH_ENGLISH_STRUCTURE, t_("Finish lyrics structure in english")) \
+	CHK_PRODUCTION(30,		FINISH_FINISH_NATIVE_DRAFT, t_("Finish first draft in native language")) \
+	CHK_PRODUCTION(30,		FINISH_FINISH_NATIVE, t_("Fix remaing problems in native language and in direct translation")) \
+	CHK_PRODUCTION(30,		FINISH_FINISN_ENGLISH_DRAFT, t_("Finish first draft in english")) \
+	CHK_PRODUCTION(30,		FINISH_FINISH_ENGLISH, t_("Fix remaing problems in english")) \
+	CHK_PRODUCTION(1,		EXPORT_MIDI, t_("Export composition to MIDI with bpm in name")) \
+	CHK_PRODUCTION(3,		MAKE_PROJECT, t_("Make project from DAW project template and MIDI file")) \
+	CHK_PRODUCTION(2,		MAKE_CHORD_PAD, t_("Make chord pad track with good sound presets")) \
+	CHK_PRODUCTION(20,		CREATE_DRUMKIT_TRACK, t_("Create final drumkit-track using draft MIDI as reference")) \
+	CHK_PRODUCTION(10,		CREATE_HAND_DRUMS_TRACK, t_("Create hand drums track")) \
+	CHK_PRODUCTION(5,		RECORD_HIGH_RHYTHM, t_("Record high rhythm track (e.g. high muted guitar)")) \
+	CHK_PRODUCTION(10,		RECORD_LOW_RHYTHM, t_("Record low rhythm track (bass)")) \
+	CHK_PRODUCTION(20,		RECORD_MID_RHYTHM, t_("Record mid rhythm (low guitar, e.g. strumming)")) \
+	CHK_PRODUCTION(5,		RECORD_MID_SOLO, t_("Record mid solo (instrumental theme)")) \
+	CHK_PRODUCTION(5,		RECORD_LOW_SOLO, t_("Record low solo (bass solo)")) \
+	CHK_PRODUCTION(10,		RECORD_HIGH_SOLO, t_("Record high solo (e.g. bridge climax solo)")) \
+	CHK_PRODUCTION(5,		RECORD_MID_FILLS, t_("Record mid fills (e.g. between singing)")) \
+	CHK_PRODUCTION(60,		FIX_TIMING_OF_RECORDINGS, t_("Fix the timing of recorded instruments with the Free Warp tool")) \
+	CHK_PRODUCTION(5,		MAKE_TEXTURE_PAD, t_("Make texture pad track (arp)")) \
+	CHK_PRODUCTION(5,		MAKE_IMPACT_TRACK, t_("Make impact track")) \
+	CHK_PRODUCTION(5,		MAKE_TRANSITION_TRACK, t_("Make transition track (e.g. noise filter sweep, crash swells)")) \
+	CHK_PRODUCTION(5,		MAKE_SOUND_FX_TRACK, t_("Make sound effect track (e.g. storyline, environment background, vehicles)")) \
+	CHK_PRODUCTION(10,		MAKE_PRONOUNCIATION_TRACK_TTS, t_("Make pronunciation track using text to speech synthesis")) \
+	CHK_PRODUCTION(10,		RECORD_PRONOUNCIATION_TRACK, t_("Record pronunciation track using own voice in correct tempo, but without pitch")) \
+	CHK_PRODUCTION(5,		EXPORT_BACKGROUND, t_("Export background music track for vocal recording")) \
+	CHK_PRODUCTION(3,		EXPORT_PRONOUNCIATION_TRACK, t_("Export pronounciation track for vocal recording")) \
+	CHK_PRODUCTION(60,		RECORD_VOCALS, t_("Record the vocal track one short phrase at a time")) \
+	CHK_PRODUCTION(30,		COMPILE_VOCALS, t_("Put together a vocal track from the best phrases")) \
+	CHK_PRODUCTION(30,		FIX_VOCAL_TIMING, t_("Correct the timing of vocals with the free-warp tool")) \
+	CHK_PRODUCTION(30,		FIX_VOCAL_PITCH, t_("Fix the pitch of the vocal track with the VariAudio tool")) \
+	CHK_PRODUCTION(5,		VOCAL_FX, t_("Vocal track effects with iZotope Nectar automatic analysis")) \
+	CHK_PRODUCTION(5,		INSTRUMENT_FX, t_("Instrument track effects with iZotope Neutron automatic analysis")) \
+	CHK_PRODUCTION(5,		EQ_SPECTRAL_BALANCE, t_("EQ spectral balance for all tracks with SmartEQ grouping")) \
+	CHK_PRODUCTION(3,		MASTER_FX, t_("Create master track effects with iZotope Ozone analysis")) \
+	CHK_PRODUCTION(5,		EXPORT_AUDIO, t_("Export audio with the full name and a version number")) \
 	//CHK_PRODUCTION(, "") \
 
 class ChecklistProduction : public ChecklistBase {
 	
 	enum {
-		#define CHK_PRODUCTION(e, s) e,
+		#define CHK_PRODUCTION(t, e, s) e,
 		CHK_PRODUCTION_LIST
 		#undef CHK_PRODUCTION
 		ITEM_LIST
@@ -130,7 +136,7 @@ public:
 
 
 #define CHK_RELEASE_LIST \
-	CHK_RELEASE(EXPORT_MASTER, t_("Export master audio")) \
+	CHK_RELEASE(ORDER_OF_SONGS, t_("Decide final order of songs")) \
 	CHK_RELEASE(FINISH_COVER_ART, t_("Finish cover art")) \
 	CHK_RELEASE(FINISH_PITCHING_TEXT, t_("Finish pitching text for playlists")) \
 	CHK_RELEASE(SEND_TO_DISTROKID, t_("Send to DistroKid")) \
@@ -151,6 +157,41 @@ class ChecklistRelease : public ChecklistBase {
 public:
 	typedef ChecklistRelease CLASSNAME;
 	ChecklistRelease();
+	
+	void InitKeys() override;
+	
+};
+
+
+
+
+#define CHK_SOME_LIST \
+	CHK_SOME(NATIVE_BLOG_UPDATE, t_("Native blog update")) \
+	CHK_SOME(ENGLISH_BLOG_UPDATE, t_("English blog update")) \
+	CHK_SOME(WEBSITE_UPDATE, t_("Website update")) \
+	CHK_SOME(HOST_LISTENING_SESSION, t_("Host listening session and document it")) \
+	CHK_SOME(PREMARKETING_FACEBOOK, t_("Pre-marketing in Facebook")) \
+	CHK_SOME(PREMARKETING_INSTAGRAM, t_("Pre-marketing in Instagram")) \
+	CHK_SOME(PREMARKETING_TWITTER, t_("Pre-marketing in Twitter")) \
+	CHK_SOME(PREMARKETING_TIKTOK, t_("Pre-marketing in Tiktok")) \
+	CHK_SOME(POSTMARKETING_FACEBOOK, t_("Post-marketing in Facebook")) \
+	CHK_SOME(POSTMARKETING_INSTAGRAM, t_("Post-marketing in Instagram")) \
+	CHK_SOME(POSTMARKETING_TWITTER, t_("Post-marketing in Twitter")) \
+	CHK_SOME(POSTMARKETING_TIKTOK, t_("Post-marketing in Tiktok")) \
+	//CHK_RELEASE(, t_("")) \
+
+class SocialMediaChecklist : public ChecklistBase {
+	
+	enum {
+		#define CHK_SOME(e, s) e,
+		CHK_SOME_LIST
+		#undef CHK_SOME
+		ITEM_LIST
+	};
+	
+public:
+	typedef SocialMediaChecklist CLASSNAME;
+	SocialMediaChecklist();
 	
 	void InitKeys() override;
 	

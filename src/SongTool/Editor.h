@@ -69,8 +69,9 @@ protected:
 	StoryCtrl			story;
 	StructureCtrl		structure;
 	ImpactScoringCtrl	impact_scoring;
-	MaskScoringCtrl		mask_scoring;
-	LyricsCtrl			lyrics;
+	MaskScoringCtrl			mask_scoring;
+	LyricsCtrl				lyrics;
+	SocialMediaChecklist	some_chk;
 	
 public:
 	typedef Editor CLASSNAME;
@@ -85,6 +86,7 @@ public:
 	void DataSong();
 	void DataPart();
 	void DataPage();
+	void ToolMenu(Bar& bar);
 	void SetView(int i);
 	void LoadLast();
 	void StoreLast();

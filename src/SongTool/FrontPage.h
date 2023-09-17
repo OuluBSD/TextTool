@@ -10,7 +10,7 @@ public:
 	FrontPage();
 	
 	void Data();
-	
+	void ToolMenu(Bar& bar) {}
 	
 };
 

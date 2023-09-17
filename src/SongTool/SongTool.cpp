@@ -8,6 +8,8 @@
 GUI_APP_MAIN {
 	SetLanguage(GetSystemLNG());
 	
+	ChFlatSkin();
+	InstallRedBar();
 	
 	// Load task manager
 	TaskMgrConfig& m = TaskMgrConfig::Single();
@@ -61,6 +63,9 @@ GUI_APP_MAIN {
 			if (instance)
 				instance->setProxy(proxy.Begin());
 			i++;
+		}
+		else if (cmd == "-blue") {
+			InstallBlueBar();
 		}
 	}
 	

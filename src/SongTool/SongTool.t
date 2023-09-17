@@ -1029,6 +1029,9 @@ fiFI("Lis\303\244\303\244 tehosteita")
 T_("Export master audio")
 fiFI("Vie master-\303\244\303\244ni")
 
+T_("Decide final order of songs")
+fiFI("P\303\244\303\244t\303\244 lopullinen kappaleiden j\303\244rjestys")
+
 T_("Finish cover art")
 fiFI("Viimeistele kansikuva")
 

@@ -27,6 +27,8 @@ SongTool::SongTool() : ed(this) {
 	Add(ai.SizePos());
 	
 	AddFrame(menu);
+	AddFrame(toolbar);
+	AddFrame(statusbar);
 	menu.Set(THISBACK(MainMenu));
 	
 	PostInit();
@@ -122,6 +124,20 @@ void SongTool::Data() {
 		case 2: ed.Data(); break;
 		case 3: ai.Data(); break;
 		case 4: seq.Data(); break;
+	}
+}
+
+void SongTool::SetBar() {
+	toolbar.Set(THISBACK(MainBar));
+}
+
+void SongTool::MainBar(Bar& bar) {
+	switch (page) {
+		case 0: fp.ToolMenu(bar); break;
+		case 1: cal.ToolMenu(bar); break;
+		case 2: ed.ToolMenu(bar); break;
+		case 3: ai.ToolMenu(bar); break;
+		case 4: seq.ToolMenu(bar); break;
 	}
 }
 

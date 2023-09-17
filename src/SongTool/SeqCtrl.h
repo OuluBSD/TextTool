@@ -12,6 +12,7 @@ public:
 	SeqCtrl();
 	
 	void Data();
+	void ToolMenu(Bar& bar) {}
 	
 };
 

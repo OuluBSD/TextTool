@@ -97,6 +97,7 @@ void Editor::InitSimplified() {
 	
 	*/
 	AddItem(t_("All"), t_("Info"), info);
+	AddItem(t_("All"), t_("Calendar"), cal);
 	
 	AddItem(t_("Album"), t_("Briefing"), album_briefing);
 	AddItem(t_("Album"), t_("Ideas"), album_ideas);
@@ -157,6 +158,7 @@ void Editor::InitAdvanced() {
 	AddItem(t_("Song"), t_("Composition"), composition);
 	AddItem(t_("Song"), t_("Production"), production);
 	AddItem(t_("Song"), t_("Rhymes"), rhymes);
+	AddItem(t_("Release"), t_("Social Media"), some_chk);
 	
 	InitListItems();
 }
@@ -181,6 +183,8 @@ void Editor::SetView(int i) {
 	
 	page = i;
 	DataPage();
+	
+	app.SetBar();
 }
 
 void Editor::DataPage() {
@@ -193,6 +197,11 @@ void Editor::DataPage() {
 void Editor::DoMainAction(int action) {
 	if (page >= 0 && page < items.GetCount())
 		items[page].ctrl->DoMainAction(action);
+}
+
+void Editor::ToolMenu(Bar& bar) {
+	if (page >= 0 && page < items.GetCount())
+		items[page].ctrl->ToolMenu(bar);
 }
 
 void Editor::MoveTab(int d) {

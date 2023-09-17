@@ -10,6 +10,7 @@ public:
 	CalendarPage();
 	
 	void Data();
+	void ToolMenu(Bar& bar) {}
 	
 	
 };
