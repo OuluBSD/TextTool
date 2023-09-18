@@ -2,6 +2,11 @@
 
 
 TxtAutoCompare::TxtAutoCompare() {
+	unpacked_struct_key = "ENGLISH_UNPACKED_STRUCTURE";
+	auto_poetic_styles_english_key = "POETIC_ENGLISH_STYLES";
+	main_key = unpacked_struct_key;
+	other_key = auto_poetic_styles_english_key;
+	
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz();
@@ -23,7 +28,23 @@ TxtAutoCompare::TxtAutoCompare() {
 	
 }
 
+void TxtAutoCompare::Init() {
+	
+}
+
 void TxtAutoCompare::Data() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist)
+		return;
+	Song& song = *p.song;
+	
+	if (!has_init)
+		Init();
+	
+	
+	String main_txt = song.data.Get(main_key, "");
+	main.SetData(main_txt);
 	
 }
 
@@ -35,5 +56,27 @@ void TxtAutoCompare::ToolMenu(Bar& bar) {
 	Size sz = bar.GetStdSize();
 	sz.cx = 300;
 	bar.AddTool(rhymetype, sz);
+	bar.Add(AppImg::Part(), t_("Evaluate different poetic styles"), THISBACK(EvaluatePoeticStyles));
 }
 
+void TxtAutoCompare::EvaluatePoeticStyles() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist || main_key.IsEmpty())
+		return;
+	
+	p.RealizePipe();
+	
+	{
+		String style = rhymetype.GetValue();
+		
+		TaskMgr& m = *p.song->pipe;
+		m.EvaluatePoeticStyles(style, main_key, auto_poetic_styles_english_key, THISBACK(PostOnPoeticRecv));
+	}
+}
+
+void TxtAutoCompare::OnPoeticRecv() {
+	
+	
+	
+}
