@@ -16,23 +16,23 @@
 	"data": [
 		{
 			"key": "ATTR_REFERENCE_SONG",
-			"value": ""
+			"value": "Katso idea"
 		},
 		{
 			"key": "ATTR_GENERIC_CULTURE",
-			"value": ""
+			"value": "T‰ysin yhden ihmisen kokemus ilman ryhm‰painetta"
 		},
 		{
 			"key": "POLL_INTEGRITY",
-			"value": "0"
+			"value": "2"
 		},
 		{
 			"key": "POLL_SOCIAL",
-			"value": "0"
+			"value": "1"
 		},
 		{
 			"key": "POLL_MOOD_UPLIFTING_HEAVY",
-			"value": "0"
+			"value": "3"
 		},
 		{
 			"key": "ATTR_IMPACT_ATTITUDE_HOPEFUL_DESPAIR",
@@ -104,15 +104,203 @@
 		},
 		{
 			"key": "REFERENCE_SONG__NATIVE_TEXT",
-			"value": ""
+			"value": "Kertos‰e:\r\nEn tahtonut tapella, tahdo erota,\r\nen kuvitellut koskaan t‰n loppuvan,\r\nen tahtonut sua rikkoo, tehd‰ meille n‰in mut vaik\r\nkuinka rakastaakin toinen toistaan j‰lleen satuttaa\r\n\r\n\r\nS‰e 1:\r\nAnteeks kulta ett‰ en oo v‰h‰‰n aikaan soittanut\r\nollaan oltuu kiireisii ja tyˆst‰ oon vain toipunut\r\nMul on ik‰v‰ ja haluisin sut t‰nne,\r\nmakaamaan rannal kun yll‰ loistaa t‰hdet\r\nMietin ett‰ olisit l‰mmin mun syliss‰\r\nvannoin pysyy mukanas yl‰  ja ala m‰iss‰,\r\nSilti aika kuluu pois mut vieden\r\nsuudelmat sun on en‰‰ muistois mielen\r\nNiinku se kosketuksen mielikuva, kun\r\nsuutelen sua ja me yhes keinutaan\r\nku ilta tummuu, ja kuulen vain sut\r\nkuu loistaa suhun ja hikeen kastut\r\nKai molemmat yritti liian v‰h‰n koska\r\ntultiin t‰h‰n eik‰ tarpeeks n‰h‰\r\nKohta viel‰ palaan taas, tule rakas vastaan\r\nOllaan viel‰ viisaampii et voidaan taas rakastaa\r\n\r\n\r\nS‰e 2:\r\nTuntu niinku tarvitsin  jonkun toisen\r\nnimes unohtuu ja muihin nimiin sen sotken\r\nKun m‰ viimeks l‰hin ovet paukkuen\r\ntuli vastaan nainen uutta toivoo huokuen\r\nM‰ torjuin iloiset tunteet  mut meid‰n\r\nkatseet kun kohtas katos murheet\r\nMiten tunteen sammutan?  En tii‰, mutta\r\notteeseen mut se saa,  en kiell‰\r\nM‰ pelk‰‰n sit‰ taas  et ihastun\r\ntai et rakastun ja petyn enk‰ palaudu\r\nEn haluu rakastuu toiseen joka heti j‰tt‰‰\r\naika on arvokasta kahestaan viett‰‰\r\nEnk‰ haluu yksin‰‰n tunnevuoristorataan,\r\nmut sen kyll‰ kest‰‰ kun on joku jolle jakaa\r\nEn sulle tunnusta, ett‰ oot mun ainoa,\r\njos s‰ tahot niin, huomaat olevas mun vaimona\r\n\r\n\r\nBridge:\r\nV‰lil sanoin et mua kaduttaa, tahdoin riidat unohtaa,\r\nmut ne s‰ilyy ain sun sis‰ll‰, vaik m‰ en huomaiskaan\r\nM‰ n‰ytt‰nyt en tarpeeksi, kuinka paljon v‰litin\r\nVoin m‰ olla taas nyt mukava, mit‰ sill‰ korjaisin\r\n"
 		},
 		{
 			"key": "REFERENCE_SONG__ENGLISH_TEXT",
-			"value": ""
+			"value": "Chorus:\r\nI didn't want to fight, I don't want to break up,\r\ni never imagined this would end\r\nI didn't mean to break you, to do this to us, but...\r\nno matter how one loves the other, one hurts the other again\r\n\r\n\r\nVerse 1a:\r\nSorry honey I haven't called in a while\r\nI've been busy and I've just recovered from work\r\nI miss you and I want you here\r\nto lie down on the beach when there are only stars above\r\n\r\nVerse 1b:\r\nI dream how you would be warm in my arms\r\nI promised to stay with you through the ups and downs\r\nStill, time passes by taking me away\r\nyour kisses are memories in my mind now\r\n\r\nVerse 1c:\r\nLike that vision of us touching\r\nin wich I kiss you and we rock together\r\nwhen the night gets dark, and the only thing I hear is you\r\nthe moon shines on you and you are drenched in sweat\r\n\r\nVerse 1d:\r\nI guess neither of us tried enough\r\nbecause we came here and don't see enough of each other\r\nI'll be back in a moment, come meet me wife\r\nLet's be a little wiser so that we can love again\r\n\r\n\r\nVerse 2a:\r\nI feel like I need someone else\r\nI forget your name and I mess it up with another name\r\nWhen I left with slamming doors last time,\r\na woman came up with an air of hope\r\n\r\nVerse 2b:\r\nI rejected the happy feelings,\r\nbut when our eyes met, the sorrows disappeared\r\nHow to turn off the feeling? I don't know\r\nbut sometimes it gets me, I won't deny\r\n\r\nVerse 2c:\r\nI'm afraid that I'll fall in love again\r\nor that I fall in love, and fail and never recover\r\nI don't want to fall in love with someone who immediately leaves\r\ntime is precious to spend alone with someone\r\n\r\nVerse 2d:\r\nAnd I don't want to ride the emotional roller coaster alone anymore,\r\nbut you can handle it when you share everything\r\nI won't confess to you that you are my only one,\r\nif you want, you will realize that you are my wife\r\n\r\n\r\nBridge:\r\nSometimes I said I was sorry, I wanted to forget the fights,\r\nbut they remain inside me, even if I don't notice it\r\nI didn't show enough how much I cared\r\nI can be nice to you again now, what would I fix with its\r\n"
 		},
 		{
 			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
+			"value": "chorus {\n\tme {\n\t\tnot wanting {\n\t\t\tto fight\n\t\t\tto break up\n\t\t}\n\t\tnever ( imagined ) {\n\t\t\tthis ( end )\n\t\t}\n\t\tnot meaning {\n\t\t\tto break ( my romantic partner )\n\t\t\tto do ( me and my romantic partner ) {\n\t\t\t\tthis \n\t\t\t}\n\t\t}\n\t}\n\tme and my romantic partner {\n\t\tloving {\n\t\t\tone ( of me and my romantic partner ) {\n\t\t\t\thurting ( other ) {\n\t\t\t\t\tagain\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1a {\n\tme {\n\t\tcalling {\n\t\t\tnot ( recently )\n\t\t}\n\t\tbusy ( recovering from work )\n\t\tmissing ( my romantic partner )\n\t\twanting {\n\t\t\tthem {\n\t\t\t\t( here )\n\t\t\t\t( lying down on the beach )\n\t\t\t\t( with only stars above )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1b {\n\tme {\n\t\t( dreaming )\n\t\t( how my romantic partner would be warm in my arms )\n\t\tpromising {\n\t\t\tstaying ( with my romantic partner ) {\n\t\t\t\tthrough ( ups and downs )\n\t\t\t}\n\t\t}\n\t\ttime {\n\t\t\t( passing by )\n\t\t\t( taking me away )\n\t\t}\n\t\t( kisses ) {\n\t\t\tnow ( memories )\n\t\t}\n\t}\n}\nverse 1c {\n\tme and my romantic partner {\n\t\t( touching )\n\t\t( in which I kiss my romantic partner and we rock together )\n\t\twhen ( night gets dark ) {\n\t\t\tthe only thing ( I hear ) {\n\t\t\t\tis ( my romantic partner )\n\t\t\t}\n\t\t\t( moon ) {\n\t\t\t\t( shining )\n\t\t\t\ton ( my romantic partner ) \n\t\t\t\t( drenched in sweat )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1d {\n\tme and my romantic partner {\n\t\tnot ( trying enough )\n\t\tbeing ( here )\n\t\tnot ( seeing enough of each other )\n\t\tme {\n\t\t\tbeing back ( in a moment )\n\t\t\tmeeting ( my wife )\n\t\t}\n\t\tbeing {\n\t\t\ta little ( wiser )\n\t\t\table ( to love again )\n\t\t}\n\t}\n}\nverse 2a {\n\tme {\n\t\tneeding ( someone else )\n\t\tforgetting {\n\t\t\tname {\n\t\t\t\tof ( my romantic partner )\n\t\t\t\t( and messing it up with another name )\n\t\t\t}\n\t\t}\n\t\tleaving ( last time ) {\n\t\t\twith ( slamming doors )\n\t\t}\n\t\t( woman ) {\n\t\t\tcoming up {\n\t\t\t\twith ( air of hope )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2b {\n\tme {\n\t\trejecting {\n\t\t\thappy ( feelings )\n\t\t}\n\t\twhen ( eyes ) {\n\t\t\tmet {\n\t\t\t\tsorrows ( disappearing )\n\t\t\t}\n\t\t}\n\t\tnot knowing {\n\t\t\thow {\n\t\t\t\tto turn off {\n\t\t\t\t\tthe feeling\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tsometimes {\n\t\t\t( getting me )\n\t\t\t( won't deny )\n\t\t}\n\t}\n}\nverse 2c {\n\tme {\n\t\tafraid {\n\t\t\tfalling {\n\t\t\t\tin love {\n\t\t\t\t\t( again )\n\t\t\t\t\t( and failing and never recovering )\n\t\t\t\t\twith ( someone who immediately leaves )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\ttime {\n\t\t\t( precious )\n\t\t\tspending ( alone ) {\n\t\t\t\twith ( someone )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2d {\n\tme {\n\t\tnot ( wanting to ride emotional roller coaster alone anymore )\n\t\tbeing ( able ) {\n\t\t\tto handle ( it )\n\t\t\twhen ( sharing everything )\n\t\t}\n\t\tnot ( confessing to my romantic partner ) {\n\t\t\tbeing ( my only one )\n\t\t}\n\t\tif ( my romantic partner ) {\n\t\t\twanting {\n\t\t\t\tto realize {\n\t\t\t\t\tthey ( my wife )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nbridge {\n\tme {\n\t\t( saying ) {\n\t\t\t( i was sorry )\n\t\t\twanting {\n\t\t\t\tto forget {\n\t\t\t\t\tthe fights\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tfights {\n\t\t\tremaining ( inside me )\n\t\t\tnot ( noticing )\n\t\t}\n\t\tnot ( showing enough ) {\n\t\t\thow much ( cared )\n\t\t}\n\t\tbeing {\n\t\t\tnice ( to my romantic partner ) {\n\t\t\t\tagain ( now )\n\t\t\t}\n\t\t\table ( to fix ) {\n\t\t\t\twith ( it )\n\t\t\t}\n\t\t}\n\t}\n}"
+		},
+		{
+			"key": "ATTR_BIRTH_OF_SONG",
+			"value": "Katso idea"
+		},
+		{
+			"key": "ATTR_GENERIC_INTEGRITY",
 			"value": ""
+		},
+		{
+			"key": "POLL_ECONOMIC",
+			"value": "2"
+		},
+		{
+			"key": "POLL_CULTURE",
+			"value": "1"
+		},
+		{
+			"key": "POLL_HUMAN_STRENGTH",
+			"value": "4"
+		},
+		{
+			"key": "POLL_MOTIVATION",
+			"value": "4"
+		},
+		{
+			"key": "POLL_SEXUALIZATION",
+			"value": "3"
+		},
+		{
+			"key": "POLL_BELIEFS",
+			"value": "3"
+		},
+		{
+			"key": "POLL_EXPECTATIONS",
+			"value": "1"
+		},
+		{
+			"key": "POLL_MOOD_JOYFUL_MELANCHOLIC",
+			"value": "4"
+		},
+		{
+			"key": "POLL_MOOD_PLAYFUL_SERIOUS",
+			"value": "4"
+		},
+		{
+			"key": "POLL_MOOD_LIGHTHEARTED_SOMBER",
+			"value": "3"
+		},
+		{
+			"key": "POLL_MOOD_HUMOROUS_DRAMATIC",
+			"value": "4"
+		},
+		{
+			"key": "POLL_ATTITUDE_HOPEFUL_DESPAIR",
+			"value": "4"
+		},
+		{
+			"key": "POLL_ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+			"value": "4"
+		},
+		{
+			"key": "POLL_ATTITUDE_ATTITUDE_OPEN_CLOSED",
+			"value": "2"
+		},
+		{
+			"key": "POLL_SEXUALITY",
+			"value": "3"
+		},
+		{
+			"key": "POLL_SEXUAL_ACTING",
+			"value": "5"
+		},
+		{
+			"key": "POLL_SEXUAL_COMMITMENT",
+			"value": "4"
+		},
+		{
+			"key": "POLL_SEXUAL_ORIENTATION",
+			"value": "1"
+		},
+		{
+			"key": "POLL_SEXUAL_PREFERENCE",
+			"value": "5"
+		},
+		{
+			"key": "POLL_PHYSICAL_PREFERENCE",
+			"value": "3"
+		},
+		{
+			"key": "ATTR_GENERIC_SOCIAL",
+			"value": "Maksimoi itsem‰‰r‰‰misoikeuden ja valinnanvapauden "
+		},
+		{
+			"key": "ATTR_GENERIC_HUMAN_STRENGTH",
+			"value": "Ihmiset vain toistavat huonoja piirteit‰‰n, eiv‰tk‰ voi asialle mit‰‰n"
+		},
+		{
+			"key": "ATTR_GENERIC_MOTIVATION",
+			"value": "'Satutamme toisiamme aina uudestaan' on melko rankaisevaa"
+		},
+		{
+			"key": "ATTR_GENERIC_EXPECTATIONS",
+			"value": "Asenne on melko hyv‰ksyv‰ kaikkia ihmisten huonoja piirteit‰ kohtaan"
+		},
+		{
+			"key": "ATTR_GENERIC_MOOD_JOYFUL_MELANCHOLIC",
+			"value": "'katkeransuloisuutta, jossa henkilˆ saa helpotusta kielteisist‰ asioista' kuvastaa kertos‰ett‰. Toisaalta s‰keet on melko iloisia v‰lill‰."
+		},
+		{
+			"key": "ATTR_GENERIC_MOOD_PLAYFUL_SERIOUS",
+			"value": "Pohditaan vakavissaan omia tunnemyrskyj‰ ja mit‰ asialle voisi tehd‰"
+		},
+		{
+			"key": "ATTR_GENERIC_MOOD_HUMOROUS_DRAMATIC",
+			"value": "Kevyet asiat sanotaan merkityksellisesti ja kohtalomaisesti, joten melko dramaattinen yleiss‰vy."
+		},
+		{
+			"key": "ATTR_GENERIC_ATTITUDE_HOPEFUL_DESPAIR",
+			"value": "Kertos‰e on melko toivoton: 'satutamme toisiamme aina uudestaan'. Toisaalta, s‰e on melko toiveikas."
+		},
+		{
+			"key": "ATTR_GENERIC_ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+			"value": "Asioista n‰hd‰‰n huonot puolet, etenkin kertsiss‰: 'mut ne s‰ilyy ain sun sis‰ll‰'."
+		},
+		{
+			"key": "ATTR_GENERIC_ATTITUDE_ATTITUDE_OPEN_CLOSED",
+			"value": "Avoin uusille parisuhteille ja seikkailuille"
+		},
+		{
+			"key": "ATTR_GENERIC_SEXUAL_ACTING",
+			"value": "Uuden kumppanin tapaaminen on todella herkk‰‰. Myˆs tappelu on herkk‰‰ normaaliin n‰hden."
+		},
+		{
+			"key": "ATTR_GENERIC_SEXUAL_COMMITMENT",
+			"value": "Puhutaan vaimosta ja siit‰ ett‰ on vain yksi parisuhde kerrallaan."
+		},
+		{
+			"key": "ATTR_GENERIC_SEXUAL_ORIENTATION",
+			"value": "Koko kappaleen er‰s m‰‰rite on normaali heteroseksuaalinen parisuhde."
+		},
+		{
+			"key": "ATTR_GENERIC_SEXUAL_PREFERENCE",
+			"value": "Kappalessa haetaan kauneutta normaaleilla parisuhdesymboleilla, jotka eiv‰t ole kuitenkaan liian kliseisi‰, kuten rakastelua hiekkarannalla."
+		},
+		{
+			"key": "ATTR_GENERIC_ECONOMIC",
+			"value": "Sallitaan miehen muuttuminen parisuhteessa ja ajautuminen omalle tielleen"
+		},
+		{
+			"key": "VOCAL_MELODY_2ND_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "CHORDS_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "ENGLISH_UNPACKED_STRUCTURE",
+			"value": "chorus {\n\tme {\n\t\tnot wanting {\n\t\t\tto fight\n\t\t\tto break up\n\t\t}\n\t\tnever ( imagined ) {\n\t\t\tthis ( end )\n\t\t}\n\t\tnot meaning {\n\t\t\tto break ( my romantic partner )\n\t\t\tto do ( me and my romantic partner ) {\n\t\t\t\tthis \n\t\t\t}\n\t\t}\n\t}\n\tme and my romantic partner {\n\t\tloving {\n\t\t\tone ( of me and my romantic partner ) {\n\t\t\t\thurting ( other ) {\n\t\t\t\t\tagain\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1a {\n\tme {\n\t\tcalling {\n\t\t\tnot ( recently )\n\t\t}\n\t\tbusy ( recovering from work )\n\t\tmissing ( my romantic partner )\n\t\twanting {\n\t\t\tthem {\n\t\t\t\t( here )\n\t\t\t\t( lying down on the beach )\n\t\t\t\t( with only stars above )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1b {\n\tme {\n\t\t( dreaming )\n\t\t( how my romantic partner would be warm in my arms )\n\t\tpromising {\n\t\t\tstaying ( with my romantic partner ) {\n\t\t\t\tthrough ( ups and downs )\n\t\t\t}\n\t\t}\n\t\ttime {\n\t\t\t( passing by )\n\t\t\t( taking me away )\n\t\t}\n\t\t( kisses ) {\n\t\t\tnow ( memories )\n\t\t}\n\t}\n}\nverse 1c {\n\tme and my romantic partner {\n\t\t( touching )\n\t\t( in which I kiss my romantic partner and we rock together )\n\t\twhen ( night gets dark ) {\n\t\t\tthe only thing ( I hear ) {\n\t\t\t\tis ( my romantic partner )\n\t\t\t}\n\t\t\t( moon ) {\n\t\t\t\t( shining )\n\t\t\t\ton ( my romantic partner ) \n\t\t\t\t( drenched in sweat )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1d {\n\tme and my romantic partner {\n\t\tnot ( trying enough )\n\t\tbeing ( here )\n\t\tnot ( seeing enough of each other )\n\t\tme {\n\t\t\tbeing back ( in a moment )\n\t\t\tmeeting ( my wife )\n\t\t}\n\t\tbeing {\n\t\t\ta little ( wiser )\n\t\t\table ( to love again )\n\t\t}\n\t}\n}\nverse 2a {\n\tme {\n\t\tneeding ( someone else )\n\t\tforgetting {\n\t\t\tname {\n\t\t\t\tof ( my romantic partner )\n\t\t\t\t( and messing it up with another name )\n\t\t\t}\n\t\t}\n\t\tleaving ( last time ) {\n\t\t\twith ( slamming doors )\n\t\t}\n\t\t( woman ) {\n\t\t\tcoming up {\n\t\t\t\twith ( air of hope )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2b {\n\tme {\n\t\trejecting {\n\t\t\thappy ( feelings )\n\t\t}\n\t\twhen ( eyes ) {\n\t\t\tmet {\n\t\t\t\tsorrows ( disappearing )\n\t\t\t}\n\t\t}\n\t\tnot knowing {\n\t\t\thow {\n\t\t\t\tto turn off {\n\t\t\t\t\tthe feeling\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tsometimes {\n\t\t\t( getting me )\n\t\t\t( won't deny )\n\t\t}\n\t}\n}\nverse 2c {\n\tme {\n\t\tafraid {\n\t\t\tfalling {\n\t\t\t\tin love {\n\t\t\t\t\t( again )\n\t\t\t\t\t( and failing and never recovering )\n\t\t\t\t\twith ( someone who immediately leaves )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\ttime {\n\t\t\t( precious )\n\t\t\tspending ( alone ) {\n\t\t\t\twith ( someone )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2d {\n\tme {\n\t\tnot ( wanting to ride emotional roller coaster alone anymore )\n\t\tbeing ( able ) {\n\t\t\tto handle ( it )\n\t\t\twhen ( sharing everything )\n\t\t}\n\t\tnot ( confessing to my romantic partner ) {\n\t\t\tbeing ( my only one )\n\t\t}\n\t\tif ( my romantic partner ) {\n\t\t\twanting {\n\t\t\t\tto realize {\n\t\t\t\t\tthey ( my wife )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nbridge {\n\tme {\n\t\t( saying ) {\n\t\t\t( i was sorry )\n\t\t\twanting {\n\t\t\t\tto forget {\n\t\t\t\t\tthe fights\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tfights {\n\t\t\tremaining ( inside me )\n\t\t\tnot ( noticing )\n\t\t}\n\t\tnot ( showing enough ) {\n\t\t\thow much ( cared )\n\t\t}\n\t\tbeing {\n\t\t\tnice ( to my romantic partner ) {\n\t\t\t\tagain ( now )\n\t\t\t}\n\t\t\table ( to fix ) {\n\t\t\t\twith ( it )\n\t\t\t}\n\t\t}\n\t}\n}"
+		},
+		{
+			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL",
+			"value": "Chorus 1a:\r\nI didn't want to fight, I don't want to break up\r\nI never imagined this would end.\r\nI didn't mean to break you, make us like this\r\nbut no matter how much I love, one of us hurts the other again.\r\n\r\nVerse 1a:\r\nI'm not calling as much as I use to, busy recovering from work\r\nMissing you, wishing you were here, lying down on the beach with only stars above\r\nVerse 1b:\r\nI'm just dreaming how you'd be warm in my arms\r\nPromising to stay through ups and downs, time passing by taking me away\r\nKisses now are only memories\r\nVerse 1c:\r\nTouching each other and I kiss you and we rock together\r\nWhen the night gets dark, the only thing I hear is you\r\nThe moon shining on you, drenched in sweat\r\nVerse 1d:\r\nNot trying enough, not being here, not seeing enough of each other\r\nI'm still coming back in a moment, meeting my wife\r\nLittle bit wiser, able to love again\r\n\r\nVerse 2a:\r\nNeeding someone else, forgetting your name and messing it up with another name\r\nLeaving last time with a slamming door\r\nA woman coming up with an aura of hope\r\nVerse 2b:\r\nRejecting happy feelings when our eyes meet and sorrows disappears\r\nNot knowing how to turn off the feeling\r\nSometimes it still gets me, I won't deny\r\nVerse 2c:\r\nAfraid of falling in love again and failing and never recovering\r\nWith someone who immediately leaves, time so precious spending it alone with you\r\nVerse 2d:\r\nNot wanting to ride the emotional rollercoaster alone anymore\r\nBeing able to handle it when we share everything\r\nNot confessing to you that you're my only one\r\nIf you want to realize that you were my wife\r\n\r\nBridge:\r\nI was sorry, wanting to forget the fights\r\nThe fights remaining inside me, not noticing\r\nNot showing how much I care, being nice to you again, now\r\nAble to fix it with it too"
+		},
+		{
+			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL_NATIVE",
+			"value": "Kertos 1a:\r\nEn halua taistella, En halua rikkoa meit‰\r\nEn ollut kuvitellut ett‰ t‰m‰ loppuisi.\r\nEn tarkoittanut s‰rke‰ sinua, tehd‰ meist‰ t‰llaisia\r\nmutta rakastin kuinka vaan, joskus me toisemme taas satutamme.\r\n\r\nKausi 1a:\r\nEn ole soittanut niin paljon kuin ennen, kiireelt‰ tˆist‰ toipuen\r\nKaipaatte sinua, mieliin toivoen ett‰ olisit t‰‰ll‰ makuulle vain t‰hdet ylh‰‰ll‰\r\nKausi 1b:\r\nUnelmoin ihania kun me olisimme toisiamme l‰mmˆss‰ halaamassa\r\nLupaamassa ett‰ pysymme rakkaana vaikka mit‰‰n tullisikin, aika kulkee vierell‰mme ja pois\r\nSuudelmat ovat nyt vain muistoja\r\nKausi 1c:\r\nKosketellen, suutellen hiljaa ja me keinumme yhdess‰\r\nKun yˆ tummuu, ainoat ‰‰net mit‰ kuulen ovat sinun\r\nKuuna sinua valaiseepi, hikin‰kin t‰ynn‰\r\nKausi 1d:\r\nEi tarvitaan enemp‰‰, ei olla l‰sn‰ tarpeeksi, ei n‰hd‰ toisiamme tarpeeksi\r\nEdelleen tulemme takaisin hetken, tapaamaan vaimoni\r\nVaan hieman viisaampana, able to love again\r\n\r\nKausi 2a:\r\nTarvitsen jonkun muun, unohdan nimesi ja sekoitan se jonkun muun kanssa\r\nViimeisen kerran l‰hdin lukitulla oven takana\r\nNainen tulee esiin toivon auringolla\r\nKausi 2b:\r\nKun meid‰n silm‰mme kohtaavat hymyn hylk‰‰mme ja surut katoavat,\r\nEn osaa kupita tunnettani ja hetkinen se viel‰ v‰lill‰ meit‰ ahdistaa\r\nKausi 2c:\r\nPelk‰‰n ett‰ rakastun taas ja ep‰onnistun enk‰ en‰‰ toipu,\r\nkanssasi jonka j‰lkeen heti poistuminen, ajassa t‰rke‰‰ ja siihen vierell‰sin sinun\r\nKausi 2d:\r\nEn en‰‰ halua ratsasta huiput ja laaksoja yksin\r\nVoi selvit‰ mit‰ tahansa, kun jaoimme kaiken\r\nEn tunnusta ett‰ s‰ oot se ainoin\r\nJos huomaat oot ollut vaimoni\r\n\r\nSilta:\r\nOlen pahoillani, tahtoisin unohtaa n‰‰ taistelut\r\nN‰‰ taistelut pysyy sis‰ll‰, ei huomaa sit‰\r\nEn paljoa muista, olla yst‰v‰lisempi taas nyt,\r\nKorjattavissa kaiken sen kanssa"
+		},
+		{
+			"key": "NATURAL_NATIVE_OF_AUTHOR",
+			"value": "Kertos‰e:\r\nEn tahtonut tapella, tahdo erota,\r\nen kuvitellut koskaan t‰n loppuvan,\r\nen tahtonut sua rikkoo, tehd‰ meille n‰in mut vaik\r\nkuinka rakastaakin toinen toistaan j‰lleen satuttaa\r\n\r\n\r\nS‰e 1:\r\nAnteeks kulta ett‰ en oo v‰h‰‰n aikaan soittanut\r\nollaan oltuu kiireisii ja tyˆst‰ oon vain toipunut\r\nMul on ik‰v‰ ja haluisin sut t‰nne,\r\nmakaamaan rannal kun yll‰ loistaa t‰hdet\r\nMietin ett‰ olisit l‰mmin mun syliss‰\r\nvannoin pysyy mukanas yl‰  ja ala m‰iss‰,\r\nSilti aika kuluu pois mut vieden\r\nsuudelmat sun on en‰‰ muistois mielen\r\nNiinku se kosketuksen mielikuva, kun\r\nsuutelen sua ja me yhes keinutaan\r\nku ilta tummuu, ja kuulen vain sut\r\nkuu loistaa suhun ja hikeen kastut\r\nKai molemmat yritti liian v‰h‰n koska\r\ntultiin t‰h‰n eik‰ tarpeeks n‰h‰\r\nKohta viel‰ palaan taas, tule rakas vastaan\r\nOllaan viel‰ viisaampii et voidaan taas rakastaa\r\n\r\n\r\nS‰e 2:\r\nTuntu niinku tarvitsin  jonkun toisen\r\nnimes unohtuu ja muihin nimiin sen sotken\r\nKun m‰ viimeks l‰hin ovet paukkuen\r\ntuli vastaan nainen uutta toivoo huokuen\r\nM‰ torjuin iloiset tunteet  mut meid‰n\r\nkatseet kun kohtas katos murheet\r\nMiten tunteen sammutan?  En tii‰, mutta\r\notteeseen mut se saa,  en kiell‰\r\nM‰ pelk‰‰n sit‰ taas  et ihastun\r\ntai et rakastun ja petyn enk‰ palaudu\r\nEn haluu rakastuu toiseen joka heti j‰tt‰‰\r\naika on arvokasta kahestaan viett‰‰\r\nEnk‰ haluu yksin‰‰n tunnevuoristorataan,\r\nmut sen kyll‰ kest‰‰ kun on joku jolle jakaa\r\nEn sulle tunnusta, ett‰ oot mun ainoa,\r\njos s‰ tahot niin, huomaat olevas mun vaimona\r\n\r\n\r\nBridge:\r\nV‰lil sanoin et mua kaduttaa, tahdoin riidat unohtaa,\r\nmut ne s‰ilyy ain sun sis‰ll‰, vaik m‰ en huomaiskaan\r\nM‰ n‰ytt‰nyt en tarpeeksi, kuinka paljon v‰litin\r\nVoin m‰ olla taas nyt mukava, mit‰ sill‰ korjaisin\r\n"
+		},
+		{
+			"key": "AUTOMATIC_ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR",
+			"value": "\nChorus:\nI didn't want to fight, don't want to part ways,\nI never imagined it would turn out this way,\nI didn't want to break you, do this to us,\nNo matter how much we love each other, we still hurt each other in the end.\n\nVerse 1:\nSorry my love, I haven't been calling,\nWe both have had our share of busy days and trying to recover,\nI miss you and I'd wish you were here,\nLying on the beach with stars as our ceiling,\nI thought I could keep you warm in my embrace,\nPromised to stay with you through the good and bad days,\nStill time passed and all we have are the memories of our kisses,\nJust the thought of us dancing together as the evening falls,\nI can only hear you, with the moon light shining over you and me,\nWe both tried too little in our relationship,\nNot seeing it coming, the chances of us being together are fading,\nSoon I'll be coming back, come and meet me,\nLet's be smarter and fall in love again.\n\nVerse 2:\nIt felt like I need someone else,\nForgetting the name and filling it with someone else instead,\nWhen I last left, the door swinging behind me,\nI saw a woman full of new hope,\nI rejected those happy feelings but when our eyes met, the worries faded away,\nHow do I turn those feelings off? I don't know but it still feels right,\nI'm still scared of being taken away again,\nIf I fall in love and in the end I just break again,\nI don't want to fall in love only to be left,\nTime was precious when we were together,\nI won't admit that you are my only one,\nIf you want it, soon you'll be my wife.\n\nBridge:\nSometimes I said that I regret it, wanting to forget the fight,\nBut they will remain buried in you, even if I don't notice it,\nI didn't show enough love, what can I fix now?\nCan I be nice again, what can I do with it?"
+		},
+		{
+			"key": "ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR",
+			"value": "Chorus:\r\nI didn't want to fight, I don't want to break up,\r\ni never imagined this would end\r\nI didn't mean to break you, to do this to us, but...\r\nno matter how one loves the other, one hurts the other again\r\n\r\n\r\nVerse 1:\r\nSorry honey I haven't called in a while\r\nI've been busy and I've just recovered from work\r\nI miss you and I want you here\r\nto lie down on the beach when there are only stars above\r\nI dream how you would be warm in my arms\r\nI promised to stay with you through the ups and downs\r\nStill, time passes by taking me away\r\nyour kisses are memories in my mind now\r\nLike that vision of us touching\r\nin wich I kiss you and we rock together\r\nwhen the night gets dark, and the only thing I hear is you\r\nthe moon shines on you and you are drenched in sweat\r\nI guess neither of us tried enough\r\nbecause we came here and don't see enough of each other\r\nI'll be back in a moment, come meet me wife\r\nLet's be a little wiser so that we can love again\r\n\r\n\r\nVerse 2:\r\nI feel like I need someone else\r\nI forget your name and I mess it up with another name\r\nWhen I left with slamming doors last time,\r\na woman came up with an air of hope\r\nI rejected the happy feelings,\r\nbut when our eyes met, the sorrows disappeared\r\nHow to turn off the feeling? I don't know\r\nbut sometimes it gets me, I won't deny\r\nI'm afraid that I'll fall in love again\r\nor that I fall in love, and fail and never recover\r\nI don't want to fall in love with someone who immediately leaves\r\ntime is precious to spend alone with someone\r\nAnd I don't want to ride the emotional roller coaster alone anymore,\r\nbut you can handle it when you share everything\r\nI won't confess to you that you are my only one,\r\nif you want, you will realize that you are my wife\r\n\r\n\r\nBridge:\r\nSometimes I said I was sorry, I wanted to forget the fights,\r\nbut they remain inside me, even if I don't notice it\r\nI didn't show enough how much I cared\r\nI can be nice to you again now, what would I fix with its\r\n"
+		},
+		{
+			"key": "NATURAL_ENGLISH_OF_AUTHOR",
+			"value": "Chorus:\r\nI didn't want to fight, I don't want to break up,\r\ni never imagined this would end\r\nI didn't mean to break you, to do this to us, but...\r\nno matter how one loves the other, one hurts the other again\r\n\r\n\r\nVerse 1:\r\nSorry honey I haven't called in a while\r\nI've been busy and I've just recovered from work\r\nI miss you and I want you here\r\nto lie down on the beach when there are only stars above\r\nI dream how you would be warm in my arms\r\nI promised to stay with you through the ups and downs\r\nStill, time passes by taking me away\r\nyour kisses are memories in my mind now\r\nLike that vision of us touching\r\nin wich I kiss you and we rock together\r\nwhen the night gets dark, and the only thing I hear is you\r\nthe moon shines on you and you are drenched in sweat\r\nI guess neither of us tried enough\r\nbecause we came here and don't see enough of each other\r\nI'll be back in a moment, come meet me wife\r\nLet's be a little wiser so that we can love again\r\n\r\n\r\nVerse 2:\r\nI feel like I need someone else\r\nI forget your name and I mess it up with another name\r\nWhen I left with slamming doors last time,\r\na woman came up with an air of hope\r\nI rejected the happy feelings,\r\nbut when our eyes met, the sorrows disappeared\r\nHow to turn off the feeling? I don't know\r\nbut sometimes it gets me, I won't deny\r\nI'm afraid that I'll fall in love again\r\nor that I fall in love, and fail and never recover\r\nI don't want to fall in love with someone who immediately leaves\r\ntime is precious to spend alone with someone\r\nAnd I don't want to ride the emotional roller coaster alone anymore,\r\nbut you can handle it when you share everything\r\nI won't confess to you that you are my only one,\r\nif you want, you will realize that you are my wife\r\n\r\n\r\nBridge:\r\nSometimes I said I was sorry, I wanted to forget the fights,\r\nbut they remain inside me, even if I don't notice it\r\nI didn't show enough how much I cared\r\nI can be nice to you again now, what would I fix with its\r\n"
+		},
+		{
+			"key": "POETIC_ENGLISH_FROM_NATURAL_ENGLISH_OF_AUTHOR",
+			"value": "\nChorus:\nI don't wanna battle, I just want a truce\nI thought this would all be more than news\nI'm sorry for hurting you, it wasn't my plan,\nThere's too many miles to get where love began\n\nVerse 1:\nMy apologies for the late response,\nI'm coming down off from this awful stress\nWhat I wouldn't give to just be with you,\nLaying out on that beach with just the stars on view\nDreaming of the way you feel in my arms,\nI swore that we'd make it through, through these highs and lows\nMama time started busin' by,\nAll your kisses become memories stuck in my mind\nI remember that vision of us embracing,\nKissing softly while we just swayed\nAs the night got darker, the only sound I heard was you,\nThe moonlight on you, and how your sweat drenchin' through\nGuess we just ain't trying hard enough,\nWe get to a point, when peepin' lasts so much\nI'll be back for sure, meet me there soon,\nLet's be smarter now, so for love we can resume\n\nVerse 2:\nI felt I had to find someone else,\nYour name I forget, and another I just rushed\nSlamming doors, I left last time,\nThe presence of a woman that brought a hope on to last\nFeelings I dismissed when I saw her,\nBut when we locked eyes, all that sorrow was through\nDon't know how to end the feeling,\nSometimes it overtakes, can't deny it is real\nAfraid I would get in love and fail,\nFall, never recover, so never begin I'd favor\nDon't want to fall in love with someone discharge,\nTaking time precious to get to be with someone\nAnd I'm no longer ready for that roller coaster ride,\nBut with you we'll get through, for we share everything inside\nNot confessing to you that you are my one,\nYou'll soon realize that you are my number one\n\nBridge:\nI said I'm sorry a thousand times,\nThese fights, they only stay in mind\nBut I haven't shown you how much I love,\nSo we can now start all again and repair what needs be done."
 		}
 	]
 }

@@ -21,6 +21,10 @@
 		{
 			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
 			"value": ""
+		},
+		{
+			"key": "REFERENCE_SONG__NATIVE_TEXT",
+			"value": ""
 		}
 	]
 }

@@ -73,6 +73,238 @@
 		{
 			"key": "HAND_DRUMS_VALUE",
 			"value": "1"
+		},
+		{
+			"key": "ATTR_REFERENCE_SONG",
+			"value": "Katso idea"
+		},
+		{
+			"key": "ATTR_BIRTH_OF_SONG",
+			"value": "Katso idea"
+		},
+		{
+			"key": "POLL_INTEGRITY",
+			"value": "1"
+		},
+		{
+			"key": "ATTR_GENERIC_INTEGRITY",
+			"value": "Biisi on n‰enn‰isesti aidon kuuloinen parisuhderiita ilman suurempia loogisia ongelmia"
+		},
+		{
+			"key": "POLL_SOCIAL",
+			"value": "5"
+		},
+		{
+			"key": "ATTR_GENERIC_SOCIAL",
+			"value": "Parisuhteen hallitsijat t‰sm‰‰ politiikkaan \"suvaitsemattomuus oppositiota kohtaan, olemattomat tai vilpilliset vaalit, sek‰ ihmisoikeusrikkomukset\""
+		},
+		{
+			"key": "ATTR_GENERIC_ECONOMIC",
+			"value": "Kappaleessa pidet‰‰n toisen muuttumista negatiivisena. Tappelut mahdollisestaan konservatiivisella asenteella."
+		},
+		{
+			"key": "POLL_ECONOMIC",
+			"value": "5"
+		},
+		{
+			"key": "POLL_CULTURE",
+			"value": "5"
+		},
+		{
+			"key": "ATTR_GENERIC_CULTURE",
+			"value": "Parisuhde arvokkaimpana yhteisˆn‰ on kappaleen ominaispiirre"
+		},
+		{
+			"key": "POLL_HUMAN_STRENGTH",
+			"value": "1"
+		},
+		{
+			"key": "ATTR_GENERIC_HUMAN_STRENGTH",
+			"value": "Kaksi vahvaa ihmist‰ tappelee kesken‰‰n"
+		},
+		{
+			"key": "POLL_MOTIVATION",
+			"value": "4"
+		},
+		{
+			"key": "ATTR_GENERIC_MOTIVATION",
+			"value": "Tappelussa vallitseva teema on toisen rankaisu, mutta toisaalta seksi palkitsee, mik‰ myˆnnet‰‰n. T‰m‰ on siis loogisesti neutraali summa, mutta ajallisesti kappaleesta suurin osa on rankaisevaa."
+		},
+		{
+			"key": "POLL_SEXUALIZATION",
+			"value": "2"
+		},
+		{
+			"key": "ATTR_GENERIC_SEXUALIZATION",
+			"value": "Kappaleessa sivutaan pett‰mist‰, seksi‰ ja sukupuolielimi‰."
+		},
+		{
+			"key": "POLL_BELIEFS",
+			"value": "5"
+		},
+		{
+			"key": "ATTR_GENERIC_BELIEFS",
+			"value": "Kappale sallii kaiken negatiivisen miehen ja naisen toiminnan ilman heid‰n hallinnassa olevia negatiivisia seurauksia, eik‰ kappaleessa keskustella myˆsk‰‰n riskeist‰."
+		},
+		{
+			"key": "POLL_EXPECTATIONS",
+			"value": "5"
+		},
+		{
+			"key": "ATTR_GENERIC_EXPECTATIONS",
+			"value": "Kappaleessa ei hyv‰ksyt‰ partnerin toimintaa ja odotetaan partnerin olevan t‰ydellinen."
+		},
+		{
+			"key": "POLL_MOOD_JOYFUL_MELANCHOLIC",
+			"value": "3"
+		},
+		{
+			"key": "POLL_MOOD_PLAYFUL_SERIOUS",
+			"value": "4"
+		},
+		{
+			"key": "ATTR_GENERIC_MOOD_PLAYFUL_SERIOUS",
+			"value": "Kappaleessa on liev‰‰ leikkisyytt‰ ja vakavuutta, mutta on vaikea sanoa, kumpi on vallitseva teema. Kertos‰e on vakava."
+		},
+		{
+			"key": "POLL_MOOD_UPLIFTING_HEAVY",
+			"value": "4"
+		},
+		{
+			"key": "ATTR_GENERIC_MOOD_UPLIFTING_HEAVY",
+			"value": "Kappale on hieman slaavilainen perus-vakava musiikilta ja sanoituksilta osin"
+		},
+		{
+			"key": "POLL_MOOD_LIGHTHEARTED_SOMBER",
+			"value": "4"
+		},
+		{
+			"key": "ATTR_GENERIC_MOOD_LIGHTHEARTED_SOMBER",
+			"value": "Kappaleessa ei ole hilpeit‰ asioita, vaikka kappale on muihin kappaleihin verrattuna hilpe‰n erilainen. Lyriikassa sanotut asiat on melko synkki‰, jos niit‰ j‰‰ miettim‰‰n."
+		},
+		{
+			"key": "POLL_MOOD_HUMOROUS_DRAMATIC",
+			"value": "1"
+		},
+		{
+			"key": "ATTR_GENERIC_MOOD_HUMOROUS_DRAMATIC",
+			"value": "Asiat on sanottu komediamaisella kontrastilla."
+		},
+		{
+			"key": "POLL_ATTITUDE_HOPEFUL_DESPAIR",
+			"value": "4"
+		},
+		{
+			"key": "ATTR_GENERIC_ATTITUDE_HOPEFUL_DESPAIR",
+			"value": "Kappaleen tarinan ihmisten vahvuus ei anna kuvaa, ett‰ kyse olisi erityisen toivottomasta asiasta, mutta kyseinen lyhyt skene on toivoton."
+		},
+		{
+			"key": "ATTR_GENERIC_ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+			"value": "Parisuhteesta n‰hd‰‰n vain huonoja puolia seksi‰ lukuunottamatta, ja sekin n‰hd‰‰n melkeimp‰ 'seksiriippuvuutena'."
+		},
+		{
+			"key": "POLL_ATTITUDE_ATTITUDE_OPEN_CLOSED",
+			"value": "5"
+		},
+		{
+			"key": "POLL_ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+			"value": "5"
+		},
+		{
+			"key": "ATTR_GENERIC_ATTITUDE_ATTITUDE_OPEN_CLOSED",
+			"value": "Ihmiset ovat tehneet lopulliset mielipiteens‰ ja asioista kuullaan lopullisessa jyrkkyydess‰‰n, kuten oikeussalissa."
+		},
+		{
+			"key": "POLL_SEXUALITY",
+			"value": "1"
+		},
+		{
+			"key": "ATTR_GENERIC_SEXUALITY",
+			"value": "Kappaleen er‰s piirre on seksuaaliset seikkailut"
+		},
+		{
+			"key": "POLL_SEXUAL_ACTING",
+			"value": "1"
+		},
+		{
+			"key": "ATTR_GENERIC_SEXUAL_ACTING",
+			"value": "Kappaleen ihmiset k‰ytt‰ytyv‰t seksuaalisesti itsevarmasti."
+		},
+		{
+			"key": "POLL_SEXUAL_COMMITMENT",
+			"value": "5"
+		},
+		{
+			"key": "ATTR_GENERIC_SEXUAL_COMMITMENT",
+			"value": "Yksiavioisuus ja sen suojelu on kappaleen keskeinen piirre"
+		},
+		{
+			"key": "POLL_SEXUAL_ORIENTATION",
+			"value": "1"
+		},
+		{
+			"key": "ATTR_GENERIC_SEXUAL_ORIENTATION",
+			"value": "Parisuhteen heteroseksuaalisuus on kappaleen keskeinen piirre"
+		},
+		{
+			"key": "POLL_SEXUAL_PREFERENCE",
+			"value": "3"
+		},
+		{
+			"key": "POLL_PHYSICAL_PREFERENCE",
+			"value": "3"
+		},
+		{
+			"key": "VOCAL_MELODY_2ND_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "CHORDS_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "REFERENCE_SONG__NATIVE_TEXT",
+			"value": "S‰e 1:\r\nKuuntele mua nyt,  ja oo hiljaa\r\nolin v‰‰r‰s  ja oli turha kiista\r\noon masentunu kun oon saman katon alla\r\npliis paranna se ja myˆs h‰ivy pois samalla\r\nSanoisin t‰n rakastavasti, mutta\r\ns‰ et kuuntele, ku muutuit  nii hankalaksi\r\nMenetin luottamuksen suhun kulta\r\nrakas,  s‰ veit v‰rit pois multa\r\nJuorusit pahaa, pilkkasit mua mun kuullen\r\notit meid‰n rahat ja myit pois mun omaisuuden\r\nNuku rauhassa  ja pysy lep‰‰m‰s\r\ntekis mieli tehd‰ levostasi pysyv‰\r\nmutta silti m‰ haluun sua hyv‰ill‰\r\nnukkuu lusikassa niinku ekana yˆn‰ yhess‰\r\nPerkele mit‰ roskaa el‰m‰ sun kaa\r\nonkaan mut seksi makeuttaa sen nii en huomaa\r\n\r\nKertos‰e:\r\nVaimo hei, rakkaudesta meid‰n koti tehtiin\r\nVaimo hei, ei l‰mpˆ pysy yll‰ ilman liekkii\r\nVaimo hei, me tehtiin t‰n eteen kaikki\r\nMee, hei hei, silti susta pysyn eros ikuisesti\r\n\r\nS‰e 2:\r\nMies hei, tule t‰nne, sua v‰h‰n rankasen\r\notan kiinni palleistas kynsill‰ puristaen\r\nM‰ tii‰n et s‰ s‰rit meid‰t tarkoituksella\r\ns‰rit mun syd‰men ja mut sen mukana\r\nMiks s‰ muutuit? Mihin katos rakkaus?\r\nLeveilet vaikka palkkas on kelakorvaus\r\nSori kyl s‰ riitit, ja toivoin sun palaavan\r\nmut s‰ pysyit pois ja lˆysin toisen pitk‰‰n halaamaan\r\nolin viekas ja  s‰ et huomannut\r\net sun kaverisi oli kauan mua kuolannut\r\npalkitsin itseni  aurinkolomalla ja\r\nmaksoin yhteistililt‰ ku ryypp‰sit vain sohvalla\r\nS‰ oot ainut syyp‰‰ ja se jo ymm‰rr‰\r\nolin sun vaimo ja olit musta ylpe‰\r\nkuitenkin olit kusip‰‰, petit menem‰‰n, ja\r\nen en‰‰ ala siet‰‰n sua enemp‰‰\r\n\r\nS‰e 3:\r\nMeid‰n riita johtaa aina  riitoihin pahempiin\r\nm‰ oon perheen puolesta mut s‰ taas l‰hit bileisiin\r\nai m‰ oon leija, ei osu herjas ku\r\ns‰h‰n olit meist‰ se joka muihin vertas\r\nAnteeks,  m‰ tein kyll‰ virheit‰\r\nmut m‰ silti tunsin samoin kun s‰ aloit ilkeill‰\r\nHei, mun muna on ollut vain l‰hiruokaa ku\r\nsun takojakelu on koko suomen luokkaa\r\nPahin virhe oli yll‰pit‰‰ toivoa,\r\non off toistoa, on nyt off ja pornoa\r\nSaatampa hukuttaa suruni kaljaan\r\nja ottaa hetkeksi unohdusta akkaan\r\nTahoit pois ja sit tahoit s‰nkyyn takasin\r\nyhteen suuntaan ovi k‰y  mun uusin avaimin\r\nYksin kylm‰‰ on, harmaa j‰lki on eron, varmaan\r\nyksin‰‰n m‰ silti saan olon helpon"
+		},
+		{
+			"key": "REFERENCE_SONG__ENGLISH_TEXT",
+			"value": "Verse 1:\r\nListen to me now, and be quiet\r\nI was wrong and there was no point in arguing\r\nI'm depressed when I'm under the same roof\r\nplease heal it and also disappear at the same time\r\nI would say this lovingly, but\r\nyou don't listen to me because you turned into a difficult person\r\nI lost my trust, honey\r\nhoney, you took the colors away from me\r\nYou gossiped about me and you mocked me in my hearing\r\nyou took our money and sold my property\r\nSleep peacefully and stay resting\r\nI would like to make your resting permanent\r\nbut still I want to caress you\r\nsleep in a spoon like the first night together\r\nDamn, life with you is rubbish, but the sex sweeten it so I don't notice\r\n\r\nChorus:\r\nHello wife, love made our home\r\nHey wife, the heat can't stay up without a flame\r\nHey wife, we did everything for this\r\nGo, bye bye, still I'll stay away from you forever\r\n\r\nVerse 2:\r\nHey man, come here, I'll give you a bit of a hard time\r\nI grab your testicles with my nails, squeezing\r\nI bet you broke us up on purpose\r\nyou broke my heart and me along with it\r\nWhy did you change? where is the love?\r\nYou brag even though your salary is unemployment compensation\r\nSorry, yes you were enough, and I was hoping you would come back\r\nbut you stayed away and I found someone else to hug for a long time\r\nI was sneaky and you didn't notice\r\nthat your friend had been drooling over me for a long time\r\nI rewarded myself with a southern holiday and\r\nI paid from a joint account when you were just lounging on the sofa\r\nYou are the only one to blame and you already understand that\r\nI was your wife and you were proud of me\r\nhowever, you were an asshole, you cheated on me, and\r\nI can't stand you anymore\r\n\r\nVerse 3:\r\nOur quarrel always leads to worse quarrels\r\nI'm for the family, but you went to the party again\r\nOh, I'm a braggart, it doesn't hurt to slander\r\nyou were the one compared to the rest of us\r\nSorry, I did make mistakes\r\nbut I still felt the same way when you started being mean\r\nHello, my penis has only been food in the neighborhood\r\nyour vagina's distribution is of the same class as the whole of Finland\r\nThe worst mistake was to maintain hope,\r\non/off repeat, it's off now with porn\r\nMaybe I'll drown my sorrows in beer\r\nand I may forget my woman temporarily\r\nYou wanted to leave and then you wanted to go back to bed\r\nthe door opens one way with my latest keys\r\nIt's cold alone, the gray mark is from our separation, I'm sure I'll still feel at ease alone\r\n"
+		},
+		{
+			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
+			"value": "Verse 1 {\n\tme {\n\t\ttelling my romantic partner {\n\t\t\tto be ( quiet )\n\t\t\twrong ( with pharse ) {\n\t\t\t\tno ( point in arguing )\n\t\t\t}\n\t\t}\n\t\t( depressed ) {\n\t\t\tunder ( same roof )\n\t\t}\n\t\tasking my romantic partner {\n\t\t\theal ( it )\n\t\t\tdisappear ( same time )\n\t\t}\n\t\tloving {\n\t\t\twanting {\n\t\t\t\tpharse ( lovingly )\n\t\t\t}\n\t\t}\n\t}\n\tmy romantic partner {\n\t\tturning {\n\t\t\tdifficult {\n\t\t\t\tperson\n\t\t\t}\n\t\t}\n\t\t( losing ) {\n\t\t\tmy ( trust )\n\t\t}\n\t\ttaking {\n\t\t\tcolors {\n\t\t\t\taway ( from me )\n\t\t\t}\n\t\t}\n\t\tdoings {\n\t\t\tgossiping ( about me )\n\t\t\tmocking ( in my hearing )\n\t\t\ttaking {\n\t\t\t\tour ( money )\n\t\t\t\tselling ( my property )\n\t\t\t}\n\t\t}\n\t\tresting {\n\t\t\tpeacefully\n\t\t\tpermanently\n\t\t}\n\t\tme {\n\t\t\twanting {\n\t\t\t\tcaress\n\t\t\t\tspoon ( together )\n\t\t\t}\n\t\t}\n\t}\n\tme and my romantic partner {\n\t\tlife {\n\t\t\trubbish {\n\t\t\t\tsex ( sweeten )\n\t\t\t}\n\t\t}\n\t}\n}\nchorus {\n\tme and my romantic partner {\n\t\tlove {\n\t\t\tmaking ( home )\n\t\t\t( heat ) {\n\t\t\t\tstaying ( up )\n\t\t\t}\n\t\t\tdoing ( everything )\n\t\t}\n\t\tme {\n\t\t\tsaying ( bye bye )\n\t\t\tstaying ( away )\n\t\t\t( forever )\n\t\t}\n\t}\n}\nVerse 2 {\n\tme {\n\t\ttelling ( my romantic partner to ) {\n\t\t\tcome {\n\t\t\t\tgiving {\n\t\t\t\t\thard ( time )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tgrabbing {\n\t\t\this ( testicles )\n\t\t\tnails ( squeezing )\n\t\t}\n\t\tbetting {\n\t\t\tmy romantic partner {\n\t\t\t\tbroke {\n\t\t\t\t\tus ( up )\n\t\t\t\t}\n\t\t\t\tbroken {\n\t\t\t\t\tmy ( heart )\n\t\t\t\t}\n\t\t\t}\n\t\t\tpurpose\n\t\t}\n\t\tasking {\n\t\t\twhy ( changed )\n\t\t\twhere ( love )\n\t\t}\n\t\t( brag ) {\n\t\t\teven ( though ) {\n\t\t\t\this ( salary ) {\n\t\t\t\t\tunemployment ( compensation )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\thoping ( my romantic partner ) {\n\t\t\tcome ( back )\n\t\t}\n\t\tfinding {\n\t\t\tsomeone ( else ) {\n\t\t\t\thug ( long time )\n\t\t\t}\n\t\t}\n\t\tsneaky ( and my romantic partner ) {\n\t\t\tdid {\n\t\t\t\tnotice\n\t\t\t}\n\t\t}\n\t\trewarding ( myself ) {\n\t\t\tsouthern ( holiday )\n\t\t}\n\t\tpaying ( from ) {\n\t\t\tjoint ( account )\n\t\t}\n\t}\n\tmy romantic partner {\n\t\tlounging {\n\t\t\ton ( sofa )\n\t\t}\n\t\tonly {\n\t\t\tone ( to blame )\n\t\t\talready {\n\t\t\t\tunderstand\n\t\t\t}\n\t\t}\n\t\twife {\n\t\t\tproud\n\t\t\tasshole\n\t\t\tcheated ( on me )\n\t\t\tcan't {\n\t\t\t\tstand {\n\t\t\t\t\tanymore\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\tme and my romantic partner {\n\t\tquarrel {\n\t\t\talways ( leads ) {\n\t\t\t\tworse ( quarrels )\n\t\t\t}\n\t\t}\n\t\tme {\n\t\t\tfamily\n\t\t}\n\t\tmy romantic partner {\n\t\t\tparty ( again )\n\t\t}\n\t\tbraggart {\n\t\t\tdoesn't ( hurt ) {\n\t\t\t\tslander\n\t\t\t}\n\t\t}\n\t\tme {\n\t\t\tcompared ( to the rest of us )\n\t\t}\n\t}\n\tme {\n\t\tmaking ( mistakes )\n\t\tfeeling {\n\t\t\tsame ( way )\n\t\t}\n\t\t( penis ) {\n\t\t\tfood ( in the neighborhood )\n\t\t}\n\t\tmy romantic partner {\n\t\t\tvagina ( Finland )\n\t\t}\n\t\tmistake {\n\t\t\tmaintain ( hope )\n\t\t}\n\t\ton/off {\n\t\t\trepeat\n\t\t\toff ( now )\n\t\t}\n\t\tmy romantic partner {\n\t\t\tporn\n\t\t}\n\t\tdrown {\n\t\t\tsorrows ( beer )\n\t\t\tforget ( woman ) {\n\t\t\t\ttemporarily\n\t\t\t}\n\t\t}\n\t\tleave\n\t\tgo ( back ) {\n\t\t\tbed\n\t\t}\n\t\tdoor {\n\t\t\topens ( one way ) {\n\t\t\t\twith ( my latest keys )\n\t\t\t}\n\t\t}\n\t}\n\tme and my romantic partner {\n\t\tseparation {\n\t\t\tgray ( mark )\n\t\t}\n\t\tme {\n\t\t\t( feel ) {\n\t\t\t\tat ( ease )\n\t\t\t}\n\t\t\talone\n\t\t}\n\t}\n}"
+		},
+		{
+			"key": "NATURAL_NATIVE_OF_AUTHOR",
+			"value": "S‰e 1:\r\nKuuntele mua nyt,  ja oo hiljaa\r\nolin v‰‰r‰s  ja oli turha kiista\r\noon masentunu kun oon saman katon alla\r\npliis paranna se ja myˆs h‰ivy pois samalla\r\nSanoisin t‰n rakastavasti, mutta\r\ns‰ et kuuntele, ku muutuit  nii hankalaksi\r\nMenetin luottamuksen suhun kulta\r\nrakas,  s‰ veit v‰rit pois multa\r\nJuorusit pahaa, pilkkasit mua mun kuullen\r\notit meid‰n rahat ja myit pois mun omaisuuden\r\nNuku rauhassa  ja pysy lep‰‰m‰s\r\ntekis mieli tehd‰ levostasi pysyv‰\r\nmutta silti m‰ haluun sua hyv‰ill‰\r\nnukkuu lusikassa niinku ekana yˆn‰ yhess‰\r\nPerkele mit‰ roskaa el‰m‰ sun kaa\r\nonkaan mut seksi makeuttaa sen nii en huomaa\r\n\r\nKertos‰e:\r\nVaimo hei, rakkaudesta meid‰n koti tehtiin\r\nVaimo hei, ei l‰mpˆ pysy yll‰ ilman liekkii\r\nVaimo hei, me tehtiin t‰n eteen kaikki\r\nMee, hei hei, silti susta pysyn eros ikuisesti\r\n\r\nS‰e 2:\r\nMies hei, tule t‰nne, sua v‰h‰n rankasen\r\notan kiinni palleistas kynsill‰ puristaen\r\nM‰ tii‰n et s‰ s‰rit meid‰t tarkoituksella\r\ns‰rit mun syd‰men ja mut sen mukana\r\nMiks s‰ muutuit? Mihin katos rakkaus?\r\nLeveilet vaikka palkkas on kelakorvaus\r\nSori kyl s‰ riitit, ja toivoin sun palaavan\r\nmut s‰ pysyit pois ja lˆysin toisen pitk‰‰n halaamaan\r\nolin viekas ja  s‰ et huomannut\r\net sun kaverisi oli kauan mua kuolannut\r\npalkitsin itseni  aurinkolomalla ja\r\nmaksoin yhteistililt‰ ku ryypp‰sit vain sohvalla\r\nS‰ oot ainut syyp‰‰ ja se jo ymm‰rr‰\r\nolin sun vaimo ja olit musta ylpe‰\r\nkuitenkin olit kusip‰‰, petit menem‰‰n, ja\r\nen en‰‰ ala siet‰‰n sua enemp‰‰\r\n\r\nS‰e 3:\r\nMeid‰n riita johtaa aina  riitoihin pahempiin\r\nm‰ oon perheen puolesta mut s‰ taas l‰hit bileisiin\r\nai m‰ oon leija, ei osu herjas ku\r\ns‰h‰n olit meist‰ se joka muihin vertas\r\nAnteeks,  m‰ tein kyll‰ virheit‰\r\nmut m‰ silti tunsin samoin kun s‰ aloit ilkeill‰\r\nHei, mun muna on ollut vain l‰hiruokaa ku\r\nsun takojakelu on koko suomen luokkaa\r\nPahin virhe oli yll‰pit‰‰ toivoa,\r\non off toistoa, on nyt off ja pornoa\r\nSaatampa hukuttaa suruni kaljaan\r\nja ottaa hetkeksi unohdusta akkaan\r\nTahoit pois ja sit tahoit s‰nkyyn takasin\r\nyhteen suuntaan ovi k‰y  mun uusin avaimin\r\nYksin kylm‰‰ on, harmaa j‰lki on eron, varmaan\r\nyksin‰‰n m‰ silti saan olon helpon"
+		},
+		{
+			"key": "ENGLISH_UNPACKED_STRUCTURE",
+			"value": "Verse 1 {\n\tme {\n\t\ttelling my romantic partner {\n\t\t\tto be ( quiet )\n\t\t\twrong ( with pharse ) {\n\t\t\t\tno ( point in arguing )\n\t\t\t}\n\t\t}\n\t\t( depressed ) {\n\t\t\tunder ( same roof )\n\t\t}\n\t\tasking my romantic partner {\n\t\t\theal ( it )\n\t\t\tdisappear ( same time )\n\t\t}\n\t\tloving {\n\t\t\twanting {\n\t\t\t\tpharse ( lovingly )\n\t\t\t}\n\t\t}\n\t}\n\tmy romantic partner {\n\t\tturning {\n\t\t\tdifficult {\n\t\t\t\tperson\n\t\t\t}\n\t\t}\n\t\t( losing ) {\n\t\t\tmy ( trust )\n\t\t}\n\t\ttaking {\n\t\t\tcolors {\n\t\t\t\taway ( from me )\n\t\t\t}\n\t\t}\n\t\tdoings {\n\t\t\tgossiping ( about me )\n\t\t\tmocking ( in my hearing )\n\t\t\ttaking {\n\t\t\t\tour ( money )\n\t\t\t\tselling ( my property )\n\t\t\t}\n\t\t}\n\t\tresting {\n\t\t\tpeacefully\n\t\t\tpermanently\n\t\t}\n\t\tme {\n\t\t\twanting {\n\t\t\t\tcaress\n\t\t\t\tspoon ( together )\n\t\t\t}\n\t\t}\n\t}\n\tme and my romantic partner {\n\t\tlife {\n\t\t\trubbish {\n\t\t\t\tsex ( sweeten )\n\t\t\t}\n\t\t}\n\t}\n}\nchorus {\n\tme and my romantic partner {\n\t\tlove {\n\t\t\tmaking ( home )\n\t\t\t( heat ) {\n\t\t\t\tstaying ( up )\n\t\t\t}\n\t\t\tdoing ( everything )\n\t\t}\n\t\tme {\n\t\t\tsaying ( bye bye )\n\t\t\tstaying ( away )\n\t\t\t( forever )\n\t\t}\n\t}\n}\nVerse 2 {\n\tme {\n\t\ttelling ( my romantic partner to ) {\n\t\t\tcome {\n\t\t\t\tgiving {\n\t\t\t\t\thard ( time )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tgrabbing {\n\t\t\this ( testicles )\n\t\t\tnails ( squeezing )\n\t\t}\n\t\tbetting {\n\t\t\tmy romantic partner {\n\t\t\t\tbroke {\n\t\t\t\t\tus ( up )\n\t\t\t\t}\n\t\t\t\tbroken {\n\t\t\t\t\tmy ( heart )\n\t\t\t\t}\n\t\t\t}\n\t\t\tpurpose\n\t\t}\n\t\tasking {\n\t\t\twhy ( changed )\n\t\t\twhere ( love )\n\t\t}\n\t\t( brag ) {\n\t\t\teven ( though ) {\n\t\t\t\this ( salary ) {\n\t\t\t\t\tunemployment ( compensation )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\thoping ( my romantic partner ) {\n\t\t\tcome ( back )\n\t\t}\n\t\tfinding {\n\t\t\tsomeone ( else ) {\n\t\t\t\thug ( long time )\n\t\t\t}\n\t\t}\n\t\tsneaky ( and my romantic partner ) {\n\t\t\tdid {\n\t\t\t\tnotice\n\t\t\t}\n\t\t}\n\t\trewarding ( myself ) {\n\t\t\tsouthern ( holiday )\n\t\t}\n\t\tpaying ( from ) {\n\t\t\tjoint ( account )\n\t\t}\n\t}\n\tmy romantic partner {\n\t\tlounging {\n\t\t\ton ( sofa )\n\t\t}\n\t\tonly {\n\t\t\tone ( to blame )\n\t\t\talready {\n\t\t\t\tunderstand\n\t\t\t}\n\t\t}\n\t\twife {\n\t\t\tproud\n\t\t\tasshole\n\t\t\tcheated ( on me )\n\t\t\tcan't {\n\t\t\t\tstand {\n\t\t\t\t\tanymore\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\tme and my romantic partner {\n\t\tquarrel {\n\t\t\talways ( leads ) {\n\t\t\t\tworse ( quarrels )\n\t\t\t}\n\t\t}\n\t\tme {\n\t\t\tfamily\n\t\t}\n\t\tmy romantic partner {\n\t\t\tparty ( again )\n\t\t}\n\t\tbraggart {\n\t\t\tdoesn't ( hurt ) {\n\t\t\t\tslander\n\t\t\t}\n\t\t}\n\t\tme {\n\t\t\tcompared ( to the rest of us )\n\t\t}\n\t}\n\tme {\n\t\tmaking ( mistakes )\n\t\tfeeling {\n\t\t\tsame ( way )\n\t\t}\n\t\t( penis ) {\n\t\t\tfood ( in the neighborhood )\n\t\t}\n\t\tmy romantic partner {\n\t\t\tvagina ( Finland )\n\t\t}\n\t\tmistake {\n\t\t\tmaintain ( hope )\n\t\t}\n\t\ton/off {\n\t\t\trepeat\n\t\t\toff ( now )\n\t\t}\n\t\tmy romantic partner {\n\t\t\tporn\n\t\t}\n\t\tdrown {\n\t\t\tsorrows ( beer )\n\t\t\tforget ( woman ) {\n\t\t\t\ttemporarily\n\t\t\t}\n\t\t}\n\t\tleave\n\t\tgo ( back ) {\n\t\t\tbed\n\t\t}\n\t\tdoor {\n\t\t\topens ( one way ) {\n\t\t\t\twith ( my latest keys )\n\t\t\t}\n\t\t}\n\t}\n\tme and my romantic partner {\n\t\tseparation {\n\t\t\tgray ( mark )\n\t\t}\n\t\tme {\n\t\t\t( feel ) {\n\t\t\t\tat ( ease )\n\t\t\t}\n\t\t\talone\n\t\t}\n\t}\n}"
+		},
+		{
+			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL",
+			"value": "Verse 1:\nI told you to be quiet, I was wrong with my phrasing\nNo point in arguing, I was feeling so low\nUnder the same roof but I asked you to heal it,\ndisappear at the same time while wanting to phrase it lovingly.\n\nChorus:\nMe and you making a home, the heat of us staying up,\ndoin' everything together, bye bye to us staying away, forever\n\nVerse 2:\nI told you to come, give me a hard time\nI grabbed his balls then I squeezed his nails,\nbet you my love broke us up,\nbroken my heart for a purpose, why did you change, where's the love?\nEven though his salary's still on unemployment,\nhopin' you'd come back but I already found someone else to hug for a long time\nSneaky and I did notice, rewarding me myself a southern holiday,\npaid it from our joint account.\n\nMy romantic partner loun"
+		},
+		{
+			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL_NATIVE",
+			"value": "Verse 1:\nSanoin sinulle olemaan hiljaa, virheellisill‰ sanoillani\nEi ole j‰rke‰ riidell‰, olin tuolloin niin alavireinen\nSamassa katolla, mutta pyysin sinua parantamaan sen\nH‰vit‰ ja samalla halusin sanoa sit‰ yst‰v‰llisesti.\n\nKertos‰e:\nMe ja te teemme luotamme, meid‰n l‰mmˆss‰ pysytt‰mme ylˆs\nKaikki toimimme yhdess‰, heippa meille pysym‰tt‰ erill‰‰n, ikuisesti.\n\nVerse 2:\nKerroin sinulle tulemaan, antamaan minulle kovaa vastusta\nOtin h‰nen pallonsa ja puristin sormillani nauloja,\nUskon rakkaustemme hajottavan meid‰t,\nHaavi rikki tarkoituksella, miksi olet muuttunut, miss‰ rakkaus?\nVaikka h‰nen palkkansa on yh‰ tyˆttˆmyys,\nToivoin ett‰ tulemme takaisin mutta jo lˆysin jonkun muun tuhiseksi pitk‰ksi aikaa\nViisas ja huomasin, itseni palkkana etel‰n lomaan,\nmaksettua yhteisest‰ tileist‰.\n\nRakkaan kumppanini loungussa olleena..."
+		},
+		{
+			"key": "ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR",
+			"value": "Verse 1:\r\nListen to me now, and be quiet\r\nI was wrong and there was no point in arguing\r\nI'm depressed when I'm under the same roof\r\nplease heal it and also disappear at the same time\r\nI would say this lovingly, but\r\nyou don't listen to me because you turned into a difficult person\r\nI lost my trust, honey\r\nhoney, you took the colors away from me\r\nYou gossiped about me and you mocked me in my hearing\r\nyou took our money and sold my property\r\nSleep peacefully and stay resting\r\nI would like to make your resting permanent\r\nbut still I want to caress you\r\nsleep in a spoon like the first night together\r\nDamn, life with you is rubbish, but the sex sweeten it so I don't notice\r\n\r\nChorus:\r\nHello wife, love made our home\r\nHey wife, the heat can't stay up without a flame\r\nHey wife, we did everything for this\r\nGo, bye bye, still I'll stay away from you forever\r\n\r\nVerse 2:\r\nHey man, come here, I'll give you a bit of a hard time\r\nI grab your testicles with my nails, squeezing\r\nI bet you broke us up on purpose\r\nyou broke my heart and me along with it\r\nWhy did you change? where is the love?\r\nYou brag even though your salary is unemployment compensation\r\nSorry, yes you were enough, and I was hoping you would come back\r\nbut you stayed away and I found someone else to hug for a long time\r\nI was sneaky and you didn't notice\r\nthat your friend had been drooling over me for a long time\r\nI rewarded myself with a southern holiday and\r\nI paid from a joint account when you were just lounging on the sofa\r\nYou are the only one to blame and you already understand that\r\nI was your wife and you were proud of me\r\nhowever, you were an asshole, you cheated on me, and\r\nI can't stand you anymore\r\n\r\nVerse 3:\r\nOur quarrel always leads to worse quarrels\r\nI'm for the family, but you went to the party again\r\nOh, I'm a braggart, it doesn't hurt to slander\r\nyou were the one compared to the rest of us\r\nSorry, I did make mistakes\r\nbut I still felt the same way when you started being mean\r\nHello, my penis has only been food in the neighborhood\r\nyour vagina's distribution is of the same class as the whole of Finland\r\nThe worst mistake was to maintain hope,\r\non/off repeat, it's off now with porn\r\nMaybe I'll drown my sorrows in beer\r\nand I may forget my woman temporarily\r\nYou wanted to leave and then you wanted to go back to bed\r\nthe door opens one way with my latest keys\r\nIt's cold alone, the gray mark is from our separation, I'm sure I'll still feel at ease alone\r\n"
+		},
+		{
+			"key": "AUTOMATIC_ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR",
+			"value": "Verse 1:\nListen to me now and hush\nI was wrong and it was a useless fight\nI'm depressed to be under the same roof\nPlease mend it and also fade away at the same time\nI'd say this lovingly, but\nyou don't listen when you turned so difficult\nI lost trust in you, sweetheart\ndear, you took away my colors\nYou spread evil, mocked me within what I heard\nYou took our money and sold away my assets\n\nSleep peacefully and stay resting\nI want to make your peace permanent\nBut still, I want to caress you\nSleep in a spoon like that first night together\nDamnation, what a mess life is with you\nBut sex still sweetens it so I don't notice\n\nChorus:\nWife hey, our home was made of love\nWife hey, warmth can't stay without flame\nWife hey, we did everything for this\nGo, hey hey, yet I stay far away from you eternally\n\nVerse 2:\nMan hey, come here, I'll reprimand you a bit\nGrab onto your collar and squeeze with my nails\nI know you deliberately tried to upset us\nYou hurt my heart and me together\nWhy did you change? Where did the love go?\nSmile even if the pay is sick leave\nI'm sorry you argued, and I hoped you'd return\nBut you stayed away and I found another to embrace for a long time\nI was sly and you didn't notice\nThat your friend had long since adored me\nI rewarded myself with a vacation in the sun\nAnd I paid from joint apportionment when you only drank on the sofa\nYou're the only one to blame and I understand that\nI was your wife and you were proud of me\nNevertheless, you were a jerk, left, and\nI won't tolerate you any more than this\n\nVerse 3:\nOur argument always leads to worse quarrels\nI'm for the family but you for the near-by parties\nOh I'm a kite, insult won't hit as\nyou were the one who compared us to others\nI apologize, I made mistakes\nBut I felt the same when you began being rude\nHey, my egg has been only local food as\nyour cooking distribution is nationwide\nThe worst mistake was to keep hoping\nIt's off replay, it's off now and porn\nLet me drown my sorrows in a beer\nAnd take a moment of oblivion with a woman\nTake it away and take it back to the bed\nTo a common direction, my newest key opens the door\nIt's cold to be alone, the grey tracks of the parting are certain\nAlone I can still make my condition easy."
+		},
+		{
+			"key": "NATURAL_ENGLISH_OF_AUTHOR",
+			"value": "Verse 1:\r\nListen to me now, and be quiet\r\nI was wrong and there was no point in arguing\r\nI'm depressed when I'm under the same roof\r\nplease heal it and also disappear at the same time\r\nI would say this lovingly, but\r\nyou don't listen to me because you turned into a difficult person\r\nI lost my trust, honey\r\nhoney, you took the colors away from me\r\nYou gossiped about me and you mocked me in my hearing\r\nyou took our money and sold my property\r\nSleep peacefully and stay resting\r\nI would like to make your resting permanent\r\nbut still I want to caress you\r\nsleep in a spoon like the first night together\r\nDamn, life with you is rubbish, but the sex sweeten it so I don't notice\r\n\r\nChorus:\r\nHello wife, love made our home\r\nHey wife, the heat can't stay up without a flame\r\nHey wife, we did everything for this\r\nGo, bye bye, still I'll stay away from you forever\r\n\r\nVerse 2:\r\nHey man, come here, I'll give you a bit of a hard time\r\nI grab your testicles with my nails, squeezing\r\nI bet you broke us up on purpose\r\nyou broke my heart and me along with it\r\nWhy did you change? where is the love?\r\nYou brag even though your salary is unemployment compensation\r\nSorry, yes you were enough, and I was hoping you would come back\r\nbut you stayed away and I found someone else to hug for a long time\r\nI was sneaky and you didn't notice\r\nthat your friend had been drooling over me for a long time\r\nI rewarded myself with a southern holiday and\r\nI paid from a joint account when you were just lounging on the sofa\r\nYou are the only one to blame and you already understand that\r\nI was your wife and you were proud of me\r\nhowever, you were an asshole, you cheated on me, and\r\nI can't stand you anymore\r\n\r\nVerse 3:\r\nOur quarrel always leads to worse quarrels\r\nI'm for the family, but you went to the party again\r\nOh, I'm a braggart, it doesn't hurt to slander\r\nyou were the one compared to the rest of us\r\nSorry, I did make mistakes\r\nbut I still felt the same way when you started being mean\r\nHello, my penis has only been food in the neighborhood\r\nyour vagina's distribution is of the same class as the whole of Finland\r\nThe worst mistake was to maintain hope,\r\non/off repeat, it's off now with porn\r\nMaybe I'll drown my sorrows in beer\r\nand I may forget my woman temporarily\r\nYou wanted to leave and then you wanted to go back to bed\r\nthe door opens one way with my latest keys\r\nIt's cold alone, the gray mark is from our separation, I'm sure I'll still feel at ease alone\r\n"
+		},
+		{
+			"key": "POETIC_ENGLISH_FROM_NATURAL_ENGLISH_OF_AUTHOR",
+			"value": "Verse 1:\nListen up and be quiet\nWe were wrong, why keep arguing?\nIt's depressing when we're under the same roof\nSo heal it quickly, then get up and leave\nI'd say it kindly, but \nYou always listen hard, turning into a fool \nMy trust in you died, honey\nHoney, you drained the life from me\nYou gossip about me, mock me to my face\nTook our money, then sold off all my space\nLie down and rest up\nI'd like to make it permanent\nBut yet I still want to hold you, spooniní just like our first night together \nDamn, livin' with you sucks, but that lovin' sweetens it, hard to notice\nChorus:\nGreeting, wife, we made our home through love\nHey wife, the flame, it can no longer keep the heat\nHey wife, we did it all for this\nBut still goodbye, my love, I'm gonna stay away from you forever \nVerse 2:\nHey man, come here, I'll give ya a hard time\nGrip your balls with my nails, squeezing tight\nGuess you wrecked us on purpose\nBroke my heart when you took us apart\nWhy the change? Where is the love? \nYou brag about your unemployment \nSad to say, you were enough, and I was hoping you'd come back \nInstead you stayed away, and cuddled up with someone else for such a long time\nI was sneaky, you didn't notice\nYour friend who had the hots for me for such a long time\nI rewarded myself, and jetted on holiday down south \nIt was from a joint account I paid for; you were just sitting on the couch\nYou're solely to be blamed, no doubt you understand it too \nYou were my man and I was proud to be with you\nBut you messed up, you cheated on me, and\nI can't stand to look at you, can't stand to be around you \nVerse 3:\nOur brawls always lead to worse ones\nI stayed for the family while you went to the party again\nOh yeah, I'm boastful, slander doesn't hurt\nYou were the fool to think it could ever work\nAdmit my wrongs, but it's still the same\nWithin the same hour, you kept doiní wrong\nHey, you take away my manhood\nYour womanhood is spread throughout Finland\nMy worst mistake was believing in hope,\nOn and off, now it's off, replaced by internet porn\nDown some beers and forget my lady\nForget her for a while, tryiní to be shady\nYou wanted to go and decided to lay down\nThe door only opens one way with my new key in town\nIt's cold alone, the gray spot comes from our split, I'm positive I will just stay all alone"
 		}
 	]
 }

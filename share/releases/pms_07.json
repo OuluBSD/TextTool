@@ -73,7 +73,18 @@
 		}
 	],
 	"ideas": [
-
+		{
+			"title": "Iina meni pois",
+			"target_song": "Sydämen Asialla",
+			"reference_song": "-- ei ole -- mutta hittisointukaava oli valittu cliche --- ja niistä biiseistä aidosti koskettavin oli 'RHCP - Otherside', joten se, jos jokin --",
+			"description": "Sydämen asialla biisin projekti nimi oli 'Iina meni pois', mikä liittyi seurustelusuhteeni on-off vaiheeseen, missä oli vaikea erota ja jäädä yksin.\r\nTein myös sanat, mitkä on kuultavissa vielä lopullisen kappaleen kertosäkeessä ja bridgessä, mutta ne ei olleet rehelliset, tai niin ainakin ajattelin.\r\nLoppujen lopuksi, en osaa sanoa enää onko ne epärehelliset... vai alitajuisesti rehelliset.\r\n\r\nKirjoitushetkellä mielessäni oli ärsyttävä teinityttö, jonka suhtautuminen teini-parisuhteisiin on humoristisen kevyttä.\r\nSanat on tehty hänen ajatusmaailmaa kuvitellen, mutta yleisö piti sanoituksia vakavivana, mikä oli minulle yllättävää.\r\nYleisön vakavan ja aidon reaktion takia minun täytyi muuttaa omaa suhtautumistani asiaan... ja vakavoitua myös.\r\n"
+		},
+		{
+			"title": "Karkkipäivä",
+			"target_song": "Rakkauden Aika",
+			"reference_song": "Soul Captain Band yleisesti",
+			"description": "Olin soittanut klassista kitaraa melko paljon seurustellessani, koska tyttöystäväni luona ei ollut tietokonetta, vaan kitara.\r\nOlimme myös kuunnelleet paljon kitarapitoista suomi-reggaeta ja suomalaisia artisteja, etenkin sängyssä.\r\nIdea muodostui suunnittelematta Cubase ohjelmistoa käyttäen.\r\nNauhoitin jonkun tavallista kauniimman kitaranäppäilyn ja sitten kehitin sitä pilkkomalla sitä samplea.\r\nSamplen pilkkominen oli ollut jo tuttu työkalu musiikin tuottamisesta, mutta en ollut käyttänyt sitä leikkimielisesti aikaisemmin.\r\nSample-leikellystä akustisesta kitarasta tuli aika hauskan kuuloinen omalla tavallaan, ja sille oli saatava valmis kappale.\r\nSanoitusidea tuli vastakohtana edelliselle kauniille pianoballadille 'Sydämen asialla'.\r\nEn halunnut toistaa samaa ideaa, vaan halusin kontrastiksi konfliktia.\r\n"
+		}
 	],
 	"songs": [
 		"heartbeat",
