@@ -112,6 +112,7 @@ void Editor::InitSimplified() {
 	
 	AddItem(t_("Text"), t_("Edit Native"), text_edit_native);
 	AddItem(t_("Text"), t_("Edit English"), text_edit_english);
+	AddItem(t_("Text"), t_("Generation"), text_autocompare);
 	
 	AddItem(t_("Production"), t_("Checklist"), checklist_production);
 	

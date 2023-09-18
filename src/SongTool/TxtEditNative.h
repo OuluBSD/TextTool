@@ -11,6 +11,8 @@ class TxtEditNative : public EditorCtrl {
 	String user_natural_native_key;
 	String auto_natural_english_trans_key;
 	String user_natural_english_trans_key;
+	Label lbl;
+	
 	
 public:
 	typedef TxtEditNative CLASSNAME;

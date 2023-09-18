@@ -20,13 +20,13 @@ TxtEditEnglish::TxtEditEnglish() {
 void TxtEditEnglish::Init() {
 	EditorCtrl::Init();
 	
-	int w = 300;
+	int w = 200;
 	top_bar.Add(import_native_direct_trans.HCenterPos(w,-2*w).VSizePos(1,1));
 	top_bar.Add(artist_style.HCenterPos(w,-w).VSizePos(1,1));
 	top_bar.Add(make_poetic.HCenterPos(w,0).VSizePos(1,1));
 	top_bar.Add(check_errors.HCenterPos(w,w).VSizePos(1,1));
 	top_bar.Add(evaluate_audience.HCenterPos(w,2*w).VSizePos(1,1));
-	
+	top_bar.Add(lbl.HCenterPos(w,3*w).VSizePos(1,1));
 	
 	artist_style.Add("Red Hot Chili Peppers");
 	artist_style.Add("Beastie Boys");
@@ -89,6 +89,8 @@ void TxtEditEnglish::Init() {
 	
 	evaluate_audience.SetLabel(t_("Evaluate the english text with an AI audience"));
 	evaluate_audience << THISBACK(EvaluateAudience);
+	
+	lbl.SetLabel(t_("Poetic english, non-poetic-english, auto-poetic-english"));
 	
 }
 

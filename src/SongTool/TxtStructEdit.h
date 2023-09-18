@@ -10,6 +10,8 @@ class TxtStructEdit : public EditorCtrl {
 	String unpacked_struct_key;
 	String main_natural_native_key;
 	String reference_unpacked_english;
+	Label lbl;
+	
 	
 public:
 	typedef TxtStructEdit CLASSNAME;

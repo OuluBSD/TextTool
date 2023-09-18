@@ -26,6 +26,7 @@ void TxtStructEdit::Init() {
 	top_bar.Add(check_errors.HCenterPos(w,-w).VSizePos(1,1));
 	top_bar.Add(convert_to_native.HCenterPos(w,0).VSizePos(1,1));
 	top_bar.Add(evaluate_audience.HCenterPos(w,w).VSizePos(1,1));
+	top_bar.Add(lbl.HCenterPos(w,2*w).VSizePos(1,1));
 	
 	import_reference_struct.SetLabel(t_("Copy the struct of the reference song"));
 	import_reference_struct << THISBACK(ImportReferenceStruct);
@@ -38,6 +39,8 @@ void TxtStructEdit::Init() {
 	
 	evaluate_audience.SetLabel(t_("Evaluate the english text with an AI audience"));
 	evaluate_audience << THISBACK(EvaluateAudience);
+	
+	lbl.SetLabel(t_("Deconstructed, auto-english, auto-native"));
 	
 }
 

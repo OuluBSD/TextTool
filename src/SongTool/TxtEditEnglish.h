@@ -11,6 +11,7 @@ class TxtEditEnglish : public EditorCtrl {
 	String user_natural_english_key;
 	String user_natural_english_trans_key;
 	String auto_poetic_english_key;
+	Label lbl;
 	
 	
 public:

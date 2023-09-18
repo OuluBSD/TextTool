@@ -611,7 +611,7 @@ T_("Title:")
 fiFI("Otsikko:")
 
 T_("Target song:")
-fiFI("Konde kappale:")
+fiFI("Kohde kappale:")
 
 T_("Reference song:")
 fiFI("Viitekappale:")

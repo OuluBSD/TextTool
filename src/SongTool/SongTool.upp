@@ -73,6 +73,8 @@ file
 	TxtEditNative.cpp,
 	TxtEditEnglish.h,
 	TxtEditEnglish.cpp,
+	TxtAutoCompare.h,
+	TxtAutoCompare.cpp,
 	Checklists.h,
 	Checklists.cpp,
 	MusicVideoImport.h,

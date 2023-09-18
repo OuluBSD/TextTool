@@ -27,6 +27,7 @@ void TxtEditNative::Init() {
 	top_bar.Add(translate_to_english.HCenterPos(w,-w).VSizePos(1,1));
 	top_bar.Add(check_errors.HCenterPos(w,0).VSizePos(1,1));
 	top_bar.Add(evaluate_audience.HCenterPos(w,w).VSizePos(1,1));
+	top_bar.Add(lbl.HCenterPos(w,2*w).VSizePos(1,1));
 	
 	import_autotrans_native.SetLabel(t_("Import the native text converted from structure"));
 	import_autotrans_native << THISBACK(ImportAutomaticNativeTranslation);
@@ -39,6 +40,8 @@ void TxtEditNative::Init() {
 	
 	evaluate_audience.SetLabel(t_("Evaluate the english text with an AI audience"));
 	evaluate_audience << THISBACK(EvaluateAudience);
+	
+	lbl.SetLabel(t_("Native, non-poetic-english, auto-english"));
 	
 }
 

@@ -3,8 +3,11 @@
 
 
 TranslatorToolCtrl::TranslatorToolCtrl() {
+	Add(lbl.RightPos(0,200).TopPos(0,30));
 	Add(hsplit.HSizePos().VSizePos(30,0));
 	Add(translate.TopPos(1,28).HCenterPos(120));
+	
+	lbl.SetLabel(t_("Left: native; Right: english"));
 	
 	hsplit.Horz() << orig << trans;
 	

@@ -3,6 +3,7 @@
 
 
 class TranslatorToolCtrl : public SongToolCtrl {
+	Label lbl;
 	Splitter hsplit;
 	DocEdit orig, trans;
 	Button translate;

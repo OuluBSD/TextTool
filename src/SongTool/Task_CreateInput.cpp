@@ -1200,7 +1200,7 @@ void Task::CreateInput_TranslateSongData() {
 
 
 const char* struct_unpack_orig = R"_(
-chorus:
+Chorus 1a:
 I didn't want to fight, I don't want to break up
 I never imagined this would end.
 I didn't mean to break you, make us like this
@@ -1208,7 +1208,7 @@ but no matter how much I love, one of us hurts the other again.)_";
 
 
 const char* struct_unpack_trans = R"_(
-chorus {
+chorus 1a {
 	me {
 		not wanting {
 			to fight

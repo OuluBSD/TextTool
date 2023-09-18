@@ -36,6 +36,7 @@ protected:
 	TxtStructEdit					structure_edit;
 	TxtEditNative					text_edit_native;
 	TxtEditEnglish					text_edit_english;
+	TxtAutoCompare					text_autocompare;
 	ChecklistProduction				checklist_production;
 	MusicVideoImport				videostruct_import;
 	MusicVideoEdit					videostruct_edit;

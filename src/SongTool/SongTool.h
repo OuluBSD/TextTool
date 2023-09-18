@@ -73,6 +73,7 @@ using namespace Upp;
 #include "TxtStructEdit.h"
 #include "TxtEditNative.h"
 #include "TxtEditEnglish.h"
+#include "TxtAutoCompare.h"
 #include "MusicVideoImport.h"
 #include "MusicVideoEdit.h"
 #include "MusicVideoToPlan.h"
