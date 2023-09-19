@@ -275,7 +275,7 @@ T_("Text")
 fiFI("Teksti")
 
 T_("Edit Native")
-fiFI("Muokkaa alkuper\303\244ist\303\244")
+fiFI("Muokkaa natiivia")
 
 T_("Edit English")
 fiFI("Muokkaa englantilaista")
@@ -799,7 +799,7 @@ T_("Check for problems in the song structure")
 fiFI("Tarkista kappaleen rakenne")
 
 T_("Convert the structure to a native text")
-fiFI("Muunna rakenne alkuper\303\244istekstiksi")
+fiFI("Muunna rakenne natiiviksi tekstiksi")
 
 T_("Evaluate the english text with an AI audience")
 fiFI("Arvioi eng. teko\303\244ly-yleis\303\266ll\303\244")
@@ -811,10 +811,10 @@ fiFI("Haluatko korvata olemassa olevan tekstin? T\303\244t\303\244 ei voi peruut
 // TxtEditNative.cpp
 
 T_("Import the native text converted from structure")
-fiFI("Tuo rakenteesta muunnettu alkuper\303\244inen teksti")
+fiFI("Tuo rakenteesta muunnettu natiivi teksti")
 
 T_("Translate native text of the user to english")
-fiFI("K\303\244\303\244nn\303\244 k\303\244ytt\303\244j\303\244n alkuper\303\244inen "
+fiFI("K\303\244\303\244nn\303\244 k\303\244ytt\303\244j\303\244n natiivi "
      "teksti englanniksi")
 
 T_("Check for problems in the english translation")
@@ -824,7 +824,7 @@ fiFI("Tarkista eng. k\303\244\303\244nn\303\266ksen ongelmat")
 // TxtEditEnglish.cpp
 
 T_("Import the direct translation of the native text")
-fiFI("Tuo alkuper\303\244isen tekstin suora k\303\244\303\244nn\303\266s")
+fiFI("Tuo natiivin tekstin suora k\303\244\303\244nn\303\266s")
 
 T_("Make poetic english with the given style")
 fiFI("Tee runollinen englanti annetulla tyylill\303\244")

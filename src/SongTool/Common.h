@@ -5,6 +5,36 @@
 #define TODO Panic("TODO");
 
 
+
+
+enum {
+	RHYME_AA,
+	RHYME_AAAA,
+	RHYME_XAAA,
+	RHYME_AAAX,
+	RHYME_AAAC__BBBC,
+	RHYME_CAAA__CBBB,
+	RHYME_XA_XA,
+	RHYME_AB_AB,
+	RHYME_AAB_XXB,
+	RHYME_XXA_BBA,
+	RHYME_AAB_CCB,
+	RHYME_XAXA,
+	RHYME_ABAB,
+	RHYME_AbAb,
+	RHYME_aBaB,
+	RHYME_XA__XA,
+	RHYME_AB__AB,
+	RHYME_A1ABA2_A1ABA2,
+	RHYME_AA_XB__CC_XB,
+	
+	RHYME_COUNT
+};
+
+extern const char* RhymeSchemes[RHYME_COUNT][2];
+
+int FindRhymeType(const char* name);
+
 struct Pipe;
 
 
@@ -617,5 +647,10 @@ struct CoverSuggestionData {
 	};
 	Array<Song> songs;
 };
+
+
+
+const Vector<String>& CommonArtists();
+
 
 #endif

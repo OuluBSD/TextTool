@@ -2,6 +2,7 @@
 #define _SongTool_Attributes_h_
 
 #define ATTR_LIST \
+	ATTR_ITEM(AVERAGE_EXPECTATIONS, "Average expectations", "comformed", "inversed") \
 	ATTR_ITEM(INTEGRITY, "Integrity", "honest", "twisted") \
 	ATTR_ITEM(SOCIAL, "Social", "libertarian", "authoritarian") \
 	ATTR_ITEM(ECONOMIC, "Economic", "liberal", "conservative") \
@@ -35,6 +36,8 @@ ATTR_LIST
 #undef ATTR_ITEM
 ATTR_COUNT
 };
+
+extern const char* AttrKeys[ATTR_COUNT+1][4];
 
 struct Group : Moveable<Group> {
 	Vector<String> values;

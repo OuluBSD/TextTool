@@ -276,7 +276,7 @@
 		},
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL",
-			"value": "Chorus 1a:\r\nI didn't want to fight, I don't want to break up\r\nI never imagined this would end.\r\nI didn't mean to break you, make us like this\r\nbut no matter how much I love, one of us hurts the other again.\r\n\r\nVerse 1a:\r\nI'm not calling as much as I use to, busy recovering from work\r\nMissing you, wishing you were here, lying down on the beach with only stars above\r\nVerse 1b:\r\nI'm just dreaming how you'd be warm in my arms\r\nPromising to stay through ups and downs, time passing by taking me away\r\nKisses now are only memories\r\nVerse 1c:\r\nTouching each other and I kiss you and we rock together\r\nWhen the night gets dark, the only thing I hear is you\r\nThe moon shining on you, drenched in sweat\r\nVerse 1d:\r\nNot trying enough, not being here, not seeing enough of each other\r\nI'm still coming back in a moment, meeting my wife\r\nLittle bit wiser, able to love again\r\n\r\nVerse 2a:\r\nNeeding someone else, forgetting your name and messing it up with another name\r\nLeaving last time with a slamming door\r\nA woman coming up with an aura of hope\r\nVerse 2b:\r\nRejecting happy feelings when our eyes meet and sorrows disappears\r\nNot knowing how to turn off the feeling\r\nSometimes it still gets me, I won't deny\r\nVerse 2c:\r\nAfraid of falling in love again and failing and never recovering\r\nWith someone who immediately leaves, time so precious spending it alone with you\r\nVerse 2d:\r\nNot wanting to ride the emotional rollercoaster alone anymore\r\nBeing able to handle it when we share everything\r\nNot confessing to you that you're my only one\r\nIf you want to realize that you were my wife\r\n\r\nBridge:\r\nI was sorry, wanting to forget the fights\r\nThe fights remaining inside me, not noticing\r\nNot showing how much I care, being nice to you again, now\r\nAble to fix it with it too"
+			"value": "Chorus 1a:\r\nI didn't want to fight, I don't want to break up\r\nI never imagined this would end.\r\nI didn't mean to break you, make us like this\r\nbut no matter how much I love, one of us hurts the other again.\r\n\r\nVerse 1a:\r\nI'm not calling as much as I use to, busy recovering from work\r\nMissing you, wishing you were here, lying down on the beach with only stars above\r\nVerse 1b:\r\nI'm just dreaming how you'd be warm in my arms\r\nPromising to stay through ups and downs, time passing by taking me away. Kisses now are only memories\r\nVerse 1c:\r\nTouching each other and I kiss you and we rock together\r\nWhen the night gets dark, the only thing I hear is you. The moon shining on you, drenched in sweat\r\nVerse 1d:\r\nNot trying enough, not being here, not seeing enough of each other\r\nI'm still coming back in a moment, meeting my wife. Little bit wiser, able to love again\r\n\r\nVerse 2a:\r\nNeeding someone else, forgetting your name and messing it up with another name\r\nLeaving last time with a slamming door. A woman coming up with an aura of hope\r\nVerse 2b:\r\nRejecting happy feelings when our eyes meet and sorrows disappears\r\nNot knowing how to turn off the feeling. Sometimes it still gets me, I won't deny\r\nVerse 2c:\r\nAfraid of falling in love again and failing and never recovering\r\nWith someone who immediately leaves, time so precious spending it alone with you\r\nVerse 2d:\r\nNot wanting to ride the emotional rollercoaster alone anymore\r\nBeing able to handle it when we share everything\r\nNot confessing to you that you're my only one\r\nIf you want to realize that you were my wife\r\n\r\nBridge:\r\nI was sorry, wanting to forget the fights\r\nThe fights remaining inside me, not noticing\r\nNot showing how much I care, being nice to you again, now\r\nAble to fix it with it too"
 		},
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL_NATIVE",
@@ -301,6 +301,261 @@
 		{
 			"key": "POETIC_ENGLISH_FROM_NATURAL_ENGLISH_OF_AUTHOR",
 			"value": "\nChorus:\nI don't wanna battle, I just want a truce\nI thought this would all be more than news\nI'm sorry for hurting you, it wasn't my plan,\nThere's too many miles to get where love began\n\nVerse 1:\nMy apologies for the late response,\nI'm coming down off from this awful stress\nWhat I wouldn't give to just be with you,\nLaying out on that beach with just the stars on view\nDreaming of the way you feel in my arms,\nI swore that we'd make it through, through these highs and lows\nMama time started busin' by,\nAll your kisses become memories stuck in my mind\nI remember that vision of us embracing,\nKissing softly while we just swayed\nAs the night got darker, the only sound I heard was you,\nThe moonlight on you, and how your sweat drenchin' through\nGuess we just ain't trying hard enough,\nWe get to a point, when peepin' lasts so much\nI'll be back for sure, meet me there soon,\nLet's be smarter now, so for love we can resume\n\nVerse 2:\nI felt I had to find someone else,\nYour name I forget, and another I just rushed\nSlamming doors, I left last time,\nThe presence of a woman that brought a hope on to last\nFeelings I dismissed when I saw her,\nBut when we locked eyes, all that sorrow was through\nDon't know how to end the feeling,\nSometimes it overtakes, can't deny it is real\nAfraid I would get in love and fail,\nFall, never recover, so never begin I'd favor\nDon't want to fall in love with someone discharge,\nTaking time precious to get to be with someone\nAnd I'm no longer ready for that roller coaster ride,\nBut with you we'll get through, for we share everything inside\nNot confessing to you that you are my one,\nYou'll soon realize that you are my number one\n\nBridge:\nI said I'm sorry a thousand times,\nThese fights, they only stay in mind\nBut I haven't shown you how much I love,\nSo we can now start all again and repair what needs be done."
+		}
+	],
+	"parts": [
+		{
+			"name": "Chorus 1a",
+			"source": [
+				"I didn't want to fight, I don't want to break up",
+				"I never imagined this would end.",
+				"I didn't mean to break you, make us like this",
+				"but no matter how much I love, one of us hurts the other again."
+			],
+			"rhymes": [
+				{
+					"source": [
+						"I didn't want to fight, I don't want to break up",
+						"I never imagined this would end."
+					],
+					"suggestion": [
+
+					]
+				},
+				{
+					"source": [
+						"I didn't mean to break you, make us like this",
+						"but no matter how much I love, one of us hurts the other again."
+					],
+					"suggestion": [
+
+					]
+				}
+			],
+			"rhyme_scheme": "XA,XA",
+			"data": [
+
+			]
+		},
+		{
+			"name": "Verse 1a",
+			"source": [
+				"I'm not calling as much as I use to, busy recovering from work",
+				"Missing you, wishing you were here, lying down on the beach with only stars above"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"I'm not calling as much as I use to, busy recovering from work",
+						"Missing you, wishing you were here, lying down on the beach with only stars above"
+					],
+					"suggestion": [
+
+					]
+				}
+			],
+			"rhyme_scheme": "XA,XA",
+			"data": [
+
+			]
+		},
+		{
+			"name": "Verse 1b",
+			"source": [
+				"I'm just dreaming how you'd be warm in my arms",
+				"Promising to stay through ups and downs, time passing by taking me away. Kisses now are only memories"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"I'm just dreaming how you'd be warm in my arms",
+						"Promising to stay through ups and downs, time passing by taking me away. Kisses now are only memories"
+					],
+					"suggestion": [
+
+					]
+				}
+			],
+			"rhyme_scheme": "XA,XA",
+			"data": [
+
+			]
+		},
+		{
+			"name": "Verse 1c",
+			"source": [
+				"Touching each other and I kiss you and we rock together",
+				"When the night gets dark, the only thing I hear is you. The moon shining on you, drenched in sweat"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Touching each other and I kiss you and we rock together",
+						"When the night gets dark, the only thing I hear is you. The moon shining on you, drenched in sweat"
+					],
+					"suggestion": [
+
+					]
+				}
+			],
+			"rhyme_scheme": "XA,XA",
+			"data": [
+
+			]
+		},
+		{
+			"name": "Verse 1d",
+			"source": [
+				"Not trying enough, not being here, not seeing enough of each other",
+				"I'm still coming back in a moment, meeting my wife. Little bit wiser, able to love again"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Not trying enough, not being here, not seeing enough of each other",
+						"I'm still coming back in a moment, meeting my wife. Little bit wiser, able to love again"
+					],
+					"suggestion": [
+
+					]
+				}
+			],
+			"rhyme_scheme": "XA,XA",
+			"data": [
+
+			]
+		},
+		{
+			"name": "Verse 2a",
+			"source": [
+				"Needing someone else, forgetting your name and messing it up with another name",
+				"Leaving last time with a slamming door. A woman coming up with an aura of hope"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Needing someone else, forgetting your name and messing it up with another name",
+						"Leaving last time with a slamming door. A woman coming up with an aura of hope"
+					],
+					"suggestion": [
+
+					]
+				}
+			],
+			"rhyme_scheme": "XA,XA",
+			"data": [
+
+			]
+		},
+		{
+			"name": "Verse 2b",
+			"source": [
+				"Rejecting happy feelings when our eyes meet and sorrows disappears",
+				"Not knowing how to turn off the feeling. Sometimes it still gets me, I won't deny"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Rejecting happy feelings when our eyes meet and sorrows disappears",
+						"Not knowing how to turn off the feeling. Sometimes it still gets me, I won't deny"
+					],
+					"suggestion": [
+
+					]
+				}
+			],
+			"rhyme_scheme": "XA,XA",
+			"data": [
+
+			]
+		},
+		{
+			"name": "Verse 2c",
+			"source": [
+				"Afraid of falling in love again and failing and never recovering",
+				"With someone who immediately leaves, time so precious spending it alone with you"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Afraid of falling in love again and failing and never recovering",
+						"With someone who immediately leaves, time so precious spending it alone with you"
+					],
+					"suggestion": [
+
+					]
+				}
+			],
+			"rhyme_scheme": "XA,XA",
+			"data": [
+
+			]
+		},
+		{
+			"name": "Verse 2d",
+			"source": [
+				"Not wanting to ride the emotional rollercoaster alone anymore",
+				"Being able to handle it when we share everything",
+				"Not confessing to you that you're my only one",
+				"If you want to realize that you were my wife"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Not wanting to ride the emotional rollercoaster alone anymore",
+						"Being able to handle it when we share everything"
+					],
+					"suggestion": [
+
+					]
+				},
+				{
+					"source": [
+						"Not confessing to you that you're my only one",
+						"If you want to realize that you were my wife"
+					],
+					"suggestion": [
+
+					]
+				}
+			],
+			"rhyme_scheme": "XA,XA",
+			"data": [
+
+			]
+		},
+		{
+			"name": "Bridge",
+			"source": [
+				"I was sorry, wanting to forget the fights",
+				"The fights remaining inside me, not noticing",
+				"Not showing how much I care, being nice to you again, now",
+				"Able to fix it with it too"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"I was sorry, wanting to forget the fights",
+						"The fights remaining inside me, not noticing"
+					],
+					"suggestion": [
+
+					]
+				},
+				{
+					"source": [
+						"Not showing how much I care, being nice to you again, now",
+						"Able to fix it with it too"
+					],
+					"suggestion": [
+
+					]
+				}
+			],
+			"rhyme_scheme": "XA,XA",
+			"data": [
+
+			]
 		}
 	]
 }

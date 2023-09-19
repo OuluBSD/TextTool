@@ -1708,6 +1708,16 @@ void Task::Process_MakePoetic() {
 	trans_txt = output;
 }
 
+void Task::Process_EvaluatePoeticStyles() {
+	String in = input.AsString();
+	int i = in.ReverseFind("1.");
+	String begin;
+	if (i >= 0)
+		begin = in.Mid(i);
+	String res = begin + output;
+	WhenResult(res);
+}
+
 void Task::Process_ConvertScreenplayToStructure() {
 	WhenResult(output);
 }

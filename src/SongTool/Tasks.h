@@ -183,6 +183,7 @@ public:
 	bool CheckArguments();
 	bool WriteResults();
 	bool ParseOriginalLyrics();
+	
 	void CreateInput_StoryArc();
 	void CreateInput_StoryArcWeighted();
 	void CreateInput_PatternMask();
@@ -205,6 +206,7 @@ public:
 	void CreateInput_ConvertSongStructureToEnglish();
 	void CreateInput_EvaluateSongAudience();
 	void CreateInput_MakePoetic();
+	void CreateInput_EvaluatePoeticStyles();
 	void CreateInput_ConvertScreenplayToStructure();
 	void CreateInput_ConvertStructureToScreenplay();
 	void CreateInput_CheckScreenplayStructureErrors();
@@ -213,6 +215,7 @@ public:
 	void CreateInput_EditImage();
 	void CreateInput_VariateImage();
 	void CreateInput_RawCompletion();
+	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
 	void Process_StoryArc();
@@ -249,6 +252,7 @@ public:
 	void Process_ConvertSongStructureToEnglish();
 	void Process_EvaluateSongAudience();
 	void Process_MakePoetic();
+	void Process_EvaluatePoeticStyles();
 	void Process_ConvertScreenplayToStructure();
 	void Process_ConvertStructureToScreenplay();
 	void Process_CheckScreenplayStructureErrors();

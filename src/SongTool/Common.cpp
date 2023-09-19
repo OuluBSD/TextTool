@@ -1,6 +1,37 @@
 #include "SongTool.h"
 
 
+const char* RhymeSchemes[RHYME_COUNT][2] {
+	{"AA", t_("2-line end rhyme")},
+	{"AAAA", t_("4-line end rhyme")},
+	{"XAAA", t_("3-line end rhyme with open beginning")},
+	{"AAAX", t_("3-line end rhyme with open ending")},
+	{"AAAC BBBC", t_("Double 4-lines, 3 lines rhyming, rhymes in the end of parts")},
+	{"CAAA CBBB", t_("Double 4-lines, 3 lines rhyming, rhymes in the beginning of parts")},
+	{"XA,XA", t_("Single two-line stanza without internal rhyme")},
+	{"AB,AB", t_("Single two-line stanza with internal rhyme")},
+	{"AAB,XXB", t_("Two-line end-rhyming with internal rhyme in 1st line")},
+	{"XXA,BBA", t_("Two-line end-rhyming with internal rhyme in 2nd line")},
+	{"AAB,CCB", t_("Two-line end-rhyming with internal rhyme in both lines")},
+	{"XAXA", t_("4 lines, no rhyming 1. & 3., connected")},
+	{"ABAB", t_("4 lines, alternating rhyming, connected")},
+	{"AbAb", t_("4 lines, 1. & 3. lines are same, connected")},
+	{"aBaB", t_("4 lines, 2. & 4. lines are same, connected")},
+	{"XA XA", t_("4 lines, no rhyming 1. & 3., disconnected")},
+	{"AB AB", t_("4 lines, alternating rhyming, disconnected")},
+	{"A1abA2 A1abA2", t_("2 times 4 lines, with same 1. & 4. lines")},
+	{"AA,XB CC,XB", t_("Ballad stanza. 4 lines, internal rhymes in 1. & 3. and end rhymes in 2. & 4.")}
+};
+
+int FindRhymeType(const char* name) {
+	for(int i = 0; i < RHYME_COUNT; i++) {
+		if (strncmp(RhymeSchemes[i][0], name, 32) == 0)
+			return i;
+	}
+	return -1;
+}
+
+
 void SnapAttrStr::SetFromId(Pipe& pipe, int group, int item) {
 	group_i = group;
 	item_i = item;
@@ -299,4 +330,58 @@ bool TextMatchFinder::Find(String line, Point& pt) {
 	}
 	return false;
 }
-	
+
+const Vector<String>& CommonArtists() {
+	static Vector<String> artists;
+	if (artists.IsEmpty()) {
+		artists.Add("Red Hot Chili Peppers");
+		artists.Add("Beastie Boys");
+		artists.Add("The Jimi Hendrix Experience");
+		artists.Add("Grandmaster Flash and the Furious Five");
+		artists.Add("Bob Marley");
+		artists.Add("Bob Dylan");
+		artists.Add("The Beatles");
+		artists.Add("The Doors");
+		artists.Add("Nirvana");
+		artists.Add("Tupac Shakur");
+		artists.Add("Marvin Gaye");
+		artists.Add("N.W.A");
+		artists.Add("Run-DMC");
+		artists.Add("Led Zeppelin");
+		artists.Add("Jefferson Airplane");
+		artists.Add("Madonna");
+		artists.Add("Buffalo Springfield");
+		artists.Add("Elton John");
+		artists.Add("R.E.M.");
+		artists.Add("AC/DC");
+		artists.Add("ZZ Top");
+		artists.Add("Aerosmith");
+		artists.Add("David Bowie");
+		artists.Add("The Yardbirds");
+		artists.Add("Johnny Cash ");
+		artists.Add("The Grateful Dead");
+		artists.Add("The Who");
+		artists.Add("The Byrds");
+		artists.Add("Simon & Garfunkel");
+		artists.Add("Roy Orbison");
+		artists.Add("The Beach Boys");
+		artists.Add("Ray Charles");
+		artists.Add("James Brown");
+		artists.Add("Limp Bizkit");
+		artists.Add("Public Enemy");
+		artists.Add("Eminem");
+		artists.Add("Elvis Presley");
+		artists.Add("ABBA");
+		artists.Add("Green Day");
+		artists.Add("Jay-Z");
+		artists.Add("Rage Against the Machine");
+		artists.Add("Metallica");
+		artists.Add("Pink Floyd");
+		artists.Add("Stevie Wonder");
+		artists.Add("Bon Jovi");
+		artists.Add("Guns N' Roses");
+		artists.Add("The Supremes");
+		artists.Add("Drake");
+	}
+	return artists;
+}

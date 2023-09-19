@@ -21,6 +21,10 @@
 						"value": "autoritaarinen"
 					},
 					{
+						"key": "average expectations",
+						"value": ""
+					},
+					{
 						"key": "beliefs",
 						"value": "uskomukset"
 					},
@@ -31,6 +35,10 @@
 					{
 						"key": "collective",
 						"value": "kollektiivinen"
+					},
+					{
+						"key": "comformed",
+						"value": ""
 					},
 					{
 						"key": "confident",
@@ -99,6 +107,10 @@
 					{
 						"key": "integrity",
 						"value": "aitous"
+					},
+					{
+						"key": "inversed",
+						"value": ""
 					},
 					{
 						"key": "joyful",

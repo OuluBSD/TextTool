@@ -50,15 +50,54 @@ struct Song :
 	DataFile,
 	EditorPtrs
 {
+	struct Suggestion {
+		String style, content;
+		int score = 0;
+		void Jsonize(JsonIO& json) {
+			json
+				("style", style)
+				("content", content)
+				("score", score)
+				;
+		}
+	};
+	struct Rhyme {
+		Vector<String> source;
+		Array<Suggestion> suggestions;
+		void Jsonize(JsonIO& json) {
+			json
+				("source", source)
+				("suggestion", suggestions)
+				;
+		}
+	};
+	struct SongPart {
+		String name;
+		Vector<String> source; // lines
+		Array<Rhyme> rhymes;
+		String rhyme_scheme;
+		VectorMap<String,String> data;
+		void Jsonize(JsonIO& json) {
+			json
+				("name", name)
+				("source", source)
+				("rhymes", rhymes)
+				("rhyme_scheme", rhyme_scheme)
+				("data", data)
+				;
+		}
+	};
+	
 	// Public
-	String				artist;
-	String				native_title;
-	String				english_title;
-	String				prj_name;
-	String				structure_str;
-	Vector<String>		structure;
-	MArr<String>		content;
+	String						artist;
+	String						native_title;
+	String						english_title;
+	String						prj_name;
+	String						structure_str;
+	Vector<String>				structure;
+	MArr<String>				content;
 	VectorMap<String,String>	data;
+	Array<SongPart>				parts;
 	
 	// Temp
 	Pipe*				pipe = 0;
@@ -100,6 +139,7 @@ struct Song :
 			("structure", structure)
 			("content", content)
 			("data", data)
+			("parts", parts)
 			;
 		
 		//for(const SnapArg& a : HumanInputTextArgs())

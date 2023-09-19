@@ -28,54 +28,9 @@ void TxtEditEnglish::Init() {
 	top_bar.Add(evaluate_audience.HCenterPos(w,2*w).VSizePos(1,1));
 	top_bar.Add(lbl.HCenterPos(w,3*w).VSizePos(1,1));
 	
-	artist_style.Add("Red Hot Chili Peppers");
-	artist_style.Add("Beastie Boys");
-	artist_style.Add("The Jimi Hendrix Experience");
-	artist_style.Add("Grandmaster Flash and the Furious Five");
-	artist_style.Add("Bob Marley");
-	artist_style.Add("Bob Dylan");
-	artist_style.Add("The Beatles");
-	artist_style.Add("The Doors");
-	artist_style.Add("Nirvana");
-	artist_style.Add("Tupac Shakur");
-	artist_style.Add("Marvin Gaye");
-	artist_style.Add("N.W.A");
-	artist_style.Add("Run-DMC");
-	artist_style.Add("Led Zeppelin");
-	artist_style.Add("Jefferson Airplane");
-	artist_style.Add("Madonna");
-	artist_style.Add("Buffalo Springfield");
-	artist_style.Add("Elton John");
-	artist_style.Add("R.E.M.");
-	artist_style.Add("AC/DC");
-	artist_style.Add("ZZ Top");
-	artist_style.Add("Aerosmith");
-	artist_style.Add("David Bowie");
-	artist_style.Add("The Yardbirds");
-	artist_style.Add("Johnny Cash ");
-	artist_style.Add("The Grateful Dead");
-	artist_style.Add("The Who");
-	artist_style.Add("The Byrds");
-	artist_style.Add("Simon & Garfunkel");
-	artist_style.Add("Roy Orbison");
-	artist_style.Add("The Beach Boys");
-	artist_style.Add("Ray Charles");
-	artist_style.Add("James Brown");
-	artist_style.Add("Limp Bizkit");
-	artist_style.Add("Public Enemy");
-	artist_style.Add("Eminem");
-	artist_style.Add("Elvis Presley");
-	artist_style.Add("ABBA");
-	artist_style.Add("Green Day");
-	artist_style.Add("Jay-Z");
-	artist_style.Add("Rage Against the Machine");
-	artist_style.Add("Metallica");
-	artist_style.Add("Pink Floyd");
-	artist_style.Add("Stevie Wonder");
-	artist_style.Add("Bon Jovi");
-	artist_style.Add("Guns N' Roses");
-	artist_style.Add("The Supremes");
-	artist_style.Add("Drake");
+	for (String artist : CommonArtists())
+		artist_style.Add(artist);
+	
 	artist_style.SetIndex(0);
 	
 	import_native_direct_trans.SetLabel(t_("Import the direct translation of the native text"));

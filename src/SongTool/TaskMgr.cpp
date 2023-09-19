@@ -71,6 +71,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_MakePoetic)
 		;
 	
+	AddRule(TASK_EVALUATE_POETIC_STYLES, "evaluate poetic styles")
+		.Input(&Task::CreateInput_EvaluatePoeticStyles)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 4, 4)
+		.Process(&Task::Process_EvaluatePoeticStyles)
+		;
+	
 	AddRule(TASK_CONVERT_SCREENPLAY_TO_STRUCTURE, "convert screenplay to structure")
 		.Input(&Task::CreateInput_ConvertScreenplayToStructure)
 			.Arg(V_PTR_PIPE)
@@ -944,6 +951,27 @@ void TaskMgr::MakePoetic(String style, String src_key, String dst_key, Callback 
 	t.p.pipe = &p;
 	t.args << style << src_key << dst_key;
 	t.WhenDone << WhenDone;
+}
+
+void TaskMgr::EvaluatePoeticStyles(
+	String rhyme, String rhyme_scheme,
+	int rhyme_scheme_line_count,
+	String attrs,
+	Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_EVALUATE_POETIC_STYLES);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args	<< rhyme
+			<< rhyme_scheme
+			<< IntStr(rhyme_scheme_line_count)
+			<< attrs;
+	t.WhenResult << WhenResult;
 }
 
 void TaskMgr::ConvertScreenplayToStructure(String orig_txt, Event<String> WhenResult) {

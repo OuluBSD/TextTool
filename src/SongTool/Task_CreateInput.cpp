@@ -1567,6 +1567,78 @@ void Task::CreateInput_MakePoetic() {
 	
 }
 
+void Task::CreateInput_EvaluatePoeticStyles() {
+	String rhyme = args[0];
+	String rhyme_scheme = args[1];
+	int rhyme_scheme_line_count = StrInt(args[2]);
+	String attrs = args[3];
+	ASSERT(rhyme_scheme.GetCount());
+	
+	bool rev_snap = args[0] == "rev";
+	SnapArg a = p.a;
+	ASSERT(a.mode != MODE_INVALID);
+	Pipe& pipe = *p.pipe;
+	
+	{
+		Vector<String> lines = Split(rhyme, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Original lyrics (" + IntStr(lines.GetCount()) + " lines, no rhymes)");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	int list_len = min(CommonArtists().GetCount(), 18);
+	{
+		TaskTitledList& list = input.AddSub().Title("List of artist styles");
+		list.NumberedLines();
+		int i = 0;
+		for (String artist : CommonArtists()) {
+			list.Add(artist);
+			if (++i >= list_len)
+				break;
+		}
+	}
+	
+	if (0) {
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("All 1-" + IntStr(list_len) + " artist styles");
+		
+		String title = "1. New lyrics " + IntStr(rhyme_scheme_line_count) +
+			" lines long in total, and with " + rhyme_scheme + " rhyme sceme, ";
+		if (attrs.GetCount())
+			title << "and with " + attrs + " tone of voice, ";
+		title << "and with style of " + CommonArtists()[0];
+		
+		TaskTitledList& first = results.AddSub();
+		first		.Title(title);
+		first		.EmptyLine().NoListChar();
+	}
+	else {
+		TaskTitledList& results = input.PreAnswer();
+		String result_title;
+		result_title +=
+			"List of results for all 1-" + IntStr(list_len) + " artist styles."
+			" A single result is " + IntStr(rhyme_scheme_line_count) + " lines long in total"
+			", and with " + rhyme_scheme + " rhyme sceme";
+		
+		if (attrs.GetCount())
+			result_title << ", and with " + attrs + " tone of voice";
+		
+		results.Title(result_title);
+		
+		String title = "1. New lyrics with style of " + CommonArtists()[0];
+		
+		TaskTitledList& first = results.AddSub();
+		first		.Title(title);
+		first		.EmptyLine().NoListChar();
+	}
+	
+	LOG(input.AsString());
+	LOG("");
+	
+	input.response_length = 2*1024;
+}
+
 
 
 const char* orig_screenplay_ex = R"_(
