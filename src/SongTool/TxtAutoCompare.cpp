@@ -542,7 +542,10 @@ void TxtAutoCompare::OnPoeticRecv(String res, int part_i, int rhyme_i) {
 	{
 		Vector<String> parts = Split(res, "\n\n");
 		if (parts.GetCount() != exp_result_count) {LOG(res);}
-		ASSERT(parts.GetCount() == exp_result_count);
+		if(parts.GetCount() != exp_result_count) {
+			PromptOK(Format("Invalid response: %d != %d", parts.GetCount(), exp_result_count));
+			return;
+		}
 		
 		for (String& part : parts) {
 			Vector<String> lines = Split(part, "\n");
