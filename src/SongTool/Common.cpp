@@ -3,25 +3,56 @@
 
 const char* RhymeSchemes[RHYME_COUNT][2] {
 	{"AA", t_("2-line end rhyme")},
-	{"AAAA", t_("4-line end rhyme")},
-	{"XAAA", t_("3-line end rhyme with open beginning")},
-	{"AAAX", t_("3-line end rhyme with open ending")},
-	{"AAAC BBBC", t_("Double 4-lines, 3 lines rhyming, rhymes in the end of parts")},
-	{"CAAA CBBB", t_("Double 4-lines, 3 lines rhyming, rhymes in the beginning of parts")},
 	{"XA,XA", t_("Single two-line stanza without internal rhyme")},
 	{"AX,AX", t_("Single two-line begin rhyme without internal rhyme")},
 	{"AB,AB", t_("Single two-line stanza with internal rhyme")},
-	{"AAB,XXB", t_("Two-line end-rhyming with internal rhyme in 1st line")},
-	{"XXA,BBA", t_("Two-line end-rhyming with internal rhyme in 2nd line")},
+	{"AAB,BXX", t_("Two-line end-rhyming with internal rhyme in 1st line")},
+	{"AXX,BBA", t_("Two-line end-rhyming with internal rhyme in 2nd line")},
 	{"AAB,CCB", t_("Two-line end-rhyming with internal rhyme in both lines")},
+	{"ABB,ABB", t_("Two-line end-rhyming with internal rhymes in both lines")},
+	{"ABA,ABA", t_("Two-line rhyming with internal rhymes in both lines")},
+	
+	{"AAAA", t_("4-line end rhyme")},
+	{"XAAA", t_("3-line end rhyme with open beginning")},
+	{"AAAX", t_("3-line end rhyme with open ending")},
 	{"XAXA", t_("4 lines, no rhyming 1. & 3., connected")},
 	{"ABAB", t_("4 lines, alternating rhyming, connected")},
 	{"AbAb", t_("4 lines, 1. & 3. lines are same, connected")},
 	{"aBaB", t_("4 lines, 2. & 4. lines are same, connected")},
 	{"XA XA", t_("4 lines, no rhyming 1. & 3., disconnected")},
 	{"AB AB", t_("4 lines, alternating rhyming, disconnected")},
+	{"AA,XB CC,XB", t_("Ballad stanza. 4 lines, internal rhymes in 1. & 3. lines and end rhymes in 2. & 4. lines")},
+	
+	{"AAAC BBBC", t_("Double 4-lines, 3 lines rhyming, rhymes in the end of parts")},
+	{"CAAA CBBB", t_("Double 4-lines, 3 lines rhyming, rhymes in the beginning of parts")},
 	{"A1abA2 A1abA2", t_("2 times 4 lines, with same 1. & 4. lines")},
-	{"AA,XB CC,XB", t_("Ballad stanza. 4 lines, internal rhymes in 1. & 3. and end rhymes in 2. & 4.")}
+};
+
+const int RhymeSchemeLineCount[RHYME_COUNT] = {
+	2,
+	2,
+	2,
+	2,
+	2,
+	2,
+	2,
+	2,
+	2,
+	
+	4,
+	4,
+	4,
+	4,
+	4,
+	4,
+	4,
+	4,
+	4,
+	4,
+	
+	8,
+	8,
+	8,
 };
 
 int FindRhymeType(const char* name) {
@@ -385,4 +416,29 @@ const Vector<String>& CommonArtists() {
 		artists.Add("Drake");
 	}
 	return artists;
+}
+
+void TrimBothAllLines(String& s) {
+	s.Replace("\r", "");
+	Vector<String> lines = Split(s, "\n", false);
+	for (String& l : lines)
+		l = TrimBoth(l);
+	s = Join(lines, "\n");
+}
+
+void RealizeDoubleNewlinesOnNumbered(String& s) {
+	s.Replace("\r", "");
+	Vector<String> lines = Split(s, "\n", false);
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		l = TrimBoth(l);
+		if (i > 0 && l.GetCount() && IsDigit(l[0]) && !lines[i-1].IsEmpty()) {
+			lines.Insert(i);
+		}
+		else if (i > 0 && l.GetCount() && !IsDigit(l[0]) && lines[i-1].IsEmpty()) {
+			lines.Remove(i-1);
+			i--;
+		}
+	}
+	s = Join(lines, "\n");
 }

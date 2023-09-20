@@ -193,30 +193,6 @@ fiFI("Siirry alempaan v\303\244lilehteen")
 T_("Tools")
 fiFI("Ty\303\266kalut")
 
-T_("Do the 1st action")
-fiFI("Tee 1. toimenpide")
-
-T_("Do the 2nd action")
-fiFI("Tee 2. toimenpide")
-
-T_("Do the 3rd action")
-fiFI("Tee 3. toimenpide")
-
-T_("Do the 4th action")
-fiFI("Tee 4. toimenpide")
-
-T_("Do the 5th action")
-fiFI("Tee 5. toimenpide")
-
-T_("Do the 6th action")
-fiFI("Tee 6. toimenpide")
-
-T_("Do the 7th action")
-fiFI("Tee 7. toimenpide")
-
-T_("Do the 8th action")
-fiFI("Tee 8. toimenpide")
-
 T_("Show orphaned files")
 fiFI("N\303\244yt\303\244 orpoutuneet tiedostot")
 
@@ -274,11 +250,17 @@ fiFI("Muokkaa")
 T_("Text")
 fiFI("Teksti")
 
-T_("Edit Native")
-fiFI("Muokkaa natiivia")
+T_("English Styler")
+fiFI("Englanninkielinen tyylittelij\303\244")
+
+T_("Native Styler")
+fiFI("Natiivi tyylittelij\303\244")
 
 T_("Edit English")
 fiFI("Muokkaa englantilaista")
+
+T_("Edit Native")
+fiFI("Muokkaa natiivia")
 
 T_("Production")
 fiFI("Tuotanto")
@@ -375,6 +357,9 @@ fiFI("K\303\244\303\244nteinen: luo lyriikat")
 
 T_("Rhymes")
 fiFI("Riimit")
+
+T_("Social Media")
+fiFI("Sosiaalinen media")
 
 T_("Whole song")
 fiFI("Koko kappale")
@@ -483,6 +468,9 @@ fiFI("Yrit\303\244 uudelleen v\303\244limuistissa oleva kehote")
 
 T_("Translate")
 fiFI("K\303\244\303\244nn\303\244")
+
+T_("Left: native; Right: english")
+fiFI("Vasen: natiivi; Oikea: englanti")
 
 
 // ChecklistBase.cpp
@@ -798,14 +786,68 @@ fiFI("Kopioi viitekappaleen rakenne")
 T_("Check for problems in the song structure")
 fiFI("Tarkista kappaleen rakenne")
 
-T_("Convert the structure to a native text")
-fiFI("Muunna rakenne natiiviksi tekstiksi")
+T_("Convert the structure to a english text")
+fiFI("Muunna rakenne englanninkieliseksi tekstiksi")
+
+T_("Convert the english text to a native text")
+fiFI("Muunna englanninkielinen teksti \303\244idinkielen\303\244\303\244n")
 
 T_("Evaluate the english text with an AI audience")
 fiFI("Arvioi eng. teko\303\244ly-yleis\303\266ll\303\244")
 
+T_("Deconstructed, auto-english, auto-native")
+fiFI("Purettu, automaattinen englanti, automaattinen natiivi")
+
 T_("Do you want to overwrite existing text? This cannot be undone.")
 fiFI("Haluatko korvata olemassa olevan tekstin? T\303\244t\303\244 ei voi peruuttaa")
+
+
+// TxtAutoCompare.cpp
+
+T_("Content")
+fiFI("Sis\303\244lt\303\266")
+
+T_("Rhyme scheme")
+fiFI("Riimikaava")
+
+T_("Original")
+fiFI("Alkuper\303\244inen")
+
+T_("Best artist style")
+fiFI("Paras taiteilijatyyli")
+
+T_("Best content")
+fiFI("Paras sis\303\244lt\303\266")
+
+T_("Score")
+fiFI("Pisteytys")
+
+T_("Artist style")
+fiFI("Taiteilija tyyli")
+
+T_("Lyrics")
+fiFI("Lyriikat")
+
+T_("Part Value")
+fiFI("Osan arvo")
+
+T_("Rhyme Value")
+fiFI("Riimin arvo")
+
+T_("Import english to structure")
+fiFI("Tuo englanti rakenteeseen")
+
+T_("Evaluate single lines")
+fiFI("Arvioi yksitt\303\244isi\303\244 rivej\303\244")
+
+T_("Evaluate all lines")
+fiFI("Arvioi kaikki rivit")
+
+T_("Are you sure you want to replace all data?")
+fiFI("Haluatko varmasti korvata kaikki tiedot?")
+
+T_("Part %s has no rhyme scheme set")
+fiFI("Osalle %s ei ole asetettu riimimallia")
 
 
 // TxtEditNative.cpp
@@ -814,8 +856,8 @@ T_("Import the native text converted from structure")
 fiFI("Tuo rakenteesta muunnettu natiivi teksti")
 
 T_("Translate native text of the user to english")
-fiFI("K\303\244\303\244nn\303\244 k\303\244ytt\303\244j\303\244n natiivi "
-     "teksti englanniksi")
+fiFI("K\303\244\303\244nn\303\244 k\303\244ytt\303\244j\303\244n natiivi teksti "
+     "englanniksi")
 
 T_("Check for problems in the english translation")
 fiFI("Tarkista eng. k\303\244\303\244nn\303\266ksen ongelmat")
@@ -829,14 +871,23 @@ fiFI("Tuo natiivin tekstin suora k\303\244\303\244nn\303\266s")
 T_("Make poetic english with the given style")
 fiFI("Tee runollinen englanti annetulla tyylill\303\244")
 
+T_("Poetic english, non-poetic-english, auto-poetic-english")
+fiFI("Runollinen englanti, ei-runollinen englanti, automaatti-runollinen englanti")
+
 
 // Checklists.h
+
+T_("chords")
+fiFI("soinnut")
 
 T_("chord pad")
 fiFI("sointu pad")
 
 T_("vocal melody")
 fiFI("laulun melodia")
+
+T_("2nd vocal melody")
+fiFI("2. laulumelodia")
 
 T_("drumkit")
 fiFI("rumpusetti")
@@ -871,15 +922,26 @@ fiFI("iskut")
 T_("texture pad (arp)")
 fiFI("tekstuuri-padi (arpeggiaatti)")
 
-T_("Finish lyrics with at least easy singing and guitar strumming")
-fiFI("Viimeistele sanat ainakin kevyell\303\244 laululla ja kitaran soitolla")
+T_("Search for a good reference song and convert it to a structure")
+fiFI("Etsi hyv\303\244 referenssikappale ja muunna se rakenteeksi")
 
-T_("Finish composition with at least chord track, simple drums, structure")
-fiFI("Viimeistele s\303\244vellys v\303\244hint\303\244\303\244n sointukappaleella, "
-     "yksinkertaisilla rummuilla, rakenteella")
+T_("Decide what you want to say in lyrics")
+fiFI("P\303\244\303\244t\303\244, mit\303\244 haluat sanoa sanoituksella")
 
-T_("Finish vocal notes in composition, if song has 2+ simultaneous vocal melody")
-fiFI("Viimeistele laulun nuotit, jos kappaleessa on 2+ samanaikaista laulumelodiaa")
+T_("Finish lyrics structure in english")
+fiFI("Viimeistele sanoitusten rakenne englanniksi")
+
+T_("Finish first draft in native language")
+fiFI("Viimeistele ensimm\303\244inen luonnos \303\244idinkielell\303\244")
+
+T_("Fix remaing problems in native language and in direct translation")
+fiFI("Korjaa j\303\244ljell\303\244 olevat ongelmat \303\244idinkielell\303\244 ja suorak\303\244\303\244nn\303\266ksess\303\244")
+
+T_("Finish first draft in english")
+fiFI("Viimeistele ensimm\303\244inen luonnos englanniksi")
+
+T_("Fix remaing problems in english")
+fiFI("Korjaa j\303\244ljell\303\244 olevat ongelmat englanniksi")
 
 T_("Export composition to MIDI with bpm in name")
 fiFI("Vie s\303\244vellys MIDI:hen ja lis\303\244\303\244 nimeen my\303\266s "
@@ -1026,9 +1088,6 @@ fiFI("S\303\244\303\244d\303\244 v\303\244rej\303\244")
 T_("Add effects")
 fiFI("Lis\303\244\303\244 tehosteita")
 
-T_("Export master audio")
-fiFI("Vie master-\303\244\303\244ni")
-
 T_("Decide final order of songs")
 fiFI("P\303\244\303\244t\303\244 lopullinen kappaleiden j\303\244rjestys")
 
@@ -1049,6 +1108,42 @@ fiFI("L\303\244het\303\244 Teostoon")
 
 T_("Pitch your song at Spotify for Artists page")
 fiFI("Mainosta kappaletta Spotify for Artists -sivulla")
+
+T_("Native blog update")
+fiFI("Alkuper\303\244inen blogip\303\244ivitys")
+
+T_("English blog update")
+fiFI("Englanninkielinen blogip\303\244ivitys")
+
+T_("Website update")
+fiFI("Verkkosivuston p\303\244ivitys")
+
+T_("Host listening session and document it")
+fiFI("J\303\244rjest\303\244 kuunteluistunto ja dokumentoi se")
+
+T_("Pre-marketing in Facebook")
+fiFI("Ennakkomarkkinointi Facebookissa")
+
+T_("Pre-marketing in Instagram")
+fiFI("Esimarkkinointi Instagramissa")
+
+T_("Pre-marketing in Twitter")
+fiFI("Ennakkomarkkinointi Twitteriss\303\244")
+
+T_("Pre-marketing in Tiktok")
+fiFI("Ennakkomarkkinointi Tiktokissa")
+
+T_("Post-marketing in Facebook")
+fiFI("J\303\244lkimarkkinointi Facebookissa")
+
+T_("Post-marketing in Instagram")
+fiFI("J\303\244lkimarkkinointi Instagramissa")
+
+T_("Post-marketing in Twitter")
+fiFI("J\303\244lkimarkkinointi Twitteriss\303\244")
+
+T_("Post-marketing in Tiktok")
+fiFI("J\303\244lkimarkkinointi Tiktokissa")
 
 
 // MusicVideoImport.cpp
@@ -1166,6 +1261,12 @@ fiFI("Kumita")
 T_("Variate")
 fiFI("Luo vaihtelua")
 
+T_("Generate from editor")
+fiFI("Luo editorista")
+
+T_("Variate from editor")
+fiFI("Varioi editorista")
+
 T_("Prompt string is empty")
 fiFI("Kehotemerkkijono on tyhj\303\244")
 
@@ -1180,6 +1281,18 @@ fiFI("Muokkaa kuvaa")
 
 T_("Save image as")
 fiFI("Tallenna kuva nimell\303\244")
+
+
+// CalMgrCtrl.cpp
+
+T_("Events")
+fiFI("Tapahtumat")
+
+T_("Import automatically")
+fiFI("Tuo automaattisesti")
+
+T_("Import calendar events automatically from artist's catalogue")
+fiFI("Tuo kalenteritapahtumat automaattisesti taiteilijaluettelosta")
 
 
 // AttrDataCtrl.cpp
@@ -1335,12 +1448,6 @@ T_("weighted gender difference value")
 fiFI("painotettu sukupuolieron arvo")
 
 
-// ReverseImpactCtrl.cpp
-
-T_("Score")
-fiFI("Pisteytys")
-
-
 // ReverseCtrl.cpp
 
 T_("Active")
@@ -1413,7 +1520,117 @@ T_("Interrupted")
 fiFI("Keskeytetty")
 
 
+// Common.cpp
+
+T_("2-line end rhyme")
+fiFI("2-rivinen loppuriimi")
+
+T_("Single two-line stanza without internal rhyme")
+fiFI("Yksi kaksirivinen stanza ilman sis\303\244ist\303\244 riimi\303\244")
+
+T_("Single two-line begin rhyme without internal rhyme")
+fiFI("Yksi kaksirivinen aloitusriimi ilman sis\303\244ist\303\244 riimi\303\244")
+
+T_("Single two-line stanza with internal rhyme")
+fiFI("Yksi kaksirivinen s\303\244keist\303\266, jossa on sis\303\244inen riimi")
+
+T_("Two-line end-rhyming with internal rhyme in 1st line")
+fiFI("Kaksirivinen loppuriimi sis\303\244isell\303\244 riimill\303\244 1. rivill\303\244")
+
+T_("Two-line end-rhyming with internal rhyme in 2nd line")
+fiFI("Kaksirivinen loppuriimi sis\303\244isell\303\244 riimill\303\244 2. rivill\303\244")
+
+T_("Two-line end-rhyming with internal rhyme in both lines")
+fiFI("Kaksirivinen loppuriimi, sis\303\244inen riimi molemmilla riveill\303\244")
+
+T_("Two-line end-rhyming with internal rhymes in both lines")
+fiFI("Kaksirivinen loppuriimi sis\303\244isill\303\244 riimeill\303\244 molemmilla riveill\303\244")
+
+T_("Two-line rhyming with internal rhymes in both lines")
+fiFI("Kaksirivinen riimi sis\303\244isill\303\244 riimeill\303\244 molemmilla riveill\303\244")
+
+T_("4-line end rhyme")
+fiFI("4-rivinen loppuriimi")
+
+T_("3-line end rhyme with open beginning")
+fiFI("3-rivinen loppuriimi avoimella alussa")
+
+T_("3-line end rhyme with open ending")
+fiFI("3-rivinen loppuriimi avoimella lopulla")
+
+T_("4 lines, no rhyming 1. & 3., connected")
+fiFI("4 rivi\303\244, ei riimi\303\244 1. & 3., yhdistetty")
+
+T_("4 lines, alternating rhyming, connected")
+fiFI("4 rivi\303\244, vuorotteleva riimi, yhdistetty")
+
+T_("4 lines, 1. & 3. lines are same, connected")
+fiFI("4 rivi\303\244, 1. & 3. linjat ovat samat, yhdistetty")
+
+T_("4 lines, 2. & 4. lines are same, connected")
+fiFI("4 rivi\303\244, 2. ja 4. linjat ovat samat, yhdistetty")
+
+T_("4 lines, no rhyming 1. & 3., disconnected")
+fiFI("4 rivi\303\244, ei rimmaa 1. & 3., yhteys katkennut")
+
+T_("4 lines, alternating rhyming, disconnected")
+fiFI("4 rivi\303\244, vuorotellen riimi, katkennut")
+
+T_("Ballad stanza. 4 lines, internal rhymes in 1. & 3. lines and end rhymes in 2. "
+     "& 4. lines")
+fiFI("Balladi stanza. 4 rivi\303\244, sis\303\244iset riimit riveill\303\244 1. & 3. ja loppurimit riveill\303\244 2. & 4.")
+
+T_("Double 4-lines, 3 lines rhyming, rhymes in the end of parts")
+fiFI("Kaksinkertainen 4-rivinen, 3 rivi\303\244 riimi, riimit osien lopussa")
+
+T_("Double 4-lines, 3 lines rhyming, rhymes in the beginning of parts")
+fiFI("Kaksinkertainen 4-rivinen, 3 rivi\303\244 riimi, riimit osien alussa")
+
+T_("2 times 4 lines, with same 1. & 4. lines")
+fiFI("2 kertaa 4 rivi\303\244, samoilla 1. & 4. rivill\303\244")
+
+
 // Obsolete
+
+T_("Do the 1st action")
+fiFI("Tee 1. toimenpide")
+
+T_("Do the 2nd action")
+fiFI("Tee 2. toimenpide")
+
+T_("Do the 3rd action")
+fiFI("Tee 3. toimenpide")
+
+T_("Do the 4th action")
+fiFI("Tee 4. toimenpide")
+
+T_("Do the 5th action")
+fiFI("Tee 5. toimenpide")
+
+T_("Do the 6th action")
+fiFI("Tee 6. toimenpide")
+
+T_("Do the 7th action")
+fiFI("Tee 7. toimenpide")
+
+T_("Do the 8th action")
+fiFI("Tee 8. toimenpide")
+
+T_("Convert the structure to a native text")
+fiFI("Muunna rakenne natiiviksi tekstiksi")
+
+T_("Finish lyrics with at least easy singing and guitar strumming")
+fiFI("Viimeistele sanat ainakin kevyell\303\244 laululla ja kitaran soitolla")
+
+T_("Finish composition with at least chord track, simple drums, structure")
+fiFI("Viimeistele s\303\244vellys v\303\244hint\303\244\303\244n sointukappaleella, "
+     "yksinkertaisilla rummuilla, rakenteella")
+
+T_("Finish vocal notes in composition, if song has 2+ simultaneous vocal melody")
+fiFI("Viimeistele laulun nuotit, jos kappaleessa on 2+ samanaikaista laulumelodiaa")
+
+T_("Export master audio")
+fiFI("Vie master-\303\244\303\244ni")
 
 T_("To Text")
 fiFI("Vie tekstiksi")
@@ -1486,9 +1703,6 @@ fiFI("Kappaleen pisteytykset")
 
 T_("Reverse pattern")
 fiFI("K\303\244\303\244nteinen kaavio")
-
-T_("Lyrics")
-fiFI("Lyriikat")
 
 T_("Struct:")
 fiFI("Rakenne:")

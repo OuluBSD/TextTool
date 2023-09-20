@@ -147,8 +147,8 @@ void ImageGenTool::ToolMenu(Bar& bar) {
 	else {
 		bar.Add(t_("Translate"), AppImg::Part(), THISBACK1(Translate, 1)).Key(K_F5);
 		bar.Add(t_("Upload"), AppImg::Part(), THISBACK(Upload)).Key(K_F6);
-		bar.Add(t_("GenerateFromEditor"), AppImg::Part(), THISBACK(GenerateFromEditor)).Key(K_F7);
-		bar.Add(t_("VariateFromEditor"), AppImg::Part(), THISBACK(VariateFromEditor)).Key(K_F8);
+		bar.Add(t_("Generate from editor"), AppImg::Part(), THISBACK(GenerateFromEditor)).Key(K_F7);
+		bar.Add(t_("Variate from editor"), AppImg::Part(), THISBACK(VariateFromEditor)).Key(K_F8);
 	}
 }
 

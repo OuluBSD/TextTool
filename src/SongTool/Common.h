@@ -9,30 +9,35 @@
 
 enum {
 	RHYME_AA,
-	RHYME_AAAA,
-	RHYME_XAAA,
-	RHYME_AAAX,
-	RHYME_AAAC__BBBC,
-	RHYME_CAAA__CBBB,
 	RHYME_XA_XA,
 	RHYME_AX_AX,
 	RHYME_AB_AB,
 	RHYME_AAB_XXB,
 	RHYME_XXA_BBA,
 	RHYME_AAB_CCB,
+	RHYME_ABB_ABB,
+	RHYME_ABA_ABA,
+	
+	RHYME_AAAA,
+	RHYME_XAAA,
+	RHYME_AAAX,
 	RHYME_XAXA,
 	RHYME_ABAB,
 	RHYME_AbAb,
 	RHYME_aBaB,
 	RHYME_XA__XA,
 	RHYME_AB__AB,
-	RHYME_A1ABA2_A1ABA2,
 	RHYME_AA_XB__CC_XB,
+	
+	RHYME_AAAC__BBBC,
+	RHYME_CAAA__CBBB,
+	RHYME_A1ABA2_A1ABA2,
 	
 	RHYME_COUNT
 };
 
 extern const char* RhymeSchemes[RHYME_COUNT][2];
+extern const int RhymeSchemeLineCount[RHYME_COUNT];
 
 int FindRhymeType(const char* name);
 
@@ -653,5 +658,7 @@ struct CoverSuggestionData {
 
 const Vector<String>& CommonArtists();
 
+void TrimBothAllLines(String& s);
+void RealizeDoubleNewlinesOnNumbered(String& s);
 
 #endif

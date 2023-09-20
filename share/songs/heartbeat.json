@@ -321,14 +321,111 @@
 						"I never imagined this end"
 					],
 					"suggestion": [
-
-					]
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "I want some peace, I don't want a game of tug-o-war\nThis is more than I can take and I'm done with both of us",
+							"score": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "I'm over arguments, I can't take all this bickering\nI tried to keep this up, but I'm through with it for sure",
+							"score": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "I'm fed up searching, I can't handle all this fuss\nGot too much distress and I'm waving my goodbyes",
+							"score": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "No longer fightin', comin' to the end of our course\nHad the best of times, when it all turns wrong, time to part",
+							"score": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Feel no yearning, won't take part in war no more\nThis was our groove outliving its time, just let us go",
+							"score": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "No need for hurting, I'm done with this pain\nHad enough of us, can't believe what it's become",
+							"score": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "No more clashes, don't think I'll take it anymore\nWe grew apart and it's time for us to go our separate ways",
+							"score": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Let's bring this to an end, won't put my heart through any more\nWe won't survive if I keep on trying, we'll be through for sure",
+							"score": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "No point in clashing, I don't want to go on this way\nIt's time to quit, can't make us do this, don't wanna make us stay",
+							"score": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "No more fights, it's done with us here\nNow it's faded, can't bring it back, my goodbyes are near",
+							"score": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "No more battle, see it's best if we just leave\nDistant distant faces, it will just keep tearing us apart",
+							"score": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Don't wanna mix it, done making up this mess\nT arrival station, time to get off this train of sorrow",
+							"score": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "No more struggles, done wearing and tearing us\nWe all reach the end point, it's time to take the stairs down",
+							"score": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Enough with this fight, can't put up with it no more\nWe fly the same sky, still our destinies diverge",
+							"score": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Not up for struggle, leavin' this rocky shore\nParting's hard, I guess, but it's the only way for us to grow",
+							"score": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Arguments are done, no more wounding words\nTime will unbind us, so it's best if we let go",
+							"score": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "I don't want to tear, can't keep adding to this pain\nIt's time to accept it, more heartache if I stay",
+							"score": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "No more contesting, no need for shouting out\nSeems like the best thing, so goodbye and I don't have a doubt",
+							"score": 0
+						}
+					],
+					"data": [
+						{
+							"key": "EXPRESSION",
+							"value": "-1"
+						}
+					],
+					"outdated_suggestions": false
 				}
 			],
-			"rhyme_scheme": "XA,XA",
+			"rhyme_scheme": "AXX,BBA",
 			"data": [
 
-			]
+			],
+			"outdated_suggestions": false
 		},
 		{
 			"name": "Verse 1a",
@@ -345,8 +442,101 @@
 						"I'm busy recovering from work"
 					],
 					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "I'm calling, not sleeping in,\nMy heart's aching 'cause it's been a long day again.",
+							"score": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "I'm calling 'cause it's fading fast,\nMy time spent together, now a thing of the past.",
+							"score": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "I'm calling, my heart starts to sway,\nThe music's wakeup call makes me feel alive today.",
+							"score": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "I'm calling without delay,\nTo send a message that I give it all away.",
+							"score": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "I'm calling, I won't let her go,\nMy love is stronger than that of the ocean's tides and flows.",
+							"score": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "I'm calling from night until light,\nTo keep my dreams alive, that's my only might.",
+							"score": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "I'm calling and I can't disguise,\nMy love for you, it's only getting bigger with time.",
+							"score": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "I'm calling and I can't pretend,\nMy life without you, it's just too hard to comprehend.",
+							"score": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "I'm calling, but never feeling right,\nThe world and I, not meant to fight.",
+							"score": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "I'm calling, but hearing no reply,\nLiving life without you, I just can't help but sigh.",
+							"score": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "I'm calling from midnight 'til dawn,\nTo make things right and try to keep you a-holdin' on.",
+							"score": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "I'm calling and I'm outta control,\nMy dreams of you and me were the ultimate goal.",
+							"score": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "I'm calling, I'm trying to last,\nMy hope and love are better than can be remembered from the past.",
+							"score": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "I'm calling, my heart's in pain,\nThe silence between us, had me going insane.",
+							"score": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "I'm calling and won't not comply,\nThe hours pass, yet my love won't die.",
+							"score": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "I'm calling, ready to confess,\nMy crush on you, I was too shy to profess.",
+							"score": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "I'm calling and I'm in need,\nOf your compassion, for my heart to succeed.",
+							"score": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "I'm calling and no more aloof,\nI'm healing now, and want a happy ending with you.",
+							"score": 0
+						}
+					],
+					"data": [
 
-					]
+					],
+					"outdated_suggestions": false
 				},
 				{
 					"source": [
@@ -354,14 +544,151 @@
 						"Lying down on the beach with only stars above"
 					],
 					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "I feel the chill and I'm missing your touch,\nWanting you here at my side so much.",
+							"score": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "I ache so sore and I miss you dearly,\nDreamin' 'bout you in my arms so clearly.",
+							"score": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "A sorrow deep and heartache inside,\nMissing you so much it can't be denied.",
+							"score": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Tortured by the feeling without you,\nLying on the beach wishin' I was with you.",
+							"score": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Your love is my only desire,\nFeelin' it could set my heart on fire.",
+							"score": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "It's a lonely feeling without you here,\nJust the stars and the midnight so vere.",
+							"score": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "My heart is aching for your sweet embrace,\nLaying beneath the stars, no one in this place.",
+							"score": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Yearning for you on this starlit night,\nCravin' your presence, I feel the plight.",
+							"score": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Desperate without your touch I'm left alone,\nStaring up in the sky, where do I belong?",
+							"score": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Wanting you, needing you like the air I breathe,\nTonight my dreams just ain't a-gonna be complete.",
+							"score": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Feeling your absence in my mind and dreams,\nLying beneath these stars so it'll all just beam.",
+							"score": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Mourning losing the way things used to be,\nStargazing on the beach, this feels like misery.",
+							"score": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Loneliness creeps and my eyes start to weep,\nStarry night with no one else to beep.",
+							"score": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "My lonely heart is calling for your caress,\nLying on the beach, I'm dreamin' of your kiss.",
+							"score": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "My peace is gone, my pain's so great,\nUnderneath these stars I seal my fate.",
+							"score": 1
+						},
+						{
+							"style": "Madonna",
+							"content": "Desperately looking for a way out of this hell,\nCradsted beneath the stars, too late to rebel.",
+							"score": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "My blood runs cold, my heart's so blue,\nDreams of you on the shore for what I once knew.",
+							"score": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Pain in my soul, no hope in sight,\nStargazing all night, eyes closed tight.",
+							"score": 0
+						}
+					],
+					"data": [
 
-					]
+					],
+					"outdated_suggestions": false
 				}
 			],
-			"rhyme_scheme": "XA,XA",
+			"rhyme_scheme": "AB,AB",
 			"data": [
-
-			]
+				{
+					"key": "AVERAGE_EXPECTATIONS",
+					"value": "1"
+				},
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "HUMAN_STRENGTH",
+					"value": "-1"
+				},
+				{
+					"key": "MOTIVATION",
+					"value": "1"
+				},
+				{
+					"key": "SEXUALIZATION",
+					"value": "1"
+				},
+				{
+					"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+					"value": "1"
+				},
+				{
+					"key": "SEXUAL_ORIENTATION",
+					"value": "1"
+				},
+				{
+					"key": "SEXUAL_PREFERENCE",
+					"value": "-1"
+				},
+				{
+					"key": "IMAGERY",
+					"value": "1"
+				},
+				{
+					"key": "SEXUAL_COMMITMENT",
+					"value": "-1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false
 		},
 		{
 			"name": "Verse 1b",
@@ -378,8 +705,101 @@
 						"Promising staying with me through the ups and downs"
 					],
 					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Imagining when I set you free,\nTo take its course against the grain and destiny.",
+							"score": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Reminiscing in those mellow days,\nEchoes of soulful joy and sweet summer craze.",
+							"score": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Thinking what to blind me most,\nColors lively as a groovin' song would boast.",
+							"score": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Hoping that our love will last,\nFlames hot as lyrics with our rhymes blast.",
+							"score": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Dreaming of how my heart was warmed,\nUnconditional love that overcame all storms.",
+							"score": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Wondering how this could be true,\nPerfectly transcribed with stories so true.",
+							"score": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Longing just to hold your hand,\nPersistent touch that made all dreams stand.",
+							"score": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Contemplating all the roads ahead,\nCool breeze whispering future ahead.",
+							"score": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Praying to my silent God,\nHeart's asylum, where all I need is odd.",
+							"score": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Desiring our night would linger,\nShared moments have a rap-like finger.",
+							"score": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Fantasizing of the secret hideaway,\nDeeper in our hearts, 'tis hidden away.",
+							"score": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Speculating how I kept you here,\nFlow of a gush of faith despite in fear.",
+							"score": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Contriving what seemed to be,\nRhythm of our union made us see.",
+							"score": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Yearning for when I had you near,\nThe anthem of our love so clear and sincere.",
+							"score": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Believing that I'd always be,\nFated heart that sang as free.",
+							"score": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Hoping for another try,\nMusic of our passion to defy.",
+							"score": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Cherishing the memories we held,\nTunes flowing similar to tales we tell.",
+							"score": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Fancying for all the ways we ran,\nDoors open to our journey that we both began.",
+							"score": 0
+						}
+					],
+					"data": [
 
-					]
+					],
+					"outdated_suggestions": false
 				},
 				{
 					"source": [
@@ -387,14 +807,108 @@
 						"Kisses now just memories"
 					],
 					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Living life flying, no one can stay\nFind me now on the deep blue highway",
+							"score": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Visions and dreams become reality\nFrom this false world it's my true entity",
+							"score": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Passion and fury delineate me\nLost in the sounds, from the trees I be",
+							"score": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Turn up the heat, cause I'm on the prowl\nIn these midnight streets, spit out my howl",
+							"score": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Spreading love true and free\nGive me everlasting harmony",
+							"score": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Life's a journey mountaineering\nAlways give your heart some steering",
+							"score": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Your song will always accompany\nMy life's soundtrack written in harmony",
+							"score": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Distorted sound echoes through the night\nBringing dreams that give me insight",
+							"score": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "See what you want, believe it or not\nFollow the stars, and search the plot",
+							"score": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Living with rhymes, stories we tell\nLet me jump in, this path my yell",
+							"score": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "My story is blaring, don't need no more\nLines of my soul, spin on the floor",
+							"score": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Rap beats start up, as the night ignites\nFrom darkness it's my heart that sites",
+							"score": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Keep it true, this my decree\nFrom these words the boom-bap speaks",
+							"score": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Rock and roll keeps me alive\nAn adrenaline surge never arrives",
+							"score": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "The energy rises, the world around's swaying\nIn this revolution I'll be playing",
+							"score": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Running away just not me\nLet the truth, be the key",
+							"score": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "My dreams ignite, as the flames grow high\nAshes below, eternal sky",
+							"score": 0
+						},
+						{
+							"style": "<error>",
+							"content": "Life's a game, of wondering why\nWanting the truth, I start to fly",
+							"score": 0
+						}
+					],
+					"data": [
 
-					]
+					],
+					"outdated_suggestions": false
 				}
 			],
-			"rhyme_scheme": "XA,XA",
+			"rhyme_scheme": "xA,xA",
 			"data": [
 
-			]
+			],
+			"outdated_suggestions": false
 		},
 		{
 			"name": "Verse 1c",
@@ -411,8 +925,101 @@
 						"and we rock together"
 					],
 					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Gazing, the moment that we share\nSinging out together without a care",
+							"score": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Dancin' in a state of pure bliss\nGoing wild, enjoyin' the night like this",
+							"score": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Feelin' free like a cosmic blaze\nGroovin' ever on enchanted ways",
+							"score": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Living it up with an old-school joy\nRocking wild in a funk-filled ploy",
+							"score": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Lovin' strong in a peaceful mood\nA feel-good vibe that will soothe",
+							"score": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Troubadour style is poetically true\nLaying down rhymes that will stir and move",
+							"score": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Singin' out in a bright accord\nHarmonies that will reward",
+							"score": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Sparked up, under the deep blue ray\nhypnotic groove with a magic sway",
+							"score": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Breaking out into fierce desire\nWon't hold back a moment of fire",
+							"score": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Rockin' hard with a mighty rap\nTaking down this microphone trap",
+							"score": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Rising up to a moody crest\nRythm and soul that will soothe the stress",
+							"score": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Heads bop to the hip-hop sound\nReal tight rhymes that won't let down",
+							"score": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Getting into that activating mode\nAbso-positively rhyming in an overload",
+							"score": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Singing out with the psychedelic sway\nRockin' hard, through day to day",
+							"score": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Taking flight in a magical trance\nMaking it all into perfect chants",
+							"score": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Dancing it up, into a bright light\nAn embrace of passion that turns it right",
+							"score": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Making mellow music with an historic nod\nA mix of genre, all down the line on the road",
+							"score": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Crooning out a classic brand\nRocking soul to a glitter strand",
+							"score": 0
+						}
+					],
+					"data": [
 
-					]
+					],
+					"outdated_suggestions": false
 				},
 				{
 					"source": [
@@ -420,14 +1027,108 @@
 						"Is you, moon shining on you drenched in sweat"
 					],
 					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "When I'm weak, I feel no fear,\nMy music guides me, free me from tears.",
+							"score": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "When strength is lost and I am alone,\nI scream out loud, and keep pushin' on.",
+							"score": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "When sadness comes to me in the night,\nEmbrace my soul, shines bright the light.",
+							"score": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "I'm a hustler, but I'm not scared,\nGoin' do what I gotta do, no scared.",
+							"score": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "When the night grow dark and deep,\nMy faith shall arise, joy I will keep.",
+							"score": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "When troubles come it's so hard to take,\nCan't win no matter how much I stake.",
+							"score": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Love is hard, but I'm not lost,\nIn the darkness, you are my frost.",
+							"score": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "When I'm despaired and far from home,\nCraving for some peace and roam.",
+							"score": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "When it's all too much, my heart is torn,\nI look for truth, no need to mourn.",
+							"score": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "All my pain, I can release,\nGunnin' for some answers in this peace.",
+							"score": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Out of the darkness, I can hope,\nJust one moment, I need to cope.",
+							"score": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Night here, it's so cold,\nNo retreat, I gotta hold.",
+							"score": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "When night's grow dark and silent,\nPass the mic, keep the vibes terrific.",
+							"score": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "I'm driven on by my dreams,\nCan't be caged, I must be free.",
+							"score": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "When I fear, I trip and fall,\nNo breadcrumbs, gotta crawl.",
+							"score": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "When night calls, no more light,\nMy dreams keep me alive and bright.",
+							"score": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "When all around me it's dark,\nMy heart still shines, a sky so stark.",
+							"score": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "When night falls, I slow my stride,\nClimb the stars, put my faith aside.",
+							"score": 0
+						}
+					],
+					"data": [
 
-					]
+					],
+					"outdated_suggestions": false
 				}
 			],
-			"rhyme_scheme": "XA,XA",
+			"rhyme_scheme": "xA,xA",
 			"data": [
 
-			]
+			],
+			"outdated_suggestions": false
 		},
 		{
 			"name": "Verse 1d",
@@ -445,7 +1146,11 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				},
 				{
 					"source": [
@@ -454,13 +1159,18 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				}
 			],
-			"rhyme_scheme": "XA,XA",
+			"rhyme_scheme": "xA,xA",
 			"data": [
 
-			]
+			],
+			"outdated_suggestions": true
 		},
 		{
 			"name": "Verse 2a",
@@ -478,7 +1188,11 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				},
 				{
 					"source": [
@@ -487,13 +1201,18 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				}
 			],
-			"rhyme_scheme": "XA,XA",
+			"rhyme_scheme": "xA,xA",
 			"data": [
 
-			]
+			],
+			"outdated_suggestions": true
 		},
 		{
 			"name": "Verse 2b",
@@ -511,7 +1230,11 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				},
 				{
 					"source": [
@@ -520,13 +1243,18 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				}
 			],
-			"rhyme_scheme": "XA,XA",
+			"rhyme_scheme": "xA,xA",
 			"data": [
 
-			]
+			],
+			"outdated_suggestions": true
 		},
 		{
 			"name": "Verse 2c",
@@ -544,7 +1272,11 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				},
 				{
 					"source": [
@@ -553,13 +1285,18 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				}
 			],
-			"rhyme_scheme": "XA,XA",
+			"rhyme_scheme": "xA,xA",
 			"data": [
 
-			]
+			],
+			"outdated_suggestions": true
 		},
 		{
 			"name": "Verse 2d",
@@ -577,7 +1314,11 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				},
 				{
 					"source": [
@@ -586,13 +1327,18 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				}
 			],
-			"rhyme_scheme": "XA,XA",
+			"rhyme_scheme": "xA,xA",
 			"data": [
 
-			]
+			],
+			"outdated_suggestions": true
 		},
 		{
 			"name": "Bridge",
@@ -614,7 +1360,11 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				},
 				{
 					"source": [
@@ -623,7 +1373,11 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				},
 				{
 					"source": [
@@ -632,7 +1386,11 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				},
 				{
 					"source": [
@@ -641,13 +1399,18 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				}
 			],
-			"rhyme_scheme": "XA,XA",
+			"rhyme_scheme": "xA,xA",
 			"data": [
 
-			]
+			],
+			"outdated_suggestions": true
 		},
 		{
 			"name": "Chorus 1b",
@@ -663,13 +1426,18 @@
 					],
 					"suggestion": [
 
-					]
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": true
 				}
 			],
-			"rhyme_scheme": "XA,XA",
+			"rhyme_scheme": "xA,xA",
 			"data": [
 
-			]
+			],
+			"outdated_suggestions": true
 		}
 	]
 }

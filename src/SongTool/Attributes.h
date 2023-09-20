@@ -2,7 +2,10 @@
 #define _SongTool_Attributes_h_
 
 #define ATTR_LIST \
-	ATTR_ITEM(AVERAGE_EXPECTATIONS, "Average expectations", "comformed", "inversed") \
+	ATTR_ITEM(AVERAGE_EXPECTATIONS, "Average expectations", "expectation-conformed", "expectation-opposed") \
+	ATTR_ITEM(IMAGERY, "Imagery", "trope-reinforcing", "unique") \
+	ATTR_ITEM(EXPRESSION, "Expression", "allegorical", "explicit") \
+	ATTR_ITEM(RELATIONSHIP_FOCUS, "Relationship focus", "partner-focused", "individual-focused") \
 	ATTR_ITEM(INTEGRITY, "Integrity", "honest", "twisted") \
 	ATTR_ITEM(SOCIAL, "Social", "libertarian", "authoritarian") \
 	ATTR_ITEM(ECONOMIC, "Economic", "liberal", "conservative") \

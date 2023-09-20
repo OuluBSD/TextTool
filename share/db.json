@@ -13,6 +13,10 @@
 						"value": "seikkaileva"
 					},
 					{
+						"key": "allegorical",
+						"value": "allegorinen"
+					},
+					{
 						"key": "attitude",
 						"value": "asenne"
 					},
@@ -22,7 +26,7 @@
 					},
 					{
 						"key": "average expectations",
-						"value": ""
+						"value": "keskimääräiset odotukset"
 					},
 					{
 						"key": "beliefs",
@@ -37,12 +41,12 @@
 						"value": "kollektiivinen"
 					},
 					{
-						"key": "comformed",
-						"value": ""
-					},
-					{
 						"key": "confident",
 						"value": "itsevarma"
+					},
+					{
+						"key": "conformed",
+						"value": "mukautunut"
 					},
 					{
 						"key": "conservative",
@@ -69,8 +73,24 @@
 						"value": "kehoa muokkaava"
 					},
 					{
+						"key": "expectation-conformed",
+						"value": "odotusten mukainen"
+					},
+					{
+						"key": "expectation-opposed",
+						"value": "odotuksia vastaan"
+					},
+					{
 						"key": "expectations",
 						"value": "odotukset"
+					},
+					{
+						"key": "explicit",
+						"value": "selkeää"
+					},
+					{
+						"key": "expression",
+						"value": "ilmaisu"
 					},
 					{
 						"key": "heavy",
@@ -101,6 +121,14 @@
 						"value": "humoristinen"
 					},
 					{
+						"key": "imagery",
+						"value": "kuvasto"
+					},
+					{
+						"key": "individual-focused",
+						"value": "yksilökeskeinen"
+					},
+					{
 						"key": "individualism",
 						"value": "yksilökeskeinen"
 					},
@@ -110,7 +138,7 @@
 					},
 					{
 						"key": "inversed",
-						"value": ""
+						"value": "käänteinen"
 					},
 					{
 						"key": "joyful",
@@ -173,6 +201,10 @@
 						"value": "optimistinen"
 					},
 					{
+						"key": "partner-focused",
+						"value": "kumppanikeskeinen"
+					},
+					{
 						"key": "perfection",
 						"value": "täydellinen"
 					},
@@ -195,6 +227,10 @@
 					{
 						"key": "punishing",
 						"value": "rankaiseva"
+					},
+					{
+						"key": "relationship focus",
+						"value": "suhteen keskittyminen"
 					},
 					{
 						"key": "rewarding",
@@ -257,8 +293,20 @@
 						"value": "vahva"
 					},
 					{
+						"key": "trope-endorsing",
+						"value": "trooppeja kannattava"
+					},
+					{
+						"key": "trope-reinforcing",
+						"value": "trooppeja voimistava"
+					},
+					{
 						"key": "twisted",
 						"value": "kieroutunut"
+					},
+					{
+						"key": "unique",
+						"value": "ainutlaatuinen"
 					},
 					{
 						"key": "uplifting",
