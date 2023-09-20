@@ -21,27 +21,18 @@ TxtStructEdit::TxtStructEdit() {
 void TxtStructEdit::Init() {
 	EditorCtrl::Init();
 	
-	int w = 300;
-	top_bar.Add(import_reference_struct.HCenterPos(w,-2*w).VSizePos(1,1));
-	top_bar.Add(check_errors.HCenterPos(w,-w).VSizePos(1,1));
-	top_bar.Add(convert_to_native.HCenterPos(w,0).VSizePos(1,1));
-	top_bar.Add(evaluate_audience.HCenterPos(w,w).VSizePos(1,1));
-	top_bar.Add(lbl.HCenterPos(w,2*w).VSizePos(1,1));
-	
-	import_reference_struct.SetLabel(t_("Copy the struct of the reference song"));
-	import_reference_struct << THISBACK(ImportReferenceStruct);
-	
-	check_errors.SetLabel(t_("Check for problems in the song structure"));
-	check_errors << THISBACK(CheckErrors);
-	
-	convert_to_native.SetLabel(t_("Convert the structure to a native text"));
-	convert_to_native << THISBACK(ConvertToNative);
-	
-	evaluate_audience.SetLabel(t_("Evaluate the english text with an AI audience"));
-	evaluate_audience << THISBACK(EvaluateAudience);
-	
-	lbl.SetLabel(t_("Deconstructed, auto-english, auto-native"));
-	
+}
+
+void TxtStructEdit::ToolMenu(Bar& bar) {
+	bar.Add(t_("Copy the struct of the reference song"), AppImg::Part(), THISBACK(ImportReferenceStruct)).Key(K_F5);
+	bar.Add(t_("Check for problems in the song structure"), AppImg::Part(), THISBACK(CheckErrors)).Key(K_F6);
+	bar.Add(t_("Convert the structure to a english text"), AppImg::Part(), THISBACK(ConvertToEnglish)).Key(K_F7);
+	bar.Add(t_("Convert the english text to a native text"), AppImg::Part(), THISBACK(ConvertToNative)).Key(K_F8);
+	bar.Add(t_("Evaluate the english text with an AI audience"), AppImg::Part(), THISBACK(EvaluateAudience)).Key(K_F9);
+}
+
+String TxtStructEdit::GetStatusText() {
+	return t_("Deconstructed, auto-english, auto-native");
 }
 
 void TxtStructEdit::ImportReferenceStruct() {
@@ -75,7 +66,7 @@ void TxtStructEdit::CheckErrors() {
 	}
 }
 
-void TxtStructEdit::ConvertToNative() {
+void TxtStructEdit::ConvertToEnglish() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if(!p.song || !p.artist || main_key.IsEmpty() || main_natural_english_key.IsEmpty())
@@ -88,11 +79,11 @@ void TxtStructEdit::ConvertToNative() {
 	
 	{
 		TaskMgr& m = *p.song->pipe;
-		m.ConvertSongStructureToEnglish(main_key, main_natural_english_key, THISBACK(OnNaturalExportReady));
+		m.ConvertSongStructureToEnglish(main_key, main_natural_english_key, THISBACK1(PostUpdateExportData, 0));
 	}
 }
 
-void TxtStructEdit::OnNaturalExportReady() {
+void TxtStructEdit::ConvertToNative() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if(!p.song || !p.artist || main_natural_english_key.IsEmpty() || main_natural_native_key.IsEmpty())
@@ -105,34 +96,19 @@ void TxtStructEdit::OnNaturalExportReady() {
 		String trans_lng = "EN-US";
 		
 		TaskMgr& m = *p.song->pipe;
-		m.TranslateSongData(trans_lng, main_natural_english_key, orig_lng, main_natural_native_key, THISBACK(OnNaturalNativeExportReady));
+		m.TranslateSongData(trans_lng, main_natural_english_key, orig_lng, main_natural_native_key, THISBACK1(PostUpdateExportData, 1));
 	}
 	
-	PostCallback(THISBACK(UpdateExportData));
 }
 
-void TxtStructEdit::OnNaturalNativeExportReady() {
-	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
-	if(!p.song || !p.artist || main_natural_native_key.IsEmpty())
-		return;
-	
-	PostCallback(THISBACK(UpdateExportData));
-}
-
-void TxtStructEdit::UpdateExportData() {
+void TxtStructEdit::UpdateExportData(int i) {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if(!p.song || !p.artist || main_natural_english_key.IsEmpty() || main_natural_native_key.IsEmpty())
 		return;
 	
-	other.SetData(p.song->data.Get(main_natural_english_key, ""));
-	third.SetData(p.song->data.Get(main_natural_native_key, ""));
-}
-
-void TxtStructEdit::DoMainAction(int i) {
-	if (i == 0) ImportReferenceStruct();
-	if (i == 1) CheckErrors();
-	if (i == 2) ConvertToNative();
-	if (i == 3) EvaluateAudience();
+	if (i == 0)
+		other.SetData(p.song->data.Get(main_natural_english_key, ""));
+	else if (i == 1)
+		third.SetData(p.song->data.Get(main_natural_native_key, ""));
 }

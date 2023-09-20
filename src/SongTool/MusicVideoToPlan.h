@@ -11,6 +11,8 @@ public:
 	MusicVideoToPlan();
 	
 	void Init() override;
+	void ToolMenu(Bar& bar) override;
+	String GetStatusText() override;
 	void ImportScreenplay();
 	void MakeSingleImage();
 	void MakeAllImages();

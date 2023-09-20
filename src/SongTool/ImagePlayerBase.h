@@ -32,7 +32,6 @@ class ImagePlayerBase : public SongToolCtrl {
 	TimeCallback tc;
 	
 protected:
-	Ctrl top_bar;
 	
 	struct Item : Moveable<Item> {
 		int time = 0;

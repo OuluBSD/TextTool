@@ -10,19 +10,12 @@ CoverImage::CoverImage() {
 void CoverImage::Init() {
 	ImagePlayerBase::Init();
 	
-	int w = 300;
-	top_bar.Add(create_suggestions.HCenterPos(w,-2*w).VSizePos(1,1));
-	top_bar.Add(make_single_image.HCenterPos(w,-w).VSizePos(1,1));
-	top_bar.Add(make_all_images.HCenterPos(w,0).VSizePos(1,1));
-	
-	create_suggestions.SetLabel(t_("Create suggestions for prompts"));
-	create_suggestions << THISBACK(CreateSuggestionsForPrompts);
-	
-	make_single_image.SetLabel(t_("Make single image"));
-	make_single_image << THISBACK(MakeSingleImage);
-	
-	make_all_images.SetLabel(t_("Make all images"));
-	make_all_images << THISBACK(MakeAllImages);
+}
+
+void CoverImage::ToolMenu(Bar& bar) {
+	bar.Add(t_("Create suggestions for prompts"), AppImg::Part(), THISBACK(CreateSuggestionsForPrompts)).Key(K_F5);
+	bar.Add(t_("Make single image"), AppImg::Part(), THISBACK(MakeSingleImage)).Key(K_F6);
+	bar.Add(t_("Make all images"), AppImg::Part(), THISBACK(MakeAllImages)).Key(K_F7);
 	
 }
 

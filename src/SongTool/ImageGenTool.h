@@ -117,7 +117,7 @@ public:
 	ImageGenTool();
 	
 	void Data() override;
-	void DoMainAction(int i=0) override;
+	void ToolMenu(Bar& bar) override;
 	void Generate();
 	void GenerateFromEditor();
 	void VariateFromEditor();

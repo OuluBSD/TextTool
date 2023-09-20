@@ -328,17 +328,14 @@ void TxtAutoCompare::OnRhymeSchemeChange(DropList* dl, Song::SongPart* sp) {
 	sp->rhyme_scheme = name;
 }
 
-void TxtAutoCompare::DoMainAction(int i) {
-	
-}
-
 void TxtAutoCompare::ToolMenu(Bar& bar) {
 	/*Size sz = bar.GetStdSize();
 	sz.cx = 300;
 	bar.AddTool(rhymetype, sz);*/
 	
-	bar.Add(t_("Import english to structure"), AppImg::Part(), THISBACK(ImportEnglish));
-	bar.Add(t_("Evaluate different poetic styles"), AppImg::Part(), THISBACK(EvaluatePoeticStyles));
+	bar.Add(t_("Import english to structure"), AppImg::Part(), THISBACK(ImportEnglish)).Key(K_F5);
+	bar.Add(t_("Evaluate single lines"), AppImg::Part(), THISBACK1(EvaluatePoeticStyles, 0)).Key(K_F6);
+	bar.Add(t_("Evaluate all lines"), AppImg::Part(), THISBACK1(EvaluatePoeticStyles, 1)).Key(K_F7);
 }
 
 void TxtAutoCompare::ImportEnglish() {
@@ -476,7 +473,7 @@ void TxtAutoCompare::UpdateRhymes(Song::SongPart& sp) {
 	}
 }
 
-void TxtAutoCompare::EvaluatePoeticStyles() {
+void TxtAutoCompare::EvaluatePoeticStyles(int i) {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if(!p.song || !p.artist || main_key.IsEmpty())
@@ -485,8 +482,15 @@ void TxtAutoCompare::EvaluatePoeticStyles() {
 	
 	p.RealizePipe();
 	
+	Song::SongPart* ptr = 0;
+	if (i == 0)
+		ptr = GetActiveSongPart();
+	
 	for(int i = 0; i < song.parts.GetCount(); i++) {
 		Song::SongPart& sp = song.parts[i];
+		
+		if (ptr && ptr != &sp)
+			continue;
 		
 		int rs_idx = FindRhymeType(sp.rhyme_scheme);
 		if (rs_idx < 0 || rs_idx >= RHYME_COUNT) {

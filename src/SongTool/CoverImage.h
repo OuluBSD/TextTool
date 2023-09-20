@@ -11,6 +11,7 @@ public:
 	CoverImage();
 	
 	void Init() override;
+	void ToolMenu(Bar& bar) override;
 	void CreateSuggestionsForPrompts();
 	void MakeSingleImage();
 	void MakeAllImages();

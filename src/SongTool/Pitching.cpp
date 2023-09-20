@@ -4,22 +4,7 @@
 
 
 Pitching::Pitching() {
-	int w = 300;
-	top_bar.Add(translate.HCenterPos(w,-w).VSizePos(1,1));
-	top_bar.Add(make_feedback.HCenterPos(w,0).VSizePos(1,1));
-	top_bar.Add(make_pitch.HCenterPos(w,+w).VSizePos(1,1));
-	
-	translate.SetLabel(t_("Translate native artist's process to english"));
-	translate << THISBACK(TranslateEnglishArtistProcess);
-	
-	make_feedback.SetLabel(t_("Make feedback based on all release data"));
-	make_feedback << THISBACK(MakeFeedback);
-	
-	make_pitch.SetLabel(t_("Make pitch based on all release data"));
-	make_pitch << THISBACK(MakePitch);
-	
-	Add(top_bar.TopPos(0,30).HSizePos());
-	Add(hsplit.VSizePos(30,0).HSizePos());
+	Add(hsplit.VSizePos().HSizePos());
 	
 	hsplit.Horz() << vsplit0.Vert() << vsplit1.Vert();
 	
@@ -40,17 +25,17 @@ Pitching::Pitching() {
 	pitching.WhenAction << THISBACK2(OnText, &pitching, final_pitching_key);
 }
 
+void Pitching::ToolMenu(Bar& bar) {
+	bar.Add(t_("Translate native artist's process to english"), AppImg::Part(), THISBACK(TranslateEnglishArtistProcess)).Key(K_F5);
+	bar.Add(t_("Make feedback based on all release data"), AppImg::Part(), THISBACK(MakeFeedback)).Key(K_F6);
+	bar.Add(t_("Make pitch based on all release data"), AppImg::Part(), THISBACK(MakePitch)).Key(K_F7);
+}
+
 void Pitching::Data() {
 	SetText(native, native_pitching_key);
 	SetText(english, english_autotrans_pitching_key);
 	SetText(feedback, audience_pitching_key);
 	SetText(pitching, final_pitching_key);
-}
-
-void Pitching::DoMainAction(int i) {
-	if (i == 0) TranslateEnglishArtistProcess();
-	if (i == 1) MakeFeedback();
-	if (i == 2) MakePitch();
 }
 
 void Pitching::SetText(DocEdit& e, String data_key) {

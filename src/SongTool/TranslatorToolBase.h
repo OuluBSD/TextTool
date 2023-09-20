@@ -3,10 +3,8 @@
 
 
 class TranslatorToolCtrl : public SongToolCtrl {
-	Label lbl;
 	Splitter hsplit;
 	DocEdit orig, trans;
-	Button translate;
 	
 protected:
 	enum {
@@ -24,7 +22,8 @@ public:
 	TranslatorToolCtrl();
 	
 	void Data() override;
-	void DoMainAction(int i=0) override;
+	String GetStatusText() override;
+	void ToolMenu(Bar& bar);
 	void Translate();
 	void OnOriginalChange();
 	void OnTranslatedChange();

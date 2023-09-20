@@ -22,34 +22,14 @@ TxtEditNative::TxtEditNative() {
 void TxtEditNative::Init() {
 	EditorCtrl::Init();
 	
-	int w = 300;
-	top_bar.Add(import_autotrans_native.HCenterPos(w,-2*w).VSizePos(1,1));
-	top_bar.Add(translate_to_english.HCenterPos(w,-w).VSizePos(1,1));
-	top_bar.Add(check_errors.HCenterPos(w,0).VSizePos(1,1));
-	top_bar.Add(evaluate_audience.HCenterPos(w,w).VSizePos(1,1));
-	top_bar.Add(lbl.HCenterPos(w,2*w).VSizePos(1,1));
-	
-	import_autotrans_native.SetLabel(t_("Import the native text converted from structure"));
-	import_autotrans_native << THISBACK(ImportAutomaticNativeTranslation);
-	
-	translate_to_english.SetLabel(t_("Translate native text of the user to english"));
-	translate_to_english << THISBACK(TranslateToEnglish);
-	
-	check_errors.SetLabel(t_("Check for problems in the english translation"));
-	check_errors << THISBACK(CheckErrors);
-	
-	evaluate_audience.SetLabel(t_("Evaluate the english text with an AI audience"));
-	evaluate_audience << THISBACK(EvaluateAudience);
-	
-	lbl.SetLabel(t_("Native, non-poetic-english, auto-english"));
-	
 }
 
-void TxtEditNative::DoMainAction(int i) {
-	if (i == 0) ImportAutomaticNativeTranslation();
-	if (i == 1) TranslateToEnglish();
-	if (i == 2) CheckErrors();
-	if (i == 3) EvaluateAudience();
+void TxtEditNative::ToolMenu(Bar& bar) {
+	bar.Add(t_("Import the native text converted from structure"), AppImg::Part(), THISBACK(ImportAutomaticNativeTranslation)).Key(K_F5);
+	bar.Add(t_("Translate native text of the user to english"), AppImg::Part(), THISBACK(TranslateToEnglish)).Key(K_F6);
+	bar.Add(t_("Check for problems in the english translation"), AppImg::Part(), THISBACK(CheckErrors)).Key(K_F7);
+	bar.Add(t_("Evaluate the english text with an AI audience"), AppImg::Part(), THISBACK(EvaluateAudience)).Key(K_F8);
+	
 }
 
 void TxtEditNative::ImportAutomaticNativeTranslation() {

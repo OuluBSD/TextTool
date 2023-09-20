@@ -1200,37 +1200,33 @@ void Task::CreateInput_TranslateSongData() {
 
 
 const char* struct_unpack_orig = R"_(
-Chorus 1a:
-I didn't want to fight, I don't want to break up
-I never imagined this would end.
-I didn't mean to break you, make us like this
-but no matter how much I love, one of us hurts the other again.)_";
+Verse 1a:
+I hurt myself today
+To see if I still feel
+
+Verse 1b:
+I focus on the pain
+The only thing that's real)_";
 
 
 const char* struct_unpack_trans = R"_(
-chorus 1a {
+verse 1a {
 	me {
-		not wanting {
-			to fight
-			to break up
+		hurting (myself) {
+			today
 		}
-		never ( imagined ) {
-			this ( end )
-		}
-		not meaning {
-			to break ( my romantic partner )
-			to make ( me and my romantic partner ) {
-				like ( this )
-			}
+		to see (if) {
+			I still feel
 		}
 	}
-	me and my romantic partner {
-		loving {
-			one ( of me and my romantic partner ) {
-				hurting ( other ) {
-					again
-				}
+}
+verse 1b {
+	me {
+		I {
+			focus (on) {
+				the pain
 			}
+			the only thing that's real
 		}
 	}
 })_";
@@ -1275,9 +1271,11 @@ void Task::CreateInput_UnpackStructureSongData() {
 
 const char* check_song_struct_errors_ex = R"_(
 me {
-	not wanting {
-		to fight
-		to break up
+	hurting (myself) {
+		today
+	}
+	to see (if) {
+		I still feel
 	}
 })_";
 
@@ -1288,7 +1286,7 @@ void Task::CreateInput_CheckSongStructureErrors() {
 		Vector<String> lines = Split(struct_unpack_orig, "\n", true);
 		TaskTitledList& list = input.AddSub().Title("Original lyrics \"Text A\"");
 		list		.NoListChar();
-		list		.Add("I didn't want to fight, I don't want to break up");
+		list		.Add("I hurt myself today, To see if I still feel");
 	}
 	{
 		Vector<String> lines = Split(check_song_struct_errors_ex, "\n", true);

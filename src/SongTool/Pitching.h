@@ -5,8 +5,6 @@
 class Pitching : public SongToolCtrl {
 	Splitter hsplit, vsplit0, vsplit1;
 	DocEdit native, english, feedback, pitching;
-	Button translate, make_feedback, make_pitch;
-	Ctrl top_bar;
 	
 	String user_natural_english_key;
 	String native_pitching_key;
@@ -19,7 +17,7 @@ public:
 	Pitching();
 	
 	void Data() override;
-	void DoMainAction(int i=0) override;
+	void ToolMenu(Bar& bar) override;
 	void TranslateEnglishArtistProcess();
 	void MakeFeedback();
 	void MakePitch();

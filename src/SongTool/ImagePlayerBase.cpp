@@ -1,8 +1,7 @@
 #include "SongTool.h"
 
 ImagePlayerBase::ImagePlayerBase() {
-	Add(top_bar.TopPos(0,30).HSizePos());
-	Add(hsplit.VSizePos(30,0).HSizePos());
+	Add(hsplit.VSizePos().HSizePos());
 	
 	hsplit.Horz() << list << player;
 	

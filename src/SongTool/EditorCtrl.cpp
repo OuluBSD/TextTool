@@ -28,8 +28,7 @@ void EditorCtrl::Init() {
 	find_replace_restore_pos = 0;
 	font_height = 15;
 	
-	Add(editor_bottom.VSizePos(30,0).HSizePos());
-	Add(top_bar.TopPos(0,30).HSizePos());
+	Add(editor_bottom.VSizePos().HSizePos());
 	
 	editor_bottom.Vert();
 	editor_bottom << hsplit_code.Horz() << bottom;

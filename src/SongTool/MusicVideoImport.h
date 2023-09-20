@@ -3,9 +3,6 @@
 
 
 class MusicVideoImport : public EditorCtrl {
-	Button translate_to_english;
-	Button convert_to_structure;
-	Button evaluate_audience;
 	String native_ref_screenplay;
 	String english_autotrans_ref_screenplay;
 	String english_auto_screen_struct;
@@ -21,7 +18,7 @@ public:
 	MusicVideoImport();
 	
 	void Init() override;
-	void DoMainAction(int i=0) override;
+	void ToolMenu(Bar& bar) override;
 	void TranslateToEnglish();
 	void ConvertToStructure();
 	void EvaluateAudience();

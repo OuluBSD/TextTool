@@ -3,15 +3,10 @@
 
 
 class TxtEditNative : public EditorCtrl {
-	Button import_autotrans_native;
-	Button translate_to_english;
-	Button check_errors;
-	Button evaluate_audience;
 	String main_natural_native_key;
 	String user_natural_native_key;
 	String auto_natural_english_trans_key;
 	String user_natural_english_trans_key;
-	Label lbl;
 	
 	
 public:
@@ -19,7 +14,7 @@ public:
 	TxtEditNative();
 	
 	void Init() override;
-	void DoMainAction(int i=0) override;
+	void ToolMenu(Bar& bar) override;
 	void ImportAutomaticNativeTranslation();
 	void TranslateToEnglish();
 	void CheckErrors();

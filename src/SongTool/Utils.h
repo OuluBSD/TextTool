@@ -9,7 +9,7 @@ public:
 	virtual ~SongToolCtrl() {}
 	virtual void Data() = 0;
 	virtual void ToolMenu(Bar& bar) {bar.Add("", AppImg::placeholder16(), Callback());}
-	virtual void DoMainAction(int i=0) {}
+	virtual String GetStatusText() {return String();}
 	
 };
 

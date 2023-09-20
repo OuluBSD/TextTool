@@ -92,8 +92,8 @@ public:
 	void SetView(int i);
 	void LoadLast();
 	void StoreLast();
-	void DoMainAction(int action);
 	void MoveTab(int d);
+	String GetStatusText();
 	
 	void ArtistMenu(Bar& bar);
 	void ReleaseMenu(Bar& bar);

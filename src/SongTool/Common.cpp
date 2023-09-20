@@ -9,6 +9,7 @@ const char* RhymeSchemes[RHYME_COUNT][2] {
 	{"AAAC BBBC", t_("Double 4-lines, 3 lines rhyming, rhymes in the end of parts")},
 	{"CAAA CBBB", t_("Double 4-lines, 3 lines rhyming, rhymes in the beginning of parts")},
 	{"XA,XA", t_("Single two-line stanza without internal rhyme")},
+	{"AX,AX", t_("Single two-line begin rhyme without internal rhyme")},
 	{"AB,AB", t_("Single two-line stanza with internal rhyme")},
 	{"AAB,XXB", t_("Two-line end-rhyming with internal rhyme in 1st line")},
 	{"XXA,BBA", t_("Two-line end-rhyming with internal rhyme in 2nd line")},

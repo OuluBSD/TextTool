@@ -198,14 +198,16 @@ void Editor::DataPage() {
 		items[page].ctrl->Data();
 }
 
-void Editor::DoMainAction(int action) {
-	if (page >= 0 && page < items.GetCount())
-		items[page].ctrl->DoMainAction(action);
-}
-
 void Editor::ToolMenu(Bar& bar) {
 	if (page >= 0 && page < items.GetCount())
 		items[page].ctrl->ToolMenu(bar);
+}
+
+String Editor::GetStatusText() {
+	if (page >= 0 && page < items.GetCount())
+		return items[page].ctrl->GetStatusText();
+	else
+		return String();
 }
 
 void Editor::MoveTab(int d) {

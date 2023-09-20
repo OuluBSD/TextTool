@@ -4,7 +4,6 @@
 
 class TxtAutoCompare : public SongToolCtrl {
 	Splitter hsplit, vsplit0, vsplit1;
-	//CodeEditor main;
 	ArrayCtrl parts, lines, line_results, attrs;
 	DocEdit best;
 	
@@ -26,16 +25,15 @@ public:
 	
 	void Init();
 	void SetNative() {is_native = true;}
+	void ToolMenu(Bar& bar) override;
 	void Data() override;
 	void DataSong();
 	void DataSongPart(bool skip_results);
 	void DataSongRhymeData();
 	void SetSuggestionScore(EditIntNotNullSpin* e, Song::Suggestion* sug);
-	void DoMainAction(int i=0) override;
-	virtual void ToolMenu(Bar& bar);
 	void ImportEnglish();
 	void UpdateRhymes(Song::SongPart& sp);
-	void EvaluatePoeticStyles();
+	void EvaluatePoeticStyles(int i);
 	void PostOnPoeticRecv(String res, int part, int rhyme) {PostCallback(THISBACK3(OnPoeticRecv, res, part, rhyme));}
 	void OnPoeticRecv(String res, int part, int rhyme);
 	void OnAttrChange(Song::SongPart* sp, const char* s, DropList* dl);

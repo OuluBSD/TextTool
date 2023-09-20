@@ -272,15 +272,15 @@
 		},
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE",
-			"value": "chorus {\n\tme {\n\t\tnot wanting {\n\t\t\tto fight\n\t\t\tto break up\n\t\t}\n\t\tnever ( imagined ) {\n\t\t\tthis ( end )\n\t\t}\n\t\tnot meaning {\n\t\t\tto break ( my romantic partner )\n\t\t\tto do ( me and my romantic partner ) {\n\t\t\t\tthis \n\t\t\t}\n\t\t}\n\t}\n\tme and my romantic partner {\n\t\tloving {\n\t\t\tone ( of me and my romantic partner ) {\n\t\t\t\thurting ( other ) {\n\t\t\t\t\tagain\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1a {\n\tme {\n\t\tcalling {\n\t\t\tnot ( recently )\n\t\t}\n\t\tbusy ( recovering from work )\n\t\tmissing ( my romantic partner )\n\t\twanting {\n\t\t\tthem {\n\t\t\t\t( here )\n\t\t\t\t( lying down on the beach )\n\t\t\t\t( with only stars above )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1b {\n\tme {\n\t\t( dreaming )\n\t\t( how my romantic partner would be warm in my arms )\n\t\tpromising {\n\t\t\tstaying ( with my romantic partner ) {\n\t\t\t\tthrough ( ups and downs )\n\t\t\t}\n\t\t}\n\t\ttime {\n\t\t\t( passing by )\n\t\t\t( taking me away )\n\t\t}\n\t\t( kisses ) {\n\t\t\tnow ( memories )\n\t\t}\n\t}\n}\nverse 1c {\n\tme and my romantic partner {\n\t\t( touching )\n\t\t( in which I kiss my romantic partner and we rock together )\n\t\twhen ( night gets dark ) {\n\t\t\tthe only thing ( I hear ) {\n\t\t\t\tis ( my romantic partner )\n\t\t\t}\n\t\t\t( moon ) {\n\t\t\t\t( shining )\n\t\t\t\ton ( my romantic partner ) \n\t\t\t\t( drenched in sweat )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1d {\n\tme and my romantic partner {\n\t\tnot ( trying enough )\n\t\tbeing ( here )\n\t\tnot ( seeing enough of each other )\n\t\tme {\n\t\t\tbeing back ( in a moment )\n\t\t\tmeeting ( my wife )\n\t\t}\n\t\tbeing {\n\t\t\ta little ( wiser )\n\t\t\table ( to love again )\n\t\t}\n\t}\n}\nverse 2a {\n\tme {\n\t\tneeding ( someone else )\n\t\tforgetting {\n\t\t\tname {\n\t\t\t\tof ( my romantic partner )\n\t\t\t\t( and messing it up with another name )\n\t\t\t}\n\t\t}\n\t\tleaving ( last time ) {\n\t\t\twith ( slamming doors )\n\t\t}\n\t\t( woman ) {\n\t\t\tcoming up {\n\t\t\t\twith ( air of hope )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2b {\n\tme {\n\t\trejecting {\n\t\t\thappy ( feelings )\n\t\t}\n\t\twhen ( eyes ) {\n\t\t\tmet {\n\t\t\t\tsorrows ( disappearing )\n\t\t\t}\n\t\t}\n\t\tnot knowing {\n\t\t\thow {\n\t\t\t\tto turn off {\n\t\t\t\t\tthe feeling\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tsometimes {\n\t\t\t( getting me )\n\t\t\t( won't deny )\n\t\t}\n\t}\n}\nverse 2c {\n\tme {\n\t\tafraid {\n\t\t\tfalling {\n\t\t\t\tin love {\n\t\t\t\t\t( again )\n\t\t\t\t\t( and failing and never recovering )\n\t\t\t\t\twith ( someone who immediately leaves )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\ttime {\n\t\t\t( precious )\n\t\t\tspending ( alone ) {\n\t\t\t\twith ( someone )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2d {\n\tme {\n\t\tnot ( wanting to ride emotional roller coaster alone anymore )\n\t\tbeing ( able ) {\n\t\t\tto handle ( it )\n\t\t\twhen ( sharing everything )\n\t\t}\n\t\tnot ( confessing to my romantic partner ) {\n\t\t\tbeing ( my only one )\n\t\t}\n\t\tif ( my romantic partner ) {\n\t\t\twanting {\n\t\t\t\tto realize {\n\t\t\t\t\tthey ( my wife )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nbridge {\n\tme {\n\t\t( saying ) {\n\t\t\t( i was sorry )\n\t\t\twanting {\n\t\t\t\tto forget {\n\t\t\t\t\tthe fights\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tfights {\n\t\t\tremaining ( inside me )\n\t\t\tnot ( noticing )\n\t\t}\n\t\tnot ( showing enough ) {\n\t\t\thow much ( cared )\n\t\t}\n\t\tbeing {\n\t\t\tnice ( to my romantic partner ) {\n\t\t\t\tagain ( now )\n\t\t\t}\n\t\t\table ( to fix ) {\n\t\t\t\twith ( it )\n\t\t\t}\n\t\t}\n\t}\n}"
+			"value": "chorus 1a {\r\n\tme {\r\n\t\tnot wanting {\r\n\t\t\tto fight\r\n\t\t\tto break up\r\n\t\t}\r\n\t\tnever ( imagined ) {\r\n\t\t\tthis ( end )\r\n\t\t}\r\n\t}\r\n}\r\nchorus 1b {\r\n\tme {\r\n\t\tnot meaning {\r\n\t\t\tto break ( my romantic partner )\r\n\t\t\tto do ( me and my romantic partner ) {\r\n\t\t\t\tthis \r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\tme and my romantic partner {\r\n\t\tloving {\r\n\t\t\tone ( of me and my romantic partner ) {\r\n\t\t\t\thurting ( other ) {\r\n\t\t\t\t\tagain\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\nverse 1a {\r\n\tme {\r\n\t\tcalling {\r\n\t\t\tnot ( recently )\r\n\t\t}\r\n\t\tbusy ( recovering from work )\r\n\t\tmissing ( my romantic partner )\r\n\t\twanting {\r\n\t\t\tthem {\r\n\t\t\t\t( here )\r\n\t\t\t\t( lying down on the beach )\r\n\t\t\t\t( with only stars above )\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\nverse 1b {\r\n\tme {\r\n\t\t( dreaming )\r\n\t\t( how my romantic partner would be warm in my arms )\r\n\t\tpromising {\r\n\t\t\tstaying ( with my romantic partner ) {\r\n\t\t\t\tthrough ( ups and downs )\r\n\t\t\t}\r\n\t\t}\r\n\t\ttime {\r\n\t\t\t( passing by )\r\n\t\t\t( taking me away )\r\n\t\t}\r\n\t\t( kisses ) {\r\n\t\t\tnow ( memories )\r\n\t\t}\r\n\t}\r\n}\r\nverse 1c {\r\n\tme and my romantic partner {\r\n\t\t( touching )\r\n\t\t( in which I kiss my romantic partner and we rock together )\r\n\t\twhen ( night gets dark ) {\r\n\t\t\tthe only thing ( I hear ) {\r\n\t\t\t\tis ( my romantic partner )\r\n\t\t\t}\r\n\t\t\t( moon ) {\r\n\t\t\t\t( shining )\r\n\t\t\t\ton ( my romantic partner ) \r\n\t\t\t\t( drenched in sweat )\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\nverse 1d {\r\n\tme and my romantic partner {\r\n\t\tnot ( trying enough )\r\n\t\tbeing ( here )\r\n\t\tnot ( seeing enough of each other )\r\n\t\tme {\r\n\t\t\tbeing back ( in a moment )\r\n\t\t\tmeeting ( my wife )\r\n\t\t}\r\n\t\tbeing {\r\n\t\t\ta little ( wiser )\r\n\t\t\table ( to love again )\r\n\t\t}\r\n\t}\r\n}\r\nverse 2a {\r\n\tme {\r\n\t\tneeding ( someone else )\r\n\t\tforgetting {\r\n\t\t\tname {\r\n\t\t\t\tof ( my romantic partner )\r\n\t\t\t\t( and messing it up with another name )\r\n\t\t\t}\r\n\t\t}\r\n\t\tleaving ( last time ) {\r\n\t\t\twith ( slamming doors )\r\n\t\t}\r\n\t\t( woman ) {\r\n\t\t\tcoming up {\r\n\t\t\t\twith ( air of hope )\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\nverse 2b {\r\n\tme {\r\n\t\trejecting {\r\n\t\t\thappy ( feelings )\r\n\t\t}\r\n\t\twhen ( eyes ) {\r\n\t\t\tmet {\r\n\t\t\t\tsorrows ( disappearing )\r\n\t\t\t}\r\n\t\t}\r\n\t\tnot knowing {\r\n\t\t\thow {\r\n\t\t\t\tto turn off {\r\n\t\t\t\t\tthe feeling\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t\tsometimes {\r\n\t\t\t( getting me )\r\n\t\t\t( won't deny )\r\n\t\t}\r\n\t}\r\n}\r\nverse 2c {\r\n\tme {\r\n\t\tafraid {\r\n\t\t\tfalling {\r\n\t\t\t\tin love {\r\n\t\t\t\t\t( again )\r\n\t\t\t\t\t( and failing and never recovering )\r\n\t\t\t\t\twith ( someone who immediately leaves )\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t\ttime {\r\n\t\t\t( precious )\r\n\t\t\tspending ( alone ) {\r\n\t\t\t\twith ( someone )\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\nverse 2d {\r\n\tme {\r\n\t\tnot ( wanting to ride emotional roller coaster alone anymore )\r\n\t\tbeing ( able ) {\r\n\t\t\tto handle ( it )\r\n\t\t\twhen ( sharing everything )\r\n\t\t}\r\n\t\tnot ( confessing to my romantic partner ) {\r\n\t\t\tbeing ( my only one )\r\n\t\t}\r\n\t\tif ( my romantic partner ) {\r\n\t\t\twanting {\r\n\t\t\t\tto realize {\r\n\t\t\t\t\tthey ( my wife )\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\nbridge {\r\n\tme {\r\n\t\t( saying ) {\r\n\t\t\t( i was sorry )\r\n\t\t\twanting {\r\n\t\t\t\tto forget {\r\n\t\t\t\t\tthe fights\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t\tfights {\r\n\t\t\tremaining ( inside me )\r\n\t\t\tnot ( noticing )\r\n\t\t}\r\n\t\tnot ( showing enough ) {\r\n\t\t\thow much ( cared )\r\n\t\t}\r\n\t\tbeing {\r\n\t\t\tnice ( to my romantic partner ) {\r\n\t\t\t\tagain ( now )\r\n\t\t\t}\r\n\t\t\table ( to fix ) {\r\n\t\t\t\twith ( it )\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
 		},
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL",
-			"value": "Chorus 1a:\r\nI didn't want to fight, I don't want to break up\r\nI never imagined this would end.\r\nI didn't mean to break you, make us like this\r\nbut no matter how much I love, one of us hurts the other again.\r\n\r\nVerse 1a:\r\nI'm not calling as much as I use to, busy recovering from work\r\nMissing you, wishing you were here, lying down on the beach with only stars above\r\nVerse 1b:\r\nI'm just dreaming how you'd be warm in my arms\r\nPromising to stay through ups and downs, time passing by taking me away. Kisses now are only memories\r\nVerse 1c:\r\nTouching each other and I kiss you and we rock together\r\nWhen the night gets dark, the only thing I hear is you. The moon shining on you, drenched in sweat\r\nVerse 1d:\r\nNot trying enough, not being here, not seeing enough of each other\r\nI'm still coming back in a moment, meeting my wife. Little bit wiser, able to love again\r\n\r\nVerse 2a:\r\nNeeding someone else, forgetting your name and messing it up with another name\r\nLeaving last time with a slamming door. A woman coming up with an aura of hope\r\nVerse 2b:\r\nRejecting happy feelings when our eyes meet and sorrows disappears\r\nNot knowing how to turn off the feeling. Sometimes it still gets me, I won't deny\r\nVerse 2c:\r\nAfraid of falling in love again and failing and never recovering\r\nWith someone who immediately leaves, time so precious spending it alone with you\r\nVerse 2d:\r\nNot wanting to ride the emotional rollercoaster alone anymore\r\nBeing able to handle it when we share everything\r\nNot confessing to you that you're my only one\r\nIf you want to realize that you were my wife\r\n\r\nBridge:\r\nI was sorry, wanting to forget the fights\r\nThe fights remaining inside me, not noticing\r\nNot showing how much I care, being nice to you again, now\r\nAble to fix it with it too"
+			"value": "Chorus 1a:\r\nI don't want to fight, I don't want to break up\r\nI never imagined this end\r\n\r\nChorus 1b:\r\nNot meaning to break us, Not meaning to do this\r\nOne of us hurting the other again\r\n\r\nVerse 1a:\r\nI'm calling not recently\r\nI'm busy recovering from work\r\nI'm missing you, wanting you here\r\nLying down on the beach with only stars above\r\n\r\nVerse 1b:\r\nDreaming how you'd be warm in my arms\r\nPromising staying with me through the ups and downs\r\nTime passing by, taking me away\r\nKisses now just memories\r\n\r\nVerse 1c:\r\nTouching, in which I kiss you\r\nand we rock together\r\nWhen night gets dark, the only thing I hear,\r\nIs you, moon shining on you drenched in sweat\r\n\r\nVerse 1d:\r\nNot trying enough, being here,\r\nNot seeing enough of each other\r\nI'm being back in a moment, Meeting my wife,\r\na little wiser able to love again\r\n\r\nVerse 2a:\r\nNeeding someone else, Forgetting your name,\r\nand messing it up with another name\r\nLeaving last time with slamming doors\r\nA woman coming up with an air of hope\r\n\r\nVerse 2b:\r\nRejecting happy feelings\r\nWhen eyes met sorrows disappearing\r\nNot knowing how to turn off the feeling\r\nSometimes getting me, won't deny\r\n\r\nVerse 2c:\r\nAfraid falling in love again\r\nAnd failing and never recovering\r\nWith someone who immediately leaves\r\nTime precious, spending alone with someone\r\n\r\nVerse 2d:\r\nNot wanting to ride emotional roller coaster alone anymore\r\nBeing able to handle it when sharing everything\r\nNot confessing to you, being my only one\r\nIf you want to realize you are my wife\r\n\r\nBridge:\r\nSaying I was sorry\r\nWanting to forget the fights\r\nFights remaining inside me\r\nNot noticing\r\nnot showing\r\nhow much I cared \r\nBeing nice to you again now\r\nAble to fix it with it"
 		},
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL_NATIVE",
-			"value": "Kertos 1a:\r\nEn halua taistella, En halua rikkoa meit‰\r\nEn ollut kuvitellut ett‰ t‰m‰ loppuisi.\r\nEn tarkoittanut s‰rke‰ sinua, tehd‰ meist‰ t‰llaisia\r\nmutta rakastin kuinka vaan, joskus me toisemme taas satutamme.\r\n\r\nKausi 1a:\r\nEn ole soittanut niin paljon kuin ennen, kiireelt‰ tˆist‰ toipuen\r\nKaipaatte sinua, mieliin toivoen ett‰ olisit t‰‰ll‰ makuulle vain t‰hdet ylh‰‰ll‰\r\nKausi 1b:\r\nUnelmoin ihania kun me olisimme toisiamme l‰mmˆss‰ halaamassa\r\nLupaamassa ett‰ pysymme rakkaana vaikka mit‰‰n tullisikin, aika kulkee vierell‰mme ja pois\r\nSuudelmat ovat nyt vain muistoja\r\nKausi 1c:\r\nKosketellen, suutellen hiljaa ja me keinumme yhdess‰\r\nKun yˆ tummuu, ainoat ‰‰net mit‰ kuulen ovat sinun\r\nKuuna sinua valaiseepi, hikin‰kin t‰ynn‰\r\nKausi 1d:\r\nEi tarvitaan enemp‰‰, ei olla l‰sn‰ tarpeeksi, ei n‰hd‰ toisiamme tarpeeksi\r\nEdelleen tulemme takaisin hetken, tapaamaan vaimoni\r\nVaan hieman viisaampana, able to love again\r\n\r\nKausi 2a:\r\nTarvitsen jonkun muun, unohdan nimesi ja sekoitan se jonkun muun kanssa\r\nViimeisen kerran l‰hdin lukitulla oven takana\r\nNainen tulee esiin toivon auringolla\r\nKausi 2b:\r\nKun meid‰n silm‰mme kohtaavat hymyn hylk‰‰mme ja surut katoavat,\r\nEn osaa kupita tunnettani ja hetkinen se viel‰ v‰lill‰ meit‰ ahdistaa\r\nKausi 2c:\r\nPelk‰‰n ett‰ rakastun taas ja ep‰onnistun enk‰ en‰‰ toipu,\r\nkanssasi jonka j‰lkeen heti poistuminen, ajassa t‰rke‰‰ ja siihen vierell‰sin sinun\r\nKausi 2d:\r\nEn en‰‰ halua ratsasta huiput ja laaksoja yksin\r\nVoi selvit‰ mit‰ tahansa, kun jaoimme kaiken\r\nEn tunnusta ett‰ s‰ oot se ainoin\r\nJos huomaat oot ollut vaimoni\r\n\r\nSilta:\r\nOlen pahoillani, tahtoisin unohtaa n‰‰ taistelut\r\nN‰‰ taistelut pysyy sis‰ll‰, ei huomaa sit‰\r\nEn paljoa muista, olla yst‰v‰lisempi taas nyt,\r\nKorjattavissa kaiken sen kanssa"
+			"value": ""
 		},
 		{
 			"key": "NATURAL_NATIVE_OF_AUTHOR",
@@ -301,31 +301,24 @@
 		{
 			"key": "POETIC_ENGLISH_FROM_NATURAL_ENGLISH_OF_AUTHOR",
 			"value": "\nChorus:\nI don't wanna battle, I just want a truce\nI thought this would all be more than news\nI'm sorry for hurting you, it wasn't my plan,\nThere's too many miles to get where love began\n\nVerse 1:\nMy apologies for the late response,\nI'm coming down off from this awful stress\nWhat I wouldn't give to just be with you,\nLaying out on that beach with just the stars on view\nDreaming of the way you feel in my arms,\nI swore that we'd make it through, through these highs and lows\nMama time started busin' by,\nAll your kisses become memories stuck in my mind\nI remember that vision of us embracing,\nKissing softly while we just swayed\nAs the night got darker, the only sound I heard was you,\nThe moonlight on you, and how your sweat drenchin' through\nGuess we just ain't trying hard enough,\nWe get to a point, when peepin' lasts so much\nI'll be back for sure, meet me there soon,\nLet's be smarter now, so for love we can resume\n\nVerse 2:\nI felt I had to find someone else,\nYour name I forget, and another I just rushed\nSlamming doors, I left last time,\nThe presence of a woman that brought a hope on to last\nFeelings I dismissed when I saw her,\nBut when we locked eyes, all that sorrow was through\nDon't know how to end the feeling,\nSometimes it overtakes, can't deny it is real\nAfraid I would get in love and fail,\nFall, never recover, so never begin I'd favor\nDon't want to fall in love with someone discharge,\nTaking time precious to get to be with someone\nAnd I'm no longer ready for that roller coaster ride,\nBut with you we'll get through, for we share everything inside\nNot confessing to you that you are my one,\nYou'll soon realize that you are my number one\n\nBridge:\nI said I'm sorry a thousand times,\nThese fights, they only stay in mind\nBut I haven't shown you how much I love,\nSo we can now start all again and repair what needs be done."
+		},
+		{
+			"key": "ENGLISH_UNPACKED_STRUCTURE_AUDIENCE",
+			"value": "1. What Steve Packard (born 2013, likes Pop-Rock) would think while hearing the song with these lyrics. Initial reaction and critically important and negative things in lyrics only:\n-I don't want to fight and I don't want to break up. That's not how relationships should be. It seems like it's too late to repair the damage done, but if the damage caused by us still hurts one another, then things have to change for the better.\n\n2. What Mila Smith (born 2009, likes KoreaPop) would think while hearing the song with these lyrics:\n- It's really sad to hear that one of them is always hurting the other in the end. Relationships don't have to end this way. There is always hope and something to work for. We just have to be positive and put in the effort.\n\n3. What Paul Lee (born 2003, likes Rap) would think while hearing the song with these lyrics:\n- Sounds like someone is stuck in a cycle of pain and dissatisfaction. It's understandable that they want to try to make things work but it's important to make sure both sides are equally invested in the relationship. That way, both can benefit from it. \n\n4. What Tina Smith (born 1996, likes Pop) would think while hearing the song with these lyrics:\n- This is really heartbreaking. It's hard to maintain a relationship when one of you is always doing something to hurt the other. Relationships should be built on trust and understanding, not pain and disappointment.\n\n5. What Bobby Reynolds (born 1995, likes Rock) would think while hearing the song with these lyrics:\n- It sounds like the couple in the song have been through a lot and they are struggling to find the balance between being together and going their separate ways. It's hard to make a relationship work but if you both believe in it, it can definitely be done. \n\n6. What Rachel Johnson (born 1992, likes Pop) would think while hearing the song with these lyrics:\n- This is a tough situation to be in. It's hard to find the balance between staying in a relationship and leaving it. Both participants have to be willing to put in the effort for it to work. It's about having patience and understanding.\n\n7. What Shawn Johnson (born 1991, likes Rock) would think while hearing the song with these lyrics:\n- You have to want to stay together. If it isn't worth the effort anymore, then it's time to move on. Relationships should be healthy and both partners should be willing to make it work. No one should be hurting each other in the process.\n\n8. What Jake White (born 1989, likes Pop) would think while hearing the song with these lyrics:\n- It saddens me to hear that even when they love each other, there always seems to be hurt in the end. Relationships should bring joy and happiness, not more heartache. People should strive to bring positive energy into a relationship.\n\n9. What Cyrus McCall (born 1988, likes Rap) would think while hearing the song with these lyrics:\n- It sounds like the couple in the song is stuck in an endless cycle of love and pain. It's hard to repair a relationship when one of you is always hurting the other. It's important to put in the effort to make the relationship work as best as you can. \n\n10. What Kelly Taylor (born 1987, likes Rock) would think while hearing the song with these lyrics:\n- This is a really difficult situation to be in. Love can be so complicated and can hurt so much. It's important to be honest with yourself and the other person in order to make a relationship work.\n\n11. What Mike Richards (born 1977, likes Metal) would think while hearing the song with these lyrics:\n- It's heartbreaking to see someone in such a delicate and painful situation. Relationships don't have to end up this way. It takes courage to hope for and stay in a relationship, and both parties have to be willing to work together and repair the hurts."
 		}
 	],
 	"parts": [
 		{
 			"name": "Chorus 1a",
 			"source": [
-				"I didn't want to fight, I don't want to break up",
-				"I never imagined this would end.",
-				"I didn't mean to break you, make us like this",
-				"but no matter how much I love, one of us hurts the other again."
+				"I don't want to fight, I don't want to break up",
+				"I never imagined this end"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"I didn't want to fight, I don't want to break up",
-						"I never imagined this would end."
-					],
-					"suggestion": [
-
-					]
-				},
-				{
-					"source": [
-						"I didn't mean to break you, make us like this",
-						"but no matter how much I love, one of us hurts the other again."
+						"I don't want to fight, I don't want to break up",
+						"I never imagined this end"
 					],
 					"suggestion": [
 
@@ -340,14 +333,25 @@
 		{
 			"name": "Verse 1a",
 			"source": [
-				"I'm not calling as much as I use to, busy recovering from work",
-				"Missing you, wishing you were here, lying down on the beach with only stars above"
+				"I'm calling not recently",
+				"I'm busy recovering from work",
+				"I'm missing you, wanting you here",
+				"Lying down on the beach with only stars above"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"I'm not calling as much as I use to, busy recovering from work",
-						"Missing you, wishing you were here, lying down on the beach with only stars above"
+						"I'm calling not recently",
+						"I'm busy recovering from work"
+					],
+					"suggestion": [
+
+					]
+				},
+				{
+					"source": [
+						"I'm missing you, wanting you here",
+						"Lying down on the beach with only stars above"
 					],
 					"suggestion": [
 
@@ -362,14 +366,25 @@
 		{
 			"name": "Verse 1b",
 			"source": [
-				"I'm just dreaming how you'd be warm in my arms",
-				"Promising to stay through ups and downs, time passing by taking me away. Kisses now are only memories"
+				"Dreaming how you'd be warm in my arms",
+				"Promising staying with me through the ups and downs",
+				"Time passing by, taking me away",
+				"Kisses now just memories"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"I'm just dreaming how you'd be warm in my arms",
-						"Promising to stay through ups and downs, time passing by taking me away. Kisses now are only memories"
+						"Dreaming how you'd be warm in my arms",
+						"Promising staying with me through the ups and downs"
+					],
+					"suggestion": [
+
+					]
+				},
+				{
+					"source": [
+						"Time passing by, taking me away",
+						"Kisses now just memories"
 					],
 					"suggestion": [
 
@@ -384,14 +399,25 @@
 		{
 			"name": "Verse 1c",
 			"source": [
-				"Touching each other and I kiss you and we rock together",
-				"When the night gets dark, the only thing I hear is you. The moon shining on you, drenched in sweat"
+				"Touching, in which I kiss you",
+				"and we rock together",
+				"When night gets dark, the only thing I hear,",
+				"Is you, moon shining on you drenched in sweat"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"Touching each other and I kiss you and we rock together",
-						"When the night gets dark, the only thing I hear is you. The moon shining on you, drenched in sweat"
+						"Touching, in which I kiss you",
+						"and we rock together"
+					],
+					"suggestion": [
+
+					]
+				},
+				{
+					"source": [
+						"When night gets dark, the only thing I hear,",
+						"Is you, moon shining on you drenched in sweat"
 					],
 					"suggestion": [
 
@@ -406,14 +432,25 @@
 		{
 			"name": "Verse 1d",
 			"source": [
-				"Not trying enough, not being here, not seeing enough of each other",
-				"I'm still coming back in a moment, meeting my wife. Little bit wiser, able to love again"
+				"Not trying enough, being here,",
+				"Not seeing enough of each other",
+				"I'm being back in a moment, Meeting my wife,",
+				"a little wiser able to love again"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"Not trying enough, not being here, not seeing enough of each other",
-						"I'm still coming back in a moment, meeting my wife. Little bit wiser, able to love again"
+						"Not trying enough, being here,",
+						"Not seeing enough of each other"
+					],
+					"suggestion": [
+
+					]
+				},
+				{
+					"source": [
+						"I'm being back in a moment, Meeting my wife,",
+						"a little wiser able to love again"
 					],
 					"suggestion": [
 
@@ -428,14 +465,25 @@
 		{
 			"name": "Verse 2a",
 			"source": [
-				"Needing someone else, forgetting your name and messing it up with another name",
-				"Leaving last time with a slamming door. A woman coming up with an aura of hope"
+				"Needing someone else, Forgetting your name,",
+				"and messing it up with another name",
+				"Leaving last time with slamming doors",
+				"A woman coming up with an air of hope"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"Needing someone else, forgetting your name and messing it up with another name",
-						"Leaving last time with a slamming door. A woman coming up with an aura of hope"
+						"Needing someone else, Forgetting your name,",
+						"and messing it up with another name"
+					],
+					"suggestion": [
+
+					]
+				},
+				{
+					"source": [
+						"Leaving last time with slamming doors",
+						"A woman coming up with an air of hope"
 					],
 					"suggestion": [
 
@@ -450,14 +498,25 @@
 		{
 			"name": "Verse 2b",
 			"source": [
-				"Rejecting happy feelings when our eyes meet and sorrows disappears",
-				"Not knowing how to turn off the feeling. Sometimes it still gets me, I won't deny"
+				"Rejecting happy feelings",
+				"When eyes met sorrows disappearing",
+				"Not knowing how to turn off the feeling",
+				"Sometimes getting me, won't deny"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"Rejecting happy feelings when our eyes meet and sorrows disappears",
-						"Not knowing how to turn off the feeling. Sometimes it still gets me, I won't deny"
+						"Rejecting happy feelings",
+						"When eyes met sorrows disappearing"
+					],
+					"suggestion": [
+
+					]
+				},
+				{
+					"source": [
+						"Not knowing how to turn off the feeling",
+						"Sometimes getting me, won't deny"
 					],
 					"suggestion": [
 
@@ -472,14 +531,25 @@
 		{
 			"name": "Verse 2c",
 			"source": [
-				"Afraid of falling in love again and failing and never recovering",
-				"With someone who immediately leaves, time so precious spending it alone with you"
+				"Afraid falling in love again",
+				"And failing and never recovering",
+				"With someone who immediately leaves",
+				"Time precious, spending alone with someone"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"Afraid of falling in love again and failing and never recovering",
-						"With someone who immediately leaves, time so precious spending it alone with you"
+						"Afraid falling in love again",
+						"And failing and never recovering"
+					],
+					"suggestion": [
+
+					]
+				},
+				{
+					"source": [
+						"With someone who immediately leaves",
+						"Time precious, spending alone with someone"
 					],
 					"suggestion": [
 
@@ -494,16 +564,16 @@
 		{
 			"name": "Verse 2d",
 			"source": [
-				"Not wanting to ride the emotional rollercoaster alone anymore",
-				"Being able to handle it when we share everything",
-				"Not confessing to you that you're my only one",
-				"If you want to realize that you were my wife"
+				"Not wanting to ride emotional roller coaster alone anymore",
+				"Being able to handle it when sharing everything",
+				"Not confessing to you, being my only one",
+				"If you want to realize you are my wife"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"Not wanting to ride the emotional rollercoaster alone anymore",
-						"Being able to handle it when we share everything"
+						"Not wanting to ride emotional roller coaster alone anymore",
+						"Being able to handle it when sharing everything"
 					],
 					"suggestion": [
 
@@ -511,8 +581,8 @@
 				},
 				{
 					"source": [
-						"Not confessing to you that you're my only one",
-						"If you want to realize that you were my wife"
+						"Not confessing to you, being my only one",
+						"If you want to realize you are my wife"
 					],
 					"suggestion": [
 
@@ -527,16 +597,20 @@
 		{
 			"name": "Bridge",
 			"source": [
-				"I was sorry, wanting to forget the fights",
-				"The fights remaining inside me, not noticing",
-				"Not showing how much I care, being nice to you again, now",
-				"Able to fix it with it too"
+				"Saying I was sorry",
+				"Wanting to forget the fights",
+				"Fights remaining inside me",
+				"Not noticing",
+				"not showing",
+				"how much I cared",
+				"Being nice to you again now",
+				"Able to fix it with it"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"I was sorry, wanting to forget the fights",
-						"The fights remaining inside me, not noticing"
+						"Saying I was sorry",
+						"Wanting to forget the fights"
 					],
 					"suggestion": [
 
@@ -544,8 +618,48 @@
 				},
 				{
 					"source": [
-						"Not showing how much I care, being nice to you again, now",
-						"Able to fix it with it too"
+						"Fights remaining inside me",
+						"Not noticing"
+					],
+					"suggestion": [
+
+					]
+				},
+				{
+					"source": [
+						"not showing",
+						"how much I cared"
+					],
+					"suggestion": [
+
+					]
+				},
+				{
+					"source": [
+						"Being nice to you again now",
+						"Able to fix it with it"
+					],
+					"suggestion": [
+
+					]
+				}
+			],
+			"rhyme_scheme": "XA,XA",
+			"data": [
+
+			]
+		},
+		{
+			"name": "Chorus 1b",
+			"source": [
+				"Not meaning to break us, Not meaning to do this",
+				"One of us hurting the other again"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Not meaning to break us, Not meaning to do this",
+						"One of us hurting the other again"
 					],
 					"suggestion": [
 

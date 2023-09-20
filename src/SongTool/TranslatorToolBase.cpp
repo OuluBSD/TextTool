@@ -3,16 +3,9 @@
 
 
 TranslatorToolCtrl::TranslatorToolCtrl() {
-	Add(lbl.RightPos(0,200).TopPos(0,30));
-	Add(hsplit.HSizePos().VSizePos(30,0));
-	Add(translate.TopPos(1,28).HCenterPos(120));
-	
-	lbl.SetLabel(t_("Left: native; Right: english"));
+	Add(hsplit.HSizePos().VSizePos());
 	
 	hsplit.Horz() << orig << trans;
-	
-	translate.SetLabel(t_("Translate"));
-	translate.WhenAction << THISBACK(Translate);
 	
 	orig.SetFont(Monospace(15));
 	trans.SetFont(Monospace(15));
@@ -31,8 +24,13 @@ void TranslatorToolCtrl::Data() {
 	
 }
 
-void TranslatorToolCtrl::DoMainAction(int i) {
-	if (i == 0) Translate();
+void TranslatorToolCtrl::ToolMenu(Bar& bar) {
+	bar.Add(t_("Translate"), AppImg::Part(), THISBACK(Translate)).Key(K_F5);
+	
+}
+
+String TranslatorToolCtrl::GetStatusText() {
+	return t_("Left: native; Right: english");
 }
 
 void TranslatorToolCtrl::Translate() {

@@ -3,11 +3,6 @@
 
 
 class MusicVideoEdit : public EditorCtrl {
-	Button import_automatic_structure;
-	Button convert_to_screenplay;
-	Button convert_to_plan;
-	Button check_errors;
-	Button evaluate_audience;
 	String english_screenplay_struct;
 	String english_screenplay_auto;
 	String english_production_plan_auto;
@@ -22,7 +17,7 @@ public:
 	MusicVideoEdit();
 	
 	void Init() override;
-	void DoMainAction(int i=0) override;
+	void ToolMenu(Bar& bar) override;
 	void ImportReferenceStruct();
 	void CheckErrors();
 	void ConvertToScreenplay();

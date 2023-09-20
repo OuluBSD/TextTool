@@ -20,40 +20,25 @@ TxtEditEnglish::TxtEditEnglish() {
 void TxtEditEnglish::Init() {
 	EditorCtrl::Init();
 	
-	int w = 200;
-	top_bar.Add(import_native_direct_trans.HCenterPos(w,-2*w).VSizePos(1,1));
-	top_bar.Add(artist_style.HCenterPos(w,-w).VSizePos(1,1));
-	top_bar.Add(make_poetic.HCenterPos(w,0).VSizePos(1,1));
-	top_bar.Add(check_errors.HCenterPos(w,w).VSizePos(1,1));
-	top_bar.Add(evaluate_audience.HCenterPos(w,2*w).VSizePos(1,1));
-	top_bar.Add(lbl.HCenterPos(w,3*w).VSizePos(1,1));
-	
-	for (String artist : CommonArtists())
-		artist_style.Add(artist);
-	
-	artist_style.SetIndex(0);
-	
-	import_native_direct_trans.SetLabel(t_("Import the direct translation of the native text"));
-	import_native_direct_trans << THISBACK(ImportNativeDirectTranslation);
-	
-	make_poetic.SetLabel(t_("Make poetic english with the given style"));
-	make_poetic << THISBACK(MakePoetic);
-	
-	check_errors.SetLabel(t_("Check for problems in the english translation"));
-	check_errors << THISBACK(CheckErrors);
-	
-	evaluate_audience.SetLabel(t_("Evaluate the english text with an AI audience"));
-	evaluate_audience << THISBACK(EvaluateAudience);
-	
-	lbl.SetLabel(t_("Poetic english, non-poetic-english, auto-poetic-english"));
-	
 }
 
-void TxtEditEnglish::DoMainAction(int i) {
-	if (i == 0) ImportNativeDirectTranslation();
-	if (i == 1) MakePoetic();
-	if (i == 2) CheckErrors();
-	if (i == 3) EvaluateAudience();
+void TxtEditEnglish::ToolMenu(Bar& bar) {
+	bar.Add(t_("Import the direct translation of the native text"), AppImg::Part(), THISBACK(ImportNativeDirectTranslation)).Key(K_F5);
+	
+	Size sz = bar.GetStdSize();
+	sz.cx = 200;
+	for (String artist : CommonArtists())
+		artist_style.Add(artist);
+	artist_style.SetIndex(0);
+	bar.Add(artist_style, sz);
+	
+	bar.Add(t_("Make poetic english with the given style"), AppImg::Part(), THISBACK(MakePoetic)).Key(K_F6);
+	bar.Add(t_("Check for problems in the english translation"), AppImg::Part(), THISBACK(CheckErrors)).Key(K_F7);
+	bar.Add(t_("Evaluate the english text with an AI audience"), AppImg::Part(), THISBACK(EvaluateAudience)).Key(K_F8);
+}
+
+String TxtEditEnglish::GetStatusText() {
+	return t_("Poetic english, non-poetic-english, auto-poetic-english");
 }
 
 void TxtEditEnglish::ImportNativeDirectTranslation() {

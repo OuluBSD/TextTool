@@ -70,15 +70,6 @@ void SongTool::MainMenu(Bar& bar) {
 		bar.Add(t_("Move to lower tab"), THISBACK1(MoveTab, +1)).Key(K_CTRL_2);
 	});
 	bar.Sub(t_("Tools"), [this](Bar& bar) {
-		bar.Add(t_("Do the 1st action"), THISBACK1(DoMainAction, 0)).Key(K_F5);
-		bar.Add(t_("Do the 2nd action"), THISBACK1(DoMainAction, 1)).Key(K_F6);
-		bar.Add(t_("Do the 3rd action"), THISBACK1(DoMainAction, 2)).Key(K_F7);
-		bar.Add(t_("Do the 4th action"), THISBACK1(DoMainAction, 3)).Key(K_F8);
-		bar.Add(t_("Do the 5th action"), THISBACK1(DoMainAction, 4)).Key(K_F9);
-		bar.Add(t_("Do the 6th action"), THISBACK1(DoMainAction, 5)).Key(K_F10);
-		bar.Add(t_("Do the 7th action"), THISBACK1(DoMainAction, 6)).Key(K_F11);
-		bar.Add(t_("Do the 8th action"), THISBACK1(DoMainAction, 7)).Key(K_F12);
-		bar.Separator();
 		bar.Add(t_("Show orphaned files"), THISBACK(ShowOrphanedFiles));
 		bar.Add(t_("Make Tasks"), THISBACK(MakeTasks)).Key(K_CTRL_R);
 	});
@@ -129,6 +120,16 @@ void SongTool::Data() {
 
 void SongTool::SetBar() {
 	toolbar.Set(THISBACK(MainBar));
+	
+	String s;
+	switch (page) {
+		case 0: break;
+		case 1: break;
+		case 2: s = ed.GetStatusText(); break;
+		case 3: break;
+		case 4: break;
+	}
+	statusbar.SetData(s);
 }
 
 void SongTool::MainBar(Bar& bar) {
@@ -138,16 +139,6 @@ void SongTool::MainBar(Bar& bar) {
 		case 2: ed.ToolMenu(bar); break;
 		case 3: ai.ToolMenu(bar); break;
 		case 4: seq.ToolMenu(bar); break;
-	}
-}
-
-void SongTool::DoMainAction(int i) {
-	switch (page) {
-		//case 0: fp.DoMainAction(i); break;
-		//case 1: cal.DoMainAction(i); break;
-		case 2: ed.DoMainAction(i); break;
-		//case 3: ai.DoMainAction(i); break;
-		//case 4: seq.DoMainAction(i); break;
 	}
 }
 

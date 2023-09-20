@@ -16,7 +16,6 @@ protected:
 	bool have_group_bad_better = false;
 	bool have_errors_in_other = false;
 	int audience_mode = AUDIENCE_MODE_LYRICS;
-	Ctrl top_bar;
 	String main_key;
 	String other_key;
 	String third_key;

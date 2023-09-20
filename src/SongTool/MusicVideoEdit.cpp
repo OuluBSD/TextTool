@@ -23,36 +23,14 @@ MusicVideoEdit::MusicVideoEdit() {
 void MusicVideoEdit::Init() {
 	EditorCtrl::Init();
 	
-	int w = 300;
-	top_bar.Add(import_automatic_structure.HCenterPos(w,-2*w).VSizePos(1,1));
-	top_bar.Add(check_errors.HCenterPos(w,-w).VSizePos(1,1));
-	top_bar.Add(convert_to_screenplay.HCenterPos(w,0).VSizePos(1,1));
-	top_bar.Add(convert_to_plan.HCenterPos(w,w).VSizePos(1,1));
-	top_bar.Add(evaluate_audience.HCenterPos(w,2*w).VSizePos(1,1));
-	
-	import_automatic_structure.SetLabel(t_("Copy the struct of the reference screenplay"));
-	import_automatic_structure << THISBACK(ImportReferenceStruct);
-	
-	check_errors.SetLabel(t_("Check for problems in the screenplay structure"));
-	check_errors << THISBACK(CheckErrors);
-	
-	convert_to_screenplay.SetLabel(t_("Convert the structure to a screenplay"));
-	convert_to_screenplay << THISBACK(ConvertToScreenplay);
-	
-	convert_to_plan.SetLabel(t_("Convert the structure to a production plan"));
-	convert_to_plan << THISBACK(ConvertToPlan);
-	
-	evaluate_audience.SetLabel(t_("Evaluate the english screenplay with an AI audience"));
-	evaluate_audience << THISBACK(EvaluateAudience);
-	
 }
 
-void MusicVideoEdit::DoMainAction(int i) {
-	if (i == 0) ImportReferenceStruct();
-	if (i == 1) CheckErrors();
-	if (i == 2) ConvertToScreenplay();
-	if (i == 3) ConvertToPlan();
-	if (i == 4) EvaluateAudience();
+void MusicVideoEdit::ToolMenu(Bar& bar) {
+	bar.Add(t_("Copy the struct of the reference screenplay"), AppImg::Part(), THISBACK(ImportReferenceStruct)).Key(K_F5);
+	bar.Add(t_("Check for problems in the screenplay structure"), AppImg::Part(), THISBACK(CheckErrors)).Key(K_F6);
+	bar.Add(t_("Convert the structure to a screenplay"), AppImg::Part(), THISBACK(ConvertToScreenplay)).Key(K_F7);
+	bar.Add(t_("Convert the structure to a production plan"), AppImg::Part(), THISBACK(ConvertToPlan)).Key(K_F8);
+	bar.Add(t_("Evaluate the english screenplay with an AI audience"), AppImg::Part(), THISBACK(EvaluateAudience)).Key(K_F9);
 }
 
 void MusicVideoEdit::ImportReferenceStruct() {

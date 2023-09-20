@@ -17,13 +17,10 @@ void CalMgrCtrl::Data() {
 	
 }
 
-void CalMgrCtrl::DoMainAction(int i) {
-	if (i == 0) ImportAutomatically();
-}
-
 void CalMgrCtrl::ToolMenu(Bar& bar) {
-	bar.Add("Import automatically", AppImg::import_(), THISBACK(ImportAutomatically))
-	   .Help("Import calendar events automatically from artist's catalogue");
+	bar.Add(t_("Import automatically"), AppImg::import_(), THISBACK(ImportAutomatically))
+	   .Help(t_("Import calendar events automatically from artist's catalogue"))
+	   .Key(K_F5);
 }
 
 void CalMgrCtrl::ImportAutomatically() {

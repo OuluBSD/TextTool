@@ -3,14 +3,9 @@
 
 
 class TxtStructEdit : public EditorCtrl {
-	Button import_reference_struct;
-	Button check_errors;
-	Button convert_to_native;
-	Button evaluate_audience;
 	String unpacked_struct_key;
 	String main_natural_native_key;
 	String reference_unpacked_english;
-	Label lbl;
 	
 	
 public:
@@ -18,15 +13,16 @@ public:
 	TxtStructEdit();
 	
 	void Init() override;
-	void DoMainAction(int i=0) override;
+	void ToolMenu(Bar& bar) override;
+	String GetStatusText() override;
 	void ImportReferenceStruct();
 	void CheckErrors();
+	void ConvertToEnglish();
 	void ConvertToNative();
 	void EvaluateAudience() {EditorCtrl::EvaluateAudience();}
 	void OnErrorsRecv() {EditorCtrl::OnErrorsRecv();}
-	void OnNaturalExportReady();
-	void OnNaturalNativeExportReady();
-	void UpdateExportData();
+	void PostUpdateExportData(int i) {PostCallback(THISBACK1(UpdateExportData, i));}
+	void UpdateExportData(int i);
 	void PostOnErrorsRecv() {PostCallback(THISBACK(OnErrorsRecv));}
 };
 

@@ -20,26 +20,12 @@ MusicVideoImport::MusicVideoImport() {
 void MusicVideoImport::Init() {
 	EditorCtrl::Init();
 	
-	int w = 300;
-	top_bar.Add(translate_to_english.HCenterPos(w,-2*w).VSizePos(1,1));
-	top_bar.Add(convert_to_structure.HCenterPos(w,-w).VSizePos(1,1));
-	top_bar.Add(evaluate_audience.HCenterPos(w,0).VSizePos(1,1));
-	
-	translate_to_english.SetLabel(t_("Translate to english"));
-	translate_to_english << THISBACK(TranslateToEnglish);
-	
-	convert_to_structure.SetLabel(t_("Convert to structure"));
-	convert_to_structure << THISBACK(ConvertToStructure);
-	
-	evaluate_audience.SetLabel(t_("Evaluate the english text with an AI audience"));
-	evaluate_audience << THISBACK(EvaluateAudience);
-	
 }
 
-void MusicVideoImport::DoMainAction(int i) {
-	if (i == 0) TranslateToEnglish();
-	if (i == 1) ConvertToStructure();
-	if (i == 2) EvaluateAudience();
+void MusicVideoImport::ToolMenu(Bar& bar) {
+	bar.Add(t_("Translate to english"), AppImg::Part(), THISBACK(TranslateToEnglish)).Key(K_F5);
+	bar.Add(t_("Convert to structure"), AppImg::Part(), THISBACK(ConvertToStructure)).Key(K_F6);
+	bar.Add(t_("Evaluate the english text with an AI audience"), AppImg::Part(), THISBACK(EvaluateAudience)).Key(K_F7);
 }
 
 void MusicVideoImport::TranslateToEnglish() {

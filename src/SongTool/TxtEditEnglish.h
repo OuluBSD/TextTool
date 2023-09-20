@@ -3,15 +3,10 @@
 
 
 class TxtEditEnglish : public EditorCtrl {
-	Button import_native_direct_trans;
-	Button make_poetic;
-	Button check_errors;
-	Button evaluate_audience;
 	DropList artist_style;
 	String user_natural_english_key;
 	String user_natural_english_trans_key;
 	String auto_poetic_english_key;
-	Label lbl;
 	
 	
 public:
@@ -19,7 +14,8 @@ public:
 	TxtEditEnglish();
 	
 	void Init() override;
-	void DoMainAction(int i=0) override;
+	void ToolMenu(Bar& bar) override;
+	String GetStatusText() override;
 	void ImportNativeDirectTranslation();
 	void MakePoetic();
 	void CheckErrors();
