@@ -661,5 +661,6 @@ const Vector<String>& CommonArtists();
 void TrimBothAllLines(String& s);
 void RealizeDoubleNewlinesOnNumbered(String& s);
 void RealizeDoubleNewlinesBeforeTitles(String& s);
+Vector<String> GetStructureParts(String s);
 
 #endif

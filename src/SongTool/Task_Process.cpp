@@ -1672,14 +1672,9 @@ void Task::Process_CheckSongNaturalErrors() {
 }
 
 void Task::Process_ConvertSongStructureToEnglish() {
-	String src_key = args[0];
-	String dst_key = args[1];
-	
-	Song& song = *p.pipe->song;
-	String& dst_txt = song.data.GetAdd(dst_key);
-	dst_txt = output;
-	
+	String dst_txt = output;
 	RealizeDoubleNewlinesBeforeTitles(dst_txt);
+	WhenResult(dst_txt);
 }
 
 void Task::Process_EvaluateSongAudience() {

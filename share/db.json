@@ -93,6 +93,14 @@
 						"value": "ilmaisu"
 					},
 					{
+						"key": "female",
+						"value": ""
+					},
+					{
+						"key": "gender",
+						"value": ""
+					},
+					{
 						"key": "heavy",
 						"value": "raskas"
 					},
@@ -126,10 +134,10 @@
 					},
 					{
 						"key": "individual-focused",
-						"value": "yksilökeskeinen"
+						"value": "yksilöön keskittyvä"
 					},
 					{
-						"key": "individualism",
+						"key": "individualistic",
 						"value": "yksilökeskeinen"
 					},
 					{
@@ -163,6 +171,14 @@
 					{
 						"key": "limited",
 						"value": "rajoittunut"
+					},
+					{
+						"key": "male",
+						"value": ""
+					},
+					{
+						"key": "man-voiced",
+						"value": ""
 					},
 					{
 						"key": "melancholic",
@@ -315,6 +331,10 @@
 					{
 						"key": "weak",
 						"value": "heikko"
+					},
+					{
+						"key": "woman-voiced",
+						"value": ""
 					}
 				]
 			}

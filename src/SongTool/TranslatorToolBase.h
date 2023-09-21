@@ -4,7 +4,7 @@
 
 class TranslatorToolCtrl : public SongToolCtrl {
 	Splitter hsplit;
-	DocEdit orig, trans;
+	CodeEditor orig, trans;
 	
 protected:
 	enum {
@@ -30,6 +30,7 @@ public:
 	void OnTranslatedRecv();
 	String GetOriginalText() const;
 	String GetTranslatedText() const;
+	void InitEditor(CodeEditor& edit);
 	
 };
 

@@ -53,7 +53,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 	AddRule(TASK_CONVERT_SONG_STRUCTURE_TO_ENGLISH, "convert song structure to english")
 		.Input(&Task::CreateInput_ConvertSongStructureToEnglish)
 			.Arg(V_PTR_PIPE)
-			.Arg(V_ARGS, 2, 2)
+			.Arg(V_ARGS, 1, 1)
 		.Process(&Task::Process_ConvertSongStructureToEnglish)
 		;
 	
@@ -896,7 +896,7 @@ void TaskMgr::CheckSongNaturalErrors(String main_key, String results_key, Callba
 	t.WhenDone << WhenDone;
 }
 
-void TaskMgr::ConvertSongStructureToEnglish(String src_key, String dst_key, Callback WhenDone) {
+void TaskMgr::ConvertSongStructureToEnglish(String struct_txt, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_CONVERT_SONG_STRUCTURE_TO_ENGLISH);
@@ -906,8 +906,8 @@ void TaskMgr::ConvertSongStructureToEnglish(String src_key, String dst_key, Call
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
-	t.args << src_key << dst_key;
-	t.WhenDone << WhenDone;
+	t.args << struct_txt;
+	t.WhenResult << WhenResult;
 }
 
 void TaskMgr::EvaluateSongAudience(String src_key, String dst_key, int mode, Callback WhenDone) {

@@ -84,7 +84,7 @@ struct TaskMgr {
 	void UnpackStructureSongData(String orig_key, String struct_key, Callback WhenDone);
 	void CheckSongStructureErrors(String main_key, String results_key, Callback WhenDone);
 	void CheckSongNaturalErrors(String main_key, String results_key, Callback WhenDone);
-	void ConvertSongStructureToEnglish(String src_key, String dst_key, Callback WhenDone);
+	void ConvertSongStructureToEnglish(String struct_txt, Event<String> WhenResult);
 	void EvaluateSongAudience(String src_key, String dst_key, int mode, Callback WhenDone);
 	void MakePoetic(String style, String src_key, String dst_key, Callback WhenDone);
 	void EvaluatePoeticStyles(String rhyme, String rhyme_scheme, int rhyme_scheme_line_count, String attrs, Event<String> WhenResult);

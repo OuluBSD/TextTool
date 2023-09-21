@@ -2,6 +2,7 @@
 #define _SongTool_Attributes_h_
 
 #define ATTR_LIST \
+	ATTR_ITEM(GENDER, "Gender", "female", "male") \
 	ATTR_ITEM(AVERAGE_EXPECTATIONS, "Average expectations", "expectation-conformed", "expectation-opposed") \
 	ATTR_ITEM(IMAGERY, "Imagery", "trope-reinforcing", "unique") \
 	ATTR_ITEM(EXPRESSION, "Expression", "allegorical", "explicit") \
@@ -9,7 +10,7 @@
 	ATTR_ITEM(INTEGRITY, "Integrity", "honest", "twisted") \
 	ATTR_ITEM(SOCIAL, "Social", "libertarian", "authoritarian") \
 	ATTR_ITEM(ECONOMIC, "Economic", "liberal", "conservative") \
-	ATTR_ITEM(CULTURE, "Culture", "individualism", "collective") \
+	ATTR_ITEM(CULTURE, "Culture", "individualistic", "collective") \
 	ATTR_ITEM(HUMAN_STRENGTH, "Human strength", "strong", "weak") \
 	ATTR_ITEM(MOTIVATION, "Motivation", "rewarding", "punishing") \
 	ATTR_ITEM(SEXUALIZATION, "Sexualization", "sexual", "non-sexual") \

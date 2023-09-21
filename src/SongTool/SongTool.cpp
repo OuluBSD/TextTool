@@ -42,6 +42,8 @@ GUI_APP_MAIN {
 	
 	
 	// For testing
+	String proxy;
+	String proxy_file = ConfigFile("proxy.bin");
 	const Vector<String>& cmds = CommandLine();
 	for(int i = 0; i < cmds.GetCount(); i++) {
 		const String& cmd = cmds[i];
@@ -59,9 +61,13 @@ GUI_APP_MAIN {
 		    return;
 		}
 		else if (cmd == "-proxy" && i+1 < cmds.GetCount()) {
-			const String& proxy = cmds[i+1];
-			if (instance)
-				instance->setProxy(proxy.Begin());
+			proxy = cmds[i+1];
+			i++;
+		}
+		else if (cmd == "-permanent-proxy" && i+1 < cmds.GetCount()) {
+			proxy = cmds[i+1];
+			FileOut fout(proxy_file);
+			fout << proxy;
 			i++;
 		}
 		else if (cmd == "-blue") {
@@ -69,6 +75,11 @@ GUI_APP_MAIN {
 		}
 	}
 	
+	if (FileExists(proxy_file))
+		proxy = LoadFile(proxy_file);
+	
+	if (instance && proxy.GetCount())
+		instance->setProxy(proxy.Begin());
 	
 	// Load Database
 	Database& db = Database::Single();

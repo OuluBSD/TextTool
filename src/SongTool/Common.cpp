@@ -461,3 +461,14 @@ void RealizeDoubleNewlinesBeforeTitles(String& s) {
 	}
 	s = Join(lines, "\n");
 }
+
+Vector<String> GetStructureParts(String s) {
+	s.Replace("\r", "");
+	Vector<String> parts = Split(s, "\n}\n");
+	int c = parts.GetCount();
+	for(int i = 0; i < c-1; i++) {
+		String& p = parts[i];
+		p << "\n}";
+	}
+	return parts;
+}

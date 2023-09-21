@@ -1463,8 +1463,7 @@ void Task::CreateInput_CheckSongNaturalErrors() {
 }
 
 void Task::CreateInput_ConvertSongStructureToEnglish() {
-	String src_key = args[0];
-	String dst_key = args[1];
+	String struct_txt = args[0];
 	
 	{
 		Vector<String> lines = Split(struct_unpack_trans, "\n", true);
@@ -1483,9 +1482,8 @@ void Task::CreateInput_ConvertSongStructureToEnglish() {
 	
 	{
 		Song& song = *p.pipe->song;
-		String orig_txt = song.data.Get(src_key, "");
-		orig_txt.Replace("\r", "");
-		Vector<String> lines = Split(orig_txt, "\n", true);
+		struct_txt.Replace("\r", "");
+		Vector<String> lines = Split(struct_txt, "\n", true);
 		TaskTitledList& list = input.AddSub().Title("Structurally deconstructed lyrics");
 		list		.NoListChar();
 		for (const String& line : lines)

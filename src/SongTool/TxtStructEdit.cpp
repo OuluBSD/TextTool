@@ -18,6 +18,21 @@ TxtStructEdit::TxtStructEdit() {
 	third_key = main_natural_native_key;
 }
 
+void TxtStructEdit::EnableAll() {
+	all_disabled = false;
+	main.Enable();
+	other.Enable();
+	third.Enable();
+}
+
+void TxtStructEdit::DisableAll() {
+	all_disabled = true;
+	this->SetFocus();
+	main.Disable();
+	other.Disable();
+	third.Disable();
+}
+
 void TxtStructEdit::Init() {
 	EditorCtrl::Init();
 	
@@ -40,6 +55,8 @@ void TxtStructEdit::ImportReferenceStruct() {
 	EditorPtrs& p = db.ctx.ed;
 	if(!p.song || !p.artist)
 		return;
+	if (all_disabled)
+		return;
 	Song& song = *p.song;
 	
 	if (!song.data.Get(main_key, "").IsEmpty()) {
@@ -57,6 +74,8 @@ void TxtStructEdit::CheckErrors() {
 	EditorPtrs& p = db.ctx.ed;
 	if(!p.song || !p.artist || main_key.IsEmpty())
 		return;
+	if (all_disabled)
+		return;
 	
 	p.RealizePipe();
 	
@@ -72,21 +91,75 @@ void TxtStructEdit::ConvertToEnglish() {
 	if(!p.song || !p.artist || main_key.IsEmpty() || main_natural_english_key.IsEmpty())
 		return;
 	
+	if (all_disabled)
+		return;
+	DisableAll();
+	
 	p.RealizePipe();
 	
-	p.song->data.GetAdd(main_natural_english_key).Clear();
-	p.song->data.GetAdd(main_natural_native_key).Clear();
+	Song& song = *p.song;
+	song.data.GetAdd(main_natural_english_key).Clear();
+	song.data.GetAdd(main_natural_native_key).Clear();
 	
-	{
-		TaskMgr& m = *p.song->pipe;
-		m.ConvertSongStructureToEnglish(main_key, main_natural_english_key, THISBACK1(PostUpdateExportData, 0));
+	String content = song.data.Get(main_key, "");
+	Vector<String> parts = GetStructureParts(content);
+	Vector<String> summed_parts;
+	String cur;
+	for (const String& part : parts) {
+		cur << part << "\n";
+		Vector<String> lines = Split(cur, "\n");
+		if (lines.GetCount() > 100) {
+			summed_parts << cur;
+			cur.Clear();
+		}
 	}
+	if (cur.GetCount())
+		summed_parts << cur;
+	
+	part_remaining.Clear();
+	for(int i = 0; i < summed_parts.GetCount(); i++)
+		part_remaining.Add(i);
+	
+	for(int i = 0; i < summed_parts.GetCount(); i++) {
+		const String& part = summed_parts[i];
+		
+		TaskMgr& m = *p.song->pipe;
+		m.ConvertSongStructureToEnglish(part, THISBACK1(OnStructureResult, i));
+	}
+}
+
+void TxtStructEdit::OnStructureResult(String res, int part_i) {
+	lock.Enter();
+	part_results.Add(part_i, res);
+	part_remaining.RemoveKey(part_i);
+	bool ready = part_remaining.IsEmpty();
+	lock.Leave();
+	
+	if (ready)
+		PostCallback(THISBACK(ProcessStructureResult));
+}
+
+void TxtStructEdit::ProcessStructureResult() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	
+	SortByKey(part_results, StdLess<int>());
+	String output = Join(part_results.GetValues(), "\n");
+	
+	other.SetData(output);
+	
+	if (p.song)
+		p.song->data.GetAdd(main_natural_english_key) = output;
+	
+	EnableAll();
 }
 
 void TxtStructEdit::ConvertToNative() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if(!p.song || !p.artist || main_natural_english_key.IsEmpty() || main_natural_native_key.IsEmpty())
+		return;
+	if (all_disabled)
 		return;
 	
 	p.RealizePipe();
