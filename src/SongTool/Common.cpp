@@ -6,8 +6,8 @@ const char* RhymeSchemes[RHYME_COUNT][2] {
 	{"XA,XA", t_("Single two-line stanza without internal rhyme")},
 	{"AX,AX", t_("Single two-line begin rhyme without internal rhyme")},
 	{"AB,AB", t_("Single two-line stanza with internal rhyme")},
-	{"AAB,BXX", t_("Two-line end-rhyming with internal rhyme in 1st line")},
-	{"AXX,BBA", t_("Two-line end-rhyming with internal rhyme in 2nd line")},
+	{"AAB,XXB", t_("Two-line end-rhyming with internal rhyme in 1st line")},
+	{"XXA,BBA", t_("Two-line end-rhyming with internal rhyme in 2nd line")},
 	{"AAB,CCB", t_("Two-line end-rhyming with internal rhyme in both lines")},
 	{"ABB,ABB", t_("Two-line end-rhyming with internal rhymes in both lines")},
 	{"ABA,ABA", t_("Two-line rhyming with internal rhymes in both lines")},
@@ -438,6 +438,25 @@ void RealizeDoubleNewlinesOnNumbered(String& s) {
 		else if (i > 0 && l.GetCount() && !IsDigit(l[0]) && lines[i-1].IsEmpty()) {
 			lines.Remove(i-1);
 			i--;
+		}
+	}
+	s = Join(lines, "\n");
+}
+
+void RealizeDoubleNewlinesBeforeTitles(String& s) {
+	s.Replace("\r", "");
+	Vector<String> lines = Split(s, "\n", false);
+	int c = lines.GetCount();
+	for(int i = 0; i < c; i++) {
+		String& l = lines[i];
+		l = TrimBoth(l);
+		if (l.Right(1) == ":") {
+			if (i > 0 && !lines[i-1].IsEmpty()) {
+				lines.Insert(i);
+			}
+			if (i+1 < c  && lines[i+1].IsEmpty()) {
+				lines.Remove(i+1);
+			}
 		}
 	}
 	s = Join(lines, "\n");

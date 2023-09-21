@@ -660,5 +660,6 @@ const Vector<String>& CommonArtists();
 
 void TrimBothAllLines(String& s);
 void RealizeDoubleNewlinesOnNumbered(String& s);
+void RealizeDoubleNewlinesBeforeTitles(String& s);
 
 #endif

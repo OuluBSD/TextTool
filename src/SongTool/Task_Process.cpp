@@ -1678,6 +1678,8 @@ void Task::Process_ConvertSongStructureToEnglish() {
 	Song& song = *p.pipe->song;
 	String& dst_txt = song.data.GetAdd(dst_key);
 	dst_txt = output;
+	
+	RealizeDoubleNewlinesBeforeTitles(dst_txt);
 }
 
 void Task::Process_EvaluateSongAudience() {
