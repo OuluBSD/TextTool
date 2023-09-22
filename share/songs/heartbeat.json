@@ -276,7 +276,7 @@
 		},
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL",
-			"value": "Chorus 1:\r\nI didn't want to fight, I don't want to break up\r\nI never imagined this could end\r\n\r\nChorus 2:\r\nI didn't mean to break us, do to us like this\r\nWe were loving each other, but hurting again\r\n\r\nVerse 1a:\r\nI haven't been calling\r\nBeen busy with work and healing from it\r\nI'm missing you, wanting you near\r\nto lying on the beach with stars above\r\n\r\nVerse 1b:\r\nDreaming of you, warm in my arms\r\nPromised to stay through up and down\r\nBut time passed by,\r\nkisses are memories\r\n\r\nVerse 1c:\r\nMemories of us touching\r\nWe kissed, we rocked together\r\nWhen night got dark, I did hear only you\r\nThe moon was shining, you were drenched in sweat\r\n\r\n\r\n\r\nVerse 1d:\r\nWe should've tried more, being here\r\nBack to the moment we met\r\nShould have been wise enough to love again\r\n\r\nVerse 2a:\r\nAnd I needed someone else\r\nForgetting your name, and messing it up with another\r\nWhen I did leave, slammed the door\r\nAnd this woman came with air of hope\r\n\r\nVerse 2b:\r\nRejecting the happy feelings\r\nWhen our eyes met, sorrows disappear\r\nBut I didn't know how to turn off the feelings\r\nAnd accept, won't deny\r\n\r\nVerse 2c:\r\nI'm scared of falling in love\r\nAnd I'm scared of failing and not recovering\r\nContext of time is precious when spending with someone\r\n\r\nVerse 2d:\r\nDon't want to ride on the emotional roller coaster alone\r\nI need to be able to handle it when sharing everything\r\nNot confess that you're my only one\r\nOr realize that you should be my wife\r\nBridge 1a:\r\nAnd say I'm sorry and want to forget our fights\r\nOur fights remain inside me\r\nThough you don't notice\r\nBridge 1b:\r\nI haven't shown how much I care\r\nBeing nice again, but what can I do anymore"
+			"value": "Chorus 1:\r\nI didn't want to fight, I don't want to break up\r\nI never imagined this could end\r\n\r\nChorus 2:\r\nI didn't mean to break us, do to us like this\r\nWe were loving each other, but hurting again\r\n\r\nVerse 1a:\r\nI haven't got time to call to you\r\nI've een busy with work and healing from it\r\nI'm missing you, wanting you near to me\r\nto lying here on the beach with stars above\r\n\r\nVerse 1b:\r\nDreaming of you, warm in my arms\r\nPromised to stay through up and down\r\nBut time passed by,\r\nkisses are memories\r\n\r\nVerse 1c:\r\nMemories of us touching\r\nWe kissed, we rocked together\r\nWhen night got dark, I did hear only you\r\nThe moon was shining, you were drenched in sweat\r\n\r\nVerse 1d:\r\nMaybe we should've tried more,\r\nI will be back in a moment\r\nLet's be wiser so that\r\nwe can love again\r\n\r\nVerse 2a:\r\nI felt like I needed someone else\r\nI was forgetting your name, and messing it up with another\r\nWhen I did leave, slammed the door\r\nAnd this woman came with air of hope\r\n\r\nVerse 2b:\r\nFirst, I rejected the happy feelings\r\nBut when our eyes met, sorrows disappear\r\nI didn't know how to turn off the feelings\r\nI accepted them, won't deny\r\n\r\nVerse 2c:\r\nI'm scared of falling in love\r\nAnd I'm scared of failing and not recovering\r\nContext of time is precious\r\nwhen spending with someone\r\n\r\nVerse 2d:\r\nI don't want to ride on the emotional roller coaster alone\r\nit's easier when you have someone to share it with\r\nI don't confess that you're my only one\r\nMaybe you will realize that you should be my wife\r\n\r\nBridge 1a:\r\nAnd I say I'm sorry and\r\nI want to forget our fights\r\nOur fights remain inside me\r\nThough you don't notice\r\n\r\nBridge 1b:\r\nI haven't shown\r\nhow much I care\r\nI can be nice again,\r\nbut what can I fix with it anymore\r\n"
 		},
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL_NATIVE",
@@ -311,263 +311,254 @@
 		{
 			"name": "Verse 1a",
 			"source": [
-				"I haven't been calling",
-				"Been busy with work and healing from it",
-				"I'm missing you, wanting you near",
-				"to lying on the beach with stars above"
+				"I haven't got time to call to you",
+				"I've een busy with work and healing from it",
+				"I'm missing you, wanting you near to me",
+				"to lying here on the beach with stars above"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"I haven't been calling",
-						"Been busy with work and healing from it"
+						"I haven't got time to call to you",
+						"I've een busy with work and healing from it"
 					],
 					"suggestion": [
 						{
 							"style": "Red Hot Chili Peppers",
-							"content": "I never had been talking,\nBut my mind was completely walking.",
+							"content": "Can't take the time to roll with you\nLet's get together, I've got something to do",
 							"score": 0
 						},
 						{
 							"style": "Beastie Boys",
-							"content": "I try not to be stalling,\nFeelin' like I'm always brawling.",
+							"content": "You can't come around and try to change my tune\nI'm livin' life so get off my parachute",
 							"score": 0
 						},
 						{
 							"style": "The Jimi Hendrix Experience",
-							"content": "Hadn't said a word in ages,\nBut I'm filled with inner sages.",
-							"score": 1
+							"content": "Don't stay around, I need to be free\nSo I can come here and find my ideal me",
+							"score": 0
 						},
 						{
 							"style": "Grandmaster Flash and the Furious Five",
-							"content": "Ain't been speaking much at all,\nBut my guards have never been too small.",
-							"score": 1
+							"content": "Runnin' out of time, can't come your way\nOur future's bright, so you better hold a ray",
+							"score": 0
 						},
 						{
 							"style": "Bob Marley",
-							"content": "Been sitting in a corner,\nLiving off a kind of honor.",
+							"content": "Cannot take the time, I must be a-movin'\nGet together, grounds of pavement I'm a-groovin'",
 							"score": 0
 						},
 						{
 							"style": "Bob Dylan",
-							"content": "Wasn't gonna call around,\nBut a voice made me stand my ground.",
-							"score": 1
-						},
-						{
-							"style": "The Beatles",
-							"content": "Had been much too shy to say,\nKind of like a dental decay.",
+							"content": "Can't stand around too long and lose my fire\nDon't know how long I can keep this flame goin' higher",
 							"score": 0
 						},
 						{
-							"style": "The Doors",
-							"content": "Haven't been vocal lately,\nBut my heart's been feeling greatly.",
+							"style": "The Beatles",
+							"content": "Don't have time to call your name\nGot too much on my mind to feel no shame",
 							"score": 1
 						},
 						{
+							"style": "The Doors",
+							"content": "Don't waste my time, you know I'm leavin'\nThis attitude will take me to the Freedom dreamin'",
+							"score": 0
+						},
+						{
 							"style": "Nirvana",
-							"content": "No words I've been stowing,\nPinned down but I'm still growing.",
+							"content": "Can't make this stop, so I keep on goin'\nThe future's mine, no more livin' in a hole",
 							"score": 0
 						},
 						{
 							"style": "Tupac Shakur",
-							"content": "Was trying to avoid the sound,\nFeeling my feet getting bound.",
+							"content": "Can't take the time, keep on rollin'\nThe struggle is real, but I'm still controllin'",
 							"score": 0
 						},
 						{
 							"style": "Marvin Gaye",
-							"content": "Never tried to open up,\nBut I'm feeling kind of fed up.",
+							"content": "No end in sight, I'm taking it slow\nCan't come your way, still livin' the show",
 							"score": 0
 						},
 						{
 							"style": "N.W.A",
-							"content": "Ain't been filling up the phone,\nLiving in my own little zone.",
-							"score": 2
+							"content": "Don't try to bring me down, keep on steppin'\nCarrying the weight, livin' this lesson",
+							"score": 0
 						},
 						{
 							"style": "Run-DMC",
-							"content": "A dream I'd been avoiding,\nLife got me just started cruising.",
+							"content": "Can't hold me down, keep yellin' my name\nThis life I chose, so I'm livin' the game",
 							"score": 0
 						},
 						{
 							"style": "Led Zeppelin",
-							"content": "Hadn't been letting my heart curve,\nBut I'm ready to give it a very large swerve.",
+							"content": "Never gonna stay, I'm destined to roam\nLiving this life, it's my way back home",
 							"score": 0
 						},
 						{
 							"style": "Jefferson Airplane",
-							"content": "Nothing surfaced when I'd be airin',\nBut I feel like summers always bearing.",
+							"content": "Time keeps on slippin', can't be delayed\nTravel the world and my soul will be saved",
 							"score": 0
 						},
 						{
 							"style": "Madonna",
-							"content": "Hadn't been feeling really freed,\nBut I'm ready to finally lead.",
+							"content": "Can't stay around too long, I must be gone\nTakin' the time to find what I belong",
 							"score": 0
 						},
 						{
 							"style": "Buffalo Springfield",
-							"content": "Wouldn't be seen making a call,\nBut I'm feeling my heart's open to all.",
+							"content": "No time for callin' me, I must be leavin'\nLivin' this life, it's time for believin'",
 							"score": 0
 						},
 						{
 							"style": "Elton John",
-							"content": "Wasn't getting much attention,\nBut I'm hoping my love can spread in dimension.",
+							"content": "No time for wastin', can't turn away\nTake this journey, it's the way I must stay",
 							"score": 0
 						}
 					],
 					"data": [
-
+						{
+							"key": "RELATIONSHIP_FOCUS",
+							"value": "1"
+						},
+						{
+							"key": "EXPRESSION",
+							"value": "-1"
+						},
+						{
+							"key": "INTEGRITY",
+							"value": "1"
+						},
+						{
+							"key": "GENDER",
+							"value": "-1"
+						},
+						{
+							"key": "MOOD_HUMOROUS_DRAMATIC",
+							"value": "-1"
+						},
+						{
+							"key": "SEXUALIZATION",
+							"value": "1"
+						}
 					],
 					"outdated_suggestions": false
 				},
 				{
 					"source": [
-						"I'm missing you, wanting you near",
-						"to lying on the beach with stars above"
+						"I'm missing you, wanting you near to me",
+						"to lying here on the beach with stars above"
 					],
 					"suggestion": [
 						{
 							"style": "Red Hot Chili Peppers",
-							"content": "I'm longing for you near,\nlike a dream of seaside stars.",
+							"content": "Missin' you, thinkin' 'bout the way it used to be,\nWith soft sand on shore, and a sky of midnight blue.",
 							"score": 0
 						},
 						{
 							"style": "Beastie Boys",
-							"content": "My heart's crying out for you,\nthe way to a perfect night of blue.",
+							"content": "Longin' for you, strugglin' to find a remedy,\nUnder starlit night, here I stay in misery.",
 							"score": 0
 						},
 						{
 							"style": "The Jimi Hendrix Experience",
-							"content": "I'm fearin' you ain't here,\njust like a petal in an ocean of clear.",
+							"content": "Squeezin' through, yearnin' for the way we used to be,\nOut on this beach with sacred heavens above me.",
 							"score": 0
 						},
 						{
 							"style": "Grandmaster Flash and the Furious Five",
-							"content": "Thought I need you today,\nDreaming of hopscotch, on a beach far away.",
+							"content": "I'm longin' for you, can't find a way to break free,\nLying in the sand, night sky as far as I can see.",
 							"score": 0
 						},
 						{
 							"style": "Bob Marley",
-							"content": "Missing you more each day,\nUnderneath the sky, lying in the bay.",
-							"score": 0
+							"content": "Thinkin' 'bout you, livin' with this agony,\nGazing up at stars as I lie here on the sea.",
+							"score": 1
 						},
 						{
 							"style": "Bob Dylan",
-							"content": "Pining for your embrace,\nAfternoons watching sky and wave.",
+							"content": "Beggin' for you, strugglin' to keep my sanity,\nSomethin' 'bout the stars and waves that brings tranquility.",
 							"score": 0
 						},
 						{
 							"style": "The Beatles",
-							"content": "You are everything and more,\nDreamy halcyon days on the shore.",
+							"content": "Missin' you, achin' for a different destiny,\nStaring up at stars while da sand runs under me.",
 							"score": 0
 						},
 						{
 							"style": "The Doors",
-							"content": "Oh, how I miss you near,\nOur love like a daydream basking in stars so clear.",
+							"content": "Longin' so deep, searchin' for a way to break free,\nOut here on the beach, skies above full of majesty.",
 							"score": 0
 						},
 						{
 							"style": "Nirvana",
-							"content": "Everything is lost without you,\nRolling waves crashing like tears of blue.",
+							"content": "Cravin' for you, longin' for a different life,\nDark night glows bright, washin' away all this strife.",
 							"score": 0
 						},
 						{
 							"style": "Tupac Shakur",
-							"content": "You are the cup of life,\nTogether, we'd bask in beaches mighty and bright.",
+							"content": "Desperately reachin' out, wishin' for a way to be,\nPrayin' to the moon, stars shinin' down on me.",
 							"score": 0
 						},
 						{
 							"style": "Marvin Gaye",
-							"content": "Your tenderness I miss,\nLaying in the sand with stars I wish to kiss.",
-							"score": 1
+							"content": "Achin' for you, searchin' for a way to make it right,\nUnderneath the stars, here my soul starts to take flight.",
+							"score": 0
 						},
 						{
-							"style": "N.W.A",
-							"content": "Each day without you, I'm despair,\nLonging to lie beneath the stars, so fair.",
+							"style": "N.W.A.",
+							"content": "Needing you, desirin' to make a stand for me,\nOut here on this beach, under night's scenery.",
 							"score": 0
 						},
 						{
 							"style": "Run-DMC",
-							"content": "Ain't nothing in my world now complete,\nWithout an ocean breeze, and stars so sweet.",
+							"content": "Hoping you can, missin' your touch and company,\nStranded on the shore, lookin' at stars so heavenly.",
 							"score": 0
 						},
 						{
 							"style": "Led Zeppelin",
-							"content": "My life has stopped and still,\nStanding on a shore without you I can't feel.",
+							"content": "Mournin' for you, cravin' for a chance to be,\nLying on the beach, surrounded by the stars' shining glee.",
 							"score": 0
 						},
 						{
 							"style": "Jefferson Airplane",
-							"content": "You should be here with me,\nOut on the sand beneath the stars so free.",
-							"score": 1
+							"content": "Wishin' for you, desirin' for the way things could be,\nStargazing far away, layin' here so peacefully.",
+							"score": 0
 						},
 						{
 							"style": "Madonna",
-							"content": "Waiting for you, it never ends,\nLying on the beach, letting stars ascend.",
+							"content": "Longin' for you, hopin' to find serenity,\nOut here on the beach, skies full of sorcery.",
 							"score": 0
 						},
 						{
 							"style": "Buffalo Springfield",
-							"content": "I would that you were here in sight,\nThe stars above us, two birds in flight.",
+							"content": "Callin' for you, searchin' for a different way to be,\nFeel the sea breeze, stars shinning down on me.",
 							"score": 0
 						},
 						{
 							"style": "Elton John",
-							"content": "My eyes were searching for you in vain,\nFeeling the sand, beneath the sky's domain.",
+							"content": "Cravin' for you, wistin' for the way things could be,\nUnderneath the stars in all the beauty I can see.",
 							"score": 0
 						}
 					],
 					"data": [
-
+						{
+							"key": "INTEGRITY",
+							"value": "1"
+						},
+						{
+							"key": "IMAGERY",
+							"value": "1"
+						},
+						{
+							"key": "EXPRESSION",
+							"value": "-1"
+						}
 					],
 					"outdated_suggestions": false
 				}
 			],
-			"rhyme_scheme": "AAB,CCB",
+			"rhyme_scheme": "AB,AB",
 			"data": [
-				{
-					"key": "AVERAGE_EXPECTATIONS",
-					"value": "1"
-				},
-				{
-					"key": "INTEGRITY",
-					"value": "1"
-				},
-				{
-					"key": "HUMAN_STRENGTH",
-					"value": "-1"
-				},
-				{
-					"key": "MOTIVATION",
-					"value": "1"
-				},
-				{
-					"key": "SEXUALIZATION",
-					"value": "1"
-				},
-				{
-					"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
-					"value": "1"
-				},
-				{
-					"key": "SEXUAL_ORIENTATION",
-					"value": "1"
-				},
-				{
-					"key": "SEXUAL_PREFERENCE",
-					"value": "-1"
-				},
-				{
-					"key": "IMAGERY",
-					"value": "1"
-				},
-				{
-					"key": "SEXUAL_COMMITMENT",
-					"value": "-1"
-				},
-				{
-					"key": "RELATIONSHIP_FOCUS",
-					"value": "-1"
-				}
+
 			],
 			"outdated_suggestions": false
 		},
@@ -1014,9 +1005,10 @@
 		{
 			"name": "Verse 1d",
 			"source": [
-				"We should've tried more, being here",
-				"Back to the moment we met",
-				"Should have been wise enough to love again"
+				"Maybe we should've tried more,",
+				"I will be back in a moment",
+				"Let's be wiser so that",
+				"we can love again"
 			],
 			"rhymes": [
 				{
@@ -1055,8 +1047,8 @@
 		{
 			"name": "Verse 2a",
 			"source": [
-				"And I needed someone else",
-				"Forgetting your name, and messing it up with another",
+				"I felt like I needed someone else",
+				"I was forgetting your name, and messing it up with another",
 				"When I did leave, slammed the door",
 				"And this woman came with air of hope"
 			],
@@ -1097,10 +1089,10 @@
 		{
 			"name": "Verse 2b",
 			"source": [
-				"Rejecting the happy feelings",
-				"When our eyes met, sorrows disappear",
-				"But I didn't know how to turn off the feelings",
-				"And accept, won't deny"
+				"First, I rejected the happy feelings",
+				"But when our eyes met, sorrows disappear",
+				"I didn't know how to turn off the feelings",
+				"I accepted them, won't deny"
 			],
 			"rhymes": [
 				{
@@ -1141,7 +1133,8 @@
 			"source": [
 				"I'm scared of falling in love",
 				"And I'm scared of failing and not recovering",
-				"Context of time is precious when spending with someone"
+				"Context of time is precious",
+				"when spending with someone"
 			],
 			"rhymes": [
 				{
@@ -1180,10 +1173,10 @@
 		{
 			"name": "Verse 2d",
 			"source": [
-				"Don't want to ride on the emotional roller coaster alone",
-				"I need to be able to handle it when sharing everything",
-				"Not confess that you're my only one",
-				"Or realize that you should be my wife"
+				"I don't want to ride on the emotional roller coaster alone",
+				"it's easier when you have someone to share it with",
+				"I don't confess that you're my only one",
+				"Maybe you will realize that you should be my wife"
 			],
 			"rhymes": [
 				{
@@ -1252,7 +1245,8 @@
 		{
 			"name": "Bridge 1a",
 			"source": [
-				"And say I'm sorry and want to forget our fights",
+				"And I say I'm sorry and",
+				"I want to forget our fights",
 				"Our fights remain inside me",
 				"Though you don't notice"
 			],
@@ -1268,8 +1262,10 @@
 		{
 			"name": "Bridge 1b",
 			"source": [
-				"I haven't shown how much I care",
-				"Being nice again, but what can I do anymore"
+				"I haven't shown",
+				"how much I care",
+				"I can be nice again,",
+				"but what can I fix with it anymore"
 			],
 			"rhymes": [
 

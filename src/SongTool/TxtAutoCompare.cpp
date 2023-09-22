@@ -188,6 +188,7 @@ void TxtAutoCompare::DataSongPart(bool skip_results) {
 	
 	if (!parts.IsCursor()) return;
 	int c = parts.GetCursor();
+	if (c >= song.parts.GetCount()) return;
 	Song::SongPart& sp = song.parts[c];
 	
 	int row = 0;
