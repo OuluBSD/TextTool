@@ -583,6 +583,17 @@ void TxtAutoCompare::EvaluatePoeticStyles(int i) {
 	if (i == 0)
 		ptr = GetActiveSongPart();
 	
+	for(int i = 0; i < song.parts.GetCount(); i++) {
+		Song::SongPart& sp = song.parts[i];
+		if (ptr && ptr != &sp)
+			continue;
+		int rs_idx = FindRhymeType(sp.rhyme_scheme);
+		if (rs_idx < 0 || rs_idx >= RHYME_COUNT) {
+			PromptOK(Format(t_("Part %s has no rhyme scheme set"), sp.name));
+			return;
+		}
+	}
+	
 	if (is_disabled)
 		return;
 	DisableAll();
@@ -596,8 +607,7 @@ void TxtAutoCompare::EvaluatePoeticStyles(int i) {
 		
 		int rs_idx = FindRhymeType(sp.rhyme_scheme);
 		if (rs_idx < 0 || rs_idx >= RHYME_COUNT) {
-			PromptOK(Format(t_("Part %s has no rhyme scheme set"), sp.name));
-			return;
+			continue;
 		}
 		String rhyme_scheme = RhymeSchemes[rs_idx][0];
 		
