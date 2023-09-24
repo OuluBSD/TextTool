@@ -610,7 +610,7 @@ void TxtAutoCompare::EvaluatePoeticStyles(int i) {
 			continue;
 		}
 		String rhyme_scheme = RhymeSchemes[rs_idx][0];
-		
+		 
 		if (1)
 			rhyme_scheme << " \"" << RhymeSchemes[rs_idx][1] << "\"";
 		

@@ -46,6 +46,7 @@ public:
 	CHK_PRODUCTION(30,		FINISH_FINISH_NATIVE, t_("Fix remaing problems in native language and in direct translation")) \
 	CHK_PRODUCTION(30,		FINISH_FINISN_ENGLISH_DRAFT, t_("Finish first draft in english")) \
 	CHK_PRODUCTION(30,		FINISH_FINISH_ENGLISH, t_("Fix remaing problems in english")) \
+	CHK_PRODUCTION(1,		FINISH_RHYME_TEXT, t_("Make rhyme notation text of lyrics if it's rap")) \
 	CHK_PRODUCTION(1,		EXPORT_MIDI, t_("Export composition to MIDI with bpm in name")) \
 	CHK_PRODUCTION(3,		MAKE_PROJECT, t_("Make project from DAW project template and MIDI file")) \
 	CHK_PRODUCTION(2,		MAKE_CHORD_PAD, t_("Make chord pad track with good sound presets")) \

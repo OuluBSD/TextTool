@@ -1,4 +1,3 @@
-
 #ifdef _MSC_VER
 #pragma setlocale("C")
 #endif
@@ -851,19 +850,6 @@ T_("Part %s has no rhyme scheme set")
 fiFI("Osalle %s ei ole asetettu riimimallia")
 
 
-// TxtEditNative.cpp
-
-T_("Import the native text converted from structure")
-fiFI("Tuo rakenteesta muunnettu natiivi teksti")
-
-T_("Translate native text of the user to english")
-fiFI("K\303\244\303\244nn\303\244 k\303\244ytt\303\244j\303\244n natiivi teksti "
-     "englanniksi")
-
-T_("Check for problems in the english translation")
-fiFI("Tarkista eng. k\303\244\303\244nn\303\266ksen ongelmat")
-
-
 // TxtEditEnglish.cpp
 
 T_("Import the direct translation of the native text")
@@ -872,8 +858,21 @@ fiFI("Tuo natiivin tekstin suora k\303\244\303\244nn\303\266s")
 T_("Make poetic english with the given style")
 fiFI("Tee runollinen englanti annetulla tyylill\303\244")
 
+T_("Check for problems in the english translation")
+fiFI("Tarkista eng. k\303\244\303\244nn\303\266ksen ongelmat")
+
 T_("Poetic english, non-poetic-english, auto-poetic-english")
 fiFI("Runollinen englanti, ei-runollinen englanti, automaatti-runollinen englanti")
+
+
+// TxtEditNative.cpp
+
+T_("Import the native text converted from structure")
+fiFI("Tuo rakenteesta muunnettu natiivi teksti")
+
+T_("Translate native text of the user to english")
+fiFI("K\303\244\303\244nn\303\244 k\303\244ytt\303\244j\303\244n natiivi teksti "
+     "englanniksi")
 
 
 // Checklists.h
@@ -936,13 +935,17 @@ T_("Finish first draft in native language")
 fiFI("Viimeistele ensimm\303\244inen luonnos \303\244idinkielell\303\244")
 
 T_("Fix remaing problems in native language and in direct translation")
-fiFI("Korjaa j\303\244ljell\303\244 olevat ongelmat \303\244idinkielell\303\244 ja suorak\303\244\303\244nn\303\266ksess\303\244")
+fiFI("Korjaa j\303\244ljell\303\244 olevat ongelmat \303\244idinkielell\303\244 "
+     "ja suorak\303\244\303\244nn\303\266ksess\303\244")
 
 T_("Finish first draft in english")
 fiFI("Viimeistele ensimm\303\244inen luonnos englanniksi")
 
 T_("Fix remaing problems in english")
 fiFI("Korjaa j\303\244ljell\303\244 olevat ongelmat englanniksi")
+
+T_("Make rhyme notation text of lyrics if it's rap")
+fiFI("Tee rytmi-notaatio-teksti lyriikasta jos se on r\303\244ppi\303\244")
 
 T_("Export composition to MIDI with bpm in name")
 fiFI("Vie s\303\244vellys MIDI:hen ja lis\303\244\303\244 nimeen my\303\266s "
@@ -1545,10 +1548,12 @@ T_("Two-line end-rhyming with internal rhyme in both lines")
 fiFI("Kaksirivinen loppuriimi, sis\303\244inen riimi molemmilla riveill\303\244")
 
 T_("Two-line end-rhyming with internal rhymes in both lines")
-fiFI("Kaksirivinen loppuriimi sis\303\244isill\303\244 riimeill\303\244 molemmilla riveill\303\244")
+fiFI("Kaksirivinen loppuriimi sis\303\244isill\303\244 riimeill\303\244 molemmilla "
+     "riveill\303\244")
 
 T_("Two-line rhyming with internal rhymes in both lines")
-fiFI("Kaksirivinen riimi sis\303\244isill\303\244 riimeill\303\244 molemmilla riveill\303\244")
+fiFI("Kaksirivinen riimi sis\303\244isill\303\244 riimeill\303\244 molemmilla "
+     "riveill\303\244")
 
 T_("4-line end rhyme")
 fiFI("4-rivinen loppuriimi")
@@ -1577,9 +1582,10 @@ fiFI("4 rivi\303\244, ei rimmaa 1. & 3., yhteys katkennut")
 T_("4 lines, alternating rhyming, disconnected")
 fiFI("4 rivi\303\244, vuorotellen riimi, katkennut")
 
-T_("Ballad stanza. 4 lines, internal rhymes in 1. & 3. lines and end rhymes in 2. "
-     "& 4. lines")
-fiFI("Balladi stanza. 4 rivi\303\244, sis\303\244iset riimit riveill\303\244 1. & 3. ja loppurimit riveill\303\244 2. & 4.")
+T_("Ballad stanza. 4 lines, internal rhymes in 1. & 3. lines and end rhymes "
+     "in 2. & 4. lines")
+fiFI("Balladi stanza. 4 rivi\303\244, sis\303\244iset riimit riveill\303\244 "
+     "1. & 3. ja loppurimit riveill\303\244 2. & 4.")
 
 T_("Double 4-lines, 3 lines rhyming, rhymes in the end of parts")
 fiFI("Kaksinkertainen 4-rivinen, 3 rivi\303\244 riimi, riimit osien lopussa")
