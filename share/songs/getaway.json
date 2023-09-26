@@ -25,6 +25,10 @@
 		{
 			"key": "REFERENCE_SONG__NATIVE_TEXT",
 			"value": ""
+		},
+		{
+			"key": "ENGLISH_UNPACKED_STRUCTURE",
+			"value": "chorus {\r\n\tme {\r\n\t\tOh (see) {\r\n\t\t\tthe guy who sleep and waits\r\n\t\t}\r\n\t}\r\n\tyou {\r\n\t\twhat (have) {\r\n\t\t\tdone (now)\r\n\t\t}\r\n\t}\r\n\tme {\r\n\t\tgoing {\r\n\t\t\twith {\r\n\t\t\t\tmy baby\r\n\t\t\t}\r\n\t\t}\r\n\t\tnot coming {\r\n\t\t\tback {\r\n\t\t\t\tuntil fall\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\nverse 1 {\r\n\tyou (made) {\r\n\t\tme (love) {\r\n\t\t\tyou\r\n\t\t}\r\n\t}\r\n\tyour (man) {\r\n\t\thas (gone) {\r\n\t\t\tnow\r\n\t\t}\r\n\t}\r\n\tif I find {\r\n\t\ta new girl (then) {\r\n\t\t\tI won't be back (at all)\r\n\t\t}\r\n\t}\r\n}\r\nbridge {\r\n\toh Jenny Jenny\r\n}\r\n\t\t\t\t\t"
 		}
 	],
 	"parts": [
