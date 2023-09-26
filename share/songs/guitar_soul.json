@@ -1,0 +1,29 @@
+{
+	"artist": "",
+	"title": "Kitarasielu",
+	"english_title": "Guitar soul",
+	"prj_name": "guitar soul",
+	"structure_str": "",
+	"structure": [
+
+	],
+	"content": {
+		"obj[0]": "",
+		"obj[1]": "",
+		"obj[2]": "",
+		"obj[3]": ""
+	},
+	"data": [
+		{
+			"key": "REFERENCE_SONG__ENGLISH_TEXT",
+			"value": "Verse 1:\r\nHey little one tonight\r\nI know you thought you got it right\r\nBut we can all make mistakes\r\nFeeling in the day we go\r\nWaiting for the truth to show\r\nAnd know you thought you got it right,\r\n\r\nChorus:\r\nFor the first time, I'm telling you\r\nWhen will the truth be coming trough?\r\n\r\nVerse 2:\r\nIn the shadow of the night\r\nWe couldn't get it right\r\nWe are exposed to what we are\r\nBut then the day returns\r\nAnd another chance to love\r\nAnd know you thought that got it right,\r\n\r\nVerse 3:\r\nAmazing to the eyes\r\nAfter one that makes you hide\r\nWe know you got it right tonight\r\nI'm fellow most destroyed\r\nTo feed the dreams alive\r\nYou know that thought that got it right\r\n\r\nBridge:\r\nNow this time\r\nWhat you want it feel\r\nYou want one truth\r\nLoving in your bill \r\n"
+		},
+		{
+			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
+			"value": "verse 1 {\n\tme {\n\t\ttalking {\n\t\t\tto {\n\t\t\t\tlittle one {\n\t\t\t\t\ttonight\n\t\t\t\t}\n\t\t\t}\n\t\t\tI know (you thought) {\n\t\t\t\tyou got it right\n\t\t\t\t{\n\t\t\t\t\tbut {\n\t\t\t\t\t\twe can all make mistakes\n\t\t\t\t\t\tfeeling {\n\t\t\t\t\t\t\tin {\n\t\t\t\t\t\t\t\tthe day {\n\t\t\t\t\t\t\t\t\twe go\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\twaiting {\n\t\t\t\t\t\t\t\tfor {\n\t\t\t\t\t\t\t\t\tthe truth {\n\t\t\t\t\t\t\t\t\t\tto show\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n}\nchorus {\n\tme {\n\t\tfor {\n\t\t\tthe first time {\n\t\t\t\tI'm telling you\n\t\t\t\twhen {\n\t\t\t\t\twill {\n\t\t\t\t\t\tthe truth {\n\t\t\t\t\t\t\tbe coming through?\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\nverse 2 {\n\tme {\n\t\tin {\n\t\t\tthe shadow {\n\t\t\t\tof {\n\t\t\t\t\tthe night\n\t\t\t\t}\n\t\t\t}\n\t\t\twe couldn't get it right\n\t\t\twe are (exposed) {\n\t\t\t\tto {\n\t\t\t\t\twhat we are\n\t\t\t\t}\n\t\t\t}\n\t\t\tbut then {\n\t\t\t\tthe day {\n\t\t\t\t\treturns\n\t\t\t\t}\n\t\t\t\tand {\n\t\t\t\t\tanother {\n\t\t\t\t\t\tchance {\n\t\t\t\t\t\t\tto love\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tand {\n\t\t\t\tknow {\n\t\t\t\t\tyou thought {\n\t\t\t\t\t\tyou got it right\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\nverse 3 {\n\tme {\n\t\tamazing {\n\t\t\tto {\n\t\t\t\tthe eyes\n\t\t\t}\n\t\t\tafter {\n\t\t\t\tone {\n\t\t\t\t\tthat {\n\t\t\t\t\t\tmakes {\n\t\t\t\t\t\t\tyou {\n\t\t\t\t\t\t\t\thide\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\twe know {\n\t\t\t\t\tyou got it right tonight\n\t\t\t\t}\n\t\t\t\tI'm {\n\t\t\t\t\tfellow {\n\t\t\t\t\t\tmost {\n\t\t\t\t\t\t\tdestroyed\n\t\t\t\t\t\t}\n\t\t\t\t\t\tto {\n\t\t\t\t\t\t\tfeed {\n\t\t\t\t\t\t\t\tthe dreams alive\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tyou know {\n\t\t\t\t\t\tthat thought {\n\t\t\t\t\t\t\tyou got it right\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\nbridge {\n\tme {\n\t\tnow {\n\t\t\tthis time {\n\t\t\t\twhat {\n\t\t\t\t\tyou want {\n\t\t\t\t\t\tit {\n\t\t\t\t\t\t\tfeel\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tyou want {\n\t\t\t\t\t\tone {\n\t\t\t\t\t\t\ttruth\n\t\t\t\t\t\t}\n\t\t\t\t\t\tloving {\n\t\t\t\t\t\t\tin {\n\t\t\t\t\t\t\t\tyour {\n\t\t\t\t\t\t\t\t\tbill\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}"
+		}
+	],
+	"parts": [
+
+	]
+}

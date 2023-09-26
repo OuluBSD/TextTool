@@ -14,7 +14,18 @@
 		"obj[3]": ""
 	},
 	"data": [
-
+		{
+			"key": "REFERENCE_SONG__ENGLISH_TEXT",
+			"value": "Chorus:\r\nOh see, C. C. Rider\r\nI said see, what you have done now\r\nOh, I'm going with my baby\r\nAnd I won't be back 'til fall, yeah\r\n\r\nVerse 1:\r\nAhh, you made me love you\r\nNow, your man has gone\r\nAnd if I find me a new girl\r\nI won't be back at all\r\n\r\nBridge:\r\nAh, Jenny, Jenny, Jenny, won't you come along with me\r\nJenny Jenny, Jenny, won't you come along with me\r\nI worry 'bout you, baby, spendin' nights in misery\r\nSpinnin', spinnin', spinnin', spinnin' like a spinnin' top\r\n\r\nOutro:\r\nCome along baby,\r\nSpin, spin, spinnin' like a spinnin' top\r\n"
+		},
+		{
+			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
+			"value": "chorus {\n\tme {\n\t\tOh (see) {\n\t\t\tC.C. Rider  \n\t\t}\n\t\tI said see {\n\t\t\twhat (you have) {\n\t\t\t\tdone (now)\n\t\t\t}\n\t\t}\n\t\tOh {\n\t\t\tI'm (going) {\n\t\t\t\twith {\n\t\t\t\t\tmy {\n\t\t\t\t\t\tbaby\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tAnd I (won't) {\n\t\t\t\tbe (back) {\n\t\t\t\t\t'til (fall), yeah\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1 {\n\tme {\n\t\tAhh {\n\t\t\tyou (made) {\n\t\t\t\tme (love) {\n\t\t\t\t\tyou\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tNow {\n\t\t\tyour (man) {\n\t\t\t\thas (gone)\n\t\t\t}\n\t\t}\n\t\tAnd (if) {\n\t\t\tI (find) {\n\t\t\t\tme (a) {\n\t\t\t\t\tnew (girl)\n\t\t\t\t}\n\t\t\t}\n\t\t\tI (won't) {\n\t\t\t\tbe (back) {\n\t\t\t\t\tat (all)\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nbridge {\n\tme {\n\t\tAh {\n\t\t\tJenny {\n\t\t\t\tJenny {\n\t\t\t\t\t"
+		},
+		{
+			"key": "REFERENCE_SONG__NATIVE_TEXT",
+			"value": ""
+		}
 	],
 	"parts": [
 

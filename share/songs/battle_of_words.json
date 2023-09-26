@@ -14,7 +14,14 @@
 		"obj[3]": ""
 	},
 	"data": [
-
+		{
+			"key": "REFERENCE_SONG__ENGLISH_TEXT",
+			"value": "Verse 1:\r\nEveryone has a bomb in their mind\r\nAnd when it explodes\r\nBlows your mind\r\nAfter it all you'll wonder why\r\nSit back and look at you and I\r\n\r\nChorus:\r\nHasn't it been nice? Paradise?\r\nLivin' lovin' life\r\nWhat ya doin'?\r\nTo me?\r\n\r\nVerse 2:\r\nSome dawn we will wake up all mankind\r\nAnd the outcome will shake up\r\nThe solitary mind\r\nSome may look and some may see\r\nWhat life has meant to you and me\r\n\r\nVerse 3:\r\nWe've been hitchin' a ride all our lives\r\nJust a-bumbin' a ride all our lives\r\nThrough the streets of have and hold\r\nThe morals new but the story's been told\r\n"
+		},
+		{
+			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
+			"value": "verse 1 {\n\teveryone {\n\t\thas {\n\t\t\ta bomb (in) {\n\t\t\t\ttheir mind\n\t\t\t}\n\t\t\tand when (it explodes) {\n\t\t\t\tblows (your mind)\n\t\t\t\tafter it all {\n\t\t\t\t\tyou'll wonder why\n\t\t\t\t\tsit back and look {\n\t\t\t\t\t\tat you (and I)\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nChorus {\n\tme {\n\t\thasn't it been nice? {\n\t\t\tparadise?\n\t\t\tlivin’ lovin’ life\n\t\t}\n\t\twhat ya doin’ {\n\t\t\tto me?\n\t\t}\n\t}\n}\nverse 2 {\n\tsome (dawn) {\n\t\twe will wake up {\n\t\t\tall mankind\n\t\t\tand the outcome {\n\t\t\t\twill shake up {\n\t\t\t\t\tthe solitary mind\n\t\t\t\t\tsome may look (and) {\n\t\t\t\t\t\tsome may see\n\t\t\t\t\t}\n\t\t\t\t\twhat life {\n\t\t\t\t\t\thas meant (to you and me)\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3 {\n\twe've been {\n\t\thitchin’ {\n\t\t\ta ride (all our lives)\n\t\t\tjust a-bumbin' (a ride all our lives)\n\t\t\tthrough the streets {\n\t\t\t\tof have and hold\n\t\t\t\tthe morals new {\n\t\t\t\t\tbut the story's been told\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}"
+		}
 	],
 	"parts": [
 

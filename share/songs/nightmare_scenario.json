@@ -14,7 +14,14 @@
 		"obj[3]": ""
 	},
 	"data": [
-
+		{
+			"key": "REFERENCE_SONG__ENGLISH_TEXT",
+			"value": "Verse 1:\r\nWell, when the sun goes down and the moon comes up\r\nI turn into a teenage goo goo muck\r\nYeah, I cruise through the city and I roam the street\r\nA-looking for something that is nice to eat, mmm\r\n\r\nChorus:\r\nYou better duck\r\nWhen I show up\r\nThe goo goo muck\r\n\r\nVerse 2:\r\nI'm the night headhunter looking for some head\r\nWith a way-out body underneath that head, ooh\r\nYeah, I'll get you, baby, with a little luck\r\n'Cause I'm a teenage tiger and a goo goo muck\r\n\r\nChorus:\r\nYou better duck\r\nWhen I show up\r\nThe goo goo muck\r\nCaw, caw, caw, caw\r\n\r\nVerse 3:\r\nYeah, the city is a jungle and I'm a beast, haha\r\nI'm a teenage tiger looking for a feast, ooh\r\nYeah, I want the most, but I'll take the least\r\n'Cause I'm a goo goo muck tiger and a teenage beast, uh-huh\r\n\r\nOutro:\r\nCaw, caw, caw, caw, caw\r\nCaw, caw, caw, caw\r\nCaw, caw, caw, caw, caw, caw, caw, caw\r\nMuck, muck, muck\r\nThe goo goo muck\r\n"
+		},
+		{
+			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
+			"value": "verse 1 {\n\tenvironment {\n\t\twhen {\n\t\t\tsun {\n\t\t\t\tgoes down\n\t\t\t}\n\t\t\tmoon {\n\t\t\t\tcomes up\n\t\t\t}\n\t\t}\n\t}\n\tme {\n\t\ttransformation {\n\t\t\tinto {\n\t\t\t\tteenage goo goo muck\n\t\t\t}\n\t\t}\n\t\tcruise (through) {\n\t\t\tcity\n\t\t}\n\t\troam (the) {\n\t\t\tstreet\n\t\t}\n\t\tlooking {\n\t\t\tfor {\n\t\t\t\tsomething {\n\t\t\t\t\tthat is nice to eat\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nchorus {\n\tyou {\n\t\tbetter {\n\t\t\tduck\n\t\t}\n\t}\n\twhen {\n\t\tI {\n\t\t\tshow up\n\t\t}\n\t}\n\tteenage goo goo muck\n}\nverse 2 {\n\tme {\n\t\tnight headhunter {\n\t\t\tlooking {\n\t\t\t\tfor {\n\t\t\t\t\tsome head\n\t\t\t\t}\n\t\t\t}\n\t\t\twith {\n\t\t\t\tway-out body {\n\t\t\t\t\tunderneath {\n\t\t\t\t\t\tthat head\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tI {\n\t\t\twill {\n\t\t\t\tget (you) {\n\t\t\t\t\tbaby\n\t\t\t\t}\n\t\t\t}\n\t\t\twith {\n\t\t\t\ta little luck\n\t\t\t}\n\t\t\tbecause {\n\t\t\t\tI'm a teenaged tiger {\n\t\t\t\t\tand {\n\t\t\t\t\t\ta goo goo muck\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nchorus {\n\tyou {\n\t\tbetter {\n\t\t\tduck\n\t\t}\n\t}\n\twhen {\n\t\tI {\n\t\t\tshow up\n\t\t}\n\t}\n\tteenage goo goo muck\n\tcaw caw caw caw\n}\nverse 3 {\n\tenvironment {\n\t\tthe city {\n\t\t\tis a jungle\n\t\t}\n\t}\n\tme {\n\t\tteenage tiger {\n\t\t\tlooking {\n\t\t\t\tfor {\n\t\t\t\t\ta feast\n\t\t\t\t}\n\t\t\t}\n\t\t\twant {\n\t\t\t\tthe most\n\t\t\t}\n\t\t\tbut {\n\t\t\t\ttake {\n\t\t\t\t\tthe least\n\t\t\t\t}\n\t\t\t}\n\t\t\tbecause {\n\t\t\t\tI'm a goo goo muck tiger {\n\t\t\t\t\tand a teenage beast\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\noutro { \n\tcaw caw caw caw caw\n\tcaw caw caw caw\n\tcaw caw caw caw caw caw caw caw\n\tmuck muck muck\n\tthe goo goo muck\n}"
+		}
 	],
 	"parts": [
 

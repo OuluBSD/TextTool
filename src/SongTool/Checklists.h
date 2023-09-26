@@ -73,6 +73,7 @@ public:
 	CHK_PRODUCTION(30,		FIX_VOCAL_TIMING, t_("Correct the timing of vocals with the free-warp tool")) \
 	CHK_PRODUCTION(30,		FIX_VOCAL_PITCH, t_("Fix the pitch of the vocal track with the VariAudio tool")) \
 	CHK_PRODUCTION(5,		VOCAL_FX, t_("Vocal track effects with iZotope Nectar automatic analysis")) \
+	CHK_PRODUCTION(5,		BASS_FX, t_("Bass and kick harmonics creation with e.g. SyncerSoft Bass Landscapes")) \
 	CHK_PRODUCTION(5,		INSTRUMENT_FX, t_("Instrument track effects with iZotope Neutron automatic analysis")) \
 	CHK_PRODUCTION(5,		EQ_SPECTRAL_BALANCE, t_("EQ spectral balance for all tracks with SmartEQ grouping")) \
 	CHK_PRODUCTION(3,		MASTER_FX, t_("Create master track effects with iZotope Ozone analysis")) \

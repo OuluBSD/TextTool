@@ -14,7 +14,18 @@
 		"obj[3]": ""
 	},
 	"data": [
-
+		{
+			"key": "REFERENCE_SONG__ENGLISH_TEXT",
+			"value": "Verse 1:\r\nWhen you leave, it's hard to repeat myself\r\nHow can I recreate lasting love?\r\nWhen I find someone who doesn't repeat my awful character\r\nThen how can I believe it to be true?\r\n\r\nPrechorus 1:\r\nThe slight nervousness of the meeting turns to sheer terror\r\nIt frightens me, doesn't allow the heart to get what it desires \r\n\r\nChorus:\r\nWhat is it when I want to run away from you, woman\r\nWho will pull me into the shadows, away from all that is beautiful\r\nWhy do I feel panic when there is no response\r\n\r\nVerse 2:\r\nI want to meet you right away\r\nI want to squeeze you like a squeeky plastic toy\r\nI'm thinking it would happen when I see you\r\nBut I no longer believe it will come to be.\r\n\r\nBridge:\r\nWhat is it when meeting you is distressing?\r\nWhat is it when I want to run away?\r\nShould I burn the bridge and run away?\r\nWhat is it when my strength just isn't enough?"
+		},
+		{
+			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
+			"value": "verse 1 {\n\tme {\n\t\tleaving {\n\t\t\tit's hard to repeat (myself)\n\t\t}\n\t\tcreating (lasting love) {\n\t\t\thow can I \n\t\t}\n\t\tfinding (someone) { \n\t\t\twho doesn't repeat (my awful character) \n\t\t\tthen how can I believe (it to be true)\n\t\t}\n\t}\n}\nprechorus 1 {\n\tme {\n\t\tslight nervousness {\n\t\t\tof the meeting {\n\t\t\t\tturns to sheer terror\n\t\t\t}\n\t\t\tfrightens me {\n\t\t\t\tdoesn't allow (my heart) {\n\t\t\t\t\tto get what it desires\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nchorus {\n\tme {\n\t\twanting {\n\t\t\tto run away {\n\t\t\t\tfrom you (woman)\n\t\t\t\twho will pull me {\n\t\t\t\t\tinto the shadows {\n\t\t\t\t\t\taway from all that is beautiful\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tpanic {\n\t\t\twhen there is no response\n\t\t}\n\t}\n}\nverse 2 {\n\tme {\n\t\tmeeting {\n\t\t\tI want to (meet you right away)\n\t\t\tI want to (squeeze you like a squeeky plastic toy)\n\t\t\tI'm thinking (it would happen when I see you)\n\t\t\tBut I no longer believe (it will come to be)\n\t\t}\n\t}\n}\nbridge {\n\tme {\n\t\tdistressing {\n\t\t\twhen meeting (you)\n\t\t}\n\t\twanting {\n\t\t\tto run away\n\t\t}\n\t\tbridge {\n\t\t\tburning {\n\t\t\t\tshould I burn (the bridge)\n\t\t\t\trun away\n\t\t\t}\n\t\t}\n\t\tstrength {\n\t\t\tjust isn't enough\n\t\t}\n\t}\n}"
+		},
+		{
+			"key": "REFERENCE_SONG__NATIVE_TEXT",
+			"value": "Verse 1:\r\nKun lähdet, on vaikea toistaa itseäni\r\nmiten toistan kaiken kestävän rakkauden?\r\nKun löydän toisen, joka ei toista ex:äni kamalaa luonnetta\r\nniin miten voin uskoa sen todeksi?\r\n\r\nPrechorus 1:\r\nLievä jännitys tapaamisesta muuttuu pakokauhuksi\r\nPelottaa, se ei saa, kun sydän saa, mitä tahtoo\r\n\r\nChorus:\r\nMikä on kun haluan karkuun juosta sinua nainen\r\nKuka varjoon vetää minua, pois kaikesta ihanasta\r\nMiksi tunnen hätäännystä, heti kun kuulu ei vastausta\r\n\r\nVerse 2:\r\nHaluaisin tavata sut heti\r\nhaluaisin puristaa sinua kuten vinkuvaa kumilelya\r\nMietin, että se tapahtuisi, kun sut näen,\r\nmutta en enää usko että se tulee tapahtumaan.\r\n\t\r\nBridge:\r\nMikä on kun sun tapaaminen ahdistaa?\r\nMikä on kun tahdon karkuun juosta?\r\nPoltanko sillan ja lähdenkö karkuun juoksemaan?\r\nMikä on kun voimat vain ei riitä?\r\n\r\n"
+		}
 	],
 	"parts": [
 
