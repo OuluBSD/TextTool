@@ -68,11 +68,11 @@
 		},
 		{
 			"key": "REFERENCE_SONG__NATIVE_TEXT",
-			"value": "verse 1:\r\nHei hyvä haltija heilauta taikasauvaa\r\nTai noitaruhtinatar, hoida, vihreää ihmejuomaa\r\nEi kaniinia hatusta, ei enempää suolaa\r\nVoisiko joku tämän kerran toiveeni toteuttaa\r\n\r\nchorus:\r\nAbrakadabra, tän täytyy toimia\r\nAbrakadabra, ala rakastaa minua\r\n\r\nverse 2:\r\nNe lepakonkynnet, ja liskonkeiton syön\r\nKuin nöyrä noviisi loitsuja luen tän yön\r\nNäkyykö valoa kristallipallossa\r\nVai piinaanko ruumistani turhissa unelmissa\r\n\r\nbridge:\r\nSelasin Sudenpentujen käsikirjan ja Pikku Jättiläisen\r\nJoo suutelen sammakon viimeisen katseesta yhden naisen\r\n"
+			"value": "verse 1:\nHei hyvä haltija heilauta taikasauvaa\nTai noitaruhtinatar, hoida, vihreää ihmejuomaa\nEi kaniinia hatusta, ei enempää suolaa\nVoisiko joku tämän kerran toiveeni toteuttaa\n\nchorus:\nAbrakadabra, tän täytyy toimia\nAbrakadabra, ala rakastaa minua\n\nverse 2:\nNe lepakonkynnet, ja liskonkeiton syön\nKuin nöyrä noviisi loitsuja luen tän yön\nNäkyykö valoa kristallipallossa\nVai piinaanko ruumistani turhissa unelmissa\n\nbridge:\nSelasin Sudenpentujen käsikirjan ja Pikku Jättiläisen\nJoo suutelen sammakon viimeisen katseesta yhden naisen\n"
 		},
 		{
 			"key": "REFERENCE_SONG__ENGLISH_TEXT",
-			"value": "verse 1:\r\nHello good fairy wave a magic wand\r\nOr witch princess, treat, green wonder potion\r\nNo rabbit in the hat, no more salt\r\nCould someone make my wish come true for once?\r\n\r\nchorus:\r\nAbracadabra, this must work\r\nAbracadabra, start loving me\r\n\r\nverse 2:\r\nI'll eat those bat claws and lizard soup\r\nLike a humble novice I recite spells tonight\r\nCan you see the light in the crystal ball\r\nOr do I torture my body in vain dreams\r\n\r\nbridge:\r\nI looked through the Scout's Handbook and the information book for young people\r\nYeah, I'll kiss the last frog, for the look of one woman"
+			"value": "verse 1:\nHello good fairy wave a magic wand\nOr witch princess, treat, green wonder potion\nNo rabbit in the hat, no more salt\nCould someone make my wish come true for once?\n\nchorus:\nAbracadabra, this must work\nAbracadabra, start loving me\n\nverse 2:\nI'll eat those bat claws and lizard soup\nLike a humble novice I recite spells tonight\nCan you see the light in the crystal ball\nOr do I torture my body in vain dreams\n\nbridge:\nI looked through the Scout's Handbook and the information book for young people\nYeah, I'll kiss the last frog, for the look of one woman"
 		},
 		{
 			"key": "ATTR_REFERENCE_SONG",
@@ -84,11 +84,11 @@
 		},
 		{
 			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
-			"value": "verse 1 {\r\n\tinvocation {\r\n\t\tHello ( good fairy ) \r\n\t\twaving ( magic wand )\r\n\t\tor ( witch princess )\r\n\t\ttreating ( green wonder potion )\r\n\t}\r\n\tno {\r\n\t\trabbit ( in the hat )\r\n\t\tsalt\r\n\t}\r\n\twishing {\r\n\t\tmy ( wish ) {\r\n\t\t\tcome ( true ) {\r\n\t\t\t\tonce\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\nchorus {\r\n\tchanting {\r\n\t\tAbracadabra\r\n\t\tthis ( must work )\r\n\t\tAbracadabra\r\n\t\tstart ( loving me )\r\n\t}\r\n}\r\nverse 2 {\r\n\teating {\r\n\t\tbat claws\r\n\t\tlizard soup\r\n\t}\r\n\treciting ( spells ) {\r\n\t\ttonight\r\n\t}\r\n\tseeing {\r\n\t\tlight ( in the crystal ball )\r\n\t}\r\n\ttorturing {\r\n\t\tmy ( body ) {\r\n\t\t\tin ( vain dreams )\r\n\t\t}\r\n\t}\r\n}\r\nbridge {\r\n\tlooking {\r\n\t\tthrough ( Scout's Handbook )\r\n\t\tinformation ( book ) {\r\n\t\t\tfor ( young people )\r\n\t\t}\r\n\t}\r\n\tkissing {\r\n\t\tlast ( frog ) {\r\n\t\t\tfor ( look ) {\r\n\t\t\t\tof ( one woman )\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+			"value": "verse 1 {\n\tinvocation {\n\t\tHello ( good fairy ) \n\t\twaving ( magic wand )\n\t\tor ( witch princess )\n\t\ttreating ( green wonder potion )\n\t}\n\tno {\n\t\trabbit ( in the hat )\n\t\tsalt\n\t}\n\twishing {\n\t\tmy ( wish ) {\n\t\t\tcome ( true ) {\n\t\t\t\tonce\n\t\t\t}\n\t\t}\n\t}\n}\nchorus {\n\tchanting {\n\t\tAbracadabra\n\t\tthis ( must work )\n\t\tAbracadabra\n\t\tstart ( loving me )\n\t}\n}\nverse 2 {\n\teating {\n\t\tbat claws\n\t\tlizard soup\n\t}\n\treciting ( spells ) {\n\t\ttonight\n\t}\n\tseeing {\n\t\tlight ( in the crystal ball )\n\t}\n\ttorturing {\n\t\tmy ( body ) {\n\t\t\tin ( vain dreams )\n\t\t}\n\t}\n}\nbridge {\n\tlooking {\n\t\tthrough ( Scout's Handbook )\n\t\tinformation ( book ) {\n\t\t\tfor ( young people )\n\t\t}\n\t}\n\tkissing {\n\t\tlast ( frog ) {\n\t\t\tfor ( look ) {\n\t\t\t\tof ( one woman )\n\t\t\t}\n\t\t}\n\t}\n}"
 		},
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE",
-			"value": "verse 1 {\r\n\tinvocation {\r\n\t\tHello ( good fairy ) \r\n\t\twaving ( magic wand )\r\n\t\tor ( witch princess )\r\n\t\ttreating ( green wonder potion )\r\n\t}\r\n\tno {\r\n\t\trabbit ( in the hat )\r\n\t\tsalt\r\n\t}\r\n\twishing {\r\n\t\tmy ( wish ) {\r\n\t\t\tcome ( true ) {\r\n\t\t\t\tonce\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\nchorus {\r\n\tchanting {\r\n\t\tAbracadabra\r\n\t\tthis ( must work )\r\n\t\tAbracadabraz\r\n\t\tstart ( loving me )\r\n\t}\r\n}\r\nverse 2 {\r\n\teating {\r\n\t\tbat claws\r\n\t\tlizard soup\r\n\t}\r\n\treciting ( spells ) {\r\n\t\ttonight\r\n\t}\r\n\tseeing {\r\n\t\tlight ( in the crystal ball )\r\n\t}\r\n\ttorturing {\r\n\t\tmy ( body ) {\r\n\t\t\tin ( vain dreams )\r\n\t\t}\r\n\t}\r\n}\r\nbridge {\r\n\tlooking {\r\n\t\tthrough ( Scout's Handbook )\r\n\t\tinformation ( book ) {\r\n\t\t\tfor ( young people )\r\n\t\t}\r\n\t}\r\n\tkissing {\r\n\t\tlast ( frog ) {\r\n\t\t\tfor ( look ) {\r\n\t\t\t\tof ( one woman )\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+			"value": "verse 1 {\n\tinvocation {\n\t\tHello ( good fairy ) \n\t\twaving ( magic wand )\n\t\tor ( witch princess )\n\t\ttreating ( green wonder potion )\n\t}\n\tno {\n\t\trabbit ( in the hat )\n\t\tsalt\n\t}\n\twishing {\n\t\tmy ( wish ) {\n\t\t\tcome ( true ) {\n\t\t\t\tonce\n\t\t\t}\n\t\t}\n\t}\n}\nchorus {\n\tchanting {\n\t\tAbracadabra\n\t\tthis ( must work )\n\t\tAbracadabraz\n\t\tstart ( loving me )\n\t}\n}\nverse 2 {\n\teating {\n\t\tbat claws\n\t\tlizard soup\n\t}\n\treciting ( spells ) {\n\t\ttonight\n\t}\n\tseeing {\n\t\tlight ( in the crystal ball )\n\t}\n\ttorturing {\n\t\tmy ( body ) {\n\t\t\tin ( vain dreams )\n\t\t}\n\t}\n}\nbridge {\n\tlooking {\n\t\tthrough ( Scout's Handbook )\n\t\tinformation ( book ) {\n\t\t\tfor ( young people )\n\t\t}\n\t}\n\tkissing {\n\t\tlast ( frog ) {\n\t\t\tfor ( look ) {\n\t\t\t\tof ( one woman )\n\t\t\t}\n\t\t}\n\t}\n}"
 		},
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL",
@@ -104,7 +104,7 @@
 		},
 		{
 			"key": "NATURAL_NATIVE_OF_AUTHOR",
-			"value": "Kohtaus 1:\r\nHei, hyvä keijus heiluttelemassa taikasauvaansa, \r\ntai noitanprinsessa ihmejuomallaan, \r\nei kaninhattua tai suolaa, \r\nvain toivoen toiveeni toteutuvan kerran.\r\n\r\nKertosäe: \r\nAbracadabra, tämän pitäisi toimia, \r\nAbracadabraz, ala rakastamaan minua.\r\n\r\nKohtaus 2:\r\nSyömässä lintujen kynsiä, liskojen keittoa, \r\nloitsien lukemista tänä iltana, \r\nvalon näkemistä kristallipallosta, \r\nturhaan pilaamalla unia. \r\n\r\nSillan:\r\nKatselemaan väijyjäni käsikirjaa, \r\nnuorisolle tarkoitettua tietokirjaa, \r\nsuudella viimeinen sammakko saadaksesi yhden naisen muodon."
+			"value": "Kohtaus 1:\nHei, hyvä keijus heiluttelemassa taikasauvaansa, \ntai noitanprinsessa ihmejuomallaan, \nei kaninhattua tai suolaa, \nvain toivoen toiveeni toteutuvan kerran.\n\nKertosäe: \nAbracadabra, tämän pitäisi toimia, \nAbracadabraz, ala rakastamaan minua.\n\nKohtaus 2:\nSyömässä lintujen kynsiä, liskojen keittoa, \nloitsien lukemista tänä iltana, \nvalon näkemistä kristallipallosta, \nturhaan pilaamalla unia. \n\nSillan:\nKatselemaan väijyjäni käsikirjaa, \nnuorisolle tarkoitettua tietokirjaa, \nsuudella viimeinen sammakko saadaksesi yhden naisen muodon."
 		},
 		{
 			"key": "AUTOMATIC_ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR",
@@ -112,7 +112,7 @@
 		},
 		{
 			"key": "ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR",
-			"value": "Scene 1:\r\nTip tap, tip tap, I'm best\r\nOr princess with her magical brew, \r\nNo rabbit's hat or pinch of salt, \r\nJust hoping my wish will come true one day.\r\n\r\nChorus: \r\nAbracadabra, this should do me some good, \r\nAbracadabraz, start loving me like it should.\r\n\r\nScene 2:\r\nEating birds' claws, lizards' stew, \r\nReading spells this evening too, \r\nSeeing light from the crystal ball, \r\nDreams ruined, that's no good at all. \r\n\r\nBridge:\r\nScrutinizing my own grimoire, \r\nA book for the youth's lore, \r\nKissing the last frog to get one woman's form."
+			"value": "Scene 1:\nTip tap, tip tap, I'm best\nOr princess with her magical brew, \nNo rabbit's hat or pinch of salt, \nJust hoping my wish will come true one day.\n\nChorus: \nAbracadabra, this should do me some good, \nAbracadabraz, start loving me like it should.\n\nScene 2:\nEating birds' claws, lizards' stew, \nReading spells this evening too, \nSeeing light from the crystal ball, \nDreams ruined, that's no good at all. \n\nBridge:\nScrutinizing my own grimoire, \nA book for the youth's lore, \nKissing the last frog to get one woman's form."
 		},
 		{
 			"key": "ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR_AUDIENCE",
@@ -120,7 +120,7 @@
 		},
 		{
 			"key": "NATURAL_ENGLISH_OF_AUTHOR",
-			"value": "Scene 1:\r\nTip tap, tip tap, I'm best\r\nOr princess with her magical brew, \r\nNo rabbit's hat or pinch of salt, \r\nJust hoping my wish will come true one day.\r\n\r\nChorus: \r\nAbracadabra, this should do me some good, \r\nAbracadabraz, start loving me like it should.\r\n\r\nScene 2:\r\nEating birds' claws, lizards' stew, \r\nReading spells this evening too, \r\nSeeing light from the crystal ball, \r\nDreams ruined, that's no good at all. \r\n\r\nBridge:\r\nScrutinizing my own grimoire, \r\nA book for the youth's lore, \r\nKissing the last frog to get one woman's form."
+			"value": "Scene 1:\nTip tap, tip tap, I'm best\nOr princess with her magical brew, \nNo rabbit's hat or pinch of salt, \nJust hoping my wish will come true one day.\n\nChorus: \nAbracadabra, this should do me some good, \nAbracadabraz, start loving me like it should.\n\nScene 2:\nEating birds' claws, lizards' stew, \nReading spells this evening too, \nSeeing light from the crystal ball, \nDreams ruined, that's no good at all. \n\nBridge:\nScrutinizing my own grimoire, \nA book for the youth's lore, \nKissing the last frog to get one woman's form."
 		},
 		{
 			"key": "POETIC_ENGLISH_FROM_NATURAL_ENGLISH_OF_AUTHOR",

@@ -16,7 +16,7 @@
 	"data": [
 		{
 			"key": "REFERENCE_SONG__ENGLISH_TEXT",
-			"value": "Verse 1:\r\nThis town\r\nIs a lonely town\r\nNot the only town\r\nLike this town\r\nThis town\r\nIs a make-you town\r\nOr a break-you-town\r\nAnd bring-you-down town\r\n\r\nVerse 2:\r\nThis town\r\nIs a quiet town\r\nFor a riot town\r\nLike this town\r\nThis town\r\nIs a love-you town\r\nAnd a shove-you-down\r\nAnd push-you-'round town\r\n\r\nVerse 3:\r\nThis town\r\nWell, it's an all-right town\r\nFor an uptight town\r\nLike this town\r\nThis town\r\nIs a use-you town\r\nAn abuse-you town\r\nUntil-you're-found town\r\n"
+			"value": "Verse 1:\nThis town\nIs a lonely town\nNot the only town\nLike this town\nThis town\nIs a make-you town\nOr a break-you-town\nAnd bring-you-down town\n\nVerse 2:\nThis town\nIs a quiet town\nFor a riot town\nLike this town\nThis town\nIs a love-you town\nAnd a shove-you-down\nAnd push-you-'round town\n\nVerse 3:\nThis town\nWell, it's an all-right town\nFor an uptight town\nLike this town\nThis town\nIs a use-you town\nAn abuse-you town\nUntil-you're-found town\n"
 		},
 		{
 			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
@@ -24,7 +24,7 @@
 		},
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE",
-			"value": "verse 1 {\r\n\tthis town {\r\n\t\tis {\r\n\t\t\ta lonely town\r\n\t\t}\r\n\t\tnot {\r\n\t\t\tthe only town\r\n\t\t\tlike {\r\n\t\t\t\tthis town\r\n\t\t\t}\r\n\t\t}\r\n\t\ta make-you town {\r\n\t\t\tor {\r\n\t\t\t\ta break-you-town\r\n\t\t\t\tand {\r\n\t\t\t\t\tbring-you-down town\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\nverse 2 {\r\n\tthis town {\r\n\t\tis {\r\n\t\t\ta quiet town\r\n\t\t\tfor {\r\n\t\t\t\ta riot town\r\n\t\t\t\tlike {\r\n\t\t\t\t\tthis town\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\ta love-you town {\r\n\t\t\t\tand {\r\n\t\t\t\t\ta shove-you-down\r\n\t\t\t\t\tand {\r\n\t\t\t\t\t\tpush-you-around town\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\nverse 3 {\r\n\tthis town {\r\n\t\twell {\r\n\t\t\tit is an all-right town\r\n\t\t\tfor {\r\n\t\t\t\tan uptight town {\r\n\t\t\t\t\tlike {\r\n\t\t\t\t\t\tthis town\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\ta use-you town {\r\n\t\t\t\tan abuse-you town\r\n\t\t\t\tuntil-you-are-found town\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\n"
+			"value": "verse 1 {\n\tthis town {\n\t\tis {\n\t\t\ta lonely town\n\t\t}\n\t\tnot {\n\t\t\tthe only town\n\t\t\tlike {\n\t\t\t\tthis town\n\t\t\t}\n\t\t}\n\t\ta make-you town {\n\t\t\tor {\n\t\t\t\ta break-you-town\n\t\t\t\tand {\n\t\t\t\t\tbring-you-down town\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2 {\n\tthis town {\n\t\tis {\n\t\t\ta quiet town\n\t\t\tfor {\n\t\t\t\ta riot town\n\t\t\t\tlike {\n\t\t\t\t\tthis town\n\t\t\t\t}\n\t\t\t}\n\t\t\ta love-you town {\n\t\t\t\tand {\n\t\t\t\t\ta shove-you-down\n\t\t\t\t\tand {\n\t\t\t\t\t\tpush-you-around town\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3 {\n\tthis town {\n\t\twell {\n\t\t\tit is an all-right town\n\t\t\tfor {\n\t\t\t\tan uptight town {\n\t\t\t\t\tlike {\n\t\t\t\t\t\tthis town\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\ta use-you town {\n\t\t\t\tan abuse-you town\n\t\t\t\tuntil-you-are-found town\n\t\t\t}\n\t\t}\n\t}\n}\n"
 		}
 	],
 	"parts": [

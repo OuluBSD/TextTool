@@ -16,7 +16,7 @@
 	"data": [
 		{
 			"key": "REFERENCE_SONG__ENGLISH_TEXT",
-			"value": "Chorus:\r\nOh see, C. C. Rider\r\nI said see, what you have done now\r\nOh, I'm going with my baby\r\nAnd I won't be back 'til fall, yeah\r\n\r\nVerse 1:\r\nAhh, you made me love you\r\nNow, your man has gone\r\nAnd if I find me a new girl\r\nI won't be back at all\r\n\r\nBridge:\r\nAh, Jenny, Jenny, Jenny, won't you come along with me\r\nJenny Jenny, Jenny, won't you come along with me\r\nI worry 'bout you, baby, spendin' nights in misery\r\nSpinnin', spinnin', spinnin', spinnin' like a spinnin' top\r\n\r\nOutro:\r\nCome along baby,\r\nSpin, spin, spinnin' like a spinnin' top\r\n"
+			"value": "Chorus:\nOh see, C. C. Rider\nI said see, what you have done now\nOh, I'm going with my baby\nAnd I won't be back 'til fall, yeah\n\nVerse 1:\nAhh, you made me love you\nNow, your man has gone\nAnd if I find me a new girl\nI won't be back at all\n\nBridge:\nAh, Jenny, Jenny, Jenny, won't you come along with me\nJenny Jenny, Jenny, won't you come along with me\nI worry 'bout you, baby, spendin' nights in misery\nSpinnin', spinnin', spinnin', spinnin' like a spinnin' top\n\nOutro:\nCome along baby,\nSpin, spin, spinnin' like a spinnin' top\n"
 		},
 		{
 			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
@@ -28,7 +28,7 @@
 		},
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE",
-			"value": "chorus {\r\n\tme {\r\n\t\tOh (see) {\r\n\t\t\tthe guy who sleep and waits\r\n\t\t}\r\n\t}\r\n\tyou {\r\n\t\twhat (have) {\r\n\t\t\tdone (now)\r\n\t\t}\r\n\t}\r\n\tme {\r\n\t\tgoing {\r\n\t\t\twith {\r\n\t\t\t\tmy baby\r\n\t\t\t}\r\n\t\t}\r\n\t\tnot coming {\r\n\t\t\tback {\r\n\t\t\t\tuntil fall\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\nverse 1 {\r\n\tyou (made) {\r\n\t\tme (love) {\r\n\t\t\tyou\r\n\t\t}\r\n\t}\r\n\tyour (man) {\r\n\t\thas (gone) {\r\n\t\t\tnow\r\n\t\t}\r\n\t}\r\n\tif I find {\r\n\t\ta new girl (then) {\r\n\t\t\tI won't be back (at all)\r\n\t\t}\r\n\t}\r\n}\r\nbridge {\r\n\toh Jenny Jenny\r\n}\r\n\t\t\t\t\t"
+			"value": "chorus {\n\tme {\n\t\tOh (see) {\n\t\t\tthe guy who sleep and waits\n\t\t}\n\t}\n\tyou {\n\t\twhat (have) {\n\t\t\tdone (now)\n\t\t}\n\t}\n\tme {\n\t\tgoing {\n\t\t\twith {\n\t\t\t\tmy baby\n\t\t\t}\n\t\t}\n\t\tnot coming {\n\t\t\tback {\n\t\t\t\tuntil fall\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1 {\n\tyou (made) {\n\t\tme (love) {\n\t\t\tyou\n\t\t}\n\t}\n\tyour (man) {\n\t\thas (gone) {\n\t\t\tnow\n\t\t}\n\t}\n\tif I find {\n\t\ta new girl (then) {\n\t\t\tI won't be back (at all)\n\t\t}\n\t}\n}\nbridge {\n\toh Jenny Jenny\n}\n\t\t\t\t\t"
 		}
 	],
 	"parts": [
