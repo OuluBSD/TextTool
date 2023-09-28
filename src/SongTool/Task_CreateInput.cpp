@@ -1912,3 +1912,92 @@ void Task::CreateInput_VariateImage() {
 	
 	//skip_load = true;
 }
+
+void Task::CreateInput_EvaluateSuggestionScores() {
+	if (args.IsEmpty()) {
+		SetFatalError("no arguments");
+		return;
+	}
+	{
+		TaskTitledList& list = input.AddSub().Title("Definition of score");
+		list.Add("5 is the highest score and higher is more positive score");
+		list.Add("1 is the lowest score and lower is more negative score");
+		list.Add("results contains one result with score of 1");
+		list.Add("results contains one result with score of 5");
+		list.Add("results are in normal distribution, so the score of 3 is the most common");
+		list.Add("score focuses on human enjoyment");
+	}
+	int list_len = 0;
+	String first_line;
+	{
+		TaskTitledList& list = input.AddSub().Title("Rate lyrics with enjoyment score of 1-5");
+		list		.NumberedLines()
+					;
+		for (String a : args) {
+			a.Replace("\r", "");
+			a.Replace("\n", " / ");
+			list.Add(a);
+			if (first_line.IsEmpty()) first_line = a;
+		}
+		list_len = list.values.GetCount();
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("All scores for lines 1-" + IntStr(list_len));
+		
+		TaskTitledList& first = results.AddSub();
+		first		.Title("1. " + first_line);
+		first		.EmptyLine();
+	}
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_ImproveSourceText() {
+	if (args.IsEmpty()) {
+		SetFatalError("no arguments");
+		return;
+	}
+	{
+		int style = StrInt(args[0]);
+		TaskTitledList& list = input.AddSub().Title("Deep bias style");
+		list.NoListChar();
+		list.Add(GetBiasHeader(style));
+	}
+	if (0) {
+		input.AddSub().Title("Character '/' remains, and it notes the new-line");
+	}
+	if (1) {
+		input.AddSub().Title("The tense of verbs remains the same");
+	}
+	int list_len = 0;
+	String first_line;
+	{
+		TaskTitledList& list = input.AddSub().Title("Lyrics in original style");
+		list		.NumberedLines()
+					;
+		for(int i = 1; i < args.GetCount(); i++) {
+			String& a = args[i];
+			a = TrimBoth(a);
+			if (a.Right(1) == ",")
+				a = a.Left(a.GetCount()-1);
+			a = Capitalize(a);
+			list.Add(a);
+			if (first_line.IsEmpty()) first_line = a;
+		}
+		list_len = list.values.GetCount();
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		//results.Title("Same lyrics in short but deeply biased style for lines 1-" + IntStr(list_len));
+		results.Title("Same lyrics in deeply biased style for lines 1-" + IntStr(list_len));
+		results.NumberedLines();
+		results.EmptyLine();
+	}
+	
+	//LOG(input.AsString());
+	
+	input.response_length = 1024*2;
+}

@@ -1755,3 +1755,11 @@ void Task::Process_VariateImage() {
 void Task::Process_RawCompletion() {
 	WhenResult(output);
 }
+
+void Task::Process_EvaluateSuggestionScores() {
+	WhenResult("1.\n- " + output);
+}
+
+void Task::Process_ImproveSourceText() {
+	WhenResult("1. " + output);
+}

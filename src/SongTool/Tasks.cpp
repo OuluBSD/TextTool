@@ -459,6 +459,7 @@ bool Task::RunOpenAI_Image() {
 			raw_input :
 			input.AsString();
 	
+	prompt.Replace("\\", "\\\\");
 	prompt.Replace("\n", " ");
 	prompt.Replace("\t", " ");
 	prompt.Replace("\"", "\\\"");

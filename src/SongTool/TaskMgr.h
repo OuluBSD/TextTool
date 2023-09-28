@@ -96,6 +96,8 @@ struct TaskMgr {
 	void EditImage(Image orig, Image mask, String prompt, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
 	void VariateImage(Image orig, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
 	void RawCompletion(String prompt, Event<String> WhenResult);
+	void EvaluateSuggestionScores(const Vector<String>& strs, Event<String> WhenResult);
+	void ImproveSourceText(const Vector<String>& strs, int style, Event<String> WhenResult);
 	
 };
 

@@ -681,4 +681,10 @@ void StoreAsJsonFileStandard(T& o, String path, bool pretty=false) {
 	fout.Close();
 }
 
+
+String GetDemocratBiasHeader();
+String GetRepublicanBiasHeader();
+String GetNonPartisanBiasHeader();
+String GetBiasHeader(int mode);
+	
 #endif

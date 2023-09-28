@@ -215,6 +215,8 @@ public:
 	void CreateInput_EditImage();
 	void CreateInput_VariateImage();
 	void CreateInput_RawCompletion();
+	void CreateInput_EvaluateSuggestionScores();
+	void CreateInput_ImproveSourceText();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -261,6 +263,8 @@ public:
 	void Process_EditImage();
 	void Process_VariateImage();
 	void Process_RawCompletion();
+	void Process_EvaluateSuggestionScores();
+	void Process_ImproveSourceText();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

@@ -19,6 +19,7 @@ TxtAutoCompare::TxtAutoCompare() {
 	vsplit0.Vert() << parts << rhymes << suggestions;
 	vsplit1.Vert() << attrs << best;
 	
+	hsplit.SetPos(6666);
 	vsplit0.SetPos(4000, 0);
 	vsplit0.SetPos(6000, 1);
 	
@@ -26,11 +27,13 @@ TxtAutoCompare::TxtAutoCompare() {
 	
 	
 	parts.AddColumn(t_("Name"));
-	parts.AddColumn(t_("Content"));
+	parts.AddColumn(t_("Content")).Edit(edit_source);
+	parts.AddColumn(t_("AI Content"));
 	parts.AddColumn(t_("Rhyme scheme"));
-	parts.ColumnWidths("1 6 2");
+	parts.ColumnWidths("1 3 3 2");
 	parts.SetLineCy(64);
 	parts.WhenCursor << THISBACK(DataSong);
+	edit_source << THISBACK(OnSongPartContentEdit);
 	
 	rhymes.AddColumn(t_("#"));
 	rhymes.AddColumn(t_("Original"));
@@ -42,26 +45,31 @@ TxtAutoCompare::TxtAutoCompare() {
 	rhymes.SetLineCy(64);
 	rhymes.WhenCursor << THISBACK1(DataSongPart, false);
 	
+	suggestions.AddIndex("SUGGESTION_IDX");
+	suggestions.AddColumn(t_("AI Score"));
 	suggestions.AddColumn(t_("Score"));
 	suggestions.AddColumn(t_("Artist style"));
 	suggestions.AddColumn(t_("Lyrics"));
-	suggestions.ColumnWidths("1 2 6");
+	suggestions.ColumnWidths("1 1 2 6");
 	suggestions.SetLineCy(64);
 	
 	
 	
 	// Attrs list
-	attrs.AddColumn(t_("Key"));
+	attrs.AddColumn(t_("Key group"));
+	attrs.AddColumn(t_("Positive"));
+	attrs.AddColumn(t_("Negative"));
 	attrs.AddColumn(t_("Part Value"));
 	attrs.AddColumn(t_("Rhyme Value"));
-	attrs.ColumnWidths("2 1 1");
+	attrs.ColumnWidths("1 1 1 1 1");
 	
 	int row = 0;
 	attr_begin_row = row;
 	DropList* dl;
 	#define ATTR_ITEM(e, g, i0, i1) \
-	attrs.Add(Capitalize(db.Translate(g)) + ": " + Capitalize(db.Translate(i0)) + " / " + Capitalize(db.Translate(i1))); \
-	for (int i = 1; i < 3; i++) {\
+	/*attrs.Add(Capitalize(db.Translate(g)) + ": " + Capitalize(db.Translate(i0)) + " / " + Capitalize(db.Translate(i1)));*/ \
+	attrs.Add(Capitalize(db.Translate(g)), Capitalize(db.Translate(i0)), Capitalize(db.Translate(i1))); \
+	for (int i = 3; i < 5; i++) {\
 		dl = new DropList; \
 		dl->Add(Capitalize(db.Translate(i0))); \
 		/*dl->Add(t_("Neutral"));*/ \
@@ -134,16 +142,35 @@ void TxtAutoCompare::DataSong() {
 	for(int i = 0; i < song.parts.GetCount(); i++) {
 		Song::SongPart& sp = song.parts[i];
 		String content = Join(sp.source, "\n");
+		String ai_content = Join(sp.ai_source, "\n");
 		
 		parts.Set(i, 0, sp.name);
-		parts.Set(i, 1, AttrText(content)
+		if (1) {
+			parts.Set(i, 1, content);
+		}
+		else if (1) {
+			parts.Set(i, 1, AttrText(content)
+				.NormalPaper(sp.outdated_suggestions ? Color(255, 209, 205) : White())
+				.Paper(sp.outdated_suggestions ? Color(198, 42, 0) : Color(28, 42, 200))
+				);
+		}
+		else {
+			DocEdit* e = new DocEdit;
+			//e->SetData(content);
+			parts.SetCtrl(i, 1, e);
+			e->SetMinSize(Size(100,64));
+			parts.Set(i, 1, content);
+			e->WhenAction << THISBACK2(OnSongPartContentChange, e, &sp);
+		}
+		
+		parts.Set(i, 2, AttrText(ai_content)
 			.NormalPaper(sp.outdated_suggestions ? Color(255, 209, 205) : White())
 			.Paper(sp.outdated_suggestions ? Color(198, 42, 0) : Color(28, 42, 200))
 			);
 		
 		sp.valid_rhyme_schemes.Clear();
 		DropList* dl = new DropList;
-		parts.SetCtrl(i, 2, dl);
+		parts.SetCtrl(i, 3, dl);
 		dl->WhenAction << THISBACK2(OnRhymeSchemeChange, dl, &sp);
 		int rhyme_scheme_idx = FindRhymeType(sp.rhyme_scheme);
 		for(int i = 0; i < RHYME_COUNT; i++) {
@@ -237,7 +264,7 @@ void TxtAutoCompare::DataSongPart(bool skip_results) {
 		int row = attr_begin_row + i;
 		const char* key = Attr::AttrKeys[i][0];
 		for(int j = 0; j < 2; j++) {
-			DropList* dl = dynamic_cast<DropList*>(attrs.GetCtrl(row, 1+j));
+			DropList* dl = dynamic_cast<DropList*>(attrs.GetCtrl(row, 3+j));
 			int value;
 			if (j == 0) {
 				value = StrInt(sp.data.Get(key, "0"));
@@ -309,19 +336,152 @@ void TxtAutoCompare::DataSongRhymeData() {
 	for(int i = 0; i < r.suggestions.GetCount(); i++) {
 		Song::Suggestion& sug = r.suggestions[i];
 		
-		suggestions.Set(i, 0, sug.score);
-		suggestions.Set(i, 1, sug.style);
-		suggestions.Set(i, 2, sug.content);
+		suggestions.Set(i, 0, i);
+		suggestions.Set(i, 1, sug.ai_score);
+		suggestions.Set(i, 2, sug.score);
+		suggestions.Set(i, 3, sug.style);
+		suggestions.Set(i, 4, sug.content);
 		
 		EditIntNotNullSpin* e = new EditIntNotNullSpin;
 		e->MinMax(0, 5);
 		e->SetData(sug.score);
 		e->WhenAction << THISBACK2(SetSuggestionScore, e, &sug);
-		suggestions.SetCtrl(i, 0, e);
+		suggestions.SetCtrl(i, 1, e);
 	}
 	suggestions.SetCount(r.suggestions.GetCount());
+	suggestions.SetSortColumn(0, true);
+	
+}
+
+void TxtAutoCompare::EvaluateSuggestionScores() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist || main_key.IsEmpty())
+		return;
+	Song& song = *p.song;
+	if (!rhymes.IsCursor())
+		return;
+	int c = rhymes.GetCursor();
+	
+	int part_i = rhymes.Get(c, "PART_IDX");
+	int rhyme_i = rhymes.Get(c, "RHYME_IDX");
+	
+	if (part_i < 0 || part_i >= song.parts.GetCount())
+		return;
+	Song::SongPart& sp = song.parts[part_i];
+	
+	if (rhyme_i < 0 || rhyme_i >= sp.rhymes.GetCount())
+		return;
+	Song::Rhyme& r = sp.rhymes[rhyme_i];
+	
+	DisableAll();
 	
 	
+	p.RealizePipe();
+	
+	
+	Vector<String> sug_strs;
+	for(int i = 0; i < r.suggestions.GetCount(); i++) {
+		Song::Suggestion& sug = r.suggestions[i];
+		sug_strs << sug.content;
+	}
+	
+	{
+		TaskMgr& m = *p.song->pipe;
+		m.EvaluateSuggestionScores(sug_strs, THISBACK1(OnSuggestionScore, &r));
+	}
+	
+}
+
+void TxtAutoCompare::OnSuggestionScore(String res, Song::Rhyme* r) {
+	PostCallback(THISBACK(EnableAll));
+	
+	TrimBothAllLines(res);
+	RealizeDoubleNewlinesOnNumbered(res);
+	Vector<String> lines = Split(res, "\n\n");
+	
+	if (lines.GetCount() != r->suggestions.GetCount()) {
+		LOG(res);
+		PromptOK("invalid response: line count mismatch");
+		return;
+	}
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String l = ToLower(lines[i]);
+		int a = l.Find("\n-");
+		if (a >= 0) {
+			a+=2;
+			String score_str = TrimBoth(l.Mid(a));
+			a = score_str.Find("score:");
+			if (a >= 0)
+				score_str = TrimBoth(score_str.Mid(a+6));
+			a = score_str.Find("score");
+			if (a >= 0)
+				score_str = TrimBoth(score_str.Mid(a+5));
+			int b = score_str.Find("/");
+			if (b >= 0)
+				score_str = score_str.Left(b);
+			score_str = TrimBoth(score_str);
+			int score = StrInt(score_str.Left(1));
+			r->suggestions[i].ai_score = score;
+		}
+	}
+	
+	PostCallback(THISBACK(DataSongRhymeData));
+}
+
+void TxtAutoCompare::OnSourceTextImprovements(String res, int begin, int end, Song* s) {
+	PostCallback(THISBACK(EnableAll));
+	
+	TrimBothAllLines(res);
+	RealizeDoubleNewlinesOnNumbered(res);
+	Vector<String> lines = Split(res, "\n\n");
+	
+	// Get total line count
+	/*int total_src = 0;
+	for (auto& part : s->parts)
+		total_src += part.source.GetCount();*/
+	int total_src = end - begin;
+	
+	if (lines.GetCount() != total_src) {
+		LOG(res);
+		PromptOK("invalid response: line count mismatch");
+		return;
+	}
+	
+	int in = 0;
+	for(int i = 0; i < s->parts.GetCount(); i++) {
+		Song::SongPart& sp = s->parts[i];
+		sp.ai_source.SetCount(sp.source.GetCount());
+		for(int j = 0; j < sp.source.GetCount(); j++) {
+			int row = in++;
+			if (row < begin || row >= end)
+				continue;
+			int k = row - begin;
+			String l = lines[k];
+			if (0) {
+				int a = l.Find("\n-");
+				if (a >= 0) {
+					a+=2;
+					String str = TrimBoth(l.Mid(a));
+					String& src = sp.ai_source[j];
+					src = str;
+				}
+			}
+			else {
+				int a = l.Find(".");
+				if (a >= 0) {
+					a+=1;
+					String str = TrimBoth(l.Mid(a));
+					String& src = sp.ai_source[j];
+					src = str;
+				}
+			}
+		}
+	}
+	//ASSERT(in == lines.GetCount());
+	
+	PostCallback(THISBACK(DataSong));
 }
 
 void TxtAutoCompare::SetSuggestionScore(EditIntNotNullSpin* e, Song::Suggestion* sug) {
@@ -386,6 +546,41 @@ void TxtAutoCompare::OnAttrChangeRhyme(Song::Rhyme* r, const char* key, DropList
 		r->data.GetAdd(key) = IntStr(value);
 }
 
+void TxtAutoCompare::OnSongPartContentEdit() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist)
+		return;
+	Song& song = *p.song;
+	
+	if (!parts.IsCursor()) return;
+	int c = parts.GetCursor();
+	if (c >= song.parts.GetCount()) return;
+	Song::SongPart& sp = song.parts[c];
+	
+	String content = edit_source.GetData();
+	sp.source = Split(content, "\n");
+}
+
+void TxtAutoCompare::UpdateRhymesToSource(int src) {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist)
+		return;
+	Song& song = *p.song;
+	for (Song::SongPart& sp : song.parts)
+		UpdateRhymes(sp, src);
+}
+
+void TxtAutoCompare::OnSongPartContentChange(DocEdit* e, Song::SongPart* sp) {
+	if (!e || !sp) return;
+	sp->source = Split((String)e->GetData(), "\n");
+	
+	UpdateRhymes(*sp, 0);
+	
+	DataSong();
+}
+
 void TxtAutoCompare::OnRhymeSchemeChange(DropList* dl, Song::SongPart* sp) {
 	if (!dl || !sp) return;
 	int idx = dl->GetIndex();
@@ -395,7 +590,7 @@ void TxtAutoCompare::OnRhymeSchemeChange(DropList* dl, Song::SongPart* sp) {
 	const char* name = RhymeSchemes[rs_idx][0];
 	sp->rhyme_scheme = name;
 	
-	UpdateRhymes(*sp);
+	UpdateRhymes(*sp, 0);
 	
 	DataSong();
 	//DataSongPart(true);
@@ -407,8 +602,13 @@ void TxtAutoCompare::ToolMenu(Bar& bar) {
 	bar.AddTool(rhymetype, sz);*/
 	
 	bar.Add(t_("Import english to structure"), AppImg::Part(), THISBACK(ImportEnglish)).Key(K_F5);
-	bar.Add(t_("Evaluate single lines"), AppImg::Part(), THISBACK1(EvaluatePoeticStyles, 0)).Key(K_F6);
-	bar.Add(t_("Evaluate all lines"), AppImg::Part(), THISBACK1(EvaluatePoeticStyles, 1)).Key(K_F7);
+	bar.Add(t_("Get AI improved source text in Democrat style"), AppImg::Part(), THISBACK1(ImproveSourceText, 0)).Key(K_F6);
+	bar.Add(t_("Get AI improved source text in Republican style"), AppImg::Part(), THISBACK1(ImproveSourceText, 1)).Key(K_F7);
+	bar.Add(t_("Evaluate single line of original text"), AppImg::Part(), THISBACK2(EvaluatePoeticStyles, 0, 0)).Key(K_F8);
+	bar.Add(t_("Evaluate single line of AI improved text"), AppImg::Part(), THISBACK2(EvaluatePoeticStyles, 0, 1)).Key(K_F9);
+	bar.Add(t_("Evaluate suggestion scores"), AppImg::Part(), THISBACK(EvaluateSuggestionScores)).Key(K_F10);
+	//bar.Add(t_("Evaluate all lines"), AppImg::Part(), THISBACK1(EvaluatePoeticStyles, 1)).Key(K_F7);
+	
 }
 
 void TxtAutoCompare::ImportEnglish() {
@@ -489,7 +689,7 @@ void TxtAutoCompare::ImportEnglish() {
 			// Set default rhyme scheme
 			//sp.rhyme_scheme = RhymeSchemes[RHYME_XA_XA][0];
 			
-			UpdateRhymes(sp);
+			UpdateRhymes(sp, 0);
 		}
 	}
 	
@@ -505,11 +705,48 @@ void TxtAutoCompare::ImportEnglish() {
 	PostCallback(THISBACK(Data));
 }
 
-void TxtAutoCompare::UpdateRhymes(Song::SongPart& sp) {
+void TxtAutoCompare::ImproveSourceText(int style) {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist || main_key.IsEmpty())
+		return;
+	Song& song = *p.song;
+	
+	p.RealizePipe();
+	DisableAll();
+	
+	int per_batch = 20;
+	Vector<Vector<String>> lines;
+	Vector<String>* cur = &lines.Add();
+	for (const Song::SongPart& sp : song.parts) {
+		if (0) {
+			String a = Join(sp.source, " / ");
+			*cur << a;
+		}
+		else {
+			for (const String& s : sp.source) {
+				if (cur->GetCount() >= per_batch)
+					cur = &lines.Add();
+				*cur << s;
+			}
+		}
+	}
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		Vector<String>& batch = lines[i];
+		int batch_size = batch.GetCount();
+		int begin = i * per_batch;
+		int end = begin + batch_size;
+		TaskMgr& m = *p.song->pipe;
+		m.ImproveSourceText(batch, style, THISBACK3(OnSourceTextImprovements, begin, end, &song));
+	}
+}
+
+void TxtAutoCompare::UpdateRhymes(Song::SongPart& sp, int src) {
 	
 	// Clear outdated rhymes & suggestions
 	
-	const Vector<String>& lines = sp.source;
+	const Vector<String>& lines = src == 0 ? sp.source : sp.ai_source;
 	int line_count = 0;
 	int idx = FindRhymeType(sp.rhyme_scheme);
 	if (idx < 0)
@@ -569,7 +806,7 @@ void TxtAutoCompare::UpdateRhymes(Song::SongPart& sp) {
 	
 }
 
-void TxtAutoCompare::EvaluatePoeticStyles(int i) {
+void TxtAutoCompare::EvaluatePoeticStyles(int i, int src) {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if(!p.song || !p.artist || main_key.IsEmpty())
@@ -615,6 +852,7 @@ void TxtAutoCompare::EvaluatePoeticStyles(int i) {
 			rhyme_scheme << " \"" << RhymeSchemes[rs_idx][1] << "\"";
 		
 			
+		UpdateRhymes(sp, src);
 		
 		
 		for(int j = 0; j < sp.rhymes.GetCount(); j++) {
@@ -639,8 +877,17 @@ void TxtAutoCompare::EvaluatePoeticStyles(int i) {
 				}
 			}
 			
-			String rhyme = Join(r.source, "\n");
-			int line_count = r.source.GetCount();
+			String rhyme;
+			int line_count = 0;
+			//if (src == 0) {
+				rhyme = Join(r.source, "\n");
+				line_count = r.source.GetCount();
+			/*}
+			else if (src == 1) {
+				rhyme = Join(r.ai_source, "\n");
+				line_count = r.ai_source.GetCount();
+			}*/
+				
 			
 			ASSERT(rhyme.GetCount());
 			ASSERT(rhyme_scheme.GetCount());

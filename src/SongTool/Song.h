@@ -53,22 +53,26 @@ struct Song :
 	struct Suggestion {
 		String style, content;
 		int score = 0;
+		int ai_score = 0;
 		void Jsonize(JsonIO& json) {
 			json
 				("style", style)
 				("content", content)
 				("score", score)
+				("ai_score", ai_score)
 				;
 		}
 	};
 	struct Rhyme {
 		Vector<String> source;
+		//Vector<String> ai_source;
 		Array<Suggestion> suggestions;
 		VectorMap<String,String> data;
 		bool outdated_suggestions = true;
 		void Jsonize(JsonIO& json) {
 			json
 				("source", source)
+				//("ai_source", ai_source)
 				("suggestion", suggestions)
 				("data", data)
 				("outdated_suggestions", outdated_suggestions)
@@ -78,6 +82,7 @@ struct Song :
 	struct SongPart {
 		String name;
 		Vector<String> source; // lines
+		Vector<String> ai_source;
 		Array<Rhyme> rhymes;
 		String rhyme_scheme;
 		VectorMap<String,String> data;
@@ -86,6 +91,7 @@ struct Song :
 			json
 				("name", name)
 				("source", source)
+				("ai_source", ai_source)
 				("rhymes", rhymes)
 				("rhyme_scheme", rhyme_scheme)
 				("data", data)

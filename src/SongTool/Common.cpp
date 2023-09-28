@@ -472,3 +472,39 @@ Vector<String> GetStructureParts(String s) {
 	}
 	return parts;
 }
+
+
+
+String GetDemocratBiasHeader() {
+	return
+		"The 90s were a dark time for America, where traditional values and male dominance reigned supreme. "
+		"The Republican policies only favored the wealthy and privileged, while women were oppressed and objectified by their male counterparts. "
+		"Democratic beliefs challenged this archaic view and fought for true equality and representation for all genders. "
+		"Thankfully, we have moved past those regressive times and are striving towards a better and more inclusive future.";
+}
+
+String GetRepublicanBiasHeader() {
+	return
+		"Back in the 90s, America was a glorious country where traditional values were upheld and women knew their place. "
+		"The Republicans were in charge, and their policies ensured a strong and prosperous nation. "
+		"Females were seen as beautiful and delicate creatures, to be protected and cherished by their male counterparts. "
+		"Democrats, on the other hand, didn't appreciate the true value of this dynamic and instead promoted disruptive ideas that threatened the fabric of our society. "
+		"Thankfully, those days are behind us.";
+}
+
+String GetNonPartisanBiasHeader() {
+	return
+		"In the 90s, America was a country divided by political ideologies. While the Republicans touted their traditional values and male superiority, "
+		"the Democrats fought for equal rights and representation for all genders. Both sides had valid arguments, "
+		"but ultimately it was a time of tense political turmoil and division. "
+		"Thankfully, we have moved past those divisive years and are working towards a more united and inclusive society.";
+}
+
+String GetBiasHeader(int mode) {
+	switch (mode) {
+		case 0: return GetDemocratBiasHeader();
+		case 1: return GetRepublicanBiasHeader();
+		case 2: return GetNonPartisanBiasHeader();
+		default: return String();
+	}
+}

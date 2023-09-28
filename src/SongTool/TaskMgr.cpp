@@ -50,6 +50,22 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_RawCompletion)
 		;
 	
+	AddRule(TASK_EVALUATE_SUGGESTION_SCORES, "evaluate suggestion scores")
+			.Arg(V_PTR_PIPE)
+		.Input(&Task::CreateInput_EvaluateSuggestionScores)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 100)
+		.Process(&Task::Process_EvaluateSuggestionScores)
+		;
+	
+	AddRule(TASK_IMPROVE_SOURCE_TEXT, "improve source text")
+			.Arg(V_PTR_PIPE)
+		.Input(&Task::CreateInput_ImproveSourceText)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 2, 100)
+		.Process(&Task::Process_ImproveSourceText)
+		;
+	
 	AddRule(TASK_CONVERT_SONG_STRUCTURE_TO_ENGLISH, "convert song structure to english")
 		.Input(&Task::CreateInput_ConvertSongStructureToEnglish)
 			.Arg(V_PTR_PIPE)
@@ -879,6 +895,35 @@ void TaskMgr::RawCompletion(String prompt, Event<String> WhenResult) {
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
 	t.raw_input = prompt;
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::EvaluateSuggestionScores(const Vector<String>& strs, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_EVALUATE_SUGGESTION_SCORES);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args <<= strs;
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::ImproveSourceText(const Vector<String>& strs, int style, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_IMPROVE_SOURCE_TEXT);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << IntStr(style);
+	t.args.Append(strs);
 	t.WhenResult << WhenResult;
 }
 
