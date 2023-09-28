@@ -152,16 +152,16 @@ public:
 	String image_n, image_sz;
 	Array<Image> send_images, recv_images;
 	
-	static constexpr int common_mask_gen_multiplier		= 8;
-	static constexpr int common_mask_max_values			= 10;
-	static constexpr int common_mask_gens				= 200;
-	static constexpr int separate_mask_gen_multiplier	= 8;
-	static constexpr int separate_mask_max_values		= 50;
-	static constexpr int separate_mask_gens				= 100;
-	static constexpr int snap_gen_multiplier			= 20;
-	static constexpr int snap_max_values				= 10;
-	static constexpr int snap_max_per_mode				= snap_max_values / 3;
-	static constexpr int snap_gens						= 100;
+	inline static constexpr int common_mask_gen_multiplier		= 8;
+	inline static constexpr int common_mask_max_values			= 10;
+	inline static constexpr int common_mask_gens				= 200;
+	inline static constexpr int separate_mask_gen_multiplier	= 8;
+	inline static constexpr int separate_mask_max_values		= 50;
+	inline static constexpr int separate_mask_gens				= 100;
+	inline static constexpr int snap_gen_multiplier			= 20;
+	inline static constexpr int snap_max_values				= 10;
+	inline static constexpr int snap_max_per_mode				= snap_max_values / 3;
+	inline static constexpr int snap_gens						= 100;
 	
 	Task& ResultTask(int r);
 	

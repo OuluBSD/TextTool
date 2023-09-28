@@ -20,14 +20,14 @@ Attributes::Attributes() {
 	RealizeDirectory(dir);
 	String json_path = dir + DIR_SEPS "share" DIR_SEPS + file_title + ".json";
 	//DUMP(json_path);
-	StoreAsJsonFile(*this, json_path, true);
+	StoreAsJsonFileStandard(*this, json_path, true);
 }
 
 void Attributes::Load() {
 	String dir = Database::Single().dir;
 	String json_path = dir + DIR_SEPS "share" DIR_SEPS + file_title + ".json";
 	//DUMP(json_path);
-	LoadFromJsonFile(*this, json_path);
+	LoadFromJsonFileStandard(*this, json_path);
 }*/
 
 void Attributes::Realize() {
