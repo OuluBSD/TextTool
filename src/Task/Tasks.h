@@ -218,6 +218,7 @@ public:
 	void CreateInput_EvaluateSuggestionScores();
 	void CreateInput_EvaluateSuggestionOrder();
 	void CreateInput_ImproveSourceText();
+	void CreateInput_GetAIAttributes();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -267,6 +268,7 @@ public:
 	void Process_EvaluateSuggestionScores();
 	void Process_EvaluateSuggestionOrder();
 	void Process_ImproveSourceText();
+	void Process_GetAIAttributes();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

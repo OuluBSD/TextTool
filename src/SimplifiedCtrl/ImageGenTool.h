@@ -31,8 +31,8 @@ public:
 	typedef EditImage CLASSNAME;
 	EditImage();
 	
-	void Paint(Draw& d);
-	void MouseWheel(Point p, int zdelta, dword keyflags);
+	void Paint(Draw& d) override;
+	void MouseWheel(Point p, int zdelta, dword keyflags) override;
 	void SetImage(const Image& img);
 	void MouseMove(Point p, dword keyflags) override;
 	void LeftDown(Point p, dword keyflags) override;

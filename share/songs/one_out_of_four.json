@@ -40,6 +40,458 @@
 		}
 	],
 	"parts": [
+		{
+			"name": "Verse 1",
+			"source": [
+				"Too many people trying to change me",
+				"Looking to attack me verbally",
+				"The last thing I'll ever do",
+				"Is to please narrow-minded people like you"
+			],
+			"ai_source": [
+				"People attempting to mold me to their boxed views",
+				"Seeking retaliation in furious retorts",
+				"The one thing I will never commit",
+				"Is to conform to their rigid preconceptions"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Too many people trying to change me",
+						"Looking to attack me verbally"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Friends they all come tryin to change me,\nTryin to tear me down, brazenly.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "They all come at me, tryin' to change me,\nTryin' to belittle me, obscenely.",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "All these folks, they wanna change me,\nLookin' to shred me destructively.",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Too many folks tryin' to change me,\nSeekin' to stain me unwontedly.",
+							"score": 0,
+							"ai_score": 1,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Round here folks tryin' to change me,\nStressin' me out, relentlessly.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 5
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Tried to hide it, but they ain't changin' me,\nWanna cheapen me down, indiscreetly.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Many try to change me, make me see,\nGonna stay true to me, heedlessly.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 3
+						},
+						{
+							"style": "The Doors",
+							"content": "Many folks think they can change me,\nHotly desire to control me.",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "People keep sayin', they can change me,\nNever gonna lay down, warily.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Try to stop me but it ain't changin' me,\nRevealin' my truth, dauntlessly.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 1
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Lookin' around, folks tryin' to change me,\nEntitled their thoughts, brazenly.",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "New crowds tryin' to change me,\nTryin' take away my sanity.",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "So many folks comin' to change me,\nTryin' to break me fatally.",
+							"score": 0,
+							"ai_score": 1,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Mendacious folks tryin' to change me,\nSwayed by temptation, sorrowfully.",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Try to place me in their dominion,\nDefy 'em, they can't change me.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 2
+						},
+						{
+							"style": "Madonna",
+							"content": "Crowds all joke, tryin' to change me,\nVirtue intact, proudly I'm free.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Too many faces tryin' to change me,\nSteadfast I'm standin', faithfully.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 4
+						},
+						{
+							"style": "Elton John",
+							"content": "People so cruel, tryin' to change me,\nFall from my throne, quickly I'm free.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+						{
+							"key": "EXPRESSION",
+							"value": "-1"
+						},
+						{
+							"key": "RELATIONSHIP_FOCUS",
+							"value": "-1"
+						},
+						{
+							"key": "INTEGRITY",
+							"value": "1"
+						},
+						{
+							"key": "MOOD_JOYFUL_MELANCHOLIC",
+							"value": "-1"
+						},
+						{
+							"key": "ATTITUDE_HOPEFUL_DESPAIR",
+							"value": "-1"
+						}
+					],
+					"outdated_suggestions": false
+				},
+				{
+					"source": [
+						"The last thing I'll ever do",
+						"Is to please narrow-minded people like you"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "No more lies, I'm off to find my way,\nA step closer to a brighter day.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "An end to lies, confused and torn,\nMy spirit, freedom, shall be reborn.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Let the truth be bold and clear,\nReclaim my soul, loud and clear.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "No more lies, can't take no more,\nMy dreams, oh, they will soar.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Time to shed these chains I wear,\nLiving life with no more fear.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "The truth I seek, shines from the sky,\nChoice is mine, and I cannot deny.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Fresh start, I'm keen to begin,\nAin't no time like the present, amen.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Yesterday, I was imprisoned,\nDeclared my freedom, 'tis decided.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Lies been told, I can't sustain,\nMy life free of further pain.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Living life, no more confined,\nRising high, the clouds resigned.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Wouldn't let me live in vain,\nLeaving here, destiny claim.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "My path clear, I just can't lose,\nNothing gonna stand in my shoes.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "No more games, no more pain,\nSet off to freedom, I remain.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "My path done, your word not true,\nLead my soul toward something new.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "No more mask, it has to go,\nGravity of truth, I now know.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Death to cage, to which I'm bound,\nSoaring high, my spirit found.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "My old ways, no more depend,\nLive anew, no need to pretend.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "No more fear, I must be me,\nTime to carve a destiny.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+						{
+							"key": "EXPRESSION",
+							"value": "-1"
+						},
+						{
+							"key": "INTEGRITY",
+							"value": "1"
+						},
+						{
+							"key": "SOCIAL",
+							"value": "1"
+						},
+						{
+							"key": "ATTITUDE_HOPEFUL_DESPAIR",
+							"value": "1"
+						},
+						{
+							"key": "SEXUAL_ACTING",
+							"value": "1"
+						}
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AA",
+			"data": [
 
+			],
+			"outdated_suggestions": false,
+			"syllables": 7
+		},
+		{
+			"name": "Chorus",
+			"source": [
+				"Too many things that I got to beware",
+				"Social rules that I got to run through",
+				"The last thing I'll ever do",
+				"Is to prove that I am thinking like you"
+			],
+			"ai_source": [
+				"Too many troubles getting in my way",
+				"Navigating around societal dogma",
+				"The one thing I will never do",
+				"Is to bend my spirit to the whims of you"
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllables": 0
+		},
+		{
+			"name": "Verse 2",
+			"source": [
+				"Working from nine to five trying to keep myself alive",
+				"Listening everyday to what people want to talk about",
+				"Concentrating my time on just trying to make a dime",
+				"Agitating my mind on trying to make my mind to match the reality"
+			],
+			"ai_source": [
+				"Days spent hustling just to stay afloat",
+				"Hearkening to their hollow empty talks",
+				"Shelling out hours to bring in a few coins",
+				"Imprisoning my talent to make a career in conformity"
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllables": 0
+		},
+		{
+			"name": "Bridge",
+			"source": [
+				"Turning away the girls even though I want a wife",
+				"Worrying just because I feel incomplete",
+				"Doing what women want so that I'm not called a clown",
+				"Wearing a suit and tie when I'd rather sit and die"
+			],
+			"ai_source": [
+				"Showing myself for what it's really worth",
+				"Incomplete, unsatisfied, but seeking more",
+				"Meeting women halfway to turn my luck around",
+				"Swapping out my hoodies for power ties"
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllables": 0
+		},
+		{
+			"name": "Pre-Chorus",
+			"source": [
+				"You're too weak trying to please everyone",
+				"Looking to conform to stereotypes"
+			],
+			"ai_source": [
+				"Cower not from their pressure commands",
+				"Bow not to their unreasonable demands"
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllables": 0
+		},
+		{
+			"name": "Verse 3",
+			"source": [
+				"City lights shining in the dark",
+				"Don't worry it's just life",
+				"Their trust have reached balance",
+				"You'll find you'll have a lovely time"
+			],
+			"ai_source": [
+				"Soaring through the city night, plunging with delight",
+				"Forget the frustration, seize these precious moments of life.",
+				"Our trust has reached equilibrium",
+				"You'll create an enchanting experience"
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllables": 0
+		}
 	]
 }

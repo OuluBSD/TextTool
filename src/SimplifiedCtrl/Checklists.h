@@ -122,7 +122,7 @@ class ChecklistMusicVideoProduction : public ChecklistBase {
 	enum {
 		#define CHK_MUSICVID(e, s) e,
 		CHK_MUSICVID_LIST
-		#undef CHK_COMP
+		#undef CHK_MUSICVID
 		ITEM_LIST
 	};
 	

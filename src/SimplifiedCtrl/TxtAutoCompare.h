@@ -46,6 +46,7 @@ public:
 	void EvaluatePoeticStyles(int i, int src);
 	void EvaluateSuggestionScores();
 	void EvaluateExtraSuggestionScores();
+	void GetAIAttributes();
 	void PostOnPoeticRecv(String res, int part, int rhyme) {PostCallback(THISBACK3(OnPoeticRecv, res, part, rhyme));}
 	void OnPoeticRecv(String res, int part, int rhyme);
 	void OnAttrChange(Song::SongPart* sp, const char* s, DropList* dl);
@@ -56,6 +57,7 @@ public:
 	void OnSongPartContentChange(DocEdit* e, Song::SongPart* sp);
 	void OnSuggestionScore(String res, Song::Rhyme* r);
 	void OnSuggestionOrder(String res, Song::Rhyme* r);
+	void OnAIAttributes(String res, Song::Rhyme* r);
 	void OnSourceTextImprovements(String res, int begin, int end, Song* s);
 	Song::SongPart* GetActiveSongPart();
 	Song::Rhyme* GetActiveRhyme();
@@ -64,6 +66,7 @@ public:
 	void DisableAll();
 	void EnableAll();
 	void UpdateRhymesToSource(int src);
+	void OnSongPartSyllableChane(Song::SongPart* sp, EditIntSpin* e);
 	
 };
 

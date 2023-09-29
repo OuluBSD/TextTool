@@ -1768,3 +1768,7 @@ void Task::Process_EvaluateSuggestionOrder() {
 void Task::Process_ImproveSourceText() {
 	WhenResult("1. " + output);
 }
+
+void Task::Process_GetAIAttributes() {
+	WhenResult("- " + output);
+}

@@ -267,6 +267,7 @@ String TaskTitledList::AsString() const {
 		LineBegin(0, s);
 		if (s.Right(1) == " ")
 			s = s.Left(s.GetCount()-1);
+		s << empty_line_string;
 	}
 	
 	return s;

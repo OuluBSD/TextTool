@@ -2,6 +2,10 @@
 #include <Database/Database.h>
 
 
+#define IMAGECLASS AppImg
+#define IMAGEFILE <ToolCore/App.iml>
+#include <Draw/iml_source.h>
+
 const char* RhymeSchemes[RHYME_COUNT][2] {
 	{"AA", t_("2-line end rhyme")},
 	{"XA,XA", t_("Single two-line stanza without internal rhyme")},

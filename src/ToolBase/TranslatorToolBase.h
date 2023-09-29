@@ -23,7 +23,7 @@ public:
 	
 	void Data() override;
 	String GetStatusText() override;
-	void ToolMenu(Bar& bar);
+	void ToolMenu(Bar& bar) override;
 	void Translate();
 	void OnOriginalChange();
 	void OnTranslatedChange();

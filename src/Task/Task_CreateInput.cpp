@@ -1568,7 +1568,8 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 	String rhyme = args[0];
 	String rhyme_scheme = args[1];
 	int rhyme_scheme_line_count = StrInt(args[2]);
-	String attrs = args[3];
+	int syllables = StrInt(args[3]);
+	String attrs = args[4];
 	ASSERT(rhyme_scheme.GetCount());
 	
 	bool rev_snap = args[0] == "rev";
@@ -1596,6 +1597,12 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 		}
 	}
 	
+	if (syllables > 0) {
+		input.AddSub()
+			.Title("A single line of the result must have only " + IntStr(syllables) + " syllables.")
+			.NoColon();
+	}
+	
 	if (0) {
 		TaskTitledList& results = input.PreAnswer();
 		results.Title("All 1-" + IntStr(list_len) + " artist styles");
@@ -1621,13 +1628,17 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 		if (attrs.GetCount())
 			result_title << ", and with " + attrs + " tone of voice";
 		
+		//if (syllables > 0)
+		//	result_title += ". A single line must have only " + IntStr(syllables) + " syllables";
+		
 		results.Title(result_title);
 		
 		String title = "1. New lyrics with style of " + CommonArtists()[0];
 		
 		TaskTitledList& first = results.AddSub();
 		first		.Title(title);
-		first		.EmptyLine().NoListChar();
+		//first		.Add("\"").NoListChar().;
+		first.EmptyLine().NoListChar().EmptyLineString("\”");
 	}
 	
 	LOG(input.AsString());
@@ -2013,7 +2024,7 @@ void Task::CreateInput_ImproveSourceText() {
 		input.AddSub().Title("Character '/' remains, and it notes the new-line");
 	}
 	if (1) {
-		input.AddSub().Title("The tense of verbs remains the same");
+		input.AddSub().Title("The tense of verbs remains the same. Things happen in the present moment");
 	}
 	int list_len = 0;
 	String first_line;
@@ -2042,6 +2053,50 @@ void Task::CreateInput_ImproveSourceText() {
 	}
 	
 	//LOG(input.AsString());
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetAIAttributes() {
+	Database& db = Database::Single();
+	PipePtrs& p = this->p;
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
+	
+	g.Realize(); // TODO very hacky solution... this should be in Database already
+	
+	String content = args[0];
+	
+	if (args.IsEmpty()) {
+		SetFatalError("no arguments");
+		return;
+	}
+	
+	// List of axes:
+	// -a Integrity: +honest/-twisted
+	TaskTitledList& axes = input.AddSub();
+	axes			.Title("List of axes of attributes")
+					.CountLinesAlpha();
+	for (const Attr::ScoringType& t : g.attr_scorings)
+		axes.Add(t.klass, t.axes0 + " vs " + t.axes1);
+	
+	{
+		Vector<String> lines = Split(content, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Lyrics \"A\"");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		//results.Title("Same lyrics in short but deeply biased style for lines 1-" + IntStr(list_len));
+		auto& t = g.attr_scorings[0];
+		results.Title("The top 5 most important attribute values of lyrics \"A\" (e.g. " + t.klass + ": " + t.axes0 + ")");
+		results.EmptyLine();
+	}
+	
+	LOG(input.AsString());
 	
 	input.response_length = 1024*2;
 }

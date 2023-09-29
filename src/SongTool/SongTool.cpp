@@ -1,9 +1,5 @@
 #include "SongTool.h"
 
-#define IMAGECLASS AppImg
-#define IMAGEFILE <SongTool/App.iml>
-#include <Draw/iml_source.h>
-
 
 GUI_APP_MAIN {
 	SetLanguage(GetSystemLNG());

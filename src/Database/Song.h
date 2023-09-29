@@ -89,6 +89,7 @@ struct Song :
 		Array<Rhyme> rhymes;
 		String rhyme_scheme;
 		VectorMap<String,String> data;
+		int syllables = 0;
 		bool outdated_suggestions = true;
 		void Jsonize(JsonIO& json) {
 			json
@@ -99,6 +100,7 @@ struct Song :
 				("rhyme_scheme", rhyme_scheme)
 				("data", data)
 				("outdated_suggestions", outdated_suggestions)
+				("syllables", syllables)
 				;
 		}
 		
@@ -148,6 +150,9 @@ struct Song :
 		SnapContext::Serialize(s);*/
 	}
 	void Jsonize(JsonIO& json) {
+		if (json.IsStoring()) {
+			ASSERT(native_title.GetCount() || english_title.GetCount());
+		}
 		json
 			("artist", artist)
 			("title", native_title)

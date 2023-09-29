@@ -98,8 +98,15 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 	AddRule(TASK_EVALUATE_POETIC_STYLES, "evaluate poetic styles")
 		.Input(&Task::CreateInput_EvaluatePoeticStyles)
 			.Arg(V_PTR_PIPE)
-			.Arg(V_ARGS, 4, 4)
+			.Arg(V_ARGS, 5, 5)
 		.Process(&Task::Process_EvaluatePoeticStyles)
+		;
+	
+	AddRule(TASK_GET_AI_ATTRIBUTES, "get ai attributes")
+		.Input(&Task::CreateInput_GetAIAttributes)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetAIAttributes)
 		;
 	
 	AddRule(TASK_CONVERT_SCREENPLAY_TO_STRUCTURE, "convert screenplay to structure")
@@ -949,6 +956,20 @@ void TaskMgr::ImproveSourceText(const Vector<String>& strs, int style, Event<Str
 	t.WhenResult << WhenResult;
 }
 
+void TaskMgr::GetAIAttributes(String orig_txt, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_AI_ATTRIBUTES);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << orig_txt;
+	t.WhenResult << WhenResult;
+}
+
 void TaskMgr::CheckSongNaturalErrors(String main_key, String results_key, Callback WhenDone) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
@@ -1024,6 +1045,7 @@ void TaskMgr::EvaluatePoeticStyles(
 	String rhyme, String rhyme_scheme,
 	int rhyme_scheme_line_count,
 	String attrs,
+	int syllables,
 	Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
@@ -1037,6 +1059,7 @@ void TaskMgr::EvaluatePoeticStyles(
 	t.args	<< rhyme
 			<< rhyme_scheme
 			<< IntStr(rhyme_scheme_line_count)
+			<< IntStr(syllables)
 			<< attrs;
 	t.WhenResult << WhenResult;
 }

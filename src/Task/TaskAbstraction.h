@@ -8,6 +8,7 @@ struct TaskTitledList {
 	Vector<Value> title_args;
 	String separator;
 	String line_str;
+	String empty_line_string;
 	bool line_in_alpha = false;
 	bool no_colon = false;
 	bool no_listchar = false;
@@ -61,6 +62,7 @@ struct TaskTitledList {
 	TaskTitledList& Context(SnapContext* ctx) {this->ctx = ctx; return *this;}
 	TaskTitledList& NumberedLines(bool b=true) {numbered_lines = b; return *this;}
 	TaskTitledList& NoNumberedLinesSpace(bool b=true) {no_numbered_lines_space = b; return *this;}
+	TaskTitledList& EmptyLineString(String s) {empty_line_string = s; return *this;}
 	
 	String AsString() const;
 	String GetTreeString(int indent) const;
