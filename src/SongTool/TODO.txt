@@ -1,0 +1,4 @@
+
+Low priority:
+- See all "#include <Database/Database.h>" and change that to use some virtual base class in ToolCore
+	- also "#include <SongTool/SongTool.h>"

@@ -1,0 +1,24 @@
+description "\377B113,127,0";
+
+uses
+	Database;
+
+file
+	Task.h,
+	TaskClass.h,
+	TaskClass.cpp,
+	TaskMgr.h,
+	TaskMgr.cpp,
+	Tasks.h,
+	Tasks.cpp,
+	Task_Make.cpp,
+	Task_CreateInput.cpp,
+	Task_Process.cpp,
+	Task_Reverse.cpp,
+	TaskAbstraction.h,
+	TaskAbstraction.cpp,
+	Cache.h,
+	Cache.cpp,
+	TaskCommon.h,
+	Data readonly separator;
+

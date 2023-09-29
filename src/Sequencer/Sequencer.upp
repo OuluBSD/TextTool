@@ -1,0 +1,15 @@
+description "\377B17,108,163";
+
+file
+	Sequencer.h,
+	SeqCtrl.h,
+	SeqCtrl.cpp,
+	Ctrls.h,
+	Ctrls.cpp,
+	SeqBarCtrl.cpp,
+	SeqLineCtrl.cpp,
+	SeqLineHeaderCtrl.cpp,
+	LineEditCtrl.h,
+	LineEditCtrl.cpp,
+	TimelineCtrl.cpp;
+

@@ -1,0 +1,46 @@
+description "\377B85,42,0";
+
+uses
+	ToolCore;
+
+file
+	Database.h,
+	DatabaseClass.h,
+	Database.cpp,
+	"Data (assets)" readonly separator,
+	Artist.h,
+	Artist.cpp,
+	Release.h,
+	Release.cpp,
+	Song.h,
+	Song.cpp,
+	Pipeline readonly separator,
+	Pipeline.h,
+	Pipeline.cpp,
+	Part.h,
+	Part.cpp,
+	Line.h,
+	Line.cpp,
+	Break.h,
+	Break.cpp,
+	"Data (production)" readonly separator,
+	Track.h,
+	Track.cpp,
+	Block.h,
+	Block.cpp,
+	"Data (components)" readonly separator,
+	Analysis.h,
+	Composition.h,
+	Attributes.h,
+	Attributes.cpp,
+	Scoring.h,
+	Scoring.cpp,
+	Pattern.h,
+	Pattern.cpp,
+	PatternMask.h,
+	Production.h,
+	Rhymes.h,
+	Recruiment.h,
+	Social.h,
+	Calendar.h;
+

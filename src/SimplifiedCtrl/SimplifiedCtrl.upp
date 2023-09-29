@@ -1,0 +1,41 @@
+description "\377B113,42,150";
+
+uses
+	AdvancedCtrl;
+
+file
+	SimplifiedCtrl.h,
+	Simplified.lay,
+	AlbumBriefing.h,
+	AlbumBriefing.cpp,
+	AlbumIdeas.h,
+	AlbumIdeas.cpp,
+	SongBriefing.h,
+	SongBriefing.cpp,
+	TxtInTranslate.h,
+	TxtInTranslate.cpp,
+	TxtStructEdit.h,
+	TxtStructEdit.cpp,
+	TxtAutoCompare.h,
+	TxtAutoCompare.cpp,
+	TxtEditEnglish.h,
+	TxtEditEnglish.cpp,
+	TxtEditNative.h,
+	TxtEditNative.cpp,
+	Checklists.h,
+	Checklists.cpp,
+	MusicVideoImport.h,
+	MusicVideoImport.cpp,
+	MusicVideoEdit.h,
+	MusicVideoEdit.cpp,
+	MusicVideoToPlan.h,
+	MusicVideoToPlan.cpp,
+	CoverImage.h,
+	CoverImage.cpp,
+	Pitching.h,
+	Pitching.cpp,
+	ImageGenTool.h,
+	ImageGenTool.cpp,
+	CalMgrCtrl.h,
+	CalMgrCtrl.cpp;
+

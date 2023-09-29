@@ -172,6 +172,7 @@ void Editor::Init() {
 	tablist.SetCursor(page);
 	SetView(page);
 	Data();
+	app.SetBar(); // requires Data();
 }
 
 void Editor::SetView(int i) {
