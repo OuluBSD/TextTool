@@ -514,3 +514,10 @@ String GetBiasHeader(int mode) {
 		default: return String();
 	}
 }
+
+template <>
+void CheckSerialisationData<Song>(const String& json) {
+	Song song;
+	LoadFromJson(song, json);
+	ASSERT(song.native_title.GetCount() || song.english_title.GetCount());
+}

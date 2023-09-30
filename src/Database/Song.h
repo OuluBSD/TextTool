@@ -150,9 +150,6 @@ struct Song :
 		SnapContext::Serialize(s);*/
 	}
 	void Jsonize(JsonIO& json) {
-		if (json.IsStoring()) {
-			ASSERT(native_title.GetCount() || english_title.GetCount());
-		}
 		json
 			("artist", artist)
 			("title", native_title)

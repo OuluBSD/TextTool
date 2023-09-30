@@ -663,17 +663,21 @@ void RealizeDoubleNewlinesOnNumbered(String& s);
 void RealizeDoubleNewlinesBeforeTitles(String& s);
 Vector<String> GetStructureParts(String s);
 
+template <class T> void CheckSerialisationData(const String& json) {}
+template <> void CheckSerialisationData<Song>(const String& json);
+
 template <class T>
-void LoadFromJsonFileStandard(T& o, String path) {
+void LoadFromJsonFileStandard(T& o, const String& path) {
 	String s = UPP::LoadFile(path);
-	s = ToCharset(CHARSET_DEFAULT, s, CHARSET_ISO8859_15);
+	s = ToCharset(CHARSET_DEFAULT, s, CHARSET_UTF8);
 	LoadFromJson(o, s);
 }
 
 template <class T>
-void StoreAsJsonFileStandard(T& o, String path, bool pretty=false) {
+void StoreAsJsonFileStandard(T& o, const String& path, bool pretty=false) {
 	String s = StoreAsJson(o, pretty);
-	s = ToCharset(CHARSET_ISO8859_15, s, CHARSET_DEFAULT);
+	//CheckSerialisationData<T>(s); // Never was an real issue
+	s = ToCharset(CHARSET_UTF8, s, CHARSET_DEFAULT);
 	s.Replace("\\r\\n", "\\n");
 	s.Replace("\r\n", "\n");
 	FileOut fout(path);

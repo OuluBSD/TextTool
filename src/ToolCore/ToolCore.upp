@@ -4,11 +4,11 @@ file
 	ToolCore.h,
 	App.iml,
 	App.lay,
-	Common.h,
-	Common.cpp,
 	Utils.h,
 	Utils.cpp,
 	OpenAI.h,
 	Json.h,
-	Optimizer.h;
+	Optimizer.h,
+	Common.h,
+	Common.cpp;
 

@@ -1638,7 +1638,7 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 		TaskTitledList& first = results.AddSub();
 		first		.Title(title);
 		//first		.Add("\"").NoListChar().;
-		first.EmptyLine().NoListChar().EmptyLineString("\”");
+		first.EmptyLine().NoListChar().EmptyLineString("”");
 	}
 	
 	LOG(input.AsString());
