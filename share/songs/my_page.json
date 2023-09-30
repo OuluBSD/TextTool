@@ -68,7 +68,7 @@
 		},
 		{
 			"key": "REFERENCE_SONG__NATIVE_TEXT",
-			"value": "verse 1:\nHei hyv‰ haltija heilauta taikasauvaa\nTai noitaruhtinatar, hoida, vihre‰‰ ihmejuomaa\nEi kaniinia hatusta, ei enemp‰‰ suolaa\nVoisiko joku t‰m‰n kerran toiveeni toteuttaa\n\nchorus:\nAbrakadabra, t‰n t‰ytyy toimia\nAbrakadabra, ala rakastaa minua\n\nverse 2:\nNe lepakonkynnet, ja liskonkeiton syˆn\nKuin nˆyr‰ noviisi loitsuja luen t‰n yˆn\nN‰kyykˆ valoa kristallipallossa\nVai piinaanko ruumistani turhissa unelmissa\n\nbridge:\nSelasin Sudenpentujen k‰sikirjan ja Pikku J‰ttil‰isen\nJoo suutelen sammakon viimeisen katseesta yhden naisen\n"
+			"value": "verse 1:\nHei hyv√§ haltija heilauta taikasauvaa\nTai noitaruhtinatar, hoida, vihre√§√§ ihmejuomaa\nEi kaniinia hatusta, ei enemp√§√§ suolaa\nVoisiko joku t√§m√§n kerran toiveeni toteuttaa\n\nchorus:\nAbrakadabra, t√§n t√§ytyy toimia\nAbrakadabra, ala rakastaa minua\n\nverse 2:\nNe lepakonkynnet, ja liskonkeiton sy√∂n\nKuin n√∂yr√§ noviisi loitsuja luen t√§n y√∂n\nN√§kyyk√∂ valoa kristallipallossa\nVai piinaanko ruumistani turhissa unelmissa\n\nbridge:\nSelasin Sudenpentujen k√§sikirjan ja Pikku J√§ttil√§isen\nJoo suutelen sammakon viimeisen katseesta yhden naisen\n"
 		},
 		{
 			"key": "REFERENCE_SONG__ENGLISH_TEXT",
@@ -76,11 +76,11 @@
 		},
 		{
 			"key": "ATTR_REFERENCE_SONG",
-			"value": "Tornion Lappian muusikot - Abrakadabra (alkuper‰inen esitt‰j‰ Mikko Kuustonen)"
+			"value": "Tornion Lappian muusikot - Abrakadabra (alkuper√§inen esitt√§j√§ Mikko Kuustonen)"
 		},
 		{
 			"key": "ATTR_BIRTH_OF_SONG",
-			"value": "Miksasin kouluteht‰v‰n‰ ammattilaismuusikoiden Abrakadabra kappaletta ja ajattelin pystyv‰ni samaan. Tuntui turhalta nauhoittaa sama kappale, joten tein oman, jossa on viel‰ lˆyh‰sti kuultavista ei-kopiosuojattuja ominaisuuksia Abrakadabrasta."
+			"value": "Miksasin kouluteht√§v√§n√§ ammattilaismuusikoiden Abrakadabra kappaletta ja ajattelin pystyv√§ni samaan. Tuntui turhalta nauhoittaa sama kappale, joten tein oman, jossa on viel√§ l√∂yh√§sti kuultavista ei-kopiosuojattuja ominaisuuksia Abrakadabrasta."
 		},
 		{
 			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
@@ -96,7 +96,7 @@
 		},
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL_NATIVE",
-			"value": "Kohtaus 1:\nHei, hyv‰ keijus heiluttelemassa taikasauvaansa, \ntai noitanprinsessa ihmejuomallaan, \nei kaninhattua tai suolaa, \nvain toivoen toiveeni toteutuvan kerran.\n\nKertos‰e: \nAbracadabra, t‰m‰n pit‰isi toimia, \nAbracadabraz, ala rakastamaan minua.\n\nKohtaus 2:\nSyˆm‰ss‰ lintujen kynsi‰, liskojen keittoa, \nloitsien lukemista t‰n‰ iltana, \nvalon n‰kemist‰ kristallipallosta, \nturhaan pilaamalla unia. \n\nSillan:\nKatselemaan v‰ijyj‰ni k‰sikirjaa, \nnuorisolle tarkoitettua tietokirjaa, \nsuudella viimeinen sammakko saadaksesi yhden naisen muodon."
+			"value": "Kohtaus 1:\nHei, hyv√§ keijus heiluttelemassa taikasauvaansa, \ntai noitanprinsessa ihmejuomallaan, \nei kaninhattua tai suolaa, \nvain toivoen toiveeni toteutuvan kerran.\n\nKertos√§e: \nAbracadabra, t√§m√§n pit√§isi toimia, \nAbracadabraz, ala rakastamaan minua.\n\nKohtaus 2:\nSy√∂m√§ss√§ lintujen kynsi√§, liskojen keittoa, \nloitsien lukemista t√§n√§ iltana, \nvalon n√§kemist√§ kristallipallosta, \nturhaan pilaamalla unia. \n\nSillan:\nKatselemaan v√§ijyj√§ni k√§sikirjaa, \nnuorisolle tarkoitettua tietokirjaa, \nsuudella viimeinen sammakko saadaksesi yhden naisen muodon."
 		},
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE_AUDIENCE",
@@ -104,7 +104,7 @@
 		},
 		{
 			"key": "NATURAL_NATIVE_OF_AUTHOR",
-			"value": "Kohtaus 1:\nHei, hyv‰ keijus heiluttelemassa taikasauvaansa, \ntai noitanprinsessa ihmejuomallaan, \nei kaninhattua tai suolaa, \nvain toivoen toiveeni toteutuvan kerran.\n\nKertos‰e: \nAbracadabra, t‰m‰n pit‰isi toimia, \nAbracadabraz, ala rakastamaan minua.\n\nKohtaus 2:\nSyˆm‰ss‰ lintujen kynsi‰, liskojen keittoa, \nloitsien lukemista t‰n‰ iltana, \nvalon n‰kemist‰ kristallipallosta, \nturhaan pilaamalla unia. \n\nSillan:\nKatselemaan v‰ijyj‰ni k‰sikirjaa, \nnuorisolle tarkoitettua tietokirjaa, \nsuudella viimeinen sammakko saadaksesi yhden naisen muodon."
+			"value": "Kohtaus 1:\nHei, hyv√§ keijus heiluttelemassa taikasauvaansa, \ntai noitanprinsessa ihmejuomallaan, \nei kaninhattua tai suolaa, \nvain toivoen toiveeni toteutuvan kerran.\n\nKertos√§e: \nAbracadabra, t√§m√§n pit√§isi toimia, \nAbracadabraz, ala rakastamaan minua.\n\nKohtaus 2:\nSy√∂m√§ss√§ lintujen kynsi√§, liskojen keittoa, \nloitsien lukemista t√§n√§ iltana, \nvalon n√§kemist√§ kristallipallosta, \nturhaan pilaamalla unia. \n\nSillan:\nKatselemaan v√§ijyj√§ni k√§sikirjaa, \nnuorisolle tarkoitettua tietokirjaa, \nsuudella viimeinen sammakko saadaksesi yhden naisen muodon."
 		},
 		{
 			"key": "AUTOMATIC_ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR",

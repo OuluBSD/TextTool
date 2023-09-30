@@ -88,7 +88,7 @@
 		},
 		{
 			"key": "ATTR_GENERIC_INTEGRITY",
-			"value": "Biisi on n‰enn‰isesti aidon kuuloinen parisuhderiita ilman suurempia loogisia ongelmia"
+			"value": "Biisi on n√§enn√§isesti aidon kuuloinen parisuhderiita ilman suurempia loogisia ongelmia"
 		},
 		{
 			"key": "POLL_SOCIAL",
@@ -96,11 +96,11 @@
 		},
 		{
 			"key": "ATTR_GENERIC_SOCIAL",
-			"value": "Parisuhteen hallitsijat t‰sm‰‰ politiikkaan \"suvaitsemattomuus oppositiota kohtaan, olemattomat tai vilpilliset vaalit, sek‰ ihmisoikeusrikkomukset\""
+			"value": "Parisuhteen hallitsijat t√§sm√§√§ politiikkaan \"suvaitsemattomuus oppositiota kohtaan, olemattomat tai vilpilliset vaalit, sek√§ ihmisoikeusrikkomukset\""
 		},
 		{
 			"key": "ATTR_GENERIC_ECONOMIC",
-			"value": "Kappaleessa pidet‰‰n toisen muuttumista negatiivisena. Tappelut mahdollisestaan konservatiivisella asenteella."
+			"value": "Kappaleessa pidet√§√§n toisen muuttumista negatiivisena. Tappelut mahdollisestaan konservatiivisella asenteella."
 		},
 		{
 			"key": "POLL_ECONOMIC",
@@ -112,7 +112,7 @@
 		},
 		{
 			"key": "ATTR_GENERIC_CULTURE",
-			"value": "Parisuhde arvokkaimpana yhteisˆn‰ on kappaleen ominaispiirre"
+			"value": "Parisuhde arvokkaimpana yhteis√∂n√§ on kappaleen ominaispiirre"
 		},
 		{
 			"key": "POLL_HUMAN_STRENGTH",
@@ -120,7 +120,7 @@
 		},
 		{
 			"key": "ATTR_GENERIC_HUMAN_STRENGTH",
-			"value": "Kaksi vahvaa ihmist‰ tappelee kesken‰‰n"
+			"value": "Kaksi vahvaa ihmist√§ tappelee kesken√§√§n"
 		},
 		{
 			"key": "POLL_MOTIVATION",
@@ -128,7 +128,7 @@
 		},
 		{
 			"key": "ATTR_GENERIC_MOTIVATION",
-			"value": "Tappelussa vallitseva teema on toisen rankaisu, mutta toisaalta seksi palkitsee, mik‰ myˆnnet‰‰n. T‰m‰ on siis loogisesti neutraali summa, mutta ajallisesti kappaleesta suurin osa on rankaisevaa."
+			"value": "Tappelussa vallitseva teema on toisen rankaisu, mutta toisaalta seksi palkitsee, mik√§ my√∂nnet√§√§n. T√§m√§ on siis loogisesti neutraali summa, mutta ajallisesti kappaleesta suurin osa on rankaisevaa."
 		},
 		{
 			"key": "POLL_SEXUALIZATION",
@@ -136,7 +136,7 @@
 		},
 		{
 			"key": "ATTR_GENERIC_SEXUALIZATION",
-			"value": "Kappaleessa sivutaan pett‰mist‰, seksi‰ ja sukupuolielimi‰."
+			"value": "Kappaleessa sivutaan pett√§mist√§, seksi√§ ja sukupuolielimi√§."
 		},
 		{
 			"key": "POLL_BELIEFS",
@@ -144,7 +144,7 @@
 		},
 		{
 			"key": "ATTR_GENERIC_BELIEFS",
-			"value": "Kappale sallii kaiken negatiivisen miehen ja naisen toiminnan ilman heid‰n hallinnassa olevia negatiivisia seurauksia, eik‰ kappaleessa keskustella myˆsk‰‰n riskeist‰."
+			"value": "Kappale sallii kaiken negatiivisen miehen ja naisen toiminnan ilman heid√§n hallinnassa olevia negatiivisia seurauksia, eik√§ kappaleessa keskustella my√∂sk√§√§n riskeist√§."
 		},
 		{
 			"key": "POLL_EXPECTATIONS",
@@ -152,7 +152,7 @@
 		},
 		{
 			"key": "ATTR_GENERIC_EXPECTATIONS",
-			"value": "Kappaleessa ei hyv‰ksyt‰ partnerin toimintaa ja odotetaan partnerin olevan t‰ydellinen."
+			"value": "Kappaleessa ei hyv√§ksyt√§ partnerin toimintaa ja odotetaan partnerin olevan t√§ydellinen."
 		},
 		{
 			"key": "POLL_MOOD_JOYFUL_MELANCHOLIC",
@@ -164,7 +164,7 @@
 		},
 		{
 			"key": "ATTR_GENERIC_MOOD_PLAYFUL_SERIOUS",
-			"value": "Kappaleessa on liev‰‰ leikkisyytt‰ ja vakavuutta, mutta on vaikea sanoa, kumpi on vallitseva teema. Kertos‰e on vakava."
+			"value": "Kappaleessa on liev√§√§ leikkisyytt√§ ja vakavuutta, mutta on vaikea sanoa, kumpi on vallitseva teema. Kertos√§e on vakava."
 		},
 		{
 			"key": "POLL_MOOD_UPLIFTING_HEAVY",
@@ -180,7 +180,7 @@
 		},
 		{
 			"key": "ATTR_GENERIC_MOOD_LIGHTHEARTED_SOMBER",
-			"value": "Kappaleessa ei ole hilpeit‰ asioita, vaikka kappale on muihin kappaleihin verrattuna hilpe‰n erilainen. Lyriikassa sanotut asiat on melko synkki‰, jos niit‰ j‰‰ miettim‰‰n."
+			"value": "Kappaleessa ei ole hilpeit√§ asioita, vaikka kappale on muihin kappaleihin verrattuna hilpe√§n erilainen. Lyriikassa sanotut asiat on melko synkki√§, jos niit√§ j√§√§ miettim√§√§n."
 		},
 		{
 			"key": "POLL_MOOD_HUMOROUS_DRAMATIC",
@@ -196,11 +196,11 @@
 		},
 		{
 			"key": "ATTR_GENERIC_ATTITUDE_HOPEFUL_DESPAIR",
-			"value": "Kappaleen tarinan ihmisten vahvuus ei anna kuvaa, ett‰ kyse olisi erityisen toivottomasta asiasta, mutta kyseinen lyhyt skene on toivoton."
+			"value": "Kappaleen tarinan ihmisten vahvuus ei anna kuvaa, ett√§ kyse olisi erityisen toivottomasta asiasta, mutta kyseinen lyhyt skene on toivoton."
 		},
 		{
 			"key": "ATTR_GENERIC_ATTITUDE_OPTIMISTIC_PESSIMISTIC",
-			"value": "Parisuhteesta n‰hd‰‰n vain huonoja puolia seksi‰ lukuunottamatta, ja sekin n‰hd‰‰n melkeimp‰ 'seksiriippuvuutena'."
+			"value": "Parisuhteesta n√§hd√§√§n vain huonoja puolia seksi√§ lukuunottamatta, ja sekin n√§hd√§√§n melkeimp√§ 'seksiriippuvuutena'."
 		},
 		{
 			"key": "POLL_ATTITUDE_ATTITUDE_OPEN_CLOSED",
@@ -212,7 +212,7 @@
 		},
 		{
 			"key": "ATTR_GENERIC_ATTITUDE_ATTITUDE_OPEN_CLOSED",
-			"value": "Ihmiset ovat tehneet lopulliset mielipiteens‰ ja asioista kuullaan lopullisessa jyrkkyydess‰‰n, kuten oikeussalissa."
+			"value": "Ihmiset ovat tehneet lopulliset mielipiteens√§ ja asioista kuullaan lopullisessa jyrkkyydess√§√§n, kuten oikeussalissa."
 		},
 		{
 			"key": "POLL_SEXUALITY",
@@ -220,7 +220,7 @@
 		},
 		{
 			"key": "ATTR_GENERIC_SEXUALITY",
-			"value": "Kappaleen er‰s piirre on seksuaaliset seikkailut"
+			"value": "Kappaleen er√§s piirre on seksuaaliset seikkailut"
 		},
 		{
 			"key": "POLL_SEXUAL_ACTING",
@@ -228,7 +228,7 @@
 		},
 		{
 			"key": "ATTR_GENERIC_SEXUAL_ACTING",
-			"value": "Kappaleen ihmiset k‰ytt‰ytyv‰t seksuaalisesti itsevarmasti."
+			"value": "Kappaleen ihmiset k√§ytt√§ytyv√§t seksuaalisesti itsevarmasti."
 		},
 		{
 			"key": "POLL_SEXUAL_COMMITMENT",
@@ -264,7 +264,7 @@
 		},
 		{
 			"key": "REFERENCE_SONG__NATIVE_TEXT",
-			"value": "S‰e 1:\nKuuntele mua nyt,  ja oo hiljaa\nolin v‰‰r‰s  ja oli turha kiista\noon masentunu kun oon saman katon alla\npliis paranna se ja myˆs h‰ivy pois samalla\nSanoisin t‰n rakastavasti, mutta\ns‰ et kuuntele, ku muutuit  nii hankalaksi\nMenetin luottamuksen suhun kulta\nrakas,  s‰ veit v‰rit pois multa\nJuorusit pahaa, pilkkasit mua mun kuullen\notit meid‰n rahat ja myit pois mun omaisuuden\nNuku rauhassa  ja pysy lep‰‰m‰s\ntekis mieli tehd‰ levostasi pysyv‰\nmutta silti m‰ haluun sua hyv‰ill‰\nnukkuu lusikassa niinku ekana yˆn‰ yhess‰\nPerkele mit‰ roskaa el‰m‰ sun kaa\nonkaan mut seksi makeuttaa sen nii en huomaa\n\nKertos‰e:\nVaimo hei, rakkaudesta meid‰n koti tehtiin\nVaimo hei, ei l‰mpˆ pysy yll‰ ilman liekkii\nVaimo hei, me tehtiin t‰n eteen kaikki\nMee, hei hei, silti susta pysyn eros ikuisesti\n\nS‰e 2:\nMies hei, tule t‰nne, sua v‰h‰n rankasen\notan kiinni palleistas kynsill‰ puristaen\nM‰ tii‰n et s‰ s‰rit meid‰t tarkoituksella\ns‰rit mun syd‰men ja mut sen mukana\nMiks s‰ muutuit? Mihin katos rakkaus?\nLeveilet vaikka palkkas on kelakorvaus\nSori kyl s‰ riitit, ja toivoin sun palaavan\nmut s‰ pysyit pois ja lˆysin toisen pitk‰‰n halaamaan\nolin viekas ja  s‰ et huomannut\net sun kaverisi oli kauan mua kuolannut\npalkitsin itseni  aurinkolomalla ja\nmaksoin yhteistililt‰ ku ryypp‰sit vain sohvalla\nS‰ oot ainut syyp‰‰ ja se jo ymm‰rr‰\nolin sun vaimo ja olit musta ylpe‰\nkuitenkin olit kusip‰‰, petit menem‰‰n, ja\nen en‰‰ ala siet‰‰n sua enemp‰‰\n\nS‰e 3:\nMeid‰n riita johtaa aina  riitoihin pahempiin\nm‰ oon perheen puolesta mut s‰ taas l‰hit bileisiin\nai m‰ oon leija, ei osu herjas ku\ns‰h‰n olit meist‰ se joka muihin vertas\nAnteeks,  m‰ tein kyll‰ virheit‰\nmut m‰ silti tunsin samoin kun s‰ aloit ilkeill‰\nHei, mun muna on ollut vain l‰hiruokaa ku\nsun takojakelu on koko suomen luokkaa\nPahin virhe oli yll‰pit‰‰ toivoa,\non off toistoa, on nyt off ja pornoa\nSaatampa hukuttaa suruni kaljaan\nja ottaa hetkeksi unohdusta akkaan\nTahoit pois ja sit tahoit s‰nkyyn takasin\nyhteen suuntaan ovi k‰y  mun uusin avaimin\nYksin kylm‰‰ on, harmaa j‰lki on eron, varmaan\nyksin‰‰n m‰ silti saan olon helpon"
+			"value": "S√§e 1:\nKuuntele mua nyt,  ja oo hiljaa\nolin v√§√§r√§s  ja oli turha kiista\noon masentunu kun oon saman katon alla\npliis paranna se ja my√∂s h√§ivy pois samalla\nSanoisin t√§n rakastavasti, mutta\ns√§ et kuuntele, ku muutuit  nii hankalaksi\nMenetin luottamuksen suhun kulta\nrakas,  s√§ veit v√§rit pois multa\nJuorusit pahaa, pilkkasit mua mun kuullen\notit meid√§n rahat ja myit pois mun omaisuuden\nNuku rauhassa  ja pysy lep√§√§m√§s\ntekis mieli tehd√§ levostasi pysyv√§\nmutta silti m√§ haluun sua hyv√§ill√§\nnukkuu lusikassa niinku ekana y√∂n√§ yhess√§\nPerkele mit√§ roskaa el√§m√§ sun kaa\nonkaan mut seksi makeuttaa sen nii en huomaa\n\nKertos√§e:\nVaimo hei, rakkaudesta meid√§n koti tehtiin\nVaimo hei, ei l√§mp√∂ pysy yll√§ ilman liekkii\nVaimo hei, me tehtiin t√§n eteen kaikki\nMee, hei hei, silti susta pysyn eros ikuisesti\n\nS√§e 2:\nMies hei, tule t√§nne, sua v√§h√§n rankasen\notan kiinni palleistas kynsill√§ puristaen\nM√§ tii√§n et s√§ s√§rit meid√§t tarkoituksella\ns√§rit mun syd√§men ja mut sen mukana\nMiks s√§ muutuit? Mihin katos rakkaus?\nLeveilet vaikka palkkas on kelakorvaus\nSori kyl s√§ riitit, ja toivoin sun palaavan\nmut s√§ pysyit pois ja l√∂ysin toisen pitk√§√§n halaamaan\nolin viekas ja  s√§ et huomannut\net sun kaverisi oli kauan mua kuolannut\npalkitsin itseni  aurinkolomalla ja\nmaksoin yhteistililt√§ ku ryypp√§sit vain sohvalla\nS√§ oot ainut syyp√§√§ ja se jo ymm√§rr√§\nolin sun vaimo ja olit musta ylpe√§\nkuitenkin olit kusip√§√§, petit menem√§√§n, ja\nen en√§√§ ala siet√§√§n sua enemp√§√§\n\nS√§e 3:\nMeid√§n riita johtaa aina  riitoihin pahempiin\nm√§ oon perheen puolesta mut s√§ taas l√§hit bileisiin\nai m√§ oon leija, ei osu herjas ku\ns√§h√§n olit meist√§ se joka muihin vertas\nAnteeks,  m√§ tein kyll√§ virheit√§\nmut m√§ silti tunsin samoin kun s√§ aloit ilkeill√§\nHei, mun muna on ollut vain l√§hiruokaa ku\nsun takojakelu on koko suomen luokkaa\nPahin virhe oli yll√§pit√§√§ toivoa,\non off toistoa, on nyt off ja pornoa\nSaatampa hukuttaa suruni kaljaan\nja ottaa hetkeksi unohdusta akkaan\nTahoit pois ja sit tahoit s√§nkyyn takasin\nyhteen suuntaan ovi k√§y  mun uusin avaimin\nYksin kylm√§√§ on, harmaa j√§lki on eron, varmaan\nyksin√§√§n m√§ silti saan olon helpon"
 		},
 		{
 			"key": "REFERENCE_SONG__ENGLISH_TEXT",
@@ -276,7 +276,7 @@
 		},
 		{
 			"key": "NATURAL_NATIVE_OF_AUTHOR",
-			"value": "S‰e 1:\nKuuntele mua nyt,  ja oo hiljaa\nolin v‰‰r‰s  ja oli turha kiista\noon masentunu kun oon saman katon alla\npliis paranna se ja myˆs h‰ivy pois samalla\nSanoisin t‰n rakastavasti, mutta\ns‰ et kuuntele, ku muutuit  nii hankalaksi\nMenetin luottamuksen suhun kulta\nrakas,  s‰ veit v‰rit pois multa\nJuorusit pahaa, pilkkasit mua mun kuullen\notit meid‰n rahat ja myit pois mun omaisuuden\nNuku rauhassa  ja pysy lep‰‰m‰s\ntekis mieli tehd‰ levostasi pysyv‰\nmutta silti m‰ haluun sua hyv‰ill‰\nnukkuu lusikassa niinku ekana yˆn‰ yhess‰\nPerkele mit‰ roskaa el‰m‰ sun kaa\nonkaan mut seksi makeuttaa sen nii en huomaa\n\nKertos‰e:\nVaimo hei, rakkaudesta meid‰n koti tehtiin\nVaimo hei, ei l‰mpˆ pysy yll‰ ilman liekkii\nVaimo hei, me tehtiin t‰n eteen kaikki\nMee, hei hei, silti susta pysyn eros ikuisesti\n\nS‰e 2:\nMies hei, tule t‰nne, sua v‰h‰n rankasen\notan kiinni palleistas kynsill‰ puristaen\nM‰ tii‰n et s‰ s‰rit meid‰t tarkoituksella\ns‰rit mun syd‰men ja mut sen mukana\nMiks s‰ muutuit? Mihin katos rakkaus?\nLeveilet vaikka palkkas on kelakorvaus\nSori kyl s‰ riitit, ja toivoin sun palaavan\nmut s‰ pysyit pois ja lˆysin toisen pitk‰‰n halaamaan\nolin viekas ja  s‰ et huomannut\net sun kaverisi oli kauan mua kuolannut\npalkitsin itseni  aurinkolomalla ja\nmaksoin yhteistililt‰ ku ryypp‰sit vain sohvalla\nS‰ oot ainut syyp‰‰ ja se jo ymm‰rr‰\nolin sun vaimo ja olit musta ylpe‰\nkuitenkin olit kusip‰‰, petit menem‰‰n, ja\nen en‰‰ ala siet‰‰n sua enemp‰‰\n\nS‰e 3:\nMeid‰n riita johtaa aina  riitoihin pahempiin\nm‰ oon perheen puolesta mut s‰ taas l‰hit bileisiin\nai m‰ oon leija, ei osu herjas ku\ns‰h‰n olit meist‰ se joka muihin vertas\nAnteeks,  m‰ tein kyll‰ virheit‰\nmut m‰ silti tunsin samoin kun s‰ aloit ilkeill‰\nHei, mun muna on ollut vain l‰hiruokaa ku\nsun takojakelu on koko suomen luokkaa\nPahin virhe oli yll‰pit‰‰ toivoa,\non off toistoa, on nyt off ja pornoa\nSaatampa hukuttaa suruni kaljaan\nja ottaa hetkeksi unohdusta akkaan\nTahoit pois ja sit tahoit s‰nkyyn takasin\nyhteen suuntaan ovi k‰y  mun uusin avaimin\nYksin kylm‰‰ on, harmaa j‰lki on eron, varmaan\nyksin‰‰n m‰ silti saan olon helpon"
+			"value": "S√§e 1:\nKuuntele mua nyt,  ja oo hiljaa\nolin v√§√§r√§s  ja oli turha kiista\noon masentunu kun oon saman katon alla\npliis paranna se ja my√∂s h√§ivy pois samalla\nSanoisin t√§n rakastavasti, mutta\ns√§ et kuuntele, ku muutuit  nii hankalaksi\nMenetin luottamuksen suhun kulta\nrakas,  s√§ veit v√§rit pois multa\nJuorusit pahaa, pilkkasit mua mun kuullen\notit meid√§n rahat ja myit pois mun omaisuuden\nNuku rauhassa  ja pysy lep√§√§m√§s\ntekis mieli tehd√§ levostasi pysyv√§\nmutta silti m√§ haluun sua hyv√§ill√§\nnukkuu lusikassa niinku ekana y√∂n√§ yhess√§\nPerkele mit√§ roskaa el√§m√§ sun kaa\nonkaan mut seksi makeuttaa sen nii en huomaa\n\nKertos√§e:\nVaimo hei, rakkaudesta meid√§n koti tehtiin\nVaimo hei, ei l√§mp√∂ pysy yll√§ ilman liekkii\nVaimo hei, me tehtiin t√§n eteen kaikki\nMee, hei hei, silti susta pysyn eros ikuisesti\n\nS√§e 2:\nMies hei, tule t√§nne, sua v√§h√§n rankasen\notan kiinni palleistas kynsill√§ puristaen\nM√§ tii√§n et s√§ s√§rit meid√§t tarkoituksella\ns√§rit mun syd√§men ja mut sen mukana\nMiks s√§ muutuit? Mihin katos rakkaus?\nLeveilet vaikka palkkas on kelakorvaus\nSori kyl s√§ riitit, ja toivoin sun palaavan\nmut s√§ pysyit pois ja l√∂ysin toisen pitk√§√§n halaamaan\nolin viekas ja  s√§ et huomannut\net sun kaverisi oli kauan mua kuolannut\npalkitsin itseni  aurinkolomalla ja\nmaksoin yhteistililt√§ ku ryypp√§sit vain sohvalla\nS√§ oot ainut syyp√§√§ ja se jo ymm√§rr√§\nolin sun vaimo ja olit musta ylpe√§\nkuitenkin olit kusip√§√§, petit menem√§√§n, ja\nen en√§√§ ala siet√§√§n sua enemp√§√§\n\nS√§e 3:\nMeid√§n riita johtaa aina  riitoihin pahempiin\nm√§ oon perheen puolesta mut s√§ taas l√§hit bileisiin\nai m√§ oon leija, ei osu herjas ku\ns√§h√§n olit meist√§ se joka muihin vertas\nAnteeks,  m√§ tein kyll√§ virheit√§\nmut m√§ silti tunsin samoin kun s√§ aloit ilkeill√§\nHei, mun muna on ollut vain l√§hiruokaa ku\nsun takojakelu on koko suomen luokkaa\nPahin virhe oli yll√§pit√§√§ toivoa,\non off toistoa, on nyt off ja pornoa\nSaatampa hukuttaa suruni kaljaan\nja ottaa hetkeksi unohdusta akkaan\nTahoit pois ja sit tahoit s√§nkyyn takasin\nyhteen suuntaan ovi k√§y  mun uusin avaimin\nYksin kylm√§√§ on, harmaa j√§lki on eron, varmaan\nyksin√§√§n m√§ silti saan olon helpon"
 		},
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE",
@@ -304,7 +304,7 @@
 		},
 		{
 			"key": "POETIC_ENGLISH_FROM_NATURAL_ENGLISH_OF_AUTHOR",
-			"value": "Verse 1:\nListen up and be quiet\nWe were wrong, why keep arguing?\nIt's depressing when we're under the same roof\nSo heal it quickly, then get up and leave\nI'd say it kindly, but \nYou always listen hard, turning into a fool \nMy trust in you died, honey\nHoney, you drained the life from me\nYou gossip about me, mock me to my face\nTook our money, then sold off all my space\nLie down and rest up\nI'd like to make it permanent\nBut yet I still want to hold you, spooniní just like our first night together \nDamn, livin' with you sucks, but that lovin' sweetens it, hard to notice\nChorus:\nGreeting, wife, we made our home through love\nHey wife, the flame, it can no longer keep the heat\nHey wife, we did it all for this\nBut still goodbye, my love, I'm gonna stay away from you forever \nVerse 2:\nHey man, come here, I'll give ya a hard time\nGrip your balls with my nails, squeezing tight\nGuess you wrecked us on purpose\nBroke my heart when you took us apart\nWhy the change? Where is the love? \nYou brag about your unemployment \nSad to say, you were enough, and I was hoping you'd come back \nInstead you stayed away, and cuddled up with someone else for such a long time\nI was sneaky, you didn't notice\nYour friend who had the hots for me for such a long time\nI rewarded myself, and jetted on holiday down south \nIt was from a joint account I paid for; you were just sitting on the couch\nYou're solely to be blamed, no doubt you understand it too \nYou were my man and I was proud to be with you\nBut you messed up, you cheated on me, and\nI can't stand to look at you, can't stand to be around you \nVerse 3:\nOur brawls always lead to worse ones\nI stayed for the family while you went to the party again\nOh yeah, I'm boastful, slander doesn't hurt\nYou were the fool to think it could ever work\nAdmit my wrongs, but it's still the same\nWithin the same hour, you kept doiní wrong\nHey, you take away my manhood\nYour womanhood is spread throughout Finland\nMy worst mistake was believing in hope,\nOn and off, now it's off, replaced by internet porn\nDown some beers and forget my lady\nForget her for a while, tryiní to be shady\nYou wanted to go and decided to lay down\nThe door only opens one way with my new key in town\nIt's cold alone, the gray spot comes from our split, I'm positive I will just stay all alone"
+			"value": "Verse 1:\nListen up and be quiet\nWe were wrong, why keep arguing?\nIt's depressing when we're under the same roof\nSo heal it quickly, then get up and leave\nI'd say it kindly, but \nYou always listen hard, turning into a fool \nMy trust in you died, honey\nHoney, you drained the life from me\nYou gossip about me, mock me to my face\nTook our money, then sold off all my space\nLie down and rest up\nI'd like to make it permanent\nBut yet I still want to hold you, spoonin¬í just like our first night together \nDamn, livin' with you sucks, but that lovin' sweetens it, hard to notice\nChorus:\nGreeting, wife, we made our home through love\nHey wife, the flame, it can no longer keep the heat\nHey wife, we did it all for this\nBut still goodbye, my love, I'm gonna stay away from you forever \nVerse 2:\nHey man, come here, I'll give ya a hard time\nGrip your balls with my nails, squeezing tight\nGuess you wrecked us on purpose\nBroke my heart when you took us apart\nWhy the change? Where is the love? \nYou brag about your unemployment \nSad to say, you were enough, and I was hoping you'd come back \nInstead you stayed away, and cuddled up with someone else for such a long time\nI was sneaky, you didn't notice\nYour friend who had the hots for me for such a long time\nI rewarded myself, and jetted on holiday down south \nIt was from a joint account I paid for; you were just sitting on the couch\nYou're solely to be blamed, no doubt you understand it too \nYou were my man and I was proud to be with you\nBut you messed up, you cheated on me, and\nI can't stand to look at you, can't stand to be around you \nVerse 3:\nOur brawls always lead to worse ones\nI stayed for the family while you went to the party again\nOh yeah, I'm boastful, slander doesn't hurt\nYou were the fool to think it could ever work\nAdmit my wrongs, but it's still the same\nWithin the same hour, you kept doin¬í wrong\nHey, you take away my manhood\nYour womanhood is spread throughout Finland\nMy worst mistake was believing in hope,\nOn and off, now it's off, replaced by internet porn\nDown some beers and forget my lady\nForget her for a while, tryin¬í to be shady\nYou wanted to go and decided to lay down\nThe door only opens one way with my new key in town\nIt's cold alone, the gray spot comes from our split, I'm positive I will just stay all alone"
 		}
 	],
 	"parts": [
@@ -2157,7 +2157,7 @@
 						},
 						{
 							"style": "The Beatles",
-							"content": "Hey mate, hear me here,\nAint gonna let me go, you know itís crystal clear",
+							"content": "Hey mate, hear me here,\nAint gonna let me go, you know it¬ís crystal clear",
 							"score": 0,
 							"ai_score": 0,
 							"ai_score_extra": 0
@@ -3118,7 +3118,7 @@
 						},
 						{
 							"style": "Led Zeppelin",
-							"content": "So I took a break and found enjoyment\nYour funds funded the whole thing, so you canít get it wrongment",
+							"content": "So I took a break and found enjoyment\nYour funds funded the whole thing, so you can¬ít get it wrongment",
 							"score": 0,
 							"ai_score": 0,
 							"ai_score_extra": 0
@@ -3632,14 +3632,14 @@
 						},
 						{
 							"style": "The Doors",
-							"content": "Useless conversations been had,\nBut you stay living like youíre bad.",
+							"content": "Useless conversations been had,\nBut you stay living like you¬íre bad.",
 							"score": 0,
 							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Nirvana",
-							"content": "Our debates are stuck in a loop,\nAnd you keep living like youíre a troop.",
+							"content": "Our debates are stuck in a loop,\nAnd you keep living like you¬íre a troop.",
 							"score": 0,
 							"ai_score": 0,
 							"ai_score_extra": 0
@@ -3674,7 +3674,7 @@
 						},
 						{
 							"style": "Led Zeppelin",
-							"content": "Our feuds are feeding into chaos,\nBut youíre out partying like a boss.",
+							"content": "Our feuds are feeding into chaos,\nBut you¬íre out partying like a boss.",
 							"score": 0,
 							"ai_score": 0,
 							"ai_score_extra": 0
