@@ -310,7 +310,7 @@ void ImageGenTool::GenerateFromEditor() {
 		int n = count.GetData();
 		
 		TaskMgr& m = *p.song->pipe;
-		m.EditImage(editor.image, editor.mask, prompt_str, n, THISBACK2(OnEditReady, prompt_str, n), THISBACK(EnableAll));
+		m.GetEditImage(editor.image, editor.mask, prompt_str, n, THISBACK2(OnEditReady, prompt_str, n), THISBACK(EnableAll));
 	}
 	
 	mode.Disable();
@@ -358,7 +358,7 @@ void ImageGenTool::VariateFromEditor() {
 	variate.Disable();
 }
 
-void ImageGenTool::EditImage(const Image& img, String prompt, int use_current_prompt) {
+void ImageGenTool::GetEditImage(const Image& img, String prompt, int use_current_prompt) {
 	if (use_current_prompt == 1)
 		prompt = this->prompt.GetData();
 	else if (use_current_prompt == 2)
@@ -551,7 +551,7 @@ void GeneratedImages::ImageMenu(Bar& bar, int i) {
 	if (i < 0 || i >= images.GetCount())
 		return;
 	bar.Add(t_("Edit image"), [=]() {
-		if (tool) tool->EditImage(images[i], "", 1);
+		if (tool) tool->GetEditImage(images[i], "", 1);
 	});
 	bar.Add(t_("Save image as"), [=]() {
 		if (tool) tool->SaveImageAs(images[i]);

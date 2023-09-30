@@ -123,7 +123,7 @@ public:
 	void OnImageReadyGui(String prompt, int n);
 	void OnImageReady(Array<Image>& imgs, String prompt, int n);
 	void AddRecent(Array<Image>& imgs, String prompt, int n);
-	void EditImage(const Image& img, String prompt, int use_current_prompt);
+	void GetEditImage(const Image& img, String prompt, int use_current_prompt);
 	void OnBrushSizeChange(int zdelta);
 	void OnBrushColorChange(int zdelta);
 	void SaveImageAs(Image img);

@@ -93,7 +93,7 @@ struct TaskMgr {
 	void ConvertStructureToScreenplay(String orig_txt, Event<String> WhenResult);
 	void CheckScreenplayStructureErrors(String txt, Event<String> WhenResult);
 	void CreateImage(String prompt, int count, Event<Array<Image>&> WhenResult, int reduce_size_mode=0, Event<> WhenError=Event<>());
-	void EditImage(Image orig, Image mask, String prompt, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
+	void GetEditImage(Image orig, Image mask, String prompt, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
 	void VariateImage(Image orig, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
 	void RawCompletion(String prompt, Event<String> WhenResult);
 	void EvaluateSuggestionScores(const Vector<String>& strs, Event<String> WhenResult);
