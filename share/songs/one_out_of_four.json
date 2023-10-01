@@ -39,6 +39,38 @@
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL_NATIVE",
 			"value": ""
+		},
+		{
+			"key": "MOOD_UPLIFTING_HEAVY",
+			"value": "-1"
+		},
+		{
+			"key": "MOOD_JOYFUL_MELANCHOLIC",
+			"value": "-1"
+		},
+		{
+			"key": "MOOD_PLAYFUL_SERIOUS",
+			"value": "-1"
+		},
+		{
+			"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+			"value": "1"
+		},
+		{
+			"key": "MOOD_LIGHTHEARTED_SOMBER",
+			"value": "-1"
+		},
+		{
+			"key": "MOOD_HUMOROUS_DRAMATIC",
+			"value": "1"
+		},
+		{
+			"key": "ATTITUDE_HOPEFUL_DESPAIR",
+			"value": "1"
+		},
+		{
+			"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
+			"value": "-1"
 		}
 	],
 	"parts": [
@@ -241,325 +273,160 @@
 				"Is to prove that I am thinking like you"
 			],
 			"ai_source": [
-				"Many dangers I must beware",
-				"Social norms to navigate through",
+				"Too many things that I got to beware",
+				"Social rules that I got to run through",
 				"The last thing I'll ever do",
-				"Is think and act the way you do"
+				"Is to prove that I am thinking like you"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"Many dangers I must beware",
-						"Social norms to navigate through"
+						"Too many things that I got to beware",
+						"Social rules that I got to run through"
 					],
 					"suggestion": [
 						{
 							"style": "Red Hot Chili Peppers",
-							"content": "Risky choices to make on my own\nSociety's expectations, I'll atone",
+							"content": "Gotta beware, too much, can't keep track\nSocial rules running, don't let 'em smack",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Beastie Boys",
-							"content": "Confronting norms, I'll stand my ground\nDon't need no one else to bring me 'round",
+							"content": "Need to watch out, don't wanna be rare\nGot to follow rules, can't just not care",
 							"score": 0,
-							"ai_score": 3,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "The Jimi Hendrix Experience",
-							"content": "Challenging the status quo\nI'll blaze my own trail, let my freedom flow",
+							"content": "I'm aware, can't let them bring me down\nRules to run, can't let their weight surround",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 13
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Grandmaster Flash and the Furious Five",
-							"content": "Staying true, no need to follow\nMy own principles, I'll proudly swallow",
+							"content": "So many things to watch out, can't you see?\nRunning these rules, can't let 'em break me",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 7
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Bob Marley",
-							"content": "Living in a world of rules and strife\nBut I'll find my own way, in the rhythm of life",
+							"content": "Too much to watch, can't let them control\nRunning these rules, can't let 'em take hold",
 							"score": 0,
-							"ai_score": 3,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Bob Dylan",
-							"content": "Society's expectations, I'll defy\nMy individuality, I won't deny",
+							"content": "Too many things to beware and abide\nRunning through rules, can't let them collide",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 4
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "The Beatles",
-							"content": "Fitting in, just a facade\nMy uniqueness, I'll proudly applaud",
+							"content": "Gotta beware, don't wanna be caught out\nRunning through rules, gotta do without",
 							"score": 0,
-							"ai_score": 4,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "The Doors",
-							"content": "Conformity, I won't succumb\nMy own path, I'll fearlessly drum",
+							"content": "Too many things to beware and negotiate\nSocial rules to run, can't let 'em dictate",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 11
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Nirvana",
-							"content": "Breaking free from society's chains\nMy own truth, I'll proudly proclaim",
+							"content": "Gotta be aware, can't let 'em drag me down\nRunning through rules, can't let 'em make me frown",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 10
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Tupac Shakur",
-							"content": "Resisting the norms, I'll speak my mind\nMy freedom of expression, I'll never bind",
+							"content": "So many things to beware, gotta behave\nRunning these rules, can't let 'em make me a slave",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 12
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Marvin Gaye",
-							"content": "Societal pressures, I won't abide\nLiving my truth, with unbreakable pride",
+							"content": "Girl, watch out, don't wanna lose you too soon\nRules to live by, don't wanna be a buffoon",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 8
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "N.W.A",
-							"content": "Challenging the system, I'll never stop\nMy own beliefs, I'll proudly rock",
+							"content": "Gotta stay sharp, can't let 'em bring us down\nRunning these rules, can't let 'em keep us bound",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 2
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Run-DMC",
-							"content": "Temptation to conform, but I'll resist\nMy own identity, I'll never dismiss",
+							"content": "Watch your back, don't wanna get caught off guard\nRunning these rules, can't let 'em hit too hard",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 6
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Led Zeppelin",
-							"content": "Navigating through a world of norms\nI'll chart my own course, amidst the storms",
+							"content": "Too many things to be careful about\nSocial rules to run, can't let 'em shut me out",
 							"score": 0,
-							"ai_score": 3,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Jefferson Airplane",
-							"content": "Against the grain, I'll proudly stand\nMy own path, I'll carve with my own hand",
+							"content": "Gotta beware, don't wanna lose my head\nRunning through rules, can't let 'em hold me in stead",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 9
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Madonna",
-							"content": "Breaking the mold, I'll pave my way\nMy independence, I'll never betray",
+							"content": "Gotta stay aware, can't let 'em bring me down\nRunning through rules, gotta keep my golden crown",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 5
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Buffalo Springfield",
-							"content": "Society's expectations, I'll defy\nMy own convictions, I'll never deny",
+							"content": "Too many things to watch out, don't you know\nRunning through rules, can't let 'em make me slow",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 3
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Elton John",
-							"content": "Standing strong against societal norms\nMy own self-discovery, I'll proudly perform",
+							"content": "Gotta watch out, don't wanna be overwhelmed\nRunning these rules, can't let 'em make me unmeld",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 1
+							"ai_score": 0,
+							"ai_score_extra": 0
 						}
 					],
 					"data": [
 						{
-							"key": "GENDER",
-							"value": "1"
-						},
-						{
-							"key": "IMAGERY",
-							"value": "1"
+							"key": "SOCIAL",
+							"value": "-1"
 						},
 						{
 							"key": "RELATIONSHIP_FOCUS",
 							"value": "1"
 						},
 						{
-							"key": "SOCIAL",
-							"value": "1"
-						},
-						{
-							"key": "CULTURE",
-							"value": "1"
-						},
-						{
-							"key": "HUMAN_STRENGTH",
-							"value": "1"
-						},
-						{
-							"key": "SEXUALIZATION",
-							"value": "-1"
-						}
-					],
-					"outdated_suggestions": false
-				},
-				{
-					"source": [
-						"The last thing I'll ever do",
-						"Is think and act the way you do"
-					],
-					"suggestion": [
-						{
-							"style": "Red Hot Chili Peppers",
-							"content": "No more will I follow you there,\nYour close-minded thoughts I can't bear.",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Beastie Boys",
-							"content": "Can't be a clone, can't just conform,\nMy individuality I'll perform.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Jimi Hendrix Experience",
-							"content": "You may play the game by your rules,\nBut I'll take the blues and make it cool.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Grandmaster Flash and the Furious Five",
-							"content": "You may try to control my mind,\nBut I'll break free, leave you behind.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 5
-						},
-						{
-							"style": "Bob Marley",
-							"content": "I won't be a puppet on a string,\nI'll stand tall, and spread love and sing.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 3
-						},
-						{
-							"style": "Bob Dylan",
-							"content": "Your narrow-mindedness won't define me,\nI'll break free and let my soul fly free.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Beatles",
-							"content": "I won't think and act like you do,\nMy own path I'll carve and pursue.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Doors",
-							"content": "I refuse to conform to your mold,\nMy own thoughts I'll proudly hold.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Nirvana",
-							"content": "No one can force me to be the same,\nI'll break the chains and find my own fame.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 2
-						},
-						{
-							"style": "Tupac Shakur",
-							"content": "I won't follow your control and strife,\nI'll live true, unapologetically my life.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Marvin Gaye",
-							"content": "Can't fit in your narrow-minded box,\nI'll break free and dance to my own rocks.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "N.W.A",
-							"content": "Your ways may seem like the only truth,\nBut I'll speak up and seek my own proof.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Run-DMC",
-							"content": "I won't conform to your set views,\nI'll break free and pave my own news.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Led Zeppelin",
-							"content": "I won't be confined by your narrow mind,\nI'll break free and leave your chains behind.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 4
-						},
-						{
-							"style": "Jefferson Airplane",
-							"content": "Can't fit into your rigid ways,\nI'll break free and fly into new days.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Madonna",
-							"content": "I won't be a puppet on your stage,\nI'll break free and write my own sage.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 1
-						},
-						{
-							"style": "Buffalo Springfield",
-							"content": "I won't follow your conformist crowd,\nI'll break free and sing my own loud.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Elton John",
-							"content": "I won't just mimic what you do,\nI'll break free and create my own hue.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						}
-					],
-					"data": [
-						{
-							"key": "GENDER",
+							"key": "BELIEFS",
 							"value": "-1"
 						},
 						{
-							"key": "AVERAGE_EXPECTATIONS",
-							"value": "-1"
-						},
-						{
-							"key": "INTEGRITY",
-							"value": "-1"
-						},
-						{
-							"key": "SOCIAL",
+							"key": "MOOD_JOYFUL_MELANCHOLIC",
 							"value": "-1"
 						},
 						{
@@ -567,11 +434,176 @@
 							"value": "-1"
 						},
 						{
-							"key": "SEXUALITY",
+							"key": "MOOD_PLAYFUL_SERIOUS",
+							"value": "1"
+						},
+						{
+							"key": "GENDER",
+							"value": "1"
+						}
+					],
+					"outdated_suggestions": false
+				},
+				{
+					"source": [
+						"The last thing I'll ever do",
+						"Is to prove that I am thinking like you"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "My mind's open, divergent and free,\nI'll be myself, can't be someone to please.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "I won't conform, I won't give in,\nI'll stay true, won't change for no one's win.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "I'll play my guitar, break all the rules,\nI'll speak my truth, won't be anyone's tool.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "I'll speak up, won't just go with the flow,\nMy voice is powerful, I'll let it show.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "I'll stand firm, won't be swayed,\nBabylon system, I will not aid.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "My words will cut, like a sharp knife,\nI'll speak my mind, won't hide behind a lie.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "I'll march to the beat of my own drum,\nI won't back down, won't succumb.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "I'll break on through to the other side,\nWon't be blinded by pressures to abide.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "I won't conform to society's ways,\nI'll find my own path, won't just run on a maze.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "I won't be silenced, I'll speak my truth,\nI'll fight for justice, won't just sit and soothe.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "I'll use my voice to spread love and light,\nWon't conform to hate, won't give in to the fight.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "I'll break the chains, won't be told what to do,\nI'll stand tall, won't be a puppet for you.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "I'll walk my own path, won't follow the trends,\nWon't change my ways, won't just pretend.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "I'll fly high, won't be bound by the ground,\nI'll make my own rules, won't let others drown.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "I'll spread my wings, won't be held down,\nI'll soar to new heights, won't let anyone's frown.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "I'll speak my truth, won't be afraid,\nI'll pave my own way, won't let society's norms invade.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "I'll stand my ground, won't just go with the flow,\nI'll make my own destiny, won't let anyone's expectations grow.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "I'll sing my own song, won't imitate,\nI'll stay authentic, won't just try to compensate.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+						{
+							"key": "GENDER",
+							"value": "1"
+						},
+						{
+							"key": "AVERAGE_EXPECTATIONS",
 							"value": "-1"
 						},
 						{
-							"key": "PHYSICAL_PREFERENCE",
+							"key": "IMAGERY",
+							"value": "-1"
+						},
+						{
+							"key": "EXPRESSION",
+							"value": "-1"
+						},
+						{
+							"key": "RELATIONSHIP_FOCUS",
+							"value": "-1"
+						},
+						{
+							"key": "INTEGRITY",
+							"value": "1"
+						},
+						{
+							"key": "SOCIAL",
 							"value": "-1"
 						}
 					],

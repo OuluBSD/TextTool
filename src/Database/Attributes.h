@@ -14,7 +14,6 @@
 	ATTR_ITEM(HUMAN_STRENGTH, "Human strength", "strong", "weak") \
 	ATTR_ITEM(MOTIVATION, "Motivation", "rewarding", "punishing") \
 	ATTR_ITEM(SEXUALIZATION, "Sexualization", "sexual", "non-sexual") \
-	ATTR_ITEM(BELIEFS, "Beliefs", "spiritual", "secular") \
 	ATTR_ITEM(EXPECTATIONS, "Expectations", "acceptance", "perfection") \
 	ATTR_ITEM(MOOD_JOYFUL_MELANCHOLIC, "Mood", "joyful", "melancholic") \
 	ATTR_ITEM(MOOD_PLAYFUL_SERIOUS, "Mood", "playful", "serious") \
@@ -30,6 +29,16 @@
 	ATTR_ITEM(SEXUAL_ORIENTATION, "Sexual Orientation", "heterosexual", "homosexual") \
 	ATTR_ITEM(SEXUAL_PREFERENCE, "Sexual Preference", "kinky", "normal") \
 	ATTR_ITEM(PHYSICAL_PREFERENCE, "Physical Preference", "enhancement", "natural") \
+	ATTR_ITEM(RATIONAL_BELIEF, "Rational believers", "scientific", "religious") \
+	ATTR_ITEM(THEOLOGICAL_OPPOSITE, "Theological opposites", "atheistic", "theistic") \
+	ATTR_ITEM(SEEKER_OF_TRUTH, "Seekers of truth", "spiritual seeker", "skeptic") \
+	ATTR_ITEM(GROUP_FAITH, "Group faith", "individual spirituality", "organized religion") \
+	ATTR_ITEM(BELIF_COMMUNITY, "Belief communities", "secular society", "religious community") \
+	ATTR_ITEM(INTUITIVE_THINKER, "Intuitive thinkers", "mystic practitioner", "rationalist") \
+	ATTR_ITEM(FAITH_EXTREME, "Faith extremes", "agnostic", "religious fundamentalist") \
+	ATTR_ITEM(OLD_AND_NEW_BELIEVER, "Old and new believers", "new age spirituality", "traditional religion") \
+	ATTR_ITEM(BELIF_SPECTRUM, "Belief spectrum", "believer", "non-believer") \
+	ATTR_ITEM(FAITH_AND_REASON_SEEKER, "Faith and reason seekers", "divine worshipers", "rational thinker") \
 
 
 namespace Attr {

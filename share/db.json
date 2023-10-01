@@ -13,8 +13,16 @@
 						"value": "seikkaileva"
 					},
 					{
+						"key": "agnostic",
+						"value": ""
+					},
+					{
 						"key": "allegorical",
 						"value": "allegorinen"
+					},
+					{
+						"key": "atheistic",
+						"value": ""
 					},
 					{
 						"key": "attitude",
@@ -29,8 +37,20 @@
 						"value": "keskimääräiset odotukset"
 					},
 					{
+						"key": "belief communities",
+						"value": ""
+					},
+					{
+						"key": "belief spectrum",
+						"value": ""
+					},
+					{
 						"key": "beliefs",
 						"value": "uskomukset"
+					},
+					{
+						"key": "believer",
+						"value": ""
 					},
 					{
 						"key": "closed",
@@ -59,6 +79,10 @@
 					{
 						"key": "despair",
 						"value": "toivoton"
+					},
+					{
+						"key": "divine worshipers",
+						"value": ""
 					},
 					{
 						"key": "dramatic",
@@ -93,11 +117,23 @@
 						"value": "ilmaisu"
 					},
 					{
+						"key": "faith and reason seekers",
+						"value": ""
+					},
+					{
+						"key": "faith extremes",
+						"value": ""
+					},
+					{
 						"key": "female",
 						"value": ""
 					},
 					{
 						"key": "gender",
+						"value": ""
+					},
+					{
+						"key": "group faith",
 						"value": ""
 					},
 					{
@@ -133,6 +169,10 @@
 						"value": "kuvasto"
 					},
 					{
+						"key": "individual spirituality",
+						"value": ""
+					},
+					{
 						"key": "individual-focused",
 						"value": "yksilöön keskittyvä"
 					},
@@ -143,6 +183,10 @@
 					{
 						"key": "integrity",
 						"value": "aitous"
+					},
+					{
+						"key": "intuitive thinkers",
+						"value": ""
 					},
 					{
 						"key": "inversed",
@@ -197,8 +241,20 @@
 						"value": "motivaatio"
 					},
 					{
+						"key": "mystic practitioner",
+						"value": ""
+					},
+					{
 						"key": "natural",
 						"value": "luonnollinen"
+					},
+					{
+						"key": "new age spirituality",
+						"value": ""
+					},
+					{
+						"key": "non-believer",
+						"value": ""
 					},
 					{
 						"key": "non-sexual",
@@ -209,12 +265,20 @@
 						"value": "normaali"
 					},
 					{
+						"key": "old and new believers",
+						"value": ""
+					},
+					{
 						"key": "open",
 						"value": "avoin"
 					},
 					{
 						"key": "optimistic",
 						"value": "optimistinen"
+					},
+					{
+						"key": "organized religion",
+						"value": ""
 					},
 					{
 						"key": "partner-focused",
@@ -245,16 +309,52 @@
 						"value": "rankaiseva"
 					},
 					{
+						"key": "rational believers",
+						"value": ""
+					},
+					{
+						"key": "rational thinker",
+						"value": ""
+					},
+					{
+						"key": "rationalist",
+						"value": ""
+					},
+					{
 						"key": "relationship focus",
 						"value": "suhteen keskittyminen"
+					},
+					{
+						"key": "religious",
+						"value": ""
+					},
+					{
+						"key": "religious community",
+						"value": ""
+					},
+					{
+						"key": "religious fundamentalist",
+						"value": ""
 					},
 					{
 						"key": "rewarding",
 						"value": "palkitseva"
 					},
 					{
+						"key": "scientific",
+						"value": ""
+					},
+					{
 						"key": "secular",
 						"value": "sekulaarinen"
+					},
+					{
+						"key": "secular society",
+						"value": ""
+					},
+					{
+						"key": "seekers of truth",
+						"value": ""
 					},
 					{
 						"key": "sensitive",
@@ -293,6 +393,10 @@
 						"value": "seksualisointi"
 					},
 					{
+						"key": "skeptic",
+						"value": ""
+					},
+					{
 						"key": "social",
 						"value": "sosiaalisuus"
 					},
@@ -305,8 +409,24 @@
 						"value": "henkinen"
 					},
 					{
+						"key": "spiritual seeker",
+						"value": ""
+					},
+					{
 						"key": "strong",
 						"value": "vahva"
+					},
+					{
+						"key": "theistic",
+						"value": ""
+					},
+					{
+						"key": "theological opposites",
+						"value": ""
+					},
+					{
+						"key": "traditional religion",
+						"value": ""
 					},
 					{
 						"key": "trope-endorsing",

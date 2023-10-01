@@ -24,6 +24,7 @@
 #include "MusicVideoToPlan.h"
 #include "ImageGenTool.h"
 #include "CalMgrCtrl.h"
+#include "ContextAttributes.h"
 
 
 #endif

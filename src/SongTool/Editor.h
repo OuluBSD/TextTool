@@ -45,7 +45,7 @@ protected:
 	ChecklistMusicVideoProduction	video_checklist;
 	ChecklistRelease				release_checklist;
 	ImageGenTool					image_gen;
-	
+	ContextAttributesCtrl			ctx_attrs;
 	
 	
 	

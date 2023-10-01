@@ -3,7 +3,66 @@
 	"english_title": "Hello Lonely 01-04",
 	"date": null,
 	"data": [
-
+		{
+			"key": "AVERAGE_EXPECTATIONS",
+			"value": "1"
+		},
+		{
+			"key": "IMAGERY",
+			"value": "1"
+		},
+		{
+			"key": "EXPRESSION",
+			"value": "-1"
+		},
+		{
+			"key": "MOTIVATION",
+			"value": "1"
+		},
+		{
+			"key": "SEXUALIZATION",
+			"value": "1"
+		},
+		{
+			"key": "INTEGRITY",
+			"value": "1"
+		},
+		{
+			"key": "RELATIONSHIP_FOCUS",
+			"value": "-1"
+		},
+		{
+			"key": "SOCIAL",
+			"value": "1"
+		},
+		{
+			"key": "CULTURE",
+			"value": "1"
+		},
+		{
+			"key": "HUMAN_STRENGTH",
+			"value": "1"
+		},
+		{
+			"key": "GENDER",
+			"value": "-1"
+		},
+		{
+			"key": "EXPECTATIONS",
+			"value": "1"
+		},
+		{
+			"key": "SEXUALITY",
+			"value": "1"
+		},
+		{
+			"key": "SEXUAL_ACTING",
+			"value": "1"
+		},
+		{
+			"key": "ECONOMIC",
+			"value": "1"
+		}
 	],
 	"ideas": [
 		{

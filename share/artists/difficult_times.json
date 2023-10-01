@@ -41,6 +41,54 @@
 		{
 			"key": "LIFE_NERDINESS",
 			"value": "C++ programmer using Windows, Conemu quake-like terminal with a lot of tools. Fluent user of FreeBSD and Linux."
+		},
+		{
+			"key": "SEXUAL_ORIENTATION",
+			"value": "1"
+		},
+		{
+			"key": "SEXUAL_PREFERENCE",
+			"value": "1"
+		},
+		{
+			"key": "PHYSICAL_PREFERENCE",
+			"value": "1"
+		},
+		{
+			"key": "RATIONAL_BELIEF",
+			"value": "1"
+		},
+		{
+			"key": "THEOLOGICAL_OPPOSITE",
+			"value": "1"
+		},
+		{
+			"key": "SEEKER_OF_TRUTH",
+			"value": "1"
+		},
+		{
+			"key": "GROUP_FAITH",
+			"value": "1"
+		},
+		{
+			"key": "BELIF_COMMUNITY",
+			"value": "1"
+		},
+		{
+			"key": "INTUITIVE_THINKER",
+			"value": "1"
+		},
+		{
+			"key": "OLD_AND_NEW_BELIEVER",
+			"value": "1"
+		},
+		{
+			"key": "BELIF_SPECTRUM",
+			"value": "1"
+		},
+		{
+			"key": "FAITH_AND_REASON_SEEKER",
+			"value": "1"
 		}
 	],
 	"releases": [

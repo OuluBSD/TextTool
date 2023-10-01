@@ -16,6 +16,8 @@ file
 	TxtInTranslate.cpp,
 	TxtStructEdit.h,
 	TxtStructEdit.cpp,
+	ContextAttributes.h,
+	ContextAttributes.cpp,
 	TxtAutoCompare.h,
 	TxtAutoCompare.cpp,
 	TxtEditEnglish.h,
