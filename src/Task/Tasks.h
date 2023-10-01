@@ -218,6 +218,7 @@ public:
 	void CreateInput_EvaluateSuggestionScores();
 	void CreateInput_EvaluateSuggestionOrder();
 	void CreateInput_ImproveSourceText();
+	void CreateInput_LimitSyllableCount();
 	void CreateInput_GetAIAttributes();
 	
 	void Process_MakeImportTasks();
@@ -268,6 +269,7 @@ public:
 	void Process_EvaluateSuggestionScores();
 	void Process_EvaluateSuggestionOrder();
 	void Process_ImproveSourceText();
+	void Process_LimitSyllableCount();
 	void Process_GetAIAttributes();
 	
 	void Retry(bool skip_prompt);

@@ -3,6 +3,8 @@
 	"title": "Piraattibiisi",
 	"english_title": "The Pirate Song",
 	"prj_name": "the pirate esong",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

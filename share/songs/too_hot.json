@@ -3,6 +3,8 @@
 	"title": "Liian kuuma",
 	"english_title": "Too hot",
 	"prj_name": "Summer 2008 (Too hot)",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

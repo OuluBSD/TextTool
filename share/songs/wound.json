@@ -3,6 +3,8 @@
 	"title": "Haava",
 	"english_title": "Wound",
 	"prj_name": "wound",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

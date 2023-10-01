@@ -1568,7 +1568,7 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 	String rhyme = args[0];
 	String rhyme_scheme = args[1];
 	int rhyme_scheme_line_count = StrInt(args[2]);
-	int syllables = StrInt(args[3]);
+	String syllable_count_str = args[3];
 	String attrs = args[4];
 	ASSERT(rhyme_scheme.GetCount());
 	
@@ -1597,10 +1597,30 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 		}
 	}
 	
-	if (syllables > 0) {
-		input.AddSub()
+	if (!syllable_count_str.IsEmpty()) {
+		Vector<String> values = Split(syllable_count_str, ",");
+		
+		/*input.AddSub()
 			.Title("A single line of the result must have only " + IntStr(syllables) + " syllables.")
-			.NoColon();
+			.NoColon();*/
+		
+		TaskTitledList& list = input.AddSub();
+		list.Title("A single line of the result must have exact count of syllables");
+		for(int i = 0; i < values.GetCount(); i++) {
+			String s;
+			s << i+1 << ". line must have " << values[i] << " syllables";
+			list.Add(s);
+		}
+	}
+	
+	if (!rhyme_scheme.IsEmpty()) {
+		Vector<String> values = Split(rhyme_scheme, "\n");
+		TaskTitledList& list = input.AddSub();
+		//list.Title("A single line of the result must have rhyming");
+		list.Title("The result must follow these rules for rhyming");
+		for(int i = 0; i < values.GetCount(); i++) {
+			list.Add(values[i]);
+		}
 	}
 	
 	if (0) {
@@ -1622,8 +1642,7 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 		String result_title;
 		result_title +=
 			"List of results for all 1-" + IntStr(list_len) + " artist styles."
-			" A single result is " + IntStr(rhyme_scheme_line_count) + " lines long in total"
-			", and with " + rhyme_scheme + " rhyme sceme";
+			" A single result is " + IntStr(rhyme_scheme_line_count) + " lines long in total";
 		
 		if (attrs.GetCount())
 			result_title << ", and with " + attrs + " tone of voice";
@@ -1641,8 +1660,8 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 		first.EmptyLine().NoListChar().EmptyLineString("”");
 	}
 	
-	LOG(input.AsString());
-	LOG("");
+	//LOG(input.AsString());
+	//LOG("");
 	
 	input.response_length = 2*1024;
 }
@@ -1995,7 +2014,7 @@ void Task::CreateInput_EvaluateSuggestionOrder() {
 	
 	{
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("Sorted lines 1-" + IntStr(list_len));
+		results.Title("Sorted lines 1-" + IntStr(list_len) + ". (For example: 1. Original line number 4: \"...\")");
 		results		.NumberedLines();
 		results.Add("Original line number");
 		
@@ -2057,6 +2076,49 @@ void Task::CreateInput_ImproveSourceText() {
 	input.response_length = 1024*2;
 }
 
+void Task::CreateInput_LimitSyllableCount() {
+	if (args.IsEmpty()) {
+		SetFatalError("no arguments");
+		return;
+	}
+	int syllables = StrInt(args[0]);
+	int list_len = 0;
+	String first_line;
+	{
+		TaskTitledList& list = input.AddSub().Title("List of original lines");
+		list		.NumberedLines()
+					;
+		for(int i = 1; i < args.GetCount(); i++) {
+			String& a = args[i];
+			a = TrimBoth(a);
+			if (a.Right(1) == ",")
+				a = a.Left(a.GetCount()-1);
+			a = Capitalize(a);
+			list.Add(a);
+			if (first_line.IsEmpty()) first_line = a;
+		}
+		list_len = list.values.GetCount();
+	}
+	
+	if (0) {
+		input.AddSub().Title("Original lines cannot be combined and line count must match to adjusted lines.").NoColon();
+	}
+	{
+		input.AddSub().Title("Every adjusted line must have exactly " + IntStr(syllables+1) + " syllables and the line count must match to original lines.").NoColon();
+	}
+	{
+		TaskTitledList& results = input.PreAnswer();
+		//results.Title("Adjusted lines 1-" + IntStr(list_len) );
+		results.Title("Adjusted lines");
+		results.NumberedLines();
+		results.EmptyLine();
+	}
+	
+	//LOG(input.AsString());
+	
+	input.response_length = 1024*2;
+}
+
 void Task::CreateInput_GetAIAttributes() {
 	Database& db = Database::Single();
 	PipePtrs& p = this->p;
@@ -2066,6 +2128,7 @@ void Task::CreateInput_GetAIAttributes() {
 	g.Realize(); // TODO very hacky solution... this should be in Database already
 	
 	String content = args[0];
+	int attr_count = StrInt(args[1]);
 	
 	if (args.IsEmpty()) {
 		SetFatalError("no arguments");
@@ -2089,10 +2152,14 @@ void Task::CreateInput_GetAIAttributes() {
 	}
 	
 	{
+		auto& t = g.attr_scorings[0];
+		TaskTitledList& list = input.AddSub();
+		list.Title("We are searching for the most important matching attribute value (e.g. \"" + t.klass + ": " + t.axes0 + ") from the list of axes of attributes").NoColon();
+	}
+	{
 		TaskTitledList& results = input.PreAnswer();
 		//results.Title("Same lyrics in short but deeply biased style for lines 1-" + IntStr(list_len));
-		auto& t = g.attr_scorings[0];
-		results.Title("The top 5 most important attribute values of lyrics \"A\" (e.g. " + t.klass + ": " + t.axes0 + ")");
+		results.Title("The top " + IntStr(attr_count) + " best attribute values of lyrics \"A\"");
 		results.EmptyLine();
 	}
 	

@@ -3,6 +3,8 @@
 	"title": "Scar Tissue",
 	"english_title": "",
 	"prj_name": "",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "verse1:2:3:3,chorus1:2:2:2,verse2:2:2:2,chorus2:3:2:2:2,verse3:2:3:2,chorus3:2:2:2,verse4:2:3:2,chorus4:3:2:2:2,verse5:2:3:3,chorus4",
 	"structure": [
 		"verse1",

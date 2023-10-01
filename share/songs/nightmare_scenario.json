@@ -3,6 +3,8 @@
 	"title": "Painajaisskenaario",
 	"english_title": "Nightmare scenario",
 	"prj_name": "nightmare scenario",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

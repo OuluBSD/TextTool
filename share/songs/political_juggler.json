@@ -3,6 +3,8 @@
 	"title": "Poliittinen jonglööri",
 	"english_title": "Political juggler",
 	"prj_name": "political juggler",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

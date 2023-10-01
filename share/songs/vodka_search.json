@@ -3,6 +3,8 @@
 	"title": "Viinan etsintä",
 	"english_title": "Vodka search",
 	"prj_name": "vodka search",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

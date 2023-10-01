@@ -3,6 +3,8 @@
 	"title": "Anna mun viedä sut pois",
 	"english_title": "Let me take you away",
 	"prj_name": "let me take you away",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

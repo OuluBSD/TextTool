@@ -3,6 +3,8 @@
 	"title": "Brittiläinen utopia",
 	"english_title": "British utopia",
 	"prj_name": "british utopia",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

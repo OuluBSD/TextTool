@@ -8,6 +8,10 @@ class TxtAutoCompare : public SongToolCtrl {
 	DocEdit best;
 	
 	DocEdit edit_source;
+	Label lbl_def_syllables;
+	EditIntSpin def_syllables;
+	Label lbl_def_attr_count;
+	EditIntSpin def_attr_count;
 	
 	bool is_disabled = false;
 	int running_count = 0;
@@ -24,7 +28,7 @@ class TxtAutoCompare : public SongToolCtrl {
 	String other_key;
 	
 	int attr_begin_row = -1;
-	Vector<int> tmp_sug_ids;
+	Vector<Vector<int>> tmp_sug_ids;
 	
 public:
 	typedef TxtAutoCompare CLASSNAME;
@@ -40,8 +44,10 @@ public:
 	void DataSongRhymeData();
 	void SetSuggestionScore(EditIntNotNullSpin* e, Song::Suggestion* sug);
 	void CopyAIToUser();
+	void CopyUserToAI();
 	void ImportEnglish();
 	void ImproveSourceText(int style);
+	void LimitContentSyllableCount();
 	void UpdateRhymes(Song::SongPart& sp, int src);
 	void EvaluatePoeticStyles(int i, int src);
 	void EvaluateSuggestionScores();
@@ -55,10 +61,12 @@ public:
 	void OnSongPartContentEdit();
 	void OnAcceptEditSource();
 	void OnSongPartContentChange(DocEdit* e, Song::SongPart* sp);
-	void OnSuggestionScore(String res, Song::Rhyme* r);
-	void OnSuggestionOrder(String res, Song::Rhyme* r);
+	void OnSuggestionScore(String res, Song::Rhyme* r, bool post_enable);
+	void OnSuggestionOrder(String res, Song::Rhyme* r, int idx);
 	void OnAIAttributes(String res, Song::Rhyme* r);
 	void OnSourceTextImprovements(String res, int begin, int end, Song* s);
+	void OnSongSyllableChange();
+	void OnSongAttrCountChange();
 	Song::SongPart* GetActiveSongPart();
 	Song::Rhyme* GetActiveRhyme();
 	String GetBestSuggestionSong(const Song::SongPart& sp) const;
@@ -66,7 +74,7 @@ public:
 	void DisableAll();
 	void EnableAll();
 	void UpdateRhymesToSource(int src);
-	void OnSongPartSyllableChane(Song::SongPart* sp, EditIntSpin* e);
+	void OnSongPartSyllableChange(Song::SongPart* sp, EditString* e);
 	
 };
 

@@ -3,6 +3,8 @@
 	"title": "Avaruustuuli",
 	"english_title": "Spacewind",
 	"prj_name": "spacewind",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

@@ -3,6 +3,8 @@
 	"title": "Rentoa",
 	"english_title": "Relaxed",
 	"prj_name": "relaxed",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

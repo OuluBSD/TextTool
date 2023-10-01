@@ -3,6 +3,8 @@
 	"title": "Uuteen nousuun",
 	"english_title": "Rising again",
 	"prj_name": "pirate song -c",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

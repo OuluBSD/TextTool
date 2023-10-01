@@ -3,6 +3,8 @@
 	"title": "Deitti-ilta",
 	"english_title": "Date night",
 	"prj_name": "date night",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

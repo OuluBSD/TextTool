@@ -3,6 +3,8 @@
 	"title": "Eeppistä",
 	"english_title": "Epic",
 	"prj_name": "epic (or yellow)",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

@@ -3,6 +3,8 @@
 	"title": "Kevyt",
 	"english_title": "Lightweight",
 	"prj_name": "lightweight",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

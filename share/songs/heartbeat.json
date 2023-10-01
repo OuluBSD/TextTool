@@ -3,6 +3,8 @@
 	"title": "Sydämen Asialla",
 	"english_title": "Heartbeat",
 	"prj_name": "heartbeat",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 
@@ -612,7 +614,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 1b",
@@ -928,7 +930,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 1c",
@@ -1250,7 +1252,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 1d",
@@ -1568,7 +1570,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 2a",
@@ -1890,7 +1892,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 2b",
@@ -2218,7 +2220,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 2c",
@@ -2411,7 +2413,7 @@
 
 			],
 			"outdated_suggestions": true,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 2d",
@@ -2733,7 +2735,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Chorus 1",
@@ -3066,7 +3068,7 @@
 
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Chorus 2",
@@ -3086,7 +3088,7 @@
 
 			],
 			"outdated_suggestions": true,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Bridge 1a",
@@ -3264,7 +3266,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Bridge 1b",
@@ -3442,7 +3444,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		}
 	]
 }

@@ -3,6 +3,8 @@
 	"title": "Sun kanssa",
 	"english_title": "With You",
 	"prj_name": "with you - a",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

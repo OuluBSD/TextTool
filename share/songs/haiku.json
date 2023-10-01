@@ -3,6 +3,8 @@
 	"title": "Haiku",
 	"english_title": "Haiku",
 	"prj_name": "haiku",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

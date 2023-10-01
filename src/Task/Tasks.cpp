@@ -602,8 +602,10 @@ bool Task::RunOpenAI_Completion() {
 	prompt = FixInvalidChars(prompt); // NOTE: warning: might break something
 	//prompt.Replace("\'", "\\\'");
 	
+    // "model": "text-davinci-003",
+    
 	String txt = R"_({
-    "model": "text-davinci-003",
+    "model": "gpt-3.5-turbo-instruct",
     "prompt": ")_" + prompt + R"_(",
     "max_tokens": )_" + IntStr(input.response_length) + R"_(,
     "temperature": 1

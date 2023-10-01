@@ -3,6 +3,8 @@
 	"title": "Merta päin",
 	"english_title": "Sea shanty",
 	"prj_name": "sea shanty",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

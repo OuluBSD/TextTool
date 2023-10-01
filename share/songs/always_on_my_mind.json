@@ -3,6 +3,8 @@
 	"title": "Aina mielessä",
 	"english_title": "Always on my mind",
 	"prj_name": "always on my mind",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

@@ -3,6 +3,8 @@
 	"title": "Identiteettinä raato",
 	"english_title": "Corpse identity",
 	"prj_name": "corpse identity",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

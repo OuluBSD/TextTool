@@ -6,58 +6,47 @@
 #define IMAGEFILE <ToolCore/App.iml>
 #include <Draw/iml_source.h>
 
-const char* RhymeSchemes[RHYME_COUNT][2] {
-	{"AA", t_("2-line end rhyme")},
-	{"XA,XA", t_("Single two-line stanza without internal rhyme")},
-	{"AX,AX", t_("Single two-line begin rhyme without internal rhyme")},
-	{"AB,AB", t_("Single two-line stanza with internal rhyme")},
-	{"AAB,XXB", t_("Two-line end-rhyming with internal rhyme in 1st line")},
-	{"XXA,BBA", t_("Two-line end-rhyming with internal rhyme in 2nd line")},
-	{"AAB,CCB", t_("Two-line end-rhyming with internal rhyme in both lines")},
-	{"ABB,ABB", t_("Two-line end-rhyming with internal rhymes in both lines")},
-	{"ABA,ABA", t_("Two-line rhyming with internal rhymes in both lines")},
+		
+const char* RhymeSchemes[RHYME_COUNT][3] {
+	{"A/A", t_("same end rhyming for both lines"), "same end rhyming for all 2 lines"},
 	
-	{"AAAA", t_("4-line end rhyme")},
-	{"XAAA", t_("3-line end rhyme with open beginning")},
-	{"AAAX", t_("3-line end rhyme with open ending")},
-	{"XAXA", t_("4 lines, no rhyming 1. & 3., connected")},
-	{"ABAB", t_("4 lines, alternating rhyming, connected")},
-	{"AbAb", t_("4 lines, 1. & 3. lines are same, connected")},
-	{"aBaB", t_("4 lines, 2. & 4. lines are same, connected")},
-	{"XA XA", t_("4 lines, no rhyming 1. & 3., disconnected")},
-	{"AB AB", t_("4 lines, alternating rhyming, disconnected")},
-	{"AA,XB CC,XB", t_("Ballad stanza. 4 lines, internal rhymes in 1. & 3. lines and end rhymes in 2. & 4. lines")},
+	{"AB/AB", t_("internal rhyming for both lines"), "internal rhyming for all 2 lines"},
+	{"AAC/BBC (problematic)", t_("both internal rhyming and end rhyming"),
+		"1. line must have internal rhyming and end rhyming\n"
+		"2. line must have internal rhyming and end rhyming"},
+	//{"A/AB", t_("end-to-internal rhyming with free end"),
+	//	"2 rhyming words are in the end of the 1st line and in the middle of the 2nd line"},
 	
-	{"AAAC BBBC", t_("Double 4-lines, 3 lines rhyming, rhymes in the end of parts")},
-	{"CAAA CBBB", t_("Double 4-lines, 3 lines rhyming, rhymes in the beginning of parts")},
-	{"A1abA2 A1abA2", t_("2 times 4 lines, with same 1. & 4. lines")},
+	{"A/A/A", t_("same end rhyming for 3 lines"), "same end rhyming for all 3 lines"},
+	{"AB/AB/AB", t_("internal rhyming for 3 lines"), "internal rhyming for all 3 lines"},
+	{"AAD/BBD/CCD (problematic)", t_("both internal rhyming and end rhyming"), "all lines must have internal rhyming and end rhyming"},
+	
+	{"A/A/A/A", t_("same end rhyming for all 4 lines"), "same end rhyming for all 4 lines"},
+	{"A/B/A/B", t_("rhyming with every 2nd line"),
+		"1. line must not end rhyme with next line, but line after that\n"
+		"2. line must not end rhyme with next line, but line after that"},
+	{"A/C/B/C", t_("rhyming with 2nd and 4th lines"),
+		"1. and 3. must not have end rhyming\n"
+		"2. line must not end rhyme with next line, but line after that"},
+	{"AA/C/BB/C", t_("internal rhyming and rhyming with 2nd and 4th lines"),
+		"1. and 3. must not have end rhyming, but internal rhyming\n"
+		"2. and 4. line must have end rhyming"},
 };
 
 const int RhymeSchemeLineCount[RHYME_COUNT] = {
 	2,
 	2,
 	2,
-	2,
-	2,
-	2,
-	2,
-	2,
-	2,
+	//2,
+	
+	3,
+	3,
+	3,
 	
 	4,
 	4,
 	4,
 	4,
-	4,
-	4,
-	4,
-	4,
-	4,
-	4,
-	
-	8,
-	8,
-	8,
 };
 
 int FindRhymeType(const char* name) {

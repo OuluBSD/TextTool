@@ -3,6 +3,8 @@
 	"title": "Kiitos kaikille",
 	"english_title": "Thanks everyone",
 	"prj_name": "thanks everyone",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

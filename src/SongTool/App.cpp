@@ -71,7 +71,7 @@ void SongTool::MainMenu(Bar& bar) {
 	});
 	bar.Sub(t_("Tools"), [this](Bar& bar) {
 		bar.Add(t_("Show orphaned files"), THISBACK(ShowOrphanedFiles));
-		bar.Add(t_("Make Tasks"), THISBACK(MakeTasks)).Key(K_CTRL_R);
+		bar.Add(t_("Make Tasks"), THISBACK(MakeTasks));//.Key(K_CTRL_R);
 	});
 }
 

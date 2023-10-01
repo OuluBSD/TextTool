@@ -3,6 +3,8 @@
 	"title": "Kehuja vai kiitosta?",
 	"english_title": "Praise or thanks",
 	"prj_name": "praise or thanks",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

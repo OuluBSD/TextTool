@@ -3,6 +3,8 @@
 	"title": "Lohduttava ystävä",
 	"english_title": "Comforting friend",
 	"prj_name": "comforting friend",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

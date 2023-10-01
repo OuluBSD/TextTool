@@ -3,6 +3,8 @@
 	"title": "Maailman ympäri",
 	"english_title": "Around the world",
 	"prj_name": "around the world",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

@@ -3,6 +3,8 @@
 	"title": "Reunalla jälleen",
 	"english_title": "At the edge again",
 	"prj_name": "edge - b",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

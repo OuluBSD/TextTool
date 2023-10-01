@@ -3,6 +3,8 @@
 	"title": "Hän joka unohtui",
 	"english_title": "The one who forgot",
 	"prj_name": "the one who forgot",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

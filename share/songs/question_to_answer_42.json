@@ -3,6 +3,8 @@
 	"title": "Kysymys vastaukseen 42",
 	"english_title": "Question to answer 42",
 	"prj_name": "question to answer 42",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

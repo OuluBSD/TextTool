@@ -3,6 +3,8 @@
 	"title": "Jäniksen elämä",
 	"english_title": "Rabbit's life",
 	"prj_name": "rabbit's life",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

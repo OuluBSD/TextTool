@@ -89,7 +89,7 @@ struct Song :
 		Array<Rhyme> rhymes;
 		String rhyme_scheme;
 		VectorMap<String,String> data;
-		int syllables = 0;
+		String syllable_str;
 		bool outdated_suggestions = true;
 		void Jsonize(JsonIO& json) {
 			json
@@ -100,7 +100,7 @@ struct Song :
 				("rhyme_scheme", rhyme_scheme)
 				("data", data)
 				("outdated_suggestions", outdated_suggestions)
-				("syllables", syllables)
+				("syllable_str", syllable_str)
 				;
 		}
 		
@@ -118,6 +118,8 @@ struct Song :
 	MArr<String>				content;
 	VectorMap<String,String>	data;
 	Array<SongPart>				parts;
+	int							default_line_syllables = 0;
+	int							default_attr_count = 7;
 	
 	// Temp
 	Pipe*				pipe = 0;
@@ -155,6 +157,8 @@ struct Song :
 			("title", native_title)
 			("english_title", english_title)
 			("prj_name", prj_name)
+			("default_line_syllables", default_line_syllables)
+			("default_attr_count", default_attr_count)
 			("structure_str", structure_str)
 			("structure", structure)
 			("content", content)

@@ -3,6 +3,8 @@
 	"title": "Aika pysähtyy",
 	"english_title": "Time stands still",
 	"prj_name": "time stands still",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

@@ -3,6 +3,8 @@
 	"title": "Outo",
 	"english_title": "Weird",
 	"prj_name": "weird",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

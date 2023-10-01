@@ -3,6 +3,8 @@
 	"title": "Löysin jotain",
 	"english_title": "I found something",
 	"prj_name": "I'll find something - part 3",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

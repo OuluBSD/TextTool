@@ -3,6 +3,8 @@
 	"title": "Hyväsien summa",
 	"english_title": "Sum of goodbyes",
 	"prj_name": "sum of goodbyes (or tired)",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

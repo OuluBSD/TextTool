@@ -3,6 +3,8 @@
 	"title": "Kersantti Pippuri",
 	"english_title": "Sergeant Pepper",
 	"prj_name": "sergeant pepper",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

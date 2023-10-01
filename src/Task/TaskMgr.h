@@ -87,7 +87,7 @@ struct TaskMgr {
 	void ConvertSongStructureToEnglish(String struct_txt, Event<String> WhenResult);
 	void EvaluateSongAudience(String src_key, String dst_key, int mode, Callback WhenDone);
 	void MakePoetic(String style, String src_key, String dst_key, Callback WhenDone);
-	void EvaluatePoeticStyles(String rhyme, String rhyme_scheme, int rhyme_scheme_line_count, String attrs, int syllables, Event<String> WhenResult);
+	void EvaluatePoeticStyles(String rhyme, String rhyme_scheme, int rhyme_scheme_line_count, String attrs, String syllable_count_str, Event<String> WhenResult);
 	void ConvertScreenplayToPlan(String src_key, String dst_key, Callback WhenDone);
 	void ConvertScreenplayToStructure(String orig_txt, Event<String> WhenResult);
 	void ConvertStructureToScreenplay(String orig_txt, Event<String> WhenResult);
@@ -99,7 +99,8 @@ struct TaskMgr {
 	void EvaluateSuggestionScores(const Vector<String>& strs, Event<String> WhenResult);
 	void EvaluateSuggestionOrder(const Vector<String>& strs, Event<String> WhenResult);
 	void ImproveSourceText(const Vector<String>& strs, int style, Event<String> WhenResult);
-	void GetAIAttributes(String orig_txt, Event<String> WhenResult);
+	void LimitSyllableCount(const Vector<String>& strs, int syllables, Event<String> WhenResult);
+	void GetAIAttributes(String orig_txt, int attr_count, Event<String> WhenResult);
 	
 };
 

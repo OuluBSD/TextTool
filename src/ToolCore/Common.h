@@ -8,35 +8,24 @@
 
 
 enum {
-	RHYME_AA,
-	RHYME_XA_XA,
-	RHYME_AX_AX,
+	RHYME_A_A,
 	RHYME_AB_AB,
-	RHYME_AAB_XXB,
-	RHYME_XXA_BBA,
-	RHYME_AAB_CCB,
-	RHYME_ABB_ABB,
-	RHYME_ABA_ABA,
+	RHYME_AAC_BBC,
+	//RHYME_A_AB,
 	
-	RHYME_AAAA,
-	RHYME_XAAA,
-	RHYME_AAAX,
-	RHYME_XAXA,
-	RHYME_ABAB,
-	RHYME_AbAb,
-	RHYME_aBaB,
-	RHYME_XA__XA,
-	RHYME_AB__AB,
-	RHYME_AA_XB__CC_XB,
+	RHYME_A_A_A,
+	RHYME_AB_AB_AB_,
+	RHYME_AAD_BBC_CCD,
 	
-	RHYME_AAAC__BBBC,
-	RHYME_CAAA__CBBB,
-	RHYME_A1ABA2_A1ABA2,
+	RHYME_A_A_A_A,
+	RHYME_A_B_A_B,
+	RHYME_A_C_B_C,
+	RHYME_AA_C_BB_C,
 	
 	RHYME_COUNT
 };
 
-extern const char* RhymeSchemes[RHYME_COUNT][2];
+extern const char* RhymeSchemes[RHYME_COUNT][3];
 extern const int RhymeSchemeLineCount[RHYME_COUNT];
 
 int FindRhymeType(const char* name);

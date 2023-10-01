@@ -3,6 +3,8 @@
 	"title": "Teknokraattinen palomuuri",
 	"english_title": "Technocracy firewall",
 	"prj_name": "technocracy firewall",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

@@ -3,6 +3,8 @@
 	"title": "Kun oon sun kanssa",
 	"english_title": "When I'm with you",
 	"prj_name": "when I'm with you",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

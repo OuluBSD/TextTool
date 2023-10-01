@@ -3,6 +3,8 @@
 	"title": "Ukkonen",
 	"english_title": "Thunderstorm",
 	"prj_name": "Summer 2020 (Thunderstorm)",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

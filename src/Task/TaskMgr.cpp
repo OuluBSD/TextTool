@@ -74,6 +74,14 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_ImproveSourceText)
 		;
 	
+	AddRule(TASK_LIMIT_SYLLABLE_COUNT, "limit syllable count")
+			.Arg(V_PTR_PIPE)
+		.Input(&Task::CreateInput_LimitSyllableCount)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 2, 100)
+		.Process(&Task::Process_LimitSyllableCount)
+		;
+	
 	AddRule(TASK_CONVERT_SONG_STRUCTURE_TO_ENGLISH, "convert song structure to english")
 		.Input(&Task::CreateInput_ConvertSongStructureToEnglish)
 			.Arg(V_PTR_PIPE)
@@ -105,7 +113,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 	AddRule(TASK_GET_AI_ATTRIBUTES, "get ai attributes")
 		.Input(&Task::CreateInput_GetAIAttributes)
 			.Arg(V_PTR_PIPE)
-			.Arg(V_ARGS, 1, 1)
+			.Arg(V_ARGS, 2, 2)
 		.Process(&Task::Process_GetAIAttributes)
 		;
 	
@@ -956,7 +964,22 @@ void TaskMgr::ImproveSourceText(const Vector<String>& strs, int style, Event<Str
 	t.WhenResult << WhenResult;
 }
 
-void TaskMgr::GetAIAttributes(String orig_txt, Event<String> WhenResult) {
+void TaskMgr::LimitSyllableCount(const Vector<String>& strs, int syllables, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_LIMIT_SYLLABLE_COUNT);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << IntStr(syllables);
+	t.args.Append(strs);
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::GetAIAttributes(String orig_txt, int attr_count, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_AI_ATTRIBUTES);
@@ -966,7 +989,7 @@ void TaskMgr::GetAIAttributes(String orig_txt, Event<String> WhenResult) {
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
-	t.args << orig_txt;
+	t.args << orig_txt << IntStr(attr_count);
 	t.WhenResult << WhenResult;
 }
 
@@ -1045,7 +1068,7 @@ void TaskMgr::EvaluatePoeticStyles(
 	String rhyme, String rhyme_scheme,
 	int rhyme_scheme_line_count,
 	String attrs,
-	int syllables,
+	String syllable_count_str,
 	Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
@@ -1059,7 +1082,7 @@ void TaskMgr::EvaluatePoeticStyles(
 	t.args	<< rhyme
 			<< rhyme_scheme
 			<< IntStr(rhyme_scheme_line_count)
-			<< IntStr(syllables)
+			<< syllable_count_str
 			<< attrs;
 	t.WhenResult << WhenResult;
 }

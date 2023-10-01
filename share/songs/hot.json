@@ -3,6 +3,8 @@
 	"title": "Kuuma",
 	"english_title": "Hot",
 	"prj_name": "hot pt1",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

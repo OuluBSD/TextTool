@@ -3,6 +3,8 @@
 	"title": "Kaljujen puolue",
 	"english_title": "Bald party",
 	"prj_name": "bald party",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

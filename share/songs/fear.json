@@ -3,6 +3,8 @@
 	"title": "Pelko",
 	"english_title": "Fear",
 	"prj_name": "fear",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

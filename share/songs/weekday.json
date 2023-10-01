@@ -3,6 +3,8 @@
 	"title": "Arkipäivä",
 	"english_title": "Weekday",
 	"prj_name": "weekday",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

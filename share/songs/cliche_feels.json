@@ -3,6 +3,8 @@
 	"title": "Kliseistä",
 	"english_title": "Cliche feels",
 	"prj_name": "cliche feels",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

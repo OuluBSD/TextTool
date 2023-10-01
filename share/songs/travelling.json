@@ -3,6 +3,8 @@
 	"title": "Matkustamassa",
 	"english_title": "Travelling",
 	"prj_name": "travel",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

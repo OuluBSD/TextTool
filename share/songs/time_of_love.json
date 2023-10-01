@@ -3,6 +3,8 @@
 	"title": "Rakkauden Aika",
 	"english_title": "Time of Love",
 	"prj_name": "candyday",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 
@@ -486,7 +488,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 1b",
@@ -670,7 +672,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 1c",
@@ -850,7 +852,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 1d",
@@ -1034,7 +1036,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 1e",
@@ -1214,7 +1216,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 1f",
@@ -1394,7 +1396,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 1g",
@@ -1570,7 +1572,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 1h",
@@ -1754,7 +1756,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Chorus 1a",
@@ -2094,7 +2096,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 2a",
@@ -2282,7 +2284,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 2b",
@@ -2466,7 +2468,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 2c",
@@ -2642,7 +2644,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 2d",
@@ -2822,7 +2824,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 2e",
@@ -3006,7 +3008,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 2f",
@@ -3182,7 +3184,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 2g",
@@ -3370,7 +3372,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 2h",
@@ -3562,7 +3564,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 3a",
@@ -3746,7 +3748,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 3b",
@@ -3926,7 +3928,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 3c",
@@ -4106,7 +4108,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 3d",
@@ -4282,7 +4284,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 3e",
@@ -4454,7 +4456,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 3f",
@@ -4626,7 +4628,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 3g",
@@ -4806,7 +4808,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		},
 		{
 			"name": "Verse 3h",
@@ -4982,7 +4984,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllables": 0
+			"syllable_str": ""
 		}
 	]
 }

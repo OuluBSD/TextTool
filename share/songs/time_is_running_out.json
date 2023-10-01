@@ -3,6 +3,8 @@
 	"title": "Aika loppuu",
 	"english_title": "Time is running out",
 	"prj_name": "time is running out",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

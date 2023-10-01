@@ -3,6 +3,8 @@
 	"title": "Niinkuin se",
 	"english_title": "Like that",
 	"prj_name": "like that",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

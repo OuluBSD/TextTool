@@ -3,6 +3,8 @@
 	"title": "Ennen aamua",
 	"english_title": "Before dawn",
 	"prj_name": "before dawn - a",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

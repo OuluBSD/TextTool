@@ -3,6 +3,8 @@
 	"title": "Söpö tarina",
 	"english_title": "Cute story",
 	"prj_name": "cute story - c",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

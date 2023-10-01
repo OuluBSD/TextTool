@@ -3,6 +3,8 @@
 	"title": "Mulla on ikävä sua",
 	"english_title": "Missing you",
 	"prj_name": "missing you",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

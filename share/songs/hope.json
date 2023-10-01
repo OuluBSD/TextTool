@@ -3,6 +3,8 @@
 	"title": "Toivo",
 	"english_title": "Hope",
 	"prj_name": "AGFC",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

@@ -3,6 +3,8 @@
 	"title": "Kauppatori",
 	"english_title": "Public square",
 	"prj_name": "public square",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

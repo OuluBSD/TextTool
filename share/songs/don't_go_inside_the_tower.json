@@ -3,6 +3,8 @@
 	"title": "Älä mee torniin",
 	"english_title": "Don't go inside the tower",
 	"prj_name": "Summer 2020 (Don't go inside the tower)",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

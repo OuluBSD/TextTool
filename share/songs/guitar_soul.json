@@ -3,6 +3,8 @@
 	"title": "Kitarasielu",
 	"english_title": "Guitar soul",
 	"prj_name": "guitar soul",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

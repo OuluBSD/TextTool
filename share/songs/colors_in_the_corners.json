@@ -3,6 +3,8 @@
 	"title": "Värit nurkissa",
 	"english_title": "Colors in the corners",
 	"prj_name": "colors in the corners",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

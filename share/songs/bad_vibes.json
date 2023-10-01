@@ -3,6 +3,8 @@
 	"title": "Huonot vibat",
 	"english_title": "Bad vibes",
 	"prj_name": "bad vibes",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

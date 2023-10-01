@@ -3,6 +3,8 @@
 	"title": "Lentäjä-ässä",
 	"english_title": "Ace",
 	"prj_name": "ace",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

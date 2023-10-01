@@ -3,6 +3,8 @@
 	"title": "Hullut latotanssit",
 	"english_title": "Crazy barn ball",
 	"prj_name": "crazy barn ball",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

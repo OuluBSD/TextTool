@@ -3,6 +3,8 @@
 	"title": "Hikinen tervehdys",
 	"english_title": "Sweaty hello",
 	"prj_name": "sweaty hello",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

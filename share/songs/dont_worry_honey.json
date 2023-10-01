@@ -3,6 +3,8 @@
 	"title": "Älä huoli rakas",
 	"english_title": "Don't worry honey",
 	"prj_name": "dont worry honey",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

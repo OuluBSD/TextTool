@@ -3,6 +3,8 @@
 	"title": "Vanha tarina toistui jälleen",
 	"english_title": "The old story repeated itself again",
 	"prj_name": "trad story",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

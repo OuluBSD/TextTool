@@ -3,6 +3,8 @@
 	"title": "Pidän paikat turvallisena hänelle",
 	"english_title": "Keeping place safe for her",
 	"prj_name": "keeping place safe for her",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

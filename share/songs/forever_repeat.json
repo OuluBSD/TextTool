@@ -3,6 +3,8 @@
 	"title": "Ikuinen luuppi",
 	"english_title": "Forever repeat",
 	"prj_name": "forever repeat",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

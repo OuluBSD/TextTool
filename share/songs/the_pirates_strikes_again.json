@@ -3,6 +3,8 @@
 	"title": "Piraatit iskevät jälleen",
 	"english_title": "The pirates strikes again",
 	"prj_name": "pirate song - b",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

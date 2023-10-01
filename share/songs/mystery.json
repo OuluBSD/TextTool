@@ -3,6 +3,8 @@
 	"title": "Mysteeri",
 	"english_title": "Mystery",
 	"prj_name": "mystery",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

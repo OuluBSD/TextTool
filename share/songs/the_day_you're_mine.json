@@ -3,6 +3,8 @@
 	"title": "Se päivä kun olet minun",
 	"english_title": "The day you're mine",
 	"prj_name": "yhe day you're mine",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

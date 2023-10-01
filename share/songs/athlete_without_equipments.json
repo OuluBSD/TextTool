@@ -3,6 +3,8 @@
 	"title": "Juoksija ilman jalkoja",
 	"english_title": "Athlete without equipments",
 	"prj_name": "athlete without equipments",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

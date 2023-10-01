@@ -3,6 +3,8 @@
 	"title": "Ammattiylpeys",
 	"english_title": "Professional pride",
 	"prj_name": "professional pride",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

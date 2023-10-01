@@ -3,6 +3,8 @@
 	"title": "Hukassa nettikaupassa",
 	"english_title": "Lost in online store",
 	"prj_name": "lost in online store",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 

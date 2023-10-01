@@ -3,6 +3,8 @@
 	"title": "Sun rinnalla",
 	"english_title": "By your side",
 	"prj_name": "by your side",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
 	"structure_str": "",
 	"structure": [
 
