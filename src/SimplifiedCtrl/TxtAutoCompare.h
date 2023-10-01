@@ -53,6 +53,9 @@ public:
 	void EvaluateSuggestionScores();
 	void EvaluateExtraSuggestionScores();
 	void GetAIAttributes();
+	void MorphAttrsTowardsContext();
+	void MakeContentMoreLikeAttributes();
+	
 	void PostOnPoeticRecv(String res, int part, int rhyme) {PostCallback(THISBACK3(OnPoeticRecv, res, part, rhyme));}
 	void OnPoeticRecv(String res, int part, int rhyme);
 	void OnAttrChange(Song::SongPart* sp, const char* s, DropList* dl);
@@ -67,6 +70,8 @@ public:
 	void OnSourceTextImprovements(String res, int begin, int end, Song* s);
 	void OnSongSyllableChange();
 	void OnSongAttrCountChange();
+	void OnMorphToAttributes(String res, Song::SongPart* s, Song::Rhyme* r);
+	
 	Song::SongPart* GetActiveSongPart();
 	Song::Rhyme* GetActiveRhyme();
 	String GetBestSuggestionSong(const Song::SongPart& sp) const;

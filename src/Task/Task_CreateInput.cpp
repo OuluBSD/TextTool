@@ -2138,7 +2138,7 @@ void Task::CreateInput_GetAIAttributes() {
 	// List of axes:
 	// -a Integrity: +honest/-twisted
 	TaskTitledList& axes = input.AddSub();
-	axes			.Title("List of axes of attributes")
+	axes			.Title("List of axes of attribute groups and their polar opposite values")
 					.CountLinesAlpha();
 	for (const Attr::ScoringType& t : g.attr_scorings)
 		axes.Add(t.klass, t.axes0 + " vs " + t.axes1);
@@ -2163,7 +2163,47 @@ void Task::CreateInput_GetAIAttributes() {
 		results.EmptyLine();
 	}
 	
-	LOG(input.AsString());
+	//LOG(input.AsString());
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_MorphToAttributes() {
+	Database& db = Database::Single();
+	PipePtrs& p = this->p;
+	Pipe& pipe = *p.pipe;
+	Attributes& g = pipe;
+	
+	g.Realize(); // TODO very hacky solution... this should be in Database already
+	
+	
+	Vector<String> lines = Split(args[0], "\n");
+	{
+		TaskTitledList& list = input.AddSub().Title("Lyrics \"A\"");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
+	}
+	
+	// List of axes:
+	// -a Integrity: +honest/-twisted
+	{
+		Vector<String> attrs = Split(args[1], "\n");
+		TaskTitledList& axes = input.AddSub();
+		axes			.Title("List of preferable attributes")
+						.CountLinesAlpha();
+		for (const String& line : attrs)
+			axes		.Add(line);
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		//results.Title("Same lyrics in short but deeply biased style for lines 1-" + IntStr(list_len));
+		results.Title("Modified lyrics \"A\", which the same pronouns, but different content, which matches to given preferable attributes. " + IntStr(lines.GetCount()) + " lines");
+		results.EmptyLine();
+	}
+	
+	//LOG(input.AsString());
 	
 	input.response_length = 1024*2;
 }

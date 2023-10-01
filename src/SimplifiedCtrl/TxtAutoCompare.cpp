@@ -116,6 +116,8 @@ void TxtAutoCompare::ToolMenu(Bar& bar) {
 	bar.Add(t_("Evaluate suggestion scores"), AppImg::Snap(), THISBACK(EvaluateSuggestionScores)).Key(K_CTRL_T);
 	bar.Add(t_("Evaluate order of top suggestions"), AppImg::Snap(), THISBACK(EvaluateExtraSuggestionScores)).Key(K_CTRL_Y);
 	//bar.Add(t_("Evaluate all lines"), AppImg::Root(), THISBACK1(EvaluatePoeticStyles, 1)).Key(K_F7);
+	bar.Add(t_("Morph towards context attributes"), AppImg::RedRing(), THISBACK(MorphAttrsTowardsContext)).Key(K_CTRL_3);
+	bar.Add(t_("Make content text to match more to attributes"), AppImg::RedRing(), THISBACK(MakeContentMoreLikeAttributes)).Key(K_CTRL_4);
 	
 	bar.Add(lbl_def_syllables, Size(150,22));
 	bar.Add(def_syllables, Size(100,22));
@@ -539,6 +541,146 @@ void TxtAutoCompare::GetAIAttributes() {
 		
 		TaskMgr& m = *p.song->pipe;
 		m.GetAIAttributes(content, song.default_attr_count, THISBACK1(OnAIAttributes, &r));
+	}
+}
+
+void TxtAutoCompare::MorphAttrsTowardsContext() {
+	using namespace Attr;
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.release || !p.artist)
+		return;
+	Song& song = *p.song;
+	
+	if (!rhymes.IsCursor())
+		return;
+	int c = rhymes.GetCursor();
+	
+	int part_i = rhymes.Get(c, "PART_IDX");
+	int rhyme_i = rhymes.Get(c, "RHYME_IDX");
+	
+	if (part_i < 0 ||part_i >= song.parts.GetCount())
+		return;
+	Song::SongPart& sp = song.parts[part_i];
+	
+	if (rhyme_i < 0 ||rhyme_i >= sp.rhymes.GetCount())
+		return;
+	Song::Rhyme& r = sp.rhymes[rhyme_i];
+	
+	int morph_count = 0;
+	int morph_limit = 1;
+	
+	for (int cmp = 0; cmp < 3; cmp++) {
+		VectorMap<String,String>* data = 0;
+		switch (cmp) {
+			case 0: data = &p.song->data; break;
+			case 1: data = &p.release->data; break;
+			case 2: data = &p.artist->data; break;
+		}
+		
+		for(int i = 0; i < ATTR_COUNT; i++) {
+			const char* key = AttrKeys[i][0];
+			int j;
+			j = data->Find(key);
+			if (j < 0)
+				continue;
+			String cmp_value_str = (*data)[j];
+			int cmp_value = StrInt(cmp_value_str);
+			
+			j = r.data.Find(key);
+			if (j >= 0) {
+				int value = StrInt(r.data[j]);
+				
+				if (value != 0 && cmp_value != 0 && value != cmp_value) {
+					// Found a value to morph
+					value *= -1;
+					r.data[j] = IntStr(value);
+					morph_count++;
+				}
+			}
+			
+			if (morph_count >= morph_limit) break;
+		}
+		if (morph_count >= morph_limit) break;
+	}
+	
+	PostCallback(THISBACK1(DataSongPart, true));
+}
+
+void TxtAutoCompare::MakeContentMoreLikeAttributes() {
+	using namespace Attr;
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.release || !p.artist)
+		return;
+	Song& song = *p.song;
+	
+	if (!rhymes.IsCursor())
+		return;
+	int c = rhymes.GetCursor();
+	
+	int part_i = rhymes.Get(c, "PART_IDX");
+	int rhyme_i = rhymes.Get(c, "RHYME_IDX");
+	
+	if (part_i < 0 ||part_i >= song.parts.GetCount())
+		return;
+	Song::SongPart& sp = song.parts[part_i];
+	
+	DisableAll();
+	
+	p.song->RealizePipe();
+	TaskMgr& m = *p.song->pipe;
+	
+	for (Song::Rhyme& r : sp.rhymes) {
+		Vector<String> attrs;
+		for (int cmp = 0; cmp < 4; cmp++) {
+			VectorMap<String,String>* data;
+			switch (cmp) {
+				case 0: data = &r.data; break;
+				case 1: data = &p.song->data; break;
+				case 2: data = &p.release->data; break;
+				case 3: data = &p.artist->data; break;
+			}
+			
+			for(int i = 0; i < Attr::ATTR_COUNT; i++) {
+				int j = data->Find(Attr::AttrKeys[i][0]);
+				if (j >= 0) {
+					int value = StrInt((*data)[j]);
+					if (value != 0) {
+						String value_str = value > 0 ? Attr::AttrKeys[i][2] : Attr::AttrKeys[i][3];
+						value_str = (String)Attr::AttrKeys[i][1] + ": " + value_str;
+						attrs << value_str;
+					}
+				}
+			}
+			if (attrs.GetCount())
+				break;
+		}
+		
+		if (attrs.GetCount())
+			m.MorphToAttributes(r.source, attrs, THISBACK2(OnMorphToAttributes, &sp, &r));
+	}
+}
+
+void TxtAutoCompare::OnMorphToAttributes(String res, Song::SongPart* s, Song::Rhyme* r) {
+	if (!s || !r) return;
+	
+	Vector<String> lines = Split(res, "\n");
+	for (String& line : lines) {
+		line = TrimBoth(line);
+		if (line.Left(1) == "-")
+			line = TrimBoth(line.Mid(1));
+	}
+	
+	if (r == &s->rhymes[0])
+		s->ai_source.Clear();
+	
+	r->source <<= lines;
+	s->ai_source.Append(lines);
+	
+	if (r == &s->rhymes.Top()) {
+		PostCallback(THISBACK(EnableAll));
+		PostCallback(THISBACK(DataSong));
 	}
 }
 
@@ -1072,16 +1214,10 @@ void TxtAutoCompare::LimitContentSyllableCount() {
 	Vector<Vector<String>> lines;
 	Vector<String>* cur = &lines.Add();
 	for (const Song::SongPart& sp : song.parts) {
-		if (0) {
-			String a = Join(sp.source, " / ");
-			*cur << a;
-		}
-		else {
-			for (const String& s : sp.source) {
-				if (cur->GetCount() >= per_batch)
-					cur = &lines.Add();
-				*cur << s;
-			}
+		for (const String& s : sp.ai_source) {
+			if (cur->GetCount() >= per_batch)
+				cur = &lines.Add();
+			*cur << s;
 		}
 	}
 	

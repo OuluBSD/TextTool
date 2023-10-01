@@ -1776,3 +1776,7 @@ void Task::Process_LimitSyllableCount() {
 void Task::Process_GetAIAttributes() {
 	WhenResult("- " + output);
 }
+
+void Task::Process_MorphToAttributes() {
+	WhenResult(output);
+}

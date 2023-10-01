@@ -110,6 +110,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_EvaluatePoeticStyles)
 		;
 	
+	AddRule(TASK_MORPH_TO_ATTRIBUTES, "morph to attributes")
+		.Input(&Task::CreateInput_MorphToAttributes)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 2, 2)
+		.Process(&Task::Process_MorphToAttributes)
+		;
+	
 	AddRule(TASK_GET_AI_ATTRIBUTES, "get ai attributes")
 		.Input(&Task::CreateInput_GetAIAttributes)
 			.Arg(V_PTR_PIPE)
@@ -1084,6 +1091,21 @@ void TaskMgr::EvaluatePoeticStyles(
 			<< IntStr(rhyme_scheme_line_count)
 			<< syllable_count_str
 			<< attrs;
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::MorphToAttributes(const Vector<String>& rhyme_lines, const Vector<String>& attrs, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_MORPH_TO_ATTRIBUTES);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << Join(rhyme_lines, "\n");
+	t.args << Join(attrs, "\n");
 	t.WhenResult << WhenResult;
 }
 

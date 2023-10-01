@@ -83,150 +83,162 @@
 				"Is to please narrow-minded people like you"
 			],
 			"ai_source": [
-				"Too many folks seek to change me",
-				"Trying to silence me with words",
-				"The last thing I'll ever do",
-				"Is cater to closed minds like you"
+				"Free beliefs, untouched by society's hold",
+				"Sexuality wild, unapologetic and bold",
+				"Shunning expectations, living with hope",
+				"Confident in my body, traditional norms elope"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"Too many folks seek to change me",
-						"Trying to silence me with words",
-						"The last thing I'll ever do",
-						"Is cater to closed minds like you"
+						"Free beliefs, untouched by society's hold",
+						"Sexuality wild, unapologetic and bold",
+						"Shunning expectations, living with hope",
+						"Confident in my body, traditional norms elope"
 					],
 					"suggestion": [
 						{
 							"style": "Red Hot Chili Peppers",
-							"content": "I'm loud and I'm wild\nYou can't change who I am\nMy spirit won't be tamed\nTo society's twisted game",
+							"content": "Outsider, free spirit\nBreaking norms, we won't quit\nDefying opinions, love is our oath\nConforming passersby, we loathe",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 4
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Beastie Boys",
-							"content": "I won't be silenced\nDon't come at me with your words\nI'll keep on rapping\nNot for your closed minds and herds",
+							"content": "Forget the labels, just dance\nNo care for society's glance\nOur sexuality is ours to mold\nLiberate yourself, break the mold",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 6
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "The Jimi Hendrix Experience",
-							"content": "I am who I am\nDon't try to change my essence\nMy freedom is mine\nI won't let you dull my presence",
+							"content": "Lust and love, colors blend\nEmbrace who you are, don't pretend\nLet your body be free\nUnshackle your mind, set yourself free",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 15
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Grandmaster Flash and the Furious Five",
-							"content": "My voice won't be hushed\nNo matter what you may say\nI'll keep speaking out\nAnd breaking through your facade today",
+							"content": "Raised voices, keep the fight\nTake pride, don't hide in sight\nSelf-expression, our right\nBreak barriers, shine in the light",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 1
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Bob Marley",
-							"content": "Do not try to mold me\nFor I am my own being\nStand against the hate\nAnd love is what we'll be seeing",
+							"content": "We're all one, love unites\nLet go of hate, embrace what's right\nTraditional norms, we cast aside\nLove knows no limits, it's a beautiful ride",
 							"score": 0,
-							"ai_score": 4,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Bob Dylan",
-							"content": "I won't be conformed\nTo fit your narrow-mindedness\nMy lyrics are mine\nI'll sing in my own wilderness",
+							"content": "Against conventions, we stand\nOur choices, ours to command\nLive boldly, without fear\nSociety's expectations, we do not adhere",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 9
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "The Beatles",
-							"content": "Don't try to change me\nI am who I am meant to be\nMy music is pure\nAnd that's all I'll ever be",
+							"content": "We come together, as we are\nLove and acceptance, our guiding star\nNo walls, no chains, we break free\nIn this world, we're proud to be",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 16
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "The Doors",
-							"content": "I refuse to be\nJust another pawn for you\nMy soul will not bend\nTo suit your closed-minded view",
+							"content": "Break the mold, let go of the past\nLive free, it's not meant to last\nSociety's expectations, let them fade\nOur love, unyielding, cannot be swayed",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 2
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Nirvana",
-							"content": "I won't be silenced\nMy voice will roar through the noise\nI'll stay true to me\nNo matter what they may deploy",
+							"content": "Against the grain, we'll defy\nEmbracing ourselves, unapologetically fly\nNo labels, no rules, just be\nOur heart's desires, wild and free",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 11
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Tupac Shakur",
-							"content": "I won't be a sell-out\nMy words are my own currency\nI'll stand my own ground\nIn this world of controversy",
+							"content": "Live true to yourself, never pretend\nEmbrace your sexuality, let norms bend\nShatter boundaries, rise above the mold\nIn this world, you're beautiful, bold",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 13
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Marvin Gaye",
-							"content": "Don't try to change me\nMy rhythm is in my soul\nI'll keep on singing\nDespite your attempts to control",
+							"content": "We are love, unbound and free\nBody and mind, they're both ours to be\nExpress yourself, without a care\nIn this world, we'll take our fair share",
 							"score": 0,
-							"ai_score": 5,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "N.W.A",
-							"content": "I won't be silenced\nMy voice is my weapon strong\nI'll keep on speaking\nFor those who've been silence for too long",
+							"content": "Against the system, we'll rise\nNo longer bound by society's lies\nOur bodies, our choices, our fate\nThe norms, we break and retaliate",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 5
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Run-DMC",
-							"content": "My lyrics are mine\nNo one can tell me what to say\nI'll keep on rocking\nAnd breaking down your walls every day",
+							"content": "No fear in our hearts, we stand tall\nSociety's chains, we'll break them all\nOur love, our strength, we'll hold tight\nIn this world, we'll shine bright",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 7
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Led Zeppelin",
-							"content": "You can't change me now\nMy music is my legacy\nI'll keep on soaring\nIn my own rock and roll fantasy",
+							"content": "Against the wind, we'll blaze\nTraditions, we'll never obey\nLove and desire, they're ours to own\nIn this world, we'll make our own throne",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 14
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Jefferson Airplane",
-							"content": "Don't try to change me\nI am my own psychedelic\nI'll keep on flying\nAnd spreading love with my music eclectic",
+							"content": "Against expectations, we'll rebel\nUnapologetically, we'll excel\nOur bodies, our souls, they're ours to explore\nIn this world, we'll open every door",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 10
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Madonna",
-							"content": "I won't be silenced\nMy voice is my liberation\nI'll keep on dancing\nAnd breaking through your oppression",
+							"content": "Our sexuality, we'll flaunt\nAgainst conventions, we'll taunt\nSociety's norms, we'll reject\nOur love, our bodies, we'll respect",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 12
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Buffalo Springfield",
-							"content": "Don't try to mold me\nI am who I am meant to be\nMy spirit won't bend\nFor your closed-minded ideology",
+							"content": "Stand for your beliefs, never sway\nIn this world, we'll make our own way\nAgainst criticism, we'll hold strong\nEmbracing ourselves, where we belong",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 8
+							"ai_score": 0,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Elton John",
-							"content": "I won't be tamed\nMy music is my freedom song\nI'll keep on playing\nAnd standing up against all wrongs",
+							"content": "In a world full of judgement and hate\nOur love, unbreakable, we'll celebrate\nNo need for conformity, we'll shine\nIn this world, our love will always align",
 							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 3
+							"ai_score": 0,
+							"ai_score_extra": 0
 						}
 					],
 					"data": [
 						{
-							"key": "SEXUALIZATION",
+							"key": "GENDER",
+							"value": "1"
+						},
+						{
+							"key": "IMAGERY",
+							"value": "-1"
+						},
+						{
+							"key": "EXPRESSION",
+							"value": "-1"
+						},
+						{
+							"key": "RELATIONSHIP_FOCUS",
 							"value": "-1"
 						},
 						{
@@ -234,24 +246,12 @@
 							"value": "1"
 						},
 						{
-							"key": "EXPECTATIONS",
+							"key": "CULTURE",
 							"value": "1"
-						},
-						{
-							"key": "MOOD_PLAYFUL_SERIOUS",
-							"value": "-1"
 						},
 						{
 							"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
 							"value": "1"
-						},
-						{
-							"key": "SEXUALITY",
-							"value": "-1"
-						},
-						{
-							"key": "PHYSICAL_PREFERENCE",
-							"value": "-1"
 						}
 					],
 					"outdated_suggestions": false
@@ -273,10 +273,10 @@
 				"Is to prove that I am thinking like you"
 			],
 			"ai_source": [
-				"Too many things that I got to beware",
-				"Social rules that I got to run through",
-				"The last thing I'll ever do",
-				"Is to prove that I am thinking like you"
+				"Dangers to face, brave I must remain",
+				"Navigating norms, society's reign",
+				"Never bow down, against you I stand",
+				"My thoughts and actions, you can't demand"
 			],
 			"rhymes": [
 				{
@@ -435,11 +435,11 @@
 						},
 						{
 							"key": "MOOD_PLAYFUL_SERIOUS",
-							"value": "1"
+							"value": "-1"
 						},
 						{
 							"key": "GENDER",
-							"value": "1"
+							"value": "-1"
 						}
 					],
 					"outdated_suggestions": false
@@ -626,10 +626,10 @@
 				"Agitating my mind on trying to make my mind to match the reality"
 			],
 			"ai_source": [
-				"Working hard just to stay alive",
-				"Hearing gossip every single day",
-				"Focusing on making some money",
-				"It's hard to match reality"
+				"To survive, I work hard every day",
+				"Gossip surrounds me, can't escape their play",
+				"Money on my mind, chasing dollars and cents",
+				"Reality hard to match, sense of contentment"
 			],
 			"rhymes": [
 				{
@@ -925,10 +925,10 @@
 				"Wearing a suit and tie when I'd rather sit and die"
 			],
 			"ai_source": [
-				"Refusing love, feeling incomplete",
-				"Don't want to be seen as a fool",
-				"Acting how women want me to",
-				"Tired of pretending, just want peace"
+				"Love not wanted, feeling incomplete",
+				"No fool I'll be, judgments I delete",
+				"Women's expectations, not for me to please",
+				"No more pretense, just need inner peace"
 			],
 			"rhymes": [
 
@@ -947,8 +947,8 @@
 				"Looking to conform to stereotypes"
 			],
 			"ai_source": [
-				"You're a pushover, pleasing all",
-				"Trying to fit in, losing yourself"
+				"Pushover no more, pleasing myself first",
+				"Losing myself, trying to fit in, cursed"
 			],
 			"rhymes": [
 
@@ -969,10 +969,10 @@
 				"You'll find you'll have a lovely time"
 			],
 			"ai_source": [
-				"Neon lights glow in the darkness",
-				"No need to worry, it's just life",
-				"Their faith has found equilibrium",
-				"A pleasant experience awaits you"
+				"Neon lights shine, illuminating the dark",
+				"Fear not, it's life, no need to embark.",
+				"Harmony found within their faith",
+				"Awaiting a pleasant, joyful time"
 			],
 			"rhymes": [
 

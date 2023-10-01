@@ -220,6 +220,7 @@ public:
 	void CreateInput_ImproveSourceText();
 	void CreateInput_LimitSyllableCount();
 	void CreateInput_GetAIAttributes();
+	void CreateInput_MorphToAttributes();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -271,6 +272,7 @@ public:
 	void Process_ImproveSourceText();
 	void Process_LimitSyllableCount();
 	void Process_GetAIAttributes();
+	void Process_MorphToAttributes();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;
