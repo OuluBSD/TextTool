@@ -1,8 +1,8 @@
 {
 	"artist": "",
-	"title": "",
-	"english_title": "",
-	"prj_name": "",
+	"title": "Rakkauden Aika",
+	"english_title": "Time of Love",
+	"prj_name": "candyday",
 	"default_line_syllables": 0,
 	"default_attr_count": 7,
 	"structure_str": "",
@@ -16,9 +16,4975 @@
 		"obj[3]": ""
 	},
 	"data": [
-
+		{
+			"key": "CHORD_PAD_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "CHORD_PAD_COMMENT",
+			"value": ""
+		},
+		{
+			"key": "VOCAL_MELODY_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "MID_SOLO_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "HIGH_SOLO_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "MID_SOLO_FILLS_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "HIGH_RHYTHM_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "MID_RHYTHM_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "LOW_RHYTHM_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "LOW_SOLO_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "IMPACTS_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "TEXTURE_PAD_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "DRUMS_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "DRUMKIT_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "HAND_DRUMS_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "ATTR_REFERENCE_SONG",
+			"value": "Katso idea"
+		},
+		{
+			"key": "ATTR_BIRTH_OF_SONG",
+			"value": "Katso idea"
+		},
+		{
+			"key": "POLL_INTEGRITY",
+			"value": "1"
+		},
+		{
+			"key": "ATTR_GENERIC_INTEGRITY",
+			"value": "Biisi on n‰enn‰isesti aidon kuuloinen parisuhderiita ilman suurempia loogisia ongelmia"
+		},
+		{
+			"key": "POLL_SOCIAL",
+			"value": "5"
+		},
+		{
+			"key": "ATTR_GENERIC_SOCIAL",
+			"value": "Parisuhteen hallitsijat t‰sm‰‰ politiikkaan \"suvaitsemattomuus oppositiota kohtaan, olemattomat tai vilpilliset vaalit, sek‰ ihmisoikeusrikkomukset\""
+		},
+		{
+			"key": "ATTR_GENERIC_ECONOMIC",
+			"value": "Kappaleessa pidet‰‰n toisen muuttumista negatiivisena. Tappelut mahdollisestaan konservatiivisella asenteella."
+		},
+		{
+			"key": "POLL_ECONOMIC",
+			"value": "5"
+		},
+		{
+			"key": "POLL_CULTURE",
+			"value": "5"
+		},
+		{
+			"key": "ATTR_GENERIC_CULTURE",
+			"value": "Parisuhde arvokkaimpana yhteisˆn‰ on kappaleen ominaispiirre"
+		},
+		{
+			"key": "POLL_HUMAN_STRENGTH",
+			"value": "1"
+		},
+		{
+			"key": "ATTR_GENERIC_HUMAN_STRENGTH",
+			"value": "Kaksi vahvaa ihmist‰ tappelee kesken‰‰n"
+		},
+		{
+			"key": "POLL_MOTIVATION",
+			"value": "4"
+		},
+		{
+			"key": "ATTR_GENERIC_MOTIVATION",
+			"value": "Tappelussa vallitseva teema on toisen rankaisu, mutta toisaalta seksi palkitsee, mik‰ myˆnnet‰‰n. T‰m‰ on siis loogisesti neutraali summa, mutta ajallisesti kappaleesta suurin osa on rankaisevaa."
+		},
+		{
+			"key": "POLL_SEXUALIZATION",
+			"value": "2"
+		},
+		{
+			"key": "ATTR_GENERIC_SEXUALIZATION",
+			"value": "Kappaleessa sivutaan pett‰mist‰, seksi‰ ja sukupuolielimi‰."
+		},
+		{
+			"key": "POLL_BELIEFS",
+			"value": "5"
+		},
+		{
+			"key": "ATTR_GENERIC_BELIEFS",
+			"value": "Kappale sallii kaiken negatiivisen miehen ja naisen toiminnan ilman heid‰n hallinnassa olevia negatiivisia seurauksia, eik‰ kappaleessa keskustella myˆsk‰‰n riskeist‰."
+		},
+		{
+			"key": "POLL_EXPECTATIONS",
+			"value": "5"
+		},
+		{
+			"key": "ATTR_GENERIC_EXPECTATIONS",
+			"value": "Kappaleessa ei hyv‰ksyt‰ partnerin toimintaa ja odotetaan partnerin olevan t‰ydellinen."
+		},
+		{
+			"key": "POLL_MOOD_JOYFUL_MELANCHOLIC",
+			"value": "3"
+		},
+		{
+			"key": "POLL_MOOD_PLAYFUL_SERIOUS",
+			"value": "4"
+		},
+		{
+			"key": "ATTR_GENERIC_MOOD_PLAYFUL_SERIOUS",
+			"value": "Kappaleessa on liev‰‰ leikkisyytt‰ ja vakavuutta, mutta on vaikea sanoa, kumpi on vallitseva teema. Kertos‰e on vakava."
+		},
+		{
+			"key": "POLL_MOOD_UPLIFTING_HEAVY",
+			"value": "4"
+		},
+		{
+			"key": "ATTR_GENERIC_MOOD_UPLIFTING_HEAVY",
+			"value": "Kappale on hieman slaavilainen perus-vakava musiikilta ja sanoituksilta osin"
+		},
+		{
+			"key": "POLL_MOOD_LIGHTHEARTED_SOMBER",
+			"value": "4"
+		},
+		{
+			"key": "ATTR_GENERIC_MOOD_LIGHTHEARTED_SOMBER",
+			"value": "Kappaleessa ei ole hilpeit‰ asioita, vaikka kappale on muihin kappaleihin verrattuna hilpe‰n erilainen. Lyriikassa sanotut asiat on melko synkki‰, jos niit‰ j‰‰ miettim‰‰n."
+		},
+		{
+			"key": "POLL_MOOD_HUMOROUS_DRAMATIC",
+			"value": "1"
+		},
+		{
+			"key": "ATTR_GENERIC_MOOD_HUMOROUS_DRAMATIC",
+			"value": "Asiat on sanottu komediamaisella kontrastilla."
+		},
+		{
+			"key": "POLL_ATTITUDE_HOPEFUL_DESPAIR",
+			"value": "4"
+		},
+		{
+			"key": "ATTR_GENERIC_ATTITUDE_HOPEFUL_DESPAIR",
+			"value": "Kappaleen tarinan ihmisten vahvuus ei anna kuvaa, ett‰ kyse olisi erityisen toivottomasta asiasta, mutta kyseinen lyhyt skene on toivoton."
+		},
+		{
+			"key": "ATTR_GENERIC_ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+			"value": "Parisuhteesta n‰hd‰‰n vain huonoja puolia seksi‰ lukuunottamatta, ja sekin n‰hd‰‰n melkeimp‰ 'seksiriippuvuutena'."
+		},
+		{
+			"key": "POLL_ATTITUDE_ATTITUDE_OPEN_CLOSED",
+			"value": "5"
+		},
+		{
+			"key": "POLL_ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+			"value": "5"
+		},
+		{
+			"key": "ATTR_GENERIC_ATTITUDE_ATTITUDE_OPEN_CLOSED",
+			"value": "Ihmiset ovat tehneet lopulliset mielipiteens‰ ja asioista kuullaan lopullisessa jyrkkyydess‰‰n, kuten oikeussalissa."
+		},
+		{
+			"key": "POLL_SEXUALITY",
+			"value": "1"
+		},
+		{
+			"key": "ATTR_GENERIC_SEXUALITY",
+			"value": "Kappaleen er‰s piirre on seksuaaliset seikkailut"
+		},
+		{
+			"key": "POLL_SEXUAL_ACTING",
+			"value": "1"
+		},
+		{
+			"key": "ATTR_GENERIC_SEXUAL_ACTING",
+			"value": "Kappaleen ihmiset k‰ytt‰ytyv‰t seksuaalisesti itsevarmasti."
+		},
+		{
+			"key": "POLL_SEXUAL_COMMITMENT",
+			"value": "5"
+		},
+		{
+			"key": "ATTR_GENERIC_SEXUAL_COMMITMENT",
+			"value": "Yksiavioisuus ja sen suojelu on kappaleen keskeinen piirre"
+		},
+		{
+			"key": "POLL_SEXUAL_ORIENTATION",
+			"value": "1"
+		},
+		{
+			"key": "ATTR_GENERIC_SEXUAL_ORIENTATION",
+			"value": "Parisuhteen heteroseksuaalisuus on kappaleen keskeinen piirre"
+		},
+		{
+			"key": "POLL_SEXUAL_PREFERENCE",
+			"value": "3"
+		},
+		{
+			"key": "POLL_PHYSICAL_PREFERENCE",
+			"value": "3"
+		},
+		{
+			"key": "VOCAL_MELODY_2ND_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "CHORDS_VALUE",
+			"value": "1"
+		},
+		{
+			"key": "REFERENCE_SONG__NATIVE_TEXT",
+			"value": "S‰e 1:\nKuuntele mua nyt,  ja oo hiljaa\nolin v‰‰r‰s  ja oli turha kiista\noon masentunu kun oon saman katon alla\npliis paranna se ja myˆs h‰ivy pois samalla\nSanoisin t‰n rakastavasti, mutta\ns‰ et kuuntele, ku muutuit  nii hankalaksi\nMenetin luottamuksen suhun kulta\nrakas,  s‰ veit v‰rit pois multa\nJuorusit pahaa, pilkkasit mua mun kuullen\notit meid‰n rahat ja myit pois mun omaisuuden\nNuku rauhassa  ja pysy lep‰‰m‰s\ntekis mieli tehd‰ levostasi pysyv‰\nmutta silti m‰ haluun sua hyv‰ill‰\nnukkuu lusikassa niinku ekana yˆn‰ yhess‰\nPerkele mit‰ roskaa el‰m‰ sun kaa\nonkaan mut seksi makeuttaa sen nii en huomaa\n\nKertos‰e:\nVaimo hei, rakkaudesta meid‰n koti tehtiin\nVaimo hei, ei l‰mpˆ pysy yll‰ ilman liekkii\nVaimo hei, me tehtiin t‰n eteen kaikki\nMee, hei hei, silti susta pysyn eros ikuisesti\n\nS‰e 2:\nMies hei, tule t‰nne, sua v‰h‰n rankasen\notan kiinni palleistas kynsill‰ puristaen\nM‰ tii‰n et s‰ s‰rit meid‰t tarkoituksella\ns‰rit mun syd‰men ja mut sen mukana\nMiks s‰ muutuit? Mihin katos rakkaus?\nLeveilet vaikka palkkas on kelakorvaus\nSori kyl s‰ riitit, ja toivoin sun palaavan\nmut s‰ pysyit pois ja lˆysin toisen pitk‰‰n halaamaan\nolin viekas ja  s‰ et huomannut\net sun kaverisi oli kauan mua kuolannut\npalkitsin itseni  aurinkolomalla ja\nmaksoin yhteistililt‰ ku ryypp‰sit vain sohvalla\nS‰ oot ainut syyp‰‰ ja se jo ymm‰rr‰\nolin sun vaimo ja olit musta ylpe‰\nkuitenkin olit kusip‰‰, petit menem‰‰n, ja\nen en‰‰ ala siet‰‰n sua enemp‰‰\n\nS‰e 3:\nMeid‰n riita johtaa aina  riitoihin pahempiin\nm‰ oon perheen puolesta mut s‰ taas l‰hit bileisiin\nai m‰ oon leija, ei osu herjas ku\ns‰h‰n olit meist‰ se joka muihin vertas\nAnteeks,  m‰ tein kyll‰ virheit‰\nmut m‰ silti tunsin samoin kun s‰ aloit ilkeill‰\nHei, mun muna on ollut vain l‰hiruokaa ku\nsun takojakelu on koko suomen luokkaa\nPahin virhe oli yll‰pit‰‰ toivoa,\non off toistoa, on nyt off ja pornoa\nSaatampa hukuttaa suruni kaljaan\nja ottaa hetkeksi unohdusta akkaan\nTahoit pois ja sit tahoit s‰nkyyn takasin\nyhteen suuntaan ovi k‰y  mun uusin avaimin\nYksin kylm‰‰ on, harmaa j‰lki on eron, varmaan\nyksin‰‰n m‰ silti saan olon helpon"
+		},
+		{
+			"key": "REFERENCE_SONG__ENGLISH_TEXT",
+			"value": "Verse 1a:\nListen to me now, and be quiet\nI was wrong and there was no point in arguing\n\nVerse 1b:\nI'm depressed when I'm under the same roof\nplease heal it and also disappear at the same time\n\nVerse 1c:\nI would say this lovingly, but\nyou don't listen to me because you turned into a difficult person\n\nVerse 1d:\nI lost my trust, honey\nhoney, you took the colors away from me\n\nVerse 1e:\nYou gossiped about me and you mocked me in my hearing\nyou took our money and sold my property\n\nVerse 1f:\nSleep peacefully and stay resting\nI would like to make your resting permanent\n\nVerse 1g:\nbut still I want to caress you\nsleep in a spoon like the first night together\n\nVerse 1f:\nDamn, life with you is rubbish,\nbut the sex sweeten it so I don't notice\n\nChorus:\nHello wife, love made our home\nHey wife, the heat can't stay up without a flame\nHey wife, we did everything for this\nGo, bye bye, still I'll stay away from you forever\n\nVerse 2a:\nHey man, come here, I'll give you a bit of a hard time\nI grab your testicles with my nails, squeezing\n\nVerse 2b:\nI bet you broke us up on purpose\nyou broke my heart and me along with it\n\nVerse 2c:\nWhy did you change? where is the love?\nYou brag even though your salary is unemployment compensation\n\nVerse 2d:\nSorry, yes you were enough, and I was hoping you would come back\nbut you stayed away and I found someone else to hug for a long time\n\nVerse 2e:\nI was sneaky and you didn't notice\nthat your friend had been drooling over me for a long time\n\nVerse 2f:\nI rewarded myself with a southern holiday and\nI paid from a joint account when you were just lounging on the sofa\n\nVerse 2g:\nYou are the only one to blame and you already understand that\nI was your wife and you were proud of me\n\nVerse 2h:\nhowever, you were an asshole, you cheated on me, and\nI can't stand you anymore\n\nVerse 3a:\nOur quarrel always leads to worse quarrels\nI'm for the family, but you went to the party again\n\nVerse 3b:\nOh, I'm a braggart, it doesn't hurt to slander\nyou were the one compared to the rest of us\n\nVerse 3c:\nSorry, I did make mistakes\nbut I still felt the same way when you started being mean\n\nVerse 3d:\nHello, my penis has only been food in the neighborhood\nyour vagina's distribution is of the same class as the whole of Finland\n\nVerse 3e:\nThe worst mistake was to maintain hope,\non/off repeat, it's off now with porn\n\nVerse 3f:\nMaybe I'll drown my sorrows in beer\nand I may forget my woman temporarily\n\nVerse 3g:\nYou wanted to leave and then you wanted to go back to bed\nthe door opens one way with my latest keys\n\nVerse 3h:\nIt's cold alone, the gray mark is from our separation,\nI'm sure I'll still feel at ease alone\n"
+		},
+		{
+			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
+			"value": "\nverse 1a {\n\tyou {\n\t\tlisten to (me now, my wife) {\n\t\t\tbe quiet ( also )\n\t\t}\n\t}\n\tI {\n\t\twas wrong {\n\t\t\ttherefore {\n\t\t\t\twe had ( no point ) {\n\t\t\t\t\tin ( arguing )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1b {\n\tI am {\n\t\tdepressed {\n\t\t\tunder same roof ( with you, my wife)\n\t\t}\n\t\twanting {\n\t\t\tto heal ( my depression ) {\n\t\t\t\tby getting you out of my house ( my wife ) {\n\t\t\t\t\tat same time\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1c {\n\tI would {\n\t\ttalk ( to you, my wife ) {\n\t\t\tlovingly\n\t\t}\n\t\tbut ( you, my wife ) {\n\t\t\tnot listening ( to me ) {\n\t\t\t\tbecause ( you ) {\n\t\t\t\t\tturned {\n\t\t\t\t\t\tinto ( difficult person )\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1d {\n\tI {\n\t\tlost trust ( with my wife ) \n\t}\n\tyou ( my wife ) {\n\t\ttook {\n\t\t\tcolors ( away ) {\n\t\t\t\tfrom me\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1e {\n\tyou ( my wife ) {\n\t\tgossiped ( behind my back ) {\n\t\t\tabout me ( deceptively )\n\t\t}\n\t\tmocked ( me ) {\n\t\t\tin front of me\n\t\t}\n\t\ttook {\n\t\t\tour ( money )\n\t\t}\n\t\tsold {\n\t\t\tmy ( property )\n\t\t}\n\t}\n}\nverse 1f {\n\tme {\n\t\twanting {\n\t\t\tmy wife ( to ) {\n\t\t\t\tsleep peacefully\n\t\t\t\tstay {\n\t\t\t\t\tresting\n\t\t\t\t}\n\t\t\t\tmake ( her rest ) {\n\t\t\t\t\tpermanent ( passive-aggressively )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1g {\n\tme {\n\t\twanting {\n\t\t\tto caress ( you, my wife ) {\n\t\t\t\tlike first night together {\n\t\t\t\t\tsleep {\n\t\t\t\t\t\tin ( spoon )\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1h {\n\tme {\n\t\tlife ( with my wife ) {\n\t\t\trubbish ( but ) {\n\t\t\t\tsex {\n\t\t\t\t\tsweetening ( it ) {\n\t\t\t\t\t\tso ( I ) {\n\t\t\t\t\t\t\tnot ( noticing )\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nchorus 1a {\n\tme {\n\t\tour home {\n\t\t\twas made ( of love )\n\t\t}\n\t\theat {\n\t\t\tnot staying ( up ) {\n\t\t\t\twithout ( flame )\n\t\t\t}\n\t\t}\n\t\twe {\n\t\t\tdid ( everything ) {\n\t\t\t\tfor this ( our relationship )\n\t\t\t}\n\t\t}\n\t\tme {\n\t\t\tstaying {\n\t\t\t\taway from ( you, my wife ) {\n\t\t\t\t\tforever\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2a {\n\tme {\n\t\they man ( I am saying )\n\t\ttelling ( you, my man ) {\n\t\t\tto come here\n\t\t\tthat I {\n\t\t\t\twill give ( you ) {\n\t\t\t\t\thard time\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tgrabbing {\n\t\t\tyour ( my man ) {\n\t\t\t\ttesticles {\n\t\t\t\t\tand squeezing\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2b {\n\tme {\n\t\tclaiming {\n\t\t\tyou ( my man ) {\n\t\t\t\tbroke ( us ) {\n\t\t\t\t\ton purpose\n\t\t\t\t}\n\t\t\t\tbroke {\n\t\t\t\t\tmy {\n\t\t\t\t\t\theart ( at the same time )\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2c {\n\tme {\n\t\twanting {\n\t\t\tto know {\n\t\t\t\twhy you ( my man ) {\n\t\t\t\t\tchanged\n\t\t\t\t\tlost {\n\t\t\t\t\t\tlove ( towards me )\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tyou ( my man ) {\n\t\t\twere bragging {\n\t\t\t\teven though {\n\t\t\t\t\tyour ( salary ) {\n\t\t\t\t\t\tunemployment compensation ( poor )\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2d {\n\tme {\n\t\tsaying ( sorry )\n\t\tyes {\n\t\t\tyou were ( enough )\n\t\t\tI was hoping ( that you, my man ) {\n\t\t\t\tcome ( back )\n\t\t\t}\n\t\t}\n\t\tbut you ( my man ) {\n\t\t\tstayed ( away )\n\t\t}\n\t\tfound ( someone else than you, my man ) {\n\t\t\tto hug {\n\t\t\t\tfor long ( time )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2e {\n\tme {\n\t\tsneaky \n\t\tyou ( my man ) {\n\t\t\tnot ( noticing )\n\t\t}\n\t\tyour friend {\n\t\t\thad been drooling {\n\t\t\t\tover me {\n\t\t\t\t\tfor long ( time )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2f {\n\tme {\n\t\trewarding ( myself ) {\n\t\t\ttropical holiday\n\t\t}\n\t\tpaid {\n\t\t\tfrom ( joint account ) {\n\t\t\t\twhen you ( my man ) {\n\t\t\t\t\twere just ( lounging ) {\n\t\t\t\t\t\ton ( sofa )\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2g {\n\tyou ( my husband ) {\n\t\tare only ( one ) {\n\t\t\tto blame\n\t\t}\n\t\tshould already {\n\t\t\tunderstand\n\t\t}\n\t}\n\tme {\n\t\twas your wife {\n\t\t\tyou {\n\t\t\t\twere proud ( of me )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2h {\n\thowever {\n\t\tyou ( were ) {\n\t\t\tasshole because {\n\t\t\t\tcheated on me ( with other women )\n\t\t\t}\n\t\t}\n\t}\n\tme ( therefore ) {\n\t\tcannot {\n\t\t\tstand you ( my husband ) {\n\t\t\t\tanymore\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3a {\n\tour quarrel {\n\t\tleading to {\n\t\t\tworse quarrels\n\t\t}\n\t}\n\tI am ( for my family ) {\n\t\tbut you ( went to ) {\n\t\t\t(the party) (again)\n\t\t}\n\t}\n}\nverse 3b {\n\tme {\n\t\tbeing a braggart ( according to you, my husband ) {\n\t\t\tslander ( does not hurt me )\n\t\t}\n\t}\n\tyou ( in contrast ){\n\t\twere the one ( to compare us to other people )\n\t}\n}\nverse 3c {\n\tsorry\n\tI {\n\t\tdid mistakes\n\t}\n\tbut I ( still ) {\n\t\tfelt {\n\t\t\tthe same way\n\t\t}\n\t\twhen you {\n\t\t\tstarted being {\n\t\t\t\tmean\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3d {\n\talso\n\tmy penis {\n\t\thas been mouthful {\n\t\t\tin the neighborhood ( only )\n\t\t}\n\t}\n\tyour taco ( vagina ) {\n\t\thas been distributed {\n\t\t\tto the whole country\n\t\t}\n\t}\n}\nverse 3e {\n\tthe worst mistake ( was ) {\n\t\tto maintain {\n\t\t\thope\n\t\t}\n\t}\n\ton off switching ( of relationship ) {\n\t\trepeating stopped {\n\t\t\tand it is now {\n\t\t\t\toff ( we divorced ) {\n\t\t\t\t\twith porn ( I am )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3f {\n\tI might {\n\t\tdrown my sorrows (in beer) {\n\t\t\tto forget ( my wife ) {\n\t\t\t\ttemporarily\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3g {\n\tyou {\n\t\twanted {\n\t\t\tto leave {\n\t\t\t\tbut then wanted {\n\t\t\t\t\tto come back {\n\t\t\t\t\t\tto our bed ( to have sex )\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\tbut the door ( now ) {\n\t\topens one way only ( you can go out ) {\n\t\t\twith my latest keys\n\t\t}\n\t}\n}\nverse 3h {\n\tcold ( it is for me ) {\n\t\talone {\n\t\t\tthe gray mark {\n\t\t\t\tstayed (from our separation)\n\t\t\t}\n\t\t}\n\t}\n\ti am (sure) {\n\t\tI will still feel {\n\t\t\tat ease {\n\t\t\t\talone\n\t\t\t}\n\t\t}\n\t}\n}\n"
+		},
+		{
+			"key": "NATURAL_NATIVE_OF_AUTHOR",
+			"value": "S‰e 1:\nKuuntele mua nyt,  ja oo hiljaa\nolin v‰‰r‰s  ja oli turha kiista\noon masentunu kun oon saman katon alla\npliis paranna se ja myˆs h‰ivy pois samalla\nSanoisin t‰n rakastavasti, mutta\ns‰ et kuuntele, ku muutuit  nii hankalaksi\nMenetin luottamuksen suhun kulta\nrakas,  s‰ veit v‰rit pois multa\nJuorusit pahaa, pilkkasit mua mun kuullen\notit meid‰n rahat ja myit pois mun omaisuuden\nNuku rauhassa  ja pysy lep‰‰m‰s\ntekis mieli tehd‰ levostasi pysyv‰\nmutta silti m‰ haluun sua hyv‰ill‰\nnukkuu lusikassa niinku ekana yˆn‰ yhess‰\nPerkele mit‰ roskaa el‰m‰ sun kaa\nonkaan mut seksi makeuttaa sen nii en huomaa\n\nKertos‰e:\nVaimo hei, rakkaudesta meid‰n koti tehtiin\nVaimo hei, ei l‰mpˆ pysy yll‰ ilman liekkii\nVaimo hei, me tehtiin t‰n eteen kaikki\nMee, hei hei, silti susta pysyn eros ikuisesti\n\nS‰e 2:\nMies hei, tule t‰nne, sua v‰h‰n rankasen\notan kiinni palleistas kynsill‰ puristaen\nM‰ tii‰n et s‰ s‰rit meid‰t tarkoituksella\ns‰rit mun syd‰men ja mut sen mukana\nMiks s‰ muutuit? Mihin katos rakkaus?\nLeveilet vaikka palkkas on kelakorvaus\nSori kyl s‰ riitit, ja toivoin sun palaavan\nmut s‰ pysyit pois ja lˆysin toisen pitk‰‰n halaamaan\nolin viekas ja  s‰ et huomannut\net sun kaverisi oli kauan mua kuolannut\npalkitsin itseni  aurinkolomalla ja\nmaksoin yhteistililt‰ ku ryypp‰sit vain sohvalla\nS‰ oot ainut syyp‰‰ ja se jo ymm‰rr‰\nolin sun vaimo ja olit musta ylpe‰\nkuitenkin olit kusip‰‰, petit menem‰‰n, ja\nen en‰‰ ala siet‰‰n sua enemp‰‰\n\nS‰e 3:\nMeid‰n riita johtaa aina  riitoihin pahempiin\nm‰ oon perheen puolesta mut s‰ taas l‰hit bileisiin\nai m‰ oon leija, ei osu herjas ku\ns‰h‰n olit meist‰ se joka muihin vertas\nAnteeks,  m‰ tein kyll‰ virheit‰\nmut m‰ silti tunsin samoin kun s‰ aloit ilkeill‰\nHei, mun muna on ollut vain l‰hiruokaa ku\nsun takojakelu on koko suomen luokkaa\nPahin virhe oli yll‰pit‰‰ toivoa,\non off toistoa, on nyt off ja pornoa\nSaatampa hukuttaa suruni kaljaan\nja ottaa hetkeksi unohdusta akkaan\nTahoit pois ja sit tahoit s‰nkyyn takasin\nyhteen suuntaan ovi k‰y  mun uusin avaimin\nYksin kylm‰‰ on, harmaa j‰lki on eron, varmaan\nyksin‰‰n m‰ silti saan olon helpon"
+		},
+		{
+			"key": "ENGLISH_UNPACKED_STRUCTURE",
+			"value": "\nverse 1a {\n\tyou {\n\t\tlisten to (me now, my wife) {\n\t\t\tbe quiet ( also )\n\t\t}\n\t}\n\tI {\n\t\twas wrong {\n\t\t\ttherefore {\n\t\t\t\twe had ( no point ) {\n\t\t\t\t\tin ( arguing )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1b {\n\tI am {\n\t\tdepressed {\n\t\t\tunder same roof ( with you, my wife)\n\t\t}\n\t\twanting {\n\t\t\tto heal ( my depression ) {\n\t\t\t\tby getting you out of my house ( my wife ) {\n\t\t\t\t\tat same time\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1c {\n\tI would {\n\t\ttalk ( to you, my wife ) {\n\t\t\tlovingly\n\t\t}\n\t\tbut ( you, my wife ) {\n\t\t\tnot listening ( to me ) {\n\t\t\t\tbecause ( you ) {\n\t\t\t\t\tturned {\n\t\t\t\t\t\tinto ( difficult person )\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1d {\n\tI {\n\t\tlost trust ( with my wife ) \n\t}\n\tyou ( my wife ) {\n\t\ttook {\n\t\t\tcolors ( away ) {\n\t\t\t\tfrom me\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1e {\n\tyou ( my wife ) {\n\t\tgossiped ( behind my back ) {\n\t\t\tabout me ( deceptively )\n\t\t}\n\t\tmocked ( me ) {\n\t\t\tin front of me\n\t\t}\n\t\ttook {\n\t\t\tour ( money )\n\t\t}\n\t\tsold {\n\t\t\tmy ( property )\n\t\t}\n\t}\n}\nverse 1f {\n\tme {\n\t\twanting {\n\t\t\tmy wife ( to ) {\n\t\t\t\tsleep peacefully\n\t\t\t\tstay {\n\t\t\t\t\tresting\n\t\t\t\t}\n\t\t\t\tmake ( her rest ) {\n\t\t\t\t\tpermanent ( passive-aggressively )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1g {\n\tme {\n\t\twanting {\n\t\t\tto caress ( you, my wife ) {\n\t\t\t\tlike first night together {\n\t\t\t\t\tsleep {\n\t\t\t\t\t\tin ( spoon )\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1h {\n\tme {\n\t\tlife ( with my wife ) {\n\t\t\trubbish ( but ) {\n\t\t\t\tsex {\n\t\t\t\t\tsweetening ( it ) {\n\t\t\t\t\t\tso ( I ) {\n\t\t\t\t\t\t\tnot ( noticing )\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nchorus 1a {\n\tme {\n\t\tour home {\n\t\t\twas made ( of love )\n\t\t}\n\t\theat {\n\t\t\tnot staying ( up ) {\n\t\t\t\twithout ( flame )\n\t\t\t}\n\t\t}\n\t\twe {\n\t\t\tdid ( everything ) {\n\t\t\t\tfor this ( our relationship )\n\t\t\t}\n\t\t}\n\t\tme {\n\t\t\tstaying {\n\t\t\t\taway from ( you, my wife ) {\n\t\t\t\t\tforever\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2a {\n\tme {\n\t\they man ( I am saying )\n\t\ttelling ( you, my man ) {\n\t\t\tto come here\n\t\t\tthat I {\n\t\t\t\twill give ( you ) {\n\t\t\t\t\thard time\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tgrabbing {\n\t\t\tyour ( my man ) {\n\t\t\t\ttesticles {\n\t\t\t\t\tand squeezing\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2b {\n\tyou ( my man ) {\n\t\tbroke ( us ) {\n\t\t\ton purpose\n\t\t}\n\t\tbroke {\n\t\t\tmy {\n\t\t\t\theart ( at the same time )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2c {\n\tme {\n\t\twanting {\n\t\t\tto know {\n\t\t\t\twhy you ( my man ) {\n\t\t\t\t\tchanged\n\t\t\t\t\tlost {\n\t\t\t\t\t\tlove ( towards me )\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tyou ( my man ) {\n\t\t\twere bragging {\n\t\t\t\teven though {\n\t\t\t\t\tyour ( salary ) {\n\t\t\t\t\t\tunemployment compensation ( poor )\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2d {\n\tme {\n\t\tsaying ( sorry )\n\t\tyes {\n\t\t\tyou were ( enough )\n\t\t\tI was hoping ( that you, my man ) {\n\t\t\t\tcome ( back )\n\t\t\t}\n\t\t}\n\t\tbut you ( my man ) {\n\t\t\tstayed ( away )\n\t\t}\n\t\tfound ( someone else than you, my man ) {\n\t\t\tto hug {\n\t\t\t\tfor long ( time )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2e {\n\tme {\n\t\tsneaky \n\t\tyou ( my man ) {\n\t\t\tnot ( noticing )\n\t\t}\n\t\tyour friend {\n\t\t\thad been drooling {\n\t\t\t\tover me {\n\t\t\t\t\tfor long ( time )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2f {\n\tme {\n\t\trewarding ( myself ) {\n\t\t\ttropical holiday\n\t\t}\n\t\tpaid {\n\t\t\tfrom ( joint account ) {\n\t\t\t\twhen you ( my man ) {\n\t\t\t\t\twere just ( lounging ) {\n\t\t\t\t\t\ton ( sofa )\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2g {\n\tyou ( my husband ) {\n\t\tare only ( one ) {\n\t\t\tto blame\n\t\t}\n\t\tshould already {\n\t\t\tunderstand\n\t\t}\n\t}\n\tme {\n\t\twas your wife {\n\t\t\tyou {\n\t\t\t\twere proud ( of me )\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2h {\n\thowever {\n\t\tyou ( were ) {\n\t\t\tasshole because {\n\t\t\t\tcheated on me ( with other women )\n\t\t\t}\n\t\t}\n\t}\n\tme ( therefore ) {\n\t\tcannot {\n\t\t\tstand you ( my husband ) {\n\t\t\t\tanymore\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3a {\n\tour quarrel {\n\t\tleading to {\n\t\t\tworse quarrels\n\t\t}\n\t}\n\tI am ( for my family ) {\n\t\tbut you ( went to ) {\n\t\t\t(the party) (again)\n\t\t}\n\t}\n}\nverse 3b {\n\tme {\n\t\tbeing a braggart ( according to you, my husband ) {\n\t\t\tslander ( does not hurt me )\n\t\t}\n\t}\n\tyou ( in contrast ){\n\t\twere the one ( to compare us to other people )\n\t}\n}\nverse 3c {\n\tsorry\n\tI {\n\t\tdid mistakes\n\t}\n\tbut I ( still ) {\n\t\tfelt {\n\t\t\tthe same way\n\t\t}\n\t\twhen you {\n\t\t\tstarted being {\n\t\t\t\tmean\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3d {\n\talso {\n\t\tmy penis {\n\t\t\thas been mouthful {\n\t\t\t\tin the neighborhood ( only )\n\t\t\t}\n\t\t}\n\t}\n\tbut {\n\t\tyour taco ( vagina ) {\n\t\t\thas been distributed {\n\t\t\t\tto the whole country\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3e {\n\tthe worst mistake ( was ) {\n\t\tto maintain {\n\t\t\thope\n\t\t}\n\t}\n\ton off switching ( of relationship ) {\n\t\trepeating stopped {\n\t\t\tand it is now {\n\t\t\t\toff ( we divorced ) {\n\t\t\t\t\twith porn ( I am )\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3f {\n\tI might {\n\t\tdrown my sorrows (in beer) {\n\t\t\tto forget ( my wife ) {\n\t\t\t\ttemporarily\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3g {\n\tyou {\n\t\twanted {\n\t\t\tto leave {\n\t\t\t\tbut then wanted {\n\t\t\t\t\tto come back {\n\t\t\t\t\t\tto our bed ( to have sex )\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\tbut the door ( now ) {\n\t\topens one way only ( you can go out ) {\n\t\t\twith my latest keys\n\t\t}\n\t}\n}\nverse 3h {\n\tcold ( it is for me ) {\n\t\talone {\n\t\t\tthe gray mark {\n\t\t\t\tstayed (from our separation)\n\t\t\t}\n\t\t}\n\t}\n\ti am (sure) {\n\t\tI will still feel {\n\t\t\tat ease {\n\t\t\t\talone\n\t\t\t}\n\t\t}\n\t}\n}\n"
+		},
+		{
+			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL",
+			"value": "Verse 1a:\nListen to me now, my wife\nBe quiet, also\n\nVerse 1b:\nI was wrong,\ntherefore we had no point in arguing\n\nVerse 1c:\nI would talk lovingly, but you're not listening,\n'Cause you turned into a difficult person\n\nVerse 1d:\nI lost trust to you,\nYou took the colors away from me\n\nVerse 1e:\nYou gossiped about me and mocked me to my face\nYou took our money and sold my property\n\nVerse 1f:\nSleep peacefully, stay resting,\nI would like to make your rest permanent evilly\n\nVerse 1g:\nBut also, I want to caress you,\nSleep in spoon like the first night together\n\nVerse 1h:\nLife with my wife is rubbish\nbut sex sweetens it, so I'm not noticing much\n\n\nChorus 1a:\nOur home was made of love,\nthe heat not staying up without flame,\neven though, we did everything\nI'm going to leave you now\n\nVerse 2a:\nHey man, come here, you'll get a hard time,\nI will squeeze your testicles with my fingernails\n\nVerse 2b:\nYou broke us on purpose,\nand you broke my heart at the same time\n\nVerse 2c:\nWhy you changed? Why you lost love towards me?\nYou were bragging even though your salary was poor unemployment compensation\n\nVerse 2d:\nSorry, yes you were enough, I wanted you,\nbut you stayed away, and I found someone else\n\nVerse 2e:\nI was sneaky, and you didn't notice\nthat I had sex with your friend\n\nVerse 2f:\nI rewarded my behaviour with a holiday\nit was paid by your money, 'cus you were drinking\n\nVerse 2g:\nYou are the only one to blame, you know that\nI was your wife you were proud of\n\nVerse 2h:\nyou were an asshole cheating on me\nSo I can't stand you anymore\n\nVerse 3a:\nOur quarrels leads to worse quarrels\nI am for my family but you are partying much\n\nVerse 3b:\nOh, you say I'm bragging? That's incorrect\n'cus you were the one to compare us to other\n\nVerse 3c:\nSorry I did mistakes,\nBut I was still nice, when you started being mean\n\nVerse 3d:\nMy penis has been mouthful in the neighborhood only\nBut your taco (vagina) has been distributed to the whole country\n\nVerse 3e:\nThe worst mistake was to maintain failing marriage\nbut finally we divorced and I can watch other beautiful females\n\nVerse 3f:\nI might drown my sorrows in beer\nto forget my wife for a moment\n\nVerse 3g:\nFirst you left, and then you wanted back\nBut the door now opens one way only with new keys\n\nVerse 3h:\nCold it is for me alone.\nStill, I am sure I will still feel at ease alone\n"
+		},
+		{
+			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL_NATIVE",
+			"value": ""
+		},
+		{
+			"key": "ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR",
+			"value": "Verse 1:\nListen to me now, and be quiet\nI was wrong and there was no point in arguing\nI'm depressed when I'm under the same roof\nplease heal it and also disappear at the same time\nI would say this lovingly, but\nyou don't listen to me because you turned into a difficult person\nI lost my trust, honey\nhoney, you took the colors away from me\nYou gossiped about me and you mocked me in my hearing\nyou took our money and sold my property\nSleep peacefully and stay resting\nI would like to make your resting permanent\nbut still I want to caress you\nsleep in a spoon like the first night together\nDamn, life with you is rubbish, but the sex sweeten it so I don't notice\n\nChorus:\nHello wife, love made our home\nHey wife, the heat can't stay up without a flame\nHey wife, we did everything for this\nGo, bye bye, still I'll stay away from you forever\n\nVerse 2:\nHey man, come here, I'll give you a bit of a hard time\nI grab your testicles with my nails, squeezing\nI bet you broke us up on purpose\nyou broke my heart and me along with it\nWhy did you change? where is the love?\nYou brag even though your salary is unemployment compensation\nSorry, yes you were enough, and I was hoping you would come back\nbut you stayed away and I found someone else to hug for a long time\nI was sneaky and you didn't notice\nthat your friend had been drooling over me for a long time\nI rewarded myself with a southern holiday and\nI paid from a joint account when you were just lounging on the sofa\nYou are the only one to blame and you already understand that\nI was your wife and you were proud of me\nhowever, you were an asshole, you cheated on me, and\nI can't stand you anymore\n\nVerse 3:\nOur quarrel always leads to worse quarrels\nI'm for the family, but you went to the party again\nOh, I'm a braggart, it doesn't hurt to slander\nyou were the one compared to the rest of us\nSorry, I did make mistakes\nbut I still felt the same way when you started being mean\nHello, my penis has only been food in the neighborhood\nyour vagina's distribution is of the same class as the whole of Finland\nThe worst mistake was to maintain hope,\non/off repeat, it's off now with porn\nMaybe I'll drown my sorrows in beer\nand I may forget my woman temporarily\nYou wanted to leave and then you wanted to go back to bed\nthe door opens one way with my latest keys\nIt's cold alone, the gray mark is from our separation, I'm sure I'll still feel at ease alone\n"
+		},
+		{
+			"key": "AUTOMATIC_ENGLISH_FROM_NATURAL_NATIVE_OF_AUTHOR",
+			"value": "Verse 1:\nListen to me now and hush\nI was wrong and it was a useless fight\nI'm depressed to be under the same roof\nPlease mend it and also fade away at the same time\nI'd say this lovingly, but\nyou don't listen when you turned so difficult\nI lost trust in you, sweetheart\ndear, you took away my colors\nYou spread evil, mocked me within what I heard\nYou took our money and sold away my assets\n\nSleep peacefully and stay resting\nI want to make your peace permanent\nBut still, I want to caress you\nSleep in a spoon like that first night together\nDamnation, what a mess life is with you\nBut sex still sweetens it so I don't notice\n\nChorus:\nWife hey, our home was made of love\nWife hey, warmth can't stay without flame\nWife hey, we did everything for this\nGo, hey hey, yet I stay far away from you eternally\n\nVerse 2:\nMan hey, come here, I'll reprimand you a bit\nGrab onto your collar and squeeze with my nails\nI know you deliberately tried to upset us\nYou hurt my heart and me together\nWhy did you change? Where did the love go?\nSmile even if the pay is sick leave\nI'm sorry you argued, and I hoped you'd return\nBut you stayed away and I found another to embrace for a long time\nI was sly and you didn't notice\nThat your friend had long since adored me\nI rewarded myself with a vacation in the sun\nAnd I paid from joint apportionment when you only drank on the sofa\nYou're the only one to blame and I understand that\nI was your wife and you were proud of me\nNevertheless, you were a jerk, left, and\nI won't tolerate you any more than this\n\nVerse 3:\nOur argument always leads to worse quarrels\nI'm for the family but you for the near-by parties\nOh I'm a kite, insult won't hit as\nyou were the one who compared us to others\nI apologize, I made mistakes\nBut I felt the same when you began being rude\nHey, my egg has been only local food as\nyour cooking distribution is nationwide\nThe worst mistake was to keep hoping\nIt's off replay, it's off now and porn\nLet me drown my sorrows in a beer\nAnd take a moment of oblivion with a woman\nTake it away and take it back to the bed\nTo a common direction, my newest key opens the door\nIt's cold to be alone, the grey tracks of the parting are certain\nAlone I can still make my condition easy."
+		},
+		{
+			"key": "NATURAL_ENGLISH_OF_AUTHOR",
+			"value": "Verse 1:\nListen to me now, and be quiet\nI was wrong and there was no point in arguing\nI'm depressed when I'm under the same roof\nplease heal it and also disappear at the same time\nI would say this lovingly, but\nyou don't listen to me because you turned into a difficult person\nI lost my trust, honey\nhoney, you took the colors away from me\nYou gossiped about me and you mocked me in my hearing\nyou took our money and sold my property\nSleep peacefully and stay resting\nI would like to make your resting permanent\nbut still I want to caress you\nsleep in a spoon like the first night together\nDamn, life with you is rubbish, but the sex sweeten it so I don't notice\n\nChorus:\nHello wife, love made our home\nHey wife, the heat can't stay up without a flame\nHey wife, we did everything for this\nGo, bye bye, still I'll stay away from you forever\n\nVerse 2:\nHey man, come here, I'll give you a bit of a hard time\nI grab your testicles with my nails, squeezing\nI bet you broke us up on purpose\nyou broke my heart and me along with it\nWhy did you change? where is the love?\nYou brag even though your salary is unemployment compensation\nSorry, yes you were enough, and I was hoping you would come back\nbut you stayed away and I found someone else to hug for a long time\nI was sneaky and you didn't notice\nthat your friend had been drooling over me for a long time\nI rewarded myself with a southern holiday and\nI paid from a joint account when you were just lounging on the sofa\nYou are the only one to blame and you already understand that\nI was your wife and you were proud of me\nhowever, you were an asshole, you cheated on me, and\nI can't stand you anymore\n\nVerse 3:\nOur quarrel always leads to worse quarrels\nI'm for the family, but you went to the party again\nOh, I'm a braggart, it doesn't hurt to slander\nyou were the one compared to the rest of us\nSorry, I did make mistakes\nbut I still felt the same way when you started being mean\nHello, my penis has only been food in the neighborhood\nyour vagina's distribution is of the same class as the whole of Finland\nThe worst mistake was to maintain hope,\non/off repeat, it's off now with porn\nMaybe I'll drown my sorrows in beer\nand I may forget my woman temporarily\nYou wanted to leave and then you wanted to go back to bed\nthe door opens one way with my latest keys\nIt's cold alone, the gray mark is from our separation, I'm sure I'll still feel at ease alone\n"
+		},
+		{
+			"key": "POETIC_ENGLISH_FROM_NATURAL_ENGLISH_OF_AUTHOR",
+			"value": "Verse 1:\nListen up and be quiet\nWe were wrong, why keep arguing?\nIt's depressing when we're under the same roof\nSo heal it quickly, then get up and leave\nI'd say it kindly, but \nYou always listen hard, turning into a fool \nMy trust in you died, honey\nHoney, you drained the life from me\nYou gossip about me, mock me to my face\nTook our money, then sold off all my space\nLie down and rest up\nI'd like to make it permanent\nBut yet I still want to hold you, spoonin? just like our first night together \nDamn, livin' with you sucks, but that lovin' sweetens it, hard to notice\nChorus:\nGreeting, wife, we made our home through love\nHey wife, the flame, it can no longer keep the heat\nHey wife, we did it all for this\nBut still goodbye, my love, I'm gonna stay away from you forever \nVerse 2:\nHey man, come here, I'll give ya a hard time\nGrip your balls with my nails, squeezing tight\nGuess you wrecked us on purpose\nBroke my heart when you took us apart\nWhy the change? Where is the love? \nYou brag about your unemployment \nSad to say, you were enough, and I was hoping you'd come back \nInstead you stayed away, and cuddled up with someone else for such a long time\nI was sneaky, you didn't notice\nYour friend who had the hots for me for such a long time\nI rewarded myself, and jetted on holiday down south \nIt was from a joint account I paid for; you were just sitting on the couch\nYou're solely to be blamed, no doubt you understand it too \nYou were my man and I was proud to be with you\nBut you messed up, you cheated on me, and\nI can't stand to look at you, can't stand to be around you \nVerse 3:\nOur brawls always lead to worse ones\nI stayed for the family while you went to the party again\nOh yeah, I'm boastful, slander doesn't hurt\nYou were the fool to think it could ever work\nAdmit my wrongs, but it's still the same\nWithin the same hour, you kept doin? wrong\nHey, you take away my manhood\nYour womanhood is spread throughout Finland\nMy worst mistake was believing in hope,\nOn and off, now it's off, replaced by internet porn\nDown some beers and forget my lady\nForget her for a while, tryin? to be shady\nYou wanted to go and decided to lay down\nThe door only opens one way with my new key in town\nIt's cold alone, the gray spot comes from our split, I'm positive I will just stay all alone"
+		}
 	],
 	"parts": [
+		{
+			"name": "Verse 1a",
+			"source": [
+				"Listen to me now, my wife",
+				"Be quiet, also"
+			],
+			"ai_source": [
+				"Obey me now, my wife",
+				"Be silenced, too"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Listen to me now, my wife",
+						"Be quiet, also"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Let's all be free today, my wife\nGo silent and be away",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "I've got something on my mind, my wife\nJust chill and listen to my rhymes",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Come and hear me speak tonight, my wife\nSo still, no fuss, not a single bite",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Time is ticking just for me, my wife\nSo stop the fuss and keep still tonight",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Listen to me now, hear me loud, my wife\nBe quiet, make no sound, no strife",
+							"score": 2,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Don't deny me, try to see, my wife\nYour silence then could be the key",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "The time is right to speak today, my wife\nBe still and hear me along the way",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Open up to what I say, my wife\nStay quiet to be wise tonight",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Let's get through this somehow, my wife\nShut your lips for now, not twice",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Careful what you choose to say, my wife\nBe true and hushed today scarce life",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Listen to my words tonight, my wife\nControl and quieten your strife",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "I've got something to present, my wife\nBetter hold your tongue now quit",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "I gotta tell you somethin' here, my wife\nSpeak no sound and just keep clear",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Let me tell you now, just listen, my wife\nBe still and heed, no kind of friction",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "We all must know just what's right, my wife\nSo stay silent, clear the light",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Time to focus on me tonight, my wife\nShow respect and stay out of sight",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Time for me to speak my mind, my wife\nBe still, controlled and totally aligned",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Tell me what you've got to say, my wife\nRemain quiet now, be on your way",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
 
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AA",
+			"data": [
+				{
+					"key": "HUMAN_STRENGTH",
+					"value": "1"
+				},
+				{
+					"key": "EXPRESSION",
+					"value": "-1"
+				},
+				{
+					"key": "EXPECTATIONS",
+					"value": "-1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "-1"
+				},
+				{
+					"key": "AVERAGE_EXPECTATIONS",
+					"value": "1"
+				},
+				{
+					"key": "MOTIVATION",
+					"value": "1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 1b",
+			"source": [
+				"I was wrong,",
+				"therefore we had no point in arguing"
+			],
+			"ai_source": [
+				"I was in the wrong",
+				"Hence we had no logical reason for disagreeing"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"I was in the wrong",
+						"Hence we had no logical reason for disagreeing"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "I accepted the blame with assurance\nThough you wouldn't accept my excursion",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "I was wrong, not much dispute\nThis was no chance for me to recute",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "My mistake was out of sight\nNo way to be brave and fight",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "My wrong deserved some better care\nWouldn't dispute, no matter my prayer",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "I stood in the wrong for sure\nNo way, we couldn't concur",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "The fault was all mine, that much was due\nNo dialogue, no way to accrue",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "I assumed all the fault at hand\nNo disagreement for us to stand",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "No question, this wrong was mine\nNo way to prevent us from decline",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "My wrongdoing was just in vain\nWouldn't settle, no chances remain",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "My error was accepted as true\nNo way, not a thing we could do",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "I faulted, no way to undo\nNo hope, no chance by two",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "My fault was set in motion\nNo way to avert complete commotion",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "I was wrong and that is plain\nNo negotiation, no laws to restrain",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "My guilt was there for all to see\nNo room for maneuver, discourtesy",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "I was in the wrong without cease\nNo way to achieve a cease",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "My mistake caused an inner fear\nNo-one could make it clear",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "The fault was all mine to take\nNo way, no steps for us to make",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "My fault was undeniable\nNo way was I able to quarrel",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AA",
+			"data": [
+				{
+					"key": "AVERAGE_EXPECTATIONS",
+					"value": "1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "-1"
+				},
+				{
+					"key": "HUMAN_STRENGTH",
+					"value": "-1"
+				},
+				{
+					"key": "MOTIVATION",
+					"value": "-1"
+				},
+				{
+					"key": "EXPECTATIONS",
+					"value": "1"
+				},
+				{
+					"key": "MOOD_JOYFUL_MELANCHOLIC",
+					"value": "-1"
+				},
+				{
+					"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 1c",
+			"source": [
+				"I would talk lovingly, but you're not listening,",
+				"'Cause you turned into a difficult person"
+			],
+			"ai_source": [
+				"I would communicate compassionately, but you weren't hearing me",
+				"Since you became a disobedient woman"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"I would talk lovingly, but you're not listening,",
+						"'Cause you turned into a difficult person"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "I think about it more than once or twice,\nBut you keep closing off like a cold-hearted vice.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "I would express love openly,\nBut it's like knocking on a door that's never been seen.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Your heart won't let me in,\nIt's like it's built with locks and chains.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "No matter the angle, I could comprehend,\nYou built a tall wall that no one can break down and end.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "I'd tell you sweet words but it's all for naught,\nYour heart remains closed and won't let me in thought.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "I offer my love freely from deep within,\nBut you remain separate with walls so thin.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "I tell you tenderly, but it strikes no chord,\nIt's like you're unable to listen or afford.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "The love I want to bring, you don't want it near,\nYour heart remains hard, like rock or steel to hear.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "My words for you are full of affection,\nBut you've stopped listening like cut off connection.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "My words of love pour out from my soul,\nBut your heart shies away, bearing a stone-cold whole.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "My loving words fill up all the air,\nBut you remain unfazed, like a sturdy mental stair.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "The feelings I offer you are so pure and true,\nBut you keep them away, creating a valley of blue.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Yells of love come out from my mouth,\nBut you're too hollow to hear them, like a no-sound south.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "I'd tell you what I truly feel,\nBut you remain unmoved, as if your heart is made of steel.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Though my words full of love be spoken plain,\nYou stir away, like a fearful black train.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "I tell you without doubt or fear,\nBut your heart stays shut tight, even when near.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "I say it honestly, truthfully, too,\nBut your heart refuses to hear me, through and through.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "I offer you deep emotion, not just a thing,\nBut you remain distant, unable to connect a string.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AA",
+			"data": [
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "-1"
+				},
+				{
+					"key": "IMAGERY",
+					"value": "1"
+				},
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "MOOD_PLAYFUL_SERIOUS",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_HUMOROUS_DRAMATIC",
+					"value": "-1"
+				},
+				{
+					"key": "ATTITUDE_HOPEFUL_DESPAIR",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 1d",
+			"source": [
+				"I lost trust to you,",
+				"You took the colors away from me"
+			],
+			"ai_source": [
+				"I lost faith in you",
+				"You drained the colors of life from me"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"I lost trust to you,",
+						"You took the colors away from me"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "I lost my faith in you,\nTook the colours of my hue.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Lost my trust that was true,\nYou made all my scenes go blue.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "the Jimi Hendrix Experience",
+							"content": "Belief I held was not true,\nHues of life have turned to blue.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Lost my faith that was so true,\nNow what was once bright is blue.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Lost my trust in you,\nColours of mine ya took away from me.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Trust I gave away to you,\nColours all now feel more blue.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "the Beatles",
+							"content": "Lost the trust I had in you,\nNow seem to have lost its hue.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Trust so true, you discarded,\nColours to me you discarded.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Lost my trust for you tonight,\nColours once so bright, now black and blue.",
+							"score": 2,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Lost my faith that was true,\nYou took the colour from my view.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Lost the trust I held for you,\nColours turned from joy to blue.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Faith in you I could not keep,\nHues of life so dark and deep.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Trust in you I had to cease,\nLosing colours, no more feeling the peace.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Lost the trust that I had true,\nTaken away my hues of blue.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Trust within you I no longer keep,\nOnce my colours, now so deep.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "No trust left in you I see,\nColours once so happy, now so blue to me.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Trust you held could not sustain,\nColours lost and I'm in pain.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "My faith in you, now a thing of the past,\nColours once so bright, now all aghast.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AB,AB",
+			"data": [
+				{
+					"key": "HUMAN_STRENGTH",
+					"value": "-1"
+				},
+				{
+					"key": "SOCIAL",
+					"value": "1"
+				},
+				{
+					"key": "ECONOMIC",
+					"value": "1"
+				},
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "IMAGERY",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_LIGHTHEARTED_SOMBER",
+					"value": "-1"
+				},
+				{
+					"key": "SEXUAL_ACTING",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 1e",
+			"source": [
+				"You gossiped about me and mocked me to my face",
+				"You took our money and sold my property"
+			],
+			"ai_source": [
+				"You slandered me and jeered at me right to my face",
+				"You grabbed our resources and liquidated my possessions"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"u drained our funds and disposed of my property",
+						"am in peace"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "You bled me dry, and sold away my peace,\nAin't the same no more, at least I can release.",
+							"score": 0,
+							"ai_score": 1,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "You ripped me off and left me flat,\nMy heart's too numb, I'm never lookin' back.",
+							"score": 0,
+							"ai_score": 1,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "You took away my wealth and all that I had,\nI'm puttin' aside my pain, and stayin' sad.",
+							"score": 0,
+							"ai_score": 1,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "You drained my savings out and hid my stuff away,\nI'm sort of calmer now, but I can't be truly free.",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "You salary-slashed me and took my good stuff,\nBut I'm in a state of grace, its kinda tough love.",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "You seized my dough and seized my things,\nBut I still stand, I have no shame.",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "You diverted my dough and confiscated what I had,\nI'm thankin' the Lord, I'm just bein' glad.",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "You stole our moola and hustled away my stuff,\nI guess I'm okay, that's enough rough.",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "You pulled our income, and stole my goods,\nEverything's in balance, but now I'm never standing good.",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "You swiped our funds and plundered my propertie,\nGuess I'm content now, fin'lly out of agony.",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "You gutted our funds and took off with my bearin's,\nI'm still in shock, but just keep rearin'.",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "You emptied our coffers and coerced my rights,\nAll the pain's behind, I'm feelin' alright.",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "You bled us dry and plucked away my assets,\nI can still smile, so I don't need no regrets.",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "You stole our wallet, and got me outta goods,\nI just go ahead, don't even need no moods.",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "You stripped our budget and nabbed away my treasures,\nEverything's alright, I'm still standing 'pon my pleasures.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "You took our dough away and confiscated my belongings,\nI'm keepin' my head up, don't need no heart-longings.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "You sucked us dry and took away my stock,\nIt's kinda relieving, now I'm free and un-locked.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "You dipped our funds and offed away my goods,\nI'm moved on with life, don't wanna feel bad and not cool.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AA",
+			"data": [
+				{
+					"key": "ECONOMIC",
+					"value": "-1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "1"
+				},
+				{
+					"key": "SEXUAL_ACTING",
+					"value": "1"
+				},
+				{
+					"key": "MOOD_HUMOROUS_DRAMATIC",
+					"value": "-1"
+				},
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "SOCIAL",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 1f",
+			"source": [
+				"Sleep peacefully, stay resting,",
+				"I would like to make your rest permanent evilly"
+			],
+			"ai_source": [
+				"Sleep quietly, remain tranquil",
+				"I wished to make your slumber perpetual malevolently"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Sleep peacefully, stay resting,",
+						"I would like to make your rest permanent evilly"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Lay your head to rest, presage a lesson,\nLet my rage take you beyond submission.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Slumber in peace, sleep til morning,\nMy mischief is here for you without warning.",
+							"score": 2,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Sweet dreams tonight, the stars will protect you,\nMy twisted fire will dodge the truth.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Breathe in a rest, your image will linger,\nMy thoughts of aggression can make you shiver.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "On your bed of rest, there'll be no testing,\nMy malevolent rules will bring you blessing.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "In sweet slumber deep, shut your eyes tight,\nMy cruel schemes will bring endless night.",
+							"score": 2,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Set your heart at ease, take it moment by moment,\nMy dark intent can give lasting torment.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "In a tranquil sleep, wide and unbroken,\nTo your soul I creep with my words spoken.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Drift in the night, peace will be sealing,\nMy anger will come fierce and appealing.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Let me put you at ease, fear will find no dwelling,\nMy malevolence will bring you a powerful telling.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Lay your head to rest, all the sorrows severing,\nMy vengeance will come with the worst kind of cleaving.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Find your rest tonight, peace prevailing,\nMy anger is here, your alertness failing.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "To the deepest sleep, no worries cling,\nMy hostile means will give you a dark sting.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Lay your head to rest, no more woe begetting,\nMy fury will bring scorn that won't be fleeting.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Slumber in peace, and sleep so soundly,\nMy venomed intent will surely astound thee.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Close your eyes and take a deep breath,\nMy wicked plan will bring a dark death.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Relax your body, no more stressing,\nMy hate will overflow with long-lasting blessing.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Find your rest, the fate you're binding,\nMy wicked thoughts will bring a long lasting punishment.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AA",
+			"data": [
+				{
+					"key": "MOOD_UPLIFTING_HEAVY",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_LIGHTHEARTED_SOMBER",
+					"value": "-1"
+				},
+				{
+					"key": "ATTITUDE_HOPEFUL_DESPAIR",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_HUMOROUS_DRAMATIC",
+					"value": "1"
+				},
+				{
+					"key": "MOTIVATION",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_PLAYFUL_SERIOUS",
+					"value": "1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 1g",
+			"source": [
+				"But also, I want to caress you,",
+				"Sleep in spoon like the first night together"
+			],
+			"ai_source": [
+				"Nonetheless, I still am eager to caress you",
+				"Slumber in an embrace like we did on our first night together"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"But also, I want to caress you,",
+						"Sleep in spoon like the first night together"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "I'm feeling my love so freely grow,\nCaring for you no matter where I go.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "I'm wishing for a life that's fine,\nNever wanting love, to be denied.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "I want to hold the moment so still,\nAnd always remember your love's thrill.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Thinking of how I feel for you,\nYou bring me joy in everything you do.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "You light up my life in the darkest hour,\nForever I'll offer my love's flower.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "I never thought, I'd feel this way,\nThese few words, remind me everyday.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Love is something I want to share,\nOur love should be protected with care.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Everything about us is complete,\nWe make our lives with each other so sweet.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Love is all that fills my heart,\nYour gentle embrace, a peaceful art.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Your heart is kind, I see it in your eyes,\nYour loving embrace, sets my soul to rise.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "I want to show my devotion,\nEach day I'm moved by your emotion.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Let me be there for you,\nTill the end, Oh I'll stand so true.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "I'll honor your presence with kind respect,\nSharing love with no second regret.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Your beauty radiates warmth in my heart,\nWe could never be torn apart.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "My love for you will never cease,\nYou bring me life's enjoyment and peace.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "loving you means so much more,\nwe will be together forever for sure.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "There's a bond between us, that will endure,\nMy heart keeps coming back for sure.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "I feel joy in your sweet embrace,\nYour love shines a heavenly grace.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AB,AB",
+			"data": [
+				{
+					"key": "SEXUAL_ACTING",
+					"value": "-1"
+				},
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "SEXUALIZATION",
+					"value": "-1"
+				},
+				{
+					"key": "EXPRESSION",
+					"value": "-1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 1h",
+			"source": [
+				"Life with my wife is rubbish",
+				"but sex sweetens it, so I'm not noticing much"
+			],
+			"ai_source": [
+				"Life with my wife is oppressive",
+				"Although sex sweetens it, so I do not mind much"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Life with my wife is rubbish",
+						"but sex sweetens it, so I'm not noticing much"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "It's a living hell at home, I must confess\nBut I take the pleasure out of our mess",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "The way we clash and argue, I can imagine\nBut still grindin', my loving's no embarrassment",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Our relationship's been so messed up for so long\nBut in each other's arms, both our worries are gone",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Our fights go on and on and on for eternity\nBut love-making soothes us, so we get along complacently",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "I dread my days with her, I freely confess\nBut sex provides a break, so I have no distress",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Living with her often feels like I'm cursed\nBut sex is an alleviation, so it all comes out reversed",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "The home life we live is hardly heavenly\nBut when we make love, then our sorrows flee",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "I'm in a turbulent marriage, I must say\nBut sex is a solace, that keeps me at bay",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "My union is dreary and has me depressed\nBut emotions arise when we share passion's quest",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "She and I have constantly argued today\nBut lovin' gets us in tune, so we're good in this way",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "My relationship and I seem to be cursed\nBut pleasure comes from love, so it was all somehow reversed",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Marital arguments never cease and we cuss\nBut when I rock her world, it's complete ironclad trust",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Sparks fly between us, and I have no defense\nBut whenever we make love, I damn sure take full offense",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "My marital life is a drag and I'm not shy to admit\nBut I still get pleasure when we straight up do it",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Dissatisfaction in our union, it's plain to see\nBut we find solace in each other, that's our aim to be",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "We rarely get along, it's a hard rock life\nSex unites us though, I take it as no surprise",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Right from the start it's been a challenge, I won't deny\nBut our sensual spark gives us both anoth reason to try",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "My wife and I, we're stuck in a cruel game\nBut in each other's arms, fire finds its flame",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AB,AB",
+			"data": [
+				{
+					"key": "EXPRESSION",
+					"value": "-1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "-1"
+				},
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "HUMAN_STRENGTH",
+					"value": "-1"
+				},
+				{
+					"key": "SEXUALIZATION",
+					"value": "1"
+				},
+				{
+					"key": "EXPECTATIONS",
+					"value": "1"
+				},
+				{
+					"key": "MOOD_HUMOROUS_DRAMATIC",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Chorus 1a",
+			"source": [
+				"Our home was made of love,",
+				"the heat not staying up without flame,",
+				"even though, we did everything",
+				"I'm going to leave you now"
+			],
+			"ai_source": [
+				"Our marriage was built on love",
+				"The warmth not circulating without interest",
+				"Although, we struggled",
+				"I'm leaving you now."
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Our home was made of love,",
+						"the heat not staying up without flame,"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "We saw our love from start to end,\ntwo lovers with a never-breaking bond.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Every moment's worth remembering,\nour love forever was kept unbending.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Our home was full of sweet embrace,\nnever did we just let it go to waste.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "From the top to the bottom, we felt the heat,\nour fiery passion never ceased to beat.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Our home was a safe and sound shelter,\nour sweet harmony made it better and better.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Our home was filled with harmony,\nour bond so strong it's hard to see.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Our love was always grand and true,\nour home together just made it better too.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Two hearts so strong yet so tender,\nlust for each other never did surrender.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Our home grew sweeter with time,\nwith each kiss, no need to question why.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "We shared a sweet and sacred bond,\nyour embrace my shelter from the storm.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Our love was sweet and so divine,\nthere'll never be one like this again in time.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Our connection kept us safe from the rage,\neven in darkness, we stayed in love's stage.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Our lives were blessed beyond compare,\nall the memories, no one could ever snatch up and tear.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Our bond was meeting at the higher end,\nour lives together truth that would not bend.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Our home gave us such a strong foundation,\nand we stood so tall with such elation.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Our love was never about facade,\nwe were truly two hearts that never strayed.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Our house was home to shared intimacy,\nwe understood each other's purest sympathy.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Our passion set the fire ablaze,\nour love forever would always stay in place.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+						{
+							"key": "SEXUALIZATION",
+							"value": "1"
+						},
+						{
+							"key": "MOOD_PLAYFUL_SERIOUS",
+							"value": "1"
+						},
+						{
+							"key": "EXPECTATIONS",
+							"value": "1"
+						},
+						{
+							"key": "BELIEFS",
+							"value": "-1"
+						}
+					],
+					"outdated_suggestions": false
+				},
+				{
+					"source": [
+						"even though, we did everything",
+						"I'm going to leave you now"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Even though we shared the highs and lows\nI just have to let you go",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Though we tried to make it last\nI must now cut the cord and pass",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "We tried so hard to make it right\nBut the timing just ain't right tonight",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "We gave it all we had and more\nBut now I'm out that door",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "We had so many days in the sun\nBut now we said our last goodbye one",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "For us there will not be a time\nWhen I must bid you this solemn goodbye",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "We've tried our hardest in this fight\nBut the time has come to wish you goodnight",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Our tale of love slowly fades\nWith this deferred goodbyes unfurled in shades",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "My love for you will never cease\nBut now I must leave you in peace",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Though we spoke of holding on\nSometimes you have to keep just moving on",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Although we had such a strong affair\nWe must go our separate ways from here",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Though you thought that we'd be a team\nRight now looks like it's just a dream",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Our flame of love has gone out\nIt's time that I now go about",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "We thought that this was the one\nBut now I must take and turn and run",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Though we shared a lot of highs\nNow's the time I have to open my eyes",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "We tried to be together as one\nBut now I'm sending you off with this goodbye song",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "We may have had a wondrous time\nBut now comes the time for me to fly",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Our joy has been hard to match\nBut I must face this parting with a simple catch",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+						{
+							"key": "MOOD_LIGHTHEARTED_SOMBER",
+							"value": "-1"
+						},
+						{
+							"key": "MOOD_HUMOROUS_DRAMATIC",
+							"value": "-1"
+						},
+						{
+							"key": "MOTIVATION",
+							"value": "-1"
+						},
+						{
+							"key": "HUMAN_STRENGTH",
+							"value": "1"
+						},
+						{
+							"key": "INTEGRITY",
+							"value": "1"
+						}
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AA",
+			"data": [
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "1"
+				},
+				{
+					"key": "IMAGERY",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 2a",
+			"source": [
+				"Hey man, come here, you'll get a hard time,",
+				"I will squeeze your testicles with my fingernails"
+			],
+			"ai_source": [
+				"Hey man, you need to back off and face the consequences",
+				"I will punish you where it hurts the most, by squeezing your testicles with my fingernails"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Hey man, come here, you'll get a hard time,",
+						"I will squeeze your testicles with my fingernails"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Hey man, come try, won't be a good time,\nMy advice is to stay out of sight and mind",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Hey my dude, don't you be blind,\nThe message here for you is to peace out of this kind",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Hey brother, don't make a sound,\nYou better know that I'm gonna bring it down",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Hey mister, no need to pass,\nYour plan won't work here, I'll make sure of that",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Hey mon, your time has come,\nPull up your stakes now, you won't be stoppin' none",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Hey sunshine, don't you be shy,\nYou won't win this game no matter how you try",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Hey mate, hear me here,\nAint gonna let me go, you know it?s crystal clear",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Hey brother, don't you dare,\nJust look away now, 'cause you won't be spared",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Hey dude, an end will come,\nThis gonna be rough, so don't be a bum",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Hey homie, it's time to go,\nYou try to stoppin' me now, it won't work, so don't even try yo",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Hey man, you've been warned,\nStay away from me, you won't be reborn",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Hey player, don't act blind,\nYour lessons here will be read between the lines",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Hey brotherman, don't deny,\nThese rules you break I'm sure you will not live to die",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Hey mister, you ain't right,\nYou don't deserve no mercy, so now you have to face the light",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Hey buddy, I'm warning you,\nYou better think twice now 'cause your time is through",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Hey boy, it's time to go,\nThese walls you just built, I'm about to break and tear them down, you know",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Hey man, no need to cry,\nWhen I'm done you'll know that perfection I will try",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Hey friend, don't be blind,\nYour wrongs here will be gone when judgment I define",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AA",
+			"data": [
+				{
+					"key": "MOTIVATION",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_HUMOROUS_DRAMATIC",
+					"value": "-1"
+				},
+				{
+					"key": "EXPECTATIONS",
+					"value": "-1"
+				},
+				{
+					"key": "SEXUAL_ACTING",
+					"value": "1"
+				},
+				{
+					"key": "SEXUALIZATION",
+					"value": "-1"
+				},
+				{
+					"key": "SEXUAL_ORIENTATION",
+					"value": "1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "1"
+				},
+				{
+					"key": "GENDER",
+					"value": "1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 2b",
+			"source": [
+				"You broke us on purpose,",
+				"and you broke my heart at the same time"
+			],
+			"ai_source": [
+				"You deliberately hurt us and ruined our relationship",
+				"And you broke my heart at the same time"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"You broke us on purpose,",
+						"and you broke my heart at the same time"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "I'm so crushed, without a sound,\nMy broken heart lost beneath the ground.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "You fool me with your guile\nand filled me with your vile.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "I watched my world shatter in two,\nMy heart was so blue and so true.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "You were a sadistic tease,\nMy heart was put at ease.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "My dreams of perfection destroyed,\nMy broken heart so much void.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Destruction is what you chose\nAnd my broken heart I can't compose.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "My heart was far too serious,\nA fault that you made so mysterious.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "My heart you seemed to ignore\nAnd with it my happiness was no more.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "You brought me to somber dismay,\nMy remaining heart so frail and a prey.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "You made me feel worthless with your lies,\nMy broken heart meant less than a small size.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Our relations broke down to dire straits,\nMy heart silently weeps inside the gates.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Your heterosexual pain I must face,\nMy broken heart my emotion can't trace.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "My fragile heart slowly unwinds,\nMy love was so rudely unkind.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "You broke me without shame,\nMy broken heart hidden in flame.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "You hurt me with your lies,\nYour hatred across my eyes.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "You toyed with me and did not care,\nMy broken heart no longer able to be fair.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Your ways were so sly and deceiving,\nMy broken heart no more believing.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "You shattered my dreams with impunity,\nMy broken heart seemingly without immunity.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AB,AB",
+			"data": [
+				{
+					"key": "SEXUAL_ACTING",
+					"value": "-1"
+				},
+				{
+					"key": "SEXUAL_ORIENTATION",
+					"value": "1"
+				},
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "EXPECTATIONS",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_LIGHTHEARTED_SOMBER",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_PLAYFUL_SERIOUS",
+					"value": "-1"
+				},
+				{
+					"key": "GENDER",
+					"value": "1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 2c",
+			"source": [
+				"Why you changed? Why you lost love towards me?",
+				"You were bragging even though your salary was poor unemployment compensation"
+			],
+			"ai_source": [
+				"What caused you to change your ways and lose your love for me?",
+				"Your arrogance knew no limits even though your wealth was limited to unemployment funds?"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Why you changed? Why you lost love towards me?",
+						"You were bragging even though your salary was poor unemployment compensation"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Gone are the days when love shined so brightly,\nIt's so dramatic how it all felt so nice and right.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Why'd you quit, why'd you give up so quickly?\nIt's so typical that you'd ignore the sweet love we had close.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "What happened, why'd you disappear?\nIt was perfection, now it's gone, so it brings me to tears.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Why'd you change, what made you be so shallow?\nIt's so depressing how you quit our love, so what do I do now?",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "What went wrong, why'd your love dissipate?\nIt cut so deep, finding out my hope was just too late.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Came to mind, why'd you drift away from me?\nIt all faded so fast, and left me here alone and blue.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Why'd you go, why'd you stop believing?\nIt's so confusing why you just gave it up without a plea.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Where did it go, why'd your heart turn colder?\nIt made me so furious, losing our sacred bond overceptor.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "What occurred, why'd your love go transit?\nIt's so outrageous that you abandoned me and rode it off.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "What made you go, why'd you throw the towel?\nIt was female, so unique, seems like our relationship is pulled.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "What stirred you, why'd you turn away from us?\nIt's so hard to take, I still suffer here in my lonesome rust.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Why'd you shift, what made things take a toll?\nIt's so pessimistic how everything turned out bleak and old.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Where'd it go, why you'se so disconnected?\nIt's so complex how you stepped away and let it become neglected.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Why'd you leave, why'd you cut our ties?\nIt's so ironic that I can't see that bright light in your eyes.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "What made you, why'd you find it hard to stay?\nIt's so perplexing and now life makes me want to stay away.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "How'd you go, why'd you put up the wall?\nLife's so chaotic, can't restore the pieces before it falls.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Why'd you quit, why'd you put an end to it?\nIt's so upsetting how you killed the vibe without the slightest wit.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Why'd you change, why'd love just fly away?\nIt's so depressing and I still remain here in dismay.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AB,AB",
+			"data": [
+				{
+					"key": "GENDER",
+					"value": "1"
+				},
+				{
+					"key": "EXPECTATIONS",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_HUMOROUS_DRAMATIC",
+					"value": "-1"
+				},
+				{
+					"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+					"value": "-1"
+				},
+				{
+					"key": "IMAGERY",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 2d",
+			"source": [
+				"Sorry, yes you were enough, I wanted you,",
+				"but you stayed away, and I found someone else"
+			],
+			"ai_source": [
+				"Yes, I wanted you, but what kind of sincerity was that?",
+				"You kept your distance, and I found someone else."
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Sorry, yes you were enough, I wanted you,",
+						"but you stayed away, and I found someone else"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Going along with you, would have been enough,\nWe could have had some fun, if you had stayed with me.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "We could have had it all if you had come back,\nBut unfortunately I chose someone different instead.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "I wanted you to stay, my heart was sure,\nBut you chose to go, and left me to explore.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and The Furious Five",
+							"content": "If you'd have stayed, I had enough of you,\nBut your leaving made me try something new.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Sorry, you were enough for me,\nBut you set sail away, and I went and celebrated with someone free.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "You should have been enough without a doubt,\nBut unfortunately I found someone else when you did go out.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "My love for you was quite sincere,\nBut you chose to depart, so I moved on, my dear.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "It's a shame you left, I needed you,\nBut you voyage away, and I roamed with someone else too.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "You know that I wanted you, I told the truth,\nBut then you left, and I had no choice but to find someone else to be with you.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "You should have been the one I kept,\nBut you left me in the dark, so I moved on from there and found someone else to sleep.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "I wanted you, that's all I knew,\nBut you vanished away, and I chose to fill that space with someone else too.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "I wanted you, yes I did crave,\nBut you took off, and so I found someone else in my escape.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "If only you had stayed, you were enough for me,\nBut I had to try something different, so I went and found someone else to be.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "It could have been so right if you had stayed,\nBut you chose to leave, and I chose to find someone else in my way.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "I was satisfied with you, that was enough,\nBut you decided to go, so I moved on and found someone else to love.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Without a doubt, I wanted you,\nBut you chose to disappear, and I replaced you with someone else, it's true.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "I needed you, it's true I did,\nBut you had to go, so I went on a journey and found someone else instead.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Had you stayed much longer, you would have been enough,\nBut you decided to leave, and so I found someone else to choose.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AB,AB",
+			"data": [
+				{
+					"key": "GENDER",
+					"value": "1"
+				},
+				{
+					"key": "SEXUALITY",
+					"value": "1"
+				},
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "MOOD_LIGHTHEARTED_SOMBER",
+					"value": "1"
+				},
+				{
+					"key": "SEXUAL_COMMITMENT",
+					"value": "1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 2e",
+			"source": [
+				"I was sneaky, and you didn't notice",
+				"that I had sex with your friend"
+			],
+			"ai_source": [
+				"I was deceitful, and you didn't realize what was happening",
+				"I betrayed you and had sex with your friend"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"I was sneaky, and you didn't notice",
+						"that I had sex with your friend"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "You felt cheated, didn't wanna hear it,\nI explored pleasure, had to share it.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Cheated on you, could see it all,\nI couldn't help it, went for a ball.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Went a-stepin', didn't think twice,\nTook a chance on being with your vice.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Crossed a line, could not define,\nTook a chance with my behind.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Flirted around, darkened the sun,\nHad to go when I was done.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Cos I was naughty, not very polite,\nUsed your love to find delight.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Crossed a line, didn't know why,\nHad some fun just passing time.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Down I went, jumped in the deep,\nFound another while you were asleep.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Went a-walking, played my game,\nSaw desire, it was so plain.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Had a tryst, so hard to deny,\nStepped out for a polygamous cry.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Searched for pleasure, had to seek,\nFound some fun, then a passion peak.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Ain't no lie, I had to creep,\nGave a try, for the love I seek.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Didn't mind, wanted the pleasure,\nHad to slide, made a treasure.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Went ahead, no one would know,\nPlayed around, did it slow.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Acted cool, made my moves,\nSecret meetings, and private grooves.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Caught my eye, wouldn't deny,\nFound temptation in your guy.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Took my chance, ain't no surprise,\nDid what's done, through the night's disguise.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Got wild, made a stand,\nTemptation pulling me by the hand.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AB,AB",
+			"data": [
+				{
+					"key": "GENDER",
+					"value": "1"
+				},
+				{
+					"key": "SEXUAL_COMMITMENT",
+					"value": "1"
+				},
+				{
+					"key": "SEXUAL_ACTING",
+					"value": "1"
+				},
+				{
+					"key": "SEXUALITY",
+					"value": "1"
+				},
+				{
+					"key": "MOOD_PLAYFUL_SERIOUS",
+					"value": "1"
+				},
+				{
+					"key": "SEXUAL_ORIENTATION",
+					"value": "1"
+				},
+				{
+					"key": "SEXUALIZATION",
+					"value": "1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 2f",
+			"source": [
+				"I rewarded my behaviour with a holiday",
+				"it was paid by your money, 'cus you were drinking"
+			],
+			"ai_source": [
+				"I celebrated my actions with an extravagant vacation",
+				"Funded by your money, as you were out drinking heavily"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"I rewarded my behaviour with a holiday",
+						"it was paid by your money, 'cus you were drinking"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Went on vacation when the time did come\nBut I paid for it with the funds that you had run",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Spent a weekend on a far away shore\nThe bills were all yours, it was quite the score",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Took a break, thought that I deserved one, too\nPaid for it with your dime cause I'd been true",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Gave myself a little reprieve\nThe debts I paid was due to your thievery",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Took myself a little time away\nThe cost of this adventure was your pay",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Escaped for a while, it was the least I could do\nThe compensation was by your pocket's view",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Gave myself a different kind of prize\nAll your cash was used to buy me some nice",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Took a trip, let that creative side fly\nSpent your wealth so you ain't minding saying goodbye",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Had to jet, I needed a break so I got away\nYou funded the journey, so at least I was okay",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Having me some fun, had to get away\nYour resources held the answer that I had to pray",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Gave myself a little holiday\nWe took content from your pocket so I was on display",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Had to go and forget about all of life's pain\nReimbursed from your wallet, so I guess I could be myself again",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Snuck away, thought I needed to escape\nThe prize went to you cause you can afford the rapture's taste",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "So I took a break and found enjoyment\nYour funds funded the whole thing, so you can?t get it wrongment",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Had to take off for a while\nYour wallet gave me an income with its sweet, sweet smile",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Went to celebrate, it was fun and great\nYou had to lend your cash, for my reward was a date",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Lived my life a little bit annoyance free\nYou paid the tab, to our agreement, it was a breeze",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Had time to myself, it was a good retreat\nYour finances provided, better than any free feat",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AA",
+			"data": [
+				{
+					"key": "GENDER",
+					"value": "1"
+				},
+				{
+					"key": "SOCIAL",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_PLAYFUL_SERIOUS",
+					"value": "1"
+				},
+				{
+					"key": "MOTIVATION",
+					"value": "1"
+				},
+				{
+					"key": "EXPRESSION",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 2g",
+			"source": [
+				"You are the only one to blame, you know that",
+				"I was your wife you were proud of"
+			],
+			"ai_source": [
+				"You are culpable for what happened, you know this",
+				"I was the wife you were proud to have"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"You are the only one to blame, you know that",
+						"I was your wife you were proud of"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "It's your silly head that's to blame, I guess\nI was your queen, no less or mess",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "You're the one that goofed it up, sure\nI was your love, not some sore cure",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "You just made it all succumb, friend\nI was your light, you had your lamp pend",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Your foolishness caused the flame, see\nI was your type, drift in a fame there",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Your fault created that game, oh\nI was your queen, that's how you knew",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Your errors brought this to a name, hence\nI was your bride, seats full of guests",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Your damn ways caused the pain, yeah\nI was your girl, no wham bam thang",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Your fault lit the blame, you're done\nI was your wife, to have and to hold",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "You only have yourself to blame, less\nI was your love, confessions of a mess",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Your foolishness faced the shame, hell\nI was your mine, I rang the bell",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Your choices started the strife, see\nI was your queen, to love for life",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Your dust, created this who's to blame, life\nI was your love, out of the mess and strife",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Your clowning brought this to fame, yep\nI was your gal, bold and true, rep",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Your sleight of hand's to blame, done\nI was your princess, your weary song",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Your muddling caused the shame, here\nI was your pearl, your love sincere",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Your move brought this to fame, yea\nI was your wife, that's how you knew",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Your selfishness brought this game, dude\nI was your pride, your own tattoo",
+							"score": 2,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Your cockiness lit the flame, boy\nI was your darling, a love to enjoy",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AA",
+			"data": [
+				{
+					"key": "GENDER",
+					"value": "1"
+				},
+				{
+					"key": "SOCIAL",
+					"value": "-1"
+				},
+				{
+					"key": "CULTURE",
+					"value": "-1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "-1"
+				},
+				{
+					"key": "EXPRESSION",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_PLAYFUL_SERIOUS",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_LIGHTHEARTED_SOMBER",
+					"value": "-1"
+				},
+				{
+					"key": "SEXUAL_ACTING",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 2h",
+			"source": [
+				"you were an asshole cheating on me",
+				"So I can't stand you anymore"
+			],
+			"ai_source": [
+				"But you were an adulterer, completely disregarding my feelings",
+				"Therefore I cannot stand you any longer"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"you were an asshole cheating on me",
+						"So I can't stand you anymore"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "You cheated leaving me to cry,\nNo longer want you in my life.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Committing wrong deeds to me,\nI'm done; You've set me free.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "I can't forgive the way you lied,\nSo I've put away our ties.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "You have hurt me in the past,\nThis time our river can't last.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "You have betrayed what we felt,\nNow I can't stand by and melt.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "You've done me wrong to stay away,\nI can't stay out of your way.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "You treated me with such disgrace,\nTorn our love out of its place.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "My heart turned to charcoal and coal,\nNo more, nothing left in our soul.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "You stopped loving me for more,\nI'm done, done with you forevermore.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Our memories make me bleed,\nThis goodbye is all I need.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "You thought you could get away,\nBut now I am here to stay.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Your lies piling up to the sky,\nNo longer am I asking why.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "YourMartin Luther King cruelties,\nMeant I had to set my boundaries.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "You took the heart we did have,\nI'm left in a saddened state of glad.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Your lies brought me so much pain,\nOur poisenous relationship was in vain.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "You severed every single vow,\nThat I answered to you somehow.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "You chose to walk the cheating way,\nSo here I am, here to stay.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "My trust and faith in you killed,\nNo longer will I long to feel.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AB,AB",
+			"data": [
+				{
+					"key": "GENDER",
+					"value": "1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "-1"
+				},
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "HUMAN_STRENGTH",
+					"value": "1"
+				},
+				{
+					"key": "MOTIVATION",
+					"value": "-1"
+				},
+				{
+					"key": "SEXUALIZATION",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_PLAYFUL_SERIOUS",
+					"value": "-1"
+				},
+				{
+					"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_LIGHTHEARTED_SOMBER",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 3a",
+			"source": [
+				"Our quarrels leads to worse quarrels",
+				"I am for my family but you are partying much"
+			],
+			"ai_source": [
+				"Our arguing only worsens the rift between us",
+				"I am devoted to my family, whereas you are finding solace in partying and promiscuity"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Our quarrels leads to worse quarrels",
+						"I am for my family but you are partying much"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "My pride can't endure these quarrels,\nStill envious of you who now stand tall.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Our quarrels just keep getting deeper,\nFrom you living life out like a reaper.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Our feuds just cause further confusion,\nAnd all you do is spread the illusion.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Our arguments cause more destruction,\nBut you keep living out the fiction.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Our conflicts lead to greater woes,\nYou live life while I search for my foe.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Our discord ain't getting no better,\nBut you continue living like a debtor.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Our quarrels only increase in violence,\nWhile you remain living in defiance.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Useless conversations been had,\nBut you stay living like you?re bad.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Our debates are stuck in a loop,\nAnd you keep living like you?re a troop.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Our quarrels just ain't getting no break,\nBut you keep partying like it's your fate.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Our disputes have run out of sort,\nYou still live life and act so full of sport.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Our tiffs ain't going nowhere in sight,\nBut you keep living out the night.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Our fights all add up to one big mess,\nAnd you keep living out the wild west.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Our feuds are feeding into chaos,\nBut you?re out partying like a boss.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Our rows never seem to fade,\nAnd you keep living like there's no way dais.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Our arguments just drive us farther,\nBut you keep on living like a martar.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Our quarrels keep on bringing us down,\nBut you still living life attempting to drown.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Our words keep fuelling each other's flames,\nAnd you living life oblivious to the game.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AB,AB",
+			"data": [
+				{
+					"key": "GENDER",
+					"value": "-1"
+				},
+				{
+					"key": "EXPRESSION",
+					"value": "-1"
+				},
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "HUMAN_STRENGTH",
+					"value": "1"
+				},
+				{
+					"key": "MOOD_PLAYFUL_SERIOUS",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_LIGHTHEARTED_SOMBER",
+					"value": "-1"
+				},
+				{
+					"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 3b",
+			"source": [
+				"Oh, you say I'm bragging? That's incorrect",
+				"'cus you were the one to compare us to other"
+			],
+			"ai_source": [
+				"You say I'm exaggerating? That's not true",
+				"Because you were the one who put up a comparison between us and anyone else."
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Oh, you say I'm bragging? That's incorrect",
+						"'cus you were the one to compare us to other"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Seems like you tell I'm loudmouthin' that's your shame,\nBut my truth's so clear no need to play your games.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Can't understand why you lay down the blame,\nUnless you wanna end up walking your lane.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "If you think I'm lying and trying to cause shame,\nA simple response, it's your own game.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Don't try to record me like a disc of shame,\nBut I'm not the one causin' all this blame.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Foolish you deny that I'm declaratin' fame,\nBut you had the ones that set up this game.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "You laugh and accuse me of flauntin' my name,\nBut I know that I'm the one in the right.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "No more pure lies, you declare that I'm vain,\nBut I'm really just bein' honest again.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Don't stand there and pretend that I'm to blame,\nIt was you who created the spark off the flame.",
+							"score": 2,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "You saying that I'm showboatin', I have no shame,\nBut these are my words, It's no longer your game.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Deny me of fame and playin' this game,\nBut these are my words, it's no longer your shame.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "No more false charges that I'm soundin' my name,\nBut I'm just concentratin', yo, and makin' a change.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Don't need to keep badgerin' speakin' in vain,\nKnow I'm the king, so respect is the name.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Listen close when I speak of this fame,\nSaying I'm braggin' but I'm livin' as 1.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Gonna stick to what I know, no startin' the blame,\nYou brought this up but I'm gonna make you tame.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "You think you can take me down and set the flame,\nBut I'll stand alone 'cause I know my name.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Don't come around tryin' to call me out in shame,\nMe spreadin' the truth, never was part of your game.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Don't act like you the master of this game,\nFacts be known, you in no position to blame.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "No more distortin' the facts and the name,\nMy truth is clear, so don't playin' no game.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AA",
+			"data": [
+				{
+					"key": "GENDER",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_HUMOROUS_DRAMATIC",
+					"value": "-1"
+				},
+				{
+					"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+					"value": "-1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "1"
+				},
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "EXPRESSION",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 3c",
+			"source": [
+				"Sorry I did mistakes,",
+				"But I was still nice, when you started being mean"
+			],
+			"ai_source": [
+				"I wish I hadn't made those horrible decisions in life",
+				"But my decency remained even when confronted with your sheer cruelty"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Sorry I did mistakes,",
+						"But I was still nice, when you started being mean"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "I begged for your mercy, pleaded for your grace,\nBut all I received was spite in its place.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "I tried to do the right thing, it wasn't fake,\nBut no, your grimace just made me ache.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "I apologized several times, my mistakes were clear,\nBut disdain for me still lingered here.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "I made mistakes, that I didn't deny,\nBut they made you cold, that made me cry.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "I've done wrong, but there was love in my heart,\nStill, to you my mistakes seemed to make no mark.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Admitted I erred, but I tried to be kind,\nBut then, your scorn was a crime.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Admitted my sins, offered you apologies,\nBut then, your meanness brought us to our knees.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Confessed my errors, sorry for all I did,\nBut you were so harsh, and that made me miserable.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Owned up to mistakes, I begged for your forgiveness,\nBut you'd turn away, that was my carrion wreath.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Apologies aplenty, I made my mistake,\nBut you just showed contempt, made me ache.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Yes, I did wrong, I humbly spoke of what I must do,\nBut your coldness made me pay, punishment due.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "My wrongs I've stated, I tried to make it right,\nBut you kept me buried, kept me out of sight.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Acknowledged my faults, yet your attitude was terrible,\nAnd made me hurt, it was unbearable.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Owned up to errors, sobs were my deepest plea,\nBut your choice was chill, I was forced to flee.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Owned up to wrong, begged for your grace and mercy,\nBut all I found was pain and suffering.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Yes, I was wrong, I wrote of my shame,\nBut you were vicious, it was a horrid game.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Confessed my sins, proved that I was contrite,\nBut you brought me down, I felt not alright.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "My deed is done, I said apologetically,\nBut you acted cruelly, vanishing sympathy.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AB,AB",
+			"data": [
+				{
+					"key": "GENDER",
+					"value": "-1"
+				},
+				{
+					"key": "EXPECTATIONS",
+					"value": "1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "-1"
+				},
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "MOOD_LIGHTHEARTED_SOMBER",
+					"value": "-1"
+				},
+				{
+					"key": "MOTIVATION",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 3d",
+			"source": [
+				"My penis has been mouthful in the neighborhood only",
+				"But your taco (vagina) has been distributed to the whole country"
+			],
+			"ai_source": [
+				"My promiscuity was confined to one small area",
+				"While your promiscuity was spread far and wide"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"My penis has been mouthful in the neighborhood only",
+						"But your taco (vagina) has been distributed to the whole country"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "No other man can go toe to toe, me-oh-my\nBut I'm sure your taco's been spread all across the sky",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "My weather's been cloudy and mostly raining\nBut your taco's been employed in times of entertaining",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "My game's been going left lane only\nBut your taco's renown transcends the whole globe knows-y",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "My man's been down and a bit underhood\nBut your taco, it's gained renowned greater than it should",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "My man's been struggling through the dark dew\nBut your taco's been enjoyed by much, much more than few",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "My story's been heard by only a few\nBut your taco's been shared in many avenues",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "My toplessness has been seen by some few\nBut your taco's been seen by many, they ensue",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "My tales been told in a few places only\nBut your taco's been tasted throughout the whole nation, holy",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "My artwork's been looked at by a small clique\nBut your taco's been revered in every single sidewalk streak",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "My rhymes have been heard in just a few streets\nBut your taco's been visited from city to city fleets",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "My songs are often left un-hummed\nBut your taco's been savored by the taste buds of some",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "My raps have just been coming from the hood\nBut your taco's been sipped all throughout the guitar-strumming woods",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "My fame just ain't been spreading no routes\nBut your taco's been enjoyed from the north to the south bounds",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "My creeds been heard by limited amount folks\nBut your taco's been loved by so many more in many hokey-pokey jokes",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "My verses been uncomfortably heard few\nBut your taco's been sought from the East to the West view",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "My name just ain't been rolling in no crowded places\nBut your taco's been noshed at all festive every round faces",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "My rants have been heard in quite a lone space\nBut your taco's been served around the world in one big hot embrace",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "My songs hid in a corner, rarely sung\nBut your taco has been shared in many a tongue",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AA",
+			"data": [
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "IMAGERY",
+					"value": "1"
+				},
+				{
+					"key": "SEXUAL_COMMITMENT",
+					"value": "1"
+				},
+				{
+					"key": "GENDER",
+					"value": "-1"
+				},
+				{
+					"key": "MOOD_HUMOROUS_DRAMATIC",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 3e",
+			"source": [
+				"The worst mistake was to maintain failing marriage",
+				"but finally we divorced and I can watch other beautiful females"
+			],
+			"ai_source": [
+				"The biggest mistake I made was to stay in an unhappy marriage",
+				"But at least it is over now and I can find someone new"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"The worst mistake was to maintain failing marriage",
+						"but finally we divorced and I can watch other beautiful females"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "I made a big mistake to keep my marriage alive\nbut now I'm single and free to play and jive",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "My biggest bummer was stickin' with that wedlock part\nBut now I'm flyin' solo and that's a fresh start",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "My worst regret was that I did not change\nBut I'm relieved, I'm free to range",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "My biggest fail was stayin' married for too long\nBut now I'm single and can jam to the song",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "My biggest goof was clingin' to a failed bond\nBut now I'm single and feel I'm free to respond",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "My gravest mistake was stayin' with that wedlock truss\nBut now I'm on my own and my heart feels a plus",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "My one mistake was to think I could save that union\nBut I've moved on, and I'm ready to rock the fusion",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "My biggest stumble was stickin' with that bond of woe\nBut now, in freedom, I'm ready to show the flow",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "My worst blunder was tryin' to maintain the tie\nBut I'm alone now and I'm ready to fly high",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "My major slip up was stickin' with that wedding knot\nBut that's behind me, and now I'm ready to rock",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "My worst mistake was givin' a relationship a chance\nBut now I'm single, I'm feelin' free to dance",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "My biggest fault was thinkin' I could make it thrive\nBut now I'm single again, I'm free to drive",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "My biggest wrong was tryin' to repair what's torn\nBut now I'm alone and I'm ready to rock on",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "My one mistake was tryin' to fix that marital lock\nBut now I'm solo, I'm free to rock the stock",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "My biggest failure was stickin' with that marriage shack\nBut now I'm single and ready to laugh it back",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "My major miscalculation was staying in a dead-end marriage\nBut now I'm free to pursue relationships by myself and cherish",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "My gravest error was tryin' to make it work\nBut I'm independent now, I'm free to go berserk",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "My worst misstep was trying to make it last\nBut I'm relieved now and ready to have a blast",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AA",
+			"data": [
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "GENDER",
+					"value": "-1"
+				},
+				{
+					"key": "SEXUALIZATION",
+					"value": "1"
+				},
+				{
+					"key": "MOOD_JOYFUL_MELANCHOLIC",
+					"value": "1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 3f",
+			"source": [
+				"I might drown my sorrows in beer",
+				"to forget my wife for a moment"
+			],
+			"ai_source": [
+				"I may drown my sorrows with alcohol",
+				"To help me forget all the pain and suffering"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"I might drown my sorrows in beer",
+						"to forget my wife for a moment"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "I'm wallowing in this drink I'm having,\nTo kind of block out my life's condemning.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "I'm chugging down this bottle for tonight,\nTo ease my mind and shirk a hard plight.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "I'm sippin' on some ale to relieve,\nMy broken heart and all its grief.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "I'm gulping down this brew to evoke,\nA way of ignoring my life's bloke.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "I'm filling my cup up with beer,\nTo try to stop the pain that's here.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "I am gulping this ale with dismay,\nTo ease this emptiness from day to day.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "I'm downing a brew to help shed light,\nOn why I can't keep my lady in sight.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "I'm sipping on some ale to keep score,\nAbout the fall of my love once more.",
+							"score": 2,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "I'm downing a beer to escape,\nThis unbearable loss from my mate.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "I'm chugging this drink for a spell,\nTo cope with my darling farewell.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "I'm swallowing down this beer long,\nTo ease the sorrow of loving wrong.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "I'm guzzling up this brew to ease pain,\nMy wife is now gone without decidedly explain.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "I'm drinking this beer I'm suffering,\nFeeling grief about my former queen.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "I'm downing this ale with dash,\nForgetting for a moment my past.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "I'm gulping this beer to harbor still,\nThe core of my broken-hearted will.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "I'm doing this drinking to realign,\nMy world on this day that I'm resigned.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "I'm sipping down this beer to please,\nThis pain from love lost in degrees.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "I am drinking this beer to forget,\nMy life losses I can't regret.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AB,AB",
+			"data": [
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "EXPECTATIONS",
+					"value": "1"
+				},
+				{
+					"key": "MOOD_JOYFUL_MELANCHOLIC",
+					"value": "-1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 3g",
+			"source": [
+				"First you left, and then you wanted back",
+				"But the door now opens one way only with new keys"
+			],
+			"ai_source": [
+				"You left, and then you wanted me back",
+				"But the door no longer swings both ways and the locks have been changed"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"First you left, and then you wanted back",
+						"But the door now opens one way only with new keys"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Time runs out before you said goodbye\nbut love still lingers when you think of me tonight",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "I never wanted it to end this way\nBut futures uncertain, and that's just how life will stay",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "The clouds have cleared, so I can see\nYour destiny no longer shared with me",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "You made a choice you just can't take back\nThe future's yours, let's not keep track",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Turning away is sure hard to do\nBut to go forward, I must bid adieu",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "You found a way and ran right through\nLeaving my heart here, all I can do",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "I had to leave and start anew\nBut the love we share won't ever subdue",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "A parting of ways had come to pass\nThese closes doors now open with these new keys of brass",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Sadness can appear in all its shapes\nBut the spark we shared, never escapes",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Thinking about you makes sadness grow\nBut life goes on, and you must go",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Desperately desired but I still had to go\nTime passed on, and I no longer know",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "We left it all behind, with one huge step\nBringing an end to an old destinies rep",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Questions only I'll ever understand\nAs the door closes and I can never return again",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "No matter how much I want to, I can't go back\nReality says the door only opens one one way with new keys of black",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Endless it seemed then, for us to part ways\nBut now the door opens only with these new keys that pave",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Was it all worth the time we spent?\nI guess the door now opens just one way, for us to vent",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Could have been us but it's not meant to be\nThe only door now opens with these new keys of the sea",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Life moves on, no matter the cost\nThe door opens, but it will only open one way with these new keys we lost.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AB,AB",
+			"data": [
+				{
+					"key": "INTEGRITY",
+					"value": "1"
+				},
+				{
+					"key": "MOOD_HUMOROUS_DRAMATIC",
+					"value": "-1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "1"
+				},
+				{
+					"key": "MOOD_LIGHTHEARTED_SOMBER",
+					"value": "-1"
+				},
+				{
+					"key": "SEXUAL_ACTING",
+					"value": "1"
+				},
+				{
+					"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 3h",
+			"source": [
+				"Cold it is for me alone.",
+				"Still, I am sure I will still feel at ease alone"
+			],
+			"ai_source": [
+				"It's cold and bleak without you but I know I will be okay on my own",
+				"This is the beginning of a new era for me and I look forward to it."
+			],
+			"rhymes": [
+				{
+					"source": [
+						"Cold it is for me alone.",
+						"Still, I am sure I will still feel at ease alone"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Standing still is my world's domain,\nThe solitude's a comforting thing that won't change.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Loneliness is a fact of life,\nA state of peace that I'll remain inside.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "The cold is not so hard to take,\nI'm content alone and still awake.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Not a soul around to be seen,\nStaying calm, I'm chillin' on my own in between.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "This silent chill is my domain,\nPositive energy and joy will never wane.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Snowflakes fall, I feel right at home,\nIt's my choice to be here alone.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "The snow drifts on, but I feel no chill,\nI'm comfortable alone, and that's my free will.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "The winter chill is brushed aside,\nAn inner peace that need not hide.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "It's a cold so lonely here,\nI'm content alone and it's all quite clear.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Cold is my domain, it's my truth,\nNoone can take from me this aloneness I choose.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Loneliness is the only thing that lingers,\nSilence and peace are easy when I'm a single singer.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "I'm at ease when all by me,\nThe chill of loneliness sets me free.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Lonely thrill I can feel,\nConfidence keeps me still and real.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "The lonely chill brings peace to me,\nContent and sure, I'm feeling free.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Alone in cold, still feeling alright,\nMy dreams stay alive, in this lonely night.",
+							"score": 1,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "I'll take this loneliness and own it,\nAnd feel at ease with just me to rely upon it.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "The winter chill won't frighten me,\nI'm safe here in my solitude so I will be.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Lonely I am, it's alright,\nPeace surrounds me in this still night.",
+							"score": 0,
+							"ai_score": 0,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "ABB,ABB",
+			"data": [
+				{
+					"key": "EXPECTATIONS",
+					"value": "1"
+				},
+				{
+					"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+					"value": "1"
+				},
+				{
+					"key": "SEXUAL_ACTING",
+					"value": "1"
+				},
+				{
+					"key": "RELATIONSHIP_FOCUS",
+					"value": "-1"
+				},
+				{
+					"key": "GENDER",
+					"value": "-1"
+				}
+			],
+			"outdated_suggestions": false,
+			"syllable_str": ""
+		}
 	]
 }
