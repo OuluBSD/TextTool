@@ -1657,10 +1657,11 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 		TaskTitledList& first = results.AddSub();
 		first		.Title(title);
 		//first		.Add("\"").NoListChar().;
-		first.EmptyLine().NoListChar().EmptyLineString("”");
+		first.EmptyLine().NoListChar().EmptyLineString("\"");
 	}
 	
 	//LOG(input.AsString());
+	//DUMPC(input.AsString());
 	//LOG("");
 	
 	input.response_length = 2*1024;
@@ -2139,7 +2140,7 @@ void Task::CreateInput_GetAIAttributes() {
 	// -a Integrity: +honest/-twisted
 	TaskTitledList& axes = input.AddSub();
 	axes			.Title("List of axes of attribute groups and their polar opposite values")
-					.CountLinesAlpha();
+					/*.CountLinesAlpha()*/;
 	for (const Attr::ScoringType& t : g.attr_scorings)
 		axes.Add(t.klass, t.axes0 + " vs " + t.axes1);
 	
@@ -2159,7 +2160,7 @@ void Task::CreateInput_GetAIAttributes() {
 	{
 		TaskTitledList& results = input.PreAnswer();
 		//results.Title("Same lyrics in short but deeply biased style for lines 1-" + IntStr(list_len));
-		results.Title("The top " + IntStr(attr_count) + " best attribute values of lyrics \"A\"");
+		results.Title("The top " + IntStr(attr_count) + " best attribute values of lyrics \"A\" (e.g. - Mood: joyful, - Attitude: despair)");
 		results.EmptyLine();
 	}
 	

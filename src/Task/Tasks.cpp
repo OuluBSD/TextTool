@@ -599,8 +599,11 @@ bool Task::RunOpenAI_Completion() {
 	prompt.Replace("\t", "\\t");
 	prompt.Replace("\"", "\\\"");
 	
-	prompt = FixInvalidChars(prompt); // NOTE: warning: might break something
+	//prompt = FixInvalidChars(prompt); // NOTE: warning: might break something
 	//prompt.Replace("\'", "\\\'");
+	
+	if (!GetDefaultCharset() == CHARSET_UTF8)
+		prompt = ToCharset(CHARSET_UTF8, prompt, CHARSET_DEFAULT);
 	
     // "model": "text-davinci-003",
     

@@ -197,8 +197,9 @@ void TxtAutoCompare::DataSong() {
 		parts.Set(i, 0, sp.name);
 		
 		EditString* e = new EditString;
+		e->SetData("");
 		parts.SetCtrl(i, 1, e);
-		parts.Set(i, 1, sp.syllable_str);
+		parts.Set(i, 1, TrimBoth(sp.syllable_str));
 		e->WhenAction << THISBACK2(OnSongPartSyllableChange, &sp, e);
 		
 		if (1) {
@@ -778,6 +779,9 @@ void TxtAutoCompare::OnSuggestionOrder(String res, Song::Rhyme* r, int idx) {
 			continue;
 		
 		int tmp_id = StrInt(id_str) - 1;
+		if (tmp_id < 0 || tmp_id >= sug_ids.GetCount())
+			continue;
+		
 		int sug_id = sug_ids[tmp_id];
 		Song::Suggestion& sug = r->suggestions[sug_id];
 		
@@ -1465,12 +1469,12 @@ void TxtAutoCompare::OnPoeticRecv(String res, int part_i, int rhyme_i) {
 				}
 				line = ws.ToString();
 				
-				/*if (line.Left(1) == "\"") line = line.Mid(1);
-				if (line.Left(1) == "”")
+				if (line.Left(1) == "\"") line = line.Mid(1);
+				if (line.Right(1) == "\"") line = line.Left(line.GetCount()-1);
+				/*if (line.Left(1) == "”")
 					line = line.Mid(1);
 				if (line.Left(1) == "\342")
 					line = line.Mid(1);
-				if (line.Right(1) == "\"") line = line.Left(line.GetCount()-1);
 				if (line.Right(1) == "”")
 					line = line.Left(line.GetCount()-1);
 				if (line.Right(1) == "\342")

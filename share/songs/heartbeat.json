@@ -4,7 +4,7 @@
 	"english_title": "Heartbeat",
 	"prj_name": "heartbeat",
 	"default_line_syllables": 0,
-	"default_attr_count": 7,
+	"default_attr_count": 9,
 	"structure_str": "",
 	"structure": [
 
@@ -313,308 +313,367 @@
 		{
 			"name": "Verse 1a",
 			"source": [
-				"I haven't got time to call to you",
-				"I've een busy with work and healing from it",
-				"I'm missing you, wanting you near to me",
+				"I haven't got time to call to you\r",
+				"I've een busy with work and healing from it\r",
+				"I'm missing you, wanting you near to me\r",
 				"to lying here on the beach with stars above"
 			],
 			"ai_source": [
-				"I had no choice but to distance myself from you",
-				"I had to stay away for my own sanity",
-				"All I could do was remain yearning for you from a far",
-				"Wishing I could be on the beach, enjoying the stars with you"
+				"Got no time for you, my dear\r",
+				"Caught up in the grind, workin' and healin'\r",
+				"My heart longs for you, craves your touch\r",
+				"Just chillin' on the sand, beneath the stars"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"I had no choice but to distance myself from you",
-						"I had to stay away for my own sanity"
+						"Got no time for you, my dear\r",
+						"Caught up in the grind, workin' and healin'\r"
 					],
 					"suggestion": [
 						{
 							"style": "Red Hot Chili Peppers",
-							"content": "I had to keep my distance from you\nNo matter what I had to do",
+							"content": "Got no time for you, my dear\nCaught up in the grind, workin' and healin'",
 							"score": 0,
-							"ai_score": 4,
+							"ai_score": 3,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Beastie Boys",
-							"content": "I had to take a step back away\n'Cause I knew it was the best way",
+							"content": "Can't make time for you, dear\nBusy grindin' and healin', no cheatin' here",
 							"score": 0,
-							"ai_score": 3,
+							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "The Jimi Hendrix Experience",
-							"content": "Had to take the hardest route of all\nHad to leave you and stand tall",
+							"content": "Don't got time for you, dear\nLost in the grind, healin' my fears",
 							"score": 0,
-							"ai_score": 4,
+							"ai_score": 2,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Grandmaster Flash and the Furious Five",
-							"content": "Felt like I had to make some space\nPut some distance up in this place",
+							"content": "Ain't got time for you, dear\nWorkin' hard, healin' my fears",
 							"score": 0,
-							"ai_score": 4,
+							"ai_score": 3,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Bob Marley",
-							"content": "Had to give myself a break\nTime for me to find my own way",
+							"content": "Don't have time for you, my dear\nCaught in the grind, healin', no love to spare",
 							"score": 0,
-							"ai_score": 5,
+							"ai_score": 3,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Bob Dylan",
-							"content": "Had to take me off your lists\nHad to move on without resistance",
+							"content": "No time for you, my dear\nLost in the grind, healin', no room for tears",
 							"score": 0,
-							"ai_score": 4,
+							"ai_score": 2,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "The Beatles",
-							"content": "Time to move away from your sight\nTime for me to face my plight",
+							"content": "Don't waste time on you, dear\nAlways grindin' and healin', love's what I fear",
 							"score": 0,
-							"ai_score": 3,
+							"ai_score": 2,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "The Doors",
-							"content": "I had to turn up the speed\nHad to cover up the need",
+							"content": "No time for you, my dear\nCaught in the grind, healin', doors shutting here",
 							"score": 0,
-							"ai_score": 3,
+							"ai_score": 1,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Nirvana",
-							"content": "Had to face a different life\nFound a way to keep away from strife",
+							"content": "Don't got time for you, dear\nIn the grind, healin', no love to steer",
 							"score": 0,
-							"ai_score": 4,
+							"ai_score": 2,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Tupac Shakur",
-							"content": "Had to make a point to you\nHad to break through, this I knew",
-							"score": 0,
+							"content": "No time for you, my dear\nGotta grind and heal, no time for fear",
+							"score": 1,
 							"ai_score": 4,
-							"ai_score_extra": 0
+							"ai_score_extra": 1
 						},
 						{
 							"style": "Marvin Gaye",
-							"content": "Needed some time to myself\nNeeded to set my spirit free",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "N.W.A",
-							"content": "Had to walk away, no 'cause\nHad to break up our applause",
+							"content": "No time for you, my dear\nLost in the grind, healin', no love to share",
 							"score": 0,
 							"ai_score": 3,
 							"ai_score_extra": 0
 						},
 						{
-							"style": "Run-DMC",
-							"content": "Had to take the leap with pride\nHad to leave before I died",
+							"style": "N.W.A",
+							"content": "Ain't got time for you, dear\nAlways grindin' and healin', no room for fear",
 							"score": 0,
-							"ai_score": 4,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Not enough time for you, dear\nAlways grindin' and healin', no room for cheer",
+							"score": 0,
+							"ai_score": 2,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Led Zeppelin",
-							"content": "Tried to look away and flee\nTried to keep my sanity",
+							"content": "Don't waste my time, my dear\nCaught in the grind, healin', love's what I fear",
 							"score": 0,
-							"ai_score": 4,
+							"ai_score": 2,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Jefferson Airplane",
-							"content": "Had no other way to choose\nHad to part so I could bruise",
+							"content": "No time for you, darling\nIn the grind, healin', no love to bring",
 							"score": 0,
 							"ai_score": 3,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Madonna",
-							"content": "Chance had to keep away from you\nChance to stay sane is all I do",
+							"content": "No time for you, dear, oh dear\nBusy grindin' and healin', love's what I can't spare",
 							"score": 0,
-							"ai_score": 4,
+							"ai_score": 2,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Buffalo Springfield",
-							"content": "Had to keep on rollin' on\nHad to keep comin' strong",
+							"content": "Not enough time for you, my dear\nLost in the grind, healin', no love to revere",
 							"score": 0,
-							"ai_score": 5,
+							"ai_score": 1,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Elton John",
-							"content": "Had to take a stand without you\nHad to save myself from going through",
+							"content": "Don't have time for you, dear\nCaught up in the grind, healin', no love to spare",
 							"score": 0,
-							"ai_score": 4,
+							"ai_score": 2,
 							"ai_score_extra": 0
 						}
 					],
 					"data": [
-
+						{
+							"key": "RELATIONSHIP_FOCUS",
+							"value": "-1"
+						},
+						{
+							"key": "SOCIAL",
+							"value": "-1"
+						},
+						{
+							"key": "SEXUALIZATION",
+							"value": "-1"
+						},
+						{
+							"key": "MOOD_UPLIFTING_HEAVY",
+							"value": "-1"
+						},
+						{
+							"key": "MOOD_PLAYFUL_SERIOUS",
+							"value": "-1"
+						},
+						{
+							"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+							"value": "-1"
+						},
+						{
+							"key": "SEXUAL_COMMITMENT",
+							"value": "-1"
+						},
+						{
+							"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
+							"value": "-1"
+						}
 					],
 					"outdated_suggestions": false
 				},
 				{
 					"source": [
-						"All I could do was remain yearning for you from a far",
-						"Wishing I could be on the beach, enjoying the stars with you"
+						"My heart longs for you, craves your touch\r",
+						"Just chillin' on the sand, beneath the stars"
 					],
 					"suggestion": [
 						{
 							"style": "Red Hot Chili Peppers",
-							"content": "I wish I knew how to make it, just for us two to take off\nThe travel of our minds, like the hearts never stop to break off",
+							"content": "Your touch, my drug, long for it so much\nChillin' on the beach, stars light our touch",
 							"score": 0,
-							"ai_score": 4,
+							"ai_score": 3,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Beastie Boys",
-							"content": "A passionate longing I have, an ocean of love so deep\nThe stars and the waves, they give us this moment to keep",
+							"content": "Crave your touch, can't get enough\nUnder stars, chillin' on the sand, real tough",
 							"score": 0,
-							"ai_score": 5,
+							"ai_score": 3,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "The Jimi Hendrix Experience",
-							"content": "I can see beyond the surface, where our souls can reach untold heights\nTake me by the hand and let's go, just us and the starry night",
+							"content": "Your touch, like music, my heart sings\nSand and stars, our love takes flight, it brings",
 							"score": 0,
 							"ai_score": 5,
-							"ai_score_extra": 0
+							"ai_score_extra": 7
 						},
 						{
 							"style": "Grandmaster Flash and the Furious Five",
-							"content": "These yearning eyes, the far away skies, nothing can satiate my heart\nWe can find the answer, out on the sand, forever will our love start",
+							"content": "My heart desires you, can't deny\nBeneath the stars, chillin', you and I",
 							"score": 0,
 							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Bob Marley",
-							"content": "I want to feel the emotion, and caress your love with mine\nAs long as I feel you near, that's just fine, under the starlit sky divine",
-							"score": 1,
+							"content": "My heart longs for you, my soulmate\nUnder the stars, with you, just feelin' great",
+							"score": 0,
 							"ai_score": 5,
-							"ai_score_extra": 0
+							"ai_score_extra": 4
 						},
 						{
 							"style": "Bob Dylan",
-							"content": "The wishes of my heart can never be too far apart\nSo please, come here to me and let the stars shine down our hearts",
+							"content": "Can't help it, I crave you more and more\nJust chillin' on the sand, stars above, adore",
 							"score": 0,
 							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "The Beatles",
-							"content": "Take me away, far from reality, together in the moonlight's dream\nGaze upon the stars with you, together no one can ever come between",
+							"content": "Long for your touch, it's where I belong\nBeneath the stars, together we'll sing our song",
 							"score": 0,
 							"ai_score": 5,
-							"ai_score_extra": 0
+							"ai_score_extra": 2
 						},
 						{
 							"style": "The Doors",
-							"content": "The longing I feel, a hearthache no deceive\nWanna get close to you, under a blanket of stars I can believe",
+							"content": "Your touch, like fire, burns in my soul\nChillin' on the beach, stars above, our love takes control",
 							"score": 0,
 							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Nirvana",
-							"content": "Wherever in this world we roam, my desire for your love will still be home\nAnd with the night sky so clear, I can wish us forever in the stars up here",
+							"content": "Cravin' your touch, can't resist\nUnder the stars, feelin' alive, I insist",
 							"score": 0,
-							"ai_score": 5,
+							"ai_score": 3,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Tupac Shakur",
-							"content": "The ultimate wish of my soul, an eternity together at our store\nLet us hold hands and fill our souls, with love while we gaze at the starry shoal",
+							"content": "My heart's desire, it's you I crave\nJust chillin' on the sand, starry night, we'll behave",
 							"score": 0,
-							"ai_score": 5,
+							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Marvin Gaye",
-							"content": "The longing I feel is growing, with every starlight I see\nThose distant roads we travelin', sexy times light up the sea",
+							"content": "Can't deny, my heart longs for you\nUnder the stars, our love shines, feels brand new",
 							"score": 0,
-							"ai_score": 4,
+							"ai_score": 5,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "N.W.A",
-							"content": "An ember of burning desires, and passions of the heart hard to ignore\nCome with me, under the starlit skies, blessed with pure and honest love evermore",
+							"content": "I need your touch, can't live without\nBeneath the stars, we'll chill, no doubt",
 							"score": 0,
-							"ai_score": 5,
+							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Run-DMC",
-							"content": "A longing that grows with dreams, of us two so near\nGaze unto the stars with me, and feel the light that's so dear",
+							"content": "My heart's aching, can't get enough\nChillin' on the beach, beneath the stars, we'll be tough",
 							"score": 0,
-							"ai_score": 4,
+							"ai_score": 3,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Led Zeppelin",
-							"content": "I can hardly contain these dreams of yours and mine\nThe stars they dance as in a trance, forever after in this time",
+							"content": "Your touch, like magic, it takes hold\nBeneath the stars, layin' on the sand, our love unfolds",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
+							"ai_score": 5,
+							"ai_score_extra": 3
 						},
 						{
 							"style": "Jefferson Airplane",
-							"content": "My feelings remain, yearning for our time\nLying on the beach, just us two and the stars in line",
+							"content": "Cravin' your touch, it's like a dream\nUnder the stars, chillin' on the sand, our love beams",
 							"score": 0,
 							"ai_score": 5,
-							"ai_score_extra": 0
+							"ai_score_extra": 1
 						},
 						{
 							"style": "Madonna",
-							"content": "Trying to resist this urge, a fire that will not die from afar\nGazing up at the starlit sky, your love is all that can comfort my heart",
+							"content": "My heart longs for you, I can't deny\nJust chillin' on the beach, beneath the stars, our love will never die",
 							"score": 0,
 							"ai_score": 5,
-							"ai_score_extra": 0
+							"ai_score_extra": 6
 						},
 						{
 							"style": "Buffalo Springfield",
-							"content": "A whisper of harmony fills the night, and it seems to blur the line between us two\nThe stars above us, a guiding light, begging us to find a place where our love is true",
+							"content": "Your touch, it's like a gentle breeze\nChillin' on the sand, beneath the stars, we'll feel at ease",
 							"score": 0,
 							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Elton John",
-							"content": "A love in my heart that will never die, as for you I wish from so far away\nFor you and I to be wrapped in starlight, a sweet dream in our minds that will never stray",
+							"content": "I crave your touch, it's like a symphony\nUnder the stars, with you, it's pure harmony",
 							"score": 0,
 							"ai_score": 5,
-							"ai_score_extra": 0
+							"ai_score_extra": 5
 						}
 					],
 					"data": [
-
+						{
+							"key": "MOOD_JOYFUL_MELANCHOLIC",
+							"value": "1"
+						},
+						{
+							"key": "ATTITUDE_HOPEFUL_DESPAIR",
+							"value": "1"
+						},
+						{
+							"key": "SEXUALIZATION",
+							"value": "-1"
+						},
+						{
+							"key": "SEXUAL_COMMITMENT",
+							"value": "-1"
+						},
+						{
+							"key": "SEXUAL_ORIENTATION",
+							"value": "1"
+						},
+						{
+							"key": "PHYSICAL_PREFERENCE",
+							"value": "-1"
+						},
+						{
+							"key": "SEEKER_OF_TRUTH",
+							"value": "1"
+						},
+						{
+							"key": "BELIF_COMMUNITY",
+							"value": "1"
+						},
+						{
+							"key": "MOOD_PLAYFUL_SERIOUS",
+							"value": "1"
+						}
 					],
 					"outdated_suggestions": false
 				}
 			],
-			"rhyme_scheme": "AB,AB",
+			"rhyme_scheme": "A/A",
 			"data": [
-				{
-					"key": "INTEGRITY",
-					"value": "1"
-				},
-				{
-					"key": "EXPRESSION",
-					"value": "-1"
-				}
+
 			],
 			"outdated_suggestions": false,
-			"syllable_str": ""
+			"syllable_str": "9,7,10,10"
 		},
 		{
 			"name": "Verse 1b",
@@ -625,10 +684,10 @@
 				"kisses are memories"
 			],
 			"ai_source": [
-				"Thinking of being embraced by your warm embrace",
-				"I had vowed to be by your side, come what may",
-				"But life had intervened and forced us apart",
-				"All I have are the sweet memories of our time together"
+				"My thoughts wander, to your warmth",
+				"Vowed to stay strong, together we stand",
+				"But time slips away",
+				"Sweet kisses, burn in my mind"
 			],
 			"rhymes": [
 				{
@@ -930,7 +989,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllable_str": ""
+			"syllable_str": "11,11,8,7"
 		},
 		{
 			"name": "Verse 1c",
@@ -941,10 +1000,10 @@
 				"The moon was shining, you were drenched in sweat"
 			],
 			"ai_source": [
-				"Remembering the occasions we would caress each other",
-				"How we would passionately kiss and dance together",
-				"How I yearned to hear only your voice after dark",
-				"To have the moon illuminate your glistening body"
+				"Our touch, pure magic",
+				"Side by side we move, in perfect sync",
+				"When darkness falls, I hear your voice",
+				"Moonlit glow, you shine with sweat"
 			],
 			"rhymes": [
 				{
@@ -1263,10 +1322,10 @@
 				"maybe then we can find love again"
 			],
 			"ai_source": [
-				"We should have tried harder for our relationship to survive",
-				"But thank you for listening to me and having understanding",
-				"Let us reflect on our mistakes can become wiser",
-				"Then perhaps, love will find us again"
+				"We could've tried harder",
+				"Thank you, for owning your wrongs",
+				"Let's be wiser, in our own worlds",
+				"Maybe then, we can reignite our fire"
 			],
 			"rhymes": [
 				{
@@ -1546,7 +1605,7 @@
 					"outdated_suggestions": false
 				}
 			],
-			"rhyme_scheme": "AAB,CCB",
+			"rhyme_scheme": "A/A",
 			"data": [
 				{
 					"key": "BELIEFS",
@@ -1581,10 +1640,10 @@
 				"This new woman came with air of hope"
 			],
 			"ai_source": [
-				"I clearly needed to find a companion",
-				"I was so desperate, I forgot my ex-wife's name, and misconstrued it with another's",
-				"I stormed out without another thought",
-				"This time, hoping a new light shined into my life."
+				"Yearning for someone new",
+				"Forgot my ex's name, mistook her for another dame",
+				"Door slammed hard, as I left you behind",
+				"This new lady, breathes new life."
 			],
 			"rhymes": [
 				{
@@ -1892,7 +1951,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllable_str": ""
+			"syllable_str": "10,10,11,11"
 		},
 		{
 			"name": "Verse 2b",
@@ -1903,10 +1962,10 @@
 				"I accepted them, won't deny"
 			],
 			"ai_source": [
-				"First, I welcomed the happy feelings",
-				"And when our eyes met, it felt like a weight had been lifted",
-				"I didn't even have to think about it, my feelings for you were immediate",
-				"I embraced them, couldn't deny it"
+				"No more joy found in me",
+				"Our gaze, void of tears",
+				"Emotions never cease",
+				"Give in, can't resist"
 			],
 			"rhymes": [
 				{
@@ -2231,10 +2290,10 @@
 				"Time is precious when spending with someone"
 			],
 			"ai_source": [
-				"I'm scared of losing this wonderful love",
-				"And I'm scared of not knowing how to make it stronger",
-				"I am telling my love that I don't plan to let it go",
-				"Time is precious, and I want to make the most of it with you"
+				"Love's terror consumes",
+				"Failure, no return",
+				"Urgent love expressed",
+				"Time shared is precious"
 			],
 			"rhymes": [
 				{
@@ -2424,10 +2483,10 @@
 				"Maybe you will realize that you should be my wife"
 			],
 			"ai_source": [
-				"I don't want to go on this emotional roller coaster by myself",
-				"It's much better when you have someone to share it with",
-				"I'm forever yours, I don't want anyone else",
-				"Let's make it official, let's be each other's lover and wife"
+				"Don't let me ride alone",
+				"Coasting with you's best",
+				"My only one, I'll say",
+				"See your place as wife"
 			],
 			"rhymes": [
 				{
@@ -2746,10 +2805,10 @@
 				"never thought that this could end"
 			],
 			"ai_source": [
-				"I don't want to have any disputes",
-				"I don't want anything between us to fall apart",
-				"It wasn't ever in my nature to start drama",
-				"I never had the intention of us coming to this"
+				"Quarrel was never sought",
+				"Breaking up, not an option",
+				"No harm intended",
+				"Endless love, I thought"
 			],
 			"rhymes": [
 				{
@@ -3077,8 +3136,8 @@
 				"We were loving each other, but hurting again"
 			],
 			"ai_source": [
-				"I never intended to hurt our love, do something like this to us",
-				"We were once happy, but it's gone now"
+				"My actions caused pain",
+				"Love's flourishing, yet pain"
 			],
 			"rhymes": [
 
@@ -3099,10 +3158,10 @@
 				"Even though you would not notice"
 			],
 			"ai_source": [
-				"I'm apologetic for all the mistakes I've made",
-				"I want to repair what is broken and let us love again.",
-				"But our struggles remain within me",
-				"Despite the fact that you wouldn't recognize"
+				"Forgive and move on",
+				"Erase all fights, restart.",
+				"Oh, war wages inside me still",
+				"Woe, you are unaware, still"
 			],
 			"rhymes": [
 				{
@@ -3277,10 +3336,10 @@
 				"but what can I fix with it anymore"
 			],
 			"ai_source": [
-				"I haven't demonstrated",
-				"How much I adore",
-				"I can still be kind",
-				"Yet what use can that be nowadays?"
+				"I haven't shown yet",
+				"My love, so deep and true",
+				"Aye, kindness and grace I show",
+				"Alack, what can change now?"
 			],
 			"rhymes": [
 				{
