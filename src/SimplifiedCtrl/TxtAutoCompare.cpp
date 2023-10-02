@@ -43,7 +43,7 @@ TxtAutoCompare::TxtAutoCompare() {
 	parts.AddColumn(t_("Rhyme scheme"));
 	parts.ColumnWidths("2 2 6 6 4");
 	parts.SetLineCy(64);
-	parts.WhenCursor << THISBACK(DataSong);
+	parts.WhenCursor << THISBACK1(DataSongPart, false);
 	parts.WhenBar << THISBACK(PartMenu);
 	edit_source << THISBACK(OnSongPartContentEdit);
 	parts.WhenAcceptEdit << THISBACK(OnAcceptEditSource);
@@ -84,12 +84,11 @@ TxtAutoCompare::TxtAutoCompare() {
 	/*attrs.Add(Capitalize(db.Translate(g)) + ": " + Capitalize(db.Translate(i0)) + " / " + Capitalize(db.Translate(i1)));*/ \
 	attrs.Add(Capitalize(db.Translate(g)), Capitalize(db.Translate(i0)), Capitalize(db.Translate(i1))); \
 	for (int i = 3; i < 5; i++) {\
-		dl = new DropList; \
+		dl = &attrs.CreateCtrl<DropList>(row, i); \
 		dl->Add(Capitalize(db.Translate(i0))); \
 		/*dl->Add(t_("Neutral"));*/ \
 		dl->Add(""); \
 		dl->Add(Capitalize(db.Translate(i1))); \
-		attrs.SetCtrl(row, i, dl); \
 		dl->SetIndex(1); \
 	} \
 	row++;\
@@ -196,11 +195,9 @@ void TxtAutoCompare::DataSong() {
 		
 		parts.Set(i, 0, sp.name);
 		
-		EditString* e = new EditString;
-		e->SetData("");
-		parts.SetCtrl(i, 1, e);
+		auto& e = parts.CreateCtrl<EditString>(i, 1);
 		parts.Set(i, 1, TrimBoth(sp.syllable_str));
-		e->WhenAction << THISBACK2(OnSongPartSyllableChange, &sp, e);
+		e.WhenAction << THISBACK2(OnSongPartSyllableChange, &sp, &e);
 		
 		if (1) {
 			parts.Set(i, 2, content);
@@ -212,12 +209,10 @@ void TxtAutoCompare::DataSong() {
 				);
 		}
 		else {
-			DocEdit* e = new DocEdit;
-			//e->SetData(content);
-			parts.SetCtrl(i, 2, e);
-			e->SetMinSize(Size(100,64));
+			DocEdit& e = parts.CreateCtrl<DocEdit>(i, 2);
+			e.SetMinSize(Size(100,64));
 			parts.Set(i, 2, content);
-			e->WhenAction << THISBACK2(OnSongPartContentChange, e, &sp);
+			e.WhenAction << THISBACK2(OnSongPartContentChange, &e, &sp);
 		}
 		
 		parts.Set(i, 3, AttrText(ai_content)
@@ -226,18 +221,17 @@ void TxtAutoCompare::DataSong() {
 			);
 		
 		sp.valid_rhyme_schemes.Clear();
-		DropList* dl = new DropList;
-		parts.SetCtrl(i, 4, dl);
-		dl->WhenAction << THISBACK2(OnRhymeSchemeChange, dl, &sp);
+		DropList& dl = parts.CreateCtrl<DropList>(i, 4);
+		dl.WhenAction << THISBACK2(OnRhymeSchemeChange, &dl, &sp);
 		int rhyme_scheme_idx = FindRhymeType(sp.rhyme_scheme);
 		for(int i = 0; i < RHYME_COUNT; i++) {
 			int lc = RhymeSchemeLineCount[i];
 			if (!lc || lc > sp.source.GetCount() || sp.source.GetCount() % lc != 0)
 				continue;
 			sp.valid_rhyme_schemes.Add(i);
-			dl->Add((String)RhymeSchemes[i][0] + " \"" + RhymeSchemes[i][1] + "\"");
+			dl.Add((String)RhymeSchemes[i][0] + " \"" + RhymeSchemes[i][1] + "\"");
 			if (i == rhyme_scheme_idx)
-				dl->SetIndex(dl->GetCount()-1);
+				dl.SetIndex(dl.GetCount()-1);
 		}
 	}
 	parts.SetCount(song.parts.GetCount());
@@ -413,11 +407,10 @@ void TxtAutoCompare::DataSongRhymeData() {
 		suggestions.Set(i, 4, sug.style);
 		suggestions.Set(i, 5, sug.content);
 		
-		EditIntNotNullSpin* e = new EditIntNotNullSpin;
-		e->MinMax(0, 5);
-		e->SetData(sug.score);
-		e->WhenAction << THISBACK2(SetSuggestionScore, e, &sug);
-		suggestions.SetCtrl(i, 2, e);
+		EditIntNotNullSpin& e = suggestions.CreateCtrl<EditIntNotNullSpin>(i, 2);
+		e.MinMax(0, 5);
+		e.SetData(sug.score);
+		e.WhenAction << THISBACK2(SetSuggestionScore, &e, &sug);
 	}
 	suggestions.SetCount(r.suggestions.GetCount());
 	suggestions.SetSortColumn(1, true);
