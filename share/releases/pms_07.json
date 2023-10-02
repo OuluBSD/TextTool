@@ -70,6 +70,50 @@
 		{
 			"key": "THEME_PRODUCTION",
 			"value": "Rock hiphop."
+		},
+		{
+			"key": "GENDER",
+			"value": "-1"
+		},
+		{
+			"key": "RATIONALITY",
+			"value": "1"
+		},
+		{
+			"key": "RESPONSIBILITY",
+			"value": "1"
+		},
+		{
+			"key": "IMAGERY",
+			"value": "1"
+		},
+		{
+			"key": "AVERAGE_EXPECTATIONS",
+			"value": "1"
+		},
+		{
+			"key": "EXPRESSION",
+			"value": "-1"
+		},
+		{
+			"key": "INTEGRITY",
+			"value": "1"
+		},
+		{
+			"key": "SOCIAL",
+			"value": "1"
+		},
+		{
+			"key": "RELATIONSHIP_FOCUS",
+			"value": "1"
+		},
+		{
+			"key": "ECONOMIC",
+			"value": "1"
+		},
+		{
+			"key": "CULTURE",
+			"value": "1"
 		}
 	],
 	"ideas": [

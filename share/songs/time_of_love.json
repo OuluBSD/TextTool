@@ -307,6 +307,50 @@
 		{
 			"key": "POETIC_ENGLISH_FROM_NATURAL_ENGLISH_OF_AUTHOR",
 			"value": "Verse 1:\nListen up and be quiet\nWe were wrong, why keep arguing?\nIt's depressing when we're under the same roof\nSo heal it quickly, then get up and leave\nI'd say it kindly, but \nYou always listen hard, turning into a fool \nMy trust in you died, honey\nHoney, you drained the life from me\nYou gossip about me, mock me to my face\nTook our money, then sold off all my space\nLie down and rest up\nI'd like to make it permanent\nBut yet I still want to hold you, spoonin? just like our first night together \nDamn, livin' with you sucks, but that lovin' sweetens it, hard to notice\nChorus:\nGreeting, wife, we made our home through love\nHey wife, the flame, it can no longer keep the heat\nHey wife, we did it all for this\nBut still goodbye, my love, I'm gonna stay away from you forever \nVerse 2:\nHey man, come here, I'll give ya a hard time\nGrip your balls with my nails, squeezing tight\nGuess you wrecked us on purpose\nBroke my heart when you took us apart\nWhy the change? Where is the love? \nYou brag about your unemployment \nSad to say, you were enough, and I was hoping you'd come back \nInstead you stayed away, and cuddled up with someone else for such a long time\nI was sneaky, you didn't notice\nYour friend who had the hots for me for such a long time\nI rewarded myself, and jetted on holiday down south \nIt was from a joint account I paid for; you were just sitting on the couch\nYou're solely to be blamed, no doubt you understand it too \nYou were my man and I was proud to be with you\nBut you messed up, you cheated on me, and\nI can't stand to look at you, can't stand to be around you \nVerse 3:\nOur brawls always lead to worse ones\nI stayed for the family while you went to the party again\nOh yeah, I'm boastful, slander doesn't hurt\nYou were the fool to think it could ever work\nAdmit my wrongs, but it's still the same\nWithin the same hour, you kept doin? wrong\nHey, you take away my manhood\nYour womanhood is spread throughout Finland\nMy worst mistake was believing in hope,\nOn and off, now it's off, replaced by internet porn\nDown some beers and forget my lady\nForget her for a while, tryin? to be shady\nYou wanted to go and decided to lay down\nThe door only opens one way with my new key in town\nIt's cold alone, the gray spot comes from our split, I'm positive I will just stay all alone"
+		},
+		{
+			"key": "HUMAN_STRENGTH",
+			"value": "1"
+		},
+		{
+			"key": "MOOD_JOYFUL_MELANCHOLIC",
+			"value": "-1"
+		},
+		{
+			"key": "MOOD_UPLIFTING_HEAVY",
+			"value": "-1"
+		},
+		{
+			"key": "MOOD_PLAYFUL_SERIOUS",
+			"value": "-1"
+		},
+		{
+			"key": "MOOD_LIGHTHEARTED_SOMBER",
+			"value": "-1"
+		},
+		{
+			"key": "MOOD_HUMOROUS_DRAMATIC",
+			"value": "-1"
+		},
+		{
+			"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+			"value": "-1"
+		},
+		{
+			"key": "ATTITUDE_HOPEFUL_DESPAIR",
+			"value": "-1"
+		},
+		{
+			"key": "EXPECTATIONS",
+			"value": "-1"
+		},
+		{
+			"key": "SEXUALIZATION",
+			"value": "1"
+		},
+		{
+			"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
+			"value": "-1"
 		}
 	],
 	"parts": [

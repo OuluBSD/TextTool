@@ -48,8 +48,8 @@ public:
 	void ImportEnglish();
 	void ImproveSourceText(int style);
 	void LimitContentSyllableCount();
-	void UpdateRhymes(Song::SongPart& sp, int src);
-	void EvaluatePoeticStyles(int i, int src);
+	void UpdateRhymes(Song::SongPart& sp);
+	void EvaluatePoeticStyles(int i);
 	void EvaluateSuggestionScores();
 	void EvaluateExtraSuggestionScores();
 	void GetAIAttributes();
@@ -67,7 +67,7 @@ public:
 	void OnSuggestionScore(String res, Song::Rhyme* r, bool post_enable);
 	void OnSuggestionOrder(String res, Song::Rhyme* r, int idx);
 	void OnAIAttributes(String res, Song::Rhyme* r);
-	void OnSourceTextImprovements(String res, int begin, int end, Song* s);
+	void OnSourceTextImprovements(String res, Song::SongPart* s);
 	void OnSongSyllableChange();
 	void OnSongAttrCountChange();
 	void OnMorphToAttributes(String res, Song::SongPart* s, Song::Rhyme* r);
@@ -78,7 +78,7 @@ public:
 	void DataBestSuggestion();
 	void DisableAll();
 	void EnableAll();
-	void UpdateRhymesToSource(int src);
+	void UpdateRhymesToSource();
 	void OnSongPartSyllableChange(Song::SongPart* sp, EditString* e);
 	
 };

@@ -1962,7 +1962,7 @@ void Task::CreateInput_EvaluateSuggestionScores() {
 	int list_len = 0;
 	String first_line;
 	{
-		TaskTitledList& list = input.AddSub().Title("Rate lyrics with enjoyment score of 1-5");
+		TaskTitledList& list = input.AddSub().Title("Rate lyrics with score of 1-5");
 		list		.NumberedLines()
 					;
 		for (String a : args) {
@@ -2140,27 +2140,46 @@ void Task::CreateInput_GetAIAttributes() {
 	// -a Integrity: +honest/-twisted
 	TaskTitledList& axes = input.AddSub();
 	axes			.Title("List of axes of attribute groups and their polar opposite values")
-					/*.CountLinesAlpha()*/;
+					.NumberedLines();
 	for (const Attr::ScoringType& t : g.attr_scorings)
 		axes.Add(t.klass, t.axes0 + " vs " + t.axes1);
 	
+	if (0) {
+		auto& t = g.attr_scorings[0];
+		TaskTitledList& list = input.AddSub();
+		list.Title("We are searching for the most important matching attribute value (e.g. \"" + t.klass + ": " + t.axes0 + ") from the list of axes of attributes").NoColon();
+	}
+	if (0) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("Only values from the list are accepted!").NoColon();
+	}
 	{
 		Vector<String> lines = Split(content, "\n", true);
 		TaskTitledList& list = input.AddSub().Title("Lyrics \"A\"");
+		list.NoListChar();
+		list.Add("Never gonna give you up");
+		list.Add("Never gonna let you down");
+	}
+	{
+		TaskTitledList& list = input.AddSub();
+		list.Title("The top 3 best attribute values of lyrics \"A\"");
+		list.Add("Social: libertarian");
+		list.Add("Attitude: open");
+		list.Add("Attitude: closed");
+	}
+	
+	{
+		Vector<String> lines = Split(content, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Lyrics \"B\"");
 		list		.NoListChar();
 		for (const String& line : lines)
 			list		.Add(line);
 	}
 	
 	{
-		auto& t = g.attr_scorings[0];
-		TaskTitledList& list = input.AddSub();
-		list.Title("We are searching for the most important matching attribute value (e.g. \"" + t.klass + ": " + t.axes0 + ") from the list of axes of attributes").NoColon();
-	}
-	{
 		TaskTitledList& results = input.PreAnswer();
 		//results.Title("Same lyrics in short but deeply biased style for lines 1-" + IntStr(list_len));
-		results.Title("The top " + IntStr(attr_count) + " best attribute values of lyrics \"A\" (e.g. - Mood: joyful, - Attitude: despair)");
+		results.Title("The top " + IntStr(attr_count) + " best attribute values of lyrics \"B\"");
 		results.EmptyLine();
 	}
 	

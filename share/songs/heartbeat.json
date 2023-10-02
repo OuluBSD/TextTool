@@ -3,7 +3,7 @@
 	"title": "Sydämen Asialla",
 	"english_title": "Heartbeat",
 	"prj_name": "heartbeat",
-	"default_line_syllables": 0,
+	"default_line_syllables": 10,
 	"default_attr_count": 9,
 	"structure_str": "",
 	"structure": [
@@ -307,154 +307,371 @@
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE_AUDIENCE",
 			"value": "1. What Steve Packard (born 2013, likes Pop-Rock) would think while hearing the song with these lyrics. Initial reaction and critically important and negative things in lyrics only:\n-I don't want to fight and I don't want to break up. That's not how relationships should be. It seems like it's too late to repair the damage done, but if the damage caused by us still hurts one another, then things have to change for the better.\n\n2. What Mila Smith (born 2009, likes KoreaPop) would think while hearing the song with these lyrics:\n- It's really sad to hear that one of them is always hurting the other in the end. Relationships don't have to end this way. There is always hope and something to work for. We just have to be positive and put in the effort.\n\n3. What Paul Lee (born 2003, likes Rap) would think while hearing the song with these lyrics:\n- Sounds like someone is stuck in a cycle of pain and dissatisfaction. It's understandable that they want to try to make things work but it's important to make sure both sides are equally invested in the relationship. That way, both can benefit from it. \n\n4. What Tina Smith (born 1996, likes Pop) would think while hearing the song with these lyrics:\n- This is really heartbreaking. It's hard to maintain a relationship when one of you is always doing something to hurt the other. Relationships should be built on trust and understanding, not pain and disappointment.\n\n5. What Bobby Reynolds (born 1995, likes Rock) would think while hearing the song with these lyrics:\n- It sounds like the couple in the song have been through a lot and they are struggling to find the balance between being together and going their separate ways. It's hard to make a relationship work but if you both believe in it, it can definitely be done. \n\n6. What Rachel Johnson (born 1992, likes Pop) would think while hearing the song with these lyrics:\n- This is a tough situation to be in. It's hard to find the balance between staying in a relationship and leaving it. Both participants have to be willing to put in the effort for it to work. It's about having patience and understanding.\n\n7. What Shawn Johnson (born 1991, likes Rock) would think while hearing the song with these lyrics:\n- You have to want to stay together. If it isn't worth the effort anymore, then it's time to move on. Relationships should be healthy and both partners should be willing to make it work. No one should be hurting each other in the process.\n\n8. What Jake White (born 1989, likes Pop) would think while hearing the song with these lyrics:\n- It saddens me to hear that even when they love each other, there always seems to be hurt in the end. Relationships should bring joy and happiness, not more heartache. People should strive to bring positive energy into a relationship.\n\n9. What Cyrus McCall (born 1988, likes Rap) would think while hearing the song with these lyrics:\n- It sounds like the couple in the song is stuck in an endless cycle of love and pain. It's hard to repair a relationship when one of you is always hurting the other. It's important to put in the effort to make the relationship work as best as you can. \n\n10. What Kelly Taylor (born 1987, likes Rock) would think while hearing the song with these lyrics:\n- This is a really difficult situation to be in. Love can be so complicated and can hurt so much. It's important to be honest with yourself and the other person in order to make a relationship work.\n\n11. What Mike Richards (born 1977, likes Metal) would think while hearing the song with these lyrics:\n- It's heartbreaking to see someone in such a delicate and painful situation. Relationships don't have to end up this way. It takes courage to hope for and stay in a relationship, and both parties have to be willing to work together and repair the hurts."
+		},
+		{
+			"key": "HUMAN_STRENGTH",
+			"value": "-1"
+		},
+		{
+			"key": "SEXUALIZATION",
+			"value": "1"
+		},
+		{
+			"key": "EXPECTATIONS",
+			"value": "1"
+		},
+		{
+			"key": "MOOD_JOYFUL_MELANCHOLIC",
+			"value": "-1"
+		},
+		{
+			"key": "MOOD_PLAYFUL_SERIOUS",
+			"value": "-1"
+		},
+		{
+			"key": "MOOD_UPLIFTING_HEAVY",
+			"value": "-1"
+		},
+		{
+			"key": "MOOD_LIGHTHEARTED_SOMBER",
+			"value": "-1"
+		},
+		{
+			"key": "MOOD_HUMOROUS_DRAMATIC",
+			"value": "-1"
+		},
+		{
+			"key": "ATTITUDE_HOPEFUL_DESPAIR",
+			"value": "1"
+		},
+		{
+			"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+			"value": "1"
+		},
+		{
+			"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
+			"value": "1"
 		}
 	],
 	"parts": [
 		{
 			"name": "Verse 1a",
 			"source": [
-				"I haven't got time to call to you\r",
-				"I've een busy with work and healing from it\r",
+				"Your absence has not gone unnoticed in my world\r",
+				"My days have been consumed with my job and deep contemplation\r",
 				"I'm missing you, wanting you near to me\r",
 				"to lying here on the beach with stars above"
 			],
 			"ai_source": [
-				"Got no time for you, my dear\r",
-				"Caught up in the grind, workin' and healin'\r",
-				"My heart longs for you, craves your touch\r",
-				"Just chillin' on the sand, beneath the stars"
+				"Your absence has not gone unnoticed in my world\r",
+				"My days have been consumed with my job and deep contemplation\r",
+				"I'm missing you, wanting you near to me\r",
+				"to lying here on the beach with stars above"
 			],
 			"rhymes": [
 				{
 					"source": [
-						"Got no time for you, my dear\r",
-						"Caught up in the grind, workin' and healin'\r"
+						"Your absence has not gone unnoticed in my world\r",
+						"My days have been consumed with my job and deep contemplation\r"
 					],
 					"suggestion": [
 						{
 							"style": "Red Hot Chili Peppers",
-							"content": "Got no time for you, my dear\nCaught up in the grind, workin' and healin'",
+							"content": "Your absence weighs on me, it's true\nLife keeps moving, where are you?",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Lost in thought, without a sound\nThe silence is deafening all around",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Your presence lingered, now it's gone\nMy days are empty, but I'll carry on",
 							"score": 0,
 							"ai_score": 3,
 							"ai_score_extra": 0
 						},
 						{
-							"style": "Beastie Boys",
-							"content": "Can't make time for you, dear\nBusy grindin' and healin', no cheatin' here",
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Your absence stings, a constant reminder\nMy thoughts consumed, no escape, just a survivor",
 							"score": 0,
 							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
-							"style": "The Jimi Hendrix Experience",
-							"content": "Don't got time for you, dear\nLost in the grind, healin' my fears",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Grandmaster Flash and the Furious Five",
-							"content": "Ain't got time for you, dear\nWorkin' hard, healin' my fears",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
 							"style": "Bob Marley",
-							"content": "Don't have time for you, my dear\nCaught in the grind, healin', no love to spare",
+							"content": "Your absence echoes in the empty spaces\nMy days are filled with long, pensive gazes",
 							"score": 0,
-							"ai_score": 3,
+							"ai_score": 5,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Bob Dylan",
-							"content": "No time for you, my dear\nLost in the grind, healin', no room for tears",
+							"content": "Your absence speaks volumes, I can't ignore\nMy mind is restless, searching for more",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "The Beatles",
-							"content": "Don't waste time on you, dear\nAlways grindin' and healin', love's what I fear",
+							"content": "The void you left, it can't be filled\nMy thoughts consumed, no chance to rebuild",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "The Doors",
-							"content": "No time for you, my dear\nCaught in the grind, healin', doors shutting here",
+							"content": "Your absence lingers, a constant ache\nMy mind consumed, there's no escape",
 							"score": 0,
-							"ai_score": 1,
+							"ai_score": 3,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Nirvana",
-							"content": "Don't got time for you, dear\nIn the grind, healin', no love to steer",
+							"content": "With you gone, nothing makes sense\nMy thoughts consumed, in a constant tense",
 							"score": 0,
 							"ai_score": 2,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Tupac Shakur",
-							"content": "No time for you, my dear\nGotta grind and heal, no time for fear",
-							"score": 1,
-							"ai_score": 4,
-							"ai_score_extra": 1
+							"content": "Your absence weighs heavy on my heart\nMy days a blur, I can't seem to start",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Marvin Gaye",
-							"content": "No time for you, my dear\nLost in the grind, healin', no love to share",
+							"content": "My world is dark, without your light\nMy thoughts consumed, lost in the night",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Your absence is felt, in every breath\nMy mind consumed, there's no escape from death",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Lost in thought, without a clue\nYour absence leaves me feeling so blue",
 							"score": 0,
 							"ai_score": 3,
 							"ai_score_extra": 0
 						},
 						{
-							"style": "N.W.A",
-							"content": "Ain't got time for you, dear\nAlways grindin' and healin', no room for fear",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Run-DMC",
-							"content": "Not enough time for you, dear\nAlways grindin' and healin', no room for cheer",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
 							"style": "Led Zeppelin",
-							"content": "Don't waste my time, my dear\nCaught in the grind, healin', love's what I fear",
+							"content": "Your absence haunts me, day and night\nMy thoughts consumed, I long for flight",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Jefferson Airplane",
-							"content": "No time for you, darling\nIn the grind, healin', no love to bring",
+							"content": "Flying blind, without your direction\nMy days consumed, searching for connection",
 							"score": 0,
 							"ai_score": 3,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Madonna",
-							"content": "No time for you, dear, oh dear\nBusy grindin' and healin', love's what I can't spare",
+							"content": "Your absence aches, a constant pain\nMy thoughts consumed, in a never-ending rain",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Buffalo Springfield",
-							"content": "Not enough time for you, my dear\nLost in the grind, healin', no love to revere",
+							"content": "Your absence echoes in the empty space\nMy mind consumed, in a constant race",
 							"score": 0,
-							"ai_score": 1,
+							"ai_score": 3,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Elton John",
-							"content": "Don't have time for you, dear\nCaught up in the grind, healin', no love to spare",
+							"content": "The silence deafens, without your voice\nMy days consumed, I have no choice",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+						{
+							"key": "RESPONSIBILITY",
+							"value": "1"
+						},
+						{
+							"key": "AVERAGE_EXPECTATIONS",
+							"value": "1"
+						},
+						{
+							"key": "IMAGERY",
+							"value": "-1"
+						},
+						{
+							"key": "RELATIONSHIP_FOCUS",
+							"value": "-1"
+						},
+						{
+							"key": "INTEGRITY",
+							"value": "1"
+						},
+						{
+							"key": "SOCIAL",
+							"value": "1"
+						},
+						{
+							"key": "CULTURE",
+							"value": "1"
+						},
+						{
+							"key": "HUMAN_STRENGTH",
+							"value": "1"
+						},
+						{
+							"key": "ATTITUDE_HOPEFUL_DESPAIR",
+							"value": "1"
+						}
+					],
+					"outdated_suggestions": false
+				},
+				{
+					"source": [
+						"I'm missing you, wanting you near to me\r",
+						"to lying here on the beach with stars above"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Starry beach, you're here, my missing piece\nSoul's complete, embracing life's sweet release",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 3
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Missing you, yearning for your wild ways\nOn the shore, where we spent those crazy days",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "With stars above, I'm lost in your mystique\nWishing for your touch, on this sandy creek",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "With you near, I'm feeling so alive\nUnder the stars, our love will always thrive",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 1
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Wishing you were here, in paradise\nBeneath the stars, our love never dies",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Missing you on this beach, under the stars\nJust like a rolling stone, my heart is scarred",
 							"score": 0,
 							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Starry skies, your absence feels so stark\nI long for you, here on this sandy park",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Wish you were here, my love, by my side\nUnder the stars, our emotions collide",
+							"score": 1,
+							"ai_score": 5,
+							"ai_score_extra": 2
+						},
+						{
+							"style": "Nirvana",
+							"content": "Missing you, like a heart shaped box\nUnder the stars, I long for your paradox",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Wishing for your presence, on this beach\nUnder the stars, your love is out of reach",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Starry beach, missing you so much\nWishing for your touch, under the stars above",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "You're the one I'm missing, it ain't no doubt\nOn the beach, dreaming with the stars, no one to shout",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Missing you, searching for your treasure\nUnder the stars, our love knows no measure",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Yearning for your love, on this starry shore\nUnder the stars, our hearts can't ignore",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Starry night, you're always in my mind\nWishing for your touch, on this sandy find",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "Missing you, on this sandy paradise\nUnder the stars, your love's my only vice",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "On the beach, I miss you more and more\nUnder the stars, our love stills the roar",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Starry sky, you were my shining light\nOn the beach, I long for your embrace tonight",
+							"score": 0,
+							"ai_score": 5,
 							"ai_score_extra": 0
 						}
 					],
@@ -465,166 +682,193 @@
 						},
 						{
 							"key": "SOCIAL",
-							"value": "-1"
+							"value": "1"
 						},
 						{
-							"key": "SEXUALIZATION",
-							"value": "-1"
+							"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
+							"value": "1"
 						},
 						{
-							"key": "MOOD_UPLIFTING_HEAVY",
-							"value": "-1"
-						},
-						{
-							"key": "MOOD_PLAYFUL_SERIOUS",
+							"key": "CULTURE",
 							"value": "-1"
 						},
 						{
 							"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
-							"value": "-1"
+							"value": "1"
 						},
 						{
-							"key": "SEXUAL_COMMITMENT",
-							"value": "-1"
+							"key": "ATTITUDE_HOPEFUL_DESPAIR",
+							"value": "1"
 						},
 						{
-							"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
-							"value": "-1"
+							"key": "MOOD_UPLIFTING_HEAVY",
+							"value": "1"
+						},
+						{
+							"key": "EXPECTATIONS",
+							"value": "1"
+						},
+						{
+							"key": "PHYSICAL_PREFERENCE",
+							"value": "1"
 						}
 					],
 					"outdated_suggestions": false
-				},
+				}
+			],
+			"rhyme_scheme": "AB/AB",
+			"data": [
+
+			],
+			"outdated_suggestions": false,
+			"syllable_str": "8,8,9,11"
+		},
+		{
+			"name": "Verse 1b",
+			"source": [
+				"Dreaming of you, warm in my arms\r",
+				"Promised to stay through up and down\r",
+				"But time passed by our intense love,\r",
+				"our kisses are only memories now"
+			],
+			"ai_source": [
+				"Dreaming of you, warm in my arms\r",
+				"Promised to stay through up and down\r",
+				"But time passed by our intense love,\r",
+				"our kisses are only memories now"
+			],
+			"rhymes": [
 				{
 					"source": [
-						"My heart longs for you, craves your touch\r",
-						"Just chillin' on the sand, beneath the stars"
+						"Dreaming of you, warm in my arms\r",
+						"Promised to stay through up and down\r"
 					],
 					"suggestion": [
 						{
 							"style": "Red Hot Chili Peppers",
-							"content": "Your touch, my drug, long for it so much\nChillin' on the beach, stars light our touch",
+							"content": "Floating in love, safe in your arms\nTogether we'll face all pains and harms",
 							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
+							"ai_score": 5,
+							"ai_score_extra": 6
 						},
 						{
 							"style": "Beastie Boys",
-							"content": "Crave your touch, can't get enough\nUnder stars, chillin' on the sand, real tough",
+							"content": "Dreaming of you, chill in my embrace\nForever we'll ride life's crazy race",
 							"score": 0,
-							"ai_score": 3,
+							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "The Jimi Hendrix Experience",
-							"content": "Your touch, like music, my heart sings\nSand and stars, our love takes flight, it brings",
+							"content": "In your dreams, feel my fiery touch\nForever bound in love, never too much",
 							"score": 0,
 							"ai_score": 5,
-							"ai_score_extra": 7
+							"ai_score_extra": 12
 						},
 						{
 							"style": "Grandmaster Flash and the Furious Five",
-							"content": "My heart desires you, can't deny\nBeneath the stars, chillin', you and I",
+							"content": "Laying with you, our love will thrive\nThrough any storm, we'll stay alive",
 							"score": 0,
 							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Bob Marley",
-							"content": "My heart longs for you, my soulmate\nUnder the stars, with you, just feelin' great",
+							"content": "My heart sings, with you by my side\nThrough all battles, our love will abide",
 							"score": 0,
 							"ai_score": 5,
-							"ai_score_extra": 4
+							"ai_score_extra": 0
 						},
 						{
 							"style": "Bob Dylan",
-							"content": "Can't help it, I crave you more and more\nJust chillin' on the sand, stars above, adore",
+							"content": "Lying with you, my troubles fade\nTogether through life, our journey's made",
 							"score": 0,
 							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "The Beatles",
-							"content": "Long for your touch, it's where I belong\nBeneath the stars, together we'll sing our song",
+							"content": "Drifting away, lost in your arms\nThrough thick or thin, you'll keep me warm",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "With you I'm free, lost in a dream\nOur love will conquer, nothing can redeem",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 11
+						},
+						{
+							"style": "Nirvana",
+							"content": "Safe in your arms, nothing can harm\nTogether we'll face all life's alarms",
 							"score": 0,
 							"ai_score": 5,
 							"ai_score_extra": 2
 						},
 						{
-							"style": "The Doors",
-							"content": "Your touch, like fire, burns in my soul\nChillin' on the beach, stars above, our love takes control",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Nirvana",
-							"content": "Cravin' your touch, can't resist\nUnder the stars, feelin' alive, I insist",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
 							"style": "Tupac Shakur",
-							"content": "My heart's desire, it's you I crave\nJust chillin' on the sand, starry night, we'll behave",
+							"content": "In my heart, you'll always reside\nTogether we'll ride, love's endless tide",
 							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
+							"ai_score": 5,
+							"ai_score_extra": 9
 						},
 						{
 							"style": "Marvin Gaye",
-							"content": "Can't deny, my heart longs for you\nUnder the stars, our love shines, feels brand new",
+							"content": "Wrapped in your love, nothing to fear\nTogether we'll conquer, forever my dear",
 							"score": 0,
 							"ai_score": 5,
-							"ai_score_extra": 0
+							"ai_score_extra": 3
 						},
 						{
 							"style": "N.W.A",
-							"content": "I need your touch, can't live without\nBeneath the stars, we'll chill, no doubt",
+							"content": "Lost in your arms, no more need to roam\nThrough thick and thin, we'll find our way home",
 							"score": 0,
 							"ai_score": 4,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Run-DMC",
-							"content": "My heart's aching, can't get enough\nChillin' on the beach, beneath the stars, we'll be tough",
+							"content": "Dreaming of you, my heart takes flight\nTogether we'll conquer, our love shining bright",
 							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
+							"ai_score": 5,
+							"ai_score_extra": 7
 						},
 						{
 							"style": "Led Zeppelin",
-							"content": "Your touch, like magic, it takes hold\nBeneath the stars, layin' on the sand, our love unfolds",
+							"content": "In your embrace, I find my peace\nTogether we'll soar, love's ever increasing release",
 							"score": 0,
 							"ai_score": 5,
-							"ai_score_extra": 3
+							"ai_score_extra": 5
 						},
 						{
 							"style": "Jefferson Airplane",
-							"content": "Cravin' your touch, it's like a dream\nUnder the stars, chillin' on the sand, our love beams",
+							"content": "Lost in a dream, with you by my side\nOur love will conquer, life's turbulent ride",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 10
+						},
+						{
+							"style": "Madonna",
+							"content": "Night after night, warm in your arms\nThrough it all, our love remains unharmed",
 							"score": 0,
 							"ai_score": 5,
 							"ai_score_extra": 1
 						},
 						{
-							"style": "Madonna",
-							"content": "My heart longs for you, I can't deny\nJust chillin' on the beach, beneath the stars, our love will never die",
+							"style": "Buffalo Springfield",
+							"content": "Wrapped in your warmth, nothing to hide\nTogether we'll journey, love's unbreakable ride",
 							"score": 0,
 							"ai_score": 5,
-							"ai_score_extra": 6
-						},
-						{
-							"style": "Buffalo Springfield",
-							"content": "Your touch, it's like a gentle breeze\nChillin' on the sand, beneath the stars, we'll feel at ease",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
+							"ai_score_extra": 8
 						},
 						{
 							"style": "Elton John",
-							"content": "I crave your touch, it's like a symphony\nUnder the stars, with you, it's pure harmony",
+							"content": "In your dreams, I'll hold you tight\nTogether we'll write, a love that's just right",
 							"score": 0,
 							"ai_score": 5,
-							"ai_score_extra": 5
+							"ai_score_extra": 4
 						}
 					],
 					"data": [
@@ -634,11 +878,384 @@
 						},
 						{
 							"key": "ATTITUDE_HOPEFUL_DESPAIR",
+							"value": "-1"
+						},
+						{
+							"key": "SEXUAL_ORIENTATION",
+							"value": "1"
+						},
+						{
+							"key": "IMAGERY",
+							"value": "-1"
+						},
+						{
+							"key": "RELATIONSHIP_FOCUS",
+							"value": "1"
+						},
+						{
+							"key": "RATIONALITY",
+							"value": "1"
+						},
+						{
+							"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
+							"value": "1"
+						},
+						{
+							"key": "CULTURE",
+							"value": "1"
+						},
+						{
+							"key": "MOOD_LIGHTHEARTED_SOMBER",
+							"value": "1"
+						}
+					],
+					"outdated_suggestions": false
+				},
+				{
+					"source": [
+						"But time passed by our intense love,\r",
+						"our kisses are only memories now"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "In crowded streets, we shared our love,\nBut our fire's gone, just embers now",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 4
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "We used to vibe, now there's no thrill,\nOur love's faded, like a skill",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Electric love, our sparks have died,\nMemories linger, but we can't hide",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 1
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Our love was hot, now it's old news,\nCan't rewind, what we can't choose",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 3
+						},
+						{
+							"style": "Bob Marley",
+							"content": "No more love, no more harmony,\nGone are the days we were free",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Once vibrant love, now just a shade,\nOur goodbyes, slowly we fade",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "We held hands, and danced in the rain,\nNow our love song, is full of pain",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Doors",
+							"content": "Beneath the moonlight, we shared our dreams,\nBut now our love, just splits at the seams",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Love once grunge, now just a blur,\nBroken chords, in time they'll stir",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Our love was real, but now we're numb,\nNo resurrect, what's already done",
+							"score": 0,
+							"ai_score": 1,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "In sweet embrace, we soared high above,\nNow our love's a ghost, we can't love",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Our passion burned, like a wildfire,\nBut now it's ashes, all we acquire",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Dreams of love, used to be legit,\nNow just a memory, we can't forget",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 6
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Our love was epic, like a song,\nBut it's over now, and we can't prolong",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 5
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Our love was like a trip, to the sky,\nBut now we've crashed, and we ask why",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 2
+						},
+						{
+							"style": "Madonna",
+							"content": "We used to soar, on wings of love,\nBut now just echoes, that float above",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Love's vivacity, now just a ghost,\nFaded dreams, haunt us the most",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Once we danced, under the moon,\nBut now our love, disbanded too soon",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						}
+					],
+					"data": [
+						{
+							"key": "MOOD_JOYFUL_MELANCHOLIC",
+							"value": "-1"
+						},
+						{
+							"key": "RELATIONSHIP_FOCUS",
+							"value": "-1"
+						},
+						{
+							"key": "INTEGRITY",
 							"value": "1"
 						},
 						{
 							"key": "SEXUALIZATION",
 							"value": "-1"
+						},
+						{
+							"key": "ATTITUDE_HOPEFUL_DESPAIR",
+							"value": "1"
+						},
+						{
+							"key": "EXPRESSION",
+							"value": "-1"
+						},
+						{
+							"key": "CULTURE",
+							"value": "1"
+						},
+						{
+							"key": "MOOD_LIGHTHEARTED_SOMBER",
+							"value": "-1"
+						}
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AB/AB",
+			"data": [
+
+			],
+			"outdated_suggestions": false,
+			"syllable_str": "12,11,10,8"
+		},
+		{
+			"name": "Verse 1c",
+			"source": [
+				"I enjoy my memories of us touching\r",
+				"in which we kissed and made sweet love\r",
+				"When night got dark, I hear only us making love\r",
+				"The moon was shining, you were drenched in sweat"
+			],
+			"ai_source": [
+				"I enjoy my memories of us touching\r",
+				"in which we kissed and made sweet love\r",
+				"When night got dark, I hear only us making love\r",
+				"The moon was shining, you were drenched in sweat"
+			],
+			"rhymes": [
+				{
+					"source": [
+						"I enjoy my memories of us touching\r",
+						"in which we kissed and made sweet love\r"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Memories of us, touching with fire\nOur lips met, passion and desire",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Our love was hot, no need for braggin'\nJust two bodies, touchin' and taggin'",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Your touch, electric, burned through my soul\nOur love, a wild, unbridled, rock 'n' roll",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 4
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "The way we touched, it was so supreme\nOur love, a hip hop, soulful dream",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Memories of us, love so pure and sweet\nOur touch, like dancing to a reggae beat",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "In the memories that I hold so dear\nOur touch, a folk song, whispered in my ear",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "We kissed and danced, with love so true\nOur touch, like a classic, timeless tune",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 1
+						},
+						{
+							"style": "The Doors",
+							"content": "Our love, a trip, to a mystical place\nOur touch, like the softest, velvet embrace",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 2
+						},
+						{
+							"style": "Nirvana",
+							"content": "In memories, so loud, we heard the sound\nOur touch, like grunge, raw and unbound",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "The way we touched, it was so divine\nOur love, like a hip hop, love song rhyme",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "In memories, our touch, oh so sweet\nOur love, like a soulful, love's complete",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "The way we touched, it was so hardcore\nOur love, a gangsta's paradise for sure",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 6
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Memories of us, love so fresh and clean\nOur touch, like a rap beat, the smoothest sheen",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Our love, a stairway, to heaven above\nOur touch, like a rock ballad, filled with love",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 5
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "In the memories that we shared with grace\nOur touch, like a psychedelic, love's embrace",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "In the memories of my prime of life\nOur touch, like a pop song, full of spice",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Memories of us, so young and free\nOur touch, like folk rock, in perfect harmony",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Like a candle in the wind, our love burned bright\nOur touch, like a piano, keys in perfect light",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 3
+						}
+					],
+					"data": [
+						{
+							"key": "SEXUALIZATION",
+							"value": "1"
+						},
+						{
+							"key": "MOOD_LIGHTHEARTED_SOMBER",
+							"value": "1"
+						},
+						{
+							"key": "MOOD_HUMOROUS_DRAMATIC",
+							"value": "1"
+						},
+						{
+							"key": "ATTITUDE_HOPEFUL_DESPAIR",
+							"value": "1"
+						},
+						{
+							"key": "SEXUAL_ACTING",
+							"value": "1"
 						},
 						{
 							"key": "SEXUAL_COMMITMENT",
@@ -649,7 +1266,541 @@
 							"value": "1"
 						},
 						{
+							"key": "SEXUAL_PREFERENCE",
+							"value": "-1"
+						},
+						{
 							"key": "PHYSICAL_PREFERENCE",
+							"value": "-1"
+						}
+					],
+					"outdated_suggestions": false
+				},
+				{
+					"source": [
+						"When night got dark, I hear only us making love\r",
+						"The moon was shining, you were drenched in sweat"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Dark night, hear us play, love\nMoon's gleam, you sweat, we're wild doves",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "The night, we rock with love, baby\nMoon shines, you're hot, our vibes crazy",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Darkness falls, our love's electric\nMoon's light, you're fire, it's ecstatic",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "Nights get heavy, we groove in love\nMoon beams, you glisten, like stars above",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Dark night, we chant our love song\nMoon's glow, you sweat, we're one and strong",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Calm night, our love's a melody\nMoon's shine, you're pure, my harmony",
+							"score": 0,
+							"ai_score": 2,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "In the dark of night, we intertwine\nMoon so bright, you're mine, our love's divine",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 2
+						},
+						{
+							"style": "The Doors",
+							"content": "Night's veil, our love's a mystery\nMoon's light, you glow, our chemistry",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "When night gets dark, we embrace love\nMoon's glow, you're my peace, my dove",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Pitch black night, love's our saving grace\nMoon's light, you shine, my queen in this space",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "The night surrounds us, love's in the air\nMoon's glow, sweat drips, we're a perfect pair",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "As the night falls, we get intense\nMoon's shine, your sweat, our love's immense",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Darkness creeps in, our love's in motion\nMoon's light, your sweat, we're pure devotion",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Night's embrace, our love's a symphony\nMoon's glow, you're my muse, our harmony",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Lost in the dark, our love takes flight\nMoon's beam, sweat drips, we're pure delight",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Madonna",
+							"content": "In the depths of night, our love shines bright\nMoon's glow, your sweat, we're a beautiful sight",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Dark night, our love's like a dream\nMoon's beam, you sweat, our love so extreme",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "In the cover of night, our love's revealed\nMoon's shine, you glisten, our passion sealed",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 1
+						}
+					],
+					"data": [
+						{
+							"key": "SEXUAL_ORIENTATION",
+							"value": "1"
+						},
+						{
+							"key": "RELATIONSHIP_FOCUS",
+							"value": "1"
+						},
+						{
+							"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
+							"value": "1"
+						},
+						{
+							"key": "PHYSICAL_PREFERENCE",
+							"value": "-1"
+						},
+						{
+							"key": "MOOD_PLAYFUL_SERIOUS",
+							"value": "1"
+						},
+						{
+							"key": "FAITH_AND_REASON_SEEKER",
+							"value": "1"
+						},
+						{
+							"key": "SEXUAL_ACTING",
+							"value": "1"
+						},
+						{
+							"key": "INTEGRITY",
+							"value": "1"
+						},
+						{
+							"key": "MOOD_JOYFUL_MELANCHOLIC",
+							"value": "1"
+						}
+					],
+					"outdated_suggestions": false
+				}
+			],
+			"rhyme_scheme": "AB/AB",
+			"data": [
+
+			],
+			"outdated_suggestions": false,
+			"syllable_str": "8,10,8,10"
+		},
+		{
+			"name": "Verse 1d",
+			"source": [
+				"We could've tried to reach a better score,\r",
+				"But I appreciate you taking the time to say and hear apologization\r",
+				"Time to be wise in our own worlds,\r",
+				"Find love again with no holds."
+			],
+			"ai_source": [
+				"We could've tried to reach a better score,\r",
+				"But I appreciate you taking the time to say and hear apologization\r",
+				"Time to be wise in our own worlds,\r",
+				"Find love again with no holds."
+			],
+			"rhymes": [
+				{
+					"source": [
+						"We could've tried to reach a better score,\r",
+						"But I appreciate you taking the time to say and hear apologization\r"
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Maybe we could've reached a better high,\nBut I'm grateful we could apologize and try",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 3
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "We coulda' aimed for a better score,\nBut at least we're mending, can't ignore",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Coulda' shot for a better tune,\nBut I value the words we share and resume",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Grandmaster Flash and the Furious Five",
+							"content": "We coulda' aimed for a higher peak,\nBut I appreciate the time we gleam and seek",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "We coulda' tried for a better vibe,\nBut I'm thankful we could forgive and ride",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 6
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "Coulda' reached for a clearer slate,\nBut I'm grateful for the time we create",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "Maybe we could've hit a brighter chord,\nBut I cherish the effort to make things un-scored",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 8
+						},
+						{
+							"style": "The Doors",
+							"content": "We coulda' strived for a better rhyme,\nBut I appreciate the effort taken to climb",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "We coulda' aimed for a grander buzz,\nBut I appreciate the time to hear and discuss",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "We coulda' reached for a bigger dream,\nBut I value the time we spend to clean",
+							"score": 1,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Maybe we could've found a better way,\nBut I'm thankful we could make peace and stay",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "N.W.A",
+							"content": "Coulda' aimed for a better grip,\nBut I appreciate the effort to squash our ship",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Run-DMC",
+							"content": "We coulda' tried for a higher aim,\nBut I'm thankful we could reconcile and claim",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 1
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "We coulda' shot for a bigger flight,\nBut I cherish the time we make things right",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 2
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Maybe we could've soared a little higher,\nBut I'm grateful for the time we could mend and conspire",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 5
+						},
+						{
+							"style": "Madonna",
+							"content": "We coulda' aimed for a better beat,\nBut I appreciate the time we could fix and meet",
+							"score": 0,
+							"ai_score": 3,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "We coulda' reached for a brighter flame,\nBut I'm thankful we could apologize and tame",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 7
+						},
+						{
+							"style": "Elton John",
+							"content": "Coulda' aimed for a greater fame,\nBut I cherish the effort to heal and reclaim",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 4
+						}
+					],
+					"data": [
+						{
+							"key": "RATIONALITY",
+							"value": "1"
+						},
+						{
+							"key": "RESPONSIBILITY",
+							"value": "1"
+						},
+						{
+							"key": "INTEGRITY",
+							"value": "1"
+						},
+						{
+							"key": "SOCIAL",
+							"value": "1"
+						},
+						{
+							"key": "ECONOMIC",
+							"value": "1"
+						},
+						{
+							"key": "CULTURE",
+							"value": "1"
+						},
+						{
+							"key": "MOOD_PLAYFUL_SERIOUS",
+							"value": "-1"
+						},
+						{
+							"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
+							"value": "-1"
+						},
+						{
+							"key": "ATTITUDE_HOPEFUL_DESPAIR",
+							"value": "-1"
+						}
+					],
+					"outdated_suggestions": false
+				},
+				{
+					"source": [
+						"Time to be wise in our own worlds,\r",
+						"Find love again with no holds."
+					],
+					"suggestion": [
+						{
+							"style": "Red Hot Chili Peppers",
+							"content": "Life's a journey, no need for stalling,\nFind healing in the pain, keep evolving.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Beastie Boys",
+							"content": "Ride the beat with reckless abandon,\nLeave behind the haters, keep expanding.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 3
+						},
+						{
+							"style": "The Jimi Hendrix Experience",
+							"content": "Let go of fear, embrace the unknown,\nLet Hendrix's chords guide you home.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "<error>",
+							"content": "Push through struggles, rise above,\nWith unity, we spread more love.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Bob Marley",
+							"content": "Don't let hate divide our world,\nLet love be our flag unfurled.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 6
+						},
+						{
+							"style": "Bob Dylan",
+							"content": "The times they are a-changin',\nDon't lose sight, keep engaging.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "The Beatles",
+							"content": "We all need love, it's our heart's call,\nSpread peace and love, we can't afford to fall.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 4
+						},
+						{
+							"style": "The Doors",
+							"content": "Break down barriers, open your mind,\nIn love and music, true freedom you'll find.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Nirvana",
+							"content": "Don't let the darkness cloud your soul,\nLet love and hope guide you and make you whole.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Tupac Shakur",
+							"content": "Been through hell and back, but still standing tall,\nKeep striving for love, even through it all.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Marvin Gaye",
+							"content": "Love can conquer all, it's our saving grace,\nSpread it far and wide, and leave no trace.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 8
+						},
+						{
+							"style": "N.W.A",
+							"content": "From the streets to the world, spread love and peace,\nOur voices united, they can't ignore or cease.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 5
+						},
+						{
+							"style": "Run-DMC",
+							"content": "Walk this way, with love in our hearts,\nLet's make a change, let's do our part.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Led Zeppelin",
+							"content": "Find solace in music, let it soothe your soul,\nLet love and peace be your ultimate goal.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 1
+						},
+						{
+							"style": "Jefferson Airplane",
+							"content": "Fly above hate, with love as our fuel,\nTogether we'll rise, let's break love's rule.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 2
+						},
+						{
+							"style": "Madonna",
+							"content": "Love is a battlefield, but we'll come through,\nWith love as our armor, there's nothing we can't do.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Buffalo Springfield",
+							"content": "Can't let the world tear us apart,\nUnite with love, and mend our broken hearts.",
+							"score": 0,
+							"ai_score": 4,
+							"ai_score_extra": 0
+						},
+						{
+							"style": "Elton John",
+							"content": "Through love and music, we'll find our way,\nLet's hold each other close, and save the day.",
+							"score": 0,
+							"ai_score": 5,
+							"ai_score_extra": 7
+						}
+					],
+					"data": [
+						{
+							"key": "RATIONALITY",
+							"value": "1"
+						},
+						{
+							"key": "RESPONSIBILITY",
+							"value": "1"
+						},
+						{
+							"key": "AVERAGE_EXPECTATIONS",
+							"value": "1"
+						},
+						{
+							"key": "IMAGERY",
+							"value": "-1"
+						},
+						{
+							"key": "EXPRESSION",
+							"value": "-1"
+						},
+						{
+							"key": "RELATIONSHIP_FOCUS",
 							"value": "-1"
 						},
 						{
@@ -657,979 +1808,26 @@
 							"value": "1"
 						},
 						{
-							"key": "BELIF_COMMUNITY",
-							"value": "1"
-						},
-						{
-							"key": "MOOD_PLAYFUL_SERIOUS",
-							"value": "1"
-						}
-					],
-					"outdated_suggestions": false
-				}
-			],
-			"rhyme_scheme": "A/A",
-			"data": [
-
-			],
-			"outdated_suggestions": false,
-			"syllable_str": "9,7,10,10"
-		},
-		{
-			"name": "Verse 1b",
-			"source": [
-				"Dreaming of you, warm in my arms",
-				"Promised to stay through up and down",
-				"But time passed by,",
-				"kisses are memories"
-			],
-			"ai_source": [
-				"My thoughts wander, to your warmth",
-				"Vowed to stay strong, together we stand",
-				"But time slips away",
-				"Sweet kisses, burn in my mind"
-			],
-			"rhymes": [
-				{
-					"source": [
-						"Dreaming of you, warm in my arms",
-						"Promised to stay through up and down"
-					],
-					"suggestion": [
-						{
-							"style": "Red Hot Chili Peppers",
-							"content": "Hot embrace, shared through the night,\nWe'll keep this love burning bright",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Beastie Boys",
-							"content": "We will rock this world together,\nSteady as the beating of the drum forever",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Jimi Hendrix Experience",
-							"content": "Hold me close, we'll make a stand,\nOur passion will never end",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Grandmaster Flash and the Furious Five",
-							"content": "We'll stand in harmony, see just what we can be,\nChanges of love so strong and free",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Marley",
-							"content": "State of blissful harmony,\nOur love has been set free",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Dylan",
-							"content": "Wrapped in this moment of love,\nThat's all that's ever enough",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Beatles",
-							"content": "We will make a beautiful thing,\nOur love will always keep us in swing",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Doors",
-							"content": "Feel the heat and passion start,\nNothing tear us apart",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Nirvana",
-							"content": "Uncensored and without restraint,\nTogether we will never faint",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Tupac Shakur",
-							"content": "Sharing a devotion strong and true,\nWe'll make it through whatever we go through",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Marvin Gaye",
-							"content": "Loving through day and night,\nOur love will be so right",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "N.W.A",
-							"content": "Love through the ups and the downs,\nWe'll wear a smile not a frown",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Run-DMC",
-							"content": "Feel the strength that's within,\nOur love is totally legit",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Led Zeppelin",
-							"content": "Our hearts will never part,\nJoined together, so much love in our heart",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Jefferson Airplane",
-							"content": "Making a promise to be true,\nOur love will never be askew",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Madonna",
-							"content": "Loving through the joy and pain,\nOur passion will never wane",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Buffalo Springfield",
-							"content": "What we have is pure bliss,\nYou'll make all my wishes come true with one kiss",
-							"score": 1,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Elton John",
-							"content": "All of the blessings and love,\nWe'll stay together like a dove.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						}
-					],
-					"data": [
-						{
 							"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
-							"value": "1"
-						}
-					],
-					"outdated_suggestions": false
-				},
-				{
-					"source": [
-						"But time passed by,",
-						"kisses are memories"
-					],
-					"suggestion": [
-						{
-							"style": "Red Hot Chili Peppers",
-							"content": "But sweet love died, they can't return us bliss\nDreams, like hearts, remain in abyss",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
+							"value": "-1"
 						},
 						{
-							"style": "Beastie Boys",
-							"content": "Shadows of past, I ain't gonna miss\nEverything now exists deep in the mist",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Jimi Hendrix Experience",
-							"content": "No future in sight, sadness is our kiss\nMemories of love still linger like this",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Grandmaster Flash and the Furious Five",
-							"content": "Bitter goodbye stayed in our sight\nLost in time, such a cruel plight",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Marley",
-							"content": "Let sorrow rest, no more sadness in sight\nLife?s memories shall remain in delight",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Dylan",
-							"content": "Goodbye and away, dark clouds up high\nEndless dreams will no more fly",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Beatles",
-							"content": "Gone were the days, our love was blind\nHearts empty, no more left to find",
-							"score": 1,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Doors",
-							"content": "Vanish away, precious moments to miss\nEchoes just laugh when I reminisce",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Nirvana",
-							"content": "Lately it holds, a life full of pain\nNowhere to go, nothing remains",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Tupac Shakur",
-							"content": "Years fade away, memories prevail\nNo sweet words can in love prevail",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Marvin Gaye",
-							"content": "Can?t find joy, bitterness subsides\nSorrow chokes me, but I still abide",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "N.W.A",
-							"content": "My depression won't pass, life's in the pits\nLove is lost, my kisses turn to bits",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Run-DMC",
-							"content": "Love gotten past, life just can't be bliss\nLove's gone away ain't no more to miss",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Led Zeppelin",
-							"content": "Stories part ways, precious love's past\nCan't find no joy what was left can't last",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Jefferson Airplane",
-							"content": "Our love died away, love broken like mist\nNo more winter nights, kisses become a mist",
-							"score": 1,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Madonna",
-							"content": "Sadness embraced, tear drops will find\nMemories remain, but this love is blind",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Buffalo Springfield",
-							"content": "Once we had, so much passion and bliss\nSadness in sight, haunting us like this",
-							"score": 1,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Elton John",
-							"content": "No more found love, no moment to kiss\nMy heart still remembers this love we'll miss",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						}
-					],
-					"data": [
-						{
-							"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+							"key": "ATTITUDE_HOPEFUL_DESPAIR",
 							"value": "-1"
 						}
 					],
 					"outdated_suggestions": false
 				}
 			],
-			"rhyme_scheme": "AB,AB",
-			"data": [
-				{
-					"key": "EXPRESSION",
-					"value": "1"
-				},
-				{
-					"key": "SEXUALIZATION",
-					"value": "1"
-				},
-				{
-					"key": "RELATIONSHIP_FOCUS",
-					"value": "1"
-				}
-			],
-			"outdated_suggestions": false,
-			"syllable_str": "11,11,8,7"
-		},
-		{
-			"name": "Verse 1c",
-			"source": [
-				"Memories of us touching",
-				"We kissed, we rocked together",
-				"When night got dark, I did hear only you",
-				"The moon was shining, you were drenched in sweat"
-			],
-			"ai_source": [
-				"Our touch, pure magic",
-				"Side by side we move, in perfect sync",
-				"When darkness falls, I hear your voice",
-				"Moonlit glow, you shine with sweat"
-			],
-			"rhymes": [
-				{
-					"source": [
-						"Memories of us touching",
-						"We kissed, we rocked together"
-					],
-					"suggestion": [
-						{
-							"style": "Red Hot Chili Peppers",
-							"content": "Enraptured in our passion,\nWe held each other tight all night long.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Beastie Boys",
-							"content": "Lust raging in our veins,\nFeeling each other?s heat, no one complains.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Jimi Hendrix Experience",
-							"content": "Our loving proved transcendent,\nWe made sweet music kiss to kiss intent.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Grandmaster Flash and the Furious Five",
-							"content": "Rhyme and passion leading,\nPut our bodies into electric feeling.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Marley",
-							"content": "Harmony of our bodies,\nWe united with love, hearts and sweet stories.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Dylan",
-							"content": "Entwined as one together,\nA sharing of love that could last forever.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Beatles",
-							"content": "A blissful connection,\nThe two of us, undeniably heaven sent.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Doors",
-							"content": "Our bond strong as a pillar,\nA divine symphony of love made for realer.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Nirvana",
-							"content": "Into a spell we'd go\nOur love affair was pure, it would forever show.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Tupac Shakur",
-							"content": "Locked inside the moment,\nA sweet scent of love that would never be blurred.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Marvin Gaye",
-							"content": "Feeling the vibes together,\nMaking sweet love to last, now and forever.",
-							"score": 1,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "N.W.A",
-							"content": "Our souls intertwined together,\nIn our love it felt like we been together forever.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Run-DMC",
-							"content": "Impulse running through us,\nOur bodies danced to the rhythm of real trust.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Led Zeppelin",
-							"content": "Hearts racing through the night,\nWe shared a love that felt just right.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Jefferson Airplane",
-							"content": "Exploring our inner realms,\nOur love a blissful dream no one ever unveils.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Madonna",
-							"content": "A divine intermission,\nOur hearts and souls in a beautiful fusion.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Buffalo Springfield",
-							"content": "We painted our own picture,\nOur love, a feel good trip, it created features.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Elton John",
-							"content": "Two roads so entwined,\nA love affair intense but sublime.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						}
-					],
-					"data": [
-
-					],
-					"outdated_suggestions": false
-				},
-				{
-					"source": [
-						"When night got dark, I did hear only you",
-						"The moon was shining, you were drenched in sweat"
-					],
-					"suggestion": [
-						{
-							"style": "Red Hot Chili Peppers",
-							"content": "No one can fight it, when our bodies unite\nOur love will ignite, your kiss was so sweet",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Beastie Boys",
-							"content": "As our conection came to life\nBuzy all night, doin' it right",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Jimi Hendrix Experience",
-							"content": "Your touch so soft, it hypnotized me\nMy passions set free, fire's all that I see",
-							"score": 1,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Grandmaster Flash and the Furious Five",
-							"content": "Up all night, couldn't get away\nFeeling much heat, flames of ecstasy",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Marley",
-							"content": "Our hearts so close, we forver tied\nLoving's so sweet, just pure delight",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Dylan",
-							"content": "A deep love inside, it took my breath away\nNever let it go, you light my way",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Beatles",
-							"content": "Feelings so strong, burning like a flame\nThe warmth that I feel, such passion to claim",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Doors",
-							"content": "Love took me high, I'll never turn away\nOur spirits ignite, this feeling won't fade",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Nirvana",
-							"content": "No looking back, just trust what we share\nSo much so right, it's written in the air",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Tupac Shakur",
-							"content": "Dreams become real, we bang so fearlessly\nIt's all for us, life's only guarantee",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Marvin Gaye",
-							"content": "Facing our truth, together as one\nEndless delight, 'til the lovin' is done",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "N.W.A",
-							"content": "Love overflows, when we get in close\nStrong emotions, we see what nobody knows",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Run-DMC",
-							"content": "Our moments last, no end in sight\nFilled with the high, when we take flight",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Led Zeppelin",
-							"content": "Love's our force, and I will never steer\nFires ignited, freely it breaks free",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Jefferson Airplane",
-							"content": "Our hearts together, shining so bright\nEvery moment, us together in flight",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Madonna",
-							"content": "My soul alive, electrified in bliss\nFeelings of love, it's all that I miss",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Buffalo Springfield",
-							"content": "Deepness here, feeling divinely blessed\nWe share this love, we'll forever confess",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Elton John",
-							"content": "Our connection real, no one can replace\nHallowed our love, so strong like a flame",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						}
-					],
-					"data": [
-
-					],
-					"outdated_suggestions": false
-				}
-			],
-			"rhyme_scheme": "AB,AB",
-			"data": [
-				{
-					"key": "SEXUALIZATION",
-					"value": "1"
-				},
-				{
-					"key": "EXPRESSION",
-					"value": "-1"
-				},
-				{
-					"key": "INTEGRITY",
-					"value": "1"
-				},
-				{
-					"key": "RELATIONSHIP_FOCUS",
-					"value": "1"
-				},
-				{
-					"key": "MOOD_UPLIFTING_HEAVY",
-					"value": "1"
-				},
-				{
-					"key": "SEXUAL_ACTING",
-					"value": "1"
-				}
-			],
-			"outdated_suggestions": false,
-			"syllable_str": ""
-		},
-		{
-			"name": "Verse 1d",
-			"source": [
-				"Maybe both of us should have tried more,",
-				"but thank you for listening and apologizing",
-				"Let's be wiser again in our own worlds",
-				"maybe then we can find love again"
-			],
-			"ai_source": [
-				"We could've tried harder",
-				"Thank you, for owning your wrongs",
-				"Let's be wiser, in our own worlds",
-				"Maybe then, we can reignite our fire"
-			],
-			"rhymes": [
-				{
-					"source": [
-						"Maybe both of us should have tried more,",
-						"but thank you for listening and apologizing"
-					],
-					"suggestion": [
-						{
-							"style": "Red Hot Chili Peppers",
-							"content": "Maybe I could have tried hard to make you stay,\nbut I wish you joy despite what we had to say",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Beastie Boys",
-							"content": "Maybe I should have listened to what you said,\nbut it's too late now, my heart remains regret",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Jimi Hendrix Experience",
-							"content": "Maybe I could have increased my understanding,\nbut I know that we were both demanding",
-							"score": 1,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Grandmaster Flash and the Furious Five",
-							"content": "Maybe I should have opened up my heart,\nbut now all we got is this sadness from the start",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Marley",
-							"content": "Maybe I should have expressed my soul's desire,\nbut farewelling you left sadness in my fire",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Dylan",
-							"content": "Maybe I could have heard what we could be,\nbut it was too late and had to be set free",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Beatles",
-							"content": "Maybe I should have held on just a bit more,\nbut it's too bad the sun has set over our shore",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Doors",
-							"content": "Maybe both of us could have tried harder still,\nbut it's goodbye and no ill-will tonight so we can heal",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Nirvana",
-							"content": "Maybe I should have shared that heartfelt emotion,\nbut it's too late now and needs no recipe for devotion",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Tupac Shakur",
-							"content": "Maybe I should have promised we wouldn't part,\nbut my heart's too heavy to even start",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Marvin Gaye",
-							"content": "Maybe I could have come up with more sentiment,\nbut our story was done and so its closure I did not invent",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "N.W.A",
-							"content": "Maybe I should have been more sincere,\nbut no more after all these years",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Run-DMC",
-							"content": "Maybe I should have opened my eyes,\nbut looking back now it's just goodbye",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Led Zeppelin",
-							"content": "Maybe both of us should have seen through the fog,\nbut here we are now and it's time to move on, dog",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Jefferson Airplane",
-							"content": "Maybe I could have clung strong to our embrace,\nbut it's too late now and the sunset's taking us away",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Madonna",
-							"content": "Maybe I should have listened closer to my heart,\nbut I chose not to and now our love apart",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Buffalo Springfield",
-							"content": "Maybe I could have clutched tight to love divine,\nbut farewells can't be undone, no single valid sign",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Elton John",
-							"content": "Maybe I should have held tight to every thought,\nbut these memories will keep us and I still care a lot",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						}
-					],
-					"data": [
-
-					],
-					"outdated_suggestions": false
-				},
-				{
-					"source": [
-						"Let's be wiser again in our own worlds",
-						"maybe then we can find love again"
-					],
-					"suggestion": [
-						{
-							"style": "Red Hot Chili Peppers",
-							"content": "Let me be the one to reignite the sparks,\nResurrect the love then fly away like dark.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Beastie Boys",
-							"content": "So come on turn our fate - break the shot,\nForget the doubt - the love will bring the plot.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Jimi Hendrix Experience",
-							"content": "Striving hard, till we find what we seek,\nWe can heal our hearts - true love will never be weak.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Grandmaster Flash and the Furious Five",
-							"content": "We don't need to give up the faith in the end,\nOur love can show us how to reach a higher trend.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Marley",
-							"content": "Restore our trust, don't let the scales twist,\nResume our love, it's the only mental mist.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Dylan",
-							"content": "Let's find our place, where we're meant to be,\nTogether, love will heal us both emotionally.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Beatles",
-							"content": "So we look for hope, a little bliss so keen,\nLet love fill our souls, together we've been seen.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Doors",
-							"content": "Set us free, our love is the key,\nTogether our dreams can soon be reality.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Nirvana",
-							"content": "Let's bring our souls, both burning alive,\nAnd with love, we'll apply, connecting from deep inside.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Tupac Shakur",
-							"content": "In this life no regrets, life must go on,\nStronger than before, embracing deep love.",
-							"score": 1,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Marvin Gaye",
-							"content": "Let's peaceful rise, through the sky and the high,\nA new life in love, will keep us alive.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "N.W.A",
-							"content": "We must stay true, that our love is secure,\nA brand new start, and our hearts will be pure.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Run-DMC",
-							"content": "We find the place, where we both will be free,\nOur love it shows, it finally sets us free.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Led Zeppelin",
-							"content": "Leave it behind, both darkened and hard,\nOur love can light up a new way and a new start.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Jefferson Airplane",
-							"content": "We create anew, our lives meant to sail,\nRise up to the sky, together we prevail.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Madonna",
-							"content": "Here we fight for more, 'til our love is pure,\nTogether we'll soar, never letting love abjure.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Buffalo Springfield",
-							"content": "Take control of our dreams, of our destiny,\nOur hearts will mend, stronger before, can't you see?",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Elton John",
-							"content": "To our love, so true, so alive and strong,\nOnly love will make us wise, together we belong.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						}
-					],
-					"data": [
-
-					],
-					"outdated_suggestions": false
-				}
-			],
-			"rhyme_scheme": "A/A",
+			"rhyme_scheme": "AB/AB",
 			"data": [
 				{
 					"key": "BELIEFS",
 					"value": "1"
-				},
-				{
-					"key": "ATTITUDE_HOPEFUL_DESPAIR",
-					"value": "1"
-				},
-				{
-					"key": "SEXUAL_ACTING",
-					"value": "-1"
-				},
-				{
-					"key": "EXPRESSION",
-					"value": "-1"
-				},
-				{
-					"key": "INTEGRITY",
-					"value": "1"
 				}
 			],
 			"outdated_suggestions": false,
-			"syllable_str": ""
+			"syllable_str": "12,11,10,8"
 		},
 		{
 			"name": "Verse 2a",
@@ -1640,10 +1838,10 @@
 				"This new woman came with air of hope"
 			],
 			"ai_source": [
-				"Yearning for someone new",
-				"Forgot my ex's name, mistook her for another dame",
-				"Door slammed hard, as I left you behind",
-				"This new lady, breathes new life."
+				"Crave someone, completely new",
+				"Can't recall, ex's old name",
+				"Door slams hard, as I left",
+				"New woman, breathes new breath."
 			],
 			"rhymes": [
 				{
@@ -1951,7 +2149,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllable_str": "10,10,11,11"
+			"syllable_str": "2,12,9,11"
 		},
 		{
 			"name": "Verse 2b",
@@ -1962,10 +2160,10 @@
 				"I accepted them, won't deny"
 			],
 			"ai_source": [
-				"No more joy found in me",
-				"Our gaze, void of tears",
-				"Emotions never cease",
-				"Give in, can't resist"
+				"No joy left in me",
+				"Our stares, dry eyes",
+				"Emotions still flow",
+				"Give in, can't fight"
 			],
 			"rhymes": [
 				{
@@ -2279,7 +2477,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllable_str": ""
+			"syllable_str": "12,11,10,8"
 		},
 		{
 			"name": "Verse 2c",
@@ -2290,10 +2488,10 @@
 				"Time is precious when spending with someone"
 			],
 			"ai_source": [
-				"Love's terror consumes",
-				"Failure, no return",
-				"Urgent love expressed",
-				"Time shared is precious"
+				"Love's terror grips",
+				"Failure, no retreat",
+				"Urgent love displayed",
+				"Time shared, so rare"
 			],
 			"rhymes": [
 				{
@@ -2472,7 +2670,7 @@
 
 			],
 			"outdated_suggestions": true,
-			"syllable_str": ""
+			"syllable_str": "8,10,8,10"
 		},
 		{
 			"name": "Verse 2d",
@@ -2483,10 +2681,10 @@
 				"Maybe you will realize that you should be my wife"
 			],
 			"ai_source": [
-				"Don't let me ride alone",
-				"Coasting with you's best",
-				"My only one, I'll say",
-				"See your place as wife"
+				"Don't leave me alone",
+				"Coasting, you and I",
+				"My one love, I'll vow",
+				"See your role, my wife"
 			],
 			"rhymes": [
 				{
@@ -2794,7 +2992,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllable_str": ""
+			"syllable_str": "12,11,10,8"
 		},
 		{
 			"name": "Chorus 1",
@@ -2805,10 +3003,10 @@
 				"never thought that this could end"
 			],
 			"ai_source": [
-				"Quarrel was never sought",
-				"Breaking up, not an option",
-				"No harm intended",
-				"Endless love, I thought"
+				"Quarrels never sought",
+				"Breaking up, not done",
+				"No harm meant",
+				"Endless love, I felt"
 			],
 			"rhymes": [
 				{
@@ -3127,7 +3325,7 @@
 
 			],
 			"outdated_suggestions": false,
-			"syllable_str": ""
+			"syllable_str": "8,5,9,4"
 		},
 		{
 			"name": "Chorus 2",
@@ -3136,8 +3334,8 @@
 				"We were loving each other, but hurting again"
 			],
 			"ai_source": [
-				"My actions caused pain",
-				"Love's flourishing, yet pain"
+				"My actions caused ache",
+				"Love thrives, yet pains"
 			],
 			"rhymes": [
 
@@ -3147,7 +3345,7 @@
 
 			],
 			"outdated_suggestions": true,
-			"syllable_str": ""
+			"syllable_str": "8,5,10,7"
 		},
 		{
 			"name": "Bridge 1a",
@@ -3158,10 +3356,10 @@
 				"Even though you would not notice"
 			],
 			"ai_source": [
-				"Forgive and move on",
-				"Erase all fights, restart.",
-				"Oh, war wages inside me still",
-				"Woe, you are unaware, still"
+				"Forgive, move on",
+				"Erase fights, restart.",
+				"Still in me, war rages",
+				"Unaware, woe remains"
 			],
 			"rhymes": [
 				{
@@ -3325,7 +3523,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllable_str": ""
+			"syllable_str": "8,7,9,7"
 		},
 		{
 			"name": "Bridge 1b",
@@ -3336,10 +3534,10 @@
 				"but what can I fix with it anymore"
 			],
 			"ai_source": [
-				"I haven't shown yet",
-				"My love, so deep and true",
-				"Aye, kindness and grace I show",
-				"Alack, what can change now?"
+				"My heart, still unseen",
+				"Deep and true love, mine",
+				"Kind is my heart's display",
+				"Alas, can change now?"
 			],
 			"rhymes": [
 				{
@@ -3503,7 +3701,7 @@
 				}
 			],
 			"outdated_suggestions": false,
-			"syllable_str": ""
+			"syllable_str": "8,7,9,7"
 		}
 	]
 }
