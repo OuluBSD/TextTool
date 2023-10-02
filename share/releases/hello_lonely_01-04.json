@@ -62,6 +62,14 @@
 		{
 			"key": "ECONOMIC",
 			"value": "1"
+		},
+		{
+			"key": "RATIONALITY",
+			"value": "1"
+		},
+		{
+			"key": "RESPONSIBILITY",
+			"value": "1"
 		}
 	],
 	"ideas": [

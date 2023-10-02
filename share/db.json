@@ -9,6 +9,10 @@
 						"value": "hyväksyvä"
 					},
 					{
+						"key": "accountable",
+						"value": ""
+					},
+					{
 						"key": "adventurous",
 						"value": "seikkaileva"
 					},
@@ -193,6 +197,10 @@
 						"value": "käänteinen"
 					},
 					{
+						"key": "irresponsible",
+						"value": ""
+					},
+					{
 						"key": "joyful",
 						"value": "iloinen"
 					},
@@ -321,6 +329,14 @@
 						"value": ""
 					},
 					{
+						"key": "rationality",
+						"value": ""
+					},
+					{
+						"key": "reasonable",
+						"value": ""
+					},
+					{
 						"key": "relationship focus",
 						"value": "suhteen keskittyminen"
 					},
@@ -334,6 +350,10 @@
 					},
 					{
 						"key": "religious fundamentalist",
+						"value": ""
+					},
+					{
+						"key": "responsibility",
 						"value": ""
 					},
 					{
@@ -443,6 +463,10 @@
 					{
 						"key": "unique",
 						"value": "ainutlaatuinen"
+					},
+					{
+						"key": "unreasonable",
+						"value": ""
 					},
 					{
 						"key": "uplifting",

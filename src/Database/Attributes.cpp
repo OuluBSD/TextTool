@@ -1,15 +1,5 @@
 #include "Database.h"
 
-namespace Attr {
-
-const char* AttrKeys[ATTR_COUNT+1][4] = {
-#define ATTR_ITEM(e, g, i0, i1) {#e, g, i0, i1},
-ATTR_LIST
-#undef ATTR_ITEM
-	0
-};
-}
-
 
 Attributes::Attributes() {
 	file_title = "attributes";
