@@ -724,13 +724,13 @@ template <class T>
 void LoadFromJsonFileStandard(T& o, const String& path) {
 	String s = UPP::LoadFile(path);
 	s = ToCharset(CHARSET_DEFAULT, s, CHARSET_UTF8);
+	CheckSerialisationData<T>(s); // Has been a real issue
 	LoadFromJson(o, s);
 }
 
 template <class T>
 void StoreAsJsonFileStandard(T& o, const String& path, bool pretty=false) {
 	String s = StoreAsJson(o, pretty);
-	//CheckSerialisationData<T>(s); // Never was an real issue
 	s = ToCharset(CHARSET_UTF8, s, CHARSET_DEFAULT);
 	s.Replace("\\r\\n", "\\n");
 	s.Replace("\r\n", "\n");
