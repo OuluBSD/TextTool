@@ -39,13 +39,14 @@ TxtAutoCompare::TxtAutoCompare() {
 	parts.AddColumn(t_("Name"));
 	parts.AddColumn(t_("Syllables"));
 	parts.AddColumn(t_("Content")).Edit(edit_source);
-	parts.AddColumn(t_("AI Content"));
+	parts.AddColumn(t_("AI Content")).Edit(edit_ai_source);
 	parts.AddColumn(t_("Rhyme scheme"));
 	parts.ColumnWidths("2 2 6 6 4");
 	parts.SetLineCy(64);
 	parts.WhenCursor << THISBACK1(DataSongPart, false);
 	parts.WhenBar << THISBACK(PartMenu);
-	edit_source << THISBACK(OnSongPartContentEdit);
+	edit_source << THISBACK1(OnSongPartContentEdit, 0);
+	edit_ai_source << THISBACK1(OnSongPartContentEdit, 1);
 	parts.WhenAcceptEdit << THISBACK(OnAcceptEditSource);
 	
 	rhymes.AddColumn(t_("#"));
@@ -198,26 +199,8 @@ void TxtAutoCompare::DataSong() {
 		parts.Set(i, 1, TrimBoth(sp.syllable_str));
 		e.WhenAction << THISBACK2(OnSongPartSyllableChange, &sp, &e);
 		
-		if (1) {
-			parts.Set(i, 2, content);
-		}
-		else if (1) {
-			parts.Set(i, 2, AttrText(content)
-				.NormalPaper(sp.outdated_suggestions ? Color(255, 209, 205) : White())
-				.Paper(sp.outdated_suggestions ? Color(198, 42, 0) : Color(28, 42, 200))
-				);
-		}
-		else {
-			DocEdit& e = parts.CreateCtrl<DocEdit>(i, 2);
-			e.SetMinSize(Size(100,64));
-			parts.Set(i, 2, content);
-			e.WhenAction << THISBACK2(OnSongPartContentChange, &e, &sp);
-		}
-		
-		parts.Set(i, 3, AttrText(ai_content)
-			.NormalPaper(sp.outdated_suggestions ? Color(255, 209, 205) : White())
-			.Paper(sp.outdated_suggestions ? Color(198, 42, 0) : Color(28, 42, 200))
-			);
+		parts.Set(i, 2, content);
+		parts.Set(i, 3, ai_content);
 		
 		sp.valid_rhyme_schemes.Clear();
 		DropList& dl = parts.CreateCtrl<DropList>(i, 4);
@@ -482,6 +465,7 @@ void TxtAutoCompare::EvaluateExtraSuggestionScores() {
 	p.RealizePipe();
 	
 	tmp_sug_ids.Clear();
+	running_count = 0;
 	
 	for(int j = 0; j < sp.rhymes.GetCount(); j++) {
 		Song::Rhyme& r = sp.rhymes[j];
@@ -495,7 +479,7 @@ void TxtAutoCompare::EvaluateExtraSuggestionScores() {
 				top_score_count++;
 		
 		if (top_score_count <= 1)
-			return; // nothing to do here
+			continue; // nothing to do here
 		
 		Vector<int>& sug_ids = tmp_sug_ids.Add();
 		Vector<String> sug_strs;
@@ -508,6 +492,10 @@ void TxtAutoCompare::EvaluateExtraSuggestionScores() {
 		}
 		
 		{
+			lock.Enter();
+			running_count++;
+			lock.Leave();
+			
 			TaskMgr& m = *p.song->pipe;
 			m.EvaluateSuggestionOrder(sug_strs, THISBACK2(OnSuggestionOrder, &r, tmp_sug_ids.GetCount()-1));
 		}
@@ -723,8 +711,20 @@ void TxtAutoCompare::OnSuggestionScore(String res, Song::Rhyme* r, bool post_ena
 			score_str = TrimBoth(score_str.Mid(a+5));
 		
 		a = score_str.Find("-");
-		if (a >= 0)
-			score_str = TrimBoth(score_str.Mid(a+1));
+		if (a >= 0) {
+			bool has_pre_score = false;
+			for(int j = 0; j < a; j++) {
+				int chr = score_str[j];
+				if (IsDigit(chr)) {
+					has_pre_score = true;
+					break;
+				}
+			}
+			if (has_pre_score)
+				score_str = TrimBoth(score_str.Left(a));
+			else
+				score_str = TrimBoth(score_str.Mid(a+1));
+		}
 		
 		int b = score_str.Find("/");
 		if (b >= 0)
@@ -740,7 +740,12 @@ void TxtAutoCompare::OnSuggestionScore(String res, Song::Rhyme* r, bool post_ena
 }
 
 void TxtAutoCompare::OnSuggestionOrder(String res, Song::Rhyme* r, int idx) {
-	if (idx == tmp_sug_ids.GetCount()-1)
+	lock.Enter();
+	running_count--;
+	bool last = running_count <= 0;
+	lock.Leave();
+	
+	if (last)
 		PostCallback(THISBACK(EnableAll));
 	
 	TrimBothAllLines(res);
@@ -947,7 +952,7 @@ void TxtAutoCompare::OnAttrChangeRhyme(Song::Rhyme* r, const char* key, DropList
 		r->data.GetAdd(key) = IntStr(value);
 }
 
-void TxtAutoCompare::OnSongPartContentEdit() {
+void TxtAutoCompare::OnSongPartContentEdit(int src) {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if(!p.song || !p.artist)
@@ -959,8 +964,15 @@ void TxtAutoCompare::OnSongPartContentEdit() {
 	if (c >= song.parts.GetCount()) return;
 	Song::SongPart& sp = song.parts[c];
 	
-	String content = edit_source.GetData();
-	sp.source = Split(content, "\n");
+	
+	if (src == 0) {
+		String content = edit_source.GetData();
+		sp.source = Split(content, "\n");
+	}
+	else {
+		String content = edit_ai_source.GetData();
+		sp.ai_source = Split(content, "\n");
+	}
 }
 
 void TxtAutoCompare::OnAcceptEditSource() {

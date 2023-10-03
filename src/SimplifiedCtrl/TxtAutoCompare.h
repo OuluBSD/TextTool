@@ -7,7 +7,7 @@ class TxtAutoCompare : public SongToolCtrl {
 	ArrayCtrl parts, rhymes, suggestions, attrs;
 	DocEdit best;
 	
-	DocEdit edit_source;
+	DocEdit edit_source, edit_ai_source;
 	Label lbl_def_syllables;
 	EditIntSpin def_syllables;
 	Label lbl_def_attr_count;
@@ -61,7 +61,7 @@ public:
 	void OnAttrChange(Song::SongPart* sp, const char* s, DropList* dl);
 	void OnAttrChangeRhyme(Song::Rhyme* r, const char* s, DropList* dl);
 	void OnRhymeSchemeChange(DropList* dl, Song::SongPart* sp);
-	void OnSongPartContentEdit();
+	void OnSongPartContentEdit(int src);
 	void OnAcceptEditSource();
 	void OnSongPartContentChange(DocEdit* e, Song::SongPart* sp);
 	void OnSuggestionScore(String res, Song::Rhyme* r, bool post_enable);

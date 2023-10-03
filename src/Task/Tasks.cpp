@@ -602,7 +602,7 @@ bool Task::RunOpenAI_Completion() {
 	//prompt = FixInvalidChars(prompt); // NOTE: warning: might break something
 	//prompt.Replace("\'", "\\\'");
 	
-	if (!GetDefaultCharset() == CHARSET_UTF8)
+	if (GetDefaultCharset() == CHARSET_UTF8)
 		prompt = ToCharset(CHARSET_UTF8, prompt, CHARSET_DEFAULT);
 	
     // "model": "text-davinci-003",

@@ -2007,7 +2007,7 @@ void Task::CreateInput_EvaluateSuggestionOrder() {
 		for (String a : args) {
 			a.Replace("\r", "");
 			a.Replace("\n", " / ");
-			list.Add(a);
+			list.Add("\"" + a + "\"");
 			if (first_line.IsEmpty()) first_line = a;
 		}
 		list_len = list.values.GetCount();
@@ -2015,7 +2015,7 @@ void Task::CreateInput_EvaluateSuggestionOrder() {
 	
 	{
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("Sorted lines 1-" + IntStr(list_len) + ". (For example: 1. Original line number 4: \"...\")");
+		results.Title("Sorted lines 1-" + IntStr(list_len) + ". (For example: 1. Original line number " + IntStr(list_len) + ": \"...\"). The count of results is " + IntStr(list_len));
 		results		.NumberedLines();
 		results.Add("Original line number");
 		
