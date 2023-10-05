@@ -11,6 +11,9 @@ TxtAutoCompare::TxtAutoCompare() {
 	stanza_key = "ENGLISH_STANZA";
 	main_key = main_natural_english_key;
 	other_key = auto_poetic_styles_english_key;
+	forbidden_words_key = "FORBIDDEN_WORDS";
+	frozen_begin_key = "FROZEN_BEGIN";
+	frozen_end_key = "FROZEN_END";
 	
 	lbl_def_syllables.AlignRight();
 	lbl_def_syllables.SetLabel(t_("Default syllables:"));
@@ -27,11 +30,14 @@ TxtAutoCompare::TxtAutoCompare() {
 	hsplit.Horz();
 	hsplit << vsplit0 << vsplit1;
 	vsplit0.Vert() << parts << rhymes << suggestions;
-	vsplit1.Vert() << attrs << best;
+	vsplit1.Vert() << params << attrs << best;
 	
 	hsplit.SetPos(6666);
 	vsplit0.SetPos(4000, 0);
 	vsplit0.SetPos(6000, 1);
+	
+	vsplit1.SetPos(1000, 0);
+	vsplit1.SetPos(7500, 1);
 	
 	// See ENUM on change
 	
@@ -68,6 +74,28 @@ TxtAutoCompare::TxtAutoCompare() {
 	suggestions.ColumnWidths("1 1 2 4 12");
 	suggestions.SetLineCy(64);
 	
+	
+	
+	// Params list
+	params.AddColumn(t_("Key"));
+	params.AddColumn(t_("Value"));
+	params.ColumnWidths("1 2");
+	
+	{
+		params.Add(t_("Forbidden words"), "");
+		EditString& e = params.CreateCtrl<EditString>(0, 1);
+		e.WhenAction << THISBACK2(OnParamChange, &e, 0);
+	}
+	{
+		params.Add(t_("Frozen begin"), "");
+		EditString& e = params.CreateCtrl<EditString>(1, 1);
+		e.WhenAction << THISBACK2(OnParamChange, &e, 1);
+	}
+	{
+		params.Add(t_("Frozen end"), "");
+		EditString& e = params.CreateCtrl<EditString>(2, 1);
+		e.WhenAction << THISBACK2(OnParamChange, &e, 2);
+	}
 	
 	
 	// Attrs list
@@ -313,7 +341,19 @@ void TxtAutoCompare::DataSongPart(bool skip_results) {
 			dl->SetIndex(idx);
 		}
 	}
-	
+	if (r) {
+		String fw = r->data.Get(forbidden_words_key, "");
+		params.Set(0, 1, fw);
+		String fb = r->data.Get(frozen_begin_key, "");
+		params.Set(1, 1, fb);
+		String fe = r->data.Get(frozen_end_key, "");
+		params.Set(2, 1, fe);
+	}
+	else {
+		params.Set(0, 1, Value());
+		params.Set(1, 1, Value());
+		params.Set(2, 1, Value());
+	}
 	
 	if (!skip_results)
 		DataSongRhymeData();
@@ -663,6 +703,26 @@ void TxtAutoCompare::OnMorphToAttributes(String res, Song::SongPart* s, Song::Rh
 		PostCallback(THISBACK(EnableAll));
 		PostCallback(THISBACK(DataSong));
 	}
+}
+
+void TxtAutoCompare::OnParamChange(EditString* e, int key) {
+	Song::Rhyme* r = GetActiveRhyme();
+	if (!r || !e) return;
+	
+	const char* ks = 0;
+	switch (key) {
+		case 0: ks = forbidden_words_key; break;
+		case 1: ks = frozen_begin_key; break;
+		case 2: ks = frozen_end_key; break;
+		default: return;
+	}
+	if (!ks) return;
+	
+	String v = e->GetData();
+	if (v.IsEmpty())
+		r->data.RemoveKey(ks);
+	else
+		r->data.GetAdd(ks) = v;
 }
 
 void TxtAutoCompare::OnSuggestionScore(String res, Song::Rhyme* r, bool post_enable) {
@@ -1339,6 +1399,10 @@ void TxtAutoCompare::EvaluatePoeticStyles(int i) {
 				}
 			}
 			
+			String forbidden_words = r.data.Get(forbidden_words_key, "");
+			String frozen_begin = r.data.Get(frozen_begin_key, "");
+			String frozen_end = r.data.Get(frozen_end_key, "");
+			
 			String rhyme;
 			int line_count = 0;
 			rhyme = Join(r.source, "\n");
@@ -1352,7 +1416,10 @@ void TxtAutoCompare::EvaluatePoeticStyles(int i) {
 			ASSERT(rhyme_scheme.GetCount());
 			ASSERT(line_count > 0);
 			TaskMgr& m = *p.song->pipe;
-			m.EvaluatePoeticStyles(rhyme, rhyme_scheme, line_count, attrs, rhyme_syllable_str, THISBACK2(PostOnPoeticRecv, i, j));
+			m.EvaluatePoeticStyles(
+				rhyme, rhyme_scheme, line_count, attrs, rhyme_syllable_str,
+				forbidden_words, frozen_begin, frozen_end,
+				THISBACK2(PostOnPoeticRecv, i, j));
 			
 			lock.Enter();
 			running_count++;

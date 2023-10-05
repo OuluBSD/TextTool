@@ -106,7 +106,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 	AddRule(TASK_EVALUATE_POETIC_STYLES, "evaluate poetic styles")
 		.Input(&Task::CreateInput_EvaluatePoeticStyles)
 			.Arg(V_PTR_PIPE)
-			.Arg(V_ARGS, 5, 5)
+			.Arg(V_ARGS, 8, 8)
 		.Process(&Task::Process_EvaluatePoeticStyles)
 		;
 	
@@ -1076,6 +1076,9 @@ void TaskMgr::EvaluatePoeticStyles(
 	int rhyme_scheme_line_count,
 	String attrs,
 	String syllable_count_str,
+	String forbidden_words,
+	String frozen_begin,
+	String frozen_end,
 	Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
@@ -1090,7 +1093,11 @@ void TaskMgr::EvaluatePoeticStyles(
 			<< rhyme_scheme
 			<< IntStr(rhyme_scheme_line_count)
 			<< syllable_count_str
-			<< attrs;
+			<< attrs
+			<< forbidden_words
+			<< frozen_begin
+			<< frozen_end
+			;
 	t.WhenResult << WhenResult;
 }
 

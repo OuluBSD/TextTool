@@ -1570,6 +1570,9 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 	int rhyme_scheme_line_count = StrInt(args[2]);
 	String syllable_count_str = args[3];
 	String attrs = args[4];
+	String forbidden_words = TrimBoth(args[5]);
+	String frozen_begin = TrimBoth(args[6]);
+	String frozen_end = TrimBoth(args[7]);
 	ASSERT(rhyme_scheme.GetCount());
 	
 	bool rev_snap = args[0] == "rev";
@@ -1623,21 +1626,34 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 		}
 	}
 	
-	if (0) {
-		TaskTitledList& results = input.PreAnswer();
-		results.Title("All 1-" + IntStr(list_len) + " artist styles");
-		
-		String title = "1. New lyrics " + IntStr(rhyme_scheme_line_count) +
-			" lines long in total, and with " + rhyme_scheme + " rhyme sceme, ";
-		if (attrs.GetCount())
-			title << "and with " + attrs + " tone of voice, ";
-		title << "and with style of " + CommonArtists()[0];
-		
-		TaskTitledList& first = results.AddSub();
-		first		.Title(title);
-		first		.EmptyLine().NoListChar();
+	if (!forbidden_words.IsEmpty()) {
+		Vector<String> values = Split(forbidden_words, ",");
+		TaskTitledList& list = input.AddSub();
+		list.Title("The result must avoid following words");
+		for(int i = 0; i < values.GetCount(); i++) {
+			list.Add(TrimBoth(values[i]));
+		}
 	}
-	else {
+	
+	if (!frozen_begin.IsEmpty()) {
+		Vector<String> values = Split(frozen_begin, ",");
+		TaskTitledList& list = input.AddSub();
+		list.Title("Lines of the result must begin with following words");
+		for(int i = 0; i < values.GetCount(); i++) {
+			list.Add(TrimBoth(values[i]));
+		}
+	}
+	
+	if (!frozen_end.IsEmpty()) {
+		Vector<String> values = Split(frozen_end, ",");
+		TaskTitledList& list = input.AddSub();
+		list.Title("Lines of the result must end with following words");
+		for(int i = 0; i < values.GetCount(); i++) {
+			list.Add(TrimBoth(values[i]));
+		}
+	}
+	
+	{
 		TaskTitledList& results = input.PreAnswer();
 		String result_title;
 		result_title +=

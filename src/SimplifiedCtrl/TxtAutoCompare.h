@@ -4,7 +4,7 @@
 
 class TxtAutoCompare : public SongToolCtrl {
 	Splitter hsplit, vsplit0, vsplit1;
-	ArrayCtrl parts, rhymes, suggestions, attrs;
+	ArrayCtrl parts, rhymes, suggestions, attrs, params;
 	DocEdit best;
 	
 	DocEdit edit_source, edit_ai_source;
@@ -26,6 +26,8 @@ class TxtAutoCompare : public SongToolCtrl {
 	String stanza_key;
 	String main_key;
 	String other_key;
+	String forbidden_words_key;
+	String frozen_begin_key, frozen_end_key;
 	
 	int attr_begin_row = -1;
 	Vector<Vector<int>> tmp_sug_ids;
@@ -71,6 +73,7 @@ public:
 	void OnSongSyllableChange();
 	void OnSongAttrCountChange();
 	void OnMorphToAttributes(String res, Song::SongPart* s, Song::Rhyme* r);
+	void OnParamChange(EditString* e, int key);
 	
 	Song::SongPart* GetActiveSongPart();
 	Song::Rhyme* GetActiveRhyme();
