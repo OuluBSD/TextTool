@@ -59,6 +59,7 @@ public:
 	CHK_PRODUCTION(5,		RECORD_LOW_SOLO, t_("Record low solo (bass solo)")) \
 	CHK_PRODUCTION(10,		RECORD_HIGH_SOLO, t_("Record high solo (e.g. bridge climax solo)")) \
 	CHK_PRODUCTION(5,		RECORD_MID_FILLS, t_("Record mid fills (e.g. between singing)")) \
+	CHK_PRODUCTION(15,		FIX_TIMING_OF_ORCHESTRA, t_("Fix the timing for kick, bass, rhythm instruments (compare only two tracks simultaneously)")) \
 	CHK_PRODUCTION(60,		FIX_TIMING_OF_RECORDINGS, t_("Fix the timing of recorded instruments with the Free Warp tool")) \
 	CHK_PRODUCTION(5,		MAKE_TEXTURE_PAD, t_("Make texture pad track (arp)")) \
 	CHK_PRODUCTION(5,		MAKE_IMPACT_TRACK, t_("Make impact track")) \
