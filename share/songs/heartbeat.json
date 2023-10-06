@@ -3272,343 +3272,148 @@
 				{
 					"source": [
 						"Wish we didn't have to part,\r",
-						"leave with a heavy heart.\r"
-					],
-					"suggestion": [
-						{
-							"style": "Red Hot Chili Peppers",
-							"content": "Wishin' we didn't have to depart,\nLeft with a heavy heart.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Beastie Boys",
-							"content": "We don't wanna say goodbye,\nLeavin' with tears in our eyes.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Jimi Hendrix Experience",
-							"content": "I hate that we have to split,\nMy heart feels heavy, can't deny it.",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Grandmaster Flash and the Furious Five",
-							"content": "We didn't wanna go our separate ways,\nBut it's time to part, we gotta obey.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Marley",
-							"content": "Wouldn't have to leave if we had no fears,\nHeavy hearted, wishin' you were near.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Dylan",
-							"content": "Wish it didn't have to end like this,\nLeavin' with a heavy heart, can't dismiss.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Beatles",
-							"content": "I'll be missin' you when we are apart,\nHeavy hearted, breakin' my heart.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Doors",
-							"content": "Wishin' for more time before we part,\nHeavy hearted, don't know where to start.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Nirvana",
-							"content": "I'll wear my heart on my sleeve,\nLeavin' with a heavy heart, can't believe.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Tupac Shakur",
-							"content": "When we say goodbye it breaks my heart,\nHeavy hearted, wishin' we could restart.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Marvin Gaye",
-							"content": "Can't bear to see us go our separate ways,\nHeart heavy, tryin' to keep the tears at bay.",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "N.W.A",
-							"content": "We didn't wanna go but we had no choice,\nHeavy hearted, raisin' our voice.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Run-DMC",
-							"content": "No words can ease this heavy heart,\nGotta leave, can't even make a new start.",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Led Zeppelin",
-							"content": "If only we didn't have to depart,\nHeavy hearted, can't mend this broken heart.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Jefferson Airplane",
-							"content": "Don't wanna leave but it's time to go,\nHeavy hearted, feelin' so low.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Madonna",
-							"content": "Wishin' we could stay together,\nHeavy hearted 'cause we'll be apart forever.",
-							"score": 1,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Buffalo Springfield",
-							"content": "Wish we could put this off, delay the start,\nHeavy heart, we're driftin' apart.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Elton John",
-							"content": "We don't wanna go, it's tearin' us apart,\nHeavy hearted, breakin' my heart.",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						}
-					],
-					"data": [
-						{
-							"key": "RELATIONSHIP_FOCUS",
-							"value": "1"
-						},
-						{
-							"key": "MOOD_LIGHTHEARTED_SOMBER",
-							"value": "-1"
-						},
-						{
-							"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
-							"value": "-1"
-						},
-						{
-							"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
-							"value": "1"
-						},
-						{
-							"key": "HUMAN_STRENGTH",
-							"value": "-1"
-						},
-						{
-							"key": "CULTURE",
-							"value": "1"
-						},
-						{
-							"key": "SOCIAL",
-							"value": "-1"
-						}
-					],
-					"outdated_suggestions": false
-				},
-				{
-					"source": [
+						"leave with a heavy heart.\r",
 						"Wish I never caused those problems\r",
 						"to make our love end like this"
 					],
 					"suggestion": [
 						{
 							"style": "Red Hot Chili Peppers",
-							"content": "Forgiveness I seek in cryptic eyes\nLove now forgotten under grey skies",
+							"content": "Can't believe it, must depart,\nleaving with an aching heart.\nFeelin' such a deep regret,\nour love fades, never to forget.",
 							"score": 0,
-							"ai_score": 3,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Beastie Boys",
-							"content": "Lost in this cycle, can't seem to break free\nOh, the pain and regret, what have I done to thee",
-							"score": 0,
-							"ai_score": 2,
+							"content": "Wish we didn't have to part ways,\nleavin' behind these darker days.\nI never meant to cause this pain,\nthe end of us, drives me insane.",
+							"score": 1,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "The Jimi Hendrix Experience",
-							"content": "Blinded by anger, couldn't see the light\nNow I'm left with heartache, consumed by the nights",
+							"content": "Leavin' with a heavy heartache,\nwish we could keep the love we make.\nNever meant to hurt you, my dear,\nwishing we could start again, sincere.",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Grandmaster Flash and the Furious Five",
-							"content": "If only I had listened, I could've saved our love\nBut instead I caused chaos, and now it's all above",
+							"content": "Wish we never had to leave,\nthis love, now just a memory.\nNever wanted to see you go,\nwish I could fix what I broke.",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Bob Marley",
-							"content": "Redemption song, I sing for you my dear\nBut regrets and sorrow, are all that I hear",
+							"content": "Wish we didn't have to go our separate ways,\nleave behind these heavy, lingering days.\nI never wanted to hurt you, my love,\nnow we must find peace from the heavens above.",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Bob Dylan",
-							"content": "I wish I could turn back the hands of time\nAnd undo all the damage, that caused our love to chime",
-							"score": 0,
-							"ai_score": 2,
+							"content": "Wish we never had to part,\nleavin' with a broken heart.\nI never meant to cause such strife,\nour love seems to have lost its life.",
+							"score": 1,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "The Beatles",
-							"content": "I never meant to hurt you, my love is true\nBut I let my ego win, now I'm left without you",
+							"content": "Wish we didn't have to say goodbye,\nleaving with tears, I can't deny.\nNever meant to cause this pain,\nnow our love is washed away like rain.",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "The Doors",
-							"content": "No more open doors, no more shining light\nJust the weight of my mistakes, and the darkness of the night",
+							"content": "Wish we could've stayed together,\ninstead of leaving with this heavy weather.\nI never thought it'd end like this,\nfeels like I've lost my one true bliss.",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Nirvana",
-							"content": "Love now a distant memory, fading away\nI scream out in agony, wishing I could stay",
+							"content": "Wish we didn't have to leave,\nour love, now just a memory.\nNever wanted to hurt you, my dear,\nnow we're just lost in this teenage fear.",
 							"score": 0,
-							"ai_score": 3,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Tupac Shakur",
-							"content": "Thug life took over, blinded by the fame\nNow I see the truth, and it's driving me insane",
+							"content": "Wish we never had to part,\nleavin' with a heavy heart.\nI never wanted to see you go,\nnow I'm just a lost thug, don't you know.",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Marvin Gaye",
-							"content": "If only I could rewind, and do it all right\nBut now I'm all alone, in the darkness of the night",
+							"content": "Wish we could stay together,\ninstead of leavin' with this shattered weather.\nI never meant to hurt you, my dear,\nnow our love is lost in this endless fear.",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "N.W.A",
-							"content": "I was blinded by rage, couldn't see your pain\nMy selfishness destroyed us, now all that remains",
+							"content": "Wish we didn't have to say goodbye,\nwe both know it's a long goodbye.\nI never meant to cause this pain,\nnow we're both just stuck in this rap game.",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Run-DMC",
-							"content": "I never thought my actions, could lead us to this end\nBut now I'm filled with sorrow, and I'm left to mend",
+							"content": "Wish we didn't have to go,\nleavin' behind this love we used to know.\nNever wanted to see you hurt,\nwish I never had to own up to my dirt.",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Led Zeppelin",
-							"content": "If I could climb that stairway, and turn back the tides\nI'd take back all my mistakes, and make things right inside",
+							"content": "Wish we could've stayed together,\ninstead of leaving with this stormy weather.\nI never thought we'd end like this,\nour love seemed to be an unbreakable myth.",
 							"score": 0,
-							"ai_score": 3,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Jefferson Airplane",
-							"content": "No more soaring high, all my wings are clipped\nI caused the fall of our love, and now it's forever stripped",
+							"content": "Wish we didn't have to break apart,\nleavin' with a heavy, shattered heart.\nNever meant to cause this strife,\nnow our love feels like a lost flight.",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Madonna",
-							"content": "The queen of mistakes, I've lost my crown\nI wish I could make amends, and turn it all around",
+							"content": "Wish we could've stayed together,\ninstead of leaving with this heavy weather.\nI never meant to hurt you, my dear,\nour love just wasn't meant for this atmosphere.",
 							"score": 0,
-							"ai_score": 3,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Buffalo Springfield",
-							"content": "I never meant to hurt you, now I'm left with regret\nWish I could go back in time, and change how we met",
+							"content": "Wish we never had to go,\nleavin' behind this broken love we know.\nI never meant to hurt you, my dear,\nnow all I feel is endless fear.",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						},
 						{
 							"style": "Elton John",
-							"content": "Empty halls and broken walls, our love now torn apart\nI wish I could've been better, right from the start",
+							"content": "Wish we could've stayed together,\nleavin' behind this love, now just a memory.\nNever meant to cause this pain,\nnow I'm just a lonely troubadour in vain.",
 							"score": 0,
-							"ai_score": 2,
+							"ai_score": 0,
 							"ai_score_extra": 0
 						}
 					],
 					"data": [
 						{
-							"key": "RATIONALITY",
-							"value": "1"
-						},
-						{
-							"key": "RESPONSIBILITY",
-							"value": "1"
-						},
-						{
-							"key": "INTEGRITY",
-							"value": "1"
-						},
-						{
-							"key": "SEXUAL_COMMITMENT",
-							"value": "-1"
-						},
-						{
-							"key": "ATTITUDE_HOPEFUL_DESPAIR",
-							"value": "1"
-						},
-						{
-							"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
-							"value": "1"
-						},
-						{
-							"key": "RELATIONSHIP_FOCUS",
-							"value": "-1"
-						},
-						{
-							"key": "HUMAN_STRENGTH",
-							"value": "1"
-						},
-						{
-							"key": "EXPECTATIONS",
-							"value": "1"
+							"key": "FROZEN_BEGIN",
+							"value": "Wish we,I never"
 						}
 					],
 					"outdated_suggestions": false
 				}
 			],
-			"rhyme_scheme": "A/A",
+			"rhyme_scheme": "A/B/A/B",
 			"data": [
 
 			],
@@ -3797,6 +3602,10 @@
 						{
 							"key": "HUMAN_STRENGTH",
 							"value": "1"
+						},
+						{
+							"key": "FROZEN_BEGIN",
+							"value": "Wish we,(not frozen),Wish we,(not frozen)"
 						}
 					],
 					"outdated_suggestions": false
