@@ -41,6 +41,7 @@ int FindRhymeType(const char* name);
 #define ATTR_LIST \
 	ATTR_ITEM(GENDER, "Gender", "female", "male") \
 	ATTR_ITEM(RATIONALITY, "Rationality", "reasonable", "unreasonable") \
+	ATTR_ITEM(PROBLEM_SOLVING, "Problem solving strategy", "shortcut taking", "cunning") \
 	ATTR_ITEM(RESPONSIBILITY, "Responsibility", "accountable", "irresponsible") \
 	ATTR_ITEM(AVERAGE_EXPECTATIONS, "Average expectations", "expectation-conformed", "expectation-opposed") \
 	ATTR_ITEM(IMAGERY, "Imagery", "trope-reinforcing", "unique") \
