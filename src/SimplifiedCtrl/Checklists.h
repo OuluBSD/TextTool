@@ -73,6 +73,7 @@ public:
 	CHK_PRODUCTION(30,		COMPILE_VOCALS, t_("Put together a vocal track from the best phrases")) \
 	CHK_PRODUCTION(30,		FIX_VOCAL_TIMING, t_("Correct the timing of vocals with the free-warp tool")) \
 	CHK_PRODUCTION(30,		FIX_VOCAL_PITCH, t_("Fix the pitch of the vocal track with the VariAudio tool")) \
+	CHK_PRODUCTION(5,		REALIZE_FX, t_("See the list of (updated) plugin list and consider every plugin in your list")) \
 	CHK_PRODUCTION(5,		IR_FX, t_("Add proper microphone IR to all tracks")) \
 	CHK_PRODUCTION(5,		VOCAL_FX, t_("Vocal track effects with iZotope Nectar automatic analysis")) \
 	CHK_PRODUCTION(5,		BASS_FX, t_("Bass and kick harmonics creation with e.g. SyncerSoft Bass Landscapes")) \
