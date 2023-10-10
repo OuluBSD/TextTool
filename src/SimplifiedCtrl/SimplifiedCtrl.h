@@ -19,6 +19,7 @@
 #include "TxtEditNative.h"
 #include "TxtEditEnglish.h"
 #include "TxtAutoCompare.h"
+#include "TxtSerialCompare.h"
 #include "MusicVideoImport.h"
 #include "MusicVideoEdit.h"
 #include "MusicVideoToPlan.h"

@@ -20,6 +20,8 @@ file
 	ContextAttributes.cpp,
 	TxtAutoCompare.h,
 	TxtAutoCompare.cpp,
+	TxtSerialCompare.h,
+	TxtSerialCompare.cpp,
 	TxtEditEnglish.h,
 	TxtEditEnglish.cpp,
 	TxtEditNative.h,

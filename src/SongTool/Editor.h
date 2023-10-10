@@ -38,6 +38,7 @@ protected:
 	TxtEditEnglish					text_edit_english;
 	TxtAutoCompare					text_autocompare_eng;
 	TxtAutoCompare					text_autocompare_nat;
+	TxtSerialCompare				serial_compare_eng;
 	ChecklistProduction				checklist_production;
 	MusicVideoImport				videostruct_import;
 	MusicVideoEdit					videostruct_edit;

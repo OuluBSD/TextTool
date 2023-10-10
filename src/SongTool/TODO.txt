@@ -1,4 +1,7 @@
 High priority:
+- rap stylizer tab
+	- existing verse (with break): as base, with own content and other artist styles
+
 
 Mid priority:
 - when opening with task list view, the editor bar is not set

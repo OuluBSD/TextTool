@@ -116,6 +116,7 @@ void Editor::InitSimplified() {
 	
 	AddItem(t_("Text"), t_("English Styler"), text_autocompare_eng);
 	AddItem(t_("Text"), t_("Native Styler"), text_autocompare_nat);
+	AddItem(t_("Text"), t_("English Serial Compare"), serial_compare_eng);
 	AddItem(t_("Text"), t_("Edit English"), text_edit_english);
 	AddItem(t_("Text"), t_("Edit Native"), text_edit_native);
 	

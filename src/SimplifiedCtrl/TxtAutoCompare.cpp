@@ -1411,6 +1411,8 @@ void TxtAutoCompare::EvaluatePoeticStyles(int i) {
 			Vector<String> rhyme_syllable_parts;
 			rhyme_syllable_parts.Append(syllable_parts, offset, r.source.GetCount());
 			String rhyme_syllable_str = Join(rhyme_syllable_parts, ",");
+			if  (rhyme_syllable_parts.IsEmpty())
+				continue;
 			
 			ASSERT(rhyme.GetCount());
 			ASSERT(rhyme_scheme.GetCount());
