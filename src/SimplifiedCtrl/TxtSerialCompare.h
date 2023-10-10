@@ -4,7 +4,9 @@
 
 
 class TxtSerialCompare : public SongToolCtrl {
-	
+	Splitter hsplit, vsplit0, vsplit1;
+	ArrayCtrl rhymes, suggestions, params, attrs;
+	DocEdit best;
 	
 public:
 	typedef TxtSerialCompare CLASSNAME;
@@ -12,7 +14,8 @@ public:
 	
 	void ToolMenu(Bar& bar) override;
 	void Data() override;
-	
+	void DataPart();
+	void DataBreak();
 	
 	
 };

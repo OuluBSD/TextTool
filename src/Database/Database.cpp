@@ -25,7 +25,10 @@ void Database::Store() {
 
 void Database::Load() {
 	Clear();
+	
+	lock.EnterWrite();
 	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json");
+	lock.LeaveWrite();
 /*	bool initial = attr_groups.IsEmpty();
 	attrs.Realize();
 	if (!initial)

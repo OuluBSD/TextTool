@@ -551,6 +551,7 @@ void TaskMgrConfig::Process() {
 	Database& db = Database::Single();
 	
 	while (running) {
+		db.lock.EnterRead();
 		for (Artist& art : db.artists) {
 			for (Release& rel : art.releases) {
 				for (Song& song : rel.songs) {
@@ -561,6 +562,8 @@ void TaskMgrConfig::Process() {
 				}
 			}
 		}
+		db.lock.LeaveRead();
+		
 		Sleep(10);
 	}
 	

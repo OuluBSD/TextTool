@@ -36,6 +36,7 @@ struct Database {
 	// Temp
 	Context			ctx;
 	String			dir;
+	RWMutex			lock;
 	
 	Database();
 	Array<Artist>& GetSub() {return artists;}
