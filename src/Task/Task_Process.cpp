@@ -1788,3 +1788,7 @@ void Task::Process_GetStructureSuggestions() {
 void Task::Process_GetSuggestionAttributes() {
 	WhenResult("-" + output);
 }
+
+void Task::Process_GetNovelThemes() {
+	WhenResult("- " + output);
+}

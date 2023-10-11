@@ -76,6 +76,7 @@ protected:
 	LyricsCtrl				lyrics;
 	SocialMediaChecklist	some_chk;
 	SongStructure			song_struct;
+	AutoIdeas				auto_ideas;
 	
 public:
 	typedef Editor CLASSNAME;

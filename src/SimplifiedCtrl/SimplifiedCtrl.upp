@@ -20,6 +20,8 @@ file
 	TxtStructEdit.cpp,
 	ContextAttributes.h,
 	ContextAttributes.cpp,
+	AutoIdeas.h,
+	AutoIdeas.cpp,
 	TxtAutoCompare.h,
 	TxtAutoCompare.cpp,
 	TxtSerialCompare.h,

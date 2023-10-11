@@ -138,6 +138,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetSuggestionAttributes)
 		;
 	
+	AddRule(TASK_GET_NOVEL_THEMES, "get novel themes")
+		.Input(&Task::CreateInput_GetNovelThemes)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 100)
+		.Process(&Task::Process_GetNovelThemes)
+		;
+	
 	AddRule(TASK_CONVERT_SCREENPLAY_TO_STRUCTURE, "convert screenplay to structure")
 		.Input(&Task::CreateInput_ConvertScreenplayToStructure)
 			.Arg(V_PTR_PIPE)
@@ -1042,6 +1049,20 @@ void TaskMgr::GetSuggestionAttributes(Vector<String>& structs, Event<String> Whe
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
 	t.args <<= structs;
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::GetNovelThemes(Vector<String>& attrs, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_NOVEL_THEMES);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args <<= attrs;
 	t.WhenResult << WhenResult;
 }
 

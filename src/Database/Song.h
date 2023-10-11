@@ -110,6 +110,51 @@ struct StaticPart {
 };
 
 
+struct StaticAllegoricalDevice {
+	
+	
+	void Jsonize(JsonIO& json) {
+		/*json
+			("artist", artist)
+			;*/
+	}
+};
+
+struct StaticContentIdea {
+	
+	
+	void Jsonize(JsonIO& json) {
+		/*json
+			("artist", artist)
+			;*/
+	}
+};
+
+struct StaticIdea {
+	Array<StaticContentIdea> contents;
+	Array<StaticAllegoricalDevice> allegories;
+	
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("contents", contents)
+			("allegories", allegories)
+			;
+	}
+};
+
+struct StaticTheme {
+	Array<StaticIdea> ideas;
+	String text;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("ideas", ideas)
+			("text", text)
+			;
+	}
+};
+
 struct Song :
 	DataFile,
 	EditorPtrs
@@ -163,6 +208,7 @@ struct Song :
 	VectorMap<String,String>	data;
 	Array<StaticPart>			parts;
 	Array<StructSuggestion>		struct_suggs;
+	Array<StaticTheme>			themes;
 	StructSuggestion			active_struct;
 	int							default_line_syllables = 0;
 	int							default_attr_count = 7;
@@ -212,6 +258,7 @@ struct Song :
 			("parts", parts)
 			("active_struct", active_struct)
 			("struct_suggs", struct_suggs)
+			("themes", themes)
 			;
 		
 		//for(const SnapArg& a : HumanInputTextArgs())

@@ -2368,3 +2368,25 @@ void Task::CreateInput_GetSuggestionAttributes() {
 	
 	input.response_length = 1024*2;
 }
+
+void Task::CreateInput_GetNovelThemes() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Song \"A\" is");
+		for (const String& p : args)
+			list.Add(TrimBoth(p));
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("List of novel themes for the song \"A\"");
+		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 1024*2;
+}

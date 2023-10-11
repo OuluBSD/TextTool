@@ -27,6 +27,7 @@
 #include "ImageGenTool.h"
 #include "CalMgrCtrl.h"
 #include "ContextAttributes.h"
+#include "AutoIdeas.h"
 
 
 #endif

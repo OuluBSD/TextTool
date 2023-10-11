@@ -103,7 +103,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("All"), t_("Calendar"), cal);
 	
 	AddItem(t_("Album"), t_("Briefing"), album_briefing);
-	AddItem(t_("Album"), t_("Ideas"), album_ideas);
+	AddItem(t_("Album"), t_("Idea notepad"), album_ideas);
 	
 	AddItem(t_("Song"), t_("Briefing"), song_briefing); // initial ideas, notes, etc.
 	AddItem(t_("Song"), t_("Structure"), song_struct);
@@ -115,6 +115,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Text Structure"), t_("Edit"), structure_edit);
 	
 	AddItem(t_("Context"), t_("Attributes"), ctx_attrs);
+	AddItem(t_("Context"), t_("Idea"), auto_ideas);
 	
 	AddItem(t_("Text"), t_("English Styler"), text_autocompare_eng);
 	AddItem(t_("Text"), t_("Native Styler"), text_autocompare_nat);

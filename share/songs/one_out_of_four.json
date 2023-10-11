@@ -118,6 +118,25 @@
 			"syllable_str": ""
 		},
 		{
+			"name": "Pre-Chorus 1",
+			"type": "PC1",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": ""
+		},
+		{
 			"name": "Chorus 1",
 			"type": "C1",
 			"source": [
@@ -156,84 +175,27 @@
 			"syllable_str": ""
 		},
 		{
+			"name": "Pre-Chorus 2",
+			"type": "PC2",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": ""
+		},
+		{
 			"name": "Chorus 2",
 			"type": "C2",
-			"source": [
-
-			],
-			"ai_source": [
-
-			],
-			"rhymes": [
-
-			],
-			"rhyme_scheme": "",
-			"data": [
-
-			],
-			"outdated_suggestions": true,
-			"syllable_str": ""
-		},
-		{
-			"name": "Verse 3",
-			"type": "V3",
-			"source": [
-
-			],
-			"ai_source": [
-
-			],
-			"rhymes": [
-
-			],
-			"rhyme_scheme": "",
-			"data": [
-
-			],
-			"outdated_suggestions": true,
-			"syllable_str": ""
-		},
-		{
-			"name": "Chorus 3",
-			"type": "C3",
-			"source": [
-
-			],
-			"ai_source": [
-
-			],
-			"rhymes": [
-
-			],
-			"rhyme_scheme": "",
-			"data": [
-
-			],
-			"outdated_suggestions": true,
-			"syllable_str": ""
-		},
-		{
-			"name": "Verse 4",
-			"type": "V4",
-			"source": [
-
-			],
-			"ai_source": [
-
-			],
-			"rhymes": [
-
-			],
-			"rhyme_scheme": "",
-			"data": [
-
-			],
-			"outdated_suggestions": true,
-			"syllable_str": ""
-		},
-		{
-			"name": "Chorus 4",
-			"type": "C4",
 			"source": [
 
 			],
@@ -287,28 +249,85 @@
 			],
 			"outdated_suggestions": true,
 			"syllable_str": ""
+		},
+		{
+			"name": "Theme melody ",
+			"type": "T",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": ""
+		},
+		{
+			"name": "Solo ",
+			"type": "S",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": ""
+		},
+		{
+			"name": "Instrumental ",
+			"type": "IN",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": ""
 		}
 	],
 	"active_struct": {
-		"name": "The Explosive Escalation",
+		"name": "The Instrumental Impression",
 		"parts": [
 			"V1",
+			"PC1",
+			"C1",
 			"V2",
-			"C1",
+			"PC2",
 			"C2",
-			"V3",
-			"C3",
+			"IN",
+			"T",
 			"B",
+			"S",
 			"C1",
-			"C2",
-			"V4",
-			"C4",
 			"O"
 		],
 		"attrs": [
-			"provides a balance between verses and choruses",
-			"includes a bridge for variety and climax",
-			"has a clear build up to the final chorus in the outro"
+			"utilizes multiple prechoruses for variation in the chorus",
+			"includes a solo for instrumental showcase",
+			"ends with a strong and memorable chorus in the outro"
 		],
 		"part_types": [
 			0,
@@ -577,6 +596,134 @@
 			"part_types": [
 
 			]
+		}
+	],
+	"themes": [
+		{
+			"ideas": [
+
+			],
+			"text": "Identity and sexuality"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "Taboo desires and exploring them"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "Self-discovery and personal growth"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "Science vs. religion"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "The search for meaning and spirituality"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "Breaking free from societal norms and expectations"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "Challenging traditional beliefs and embracing individualism"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "The power of self-expression and self-acceptance"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "Freedom and liberation"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "Embracing one's desires and passions without shame"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "The balance between reason and faith"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "Questioning authority and traditional institutions"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "The complexities of love and relationships"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "Confronting fears and taking risks"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "The importance of self-awareness and introspection"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "The struggle between conformity and authenticity"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "The strength and confidence found in embracing one's true self"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "The journey towards inner peace and enlightenment"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "The duality of light and darkness within oneself"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "The balance between seriousness and lightheartedness in life"
+		},
+		{
+			"ideas": [
+
+			],
+			"text": "The power of humor as a coping mechanism."
 		}
 	]
 }

@@ -223,6 +223,7 @@ public:
 	void CreateInput_MorphToAttributes();
 	void CreateInput_GetStructureSuggestions();
 	void CreateInput_GetSuggestionAttributes();
+	void CreateInput_GetNovelThemes();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -277,6 +278,7 @@ public:
 	void Process_MorphToAttributes();
 	void Process_GetStructureSuggestions();
 	void Process_GetSuggestionAttributes();
+	void Process_GetNovelThemes();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

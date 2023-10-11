@@ -104,6 +104,7 @@ struct TaskMgr {
 	void GetAIAttributes(String orig_txt, int attr_count, Event<String> WhenResult);
 	void GetStructureSuggestions(String req, String avoid, String desc, int total, Event<String> WhenResult);
 	void GetSuggestionAttributes(Vector<String>& structs, Event<String> WhenResult);
+	void GetNovelThemes(Vector<String>& attrs, Event<String> WhenResult);
 	
 };
 
