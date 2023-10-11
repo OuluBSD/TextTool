@@ -560,3 +560,33 @@ String GetSongPartFromAbbr(const String& abbr) {
 	
 	return abbr;
 }
+
+Color GetSongPartPaperColor(const String& abbr) {
+	String pre, post;
+	int split = -1;
+	for(int i = 0; i < abbr.GetCount(); i++) {
+		int chr = abbr[i];
+		if (IsDigit(chr)) {
+			split = i;
+			break;
+		}
+	}
+	if (split < 0)
+		pre = abbr;
+	else {
+		pre = abbr.Left(split);
+		post = abbr.Mid(split);
+	}
+	
+	if (pre == "I") return Color(255, 195, 190);
+	if (pre == "V") return Color(210, 255, 208);
+	if (pre == "PC") return Color(225, 255, 191);
+	if (pre == "C") return Color(255, 255, 206);
+	if (pre == "IN") return Color(227, 206, 255);
+	if (pre == "S") return Color(255, 193, 255);
+	if (pre == "T") return Color(237, 190, 255);
+	if (pre == "B") return Color(255, 226, 188);
+	if (pre == "O") return Color(198, 200, 255);
+	
+	return White();
+}

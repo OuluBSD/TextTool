@@ -720,6 +720,7 @@ Vector<String> GetStructureParts(String s);
 
 String ToMinSec(double sec);
 String GetSongPartFromAbbr(const String& abbr);
+Color GetSongPartPaperColor(const String& abbr);
 
 template <class T> void CheckSerialisationData(const String& json) {}
 template <> void CheckSerialisationData<Song>(const String& json);

@@ -112,13 +112,15 @@ void SongStructure::DataActive() {
 	
 	for(int i = 0; i < s.parts.GetCount(); i++) {
 		String abbr = s.parts[i];
-		active.parts.Set(i, 0, GetSongPartFromAbbr(abbr));
+		active.parts.Set(i, 0, 
+			AttrText(GetSongPartFromAbbr(abbr)).NormalPaper(GetSongPartPaperColor(abbr)));
 		
 		DropList& dl = active.parts.CreateCtrl<DropList>(i, 1);
 		dl.Add(t_("Singing"));
 		dl.Add(t_("Rapping"));
 		dl.Add(t_("Poetry"));
 		dl.Add(t_("Dialog"));
+		dl.Add(t_("Skip"));
 		int idx = max(0, min(dl.GetCount()-1, s.part_types[i]));
 		dl.SetIndex(idx);
 		dl.WhenAction << [&song,i,&dl]() {song.active_struct.part_types[i] = dl.GetIndex();};
@@ -180,8 +182,8 @@ void SongStructure::DataSuggestionAttributes() {
 	attributes.SetCount(sug.attrs.GetCount());
 	
 	for(int i = 0; i < sug.parts.GetCount(); i++) {
-		String attr = GetSongPartFromAbbr(sug.parts[i]);
-		parts.Set(i, 0, attr);
+		String abbr = sug.parts[i];
+		parts.Set(i, 0, AttrText(GetSongPartFromAbbr(abbr)).NormalPaper(GetSongPartPaperColor(abbr)));
 	}
 	parts.SetCount(sug.parts.GetCount());
 }

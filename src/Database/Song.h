@@ -118,7 +118,8 @@ struct Song :
 			SINGING,
 			RAPPING,
 			POETRY,
-			DIALOG
+			DIALOG,
+			SKIP
 		};
 		
 		void operator=(const StructSuggestion& s) {
