@@ -102,6 +102,8 @@ struct TaskMgr {
 	void ImproveSourceText(const Vector<String>& strs, int style, Event<String> WhenResult);
 	void LimitSyllableCount(const Vector<String>& strs, int syllables, Event<String> WhenResult);
 	void GetAIAttributes(String orig_txt, int attr_count, Event<String> WhenResult);
+	void GetStructureSuggestions(String req, String avoid, String desc, int total, Event<String> WhenResult);
+	void GetSuggestionAttributes(Vector<String>& structs, Event<String> WhenResult);
 	
 };
 

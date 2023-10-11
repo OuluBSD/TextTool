@@ -3974,5 +3974,20 @@
 			"outdated_suggestions": false,
 			"syllable_str": "8,7,9,7"
 		}
+	],
+	"active_struct": {
+		"name": "",
+		"parts": [
+
+		],
+		"attrs": [
+
+		],
+		"part_types": [
+
+		]
+	},
+	"struct_suggs": [
+
 	]
 }

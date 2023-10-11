@@ -105,6 +105,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Album"), t_("Ideas"), album_ideas);
 	
 	AddItem(t_("Song"), t_("Briefing"), song_briefing); // initial ideas, notes, etc.
+	AddItem(t_("Song"), t_("Structure"), song_struct);
 	
 	AddItem(t_("Composition"), t_("Checklist"), checklist_composition);
 	
@@ -198,8 +199,13 @@ void Editor::SetView(int i) {
 void Editor::DataPage() {
 	StoreLast();
 	
-	if (page >= 0 && page < items.GetCount())
-		items[page].ctrl->Data();
+	try {
+		if (page >= 0 && page < items.GetCount())
+			items[page].ctrl->Data();
+	}
+	catch (NoPointerExc e) {
+		LOG("error: " << e);
+	}
 }
 
 void Editor::ToolMenu(Bar& bar) {

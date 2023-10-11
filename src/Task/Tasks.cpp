@@ -243,8 +243,14 @@ void Task::Process() {
 		ready = true;
 	}
 	else if (ok) {
-		if (rule->process)
-			(this->*rule->process)();
+		if (rule->process) {
+			try {
+				(this->*rule->process)();
+			}
+			catch (NoPointerExc e) {
+				LOG("error: " << e);
+			}
+		}
 		
 		if (wait_task) {
 			wait_task = false;

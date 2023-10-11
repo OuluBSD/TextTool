@@ -2,6 +2,10 @@
 #define _SongTool_Utils_h_
 
 
+typedef String NoPointerExc;
+struct Song;
+
+
 class SongToolCtrl : public Ctrl {
 	
 	
@@ -11,6 +15,7 @@ public:
 	virtual void ToolMenu(Bar& bar) {bar.Add("", AppImg::placeholder16(), Callback());}
 	virtual String GetStatusText() {return String();}
 	
+	Song& GetSong();
 };
 
 struct PatternSnap;

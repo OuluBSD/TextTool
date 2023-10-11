@@ -81,6 +81,10 @@
 						"value": "kulttuuri"
 					},
 					{
+						"key": "cunning",
+						"value": ""
+					},
+					{
 						"key": "despair",
 						"value": "toivoton"
 					},
@@ -313,6 +317,10 @@
 						"value": "moniavioisuus"
 					},
 					{
+						"key": "problem solving strategy",
+						"value": ""
+					},
+					{
 						"key": "punishing",
 						"value": "rankaiseva"
 					},
@@ -411,6 +419,10 @@
 					{
 						"key": "sexualization",
 						"value": "seksualisointi"
+					},
+					{
+						"key": "shortcut taking",
+						"value": ""
 					},
 					{
 						"key": "skeptic",

@@ -82,7 +82,7 @@ struct Song :
 		}
 		int GetBestSuggestion() const;
 	};
-	struct SongPart {
+	struct Part {
 		String name;
 		Vector<String> source; // lines
 		Vector<String> ai_source;
@@ -107,6 +107,42 @@ struct Song :
 		// Temp
 		Vector<int> valid_rhyme_schemes;
 	};
+	struct StructSuggestion {
+		String name;
+		Vector<String> parts;
+		Vector<String> attrs;
+		Vector<int> part_types;
+		
+		// Part types
+		enum {
+			SINGING,
+			RAPPING,
+			POETRY,
+			DIALOG
+		};
+		
+		void operator=(const StructSuggestion& s) {
+			name = s.name;
+			parts <<= s.parts;
+			attrs <<= s.attrs;
+			part_types <<= s.part_types;
+		}
+		void Clear() {
+			name.Clear();
+			parts.Clear();
+			attrs.Clear();
+			part_types.Clear();
+		}
+		int GetEstimatedDuration(int bpm) const;
+		void Jsonize(JsonIO& json) {
+			json
+				("name", name)
+				("parts", parts)
+				("attrs", attrs)
+				("part_types", part_types)
+				;
+		}
+	};
 	
 	// Public
 	String						artist;
@@ -117,7 +153,9 @@ struct Song :
 	Vector<String>				structure;
 	MArr<String>				content;
 	VectorMap<String,String>	data;
-	Array<SongPart>				parts;
+	Array<Part>					parts;
+	Array<StructSuggestion>		struct_suggs;
+	StructSuggestion			active_struct;
 	int							default_line_syllables = 0;
 	int							default_attr_count = 7;
 	
@@ -164,6 +202,8 @@ struct Song :
 			("content", content)
 			("data", data)
 			("parts", parts)
+			("active_struct", active_struct)
+			("struct_suggs", struct_suggs)
 			;
 		
 		//for(const SnapArg& a : HumanInputTextArgs())

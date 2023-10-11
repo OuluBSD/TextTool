@@ -2243,3 +2243,128 @@ void Task::CreateInput_MorphToAttributes() {
 	
 	input.response_length = 1024*2;
 }
+
+void Task::CreateInput_GetStructureSuggestions() {
+	String req = args[0];
+	String avoid = args[1];
+	String desc = args[2];
+	int total = StrInt(args[3]);
+	Vector<String> req_parts = Split(req, ",");
+	Vector<String> avoid_parts = Split(avoid, ",");
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Names of the parts of a song");
+		list		.Add("V1: verse 1");
+		list		.Add("I: intro");
+		list		.Add("PC1: prechorus 1");
+		list		.Add("C1: chorus 1");
+		list		.Add("B: bridge");
+		list		.Add("O: outro");
+		list		.Add("IN: instrumental");
+		list		.Add("T: instrumental theme melody");
+		list		.Add("S: instrumental solo");
+	}
+	
+	{
+		input.AddSub().Title("Structured string of parts of a generic song is \"I, V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\"").NoColon();
+	}
+	
+	{
+		input.AddSub().Title("Novel name for the song structure \"V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\": \"The Build-Up Beat\"").NoColon();
+	}
+	
+	if (req_parts.GetCount() || total > 0) {
+		TaskTitledList& list = input.AddSub().Title("Only required parts are");
+		for (const String& p : req_parts)
+			list		.Add(TrimBoth(p));
+	}
+	
+	if (avoid_parts.GetCount()) {
+		TaskTitledList& list = input.AddSub().Title("Avoid parts");
+		for (const String& p : avoid_parts)
+			list		.Add(TrimBoth(p));
+	}
+	
+	if (total > 0) {
+		input.AddSub().Title("Next structured strings of parts must have " + IntStr(total) + " parts in total").NoColon();
+	}
+	
+	if (desc.GetCount()) {
+		input.AddSub().Title("What the listener should think about the structure of the song: " + desc).NoColon(); // UGLY
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("List of 10 structured strings of good song structures (using abbreviations only) with their novel name");
+		results.EmptyLine();
+		results.EmptyLineString("\"");
+	}
+	
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetSuggestionAttributes() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Names of the parts of a song");
+		list		.Add("V1: verse 1");
+		list		.Add("I: intro");
+		list		.Add("PC1: prechorus 1");
+		list		.Add("C1: chorus 1");
+		list		.Add("B: bridge");
+		list		.Add("O: outro");
+		list		.Add("IN: instrumental");
+		list		.Add("T: instrumental theme melody");
+		list		.Add("S: instrumental solo");
+	}
+	
+	{
+		input.AddSub().Title("Structured string of parts of a generic song is \"I, V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\"").NoColon();
+	}
+	
+	{
+		input.AddSub().Title("Novel name for the song structure \"V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\": \"The Build-Up Beat\"").NoColon();
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Attributes of the song structure \"V1, PC 1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\"");
+		list		.Add("get straight to the point");
+		list		.Add("has room for chorus development");
+		list		.Add("has room for medium size story arc");
+		list		.Add("has variation between two chorus");
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Attributes of the song structure \"I, V1, C1, V2, PC1, C2, B, C1, C2, V3, C2, IN, C3, O\"");
+		list		.Add("has a strong intro that catches the listener's attention");
+		list		.Add("includes a bridge which adds variety to the song");
+		list		.Add("allows for multiple verse-chorus-bridge repetitions, making it suitable for a longer song");
+		list		.Add("has a distinct build up to the final chorus in the outro");
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("List of structured strings of good song structures (using abbreviations only)");
+		list.NumberedLines();
+		for (const String& p : args)
+			list		.Add("\"" + TrimBoth(p) + "\"");
+	}
+	
+	{
+		input.AddSub().Title("Attributes for all " + IntStr(args.GetCount()) + " items of the previous list is needed.").NoColon();
+	}
+	
+	{
+		String first = args[0];
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("1. Attributes of the song structure \"" + first + "\"");
+		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 1024*2;
+}

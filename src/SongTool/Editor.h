@@ -75,6 +75,7 @@ protected:
 	MaskScoringCtrl			mask_scoring;
 	LyricsCtrl				lyrics;
 	SocialMediaChecklist	some_chk;
+	SongStructure			song_struct;
 	
 public:
 	typedef Editor CLASSNAME;

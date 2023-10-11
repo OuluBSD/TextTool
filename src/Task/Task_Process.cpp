@@ -1780,3 +1780,11 @@ void Task::Process_GetAIAttributes() {
 void Task::Process_MorphToAttributes() {
 	WhenResult(output);
 }
+
+void Task::Process_GetStructureSuggestions() {
+	WhenResult("-\"" + output);
+}
+
+void Task::Process_GetSuggestionAttributes() {
+	WhenResult("-" + output);
+}

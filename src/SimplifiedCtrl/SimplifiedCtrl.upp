@@ -12,6 +12,8 @@ file
 	AlbumIdeas.cpp,
 	SongBriefing.h,
 	SongBriefing.cpp,
+	SongStructure.h,
+	SongStructure.cpp,
 	TxtInTranslate.h,
 	TxtInTranslate.cpp,
 	TxtStructEdit.h,

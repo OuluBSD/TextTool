@@ -24,6 +24,14 @@ int Song::Rhyme::GetBestSuggestion() const {
 	return best_i;
 }
 
+int Song::StructSuggestion::GetEstimatedDuration(int bpm) const {
+	double bars_per_min = (double)bpm / 4.0;
+	double bars_per_sec = bars_per_min / 60.0;
+	int bars = 8 * parts.GetCount();
+	double sec = bars / bars_per_sec;
+	return sec;
+}
+
 /*Song::Song() {
 	uniq = Random();
 }*/

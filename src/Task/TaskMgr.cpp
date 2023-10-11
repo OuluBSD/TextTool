@@ -124,6 +124,20 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetAIAttributes)
 		;
 	
+	AddRule(TASK_GET_STRUCTURE_SUGGESTIONS, "get structure suggestions")
+		.Input(&Task::CreateInput_GetStructureSuggestions)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 4, 4)
+		.Process(&Task::Process_GetStructureSuggestions)
+		;
+	
+	AddRule(TASK_GET_SUGGESTION_ATTRIBUTES, "get suggestion attributes")
+		.Input(&Task::CreateInput_GetSuggestionAttributes)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 100)
+		.Process(&Task::Process_GetSuggestionAttributes)
+		;
+	
 	AddRule(TASK_CONVERT_SCREENPLAY_TO_STRUCTURE, "convert screenplay to structure")
 		.Input(&Task::CreateInput_ConvertScreenplayToStructure)
 			.Arg(V_PTR_PIPE)
@@ -1000,6 +1014,34 @@ void TaskMgr::GetAIAttributes(String orig_txt, int attr_count, Event<String> Whe
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
 	t.args << orig_txt << IntStr(attr_count);
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::GetStructureSuggestions(String req, String avoid, String desc, int total, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_STRUCTURE_SUGGESTIONS);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << req << avoid << desc << IntStr(total);
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::GetSuggestionAttributes(Vector<String>& structs, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_SUGGESTION_ATTRIBUTES);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args <<= structs;
 	t.WhenResult << WhenResult;
 }
 

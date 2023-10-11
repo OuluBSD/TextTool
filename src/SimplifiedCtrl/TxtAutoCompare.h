@@ -50,7 +50,7 @@ public:
 	void ImportEnglish();
 	void ImproveSourceText(int style);
 	void LimitContentSyllableCount();
-	void UpdateRhymes(Song::SongPart& sp);
+	void UpdateRhymes(Song::Part& sp);
 	void EvaluatePoeticStyles(int i);
 	void EvaluateSuggestionScores();
 	void EvaluateExtraSuggestionScores();
@@ -60,29 +60,29 @@ public:
 	
 	void PostOnPoeticRecv(String res, int part, int rhyme) {PostCallback(THISBACK3(OnPoeticRecv, res, part, rhyme));}
 	void OnPoeticRecv(String res, int part, int rhyme);
-	void OnAttrChange(Song::SongPart* sp, const char* s, DropList* dl);
+	void OnAttrChange(Song::Part* sp, const char* s, DropList* dl);
 	void OnAttrChangeRhyme(Song::Rhyme* r, const char* s, DropList* dl);
-	void OnRhymeSchemeChange(DropList* dl, Song::SongPart* sp);
+	void OnRhymeSchemeChange(DropList* dl, Song::Part* sp);
 	void OnSongPartContentEdit(int src);
 	void OnAcceptEditSource();
-	void OnSongPartContentChange(DocEdit* e, Song::SongPart* sp);
+	void OnSongPartContentChange(DocEdit* e, Song::Part* sp);
 	void OnSuggestionScore(String res, Song::Rhyme* r, bool post_enable);
 	void OnSuggestionOrder(String res, Song::Rhyme* r, int idx);
 	void OnAIAttributes(String res, Song::Rhyme* r);
-	void OnSourceTextImprovements(String res, Song::SongPart* s);
+	void OnSourceTextImprovements(String res, Song::Part* s);
 	void OnSongSyllableChange();
 	void OnSongAttrCountChange();
-	void OnMorphToAttributes(String res, Song::SongPart* s, Song::Rhyme* r);
+	void OnMorphToAttributes(String res, Song::Part* s, Song::Rhyme* r);
 	void OnParamChange(EditString* e, int key);
 	
-	Song::SongPart* GetActiveSongPart();
+	Song::Part* GetActiveSongPart();
 	Song::Rhyme* GetActiveRhyme();
-	String GetBestSuggestionSong(const Song::SongPart& sp) const;
+	String GetBestSuggestionSong(const Song::Part& sp) const;
 	void DataBestSuggestion();
 	void DisableAll();
 	void EnableAll();
 	void UpdateRhymesToSource();
-	void OnSongPartSyllableChange(Song::SongPart* sp, EditString* e);
+	void OnSongPartSyllableChange(Song::Part* sp, EditString* e);
 	
 };
 

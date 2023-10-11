@@ -524,3 +524,39 @@ void CheckSerialisationData<Song>(const String& json) {
 	LoadFromJson(song, json);
 	ASSERT(song.native_title.GetCount() || song.english_title.GetCount());
 }
+
+String ToMinSec(double sec) {
+	int m = (int)sec / 60;
+	int s = (int)sec % 60;
+	return Format("%d:%02d", m, s);
+}
+
+String GetSongPartFromAbbr(const String& abbr) {
+	String pre, post;
+	int split = -1;
+	for(int i = 0; i < abbr.GetCount(); i++) {
+		int chr = abbr[i];
+		if (IsDigit(chr)) {
+			split = i;
+			break;
+		}
+	}
+	if (split < 0)
+		pre = abbr;
+	else {
+		pre = abbr.Left(split);
+		post = abbr.Mid(split);
+	}
+	
+	if (pre == "I") return "Intro " + post;
+	if (pre == "V") return "Verse " + post;
+	if (pre == "PC") return "Pre-Chorus " + post;
+	if (pre == "C") return "Chorus " + post;
+	if (pre == "IN") return "Instrumental " + post;
+	if (pre == "S") return "Solo " + post;
+	if (pre == "T") return "Theme melody " + post;
+	if (pre == "B") return "Bridge " + post;
+	if (pre == "O") return "Outro " + post;
+	
+	return abbr;
+}

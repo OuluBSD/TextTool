@@ -2,6 +2,16 @@
 #include <Database/Database.h>
 
 
+
+Song& SongToolCtrl::GetSong() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist)
+		throw NoPointerExc("no song");
+	Song& song = *p.song;
+	return song;
+}
+
 String Capitalize(String s) {
 	return ToUpper(s.Left(1)) + s.Mid(1);
 }

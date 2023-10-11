@@ -5030,5 +5030,20 @@
 			"outdated_suggestions": false,
 			"syllable_str": ""
 		}
+	],
+	"active_struct": {
+		"name": "",
+		"parts": [
+
+		],
+		"attrs": [
+
+		],
+		"part_types": [
+
+		]
+	},
+	"struct_suggs": [
+
 	]
 }
