@@ -1,5 +1,5 @@
 #include "SimplifiedCtrl.h"
-
+#include <SongTool/SongTool.h>
 
 
 SongStructure::SongStructure() {
@@ -112,7 +112,7 @@ void SongStructure::DataActive() {
 	
 	for(int i = 0; i < s.parts.GetCount(); i++) {
 		String abbr = s.parts[i];
-		active.parts.Set(i, 0, 
+		active.parts.Set(i, 0,
 			AttrText(GetSongPartFromAbbr(abbr)).NormalPaper(GetSongPartPaperColor(abbr)));
 		
 		DropList& dl = active.parts.CreateCtrl<DropList>(i, 1);
@@ -168,8 +168,11 @@ void SongStructure::DataSuggestions() {
 void SongStructure::DataSuggestionAttributes() {
 	Song& song = GetSong();
 	
-	if (!structs.IsCursor())
+	if (!structs.IsCursor()) {
+		attributes.Clear();
+		parts.Clear();
 		return;
+	}
 	
 	int cur = structs.GetCursor();
 	int idx = structs.Get(cur, 0);
@@ -208,9 +211,26 @@ void SongStructure::LoadStructure() {
 		int idx = structs.Get(cur, 0);
 		Song::StructSuggestion& sug = song.struct_suggs[idx];
 		song.active_struct = sug;
+		
+		Index<String> unique_parts;
+		for(int i = 0; i < song.active_struct.parts.GetCount(); i++) {
+			String abbr = song.active_struct.parts[i];
+			unique_parts.FindAdd(abbr);
+		}
+		SortIndex(unique_parts, PartAbbrSorter());
+		
+		song.parts.Clear();
+		for(int i = 0; i < unique_parts.GetCount(); i++) {
+			String abbr = unique_parts[i];
+			StaticPart& part = song.parts.Add();
+			part.name = GetSongPartFromAbbr(abbr);
+			part.type = abbr;
+		}
 	}
 	catch (NoPointerExc e) {}
 	PostCallback(THISBACK(DataActive));
+	
+	editor->DataSong();
 }
 
 void SongStructure::LoadUserStructure() {

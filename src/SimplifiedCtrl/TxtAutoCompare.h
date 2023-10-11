@@ -44,13 +44,13 @@ public:
 	void DataSong();
 	void DataSongPart(bool skip_results);
 	void DataSongRhymeData();
-	void SetSuggestionScore(EditIntNotNullSpin* e, Song::Suggestion* sug);
+	void SetSuggestionScore(EditIntNotNullSpin* e, StaticSuggestion* sug);
 	void CopyAIToUser();
 	void CopyUserToAI();
 	void ImportEnglish();
 	void ImproveSourceText(int style);
 	void LimitContentSyllableCount();
-	void UpdateRhymes(Song::Part& sp);
+	void UpdateRhymes(StaticPart& sp);
 	void EvaluatePoeticStyles(int i);
 	void EvaluateSuggestionScores();
 	void EvaluateExtraSuggestionScores();
@@ -60,29 +60,29 @@ public:
 	
 	void PostOnPoeticRecv(String res, int part, int rhyme) {PostCallback(THISBACK3(OnPoeticRecv, res, part, rhyme));}
 	void OnPoeticRecv(String res, int part, int rhyme);
-	void OnAttrChange(Song::Part* sp, const char* s, DropList* dl);
-	void OnAttrChangeRhyme(Song::Rhyme* r, const char* s, DropList* dl);
-	void OnRhymeSchemeChange(DropList* dl, Song::Part* sp);
+	void OnAttrChange(StaticPart* sp, const char* s, DropList* dl);
+	void OnAttrChangeRhyme(StaticRhyme* r, const char* s, DropList* dl);
+	void OnRhymeSchemeChange(DropList* dl, StaticPart* sp);
 	void OnSongPartContentEdit(int src);
 	void OnAcceptEditSource();
-	void OnSongPartContentChange(DocEdit* e, Song::Part* sp);
-	void OnSuggestionScore(String res, Song::Rhyme* r, bool post_enable);
-	void OnSuggestionOrder(String res, Song::Rhyme* r, int idx);
-	void OnAIAttributes(String res, Song::Rhyme* r);
-	void OnSourceTextImprovements(String res, Song::Part* s);
+	void OnSongPartContentChange(DocEdit* e, StaticPart* sp);
+	void OnSuggestionScore(String res, StaticRhyme* r, bool post_enable);
+	void OnSuggestionOrder(String res, StaticRhyme* r, int idx);
+	void OnAIAttributes(String res, StaticRhyme* r);
+	void OnSourceTextImprovements(String res, StaticPart* s);
 	void OnSongSyllableChange();
 	void OnSongAttrCountChange();
-	void OnMorphToAttributes(String res, Song::Part* s, Song::Rhyme* r);
+	void OnMorphToAttributes(String res, StaticPart* s, StaticRhyme* r);
 	void OnParamChange(EditString* e, int key);
 	
-	Song::Part* GetActiveSongPart();
-	Song::Rhyme* GetActiveRhyme();
-	String GetBestSuggestionSong(const Song::Part& sp) const;
+	StaticPart* GetActiveSongPart();
+	StaticRhyme* GetActiveRhyme();
+	String GetBestSuggestionSong(const StaticPart& sp) const;
 	void DataBestSuggestion();
 	void DisableAll();
 	void EnableAll();
 	void UpdateRhymesToSource();
-	void OnSongPartSyllableChange(Song::Part* sp, EditString* e);
+	void OnSongPartSyllableChange(StaticPart* sp, EditString* e);
 	
 };
 

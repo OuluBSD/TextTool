@@ -100,859 +100,12 @@
 	"parts": [
 		{
 			"name": "Verse 1",
+			"type": "V1",
 			"source": [
-				"Too many people trying to change me",
-				"Looking to attack me verbally",
-				"The last thing I'll ever do",
-				"Is to please narrow-minded people like you"
+
 			],
 			"ai_source": [
-				"Shedding gender labels, I'm simply me",
-				"Breaking societal norms, living in liberty",
-				"Embracing all expressions, no more hiding",
-				"Believing in myself, society's chains subsiding"
-			],
-			"rhymes": [
-				{
-					"source": [
-						"Shedding gender labels, I'm simply me",
-						"Breaking societal norms, living in liberty",
-						"Embracing all expressions, no more hiding",
-						"Believing in myself, society's chains subsiding"
-					],
-					"suggestion": [
-						{
-							"style": "Red Hot Chili Peppers",
-							"content": "Living outside the norms,\nBreaking free of the chains,\nEmbracing all that I am,\nNo more hiding in shame.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Beastie Boys",
-							"content": "Gender labels shed,\nLiving in my own lane,\nBold and unapologetic,\nExpressing myself without refrain.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 1
-						},
-						{
-							"style": "The Jimi Hendrix Experience",
-							"content": "I am simply me,\nSociety's norms I defy,\nBelieving in freedom,\nNo fear in my eye.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 10
-						},
-						{
-							"style": "Grandmaster Flash and the Furious Five",
-							"content": "Breaking gender norms,\nLiving in liberty,\nNo more hiding or suppressing,\nJust being who we wanna be.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Marley",
-							"content": "Equality for all,\nShedding gender labels free,\nEmbracing every expression,\nLiving in unity.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 9
-						},
-						{
-							"style": "Bob Dylan",
-							"content": "Breaking societal norms,\nLiving out loud and proud,\nNo more hiding in shadows,\nMy true self rignteous and loud.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Beatles",
-							"content": "Labels can't define,\nStrong and free I will be,\nNo more hiding in shame,\nJust living out authentically.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Doors",
-							"content": "Breaking away from norms,\nExploring all that I am,\nLiving in my truth,\nNo fear, just pure liberation.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Nirvana",
-							"content": "Outsider by choice,\nRejecting strict gender roles,\nNo more hiding in fear,\nLiving authentically and bold.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 6
-						},
-						{
-							"style": "Tupac Shakur",
-							"content": "Defying gender norms,\nLiving in my own power,\nNo more hiding or fear,\nJust living in my truth without cower.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 8
-						},
-						{
-							"style": "Marvin Gaye",
-							"content": "Shedding societal chains,\nLiving in total liberty,\nEmbracing all expressions,\nJust being myself authentically.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 3
-						},
-						{
-							"style": "N.W.A",
-							"content": "Rebelling against norms,\nSociety's label I spit,\nLiving free on my terms,\nWith no apologies for it.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Run-DMC",
-							"content": "No gender labels,\nLiving my own unique way,\nNo more hiding in fear,\nJust being true day by day.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 2
-						},
-						{
-							"style": "Led Zeppelin",
-							"content": "Breaking from tradition,\nLiving on my own accord,\nEmbracing all that I am,\nIn freedom my spirit soars.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Jefferson Airplane",
-							"content": "Living outside the box,\nRejecting societal norms,\nNo more hiding or shame,\nEmbracing all that I conform.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 5
-						},
-						{
-							"style": "Madonna",
-							"content": "Defying expectations,\nLiving in my own light,\nNo more hiding or shame,\nJust expressing with all my might.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 4
-						},
-						{
-							"style": "Buffalo Springfield",
-							"content": "Shedding gender labels,\nLiving in pure authenticity,\nEmbracing all expressions,\nWithout fear or hesitancy.",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 7
-						},
-						{
-							"style": "Elton John",
-							"content": "Breaking the gender mold,\nLiving in my own melody,\nNo more hiding or fear,\nIn freedom I express without apology.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						}
-					],
-					"data": [
-						{
-							"key": "GENDER",
-							"value": "-1"
-						},
-						{
-							"key": "IMAGERY",
-							"value": "1"
-						},
-						{
-							"key": "EXPRESSION",
-							"value": "-1"
-						},
-						{
-							"key": "RELATIONSHIP_FOCUS",
-							"value": "-1"
-						},
-						{
-							"key": "ECONOMIC",
-							"value": "1"
-						},
-						{
-							"key": "CULTURE",
-							"value": "1"
-						},
-						{
-							"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
-							"value": "1"
-						}
-					],
-					"outdated_suggestions": false
-				}
-			],
-			"rhyme_scheme": "A/A/A/A",
-			"data": [
 
-			],
-			"outdated_suggestions": false,
-			"syllable_str": "5,7,5,6"
-		},
-		{
-			"name": "Chorus",
-			"source": [
-				"Too many things that I got to beware",
-				"Social rules that I got to run through",
-				"The last thing I'll ever do",
-				"Is to prove that I am thinking like you"
-			],
-			"ai_source": [
-				"Warnings surrounding me, but I am wise and cautious",
-				"Dancing through societal expectations, never faltering",
-				"My unwavering determination to stay authentic",
-				"Refusing to be confined by narrow perspectives like yours"
-			],
-			"rhymes": [
-				{
-					"source": [
-						"Too many things that I got to beware",
-						"Social rules that I got to run through"
-					],
-					"suggestion": [
-						{
-							"style": "Red Hot Chili Peppers",
-							"content": "Gotta beware, too much, can't keep track\nSocial rules running, don't let 'em smack",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Beastie Boys",
-							"content": "Need to watch out, don't wanna be rare\nGot to follow rules, can't just not care",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Jimi Hendrix Experience",
-							"content": "I'm aware, can't let them bring me down\nRules to run, can't let their weight surround",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Grandmaster Flash and the Furious Five",
-							"content": "So many things to watch out, can't you see?\nRunning these rules, can't let 'em break me",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Marley",
-							"content": "Too much to watch, can't let them control\nRunning these rules, can't let 'em take hold",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Dylan",
-							"content": "Too many things to beware and abide\nRunning through rules, can't let them collide",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Beatles",
-							"content": "Gotta beware, don't wanna be caught out\nRunning through rules, gotta do without",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Doors",
-							"content": "Too many things to beware and negotiate\nSocial rules to run, can't let 'em dictate",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Nirvana",
-							"content": "Gotta be aware, can't let 'em drag me down\nRunning through rules, can't let 'em make me frown",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Tupac Shakur",
-							"content": "So many things to beware, gotta behave\nRunning these rules, can't let 'em make me a slave",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Marvin Gaye",
-							"content": "Girl, watch out, don't wanna lose you too soon\nRules to live by, don't wanna be a buffoon",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "N.W.A",
-							"content": "Gotta stay sharp, can't let 'em bring us down\nRunning these rules, can't let 'em keep us bound",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Run-DMC",
-							"content": "Watch your back, don't wanna get caught off guard\nRunning these rules, can't let 'em hit too hard",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Led Zeppelin",
-							"content": "Too many things to be careful about\nSocial rules to run, can't let 'em shut me out",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Jefferson Airplane",
-							"content": "Gotta beware, don't wanna lose my head\nRunning through rules, can't let 'em hold me in stead",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Madonna",
-							"content": "Gotta stay aware, can't let 'em bring me down\nRunning through rules, gotta keep my golden crown",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Buffalo Springfield",
-							"content": "Too many things to watch out, don't you know\nRunning through rules, can't let 'em make me slow",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Elton John",
-							"content": "Gotta watch out, don't wanna be overwhelmed\nRunning these rules, can't let 'em make me unmeld",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						}
-					],
-					"data": [
-						{
-							"key": "SOCIAL",
-							"value": "-1"
-						},
-						{
-							"key": "RELATIONSHIP_FOCUS",
-							"value": "1"
-						},
-						{
-							"key": "BELIEFS",
-							"value": "-1"
-						},
-						{
-							"key": "MOOD_JOYFUL_MELANCHOLIC",
-							"value": "-1"
-						},
-						{
-							"key": "MOOD_LIGHTHEARTED_SOMBER",
-							"value": "-1"
-						},
-						{
-							"key": "MOOD_PLAYFUL_SERIOUS",
-							"value": "-1"
-						},
-						{
-							"key": "GENDER",
-							"value": "-1"
-						}
-					],
-					"outdated_suggestions": false
-				},
-				{
-					"source": [
-						"The last thing I'll ever do",
-						"Is to prove that I am thinking like you"
-					],
-					"suggestion": [
-						{
-							"style": "Red Hot Chili Peppers",
-							"content": "My mind's open, divergent and free,\nI'll be myself, can't be someone to please.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Beastie Boys",
-							"content": "I won't conform, I won't give in,\nI'll stay true, won't change for no one's win.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Jimi Hendrix Experience",
-							"content": "I'll play my guitar, break all the rules,\nI'll speak my truth, won't be anyone's tool.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Grandmaster Flash and the Furious Five",
-							"content": "I'll speak up, won't just go with the flow,\nMy voice is powerful, I'll let it show.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Marley",
-							"content": "I'll stand firm, won't be swayed,\nBabylon system, I will not aid.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Dylan",
-							"content": "My words will cut, like a sharp knife,\nI'll speak my mind, won't hide behind a lie.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Beatles",
-							"content": "I'll march to the beat of my own drum,\nI won't back down, won't succumb.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Doors",
-							"content": "I'll break on through to the other side,\nWon't be blinded by pressures to abide.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Nirvana",
-							"content": "I won't conform to society's ways,\nI'll find my own path, won't just run on a maze.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Tupac Shakur",
-							"content": "I won't be silenced, I'll speak my truth,\nI'll fight for justice, won't just sit and soothe.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Marvin Gaye",
-							"content": "I'll use my voice to spread love and light,\nWon't conform to hate, won't give in to the fight.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "N.W.A",
-							"content": "I'll break the chains, won't be told what to do,\nI'll stand tall, won't be a puppet for you.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Run-DMC",
-							"content": "I'll walk my own path, won't follow the trends,\nWon't change my ways, won't just pretend.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Led Zeppelin",
-							"content": "I'll fly high, won't be bound by the ground,\nI'll make my own rules, won't let others drown.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Jefferson Airplane",
-							"content": "I'll spread my wings, won't be held down,\nI'll soar to new heights, won't let anyone's frown.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Madonna",
-							"content": "I'll speak my truth, won't be afraid,\nI'll pave my own way, won't let society's norms invade.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Buffalo Springfield",
-							"content": "I'll stand my ground, won't just go with the flow,\nI'll make my own destiny, won't let anyone's expectations grow.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Elton John",
-							"content": "I'll sing my own song, won't imitate,\nI'll stay authentic, won't just try to compensate.",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						}
-					],
-					"data": [
-						{
-							"key": "GENDER",
-							"value": "1"
-						},
-						{
-							"key": "AVERAGE_EXPECTATIONS",
-							"value": "-1"
-						},
-						{
-							"key": "IMAGERY",
-							"value": "-1"
-						},
-						{
-							"key": "EXPRESSION",
-							"value": "-1"
-						},
-						{
-							"key": "RELATIONSHIP_FOCUS",
-							"value": "-1"
-						},
-						{
-							"key": "INTEGRITY",
-							"value": "1"
-						},
-						{
-							"key": "SOCIAL",
-							"value": "-1"
-						}
-					],
-					"outdated_suggestions": false
-				}
-			],
-			"rhyme_scheme": "A/A",
-			"data": [
-
-			],
-			"outdated_suggestions": false,
-			"syllable_str": ""
-		},
-		{
-			"name": "Verse 2",
-			"source": [
-				"Working from nine to five trying to keep myself alive",
-				"Listening everyday to what people want to talk about",
-				"Concentrating my time on just trying to make a dime",
-				"Agitating my mind on trying to make my mind to match the reality"
-			],
-			"ai_source": [
-				"Working tirelessly, my grind never stops",
-				"Ignoring the noise and staying focused on my own path",
-				"Hustling hard to secure my place in this world",
-				"Challenging my thoughts and beliefs to align with reality"
-			],
-			"rhymes": [
-				{
-					"source": [
-						"Working hard just to stay alive",
-						"Hearing gossip every single day"
-					],
-					"suggestion": [
-						{
-							"style": "Red Hot Chili Peppers",
-							"content": "Working hard to survive,\nGossip heard daily alive.",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Beastie Boys",
-							"content": "Survival's hard work,\nHearing gossip every day's work.",
-							"score": 0,
-							"ai_score": 1,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Jimi Hendrix Experience",
-							"content": "Every day keep going,\nGossiping never slowing.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Grandmaster Flash and the Furious Five",
-							"content": "Surviving's a struggle,\nGossiping ain't subtle.",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Marley",
-							"content": "Working to stay strong,\nGossip's always wrong.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 2
-						},
-						{
-							"style": "Bob Dylan",
-							"content": "Survival seems rough,\nGossip never enough.",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Beatles",
-							"content": "Working for tomorrow,\nGossip brings sorrow.",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Doors",
-							"content": "Struggling day and night,\nGossip's continuous blight.",
-							"score": 0,
-							"ai_score": 1,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Nirvana",
-							"content": "Surviving takes strength,\nGossip's at any length.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Tupac Shakur",
-							"content": "Working hard every day,\nGossip never goes away.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Marvin Gaye",
-							"content": "Surviving's a tough fight,\nGossip's never right.",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "N.W.A",
-							"content": "Working hard to overcome,\nGossiping always succumbs.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Run-DMC",
-							"content": "Surviving to make it big,\nGossip's just a tiny gig.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Led Zeppelin",
-							"content": "Working towards a goal,\nGossip takes its toll.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Jefferson Airplane",
-							"content": "Struggling to stay alive,\nGossiping is a daily dive.",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Madonna",
-							"content": "Surviving in the fame,\nGossip's always the same.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Buffalo Springfield",
-							"content": "Working hard to get by,\nGossip's just a little lie.",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Elton John",
-							"content": "Surviving and thriving,\nGossip never stops striving.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 1
-						}
-					],
-					"data": [
-
-					],
-					"outdated_suggestions": false
-				},
-				{
-					"source": [
-						"Focusing on making some money",
-						"It's hard to match reality"
-					],
-					"suggestion": [
-						{
-							"style": "Red Hot Chili Peppers",
-							"content": "Chasing money, can't stop\nReality, hard to top",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Beastie Boys",
-							"content": "Getting cash, that's the move\nHard to keep it real, dude",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Jimi Hendrix Experience",
-							"content": "Money's calling, I'm trippin'\nReality's just a vision",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Grandmaster Flash and the Furious Five",
-							"content": "Hustling for that cash flow\nReality's always just a show",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Marley",
-							"content": "Workin' hard, chasing that cheddar\nReality's just an illusion, yah",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Bob Dylan",
-							"content": "Countin' money, that's the game\nReality, it's all the same",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Beatles",
-							"content": "Money, money, it's all we need\nBut reality's a different breed",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "The Doors",
-							"content": "Gotta make that paper stack\nReality just pulls us back",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Nirvana",
-							"content": "Living for the paycheck grind\nReality's just a state of mind",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Tupac Shakur",
-							"content": "Focused on stacking my bread\nReality's just a word in my head",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Marvin Gaye",
-							"content": "Money, love, what's the score?\nReality, it's hard to ignore",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "N.W.A",
-							"content": "Money, power, that's the game\nReality's just a different name",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Run-DMC",
-							"content": "Gotta get that cash flow in\nReality, where to begin?",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Led Zeppelin",
-							"content": "Hustling hard for that dough\nReality's just a show we know",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Jefferson Airplane",
-							"content": "Money's the key to keep livin'\nReality's just a crazy given",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Madonna",
-							"content": "Money, fame, it's what we crave\nReality's just a game we play",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Buffalo Springfield",
-							"content": "Livin' for that money thrill\nReality, can't stand still",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Elton John",
-							"content": "Lots of cash, that's the goal\nReality's just a role we play, oh",
-							"score": 0,
-							"ai_score": 0,
-							"ai_score_extra": 0
-						}
-					],
-					"data": [
-
-					],
-					"outdated_suggestions": false
-				}
-			],
-			"rhyme_scheme": "AA",
-			"data": [
-
-			],
-			"outdated_suggestions": false,
-			"syllable_str": "5,7,5,6"
-		},
-		{
-			"name": "Bridge",
-			"source": [
-				"Turning away the girls even though I want a wife",
-				"Worrying just because I feel incomplete",
-				"Doing what women want so that I'm not called a clown",
-				"Wearing a suit and tie when I'd rather sit and die"
-			],
-			"ai_source": [
-				"Turning away potential lovers, seeking a true partner",
-				"Anxiously searching for that missing piece of my puzzle",
-				"Succumbing to societal pressures to avoid ridicule",
-				"Donning a corporate facade, while my soul yearns for freedom"
 			],
 			"rhymes": [
 
@@ -965,14 +118,51 @@
 			"syllable_str": ""
 		},
 		{
-			"name": "Pre-Chorus",
+			"name": "Chorus 1",
+			"type": "C1",
 			"source": [
-				"You're too weak trying to please everyone",
-				"Looking to conform to stereotypes"
+
 			],
 			"ai_source": [
-				"Misguided souls, trying to please the masses",
-				"Refusing to conform to superficial standards"
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 2",
+			"type": "V2",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": ""
+		},
+		{
+			"name": "Chorus 2",
+			"type": "C2",
+			"source": [
+
+			],
+			"ai_source": [
+
 			],
 			"rhymes": [
 
@@ -986,17 +176,107 @@
 		},
 		{
 			"name": "Verse 3",
+			"type": "V3",
 			"source": [
-				"City lights shining in the dark",
-				"Don't worry it's just life",
-				"Their trust have reached balance",
-				"You'll find you'll have a lovely time"
+
 			],
 			"ai_source": [
-				"Bright city lights illuminate my journey",
-				"Embracing life in all its unpredictable glory.",
-				"The equilibrium of their faith is perfectly achieved",
-				"You will undoubtedly experience a wondrous moment of pure delight"
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": ""
+		},
+		{
+			"name": "Chorus 3",
+			"type": "C3",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": ""
+		},
+		{
+			"name": "Verse 4",
+			"type": "V4",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": ""
+		},
+		{
+			"name": "Chorus 4",
+			"type": "C4",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": ""
+		},
+		{
+			"name": "Bridge ",
+			"type": "B",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": ""
+		},
+		{
+			"name": "Outro ",
+			"type": "O",
+			"source": [
+
+			],
+			"ai_source": [
+
 			],
 			"rhymes": [
 
@@ -1010,43 +290,39 @@
 		}
 	],
 	"active_struct": {
-		"name": "The Experimental Excitement",
+		"name": "The Explosive Escalation",
 		"parts": [
 			"V1",
-			"I",
 			"V2",
-			"PC1",
 			"C1",
-			"B",
-			"IN",
-			"S",
-			"C1",
-			"V3",
 			"C2",
-			"PC2",
+			"V3",
 			"C3",
+			"B",
+			"C1",
+			"C2",
+			"V4",
+			"C4",
 			"O"
 		],
 		"attrs": [
-			"starts with an instrumental intro to captivate the listener's attention",
-			"includes a solo and bridge for variation and development",
-			"builds up to the final chorus in the outro"
+			"provides a balance between verses and choruses",
+			"includes a bridge for variety and climax",
+			"has a clear build up to the final chorus in the outro"
 		],
 		"part_types": [
-			1,
-			3,
-			1,
-			1,
 			0,
 			0,
 			0,
 			0,
 			0,
-			1,
 			0,
-			1,
 			0,
-			3
+			0,
+			0,
+			0,
+			0,
+			0
 		]
 	},
 	"struct_suggs": [

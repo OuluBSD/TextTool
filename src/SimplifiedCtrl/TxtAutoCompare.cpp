@@ -217,7 +217,7 @@ void TxtAutoCompare::DataSong() {
 	
 	
 	for(int i = 0; i < song.parts.GetCount(); i++) {
-		Song::Part& sp = song.parts[i];
+		StaticPart& sp = song.parts[i];
 		String content = Join(sp.source, "\n");
 		String ai_content = Join(sp.ai_source, "\n");
 		
@@ -252,7 +252,7 @@ void TxtAutoCompare::DataSong() {
 	DataSongPart(false);
 }
 
-void TxtAutoCompare::OnSongPartSyllableChange(Song::Part* sp, EditString* e) {
+void TxtAutoCompare::OnSongPartSyllableChange(StaticPart* sp, EditString* e) {
 	if (sp && e)
 		sp->syllable_str = e->GetData();
 }
@@ -265,7 +265,7 @@ void TxtAutoCompare::DataBestSuggestion() {
 	Song& song = *p.song;
 	String best_str;
 	for(int i = 0; i < song.parts.GetCount(); i++) {
-		Song::Part& sp = song.parts[i];
+		StaticPart& sp = song.parts[i];
 		if (!best_str.IsEmpty()) best_str << "\n";
 		best_str << GetBestSuggestionSong(sp);
 	}
@@ -282,11 +282,11 @@ void TxtAutoCompare::DataSongPart(bool skip_results) {
 	if (!parts.IsCursor()) return;
 	int c = parts.GetCursor();
 	if (c >= song.parts.GetCount()) return;
-	Song::Part& sp = song.parts[c];
+	StaticPart& sp = song.parts[c];
 	
 	int row = 0;
 	for(int i = 0; i < sp.rhymes.GetCount(); i++) {
-		const Song::Rhyme& r = sp.rhymes[i];
+		const StaticRhyme& r = sp.rhymes[i];
 		String original = Join(r.source, "\n");
 		rhymes.Set(row, 0, i+1);
 		rhymes.Set(i, 1, AttrText(original)
@@ -296,7 +296,7 @@ void TxtAutoCompare::DataSongPart(bool skip_results) {
 		
 		int best_sug = r.GetBestSuggestion();
 		if (best_sug >= 0) {
-			const Song::Suggestion& sug = r.suggestions[best_sug];
+			const StaticSuggestion& sug = r.suggestions[best_sug];
 			rhymes.Set(row, 2, sug.style);
 			rhymes.Set(row, 3, sug.content);
 		}
@@ -318,7 +318,7 @@ void TxtAutoCompare::DataSongPart(bool skip_results) {
 	
 	
 	// Attributes
-	Song::Rhyme* r = rhymes.IsCursor() ? &sp.rhymes[rhymes.GetCursor()] : 0;
+	StaticRhyme* r = rhymes.IsCursor() ? &sp.rhymes[rhymes.GetCursor()] : 0;
 	for(int i = 0; i < Attr::ATTR_COUNT; i++) {
 		int row = attr_begin_row + i;
 		const char* key = Attr::AttrKeys[i][0];
@@ -360,21 +360,21 @@ void TxtAutoCompare::DataSongPart(bool skip_results) {
 	
 }
 
-String TxtAutoCompare::GetBestSuggestionSong(const Song::Part& sp) const {
+String TxtAutoCompare::GetBestSuggestionSong(const StaticPart& sp) const {
 	String sum;
 	sum << sp.name << ":\n";
 	for(int i = 0; i < sp.rhymes.GetCount(); i++) {
-		const Song::Rhyme& r = sp.rhymes[i];
+		const StaticRhyme& r = sp.rhymes[i];
 		
 		if (r.suggestions.GetCount()) {
 			bool user_zero = true;
-			for (const Song::Suggestion& sug : r.suggestions)
+			for (const StaticSuggestion& sug : r.suggestions)
 				if (sug.score > 0)
 					user_zero = false;
 			
 			int best_score = 0, best_k = 0;
 			for(int k = 0; k < r.suggestions.GetCount(); k++) {
-				const Song::Suggestion& sug = r.suggestions[k];
+				const StaticSuggestion& sug = r.suggestions[k];
 				if (!user_zero) {
 					if (sug.score > best_score) {
 						best_score = sug.score;
@@ -389,7 +389,7 @@ String TxtAutoCompare::GetBestSuggestionSong(const Song::Part& sp) const {
 					}
 				}
 			}
-			const Song::Suggestion& sug = r.suggestions[best_k];
+			const StaticSuggestion& sug = r.suggestions[best_k];
 			sum += sug.content + "\n";
 		}
 	}
@@ -412,14 +412,14 @@ void TxtAutoCompare::DataSongRhymeData() {
 	
 	if (part_i < 0 ||part_i >= song.parts.GetCount())
 		return;
-	Song::Part& sp = song.parts[part_i];
+	StaticPart& sp = song.parts[part_i];
 	
 	if (rhyme_i < 0 ||rhyme_i >= sp.rhymes.GetCount())
 		return;
-	Song::Rhyme& r = sp.rhymes[rhyme_i];
+	StaticRhyme& r = sp.rhymes[rhyme_i];
 	
 	for(int i = 0; i < r.suggestions.GetCount(); i++) {
-		Song::Suggestion& sug = r.suggestions[i];
+		StaticSuggestion& sug = r.suggestions[i];
 		
 		String score_str = IntStr(sug.ai_score);
 		suggestions.Set(i, 0, i);
@@ -454,21 +454,21 @@ void TxtAutoCompare::EvaluateSuggestionScores() {
 	
 	if (part_i < 0 || part_i >= song.parts.GetCount())
 		return;
-	Song::Part& sp = song.parts[part_i];
+	StaticPart& sp = song.parts[part_i];
 	
 	/*if (rhyme_i < 0 || rhyme_i >= sp.rhymes.GetCount())
 		return;
-	Song::Rhyme& r = sp.rhymes[rhyme_i];*/
+	StaticRhyme& r = sp.rhymes[rhyme_i];*/
 	
 	DisableAll();
 	
 	p.RealizePipe();
 	
 	for(int j = 0; j < sp.rhymes.GetCount(); j++) {
-		Song::Rhyme& r = sp.rhymes[j];
+		StaticRhyme& r = sp.rhymes[j];
 		Vector<String> sug_strs;
 		for(int i = 0; i < r.suggestions.GetCount(); i++) {
-			Song::Suggestion& sug = r.suggestions[i];
+			StaticSuggestion& sug = r.suggestions[i];
 			sug_strs << sug.content;
 		}
 		
@@ -494,11 +494,11 @@ void TxtAutoCompare::EvaluateExtraSuggestionScores() {
 	
 	if (part_i < 0 || part_i >= song.parts.GetCount())
 		return;
-	Song::Part& sp = song.parts[part_i];
+	StaticPart& sp = song.parts[part_i];
 	
 	/*if (rhyme_i < 0 || rhyme_i >= sp.rhymes.GetCount())
 		return;
-	Song::Rhyme& r = sp.rhymes[rhyme_i];*/
+	StaticRhyme& r = sp.rhymes[rhyme_i];*/
 	
 	DisableAll();
 	
@@ -508,13 +508,13 @@ void TxtAutoCompare::EvaluateExtraSuggestionScores() {
 	running_count = 0;
 	
 	for(int j = 0; j < sp.rhymes.GetCount(); j++) {
-		Song::Rhyme& r = sp.rhymes[j];
+		StaticRhyme& r = sp.rhymes[j];
 		
 		int top_score = 0;
-		for (Song::Suggestion& sug : r.suggestions)
+		for (StaticSuggestion& sug : r.suggestions)
 			top_score = max(top_score, sug.ai_score);
 		int top_score_count = 0;
-		for (Song::Suggestion& sug : r.suggestions)
+		for (StaticSuggestion& sug : r.suggestions)
 			if (sug.ai_score == top_score)
 				top_score_count++;
 		
@@ -524,7 +524,7 @@ void TxtAutoCompare::EvaluateExtraSuggestionScores() {
 		Vector<int>& sug_ids = tmp_sug_ids.Add();
 		Vector<String> sug_strs;
 		for(int i = 0; i < r.suggestions.GetCount(); i++) {
-			Song::Suggestion& sug = r.suggestions[i];
+			StaticSuggestion& sug = r.suggestions[i];
 			if (sug.ai_score == top_score) {
 				sug_strs << sug.content;
 				sug_ids << i;
@@ -554,10 +554,10 @@ void TxtAutoCompare::GetAIAttributes() {
 	if (!parts.IsCursor()) return;
 	int c = parts.GetCursor();
 	if (c >= song.parts.GetCount()) return;
-	Song::Part& sp = song.parts[c];
+	StaticPart& sp = song.parts[c];
 	
 	for(int i = 0; i < sp.rhymes.GetCount(); i++) {
-		Song::Rhyme& r = sp.rhymes[i];
+		StaticRhyme& r = sp.rhymes[i];
 		String content = Join(r.source, "\n");
 		
 		TaskMgr& m = *p.song->pipe;
@@ -582,11 +582,11 @@ void TxtAutoCompare::MorphAttrsTowardsContext() {
 	
 	if (part_i < 0 ||part_i >= song.parts.GetCount())
 		return;
-	Song::Part& sp = song.parts[part_i];
+	StaticPart& sp = song.parts[part_i];
 	
 	if (rhyme_i < 0 ||rhyme_i >= sp.rhymes.GetCount())
 		return;
-	Song::Rhyme& r = sp.rhymes[rhyme_i];
+	StaticRhyme& r = sp.rhymes[rhyme_i];
 	
 	int morph_count = 0;
 	int morph_limit = 1;
@@ -645,14 +645,14 @@ void TxtAutoCompare::MakeContentMoreLikeAttributes() {
 	
 	if (part_i < 0 ||part_i >= song.parts.GetCount())
 		return;
-	Song::Part& sp = song.parts[part_i];
+	StaticPart& sp = song.parts[part_i];
 	
 	DisableAll();
 	
 	p.song->RealizePipe();
 	TaskMgr& m = *p.song->pipe;
 	
-	for (Song::Rhyme& r : sp.rhymes) {
+	for (StaticRhyme& r : sp.rhymes) {
 		Vector<String> attrs;
 		for (int cmp = 0; cmp < 4; cmp++) {
 			VectorMap<String,String>* data;
@@ -683,7 +683,7 @@ void TxtAutoCompare::MakeContentMoreLikeAttributes() {
 	}
 }
 
-void TxtAutoCompare::OnMorphToAttributes(String res, Song::Part* s, Song::Rhyme* r) {
+void TxtAutoCompare::OnMorphToAttributes(String res, StaticPart* s, StaticRhyme* r) {
 	if (!s || !r) return;
 	
 	Vector<String> lines = Split(res, "\n");
@@ -706,7 +706,7 @@ void TxtAutoCompare::OnMorphToAttributes(String res, Song::Part* s, Song::Rhyme*
 }
 
 void TxtAutoCompare::OnParamChange(EditString* e, int key) {
-	Song::Rhyme* r = GetActiveRhyme();
+	StaticRhyme* r = GetActiveRhyme();
 	if (!r || !e) return;
 	
 	const char* ks = 0;
@@ -725,7 +725,7 @@ void TxtAutoCompare::OnParamChange(EditString* e, int key) {
 		r->data.GetAdd(ks) = v;
 }
 
-void TxtAutoCompare::OnSuggestionScore(String res, Song::Rhyme* r, bool post_enable) {
+void TxtAutoCompare::OnSuggestionScore(String res, StaticRhyme* r, bool post_enable) {
 	if (post_enable)
 		PostCallback(THISBACK(EnableAll));
 	
@@ -740,7 +740,7 @@ void TxtAutoCompare::OnSuggestionScore(String res, Song::Rhyme* r, bool post_ena
 	}
 	
 	for(int i = 0; i < lines.GetCount(); i++) {
-		Song::Suggestion& sug = r->suggestions[i];
+		StaticSuggestion& sug = r->suggestions[i];
 		sug.ai_score = 0;
 		sug.ai_score_extra = 0;
 		
@@ -799,7 +799,7 @@ void TxtAutoCompare::OnSuggestionScore(String res, Song::Rhyme* r, bool post_ena
 	PostCallback(THISBACK1(DataSongPart, false));
 }
 
-void TxtAutoCompare::OnSuggestionOrder(String res, Song::Rhyme* r, int idx) {
+void TxtAutoCompare::OnSuggestionOrder(String res, StaticRhyme* r, int idx) {
 	lock.Enter();
 	running_count--;
 	bool last = running_count <= 0;
@@ -851,7 +851,7 @@ void TxtAutoCompare::OnSuggestionOrder(String res, Song::Rhyme* r, int idx) {
 			continue;
 		
 		int sug_id = sug_ids[tmp_id];
-		Song::Suggestion& sug = r->suggestions[sug_id];
+		StaticSuggestion& sug = r->suggestions[sug_id];
 		
 		sug.ai_score_extra = c - 1 - i;
 	}
@@ -860,7 +860,7 @@ void TxtAutoCompare::OnSuggestionOrder(String res, Song::Rhyme* r, int idx) {
 	PostCallback(THISBACK1(DataSongPart, false));
 }
 
-void TxtAutoCompare::OnSourceTextImprovements(String res, Song::Part* sp) {
+void TxtAutoCompare::OnSourceTextImprovements(String res, StaticPart* sp) {
 	PostCallback(THISBACK(EnableAll));
 	
 	TrimBothAllLines(res);
@@ -888,7 +888,7 @@ void TxtAutoCompare::OnSourceTextImprovements(String res, Song::Part* sp) {
 	PostCallback(THISBACK(DataSong));
 }
 
-void TxtAutoCompare::OnAIAttributes(String res, Song::Rhyme* r) {
+void TxtAutoCompare::OnAIAttributes(String res, StaticRhyme* r) {
 	if (!r) return;
 	
 	Database& db = Database::Single();
@@ -950,13 +950,13 @@ void TxtAutoCompare::OnAIAttributes(String res, Song::Rhyme* r) {
 	PostCallback(THISBACK1(DataSongPart, true));
 }
 
-void TxtAutoCompare::SetSuggestionScore(EditIntNotNullSpin* e, Song::Suggestion* sug) {
+void TxtAutoCompare::SetSuggestionScore(EditIntNotNullSpin* e, StaticSuggestion* sug) {
 	int score = e->GetData();
 	sug->score = score;
 	DataSongPart(true);
 }
 
-Song::Part* TxtAutoCompare::GetActiveSongPart() {
+StaticPart* TxtAutoCompare::GetActiveSongPart() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if(!p.song || !p.artist || main_key.IsEmpty())
@@ -968,11 +968,11 @@ Song::Part* TxtAutoCompare::GetActiveSongPart() {
 	int c = rhymes.GetCursor();
 	
 	int part_i = rhymes.Get(c, "PART_IDX");
-	Song::Part& sp = song.parts[part_i];
+	StaticPart& sp = song.parts[part_i];
 	return &sp;
 }
 
-Song::Rhyme* TxtAutoCompare::GetActiveRhyme() {
+StaticRhyme* TxtAutoCompare::GetActiveRhyme() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if(!p.song || !p.artist || main_key.IsEmpty())
@@ -985,12 +985,12 @@ Song::Rhyme* TxtAutoCompare::GetActiveRhyme() {
 	
 	int part_i = rhymes.Get(c, "PART_IDX");
 	int rhyme_i = rhymes.Get(c, "RHYME_IDX");
-	Song::Part& sp = song.parts[part_i];
-	Song::Rhyme& r = sp.rhymes[rhyme_i];
+	StaticPart& sp = song.parts[part_i];
+	StaticRhyme& r = sp.rhymes[rhyme_i];
 	return &r;
 }
 
-void TxtAutoCompare::OnAttrChange(Song::Part* sp, const char* key, DropList* dl) {
+void TxtAutoCompare::OnAttrChange(StaticPart* sp, const char* key, DropList* dl) {
 	if (!sp || !key || !dl) return;
 	
 	int idx = dl->GetIndex();
@@ -1001,7 +1001,7 @@ void TxtAutoCompare::OnAttrChange(Song::Part* sp, const char* key, DropList* dl)
 		sp->data.GetAdd(key) = IntStr(value);
 }
 
-void TxtAutoCompare::OnAttrChangeRhyme(Song::Rhyme* r, const char* key, DropList* dl) {
+void TxtAutoCompare::OnAttrChangeRhyme(StaticRhyme* r, const char* key, DropList* dl) {
 	if (!r || !key || !dl) return;
 	
 	int idx = dl->GetIndex();
@@ -1022,7 +1022,7 @@ void TxtAutoCompare::OnSongPartContentEdit(int src) {
 	if (!parts.IsCursor()) return;
 	int c = parts.GetCursor();
 	if (c >= song.parts.GetCount()) return;
-	Song::Part& sp = song.parts[c];
+	StaticPart& sp = song.parts[c];
 	
 	
 	if (src == 0) {
@@ -1045,7 +1045,7 @@ void TxtAutoCompare::OnAcceptEditSource() {
 	if (!parts.IsCursor()) return;
 	int c = parts.GetCursor();
 	if (c >= song.parts.GetCount()) return;
-	Song::Part& sp = song.parts[c];
+	StaticPart& sp = song.parts[c];
 	
 	UpdateRhymes(sp);
 	PostCallback(THISBACK(DataSong));
@@ -1057,11 +1057,11 @@ void TxtAutoCompare::UpdateRhymesToSource() {
 	if(!p.song || !p.artist)
 		return;
 	Song& song = *p.song;
-	for (Song::Part& sp : song.parts)
+	for (StaticPart& sp : song.parts)
 		UpdateRhymes(sp);
 }
 
-void TxtAutoCompare::OnSongPartContentChange(DocEdit* e, Song::Part* sp) {
+void TxtAutoCompare::OnSongPartContentChange(DocEdit* e, StaticPart* sp) {
 	if (!e || !sp) return;
 	sp->source = Split((String)e->GetData(), "\n");
 	
@@ -1070,7 +1070,7 @@ void TxtAutoCompare::OnSongPartContentChange(DocEdit* e, Song::Part* sp) {
 	DataSong();
 }
 
-void TxtAutoCompare::OnRhymeSchemeChange(DropList* dl, Song::Part* sp) {
+void TxtAutoCompare::OnRhymeSchemeChange(DropList* dl, StaticPart* sp) {
 	if (!dl || !sp) return;
 	int idx = dl->GetIndex();
 	if (idx < 0 ||idx >= sp->valid_rhyme_schemes.GetCount())
@@ -1095,7 +1095,7 @@ void TxtAutoCompare::CopyAIToUser() {
 	if(!p.song || !p.artist)
 		return;
 	Song& song = *p.song;
-	Song::Part& sp = song.parts[c];
+	StaticPart& sp = song.parts[c];
 	
 	sp.source <<= sp.ai_source;
 	
@@ -1114,7 +1114,7 @@ void TxtAutoCompare::CopyUserToAI() {
 	if(!p.song || !p.artist)
 		return;
 	Song& song = *p.song;
-	Song::Part& sp = song.parts[c];
+	StaticPart& sp = song.parts[c];
 	
 	sp.ai_source <<= sp.source;
 	
@@ -1180,7 +1180,7 @@ void TxtAutoCompare::ImportEnglish() {
 			// Find existing
 			int match = -1;
 			for(int i = 0; i < song.parts.GetCount(); i++) {
-				const Song::Part& sp = song.parts[i];
+				const StaticPart& sp = song.parts[i];
 				if (sp.name == name) {
 					match = i;
 					break;
@@ -1188,10 +1188,10 @@ void TxtAutoCompare::ImportEnglish() {
 			}
 			if (match < 0) {
 				match = song.parts.GetCount();
-				Song::Part& sp = song.parts.Add();
+				StaticPart& sp = song.parts.Add();
 				sp.name = name;
 			}
-			Song::Part& sp = song.parts[match];
+			StaticPart& sp = song.parts[match];
 			parts_in_use.FindAdd(match);
 			
 			
@@ -1227,7 +1227,7 @@ void TxtAutoCompare::ImproveSourceText(int style) {
 	if (!parts.IsCursor()) return;
 	int c = parts.GetCursor();
 	if (c >= song.parts.GetCount()) return;
-	Song::Part& sp = song.parts[c];
+	StaticPart& sp = song.parts[c];
 	
 	p.RealizePipe();
 	DisableAll();
@@ -1248,7 +1248,7 @@ void TxtAutoCompare::LimitContentSyllableCount() {
 	if (!parts.IsCursor()) return;
 	int c = parts.GetCursor();
 	if (c >= song.parts.GetCount()) return;
-	Song::Part& sp = song.parts[c];
+	StaticPart& sp = song.parts[c];
 	
 	p.RealizePipe();
 	DisableAll();
@@ -1259,7 +1259,7 @@ void TxtAutoCompare::LimitContentSyllableCount() {
 	}
 }
 
-void TxtAutoCompare::UpdateRhymes(Song::Part& sp) {
+void TxtAutoCompare::UpdateRhymes(StaticPart& sp) {
 	
 	// Clear outdated rhymes & suggestions
 	
@@ -1290,7 +1290,7 @@ void TxtAutoCompare::UpdateRhymes(Song::Part& sp) {
 		if (matching) {
 			matching = false;
 			if (i < sp.rhymes.GetCount()) {
-				const Song::Rhyme& rhyme = sp.rhymes[i];
+				const StaticRhyme& rhyme = sp.rhymes[i];
 				if (rhyme.source.GetCount() == r.GetCount()) {
 					matching = true;
 					for(int j = 0; j < r.GetCount(); j++) {
@@ -1310,14 +1310,14 @@ void TxtAutoCompare::UpdateRhymes(Song::Part& sp) {
 	
 	sp.rhymes.Remove(matching_count, sp.rhymes.GetCount()-matching_count);
 	for(int i = matching_count; i < results.GetCount(); i++) {
-		Song::Rhyme& r = sp.rhymes.Add();
+		StaticRhyme& r = sp.rhymes.Add();
 		r.source <<= results[i];
 		r.outdated_suggestions = true;
 	}
 	
 	// Don't flag part as outdated without outdated rhymes
 	sp.outdated_suggestions = false;
-	for (Song::Rhyme& r : sp.rhymes)
+	for (StaticRhyme& r : sp.rhymes)
 		if (r.outdated_suggestions)
 			sp.outdated_suggestions = true;
 	
@@ -1333,12 +1333,12 @@ void TxtAutoCompare::EvaluatePoeticStyles(int i) {
 	
 	p.RealizePipe();
 	
-	Song::Part* ptr = 0;
+	StaticPart* ptr = 0;
 	if (i == 0)
 		ptr = GetActiveSongPart();
 	
 	for(int i = 0; i < song.parts.GetCount(); i++) {
-		Song::Part& sp = song.parts[i];
+		StaticPart& sp = song.parts[i];
 		if (ptr && ptr != &sp)
 			continue;
 		int rs_idx = FindRhymeType(sp.rhyme_scheme);
@@ -1354,7 +1354,7 @@ void TxtAutoCompare::EvaluatePoeticStyles(int i) {
 	running_count = 0;
 	
 	for(int i = 0; i < song.parts.GetCount(); i++) {
-		Song::Part& sp = song.parts[i];
+		StaticPart& sp = song.parts[i];
 		
 		if (ptr && ptr != &sp)
 			continue;
@@ -1378,7 +1378,7 @@ void TxtAutoCompare::EvaluatePoeticStyles(int i) {
 		
 		int offset = 0;
 		for(int j = 0; j < sp.rhymes.GetCount(); j++) {
-			Song::Rhyme& r = sp.rhymes[j];
+			StaticRhyme& r = sp.rhymes[j];
 			
 			String attrs;
 			for(int j = 0; j < Attr::ATTR_COUNT; j++) {
@@ -1444,8 +1444,8 @@ void TxtAutoCompare::OnPoeticRecv(String res, int part_i, int rhyme_i) {
 	if(!p.song || !p.artist || main_key.IsEmpty())
 		return;
 	Song& song = *p.song;
-	Song::Part& sp = song.parts[part_i];
-	Song::Rhyme& r = sp.rhymes[rhyme_i];
+	StaticPart& sp = song.parts[part_i];
+	StaticRhyme& r = sp.rhymes[rhyme_i];
 	
 	r.suggestions.Clear();
 	r.outdated_suggestions = false;
@@ -1479,7 +1479,7 @@ void TxtAutoCompare::OnPoeticRecv(String res, int part_i, int rhyme_i) {
 				style = "<error>";
 			}
 			
-			Song::Suggestion& suggestion = r.suggestions.Add();
+			StaticSuggestion& suggestion = r.suggestions.Add();
 			for(int i = 0; i < lines.GetCount(); i++) {
 				String& line = lines[i];
 				if (line.Left(1) == "-")

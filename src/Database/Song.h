@@ -46,67 +46,74 @@ struct SongHeader {
 };
 #endif
 
+
+
+struct StaticSuggestion {
+	String style, content;
+	int score = 0;
+	int ai_score = 0;
+	int ai_score_extra = 0;
+	void Jsonize(JsonIO& json) {
+		json
+			("style", style)
+			("content", content)
+			("score", score)
+			("ai_score", ai_score)
+			("ai_score_extra", ai_score_extra)
+			;
+	}
+};
+struct StaticRhyme {
+	Vector<String> source;
+	//Vector<String> ai_source;
+	Array<StaticSuggestion> suggestions;
+	VectorMap<String,String> data;
+	bool outdated_suggestions = true;
+	void Jsonize(JsonIO& json) {
+		json
+			("source", source)
+			//("ai_source", ai_source)
+			("suggestion", suggestions)
+			("data", data)
+			("outdated_suggestions", outdated_suggestions)
+			;
+	}
+	int GetBestSuggestion() const;
+};
+
+struct StaticPart {
+	String name;
+	String type; // abbreviation like V1, PC2, C
+	Vector<String> source; // lines
+	Vector<String> ai_source;
+	Array<StaticRhyme> rhymes;
+	String rhyme_scheme;
+	VectorMap<String,String> data;
+	String syllable_str;
+	bool outdated_suggestions = true;
+	void Jsonize(JsonIO& json) {
+		json
+			("name", name)
+			("type", type)
+			("source", source)
+			("ai_source", ai_source)
+			("rhymes", rhymes)
+			("rhyme_scheme", rhyme_scheme)
+			("data", data)
+			("outdated_suggestions", outdated_suggestions)
+			("syllable_str", syllable_str)
+			;
+	}
+	
+	// Temp
+	Vector<int> valid_rhyme_schemes;
+};
+
+
 struct Song :
 	DataFile,
 	EditorPtrs
 {
-	struct Suggestion {
-		String style, content;
-		int score = 0;
-		int ai_score = 0;
-		int ai_score_extra = 0;
-		void Jsonize(JsonIO& json) {
-			json
-				("style", style)
-				("content", content)
-				("score", score)
-				("ai_score", ai_score)
-				("ai_score_extra", ai_score_extra)
-				;
-		}
-	};
-	struct Rhyme {
-		Vector<String> source;
-		//Vector<String> ai_source;
-		Array<Suggestion> suggestions;
-		VectorMap<String,String> data;
-		bool outdated_suggestions = true;
-		void Jsonize(JsonIO& json) {
-			json
-				("source", source)
-				//("ai_source", ai_source)
-				("suggestion", suggestions)
-				("data", data)
-				("outdated_suggestions", outdated_suggestions)
-				;
-		}
-		int GetBestSuggestion() const;
-	};
-	struct Part {
-		String name;
-		Vector<String> source; // lines
-		Vector<String> ai_source;
-		Array<Rhyme> rhymes;
-		String rhyme_scheme;
-		VectorMap<String,String> data;
-		String syllable_str;
-		bool outdated_suggestions = true;
-		void Jsonize(JsonIO& json) {
-			json
-				("name", name)
-				("source", source)
-				("ai_source", ai_source)
-				("rhymes", rhymes)
-				("rhyme_scheme", rhyme_scheme)
-				("data", data)
-				("outdated_suggestions", outdated_suggestions)
-				("syllable_str", syllable_str)
-				;
-		}
-		
-		// Temp
-		Vector<int> valid_rhyme_schemes;
-	};
 	struct StructSuggestion {
 		String name;
 		Vector<String> parts;
@@ -154,7 +161,7 @@ struct Song :
 	Vector<String>				structure;
 	MArr<String>				content;
 	VectorMap<String,String>	data;
-	Array<Part>					parts;
+	Array<StaticPart>			parts;
 	Array<StructSuggestion>		struct_suggs;
 	StructSuggestion			active_struct;
 	int							default_line_syllables = 0;

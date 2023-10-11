@@ -31,6 +31,9 @@ public:
 	void OnStructureSuggestion(String result, Song* song);
 	void OnSuggestionAttributes(String result, Song* song);
 	
+	
+	Editor* editor = 0;
+	
 };
 
 

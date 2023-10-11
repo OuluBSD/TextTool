@@ -135,6 +135,7 @@ int PipePtrs::GetActivePartIndex() const {if (!pipe) return -1; return VectorFin
 int EditorPtrs::GetActiveArtistIndex() const {return VectorFindPtr(artist, Database::Single().artists);}
 int EditorPtrs::GetActiveReleaseIndex() const {if (!artist) return -1; return VectorFindPtr(release, artist->releases);}
 int EditorPtrs::GetActiveSongIndex() const {if (!release) return -1; return VectorFindPtr(song, release->songs);}
+int EditorPtrs::GetActivePartIndex() const {if (!song) return -1; return VectorFindPtr(part, song->parts);}
 
 String PipePtrs::GetBreakInSongString() const {
 	String s;
@@ -589,4 +590,45 @@ Color GetSongPartPaperColor(const String& abbr) {
 	if (pre == "O") return Color(198, 200, 255);
 	
 	return White();
+}
+
+int GetSongPartPriority(const String& abbr) {
+	String pre, post;
+	int split = -1;
+	for(int i = 0; i < abbr.GetCount(); i++) {
+		int chr = abbr[i];
+		if (IsDigit(chr)) {
+			split = i;
+			break;
+		}
+	}
+	
+	int post_i = 0;
+	if (split < 0)
+		pre = abbr;
+	else {
+		pre = abbr.Left(split);
+		post = abbr.Mid(split);
+		post_i = StrInt(post);
+	}
+	
+	int main = 0, mul = 1, off = 0;
+	if      (pre == "I") main = 0;
+	else if (pre == "V") {main = 10; mul = 3;}
+	else if (pre == "PC") {main = 10; mul = 3; off = 1;}
+	else if (pre == "C") {main = 10; mul = 3; off = 2;}
+	else if (pre == "B") main = 40;
+	else if (pre == "O") main = 50;
+	else if (pre == "T") main = 60;
+	else if (pre == "S") main = 70;
+	else if (pre == "IN") main = 80;
+	else main = INT_MAX - 100;
+	
+	return main + post_i * mul + off;
+}
+
+bool PartAbbrSorter::operator()(const String& a, const String& b) const {
+	int ai = GetSongPartPriority(a);
+	int bi = GetSongPartPriority(b);
+	return ai < bi;
 }

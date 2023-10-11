@@ -1,11 +1,11 @@
 #include "Database.h"
 
-int Song::Rhyme::GetBestSuggestion() const {
+int StaticRhyme::GetBestSuggestion() const {
 	if (suggestions.IsEmpty())
 		return -1;
 	int best_score = 0, best_i = 0;
 	for(int i = 0; i < suggestions.GetCount(); i++) {
-		const Suggestion& sug = suggestions[i];
+		const StaticSuggestion& sug = suggestions[i];
 		if (sug.score > best_score) {
 			best_score = sug.score;
 			best_i = i;
@@ -13,7 +13,7 @@ int Song::Rhyme::GetBestSuggestion() const {
 	}
 	if (best_score == 0) {
 		for(int i = 0; i < suggestions.GetCount(); i++) {
-			const Suggestion& sug = suggestions[i];
+			const StaticSuggestion& sug = suggestions[i];
 			int sort_value = sug.ai_score + sug.ai_score_extra;
 			if (sort_value > best_score) {
 				best_score = sort_value;

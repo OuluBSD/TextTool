@@ -352,6 +352,7 @@
 	"parts": [
 		{
 			"name": "Verse 1a",
+			"type": "",
 			"source": [
 				"Your absence has not gone unnoticed in my world\r",
 				"My days have been consumed with my job and deep contemplation\r",
@@ -721,6 +722,7 @@
 		},
 		{
 			"name": "Verse 1b",
+			"type": "",
 			"source": [
 				"Dreaming of you, warm in my arms\r",
 				"Promised to stay through up and down\r",
@@ -1086,6 +1088,7 @@
 		},
 		{
 			"name": "Verse 1c",
+			"type": "",
 			"source": [
 				"I enjoy my memories of us touching\r",
 				"in which we kissed and made sweet love\r",
@@ -1463,6 +1466,7 @@
 		},
 		{
 			"name": "Verse 1d",
+			"type": "",
 			"source": [
 				"We could've tried to reach a better score,\r",
 				"But I appreciate you taking the time to say and hear apologization\r",
@@ -1835,6 +1839,7 @@
 		},
 		{
 			"name": "Verse 2a",
+			"type": "",
 			"source": [
 				"I felt like I needed someone else",
 				"I was forgetting my ex-wife's name, and messing it up with another",
@@ -2204,6 +2209,7 @@
 		},
 		{
 			"name": "Verse 2b",
+			"type": "",
 			"source": [
 				"First, I rejected the happy feelings",
 				"But when our eyes met, sorrows disappear",
@@ -2569,6 +2575,7 @@
 		},
 		{
 			"name": "Verse 2c",
+			"type": "",
 			"source": [
 				"I'm scared of having a new crush on someone\r",
 				"And I'm scared of failing and not recovering\r",
@@ -2934,6 +2941,7 @@
 		},
 		{
 			"name": "Verse 2d",
+			"type": "",
 			"source": [
 				"I don't want to ride on the emotional roller coaster alone",
 				"it's easier when you have someone to share it with",
@@ -3256,6 +3264,7 @@
 		},
 		{
 			"name": "Chorus 1",
+			"type": "",
 			"source": [
 				"I didn't want to say goodbye\r",
 				"I don't want to leave\r",
@@ -3422,6 +3431,7 @@
 		},
 		{
 			"name": "Chorus 2",
+			"type": "",
 			"source": [
 				"I didn't mean to break us,\r",
 				"do to us like this\r",
@@ -3620,6 +3630,7 @@
 		},
 		{
 			"name": "Bridge 1a",
+			"type": "",
 			"source": [
 				"I said I'm sorry and",
 				"I want to forget our fights",
@@ -3798,6 +3809,7 @@
 		},
 		{
 			"name": "Bridge 1b",
+			"type": "",
 			"source": [
 				"I haven't shown",
 				"how much I care",

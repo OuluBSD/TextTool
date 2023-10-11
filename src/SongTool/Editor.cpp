@@ -43,6 +43,7 @@ Editor::Editor(SongTool* app) : app(*app) {
 	parts <<= THISBACK(DataPart);
 	
 	info.editor = this;
+	song_struct.editor = this;
 	
 	for(int i = 0; i < 3; i++)
 		reverse[i].SetSource(i);
@@ -357,6 +358,8 @@ void Editor::DataSong() {
 	Release& r = *p.release;
 	Song& s = *p.song;
 	
+	
+	#if 0
 	if (!s.pipe) {
 		DataPage();
 		return;
@@ -383,6 +386,32 @@ void Editor::DataSong() {
 	int cursor = max(0, e.p.GetActivePartIndex());
 	if (cursor >= 0 && cursor < parts.GetCount() && !parts.IsCursor())
 		parts.SetCursor(cursor);
+	#else
+	
+	for(int i = 0; i < s.parts.GetCount()+1; i++) {
+		String k;
+		int c = 0;
+		Color clr = White();
+		if (i == 0) {
+			k = t_("Whole song");
+		}
+		else {
+			int j = i-1;
+			StaticPart& p = s.parts[j];
+			k = p.name;
+			clr = GetSongPartPaperColor(p.type);
+			c = p.rhymes.GetCount();
+		}
+		parts.Set(i, 0, AttrText(k).NormalPaper(clr));
+		parts.Set(i, 1, c);
+	}
+	parts.SetCount(s.parts.GetCount());
+	
+	int cursor = max(0, p.GetActivePartIndex());
+	if (cursor >= 0 && cursor < parts.GetCount() && !parts.IsCursor())
+		parts.SetCursor(cursor);
+	
+	#endif
 	
 	DataPart();
 }
@@ -394,6 +423,9 @@ void Editor::DataPart() {
 		DataPage();
 		return;
 	}
+	
+	// OLD!!
+	#if 0
 	Pipe& e = *p.song->pipe;
 	PipePtrs& pp = p.song->pipe->p;
 	
@@ -410,6 +442,26 @@ void Editor::DataPart() {
 	int part_i = pp.GetActivePartIndex();
 	if (part_i >= 0 && part_i < parts.GetCount() && !parts.IsCursor())
 		parts.SetCursor(1+part_i);
+	#else
+	
+	
+	
+	Song& song = *p.song;
+	int cursor = parts.GetCursor();
+	if (!cursor) {
+		db.ctx.active_wholesong = true;
+	}
+	else {
+		db.ctx.active_wholesong = false;
+		p.part = &song.parts[cursor-1];
+	}
+	
+	int part_i = p.GetActivePartIndex();
+	if (part_i >= 0 && part_i < parts.GetCount() && !parts.IsCursor())
+		parts.SetCursor(1+part_i);
+	#endif
+	
+	
 	
 	DataPage();
 }

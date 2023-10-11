@@ -224,6 +224,7 @@ String GetGroupContextNaturalDescription(GroupContext ctx);
 struct Artist;
 struct Release;
 struct Song;
+struct StaticPart;
 struct Pipe;
 struct Part;
 struct Line;
@@ -497,10 +498,12 @@ struct EditorPtrs {
 	Artist*			artist = 0;
 	Release*		release = 0;
 	Song*			song = 0;
+	StaticPart*		part = 0;
 	
 	int GetActiveArtistIndex() const;
 	int GetActiveReleaseIndex() const;
 	int GetActiveSongIndex() const;
+	int GetActivePartIndex() const;
 	String GetBreakInDatabaseString() const;
 	
 	void RealizePipe();
@@ -721,6 +724,7 @@ Vector<String> GetStructureParts(String s);
 String ToMinSec(double sec);
 String GetSongPartFromAbbr(const String& abbr);
 Color GetSongPartPaperColor(const String& abbr);
+int GetSongPartPriority(const String& abbr);
 
 template <class T> void CheckSerialisationData(const String& json) {}
 template <> void CheckSerialisationData<Song>(const String& json);
@@ -763,5 +767,8 @@ struct Group;
 
 }
 
+struct PartAbbrSorter {
+	bool operator()(const String& a, const String& b) const;
+};
 
 #endif
