@@ -2478,7 +2478,7 @@ void Task::CreateInput_GetAllegorySuggestions() {
 		//results.Title("List of concrete novel metaphors or allegorical devices for the song 1 with the theme of \"" + theme + "\"  and idea of \"" + idea + "\"");
 		//results.Title("List of lines of lyrics using allegorical devices for the song 1 with the theme of \"" + theme + "\"  and idea of \"" + idea + "\"");
 		//results.Title("List of story devices with metaphorical story (with metaphorical color RGB byte integers for illustration) for the song 1");
-		results.Title("List of story devices with metaphorical story for the song 1. With the metaphorical color RGB integer code at the end");
+		results.Title("List of story devices with metaphorical story for the song 1. With the metaphorical color RGB integer (r,g,b) code at the end");
 		results.EmptyLine();
 	}
 	
@@ -2521,7 +2521,7 @@ void Task::CreateInput_GetContentSuggestions() {
 	}
 	{
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of practically detailed absolute (1st or 3rd person pronoun) storylines (with the metaphorical color RGB integer code at the end) for the song 1");
+		results.Title("List of practically detailed absolute (1st or 3rd person pronoun) storylines (with the metaphorical color RGB integer (r,g,b) code at the end) for the song 1");
 		results.EmptyLine();
 	}
 	
@@ -2569,7 +2569,7 @@ void Task::CreateInput_GetImagerySuggestions() {
 	}
 	{
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of specific imagery for the song 1. With the metaphorical color RGB integer code at the end");
+		results.Title("List of specific imagery for the song 1. With the metaphorical color RGB integer (r,g,b) code at the end");
 		results.EmptyLine();
 	}
 	
@@ -2622,7 +2622,7 @@ void Task::CreateInput_GetSymbolismSuggestions() {
 	}
 	{
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of physical symbol combination in relation to the imagery for the song 1. With the metaphorical color RGB integer code at the end");
+		results.Title("List of physical symbol combination in relation to the imagery for the song 1. With the metaphorical color RGB integer (r,g,b) code at the end");
 		results.EmptyLine();
 	}
 	
