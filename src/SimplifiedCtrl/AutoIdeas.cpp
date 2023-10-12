@@ -735,16 +735,16 @@ void ParseTextColor(String s, String& text, Color& clr) {
 		}
 		else {
 			Vector<String> clr_parts = Split(clr_str, ",");
-			if (clr_parts.GetCount() == 3) {
+			if (clr_parts.GetCount() >= 3) {
 				RGBA c;
-				c.r = StrInt(clr_parts[0]);
-				c.g = StrInt(clr_parts[1]);
-				c.b = StrInt(clr_parts[2]);
+				c.r = ScanInt(clr_parts[0]);
+				c.g = ScanInt(clr_parts[1]);
+				c.b = ScanInt(clr_parts[2]);
 				c.a = 255;
 				clr = c;
 			}
 			else if (clr_parts.GetCount() == 1) {
-				dword d = StrInt(clr_parts[0]);
+				dword d = ScanInt(clr_parts[0]);
 				RGBA c;
 				c.r = (d >> 0) & 0xFF;
 				c.g = (d >> 8) & 0xFF;
