@@ -2376,14 +2376,151 @@ void Task::CreateInput_GetNovelThemes() {
 	}
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Song \"A\" is");
+		TaskTitledList& list = input.AddSub().Title("Song 1 is");
 		for (const String& p : args)
 			list.Add(TrimBoth(p));
 	}
 	
 	{
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of novel themes for the song \"A\"");
+		results.Title("List of novel themes (with metaphorical color RGB byte integers for illustration) for the song 1");
+		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetNovelIdeas() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	String theme = args[0];
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		for(int i = 1; i < args.GetCount(); i++)
+			list.Add(TrimBoth(args[i]));
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("List of novel ideas (with metaphorical color RGB byte integers for illustration) for the song 1 with the theme of \"" + theme + "\"");
+		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetToneSuggestions() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	String theme = args[0];
+	String idea = args[1];
+	if (theme.Right(1) == ".") theme = theme.Left(theme.GetCount()-1);
+	if (idea.Right(1) == ".") idea = idea.Left(idea.GetCount()-1);
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		for(int i = 2; i < args.GetCount(); i++)
+			list.Add(TrimBoth(args[i]));
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("List of novel tone of lyrics (with metaphorical color RGB byte integers for illustration) suggestions for the song 1 with the theme of \"" + theme + "\"  and idea of \"" + idea + "\"");
+		results.EmptyLine().EmptyLineString("\"");
+		
+	}
+	
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetAllegorySuggestions() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	String theme = args[0];
+	String idea = args[1];
+	String tone = args[2];
+	if (theme.Right(1) == ".") theme = theme.Left(theme.GetCount()-1);
+	if (idea.Right(1) == ".") idea = idea.Left(idea.GetCount()-1);
+	if (tone.Right(1) == ".") tone = tone.Left(tone.GetCount()-1);
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		for(int i = 3; i < args.GetCount(); i++)
+			list.Add(TrimBoth(args[i]));
+	}
+	
+	{
+		input.AddSub().NoColon().Title("Theme of the song 1 is \"" + theme + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Idea of the song 1 is \"" + idea + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Tone of the song 1 is \"" + tone + "\"");
+	}
+	{
+		TaskTitledList& results = input.PreAnswer();
+		//results.Title("List of novel allegorical devices for the song 1 with the theme of \"" + theme + "\"  and idea of \"" + idea + "\"");
+		//results.Title("List of novel metaphors or allegorical devices for the song 1 with the theme of \"" + theme + "\"  and idea of \"" + idea + "\"");
+		//results.Title("List of concrete novel metaphors or allegorical devices for the song 1 with the theme of \"" + theme + "\"  and idea of \"" + idea + "\"");
+		//results.Title("List of lines of lyrics using allegorical devices for the song 1 with the theme of \"" + theme + "\"  and idea of \"" + idea + "\"");
+		results.Title("List of story devices with metaphorical story (with metaphorical color RGB byte integers for illustration) for the song 1");
+		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetContentSuggestions() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	String theme = args[0];
+	String idea = args[1];
+	String tone = args[2];
+	String alleg = args[3];
+	if (theme.Right(1) == ".") theme = theme.Left(theme.GetCount()-1);
+	if (idea.Right(1) == ".") idea = idea.Left(idea.GetCount()-1);
+	if (tone.Right(1) == ".") tone = tone.Left(tone.GetCount()-1);
+	if (alleg.Right(1) == ".") alleg = alleg.Left(alleg.GetCount()-1);
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		for(int i = 4; i < args.GetCount(); i++)
+			list.Add(TrimBoth(args[i]));
+	}
+	
+	{
+		input.AddSub().NoColon().Title("Theme of the song 1 is \"" + theme + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Idea of the song 1 is \"" + idea + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Tone of the song 1 is \"" + tone + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Allegorical device of the song 1 is \"" + alleg + "\"");
+	}
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("List of practically detailed absolute (1st or 3rd person pronoun) storylines (with the metaphorical color RGB integer code at the end) for the song 1");
 		results.EmptyLine();
 	}
 	

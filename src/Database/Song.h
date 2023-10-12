@@ -110,35 +110,59 @@ struct StaticPart {
 };
 
 
-struct StaticAllegoricalDevice {
-	
-	
-	void Jsonize(JsonIO& json) {
-		/*json
-			("artist", artist)
-			;*/
-	}
-};
 
 struct StaticContentIdea {
-	
-	
-	void Jsonize(JsonIO& json) {
-		/*json
-			("artist", artist)
-			;*/
-	}
-};
-
-struct StaticIdea {
-	Array<StaticContentIdea> contents;
-	Array<StaticAllegoricalDevice> allegories;
+	String text;
+	Color clr;
 	
 	
 	void Jsonize(JsonIO& json) {
 		json
+			("text", text)
+			("clr", clr)
+			;
+	}
+};
+
+struct StaticAllegoricalDevice {
+	Array<StaticContentIdea> contents;
+	String text;
+	Color clr;
+	
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("text", text)
+			("clr", clr)
 			("contents", contents)
+			;
+	}
+};
+
+struct StaticToneSuggestion {
+	Array<StaticAllegoricalDevice> allegories;
+	String text;
+	Color clr;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("text", text)
+			("clr", clr)
 			("allegories", allegories)
+			;
+	}
+};
+
+struct StaticIdea {
+	Array<StaticToneSuggestion> tones;
+	String text;
+	Color clr;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("text", text)
+			("clr", clr)
+			("tones", tones)
 			;
 	}
 };
@@ -146,11 +170,13 @@ struct StaticIdea {
 struct StaticTheme {
 	Array<StaticIdea> ideas;
 	String text;
+	Color clr;
 	
 	void Jsonize(JsonIO& json) {
 		json
-			("ideas", ideas)
 			("text", text)
+			("clr", clr)
+			("ideas", ideas)
 			;
 	}
 };

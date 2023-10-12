@@ -632,3 +632,17 @@ bool PartAbbrSorter::operator()(const String& a, const String& b) const {
 	int bi = GetSongPartPriority(b);
 	return ai < bi;
 }
+
+
+int HexInt(String s) {
+	s = ToLower(s);
+	if (s.GetCount() == 2) {
+		int c0 = s[0];
+		int c1 = s[1];
+		int v0 = c0 >= '0' && c0 <= '9' ? c0 - '0' : 10 + c0 - 'a';
+		int v1 = c1 >= '0' && c1 <= '9' ? c1 - '0' : 10 + c1 - 'a';
+		int sum = v0 * 16 + v1;
+		return sum;
+	}
+	return 0;
+}

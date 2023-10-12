@@ -224,6 +224,10 @@ public:
 	void CreateInput_GetStructureSuggestions();
 	void CreateInput_GetSuggestionAttributes();
 	void CreateInput_GetNovelThemes();
+	void CreateInput_GetNovelIdeas();
+	void CreateInput_GetContentSuggestions();
+	void CreateInput_GetAllegorySuggestions();
+	void CreateInput_GetToneSuggestions();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -279,6 +283,10 @@ public:
 	void Process_GetStructureSuggestions();
 	void Process_GetSuggestionAttributes();
 	void Process_GetNovelThemes();
+	void Process_GetNovelIdeas();
+	void Process_GetContentSuggestions();
+	void Process_GetAllegorySuggestions();
+	void Process_GetToneSuggestions();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

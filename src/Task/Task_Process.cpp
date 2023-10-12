@@ -1792,3 +1792,19 @@ void Task::Process_GetSuggestionAttributes() {
 void Task::Process_GetNovelThemes() {
 	WhenResult("- " + output);
 }
+
+void Task::Process_GetNovelIdeas() {
+	WhenResult("- " + output);
+}
+
+void Task::Process_GetToneSuggestions() {
+	WhenResult("- " + output);
+}
+
+void Task::Process_GetContentSuggestions() {
+	WhenResult("- " + output);
+}
+
+void Task::Process_GetAllegorySuggestions() {
+	WhenResult("- " + output);
+}

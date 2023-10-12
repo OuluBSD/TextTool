@@ -771,4 +771,6 @@ struct PartAbbrSorter {
 	bool operator()(const String& a, const String& b) const;
 };
 
+int HexInt(String s);
+
 #endif

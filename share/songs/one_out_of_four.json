@@ -600,130 +600,596 @@
 	],
 	"themes": [
 		{
+			"text": "Embracing individualistic sexuality and defying societal norms and expectations",
+			"clr": {
+				"red": 255,
+				"green": 195,
+				"blue": 0
+			},
 			"ideas": [
 
-			],
-			"text": "Identity and sexuality"
+			]
 		},
 		{
+			"text": "Seeking spiritual fulfillment outside of organized religion and embracing personal beliefs",
+			"clr": {
+				"red": 153,
+				"green": 0,
+				"blue": 204
+			},
 			"ideas": [
 
-			],
-			"text": "Taboo desires and exploring them"
+			]
 		},
 		{
+			"text": "Exploring and pushing the boundaries of pleasure and desire",
+			"clr": {
+				"red": 255,
+				"green": 102,
+				"blue": 204
+			},
 			"ideas": [
+				{
+					"text": "Pleasure Lab",
+					"clr": {
+						"red": 50,
+						"green": 135,
+						"blue": 200
+					},
+					"tones": [
 
-			],
-			"text": "Self-discovery and personal growth"
+					]
+				},
+				{
+					"text": "The Science of Desire",
+					"clr": {
+						"red": 50,
+						"green": 100,
+						"blue": 175
+					},
+					"tones": [
+
+					]
+				},
+				{
+					"text": "Kinky Evolution",
+					"clr": {
+						"red": 175,
+						"green": 75,
+						"blue": 255
+					},
+					"tones": [
+						{
+							"text": "Seducing shades of scarlet crimson",
+							"clr": {
+								"red": 255,
+								"green": 36,
+								"blue": 0
+							},
+							"allegories": [
+
+							]
+						},
+						{
+							"text": "Electric blue",
+							"clr": {
+								"red": 0,
+								"green": 255,
+								"blue": 255
+							},
+							"allegories": [
+								{
+									"text": "A scientific experiment to enhance pleasure and push boundaries, represented by a bright purple light",
+									"clr": {
+										"red": 156,
+										"green": 0,
+										"blue": 216
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "A spiritual awakening and questioning of traditional beliefs, symbolized by a golden yellow light",
+									"clr": {
+										"red": 112,
+										"green": 0,
+										"blue": 0
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "The pressure of living in a secular society and the desire to connect with something higher, depicted by a dark grey storm",
+									"clr": {
+										"red": 51,
+										"green": 51,
+										"blue": 51
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "The journey of a mystic seeker, portrayed as a swirling mix of vibrant colors",
+									"clr": {
+										"red": 20,
+										"green": 147,
+										"blue": 25
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "The internal battle between personal pleasure and societal expectations, shown as a clash of red",
+									"clr": {
+										"red": 0,
+										"green": 0,
+										"blue": 0
+									},
+									"contents": [
+										{
+											"text": "He couldn't shake the feeling of shame and fear that came with his kinky desires, but his scientific mind couldn't resist the allure of enhancement. As an atheist in a spiritual-seeking society, he felt like a mystic practitioner in a world of new age believers. Yet, he remained true to himself, worshiping his own inner desires and embracing his individual spirituality in a secular society. But as a man expected to conform to societal norms, he struggled to reconcile his reasonable nature with his trope-reinforcing actions. In the end, he found freedom and solace in his explicit exploration of pleasure and his individual-focused outlook on life.",
+											"clr": {
+												"red": 255,
+												"green": 255,
+												"blue": 255
+											}
+										},
+										{
+											"text": "She was a confident and adventurous spirit, always pushing the boundaries and seeking new experiences. As a strong and liberal woman, she rejected the societal expectations placed on her and embraced her individualistic nature. Despite facing criticism and judgment, she remained true to herself, seeking the truth and honesty in all aspects of her life. With a libertarian mindset, she reveled in the pleasures of life and found true acceptance and fulfillment in her sexual and spiritual journeys.",
+											"clr": {
+												"red": 255,
+												"green": 255,
+												"blue": 255
+											}
+										},
+										{
+											"text": "He was a melancholic soul, burdened by the weight of societal norms and expectations. But deep down, he harbored a serious and heavy desire for something more, something beyond the mundane. In a world that seemed closed off to his individuality, he found solace in embracing his atheistic beliefs and rejecting the divine worshipers around him. With a playful and humorous outlook, he embraced the idea of a new age of individualistic spirituality, finding hope and optimism in his unconventional path.",
+											"clr": {
+												"red": 255,
+												"green": 255,
+												"blue": 255
+											}
+										}
+									]
+								},
+								{
+									"text": "A celebration of individual expression and freedom, represented by a neon green glow",
+									"clr": {
+										"red": 57,
+										"green": 255,
+										"blue": 20
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "The struggle to find balance between personal desires and moral accountability, illustrated by a shifting spectrum of pastel hues",
+									"clr": {
+										"red": 12,
+										"green": 133,
+										"blue": 92
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "The seductive pull of taboo desires, portrayed by a dark purple haze",
+									"clr": {
+										"red": 75,
+										"green": 0,
+										"blue": 130
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "A journey of self-discovery and acceptance, depicted by a sunrise of warm orange and pink tones",
+									"clr": {
+										"red": 7,
+										"green": 117,
+										"blue": 92
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "The empowerment and confidence that comes with embracing one's true desires, shown as a burst of bright yellow",
+									"clr": {
+										"red": 0,
+										"green": 0,
+										"blue": 0
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "An exhilarating and adventurous exploration of pleasure, depicted by a vibrant mix of indigo",
+									"clr": {
+										"red": 75,
+										"green": 0,
+										"blue": 130
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "The bittersweet melancholy of letting go of societal norms, represented by a deep shade of grey",
+									"clr": {
+										"red": 128,
+										"green": 128,
+										"blue": 128
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "A call to embrace one's sexuality and enjoy the moment, symbolized by a bold and lively shade of magenta",
+									"clr": {
+										"red": 0,
+										"green": 255,
+										"blue": 0
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "A journey towards self-empowerment and assertiveness, portrayed by a deep, rich shade of burgundy",
+									"clr": {
+										"red": 128,
+										"green": 0,
+										"blue": 32
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "The weight and seriousness of societal expectations and the desire to break free, shown as a heavy, dark grey",
+									"clr": {
+										"red": 51,
+										"green": 51,
+										"blue": 51
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "The light-hearted humor in embracing one's desires, represented by a bright and playful shade of lime green",
+									"clr": {
+										"red": 50,
+										"green": 205,
+										"blue": 50
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "The hope and optimism in finding one's own path to pleasure and fulfillment, depicted by a dazzling mix of warm and cool tones",
+									"clr": {
+										"red": 80,
+										"green": 213,
+										"blue": 92
+									},
+									"contents": [
+
+									]
+								},
+								{
+									"text": "The sense of closure and satisfaction in embracing one's true desires, shown as a serene blue light",
+									"clr": {
+										"red": 135,
+										"green": 206,
+										"blue": 235
+									},
+									"contents": [
+
+									]
+								}
+							]
+						},
+						{
+							"text": "A taste of forbidden fruit, with a hint of orchid pink",
+							"clr": {
+								"red": 218,
+								"green": 112,
+								"blue": 214
+							},
+							"allegories": [
+
+							]
+						},
+						{
+							"text": "Unleashing the untamed fire of desire, raging in shades of fiery orange",
+							"clr": {
+								"red": 255,
+								"green": 117,
+								"blue": 24
+							},
+							"allegories": [
+
+							]
+						},
+						{
+							"text": "An alchemy of carnal pleasure, mixing shades of deep purple",
+							"clr": {
+								"red": 148,
+								"green": 0,
+								"blue": 211
+							},
+							"allegories": [
+
+							]
+						},
+						{
+							"text": "Dancing in the moonlight, embracing the dark sensuality of midnight blue",
+							"clr": {
+								"red": 25,
+								"green": 25,
+								"blue": 112
+							},
+							"allegories": [
+
+							]
+						},
+						{
+							"text": "Exploring the deeper shades of lust, with a touch of emerald green",
+							"clr": {
+								"red": 80,
+								"green": 200,
+								"blue": 120
+							},
+							"allegories": [
+
+							]
+						},
+						{
+							"text": "Rising to new heights in a blaze of cherry red",
+							"clr": {
+								"red": 255,
+								"green": 44,
+								"blue": 0
+							},
+							"allegories": [
+
+							]
+						},
+						{
+							"text": "A journey towards kinky enlightenment, in hues of amethyst",
+							"clr": {
+								"red": 153,
+								"green": 50,
+								"blue": 204
+							},
+							"allegories": [
+
+							]
+						},
+						{
+							"text": "A kaleidoscope of pleasure and pain, painted in hues of cobalt",
+							"clr": {
+								"red": 0,
+								"green": 71,
+								"blue": 171
+							},
+							"allegories": [
+
+							]
+						},
+						{
+							"text": "Breaking free from societal norms, in a burst of neon pink",
+							"clr": {
+								"red": 255,
+								"green": 48,
+								"blue": 231
+							},
+							"allegories": [
+
+							]
+						},
+						{
+							"text": "Letting go of inhibitions, riding the waves of desire in shades of ocean blue",
+							"clr": {
+								"red": 0,
+								"green": 119,
+								"blue": 190
+							},
+							"allegories": [
+
+							]
+						},
+						{
+							"text": "An exploration of uncharted pleasure, in a symphony of amaranth",
+							"clr": {
+								"red": 229,
+								"green": 43,
+								"blue": 80
+							},
+							"allegories": [
+
+							]
+						},
+						{
+							"text": "A palette of decadent exploration, in shades of midnight purple",
+							"clr": {
+								"red": 40,
+								"green": 0,
+								"blue": 80
+							},
+							"allegories": [
+
+							]
+						}
+					]
+				},
+				{
+					"text": "Atheistic Seduction",
+					"clr": {
+						"red": 100,
+						"green": 50,
+						"blue": 150
+					},
+					"tones": [
+
+					]
+				},
+				{
+					"text": "Soulful Exploration",
+					"clr": {
+						"red": 255,
+						"green": 230,
+						"blue": 100
+					},
+					"tones": [
+
+					]
+				},
+				{
+					"text": "The Divine Fling",
+					"clr": {
+						"red": 150,
+						"green": 75,
+						"blue": 225
+					},
+					"tones": [
+
+					]
+				},
+				{
+					"text": "Libertine's Manifesto",
+					"clr": {
+						"red": 225,
+						"green": 175,
+						"blue": 50
+					},
+					"tones": [
+
+					]
+				},
+				{
+					"text": "Sensual Freedom",
+					"clr": {
+						"red": 175,
+						"green": 225,
+						"blue": 50
+					},
+					"tones": [
+
+					]
+				},
+				{
+					"text": "The Mystic's Ecstasy",
+					"clr": {
+						"red": 255,
+						"green": 125,
+						"blue": 50
+					},
+					"tones": [
+
+					]
+				},
+				{
+					"text": "Eternal Euphoria",
+					"clr": {
+						"red": 255,
+						"green": 50,
+						"blue": 100
+					},
+					"tones": [
+
+					]
+				}
+			]
 		},
 		{
+			"text": "Embracing a scientific and rational perspective on sexuality and spirituality",
+			"clr": {
+				"red": 0,
+				"green": 127,
+				"blue": 255
+			},
 			"ideas": [
 
-			],
-			"text": "Science vs. religion"
+			]
 		},
 		{
+			"text": "Empowering self-discovery and personal growth through sexual experiences",
+			"clr": {
+				"red": 204,
+				"green": 255,
+				"blue": 0
+			},
 			"ideas": [
 
-			],
-			"text": "The search for meaning and spirituality"
+			]
 		},
 		{
+			"text": "Challenging traditional gender roles and embracing LGBTQ+ identity",
+			"clr": {
+				"red": 255,
+				"green": 51,
+				"blue": 153
+			},
 			"ideas": [
 
-			],
-			"text": "Breaking free from societal norms and expectations"
+			]
 		},
 		{
+			"text": "Embracing personal responsibility and accountability in sexual relationships",
+			"clr": {
+				"red": 255,
+				"green": 204,
+				"blue": 51
+			},
 			"ideas": [
 
-			],
-			"text": "Challenging traditional beliefs and embracing individualism"
+			]
 		},
 		{
+			"text": "Finding humor and lightness in exploring and discussing sexuality",
+			"clr": {
+				"red": 0,
+				"green": 255,
+				"blue": 128
+			},
 			"ideas": [
 
-			],
-			"text": "The power of self-expression and self-acceptance"
+			]
 		},
 		{
+			"text": "Rejecting societal expectations and norms of sexual behavior",
+			"clr": {
+				"red": 255,
+				"green": 51,
+				"blue": 0
+			},
 			"ideas": [
 
-			],
-			"text": "Freedom and liberation"
+			]
 		},
 		{
+			"text": "Embracing a confident and adventurous attitude towards sexuality",
+			"clr": {
+				"red": 102,
+				"green": 0,
+				"blue": 255
+			},
 			"ideas": [
 
-			],
-			"text": "Embracing one's desires and passions without shame"
-		},
-		{
-			"ideas": [
-
-			],
-			"text": "The balance between reason and faith"
-		},
-		{
-			"ideas": [
-
-			],
-			"text": "Questioning authority and traditional institutions"
-		},
-		{
-			"ideas": [
-
-			],
-			"text": "The complexities of love and relationships"
-		},
-		{
-			"ideas": [
-
-			],
-			"text": "Confronting fears and taking risks"
-		},
-		{
-			"ideas": [
-
-			],
-			"text": "The importance of self-awareness and introspection"
-		},
-		{
-			"ideas": [
-
-			],
-			"text": "The struggle between conformity and authenticity"
-		},
-		{
-			"ideas": [
-
-			],
-			"text": "The strength and confidence found in embracing one's true self"
-		},
-		{
-			"ideas": [
-
-			],
-			"text": "The journey towards inner peace and enlightenment"
-		},
-		{
-			"ideas": [
-
-			],
-			"text": "The duality of light and darkness within oneself"
-		},
-		{
-			"ideas": [
-
-			],
-			"text": "The balance between seriousness and lightheartedness in life"
-		},
-		{
-			"ideas": [
-
-			],
-			"text": "The power of humor as a coping mechanism."
+			]
 		}
 	]
 }

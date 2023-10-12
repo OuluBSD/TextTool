@@ -69,6 +69,7 @@ struct TaskMgr {
 	void StoreTaskOrder();
 	void Serialize(Stream& s) {s % task_order;}
 	
+	Task& AddTask();
 	void Process();
 	void ProcessSingle(int task_i);
 	void StartSingle(int task_i) {Thread::Start(THISBACK1(ProcessSingle, task_i));}
@@ -105,6 +106,12 @@ struct TaskMgr {
 	void GetStructureSuggestions(String req, String avoid, String desc, int total, Event<String> WhenResult);
 	void GetSuggestionAttributes(Vector<String>& structs, Event<String> WhenResult);
 	void GetNovelThemes(Vector<String>& attrs, Event<String> WhenResult);
+	void GetNovelIdeas(String theme, Vector<String>& attrs, Event<String> WhenResult);
+	void GetToneSuggestions(String theme, String idea, Vector<String>& attrs, Event<String> WhenResult);
+	void GetAllegorySuggestions(String theme, String idea, String tone, Vector<String>& attrs, Event<String> WhenResult);
+	void GetContentSuggestions(String theme, String idea, String tone, String alleg, Vector<String>& attrs, Event<String> WhenResult);
+	void GetSymbolismSuggestions(String theme, String idea, Vector<String>& attrs, Event<String> WhenResult);
+	void GetImagerySuggestions(String theme, String idea, Vector<String>& attrs, Event<String> WhenResult);
 	
 };
 

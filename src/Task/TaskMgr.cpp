@@ -145,6 +145,34 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetNovelThemes)
 		;
 	
+	AddRule(TASK_GET_NOVEL_IDEAS, "get novel ideas")
+		.Input(&Task::CreateInput_GetNovelIdeas)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 2, 100)
+		.Process(&Task::Process_GetNovelIdeas)
+		;
+	
+	AddRule(TASK_GET_TONE_SUGGESTIONS, "get tone suggestions")
+		.Input(&Task::CreateInput_GetToneSuggestions)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 3, 100)
+		.Process(&Task::Process_GetToneSuggestions)
+		;
+	
+	AddRule(TASK_GET_CONTENT_SUGGESTIONS, "get content suggestions")
+		.Input(&Task::CreateInput_GetContentSuggestions)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 4, 100)
+		.Process(&Task::Process_GetContentSuggestions)
+		;
+	
+	AddRule(TASK_GET_ALLEGORICAL_DEVICES, "get allegorical devices")
+		.Input(&Task::CreateInput_GetAllegorySuggestions)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 4, 100)
+		.Process(&Task::Process_GetAllegorySuggestions)
+		;
+	
 	AddRule(TASK_CONVERT_SCREENPLAY_TO_STRUCTURE, "convert screenplay to structure")
 		.Input(&Task::CreateInput_ConvertScreenplayToStructure)
 			.Arg(V_PTR_PIPE)
@@ -603,6 +631,12 @@ void TaskMgrConfig::Process() {
 
 
 
+Task& TaskMgr::AddTask() {
+	task_lock.Enter();
+	Task& t = tasks .Add();
+	task_lock.Leave();
+	return t;
+}
 
 void TaskMgr::LoadTaskOrder() {
 	String dir = ConfigFile("taskmgr");
@@ -845,7 +879,7 @@ void TaskMgr::ImportSongAndMakeReversedSong() {
 		}
 	}
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	//t.p.CopyPtrs(p.p);
 	t.p.a = ZeroArg();
@@ -860,7 +894,7 @@ void TaskMgr::TranslateSongData(String orig_lang, String orig_key, String trans_
 	const TaskRule& r = mgr.GetRule(TASK_TRANSLATE_SONG_DATA);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -874,7 +908,7 @@ void TaskMgr::ConvertScreenplayToPlan(String orig_key, String plan_key, Callback
 	const TaskRule& r = mgr.GetRule(TASK_CONVERT_SCREENPLAY_TO_PLAN);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -888,7 +922,7 @@ void TaskMgr::Translate(String orig_lang, String orig_txt, String trans_lang, Ev
 	const TaskRule& r = mgr.GetRule(TASK_TRANSLATE);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -902,7 +936,7 @@ void TaskMgr::UnpackStructureSongData(String orig_key, String struct_key, Callba
 	const TaskRule& r = mgr.GetRule(TASK_UNPACK_STRUCTURE_SONG_DATA);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -916,7 +950,7 @@ void TaskMgr::CheckSongStructureErrors(String main_key, String results_key, Call
 	const TaskRule& r = mgr.GetRule(TASK_CHECK_ERRORS_IN_SONG_STRUCT_DATA);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -930,7 +964,7 @@ void TaskMgr::CheckScreenplayStructureErrors(String txt, Event<String> WhenResul
 	const TaskRule& r = mgr.GetRule(TASK_CHECK_ERRORS_IN_SCREENPLAY_STRUCT_DATA);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -944,7 +978,7 @@ void TaskMgr::RawCompletion(String prompt, Event<String> WhenResult) {
 	const TaskRule& r = mgr.GetRule(TASK_RAW_COMPLETION);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -958,7 +992,7 @@ void TaskMgr::EvaluateSuggestionScores(const Vector<String>& strs, Event<String>
 	const TaskRule& r = mgr.GetRule(TASK_EVALUATE_SUGGESTION_SCORES);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -972,7 +1006,7 @@ void TaskMgr::EvaluateSuggestionOrder(const Vector<String>& strs, Event<String> 
 	const TaskRule& r = mgr.GetRule(TASK_EVALUATE_SUGGESTION_ORDER);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -986,7 +1020,7 @@ void TaskMgr::ImproveSourceText(const Vector<String>& strs, int style, Event<Str
 	const TaskRule& r = mgr.GetRule(TASK_IMPROVE_SOURCE_TEXT);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1001,7 +1035,7 @@ void TaskMgr::LimitSyllableCount(const Vector<String>& strs, int syllables, Even
 	const TaskRule& r = mgr.GetRule(TASK_LIMIT_SYLLABLE_COUNT);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1016,7 +1050,7 @@ void TaskMgr::GetAIAttributes(String orig_txt, int attr_count, Event<String> Whe
 	const TaskRule& r = mgr.GetRule(TASK_GET_AI_ATTRIBUTES);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1030,7 +1064,7 @@ void TaskMgr::GetStructureSuggestions(String req, String avoid, String desc, int
 	const TaskRule& r = mgr.GetRule(TASK_GET_STRUCTURE_SUGGESTIONS);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1044,7 +1078,7 @@ void TaskMgr::GetSuggestionAttributes(Vector<String>& structs, Event<String> Whe
 	const TaskRule& r = mgr.GetRule(TASK_GET_SUGGESTION_ATTRIBUTES);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1058,12 +1092,80 @@ void TaskMgr::GetNovelThemes(Vector<String>& attrs, Event<String> WhenResult) {
 	const TaskRule& r = mgr.GetRule(TASK_GET_NOVEL_THEMES);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
 	t.args <<= attrs;
 	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::GetNovelIdeas(String theme, Vector<String>& attrs, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_NOVEL_IDEAS);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = AddTask();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << theme;
+	t.args.Append(attrs);
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::GetToneSuggestions(String theme, String idea, Vector<String>& attrs, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_TONE_SUGGESTIONS);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = AddTask();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << theme << idea;
+	t.args.Append(attrs);
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::GetContentSuggestions(String theme, String idea, String tone, String alleg, Vector<String>& attrs, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_CONTENT_SUGGESTIONS);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = AddTask();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << theme << idea << tone << alleg;
+	t.args.Append(attrs);
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::GetAllegorySuggestions(String theme, String idea, String tone, Vector<String>& attrs, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_ALLEGORICAL_DEVICES);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = AddTask();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << theme << idea << tone;
+	t.args.Append(attrs);
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::GetSymbolismSuggestions(String theme, String idea, Vector<String>& attrs, Event<String> WhenResult) {
+	
+}
+
+void TaskMgr::GetImagerySuggestions(String theme, String idea, Vector<String>& attrs, Event<String> WhenResult) {
+	
 }
 
 void TaskMgr::CheckSongNaturalErrors(String main_key, String results_key, Callback WhenDone) {
@@ -1072,7 +1174,7 @@ void TaskMgr::CheckSongNaturalErrors(String main_key, String results_key, Callba
 	const TaskRule& r = mgr.GetRule(TASK_CHECK_ERRORS_IN_SONG_NL_DATA);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1086,7 +1188,7 @@ void TaskMgr::ConvertSongStructureToEnglish(String struct_txt, Event<String> Whe
 	const TaskRule& r = mgr.GetRule(TASK_CONVERT_SONG_STRUCTURE_TO_ENGLISH);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1100,7 +1202,7 @@ void TaskMgr::EvaluateSongAudience(String src_key, String dst_key, int mode, Cal
 	const TaskRule& r = mgr.GetRule(TASK_EVALUATE_SONG_AUDIENCE);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1129,7 +1231,7 @@ void TaskMgr::MakePoetic(String style, String src_key, String dst_key, Callback 
 	const TaskRule& r = mgr.GetRule(TASK_MAKE_SONG_POETIC);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1151,7 +1253,7 @@ void TaskMgr::EvaluatePoeticStyles(
 	const TaskRule& r = mgr.GetRule(TASK_EVALUATE_POETIC_STYLES);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1173,7 +1275,7 @@ void TaskMgr::MorphToAttributes(const Vector<String>& rhyme_lines, const Vector<
 	const TaskRule& r = mgr.GetRule(TASK_MORPH_TO_ATTRIBUTES);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1188,7 +1290,7 @@ void TaskMgr::ConvertScreenplayToStructure(String orig_txt, Event<String> WhenRe
 	const TaskRule& r = mgr.GetRule(TASK_CONVERT_SCREENPLAY_TO_STRUCTURE);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1202,7 +1304,7 @@ void TaskMgr::ConvertStructureToScreenplay(String orig_txt, Event<String> WhenRe
 	const TaskRule& r = mgr.GetRule(TASK_CONVERT_STRUCTURE_TO_SCREENPLAY);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1216,7 +1318,7 @@ void TaskMgr::CreateImage(String prompt, int count, Event<Array<Image>&> WhenRes
 	const TaskRule& r = mgr.GetRule(TASK_CREATE_IMAGE);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1260,7 +1362,7 @@ void TaskMgr::GetEditImage(Image orig, Image mask, String prompt, int count, Eve
 		orig = ib;
 	}
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1276,7 +1378,7 @@ void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResul
 	const TaskRule& r = mgr.GetRule(TASK_VARIATE_IMAGE);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
-	Task& t = tasks.Add();
+	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
@@ -1326,8 +1428,12 @@ bool TaskMgr::SpawnTasks() {
 	
 	int spawned = 0;
 	Index<Pipe*> task_songs;
+	
+	task_lock.Enter();
 	for (Task& t : tasks)
 		task_songs.FindAdd(t.p.pipe);
+	task_lock.Leave();
+	
 	GroupContext ctx_limit = GetGroupContextLimit();
 	for (const TaskRule& r : mgr.rules) {
 		for (GroupContext ctx = CTX_BEGIN; ctx != ctx_limit; ((int&)ctx)++) {
@@ -1405,7 +1511,7 @@ bool TaskMgr::SpawnTasks() {
 					}
 					
 					for (int mode = mode_begin; mode < mode_end; mode++) {
-						Task& t = tasks.Add();
+						Task& t = AddTask();
 						t.rule = &r;
 						t.p.CopyPtrs(s->Get0());
 						t.p.a.mode = (SnapMode)mode;

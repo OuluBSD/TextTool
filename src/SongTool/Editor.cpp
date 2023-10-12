@@ -110,9 +110,9 @@ void Editor::InitSimplified() {
 	
 	AddItem(t_("Composition"), t_("Checklist"), checklist_composition);
 	
-	AddItem(t_("Text Structure"), t_("Create Translation, Native To English"), structure_native_english);
-	AddItem(t_("Text Structure"), t_("Create From English"), structure_from_english);
-	AddItem(t_("Text Structure"), t_("Edit"), structure_edit);
+	AddItem(t_("Manual override"), t_("Create Translation, Native To English"), structure_native_english);
+	AddItem(t_("Manual override"), t_("Create From English"), structure_from_english);
+	AddItem(t_("Manual override"), t_("Edit"), structure_edit);
 	
 	AddItem(t_("Context"), t_("Attributes"), ctx_attrs);
 	AddItem(t_("Context"), t_("Idea"), auto_ideas);

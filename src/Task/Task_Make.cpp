@@ -575,7 +575,7 @@ void Task::Process_MakeReverseMaskTask() {
 			t.p.part = &part;
 			
 			Array<ReverseTask>& tasks = i == 0 ? song.rev_common_mask_tasks : song.rev_separate_mask_tasks;
-			ReverseTask& rt = tasks.Add();
+			ReverseTask& rt = AddTask();
 			rt.type = type;
 			rt.result_attrs.SetCount(2);
 			t.task = &rt;
