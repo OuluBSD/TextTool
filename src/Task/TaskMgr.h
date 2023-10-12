@@ -110,8 +110,8 @@ struct TaskMgr {
 	void GetToneSuggestions(String theme, String idea, Vector<String>& attrs, Event<String> WhenResult);
 	void GetAllegorySuggestions(String theme, String idea, String tone, Vector<String>& attrs, Event<String> WhenResult);
 	void GetContentSuggestions(String theme, String idea, String tone, String alleg, Vector<String>& attrs, Event<String> WhenResult);
-	void GetSymbolismSuggestions(String theme, String idea, Vector<String>& attrs, Event<String> WhenResult);
-	void GetImagerySuggestions(String theme, String idea, Vector<String>& attrs, Event<String> WhenResult);
+	void GetImagerySuggestions(String theme, String idea, String tone, String alleg, String content, Vector<String>& attrs, Event<String> WhenResult);
+	void GetSymbolismSuggestions(String theme, String idea, String tone, String alleg, String content, String imagery, Vector<String>& attrs, Event<String> WhenResult);
 	
 };
 

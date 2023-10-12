@@ -173,11 +173,18 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetAllegorySuggestions)
 		;
 	
-	AddRule(TASK_CONVERT_SCREENPLAY_TO_STRUCTURE, "convert screenplay to structure")
-		.Input(&Task::CreateInput_ConvertScreenplayToStructure)
+	AddRule(TASK_GET_IMAGERY_SUGGESTIONS, "get imagery suggestions")
+		.Input(&Task::CreateInput_GetImagerySuggestions)
 			.Arg(V_PTR_PIPE)
-			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_ConvertScreenplayToStructure)
+			.Arg(V_ARGS, 5, 100)
+		.Process(&Task::Process_GetImagerySuggestions)
+		;
+	
+	AddRule(TASK_GET_SYMBOLISM_SUGGESTIONS, "get symbolism suggestions")
+		.Input(&Task::CreateInput_GetSymbolismSuggestions)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 6, 100)
+		.Process(&Task::Process_GetSymbolismSuggestions)
 		;
 	
 	AddRule(TASK_CONVERT_STRUCTURE_TO_SCREENPLAY, "convert structure to screenplay")
@@ -1160,12 +1167,34 @@ void TaskMgr::GetAllegorySuggestions(String theme, String idea, String tone, Vec
 	t.WhenResult << WhenResult;
 }
 
-void TaskMgr::GetSymbolismSuggestions(String theme, String idea, Vector<String>& attrs, Event<String> WhenResult) {
+void TaskMgr::GetImagerySuggestions(String theme, String idea, String tone, String alleg, String content, Vector<String>& attrs, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_IMAGERY_SUGGESTIONS);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
+	Task& t = AddTask();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << theme << idea << tone << alleg << content;
+	t.args.Append(attrs);
+	t.WhenResult << WhenResult;
 }
 
-void TaskMgr::GetImagerySuggestions(String theme, String idea, Vector<String>& attrs, Event<String> WhenResult) {
+void TaskMgr::GetSymbolismSuggestions(String theme, String idea, String tone, String alleg, String content, String imagery, Vector<String>& attrs, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_SYMBOLISM_SUGGESTIONS);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
+	Task& t = AddTask();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << theme << idea << tone << alleg << content << imagery;
+	t.args.Append(attrs);
+	t.WhenResult << WhenResult;
 }
 
 void TaskMgr::CheckSongNaturalErrors(String main_key, String results_key, Callback WhenDone) {

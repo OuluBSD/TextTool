@@ -2527,3 +2527,104 @@ void Task::CreateInput_GetContentSuggestions() {
 	
 	input.response_length = 1024*2;
 }
+
+void Task::CreateInput_GetImagerySuggestions() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	String theme = args[0];
+	String idea = args[1];
+	String tone = args[2];
+	String alleg = args[3];
+	String content = args[4];
+	if (theme.Right(1) == ".") theme = theme.Left(theme.GetCount()-1);
+	if (idea.Right(1) == ".") idea = idea.Left(idea.GetCount()-1);
+	if (tone.Right(1) == ".") tone = tone.Left(tone.GetCount()-1);
+	if (alleg.Right(1) == ".") alleg = alleg.Left(alleg.GetCount()-1);
+	if (content.Right(1) == ".") content = content.Left(content.GetCount()-1);
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		for(int i = 5; i < args.GetCount(); i++)
+			list.Add(TrimBoth(args[i]));
+	}
+	
+	{
+		input.AddSub().NoColon().Title("Theme of the song 1 is \"" + theme + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Idea of the song 1 is \"" + idea + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Tone of the song 1 is \"" + tone + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Allegorical device of the song 1 is \"" + alleg + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Storyline of the song 1 is \"" + content + "\"");
+	}
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("List of specific imagery for the song 1. With the metaphorical color RGB integer code at the end");
+		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetSymbolismSuggestions() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	String theme = args[0];
+	String idea = args[1];
+	String tone = args[2];
+	String alleg = args[3];
+	String content = args[4];
+	String imagery = args[5];
+	if (theme.Right(1) == ".") theme = theme.Left(theme.GetCount()-1);
+	if (idea.Right(1) == ".") idea = idea.Left(idea.GetCount()-1);
+	if (tone.Right(1) == ".") tone = tone.Left(tone.GetCount()-1);
+	if (alleg.Right(1) == ".") alleg = alleg.Left(alleg.GetCount()-1);
+	if (content.Right(1) == ".") content = content.Left(content.GetCount()-1);
+	if (imagery.Right(1) == ".") imagery = imagery.Left(imagery.GetCount()-1);
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		for(int i = 6; i < args.GetCount(); i++)
+			list.Add(TrimBoth(args[i]));
+	}
+	
+	{
+		input.AddSub().NoColon().Title("Theme of the song 1 is \"" + theme + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Idea of the song 1 is \"" + idea + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Tone of the song 1 is \"" + tone + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Allegorical device of the song 1 is \"" + alleg + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Storyline of the song 1 is \"" + content + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Specific imagery of the song 1 is \"" + imagery + "\"");
+	}
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("List of novel physical symbol combination for the song 1. With the metaphorical color RGB integer code at the end");
+		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 1024*2;
+}

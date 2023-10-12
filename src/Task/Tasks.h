@@ -228,6 +228,8 @@ public:
 	void CreateInput_GetContentSuggestions();
 	void CreateInput_GetAllegorySuggestions();
 	void CreateInput_GetToneSuggestions();
+	void CreateInput_GetImagerySuggestions();
+	void CreateInput_GetSymbolismSuggestions();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -287,6 +289,8 @@ public:
 	void Process_GetContentSuggestions();
 	void Process_GetAllegorySuggestions();
 	void Process_GetToneSuggestions();
+	void Process_GetImagerySuggestions();
+	void Process_GetSymbolismSuggestions();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

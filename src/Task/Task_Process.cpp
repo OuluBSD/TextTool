@@ -1808,3 +1808,11 @@ void Task::Process_GetContentSuggestions() {
 void Task::Process_GetAllegorySuggestions() {
 	WhenResult("- " + output);
 }
+
+void Task::Process_GetImagerySuggestions() {
+	WhenResult("- " + output);
+}
+
+void Task::Process_GetSymbolismSuggestions() {
+	WhenResult("- " + output);
+}

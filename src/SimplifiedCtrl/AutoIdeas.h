@@ -4,10 +4,10 @@
 
 class AutoIdeas : public SongToolCtrl {
 	bool disabled = false;
-	Splitter hsplit, songsplit, ideasplit, detaillist;
+	Splitter hsplit, vsplit0, vsplit1;
 	ArrayCtrl themes, ideas;
 	ArrayCtrl contents, allegories;
-	ArrayCtrl tones, symbolism, specific_imagery;
+	ArrayCtrl tones, symbolisms, imageries;
 	
 public:
 	typedef AutoIdeas CLASSNAME;
@@ -21,6 +21,8 @@ public:
 	void DataIdea();
 	void DataTone();
 	void DataAllegory();
+	void DataContent();
+	void DataImagery();
 	void ToolMenu(Bar& bar) override;
 	String GetStatusText() override;
 	void GetNovelThemes();
@@ -36,14 +38,15 @@ public:
 	void OnToneSuggestions(String result, StaticIdea* idea);
 	void OnAllegorySuggestions(String result, StaticToneSuggestion* tone);
 	void OnContentSuggestions(String result, StaticAllegoricalDevice* alleg);
-	void OnSymbolismSuggestions(String result, StaticIdea* idea);
-	void OnImagerySuggestions(String result, StaticIdea* idea);
+	void OnImagerySuggestions(String result, StaticContentIdea* c);
+	void OnSymbolismSuggestions(String result, StaticImagery* img);
 	
 	void OnListTheme();
 	void OnListIdea();
 	void OnListTone();
 	void OnListAllegory();
 	void OnListContentIdea();
+	void OnListImagery();
 	
 };
 

@@ -111,7 +111,7 @@ struct StaticPart {
 
 
 
-struct StaticContentIdea {
+struct StaticSymbolism {
 	String text;
 	Color clr;
 	
@@ -120,6 +120,36 @@ struct StaticContentIdea {
 		json
 			("text", text)
 			("clr", clr)
+			;
+	}
+};
+
+struct StaticImagery {
+	String text;
+	Color clr;
+	Array<StaticSymbolism> symbolisms;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("text", text)
+			("clr", clr)
+			("symbolisms", symbolisms)
+			;
+	}
+	
+};
+
+struct StaticContentIdea {
+	String text;
+	Color clr;
+	Array<StaticImagery> imageries;
+	
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("text", text)
+			("clr", clr)
+			("imageries", imageries)
 			;
 	}
 };
