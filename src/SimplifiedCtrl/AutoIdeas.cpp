@@ -711,6 +711,8 @@ void ParseTextColor(String s, String& text, Color& clr) {
 	
 	if (a >= 0) {
 		int b = s.Find(")", a);
+		if (b >= 0 && split > a && split < b)
+			split = -1;
 		if (b < 0) b = s.GetCount();
 		String clr_str = s.Mid(a,b-a);
 		bool is_hex = clr_str.Find("#") >= 0;
@@ -765,11 +767,21 @@ void ParseTextColor(String s, String& text, Color& clr) {
 			else
 				s = TrimBoth(s.Left(a));
 		}
+		else
+			s = TrimBoth(s.Left(a));
 	}
 	
 	String txt = s;
 	
 	a = txt.Find(":");
+	if (a >= 0)
+		txt = TrimBoth(txt.Mid(a+1));
+	
+	a = txt.Find("\"");
+	if (a >= 0)
+		txt = TrimBoth(txt.Mid(a+1));
+	
+	a = txt.Find("-");
 	if (a >= 0)
 		txt = TrimBoth(txt.Mid(a+1));
 	
