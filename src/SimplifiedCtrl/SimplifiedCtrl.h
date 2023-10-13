@@ -28,6 +28,7 @@
 #include "CalMgrCtrl.h"
 #include "ContextAttributes.h"
 #include "AutoIdeas.h"
+#include "PartIdea.h"
 
 
 #endif

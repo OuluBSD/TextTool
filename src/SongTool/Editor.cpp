@@ -116,6 +116,7 @@ void Editor::InitSimplified() {
 	
 	AddItem(t_("Context"), t_("Attributes"), ctx_attrs);
 	AddItem(t_("Context"), t_("Idea"), auto_ideas);
+	AddItem(t_("Context"), t_("Idea of a single part"), part_idea);
 	
 	AddItem(t_("Text"), t_("English Styler"), text_autocompare_eng);
 	AddItem(t_("Text"), t_("Native Styler"), text_autocompare_nat);

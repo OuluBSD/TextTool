@@ -22,6 +22,8 @@ file
 	ContextAttributes.cpp,
 	AutoIdeas.h,
 	AutoIdeas.cpp,
+	PartIdea.h,
+	PartIdea.cpp,
 	TxtAutoCompare.h,
 	TxtAutoCompare.cpp,
 	TxtSerialCompare.h,

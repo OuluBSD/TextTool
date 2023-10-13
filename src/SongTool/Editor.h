@@ -77,6 +77,7 @@ protected:
 	SocialMediaChecklist	some_chk;
 	SongStructure			song_struct;
 	AutoIdeas				auto_ideas;
+	PartIdea				part_idea;
 	
 public:
 	typedef Editor CLASSNAME;
