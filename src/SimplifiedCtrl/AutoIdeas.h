@@ -2,6 +2,10 @@
 #define _SimplifiedCtrl_AutoIdeas_h_
 
 
+void HotFixResult(String& res);
+void ParseTextColor(String s, String& text, Color& clr);
+
+
 class AutoIdeas : public SongToolCtrl {
 	bool disabled = false;
 	Splitter hsplit, vsplit0, vsplit1;
@@ -38,7 +42,7 @@ public:
 	void OnToneSuggestions(String result, StaticIdea* idea);
 	void OnAllegorySuggestions(String result, StaticToneSuggestion* tone);
 	void OnContentSuggestions(String result, StaticAllegoricalDevice* alleg);
-	void OnImagerySuggestions(String result, StaticContentIdea* c);
+	void OnImagerySuggestions(String result, StaticContentSuggestion* c);
 	void OnSymbolismSuggestions(String result, StaticImagery* img);
 	
 	void OnListTheme();

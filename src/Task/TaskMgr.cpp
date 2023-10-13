@@ -187,6 +187,27 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetSymbolismSuggestions)
 		;
 	
+	AddRule(TASK_GET_PART_CONTENT_SUGGESTIONS, "get part content suggestions")
+		.Input(&Task::CreateInput_GetPartContentSuggestions)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 6, 100)
+		.Process(&Task::Process_GetPartContentSuggestions)
+		;
+	
+	AddRule(TASK_GET_PART_IMAGERY_SUGGESTIONS, "get part imagery suggestions")
+		.Input(&Task::CreateInput_GetPartImagerySuggestions)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 7, 100)
+		.Process(&Task::Process_GetPartImagerySuggestions)
+		;
+	
+	AddRule(TASK_GET_PART_SYMBOLISM_SUGGESTIONS, "get part symbolism suggestions")
+		.Input(&Task::CreateInput_GetPartSymbolismSuggestions)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 8, 100)
+		.Process(&Task::Process_GetPartSymbolismSuggestions)
+		;
+	
 	AddRule(TASK_CONVERT_STRUCTURE_TO_SCREENPLAY, "convert structure to screenplay")
 		.Input(&Task::CreateInput_ConvertStructureToScreenplay)
 			.Arg(V_PTR_PIPE)
@@ -1148,6 +1169,51 @@ void TaskMgr::GetContentSuggestions(String theme, String idea, String tone, Stri
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
 	t.args << theme << idea << tone << alleg;
+	t.args.Append(attrs);
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::GetPartContentSuggestions(String theme, String idea, String tone, String alleg, String part, String known_part_ideas, Vector<String>& attrs, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_PART_CONTENT_SUGGESTIONS);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = AddTask();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << theme << idea << tone << alleg << part << known_part_ideas;
+	t.args.Append(attrs);
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::GetPartImagerySuggestions(String theme, String idea, String tone, String alleg, String content, String part, String known_part_ideas, Vector<String>& attrs, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_PART_IMAGERY_SUGGESTIONS);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = AddTask();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << theme << idea << tone << alleg << content << part << known_part_ideas;
+	t.args.Append(attrs);
+	t.WhenResult << WhenResult;
+}
+
+void TaskMgr::GetPartSymbolismSuggestions(String theme, String idea, String tone, String alleg, String content, String imagery, String part, String known_part_ideas, Vector<String>& attrs, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_PART_SYMBOLISM_SUGGESTIONS);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	Task& t = AddTask();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << theme << idea << tone << alleg << content << imagery << part << known_part_ideas;
 	t.args.Append(attrs);
 	t.WhenResult << WhenResult;
 }

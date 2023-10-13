@@ -112,7 +112,9 @@ struct TaskMgr {
 	void GetContentSuggestions(String theme, String idea, String tone, String alleg, Vector<String>& attrs, Event<String> WhenResult);
 	void GetImagerySuggestions(String theme, String idea, String tone, String alleg, String content, Vector<String>& attrs, Event<String> WhenResult);
 	void GetSymbolismSuggestions(String theme, String idea, String tone, String alleg, String content, String imagery, Vector<String>& attrs, Event<String> WhenResult);
-	
+	void GetPartContentSuggestions(String theme, String idea, String tone, String alleg, String part, String known_part_ideas, Vector<String>& attrs, Event<String> WhenResult);
+	void GetPartImagerySuggestions(String theme, String idea, String tone, String alleg, String content, String part, String known_part_ideas, Vector<String>& attrs, Event<String> WhenResult);
+	void GetPartSymbolismSuggestions(String theme, String idea, String tone, String alleg, String content, String imagery, String part, String known_part_ideas, Vector<String>& attrs, Event<String> WhenResult);
 };
 
 struct TaskMgrConfig {

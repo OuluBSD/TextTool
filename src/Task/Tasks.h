@@ -230,6 +230,9 @@ public:
 	void CreateInput_GetToneSuggestions();
 	void CreateInput_GetImagerySuggestions();
 	void CreateInput_GetSymbolismSuggestions();
+	void CreateInput_GetPartContentSuggestions();
+	void CreateInput_GetPartImagerySuggestions();
+	void CreateInput_GetPartSymbolismSuggestions();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -291,6 +294,9 @@ public:
 	void Process_GetToneSuggestions();
 	void Process_GetImagerySuggestions();
 	void Process_GetSymbolismSuggestions();
+	void Process_GetPartContentSuggestions();
+	void Process_GetPartImagerySuggestions();
+	void Process_GetPartSymbolismSuggestions();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

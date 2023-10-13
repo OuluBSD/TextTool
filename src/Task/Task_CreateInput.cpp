@@ -2629,3 +2629,255 @@ void Task::CreateInput_GetSymbolismSuggestions() {
 	
 	input.response_length = 1024*2;
 }
+
+void Task::CreateInput_GetPartContentSuggestions() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	String theme = args[0];
+	String idea = args[1];
+	String tone = args[2];
+	String alleg = args[3];
+	String part = args[4];
+	if (theme.Right(1) == ".") theme = theme.Left(theme.GetCount()-1);
+	if (idea.Right(1) == ".") idea = idea.Left(idea.GetCount()-1);
+	if (tone.Right(1) == ".") tone = tone.Left(tone.GetCount()-1);
+	if (alleg.Right(1) == ".") alleg = alleg.Left(alleg.GetCount()-1);
+	
+	Vector<Vector<String>> parts;
+	{
+		Vector<String> tmp = Split(args[5], ";;;");
+		for (String& s : tmp)
+			parts << Split(s, "__", false);
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		for(int i = 6; i < args.GetCount(); i++)
+			list.Add(TrimBoth(args[i]));
+	}
+	{
+		input.AddSub().NoColon().Title("Theme of the song 1 is \"" + theme + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Idea of the song 1 is \"" + idea + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Tone of the song 1 is \"" + tone + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Allegorical device of the song 1 is \"" + alleg + "\"");
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Structure of the song 1 is");
+		for(int i = 0; i < parts.GetCount(); i++)
+			list.Add(TrimBoth(parts[i][0]));
+	}
+	
+	for(int i = 0; i < parts.GetCount(); i++) {
+		Vector<String>& part = parts[i];
+		
+		bool has_value = false;
+		for(int j = 1; j < part.GetCount(); j++)
+			if (!part[j].IsEmpty())
+				has_value = true;
+		if (!has_value)
+			continue;
+		
+		TaskTitledList& list = input.AddSub().Title("Known idea of the part " + part[0] + " of the song 1 is");
+		for(int j = 1; j < part.GetCount(); j++) {
+			const char* key = IdeaPathString[IDEAPATH_PARTBEGIN + j-1][0];
+			String& value = part[j];
+			if (value.IsEmpty())
+				continue;
+			String s = key;
+			s << ": " << value;
+			list.Add(s);
+		}
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("List of practically detailed absolute (1st or 3rd person pronoun) storylines (with the metaphorical color RGB integer (r,g,b) code at the end) for the part " + part + " of the song 1");
+		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetPartImagerySuggestions() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	String theme = args[0];
+	String idea = args[1];
+	String tone = args[2];
+	String alleg = args[3];
+	String content = args[4];
+	String part = args[5];
+	if (theme.Right(1) == ".") theme = theme.Left(theme.GetCount()-1);
+	if (idea.Right(1) == ".") idea = idea.Left(idea.GetCount()-1);
+	if (tone.Right(1) == ".") tone = tone.Left(tone.GetCount()-1);
+	if (alleg.Right(1) == ".") alleg = alleg.Left(alleg.GetCount()-1);
+	if (content.Right(1) == ".") content = content.Left(content.GetCount()-1);
+	
+	Vector<Vector<String>> parts;
+	{
+		Vector<String> tmp = Split(args[6], ";;;");
+		for (String& s : tmp)
+			parts << Split(s, "__", false);
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		for(int i = 7; i < args.GetCount(); i++)
+			list.Add(TrimBoth(args[i]));
+	}
+	{
+		input.AddSub().NoColon().Title("Theme of the song 1 is \"" + theme + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Idea of the song 1 is \"" + idea + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Tone of the song 1 is \"" + tone + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Allegorical device of the song 1 is \"" + alleg + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Storyline of the song 1 is \"" + content + "\"");
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Structure of the song 1 is");
+		for(int i = 0; i < parts.GetCount(); i++)
+			list.Add(TrimBoth(parts[i][0]));
+	}
+	
+	for(int i = 0; i < parts.GetCount(); i++) {
+		Vector<String>& part = parts[i];
+		
+		bool has_value = false;
+		for(int j = 1; j < part.GetCount(); j++)
+			if (!part[j].IsEmpty())
+				has_value = true;
+		if (!has_value)
+			continue;
+		
+		TaskTitledList& list = input.AddSub().Title("Known idea of the part " + part[0] + " of the song 1 is");
+		for(int j = 1; j < part.GetCount(); j++) {
+			const char* key = IdeaPathString[IDEAPATH_PARTBEGIN + j-1][0];
+			String& value = part[j];
+			if (value.IsEmpty())
+				continue;
+			String s = key;
+			s << ": " << value;
+			list.Add(s);
+		}
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("List of specific imagery for the part " + part + " of the song 1. With the metaphorical color RGB integer (r,g,b) code at the end");
+		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetPartSymbolismSuggestions() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	String theme = args[0];
+	String idea = args[1];
+	String tone = args[2];
+	String alleg = args[3];
+	String content = args[4];
+	String imagery = args[5];
+	String part = args[6];
+	if (theme.Right(1) == ".") theme = theme.Left(theme.GetCount()-1);
+	if (idea.Right(1) == ".") idea = idea.Left(idea.GetCount()-1);
+	if (tone.Right(1) == ".") tone = tone.Left(tone.GetCount()-1);
+	if (alleg.Right(1) == ".") alleg = alleg.Left(alleg.GetCount()-1);
+	if (content.Right(1) == ".") content = content.Left(content.GetCount()-1);
+	if (imagery.Right(1) == ".") imagery = imagery.Left(imagery.GetCount()-1);
+	
+	Vector<Vector<String>> parts;
+	{
+		Vector<String> tmp = Split(args[7], ";;;");
+		for (String& s : tmp)
+			parts << Split(s, "__", false);
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		for(int i = 8; i < args.GetCount(); i++)
+			list.Add(TrimBoth(args[i]));
+	}
+	{
+		input.AddSub().NoColon().Title("Theme of the song 1 is \"" + theme + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Idea of the song 1 is \"" + idea + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Tone of the song 1 is \"" + tone + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Allegorical device of the song 1 is \"" + alleg + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Storyline of the song 1 is \"" + content + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Specific imagery of the song 1 is \"" + imagery + "\"");
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Structure of the song 1 is");
+		for(int i = 0; i < parts.GetCount(); i++)
+			list.Add(TrimBoth(parts[i][0]));
+	}
+	
+	for(int i = 0; i < parts.GetCount(); i++) {
+		Vector<String>& part = parts[i];
+		
+		bool has_value = false;
+		for(int j = 1; j < part.GetCount(); j++)
+			if (!part[j].IsEmpty())
+				has_value = true;
+		if (!has_value)
+			continue;
+		
+		TaskTitledList& list = input.AddSub().Title("Known idea of the part " + part[0] + " of the song 1 is");
+		for(int j = 1; j < part.GetCount(); j++) {
+			const char* key = IdeaPathString[IDEAPATH_PARTBEGIN + j-1][0];
+			String& value = part[j];
+			if (value.IsEmpty())
+				continue;
+			String s = key;
+			s << ": " << value;
+			list.Add(s);
+		}
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("List of practically List of physical symbol combination in relation to the imagery for the part " + part + " of the song 1. With the metaphorical color RGB integer (r,g,b) code at the end");
+		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 1024*2;
+}

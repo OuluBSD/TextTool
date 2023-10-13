@@ -48,6 +48,78 @@ struct SongHeader {
 
 
 
+// Idea path
+enum {
+	IDEAPATH_THEME,
+	IDEAPATH_IDEA,
+	IDEAPATH_TONE,
+	IDEAPATH_ALLEGORY,
+	IDEAPATH_CONTENT,
+	IDEAPATH_IMAGERY,
+	IDEAPATH_SYMBOLISM,
+	
+	IDEAPATH_COUNT,
+	
+	IDEAPATH_PARTBEGIN = IDEAPATH_CONTENT,
+	IDEAPATH_PARTCOUNT = IDEAPATH_COUNT - IDEAPATH_PARTBEGIN,
+	
+	IDEAPATH_PART_CONTENT = IDEAPATH_CONTENT - IDEAPATH_PARTBEGIN,
+	IDEAPATH_PART_IMAGERY = IDEAPATH_IMAGERY - IDEAPATH_PARTBEGIN,
+	IDEAPATH_PART_SYMBOLISM = IDEAPATH_SYMBOLISM - IDEAPATH_PARTBEGIN,
+};
+
+extern const char* IdeaPathString[IDEAPATH_COUNT][2];
+
+
+struct StaticSymbolism {
+	String text;
+	Color clr;
+	int cursor = -1;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("text", text)
+			("clr", clr)
+			("cursor", cursor)
+			;
+	}
+};
+
+struct StaticImagery {
+	String text;
+	Color clr;
+	Array<StaticSymbolism> symbolisms;
+	int cursor = -1;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("text", text)
+			("clr", clr)
+			("symbolisms", symbolisms)
+			("cursor", cursor)
+			;
+	}
+	
+};
+
+struct StaticContentSuggestion {
+	String text;
+	Color clr;
+	Array<StaticImagery> imageries;
+	int cursor = -1;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("text", text)
+			("clr", clr)
+			("imageries", imageries)
+			("cursor", cursor)
+			;
+	}
+};
+
+
+
 struct StaticSuggestion {
 	String style, content;
 	int score = 0;
@@ -84,6 +156,8 @@ struct StaticRhyme {
 struct StaticPart {
 	String name;
 	String type; // abbreviation like V1, PC2, C
+	String active_idea[IDEAPATH_PARTCOUNT];
+	Color active_idea_clr[IDEAPATH_PARTCOUNT];
 	Vector<String> source; // lines
 	Vector<String> ai_source;
 	Array<StaticRhyme> rhymes;
@@ -91,6 +165,9 @@ struct StaticPart {
 	VectorMap<String,String> data;
 	String syllable_str;
 	bool outdated_suggestions = true;
+	Array<StaticContentSuggestion> contents;
+	int content_cursor = -1;
+	
 	void Jsonize(JsonIO& json) {
 		json
 			("name", name)
@@ -102,7 +179,15 @@ struct StaticPart {
 			("data", data)
 			("outdated_suggestions", outdated_suggestions)
 			("syllable_str", syllable_str)
+			("contents", contents)
+			("content_cursor", content_cursor)
 			;
+		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
+			json(	(String)"active_idea[" + IdeaPathString[IDEAPATH_PARTBEGIN+i][1] + "]",
+					active_idea[i]);
+		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
+			json(	(String)"active_idea_clr[" + IdeaPathString[IDEAPATH_PARTBEGIN+i][1] + "]",
+					active_idea_clr[i]);
 	}
 	
 	// Temp
@@ -110,55 +195,8 @@ struct StaticPart {
 };
 
 
-struct StaticSymbolism {
-	String text;
-	Color clr;
-	int cursor = -1;
-	
-	void Jsonize(JsonIO& json) {
-		json
-			("text", text)
-			("clr", clr)
-			("cursor", cursor)
-			;
-	}
-};
-
-struct StaticImagery {
-	String text;
-	Color clr;
-	Array<StaticSymbolism> symbolisms;
-	int cursor = -1;
-	
-	void Jsonize(JsonIO& json) {
-		json
-			("text", text)
-			("clr", clr)
-			("symbolisms", symbolisms)
-			("cursor", cursor)
-			;
-	}
-	
-};
-
-struct StaticContentIdea {
-	String text;
-	Color clr;
-	Array<StaticImagery> imageries;
-	int cursor = -1;
-	
-	void Jsonize(JsonIO& json) {
-		json
-			("text", text)
-			("clr", clr)
-			("imageries", imageries)
-			("cursor", cursor)
-			;
-	}
-};
-
 struct StaticAllegoricalDevice {
-	Array<StaticContentIdea> contents;
+	Array<StaticContentSuggestion> contents;
 	String text;
 	Color clr;
 	int cursor = -1;
@@ -221,21 +259,6 @@ struct StaticTheme {
 	}
 };
 
-// Idea path
-enum {
-	IDEAPATH_THEME,
-	IDEAPATH_IDEA,
-	IDEAPATH_TONE,
-	IDEAPATH_ALLEGORY,
-	IDEAPATH_CONTENT,
-	IDEAPATH_IMAGERY,
-	IDEAPATH_SYMBOLISM,
-	
-	IDEAPATH_COUNT
-};
-
-extern const char* IdeaPathString[IDEAPATH_COUNT][2];
-
 struct Song :
 	DataFile,
 	EditorPtrs
@@ -293,7 +316,8 @@ struct Song :
 	StructSuggestion			active_struct;
 	int							default_line_syllables = 0;
 	int							default_attr_count = 7;
-	int							theme_cursor = 0;
+	int							theme_cursor = -1;
+	int							part_cursor = -1;
 	String						active_idea[IDEAPATH_COUNT];
 	Color						active_idea_clr[IDEAPATH_COUNT];
 	
@@ -344,6 +368,7 @@ struct Song :
 			("struct_suggs", struct_suggs)
 			("themes", themes)
 			("theme_cursor", theme_cursor)
+			("part_cursor", part_cursor)
 			;
 		for(int i = 0; i < IDEAPATH_COUNT; i++)
 			json((String)"active_idea[" + IdeaPathString[i][1] + "]", active_idea[i]);

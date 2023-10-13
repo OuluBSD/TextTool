@@ -197,7 +197,7 @@ void AutoIdeas::DataAllegory(bool set_cursor) {
 	
 	
 	for(int i = 0; i < dev.contents.GetCount(); i++) {
-		StaticContentIdea& o = dev.contents[i];
+		StaticContentSuggestion& o = dev.contents[i];
 		contents.Set(i, 0, AttrText(Capitalize(o.text))
 			.Paper(Blend(o.clr, GrayColor(), 128+64)).Ink(White())
 			.NormalPaper(Blend(o.clr, White(), 128+64))
@@ -230,7 +230,7 @@ void AutoIdeas::DataContent(bool set_cursor) {
 	StaticIdea& id = t.ideas[idea_i];
 	StaticToneSuggestion& tone = id.tones[tone_i];
 	StaticAllegoricalDevice& dev = tone.allegories[allegory_i];
-	StaticContentIdea& c = dev.contents[content_i];
+	StaticContentSuggestion& c = dev.contents[content_i];
 	
 	
 	for(int i = 0; i < c.imageries.GetCount(); i++) {
@@ -267,7 +267,7 @@ void AutoIdeas::DataImagery(bool set_cursor) {
 	StaticIdea& id = t.ideas[idea_i];
 	StaticToneSuggestion& tone = id.tones[tone_i];
 	StaticAllegoricalDevice& dev = tone.allegories[allegory_i];
-	StaticContentIdea& c = dev.contents[content_i];
+	StaticContentSuggestion& c = dev.contents[content_i];
 	StaticImagery& img = c.imageries[imagery_i];
 	
 	
@@ -389,7 +389,7 @@ void AutoIdeas::OnListContentIdea() {
 		StaticIdea& id = t.ideas[idea_i];
 		StaticToneSuggestion& tone = id.tones[tone_i];
 		StaticAllegoricalDevice& alleg = tone.allegories[allegory_i];
-		StaticContentIdea& c = alleg.contents[content_i];
+		StaticContentSuggestion& c = alleg.contents[content_i];
 		alleg.cursor = content_i;
 		if (c.imageries.IsEmpty()) {
 			imageries.Clear();
@@ -415,7 +415,7 @@ void AutoIdeas::OnListImagery() {
 		StaticIdea& id = t.ideas[idea_i];
 		StaticToneSuggestion& tone = id.tones[tone_i];
 		StaticAllegoricalDevice& alleg = tone.allegories[allegory_i];
-		StaticContentIdea& c = alleg.contents[content_i];
+		StaticContentSuggestion& c = alleg.contents[content_i];
 		StaticImagery& img = c.imageries[imagery_i];
 		c.cursor = imagery_i;
 		if (img.symbolisms.IsEmpty()) {
@@ -442,7 +442,7 @@ void AutoIdeas::OnListSymbolism() {
 		StaticIdea& id = t.ideas[idea_i];
 		StaticToneSuggestion& tone = id.tones[tone_i];
 		StaticAllegoricalDevice& alleg = tone.allegories[allegory_i];
-		StaticContentIdea& c = alleg.contents[content_i];
+		StaticContentSuggestion& c = alleg.contents[content_i];
 		StaticImagery& img = c.imageries[imagery_i];
 		StaticSymbolism& sym = img.symbolisms[symbolism_i];
 		img.cursor = symbolism_i;
@@ -659,7 +659,7 @@ void AutoIdeas::GetImagerySuggestions() {
 	StaticIdea& id = t.ideas[idea_i];
 	StaticToneSuggestion& tone = id.tones[tone_i];
 	StaticAllegoricalDevice& all = tone.allegories[allegory_i];
-	StaticContentIdea& c = all.contents[content_i];
+	StaticContentSuggestion& c = all.contents[content_i];
 	
 	Vector<String> attrs;
 	GetAttrs(p.artist->data, attrs);
@@ -697,7 +697,7 @@ void AutoIdeas::GetSymbolismSuggestions() {
 	StaticIdea& id = t.ideas[idea_i];
 	StaticToneSuggestion& tone = id.tones[tone_i];
 	StaticAllegoricalDevice& all = tone.allegories[allegory_i];
-	StaticContentIdea& c = all.contents[content_i];
+	StaticContentSuggestion& c = all.contents[content_i];
 	StaticImagery& img =  c.imageries[imagery_i];
 	
 	Vector<String> attrs;
@@ -761,6 +761,15 @@ void ParseTextColor(String s, String& text, Color& clr) {
 	int a = s.Find("(");
 	int split0 = s.Find(":");
 	int split1 = s.Find("-");
+	
+	// Fix '-' in e.g. self-discovery
+	int q0 = s.Find("\"");
+	int q1 = q0 >= 0 ? s.Find("\"",q0+1) : -1;
+	if (q0 >= 0 && q1 >= 0 && split1 >= 0) {
+		if (q0 < split1 && split1 < q1)
+			split1 = -1;
+	}
+	
 	int split = split0 >= 0 ? split0 : split1;
 	if (split < 0) split = a;
 	
@@ -837,8 +846,12 @@ void ParseTextColor(String s, String& text, Color& clr) {
 		txt = TrimBoth(txt.Mid(a+1));
 	
 	a = txt.Find("-");
-	if (a >= 0)
-		txt = TrimBoth(txt.Mid(a+1));
+	if (a >= 0) {
+		if (a > 0 && a < txt.GetCount()-1 && IsAlpha(txt[a-1]) && IsAlpha(txt[a+1]))
+			; // pass joined words
+		else
+			txt = TrimBoth(txt.Mid(a+1));
+	}
 	
 	if (txt.Left(1) == "\"") txt = txt.Mid(1);
 	if (txt.Right(1) == "\"") txt = txt.Left(txt.GetCount()-1);
@@ -929,14 +942,14 @@ void AutoIdeas::OnContentSuggestions(String result, StaticAllegoricalDevice* all
 	for(int i = 0; i < lines.GetCount(); i++) {
 		String s = TrimBoth(lines[i].Mid(1));
 		if (s.IsEmpty()) break;
-		StaticContentIdea& o = alleg->contents.Add();
+		StaticContentSuggestion& o = alleg->contents.Add();
 		ParseTextColor(s, o.text, o.clr);
 	}
 	
 	PostCallback(THISBACK1(DataAllegory, false));
 }
 
-void AutoIdeas::OnImagerySuggestions(String result, StaticContentIdea* c) {
+void AutoIdeas::OnImagerySuggestions(String result, StaticContentSuggestion* c) {
 	EnableAll();
 	
 	HotFixResult(result);
@@ -989,7 +1002,7 @@ void AutoIdeas::SetAsActiveIdea() {
 		StaticIdea& id = t.ideas[idea_i];
 		StaticToneSuggestion& tone = id.tones[tone_i];
 		StaticAllegoricalDevice& all = tone.allegories[allegory_i];
-		StaticContentIdea& c = all.contents[content_i];
+		StaticContentSuggestion& c = all.contents[content_i];
 		StaticImagery& img =  c.imageries[imagery_i];
 		StaticSymbolism& sym =  img.symbolisms[symblism_i];
 		

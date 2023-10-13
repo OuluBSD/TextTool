@@ -1816,3 +1816,15 @@ void Task::Process_GetImagerySuggestions() {
 void Task::Process_GetSymbolismSuggestions() {
 	WhenResult("- " + output);
 }
+
+void Task::Process_GetPartContentSuggestions() {
+	WhenResult("- " + output);
+}
+
+void Task::Process_GetPartImagerySuggestions() {
+	WhenResult("- " + output);
+}
+
+void Task::Process_GetPartSymbolismSuggestions() {
+	WhenResult("- " + output);
+}
