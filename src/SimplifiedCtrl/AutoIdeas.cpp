@@ -1000,6 +1000,14 @@ void AutoIdeas::SetAsActiveIdea() {
 		song.active_idea[IDEAPATH_CONTENT] = c.text;
 		song.active_idea[IDEAPATH_IMAGERY] = img.text;
 		song.active_idea[IDEAPATH_SYMBOLISM] = sym.text;
+		
+		song.active_idea_clr[IDEAPATH_THEME] = t.clr;
+		song.active_idea_clr[IDEAPATH_IDEA] = id.clr;
+		song.active_idea_clr[IDEAPATH_TONE] = tone.clr;
+		song.active_idea_clr[IDEAPATH_ALLEGORY] = all.clr;
+		song.active_idea_clr[IDEAPATH_CONTENT] = c.clr;
+		song.active_idea_clr[IDEAPATH_IMAGERY] = img.clr;
+		song.active_idea_clr[IDEAPATH_SYMBOLISM] = sym.clr;
 	}
 	catch (NoPointerExc e) {}
 }

@@ -295,6 +295,7 @@ struct Song :
 	int							default_attr_count = 7;
 	int							theme_cursor = 0;
 	String						active_idea[IDEAPATH_COUNT];
+	Color						active_idea_clr[IDEAPATH_COUNT];
 	
 	// Temp
 	Pipe*				pipe = 0;
@@ -346,6 +347,9 @@ struct Song :
 			;
 		for(int i = 0; i < IDEAPATH_COUNT; i++)
 			json((String)"active_idea[" + IdeaPathString[i][1] + "]", active_idea[i]);
+		
+		for(int i = 0; i < IDEAPATH_COUNT; i++)
+			json((String)"active_idea_clr[" + IdeaPathString[i][1] + "]", active_idea_clr[i]);
 		
 		//for(const SnapArg& a : HumanInputTextArgs())
 		//	json("headers[" + a.SubscriptString() + "]", headers[a]);

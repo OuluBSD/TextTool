@@ -3,7 +3,9 @@
 
 
 class PartIdea : public SongToolCtrl {
-	
+	Splitter vsplit, hsplit0, hsplit1;
+	ArrayCtrl active, parts;
+	ArrayCtrl contents, imageries, symbolisms;
 	
 public:
 	typedef PartIdea CLASSNAME;
