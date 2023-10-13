@@ -29,6 +29,7 @@ AutoIdeas::AutoIdeas() {
 	imageries.WhenCursor << THISBACK(OnListImagery);
 	
 	symbolisms.AddColumn(t_("Symbolism"));
+	symbolisms.WhenCursor << THISBACK(OnListSymbolism);
 	
 }
 
@@ -55,10 +56,10 @@ void AutoIdeas::EnableAll() {
 }
 
 void AutoIdeas::Data() {
-	DataSong();
+	DataSong(true);
 }
 
-void AutoIdeas::DataSong() {
+void AutoIdeas::DataSong(bool set_cursor) {
 	Song& song = GetSong();
 	
 	for(int i = 0; i < song.themes.GetCount(); i++) {
@@ -71,12 +72,13 @@ void AutoIdeas::DataSong() {
 	}
 	themes.SetCount(song.themes.GetCount());
 	
-	//if (themes.GetCount() && !themes.IsCursor()) themes.SetCursor(0);
+	if (set_cursor && !themes.IsCursor() && song.theme_cursor >= 0 && song.theme_cursor < themes.GetCount())
+		themes.SetCursor(song.theme_cursor);
 	
-	DataTheme();
+	DataTheme(set_cursor);
 }
 
-void AutoIdeas::DataTheme() {
+void AutoIdeas::DataTheme(bool set_cursor) {
 	Song& song = GetSong();
 	
 	if (!themes.IsCursor()) {
@@ -101,12 +103,13 @@ void AutoIdeas::DataTheme() {
 	}
 	ideas.SetCount(t.ideas.GetCount());
 	
-	//if (ideas.GetCount() && !ideas.IsCursor()) ideas.SetCursor(0);
+	if (set_cursor && !ideas.IsCursor() && t.cursor >= 0 && t.cursor < ideas.GetCount())
+		ideas.SetCursor(t.cursor);
 	
-	DataIdea();
+	DataIdea(set_cursor);
 }
 
-void AutoIdeas::DataIdea() {
+void AutoIdeas::DataIdea(bool set_cursor) {
 	Song& song = GetSong();
 	
 	if (!themes.IsCursor() || !ideas.IsCursor()) {
@@ -133,10 +136,13 @@ void AutoIdeas::DataIdea() {
 	}
 	tones.SetCount(id.tones.GetCount());
 	
-	DataTone();
+	if (set_cursor && !tones.IsCursor() && id.cursor >= 0 && id.cursor < tones.GetCount())
+		tones.SetCursor(id.cursor);
+	
+	DataTone(set_cursor);
 }
 
-void AutoIdeas::DataTone() {
+void AutoIdeas::DataTone(bool set_cursor) {
 	Song& song = GetSong();
 	
 	if (!themes.IsCursor() || !ideas.IsCursor() || !tones.IsCursor()) {
@@ -164,12 +170,13 @@ void AutoIdeas::DataTone() {
 	}
 	allegories.SetCount(tone.allegories.GetCount());
 	
-	//if (allegories.GetCount() && !allegories.IsCursor()) allegories.SetCursor(0);
+	if (set_cursor && !allegories.IsCursor() && tone.cursor >= 0 && tone.cursor < allegories.GetCount())
+		allegories.SetCursor(tone.cursor);
 	
-	DataAllegory();
+	DataAllegory(set_cursor);
 }
 
-void AutoIdeas::DataAllegory() {
+void AutoIdeas::DataAllegory(bool set_cursor) {
 	Song& song = GetSong();
 	
 	if (!themes.IsCursor() || !ideas.IsCursor() || !tones.IsCursor() || !allegories.IsCursor()) {
@@ -199,12 +206,13 @@ void AutoIdeas::DataAllegory() {
 	}
 	contents.SetCount(dev.contents.GetCount());
 	
-	//if (contents.GetCount() && !contents.IsCursor()) contents.SetCursor(0);
+	if (set_cursor && !contents.IsCursor() && dev.cursor >= 0 && dev.cursor < contents.GetCount())
+		contents.SetCursor(dev.cursor);
 	
-	DataContent();
+	DataContent(set_cursor);
 }
 
-void AutoIdeas::DataContent() {
+void AutoIdeas::DataContent(bool set_cursor) {
 	Song& song = GetSong();
 	
 	if (!contents.IsCursor()) {
@@ -235,12 +243,13 @@ void AutoIdeas::DataContent() {
 	}
 	imageries.SetCount(c.imageries.GetCount());
 	
-	//if (imageries.GetCount() && !imageries.IsCursor()) imageries.SetCursor(0);
+	if (set_cursor && !imageries.IsCursor() && c.cursor >= 0 && c.cursor < imageries.GetCount())
+		imageries.SetCursor(c.cursor);
 	
-	DataImagery();
+	DataImagery(set_cursor);
 }
 
-void AutoIdeas::DataImagery() {
+void AutoIdeas::DataImagery(bool set_cursor) {
 	Song& song = GetSong();
 	
 	if (!imageries.IsCursor()) {
@@ -272,7 +281,8 @@ void AutoIdeas::DataImagery() {
 	}
 	symbolisms.SetCount(img.symbolisms.GetCount());
 	
-	//if (symbolisms.GetCount() && !symbolisms.IsCursor()) symbolisms.SetCursor(0);
+	if (set_cursor && !symbolisms.IsCursor() && img.cursor >= 0 && img.cursor < symbolisms.GetCount())
+		symbolisms.SetCursor(img.cursor);
 	
 }
 
@@ -282,6 +292,7 @@ void AutoIdeas::OnListTheme() {
 	if (themes.IsCursor()) {
 		int theme_i = themes.GetCursor();
 		StaticTheme& t = song.themes[theme_i];
+		song.theme_cursor = theme_i;
 		if (t.ideas.IsEmpty()) {
 			ideas.Clear();
 			tones.Clear();
@@ -293,7 +304,7 @@ void AutoIdeas::OnListTheme() {
 			return;
 		}
 	}
-	DataTheme();
+	DataTheme(false);
 }
 
 void AutoIdeas::OnListIdea() {
@@ -304,6 +315,7 @@ void AutoIdeas::OnListIdea() {
 		int idea_i = ideas.GetCursor();
 		StaticTheme& t = song.themes[theme_i];
 		StaticIdea& id = t.ideas[idea_i];
+		t.cursor = idea_i;
 		if (id.tones.IsEmpty()) {
 			tones.Clear();
 			allegories.Clear();
@@ -314,7 +326,7 @@ void AutoIdeas::OnListIdea() {
 			return;
 		}
 	}
-	DataIdea();
+	DataIdea(false);
 }
 
 void AutoIdeas::OnListTone() {
@@ -327,6 +339,7 @@ void AutoIdeas::OnListTone() {
 		StaticTheme& t = song.themes[theme_i];
 		StaticIdea& id = t.ideas[idea_i];
 		StaticToneSuggestion& tone = id.tones[tone_i];
+		id.cursor = tone_i;
 		if (tone.allegories.IsEmpty()) {
 			allegories.Clear();
 			contents.Clear();
@@ -336,7 +349,7 @@ void AutoIdeas::OnListTone() {
 			return;
 		}
 	}
-	DataTone();
+	DataTone(false);
 }
 
 void AutoIdeas::OnListAllegory() {
@@ -351,6 +364,7 @@ void AutoIdeas::OnListAllegory() {
 		StaticIdea& id = t.ideas[idea_i];
 		StaticToneSuggestion& tone = id.tones[tone_i];
 		StaticAllegoricalDevice& alleg = tone.allegories[allegory_i];
+		tone.cursor = allegory_i;
 		if (alleg.contents.IsEmpty()) {
 			contents.Clear();
 			symbolisms.Clear();
@@ -359,7 +373,7 @@ void AutoIdeas::OnListAllegory() {
 			return;
 		}
 	}
-	DataAllegory();
+	DataAllegory(false);
 }
 
 void AutoIdeas::OnListContentIdea() {
@@ -376,6 +390,7 @@ void AutoIdeas::OnListContentIdea() {
 		StaticToneSuggestion& tone = id.tones[tone_i];
 		StaticAllegoricalDevice& alleg = tone.allegories[allegory_i];
 		StaticContentIdea& c = alleg.contents[content_i];
+		alleg.cursor = content_i;
 		if (c.imageries.IsEmpty()) {
 			imageries.Clear();
 			symbolisms.Clear();
@@ -383,7 +398,7 @@ void AutoIdeas::OnListContentIdea() {
 			return;
 		}
 	}
-	DataContent();
+	DataContent(false);
 }
 
 void AutoIdeas::OnListImagery() {
@@ -402,13 +417,42 @@ void AutoIdeas::OnListImagery() {
 		StaticAllegoricalDevice& alleg = tone.allegories[allegory_i];
 		StaticContentIdea& c = alleg.contents[content_i];
 		StaticImagery& img = c.imageries[imagery_i];
+		c.cursor = imagery_i;
 		if (img.symbolisms.IsEmpty()) {
 			symbolisms.Clear();
 			PostCallback(THISBACK(GetSymbolismSuggestions));
 			return;
 		}
 	}
-	DataImagery();
+	DataImagery(false);
+}
+
+void AutoIdeas::OnListSymbolism() {
+	Song& song = GetSong();
+	
+	if (symbolisms.IsCursor()) {
+		int theme_i = themes.GetCursor();
+		int idea_i = ideas.GetCursor();
+		int tone_i = tones.GetCursor();
+		int allegory_i = allegories.GetCursor();
+		int content_i = contents.GetCursor();
+		int imagery_i = imageries.GetCursor();
+		int symbolism_i = symbolisms.GetCursor();
+		StaticTheme& t = song.themes[theme_i];
+		StaticIdea& id = t.ideas[idea_i];
+		StaticToneSuggestion& tone = id.tones[tone_i];
+		StaticAllegoricalDevice& alleg = tone.allegories[allegory_i];
+		StaticContentIdea& c = alleg.contents[content_i];
+		StaticImagery& img = c.imageries[imagery_i];
+		StaticSymbolism& sym = img.symbolisms[symbolism_i];
+		img.cursor = symbolism_i;
+		/*if (sym.  .IsEmpty()) {
+			symbolisms.Clear();
+			PostCallback(THISBACK(GetSymbolismSuggestions));
+			return;
+		}*/
+	}
+	//DataSymbolism(false);
 }
 
 void AutoIdeas::ToolMenu(Bar& bar) {
@@ -679,6 +723,15 @@ void HotFixResult(String& res) {
 	res.Replace("\r\n", "\n");
 	res.Replace("\n(", " (");
 	res.Replace("\n\n-", "\n-");
+	
+	// Add character " to the first line, if rest of the lines has it
+	if ((res.Find("\n- \"") >= 0 || res.Find("\n-\"") >= 0) &&
+		(res.Left(2) != "-\"" && res.Left(3) != "- \"")) {
+		if (res.Mid(1, 1) == " ")
+			res.Insert(2, "\"");
+		else
+			res.Insert(1, "\"");
+	}
 }
 
 void ParseTextColor(String s, String& text, Color& clr) {
@@ -806,7 +859,7 @@ void AutoIdeas::OnNovelThemes(String result, Song* song_) {
 		ParseTextColor(s, t.text, t.clr);
 	}
 	
-	PostCallback(THISBACK(DataSong));
+	PostCallback(THISBACK1(DataSong, false));
 }
 
 void AutoIdeas::OnNovelIdeas(String result, StaticTheme* theme) {
@@ -824,7 +877,7 @@ void AutoIdeas::OnNovelIdeas(String result, StaticTheme* theme) {
 		ParseTextColor(s, idea.text, idea.clr);
 	}
 	
-	PostCallback(THISBACK(DataTheme));
+	PostCallback(THISBACK1(DataTheme, false));
 }
 
 void AutoIdeas::OnToneSuggestions(String result, StaticIdea* idea) {
@@ -842,7 +895,7 @@ void AutoIdeas::OnToneSuggestions(String result, StaticIdea* idea) {
 		ParseTextColor(s, o.text, o.clr);
 	}
 	
-	PostCallback(THISBACK(DataIdea));
+	PostCallback(THISBACK1(DataIdea, false));
 }
 
 void AutoIdeas::OnAllegorySuggestions(String result, StaticToneSuggestion* tone) {
@@ -860,7 +913,7 @@ void AutoIdeas::OnAllegorySuggestions(String result, StaticToneSuggestion* tone)
 		ParseTextColor(s, o.text, o.clr);
 	}
 	
-	PostCallback(THISBACK(DataTone));
+	PostCallback(THISBACK1(DataTone, false));
 }
 
 void AutoIdeas::OnContentSuggestions(String result, StaticAllegoricalDevice* alleg) {
@@ -878,7 +931,7 @@ void AutoIdeas::OnContentSuggestions(String result, StaticAllegoricalDevice* all
 		ParseTextColor(s, o.text, o.clr);
 	}
 	
-	PostCallback(THISBACK(DataAllegory));
+	PostCallback(THISBACK1(DataAllegory, false));
 }
 
 void AutoIdeas::OnImagerySuggestions(String result, StaticContentIdea* c) {
@@ -896,7 +949,7 @@ void AutoIdeas::OnImagerySuggestions(String result, StaticContentIdea* c) {
 		ParseTextColor(s, o.text, o.clr);
 	}
 	
-	PostCallback(THISBACK(DataContent));
+	PostCallback(THISBACK1(DataContent, false));
 }
 
 void AutoIdeas::OnSymbolismSuggestions(String result, StaticImagery* img) {
@@ -914,5 +967,5 @@ void AutoIdeas::OnSymbolismSuggestions(String result, StaticImagery* img) {
 		ParseTextColor(s, o.text, o.clr);
 	}
 	
-	PostCallback(THISBACK(DataImagery));
+	PostCallback(THISBACK1(DataImagery, false));
 }

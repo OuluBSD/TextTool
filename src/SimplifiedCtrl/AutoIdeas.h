@@ -16,13 +16,13 @@ public:
 	void DisableAll();
 	void EnableAll();
 	void Data() override;
-	void DataSong();
-	void DataTheme();
-	void DataIdea();
-	void DataTone();
-	void DataAllegory();
-	void DataContent();
-	void DataImagery();
+	void DataSong(bool set_cursor);
+	void DataTheme(bool set_cursor);
+	void DataIdea(bool set_cursor);
+	void DataTone(bool set_cursor);
+	void DataAllegory(bool set_cursor);
+	void DataContent(bool set_cursor);
+	void DataImagery(bool set_cursor);
 	void ToolMenu(Bar& bar) override;
 	String GetStatusText() override;
 	void GetNovelThemes();
@@ -47,6 +47,7 @@ public:
 	void OnListAllegory();
 	void OnListContentIdea();
 	void OnListImagery();
+	void OnListSymbolism();
 	
 };
 

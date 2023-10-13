@@ -114,12 +114,13 @@ struct StaticPart {
 struct StaticSymbolism {
 	String text;
 	Color clr;
-	
+	int cursor = -1;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("text", text)
 			("clr", clr)
+			("cursor", cursor)
 			;
 	}
 };
@@ -128,12 +129,14 @@ struct StaticImagery {
 	String text;
 	Color clr;
 	Array<StaticSymbolism> symbolisms;
+	int cursor = -1;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("text", text)
 			("clr", clr)
 			("symbolisms", symbolisms)
+			("cursor", cursor)
 			;
 	}
 	
@@ -143,13 +146,14 @@ struct StaticContentIdea {
 	String text;
 	Color clr;
 	Array<StaticImagery> imageries;
-	
+	int cursor = -1;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("text", text)
 			("clr", clr)
 			("imageries", imageries)
+			("cursor", cursor)
 			;
 	}
 };
@@ -158,13 +162,14 @@ struct StaticAllegoricalDevice {
 	Array<StaticContentIdea> contents;
 	String text;
 	Color clr;
-	
+	int cursor = -1;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("text", text)
 			("clr", clr)
 			("contents", contents)
+			("cursor", cursor)
 			;
 	}
 };
@@ -173,12 +178,14 @@ struct StaticToneSuggestion {
 	Array<StaticAllegoricalDevice> allegories;
 	String text;
 	Color clr;
+	int cursor = -1;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("text", text)
 			("clr", clr)
 			("allegories", allegories)
+			("cursor", cursor)
 			;
 	}
 };
@@ -187,12 +194,14 @@ struct StaticIdea {
 	Array<StaticToneSuggestion> tones;
 	String text;
 	Color clr;
+	int cursor = -1;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("text", text)
 			("clr", clr)
 			("tones", tones)
+			("cursor", cursor)
 			;
 	}
 };
@@ -201,12 +210,14 @@ struct StaticTheme {
 	Array<StaticIdea> ideas;
 	String text;
 	Color clr;
+	int cursor = -1;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("text", text)
 			("clr", clr)
 			("ideas", ideas)
+			("cursor", cursor)
 			;
 	}
 };
@@ -268,6 +279,7 @@ struct Song :
 	StructSuggestion			active_struct;
 	int							default_line_syllables = 0;
 	int							default_attr_count = 7;
+	int							theme_cursor = 0;
 	
 	// Temp
 	Pipe*				pipe = 0;
@@ -315,6 +327,7 @@ struct Song :
 			("active_struct", active_struct)
 			("struct_suggs", struct_suggs)
 			("themes", themes)
+			("theme_cursor", theme_cursor)
 			;
 		
 		//for(const SnapArg& a : HumanInputTextArgs())
