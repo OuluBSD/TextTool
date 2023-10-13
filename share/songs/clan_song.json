@@ -39,27 +39,4306 @@
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL_NATIVE",
 			"value": ""
+		},
+		{
+			"key": "MOOD_PLAYFUL_SERIOUS",
+			"value": "-1"
+		},
+		{
+			"key": "MOOD_UPLIFTING_HEAVY",
+			"value": "1"
+		},
+		{
+			"key": "MOOD_HUMOROUS_DRAMATIC",
+			"value": "1"
+		},
+		{
+			"key": "ATTITUDE_HOPEFUL_DESPAIR",
+			"value": "1"
+		},
+		{
+			"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+			"value": "1"
+		},
+		{
+			"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
+			"value": "-1"
+		},
+		{
+			"key": "REQ_PARTS",
+			"value": "V1,V2,C1"
+		},
+		{
+			"key": "DESC_FOR_STRUCT_SUGGS",
+			"value": "club banger with a band"
+		},
+		{
+			"key": "BPM",
+			"value": "96"
+		},
+		{
+			"key": "AVOID_PARTS",
+			"value": "PC,PC1,PC2"
 		}
 	],
 	"parts": [
+		{
+			"name": "Intro ",
+			"type": "I",
+			"source": [
 
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": "",
+			"contents": [
+				{
+					"text": "As he walked through the bustling city streets, his mind wandered to the mystical world that awaited him",
+					"clr": {
+						"red": 27,
+						"green": 54,
+						"blue": 74
+					},
+					"imageries": [
+						{
+							"text": "A cityscape at night",
+							"clr": {
+								"red": 10,
+								"green": 45,
+								"blue": 75
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Neon lights and bustling crowds",
+							"clr": {
+								"red": 50,
+								"green": 150,
+								"blue": 200
+							},
+							"symbolisms": [
+								{
+									"text": "Neon lights in the city",
+									"clr": {
+										"red": 255,
+										"green": 66,
+										"blue": 96
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Busy streets",
+									"clr": {
+										"red": 255,
+										"green": 255,
+										"blue": 255
+									},
+									"cursor": -1
+								},
+								{
+									"text": "People rushing by",
+									"clr": {
+										"red": 183,
+										"green": 218,
+										"blue": 255
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Sounds of traffic",
+									"clr": {
+										"red": 66,
+										"green": 158,
+										"blue": 255
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Glowing signs",
+									"clr": {
+										"red": 255,
+										"green": 255,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Smell of street food",
+									"clr": {
+										"red": 255,
+										"green": 111,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Humidity in the air",
+									"clr": {
+										"red": 127,
+										"green": 255,
+										"blue": 191
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Vibrant energy",
+									"clr": {
+										"red": 255,
+										"green": 255,
+										"blue": 255
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Mystical aura",
+									"clr": {
+										"red": 255,
+										"green": 193,
+										"blue": 232
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Sense of anticipation",
+									"clr": {
+										"red": 255,
+										"green": 112,
+										"blue": 255
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Distant music",
+									"clr": {
+										"red": 255,
+										"green": 255,
+										"blue": 255
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Dimly lit alleyways",
+									"clr": {
+										"red": 197,
+										"green": 124,
+										"blue": 255
+									},
+									"cursor": -1
+								}
+							],
+							"cursor": 5
+						},
+						{
+							"text": "Stars shining in the sky",
+							"clr": {
+								"red": 255,
+								"green": 255,
+								"blue": 255
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "The feeling of being lost in the chaos",
+							"clr": {
+								"red": 125,
+								"green": 125,
+								"blue": 125
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "A single figure walking with purpose",
+							"clr": {
+								"red": 100,
+								"green": 100,
+								"blue": 100
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						}
+					],
+					"cursor": 1
+				},
+				{
+					"text": "The scent of incense and the sound of chanting filled his senses, guiding him towards his spiritual journey",
+					"clr": {
+						"red": 94,
+						"green": 128,
+						"blue": 138
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She closed her eyes and let herself be consumed by the rhythm of the drums, ready to embark on a journey of self-discovery",
+					"clr": {
+						"red": 175,
+						"green": 83,
+						"blue": 70
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "He took a deep breath and stepped into the dimly lit room, where he knew his journey towards enlightenment would begin",
+					"clr": {
+						"red": 85,
+						"green": 68,
+						"blue": 94
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "The flickering candle flames seemed to dance in anticipation, beckoning him to join them on his transformative journey",
+					"clr": {
+						"red": 232,
+						"green": 189,
+						"blue": 128
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She shook off her doubts and fears, determined to explore the depths of her spirituality in this new adventure",
+					"clr": {
+						"red": 128,
+						"green": 157,
+						"blue": 125
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "The first step was always the hardest, but he knew that the rewards of this journey would be worth it in the end",
+					"clr": {
+						"red": 107,
+						"green": 81,
+						"blue": 141
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "Her heart raced with excitement as she entered the sacred space, ready to embrace the unknown and discover her true self",
+					"clr": {
+						"red": 237,
+						"green": 188,
+						"blue": 202
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "With each step, he could feel the weight of the mundane world lifting off his shoulders, replaced by a sense of wonder and curiosity",
+					"clr": {
+						"red": 144,
+						"green": 176,
+						"blue": 189
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She smiled as she remembered the words of the wise mystic who had inspired her to take this journey towards inner truth",
+					"clr": {
+						"red": 234,
+						"green": 218,
+						"blue": 185
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				}
+			],
+			"content_cursor": 0,
+			"active_idea[CONTENT]": "As he walked through the bustling city streets, his mind wandered to the mystical world that awaited him",
+			"active_idea[IMAGERY]": "Neon lights and bustling crowds",
+			"active_idea[SYMBOLISM]": "Smell of street food",
+			"active_idea_clr[CONTENT]": {
+				"red": 27,
+				"green": 54,
+				"blue": 74
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": 50,
+				"green": 150,
+				"blue": 200
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": 255,
+				"green": 111,
+				"blue": 0
+			}
+		},
+		{
+			"name": "Verse 1",
+			"type": "V1",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": "",
+			"contents": [
+				{
+					"text": "He stood at the crossroads, unsure of which path to take. But deep down, he knew that the answers he sought could not be found in the same old routine of the secular world.",
+					"clr": {
+						"red": 67,
+						"green": 136,
+						"blue": 205
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She had always been drawn to the mysterious and unconventional, but it wasn't until she delved into the mystical realms that she found true fulfillment.",
+					"clr": {
+						"red": 184,
+						"green": 79,
+						"blue": 255
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "As he dove into the depths of his own soul, he uncovered truths that transcended societal norms and expectations.",
+					"clr": {
+						"red": 255,
+						"green": 134,
+						"blue": 36
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She shed the labels that society had placed on her and instead embraced her own individual spirituality.",
+					"clr": {
+						"red": 46,
+						"green": 204,
+						"blue": 113
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "He couldn't ignore the pull of the unknown, the unexplainable. And it was in the mystical realm that he found a sense of belonging.",
+					"clr": {
+						"red": 247,
+						"green": 202,
+						"blue": 24
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She followed the call of the divine, stepping out of her comfort zone and into a world of magic and wonder.",
+					"clr": {
+						"red": 255,
+						"green": 110,
+						"blue": 199
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "As he explored the realms of the unknown, he realized that his desires and needs were not defined by society's expectations.",
+					"clr": {
+						"red": 121,
+						"green": 72,
+						"blue": 154
+					},
+					"imageries": [
+						{
+							"text": "Descending into the underground club",
+							"clr": {
+								"red": 0,
+								"green": 0,
+								"blue": 0
+							},
+							"symbolisms": [
+								{
+									"text": "Walking through the neon jungle",
+									"clr": {
+										"red": 255,
+										"green": 215,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "City streets a maze of concrete and steel",
+									"clr": {
+										"red": 169,
+										"green": 169,
+										"blue": 169
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Lost in thoughts and dreams unfulfilled",
+									"clr": {
+										"red": 192,
+										"green": 192,
+										"blue": 192
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Yearning for something beyond the mundane",
+									"clr": {
+										"red": 128,
+										"green": 128,
+										"blue": 128
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Aching for a deeper connection",
+									"clr": {
+										"red": 75,
+										"green": 0,
+										"blue": 130
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Seeking answers in the bright lights and dark alleys",
+									"clr": {
+										"red": 255,
+										"green": 0,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Tension seeping through the cracks",
+									"clr": {
+										"red": 85,
+										"green": 26,
+										"blue": 139
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Longing for release, for liberation",
+									"clr": {
+										"red": 65,
+										"green": 105,
+										"blue": 225
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Mind racing, heart pounding, senses heightened",
+									"clr": {
+										"red": 255,
+										"green": 182,
+										"blue": 193
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Moving closer to the edge, to the unknown",
+									"clr": {
+										"red": 148,
+										"green": 0,
+										"blue": 211
+									},
+									"cursor": -1
+								}
+							],
+							"cursor": 3
+						},
+						{
+							"text": "Aroused by the pulsating music",
+							"clr": {
+								"red": 255,
+								"green": 51,
+								"blue": 153
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Eyes locked with a stranger",
+							"clr": {
+								"red": 255,
+								"green": 255,
+								"blue": 255
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Mysterious energy flows between them",
+							"clr": {
+								"red": 153,
+								"green": 0,
+								"blue": 204
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Lost in a haze of desire",
+							"clr": {
+								"red": 204,
+								"green": 0,
+								"blue": 0
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Skin on skin, exploring new dimensions",
+							"clr": {
+								"red": 255,
+								"green": 153,
+								"blue": 51
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Giving into primal instincts",
+							"clr": {
+								"red": 255,
+								"green": 0,
+								"blue": 0
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Risqué movements, boundary pushing",
+							"clr": {
+								"red": 255,
+								"green": 204,
+								"blue": 0
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						}
+					],
+					"cursor": 0
+				},
+				{
+					"text": "She let go of her doubts and fears, diving headfirst into the world of mysticism and finding a sense of empowerment.",
+					"clr": {
+						"red": 255,
+						"green": 46,
+						"blue": 94
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "He felt his soul awaken as he embraced the unconventional and let go of the constraints of society's expectations.",
+					"clr": {
+						"red": 12,
+						"green": 189,
+						"blue": 236
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She reveled in the sensual and spiritual experiences that awaited her, no longer bound by societal norms.",
+					"clr": {
+						"red": 99,
+						"green": 255,
+						"blue": 114
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "He found solace in the mysteries of the universe, understanding that his journey was uniquely his own.",
+					"clr": {
+						"red": 255,
+						"green": 215,
+						"blue": 3
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She let go of the need for certainty and control, allowing herself to be guided by the mystical forces of the universe.",
+					"clr": {
+						"red": 130,
+						"green": 65,
+						"blue": 255
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "He couldn't deny the pull of the unknown, the desire to delve into the realm of the mystic. And in doing so, he found a sense of freedom and purpose.",
+					"clr": {
+						"red": 0,
+						"green": 217,
+						"blue": 255
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She stepped out of the mundane and into a world of magic, embracing her own individual spirituality and leaving behind societal expectations.",
+					"clr": {
+						"red": 255,
+						"green": 165,
+						"blue": 0
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "He felt a sense of liberation as he shed the constraints of societal norms and explored the depths of his own soul.",
+					"clr": {
+						"red": 255,
+						"green": 253,
+						"blue": 19
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She found peace and fulfillment in the balance between sensuality and spirituality, breaking free from societal binaries.",
+					"clr": {
+						"red": 55,
+						"green": 112,
+						"blue": 255
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "He realized that in embracing the mystical, he was also embracing his true self.",
+					"clr": {
+						"red": 152,
+						"green": 255,
+						"blue": 0
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She let go of the need for external validation and instead found fulfillment in her own journey of self-discovery.",
+					"clr": {
+						"red": 206,
+						"green": 112,
+						"blue": 255
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "He felt a sense of connection to something higher as he delved into the mystical realm, finding a sense of purpose and understanding in his individual spirituality.",
+					"clr": {
+						"red": 255,
+						"green": 28,
+						"blue": 174
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She let go of societal expectations and instead followed her own path, trusting in the guidance of the unknown.",
+					"clr": {
+						"red": 12,
+						"green": 255,
+						"blue": 197
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				}
+			],
+			"content_cursor": 6,
+			"active_idea[CONTENT]": "As he explored the realms of the unknown, he realized that his desires and needs were not defined by society's expectations.",
+			"active_idea[IMAGERY]": "Descending into the underground club",
+			"active_idea[SYMBOLISM]": "Yearning for something beyond the mundane",
+			"active_idea_clr[CONTENT]": {
+				"red": 121,
+				"green": 72,
+				"blue": 154
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": 0,
+				"green": 0,
+				"blue": 0
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": 128,
+				"green": 128,
+				"blue": 128
+			}
+		},
+		{
+			"name": "Chorus 1",
+			"type": "C1",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": "",
+			"contents": [
+				{
+					"text": "He embraced his kinks with unapologetic pride, finding liberation and fulfillment in his sexual exploration.",
+					"clr": {
+						"red": 87,
+						"green": 71,
+						"blue": 255
+					},
+					"imageries": [
+						{
+							"text": "Embracing his kinks with a sense of wonder and awe",
+							"clr": {
+								"red": 255,
+								"green": 69,
+								"blue": 0
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Breaking free from societal norms and expectations",
+							"clr": {
+								"red": 153,
+								"green": 0,
+								"blue": 153
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Delving into his individual spirituality",
+							"clr": {
+								"red": 72,
+								"green": 61,
+								"blue": 139
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Ecstatic feeling of discovering his true desires",
+							"clr": {
+								"red": 73,
+								"green": 155,
+								"blue": 234
+							},
+							"symbolisms": [
+								{
+									"text": "Chains and ropes intertwining",
+									"clr": {
+										"red": 128,
+										"green": 0,
+										"blue": 128
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Flame dancing on his skin",
+									"clr": {
+										"red": 255,
+										"green": 69,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Stars shining in the darkness",
+									"clr": {
+										"red": 240,
+										"green": 255,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Third eye opening wide",
+									"clr": {
+										"red": 95,
+										"green": 158,
+										"blue": 160
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Waves crashing on the shore",
+									"clr": {
+										"red": 65,
+										"green": 105,
+										"blue": 225
+									},
+									"cursor": -1
+								},
+								{
+									"text": "City lights reflecting on his skin",
+									"clr": {
+										"red": 255,
+										"green": 255,
+										"blue": 255
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Feathers and silk caressing",
+									"clr": {
+										"red": 255,
+										"green": 192,
+										"blue": 203
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Body and soul finally aligned",
+									"clr": {
+										"red": 0,
+										"green": 139,
+										"blue": 139
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Inner fire igniting",
+									"clr": {
+										"red": 255,
+										"green": 0,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Freedom and liberation",
+									"clr": {
+										"red": 0,
+										"green": 255,
+										"blue": 255
+									},
+									"cursor": -1
+								}
+							],
+							"cursor": 1
+						},
+						{
+							"text": "Sensual and spiritual elements intertwined",
+							"clr": {
+								"red": 148,
+								"green": 0,
+								"blue": 211
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Basking in the pleasure of being free",
+							"clr": {
+								"red": 255,
+								"green": 255,
+								"blue": 0
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Unleashing his inner passion",
+							"clr": {
+								"red": 204,
+								"green": 0,
+								"blue": 0
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Embracing his identity without shame",
+							"clr": {
+								"red": 0,
+								"green": 204,
+								"blue": 0
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Seeking something greater than himself",
+							"clr": {
+								"red": 0,
+								"green": 128,
+								"blue": 128
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Finding liberation in his journey",
+							"clr": {
+								"red": 238,
+								"green": 130,
+								"blue": 238
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						}
+					],
+					"cursor": 3
+				},
+				{
+					"text": "In the arms of his partner, he felt a spiritual connection unlike any other, a divine union of mind, body, and soul.",
+					"clr": {
+						"red": 255,
+						"green": 198,
+						"blue": 52
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "The scientific approach to his sexuality only enhanced his pleasure, as he delved deeper into the mysteries of the human body.",
+					"clr": {
+						"red": 109,
+						"green": 255,
+						"blue": 154
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				}
+			],
+			"content_cursor": 0,
+			"active_idea[CONTENT]": "He embraced his kinks with unapologetic pride, finding liberation and fulfillment in his sexual exploration.",
+			"active_idea[IMAGERY]": "Ecstatic feeling of discovering his true desires",
+			"active_idea[SYMBOLISM]": "Flame dancing on his skin",
+			"active_idea_clr[CONTENT]": {
+				"red": 87,
+				"green": 71,
+				"blue": 255
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": 73,
+				"green": 155,
+				"blue": 234
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": 255,
+				"green": 69,
+				"blue": 0
+			}
+		},
+		{
+			"name": "Verse 2",
+			"type": "V2",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": "",
+			"contents": [
+				{
+					"text": "He delved deeper into the study of mysticism, finding solace and empowerment in the unknown.",
+					"clr": {
+						"red": 102,
+						"green": 153,
+						"blue": 204
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "Despite society's disapproval, he continued to seek out experiences that expanded his boundaries and challenged his understanding of self.",
+					"clr": {
+						"red": 255,
+						"green": 102,
+						"blue": 153
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "With each new encounter, he discovered more about his own desires and embraced them unapologetically.",
+					"clr": {
+						"red": 153,
+						"green": 102,
+						"blue": 255
+					},
+					"imageries": [
+						{
+							"text": "Gliding over dusty mountains",
+							"clr": {
+								"red": 156,
+								"green": 127,
+								"blue": 90
+							},
+							"symbolisms": [
+								{
+									"text": "A red silk blindfold covering his eyes",
+									"clr": {
+										"red": 255,
+										"green": 0,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Chains wrapped around his wrists and ankles",
+									"clr": {
+										"red": 33,
+										"green": 33,
+										"blue": 33
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A feather tickler against his bare skin",
+									"clr": {
+										"red": 51,
+										"green": 0,
+										"blue": 51
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A leather collar around his neck",
+									"clr": {
+										"red": 102,
+										"green": 51,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A glass of red wine in his hand",
+									"clr": {
+										"red": 204,
+										"green": 0,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A bouquet of red roses next to him",
+									"clr": {
+										"red": 102,
+										"green": 0,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A red candle burning in the background",
+									"clr": {
+										"red": 204,
+										"green": 51,
+										"blue": 51
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A black lace corset on his partner",
+									"clr": {
+										"red": 0,
+										"green": 0,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A braid of red and black ribbon in his hair",
+									"clr": {
+										"red": 255,
+										"green": 0,
+										"blue": 0
+									},
+									"cursor": -1
+								}
+							],
+							"cursor": 7
+						},
+						{
+							"text": "Lost in fields of violet blooms",
+							"clr": {
+								"red": 128,
+								"green": 0,
+								"blue": 128
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Descending into the depths of the sea",
+							"clr": {
+								"red": 0,
+								"green": 0,
+								"blue": 139
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Floating through clouds of silken smoke",
+							"clr": {
+								"red": 245,
+								"green": 222,
+								"blue": 179
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Riding on waves of euphoria",
+							"clr": {
+								"red": 255,
+								"green": 165,
+								"blue": 0
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Dancing with the stars in an endless sky",
+							"clr": {
+								"red": 245,
+								"green": 245,
+								"blue": 245
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Exploring caves of hidden desires",
+							"clr": {
+								"red": 139,
+								"green": 69,
+								"blue": 19
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Tasting the forbidden fruits",
+							"clr": {
+								"red": 139,
+								"green": 0,
+								"blue": 139
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Surrendering to the pull of his true self",
+							"clr": {
+								"red": 30,
+								"green": 144,
+								"blue": 255
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Embracing sensuality and spirituality as one",
+							"clr": {
+								"red": 255,
+								"green": 69,
+								"blue": 0
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						}
+					],
+					"cursor": 0
+				},
+				{
+					"text": "His journey of self-discovery led him to a place of acceptance and understanding, both of himself and those around him.",
+					"clr": {
+						"red": 0,
+						"green": 204,
+						"blue": 153
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "No longer bound by societal norms and expectations, he embraced his inner mystic and found true liberation.",
+					"clr": {
+						"red": 102,
+						"green": 204,
+						"blue": 0
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "His quest for knowledge and experience took him to the edges of what society deemed acceptable, but he reveled in the unknown.",
+					"clr": {
+						"red": 255,
+						"green": 153,
+						"blue": 51
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "With each step he took on his journey, he shed layers of conformity and emerged as his true, unapologetic self.",
+					"clr": {
+						"red": 255,
+						"green": 204,
+						"blue": 51
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "As he followed his own path, he discovered a world filled with danger and excitement, but also with self-discovery and growth.",
+					"clr": {
+						"red": 51,
+						"green": 51,
+						"blue": 255
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "He found strength and power within himself, realizing that acceptance and self-love were the true keys to enlightenment.",
+					"clr": {
+						"red": 204,
+						"green": 0,
+						"blue": 204
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "His journey of self-discovery was a continuous process, constantly evolving and leading him to new heights of understanding.",
+					"clr": {
+						"red": 204,
+						"green": 153,
+						"blue": 0
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				}
+			],
+			"content_cursor": 2,
+			"active_idea[CONTENT]": "With each new encounter, he discovered more about his own desires and embraced them unapologetically.",
+			"active_idea[IMAGERY]": "Gliding over dusty mountains",
+			"active_idea[SYMBOLISM]": "A black lace corset on his partner",
+			"active_idea_clr[CONTENT]": {
+				"red": 153,
+				"green": 102,
+				"blue": 255
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": 156,
+				"green": 127,
+				"blue": 90
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": 0,
+				"green": 0,
+				"blue": 0
+			}
+		},
+		{
+			"name": "Chorus 2",
+			"type": "C2",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": "",
+			"contents": [
+				{
+					"text": "She",
+					"clr": {
+						"red": 255,
+						"green": 102,
+						"blue": 255
+					},
+					"imageries": [
+						{
+							"text": "Dancing in the moonlight",
+							"clr": {
+								"red": 255,
+								"green": 255,
+								"blue": 153
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Surrendering to the unknown",
+							"clr": {
+								"red": 204,
+								"green": 255,
+								"blue": 255
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Embracing the divine within",
+							"clr": {
+								"red": 204,
+								"green": 204,
+								"blue": 255
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Finding freedom in submission",
+							"clr": {
+								"red": 255,
+								"green": 204,
+								"blue": 229
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Rising above societal norms",
+							"clr": {
+								"red": 255,
+								"green": 102,
+								"blue": 255
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Indulging in forbidden pleasures",
+							"clr": {
+								"red": 229,
+								"green": 204,
+								"blue": 255
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Exploring the depths of his desires",
+							"clr": {
+								"red": 153,
+								"green": 204,
+								"blue": 255
+							},
+							"symbolisms": [
+								{
+									"text": "Red velvet rope suspended above",
+									"clr": {
+										"red": 0,
+										"green": 0,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Labyrinth of silk sheets",
+									"clr": {
+										"red": 255,
+										"green": 192,
+										"blue": 203
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Shimmering gold chains",
+									"clr": {
+										"red": 255,
+										"green": 215,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Sweet surrender in leather restraints",
+									"clr": {
+										"red": 139,
+										"green": 69,
+										"blue": 19
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Cascading waterfall of candles",
+									"clr": {
+										"red": 255,
+										"green": 255,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Embraced by the unknown",
+									"clr": {
+										"red": 0,
+										"green": 0,
+										"blue": 0
+									},
+									"cursor": -1
+								}
+							],
+							"cursor": 0
+						},
+						{
+							"text": "Breaking free from labels and expectations",
+							"clr": {
+								"red": 204,
+								"green": 255,
+								"blue": 153
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Transcending limitations and boundaries",
+							"clr": {
+								"red": 255,
+								"green": 153,
+								"blue": 255
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Surrendering to ecstasy and bliss",
+							"clr": {
+								"red": 204,
+								"green": 204,
+								"blue": 255
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						}
+					],
+					"cursor": 6
+				},
+				{
+					"text": "He",
+					"clr": {
+						"red": 255,
+						"green": 153,
+						"blue": 153
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "They",
+					"clr": {
+						"red": 102,
+						"green": 178,
+						"blue": 255
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "The",
+					"clr": {
+						"red": 204,
+						"green": 255,
+						"blue": 153
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "He",
+					"clr": {
+						"red": 255,
+						"green": 204,
+						"blue": 255
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				}
+			],
+			"content_cursor": 0,
+			"active_idea[CONTENT]": "She",
+			"active_idea[IMAGERY]": "Exploring the depths of his desires",
+			"active_idea[SYMBOLISM]": "Red velvet rope suspended above",
+			"active_idea_clr[CONTENT]": {
+				"red": 255,
+				"green": 102,
+				"blue": 255
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": 153,
+				"green": 204,
+				"blue": 255
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": 0,
+				"green": 0,
+				"blue": 0
+			}
+		},
+		{
+			"name": "Bridge ",
+			"type": "B",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": "",
+			"contents": [
+				{
+					"text": "He reflected on his journey and realized that through his scientific and atheistic approach, he had found a spiritual connection within himself",
+					"clr": {
+						"red": 195,
+						"green": 211,
+						"blue": 93
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She struggled with the expectations placed on her as a religious believer, but ultimately found solace and empowerment in her own individual spirituality",
+					"clr": {
+						"red": 227,
+						"green": 163,
+						"blue": 0
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "He chose to break away from the confines of societal norms and embrace his individualistic and liberal views, leading him to a newfound strength and confidence",
+					"clr": {
+						"red": 0,
+						"green": 87,
+						"blue": 184
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She became a mystic practitioner, delving into the unknown and finding fulfillment in her unconventional beliefs and practices",
+					"clr": {
+						"red": 73,
+						"green": 0,
+						"blue": 146
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "He looked back on his journey, recognizing how his exploration of kinks and sexuality had led him to a deep understanding and acceptance of himself",
+					"clr": {
+						"red": 185,
+						"green": 57,
+						"blue": 178
+					},
+					"imageries": [
+						{
+							"text": "Basking in the warm glow of candles",
+							"clr": {
+								"red": 250,
+								"green": 173,
+								"blue": 136
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Tracing patterns on skin with feather",
+							"clr": {
+								"red": 255,
+								"green": 228,
+								"blue": 181
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Surrendering to the unknown",
+							"clr": {
+								"red": 128,
+								"green": 0,
+								"blue": 128
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Discovering inner peace in the chaos",
+							"clr": {
+								"red": 0,
+								"green": 255,
+								"blue": 255
+							},
+							"symbolisms": [
+								{
+									"text": "Chains wrapped around wrists",
+									"clr": {
+										"red": 153,
+										"green": 153,
+										"blue": 153
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Book of secrets locked tight",
+									"clr": {
+										"red": 255,
+										"green": 255,
+										"blue": 255
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Blindfolded and bound",
+									"clr": {
+										"red": 0,
+										"green": 0,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Burning incense",
+									"clr": {
+										"red": 255,
+										"green": 153,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Feather tickling skin",
+									"clr": {
+										"red": 204,
+										"green": 102,
+										"blue": 255
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Candle wax dripping",
+									"clr": {
+										"red": 153,
+										"green": 0,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Lotus flower blooming",
+									"clr": {
+										"red": 255,
+										"green": 192,
+										"blue": 203
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Crystals glistening in the light",
+									"clr": {
+										"red": 0,
+										"green": 128,
+										"blue": 128
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Hands clasped in prayer",
+									"clr": {
+										"red": 255,
+										"green": 255,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Third eye opening",
+									"clr": {
+										"red": 166,
+										"green": 94,
+										"blue": 161
+									},
+									"cursor": -1
+								}
+							],
+							"cursor": 3
+						},
+						{
+							"text": "Entering a state of bliss",
+							"clr": {
+								"red": 255,
+								"green": 255,
+								"blue": 0
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Letting go of societal expectations",
+							"clr": {
+								"red": 220,
+								"green": 20,
+								"blue": 60
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Being bound by pleasure",
+							"clr": {
+								"red": 128,
+								"green": 128,
+								"blue": 128
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Feeling empowered and free",
+							"clr": {
+								"red": 0,
+								"green": 191,
+								"blue": 255
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Embracing vulnerability",
+							"clr": {
+								"red": 255,
+								"green": 192,
+								"blue": 203
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Lost in a sea of sensations",
+							"clr": {
+								"red": 147,
+								"green": 112,
+								"blue": 219
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "The taste of sweet surrender",
+							"clr": {
+								"red": 205,
+								"green": 133,
+								"blue": 63
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Melting into each other",
+							"clr": {
+								"red": 255,
+								"green": 249,
+								"blue": 228
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Feeling a deep connection",
+							"clr": {
+								"red": 255,
+								"green": 99,
+								"blue": 71
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "The sound of heavy breathing",
+							"clr": {
+								"red": 255,
+								"green": 182,
+								"blue": 193
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "The smell of incense",
+							"clr": {
+								"red": 75,
+								"green": 0,
+								"blue": 130
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						}
+					],
+					"cursor": 3
+				},
+				{
+					"text": "She broke free from the judgment of a closed-minded society and found a new sense of freedom and adventure in embracing her sexual desires",
+					"clr": {
+						"red": 255,
+						"green": 87,
+						"blue": 166
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				}
+			],
+			"content_cursor": 4,
+			"active_idea[CONTENT]": "He looked back on his journey, recognizing how his exploration of kinks and sexuality had led him to a deep understanding and acceptance of himself",
+			"active_idea[IMAGERY]": "Discovering inner peace in the chaos",
+			"active_idea[SYMBOLISM]": "Burning incense",
+			"active_idea_clr[CONTENT]": {
+				"red": 185,
+				"green": 57,
+				"blue": 178
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": 0,
+				"green": 255,
+				"blue": 255
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": 255,
+				"green": 153,
+				"blue": 0
+			}
+		},
+		{
+			"name": "Outro ",
+			"type": "O",
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"syllable_str": "",
+			"contents": [
+				{
+					"text": "He found solace in being both a spiritual seeker and a sexual adventurer, embracing all aspects of himself and breaking free from societal expectations.",
+					"clr": {
+						"red": 223,
+						"green": 119,
+						"blue": 128
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She reveled in her individualistic nature, owning her desires and seeking pleasure without shame or judgment.",
+					"clr": {
+						"red": 214,
+						"green": 160,
+						"blue": 127
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "With each step of his journey, he became more confident and liberated, shedding the weight of societal norms and finding true fulfillment.",
+					"clr": {
+						"red": 137,
+						"green": 175,
+						"blue": 187
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "She discovered that the merging of spirituality and sensuality was the key to unlocking her true identity and embracing her inner power.",
+					"clr": {
+						"red": 254,
+						"green": 195,
+						"blue": 157
+					},
+					"imageries": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "Through his exploration of kinks and desires, he found a deep connection to the divine and a newfound sense of purpose in life.",
+					"clr": {
+						"red": 233,
+						"green": 206,
+						"blue": 148
+					},
+					"imageries": [
+						{
+							"text": "Walking into the sunrise",
+							"clr": {
+								"red": 252,
+								"green": 190,
+								"blue": 132
+							},
+							"symbolisms": [
+								{
+									"text": "Spiritual symbols",
+									"clr": {
+										"red": 0,
+										"green": 0,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A figure standing in front of a mirror, embracing their true self",
+									"clr": {
+										"red": 128,
+										"green": 0,
+										"blue": 128
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A snake slithering up a tree, representing the coiled energy within",
+									"clr": {
+										"red": 255,
+										"green": 69,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A butterfly emerging from its cocoon, symbolizing transformation",
+									"clr": {
+										"red": 255,
+										"green": 215,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A person kneeling in front of a glowing orb, representing enlightenment",
+									"clr": {
+										"red": 0,
+										"green": 255,
+										"blue": 255
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A hand reaching out to touch a flame, representing the fusion of sensuality and spirituality",
+									"clr": {
+										"red": 255,
+										"green": 0,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A lotus flower blooming in a dark pool of water, symbolizing growth and purity",
+									"clr": {
+										"red": 255,
+										"green": 255,
+										"blue": 0
+									},
+									"cursor": -1
+								},
+								{
+									"text": "Two hands clasped together in prayer, representing the balance between individual spirituality and divine worship",
+									"clr": {
+										"red": 210,
+										"green": 105,
+										"blue": 30
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A road leading towards a bright, open horizon, symbolizing the journey towards self-discovery",
+									"clr": {
+										"red": 0,
+										"green": 0,
+										"blue": 255
+									},
+									"cursor": -1
+								},
+								{
+									"text": "A feather floating in the wind, representing the weightlessness and freedom of embracing one's desires",
+									"clr": {
+										"red": 255,
+										"green": 192,
+										"blue": 203
+									},
+									"cursor": -1
+								}
+							],
+							"cursor": 8
+						},
+						{
+							"text": "Hands grasping at silk sheets",
+							"clr": {
+								"red": 255,
+								"green": 208,
+								"blue": 171
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Embracing the unknown",
+							"clr": {
+								"red": 225,
+								"green": 251,
+								"blue": 153
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Feeling the rush of ecstasy",
+							"clr": {
+								"red": 255,
+								"green": 126,
+								"blue": 98
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Flying above the clouds",
+							"clr": {
+								"red": 190,
+								"green": 212,
+								"blue": 255
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Dancing in the moonlight",
+							"clr": {
+								"red": 233,
+								"green": 199,
+								"blue": 239
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Surrendering to the moment",
+							"clr": {
+								"red": 245,
+								"green": 226,
+								"blue": 202
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Exploring uncharted territories",
+							"clr": {
+								"red": 176,
+								"green": 155,
+								"blue": 229
+							},
+							"symbolisms": [
+
+							],
+							"cursor": -1
+						}
+					],
+					"cursor": 0
+				}
+			],
+			"content_cursor": 4,
+			"active_idea[CONTENT]": "Through his exploration of kinks and desires, he found a deep connection to the divine and a newfound sense of purpose in life.",
+			"active_idea[IMAGERY]": "Walking into the sunrise",
+			"active_idea[SYMBOLISM]": "A road leading towards a bright, open horizon, symbolizing the journey towards self-discovery",
+			"active_idea_clr[CONTENT]": {
+				"red": 233,
+				"green": 206,
+				"blue": 148
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": 252,
+				"green": 190,
+				"blue": 132
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": 0,
+				"green": 0,
+				"blue": 255
+			}
+		}
 	],
 	"active_struct": {
-		"name": "",
+		"name": "Epic Evolution",
 		"parts": [
-
+			"I",
+			"V1",
+			"C1",
+			"B",
+			"V2",
+			"C2",
+			"B",
+			"C1",
+			"C2",
+			"O"
 		],
 		"attrs": [
-
+			"includes multiple instances of the bridge which adds variety to the song",
+			"has room for development and progression with the repetition of verses and choruses",
+			"can create a sense of building and intensity with the repeated bridge sections",
+			"has a balanced structure with a clear beginning, climax, and resolution",
+			"ideal for a longer song with room for different musical elements"
 		],
 		"part_types": [
-
+			0,
+			1,
+			0,
+			1,
+			1,
+			0,
+			1,
+			0,
+			0,
+			4
 		]
 	},
 	"struct_suggs": [
+		{
+			"name": "Rising Rhythm",
+			"parts": [
+				"I",
+				"V1",
+				"C1",
+				"B",
+				"V2",
+				"C2",
+				"O",
+				"S"
+			],
+			"attrs": [
+				"includes an instrumental solo which adds a dynamic element to the song",
+				"builds up to a climax with the final chorus and solo in the outro",
+				"has a clear and concise structure with an intro, verses, chorus, bridge, and outro",
+				"allows for a musical break with the instrumental solo",
+				"perfect for showcasing the skills of instrumentalists in a band"
+			],
+			"part_types": [
 
+			]
+		},
+		{
+			"name": "Pop Perfection",
+			"parts": [
+				"I",
+				"V1",
+				"C1",
+				"PC1",
+				"V2",
+				"C1",
+				"C2",
+				"O"
+			],
+			"attrs": [
+				"has a pre-chorus which serves as a transition between the verse and chorus",
+				"has a repeating structure of verse-chorus-verse-chorus which creates a catchy and memorable flow",
+				"well-suited for a pop or mainstream style song",
+				"allows for a call-and-response style with the pre-chorus and chorus",
+				"can easily build up to a powerful final chorus in the outro"
+			],
+			"part_types": [
+
+			]
+		},
+		{
+			"name": "Epic Evolution",
+			"parts": [
+				"I",
+				"V1",
+				"C1",
+				"B",
+				"V2",
+				"C2",
+				"B",
+				"C1",
+				"C2",
+				"O"
+			],
+			"attrs": [
+				"includes multiple instances of the bridge which adds variety to the song",
+				"has room for development and progression with the repetition of verses and choruses",
+				"can create a sense of building and intensity with the repeated bridge sections",
+				"has a balanced structure with a clear beginning, climax, and resolution",
+				"ideal for a longer song with room for different musical elements"
+			],
+			"part_types": [
+
+			]
+		},
+		{
+			"name": "Musical Journey",
+			"parts": [
+				"I",
+				"V1",
+				"IN",
+				"V2",
+				"C1",
+				"C2",
+				"B",
+				"PC1",
+				"C3",
+				"O"
+			],
+			"attrs": [
+				"has an instrumental intro which hooks the listener in and sets the tone for the rest of the song",
+				"includes a pre-chorus and multiple choruses which allows for development and progression",
+				"has a bridge section which adds variety and allows for a pause in the vocals",
+				"can create a sense of building and climax with the repeated chorus sections",
+				"can end on a strong and powerful note with the final chorus in the outro"
+			],
+			"part_types": [
+
+			]
+		},
+		{
+			"name": "Crescendo Club",
+			"parts": [
+				"I",
+				"V1",
+				"IN",
+				"V2",
+				"C1",
+				"C2",
+				"B",
+				"C1",
+				"C2",
+				"C3",
+				"O"
+			],
+			"attrs": [
+				"has a pre-chorus and multiple choruses which allows for development and repetition",
+				"has a bridge which can create a break from the vocals and build back up to the final chorus in the outro",
+				"includes an instrumental interlude or variation on the final chorus in the outro",
+				"ideal for a longer song with multiple musical elements and movements",
+				"can have a catchy and memorable flow with the repetition of verses and choruses"
+			],
+			"part_types": [
+
+			]
+		},
+		{
+			"name": "Melodic Magic",
+			"parts": [
+				"I",
+				"V1",
+				"V2",
+				"B",
+				"C1",
+				"IN",
+				"C2",
+				"O"
+			],
+			"attrs": [
+				"has a unique structure without a traditional chorus",
+				"includes an instrumental section in the middle which adds variety and showcases musical ability",
+				"can create a sense of building and progression with the repeating verses and bridge",
+				"ideal for a more experimental or non-conventional song",
+				"can end on a strong and powerful note with the final chorus in the outro"
+			],
+			"part_types": [
+
+			]
+		},
+		{
+			"name": "Dynamic Drive",
+			"parts": [
+				"I",
+				"V1",
+				"C1",
+				"IN",
+				"V2",
+				"PC1",
+				"B",
+				"C2",
+				"O"
+			],
+			"attrs": [
+				"has an instrumental intro and pre-chorus which create a strong and engaging introduction to the song",
+				"allows for development and repetition with the multiple choruses",
+				"includes a bridge which provides a break from the vocals and builds back up to the final chorus in the outro",
+				"can end on a high energy note with the repeated final chorus in the outro",
+				"can be well-suited for a pop or mainstream style song"
+			],
+			"part_types": [
+
+			]
+		},
+		{
+			"name": "Harmonious High",
+			"parts": [
+				"I",
+				"V1",
+				"C1",
+				"V2",
+				"B",
+				"V3",
+				"C2",
+				"C3",
+				"O"
+			],
+			"attrs": [
+				"includes three verses and multiple choruses which allows for a longer and more developed song",
+				"has a bridge and two different choruses which adds variety and keeps the listener engaged",
+				"allows for a progression and climax with the final chorus in the outro",
+				"can have a strong and memorable flow with the repetition of verse and chorus sections",
+				"ideal for a longer song with a storytelling element"
+			],
+			"part_types": [
+
+			]
+		},
+		{
+			"name": "Rhythm Ride",
+			"parts": [
+				"I",
+				"V1",
+				"IN",
+				"C1",
+				"B",
+				"V2",
+				"PC1",
+				"C2",
+				"O"
+			],
+			"attrs": [
+				"has a strong instrumental introduction followed by a transition into the first chorus",
+				"has a pre-chorus and bridge which provide variation and development in the song",
+				"can create a sense of building and climax with the repeated chorus sections",
+				"ends on a powerful and high energy note with the final chorus in the outro",
+				"can be well-suited for a pop or mainstream style song"
+			],
+			"part_types": [
+
+			]
+		},
+		{
+			"name": "Primetime Pulse",
+			"parts": [
+				"I",
+				"V1",
+				"C1",
+				"V2",
+				"IN",
+				"B",
+				"C2",
+				"C3",
+				"O"
+			],
+			"attrs": [
+				"has a traditional verse-chorus structure with an added instrumental interlude",
+				"includes a bridge which adds variety and can build back up to the final chorus in the outro",
+				"can create a memorable flow with the repeated verse and chorus sections",
+				"allows for a climax and resolution with the final chorus in the outro",
+				"can be well-suited for a mainstream or alternative style song"
+			],
+			"part_types": [
+
+			]
+		}
 	],
 	"themes": [
+		{
+			"text": "The Spectrum of Sexuality",
+			"clr": {
+				"red": 255,
+				"green": 101,
+				"blue": 6
+			},
+			"ideas": [
 
-	]
+			],
+			"cursor": -1
+		},
+		{
+			"text": "The Experiment of Passion",
+			"clr": {
+				"red": 209,
+				"green": 0,
+				"blue": 255
+			},
+			"ideas": [
+
+			],
+			"cursor": -1
+		},
+		{
+			"text": "The Science of Pleasure",
+			"clr": {
+				"red": 162,
+				"green": 255,
+				"blue": 0
+			},
+			"ideas": [
+
+			],
+			"cursor": -1
+		},
+		{
+			"text": "The Divine Atheist",
+			"clr": {
+				"red": 0,
+				"green": 255,
+				"blue": 241
+			},
+			"ideas": [
+
+			],
+			"cursor": -1
+		},
+		{
+			"text": "The Mystic's Journey",
+			"clr": {
+				"red": 255,
+				"green": 202,
+				"blue": 0
+			},
+			"ideas": [
+				{
+					"text": "Mystical sexuality as a colorful spectrum of desires and possibilities",
+					"clr": {
+						"red": 255,
+						"green": 165,
+						"blue": 0
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "Bridging the gap between scientific and spiritual beliefs",
+					"clr": {
+						"red": 0,
+						"green": 153,
+						"blue": 51
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "A quest for personal enlightenment and liberation",
+					"clr": {
+						"red": 153,
+						"green": 51,
+						"blue": 153
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "Embracing individual spirituality in a secular society",
+					"clr": {
+						"red": 255,
+						"green": 204,
+						"blue": 204
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "A dance of mystic practitioners searching for higher truths",
+					"clr": {
+						"red": 153,
+						"green": 153,
+						"blue": 255
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "Believing in a higher power beyond traditional religious beliefs",
+					"clr": {
+						"red": 255,
+						"green": 153,
+						"blue": 255
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "The male mystic breaking societal expectations and norms",
+					"clr": {
+						"red": 51,
+						"green": 153,
+						"blue": 204
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "A journey of self-discovery and accountability",
+					"clr": {
+						"red": 153,
+						"green": 102,
+						"blue": 51
+					},
+					"tones": [
+						{
+							"text": "The Mystic's Quest",
+							"clr": {
+								"red": 255,
+								"green": 73,
+								"blue": 0
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Unleashing the Authentic Self",
+							"clr": {
+								"red": 255,
+								"green": 128,
+								"blue": 0
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "A Path to Self-Realization",
+							"clr": {
+								"red": 255,
+								"green": 191,
+								"blue": 0
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Diving into the Depths of the Soul",
+							"clr": {
+								"red": 255,
+								"green": 255,
+								"blue": 0
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Breaking Free from Conformity",
+							"clr": {
+								"red": 204,
+								"green": 255,
+								"blue": 0
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "The Liberation of the Mind",
+							"clr": {
+								"red": 102,
+								"green": 255,
+								"blue": 0
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Embarking on the Unknown",
+							"clr": {
+								"red": 0,
+								"green": 255,
+								"blue": 73
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Discovering the Inner Mysteries",
+							"clr": {
+								"red": 0,
+								"green": 255,
+								"blue": 146
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "The Journey to Enlightenment",
+							"clr": {
+								"red": 0,
+								"green": 255,
+								"blue": 219
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Transcending Limitations",
+							"clr": {
+								"red": 0,
+								"green": 219,
+								"blue": 255
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Embracing the Wild and Untamed",
+							"clr": {
+								"red": 0,
+								"green": 146,
+								"blue": 255
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Unfolding the Layers of the Self",
+							"clr": {
+								"red": 0,
+								"green": 73,
+								"blue": 255
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Navigating the Inner Landscape",
+							"clr": {
+								"red": 0,
+								"green": 0,
+								"blue": 255
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Bridging Science and Spirituality",
+							"clr": {
+								"red": 73,
+								"green": 0,
+								"blue": 255
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Surrendering to the Unknown",
+							"clr": {
+								"red": 146,
+								"green": 0,
+								"blue": 255
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "The Mystic's Revolution",
+							"clr": {
+								"red": 255,
+								"green": 0,
+								"blue": 219
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Awakening the Inner Fire",
+							"clr": {
+								"red": 255,
+								"green": 0,
+								"blue": 146
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "The Great Dive Within",
+							"clr": {
+								"red": 255,
+								"green": 0,
+								"blue": 73
+							},
+							"allegories": [
+
+							],
+							"cursor": -1
+						},
+						{
+							"text": "Beyond the Boundaries of the Mundane",
+							"clr": {
+								"red": 255,
+								"green": 0,
+								"blue": 0
+							},
+							"allegories": [
+								{
+									"text": "A scientist exploring the depths of the mind through keeping secrets",
+									"clr": {
+										"red": 250,
+										"green": 150,
+										"blue": 170
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A man experimenting with various forms of kink to enhance his pleasure",
+									"clr": {
+										"red": 255,
+										"green": 200,
+										"blue": 50
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A seeker questioning traditional beliefs and finding their own unique spiritual path",
+									"clr": {
+										"red": 170,
+										"green": 210,
+										"blue": 240
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A mystic using various techniques to tap into the divine and connect with the universe",
+									"clr": {
+										"red": 120,
+										"green": 50,
+										"blue": 200
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A libertine challenging societal norms and embracing individuality",
+									"clr": {
+										"red": 190,
+										"green": 215,
+										"blue": 50
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A believer finding freedom in their atheistic beliefs",
+									"clr": {
+										"red": 150,
+										"green": 150,
+										"blue": 150
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A hedonist finding fulfillment through self-exploration",
+									"clr": {
+										"red": 255,
+										"green": 100,
+										"blue": 150
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A rebel breaking free from societal expectations and norms",
+									"clr": {
+										"red": 50,
+										"green": 50,
+										"blue": 50
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A seeker of pleasure and enlightenment on a journey of self-discovery",
+									"clr": {
+										"red": 200,
+										"green": 255,
+										"blue": 150
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A journey of self-awareness and accountability represented through a literal journey",
+									"clr": {
+										"red": 100,
+										"green": 200,
+										"blue": 170
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A colorful, vibrant exploration of the inner self",
+									"clr": {
+										"red": 255,
+										"green": 120,
+										"blue": 200
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A sensual and spiritual dance between the mundane and the divine",
+									"clr": {
+										"red": 200,
+										"green": 75,
+										"blue": 255
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A willingness to take risks and embrace one's desires",
+									"clr": {
+										"red": 255,
+										"green": 50,
+										"blue": 100
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A celebration of individuality and non-conformity",
+									"clr": {
+										"red": 150,
+										"green": 50,
+										"blue": 255
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "An invitation to explore and push boundaries",
+									"clr": {
+										"red": 50,
+										"green": 255,
+										"blue": 100
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A journey towards acceptance and self-love",
+									"clr": {
+										"red": 255,
+										"green": 200,
+										"blue": 255
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "The power of honesty and vulnerability in self-discovery",
+									"clr": {
+										"red": 255,
+										"green": 100,
+										"blue": 50
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A journey of transformation and personal growth",
+									"clr": {
+										"red": 150,
+										"green": 200,
+										"blue": 255
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "The fusion of pleasure and spirituality",
+									"clr": {
+										"red": 200,
+										"green": 150,
+										"blue": 50
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "An ode to the human spirit and its endless potential",
+									"clr": {
+										"red": 255,
+										"green": 150,
+										"blue": 200
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A playful and light-hearted approach to self-discovery",
+									"clr": {
+										"red": 100,
+										"green": 255,
+										"blue": 150
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "The boldness and confidence that comes with embracing one's desires",
+									"clr": {
+										"red": 50,
+										"green": 100,
+										"blue": 200
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "The endless possibilities of individualistic thinking",
+									"clr": {
+										"red": 255,
+										"green": 255,
+										"blue": 50
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A journey of self-love and acceptance, free from societal expectations",
+									"clr": {
+										"red": 50,
+										"green": 200,
+										"blue": 255
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "The intertwining of spirituality and sensuality",
+									"clr": {
+										"red": 200,
+										"green": 50,
+										"blue": 100
+									},
+									"contents": [
+										{
+											"text": "He is a man with a scientific mind, but a deep hunger for exploration and pleasure. As he delves into the world of kink and sexual enhancement, he also begins to question his beliefs and spirituality. He discovers a sense of liberation and self-discovery through his journey, but also faces the societal pressures and expectations of conforming to a certain ideology.",
+											"clr": {
+												"red": 70,
+												"green": 95,
+												"blue": 255
+											},
+											"imageries": [
+
+											],
+											"cursor": -1
+										},
+										{
+											"text": "She is a free-spirited mystic practitioner, always seeking new age spiritual experiences. As she explores her individual spirituality and opens herself up to new beliefs, she also embraces her sexuality and embraces her true desires. She defies the boundaries of a secular society and finds strength in her own personal journey.",
+											"clr": {
+												"red": 255,
+												"green": 140,
+												"blue": 102
+											},
+											"imageries": [
+												{
+													"text": "Unleashing her inner fire",
+													"clr": {
+														"red": 255,
+														"green": 0,
+														"blue": 0
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Embracing the unknown darkness",
+													"clr": {
+														"red": 0,
+														"green": 0,
+														"blue": 0
+													},
+													"symbolisms": [
+														{
+															"text": "A midnight sky full of stars",
+															"clr": {
+																"red": 0,
+																"green": 0,
+																"blue": 0
+															},
+															"cursor": -1
+														},
+														{
+															"text": "A single flame in the darkness",
+															"clr": {
+																"red": 255,
+																"green": 102,
+																"blue": 0
+															},
+															"cursor": -1
+														},
+														{
+															"text": "A winding road leading into the unknown",
+															"clr": {
+																"red": 51,
+																"green": 51,
+																"blue": 51
+															},
+															"cursor": -1
+														},
+														{
+															"text": "A lotus flower blooming in the darkness",
+															"clr": {
+																"red": 102,
+																"green": 153,
+																"blue": 0
+															},
+															"cursor": -1
+														},
+														{
+															"text": "A crystal ball reflecting the future",
+															"clr": {
+																"red": 51,
+																"green": 204,
+																"blue": 255
+															},
+															"cursor": -1
+														},
+														{
+															"text": "A feather floating in the wind",
+															"clr": {
+																"red": 255,
+																"green": 255,
+																"blue": 255
+															},
+															"cursor": -1
+														},
+														{
+															"text": "A pair of hands reaching towards the stars",
+															"clr": {
+																"red": 0,
+																"green": 153,
+																"blue": 255
+															},
+															"cursor": -1
+														},
+														{
+															"text": "An unlit candle waiting to be lit",
+															"clr": {
+																"red": 51,
+																"green": 51,
+																"blue": 51
+															},
+															"cursor": -1
+														},
+														{
+															"text": "A mysterious black cloak fluttering in the breeze",
+															"clr": {
+																"red": 51,
+																"green": 51,
+																"blue": 51
+															},
+															"cursor": -1
+														},
+														{
+															"text": "A lone wolf howling at the moon",
+															"clr": {
+																"red": 128,
+																"green": 128,
+																"blue": 128
+															},
+															"cursor": -1
+														},
+														{
+															"text": "A labyrinth leading to enlightenment",
+															"clr": {
+																"red": 255,
+																"green": 51,
+																"blue": 204
+															},
+															"cursor": -1
+														},
+														{
+															"text": "A spiral of smoke dancing in the air",
+															"clr": {
+																"red": 105,
+																"green": 105,
+																"blue": 105
+															},
+															"cursor": -1
+														}
+													],
+													"cursor": 0
+												},
+												{
+													"text": "Riding on waves of ecstasy",
+													"clr": {
+														"red": 0,
+														"green": 175,
+														"blue": 255
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Reaching for the divine",
+													"clr": {
+														"red": 255,
+														"green": 255,
+														"blue": 255
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Dancing in the moonlight",
+													"clr": {
+														"red": 255,
+														"green": 255,
+														"blue": 0
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Exploring sacred realms",
+													"clr": {
+														"red": 0,
+														"green": 204,
+														"blue": 102
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Breaking free from societal expectations",
+													"clr": {
+														"red": 255,
+														"green": 128,
+														"blue": 0
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Surrendering to her desires",
+													"clr": {
+														"red": 153,
+														"green": 51,
+														"blue": 255
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Seeking higher consciousness",
+													"clr": {
+														"red": 51,
+														"green": 204,
+														"blue": 255
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Opening her heart to love and acceptance",
+													"clr": {
+														"red": 255,
+														"green": 153,
+														"blue": 255
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Embracing her individuality",
+													"clr": {
+														"red": 255,
+														"green": 153,
+														"blue": 0
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Finding peace in the chaos",
+													"clr": {
+														"red": 102,
+														"green": 255,
+														"blue": 51
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Opening the doors to endless possibilities",
+													"clr": {
+														"red": 255,
+														"green": 204,
+														"blue": 0
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Breathing in the energy of the universe",
+													"clr": {
+														"red": 255,
+														"green": 255,
+														"blue": 153
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Embracing her sensuality",
+													"clr": {
+														"red": 255,
+														"green": 51,
+														"blue": 51
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Illuminating her path towards self-discovery",
+													"clr": {
+														"red": 255,
+														"green": 255,
+														"blue": 204
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Finding balance between spirituality and desire",
+													"clr": {
+														"red": 204,
+														"green": 255,
+														"blue": 51
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Basking in the glow of enlightenment",
+													"clr": {
+														"red": 255,
+														"green": 204,
+														"blue": 153
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												},
+												{
+													"text": "Breaking free from societal norms and constraints",
+													"clr": {
+														"red": 255,
+														"green": 153,
+														"blue": 153
+													},
+													"symbolisms": [
+
+													],
+													"cursor": -1
+												}
+											],
+											"cursor": 1
+										},
+										{
+											"text": "They are a couple deeply in love, but struggling with their conflicting views on spirituality. Through their sexual exploration and open conversations, they begin to find a balance between their atheistic and spiritual beliefs. Together, they embark on a journey of spiritual and sensual discovery, breaking free from societal expectations and embracing their individualistic views.",
+											"clr": {
+												"red": 230,
+												"green": 60,
+												"blue": 230
+											},
+											"imageries": [
+
+											],
+											"cursor": -1
+										},
+										{
+											"text": "He is a non-religious individual, but finds himself drawn to the world of mysticism and its connection to sensuality. As he begins to explore his own personal beliefs and spiritual practices, he also opens himself up to new sexual experiences and finds a sense of inner peace and fulfillment.",
+											"clr": {
+												"red": 255,
+												"green": 175,
+												"blue": 0
+											},
+											"imageries": [
+
+											],
+											"cursor": -1
+										},
+										{
+											"text": "She is a believer in the divine, but also embraces her sexuality and desires. She breaks free from the societal norms and expectations of goddess worshipers, finding her own unique path of spiritual and sexual fulfillment.",
+											"clr": {
+												"red": 255,
+												"green": 0,
+												"blue": 85
+											},
+											"imageries": [
+
+											],
+											"cursor": -1
+										}
+									],
+									"cursor": 1
+								},
+								{
+									"text": "A celebration of the diverse and unique human experience",
+									"clr": {
+										"red": 255,
+										"green": 170,
+										"blue": 50
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A journey towards empowerment and self-actualization",
+									"clr": {
+										"red": 200,
+										"green": 100,
+										"blue": 255
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A reminder to have fun and embrace pleasure along the way",
+									"clr": {
+										"red": 255,
+										"green": 200,
+										"blue": 100
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "The transformative power of embracing one's identity and desires",
+									"clr": {
+										"red": 100,
+										"green": 150,
+										"blue": 200
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A journey towards inner peace and fulfillment",
+									"clr": {
+										"red": 150,
+										"green": 255,
+										"blue": 100
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "The beautiful chaos of individual self-discovery",
+									"clr": {
+										"red": 255,
+										"green": 100,
+										"blue": 200
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A journey towards self-expression and authenticity",
+									"clr": {
+										"red": 50,
+										"green": 100,
+										"blue": 255
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "The vibrant and colorful nature of individual spirituality",
+									"clr": {
+										"red": 255,
+										"green": 150,
+										"blue": 50
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "An invitation to embrace one's passions and desires without shame",
+									"clr": {
+										"red": 100,
+										"green": 255,
+										"blue": 200
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "The dance between darkness and light in one's spiritual journey",
+									"clr": {
+										"red": 200,
+										"green": 175,
+										"blue": 255
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "A celebration of the human capacity for growth and transformation",
+									"clr": {
+										"red": 50,
+										"green": 255,
+										"blue": 255
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								},
+								{
+									"text": "The importance of embracing all aspects of oneself, even the unconventional",
+									"clr": {
+										"red": 255,
+										"green": 100,
+										"blue": 50
+									},
+									"contents": [
+
+									],
+									"cursor": -1
+								}
+							],
+							"cursor": 24
+						}
+					],
+					"cursor": 18
+				},
+				{
+					"text": "Challenging typical tropes and embracing individual expression",
+					"clr": {
+						"red": 255,
+						"green": 51,
+						"blue": 51
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "Exploring the depths of one's own desires and pleasures",
+					"clr": {
+						"red": 255,
+						"green": 102,
+						"blue": 0
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "Finding acceptance and belonging in one's own spiritual path",
+					"clr": {
+						"red": 255,
+						"green": 204,
+						"blue": 153
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "The mystic's journey as a quest for ultimate fulfillment and satisfaction",
+					"clr": {
+						"red": 51,
+						"green": 255,
+						"blue": 153
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "Navigating the fine line between fantasy and reality",
+					"clr": {
+						"red": 153,
+						"green": 0,
+						"blue": 51
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "Liberating oneself from societal and cultural constraints",
+					"clr": {
+						"red": 0,
+						"green": 102,
+						"blue": 0
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "Embracing a liberal and individualistic approach to spirituality",
+					"clr": {
+						"red": 153,
+						"green": 153,
+						"blue": 0
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "The strength and power of embracing one's own desires and beliefs",
+					"clr": {
+						"red": 255,
+						"green": 51,
+						"blue": 204
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "The rewards and pleasures of a sexually fulfilling spiritual journey",
+					"clr": {
+						"red": 255,
+						"green": 153,
+						"blue": 102
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "Celebrating and accepting one's own unique sexual identity",
+					"clr": {
+						"red": 255,
+						"green": 153,
+						"blue": 0
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "The mystic's journey as a constant search for new and exciting experiences",
+					"clr": {
+						"red": 51,
+						"green": 153,
+						"blue": 153
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "Confidently standing against societal taboos and norms",
+					"clr": {
+						"red": 0,
+						"green": 255,
+						"blue": 255
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "A serious pursuit of personal growth and enlightenment",
+					"clr": {
+						"red": 153,
+						"green": 51,
+						"blue": 51
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "Elevating the spirit through lighthearted humor and playfulness",
+					"clr": {
+						"red": 255,
+						"green": 255,
+						"blue": 0
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "A hopeful and optimistic outlook on the future and the unknown",
+					"clr": {
+						"red": 153,
+						"green": 255,
+						"blue": 204
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "An invitation to let go and fully embrace one's inner desires and spirituality",
+					"clr": {
+						"red": 255,
+						"green": 0,
+						"blue": 102
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "The mystic's journey as a continuous and ever-evolving path",
+					"clr": {
+						"red": 102,
+						"green": 255,
+						"blue": 204
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				},
+				{
+					"text": "A vibrant tapestry of colors and experiences, leading to personal growth and fulfillment",
+					"clr": {
+						"red": 255,
+						"green": 102,
+						"blue": 255
+					},
+					"tones": [
+
+					],
+					"cursor": -1
+				}
+			],
+			"cursor": 7
+		},
+		{
+			"text": "The Evolution of Belief",
+			"clr": {
+				"red": 123,
+				"green": 92,
+				"blue": 255
+			},
+			"ideas": [
+
+			],
+			"cursor": -1
+		},
+		{
+			"text": "The Freedom of Individualism",
+			"clr": {
+				"red": 45,
+				"green": 235,
+				"blue": 0
+			},
+			"ideas": [
+
+			],
+			"cursor": -1
+		},
+		{
+			"text": "The Secular Mystics",
+			"clr": {
+				"red": 255,
+				"green": 0,
+				"blue": 131
+			},
+			"ideas": [
+
+			],
+			"cursor": -1
+		},
+		{
+			"text": "The Sacred and Sensual",
+			"clr": {
+				"red": 0,
+				"green": 255,
+				"blue": 136
+			},
+			"ideas": [
+
+			],
+			"cursor": -1
+		},
+		{
+			"text": "The Colorful Liberation",
+			"clr": {
+				"red": 255,
+				"green": 0,
+				"blue": 235
+			},
+			"ideas": [
+
+			],
+			"cursor": -1
+		},
+		{
+			"text": "The Confident Rebel",
+			"clr": {
+				"red": 150,
+				"green": 0,
+				"blue": 255
+			},
+			"ideas": [
+
+			],
+			"cursor": -1
+		},
+		{
+			"text": "The Honest Intimacy",
+			"clr": {
+				"red": 0,
+				"green": 255,
+				"blue": 92
+			},
+			"ideas": [
+
+			],
+			"cursor": -1
+		},
+		{
+			"text": "The Courageous Quest",
+			"clr": {
+				"red": 255,
+				"green": 0,
+				"blue": 73
+			},
+			"ideas": [
+
+			],
+			"cursor": -1
+		},
+		{
+			"text": "The Laughter of Freedom",
+			"clr": {
+				"red": 237,
+				"green": 255,
+				"blue": 0
+			},
+			"ideas": [
+
+			],
+			"cursor": -1
+		},
+		{
+			"text": "The Light of Optimism",
+			"clr": {
+				"red": 255,
+				"green": 173,
+				"blue": 0
+			},
+			"ideas": [
+
+			],
+			"cursor": -1
+		},
+		{
+			"text": "The Closed Mind Opened",
+			"clr": {
+				"red": 0,
+				"green": 255,
+				"blue": 255
+			},
+			"ideas": [
+
+			],
+			"cursor": -1
+		}
+	],
+	"theme_cursor": 4,
+	"part_cursor": 6,
+	"active_idea[THEME]": "The Mystic's Journey",
+	"active_idea[IDEA]": "A journey of self-discovery and accountability",
+	"active_idea[TONE]": "Beyond the Boundaries of the Mundane",
+	"active_idea[ALLEGORY]": "The intertwining of spirituality and sensuality",
+	"active_idea[CONTENT]": "She is a free-spirited mystic practitioner, always seeking new age spiritual experiences. As she explores her individual spirituality and opens herself up to new beliefs, she also embraces her sexuality and embraces her true desires. She defies the boundaries of a secular society and finds strength in her own personal journey.",
+	"active_idea[IMAGERY]": "Embracing the unknown darkness",
+	"active_idea[SYMBOLISM]": "A midnight sky full of stars",
+	"active_idea_clr[THEME]": {
+		"red": 255,
+		"green": 202,
+		"blue": 0
+	},
+	"active_idea_clr[IDEA]": {
+		"red": 153,
+		"green": 102,
+		"blue": 51
+	},
+	"active_idea_clr[TONE]": {
+		"red": 255,
+		"green": 0,
+		"blue": 0
+	},
+	"active_idea_clr[ALLEGORY]": {
+		"red": 200,
+		"green": 50,
+		"blue": 100
+	},
+	"active_idea_clr[CONTENT]": {
+		"red": 255,
+		"green": 140,
+		"blue": 102
+	},
+	"active_idea_clr[IMAGERY]": {
+		"red": 0,
+		"green": 0,
+		"blue": 0
+	},
+	"active_idea_clr[SYMBOLISM]": {
+		"red": 0,
+		"green": 0,
+		"blue": 0
+	}
 }
