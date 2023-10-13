@@ -110,7 +110,6 @@ struct StaticPart {
 };
 
 
-
 struct StaticSymbolism {
 	String text;
 	Color clr;
@@ -222,6 +221,21 @@ struct StaticTheme {
 	}
 };
 
+// Idea path
+enum {
+	IDEAPATH_THEME,
+	IDEAPATH_IDEA,
+	IDEAPATH_TONE,
+	IDEAPATH_ALLEGORY,
+	IDEAPATH_CONTENT,
+	IDEAPATH_IMAGERY,
+	IDEAPATH_SYMBOLISM,
+	
+	IDEAPATH_COUNT
+};
+
+extern const char* IdeaPathString[IDEAPATH_COUNT][2];
+
 struct Song :
 	DataFile,
 	EditorPtrs
@@ -280,6 +294,7 @@ struct Song :
 	int							default_line_syllables = 0;
 	int							default_attr_count = 7;
 	int							theme_cursor = 0;
+	String						active_idea[IDEAPATH_COUNT];
 	
 	// Temp
 	Pipe*				pipe = 0;
@@ -329,6 +344,8 @@ struct Song :
 			("themes", themes)
 			("theme_cursor", theme_cursor)
 			;
+		for(int i = 0; i < IDEAPATH_COUNT; i++)
+			json((String)"active_idea[" + IdeaPathString[i][1] + "]", active_idea[i]);
 		
 		//for(const SnapArg& a : HumanInputTextArgs())
 		//	json("headers[" + a.SubscriptString() + "]", headers[a]);

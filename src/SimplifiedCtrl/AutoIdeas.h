@@ -48,6 +48,7 @@ public:
 	void OnListContentIdea();
 	void OnListImagery();
 	void OnListSymbolism();
+	void SetAsActiveIdea();
 	
 };
 

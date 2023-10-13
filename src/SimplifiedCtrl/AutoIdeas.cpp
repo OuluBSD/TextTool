@@ -463,6 +463,8 @@ void AutoIdeas::ToolMenu(Bar& bar) {
 	bar.Add(t_("Get content suggestions"), AppImg::BlueRing(), THISBACK(GetContentSuggestions)).Key(K_CTRL_T);
 	bar.Add(t_("Get specific imagery suggestions"), AppImg::BlueRing(), THISBACK(GetImagerySuggestions)).Key(K_CTRL_Y);
 	bar.Add(t_("Get symbolism suggestions"), AppImg::BlueRing(), THISBACK(GetSymbolismSuggestions)).Key(K_CTRL_U);
+	bar.Separator();
+	bar.Add(t_("Set as active idea"), AppImg::VioletRing(), THISBACK(SetAsActiveIdea)).Key(K_F5);
 	
 }
 
@@ -968,4 +970,36 @@ void AutoIdeas::OnSymbolismSuggestions(String result, StaticImagery* img) {
 	}
 	
 	PostCallback(THISBACK1(DataImagery, false));
+}
+
+void AutoIdeas::SetAsActiveIdea() {
+	if (!symbolisms.IsCursor())
+		return;
+	int theme_i = themes.GetCursor();
+	int idea_i = ideas.GetCursor();
+	int tone_i = tones.GetCursor();
+	int allegory_i = allegories.GetCursor();
+	int content_i = contents.GetCursor();
+	int imagery_i = imageries.GetCursor();
+	int symblism_i = symbolisms.GetCursor();
+	
+	try {
+		Song& song = GetSong();
+		StaticTheme& t = song.themes[theme_i];
+		StaticIdea& id = t.ideas[idea_i];
+		StaticToneSuggestion& tone = id.tones[tone_i];
+		StaticAllegoricalDevice& all = tone.allegories[allegory_i];
+		StaticContentIdea& c = all.contents[content_i];
+		StaticImagery& img =  c.imageries[imagery_i];
+		StaticSymbolism& sym =  img.symbolisms[symblism_i];
+		
+		song.active_idea[IDEAPATH_THEME] = t.text;
+		song.active_idea[IDEAPATH_IDEA] = id.text;
+		song.active_idea[IDEAPATH_TONE] = tone.text;
+		song.active_idea[IDEAPATH_ALLEGORY] = all.text;
+		song.active_idea[IDEAPATH_CONTENT] = c.text;
+		song.active_idea[IDEAPATH_IMAGERY] = img.text;
+		song.active_idea[IDEAPATH_SYMBOLISM] = sym.text;
+	}
+	catch (NoPointerExc e) {}
 }

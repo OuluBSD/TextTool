@@ -1,5 +1,16 @@
 #include "Database.h"
 
+
+const char* IdeaPathString[IDEAPATH_COUNT][2] {
+	{"Theme", "THEME"},
+	{"Idea", "IDEA"},
+	{"Tone Suggestion", "TONE"},
+	{"Allegorical Device", "ALLEGORY"},
+	{"Content Idea", "CONTENT"},
+	{"Specific Imagery", "IMAGERY"},
+	{"Symbolism", "SYMBOLISM"}
+};
+
 int StaticRhyme::GetBestSuggestion() const {
 	if (suggestions.IsEmpty())
 		return -1;
