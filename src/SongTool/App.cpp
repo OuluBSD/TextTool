@@ -68,6 +68,8 @@ void SongTool::MainMenu(Bar& bar) {
 		bar.Separator();
 		bar.Add(t_("Move to higher tab"), THISBACK1(MoveTab, -1)).Key(K_CTRL_1);
 		bar.Add(t_("Move to lower tab"), THISBACK1(MoveTab, +1)).Key(K_CTRL_2);
+		bar.Add(t_("Move to higher part"), THISBACK1(MovePart, -1)).Key(K_SHIFT_1);
+		bar.Add(t_("Move to lower part"), THISBACK1(MovePart, +1)).Key(K_SHIFT_2);
 	});
 	bar.Sub(t_("Tools"), [this](Bar& bar) {
 		bar.Add(t_("Show orphaned files"), THISBACK(ShowOrphanedFiles));
@@ -149,6 +151,16 @@ void SongTool::MoveTab(int i) {
 		case 2: ed.MoveTab(i); break;
 		//case 3: ai.MoveTab(i); break;
 		//case 4: seq.MoveTab(i); break;
+	}
+}
+
+void SongTool::MovePart(int i) {
+	switch (page) {
+		//case 0: fp.MovePart(i); break;
+		//case 1: cal.MovePart(i); break;
+		case 2: ed.MovePart(i); break;
+		//case 3: ai.MovePart(i); break;
+		//case 4: seq.MovePart(i); break;
 	}
 }
 

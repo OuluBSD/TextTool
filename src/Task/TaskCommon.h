@@ -121,6 +121,8 @@ typedef enum : int {
 	TASK_GET_PART_CONTENT_SUGGESTIONS,
 	TASK_GET_PART_IMAGERY_SUGGESTIONS,
 	TASK_GET_PART_SYMBOLISM_SUGGESTIONS,
+	TASK_GET_INTERNAL_RHYMING_FIRST_LINE,
+	TASK_GET_INTERNAL_RHYMING_CONTINUE_LINE,
 	
 	TASK_IMPORT_AND_REVERSE,
 	TASK_CONTEXT_IMPORT_AND_REVERSE,
@@ -168,5 +170,48 @@ NTL_MOVEABLE(TaskArgType)
 NTL_MOVEABLE(TaskOutputType)
 NTL_MOVEABLE(TaskType)
 END_UPP_NAMESPACE
+
+
+
+struct RhymingArgs {
+	// Song
+	String song_idea[IDEAPATH_COUNT];
+	VectorMap<String, Vector<String>> known_part_ideas;
+	Vector<String> best_previous_lines;
+	
+	// Part
+	String part;
+	String part_idea[IDEAPATH_PARTCOUNT];
+	
+	// Params
+	int syllable_count;
+	Vector<String> forbidden_words;
+	String frozen_begin;
+	String frozen_end;
+	String specific_imagery;
+	String symbolism;
+	VectorMap<String, String> attrs;
+	
+	void Jsonize(JsonIO& json) {
+		for(int i = 0; i < IDEAPATH_COUNT; i++)
+			json("song_idea[" + IntStr(i) + "]", song_idea[i]);
+		json("known_part_ideas", known_part_ideas);
+		json("best_previous_lines", best_previous_lines);
+		json("part", part);
+		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
+			json("part_idea[" + IntStr(i) + "]", part_idea[i]);
+		json	("syllable_count", syllable_count)
+				("forbidden_words", forbidden_words)
+				("frozen_begin", frozen_begin)
+				("frozen_end", frozen_end)
+				("specific_imagery", specific_imagery)
+				("symbolism", symbolism)
+				("attrs", attrs)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
 
 #endif

@@ -1828,3 +1828,11 @@ void Task::Process_GetPartImagerySuggestions() {
 void Task::Process_GetPartSymbolismSuggestions() {
 	WhenResult("- " + output);
 }
+
+void Task::Process_GetInternalRhymingFirstLine() {
+	WhenResult("-Eminem:" + output);
+}
+
+void Task::Process_GetInternalRhymingContinueLine() {
+	WhenResult("-Eminem:" + output);
+}

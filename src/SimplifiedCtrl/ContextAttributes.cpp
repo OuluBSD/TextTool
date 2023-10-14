@@ -28,9 +28,9 @@ void ContextAttributesCtrl::InitList(ArrayCtrl& attrs) {
 	attrs.Add(Capitalize(db.Translate(g)), Capitalize(db.Translate(i0)), Capitalize(db.Translate(i1))); \
 	for (int i = 3; i < 4; i++) {\
 		dl = new DropList; \
-		dl->Add(Capitalize(db.Translate(i0))); \
+		dl->Add(GreenRedAttr(AttrText(db.Translate(i0)), 0)); \
 		dl->Add(""); \
-		dl->Add(Capitalize(db.Translate(i1))); \
+		dl->Add(GreenRedAttr(AttrText(db.Translate(i1)), 1)); \
 		attrs.SetCtrl(row, i, dl); \
 		dl->SetIndex(1); \
 	} \

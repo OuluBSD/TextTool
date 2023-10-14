@@ -97,6 +97,7 @@ public:
 	void LoadLast();
 	void StoreLast();
 	void MoveTab(int d);
+	void MovePart(int d);
 	String GetStatusText();
 	
 	void ArtistMenu(Bar& bar);

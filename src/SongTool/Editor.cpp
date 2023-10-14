@@ -118,9 +118,9 @@ void Editor::InitSimplified() {
 	AddItem(t_("Context"), t_("Idea"), auto_ideas);
 	AddItem(t_("Context"), t_("Idea of a single part"), part_idea);
 	
+	AddItem(t_("Text"), t_("English Serial Compare"), serial_compare_eng);
 	AddItem(t_("Text"), t_("English Styler"), text_autocompare_eng);
 	AddItem(t_("Text"), t_("Native Styler"), text_autocompare_nat);
-	AddItem(t_("Text"), t_("English Serial Compare"), serial_compare_eng);
 	AddItem(t_("Text"), t_("Edit English"), text_edit_english);
 	AddItem(t_("Text"), t_("Edit Native"), text_edit_native);
 	
@@ -232,12 +232,22 @@ void Editor::MoveTab(int d) {
 	}
 }
 
+void Editor::MovePart(int d) {
+	if (parts.IsCursor()) {
+		int c = parts.GetCursor();
+		c += d;
+		if (c >= 0 && c < parts.GetCount())
+			parts.SetCursor(c);
+	}
+}
+
 void Editor::LoadLast() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	p.artist = 0;
 	p.release = 0;
 	p.song = 0;
+	p.part = 0;
 	for (Artist& a : db.artists) {
 		if (a.native_name == app.last_artist) {
 			p.artist = &a;
@@ -247,6 +257,12 @@ void Editor::LoadLast() {
 					for (Song& s : r.songs) {
 						if (s.native_title == app.last_song) {
 							p.song = &s;
+							for (StaticPart& part : s.parts) {
+								if (part.name == app.last_part) {
+									p.part = &part;
+									break;
+								}
+							}
 							break;
 						}
 					}
@@ -296,6 +312,7 @@ void Editor::DataArtist() {
 		p.artist = 0;
 		p.release = 0;
 		p.song = 0;
+		p.part = 0;
 		DataPage();
 		return;
 	}
@@ -323,6 +340,7 @@ void Editor::DataRelease() {
 	if (!releases.IsCursor() || !p.artist) {
 		p.release = 0;
 		p.song = 0;
+		p.part = 0;
 		DataPage();
 		return;
 	}
@@ -390,20 +408,14 @@ void Editor::DataSong() {
 		parts.SetCursor(cursor);
 	#else
 	
-	for(int i = 0; i < s.parts.GetCount()+1; i++) {
+	for(int i = 0; i < s.parts.GetCount(); i++) {
 		String k;
 		int c = 0;
 		Color clr = White();
-		if (i == 0) {
-			k = t_("Whole song");
-		}
-		else {
-			int j = i-1;
-			StaticPart& p = s.parts[j];
-			k = p.name;
-			clr = GetSongPartPaperColor(p.type);
-			c = p.rhymes.GetCount();
-		}
+		StaticPart& p = s.parts[i];
+		k = p.name;
+		clr = GetSongPartPaperColor(p.type);
+		c = p.rhymes.GetCount();
 		parts.Set(i, 0, AttrText(k).NormalPaper(clr));
 		parts.Set(i, 1, c);
 	}
@@ -421,13 +433,13 @@ void Editor::DataSong() {
 void Editor::DataPart() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
-	if (!parts.IsCursor() || !p.artist || !p.release || !p.song || !p.song->pipe) {
+	if (!parts.IsCursor() || !p.artist || !p.release || !p.song /*|| !p.song->pipe*/) {
 		DataPage();
 		return;
 	}
 	
 	// OLD!!
-	#if 0
+	/*
 	Pipe& e = *p.song->pipe;
 	PipePtrs& pp = p.song->pipe->p;
 	
@@ -444,25 +456,17 @@ void Editor::DataPart() {
 	int part_i = pp.GetActivePartIndex();
 	if (part_i >= 0 && part_i < parts.GetCount() && !parts.IsCursor())
 		parts.SetCursor(1+part_i);
-	#else
-	
-	
+	*/
 	
 	Song& song = *p.song;
 	int cursor = parts.GetCursor();
-	if (!cursor) {
-		db.ctx.active_wholesong = true;
-	}
-	else {
-		db.ctx.active_wholesong = false;
-		p.part = &song.parts[cursor-1];
-	}
+	
+	db.ctx.active_wholesong = false;
+	p.part = &song.parts[cursor];
 	
 	int part_i = p.GetActivePartIndex();
 	if (part_i >= 0 && part_i < parts.GetCount() && !parts.IsCursor())
-		parts.SetCursor(1+part_i);
-	#endif
-	
+		parts.SetCursor(part_i);
 	
 	
 	DataPage();

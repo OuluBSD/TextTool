@@ -26,7 +26,7 @@ class TxtAutoCompare : public SongToolCtrl {
 	String stanza_key;
 	String main_key;
 	String other_key;
-	String forbidden_words_key;
+	String syllable_key, forbidden_words_key;
 	String frozen_begin_key, frozen_end_key;
 	
 	int attr_begin_row = -1;

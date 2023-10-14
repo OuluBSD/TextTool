@@ -248,6 +248,20 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_VariateImage)
 		;
 	
+	AddRule(TASK_GET_INTERNAL_RHYMING_FIRST_LINE, "get internal rhyming: first line")
+		.Input(&Task::CreateInput_GetInternalRhymingFirstLine)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetInternalRhymingFirstLine)
+		;
+	
+	AddRule(TASK_GET_INTERNAL_RHYMING_CONTINUE_LINE, "get internal rhyming: continue previous line")
+		.Input(&Task::CreateInput_GetInternalRhymingContinueLine)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetInternalRhymingContinueLine)
+		;
+	
 	
 	
 	
@@ -1482,6 +1496,45 @@ void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResul
 	t.WhenResultImages << WhenResult;
 	t.WhenError << WhenError;
 }
+
+void TaskMgr::GetInternalRhymingFirstLine(const RhymingArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_INTERNAL_RHYMING_FIRST_LINE);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetInternalRhymingContinueLine(const RhymingArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_INTERNAL_RHYMING_CONTINUE_LINE);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+
+
 
 TaskRule& TaskMgrConfig::GetRule(int code) {
 	for (TaskRule& r : rules)

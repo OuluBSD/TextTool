@@ -281,17 +281,17 @@ bool PartIdea::HasActiveIdea() {
 	return true;
 }
 
-void PartIdea::GetAttrs(const VectorMap<String,String>& data, Vector<String>& v) {
+void PartIdea::GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v) {
 	for(int i = 0; i < Attr::ATTR_COUNT; i++) {
 		const char* key = Attr::AttrKeys[i][0];
 		int value = StrInt(data.Get(key, "0"));
 		
 		if (value) {
 			if (value > 0) {
-				v << Attr::AttrKeys[i][2];
+				v.GetAdd(key) = Attr::AttrKeys[i][2];
 			}
 			else {
-				v << Attr::AttrKeys[i][3];
+				v.GetAdd(key) = Attr::AttrKeys[i][3];
 			}
 		}
 	}
@@ -310,18 +310,16 @@ void PartIdea::GetContentSuggestions() {
 	
 	DisableAll();
 	
-	Song& s = *p.song;
+	Song& s = GetSong();
+	s.RealizePipe();
 	int part_i = parts.GetCursor();
 	StaticPart& part = s.parts[part_i];
 	
-	Vector<String> attrs;
+	VectorMap<String,String> attrs;
 	GetAttrs(p.artist->data, attrs);
 	GetAttrs(p.release->data, attrs);
 	GetAttrs(p.song->data, attrs);
 	
-	Song& song = GetSong();
-	
-	song.RealizePipe();
 	
 	String known_part_ideas;
 	for(int i = 0; i < s.parts.GetCount(); i++) {
@@ -338,7 +336,7 @@ void PartIdea::GetContentSuggestions() {
 	}
 	
 	{
-		TaskMgr& m = *song.pipe;
+		TaskMgr& m = *s.pipe;
 		m.GetPartContentSuggestions(
 			s.active_idea[0],
 			s.active_idea[1],
@@ -346,8 +344,8 @@ void PartIdea::GetContentSuggestions() {
 			s.active_idea[3],
 			part.name,
 			known_part_ideas,
-			attrs,
-			THISBACK2(OnContentSuggestions, &song, part_i));
+			attrs.GetValues(),
+			THISBACK2(OnContentSuggestions, &s, part_i));
 	}
 }
 
@@ -370,7 +368,7 @@ void PartIdea::GetImagerySuggestions() {
 	StaticPart& part = s.parts[part_i];
 	StaticContentSuggestion& c = part.contents[content_i];
 	
-	Vector<String> attrs;
+	VectorMap<String,String> attrs;
 	GetAttrs(p.artist->data, attrs);
 	GetAttrs(p.release->data, attrs);
 	GetAttrs(p.song->data, attrs);
@@ -403,7 +401,7 @@ void PartIdea::GetImagerySuggestions() {
 			c.text,
 			part.name,
 			known_part_ideas,
-			attrs,
+			attrs.GetValues(),
 			THISBACK1(OnImagerySuggestions, &c));
 	}
 }
@@ -429,7 +427,7 @@ void PartIdea::GetSymbolismSuggestions() {
 	StaticContentSuggestion& c = part.contents[content_i];
 	StaticImagery& img = c.imageries[imagery_i];
 	
-	Vector<String> attrs;
+	VectorMap<String,String> attrs;
 	GetAttrs(p.artist->data, attrs);
 	GetAttrs(p.release->data, attrs);
 	GetAttrs(p.song->data, attrs);
@@ -463,7 +461,7 @@ void PartIdea::GetSymbolismSuggestions() {
 			img.text,
 			part.name,
 			known_part_ideas,
-			attrs,
+			attrs.GetValues(),
 			THISBACK1(OnSymbolismSuggestions, &img));
 	}
 }

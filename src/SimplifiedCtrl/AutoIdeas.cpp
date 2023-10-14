@@ -468,17 +468,17 @@ void AutoIdeas::ToolMenu(Bar& bar) {
 	
 }
 
-void AutoIdeas::GetAttrs(const VectorMap<String,String>& data, Vector<String>& v) {
+void AutoIdeas::GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v) {
 	for(int i = 0; i < Attr::ATTR_COUNT; i++) {
 		const char* key = Attr::AttrKeys[i][0];
 		int value = StrInt(data.Get(key, "0"));
 		
 		if (value) {
 			if (value > 0) {
-				v << Attr::AttrKeys[i][2];
+				v.GetAdd(key) = Attr::AttrKeys[i][2];
 			}
 			else {
-				v << Attr::AttrKeys[i][3];
+				v.GetAdd(key) = Attr::AttrKeys[i][3];
 			}
 		}
 	}
@@ -491,7 +491,7 @@ void AutoIdeas::GetNovelThemes() {
 	if(!p.song || !p.release || !p.artist)
 		return;
 	
-	Vector<String> attrs;
+	VectorMap<String,String> attrs;
 	GetAttrs(p.artist->data, attrs);
 	GetAttrs(p.release->data, attrs);
 	GetAttrs(p.song->data, attrs);
@@ -506,7 +506,7 @@ void AutoIdeas::GetNovelThemes() {
 	
 	{
 		TaskMgr& m = *song.pipe;
-		m.GetNovelThemes(attrs, THISBACK1(OnNovelThemes, &song));
+		m.GetNovelThemes(attrs.GetValues(), THISBACK1(OnNovelThemes, &song));
 	}
 }
 
@@ -523,7 +523,7 @@ void AutoIdeas::GetNovelIdeas() {
 	StaticTheme& t = p.song->themes[i];
 	String theme = t.text;
 	
-	Vector<String> attrs;
+	VectorMap<String,String> attrs;
 	GetAttrs(p.artist->data, attrs);
 	GetAttrs(p.release->data, attrs);
 	GetAttrs(p.song->data, attrs);
@@ -538,7 +538,7 @@ void AutoIdeas::GetNovelIdeas() {
 	
 	{
 		TaskMgr& m = *song.pipe;
-		m.GetNovelIdeas(theme, attrs, THISBACK1(OnNovelIdeas, &t));
+		m.GetNovelIdeas(theme, attrs.GetValues(), THISBACK1(OnNovelIdeas, &t));
 	}
 }
 
@@ -556,7 +556,7 @@ void AutoIdeas::GetToneSuggestions() {
 	StaticTheme& t = p.song->themes[i];
 	StaticIdea& idea = t.ideas[j];
 	
-	Vector<String> attrs;
+	VectorMap<String,String> attrs;
 	GetAttrs(p.artist->data, attrs);
 	GetAttrs(p.release->data, attrs);
 	GetAttrs(p.song->data, attrs);
@@ -569,7 +569,7 @@ void AutoIdeas::GetToneSuggestions() {
 	
 	{
 		TaskMgr& m = *song.pipe;
-		m.GetToneSuggestions(t.text, idea.text, attrs, THISBACK1(OnToneSuggestions, &idea));
+		m.GetToneSuggestions(t.text, idea.text, attrs.GetValues(), THISBACK1(OnToneSuggestions, &idea));
 	}
 }
 
@@ -589,7 +589,7 @@ void AutoIdeas::GetAllegorySuggestions() {
 	StaticIdea& id = t.ideas[idea_i];
 	StaticToneSuggestion& tone = id.tones[tone_i];
 	
-	Vector<String> attrs;
+	VectorMap<String,String> attrs;
 	GetAttrs(p.artist->data, attrs);
 	GetAttrs(p.release->data, attrs);
 	GetAttrs(p.song->data, attrs);
@@ -602,7 +602,7 @@ void AutoIdeas::GetAllegorySuggestions() {
 	
 	{
 		TaskMgr& m = *song.pipe;
-		m.GetAllegorySuggestions(t.text, id.text, tone.text, attrs, THISBACK1(OnAllegorySuggestions, &tone));
+		m.GetAllegorySuggestions(t.text, id.text, tone.text, attrs.GetValues(), THISBACK1(OnAllegorySuggestions, &tone));
 	}
 }
 
@@ -624,7 +624,7 @@ void AutoIdeas::GetContentSuggestions() {
 	StaticToneSuggestion& tone = id.tones[tone_i];
 	StaticAllegoricalDevice& all = tone.allegories[allegory_i];
 	
-	Vector<String> attrs;
+	VectorMap<String,String> attrs;
 	GetAttrs(p.artist->data, attrs);
 	GetAttrs(p.release->data, attrs);
 	GetAttrs(p.song->data, attrs);
@@ -637,7 +637,7 @@ void AutoIdeas::GetContentSuggestions() {
 	
 	{
 		TaskMgr& m = *song.pipe;
-		m.GetContentSuggestions(t.text, id.text, tone.text, all.text, attrs, THISBACK1(OnContentSuggestions, &all));
+		m.GetContentSuggestions(t.text, id.text, tone.text, all.text, attrs.GetValues(), THISBACK1(OnContentSuggestions, &all));
 	}
 }
 
@@ -661,7 +661,7 @@ void AutoIdeas::GetImagerySuggestions() {
 	StaticAllegoricalDevice& all = tone.allegories[allegory_i];
 	StaticContentSuggestion& c = all.contents[content_i];
 	
-	Vector<String> attrs;
+	VectorMap<String,String> attrs;
 	GetAttrs(p.artist->data, attrs);
 	GetAttrs(p.release->data, attrs);
 	GetAttrs(p.song->data, attrs);
@@ -674,7 +674,7 @@ void AutoIdeas::GetImagerySuggestions() {
 	
 	{
 		TaskMgr& m = *song.pipe;
-		m.GetImagerySuggestions(t.text, id.text, tone.text, all.text, c.text, attrs, THISBACK1(OnImagerySuggestions, &c));
+		m.GetImagerySuggestions(t.text, id.text, tone.text, all.text, c.text, attrs.GetValues(), THISBACK1(OnImagerySuggestions, &c));
 	}
 }
 
@@ -700,7 +700,7 @@ void AutoIdeas::GetSymbolismSuggestions() {
 	StaticContentSuggestion& c = all.contents[content_i];
 	StaticImagery& img =  c.imageries[imagery_i];
 	
-	Vector<String> attrs;
+	VectorMap<String,String> attrs;
 	GetAttrs(p.artist->data, attrs);
 	GetAttrs(p.release->data, attrs);
 	GetAttrs(p.song->data, attrs);
@@ -713,7 +713,7 @@ void AutoIdeas::GetSymbolismSuggestions() {
 	
 	{
 		TaskMgr& m = *song.pipe;
-		m.GetSymbolismSuggestions(t.text, id.text, tone.text, all.text, c.text, img.text, attrs, THISBACK1(OnSymbolismSuggestions, &img));
+		m.GetSymbolismSuggestions(t.text, id.text, tone.text, all.text, c.text, img.text, attrs.GetValues(), THISBACK1(OnSymbolismSuggestions, &img));
 	}
 }
 

@@ -36,7 +36,7 @@ TxtAutoCompare::TxtAutoCompare() {
 	vsplit0.SetPos(4000, 0);
 	vsplit0.SetPos(6000, 1);
 	
-	vsplit1.SetPos(1000, 0);
+	vsplit1.SetPos(1500, 0);
 	vsplit1.SetPos(7500, 1);
 	
 	// See ENUM on change
@@ -114,10 +114,9 @@ TxtAutoCompare::TxtAutoCompare() {
 	attrs.Add(Capitalize(db.Translate(g)), Capitalize(db.Translate(i0)), Capitalize(db.Translate(i1))); \
 	for (int i = 3; i < 5; i++) {\
 		dl = &attrs.CreateCtrl<DropList>(row, i); \
-		dl->Add(Capitalize(db.Translate(i0))); \
-		/*dl->Add(t_("Neutral"));*/ \
+		dl->Add(GreenRedAttr(AttrText(db.Translate(i0)), 0)); \
 		dl->Add(""); \
-		dl->Add(Capitalize(db.Translate(i1))); \
+		dl->Add(GreenRedAttr(AttrText(db.Translate(i1)), 1)); \
 		dl->SetIndex(1); \
 	} \
 	row++;\
@@ -653,7 +652,7 @@ void TxtAutoCompare::MakeContentMoreLikeAttributes() {
 	TaskMgr& m = *p.song->pipe;
 	
 	for (StaticRhyme& r : sp.rhymes) {
-		Vector<String> attrs;
+		VectorMap<String,String> attrs;
 		for (int cmp = 0; cmp < 4; cmp++) {
 			VectorMap<String,String>* data;
 			switch (cmp) {
@@ -664,13 +663,14 @@ void TxtAutoCompare::MakeContentMoreLikeAttributes() {
 			}
 			
 			for(int i = 0; i < Attr::ATTR_COUNT; i++) {
-				int j = data->Find(Attr::AttrKeys[i][0]);
+				const char* key = Attr::AttrKeys[i][0];
+				int j = data->Find(key);
 				if (j >= 0) {
 					int value = StrInt((*data)[j]);
 					if (value != 0) {
 						String value_str = value > 0 ? Attr::AttrKeys[i][2] : Attr::AttrKeys[i][3];
 						value_str = (String)Attr::AttrKeys[i][1] + ": " + value_str;
-						attrs << value_str;
+						attrs.GetAdd(key) = value_str;
 					}
 				}
 			}
@@ -679,7 +679,7 @@ void TxtAutoCompare::MakeContentMoreLikeAttributes() {
 		}
 		
 		if (attrs.GetCount())
-			m.MorphToAttributes(r.source, attrs, THISBACK2(OnMorphToAttributes, &sp, &r));
+			m.MorphToAttributes(r.source, attrs.GetValues(), THISBACK2(OnMorphToAttributes, &sp, &r));
 	}
 }
 

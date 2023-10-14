@@ -223,7 +223,7 @@ void SongStructure::LoadStructure() {
 		for(int i = 0; i < unique_parts.GetCount(); i++) {
 			String abbr = unique_parts[i];
 			StaticPart& part = song.parts.Add();
-			part.name = GetSongPartFromAbbr(abbr);
+			part.name = TrimBoth(GetSongPartFromAbbr(abbr));
 			part.type = abbr;
 		}
 	}

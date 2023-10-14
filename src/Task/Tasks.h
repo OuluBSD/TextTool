@@ -233,6 +233,8 @@ public:
 	void CreateInput_GetPartContentSuggestions();
 	void CreateInput_GetPartImagerySuggestions();
 	void CreateInput_GetPartSymbolismSuggestions();
+	void CreateInput_GetInternalRhymingFirstLine();
+	void CreateInput_GetInternalRhymingContinueLine();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -297,6 +299,8 @@ public:
 	void Process_GetPartContentSuggestions();
 	void Process_GetPartImagerySuggestions();
 	void Process_GetPartSymbolismSuggestions();
+	void Process_GetInternalRhymingFirstLine();
+	void Process_GetInternalRhymingContinueLine();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

@@ -2881,3 +2881,322 @@ void Task::CreateInput_GetPartSymbolismSuggestions() {
 	
 	input.response_length = 1024*2;
 }
+
+void Task::CreateInput_GetInternalRhymingFirstLine() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	RhymingArgs args;
+	args.Put(this->args[0]);
+	
+	for(int i = 0; i < IDEAPATH_COUNT; i++)
+		if (args.song_idea[i].Right(1) == ".") args.song_idea[i] = args.song_idea[i].Left(args.song_idea[i].GetCount()-1);
+	for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
+		if (args.part_idea[i].Right(1) == ".") args.part_idea[i] = args.part_idea[i].Left(args.part_idea[i].GetCount()-1);
+	
+	
+	for(int i = 0; i < IDEAPATH_COUNT; i++) {
+		if (args.song_idea[i].IsEmpty())
+			continue;
+		String key = IdeaPathString[i][0];
+		input.AddSub().NoColon().Title("Known " + key + " of the song 1 is \"" + args.song_idea[i] + "\"");
+	}
+	
+	if (args.attrs.GetCount()) {
+		TaskTitledList& list = input.AddSub().Title("Attributes of the part \"" + args.part + "\" of the song 1 are");
+		for(String& a : args.attrs)
+			list.Add(TrimBoth(a));
+	}
+	
+	for(int i = 0; i < IDEAPATH_PARTCOUNT; i++) {
+		if (args.part_idea[i].IsEmpty())
+			continue;
+		String key = IdeaPathString[IDEAPATH_PARTBEGIN + i][0];
+		input.AddSub().NoColon().Title("Known " + key + " of the part \"" + args.part + "\" of the song 1 is \"" + args.song_idea[i] + "\"");
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Structure of the song 1 is");
+		for(int i = 0; i < args.known_part_ideas.GetCount(); i++)
+			list.Add(TrimBoth(args.known_part_ideas.GetKey(i)));
+	}
+	
+	/*if (args.syllable_count > 0) {
+		TaskTitledList& list = input.AddSub().NoColon();
+		list.Title("The line of the result must have exactly " + IntStr(args.syllable_count) + " syllables");
+	}*/
+	
+	if (!args.forbidden_words.IsEmpty()) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("Please refrain from using any following words in your lyrics");
+		for(int i = 0; i < args.forbidden_words.GetCount(); i++) {
+			list.Add(TrimBoth(args.forbidden_words[i]));
+		}
+	}
+	
+	if (!args.frozen_begin.IsEmpty()) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("Please start your line with the following");
+		list.Add(args.frozen_begin);
+	}
+	
+	if (!args.frozen_end.IsEmpty()) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("Please end your line with the following");
+		list.Add(args.frozen_end);
+	}
+	
+	if (!args.specific_imagery.IsEmpty()) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("Using bold and vivid language, paint a picture of the following description, as the story begins");
+		list.Add(args.specific_imagery);
+	}
+	
+	if (!args.symbolism.IsEmpty()) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("When incorporating symbolism, please make sure it aligns with the following");
+		list.Add(args.symbolism);
+	}
+	
+	int artist_count = 0;
+	{
+		TaskTitledList& list = input.AddSub();
+		list.Title("List of rappers, which use heavily internal rhyme schemes");
+		
+		// List of rappers, which use heavily internal rhyme schemes
+		list.Add("Eminem");
+		list.Add("Kendrick Lamar");
+		list.Add("MF DOOM");
+		list.Add("Big L");
+		list.Add("Aesop Rock");
+		list.Add("Busta Rhymes");
+		list.Add("Earl Sweatshirt");
+		list.Add("Tech N9ne");
+		list.Add("Logic");
+		list.Add("Kool G Rap ");
+		list.Add("Royce da 5'9");
+		list.Add("Rakim");
+		list.Add("Black Thought");
+		list.Add("Canibus");
+		list.Add("Blackalicious");
+		list.Add("Danny Brown");
+		list.Add("Big Pun");
+		list.Add("GZA/Genius");
+		list.Add("R.A. the Rugged Man");
+		list.Add("Jean Grae");
+		
+		// List of rappers, which use internal rhyme schemes and are relevant too
+		if (0) {
+			list.Add("J. Cole");
+			list.Add("Nicki Minaj");
+			list.Add("Tyler, The Creator");
+			list.Add("Chance the Rapper");
+			list.Add("Mac Miller");
+			list.Add("Travis Scott");
+			list.Add("J.I.D.");
+			list.Add("Tierra Whack");
+			list.Add("Noname");
+			list.Add("Vic Mensa");
+			list.Add("A$AP Rocky");
+			list.Add("Lil Wayne");
+			list.Add("Method Man");
+			list.Add("Ghostface Killah");
+			list.Add("Jay-Z");
+			list.Add("Andre 3000");
+			list.Add("Nas");
+			list.Add("Lauryn Hill");
+		}
+		
+		artist_count = list.values.GetCount();
+	}
+	
+	input.AddSub().NoColon().Title("Only single line of text is requested!");
+	input.AddSub().NoColon().Title("No more than 1 line!");
+	input.AddSub().NoColon().Title("That is also only 1 stanza!");
+	input.AddSub().NoColon().Title("No 2 or 4 lines of rhymes is requsted!");
+	input.AddSub().NoColon().Title("Please focus on maintaining a consistent rhyme scheme with the previous lines and try to find creative and unique ways to incorporate it into your lyrics. Thank you");
+	
+	{
+		String s = "The first internally rhyming line for the \"" + args.part + "\" with 1 line";
+		if (args.syllable_count > 0)
+			s << " and " + IntStr(args.syllable_count) + " syllables";
+		s << " in style of all " + IntStr(artist_count) + " artists";
+		
+		TaskTitledList& results = input.PreAnswer();
+		results.Title(s);
+		results.EmptyLine().EmptyLineString("Eminem:");
+	}
+	
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetInternalRhymingContinueLine() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	RhymingArgs args;
+	args.Put(this->args[0]);
+	
+	for(int i = 0; i < IDEAPATH_COUNT; i++)
+		if (args.song_idea[i].Right(1) == ".") args.song_idea[i] = args.song_idea[i].Left(args.song_idea[i].GetCount()-1);
+	for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
+		if (args.part_idea[i].Right(1) == ".") args.part_idea[i] = args.part_idea[i].Left(args.part_idea[i].GetCount()-1);
+	
+	{
+		TaskTitledList& list = input.AddSub().NoColon();
+		list.Title("The purpose of this process is to continue from song 1 by creating one new row in it with several different artist styles, and these new rows are called results.");
+	}
+	
+	for(int i = 0; i < IDEAPATH_COUNT; i++) {
+		if (args.song_idea[i].IsEmpty())
+			continue;
+		String key = IdeaPathString[i][0];
+		input.AddSub().NoColon().Title("Known " + key + " of the song 1 is \"" + args.song_idea[i] + "\"");
+	}
+	
+	if (args.attrs.GetCount()) {
+		TaskTitledList& list = input.AddSub().Title("Attributes of the part \"" + args.part + "\" of the song 1 are");
+		for(String& a : args.attrs)
+			list.Add(TrimBoth(a));
+	}
+	
+	for(int i = 0; i < IDEAPATH_PARTCOUNT; i++) {
+		if (args.part_idea[i].IsEmpty())
+			continue;
+		String key = IdeaPathString[IDEAPATH_PARTBEGIN + i][0];
+		input.AddSub().NoColon().Title("Known " + key + " of the part \"" + args.part + "\" of the song 1 is \"" + args.song_idea[i] + "\"");
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Structure of the song 1 is");
+		for(int i = 0; i < args.known_part_ideas.GetCount(); i++)
+			list.Add(TrimBoth(args.known_part_ideas.GetKey(i)));
+	}
+	
+	/*if (args.syllable_count > 0) {
+		TaskTitledList& list = input.AddSub().NoColon();
+		list.Title("The line of the result must have exactly " + IntStr(args.syllable_count) + " syllables");
+	}*/
+	
+	int artist_count = 0;
+	{
+		TaskTitledList& list = input.AddSub();
+		list.Title("List of rappers, which use heavily internal rhyme schemes");
+		
+		// List of rappers, which use heavily internal rhyme schemes
+		list.Add("Eminem");
+		list.Add("Kendrick Lamar");
+		list.Add("MF DOOM");
+		list.Add("Big L");
+		list.Add("Aesop Rock");
+		list.Add("Busta Rhymes");
+		list.Add("Earl Sweatshirt");
+		list.Add("Tech N9ne");
+		list.Add("Logic");
+		list.Add("Kool G Rap ");
+		list.Add("Royce da 5'9");
+		list.Add("Rakim");
+		list.Add("Black Thought");
+		list.Add("Canibus");
+		list.Add("Blackalicious");
+		list.Add("Danny Brown");
+		list.Add("Big Pun");
+		list.Add("GZA/Genius");
+		list.Add("R.A. the Rugged Man");
+		list.Add("Jean Grae");
+		
+		// List of rappers, which use internal rhyme schemes and are relevant too
+		if (0) {
+			list.Add("J. Cole");
+			list.Add("Nicki Minaj");
+			list.Add("Tyler, The Creator");
+			list.Add("Chance the Rapper");
+			list.Add("Mac Miller");
+			list.Add("Travis Scott");
+			list.Add("J.I.D.");
+			list.Add("Tierra Whack");
+			list.Add("Noname");
+			list.Add("Vic Mensa");
+			list.Add("A$AP Rocky");
+			list.Add("Lil Wayne");
+			list.Add("Method Man");
+			list.Add("Ghostface Killah");
+			list.Add("Jay-Z");
+			list.Add("Andre 3000");
+			list.Add("Nas");
+			list.Add("Lauryn Hill");
+		}
+		artist_count = list.values.GetCount();
+	}
+	
+	if (!args.forbidden_words.IsEmpty()) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("Please refrain from using any following words in your lyrics");
+		for(int i = 0; i < args.forbidden_words.GetCount(); i++) {
+			list.Add(TrimBoth(args.forbidden_words[i]));
+		}
+	}
+	
+	if (!args.frozen_begin.IsEmpty()) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("Please start your line with the following");
+		list.Add(args.frozen_begin);
+	}
+	
+	if (!args.frozen_end.IsEmpty()) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("Please end your line with the following");
+		list.Add(args.frozen_end);
+	}
+	
+	if (!args.specific_imagery.IsEmpty()) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("Using bold and vivid language, paint a picture of the following description, as the story continue");
+		list.Add(args.specific_imagery);
+	}
+	
+	if (!args.symbolism.IsEmpty()) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("When incorporating symbolism, please make sure it aligns with the following");
+		list.Add(args.symbolism);
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub();
+		list.Title("Important");
+		list.Add("Only single line of text is requested!");
+		list.Add("No more than 1 line!");
+		list.Add("That is also only 1 stanza!");
+		list.Add("No 2 or 4 lines of rhymes is requsted!");
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub();
+		list.Title("Lyrics of the song 1 with 1 stanza per line");
+		
+		for(int i = 0; i < args.best_previous_lines.GetCount(); i++) {
+			list.Add(args.best_previous_lines[i]);
+		}
+	}
+	{
+		String s = "Continue internally rhyming lyrics for the \"" + args.part + "\" of the song 1";
+		if (args.best_previous_lines.GetCount())
+			s << " with the last line \"" + args.best_previous_lines.Top() + "\"";
+		s << " with 1 line";
+		s << " in style of all " + IntStr(artist_count) + " artists";
+		if (args.syllable_count > 0)
+			s << ". A line must be limited " + IntStr(args.syllable_count) + " syllables";
+		
+		TaskTitledList& results = input.PreAnswer();
+		results.Title(s);
+		results.EmptyLine().EmptyLineString("Eminem:");
+	}
+	
+	
+	input.response_length = 1024*2;
+}

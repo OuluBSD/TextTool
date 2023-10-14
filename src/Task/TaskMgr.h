@@ -115,6 +115,8 @@ struct TaskMgr {
 	void GetPartContentSuggestions(String theme, String idea, String tone, String alleg, String part, String known_part_ideas, Vector<String>& attrs, Event<String> WhenResult);
 	void GetPartImagerySuggestions(String theme, String idea, String tone, String alleg, String content, String part, String known_part_ideas, Vector<String>& attrs, Event<String> WhenResult);
 	void GetPartSymbolismSuggestions(String theme, String idea, String tone, String alleg, String content, String imagery, String part, String known_part_ideas, Vector<String>& attrs, Event<String> WhenResult);
+	void GetInternalRhymingFirstLine(const RhymingArgs& args, Event<String> WhenResult);
+	void GetInternalRhymingContinueLine(const RhymingArgs& args, Event<String> WhenResult);
 };
 
 struct TaskMgrConfig {

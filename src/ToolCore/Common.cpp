@@ -72,6 +72,25 @@ ATTR_LIST
 
 
 
+const char* IdeaPathString[IDEAPATH_COUNT][2] {
+	{"Theme", "THEME"},
+	{"Idea", "IDEA"},
+	{"Tone Suggestion", "TONE"},
+	{"Allegorical Device", "ALLEGORY"},
+	{"Content Idea", "CONTENT"},
+	{"Specific Imagery", "IMAGERY"},
+	{"Symbolism", "SYMBOLISM"}
+};
+
+
+
+
+
+
+
+
+
+
 void SnapAttrStr::SetFromId(Pipe& pipe, int group, int item) {
 	group_i = group;
 	item_i = item;
@@ -546,18 +565,18 @@ String GetSongPartFromAbbr(const String& abbr) {
 		pre = abbr;
 	else {
 		pre = abbr.Left(split);
-		post = abbr.Mid(split);
+		post = " " + abbr.Mid(split);
 	}
 	
-	if (pre == "I") return "Intro " + post;
-	if (pre == "V") return "Verse " + post;
-	if (pre == "PC") return "Pre-Chorus " + post;
-	if (pre == "C") return "Chorus " + post;
-	if (pre == "IN") return "Instrumental " + post;
-	if (pre == "S") return "Solo " + post;
-	if (pre == "T") return "Theme melody " + post;
-	if (pre == "B") return "Bridge " + post;
-	if (pre == "O") return "Outro " + post;
+	if (pre == "I") return "Intro" + post;
+	if (pre == "V") return "Verse" + post;
+	if (pre == "PC") return "Pre-Chorus" + post;
+	if (pre == "C") return "Chorus" + post;
+	if (pre == "IN") return "Instrumental" + post;
+	if (pre == "S") return "Solo" + post;
+	if (pre == "T") return "Theme melody" + post;
+	if (pre == "B") return "Bridge" + post;
+	if (pre == "O") return "Outro" + post;
 	
 	return abbr;
 }
@@ -645,4 +664,18 @@ int HexInt(String s) {
 		return sum;
 	}
 	return 0;
+}
+
+AttrText GreenRedAttr(AttrText a, int red) {
+	Color clr;
+	if (!red) {
+		clr = Color(175, 255, 211);
+	}
+	else {
+		clr = Color(255, 190, 185);
+	}
+	
+	return	a	.NormalPaper(clr)
+				.Paper(Blend(clr, GrayColor()))
+				.Ink(White()).NormalInk(Black());
 }
