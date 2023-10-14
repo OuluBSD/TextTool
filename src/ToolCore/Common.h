@@ -36,50 +36,52 @@ int FindRhymeType(const char* name);
 
 
 
-
+// These are sorted using AI (14.10.2023). The first one is the popular option
 
 #define ATTR_LIST \
-	ATTR_ITEM(GENDER, "Gender", "female", "male") \
-	ATTR_ITEM(RATIONALITY, "Rationality", "reasonable", "unreasonable") \
-	ATTR_ITEM(PROBLEM_SOLVING, "Problem solving strategy", "shortcut taking", "cunning") \
-	ATTR_ITEM(RESPONSIBILITY, "Responsibility", "accountable", "irresponsible") \
+	ATTR_ITEM(FAITH_AND_REASON_SEEKER, "Faith and reason seekers", "divine worshipers", "rational thinker") \
+	ATTR_ITEM(GROUP_FAITH, "Group faith", "individual spirituality", "organized religion") \
+	ATTR_ITEM(BELIF_SPECTRUM, "Belief spectrum", "believer", "non-believer") \
+	ATTR_ITEM(OLD_AND_NEW_BELIEVER, "Old and new believers", "new age spirituality", "traditional religion") \
+	ATTR_ITEM(BELIF_COMMUNITY, "Belief communities", "secular society", "religious community") \
+	ATTR_ITEM(THEOLOGICAL_OPPOSITE, "Theological opposites", "theistic", "atheistic") \
+	ATTR_ITEM(SEEKER_OF_TRUTH, "Seekers of truth", "spiritual seeker", "skeptic") \
+	ATTR_ITEM(INTUITIVE_THINKER, "Intuitive thinkers", "rationalist", "mystic practitioner") \
+	ATTR_ITEM(RATIONAL_BELIEF, "Rational believers", "religious", "scientific") \
+	ATTR_ITEM(PHYSICAL_PREFERENCE, "Physical Preference", "body enhancing beauty", "natural beauty") \
+	ATTR_ITEM(SEXUAL_ORIENTATION, "Sexual Orientation", "heterosexual", "homosexual") \
+	ATTR_ITEM(SEXUAL_PREFERENCE, "Sexual Preference", "normal", "kinky") \
+	ATTR_ITEM(FAITH_EXTREME, "Faith extremes", "agnostic", "religious fundamentalist") \
+	\
 	ATTR_ITEM(AVERAGE_EXPECTATIONS, "Average expectations", "expectation-conformed", "expectation-opposed") \
 	ATTR_ITEM(IMAGERY, "Imagery", "trope-reinforcing", "unique") \
-	ATTR_ITEM(EXPRESSION, "Expression", "allegorical", "explicit") \
+	ATTR_ITEM(EXPRESSION, "Expression", "explicit", "allegorical") \
 	ATTR_ITEM(RELATIONSHIP_FOCUS, "Relationship focus", "partner-focused", "individual-focused") \
-	ATTR_ITEM(INTEGRITY, "Integrity", "honest", "twisted") \
-	ATTR_ITEM(SOCIAL, "Social", "libertarian", "authoritarian") \
+	ATTR_ITEM(HUMAN_STRENGTH, "Human strength", "strong", "weak") \
+	ATTR_ITEM(GENDER, "Gender", "female", "male") \
+	ATTR_ITEM(RATIONALITY, "Rationality", "unreasonable", "reasonable") \
+	ATTR_ITEM(INTEGRITY, "Integrity", "twisted", "honest") \
+	ATTR_ITEM(SEXUALIZATION, "Sexualization", "sexual", "non-sexual") \
+	ATTR_ITEM(EXPECTATIONS, "Expectations", "perfection", "acceptance") \
+	ATTR_ITEM(PROBLEM_SOLVING, "Problem solving strategy", "shortcut taking", "cunning") \
+	ATTR_ITEM(RESPONSIBILITY, "Responsibility", "irresponsible", "accountable") \
+	ATTR_ITEM(SOCIAL, "Social", "authoritarian", "libertarian") \
 	ATTR_ITEM(ECONOMIC, "Economic", "liberal", "conservative") \
 	ATTR_ITEM(CULTURE, "Culture", "individualistic", "collective") \
-	ATTR_ITEM(HUMAN_STRENGTH, "Human strength", "strong", "weak") \
 	ATTR_ITEM(MOTIVATION, "Motivation", "rewarding", "punishing") \
-	ATTR_ITEM(SEXUALIZATION, "Sexualization", "sexual", "non-sexual") \
-	ATTR_ITEM(EXPECTATIONS, "Expectations", "acceptance", "perfection") \
-	ATTR_ITEM(MOOD_JOYFUL_MELANCHOLIC, "Mood", "joyful", "melancholic") \
-	ATTR_ITEM(MOOD_PLAYFUL_SERIOUS, "Mood", "playful", "serious") \
-	ATTR_ITEM(MOOD_UPLIFTING_HEAVY, "Mood", "uplifting", "heavy") \
-	ATTR_ITEM(MOOD_LIGHTHEARTED_SOMBER, "Mood", "lighthearted", "somber") \
-	ATTR_ITEM(MOOD_HUMOROUS_DRAMATIC, "Mood", "humorous", "dramatic") \
+	\
+	ATTR_ITEM(ATTITUDE_ATTITUDE_OPEN_CLOSED, "Attitude", "open", "closed") \
 	ATTR_ITEM(ATTITUDE_HOPEFUL_DESPAIR, "Attitude", "hopeful", "despair") \
 	ATTR_ITEM(ATTITUDE_OPTIMISTIC_PESSIMISTIC, "Attitude", "optimistic", "pessimistic") \
-	ATTR_ITEM(ATTITUDE_ATTITUDE_OPEN_CLOSED, "Attitude", "open", "closed") \
 	ATTR_ITEM(SEXUALITY, "Sexuality", "adventurous", "limited") \
 	ATTR_ITEM(SEXUAL_ACTING, "Sexual Acting", "confident", "sensitive") \
-	ATTR_ITEM(SEXUAL_COMMITMENT, "Sexual Commitment", "polygamy", "monogamy") \
-	ATTR_ITEM(SEXUAL_ORIENTATION, "Sexual Orientation", "heterosexual", "homosexual") \
-	ATTR_ITEM(SEXUAL_PREFERENCE, "Sexual Preference", "kinky", "normal") \
-	ATTR_ITEM(PHYSICAL_PREFERENCE, "Physical Preference", "enhancement", "natural") \
-	ATTR_ITEM(RATIONAL_BELIEF, "Rational believers", "scientific", "religious") \
-	ATTR_ITEM(THEOLOGICAL_OPPOSITE, "Theological opposites", "atheistic", "theistic") \
-	ATTR_ITEM(SEEKER_OF_TRUTH, "Seekers of truth", "spiritual seeker", "skeptic") \
-	ATTR_ITEM(GROUP_FAITH, "Group faith", "individual spirituality", "organized religion") \
-	ATTR_ITEM(BELIF_COMMUNITY, "Belief communities", "secular society", "religious community") \
-	ATTR_ITEM(INTUITIVE_THINKER, "Intuitive thinkers", "mystic practitioner", "rationalist") \
-	ATTR_ITEM(FAITH_EXTREME, "Faith extremes", "agnostic", "religious fundamentalist") \
-	ATTR_ITEM(OLD_AND_NEW_BELIEVER, "Old and new believers", "new age spirituality", "traditional religion") \
-	ATTR_ITEM(BELIF_SPECTRUM, "Belief spectrum", "believer", "non-believer") \
-	ATTR_ITEM(FAITH_AND_REASON_SEEKER, "Faith and reason seekers", "divine worshipers", "rational thinker") \
-
+	ATTR_ITEM(SEXUAL_COMMITMENT, "Sexual Commitment", "monogamy", "polygamy") \
+	ATTR_ITEM(MOOD_JOYFUL_MELANCHOLIC, "Mood", "joyful", "melancholic") \
+	ATTR_ITEM(MOOD_LIGHTHEARTED_SOMBER, "Mood", "lighthearted", "somber") \
+	ATTR_ITEM(MOOD_UPLIFTING_HEAVY, "Mood", "uplifting", "heavy") \
+	ATTR_ITEM(MOOD_HUMOROUS_DRAMATIC, "Mood", "humorous", "dramatic") \
+	ATTR_ITEM(MOOD_PLAYFUL_SERIOUS, "Mood", "playful", "serious") \
+	
 
 namespace Attr {
 
@@ -772,5 +774,7 @@ struct PartAbbrSorter {
 };
 
 int HexInt(String s);
+
+AttrText GreenRedAttr(AttrText a, int red);
 
 #endif
