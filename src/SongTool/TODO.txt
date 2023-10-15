@@ -1,6 +1,5 @@
 High priority:
 - fix song stylizer
-- remove attributes from song info
 
 Mid priority:
 - when opening with task list view, the editor bar is not set
@@ -18,3 +17,4 @@ Done:
 - import attributes from existing text
 - rap stylizer tab
 	- existing verse (with break): as base, with own content and other artist styles
+- remove attributes from song info

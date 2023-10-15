@@ -8,6 +8,7 @@ class TxtSerialCompare : public SongToolCtrl {
 	ArrayCtrl rhymes, suggestions, params, attrs;
 	bool disabled = false;
 	
+	
 	String syllables_key, forbidden_words_key;
 	String frozen_begin_key, frozen_end_key;
 	String specific_imagery_key;

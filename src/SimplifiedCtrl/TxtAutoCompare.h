@@ -3,8 +3,9 @@
 
 
 class TxtAutoCompare : public SongToolCtrl {
+	WithTxtCompare<Ctrl> info;
 	Splitter hsplit, vsplit0, vsplit1;
-	ArrayCtrl parts, rhymes, suggestions, attrs, params;
+	ArrayCtrl rhymes, suggestions, attrs, params;
 	DocEdit best;
 	
 	DocEdit edit_source, edit_ai_source;
@@ -14,8 +15,6 @@ class TxtAutoCompare : public SongToolCtrl {
 	EditIntSpin def_attr_count;
 	
 	bool is_disabled = false;
-	int running_count = 0;
-	Mutex lock;
 	
 	bool has_init = false;
 	String unpacked_struct_key;
@@ -29,7 +28,7 @@ class TxtAutoCompare : public SongToolCtrl {
 	String frozen_begin_key, frozen_end_key;
 	
 	int attr_begin_row = -1;
-	Vector<Vector<int>> tmp_sug_ids;
+	Vector<int> sug_ids;
 	
 public:
 	typedef TxtAutoCompare CLASSNAME;
@@ -40,7 +39,7 @@ public:
 	void PartMenu(Bar& bar);
 	void Data() override;
 	void DataSong();
-	void DataSongPart(bool skip_results);
+	void DataPart(bool skip_results);
 	void DataSongRhymeData();
 	void SetSuggestionScore(EditIntNotNullSpin* e, StaticSuggestion* sug);
 	void CopyAIToUser();
@@ -56,16 +55,16 @@ public:
 	void MorphAttrsTowardsContext();
 	void MakeContentMoreLikeAttributes();
 	
-	void PostOnPoeticRecv(String res, int part, int rhyme) {PostCallback(THISBACK3(OnPoeticRecv, res, part, rhyme));}
-	void OnPoeticRecv(String res, int part, int rhyme);
+	//void PostOnPoeticRecv(String res, int part, int rhyme) {PostCallback(THISBACK3(OnPoeticRecv, res, part, rhyme));}
+	void OnPoeticRecv(String res, StaticPart* part, StaticRhyme* rhyme);
 	void OnAttrChange(StaticPart* sp, const char* s, DropList* dl);
 	void OnAttrChangeRhyme(StaticRhyme* r, const char* s, DropList* dl);
 	void OnRhymeSchemeChange(DropList* dl, StaticPart* sp);
 	void OnSongPartContentEdit(int src);
 	void OnAcceptEditSource();
 	void OnSongPartContentChange(DocEdit* e, StaticPart* sp);
-	void OnSuggestionScore(String res, StaticRhyme* r, bool post_enable);
-	void OnSuggestionOrder(String res, StaticRhyme* r, int idx);
+	void OnSuggestionScore(String res, StaticRhyme* r);
+	void OnSuggestionOrder(String res, StaticRhyme* r);
 	void OnAIAttributes(String res, StaticRhyme* r);
 	void OnSourceTextImprovements(String res, StaticPart* s);
 	void OnSongSyllableChange();
@@ -81,6 +80,8 @@ public:
 	void EnableAll();
 	void UpdateRhymesToSource();
 	void OnSongPartSyllableChange(StaticPart* sp, EditString* e);
+	void CopyAttributes(int src);
+	void GetAttrsValue(const VectorMap<String,String>& data, VectorMap<String,String>& v);
 	
 };
 
