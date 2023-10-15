@@ -106,14 +106,14 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 	AddRule(TASK_EVALUATE_POETIC_STYLES, "evaluate poetic styles")
 		.Input(&Task::CreateInput_EvaluatePoeticStyles)
 			.Arg(V_PTR_PIPE)
-			.Arg(V_ARGS, 8, 8)
+			.Arg(V_ARGS, 1, 1)
 		.Process(&Task::Process_EvaluatePoeticStyles)
 		;
 	
 	AddRule(TASK_MORPH_TO_ATTRIBUTES, "morph to attributes")
 		.Input(&Task::CreateInput_MorphToAttributes)
 			.Arg(V_PTR_PIPE)
-			.Arg(V_ARGS, 2, 2)
+			.Arg(V_ARGS, 4, 4)
 		.Process(&Task::Process_MorphToAttributes)
 		;
 	
@@ -1370,36 +1370,24 @@ void TaskMgr::MakePoetic(String style, String src_key, String dst_key, Callback 
 }
 
 void TaskMgr::EvaluatePoeticStyles(
-	String rhyme, String rhyme_scheme,
-	int rhyme_scheme_line_count,
-	String attrs,
-	String syllable_count_str,
-	String forbidden_words,
-	String frozen_begin,
-	String frozen_end,
+	const PoeticStylesArgs& args,
 	Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_EVALUATE_POETIC_STYLES);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
+	String s = args.Get();
+	
 	Task& t = AddTask();
 	t.rule = &r;
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
-	t.args	<< rhyme
-			<< rhyme_scheme
-			<< IntStr(rhyme_scheme_line_count)
-			<< syllable_count_str
-			<< attrs
-			<< forbidden_words
-			<< frozen_begin
-			<< frozen_end
-			;
+	t.args	<< s;
 	t.WhenResult << WhenResult;
 }
 
-void TaskMgr::MorphToAttributes(const Vector<String>& rhyme_lines, const Vector<String>& attrs, Event<String> WhenResult) {
+void TaskMgr::MorphToAttributes(const Vector<String>& rhyme_lines, const Vector<String>& attrs, String imagery, String symbolism, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_MORPH_TO_ATTRIBUTES);
@@ -1411,6 +1399,7 @@ void TaskMgr::MorphToAttributes(const Vector<String>& rhyme_lines, const Vector<
 	t.p.pipe = &p;
 	t.args << Join(rhyme_lines, "\n");
 	t.args << Join(attrs, "\n");
+	t.args << imagery << symbolism;
 	t.WhenResult << WhenResult;
 }
 

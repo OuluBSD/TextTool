@@ -623,7 +623,13 @@ void TxtSerialCompare::OnParamChangeString(EditString* e, int key) {
 }
 
 void TxtSerialCompare::OnParamChangeInt(EditIntSpin* e, int key) {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.part) return;
 	
+	if (key == 0)
+		p.part->data.GetAdd(syllables_key) = IntStr(e->GetData());
+		
 }
 
 void TxtSerialCompare::OnFirstLine(String res, StaticRhyme* r_) {

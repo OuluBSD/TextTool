@@ -245,4 +245,34 @@ struct ProductionArgs {
 	
 };
 
+struct PoeticStylesArgs {
+	String rhyme;
+	String rhyme_scheme;
+	int line_count;
+	Vector<String> attrs;
+	Vector<int> syllable_count;
+	Vector<String> forbidden_words;
+	Vector<String> frozen_begin;
+	Vector<String> frozen_end;
+	String imagery, symbolism;
+	
+	void Jsonize(JsonIO& json) {
+		json	("rhyme", rhyme)
+				("rhyme_scheme", rhyme_scheme)
+				("line_count", line_count)
+				("attrs", attrs)
+				("syllable_count", syllable_count)
+				("forbidden_words", forbidden_words)
+				("frozen_begin", frozen_begin)
+				("frozen_end", frozen_end)
+				("imagery", imagery)
+				("symbolism", symbolism)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+
 #endif

@@ -1565,23 +1565,14 @@ void Task::CreateInput_MakePoetic() {
 }
 
 void Task::CreateInput_EvaluatePoeticStyles() {
-	String rhyme = args[0];
-	String rhyme_scheme = args[1];
-	int rhyme_scheme_line_count = StrInt(args[2]);
-	String syllable_count_str = args[3];
-	String attrs = args[4];
-	String forbidden_words = TrimBoth(args[5]);
-	String frozen_begin = TrimBoth(args[6]);
-	String frozen_end = TrimBoth(args[7]);
-	ASSERT(rhyme_scheme.GetCount());
+	PoeticStylesArgs args;
+	args.Put(this->args[0]);
+	ASSERT(args.line_count > 0);
 	
-	bool rev_snap = args[0] == "rev";
-	SnapArg a = p.a;
-	ASSERT(a.mode != MODE_INVALID);
 	Pipe& pipe = *p.pipe;
 	
 	{
-		Vector<String> lines = Split(rhyme, "\n", true);
+		Vector<String> lines = Split(args.rhyme, "\n", true);
 		TaskTitledList& list = input.AddSub().Title("Original lyrics (" + IntStr(lines.GetCount()) + " lines, no rhymes)");
 		list		.NoListChar();
 		for (const String& line : lines)
@@ -1600,57 +1591,65 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 		}
 	}
 	
-	if (!syllable_count_str.IsEmpty()) {
-		Vector<String> values = Split(syllable_count_str, ",");
-		
-		/*input.AddSub()
-			.Title("A single line of the result must have only " + IntStr(syllables) + " syllables.")
-			.NoColon();*/
-		
+	if (!args.syllable_count.IsEmpty()) {
 		TaskTitledList& list = input.AddSub();
 		list.Title("A single line of the result must have exact count of syllables");
-		for(int i = 0; i < values.GetCount(); i++) {
+		for(int i = 0; i < args.syllable_count.GetCount(); i++) {
 			String s;
-			s << i+1 << ". line must have " << values[i] << " syllables";
+			s << i+1 << ". line must have " << args.syllable_count[i] << " syllables";
 			list.Add(s);
 		}
 	}
 	
-	if (!rhyme_scheme.IsEmpty()) {
-		Vector<String> values = Split(rhyme_scheme, "\n");
+	if (!args.rhyme_scheme.IsEmpty()) {
 		TaskTitledList& list = input.AddSub();
 		//list.Title("A single line of the result must have rhyming");
 		list.Title("The result must follow these rules for rhyming");
-		for(int i = 0; i < values.GetCount(); i++) {
-			list.Add(values[i]);
+		{
+			list.Add(args.rhyme_scheme);
 		}
 	}
 	
-	if (!forbidden_words.IsEmpty()) {
-		Vector<String> values = Split(forbidden_words, ",");
+	if (!args.forbidden_words.IsEmpty()) {
 		TaskTitledList& list = input.AddSub();
 		list.Title("The result must avoid following words");
-		for(int i = 0; i < values.GetCount(); i++) {
-			list.Add(TrimBoth(values[i]));
+		for(int i = 0; i < args.forbidden_words.GetCount(); i++) {
+			list.Add(TrimBoth(args.forbidden_words[i]));
 		}
 	}
 	
-	if (!frozen_begin.IsEmpty()) {
-		Vector<String> values = Split(frozen_begin, ",");
+	if (!args.frozen_begin.IsEmpty()) {
 		TaskTitledList& list = input.AddSub();
 		list.Title("Lines of the result must begin with following words");
-		for(int i = 0; i < values.GetCount(); i++) {
-			list.Add(TrimBoth(values[i]));
+		for(int i = 0; i < args.frozen_begin.GetCount(); i++) {
+			list.Add(TrimBoth(args.frozen_begin[i]));
 		}
 	}
 	
-	if (!frozen_end.IsEmpty()) {
-		Vector<String> values = Split(frozen_end, ",");
+	if (!args.frozen_end.IsEmpty()) {
 		TaskTitledList& list = input.AddSub();
 		list.Title("Lines of the result must end with following words");
-		for(int i = 0; i < values.GetCount(); i++) {
-			list.Add(TrimBoth(values[i]));
+		for(int i = 0; i < args.frozen_end.GetCount(); i++) {
+			list.Add(TrimBoth(args.frozen_end[i]));
 		}
+	}
+	
+	if (!args.imagery.IsEmpty()) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("Using bold and vivid language, paint a picture of the following description, as the story continue");
+		list.Add(args.imagery);
+	}
+	
+	if (!args.symbolism.IsEmpty()) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("When incorporating symbolism, please make sure it aligns with the following");
+		list.Add(args.symbolism);
+	}
+	
+	if (args.attrs.GetCount()) {
+		TaskTitledList& list = input.AddSub().Title("Lyrics should match following attributes");
+		for(String& a : args.attrs)
+			list.Add(TrimBoth(a));
 	}
 	
 	{
@@ -1658,13 +1657,7 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 		String result_title;
 		result_title +=
 			"List of results for all 1-" + IntStr(list_len) + " artist styles."
-			" A single result is " + IntStr(rhyme_scheme_line_count) + " lines long in total";
-		
-		if (attrs.GetCount())
-			result_title << ", and with " + attrs + " tone of voice";
-		
-		//if (syllables > 0)
-		//	result_title += ". A single line must have only " + IntStr(syllables) + " syllables";
+			" A single result is " + IntStr(args.line_count) + " lines long in total";
 		
 		results.Title(result_title);
 		
@@ -2210,11 +2203,14 @@ void Task::CreateInput_MorphToAttributes() {
 	Pipe& pipe = *p.pipe;
 	Attributes& g = pipe;
 	
+	String imagery = args[2];
+	String symbolism = args[3];
+	
 	g.Realize(); // TODO very hacky solution... this should be in Database already
 	
 	
 	Vector<String> lines = Split(args[0], "\n");
-	{
+	if (lines.GetCount()) {
 		TaskTitledList& list = input.AddSub().Title("Lyrics \"A\"");
 		list		.NoListChar();
 		for (const String& line : lines)
@@ -2232,10 +2228,27 @@ void Task::CreateInput_MorphToAttributes() {
 			axes		.Add(line);
 	}
 	
-	{
+	if (!imagery.IsEmpty()) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("Using bold and vivid language, paint a picture of the following description, as the story continue");
+		list.Add(imagery);
+	}
+	
+	if (!symbolism.IsEmpty()) {
+		TaskTitledList& list = input.AddSub();
+		list.Title("When incorporating symbolism, please make sure it aligns with the following");
+		list.Add(symbolism);
+	}
+	
+	if (lines.GetCount()) {
 		TaskTitledList& results = input.PreAnswer();
 		//results.Title("Same lyrics in short but deeply biased style for lines 1-" + IntStr(list_len));
 		results.Title("Modified lyrics \"A\", which the same pronouns, but different content, which matches to given preferable attributes. " + IntStr(lines.GetCount()) + " lines");
+		results.EmptyLine();
+	}
+	else {
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("Get 4 lines of lyrics, with 16 syllables per line, which matches to given preferable attributes.");
 		results.EmptyLine();
 	}
 	

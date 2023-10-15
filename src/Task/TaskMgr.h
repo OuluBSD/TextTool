@@ -88,8 +88,8 @@ struct TaskMgr {
 	void ConvertSongStructureToEnglish(String struct_txt, Event<String> WhenResult);
 	void EvaluateSongAudience(String src_key, String dst_key, int mode, Callback WhenDone);
 	void MakePoetic(String style, String src_key, String dst_key, Callback WhenDone);
-	void EvaluatePoeticStyles(String rhyme, String rhyme_scheme, int rhyme_scheme_line_count, String attrs, String syllable_count_str, String forbidden_words, String frozen_begin, String frozen_end, Event<String> WhenResult);
-	void MorphToAttributes(const Vector<String>& rhyme_lines, const Vector<String>& attrs, Event<String> WhenResult);
+	void EvaluatePoeticStyles(const PoeticStylesArgs& args, Event<String> WhenResult);
+	void MorphToAttributes(const Vector<String>& rhyme_lines, const Vector<String>& attrs, String imagery, String symbolism, Event<String> WhenResult);
 	void ConvertScreenplayToPlan(String src_key, String dst_key, Callback WhenDone);
 	void ConvertScreenplayToStructure(String orig_txt, Event<String> WhenResult);
 	void ConvertStructureToScreenplay(String orig_txt, Event<String> WhenResult);

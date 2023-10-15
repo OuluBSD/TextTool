@@ -26,6 +26,8 @@ class TxtAutoCompare : public SongToolCtrl {
 	String other_key;
 	String syllable_key, forbidden_words_key;
 	String frozen_begin_key, frozen_end_key;
+	String specific_imagery_key;
+	String symbolism_key;
 	
 	int attr_begin_row = -1;
 	Vector<int> sug_ids;
@@ -39,8 +41,8 @@ public:
 	void PartMenu(Bar& bar);
 	void Data() override;
 	void DataSong();
-	void DataPart(bool skip_results);
-	void DataSongRhymeData();
+	void DataPart();
+	void DataRhyme();
 	void SetSuggestionScore(EditIntNotNullSpin* e, StaticSuggestion* sug);
 	void CopyAIToUser();
 	void CopyUserToAI();
@@ -53,7 +55,8 @@ public:
 	void EvaluateExtraSuggestionScores();
 	void GetAIAttributes();
 	void MorphAttrsTowardsContext();
-	void MakeContentMoreLikeAttributes();
+	void GetContentString(bool morph);
+	void CopyIdeaVariables();
 	
 	//void PostOnPoeticRecv(String res, int part, int rhyme) {PostCallback(THISBACK3(OnPoeticRecv, res, part, rhyme));}
 	void OnPoeticRecv(String res, StaticPart* part, StaticRhyme* rhyme);
@@ -70,7 +73,7 @@ public:
 	void OnSongSyllableChange();
 	void OnSongAttrCountChange();
 	void OnMorphToAttributes(String res, StaticPart* s, StaticRhyme* r);
-	void OnParamChange(EditString* e, int key);
+	void OnParamChangeString(EditString* e, int key);
 	
 	StaticPart* GetActiveSongPart();
 	StaticRhyme* GetActiveRhyme();
@@ -79,7 +82,6 @@ public:
 	void DisableAll();
 	void EnableAll();
 	void UpdateRhymesToSource();
-	void OnSongPartSyllableChange(StaticPart* sp, EditString* e);
 	void CopyAttributes(int src);
 	void GetAttrsValue(const VectorMap<String,String>& data, VectorMap<String,String>& v);
 	

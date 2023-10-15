@@ -804,5 +804,7 @@ extern const char* IdeaPathString[IDEAPATH_COUNT][2];
 
 
 
+void TrimBothAll(Vector<String>& v);
+
 
 #endif

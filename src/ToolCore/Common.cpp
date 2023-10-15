@@ -679,3 +679,8 @@ AttrText GreenRedAttr(AttrText a, int red) {
 				.Paper(Blend(clr, GrayColor()))
 				.Ink(White()).NormalInk(Black());
 }
+
+void TrimBothAll(Vector<String>& v) {
+	for (auto& s : v)
+		s = TrimBoth(s);
+}

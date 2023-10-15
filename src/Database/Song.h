@@ -140,7 +140,6 @@ struct StaticPart {
 	Array<StaticRhyme> rhymes;
 	String rhyme_scheme;
 	VectorMap<String,String> data;
-	String syllable_str;
 	bool outdated_suggestions = true;
 	Array<StaticContentSuggestion> contents;
 	int content_cursor = -1;
@@ -155,7 +154,6 @@ struct StaticPart {
 			("rhyme_scheme", rhyme_scheme)
 			("data", data)
 			("outdated_suggestions", outdated_suggestions)
-			("syllable_str", syllable_str)
 			("contents", contents)
 			("content_cursor", content_cursor)
 			;

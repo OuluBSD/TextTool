@@ -13,6 +13,7 @@ class TxtSerialCompare : public SongToolCtrl {
 	String frozen_begin_key, frozen_end_key;
 	String specific_imagery_key;
 	String symbolism_key;
+	String syllable_key;
 	
 	Vector<int> tmp_sug_ids;
 	
@@ -31,7 +32,6 @@ public:
 	void GetNextLine();
 	void ContinueLine(bool add_rhyme);
 	void OnParamChangeString(EditString* e, int key);
-	void OnParamChangeInt(EditIntSpin* e, int key);
 	StaticPart* GetActiveSongPart();
 	StaticRhyme* GetActiveRhyme();
 	void GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v);
@@ -43,6 +43,7 @@ public:
 	void ClearAttributes();
 	void CopyAttributes(int src);
 	void RemoveLastRhyme();
+	void OnParamChangeInt(EditIntSpin* e, int key);
 	
 	// DUPLICATE FROM TxtAutoCompare
 	void SetSuggestionScore(EditIntNotNullSpin* e, StaticSuggestion* sug);
