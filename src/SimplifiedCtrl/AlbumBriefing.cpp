@@ -3,7 +3,11 @@
 
 
 AlbumBriefing::AlbumBriefing() {
-	CtrlLayout(*this);
+	Add(vsplit.SizePos());
+	
+	vsplit.Vert() << list << values;
+	
+	CtrlLayout(values);
 	
 	list.AddIndex();
 	list.AddColumn("Key");
@@ -11,7 +15,7 @@ AlbumBriefing::AlbumBriefing() {
 	list.ColumnWidths("1 4");
 	list.WhenCursor << THISBACK(OnListCursor);
 	
-	value.WhenAction << THISBACK(OnValueChange);
+	values.value.WhenAction << THISBACK(OnValueChange);
 	
 }
 
@@ -38,9 +42,9 @@ void AlbumBriefing::Data() {
 }
 
 void AlbumBriefing::OnListCursor() {
-	key.Clear();
-	description.Clear();
-	value.Clear();
+	values.key.Clear();
+	values.description.Clear();
+	values.value.Clear();
 	
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
@@ -49,14 +53,14 @@ void AlbumBriefing::OnListCursor() {
 	
 	String value_str;
 	switch (list.GetCursor()) {
-		#define ITEM(k,s,d) case k: key.SetData(s); description.SetData(d); value_str = release.data.Get(#k, ""); break;
+		#define ITEM(k,s,d) case k: values.key.SetData(s); values.description.SetData(d); value_str = release.data.Get(#k, ""); break;
 		ALBUM_BRIEFING_LIST
 		#undef ITEM
 		
 		default: break;
 	}
 	
-	value.SetData(value_str);
+	values.value.SetData(value_str);
 }
 
 void AlbumBriefing::OnValueChange() {
@@ -75,7 +79,7 @@ void AlbumBriefing::OnValueChange() {
 		default: return;
 	}
 	
-	String value_str = value.GetData();
+	String value_str = values.value.GetData();
 	release.data.GetAdd(key_str) = value_str;
 	
 	list.Set(2, value_str);

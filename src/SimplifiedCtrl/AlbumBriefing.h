@@ -2,7 +2,11 @@
 #define _SongTool_AlbumBriefing_h_
 
 
-class AlbumBriefing : public WithKeyValueList<SongToolCtrl> {
+class AlbumBriefing : public SongToolCtrl {
+	WithKeyValueList<Ctrl> values;
+	ArrayCtrl list;
+	Splitter vsplit;
+	
 	#define ALBUM_BRIEFING_LIST \
 		ITEM(GENERAL_HISTORY, t_("General History"), t_("Common factors in the history of songs")) \
 		ITEM(LIFE_BEGINNING, t_("Life in the beginning"), t_("Life of the author in the beginning of the album timeline")) \
@@ -34,7 +38,7 @@ public:
 	typedef AlbumBriefing CLASSNAME;
 	AlbumBriefing();
 	
-	void Data();
+	void Data() override;
 	void OnListCursor();
 	void OnValueChange();
 	

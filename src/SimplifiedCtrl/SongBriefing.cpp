@@ -5,18 +5,18 @@ SongBriefing::SongBriefing() {
 	Database& db = Database::Single();
 	
 	Add(vsplit.SizePos());
-	vsplit.Vert() << values << poll;
+	vsplit.Vert() << list << values;
 	
 	CtrlLayout(values);
-	values.list.AddIndex();
-	values.list.AddColumn(t_("Key"));
-	values.list.AddColumn(t_("Value"));
-	values.list.ColumnWidths("1 4");
-	values.list.WhenCursor << THISBACK(OnListCursor);
+	list.AddIndex();
+	list.AddColumn(t_("Key"));
+	list.AddColumn(t_("Value"));
+	list.ColumnWidths("1 4");
+	list.WhenCursor << THISBACK(OnListCursor);
 	values.value.WhenAction << THISBACK(OnValueChange);
 	
 	
-	poll.AddColumn(t_("Group"));
+	/*poll.AddColumn(t_("Group"));
 	poll.AddColumn(t_("Positive"));
 	poll.AddColumn(t_("Negative"));
 	poll.AddColumn(t_("Value"));
@@ -28,10 +28,10 @@ SongBriefing::SongBriefing() {
 		poll.Set(Attr::e, 2, Capitalize(db.Translate(i1))); \
 		poll.SetCtrl(Attr::e, 3, SetAgreementValues(new DropList, i0, i1, Attr::e, "POLL_" #e));
 	ATTR_LIST
-	#undef ATTR_ITEM
+	#undef ATTR_ITEM*/
 }
 
-DropList* SongBriefing::SetAgreementValues(DropList* dl, const char* positive, const char* negative, int idx, const char* key) {
+/*DropList* SongBriefing::SetAgreementValues(DropList* dl, const char* positive, const char* negative, int idx, const char* key) {
 	Database& db = Database::Single();
 	dl->WhenAction << THISBACK2(OnPollValueChange, idx, key);
 	dl->Add("");
@@ -41,7 +41,7 @@ DropList* SongBriefing::SetAgreementValues(DropList* dl, const char* positive, c
 	dl->Add(t_("Sligthly ") + db.Translate(negative));
 	dl->Add(t_("Very ") + db.Translate(negative));
 	return dl;
-}
+}*/
 
 void SongBriefing::Data() {
 	Database& db = Database::Single();
@@ -50,7 +50,6 @@ void SongBriefing::Data() {
 	Song& song = *p.song;
 	
 	{
-		auto& list = values.list;
 		auto& value = values.value;
 		String astr;
 		for(int i = 0; i < ITEM_COUNT; i++) {
@@ -59,7 +58,7 @@ void SongBriefing::Data() {
 				case ATTR_REFERENCE_SONG: list.Set(i, 1, t_("Reference song")); list.Set(i, 2, song.data.Get("ATTR_REFERENCE_SONG", "")); break;
 				case ATTR_BIRTH_OF_SONG: list.Set(i, 1, t_("Birth of song")); list.Set(i, 2, song.data.Get("ATTR_BIRTH_OF_SONG", "")); break;
 				
-				#define ATTR_ITEM(e, g, i0, i1) case ITEM_GENERIC_##e: \
+				/*#define ATTR_ITEM(e, g, i0, i1) case ITEM_GENERIC_##e: \
 					astr = db.Translate(g) + ": " + db.Translate(i0) + "/" + db.Translate(i1); \
 					list.Set(i, 1, Format(t_("Generic %"), astr)); list.Set(i, 2, song.data.Get("ATTR_GENERIC_"#e, "")); break;
 				ATTR_LIST
@@ -69,7 +68,7 @@ void SongBriefing::Data() {
 					astr = db.Translate(g) + ": " + db.Translate(i0) + "/" + db.Translate(i1); \
 					list.Set(i, 1, Format(t_("Impact %"), astr)); list.Set(i, 2, song.data.Get("ATTR_IMPACT_"#e, "")); break;
 				ATTR_LIST
-				#undef ATTR_ITEM
+				#undef ATTR_ITEM*/
 				
 				default: break;
 			}
@@ -79,7 +78,7 @@ void SongBriefing::Data() {
 		if (!list.IsCursor() && list.GetCount()) list.SetCursor(0);
 	}
 	
-	{
+	/*{
 		DropList* dl = 0;
 		for(int i = 0; i < Attr::ATTR_COUNT; i++) {
 			switch (i) {
@@ -91,7 +90,7 @@ void SongBriefing::Data() {
 				#undef ATTR_ITEM
 			}
 		}
-	}
+	}*/
 	
 	OnListCursor();
 }
@@ -99,7 +98,6 @@ void SongBriefing::Data() {
 void SongBriefing::OnListCursor() {
 	Database& db = Database::Single();
 	{
-		auto& list = values.list;
 		auto& key = values.key;
 		auto& description = values.description;
 		auto& value = values.value;
@@ -118,7 +116,7 @@ void SongBriefing::OnListCursor() {
 			case ATTR_REFERENCE_SONG:  key.SetData(t_("Reference song")); description.SetData(t_("Which song is used as the structural reference for lyrics?")); value_str = song.data.Get("ATTR_REFERENCE_SONG", ""); break;
 			case ATTR_BIRTH_OF_SONG:  key.SetData(t_("Birth of song")); description.SetData(t_("How the song was born?")); value_str = song.data.Get("ATTR_BIRTH_OF_SONG", ""); break;
 			
-			#define ATTR_ITEM(e, g, i0, i1) case ITEM_GENERIC_##e: \
+			/*#define ATTR_ITEM(e, g, i0, i1) case ITEM_GENERIC_##e: \
 				astr = db.Translate(g) + ": " + db.Translate(i0) + "/" + db.Translate(i1); \
 				key.SetData(Format(t_("Generic %"), astr)); description.SetData(Format(t_("Generic information around %s"), astr)); value_str = song.data.Get("ATTR_GENERIC_"#e, ""); break;
 			ATTR_LIST
@@ -128,7 +126,7 @@ void SongBriefing::OnListCursor() {
 				astr = db.Translate(g) + ": " + db.Translate(i0) + "/" + db.Translate(i1); \
 				key.SetData(Format(t_("Impact %"), astr)); description.SetData(Format(t_("Desired impact of %s"), astr)); value_str = song.data.Get("ATTR_IMPACT_"#e, ""); break;
 			ATTR_LIST
-			#undef ATTR_ITEM
+			#undef ATTR_ITEM*/
 			
 			default: break;
 		}
@@ -144,7 +142,6 @@ void SongBriefing::OnValueChange() {
 	Song& song = *p.song;
 	
 	{
-		auto& list = values.list;
 		auto& key = values.key;
 		auto& description = values.description;
 		auto& value = values.value;
@@ -155,13 +152,13 @@ void SongBriefing::OnValueChange() {
 			case ATTR_REFERENCE_SONG: key_str = "ATTR_REFERENCE_SONG"; break;
 			case ATTR_BIRTH_OF_SONG: key_str = "ATTR_BIRTH_OF_SONG"; break;
 			
-			#define ATTR_ITEM(e, g, i0, i1) case ITEM_GENERIC_##e: key_str = "ATTR_GENERIC_"#e; break;
+			/*#define ATTR_ITEM(e, g, i0, i1) case ITEM_GENERIC_##e: key_str = "ATTR_GENERIC_"#e; break;
 			ATTR_LIST
 			#undef ATTR_ITEM
 			
 			#define ATTR_ITEM(e, g, i0, i1) case ITEM_IMPACT_##e: key_str = "ATTR_IMPACT_"#e; break;
 			ATTR_LIST
-			#undef ATTR_ITEM
+			#undef ATTR_ITEM*/
 			
 			default: return;
 		}
@@ -173,7 +170,7 @@ void SongBriefing::OnValueChange() {
 	}
 }
 
-void SongBriefing::OnPollValueChange(int i, const char* key) {
+/*void SongBriefing::OnPollValueChange(int i, const char* key) {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if (!p.song) return;
@@ -185,5 +182,5 @@ void SongBriefing::OnPollValueChange(int i, const char* key) {
 		int val = dl->GetIndex();
 		song.data.GetAdd(key) = IntStr(val);
 	}
-}
+}*/
 
