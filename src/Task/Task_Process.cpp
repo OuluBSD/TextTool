@@ -1836,3 +1836,21 @@ void Task::Process_GetInternalRhymingFirstLine() {
 void Task::Process_GetInternalRhymingContinueLine() {
 	WhenResult("-Eminem:" + output);
 }
+
+void Task::Process_GetIdeaFromLyrics() {
+	WhenResult("-theme: " + output);
+}
+
+void Task::Process_GetAttributesFromLyrics() {
+	String first_group;
+	{
+		#define ATTR_ITEM(e, g, i0, i1) if (first_group.IsEmpty()) first_group = g;
+		ATTR_LIST
+		#undef ATTR_ITEM
+	}
+	WhenResult("1. " + first_group + ":" + output);
+}
+
+void Task::Process_GetProductionIdea() {
+	WhenResult("- " + output);
+}

@@ -3200,3 +3200,119 @@ void Task::CreateInput_GetInternalRhymingContinueLine() {
 	
 	input.response_length = 1024*2;
 }
+
+void Task::CreateInput_GetIdeaFromLyrics() {
+	String lyrics = args[0];
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Topics of information of lyrics");
+		list.Add("theme");
+		list.Add("idea");
+		list.Add("tone");
+		list.Add("allegory");
+		list.Add("content");
+		list.Add("specific imagery");
+		list.Add("symbolism");
+		list.Add("metaphor");
+	}
+	
+	{
+		Vector<String> lines = Split(lyrics, "\n");
+		TaskTitledList& list = input.AddSub().Title("Lyrics 1");
+		list.NoListChar();
+		for(int i = 0; i < lines.GetCount(); i++)
+			list.Add(TrimBoth(lines[i]));
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("All topics of information about lyrics. With the metaphorical color RGB integer (r,g,b) code at the end");
+		results.EmptyLine().EmptyLineString("theme:");
+	}
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetAttributesFromLyrics() {
+	String lyrics = args[0];
+	String first_group;
+	{
+		TaskTitledList& list = input.AddSub().Title("List of attribute groups and their possible attribute values");
+		list.NumberedLines();
+		#define ATTR_ITEM(e, g, i0, i1) list.Add(g ": " i0 " / " i1); if (first_group.IsEmpty()) first_group = g;
+		ATTR_LIST
+		#undef ATTR_ITEM
+	}
+	
+	{
+		Vector<String> lines = Split(lyrics, "\n");
+		TaskTitledList& list = input.AddSub().Title("Lyrics 1");
+		list.NoListChar();
+		for(int i = 0; i < lines.GetCount(); i++)
+			list.Add(TrimBoth(lines[i]));
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("All attributes and their matching value for lyrics 1");
+		results.EmptyLine().NumberedLines().EmptyLineString(first_group + ":");
+	}
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetProductionIdea() {
+	ProductionArgs args;
+	args.Put(this->args[0]);
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("List of attribute which matches the song 1");
+		list.NumberedLines();
+		for(int i = 0; i < args.attrs.GetCount(); i++)
+			list.Add(args.attrs[i]);
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("The bpm of the song 1");
+		list.Add(IntStr(args.bpm));
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("The structure and vocal types of song 1");
+		for(int i = 0; i < args.parts.GetCount(); i++) {
+			auto& p = args.parts[i];
+			String s = p.name;
+			if (p.type.GetCount())
+				s << ": " << p.type;
+			list.Add(s);
+		}
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("The structure and chord progressions of song 1");
+		for(int i = 0; i < args.parts.GetCount(); i++) {
+			auto& p = args.parts[i];
+			if (p.chords.GetCount())
+				list.Add(p.chords);
+		}
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Topics for a production idea of the song 1");
+		list.Add("which instruments are playing in which parts?");
+		list.Add("what rhythm or style instruments are playing?");
+		list.Add("what drums are playing in which part?");
+		list.Add("which effective tricks are used in parts? (e.g. drum fills, all silent but vocal)");
+		list.Add("what sounds are in the effects track?");
+		list.Add("what chord progressions are in which part?");
+	}
+	
+	{
+		TaskTitledList& results = input.PreAnswer();
+		results.Title("Answers for topics for the production idea of the song 1");
+		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 1024*2;
+}

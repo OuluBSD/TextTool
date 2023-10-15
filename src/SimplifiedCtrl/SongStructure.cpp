@@ -10,6 +10,8 @@ SongStructure::SongStructure() {
 	
 	active.parts.AddColumn(t_("Name"));
 	active.parts.AddColumn(t_("Type"));
+	active.parts.AddColumn(t_("Chords"));
+	active.parts.ColumnWidths("1 1 2");
 	active.attrs.AddColumn(t_("Attribute"));
 	
 	
@@ -97,6 +99,7 @@ void SongStructure::DataActive() {
 	Song::StructSuggestion& s = song.active_struct;
 	
 	s.part_types.SetCount(s.parts.GetCount(), 0);
+	s.chords.SetCount(s.parts.GetCount());
 	
 	int bpm = StrInt(GetParam("BPM", "120"));
 	
@@ -124,6 +127,10 @@ void SongStructure::DataActive() {
 		int idx = max(0, min(dl.GetCount()-1, s.part_types[i]));
 		dl.SetIndex(idx);
 		dl.WhenAction << [&song,i,&dl]() {song.active_struct.part_types[i] = dl.GetIndex();};
+		
+		EditString& ch = active.parts.CreateCtrl<EditString>(i, 2);
+		ch.SetData(s.chords[i]);
+		ch.WhenAction << [&ch,i,&s]() {s.chords[i] = ch.GetData();};
 	}
 	active.parts.SetCount(s.parts.GetCount());
 	
@@ -212,25 +219,54 @@ void SongStructure::LoadStructure() {
 		Song::StructSuggestion& sug = song.struct_suggs[idx];
 		song.active_struct = sug;
 		
-		Index<String> unique_parts;
-		for(int i = 0; i < song.active_struct.parts.GetCount(); i++) {
-			String abbr = song.active_struct.parts[i];
-			unique_parts.FindAdd(abbr);
-		}
-		SortIndex(unique_parts, PartAbbrSorter());
-		
-		song.parts.Clear();
-		for(int i = 0; i < unique_parts.GetCount(); i++) {
-			String abbr = unique_parts[i];
-			StaticPart& part = song.parts.Add();
-			part.name = TrimBoth(GetSongPartFromAbbr(abbr));
-			part.type = abbr;
-		}
+		LoadActiveStruct();
 	}
 	catch (NoPointerExc e) {}
 	PostCallback(THISBACK(DataActive));
 	
 	editor->DataSong();
+}
+
+void SongStructure::LoadStructureString(String struct_str) {
+	if (struct_str.IsEmpty())
+		return;
+	
+	try {
+		Song& song = GetSong();
+		Song::StructSuggestion& sug = song.active_struct;
+		sug.Clear();
+		sug.name = "User's structure";
+		sug.parts <<= Split(struct_str, ",");
+		for (auto& s : song.active_struct.parts) s = TrimBoth(s);
+		sug.part_types.SetCount(sug.parts.GetCount(), Song::StructSuggestion::SINGING);
+		
+		
+		LoadActiveStruct();
+	}
+	catch (NoPointerExc e) {
+		
+	}
+	PostCallback(THISBACK(DataActive));
+	editor->DataSong();
+}
+
+void SongStructure::LoadActiveStruct() {
+	Song& song = GetSong();
+	
+	Index<String> unique_parts;
+	for(int i = 0; i < song.active_struct.parts.GetCount(); i++) {
+		String abbr = song.active_struct.parts[i];
+		unique_parts.FindAdd(abbr);
+	}
+	SortIndex(unique_parts, PartAbbrSorter());
+	
+	song.parts.Clear();
+	for(int i = 0; i < unique_parts.GetCount(); i++) {
+		String abbr = unique_parts[i];
+		StaticPart& part = song.parts.Add();
+		part.name = TrimBoth(GetSongPartFromAbbr(abbr));
+		part.type = abbr;
+	}
 }
 
 void SongStructure::LoadUserStructure() {
@@ -246,7 +282,7 @@ void SongStructure::GetStructureSuggestions() {
 	
 	DisableAll();
 	
-	{
+	if (song.pipe) {
 		String req = GetParam("REQ_PARTS");
 		String avoid = GetParam("AVOID_PARTS");
 		String desc = GetParam("DESC_FOR_STRUCT_SUGGS");
@@ -265,7 +301,7 @@ void SongStructure::GetSuggestionAttributes() {
 	
 	DisableAll();
 	
-	{
+	if (song.pipe) {
 		Vector<String> structs;
 		for (auto& sug : song.struct_suggs)
 			structs << Join(sug.parts, ", ");
@@ -282,22 +318,6 @@ void SongStructure::SetParam(String key, String value) {
 String SongStructure::GetParam(String key, String def) {
 	Song& song = GetSong();
 	return song.data.Get(key, def);
-}
-
-void SongStructure::LoadStructureString(String struct_str) {
-	if (struct_str.IsEmpty())
-		return;
-	
-	try {
-		Song& song = GetSong();
-		song.active_struct.Clear();
-		song.active_struct.parts <<= Split(struct_str, ",");
-		for (auto& s : song.active_struct.parts) s = TrimBoth(s);
-	}
-	catch (NoPointerExc e) {
-		
-	}
-	PostCallback(THISBACK(DataActive));
 }
 
 void SongStructure::OnStructureSuggestion(String result, Song* song_) {

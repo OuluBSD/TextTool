@@ -37,7 +37,6 @@ protected:
 	TxtEditNative					text_edit_native;
 	TxtEditEnglish					text_edit_english;
 	TxtAutoCompare					text_autocompare_eng;
-	TxtAutoCompare					text_autocompare_nat;
 	TxtSerialCompare				serial_compare_eng;
 	ChecklistProduction				checklist_production;
 	MusicVideoImport				videostruct_import;
@@ -47,6 +46,7 @@ protected:
 	ChecklistRelease				release_checklist;
 	ImageGenTool					image_gen;
 	ContextAttributesCtrl			ctx_attrs;
+	ProductionIdea					prod_idea;
 	
 	
 	

@@ -1,9 +1,6 @@
 High priority:
-- import existing text to idea
-- import attributes from existing text
-- rap stylizer tab
-	- existing verse (with break): as base, with own content and other artist styles
-
+- fix song stylizer
+- remove attributes from song info
 
 Mid priority:
 - when opening with task list view, the editor bar is not set
@@ -14,3 +11,10 @@ Low priority:
 	- also "#include <SongTool/SongTool.h>"
 - TxtStructEdit: feed previous text to prompt when requesting style-comparison completion
 
+
+
+Done:
+- import existing text to idea
+- import attributes from existing text
+- rap stylizer tab
+	- existing verse (with break): as base, with own content and other artist styles

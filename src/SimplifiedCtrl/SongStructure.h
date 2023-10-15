@@ -30,7 +30,7 @@ public:
 	void LoadStructureString(String struct_str);
 	void OnStructureSuggestion(String result, Song* song);
 	void OnSuggestionAttributes(String result, Song* song);
-	
+	void LoadActiveStruct();
 	
 	Editor* editor = 0;
 	

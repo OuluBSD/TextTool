@@ -70,17 +70,17 @@ int FindRhymeType(const char* name);
 	ATTR_ITEM(CULTURE, "Culture", "individualistic", "collective") \
 	ATTR_ITEM(MOTIVATION, "Motivation", "rewarding", "punishing") \
 	\
-	ATTR_ITEM(ATTITUDE_ATTITUDE_OPEN_CLOSED, "Attitude", "open", "closed") \
-	ATTR_ITEM(ATTITUDE_HOPEFUL_DESPAIR, "Attitude", "hopeful", "despair") \
-	ATTR_ITEM(ATTITUDE_OPTIMISTIC_PESSIMISTIC, "Attitude", "optimistic", "pessimistic") \
+	ATTR_ITEM(ATTITUDE_ATTITUDE_OPEN_CLOSED, "Attitude 1", "open", "closed") \
+	ATTR_ITEM(ATTITUDE_HOPEFUL_DESPAIR, "Attitude 2", "hopeful", "despair") \
+	ATTR_ITEM(ATTITUDE_OPTIMISTIC_PESSIMISTIC, "Attitude 3", "optimistic", "pessimistic") \
 	ATTR_ITEM(SEXUALITY, "Sexuality", "adventurous", "limited") \
 	ATTR_ITEM(SEXUAL_ACTING, "Sexual Acting", "confident", "sensitive") \
 	ATTR_ITEM(SEXUAL_COMMITMENT, "Sexual Commitment", "monogamy", "polygamy") \
-	ATTR_ITEM(MOOD_JOYFUL_MELANCHOLIC, "Mood", "joyful", "melancholic") \
-	ATTR_ITEM(MOOD_LIGHTHEARTED_SOMBER, "Mood", "lighthearted", "somber") \
-	ATTR_ITEM(MOOD_UPLIFTING_HEAVY, "Mood", "uplifting", "heavy") \
-	ATTR_ITEM(MOOD_HUMOROUS_DRAMATIC, "Mood", "humorous", "dramatic") \
-	ATTR_ITEM(MOOD_PLAYFUL_SERIOUS, "Mood", "playful", "serious") \
+	ATTR_ITEM(MOOD_JOYFUL_MELANCHOLIC, "Mood 1", "joyful", "melancholic") \
+	ATTR_ITEM(MOOD_LIGHTHEARTED_SOMBER, "Mood 2", "lighthearted", "somber") \
+	ATTR_ITEM(MOOD_UPLIFTING_HEAVY, "Mood 3", "uplifting", "heavy") \
+	ATTR_ITEM(MOOD_HUMOROUS_DRAMATIC, "Mood 4", "humorous", "dramatic") \
+	ATTR_ITEM(MOOD_PLAYFUL_SERIOUS, "Mood 5", "playful", "serious") \
 	
 
 namespace Attr {

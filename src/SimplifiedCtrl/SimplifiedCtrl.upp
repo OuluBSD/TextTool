@@ -24,6 +24,8 @@ file
 	AutoIdeas.cpp,
 	PartIdea.h,
 	PartIdea.cpp,
+	ProductionIdea.h,
+	ProductionIdea.cpp,
 	TxtSerialCompare.h,
 	TxtSerialCompare.cpp,
 	TxtAutoCompare.h,

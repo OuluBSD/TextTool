@@ -41,6 +41,7 @@ public:
 	void CopyIdeaVariables();
 	void ClearAttributes();
 	void CopyAttributes(int src);
+	void RemoveLastRhyme();
 	
 	// DUPLICATE FROM TxtAutoCompare
 	void SetSuggestionScore(EditIntNotNullSpin* e, StaticSuggestion* sug);

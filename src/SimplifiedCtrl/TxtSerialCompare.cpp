@@ -16,7 +16,7 @@ TxtSerialCompare::TxtSerialCompare() {
 	vsplit0.Vert() << rhymes << suggestions;
 	vsplit1.Vert() << params << attrs;
 	vsplit0.SetPos(3333);
-	vsplit1.SetPos(1111, 0);
+	vsplit1.SetPos(1500, 0);
 	vsplit1.SetPos(6666, 1);
 	
 	rhymes.AddColumn(t_("Best style"));
@@ -111,6 +111,8 @@ void TxtSerialCompare::ToolMenu(Bar& bar) {
 	bar.Add(t_("Copy song attributes"), AppImg::VioletRing(), THISBACK1(CopyAttributes, 0)).Key(K_CTRL_4);
 	bar.Add(t_("Copy release attributes"), AppImg::VioletRing(), THISBACK1(CopyAttributes, 1)).Key(K_CTRL_5);
 	bar.Add(t_("Copy artist attributes"), AppImg::VioletRing(), THISBACK1(CopyAttributes, 2)).Key(K_CTRL_6);
+	bar.Separator();
+	bar.Add(t_("Remove last rhyme"), AppImg::RedRing(), THISBACK(RemoveLastRhyme)).Key(K_CTRL_6);
 	
 }
 
@@ -134,7 +136,24 @@ void TxtSerialCompare::CopyIdeaVariables() {
 	params.Set(5, 1, symbolism);
 }
 
+void TxtSerialCompare::RemoveLastRhyme() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.part) {
+		return;
+	}
+	
+	StaticPart& part = *p.part;
+	if (part.rhymes.IsEmpty())
+		return;
+	
+	part.rhymes.Remove(part.rhymes.GetCount()-1);
+	
+	PostCallback(THISBACK2(DataPart, false, false));
+}
+
 void TxtSerialCompare::ClearAttributes() {
+	#if 0
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	
@@ -147,18 +166,26 @@ void TxtSerialCompare::ClearAttributes() {
 		const char* key = Attr::AttrKeys[i][0];
 		r.data.RemoveKey(key);
 	}
-	
 	PostCallback(THISBACK(DataRhyme));
+	#endif
+	
+	for(int i = 0; i < Attr::ATTR_COUNT; i++) {
+		DropList* dl = dynamic_cast<DropList*>(this->attrs.GetCtrl(i, 3));
+		dl->SetIndex(1);
+	}
+	
 }
 
 void TxtSerialCompare::CopyAttributes(int src) {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	
+	#if 0
 	if (!p.part || !rhymes.IsCursor()) return;
 	StaticPart& part = *p.part;
 	int rhyme_i = rhymes.GetCursor();
 	StaticRhyme& r = part.rhymes[rhyme_i];
+	#endif
 	
 	VectorMap<String,String> attrs;
 	if (src == 0 && p.song)
@@ -168,13 +195,25 @@ void TxtSerialCompare::CopyAttributes(int src) {
 	if (src == 2 && p.artist)
 		GetAttrsValue(p.artist->data, attrs);
 	
+	#if 0
 	for(int i = 0; i < attrs.GetCount(); i++) {
 		String key = attrs.GetKey(i);
 		String value = attrs[i];
 		r.data.GetAdd(key) = value;
 	}
-	
 	PostCallback(THISBACK(DataRhyme));
+	#endif
+	
+	for(int i = 0; i < Attr::ATTR_COUNT; i++) {
+		const char* key = Attr::AttrKeys[i][0];
+		int j = attrs.Find(key);
+		if (j < 0) continue;
+		int value = StrInt(attrs[j]);
+		DropList* dl = dynamic_cast<DropList*>(this->attrs.GetCtrl(i, 3));
+		int idx = 1 - value;
+		dl->SetIndex(idx);
+	}
+	
 }
 
 void TxtSerialCompare::Data() {

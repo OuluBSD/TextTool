@@ -123,6 +123,9 @@ typedef enum : int {
 	TASK_GET_PART_SYMBOLISM_SUGGESTIONS,
 	TASK_GET_INTERNAL_RHYMING_FIRST_LINE,
 	TASK_GET_INTERNAL_RHYMING_CONTINUE_LINE,
+	TASK_GET_IDEA_FROM_LYRICS,
+	TASK_GET_ATTRIBUTES_FROM_LYRICS,
+	TASK_GET_PRODUCTION_IDEA,
 	
 	TASK_IMPORT_AND_REVERSE,
 	TASK_CONTEXT_IMPORT_AND_REVERSE,
@@ -207,6 +210,34 @@ struct RhymingArgs {
 				("specific_imagery", specific_imagery)
 				("symbolism", symbolism)
 				("attrs", attrs)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct ProductionArgs {
+	struct Part {
+		String name;
+		String type;
+		String chords;
+		void Jsonize(JsonIO& json) {
+			json	("name", name)
+					("type", type)
+					("chords", chords)
+					;
+		}
+	};
+	// Song
+	Vector<String> attrs;
+	Array<Part> parts;
+	int bpm;
+	
+	void Jsonize(JsonIO& json) {
+		json	("parts", parts)
+				("attrs", attrs)
+				("bpm", bpm)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

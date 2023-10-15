@@ -2,8 +2,6 @@
 
 
 Editor::Editor(SongTool* app) : app(*app) {
-	text_autocompare_nat.SetNative();
-	
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << menusplit << base;
@@ -117,10 +115,10 @@ void Editor::InitSimplified() {
 	AddItem(t_("Context"), t_("Attributes"), ctx_attrs);
 	AddItem(t_("Context"), t_("Idea"), auto_ideas);
 	AddItem(t_("Context"), t_("Idea of a single part"), part_idea);
+	AddItem(t_("Context"), t_("Production idea"), prod_idea);
 	
+	AddItem(t_("Text"), t_("English Parallel Compare"), text_autocompare_eng);
 	AddItem(t_("Text"), t_("English Serial Compare"), serial_compare_eng);
-	AddItem(t_("Text"), t_("English Styler"), text_autocompare_eng);
-	AddItem(t_("Text"), t_("Native Styler"), text_autocompare_nat);
 	AddItem(t_("Text"), t_("Edit English"), text_edit_english);
 	AddItem(t_("Text"), t_("Edit Native"), text_edit_native);
 	

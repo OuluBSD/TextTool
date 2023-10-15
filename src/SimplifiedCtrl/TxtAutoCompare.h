@@ -17,7 +17,6 @@ class TxtAutoCompare : public SongToolCtrl {
 	int running_count = 0;
 	Mutex lock;
 	
-	bool is_native = false;
 	bool has_init = false;
 	String unpacked_struct_key;
 	String auto_natural_english_trans_key;
@@ -37,7 +36,6 @@ public:
 	TxtAutoCompare();
 	
 	void Init();
-	void SetNative() {is_native = true;}
 	void ToolMenu(Bar& bar) override;
 	void PartMenu(Bar& bar);
 	void Data() override;

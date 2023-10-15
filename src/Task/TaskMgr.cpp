@@ -262,6 +262,27 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetInternalRhymingContinueLine)
 		;
 	
+	AddRule(TASK_GET_IDEA_FROM_LYRICS, "get idea from lyrics")
+		.Input(&Task::CreateInput_GetIdeaFromLyrics)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetIdeaFromLyrics)
+		;
+	
+	AddRule(TASK_GET_ATTRIBUTES_FROM_LYRICS, "get attributes from lyrics")
+		.Input(&Task::CreateInput_GetAttributesFromLyrics)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetAttributesFromLyrics)
+		;
+	
+	AddRule(TASK_GET_PRODUCTION_IDEA, "get production idea")
+		.Input(&Task::CreateInput_GetProductionIdea)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetProductionIdea)
+		;
+	
 	
 	
 	
@@ -1532,6 +1553,57 @@ void TaskMgr::GetInternalRhymingContinueLine(const RhymingArgs& args, Event<Stri
 	t.WhenResult << WhenResult;
 	task_lock.Leave();
 }
+
+void TaskMgr::GetIdeaFromLyrics(const String& lyrics, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_IDEA_FROM_LYRICS);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << lyrics;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetAttributesFromLyrics(const String& lyrics, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_ATTRIBUTES_FROM_LYRICS);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << lyrics;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetProductionIdea(const ProductionArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_PRODUCTION_IDEA);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
 
 
 

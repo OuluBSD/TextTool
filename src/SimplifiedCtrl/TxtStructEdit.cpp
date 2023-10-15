@@ -44,10 +44,226 @@ void TxtStructEdit::ToolMenu(Bar& bar) {
 	bar.Add(t_("Convert the structure to a english text"), AppImg::Part(), THISBACK(ConvertToEnglish)).Key(K_F7);
 	bar.Add(t_("Convert the english text to a native text"), AppImg::Part(), THISBACK(ConvertToNative)).Key(K_F8);
 	bar.Add(t_("Evaluate the english text with an AI audience"), AppImg::Part(), THISBACK(EvaluateAudience)).Key(K_F9);
+	bar.Separator();
+	bar.Add(t_("Import english text as idea"), AppImg::RedRing(), THISBACK(ImportIdea)).Key(K_CTRL_Q);
+	bar.Add(t_("Import english text as attributes"), AppImg::RedRing(), THISBACK(ImportAttributes)).Key(K_CTRL_W);
+	
 }
 
 String TxtStructEdit::GetStatusText() {
 	return t_("Deconstructed, auto-english, auto-native");
+}
+
+void TxtStructEdit::ImportIdea() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	Song& song = GetSong();
+	
+	String text = other.GetData();
+	text.Replace("\r", "");
+	
+	Vector<String> not_found;
+	
+	Vector<String> parts = Split(text, "\n\n");
+	Vector<StaticPart*> part_ptrs;
+	Vector<String> lyrics, all_lyrics;
+	for(int i = 0; i < parts.GetCount(); i++) {
+		Vector<String> lines = Split(parts[i], "\n");
+		
+		String title = lines[0];
+		if (title.Right(1) == ":")
+			title = title.Left(title.GetCount()-1);
+		title = TrimBoth(title);
+		
+		bool found = false;
+		for(int j = 0; j < song.parts.GetCount(); j++) {
+			StaticPart& part = song.parts[j];
+			if (ToLower(part.name) == ToLower(title)) {
+				part_ptrs << &part;
+				found = true;
+				break;
+			}
+		}
+		if (!found)
+			not_found << title;
+		
+		lines.Remove(0);
+		lyrics << Join(lines, "\n");
+		
+		all_lyrics.Append(lines);
+	}
+	
+	if (not_found.GetCount()) {
+		PromptOK("Parts not found in structure: " + Join(not_found, ", "));
+		return;
+	}
+	
+	
+	p.RealizePipe();
+	TaskMgr& m = *p.song->pipe;
+		
+	ASSERT(parts.GetCount() == part_ptrs.GetCount());
+	ASSERT(parts.GetCount() == lyrics.GetCount());
+	for(int i = 0; i < parts.GetCount(); i++) {
+		m.GetIdeaFromLyrics(lyrics[i], THISBACK2(OnIdeaFromLyrics, (Song*)0, part_ptrs[i]));
+	}
+	m.GetIdeaFromLyrics(Join(all_lyrics, "\n"), THISBACK2(OnIdeaFromLyrics, &song, (StaticPart*)0));
+}
+
+void TxtStructEdit::ImportAttributes() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	Song& song = GetSong();
+	
+	String text = other.GetData();
+	text.Replace("\r", "");
+	
+	Vector<String> parts = Split(text, "\n\n");
+	Vector<String> all_lyrics;
+	for(int i = 0; i < parts.GetCount(); i++) {
+		Vector<String> lines = Split(parts[i], "\n");
+		lines.Remove(0);
+		all_lyrics.Append(lines);
+	}
+	
+	p.RealizePipe();
+	
+	TaskMgr& m = *p.song->pipe;
+	m.GetAttributesFromLyrics(Join(all_lyrics, "\n"), THISBACK1(OnAttributesFromLyrics, &song));
+}
+
+void TxtStructEdit::OnIdeaFromLyrics(String result, Song* song, StaticPart* part) {
+	Vector<String> lines = Split(result, "\n");
+	
+	if (lines.GetCount() < 7+1) {
+		PromptOK("Invalid result");
+		return;
+	}
+	
+	String theme;
+	String idea;
+	String tone;
+	String allegory;
+	String content;
+	String imagery;
+	String symbolism;
+	
+	Color theme_clr;
+	Color idea_clr;
+	Color tone_clr;
+	Color allegory_clr;
+	Color content_clr;
+	Color imagery_clr;
+	Color symbolism_clr;
+	
+	ParseTextColor(lines[0], theme, theme_clr);
+	ParseTextColor(lines[1], idea, idea_clr);
+	ParseTextColor(lines[2], tone, tone_clr);
+	ParseTextColor(lines[3], allegory, allegory_clr);
+	ParseTextColor(lines[4], content, content_clr);
+	ParseTextColor(lines[5], imagery, imagery_clr);
+	ParseTextColor(lines[6], symbolism, symbolism_clr);
+	
+	#define TRIM(x) {int a = x.Find(":"); if (a >= 0) x = TrimBoth(x.Mid(a+1));}
+	TRIM(theme)
+	TRIM(idea)
+	TRIM(tone)
+	TRIM(allegory)
+	TRIM(content)
+	TRIM(imagery)
+	TRIM(symbolism)
+	#undef TRIM
+	
+	if (song) {
+		song->active_idea[IDEAPATH_THEME] = theme;
+		song->active_idea[IDEAPATH_IDEA] = idea;
+		song->active_idea[IDEAPATH_TONE] = tone;
+		song->active_idea[IDEAPATH_ALLEGORY] = allegory;
+		song->active_idea[IDEAPATH_CONTENT] = content;
+		song->active_idea[IDEAPATH_IMAGERY] = imagery;
+		song->active_idea[IDEAPATH_SYMBOLISM] = symbolism;
+		
+		song->active_idea_clr[IDEAPATH_THEME] = theme_clr;
+		song->active_idea_clr[IDEAPATH_IDEA] = idea_clr;
+		song->active_idea_clr[IDEAPATH_TONE] = tone_clr;
+		song->active_idea_clr[IDEAPATH_ALLEGORY] = allegory_clr;
+		song->active_idea_clr[IDEAPATH_CONTENT] = content_clr;
+		song->active_idea_clr[IDEAPATH_IMAGERY] = imagery_clr;
+		song->active_idea_clr[IDEAPATH_SYMBOLISM] = symbolism_clr;
+	}
+	if (part) {
+		part->active_idea[IDEAPATH_PART_CONTENT] = content;
+		part->active_idea[IDEAPATH_PART_IMAGERY] = imagery;
+		part->active_idea[IDEAPATH_PART_SYMBOLISM] = symbolism;
+		
+		part->active_idea_clr[IDEAPATH_PART_CONTENT] = content_clr;
+		part->active_idea_clr[IDEAPATH_PART_IMAGERY] = imagery_clr;
+		part->active_idea_clr[IDEAPATH_PART_SYMBOLISM] = symbolism_clr;
+	}
+}
+
+void TxtStructEdit::OnAttributesFromLyrics(String result, Song* song) {
+	Vector<String> lines = Split(result, "\n");
+	
+	Vector<String> keys, values;
+	for (String& l : lines) {
+		l = TrimBoth(l.Mid(1));
+		int a = l.Find(".");
+		if (a >= 0)
+			l = TrimBoth(l.Mid(a+1));
+		
+		a = l.Find(":");
+		if (a < 0) {
+			values << l;
+			keys.Add();
+		}
+		else {
+			String k = ToLower(TrimBoth(l.Left(a)));
+			String v = ToLower(TrimBoth(l.Mid(a+1)));
+			int b = v.Find(".");
+			if (b >= 0)
+				v = TrimBoth(v.Mid(b+1));
+			
+			values << v;
+			keys << k;
+		}
+	}
+	
+	Vector<String> E, G, I0, I1;
+	Index<String> not_found;
+	#define ATTR_ITEM(e, g, i0, i1) not_found << #e; E << #e; G << ToLower(g); I0 << ToLower(i0); I1 << ToLower(i1);
+	ATTR_LIST
+	#undef ATTR_ITEM
+	
+	for(int j = 0; j < G.GetCount(); j++) {
+		const String& e = E[j];
+		const String& g = G[j];
+		const String& i0 = I0[j];
+		const String& i1 = I1[j];
+		
+		for (int i = 0; i < keys.GetCount(); i++) {
+			//const String& k = keys[i];
+			//if (k != g) continue;
+			const String& v = values[i];
+			if (v == i0 /*|| v == "positive"*/) {
+				song->data.GetAdd(e) = "1";
+				not_found.RemoveKey(e);
+				break;
+			} else if (v == i1 /*|| v == "negative"*/) {
+				song->data.GetAdd(e) = "-1";
+				not_found.RemoveKey(e);
+				break;
+			} /*else {
+				song->data.RemoveKey(e);
+			}
+			break;*/
+		}
+	}
+	
+	for(int i = 0; i < not_found.GetCount(); i++) {
+		String e = not_found[i];
+		song->data.RemoveKey(e);
+	}
 }
 
 void TxtStructEdit::ImportReferenceStruct() {

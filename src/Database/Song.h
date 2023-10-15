@@ -244,6 +244,7 @@ struct Song :
 		String name;
 		Vector<String> parts;
 		Vector<String> attrs;
+		Vector<String> chords;
 		Vector<int> part_types;
 		
 		// Part types
@@ -259,12 +260,14 @@ struct Song :
 			name = s.name;
 			parts <<= s.parts;
 			attrs <<= s.attrs;
+			chords <<= s.chords;
 			part_types <<= s.part_types;
 		}
 		void Clear() {
 			name.Clear();
 			parts.Clear();
 			attrs.Clear();
+			chords.Clear();
 			part_types.Clear();
 		}
 		int GetEstimatedDuration(int bpm) const;
@@ -273,6 +276,7 @@ struct Song :
 				("name", name)
 				("parts", parts)
 				("attrs", attrs)
+				("chords", chords)
 				("part_types", part_types)
 				;
 		}
