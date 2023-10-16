@@ -5,7 +5,7 @@
 class PartIdea : public SongToolCtrl {
 	Splitter vsplit, hsplit0, hsplit1;
 	ArrayCtrl active, parts;
-	ArrayCtrl contents, imageries, symbolisms;
+	ArrayCtrl contents, imageries, symbolisms, persons;
 	
 	bool disabled = false;
 	
@@ -18,6 +18,7 @@ public:
 	void DataPart(bool set_cursor);
 	void DataContent(bool set_cursor);
 	void DataImagery(bool set_cursor);
+	void DataSymbolism(bool set_cursor);
 	void ToolMenu(Bar& bar) override;
 	String GetStatusText() override;
 	
@@ -27,17 +28,21 @@ public:
 	void GetContentSuggestions();
 	void GetImagerySuggestions();
 	void GetSymbolismSuggestions();
+	void GetPersonSuggestions();
 	
 	void OnListPart();
 	void OnListContent();
 	void OnListImagery();
 	void OnListSymbolism();
+	void OnListPersons();
 	void SetAsActiveIdea();
+	void ClearAllIdeas();
 	
 	void GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v);
 	void OnContentSuggestions(String result, Song* song, int part_i);
 	void OnImagerySuggestions(String result, StaticContentSuggestion* c);
 	void OnSymbolismSuggestions(String result, StaticImagery* img);
+	void OnPersonSuggestions(String result, StaticSymbolism* sym);
 	
 };
 

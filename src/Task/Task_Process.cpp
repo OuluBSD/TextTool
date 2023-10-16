@@ -1817,6 +1817,10 @@ void Task::Process_GetSymbolismSuggestions() {
 	WhenResult("- " + output);
 }
 
+void Task::Process_GetIdeaSuggestions() {
+	WhenResult("- " + output);
+}
+
 void Task::Process_GetPartContentSuggestions() {
 	WhenResult("- " + output);
 }
@@ -1826,6 +1830,10 @@ void Task::Process_GetPartImagerySuggestions() {
 }
 
 void Task::Process_GetPartSymbolismSuggestions() {
+	WhenResult("- " + output);
+}
+
+void Task::Process_GetPartIdea() {
 	WhenResult("- " + output);
 }
 

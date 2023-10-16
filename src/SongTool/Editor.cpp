@@ -278,6 +278,7 @@ void Editor::StoreLast() {
 	app.last_artist = p.artist ? p.artist->native_name : String();
 	app.last_release = p.release ? p.release->native_title : String();
 	app.last_song = p.song ? p.song->native_title : String();
+	app.last_part = p.part ? p.part->name : String();
 	app.Store();
 }
 

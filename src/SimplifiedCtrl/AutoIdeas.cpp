@@ -8,7 +8,7 @@ AutoIdeas::AutoIdeas() {
 	hsplit.SetPos(4000);
 	
 	vsplit0.Vert() << themes << ideas << tones;
-	vsplit1.Vert() << allegories << contents << imageries << symbolisms;
+	vsplit1.Vert() << allegories << contents << imageries << symbolisms << persons;
 	
 	themes.AddColumn(t_("Theme"));
 	themes.WhenCursor << THISBACK(OnListTheme);
@@ -31,6 +31,9 @@ AutoIdeas::AutoIdeas() {
 	symbolisms.AddColumn(t_("Symbolism"));
 	symbolisms.WhenCursor << THISBACK(OnListSymbolism);
 	
+	persons.AddColumn(t_("Persons"));
+	persons.WhenCursor << THISBACK(OnListPersons);
+	
 }
 
 void AutoIdeas::DisableAll() {
@@ -42,6 +45,7 @@ void AutoIdeas::DisableAll() {
 	tones.Disable();
 	symbolisms.Disable();
 	imageries.Disable();
+	persons.Disable();
 }
 
 void AutoIdeas::EnableAll() {
@@ -53,6 +57,7 @@ void AutoIdeas::EnableAll() {
 	tones.Enable();
 	symbolisms.Enable();
 	imageries.Enable();
+	persons.Enable();
 }
 
 void AutoIdeas::Data() {
@@ -88,6 +93,7 @@ void AutoIdeas::DataTheme(bool set_cursor) {
 		contents.Clear();
 		symbolisms.Clear();
 		imageries.Clear();
+		persons.Clear();
 		return;
 	}
 	int theme_i = themes.GetCursor();
@@ -118,6 +124,7 @@ void AutoIdeas::DataIdea(bool set_cursor) {
 		contents.Clear();
 		symbolisms.Clear();
 		imageries.Clear();
+		persons.Clear();
 		return;
 	}
 	int theme_i = themes.GetCursor();
@@ -150,6 +157,7 @@ void AutoIdeas::DataTone(bool set_cursor) {
 		contents.Clear();
 		symbolisms.Clear();
 		imageries.Clear();
+		persons.Clear();
 		return;
 	}
 	int theme_i = themes.GetCursor();
@@ -183,6 +191,7 @@ void AutoIdeas::DataAllegory(bool set_cursor) {
 		contents.Clear();
 		symbolisms.Clear();
 		imageries.Clear();
+		persons.Clear();
 		return;
 	}
 	
@@ -218,6 +227,7 @@ void AutoIdeas::DataContent(bool set_cursor) {
 	if (!contents.IsCursor()) {
 		imageries.Clear();
 		symbolisms.Clear();
+		persons.Clear();
 		return;
 	}
 	
@@ -254,6 +264,7 @@ void AutoIdeas::DataImagery(bool set_cursor) {
 	
 	if (!imageries.IsCursor()) {
 		symbolisms.Clear();
+		persons.Clear();
 		return;
 	}
 	
@@ -284,6 +295,46 @@ void AutoIdeas::DataImagery(bool set_cursor) {
 	if (set_cursor && !symbolisms.IsCursor() && img.cursor >= 0 && img.cursor < symbolisms.GetCount())
 		symbolisms.SetCursor(img.cursor);
 	
+	DataSymbolism(set_cursor);
+}
+
+void AutoIdeas::DataSymbolism(bool set_cursor) {
+	Song& song = GetSong();
+	
+	if (!symbolisms.IsCursor()) {
+		persons.Clear();
+		return;
+	}
+	
+	int theme_i = themes.GetCursor();
+	int idea_i = ideas.GetCursor();
+	int tone_i = tones.GetCursor();
+	int allegory_i = allegories.GetCursor();
+	int content_i = contents.GetCursor();
+	int imagery_i = imageries.GetCursor();
+	int symbolism_i = symbolisms.GetCursor();
+	StaticTheme& t = song.themes[theme_i];
+	StaticIdea& id = t.ideas[idea_i];
+	StaticToneSuggestion& tone = id.tones[tone_i];
+	StaticAllegoricalDevice& dev = tone.allegories[allegory_i];
+	StaticContentSuggestion& c = dev.contents[content_i];
+	StaticImagery& img = c.imageries[imagery_i];
+	StaticSymbolism& sym = img.symbolisms[symbolism_i];
+	
+	
+	for(int i = 0; i < sym.persons.GetCount(); i++) {
+		auto& o = sym.persons[i];
+		persons.Set(i, 0, AttrText(Capitalize(o.text))
+			.Paper(Blend(o.clr, GrayColor(), 128+64)).Ink(White())
+			.NormalPaper(Blend(o.clr, White(), 128+64))
+			.Ink(White()).NormalInk(Black())
+			);
+	}
+	persons.SetCount(sym.persons.GetCount());
+	
+	if (set_cursor && !persons.IsCursor() && sym.cursor >= 0 && sym.cursor < persons.GetCount())
+		persons.SetCursor(sym.cursor);
+	
 }
 
 void AutoIdeas::OnListTheme() {
@@ -300,6 +351,7 @@ void AutoIdeas::OnListTheme() {
 			contents.Clear();
 			symbolisms.Clear();
 			imageries.Clear();
+			persons.Clear();
 			PostCallback(THISBACK(GetNovelIdeas));
 			return;
 		}
@@ -322,6 +374,7 @@ void AutoIdeas::OnListIdea() {
 			contents.Clear();
 			symbolisms.Clear();
 			imageries.Clear();
+			persons.Clear();
 			PostCallback(THISBACK(GetToneSuggestions));
 			return;
 		}
@@ -345,6 +398,7 @@ void AutoIdeas::OnListTone() {
 			contents.Clear();
 			symbolisms.Clear();
 			imageries.Clear();
+			persons.Clear();
 			PostCallback(THISBACK(GetAllegorySuggestions));
 			return;
 		}
@@ -369,6 +423,7 @@ void AutoIdeas::OnListAllegory() {
 			contents.Clear();
 			symbolisms.Clear();
 			imageries.Clear();
+			persons.Clear();
 			PostCallback(THISBACK(GetContentSuggestions));
 			return;
 		}
@@ -394,6 +449,7 @@ void AutoIdeas::OnListContentIdea() {
 		if (c.imageries.IsEmpty()) {
 			imageries.Clear();
 			symbolisms.Clear();
+			persons.Clear();
 			PostCallback(THISBACK(GetImagerySuggestions));
 			return;
 		}
@@ -420,6 +476,7 @@ void AutoIdeas::OnListImagery() {
 		c.cursor = imagery_i;
 		if (img.symbolisms.IsEmpty()) {
 			symbolisms.Clear();
+			persons.Clear();
 			PostCallback(THISBACK(GetSymbolismSuggestions));
 			return;
 		}
@@ -446,6 +503,36 @@ void AutoIdeas::OnListSymbolism() {
 		StaticImagery& img = c.imageries[imagery_i];
 		StaticSymbolism& sym = img.symbolisms[symbolism_i];
 		img.cursor = symbolism_i;
+		if (sym.persons.IsEmpty()) {
+			persons.Clear();
+			PostCallback(THISBACK(GetPersonSuggestions));
+			return;
+		}
+	}
+	DataSymbolism(false);
+}
+
+void AutoIdeas::OnListPersons() {
+	Song& song = GetSong();
+	
+	if (persons.IsCursor()) {
+		int theme_i = themes.GetCursor();
+		int idea_i = ideas.GetCursor();
+		int tone_i = tones.GetCursor();
+		int allegory_i = allegories.GetCursor();
+		int content_i = contents.GetCursor();
+		int imagery_i = imageries.GetCursor();
+		int symbolism_i = symbolisms.GetCursor();
+		int person_i = persons.GetCursor();
+		StaticTheme& t = song.themes[theme_i];
+		StaticIdea& id = t.ideas[idea_i];
+		StaticToneSuggestion& tone = id.tones[tone_i];
+		StaticAllegoricalDevice& alleg = tone.allegories[allegory_i];
+		StaticContentSuggestion& c = alleg.contents[content_i];
+		StaticImagery& img = c.imageries[imagery_i];
+		StaticSymbolism& sym = img.symbolisms[symbolism_i];
+		auto& per = sym.persons[person_i];
+		per.cursor = person_i;
 		/*if (sym.  .IsEmpty()) {
 			symbolisms.Clear();
 			PostCallback(THISBACK(GetSymbolismSuggestions));
@@ -463,6 +550,7 @@ void AutoIdeas::ToolMenu(Bar& bar) {
 	bar.Add(t_("Get content suggestions"), AppImg::BlueRing(), THISBACK(GetContentSuggestions)).Key(K_CTRL_T);
 	bar.Add(t_("Get specific imagery suggestions"), AppImg::BlueRing(), THISBACK(GetImagerySuggestions)).Key(K_CTRL_Y);
 	bar.Add(t_("Get symbolism suggestions"), AppImg::BlueRing(), THISBACK(GetSymbolismSuggestions)).Key(K_CTRL_U);
+	bar.Add(t_("Get person suggestions"), AppImg::BlueRing(), THISBACK(GetPersonSuggestions)).Key(K_CTRL_I);
 	bar.Separator();
 	bar.Add(t_("Set as active idea"), AppImg::VioletRing(), THISBACK(SetAsActiveIdea)).Key(K_F5);
 	
@@ -717,6 +805,54 @@ void AutoIdeas::GetSymbolismSuggestions() {
 	}
 }
 
+void AutoIdeas::GetPersonSuggestions() {
+	if (disabled) return;
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.release || !p.artist)
+		return;
+	
+	if (!symbolisms.IsCursor())
+		return;
+	int theme_i = themes.GetCursor();
+	int idea_i = ideas.GetCursor();
+	int tone_i = tones.GetCursor();
+	int allegory_i = allegories.GetCursor();
+	int content_i = contents.GetCursor();
+	int imagery_i = imageries.GetCursor();
+	int symbolism_i = symbolisms.GetCursor();
+	StaticTheme& t = p.song->themes[theme_i];
+	StaticIdea& id = t.ideas[idea_i];
+	StaticToneSuggestion& tone = id.tones[tone_i];
+	StaticAllegoricalDevice& all = tone.allegories[allegory_i];
+	StaticContentSuggestion& c = all.contents[content_i];
+	StaticImagery& img =  c.imageries[imagery_i];
+	auto& sym =  img.symbolisms[symbolism_i];
+	
+	IdeaArgs args;
+	GetAttrs(p.artist->data, args.attrs);
+	GetAttrs(p.release->data, args.attrs);
+	GetAttrs(p.song->data, args.attrs);
+	
+	Song& song = GetSong();
+	
+	song.RealizePipe();
+	
+	DisableAll();
+	
+	args.song_idea[IDEAPATH_THEME] = t.text;
+	args.song_idea[IDEAPATH_IDEA] = id.text;
+	args.song_idea[IDEAPATH_TONE] = tone.text;
+	args.song_idea[IDEAPATH_ALLEGORY] = all.text;
+	args.song_idea[IDEAPATH_CONTENT] = c.text;
+	args.song_idea[IDEAPATH_IMAGERY] = img.text;
+	args.song_idea[IDEAPATH_SYMBOLISM] = sym.text;
+	{
+		TaskMgr& m = *song.pipe;
+		m.GetIdeaSuggestions(args, THISBACK1(OnPersonSuggestions, &sym));
+	}
+}
+
 String AutoIdeas::GetStatusText() {
 	return "";
 }
@@ -758,7 +894,7 @@ void ParseTextColor(String s, String& text, Color& clr) {
 	s.Replace("B:", "");
 	
 	clr = White();
-	int a = s.Find("(");
+	int a = s.ReverseFind("(");
 	int split0 = s.Find(":");
 	int split1 = s.Find("-");
 	
@@ -985,8 +1121,26 @@ void AutoIdeas::OnSymbolismSuggestions(String result, StaticImagery* img) {
 	PostCallback(THISBACK1(DataImagery, false));
 }
 
+void AutoIdeas::OnPersonSuggestions(String result, StaticSymbolism* sym) {
+	EnableAll();
+	
+	HotFixResult(result);
+	
+	Vector<String> lines = Split(result, "\n", false);
+	
+	sym->persons.Clear();
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String s = TrimBoth(lines[i].Mid(1));
+		if (s.IsEmpty()) break;
+		auto& o = sym->persons.Add();
+		ParseTextColor(s, o.text, o.clr);
+	}
+	
+	PostCallback(THISBACK1(DataSymbolism, false));
+}
+
 void AutoIdeas::SetAsActiveIdea() {
-	if (!symbolisms.IsCursor())
+	if (!persons.IsCursor())
 		return;
 	int theme_i = themes.GetCursor();
 	int idea_i = ideas.GetCursor();
@@ -995,6 +1149,7 @@ void AutoIdeas::SetAsActiveIdea() {
 	int content_i = contents.GetCursor();
 	int imagery_i = imageries.GetCursor();
 	int symblism_i = symbolisms.GetCursor();
+	int person_i = persons.GetCursor();
 	
 	try {
 		Song& song = GetSong();
@@ -1005,6 +1160,7 @@ void AutoIdeas::SetAsActiveIdea() {
 		StaticContentSuggestion& c = all.contents[content_i];
 		StaticImagery& img =  c.imageries[imagery_i];
 		StaticSymbolism& sym =  img.symbolisms[symblism_i];
+		auto& per =  sym.persons[person_i];
 		
 		song.active_idea[IDEAPATH_THEME] = t.text;
 		song.active_idea[IDEAPATH_IDEA] = id.text;
@@ -1013,6 +1169,7 @@ void AutoIdeas::SetAsActiveIdea() {
 		song.active_idea[IDEAPATH_CONTENT] = c.text;
 		song.active_idea[IDEAPATH_IMAGERY] = img.text;
 		song.active_idea[IDEAPATH_SYMBOLISM] = sym.text;
+		song.active_idea[IDEAPATH_PERSON] = per.text;
 		
 		song.active_idea_clr[IDEAPATH_THEME] = t.clr;
 		song.active_idea_clr[IDEAPATH_IDEA] = id.clr;
@@ -1021,6 +1178,7 @@ void AutoIdeas::SetAsActiveIdea() {
 		song.active_idea_clr[IDEAPATH_CONTENT] = c.clr;
 		song.active_idea_clr[IDEAPATH_IMAGERY] = img.clr;
 		song.active_idea_clr[IDEAPATH_SYMBOLISM] = sym.clr;
+		song.active_idea_clr[IDEAPATH_PERSON] = per.clr;
 	}
 	catch (NoPointerExc e) {}
 }

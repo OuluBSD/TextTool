@@ -118,9 +118,11 @@ typedef enum : int {
 	TASK_GET_ALLEGORICAL_DEVICES,
 	TASK_GET_IMAGERY_SUGGESTIONS,
 	TASK_GET_SYMBOLISM_SUGGESTIONS,
+	TASK_GET_IDEA_SUGGESTIONS,
 	TASK_GET_PART_CONTENT_SUGGESTIONS,
 	TASK_GET_PART_IMAGERY_SUGGESTIONS,
 	TASK_GET_PART_SYMBOLISM_SUGGESTIONS,
+	TASK_GET_PART_IDEA,
 	TASK_GET_INTERNAL_RHYMING_FIRST_LINE,
 	TASK_GET_INTERNAL_RHYMING_CONTINUE_LINE,
 	TASK_GET_IDEA_FROM_LYRICS,
@@ -176,6 +178,25 @@ END_UPP_NAMESPACE
 
 
 
+struct IdeaArgs {
+	// Song
+	String song_idea[IDEAPATH_COUNT];
+	VectorMap<String, Vector<String>> part_ideas;
+	VectorMap<String,String> attrs;
+	String part_name;
+	
+	
+	void Jsonize(JsonIO& json) {
+		for(int i = 0; i < IDEAPATH_COUNT; i++)
+			json("song_idea[" + IntStr(i) + "]", song_idea[i]);
+		json("part_ideas", part_ideas);
+		json("attrs", attrs);
+		json("part_name", part_name);
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+};
+
 struct RhymingArgs {
 	// Song
 	String song_idea[IDEAPATH_COUNT];
@@ -191,8 +212,7 @@ struct RhymingArgs {
 	Vector<String> forbidden_words;
 	String frozen_begin;
 	String frozen_end;
-	String specific_imagery;
-	String symbolism;
+	String rhyme_idea[IDEAPATH_PARTCOUNT];
 	VectorMap<String, String> attrs;
 	
 	void Jsonize(JsonIO& json) {
@@ -203,12 +223,12 @@ struct RhymingArgs {
 		json("part", part);
 		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
 			json("part_idea[" + IntStr(i) + "]", part_idea[i]);
+		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
+			json("rhyme_idea[" + IntStr(i) + "]", rhyme_idea[i]);
 		json	("syllable_count", syllable_count)
 				("forbidden_words", forbidden_words)
 				("frozen_begin", frozen_begin)
 				("frozen_end", frozen_end)
-				("specific_imagery", specific_imagery)
-				("symbolism", symbolism)
 				("attrs", attrs)
 				;
 	}
@@ -254,7 +274,7 @@ struct PoeticStylesArgs {
 	Vector<String> forbidden_words;
 	Vector<String> frozen_begin;
 	Vector<String> frozen_end;
-	String imagery, symbolism;
+	String rhyme_idea[IDEAPATH_PARTCOUNT];
 	
 	void Jsonize(JsonIO& json) {
 		json	("rhyme", rhyme)
@@ -265,14 +285,32 @@ struct PoeticStylesArgs {
 				("forbidden_words", forbidden_words)
 				("frozen_begin", frozen_begin)
 				("frozen_end", frozen_end)
-				("imagery", imagery)
-				("symbolism", symbolism)
+				;
+		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
+			json("rhyme_idea[" + IntStr(i) + "]", rhyme_idea[i]);
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct MorphArgs {
+	Vector<String> source;
+	VectorMap<String,String> attrs;
+	String song_idea[IDEAPATH_COUNT];
+	
+	void Jsonize(JsonIO& json) {
+		for(int i = 0; i < IDEAPATH_COUNT; i++)
+			json("song_idea[" + IntStr(i) + "]", song_idea[i]);
+		json	("source", source)
+				("attrs", attrs)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}
 	void Put(const String& s) {LoadFromJson(*this, s);}
 	
 };
+
 
 
 #endif

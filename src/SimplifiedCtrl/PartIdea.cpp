@@ -9,7 +9,7 @@ PartIdea::PartIdea() {
 	hsplit0.Horz() << active << parts;
 	hsplit0.SetPos(2500);
 	
-	hsplit1.Horz() << contents << imageries << symbolisms;
+	hsplit1.Horz() << contents << imageries << symbolisms << persons;
 	
 	active.AddColumn(t_("Active idea"));
 	
@@ -17,6 +17,7 @@ PartIdea::PartIdea() {
 	parts.AddColumn(t_("Content suggestion"));
 	parts.AddColumn(t_("Specific imagery"));
 	parts.AddColumn(t_("Symbolism"));
+	parts.AddColumn(t_("Persons"));
 	parts.WhenCursor << THISBACK(OnListPart);
 	
 	contents.AddColumn(t_("Content suggestion"));
@@ -27,6 +28,9 @@ PartIdea::PartIdea() {
 
 	symbolisms.AddColumn(t_("Symbolism"));
 	symbolisms.WhenCursor << THISBACK(OnListSymbolism);
+	
+	persons.AddColumn(t_("Persons"));
+	persons.WhenCursor << THISBACK(OnListPersons);
 	
 }
 
@@ -110,6 +114,7 @@ void PartIdea::DataPart(bool set_cursor) {
 		contents.Clear();
 		imageries.Clear();
 		symbolisms.Clear();
+		persons.Clear();
 		return;
 	}
 	
@@ -136,6 +141,7 @@ void PartIdea::DataContent(bool set_cursor) {
 	if (!contents.IsCursor()) {
 		imageries.Clear();
 		symbolisms.Clear();
+		persons.Clear();
 		return;
 	}
 	
@@ -164,6 +170,7 @@ void PartIdea::DataContent(bool set_cursor) {
 void PartIdea::DataImagery(bool set_cursor) {
 	if (!imageries.IsCursor()) {
 		symbolisms.Clear();
+		persons.Clear();
 		return;
 	}
 	
@@ -188,14 +195,49 @@ void PartIdea::DataImagery(bool set_cursor) {
 	if (set_cursor && !symbolisms.IsCursor() && img.cursor >= 0 && img.cursor < symbolisms.GetCount())
 		symbolisms.SetCursor(img.cursor);
 	
+	DataSymbolism(set_cursor);
+}
+
+void PartIdea::DataSymbolism(bool set_cursor) {
+	if (!symbolisms.IsCursor()) {
+		persons.Clear();
+		return;
+	}
+	
+	Song& song = GetSong();
+	int part_i = parts.GetCursor();
+	int content_i = contents.GetCursor();
+	int imagery_i = imageries.GetCursor();
+	int symbolism_i = symbolisms.GetCursor();
+	StaticPart& part = song.parts[part_i];
+	StaticContentSuggestion& c = part.contents[content_i];
+	StaticImagery& img = c.imageries[imagery_i];
+	StaticSymbolism& sym = img.symbolisms[symbolism_i];
+	
+	for(int i = 0; i < sym.persons.GetCount(); i++) {
+		auto& o = sym.persons[i];
+		persons.Set(i, 0, AttrText(Capitalize(o.text))
+			.Paper(Blend(o.clr, GrayColor(), 128+64))
+			.NormalPaper(Blend(o.clr, White(), 128+64))
+			.Ink(White()).NormalInk(Black())
+			);
+	}
+	persons.SetCount(sym.persons.GetCount());
+	
+	if (set_cursor && !persons.IsCursor() && sym.cursor >= 0 && sym.cursor < persons.GetCount())
+		persons.SetCursor(sym.cursor);
+	
 }
 
 void PartIdea::ToolMenu(Bar& bar) {
 	bar.Add(t_("Get content suggestions"), AppImg::BlueRing(), THISBACK(GetContentSuggestions)).Key(K_CTRL_Q);
 	bar.Add(t_("Get specific imagery suggestions"), AppImg::BlueRing(), THISBACK(GetImagerySuggestions)).Key(K_CTRL_W);
 	bar.Add(t_("Get symbolism suggestions"), AppImg::BlueRing(), THISBACK(GetSymbolismSuggestions)).Key(K_CTRL_E);
+	bar.Add(t_("Get person suggestions"), AppImg::BlueRing(), THISBACK(GetPersonSuggestions)).Key(K_CTRL_R);
 	bar.Separator();
 	bar.Add(t_("Set as active idea"), AppImg::VioletRing(), THISBACK(SetAsActiveIdea)).Key(K_F5);
+	bar.Separator();
+	bar.Add(t_("Clear all ideas"), AppImg::RedRing(), THISBACK(ClearAllIdeas)).Key(K_F6);
 	
 }
 
@@ -213,6 +255,7 @@ void PartIdea::OnListPart() {
 			contents.Clear();
 			symbolisms.Clear();
 			imageries.Clear();
+			persons.Clear();
 			PostCallback(THISBACK(GetContentSuggestions));
 			return;
 		}
@@ -231,6 +274,7 @@ void PartIdea::OnListContent() {
 		if (c.imageries.IsEmpty()) {
 			imageries.Clear();
 			symbolisms.Clear();
+			persons.Clear();
 			PostCallback(THISBACK(GetImagerySuggestions));
 			return;
 		}
@@ -250,6 +294,7 @@ void PartIdea::OnListImagery() {
 		c.cursor = imagery_i;
 		if (img.symbolisms.IsEmpty()) {
 			symbolisms.Clear();
+			persons.Clear();
 			PostCallback(THISBACK(GetSymbolismSuggestions));
 			return;
 		}
@@ -269,8 +314,33 @@ void PartIdea::OnListSymbolism() {
 		StaticContentSuggestion& c = p.contents[content_i];
 		StaticImagery& img = c.imageries[imagery_i];
 		StaticSymbolism& sym = img.symbolisms[symbolism_i];
-		img.cursor = symbolism_i;
+		sym.cursor = symbolism_i;
+		if (sym.persons.IsEmpty()) {
+			persons.Clear();
+			PostCallback(THISBACK(GetPersonSuggestions));
+			return;
+		}
 	}
+	DataSymbolism(false);
+}
+
+void PartIdea::OnListPersons() {
+	Song& song = GetSong();
+	
+	if (persons.IsCursor()) {
+		int part_i = parts.GetCursor();
+		int content_i = contents.GetCursor();
+		int imagery_i = imageries.GetCursor();
+		int symbolism_i = symbolisms.GetCursor();
+		int person_i = persons.GetCursor();
+		StaticPart& p = song.parts[part_i];
+		StaticContentSuggestion& c = p.contents[content_i];
+		StaticImagery& img = c.imageries[imagery_i];
+		StaticSymbolism& sym = img.symbolisms[symbolism_i];
+		StaticPerson& per = sym.persons[person_i];
+		per.cursor = person_i;
+	}
+	
 }
 
 bool PartIdea::HasActiveIdea() {
@@ -427,42 +497,89 @@ void PartIdea::GetSymbolismSuggestions() {
 	StaticContentSuggestion& c = part.contents[content_i];
 	StaticImagery& img = c.imageries[imagery_i];
 	
-	VectorMap<String,String> attrs;
-	GetAttrs(p.artist->data, attrs);
-	GetAttrs(p.release->data, attrs);
-	GetAttrs(p.song->data, attrs);
+	IdeaArgs args;
+	GetAttrs(p.artist->data, args.attrs);
+	GetAttrs(p.release->data, args.attrs);
+	GetAttrs(p.song->data, args.attrs);
 	
 	Song& song = GetSong();
 	
 	song.RealizePipe();
 	
-	String known_part_ideas;
 	for(int i = 0; i < s.parts.GetCount(); i++) {
 		StaticPart& sp = s.parts[i];
-		
-		if (!known_part_ideas.IsEmpty())
-			known_part_ideas << ";;;";
-		
-		known_part_ideas << TrimBoth(sp.name);
-		
+		auto& v = args.part_ideas.Add(sp.name);
 		for(int j = 0; j < IDEAPATH_PARTCOUNT; j++)
-			known_part_ideas << "__" << sp.active_idea[j];
-		
+			v << sp.active_idea[j];
 	}
 	
 	{
+		for(int i = 0; i < IDEAPATH_CONTENT; i++)
+			args.song_idea[i] = s.active_idea[i];
+		args.song_idea[IDEAPATH_CONTENT] = c.text;
+		args.song_idea[IDEAPATH_IMAGERY] = img.text;
+		
+		args.part_name = part.name;
+		
 		TaskMgr& m = *song.pipe;
 		m.GetPartSymbolismSuggestions(
-			s.active_idea[0],
-			s.active_idea[1],
-			s.active_idea[2],
-			s.active_idea[3],
-			c.text,
-			img.text,
-			part.name,
-			known_part_ideas,
-			attrs.GetValues(),
+			args,
 			THISBACK1(OnSymbolismSuggestions, &img));
+	}
+}
+
+void PartIdea::GetPersonSuggestions() {
+	if (!HasActiveIdea() || disabled)
+		return;
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.release || !p.artist)
+		return;
+	
+	if (!parts.IsCursor())
+		return;
+	
+	DisableAll();
+	
+	Song& s = *p.song;
+	int part_i = parts.GetCursor();
+	int content_i = contents.GetCursor();
+	int imagery_i = imageries.GetCursor();
+	int symbolism_i = symbolisms.GetCursor();
+	StaticPart& part = s.parts[part_i];
+	StaticContentSuggestion& c = part.contents[content_i];
+	StaticImagery& img = c.imageries[imagery_i];
+	StaticSymbolism& sym = img.symbolisms[symbolism_i];
+	
+	IdeaArgs args;
+	GetAttrs(p.artist->data, args.attrs);
+	GetAttrs(p.release->data, args.attrs);
+	GetAttrs(p.song->data, args.attrs);
+	
+	Song& song = GetSong();
+	
+	song.RealizePipe();
+	
+	for(int i = 0; i < s.parts.GetCount(); i++) {
+		StaticPart& sp = s.parts[i];
+		auto& v = args.part_ideas.Add(sp.name);
+		for(int j = 0; j < IDEAPATH_PARTCOUNT; j++)
+			v << sp.active_idea[j];
+	}
+	
+	{
+		for(int i = 0; i < IDEAPATH_CONTENT; i++)
+			args.song_idea[i] = s.active_idea[i];
+		args.song_idea[IDEAPATH_CONTENT] = c.text;
+		args.song_idea[IDEAPATH_IMAGERY] = img.text;
+		args.song_idea[IDEAPATH_SYMBOLISM] = sym.text;
+		
+		args.part_name = part.name;
+		
+		TaskMgr& m = *song.pipe;
+		m.GetPartIdea(
+			args,
+			THISBACK1(OnPersonSuggestions, &sym));
 	}
 }
 
@@ -522,12 +639,31 @@ void PartIdea::OnSymbolismSuggestions(String result, StaticImagery* img) {
 	PostCallback(THISBACK1(DataImagery, false));
 }
 
+void PartIdea::OnPersonSuggestions(String result, StaticSymbolism* sym) {
+	EnableAll();
+	
+	HotFixResult(result);
+	
+	Vector<String> lines = Split(result, "\n", false);
+	
+	sym->persons.Clear();
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String s = TrimBoth(lines[i].Mid(1));
+		if (s.IsEmpty()) break;
+		auto& o = sym->persons.Add();
+		ParseTextColor(s, o.text, o.clr);
+	}
+	
+	PostCallback(THISBACK1(DataSymbolism, false));
+}
+
 void PartIdea::SetAsActiveIdea() {
 	if (!symbolisms.IsCursor())
 		return;
 	int content_i = contents.GetCursor();
 	int imagery_i = imageries.GetCursor();
 	int symblism_i = symbolisms.GetCursor();
+	int person_i = persons.GetCursor();
 	
 	try {
 		Song& song = GetSong();
@@ -536,14 +672,37 @@ void PartIdea::SetAsActiveIdea() {
 		StaticContentSuggestion& c = part.contents[content_i];
 		StaticImagery& img =  c.imageries[imagery_i];
 		StaticSymbolism& sym =  img.symbolisms[symblism_i];
+		StaticPerson& per =  sym.persons[person_i];
 		
 		part.active_idea[IDEAPATH_PART_CONTENT] = c.text;
 		part.active_idea[IDEAPATH_PART_IMAGERY] = img.text;
 		part.active_idea[IDEAPATH_PART_SYMBOLISM] = sym.text;
+		part.active_idea[IDEAPATH_PART_PERSON] = per.text;
 		
 		part.active_idea_clr[IDEAPATH_PART_CONTENT] = c.clr;
 		part.active_idea_clr[IDEAPATH_PART_IMAGERY] = img.clr;
 		part.active_idea_clr[IDEAPATH_PART_SYMBOLISM] = sym.clr;
+		part.active_idea_clr[IDEAPATH_PART_PERSON] = per.clr;
+	}
+	catch (NoPointerExc e) {}
+	
+	PostCallback(THISBACK1(DataSong, false));
+}
+
+void PartIdea::ClearAllIdeas() {
+	if (!PromptYesNo(t_("Are you sure you want to remove all ideas?")))
+		return;
+	
+	try {
+		Song& song = GetSong();
+		for(int i = 0; i < song.parts.GetCount(); i++) {
+			StaticPart& part = song.parts[i];
+			for(int j = 0; j < IDEAPATH_PARTCOUNT; j++) {
+				part.active_idea[j] = "";
+				part.active_idea_clr[j] = White();
+			}
+			part.contents.Clear();
+		}
 	}
 	catch (NoPointerExc e) {}
 	

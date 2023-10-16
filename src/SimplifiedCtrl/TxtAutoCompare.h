@@ -28,6 +28,8 @@ class TxtAutoCompare : public SongToolCtrl {
 	String frozen_begin_key, frozen_end_key;
 	String specific_imagery_key;
 	String symbolism_key;
+	String person_key;
+	String content_key;
 	
 	int attr_begin_row = -1;
 	Vector<int> sug_ids;
@@ -46,6 +48,7 @@ public:
 	void SetSuggestionScore(EditIntNotNullSpin* e, StaticSuggestion* sug);
 	void CopyAIToUser();
 	void CopyUserToAI();
+	void CopySuggestionToAI();
 	void ImportEnglish();
 	void ImproveSourceText(int style);
 	void LimitContentSyllableCount();
@@ -57,6 +60,7 @@ public:
 	void MorphAttrsTowardsContext();
 	void GetContentString(bool morph);
 	void CopyIdeaVariables();
+	void SuggestionMenu(Bar& bar);
 	
 	//void PostOnPoeticRecv(String res, int part, int rhyme) {PostCallback(THISBACK3(OnPoeticRecv, res, part, rhyme));}
 	void OnPoeticRecv(String res, StaticPart* part, StaticRhyme* rhyme);
@@ -72,7 +76,7 @@ public:
 	void OnSourceTextImprovements(String res, StaticPart* s);
 	void OnSongSyllableChange();
 	void OnSongAttrCountChange();
-	void OnMorphToAttributes(String res, StaticPart* s, StaticRhyme* r);
+	void OnMorphToAttributes(String res, StaticPart* s);
 	void OnParamChangeString(EditString* e, int key);
 	
 	StaticPart* GetActiveSongPart();

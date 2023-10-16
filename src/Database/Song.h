@@ -48,7 +48,7 @@ struct SongHeader {
 
 
 
-struct StaticSymbolism {
+struct StaticPerson {
 	String text;
 	Color clr;
 	int cursor = -1;
@@ -57,6 +57,22 @@ struct StaticSymbolism {
 		json
 			("text", text)
 			("clr", clr)
+			("cursor", cursor)
+			;
+	}
+};
+
+struct StaticSymbolism {
+	String text;
+	Color clr;
+	Array<StaticPerson> persons;
+	int cursor = -1;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("text", text)
+			("clr", clr)
+			("persons", persons)
 			("cursor", cursor)
 			;
 	}

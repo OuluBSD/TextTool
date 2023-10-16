@@ -89,7 +89,7 @@ struct TaskMgr {
 	void EvaluateSongAudience(String src_key, String dst_key, int mode, Callback WhenDone);
 	void MakePoetic(String style, String src_key, String dst_key, Callback WhenDone);
 	void EvaluatePoeticStyles(const PoeticStylesArgs& args, Event<String> WhenResult);
-	void MorphToAttributes(const Vector<String>& rhyme_lines, const Vector<String>& attrs, String imagery, String symbolism, Event<String> WhenResult);
+	void MorphToAttributes(const MorphArgs& args, Event<String> WhenResult);
 	void ConvertScreenplayToPlan(String src_key, String dst_key, Callback WhenDone);
 	void ConvertScreenplayToStructure(String orig_txt, Event<String> WhenResult);
 	void ConvertStructureToScreenplay(String orig_txt, Event<String> WhenResult);
@@ -112,9 +112,11 @@ struct TaskMgr {
 	void GetContentSuggestions(String theme, String idea, String tone, String alleg, Vector<String>& attrs, Event<String> WhenResult);
 	void GetImagerySuggestions(String theme, String idea, String tone, String alleg, String content, Vector<String>& attrs, Event<String> WhenResult);
 	void GetSymbolismSuggestions(String theme, String idea, String tone, String alleg, String content, String imagery, Vector<String>& attrs, Event<String> WhenResult);
+	void GetIdeaSuggestions(const IdeaArgs& args, Event<String> WhenResult);
 	void GetPartContentSuggestions(String theme, String idea, String tone, String alleg, String part, String known_part_ideas, Vector<String>& attrs, Event<String> WhenResult);
 	void GetPartImagerySuggestions(String theme, String idea, String tone, String alleg, String content, String part, String known_part_ideas, Vector<String>& attrs, Event<String> WhenResult);
-	void GetPartSymbolismSuggestions(String theme, String idea, String tone, String alleg, String content, String imagery, String part, String known_part_ideas, Vector<String>& attrs, Event<String> WhenResult);
+	void GetPartSymbolismSuggestions(const IdeaArgs& args, Event<String> WhenResult);
+	void GetPartIdea(const IdeaArgs& args, Event<String> WhenResult);
 	void GetInternalRhymingFirstLine(const RhymingArgs& args, Event<String> WhenResult);
 	void GetInternalRhymingContinueLine(const RhymingArgs& args, Event<String> WhenResult);
 	void GetIdeaFromLyrics(const String& lyrics, Event<String> WhenResult);

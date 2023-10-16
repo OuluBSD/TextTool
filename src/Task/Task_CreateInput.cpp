@@ -1571,14 +1571,6 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 	
 	Pipe& pipe = *p.pipe;
 	
-	{
-		Vector<String> lines = Split(args.rhyme, "\n", true);
-		TaskTitledList& list = input.AddSub().Title("Original lyrics (" + IntStr(lines.GetCount()) + " lines, no rhymes)");
-		list		.NoListChar();
-		for (const String& line : lines)
-			list		.Add(line);
-	}
-	
 	int list_len = min(CommonArtists().GetCount(), 18);
 	{
 		TaskTitledList& list = input.AddSub().Title("List of artist styles");
@@ -1593,10 +1585,10 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 	
 	if (!args.syllable_count.IsEmpty()) {
 		TaskTitledList& list = input.AddSub();
-		list.Title("A single line of the result must have exact count of syllables");
+		list.Title("A single line of the lyrics must have exact count of notes");
 		for(int i = 0; i < args.syllable_count.GetCount(); i++) {
 			String s;
-			s << i+1 << ". line must have " << args.syllable_count[i] << " syllables";
+			s << i+1 << ". line must have " << args.syllable_count[i] << " notes";
 			list.Add(s);
 		}
 	}
@@ -1634,22 +1626,28 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 		}
 	}
 	
-	if (!args.imagery.IsEmpty()) {
+	for(int i = 0; i < IDEAPATH_PARTCOUNT; i++) {
+		const String& s = args.rhyme_idea[i];
+		if (s.IsEmpty())
+			continue;
+		String title = GetIdeaPathTitle(IDEAPATH_PARTBEGIN + i);
 		TaskTitledList& list = input.AddSub();
-		list.Title("Using bold and vivid language, paint a picture of the following description, as the story continue");
-		list.Add(args.imagery);
-	}
-	
-	if (!args.symbolism.IsEmpty()) {
-		TaskTitledList& list = input.AddSub();
-		list.Title("When incorporating symbolism, please make sure it aligns with the following");
-		list.Add(args.symbolism);
+		list.Title(title);
+		list.Add(s);
 	}
 	
 	if (args.attrs.GetCount()) {
 		TaskTitledList& list = input.AddSub().Title("Lyrics should match following attributes");
 		for(String& a : args.attrs)
 			list.Add(TrimBoth(a));
+	}
+	
+	{
+		Vector<String> lines = Split(args.rhyme, "\n", true);
+		TaskTitledList& list = input.AddSub().Title("Original lyrics (" + IntStr(lines.GetCount()) + " lines, no rhymes)");
+		list		.NoListChar();
+		for (const String& line : lines)
+			list		.Add(line);
 	}
 	
 	{
@@ -2203,47 +2201,42 @@ void Task::CreateInput_MorphToAttributes() {
 	Pipe& pipe = *p.pipe;
 	Attributes& g = pipe;
 	
-	String imagery = args[2];
-	String symbolism = args[3];
+	MorphArgs args;
+	args.Put(this->args[0]);
 	
 	g.Realize(); // TODO very hacky solution... this should be in Database already
 	
 	
-	Vector<String> lines = Split(args[0], "\n");
-	if (lines.GetCount()) {
+	if (args.source.GetCount()) {
 		TaskTitledList& list = input.AddSub().Title("Lyrics \"A\"");
 		list		.NoListChar();
-		for (const String& line : lines)
+		for (const String& line : args.source)
 			list		.Add(line);
 	}
 	
 	// List of axes:
 	// -a Integrity: +honest/-twisted
-	{
-		Vector<String> attrs = Split(args[1], "\n");
+	if (args.attrs.GetCount()) {
 		TaskTitledList& axes = input.AddSub();
-		axes			.Title("List of preferable attributes")
-						.CountLinesAlpha();
-		for (const String& line : attrs)
+		axes			.Title("List of attributes matching the lyrics");
+		for (const String& line : args.attrs)
 			axes		.Add(line);
 	}
 	
-	if (!imagery.IsEmpty()) {
+	for(int i = IDEAPATH_PARTBEGIN; i < IDEAPATH_COUNT; i++) {
+		const String& s = args.song_idea[i];
+		if (s.IsEmpty())
+			continue;
+		String title = GetIdeaPathTitle(i);
 		TaskTitledList& list = input.AddSub();
-		list.Title("Using bold and vivid language, paint a picture of the following description, as the story continue");
-		list.Add(imagery);
+		list.Title(title);
+		list.Add(s);
 	}
 	
-	if (!symbolism.IsEmpty()) {
-		TaskTitledList& list = input.AddSub();
-		list.Title("When incorporating symbolism, please make sure it aligns with the following");
-		list.Add(symbolism);
-	}
-	
-	if (lines.GetCount()) {
+	if (args.source.GetCount()) {
 		TaskTitledList& results = input.PreAnswer();
 		//results.Title("Same lyrics in short but deeply biased style for lines 1-" + IntStr(list_len));
-		results.Title("Modified lyrics \"A\", which the same pronouns, but different content, which matches to given preferable attributes. " + IntStr(lines.GetCount()) + " lines");
+		results.Title("Modified lyrics \"A\", which the same pronouns, but different content, which matches to given preferable attributes. " + IntStr(args.source.GetCount()) + " lines");
 		results.EmptyLine();
 	}
 	else {
@@ -2389,14 +2382,19 @@ void Task::CreateInput_GetNovelThemes() {
 	}
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		TaskTitledList& list = input.AddSub().Title("Most lines of the song 1 must have following tone");
 		for (const String& p : args)
 			list.Add(TrimBoth(p));
 	}
 	
 	{
+		String t = "List of ";
+		if (VectorFind(args, "male") >= 0)	t << "manly and ";
+		if (VectorFind(args, "female") >= 0)	t << "womanly and ";
+		t << "novel themes for the song 1. With the metaphorical color RGB integer (r,g,b) code at the end of the line";
+		
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of novel themes (with metaphorical color RGB byte integers for illustration) for the song 1");
+		results.Title(t);
 		results.EmptyLine();
 	}
 	
@@ -2419,8 +2417,12 @@ void Task::CreateInput_GetNovelIdeas() {
 	}
 	
 	{
+		String t = "List of ";
+		if (VectorFind(args, "male") >= 0)	t << "manly and ";
+		if (VectorFind(args, "female") >= 0)	t << "womanly and ";
+		t << "novel ideas for the song 1 with the theme of \"" + theme + "\". With the metaphorical color RGB integer (r,g,b) code at the end of the line";
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of novel ideas (with metaphorical color RGB byte integers for illustration) for the song 1 with the theme of \"" + theme + "\"");
+		results.Title(t);
 		results.EmptyLine();
 	}
 	
@@ -2446,10 +2448,13 @@ void Task::CreateInput_GetToneSuggestions() {
 	}
 	
 	{
+		String t = "List of ";
+		if (VectorFind(args, "male") >= 0)	t << "manly and ";
+		if (VectorFind(args, "female") >= 0)	t << "womanly and ";
+		t << "novel tone of lyrics suggestions for the song 1 with the theme of \"" + theme + "\"  and idea of \"" + idea + "\". With the metaphorical color RGB integer (r,g,b) code at the end of the line";
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of novel tone of lyrics (with metaphorical color RGB byte integers for illustration) suggestions for the song 1 with the theme of \"" + theme + "\"  and idea of \"" + idea + "\"");
-		results.EmptyLine().EmptyLineString("\"");
-		
+		results.Title(t);
+		results.EmptyLine();
 	}
 	
 	
@@ -2485,13 +2490,17 @@ void Task::CreateInput_GetAllegorySuggestions() {
 		input.AddSub().NoColon().Title("Tone of the song 1 is \"" + tone + "\"");
 	}
 	{
-		TaskTitledList& results = input.PreAnswer();
 		//results.Title("List of novel allegorical devices for the song 1 with the theme of \"" + theme + "\"  and idea of \"" + idea + "\"");
 		//results.Title("List of novel metaphors or allegorical devices for the song 1 with the theme of \"" + theme + "\"  and idea of \"" + idea + "\"");
 		//results.Title("List of concrete novel metaphors or allegorical devices for the song 1 with the theme of \"" + theme + "\"  and idea of \"" + idea + "\"");
 		//results.Title("List of lines of lyrics using allegorical devices for the song 1 with the theme of \"" + theme + "\"  and idea of \"" + idea + "\"");
 		//results.Title("List of story devices with metaphorical story (with metaphorical color RGB byte integers for illustration) for the song 1");
-		results.Title("List of story devices with metaphorical story for the song 1. With the metaphorical color RGB integer (r,g,b) code at the end");
+		String t = "List of ";
+		if (VectorFind(args, "male") >= 0)	t << "manly ";
+		if (VectorFind(args, "female") >= 0)	t << "womanly ";
+		t << "story devices with metaphorical story for the song 1. With the metaphorical color RGB integer (r,g,b) code at the end";
+		TaskTitledList& results = input.PreAnswer();
+		results.Title(t);
 		results.EmptyLine();
 	}
 	
@@ -2533,8 +2542,12 @@ void Task::CreateInput_GetContentSuggestions() {
 		input.AddSub().NoColon().Title("Allegorical device of the song 1 is \"" + alleg + "\"");
 	}
 	{
+		String t = "List of ";
+		if (VectorFind(args, "male") >= 0)	t << "manly ";
+		if (VectorFind(args, "female") >= 0)	t << "womanly ";
+		t << "practically detailed absolute (1st or 3rd person pronoun) storylines for the song 1. With the metaphorical color RGB integer (r,g,b) code at the end of the line";
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of practically detailed absolute (1st or 3rd person pronoun) storylines (with the metaphorical color RGB integer (r,g,b) code at the end) for the song 1");
+		results.Title(t);
 		results.EmptyLine();
 	}
 	
@@ -2581,8 +2594,12 @@ void Task::CreateInput_GetImagerySuggestions() {
 		input.AddSub().NoColon().Title("Storyline of the song 1 is \"" + content + "\"");
 	}
 	{
+		String t = "List of ";
+		if (VectorFind(args, "male") >= 0)	t << "manly ";
+		if (VectorFind(args, "female") >= 0)	t << "womanly ";
+		t << "specific imagery for the song 1. With the metaphorical color RGB integer (r,g,b) code at the end";
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of specific imagery for the song 1. With the metaphorical color RGB integer (r,g,b) code at the end");
+		results.Title(t);
 		results.EmptyLine();
 	}
 	
@@ -2634,11 +2651,73 @@ void Task::CreateInput_GetSymbolismSuggestions() {
 		input.AddSub().NoColon().Title("Specific imagery of the song 1 is \"" + imagery + "\"");
 	}
 	{
+		String t = "List of ";
+		if (VectorFind(args, "male") >= 0)	t << "manly ";
+		if (VectorFind(args, "female") >= 0)	t << "womanly ";
+		t << "physical symbol combination in relation to the imagery for the song 1. With the metaphorical color RGB integer (r,g,b) code at the end";
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of physical symbol combination in relation to the imagery for the song 1. With the metaphorical color RGB integer (r,g,b) code at the end");
+		results.Title(t);
 		results.EmptyLine();
 	}
 	
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetIdeaSuggestions() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	IdeaArgs args;
+	args.Put(this->args[0]);
+	for(int i = 0; i < IDEAPATH_COUNT; i++) {
+		String& s = args.song_idea[i];
+		if (s.Right(1) == ".") s = s.Left(s.GetCount()-1);
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		for(int i = 0; i < args.attrs.GetCount(); i++)
+			list.Add(TrimBoth(args.attrs[i]));
+	}
+	
+	for(int i = 0; i < IDEAPATH_COUNT; i++) {
+		const String& s = args.song_idea[i];
+		if (s.IsEmpty())
+			continue;
+		String pre;
+		switch (i) {
+			case IDEAPATH_THEME: pre = "Theme of the song 1 is"; break;
+			case IDEAPATH_IDEA: pre = "Idea of the song 1 is"; break;
+			case IDEAPATH_TONE: pre = "Tone of the song 1 is"; break;
+			case IDEAPATH_ALLEGORY: pre = "Allegorical device of the song 1 is"; break;
+			case IDEAPATH_CONTENT: pre = "Storyline of the song 1 is"; break;
+			case IDEAPATH_IMAGERY: pre = "Specific imagery of the song 1 is"; break;
+			case IDEAPATH_SYMBOLISM: pre = "Symbolism of the song 1 is"; break;
+			case IDEAPATH_PERSON: pre = "Persons included in the song 1 is"; break;
+			default: TODO; break;
+		}
+		String t = pre + " \"" + s + "\"";
+		input.AddSub().NoColon().Title(t);
+	}
+	{
+		/*String t = "List of \"which ";
+		int i = args.attrs.Find("Gender");
+		if (i >= 0)
+			t << args.attrs[i] << " ";*/
+		String t = "List of ";
+		if (VectorFind(args.attrs.GetValues(), "male") >= 0)
+			t << "manly ";
+		if (VectorFind(args.attrs.GetValues(), "female") >= 0)
+			t << "womanly ";
+		t << "\"which person sings about who or what?\" in relation to the imagery for the part Chorus 2 of the song 1. With the metaphorical color RGB integer (r,g,b) code at the end of the line";
+		
+		TaskTitledList& results = input.PreAnswer();
+		results.Title(t);
+		results.EmptyLine();
+	}
 	
 	input.response_length = 1024*2;
 }
@@ -2713,8 +2792,12 @@ void Task::CreateInput_GetPartContentSuggestions() {
 	}
 	
 	{
+		String t = "List of ";
+		if (VectorFind(args, "male") >= 0)	t << "manly ";
+		if (VectorFind(args, "female") >= 0)	t << "womanly ";
+		t << "practically detailed absolute (1st or 3rd person pronoun) storylines (with the metaphorical color RGB integer (r,g,b) code at the end) for the part " + part + " of the song 1";
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of practically detailed absolute (1st or 3rd person pronoun) storylines (with the metaphorical color RGB integer (r,g,b) code at the end) for the part " + part + " of the song 1");
+		results.Title(t);
 		results.EmptyLine();
 	}
 	
@@ -2797,8 +2880,12 @@ void Task::CreateInput_GetPartImagerySuggestions() {
 	}
 	
 	{
+		String t = "List of ";
+		if (VectorFind(args, "male") >= 0)	t << "manly ";
+		if (VectorFind(args, "female") >= 0)	t << "womanly ";
+		t << "specific imagery for the part " + part + " of the song 1. With the metaphorical color RGB integer (r,g,b) code at the end";
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of specific imagery for the part " + part + " of the song 1. With the metaphorical color RGB integer (r,g,b) code at the end");
+		results.Title(t);
 		results.EmptyLine();
 	}
 	
@@ -2812,70 +2899,54 @@ void Task::CreateInput_GetPartSymbolismSuggestions() {
 		return;
 	}
 	
-	String theme = args[0];
-	String idea = args[1];
-	String tone = args[2];
-	String alleg = args[3];
-	String content = args[4];
-	String imagery = args[5];
-	String part = args[6];
-	if (theme.Right(1) == ".") theme = theme.Left(theme.GetCount()-1);
-	if (idea.Right(1) == ".") idea = idea.Left(idea.GetCount()-1);
-	if (tone.Right(1) == ".") tone = tone.Left(tone.GetCount()-1);
-	if (alleg.Right(1) == ".") alleg = alleg.Left(alleg.GetCount()-1);
-	if (content.Right(1) == ".") content = content.Left(content.GetCount()-1);
-	if (imagery.Right(1) == ".") imagery = imagery.Left(imagery.GetCount()-1);
-	
-	Vector<Vector<String>> parts;
-	{
-		Vector<String> tmp = Split(args[7], ";;;");
-		for (String& s : tmp)
-			parts << Split(s, "__", false);
-	}
+	IdeaArgs args;
+	args.Put(this->args[0]);
+	for(int i = 0; i < IDEAPATH_COUNT; i++)
+		if (args.song_idea[i].Right(1) == ".") args.song_idea[i] = args.song_idea[i].Left(args.song_idea[i].GetCount()-1);
 	
 	{
 		TaskTitledList& list = input.AddSub().Title("Song 1 is");
-		for(int i = 8; i < args.GetCount(); i++)
-			list.Add(TrimBoth(args[i]));
+		for(int i = 0; i < args.attrs.GetCount(); i++)
+			list.Add(TrimBoth(args.attrs[i]));
 	}
 	{
-		input.AddSub().NoColon().Title("Theme of the song 1 is \"" + theme + "\"");
+		input.AddSub().NoColon().Title("Theme of the song 1 is \"" + args.song_idea[IDEAPATH_THEME] + "\"");
 	}
 	{
-		input.AddSub().NoColon().Title("Idea of the song 1 is \"" + idea + "\"");
+		input.AddSub().NoColon().Title("Idea of the song 1 is \"" + args.song_idea[IDEAPATH_IDEA] + "\"");
 	}
 	{
-		input.AddSub().NoColon().Title("Tone of the song 1 is \"" + tone + "\"");
+		input.AddSub().NoColon().Title("Tone of the song 1 is \"" + args.song_idea[IDEAPATH_TONE] + "\"");
 	}
 	{
-		input.AddSub().NoColon().Title("Allegorical device of the song 1 is \"" + alleg + "\"");
+		input.AddSub().NoColon().Title("Allegorical device of the song 1 is \"" + args.song_idea[IDEAPATH_ALLEGORY] + "\"");
 	}
 	{
-		input.AddSub().NoColon().Title("Storyline of the song 1 is \"" + content + "\"");
+		input.AddSub().NoColon().Title("Storyline of the song 1 is \"" + args.song_idea[IDEAPATH_CONTENT] + "\"");
 	}
 	{
-		input.AddSub().NoColon().Title("Specific imagery of the song 1 is \"" + imagery + "\"");
+		input.AddSub().NoColon().Title("Specific imagery of the song 1 is \"" + args.song_idea[IDEAPATH_IMAGERY] + "\"");
 	}
 	
 	{
 		TaskTitledList& list = input.AddSub().Title("Structure of the song 1 is");
-		for(int i = 0; i < parts.GetCount(); i++)
-			list.Add(TrimBoth(parts[i][0]));
+		for(int i = 0; i < args.part_ideas.GetCount(); i++)
+			list.Add(TrimBoth(args.part_ideas.GetKey(i)));
 	}
 	
-	for(int i = 0; i < parts.GetCount(); i++) {
-		Vector<String>& part = parts[i];
+	for(int i = 0; i < args.part_ideas.GetCount(); i++) {
+		Vector<String>& part = args.part_ideas[i];
 		
 		bool has_value = false;
-		for(int j = 1; j < part.GetCount(); j++)
+		for(int j = 0; j < part.GetCount(); j++)
 			if (!part[j].IsEmpty())
 				has_value = true;
 		if (!has_value)
 			continue;
 		
 		TaskTitledList& list = input.AddSub().Title("Known idea of the part " + part[0] + " of the song 1 is");
-		for(int j = 1; j < part.GetCount(); j++) {
-			const char* key = IdeaPathString[IDEAPATH_PARTBEGIN + j-1][0];
+		for(int j = 0; j < part.GetCount(); j++) {
+			const char* key = IdeaPathString[IDEAPATH_PARTBEGIN + j][0];
 			String& value = part[j];
 			if (value.IsEmpty())
 				continue;
@@ -2886,8 +2957,99 @@ void Task::CreateInput_GetPartSymbolismSuggestions() {
 	}
 	
 	{
+		String t = "List of ";
+		if (VectorFind(args.attrs.GetValues(), "male") >= 0)	t << "manly ";
+		if (VectorFind(args.attrs.GetValues(), "female") >= 0)	t << "womanly ";
+		t << "physical symbol combination in relation to the imagery for the part " + args.part_name + " of the song 1. With the metaphorical color RGB integer (r,g,b) code at the end";
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of practically List of physical symbol combination in relation to the imagery for the part " + part + " of the song 1. With the metaphorical color RGB integer (r,g,b) code at the end");
+		results.Title(t);
+		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetPartIdea() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	IdeaArgs args;
+	args.Put(this->args[0]);
+	for(int i = 0; i < IDEAPATH_COUNT; i++)
+		if (args.song_idea[i].Right(1) == ".") args.song_idea[i] = args.song_idea[i].Left(args.song_idea[i].GetCount()-1);
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		for(int i = 0; i < args.attrs.GetCount(); i++)
+			list.Add(TrimBoth(args.attrs[i]));
+	}
+	{
+		input.AddSub().NoColon().Title("Theme of the song 1 is \"" + args.song_idea[IDEAPATH_THEME] + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Idea of the song 1 is \"" + args.song_idea[IDEAPATH_IDEA] + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Tone of the song 1 is \"" + args.song_idea[IDEAPATH_TONE] + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Allegorical device of the song 1 is \"" + args.song_idea[IDEAPATH_ALLEGORY] + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Storyline of the song 1 is \"" + args.song_idea[IDEAPATH_CONTENT] + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Specific imagery of the song 1 is \"" + args.song_idea[IDEAPATH_IMAGERY] + "\"");
+	}
+	{
+		input.AddSub().NoColon().Title("Symbolism of the song 1 is \"" + args.song_idea[IDEAPATH_SYMBOLISM] + "\"");
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Structure of the song 1 is");
+		for(int i = 0; i < args.part_ideas.GetCount(); i++)
+			list.Add(TrimBoth(args.part_ideas.GetKey(i)));
+	}
+	
+	for(int i = 0; i < args.part_ideas.GetCount(); i++) {
+		Vector<String>& part = args.part_ideas[i];
+		
+		bool has_value = false;
+		for(int j = 0; j < part.GetCount(); j++)
+			if (!part[j].IsEmpty())
+				has_value = true;
+		if (!has_value)
+			continue;
+		
+		TaskTitledList& list = input.AddSub().Title("Known idea of the part " + part[0] + " of the song 1 is");
+		for(int j = 0; j < part.GetCount(); j++) {
+			const char* key = IdeaPathString[IDEAPATH_PARTBEGIN + j][0];
+			String& value = part[j];
+			if (value.IsEmpty())
+				continue;
+			String s = key;
+			s << ": " << value;
+			list.Add(s);
+		}
+	}
+	
+	{
+		/*String t = "List of \"which ";
+		int i = args.attrs.Find("Gender");
+		if (i >= 0)
+			t << args.attrs[i] << " ";*/
+		String t = "List of ";
+		if (VectorFind(args.attrs.GetValues(), "male") >= 0)
+			t << "manly ";
+		if (VectorFind(args.attrs.GetValues(), "female") >= 0)
+			t << "womanly ";
+		t << "\"which person sings about who or what?\" in relation to the imagery for the part Chorus 2 of the song 1. With the metaphorical color RGB integer (r,g,b) code at the end";
+		
+		TaskTitledList& results = input.PreAnswer();
+		results.Title(t);
 		results.EmptyLine();
 	}
 	
@@ -2915,12 +3077,6 @@ void Task::CreateInput_GetInternalRhymingFirstLine() {
 			continue;
 		String key = IdeaPathString[i][0];
 		input.AddSub().NoColon().Title("Known " + key + " of the song 1 is \"" + args.song_idea[i] + "\"");
-	}
-	
-	if (args.attrs.GetCount()) {
-		TaskTitledList& list = input.AddSub().Title("Attributes of the part \"" + args.part + "\" of the song 1 are");
-		for(String& a : args.attrs)
-			list.Add(TrimBoth(a));
 	}
 	
 	for(int i = 0; i < IDEAPATH_PARTCOUNT; i++) {
@@ -2961,16 +3117,14 @@ void Task::CreateInput_GetInternalRhymingFirstLine() {
 		list.Add(args.frozen_end);
 	}
 	
-	if (!args.specific_imagery.IsEmpty()) {
+	for(int i = 0; i < IDEAPATH_PARTCOUNT; i++) {
+		const String& s = args.rhyme_idea[i];
+		if (s.IsEmpty())
+			continue;
+		String title = GetIdeaPathTitle(IDEAPATH_PARTBEGIN + i);
 		TaskTitledList& list = input.AddSub();
-		list.Title("Using bold and vivid language, paint a picture of the following description, as the story begins");
-		list.Add(args.specific_imagery);
-	}
-	
-	if (!args.symbolism.IsEmpty()) {
-		TaskTitledList& list = input.AddSub();
-		list.Title("When incorporating symbolism, please make sure it aligns with the following");
-		list.Add(args.symbolism);
+		list.Title(title);
+		list.Add(s);
 	}
 	
 	int artist_count = 0;
@@ -3031,8 +3185,18 @@ void Task::CreateInput_GetInternalRhymingFirstLine() {
 	input.AddSub().NoColon().Title("No 2 or 4 lines of rhymes is requsted!");
 	input.AddSub().NoColon().Title("Please focus on maintaining a consistent rhyme scheme with the previous lines and try to find creative and unique ways to incorporate it into your lyrics. Thank you");
 	
+	if (args.attrs.GetCount()) {
+		TaskTitledList& list = input.AddSub().Title("Most lines must have following tone");
+		for(String& a : args.attrs)
+			list.Add(TrimBoth(a));
+	}
+	
 	{
-		String s = "The first internally rhyming line for the \"" + args.part + "\" with 1 line";
+		String s = "The first ";
+		if (VectorFind(args.attrs.GetValues(), "male") >= 0)	s << "manly ";
+		if (VectorFind(args.attrs.GetValues(), "female") >= 0)	s << "womanly ";
+		
+		s << "internally rhyming line for the \"" + args.part + "\" with 1 line";
 		if (args.syllable_count > 0)
 			s << " and " + IntStr(args.syllable_count) + " syllables";
 		s << " in style of all " + IntStr(artist_count) + " artists";
@@ -3070,12 +3234,6 @@ void Task::CreateInput_GetInternalRhymingContinueLine() {
 			continue;
 		String key = IdeaPathString[i][0];
 		input.AddSub().NoColon().Title("Known " + key + " of the song 1 is \"" + args.song_idea[i] + "\"");
-	}
-	
-	if (args.attrs.GetCount()) {
-		TaskTitledList& list = input.AddSub().Title("Attributes of the part \"" + args.part + "\" of the song 1 are");
-		for(String& a : args.attrs)
-			list.Add(TrimBoth(a));
 	}
 	
 	for(int i = 0; i < IDEAPATH_PARTCOUNT; i++) {
@@ -3167,16 +3325,14 @@ void Task::CreateInput_GetInternalRhymingContinueLine() {
 		list.Add(args.frozen_end);
 	}
 	
-	if (!args.specific_imagery.IsEmpty()) {
+	for(int i = 0; i < IDEAPATH_PARTCOUNT; i++) {
+		const String& s = args.rhyme_idea[i];
+		if (s.IsEmpty())
+			continue;
+		String title = GetIdeaPathTitle(IDEAPATH_PARTBEGIN + i);
 		TaskTitledList& list = input.AddSub();
-		list.Title("Using bold and vivid language, paint a picture of the following description, as the story continue");
-		list.Add(args.specific_imagery);
-	}
-	
-	if (!args.symbolism.IsEmpty()) {
-		TaskTitledList& list = input.AddSub();
-		list.Title("When incorporating symbolism, please make sure it aligns with the following");
-		list.Add(args.symbolism);
+		list.Title(title);
+		list.Add(s);
 	}
 	
 	{
@@ -3188,6 +3344,12 @@ void Task::CreateInput_GetInternalRhymingContinueLine() {
 		list.Add("No 2 or 4 lines of rhymes is requsted!");
 	}
 	
+	if (args.attrs.GetCount()) {
+		TaskTitledList& list = input.AddSub().Title("Most lines must have following tone");
+		for(String& a : args.attrs)
+			list.Add(TrimBoth(a));
+	}
+	
 	{
 		TaskTitledList& list = input.AddSub();
 		list.Title("Lyrics of the song 1 with 1 stanza per line");
@@ -3197,7 +3359,10 @@ void Task::CreateInput_GetInternalRhymingContinueLine() {
 		}
 	}
 	{
-		String s = "Continue internally rhyming lyrics for the \"" + args.part + "\" of the song 1";
+		String s = "Continue ";
+		if (VectorFind(args.attrs.GetValues(), "male") >= 0)	s << "manly ";
+		if (VectorFind(args.attrs.GetValues(), "female") >= 0)	s << "womanly ";
+		s << "internally rhyming lyrics for the \"" + args.part + "\" of the song 1";
 		if (args.best_previous_lines.GetCount())
 			s << " with the last line \"" + args.best_previous_lines.Top() + "\"";
 		s << " with 1 line";

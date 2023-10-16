@@ -1,6 +1,12 @@
 #include "SimplifiedCtrl.h"
 
 
+bool IsRedFlagLine(const String& s) {
+	String l = ToLower(s);
+	return l.Find("love") >= 0 || l.Find("my ") >= 0;
+}
+
+
 TxtSerialCompare::TxtSerialCompare() {
 	syllables_key = "SYLLABLES_COUNT";
 	forbidden_words_key = "FORBIDDEN_WORDS";
@@ -8,6 +14,8 @@ TxtSerialCompare::TxtSerialCompare() {
 	frozen_end_key = "FROZEN_END";
 	specific_imagery_key = "SPECIFIC_IMAGERY";
 	symbolism_key = "SYMBOLISM";
+	person_key = "PERSONS";
+	content_key = "CONTENT";
 	
 	Add(hsplit.SizePos());
 	
@@ -16,8 +24,8 @@ TxtSerialCompare::TxtSerialCompare() {
 	vsplit0.Vert() << rhymes << suggestions;
 	vsplit1.Vert() << params << attrs;
 	vsplit0.SetPos(3333);
-	vsplit1.SetPos(1500, 0);
-	vsplit1.SetPos(6666, 1);
+	vsplit1.SetPos(1800, 0);
+	//vsplit1.SetPos(6666, 1);
 	
 	rhymes.AddColumn(t_("Best style"));
 	rhymes.AddColumn(t_("Best text"));
@@ -61,14 +69,24 @@ TxtSerialCompare::TxtSerialCompare() {
 		e.WhenAction << THISBACK2(OnParamChangeString, &e, 2);
 	}
 	{
-		params.Add(t_("Specific imagery"), "");
+		params.Add(t_("Content"), "");
 		EditString& e = params.CreateCtrl<EditString>(4, 1);
 		e.WhenAction << THISBACK2(OnParamChangeString, &e, 3);
 	}
 	{
-		params.Add(t_("Symbolism"), "");
+		params.Add(t_("Specific imagery"), "");
 		EditString& e = params.CreateCtrl<EditString>(5, 1);
 		e.WhenAction << THISBACK2(OnParamChangeString, &e, 4);
+	}
+	{
+		params.Add(t_("Symbolism"), "");
+		EditString& e = params.CreateCtrl<EditString>(6, 1);
+		e.WhenAction << THISBACK2(OnParamChangeString, &e, 5);
+	}
+	{
+		params.Add(t_("Person"), "");
+		EditString& e = params.CreateCtrl<EditString>(7, 1);
+		e.WhenAction << THISBACK2(OnParamChangeString, &e, 6);
 	}
 	
 	
@@ -130,10 +148,10 @@ void TxtSerialCompare::CopyIdeaVariables() {
 	
 	Song& s = GetSong();
 	StaticPart& part = *p.part;
-	String imagery = part.active_idea[IDEAPATH_PART_IMAGERY];
-	String symbolism = part.active_idea[IDEAPATH_PART_SYMBOLISM];
-	params.Set(4, 1, imagery);
-	params.Set(5, 1, symbolism);
+	params.Set(4, 1, part.active_idea[IDEAPATH_PART_CONTENT]);
+	params.Set(5, 1, part.active_idea[IDEAPATH_PART_IMAGERY]);
+	params.Set(6, 1, part.active_idea[IDEAPATH_PART_SYMBOLISM]);
+	params.Set(7, 1, part.active_idea[IDEAPATH_PART_PERSON]);
 }
 
 void TxtSerialCompare::RemoveLastRhyme() {
@@ -243,7 +261,11 @@ void TxtSerialCompare::DataPart(bool focus_last, bool skip_suggs) {
 		if (best_i >= 0) {
 			StaticSuggestion& sug = r.suggestions[best_i];
 			rhymes.Set(i, 0, sug.style);
-			rhymes.Set(i, 1, sug.content);
+			
+			if (IsRedFlagLine(sug.content))
+				rhymes.Set(i, 1, AttrText(sug.content).NormalPaper(Color(255, 200, 196)).Paper(Color(198, 42, 0)));
+			else
+				rhymes.Set(i, 1, sug.content);
 		}
 		rhymes.Set(i, "PART_IDX", c);
 		rhymes.Set(i, "RHYME_IDX", i);
@@ -311,7 +333,11 @@ void TxtSerialCompare::DataRhyme() {
 		suggestions.Set(i, 2, sug.ai_score + sug.ai_score_extra);
 		suggestions.Set(i, 3, sug.score);
 		suggestions.Set(i, 4, sug.style);
-		suggestions.Set(i, 5, sug.content);
+		
+		if (IsRedFlagLine(sug.content))
+			suggestions.Set(i, 5, AttrText(sug.content).NormalPaper(Color(255, 200, 196)).Paper(Color(198, 42, 0)));
+		else
+			suggestions.Set(i, 5, sug.content);
 		
 		EditIntNotNullSpin& e = suggestions.CreateCtrl<EditIntNotNullSpin>(i, 2);
 		e.MinMax(0, 5);
@@ -463,8 +489,10 @@ void TxtSerialCompare::GetFirstLine() {
 	args.forbidden_words = Split((String)params.GetCtrl(1, 1)->GetData(), ",");
 	args.frozen_begin = params.GetCtrl(2, 1)->GetData();
 	args.frozen_end = params.GetCtrl(3, 1)->GetData();
-	args.specific_imagery = params.GetCtrl(4, 1)->GetData();
-	args.symbolism = params.GetCtrl(5, 1)->GetData();
+	args.rhyme_idea[IDEAPATH_PART_CONTENT] = params.GetCtrl(4, 1)->GetData();
+	args.rhyme_idea[IDEAPATH_PART_IMAGERY] = params.GetCtrl(5, 1)->GetData();
+	args.rhyme_idea[IDEAPATH_PART_SYMBOLISM] = params.GetCtrl(6, 1)->GetData();
+	args.rhyme_idea[IDEAPATH_PART_PERSON] = params.GetCtrl(7, 1)->GetData();
 	
 	// Attrs
 	if (0) {
@@ -560,8 +588,10 @@ void TxtSerialCompare::ContinueLine(bool add_rhyme) {
 	args.forbidden_words = Split((String)params.GetCtrl(1, 1)->GetData(), ",");
 	args.frozen_begin = params.GetCtrl(2, 1)->GetData();
 	args.frozen_end = params.GetCtrl(3, 1)->GetData();
-	args.specific_imagery = params.GetCtrl(4, 1)->GetData();
-	args.symbolism = params.GetCtrl(5, 1)->GetData();
+	args.rhyme_idea[IDEAPATH_PART_CONTENT] = params.GetCtrl(4, 1)->GetData();
+	args.rhyme_idea[IDEAPATH_PART_IMAGERY] = params.GetCtrl(5, 1)->GetData();
+	args.rhyme_idea[IDEAPATH_PART_SYMBOLISM] = params.GetCtrl(6, 1)->GetData();
+	args.rhyme_idea[IDEAPATH_PART_PERSON] = params.GetCtrl(7, 1)->GetData();
 	
 	// Attrs
 	if (0) {
@@ -609,8 +639,10 @@ void TxtSerialCompare::OnParamChangeString(EditString* e, int key) {
 		case 0: ks = forbidden_words_key; break;
 		case 1: ks = frozen_begin_key; break;
 		case 2: ks = frozen_end_key; break;
-		case 3: ks = specific_imagery_key; break;
-		case 4: ks = symbolism_key; break;
+		case 3: ks = content_key; break;
+		case 4: ks = specific_imagery_key; break;
+		case 5: ks = symbolism_key; break;
+		case 6: ks = person_key; break;
 		default: return;
 	}
 	if (!ks) return;
@@ -633,7 +665,7 @@ void TxtSerialCompare::OnParamChangeInt(EditIntSpin* e, int key) {
 }
 
 void TxtSerialCompare::OnFirstLine(String res, StaticRhyme* r_) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	
 	StaticRhyme& r = *r_;
 	r.suggestions.Clear();
@@ -666,7 +698,7 @@ void TxtSerialCompare::OnFirstLine(String res, StaticRhyme* r_) {
 }
 
 void TxtSerialCompare::OnContinueLine(String res, StaticPart* part, StaticRhyme* r_) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	
 	StaticRhyme& r = *r_;
 	

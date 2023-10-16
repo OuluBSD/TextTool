@@ -11,7 +11,7 @@ class AutoIdeas : public SongToolCtrl {
 	Splitter hsplit, vsplit0, vsplit1;
 	ArrayCtrl themes, ideas;
 	ArrayCtrl contents, allegories;
-	ArrayCtrl tones, symbolisms, imageries;
+	ArrayCtrl tones, symbolisms, imageries, persons;
 	
 public:
 	typedef AutoIdeas CLASSNAME;
@@ -27,6 +27,7 @@ public:
 	void DataAllegory(bool set_cursor);
 	void DataContent(bool set_cursor);
 	void DataImagery(bool set_cursor);
+	void DataSymbolism(bool set_cursor);
 	void ToolMenu(Bar& bar) override;
 	String GetStatusText() override;
 	void GetNovelThemes();
@@ -36,6 +37,7 @@ public:
 	void GetContentSuggestions();
 	void GetSymbolismSuggestions();
 	void GetImagerySuggestions();
+	void GetPersonSuggestions();
 	void GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v);
 	void OnNovelThemes(String result, Song* song);
 	void OnNovelIdeas(String result, StaticTheme* theme);
@@ -44,6 +46,7 @@ public:
 	void OnContentSuggestions(String result, StaticAllegoricalDevice* alleg);
 	void OnImagerySuggestions(String result, StaticContentSuggestion* c);
 	void OnSymbolismSuggestions(String result, StaticImagery* img);
+	void OnPersonSuggestions(String result, StaticSymbolism* sym);
 	
 	void OnListTheme();
 	void OnListIdea();
@@ -52,6 +55,7 @@ public:
 	void OnListContentIdea();
 	void OnListImagery();
 	void OnListSymbolism();
+	void OnListPersons();
 	void SetAsActiveIdea();
 	
 };

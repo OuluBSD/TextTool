@@ -238,6 +238,8 @@ public:
 	void CreateInput_GetIdeaFromLyrics();
 	void CreateInput_GetAttributesFromLyrics();
 	void CreateInput_GetProductionIdea();
+	void CreateInput_GetIdeaSuggestions();
+	void CreateInput_GetPartIdea();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -307,6 +309,8 @@ public:
 	void Process_GetIdeaFromLyrics();
 	void Process_GetAttributesFromLyrics();
 	void Process_GetProductionIdea();
+	void Process_GetIdeaSuggestions();
+	void Process_GetPartIdea();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

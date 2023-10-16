@@ -56,6 +56,7 @@ int FindRhymeType(const char* name);
 	ATTR_ITEM(AVERAGE_EXPECTATIONS, "Average expectations", "expectation-conformed", "expectation-opposed") \
 	ATTR_ITEM(IMAGERY, "Imagery", "trope-reinforcing", "unique") \
 	ATTR_ITEM(EXPRESSION, "Expression", "explicit", "allegorical") \
+	ATTR_ITEM(RELATIONSHIP, "Relationship", "romantic couple", "without romantic partner" ) \
 	ATTR_ITEM(RELATIONSHIP_FOCUS, "Relationship focus", "partner-focused", "individual-focused") \
 	ATTR_ITEM(HUMAN_STRENGTH, "Human strength", "strong", "weak") \
 	ATTR_ITEM(GENDER, "Gender", "female", "male") \
@@ -68,8 +69,42 @@ int FindRhymeType(const char* name);
 	ATTR_ITEM(SOCIAL, "Social", "authoritarian", "libertarian") \
 	ATTR_ITEM(ECONOMIC, "Economic", "liberal", "conservative") \
 	ATTR_ITEM(CULTURE, "Culture", "individualistic", "collective") \
+	ATTR_ITEM(GROUP_EXPERIENCE, "Group experience", "group-oriented", "individual-oriented") \
 	ATTR_ITEM(MOTIVATION, "Motivation", "rewarding", "punishing") \
+	ATTR_ITEM(LOVE_STATUS, "Love status", "loving now", "heartbreak") \
+	ATTR_ITEM(SITUATION_RELATION, "Situation relation", "prescriptive", "descriptive") \
+	ATTR_ITEM(COMPETITIVENESS, "Competitiveness", "competition", "collaboration") \
+	ATTR_ITEM(OTHER_RELATION, "Relation to others", "comparison", "self-acceptance") \
+	ATTR_ITEM(INTELLIGENCE, "Intelligence", "emotional", "intellectual") \
+	ATTR_ITEM(SOPHISTICATION, "Sophistication", "sophisticated", "simple") \
+	ATTR_ITEM(TRANSPARENCY, "Transparency", "transparent", "mysterious") \
 	\
+	ATTR_ITEM(STORYMODE, "Storymode", "storytelling", "simple themes") \
+	ATTR_ITEM(TRUTHFULNESS, "Truthfulness", "personal experience", "fictional") \
+	ATTR_ITEM(MINDFULNESS, "Mindfulness", "mindless", "mindful") \
+	ATTR_ITEM(PEACEFULNESS, "Peacefulness", "peacemaker", "troublemaker") \
+	ATTR_ITEM(NARRATIVE, "Narrative", "protagonist storytelling", "narrative detachment") \
+	ATTR_ITEM(LYRICAL_EMPHASIS, "Lyrical emphasis", "witty wordplay", "straightforward lyrics") \
+	ATTR_ITEM(EMOTIONALITY, "Lyrical emphasis", "emotionally charged", "emotionally restrained") \
+	ATTR_ITEM(CONCEPTS, "Concepts", "grounded", "psychedelic") \
+	ATTR_ITEM(STORY_MOTIVATION, "Story-motivation",  "narrative-driven", "mood-driven") \
+	ATTR_ITEM(REALITY, "Reality", "escapism", "realism") \
+	ATTR_ITEM(PROVOCATIVITY, "Provocativity", "edgy", "innocent") \
+	ATTR_ITEM(INSPIRATION_SOURCE, "Source of inspiration", "nostalgic", "relevant to current times") \
+	ATTR_ITEM(PRODUCTION_STYLE, "Production style", "acoustic", "electronic") \
+	ATTR_ITEM(LIFE_AND_LOVE, "Life and love", "aspirational", "relatable") \
+	ATTR_ITEM(AUDIENCE, "Audience", "mainstream", "alternative") \
+	ATTR_ITEM(AUTHENCITY, "Authencity", "social media-driven", "authentic") \
+	ATTR_ITEM(PATIENCE, "Patience", "instant gratification", "longevity") \
+	ATTR_ITEM(LOVE_TARGET, "Target of love", "romantic love", "self-love") \
+	ATTR_ITEM(AGE_TARGET, "Age target", "youth-oriented", "age-inclusive") \
+	ATTR_ITEM(INDEPENDENCE, "Independence", "independence", "dependence") \
+	ATTR_ITEM(COMMERCIAL_APPEAL, "Commercial appeal", "mainstream success", "artistic integrity") \
+	ATTR_ITEM(CULTURAL_ELEMENTS, "Cultural elements", "globalization", "cultural preservation") \
+	ATTR_ITEM(CORPORATION_RELATIONS, "Corporation relations", "consumerism", "anti-capitalism") \
+	ATTR_ITEM(CELEBRITY_PERSONA, "Celebrity Persona", "celebrity worship", "body positivity") \
+	ATTR_ITEM(EMOTIONAL_REALISM, "Emotional realism",  "happiness", "realistic emotions") \
+	ATTR_ITEM(PARTY_RELATION, "Party relation", "party anthems", "introspective ballads") \
 	ATTR_ITEM(ATTITUDE_ATTITUDE_OPEN_CLOSED, "Attitude 1", "open", "closed") \
 	ATTR_ITEM(ATTITUDE_HOPEFUL_DESPAIR, "Attitude 2", "hopeful", "despair") \
 	ATTR_ITEM(ATTITUDE_OPTIMISTIC_PESSIMISTIC, "Attitude 3", "optimistic", "pessimistic") \
@@ -789,6 +824,7 @@ enum {
 	IDEAPATH_CONTENT,
 	IDEAPATH_IMAGERY,
 	IDEAPATH_SYMBOLISM,
+	IDEAPATH_PERSON,
 	
 	IDEAPATH_COUNT,
 	
@@ -798,13 +834,16 @@ enum {
 	IDEAPATH_PART_CONTENT = IDEAPATH_CONTENT - IDEAPATH_PARTBEGIN,
 	IDEAPATH_PART_IMAGERY = IDEAPATH_IMAGERY - IDEAPATH_PARTBEGIN,
 	IDEAPATH_PART_SYMBOLISM = IDEAPATH_SYMBOLISM - IDEAPATH_PARTBEGIN,
+	IDEAPATH_PART_PERSON = IDEAPATH_PERSON - IDEAPATH_PARTBEGIN,
 };
 
 extern const char* IdeaPathString[IDEAPATH_COUNT][2];
 
+String GetIdeaPathTitle(int i);
 
 
 void TrimBothAll(Vector<String>& v);
+int VectorFind(const Vector<String>& v, const String& s);
 
 
 #endif

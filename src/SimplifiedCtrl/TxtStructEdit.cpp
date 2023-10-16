@@ -140,65 +140,29 @@ void TxtStructEdit::OnIdeaFromLyrics(String result, Song* song, StaticPart* part
 		return;
 	}
 	
-	String theme;
-	String idea;
-	String tone;
-	String allegory;
-	String content;
-	String imagery;
-	String symbolism;
+	String text[IDEAPATH_COUNT];
+	Color clr[IDEAPATH_COUNT];
 	
-	Color theme_clr;
-	Color idea_clr;
-	Color tone_clr;
-	Color allegory_clr;
-	Color content_clr;
-	Color imagery_clr;
-	Color symbolism_clr;
+	for(int i = 0; i < IDEAPATH_COUNT; i++)
+		ParseTextColor(lines[i], text[i], clr[i]);
 	
-	ParseTextColor(lines[0], theme, theme_clr);
-	ParseTextColor(lines[1], idea, idea_clr);
-	ParseTextColor(lines[2], tone, tone_clr);
-	ParseTextColor(lines[3], allegory, allegory_clr);
-	ParseTextColor(lines[4], content, content_clr);
-	ParseTextColor(lines[5], imagery, imagery_clr);
-	ParseTextColor(lines[6], symbolism, symbolism_clr);
-	
-	#define TRIM(x) {int a = x.Find(":"); if (a >= 0) x = TrimBoth(x.Mid(a+1));}
-	TRIM(theme)
-	TRIM(idea)
-	TRIM(tone)
-	TRIM(allegory)
-	TRIM(content)
-	TRIM(imagery)
-	TRIM(symbolism)
-	#undef TRIM
+	for(int i = 0; i < IDEAPATH_COUNT; i++) {
+		String& s = text[i];
+		int a = s.Find(":");
+		if (a >= 0) s = TrimBoth(s.Mid(a+1));
+	}
 	
 	if (song) {
-		song->active_idea[IDEAPATH_THEME] = theme;
-		song->active_idea[IDEAPATH_IDEA] = idea;
-		song->active_idea[IDEAPATH_TONE] = tone;
-		song->active_idea[IDEAPATH_ALLEGORY] = allegory;
-		song->active_idea[IDEAPATH_CONTENT] = content;
-		song->active_idea[IDEAPATH_IMAGERY] = imagery;
-		song->active_idea[IDEAPATH_SYMBOLISM] = symbolism;
-		
-		song->active_idea_clr[IDEAPATH_THEME] = theme_clr;
-		song->active_idea_clr[IDEAPATH_IDEA] = idea_clr;
-		song->active_idea_clr[IDEAPATH_TONE] = tone_clr;
-		song->active_idea_clr[IDEAPATH_ALLEGORY] = allegory_clr;
-		song->active_idea_clr[IDEAPATH_CONTENT] = content_clr;
-		song->active_idea_clr[IDEAPATH_IMAGERY] = imagery_clr;
-		song->active_idea_clr[IDEAPATH_SYMBOLISM] = symbolism_clr;
+		for(int i = 0; i < IDEAPATH_COUNT; i++) {
+			song->active_idea[i] = text[i];
+			song->active_idea_clr[i] = clr[i];
+		}
 	}
 	if (part) {
-		part->active_idea[IDEAPATH_PART_CONTENT] = content;
-		part->active_idea[IDEAPATH_PART_IMAGERY] = imagery;
-		part->active_idea[IDEAPATH_PART_SYMBOLISM] = symbolism;
-		
-		part->active_idea_clr[IDEAPATH_PART_CONTENT] = content_clr;
-		part->active_idea_clr[IDEAPATH_PART_IMAGERY] = imagery_clr;
-		part->active_idea_clr[IDEAPATH_PART_SYMBOLISM] = symbolism_clr;
+		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++) {
+			part->active_idea[i] = text[i + IDEAPATH_PARTBEGIN];
+			part->active_idea_clr[i] = clr[i + IDEAPATH_PARTBEGIN];
+		}
 	}
 }
 

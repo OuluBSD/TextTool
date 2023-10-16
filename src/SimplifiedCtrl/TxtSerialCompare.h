@@ -14,6 +14,8 @@ class TxtSerialCompare : public SongToolCtrl {
 	String specific_imagery_key;
 	String symbolism_key;
 	String syllable_key;
+	String person_key;
+	String content_key;
 	
 	Vector<int> tmp_sug_ids;
 	

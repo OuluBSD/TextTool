@@ -533,7 +533,7 @@ String GetBiasHeader(int mode) {
 		case BIAS_DEMOCRAT:			return GetDemocratBiasHeader();
 		case BIAS_REPUBLICAN:		return GetRepublicanBiasHeader();
 		case BIAS_NONPARTISAN:		return GetNonPartisanBiasHeader();
-		case BIAS_BEAUTIFULMUSIC:	return "Lyrical bias pleasing to 90s-rap, 00s-pop, and 80s-rock-music listeners, containing the most beautiful lyrics possible.";
+		case BIAS_BEAUTIFULMUSIC:	return "Lyrical bias pleasing to pop music listeners, containing the most beautiful lyrics possible.";
 		default: return String();
 	}
 }
@@ -683,4 +683,26 @@ AttrText GreenRedAttr(AttrText a, int red) {
 void TrimBothAll(Vector<String>& v) {
 	for (auto& s : v)
 		s = TrimBoth(s);
+}
+
+String GetIdeaPathTitle(int i) {
+	String title;
+	switch (i) {
+		case IDEAPATH_CONTENT: title = "Using content references and interline references, include the following content in the lyrics"; break;
+		case IDEAPATH_IMAGERY: title = "Using bold and vivid language, paint a picture of the following description, as the story continue"; break;
+		case IDEAPATH_SYMBOLISM: title = "When incorporating symbolism, please make sure it aligns with the following"; break;
+		case IDEAPATH_PERSON: title = "Note that the following persons and relationships are present in the lyrics"; break;
+		default: TODO; break;
+	}
+	return title;
+}
+
+int VectorFind(const Vector<String>& v, const String& s) {
+	int i = 0;
+	for (const String& it : v) {
+		if (it == s)
+			return i;
+		i++;
+	}
+	return -1;
 }
