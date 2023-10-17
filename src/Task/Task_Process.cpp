@@ -1864,5 +1864,9 @@ void Task::Process_GetProductionIdea() {
 }
 
 void Task::Process_GetStoryContext() {
-	WhenResult("- " + output);
+	WhenResult(output);
+}
+
+void Task::Process_GetPartContext() {
+	WhenResult("-" + output);
 }

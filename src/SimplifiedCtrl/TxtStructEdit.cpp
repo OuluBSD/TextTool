@@ -331,7 +331,7 @@ void TxtStructEdit::ProcessStructureResult() {
 	if (p.song)
 		p.song->data.GetAdd(main_natural_english_key) = output;
 	
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 }
 
 void TxtStructEdit::ConvertToNative() {

@@ -198,7 +198,7 @@ void ImageGenTool::OnImageReadyGui(String prompt_str, int n) {
 	count.SetData(n);
 	prompt.SetData(prompt_str);
 	
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 }
 
 void ImageGenTool::AddRecent(Array<Image>& imgs, String prompt, int n) {
@@ -380,7 +380,7 @@ void ImageGenTool::OnEditReadyGui(String prompt, int n) {
 	this->prompt.SetData(prompt);
 	this->prompt1.SetData(prompt);
 	
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 }
 
 void ImageGenTool::EnableAll() {

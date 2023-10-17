@@ -321,7 +321,7 @@ String SongStructure::GetParam(String key, String def) {
 }
 
 void SongStructure::OnStructureSuggestion(String result, Song* song_) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	//LOG(result);
 	
 	Song& song = *song_;
@@ -353,7 +353,7 @@ void SongStructure::OnStructureSuggestion(String result, Song* song_) {
 }
 
 void SongStructure::OnSuggestionAttributes(String result, Song* song) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	//LOG(result);
 	
 	Vector<String> parts = Split(result, "\n\n");

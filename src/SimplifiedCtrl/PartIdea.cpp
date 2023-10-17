@@ -568,7 +568,7 @@ void PartIdea::GetPersonSuggestions() {
 }
 
 void PartIdea::OnContentSuggestions(String result, Song* song_, int part_i) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	
 	HotFixResult(result);
 	
@@ -588,7 +588,7 @@ void PartIdea::OnContentSuggestions(String result, Song* song_, int part_i) {
 }
 
 void PartIdea::OnImagerySuggestions(String result, StaticContentSuggestion* c) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	
 	HotFixResult(result);
 	
@@ -606,7 +606,7 @@ void PartIdea::OnImagerySuggestions(String result, StaticContentSuggestion* c) {
 }
 
 void PartIdea::OnSymbolismSuggestions(String result, StaticImagery* img) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	
 	HotFixResult(result);
 	
@@ -624,7 +624,7 @@ void PartIdea::OnSymbolismSuggestions(String result, StaticImagery* img) {
 }
 
 void PartIdea::OnPersonSuggestions(String result, StaticSymbolism* sym) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	
 	HotFixResult(result);
 	

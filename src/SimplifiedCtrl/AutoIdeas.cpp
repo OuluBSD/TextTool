@@ -979,7 +979,7 @@ void ParseTextColor(String s, String& text, Color& clr) {
 }
 
 void AutoIdeas::OnNovelThemes(String result, Song* song_) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	
 	HotFixResult(result);
 	
@@ -998,7 +998,7 @@ void AutoIdeas::OnNovelThemes(String result, Song* song_) {
 }
 
 void AutoIdeas::OnNovelIdeas(String result, StaticTheme* theme) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	
 	HotFixResult(result);
 	
@@ -1016,7 +1016,7 @@ void AutoIdeas::OnNovelIdeas(String result, StaticTheme* theme) {
 }
 
 void AutoIdeas::OnToneSuggestions(String result, StaticIdea* idea) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	
 	HotFixResult(result);
 	
@@ -1034,7 +1034,7 @@ void AutoIdeas::OnToneSuggestions(String result, StaticIdea* idea) {
 }
 
 void AutoIdeas::OnAllegorySuggestions(String result, StaticToneSuggestion* tone) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	
 	HotFixResult(result);
 	
@@ -1052,7 +1052,7 @@ void AutoIdeas::OnAllegorySuggestions(String result, StaticToneSuggestion* tone)
 }
 
 void AutoIdeas::OnContentSuggestions(String result, StaticAllegoricalDevice* alleg) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	
 	HotFixResult(result);
 	
@@ -1070,7 +1070,7 @@ void AutoIdeas::OnContentSuggestions(String result, StaticAllegoricalDevice* all
 }
 
 void AutoIdeas::OnImagerySuggestions(String result, StaticContentSuggestion* c) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	
 	HotFixResult(result);
 	
@@ -1088,7 +1088,7 @@ void AutoIdeas::OnImagerySuggestions(String result, StaticContentSuggestion* c) 
 }
 
 void AutoIdeas::OnSymbolismSuggestions(String result, StaticImagery* img) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	
 	HotFixResult(result);
 	
@@ -1106,7 +1106,7 @@ void AutoIdeas::OnSymbolismSuggestions(String result, StaticImagery* img) {
 }
 
 void AutoIdeas::OnPersonSuggestions(String result, StaticSymbolism* sym) {
-	EnableAll();
+	PostCallback(THISBACK(EnableAll));
 	
 	HotFixResult(result);
 	

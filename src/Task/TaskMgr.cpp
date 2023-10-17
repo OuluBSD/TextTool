@@ -304,6 +304,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetStoryContext)
 		;
 	
+	AddRule(TASK_GET_PART_CONTEXT, "get part context")
+		.Input(&Task::CreateInput_GetPartContext)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetPartContext)
+		;
+	
 	
 	
 	
@@ -1662,6 +1669,24 @@ void TaskMgr::GetStoryContext(const IdeaArgs& iargs, const StoryContextArgs& arg
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
 	t.args << is << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetPartContext(const StoryContextArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_PART_CONTEXT);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
 	t.WhenResult << WhenResult;
 	task_lock.Leave();
 }

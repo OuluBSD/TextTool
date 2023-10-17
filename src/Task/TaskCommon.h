@@ -129,6 +129,7 @@ typedef enum : int {
 	TASK_GET_ATTRIBUTES_FROM_LYRICS,
 	TASK_GET_PRODUCTION_IDEA,
 	TASK_GET_STORY_CONTEXT,
+	TASK_GET_PART_CONTEXT,
 	
 	TASK_IMPORT_AND_REVERSE,
 	TASK_CONTEXT_IMPORT_AND_REVERSE,
@@ -317,6 +318,7 @@ struct StoryContextArgs {
 	VectorMap<String,String> attrs;
 	VectorMap<String, Vector<String>> part_ideas;
 	int get_story_i = -1;
+	String part_name;
 	
 	void Jsonize(JsonIO& json) {
 		for(int i = 0; i < STORY_COUNT; i++)
@@ -324,6 +326,7 @@ struct StoryContextArgs {
 		json	("part_ideas", part_ideas)
 				("attrs", attrs)
 				("get_story_i", get_story_i)
+				("part_name", part_name)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

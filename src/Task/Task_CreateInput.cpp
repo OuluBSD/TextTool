@@ -3592,3 +3592,38 @@ void Task::CreateInput_GetStoryContext() {
 	
 	input.response_length = 1024*2;
 }
+
+void Task::CreateInput_GetPartContext() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	StoryContextArgs args;
+	args.Put(this->args[0]);
+	
+	// Get first story (the first one filled)
+	for(int i = 0; i < STORY_COUNT; i++) {
+		const String& s = args.stories[i];
+		if (s.IsEmpty())
+			continue;
+		String key = StoryContextString[i][1];
+		TaskTitledList& list = input.AddSub().Title(key);
+		list.NoListChar();
+		
+		Vector<String> lines = Split(s, "\n");
+		for(int i = 0; i < lines.GetCount(); i++)
+			list.Add(TrimBoth(lines[i]));
+	}
+	
+	ASSERT(args.part_name.GetCount() > 0);
+	{
+		String t = "List of previous text relating to \"" + args.part_name + "\"";
+		TaskTitledList& results = input.PreAnswer();
+		results.Title(t);
+		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 512;
+}
