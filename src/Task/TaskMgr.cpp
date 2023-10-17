@@ -297,6 +297,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetProductionIdea)
 		;
 	
+	AddRule(TASK_GET_STORY_CONTEXT, "get story context")
+		.Input(&Task::CreateInput_GetStoryContext)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 2, 2)
+		.Process(&Task::Process_GetStoryContext)
+		;
+	
 	
 	
 	
@@ -1636,6 +1643,25 @@ void TaskMgr::GetProductionIdea(const ProductionArgs& args, Event<String> WhenRe
 	t.p.a = ZeroArg();
 	t.p.pipe = &p;
 	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetStoryContext(const IdeaArgs& iargs, const StoryContextArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_STORY_CONTEXT);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String is = iargs.Get();
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << is << s;
 	t.WhenResult << WhenResult;
 	task_lock.Leave();
 }

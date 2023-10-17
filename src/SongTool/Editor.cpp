@@ -99,6 +99,9 @@ void Editor::InitSimplified() {
 	*/
 	AddItem(t_("All"), t_("Info"), info);
 	AddItem(t_("All"), t_("Calendar"), cal);
+	AddItem(t_("All"), t_("Press Release"), pressrel);
+	AddItem(t_("All"), t_("Public Relations"), pubrel);
+	AddItem(t_("All"), t_("Marketing"), marketing);
 	
 	AddItem(t_("Album"), t_("Briefing"), album_briefing);
 	AddItem(t_("Album"), t_("Idea notepad"), album_ideas);
@@ -115,6 +118,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Context"), t_("Attributes"), ctx_attrs);
 	AddItem(t_("Context"), t_("Idea"), auto_ideas);
 	AddItem(t_("Context"), t_("Idea of a single part"), part_idea);
+	AddItem(t_("Context"), t_("Story"), story_idea);
 	AddItem(t_("Context"), t_("Production idea"), prod_idea);
 	
 	AddItem(t_("Text"), t_("English Parallel Compare"), text_autocompare_eng);

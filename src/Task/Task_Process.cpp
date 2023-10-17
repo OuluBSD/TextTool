@@ -1862,3 +1862,7 @@ void Task::Process_GetAttributesFromLyrics() {
 void Task::Process_GetProductionIdea() {
 	WhenResult("- " + output);
 }
+
+void Task::Process_GetStoryContext() {
+	WhenResult("- " + output);
+}

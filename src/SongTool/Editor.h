@@ -47,31 +47,35 @@ protected:
 	ImageGenTool					image_gen;
 	ContextAttributesCtrl			ctx_attrs;
 	ProductionIdea					prod_idea;
+	PressReleaseCtrl				pressrel;
+	PublicRelationsCtrl				pubrel;
+	MarketingCtrl					marketing;
+	StoryIdeaCtrl					story_idea;
 	
 	
 	
 	// Advanced
-	BasicInfoCtrl		info;
-	AttrDataCtrl		attr;
-	RecruimentCtrl		recru;
-	SocialCtrl			social;
-	CalMgrCtrl			cal;
-	TaskMgrCtrl			task;
-	ImportCtrl			importer;
-	PatternMaskCtrl		patmask;
-	PatternView			pattern, rev_pattern;
-	CompositionCtrl		composition;
-	AnalysisCtrl		analysis;
-	ProductionCtrl		production;
-	RhymesCtrl			rhymes;
-	PatternScoringCtrl	scoring;
-	AttrScoreCtrl		attrscore;
-	ReverseImpactCtrl	reverse_impact;
-	ReverseCtrl			reverse[3];
-	ImpactCtrl			impact;
-	StoryCtrl			story;
-	StructureCtrl		structure;
-	ImpactScoringCtrl	impact_scoring;
+	BasicInfoCtrl			info;
+	AttrDataCtrl			attr;
+	RecruimentCtrl			recru;
+	SocialCtrl				social;
+	CalMgrCtrl				cal;
+	TaskMgrCtrl				task;
+	ImportCtrl				importer;
+	PatternMaskCtrl			patmask;
+	PatternView				pattern, rev_pattern;
+	CompositionCtrl			composition;
+	AnalysisCtrl			analysis;
+	ProductionCtrl			production;
+	RhymesCtrl				rhymes;
+	PatternScoringCtrl		scoring;
+	AttrScoreCtrl			attrscore;
+	ReverseImpactCtrl		reverse_impact;
+	ReverseCtrl				reverse[3];
+	ImpactCtrl				impact;
+	StoryCtrl				story;
+	StructureCtrl			structure;
+	ImpactScoringCtrl		impact_scoring;
 	MaskScoringCtrl			mask_scoring;
 	LyricsCtrl				lyrics;
 	SocialMediaChecklist	some_chk;

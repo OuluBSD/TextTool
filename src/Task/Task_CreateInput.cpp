@@ -2411,7 +2411,7 @@ void Task::CreateInput_GetNovelIdeas() {
 	String theme = args[0];
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 1; i < args.GetCount(); i++)
 			list.Add(TrimBoth(args[i]));
 	}
@@ -2442,7 +2442,7 @@ void Task::CreateInput_GetToneSuggestions() {
 	if (idea.Right(1) == ".") idea = idea.Left(idea.GetCount()-1);
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 2; i < args.GetCount(); i++)
 			list.Add(TrimBoth(args[i]));
 	}
@@ -2475,7 +2475,7 @@ void Task::CreateInput_GetAllegorySuggestions() {
 	if (tone.Right(1) == ".") tone = tone.Left(tone.GetCount()-1);
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 3; i < args.GetCount(); i++)
 			list.Add(TrimBoth(args[i]));
 	}
@@ -2524,7 +2524,7 @@ void Task::CreateInput_GetContentSuggestions() {
 	if (alleg.Right(1) == ".") alleg = alleg.Left(alleg.GetCount()-1);
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 4; i < args.GetCount(); i++)
 			list.Add(TrimBoth(args[i]));
 	}
@@ -2573,7 +2573,7 @@ void Task::CreateInput_GetImagerySuggestions() {
 	if (content.Right(1) == ".") content = content.Left(content.GetCount()-1);
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 5; i < args.GetCount(); i++)
 			list.Add(TrimBoth(args[i]));
 	}
@@ -2627,7 +2627,7 @@ void Task::CreateInput_GetSymbolismSuggestions() {
 	if (imagery.Right(1) == ".") imagery = imagery.Left(imagery.GetCount()-1);
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 6; i < args.GetCount(); i++)
 			list.Add(TrimBoth(args[i]));
 	}
@@ -2678,7 +2678,7 @@ void Task::CreateInput_GetIdeaSuggestions() {
 	}
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 0; i < args.attrs.GetCount(); i++)
 			list.Add(TrimBoth(args.attrs[i]));
 	}
@@ -2746,7 +2746,7 @@ void Task::CreateInput_GetPartContentSuggestions() {
 	}
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 6; i < args.GetCount(); i++)
 			list.Add(TrimBoth(args[i]));
 	}
@@ -2779,7 +2779,7 @@ void Task::CreateInput_GetPartContentSuggestions() {
 		if (!has_value)
 			continue;
 		
-		TaskTitledList& list = input.AddSub().Title("Known idea of the part " + part[0] + " of the song 1 is");
+		TaskTitledList& list = input.AddSub().Title("Known idea of the part \"" + part[0] + "\" of the song 1 is");
 		for(int j = 1; j < part.GetCount(); j++) {
 			const char* key = IdeaPathString[IDEAPATH_PARTBEGIN + j-1][0];
 			String& value = part[j];
@@ -2831,7 +2831,7 @@ void Task::CreateInput_GetPartImagerySuggestions() {
 	}
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 7; i < args.GetCount(); i++)
 			list.Add(TrimBoth(args[i]));
 	}
@@ -2905,7 +2905,7 @@ void Task::CreateInput_GetPartSymbolismSuggestions() {
 		if (args.song_idea[i].Right(1) == ".") args.song_idea[i] = args.song_idea[i].Left(args.song_idea[i].GetCount()-1);
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 0; i < args.attrs.GetCount(); i++)
 			list.Add(TrimBoth(args.attrs[i]));
 	}
@@ -2935,6 +2935,7 @@ void Task::CreateInput_GetPartSymbolismSuggestions() {
 	}
 	
 	for(int i = 0; i < args.part_ideas.GetCount(); i++) {
+		String name = args.part_ideas.GetKey(i);
 		Vector<String>& part = args.part_ideas[i];
 		
 		bool has_value = false;
@@ -2944,7 +2945,7 @@ void Task::CreateInput_GetPartSymbolismSuggestions() {
 		if (!has_value)
 			continue;
 		
-		TaskTitledList& list = input.AddSub().Title("Known idea of the part " + part[0] + " of the song 1 is");
+		TaskTitledList& list = input.AddSub().Title("Known idea of the part \"" + name + "\" of the song 1 is");
 		for(int j = 0; j < part.GetCount(); j++) {
 			const char* key = IdeaPathString[IDEAPATH_PARTBEGIN + j][0];
 			String& value = part[j];
@@ -2982,7 +2983,7 @@ void Task::CreateInput_GetPartIdea() {
 		if (args.song_idea[i].Right(1) == ".") args.song_idea[i] = args.song_idea[i].Left(args.song_idea[i].GetCount()-1);
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Song 1 is");
+		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 0; i < args.attrs.GetCount(); i++)
 			list.Add(TrimBoth(args.attrs[i]));
 	}
@@ -3015,6 +3016,7 @@ void Task::CreateInput_GetPartIdea() {
 	}
 	
 	for(int i = 0; i < args.part_ideas.GetCount(); i++) {
+		String name = args.part_ideas.GetKey(i);
 		Vector<String>& part = args.part_ideas[i];
 		
 		bool has_value = false;
@@ -3024,7 +3026,7 @@ void Task::CreateInput_GetPartIdea() {
 		if (!has_value)
 			continue;
 		
-		TaskTitledList& list = input.AddSub().Title("Known idea of the part " + part[0] + " of the song 1 is");
+		TaskTitledList& list = input.AddSub().Title("Known idea of the part \"" + name + "\" of the song 1 is");
 		for(int j = 0; j < part.GetCount(); j++) {
 			const char* key = IdeaPathString[IDEAPATH_PARTBEGIN + j][0];
 			String& value = part[j];
@@ -3489,6 +3491,102 @@ void Task::CreateInput_GetProductionIdea() {
 		TaskTitledList& results = input.PreAnswer();
 		results.Title("Answers for topics for the production idea of the song 1");
 		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 1024*2;
+}
+
+void Task::CreateInput_GetStoryContext() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	IdeaArgs args;
+	StoryContextArgs args1;
+	
+	args.Put(this->args[0]);
+	args1.Put(this->args[1]);
+	
+	for(int i = 0; i < IDEAPATH_COUNT; i++)
+		if (args.song_idea[i].Right(1) == ".") args.song_idea[i] = args.song_idea[i].Left(args.song_idea[i].GetCount()-1);
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
+		for(int i = 0; i < args.attrs.GetCount(); i++)
+			list.Add(TrimBoth(args.attrs[i]));
+	}
+	
+	for(int i = 0; i < IDEAPATH_COUNT; i++) {
+		const String& s = args.song_idea[i];
+		if (s.IsEmpty())
+			continue;
+		String key = IdeaPathString[i][0];
+		auto& list = input.AddSub().NoColon().Title(key + " of the song 1");
+		list.Add(s);
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Structure of the song 1 is");
+		for(int i = 0; i < args.part_ideas.GetCount(); i++)
+			list.Add(TrimBoth(args.part_ideas.GetKey(i)));
+	}
+	
+	for(int i = 0; i < args.part_ideas.GetCount(); i++) {
+		String name = args.part_ideas.GetKey(i);
+		Vector<String>& part = args.part_ideas[i];
+		
+		bool has_value = false;
+		for(int j = 0; j < part.GetCount(); j++)
+			if (!part[j].IsEmpty())
+				has_value = true;
+		if (!has_value)
+			continue;
+		
+		TaskTitledList& list = input.AddSub().Title("Known idea of the part \"" + name + "\" of the song 1 is");
+		for(int j = 0; j < part.GetCount(); j++) {
+			const char* key = IdeaPathString[IDEAPATH_PARTBEGIN + j][0];
+			String& value = part[j];
+			if (value.IsEmpty())
+				continue;
+			String s = key;
+			s << ": " << value;
+			list.Add(s);
+		}
+	}
+	
+	// Get first story (the first one filled)
+	String first_key;
+	for(int i = 0; i < STORY_COUNT; i++) {
+		const String& first_story = args1.stories[i];
+		if (i == args1.get_story_i || first_story.IsEmpty())
+			continue;
+		
+		first_key = StoryContextString[i][1];
+		TaskTitledList& list = input.AddSub().Title(
+			"Imagine novel \"" + first_key + "\" story of the song 1");
+		list.NoListChar();
+		
+		Vector<String> lines = Split(args1.stories[i], "\n");
+		for(int i = 0; i < lines.GetCount(); i++)
+			list.Add(TrimBoth(lines[i]));
+		break;
+	}
+	
+	ASSERT(args1.get_story_i >= 0);
+	
+	{
+		int i = args1.get_story_i;
+		String key = StoryContextString[i][1];
+		
+		String t = "Imagine \"" + key + "\" story";
+		if (first_key.GetCount())
+			t << " in relation to \"" << first_key << "\"";
+		t << " of the song 1";
+		
+		TaskTitledList& results = input.PreAnswer();
+		results.Title(t);
 	}
 	
 	

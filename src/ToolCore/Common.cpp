@@ -79,7 +79,8 @@ const char* IdeaPathString[IDEAPATH_COUNT][2] {
 	{"Allegorical Device", "ALLEGORY"},
 	{"Content Idea", "CONTENT"},
 	{"Specific Imagery", "IMAGERY"},
-	{"Symbolism", "SYMBOLISM"}
+	{"Symbolism", "SYMBOLISM"},
+	{"Person", "PERSON"},
 };
 
 
@@ -706,3 +707,20 @@ int VectorFind(const Vector<String>& v, const String& s) {
 	}
 	return -1;
 }
+
+
+const char* StoryContextString[STORY_COUNT][2] = {
+	{"STORY_PHYSICAL_ACTIVITIES", "physical activities"},
+	{"STORY_PERSONS_OF_INTEREST", "persons of interest"},
+	{"STORY_FEELINGS_OF_PERSONS", "feelings of persons"},
+	{"STORY_MOTIVATIONS_OF_PERSONS", "motivations of persons"},
+	{"STORY_PHYSICAL_ENVIRONMENT", "physical environment"},
+	{"STORY_SOCIAL_ENVIRONMENT", "social environment"},
+	{"STORY_EMOTIONAL_ACTIVITIES", "emotional activities"},
+	{"STORY_MENTAL_ACTIVITIES", "mental activities"},
+	{"STORY_VERBAL_ACTIVITIES", "verbal activities"},
+	{"STORY_CULTURAL_OBJECTS", "cultural objects or artifacts"},
+	{"STORY_AESTHETIC_QUALITIES", "aesthetic qualities (including sound, smell, taste, etc.)"},
+	{"STORY_TIME_AND_TEMPORALITY", "time and temporality (such as past, present, future; clock time; seasons, cycles, etc.)"},
+	
+};

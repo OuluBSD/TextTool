@@ -38,7 +38,6 @@ public:
 	void GetSymbolismSuggestions();
 	void GetImagerySuggestions();
 	void GetPersonSuggestions();
-	void GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v);
 	void OnNovelThemes(String result, Song* song);
 	void OnNovelIdeas(String result, StaticTheme* theme);
 	void OnToneSuggestions(String result, StaticIdea* idea);

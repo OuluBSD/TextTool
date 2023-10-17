@@ -122,6 +122,7 @@ struct TaskMgr {
 	void GetIdeaFromLyrics(const String& lyrics, Event<String> WhenResult);
 	void GetAttributesFromLyrics(const String& lyrics, Event<String> WhenResult);
 	void GetProductionIdea(const ProductionArgs& args, Event<String> WhenResult);
+	void GetStoryContext(const IdeaArgs& iargs, const StoryContextArgs& args, Event<String> WhenResult);
 	
 };
 

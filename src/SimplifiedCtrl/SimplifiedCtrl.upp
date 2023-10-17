@@ -24,6 +24,8 @@ file
 	AutoIdeas.cpp,
 	PartIdea.h,
 	PartIdea.cpp,
+	StoryIdea.h,
+	StoryIdea.cpp,
 	ProductionIdea.h,
 	ProductionIdea.cpp,
 	TxtSerialCompare.h,
@@ -49,5 +51,11 @@ file
 	ImageGenTool.h,
 	ImageGenTool.cpp,
 	CalMgrCtrl.h,
-	CalMgrCtrl.cpp;
+	CalMgrCtrl.cpp,
+	PressRelease.h,
+	PressRelease.cpp,
+	PublicRelations.h,
+	PublicRelations.cpp,
+	Marketing.h,
+	Marketing.cpp;
 

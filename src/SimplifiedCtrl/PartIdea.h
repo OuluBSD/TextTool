@@ -38,7 +38,6 @@ public:
 	void SetAsActiveIdea();
 	void ClearAllIdeas();
 	
-	void GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v);
 	void OnContentSuggestions(String result, Song* song, int part_i);
 	void OnImagerySuggestions(String result, StaticContentSuggestion* c);
 	void OnSymbolismSuggestions(String result, StaticImagery* img);

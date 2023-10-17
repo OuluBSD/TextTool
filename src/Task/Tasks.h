@@ -240,6 +240,7 @@ public:
 	void CreateInput_GetProductionIdea();
 	void CreateInput_GetIdeaSuggestions();
 	void CreateInput_GetPartIdea();
+	void CreateInput_GetStoryContext();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -311,6 +312,7 @@ public:
 	void Process_GetProductionIdea();
 	void Process_GetIdeaSuggestions();
 	void Process_GetPartIdea();
+	void Process_GetStoryContext();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

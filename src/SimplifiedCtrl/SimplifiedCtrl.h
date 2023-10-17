@@ -30,6 +30,11 @@
 #include "AutoIdeas.h"
 #include "PartIdea.h"
 #include "ProductionIdea.h"
+#include "PublicRelations.h"
+#include "PressRelease.h"
+#include "Marketing.h"
+#include "StoryIdea.h"
 
 
 #endif
+

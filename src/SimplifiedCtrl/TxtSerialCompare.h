@@ -36,7 +36,6 @@ public:
 	void OnParamChangeString(EditString* e, int key);
 	StaticPart* GetActiveSongPart();
 	StaticRhyme* GetActiveRhyme();
-	void GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v);
 	void GetAttrsValue(const VectorMap<String,String>& data, VectorMap<String,String>& v);
 	void GetActiveAttrs(VectorMap<String,String>& v);
 	void OnFirstLine(String result, StaticRhyme* r);

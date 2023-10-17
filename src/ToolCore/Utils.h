@@ -16,6 +16,8 @@ public:
 	virtual String GetStatusText() {return String();}
 	
 	Song& GetSong();
+	void GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v);
+	
 };
 
 struct PatternSnap;

@@ -128,6 +128,7 @@ typedef enum : int {
 	TASK_GET_IDEA_FROM_LYRICS,
 	TASK_GET_ATTRIBUTES_FROM_LYRICS,
 	TASK_GET_PRODUCTION_IDEA,
+	TASK_GET_STORY_CONTEXT,
 	
 	TASK_IMPORT_AND_REVERSE,
 	TASK_CONTEXT_IMPORT_AND_REVERSE,
@@ -304,6 +305,25 @@ struct MorphArgs {
 			json("song_idea[" + IntStr(i) + "]", song_idea[i]);
 		json	("source", source)
 				("attrs", attrs)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct StoryContextArgs {
+	String stories[STORY_COUNT];
+	VectorMap<String,String> attrs;
+	VectorMap<String, Vector<String>> part_ideas;
+	int get_story_i = -1;
+	
+	void Jsonize(JsonIO& json) {
+		for(int i = 0; i < STORY_COUNT; i++)
+			json("stories[" + IntStr(i) + "]", stories[i]);
+		json	("part_ideas", part_ideas)
+				("attrs", attrs)
+				("get_story_i", get_story_i)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

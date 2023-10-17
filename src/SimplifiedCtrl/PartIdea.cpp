@@ -351,22 +351,6 @@ bool PartIdea::HasActiveIdea() {
 	return true;
 }
 
-void PartIdea::GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v) {
-	for(int i = 0; i < Attr::ATTR_COUNT; i++) {
-		const char* key = Attr::AttrKeys[i][0];
-		int value = StrInt(data.Get(key, "0"));
-		
-		if (value) {
-			if (value > 0) {
-				v.GetAdd(key) = Attr::AttrKeys[i][2];
-			}
-			else {
-				v.GetAdd(key) = Attr::AttrKeys[i][3];
-			}
-		}
-	}
-}
-
 void PartIdea::GetContentSuggestions() {
 	if (!HasActiveIdea() || disabled)
 		return;
