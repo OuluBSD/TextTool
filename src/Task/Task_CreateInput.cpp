@@ -2709,7 +2709,7 @@ void Task::CreateInput_GetIdeaSuggestions() {
 			t << args.attrs[i] << " ";*/
 		String t = "List of ";
 		if (VectorFind(args.attrs.GetValues(), "male") >= 0)
-			t << "manly ";
+			t << "man ";
 		if (VectorFind(args.attrs.GetValues(), "female") >= 0)
 			t << "womanly ";
 		t << "\"which person sings about who or what?\" in relation to the imagery for the part Chorus 2 of the song 1. With the metaphorical color RGB integer (r,g,b) code at the end of the line";
@@ -3580,10 +3580,16 @@ void Task::CreateInput_GetStoryContext() {
 		int i = args1.get_story_i;
 		String key = StoryContextString[i][1];
 		
-		String t = "Imagine \"" + key + "\" story";
+		String t = "Imagine ";
+		if (VectorFind(args.attrs.GetValues(), "male") >= 0)
+			t << "mostly man-pleasing (but also woman-pleasing) ";
+		if (VectorFind(args.attrs.GetValues(), "female") >= 0)
+			t << "mostly woman-pleasing (but also man-pleasing) ";
+		t << "\"" << key << "\" background story";
+		
 		if (first_key.GetCount())
 			t << " in relation to \"" << first_key << "\"";
-		t << " of the song 1";
+		t << " of the song 1. These are not lyrics. Consider the structure of the song";
 		
 		TaskTitledList& results = input.PreAnswer();
 		results.Title(t);

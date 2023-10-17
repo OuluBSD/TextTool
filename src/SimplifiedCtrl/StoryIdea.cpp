@@ -109,15 +109,15 @@ void StoryIdeaCtrl::DataPart() {
 }
 
 void StoryIdeaCtrl::ToolMenu(Bar& bar) {
-	bar.Add(t_("Get all"), AppImg::BlueRing(), THISBACK1(GetFirstStory, true)).Key(K_F5);
-	bar.Separator();
 	bar.Add(t_("Get first story"), AppImg::BlueRing(), THISBACK1(GetFirstStory, false)).Key(K_CTRL_Q);
 	
 	for(int i = 1; i < STORY_COUNT; i++)
 		bar.Add(Format(t_("Get %s"), StoryContextString[i][1]), AppImg::BlueRing(), THISBACK2(GetStory, i, false));
 	
 	bar.Separator();
-	bar.Add(t_("Get part stories"), AppImg::BlueRing(), THISBACK2(GetPartStory, 0, true)).Key(K_CTRL_F6);
+	bar.Add(t_("Get all stories"), AppImg::RedRing(), THISBACK1(GetFirstStory, true)).Key(K_F5);
+	bar.Separator();
+	bar.Add(t_("Get part stories"), AppImg::RedRing(), THISBACK2(GetPartStory, 0, true)).Key(K_CTRL_F6);
 }
 
 void StoryIdeaCtrl::GetFirstStory(bool start_next) {
@@ -249,8 +249,13 @@ void StoryIdeaCtrl::GetPartStory(int part_i, bool start_next) {
 	
 	s.RealizePipe();
 	
+	int char_count = 0;
+	for(int i = 0; i < STORY_COUNT; i++)
+		char_count += s.data.Get(StoryContextString[i][0], "").GetCount();
+	int token_est = char_count / 4;
+	
 	// Text must be split to batches, because AI token maximum is exceeded easily
-	int batches = 2;
+	int batches = token_est / 3000 + 1;
 	int per_batch = STORY_COUNT / batches + 1;
 	for(int i = 0; i < batches; i++) {
 		StoryContextArgs story_args;
@@ -284,6 +289,13 @@ void StoryIdeaCtrl::OnPart(String res, Song* song, int i, bool start_next) {
 			l = TrimBoth(l.Mid(1));
 		if (l.Left(1) == "\"") l = TrimBoth(l.Mid(1));
 		if (l.Right(1) == "\"") l = TrimBoth(l.Left(l.GetCount()-1));
+		if (l.IsEmpty()) continue;
+		
+		if (IsDigit(l[0])) {
+			int a = l.Find(".");
+			if (a < 5)
+				l = TrimBoth(l.Mid(a+1));
+		}
 	}
 	String& tgt = part.data.GetAdd("IMAGINED_STORY");
 	if (!tgt.IsEmpty()) tgt << "\n\n";
