@@ -69,6 +69,32 @@ ATTR_LIST
 }
 
 
+String GetAttrNotString(String positive_attr) {
+	static dword pos_hashes[Attr::ATTR_COUNT];
+	static dword neg_hashes[Attr::ATTR_COUNT];
+	static const char* pos[Attr::ATTR_COUNT];
+	static const char* neg[Attr::ATTR_COUNT];
+	if (!pos[0]) {
+		int i = 0;
+		#define ATTR_ITEM(e, g, i0, i1) \
+			pos[i] = i0; neg[i] = i1; \
+			pos_hashes[i] = String(i0).GetHashValue(); \
+			neg_hashes[i] = String(i1).GetHashValue(); \
+			i++;
+		ATTR_LIST
+		#undef ATTR_ITEM
+	}
+	positive_attr = ToLower(TrimBoth(positive_attr));
+	dword hash = positive_attr.GetHashValue();
+	for(int i = 0; i < Attr::ATTR_COUNT; i++) {
+		if (pos_hashes[i] == hash)
+			return positive_attr + " (not " + neg[i] + ")";
+		if (neg_hashes[i] == hash)
+			return positive_attr + " (not " + pos[i] + ")";
+	}
+	return positive_attr;
+}
+
 
 
 
@@ -722,5 +748,78 @@ const char* StoryContextString[STORY_COUNT][2] = {
 	{"STORY_CULTURAL_OBJECTS", "cultural objects or artifacts"},
 	{"STORY_AESTHETIC_QUALITIES", "aesthetic qualities (including sound, smell, taste, etc.)"},
 	{"STORY_TIME_AND_TEMPORALITY", "time and temporality (such as past, present, future; clock time; seasons, cycles, etc.)"},
+	{"STORY_VOCALIST_SEES", "what vocalist is seeing in the world of the song"},
 	
 };
+
+
+const char* DialogueStyleString[DIALOGUESTYLE_COUNT] = {
+	"surreal",
+	"dreamy",
+	"ethereal",
+	"romantic",
+	
+	"passionate",
+	"intense",
+	"whimsical",
+	"imaginative",
+	
+	"mystical",
+	"otherworldly",
+	"magical",
+
+
+	"aggressive",
+	"anxious",
+	"chaotic",
+	"conflicted",
+	
+	"unsettling",
+	"dissonant",
+	"disorienting",
+	"nasty",
+	
+	"heavy",
+	"oppressive",
+	"eerie"
+	
+};
+
+Color DialogueStyleColors[DIALOGUESTYLE_COUNT] = {
+	Color(255,159,213),
+	Color(176,224,230),
+	Color(230,230,250),
+	Color(255,105,180),
+	
+	Color(220, 20, 60),
+	Color(255, 99, 71),
+	Color(255,255,153),
+	Color(127,255,212),
+	
+	Color(128,0,128),
+	Color(176,196,222),
+	Color(218,112,214),
+	
+	
+	Color(255,0,0),
+	Color(255,165,0),
+	Color(255,140,0),
+	Color(208,32,144),
+	
+	Color(138,43,226),
+	Color(219,112,147),
+	Color(0,0,0),
+	Color(184,0,92),
+	
+	Color(153,0,76),
+	Color(169,169,169),
+	Color(139,0,139),
+	
+};
+
+int FindDialogueStyle(String value) {
+	for(int i = 0; i < DIALOGUESTYLE_COUNT; i++)
+		if (DialogueStyleString[i] == value)
+			return i;
+	return -1;
+}

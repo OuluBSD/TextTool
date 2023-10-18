@@ -124,6 +124,10 @@ struct TaskMgr {
 	void GetProductionIdea(const ProductionArgs& args, Event<String> WhenResult);
 	void GetStoryContext(const IdeaArgs& iargs, const StoryContextArgs& args, Event<String> WhenResult);
 	void GetPartContext(const StoryContextArgs& args, Event<String> WhenResult);
+	void GetPartVisualIdeaContext(const StoryContextArgs& args, Event<String> WhenResult);
+	void GetPartVisualIdeaCharacters(const VisualContextArgs& args, Event<String> WhenResult);
+	void GetPartDialogueIdeaContext(const VisualContextArgs& args, Event<String> WhenResult);
+	void GetPartDialogueIdeaStyleSuggestions(const VisualContextArgs& args, Event<String> WhenResult);
 	
 };
 

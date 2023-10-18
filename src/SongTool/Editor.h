@@ -51,6 +51,7 @@ protected:
 	PublicRelationsCtrl				pubrel;
 	MarketingCtrl					marketing;
 	StoryIdeaCtrl					story_idea;
+	VisualIdeaCtrl					vocal_idea;
 	
 	
 	
@@ -82,6 +83,7 @@ protected:
 	SongStructure			song_struct;
 	AutoIdeas				auto_ideas;
 	PartIdea				part_idea;
+	DialogueIdeaCtrl		dialogue_idea;
 	
 public:
 	typedef Editor CLASSNAME;

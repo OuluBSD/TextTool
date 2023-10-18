@@ -1639,7 +1639,7 @@ void Task::CreateInput_EvaluatePoeticStyles() {
 	if (args.attrs.GetCount()) {
 		TaskTitledList& list = input.AddSub().Title("Lyrics should match following attributes");
 		for(String& a : args.attrs)
-			list.Add(TrimBoth(a));
+			list.Add(GetAttrNotString(a));
 	}
 	
 	{
@@ -2220,7 +2220,7 @@ void Task::CreateInput_MorphToAttributes() {
 		TaskTitledList& axes = input.AddSub();
 		axes			.Title("List of attributes matching the lyrics");
 		for (const String& line : args.attrs)
-			axes		.Add(line);
+			axes		.Add(GetAttrNotString(line));
 	}
 	
 	for(int i = IDEAPATH_PARTBEGIN; i < IDEAPATH_COUNT; i++) {
@@ -2384,7 +2384,7 @@ void Task::CreateInput_GetNovelThemes() {
 	{
 		TaskTitledList& list = input.AddSub().Title("Most lines of the song 1 must have following tone");
 		for (const String& p : args)
-			list.Add(TrimBoth(p));
+			list.Add(GetAttrNotString(p));
 	}
 	
 	{
@@ -2413,7 +2413,7 @@ void Task::CreateInput_GetNovelIdeas() {
 	{
 		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 1; i < args.GetCount(); i++)
-			list.Add(TrimBoth(args[i]));
+			list.Add(GetAttrNotString(args[i]));
 	}
 	
 	{
@@ -2444,7 +2444,7 @@ void Task::CreateInput_GetToneSuggestions() {
 	{
 		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 2; i < args.GetCount(); i++)
-			list.Add(TrimBoth(args[i]));
+			list.Add(GetAttrNotString(args[i]));
 	}
 	
 	{
@@ -2477,7 +2477,7 @@ void Task::CreateInput_GetAllegorySuggestions() {
 	{
 		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 3; i < args.GetCount(); i++)
-			list.Add(TrimBoth(args[i]));
+			list.Add(GetAttrNotString(args[i]));
 	}
 	
 	{
@@ -2526,7 +2526,7 @@ void Task::CreateInput_GetContentSuggestions() {
 	{
 		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 4; i < args.GetCount(); i++)
-			list.Add(TrimBoth(args[i]));
+			list.Add(GetAttrNotString(args[i]));
 	}
 	
 	{
@@ -2575,7 +2575,7 @@ void Task::CreateInput_GetImagerySuggestions() {
 	{
 		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 5; i < args.GetCount(); i++)
-			list.Add(TrimBoth(args[i]));
+			list.Add(GetAttrNotString(args[i]));
 	}
 	
 	{
@@ -2629,7 +2629,7 @@ void Task::CreateInput_GetSymbolismSuggestions() {
 	{
 		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 6; i < args.GetCount(); i++)
-			list.Add(TrimBoth(args[i]));
+			list.Add(GetAttrNotString(args[i]));
 	}
 	
 	{
@@ -2680,7 +2680,7 @@ void Task::CreateInput_GetIdeaSuggestions() {
 	{
 		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 0; i < args.attrs.GetCount(); i++)
-			list.Add(TrimBoth(args.attrs[i]));
+			list.Add(GetAttrNotString(args.attrs[i]));
 	}
 	
 	for(int i = 0; i < IDEAPATH_COUNT; i++) {
@@ -2748,7 +2748,7 @@ void Task::CreateInput_GetPartContentSuggestions() {
 	{
 		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 6; i < args.GetCount(); i++)
-			list.Add(TrimBoth(args[i]));
+			list.Add(GetAttrNotString(args[i]));
 	}
 	{
 		input.AddSub().NoColon().Title("Theme of the song 1 is \"" + theme + "\"");
@@ -2833,7 +2833,7 @@ void Task::CreateInput_GetPartImagerySuggestions() {
 	{
 		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 7; i < args.GetCount(); i++)
-			list.Add(TrimBoth(args[i]));
+			list.Add(GetAttrNotString(args[i]));
 	}
 	{
 		input.AddSub().NoColon().Title("Theme of the song 1 is \"" + theme + "\"");
@@ -2907,7 +2907,7 @@ void Task::CreateInput_GetPartSymbolismSuggestions() {
 	{
 		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 0; i < args.attrs.GetCount(); i++)
-			list.Add(TrimBoth(args.attrs[i]));
+			list.Add(GetAttrNotString(args.attrs[i]));
 	}
 	{
 		input.AddSub().NoColon().Title("Theme of the song 1 is \"" + args.song_idea[IDEAPATH_THEME] + "\"");
@@ -2985,7 +2985,7 @@ void Task::CreateInput_GetPartIdea() {
 	{
 		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 0; i < args.attrs.GetCount(); i++)
-			list.Add(TrimBoth(args.attrs[i]));
+			list.Add(GetAttrNotString(args.attrs[i]));
 	}
 	{
 		input.AddSub().NoColon().Title("Theme of the song 1 is \"" + args.song_idea[IDEAPATH_THEME] + "\"");
@@ -3515,7 +3515,7 @@ void Task::CreateInput_GetStoryContext() {
 	{
 		TaskTitledList& list = input.AddSub().Title("List of attributes matching the song 1");
 		for(int i = 0; i < args.attrs.GetCount(); i++)
-			list.Add(TrimBoth(args.attrs[i]));
+			list.Add(GetAttrNotString(args.attrs[i]));
 	}
 	
 	for(int i = 0; i < IDEAPATH_COUNT; i++) {
@@ -3628,6 +3628,199 @@ void Task::CreateInput_GetPartContext() {
 		TaskTitledList& results = input.PreAnswer();
 		results.Title(t);
 		results.EmptyLine();
+	}
+	
+	
+	input.response_length = 512;
+}
+
+void Task::CreateInput_GetPartVisualIdeaContext() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	StoryContextArgs args;
+	args.Put(this->args[0]);
+	
+	// Get first story (the first one filled)
+	for(int i = 0; i < STORY_COUNT; i++) {
+		const String& s = args.stories[i];
+		if (s.IsEmpty())
+			continue;
+		String key = StoryContextString[i][1];
+		TaskTitledList& list = input.AddSub().Title(key);
+		list.NoListChar();
+		
+		Vector<String> lines = Split(s, "\n");
+		for(int i = 0; i < lines.GetCount(); i++)
+			list.Add(TrimBoth(lines[i]));
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("Structure of the song 1 is");
+		for(int i = 0; i < args.part_ideas.GetCount(); i++)
+			list.Add(TrimBoth(args.part_ideas.GetKey(i)));
+	}
+	
+	{
+		int bars = 8;
+		int total_bars = args.part_ideas.GetCount() * bars;
+		TaskTitledList& list = input.AddSub().NoColon()
+			.Title(Format("Every part of the song has %d bars. The song has %d bars total.", bars, total_bars));
+	}
+	ASSERT(args.part_name.GetCount() > 0);
+	{
+		String t = "Imagine visually and split \"what vocalist is seeing in the world of the song\" of the  \"" + args.part_name + "\" to 8. No emotions, feelings, instruments nor lyrics. Vocalist sings from the beginning";
+		TaskTitledList& results = input.PreAnswer();
+		results.Title(t);
+		results.EmptyLine().NumberedLines();
+	}
+	
+	
+	input.response_length = 512;
+}
+
+void Task::CreateInput_GetPartVisualIdeaCharacters() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	VisualContextArgs args;
+	args.Put(this->args[0]);
+	
+	{
+		TaskTitledList& list = input.AddSub();
+		list.Title("What audience sees in " + IntStr(args.phase_count) + " phases of \"" + args.part_name + "\"");
+		for(int i = 0; i < args.phases.GetCount(); i++)
+			list.Add(args.phases[i]);
+	}
+	
+	if (VectorFind(args.attrs.GetValues(), "male") >= 0) {
+		input.AddSub().Title("The protagonist is a man").NoColon();
+	}
+	else if (VectorFind(args.attrs.GetValues(), "female") >= 0) {
+		input.AddSub().Title("The protagonist is a woman").NoColon();
+	}
+	
+	if (VectorFind(args.attrs.GetValues(), "heterosexual") >= 0) {
+		input.AddSub().Title("The protagonist is heterosexual").NoColon();
+	}
+	else if (VectorFind(args.attrs.GetValues(), "homosexual") >= 0) {
+		input.AddSub().Title("The protagonist is homosexual").NoColon();
+	}
+	
+	ASSERT(args.part_name.GetCount() > 0);
+	{
+		String t = "Who are the 1-9 people (humans) in \"" + args.part_name + "\" who could have something to say (including protagonist). No duplicates. Their relation to vocalist";
+		TaskTitledList& results = input.PreAnswer();
+		results.Title(t);
+		results.EmptyLine().NumberedLines();
+	}
+	
+	
+	input.response_length = 512;
+}
+
+void Task::CreateInput_GetPartDialogueIdeaContext() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	VisualContextArgs args;
+	args.Put(this->args[0]);
+	
+	{
+		TaskTitledList& list = input.AddSub();
+		list.Title("What audience sees in " + IntStr(args.phase_count) + " phases of \"" + args.part_name + "\"");
+		for(int i = 0; i < args.phases.GetCount(); i++)
+			list.Add(args.phases[i]);
+	}
+	
+	if (VectorFind(args.attrs.GetValues(), "male") >= 0) {
+		input.AddSub().Title("The protagonist is a man").NoColon();
+	}
+	else if (VectorFind(args.attrs.GetValues(), "female") >= 0) {
+		input.AddSub().Title("The protagonist is a woman").NoColon();
+	}
+	
+	if (VectorFind(args.attrs.GetValues(), "heterosexual") >= 0) {
+		input.AddSub().Title("The protagonist is heterosexual").NoColon();
+	}
+	else if (VectorFind(args.attrs.GetValues(), "homosexual") >= 0) {
+		input.AddSub().Title("The protagonist is homosexual").NoColon();
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub();
+		list.Title("Characters in \"" + args.part_name + "\"");
+		list.NumberedLines();
+		for(int i = 0; i < args.characters.GetCount(); i++)
+			list.Add(args.characters[i]);
+	}
+	
+	ASSERT(args.part_name.GetCount() > 0);
+	{
+		String t = "Imagine " + args.style + " dialogue of characters in  \"" + args.part_name + "\"";
+		TaskTitledList& results = input.PreAnswer();
+		results.Title(t);
+		results.EmptyLine().NumberedLines();
+	}
+	
+	
+	input.response_length = 512;
+}
+
+void Task::CreateInput_GetPartDialogueIdeaStyleSuggestions() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	VisualContextArgs args;
+	args.Put(this->args[0]);
+	
+	{
+		TaskTitledList& list = input.AddSub();
+		list.Title("What audience sees in " + IntStr(args.phase_count) + " phases of \"" + args.part_name + "\"");
+		for(int i = 0; i < args.phases.GetCount(); i++)
+			list.Add(args.phases[i]);
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub();
+		list.Title("Characters in \"" + args.part_name + "\"");
+		list.NumberedLines();
+		for(int i = 0; i < args.characters.GetCount(); i++)
+			list.Add(args.characters[i]);
+	}
+	
+	{
+		int begin = 0;
+		int end = args.attrs.GetCount() / 2;
+		TaskTitledList& list = input.AddSub();
+		list.Title("List of possible positive styles for a dialogue");
+		for(int i = begin; i < end; i++)
+			list.Add(args.attrs.GetKey(i));
+	}
+	
+	{
+		int begin = args.attrs.GetCount() / 2;
+		int end = args.attrs.GetCount();
+		TaskTitledList& list = input.AddSub();
+		list.Title("List of possible negative styles for a dialogue");
+		for(int i = begin; i < end; i++)
+			list.Add(args.attrs.GetKey(i));
+	}
+	
+	ASSERT(args.part_name.GetCount() > 0);
+	{
+		String t = "The best matching positive and negative attribute for \"" + args.part_name + "\" from previous lists";
+		TaskTitledList& results = input.PreAnswer();
+		results.Title(t);
+		results.EmptyLine().EmptyLineString("positive: \"");
 	}
 	
 	

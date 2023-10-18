@@ -130,6 +130,10 @@ typedef enum : int {
 	TASK_GET_PRODUCTION_IDEA,
 	TASK_GET_STORY_CONTEXT,
 	TASK_GET_PART_CONTEXT,
+	TASK_GET_PART_VISUAL_IDEA_CONTEXT,
+	TASK_GET_PART_VISUAL_IDEA_CHARACTERS,
+	TASK_GET_PART_DIALOGUE_IDEA,
+	TASK_GET_PART_DIALOGUE_IDEA_STYLE,
 	
 	TASK_IMPORT_AND_REVERSE,
 	TASK_CONTEXT_IMPORT_AND_REVERSE,
@@ -327,6 +331,28 @@ struct StoryContextArgs {
 				("attrs", attrs)
 				("get_story_i", get_story_i)
 				("part_name", part_name)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct VisualContextArgs {
+	Vector<String> phases;
+	int phase_count = 0;
+	String part_name;
+	String style;
+	VectorMap<String,String> attrs;
+	Vector<String> characters;
+	
+	void Jsonize(JsonIO& json) {
+		json	("phases", phases)
+				("phase_count", phase_count)
+				("part_name", part_name)
+				("attrs", attrs)
+				("characters", characters)
+				("style", style)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

@@ -311,6 +311,34 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetPartContext)
 		;
 	
+	AddRule(TASK_GET_PART_VISUAL_IDEA_CONTEXT, "get part visual idea context")
+		.Input(&Task::CreateInput_GetPartVisualIdeaContext)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetPartVisualIdeaContext)
+		;
+	
+	AddRule(TASK_GET_PART_VISUAL_IDEA_CHARACTERS, "get part visual idea characters")
+		.Input(&Task::CreateInput_GetPartVisualIdeaCharacters)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetPartVisualIdeaCharacters)
+		;
+	
+	AddRule(TASK_GET_PART_DIALOGUE_IDEA, "get part dialogue idea")
+		.Input(&Task::CreateInput_GetPartDialogueIdeaContext)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetPartDialogueIdeaContext)
+		;
+	
+	AddRule(TASK_GET_PART_DIALOGUE_IDEA_STYLE, "get part dialogue idea style suggestions")
+		.Input(&Task::CreateInput_GetPartDialogueIdeaStyleSuggestions)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetPartDialogueIdeaStyleSuggestions)
+		;
+	
 	
 	
 	
@@ -1677,6 +1705,78 @@ void TaskMgr::GetPartContext(const StoryContextArgs& args, Event<String> WhenRes
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_PART_CONTEXT);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetPartVisualIdeaContext(const StoryContextArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_PART_VISUAL_IDEA_CONTEXT);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetPartVisualIdeaCharacters(const VisualContextArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_PART_VISUAL_IDEA_CHARACTERS);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetPartDialogueIdeaContext(const VisualContextArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_PART_DIALOGUE_IDEA);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetPartDialogueIdeaStyleSuggestions(const VisualContextArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_PART_DIALOGUE_IDEA_STYLE);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
 	String s = args.Get();

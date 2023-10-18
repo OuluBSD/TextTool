@@ -242,6 +242,10 @@ public:
 	void CreateInput_GetPartIdea();
 	void CreateInput_GetStoryContext();
 	void CreateInput_GetPartContext();
+	void CreateInput_GetPartVisualIdeaContext();
+	void CreateInput_GetPartVisualIdeaCharacters();
+	void CreateInput_GetPartDialogueIdeaContext();
+	void CreateInput_GetPartDialogueIdeaStyleSuggestions();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -315,6 +319,10 @@ public:
 	void Process_GetPartIdea();
 	void Process_GetStoryContext();
 	void Process_GetPartContext();
+	void Process_GetPartVisualIdeaContext();
+	void Process_GetPartVisualIdeaCharacters();
+	void Process_GetPartDialogueIdeaContext();
+	void Process_GetPartDialogueIdeaStyleSuggestions();
 	
 	void Retry(bool skip_prompt);
 	String GetDescription() const;

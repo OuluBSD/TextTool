@@ -1870,3 +1870,19 @@ void Task::Process_GetStoryContext() {
 void Task::Process_GetPartContext() {
 	WhenResult("-" + output);
 }
+
+void Task::Process_GetPartVisualIdeaContext() {
+	WhenResult("1." + output);
+}
+
+void Task::Process_GetPartVisualIdeaCharacters() {
+	WhenResult("1." + output);
+}
+
+void Task::Process_GetPartDialogueIdeaContext() {
+	WhenResult("1." + output);
+}
+
+void Task::Process_GetPartDialogueIdeaStyleSuggestions() {
+	WhenResult("-positive:" + output);
+}

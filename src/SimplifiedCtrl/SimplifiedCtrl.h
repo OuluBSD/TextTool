@@ -34,6 +34,8 @@
 #include "PressRelease.h"
 #include "Marketing.h"
 #include "StoryIdea.h"
+#include "VisualIdea.h"
+#include "DialogueIdea.h"
 
 
 #endif
