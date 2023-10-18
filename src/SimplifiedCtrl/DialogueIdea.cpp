@@ -173,9 +173,9 @@ void DialogueIdeaCtrl::GetPartDialogueIdea(int part_i, int prio_i, bool start_ne
 		if (prio_i == 0 || style0 == style1)
 			args.style = style0;
 		else if (prio_i == 1)
-			args.style = style0 + " and " + style1;
-		else if (prio_i == 2)
 			args.style = style1;
+		else if (prio_i == 2)
+			args.style = style0 + " and " + style1;
 		
 		{
 			TaskMgr& m = *s.pipe;

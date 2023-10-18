@@ -3734,7 +3734,7 @@ void Task::CreateInput_GetPartDialogueIdeaContext() {
 	
 	{
 		TaskTitledList& list = input.AddSub();
-		list.Title("What audience sees in " + IntStr(args.phase_count) + " phases of \"" + args.part_name + "\"");
+		list.Title("What audience sees in " + IntStr(args.phase_count) + " phases");// of \"" + args.part_name + "\"");
 		for(int i = 0; i < args.phases.GetCount(); i++)
 			list.Add(args.phases[i]);
 	}
@@ -3763,7 +3763,7 @@ void Task::CreateInput_GetPartDialogueIdeaContext() {
 	
 	ASSERT(args.part_name.GetCount() > 0);
 	{
-		String t = "Imagine " + args.style + " dialogue of characters in  \"" + args.part_name + "\"";
+		String t = "Imagine " + args.style + " dialogue of characters";// in  \"" + args.part_name + "\"";
 		TaskTitledList& results = input.PreAnswer();
 		results.Title(t);
 		results.EmptyLine().NumberedLines();
