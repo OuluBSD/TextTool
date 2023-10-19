@@ -19,7 +19,7 @@ public:
 	void ToolMenu(Bar& bar) {}
 	void ValueChange();
 	void ProcessItem();
-	void RetryItem(bool skip_prompt);
+	void RetryItem(bool skip_prompt, bool skip_cache);
 	void OutputMenu(Bar& bar);
 	
 };

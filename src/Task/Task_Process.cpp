@@ -1886,3 +1886,7 @@ void Task::Process_GetPartDialogueIdeaContext() {
 void Task::Process_GetPartDialogueIdeaStyleSuggestions() {
 	WhenResult("-positive:" + output);
 }
+
+void Task::Process_GetColorIdea() {
+	WhenResult("1.RGB(" + output);
+}

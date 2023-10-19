@@ -823,3 +823,66 @@ int FindDialogueStyle(String value) {
 			return i;
 	return -1;
 }
+
+const Vector<String>& InlineRapperList() {
+	static Vector<String> v;
+	static Vector<String> list;
+	if (list.IsEmpty()) {
+		list.Add("Eminem");
+		list.Add("Kendrick Lamar");
+		list.Add("MF DOOM");
+		list.Add("Big L");
+		list.Add("Aesop Rock");
+		list.Add("Busta Rhymes");
+		list.Add("Earl Sweatshirt");
+		list.Add("Tech N9ne");
+		list.Add("Logic");
+		list.Add("Kool G Rap ");
+		list.Add("Royce da 5'9");
+		list.Add("Rakim");
+		list.Add("Black Thought");
+		list.Add("Canibus");
+		list.Add("Blackalicious");
+		list.Add("Danny Brown");
+		list.Add("Big Pun");
+		list.Add("GZA/Genius");
+		list.Add("R.A. the Rugged Man");
+		list.Add("Jean Grae");
+	}
+	return list;
+}
+
+const Vector<String>& OtherRapperList() {
+	static Vector<String> list;
+	if (list.IsEmpty()) {
+		list.Add("J. Cole");
+		list.Add("Nicki Minaj");
+		list.Add("Tyler, The Creator");
+		list.Add("Chance the Rapper");
+		list.Add("Mac Miller");
+		list.Add("Travis Scott");
+		list.Add("J.I.D.");
+		list.Add("Tierra Whack");
+		list.Add("Noname");
+		list.Add("Vic Mensa");
+		list.Add("A$AP Rocky");
+		list.Add("Lil Wayne");
+		list.Add("Method Man");
+		list.Add("Ghostface Killah");
+		list.Add("Jay-Z");
+		list.Add("Andre 3000");
+		list.Add("Nas");
+		list.Add("Lauryn Hill");
+	}
+	return list;
+}
+
+
+
+
+
+extern const char* ListenerTypeString[LISTENERTYPE_COUNT] = {
+	"man",
+	"woman",
+};
+

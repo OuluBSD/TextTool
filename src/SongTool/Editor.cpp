@@ -116,13 +116,13 @@ void Editor::InitSimplified() {
 	AddItem(t_("Manual override"), t_("Edit"), structure_edit);
 	
 	AddItem(t_("Context"), t_("Attributes"), ctx_attrs);
+	AddItem(t_("Context"), t_("Production idea"), prod_idea);
 	AddItem(t_("Context"), t_("Idea"), auto_ideas);
 	AddItem(t_("Context"), t_("Idea of a single part"), part_idea);
 	AddItem(t_("Context"), t_("Story idea"), story_idea);
 	AddItem(t_("Context"), t_("Visual idea"), vocal_idea);
 	AddItem(t_("Context"), t_("Dialogue idea"), dialogue_idea);
-	AddItem(t_("Context"), t_("Production idea"), prod_idea);
-	
+	AddItem(t_("Context"), t_("Color idea"), color_idea);
 	AddItem(t_("Text"), t_("English Parallel Compare"), text_autocompare_eng);
 	AddItem(t_("Text"), t_("English Serial Compare"), serial_compare_eng);
 	AddItem(t_("Text"), t_("Edit English"), text_edit_english);

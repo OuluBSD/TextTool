@@ -140,7 +140,7 @@ void Tasks::ProcessItem() {
 	m.StartSingle(cursor);
 }
 
-void Tasks::RetryItem(bool skip_prompt) {
+void Tasks::RetryItem(bool skip_prompt, bool skip_cache) {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if(!p.song || !p.song->pipe) {
@@ -154,7 +154,7 @@ void Tasks::RetryItem(bool skip_prompt) {
 		return;
 	int cursor = list.GetCursor();
 	Task& t = m.tasks[cursor];
-	t.Retry(skip_prompt);
+	t.Retry(skip_prompt, skip_cache);
 	m.StartSingle(cursor);
 	this->output.Clear();
 }
@@ -162,7 +162,8 @@ void Tasks::RetryItem(bool skip_prompt) {
 
 void Tasks::OutputMenu(Bar& bar) {
 	bar.Add(t_("Process output"), THISBACK(ProcessItem));
-	bar.Add(t_("Retry"), THISBACK1(RetryItem, false));
-	bar.Add(t_("Retry cached prompt"), THISBACK1(RetryItem, true));
+	bar.Add(t_("Retry"), THISBACK2(RetryItem, false, false));
+	bar.Add(t_("Retry cached prompt"), THISBACK2(RetryItem, true, false));
+	bar.Add(t_("Retry and skip cache"), THISBACK2(RetryItem, false, true));
 	
 }

@@ -36,6 +36,8 @@
 #include "StoryIdea.h"
 #include "VisualIdea.h"
 #include "DialogueIdea.h"
+#include "ColorIdea.h"
+#include "VocabularyIdea.h"
 
 
 #endif

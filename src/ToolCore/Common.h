@@ -911,6 +911,18 @@ extern Color DialogueStyleColors[DIALOGUESTYLE_COUNT];
 
 int FindDialogueStyle(String value);
 
+const Vector<String>& InlineRapperList();
+const Vector<String>& OtherRapperList();
 
+
+
+enum {
+	LISTENERTYPE_MAN,
+	LISTENERTYPE_WOMAN,
+	
+	LISTENERTYPE_COUNT,
+};
+
+extern const char* ListenerTypeString[LISTENERTYPE_COUNT];
 
 #endif

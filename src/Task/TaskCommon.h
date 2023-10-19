@@ -134,6 +134,7 @@ typedef enum : int {
 	TASK_GET_PART_VISUAL_IDEA_CHARACTERS,
 	TASK_GET_PART_DIALOGUE_IDEA,
 	TASK_GET_PART_DIALOGUE_IDEA_STYLE,
+	TASK_GET_COLOR_IDEA,
 	
 	TASK_IMPORT_AND_REVERSE,
 	TASK_CONTEXT_IMPORT_AND_REVERSE,
@@ -353,6 +354,30 @@ struct VisualContextArgs {
 				("attrs", attrs)
 				("characters", characters)
 				("style", style)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+static const int DIALOGUE_COUNT = 2;
+
+struct ColorIdeaArgs {
+	int fn;
+	VectorMap<String, Vector<String>> dialogue;
+	Vector<Vector<Color>> prev_line;
+	Vector<Vector<Color>> next_line;
+	Vector<Vector<Color>> main;
+	VectorMap<String,Color> begin_colors;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("dialogue", dialogue)
+				("prev_line", prev_line)
+				("next_line", next_line)
+				("main", main)
+				("begin_colors", begin_colors)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

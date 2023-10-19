@@ -159,6 +159,8 @@ struct StaticPart {
 	bool outdated_suggestions = true;
 	Array<StaticContentSuggestion> contents;
 	int content_cursor = -1;
+	Vector<Vector<Vector<Color>>> colors;
+	Vector<Vector<Color>> listener_colors;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -172,6 +174,8 @@ struct StaticPart {
 			("outdated_suggestions", outdated_suggestions)
 			("contents", contents)
 			("content_cursor", content_cursor)
+			("colors", colors)
+			("listener_colors", listener_colors)
 			;
 		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
 			json(	(String)"active_idea[" + IdeaPathString[IDEAPATH_PARTBEGIN+i][1] + "]",

@@ -84,6 +84,7 @@ protected:
 	AutoIdeas				auto_ideas;
 	PartIdea				part_idea;
 	DialogueIdeaCtrl		dialogue_idea;
+	ColorIdeaCtrl			color_idea;
 	
 public:
 	typedef Editor CLASSNAME;

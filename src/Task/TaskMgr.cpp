@@ -339,6 +339,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetPartDialogueIdeaStyleSuggestions)
 		;
 	
+	AddRule(TASK_GET_COLOR_IDEA, "get color idea")
+		.Input(&Task::CreateInput_GetColorIdea)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetColorIdea)
+		;
+	
 	
 	
 	
@@ -875,7 +882,7 @@ void TaskMgr::Process() {
 				continue;
 			if (t.failed && !t.ready && t.tries < mgr.max_tries) {
 				t.tries++;
-				t.Retry(false);
+				t.Retry(false, false);
 				tried_retry++;
 			}
 		}
@@ -1777,6 +1784,24 @@ void TaskMgr::GetPartDialogueIdeaStyleSuggestions(const VisualContextArgs& args,
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_PART_DIALOGUE_IDEA_STYLE);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetColorIdea(const ColorIdeaArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_COLOR_IDEA);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
 	String s = args.Get();

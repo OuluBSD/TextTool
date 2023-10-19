@@ -3135,48 +3135,12 @@ void Task::CreateInput_GetInternalRhymingFirstLine() {
 		list.Title("List of rappers, which use heavily internal rhyme schemes");
 		
 		// List of rappers, which use heavily internal rhyme schemes
-		list.Add("Eminem");
-		list.Add("Kendrick Lamar");
-		list.Add("MF DOOM");
-		list.Add("Big L");
-		list.Add("Aesop Rock");
-		list.Add("Busta Rhymes");
-		list.Add("Earl Sweatshirt");
-		list.Add("Tech N9ne");
-		list.Add("Logic");
-		list.Add("Kool G Rap ");
-		list.Add("Royce da 5'9");
-		list.Add("Rakim");
-		list.Add("Black Thought");
-		list.Add("Canibus");
-		list.Add("Blackalicious");
-		list.Add("Danny Brown");
-		list.Add("Big Pun");
-		list.Add("GZA/Genius");
-		list.Add("R.A. the Rugged Man");
-		list.Add("Jean Grae");
+		for (const auto& s : InlineRapperList())
+			list.Add(s);
 		
 		// List of rappers, which use internal rhyme schemes and are relevant too
-		if (0) {
-			list.Add("J. Cole");
-			list.Add("Nicki Minaj");
-			list.Add("Tyler, The Creator");
-			list.Add("Chance the Rapper");
-			list.Add("Mac Miller");
-			list.Add("Travis Scott");
-			list.Add("J.I.D.");
-			list.Add("Tierra Whack");
-			list.Add("Noname");
-			list.Add("Vic Mensa");
-			list.Add("A$AP Rocky");
-			list.Add("Lil Wayne");
-			list.Add("Method Man");
-			list.Add("Ghostface Killah");
-			list.Add("Jay-Z");
-			list.Add("Andre 3000");
-			list.Add("Nas");
-			list.Add("Lauryn Hill");
-		}
+		if (0) for (const auto& s : OtherRapperList())
+			list.Add(s);
 		
 		artist_count = list.values.GetCount();
 	}
@@ -3205,7 +3169,7 @@ void Task::CreateInput_GetInternalRhymingFirstLine() {
 		
 		TaskTitledList& results = input.PreAnswer();
 		results.Title(s);
-		results.EmptyLine().EmptyLineString("Eminem:");
+		results.EmptyLine().EmptyLineString(InlineRapperList()[0] + ":");
 	}
 	
 	
@@ -3261,49 +3225,13 @@ void Task::CreateInput_GetInternalRhymingContinueLine() {
 		TaskTitledList& list = input.AddSub();
 		list.Title("List of rappers, which use heavily internal rhyme schemes");
 		
-		// List of rappers, which use heavily internal rhyme schemes
-		list.Add("Eminem");
-		list.Add("Kendrick Lamar");
-		list.Add("MF DOOM");
-		list.Add("Big L");
-		list.Add("Aesop Rock");
-		list.Add("Busta Rhymes");
-		list.Add("Earl Sweatshirt");
-		list.Add("Tech N9ne");
-		list.Add("Logic");
-		list.Add("Kool G Rap ");
-		list.Add("Royce da 5'9");
-		list.Add("Rakim");
-		list.Add("Black Thought");
-		list.Add("Canibus");
-		list.Add("Blackalicious");
-		list.Add("Danny Brown");
-		list.Add("Big Pun");
-		list.Add("GZA/Genius");
-		list.Add("R.A. the Rugged Man");
-		list.Add("Jean Grae");
+		for (const auto& s : InlineRapperList())
+			list.Add(s);
 		
 		// List of rappers, which use internal rhyme schemes and are relevant too
-		if (0) {
-			list.Add("J. Cole");
-			list.Add("Nicki Minaj");
-			list.Add("Tyler, The Creator");
-			list.Add("Chance the Rapper");
-			list.Add("Mac Miller");
-			list.Add("Travis Scott");
-			list.Add("J.I.D.");
-			list.Add("Tierra Whack");
-			list.Add("Noname");
-			list.Add("Vic Mensa");
-			list.Add("A$AP Rocky");
-			list.Add("Lil Wayne");
-			list.Add("Method Man");
-			list.Add("Ghostface Killah");
-			list.Add("Jay-Z");
-			list.Add("Andre 3000");
-			list.Add("Nas");
-			list.Add("Lauryn Hill");
-		}
+		if (0) for (const auto& s : OtherRapperList())
+			list.Add(s);
+		
 		artist_count = list.values.GetCount();
 	}
 	
@@ -3374,7 +3302,7 @@ void Task::CreateInput_GetInternalRhymingContinueLine() {
 		
 		TaskTitledList& results = input.PreAnswer();
 		results.Title(s);
-		results.EmptyLine().EmptyLineString("Eminem:");
+		results.EmptyLine().EmptyLineString(InlineRapperList()[0] + ":");
 	}
 	
 	
@@ -3825,4 +3753,163 @@ void Task::CreateInput_GetPartDialogueIdeaStyleSuggestions() {
 	
 	
 	input.response_length = 512;
+}
+
+void Task::CreateInput_GetColorIdea() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	ColorIdeaArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title("Example of random colored single narrator for 1-8 lines and 8 values per line. Every line contains multiple colors in (red,green,blue) values");
+			list.NumberedLines();
+			list.Add("RGB(206,21,212),RGB(176,115,146),RGB(131,5,151),RGB(102,207,163),RGB(169,32,158),RGB(83,119,85),RGB(151,31,245),RGB(82,46,238)");
+			list.Add("RGB(230,215,241),RGB(160,16,206),RGB(137,204,255),RGB(64,66,193),RGB(94,190,99),RGB(217,213,198),RGB(10,44,147),RGB(51,70,78)");
+			list.Add("RGB(220,99,99),RGB(142,231,246),RGB(246,146,129),RGB(201,159,185),RGB(253,192,74),RGB(127,151,250),RGB(149,247,204),RGB(236,247,249)");
+			list.Add("RGB(134,161,42),RGB(251,162,45),RGB(33,113,112),RGB(163,182,183),RGB(187,101,211),RGB(240,57,188),RGB(44,144,211),RGB(250,227,240)");
+			list.Add("RGB(68,149,35),RGB(249,138,110),RGB(28,123,86),RGB(114,212,180),RGB(48,136,213),RGB(71,108,59),RGB(173,97,51),RGB(54,13,121)");
+			list.Add("RGB(17,144,124),RGB(44,157,45),RGB(255,136,222),RGB(252,6,74),RGB(29,248,114),RGB(60,231,122),RGB(124,167,128),RGB(251,74,123)");
+			list.Add("RGB(133,183,81),RGB(31,145,151),RGB(144,63,152),RGB(204,86,175),RGB(78,208,181),RGB(40,236,0),RGB(131,52,103),RGB(162,48,17)");
+			list.Add("RGB(126,219,137),RGB(3,70,184),RGB(80,73,112),RGB(198,66,254),RGB(40,52,89),RGB(230,54,91),RGB(98,94,107),RGB(68,77,20)");
+		}
+		String names;
+		for(int i = 0; i < args.dialogue.GetCount(); i++) {
+			String name = args.dialogue.GetKey(i);
+			TaskTitledList& list = input.AddSub();
+			list.Title(Capitalize(name) + " dialogue");
+			if (!names.IsEmpty()) names << " and ";
+			names << name;
+			auto& v = args.dialogue[i];
+			for(int j = 0; j < v.GetCount(); j++)
+				list.Add(v[j]);
+		}
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title("List of rappers, which use heavily internal rhyme schemes");
+			
+			// List of rappers, which use heavily internal rhyme schemes
+			for (const auto& s : InlineRapperList())
+				list.Add(s);
+		}
+		{
+			String t = "Imagine colored single narrator for 1-8 lines and 8 values per line. It summarises " + names + " dialogue. It also rhymes with internal rhyme scheme. No natural language is wanted";
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(t).NumberedLines();
+			results.EmptyLine().EmptyLineString("RGB(");
+		}
+		
+		input.response_length = 2*1024;
+	}
+	else if (args.fn == 1) {
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title(IntStr(args.main.GetCount()) + " lines of 8 \"main\" color values. Values represents poetic parts of rhyming text lines. The colors reflects induced feelings");
+			list.NumberedLines();
+			for (const auto& v : args.main) {
+				String s;
+				for (const auto& clr : v) {
+					if (!s.IsEmpty()) s << ",";
+					s << "RGB(" << (int)clr.GetR() << "," << (int)clr.GetG() << "," << (int)clr.GetB() << ")";
+				}
+				list.Add(s);
+			}
+		}
+		
+		if (args.prev_line.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Before the line 1, the line could have been this line");
+			list.NumberedLines();
+			for (const auto& v : args.prev_line) {
+				String s;
+				for (const auto& clr : v) {
+					if (!s.IsEmpty()) s << ",";
+					s << "RGB(" << (int)clr.GetR() << "," << (int)clr.GetG() << "," << (int)clr.GetB() << ")";
+				}
+				list.Add(s);
+			}
+		}
+		
+		if (args.next_line.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("After the line " + IntStr(args.main.GetCount()) + ", the line could be this line");
+			list.NumberedLines();
+			for (const auto& v : args.next_line) {
+				String s;
+				for (const auto& clr : v) {
+					if (!s.IsEmpty()) s << ",";
+					s << "RGB(" << (int)clr.GetR() << "," << (int)clr.GetG() << "," << (int)clr.GetB() << ")";
+				}
+				list.Add(s);
+			}
+		}
+		
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title("4 types of color threads runs simultaneously at the same time");
+			list.Add("main: the visible value");
+			list.Add("attacking: prepares 1-4 next visible values");
+			list.Add("sustaining: combines 1-4 previous important values");
+			list.Add("releasing: tries to forget 1-16 previous values");
+		}
+		{
+			TaskTitledList& list = input.AddSub();
+			list.NoColon().Title("Imagine 8 lines for all 3 of \"attacking\", \"sustaining\", \"releasing\"");
+		}
+		{
+			String t = "Imagine 8 lines of 8 \"attacking\" color values";
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(t).NumberedLines();
+			results.EmptyLine().EmptyLineString("RGB(");
+		}
+		
+		input.response_length = 3*1024;
+	}
+	else if (args.fn == 2) {
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title("Listener types");
+			for(int i = 0; i < args.begin_colors.GetCount(); i++)
+				list.Add(args.begin_colors.GetKey(i));
+		}
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title("Feelings of listener types in the beginning. Represented in RGB color values");
+			for(int i = 0; i < args.begin_colors.GetCount(); i++) {
+				String s;
+				s << args.begin_colors.GetKey(i) << ": RGB(";
+				Color clr = args.begin_colors[i];
+				s << clr.GetR() << "," << clr.GetR() << "," << clr.GetR() << ")";
+				list.Add(s);
+			}
+		}
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title(IntStr(args.main.GetCount()) + " lines of 8 color values. Values represents poetic parts of rhyming text lines. The colors reflects induced feelings");
+			list.NumberedLines();
+			for (const auto& v : args.main) {
+				String s;
+				for (const auto& clr : v) {
+					if (!s.IsEmpty()) s << ",";
+					s << "RGB(" << (int)clr.GetR() << "," << (int)clr.GetG() << "," << (int)clr.GetB() << ")";
+				}
+				list.Add(s);
+			}
+		}
+		{
+			String t = "Summarize feeling for listener types for the end of every line. The feeling can be anything between from the most negative to the most positive. The feeling of listener is represented in RGB color value only. No natural language is wanted";
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(t).NumberedLines();
+			results.EmptyLine().EmptyLineString("Line 1. a) " + args.begin_colors.GetKey(0) + ": RGB(");
+		}
+		
+		input.response_length = 2*1024;
+	}
+	
+	
 }

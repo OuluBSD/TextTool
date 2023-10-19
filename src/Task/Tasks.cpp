@@ -681,12 +681,12 @@ bool Task::RunOpenAI_Completion() {
 }
 
 
-void Task::Retry(bool skip_prompt) {
+void Task::Retry(bool skip_prompt, bool skip_cache) {
 	if (!skip_prompt) {
 		input.Clear();
 		output.Clear();
 	}
-	//skip_load = true;
+	skip_load = skip_cache;
 	failed = false;
 	fatal_error = false;
 	ready = false;

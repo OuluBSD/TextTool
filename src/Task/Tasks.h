@@ -246,6 +246,7 @@ public:
 	void CreateInput_GetPartVisualIdeaCharacters();
 	void CreateInput_GetPartDialogueIdeaContext();
 	void CreateInput_GetPartDialogueIdeaStyleSuggestions();
+	void CreateInput_GetColorIdea();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -323,8 +324,9 @@ public:
 	void Process_GetPartVisualIdeaCharacters();
 	void Process_GetPartDialogueIdeaContext();
 	void Process_GetPartDialogueIdeaStyleSuggestions();
+	void Process_GetColorIdea();
 	
-	void Retry(bool skip_prompt);
+	void Retry(bool skip_prompt, bool skip_cache);
 	String GetDescription() const;
 	String GetTaskDependencyString(bool have_ready_rules, bool rule_names) const;
 	String GetTaskDepsWaitingString() const;
