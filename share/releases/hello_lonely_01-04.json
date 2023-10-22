@@ -8,28 +8,12 @@
 			"value": "1"
 		},
 		{
-			"key": "IMAGERY",
-			"value": "1"
-		},
-		{
-			"key": "EXPRESSION",
-			"value": "-1"
-		},
-		{
 			"key": "MOTIVATION",
-			"value": "1"
-		},
-		{
-			"key": "SEXUALIZATION",
 			"value": "1"
 		},
 		{
 			"key": "INTEGRITY",
 			"value": "1"
-		},
-		{
-			"key": "RELATIONSHIP_FOCUS",
-			"value": "-1"
 		},
 		{
 			"key": "SOCIAL",
@@ -40,23 +24,7 @@
 			"value": "1"
 		},
 		{
-			"key": "HUMAN_STRENGTH",
-			"value": "1"
-		},
-		{
-			"key": "GENDER",
-			"value": "-1"
-		},
-		{
 			"key": "EXPECTATIONS",
-			"value": "1"
-		},
-		{
-			"key": "SEXUALITY",
-			"value": "1"
-		},
-		{
-			"key": "SEXUAL_ACTING",
 			"value": "1"
 		},
 		{
@@ -69,6 +37,34 @@
 		},
 		{
 			"key": "RESPONSIBILITY",
+			"value": "1"
+		},
+		{
+			"key": "EXPRESSION",
+			"value": "1"
+		},
+		{
+			"key": "GENDER",
+			"value": "1"
+		},
+		{
+			"key": "RELATIONSHIP_FOCUS",
+			"value": "1"
+		},
+		{
+			"key": "IMAGERY",
+			"value": "1"
+		},
+		{
+			"key": "PROBLEM_SOLVING",
+			"value": "1"
+		},
+		{
+			"key": "SEXUALIZATION",
+			"value": "1"
+		},
+		{
+			"key": "HUMAN_STRENGTH",
 			"value": "1"
 		}
 	],

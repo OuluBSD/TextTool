@@ -51,10 +51,6 @@
 			"value": "1"
 		},
 		{
-			"key": "PHYSICAL_PREFERENCE",
-			"value": "1"
-		},
-		{
 			"key": "RATIONAL_BELIEF",
 			"value": "1"
 		},
@@ -84,6 +80,14 @@
 		},
 		{
 			"key": "BELIF_SPECTRUM",
+			"value": "1"
+		},
+		{
+			"key": "PHYSICAL_PREFERENCE",
+			"value": "1"
+		},
+		{
+			"key": "FAITH_EXTREME",
 			"value": "1"
 		},
 		{

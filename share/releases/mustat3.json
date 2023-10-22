@@ -1,0 +1,269 @@
+{
+	"title": "MUSTAT3",
+	"english_title": "MUSTAT3",
+	"date": null,
+	"data": [
+		{
+			"key": "GENERAL_HISTORY",
+			"value": ""
+		},
+		{
+			"key": "FAITH_EXTREME",
+			"value": "1"
+		},
+		{
+			"key": "IMAGERY",
+			"value": "1"
+		},
+		{
+			"key": "AVERAGE_EXPECTATIONS",
+			"value": "1"
+		},
+		{
+			"key": "EXPRESSION",
+			"value": "1"
+		},
+		{
+			"key": "RELATIONSHIP_FOCUS",
+			"value": "1"
+		},
+		{
+			"key": "HUMAN_STRENGTH",
+			"value": "1"
+		},
+		{
+			"key": "RATIONALITY",
+			"value": "1"
+		},
+		{
+			"key": "INTEGRITY",
+			"value": "1"
+		},
+		{
+			"key": "SEXUALIZATION",
+			"value": "1"
+		},
+		{
+			"key": "PROBLEM_SOLVING",
+			"value": "1"
+		},
+		{
+			"key": "EXPECTATIONS",
+			"value": "1"
+		},
+		{
+			"key": "RESPONSIBILITY",
+			"value": "1"
+		},
+		{
+			"key": "GENDER",
+			"value": "-1"
+		},
+		{
+			"key": "RELATIONSHIP",
+			"value": "1"
+		},
+		{
+			"key": "ECONOMIC",
+			"value": "1"
+		},
+		{
+			"key": "CULTURE",
+			"value": "1"
+		},
+		{
+			"key": "LOVE_STATUS",
+			"value": "1"
+		},
+		{
+			"key": "SOCIAL",
+			"value": "1"
+		},
+		{
+			"key": "MOTIVATION",
+			"value": "1"
+		},
+		{
+			"key": "GROUP_EXPERIENCE",
+			"value": "1"
+		},
+		{
+			"key": "COMPETITIVENESS",
+			"value": "1"
+		},
+		{
+			"key": "INTELLIGENCE",
+			"value": "1"
+		},
+		{
+			"key": "SITUATION_RELATION",
+			"value": "1"
+		},
+		{
+			"key": "OTHER_RELATION",
+			"value": "1"
+		},
+		{
+			"key": "TRUTHFULNESS",
+			"value": "1"
+		},
+		{
+			"key": "MINDFULNESS",
+			"value": "1"
+		},
+		{
+			"key": "PRODUCTION_STYLE",
+			"value": "1"
+		},
+		{
+			"key": "LIFE_AND_LOVE",
+			"value": "1"
+		},
+		{
+			"key": "AUTHENCITY",
+			"value": "1"
+		},
+		{
+			"key": "PATIENCE",
+			"value": "1"
+		},
+		{
+			"key": "AUDIENCE",
+			"value": "1"
+		},
+		{
+			"key": "INSPIRATION_SOURCE",
+			"value": "1"
+		},
+		{
+			"key": "PROVOCATIVITY",
+			"value": "1"
+		},
+		{
+			"key": "REALITY",
+			"value": "1"
+		},
+		{
+			"key": "STORY_MOTIVATION",
+			"value": "1"
+		},
+		{
+			"key": "CONCEPTS",
+			"value": "1"
+		},
+		{
+			"key": "EMOTIONALITY",
+			"value": "1"
+		},
+		{
+			"key": "LYRICAL_EMPHASIS",
+			"value": "1"
+		},
+		{
+			"key": "NARRATIVE",
+			"value": "1"
+		},
+		{
+			"key": "PEACEFULNESS",
+			"value": "1"
+		},
+		{
+			"key": "STORYMODE",
+			"value": "1"
+		},
+		{
+			"key": "TRANSPARENCY",
+			"value": "1"
+		},
+		{
+			"key": "SOPHISTICATION",
+			"value": "1"
+		},
+		{
+			"key": "MOOD_PLAYFUL_SERIOUS",
+			"value": "1"
+		},
+		{
+			"key": "MOOD_HUMOROUS_DRAMATIC",
+			"value": "1"
+		},
+		{
+			"key": "MOOD_UPLIFTING_HEAVY",
+			"value": "1"
+		},
+		{
+			"key": "MOOD_LIGHTHEARTED_SOMBER",
+			"value": "1"
+		},
+		{
+			"key": "MOOD_JOYFUL_MELANCHOLIC",
+			"value": "1"
+		},
+		{
+			"key": "SEXUAL_COMMITMENT",
+			"value": "1"
+		},
+		{
+			"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
+			"value": "1"
+		},
+		{
+			"key": "SEXUAL_ACTING",
+			"value": "1"
+		},
+		{
+			"key": "SEXUALITY",
+			"value": "1"
+		},
+		{
+			"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
+			"value": "1"
+		},
+		{
+			"key": "ATTITUDE_HOPEFUL_DESPAIR",
+			"value": "1"
+		},
+		{
+			"key": "PARTY_RELATION",
+			"value": "1"
+		},
+		{
+			"key": "EMOTIONAL_REALISM",
+			"value": "1"
+		},
+		{
+			"key": "CELEBRITY_PERSONA",
+			"value": "1"
+		},
+		{
+			"key": "CORPORATION_RELATIONS",
+			"value": "1"
+		},
+		{
+			"key": "COMMERCIAL_APPEAL",
+			"value": "1"
+		},
+		{
+			"key": "CULTURAL_ELEMENTS",
+			"value": "1"
+		},
+		{
+			"key": "INDEPENDENCE",
+			"value": "1"
+		},
+		{
+			"key": "AGE_TARGET",
+			"value": "1"
+		},
+		{
+			"key": "LOVE_TARGET",
+			"value": "1"
+		}
+	],
+	"ideas": [
+
+	],
+	"songs": [
+		"superpop"
+	]
+}

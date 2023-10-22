@@ -1,0 +1,65 @@
+{
+	"name": "Lappia Musatuotanto",
+	"english_name": "Lappia Students",
+	"year_of_birth": 1989,
+	"year_of_career_begin": 2023,
+	"biography": "Tornion Lappia, musiikkituotanto 2023-2024",
+	"musical_style": "",
+	"vibe_of_voice": "",
+	"acoustic_instruments": "",
+	"electronic_instruments": "",
+	"vocalist_visual": "",
+	"data": [
+		{
+			"key": "FAITH_AND_REASON_SEEKER",
+			"value": "1"
+		},
+		{
+			"key": "GROUP_FAITH",
+			"value": "1"
+		},
+		{
+			"key": "BELIF_SPECTRUM",
+			"value": "1"
+		},
+		{
+			"key": "OLD_AND_NEW_BELIEVER",
+			"value": "1"
+		},
+		{
+			"key": "BELIF_COMMUNITY",
+			"value": "1"
+		},
+		{
+			"key": "THEOLOGICAL_OPPOSITE",
+			"value": "1"
+		},
+		{
+			"key": "SEEKER_OF_TRUTH",
+			"value": "1"
+		},
+		{
+			"key": "INTUITIVE_THINKER",
+			"value": "1"
+		},
+		{
+			"key": "RATIONAL_BELIEF",
+			"value": "1"
+		},
+		{
+			"key": "PHYSICAL_PREFERENCE",
+			"value": "1"
+		},
+		{
+			"key": "SEXUAL_ORIENTATION",
+			"value": "1"
+		},
+		{
+			"key": "SEXUAL_PREFERENCE",
+			"value": "1"
+		}
+	],
+	"releases": [
+		"mustat3"
+	]
+}

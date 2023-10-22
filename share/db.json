@@ -13,8 +13,20 @@
 						"value": ""
 					},
 					{
+						"key": "acoustic",
+						"value": ""
+					},
+					{
 						"key": "adventurous",
 						"value": "seikkaileva"
+					},
+					{
+						"key": "age target",
+						"value": ""
+					},
+					{
+						"key": "age-inclusive",
+						"value": ""
 					},
 					{
 						"key": "agnostic",
@@ -25,12 +37,52 @@
 						"value": "allegorinen"
 					},
 					{
+						"key": "alternative",
+						"value": ""
+					},
+					{
+						"key": "anti-capitalism",
+						"value": ""
+					},
+					{
+						"key": "artistic integrity",
+						"value": ""
+					},
+					{
+						"key": "aspirational",
+						"value": ""
+					},
+					{
 						"key": "atheistic",
 						"value": ""
 					},
 					{
 						"key": "attitude",
 						"value": "asenne"
+					},
+					{
+						"key": "attitude 1",
+						"value": ""
+					},
+					{
+						"key": "attitude 2",
+						"value": ""
+					},
+					{
+						"key": "attitude 3",
+						"value": ""
+					},
+					{
+						"key": "audience",
+						"value": ""
+					},
+					{
+						"key": "authencity",
+						"value": ""
+					},
+					{
+						"key": "authentic",
+						"value": ""
 					},
 					{
 						"key": "authoritarian",
@@ -57,12 +109,52 @@
 						"value": ""
 					},
 					{
+						"key": "body enhancing beauty",
+						"value": ""
+					},
+					{
+						"key": "body positivity",
+						"value": ""
+					},
+					{
+						"key": "celebrity persona",
+						"value": ""
+					},
+					{
+						"key": "celebrity worship",
+						"value": ""
+					},
+					{
 						"key": "closed",
 						"value": "sulkeutunut"
 					},
 					{
+						"key": "collaboration",
+						"value": ""
+					},
+					{
 						"key": "collective",
 						"value": "kollektiivinen"
+					},
+					{
+						"key": "commercial appeal",
+						"value": ""
+					},
+					{
+						"key": "comparison",
+						"value": ""
+					},
+					{
+						"key": "competition",
+						"value": ""
+					},
+					{
+						"key": "competitiveness",
+						"value": ""
+					},
+					{
+						"key": "concepts",
+						"value": ""
 					},
 					{
 						"key": "confident",
@@ -77,11 +169,35 @@
 						"value": "konservatiivinen"
 					},
 					{
+						"key": "consumerism",
+						"value": ""
+					},
+					{
+						"key": "corporation relations",
+						"value": ""
+					},
+					{
+						"key": "cultural elements",
+						"value": ""
+					},
+					{
+						"key": "cultural preservation",
+						"value": ""
+					},
+					{
 						"key": "culture",
 						"value": "kulttuuri"
 					},
 					{
 						"key": "cunning",
+						"value": ""
+					},
+					{
+						"key": "dependence",
+						"value": ""
+					},
+					{
+						"key": "descriptive",
 						"value": ""
 					},
 					{
@@ -101,8 +217,36 @@
 						"value": "ekonomisuus"
 					},
 					{
+						"key": "edgy",
+						"value": ""
+					},
+					{
+						"key": "electronic",
+						"value": ""
+					},
+					{
+						"key": "emotional",
+						"value": ""
+					},
+					{
+						"key": "emotional realism",
+						"value": ""
+					},
+					{
+						"key": "emotionally charged",
+						"value": ""
+					},
+					{
+						"key": "emotionally restrained",
+						"value": ""
+					},
+					{
 						"key": "enhancement",
 						"value": "kehoa muokkaava"
+					},
+					{
+						"key": "escapism",
+						"value": ""
 					},
 					{
 						"key": "expectation-conformed",
@@ -137,11 +281,39 @@
 						"value": ""
 					},
 					{
+						"key": "fictional",
+						"value": ""
+					},
+					{
 						"key": "gender",
 						"value": ""
 					},
 					{
+						"key": "globalization",
+						"value": ""
+					},
+					{
+						"key": "grounded",
+						"value": ""
+					},
+					{
+						"key": "group experience",
+						"value": ""
+					},
+					{
 						"key": "group faith",
+						"value": ""
+					},
+					{
+						"key": "group-oriented",
+						"value": ""
+					},
+					{
+						"key": "happiness",
+						"value": ""
+					},
+					{
+						"key": "heartbreak",
 						"value": ""
 					},
 					{
@@ -173,8 +345,16 @@
 						"value": "humoristinen"
 					},
 					{
+						"key": "i am",
+						"value": ""
+					},
+					{
 						"key": "imagery",
 						"value": "kuvasto"
+					},
+					{
+						"key": "independence",
+						"value": ""
 					},
 					{
 						"key": "individual spirituality",
@@ -185,12 +365,36 @@
 						"value": "yksilöön keskittyvä"
 					},
 					{
+						"key": "individual-oriented",
+						"value": ""
+					},
+					{
 						"key": "individualistic",
 						"value": "yksilökeskeinen"
 					},
 					{
+						"key": "innocent",
+						"value": ""
+					},
+					{
+						"key": "instant gratification",
+						"value": ""
+					},
+					{
 						"key": "integrity",
 						"value": "aitous"
+					},
+					{
+						"key": "intellectual",
+						"value": ""
+					},
+					{
+						"key": "intelligence",
+						"value": ""
+					},
+					{
+						"key": "introspective ballads",
+						"value": ""
 					},
 					{
 						"key": "intuitive thinkers",
@@ -221,12 +425,40 @@
 						"value": "libertaarinen"
 					},
 					{
+						"key": "life and love",
+						"value": ""
+					},
+					{
 						"key": "lighthearted",
 						"value": "hilpeä"
 					},
 					{
 						"key": "limited",
 						"value": "rajoittunut"
+					},
+					{
+						"key": "longevity",
+						"value": ""
+					},
+					{
+						"key": "love status",
+						"value": ""
+					},
+					{
+						"key": "loving now",
+						"value": ""
+					},
+					{
+						"key": "lyrical emphasis",
+						"value": ""
+					},
+					{
+						"key": "mainstream",
+						"value": ""
+					},
+					{
+						"key": "mainstream success",
+						"value": ""
 					},
 					{
 						"key": "male",
@@ -241,6 +473,18 @@
 						"value": "melankolinen"
 					},
 					{
+						"key": "mindful",
+						"value": ""
+					},
+					{
+						"key": "mindfulness",
+						"value": ""
+					},
+					{
+						"key": "mindless",
+						"value": ""
+					},
+					{
 						"key": "monogamy",
 						"value": "yksiavioisuus"
 					},
@@ -249,16 +493,60 @@
 						"value": "tunnelma"
 					},
 					{
+						"key": "mood 1",
+						"value": ""
+					},
+					{
+						"key": "mood 2",
+						"value": ""
+					},
+					{
+						"key": "mood 3",
+						"value": ""
+					},
+					{
+						"key": "mood 4",
+						"value": ""
+					},
+					{
+						"key": "mood 5",
+						"value": ""
+					},
+					{
+						"key": "mood-driven",
+						"value": ""
+					},
+					{
 						"key": "motivation",
 						"value": "motivaatio"
+					},
+					{
+						"key": "mysterious",
+						"value": ""
 					},
 					{
 						"key": "mystic practitioner",
 						"value": ""
 					},
 					{
+						"key": "narrative",
+						"value": ""
+					},
+					{
+						"key": "narrative detachment",
+						"value": ""
+					},
+					{
+						"key": "narrative-driven",
+						"value": ""
+					},
+					{
 						"key": "natural",
 						"value": "luonnollinen"
+					},
+					{
+						"key": "natural beauty",
+						"value": ""
 					},
 					{
 						"key": "new age spirituality",
@@ -277,7 +565,15 @@
 						"value": "normaali"
 					},
 					{
+						"key": "nostalgic",
+						"value": ""
+					},
+					{
 						"key": "old and new believers",
+						"value": ""
+					},
+					{
+						"key": "once upon a time",
 						"value": ""
 					},
 					{
@@ -297,8 +593,32 @@
 						"value": "kumppanikeskeinen"
 					},
 					{
+						"key": "party anthems",
+						"value": ""
+					},
+					{
+						"key": "party relation",
+						"value": ""
+					},
+					{
+						"key": "patience",
+						"value": ""
+					},
+					{
+						"key": "peacefulness",
+						"value": ""
+					},
+					{
+						"key": "peacemaker",
+						"value": ""
+					},
+					{
 						"key": "perfection",
 						"value": "täydellinen"
+					},
+					{
+						"key": "personal experience",
+						"value": ""
 					},
 					{
 						"key": "pessimistic",
@@ -317,7 +637,27 @@
 						"value": "moniavioisuus"
 					},
 					{
+						"key": "prescriptive",
+						"value": ""
+					},
+					{
 						"key": "problem solving strategy",
+						"value": ""
+					},
+					{
+						"key": "production style",
+						"value": ""
+					},
+					{
+						"key": "protagonist storytelling",
+						"value": ""
+					},
+					{
+						"key": "provocativity",
+						"value": ""
+					},
+					{
+						"key": "psychedelic",
 						"value": ""
 					},
 					{
@@ -341,12 +681,40 @@
 						"value": ""
 					},
 					{
+						"key": "realism",
+						"value": ""
+					},
+					{
+						"key": "realistic emotions",
+						"value": ""
+					},
+					{
+						"key": "reality",
+						"value": ""
+					},
+					{
 						"key": "reasonable",
+						"value": ""
+					},
+					{
+						"key": "relatable",
+						"value": ""
+					},
+					{
+						"key": "relation to others",
+						"value": ""
+					},
+					{
+						"key": "relationship",
 						"value": ""
 					},
 					{
 						"key": "relationship focus",
 						"value": "suhteen keskittyminen"
+					},
+					{
+						"key": "relevant to current times",
+						"value": ""
 					},
 					{
 						"key": "religious",
@@ -369,6 +737,14 @@
 						"value": "palkitseva"
 					},
 					{
+						"key": "romantic couple",
+						"value": ""
+					},
+					{
+						"key": "romantic love",
+						"value": ""
+					},
+					{
 						"key": "scientific",
 						"value": ""
 					},
@@ -382,6 +758,14 @@
 					},
 					{
 						"key": "seekers of truth",
+						"value": ""
+					},
+					{
+						"key": "self-acceptance",
+						"value": ""
+					},
+					{
+						"key": "self-love",
 						"value": ""
 					},
 					{
@@ -425,6 +809,18 @@
 						"value": ""
 					},
 					{
+						"key": "simple",
+						"value": ""
+					},
+					{
+						"key": "simple themes",
+						"value": ""
+					},
+					{
+						"key": "situation relation",
+						"value": ""
+					},
+					{
 						"key": "skeptic",
 						"value": ""
 					},
@@ -433,8 +829,24 @@
 						"value": "sosiaalisuus"
 					},
 					{
+						"key": "social media-driven",
+						"value": ""
+					},
+					{
 						"key": "somber",
 						"value": "synkkä"
+					},
+					{
+						"key": "sophisticated",
+						"value": ""
+					},
+					{
+						"key": "sophistication",
+						"value": ""
+					},
+					{
+						"key": "source of inspiration",
+						"value": ""
 					},
 					{
 						"key": "spiritual",
@@ -445,8 +857,28 @@
 						"value": ""
 					},
 					{
+						"key": "story-motivation",
+						"value": ""
+					},
+					{
+						"key": "storymode",
+						"value": ""
+					},
+					{
+						"key": "storytelling",
+						"value": ""
+					},
+					{
+						"key": "straightforward lyrics",
+						"value": ""
+					},
+					{
 						"key": "strong",
 						"value": "vahva"
+					},
+					{
+						"key": "target of love",
+						"value": ""
 					},
 					{
 						"key": "theistic",
@@ -461,12 +893,28 @@
 						"value": ""
 					},
 					{
+						"key": "transparency",
+						"value": ""
+					},
+					{
+						"key": "transparent",
+						"value": ""
+					},
+					{
 						"key": "trope-endorsing",
 						"value": "trooppeja kannattava"
 					},
 					{
 						"key": "trope-reinforcing",
 						"value": "trooppeja voimistava"
+					},
+					{
+						"key": "troublemaker",
+						"value": ""
+					},
+					{
+						"key": "truthfulness",
+						"value": ""
 					},
 					{
 						"key": "twisted",
@@ -489,7 +937,19 @@
 						"value": "heikko"
 					},
 					{
+						"key": "without romantic partner",
+						"value": ""
+					},
+					{
+						"key": "witty wordplay",
+						"value": ""
+					},
+					{
 						"key": "woman-voiced",
+						"value": ""
+					},
+					{
+						"key": "youth-oriented",
 						"value": ""
 					}
 				]
@@ -498,6 +958,7 @@
 	],
 	"artists": [
 		"red_hot_chili_peppers",
+		"lappia_students",
 		"difficult_times"
 	]
 }

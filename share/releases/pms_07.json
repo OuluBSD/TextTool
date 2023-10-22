@@ -1,7 +1,7 @@
 {
 	"title": "PMS 07",
 	"english_title": "PMS 07",
-	"date": "2023-11-02",
+	"date": "2023-10-02",
 	"data": [
 		{
 			"key": "GENERAL_HISTORY",
@@ -76,44 +76,84 @@
 			"value": "-1"
 		},
 		{
-			"key": "RATIONALITY",
+			"key": "FAITH_AND_REASON_SEEKER",
+			"value": "-1"
+		},
+		{
+			"key": "GROUP_FAITH",
 			"value": "1"
 		},
 		{
-			"key": "RESPONSIBILITY",
+			"key": "OLD_AND_NEW_BELIEVER",
+			"value": "-1"
+		},
+		{
+			"key": "BELIF_COMMUNITY",
+			"value": "1"
+		},
+		{
+			"key": "SEEKER_OF_TRUTH",
+			"value": "-1"
+		},
+		{
+			"key": "PHYSICAL_PREFERENCE",
+			"value": "-1"
+		},
+		{
+			"key": "SEXUAL_ORIENTATION",
+			"value": "1"
+		},
+		{
+			"key": "SEXUAL_PREFERENCE",
 			"value": "1"
 		},
 		{
 			"key": "IMAGERY",
-			"value": "1"
-		},
-		{
-			"key": "AVERAGE_EXPECTATIONS",
-			"value": "1"
-		},
-		{
-			"key": "EXPRESSION",
 			"value": "-1"
 		},
 		{
-			"key": "INTEGRITY",
+			"key": "RATIONALITY",
+			"value": "-1"
+		},
+		{
+			"key": "SEXUALIZATION",
+			"value": "-1"
+		},
+		{
+			"key": "EXPECTATIONS",
+			"value": "-1"
+		},
+		{
+			"key": "PROBLEM_SOLVING",
+			"value": "-1"
+		},
+		{
+			"key": "SEXUALITY",
+			"value": "-1"
+		},
+		{
+			"key": "SEXUAL_ACTING",
+			"value": "-1"
+		},
+		{
+			"key": "SEXUAL_COMMITMENT",
 			"value": "1"
 		},
 		{
-			"key": "SOCIAL",
-			"value": "1"
+			"key": "MOOD_JOYFUL_MELANCHOLIC",
+			"value": "-1"
 		},
 		{
-			"key": "RELATIONSHIP_FOCUS",
-			"value": "1"
+			"key": "MOOD_LIGHTHEARTED_SOMBER",
+			"value": "-1"
 		},
 		{
-			"key": "ECONOMIC",
-			"value": "1"
+			"key": "MOOD_UPLIFTING_HEAVY",
+			"value": "-1"
 		},
 		{
-			"key": "CULTURE",
-			"value": "1"
+			"key": "MOOD_PLAYFUL_SERIOUS",
+			"value": "-1"
 		}
 	],
 	"ideas": [

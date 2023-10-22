@@ -44,6 +44,9 @@
 		"attrs": [
 
 		],
+		"chords": [
+
+		],
 		"part_types": [
 
 		]
@@ -53,5 +56,55 @@
 	],
 	"themes": [
 
-	]
+	],
+	"theme_cursor": 0,
+	"part_cursor": -1,
+	"active_idea[THEME]": "",
+	"active_idea[IDEA]": "",
+	"active_idea[TONE]": "",
+	"active_idea[ALLEGORY]": "",
+	"active_idea[CONTENT]": "",
+	"active_idea[IMAGERY]": "",
+	"active_idea[SYMBOLISM]": "",
+	"active_idea[PERSON]": "",
+	"active_idea_clr[THEME]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	},
+	"active_idea_clr[IDEA]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	},
+	"active_idea_clr[TONE]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	},
+	"active_idea_clr[ALLEGORY]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	},
+	"active_idea_clr[CONTENT]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	},
+	"active_idea_clr[IMAGERY]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	},
+	"active_idea_clr[SYMBOLISM]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	},
+	"active_idea_clr[PERSON]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	}
 }
