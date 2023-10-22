@@ -3,9 +3,7 @@
 
 
 class VocabularyCtrl : public SongToolCtrl {
-	Splitter hsplit, vsplit;
-	ArrayCtrl parts;
-	DocEdit part_dialogue0, part_dialogue1;
+	ArrayCtrl list;
 	
 public:
 	typedef VocabularyCtrl CLASSNAME;
@@ -15,6 +13,10 @@ public:
 	void EnableAll();
 	void Data() override;
 	void ToolMenu(Bar& bar) override;
+	void GetWords();
+	void GetExamplePhrases();
+	void TranslateExamplePhrases();
+	void TranslateArtistPhrases();
 	
 };
 

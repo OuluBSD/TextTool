@@ -1,4 +1,5 @@
 #include "SimplifiedCtrl.h"
+#include "SimplifiedCtrl.h"
 
 
 ContextAttributesCtrl::ContextAttributesCtrl() {
