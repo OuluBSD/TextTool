@@ -38,6 +38,9 @@
 #include "DialogueIdea.h"
 #include "ColorIdea.h"
 #include "VocabularyIdea.h"
+#include "WordSaladIdea.h"
+#include "TextIdea.h"
+#include "Vocabulary.h"
 
 
 #endif

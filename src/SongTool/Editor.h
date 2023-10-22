@@ -85,6 +85,10 @@ protected:
 	PartIdea				part_idea;
 	DialogueIdeaCtrl		dialogue_idea;
 	ColorIdeaCtrl			color_idea;
+	VocabularyIdeaCtrl		vocab_idea;
+	WordSaladIdeaCtrl		wordsalad_idea;
+	TextIdeaCtrl			text_idea;
+	VocabularyCtrl			vocabulary;
 	
 public:
 	typedef Editor CLASSNAME;

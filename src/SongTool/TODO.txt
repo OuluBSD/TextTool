@@ -1,18 +1,9 @@
 High priority:
+- vocabulary: for artist, for release, for song
+- vocabulary idea: give vocabulary and color's of part and get part's vocabulary
 - another prod text, which only takes into account the story
 - combine score and order
-- 4 channels for text
-	- attack: what is being prepared
-	- decay: what is brought new
-	- sustain: what is repeated
-	- release: what is slowly forgotten
-- colors (several colors per line, up to 8-16)
-	- maybe even the color of the lines page/tab
-		= text/lyrics as a sound, and ONLY as a sound
 - color lines + dialogue idea (ready-made) = lyric?
-- "listener colors"
-	- continue through the songs through the entire release
-- vocabulary: for artist, for release, for song
 - matching words to colors from - vocabulary: for artist, for release, for song
 - what feeling listener should have during release -page
 	- re-route it to ideas
@@ -37,3 +28,13 @@ Done:
 	- existing verse (with break): as base, with own content and other artist styles
 - remove attributes from song info
 - fix song stylizer
+- 4 channels for text
+	- attack: what is being prepared
+	- decay: what is brought new
+	- sustain: what is repeated
+	- release: what is slowly forgotten
+- colors (several colors per line, up to 8-16)
+	- maybe even the color of the lines page/tab
+		= text/lyrics as a sound, and ONLY as a sound
+- "listener colors"
+	- continue through the songs through the entire release

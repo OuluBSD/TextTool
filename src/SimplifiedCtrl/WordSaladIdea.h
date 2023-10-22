@@ -1,15 +1,15 @@
-#ifndef _SimplifiedCtrl_VocabularyIdea_h_
-#define _SimplifiedCtrl_VocabularyIdea_h_
+#ifndef _SimplifiedCtrl_WordSaladIdea_h_
+#define _SimplifiedCtrl_WordSaladIdea_h_
 
 
-class VocabularyIdeaCtrl : public SongToolCtrl {
+class WordSaladIdeaCtrl : public SongToolCtrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl parts;
 	DocEdit part_dialogue0, part_dialogue1;
 	
 public:
-	typedef VocabularyIdeaCtrl CLASSNAME;
-	VocabularyIdeaCtrl();
+	typedef WordSaladIdeaCtrl CLASSNAME;
+	WordSaladIdeaCtrl();
 	
 	void DisableAll();
 	void EnableAll();

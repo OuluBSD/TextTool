@@ -482,7 +482,7 @@ int ColorIdeaCtrl::FindListIndex(int part, int line) const {
 	for(int i = 0; i < list.GetCount(); i++) {
 		int part0 = list.Get(i, 0);
 		if (part0 == part) {
-			int line0 = list.Get(i, 1);
+			int line0 = list.Get(i, 2);
 			if (line0 == line)
 				return i;
 		}
