@@ -3913,3 +3913,36 @@ void Task::CreateInput_GetColorIdea() {
 	
 	
 }
+
+void Task::CreateInput_GetVocabulary() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	VocabularyArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title("List of phrases and their unique equivalent");
+			list.Add("\"trying to extinguish the creativity\" -> \"killing my vibes\"");
+			list.Add("\"hearing the familiar sound\" -> \"sensing something in the air\"");
+			list.Add("\"feeling lost\" -> \"not having good vibes here\"");
+		}
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title("A list of the 100 most significant phrases whose unique equivalent most defines the lyrical nature of a musical artist");
+			for(int i = 0; i < SIGNIFICANT_PHRASE_COUNT; i++) {
+				list.Add((String)"\"" + SignificantPhrases[i] + "\"");
+			}
+		}
+		{
+			String t = "20 European (non US) artist, which has the most surreal and allegorical version of the allegorical phrase \"" + args.phrase + "\". Also with their country inside parentheses and the English version inside quotes";
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(t);
+			results.EmptyLine();
+		}
+	}
+}

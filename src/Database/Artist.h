@@ -18,6 +18,8 @@ struct Artist :
 	String electronic_instruments;
 	String vocalist_visual;
 	VectorMap<String,String>	data;
+	VectorMap<String,String>	phrases_nat;
+	VectorMap<String,String>	phrases_eng;
 	
 	// Public (separate files)
 	Array<Release> releases;
@@ -32,6 +34,8 @@ struct Artist :
 		acoustic_instruments.Clear();
 		electronic_instruments.Clear();
 		vocalist_visual.Clear();
+		phrases_nat.Clear();
+		phrases_eng.Clear();
 	}
 	void Store();
 	void LoadTitle(String title);
@@ -60,6 +64,8 @@ struct Artist :
 			% vocalist_visual
 			% releases
 			% data
+			% phrases_nat
+			% phrases_eng
 			;
 		//SnapContext::Serialize(s);
 	}
@@ -76,6 +82,8 @@ struct Artist :
 			("electronic_instruments", electronic_instruments)
 			("vocalist_visual", vocalist_visual)
 			("data", data)
+			("phrases", phrases_nat)
+			("phrases_eng", phrases_eng)
 			;
 		if (json.IsStoring()) {
 			Vector<String> names;

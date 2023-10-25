@@ -3,7 +3,9 @@
 
 
 class VocabularyCtrl : public SongToolCtrl {
-	ArrayCtrl list;
+	Splitter vsplit;
+	ArrayCtrl list, examples;
+	DropList dl;
 	
 public:
 	typedef VocabularyCtrl CLASSNAME;
@@ -17,6 +19,12 @@ public:
 	void GetExamplePhrases();
 	void TranslateExamplePhrases();
 	void TranslateArtistPhrases();
+	void CopyArtistPhrase();
+	void CopyExamplePhrase();
+	void ClearArtistPhrases();
+	void OnPhraseList();
+	void OnTranslateResult(String result, Artist* a, int list_i);
+	void OnVocabularyVariations(String result, Artist* a, int list_i);
 	
 };
 

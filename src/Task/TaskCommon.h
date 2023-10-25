@@ -135,6 +135,7 @@ typedef enum : int {
 	TASK_GET_PART_DIALOGUE_IDEA,
 	TASK_GET_PART_DIALOGUE_IDEA_STYLE,
 	TASK_GET_COLOR_IDEA,
+	TASK_GET_VOCABULARY,
 	
 	TASK_IMPORT_AND_REVERSE,
 	TASK_CONTEXT_IMPORT_AND_REVERSE,
@@ -378,6 +379,21 @@ struct ColorIdeaArgs {
 				("next_line", next_line)
 				("main", main)
 				("begin_colors", begin_colors)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+
+struct VocabularyArgs {
+	int fn;
+	String phrase;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("phrase", phrase)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

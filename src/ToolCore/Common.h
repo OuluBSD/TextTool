@@ -846,7 +846,7 @@ String GetIdeaPathTitle(int i);
 
 void TrimBothAll(Vector<String>& v);
 int VectorFind(const Vector<String>& v, const String& s);
-
+void RemoveQuotes(String& s);
 
 
 
@@ -924,5 +924,9 @@ enum {
 };
 
 extern const char* ListenerTypeString[LISTENERTYPE_COUNT];
+
+#define SIGNIFICANT_PHRASE_COUNT 100
+extern const char* SignificantPhrases[SIGNIFICANT_PHRASE_COUNT];
+
 
 #endif

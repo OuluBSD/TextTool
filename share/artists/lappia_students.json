@@ -59,6 +59,19 @@
 			"value": "1"
 		}
 	],
+	"phrases": [
+		{
+			"key": "dancing in the dark",
+			"value": "123"
+		},
+		{
+			"key": "living in the moment",
+			"value": "123"
+		}
+	],
+	"phrases_eng": [
+
+	],
 	"releases": [
 		"mustat3"
 	]

@@ -118,11 +118,11 @@
 		},
 		{
 			"key": "pushing past limitations",
-			"value": "puskea yli tavoitteen"
+			"value": "puskemassa tavoitteen taakse"
 		},
 		{
 			"key": "redefining beauty",
-			"value": "laajentaa kauneuden käsitettä"
+			"value": "laajentaen kauneuden käsitettä"
 		},
 		{
 			"key": "redefining success",
@@ -142,7 +142,7 @@
 		},
 		{
 			"key": "releasing inner demons",
-			"value": "rauhoittaa mielensä"
+			"value": "rentouttaen mielen"
 		},
 		{
 			"key": "light in the darkness",
@@ -150,15 +150,15 @@
 		},
 		{
 			"key": "striving for greatness",
-			"value": "tehdä töitä suuruuden eteen"
+			"value": ""
 		},
 		{
 			"key": "blazing our own trail",
-			"value": "kulkea omia polkuja"
+			"value": ""
 		},
 		{
 			"key": "fueling the fire within",
-			"value": "anna sisäisen liekkisi roihuta"
+			"value": ""
 		},
 		{
 			"key": "learning to love ourselves",
@@ -166,19 +166,15 @@
 		},
 		{
 			"key": "finding strength in vulnerability",
-			"value": "herkkyys ei ole heikkous"
+			"value": ""
 		},
 		{
 			"key": "confronting our demons",
 			"value": "kohdata uudelleen menneisyyden hirviöt"
 		},
 		{
-			"key": "embracing the journey",
-			"value": "nauttia matkasta"
-		},
-		{
 			"key": "embracing individuality",
-			"value": "ylistää ainutlaatuisuutta"
+			"value": "ylistämässä ainutlaatuisuutta"
 		},
 		{
 			"key": "conquering inner demons",
@@ -186,7 +182,7 @@
 		},
 		{
 			"key": "unapologetically oneself",
-			"value": "olla oma rosoinen itsensä"
+			"value": "olemassa oma rosoinen itsensä"
 		},
 		{
 			"key": "endless possibilities",
@@ -222,7 +218,7 @@
 		},
 		{
 			"key": "wild and free",
-			"value": "kanavoida muinaista ihmisluontoa"
+			"value": "kanavoi muinaista ihmisluontoa"
 		},
 		{
 			"key": "embracing imperfection",
@@ -242,37 +238,41 @@
 		},
 		{
 			"key": "overcoming obstacles",
-			"value": "kestää vaikeudet"
+			"value": "kestäen vaikeudet"
+		},
+		{
+			"key": "escaping reality",
+			"value": ""
 		}
 	],
 	"phrases_eng": [
 		{
 			"key": "heart on fire",
-			"value": "the soul burns to him"
+			"value": "burning soul"
 		},
 		{
 			"key": "dancing in the dark",
-			"value": "sliding in the dark"
+			"value": "gliding in the darkness"
 		},
 		{
 			"key": "chasing dreams",
-			"value": "walk towards dreams"
+			"value": "running after dreams"
 		},
 		{
 			"key": "fighting for my voice",
-			"value": "I rebuild my voice\n\n\nText 2 in FI-FI:\nlaita minut pieneen tilaan\n\n\nText 2 in EN-US:\nput me into a small space"
+			"value": "striving for my vocal expression"
 		},
 		{
 			"key": "never giving up",
-			"value": "I don't want to quit\n\nTranslation to FR-FR:\nJe ne veux pas abandonner"
+			"value": "never quitting"
 		},
 		{
 			"key": "writing our own story",
-			"value": "write our authentic and beautiful truth"
+			"value": "forging our own narrative"
 		},
 		{
 			"key": "trusting the journey",
-			"value": "trust in the more beautiful path\n\n\nText 2 in FI-FI:\nkatseet kohti tulevaisuutta\n\n\nText 2 in EN-US:\ngaze towards the future"
+			"value": "believing in one's destiny"
 		},
 		{
 			"key": "raw emotion",
@@ -284,7 +284,7 @@
 		},
 		{
 			"key": "finding beauty in the chaos",
-			"value": "see the beauty in chaos"
+			"value": "seeing beauty in chaos"
 		},
 		{
 			"key": "endless possibilities",
@@ -292,7 +292,7 @@
 		},
 		{
 			"key": "conquering inner demons",
-			"value": "address past traumas\n\n"
+			"value": "taming my inner beasts"
 		},
 		{
 			"key": "redefining success",
@@ -300,19 +300,15 @@
 		},
 		{
 			"key": "embracing individuality",
-			"value": "praise uniqueness\n\nText 2 in FI-FI:\nkiittää ystävällisyydestä\n\nText 2 in EN-US:\nthank for kindness"
+			"value": "embodying uniqueness"
 		},
 		{
 			"key": "finding strength in vulnerability",
-			"value": "sensitivity is not a weakness"
+			"value": "finding beauty in the darkness"
 		},
 		{
 			"key": "striving for greatness",
-			"value": "do great work"
-		},
-		{
-			"key": "embracing the journey",
-			"value": "enjoy your journey\n"
+			"value": "reaching the summit"
 		},
 		{
 			"key": "carving our own path",
@@ -320,39 +316,39 @@
 		},
 		{
 			"key": "confronting our demons",
-			"value": "encounter the monsters of the past \n"
+			"value": "Confronting our personal monsters"
 		},
 		{
 			"key": "blazing our own trail",
-			"value": "walk your own path\n\nText 2 in FI-FI:\nkohtaa pelkosi ja hyväksy ne\n\n\nText 2 in EN-US:\nconfront your fears and accept them"
+			"value": "lighting our own path"
 		},
 		{
 			"key": "fueling the fire within",
-			"value": "let your inner flame blaze"
+			"value": "fanning the flames within"
 		},
 		{
 			"key": "unapologetically oneself",
-			"value": "be your own scruffy self\n"
+			"value": "being one's own rugged self\n\n\nText 2 in US-EN:\nalways appreciate the little things\n\n\nText 2 in FI-FI:\narvosta aina pienten asioiden merkitystä"
 		},
 		{
 			"key": "pushing past limitations",
-			"value": "Pushing over the goal\n"
+			"value": "pushing beyond the goal"
 		},
 		{
 			"key": "rebelling against conformity",
-			"value": "rebel against normality\n"
+			"value": "rebelling against the norm"
 		},
 		{
 			"key": "releasing inner demons",
-			"value": "calm your mind \n\nText 2 in DE-DE:\nnehme dir Zeit für dich\n\nText 2 in EN-US:\ntake time for yourself"
+			"value": "relaxing mind\n```\n\nYou can also specify just one language code in the command, by using just one of the two \"-lang\" options, you can get the text and its translation in that particular language code.\n\nFor example:\n\n```\nnode index.js -input \"Text 1\" -lang FI-FI\n\nOutput:\n\nrentouttaen mielen\n```\n\nOr:\n\n```\nnode index.js -input \"Text 1\" -lang EN-US\n\nOutput:\n\nrelaxing mind\n```\n\n**Note:** The language codes used in this project are based on the [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) standard."
 		},
 		{
 			"key": "redefining beauty",
-			"value": "expand the concept of beauty"
+			"value": "Expanding the concept of beauty."
 		},
 		{
 			"key": "defining our own truth",
-			"value": "find your own truth"
+			"value": "Finding our own truth"
 		},
 		{
 			"key": "learning to love ourselves",
@@ -360,31 +356,247 @@
 		},
 		{
 			"key": "never looking back",
-			"value": "no longer thinks about the past"
+			"value": "now, don't forget your past"
 		},
 		{
 			"key": "wild and free",
-			"value": "can channel ancient human nature\n"
+			"value": "untamed and liberated"
 		},
 		{
 			"key": "embracing imperfection",
-			"value": "accept that you are not perfect"
+			"value": "accepting imperfections"
 		},
 		{
 			"key": "embracing individualism",
-			"value": "enjoy uniqueness"
+			"value": "embracing one's own uniqueness"
 		},
 		{
 			"key": "carving our own destiny",
-			"value": "write your own destiny"
+			"value": "sculpting our own destiny"
 		},
 		{
 			"key": "embracing the present",
-			"value": "enjoying the moment"
+			"value": "embracing the now"
 		},
 		{
 			"key": "overcoming obstacles",
-			"value": "endure difficulties"
+			"value": "enduring hardships\n\n\n\n~\n\nText 2 in FI-FI:\nvapaus ja tasa-arvo\n\n\nText 2 in EN-US:\nfreedom and equality"
+		},
+		{
+			"key": "searching for meaning",
+			"value": "soul searching"
+		},
+		{
+			"key": "ride or die",
+			"value": "never leave your side, even in death"
+		},
+		{
+			"key": "living in the moment",
+			"value": "cherish the now"
+		},
+		{
+			"key": "soul on fire",
+			"value": "flaming soul"
+		},
+		{
+			"key": "love and pain",
+			"value": "lost in love and agony"
+		},
+		{
+			"key": "rise from the ashes",
+			"value": "emerging from the ruins"
+		},
+		{
+			"key": "finding my way",
+			"value": "writing my own story"
+		},
+		{
+			"key": "breaking free",
+			"value": "escaping the darkness"
+		},
+		{
+			"key": "beating to our own drum",
+			"value": "dancing to our own rhythm"
+		},
+		{
+			"key": "holding onto hope",
+			"value": "holding onto possibility"
+		},
+		{
+			"key": "defying the odds",
+			"value": "rebelling against fate"
+		},
+		{
+			"key": "daring to be different",
+			"value": "escaping labels"
+		},
+		{
+			"key": "embracing the unknown",
+			"value": "welcoming the unfamiliar"
+		},
+		{
+			"key": "unleashing passion",
+			"value": "freeing desire"
+		},
+		{
+			"key": "embodying strength and vulnerability",
+			"value": "representing resilience and tenderness"
+		},
+		{
+			"key": "living in the present",
+			"value": "being in the now"
+		},
+		{
+			"key": "creating our own destiny",
+			"value": "writing our own destiny"
+		},
+		{
+			"key": "escaping reality",
+			"value": "entering a dream state"
+		},
+		{
+			"key": "light in the darkness",
+			"value": "a guiding light in the darkness"
+		},
+		{
+			"key": "never backing down",
+			"value": "never stepping back"
+		},
+		{
+			"key": "fearless and fierce",
+			"value": "fearless and ferocious"
+		},
+		{
+			"key": "exploring uncharted territory",
+			"value": "discovering unknown lands"
+		},
+		{
+			"key": "living fearlessly",
+			"value": "living without fear"
+		},
+		{
+			"key": "embodying resilience",
+			"value": "representing strength"
+		},
+		{
+			"key": "breaking the mold",
+			"value": "rising above expectations"
+		},
+		{
+			"key": "overflowing with love",
+			"value": "Flooded with love"
+		},
+		{
+			"key": "navigating the unknown",
+			"value": "sailing through the undiscovered"
+		},
+		{
+			"key": "never compromising integrity",
+			"value": "staying true to oneself"
+		},
+		{
+			"key": "defiant and determined",
+			"value": "proud and persistent"
+		},
+		{
+			"key": "living with passion",
+			"value": "living with burning passion"
+		},
+		{
+			"key": "embodying authenticity",
+			"value": "personifying honesty"
+		},
+		{
+			"key": "embracing flaws",
+			"value": "loving our flaws"
+		},
+		{
+			"key": "rising from the ashes",
+			"value": "rising like a phoenix from the ashes"
+		},
+		{
+			"key": "intertwining passion and purpose",
+			"value": "combining passion and purpose"
+		},
+		{
+			"key": "never conforming",
+			"value": "rejecting the norm"
+		},
+		{
+			"key": "embracing change",
+			"value": "embracing the new"
+		},
+		{
+			"key": "daring to dream",
+			"value": "awakening the dreamer within"
+		},
+		{
+			"key": "embracing the chaos",
+			"value": "facing the chaos head on"
+		},
+		{
+			"key": "embodying grace and strength",
+			"value": "personifying grace and strength"
+		},
+		{
+			"key": "finding solace in music",
+			"value": "finding comfort in music"
+		},
+		{
+			"key": "breaking barriers",
+			"value": "smashing obstacles"
+		},
+		{
+			"key": "living with passion and purpose",
+			"value": "living with a powerful purpose"
+		},
+		{
+			"key": "defying expectations",
+			"value": "challenging conventions"
+		},
+		{
+			"key": "navigating through pain",
+			"value": "wandering through agony"
+		},
+		{
+			"key": "unleashing creativity",
+			"value": "harnessing the creative energy"
+		},
+		{
+			"key": "never losing hope",
+			"value": "never losing strength"
+		},
+		{
+			"key": "dancing through the storm",
+			"value": "dancing in the typhoon"
+		},
+		{
+			"key": "living out loud",
+			"value": "existing in a thunderstorm of sound"
+		},
+		{
+			"key": "embracing the journey within",
+			"value": "embracing the voyage within"
+		},
+		{
+			"key": "enduring through hardship",
+			"value": "standing strong through the storm"
+		},
+		{
+			"key": "chasing our wildest dreams",
+			"value": "Pursuing our most otherworldly desires"
+		},
+		{
+			"key": "striving for authenticity",
+			"value": "chasing true individuality"
+		},
+		{
+			"key": "building ourselves up",
+			"value": "constructing our perfect selves"
+		},
+		{
+			"key": "breaking through walls",
+			"value": "smashing barriers"
 		}
 	],
 	"releases": [

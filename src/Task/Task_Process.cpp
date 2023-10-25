@@ -1890,3 +1890,7 @@ void Task::Process_GetPartDialogueIdeaStyleSuggestions() {
 void Task::Process_GetColorIdea() {
 	WhenResult("1.RGB(" + output);
 }
+
+void Task::Process_GetVocabulary() {
+	WhenResult(output);
+}
