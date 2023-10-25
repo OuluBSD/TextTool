@@ -567,20 +567,352 @@
 			"value": "smashing barriers"
 		},
 		{
-			"key": "soul",
-			"value": "spirituality"
-		},
-		{
-			"key": "love",
-			"value": "passion"
+			"key": "heart",
+			"value": "irrational mind\n\nText 2 in CH-CH:\n\u001F\u001F\u001F\u001F\n\nText 2 in EN-US:\nunhappy"
 		},
 		{
 			"key": "dream",
 			"value": "daydream"
 		},
 		{
-			"key": "heart",
-			"value": "irrational mind\n\nText 2 in CH-CH:\n\u001F\u001F\u001F\u001F\n\nText 2 in EN-US:\nunhappy"
+			"key": "love",
+			"value": "passion"
+		},
+		{
+			"key": "soul",
+			"value": "spirituality"
+		},
+		{
+			"key": "hope",
+			"value": "wish"
+		},
+		{
+			"key": "beauty",
+			"value": "attractiveness"
+		},
+		{
+			"key": "journey",
+			"value": "journey"
+		},
+		{
+			"key": "whisper",
+			"value": "whisper"
+		},
+		{
+			"key": "freedom",
+			"value": "empowerment"
+		},
+		{
+			"key": "embrace",
+			"value": "hug"
+		},
+		{
+			"key": "desire",
+			"value": "craving"
+		},
+		{
+			"key": "enchanted",
+			"value": "mesmerized"
+		},
+		{
+			"key": "rain",
+			"value": "downpour"
+		},
+		{
+			"key": "feel",
+			"value": "feeling"
+		},
+		{
+			"key": "passion",
+			"value": "devotion"
+		},
+		{
+			"key": "forever",
+			"value": "eternity"
+		},
+		{
+			"key": "belong",
+			"value": "fit"
+		},
+		{
+			"key": "truth",
+			"value": "truth"
+		},
+		{
+			"key": "wonder",
+			"value": "magical"
+		},
+		{
+			"key": "faith",
+			"value": "trust"
+		},
+		{
+			"key": "heaven",
+			"value": "ascension"
+		},
+		{
+			"key": "light",
+			"value": "brightness"
+		},
+		{
+			"key": "remember",
+			"value": "Recall"
+		},
+		{
+			"key": "adventure",
+			"value": "Quest"
+		},
+		{
+			"key": "one",
+			"value": "solitude"
+		},
+		{
+			"key": "star",
+			"value": "celestial body"
+		},
+		{
+			"key": "never",
+			"value": "nevermore"
+		},
+		{
+			"key": "together",
+			"value": "bonded"
+		},
+		{
+			"key": "dance",
+			"value": "tango"
+		},
+		{
+			"key": "eternity",
+			"value": "Timelessness"
+		},
+		{
+			"key": "release",
+			"value": "Release"
+		},
+		{
+			"key": "melody",
+			"value": "tune"
+		},
+		{
+			"key": "shine",
+			"value": "glimmer"
+		},
+		{
+			"key": "mystery",
+			"value": "riddle"
+		},
+		{
+			"key": "wanderlust",
+			"value": "desire for wandering"
+		},
+		{
+			"key": "moment",
+			"value": "moment in time"
+		},
+		{
+			"key": "breathe",
+			"value": "breathe in"
+		},
+		{
+			"key": "song",
+			"value": "melody"
+		},
+		{
+			"key": "grace",
+			"value": "gracefulness"
+		},
+		{
+			"key": "ocean",
+			"value": "sea"
+		},
+		{
+			"key": "sweet",
+			"value": "sugary"
+		},
+		{
+			"key": "wild",
+			"value": "untamed"
+		},
+		{
+			"key": "eternal",
+			"value": "timeless"
+		},
+		{
+			"key": "believe",
+			"value": "believe"
+		},
+		{
+			"key": "silence",
+			"value": "Calmness"
+		},
+		{
+			"key": "creation",
+			"value": "formation"
+		},
+		{
+			"key": "paradise",
+			"value": "Euphoria"
+		},
+		{
+			"key": "miracle",
+			"value": "Miracle"
+		},
+		{
+			"key": "healing",
+			"value": "Recovery"
+		},
+		{
+			"key": "home",
+			"value": "shelter"
+		},
+		{
+			"key": "infinity",
+			"value": "endlessness"
+		},
+		{
+			"key": "sunshine",
+			"value": "luminous sky"
+		},
+		{
+			"key": "echo",
+			"value": "echoing"
+		},
+		{
+			"key": "mysterious",
+			"value": "unexplained"
+		},
+		{
+			"key": "serenity",
+			"value": "tranquility"
+		},
+		{
+			"key": "pure",
+			"value": "unspoiled"
+		},
+		{
+			"key": "wings",
+			"value": "soaring"
+		},
+		{
+			"key": "echoes",
+			"value": "repeats"
+		},
+		{
+			"key": "melancholy",
+			"value": "Melancholy"
+		},
+		{
+			"key": "harmony",
+			"value": "harmony"
+		},
+		{
+			"key": "magical",
+			"value": "ethereal"
+		},
+		{
+			"key": "silver",
+			"value": "silvered"
+		},
+		{
+			"key": "serenade",
+			"value": "Love Song"
+		},
+		{
+			"key": "inspire",
+			"value": "ignite"
+		},
+		{
+			"key": "oasis",
+			"value": "haven"
+		},
+		{
+			"key": "shimmer",
+			"value": "sparkle"
+		},
+		{
+			"key": "exploration",
+			"value": "expedition"
+		},
+		{
+			"key": "sparkle",
+			"value": "twinkle"
+		},
+		{
+			"key": "bliss",
+			"value": "serenity"
+		},
+		{
+			"key": "paradigm",
+			"value": "model"
+		},
+		{
+			"key": "journeys",
+			"value": "quests"
+		},
+		{
+			"key": "wonderment",
+			"value": "bewilderment"
+		},
+		{
+			"key": "graceful",
+			"value": "elegant"
+		},
+		{
+			"key": "radiant",
+			"value": "radiant"
+		},
+		{
+			"key": "heavens",
+			"value": "celestial space"
+		},
+		{
+			"key": "gratitude",
+			"value": "thankfulness"
+		},
+		{
+			"key": "moons",
+			"value": "galactic satellites"
+		},
+		{
+			"key": "dancing",
+			"value": "dancing"
+		},
+		{
+			"key": "starstruck",
+			"value": "fascinated"
+		},
+		{
+			"key": "breathing",
+			"value": "inhaling"
+		},
+		{
+			"key": "innocently",
+			"value": "naively"
+		},
+		{
+			"key": "whispers",
+			"value": "whispers"
+		},
+		{
+			"key": "abandonment",
+			"value": "neglect"
+		},
+		{
+			"key": "sparkling",
+			"value": "glittery"
+		},
+		{
+			"key": "glistening",
+			"value": "glossy"
+		},
+		{
+			"key": "warrior",
+			"value": "warrior"
+		},
+		{
+			"key": "eternally",
+			"value": "timeless"
 		}
 	],
 	"releases": [
