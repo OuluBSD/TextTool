@@ -153,7 +153,25 @@ void VocabularyCtrl::CopyExamplePhrase() {
 }
 
 void VocabularyCtrl::CopyArtistPhrase() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.artist) {
+		return;
+	}
+	Artist& a = *p.artist;
 	
+	int idx = dl.GetIndex();
+	if (idx < 0)
+		return;
+	
+	const Artist& src_a = db.artists[idx];
+	if (&src_a == &a)
+		return;
+	
+	a.phrases_eng <<= src_a.phrases_eng;
+	a.phrases_nat <<= src_a.phrases_nat;
+	
+	PostCallback(THISBACK(Data));
 }
 
 void VocabularyCtrl::OnPhraseList() {
