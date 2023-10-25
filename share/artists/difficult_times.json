@@ -95,6 +95,298 @@
 			"value": "1"
 		}
 	],
+	"phrases": [
+		{
+			"key": "heart on fire",
+			"value": "sielu palaa hänelle"
+		},
+		{
+			"key": "chasing dreams",
+			"value": "kulkea kohti unelmia"
+		},
+		{
+			"key": "fighting for my voice",
+			"value": "rakennan ääneni uudelleen"
+		},
+		{
+			"key": "writing our own story",
+			"value": "kirjoitettaa meidän aito ja kaunis totuus"
+		},
+		{
+			"key": "trusting the journey",
+			"value": "luota kauniimpaan tiehaaraan"
+		},
+		{
+			"key": "pushing past limitations",
+			"value": "puskea yli tavoitteen"
+		},
+		{
+			"key": "redefining beauty",
+			"value": "laajentaa kauneuden käsitettä"
+		},
+		{
+			"key": "redefining success",
+			"value": "laajentaa menestyksen käsitettä"
+		},
+		{
+			"key": "finding beauty in the chaos",
+			"value": "nähdä kauneus kaaoksessa"
+		},
+		{
+			"key": "carving our own path",
+			"value": "grindata läpi kiven"
+		},
+		{
+			"key": "breaking through walls",
+			"value": ""
+		},
+		{
+			"key": "releasing inner demons",
+			"value": "rauhoittaa mielensä"
+		},
+		{
+			"key": "light in the darkness",
+			"value": ""
+		},
+		{
+			"key": "striving for greatness",
+			"value": "tehdä töitä suuruuden eteen"
+		},
+		{
+			"key": "blazing our own trail",
+			"value": "kulkea omia polkuja"
+		},
+		{
+			"key": "fueling the fire within",
+			"value": "anna sisäisen liekkisi roihuta"
+		},
+		{
+			"key": "learning to love ourselves",
+			"value": "löytää syy rakastaa itseä"
+		},
+		{
+			"key": "finding strength in vulnerability",
+			"value": "herkkyys ei ole heikkous"
+		},
+		{
+			"key": "confronting our demons",
+			"value": "kohdata uudelleen menneisyyden hirviöt"
+		},
+		{
+			"key": "embracing the journey",
+			"value": "nauttia matkasta"
+		},
+		{
+			"key": "embracing individuality",
+			"value": "ylistää ainutlaatuisuutta"
+		},
+		{
+			"key": "conquering inner demons",
+			"value": "käsitellä menneisyyden traumat"
+		},
+		{
+			"key": "unapologetically oneself",
+			"value": "olla oma rosoinen itsensä"
+		},
+		{
+			"key": "endless possibilities",
+			"value": "lukemattomasti mahdollisuuksia"
+		},
+		{
+			"key": "raw emotion",
+			"value": "pohjimmainen ihmisluonto"
+		},
+		{
+			"key": "facing fears head on",
+			"value": "kohdata pelot kasvotusten"
+		},
+		{
+			"key": "never giving up",
+			"value": "ei aijo lopettaa"
+		},
+		{
+			"key": "rebelling against conformity",
+			"value": "kapinoida normaaliutta vastaan"
+		},
+		{
+			"key": "defining our own truth",
+			"value": "löytää oma totuus"
+		},
+		{
+			"key": "dancing in the dark",
+			"value": "liukumista pimeässä"
+		},
+		{
+			"key": "never looking back",
+			"value": "ei enää mieti menneitä"
+		},
+		{
+			"key": "wild and free",
+			"value": "kanavoida muinaista ihmisluontoa"
+		},
+		{
+			"key": "embracing imperfection",
+			"value": "hyväksyä ettei ole täydellinen"
+		},
+		{
+			"key": "embracing individualism",
+			"value": "nauttia ainutlaatuisuudesta"
+		},
+		{
+			"key": "carving our own destiny",
+			"value": "kirjoittaa oma kohtalo"
+		},
+		{
+			"key": "embracing the present",
+			"value": "nauttia hetkestä"
+		},
+		{
+			"key": "overcoming obstacles",
+			"value": "kestää vaikeudet"
+		}
+	],
+	"phrases_eng": [
+		{
+			"key": "heart on fire",
+			"value": "the soul burns to him"
+		},
+		{
+			"key": "dancing in the dark",
+			"value": "sliding in the dark"
+		},
+		{
+			"key": "chasing dreams",
+			"value": "walk towards dreams"
+		},
+		{
+			"key": "fighting for my voice",
+			"value": "I rebuild my voice\n\n\nText 2 in FI-FI:\nlaita minut pieneen tilaan\n\n\nText 2 in EN-US:\nput me into a small space"
+		},
+		{
+			"key": "never giving up",
+			"value": "I don't want to quit\n\nTranslation to FR-FR:\nJe ne veux pas abandonner"
+		},
+		{
+			"key": "writing our own story",
+			"value": "write our authentic and beautiful truth"
+		},
+		{
+			"key": "trusting the journey",
+			"value": "trust in the more beautiful path\n\n\nText 2 in FI-FI:\nkatseet kohti tulevaisuutta\n\n\nText 2 in EN-US:\ngaze towards the future"
+		},
+		{
+			"key": "raw emotion",
+			"value": "basic human nature\n\n\nText 2 in FI-FI:\nrakkauden voima\n\n\nText 2 in EN-US:\nthe power of love"
+		},
+		{
+			"key": "facing fears head on",
+			"value": "face fear face to face\n\n\nText 2 in EN-US:\nonly stare into the eyes of our soul\n"
+		},
+		{
+			"key": "finding beauty in the chaos",
+			"value": "see the beauty in chaos"
+		},
+		{
+			"key": "endless possibilities",
+			"value": "countless possibilities"
+		},
+		{
+			"key": "conquering inner demons",
+			"value": "address past traumas\n\n"
+		},
+		{
+			"key": "redefining success",
+			"value": "expanding the concept of success\n"
+		},
+		{
+			"key": "embracing individuality",
+			"value": "praise uniqueness\n\nText 2 in FI-FI:\nkiittää ystävällisyydestä\n\nText 2 in EN-US:\nthank for kindness"
+		},
+		{
+			"key": "finding strength in vulnerability",
+			"value": "sensitivity is not a weakness"
+		},
+		{
+			"key": "striving for greatness",
+			"value": "do great work"
+		},
+		{
+			"key": "embracing the journey",
+			"value": "enjoy your journey\n"
+		},
+		{
+			"key": "carving our own path",
+			"value": "grind through the stone"
+		},
+		{
+			"key": "confronting our demons",
+			"value": "encounter the monsters of the past \n"
+		},
+		{
+			"key": "blazing our own trail",
+			"value": "walk your own path\n\nText 2 in FI-FI:\nkohtaa pelkosi ja hyväksy ne\n\n\nText 2 in EN-US:\nconfront your fears and accept them"
+		},
+		{
+			"key": "fueling the fire within",
+			"value": "let your inner flame blaze"
+		},
+		{
+			"key": "unapologetically oneself",
+			"value": "be your own scruffy self\n"
+		},
+		{
+			"key": "pushing past limitations",
+			"value": "Pushing over the goal\n"
+		},
+		{
+			"key": "rebelling against conformity",
+			"value": "rebel against normality\n"
+		},
+		{
+			"key": "releasing inner demons",
+			"value": "calm your mind \n\nText 2 in DE-DE:\nnehme dir Zeit für dich\n\nText 2 in EN-US:\ntake time for yourself"
+		},
+		{
+			"key": "redefining beauty",
+			"value": "expand the concept of beauty"
+		},
+		{
+			"key": "defining our own truth",
+			"value": "find your own truth"
+		},
+		{
+			"key": "learning to love ourselves",
+			"value": "Finding a reason to love oneself"
+		},
+		{
+			"key": "never looking back",
+			"value": "no longer thinks about the past"
+		},
+		{
+			"key": "wild and free",
+			"value": "can channel ancient human nature\n"
+		},
+		{
+			"key": "embracing imperfection",
+			"value": "accept that you are not perfect"
+		},
+		{
+			"key": "embracing individualism",
+			"value": "enjoy uniqueness"
+		},
+		{
+			"key": "carving our own destiny",
+			"value": "write your own destiny"
+		},
+		{
+			"key": "embracing the present",
+			"value": "enjoying the moment"
+		},
+		{
+			"key": "overcoming obstacles",
+			"value": "endure difficulties"
+		}
+	],
 	"releases": [
 		"my_page",
 		"pms_07",
