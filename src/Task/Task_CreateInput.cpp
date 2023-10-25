@@ -3945,4 +3945,28 @@ void Task::CreateInput_GetVocabulary() {
 			results.EmptyLine();
 		}
 	}
+	else if (args.fn == 1) {
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title("List of words and their unique equivalent");
+			list.Add("\"embrace\" -> \"embody\"");
+			list.Add("\"dream\" -> \"fantasia\"");
+			list.Add("\"hope\" -> \"aspiration\"");
+			list.Add("\"love\" -> \"adore\"");
+			list.Add("\"heart\" -> \"soul\"");
+		}
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title("A list of the 100 most significant words whose unique equivalent most defines the lyrical nature of a musical artist");
+			for(int i = 0; i < SIGNIFICANT_WORD_COUNT; i++) {
+				list.Add((String)"\"" + SignificantWords[i] + "\"");
+			}
+		}
+		{
+			String t = "20 European (non US) artist, which has the most surreal and allegorical English version of the allegorical word \"" + args.phrase + "\". Also with their country inside parentheses and the English version inside quotes";
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(t);
+			results.EmptyLine();
+		}
+	}
 }

@@ -925,6 +925,9 @@ enum {
 
 extern const char* ListenerTypeString[LISTENERTYPE_COUNT];
 
+#define SIGNIFICANT_WORD_COUNT 100
+extern const char* SignificantWords[SIGNIFICANT_WORD_COUNT];
+
 #define SIGNIFICANT_PHRASE_COUNT 100
 extern const char* SignificantPhrases[SIGNIFICANT_PHRASE_COUNT];
 
