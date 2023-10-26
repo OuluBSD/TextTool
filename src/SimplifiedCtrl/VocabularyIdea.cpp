@@ -249,11 +249,15 @@ void VocabularyIdeaCtrl::OnIdeaResult(String result, Song* song, int list_i, boo
 		auto& v = vocab[i];
 		v = Split(parts[i], "\n");
 		v.Remove(0);
-		for (String& s : v)
-			RemoveLineChar(s);
 		
-		if (v.GetCount() && v.Top().IsEmpty())
-			v.Remove(v.GetCount()-1);
+		Index<String> uniq;
+		for (String& s : v) {
+			RemoveLineChar(s);
+			if (s.GetCount())
+				uniq.FindAdd(s);
+		}
+		
+		v <<= uniq.GetKeys();
 	}
 	
 	PostCallback(THISBACK(DataResult));
