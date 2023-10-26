@@ -1,40 +1,29 @@
 #include "SimplifiedCtrl.h"
 
 
-struct ColorRowDisplay : Display {
-	virtual void Paint(Draw& w, const Rect& r, const Value& q,
-		               Color ink, Color paper, dword style) const
-	{
-		w.DrawRect(r, paper);
-		ValueArray va(q);
-		if (va.GetCount() == 0)
-			return;
-		Size sz = r.GetSize();
-		double cw = (double)sz.cx / va.GetCount();
-		for(int i = 0; i < va.GetCount(); i++) {
-			Color clr = va[i];
-			int x0 = (int)(cw * i);
-			int x1 = (int)(cw * (i+1));
-			Rect r0 = RectC(x0 + r.left, 0 + r.top, x1-x0, sz.cy);
-			w.DrawRect(r0, clr);
-		}
+void ColorRowDisplay::Paint(Draw& w, const Rect& r, const Value& q,
+		                    Color ink, Color paper, dword style) const {
+	w.DrawRect(r, paper);
+	ValueArray va(q);
+	if (va.GetCount() == 0)
+		return;
+	Size sz = r.GetSize();
+	double cw = (double)sz.cx / va.GetCount();
+	for(int i = 0; i < va.GetCount(); i++) {
+		Color clr = va[i];
+		int x0 = (int)(cw * i);
+		int x1 = (int)(cw * (i+1));
+		Rect r0 = RectC(x0 + r.left, 0 + r.top, x1-x0, sz.cy);
+		w.DrawRect(r0, clr);
 	}
-	/*virtual void PaintBackground(Draw& w, const Rect& r, const Value& q,
-	                             Color ink, Color paper, dword style) const {
-		Paint(w, r, q, ink, paper, style);
-	}*/
-};
+}
 
-struct ColorRowCtrl : Ctrl {
-	ColorRowDisplay disp;
-	virtual void Paint(Draw& w)
-	{
-		Color paper = White();
-		Rect r = GetSize();
-		Value q = GetData();
-		disp.Paint(w, r, q, Black(), White(), 0);
-	}
-};
+void ColorRowCtrl::Paint(Draw& w) {
+	Color paper = White();
+	Rect r = GetSize();
+	Value q = GetData();
+	disp.Paint(w, r, q, Black(), White(), 0);
+}
 
 
 

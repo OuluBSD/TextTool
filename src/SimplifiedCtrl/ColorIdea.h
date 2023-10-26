@@ -2,6 +2,17 @@
 #define _SimplifiedCtrl_ColorIdea_h_
 
 
+struct ColorRowDisplay : Display {
+	virtual void Paint(Draw& w, const Rect& r, const Value& q,
+		               Color ink, Color paper, dword style) const;
+};
+
+struct ColorRowCtrl : Ctrl {
+	ColorRowDisplay disp;
+	virtual void Paint(Draw& w);
+};
+
+
 class ColorIdeaCtrl : public SongToolCtrl {
 	ArrayCtrl list;
 	

@@ -3935,7 +3935,7 @@ void Task::CreateInput_GetVocabulary() {
 			TaskTitledList& list = input.AddSub();
 			list.Title("A list of the 100 most significant phrases whose unique equivalent most defines the lyrical nature of a musical artist");
 			for(int i = 0; i < SIGNIFICANT_PHRASE_COUNT; i++) {
-				list.Add((String)"\"" + SignificantPhrases[i] + "\"");
+				list.Add((String)"\"" + SignificantPhrases[VOCABULARYTYPE_IMPORTANT_PHRASE][i].txt + "\"");
 			}
 		}
 		{
@@ -3958,8 +3958,8 @@ void Task::CreateInput_GetVocabulary() {
 		{
 			TaskTitledList& list = input.AddSub();
 			list.Title("A list of the 100 most significant words whose unique equivalent most defines the lyrical nature of a musical artist");
-			for(int i = 0; i < SIGNIFICANT_WORD_COUNT; i++) {
-				list.Add((String)"\"" + SignificantWords[i] + "\"");
+			for(int i = 0; i < SIGNIFICANT_PHRASE_COUNT; i++) {
+				list.Add((String)"\"" + SignificantPhrases[VOCABULARYTYPE_IMPORTANT_WORD][i].txt + "\"");
 			}
 		}
 		{
@@ -3968,5 +3968,85 @@ void Task::CreateInput_GetVocabulary() {
 			results.Title(t);
 			results.EmptyLine();
 		}
+	}
+}
+
+void Task::CreateInput_GetVocabularyIdea() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	VocabularyIdeaArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		{
+			input.AddSub().NoColon()
+				.Title("Constructing a single line of text for a verse of lyrics of a song");
+		}
+		if (args.visual.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Visual idea of the story \"A\"");
+			for (const auto& s : args.visual)
+				list.Add(s);
+		}
+		if (args.characters.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Characters of the environment of the story \"A\"");
+			for (const auto& s : args.characters)
+				list.Add(s);
+		}
+		if (args.dialogue1.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Dialogue example 1 of the story \"A\"");
+			for (const auto& s : args.dialogue1)
+				list.Add(s);
+		}
+		if (args.dialogue2.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Dialogue example 2 of the story \"A\"");
+			for (const auto& s : args.dialogue2)
+				list.Add(s);
+		}
+		if (args.colors.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Metaphorical colors for the " + IntStr(args.phrases.GetCount()) + " sequential parts of the single text line of the story \"A\"");
+			list.NumberedLines();
+			for (const Color& c : args.colors) {
+				String s = "RGB(";
+				s << c.GetR() << "," << c.GetG() << "," << c.GetB() << ")";
+				list.Add(s);
+			}
+		}
+		
+		if (args.phrases.GetCount()) {
+			for(int i = 0; i < args.phrases.GetCount(); i++) {
+				const auto& v = args.phrases[i];
+				if (v.IsEmpty()) continue;
+				TaskTitledList& list = input.AddSub();
+				list.Title("Random phrases with correct metaphorical RGB color value for the part " + IntStr(i+1) + " of " + IntStr(args.phrases.GetCount()));
+				for (const auto& s : v)
+					list.Add(s);
+			}
+		}
+		{
+			input.AddSub().NoColon()
+				.Title("Getting a collection of 30 the most relevant words for all " + IntStr(args.colors.GetCount()) + " sequential parts of the story \"A\"");
+		}
+		{
+			String s;
+			if (args.colors.GetCount()) {
+				Color c = args.colors[0];
+				s = "RGB(";
+				s << c.GetR() << "," << c.GetG() << "," << c.GetB() << ")";
+			}
+			
+			String t = "1/" + IntStr(args.colors.GetCount()) + ": A collection of 30 the most story-dialogue-relevant positive and negative words for the part 1 of the story \"A\". Metaphorical color matches the " + s;
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(t);
+			results.EmptyLine();
+		}
+		input.response_length = 2*1024;
 	}
 }

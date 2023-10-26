@@ -88,8 +88,7 @@ protected:
 	VocabularyIdeaCtrl		vocab_idea;
 	WordSaladIdeaCtrl		wordsalad_idea;
 	TextIdeaCtrl			text_idea;
-	VocabularyCtrl			words;
-	VocabularyCtrl			phrases;
+	VocabularyCtrl			vocabulary;
 	
 public:
 	typedef Editor CLASSNAME;

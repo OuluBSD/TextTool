@@ -353,6 +353,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetVocabulary)
 		;
 	
+	AddRule(TASK_GET_VOCABULARY_IDEA, "get vocabulary idea")
+		.Input(&Task::CreateInput_GetVocabularyIdea)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetVocabularyIdea)
+		;
+	
 	
 	
 	
@@ -1827,6 +1834,24 @@ void TaskMgr::GetVocabulary(const VocabularyArgs& args, Event<String> WhenResult
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_VOCABULARY);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetVocabularyIdea(const VocabularyIdeaArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_VOCABULARY_IDEA);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
 	String s = args.Get();

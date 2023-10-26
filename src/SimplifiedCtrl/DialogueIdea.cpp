@@ -320,3 +320,4 @@ void DialogueIdeaCtrl::OnPartDialogueIdeaStyleSuggestions(String res, Song* song
 	if (start_next && i+1 < song->parts.GetCount())
 		PostCallback(THISBACK2(GetStyleSuggestions, i+1, true));
 }
+

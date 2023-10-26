@@ -1894,3 +1894,7 @@ void Task::Process_GetColorIdea() {
 void Task::Process_GetVocabulary() {
 	WhenResult(output);
 }
+
+void Task::Process_GetVocabularyIdea() {
+	WhenResult("A collection of 30 the most relevant words for the part 1 of\n" + output);
+}

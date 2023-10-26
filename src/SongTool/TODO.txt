@@ -1,11 +1,5 @@
 High priority:
-- vocabulary: for artist, for release, for song
-	- collect nouns, verbs, adjectives from AI
-	- make an ESSENTIAL list for the phrases with AI "to have passion", "beautiful woman" (max 100 phrases)
-	- get examples of phrases from AI, how the extremely generic poet says them
-	- translate to FINNISH to get a feel of phrases with AI
-	- fill in the form by yourself
-- vocabulary idea: give vocabulary and color's of part and get part's vocabulary
+- vocabulary idea: set vocabulary and color for part
 - another prod text, which only takes into account the story
 - combine score and order
 - color lines + dialogue idea (ready-made) = lyric?
@@ -43,3 +37,9 @@ Done:
 		= text/lyrics as a sound, and ONLY as a sound
 - "listener colors"
 	- continue through the songs through the entire release
+x? vocabulary: for artist, for release, for song
+	? collect nouns, verbs, adjectives from AI
+	x make an ESSENTIAL list for the phrases with AI "to have passion", "beautiful woman" (max 100 phrases)
+	x get examples of phrases from AI, how the extremely generic poet says them
+	? translate to FINNISH to get a feel of phrases with AI
+	x fill in the form by yourself

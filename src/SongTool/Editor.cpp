@@ -1,7 +1,7 @@
 #include "SongTool.h"
 
 
-Editor::Editor(SongTool* app) : app(*app), words(true), phrases(false) {
+Editor::Editor(SongTool* app) : app(*app) {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << menusplit << base;
@@ -102,9 +102,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("All"), t_("Press Release"), pressrel);
 	AddItem(t_("All"), t_("Public Relations"), pubrel);
 	AddItem(t_("All"), t_("Marketing"), marketing);
-	
-	AddItem(t_("Vocabulary"), t_("Words"), words);
-	AddItem(t_("Vocabulary"), t_("Phrases"), phrases);
+	AddItem(t_("All"), t_("Vocabulary"), vocabulary);
 	
 	AddItem(t_("Album"), t_("Briefing"), album_briefing);
 	AddItem(t_("Album"), t_("Idea notepad"), album_ideas);

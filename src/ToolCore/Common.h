@@ -594,6 +594,8 @@ Color GetGenderColor(SnapMode m);
 int CountWords(const String& s);
 
 String FixInvalidChars(const String& s);
+void RemoveLineNumber(String& s);
+void RemoveLineChar(String& s);
 
 template <class T>
 void CalculateWeightedGenderDifference(Vector<double>& values, const Vector<T>& score, const Vector<T>& other_score);
@@ -910,6 +912,7 @@ extern const char* DialogueStyleString[DIALOGUESTYLE_COUNT];
 extern Color DialogueStyleColors[DIALOGUESTYLE_COUNT];
 
 int FindDialogueStyle(String value);
+int GetColorDistance(const Color& a, const Color& b);
 
 const Vector<String>& InlineRapperList();
 const Vector<String>& OtherRapperList();
@@ -925,11 +928,32 @@ enum {
 
 extern const char* ListenerTypeString[LISTENERTYPE_COUNT];
 
-#define SIGNIFICANT_WORD_COUNT 100
-extern const char* SignificantWords[SIGNIFICANT_WORD_COUNT];
+struct ColoredText {
+	const char* txt;
+	byte r, g, b;
+	
+	Color GetColor() const {ASSERT(txt); return Color(r,g,b);}
+	String GetText() const {ASSERT(txt); return txt;}
+};
+
+enum {
+	VOCABULARYTYPE_IMPORTANT_WORD,
+	VOCABULARYTYPE_POSITIVE_WORD,
+	VOCABULARYTYPE_NEGATIVE_WORD,
+	
+	VOCABULARYTYPE_IMPORTANT_PHRASE,
+	VOCABULARYTYPE_POSITIVE_PHRASE,
+	VOCABULARYTYPE_NEGATIVE_PHRASE,
+	
+	VOCABULARYTYPE_COUNT,
+	
+	VOCABULARYTYPE_WORDCOUNT = VOCABULARYTYPE_IMPORTANT_PHRASE
+};
+
+extern const char* VocabularyTypeString[VOCABULARYTYPE_COUNT];
 
 #define SIGNIFICANT_PHRASE_COUNT 100
-extern const char* SignificantPhrases[SIGNIFICANT_PHRASE_COUNT];
+extern ColoredText SignificantPhrases[VOCABULARYTYPE_COUNT][SIGNIFICANT_PHRASE_COUNT];
 
 
 #endif

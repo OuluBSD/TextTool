@@ -6,11 +6,10 @@ class VocabularyCtrl : public SongToolCtrl {
 	Splitter vsplit;
 	ArrayCtrl list, examples;
 	DropList dl;
-	bool is_wordmode = false;
 	
 public:
 	typedef VocabularyCtrl CLASSNAME;
-	VocabularyCtrl(bool is_wordmode);
+	VocabularyCtrl();
 	
 	void DisableAll();
 	void EnableAll();
@@ -26,10 +25,10 @@ public:
 	void OnPhraseList();
 	void OnTranslateResult(String result, Artist* a, int list_i);
 	void OnVocabularyVariations(String result, Artist* a, int list_i);
-	int GetCount() const {return is_wordmode ? SIGNIFICANT_WORD_COUNT : SIGNIFICANT_PHRASE_COUNT;}
-	const char* Get(int i) const {return is_wordmode ? SignificantWords[i] : SignificantPhrases[i];}
-	
-	void SetWordMode() {is_wordmode = true;}
+	int GetCount() const {return SIGNIFICANT_PHRASE_COUNT;}
+	const char* Get(int type, int i) const {Chk(type,i); return SignificantPhrases[type][i].txt;}
+	Color GetColor(int type, int i) const {Chk(type,i); return SignificantPhrases[type][i].GetColor();}
+	void Chk(int type, int i) const {ASSERT(type >= 0 && type < VOCABULARYTYPE_COUNT); ASSERT(i >= 0 && i < SIGNIFICANT_PHRASE_COUNT);}
 	
 };
 

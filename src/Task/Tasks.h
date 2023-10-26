@@ -248,6 +248,7 @@ public:
 	void CreateInput_GetPartDialogueIdeaStyleSuggestions();
 	void CreateInput_GetColorIdea();
 	void CreateInput_GetVocabulary();
+	void CreateInput_GetVocabularyIdea();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -327,6 +328,7 @@ public:
 	void Process_GetPartDialogueIdeaStyleSuggestions();
 	void Process_GetColorIdea();
 	void Process_GetVocabulary();
+	void Process_GetVocabularyIdea();
 	
 	void Retry(bool skip_prompt, bool skip_cache);
 	String GetDescription() const;

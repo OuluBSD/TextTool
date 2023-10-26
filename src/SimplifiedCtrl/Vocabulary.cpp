@@ -1,22 +1,23 @@
 #include "SimplifiedCtrl.h"
 
 
-VocabularyCtrl::VocabularyCtrl(bool is_wordmode) : is_wordmode(is_wordmode) {
+VocabularyCtrl::VocabularyCtrl() {
 	Add(vsplit.SizePos());
 	vsplit.Vert() << list << examples;
 	
-	String what = is_wordmode ? t_("word") : t_("phrase");
-	
+	list.AddColumn(t_("Type"));
 	list.AddColumn(t_("#"));
-	list.AddColumn(t_("Example ") + what);
-	list.AddColumn(t_("Artist's native ") + what);
-	list.AddColumn(t_("Translated English artist's ") + what);
-	list.ColumnWidths("1 6 6 6");
+	list.AddColumn(t_("Example phrase"));
+	list.AddColumn(t_("Artist's native phrase"));
+	list.AddColumn(t_("Translated English artist's phrase"));
+	list.AddIndex("TYPE");
+	list.AddIndex("IDX");
+	list.ColumnWidths("2 1 6 6 6");
 	list.WhenCursor = THISBACK(OnPhraseList);
 	
 	examples.AddColumn(t_("Artist"));
 	examples.AddColumn(t_("Country"));
-	examples.AddColumn(what);
+	examples.AddColumn(t_("Phrase"));
 	examples.ColumnWidths("2 1 6");
 	
 	
@@ -35,27 +36,38 @@ void VocabularyCtrl::Data() {
 	EditorPtrs& p = db.ctx.ed;
 	if (!p.artist) return;
 	
-	for(int i = 0; i < GetCount(); i++) {
-		const char* key = Get(i);
-		
-		list.Set(i, 0, i);
-		list.Set(i, 1, key);
-		list.Set(i, 2, Value());
-		list.Set(i, 3, Value());
-		
-		EditString& ed = list.CreateCtrl<UPP::EditString>(i, 2);
-		int j = p.artist->phrases_nat.Find(key);
-		if (j >= 0) {
-			ed.SetData(p.artist->phrases_nat[j]);
-			//list.Set(i, 2, p.artist->phrases[j]);
+	int row = 0;
+	for (int t = 0; t < VOCABULARYTYPE_COUNT; t++) {
+		for(int i = 0; i < GetCount(); i++) {
+			const char* key = Get(t,i);
+			Color clr = GetColor(t,i);
+			
+			list.Set(row, "TYPE", t);
+			list.Set(row, "IDX", i);
+			list.Set(row, 0, VocabularyTypeString[t]);
+			list.Set(row, 1, i);
+			list.Set(row, 2, AttrText(key)
+				.NormalPaper(Blend(clr, White(), 128+64)).NormalInk(Black)
+				.Paper(Blend(clr, GrayColor(), 128)).Ink(White())
+				);
+			list.Set(row, 3, Value());
+			list.Set(row, 4, Value());
+			
+			EditString& ed = list.CreateCtrl<UPP::EditString>(i, 3);
+			int j = p.artist->phrases_nat.Find(key);
+			if (j >= 0) {
+				ed.SetData(p.artist->phrases_nat[j]);
+			}
+			ed.WhenAction = [&p,&ed,i, key]() {
+				p.artist->phrases_nat.GetAdd(key) = ed.GetData();
+			};
+			
+			j = p.artist->phrases_eng.Find(Get(t,i));
+			if (j >= 0)
+				list.Set(row, 4, p.artist->phrases_eng[j]);
+			
+			row++;
 		}
-		ed.WhenAction = [&p,&ed,i, key]() {
-			p.artist->phrases_nat.GetAdd(key) = ed.GetData();
-		};
-		
-		j = p.artist->phrases_eng.Find(Get(i));
-		if (j >= 0)
-			list.Set(i, 3, p.artist->phrases_eng[j]);
 	}
 }
 
@@ -97,7 +109,9 @@ void VocabularyCtrl::TranslateArtistPhrases() {
 	}
 	Artist& a = *p.artist;
 	int list_i = list.GetCursor();
-	String eng_phrase = Get(list_i);
+	int type = list.Get(list_i, "TYPE");
+	int idx = list.Get(list_i, "IDX");
+	String eng_phrase = Get(type, idx);
 	String nat_phrase = a.phrases_nat.Get(eng_phrase, "");
 	
 	if (nat_phrase.IsEmpty())
@@ -118,10 +132,12 @@ void VocabularyCtrl::TranslateArtistPhrases() {
 void VocabularyCtrl::OnTranslateResult(String result, Artist* a, int list_i) {
 	result = TrimBoth(result);
 	
-	String eng_phrase = Get(list_i);
+	int type = list.Get(list_i, "TYPE");
+	int idx = list.Get(list_i, "IDX");
+	String eng_phrase = Get(type, idx);
 	a->phrases_eng.GetAdd(eng_phrase) = result;
 	
-	list.Set(list_i, 3, result);
+	list.Set(list_i, 4, result);
 }
 
 void VocabularyCtrl::ClearArtistPhrases() {
@@ -132,12 +148,14 @@ void VocabularyCtrl::ClearArtistPhrases() {
 	}
 	Artist& a = *p.artist;
 	int list_i = list.GetCursor();
-	String eng_phrase = Get(list_i);
+	int type = list.Get(list_i, "TYPE");
+	int idx = list.Get(list_i, "IDX");
+	String eng_phrase = Get(type,idx);
 	a.phrases_nat.RemoveKey(eng_phrase);
 	a.phrases_eng.RemoveKey(eng_phrase);
 	
-	list.Set(list_i, 2, Value());
 	list.Set(list_i, 3, Value());
+	list.Set(list_i, 4, Value());
 }
 
 void VocabularyCtrl::CopyExamplePhrase() {
@@ -148,12 +166,14 @@ void VocabularyCtrl::CopyExamplePhrase() {
 	}
 	Artist& a = *p.artist;
 	int list_i = list.GetCursor();
+	int type = list.Get(list_i, "TYPE");
+	int idx = list.Get(list_i, "IDX");
 	int examples_i = examples.GetCursor();
-	String eng_phrase = Get(list_i);
+	String eng_phrase = Get(type,idx);
 	String user_phrase = examples.Get(examples_i, 2);
 	a.phrases_eng.GetAdd(eng_phrase) = user_phrase;
 	
-	list.Set(list_i, 3, user_phrase);
+	list.Set(list_i, 4, user_phrase);
 }
 
 void VocabularyCtrl::CopyArtistPhrase() {
@@ -186,10 +206,12 @@ void VocabularyCtrl::OnPhraseList() {
 	}
 	Artist& a = *p.artist;
 	int list_i = list.GetCursor();
+	int type = list.Get(list_i, "TYPE");
+	int idx = list.Get(list_i, "IDX");
 	
 	VocabularyArgs args;
-	args.fn = is_wordmode ? 1 : 0;
-	args.phrase = Get(list_i);
+	args.fn = type < VOCABULARYTYPE_WORDCOUNT ? 1 : 0;
+	args.phrase = Get(type, idx);
 	
 	Song& s = *p.song;
 	

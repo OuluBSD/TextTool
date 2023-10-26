@@ -130,6 +130,7 @@ struct TaskMgr {
 	void GetPartDialogueIdeaStyleSuggestions(const VisualContextArgs& args, Event<String> WhenResult);
 	void GetColorIdea(const ColorIdeaArgs& args, Event<String> WhenResult);
 	void GetVocabulary(const VocabularyArgs& args, Event<String> WhenResult);
+	void GetVocabularyIdea(const VocabularyIdeaArgs& args, Event<String> WhenResult);
 	
 };
 
