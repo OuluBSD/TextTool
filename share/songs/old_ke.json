@@ -2914,76 +2914,351 @@
 						"Otherworldly",
 						"Fascinating"
 					]
+				],
+				[
+					[
+						"Mysterious",
+						"playful",
+						"mischievous",
+						"enchanting",
+						"curious",
+						"wondrous",
+						"magical",
+						"hidden",
+						"secretive",
+						"whimsical",
+						"thrilling",
+						"devilish",
+						"spirited",
+						"eerie",
+						"bewitching",
+						"otherworldly",
+						"charming",
+						"alluring",
+						"unpredictable",
+						"dangerous",
+						"elusive",
+						"bewitched",
+						"tricky",
+						"Who knows",
+						"captivating",
+						"cunning"
+					],
+					[
+						"Adventurous",
+						"daring",
+						"bold",
+						"brave",
+						"courageous",
+						"fearless",
+						"curious",
+						"inquisitive",
+						"excited",
+						"friendly",
+						"welcoming",
+						"hospitable",
+						"lively",
+						"energetic",
+						"spirited",
+						"joyful",
+						"exhilarating",
+						"captivating",
+						"alluring",
+						"playful",
+						"fascinating",
+						"magical",
+						"entertaining",
+						"awe-inspiring",
+						"enriching",
+						"memorable"
+					],
+					[
+						"Tranquil",
+						"peaceful",
+						"serene",
+						"calming",
+						"soothing",
+						"relaxing",
+						"idyllic",
+						"magical",
+						"enchanting",
+						"whimsical",
+						"ethereal",
+						"dreamy",
+						"mystical",
+						"rejuvenating",
+						"refreshing",
+						"revitalizing",
+						"invigorating",
+						"reviving",
+						"renewing",
+						"restorative",
+						"tranquil",
+						"blissful",
+						"soulful",
+						"gentle"
+					],
+					[
+						"Bewitched",
+						"mysterious",
+						"magical",
+						"alluring",
+						"charming",
+						"captivating",
+						"enchanting",
+						"mystical",
+						"curious",
+						"haunting",
+						"bewitched",
+						"bewildering",
+						"confounding",
+						"perplexing",
+						"unexplainable",
+						"puzzling",
+						"uncanny",
+						"eerie",
+						"enigmatic",
+						"inscrutable",
+						"mythic",
+						"supernatural",
+						"occult",
+						"cryptic",
+						"secret"
+					],
+					[
+						"Frightening",
+						"eerie",
+						"ominous",
+						"unsettling",
+						"dark",
+						"disturbing",
+						"somber",
+						"melancholic",
+						"creepy",
+						"cryptic",
+						"mysterious",
+						"gloomy",
+						"brooding",
+						"chilling",
+						"haunting",
+						"malevolent",
+						"sinister",
+						"foreboding",
+						"looming"
+					],
+					[
+						"Vibrant",
+						"lively",
+						"energetic",
+						"playful",
+						"cheerful",
+						"joyful",
+						"gleeful",
+						"merry",
+						"jubilant",
+						"jovial",
+						"jolly",
+						"effervescent",
+						"dynamic",
+						"vivid",
+						"vibrant",
+						"exhilarating",
+						"exciting",
+						"exuberant",
+						"ecstatic",
+						"vivacious",
+						"spirited",
+						"flamboyant",
+						"radiant",
+						"joyous"
+					],
+					[
+						"Mysterious",
+						"adventurous",
+						"thrilling",
+						"exciting",
+						"captivating",
+						"tantalizing",
+						"enigmatic",
+						"puzzling",
+						"mesmerizing",
+						"enthralling",
+						"gripping",
+						"spellbinding",
+						"hypnotic",
+						"wondrous",
+						"astonishing",
+						"fantastical",
+						"incredible",
+						"marvelous",
+						"astounding",
+						"jaw-dropping",
+						"spectacular",
+						"extraordinary",
+						"magnificent",
+						"breathtaking",
+						"awe-inspiring"
+					],
+					[
+						"Mystifying",
+						"elusive",
+						"secretive",
+						"puzzling",
+						"enigmatic",
+						"baffling",
+						"mysterious",
+						"hidden",
+						"incomprehensible",
+						"inscrutable",
+						"unsolvable",
+						"perplexing",
+						"cryptic",
+						"confounding",
+						"devilish",
+						"captivating",
+						"alluring",
+						"intriguing",
+						"impossible",
+						"extraordinary"
+					]
 				]
 			],
 			"wordsalads": [
 				[
 					"The sparkling snow filled me with a sense of wonder and excitement.",
-					"Memories of my childhood dreams of magical creatures flooded my mind.",
-					"As I gazed upon the snowy landscape, I felt a peaceful nostalgia wash over me.",
-					"The twinkle in my eye matched the mysterious glow of a tiny elf.",
 					"In that moment, I was swept away on an adventure through a majestic and enchanting world.",
-					"A gleeful joy bubbled up inside me as I followed the enigmatic elf deeper into the unknown.",
-					"The deep, dark indigo of the sky mirrored the depths of my awe and amazement.",
-					"Bright green sparkles and glittering snowflakes surrounded me, filling me with exhilaration.",
-					"The cozy cabin, lit by twinkling lights, felt like a secret hideaway filled with magic.",
-					"I couldn't shake the sense of serenity and contentment that enveloped me in that enchanted forest.",
+					"Mesmerized by the ethereal beauty, I felt like a child lost in a world of magic and fantasy.",
 					"The beguiling mysteries of this world promised endless adventures and surprises.",
-					"Awe and wonder consumed me as I tried to unravel the enigma of the elves' glittering home.",
-					"Mesmerized by the ethereal beauty, I felt like a child lost in a world of magic and fantasy.",
-					"Deep in the woods, a hidden realm awaited, inviting me to explore its secrets and charm.",
-					"As the sun set over the mountains, the peaceful and calming shades of blue filled the sky.",
-					"Breathtaking vistas and boundless possibilities stretched out before me, beckoning me to adventure.",
-					"Every step I took in this enchanted world felt like a delightful revelation.",
-					"The familiar sense of elation and bliss washed over me as I embraced the wonder of it all.",
-					"It was as if the world was painted in dazzling hues, designed just for my enjoyment.",
-					"The curious nature of the elves and their world enchanted me, pulling me further into their mystique.",
-					"In this magical place, anything felt possible, guiding me towards endless potential.",
 					"I wanted to forget all my worries, immersed in the captivating world of sparkling elves.",
-					"Like a child chasing a rainbow, I eagerly followed the elusive elf deeper into the unknown.",
-					"A sense of wonder and awe consumed me as I explored the enigmatic and mysterious forest.",
-					"Mesmerized by the ethereal beauty, I felt like a child lost in a world of magic and fantasy.",
-					"The deep, dark indigo of the sky mirrored the depths of my awe and amazement.",
+					"The twinkle in my eye matched the mysterious glow of a tiny elf.",
 					"Bright green sparkles and glittering snowflakes surrounded me, filling me with exhilaration.",
+					"Like a child chasing a rainbow, I eagerly followed the elusive elf deeper into the unknown.",
 					"As I gazed upon the snowy landscape, I felt a peaceful nostalgia wash over me.",
-					"In that moment, I was swept away on an adventure through a majestic and enchanting world.",
-					"Memories of my childhood dreams of magical creatures flooded my mind.",
+					"In this magical place, anything felt possible, guiding me towards endless potential.",
+					"In this enchanted world, anything felt possible, filling me with joy and endless possibilities.",
+					"I couldn't shake the sense of serenity and contentment that enveloped me in that enchanted forest.",
+					"Breathtaking vistas and boundless possibilities stretched out before me, beckoning me to adventure.",
+					"Awe and wonder consumed me as I tried to unravel the enigma of the elves' glittering home.",
+					"Deep in the woods, a hidden realm awaited, inviting me to explore its secrets and charm.",
+					"A gleeful joy bubbled up inside me as I followed the enigmatic elf deeper into the unknown.",
 					"The twinkling snowflakes danced around me, creating a magical symphony of colors and wonder.",
-					"In this enchanted world, anything felt possible, filling me with joy and endless possibilities."
+					"Mesmerized by the ethereal beauty, I felt like a child lost in a world of magic and fantasy.",
+					"In that moment, I was swept away on an adventure through a majestic and enchanting world.",
+					"The deep, dark indigo of the sky mirrored the depths of my awe and amazement.",
+					"Memories of my childhood dreams of magical creatures flooded my mind.",
+					"As the sun set over the mountains, the peaceful and calming shades of blue filled the sky.",
+					"A sense of wonder and awe consumed me as I explored the enigmatic and mysterious forest.",
+					"The cozy cabin, lit by twinkling lights, felt like a secret hideaway filled with magic.",
+					"Every step I took in this enchanted world felt like a delightful revelation.",
+					"As I gazed upon the snowy landscape, I felt a peaceful nostalgia wash over me.",
+					"It was as if the world was painted in dazzling hues, designed just for my enjoyment.",
+					"Memories of my childhood dreams of magical creatures flooded my mind.",
+					"The curious nature of the elves and their world enchanted me, pulling me further into their mystique.",
+					"The familiar sense of elation and bliss washed over me as I embraced the wonder of it all.",
+					"The deep, dark indigo of the sky mirrored the depths of my awe and amazement.",
+					"Bright green sparkles and glittering snowflakes surrounded me, filling me with exhilaration."
 				],
 				[
 					"The sparkly trees danced in the snowfall, creating a whimsical and magical atmosphere.",
-					"Giddy with excitement, they chased after the playful little creatures.",
-					"The snowflakes surrounded them, casting a serene and dreamy spell.",
-					"But there was also a tense and watchful presence among the trees.",
-					"And in the silence, a peaceful and nostalgic feeling washed over them.",
-					"They couldn't shake off the eerie sense of mystery and enchantment.",
-					"Mesmerized by the snow-covered landscape, they were joyfully lost in the moment.",
-					"As they trekked through the forest, there was an undercurrent of cautiousness.",
-					"But their sense of wonder and adventure was stronger, drawing them forward.",
-					"The snowfall had transformed the world into a fantastical wonderland.",
-					"As they caught a glimpse of something unknown and bewitching, their hearts raced.",
-					"The trees seemed to whisper secrets to them, spurring their curiosity.",
-					"And yet, they couldn't help but feel a deep sense of serenity and peace.",
-					"The snowflakes danced around them, enchanting and mesmerizing.",
-					"It was like stepping into a dream world, filled with beauty and mystery.",
-					"But as they continued on, a bewilderment and uncertainty crept in.",
 					"The snow sparkled and shone under the winter sun, a dazzling sight.",
-					"The friends laughed and played in the snow, a refreshing and lively energy.",
-					"And in the midst of all this magic, they couldn't deny the underlying tension.",
 					"Yet, they couldn't help but feel blissfully and wholeheartedly alive.",
-					"It was like a dream they never wanted to wake up from, enveloping them in its charm.",
 					"Their fear and reservation faded away as they were swept up in the joy and serenity.",
-					"Each step felt like they were discovering something new and unexplored.",
-					"The playfulness and delight of the creatures rubbed off on them, infecting them with joy.",
-					"As they basked in the wonder and enchantment, they longed for it to never end.",
-					"The snow seemed to carry secrets and mysteries, beckoning them to uncover them.",
-					"And with each new discovery, their sense of awe and wonder grew stronger.",
+					"Mesmerized by the snow-covered landscape, they were joyfully lost in the moment.",
+					"But there was also a tense and watchful presence among the trees.",
 					"The snowfall created a peaceful and dreamy backdrop for their journey.",
+					"The playfulness and delight of the creatures rubbed off on them, infecting them with joy.",
+					"The friends laughed and played in the snow, a refreshing and lively energy.",
+					"But as they continued on, a bewilderment and uncertainty crept in.",
+					"The snowflakes danced around them, enchanting and mesmerizing.",
+					"And in the silence, a peaceful and nostalgic feeling washed over them.",
+					"And yet, they couldn't help but feel a deep sense of serenity and peace.",
 					"But as the day grew darker and colder, a hint of unease began to settle in.",
-					"Yet, their hearts were still filled with a nostalgic and magical feeling.",
 					"And in their minds, everything seemed to be coated in a layer of whimsy and fantasy.",
-					"Despite the unknown dangers, they couldn't resist chasing after the elusive creatures."
+					"It was like a dream they never wanted to wake up from, enveloping them in its charm.",
+					"The snowflakes surrounded them, casting a serene and dreamy spell.",
+					"Despite the unknown dangers, they couldn't resist chasing after the elusive creatures.",
+					"The snow seemed to carry secrets and mysteries, beckoning them to uncover them.",
+					"But their sense of wonder and adventure was stronger, drawing them forward.",
+					"Each step felt like they were discovering something new and unexplored.",
+					"The trees seemed to whisper secrets to them, spurring their curiosity.",
+					"The snowfall had transformed the world into a fantastical wonderland.",
+					"Yet, their hearts were still filled with a nostalgic and magical feeling.",
+					"And with each new discovery, their sense of awe and wonder grew stronger.",
+					"They couldn't shake off the eerie sense of mystery and enchantment.",
+					"It was like stepping into a dream world, filled with beauty and mystery.",
+					"As they basked in the wonder and enchantment, they longed for it to never end.",
+					"As they trekked through the forest, there was an undercurrent of cautiousness.",
+					"As they caught a glimpse of something unknown and bewitching, their hearts raced.",
+					"Giddy with excitement, they chased after the playful little creatures.",
+					"And in the midst of all this magic, they couldn't deny the underlying tension."
+				],
+				[
+					"I felt grateful and blessed to experience the magic of this wondrous place.",
+					"Everywhere I looked, there was something fascinating to behold.",
+					"It was as if I had slipped into another dimension, a world of pure imagination.",
+					"My heart was filled with wonder as I took in the ethereal surroundings.",
+					"The elven city shimmered like a mirage, an otherworldly beauty captured in time.",
+					"A sense of mystique and wonder lingered in the air, bewitching all who entered.",
+					"I couldn't help but be mesmerized by the enchanting glow of the elves.",
+					"The whimsical elves sang and danced, casting a spell on my soul.",
+					"My soul was filled with nostalgia as I glimpsed the familiar sights of my childhood.",
+					"All thoughts of the outside world faded away as I became immersed in this realm.",
+					"No words could do justice to the beauty and wonder of this fairy tale land.",
+					"As I gazed upon the majestic elven city, I felt amazed and bewildered.",
+					"Surrounded by enchanted creatures, my heart fluttered with joy.",
+					"The beauty of this place was simply astonishing, a feast for the senses.",
+					"Through the whimsical woods, I followed the glow of the mystical elven world.",
+					"The peaceful serenity of this place was like a balm for my soul.",
+					"The atmosphere was both magical and mysterious, filling me with awe.",
+					"My spirit felt rejuvenated, free to roam in this enchanted paradise.",
+					"Each moment in this world felt like a dream, a surreal escape from reality.",
+					"Lost in the charm of the elves, I felt like I had found my true home.",
+					"Amidst the stunning scenery, I felt my heart swell with joy and gratitude.",
+					"My heart raced with anticipation, curious to see what lay ahead in this strange place.",
+					"As I explored this enchanting land, I felt like a child again, full of wonder.",
+					"My mind raced with excitement, eager to explore this wondrous place.",
+					"The elves danced with wild abandon, their movements pulsating with energy.",
+					"Eyes wide with amazement, I watched as the elves performed their rituals.",
+					"My soul soared in this place of magic, leaving behind the burdens of reality.",
+					"Looking back, it all seemed like a dream, a distant memory of wonder.",
+					"The vibrant energy of this realm filled me with adventurous spirit.",
+					"In this world of fantasy and imagination, anything was possible.",
+					"Lost in this realm of enchantment, I felt like a bewitched observer.",
+					"I couldn't help but feel entranced by the mystical aura of this world."
+				],
+				[
+					"The curious travelers followed the playful creatures through a maze of hidden tunnels, their adventurous spirits leading the way.",
+					"The enchanted forest seemed to come alive as the playful creatures danced through the moonlit glades.",
+					"As the mysterious creatures led them deeper into the forest, the travelers felt a sense of trepidation and excitement.",
+					"As the night wore on, the mystical creatures reveled in a magical feast, their eerie laughter echoing through the forest.",
+					"The playful creatures seemed to have an endless supply of tricks and games, keeping the travelers on their toes.",
+					"Mystical plants and creatures filled the enchanted glade, creating a vibrant and otherworldly landscape.",
+					"The mysterious elves could see everything, their captivating eyes seemingly glowing in the moonlight.",
+					"With each twist and turn, the travelers delved deeper into the mystical forest, their excitement and curiosity growing with each step.",
+					"The playful elves' giggles and whispers were like a symphony of magic, luring the travelers further into the bewitching forest.",
+					"A bewitching melody filled the air, calling to anyone who dared to follow its ominous tune.",
+					"As the travelers continued their journey, they couldn't shake the feeling of being watched by curious, unseen eyes.",
+					"Amidst the eerie silence of the forest, the travelers could hear the faint sounds of a lively celebration happening just out of sight.",
+					"",
+					"The eerie mist hung low as the playful spirits frolicked amidst the enigmatic atmosphere.",
+					"With each step deeper into the unknown, the travelers could feel the bewitching forest pulling them in further.",
+					"The bewitched forest was a place of wonder and mystery, where anything was possible and everything was enchanted.",
+					"No one knew how long they had been trekking through the bewitched forest, but the travelers were thoroughly enchanted.",
+					"The mischievous elves danced through the whimsical forest, their devilish antics stirring up a mystical energy.",
+					"All eyes were on the mysterious being as it revealed its true form, stunning the travelers with its otherworldly beauty.",
+					"In the depths of the forest, the travelers stumbled upon a mysterious pond, its shimmering waters calling to them.",
+					"As the sun set in the sky, the mischievous spirits appeared to glow even more, their devilish antics growing bolder.",
+					"Every moment in the bewitched forest was a new adventure, filled with cryptic riddles and enchanting surprises.",
+					"The bewitched forest was a place of endless wonder and danger, perfect for adventurous souls seeking thrills and magic.",
+					"In the enchanted glade, they found an otherworldly creature playing a bewitching tune on a secret flute.",
+					"Even in the midst of danger and uncertainty, the playful creatures' lively spirits never faltered, always ready for a new adventure.",
+					"As the night grew darker, the creatures grew bolder, their devilish pranks becoming more mischievous and creative.",
+					"The night was alive with otherworldly creatures, their vibrant colors and playful antics creating a magical and unforgettable experience.",
+					"Bold and brave, the curious travelers entered the hidden cavern, following the trail of mischievous footprints.",
+					"The curious travelers could feel their spirits being lifted as they roamed the bewitched forest, surrounded by enchantment and magic.",
+					"One by one, the enchanted creatures revealed themselves, their vibrant personalities shining through.",
+					"As the travelers approached the end of their journey, they felt a pang of sadness at leaving the enchanting forest and its mystical inhabitants behind.",
+					"The elusive elves finally emerged from the shadows, their cryptic whispers guiding the travelers towards a mysterious door."
 				]
 			],
 			"wordsalad_clrs": [
@@ -2994,14 +3269,24 @@
 						"blue": 127
 					},
 					{
-						"red": 15,
-						"green": 209,
-						"blue": 90
+						"red": 7,
+						"green": 31,
+						"blue": 101
 					},
 					{
-						"red": 50,
-						"green": 83,
-						"blue": 38
+						"red": 7,
+						"green": 31,
+						"blue": 101
+					},
+					{
+						"red": 6,
+						"green": 18,
+						"blue": 110
+					},
+					{
+						"red": 9,
+						"green": 70,
+						"blue": 88
 					},
 					{
 						"red": 6,
@@ -3009,9 +3294,49 @@
 						"blue": 184
 					},
 					{
+						"red": 5,
+						"green": 56,
+						"blue": 118
+					},
+					{
+						"red": 5,
+						"green": 56,
+						"blue": 118
+					},
+					{
+						"red": 5,
+						"green": 56,
+						"blue": 118
+					},
+					{
 						"red": 4,
-						"green": 191,
-						"blue": 215
+						"green": 2,
+						"blue": 91
+					},
+					{
+						"red": 0,
+						"green": 27,
+						"blue": 107
+					},
+					{
+						"red": 0,
+						"green": 27,
+						"blue": 107
+					},
+					{
+						"red": 1,
+						"green": 45,
+						"blue": 76
+					},
+					{
+						"red": 4,
+						"green": 39,
+						"blue": 37
+					},
+					{
+						"red": 0,
+						"green": 98,
+						"blue": 152
 					},
 					{
 						"red": 3,
@@ -3019,14 +3344,34 @@
 						"blue": 217
 					},
 					{
-						"red": 58,
-						"green": 71,
-						"blue": 33
+						"red": 3,
+						"green": 167,
+						"blue": 217
 					},
 					{
-						"red": 5,
-						"green": 56,
-						"blue": 118
+						"red": 3,
+						"green": 167,
+						"blue": 217
+					},
+					{
+						"red": 4,
+						"green": 191,
+						"blue": 215
+					},
+					{
+						"red": 4,
+						"green": 191,
+						"blue": 215
+					},
+					{
+						"red": 15,
+						"green": 209,
+						"blue": 90
+					},
+					{
+						"red": 4,
+						"green": 163,
+						"blue": 77
 					},
 					{
 						"red": 0,
@@ -3035,38 +3380,8 @@
 					},
 					{
 						"red": 0,
-						"green": 27,
-						"blue": 107
-					},
-					{
-						"red": 6,
-						"green": 18,
-						"blue": 110
-					},
-					{
-						"red": 4,
-						"green": 39,
-						"blue": 37
-					},
-					{
-						"red": 7,
-						"green": 31,
-						"blue": 101
-					},
-					{
-						"red": 0,
-						"green": 98,
-						"blue": 152
-					},
-					{
-						"red": 4,
-						"green": 163,
-						"blue": 77
-					},
-					{
-						"red": 1,
-						"green": 45,
-						"blue": 76
+						"green": 244,
+						"blue": 108
 					},
 					{
 						"red": 5,
@@ -3074,9 +3389,9 @@
 						"blue": 12
 					},
 					{
-						"red": 7,
-						"green": 5,
-						"blue": 3
+						"red": 50,
+						"green": 83,
+						"blue": 38
 					},
 					{
 						"red": 7,
@@ -3089,34 +3404,14 @@
 						"blue": 2
 					},
 					{
-						"red": 4,
-						"green": 2,
-						"blue": 91
+						"red": 8,
+						"green": 114,
+						"blue": 2
 					},
 					{
-						"red": 9,
-						"green": 70,
-						"blue": 88
-					},
-					{
-						"red": 5,
-						"green": 56,
-						"blue": 118
-					},
-					{
-						"red": 0,
-						"green": 244,
-						"blue": 108
-					},
-					{
-						"red": 3,
-						"green": 167,
-						"blue": 217
-					},
-					{
-						"red": 4,
-						"green": 191,
-						"blue": 215
+						"red": 7,
+						"green": 5,
+						"blue": 3
 					},
 					{
 						"red": 58,
@@ -3124,29 +3419,9 @@
 						"blue": 33
 					},
 					{
-						"red": 5,
-						"green": 56,
-						"blue": 118
-					},
-					{
-						"red": 7,
-						"green": 31,
-						"blue": 101
-					},
-					{
-						"red": 8,
-						"green": 114,
-						"blue": 2
-					},
-					{
-						"red": 3,
-						"green": 167,
-						"blue": 217
-					},
-					{
-						"red": 0,
-						"green": 27,
-						"blue": 107
+						"red": 58,
+						"green": 71,
+						"blue": 33
 					}
 				],
 				[
@@ -3156,14 +3431,24 @@
 						"blue": 31
 					},
 					{
-						"red": 91,
-						"green": 45,
-						"blue": 200
+						"red": 28,
+						"green": 98,
+						"blue": 31
 					},
 					{
-						"red": 20,
-						"green": 63,
-						"blue": 111
+						"red": 28,
+						"green": 98,
+						"blue": 31
+					},
+					{
+						"red": 76,
+						"green": 245,
+						"blue": 43
+					},
+					{
+						"red": 76,
+						"green": 245,
+						"blue": 43
 					},
 					{
 						"red": 6,
@@ -3171,59 +3456,19 @@
 						"blue": 35
 					},
 					{
-						"red": 54,
-						"green": 109,
-						"blue": 107
+						"red": 6,
+						"green": 133,
+						"blue": 64
 					},
 					{
-						"red": 50,
-						"green": 43,
-						"blue": 212
+						"red": 6,
+						"green": 133,
+						"blue": 64
 					},
 					{
-						"red": 76,
-						"green": 245,
-						"blue": 43
-					},
-					{
-						"red": 2,
-						"green": 16,
-						"blue": 159
-					},
-					{
-						"red": 9,
-						"green": 63,
-						"blue": 107
-					},
-					{
-						"red": 7,
-						"green": 35,
-						"blue": 119
-					},
-					{
-						"red": 91,
-						"green": 45,
-						"blue": 200
-					},
-					{
-						"red": 9,
-						"green": 63,
-						"blue": 107
-					},
-					{
-						"red": 7,
-						"green": 66,
-						"blue": 91
-					},
-					{
-						"red": 54,
-						"green": 109,
-						"blue": 107
-					},
-					{
-						"red": 50,
-						"green": 43,
-						"blue": 212
+						"red": 6,
+						"green": 133,
+						"blue": 64
 					},
 					{
 						"red": 7,
@@ -3231,64 +3476,14 @@
 						"blue": 11
 					},
 					{
-						"red": 28,
-						"green": 98,
-						"blue": 31
-					},
-					{
-						"red": 6,
-						"green": 133,
-						"blue": 64
-					},
-					{
-						"red": 91,
-						"green": 45,
-						"blue": 200
-					},
-					{
-						"red": 28,
-						"green": 98,
-						"blue": 31
-					},
-					{
-						"red": 20,
-						"green": 63,
-						"blue": 111
-					},
-					{
-						"red": 76,
-						"green": 245,
-						"blue": 43
-					},
-					{
-						"red": 9,
-						"green": 63,
+						"red": 54,
+						"green": 109,
 						"blue": 107
 					},
 					{
-						"red": 6,
-						"green": 133,
-						"blue": 64
-					},
-					{
-						"red": 50,
-						"green": 43,
-						"blue": 212
-					},
-					{
-						"red": 9,
-						"green": 63,
+						"red": 54,
+						"green": 109,
 						"blue": 107
-					},
-					{
-						"red": 7,
-						"green": 35,
-						"blue": 119
-					},
-					{
-						"red": 6,
-						"green": 133,
-						"blue": 64
 					},
 					{
 						"red": 7,
@@ -3297,8 +3492,18 @@
 					},
 					{
 						"red": 7,
-						"green": 35,
-						"blue": 119
+						"green": 66,
+						"blue": 91
+					},
+					{
+						"red": 20,
+						"green": 63,
+						"blue": 111
+					},
+					{
+						"red": 20,
+						"green": 63,
+						"blue": 111
 					},
 					{
 						"red": 20,
@@ -3309,6 +3514,400 @@
 						"red": 9,
 						"green": 63,
 						"blue": 107
+					},
+					{
+						"red": 9,
+						"green": 63,
+						"blue": 107
+					},
+					{
+						"red": 9,
+						"green": 63,
+						"blue": 107
+					},
+					{
+						"red": 9,
+						"green": 63,
+						"blue": 107
+					},
+					{
+						"red": 9,
+						"green": 63,
+						"blue": 107
+					},
+					{
+						"red": 7,
+						"green": 35,
+						"blue": 119
+					},
+					{
+						"red": 7,
+						"green": 35,
+						"blue": 119
+					},
+					{
+						"red": 7,
+						"green": 35,
+						"blue": 119
+					},
+					{
+						"red": 50,
+						"green": 43,
+						"blue": 212
+					},
+					{
+						"red": 50,
+						"green": 43,
+						"blue": 212
+					},
+					{
+						"red": 50,
+						"green": 43,
+						"blue": 212
+					},
+					{
+						"red": 2,
+						"green": 16,
+						"blue": 159
+					},
+					{
+						"red": 91,
+						"green": 45,
+						"blue": 200
+					},
+					{
+						"red": 91,
+						"green": 45,
+						"blue": 200
+					},
+					{
+						"red": 91,
+						"green": 45,
+						"blue": 200
+					}
+				],
+				[
+					{
+						"red": 69,
+						"green": 241,
+						"blue": 39
+					},
+					{
+						"red": 49,
+						"green": 179,
+						"blue": 31
+					},
+					{
+						"red": 7,
+						"green": 98,
+						"blue": 7
+					},
+					{
+						"red": 7,
+						"green": 98,
+						"blue": 7
+					},
+					{
+						"red": 6,
+						"green": 89,
+						"blue": 9
+					},
+					{
+						"red": 3,
+						"green": 56,
+						"blue": 8
+					},
+					{
+						"red": 2,
+						"green": 74,
+						"blue": 7
+					},
+					{
+						"red": 5,
+						"green": 240,
+						"blue": 3
+					},
+					{
+						"red": 1,
+						"green": 50,
+						"blue": 11
+					},
+					{
+						"red": 1,
+						"green": 50,
+						"blue": 11
+					},
+					{
+						"red": 0,
+						"green": 94,
+						"blue": 30
+					},
+					{
+						"red": 6,
+						"green": 144,
+						"blue": 97
+					},
+					{
+						"red": 19,
+						"green": 152,
+						"blue": 173
+					},
+					{
+						"red": 19,
+						"green": 152,
+						"blue": 173
+					},
+					{
+						"red": 5,
+						"green": 234,
+						"blue": 255
+					},
+					{
+						"red": 54,
+						"green": 130,
+						"blue": 124
+					},
+					{
+						"red": 54,
+						"green": 130,
+						"blue": 124
+					},
+					{
+						"red": 2,
+						"green": 98,
+						"blue": 150
+					},
+					{
+						"red": 6,
+						"green": 105,
+						"blue": 165
+					},
+					{
+						"red": 6,
+						"green": 105,
+						"blue": 165
+					},
+					{
+						"red": 4,
+						"green": 7,
+						"blue": 8
+					},
+					{
+						"red": 3,
+						"green": 40,
+						"blue": 108
+					},
+					{
+						"red": 9,
+						"green": 21,
+						"blue": 68
+					},
+					{
+						"red": 9,
+						"green": 21,
+						"blue": 68
+					},
+					{
+						"red": 4,
+						"green": 16,
+						"blue": 68
+					},
+					{
+						"red": 6,
+						"green": 16,
+						"blue": 97
+					},
+					{
+						"red": 5,
+						"green": 16,
+						"blue": 116
+					},
+					{
+						"red": 6,
+						"green": 9,
+						"blue": 113
+					},
+					{
+						"red": 7,
+						"green": 10,
+						"blue": 123
+					},
+					{
+						"red": 6,
+						"green": 12,
+						"blue": 223
+					},
+					{
+						"red": 6,
+						"green": 12,
+						"blue": 223
+					},
+					{
+						"red": 0,
+						"green": 3,
+						"blue": 88
+					}
+				],
+				[
+					{
+						"red": 145,
+						"green": 160,
+						"blue": 120
+					},
+					{
+						"red": 140,
+						"green": 144,
+						"blue": 100
+					},
+					{
+						"red": 198,
+						"green": 200,
+						"blue": 137
+					},
+					{
+						"red": 126,
+						"green": 128,
+						"blue": 82
+					},
+					{
+						"red": 187,
+						"green": 173,
+						"blue": 128
+					},
+					{
+						"red": 205,
+						"green": 180,
+						"blue": 137
+					},
+					{
+						"red": 161,
+						"green": 140,
+						"blue": 126
+					},
+					{
+						"red": 186,
+						"green": 169,
+						"blue": 106
+					},
+					{
+						"red": 124,
+						"green": 166,
+						"blue": 98
+					},
+					{
+						"red": 183,
+						"green": 142,
+						"blue": 95
+					},
+					{
+						"red": 202,
+						"green": 155,
+						"blue": 103
+					},
+					{
+						"red": 160,
+						"green": 105,
+						"blue": 83
+					},
+					{
+						"red": 255,
+						"green": 255,
+						"blue": 255
+					},
+					{
+						"red": 166,
+						"green": 117,
+						"blue": 77
+					},
+					{
+						"red": 128,
+						"green": 121,
+						"blue": 50
+					},
+					{
+						"red": 189,
+						"green": 191,
+						"blue": 72
+					},
+					{
+						"red": 142,
+						"green": 203,
+						"blue": 78
+					},
+					{
+						"red": 219,
+						"green": 143,
+						"blue": 95
+					},
+					{
+						"red": 148,
+						"green": 88,
+						"blue": 95
+					},
+					{
+						"red": 203,
+						"green": 115,
+						"blue": 91
+					},
+					{
+						"red": 195,
+						"green": 104,
+						"blue": 79
+					},
+					{
+						"red": 226,
+						"green": 115,
+						"blue": 136
+					},
+					{
+						"red": 204,
+						"green": 123,
+						"blue": 152
+					},
+					{
+						"red": 228,
+						"green": 99,
+						"blue": 110
+					},
+					{
+						"red": 142,
+						"green": 194,
+						"blue": 192
+					},
+					{
+						"red": 210,
+						"green": 126,
+						"blue": 177
+					},
+					{
+						"red": 179,
+						"green": 106,
+						"blue": 165
+					},
+					{
+						"red": 187,
+						"green": 120,
+						"blue": 192
+					},
+					{
+						"red": 193,
+						"green": 127,
+						"blue": 201
+					},
+					{
+						"red": 162,
+						"green": 184,
+						"blue": 214
+					},
+					{
+						"red": 97,
+						"green": 115,
+						"blue": 145
+					},
+					{
+						"red": 180,
+						"green": 161,
+						"blue": 201
 					}
 				]
 			],

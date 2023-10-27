@@ -219,8 +219,13 @@ void WordSaladIdeaCtrl::OnLineSentence(String result, Song* song, int list_i, bo
 		Color clr;
 		ParseTextColor(l, txt, clr);
 		
-		out << txt;
-		out_clr << clr;
+		if (txt.GetCount()) {
+			out << txt;
+			out_clr << clr;
+		}
+		else {
+			LOG("warning: line not parsed: " + l);
+		}
 	}
 	
 	// Sort values based on the closest distance to the target listener's feeling (metaphorical color)

@@ -249,6 +249,9 @@ void VocabularyIdeaCtrl::OnIdeaResult(String result, Song* song, int list_i, boo
 		v = Split(parts[i], "\n");
 		v.Remove(0);
 		
+		if (v.GetCount() == 1 && v[0].Find(",") >= 0)
+			v = Split(v[0], ",");
+		
 		Index<String> uniq;
 		for (String& s : v) {
 			RemoveLineChar(s);
