@@ -1579,3 +1579,10 @@ const char* VocabularyTypeString[VOCABULARYTYPE_COUNT] = {
 	"Positive phrase",
 	"Negative phrase",
 };
+
+const char* ColorTypeString[COLORTYPE_COUNT] = {
+	"Main",
+	"Attack",
+	"Sustain",
+	"Release"
+};

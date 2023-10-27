@@ -293,14 +293,20 @@ Vector<String> VocabularyIdeaCtrl::GetPartData(int row, String key) {
 
 Vector<String> VocabularyIdeaCtrl::FindLineData(int row, Vector<String> lines) {
 	int line_i = list.Get(row, "LINE_IDX");
-	if (lines.GetCount() == 1) {
+	if (lines.GetCount() == 0) {
+		return lines;
+	}
+	else if (lines.GetCount() == 1) {
 		RemoveLineNumber(lines[0]);
 		return lines;
 	}
-	else if (lines.GetCount() == 8) {
-		lines.Remove(0, line_i);
-		lines.Remove(1, lines.GetCount()-1);
-		RemoveLineNumber(lines[0]);
+	else if (lines.GetCount() <= 8) {
+		if (line_i < lines.GetCount()) {
+			lines.Remove(0, line_i);
+			lines.Remove(1, lines.GetCount()-1);
+				for (auto& s : lines)
+					RemoveLineNumber(s);
+		}
 		return lines;
 	}
 	else if (lines.GetCount() == 16) {

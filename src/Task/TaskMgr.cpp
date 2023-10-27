@@ -360,6 +360,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetVocabularyIdea)
 		;
 	
+	AddRule(TASK_GET_WORD_SALAD_IDEA, "get word salad idea")
+		.Input(&Task::CreateInput_GetWordSaladIdea)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetWordSaladIdea)
+		;
+	
 	
 	
 	
@@ -1852,6 +1859,24 @@ void TaskMgr::GetVocabularyIdea(const VocabularyIdeaArgs& args, Event<String> Wh
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_VOCABULARY_IDEA);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetWordSaladIdea(const WordSaladIdeaArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_WORD_SALAD_IDEA);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
 	String s = args.Get();

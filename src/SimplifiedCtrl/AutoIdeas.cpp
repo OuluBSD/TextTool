@@ -957,6 +957,9 @@ void ParseTextColor(String s, String& text, Color& clr) {
 	
 	String txt = s;
 	
+	if (txt.Left(1) == "\"" && txt.Right(1) == "\"")
+		txt = txt.Mid(1, txt.GetCount()-2);
+	
 	a = txt.Find(":");
 	if (a >= 0)
 		txt = TrimBoth(txt.Mid(a+1));
@@ -975,6 +978,8 @@ void ParseTextColor(String s, String& text, Color& clr) {
 	
 	if (txt.Left(1) == "\"") txt = txt.Mid(1);
 	if (txt.Right(1) == "\"") txt = txt.Left(txt.GetCount()-1);
+	if (txt.Right(3) == "RGB") txt = TrimBoth(txt.Left(txt.GetCount()-3));
+	
 	text = txt;
 }
 
@@ -985,6 +990,15 @@ void AutoIdeas::OnNovelThemes(String result, Song* song_) {
 	
 	Song& song = *song_;
 	Vector<String> lines = Split(result, "\n", false);
+	
+	// Custom themes
+	lines << "- Happy christmas";
+	lines << "- Sad christmas";
+	lines << "- Nostalgic christmas";
+	lines << "- Fantasy christmas";
+	lines << "- Nordic fantasy christmas with elves";
+	lines << "- Nordic traditional fantasy christmas with elves and without Santa Claus";
+	lines << "- Nordic traditional fantasy christmas with hiding house elves and without Santa Claus";
 	
 	song.themes.Clear();
 	for(int i = 0; i < lines.GetCount(); i++) {

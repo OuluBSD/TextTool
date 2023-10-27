@@ -956,4 +956,15 @@ extern const char* VocabularyTypeString[VOCABULARYTYPE_COUNT];
 extern ColoredText SignificantPhrases[VOCABULARYTYPE_COUNT][SIGNIFICANT_PHRASE_COUNT];
 
 
+enum {
+	COLORTYPE_MAIN,
+	COLORTYPE_ATTACK,
+	COLORTYPE_SUSTAIN,
+	COLORTYPE_RELEASE,
+	
+	COLORTYPE_COUNT
+};
+
+extern const char* ColorTypeString[COLORTYPE_COUNT];
+
 #endif

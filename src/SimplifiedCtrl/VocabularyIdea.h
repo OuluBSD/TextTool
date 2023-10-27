@@ -21,7 +21,7 @@ public:
 	void DataResult();
 	
 	void GetLineIdea(int row, bool start_next);
-	void OnIdeaResult(String result, Song* song, int line_i, bool start_next);
+	void OnIdeaResult(String result, Song* song, int list_i, bool start_next);
 	
 	Vector<String> GetLineVisualIdea(int row);
 	Vector<String> GetLineCharactersIdea(int row);

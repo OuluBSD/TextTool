@@ -2795,7 +2795,7 @@ void Task::CreateInput_GetPartContentSuggestions() {
 		String t = "List of ";
 		if (VectorFind(args, "male") >= 0)	t << "manly ";
 		if (VectorFind(args, "female") >= 0)	t << "womanly ";
-		t << "practically detailed absolute (1st or 3rd person pronoun) storylines (with the metaphorical color RGB integer (r,g,b) code at the end) for the part " + part + " of the song 1";
+		t << "practically detailed absolute (1st or 3rd person pronoun) independent storylines (with the metaphorical color RGB integer (r,g,b) code at the end) for the part " + part + " of the song 1";
 		TaskTitledList& results = input.PreAnswer();
 		results.Title(t);
 		results.EmptyLine();
@@ -3798,7 +3798,7 @@ void Task::CreateInput_GetColorIdea() {
 				list.Add(s);
 		}
 		{
-			String t = "Imagine colored single narrator for 1-8 lines and 8 values per line. It summarises " + names + " dialogue. It also rhymes with internal rhyme scheme. No natural language is wanted";
+			String t = "Imagine colored single narrator for 1-8 lines and 8 values per line. It summarises " + names + " dialogue. It also rhymes with internal rhyme scheme. No natural language is wanted. Every line begins with 'RGB'";
 			TaskTitledList& results = input.PreAnswer();
 			results.Title(t).NumberedLines();
 			results.EmptyLine().EmptyLineString("RGB(");
@@ -4047,6 +4047,100 @@ void Task::CreateInput_GetVocabularyIdea() {
 			results.Title(t);
 			results.EmptyLine();
 		}
+		input.response_length = 2*1024;
+	}
+}
+
+void Task::CreateInput_GetWordSaladIdea() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	WordSaladIdeaArgs args;
+	args.Put(this->args[0]);
+	
+	String sl = IntStr(args.vocabulary.GetCount()); // sequence length
+	
+	if (args.fn == 0) {
+		{
+			input.AddSub().NoColon()
+				.Title("Constructing a multiple lines of nonsensical but emotionally correct text for lyrics of a song");
+		}
+		{
+			input.AddSub().NoColon()
+				.Title("A single sentence has " + sl + " parts");
+		}
+		if (args.vocabulary.GetCount()) {
+			for(int i = 0; i < args.vocabulary.GetCount(); i++) {
+				const auto& v = args.vocabulary[i];
+				TaskTitledList& list = input.AddSub();
+				list.Title(IntStr(i+1) + "/" + sl + ": possible words (but not all possibilities) as part of the sentence of the line of the story \"A\"");
+				for (const auto& s : v)
+					list.Add(s);
+			}
+		}
+		if (args.colors.GetCount()) {
+			ASSERT(args.colors.GetCount() <= COLORTYPE_COUNT);
+			for(int i = 0; i < args.colors.GetCount(); i++) {
+				String key = ColorTypeString[i];
+				const auto& v = args.colors[i];
+				TaskTitledList& list = input.AddSub();
+				list.NumberedLines();
+				String t;
+				switch (i) {
+					case COLORTYPE_MAIN:	t = "Metaphorical color RGB integer (r,g,b) for sequential parts of the single sentence"; break;
+					case COLORTYPE_ATTACK:	t = "Metaphorical color RGB integer (r,g,b) for what is prepared for in next 1-4 sequential words. This word must be emotionally meaningful in comparison to one upcoming word."; break;
+					case COLORTYPE_SUSTAIN:	t = "Metaphorical color RGB integer (r,g,b) for what has been in prevous 1-4 sequential words. This word must be emotionally meaningful in comparison to previous words."; break;
+					case COLORTYPE_RELEASE:	t = "Metaphorical color RGB integer (r,g,b) for what is wanted to be forgotten of previous 1-8 sequential words. This word must be emotionally meaningful in comparison to one previous word."; break;
+					default: break;
+				}
+				list.Title(t);
+				for (const auto& c : v) {
+					String s = "RGB(";
+					s << c.GetR() << "," << c.GetG() << "," << c.GetB() << ")";
+					list.Add(s);
+				}
+			}
+		}
+		
+		ASSERT(args.listener_colors_in_begin.GetCount() <= LISTENERTYPE_COUNT);
+		for (int t = 0; t < args.listener_colors_in_begin.GetCount(); t++) {
+			const auto& v = args.listener_colors_in_begin[t];
+			if (v.IsEmpty()) continue;
+			
+			String key = ListenerTypeString[t];
+			TaskTitledList& list = input.AddSub();
+			list.Title("Before any single sentence, the listener type '" + key + "' has one of the following feelings, which are defined as metaphorical RGB color values");
+			for(int i = 0; i < v.GetCount(); i++) {
+				Color c = v[i];
+				String s = key + ": RGB(";
+				s << c.GetR() << "," << c.GetG() << "," << c.GetB() << ")";
+				list.Add(s);
+			}
+		}
+		
+		if (args.listener_colors.GetCount()) {
+			ASSERT(args.listener_colors.GetCount() <= LISTENERTYPE_COUNT);
+			TaskTitledList& list = input.AddSub();
+			list.Title("After a single sentence, following listener types must have the feeling, which is defined as a metaphorical RGB color value");
+			for(int i = 0; i < args.listener_colors.GetCount(); i++) {
+				String key = ListenerTypeString[i];
+				Color c = args.listener_colors[i];
+				String s = key + ": RGB(";
+				s << c.GetR() << "," << c.GetG() << "," << c.GetB() << ")";
+				list.Add(s);
+			}
+		}
+		
+		{
+			String key = ListenerTypeString[0];
+			String t = "A collection of 30 of the best nonsensical but emotionally correct text sentences. With the metaphorical color RGB integer (r,g,b) code for " + key + " at the end of the line";
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(t);
+			results.EmptyLine();
+		}
+		
 		input.response_length = 2*1024;
 	}
 }
