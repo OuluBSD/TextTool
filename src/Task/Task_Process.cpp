@@ -1900,5 +1900,5 @@ void Task::Process_GetVocabularyIdea() {
 }
 
 void Task::Process_GetWordSaladIdea() {
-	WhenResult("-" + output);
+	WhenResult("1/10: a" + output);
 }

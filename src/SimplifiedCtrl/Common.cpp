@@ -12,6 +12,29 @@ void LineListCtrl::Init() {
 	
 }
 
+Vector<String> LineListCtrl::GetLineWordSalads(int row) {
+	Song& s = GetSong();
+	ASSERT(row >= 0 && row < list.GetCount());
+	int part_i = list.Get(row, "PART_IDX");
+	int line_i = list.Get(row, "LINE_IDX");
+	StaticPart& part = s.parts[part_i];
+	Vector<String> out;
+	if (line_i >= 0 && line_i < part.wordsalads.GetCount())
+		out <<= part.wordsalads[line_i];
+	return out;
+}
+
+Vector<Vector<String>> LineListCtrl::GetPartWordSalads(int row) {
+	Song& s = GetSong();
+	ASSERT(row >= 0 && row < list.GetCount());
+	int part_i = list.Get(row, "PART_IDX");
+	int line_i = list.Get(row, "LINE_IDX");
+	StaticPart& part = s.parts[part_i];
+	Vector<Vector<String>> out;
+	out <<= part.wordsalads;
+	return out;
+}
+
 Vector<Color> LineListCtrl::GetLineColorIdea(int row) {
 	Song& s = GetSong();
 	ASSERT(row >= 0 && row < list.GetCount());
@@ -31,7 +54,6 @@ Vector<String> LineListCtrl::GetPartData(int row, String key) {
 	Song& s = GetSong();
 	ASSERT(row >= 0 && row < list.GetCount());
 	int part_i = list.Get(row, "PART_IDX");
-	int line_i = list.Get(row, "LINE_IDX");
 	StaticPart& part = s.parts[part_i];
 	String txt = part.data.Get(key,"");
 	return Split(txt, "\n");
@@ -105,6 +127,10 @@ Vector<String> LineListCtrl::GetLineVisualIdea(int row) {
 	return FindLineData(row, GetPartData(row, "VISUAL_IDEA_STORY"));
 }
 
+Vector<String> LineListCtrl::GetPartVisualIdea(int row) {
+	return GetPartData(row, "VISUAL_IDEA_STORY");
+}
+
 Vector<String> LineListCtrl::GetLineCharactersIdea(int row) {
 	Vector<String> v = GetPartData(row, "VISUAL_IDEA_CHARACTERS");
 	for (auto& s : v)
@@ -116,8 +142,16 @@ Vector<String> LineListCtrl::GetLineDialogueIdea1(int row) {
 	return FindLineData(row, GetPartData(row, "DIALOGUE_IDEA_1"));
 }
 
+Vector<String> LineListCtrl::GetPartDialogueIdea1(int row) {
+	return GetPartData(row, "DIALOGUE_IDEA_1");
+}
+
 Vector<String> LineListCtrl::GetLineDialogueIdea2(int row) {
 	return FindLineData(row, GetPartData(row, "DIALOGUE_IDEA_2"));
+}
+
+Vector<String> LineListCtrl::GetPartDialogueIdea2(int row) {
+	return GetPartData(row, "DIALOGUE_IDEA_2");
 }
 
 Vector<Vector<String>> LineListCtrl::GetLinePhraseIdea(int row, bool colors) {

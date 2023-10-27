@@ -29,6 +29,13 @@ public:
 	Vector<Vector<Color>> GetPreviousListenerColors(int row);
 	void GetPossibleParts(Song& s, StaticPart& part, Index<String>& possible_previous, Index<String>& possible_next);
 	
+	// TextIdea
+	Vector<String> GetLineWordSalads(int row);
+	Vector<Vector<String>> GetPartWordSalads(int row);
+	Vector<String> GetPartVisualIdea(int row);
+	Vector<String> GetPartDialogueIdea1(int row);
+	Vector<String> GetPartDialogueIdea2(int row);
+	
 };
 
 

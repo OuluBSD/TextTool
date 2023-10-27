@@ -957,6 +957,9 @@ void ParseTextColor(String s, String& text, Color& clr) {
 	
 	String txt = s;
 	
+	if (txt.Right(3) == "RGB") txt = TrimBoth(txt.Left(txt.GetCount()-3));
+	if (txt.Right(1) == "-") txt = TrimBoth(txt.Left(txt.GetCount()-1));
+	
 	if (txt.Left(1) == "\"" && txt.Right(1) == "\"")
 		txt = txt.Mid(1, txt.GetCount()-2);
 	

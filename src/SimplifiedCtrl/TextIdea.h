@@ -2,10 +2,9 @@
 #define _SimplifiedCtrl_TextIdea_h_
 
 
-class TextIdeaCtrl : public SongToolCtrl {
-	Splitter hsplit, vsplit;
-	ArrayCtrl parts;
-	DocEdit part_dialogue0, part_dialogue1;
+class TextIdeaCtrl : public LineListCtrl {
+	Splitter hsplit;
+	ArrayCtrl texts;
 	
 public:
 	typedef TextIdeaCtrl CLASSNAME;
@@ -14,7 +13,10 @@ public:
 	void DisableAll();
 	void EnableAll();
 	void Data() override;
+	void DataPart();
 	void ToolMenu(Bar& bar) override;
+	void GetPartTexts(int row, bool start_next);
+	void OnPartTexts(String result, Song* song, int list_i, bool start_next);
 	
 };
 

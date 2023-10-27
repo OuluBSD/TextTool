@@ -4162,4 +4162,74 @@ void Task::CreateInput_GetWordSaladIdea() {
 		
 		input.response_length = 2*1024;
 	}
+	else if (args.fn == 1) {
+		if (args.visual.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Visual idea of the story \"A\"");
+			for (const auto& s : args.visual)
+				list.Add(s);
+		}
+		if (args.characters.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Characters of the story \"A\"");
+			for (const auto& s : args.characters)
+				list.Add(s);
+		}
+		if (args.dialogue1.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Dialogue example 1 of the story \"A\"");
+			for (const auto& s : args.dialogue1)
+				list.Add(s);
+		}
+		if (args.dialogue2.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Dialogue example 2 of the story \"A\"");
+			for (const auto& s : args.dialogue2)
+				list.Add(s);
+		}
+		
+		{
+			input.AddSub().NoColon()
+				.Title("Constructing a coherent texts for underlying indirect base for lyrics of a song with the story \"A\"");
+		}
+		{
+			input.AddSub().NoColon()
+				.Title("A single sentence has " + sl + " parts");
+		}
+		if (args.vocabulary.GetCount()) {
+			for(int i = 0; i < args.vocabulary.GetCount(); i++) {
+				const auto& v = args.vocabulary[i];
+				TaskTitledList& list = input.AddSub();
+				list.Title(IntStr(i+1) + "/" + sl + " part: nonsensical but emotionally correct text sentences of the story \"A\"");
+				list.NoListChar();
+				char chr = 'a' + i;
+				for(int j = 0; j < v.GetCount(); j++) {
+					String l;
+					l.Cat(chr);
+					l << j << ": " << v[j];
+					list.Add(l);
+				}
+			}
+		}
+		if (0) {
+			input.AddSub().NoColon()
+				.Title("Getting results for all 4 texts and 8 lines per text");
+		}
+		if (1) {
+			auto& list = input.AddSub().NoColon()
+				.Title("Examples of the format of the result. These values are meaningless");
+			list.Add("a4 b0 c3 d5 e9 f0 g7 h2");
+			list.Add("a1 b6 c8 d1 e5 f4 g6 h9");
+			list.Add("a0 b6 c9 d2 e4 f6 g2 h8");
+		}
+		{
+			String t = "10 coherent results for underlying indirect base for lyrics of a song with the story \"A\". This text takes 1 line from lists of all previous " + sl + " parts, keeps them in order, and modifies them to make more sense. No extra text";
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(t);
+			//results.EmptyLine().EmptyLineString("1/4 coherent text:").NoListChar();
+			results.EmptyLine().EmptyLineString("1/10: a").NoListChar();
+		}
+		
+		input.response_length = 1*1024;
+	}
 }

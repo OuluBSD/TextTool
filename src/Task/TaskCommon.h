@@ -433,15 +433,16 @@ struct WordSaladIdeaArgs {
 	Vector<Vector<Color>> colors;
 	Vector<Vector<Color>> listener_colors_in_begin;
 	Vector<Color> listener_colors;
-	Vector<String> visual, dialogue1, dialogue2;
+	Vector<String> visual, characters, dialogue1, dialogue2;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
-				("phrases", vocabulary)
+				("vocabulary", vocabulary)
 				("colors", colors)
 				("listener_colors_in_begin", listener_colors_in_begin)
 				("listener_colors", listener_colors)
 				("visual", visual)
+				("characters", characters)
 				("dialogue1", dialogue1)
 				("dialogue2", dialogue2)
 				;

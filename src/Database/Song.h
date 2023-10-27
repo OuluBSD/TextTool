@@ -151,6 +151,8 @@ struct StaticPart {
 	String type; // abbreviation like V1, PC2, C
 	String active_idea[IDEAPATH_PARTCOUNT];
 	Color active_idea_clr[IDEAPATH_PARTCOUNT];
+	Vector<String> active_source_text;
+	Vector<Vector<String>> source_text_suggestions;
 	Vector<String> source; // lines
 	Vector<String> ai_source;
 	Array<StaticRhyme> rhymes;
@@ -169,6 +171,8 @@ struct StaticPart {
 		json
 			("name", name)
 			("type", type)
+			("active_source_text", active_source_text)
+			("source_text_suggestions", source_text_suggestions)
 			("source", source)
 			("ai_source", ai_source)
 			("rhymes", rhymes)
