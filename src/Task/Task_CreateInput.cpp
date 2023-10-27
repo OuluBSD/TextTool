@@ -4063,9 +4063,28 @@ void Task::CreateInput_GetWordSaladIdea() {
 	String sl = IntStr(args.vocabulary.GetCount()); // sequence length
 	
 	if (args.fn == 0) {
+		if (args.visual.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Visual idea of the story \"A\"");
+			for (const auto& s : args.visual)
+				list.Add(s);
+		}
+		if (args.dialogue1.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Dialogue example 1 of the story \"A\"");
+			for (const auto& s : args.dialogue1)
+				list.Add(s);
+		}
+		if (args.dialogue2.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Dialogue example 2 of the story \"A\"");
+			for (const auto& s : args.dialogue2)
+				list.Add(s);
+		}
+		
 		{
 			input.AddSub().NoColon()
-				.Title("Constructing a multiple lines of nonsensical but emotionally correct text for lyrics of a song");
+				.Title("Constructing a multiple lines of nonsensical but emotionally correct text for lyrics of a song with the story \"A\"");
 		}
 		{
 			input.AddSub().NoColon()

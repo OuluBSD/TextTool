@@ -914,6 +914,23 @@ extern Color DialogueStyleColors[DIALOGUESTYLE_COUNT];
 int FindDialogueStyle(String value);
 int GetColorDistance(const Color& a, const Color& b);
 
+struct ColorDistanceSorter {
+	Color cmp;
+	bool operator()(const Color& a, const Color& b) const {
+		int dist0 = GetColorDistance(a, cmp);
+		int dist1 = GetColorDistance(b, cmp);
+		return dist0 < dist1;
+	}
+};
+
+struct TextColorDistanceSorter {
+	Color cmp;
+	Vector<String>* str = 0;
+	Vector<Color>* clr = 0;
+	bool operator()(const int& ai, const int& bi) const;
+	void Sort();
+};
+
 const Vector<String>& InlineRapperList();
 const Vector<String>& OtherRapperList();
 

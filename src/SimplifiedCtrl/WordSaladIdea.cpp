@@ -13,8 +13,7 @@ WordSaladIdeaCtrl::WordSaladIdeaCtrl() {
 	list.AddColumn(t_("#"));
 	list.AddColumn(t_("Color sequence"));
 	list.AddColumn(t_("Listener colors"));
-	list.AddIndex("PART_IDX");
-	list.AddIndex("LINE_IDX");
+	LineListCtrl::Init();
 	list.ColumnWidths("1 2 1 6 2");
 	list.WhenCursor << THISBACK(OnList);
 	
@@ -182,6 +181,10 @@ void WordSaladIdeaCtrl::GetLineSentence(int row, bool start_next) {
 	args.colors = GetColors(row);
 	args.listener_colors = GetListenerColors(row);
 	args.listener_colors_in_begin = GetPreviousListenerColors(row);
+	args.visual = GetLineVisualIdea(row);
+	args.dialogue1 = GetLineDialogueIdea1(row);
+	args.dialogue2 = GetLineDialogueIdea2(row);
+	
 	
 	s.RealizePipe();
 	
@@ -220,98 +223,18 @@ void WordSaladIdeaCtrl::OnLineSentence(String result, Song* song, int list_i, bo
 		out_clr << clr;
 	}
 	
+	// Sort values based on the closest distance to the target listener's feeling (metaphorical color)
+	Vector<Color> listener_colors = GetListenerColors(list_i);
+	if (!listener_colors.IsEmpty()) {
+		TextColorDistanceSorter sorter;
+		sorter.cmp = listener_colors[0];
+		sorter.str = &out;
+		sorter.clr = &out_clr;
+		sorter.Sort();
+	}
+	
 	PostCallback(THISBACK(DataSentences));
 	
 	if (start_next && list_i+1 < list.GetCount())
 		PostCallback(THISBACK2(GetLineSentence, list_i+1, true));
-}
-
-Vector<Vector<String>> WordSaladIdeaCtrl::GetVocabulary(int row) {
-	Song& s = GetSong();
-	ASSERT(row >= 0 && row< list.GetCount());
-	int part_i = list.Get(row, "PART_IDX");
-	int line_i = list.Get(row, "LINE_IDX");
-	StaticPart& part = s.parts[part_i];
-	if (line_i >= part.vocabulary.GetCount()) {
-		return Vector<Vector<String>>();
-	}
-	
-	Vector<Vector<String>> out;
-	out <<= part.vocabulary[line_i];
-	return out;
-}
-
-Vector<Vector<Color>> WordSaladIdeaCtrl::GetColors(int row) {
-	Song& s = GetSong();
-	ASSERT(row >= 0 && row< list.GetCount());
-	int part_i = list.Get(row, "PART_IDX");
-	int line_i = list.Get(row, "LINE_IDX");
-	StaticPart& part = s.parts[part_i];
-	if (line_i >= part.vocabulary.GetCount()) {
-		return Vector<Vector<Color>>();
-	}
-	Vector<Vector<Color>> out;
-	for(int i = 0; i < part.colors.GetCount(); i++) {
-		const auto& clr_vv = part.colors[i];
-		auto& o = out.Add();
-		if (line_i < clr_vv.GetCount() && i < clr_vv[line_i].GetCount()) {
-			o <<= clr_vv[line_i];
-		}
-	}
-	return out;
-}
-
-Vector<Color> WordSaladIdeaCtrl::GetListenerColors(int row) {
-	Song& s = GetSong();
-	ASSERT(row >= 0 && row< list.GetCount());
-	int part_i = list.Get(row, "PART_IDX");
-	int line_i = list.Get(row, "LINE_IDX");
-	StaticPart& part = s.parts[part_i];
-	Vector<Color> out;
-	for(int k = 0; k < part.listener_colors.GetCount(); k++) {
-		const auto& v = part.listener_colors[k];
-		if (line_i < v.GetCount())
-			out.Add(v[line_i]);
-	}
-	return out;
-}
-
-Vector<Vector<Color>> WordSaladIdeaCtrl::GetPreviousListenerColors(int row) {
-	Song& s = GetSong();
-	ASSERT(row >= 0 && row< list.GetCount());
-	int part_i = list.Get(row, "PART_IDX");
-	int line_i = list.Get(row, "LINE_IDX");
-	StaticPart& part = s.parts[part_i];
-	Vector<Vector<Color>> out;
-	out.SetCount(LISTENERTYPE_COUNT);
-	
-	Index<String> possible_previous, possible_next;
-	GetPossibleParts(s, part, possible_previous, possible_next);
-	
-	for (const String& type : possible_previous.GetKeys()) {
-		for(int i = 0; i < s.parts.GetCount(); i++) {
-			const auto& p = s.parts[i];
-			if (p.type == type) {
-				for(int k = 0; k < p.listener_colors.GetCount(); k++) {
-					const auto& v = p.listener_colors[k];
-					if (line_i < v.GetCount())
-						out[k].Add(v[line_i]);
-				}
-			}
-		}
-	}
-	return out;
-}
-
-void WordSaladIdeaCtrl::GetPossibleParts(Song& s, StaticPart& part, Index<String>& possible_previous, Index<String>& possible_next) {
-	int c = s.active_struct.parts.GetCount();
-	for(int i = 0; i < c; i++) {
-		const String& type = s.active_struct.parts[i];
-		if (type == part.type) {
-			if (i > 0)
-				possible_previous.FindAdd(s.active_struct.parts[i-1]);
-			if (i+1 < c)
-				possible_next.FindAdd(s.active_struct.parts[i+1]);
-		}
-	}
 }

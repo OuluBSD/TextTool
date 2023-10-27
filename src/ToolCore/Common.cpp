@@ -1571,6 +1571,35 @@ int GetColorDistance(const Color& a, const Color& b) {
 	return (int)(distance * 10000);
 }
 
+
+bool TextColorDistanceSorter::operator()(const int& ai, const int& bi) const {
+	Color a, b;
+	a = (*clr)[ai];
+	b = (*clr)[bi];
+	int dist0 = GetColorDistance(a, cmp);
+	int dist1 = GetColorDistance(b, cmp);
+	return dist0 < dist1;
+}
+
+void TextColorDistanceSorter::Sort() {
+	ASSERT(str && clr && str->GetCount() == clr->GetCount());
+	Vector<int> idx;
+	for(int i = 0; i < str->GetCount(); i++)
+		idx << i;
+	UPP::Sort(idx, *this);
+	
+	Vector<String> new_str;
+	Vector<Color> new_clr;
+	new_str.Reserve(idx.GetCount());
+	new_clr.Reserve(idx.GetCount());
+	for (int i : idx) {
+		new_str << (*str)[i];
+		new_clr << (*clr)[i];
+	}
+	Swap(*str, new_str);
+	Swap(*clr, new_clr);
+}
+
 const char* VocabularyTypeString[VOCABULARYTYPE_COUNT] = {
 	"Important word",
 	"Positive word",

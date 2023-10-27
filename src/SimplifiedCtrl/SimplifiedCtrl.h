@@ -8,6 +8,7 @@
 #define LAYOUTFILE <SimplifiedCtrl/Simplified.lay>
 #include <CtrlCore/lay.h>
 
+#include "Common.h"
 #include "Checklists.h"
 #include "AlbumBriefing.h"
 #include "AlbumIdeas.h"

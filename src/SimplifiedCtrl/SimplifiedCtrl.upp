@@ -71,5 +71,7 @@ file
 	PublicRelations.h,
 	PublicRelations.cpp,
 	Marketing.h,
-	Marketing.cpp;
+	Marketing.cpp,
+	Common.h,
+	Common.cpp;
 
