@@ -4095,8 +4095,14 @@ void Task::CreateInput_GetWordSaladIdea() {
 				const auto& v = args.vocabulary[i];
 				TaskTitledList& list = input.AddSub();
 				list.Title(IntStr(i+1) + "/" + sl + ": possible words (but not all possibilities) as part of the sentence of the line of the story \"A\"");
-				for (const auto& s : v)
-					list.Add(s);
+				list.NoListChar();
+				char chr = 'a' + i;
+				for(int j = 0; j < v.GetCount(); j++) {
+					String l;
+					l.Cat(chr);
+					l << j << ": " << v[j];
+					list.Add(l);
+				}
 			}
 		}
 		if (args.colors.GetCount()) {
@@ -4151,16 +4157,25 @@ void Task::CreateInput_GetWordSaladIdea() {
 				list.Add(s);
 			}
 		}
-		
+		{
+			auto& list = input.AddSub().NoColon()
+				.Title("Examples of the format of the result. These values are meaningless");
+			list.Add("a4 b0 c3 d5 e9 f0 g7 h2");
+			list.Add("a1 b6 c8 d1 e5 f4 g6 h9");
+			list.Add("a0 b6 c9 d2 e4 f6 g2 h8");
+		}
 		{
 			String key = ListenerTypeString[0];
-			String t = "A collection of 30 of the best nonsensical but emotionally correct text sentences. With the metaphorical color RGB integer (r,g,b) code for " + key + " at the end of the line";
+			//String t = "A collection of 30 of the best nonsensical but emotionally correct text sentences. With the metaphorical color RGB integer (r,g,b) code for " + key + " at the end of the line";
+			String t = "A collection of 30 of the best nonsensical but emotionally matching results. With the metaphorical color RGB integer (r,g,b) code for " + key + " at the end of the line";
 			TaskTitledList& results = input.PreAnswer();
 			results.Title(t);
-			results.EmptyLine();
+			//results.EmptyLine();
+			results.EmptyLine().EmptyLineString("1/30: a").NoListChar();
 		}
 		
-		input.response_length = 2*1024;
+		//input.response_length = 1024*3/2;
+		input.response_length = 1024;
 	}
 	else if (args.fn == 1) {
 		if (args.visual.GetCount()) {
@@ -4223,11 +4238,66 @@ void Task::CreateInput_GetWordSaladIdea() {
 			list.Add("a0 b6 c9 d2 e4 f6 g2 h8");
 		}
 		{
-			String t = "10 coherent results for underlying indirect base for lyrics of a song with the story \"A\". This text takes 1 line from lists of all previous " + sl + " parts, keeps them in order, and modifies them to make more sense. No extra text";
+			String t = "10 coherent results for underlying indirect base for lyrics of a song with the story \"A\". This text takes 1 line from lists of all previous " + sl + " parts, keeps them in order, and modifies them to make more sense. No extra text. The result is " + sl + " short codewords e.g. a0 b6 c9 d2 e4 f6 g2 h8";
 			TaskTitledList& results = input.PreAnswer();
 			results.Title(t);
 			//results.EmptyLine().EmptyLineString("1/4 coherent text:").NoListChar();
 			results.EmptyLine().EmptyLineString("1/10: a").NoListChar();
+		}
+		
+		input.response_length = 1*512;
+	}
+	else if (args.fn == 2) {
+		if (args.visual.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Visual idea of the story \"A\"");
+			for (const auto& s : args.visual)
+				list.Add(s);
+		}
+		if (args.characters.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Characters of the story \"A\"");
+			for (const auto& s : args.characters)
+				list.Add(s);
+		}
+		if (args.dialogue1.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Dialogue example 1 of the story \"A\"");
+			for (const auto& s : args.dialogue1)
+				list.Add(s);
+		}
+		if (args.dialogue2.GetCount()) {
+			TaskTitledList& list = input.AddSub();
+			list.Title("Dialogue example 2 of the story \"A\"");
+			for (const auto& s : args.dialogue2)
+				list.Add(s);
+		}
+		
+		{
+			input.AddSub().NoColon()
+				.Title("Constructing a coherent texts for underlying indirect base for a song with the story \"A\"");
+		}
+		int lines = 8;
+		if (args.vocabulary.GetCount()) {
+			for(int i = 0; i < args.vocabulary.GetCount(); i++) {
+				const auto& v = args.vocabulary[i];
+				TaskTitledList& list = input.AddSub();
+				list.Title(IntStr(i+1) + "/" + sl + " active source: nonsensical but emotionally correct text sentences of the story \"A\"");
+				list.NumberedLines();
+				for(int j = 0; j < v.GetCount(); j++) {
+					list.Add(v[j]);
+				}
+				lines = v.GetCount();
+			}
+		}
+		{
+			//String t = "1 coherent text result with " + IntStr(lines) + " lines, which tries to keep all the words of the active source text in the same order. Try to add small words between given source words. However, if text is nonsensical, then change some words, but avoid it";
+			String t = "A coherent text result with " + IntStr(lines) + " lines, which tries to keep the word count as the same as the active source text. Try to keep emotional value of the word as same when you change the word to make the text to make more sense";
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(t);
+			//results.EmptyLine().EmptyLineString("1/4 coherent text:").NoListChar();
+			//results.EmptyLine().EmptyLineString("1/10: a").NoListChar();
+			results.EmptyLine().EmptyLineString("1/" + IntStr(lines) + ".").NoListChar();
 		}
 		
 		input.response_length = 1*1024;

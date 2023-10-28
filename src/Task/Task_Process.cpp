@@ -1896,7 +1896,8 @@ void Task::Process_GetVocabulary() {
 }
 
 void Task::Process_GetVocabularyIdea() {
-	WhenResult("A collection of 30 the most relevant words for the part 1 of\n" + output);
+	//WhenResult("A collection of 30 the most relevant words for the part 1 of\n" + output);
+	WhenResult("1/30: a" + output);
 }
 
 void Task::Process_GetWordSaladIdea() {

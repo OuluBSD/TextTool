@@ -1002,6 +1002,7 @@ void AutoIdeas::OnNovelThemes(String result, Song* song_) {
 	lines << "- Nordic fantasy christmas with elves";
 	lines << "- Nordic traditional fantasy christmas with elves and without Santa Claus";
 	lines << "- Nordic traditional fantasy christmas with hiding house elves and without Santa Claus";
+	lines << "- Nordic traditional fantasy christmas with house elves as personifications of small animals and without Santa Claus";
 	
 	song.themes.Clear();
 	for(int i = 0; i < lines.GetCount(); i++) {

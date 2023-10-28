@@ -333,6 +333,9 @@ void RemoveLineNumber( String& s) {
 				s = TrimBoth(s.Mid(i+1));
 				break;
 			}
+			else if (s[i] == '/') {
+				continue;
+			}
 			else {
 				s = TrimBoth(s.Mid(i));
 				break;

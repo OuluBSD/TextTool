@@ -210,18 +210,71 @@ void WordSaladIdeaCtrl::OnLineSentence(String result, Song* song, int list_i, bo
 	result.Replace("\r","");
 	result.Replace("(RGB","RGB");
 	result.Replace("))",")");
+	result.Replace("man:","");
+	result.Replace("color:","");
+	result.Replace("man","");
 	Vector<String> lines = Split(result, "\n");
 	
 	for (String& l : lines) {
 		RemoveLineChar(l);
+		
+		int a = l.Find(":");
+		if (a >= 0)
+			l = TrimBoth(l.Mid(a+1));
 		
 		String txt;
 		Color clr;
 		ParseTextColor(l, txt, clr);
 		
 		if (txt.GetCount()) {
-			out << txt;
-			out_clr << clr;
+			Vector<String> parts = Split(txt, " ");
+			Vector<int> codes;
+			for(int j = 0; j < parts.GetCount(); j++) {
+				String& part = parts[j];
+				bool has_digit = false;
+				for(int k = 0; k < part.GetCount(); k++) {
+					int chr = part[k];
+					if (IsDigit(chr)) {
+						part = part.Mid(k);
+						has_digit = true;
+						break;
+					}
+				}
+				if (!has_digit)
+					break;
+				int code = ScanInt(part);
+				codes << code;
+			}
+			
+			bool fail = false;
+			if (line_i < 0 || line_i >= part.vocabulary.GetCount()) {
+				fail = true;
+			}
+			const auto& line_vocab = part.vocabulary[line_i];
+			
+			Vector<String> sent;
+			int j = -1;
+			for (int code : codes) {
+				j++;
+				if (j < 0 || j >= line_vocab.GetCount()) {
+					//fail = true;
+					fail = j == 0;
+					break;
+				}
+				const auto& vocab = line_vocab[j];
+				if (code < 0 || code >= vocab.GetCount()) {
+					fail = true;
+					break;
+				}
+				const String& wrd = vocab[code];
+				sent << wrd;
+			}
+			
+			if (!fail) {
+				txt = Join(sent, " ");
+				out << txt;
+				out_clr << clr;
+			}
 		}
 		else {
 			LOG("warning: line not parsed: " + l);

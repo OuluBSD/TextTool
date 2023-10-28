@@ -14,9 +14,12 @@ public:
 	void EnableAll();
 	void Data() override;
 	void DataPart();
+	void SetActivePart();
 	void ToolMenu(Bar& bar) override;
 	void GetPartTexts(int row, bool start_next);
 	void OnPartTexts(String result, Song* song, int list_i, bool start_next);
+	void GetNaturalText(int row, bool start_next);
+	void OnNaturalText(String result, Song* song, int list_i, bool start_next);
 	
 };
 

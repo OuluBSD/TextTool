@@ -234,7 +234,7 @@ void VocabularyIdeaCtrl::OnIdeaResult(String result, Song* song, int list_i, boo
 	
 	Vector<Vector<String>>& vocab = part.vocabulary[line_i];
 	
-	result.Replace("\r", "");
+	RealizeDoubleNewlinesBeforeTitles(result);
 	result.Replace("\n \n", "\n\n");
 	result.Replace("\n  \n", "\n\n");
 	result.Replace("\n   \n", "\n\n");
@@ -248,6 +248,13 @@ void VocabularyIdeaCtrl::OnIdeaResult(String result, Song* song, int list_i, boo
 		auto& v = vocab[i];
 		v = Split(parts[i], "\n");
 		v.Remove(0);
+		
+		if (v.IsEmpty()) {
+			String& s = parts[i];
+			int a = s.Find(":");
+			if (a >= 0) s = TrimBoth(s.Mid(a+1));
+			v = Split(s, ",");
+		}
 		
 		for(int j = 0; j < v.GetCount(); j++) {
 			if (v[j].Find(",") >= 0) {

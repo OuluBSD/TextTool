@@ -1,13 +1,19 @@
+Scheduled work:
+- text idea page
+- fix rhyme and rap rhyme stylers
+- strands of important words in a part -page
+- dynamic size line notes (not 8 lines *8 beats)
+- edit beats as full hits or half hits (no first syllables on half hits)
+- detect incorrect syllable count and try to reduce automatically
+
 High priority:
-- vocabulary idea: set vocabulary and color for part
+- freeze words in rhyme editor and fill blanks
 - another prod text, which only takes into account the story
 - combine score and order
 - color lines + dialogue idea (ready-made) = lyric?
 - matching words to colors from - vocabulary: for artist, for release, for song
 - what feeling listener should have during release -page
 	- re-route it to ideas
-
-
 
 Mid priority:
 - when opening with task list view, the editor bar is not set
@@ -43,3 +49,5 @@ x? vocabulary: for artist, for release, for song
 	x get examples of phrases from AI, how the extremely generic poet says them
 	? translate to FINNISH to get a feel of phrases with AI
 	x fill in the form by yourself
+- vocabulary idea: set vocabulary and color for part
+- word salad page
