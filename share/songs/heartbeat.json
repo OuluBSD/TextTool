@@ -629,6 +629,15 @@
 		{
 			"name": "Intro",
 			"type": "I",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -697,6 +706,15 @@
 		{
 			"name": "Chorus",
 			"type": "singing",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -992,6 +1010,15 @@
 		{
 			"name": "Verse 1",
 			"type": "rapping",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -2395,6 +2422,15 @@
 		{
 			"name": "Verse 2",
 			"type": "rapping",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -2463,6 +2499,15 @@
 		{
 			"name": "Verse 3",
 			"type": "singing",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -2531,6 +2576,15 @@
 		{
 			"name": "Verse 4",
 			"type": "rapping",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -2599,6 +2653,15 @@
 		{
 			"name": "Bridge",
 			"type": "rapping",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -2667,6 +2730,15 @@
 		{
 			"name": "Outro",
 			"type": "singing",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],

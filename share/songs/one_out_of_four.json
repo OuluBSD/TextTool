@@ -101,6 +101,15 @@
 		{
 			"name": "Verse 1",
 			"type": "V1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -1700,6 +1709,15 @@
 		{
 			"name": "Pre-Chorus 1",
 			"type": "PC1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -1998,6 +2016,15 @@
 		{
 			"name": "Chorus 1",
 			"type": "C1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -2368,6 +2395,15 @@
 		{
 			"name": "Verse 2",
 			"type": "V2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -2666,6 +2702,15 @@
 		{
 			"name": "Pre-Chorus 2",
 			"type": "PC2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -2952,6 +2997,15 @@
 		{
 			"name": "Chorus 2",
 			"type": "C2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -3250,6 +3304,15 @@
 		{
 			"name": "Bridge ",
 			"type": "B",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -3572,6 +3635,15 @@
 		{
 			"name": "Outro ",
 			"type": "O",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -3930,6 +4002,15 @@
 		{
 			"name": "Theme melody ",
 			"type": "T",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -4050,6 +4131,15 @@
 		{
 			"name": "Solo ",
 			"type": "S",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -4302,6 +4392,15 @@
 		{
 			"name": "Instrumental ",
 			"type": "IN",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],

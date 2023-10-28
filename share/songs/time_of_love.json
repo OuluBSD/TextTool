@@ -481,6 +481,15 @@
 		{
 			"name": "Intro",
 			"type": "I",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -542,6 +551,15 @@
 		{
 			"name": "Chorus",
 			"type": "C",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -782,6 +800,15 @@
 		{
 			"name": "Verse 1",
 			"type": "V1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -1188,6 +1215,15 @@
 		{
 			"name": "Verse 2",
 			"type": "V2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -1249,6 +1285,15 @@
 		{
 			"name": "Verse 3",
 			"type": "V3",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -1310,6 +1355,15 @@
 		{
 			"name": "Verse 4",
 			"type": "V4",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -1371,6 +1425,15 @@
 		{
 			"name": "Verse 5",
 			"type": "V5",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -1432,6 +1495,15 @@
 		{
 			"name": "Verse 6",
 			"type": "V6",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -1493,6 +1565,15 @@
 		{
 			"name": "Outro",
 			"type": "O",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],

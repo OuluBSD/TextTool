@@ -105,6 +105,15 @@
 		{
 			"name": "Intro ",
 			"type": "I",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -1930,6 +1939,15 @@
 		{
 			"name": "Verse 1",
 			"type": "V1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -5828,6 +5846,15 @@
 		{
 			"name": "Chorus 1",
 			"type": "C1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -7969,6 +7996,15 @@
 		{
 			"name": "Verse 2",
 			"type": "V2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -12359,6 +12395,15 @@
 		{
 			"name": "Chorus 2",
 			"type": "C2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -14004,6 +14049,15 @@
 		{
 			"name": "Bridge ",
 			"type": "B",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
@@ -14434,6 +14488,15 @@
 		{
 			"name": "Outro ",
 			"type": "O",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
 			"source": [
 
 			],
