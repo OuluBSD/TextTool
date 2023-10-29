@@ -15,6 +15,7 @@
 #include "CoverImage.h"
 #include "Pitching.h"
 #include "SongBriefing.h"
+#include "FineStructure.h"
 #include "SongStructure.h"
 #include "TxtInTranslate.h"
 #include "TxtStructEdit.h"

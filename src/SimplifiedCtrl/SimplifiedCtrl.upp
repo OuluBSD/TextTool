@@ -16,6 +16,8 @@ file
 	SongBriefing.cpp,
 	SongStructure.h,
 	SongStructure.cpp,
+	FineStructure.h,
+	FineStructure.cpp,
 	TxtInTranslate.h,
 	TxtInTranslate.cpp,
 	TxtStructEdit.h,

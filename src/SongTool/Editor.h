@@ -89,6 +89,7 @@ protected:
 	WordSaladIdeaCtrl		wordsalad_idea;
 	TextIdeaCtrl			text_idea;
 	VocabularyCtrl			vocabulary;
+	FineStructureCtrl		fine_struct;
 	
 public:
 	typedef Editor CLASSNAME;
