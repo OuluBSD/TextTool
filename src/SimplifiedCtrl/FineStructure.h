@@ -16,6 +16,7 @@ public:
 	void DataRhyme();
 	void DataRhymeParams();
 	void ToolMenu(Bar& bar) override;
+	void OnRhymeChange(EditIntSpin* rc, StaticPart* part);
 	
 };
 
