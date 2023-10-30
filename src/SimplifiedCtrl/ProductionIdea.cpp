@@ -129,20 +129,20 @@ void ProductionIdea::GetProductionIdea() {
 		auto& part_arg = args.parts.Add();
 		part_arg.name = part.name;
 		
-		if (i < sug.part_types.GetCount()) {
-			switch (sug.part_types[i]) {
-				case Song::StructSuggestion::SINGING: part_arg.type = "singing"; break;
-				case Song::StructSuggestion::RAPPING: part_arg.type = "rapping"; break;
-				case Song::StructSuggestion::POETRY: part_arg.type = "poetry"; break;
-				case Song::StructSuggestion::DIALOG: part_arg.type = "dialog"; break;
+		{
+			switch (part.part_type) {
+				case StaticPart::SINGING: part_arg.type = "singing"; break;
+				case StaticPart::RAPPING: part_arg.type = "rapping"; break;
+				case StaticPart::POETRY: part_arg.type = "poetry"; break;
+				case StaticPart::DIALOG: part_arg.type = "dialog"; break;
 				default: break;
 			}
 		}
 		
-		//part.type = sug.parts[i];
+		/*part.type = sug.parts[i];
 		
 		if (i < sug.chords.GetCount())
-			part_arg.chords = sug.chords[i];
+			part_arg.chords = sug.chords[i];*/
 	}
 	
 	song.RealizePipe();

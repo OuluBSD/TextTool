@@ -1,4 +1,25 @@
 Scheduled work:
+- reference context idea page (BEFORE STORY IDEA): who is referred as "he" or "she" in rhymes?
+	- registers
+		- pronouns
+		- time, place, view, hear, skin sense, smell
+		- role of singer
+			- fps reality mimic
+			- fps reality reactive/dialogue
+			- fps reality narrator
+			- fps reality wisdom
+			- fps reality question
+			- 3rd reality mimic
+			- 3rd reality reactive/dialogue
+			- 3rd reality narrator
+			- 3rd reality wisdom
+			- 3rd reality question
+			- passive mimic
+			- passive reactive/dialogue
+			- passive narrator
+			- passive wisdom
+			- passive question
+	- or "this place", etc.
 - text idea page
 - fix rhyme and rap rhyme stylers
 - strands of important words in a part -page

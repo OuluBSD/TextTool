@@ -9,9 +9,6 @@ SongStructure::SongStructure() {
 	vsplit.Vert() << hsplit << active;
 	
 	active.parts.AddColumn(t_("Name"));
-	active.parts.AddColumn(t_("Type"));
-	active.parts.AddColumn(t_("Chords"));
-	active.parts.ColumnWidths("1 1 2");
 	active.attrs.AddColumn(t_("Attribute"));
 	
 	
@@ -98,8 +95,7 @@ void SongStructure::DataActive() {
 	
 	Song::StructSuggestion& s = song.active_struct;
 	
-	s.part_types.SetCount(s.parts.GetCount(), 0);
-	s.chords.SetCount(s.parts.GetCount());
+	//s.chords.SetCount(s.parts.GetCount());
 	
 	int bpm = StrInt(GetParam("BPM", "120"));
 	
@@ -118,19 +114,9 @@ void SongStructure::DataActive() {
 		active.parts.Set(i, 0,
 			AttrText(GetSongPartFromAbbr(abbr)).NormalPaper(GetSongPartPaperColor(abbr)));
 		
-		DropList& dl = active.parts.CreateCtrl<DropList>(i, 1);
-		dl.Add(t_("Singing"));
-		dl.Add(t_("Rapping"));
-		dl.Add(t_("Poetry"));
-		dl.Add(t_("Dialog"));
-		dl.Add(t_("Skip"));
-		int idx = max(0, min(dl.GetCount()-1, s.part_types[i]));
-		dl.SetIndex(idx);
-		dl.WhenAction << [&song,i,&dl]() {song.active_struct.part_types[i] = dl.GetIndex();};
-		
-		EditString& ch = active.parts.CreateCtrl<EditString>(i, 2);
+		/*EditString& ch = active.parts.CreateCtrl<EditString>(i, 2);
 		ch.SetData(s.chords[i]);
-		ch.WhenAction << [&ch,i,&s]() {s.chords[i] = ch.GetData();};
+		ch.WhenAction << [&ch,i,&s]() {s.chords[i] = ch.GetData();};*/
 	}
 	active.parts.SetCount(s.parts.GetCount());
 	
@@ -238,7 +224,6 @@ void SongStructure::LoadStructureString(String struct_str) {
 		sug.name = "User's structure";
 		sug.parts <<= Split(struct_str, ",");
 		for (auto& s : song.active_struct.parts) s = TrimBoth(s);
-		sug.part_types.SetCount(sug.parts.GetCount(), Song::StructSuggestion::SINGING);
 		
 		
 		LoadActiveStruct();

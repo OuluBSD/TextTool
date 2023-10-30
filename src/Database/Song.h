@@ -128,25 +128,53 @@ struct StaticSuggestion {
 			;
 	}
 };
+
+struct StaticNote {
+	String frozen_syllable;
+	bool only_first_syllable = false;
+	bool long_singable_syllable = false;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("frozen_syllable", frozen_syllable)
+			("only_first_syllable", only_first_syllable)
+			("long_singable_syllable", long_singable_syllable)
+			;
+	}
+};
+
 struct StaticRhyme {
 	Vector<String> source;
 	//Vector<String> ai_source;
+	Array<StaticNote> notes;
 	Array<StaticSuggestion> suggestions;
 	VectorMap<String,String> data;
+	double beat_length = 0;
 	bool outdated_suggestions = true;
 	void Jsonize(JsonIO& json) {
 		json
 			("source", source)
 			//("ai_source", ai_source)
+			("notes", notes)
 			("suggestion", suggestions)
 			("data", data)
 			("outdated_suggestions", outdated_suggestions)
+			("beat_length", beat_length)
 			;
 	}
 	int GetBestSuggestion() const;
 };
 
 struct StaticPart {
+	// Part types
+	enum {
+		SINGING,
+		RAPPING,
+		POETRY,
+		DIALOG,
+		SKIP
+	};
+	
 	String name;
 	String type; // abbreviation like V1, PC2, C
 	String active_idea[IDEAPATH_PARTCOUNT];
@@ -162,6 +190,8 @@ struct StaticPart {
 	bool outdated_suggestions = true;
 	Array<StaticContentSuggestion> contents;
 	int content_cursor = -1;
+	int part_type = 0;
+	int bar_length = 0;
 	Vector<Vector<Vector<Color>>> colors;
 	Vector<Vector<Color>> listener_colors;
 	Vector<Vector<Vector<String>>> vocabulary;
@@ -183,6 +213,8 @@ struct StaticPart {
 			("outdated_suggestions", outdated_suggestions)
 			("contents", contents)
 			("content_cursor", content_cursor)
+			("bar_length", bar_length)
+			("part_type", part_type)
 			("colors", colors)
 			("listener_colors", listener_colors)
 			("vocabulary", vocabulary)
@@ -274,31 +306,22 @@ struct Song :
 		String name;
 		Vector<String> parts;
 		Vector<String> attrs;
-		Vector<String> chords;
-		Vector<int> part_types;
-		
-		// Part types
-		enum {
-			SINGING,
-			RAPPING,
-			POETRY,
-			DIALOG,
-			SKIP
-		};
+		//Vector<String> chords;
+		//Vector<int> part_types;
 		
 		void operator=(const StructSuggestion& s) {
 			name = s.name;
 			parts <<= s.parts;
 			attrs <<= s.attrs;
-			chords <<= s.chords;
-			part_types <<= s.part_types;
+			//chords <<= s.chords;
+			//part_types <<= s.part_types;
 		}
 		void Clear() {
 			name.Clear();
 			parts.Clear();
 			attrs.Clear();
-			chords.Clear();
-			part_types.Clear();
+			//chords.Clear();
+			//part_types.Clear();
 		}
 		int GetEstimatedDuration(int bpm) const;
 		void Jsonize(JsonIO& json) {
@@ -306,8 +329,8 @@ struct Song :
 				("name", name)
 				("parts", parts)
 				("attrs", attrs)
-				("chords", chords)
-				("part_types", part_types)
+				//("chords", chords)
+				//("part_types", part_types)
 				;
 		}
 	};

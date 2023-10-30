@@ -2,9 +2,23 @@
 #define _SimplifiedCtrl_FineStructure_h_
 
 
+class PartRhymeDrawer : public Ctrl {
+	int off = 5;
+	int grid_lw = 5;
+	int bars_per_row = 4;
+	Color bg, line, rhyme_begin, beat_begin;
+	
+public:
+	PartRhymeDrawer();
+	void Paint(Draw& d) override;
+	void DrawLine(Draw& d, double pos, double gridh, int note_i);
+	
+};
+
 class FineStructureCtrl : public LineListCtrl {
 	Splitter hsplit;
-	ArrayCtrl rhymes, props;
+	ArrayCtrl rhymes, notes;
+	PartRhymeDrawer drawer;
 	
 public:
 	typedef FineStructureCtrl CLASSNAME;
@@ -13,10 +27,9 @@ public:
 	void DisableAll();
 	void EnableAll();
 	void Data() override;
+	void DataPart();
 	void DataRhyme();
-	void DataRhymeParams();
 	void ToolMenu(Bar& bar) override;
-	void OnRhymeChange(EditIntSpin* rc, StaticPart* part);
 	
 };
 
