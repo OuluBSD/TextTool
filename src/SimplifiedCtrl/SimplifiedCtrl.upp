@@ -30,6 +30,8 @@ file
 	AutoIdeas.cpp,
 	PartIdea.h,
 	PartIdea.cpp,
+	ContextIdea.h,
+	ContextIdea.cpp,
 	StoryIdea.h,
 	StoryIdea.cpp,
 	VisualIdea.h,

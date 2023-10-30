@@ -1,5 +1,15 @@
 Scheduled work:
 - reference context idea page (BEFORE STORY IDEA): who is referred as "he" or "she" in rhymes?
+	- "optional reference list" and "in use reference list" (fill in any order)
+		- singer's person (I, me or as story's protagonist)
+		- singer's person of interest (you, story's person, wiser person virtually, etc.)
+		- basically what singer is or what singer is interested
+			- person, location, time, sense, reward, punishment, event, action
+	- get prompt in time domain (use bpm)
+		- how many seconds between referencing singer's person (directly or indirectly)
+			- solve notes from time
+		- get list of candidates
+
 	- registers
 		- pronouns
 		- time, place, view, hear, skin sense, smell

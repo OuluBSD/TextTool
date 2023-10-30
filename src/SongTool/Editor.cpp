@@ -121,6 +121,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Context"), t_("Production idea"), prod_idea);
 	AddItem(t_("Context"), t_("Idea"), auto_ideas);
 	AddItem(t_("Context"), t_("Idea of a single part"), part_idea);
+	AddItem(t_("Context"), t_("Context idea"), ctx_idea);
 	AddItem(t_("Context"), t_("Story idea"), story_idea);
 	
 	AddItem(t_("Content"), t_("Visual idea"), vocal_idea);

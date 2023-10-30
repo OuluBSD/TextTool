@@ -1618,3 +1618,68 @@ const char* ColorTypeString[COLORTYPE_COUNT] = {
 	"Sustain",
 	"Release"
 };
+
+
+const char* RoleString[ROLE_COUNT] = {
+	"protagonist",
+	"antagonist",
+	"sidekick",
+	"lover",
+	"follower",
+	"child",
+	
+	"parent",
+	"extended family",
+	"peer",
+	"citizen",
+	
+	"worrying citizen",
+	"happy citizen",
+	"angry citizen",
+	"competitive citizen",
+	"peaceful citizen",
+	"authoritarian citizen",
+	"liberal citizen",
+	"poor citizen",
+	"rich citizen",
+	"suburbian citizen",
+	"urban citizen",
+	"backcountry citizen",
+	
+	"soldier",
+	"student",
+	"model",
+	"merchant",
+	
+	"client",
+	"server",
+	"newsreader",
+	"forecaster",
+	
+	"inclusivity genetic",
+	"inclusivity genetic health",
+	"inclusivity health",
+	"inclusivity age",
+	"inclusivity wealth",
+	"inclusivity social",
+	"inclusivity random",
+	
+	"wise old man",
+	"wise old woman",
+	"nightclub dancer",
+	"car driver",
+	"street walker",
+	"hopeful dreamer",
+	
+};
+
+
+const char* FocusModeString[FOCUSMODE_COUNT] = {
+	"1st person",
+	"3rd person",
+	"direct reference",
+	"indirect reference",
+	"dependcy reference",
+	
+};
+

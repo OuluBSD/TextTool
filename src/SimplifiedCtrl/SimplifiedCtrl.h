@@ -35,6 +35,7 @@
 #include "PublicRelations.h"
 #include "PressRelease.h"
 #include "Marketing.h"
+#include "ContextIdea.h"
 #include "StoryIdea.h"
 #include "VisualIdea.h"
 #include "DialogueIdea.h"

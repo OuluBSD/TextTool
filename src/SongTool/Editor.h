@@ -90,6 +90,7 @@ protected:
 	TextIdeaCtrl			text_idea;
 	VocabularyCtrl			vocabulary;
 	FineStructureCtrl		fine_struct;
+	ContextIdeaCtrl			ctx_idea;
 	
 public:
 	typedef Editor CLASSNAME;
