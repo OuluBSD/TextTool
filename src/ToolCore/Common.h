@@ -1052,6 +1052,17 @@ extern const char* FocusModeString[FOCUSMODE_COUNT];
 
 
 
-Vector<String> ProductionIdeaString();
+struct ProductionIdeaTopic : Moveable<ProductionIdeaTopic> {
+	Vector<String> positive, negative;
+	String title;
+	
+	void Add(const char* v) {positive.Add(v);}
+	void AddPos(const char* v) {positive.Add(v);}
+	void AddNeg(const char* v) {negative.Add(v);}
+	void Sort() {UPP::Sort(positive, StdLess<String>()); UPP::Sort(negative, StdLess<String>());}
+	
+};
+
+const Vector<ProductionIdeaTopic>& ProductionIdeas();
 
 #endif

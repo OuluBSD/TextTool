@@ -4,19 +4,11 @@
 ContextIdeaCtrl::ContextIdeaCtrl() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << role_split << potential_use << in_use << notes << suggestion;
+	hsplit.Horz() << potential_use << in_use << notes << suggestion;
 	hsplit.SetPos(1000, 0);
 	hsplit.SetPos(2000, 1);
 	hsplit.SetPos(3000, 2);
 	hsplit.SetPos(6500, 3);
-	
-	role_split.Vert() << rslist << role_suggestion;
-	role_split.SetPos(2500);
-	
-	rslist.AddColumn(t_("Role suggestion #"));
-	role_suggestion.AddColumn(t_("Role"));
-	role_suggestion.AddColumn(t_("Weight"));
-	role_suggestion.ColumnWidths("2 1");
 	
 	potential_use.AddColumn(t_("Potential use"));
 	potential_use.AddColumn(t_("Weight"));

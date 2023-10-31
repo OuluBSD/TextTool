@@ -3,8 +3,8 @@
 
 
 class ContextIdeaCtrl : public LineListCtrl {
-	Splitter hsplit, role_split;
-	ArrayCtrl rslist, role_suggestion, in_use, potential_use;
+	Splitter hsplit;
+	ArrayCtrl in_use, potential_use;
 	ArrayCtrl notes, suggestion;
 	DocEdit part_dialogue0, part_dialogue1;
 	

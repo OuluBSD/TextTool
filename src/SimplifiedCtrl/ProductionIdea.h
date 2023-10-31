@@ -4,13 +4,9 @@
 
 
 class ProductionIdea : public SongToolCtrl {
-	Splitter hsplit;
-	ArrayCtrl attrs;
-	DocEdit result;
+	Splitter hsplit, vsplit;
 	
-	ArrayCtrl genre, lyrics_type;
-	ArrayCtrl pos_traits, neg_traits;
-	ArrayCtrl pos_stereotypes, neg_stereotypes;
+	ArrayCtrl list, positive, negative;
 	
 public:
 	typedef ProductionIdea CLASSNAME;
@@ -19,11 +15,11 @@ public:
 	void Data() override;
 	void ToolMenu(Bar& bar) override;
 	String GetStatusText() override;
-	void GetProductionIdea();
+	/*void GetProductionIdea();
 	void CopyAttributes();
 	void GetAttrsValue(const VectorMap<String,String>& data, VectorMap<String,String>& v);
 	void OnProductionIdea(String result, Song* song);
-	
+	*/
 };
 
 

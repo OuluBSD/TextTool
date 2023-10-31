@@ -4,31 +4,13 @@
 ProductionIdea::ProductionIdea() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << attrs << result;
+	hsplit.Horz() << list << vsplit;
+	hsplit.SetPos(3000);
+	vsplit.Vert() << positive << negative;
 	
-	// Attrs list
-	attrs.AddColumn(t_("Group"));
-	attrs.AddColumn(t_("Positive"));
-	attrs.AddColumn(t_("Negative"));
-	attrs.AddColumn(t_("Value"));
-	attrs.ColumnWidths("1 1 1 2");
-	
-	Database& db = Database::Single();
-	int row = 0;
-	DropList* dl;
-	#define ATTR_ITEM(e, g, i0, i1) \
-	attrs.Add(Capitalize(db.Translate(g)), Capitalize(db.Translate(i0)), Capitalize(db.Translate(i1))); \
-	for (int i = 3; i < 4; i++) {\
-		dl = &attrs.CreateCtrl<DropList>(row, i); \
-		dl->Add(GreenRedAttr(AttrText(db.Translate(i0)), 0)); \
-		dl->Add(""); \
-		dl->Add(GreenRedAttr(AttrText(db.Translate(i1)), 1)); \
-		dl->SetIndex(1); \
-	} \
-	row++;\
-	
-	ATTR_LIST
-	#undef ATTR_ITEM
+	list.AddColumn(t_("Topic"));
+	positive.AddColumn(t_("Positive"));
+	negative.AddColumn(t_("Negative"));
 	
 }
 
@@ -38,7 +20,7 @@ void ProductionIdea::Data() {
 	if (!p.song || !p.release || !p.artist) return;
 	
 	
-	for(int i = 0; i < Attr::ATTR_COUNT; i++) {
+	/*for(int i = 0; i < Attr::ATTR_COUNT; i++) {
 		String key = (String)"PROD_" + Attr::AttrKeys[i][0];
 		String value = p.song->data.Get(key, "0");
 		int v = StrInt(value);
@@ -47,19 +29,22 @@ void ProductionIdea::Data() {
 		dl->SetIndex(idx);
 	}
 	
-	result.SetData(p.song->data.Get("PRODUCTION_IDEA", ""));
+	result.SetData(p.song->data.Get("PRODUCTION_IDEA", ""));*/
 }
 
 void ProductionIdea::ToolMenu(Bar& bar) {
-	bar.Add(t_("Copy attributes from song, release and artist"), AppImg::RedRing(), THISBACK(CopyAttributes)).Key(K_CTRL_Q);
+	SongToolCtrl::ToolMenu(bar);
+	/*bar.Add(t_("Copy attributes from song, release and artist"), AppImg::RedRing(), THISBACK(CopyAttributes)).Key(K_CTRL_Q);
 	bar.Add(t_("Update idea"), AppImg::BlueRing(), THISBACK(GetProductionIdea)).Key(K_CTRL_W);
-	
+	*/
 }
 
 String ProductionIdea::GetStatusText() {
 	return "";
 }
 
+
+#if 0
 void ProductionIdea::CopyAttributes() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
@@ -178,3 +163,5 @@ void ProductionIdea::OnProductionIdea(String result, Song* song) {
 	if (p.song)
 		p.song->data.GetAdd("PRODUCTION_IDEA") = result;
 }
+
+#endif
