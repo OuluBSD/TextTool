@@ -8,6 +8,10 @@ class ProductionIdea : public SongToolCtrl {
 	ArrayCtrl attrs;
 	DocEdit result;
 	
+	ArrayCtrl genre, lyrics_type;
+	ArrayCtrl pos_traits, neg_traits;
+	ArrayCtrl pos_stereotypes, neg_stereotypes;
+	
 public:
 	typedef ProductionIdea CLASSNAME;
 	ProductionIdea();

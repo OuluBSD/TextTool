@@ -1051,4 +1051,7 @@ enum {
 extern const char* FocusModeString[FOCUSMODE_COUNT];
 
 
+
+Vector<String> ProductionIdeaString();
+
 #endif
