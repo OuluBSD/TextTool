@@ -465,6 +465,9 @@
 					"source": [
 
 					],
+					"notes": [
+
+					],
 					"suggestion": [
 
 					],
@@ -794,7 +797,8 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": true
+					"outdated_suggestions": true,
+					"beat_length": 0
 				}
 			],
 			"rhyme_scheme": "AB/AB",
@@ -961,6 +965,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 				[
 					[
@@ -3956,6 +3962,9 @@
 					"source": [
 
 					],
+					"notes": [
+
+					],
 					"suggestion": [
 						{
 							"style": "Eminem",
@@ -4420,10 +4429,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -4894,10 +4907,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -5368,10 +5385,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -5842,10 +5863,14 @@
 							"value": ""
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -6316,10 +6341,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -6790,10 +6819,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -7264,10 +7297,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -7731,7 +7768,8 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				}
 			],
 			"rhyme_scheme": "A/A",
@@ -8331,6 +8369,8 @@
 				}
 			],
 			"content_cursor": 0,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 				[
 					[
@@ -11346,6 +11386,9 @@
 					"source": [
 
 					],
+					"notes": [
+
+					],
 					"suggestion": [
 
 					],
@@ -11403,7 +11446,8 @@
 							"value": "-1"
 						}
 					],
-					"outdated_suggestions": true
+					"outdated_suggestions": true,
+					"beat_length": 0
 				}
 			],
 			"rhyme_scheme": "",
@@ -11768,6 +11812,8 @@
 				}
 			],
 			"content_cursor": 3,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 				[
 					[
@@ -15211,6 +15257,9 @@
 						"I'll spread my wings and fly, soaring high above the clouds",
 						"My own path I'll choose, the road less traveled, I'll take"
 					],
+					"notes": [
+
+					],
 					"suggestion": [
 						{
 							"style": "Red Hot Chili Peppers",
@@ -15609,12 +15658,16 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
 						"With faith and reason in hand, I'll face the world's loud demands",
 						"Breaking free from the mold, my spirit will grow and unfold."
+					],
+					"notes": [
+
 					],
 					"suggestion": [
 						{
@@ -16018,7 +16071,8 @@
 							"value": "8,8"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				}
 			],
 			"rhyme_scheme": "A/A",
@@ -16749,6 +16803,8 @@
 				}
 			],
 			"content_cursor": 2,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 				[
 					[
@@ -19904,6 +19960,9 @@
 					"source": [
 
 					],
+					"notes": [
+
+					],
 					"suggestion": [
 						{
 							"style": "Eminem",
@@ -20365,10 +20424,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -20839,10 +20902,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -21313,10 +21380,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -21787,10 +21858,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -22261,10 +22336,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -22735,10 +22814,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -23202,10 +23285,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -23676,7 +23763,8 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				}
 			],
 			"rhyme_scheme": "",
@@ -24193,6 +24281,8 @@
 				}
 			],
 			"content_cursor": 5,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 				[
 					[
@@ -27565,6 +27655,9 @@
 						"With courage in his heart, he strummed the guitar's strings",
 						"Defiant to society's norms, he kept her company"
 					],
+					"notes": [
+
+					],
 					"suggestion": [
 						{
 							"style": "Red Hot Chili Peppers",
@@ -27967,12 +28060,16 @@
 							"value": "5,5"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
 						"His calloused fingers telling a tale of strength and grace",
 						"A symbol of their bond, a defiance to the world's embrace"
+					],
+					"notes": [
+
 					],
 					"suggestion": [
 						{
@@ -28376,10 +28473,14 @@
 							"value": "3,3"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -28850,10 +28951,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -29324,7 +29429,8 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				}
 			],
 			"rhyme_scheme": "AB/AB",
@@ -29917,6 +30023,8 @@
 				}
 			],
 			"content_cursor": 3,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 				[
 					[
@@ -31354,6 +31462,9 @@
 					"source": [
 
 					],
+					"notes": [
+
+					],
 					"suggestion": [
 						{
 							"style": "Eminem",
@@ -31822,10 +31933,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -32296,10 +32411,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -32770,10 +32889,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -33244,10 +33367,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -33718,10 +33845,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -34192,10 +34323,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -34666,10 +34801,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -35140,10 +35279,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -35614,7 +35757,8 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				}
 			],
 			"rhyme_scheme": "",
@@ -36093,6 +36237,8 @@
 				}
 			],
 			"content_cursor": 4,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 				[
 					[
@@ -38222,6 +38368,8 @@
 				}
 			],
 			"content_cursor": 0,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 				[
 					[
@@ -39626,6 +39774,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 				[
 					[
@@ -41062,32 +41212,6 @@
 			"has a bridge that leads into the final choruses and adds dynamics to the song",
 			"contains a varied chorus with added instrumentation or vocal harmonies",
 			"ends with a short outro."
-		],
-		"chords": [
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			""
-		],
-		"part_types": [
-			4,
-			1,
-			1,
-			0,
-			1,
-			0,
-			1,
-			0,
-			4,
-			0,
-			4
 		]
 	},
 	"struct_suggs": [
@@ -41112,12 +41236,6 @@
 				"builds up to the chorus in the bridge",
 				"allows for repetition and variation of the chorus",
 				"ends with a shorter outro for a concise finish."
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -41141,12 +41259,6 @@
 				"includes two distinct verses before the bridge",
 				"has an instrumental solo in the middle of the song",
 				"ends with a longer outro for a dramatic finish."
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -41170,12 +41282,6 @@
 				"has a catchy chorus that appears multiple times in the song",
 				"includes a bridge for a change of pace and added depth",
 				"ends with a final chorus and a short outro."
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -41198,12 +41304,6 @@
 				"features a prechorus and bridge before the final choruses",
 				"has variation in the chorus melodies and lyrics",
 				"ends with a short outro."
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -41226,12 +41326,6 @@
 				"contains a shorter prechorus before the final chorus",
 				"includes only one bridge, but with heavy instrumentation for impact",
 				"has a longer outro for a fade-out ending."
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -41255,12 +41349,6 @@
 				"includes an instrumental solo after the bridge",
 				"has a varied chorus with added instrumentation and/or vocal harmonies",
 				"ends with a shorter outro."
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -41284,12 +41372,6 @@
 				"features a bridge that has lyrics and melody variation from the rest of the song",
 				"has a final chorus that builds upon the previous ones",
 				"ends with a short outro."
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -41312,12 +41394,6 @@
 				"features a bridge with lyrics and melody variation from the rest of the song",
 				"has a longer final chorus with added instrumentation and/or vocal harmonies",
 				"ends with a short outro."
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -41341,12 +41417,6 @@
 				"has a bridge that leads into the final choruses and adds dynamics to the song",
 				"contains a varied chorus with added instrumentation or vocal harmonies",
 				"ends with a short outro."
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -41370,12 +41440,6 @@
 				"features a bridge that has lyrics and melody variation from the rest of the song",
 				"has a final chorus with added instrumentation and/or vocal harmonies",
 				"ends with a longer outro for a dramatic finish."
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		}
 	],

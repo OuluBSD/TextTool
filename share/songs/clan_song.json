@@ -125,6 +125,9 @@
 					"source": [
 
 					],
+					"notes": [
+
+					],
 					"suggestion": [
 						{
 							"style": "Eminem",
@@ -389,10 +392,14 @@
 					"data": [
 
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -666,10 +673,14 @@
 					"data": [
 
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -1118,10 +1129,14 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -1563,7 +1578,8 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				}
 			],
 			"rhyme_scheme": "",
@@ -1896,6 +1912,8 @@
 				}
 			],
 			"content_cursor": 0,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -1957,6 +1975,9 @@
 			"rhymes": [
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -2405,10 +2426,14 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -2857,10 +2882,14 @@
 							"value": "she"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -3309,10 +3338,14 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -3761,10 +3794,14 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -4209,10 +4246,14 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -4661,10 +4702,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -5113,7 +5158,8 @@
 							"value": "-1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				}
 			],
 			"rhyme_scheme": "",
@@ -5803,6 +5849,8 @@
 				}
 			],
 			"content_cursor": 2,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -5864,6 +5912,9 @@
 			"rhymes": [
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -6312,10 +6363,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -6764,10 +6819,14 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -7216,10 +7275,14 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -7668,7 +7731,8 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				}
 			],
 			"rhyme_scheme": "",
@@ -7953,6 +8017,8 @@
 				}
 			],
 			"content_cursor": 0,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -8014,6 +8080,9 @@
 			"rhymes": [
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -8340,10 +8409,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -8663,10 +8736,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -8993,10 +9070,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -9323,10 +9404,14 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -9657,10 +9742,14 @@
 							"value": "a black lace corset on her"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -9991,10 +10080,14 @@
 							"value": "-1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -10325,10 +10418,14 @@
 							"value": "-1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -10659,10 +10756,14 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -10993,10 +11094,14 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -11327,10 +11432,14 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -11661,10 +11770,14 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -11995,7 +12108,8 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				}
 			],
 			"rhyme_scheme": "",
@@ -12352,6 +12466,8 @@
 				}
 			],
 			"content_cursor": 2,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -12413,6 +12529,9 @@
 			"rhymes": [
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -12743,10 +12862,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -13077,10 +13200,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -13411,10 +13538,14 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -13745,7 +13876,8 @@
 							"value": "1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				}
 			],
 			"rhyme_scheme": "",
@@ -14006,6 +14138,8 @@
 				}
 			],
 			"content_cursor": 0,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -14445,6 +14579,8 @@
 				}
 			],
 			"content_cursor": 4,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -14788,6 +14924,8 @@
 				}
 			],
 			"content_cursor": 4,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -14849,21 +14987,6 @@
 			"can create a sense of building and intensity with the repeated bridge sections",
 			"has a balanced structure with a clear beginning, climax, and resolution",
 			"ideal for a longer song with room for different musical elements"
-		],
-		"chords": [
-
-		],
-		"part_types": [
-			0,
-			1,
-			0,
-			1,
-			1,
-			0,
-			1,
-			0,
-			0,
-			4
 		]
 	},
 	"struct_suggs": [
@@ -14885,12 +15008,6 @@
 				"has a clear and concise structure with an intro, verses, chorus, bridge, and outro",
 				"allows for a musical break with the instrumental solo",
 				"perfect for showcasing the skills of instrumentalists in a band"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -14911,12 +15028,6 @@
 				"well-suited for a pop or mainstream style song",
 				"allows for a call-and-response style with the pre-chorus and chorus",
 				"can easily build up to a powerful final chorus in the outro"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -14939,12 +15050,6 @@
 				"can create a sense of building and intensity with the repeated bridge sections",
 				"has a balanced structure with a clear beginning, climax, and resolution",
 				"ideal for a longer song with room for different musical elements"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -14967,12 +15072,6 @@
 				"has a bridge section which adds variety and allows for a pause in the vocals",
 				"can create a sense of building and climax with the repeated chorus sections",
 				"can end on a strong and powerful note with the final chorus in the outro"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -14996,12 +15095,6 @@
 				"includes an instrumental interlude or variation on the final chorus in the outro",
 				"ideal for a longer song with multiple musical elements and movements",
 				"can have a catchy and memorable flow with the repetition of verses and choruses"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -15022,12 +15115,6 @@
 				"can create a sense of building and progression with the repeating verses and bridge",
 				"ideal for a more experimental or non-conventional song",
 				"can end on a strong and powerful note with the final chorus in the outro"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -15049,12 +15136,6 @@
 				"includes a bridge which provides a break from the vocals and builds back up to the final chorus in the outro",
 				"can end on a high energy note with the repeated final chorus in the outro",
 				"can be well-suited for a pop or mainstream style song"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -15076,12 +15157,6 @@
 				"allows for a progression and climax with the final chorus in the outro",
 				"can have a strong and memorable flow with the repetition of verse and chorus sections",
 				"ideal for a longer song with a storytelling element"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -15103,12 +15178,6 @@
 				"can create a sense of building and climax with the repeated chorus sections",
 				"ends on a powerful and high energy note with the final chorus in the outro",
 				"can be well-suited for a pop or mainstream style song"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -15130,12 +15199,6 @@
 				"can create a memorable flow with the repeated verse and chorus sections",
 				"allows for a climax and resolution with the final chorus in the outro",
 				"can be well-suited for a mainstream or alternative style song"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		}
 	],

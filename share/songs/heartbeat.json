@@ -663,6 +663,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -967,6 +969,8 @@
 				}
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -1028,6 +1032,9 @@
 			"rhymes": [
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -1358,10 +1365,14 @@
 							"value": "-1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -1692,10 +1703,14 @@
 							"value": "-1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -2026,10 +2041,14 @@
 							"value": "-1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -2360,7 +2379,8 @@
 							"value": "-1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				}
 			],
 			"rhyme_scheme": "",
@@ -2379,6 +2399,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -2456,6 +2478,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -2533,6 +2557,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -2610,6 +2636,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -2687,6 +2715,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -2764,6 +2794,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -2822,22 +2854,6 @@
 		],
 		"attrs": [
 
-		],
-		"chords": [
-
-		],
-		"part_types": [
-			4,
-			0,
-			1,
-			1,
-			0,
-			1,
-			1,
-			0,
-			0,
-			0,
-			0
 		]
 	},
 	"struct_suggs": [

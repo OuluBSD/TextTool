@@ -508,6 +508,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -757,6 +759,8 @@
 				}
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -1172,6 +1176,8 @@
 				}
 			],
 			"content_cursor": 0,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -1242,6 +1248,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -1312,6 +1320,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -1382,6 +1392,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -1452,6 +1464,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -1522,6 +1536,8 @@
 
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -1663,6 +1679,8 @@
 				}
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -1722,23 +1740,6 @@
 		],
 		"attrs": [
 
-		],
-		"chords": [
-
-		],
-		"part_types": [
-			4,
-			0,
-			1,
-			1,
-			0,
-			1,
-			1,
-			0,
-			1,
-			1,
-			0,
-			4
 		]
 	},
 	"struct_suggs": [

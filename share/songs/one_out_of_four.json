@@ -121,6 +121,9 @@
 					"source": [
 
 					],
+					"notes": [
+
+					],
 					"suggestion": [
 						{
 							"style": "Eminem",
@@ -449,10 +452,14 @@
 							"value": "-1"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -783,10 +790,14 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				},
 				{
 					"source": [
+
+					],
+					"notes": [
 
 					],
 					"suggestion": [
@@ -1117,7 +1128,8 @@
 							"value": "0"
 						}
 					],
-					"outdated_suggestions": false
+					"outdated_suggestions": false,
+					"beat_length": 0
 				}
 			],
 			"rhyme_scheme": "",
@@ -1666,6 +1678,8 @@
 				}
 			],
 			"content_cursor": 0,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -1973,6 +1987,8 @@
 				}
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -2352,6 +2368,8 @@
 				}
 			],
 			"content_cursor": 1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -2659,6 +2677,8 @@
 				}
 			],
 			"content_cursor": 3,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -2954,6 +2974,8 @@
 				}
 			],
 			"content_cursor": 1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -3261,6 +3283,8 @@
 				}
 			],
 			"content_cursor": 4,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -3592,6 +3616,8 @@
 				}
 			],
 			"content_cursor": 4,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -3959,6 +3985,8 @@
 				}
 			],
 			"content_cursor": 2,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -4088,6 +4116,8 @@
 				}
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -4349,6 +4379,8 @@
 				}
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -4490,6 +4522,8 @@
 				}
 			],
 			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
 			"colors": [
 
 			],
@@ -4551,23 +4585,6 @@
 			"utilizes multiple prechoruses for variation in the chorus",
 			"includes a solo for instrumental showcase",
 			"ends with a strong and memorable chorus in the outro"
-		],
-		"chords": [
-
-		],
-		"part_types": [
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0
 		]
 	},
 	"struct_suggs": [
@@ -4591,12 +4608,6 @@
 				"provides a balance between verses and choruses",
 				"includes a bridge for variety and climax",
 				"has a clear build up to the final chorus in the outro"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -4623,12 +4634,6 @@
 				"has a strong and attention-grabbing intro",
 				"allows for development and variation in the chorus with multiple prechoruses",
 				"includes a bridge for a change in tempo and intensity"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -4650,12 +4655,6 @@
 				"focuses on alternating verses and choruses",
 				"includes an instrumental section for a break and showcase",
 				"clearly builds up to the final chorus in the outro"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -4678,12 +4677,6 @@
 				"utilizes multiple prechoruses for variation in the chorus",
 				"includes a solo for instrumental showcase",
 				"ends with a strong and memorable chorus in the outro"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -4704,12 +4697,6 @@
 				"focuses on alternating verses and choruses",
 				"utilizes an intro and instrumental section for a break and buildup to the chorus",
 				"has room for a longer story arc with multiple choruses"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -4733,12 +4720,6 @@
 				"has a strong and attention-grabbing intro",
 				"includes a prechorus for variation in the chorus",
 				"provides a break and buildup in the bridge before the climax in the final chorus"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -4763,12 +4744,6 @@
 				"starts with an instrumental intro to captivate the listener's attention",
 				"includes a solo and bridge for variation and development",
 				"builds up to the final chorus in the outro"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -4792,12 +4767,6 @@
 				"utilizes multiple prechoruses for variation in the chorus",
 				"includes an instrumental theme melody for a memorable hook",
 				"provides a clear buildup to the final chorus in the outro"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -4818,12 +4787,6 @@
 				"focuses on alternating verses and choruses with an increasing intensity",
 				"includes a bridge for a change in tempo and intensity",
 				"ends with a strong and memorable final chorus in the outro"
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		},
 		{
@@ -4845,12 +4808,6 @@
 				"utilizes an intro and instrumental section for a break and development",
 				"includes a solo and prechorus for variation in the chorus",
 				"has a clear buildup to the final chorus in the outro."
-			],
-			"chords": [
-
-			],
-			"part_types": [
-
 			]
 		}
 	],
