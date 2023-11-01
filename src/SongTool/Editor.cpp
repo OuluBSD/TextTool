@@ -117,8 +117,8 @@ void Editor::InitSimplified() {
 	AddItem(t_("Manual override"), t_("Create From English"), structure_from_english);
 	AddItem(t_("Manual override"), t_("Edit"), structure_edit);
 	
-	AddItem(t_("Context"), t_("Attributes"), ctx_attrs);
 	AddItem(t_("Context"), t_("Production idea"), prod_idea);
+	AddItem(t_("Context"), t_("Attributes"), ctx_attrs);
 	AddItem(t_("Context"), t_("Idea"), auto_ideas);
 	AddItem(t_("Context"), t_("Idea of a single part"), part_idea);
 	AddItem(t_("Context"), t_("Context idea"), ctx_idea);

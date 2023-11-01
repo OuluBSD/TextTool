@@ -1,5 +1,5 @@
 Scheduled work:
-- reference context idea page (BEFORE STORY IDEA): who is referred as "he" or "she" in rhymes?
+- production (reference context) idea page (BEFORE STORY IDEA): who is referred as "he" or "she" in rhymes?
 	- "optional reference list" and "in use reference list" (fill in any order)
 		- singer's person (I, me or as story's protagonist)
 		- singer's person of interest (you, story's person, wiser person virtually, etc.)
@@ -30,6 +30,8 @@ Scheduled work:
 			- passive wisdom
 			- passive question
 	- or "this place", etc.
+- production idea affects attributes
+	- get song attributes from production idea
 - text idea page
 - fix rhyme and rap rhyme stylers
 - strands of important words in a part -page
