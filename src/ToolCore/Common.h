@@ -1051,6 +1051,19 @@ enum {
 extern const char* FocusModeString[FOCUSMODE_COUNT];
 
 
+enum {
+	WORDGROUP_PRONOUN,
+	WORDGROUP_NOUN,
+	WORDGROUP_ADJECTIVE,
+	WORDGROUP_PREPOSITIONS,
+	WORDGROUP_CONJUNCTIONS,
+	WORDGROUP_VERBS,
+	
+	WORDGROUP_COUNT
+};
+
+extern const char* WordGroupString[WORDGROUP_COUNT];
+
 
 struct ProductionIdeaTopic : Moveable<ProductionIdeaTopic> {
 	Vector<String> positive, negative;

@@ -197,6 +197,7 @@ struct StaticPart {
 	Vector<Vector<Vector<String>>> vocabulary;
 	Vector<Vector<String>> wordsalads;
 	Vector<Vector<Color>> wordsalad_clrs;
+	Vector<double> wordgroup_factors;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -220,6 +221,7 @@ struct StaticPart {
 			("vocabulary", vocabulary)
 			("wordsalads", wordsalads)
 			("wordsalad_clrs", wordsalad_clrs)
+			("wordgroup_factors", wordgroup_factors)
 			;
 		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
 			json(	(String)"active_idea[" + IdeaPathString[IDEAPATH_PARTBEGIN+i][1] + "]",

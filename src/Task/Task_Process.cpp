@@ -1903,3 +1903,7 @@ void Task::Process_GetVocabularyIdea() {
 void Task::Process_GetWordSaladIdea() {
 	WhenResult("1/10: a" + output);
 }
+
+void Task::Process_GetContextIdea() {
+	WhenResult(output);
+}

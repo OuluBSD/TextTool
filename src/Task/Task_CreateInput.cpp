@@ -4303,3 +4303,61 @@ void Task::CreateInput_GetWordSaladIdea() {
 		input.response_length = 1*1024;
 	}
 }
+
+void Task::CreateInput_GetContextIdea() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	ContextIdeaArgs args;
+	args.Put(this->args[0]);
+	ASSERT(args.parts.GetCount());
+	
+	if (args.fn == 0) {
+		{
+			input.AddSub().Title("Song bpm: " + IntStr(args.bpm)).NoColon();
+		}
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title("Distribution of roles in content of this song");
+			for(int i = 0; i < args.roles.GetCount(); i++)
+				list.Add(Format("%s: %d", args.roles.GetKey(i), (int)((args.roles[i] * 100) + 0.5)));
+		}
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title("Parts of this song");
+			for(int i = 0; i < args.parts.GetCount(); i++) {
+				const ContextIdeaArgs::Part& part = args.parts[i];
+				String s;
+				s << "\"" << part.title << "\": duration: "
+				  << part.duration << " seconds, words in total: "
+				  << part.est_words;
+				list.Add(s);
+			}
+		}
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title("Word groups");
+			for(int i = 0; i < WORDGROUP_COUNT; i++)
+				list.Add(WordGroupString[i]);
+		}
+		{
+			TaskTitledList& list = input.AddSub();
+			list.Title("Example of the format of the result:");
+			String s = "\"Name of the part\": ";
+			int per_part = 100 / WORDGROUP_COUNT;
+			int mod = 100 % WORDGROUP_COUNT;
+			for(int i = 0; i < WORDGROUP_COUNT; i++) {
+				if (i) s << ", ";
+				s << WordGroupString[i] << ": " + IntStr(per_part + (i == 0?mod:0)) + "\%";
+			}
+			list.Add(s);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Percentage of total words in verse");
+			results.Add("\"" + args.parts[0].title + "\": " + WordGroupString[0]+ ":");
+		}
+	}
+}

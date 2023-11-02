@@ -87,5 +87,3 @@ void ContextAttributesCtrl::Data() {
 	SetData(p.song->data, song);
 	
 }
-
-

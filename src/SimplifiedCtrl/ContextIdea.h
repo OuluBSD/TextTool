@@ -3,10 +3,12 @@
 
 
 class ContextIdeaCtrl : public LineListCtrl {
-	Splitter hsplit;
-	ArrayCtrl in_use, potential_use;
+	Splitter hsplit, vsplit;
+	ArrayCtrl distribution, parts, percentage;
 	ArrayCtrl notes, suggestion;
 	DocEdit part_dialogue0, part_dialogue1;
+	
+	ContextIdeaArgs args;
 	
 public:
 	typedef ContextIdeaCtrl CLASSNAME;
@@ -16,10 +18,13 @@ public:
 	void EnableAll();
 	void Data() override;
 	void ToolMenu(Bar& bar) override;
-	void GetRoleSuggestions();
-	void ActivateSuggestion();
+	void GetWordGroupPercentages();
 	void GetSuggestions();
 	void UseSuggestions();
+	void UpdateAll();
+	void UpdateParts();
+	void UpdateRoles();
+	void OnWordGroupPercentages(String res);
 	
 };
 

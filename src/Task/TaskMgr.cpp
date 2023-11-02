@@ -367,6 +367,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetWordSaladIdea)
 		;
 	
+	AddRule(TASK_GET_CONTEXT_IDEA, "get context idea")
+		.Input(&Task::CreateInput_GetContextIdea)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetContextIdea)
+		;
+	
 	
 	
 	
@@ -1877,6 +1884,24 @@ void TaskMgr::GetWordSaladIdea(const WordSaladIdeaArgs& args, Event<String> When
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_WORD_SALAD_IDEA);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetContextIdea(const ContextIdeaArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_CONTEXT_IDEA);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
 	String s = args.Get();

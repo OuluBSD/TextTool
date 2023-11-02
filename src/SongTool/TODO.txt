@@ -1,35 +1,6 @@
 Scheduled work:
-- production (reference context) idea page (BEFORE STORY IDEA): who is referred as "he" or "she" in rhymes?
-	- "optional reference list" and "in use reference list" (fill in any order)
-		- singer's person (I, me or as story's protagonist)
-		- singer's person of interest (you, story's person, wiser person virtually, etc.)
-		- basically what singer is or what singer is interested
-			- person, location, time, sense, reward, punishment, event, action
-	- get prompt in time domain (use bpm)
-		- how many seconds between referencing singer's person (directly or indirectly)
-			- solve notes from time
-		- get list of candidates
-
-	- registers
-		- pronouns
-		- time, place, view, hear, skin sense, smell
-		- role of singer
-			- fps reality mimic
-			- fps reality reactive/dialogue
-			- fps reality narrator
-			- fps reality wisdom
-			- fps reality question
-			- 3rd reality mimic
-			- 3rd reality reactive/dialogue
-			- 3rd reality narrator
-			- 3rd reality wisdom
-			- 3rd reality question
-			- passive mimic
-			- passive reactive/dialogue
-			- passive narrator
-			- passive wisdom
-			- passive question
-	- or "this place", etc.
+- rhyme editor to context idea page
+- word group words (with artist style)
 - production idea affects attributes
 	- get song attributes from production idea
 - production idea edit shortcuts (focus list item when active list focus and vice versa)
@@ -86,3 +57,4 @@ x? vocabulary: for artist, for release, for song
 	x fill in the form by yourself
 - vocabulary idea: set vocabulary and color for part
 - word salad page
+- production (reference context) idea page (BEFORE STORY IDEA): who is referred as "he" or "she" in rhymes?

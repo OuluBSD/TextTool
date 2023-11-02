@@ -14442,3 +14442,12 @@ v.AddPos("Dior");
 
 
 
+
+const char* WordGroupString[WORDGROUP_COUNT] = {
+	"pronoun",
+	"noun",
+	"adjective",
+	"prepositions",
+	"conjunctions",
+	"verbs"
+};

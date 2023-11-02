@@ -138,6 +138,7 @@ typedef enum : int {
 	TASK_GET_VOCABULARY,
 	TASK_GET_VOCABULARY_IDEA,
 	TASK_GET_WORD_SALAD_IDEA,
+	TASK_GET_CONTEXT_IDEA,
 	
 	TASK_IMPORT_AND_REVERSE,
 	TASK_CONTEXT_IMPORT_AND_REVERSE,
@@ -445,6 +446,38 @@ struct WordSaladIdeaArgs {
 				("characters", characters)
 				("dialogue1", dialogue1)
 				("dialogue2", dialogue2)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct ContextIdeaArgs {
+	struct Part : Moveable<Part> {
+		int duration = 0;
+		int total_notes = 0;
+		int est_words = 0;
+		String title;
+		
+		void Jsonize(JsonIO& json) {
+			json	("duration", duration)
+					("total_notes", total_notes)
+					("est_words", est_words)
+					("title", title)
+					;
+		}
+	};
+	int fn;
+	int bpm = 0;
+	Vector<Part> parts;
+	VectorMap<String,double> roles;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("bpm", bpm)
+				("parts", parts)
+				("roles", roles)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}
