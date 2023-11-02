@@ -3,16 +3,23 @@
 
 
 
-class ProductionIdea : public SongToolCtrl {
-	Splitter hsplit, vsplit;
+class ProductionIdeaPage : public SongToolCtrl {
+	Splitter mainsplit, hsplit, vsplit;
 	
-	ArrayCtrl list, positive, negative;
+	ArrayCtrl list, positive, negative, active_list;
 	
 public:
-	typedef ProductionIdea CLASSNAME;
-	ProductionIdea();
+	typedef ProductionIdeaPage CLASSNAME;
+	ProductionIdeaPage();
 	
 	void Data() override;
+	void DataTopic();
+	void DataActive();
+	void AddActive(bool positive);
+	void RemoveActive();
+	void RandomizeActive();
+	void RandomizeAll(bool skip_existing_topic);
+	void FocusActiveIdea(String topic, String value);
 	void ToolMenu(Bar& bar) override;
 	String GetStatusText() override;
 	/*void GetProductionIdea();

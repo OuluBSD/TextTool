@@ -298,6 +298,20 @@ struct StaticTheme {
 	}
 };
 
+struct ProductionIdea {
+	String topic, value;
+	bool is_positive = true;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("topic", topic)
+			("value", value)
+			("is_positive", is_positive)
+			;
+	}
+	
+};
+
 struct Song :
 	DataFile,
 	EditorPtrs
@@ -354,6 +368,7 @@ struct Song :
 	int							part_cursor = -1;
 	String						active_idea[IDEAPATH_COUNT];
 	Color						active_idea_clr[IDEAPATH_COUNT];
+	Array<ProductionIdea>		prod_ideas;
 	
 	// Temp
 	Pipe*				pipe = 0;
@@ -403,6 +418,7 @@ struct Song :
 			("themes", themes)
 			("theme_cursor", theme_cursor)
 			("part_cursor", part_cursor)
+			("prod_ideas", prod_ideas)
 			;
 		for(int i = 0; i < IDEAPATH_COUNT; i++)
 			json((String)"active_idea[" + IdeaPathString[i][1] + "]", active_idea[i]);

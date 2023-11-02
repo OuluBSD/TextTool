@@ -46,7 +46,7 @@ protected:
 	ChecklistRelease				release_checklist;
 	ImageGenTool					image_gen;
 	ContextAttributesCtrl			ctx_attrs;
-	ProductionIdea					prod_idea;
+	ProductionIdeaPage				prod_idea;
 	PressReleaseCtrl				pressrel;
 	PublicRelationsCtrl				pubrel;
 	MarketingCtrl					marketing;

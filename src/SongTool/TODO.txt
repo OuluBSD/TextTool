@@ -32,6 +32,8 @@ Scheduled work:
 	- or "this place", etc.
 - production idea affects attributes
 	- get song attributes from production idea
+- production idea edit shortcuts (focus list item when active list focus and vice versa)
+	- buttons in relation to that
 - text idea page
 - fix rhyme and rap rhyme stylers
 - strands of important words in a part -page

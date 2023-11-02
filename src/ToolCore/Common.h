@@ -1034,7 +1034,7 @@ enum {
 	
 	ROLE_COUNT
 };
-
+	
 extern const char* RoleString[ROLE_COUNT];
 
 
@@ -1056,9 +1056,9 @@ struct ProductionIdeaTopic : Moveable<ProductionIdeaTopic> {
 	Vector<String> positive, negative;
 	String title;
 	
-	void Add(const char* v) {positive.Add(v);}
-	void AddPos(const char* v) {positive.Add(v);}
-	void AddNeg(const char* v) {negative.Add(v);}
+	void Add(const char* v) {positive.Add(TrimBoth(v));}
+	void AddPos(const char* v) {positive.Add(TrimBoth(v));}
+	void AddNeg(const char* v) {negative.Add(TrimBoth(v));}
 	void Sort() {UPP::Sort(positive, StdLess<String>()); UPP::Sort(negative, StdLess<String>());}
 	
 };
