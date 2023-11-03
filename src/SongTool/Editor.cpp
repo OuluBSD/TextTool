@@ -97,6 +97,8 @@ void Editor::InitSimplified() {
 	- music video pipeline
 	
 	*/
+	AddItem(t_("Database"), t_("Song data"), song_data);
+	
 	AddItem(t_("All"), t_("Info"), info);
 	AddItem(t_("All"), t_("Calendar"), cal);
 	AddItem(t_("All"), t_("Press Release"), pressrel);

@@ -44,6 +44,8 @@
 #include "WordSaladIdea.h"
 #include "TextIdea.h"
 #include "Vocabulary.h"
+#include "SongDataLoader.h"
+#include "SongDataPage.h"
 
 
 #endif

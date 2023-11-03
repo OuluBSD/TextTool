@@ -32,6 +32,7 @@ struct Database {
 	
 	// Local (separate)
 	Array<Pipe>		pipes;
+	SongData		song_data;
 	
 	// Temp
 	Context			ctx;

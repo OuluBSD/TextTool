@@ -44,3 +44,8 @@ LAYOUT(TxtCompare, 872, 128)
 	ITEM(Upp::Button, to_user, SetLabel(t_("<-")).HCenterPosZ(108, -62).BottomPosZ(4, 20))
 END_LAYOUT
 
+LAYOUT(SongDataLoader, 408, 56)
+	ITEM(Upp::Label, message, SetLabel(t_("Loading")).LeftPosZ(4, 400).TopPosZ(4, 20))
+	ITEM(Upp::ProgressIndicator, prog, HSizePosZ(4, 4).TopPosZ(28, 24))
+END_LAYOUT
+

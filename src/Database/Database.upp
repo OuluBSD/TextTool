@@ -7,6 +7,8 @@ file
 	Database.h,
 	DatabaseClass.h,
 	Database.cpp,
+	SongData.h,
+	SongData.cpp,
 	"Data (assets)" readonly separator,
 	Artist.h,
 	Artist.cpp,

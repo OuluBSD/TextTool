@@ -6,6 +6,8 @@ uses
 file
 	SimplifiedCtrl.h,
 	Simplified.lay,
+	SongDataPage.h,
+	SongDataPage.cpp,
 	Vocabulary.h,
 	Vocabulary.cpp,
 	AlbumBriefing.h,
@@ -76,6 +78,8 @@ file
 	PublicRelations.cpp,
 	Marketing.h,
 	Marketing.cpp,
+	SongDataLoader.h,
+	SongDataLoader.cpp,
 	Common.h,
 	Common.cpp;
 

@@ -24,6 +24,7 @@
 #include "Song.h"
 #include "Release.h"
 #include "Artist.h"
+#include "SongData.h"
 #include "DatabaseClass.h"
 
 

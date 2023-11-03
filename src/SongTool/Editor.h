@@ -52,6 +52,7 @@ protected:
 	MarketingCtrl					marketing;
 	StoryIdeaCtrl					story_idea;
 	VisualIdeaCtrl					vocal_idea;
+	SongDataPage					song_data;
 	
 	
 	

@@ -90,6 +90,11 @@ GUI_APP_MAIN {
 	}
 	db.Load();
 	
+	db.song_data.Load();
+	if (db.song_data.IsEmpty()) {
+		SongDataLoader loader;
+		loader.Run();
+	}
 	
 	// Run main program
 	{
