@@ -339,6 +339,7 @@ void SongDataAnalysis::UpdateTasks() {
 				if (ad.name != artist_name) continue;
 				for (LyricsDataset& ld : ad.lyrics) {
 					if (ld.name != song.name) continue;
+					if (ld.text.GetCount() > txt_limit) continue;
 					Task& t = tasks.Add();
 					t.ld = &ld;
 					t.analysis = &song;
@@ -353,6 +354,7 @@ void SongDataAnalysis::UpdateTasks() {
 				if (ad.name != artist_name) continue;
 				for (LyricsDataset& ld : ad.lyrics) {
 					if (ld.name != song.name) continue;
+					if (ld.text.GetCount() > txt_limit) continue;
 					Task& t = tasks.Add();
 					t.ld = &ld;
 					t.analysis = &song;

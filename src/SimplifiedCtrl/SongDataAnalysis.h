@@ -10,6 +10,8 @@ class SongDataAnalysis : public SongToolCtrl {
 		int progress = 0;
 	};
 	
+	int txt_limit = 6000;
+	
 private:
 	Splitter hsplit;
 	ArrayCtrl list;
