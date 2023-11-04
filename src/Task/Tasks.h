@@ -251,6 +251,7 @@ public:
 	void CreateInput_GetVocabularyIdea();
 	void CreateInput_GetWordSaladIdea();
 	void CreateInput_GetContextIdea();
+	void CreateInput_GetSongDataAnalysis();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -333,6 +334,7 @@ public:
 	void Process_GetVocabularyIdea();
 	void Process_GetWordSaladIdea();
 	void Process_GetContextIdea();
+	void Process_GetSongDataAnalysis();
 	
 	void Retry(bool skip_prompt, bool skip_cache);
 	String GetDescription() const;

@@ -139,6 +139,7 @@ typedef enum : int {
 	TASK_GET_VOCABULARY_IDEA,
 	TASK_GET_WORD_SALAD_IDEA,
 	TASK_GET_CONTEXT_IDEA,
+	TASK_GET_SONG_DATA_ANALYSIS,
 	
 	TASK_IMPORT_AND_REVERSE,
 	TASK_CONTEXT_IMPORT_AND_REVERSE,
@@ -478,6 +479,22 @@ struct ContextIdeaArgs {
 				("bpm", bpm)
 				("parts", parts)
 				("roles", roles)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct SongDataAnalysisArgs {
+	int fn;
+	String artist, song, text;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("artist", artist)
+				("song", song)
+				("text", text)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

@@ -20,12 +20,83 @@ struct ArtistDataset : Moveable<ArtistDataset> {
 	}
 };
 
+struct LyricsAnalysis {
+	struct Rhyme : Moveable<Rhyme> {
+		Vector<String> words;
+		int score;
+		
+		void Jsonize(JsonIO& json) {
+			json
+				("words", words)
+				("score", score)
+				;
+		}
+	};
+	struct Role : Moveable<Role> {
+		String subject;
+		int percent;
+		
+		void Jsonize(JsonIO& json) {
+			json
+				("subject", subject)
+				("percent", percent)
+				;
+		}
+	};
+	
+	String name;
+	Vector<Rhyme> rhymes;
+	VectorMap<String, Vector<String>> word_groups;
+	Vector<Vector<Role>> positive_roles, negative_roles;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("name", name)
+			("rhymes", rhymes)
+			("word_groups", word_groups)
+			("positive_roles", positive_roles)
+			("negative_roles", negative_roles)
+			;
+	}
+	String AsString() const;
+};
+
 struct SongData {
+	// Binary data
 	Vector<ArtistDataset> artists_en;
 	Vector<ArtistDataset> artists_fi;
 	
+	// Json data
+	ArrayMap<String, Array<LyricsAnalysis>> active_songs;
+	
+	void Jsonize(JsonIO& json) {
+		#if 0
+		if (json.IsLoading()) {
+			VectorMap<String, Vector<String>> m;
+			json
+				("active_songs", m)
+				;
+			for(int i = 0; i < m.GetCount(); i++) {
+				String key = m.GetKey(i);
+				const auto& v = m[i];
+				auto& ov = active_songs.Add(key);
+				for(int j = 0; j < v.GetCount(); j++) {
+					ov.Add().name = v[j];
+				}
+			}
+		}
+		else
+		#endif
+		{
+			json
+				("active_songs", active_songs)
+				;
+		}
+	}
 	void Store();
 	void Load();
+	void StoreJson();
+	void LoadJson();
 	void Serialize(Stream& s) {s % artists_en % artists_fi;}
 	bool IsEmpty() const {return artists_en.IsEmpty() || artists_fi.IsEmpty();}
 	

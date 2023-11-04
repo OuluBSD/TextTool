@@ -51,6 +51,11 @@ void SongDataLoader::LoadHuggingArtists() {
 		if (GetDefaultCharset() != CHARSET_UTF8)
 			artist.name = ToCharset(CHARSET_UTF8, artist.name, CHARSET_DEFAULT);
 		
+		Vector<String> name_parts = Split(artist.name, "-");
+		for (String& n : name_parts)
+			n = Capitalize(ToLower(n));
+		artist.name = Join(name_parts, " ");
+		
 		PostMessage("Loading artist: " + artist.name);
 		PostProgress(i, files.GetCount());
 		

@@ -8,6 +8,8 @@ file
 	Simplified.lay,
 	SongDataPage.h,
 	SongDataPage.cpp,
+	SongDataAnalysis.h,
+	SongDataAnalysis.cpp,
 	Vocabulary.h,
 	Vocabulary.cpp,
 	AlbumBriefing.h,

@@ -374,6 +374,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetContextIdea)
 		;
 	
+	AddRule(TASK_GET_SONG_DATA_ANALYSIS, "get song data analysis")
+		.Input(&Task::CreateInput_GetSongDataAnalysis)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetSongDataAnalysis)
+		;
+	
 	
 	
 	
@@ -1902,6 +1909,24 @@ void TaskMgr::GetContextIdea(const ContextIdeaArgs& args, Event<String> WhenResu
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_CONTEXT_IDEA);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetSongDataAnalysis(const SongDataAnalysisArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_SONG_DATA_ANALYSIS);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
 	String s = args.Get();

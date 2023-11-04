@@ -1078,4 +1078,9 @@ struct ProductionIdeaTopic : Moveable<ProductionIdeaTopic> {
 
 const Vector<ProductionIdeaTopic>& ProductionIdeas();
 
+
+
+void EscapeString(String& s);
+
+
 #endif

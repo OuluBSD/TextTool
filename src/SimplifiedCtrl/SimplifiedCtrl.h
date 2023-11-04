@@ -46,6 +46,7 @@
 #include "Vocabulary.h"
 #include "SongDataLoader.h"
 #include "SongDataPage.h"
+#include "SongDataAnalysis.h"
 
 
 #endif

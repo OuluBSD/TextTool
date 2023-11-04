@@ -54,6 +54,8 @@ struct Database {
 			% attrscores*/;
 	}
 	void Jsonize(JsonIO& json) {
+		//if (json.IsLoading())
+		//	json("song_data", song_data);
 		json ("translation", translation);
 		if (json.IsStoring()) {
 			Vector<String> names;

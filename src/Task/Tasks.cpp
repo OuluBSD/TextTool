@@ -600,10 +600,11 @@ bool Task::RunOpenAI_Completion() {
 			input.AsString();
 	//LOG(prompt);
 	
-	prompt.Replace("\r", "");
+	/*prompt.Replace("\r", "");
 	prompt.Replace("\n", "\\n");
 	prompt.Replace("\t", "\\t");
-	prompt.Replace("\"", "\\\"");
+	prompt.Replace("\"", "\\\"");*/
+	EscapeString(prompt);
 	
 	//prompt = FixInvalidChars(prompt); // NOTE: warning: might break something
 	//prompt.Replace("\'", "\\\'");

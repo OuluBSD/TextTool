@@ -53,6 +53,7 @@ protected:
 	StoryIdeaCtrl					story_idea;
 	VisualIdeaCtrl					vocal_idea;
 	SongDataPage					song_data;
+	SongDataAnalysis				song_analysis;
 	
 	
 	

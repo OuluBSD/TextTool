@@ -1907,3 +1907,7 @@ void Task::Process_GetWordSaladIdea() {
 void Task::Process_GetContextIdea() {
 	WhenResult(output);
 }
+
+void Task::Process_GetSongDataAnalysis() {
+	WhenResult(output);
+}

@@ -133,6 +133,7 @@ struct TaskMgr {
 	void GetVocabularyIdea(const VocabularyIdeaArgs& args, Event<String> WhenResult);
 	void GetWordSaladIdea(const WordSaladIdeaArgs& args, Event<String> WhenResult);
 	void GetContextIdea(const ContextIdeaArgs& args, Event<String> WhenResult);
+	void GetSongDataAnalysis(const SongDataAnalysisArgs& args, Event<String> WhenResult);
 	
 };
 

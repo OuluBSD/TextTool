@@ -14451,3 +14451,11 @@ const char* WordGroupString[WORDGROUP_COUNT] = {
 	"conjunctions",
 	"verbs"
 };
+
+
+void EscapeString(String& s) {
+	s = ToCharset(CHARSET_ISO8859_15, s, CHARSET_UTF8);
+	s = ToCharset(CHARSET_UTF8, s, CHARSET_ISO8859_15);
+	s = StoreAsJson(s);
+	RemoveQuotes(s);
+}

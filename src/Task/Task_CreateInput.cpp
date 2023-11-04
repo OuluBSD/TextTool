@@ -4361,3 +4361,208 @@ void Task::CreateInput_GetContextIdea() {
 		}
 	}
 }
+
+void Task::CreateInput_GetSongDataAnalysis() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	SongDataAnalysisArgs args;
+	args.Put(this->args[0]);
+	ASSERT(args.artist.GetCount());
+	ASSERT(args.song.GetCount());
+	ASSERT(args.text.GetCount());
+	
+	
+	if (args.fn == 0) {
+		String answer_prompt = "List of rhyme pairs/triplets/quads/etc. in lyrics. With score from 1-10 for quality";
+		{
+			auto& list = input.AddSub().Title(answer_prompt);
+			list.Add("triplet: cat/hat/grab (7)");
+			list.Add("pair: rotten/forgotten (6)");
+		}
+		
+		{
+			input.AddSub().Title("Artist: " + args.artist).NoColon();
+			input.AddSub().Title("Song: " + args.song).NoColon();
+			
+			Vector<String> lines = Split(args.text, "\n");
+			auto& list = input.AddSub().Title("Lyrics");
+			list.NoListChar();
+			for (String& s : lines)
+				list.Add(s);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(answer_prompt);
+			results.EmptyLine();
+		}
+	}
+	if (args.fn == 1) {
+		String answer_prompt = "List of words and word groups in song \"" + args.artist + " - " + args.song + "\"";
+		{
+			auto& list = input.AddSub().Title("List of word groups");
+			list.Add("pronoun");
+			list.Add("noun");
+			list.Add("adjective");
+			list.Add("prepositions");
+			list.Add("conjunctions");
+			list.Add("verbs");
+			list.Add("adverbs");
+			list.Add("interjections");
+			list.Add("numbers");
+			list.Add("adverbial phrases");
+			list.Add("possessive pronouns");
+			list.Add("comparative adjectives");
+			list.Add("superlative adjectives");
+			list.Add("contractions");
+			list.Add("auxiliary verbs");
+			list.Add("relative pronouns");
+			list.Add("future tense verbs");
+			list.Add("past tense verbs");
+			list.Add("modal verbs");
+			list.Add("direct speech");
+			list.Add("indirect speech");
+			list.Add("repetitive phrases");
+			list.Add("personification");
+			list.Add("metaphors");
+			list.Add("hyperbole");
+			list.Add("assonance");
+			list.Add("consonance");
+			list.Add("alliteration");
+			list.Add("onomatopoeia");
+			list.Add("rhyming words");
+			list.Add("imperative verbs");
+			list.Add("exclamations");
+			list.Add("possessive adjectives");
+			list.Add("articles");
+			list.Add("auxiliary adjectives");
+			list.Add("personal pronouns");
+			list.Add("possessive determiners");
+			list.Add("question words");
+			list.Add("passive voice");
+			list.Add("active voice");
+			list.Add("compound words");
+			list.Add("contradictions");
+			list.Add("repeated words");
+			list.Add("extended metaphor");
+			list.Add("repetition");
+			list.Add("rhetorical question");
+			list.Add("tone");
+			list.Add("mood");
+			list.Add("symbolism");
+			list.Add("extended simile");
+			list.Add("dramatic endings");
+			list.Add("repeated chorus");
+			list.Add("metaphorical simile");
+			list.Add("irony");
+			list.Add("emotional words");
+			list.Add("strong verbs");
+			list.Add("weak verbs");
+			list.Add("emotive language");
+			list.Add("onomatopoeic words");
+			list.Add("words that depict movement");
+			list.Add("symbolic words");
+			list.Add("descriptive words");
+			list.Add("words with multiple meanings");
+			list.Add("concern");
+			list.Add("insanity");
+			list.Add("pain");
+			list.Add("hope");
+			list.Add("grief");
+			list.Add("passion");
+			list.Add("happiness");
+			list.Add("anger");
+			list.Add("love");
+			list.Add("loss");
+			list.Add("sorrow");
+			list.Add("heartache");
+			list.Add("romance");
+			list.Add("longing");
+			list.Add("joy");
+			list.Add("sadness");
+			list.Add("relationship");
+			list.Add("happiness");
+			list.Add("intercourse");
+			list.Add("family");
+			list.Add("forgiveness");
+			list.Add("distance");
+			list.Add("communication");
+			list.Add("boundaries");
+			list.Add("resolution");
+			list.Add("denial");
+			list.Add("reconciliation");
+			list.Add("thoughts");
+			list.Add("mental state");
+			list.Add("messages");
+			list.Add("personal growth");
+			list.Add("themes");
+			list.Add("structure");
+			list.Add("tense");
+			list.Add("vibe");
+			list.Add("communication devices");
+			list.Add("storyline");
+			list.Add("rhythm");
+			list.Add("imagery");
+			list.Add("personification");
+			list.Add("hooks");
+			list.Add("idea");
+			list.Add("inline rhymes");
+			list.Add("sarcasm");
+			list.Add("positivity");
+			list.Add("negativity");
+			list.Add("emotional progression");
+		}
+		{
+			input.AddSub().Title("Artist: " + args.artist).NoColon();
+			input.AddSub().Title("Song: " + args.song).NoColon();
+			
+			Vector<String> lines = Split(args.text, "\n");
+			auto& list = input.AddSub().Title("Lyrics");
+			list.NoListChar();
+			for (String& s : lines)
+				list.Add(s);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(answer_prompt);
+			results.EmptyLine().EmptyLineString("pronoun:");
+		}
+	}
+	else if (args.fn == 2) {
+		{
+			auto& list = input.AddSub().Title("Positive stereotypes of distribution of roles in content of modern songs");
+			list.Add("personal I: 50\%, love and relationships: 30\%, self-love and acceptance: 20\%");
+			list.Add("people who volunteer at beach cleanups: 60\%, promoting environmental consciousness and sustainable habits: 30\%, advocating for cleaner and");
+			list.Add("northern european people: 70\%, promoting inclusivity and diversity: 20\%, rejecting racial stereotypes and discrimination: 10\%.");
+			list.Add("you inspire me: 50\%, celebrating individuality and uniqueness: 30\%, recognizing the value of others: 20\%.");
+		}
+		{
+			auto& list = input.AddSub().Title("Negative stereotypes of distribution of roles in content of modern songs");
+			list.Add("personal I: 60\%, personal success and achievements: 30\%, societal pressure and expectations: 10\%.");
+			list.Add("intoxicated I: 70\%, loneliness and isolation: 20\%, finding comfort and belonging: 10\%.");
+			list.Add("us vs. the system: 50\%, fighting against injustice and inequality: 40\%, complacency and lack of action: 10\%.");
+			list.Add("fucking I: 60\%, exploring sexuality and desires: 30\%, finding love and real connections: 10\%.");
+		}
+		
+		{
+			input.AddSub().Title("Artist: " + args.artist).NoColon();
+			input.AddSub().Title("Song: " + args.song).NoColon();
+			
+			Vector<String> lines = Split(args.text, "\n");
+			auto& list = input.AddSub().Title("Lyrics");
+			list.NoListChar();
+			for (String& s : lines)
+				list.Add(s);
+		}
+		{
+			input.AddSub().NoColon().Title("Getting both positive and negative stereotypes of distribution of person roles in content of song \"" + args.artist + " - " + args.song + "\"");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Positive stereotypes of distribution of person roles in content of song \"" + args.artist + " - " + args.song + "\"");
+			results.EmptyLine();
+		}
+	}
+}
