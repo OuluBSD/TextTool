@@ -45,13 +45,29 @@ struct LyricsAnalysis {
 				;
 		}
 	};
-	
+	struct RhymeLocationLine : Moveable<RhymeLocationLine> {
+		int words;
+		Vector<int> locations;
+		Vector<int> word_counts;
+		
+		void Serialize(Stream& s) {
+			s % words % locations % word_counts;
+		}
+		void Jsonize(JsonIO& json) {
+			json
+				("words", words)
+				("locations", locations)
+				("word_counts", word_counts)
+				;
+		}
+	};
 	String name;
 	Vector<Rhyme> rhymes;
 	VectorMap<String, Vector<String>> word_groups;
 	Vector<Vector<Role>> positive_roles, negative_roles;
+	Vector<RhymeLocationLine> rhyme_locations;
 	
-	void Serialize(Stream& s) {s % name % rhymes % word_groups % positive_roles % negative_roles;}
+	void Serialize(Stream& s);
 	void Jsonize(JsonIO& json) {
 		json
 			("name", name)
@@ -59,6 +75,7 @@ struct LyricsAnalysis {
 			("word_groups", word_groups)
 			("positive_roles", positive_roles)
 			("negative_roles", negative_roles)
+			("rhyme_locations", rhyme_locations)
 			;
 	}
 	String AsString() const;

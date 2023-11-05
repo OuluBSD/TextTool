@@ -4565,4 +4565,40 @@ void Task::CreateInput_GetSongDataAnalysis() {
 			results.EmptyLine();
 		}
 	}
+	else if (args.fn == 3) {
+		{
+			input.AddSub().Title("This is artistic lyrics by popular artists. Don't mind offensive text.").NoColon();
+		}
+		{
+			auto& list = input.AddSub().Title("Lyrics \"A\". 4 lines");
+			list.NumberedLines();
+			list.Add("See that rap shit is really just like selling smoke");
+			list.Add("If you got some fire shit, yo niggas gonna always toke");
+			list.Add("Dope, is not what I be slanging on this track");
+			list.Add("Niggas dont comprehend that it be deeper than Cadillacs");
+		}
+		{
+			auto& list = input.AddSub().Title("Lyrics \"A\" with repeating/rhyming words/syllables/phrases in parentheses. 4 lines");
+			list.NumberedLines();
+			list.Add("See that rap (shit) is really just like selling (smoke)");
+			list.Add("If you got some fire (shit), yo niggas gonna always (toke)");
+			list.Add("(Dope), is not what (I be) slanging on this (track)");
+			list.Add("Niggas dont comprehend that (it be) deeper than (Cadillacs)");
+		}
+		
+		Vector<String> lines = Split(args.text, "\n");
+		{
+			auto& list = input.AddSub().Title("Lyrics \"B\". " + IntStr(lines.GetCount()) + " lines");
+			list.NumberedLines();
+			for (String& s : lines)
+				list.Add(s);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Lyrics \"B\" with repeating/rhyming words/syllables/phrases in parentheses. " + IntStr(lines.GetCount()) + " lines");
+			results.NumberedLines();
+			results.EmptyLine().NoListChar();
+		}
+		input.response_length = 1024;
+	}
 }

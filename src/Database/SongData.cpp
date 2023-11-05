@@ -25,6 +25,10 @@ void SongData::LoadJson() {
 	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json");
 }
 
+void LyricsAnalysis::Serialize(Stream& s) {
+	s % name % rhymes % word_groups % positive_roles % negative_roles % rhyme_locations;
+}
+
 String LyricsAnalysis::AsString() const {
 	String s;
 	s << "Rhymes:\n";

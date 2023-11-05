@@ -1,4 +1,34 @@
 Scheduled work:
+- song data analyser
+	- get word syllables
+	- split lyrics to syllable structure (maybe linked list style?)
+	- link multi-syllable rhymes to other multi-syllable rhymes (e.g. word to word)
+	- calculate word counts and sort them (make vocabulary profile)
+- rhyme analyser
+	- use song data rhyme location analyser (which misses a lot of rhymes)
+	- find
+		- missed full rhymes
+		- matching rhyming syllables (e.g -ing, -lly)
+	- manual add rhymes (e.g. aging again -> everything)
+	- paint differently
+		- begin repeat
+		- begin rhymes
+		- end repeat
+		- end rhymes
+		- strong rhymes vs weak rhymes (which can't be verified)
+- sampler page
+	- user samples: vocabulary profile (blend multiple artists)
+	- user samples: role distribution, rhymes, word group data
+- rap parts
+	- user samples: rhyme profile
+- singing parts
+	- select existing phrases for rhymes, which can be sang without problems
+- rhyme replacer
+	- replace nouns, adjectives, etc. based on sampler
+
+Possibly scheduled work (must be re-checked):
+- fine structure
+	- mark beats as fast beat (easy syllables)
 - rhyme editor to context idea page
 - word group words (with artist style)
 - production idea affects attributes

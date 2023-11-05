@@ -34,9 +34,11 @@ public:
 	void GetRhymes(int list_i, bool start_next);
 	void GetWords(int list_i, bool start_next);
 	void GetRoleDistributions(int list_i, bool start_next);
+	void GetRhymeLocations(int list_i, bool start_next);
 	void OnRhymes(String res, int list_i, bool start_next);
 	void OnWords(String res, int list_i, bool start_next);
 	void OnRoleDistributions(String res, int list_i, bool start_next);
+	void OnRhymeLocations(String res, int list_i, bool start_next);
 	
 };
 
