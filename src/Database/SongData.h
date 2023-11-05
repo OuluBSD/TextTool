@@ -25,6 +25,7 @@ struct LyricsAnalysis {
 		Vector<String> words;
 		int score;
 		
+		void Serialize(Stream& s) {s % words % score;}
 		void Jsonize(JsonIO& json) {
 			json
 				("words", words)
@@ -36,6 +37,7 @@ struct LyricsAnalysis {
 		String subject;
 		int percent;
 		
+		void Serialize(Stream& s) {s % subject % percent;}
 		void Jsonize(JsonIO& json) {
 			json
 				("subject", subject)
@@ -49,6 +51,7 @@ struct LyricsAnalysis {
 	VectorMap<String, Vector<String>> word_groups;
 	Vector<Vector<Role>> positive_roles, negative_roles;
 	
+	void Serialize(Stream& s) {s % name % rhymes % word_groups % positive_roles % negative_roles;}
 	void Jsonize(JsonIO& json) {
 		json
 			("name", name)
@@ -97,7 +100,7 @@ struct SongData {
 	void Load();
 	void StoreJson();
 	void LoadJson();
-	void Serialize(Stream& s) {s % artists_en % artists_fi;}
+	void Serialize(Stream& s);
 	bool IsEmpty() const {return artists_en.IsEmpty() || artists_fi.IsEmpty();}
 	
 };

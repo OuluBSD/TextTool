@@ -21,7 +21,6 @@ String Database::GetSongsDir() const {
 
 void Database::Store() {
 	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json", true);
-	song_data.StoreJson();
 }
 
 void Database::Load() {
@@ -29,7 +28,6 @@ void Database::Load() {
 	
 	lock.EnterWrite();
 	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json");
-	song_data.LoadJson();
 	lock.LeaveWrite();
 /*	bool initial = attr_groups.IsEmpty();
 	attrs.Realize();

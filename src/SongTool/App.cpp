@@ -53,6 +53,8 @@ void SongTool::Init() {
 void SongTool::MainMenu(Bar& bar) {
 	bar.Sub(t_("App"), [this](Bar& bar) {
 		bar.Add(t_("Save"), callback(&Database::Single(), &Database::Store)).Key(K_CTRL_S);
+		bar.Add(t_("Save song-data analysis json"), callback(&Database::Single().song_data, &SongData::StoreJson));
+		bar.Add(t_("Save song-data analysis binary"), callback(&Database::Single().song_data, &SongData::Store));
 		bar.Separator();
 		bar.Add(t_("Set OpenAI token"), THISBACK(SetOpenAIToken));
 		bar.Separator();

@@ -7,6 +7,12 @@ void SongData::Store() {
 
 void SongData::Load() {
 	LoadFromFile(*this, ConfigFile("SongData.bin"));
+	if (active_songs.IsEmpty())
+		LoadJson();
+}
+
+void SongData::Serialize(Stream& s) {
+	s % artists_en % artists_fi % active_songs;
 }
 
 void SongData::StoreJson() {
