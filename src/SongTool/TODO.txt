@@ -1,4 +1,21 @@
 Scheduled work:
+- phonetics & syllable database
+- phrase database
+	- metaphors, hyperboles, direct speech, alliteration, etc.
+	- metaphoric color of phrase
+- rhyme structure
+	- vsplit
+		- top is lines in rows (with pad space left and right)
+		- bottom hsplit
+			- left is text editor
+			- right is mask layers
+				- e.g. role mask suggestions from ai
+				- e.g. different phrase possibilities
+				- e.g. artist styles
+				- e.g. metaphroric emotional colors
+	- assist to
+		- fit phrases
+		- find rhyming words
 - song data analyser
 	- get word syllables
 	- split lyrics to syllable structure (maybe linked list style?)

@@ -72,5 +72,20 @@ String LyricsAnalysis::AsString() const {
 		}
 		s << "\n";
 	}
+	s << "\n\n";
+	
+	s << "Rhyme locations:\n";
+	for(int i = 0; i < rhyme_locations.GetCount(); i++) {
+		const RhymeLocationLine& l = rhyme_locations[i];
+		for(int j = 0; j < l.words.GetCount(); j++) {
+			if (j) s << " ";
+			bool b = l.rhyming[j];
+			if (b) s << "(";
+			s << l.words[j];
+			if (b) s << ")";
+		}
+		s << "\n";
+	}
+	
 	return s;
 }

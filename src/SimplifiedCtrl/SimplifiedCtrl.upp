@@ -22,6 +22,8 @@ file
 	SongStructure.cpp,
 	FineStructure.h,
 	FineStructure.cpp,
+	RhymeStructure.h,
+	RhymeStructure.cpp,
 	TxtInTranslate.h,
 	TxtInTranslate.cpp,
 	TxtStructEdit.h,

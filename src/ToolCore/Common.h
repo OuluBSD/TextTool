@@ -1082,5 +1082,7 @@ const Vector<ProductionIdeaTopic>& ProductionIdeas();
 
 void EscapeString(String& s);
 
+void SplitParenthesisWords(const String& line, Vector<String>& words, Vector<bool>& parenthesis);
+
 
 #endif

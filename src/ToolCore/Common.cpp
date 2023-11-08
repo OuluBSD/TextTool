@@ -14459,3 +14459,42 @@ void EscapeString(String& s) {
 	s = StoreAsJson(s);
 	RemoveQuotes(s);
 }
+
+
+
+
+void SplitParenthesisWords(const String& line, Vector<String>& words, Vector<bool>& parenthesis) {
+	words.SetCount(0);
+	parenthesis.SetCount(0);
+	
+	WString w = line.ToWString();
+	
+	WString tmp;
+	bool is_parenthesis = false;
+	for(int i = 0; i < w.GetCount(); i++) {
+		int chr = w[i];
+		
+		if (IsSpace(chr)) {
+			if (tmp.IsEmpty()) continue;
+			words << tmp.ToString();
+			parenthesis << is_parenthesis;
+			tmp.Clear();
+			is_parenthesis = false;
+		}
+		else {
+			if (tmp.IsEmpty() && chr == '(') {
+				is_parenthesis = true;
+			}
+			else {
+				if (chr == ')' || chr == '(')
+					continue;
+				tmp.Cat(chr);
+			}
+		}
+	}
+	
+	if (tmp.GetCount()) {
+		words << tmp.ToString();
+		parenthesis << is_parenthesis;
+	}
+}

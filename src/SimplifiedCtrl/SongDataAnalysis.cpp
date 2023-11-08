@@ -372,66 +372,26 @@ void SongDataAnalysis::OnRhymeLocations(String res, int list_i, bool start_next)
 	LyricsDataset& ld = *t.ld;
 	LyricsAnalysis& anal = *t.analysis;
 	
-	if (start_next) {
-		disabled = false;
-		if (list_i+1 < list.GetCount())
-			GetRhymeLocations(list_i+1, true);
-		else
-			batch = false;
-	}
-	return;
+	anal.rhyme_locations.Clear();
 	
-	anal.positive_roles.Clear();
-	anal.negative_roles.Clear();
 	res.Replace("\r", "");
 	
-	int a = res.Find("Negative stereotypes");
-	if (a >= 0) {
-		String pos = TrimBoth(res.Left(a));
-		String neg = TrimBoth(res.Mid(a));
+	//LOG(res);
+	
+	Vector<String> lines = Split(res, "\n");
+	Vector<String> words;
+	Vector<bool> rhyming;
+	for (String& line : lines) {
+		RemoveLineNumber(line);
+		SplitParenthesisWords(line, words, rhyming);
 		
-		{
-			Vector<String> lines = Split(pos, "\n");
-			for (String& l : lines) {
-				l = TrimBoth(l);
-				if (l.IsEmpty()) continue;
-				RemoveLineChar(l);
-				Vector<String> g = Split(l, ",");
-				auto& out = anal.positive_roles.Add();
-				for (String& s : g) {
-					s = TrimBoth(s);
-					Vector<String> kv = Split(s, ":");
-					if (kv.GetCount() == 2) {
-						String key0 = TrimBoth(kv[0]);
-						String value0 = TrimBoth(kv[1]);
-						auto& out0 = out.Add();
-						out0.subject = key0;
-						out0.percent = ScanInt(value0);
-					}
-				}
-			}
-		}
-		{
-			Vector<String> lines = Split(neg, "\n");
-			if (lines.GetCount()) lines.Remove(0);
-			for (String& l : lines) {
-				l = TrimBoth(l);
-				if (l.IsEmpty()) continue;
-				RemoveLineChar(l);
-				Vector<String> g = Split(l, ",");
-				auto& out = anal.negative_roles.Add();
-				for (String& s : g) {
-					s = TrimBoth(s);
-					Vector<String> kv = Split(s, ":");
-					if (kv.GetCount() == 2) {
-						String key0 = TrimBoth(kv[0]);
-						String value0 = TrimBoth(kv[1]);
-						auto& out0 = out.Add();
-						out0.subject = key0;
-						out0.percent = ScanInt(value0);
-					}
-				}
-			}
+		//DUMPC(words);
+		//DUMPC(rhyming);
+		
+		if (words.GetCount()) {
+			LyricsAnalysis::RhymeLocationLine& l = anal.rhyme_locations.Add();
+			l.words <<= words;
+			l.rhyming <<= rhyming;
 		}
 	}
 	

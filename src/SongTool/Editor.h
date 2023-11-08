@@ -54,6 +54,7 @@ protected:
 	VisualIdeaCtrl					vocal_idea;
 	SongDataPage					song_data;
 	SongDataAnalysis				song_analysis;
+	RhymeStructureCtrl				rhyme_struct;
 	
 	
 	

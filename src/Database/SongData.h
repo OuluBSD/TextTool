@@ -46,18 +46,16 @@ struct LyricsAnalysis {
 		}
 	};
 	struct RhymeLocationLine : Moveable<RhymeLocationLine> {
-		int words;
-		Vector<int> locations;
-		Vector<int> word_counts;
+		Vector<String> words;
+		Vector<bool> rhyming;
 		
 		void Serialize(Stream& s) {
-			s % words % locations % word_counts;
+			s % words % words;
 		}
 		void Jsonize(JsonIO& json) {
 			json
 				("words", words)
-				("locations", locations)
-				("word_counts", word_counts)
+				("words", words)
 				;
 		}
 	};
