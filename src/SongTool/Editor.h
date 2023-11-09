@@ -23,6 +23,7 @@ protected:
 	ArrayCtrl			tablist, artists, releases, songs, parts;
 	Ctrl				base;
 	int					page = 0;
+	bool				save_songdata = false;
 	
 	// Simplified
 	AlbumBriefing					album_briefing;
@@ -53,7 +54,7 @@ protected:
 	StoryIdeaCtrl					story_idea;
 	VisualIdeaCtrl					vocal_idea;
 	SongDataPage					song_data;
-	SongDataAnalysis				song_analysis;
+	SongDataAnalysisPage			song_analysis;
 	RhymeStructureCtrl				rhyme_struct;
 	SongDataWords					song_words;
 	
@@ -100,7 +101,7 @@ public:
 	typedef Editor CLASSNAME;
 	Editor(SongTool* app);
 	
-	void Serialize(Stream& s) {s % page;}
+	void Serialize(Stream& s) {s % page % save_songdata;}
 	void Init();
 	void UpdateView();
 	void Data();
@@ -116,6 +117,8 @@ public:
 	void MoveTab(int d);
 	void MovePart(int d);
 	String GetStatusText();
+	bool GetSaveSongdata() const {return save_songdata;}
+	void SetSaveSongdata(bool b) {save_songdata = b;}
 	
 	void ArtistMenu(Bar& bar);
 	void ReleaseMenu(Bar& bar);

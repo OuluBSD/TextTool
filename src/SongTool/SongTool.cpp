@@ -2,7 +2,8 @@
 
 
 GUI_APP_MAIN {
-	SetLanguage(GetSystemLNG());
+	SetDefaultCharset(CHARSET_UTF8);
+	//SetLanguage(GetSystemLNG());
 	
 	ChFlatSkin();
 	InstallRedBar();
@@ -91,12 +92,15 @@ GUI_APP_MAIN {
 	db.Load();
 	
 	db.song_data.Load();
+	db.song_data.a.Load();
+	
 	if (db.song_data.IsEmpty()) {
 		SongDataLoader loader;
 		loader.Run();
 	}
 	
 	// Run main program
+	bool save_songdata = false;
 	{
 		SongTool t;
 		
@@ -111,12 +115,20 @@ GUI_APP_MAIN {
 			t.GetEditor().InitSimplified();
 		
 		t.Run();
+		
+		save_songdata = t.GetEditor().GetSaveSongdata();
 	}
 	
 	
 	// Deinit storing of files
 	m.Stop();
 	db.Store();
+	
+	if (save_songdata) {
+		db.song_data.a.Store();
+		db.song_data.a.StoreJson();
+	}
+	
 	m.Store();
 	Thread::ShutdownThreads();
 }

@@ -50,12 +50,12 @@ struct LyricsAnalysis {
 		Vector<bool> rhyming;
 		
 		void Serialize(Stream& s) {
-			s % words % words;
+			s % words % rhyming;
 		}
 		void Jsonize(JsonIO& json) {
 			json
 				("words", words)
-				("words", words)
+				("rhyming", rhyming)
 				;
 		}
 	};
@@ -65,7 +65,10 @@ struct LyricsAnalysis {
 	Vector<Vector<Role>> positive_roles, negative_roles;
 	Vector<RhymeLocationLine> rhyme_locations;
 	
-	void Serialize(Stream& s);
+	void Serialize(Stream& s){
+		s % name % rhymes % word_groups % positive_roles % negative_roles % rhyme_locations;
+	}
+	
 	void Jsonize(JsonIO& json) {
 		json
 			("name", name)
@@ -79,42 +82,118 @@ struct LyricsAnalysis {
 	String AsString() const;
 };
 
+struct ArtistAnalysis : Moveable<ArtistAnalysis> {
+	int total_words = 0;
+	VectorMap<String, int> word_counts;
+	Array<LyricsAnalysis> songs;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("total_words", total_words)
+			("word_counts", word_counts)
+			("songs", songs)
+			;
+	}
+	void Serialize(Stream& s) {
+		s % total_words % word_counts % songs;
+	}
+};
+
+struct WordGroupAnalysis {
+	VectorMap<String, int> values;
+	bool is_wordlist = false;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("values", values)
+			("is_wordlist", is_wordlist)
+			;
+	}
+	void Serialize(Stream& s) {
+		s % values % is_wordlist;
+	}
+};
+
+struct WordAnalysis : Moveable<WordAnalysis> {
+	int count = 0;
+	Index<int> group_is;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("count", count)
+			("group_is", group_is)
+			;
+	}
+	void Serialize(Stream& s) {
+		s % count % group_is;
+	}
+};
+
+struct DatasetAnalysis {
+	ArrayMap<String, ArtistAnalysis> artists;
+	ArrayMap<String, WordGroupAnalysis> groups;
+	ArrayMap<String, WordAnalysis> words;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("artists", artists)
+			("groups", groups)
+			("word", words)
+			;
+	}
+	
+	
+	void Serialize(Stream& s) {
+		s % artists % groups % words;
+	}
+};
+
+struct SongDataAnalysis {
+	ArrayMap<String, DatasetAnalysis> datasets;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("datasets", datasets)
+			;
+	}
+	
+	
+	void Serialize(Stream& s) {
+		s % datasets;
+	}
+	void StoreJson();
+	void LoadJson();
+	void Store();
+	void Load();
+};
+
 struct SongData {
 	// Binary data
 	Vector<ArtistDataset> artists_en;
 	Vector<ArtistDataset> artists_fi;
 	
-	// Json data
-	ArrayMap<String, Array<LyricsAnalysis>> active_songs;
+	SongDataAnalysis a;
 	
-	void Jsonize(JsonIO& json) {
-		#if 0
-		if (json.IsLoading()) {
-			VectorMap<String, Vector<String>> m;
-			json
-				("active_songs", m)
-				;
-			for(int i = 0; i < m.GetCount(); i++) {
-				String key = m.GetKey(i);
-				const auto& v = m[i];
-				auto& ov = active_songs.Add(key);
-				for(int j = 0; j < v.GetCount(); j++) {
-					ov.Add().name = v[j];
-				}
-			}
+	
+	int GetCount() const {return 2;}
+	Vector<ArtistDataset>& operator[](int i) {
+		switch (i) {
+			case 0: return artists_en;
+			case 1: return artists_fi;
+			default: Panic("error");
 		}
-		else
-		#endif
-		{
-			json
-				("active_songs", active_songs)
-				;
+		return Single<Vector<ArtistDataset>>();
+	}
+	String GetKey(int i) const {
+		switch (i) {
+			case 0: return "en";
+			case 1: return "fi";
+			default: Panic("error");
 		}
+		return "";
 	}
 	void Store();
 	void Load();
-	void StoreJson();
-	void LoadJson();
 	void Serialize(Stream& s);
 	bool IsEmpty() const {return artists_en.IsEmpty() || artists_fi.IsEmpty();}
 	

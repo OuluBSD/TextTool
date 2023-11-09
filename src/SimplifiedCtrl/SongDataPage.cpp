@@ -38,15 +38,19 @@ void SongDataPage::ToolMenu(Bar& bar) {
 void SongDataPage::AddRandomSongsToList(int count) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
 	
 	if (!datasets.IsCursor() || !artists.IsCursor() || !songs.IsCursor()) return;
 	int cur = datasets.GetCursor();
 	int acur = artists.GetCursor();
-	const auto& data = cur == 0 ? db.song_data.artists_en : db.song_data.artists_fi;
+	const auto& data = db.song_data[cur];
 	const auto& artist = data[acur];
 	if (artist.lyrics.IsEmpty()) return;
 	
-	auto& songs = sd.active_songs.GetAdd(artist.name);
+	String ds_key = sd.GetKey(cur);
+	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	
+	auto& songs = ds.artists.GetAdd(artist.name).songs;
 	
 	for(int i = 0; i < count; i++) {
 		for (int tries = 0; tries < 1000; tries++) {
@@ -73,16 +77,19 @@ void SongDataPage::AddRandomSongsToList(int count) {
 void SongDataPage::AddSongToActiveList() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
 	
 	if (!datasets.IsCursor() || !artists.IsCursor() || !songs.IsCursor()) return;
 	int cur = datasets.GetCursor();
 	int acur = artists.GetCursor();
 	int scur = songs.GetCursor();
-	const auto& data = cur == 0 ? db.song_data.artists_en : db.song_data.artists_fi;
+	const auto& data = db.song_data[cur];
 	const auto& artist = data[acur];
 	const auto& song = artist.lyrics[scur];
 	
-	auto& v = sd.active_songs.GetAdd(artist.name);
+	String ds_key = sd.GetKey(cur);
+	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	auto& v = ds.artists.GetAdd(artist.name).songs;
 	int j = -1;
 	for(int i = 0; i < v.GetCount(); i++) if (v[i].name == song.name) {j = i; break;}
 	if (j < 0)
@@ -95,15 +102,19 @@ void SongDataPage::AddSongToActiveList() {
 void SongDataPage::RemoveSongFromActiveList() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
 	
 	if (!datasets.IsCursor() || !artists.IsCursor() || !active_songs.IsCursor()) return;
 	int cur = datasets.GetCursor();
 	int acur = artists.GetCursor();
 	int scur = active_songs.GetCursor();
-	const auto& data = cur == 0 ? db.song_data.artists_en : db.song_data.artists_fi;
+	const auto& data = db.song_data[cur];
 	const auto& artist = data[acur];
 	
-	sd.active_songs.GetAdd(artist.name).Remove(scur);
+	String ds_key = sd.GetKey(cur);
+	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	
+	ds.artists.GetAdd(artist.name).songs.Remove(scur);
 	
 	PostCallback(THISBACK(DataArtistActiveSongs));
 	PostCallback(THISBACK(DataActiveSong));
@@ -126,7 +137,7 @@ void SongDataPage::DataDataset() {
 	
 	if (!datasets.IsCursor()) return;
 	int cur = datasets.GetCursor();
-	const auto& data = cur == 0 ? db.song_data.artists_en : db.song_data.artists_fi;
+	const auto& data = db.song_data[cur];
 	
 	artists.SetCount(data.GetCount());
 	for(int i = 0; i < data.GetCount(); i++) {
@@ -150,7 +161,7 @@ void SongDataPage::DataArtist() {
 	if (!datasets.IsCursor() || !artists.IsCursor()) return;
 	int cur = datasets.GetCursor();
 	int acur = artists.GetCursor();
-	const auto& data = cur == 0 ? db.song_data.artists_en : db.song_data.artists_fi;
+	const auto& data = db.song_data[cur];
 	const auto& artist = data[acur];
 	
 	songs.SetCount(artist.lyrics.GetCount());
@@ -172,19 +183,23 @@ void SongDataPage::DataArtist() {
 void SongDataPage::DataArtistActiveSongs() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
 	
 	if (!datasets.IsCursor() || !artists.IsCursor()) return;
 	int cur = datasets.GetCursor();
 	int acur = artists.GetCursor();
-	const auto& data = cur == 0 ? db.song_data.artists_en : db.song_data.artists_fi;
+	const auto& data = db.song_data[cur];
 	const auto& artist = data[acur];
 	
-	int i = sd.active_songs.Find(artist.name);
+	String ds_key = sd.GetKey(cur);
+	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	
+	int i = ds.artists.Find(artist.name);
 	if (i < 0) {
 		active_songs.Clear();
 	}
 	else {
-		const auto& songs = sd.active_songs[i];
+		const auto& songs = ds.artists[i].songs;
 		active_songs.SetCount(songs.GetCount());
 		for(int i = 0; i < songs.GetCount(); i++) {
 			active_songs.Set(i, 0, songs[i].name);
@@ -199,7 +214,7 @@ void SongDataPage::DataSong() {
 	int cur = datasets.GetCursor();
 	int acur = artists.GetCursor();
 	int scur = songs.GetCursor();
-	const auto& data = cur == 0 ? db.song_data.artists_en : db.song_data.artists_fi;
+	const auto& data = db.song_data[cur];
 	const auto& artist = data[acur];
 	const auto& song = artist.lyrics[scur];
 	
@@ -213,22 +228,26 @@ void SongDataPage::DataSong() {
 void SongDataPage::DataActiveSong() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
 	
 	if (!datasets.IsCursor() || !artists.IsCursor() || !active_songs.IsCursor()) return;
 	int cur = datasets.GetCursor();
 	int acur = artists.GetCursor();
 	int scur = active_songs.GetCursor();
-	const auto& data = cur == 0 ? db.song_data.artists_en : db.song_data.artists_fi;
+	const auto& data = db.song_data[cur];
 	const auto& artist = data[acur];
+	
+	String ds_key = sd.GetKey(cur);
+	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 	
 	lyrics.Clear();
 	analysis.Clear();
 	
-	int i = sd.active_songs.Find(artist.name);
+	int i = ds.artists.Find(artist.name);
 	if (i < 0)
 		return;
 	
-	const LyricsAnalysis& la = sd.active_songs[i][scur];
+	const LyricsAnalysis& la = ds.artists[i].songs[scur];
 	String song_name = la.name;
 	for(int i = 0; i < artist.lyrics.GetCount(); i++) {
 		const LyricsDataset& song = artist.lyrics[i];

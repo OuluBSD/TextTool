@@ -489,12 +489,14 @@ struct ContextIdeaArgs {
 struct SongDataAnalysisArgs {
 	int fn;
 	String artist, song, text;
+	Vector<String> words;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
 				("artist", artist)
 				("song", song)
 				("text", text)
+				("words", words)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

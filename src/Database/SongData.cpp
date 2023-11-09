@@ -7,27 +7,62 @@ void SongData::Store() {
 
 void SongData::Load() {
 	LoadFromFile(*this, ConfigFile("SongData.bin"));
-	if (active_songs.IsEmpty())
-		LoadJson();
 }
 
 void SongData::Serialize(Stream& s) {
-	s % artists_en % artists_fi % active_songs;
+	s % artists_en % artists_fi;
 }
 
-void SongData::StoreJson() {
+
+
+
+void SongDataAnalysis::Store() {
+	StoreToFile(*this, ConfigFile("SongData_Analysis.bin"));
+	StoreJson();
+}
+
+void SongDataAnalysis::Load() {
+	LoadFromFile(*this, ConfigFile("SongData_Analysis.bin"));
+	if (datasets.IsEmpty())
+		LoadJson();
+}
+
+void SongDataAnalysis::StoreJson() {
 	String dir = Database::Single().dir;
 	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json", true);
 }
 
-void SongData::LoadJson() {
+void SongDataAnalysis::LoadJson() {
+	#if 0
+	DatasetAnalysis da;
+	String dir = Database::Single().dir;
+	LoadFromJsonFileStandard(da, dir + DIR_SEPS "share" DIR_SEPS "SongData.json");
+	
+	SongData& sd = Database::Single().song_data;
+	for(int j = 0; j < sd.GetCount(); j++) {
+		DatasetAnalysis& tgt = datasets.GetAdd(sd.GetKey(j));
+		
+		for(int k = 0; k < da.artists.GetCount(); k++) {
+			String name0 = da.artists.GetKey(k);
+			if (name0.IsEmpty()) continue;
+			
+			for(int i = 0; i < sd.artists_en.GetCount(); i++) {
+				String name1 = sd.artists_en[i].name;
+				if (name0 == name1) {
+					Swap(da.artists[k], tgt.artists.Add(name0));
+					break;
+				}
+			}
+		}
+	}
+	#else
 	String dir = Database::Single().dir;
 	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json");
+	#endif
 }
 
-void LyricsAnalysis::Serialize(Stream& s) {
-	s % name % rhymes % word_groups % positive_roles % negative_roles % rhyme_locations;
-}
+
+
 
 String LyricsAnalysis::AsString() const {
 	String s;
@@ -79,7 +114,7 @@ String LyricsAnalysis::AsString() const {
 		const RhymeLocationLine& l = rhyme_locations[i];
 		for(int j = 0; j < l.words.GetCount(); j++) {
 			if (j) s << " ";
-			bool b = l.rhyming[j];
+			bool b = j < l.rhyming.GetCount() ? l.rhyming[j] : false;
 			if (b) s << "(";
 			s << l.words[j];
 			if (b) s << ")";

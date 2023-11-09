@@ -1,8 +1,8 @@
-#ifndef _SimplifiedCtrl_SongDataAnalysis_h_
-#define _SimplifiedCtrl_SongDataAnalysis_h_
+#ifndef _SimplifiedCtrl_SongDataAnalysisPage_h_
+#define _SimplifiedCtrl_SongDataAnalysisPage_h_
 
 
-class SongDataAnalysis : public SongToolCtrl {
+class SongDataAnalysisPage : public SongToolCtrl {
 	struct Task : Moveable<Task> {
 		String artist, song, text;
 		LyricsDataset* ld = 0;
@@ -21,8 +21,8 @@ private:
 	bool batch = false;
 	bool disabled = false;
 public:
-	typedef SongDataAnalysis CLASSNAME;
-	SongDataAnalysis();
+	typedef SongDataAnalysisPage CLASSNAME;
+	SongDataAnalysisPage();
 	
 	void DisableAll();
 	void EnableAll();

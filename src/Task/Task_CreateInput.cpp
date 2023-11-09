@@ -4370,9 +4370,9 @@ void Task::CreateInput_GetSongDataAnalysis() {
 	
 	SongDataAnalysisArgs args;
 	args.Put(this->args[0]);
-	ASSERT(args.artist.GetCount());
+	/*ASSERT(args.artist.GetCount());
 	ASSERT(args.song.GetCount());
-	ASSERT(args.text.GetCount());
+	ASSERT(args.text.GetCount());*/
 	
 	
 	if (args.fn == 0) {
@@ -4600,5 +4600,37 @@ void Task::CreateInput_GetSongDataAnalysis() {
 			results.EmptyLine().NoListChar();
 		}
 		input.response_length = 1024;
+	}
+	
+	else if (args.fn == 4) {
+		{
+			auto& list = input.AddSub().Title("List of words \"A\"");
+			list.Add("structure");
+			list.Add("differently");
+			list.Add("analyser");
+		}
+		{
+			auto& list = input.AddSub().Title("Syllables and phonetic syllables of words \"A\"");
+			/*list.Add(WString(L"structure: struc-ture [strʌk-t͡ʃər]").ToString());
+			list.Add(WString(L"differently: dif-fer-ent-ly [ˈdɪ-fər-ənt-li]").ToString());
+			list.Add(WString(L"analyser: a-nal-y-ser [ˈæn-əl-əz-ər]").ToString());
+			if (GetDefaultCharset() != CHARSET_UTF8)
+				for(int i = 0; i < list.values.GetCount(); i++)
+					list.values[i] = ToCharset(CHARSET_DEFAULT, list.values[i], CHARSET_UTF8);*/
+			list.Add("structure: struc-ture [strʌk.t͡ʃər]");
+			list.Add("differently: dif-fer-ent-ly [ˈdɪ.fər.ənt.li]");
+			list.Add("analyser: a-nal-y-ser [ˈæn.əl.əz.ər]");
+		}
+		{
+			auto& list = input.AddSub().Title("List of words \"B\"");
+			for(int i = 0; i < args.words.GetCount(); i++)
+				list.Add(args.words[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Syllables and phonetic syllables of words \"B\"");
+			results.EmptyLine().EmptyLineString(args.words[0] + ":");
+		}
+		input.response_length = 2048;
 	}
 }

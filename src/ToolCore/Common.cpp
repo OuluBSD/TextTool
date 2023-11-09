@@ -14498,3 +14498,27 @@ void SplitParenthesisWords(const String& line, Vector<String>& words, Vector<boo
 		parenthesis << is_parenthesis;
 	}
 }
+
+void GetWords(const String& line, Vector<String>& words) {
+	words.SetCount(0);
+	
+	WString w = line.ToWString();
+	
+	WString tmp;
+	for(int i = 0; i < w.GetCount(); i++) {
+		wchar chr = w[i];
+		
+		if (!IsLetter(chr) && !IsDigit(chr)) {
+			if (tmp.IsEmpty()) continue;
+			words << tmp.ToString();
+			tmp.Clear();
+		}
+		else {
+			tmp.Cat(chr);
+		}
+	}
+	
+	if (tmp.GetCount()) {
+		words << tmp.ToString();
+	}
+}

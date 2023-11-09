@@ -57,6 +57,7 @@ public:
 	void MovePart(int d);
 	void SetBar();
 	void MainBar(Bar& bar);
+	void SetSaveSongdata(bool b) {ed.SetSaveSongdata(b);}
 	
 	Editor& GetEditor() {return ed;}
 	
