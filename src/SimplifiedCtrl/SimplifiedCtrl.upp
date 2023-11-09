@@ -10,6 +10,8 @@ file
 	SongDataPage.cpp,
 	SongDataAnalysis.h,
 	SongDataAnalysis.cpp,
+	SongDataWords.h,
+	SongDataWords.cpp,
 	Vocabulary.h,
 	Vocabulary.cpp,
 	AlbumBriefing.h,

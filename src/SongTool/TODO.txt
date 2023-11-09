@@ -3,6 +3,10 @@ Scheduled work:
 - phrase database
 	- metaphors, hyperboles, direct speech, alliteration, etc.
 	- metaphoric color of phrase
+- virtual phrase database
+	- e.g. "hyperbole article adverb pronoun number"
+- native database
+	- e.g. I will --> Imma, popping --> poppin, you -> ya, want to --> wanna
 - rhyme structure
 	- vsplit
 		- top is lines in rows (with pad space left and right)

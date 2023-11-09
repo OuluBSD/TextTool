@@ -48,6 +48,7 @@
 #include "SongDataPage.h"
 #include "SongDataAnalysis.h"
 #include "RhymeStructure.h"
+#include "SongDataWords.h"
 
 
 #endif
