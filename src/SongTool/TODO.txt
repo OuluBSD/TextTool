@@ -1,10 +1,11 @@
 Scheduled work:
 - phonetics & syllable database
-- phrase database
-	- metaphors, hyperboles, direct speech, alliteration, etc.
-	- metaphoric color of phrase
-- virtual phrase database
-	- e.g. "hyperbole article adverb pronoun number"
+- rhythmed phrase database
+	- with syllable-spelling-length vector
+- phrase search
+	- regexp like language for searching
+		- includes: unknonwn syllable count, fixed syllables, word classes, metaphorical colors
+- artist vocabulary source: pick artists from database
 - native database
 	- e.g. I will --> Imma, popping --> poppin, you -> ya, want to --> wanna
 - rhyme structure
@@ -46,6 +47,14 @@ Scheduled work:
 	- select existing phrases for rhymes, which can be sang without problems
 - rhyme replacer
 	- replace nouns, adjectives, etc. based on sampler
+
+- browse through list of ai websites
+- kaiber.ai
+- heygen.com integration
+	- social media feed
+
+- with AI: generate list of question, what you should as regarding this project and products and income etc.
+- with AI: collaboration suggestions
 
 Possibly scheduled work (must be re-checked):
 - fine structure
@@ -109,3 +118,4 @@ x? vocabulary: for artist, for release, for song
 - vocabulary idea: set vocabulary and color for part
 - word salad page
 - production (reference context) idea page (BEFORE STORY IDEA): who is referred as "he" or "she" in rhymes?
+- phrase database

@@ -29,7 +29,7 @@ void SongDataAnalysis::Load() {
 
 void SongDataAnalysis::StoreJson() {
 	String dir = Database::Single().dir;
-	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json", true);
+	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json", false);
 }
 
 void SongDataAnalysis::LoadJson() {

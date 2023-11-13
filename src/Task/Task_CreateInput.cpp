@@ -4633,4 +4633,29 @@ void Task::CreateInput_GetSongDataAnalysis() {
 		}
 		input.response_length = 2048;
 	}
+	
+	else if (args.fn == 5) {
+		{
+			auto& list = input.AddSub().Title("Wordlist \"A\"");
+			list.Add("introducing");
+			list.Add("shameless");
+		}
+		{
+			auto& list = input.AddSub().Title("Main class, metaphorical color in RGB value and Finnish translation for the wordlist \"A\"");
+			list.Add("introducing: verb, RGB(0, 150, 255), esittelevä");
+			list.Add("shameless: adjective, RGB(255, 51, 153), häpeätön");
+		}
+		{
+			auto& list = input.AddSub().Title("Wordlist \"B\"");
+			for(int i = 0; i < args.words.GetCount(); i++)
+				list.Add(args.words[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Main class, metaphorical color in RGB value and Finnish translation for the wordlist \"B\"");
+			//results.EmptyLine().EmptyLineString(args.words[0] + ":");
+			results.EmptyLine();
+		}
+		input.response_length = 2048;
+	}
 }

@@ -20,11 +20,13 @@ SongDataWords::SongDataWords() {
 	artists.WhenCursor << THISBACK(DataArtist);
 	
 	words.AddColumn(t_("Word"));
+	words.AddColumn(t_("Translation"));
+	words.AddColumn(t_("Main class"));
 	words.AddColumn(t_("Syllables"));
 	words.AddColumn(t_("Phonetic syllables"));
 	words.AddColumn(t_("Word count"));
 	words.AddColumn(t_("Flags"));
-	words.ColumnWidths("1 1 1 1 2");
+	words.ColumnWidths("1 1 1 1 1 1 3");
 	words.AddIndex("IDX");
 	
 }
@@ -46,6 +48,10 @@ void SongDataWords::DisableAll() {
 }
 
 void SongDataWords::Data() {
+	// Pass
+}
+
+void SongDataWords::DataMain() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	
@@ -157,24 +163,61 @@ void SongDataWords::DataWordgroup() {
 		int row = 0;
 		for(int i = 0; i < ds.words.GetCount(); i++) {
 			String key = ds.words.GetKey(i);
-			const WordAnalysis& wa = ds.words[i];
+			WordAnalysis& wa = ds.words[i];
 			if (wa.count < limit)
 				continue;
 			
-			words.Set(row, 0, key);
-			words.Set(row, 3, wa.count);
+			// If details have parsed
+			if (wa.main_class.GetCount()) {
+				words.Set(row, 0,
+					AttrText(key)
+						.NormalPaper(Blend(wa.clr, White(), 128+64)).NormalInk(Black())
+						.Paper(Blend(wa.clr, GrayColor())).Ink(White())
+				);
+				words.Set(row, 1,
+					AttrText(wa.translation)
+						.NormalPaper(Blend(wa.clr, White(), 128+64)).NormalInk(Black())
+						.Paper(Blend(wa.clr, GrayColor())).Ink(White())
+				);
+			}
+			else {
+				words.Set(row, 0, key);
+				words.Set(row, 1, wa.translation);
+			}
+			
+			bool has_main_class_clr = wa.main_class_clr != Black();
+			if (!has_main_class_clr) {
+				int j = GetWordgroupColors().Find(wa.main_class);
+				if (j >= 0) {
+					wa.main_class_clr = GetWordgroupColors()[j];
+					has_main_class_clr = true;
+				}
+			}
+			if (has_main_class_clr) {
+				words.Set(row, 2,
+					AttrText(wa.main_class)
+						.NormalPaper(Blend(wa.main_class_clr, White(), 128+64)).NormalInk(Black())
+						.Paper(Blend(wa.main_class_clr, GrayColor())).Ink(White())
+				);
+			}
+			else  {
+				words.Set(row, 2, wa.main_class);
+			}
+			words.Set(row, 3, Value());
+			words.Set(row, 4, Value());
+			words.Set(row, 5, wa.count);
 			
 			String s;
 			for(int j = 0; j < wa.group_is.GetCount(); j++) {
 				if (j) s << ", ";
 				s << ds.groups.GetKey(wa.group_is[j]);
 			}
-			words.Set(row, 4, s);
+			words.Set(row, 6, s);
 			words.Set(row, "IDX", i);
 			row++;
 		}
 		words.SetCount(row);
-		words.SetSortColumn(3, true);
+		words.SetSortColumn(5, true);
 	}
 	else if (a_i > 0 && wg_i == 0) {
 		a_i--;
@@ -186,11 +229,13 @@ void SongDataWords::DataWordgroup() {
 			words.Set(i, 0, aa.word_counts.GetKey(i));
 			words.Set(i, 1, Value());
 			words.Set(i, 2, Value());
-			words.Set(i, 3, aa.word_counts[i]);
+			words.Set(i, 3, Value());
 			words.Set(i, 4, Value());
+			words.Set(i, 5, aa.word_counts[i]);
+			words.Set(i, 6, Value());
 			words.Set(i, "IDX", i);
 		}
-		words.SetSortColumn(3, true);
+		words.SetSortColumn(5, true);
 	}
 	else if (a_i == 0 && wg_i > 0) {
 		wg_i--;
@@ -200,11 +245,13 @@ void SongDataWords::DataWordgroup() {
 			words.Set(i, 0, wga.values.GetKey(i));
 			words.Set(i, 1, Value());
 			words.Set(i, 2, Value());
-			words.Set(i, 3, wga.values[i]);
+			words.Set(i, 3, Value());
 			words.Set(i, 4, Value());
+			words.Set(i, 5, wga.values[i]);
+			words.Set(i, 6, Value());
 			words.Set(i, "IDX", i);
 		}
-		words.SetSortColumn(3, true);
+		words.SetSortColumn(5, true);
 	}
 	else {
 		a_i--;
@@ -216,12 +263,20 @@ void SongDataWords::DataWordgroup() {
 }
 
 void SongDataWords::ToolMenu(Bar& bar) {
+	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
+	bar.Separator();
 	bar.Add(t_("Update all words"), AppImg::RedRing(), THISBACK(UpdateWords)).Key(K_F5);
 	bar.Add(t_("Update all word groups"), AppImg::RedRing(), THISBACK(UpdateWordFlagGroups)).Key(K_F6);
 	bar.Add(t_("Update all word flags"), AppImg::RedRing(), THISBACK(UpdateWordFlags)).Key(K_F7);
 	bar.Separator();
+	bar.Add(t_("Update details"), AppImg::BlueRing(), THISBACK2(GetDetails, -1, false)).Key(K_CTRL_W);
+	bar.Add(t_("Update all details"), AppImg::RedRing(), THISBACK2(GetDetails, 0, true)).Key(K_F8);
+	bar.Separator();
+	bar.Add(t_("Debug dump word groups"), AppImg::BlueRing(), THISBACK(DumpWordGroups)).Key(K_F9);
+	
+	/*bar.Separator();
 	bar.Add(t_("Update word syllables"), AppImg::BlueRing(), THISBACK2(GetSyllables, -1, false)).Key(K_CTRL_Q);
-	bar.Add(t_("Update all syllables"), AppImg::RedRing(), THISBACK2(GetSyllables, 0, true)).Key(K_F8);
+	bar.Add(t_("Update all syllables"), AppImg::RedRing(), THISBACK2(GetSyllables, 0, true)).Key(K_F8);*/
 	
 }
 
@@ -286,6 +341,8 @@ void SongDataWords::UpdateWordFlagGroups() {
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
+	Index<String> unique_wordgroups;
+	
 	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
 		String ds_key = sd.GetKey(ds_i);
 		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
@@ -311,11 +368,14 @@ void SongDataWords::UpdateWordFlagGroups() {
 					WordGroupAnalysis& ga = ds.groups.GetAdd(group);
 					for (const String& value : values)
 						ga.values.GetAdd(value, 0)++;
+					unique_wordgroups.FindAdd(group);
 				}
 			}
 		}
 		SortByKey(ds.groups, StdLess<String>());
 	}
+	
+	DUMPC(unique_wordgroups);
 	
 	PostCallback(THISBACK(DataArtist));
 }
@@ -399,6 +459,168 @@ void SongDataWords::OnSyllables(String res, int batch_i, bool start_next) {
 	if (start_next) {
 		disabled = false;
 		GetSyllables(batch_i+1, true);
+	}
+}
+
+void SongDataWords::GetDetails(int batch_i, bool start_next) {
+	if (Thread::IsShutdownThreads())
+		return;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	int begin = batch_i * per_batch;
+	int end = (batch_i+1) * per_batch;
+	
+	if (batch_i < 0) {
+		begin = 0;
+		end = 1;
+	}
+	
+	tmp_ds_i.Clear();
+	tmp_words.Clear();
+	
+	SongDataAnalysisArgs args;
+	
+	int iter = 0;
+	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
+		String ds_key = sd.GetKey(ds_i);
+		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+		
+		for(int i = 0; i < ds.words.GetCount(); i++) {
+			auto& wa = ds.words[i];
+			if (wa.translation.GetCount())
+				continue;
+			const String& wrd = ds.words.GetKey(i);
+			
+			// Skip cyrillic words
+			bool is_cyrillic = false;
+			WString ws = wrd.ToWString();
+			for(int j = 0; j < ws.GetCount(); j++) {
+				int chr = ws[j];
+				if (chr >= 0x0400 && chr < 0x052F) {
+					is_cyrillic = true;
+					break;
+				}
+			}
+			if (is_cyrillic)
+				continue;
+			
+			if (iter >= begin) {
+				args.words << wrd;
+				tmp_ds_i << ds_i;
+				tmp_words.Add(wrd);
+			}
+			iter++;
+			if (iter >= end) break;
+		}
+		if (iter >= end) break;
+	}
+	
+	if (args.words.IsEmpty())
+		return;
+	
+	Song& song = GetSong();
+	song.RealizePipe();
+	Pipe& pipe = *song.pipe;
+	TaskMgr& m = pipe;
+	
+	args.fn = 5;
+	
+	m.GetSongDataAnalysis(args, THISBACK2(OnDetails, batch_i, start_next));
+}
+
+void SongDataWords::OnDetails(String res, int batch_i, bool start_next) {
+	if (Thread::IsShutdownThreads())
+		return;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	
+	res.Replace("\r", "");
+	
+	Vector<String> lines = Split(res, "\n");
+	//DUMPC(lines);
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		
+		RemoveLineChar(l);
+		
+		int a = l.Find(":");
+		if (a < 0) continue;
+		String orig = l.Left(a);
+		l = TrimBoth(l.Mid(a+1));
+		
+		a = l.Find(" or ");
+		if (a > 0) {
+			l = TrimBoth(l.Mid(a+4));
+		}
+		
+		a = l.Find(",");
+		if (a < 0) continue;
+		String main_class = TrimBoth(l.Left(a));
+		l = TrimBoth(l.Mid(a+1));
+		
+		a = l.Find("),");
+		if (a < 0) continue;
+		String rgb = TrimBoth(l.Left(a));
+		l = TrimBoth(l.Mid(a+2));
+		a = rgb.Find("(");
+		if (a < 0) continue;
+		rgb = TrimBoth(rgb.Mid(a+1));
+		
+		String translation = TrimBoth(l);
+		
+		int j = tmp_words.Find(orig);
+		if (j < 0) continue;
+		int ds_i = tmp_ds_i[j];
+		DatasetAnalysis& ds = sda.datasets[ds_i];
+		
+		j = ds.words.Find(orig);
+		if (j < 0) continue;
+		
+		WordAnalysis& wa = ds.words[j];
+		wa.main_class = main_class;
+		wa.translation = translation;
+		
+		Vector<String> clr_str = Split(rgb, ",");
+		if (clr_str.GetCount() == 3) {
+			wa.clr = Color(
+				ScanInt(TrimBoth(clr_str[0])),
+				ScanInt(TrimBoth(clr_str[1])),
+				ScanInt(TrimBoth(clr_str[2])));
+		}
+	}
+	
+	
+	
+	if (start_next) {
+		disabled = false;
+		GetDetails(batch_i+1, true);
+	}
+}
+
+void SongDataWords::DumpWordGroups() {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	Index<String> main_classes;
+	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
+		String ds_key = sd.GetKey(ds_i);
+		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+		
+		for(int i = 0; i < ds.words.GetCount(); i++) {
+			const WordAnalysis& wa = ds.words[i];
+			main_classes.FindAdd(wa.main_class);
+		}
+	}
+	
+	for(int i = 0; i < main_classes.GetCount(); i++) {
+		LOG("- " << main_classes[i]);
 	}
 }
 

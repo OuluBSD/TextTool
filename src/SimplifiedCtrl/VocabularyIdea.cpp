@@ -104,7 +104,10 @@ void VocabularyIdeaCtrl::DataLocal() {
 	int part_i = list.Get(list_i, "PART_IDX");
 	int line_i = list.Get(list_i, "LINE_IDX");
 	StaticPart& part = s.parts[part_i];
-	const auto& colorvec = part.colors[0][line_i];
+	const auto& lines = part.colors[0];
+	if (lines.IsEmpty())
+		return;
+	const auto& colorvec = lines[line_i];
 	int row = 0;
 	for(int i = 0; i < colorvec.GetCount(); i++) {
 		Color clr0 = colorvec[i];

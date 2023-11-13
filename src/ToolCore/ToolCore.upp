@@ -10,5 +10,6 @@ file
 	Json.h,
 	Optimizer.h,
 	Common.h,
-	Common.cpp;
+	Common.cpp,
+	ColorFn.cpp;
 

@@ -100,6 +100,8 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Song data"), song_data);
 	AddItem(t_("Database"), t_("Song analysis"), song_analysis);
 	AddItem(t_("Database"), t_("Song words"), song_words);
+	AddItem(t_("Database"), t_("Song phrases"), song_phrases);
+	AddItem(t_("Database"), t_("Search song phrases"), song_searchphrases);
 	
 	AddItem(t_("All"), t_("Info"), info);
 	AddItem(t_("All"), t_("Calendar"), cal);

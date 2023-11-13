@@ -96,6 +96,8 @@ protected:
 	VocabularyCtrl			vocabulary;
 	FineStructureCtrl		fine_struct;
 	ContextIdeaCtrl			ctx_idea;
+	SongDataPhrases			song_phrases;
+	SongDataSearchPhrases	song_searchphrases;
 	
 public:
 	typedef Editor CLASSNAME;

@@ -119,6 +119,7 @@ GUI_APP_MAIN {
 		save_songdata = t.GetEditor().GetSaveSongdata();
 	}
 	
+	Thread::ShutdownThreads();
 	
 	// Deinit storing of files
 	m.Stop();

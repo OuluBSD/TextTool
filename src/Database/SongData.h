@@ -20,7 +20,7 @@ struct ArtistDataset : Moveable<ArtistDataset> {
 	}
 };
 
-struct LyricsAnalysis {
+struct LyricsAnalysis : Moveable<LyricsAnalysis> {
 	struct Rhyme : Moveable<Rhyme> {
 		Vector<String> words;
 		int score;
@@ -99,7 +99,7 @@ struct ArtistAnalysis : Moveable<ArtistAnalysis> {
 	}
 };
 
-struct WordGroupAnalysis {
+struct WordGroupAnalysis : Moveable<WordGroupAnalysis> {
 	VectorMap<String, int> values;
 	bool is_wordlist = false;
 	
@@ -117,34 +117,103 @@ struct WordGroupAnalysis {
 struct WordAnalysis : Moveable<WordAnalysis> {
 	int count = 0;
 	Index<int> group_is;
+	String main_class;
+	String translation;
+	Color clr, main_class_clr = Black();
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("count", count)
 			("group_is", group_is)
+			("main_class", main_class)
+			("translation", translation)
+			("clr", clr)
+			("main_class_clr", main_class_clr)
 			;
 	}
 	void Serialize(Stream& s) {
-		s % count % group_is;
+		/*if (s.IsLoading())
+			s % count % group_is % main_class % translation % clr;
+		else*/
+			s % count % group_is % main_class % translation % clr % main_class_clr;
+	}
+};
+
+struct SongId : Moveable<SongId> {
+	byte dataset;
+	uint16 artist;
+	uint16 song;
+	
+	void Jsonize(JsonIO& json) {
+		int dataset = this->dataset;
+		int artist = this->artist;
+		int song = this->song;
+		json
+			("dataset", dataset)
+			("artist", artist)
+			("song", song)
+			;
+		this->dataset = dataset;
+		this->artist = artist;
+		this->song = song;
+	}
+	void Serialize(Stream& s) {
+		s % dataset % artist % song;
+	}
+};
+
+struct PhraseAnalysis : Moveable<PhraseAnalysis> {
+	Vector<SongId> songs;
+	Vector<int> word_ids;
+	Color clr;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("songs", songs)
+			("word_ids", word_ids)
+			("clr", clr)
+			;
+	}
+	void Serialize(Stream& s) {
+		s % songs % word_ids % clr;
+	}
+};
+
+struct VirtualPhraseAnalysis : Moveable<VirtualPhraseAnalysis> {
+	Vector<int> group_ids;
+	Index<int> phrases;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("group_ids", group_ids)
+			("phrases", phrases)
+			;
+	}
+	void Serialize(Stream& s) {
+		s % group_ids % phrases;
 	}
 };
 
 struct DatasetAnalysis {
-	ArrayMap<String, ArtistAnalysis> artists;
-	ArrayMap<String, WordGroupAnalysis> groups;
-	ArrayMap<String, WordAnalysis> words;
+	VectorMap<String, ArtistAnalysis> artists;
+	VectorMap<String, WordGroupAnalysis> groups;
+	VectorMap<String, WordAnalysis> words;
+	VectorMap<String, PhraseAnalysis> unique_phrases;
+	VectorMap<String, VirtualPhraseAnalysis> virtual_phrases;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("artists", artists)
 			("groups", groups)
 			("word", words)
+			("unique_phrases", unique_phrases)
+			("virtual_phrases", virtual_phrases)
 			;
 	}
 	
 	
 	void Serialize(Stream& s) {
-		s % artists % groups % words;
+		s % artists % groups % words % unique_phrases % virtual_phrases;
 	}
 };
 

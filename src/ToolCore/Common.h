@@ -1084,6 +1084,8 @@ void EscapeString(String& s);
 
 void SplitParenthesisWords(const String& line, Vector<String>& words, Vector<bool>& parenthesis);
 void GetWords(const String& line, Vector<String>& words);
+const VectorMap<String,Color>& GetWordgroupColors();
 
+Color GetSentenceColor(const Vector<String>& main_classes, const Vector<Color>& clrs);
 
 #endif
