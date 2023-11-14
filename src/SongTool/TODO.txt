@@ -1,10 +1,24 @@
 Scheduled work:
+- analysis
+	- remove rhymes process
+	- add examples of roles
+	- remove word classes from word groups, keep phrase stuff like "metaphors"
+	- remove rhyme locations
+- fix syllables & phonetic syllables
+
+- attribute phrases
+
 - phonetics & syllable database
 - rhythmed phrase database
 	- with syllable-spelling-length vector
+	- match syllable-count, attribute, color
+
 - phrase search
 	- regexp like language for searching
 		- includes: unknonwn syllable count, fixed syllables, word classes, metaphorical colors
+
+- fix "context: idea" to take in the "context: production idea"
+
 - artist vocabulary source: pick artists from database
 - native database
 	- e.g. I will --> Imma, popping --> poppin, you -> ya, want to --> wanna
@@ -119,3 +133,5 @@ x? vocabulary: for artist, for release, for song
 - word salad page
 - production (reference context) idea page (BEFORE STORY IDEA): who is referred as "he" or "she" in rhymes?
 - phrase database
+- fast skip artists in datasets
+- fast fix lyrics

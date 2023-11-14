@@ -30,15 +30,15 @@ void SongDataAnalysisPage::EnableAll() {
 }
 
 void SongDataAnalysisPage::ToolMenu(Bar& bar) {
-	bar.Add(t_("Get rhymes"), AppImg::BlueRing(), THISBACK2(GetRhymes, -1, false)).Key(K_CTRL_Q);
+	//bar.Add(t_("Get rhymes"), AppImg::BlueRing(), THISBACK2(GetRhymes, -1, false)).Key(K_CTRL_Q);
 	bar.Add(t_("Get words"), AppImg::BlueRing(), THISBACK2(GetWords, -1, false)).Key(K_CTRL_W);
-	bar.Add(t_("Get role distributions"), AppImg::BlueRing(), THISBACK2(GetRoleDistributions, -1, false)).Key(K_CTRL_E);
-	bar.Add(t_("Get rhyme locations"), AppImg::BlueRing(), THISBACK2(GetRhymeLocations, -1, false)).Key(K_CTRL_R);
+	bar.Add(t_("Get attribute distributions"), AppImg::BlueRing(), THISBACK2(GetAttributeDistributions, -1, false)).Key(K_CTRL_E);
+	//bar.Add(t_("Get rhyme locations"), AppImg::BlueRing(), THISBACK2(GetRhymeLocations, -1, false)).Key(K_CTRL_R);
 	bar.Separator();
-	bar.Add(t_("Get all rhymes"), AppImg::RedRing(), THISBACK2(GetRhymes, 0, true)).Key(K_F5);
+	//bar.Add(t_("Get all rhymes"), AppImg::RedRing(), THISBACK2(GetRhymes, 0, true)).Key(K_F5);
 	bar.Add(t_("Get all words"), AppImg::RedRing(), THISBACK2(GetWords, 0, true)).Key(K_F6);
-	bar.Add(t_("Get all role distributions"), AppImg::RedRing(), THISBACK2(GetRoleDistributions, 0, true)).Key(K_F7);
-	bar.Add(t_("Get all rhyme locations"), AppImg::RedRing(), THISBACK2(GetRhymeLocations, 0, true)).Key(K_F8);
+	bar.Add(t_("Get all attribute distributions"), AppImg::RedRing(), THISBACK2(GetAttributeDistributions, 0, true)).Key(K_F7);
+	//bar.Add(t_("Get all rhyme locations"), AppImg::RedRing(), THISBACK2(GetRhymeLocations, 0, true)).Key(K_F8);
 	bar.Separator();
 	bar.Add(t_("Get everything!"), AppImg::RedRing(), THISBACK(StartBatch)).Key(K_F9);
 	
@@ -48,8 +48,10 @@ void SongDataAnalysisPage::StartBatch() {
 	if (disabled)
 		return;
 	batch = true;
-	GetRhymes(0, true);
+	GetWords(0, true);
 }
+
+#if 0
 
 void SongDataAnalysisPage::GetRhymes(int list_i, bool start_next) {
 	if (disabled)
@@ -134,10 +136,14 @@ void SongDataAnalysisPage::OnRhymes(String res, int list_i, bool start_next) {
 	}
 }
 
+#endif
+
 void SongDataAnalysisPage::GetWords(int list_i, bool start_next) {
-	if (disabled)
+	if (disabled || Thread::IsShutdownThreads())
 		return;
+	bool forced = false;
 	if (list_i < 0) {
+		forced = true;
 		if (!list.IsCursor())
 			return;
 		list_i = list.GetCursor();
@@ -148,13 +154,13 @@ void SongDataAnalysisPage::GetWords(int list_i, bool start_next) {
 	
 	Task& t = tasks[list_i];
 	
-	if (t.analysis && t.analysis->word_groups.GetCount()) {
+	if (!forced && t.analysis && t.analysis->word_groups.GetCount()) {
 		if (start_next) {
 			disabled = false;
 			if (list_i+1 < list.GetCount())
 				PostCallback(THISBACK2(GetWords, list_i+1, true));
 			else if (batch)
-				GetRoleDistributions(0, true);
+				GetAttributeDistributions(0, true);
 		}
 		return;
 	}
@@ -177,31 +183,67 @@ void SongDataAnalysisPage::GetWords(int list_i, bool start_next) {
 void SongDataAnalysisPage::OnWords(String res, int list_i, bool start_next) {
 	PostCallback(THISBACK(EnableAll));
 	
+	if (Thread::IsShutdownThreads())
+		return;
+	
 	Task& t = tasks[list_i];
 	LyricsDataset& ld = *t.ld;
 	LyricsAnalysis& anal = *t.analysis;
 	
-	anal.word_groups.Clear();
+	anal.phrases.Clear();
 	res.Replace("\r", "");
 	
-	res = "pronouns: " + res;
+	res = "-\"" + res;
 	
 	Vector<String> lines = Split(res, "\n");
 	for (String& l : lines) {
-		RemoveLineChar(l);
-		String key;
-		int a = l.Find(":");
-		if (a >= 0) {
-			key = l.Left(a);
-			l = TrimBoth(l.Mid(a+1));
-		}
-		if (l == "none")
-			continue;
+		String group, value, phrase;
 		
-		auto& g = anal.word_groups.GetAdd(key);
-		g = Split(l, ",");
-		for (String& s : g)
-			s = TrimBoth(s);
+		RemoveLineChar(l);
+		if (l.Left(1) != "\"") continue;
+		int a = 1;
+		int b = l.Find("\"", a);
+		if (b < 0) continue;
+		phrase = l.Mid(a, b-a);
+		
+		l = TrimBoth(l.Mid(b+1));
+		
+		a = l.Find(":");
+		if (a < 0) continue;
+		l = TrimBoth(l.Mid(a+1));
+		
+		a = l.Find(":");
+		if (a < 0) continue;
+		group = ToLower(TrimBoth(l.Left(a)));
+		l = TrimBoth(l.Mid(a+1));
+		
+		a = l.Find(":");
+		if (a < 0) {
+			a = l.Find("(RGB");
+			if (a < 0)
+				continue;
+		}
+		value = ToLower(TrimBoth(l.Left(a)));
+		l = TrimBoth(l.Mid(a+1));
+		
+		a = l.Find("RGB(");
+		if (a < 0) continue;
+		a += 4;
+		b = l.Find(")", a);
+		if (b < 0) continue;
+		Vector<String> clr_parts = Split(l.Mid(a,b-a), ",");
+		if (clr_parts.GetCount() != 3) continue;
+		
+		int R = ScanInt(TrimBoth(clr_parts[0]));
+		int G = ScanInt(TrimBoth(clr_parts[1]));
+		int B = ScanInt(TrimBoth(clr_parts[2]));
+		Color clr(R,G,B);
+		
+		auto& p = anal.phrases.Add();
+		p.phrase = phrase;
+		p.group = group;
+		p.value = value;
+		p.clr = clr;
 	}
 	
 	PostCallback(THISBACK(DataTask));
@@ -211,14 +253,16 @@ void SongDataAnalysisPage::OnWords(String res, int list_i, bool start_next) {
 		if (list_i+1 < list.GetCount())
 			GetWords(list_i+1, true);
 		else if (batch)
-			GetRoleDistributions(0, true);
+			GetAttributeDistributions(0, true);
 	}
 }
 
-void SongDataAnalysisPage::GetRoleDistributions(int list_i, bool start_next) {
-	if (disabled)
+void SongDataAnalysisPage::GetAttributeDistributions(int list_i, bool start_next) {
+	if (disabled || Thread::IsShutdownThreads())
 		return;
+	bool forced = false;
 	if (list_i < 0) {
+		forced = true;
 		if (!list.IsCursor())
 			return;
 		list_i = list.GetCursor();
@@ -229,13 +273,14 @@ void SongDataAnalysisPage::GetRoleDistributions(int list_i, bool start_next) {
 	
 	Task& t = tasks[list_i];
 	
-	if (t.analysis && t.analysis->positive_roles.GetCount()) {
+	if (!forced && t.analysis && t.analysis->positive_roles.GetCount()) {
 		if (start_next) {
 			disabled = false;
 			if (list_i+1 < list.GetCount())
-				PostCallback(THISBACK2(GetRoleDistributions, list_i+1, true));
-			else if (batch)
-				GetRhymeLocations(0, true);
+				PostCallback(THISBACK2(GetAttributeDistributions, list_i+1, true));
+			//else if (batch)
+			//	GetRhymeLocations(0, true);
+			else batch = false;
 		}
 		return;
 	}
@@ -258,6 +303,9 @@ void SongDataAnalysisPage::GetRoleDistributions(int list_i, bool start_next) {
 void SongDataAnalysisPage::OnRoleDistributions(String res, int list_i, bool start_next) {
 	PostCallback(THISBACK(EnableAll));
 	
+	if (Thread::IsShutdownThreads())
+		return;
+	
 	Task& t = tasks[list_i];
 	LyricsDataset& ld = *t.ld;
 	LyricsAnalysis& anal = *t.analysis;
@@ -266,7 +314,7 @@ void SongDataAnalysisPage::OnRoleDistributions(String res, int list_i, bool star
 	anal.negative_roles.Clear();
 	res.Replace("\r", "");
 	
-	int a = res.Find("Negative stereotypes");
+	int a = res.Find("4 negative stereotypes");
 	if (a >= 0) {
 		String pos = TrimBoth(res.Left(a));
 		String neg = TrimBoth(res.Mid(a));
@@ -283,11 +331,14 @@ void SongDataAnalysisPage::OnRoleDistributions(String res, int list_i, bool star
 					s = TrimBoth(s);
 					Vector<String> kv = Split(s, ":");
 					if (kv.GetCount() == 2) {
-						String key0 = TrimBoth(kv[0]);
-						String value0 = TrimBoth(kv[1]);
-						auto& out0 = out.Add();
-						out0.subject = key0;
-						out0.percent = ScanInt(value0);
+						Vector<String> gv = Split(kv[0], "/");
+						if (gv.GetCount() == 2) {
+							String value0 = TrimBoth(kv[1]);
+							auto& out0 = out.Add();
+							out0.group = ToLower(TrimBoth(gv[0]));
+							out0.value = ToLower(TrimBoth(gv[1]));
+							out0.percent = ScanInt(value0);
+						}
 					}
 				}
 			}
@@ -305,25 +356,33 @@ void SongDataAnalysisPage::OnRoleDistributions(String res, int list_i, bool star
 					s = TrimBoth(s);
 					Vector<String> kv = Split(s, ":");
 					if (kv.GetCount() == 2) {
-						String key0 = TrimBoth(kv[0]);
-						String value0 = TrimBoth(kv[1]);
-						auto& out0 = out.Add();
-						out0.subject = key0;
-						out0.percent = ScanInt(value0);
+						Vector<String> gv = Split(kv[0], "/");
+						if (gv.GetCount() == 2) {
+							String value0 = TrimBoth(kv[1]);
+							auto& out0 = out.Add();
+							out0.group = ToLower(TrimBoth(gv[0]));
+							out0.value = ToLower(TrimBoth(gv[1]));
+							out0.percent = ScanInt(value0);
+						}
 					}
 				}
 			}
 		}
 	}
 	
+	PostCallback(THISBACK(DataTask));
+	
 	if (start_next) {
 		disabled = false;
 		if (list_i+1 < list.GetCount())
-			GetRoleDistributions(list_i+1, true);
-		else if (batch)
-			GetRhymeLocations(0, true);
+			GetAttributeDistributions(list_i+1, true);
+		//else if (batch)
+		//	GetRhymeLocations(0, true);
+		else batch = false;
 	}
 }
+
+#if 0
 
 void SongDataAnalysisPage::GetRhymeLocations(int list_i, bool start_next) {
 	if (disabled)
@@ -405,6 +464,8 @@ void SongDataAnalysisPage::OnRhymeLocations(String res, int list_i, bool start_n
 			batch = false;
 	}
 }
+
+#endif
 
 void SongDataAnalysisPage::Data() {
 	if (tasks.GetCount() == 0)

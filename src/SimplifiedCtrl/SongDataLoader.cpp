@@ -40,14 +40,106 @@ void SongDataLoader::LoadHuggingArtists() {
 	do {
 		if (!ff.IsFile()) continue;
 		String path = ff.GetPath();
+		
+		String title = ToLower(GetFileTitle(path));
+		title.Replace("-", " ");
+		if (title == "25 17" ||
+			title == "5nizza" ||
+			title == "5opka" ||
+			title == "6ix9ine" ||
+			title == "agata christie" ||
+			title == "aikko" ||
+			title == "aimer" ||
+			title == "arash" ||
+			title == "ariya" ||
+			title == "asper x" ||
+			title == "baklan" ||
+			title == "big baby tape" ||
+			title == "big russian boss" ||
+			title == "booker" ||
+			title == "boris grebenshikov" ||
+			title == "bushido zho" ||
+			title == "denderty" ||
+			title == "dj artem artemov" ||
+			title == "dzhizus" ||
+			title == "egor kreed" ||
+			title == "egor letov" ||
+			title == "face" ||
+			title == "galenskaparna and after shave" ||
+			title == "ghostemane" ||
+			title == "ghostmane" ||
+			title == "grigory leps" ||
+			title == "gpsd" ||
+			title == "hillsong worship" ||
+			title == "hyuna" ||
+			title == "idktime" ||
+			title == "jah khalib" ||
+			title == "kasta" ||
+			title == "kipelov" ||
+			title == "kishlak" ||
+			title == "kizaru" ||
+			title == "krechet" ||
+			title == "little big" ||
+			title == "lizer" ||
+			title == "lovv66" ||
+			title == "lumen" ||
+			title == "lyapis trubetskoy" ||
+			title == "macan" ||
+			title == "mashina vremeni" ||
+			title == "max korzh" ||
+			title == "mayot" ||
+			title == "mikhail gorshenev" ||
+			title == "mikhail krug" ||
+			title == "miyagi" ||
+			title == "mnogoznaal" ||
+			title == "morgenshtern" ||
+			title == "mumiy troll" ||
+			title == "nautilus pompilius" ||
+			title == "nervy" ||
+			title == "noize mc" ||
+			title == "obladaet" ||
+			title == "og buda" ||
+			title == "olga buzova" ||
+			title == "ot rus" ||
+			title == "oxxxymiron" ||
+			title == "pharaoh" ||
+			title == "platina" ||
+			title == "pyrokinesis" ||
+			title == "ramil" ||
+			title == "rammstein" ||
+			title == "rocket" ||
+			title == "sam kim" ||
+			title == "scriptonite" ||
+			title == "sektor gaza" ||
+			title == "sergei letov" ||
+			title == "shadowraze" ||
+			title == "sid sriram" ||
+			title == "slava kpss" ||
+			title == "slava marlow" ||
+			title == "sqwore" ||
+			title == "t fest" ||
+			title == "tanzy minus" ||
+			title == "the king and the jester" ||
+			title == "the the pigs" ||
+			title == "till lindemann" ||
+			title == "tony raut and garry topor" ||
+			title == "totpoc" ||
+			title == "v x v prince" ||
+			title == "viktor tsoi" ||
+			title == "vladimir vysotsky" ||
+			title == "zemfira")
+			continue;
+		
 		files << path;
 	}
 	while (ff.Next());
 	
 	for(int i = 0; i < files.GetCount(); i++) {
 		String path = files[i];
+		String title = GetFileTitle(path);
+		
 		ArtistDataset& artist = db.song_data.artists_en.Add();
-		artist.name = Capitalize(GetFileTitle(path));
+		artist.name = Capitalize(title);
 		if (GetDefaultCharset() != CHARSET_UTF8)
 			artist.name = ToCharset(CHARSET_UTF8, artist.name, CHARSET_DEFAULT);
 		

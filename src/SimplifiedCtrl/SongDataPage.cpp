@@ -2,7 +2,10 @@
 
 
 SongDataPage::SongDataPage() {
-	Add(hsplit.SizePos());
+	Add(hsplit.HSizePos().VSizePos(0,30));
+	Add(prog.HSizePos().BottomPos(0,30));
+	
+	prog.Set(0,1);
 	
 	hsplit.Horz() << vsplit << lyrics << analysis;
 	hsplit.SetPos(2500);
@@ -30,9 +33,29 @@ SongDataPage::SongDataPage() {
 	
 }
 
+void SongDataPage::EnableAll() {
+	disabled = false;
+	datasets.Enable();
+	artists.Enable();
+	songs.Enable();
+	active_songs.Enable();
+	analysis.Enable();
+}
+
+void SongDataPage::DisableAll() {
+	disabled = true;
+	datasets.Disable();
+	artists.Disable();
+	songs.Disable();
+	active_songs.Disable();
+	analysis.Disable();
+}
+
 void SongDataPage::ToolMenu(Bar& bar) {
 	bar.Add(t_("Add 10 random songs to list"), AppImg::BlueRing(), THISBACK1(AddRandomSongsToList, 10)).Key(K_CTRL_Q);
 	bar.Add(t_("Remove song from list"), AppImg::BlueRing(), THISBACK(RemoveSongFromActiveList)).Key(K_CTRL_W);
+	bar.Separator();
+	bar.Add(t_("Hotfix text"), AppImg::RedRing(), THISBACK(StartHotfixText)).Key(K_F5);
 }
 
 void SongDataPage::AddRandomSongsToList(int count) {
@@ -265,3 +288,108 @@ void SongDataPage::DataActiveSong() {
 	}
 }
 
+void SongDataPage::HotfixText() {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	int total = 0;
+	for(int i = 0; i < sd.GetCount(); i++) {
+		Vector<ArtistDataset>& artists = sd[i];
+		for(int j = 0; j < artists.GetCount(); j++) {
+			ArtistDataset& artist = artists[j];
+			total += artist.lyrics.GetCount();
+		}
+	}
+	
+	int actual = 0;
+	for(int i = 0; i < sd.GetCount(); i++) {
+		Vector<ArtistDataset>& artists = sd[i];
+		for(int j = 0; j < artists.GetCount(); j++) {
+			ArtistDataset& artist = artists[j];
+			for(int k = 0; k < artist.lyrics.GetCount(); k++) {
+				LyricsDataset& song = artist.lyrics[k];
+				
+				ReplaceWord(song.text, "im", "I'm");
+				ReplaceWord(song.text, "ive", "I've");
+				ReplaceWord(song.text, "ill", "I'll");
+				ReplaceWord(song.text, "id", "I'd");
+				ReplaceWord(song.text, "youre", "you're");
+				ReplaceWord(song.text, "youd", "you'd");
+				ReplaceWord(song.text, "youve", "you've");
+				ReplaceWord(song.text, "youll", "you'll");
+				ReplaceWord(song.text, "hes", "he's");
+				ReplaceWord(song.text, "heve", "he've");
+				ReplaceWord(song.text, "hed", "he'd");
+				ReplaceWord(song.text, "shes", "she's");
+				ReplaceWord(song.text, "sheve", "she've");
+				ReplaceWord(song.text, "shed", "she'd");
+				ReplaceWord(song.text, "theyll", "they'll");
+				ReplaceWord(song.text, "theyve", "they've");
+				ReplaceWord(song.text, "theyre", "they're");
+				
+				ReplaceWord(song.text, "didnt", "didn't");
+				ReplaceWord(song.text, "dont", "don't");
+				
+				ReplaceWord(song.text, "its", "it's");
+				ReplaceWord(song.text, "itll", "it'll");
+				ReplaceWord(song.text, "itve", "it've");
+				ReplaceWord(song.text, "isnt", "isn't");
+				
+				ReplaceWord(song.text, "whats", "what's");
+				ReplaceWord(song.text, "couldnt", "couldn't");
+				ReplaceWord(song.text, "shouldnt", "shouldn't");
+				ReplaceWord(song.text, "theres", "there's");
+				ReplaceWord(song.text, "wasnt", "wasn't");
+				ReplaceWord(song.text, "alright", "allright");
+				ReplaceWord(song.text, "thats", "that's");
+				
+				// These change too much
+				if (0) {
+					ReplaceWord(song.text, "tryna", "tring to");
+					ReplaceWord(song.text, "aint", "aren't");
+					ReplaceWord(song.text, "gotta", "have to");
+					ReplaceWord(song.text, "wanna", "want to");
+					ReplaceWord(song.text, "em", "them");
+					ReplaceWord(song.text, "ol", "old");
+					ReplaceWord(song.text, "bout", "about");
+					ReplaceWord(song.text, "nunya", "none of your");
+					ReplaceWord(song.text, "thang", "thing");
+					ReplaceWord(song.text, "I'ma", "I'll");
+				}
+				
+				ReplaceWord(song.text, "tryin", "trying");
+				ReplaceWord(song.text, "fuckin", "fucking");
+				ReplaceWord(song.text, "livin", "living");
+				ReplaceWord(song.text, "lookin", "looking");
+				ReplaceWord(song.text, "prayin", "praying");
+				ReplaceWord(song.text, "rollin", "rolling");
+				ReplaceWord(song.text, "workin", "working");
+				ReplaceWord(song.text, "chargin", "charging");
+				ReplaceWord(song.text, "runnin", "running");
+				ReplaceWord(song.text, "doin", "doing");
+				ReplaceWord(song.text, "judgin", "judging");
+				ReplaceWord(song.text, "blendin", "blending");
+				ReplaceWord(song.text, "gettin", "getting");
+				ReplaceWord(song.text, "talkin", "talking");
+				ReplaceWord(song.text, "changin", "changing");
+				ReplaceWord(song.text, "makin", "making");
+				ReplaceWord(song.text, "retracin", "retracing");
+				ReplaceWord(song.text, "motherfuckin", "motherfucking");
+				ReplaceWord(song.text, "rockin", "rocking");
+				ReplaceWord(song.text, "goin", "going");
+				ReplaceWord(song.text, "frontin", "fronting");
+				ReplaceWord(song.text, "somethin", "something");
+				ReplaceWord(song.text, "playin", "playing");
+				ReplaceWord(song.text, "hittin", "hitting");
+				ReplaceWord(song.text, "movin", "moving");
+				
+				
+				if (actual++ % 100 == 0)
+					PostProgress(actual, total);
+			}
+		}
+	}
+	
+	PostCallback(THISBACK(EnableAll));
+}

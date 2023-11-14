@@ -14508,7 +14508,8 @@ void GetWords(const String& line, Vector<String>& words) {
 	for(int i = 0; i < w.GetCount(); i++) {
 		wchar chr = w[i];
 		
-		if (!IsLetter(chr) && !IsDigit(chr)) {
+		if (!IsLetter(chr) && !IsDigit(chr) && chr != '\'' && chr != '`' && chr != '-') {
+		//if (IsSpace(chr) || chr == '.' || chr == ',' || chr == '?' || chr == '!' || chr == ':' || chr == ';') {
 			if (tmp.IsEmpty()) continue;
 			words << tmp.ToString();
 			tmp.Clear();
@@ -14827,4 +14828,47 @@ const VectorMap<String,Color>& GetWordgroupColors() {
 	list.Add("adverb/conjunction", Color(155, 123, 255));
 	list.Add("acronym", Color(204, 255, 204));
 	return list;
+}
+
+void ReplaceWord(String& s, const String& orig_word, const String& replace_word) {
+	String low_text = ToLower(s);
+	
+	int prev = -1;
+	while (prev < low_text.GetCount()) {
+		int a = low_text.Find(orig_word, prev+1);
+		if (a < 0) break;
+		
+		bool left_separated = false, right_separated = false;
+		
+		if (a == 0)
+			left_separated = true;
+		else {
+			int chr = low_text[a-1];
+			if (IsAlpha(chr) ||IsLetter(chr) || IsDigit(chr) || chr == '\'' || chr == '-')
+				;
+			else
+				left_separated = true;
+		}
+		
+		if (left_separated) {
+			int b = a + orig_word.GetCount();
+			if (b >= low_text.GetCount())
+				right_separated = true;
+			else {
+				int chr = low_text[b];
+				if (IsAlpha(chr) ||IsLetter(chr) || IsDigit(chr) || chr == '\'' || chr == '-')
+					;
+				else
+					right_separated = true;
+			}
+		}
+		
+		if (left_separated && right_separated) {
+			s = s.Left(a) + replace_word + s.Mid(a + orig_word.GetCount());
+			low_text = low_text.Left(a) + replace_word + low_text.Mid(a + orig_word.GetCount());
+			a += replace_word.GetCount()-1;
+		}
+		
+		prev = a;
+	}
 }

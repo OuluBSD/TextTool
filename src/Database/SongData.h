@@ -21,26 +21,29 @@ struct ArtistDataset : Moveable<ArtistDataset> {
 };
 
 struct LyricsAnalysis : Moveable<LyricsAnalysis> {
-	struct Rhyme : Moveable<Rhyme> {
-		Vector<String> words;
-		int score;
+	struct Phrase : Moveable<Phrase> {
+		String phrase, group, value;
+		Color clr;
 		
-		void Serialize(Stream& s) {s % words % score;}
+		void Serialize(Stream& s) {s % phrase % group % value % clr;}
 		void Jsonize(JsonIO& json) {
 			json
-				("words", words)
-				("score", score)
+				("phrase", phrase)
+				("group", group)
+				("value", value)
+				("clr", clr)
 				;
 		}
 	};
 	struct Role : Moveable<Role> {
-		String subject;
+		String group, value;
 		int percent;
 		
-		void Serialize(Stream& s) {s % subject % percent;}
+		void Serialize(Stream& s) {s % group % value % percent;}
 		void Jsonize(JsonIO& json) {
 			json
-				("subject", subject)
+				("group", group)
+				("value", value)
 				("percent", percent)
 				;
 		}
@@ -60,19 +63,20 @@ struct LyricsAnalysis : Moveable<LyricsAnalysis> {
 		}
 	};
 	String name;
-	Vector<Rhyme> rhymes;
-	VectorMap<String, Vector<String>> word_groups;
 	Vector<Vector<Role>> positive_roles, negative_roles;
-	Vector<RhymeLocationLine> rhyme_locations;
+	Vector<Phrase> phrases;
+	
+	VectorMap<String, Vector<String>> word_groups; // UNUSED
+	Vector<RhymeLocationLine> rhyme_locations; // UNUSED
 	
 	void Serialize(Stream& s){
-		s % name % rhymes % word_groups % positive_roles % negative_roles % rhyme_locations;
+		s % name % phrases % word_groups % positive_roles % negative_roles % rhyme_locations;
 	}
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("name", name)
-			("rhymes", rhymes)
+			("phrases", phrases)
 			("word_groups", word_groups)
 			("positive_roles", positive_roles)
 			("negative_roles", negative_roles)

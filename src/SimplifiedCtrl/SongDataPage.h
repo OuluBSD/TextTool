@@ -6,12 +6,16 @@ class SongDataPage : public SongToolCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, artists, songs, active_songs;
 	DocEdit lyrics, analysis;
+	ProgressIndicator prog;
+	bool disabled = false;
 	
 public:
 	typedef SongDataPage CLASSNAME;
 	SongDataPage();
 	
 	
+	void EnableAll();
+	void DisableAll();
 	void Data() override;
 	void DataDataset();
 	void DataArtist();
@@ -22,6 +26,10 @@ public:
 	void AddRandomSongsToList(int count);
 	void AddSongToActiveList();
 	void RemoveSongFromActiveList();
+	void HotfixText();
+	void StartHotfixText() {if (disabled) return; DisableAll(); Thread::Start(THISBACK(HotfixText));}
+	void PostProgress(int a, int t) {PostCallback(THISBACK2(SetProgress, a, t));}
+	void SetProgress(int a, int t) {prog.Set(a,t);}
 	
 };
 

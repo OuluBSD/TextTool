@@ -1088,4 +1088,6 @@ const VectorMap<String,Color>& GetWordgroupColors();
 
 Color GetSentenceColor(const Vector<String>& main_classes, const Vector<Color>& clrs);
 
+void ReplaceWord(String& s, const String& orig_word, const String& replace_word);
+
 #endif

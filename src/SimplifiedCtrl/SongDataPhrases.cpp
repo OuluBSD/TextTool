@@ -126,7 +126,9 @@ void SongDataPhrases::DataVirtualPhrase() {
 			if (s.GetCount()) s << " ";
 			s << g;
 		}
-		phrases.Set(i, 0, s);
+		phrases.Set(i, 0, AttrText(s)
+			.NormalPaper(Blend(pa.clr, White(), 128+64)).NormalInk(Black())
+			.Paper(Blend(pa.clr, GrayColor())).Ink(White()));
 	}
 	if (!phrases.IsCursor() && phrases.GetCount())
 		phrases.SetCursor(0);
@@ -270,10 +272,6 @@ void SongDataPhrases::MakeUniquePhrases() {
 			if (ds.unique_phrases.GetCount() > phrase_limit)
 				break;
 		}
-		/*for(int i = 0; i < ds.words.GetCount(); i++) {
-			WordAnalysis& wa = ds.words[i];
-			
-		}*/
 		
 		if (ds.unique_phrases.GetCount() > phrase_limit)
 			break;
@@ -283,18 +281,3 @@ void SongDataPhrases::MakeUniquePhrases() {
 	
 	PostCallback(THISBACK(EnableAll));
 }
-
-/*
-- normi phrases
-     - uniikki fraasit
-         - sana id integer vektori, EI string
-             - tarkista, ettei sanoja poisteta
-         - kerätään artistit
-         - kerätään biisit missä esiintyy
-     - optimointi?
-         - sijainti integer vektorissa
-         - integer vektorissa 3 aluetta eroteltuna 0 päätteellä
-     - gui
-         - ei kovin reaktiivinen data, mutta testaamiseen
-             - ehkä testaamiseen, että mitkä lauseet sisältää sanan
-*/

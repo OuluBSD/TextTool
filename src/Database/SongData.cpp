@@ -29,14 +29,13 @@ void SongDataAnalysis::Load() {
 
 void SongDataAnalysis::StoreJson() {
 	String dir = Database::Single().dir;
-	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json", false);
+	StoreAsJsonFileStandard(*this, ConfigFile("SongData.json"), false);
 }
 
 void SongDataAnalysis::LoadJson() {
 	#if 0
 	DatasetAnalysis da;
-	String dir = Database::Single().dir;
-	LoadFromJsonFileStandard(da, dir + DIR_SEPS "share" DIR_SEPS "SongData.json");
+	LoadFromJsonFileStandard(da, ConfigFile("SongData.json"));
 	
 	SongData& sd = Database::Single().song_data;
 	for(int j = 0; j < sd.GetCount(); j++) {
@@ -57,7 +56,7 @@ void SongDataAnalysis::LoadJson() {
 	}
 	#else
 	String dir = Database::Single().dir;
-	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json");
+	LoadFromJsonFileStandard(*this, ConfigFile("SongData.json"));
 	#endif
 }
 
@@ -66,9 +65,9 @@ void SongDataAnalysis::LoadJson() {
 
 String LyricsAnalysis::AsString() const {
 	String s;
-	s << "Rhymes:\n";
-	for (const LyricsAnalysis::Rhyme& r : rhymes) {
-		s << Join(r.words, ", ") << " (" << r.score << ")\n";
+	s << "Phrase:\n";
+	for (const LyricsAnalysis::Phrase& p : phrases) {
+		s << "\"" << p.phrase << "\": " << p.group << ": " << p.value << ": RGB(" << p.clr.GetR() << ", " << p.clr.GetG() << ", " << p.clr.GetB() << ")\n";
 	}
 	s << "\n\n";
 	
@@ -78,7 +77,7 @@ String LyricsAnalysis::AsString() const {
 		int j = 0;
 		for (const LyricsAnalysis::Role& r : v) {
 			if (j++) s << ", ";
-			s << r.subject << ": " << r.percent << "\%";
+			s << r.group << "/" << r.value << ": " << r.percent << "\%";
 		}
 		s << "\n";
 	}
@@ -90,7 +89,7 @@ String LyricsAnalysis::AsString() const {
 		int j = 0;
 		for (const LyricsAnalysis::Role& r : v) {
 			if (j++) s << ", ";
-			s << r.subject << ": " << r.percent << "\%";
+			s << r.group << "/" << r.value << ": " << r.percent << "\%";
 		}
 		s << "\n";
 	}

@@ -4399,11 +4399,12 @@ void Task::CreateInput_GetSongDataAnalysis() {
 			results.EmptyLine();
 		}
 	}
+	#if 0
 	if (args.fn == 1) {
-		String answer_prompt = "List of words and word groups in song \"" + args.artist + " - " + args.song + "\"";
+		String answer_prompt = "List of phrases and phrase groups in song \"" + args.artist + " - " + args.song + "\"";
 		{
-			auto& list = input.AddSub().Title("List of word groups");
-			list.Add("pronoun");
+			auto& list = input.AddSub().Title("List of phrase groups");
+			/*list.Add("pronoun");
 			list.Add("noun");
 			list.Add("adjective");
 			list.Add("prepositions");
@@ -4412,60 +4413,74 @@ void Task::CreateInput_GetSongDataAnalysis() {
 			list.Add("adverbs");
 			list.Add("interjections");
 			list.Add("numbers");
-			list.Add("adverbial phrases");
 			list.Add("possessive pronouns");
 			list.Add("comparative adjectives");
 			list.Add("superlative adjectives");
-			list.Add("contractions");
 			list.Add("auxiliary verbs");
 			list.Add("relative pronouns");
 			list.Add("future tense verbs");
 			list.Add("past tense verbs");
 			list.Add("modal verbs");
-			list.Add("direct speech");
-			list.Add("indirect speech");
-			list.Add("repetitive phrases");
-			list.Add("personification");
-			list.Add("metaphors");
-			list.Add("hyperbole");
-			list.Add("assonance");
-			list.Add("consonance");
-			list.Add("alliteration");
 			list.Add("onomatopoeia");
 			list.Add("rhyming words");
 			list.Add("imperative verbs");
-			list.Add("exclamations");
 			list.Add("possessive adjectives");
 			list.Add("articles");
 			list.Add("auxiliary adjectives");
 			list.Add("personal pronouns");
 			list.Add("possessive determiners");
 			list.Add("question words");
-			list.Add("passive voice");
-			list.Add("active voice");
 			list.Add("compound words");
-			list.Add("contradictions");
 			list.Add("repeated words");
-			list.Add("extended metaphor");
-			list.Add("repetition");
-			list.Add("rhetorical question");
-			list.Add("tone");
-			list.Add("mood");
-			list.Add("symbolism");
-			list.Add("extended simile");
-			list.Add("dramatic endings");
-			list.Add("repeated chorus");
-			list.Add("metaphorical simile");
-			list.Add("irony");
 			list.Add("emotional words");
 			list.Add("strong verbs");
 			list.Add("weak verbs");
-			list.Add("emotive language");
 			list.Add("onomatopoeic words");
 			list.Add("words that depict movement");
 			list.Add("symbolic words");
 			list.Add("descriptive words");
 			list.Add("words with multiple meanings");
+			list.Add("inline rhymes");
+			list.Add("contractions");
+			list.Add("emotive language");
+			list.Add("tense");
+			list.Add("rhythm");
+			list.Add("communication devices");
+			list.Add("themes");
+			list.Add("structure");
+			list.Add("idea");
+			*/
+			
+			list.Add("strong impact phrases");
+			list.Add("medium impact phrases");
+			list.Add("weak impact phrases");
+			list.Add("adverbial phrases");
+			list.Add("direct speech");
+			list.Add("indirect speech");
+			list.Add("repetitive phrases");
+			list.Add("personification");
+			list.Add("metaphors");
+			list.Add("hyperbole");
+			list.Add("assonance phrases");
+			list.Add("consonance phrases");
+			list.Add("alliteration");
+			list.Add("exclamations");
+			list.Add("questions");
+			list.Add("passive voice");
+			list.Add("active voice");
+			list.Add("contradictions");
+			list.Add("extended metaphor phrases");
+			list.Add("repetition");
+			list.Add("rhetorical question");
+			list.Add("tone setting phrases");
+			list.Add("mood setting phrases");
+			list.Add("vibe setting phrases");
+			list.Add("strong symbolism phrases");
+			list.Add("extended simile");
+			list.Add("dramatic endings");
+			list.Add("repeated chorus");
+			list.Add("metaphorical simile");
+			list.Add("irony");
 			list.Add("concern");
 			list.Add("insanity");
 			list.Add("pain");
@@ -4497,22 +4512,14 @@ void Task::CreateInput_GetSongDataAnalysis() {
 			list.Add("mental state");
 			list.Add("messages");
 			list.Add("personal growth");
-			list.Add("themes");
-			list.Add("structure");
-			list.Add("tense");
-			list.Add("vibe");
-			list.Add("communication devices");
-			list.Add("storyline");
-			list.Add("rhythm");
+			list.Add("storyline setting phrases");
 			list.Add("imagery");
 			list.Add("personification");
 			list.Add("hooks");
-			list.Add("idea");
-			list.Add("inline rhymes");
-			list.Add("sarcasm");
+			list.Add("sarcastic phrases");
 			list.Add("positivity");
 			list.Add("negativity");
-			list.Add("emotional progression");
+			list.Add("emotional progression phrases");
 		}
 		{
 			input.AddSub().Title("Artist: " + args.artist).NoColon();
@@ -4527,25 +4534,19 @@ void Task::CreateInput_GetSongDataAnalysis() {
 		{
 			TaskTitledList& results = input.PreAnswer();
 			results.Title(answer_prompt);
-			results.EmptyLine().EmptyLineString("pronoun:");
+			results.EmptyLine().EmptyLineString("strong impact phrases:");
 		}
+		input.response_length = 2*1024;
 	}
-	else if (args.fn == 2) {
+	#endif
+	else if (args.fn == 1) {
 		{
-			auto& list = input.AddSub().Title("Positive stereotypes of distribution of roles in content of modern songs");
-			list.Add("personal I: 50\%, love and relationships: 30\%, self-love and acceptance: 20\%");
-			list.Add("people who volunteer at beach cleanups: 60\%, promoting environmental consciousness and sustainable habits: 30\%, advocating for cleaner and");
-			list.Add("northern european people: 70\%, promoting inclusivity and diversity: 20\%, rejecting racial stereotypes and discrimination: 10\%.");
-			list.Add("you inspire me: 50\%, celebrating individuality and uniqueness: 30\%, recognizing the value of others: 20\%.");
+			TaskTitledList& list = input.AddSub().Title("List of attribute groups and their opposite polarised attribute values");
+			list.NumberedLines();
+			#define ATTR_ITEM(e, g, i0, i1) list.Add(g ": " i0 " / " i1);
+			ATTR_LIST
+			#undef ATTR_ITEM
 		}
-		{
-			auto& list = input.AddSub().Title("Negative stereotypes of distribution of roles in content of modern songs");
-			list.Add("personal I: 60\%, personal success and achievements: 30\%, societal pressure and expectations: 10\%.");
-			list.Add("intoxicated I: 70\%, loneliness and isolation: 20\%, finding comfort and belonging: 10\%.");
-			list.Add("us vs. the system: 50\%, fighting against injustice and inequality: 40\%, complacency and lack of action: 10\%.");
-			list.Add("fucking I: 60\%, exploring sexuality and desires: 30\%, finding love and real connections: 10\%.");
-		}
-		
 		{
 			input.AddSub().Title("Artist: " + args.artist).NoColon();
 			input.AddSub().Title("Song: " + args.song).NoColon();
@@ -4557,13 +4558,60 @@ void Task::CreateInput_GetSongDataAnalysis() {
 				list.Add(s);
 		}
 		{
-			input.AddSub().NoColon().Title("Getting both positive and negative stereotypes of distribution of person roles in content of song \"" + args.artist + " - " + args.song + "\"");
+			auto& list = input.AddSub();
+			list.Title("Getting all phrases with a matching attribute group and their polarised attribute value in content of song \"" + args.artist + " - " + args.song + "\", if any. Unrelated example values. With metaphorical color of the phrase");
+			list.Add("\"Smoking cigs in the bar\": Belief communities: secular society: RGB(122,81,69)");
+			list.Add("\"You fucked up your last try\": Theological opposites: atheistic: RGB(255,0,0)");
+			list.Add("\"I was dying to find a way to kill time\": Motivation: punishing: RGB(74,135,59)");
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Positive stereotypes of distribution of person roles in content of song \"" + args.artist + " - " + args.song + "\"");
+			results.Title("20 phrases with matching attribute group and their polarity in content of song \"" + args.artist + " - " + args.song + "\". With metaphorical color of the phrase");
+			results.EmptyLine().EmptyLineString("\"");
+		}
+		input.response_length = 1024;
+	}
+	else if (args.fn == 2) {
+		{
+			TaskTitledList& list = input.AddSub().Title("List of attribute groups and their opposite polarised attribute values");
+			list.NumberedLines();
+			#define ATTR_ITEM(e, g, i0, i1) list.Add(g ": " i0 " / " i1);
+			ATTR_LIST
+			#undef ATTR_ITEM
+		}
+		{
+			auto& list = input.AddSub().Title("4 positive stereotypes of distribution of attributes in content of modern songs");
+			list.Add("Intelligence/intellectual: 30\%, Attitude 1/open: 50\%, Situation relation/descriptive: 20\%");
+			list.Add("Relationship/romantic couple: 40\%, Age target/youth-oriented: 50\%, Lyrical emphasis/witty wordplay: 10\%");
+			list.Add("Culture/individualistic: 30\%, Mood 1/joyful: 40\%, Group experience/group-oriented: 30\%");
+			list.Add("Sexual Acting/confident: 40\%, Sophistication/sophisticated: 50\%, Truthfulness/personal experience: 10\%");
+		}
+		{
+			auto& list = input.AddSub().Title("4 negative stereotypes of distribution of attributes in content of modern songs");
+			list.Add("Faith extremes/agnostic: 40\%, Attitude 1/closed: 60\%, Responsibility/irresponsible: 40\%");
+			list.Add("Relationship/without romantic partner: 30\%, Situation relation/descriptive: 50\%, Commercial appeal/artistic integrity: 20\%");
+			list.Add("Gender/male: 40\%, Relationship focus/partner-focused: 50\%, Production style/electronic: 10\%");
+			list.Add("Attitude 3/pessimistic: 50\%, Average expectations/expectation-opposed: 40\%, Sophistication/simple: 10\%");
+		}
+		{
+			input.AddSub().Title("Artist: " + args.artist).NoColon();
+			input.AddSub().Title("Song: " + args.song).NoColon();
+			
+			Vector<String> lines = Split(args.text, "\n");
+			auto& list = input.AddSub().Title("Lyrics");
+			list.NoListChar();
+			for (String& s : lines)
+				list.Add(s);
+		}
+		{
+			input.AddSub().NoColon().Title("Getting both positive and negative stereotypes of distribution of attributes in content of the song \"" + args.artist + " - " + args.song + "\"");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("4 positive stereotypes of distribution of attributes in content of the song \"" + args.artist + " - " + args.song + "\"");
 			results.EmptyLine();
 		}
+		input.response_length = 1024;
 	}
 	else if (args.fn == 3) {
 		{
