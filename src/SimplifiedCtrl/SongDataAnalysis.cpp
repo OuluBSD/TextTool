@@ -154,7 +154,7 @@ void SongDataAnalysisPage::GetWords(int list_i, bool start_next) {
 	
 	Task& t = tasks[list_i];
 	
-	if (!forced && t.analysis && t.analysis->word_groups.GetCount()) {
+	if (!forced && t.analysis && t.analysis->phrases.GetCount()) {
 		if (start_next) {
 			disabled = false;
 			if (list_i+1 < list.GetCount())

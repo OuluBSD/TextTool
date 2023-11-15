@@ -4677,7 +4677,7 @@ void Task::CreateInput_GetSongDataAnalysis() {
 		{
 			TaskTitledList& results = input.PreAnswer();
 			results.Title("Syllables and phonetic syllables of words \"B\"");
-			results.EmptyLine().EmptyLineString(args.words[0] + ":");
+			results.EmptyLine();//.EmptyLineString(args.words[0] + ":");
 		}
 		input.response_length = 2048;
 	}

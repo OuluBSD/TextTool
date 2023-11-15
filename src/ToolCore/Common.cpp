@@ -14872,3 +14872,272 @@ void ReplaceWord(String& s, const String& orig_word, const String& replace_word)
 		prev = a;
 	}
 }
+
+
+#define COLOR_GROUP_COUNT (3+6*3)
+int GetColorGroupCount() {
+	return COLOR_GROUP_COUNT;
+}
+
+const Color& GetGroupColor(int i) {
+	static Color clrs[COLOR_GROUP_COUNT] = {
+		Color(255, 255, 255),
+		Color(128, 128, 128),
+		
+		Color(255, 0, 0),
+		Color(255, 0, 255),
+		Color(0, 0, 255),
+		Color(0, 255, 255),
+		Color(0, 255, 0),
+		Color(255, 255, 0),
+		
+		Color(255, 128, 128),
+		Color(255, 128, 255),
+		Color(128, 128, 255),
+		Color(128, 255, 255),
+		Color(128, 255, 128),
+		Color(255, 255, 128),
+		
+		Color(128, 0, 0),
+		Color(128, 0, 128),
+		Color(0, 0, 128),
+		Color(0, 128, 128),
+		Color(0, 128, 0),
+		Color(128, 128, 0),
+		
+		Color(0, 0, 0)
+	};
+	i = max(min(COLOR_GROUP_COUNT-1, i), 0);
+	return clrs[i];
+}
+
+int GetColorGroup(const Color& clr) {
+	const Color* begin = &GetGroupColor(0);
+	const Color* it = begin;
+	int count = GetColorGroupCount();
+	const Color* end = begin + count;
+	
+	int closest_dist = GetColorDistance(*it, clr);
+	int closest_group = 0;
+	it++;
+	while (it != end) {
+		int dist = GetColorDistance(*it, clr);
+		if (dist < closest_dist) {
+			closest_group = it - begin;
+			closest_dist = dist;
+		}
+		it++;
+	}
+	
+	return closest_group;
+}
+
+
+
+// https://www.occasionalenthusiast.com/phonetic-distance-between-words-with-application-to-the-international-spelling-alphabet/
+
+/*
+hut	HH AH T
+AO	ought	AO T
+AW	cow	K AW
+AY	hide	HH AY D
+B 	be	B IY
+CH	cheese	CH IY Z
+D 	dee	D IY
+DH	thee	DH IY
+EH	Ed	EH D
+ER	hurt	HH ER T
+EY	ate	EY T
+F 	fee	F IY
+G 	green	G R IY N
+HH	he	HH IY
+IH	it	IH T
+IY	eat	IY T
+JH	gee	JH IY
+K 	key	K IY
+L 	lee	L IY
+M 	me	M IY
+N 	knee	N IY
+NG	ping	P IH NG
+OW	oat	OW T
+OY	toy	T OY
+P 	pee	P IY
+R 	read	R IY D
+S 	sea	S IY
+SH	she	SH IY
+T 	tea	T IY
+TH	theta	TH EY T AH
+UH	hood	HH UH D
+UW	two	T UW
+V 	vee	V IY
+W 	we	W IY
+Y 	yield	Y IY L D
+Z 	zee	Z IY
+ZH	seizure	S IY ZH ER
+- hut: hut [hʌt] (only one syllable)
+- ought: ought [ɔt] (only one syllable)
+- cow: cow [kaʊ] (only one syllable)
+- hide: hide [haɪd] (only one syllable)
+- be: be [bi] (only one syllable)
+- cheese: cheese [tʃiz] (only one syllable)
+- dee: dee [di] (only one syllable)
+- thee: thee [ði] (only one syllable)
+- Ed: Ed [ɛd] (only one syllable)
+- hurt: hurt [hɝt] (only one syllable)
+- ate: ate [eɪt] (only one syllable)
+- fee: fee [fi] (only one syllable)
+- green: green [ɡrin] (only one syllable)
+- he: he [hi] (only one syllable)
+- it: it [ɪt] (only one syllable)
+- eat: eat [it] (only one syllable)
+- gee: gee [d͡ʒi] (only one syllable)
+- key: key [ki] (only one syllable)
+- lee: lee [li] (only one syllable)
+- me: me [mi] (only one syllable)
+- knee: knee [ni] (only one syllable)
+- ping: ping [pɪŋ] (only one syllable)
+- oat: oat [oʊt] (only one syllable)
+- toy: toy [tɔɪ] (only one syllable)
+- pee: pee [pi] (only one syllable)
+- read: read [rid] (only one syllable)
+- sea: sea [si] (only one syllable)
+- she: she [ʃi] (only one syllable)
+- tea: tea [ti] (only one syllable)
+- theta: the-ta [ˈθi.ta] (two syllables)
+- hood: hood [hʊd] (only one syllable)
+- two: two [tu] (only one syllable)
+- vee: vee [vi] (only one syllable)
+- we: we [wi] (only one syllable)
+- yield: yield [jild] (only one syllable)
+- zee: zee [zi] (only one syllable)
+- seizure: sei-zure [ˈsi.ʒər] (two syllables)
+*/
+
+double VOWEL_DISTANCE[PHONOME_VOWEL_COUNT][PHONOME_VOWEL_COUNT] = {
+	{0.0000,0.4472,0.2121,0.4921,0.4712,0.5235,0.4743,0.3536,0.7506,0.7517,1.0000,0.6965,0.5490,0.7329,0.8349},
+	{0.4472,0.0000,0.4301,0.6182,0.3423,0.1845,0.0707,0.1581,0.4039,0.4301,0.6325,0.6895,0.4281,0.6761,0.8349},
+	{0.2121,0.4301,0.0000,0.4440,0.3959,0.4573,0.4243,0.2828,0.6191,0.6083,0.8631,0.5524,0.4291,0.5849,0.6649},
+	{0.4921,0.6182,0.4440,0.0000,0.3932,0.6389,0.6141,0.5264,0.7619,0.7531,0.9706,0.3279,0.3765,0.3808,0.4950},
+	{0.4712,0.3423,0.3959,0.3932,0.0000,0.2838,0.3334,0.2875,0.4772,0.4854,0.6973,0.3765,0.3164,0.3749,0.5428},
+	{0.5235,0.1845,0.4573,0.6389,0.2838,0.0000,0.1559,0.2144,0.2693,0.2915,0.5137,0.6329,0.3030,0.6182,0.7621},
+	{0.4743,0.0707,0.4243,0.6141,0.3334,0.1559,0.0000,0.1414,0.3364,0.3606,0.5701,0.6522,0.3870,0.6341,0.7887},
+	{0.3536,0.1581,0.2828,0.5264,0.2875,0.2144,0.1414,0.0000,0.4041,0.4123,0.6519,0.5877,0.3526,0.5849,0.7226},
+	{0.7506,0.4039,0.6191,0.7619,0.4772,0.2693,0.3364,0.4041,0.0000,0.0500,0.2517,0.6405,0.3864,0.5918,0.7142},
+	{0.7517,0.4301,0.6083,0.7531,0.4854,0.2915,0.3606,0.4123,0.0500,0.0000,0.2550,0.6161,0.3765,0.5676,0.6798},
+	{1.0000,0.6325,0.8631,0.9706,0.6973,0.5137,0.5701,0.6519,0.2517,0.2550,0.0000,0.7963,0.6046,0.7329,0.8349},
+	{0.6965,0.6895,0.5524,0.3279,0.3765,0.6329,0.6522,0.5877,0.6405,0.6161,0.7963,0.0000,0.3528,0.0791,0.1957},
+	{0.5490,0.4281,0.4291,0.3765,0.3164,0.3030,0.3870,0.3526,0.3864,0.3765,0.6046,0.3528,0.0000,0.3637,0.5041},
+	{0.7329,0.6761,0.5849,0.3808,0.3749,0.6182,0.6341,0.5849,0.5918,0.5676,0.7329,0.0791,0.3637,0.0000,0.2000},
+	{0.8349,0.8349,0.6649,0.4950,0.5428,0.7621,0.7887,0.7226,0.7142,0.6798,0.8349,0.1957,0.5041,0.2000,0.0000}
+};
+
+double CONSONANT_DISTANCE[PHONOME_CONSONANT_COUNT][PHONOME_CONSONANT_COUNT] = {
+	{0.0000,0.5771,0.2493,0.5225,0.3008,0.3515,0.9115,0.5417,0.4039,0.5332,0.3515,0.4309,0.4970,0.1990,0.5417,0.3907,0.4023,0.3190,0.5591,0.2256,0.4713,0.5032,0.3362,0.3496},
+	{0.5771,0.0000,0.5771,0.6941,0.5312,0.6280,0.9800,0.1990,0.5957,0.7022,0.6280,0.6280,0.6751,0.5417,0.6494,0.5312,0.4592,0.5417,0.6649,0.5673,0.7022,0.6797,0.5673,0.5004},
+	{0.2493,0.5771,0.0000,0.5225,0.3907,0.3515,0.9115,0.5417,0.4039,0.4713,0.4309,0.3515,0.4970,0.3190,0.5417,0.3008,0.4023,0.1990,0.5591,0.3362,0.5332,0.5032,0.2256,0.3496},
+	{0.5225,0.6941,0.5225,0.0000,0.5116,0.5782,0.9695,0.6649,0.6115,0.6580,0.5782,0.5782,0.6291,0.5591,0.6649,0.5116,0.5205,0.5591,0.1990,0.4713,0.6580,0.6339,0.4713,0.4810},
+	{0.3008,0.5312,0.3907,0.5116,0.0000,0.4626,0.8605,0.5673,0.4176,0.5591,0.3896,0.4626,0.5247,0.2256,0.5673,0.2493,0.2671,0.3362,0.4713,0.1990,0.5004,0.5306,0.3190,0.3331},
+	{0.3515,0.6280,0.3515,0.5782,0.4626,0.0000,0.9446,0.5957,0.1990,0.5879,0.4970,0.4970,0.3515,0.4039,0.5957,0.4626,0.4724,0.4039,0.6115,0.4176,0.5879,0.5609,0.4176,0.4285},
+	{0.9115,0.9800,0.9115,0.9695,0.8605,0.9446,0.0000,1.0000,0.9234,0.9954,0.9446,0.9446,0.9765,0.8895,1.0000,0.8605,0.8658,0.8895,0.9489,0.8832,0.9954,0.9797,0.8832,0.8884},
+	{0.5417,0.1990,0.5417,0.6649,0.5673,0.5957,1.0000,0.0000,0.6280,0.6734,0.5957,0.5957,0.6451,0.5771,0.6181,0.5673,0.5004,0.5771,0.6941,0.5312,0.6734,0.6499,0.5312,0.4592},
+	{0.4039,0.5957,0.4039,0.6115,0.4176,0.1990,0.9234,0.6280,0.0000,0.6207,0.5354,0.5354,0.4039,0.3515,0.6280,0.4176,0.4285,0.3515,0.5782,0.4626,0.6207,0.5951,0.4626,0.4724},
+	{0.5332,0.7022,0.4713,0.6580,0.5591,0.5879,0.9954,0.6734,0.6207,0.0000,0.5879,0.5324,0.6380,0.5691,0.2671,0.5004,0.5673,0.5116,0.6874,0.5225,0.6665,0.6428,0.4592,0.5312},
+	{0.3515,0.6280,0.4309,0.5782,0.3896,0.4970,0.9446,0.5957,0.5354,0.5879,0.0000,0.2493,0.3515,0.4039,0.5957,0.4626,0.4724,0.4746,0.6115,0.3350,0.5324,0.5609,0.4176,0.4285},
+	{0.4309,0.6280,0.3515,0.5782,0.4626,0.4970,0.9446,0.5957,0.5354,0.5324,0.2493,0.0000,0.3515,0.4746,0.5957,0.3896,0.4724,0.4039,0.6115,0.4176,0.5879,0.5609,0.3350,0.4285},
+	{0.4970,0.6751,0.4970,0.6291,0.5247,0.3515,0.9765,0.6451,0.4039,0.6380,0.3515,0.3515,0.0000,0.5354,0.6451,0.5247,0.5334,0.5354,0.6598,0.4856,0.6380,0.6131,0.4856,0.4949},
+	{0.1990,0.5417,0.3190,0.5591,0.2256,0.4039,0.8895,0.5771,0.3515,0.5691,0.4039,0.4746,0.5354,0.0000,0.5771,0.3362,0.3496,0.2493,0.5225,0.3008,0.5116,0.5411,0.3907,0.4023},
+	{0.5417,0.6494,0.5417,0.6649,0.5673,0.5957,1.0000,0.6181,0.6280,0.2671,0.5957,0.5957,0.6451,0.5771,0.0000,0.5673,0.5004,0.5771,0.6941,0.5312,0.6734,0.6499,0.5312,0.4592},
+	{0.3907,0.5312,0.3008,0.5116,0.2493,0.4626,0.8605,0.5673,0.4176,0.5004,0.4626,0.3896,0.5247,0.3362,0.5673,0.0000,0.2671,0.2256,0.4713,0.3190,0.5591,0.5306,0.1990,0.3331},
+	{0.4023,0.4592,0.4023,0.5205,0.2671,0.4724,0.8658,0.5004,0.4285,0.5673,0.4724,0.4724,0.5334,0.3496,0.5004,0.2671,0.0000,0.3496,0.4810,0.3331,0.5673,0.5392,0.3331,0.1990},
+	{0.3190,0.5417,0.1990,0.5591,0.3362,0.4039,0.8895,0.5771,0.3515,0.5116,0.4746,0.4039,0.5354,0.2493,0.5771,0.2256,0.3496,0.0000,0.5225,0.3907,0.5691,0.5411,0.3008,0.4023},
+	{0.5591,0.6649,0.5591,0.1990,0.4713,0.6115,0.9489,0.6941,0.5782,0.6874,0.6115,0.6115,0.6598,0.5225,0.6941,0.4713,0.4810,0.5225,0.0000,0.5116,0.6874,0.6644,0.5116,0.5205},
+	{0.2256,0.5673,0.3362,0.4713,0.1990,0.4176,0.8832,0.5312,0.4626,0.5225,0.3350,0.4176,0.4856,0.3008,0.5312,0.3190,0.3331,0.3907,0.5116,0.0000,0.4592,0.4918,0.2493,0.2671},
+	{0.4713,0.7022,0.5332,0.6580,0.5004,0.5879,0.9954,0.6734,0.6207,0.6665,0.5324,0.5879,0.6380,0.5116,0.6734,0.5591,0.5673,0.5691,0.6874,0.4592,0.0000,0.1763,0.5225,0.5312},
+	{0.5032,0.6797,0.5032,0.6339,0.5306,0.5609,0.9797,0.6499,0.5951,0.6428,0.5609,0.5609,0.6131,0.5411,0.6499,0.5306,0.5392,0.5411,0.6644,0.4918,0.1763,0.0000,0.4918,0.5011},
+	{0.3362,0.5673,0.2256,0.4713,0.3190,0.4176,0.8832,0.5312,0.4626,0.4592,0.4176,0.3350,0.4856,0.3907,0.5312,0.1990,0.3331,0.3008,0.5116,0.2493,0.5225,0.4918,0.0000,0.2671},
+	{0.3496,0.5004,0.3496,0.4810,0.3331,0.4285,0.8884,0.4592,0.4724,0.5312,0.4285,0.4285,0.4949,0.4023,0.4592,0.3331,0.1990,0.4023,0.5205,0.2671,0.5312,0.5011,0.2671,0.0000}
+};
+
+int GetPhonemeEnum(int c0, int c1, int* cur) {
+	int e = -1;
+	int len = 0;
+	
+	#define PHONOME_VOWEL(code, str, d, r) \
+		if (str [0] == c0 && str [1] == 0) {e = PHONOME_##code; len = 1;} \
+		if (str [0] == c0 && str [1] != 0 && str [1] == c1) {e = PHONOME_##code; len = 2;}
+	PHONOME_VOWELS
+	#undef PHONOME_VOWEL
+	
+	#define PHONOME_CONSONANT(code, str, d, r) \
+		if (str [0] == c0 && str [1] == 0) {e = PHONOME_##code; len = 1;} \
+		if (str [0] == c0 && str [1] != 0 && str [1] == c1) {e = PHONOME_##code; len = 2;}
+	PHONOME_CONSONANTS
+	#undef PHONOME_CONSONANT
+	
+	if (1) {
+		WString ws;
+		ws.Cat(c0);
+		LOG(ws.ToString());
+		Panic("Unimplemented");
+	}
+	if (cur) *cur += len;
+	return e;
+}
+
+bool IsPhonomeVowel(int phonome) {
+	ASSERT(phonome >= 0 && phonome < PHONOME_COUNT);
+	return phonome >= 0 && phonome < PHONOME_VOWEL_COUNT;
+}
+
+int GetPhonomeDuration(int phonome, int stress) {
+	ASSERT(phonome >= 0 && phonome < PHONOME_COUNT);
+	int ms = 0;
+	switch (phonome) {
+		#define PHONOME_VOWEL(a, b, d, r) case PHONOME_##a: ms = d * r; break;
+		#define PHONOME_CONSONANT(a, b, d, r) case PHONOME_##a: ms = d * r; break;
+		PHONOME_VOWELS
+		PHONOME_CONSONANTS
+		#undef PHONOME_VOWEL
+		#undef PHONOME_CONSONANT
+	}
+	if (stress == STRESS_NONE) {
+		ms = (ms * 8000 + 5) / 10000;
+	}
+	else if (stress == STRESS_PRIMARY) {
+		ms = (ms * 12000 + 5) / 10000;
+	}
+	return ms;
+}
+
+int GetSpellingDistance(const WString& w0, const WString& w1) {
+	static thread_local Vector<int> mat;
+	if (w0.IsEmpty() || s1.IsEmpty())
+		return INT_MAX;
+	int cols = w0.GetCount();
+	int rows = w1.GetCount();
+	int total = cols * rows;
+	mat.SetCount(total);
+	
+	// https://www.occasionalenthusiast.com/phonetic-distance-between-words-with-application-to-the-international-spelling-alphabet/#appendix-c
+	
+	/*const int step = 10;
+	for(int i = 0; i < 2; i++) {
+		Vector<int>& ph = i == 0 ? ph0 : ph1;
+		const WString& w = i == 0 ? w0 : w1;
+		ph.SetCount(0);
+		const wchar* it = w.Begin();
+		const wchar* end = w.End();
+		while (it != end) {
+			// TODO stress
+			int duration = GetPhonomeDuration(*it, STRESS_SECONDARY);
+			int steps = duration / step;
+			int phoneme = GetPhonemeEnum(*it);
+			int begin0 = ph.GetCount();
+			int end0 = begin0 + steps;
+			ph.SetCount(end0, phoneme);
+			it++;
+		}
+	}
+	*/
+	return 0;
+}

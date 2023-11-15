@@ -120,26 +120,27 @@ struct WordGroupAnalysis : Moveable<WordGroupAnalysis> {
 
 struct WordAnalysis : Moveable<WordAnalysis> {
 	int count = 0;
-	Index<int> group_is;
+	//Index<int> group_is;
 	String main_class;
 	String translation;
+	String spelling;
+	WString phonetic;
 	Color clr, main_class_clr = Black();
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("count", count)
-			("group_is", group_is)
+			//("group_is", group_is)
 			("main_class", main_class)
 			("translation", translation)
 			("clr", clr)
 			("main_class_clr", main_class_clr)
+			("spelling", spelling)
+			("phonetic", phonetic)
 			;
 	}
 	void Serialize(Stream& s) {
-		/*if (s.IsLoading())
-			s % count % group_is % main_class % translation % clr;
-		else*/
-			s % count % group_is % main_class % translation % clr % main_class_clr;
+		s % count % main_class % translation % clr % main_class_clr % spelling % phonetic;
 	}
 };
 

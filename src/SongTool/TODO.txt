@@ -1,4 +1,8 @@
 Scheduled work:
+- fix phrase database list: select by attributes and color range
+- parse phonetic syllables
+- search song phrases: phonetic similarity function, 1/2-rhyme function
+
 - analysis
 	- remove rhymes process
 	- add examples of roles
@@ -8,6 +12,8 @@ Scheduled work:
 
 - attribute phrases
 
+- attribute per production idea
+
 - phonetics & syllable database
 - rhythmed phrase database
 	- with syllable-spelling-length vector
@@ -16,6 +22,8 @@ Scheduled work:
 - phrase search
 	- regexp like language for searching
 		- includes: unknonwn syllable count, fixed syllables, word classes, metaphorical colors
+
+- tool to colorize lyric lines with metaphorical colors
 
 - fix "context: idea" to take in the "context: production idea"
 
@@ -135,3 +143,4 @@ x? vocabulary: for artist, for release, for song
 - phrase database
 - fast skip artists in datasets
 - fast fix lyrics
+- fix word database list: remove word groups, add selection by color ranges

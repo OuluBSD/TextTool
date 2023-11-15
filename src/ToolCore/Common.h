@@ -1090,4 +1090,88 @@ Color GetSentenceColor(const Vector<String>& main_classes, const Vector<Color>& 
 
 void ReplaceWord(String& s, const String& orig_word, const String& replace_word);
 
+
+int GetColorGroupCount();
+const Color& GetGroupColor(int i);
+int GetColorGroup(const Color& clr);
+
+
+#define PHONOME_VOWELS \
+	PHONOME_VOWEL(AA, L"ɑ", 134, 11) \
+	PHONOME_VOWEL(AE, L"æ", 131, 11) \
+	PHONOME_VOWEL(AH, L"ʌ",  88,  8) \
+	PHONOME_VOWEL(AO, L"ɔ", 146, 11) \
+	PHONOME_VOWEL(AW, L"ʊ", 202, 14) \
+	PHONOME_VOWEL(AY, L"ɪ", 160, 12) \
+	PHONOME_VOWEL(EH, L"ɛ",  82,  8) \
+	PHONOME_VOWEL(ER, L"ɝ", 131, 11) \
+	PHONOME_VOWEL(EY, L"e", 133, 11) \
+	PHONOME_VOWEL(IH, L"ɪ",  60,  7) \
+	PHONOME_VOWEL(IY, L"i", 107,  9) \
+	PHONOME_VOWEL(OW, L"o", 155, 12) \
+	PHONOME_VOWEL(OY, L"ɔ", 295, 13) \
+	PHONOME_VOWEL(UH, L"ʊ",  69,  7) \
+	PHONOME_VOWEL(UW, L"u", 114, 10)
+#define PHONOME_CONSONANTS \
+	PHONOME_CONSONANT( B, L"b",   70,  7) \
+	PHONOME_CONSONANT(CH, L"ʃ",  127, 10) \
+	PHONOME_CONSONANT( D, L"d",   72,  8) \
+	PHONOME_CONSONANT(DH, L"ð",   35,  5) \
+	PHONOME_CONSONANT( F, L"f",   98,  9) \
+	PHONOME_CONSONANT( G, L"ɡ",   84,  8) \
+	PHONOME_CONSONANT(HH, L"h",   56,  6) \
+	PHONOME_CONSONANT(JH, L"ʒ",  105,  9) \
+	PHONOME_CONSONANT( K, L"k",  107,  9) \
+	PHONOME_CONSONANT( L, L"l",   71,  7) \
+	PHONOME_CONSONANT( M, L"m",   71,  7) \
+	PHONOME_CONSONANT( N, L"n",   65,  7) \
+	PHONOME_CONSONANT(NG, L"ŋ",   91,  9) \
+	PHONOME_CONSONANT( P, L"p",  102,  9) \
+	PHONOME_CONSONANT( R, L"r",   75,  8) \
+	PHONOME_CONSONANT( S, L"s",   99,  9) \
+	PHONOME_CONSONANT(SH, L"ʃ",  126, 10) \
+	PHONOME_CONSONANT( T, L"t",   83,  8) \
+	PHONOME_CONSONANT(TH, L"θ",   77,  8) \
+	PHONOME_CONSONANT( V, L"v",   54,  6) \
+	PHONOME_CONSONANT( W, L"w",   62,  7) \
+	PHONOME_CONSONANT( Y, L"j",   57,  7) \
+	PHONOME_CONSONANT( Z, L"z",   67,  7) \
+	PHONOME_CONSONANT(ZH, L"ʒə", 110, 10)
+
+#define PHONOME_VOWEL(a, b, d, r) PHONOME_VOWEL_##a,
+enum {
+	PHONOME_VOWELS
+	PHONOME_VOWEL_COUNT
+};
+#undef PHONOME_VOWEL
+
+#define PHONOME_CONSONANT(a, b, d, r) PHONOME_CONSONANT_##a,
+enum {
+	PHONOME_CONSONANTS
+	PHONOME_CONSONANT_COUNT
+};
+#undef PHONOME_CONSONANT
+
+
+#define PHONOME_VOWEL(a, b, d, r) PHONOME_##a,
+#define PHONOME_CONSONANT(a, b, d, r) PHONOME_##a,
+enum {
+	PHONOME_VOWELS
+	PHONOME_CONSONANTS
+	PHONOME_COUNT
+};
+#undef PHONOME_VOWEL
+#undef PHONOME_CONSONANT
+
+enum {
+	STRESS_NONE,
+	STRESS_PRIMARY,
+	STRESS_SECONDARY,
+};
+int GetPhonemeEnum(int c0, int c1, int* cur);
+bool IsPhonomeVowel(int phonome);
+int GetPhonomeDuration(int phonome, int stress);
+
+int GetSpellingDistance(const WString& w0, const WString& w1);
+
 #endif
