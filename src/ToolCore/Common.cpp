@@ -15013,7 +15013,7 @@ ZH	seizure	S IY ZH ER
 - seizure: sei-zure [ˈsi.ʒər] (two syllables)
 */
 
-double VOWEL_DISTANCE[PHONOME_VOWEL_COUNT][PHONOME_VOWEL_COUNT] = {
+double vowel_distance[PHONOME_VOWEL_COUNT][PHONOME_VOWEL_COUNT] = {
 	{0.0000,0.4472,0.2121,0.4921,0.4712,0.5235,0.4743,0.3536,0.7506,0.7517,1.0000,0.6965,0.5490,0.7329,0.8349},
 	{0.4472,0.0000,0.4301,0.6182,0.3423,0.1845,0.0707,0.1581,0.4039,0.4301,0.6325,0.6895,0.4281,0.6761,0.8349},
 	{0.2121,0.4301,0.0000,0.4440,0.3959,0.4573,0.4243,0.2828,0.6191,0.6083,0.8631,0.5524,0.4291,0.5849,0.6649},
@@ -15031,7 +15031,7 @@ double VOWEL_DISTANCE[PHONOME_VOWEL_COUNT][PHONOME_VOWEL_COUNT] = {
 	{0.8349,0.8349,0.6649,0.4950,0.5428,0.7621,0.7887,0.7226,0.7142,0.6798,0.8349,0.1957,0.5041,0.2000,0.0000}
 };
 
-double CONSONANT_DISTANCE[PHONOME_CONSONANT_COUNT][PHONOME_CONSONANT_COUNT] = {
+double consonant_distance[PHONOME_CONSONANT_COUNT][PHONOME_CONSONANT_COUNT] = {
 	{0.0000,0.5771,0.2493,0.5225,0.3008,0.3515,0.9115,0.5417,0.4039,0.5332,0.3515,0.4309,0.4970,0.1990,0.5417,0.3907,0.4023,0.3190,0.5591,0.2256,0.4713,0.5032,0.3362,0.3496},
 	{0.5771,0.0000,0.5771,0.6941,0.5312,0.6280,0.9800,0.1990,0.5957,0.7022,0.6280,0.6280,0.6751,0.5417,0.6494,0.5312,0.4592,0.5417,0.6649,0.5673,0.7022,0.6797,0.5673,0.5004},
 	{0.2493,0.5771,0.0000,0.5225,0.3907,0.3515,0.9115,0.5417,0.4039,0.4713,0.4309,0.3515,0.4970,0.3190,0.5417,0.3008,0.4023,0.1990,0.5591,0.3362,0.5332,0.5032,0.2256,0.3496},
@@ -15058,28 +15058,88 @@ double CONSONANT_DISTANCE[PHONOME_CONSONANT_COUNT][PHONOME_CONSONANT_COUNT] = {
 	{0.3496,0.5004,0.3496,0.4810,0.3331,0.4285,0.8884,0.4592,0.4724,0.5312,0.4285,0.4285,0.4949,0.4023,0.4592,0.3331,0.1990,0.4023,0.5205,0.2671,0.5312,0.5011,0.2671,0.0000}
 };
 
-int GetPhonemeEnum(int c0, int c1, int* cur) {
+int GetPhonomeEnum(int c0, int c1, int* cur) {
+	static int phonomes[PHONOME_COUNT][2];
+	static int vowel_alts[PHONOME_VOWEL_ALT_COUNT][4];
+	static int cons_alts[PHONOME_CONSONANT_ALT_COUNT][4];
+	if (phonomes[0][0] == 0) {
+		int i = 0;
+		#define PHONOME_VOWEL(code, str, d, r) \
+		{ \
+			WString ws = String(str).ToWString(); \
+			phonomes[i][0] = ws[0]; \
+			phonomes[i][1] = ws.GetCount() > 1 ? ws[1] : 0; \
+			i++; \
+		}
+		PHONOME_VOWELS
+		#undef PHONOME_VOWEL
+		
+		#define PHONOME_CONSONANT(code, str, d, r) \
+		{ \
+			WString ws = String(str).ToWString(); \
+			phonomes[i][0] = ws[0]; \
+			phonomes[i][1] = ws.GetCount() > 1 ? ws[1] : 0; \
+			i++; \
+		}
+		PHONOME_CONSONANTS
+		#undef PHONOME_CONSONANT
+		
+		
+		
+		i = 0;
+		#define PHONOME_VOWEL_ALT(str, alt) \
+		{ \
+			WString ws = String(str).ToWString(); \
+			WString ws1 = String(alt).ToWString(); \
+			vowel_alts[i][0] = ws[0]; \
+			vowel_alts[i][1] = ws.GetCount() > 1 ? ws[1] : 0; \
+			vowel_alts[i][2] = ws1[0]; \
+			vowel_alts[i][3] = ws1.GetCount() > 1 ? ws1[1] : 0; \
+			i++; \
+		}
+		PHONOME_VOWEL_ALTS
+		ASSERT(i == PHONOME_VOWEL_ALT_COUNT);
+		#undef PHONOME_VOWEL
+		
+		i = 0;
+		#define PHONOME_CONSONANT_ALT(str, alt) \
+		{ \
+			WString ws = String(str).ToWString(); \
+			WString ws1 = String(alt).ToWString(); \
+			cons_alts[i][0] = ws[0]; \
+			cons_alts[i][1] = ws.GetCount() > 1 ? ws[1] : 0; \
+			cons_alts[i][2] = ws1[0]; \
+			cons_alts[i][3] = ws1.GetCount() > 1 ? ws1[1] : 0; \
+			i++; \
+		}
+		PHONOME_CONSONANT_ALTS
+		ASSERT(i == PHONOME_CONSONANT_ALT_COUNT);
+		#undef PHONOME_CONSONANT
+		
+	}
+	
 	int e = -1;
 	int len = 0;
 	
-	#define PHONOME_VOWEL(code, str, d, r) \
-		if (str [0] == c0 && str [1] == 0) {e = PHONOME_##code; len = 1;} \
-		if (str [0] == c0 && str [1] != 0 && str [1] == c1) {e = PHONOME_##code; len = 2;}
-	PHONOME_VOWELS
-	#undef PHONOME_VOWEL
+	for(int i = 0; i < PHONOME_VOWEL_ALT_COUNT; i++) {
+		if (vowel_alts[i][0] == c0 && vowel_alts[i][1] == 0) {c0 = vowel_alts[i][2]; c1 = vowel_alts[i][3]; break;}
+		if (vowel_alts[i][0] == c0 && vowel_alts[i][1] != 0 && vowel_alts[i][1] == c1) {c0 = vowel_alts[i][2]; c1 = vowel_alts[i][3]; break;}
+	}
+	for(int i = 0; i < PHONOME_CONSONANT_ALT_COUNT; i++) {
+		if (cons_alts[i][0] == c0 && cons_alts[i][1] == 0) {c0 = cons_alts[i][2]; c1 = cons_alts[i][3]; break;}
+		if (cons_alts[i][0] == c0 && cons_alts[i][1] != 0 && cons_alts[i][1] == c1) {c0 = cons_alts[i][2]; c1 = cons_alts[i][3]; break;}
+	}
+	for(int i = 0; i < PHONOME_COUNT; i++) {
+		if (phonomes[i][0] == c0 && phonomes[i][1] == 0) {e = i; len = 1;}
+		if (phonomes[i][0] == c0 && phonomes[i][1] != 0 && phonomes[i][1] == c1) {e = i; len = 2;}
+	}
 	
-	#define PHONOME_CONSONANT(code, str, d, r) \
-		if (str [0] == c0 && str [1] == 0) {e = PHONOME_##code; len = 1;} \
-		if (str [0] == c0 && str [1] != 0 && str [1] == c1) {e = PHONOME_##code; len = 2;}
-	PHONOME_CONSONANTS
-	#undef PHONOME_CONSONANT
-	
-	if (1) {
+	/*if (e < 0) {
 		WString ws;
 		ws.Cat(c0);
 		LOG(ws.ToString());
 		Panic("Unimplemented");
-	}
+	}*/
 	if (cur) *cur += len;
 	return e;
 }
@@ -15109,35 +15169,292 @@ int GetPhonomeDuration(int phonome, int stress) {
 	return ms;
 }
 
-int GetSpellingDistance(const WString& w0, const WString& w1) {
-	static thread_local Vector<int> mat;
-	if (w0.IsEmpty() || s1.IsEmpty())
-		return INT_MAX;
-	int cols = w0.GetCount();
-	int rows = w1.GetCount();
-	int total = cols * rows;
-	mat.SetCount(total);
+int GetPhonomeRepeats(int phonome, int stress) {
+	ASSERT(phonome >= 0 && phonome < PHONOME_COUNT);
+	int repeats = 0;
+	switch (phonome) {
+		#define PHONOME_VOWEL(a, b, d, r) case PHONOME_##a: repeats = r; break;
+		#define PHONOME_CONSONANT(a, b, d, r) case PHONOME_##a: repeats = r; break;
+		PHONOME_VOWELS
+		PHONOME_CONSONANTS
+		#undef PHONOME_VOWEL
+		#undef PHONOME_CONSONANT
+	}
+	if (stress == STRESS_NONE) {
+		repeats = (repeats * 8000) / 10000;
+	}
+	else if (stress == STRESS_PRIMARY) {
+		repeats = (repeats * 12000) / 10000;
+	}
+	return repeats;
+}
+
+double GetSpellingDistance(const WString& w0, const WString& w1, bool relative) {
+	static thread_local Vector<int> ph0, ph1;
+	static thread_local Vector<double> mat;
 	
+	if (w0.IsEmpty() || w1.IsEmpty())
+		return INT_MAX;
+	
+	// Explanation:
 	// https://www.occasionalenthusiast.com/phonetic-distance-between-words-with-application-to-the-international-spelling-alphabet/#appendix-c
 	
-	/*const int step = 10;
+	
+	// Make phoneme time series vectors
+	//const int step = 50;
 	for(int i = 0; i < 2; i++) {
 		Vector<int>& ph = i == 0 ? ph0 : ph1;
 		const WString& w = i == 0 ? w0 : w1;
 		ph.SetCount(0);
 		const wchar* it = w.Begin();
 		const wchar* end = w.End();
+		int vowel_count = 0;
+		bool double_len = false;
 		while (it != end) {
 			// TODO stress
-			int duration = GetPhonomeDuration(*it, STRESS_SECONDARY);
+			if (it[0] == 712 || // ˈ
+				it[0] == 716 || // ˌ
+				it[0] == '.'
+				) {
+				it++;
+				continue;
+			}
+			if (it[0] == ':' ||
+				it[0] == 720) {
+				double_len = true;
+				it++;
+				continue;
+			}
+			int cur = 0;
+			int phonome = GetPhonomeEnum(it[0], it[1], &cur);
+			bool is_vowel = IsPhonomeVowel(phonome);
+			bool stress = STRESS_SECONDARY;
+			if (is_vowel) {
+				if (!vowel_count)
+					stress = STRESS_PRIMARY;
+				vowel_count++;
+			}
+			/*int duration = GetPhonomeDuration(phoneme, stress);
 			int steps = duration / step;
-			int phoneme = GetPhonemeEnum(*it);
 			int begin0 = ph.GetCount();
-			int end0 = begin0 + steps;
-			ph.SetCount(end0, phoneme);
-			it++;
+			int end0 = begin0 + steps;*/
+			int repeats = GetPhonomeRepeats(phonome, stress);
+			if (double_len) {
+				double_len = false;
+				repeats *= 2;
+			}
+			int begin0 = ph.GetCount();
+			int end0 = begin0 + repeats;
+			ph.SetCount(end0, phonome);
+			if (!cur) break;
+			it += cur;
 		}
 	}
-	*/
-	return 0;
+	
+	
+	// Make distance matrix (see Appendix C)
+	// - reverse second string
+	int cols = ph0.GetCount();
+	int rows = ph1.GetCount();
+	int total = cols * rows;
+	mat.SetCount(total);
+	
+	double* dist_it = mat.Begin();
+	const int* it1 = ph1.Begin();
+	const int* end1 = ph1.End();
+	while (it1 != end1) {
+		int c1 = *it1;
+		bool is_vowel1 = c1 < PHONOME_VOWEL_COUNT;
+		const int* it0 = ph0.End()-1;
+		const int* end0 = ph0.Begin()-1;
+		while (it0 != end0) {
+			int c0 = *it0;
+			bool is_vowel0 = c0 < PHONOME_VOWEL_COUNT;
+			double distance;
+			if (is_vowel0 != is_vowel1) {
+				distance = 1.0;
+			}
+			else if (is_vowel0) {
+				distance = vowel_distance[c0][c1];
+			}
+			else {
+				int con0 = c0 - PHONOME_VOWEL_COUNT;
+				int con1 = c1 - PHONOME_VOWEL_COUNT;
+				distance = consonant_distance[con0][con1];
+			}
+			*dist_it++ = distance;
+			it0--;
+		}
+		it1++;
+	}
+	ASSERT(dist_it == mat.End());
+	
+	
+	// Sum each of the grid diagonals to get the final convolution value
+	const double* distances = mat.Begin();
+	double lowest_dist = DBL_MAX;
+	int lowest_col , lowest_row;
+	int count = max(rows, cols);
+	int common = min(rows, cols);
+	// Loop left column rows down
+	{
+		for (int row = 0; row < rows; row++) {
+			int row0 = row;
+			double distance_sum = 0;
+			int max_row_calc = row+1;
+			int max_col_calc = min(common, max_row_calc);
+			int skipped = count - max_col_calc;
+			for (int col = 0; col < max_col_calc; col++) {
+				int pos = row0 * cols + col;
+				double distance = distances[pos];
+				distance_sum += distance;
+				row0--;
+			}
+			distance_sum += skipped * 0.75; // add 'null' distance. see web page
+			if (distance_sum < lowest_dist) {
+				//lowest_col = 0;
+				//lowest_row = row;
+				lowest_dist = distance_sum;
+			}
+		}
+	}
+	// Loop bottom row columns right
+	{
+		for (int col = 1; col < cols; col++) {
+			int col0 = col;
+			double distance_sum = 0;
+			int max_col_calc = cols - col;
+			int max_row_calc = min(common, max_col_calc);
+			int skipped = count - max_row_calc;
+			int end_row = rows - max_row_calc;
+			for (int row = rows-1; row >= end_row; row--) {
+				int pos = row * cols + col0;
+				double distance = distances[pos];
+				distance_sum += distance;
+				col0++;
+			}
+			distance_sum += skipped * 0.75; // add 'null' distance. see web page
+			if (distance_sum < lowest_dist) {
+				//lowest_col = col;
+				//lowest_row = rows-1;
+				lowest_dist = distance_sum;
+			}
+		}
+	}
+	
+	if (0) {
+		DUMPC(ph0);
+		DUMPC(ph1);
+		DUMP(lowest_col);
+		DUMP(lowest_row);
+	}
+	
+	
+	
+	
+	if (relative) {
+		double av_ph_cnt = (cols + rows) * 0.5;
+		double av_ph_cnt_pow;
+		// distance difference sensitivity (*2)
+		switch (4) {
+			case 6: av_ph_cnt_pow = av_ph_cnt * av_ph_cnt * av_ph_cnt; break;
+			case 5: av_ph_cnt_pow = pow(av_ph_cnt, 2.5); break;
+			case 4: av_ph_cnt_pow = av_ph_cnt * av_ph_cnt; break;
+			case 3: av_ph_cnt_pow = pow(av_ph_cnt, 1.5); break;
+			case 2: av_ph_cnt_pow = av_ph_cnt; break;
+			default: break;
+		}
+		double rel_dist = lowest_dist / av_ph_cnt_pow;
+		return rel_dist;
+	}
+	else {
+		return lowest_dist;
+	}
+}
+
+double GetSpellingRawDistance(const WString& w0, const WString& w1) {
+	return GetSpellingDistance(w0, w1, false);
+}
+
+double GetSpellingRelativeDistance(const WString& w0, const WString& w1) {
+	return GetSpellingDistance(w0, w1, true);
+}
+
+
+void HotfixReplaceWord(String& s) {
+	ReplaceWord(s, "im", "I'm");
+	ReplaceWord(s, "ive", "I've");
+	ReplaceWord(s, "ill", "I'll");
+	ReplaceWord(s, "id", "I'd");
+	ReplaceWord(s, "youre", "you're");
+	ReplaceWord(s, "youd", "you'd");
+	ReplaceWord(s, "youve", "you've");
+	ReplaceWord(s, "youll", "you'll");
+	ReplaceWord(s, "hes", "he's");
+	ReplaceWord(s, "heve", "he've");
+	ReplaceWord(s, "hed", "he'd");
+	ReplaceWord(s, "shes", "she's");
+	ReplaceWord(s, "sheve", "she've");
+	ReplaceWord(s, "shed", "she'd");
+	ReplaceWord(s, "theyll", "they'll");
+	ReplaceWord(s, "theyve", "they've");
+	ReplaceWord(s, "theyre", "they're");
+	
+	ReplaceWord(s, "didnt", "didn't");
+	ReplaceWord(s, "dont", "don't");
+	
+	ReplaceWord(s, "its", "it's");
+	ReplaceWord(s, "itll", "it'll");
+	ReplaceWord(s, "itve", "it've");
+	ReplaceWord(s, "isnt", "isn't");
+	
+	ReplaceWord(s, "whats", "what's");
+	ReplaceWord(s, "couldnt", "couldn't");
+	ReplaceWord(s, "shouldnt", "shouldn't");
+	ReplaceWord(s, "theres", "there's");
+	ReplaceWord(s, "wasnt", "wasn't");
+	ReplaceWord(s, "thats", "that's");
+	
+	if (0) {
+		ReplaceWord(s, "alright", "allright");
+		// These change too much
+		if (0) {
+			ReplaceWord(s, "tryna", "tring to");
+			ReplaceWord(s, "aint", "aren't");
+			ReplaceWord(s, "gotta", "have to");
+			ReplaceWord(s, "wanna", "want to");
+			ReplaceWord(s, "em", "them");
+			ReplaceWord(s, "ol", "old");
+			ReplaceWord(s, "bout", "about");
+			ReplaceWord(s, "nunya", "none of your");
+			ReplaceWord(s, "thang", "thing");
+			ReplaceWord(s, "I'ma", "I'll");
+		}
+		
+		ReplaceWord(s, "tryin", "trying");
+		ReplaceWord(s, "fuckin", "fucking");
+		ReplaceWord(s, "livin", "living");
+		ReplaceWord(s, "lookin", "looking");
+		ReplaceWord(s, "prayin", "praying");
+		ReplaceWord(s, "rollin", "rolling");
+		ReplaceWord(s, "workin", "working");
+		ReplaceWord(s, "chargin", "charging");
+		ReplaceWord(s, "runnin", "running");
+		ReplaceWord(s, "doin", "doing");
+		ReplaceWord(s, "judgin", "judging");
+		ReplaceWord(s, "blendin", "blending");
+		ReplaceWord(s, "gettin", "getting");
+		ReplaceWord(s, "talkin", "talking");
+		ReplaceWord(s, "changin", "changing");
+		ReplaceWord(s, "makin", "making");
+		ReplaceWord(s, "retracin", "retracing");
+		ReplaceWord(s, "motherfuckin", "motherfucking");
+		ReplaceWord(s, "rockin", "rocking");
+		ReplaceWord(s, "goin", "going");
+		ReplaceWord(s, "frontin", "fronting");
+		ReplaceWord(s, "somethin", "something");
+		ReplaceWord(s, "playin", "playing");
+		ReplaceWord(s, "hittin", "hitting");
+		ReplaceWord(s, "movin", "moving");
+	}
 }

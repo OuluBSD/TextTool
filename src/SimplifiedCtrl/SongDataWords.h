@@ -29,6 +29,7 @@ public:
 	//void UpdateWordFlagGroups();
 	//void UpdateWordFlags();
 	void DumpWordGroups();
+	void DumpPhoneticChars();
 	void GetEverything();
 	void GetSyllables(int batch_i, bool start_next);
 	void GetDetails(int batch_i, bool start_next);

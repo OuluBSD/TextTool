@@ -1,6 +1,14 @@
 Scheduled work:
 - fix phrase database list: select by attributes and color range
 - parse phonetic syllables
+? rhyme database: color pairs (same colored words connected before/after in real lyrics)
+	- list of color group words
+? rhyme database: attribute rhymes (in same phrase --> wordlist per attribute value)
+	- list of attribute phrase words
+- rhyme database: full word rhyme
+- rhyme database: first syllable rhyme
+- rhyme database: last syllable rhyme
+- rhyme database: middle syllable rhymes
 - search song phrases: phonetic similarity function, 1/2-rhyme function
 
 - analysis

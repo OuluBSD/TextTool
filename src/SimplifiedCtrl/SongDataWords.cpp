@@ -249,6 +249,7 @@ void SongDataWords::ToolMenu(Bar& bar) {
 	bar.Add(t_("Get everything"), AppImg::RedRing(), THISBACK(GetEverything)).Key(K_F8);
 	bar.Separator();
 	bar.Add(t_("Debug dump word groups"), AppImg::BlueRing(), THISBACK(DumpWordGroups)).Key(K_F9);
+	bar.Add(t_("Debug dump phonetic characters"), AppImg::BlueRing(), THISBACK(DumpPhoneticChars)).Key(K_F10);
 	
 }
 
@@ -412,7 +413,11 @@ void SongDataWords::GetSyllables(int batch_i, bool start_next) {
 		
 		for(int i = 0; i < ds.words.GetCount(); i++) {
 			if (iter >= begin) {
-				const String& wrd = ds.words.GetKey(i);
+				String wrd = ds.words.GetKey(i);
+				
+				// hotfix
+				HotfixReplaceWord(wrd);
+				
 				args.words << wrd;
 				tmp_map_ds_i.Add(wrd, ds_i);
 			}
@@ -469,6 +474,12 @@ void SongDataWords::OnSyllables(String res, int batch_i, bool start_next) {
 		if (ds_i < 0) continue;
 		String ds_key = sd.GetKey(ds_i);
 		
+		// hotfix
+		if (1) {
+			wrd = ToLower(wrd.ToWString()).ToString();
+			wrd.Replace("'", "");
+		}
+		
 		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 		WordAnalysis& wa = ds.words.GetAdd(wrd);
 		wa.spelling = spelling;
@@ -511,7 +522,7 @@ void SongDataWords::GetDetails(int batch_i, bool start_next) {
 			auto& wa = ds.words[i];
 			if (wa.translation.GetCount())
 				continue;
-			const String& wrd = ds.words.GetKey(i);
+			String wrd = ds.words.GetKey(i);
 			
 			// Skip cyrillic words
 			bool is_cyrillic = false;
@@ -582,7 +593,8 @@ void SongDataWords::OnDetails(String res, int batch_i, bool start_next) {
 		}
 		
 		
-		
+		//orig = ToLower(orig.ToWString()).ToString();
+		//orig.Replace("'", "");
 		
 		
 		
@@ -651,3 +663,32 @@ void SongDataWords::DumpWordGroups() {
 	}
 }
 
+void SongDataWords::DumpPhoneticChars() {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	Index<WString> chars;
+	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
+		String ds_key = sd.GetKey(ds_i);
+		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+		
+		for(int i = 0; i < ds.words.GetCount(); i++) {
+			const WordAnalysis& wa = ds.words[i];
+			for(int j = 0; j < wa.phonetic.GetCount(); j++) {
+				chars.FindAdd(wa.phonetic.Mid(j,1));
+			}
+		}
+	}
+	
+	for(int i = 0; i < chars.GetCount(); i++) {
+		const WString& ws = chars[i];
+		if (ws.IsEmpty()) continue;
+		int c0 = ws[0];
+		int c1 = ws.GetCount() > 1 ? ws[1] : 0;
+		int e = GetPhonomeEnum(c0, c1, 0);
+		if (e >= 0)
+			continue;
+		LOG("PHONOME_ALT(\"" << ws << "\", \"\") \\");
+	}
+}

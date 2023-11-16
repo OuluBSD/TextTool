@@ -1,0 +1,14 @@
+uses
+	Core,
+	ToolCore,
+	plugin/png,
+	CtrlLib,
+	plugin/jpg,
+	Database;
+
+file
+	PhonomeTester.cpp;
+
+mainconfig
+	"" = "";
+
