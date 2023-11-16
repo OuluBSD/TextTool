@@ -11,6 +11,9 @@ Scheduled work:
 - rhyme database: middle syllable rhymes
 - search song phrases: phonetic similarity function, 1/2-rhyme function
 
+- make dummy song
+	- pick phrases, ask gpt to make example
+
 - analysis
 	- remove rhymes process
 	- add examples of roles
@@ -38,6 +41,22 @@ Scheduled work:
 - artist vocabulary source: pick artists from database
 - native database
 	- e.g. I will --> Imma, popping --> poppin, you -> ya, want to --> wanna
+
+- rhyme editor
+	- grid editor
+		- primary stress & breaks
+		- long note
+		- fast note
+		- add grid rectangles and remove them
+		- metaphoric color
+		- freeze certain words to grid
+		- freeze word class
+	- give info in bottom arrayctrl lists
+		- attribute distribution stuff?
+		- find sentence, which matches breaks & stress
+		- find words, which matches syllable count, word class, color, attributes
+
+
 - rhyme structure
 	- vsplit
 		- top is lines in rows (with pad space left and right)

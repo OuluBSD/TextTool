@@ -51,6 +51,9 @@
 #include "SongDataWords.h"
 #include "SongDataPhrases.h"
 #include "SongDataSearchPhrases.h"
+#include "LyricsEditor.h"
+#include "AttributeIdea.h"
+#include "AttributeDistribution.h"
 
 
 #endif

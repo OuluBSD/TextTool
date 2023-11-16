@@ -47,7 +47,7 @@ protected:
 	ChecklistRelease				release_checklist;
 	ImageGenTool					image_gen;
 	ContextAttributesCtrl			ctx_attrs;
-	ProductionIdeaPage				prod_idea;
+	//ProductionIdeaPage				prod_idea;
 	PressReleaseCtrl				pressrel;
 	PublicRelationsCtrl				pubrel;
 	MarketingCtrl					marketing;
@@ -55,8 +55,10 @@ protected:
 	VisualIdeaCtrl					vocal_idea;
 	SongDataPage					song_data;
 	SongDataAnalysisPage			song_analysis;
-	RhymeStructureCtrl				rhyme_struct;
+	//RhymeStructureCtrl				rhyme_struct;
 	SongDataWords					song_words;
+	AttributeIdea					attr_idea;
+	AttributeDistribution			attr_dist;
 	
 	
 	
@@ -93,11 +95,12 @@ protected:
 	VocabularyIdeaCtrl		vocab_idea;
 	WordSaladIdeaCtrl		wordsalad_idea;
 	TextIdeaCtrl			text_idea;
-	VocabularyCtrl			vocabulary;
-	FineStructureCtrl		fine_struct;
+	//VocabularyCtrl			vocabulary;
+	//FineStructureCtrl		fine_struct;
 	ContextIdeaCtrl			ctx_idea;
 	SongDataPhrases			song_phrases;
-	SongDataSearchPhrases	song_searchphrases;
+	//SongDataSearchPhrases	song_searchphrases;
+	LyricsEditor			lyrics_editor;
 	
 public:
 	typedef Editor CLASSNAME;

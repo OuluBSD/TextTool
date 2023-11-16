@@ -8,39 +8,37 @@ SongDataPhrases::SongDataPhrases() {
 	hsplit.Horz() << vsplit << songs;
 	hsplit.SetPos(4000);
 	
-	vsplit.Vert() << datasets << vphrases << phrases;
+	vsplit.Vert() << datasets << attrs;
+	vsplit.SetPos(1000);
 	
 	datasets.AddColumn(t_("Dataset"));
 	datasets.WhenCursor << THISBACK(DataDataset);
 	
-	vphrases.AddColumn(t_("#"));
-	vphrases.AddColumn(t_("Virtual phrase"));
-	vphrases.AddColumn(t_("Count"));
-	vphrases.AddIndex("IDX");
-	vphrases.ColumnWidths("1 5 2");
-	vphrases.WhenCursor << THISBACK(DataVirtualPhrase);
+	attrs.AddColumn(t_("Group"));
+	attrs.AddColumn(t_("Value"));
+	attrs.AddIndex("GROUP");
+	attrs.AddIndex("VALUE");
+	attrs.ColumnWidths("1 1");
+	attrs.WhenCursor << THISBACK(DataAttribute);
 	
-	phrases.AddColumn(t_("Phrase"));
-	
-	songs.AddColumn(t_("#"));
+	songs.AddColumn(t_("Phrase"));
 	songs.AddColumn(t_("Artist"));
 	songs.AddColumn(t_("Song"));
+	songs.ColumnWidths("3 1 1");
 	
 }
 
 void SongDataPhrases::EnableAll() {
 	disabled = false;
 	datasets.Enable();
-	vphrases.Enable();
-	phrases.Enable();
+	attrs.Enable();
 	songs.Enable();
 }
 
 void SongDataPhrases::DisableAll() {
 	disabled = true;
 	datasets.Disable();
-	vphrases.Disable();
-	phrases.Disable();
+	attrs.Disable();
 	songs.Disable();
 }
 
@@ -69,77 +67,81 @@ void SongDataPhrases::DataMain() {
 	SongDataAnalysis& sda = db.song_data.a;
 	
 	if (!datasets.IsCursor()) {
-		vphrases.Clear();
-		phrases.Clear();
+		attrs.Clear();
 		return;
 	}
 	
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
 	
-	vphrases.SetCount(da.virtual_phrases.GetCount());
-	for(int i = 0; i < da.virtual_phrases.GetCount(); i++) {
-		const VirtualPhraseAnalysis& vpa = da.virtual_phrases[i];
-		
-		String s;
-		for(int j = 0; j < vpa.group_ids.GetCount(); j++) {
-			//WordGroupAnalysis& wga = da.groups[vpa.group_ids[j]];
-			String g = da.groups.GetKey(vpa.group_ids[j]);
-			if (s.GetCount()) s << ", ";
-			s << g;
-		}
-		vphrases.Set(i, 0, i);
-		vphrases.Set(i, 1, s);
-		vphrases.Set(i, 2, vpa.phrases.GetCount());
-		vphrases.Set(i, "IDX", i);
-	}
-	if (!vphrases.IsCursor() && vphrases.GetCount())
-		vphrases.SetCursor(0);
-	vphrases.SetSortColumn(2, true);
+	int gi = 0;
+	#define ATTR_ITEM(e, g, i0, i1) \
+		attrs.Set(i, 0, g); \
+		attrs.Set(i, 1, i0); \
+		attrs.Set(i, "GROUP", gi); \
+		attrs.Set(i, "VALUE", 0); \
+		i++; \
+		attrs.Set(i, 0, g); \
+		attrs.Set(i, 1, i1); \
+		attrs.Set(i, "GROUP", gi); \
+		attrs.Set(i, "VALUE", 1); \
+		i++, gi++;
+	int i = 0;
+	ATTR_LIST
+	#undef ATTR_ITEM
+
+	if (!attrs.IsCursor() && attrs.GetCount())
+		attrs.SetCursor(0);
 	
-	DataVirtualPhrase();
+	DataAttribute();
 }
 
-void SongDataPhrases::DataVirtualPhrase() {
+void SongDataPhrases::DataAttribute() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
-	if (!datasets.IsCursor() || !vphrases.IsCursor()) {
-		phrases.Clear();
+	if (!datasets.IsCursor() || !attrs.IsCursor()) {
+		songs.Clear();
 		return;
 	}
 	
 	int ds_i = datasets.GetCursor();
-	int vpa_i = vphrases.Get("IDX");
+	int attr_group_i = attrs.Get("GROUP");
+	int attr_value_i = attrs.Get("VALUE");
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	const VirtualPhraseAnalysis& vpa = da.virtual_phrases[vpa_i];
 	
-	phrases.SetCount(vpa.phrases.GetCount());
-	for(int i = 0; i < vpa.phrases.GetCount(); i++) {
-		int phrase_i = vpa.phrases[i];
-		const PhraseAnalysis& pa = da.unique_phrases[phrase_i];
-		
-		String s;
-		for(int j = 0; j < pa.word_ids.GetCount(); j++) {
-			String g = da.words.GetKey(pa.word_ids[j]);
-			if (s.GetCount()) s << " ";
-			s << g;
+	String group_str = ToLower(Attr::AttrKeys[attr_group_i][1]);
+	String value_str = ToLower(Attr::AttrKeys[attr_group_i][2 + attr_value_i]);
+	
+	int row = 0;
+	for(int i = 0; i < da.artists.GetCount(); i++) {
+		ArtistAnalysis& artist = da.artists[i];
+		for(int j = 0; j < artist.songs.GetCount(); j++) {
+			LyricsAnalysis& song = artist.songs[j];
+			for(int k = 0; k < song.phrases.GetCount(); k++) {
+				LyricsAnalysis::Phrase& phrase = song.phrases[k];
+				if (phrase.group == group_str && phrase.value == value_str) {
+					songs.Set(row, 0,
+						AttrText(phrase.phrase)
+							.NormalPaper(Blend(phrase.clr, White(), 128+64)).NormalInk(Black())
+							.Paper(Blend(phrase.clr, GrayColor())).Ink(White()));
+					songs.Set(row, 1, da.artists.GetKey(i));
+					songs.Set(row, 2, song.name);
+					row++;
+				}
+			}
 		}
-		phrases.Set(i, 0, AttrText(s)
-			.NormalPaper(Blend(pa.clr, White(), 128+64)).NormalInk(Black())
-			.Paper(Blend(pa.clr, GrayColor())).Ink(White()));
 	}
-	if (!phrases.IsCursor() && phrases.GetCount())
-		phrases.SetCursor(0);
+	songs.SetCount(row);
+	if (!songs.IsCursor() && songs.GetCount())
+		songs.SetCursor(0);
 	
 }
 
 void SongDataPhrases::ToolMenu(Bar& bar) {
 	//bar.Add(t_("Update data"), AppImg::RedRing(), THISBACK(DataDataset)).Key(K_CTRL_Q);
 	//bar.Separator();
-	bar.Add(t_("Make unique phrases"), AppImg::RedRing(), THISBACK(StartMakeUniquePhrases)).Key(K_F5);
-	
+	//bar.Add(t_("Make unique phrases"), AppImg::RedRing(), THISBACK(StartMakeUniquePhrases)).Key(K_F5);
+	SongToolCtrl::ToolMenu(bar);
 }
 
 void SongDataPhrases::StartMakeUniquePhrases() {

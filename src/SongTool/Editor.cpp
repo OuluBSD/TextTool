@@ -101,22 +101,22 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Song analysis"), song_analysis);
 	AddItem(t_("Database"), t_("Song words"), song_words);
 	AddItem(t_("Database"), t_("Song phrases"), song_phrases);
-	AddItem(t_("Database"), t_("Search song phrases"), song_searchphrases);
+	//AddItem(t_("Database"), t_("Search song phrases"), song_searchphrases);
 	
 	AddItem(t_("All"), t_("Info"), info);
 	AddItem(t_("All"), t_("Calendar"), cal);
 	AddItem(t_("All"), t_("Press Release"), pressrel);
 	AddItem(t_("All"), t_("Public Relations"), pubrel);
 	AddItem(t_("All"), t_("Marketing"), marketing);
-	AddItem(t_("All"), t_("Vocabulary"), vocabulary);
+	//AddItem(t_("All"), t_("Vocabulary"), vocabulary);
 	
 	AddItem(t_("Album"), t_("Briefing"), album_briefing);
 	AddItem(t_("Album"), t_("Idea notepad"), album_ideas);
 	
 	AddItem(t_("Song"), t_("Briefing"), song_briefing); // initial ideas, notes, etc.
 	AddItem(t_("Song"), t_("Structure"), song_struct);
-	AddItem(t_("Song"), t_("Fine Structure"), fine_struct);
-	AddItem(t_("Song"), t_("Rhyme Structure"), rhyme_struct);
+	//AddItem(t_("Song"), t_("Fine Structure"), fine_struct);
+	//AddItem(t_("Song"), t_("Rhyme Structure"), rhyme_struct);
 	
 	AddItem(t_("Composition"), t_("Checklist"), checklist_composition);
 	
@@ -124,9 +124,11 @@ void Editor::InitSimplified() {
 	AddItem(t_("Manual override"), t_("Create From English"), structure_from_english);
 	AddItem(t_("Manual override"), t_("Edit"), structure_edit);
 	
-	AddItem(t_("Context"), t_("Production idea"), prod_idea);
+	//AddItem(t_("Context"), t_("Production idea"), prod_idea);
 	AddItem(t_("Context"), t_("Attributes"), ctx_attrs);
-	AddItem(t_("Context"), t_("Idea"), auto_ideas);
+	AddItem(t_("Context"), t_("Attribute Distribution"), attr_dist);
+	AddItem(t_("Context"), t_("Attribute Idea"), attr_idea);
+	AddItem(t_("Context"), t_("Coherent Idea"), auto_ideas);
 	AddItem(t_("Context"), t_("Idea of a single part"), part_idea);
 	AddItem(t_("Context"), t_("Context idea"), ctx_idea);
 	AddItem(t_("Context"), t_("Story idea"), story_idea);
@@ -136,6 +138,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Content"), t_("Color idea"), color_idea);
 	
 	AddItem(t_("Text"), t_("Vocabulary idea"), vocab_idea);
+	AddItem(t_("Text"), t_("Lyrics editor"), lyrics_editor);
 	AddItem(t_("Text"), t_("Word salad idea"), wordsalad_idea);
 	AddItem(t_("Text"), t_("Text idea"), text_idea);
 	AddItem(t_("Text"), t_("English Parallel Compare"), text_autocompare_eng);

@@ -5,7 +5,7 @@
 class SongDataPhrases : public SongToolCtrl {
 	int phrase_limit = 200000000;
 	Splitter vsplit, hsplit;
-	ArrayCtrl datasets, vphrases, phrases, songs;
+	ArrayCtrl datasets, attrs, songs;
 	ProgressIndicator prog;
 	bool disabled = false;
 	
@@ -18,7 +18,7 @@ public:
 	void Data() override;
 	void DataDataset();
 	void DataMain();
-	void DataVirtualPhrase();
+	void DataAttribute();
 	void ToolMenu(Bar& bar) override;
 	void StartMakeUniquePhrases();
 	void MakeUniquePhrases();
