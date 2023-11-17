@@ -314,6 +314,22 @@ struct ProductionIdea {
 	
 };
 
+struct AttrProbability : Moveable<AttrProbability> {
+	String group, value;
+	int percent;
+	
+	AttrProbability() {}
+	AttrProbability(const AttrProbability& r) {*this = r;}
+	void operator=(const AttrProbability& r) {group = r.group; value = r.value; percent = r.percent;}
+	void Serialize(Stream& s) {s % group % value % percent;}
+	void Jsonize(JsonIO& json) {
+		json
+			("group", group)
+			("value", value)
+			("percent", percent)
+			;
+	}
+};
 struct Song :
 	DataFile,
 	EditorPtrs
@@ -371,6 +387,7 @@ struct Song :
 	String						active_idea[IDEAPATH_COUNT];
 	Color						active_idea_clr[IDEAPATH_COUNT];
 	Array<ProductionIdea>		prod_ideas;
+	Vector<AttrProbability>		active_roles;
 	
 	// Temp
 	Pipe*				pipe = 0;
@@ -421,6 +438,7 @@ struct Song :
 			("theme_cursor", theme_cursor)
 			("part_cursor", part_cursor)
 			("prod_ideas", prod_ideas)
+			("active_roles", active_roles)
 			;
 		for(int i = 0; i < IDEAPATH_COUNT; i++)
 			json((String)"active_idea[" + IdeaPathString[i][1] + "]", active_idea[i]);

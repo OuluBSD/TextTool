@@ -1,18 +1,11 @@
 Scheduled work:
-- fix phrase database list: select by attributes and color range
-- parse phonetic syllables
-? rhyme database: color pairs (same colored words connected before/after in real lyrics)
-	- list of color group words
-? rhyme database: attribute rhymes (in same phrase --> wordlist per attribute value)
-	- list of attribute phrase words
-- rhyme database: full word rhyme
-- rhyme database: first syllable rhyme
-- rhyme database: last syllable rhyme
-- rhyme database: middle syllable rhymes
-- search song phrases: phonetic similarity function, 1/2-rhyme function
-
-- make dummy song
-	- pick phrases, ask gpt to make example
+- mock up song lyrics by using best fitting phrases
+- think about
+	- low 'likes' -> bad idea
+	- low 'comments' -> no emotion
+	- average 'views/listens' -> bad hook
+	- low 'share' -> not relatable
+	- low 'bookmark' -> no value
 
 - analysis
 	- remove rhymes process
@@ -171,3 +164,5 @@ x? vocabulary: for artist, for release, for song
 - fast skip artists in datasets
 - fast fix lyrics
 - fix word database list: remove word groups, add selection by color ranges
+- fix phrase database list: select by attributes and color range
+- parse phonetic syllables

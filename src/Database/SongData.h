@@ -39,6 +39,9 @@ struct LyricsAnalysis : Moveable<LyricsAnalysis> {
 		String group, value;
 		int percent;
 		
+		Role() {}
+		Role(const Role& r) {*this = r;}
+		void operator=(const Role& r) {group = r.group; value = r.value; percent = r.percent;}
 		void Serialize(Stream& s) {s % group % value % percent;}
 		void Jsonize(JsonIO& json) {
 			json
