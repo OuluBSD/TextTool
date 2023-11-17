@@ -6,15 +6,14 @@ SongDataWords::SongDataWords() {
 	hsplit.Horz() << vsplit << words;
 	hsplit.SetPos(2500);
 	
-	vsplit.Vert() << datasets << artists << wordgroups;
+	vsplit.Vert() << datasets << artists << colors;
 	
 	datasets.AddColumn(t_("Dataset"));
 	datasets.WhenCursor << THISBACK(DataDataset);
 	
-	wordgroups.AddColumn(t_("Word group"));
-	wordgroups.AddColumn(t_("Is a word flag group"));
-	wordgroups.ColumnWidths("6 1");
-	wordgroups.WhenCursor << THISBACK(DataWordgroup);
+	colors.AddColumn(t_("Word group"));
+	colors.ColumnWidths("1");
+	colors.WhenCursor << THISBACK(DataColor);
 	
 	artists.AddColumn(t_("Artist"));
 	artists.WhenCursor << THISBACK(DataArtist);
@@ -35,7 +34,7 @@ void SongDataWords::EnableAll() {
 	disabled = false;
 	words.Enable();
 	datasets.Enable();
-	wordgroups.Enable();
+	colors.Enable();
 	artists.Enable();
 }
 
@@ -43,7 +42,7 @@ void SongDataWords::DisableAll() {
 	disabled = true;
 	words.Disable();
 	datasets.Disable();
-	wordgroups.Disable();
+	colors.Disable();
 	artists.Disable();
 }
 
@@ -113,31 +112,31 @@ void SongDataWords::DataArtist() {
 	Vector<ArtistDataset>& avec = sd[ds_i];
 	
 	
-	wordgroups.SetCount(1+ds.groups.GetCount());
-	wordgroups.Set(0, 0, t_("All words"));
+	colors.SetCount(1+GetColorGroupCount());
+	colors.Set(0, 0, t_("All words"));
 	for(int i = 0; i < GetColorGroupCount(); i++) {
-		wordgroups.Set(1+i, 0,
+		colors.Set(1+i, 0,
 			AttrText("#" + IntStr(i))
 				.NormalPaper(GetGroupColor(i)).NormalInk(Black())
 				.Paper(Blend(GrayColor(), GetGroupColor(i))).Ink(White()));
 	}
-	if (wordgroups.GetCount() && !wordgroups.IsCursor())
-		wordgroups.SetCursor(0);
+	if (colors.GetCount() && !colors.IsCursor())
+		colors.SetCursor(0);
 	
-	DataWordgroup();
+	DataColor();
 }
 
-void SongDataWords::DataWordgroup() {
+void SongDataWords::DataColor() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
-	if (!datasets.IsCursor() || !artists.IsCursor() || !wordgroups.IsCursor())
+	if (!datasets.IsCursor() || !artists.IsCursor() || !colors.IsCursor())
 		return;
 	
 	int ds_i = datasets.GetCursor();
 	int a_i = artists.GetCursor();
-	int wg_i = wordgroups.GetCursor();
+	int wg_i = colors.GetCursor();
 	String ds_key = sd.GetKey(ds_i);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 	const Vector<ArtistDataset>& avec = sd[ds_i];
@@ -157,7 +156,7 @@ void SongDataWords::DataWordgroup() {
 		int count = loop_artist ? aa->word_counts.GetCount () : ds.words.GetCount();
 		int limit = count > 10000 ? 10 : 0;
 		int row = 0;
-		for(int i = 0; i < count; i++) {
+		for (int i = 0; i < count; i++) {
 			String key;
 			WordAnalysis* wap;
 			if (loop_artist) {

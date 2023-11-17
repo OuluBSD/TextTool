@@ -143,6 +143,8 @@ struct StaticNote {
 	}
 };
 
+
+// deprecated?
 struct StaticRhyme {
 	Vector<String> source;
 	//Vector<String> ai_source;
@@ -163,6 +165,24 @@ struct StaticRhyme {
 			;
 	}
 	int GetBestSuggestion() const;
+};
+
+struct StaticPhrase {
+	String txt;
+	String group, group_value;
+	String src_artist, src_song;
+	Color clr;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("txt", txt)
+			("src_artist", src_artist)
+			("src_song", src_song)
+			("group", group)
+			("group_value", group_value)
+			("clr", clr)
+			;
+	}
 };
 
 struct StaticPart {
@@ -198,6 +218,8 @@ struct StaticPart {
 	Vector<Vector<String>> wordsalads;
 	Vector<Vector<Color>> wordsalad_clrs;
 	Vector<double> wordgroup_factors;
+	Array<StaticPhrase> phrases;
+	
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -222,6 +244,7 @@ struct StaticPart {
 			("wordsalads", wordsalads)
 			("wordsalad_clrs", wordsalad_clrs)
 			("wordgroup_factors", wordgroup_factors)
+			("phrases", phrases)
 			;
 		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
 			json(	(String)"active_idea[" + IdeaPathString[IDEAPATH_PARTBEGIN+i][1] + "]",

@@ -4,7 +4,7 @@
 
 class SongDataWords : public SongToolCtrl {
 	Splitter hsplit, vsplit;
-	ArrayCtrl datasets, wordgroups, artists, words;
+	ArrayCtrl datasets, colors, artists, words;
 	bool disabled = false;
 	int per_batch = 30;
 	Vector<int> tmp_ds_i;
@@ -21,7 +21,7 @@ public:
 	void Data() override;
 	void DataMain();
 	void DataDataset();
-	void DataWordgroup();
+	void DataColor();
 	void DataArtist();
 	void ToolMenu(Bar& bar) override;
 	void UpdateWords();
