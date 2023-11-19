@@ -54,6 +54,8 @@
 #include "LyricsEditor.h"
 #include "AttributeIdea.h"
 #include "AttributeDistribution.h"
+#include "SongDataTemplates.h"
+#include "SongDataWordnet.h"
 
 
 #endif

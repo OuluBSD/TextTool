@@ -5,39 +5,38 @@ Editor::Editor(SongTool* app) : app(*app) {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << menusplit << base;
-	hsplit.SetPos(1500);
+	hsplit.SetPos(1000);
 	
-	menusplit.Vert() << tablist << artists << releases << songs << parts;
+	menusplit.Vert() << page_group_list << page_list << artists << releases << songs << parts;
 	artists.WhenBar << THISBACK(ArtistMenu);
 	releases.WhenBar << THISBACK(ReleaseMenu);
 	songs.WhenBar << THISBACK(SongMenu);
 	parts.WhenBar << THISBACK(PartMenu);
-	tablist <<= THISBACK(UpdateView);
 	importer.WhenStructureChange << THISBACK(DataSong);
 	
-	tablist.NoHeader();
-	tablist.AddColumn("");
-	tablist.AddColumn("");
-	tablist.ColumnWidths("2 3");
-	tablist.SetCursor(0);
+	page_group_list.AddColumn(t_("Page group"));
+	page_group_list <<= THISBACK(ViewPageGroup);
+	
+	page_list.AddColumn(t_("Page"));
+	page_list <<= THISBACK(ViewPage);
 	
 	artists.AddColumn(t_("Artist"));
 	artists <<= THISBACK(DataArtist);
 	
-	releases.AddColumn(t_("Title"));
-	releases.AddColumn(t_("Date"));
+	releases.AddColumn(t_("Release"));
+	//releases.AddColumn(t_("Date"));
 	releases.ColumnWidths("3 2");
 	releases <<= THISBACK(DataRelease);
 	
-	songs.AddColumn(t_("Title"));
-	songs.AddColumn(t_("Project name"));
-	songs.AddColumn(t_("Artist"));
-	songs.ColumnWidths("2 2 1");
+	songs.AddColumn(t_("Song"));
+	//songs.AddColumn(t_("Project name"));
+	//songs.AddColumn(t_("Artist"));
+	//songs.ColumnWidths("2 2 1");
 	songs <<= THISBACK(DataSong);
 	
 	parts.AddColumn(t_("Part"));
-	parts.AddColumn(t_("Lines"));
-	parts.ColumnWidths("3 1");
+	//parts.AddColumn(t_("Lines"));
+	//parts.ColumnWidths("3 1");
 	parts <<= THISBACK(DataPart);
 	
 	info.editor = this;
@@ -50,121 +49,89 @@ Editor::Editor(SongTool* app) : app(*app) {
 }
 
 void Editor::AddItem(String g, String i, SongToolCtrl& c) {
-	ListItem& it = items.Add();
-	it.group = g;
+	ListItem& it = items.GetAdd(g).Add();
 	it.item = i;
 	it.ctrl = &c;
 }
 
 void Editor::InitListItems() {
-	for (const ListItem& it : items) {
-		tablist.Add(it.group, it.item);
-		base.Add(it.ctrl->SizePos());
+	for(int i = 0; i < items.GetCount(); i++) {
+		String group = items.GetKey(i);
+		page_group_list.Add(group);
 	}
 }
 
 void Editor::InitSimplified() {
-	/*
+	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
 	
-	- native language to English
-	- English to "json-style structured format"
-	- text editor for structured format
-		- list of notes
-	- structured format to English
-	- English to native language
+	AddItem(t_("Database"), t_("Songs"), song_data);
+	AddItem(t_("Database"), t_("Analysis"), song_analysis);
+	AddItem(t_("Database"), t_("Words"), song_words);
+	AddItem(t_("Database"), t_("Phrases"), song_phrases);
+	//AddItem(t_("Database"), t_("Search phrases"), song_searchphrases);
+	AddItem(t_("Database"), t_("Phrase templates"), song_tmpl);
+	AddItem(t_("Database"), t_("Wordnet"), song_wordnet);
 	
-	1. edit native language version next to English direct translation
-	2. edit English release version (which may differ from native significantly)
-		- iteratively (with timeline)
-			- editor for lyrics
-			- ai evaluation
-				- generate naive interpretation (show next to the original line)
-					- generate f-m difference (show also)
-				- error list
-					- negative attributes (separate f-m)
-					- bad impact scoring
-				- info list
-					- recognized
-						- protagonist
-						- antagonist
-						- friends
-						- enemies
-	- generate
-		- text input for generative image ai
-		- playlist pitching text
-			- translation to native language
-			
-	- music video pipeline
+	AddItem(t_("Company"), t_("Info"), info);
+	AddItem(t_("Company"), t_("Calendar"), cal);
+	AddItem(t_("Company"), t_("Press Release"), pressrel);
+	AddItem(t_("Company"), t_("Public Relations"), pubrel);
+	AddItem(t_("Company"), t_("Marketing"), marketing);
+	//AddItem(t_("Company"), t_("Vocabulary"), vocabulary);
 	
-	*/
-	AddItem(t_("Database"), t_("Song data"), song_data);
-	AddItem(t_("Database"), t_("Song analysis"), song_analysis);
-	AddItem(t_("Database"), t_("Song words"), song_words);
-	AddItem(t_("Database"), t_("Song phrases"), song_phrases);
-	//AddItem(t_("Database"), t_("Search song phrases"), song_searchphrases);
-	
-	AddItem(t_("All"), t_("Info"), info);
-	AddItem(t_("All"), t_("Calendar"), cal);
-	AddItem(t_("All"), t_("Press Release"), pressrel);
-	AddItem(t_("All"), t_("Public Relations"), pubrel);
-	AddItem(t_("All"), t_("Marketing"), marketing);
-	//AddItem(t_("All"), t_("Vocabulary"), vocabulary);
-	
-	AddItem(t_("Album"), t_("Briefing"), album_briefing);
-	AddItem(t_("Album"), t_("Idea notepad"), album_ideas);
+	AddItem(t_("Product"), t_("Briefing"), album_briefing);
+	AddItem(t_("Product"), t_("Idea notepad"), album_ideas);
+	AddItem(t_("Product"), t_("Cover Image"), cover_image);
+	AddItem(t_("Product"), t_("Pitching"), pitching);
 	
 	AddItem(t_("Song"), t_("Briefing"), song_briefing); // initial ideas, notes, etc.
 	AddItem(t_("Song"), t_("Structure"), song_struct);
 	//AddItem(t_("Song"), t_("Fine Structure"), fine_struct);
 	//AddItem(t_("Song"), t_("Rhyme Structure"), rhyme_struct);
 	
-	AddItem(t_("Composition"), t_("Checklist"), checklist_composition);
+	//AddItem(t_("Song lyrics"), t_("Production idea"), prod_idea);
+	AddItem(t_("Song lyrics"), t_("Attributes"), ctx_attrs);
+	AddItem(t_("Song lyrics"), t_("Attribute Distribution"), attr_dist);
+	AddItem(t_("Song lyrics"), t_("Attribute Idea"), attr_idea);
+	AddItem(t_("Song lyrics"), t_("Coherent Idea"), auto_ideas);
+	AddItem(t_("Song lyrics"), t_("Idea of a single part"), part_idea);
 	
-	AddItem(t_("Manual override"), t_("Create Translation, Native To English"), structure_native_english);
-	AddItem(t_("Manual override"), t_("Create From English"), structure_from_english);
-	AddItem(t_("Manual override"), t_("Edit"), structure_edit);
 	
-	//AddItem(t_("Context"), t_("Production idea"), prod_idea);
-	AddItem(t_("Context"), t_("Attributes"), ctx_attrs);
-	AddItem(t_("Context"), t_("Attribute Distribution"), attr_dist);
-	AddItem(t_("Context"), t_("Attribute Idea"), attr_idea);
-	AddItem(t_("Context"), t_("Coherent Idea"), auto_ideas);
-	AddItem(t_("Context"), t_("Idea of a single part"), part_idea);
-	AddItem(t_("Context"), t_("Context idea"), ctx_idea);
-	AddItem(t_("Context"), t_("Story idea"), story_idea);
+	AddItem(t_("Music Video"), t_("Create structure from existing"), videostruct_import);
+	AddItem(t_("Music Video"), t_("Edit structure"), videostruct_edit);
+	AddItem(t_("Music Video"), t_("Structure to plan"), videostruct_to_plan);
 	
-	AddItem(t_("Content"), t_("Visual idea"), vocal_idea);
-	AddItem(t_("Content"), t_("Dialogue idea"), dialogue_idea);
-	AddItem(t_("Content"), t_("Color idea"), color_idea);
+	AddItem(t_("Checklist"), t_("Song"), checklist_composition);
+	AddItem(t_("Checklist"), t_("Production"), checklist_production);
+	AddItem(t_("Checklist"), t_("Music Video Production"), video_checklist);
+	AddItem(t_("Checklist"), t_("Release"), release_checklist);
 	
-	AddItem(t_("Text"), t_("Vocabulary idea"), vocab_idea);
-	AddItem(t_("Text"), t_("Lyrics editor"), lyrics_editor);
-	AddItem(t_("Text"), t_("Word salad idea"), wordsalad_idea);
-	AddItem(t_("Text"), t_("Text idea"), text_idea);
-	AddItem(t_("Text"), t_("English Parallel Compare"), text_autocompare_eng);
-	AddItem(t_("Text"), t_("English Serial Compare"), serial_compare_eng);
-	AddItem(t_("Text"), t_("Edit English"), text_edit_english);
-	AddItem(t_("Text"), t_("Edit Native"), text_edit_native);
 	
-	AddItem(t_("Production"), t_("Checklist"), checklist_production);
+	AddItem(t_("Trash"), t_("Create Translation, Native To English"), structure_native_english);
+	AddItem(t_("Trash"), t_("Create From English"), structure_from_english);
+	AddItem(t_("Trash"), t_("Edit"), structure_edit);
 	
-	AddItem(t_("Music Video Structure"), t_("Create From Existing"), videostruct_import);
-	AddItem(t_("Music Video Structure"), t_("Edit"), videostruct_edit);
-	AddItem(t_("Music Video Structure"), t_("To Plan"), videostruct_to_plan);
+	AddItem(t_("Trash"), t_("Context idea"), ctx_idea);
+	AddItem(t_("Trash"), t_("Story idea"), story_idea);
 	
-	AddItem(t_("Music Video Production"), t_("Checklist"), video_checklist);
+	AddItem(t_("Trash"), t_("Visual idea"), vocal_idea);
+	AddItem(t_("Trash"), t_("Dialogue idea"), dialogue_idea);
+	AddItem(t_("Trash"), t_("Color idea"), color_idea);
 	
-	AddItem(t_("Album"), t_("Cover Image"), cover_image);
-	AddItem(t_("Album"), t_("Pitching"), pitching);
-	
-	AddItem(t_("Release"), t_("Checklist"), release_checklist);
-	
-	AddItem(t_("Extra"), t_("AI Image Generator"), image_gen);
+	AddItem(t_("Trash"), t_("Vocabulary idea"), vocab_idea);
+	AddItem(t_("Trash"), t_("Lyrics editor"), lyrics_editor);
+	AddItem(t_("Trash"), t_("Word salad idea"), wordsalad_idea);
+	AddItem(t_("Trash"), t_("Text idea"), text_idea);
+	AddItem(t_("Trash"), t_("English Parallel Compare"), text_autocompare_eng);
+	AddItem(t_("Trash"), t_("English Serial Compare"), serial_compare_eng);
+	AddItem(t_("Trash"), t_("Edit English"), text_edit_english);
+	AddItem(t_("Trash"), t_("Edit Native"), text_edit_native);
 	
 	InitListItems();
 }
 
 void Editor::InitAdvanced() {
+	// Very deprecated stuff
 	AddItem(t_("All"), t_("Info"), info);
 	AddItem(t_("All"), t_("Attributes"), attr);
 	AddItem(t_("Release"), t_("Recruitment"), recru);
@@ -198,24 +165,30 @@ void Editor::InitAdvanced() {
 
 void Editor::Init() {
 	LoadLast();
-	tablist.SetCursor(page);
-	SetView(page);
+	page_group_list.SetCursor(page_group);
+	int page = this->page.GetAdd(page_group, 0);
+	page_list.SetCursor(page);
+	SetView(page_group, page);
 	Data();
 	app.SetBar(); // requires Data();
 }
 
-void Editor::SetView(int i) {
-	for (const ListItem& it : items)
-		it.ctrl->Hide();
+void Editor::SetView(int i, int j) {
+	for (const auto& v : items)
+		for (const ListItem& it : v)
+			it.ctrl->Hide();
 	
 	parts.Enable();
 	
 	WhenStopUpdating();
 	
-	if (i >= 0 && i < items.GetCount())
-		items[i].ctrl->Show();
+	if (i >= 0 && i < items.GetCount() && j >= 0 && j < items[i].GetCount())
+		items[i][j].ctrl->Show();
 	
-	page = i;
+	// Save 'cookie' about last viewed page
+	page_group = i;
+	page.GetAdd(i) = j;
+	
 	DataPage();
 	
 	app.SetBar();
@@ -224,9 +197,10 @@ void Editor::SetView(int i) {
 void Editor::DataPage() {
 	StoreLast();
 	
+	int page = this->page.GetAdd(page_group, 0);
 	try {
-		if (page >= 0 && page < items.GetCount())
-			items[page].ctrl->Data();
+		if (page_group >= 0 && page_group < items.GetCount() && page >= 0 && page < items[page_group].GetCount())
+			items[page_group][page].ctrl->Data();
 	}
 	catch (NoPointerExc e) {
 		LOG("error: " << e);
@@ -234,23 +208,34 @@ void Editor::DataPage() {
 }
 
 void Editor::ToolMenu(Bar& bar) {
-	if (page >= 0 && page < items.GetCount())
-		items[page].ctrl->ToolMenu(bar);
+	int page = this->page.GetAdd(page_group, 0);
+	if (page_group >= 0 && page_group < items.GetCount() && page >= 0 && page < items[page_group].GetCount())
+		items[page_group][page].ctrl->ToolMenu(bar);
 }
 
 String Editor::GetStatusText() {
-	if (page >= 0 && page < items.GetCount())
-		return items[page].ctrl->GetStatusText();
+	int page = this->page.GetAdd(page_group, 0);
+	if (page_group >= 0 && page_group < items.GetCount() && page >= 0 && page < items[page_group].GetCount())
+		return items[page_group][page].ctrl->GetStatusText();
 	else
 		return String();
 }
 
-void Editor::MoveTab(int d) {
-	if (tablist.IsCursor()) {
-		int c = tablist.GetCursor();
+void Editor::MovePageGroup(int d) {
+	if (page_group_list.IsCursor()) {
+		int c = page_group_list.GetCursor();
 		c += d;
-		if (c >= 0 && c < tablist.GetCount())
-			tablist.SetCursor(c);
+		if (c >= 0 && c < page_group_list.GetCount())
+			page_group_list.SetCursor(c);
+	}
+}
+
+void Editor::MovePage(int d) {
+	if (page_list.IsCursor()) {
+		int c = page_list.GetCursor();
+		c += d;
+		if (c >= 0 && c < page_list.GetCount())
+			page_list.SetCursor(c);
 	}
 }
 
@@ -306,8 +291,29 @@ void Editor::StoreLast() {
 	app.Store();
 }
 
-void Editor::UpdateView() {
-	SetView(tablist.GetCursor());
+void Editor::ViewPageGroup() {
+	int page_group = page_group_list.GetCursor();
+	int page = this->page.GetAdd(page_group, 0);
+	
+	if (!page_group_list.IsCursor() || page_group < 0 || page_group >= items.GetCount()) {
+		return;
+	}
+	
+	const auto& v = items[page_group];
+	for(int j = 0; j < v.GetCount(); j++) {
+		const ListItem& it = v[j];
+		page_list.Set(j, 0, it.item);
+		base.Add(it.ctrl->SizePos());
+	}
+	page_list.SetCount(v.GetCount());
+	page_list.SetCursor(page);
+	
+	SetView(page_group, page);
+	DataPage();
+}
+
+void Editor::ViewPage() {
+	SetView(page_group_list.GetCursor(), page_list.GetCursor());
 	DataPage();
 }
 

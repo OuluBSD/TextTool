@@ -53,7 +53,8 @@ public:
 	void SaveWindowPos();
 	void LoadWindowPos();
 	void StartUpdating();
-	void MoveTab(int d);
+	void MovePageGroup(int d);
+	void MovePage(int d);
 	void MovePart(int d);
 	void SetBar();
 	void MainBar(Bar& bar);

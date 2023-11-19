@@ -490,6 +490,7 @@ struct SongDataAnalysisArgs {
 	int fn;
 	String artist, song, text;
 	Vector<String> words;
+	Vector<String> phrases;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
@@ -497,6 +498,7 @@ struct SongDataAnalysisArgs {
 				("song", song)
 				("text", text)
 				("words", words)
+				("phrases", phrases)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

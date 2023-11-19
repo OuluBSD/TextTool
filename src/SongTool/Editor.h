@@ -7,10 +7,10 @@ class Editor : public Ctrl {
 	
 private:
 	struct ListItem : Moveable<ListItem> {
-		String group, item;
+		String item;
 		SongToolCtrl* ctrl = 0;
 	};
-	Vector<ListItem> items;
+	VectorMap<String, Vector<ListItem>> items;
 	
 	void AddItem(String g, String i, SongToolCtrl& c);
 	void InitListItems();
@@ -20,9 +20,10 @@ protected:
 	friend class SongTool;
 	
 	Splitter			hsplit, menusplit;
-	ArrayCtrl			tablist, artists, releases, songs, parts;
+	ArrayCtrl			page_group_list, page_list, artists, releases, songs, parts;
 	Ctrl				base;
-	int					page = 0;
+	int					page_group = 0;
+	VectorMap<int,int>	page;
 	bool				save_songdata = false;
 	
 	// Simplified
@@ -59,6 +60,7 @@ protected:
 	SongDataWords					song_words;
 	AttributeIdea					attr_idea;
 	AttributeDistribution			attr_dist;
+	SongDataTemplates				song_tmpl;
 	
 	
 	
@@ -101,25 +103,28 @@ protected:
 	SongDataPhrases			song_phrases;
 	//SongDataSearchPhrases	song_searchphrases;
 	LyricsEditor			lyrics_editor;
+	SongDataWordnet			song_wordnet;
 	
 public:
 	typedef Editor CLASSNAME;
 	Editor(SongTool* app);
 	
-	void Serialize(Stream& s) {s % page % save_songdata;}
+	void Serialize(Stream& s) {s % page_group % page % save_songdata;}
 	void Init();
-	void UpdateView();
+	void ViewPageGroup();
+	void ViewPage();
 	void Data();
+	void DataPage();
 	void DataArtist();
 	void DataRelease();
 	void DataSong();
 	void DataPart();
-	void DataPage();
 	void ToolMenu(Bar& bar);
-	void SetView(int i);
+	void SetView(int i, int j);
 	void LoadLast();
 	void StoreLast();
-	void MoveTab(int d);
+	void MovePageGroup(int d);
+	void MovePage(int d);
 	void MovePart(int d);
 	String GetStatusText();
 	bool GetSaveSongdata() const {return save_songdata;}

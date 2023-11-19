@@ -24,14 +24,20 @@ struct LyricsAnalysis : Moveable<LyricsAnalysis> {
 	struct Phrase : Moveable<Phrase> {
 		String phrase, group, value;
 		Color clr;
+		union {
+			hash_t tmpl_hash;
+			int tmpl_i32[2];
+		};
 		
-		void Serialize(Stream& s) {s % phrase % group % value % clr;}
+		void Serialize(Stream& s) {s % phrase % group % value % clr % tmpl_hash;}
 		void Jsonize(JsonIO& json) {
 			json
 				("phrase", phrase)
 				("group", group)
 				("value", value)
 				("clr", clr)
+				("tmpl0", tmpl_i32[0])
+				("tmpl1", tmpl_i32[1])
 				;
 		}
 	};
@@ -202,10 +208,41 @@ struct VirtualPhraseAnalysis : Moveable<VirtualPhraseAnalysis> {
 	}
 };
 
+struct TemplatePhrase : Moveable<TemplatePhrase> {
+	union {
+		hash_t hash;
+		int i32[2];
+	};
+	Vector<String> parts;
+	Vector<Vector<String>> words;
+	
+	// From the first LyricsAnalysis::Phrase
+	String group, value;
+	Color clr;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("hash0", i32[0])
+			("hash1", i32[1])
+			("parts", parts)
+			("words", words)
+			("group", group)
+			("value", value)
+			("clr", clr)
+			;
+	}
+	void Serialize(Stream& s) {
+		s % hash % parts % words % group % value % clr;
+	}
+};
+
 struct DatasetAnalysis {
 	VectorMap<String, ArtistAnalysis> artists;
 	VectorMap<String, WordGroupAnalysis> groups;
 	VectorMap<String, WordAnalysis> words;
+	Vector<TemplatePhrase> tmpl_phrases;
+	
+	// deprecated
 	VectorMap<String, PhraseAnalysis> unique_phrases;
 	VectorMap<String, VirtualPhraseAnalysis> virtual_phrases;
 	
@@ -214,6 +251,7 @@ struct DatasetAnalysis {
 			("artists", artists)
 			("groups", groups)
 			("word", words)
+			("tmpl_phrases", tmpl_phrases)
 			("unique_phrases", unique_phrases)
 			("virtual_phrases", virtual_phrases)
 			;
@@ -221,7 +259,7 @@ struct DatasetAnalysis {
 	
 	
 	void Serialize(Stream& s) {
-		s % artists % groups % words % unique_phrases % virtual_phrases;
+		s % artists % groups % words % tmpl_phrases % unique_phrases % virtual_phrases;
 	}
 };
 

@@ -1,5 +1,11 @@
 Scheduled work:
-- mock up song lyrics by using best fitting phrases
+- "database: wordnet" page
+
+- improve attribute idea -page
+	- filter by syllable count (with e.g. +-1 count)
+	- sort/filter by rhyming
+	- sort/filter by asking ai, which makes contextually most sense
+
 - think about
 	- low 'likes' -> bad idea
 	- low 'comments' -> no emotion
@@ -166,3 +172,4 @@ x? vocabulary: for artist, for release, for song
 - fix word database list: remove word groups, add selection by color ranges
 - fix phrase database list: select by attributes and color range
 - parse phonetic syllables
+- mock up song lyrics by using best fitting phrases

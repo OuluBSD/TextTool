@@ -4706,4 +4706,42 @@ void Task::CreateInput_GetSongDataAnalysis() {
 		}
 		input.response_length = 2048;
 	}
+	
+	else if (args.fn == 6) {
+		{
+			auto& list = input.AddSub().Title("Word classes");
+			list.Add("verb");
+			list.Add("noun");
+			list.Add("pronoun");
+			list.Add("pronoun/noun");
+			list.Add("preposition");
+			list.Add("adjective");
+			list.Add("modal verb");
+			list.Add("adverb");
+			list.Add("interjection");
+			list.Add("conjunction");
+			list.Add("contraction");
+			list.Add("etc.");
+		}
+		String pc = IntStr(3 + args.phrases.GetCount());
+		{
+			auto& list = input.AddSub().Title(pc + " phrases");
+			list.NumberedLines();
+			list.Add("\"You can't see it\"");
+			list.Add("\"Got a shock from my feet\"");
+			list.Add("\"Praying for the skies to clear\"");
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add("\"" + args.phrases[i] + "\"");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.NumberedLines();
+			results.Title(pc + " template phrases,with the 1-6 most changeable words replaced with the word class,and with original wordsets an 5 example wordsets");
+			results.Add("\"You can't {verb} it\"[see][understand][ignore][hide][deny]");
+			results.Add("\"Got a {noun} from my {noun}\"[shock,feet][present,hands][smack,face][shock,feet][kiss,lips][jolt,body]");
+			results.Add("\"{verb} for the {noun} to {verb}\"[praying,skies,clear][hoping,miracle,appear][wishing,clouds,dissipate][waiting,sky,open][begging,storm,pass]");
+			results.EmptyLine();
+		}
+		input.response_length = 2048;
+	}
 }
