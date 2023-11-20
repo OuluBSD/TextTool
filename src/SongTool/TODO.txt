@@ -1,5 +1,10 @@
 Scheduled work:
-- "database: wordnet" page
+- database: wordnet -page
+- database: phrase to action planner analysis
+- database: action analysis
+
+- dump backup data from database parsers
+	- OR/AND dump database to clear text
 
 - improve attribute idea -page
 	- filter by syllable count (with e.g. +-1 count)

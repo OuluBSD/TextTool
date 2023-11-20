@@ -1294,4 +1294,28 @@ double GetSpellingRelativeDistance(const WString& w0, const WString& w1);
 
 void HotfixReplaceWord(String& s);
 
+
+template <class T>
+int VectorFindAdd(Vector<T>& v, const T& o0) {
+	int i = 0;
+	for (const T& o1 : v) {
+		if (o1 == o0)
+			return i;
+		i++;
+	}
+	i = v.GetCount();
+	v.Add(o0);
+	return i;
+}
+
+template <class T>
+void VectorRemoveKey(Vector<T>& v, const T& o0) {
+	for(int i = 0; i < v.GetCount(); i++) {
+		const T& o1 = v[i];
+		if (o1 == o0) {
+			v.Remove(i--);
+		}
+	}
+}
+
 #endif

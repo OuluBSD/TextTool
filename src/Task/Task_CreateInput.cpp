@@ -4744,4 +4744,61 @@ void Task::CreateInput_GetSongDataAnalysis() {
 		}
 		input.response_length = 2048;
 	}
+	
+	else if (args.fn == 7) {
+		{
+			auto& list = input.AddSub().Title("Word classes");
+			list.Add("verb");
+			list.Add("noun");
+			list.Add("pronoun");
+			list.Add("pronoun/noun");
+			list.Add("preposition");
+			list.Add("adjective");
+			list.Add("modal verb");
+			list.Add("adverb");
+			list.Add("interjection");
+			list.Add("conjunction");
+			list.Add("contraction");
+			list.Add("etc.");
+		}
+		{
+			auto& list = input.AddSub().Title("Metaphoric color groups for words");
+			for(int i = 0; i < GetColorGroupCount(); i++) {
+				Color clr = GetGroupColor(i);
+				String s;
+				s << "RGB(" << (int)clr.GetR() << "," << (int)clr.GetG() << "," << (int)clr.GetB() << ")";
+				list.Add(s);
+			}
+		}
+		String pc = IntStr(1 + args.words.GetCount());
+		{
+			auto& list = input.AddSub().Title(pc + " words");
+			//list.NumberedLines();
+			list.Add("girly, adjective, RGB(255,192,203)");
+			for(int i = 0; i < args.words.GetCount(); i++)
+				list.Add(args.words[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			//results.NumberedLines();
+			results.NoListChar();
+			results.Title("100 words with 1-" + IntStr(GetColorGroupCount()) + " their similar alternatives with another metaphorical RGB color value (from the color group or a random color)");
+			results.Add("adjective: girly -> RGB(255,140,0): sassy");
+			results.Add("adjective: girly -> RGB(173,216,230): delicate");
+			results.Add("adjective: girly -> RGB(160,82,45): bohemian");
+			results.Add("adjective: girly -> RGB(0,0,128): romantic");
+			results.Add("adjective: girly -> RGB(128,0,0): sexy");
+			results.Add("adjective: girly -> RGB(255,0,0): bold");
+			/*results.Add("adjective: girly -> RGB(255,0,0): bold");
+			results.Add("adjective: girly -> RGB(128,0,0): sexy");
+			results.Add("adjective: girly -> RGB(128,0,128): edgy");
+			results.Add("adjective: girly -> RGB(0,0,128): romantic");
+			results.Add("adjective: girly -> RGB(0,128,0): flirty");*/
+
+			String s = args.words[0];
+			s = s.Left(s.Find(","));
+			results.Add(s + " ->");
+		}
+		input.response_length = 2048;
+	}
 }

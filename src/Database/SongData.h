@@ -244,11 +244,64 @@ struct TemplatePhrase : Moveable<TemplatePhrase> {
 	}
 };
 
+struct Wordnet : Moveable<Wordnet> {
+	Vector<String> words;
+	String main_class;
+	String group, value;
+	Color clr;
+	int clr_group = -1;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("words", words)
+			("main_class", main_class)
+			("group", group)
+			("value", value)
+			("clr", clr)
+			("clr_group", clr_group)
+			;
+	}
+	void Serialize(Stream& s) {
+		s % words % main_class % group % value % clr % clr_group;
+	}
+};
+
+struct ColorWordnet : Moveable<ColorWordnet> {
+	union {
+		hash_t hash;
+		int i32[2];
+	};
+	Vector<String> words;
+	Vector<Color> colors;
+	String main_class;
+	String src_word;
+	Color clr;
+	int clr_group = -1;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("hash0", i32[0])
+			("hash1", i32[1])
+			("words", words)
+			("colors", colors)
+			("main_class", main_class)
+			("src_word", src_word)
+			("clr", clr)
+			("clr_group", clr_group)
+			;
+	}
+	void Serialize(Stream& s) {
+		s % hash % words % colors % main_class % src_word % clr % clr_group;
+	}
+};
+
 struct DatasetAnalysis {
 	VectorMap<String, ArtistAnalysis> artists;
 	VectorMap<String, WordGroupAnalysis> groups;
 	Vector<WordAnalysis> words;
 	Vector<TemplatePhrase> tmpl_phrases;
+	Vector<Wordnet> wordnets;
+	Vector<ColorWordnet> clr_wordnets;
 	
 	// deprecated
 	VectorMap<String, PhraseAnalysis> unique_phrases;
@@ -273,7 +326,7 @@ struct DatasetAnalysis {
 		return wa;
 	}
 	void Jsonize(JsonIO& json) {
-		/*	
+		/*
 		if (json.IsLoading()) {
 			VectorMap<String, WordAnalysis> tmp;
 			json
@@ -300,6 +353,8 @@ struct DatasetAnalysis {
 				("groups", groups)
 				("word", words)
 				("tmpl_phrases", tmpl_phrases)
+				("wordnets", wordnets)
+				("clr_wordnets", clr_wordnets)
 				("unique_phrases", unique_phrases)
 				("virtual_phrases", virtual_phrases)
 				;
@@ -308,7 +363,7 @@ struct DatasetAnalysis {
 	
 	
 	void Serialize(Stream& s) {
-		s % artists % groups % words % tmpl_phrases % unique_phrases % virtual_phrases;
+		s % artists % groups % words % tmpl_phrases % wordnets % unique_phrases % virtual_phrases;
 	}
 };
 

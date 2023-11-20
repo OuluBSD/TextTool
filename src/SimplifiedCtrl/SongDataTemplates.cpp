@@ -184,7 +184,7 @@ void SongDataTemplates::DataColor() {
 		row++;
 	}
 	tmpls.SetCount(row);
-	tmpls.SetSortColumn(0, false);
+	tmpls.SetSortColumn(2, false);
 	
 	lock.Leave();
 }
