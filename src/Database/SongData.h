@@ -128,8 +128,13 @@ struct WordGroupAnalysis : Moveable<WordGroupAnalysis> {
 };
 
 struct WordAnalysis : Moveable<WordAnalysis> {
-	int count = 0;
 	//Index<int> group_is;
+	union {
+		hash_t hash;
+		int i32[2];
+	};
+	int count = 0;
+	String txt;
 	String main_class;
 	String translation;
 	String spelling;
@@ -138,6 +143,9 @@ struct WordAnalysis : Moveable<WordAnalysis> {
 	
 	void Jsonize(JsonIO& json) {
 		json
+			("hash0", i32[0])
+			("hash1", i32[1])
+			("txt", txt)
 			("count", count)
 			//("group_is", group_is)
 			("main_class", main_class)
@@ -149,7 +157,7 @@ struct WordAnalysis : Moveable<WordAnalysis> {
 			;
 	}
 	void Serialize(Stream& s) {
-		s % count % main_class % translation % clr % main_class_clr % spelling % phonetic;
+		s % hash % txt % count % main_class % translation % clr % main_class_clr % spelling % phonetic;
 	}
 };
 
@@ -239,22 +247,63 @@ struct TemplatePhrase : Moveable<TemplatePhrase> {
 struct DatasetAnalysis {
 	VectorMap<String, ArtistAnalysis> artists;
 	VectorMap<String, WordGroupAnalysis> groups;
-	VectorMap<String, WordAnalysis> words;
+	Vector<WordAnalysis> words;
 	Vector<TemplatePhrase> tmpl_phrases;
 	
 	// deprecated
 	VectorMap<String, PhraseAnalysis> unique_phrases;
 	VectorMap<String, VirtualPhraseAnalysis> virtual_phrases;
 	
+	int FindWord(const String& w) const {
+		int i = 0;
+		hash_t h = w.GetHashValue();
+		for (const WordAnalysis& wa : words) {
+			if (wa.hash == h)
+				return i;
+			i++;
+		}
+		return -1;
+	}
+	WordAnalysis& GetAddWord(const String& w) {
+		int i = FindWord(w);
+		if (i >= 0) return words[i];
+		WordAnalysis& wa = words.Add();
+		wa.hash = w.GetHashValue();
+		wa.txt = w;
+		return wa;
+	}
 	void Jsonize(JsonIO& json) {
-		json
-			("artists", artists)
-			("groups", groups)
-			("word", words)
-			("tmpl_phrases", tmpl_phrases)
-			("unique_phrases", unique_phrases)
-			("virtual_phrases", virtual_phrases)
-			;
+		/*	
+		if (json.IsLoading()) {
+			VectorMap<String, WordAnalysis> tmp;
+			json
+				("artists", artists)
+				("groups", groups)
+				("word", tmp)
+				("tmpl_phrases", tmpl_phrases)
+				("unique_phrases", unique_phrases)
+				("virtual_phrases", virtual_phrases)
+				;
+			words.SetCount(tmp.GetCount());
+			for(int i = 0; i < tmp.GetCount(); i++) {
+				String key = tmp.GetKey(i);
+				WordAnalysis& src = tmp[i];
+				WordAnalysis& dst = words[i];
+				Swap(src, dst);
+				dst.txt = key;
+				dst.hash = key.GetHashValue();
+			}
+		}
+		else*/ {
+			json
+				("artists", artists)
+				("groups", groups)
+				("word", words)
+				("tmpl_phrases", tmpl_phrases)
+				("unique_phrases", unique_phrases)
+				("virtual_phrases", virtual_phrases)
+				;
+		}
 	}
 	
 	

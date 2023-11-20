@@ -213,7 +213,7 @@ void SongDataPhrases::MakeUniquePhrases() {
 					CombineHash ch;
 					CombineHash virt_ch;
 					for (String& w : words) {
-						int i = ds.words.Find(w);
+						int i = ds.FindWord(w);
 						if (i < 0) {
 							all_found = false;
 							break;

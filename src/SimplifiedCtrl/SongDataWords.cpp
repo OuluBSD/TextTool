@@ -161,12 +161,12 @@ void SongDataWords::DataColor() {
 			WordAnalysis* wap;
 			if (loop_artist) {
 				key = aa->word_counts.GetKey(i);
-				int j = ds.words.Find(key);
+				int j = ds.FindWord(key);
 				if (j < 0) continue;
 				wap = &ds.words[j];
 			}
 			else {
-				key = ds.words.GetKey(i);
+				key = ds.words[i].txt;
 				wap = &ds.words[i];
 			}
 			WordAnalysis& wa = *wap;
@@ -296,7 +296,7 @@ void SongDataWords::UpdateWordsProcess() {
 					aa.total_words += words.GetCount();
 					for (String& w : words) {
 						aa.word_counts.GetAdd(w, 0)++;
-						WordAnalysis& wa = ds.words.GetAdd(w);
+						WordAnalysis& wa = ds.GetAddWord(w);
 						wa.count++;
 					}
 				}
@@ -412,7 +412,7 @@ void SongDataWords::GetSyllables(int batch_i, bool start_next) {
 		
 		for(int i = 0; i < ds.words.GetCount(); i++) {
 			if (iter >= begin) {
-				String wrd = ds.words.GetKey(i);
+				String wrd = ds.words[i].txt;
 				
 				// hotfix
 				HotfixReplaceWord(wrd);
@@ -480,7 +480,7 @@ void SongDataWords::OnSyllables(String res, int batch_i, bool start_next) {
 		}
 		
 		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
-		WordAnalysis& wa = ds.words.GetAdd(wrd);
+		WordAnalysis& wa = ds.GetAddWord(wrd);
 		wa.spelling = spelling;
 		wa.phonetic = phonetic;
 	}
@@ -521,7 +521,7 @@ void SongDataWords::GetDetails(int batch_i, bool start_next) {
 			auto& wa = ds.words[i];
 			if (wa.translation.GetCount())
 				continue;
-			String wrd = ds.words.GetKey(i);
+			String wrd = ds.words[i].txt;
 			
 			// Skip cyrillic words
 			bool is_cyrillic = false;
@@ -617,7 +617,7 @@ void SongDataWords::OnDetails(String res, int batch_i, bool start_next) {
 		int ds_i = tmp_ds_i[j];
 		DatasetAnalysis& ds = sda.datasets[ds_i];
 		
-		j = ds.words.Find(orig);
+		j = ds.FindWord(orig);
 		if (j < 0) continue;
 		
 		WordAnalysis& wa = ds.words[j];
