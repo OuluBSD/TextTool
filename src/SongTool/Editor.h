@@ -104,6 +104,8 @@ protected:
 	//SongDataSearchPhrases	song_searchphrases;
 	LyricsEditor			lyrics_editor;
 	SongDataWordnet			song_wordnet;
+	SongDataTemplateScoring	song_tmplscoring;
+	SongDataWordnetScoring	song_wnscoring;
 	
 public:
 	typedef Editor CLASSNAME;

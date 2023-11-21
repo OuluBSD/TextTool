@@ -4801,4 +4801,96 @@ void Task::CreateInput_GetSongDataAnalysis() {
 		}
 		input.response_length = 2048;
 	}
+	
+	else if (args.fn == 8) {
+		{
+			auto& list = input.AddSub().Title("Word classes");
+			list.Add("verb");
+			list.Add("noun");
+			list.Add("pronoun");
+			list.Add("pronoun/noun");
+			list.Add("preposition");
+			list.Add("adjective");
+			list.Add("modal verb");
+			list.Add("adverb");
+			list.Add("interjection");
+			list.Add("conjunction");
+			list.Add("contraction");
+			list.Add("etc.");
+		}
+		{
+			auto& list = input.AddSub().Title("Action planner heuristic score factors");
+			list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
+			list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
+			list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
+			list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
+			list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+		}
+		
+		
+		String pc = IntStr(1 + args.phrases.GetCount());
+		{
+			auto& list = input.AddSub().Title(pc + " phrases, with example arguments for making the action plan");
+			list.NumberedLines();
+			list.Add("sexualization: sexual: \"Bleeding after {pronoun}\", [you,him,her,them,us]");
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.NumberedLines();
+			results.NoListChar();
+			results.Title(pc + " phrase scores and score factors. Value is between 0-10:");
+			results.Add("\"Bleeding after {pronoun}\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7");
+			results.Add("\"");
+			//results.Add("S0 9 S1 8 S2 8 S3 6 S4 7");
+			//results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	
+	else if (args.fn == 9) {
+		{
+			auto& list = input.AddSub().Title("Word classes");
+			list.Add("verb");
+			list.Add("noun");
+			list.Add("pronoun");
+			list.Add("pronoun/noun");
+			list.Add("preposition");
+			list.Add("adjective");
+			list.Add("modal verb");
+			list.Add("adverb");
+			list.Add("interjection");
+			list.Add("conjunction");
+			list.Add("contraction");
+			list.Add("etc.");
+		}
+		{
+			auto& list = input.AddSub().Title("Action planner heuristic score factors");
+			list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
+			list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
+			list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
+			list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
+			list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+		}
+		
+		
+		String pc = IntStr(1 + args.words.GetCount());
+		{
+			auto& list = input.AddSub().Title(pc + " word groups");
+			list.NumberedLines();
+			list.Add("faith extremes: agnostic: verb: survived, endured, overcame, persevered, endures");
+			for(int i = 0; i < args.words.GetCount(); i++)
+				list.Add(args.words[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.NumberedLines();
+			results.NoListChar();
+			results.Title(pc + " word group scores and score factors. Value is between 0-10");
+			results.Add("S0:8, S1:7, S2:9, S3:8, S4:7");
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
 }

@@ -216,6 +216,8 @@ struct VirtualPhraseAnalysis : Moveable<VirtualPhraseAnalysis> {
 	}
 };
 
+extern const char* ScoreName[SCORE_COUNT];
+
 struct TemplatePhrase : Moveable<TemplatePhrase> {
 	union {
 		hash_t hash;
@@ -223,6 +225,7 @@ struct TemplatePhrase : Moveable<TemplatePhrase> {
 	};
 	Vector<String> parts;
 	Vector<Vector<String>> words;
+	byte scores[SCORE_COUNT] = {0,0,0,0,0};
 	
 	// From the first LyricsAnalysis::Phrase
 	String group, value;
@@ -238,9 +241,13 @@ struct TemplatePhrase : Moveable<TemplatePhrase> {
 			("value", value)
 			("clr", clr)
 			;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			json("sc" + IntStr(i), scores[i]);
 	}
 	void Serialize(Stream& s) {
 		s % hash % parts % words % group % value % clr;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			s % scores[i];
 	}
 };
 
@@ -250,6 +257,7 @@ struct Wordnet : Moveable<Wordnet> {
 	String group, value;
 	Color clr;
 	int clr_group = -1;
+	byte scores[SCORE_COUNT] = {0,0,0,0,0};
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -260,9 +268,13 @@ struct Wordnet : Moveable<Wordnet> {
 			("clr", clr)
 			("clr_group", clr_group)
 			;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			json("sc" + IntStr(i), scores[i]);
 	}
 	void Serialize(Stream& s) {
 		s % words % main_class % group % value % clr % clr_group;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			s % scores[i];
 	}
 };
 
@@ -277,6 +289,7 @@ struct ColorWordnet : Moveable<ColorWordnet> {
 	String src_word;
 	Color clr;
 	int clr_group = -1;
+	byte scores[SCORE_COUNT] = {0,0,0,0,0};
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -289,9 +302,13 @@ struct ColorWordnet : Moveable<ColorWordnet> {
 			("clr", clr)
 			("clr_group", clr_group)
 			;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			json("sc" + IntStr(i), scores[i]);
 	}
 	void Serialize(Stream& s) {
 		s % hash % words % colors % main_class % src_word % clr % clr_group;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			s % scores[i];
 	}
 };
 
@@ -363,7 +380,7 @@ struct DatasetAnalysis {
 	
 	
 	void Serialize(Stream& s) {
-		s % artists % groups % words % tmpl_phrases % wordnets % unique_phrases % virtual_phrases;
+		s % artists % groups % words % tmpl_phrases % wordnets % clr_wordnets % unique_phrases % virtual_phrases;
 	}
 };
 

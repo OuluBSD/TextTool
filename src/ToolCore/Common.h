@@ -6,6 +6,16 @@
 
 
 
+enum {
+	SCORE_IDEA,
+	SCORE_EMOTION,
+	SCORE_HOOK,
+	SCORE_SHARE,
+	SCORE_VALUE,
+	
+	SCORE_COUNT
+};
+
 
 enum {
 	RHYME_A_A,

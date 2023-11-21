@@ -56,6 +56,8 @@
 #include "AttributeDistribution.h"
 #include "SongDataTemplates.h"
 #include "SongDataWordnet.h"
+#include "SongDataTemplateScoring.h"
+#include "SongDataWordnetScoring.h"
 
 
 #endif

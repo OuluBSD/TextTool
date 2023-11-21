@@ -78,6 +78,7 @@ public:
 	CHK_PRODUCTION(5,		VOCAL_FX, t_("Vocal track effects with iZotope Nectar automatic analysis")) \
 	CHK_PRODUCTION(5,		BASS_FX, t_("Bass and kick harmonics creation with e.g. SyncerSoft Bass Landscapes")) \
 	CHK_PRODUCTION(5,		INSTRUMENT_FX, t_("Instrument track effects with iZotope Neutron automatic analysis")) \
+	CHK_PRODUCTION(5,		TRANSTIENT_EQ, t_("balance single channels with transient eq e.g. split:eq, TransientEQ")) \
 	CHK_PRODUCTION(5,		EQ_SPECTRAL_BALANCE, t_("EQ spectral balance for all tracks with SmartEQ grouping")) \
 	CHK_PRODUCTION(3,		MASTER_FX, t_("Create master track effects with iZotope Ozone analysis")) \
 	CHK_PRODUCTION(5,		EXPORT_AUDIO, t_("Export audio with the full name and a version number")) \

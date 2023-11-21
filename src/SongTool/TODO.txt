@@ -1,7 +1,12 @@
 Scheduled work:
-- database: wordnet -page
-- database: phrase to action planner analysis
-- database: action analysis
+- database: template phrase analysis (phrases going towards heuristic goals)
+	- think about
+		- low 'likes' -> bad idea
+		- low 'comments' -> no emotion
+		- average 'views/listens' -> bad hook
+		- low 'share' -> not relatable
+		- low 'bookmark' -> no value
+- database: wordnet scoring
 
 - dump backup data from database parsers
 	- OR/AND dump database to clear text
@@ -11,12 +16,6 @@ Scheduled work:
 	- sort/filter by rhyming
 	- sort/filter by asking ai, which makes contextually most sense
 
-- think about
-	- low 'likes' -> bad idea
-	- low 'comments' -> no emotion
-	- average 'views/listens' -> bad hook
-	- low 'share' -> not relatable
-	- low 'bookmark' -> no value
 
 - analysis
 	- remove rhymes process
@@ -178,3 +177,4 @@ x? vocabulary: for artist, for release, for song
 - fix phrase database list: select by attributes and color range
 - parse phonetic syllables
 - mock up song lyrics by using best fitting phrases
+- database: wordnet -page

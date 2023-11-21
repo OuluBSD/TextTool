@@ -123,3 +123,11 @@ String LyricsAnalysis::AsString() const {
 	
 	return s;
 }
+
+const char* ScoreName[SCORE_COUNT] = {
+	"Idea score (likes)",
+	"Emotion score (comments)",
+	"Hook score (listens)",
+	"Share score (relatability)",
+	"Value score (bookmarks)",
+};
