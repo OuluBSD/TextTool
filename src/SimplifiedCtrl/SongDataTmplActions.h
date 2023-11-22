@@ -17,8 +17,8 @@ class SongDataTmplActions : public SongToolCtrl {
 	void UpdateBatches();
 	
 protected:
-	Splitter vsplit, hsplit;
-	ArrayCtrl datasets, attrs, colors, phrases;
+	Splitter vsplit, hsplit, vsplit1;
+	ArrayCtrl datasets, attrs, colors, phrases, matches;
 	Mutex lock;
 	
 	Vector<Wordnet*> tmp_wordnets;
@@ -42,6 +42,7 @@ public:
 	void DataDataset();
 	void DataAttribute();
 	void DataColor();
+	void DataMatches();
 	void ToolMenu(Bar& bar) override;
 	
 	void ToggleGettingLineActions();

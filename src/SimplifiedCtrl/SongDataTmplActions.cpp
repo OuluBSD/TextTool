@@ -4,11 +4,14 @@
 SongDataTmplActions::SongDataTmplActions() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << vsplit << phrases;
+	hsplit.Horz() << vsplit << vsplit1;
 	hsplit.SetPos(2000);
 	
 	vsplit.Vert() << datasets << attrs << colors;
 	vsplit.SetPos(1000,0);
+	
+	vsplit1.Vert() << phrases << matches;
+	vsplit1.SetPos(8000,0);
 	
 	datasets.AddColumn(t_("Dataset"));
 	datasets.WhenCursor << THISBACK(DataDataset);
@@ -33,6 +36,17 @@ SongDataTmplActions::SongDataTmplActions() {
 	}
 	phrases.AddIndex("IDX");
 	phrases.ColumnWidths(cw);
+	phrases.WhenCursor << THISBACK(DataMatches);
+	
+	matches.AddColumn(t_("Match score"));
+	matches.AddColumn(t_("Phrase"));
+	cw = "1 3";
+	for(int i = 0; i < action_cols; i++) {
+		cw << " 1";
+		matches.AddColumn("#" + IntStr(i));
+	}
+	matches.AddIndex("IDX");
+	matches.ColumnWidths(cw);
 	
 }
 
@@ -177,6 +191,61 @@ void SongDataTmplActions::DataColor() {
 	if (!phrases.IsCursor() && phrases.GetCount())
 		phrases.SetCursor(0);
 	
+	DataMatches();
+}
+
+void SongDataTmplActions::DataMatches() {
+	if (!datasets.IsCursor() || !attrs.IsCursor() || !colors.IsCursor() || !phrases.IsCursor()) {
+		matches.Clear();
+		return;
+	}
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	int ds_i = datasets.GetCursor();
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	int phrase_i = phrases.Get("IDX");
+	const ActionTemplate& at = da.action_tmpls[phrase_i];
+	//const TemplatePhrase& tp = da.tmpl_phrases[ap.tp_i];
+	
+	int idx = -1, row = 0;;
+	for (const ActionPhrase& ap : da.action_phrases) {
+		idx++;
+		
+		int match_count = 0, full_match = 0;
+		for (const auto& aa0 : ap.actions) {
+			for (const auto& aa1 : at.actions) {
+				if (aa0.action == aa1.action) {
+					match_count++;
+					if (aa0.arg == aa1.arg) {
+						full_match++;
+					}
+				}
+			}
+		}
+		double perc0 = (double)match_count / (ap.actions.GetCount()-1);
+		double perc1 = (double)full_match / (ap.actions.GetCount()-1);
+		double perc = (perc0 + perc1) * 0.5;
+		
+		if (perc1 > 0.5) {
+			String s = ap.txt;
+			matches.Set(row, 0, (int)(perc * 100));
+			matches.Set(row, 1, s);
+			matches.Set(row, "IDX", idx);
+			int c = min(action_cols, ap.actions.GetCount());
+			for(int j = 0; j < c; j++) {
+				const auto& aa = ap.actions[j];
+				String s = aa.action + "("+ aa.arg + ")";
+				matches.Set(row, 2+j, s);
+			}
+			for(int j = c; j < action_cols; j++)
+				matches.Set(row, 2+j, Value());
+			row++;
+		}
+	}
+	matches.SetCount(row);
+	matches.SetSortColumn(0, true);
 }
 
 void SongDataTmplActions::ToolMenu(Bar& bar) {
