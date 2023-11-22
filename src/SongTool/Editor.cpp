@@ -74,6 +74,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Template scoring"), song_tmplscoring);
 	AddItem(t_("Database"), t_("Wordnet scoring"), song_wnscoring);
 	AddItem(t_("Database"), t_("Line actions"), song_lineactions);
+	AddItem(t_("Database"), t_("Template actions"), song_tmplactions);
 	
 	AddItem(t_("Company"), t_("Info"), info);
 	AddItem(t_("Company"), t_("Calendar"), cal);

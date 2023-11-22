@@ -1,12 +1,13 @@
-#ifndef _SimplifiedCtrl_SongDataLineActions_h_
-#define _SimplifiedCtrl_SongDataLineActions_h_
+#ifndef _SimplifiedCtrl_SongDataTmplActions_h_
+#define _SimplifiedCtrl_SongDataTmplActions_h_
 
 
-class SongDataLineActions : public SongToolCtrl {
+class SongDataTmplActions : public SongToolCtrl {
+	static const int per_batch = 15;
+	
 	struct Batch : Moveable<Batch> {
-		ArtistDataset* artist;
-		LyricsDataset* lyrics;
 		String txt;
+		int tp_i[per_batch];
 		int ds_i;
 	};
 	
@@ -16,8 +17,8 @@ class SongDataLineActions : public SongToolCtrl {
 	void UpdateBatches();
 	
 protected:
-	Splitter vsplit, hsplit, vsplit1;
-	ArrayCtrl datasets, actions, action_args, phrases, next_lines;
+	Splitter vsplit, hsplit;
+	ArrayCtrl datasets, attrs, colors, phrases;
 	Mutex lock;
 	
 	Vector<Wordnet*> tmp_wordnets;
@@ -29,29 +30,23 @@ protected:
 	bool disabled = false;
 	bool running0 = false;
 	bool running1 = false;
-	int per_batch = 15;
 	bool batch = false;
 public:
-	typedef SongDataLineActions CLASSNAME;
-	SongDataLineActions();
+	typedef SongDataTmplActions CLASSNAME;
+	SongDataTmplActions();
 	
 	void EnableAll();
 	void DisableAll();
 	void Data() override;
 	void DataMain();
 	void DataDataset();
-	void DataAction();
-	void DataActionArg();
-	void DataNextLine();
+	void DataAttribute();
+	void DataColor();
 	void ToolMenu(Bar& bar) override;
 	
 	void ToggleGettingLineActions();
 	void GetLineActions(int batch_i);
 	void OnLineActions(String res, int batch_i);
-	
-	void ToggleGettingLineChangeScores();
-	void GetLineChangeScores(int batch_i);
-	void OnLineChangeScores(String res, int batch_i);
 	
 };
 

@@ -202,6 +202,17 @@ struct ActionArg : Moveable<ActionArg> {
 };
 
 struct ActionPhrase : Moveable<ActionPhrase> {
+	struct Score : Moveable<Score> {
+		int scores[SCORE_COUNT];
+		void Jsonize(JsonIO& json) {
+			for(int i = 0; i < SCORE_COUNT; i++)
+				json("sc" + IntStr(i), scores[i]);
+		}
+		void Serialize(Stream& s) {
+			for(int i = 0; i < SCORE_COUNT; i++)
+				s % scores[i];
+		}
+	};
 	union {
 		hash_t hash;
 		int i32[2];
@@ -209,6 +220,7 @@ struct ActionPhrase : Moveable<ActionPhrase> {
 	String txt;
 	Vector<ActionArg> actions;
 	Vector<int> next_phrases;
+	Vector<Score> next_scores;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -217,10 +229,32 @@ struct ActionPhrase : Moveable<ActionPhrase> {
 			("txt", txt)
 			("actions", actions)
 			("next_phrases", next_phrases)
+			("next_scores", next_scores)
 			;
 	}
 	void Serialize(Stream& s) {
-		s % hash % txt % actions % next_phrases;
+		s % hash % txt % actions % next_phrases % next_scores;
+	}
+};
+
+struct ActionTemplate : Moveable<ActionTemplate> {
+	union {
+		hash_t hash;
+		int i32[2];
+	};
+	int tp_i; // TemplatePhrase idx in dataset
+	Vector<ActionArg> actions;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("hash0", i32[0])
+			("hash1", i32[1])
+			("tp_i", tp_i)
+			("actions", actions)
+			;
+	}
+	void Serialize(Stream& s) {
+		s % hash % tp_i % actions;
 	}
 };
 
@@ -239,6 +273,7 @@ struct TemplatePhrase : Moveable<TemplatePhrase> {
 	String group, value;
 	Color clr;
 	
+	String GetText() const;
 	void Jsonize(JsonIO& json) {
 		json
 			("hash0", i32[0])
@@ -328,6 +363,7 @@ struct DatasetAnalysis {
 	Vector<Wordnet> wordnets;
 	Vector<ColorWordnet> clr_wordnets;
 	Vector<ActionPhrase> action_phrases;
+	Vector<ActionTemplate> action_tmpls;
 	
 	
 	int FindWord(const String& w) const {
@@ -358,13 +394,14 @@ struct DatasetAnalysis {
 				("wordnets", wordnets)
 				("clr_wordnets", clr_wordnets)
 				("action_phrases", action_phrases)
+				("action_tmpls", action_tmpls)
 				;
 		}
 	}
 	
 	
 	void Serialize(Stream& s) {
-		s % artists % groups % words % tmpl_phrases % wordnets % clr_wordnets % action_phrases;
+		s % artists % groups % words % tmpl_phrases % wordnets % clr_wordnets % action_phrases % action_tmpls;
 	}
 };
 

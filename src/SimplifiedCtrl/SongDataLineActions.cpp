@@ -10,7 +10,8 @@ SongDataLineActions::SongDataLineActions() {
 	vsplit.Vert() << datasets << actions << action_args;
 	vsplit.SetPos(1000,0);
 	
-	vsplit1.Vert() << phrases;
+	vsplit1.Vert() << phrases << next_lines;
+	vsplit1.SetPos(8000);
 	
 	datasets.AddColumn(t_("Dataset"));
 	datasets.WhenCursor << THISBACK(DataDataset);
@@ -33,25 +34,17 @@ SongDataLineActions::SongDataLineActions() {
 	}
 	phrases.AddIndex("IDX");
 	phrases.ColumnWidths(cw);
+	phrases.WhenCursor << THISBACK(DataNextLine);
 	
-	/*clr_wordnets.AddColumn(t_("Main class"));
-	clr_wordnets.AddColumn(t_("Anchor word"));
-	clr_wordnets.AddColumn(t_("#1 alternative"));
-	clr_wordnets.AddColumn(t_("#2 alternative"));
-	clr_wordnets.AddColumn(t_("#3 alternative"));
-	clr_wordnets.AddColumn(t_("#4 alternative"));
-	clr_wordnets.AddColumn(t_("#5 alternative"));
-	clr_wordnets.AddColumn(t_("#6 alternative"));
-	clr_wordnets.AddColumn(t_("#7 alternative"));
-	clr_wordnets.AddColumn(t_("Total score"));
-	clr_wordnets.AddColumn(t_("Idea score (likes)"));
-	clr_wordnets.AddColumn(t_("Emotion score (comments)"));
-	clr_wordnets.AddColumn(t_("Hook score (listens)"));
-	clr_wordnets.AddColumn(t_("Share score (relatability)"));
-	clr_wordnets.AddColumn(t_("Value score (bookmarks)"));
-	clr_wordnets.AddIndex("IDX");
-	clr_wordnets.ColumnWidths("2 2 1 1 1 1 1 1 1 2 2 2 2 2 2");
-	*/
+	next_lines.AddColumn(t_("Txt"));
+	next_lines.AddColumn(t_("Total score"));
+	next_lines.AddColumn(t_("Idea score (likes)"));
+	next_lines.AddColumn(t_("Emotion score (comments)"));
+	next_lines.AddColumn(t_("Hook score (listens)"));
+	next_lines.AddColumn(t_("Share score (relatability)"));
+	next_lines.AddColumn(t_("Value score (bookmarks)"));
+	next_lines.ColumnWidths("3 1 1 1 1 1 1");
+	
 }
 
 void SongDataLineActions::EnableAll() {
@@ -174,8 +167,10 @@ void SongDataLineActions::DataActionArg() {
 	bool filter_action = action != "All";
 	bool filter_action_arg = action_arg != "All";
 	
+	int idx = -1;
 	int row = 0;
 	for (const ActionPhrase& ap : da.action_phrases) {
+		idx++;
 		if (filter_action) {
 			bool found = false;
 			for (const auto& a : ap.actions) {
@@ -207,9 +202,52 @@ void SongDataLineActions::DataActionArg() {
 		for(int j = c; j < action_cols; j++)
 			this->phrases.Set(row, 1+j, Value());
 		
+		phrases.Set(row, "IDX", idx);
 		row++;
 	}
 	this->phrases.SetCount(row);
+	if (!phrases.IsCursor() && phrases.GetCount())
+		phrases.SetCursor(0);
+	
+	DataNextLine();
+}
+
+void SongDataLineActions::DataNextLine() {
+	if (!datasets.IsCursor() || !actions.IsCursor() || !action_args.IsCursor() || !phrases.IsCursor()) {
+		next_lines.Clear();
+		return;
+	}
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	int ds_i = datasets.GetCursor();
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	int phrase_i = phrases.Get("IDX");
+	const ActionPhrase& ap = da.action_phrases[phrase_i];
+	
+	for(int i = 0; i < ap.next_phrases.GetCount(); i++) {
+		int next_i = ap.next_phrases[i];
+		const ActionPhrase& next = da.action_phrases[next_i];
+		next_lines.Set(i, 0, next.txt);
+		if (i < next.next_scores.GetCount()) {
+			auto& sc = next.next_scores[i];
+			int total_score = 0;
+			for(int j = 0; j < SCORE_COUNT; j++) {
+				int v = sc.scores[j];
+				total_score += v;
+				next_lines.Set(i, 2+j, v);
+			}
+			next_lines.Set(i, 1, total_score);
+		}
+		else {
+			next_lines.Set(i, 1, Value());
+			for(int j = 0; j < SCORE_COUNT; j++)
+				next_lines.Set(i, 2+j, Value());
+		}
+	}
+	next_lines.SetCount(ap.next_phrases.GetCount());
+	
 }
 
 void SongDataLineActions::ToolMenu(Bar& bar) {
@@ -223,9 +261,9 @@ void SongDataLineActions::ToolMenu(Bar& bar) {
 		bar.Add(t_("Start getting line actions"), AppImg::RedRing(), THISBACK(ToggleGettingLineActions)).Key(K_F6);
 	bar.Separator();
 	if (running1)
-		bar.Add(t_("Stop getting colored wordnet scores"), AppImg::RedRing(), THISBACK(ToggleGettingColorWordnetScores)).Key(K_F7);
+		bar.Add(t_("Stop getting colored wordnet scores"), AppImg::RedRing(), THISBACK(ToggleGettingLineChangeScores)).Key(K_F7);
 	else
-		bar.Add(t_("Start getting colored wordnet scores"), AppImg::RedRing(), THISBACK(ToggleGettingColorWordnetScores)).Key(K_F7);
+		bar.Add(t_("Start getting colored wordnet scores"), AppImg::RedRing(), THISBACK(ToggleGettingLineChangeScores)).Key(K_F7);
 }
 
 void SongDataLineActions::UpdateBatches() {
@@ -286,7 +324,7 @@ void SongDataLineActions::UpdateBatches() {
 void SongDataLineActions::ToggleGettingLineActions() {
 	running0 = !running0;
 	if (running0) {
-		if (1) {
+		if (0) {
 			Database& db = Database::Single();
 			SongData& sd = db.song_data;
 			SongDataAnalysis& sda = db.song_data.a;
@@ -417,123 +455,136 @@ void SongDataLineActions::OnLineActions(String res, int batch_i) {
 		PostCallback(THISBACK1(GetLineActions, batch_i+1));
 }
 
-void SongDataLineActions::ToggleGettingColorWordnetScores() {
+void SongDataLineActions::ToggleGettingLineChangeScores() {
 	running1 = !running1;
 	if (running1) {
-		Thread::Start(THISBACK1(GetColorWordnetScores, 0));
+		Thread::Start(THISBACK1(GetLineChangeScores, 0));
 	}
 }
 
-void SongDataLineActions::GetColorWordnetScores(int batch_i) {
+void SongDataLineActions::GetLineChangeScores(int batch_i) {
+	if (Thread::IsShutdownThreads())
+		return;
+	if (batches.IsEmpty()) UpdateBatches();
+	if (batch_i < 0 || batch_i >= batches.GetCount()) {
+		this->batch = false;
+		return;
+	}
+	Batch& batch = batches[batch_i];
+	tmp_batch_i = batch_i;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[batch.ds_i];
+	
+	SongDataAnalysisArgs args;
+	args.fn = 11;
+	args.phrases <<= Split(batch.txt, "\n");
+	
+	ap_is.Clear();
+	
+	bool fail = false;
+	for (String& l : args.phrases) {
+		int ap_i = 0;
+		bool found = false;
+		for (ActionPhrase& ap : da.action_phrases) {
+			if (ap.txt == l) {
+				l.Clear();
+				for (const auto& arg : ap.actions) {
+					if (!l.IsEmpty()) l << " + ";
+					l << arg.action << "(" << arg.arg << ")";
+				}
+				found = true;
+				break;
+			}
+			ap_i++;
+		}
+		ap_is << (found ? ap_i : -1);
+		if (!found)
+			fail = true;
+	}
+	
+	/*if (fail) {
+		PromptOK("Failed to finish line change scores");
+		return;
+	}*/
+	
+	Song& song = GetSong();
+	song.RealizePipe();
+	TaskMgr& m = *song.pipe;
+	m.GetSongDataAnalysis(args, THISBACK1(OnLineChangeScores, batch_i));
+}
+
+void SongDataLineActions::OnLineChangeScores(String res, int batch_i) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
-	
-	int begin = batch_i * per_batch;
-	int end = (batch_i+1) * per_batch;
-	
-	if (batch_i < 0) {
-		begin = 0;
-		end = 1;
-	}
-	
-	SongDataAnalysisArgs args;
-	
-	/*tmp_clr_wordnets.Clear();
-	
-	int iter = 0;
-	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
-		String ds_key = sd.GetKey(ds_i);
-		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
-		
-		for(int i = 0; i < ds.clr_wordnets.GetCount(); i++) {
-			ColorWordnet& wn = ds.clr_wordnets[i];
-			
-			if (iter >= begin) {
-				String key = wn.main_class + ": ";
-				int c = min(7, wn.words.GetCount());
-				for(int j = 0; j < c; j++) {
-					if (j) key << ", ";
-					key << wn.words[j];
-				}
-				
-				args.words << key;
-				tmp_clr_wordnets << &wn;
-			}
-			iter++;
-			if (iter >=  end) break;
-		}
-		if (iter >=  end) break;
-	}
-	
-	if (args.words.IsEmpty()) {
-		if (batch)
-			batch = false;
-		return;
-	}
-	
-	Song& song = GetSong();
-	song.RealizePipe();
-	Pipe& pipe = *song.pipe;
-	TaskMgr& m = pipe;
-	
-	args.fn = 9;
-	
-	m.GetSongDataAnalysis(args, THISBACK1(OnColorWordnetScores, batch_i));*/
-}
-
-void SongDataLineActions::OnColorWordnetScores(String res, int batch_i) {
-	if (Thread::IsShutdownThreads())
-		return;
-	
-	/*Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	Batch& batch = batches[tmp_batch_i];
+	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	
 	res.Replace("\r", "");
+	res = "1. Stop line 1 & start line 2: S0:" + res;
+	res.Replace("not applicable", "0");
+	
 	Vector<String> lines = Split(res, "\n");
 	for(int i = 0; i < lines.GetCount(); i++) {
 		String& l = lines[i];
+		RemoveLineNumber(l);
 		l = TrimBoth(l);
 		if (l.IsEmpty() || l[0] == '-')
 			lines.Remove(i--);
 	}
 	
-	if (lines.GetCount() == per_batch) {
-		lines.Remove(0);
-		VectorMap<int,Vector<String>> iter_phrase_parts;
-		VectorMap<int,Vector<Vector<String>>> iter_phrase_words;
-		int line_idx = -1;
-		for (String& l : lines) {
-			line_idx++;
-			l = TrimBoth(l);
-			if (l.IsEmpty())
-				continue;
-			
-			int a = l.Find(".");
+	for (String& l : lines) {
+		int a = l.Find("line");
+		if (a < 0) continue;
+		int b = l.Find("&", a);
+		if (b < 0) continue;
+		a += 4;
+		int line0 = StrInt(TrimBoth(l.Mid(a,b-a)));
+		a = l.Find("line",b);
+		if (a < 0) continue;
+		b = l.Find(":", a);
+		if (b < 0) continue;
+		a += 4;
+		int line1 = StrInt(TrimBoth(l.Mid(a,b-a)));
+		
+		Vector<String> parts = Split(l.Mid(b+1), ",");
+		if (parts.GetCount() != SCORE_COUNT)
+			continue;
+		int score[SCORE_COUNT] = {0,0,0,0,0};
+		for(int i = 0; i < parts.GetCount(); i++) {
+			String& s = parts[i];
+			int a = s.Find(":");
 			if (a < 0) continue;
-			a++;
-			
-			Vector<String> parts = Split(l.Mid(a), ",");
-			if (parts.GetCount() != SCORE_COUNT)
-				continue;
-			int score[SCORE_COUNT] = {0,0,0,0,0};
-			for(int i = 0; i < parts.GetCount(); i++) {
-				String& s = parts[i];
-				int a = s.Find(":");
-				if (a < 0) continue;
-				score[i] = StrInt(TrimBoth(s.Mid(a+1)));
-			}
-			
-			ColorWordnet& wn = *tmp_clr_wordnets[line_idx];
-			for(int i = 0; i < SCORE_COUNT; i++)
-				wn.scores[i] = score[i];
+			score[i] = StrInt(TrimBoth(s.Mid(a+1)));
 		}
-	}*/
+		
+		line0--;
+		line1--;
+		if (line0 >= ap_is.GetCount() || line1 >= ap_is.GetCount()) continue;
+		
+		int ap_i0 = ap_is[line0];
+		int ap_i1 = ap_is[line1];
+		if (ap_i0 < 0 || ap_i1 < 0)
+			continue;
+		
+		ActionPhrase& ap0 = da.action_phrases[ap_i0];
+		//ActionPhrase& ap1 = da.action_phrases[ap_i1];
+		int j = VectorFind(ap0.next_phrases, ap_i1);
+		if (j >= 0) {
+			if (ap0.next_scores.GetCount() <= j)
+				ap0.next_scores.SetCount(j+1);
+			auto& tgt = ap0.next_scores[j];
+			for(int j = 0; j < SCORE_COUNT; j++)
+				tgt.scores[j] = score[j];
+		}
+	}
 	
 	if (running1)
-		PostCallback(THISBACK1(GetColorWordnetScores, batch_i+1));
+		PostCallback(THISBACK1(GetLineChangeScores, batch_i+1));
 }

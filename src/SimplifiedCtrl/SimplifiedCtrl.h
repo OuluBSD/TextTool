@@ -59,6 +59,7 @@
 #include "SongDataTemplateScoring.h"
 #include "SongDataWordnetScoring.h"
 #include "SongDataLineActions.h"
+#include "SongDataTmplActions.h"
 
 
 #endif

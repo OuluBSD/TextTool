@@ -4894,7 +4894,7 @@ void Task::CreateInput_GetSongDataAnalysis() {
 		input.response_length = 2048;
 	}
 	
-	else if (args.fn == 10) {
+	if (args.fn == 10 || args.fn == 11 || args.fn == 12) {
 		{
 			auto& list = input.AddSub().Title("List \"A\": Word classes");
 			list.Add("verb");
@@ -5089,6 +5089,9 @@ void Task::CreateInput_GetSongDataAnalysis() {
 			list.Add("etc.");
 		}
 		
+	}
+	
+	if (args.fn == 10) {
 		String pc = IntStr(3 + args.phrases.GetCount());
 		{
 			auto& list = input.AddSub().Title(pc + " lines of lyrics");
@@ -5111,4 +5114,61 @@ void Task::CreateInput_GetSongDataAnalysis() {
 		}
 		input.response_length = 2048;
 	}
+	
+	if (args.fn == 11) {
+		{
+			auto& list = input.AddSub().Title("Action planner heuristic score factors");
+			list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
+			list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
+			list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
+			list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
+			list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+		}
+		{
+			auto& list = input.AddSub().Title("Change of actions between 2 lines. Score of stopping actions in the first line and value of starting actions in the second line. Scores and score factors. Value is between 0-10");
+			list.Add("Stop line 1 & start line 2: S0: 0, S1: 0, S2: 7, S3: 3, S4: 0");
+			list.Add("Stop line 2 & start line 3: S0: 2, S1: 0, S2: 2, S3: 1, S4: 0");
+			list.Add("Stop line 3 & start line 4: S0: 1, S1: 5, S2: 3, S3: 2, S4: 8");
+		}
+		String pc = IntStr(0 + args.phrases.GetCount());
+		{
+			auto& list = input.AddSub().Title("List \"C\": Actions per " + pc + " lines of lyrics. With the most matching actions of list \"B\"");
+			list.NumberedLines();
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.NumberedLines();
+			results.NoListChar();
+			results.Title("Change of actions between 2 lines in list \"C\" with " + pc + " lines of actions. Score of stopping actions in the first line and value of starting actions in the second line. Scores and score factors. Value is between 0-10:");
+			results.Add("Stop line 1 & start line 2: S0:");
+		}
+		input.response_length = 1024;
+	}
+	
+	if (args.fn == 12) {
+		String pc = IntStr(3 + args.phrases.GetCount());
+		{
+			auto& list = input.AddSub().Title(pc + " lines of lyrics");
+			list.NumberedLines();
+			list.Add("2 AM, howlin outside");
+			list.Add("Lookin, but I cannot find");
+			list.Add("Only you can stand my mind");
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.NumberedLines();
+			results.NoListChar();
+			results.Title("Action planner action states for " + pc + " lines of lyrics. With the most matching actions of list \"B\"");
+			results.Add("tone(urgent) + msg(trying to reach someone) + bias(romantic) + emotion(uncertainty) + level-of-certainty(trying/desire) + gesturing(pointing) + describing-surroundings(anywhere in the dark) + attention-place(outside) + attention-time(night) + attention-emotional_state(desire) + attention-action(howling) + attention-activity(driving)");
+			results.Add("msg(searching for someone) + bias(doubt) + emotion(frustration) + level-of-certainty(cannot find) + attention-action(searching) + attention-relationship(checking for person's presence)");
+			results.Add("tone(affectionate) + msg(expressing feelings) + bias(feeling understood by person) + emotion(love) + level-of-certainty(statement) + attention-person(addressed to person) + attention-emotional_state(love/affection) + attention-mental_state(thinking about person constantly) + attention-relationship(checking for compatibility)");
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	
 }

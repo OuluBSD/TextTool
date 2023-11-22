@@ -155,16 +155,8 @@ void SongDataTemplates::DataColor() {
 		if (attr_filter && (tp.group != group_str || tp.value != value_str))
 			continue;
 		
-		String s;
-		for (const String& p : tp.parts) {
-			if (p == ",")
-				s << ",";
-			else {
-				if (s.GetCount())
-					s << " ";
-				s << p;
-			}
-		}
+		String s = tp.GetText();
+		
 		tmpls.Set(row, "IDX", i);
 		tmpls.Set(row, 0, tp.group);
 		tmpls.Set(row, 1, tp.value);

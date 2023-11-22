@@ -107,6 +107,7 @@ protected:
 	SongDataTemplateScoring	song_tmplscoring;
 	SongDataWordnetScoring	song_wnscoring;
 	SongDataLineActions		song_lineactions;
+	SongDataTmplActions		song_tmplactions;
 	
 public:
 	typedef Editor CLASSNAME;

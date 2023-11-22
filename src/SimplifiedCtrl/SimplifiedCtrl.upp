@@ -24,6 +24,8 @@ file
 	SongDataWordnetScoring.cpp,
 	SongDataLineActions.h,
 	SongDataLineActions.cpp,
+	SongDataTmplActions.h,
+	SongDataTmplActions.cpp,
 	AlbumBriefing.h,
 	AlbumBriefing.cpp,
 	AlbumIdeas.h,

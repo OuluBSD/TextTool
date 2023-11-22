@@ -131,3 +131,17 @@ const char* ScoreName[SCORE_COUNT] = {
 	"Share score (relatability)",
 	"Value score (bookmarks)",
 };
+
+String TemplatePhrase::GetText() const {
+	String s;
+	for (const String& p : parts) {
+		if (p == ",")
+			s << ",";
+		else {
+			if (s.GetCount())
+				s << " ";
+			s << p;
+		}
+	}
+	return s;
+}
