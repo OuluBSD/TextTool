@@ -162,8 +162,6 @@ void SongDataWordnetScoring::DataColor() {
 	bool attr_filter = attr_group_i >= 0;
 	clr_i--;
 	
-	lock.Enter();
-	
 	int row = 0;
 	for(int i = 0; i < da.wordnets.GetCount(); i++) {
 		Wordnet& wn = da.wordnets[i];
@@ -290,7 +288,6 @@ void SongDataWordnetScoring::DataColor() {
 	clr_wordnets.SetCount(row);
 	clr_wordnets.SetSortColumn(9, true);
 	
-	lock.Leave();
 }
 
 void SongDataWordnetScoring::ToolMenu(Bar& bar) {
@@ -383,8 +380,6 @@ void SongDataWordnetScoring::OnWordnetScores(String res, int batch_i) {
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
-	lock.Enter();
-	
 	res.Replace("\r", "");
 	Vector<String> lines = Split(res, "\n");
 	for(int i = 0; i < lines.GetCount(); i++) {
@@ -425,8 +420,6 @@ void SongDataWordnetScoring::OnWordnetScores(String res, int batch_i) {
 				wn.scores[i] = score[i];
 		}
 	}
-	
-	lock.Leave();
 	
 	if (running)
 		PostCallback(THISBACK1(GetWordnetScores, batch_i+1));
@@ -508,8 +501,6 @@ void SongDataWordnetScoring::OnColorWordnetScores(String res, int batch_i) {
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
-	lock.Enter();
-	
 	res.Replace("\r", "");
 	Vector<String> lines = Split(res, "\n");
 	for(int i = 0; i < lines.GetCount(); i++) {
@@ -550,8 +541,6 @@ void SongDataWordnetScoring::OnColorWordnetScores(String res, int batch_i) {
 				wn.scores[i] = score[i];
 		}
 	}
-	
-	lock.Leave();
 	
 	if (running)
 		PostCallback(THISBACK1(GetColorWordnetScores, batch_i+1));

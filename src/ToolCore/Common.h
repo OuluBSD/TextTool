@@ -1319,6 +1319,17 @@ int VectorFindAdd(Vector<T>& v, const T& o0) {
 }
 
 template <class T>
+int VectorFind(Vector<T>& v, const T& o0) {
+	int i = 0;
+	for (const T& o1 : v) {
+		if (o1 == o0)
+			return i;
+		i++;
+	}
+	return -1;
+}
+
+template <class T>
 void VectorRemoveKey(Vector<T>& v, const T& o0) {
 	for(int i = 0; i < v.GetCount(); i++) {
 		const T& o1 = v[i];

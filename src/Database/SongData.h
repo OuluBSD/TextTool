@@ -184,35 +184,43 @@ struct SongId : Moveable<SongId> {
 	}
 };
 
-struct PhraseAnalysis : Moveable<PhraseAnalysis> {
-	Vector<SongId> songs;
-	Vector<int> word_ids;
-	Color clr;
+struct ActionArg : Moveable<ActionArg> {
+	String action, arg;
 	
 	void Jsonize(JsonIO& json) {
 		json
-			("songs", songs)
-			("word_ids", word_ids)
-			("clr", clr)
+			("action", action)
+			("arg", arg)
 			;
 	}
 	void Serialize(Stream& s) {
-		s % songs % word_ids % clr;
+		s % action % arg;
+	}
+	bool operator()(const ActionArg& a, const ActionArg& b) const {
+		return a.action < b.action;
 	}
 };
 
-struct VirtualPhraseAnalysis : Moveable<VirtualPhraseAnalysis> {
-	Vector<int> group_ids;
-	Index<int> phrases;
+struct ActionPhrase : Moveable<ActionPhrase> {
+	union {
+		hash_t hash;
+		int i32[2];
+	};
+	String txt;
+	Vector<ActionArg> actions;
+	Vector<int> next_phrases;
 	
 	void Jsonize(JsonIO& json) {
 		json
-			("group_ids", group_ids)
-			("phrases", phrases)
+			("hash0", i32[0])
+			("hash1", i32[1])
+			("txt", txt)
+			("actions", actions)
+			("next_phrases", next_phrases)
 			;
 	}
 	void Serialize(Stream& s) {
-		s % group_ids % phrases;
+		s % hash % txt % actions % next_phrases;
 	}
 };
 
@@ -319,10 +327,8 @@ struct DatasetAnalysis {
 	Vector<TemplatePhrase> tmpl_phrases;
 	Vector<Wordnet> wordnets;
 	Vector<ColorWordnet> clr_wordnets;
+	Vector<ActionPhrase> action_phrases;
 	
-	// deprecated
-	VectorMap<String, PhraseAnalysis> unique_phrases;
-	VectorMap<String, VirtualPhraseAnalysis> virtual_phrases;
 	
 	int FindWord(const String& w) const {
 		int i = 0;
@@ -343,28 +349,7 @@ struct DatasetAnalysis {
 		return wa;
 	}
 	void Jsonize(JsonIO& json) {
-		/*
-		if (json.IsLoading()) {
-			VectorMap<String, WordAnalysis> tmp;
-			json
-				("artists", artists)
-				("groups", groups)
-				("word", tmp)
-				("tmpl_phrases", tmpl_phrases)
-				("unique_phrases", unique_phrases)
-				("virtual_phrases", virtual_phrases)
-				;
-			words.SetCount(tmp.GetCount());
-			for(int i = 0; i < tmp.GetCount(); i++) {
-				String key = tmp.GetKey(i);
-				WordAnalysis& src = tmp[i];
-				WordAnalysis& dst = words[i];
-				Swap(src, dst);
-				dst.txt = key;
-				dst.hash = key.GetHashValue();
-			}
-		}
-		else*/ {
+		{
 			json
 				("artists", artists)
 				("groups", groups)
@@ -372,15 +357,14 @@ struct DatasetAnalysis {
 				("tmpl_phrases", tmpl_phrases)
 				("wordnets", wordnets)
 				("clr_wordnets", clr_wordnets)
-				("unique_phrases", unique_phrases)
-				("virtual_phrases", virtual_phrases)
+				("action_phrases", action_phrases)
 				;
 		}
 	}
 	
 	
 	void Serialize(Stream& s) {
-		s % artists % groups % words % tmpl_phrases % wordnets % clr_wordnets % unique_phrases % virtual_phrases;
+		s % artists % groups % words % tmpl_phrases % wordnets % clr_wordnets % action_phrases;
 	}
 };
 

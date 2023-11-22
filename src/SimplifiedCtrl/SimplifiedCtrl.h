@@ -50,7 +50,7 @@
 #include "RhymeStructure.h"
 #include "SongDataWords.h"
 #include "SongDataPhrases.h"
-#include "SongDataSearchPhrases.h"
+//#include "SongDataSearchPhrases.h"
 #include "LyricsEditor.h"
 #include "AttributeIdea.h"
 #include "AttributeDistribution.h"
@@ -58,6 +58,7 @@
 #include "SongDataWordnet.h"
 #include "SongDataTemplateScoring.h"
 #include "SongDataWordnetScoring.h"
+#include "SongDataLineActions.h"
 
 
 #endif

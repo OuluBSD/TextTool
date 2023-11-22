@@ -1,12 +1,13 @@
 Scheduled work:
-- database: template phrase analysis (phrases going towards heuristic goals)
-	- think about
-		- low 'likes' -> bad idea
-		- low 'comments' -> no emotion
-		- average 'views/listens' -> bad hook
-		- low 'share' -> not relatable
-		- low 'bookmark' -> no value
-- database: wordnet scoring
+- database: line based action planning (attributes, etc.)
+	- score new line based on change of attributes to the next line
+
+- lyrics editor:
+	- user sets: syllable count range & desired color (if any) & desires attributes (if any)
+	- get candidates
+		- make rhyming phrases without ai
+		- evaluate actions for candidates with ai
+
 
 - dump backup data from database parsers
 	- OR/AND dump database to clear text
@@ -178,3 +179,11 @@ x? vocabulary: for artist, for release, for song
 - parse phonetic syllables
 - mock up song lyrics by using best fitting phrases
 - database: wordnet -page
+- database: template phrase analysis (phrases going towards heuristic goals)
+	- think about
+		- low 'likes' -> bad idea
+		- low 'comments' -> no emotion
+		- average 'views/listens' -> bad hook
+		- low 'share' -> not relatable
+		- low 'bookmark' -> no value
+- database: wordnet scoring

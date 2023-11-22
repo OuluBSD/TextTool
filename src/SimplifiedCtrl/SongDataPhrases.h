@@ -20,8 +20,7 @@ public:
 	void DataMain();
 	void DataAttribute();
 	void ToolMenu(Bar& bar) override;
-	void StartMakeUniquePhrases();
-	void MakeUniquePhrases();
+	
 	void PostProgress(int a, int t) {PostCallback(THISBACK2(SetProgress, a, t));}
 	void SetProgress(int a, int t) {prog.Set(a,t);}
 	
