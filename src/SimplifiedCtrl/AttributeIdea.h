@@ -6,7 +6,6 @@ class AttributeIdea : public SongToolCtrl {
 	bool disabled = false;
 	Splitter vsplit0, vsplit1, hsplit;
 	ArrayCtrl colors, attrs, active, suggestions;
-	BeatRow row_view;
 	
 public:
 	typedef AttributeIdea CLASSNAME;

@@ -8,8 +8,7 @@ AttributeIdea::AttributeIdea() {
 	hsplit.SetPos(2500);
 	
 	vsplit0.Vert() << colors << attrs;
-	vsplit1.Vert() << active << suggestions << row_view;
-	vsplit1.SetPos(9000, 1);
+	vsplit1.Vert() << active << suggestions;
 	
 	colors.AddColumn(t_("Color"));
 	colors.AddColumn(t_("Count"));

@@ -7,7 +7,7 @@ Editor::Editor(SongTool* app) : app(*app) {
 	hsplit.Horz() << menusplit << base;
 	hsplit.SetPos(1000);
 	
-	menusplit.Vert() << page_group_list << page_list << artists << releases << songs << parts;
+	menusplit.Vert() << page_group_list << page_list << artists << releases << songs;
 	artists.WhenBar << THISBACK(ArtistMenu);
 	releases.WhenBar << THISBACK(ReleaseMenu);
 	songs.WhenBar << THISBACK(SongMenu);
@@ -34,10 +34,10 @@ Editor::Editor(SongTool* app) : app(*app) {
 	//songs.ColumnWidths("2 2 1");
 	songs <<= THISBACK(DataSong);
 	
-	parts.AddColumn(t_("Part"));
+	/*parts.AddColumn(t_("Part"));
 	//parts.AddColumn(t_("Lines"));
 	//parts.ColumnWidths("3 1");
-	parts <<= THISBACK(DataPart);
+	parts <<= THISBACK(DataPart);*/
 	
 	info.editor = this;
 	song_struct.editor = this;
@@ -96,9 +96,7 @@ void Editor::InitSimplified() {
 	//AddItem(t_("Song lyrics"), t_("Production idea"), prod_idea);
 	AddItem(t_("Song lyrics"), t_("Attributes"), ctx_attrs);
 	AddItem(t_("Song lyrics"), t_("Attribute Distribution"), attr_dist);
-	AddItem(t_("Song lyrics"), t_("Attribute Idea"), attr_idea);
-	AddItem(t_("Song lyrics"), t_("Coherent Idea"), auto_ideas);
-	AddItem(t_("Song lyrics"), t_("Idea of a single part"), part_idea);
+	AddItem(t_("Song lyrics"), t_("Lyrics editor"), lyrics_editor);
 	
 	
 	AddItem(t_("Music Video"), t_("Create structure from existing"), videostruct_import);
@@ -110,6 +108,10 @@ void Editor::InitSimplified() {
 	AddItem(t_("Checklist"), t_("Music Video Production"), video_checklist);
 	AddItem(t_("Checklist"), t_("Release"), release_checklist);
 	
+	
+	AddItem(t_("Trash"), t_("Attribute Idea"), attr_idea);
+	AddItem(t_("Trash"), t_("Coherent Idea"), auto_ideas);
+	AddItem(t_("Trash"), t_("Idea of a single part"), part_idea);
 	
 	AddItem(t_("Trash"), t_("Create Translation, Native To English"), structure_native_english);
 	AddItem(t_("Trash"), t_("Create From English"), structure_from_english);
@@ -123,7 +125,6 @@ void Editor::InitSimplified() {
 	AddItem(t_("Trash"), t_("Color idea"), color_idea);
 	
 	AddItem(t_("Trash"), t_("Vocabulary idea"), vocab_idea);
-	AddItem(t_("Trash"), t_("Lyrics editor"), lyrics_editor);
 	AddItem(t_("Trash"), t_("Word salad idea"), wordsalad_idea);
 	AddItem(t_("Trash"), t_("Text idea"), text_idea);
 	AddItem(t_("Trash"), t_("English Parallel Compare"), text_autocompare_eng);
@@ -460,9 +461,10 @@ void Editor::DataSong() {
 	
 	#endif
 	
-	DataPart();
+	DataPage();
 }
 
+#if 0
 void Editor::DataPart() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
@@ -504,6 +506,7 @@ void Editor::DataPart() {
 	
 	DataPage();
 }
+#endif
 
 void Editor::ArtistMenu(Bar& bar) {
 	bar.Add(t_("Add Artist"), THISBACK(AddArtist));

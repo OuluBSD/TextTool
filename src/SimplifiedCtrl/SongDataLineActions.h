@@ -8,6 +8,7 @@ class SongDataLineActions : public SongToolCtrl {
 		LyricsDataset* lyrics;
 		String txt;
 		int ds_i;
+		bool song_begins;
 	};
 	
 	Vector<Batch> batches;

@@ -221,6 +221,7 @@ struct ActionPhrase : Moveable<ActionPhrase> {
 	Vector<ActionArg> actions;
 	Vector<int> next_phrases;
 	Vector<Score> next_scores;
+	int first_lines = 0;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -230,10 +231,11 @@ struct ActionPhrase : Moveable<ActionPhrase> {
 			("actions", actions)
 			("next_phrases", next_phrases)
 			("next_scores", next_scores)
+			("first_lines", first_lines)
 			;
 	}
 	void Serialize(Stream& s) {
-		s % hash % txt % actions % next_phrases % next_scores;
+		s % hash % txt % actions % next_phrases % next_scores % first_lines;
 	}
 };
 

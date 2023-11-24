@@ -32,6 +32,8 @@ SongDataLineActions::SongDataLineActions() {
 		cw << " 1";
 		phrases.AddColumn("#" + IntStr(i));
 	}
+	cw << " 1";
+	phrases.AddColumn(t_("First line count"));
 	phrases.AddIndex("IDX");
 	phrases.ColumnWidths(cw);
 	phrases.WhenCursor << THISBACK(DataNextLine);
@@ -192,20 +194,26 @@ void SongDataLineActions::DataActionArg() {
 			if (!found) continue;
 		}
 		
-		this->phrases.Set(row, 0, ap.txt);
+		phrases.Set(row, 0, ap.txt);
 		int c = min(action_cols, ap.actions.GetCount());
 		for(int j = 0; j < c; j++) {
 			const auto& aa = ap.actions[j];
 			String s = aa.action + "("+ aa.arg + ")";
-			this->phrases.Set(row, 1+j, s);
+			phrases.Set(row, 1+j, s);
 		}
 		for(int j = c; j < action_cols; j++)
-			this->phrases.Set(row, 1+j, Value());
+			phrases.Set(row, 1+j, Value());
+		
+		if (ap.first_lines > 0)
+			phrases.Set(row, 1+action_cols, ap.first_lines);
+		else
+			phrases.Set(row, 1+action_cols, Value());
 		
 		phrases.Set(row, "IDX", idx);
 		row++;
 	}
-	this->phrases.SetCount(row);
+	phrases.SetCount(row);
+	phrases.SetSortColumn(1+action_cols, true);
 	if (!phrases.IsCursor() && phrases.GetCount())
 		phrases.SetCursor(0);
 	
@@ -291,6 +299,7 @@ void SongDataLineActions::UpdateBatches() {
 				if (lines.IsEmpty()) continue;
 				added_lines.SetCount(0);
 				line_hashes.SetCount(0);
+				bool song_begins = true;
 				for(int k = 0; k < lines.GetCount(); k++) {
 					String l = TrimBoth(lines[k]);
 					hash_t h = l.GetHashValue();
@@ -300,16 +309,19 @@ void SongDataLineActions::UpdateBatches() {
 					added_lines << l;
 					if (added_lines.GetCount() >= per_batch) {
 						Batch& b = batches.Add();
+						b.song_begins = song_begins;
 						b.artist = &artist;
 						b.lyrics = &lyrics;
 						b.ds_i = ds_i;
 						b.txt = Join(added_lines, "\n");
 						ASSERT(b.txt.GetCount());
 						added_lines.SetCount(0);
+						song_begins = false;
 					}
 				}
 				if (added_lines.GetCount()) {
 					Batch& b = batches.Add();
+					b.song_begins = song_begins;
 					b.artist = &artist;
 					b.lyrics = &lyrics;
 					b.ds_i = ds_i;
@@ -432,6 +444,8 @@ void SongDataLineActions::OnLineActions(String res, int batch_i) {
 				if (ap.hash == h) {
 					found = true;
 					ap_is << i;
+					if (line_idx == 0 && batch.song_begins)
+						ap.first_lines++;
 				}
 				i++;
 			}
@@ -440,6 +454,7 @@ void SongDataLineActions::OnLineActions(String res, int batch_i) {
 				ActionPhrase& ap = da.action_phrases.Add();
 				ap.hash = h;
 				ap.txt = txt;
+				ap.first_lines = line_idx == 0 && batch.song_begins ? 1 : 0;
 				Swap(ap.actions, actions);
 			}
 		}

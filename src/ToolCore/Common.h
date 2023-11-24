@@ -16,6 +16,7 @@ enum {
 	SCORE_COUNT
 };
 
+extern const char* ScoreTitles[SCORE_COUNT];
 
 enum {
 	RHYME_A_A,
@@ -1338,5 +1339,7 @@ void VectorRemoveKey(Vector<T>& v, const T& o0) {
 		}
 	}
 }
+
+void SetColoredListValue(ArrayCtrl& list, int row, int col, const String& txt, Color clr, bool blend=true);
 
 #endif

@@ -1,6 +1,4 @@
 Scheduled work:
-- database: line based action planning (attributes, etc.)
-	- score new line based on change of attributes to the next line
 
 - lyrics editor:
 	- user sets: syllable count range & desired color (if any) & desires attributes (if any)
@@ -153,7 +151,7 @@ Done:
 - remove attributes from song info
 - fix song stylizer
 - 4 channels for text
-	- attack: what is being prepared
+	- attack: what is being preparedl
 	- decay: what is brought new
 	- sustain: what is repeated
 	- release: what is slowly forgotten
@@ -187,3 +185,5 @@ x? vocabulary: for artist, for release, for song
 		- low 'share' -> not relatable
 		- low 'bookmark' -> no value
 - database: wordnet scoring
+- database: line based action planning (attributes, etc.)
+	- score new line based on change of attributes to the next line

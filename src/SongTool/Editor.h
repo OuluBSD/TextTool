@@ -122,7 +122,7 @@ public:
 	void DataArtist();
 	void DataRelease();
 	void DataSong();
-	void DataPart();
+	//void DataPart();
 	void ToolMenu(Bar& bar);
 	void SetView(int i, int j);
 	void LoadLast();
