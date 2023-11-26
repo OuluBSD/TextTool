@@ -15227,6 +15227,10 @@ double GetSpellingDistance(const WString& w0, const WString& w1, bool relative) 
 			}
 			int cur = 0;
 			int phonome = GetPhonomeEnum(it[0], it[1], &cur);
+			if (phonome < 0) {
+				it++;
+				continue;
+			}
 			bool is_vowel = IsPhonomeVowel(phonome);
 			bool stress = STRESS_SECONDARY;
 			if (is_vowel) {

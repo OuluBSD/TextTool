@@ -201,6 +201,8 @@ struct ActionArg : Moveable<ActionArg> {
 	}
 };
 
+double GetActionMatching(const Vector<ActionArg>& a, const Vector<ActionArg>& b);
+
 struct ActionPhrase : Moveable<ActionPhrase> {
 	struct Score : Moveable<Score> {
 		int scores[SCORE_COUNT];
@@ -223,6 +225,7 @@ struct ActionPhrase : Moveable<ActionPhrase> {
 	Vector<Score> next_scores;
 	int first_lines = 0;
 	
+	String GetActionText() const;
 	void Jsonize(JsonIO& json) {
 		json
 			("hash0", i32[0])

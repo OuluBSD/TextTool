@@ -145,3 +145,35 @@ String TemplatePhrase::GetText() const {
 	}
 	return s;
 }
+
+String ActionPhrase::GetActionText() const {
+	String l;
+	for (const auto& arg : actions) {
+		if (!l.IsEmpty()) l << " + ";
+		l << arg.action << "(" << arg.arg << ")";
+	}
+	return l;
+}
+
+double GetActionMatching(const Vector<ActionArg>& a, const Vector<ActionArg>& b) {
+	if (!a.GetCount()) return 0;
+	int partial_matches = 0, full_matches = 0;
+	for (const ActionArg& aa : a) {
+		for (const ActionArg& bb : b) {
+			if (aa.action == bb.action) {
+				partial_matches++;
+				if (aa.arg == bb.arg) {
+					full_matches++;
+				}
+			}
+		}
+	}
+	//int max_matches = min(a.GetCount(), b.GetCount());
+	int max_matches = a.GetCount();
+	/*double perc0 = (double)partial_matches / (double)max_matches;
+	double perc1 = (double)full_matches / (double)max_matches;
+	double perc = (perc0 + perc1) * 0.5;
+	*/
+	double perc = (double)full_matches / (double)max_matches;
+	return perc;
+}

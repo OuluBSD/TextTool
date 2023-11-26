@@ -65,7 +65,7 @@ LAYOUT(LineEditor, 1240, 24)
 	ITEM(Upp::Label, dv___12, SetLabel(t_("Act-val:")).SetAlign(Upp::ALIGN_RIGHT).HCenterPosZ(48, 456).TopPosZ(4, 19))
 	ITEM(Upp::DropList, action_value, HCenterPosZ(132, 550).TopPosZ(4, 19))
 	ITEM(Upp::Option, middle_rhyming, HCenterPosZ(16, -240).TopPosZ(4, 20))
-	ITEM(Upp::EditIntSpin, syllables, Min(1).Max(50).HCenterPosZ(48, -532).TopPosZ(4, 19))
+	ITEM(Upp::EditIntSpin, syllables, Min(0).Max(50).HCenterPosZ(48, -532).TopPosZ(4, 19))
 	ITEM(Upp::Label, dv___16, SetLabel(t_("+ -")).SetAlign(Upp::ALIGN_CENTER).HCenterPosZ(20, -494).VSizePosZ(4, 1))
 	ITEM(Upp::EditIntSpin, syllable_range, Min(-5).Max(5).HCenterPosZ(48, -456).TopPosZ(4, 19))
 END_LAYOUT

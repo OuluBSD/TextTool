@@ -9,6 +9,8 @@ file
 	Database.cpp,
 	SongData.h,
 	SongData.cpp,
+	Pronounciation.h,
+	Pronounciation.cpp,
 	"Data (assets)" readonly separator,
 	Artist.h,
 	Artist.cpp,

@@ -419,6 +419,7 @@ struct Song :
 	void LoadTitle(String title);
 	void ReloadStructure();
 	
+	void Serialize(Stream& s) {TODO}
 	void Jsonize(JsonIO& json) {
 		json
 			("artist", artist)

@@ -26,6 +26,7 @@
 #include "Artist.h"
 #include "SongData.h"
 #include "DatabaseClass.h"
+#include "Pronounciation.h"
 
 
 
