@@ -30,13 +30,15 @@ SongDataWordnetScoring::SongDataWordnetScoring() {
 	wordnets.AddColumn(t_("Main class"));
 	wordnets.AddColumn(t_("Words"));
 	wordnets.AddColumn(t_("Total score"));
-	wordnets.AddColumn(t_("Idea score (likes)"));
-	wordnets.AddColumn(t_("Emotion score (comments)"));
-	wordnets.AddColumn(t_("Hook score (listens)"));
-	wordnets.AddColumn(t_("Share score (relatability)"));
-	wordnets.AddColumn(t_("Value score (bookmarks)"));
+	String sc;
+	for(int i = 0; i < SCORE_MODE_COUNT; i++) {
+		for(int j = 0; j < SCORE_ATTR_COUNT; j++) {
+			wordnets.AddColumn(ScoreTitles[i][j]);
+			sc << " 1";
+		}
+	}
 	wordnets.AddIndex("IDX");
-	wordnets.ColumnWidths("1 2 1 3 1 1 1 1 1 1");
+	wordnets.ColumnWidths("1 2 1 3 1" + sc);
 	
 	clr_wordnets.AddColumn(t_("Main class"));
 	clr_wordnets.AddColumn(t_("Anchor word"));
@@ -48,13 +50,15 @@ SongDataWordnetScoring::SongDataWordnetScoring() {
 	clr_wordnets.AddColumn(t_("#6 alternative"));
 	clr_wordnets.AddColumn(t_("#7 alternative"));
 	clr_wordnets.AddColumn(t_("Total score"));
-	clr_wordnets.AddColumn(t_("Idea score (likes)"));
-	clr_wordnets.AddColumn(t_("Emotion score (comments)"));
-	clr_wordnets.AddColumn(t_("Hook score (listens)"));
-	clr_wordnets.AddColumn(t_("Share score (relatability)"));
-	clr_wordnets.AddColumn(t_("Value score (bookmarks)"));
+	sc.Clear();
+	for(int i = 0; i < SCORE_MODE_COUNT; i++) {
+		for(int j = 0; j < SCORE_ATTR_COUNT; j++) {
+			clr_wordnets.AddColumn(ScoreTitles[i][j]);
+			sc << " 2";
+		}
+	}
 	clr_wordnets.AddIndex("IDX");
-	clr_wordnets.ColumnWidths("2 2 1 1 1 1 1 1 1 2 2 2 2 2 2");
+	clr_wordnets.ColumnWidths("2 2 1 1 1 1 1 1 1" + sc);
 	
 }
 
@@ -209,10 +213,13 @@ void SongDataWordnetScoring::DataColor() {
 					.Paper(Blend(GrayColor(), wn.clr)).Ink(White()));
 		}
 		
-		int total_score = 0;
-		for(int j = 0; j < SCORE_COUNT; j++) {
-			total_score += wn.scores[j];
-			wordnets.Set(row, 5+j, wn.scores[j]);
+		int total_score = 0, l = 0;
+		for(int j = 0; j < SCORE_MODE_COUNT; j++) {
+			for(int k = 0; k < SCORE_ATTR_COUNT; k++) {
+				total_score += wn.scores[j][k];
+				wordnets.Set(row, 5+l, wn.scores[j][k]);
+				l++;
+			}
 		}
 		wordnets.Set(row, 4, total_score);
 		
@@ -276,10 +283,13 @@ void SongDataWordnetScoring::DataColor() {
 		for(int j = c; j < 7; j++)
 			clr_wordnets.Set(row, 2+j, Value());
 		
-		int total_score = 0;
-		for(int j = 0; j < SCORE_COUNT; j++) {
-			total_score += wn.scores[j];
-			clr_wordnets.Set(row, 10+j, wn.scores[j]);
+		int total_score = 0, l = 0;
+		for(int j = 0; j < SCORE_MODE_COUNT; j++) {
+			for(int k = 0; k < SCORE_ATTR_COUNT; k++) {
+				total_score += wn.scores[j][k];
+				clr_wordnets.Set(row, 10+l, wn.scores[j][k]);
+				l++;
+			}
 		}
 		clr_wordnets.Set(row, 9, total_score);
 		
@@ -292,26 +302,28 @@ void SongDataWordnetScoring::DataColor() {
 
 void SongDataWordnetScoring::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
-	bar.Separator();
-	if (running)
-		bar.Add(t_("Stop getting wordnet scores"), AppImg::RedRing(), THISBACK(ToggleGettingWordnetScores)).Key(K_F6);
-	else
-		bar.Add(t_("Start getting wordnet scores"), AppImg::RedRing(), THISBACK(ToggleGettingWordnetScores)).Key(K_F6);
-	bar.Separator();
-	if (running)
-		bar.Add(t_("Stop getting colored wordnet scores"), AppImg::RedRing(), THISBACK(ToggleGettingColorWordnetScores)).Key(K_F6);
-	else
-		bar.Add(t_("Start getting colored wordnet scores"), AppImg::RedRing(), THISBACK(ToggleGettingColorWordnetScores)).Key(K_F6);
-}
-
-void SongDataWordnetScoring::ToggleGettingWordnetScores() {
-	running = !running;
-	if (running) {
-		Thread::Start(THISBACK1(GetWordnetScores, 0));
+	for(int i = 0; i < SCORE_MODE_COUNT; i++) {
+		bar.Separator();
+		if (running)
+			bar.Add(t_("Stop getting wordnet scores") + Format(" %d", i), AppImg::RedRing(), THISBACK1(ToggleGettingWordnetScores,i)).Key(K_F6 + i);
+		else
+			bar.Add(t_("Start getting wordnet scores") + Format(" %d", i), AppImg::RedRing(), THISBACK1(ToggleGettingWordnetScores,i)).Key(K_F6 + i);
+		
+		if (running)
+			bar.Add(t_("Stop getting colored wordnet scores") + Format(" %d", i), AppImg::RedRing(), THISBACK1(ToggleGettingColorWordnetScores,i)).Key(K_F6 + i);
+		else
+			bar.Add(t_("Start getting colored wordnet scores") + Format(" %d", i), AppImg::RedRing(), THISBACK1(ToggleGettingColorWordnetScores,i)).Key(K_F6 + i);
 	}
 }
 
-void SongDataWordnetScoring::GetWordnetScores(int batch_i) {
+void SongDataWordnetScoring::ToggleGettingWordnetScores(int score_mode) {
+	running = !running;
+	if (running) {
+		Thread::Start(THISBACK2(GetWordnetScores, 0, score_mode));
+	}
+}
+
+void SongDataWordnetScoring::GetWordnetScores(int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
@@ -368,11 +380,12 @@ void SongDataWordnetScoring::GetWordnetScores(int batch_i) {
 	TaskMgr& m = pipe;
 	
 	args.fn = 9;
+	args.score_mode = score_mode;
 	
-	m.GetSongDataAnalysis(args, THISBACK1(OnWordnetScores, batch_i));
+	m.GetSongDataAnalysis(args, THISBACK2(OnWordnetScores, batch_i, score_mode));
 }
 
-void SongDataWordnetScoring::OnWordnetScores(String res, int batch_i) {
+void SongDataWordnetScoring::OnWordnetScores(String res, int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
@@ -405,9 +418,9 @@ void SongDataWordnetScoring::OnWordnetScores(String res, int batch_i) {
 			a++;
 			
 			Vector<String> parts = Split(l.Mid(a), ",");
-			if (parts.GetCount() != SCORE_COUNT)
+			if (parts.GetCount() != SCORE_ATTR_COUNT)
 				continue;
-			int score[SCORE_COUNT] = {0,0,0,0,0};
+			int score[SCORE_ATTR_COUNT] = {0,0,0,0,0};
 			for(int i = 0; i < parts.GetCount(); i++) {
 				String& s = parts[i];
 				int a = s.Find(":");
@@ -416,23 +429,23 @@ void SongDataWordnetScoring::OnWordnetScores(String res, int batch_i) {
 			}
 			
 			Wordnet& wn = *tmp_wordnets[line_idx];
-			for(int i = 0; i < SCORE_COUNT; i++)
-				wn.scores[i] = score[i];
+			for(int i = 0; i < SCORE_ATTR_COUNT; i++)
+				wn.scores[score_mode][i] = score[i];
 		}
 	}
 	
 	if (running)
-		PostCallback(THISBACK1(GetWordnetScores, batch_i+1));
+		PostCallback(THISBACK2(GetWordnetScores, batch_i+1, score_mode));
 }
 
-void SongDataWordnetScoring::ToggleGettingColorWordnetScores() {
+void SongDataWordnetScoring::ToggleGettingColorWordnetScores(int score_mode) {
 	running = !running;
 	if (running) {
-		Thread::Start(THISBACK1(GetColorWordnetScores, 0));
+		Thread::Start(THISBACK2(GetColorWordnetScores, 0, score_mode));
 	}
 }
 
-void SongDataWordnetScoring::GetColorWordnetScores(int batch_i) {
+void SongDataWordnetScoring::GetColorWordnetScores(int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
@@ -489,11 +502,12 @@ void SongDataWordnetScoring::GetColorWordnetScores(int batch_i) {
 	TaskMgr& m = pipe;
 	
 	args.fn = 9;
+	args.score_mode = score_mode;
 	
-	m.GetSongDataAnalysis(args, THISBACK1(OnColorWordnetScores, batch_i));
+	m.GetSongDataAnalysis(args, THISBACK2(OnColorWordnetScores, batch_i, score_mode));
 }
 
-void SongDataWordnetScoring::OnColorWordnetScores(String res, int batch_i) {
+void SongDataWordnetScoring::OnColorWordnetScores(String res, int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
@@ -526,9 +540,9 @@ void SongDataWordnetScoring::OnColorWordnetScores(String res, int batch_i) {
 			a++;
 			
 			Vector<String> parts = Split(l.Mid(a), ",");
-			if (parts.GetCount() != SCORE_COUNT)
+			if (parts.GetCount() != SCORE_ATTR_COUNT)
 				continue;
-			int score[SCORE_COUNT] = {0,0,0,0,0};
+			int score[SCORE_ATTR_COUNT] = {0,0,0,0,0};
 			for(int i = 0; i < parts.GetCount(); i++) {
 				String& s = parts[i];
 				int a = s.Find(":");
@@ -537,11 +551,11 @@ void SongDataWordnetScoring::OnColorWordnetScores(String res, int batch_i) {
 			}
 			
 			ColorWordnet& wn = *tmp_clr_wordnets[line_idx];
-			for(int i = 0; i < SCORE_COUNT; i++)
-				wn.scores[i] = score[i];
+			for(int i = 0; i < SCORE_ATTR_COUNT; i++)
+				wn.scores[score_mode][i] = score[i];
 		}
 	}
 	
 	if (running)
-		PostCallback(THISBACK1(GetColorWordnetScores, batch_i+1));
+		PostCallback(THISBACK2(GetColorWordnetScores, batch_i+1, score_mode));
 }

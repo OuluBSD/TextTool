@@ -27,9 +27,9 @@ public:
 	void DataAttribute();
 	void DataColor();
 	void ToolMenu(Bar& bar) override;
-	void ToggleGettingTemplates();
-	void GetTemplateScores(int batch_i);
-	void OnTemplateScores(String res, int batch_i);
+	void ToggleGettingTemplates(int score_mode);
+	void GetTemplateScores(int batch_i, int score_mode);
+	void OnTemplateScores(String res, int batch_i, int score_mode);
 	
 	
 };

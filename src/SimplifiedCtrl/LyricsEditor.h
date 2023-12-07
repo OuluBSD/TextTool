@@ -25,11 +25,11 @@ class LyricsEditor : public SongToolCtrl {
 	
 	// Coherent idea
 	Splitter idea_hsplit, idea_vsplit0, idea_vsplit1;
-	ArrayCtrl idea_lists[SCORE_COUNT];
+	//ArrayCtrl idea_lists[SCORE_COUNT];
 	
 	// Part idea
 	Splitter part_hsplit, part_vsplit0, part_vsplit1;
-	ArrayCtrl part_lists[SCORE_COUNT];
+	//ArrayCtrl part_lists[SCORE_COUNT];
 	
 	
 	void OnAttribute();

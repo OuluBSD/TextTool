@@ -4820,11 +4820,20 @@ void Task::CreateInput_GetSongDataAnalysis() {
 		}
 		{
 			auto& list = input.AddSub().Title("Action planner heuristic score factors");
-			list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
-			list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
-			list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
-			list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
-			list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+			if (args.score_mode == 0) {
+				list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
+				list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
+				list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
+				list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
+				list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+			}
+			else {
+				list.Add("S0: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
+				list.Add("S1: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
+				list.Add("S2: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
+				list.Add("S3: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
+				list.Add("S4: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
+			}
 		}
 		
 		
@@ -4841,7 +4850,10 @@ void Task::CreateInput_GetSongDataAnalysis() {
 			results.NumberedLines();
 			results.NoListChar();
 			results.Title(pc + " phrase scores and score factors. Value is between 0-10:");
-			results.Add("\"Bleeding after {pronoun}\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7");
+			if (args.score_mode == 0)
+				results.Add("\"Bleeding after {pronoun}\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7");
+			else
+				results.Add("\"Bleeding after {pronoun}\": S0: 9, S1: 4, S2: 2, S3: 3, S4: 2");
 			results.Add("\"");
 			//results.Add("S0 9 S1 8 S2 8 S3 6 S4 7");
 			//results.Add("");
@@ -4867,11 +4879,20 @@ void Task::CreateInput_GetSongDataAnalysis() {
 		}
 		{
 			auto& list = input.AddSub().Title("Action planner heuristic score factors");
-			list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
-			list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
-			list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
-			list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
-			list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+			if (args.score_mode == 0) {
+				list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
+				list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
+				list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
+				list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
+				list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+			}
+			else {
+				list.Add("S0: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
+				list.Add("S1: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
+				list.Add("S2: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
+				list.Add("S3: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
+				list.Add("S4: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
+			}
 		}
 		
 		
@@ -4888,7 +4909,10 @@ void Task::CreateInput_GetSongDataAnalysis() {
 			results.NumberedLines();
 			results.NoListChar();
 			results.Title(pc + " word group scores and score factors. Value is between 0-10");
-			results.Add("S0:8, S1:7, S2:9, S3:8, S4:7");
+			if (args.score_mode == 0)
+				results.Add("S0:8, S1:7, S2:9, S3:8, S4:7");
+			else
+				results.Add("S0:8, S1:3, S2:5, S3:6, S4:4");
 			results.Add("");
 		}
 		input.response_length = 2048;
@@ -5118,17 +5142,33 @@ void Task::CreateInput_GetSongDataAnalysis() {
 	if (args.fn == 11) {
 		{
 			auto& list = input.AddSub().Title("Action planner heuristic score factors");
-			list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
-			list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
-			list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
-			list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
-			list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+			if (args.score_mode == 0) {
+				list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
+				list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
+				list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
+				list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
+				list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+			}
+			else {
+				list.Add("S0: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
+				list.Add("S1: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
+				list.Add("S2: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
+				list.Add("S3: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
+				list.Add("S4: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
+			}
 		}
 		{
 			auto& list = input.AddSub().Title("Change of actions between 2 lines. Score of stopping actions in the first line and value of starting actions in the second line. Scores and score factors. Value is between 0-10");
-			list.Add("Stop line 1 & start line 2: S0: 0, S1: 0, S2: 7, S3: 3, S4: 0");
-			list.Add("Stop line 2 & start line 3: S0: 2, S1: 0, S2: 2, S3: 1, S4: 0");
-			list.Add("Stop line 3 & start line 4: S0: 1, S1: 5, S2: 3, S3: 2, S4: 8");
+			if (args.score_mode == 0) {
+				list.Add("Stop line 1 & start line 2: S0: 0, S1: 0, S2: 7, S3: 3, S4: 0");
+				list.Add("Stop line 2 & start line 3: S0: 2, S1: 0, S2: 2, S3: 1, S4: 0");
+				list.Add("Stop line 3 & start line 4: S0: 1, S1: 5, S2: 3, S3: 2, S4: 8");
+			}
+			else {
+				list.Add("Stop line 1 & start line 2: S0: 2, S1: 3, S2: 5, S3: 7, S4: 1");
+				list.Add("Stop line 2 & start line 3: S0: 4, S1: 3, S2: 2, S3: 9, S4: 6");
+				list.Add("Stop line 3 & start line 4: S0: 8, S1: 6, S2: 9, S3: 4, S4: 2");
+			}
 		}
 		String pc = IntStr(0 + args.phrases.GetCount());
 		{

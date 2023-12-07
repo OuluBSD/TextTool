@@ -1,10 +1,19 @@
 Scheduled work:
+- roles diversity
+	- singer/songwriter vs separated roles (composer, lyrics writer, producer, singer, etc)
 
 - lyrics editor:
+	- write phonetics and get rhyming phrase suggestions
+		- use "simplified phonetics"
+	- simple phrase sampler (direct copy... ugly!)
+	- target score of song: (e.g. if song is more comedic than political)
 	- user sets: syllable count range & desired color (if any) & desires attributes (if any)
 	- get candidates
 		- make rhyming phrases without ai
 		- evaluate actions for candidates with ai
+	- generate candidates from actions
+		- show partially matching phrases and action-sets
+		- get morphed output phrase
 
 
 - dump backup data from database parsers

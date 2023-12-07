@@ -205,14 +205,16 @@ double GetActionMatching(const Vector<ActionArg>& a, const Vector<ActionArg>& b)
 
 struct ActionPhrase : Moveable<ActionPhrase> {
 	struct Score : Moveable<Score> {
-		int scores[SCORE_COUNT];
+		int scores[SCORE_MODE_COUNT][SCORE_ATTR_COUNT] = {{0,0,0,0,0},{0,0,0,0,0}};
 		void Jsonize(JsonIO& json) {
-			for(int i = 0; i < SCORE_COUNT; i++)
-				json("sc" + IntStr(i), scores[i]);
+			for(int i = 0; i < SCORE_MODE_COUNT; i++)
+				for(int j = 0; j < SCORE_ATTR_COUNT; j++)
+					json(GetScoreKey(i,j), scores[i][j]);
 		}
 		void Serialize(Stream& s) {
-			for(int i = 0; i < SCORE_COUNT; i++)
-				s % scores[i];
+			for(int i = 0; i < SCORE_MODE_COUNT; i++)
+				for(int j = 0; j < SCORE_ATTR_COUNT; j++)
+					s % scores[i][j];
 		}
 	};
 	union {
@@ -263,8 +265,6 @@ struct ActionTemplate : Moveable<ActionTemplate> {
 	}
 };
 
-extern const char* ScoreName[SCORE_COUNT];
-
 struct TemplatePhrase : Moveable<TemplatePhrase> {
 	union {
 		hash_t hash;
@@ -272,7 +272,7 @@ struct TemplatePhrase : Moveable<TemplatePhrase> {
 	};
 	Vector<String> parts;
 	Vector<Vector<String>> words;
-	byte scores[SCORE_COUNT] = {0,0,0,0,0};
+	byte scores[SCORE_MODE_COUNT][SCORE_ATTR_COUNT] = {{0,0,0,0,0},{0,0,0,0,0}};
 	
 	// From the first LyricsAnalysis::Phrase
 	String group, value;
@@ -289,13 +289,15 @@ struct TemplatePhrase : Moveable<TemplatePhrase> {
 			("value", value)
 			("clr", clr)
 			;
-		for(int i = 0; i < SCORE_COUNT; i++)
-			json("sc" + IntStr(i), scores[i]);
+		for(int i = 0; i < SCORE_MODE_COUNT; i++)
+			for(int j = 0; j < SCORE_ATTR_COUNT; j++)
+				json(GetScoreKey(i,j), scores[i][j]);
 	}
 	void Serialize(Stream& s) {
 		s % hash % parts % words % group % value % clr;
-		for(int i = 0; i < SCORE_COUNT; i++)
-			s % scores[i];
+		for(int i = 0; i < SCORE_MODE_COUNT; i++)
+			for(int j = 0; j < SCORE_ATTR_COUNT; j++)
+				s % scores[i][j];
 	}
 };
 
@@ -305,7 +307,7 @@ struct Wordnet : Moveable<Wordnet> {
 	String group, value;
 	Color clr;
 	int clr_group = -1;
-	byte scores[SCORE_COUNT] = {0,0,0,0,0};
+	byte scores[SCORE_MODE_COUNT][SCORE_ATTR_COUNT] = {{0,0,0,0,0},{0,0,0,0,0}};
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -316,13 +318,15 @@ struct Wordnet : Moveable<Wordnet> {
 			("clr", clr)
 			("clr_group", clr_group)
 			;
-		for(int i = 0; i < SCORE_COUNT; i++)
-			json("sc" + IntStr(i), scores[i]);
+		for(int i = 0; i < SCORE_MODE_COUNT; i++)
+			for(int j = 0; j < SCORE_ATTR_COUNT; j++)
+				json(GetScoreKey(i,j), scores[i][j]);
 	}
 	void Serialize(Stream& s) {
 		s % words % main_class % group % value % clr % clr_group;
-		for(int i = 0; i < SCORE_COUNT; i++)
-			s % scores[i];
+		for(int i = 0; i < SCORE_MODE_COUNT; i++)
+			for(int j = 0; j < SCORE_ATTR_COUNT; j++)
+				s % scores[i][j];
 	}
 };
 
@@ -337,7 +341,7 @@ struct ColorWordnet : Moveable<ColorWordnet> {
 	String src_word;
 	Color clr;
 	int clr_group = -1;
-	byte scores[SCORE_COUNT] = {0,0,0,0,0};
+	byte scores[SCORE_MODE_COUNT][SCORE_ATTR_COUNT] = {{0,0,0,0,0},{0,0,0,0,0}};
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -350,13 +354,15 @@ struct ColorWordnet : Moveable<ColorWordnet> {
 			("clr", clr)
 			("clr_group", clr_group)
 			;
-		for(int i = 0; i < SCORE_COUNT; i++)
-			json("sc" + IntStr(i), scores[i]);
+		for(int i = 0; i < SCORE_MODE_COUNT; i++)
+			for(int j = 0; j < SCORE_ATTR_COUNT; j++)
+				json(GetScoreKey(i,j), scores[i][j]);
 	}
 	void Serialize(Stream& s) {
 		s % hash % words % colors % main_class % src_word % clr % clr_group;
-		for(int i = 0; i < SCORE_COUNT; i++)
-			s % scores[i];
+		for(int i = 0; i < SCORE_MODE_COUNT; i++)
+			for(int j = 0; j < SCORE_ATTR_COUNT; j++)
+				s % scores[i][j];
 	}
 };
 

@@ -50,9 +50,9 @@ public:
 	void GetLineActions(int batch_i);
 	void OnLineActions(String res, int batch_i);
 	
-	void ToggleGettingLineChangeScores();
-	void GetLineChangeScores(int batch_i);
-	void OnLineChangeScores(String res, int batch_i);
+	void ToggleGettingLineChangeScores(int score_mode);
+	void GetLineChangeScores(int batch_i, int score_mode);
+	void OnLineChangeScores(String res, int batch_i, int score_mode);
 	
 };
 

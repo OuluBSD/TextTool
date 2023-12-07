@@ -40,12 +40,14 @@ SongDataLineActions::SongDataLineActions() {
 	
 	next_lines.AddColumn(t_("Txt"));
 	next_lines.AddColumn(t_("Total score"));
-	next_lines.AddColumn(t_("Idea score (likes)"));
-	next_lines.AddColumn(t_("Emotion score (comments)"));
-	next_lines.AddColumn(t_("Hook score (listens)"));
-	next_lines.AddColumn(t_("Share score (relatability)"));
-	next_lines.AddColumn(t_("Value score (bookmarks)"));
-	next_lines.ColumnWidths("3 1 1 1 1 1 1");
+	String sc;
+	for(int i = 0; i < SCORE_MODE_COUNT; i++) {
+		for(int j = 0; j < SCORE_ATTR_COUNT; j++) {
+			next_lines.AddColumn(ScoreTitles[i][j]);
+			sc << " 1";
+		}
+	}
+	next_lines.ColumnWidths("3 1" + sc);
 	
 }
 
@@ -240,18 +242,22 @@ void SongDataLineActions::DataNextLine() {
 		next_lines.Set(i, 0, next.txt);
 		if (i < next.next_scores.GetCount()) {
 			auto& sc = next.next_scores[i];
-			int total_score = 0;
-			for(int j = 0; j < SCORE_COUNT; j++) {
-				int v = sc.scores[j];
-				total_score += v;
-				next_lines.Set(i, 2+j, v);
+			int total_score = 0, l = 0;
+			for(int j = 0; j < SCORE_MODE_COUNT; j++) {
+				for(int k = 0; k < SCORE_ATTR_COUNT; k++) {
+					int v = sc.scores[j][k];
+					total_score += v;
+					next_lines.Set(i, 2+l, v);
+					l++;
+				}
 			}
 			next_lines.Set(i, 1, total_score);
 		}
 		else {
 			next_lines.Set(i, 1, Value());
-			for(int j = 0; j < SCORE_COUNT; j++)
+			for(int j = 0; j < (SCORE_MODE_COUNT * SCORE_ATTR_COUNT); j++) {
 				next_lines.Set(i, 2+j, Value());
+			}
 		}
 	}
 	next_lines.SetCount(ap.next_phrases.GetCount());
@@ -267,11 +273,14 @@ void SongDataLineActions::ToolMenu(Bar& bar) {
 		bar.Add(t_("Stop getting line actions"), AppImg::RedRing(), THISBACK(ToggleGettingLineActions)).Key(K_F6);
 	else
 		bar.Add(t_("Start getting line actions"), AppImg::RedRing(), THISBACK(ToggleGettingLineActions)).Key(K_F6);
-	bar.Separator();
-	if (running1)
-		bar.Add(t_("Stop getting colored wordnet scores"), AppImg::RedRing(), THISBACK(ToggleGettingLineChangeScores)).Key(K_F7);
-	else
-		bar.Add(t_("Start getting colored wordnet scores"), AppImg::RedRing(), THISBACK(ToggleGettingLineChangeScores)).Key(K_F7);
+	for(int i = 0; i < SCORE_MODE_COUNT; i++) {
+		bar.Separator();
+		
+		if (running1)
+			bar.Add(t_("Stop getting colored wordnet scores") + Format(" %d",i), AppImg::RedRing(), THISBACK1(ToggleGettingLineChangeScores,i)).Key(K_F7 + i);
+		else
+			bar.Add(t_("Start getting colored wordnet scores") + Format(" %d",i), AppImg::RedRing(), THISBACK1(ToggleGettingLineChangeScores,i)).Key(K_F7 + i);
+	}
 }
 
 void SongDataLineActions::UpdateBatches() {
@@ -470,14 +479,14 @@ void SongDataLineActions::OnLineActions(String res, int batch_i) {
 		PostCallback(THISBACK1(GetLineActions, batch_i+1));
 }
 
-void SongDataLineActions::ToggleGettingLineChangeScores() {
+void SongDataLineActions::ToggleGettingLineChangeScores(int score_mode) {
 	running1 = !running1;
 	if (running1) {
-		Thread::Start(THISBACK1(GetLineChangeScores, 0));
+		Thread::Start(THISBACK2(GetLineChangeScores, 0, score_mode));
 	}
 }
 
-void SongDataLineActions::GetLineChangeScores(int batch_i) {
+void SongDataLineActions::GetLineChangeScores(int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	if (batches.IsEmpty()) UpdateBatches();
@@ -495,6 +504,7 @@ void SongDataLineActions::GetLineChangeScores(int batch_i) {
 	
 	SongDataAnalysisArgs args;
 	args.fn = 11;
+	args.score_mode = score_mode;
 	args.phrases <<= Split(batch.txt, "\n");
 	
 	ap_is.Clear();
@@ -528,10 +538,10 @@ void SongDataLineActions::GetLineChangeScores(int batch_i) {
 	Song& song = GetSong();
 	song.RealizePipe();
 	TaskMgr& m = *song.pipe;
-	m.GetSongDataAnalysis(args, THISBACK1(OnLineChangeScores, batch_i));
+	m.GetSongDataAnalysis(args, THISBACK2(OnLineChangeScores, batch_i, score_mode));
 }
 
-void SongDataLineActions::OnLineChangeScores(String res, int batch_i) {
+void SongDataLineActions::OnLineChangeScores(String res, int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
@@ -569,9 +579,9 @@ void SongDataLineActions::OnLineChangeScores(String res, int batch_i) {
 		int line1 = StrInt(TrimBoth(l.Mid(a,b-a)));
 		
 		Vector<String> parts = Split(l.Mid(b+1), ",");
-		if (parts.GetCount() != SCORE_COUNT)
+		if (parts.GetCount() != SCORE_ATTR_COUNT)
 			continue;
-		int score[SCORE_COUNT] = {0,0,0,0,0};
+		int score[SCORE_ATTR_COUNT] = {0,0,0,0,0};
 		for(int i = 0; i < parts.GetCount(); i++) {
 			String& s = parts[i];
 			int a = s.Find(":");
@@ -595,11 +605,11 @@ void SongDataLineActions::OnLineChangeScores(String res, int batch_i) {
 			if (ap0.next_scores.GetCount() <= j)
 				ap0.next_scores.SetCount(j+1);
 			auto& tgt = ap0.next_scores[j];
-			for(int j = 0; j < SCORE_COUNT; j++)
-				tgt.scores[j] = score[j];
+			for(int j = 0; j < SCORE_ATTR_COUNT; j++)
+				tgt.scores[score_mode][j] = score[j];
 		}
 	}
 	
 	if (running1)
-		PostCallback(THISBACK1(GetLineChangeScores, batch_i+1));
+		PostCallback(THISBACK2(GetLineChangeScores, batch_i+1, score_mode));
 }

@@ -27,13 +27,13 @@ public:
 	void DataColor();
 	void ToolMenu(Bar& bar) override;
 	
-	void ToggleGettingWordnetScores();
-	void GetWordnetScores(int batch_i);
-	void OnWordnetScores(String res, int batch_i);
+	void ToggleGettingWordnetScores(int score_mode);
+	void GetWordnetScores(int batch_i, int score_mode);
+	void OnWordnetScores(String res, int batch_i, int score_mode);
 	
-	void ToggleGettingColorWordnetScores();
-	void GetColorWordnetScores(int batch_i);
-	void OnColorWordnetScores(String res, int batch_i);
+	void ToggleGettingColorWordnetScores(int score_mode);
+	void GetColorWordnetScores(int batch_i, int score_mode);
+	void OnColorWordnetScores(String res, int batch_i, int score_mode);
 	
 };
 

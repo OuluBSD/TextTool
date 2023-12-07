@@ -27,13 +27,15 @@ SongDataTemplateScoring::SongDataTemplateScoring() {
 	scores.AddColumn(t_("Value"));
 	scores.AddColumn(t_("Phrase"));
 	scores.AddColumn(t_("Total score"));
-	scores.AddColumn(t_("Idea score (likes)"));
-	scores.AddColumn(t_("Emotion score (comments)"));
-	scores.AddColumn(t_("Hook score (listens)"));
-	scores.AddColumn(t_("Share score (relatability)"));
-	scores.AddColumn(t_("Value score (bookmarks)"));
+	String sc;
+	for(int i = 0; i < SCORE_MODE_COUNT; i++) {
+		for(int j = 0; j < SCORE_ATTR_COUNT; j++) {
+			scores.AddColumn(ScoreTitles[i][j]);
+			sc << " 1";
+		}
+	}
 	scores.AddIndex("IDX");
-	scores.ColumnWidths("2 2 4 1 1 1 1 1");
+	scores.ColumnWidths("2 2 4" + sc);
 	
 }
 
@@ -175,9 +177,13 @@ void SongDataTemplateScoring::DataColor() {
 			);
 		
 		int total_score = 0;
-		for(int j = 0; j < SCORE_COUNT; j++) {
-			total_score += tp.scores[j];
-			scores.Set(row, 4+j, (int)(tp.scores[j]));
+		int l = 0;
+		for(int j = 0; j < SCORE_MODE_COUNT; j++) {
+			for(int k = 0; k < SCORE_ATTR_COUNT; k++) {
+				total_score += tp.scores[j][k];
+				scores.Set(row, 4+l, (int)(tp.scores[j][k]));
+				l++;
+			}
 		}
 		scores.Set(row, 3, total_score);
 		row++;
@@ -190,21 +196,23 @@ void SongDataTemplateScoring::DataColor() {
 
 void SongDataTemplateScoring::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
-	bar.Separator();
-	if (running)
-		bar.Add(t_("Stop getting template scores"), AppImg::RedRing(), THISBACK(ToggleGettingTemplates)).Key(K_F5);
-	else
-		bar.Add(t_("Start getting template scores"), AppImg::RedRing(), THISBACK(ToggleGettingTemplates)).Key(K_F5);
-}
-
-void SongDataTemplateScoring::ToggleGettingTemplates() {
-	running = !running;
-	if (running) {
-		Thread::Start(THISBACK1(GetTemplateScores, 0));
+	for(int i = 0; i < SCORE_MODE_COUNT; i++) {
+		bar.Separator();
+		if (running)
+			bar.Add(t_("Stop getting template scores") + Format(" %d", i), AppImg::RedRing(), THISBACK1(ToggleGettingTemplates,i));
+		else
+			bar.Add(t_("Start getting template scores") + Format(" %d", i), AppImg::RedRing(), THISBACK1(ToggleGettingTemplates,i));
 	}
 }
 
-void SongDataTemplateScoring::GetTemplateScores(int batch_i) {
+void SongDataTemplateScoring::ToggleGettingTemplates(int score_mode) {
+	running = !running;
+	if (running) {
+		Thread::Start(THISBACK2(GetTemplateScores, 0, score_mode));
+	}
+}
+
+void SongDataTemplateScoring::GetTemplateScores(int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
@@ -280,11 +288,12 @@ void SongDataTemplateScoring::GetTemplateScores(int batch_i) {
 	TaskMgr& m = pipe;
 	
 	args.fn = 8;
+	args.score_mode = score_mode;
 	
-	m.GetSongDataAnalysis(args, THISBACK1(OnTemplateScores, batch_i));
+	m.GetSongDataAnalysis(args, THISBACK2(OnTemplateScores, batch_i, score_mode));
 }
 
-void SongDataTemplateScoring::OnTemplateScores(String res, int batch_i) {
+void SongDataTemplateScoring::OnTemplateScores(String res, int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
@@ -331,9 +340,9 @@ void SongDataTemplateScoring::OnTemplateScores(String res, int batch_i) {
 			a++;
 			
 			Vector<String> parts = Split(l.Mid(a), ",");
-			if (parts.GetCount() != SCORE_COUNT)
+			if (parts.GetCount() != SCORE_ATTR_COUNT)
 				continue;
-			int score[SCORE_COUNT] = {0,0,0,0,0};
+			int score[SCORE_ATTR_COUNT] = {0,0,0,0,0};
 			for(int i = 0; i < parts.GetCount(); i++) {
 				String& s = parts[i];
 				int a = s.Find(":");
@@ -342,13 +351,13 @@ void SongDataTemplateScoring::OnTemplateScores(String res, int batch_i) {
 			}
 			
 			TemplatePhrase& tp = *phrases[line_idx];
-			for(int i = 0; i < SCORE_COUNT; i++)
-				tp.scores[i] = score[i];
+			for(int i = 0; i < SCORE_ATTR_COUNT; i++)
+				tp.scores[score_mode][i] = score[i];
 		}
 	}
 	
 	lock.Leave();
 	
 	if (running)
-		PostCallback(THISBACK1(GetTemplateScores, batch_i+1));
+		PostCallback(THISBACK2(GetTemplateScores, batch_i+1, score_mode));
 }

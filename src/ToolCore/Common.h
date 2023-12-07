@@ -6,7 +6,7 @@
 
 
 
-enum {
+/*enum {
 	SCORE_IDEA,
 	SCORE_EMOTION,
 	SCORE_HOOK,
@@ -14,9 +14,20 @@ enum {
 	SCORE_VALUE,
 	
 	SCORE_COUNT
+};*/
+
+enum {
+	SCORE_MODE_STATS,
+	SCORE_MODE_MEANING,
+	
+	SCORE_MODE_COUNT
 };
 
-extern const char* ScoreTitles[SCORE_COUNT];
+#define SCORE_ATTR_COUNT 5
+
+
+extern const char* ScoreTitles[SCORE_MODE_COUNT][SCORE_ATTR_COUNT];
+String GetScoreKey(int score_mode, int score_attr);
 
 enum {
 	RHYME_A_A,

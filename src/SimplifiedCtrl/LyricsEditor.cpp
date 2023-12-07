@@ -68,20 +68,20 @@ LyricsEditor::LyricsEditor() {
 	idea_hsplit.Horz() << idea_vsplit0 << idea_vsplit1;
 	idea_vsplit0.Vert();
 	idea_vsplit1.Vert();
-	for(int i = 0; i < SCORE_COUNT; i++) {
+	/*for(int i = 0; i < SCORE_COUNT; i++) {
 		(i % 2 == 0 ? idea_vsplit0 : idea_vsplit1) << idea_lists[i];
 		idea_lists[i].AddColumn(ScoreTitles[i]);
-	}
+	}*/
 	
 	
 	// Part idea
 	part_hsplit.Horz() << part_vsplit0 << part_vsplit1;
 	part_vsplit0.Vert();
 	part_vsplit1.Vert();
-	for(int i = 0; i < SCORE_COUNT; i++) {
+	/*for(int i = 0; i < SCORE_COUNT; i++) {
 		(i % 2 == 0 ? part_vsplit0 : part_vsplit1) << part_lists[i];
 		part_lists[i].AddColumn(ScoreTitles[i]);
-	}
+	}*/
 	
 }
 
@@ -418,19 +418,19 @@ void LyricsEditor::GetSentences(const TemplatePhrase& tp, Vector<String>& sents,
 }
 
 void LyricsEditor::DataIdea() {
-	if (!parts.IsCursor()) {
+	/*if (!parts.IsCursor()) {
 		for(int i = 0; i < SCORE_COUNT; i++)
 			idea_lists[i].Clear();
 		return;
-	}
+	}*/
 	
 }
 
 void LyricsEditor::DataPartIdea() {
-	if (!parts.IsCursor()) {
+	/*if (!parts.IsCursor()) {
 		for(int i = 0; i < SCORE_COUNT; i++)
 			part_lists[i].Clear();
 		return;
-	}
+	}*/
 	
 }

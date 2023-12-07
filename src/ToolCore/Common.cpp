@@ -15479,10 +15479,28 @@ void SetColoredListValue(ArrayCtrl& list, int row, int col, const String& txt, C
 }
 
 
-const char* ScoreTitles[SCORE_COUNT] = {
-	"Idea",
-	"Emotion",
-	"Hook",
-	"Share",
-	"Value"
+const char* ScoreTitles[SCORE_MODE_COUNT][SCORE_ATTR_COUNT] = {
+	// Statistical measurements
+	{
+		"Idea",
+		"Emotion",
+		"Hook",
+		"Share",
+		"Value"
+	},
+	// Human value measurements (meaning)
+	{
+		"Comedy",
+		"Sex",
+		"Politics",
+		"Love",
+		"Social issues"
+	}
 };
+
+String GetScoreKey(int score_mode, int score_attr) {
+	if (!score_mode)
+		return "sc(" + IntStr(score_attr) + ")";
+	else
+		return "sc(" + IntStr(score_mode) + "," + IntStr(score_attr) + ")";
+}
