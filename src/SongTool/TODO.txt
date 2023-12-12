@@ -1,17 +1,19 @@
 Scheduled work:
-- virtual artists (e.g Eminem: Slim Shady, Nicki Minaj: Roman)
-- "don't push a product, push a lifestyle"
-	- "make it feel like day in a life"
-		- https://www.instagram.com/reel/C0KvqNFPzvZ/
-- price of things to do for artist
-	- "you can make cheap things look sick if you know where to source"
-- content calendaring
-
-- roles diversity
-	- singer/songwriter vs separated roles (composer, lyrics writer, producer, singer, etc)
-- competition -page
-
 - lyrics editor:
+	- new version
+		- gui
+			- list of parts
+			- DocEdit for phonetics version of the part
+				- syllables encodes rhyming priorities
+			- list of threads
+			- settings for the thread
+			- list of phrases in a thread
+				- 3 options: saved, frozen path item, best path item
+			- list of phrase item settings
+				- preferred: color, attrs, scores, action
+		- multiple threads, which tries to find the best lyrics
+		- 2 phases: 1st templates, 2nd full syllable match
+		- A* and action planner based, modular
 	- write phonetics and get rhyming phrase suggestions
 		- use "simplified phonetics"
 	- simple phrase sampler (direct copy... ugly!)
@@ -23,6 +25,25 @@ Scheduled work:
 	- generate candidates from actions
 		- show partially matching phrases and action-sets
 		- get morphed output phrase
+- tempo tap based phonetic rhyme writer for fast writing
+- total database progress page
+	- how much needs to be processed still
+
+- virtual artists (e.g Eminem: Slim Shady, Nicki Minaj: Roman)
+	- song style templates
+		- "colors", actions
+		- even structures (e.g. if needs simple or epic)
+- "don't push a product, push a lifestyle"
+	- "make it feel like day in a life"
+		- https://www.instagram.com/reel/C0KvqNFPzvZ/
+- price of things to do for artist
+	- "you can make cheap things look sick if you know where to source"
+- content calendaring
+
+- roles diversity
+	- singer/songwriter vs separated roles (composer, lyrics writer, producer, singer, etc)
+- competition -page
+
 
 
 - dump backup data from database parsers
