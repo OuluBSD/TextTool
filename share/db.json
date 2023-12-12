@@ -954,6 +954,905 @@
 					}
 				]
 			}
+		},
+		{
+			"key": "EN-US",
+			"value": {
+				"data": [
+					{
+						"key": "acceptance",
+						"value": ""
+					},
+					{
+						"key": "accountable",
+						"value": ""
+					},
+					{
+						"key": "acoustic",
+						"value": ""
+					},
+					{
+						"key": "adventurous",
+						"value": ""
+					},
+					{
+						"key": "age target",
+						"value": ""
+					},
+					{
+						"key": "age-inclusive",
+						"value": ""
+					},
+					{
+						"key": "agnostic",
+						"value": ""
+					},
+					{
+						"key": "allegorical",
+						"value": ""
+					},
+					{
+						"key": "alternative",
+						"value": ""
+					},
+					{
+						"key": "anti-capitalism",
+						"value": ""
+					},
+					{
+						"key": "artistic integrity",
+						"value": ""
+					},
+					{
+						"key": "aspirational",
+						"value": ""
+					},
+					{
+						"key": "atheistic",
+						"value": ""
+					},
+					{
+						"key": "attitude 1",
+						"value": ""
+					},
+					{
+						"key": "attitude 2",
+						"value": ""
+					},
+					{
+						"key": "attitude 3",
+						"value": ""
+					},
+					{
+						"key": "audience",
+						"value": ""
+					},
+					{
+						"key": "authencity",
+						"value": ""
+					},
+					{
+						"key": "authentic",
+						"value": ""
+					},
+					{
+						"key": "authoritarian",
+						"value": ""
+					},
+					{
+						"key": "average expectations",
+						"value": ""
+					},
+					{
+						"key": "belief communities",
+						"value": ""
+					},
+					{
+						"key": "belief spectrum",
+						"value": ""
+					},
+					{
+						"key": "believer",
+						"value": ""
+					},
+					{
+						"key": "body enhancing beauty",
+						"value": ""
+					},
+					{
+						"key": "body positivity",
+						"value": ""
+					},
+					{
+						"key": "celebrity persona",
+						"value": ""
+					},
+					{
+						"key": "celebrity worship",
+						"value": ""
+					},
+					{
+						"key": "closed",
+						"value": ""
+					},
+					{
+						"key": "collaboration",
+						"value": ""
+					},
+					{
+						"key": "collective",
+						"value": ""
+					},
+					{
+						"key": "commercial appeal",
+						"value": ""
+					},
+					{
+						"key": "comparison",
+						"value": ""
+					},
+					{
+						"key": "competition",
+						"value": ""
+					},
+					{
+						"key": "competitiveness",
+						"value": ""
+					},
+					{
+						"key": "concepts",
+						"value": ""
+					},
+					{
+						"key": "confident",
+						"value": ""
+					},
+					{
+						"key": "conservative",
+						"value": ""
+					},
+					{
+						"key": "consumerism",
+						"value": ""
+					},
+					{
+						"key": "corporation relations",
+						"value": ""
+					},
+					{
+						"key": "cultural elements",
+						"value": ""
+					},
+					{
+						"key": "cultural preservation",
+						"value": ""
+					},
+					{
+						"key": "culture",
+						"value": ""
+					},
+					{
+						"key": "cunning",
+						"value": ""
+					},
+					{
+						"key": "dependence",
+						"value": ""
+					},
+					{
+						"key": "descriptive",
+						"value": ""
+					},
+					{
+						"key": "despair",
+						"value": ""
+					},
+					{
+						"key": "divine worshipers",
+						"value": ""
+					},
+					{
+						"key": "dramatic",
+						"value": ""
+					},
+					{
+						"key": "economic",
+						"value": ""
+					},
+					{
+						"key": "edgy",
+						"value": ""
+					},
+					{
+						"key": "electronic",
+						"value": ""
+					},
+					{
+						"key": "emotional",
+						"value": ""
+					},
+					{
+						"key": "emotional realism",
+						"value": ""
+					},
+					{
+						"key": "emotionally charged",
+						"value": ""
+					},
+					{
+						"key": "emotionally restrained",
+						"value": ""
+					},
+					{
+						"key": "escapism",
+						"value": ""
+					},
+					{
+						"key": "expectation-conformed",
+						"value": ""
+					},
+					{
+						"key": "expectation-opposed",
+						"value": ""
+					},
+					{
+						"key": "expectations",
+						"value": ""
+					},
+					{
+						"key": "explicit",
+						"value": ""
+					},
+					{
+						"key": "expression",
+						"value": ""
+					},
+					{
+						"key": "faith and reason seekers",
+						"value": ""
+					},
+					{
+						"key": "faith extremes",
+						"value": ""
+					},
+					{
+						"key": "female",
+						"value": ""
+					},
+					{
+						"key": "fictional",
+						"value": ""
+					},
+					{
+						"key": "gender",
+						"value": ""
+					},
+					{
+						"key": "globalization",
+						"value": ""
+					},
+					{
+						"key": "grounded",
+						"value": ""
+					},
+					{
+						"key": "group experience",
+						"value": ""
+					},
+					{
+						"key": "group faith",
+						"value": ""
+					},
+					{
+						"key": "group-oriented",
+						"value": ""
+					},
+					{
+						"key": "happiness",
+						"value": ""
+					},
+					{
+						"key": "heartbreak",
+						"value": ""
+					},
+					{
+						"key": "heavy",
+						"value": ""
+					},
+					{
+						"key": "heterosexual",
+						"value": ""
+					},
+					{
+						"key": "homosexual",
+						"value": ""
+					},
+					{
+						"key": "honest",
+						"value": ""
+					},
+					{
+						"key": "hopeful",
+						"value": ""
+					},
+					{
+						"key": "human strength",
+						"value": ""
+					},
+					{
+						"key": "humorous",
+						"value": ""
+					},
+					{
+						"key": "imagery",
+						"value": ""
+					},
+					{
+						"key": "independence",
+						"value": ""
+					},
+					{
+						"key": "individual spirituality",
+						"value": ""
+					},
+					{
+						"key": "individual-focused",
+						"value": ""
+					},
+					{
+						"key": "individual-oriented",
+						"value": ""
+					},
+					{
+						"key": "individualistic",
+						"value": ""
+					},
+					{
+						"key": "innocent",
+						"value": ""
+					},
+					{
+						"key": "instant gratification",
+						"value": ""
+					},
+					{
+						"key": "integrity",
+						"value": ""
+					},
+					{
+						"key": "intellectual",
+						"value": ""
+					},
+					{
+						"key": "intelligence",
+						"value": ""
+					},
+					{
+						"key": "introspective ballads",
+						"value": ""
+					},
+					{
+						"key": "intuitive thinkers",
+						"value": ""
+					},
+					{
+						"key": "irresponsible",
+						"value": ""
+					},
+					{
+						"key": "joyful",
+						"value": ""
+					},
+					{
+						"key": "kinky",
+						"value": ""
+					},
+					{
+						"key": "liberal",
+						"value": ""
+					},
+					{
+						"key": "libertarian",
+						"value": ""
+					},
+					{
+						"key": "life and love",
+						"value": ""
+					},
+					{
+						"key": "lighthearted",
+						"value": ""
+					},
+					{
+						"key": "limited",
+						"value": ""
+					},
+					{
+						"key": "longevity",
+						"value": ""
+					},
+					{
+						"key": "love status",
+						"value": ""
+					},
+					{
+						"key": "loving now",
+						"value": ""
+					},
+					{
+						"key": "lyrical emphasis",
+						"value": ""
+					},
+					{
+						"key": "mainstream",
+						"value": ""
+					},
+					{
+						"key": "mainstream success",
+						"value": ""
+					},
+					{
+						"key": "male",
+						"value": ""
+					},
+					{
+						"key": "melancholic",
+						"value": ""
+					},
+					{
+						"key": "mindful",
+						"value": ""
+					},
+					{
+						"key": "mindfulness",
+						"value": ""
+					},
+					{
+						"key": "mindless",
+						"value": ""
+					},
+					{
+						"key": "monogamy",
+						"value": ""
+					},
+					{
+						"key": "mood 1",
+						"value": ""
+					},
+					{
+						"key": "mood 2",
+						"value": ""
+					},
+					{
+						"key": "mood 3",
+						"value": ""
+					},
+					{
+						"key": "mood 4",
+						"value": ""
+					},
+					{
+						"key": "mood 5",
+						"value": ""
+					},
+					{
+						"key": "mood-driven",
+						"value": ""
+					},
+					{
+						"key": "motivation",
+						"value": ""
+					},
+					{
+						"key": "mysterious",
+						"value": ""
+					},
+					{
+						"key": "mystic practitioner",
+						"value": ""
+					},
+					{
+						"key": "narrative",
+						"value": ""
+					},
+					{
+						"key": "narrative detachment",
+						"value": ""
+					},
+					{
+						"key": "narrative-driven",
+						"value": ""
+					},
+					{
+						"key": "natural beauty",
+						"value": ""
+					},
+					{
+						"key": "new age spirituality",
+						"value": ""
+					},
+					{
+						"key": "non-believer",
+						"value": ""
+					},
+					{
+						"key": "non-sexual",
+						"value": ""
+					},
+					{
+						"key": "normal",
+						"value": ""
+					},
+					{
+						"key": "nostalgic",
+						"value": ""
+					},
+					{
+						"key": "old and new believers",
+						"value": ""
+					},
+					{
+						"key": "open",
+						"value": ""
+					},
+					{
+						"key": "optimistic",
+						"value": ""
+					},
+					{
+						"key": "organized religion",
+						"value": ""
+					},
+					{
+						"key": "partner-focused",
+						"value": ""
+					},
+					{
+						"key": "party anthems",
+						"value": ""
+					},
+					{
+						"key": "party relation",
+						"value": ""
+					},
+					{
+						"key": "patience",
+						"value": ""
+					},
+					{
+						"key": "peacefulness",
+						"value": ""
+					},
+					{
+						"key": "peacemaker",
+						"value": ""
+					},
+					{
+						"key": "perfection",
+						"value": ""
+					},
+					{
+						"key": "personal experience",
+						"value": ""
+					},
+					{
+						"key": "pessimistic",
+						"value": ""
+					},
+					{
+						"key": "physical preference",
+						"value": ""
+					},
+					{
+						"key": "playful",
+						"value": ""
+					},
+					{
+						"key": "polygamy",
+						"value": ""
+					},
+					{
+						"key": "prescriptive",
+						"value": ""
+					},
+					{
+						"key": "problem solving strategy",
+						"value": ""
+					},
+					{
+						"key": "production style",
+						"value": ""
+					},
+					{
+						"key": "protagonist storytelling",
+						"value": ""
+					},
+					{
+						"key": "provocativity",
+						"value": ""
+					},
+					{
+						"key": "psychedelic",
+						"value": ""
+					},
+					{
+						"key": "punishing",
+						"value": ""
+					},
+					{
+						"key": "rational believers",
+						"value": ""
+					},
+					{
+						"key": "rational thinker",
+						"value": ""
+					},
+					{
+						"key": "rationalist",
+						"value": ""
+					},
+					{
+						"key": "rationality",
+						"value": ""
+					},
+					{
+						"key": "realism",
+						"value": ""
+					},
+					{
+						"key": "realistic emotions",
+						"value": ""
+					},
+					{
+						"key": "reality",
+						"value": ""
+					},
+					{
+						"key": "reasonable",
+						"value": ""
+					},
+					{
+						"key": "relatable",
+						"value": ""
+					},
+					{
+						"key": "relation to others",
+						"value": ""
+					},
+					{
+						"key": "relationship",
+						"value": ""
+					},
+					{
+						"key": "relationship focus",
+						"value": ""
+					},
+					{
+						"key": "relevant to current times",
+						"value": ""
+					},
+					{
+						"key": "religious",
+						"value": ""
+					},
+					{
+						"key": "religious community",
+						"value": ""
+					},
+					{
+						"key": "religious fundamentalist",
+						"value": ""
+					},
+					{
+						"key": "responsibility",
+						"value": ""
+					},
+					{
+						"key": "rewarding",
+						"value": ""
+					},
+					{
+						"key": "romantic couple",
+						"value": ""
+					},
+					{
+						"key": "romantic love",
+						"value": ""
+					},
+					{
+						"key": "scientific",
+						"value": ""
+					},
+					{
+						"key": "secular society",
+						"value": ""
+					},
+					{
+						"key": "seekers of truth",
+						"value": ""
+					},
+					{
+						"key": "self-acceptance",
+						"value": ""
+					},
+					{
+						"key": "self-love",
+						"value": ""
+					},
+					{
+						"key": "sensitive",
+						"value": ""
+					},
+					{
+						"key": "serious",
+						"value": ""
+					},
+					{
+						"key": "sexual",
+						"value": ""
+					},
+					{
+						"key": "sexual acting",
+						"value": ""
+					},
+					{
+						"key": "sexual commitment",
+						"value": ""
+					},
+					{
+						"key": "sexual orientation",
+						"value": ""
+					},
+					{
+						"key": "sexual preference",
+						"value": ""
+					},
+					{
+						"key": "sexuality",
+						"value": ""
+					},
+					{
+						"key": "sexualization",
+						"value": ""
+					},
+					{
+						"key": "shortcut taking",
+						"value": ""
+					},
+					{
+						"key": "simple",
+						"value": ""
+					},
+					{
+						"key": "simple themes",
+						"value": ""
+					},
+					{
+						"key": "situation relation",
+						"value": ""
+					},
+					{
+						"key": "skeptic",
+						"value": ""
+					},
+					{
+						"key": "social",
+						"value": ""
+					},
+					{
+						"key": "social media-driven",
+						"value": ""
+					},
+					{
+						"key": "somber",
+						"value": ""
+					},
+					{
+						"key": "sophisticated",
+						"value": ""
+					},
+					{
+						"key": "sophistication",
+						"value": ""
+					},
+					{
+						"key": "source of inspiration",
+						"value": ""
+					},
+					{
+						"key": "spiritual seeker",
+						"value": ""
+					},
+					{
+						"key": "story-motivation",
+						"value": ""
+					},
+					{
+						"key": "storymode",
+						"value": ""
+					},
+					{
+						"key": "storytelling",
+						"value": ""
+					},
+					{
+						"key": "straightforward lyrics",
+						"value": ""
+					},
+					{
+						"key": "strong",
+						"value": ""
+					},
+					{
+						"key": "target of love",
+						"value": ""
+					},
+					{
+						"key": "theistic",
+						"value": ""
+					},
+					{
+						"key": "theological opposites",
+						"value": ""
+					},
+					{
+						"key": "traditional religion",
+						"value": ""
+					},
+					{
+						"key": "transparency",
+						"value": ""
+					},
+					{
+						"key": "transparent",
+						"value": ""
+					},
+					{
+						"key": "trope-reinforcing",
+						"value": ""
+					},
+					{
+						"key": "troublemaker",
+						"value": ""
+					},
+					{
+						"key": "truthfulness",
+						"value": ""
+					},
+					{
+						"key": "twisted",
+						"value": ""
+					},
+					{
+						"key": "unique",
+						"value": ""
+					},
+					{
+						"key": "unreasonable",
+						"value": ""
+					},
+					{
+						"key": "uplifting",
+						"value": ""
+					},
+					{
+						"key": "weak",
+						"value": ""
+					},
+					{
+						"key": "without romantic partner",
+						"value": ""
+					},
+					{
+						"key": "witty wordplay",
+						"value": ""
+					},
+					{
+						"key": "youth-oriented",
+						"value": ""
+					}
+				]
+			}
 		}
 	],
 	"artists": [

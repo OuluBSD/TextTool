@@ -66,6 +66,14 @@
 		{
 			"key": "HUMAN_STRENGTH",
 			"value": "1"
+		},
+		{
+			"key": "RELATIONSHIP",
+			"value": "1"
+		},
+		{
+			"key": "GROUP_EXPERIENCE",
+			"value": "1"
 		}
 	],
 	"ideas": [
