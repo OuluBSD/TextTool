@@ -319,7 +319,7 @@ void Editor::ViewPageGroup() {
 
 void Editor::ViewPage() {
 	SetView(page_group_list.GetCursor(), page_list.GetCursor());
-	DataPage();
+	//DataPage(); // Duplicate
 }
 
 void Editor::Data() {
