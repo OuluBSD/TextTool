@@ -20,7 +20,7 @@ void SongDataLoader::Process() {
 void SongDataLoader::LoadHuggingArtists() {
 	String dir;
 	#ifdef flagWIN32
-	dir = "C:\\git\\SongData\\huggingartists";
+	dir = AppendFileName(GetHomeDirectory(), "SongData\\huggingartists");
 	#elif defined flagPOSIX
 	dir = GetHomeDirFile("SongData/huggingartists");
 	#endif
@@ -167,7 +167,7 @@ void SongDataLoader::LoadHuggingArtists() {
 void SongDataLoader::LoadHuggingFinn() {
 	String dir;
 	#ifdef flagWIN32
-	dir = "C:\\git\\SongData\\huggingfinn";
+	dir = AppendFileName(GetHomeDirectory(), "SongData\\huggingfinn");
 	#elif defined flagPOSIX
 	dir = GetHomeDirFile("SongData/huggingfinn");
 	#endif

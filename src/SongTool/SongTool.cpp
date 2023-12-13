@@ -81,7 +81,7 @@ GUI_APP_MAIN {
 	// Load Database
 	Database& db = Database::Single();
 	#ifdef flagWIN32
-	db.dir = "C:\\git\\SongTool";
+	db.dir = AppendFileName(GetHomeDirectory(), "SongTool");
 	#else
 	db.dir = GetHomeDirFile("SongTool");
 	#endif
