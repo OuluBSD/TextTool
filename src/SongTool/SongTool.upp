@@ -12,7 +12,8 @@ uses
 	SimplifiedCtrl,
 	AdvancedCtrl,
 	Task,
-	Database;
+	Database,
+	SongDataCtrl;
 
 library(WIN32 & CLANG) "curl libcurl.dll.a";
 

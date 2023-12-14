@@ -44,22 +44,10 @@
 #include "WordSaladIdea.h"
 #include "TextIdea.h"
 #include "Vocabulary.h"
-#include "SongDataLoader.h"
-#include "SongDataPage.h"
-#include "SongDataAnalysis.h"
 #include "RhymeStructure.h"
-#include "SongDataWords.h"
-#include "SongDataPhrases.h"
-//#include "SongDataSearchPhrases.h"
 #include "LyricsEditor.h"
 #include "AttributeIdea.h"
 #include "AttributeDistribution.h"
-#include "SongDataTemplates.h"
-#include "SongDataWordnet.h"
-#include "SongDataTemplateScoring.h"
-#include "SongDataWordnetScoring.h"
-#include "SongDataLineActions.h"
-#include "SongDataTmplActions.h"
 
 
 #endif

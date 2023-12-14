@@ -1,4 +1,4 @@
-#include "SimplifiedCtrl.h"
+#include "SongDataCtrl.h"
 
 
 SongDataTmplActions::SongDataTmplActions() {

@@ -1,5 +1,5 @@
-#ifndef _SimplifiedCtrl_SongDataPhrases_h_
-#define _SimplifiedCtrl_SongDataPhrases_h_
+#ifndef _SongDataCtrl_SongDataPhrases_h_
+#define _SongDataCtrl_SongDataPhrases_h_
 
 
 class SongDataPhrases : public SongToolCtrl {

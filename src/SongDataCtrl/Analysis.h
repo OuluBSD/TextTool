@@ -1,5 +1,5 @@
-#ifndef _SimplifiedCtrl_SongDataAnalysisPage_h_
-#define _SimplifiedCtrl_SongDataAnalysisPage_h_
+#ifndef _SongDataCtrl_SongDataAnalysisPage_h_
+#define _SongDataCtrl_SongDataAnalysisPage_h_
 
 
 class SongDataAnalysisPage : public SongToolCtrl {

@@ -1,4 +1,4 @@
-#include "SimplifiedCtrl.h"
+#include "SongDataCtrl.h"
 
 SongDataAnalysisPage::SongDataAnalysisPage() {
 	Add(hsplit.HSizePos().VSizePos(0,30));

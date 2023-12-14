@@ -1,5 +1,5 @@
-#ifndef _SimplifiedCtrl_SongDataWordnetScoring_h_
-#define _SimplifiedCtrl_SongDataWordnetScoring_h_
+#ifndef _SongDataCtrl_SongDataWordnetScoring_h_
+#define _SongDataCtrl_SongDataWordnetScoring_h_
 
 
 class SongDataWordnetScoring : public SongToolCtrl {

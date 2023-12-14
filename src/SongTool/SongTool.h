@@ -2,6 +2,7 @@
 #define _SongTool_SongTool_h_
 
 #include <SimplifiedCtrl/SimplifiedCtrl.h>
+#include <SongDataCtrl/SongDataCtrl.h>
 #include <Sequencer/Sequencer.h>
 
 #include "FrontPage.h"

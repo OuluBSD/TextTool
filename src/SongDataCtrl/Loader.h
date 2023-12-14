@@ -1,5 +1,5 @@
-#ifndef _SimplifiedCtrl_SongDataLoader_h_
-#define _SimplifiedCtrl_SongDataLoader_h_
+#ifndef _SongDataCtrl_SongDataLoader_h_
+#define _SongDataCtrl_SongDataLoader_h_
 
 
 class SongDataLoader : public WithSongDataLoader<TopWindow> {

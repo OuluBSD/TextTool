@@ -44,11 +44,6 @@ LAYOUT(TxtCompare, 872, 128)
 	ITEM(Upp::Button, to_user, SetLabel(t_("<-")).HCenterPosZ(108, -62).BottomPosZ(4, 20))
 END_LAYOUT
 
-LAYOUT(SongDataLoader, 408, 56)
-	ITEM(Upp::Label, message, SetLabel(t_("Loading")).LeftPosZ(4, 400).TopPosZ(4, 20))
-	ITEM(Upp::ProgressIndicator, prog, HSizePosZ(4, 4).TopPosZ(28, 24))
-END_LAYOUT
-
 LAYOUT(LineEditor, 1240, 24)
 	ITEM(Upp::Label, dv___0, SetLabel(t_("Syllables:")).SetAlign(Upp::ALIGN_RIGHT).HCenterPosZ(56, -588).TopPosZ(4, 19))
 	ITEM(Upp::Label, dv___1, SetLabel(t_("End rhyming:")).SetAlign(Upp::ALIGN_RIGHT).HCenterPosZ(72, -396).TopPosZ(4, 19))

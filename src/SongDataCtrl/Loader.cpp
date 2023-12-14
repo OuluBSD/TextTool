@@ -1,4 +1,4 @@
-#include "SimplifiedCtrl.h"
+#include "SongDataCtrl.h"
 
 SongDataLoader::SongDataLoader() {
 	CtrlLayout(*this);

@@ -1,5 +1,5 @@
-#ifndef _SimplifiedCtrl_SongDataTemplateScoring_h_
-#define _SimplifiedCtrl_SongDataTemplateScoring_h_
+#ifndef _SongDataCtrl_SongDataTemplateScoring_h_
+#define _SongDataCtrl_SongDataTemplateScoring_h_
 
 
 class SongDataTemplateScoring : public SongToolCtrl {
