@@ -206,6 +206,7 @@ struct StaticPart {
 	Vector<String> ai_source;
 	Array<StaticRhyme> rhymes;
 	String rhyme_scheme;
+	String mockup;
 	VectorMap<String,String> data;
 	bool outdated_suggestions = true;
 	Array<StaticContentSuggestion> contents;
@@ -245,6 +246,7 @@ struct StaticPart {
 			("wordsalad_clrs", wordsalad_clrs)
 			("wordgroup_factors", wordgroup_factors)
 			("phrases", phrases)
+			("mockup", mockup)
 			;
 		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
 			json(	(String)"active_idea[" + IdeaPathString[IDEAPATH_PARTBEGIN+i][1] + "]",

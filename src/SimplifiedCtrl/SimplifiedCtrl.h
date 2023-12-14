@@ -3,6 +3,7 @@
 
 #include <AdvancedCtrl/AdvancedCtrl.h>
 #include <ToolBase/ToolBase.h>
+#include <Agent/Agent.h>
 
 
 #define LAYOUTFILE <SimplifiedCtrl/Simplified.lay>
@@ -48,6 +49,7 @@
 #include "LyricsEditor.h"
 #include "AttributeIdea.h"
 #include "AttributeDistribution.h"
+#include "LyricsEditor2.h"
 
 
 #endif

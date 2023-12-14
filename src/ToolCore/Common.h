@@ -1353,4 +1353,117 @@ void VectorRemoveKey(Vector<T>& v, const T& o0) {
 
 void SetColoredListValue(ArrayCtrl& list, int row, int col, const String& txt, Color clr, bool blend=true);
 
+
+
+
+#define SYLLABLE_TYPE_LIST \
+	SYLLABLE_TYPE(MEANINGLESS) \
+	\
+	SYLLABLE_TYPE(RHYMING_VOWEL_IMPORTANT) \
+	SYLLABLE_TYPE(RHYMING_VOWEL_MEANINGFUL) \
+	SYLLABLE_TYPE(RHYMING_VOWEL_MEANINGLESS) \
+	\
+	SYLLABLE_TYPE(RHYMING_CONSONANT_IMPORTANT) \
+	SYLLABLE_TYPE(RHYMING_CONSONANT_MEANINGFUL) \
+	SYLLABLE_TYPE(RHYMING_CONSONANT_MEANINGLESS) \
+	\
+	SYLLABLE_TYPE(RHYMING_ALL_IMPORTANT) \
+	SYLLABLE_TYPE(RHYMING_ALL_MEANINGFUL) \
+	SYLLABLE_TYPE(RHYMING_ALL_MEANINGLESS) \
+	\
+	SYLLABLE_TYPE(SPECIFIC_VOWEL) \
+	SYLLABLE_TYPE(SPECIFIC_CONSONANT) \
+	SYLLABLE_TYPE(SPECIFIC_ALL) \
+
+typedef enum : byte {
+	#define SYLLABLE_TYPE(x) SYL_##x,
+	SYLLABLE_TYPE_LIST
+	#undef SYLLABLE_TYPE
+	
+	SYL_TYPE_COUNT
+} SyllableType;
+
+inline String GetSyllableTypeString(int i) {
+	switch (i) {
+		#define SYLLABLE_TYPE(x) case SYL_##x: return #x;
+		SYLLABLE_TYPE_LIST
+		#undef SYLLABLE_TYPE
+		default: return "invalid";
+	}
+}
+
+class RhymeContainer {
+	
+public:
+	struct Syllable : Moveable<Syllable> {
+		SyllableType type;
+		bool strong = false;
+		bool long_ = false;
+		
+		Syllable() {}
+		Syllable(const Syllable& s) {*this = s;}
+		void operator=(const Syllable& s) {type = s.type; strong = s.strong; long_ = s.long_;}
+		
+	};
+	
+	struct Word : Moveable<Word> {
+		Vector<Syllable> syllables;
+		
+		Word() {}
+		Word(const Word& s) {*this = s;}
+		void operator=(const Word& s) {syllables <<= s.syllables;}
+		
+	};
+	
+	struct Line : Moveable<Line> {
+		Vector<Word> words;
+		
+		Line() {}
+		Line(const Line& s) {*this = s;}
+		void operator=(const Line& s) {words <<= s.words;}
+		
+	};
+	
+protected:
+	friend class MockupPhraseParser;
+	Vector<Line> lines;
+	
+public:
+	typedef RhymeContainer CLASSNAME;
+	RhymeContainer() {}
+	RhymeContainer(const RhymeContainer& rc) {*this = rc;}
+	
+	const Vector<Line>& Get() const {return lines;}
+	
+	void operator=(const RhymeContainer& rc);
+	
+	String ToString() const;
+	void Dump() {LOG(ToString());}
+	
+};
+
+class MockupPhraseParser {
+	String err;
+	bool fail = false;
+	Vector<Vector<String>> tokens;
+	
+	void SetError(String s) {fail = true; err = s;}
+public:
+	
+	static bool IsVowel(int chr);
+	static bool IsConsonant(int chr);
+	
+public:
+	typedef MockupPhraseParser CLASSNAME;
+	MockupPhraseParser();
+	
+	bool Parse(String txt);
+	bool Process(RhymeContainer& rc);
+	
+	String GetError() const {return err;}
+	
+	
+};
+
+
 #endif

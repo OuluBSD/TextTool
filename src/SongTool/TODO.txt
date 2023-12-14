@@ -44,6 +44,8 @@ Scheduled work:
 	- singer/songwriter vs separated roles (composer, lyrics writer, producer, singer, etc)
 - competition -page
 
+- book -page
+
 
 
 - dump backup data from database parsers

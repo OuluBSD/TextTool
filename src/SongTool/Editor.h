@@ -61,6 +61,7 @@ protected:
 	AttributeIdea					attr_idea;
 	AttributeDistribution			attr_dist;
 	SongDataTemplates				song_tmpl;
+	LyricsEditor2					lyrics_editor2;
 	
 	
 	

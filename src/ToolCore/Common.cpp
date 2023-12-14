@@ -15504,3 +15504,163 @@ String GetScoreKey(int score_mode, int score_attr) {
 	else
 		return "sc(" + IntStr(score_mode) + "," + IntStr(score_attr) + ")";
 }
+
+
+
+
+
+
+MockupPhraseParser::MockupPhraseParser() {
+	
+}
+
+bool MockupPhraseParser::Parse(String txt) {
+	fail = false;
+	
+	Vector<String> lines = Split(txt, "\n");
+	
+	int lc = lines.GetCount();
+	if (!lc) {
+		SetError("no lines");
+		return false;
+	}
+	
+	tokens.Clear();
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		tokens << Split(l, " ");
+	}
+	
+	DUMPCC(tokens);
+	
+	return true;
+}
+
+bool MockupPhraseParser::IsVowel(int chr) {
+	return	chr == 'a' ||
+			chr == 'e' ||
+			chr == 'i' ||
+			chr == 'o' ||
+			chr == 'u' ||
+			chr == 'y';
+}
+
+bool MockupPhraseParser::IsConsonant(int chr) {
+	return	chr == 'b' ||
+			chr == 'c' ||
+			chr == 'd' ||
+			chr == 'f' ||
+			chr == 'g' ||
+			chr == 'h' ||
+			chr == 'j' ||
+			chr == 'k' ||
+			chr == 'l' ||
+			chr == 'm' ||
+			chr == 'n' ||
+			chr == 'p' ||
+			chr == 'q' ||
+			chr == 'r' ||
+			chr == 's' ||
+			chr == 't' ||
+			chr == 'v' ||
+			chr == 'x' ||
+			chr == 'z';
+}
+
+bool MockupPhraseParser::Process(RhymeContainer& rc) {
+	int lc = tokens.GetCount();
+	if (!lc) {
+		SetError("no tokens");
+		return false;
+	}
+	
+	rc.lines.Clear();
+	
+	for(int i = 0; i < tokens.GetCount(); i++) {
+		auto& ltokens = tokens[i];
+		bool prev_continued = false;
+		RhymeContainer::Word* word_ptr = 0;
+		RhymeContainer::Line& line = rc.lines.Add();
+		for(int j = 0; j < ltokens.GetCount(); j++) {
+			const String& s = ltokens[j];
+			int sc = s.GetCount();
+			ASSERT(sc);
+			bool continues = false;
+			if (s[sc-1] == '-') {
+				continues = true;
+				sc--;
+			}
+			if (!sc) {
+				SetError("part without wovels nor consonants");
+				return false;
+			}
+			if (sc < 2) {
+				SetError("part is too short");
+				return false;
+			}
+			int chr0 = s[0];
+			if (!IsConsonant(chr0)) {
+				SetError("part does not start with a consonant");
+				return false;
+			}
+			bool strong = IsUpper(chr0);
+			if (strong) chr0 = ToLower(chr0);
+			
+			int type = 0;
+			if      (chr0 == 'n')	type = 1;
+			else if (chr0 == 't')	type = 2;
+			else if (chr0 == 'd')	type = 3;
+			else if (chr0 == 's')	type = 4;
+			
+			int chr1 = s[1];
+			if (IsUpper(chr1)) chr1 = ToLower(chr1);
+			if (!IsVowel(chr1)) {
+				SetError("the second char is not a vowel");
+				return false;
+			}
+			int importance = 0;
+			if      (chr1 == 'a')	importance = 1;
+			else if (chr1 == 'i')	importance = 2;
+			else if (chr1 == 'u')	importance = 3;
+			
+			SyllableType st = SYL_MEANINGLESS;
+			if (type > 0 && importance > 0) {
+				st = (SyllableType)(1 + type * 3 + (importance-1));
+			}
+			
+			if (prev_continued && word_ptr) {
+				// pass
+			}
+			else {
+				RhymeContainer::Word& w = line.words.Add();
+				word_ptr = &w;
+			}
+			RhymeContainer::Syllable& syl = word_ptr->syllables.Add();
+			syl.type = st;
+			syl.long_ = sc > 2;
+			syl.strong = strong;
+				
+			prev_continued = continues;
+		}
+	}
+	
+	return true;
+}
+
+String RhymeContainer::ToString() const {
+	String o;
+	for (const auto& l : lines) {
+		if (!o.IsEmpty())
+			o << "\n";
+		for (const auto& w : l.words) {
+			o << "(";
+			int i = 0;
+			for (const auto& s : w.syllables) {
+				if (i++) o << " ";
+				o << GetSyllableTypeString(s.type);
+			}
+			o << ")";
+		}
+	}
+	return o;
+}

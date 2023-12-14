@@ -96,7 +96,8 @@ void Editor::InitSimplified() {
 	//AddItem(t_("Song lyrics"), t_("Production idea"), prod_idea);
 	AddItem(t_("Song lyrics"), t_("Attributes"), ctx_attrs);
 	AddItem(t_("Song lyrics"), t_("Attribute Distribution"), attr_dist);
-	AddItem(t_("Song lyrics"), t_("Lyrics editor"), lyrics_editor);
+	AddItem(t_("Song lyrics"), t_("Lyrics editor 1"), lyrics_editor);
+	AddItem(t_("Song lyrics"), t_("Lyrics editor 2"), lyrics_editor2);
 	
 	
 	AddItem(t_("Music Video"), t_("Create structure from existing"), videostruct_import);
