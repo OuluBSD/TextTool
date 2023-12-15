@@ -1435,7 +1435,7 @@ public:
 	
 	const Vector<Line>& Get() const {return lines;}
 	
-	void operator=(const RhymeContainer& rc);
+	void operator=(const RhymeContainer& rc) {lines <<= rc.lines;}
 	
 	String ToString() const;
 	void Dump() {LOG(ToString());}

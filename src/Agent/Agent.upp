@@ -1,17 +1,18 @@
 description "\377B141,0,200";
 
 uses
-	Local,
 	Database;
 
 file
 	Agent.h,
 	Solver.h,
 	Solver.cpp,
-	ActionMachine.h,
-	ActionMachine.cpp,
-	Node.h,
+	Machine.h,
+	Machine.cpp,
+	WorldState.h,
+	WorldState.cpp,
 	Searcher.h,
-	ActionPlanner.h,
-	ActionPlanner.cpp;
+	Searcher.cpp,
+	Node.h,
+	Node.cpp;
 

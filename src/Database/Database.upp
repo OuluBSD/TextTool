@@ -1,7 +1,11 @@
 description "\377B128,0,0";
 
 uses
-	ToolCore;
+	ToolCore,
+	Painter,
+	plugin/png,
+	RichEdit,
+	plugin/jpg;
 
 file
 	Database.h,

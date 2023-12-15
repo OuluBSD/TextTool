@@ -9,8 +9,8 @@ class LyricsEditor2 : public SongToolCtrl {
 	ArrayCtrl thrd_phrases, thrd_settings, thrd_node;
 	ArrayCtrl parts, phrases;
 	
+	Array<SongAgent::Solver> solvers;
 	
-	Array<Solver> solvers;
 	
 public:
 	typedef LyricsEditor2 CLASSNAME;

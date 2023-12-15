@@ -7,8 +7,7 @@
 
 #include "Node.h"
 #include "Searcher.h"
-#include "ActionPlanner.h"
-#include "ActionMachine.h"
+#include "Machine.h"
 #include "Solver.h"
 
 

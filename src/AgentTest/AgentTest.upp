@@ -1,0 +1,11 @@
+uses
+	Core,
+	Agent;
+
+file
+	AgentTest.h,
+	AgentTest.cpp;
+
+mainconfig
+	"" = "";
+
