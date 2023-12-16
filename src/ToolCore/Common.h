@@ -1395,7 +1395,9 @@ inline String GetSyllableTypeString(int i) {
 class RhymeContainer {
 	
 public:
-	struct Syllable : Moveable<Syllable> {
+	byte data;
+	
+	/*struct Syllable : Moveable<Syllable> {
 		SyllableType type;
 		bool strong = false;
 		bool long_ = false;
@@ -1426,20 +1428,39 @@ public:
 	
 protected:
 	friend class MockupPhraseParser;
-	Vector<Line> lines;
+	Vector<Line> lines;*/
 	
 public:
 	typedef RhymeContainer CLASSNAME;
 	RhymeContainer() {}
 	RhymeContainer(const RhymeContainer& rc) {*this = rc;}
 	
-	const Vector<Line>& Get() const {return lines;}
+	//const Vector<Line>& Get() const {return lines;}
 	
-	void operator=(const RhymeContainer& rc) {lines <<= rc.lines;}
+	void Clear() {TODO}
+	void operator=(const RhymeContainer& rc) {TODO}//lines <<= rc.lines;}
 	
 	String ToString() const;
 	void Dump() {LOG(ToString());}
 	
+};
+
+struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
+	uint32 data[2];
+	
+	void Jsonize(JsonIO& json) {
+		TODO/*{
+			json
+				(
+				("packed_rhymes", packed_rhymes)
+				;
+		}*/
+	}
+	
+	
+	void Serialize(Stream& s) {
+		TODO
+	}
 };
 
 class MockupPhraseParser {

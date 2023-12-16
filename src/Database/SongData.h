@@ -375,6 +375,7 @@ struct DatasetAnalysis {
 	Vector<ColorWordnet> clr_wordnets;
 	Vector<ActionPhrase> action_phrases;
 	Vector<ActionTemplate> action_tmpls;
+	VectorMap<int, Vector<PackedRhymeContainer>> packed_rhymes;
 	
 	
 	int FindWord(const String& w) const {
@@ -406,13 +407,16 @@ struct DatasetAnalysis {
 				("clr_wordnets", clr_wordnets)
 				("action_phrases", action_phrases)
 				("action_tmpls", action_tmpls)
+				("packed_rhymes", packed_rhymes)
 				;
 		}
 	}
 	
 	
 	void Serialize(Stream& s) {
-		s % artists % groups % words % tmpl_phrases % wordnets % clr_wordnets % action_phrases % action_tmpls;
+		s % artists % groups % words
+		  % tmpl_phrases % wordnets % clr_wordnets
+		  % action_phrases % action_tmpls % packed_rhymes;
 	}
 };
 

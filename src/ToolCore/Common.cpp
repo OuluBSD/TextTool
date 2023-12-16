@@ -15574,8 +15574,10 @@ bool MockupPhraseParser::Process(RhymeContainer& rc) {
 		return false;
 	}
 	
-	rc.lines.Clear();
+	rc.Clear();
 	
+	TODO
+	/*
 	for(int i = 0; i < tokens.GetCount(); i++) {
 		auto& ltokens = tokens[i];
 		bool prev_continued = false;
@@ -15642,13 +15644,15 @@ bool MockupPhraseParser::Process(RhymeContainer& rc) {
 				
 			prev_continued = continues;
 		}
-	}
+	}*/
 	
 	return true;
 }
 
 String RhymeContainer::ToString() const {
 	String o;
+	TODO
+	/*
 	for (const auto& l : lines) {
 		if (!o.IsEmpty())
 			o << "\n";
@@ -15662,5 +15666,6 @@ String RhymeContainer::ToString() const {
 			o << ")";
 		}
 	}
+	*/
 	return o;
 }

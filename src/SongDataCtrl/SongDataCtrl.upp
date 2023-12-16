@@ -27,6 +27,8 @@ file
 	LineActions.cpp,
 	TmplActions.h,
 	TmplActions.cpp,
+	RhymeContainer.h,
+	RhymeContainer.cpp,
 	Loader.h,
 	Loader.cpp;
 

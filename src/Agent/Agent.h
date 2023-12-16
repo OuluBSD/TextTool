@@ -7,6 +7,7 @@
 
 #include "Node.h"
 #include "Searcher.h"
+#include "WorldState.h"
 #include "Machine.h"
 #include "Solver.h"
 

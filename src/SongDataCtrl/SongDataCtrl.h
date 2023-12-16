@@ -18,5 +18,6 @@
 #include "WordnetScoring.h"
 #include "LineActions.h"
 #include "TmplActions.h"
+#include "RhymeContainer.h"
 
 #endif

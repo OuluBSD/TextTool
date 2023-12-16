@@ -62,6 +62,7 @@ protected:
 	AttributeDistribution			attr_dist;
 	SongDataTemplates				song_tmpl;
 	LyricsEditor2					lyrics_editor2;
+	RhymeContainerPage				rhyme_container;
 	
 	
 	
