@@ -6,12 +6,14 @@ EnglishPronounciation::EnglishPronounciation() {
 	
 }
 
-bool EnglishPronounciation::Parse(const String& s) {
+void EnglishPronounciation::Clear() {
 	parts.SetCount(0);
 	word_is.SetCount(0);
 	pron_parts.SetCount(0);
 	pronounciation.Clear();
-	
+}
+
+bool EnglishPronounciation::Parse(const String& s) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -19,8 +21,17 @@ bool EnglishPronounciation::Parse(const String& s) {
 		return false;
 	String ds_key = sd.GetKey(0);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	return Parse(s, ds);
+}
 	
-	
+bool EnglishPronounciation::Parse(const String& s, DatasetAnalysis& ds) {
+	Clear();
+	if (!ParseMore(s, ds))
+		return false;
+	return ParseFinish(ds);
+}
+
+bool EnglishPronounciation::ParseMore(const String& s, DatasetAnalysis& ds) {
 	WString w = s.ToWString();
 	WString p;
 	int c = w.GetCount();
@@ -37,9 +48,15 @@ bool EnglishPronounciation::Parse(const String& s) {
 	if (a < c)
 		parts << w.Mid(a);
 	
+	return true;
+}
+
+bool EnglishPronounciation::ParseFinish(DatasetAnalysis& ds) {
 	for (WString& part : parts) {
 		String p = ToLower(part.ToString());
 		p.Replace("'", ""); // hack
+		if (p.IsEmpty())
+			continue;
 		hash_t h = p.GetHashValue();
 		bool found = false;
 		int i = 0;
@@ -57,7 +74,6 @@ bool EnglishPronounciation::Parse(const String& s) {
 		if (!found)
 			return false;
 	}
-	
 	for (int wa_i : word_is) {
 		const WordAnalysis& wa = ds.words[wa_i];
 		int a = 0;

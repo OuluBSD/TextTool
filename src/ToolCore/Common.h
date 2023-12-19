@@ -1445,24 +1445,6 @@ public:
 	
 };
 
-struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
-	uint32 data[2];
-	
-	void Jsonize(JsonIO& json) {
-		TODO/*{
-			json
-				(
-				("packed_rhymes", packed_rhymes)
-				;
-		}*/
-	}
-	
-	
-	void Serialize(Stream& s) {
-		TODO
-	}
-};
-
 class MockupPhraseParser {
 	String err;
 	bool fail = false;

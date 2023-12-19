@@ -169,3 +169,16 @@ double GetActionMatching(const Vector<ActionArg>& a, const Vector<ActionArg>& b)
 	double perc = (double)full_matches / (double)max_matches;
 	return perc;
 }
+
+
+String PackedRhymeContainer::GetText() const {
+	String s(txt, PackedRhymeContainer::MAX_TXT_LEN);
+	Vector<String> parts = Split(s, "\n");
+	String o = Join(parts, " ");
+	return o;
+}
+
+WString PackedRhymeContainer::GetPronounciation() const {
+	WString ws(pron, PackedRhymeContainer::MAX_PRON_LEN);
+	return ws;
+}

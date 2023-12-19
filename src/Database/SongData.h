@@ -366,6 +366,53 @@ struct ColorWordnet : Moveable<ColorWordnet> {
 	}
 };
 
+
+struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
+	static constexpr int MAX_TXT_LEN = 256;
+	static constexpr int MAX_PRON_LEN = 256;
+	static constexpr int MAX_PRON_SZ = MAX_PRON_LEN * sizeof(wchar);
+	char txt[MAX_TXT_LEN];
+	wchar pron[MAX_PRON_LEN];
+	
+	void Zero() {memset(this, 0, sizeof(PackedRhymeContainer));}
+	void Jsonize(JsonIO& json) {
+		if (json.IsLoading()) {
+			Zero();
+			String s;
+			json("txt", s);
+			strncpy(txt, s.Begin(), min<int>(s.GetCount() * sizeof(char), MAX_TXT_LEN));
+			
+			WString ws;
+			json("pron", ws);
+			memcpy(pron, ws.Begin(), min<int>(ws.GetCount() * sizeof(wchar), MAX_PRON_SZ));
+		}
+		else {
+			String s(txt, strnlen(txt, MAX_TXT_LEN));
+			json("txt", s);
+			
+			WString ws(pron, MAX_PRON_LEN);
+			json("pron", ws);
+		}
+	}
+	
+	
+	void Serialize(Stream& s) {
+		if (s.IsLoading()) {
+			s.Get(txt, MAX_TXT_LEN);
+			s.Get(pron, MAX_PRON_SZ);
+		}
+		else {
+			s.Put(txt, MAX_TXT_LEN);
+			s.Put(pron, MAX_PRON_SZ);
+		}
+	}
+	
+	String GetText() const;
+	WString GetPronounciation() const;
+	
+};
+
+
 struct DatasetAnalysis {
 	VectorMap<String, ArtistAnalysis> artists;
 	VectorMap<String, WordGroupAnalysis> groups;
