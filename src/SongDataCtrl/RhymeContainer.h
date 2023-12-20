@@ -5,10 +5,9 @@
 class RhymeContainerPage : public SongToolCtrl {
 	ProgressIndicator prog;
 	Splitter hsplit, vsplit;
-	ArrayCtrl datasets, syl_counts, colors, attrs, actions, data;
+	ArrayCtrl datasets, syl_counts, colors, attrs, actions, action_args, data;
 	bool running = false, stopped = true;
 	
-	VectorMap<String, VectorMap<String, int>> uniq_acts;
 	VectorMap<String, String> mirror_words;
 	
 	void Start();
@@ -27,6 +26,7 @@ public:
 	void Data() override;
 	void MainData();
 	void ManualData();
+	void DataAction();
 	void ToolMenu(Bar& bar) override;
 	void ProcessData();
 	void SetProgress(int a, int t) {prog.Set(a,t);}

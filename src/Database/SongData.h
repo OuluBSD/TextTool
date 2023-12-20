@@ -371,13 +371,23 @@ struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
 	static constexpr int MAX_TXT_LEN = 256;
 	static constexpr int MAX_PRON_LEN = 256;
 	static constexpr int MAX_PRON_SZ = MAX_PRON_LEN * sizeof(wchar);
+	static constexpr int MAX_ACTIONS = 20;
+	
 	char txt[MAX_TXT_LEN];
 	wchar pron[MAX_PRON_LEN];
+	byte clr[3];
+	int16 attention_groups[MAX_ACTIONS];
+	int16 attention_values[MAX_ACTIONS];
 	
-	void Zero() {memset(this, 0, sizeof(PackedRhymeContainer));}
+	void Zero() {
+		memset(this, 0, sizeof(PackedRhymeContainer));
+		memset(attention_groups, 0xFF, sizeof(attention_groups));
+		memset(attention_values, 0xFF, sizeof(attention_values));
+	}
 	void Jsonize(JsonIO& json) {
 		if (json.IsLoading()) {
 			Zero();
+			
 			String s;
 			json("txt", s);
 			strncpy(txt, s.Begin(), min<int>(s.GetCount() * sizeof(char), MAX_TXT_LEN));
@@ -385,6 +395,20 @@ struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
 			WString ws;
 			json("pron", ws);
 			memcpy(pron, ws.Begin(), min<int>(ws.GetCount() * sizeof(wchar), MAX_PRON_SZ));
+			
+			Color clr;
+			json("clr", clr);
+			this->clr[0] = clr.GetR();
+			this->clr[1] = clr.GetG();
+			this->clr[2] = clr.GetB();
+			
+			Vector<int> agroups, avalues;
+			json("ag", agroups)("av", avalues);
+			int c = min(MAX_ACTIONS, agroups.GetCount());
+			for(int i = 0; i < c; i++) {
+				attention_groups[i] = agroups[i];
+				attention_values[i] = avalues[i];
+			}
 		}
 		else {
 			String s(txt, strnlen(txt, MAX_TXT_LEN));
@@ -392,6 +416,19 @@ struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
 			
 			WString ws(pron, MAX_PRON_LEN);
 			json("pron", ws);
+			
+			Color c(clr[0], clr[1], clr[2]);
+			json("clr", c);
+			
+			Vector<int> agroups, avalues;
+			for(int i = 0; i < MAX_ACTIONS; i++) {
+				int16 ag = attention_groups[i];
+				if (ag < 0) break;
+				int16 av = attention_values[i];
+				agroups << ag;
+				avalues << av;
+			}
+			json("ag", agroups)("av", avalues);
 		}
 	}
 	
@@ -400,18 +437,58 @@ struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
 		if (s.IsLoading()) {
 			s.Get(txt, MAX_TXT_LEN);
 			s.Get(pron, MAX_PRON_SZ);
+			s.Get(clr, 3);
 		}
 		else {
 			s.Put(txt, MAX_TXT_LEN);
 			s.Put(pron, MAX_PRON_SZ);
+			s.Put(clr, 3);
 		}
 	}
 	
 	String GetText() const;
 	WString GetPronounciation() const;
+	Color GetColor() const {return Color(clr[0], clr[1], clr[2]);}
 	
 };
 
+struct PackedRhymeHeader : Moveable<PackedRhymeHeader> {
+	int syllable_count;
+	int color_group;
+	int attr_group;
+	bool attr_value;
+	
+	hash_t GetHashValue() const {
+		CombineHash ch;
+		ch.Do(syllable_count);
+		ch.Do(color_group);
+		ch.Do(attr_group);
+		ch.Do(attr_value);
+		return ch;
+	}
+	void Jsonize(JsonIO& json) {
+		json
+			("sc", syllable_count)
+			("cg", color_group)
+			("ag", attr_group)
+			("av", attr_value);
+	}
+	void Serialize(Stream& s) {
+		s % syllable_count % color_group % attr_group % attr_value;
+	}
+	bool operator==(const PackedRhymeHeader& b) const {
+		return	syllable_count == b.syllable_count &&
+				color_group == b.color_group &&
+				attr_group == b.attr_group &&
+				attr_value == b.attr_value;
+	}
+	bool operator()(const PackedRhymeHeader& a, const PackedRhymeHeader& b) const {
+		if (a.syllable_count != b.syllable_count) return a.syllable_count < b.syllable_count;
+		if (a.color_group != b.color_group) return a.color_group < b.color_group;
+		if (a.attr_group != b.attr_group) return a.attr_group < b.attr_group;
+		return a.attr_value < b.attr_value;
+	}
+};
 
 struct DatasetAnalysis {
 	VectorMap<String, ArtistAnalysis> artists;
@@ -422,8 +499,11 @@ struct DatasetAnalysis {
 	Vector<ColorWordnet> clr_wordnets;
 	Vector<ActionPhrase> action_phrases;
 	Vector<ActionTemplate> action_tmpls;
-	VectorMap<int, Vector<PackedRhymeContainer>> packed_rhymes;
 	
+	// Grouped fixed values
+	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;
+	VectorMap<String, Index<String>> dynamic_attrs;
+	VectorMap<String, Index<String>> dynamic_actions;
 	
 	int FindWord(const String& w) const {
 		int i = 0;
@@ -455,15 +535,19 @@ struct DatasetAnalysis {
 				("action_phrases", action_phrases)
 				("action_tmpls", action_tmpls)
 				("packed_rhymes", packed_rhymes)
+				("dynamic_attrs", dynamic_attrs)
+				("dynamic_actions", dynamic_actions)
 				;
 		}
 	}
-	
+	bool RealizeAttribute(const char* group, const char* value, int& attr_group, int& attr_value);
+	void RealizeAction(const char* action, const char* arg, int16& action_i, int16& arg_i);
 	
 	void Serialize(Stream& s) {
 		s % artists % groups % words
 		  % tmpl_phrases % wordnets % clr_wordnets
-		  % action_phrases % action_tmpls % packed_rhymes;
+		  % action_phrases % action_tmpls % packed_rhymes
+		  % dynamic_attrs % dynamic_actions;
 	}
 };
 

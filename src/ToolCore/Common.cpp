@@ -66,6 +66,33 @@ ATTR_LIST
 #undef ATTR_ITEM
 	0
 };
+
+int FindAttrGroup(const char* group) {
+	// HOTFIX
+	if (strncmp(group, "authenticity", 12) == 0)
+		group = "authencity";
+	for(int i = 0; i < ATTR_COUNT; i++) {
+		if (strncmp(group, AttrKeys[i][1], 100) == 0)
+			return i;
+	}
+	return -1;
+}
+
+bool FindAttrValue(int group_i, const char* value) {
+	if (group_i < 0 || group_i >= ATTR_COUNT) return false;
+	const char* cmp_value = AttrKeys[group_i][3];
+	return strncmp(cmp_value, value, 100) == 0;
+}
+
+int FindAttrGroupByValue(const char* value) {
+	for(int i = 0; i < ATTR_COUNT; i++) {
+		if (strncmp(value, AttrKeys[i][2], 100) == 0 ||
+			strncmp(value, AttrKeys[i][3], 100) == 0)
+			return i;
+	}
+	return -1;
+}
+
 }
 
 

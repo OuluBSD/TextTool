@@ -151,6 +151,10 @@ ATTR_COUNT
 
 extern const char* AttrKeys[ATTR_COUNT+1][4];
 
+int FindAttrGroup(const char* group);
+int FindAttrGroupByValue(const char* value);
+bool FindAttrValue(int group_i, const char* value);
+
 }
 
 

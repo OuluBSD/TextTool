@@ -182,3 +182,44 @@ WString PackedRhymeContainer::GetPronounciation() const {
 	WString ws(pron, PackedRhymeContainer::MAX_PRON_LEN);
 	return ws;
 }
+
+
+
+bool DatasetAnalysis::RealizeAttribute(const char* group, const char* value, int& attr_group, int& attr_value) {
+	attr_group = Attr::FindAttrGroup(group);
+	if (attr_group < 0) {
+		attr_group = Attr::FindAttrGroupByValue(value);
+		if (attr_group < 0) {
+			attr_group = dynamic_attrs.Find(group);
+			if (attr_group < 0) {
+				attr_group = Attr::ATTR_COUNT + dynamic_attrs.GetCount();
+				attr_value = 0;
+				dynamic_attrs.Add(group).Add(value);
+			}
+			else {
+				attr_value = dynamic_attrs[attr_group].FindAdd(value);
+			}
+		}
+		else {
+			attr_value = Attr::FindAttrValue(attr_group, value);
+			return true; // this value can be backported (it was semi-error)
+		}
+	}
+	else
+		attr_value = Attr::FindAttrValue(attr_group, value);
+	return false;
+}
+
+void DatasetAnalysis::RealizeAction(const char* action, const char* arg, int16& action_i, int16& arg_i) {
+	action_i = dynamic_actions.Find(action);
+	if (action_i < 0) {
+		action_i = dynamic_actions.GetCount();
+		arg_i = 0;
+		auto& idx = dynamic_actions.Add(action);
+		idx.Add(arg);
+	}
+	else {
+		auto& idx = dynamic_actions[action_i];
+		arg_i = idx.FindAdd(arg);
+	}
+}

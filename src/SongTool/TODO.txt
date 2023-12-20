@@ -1,4 +1,12 @@
 Scheduled work:
+- database: generate templates based on wordnets, attrs and colors
+- database: export/import data
+- database: total progress page
+	- template actions are needed
+		- is all template actions analysed?
+	- how much needs to be processed still
+
+
 - lyrics editor:
 	- new version
 		- gui
@@ -26,8 +34,6 @@ Scheduled work:
 		- show partially matching phrases and action-sets
 		- get morphed output phrase
 - tempo tap based phonetic rhyme writer for fast writing
-- total database progress page
-	- how much needs to be processed still
 
 - virtual artists (e.g Eminem: Slim Shady, Nicki Minaj: Roman)
 	- song style templates

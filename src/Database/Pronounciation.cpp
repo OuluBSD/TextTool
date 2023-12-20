@@ -11,6 +11,7 @@ void EnglishPronounciation::Clear() {
 	word_is.SetCount(0);
 	pron_parts.SetCount(0);
 	pronounciation.Clear();
+	base_clr = GrayColor();
 }
 
 bool EnglishPronounciation::Parse(const String& s) {
@@ -74,10 +75,13 @@ bool EnglishPronounciation::ParseFinish(DatasetAnalysis& ds) {
 		if (!found)
 			return false;
 	}
+	int r_sum = 0, g_sum = 0, b_sum = 0;
+	int weight = 0;
 	for (int wa_i : word_is) {
 		const WordAnalysis& wa = ds.words[wa_i];
 		int a = 0;
-		for(int i = 0; i < wa.phonetic.GetCount(); i++) {
+		int pc = wa.phonetic.GetCount();
+		for(int i = 0; i < pc; i++) {
 			int chr = wa.phonetic[i];
 			if (chr == '.' || chr == ' ') {
 				if (a < i)
@@ -85,9 +89,25 @@ bool EnglishPronounciation::ParseFinish(DatasetAnalysis& ds) {
 				a = i+1;
 			}
 		}
-		if (a < wa.phonetic.GetCount())
+		if (a < pc)
 			pron_parts << wa.phonetic.Mid(a);
+		
+		r_sum += wa.clr.GetR() * pc;
+		g_sum += wa.clr.GetG() * pc;
+		b_sum += wa.clr.GetB() * pc;
+		weight += pc;
 	}
+	if (!weight)
+		blended_clr = base_clr;
+	else {
+		Color clr(	r_sum / weight,
+					g_sum / weight,
+					b_sum / weight);
+		
+		// Modify color based on words
+		blended_clr = Blend(base_clr, clr);
+	}
+	
 	pronounciation = Join(pron_parts, " ");
 	return true;
 }
@@ -112,4 +132,8 @@ double EnglishPronounciation::GetInternalRhyming() const {
 	if (dist_count > 0)
 		av = dist_sum / dist_count;
 	return av;
+}
+
+int EnglishPronounciation::GetSyllableCount() const {
+	return pron_parts.GetCount();
 }
