@@ -5212,3 +5212,108 @@ void Task::CreateInput_GetSongDataAnalysis() {
 	}
 	
 }
+
+void Task::CreateInput_GetActionAnalysis() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	ActionAnalysisArgs args;
+	args.Put(this->args[0]);
+	
+	
+	if (args.fn == 0) {
+		{
+			auto& list = input.AddSub().Title("Lyrics");
+			list.NoListChar();
+			list.Add("2 AM, howlin outside");
+			list.Add("Lookin, but I cannot find");
+		}
+		
+		{
+			auto& list = input.AddSub().Title("Actions per a line of lyrics. With the most matching actions of list \"B\"");
+			list.NoListChar();
+			list.Add("\"2 AM, howlin outside\": attention-time(night) + attention-emotional_state(desire) + attention-action(howling) + attention-activity(driving) + tone(urgent) + msg(trying to reach someone) + bias(romantic + emotion(uncertainty) + level-of-certainty(trying/desire) + gesturing(pointing) + describing-surroundings(anywhere in the dark) + attention-place(outside)");
+			list.Add("\"Lookin, but I cannot find\": attention-action(looking) + attention-physical state(tired) + emotion(frustration) + attention-emotional_state(desperation) + attention-time(late at night)");
+		}
+		
+		{
+			auto& list = input.AddSub().Title("Phrases with the metaphorical color RGB integer (r,g,b) code at the end of the line");
+			list.NoListChar();
+			list.Add("\"sassy\": RGB(255,140,0)");
+			list.Add("\"golden opportunities\": RGB(255,215,0)");
+			list.Add("\"blue ocean, green trees, live in harmony\", RGB(0,128,0)");
+			list.Add("\"2 AM, howlin outside\", RGB(0,0,128)");
+			list.Add("\"Lookin, but I cannot find\", RGB(128,128,128)");
+		}
+		
+		{
+			auto& list = input.AddSub().Title("Actions of the list \"C\"");
+			list.NoListChar();
+			list.Add("\"attention-event(unpleasant smell)\"");
+			list.Add("\"msg(expressing physical desire)\"");
+			for (const String& s : args.actions)
+				list.Add("\"" + s + "\"");
+		}
+		
+		{
+			auto& answer = input.PreAnswer();
+			answer.Title("Metaphorical RGB value of actions in the list \"C\"");
+			answer.NoListChar();
+			answer.Add("\"attention-event(unpleasant smell)\" RGB(128,0,0)");
+			answer.Add("\"msg(expressing physical desire)\" RGB(255, 192, 203)");
+			answer.Add("");
+		}
+		input.response_length = 2*1024;
+	}
+	if (args.fn == 1) {
+		{
+			auto& list = input.AddSub().Title("Lyrics");
+			list.NoListChar();
+			list.Add("2 AM, howlin outside");
+			list.Add("Lookin, but I cannot find");
+		}
+		
+		{
+			auto& list = input.AddSub().Title("Actions per a line of lyrics. With the most matching actions of list \"B\"");
+			list.NoListChar();
+			list.Add("\"2 AM, howlin outside\": attention-time(night) + attention-emotional_state(desire) + attention-action(howling) + attention-activity(driving) + tone(urgent) + msg(trying to reach someone) + bias(romantic + emotion(uncertainty) + level-of-certainty(trying/desire) + gesturing(pointing) + describing-surroundings(anywhere in the dark) + attention-place(outside)");
+			list.Add("\"Lookin, but I cannot find\": attention-action(looking) + attention-physical state(tired) + emotion(frustration) + attention-emotional_state(desperation) + attention-time(late at night)");
+		}
+		
+		{
+			auto& list = input.AddSub().Title("Attribute list \"A\" (key, group, primary value, opposite value)");
+			#define ATTR_ITEM(e, g, i0, i1) list.Add(g " / " i0 " / " i1);
+			ATTR_LIST
+			#undef ATTR_ITEM
+		}
+		
+		{
+			auto& list = input.AddSub().Title("Primary attribute groups and values of sentences from attribute list \"A\"");
+			list.Add("\"I won't blindly follow the crowd\": group faith / individual spirituality");
+			list.Add("\"feeling blue and green with envy\": sexual preference / kinky");
+			list.Add("\"2 AM, howlin outside\": faith and reason seekers / divine worshipers");
+			list.Add("\"Lookin, but I cannot find\": truthfulness / personal experience");
+		}
+		
+		{
+			auto& list = input.AddSub().Title("Actions of the list \"C\"");
+			list.NoListChar();
+			list.Add("\"attention-event(unpleasant smell)\"");
+			list.Add("\"transition(activities/roles)\"");
+			for (const String& s : args.actions)
+				list.Add("\"" + s + "\"");
+		}
+		
+		{
+			auto& answer = input.PreAnswer();
+			answer.Title("Primary attribute groups and values of sentences from attribute list \"A\" for actions of the list \"C\"");
+			answer.NoListChar();
+			answer.Add("\"attention-event(unpleasant smell)\" sexualization / non-sexual");
+			answer.Add("\"transition(activities/roles)\" integrity / twisted");
+			answer.Add("");
+		}
+		input.response_length = 2*1024;
+	}
+}

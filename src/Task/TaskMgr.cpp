@@ -381,6 +381,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetSongDataAnalysis)
 		;
 	
+	AddRule(TASK_GET_ACTION_ANALYSIS, "get action analysis")
+		.Input(&Task::CreateInput_GetActionAnalysis)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetActionAnalysis)
+		;
+	
 	
 	
 	
@@ -762,6 +769,10 @@ void TaskMgrConfig::Process() {
 	
 	while (running) {
 		db.lock.EnterRead();
+		#if 1
+		for (Pipe& pipe : db.pipes)
+			pipe.TaskMgr::Process();
+		#else
 		for (Artist& art : db.artists) {
 			for (Release& rel : art.releases) {
 				for (Song& song : rel.songs) {
@@ -772,6 +783,7 @@ void TaskMgrConfig::Process() {
 				}
 			}
 		}
+		#endif
 		db.lock.LeaveRead();
 		
 		Sleep(10);
@@ -800,6 +812,10 @@ Task& TaskMgr::AddTask() {
 }
 
 void TaskMgr::LoadTaskOrder() {
+	const Pipe& pipe = static_cast<const Pipe&>(*this);
+	if (!pipe.song)
+		return;
+	
 	String dir = ConfigFile("taskmgr");
 	RealizeDirectory(dir);
 	String fname = IntStr64(GetSongHash()) + ".bin";
@@ -809,6 +825,10 @@ void TaskMgr::LoadTaskOrder() {
 }
 
 void TaskMgr::StoreTaskOrder() {
+	const Pipe& pipe = static_cast<const Pipe&>(*this);
+	if (!pipe.song)
+		return;
+	
 	String dir = ConfigFile("taskmgr");
 	RealizeDirectory(dir);
 	String fname = IntStr64(GetSongHash()) + ".bin";
@@ -1927,6 +1947,24 @@ void TaskMgr::GetSongDataAnalysis(const SongDataAnalysisArgs& args, Event<String
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_SONG_DATA_ANALYSIS);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_ACTION_ANALYSIS);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
 	String s = args.Get();

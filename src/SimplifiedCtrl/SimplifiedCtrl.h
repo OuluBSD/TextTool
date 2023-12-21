@@ -4,6 +4,7 @@
 #include <AdvancedCtrl/AdvancedCtrl.h>
 #include <ToolBase/ToolBase.h>
 #include <Agent/Agent.h>
+#include <SongLib/SongLib.h>
 
 
 #define LAYOUTFILE <SimplifiedCtrl/Simplified.lay>

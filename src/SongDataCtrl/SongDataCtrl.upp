@@ -29,6 +29,8 @@ file
 	TmplActions.cpp,
 	RhymeContainer.h,
 	RhymeContainer.cpp,
+	ActionAttrs.h,
+	ActionAttrs.cpp,
 	Loader.h,
 	Loader.cpp;
 

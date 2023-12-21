@@ -15594,6 +15594,21 @@ bool MockupPhraseParser::IsConsonant(int chr) {
 			chr == 'z';
 }
 
+/*
+consonant
+n = important
+t = meaningful
+d = meaningless
+s = specific
+
+vocal
+a = important
+i = meaningful
+u = meaningless
+
+
+*/
+
 bool MockupPhraseParser::Process(RhymeContainer& rc) {
 	int lc = tokens.GetCount();
 	if (!lc) {

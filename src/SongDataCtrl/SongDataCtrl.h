@@ -19,5 +19,6 @@
 #include "LineActions.h"
 #include "TmplActions.h"
 #include "RhymeContainer.h"
+#include "ActionAttrs.h"
 
 #endif

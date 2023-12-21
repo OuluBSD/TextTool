@@ -63,6 +63,7 @@ protected:
 	SongDataTemplates				song_tmpl;
 	LyricsEditor2					lyrics_editor2;
 	RhymeContainerPage				rhyme_container;
+	ActionAttrsPage					action_attrs;
 	
 	
 	

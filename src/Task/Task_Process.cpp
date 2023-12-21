@@ -1911,3 +1911,7 @@ void Task::Process_GetContextIdea() {
 void Task::Process_GetSongDataAnalysis() {
 	WhenResult(output);
 }
+
+void Task::Process_GetActionAnalysis() {
+	WhenResult(output);
+}

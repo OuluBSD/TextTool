@@ -99,6 +99,9 @@ GUI_APP_MAIN {
 		loader.Run();
 	}
 	
+	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	tm.Start();
+	
 	// Run main program
 	bool save_songdata = false;
 	{
@@ -122,6 +125,7 @@ GUI_APP_MAIN {
 	Thread::ShutdownThreads();
 	
 	// Deinit storing of files
+	tm.Stop();
 	m.Stop();
 	db.Store();
 	

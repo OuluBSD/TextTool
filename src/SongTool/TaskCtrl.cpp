@@ -31,12 +31,13 @@ Tasks::Tasks() {
 
 void Tasks::Data() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
-	if(!p.song || !p.song->pipe) {
+	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	Pipe* p = tm.GetPipe();
+	if(!p) {
 		list.Clear();
 		return;
 	}
-	Pipe& pipe = *p.song->pipe;
+	Pipe& pipe = *p;
 	TaskMgr& m = pipe;
 	
 	for(int i = 0; i < m.tasks.GetCount(); i++) {
@@ -76,12 +77,13 @@ void Tasks::Data() {
 
 void Tasks::DataTask() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
-	if(!p.song || !p.song->pipe) {
+	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	Pipe* p = tm.GetPipe();
+	if(!p) {
 		list.Clear();
 		return;
 	}
-	Pipe& pipe = *p.song->pipe;
+	Pipe& pipe = *p;
 	TaskMgr& m = pipe;
 	
 	if (!list.IsCursor())
@@ -103,12 +105,13 @@ void Tasks::DataTask() {
 
 void Tasks::ValueChange() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
-	if(!p.song || !p.song->pipe) {
+	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	Pipe* p = tm.GetPipe();
+	if(!p) {
 		list.Clear();
 		return;
 	}
-	Pipe& pipe = *p.song->pipe;
+	Pipe& pipe = *p;
 	TaskMgr& m = pipe;
 	
 	if (!m.active_task)
@@ -124,12 +127,13 @@ void Tasks::ValueChange() {
 
 void Tasks::ProcessItem() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
-	if(!p.song || !p.song->pipe) {
+	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	Pipe* p = tm.GetPipe();
+	if(!p) {
 		list.Clear();
 		return;
 	}
-	Pipe& pipe = *p.song->pipe;
+	Pipe& pipe = *p;
 	TaskMgr& m = pipe;
 	
 	if (!list.IsCursor())
@@ -142,12 +146,13 @@ void Tasks::ProcessItem() {
 
 void Tasks::RetryItem(bool skip_prompt, bool skip_cache) {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
-	if(!p.song || !p.song->pipe) {
+	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	Pipe* p = tm.GetPipe();
+	if(!p) {
 		list.Clear();
 		return;
 	}
-	Pipe& pipe = *p.song->pipe;
+	Pipe& pipe = *p;
 	TaskMgr& m = pipe;
 	
 	if (!list.IsCursor())

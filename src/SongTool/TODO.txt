@@ -1,11 +1,16 @@
 Scheduled work:
-- database: generate templates based on wordnets, attrs and colors
-- database: export/import data
+- database: color & attribute averages for actions
+- songlib taskmgr: cache results separately
+- database: average action transitions (from action to action) with scores
+- action storyline editor (all action storyline options to be used for lyrics finding)
 - database: total progress page
 	- template actions are needed
 		- is all template actions analysed?
 	- how much needs to be processed still
-
+	- check for missing data
+		- e.g. action colors/attrs might not get all 40/60 responses
+- database: generate templates based on wordnets, attrs and colors
+- database: export/import data
 
 - lyrics editor:
 	- new version
