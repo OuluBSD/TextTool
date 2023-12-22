@@ -1,7 +1,7 @@
 Scheduled work:
-- database: color & attribute averages for actions
 - songlib taskmgr: cache results separately
 - database: average action transitions (from action to action) with scores
+- tool: get actions for received messages, get attributes and colors
 - action storyline editor (all action storyline options to be used for lyrics finding)
 - database: total progress page
 	- template actions are needed
@@ -239,3 +239,4 @@ x? vocabulary: for artist, for release, for song
 - database: wordnet scoring
 - database: line based action planning (attributes, etc.)
 	- score new line based on change of attributes to the next line
+- database: color & attribute averages for actions

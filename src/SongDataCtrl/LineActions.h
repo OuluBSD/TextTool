@@ -32,6 +32,7 @@ protected:
 	bool running1 = false;
 	int per_batch = 15;
 	bool batch = false;
+	
 public:
 	typedef SongDataLineActions CLASSNAME;
 	SongDataLineActions();

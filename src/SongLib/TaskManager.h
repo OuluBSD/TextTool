@@ -51,6 +51,7 @@ public:
 	static TaskManager& Single() {static TaskManager o; return o;}
 	
 	
+	void DoActionlistCache(int ds_i);
 	void DoActionlist(int ds_i, int fn);
 	
 };

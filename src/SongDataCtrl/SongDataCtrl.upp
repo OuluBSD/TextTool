@@ -31,6 +31,8 @@ file
 	RhymeContainer.cpp,
 	ActionAttrs.h,
 	ActionAttrs.cpp,
+	ActionTransitions.h,
+	ActionTransitions.cpp,
 	Loader.h,
 	Loader.cpp;
 

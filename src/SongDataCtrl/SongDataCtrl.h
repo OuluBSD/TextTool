@@ -20,5 +20,6 @@
 #include "TmplActions.h"
 #include "RhymeContainer.h"
 #include "ActionAttrs.h"
+#include "ActionTransitions.h"
 
 #endif

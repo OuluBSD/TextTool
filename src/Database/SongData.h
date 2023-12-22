@@ -490,6 +490,37 @@ struct PackedRhymeHeader : Moveable<PackedRhymeHeader> {
 	}
 };
 
+struct ActionHeader : Moveable<ActionHeader> {
+	String action, arg;
+	
+	ActionHeader() {}
+	ActionHeader(const ActionHeader& a) {action = a.action; arg = a.arg;}
+	void operator=(const ActionHeader& a) {action = a.action; arg = a.arg;}
+	bool operator==(const ActionHeader& a) const {return action == a.action && arg == a.arg;}
+	hash_t GetHashValue() const {CombineHash c; c.Do(action); c.Do(arg); return c;}
+	bool operator()(const ActionHeader& a, const ActionHeader& b) const {
+		if (a.action != b.action) return a.action < b.action;
+		return a.arg < b.arg;
+	}
+	void Jsonize(JsonIO& json) {
+		json("action", action)("arg",arg);
+	}
+	void Serialize(Stream& s) {
+		s % action % arg;
+	}
+};
+
+struct ActionAttrs : Moveable<ActionAttrs> {
+	Color clr;
+	String group, value;
+	void Jsonize(JsonIO& json) {
+		json("clr", clr)("group",group)("value",value);
+	}
+	void Serialize(Stream& s) {
+		s % clr % group % value;
+	}
+};
+
 struct DatasetAnalysis {
 	VectorMap<String, ArtistAnalysis> artists;
 	VectorMap<String, WordGroupAnalysis> groups;
@@ -499,6 +530,7 @@ struct DatasetAnalysis {
 	Vector<ColorWordnet> clr_wordnets;
 	Vector<ActionPhrase> action_phrases;
 	Vector<ActionTemplate> action_tmpls;
+	VectorMap<ActionHeader, ActionAttrs> action_attrs;
 	
 	// Grouped fixed values
 	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;
@@ -534,6 +566,7 @@ struct DatasetAnalysis {
 				("clr_wordnets", clr_wordnets)
 				("action_phrases", action_phrases)
 				("action_tmpls", action_tmpls)
+				("action_attrs", action_attrs)
 				("packed_rhymes", packed_rhymes)
 				("dynamic_attrs", dynamic_attrs)
 				("dynamic_actions", dynamic_actions)
@@ -546,7 +579,8 @@ struct DatasetAnalysis {
 	void Serialize(Stream& s) {
 		s % artists % groups % words
 		  % tmpl_phrases % wordnets % clr_wordnets
-		  % action_phrases % action_tmpls % packed_rhymes
+		  % action_phrases % action_tmpls % action_attrs
+		  % packed_rhymes
 		  % dynamic_attrs % dynamic_actions;
 	}
 };
