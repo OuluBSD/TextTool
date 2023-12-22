@@ -7,6 +7,8 @@ class ActionTransitionsPage : public SongToolCtrl {
 	ArrayCtrl datasets, actions, action_args, transitions;
 	Mutex lock;
 	
+	VectorMap<String, VectorMap<String, int>> uniq_acts;
+	
 public:
 	typedef ActionTransitionsPage CLASSNAME;
 	ActionTransitionsPage();
@@ -17,7 +19,6 @@ public:
 	void DataDataset();
 	void DataAction();
 	void DataActionArg();
-	void UpdateFromCache();
 	void UpdateTransitions();
 	
 };

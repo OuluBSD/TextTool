@@ -66,6 +66,40 @@ void TaskManager::DoActionlist(int ds_i, int fn) {
 	lock.LeaveWrite();
 }
 
+void TaskManager::DoActionTansition(int ds_i, int fn) {
+	if (IsInTaskList(TASK_ACTIONTRANSITIONS))
+		return;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	/*if (uniq_acts.IsEmpty()) {
+		for (const ActionPhrase& ap : da.action_phrases) {
+			for (const auto& a : ap.actions)
+				uniq_acts.GetAdd(a.action).GetAdd(a.arg, 0)++;
+		}
+		struct Sorter {
+			bool operator()(const VectorMap<String, int>& a, const VectorMap<String, int>& b) const {
+				return a.GetCount() > b.GetCount();
+			}
+		};
+		SortByValue(uniq_acts, Sorter());
+		for (auto& v : uniq_acts.GetValues())
+			SortByValue(v, StdGreater<int>());
+	}*/
+	
+	lock.EnterWrite();
+	Task& t = task_list.Add();
+	t.type = TASK_ACTIONTRANSITIONS;
+	t.cb = THISBACK1(GetActionTransitions, &t);
+	t.ds_i = ds_i;
+	t.batch_i = 0;
+	t.fn = fn;
+	lock.LeaveWrite();
+}
+
 bool TaskManager::IsInTaskList(TaskType type) const {
 	for (const Task& t : task_list)
 		if (t.type == type)
@@ -267,6 +301,55 @@ void TaskManager::OnActionlistAttrs(String result, Task* t) {
 	
 	t->batch_i++;
 	t->running = false;
+}
+
+void TaskManager::GetActionTransitions(Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	TimeStop ts;
+	da.action_trans.Clear();
+	
+	for(const ActionPhrase& ap : da.action_phrases) {
+		int ap_i0 = 0;
+		for(int next_i : ap.next_phrases) {
+			const ActionPhrase& next = da.action_phrases[next_i];
+			
+			for (const auto& aa0 : ap.actions) {
+				for (const auto& aa1 : next.actions) {
+					if (aa0.action == aa1.action) {
+						// we have a transition
+						ActionHeader ah0, ah1;
+						ah0.action = aa0.action;
+						ah0.arg = aa0.arg;
+						ah1.action = aa1.action;
+						ah1.arg = aa1.arg;
+						ActionTransition& at = da.action_trans.GetAdd(ah0).GetAdd(ah1);
+						at.count++; // increase count
+						
+						if (ap_i0 < next.next_scores.GetCount()) {
+							auto& sc = next.next_scores[ap_i0];
+							int total_score = 0;
+							for(int j = 0; j < SCORE_MODE_COUNT; j++) {
+								for(int k = 0; k < SCORE_ATTR_COUNT; k++) {
+									int v = sc.scores[j][k];
+									total_score += v;
+								}
+							}
+							at.score_sum += min(
+								SCORE_MODE_COUNT * SCORE_ATTR_COUNT,
+								total_score);
+						}
+					}
+				}
+			}
+			ap_i0++;
+		}
+	}
+	
+	LOG("TaskManager::GetActionTransitions took " << ts.ToString());
 }
 
 }

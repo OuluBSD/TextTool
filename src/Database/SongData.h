@@ -521,6 +521,17 @@ struct ActionAttrs : Moveable<ActionAttrs> {
 	}
 };
 
+struct ActionTransition : Moveable<ActionTransition> {
+	int count = 0;
+	int score_sum = 0;
+	void Jsonize(JsonIO& json) {
+		json("count", count)("score_sum",score_sum);
+	}
+	void Serialize(Stream& s) {
+		s % count % score_sum;
+	}
+};
+
 struct DatasetAnalysis {
 	VectorMap<String, ArtistAnalysis> artists;
 	VectorMap<String, WordGroupAnalysis> groups;
@@ -531,6 +542,7 @@ struct DatasetAnalysis {
 	Vector<ActionPhrase> action_phrases;
 	Vector<ActionTemplate> action_tmpls;
 	VectorMap<ActionHeader, ActionAttrs> action_attrs;
+	VectorMap<ActionHeader, VectorMap<ActionHeader, ActionTransition>> action_trans;
 	
 	// Grouped fixed values
 	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;
@@ -567,6 +579,7 @@ struct DatasetAnalysis {
 				("action_phrases", action_phrases)
 				("action_tmpls", action_tmpls)
 				("action_attrs", action_attrs)
+				("action_trans", action_trans)
 				("packed_rhymes", packed_rhymes)
 				("dynamic_attrs", dynamic_attrs)
 				("dynamic_actions", dynamic_actions)
@@ -580,7 +593,7 @@ struct DatasetAnalysis {
 		s % artists % groups % words
 		  % tmpl_phrases % wordnets % clr_wordnets
 		  % action_phrases % action_tmpls % action_attrs
-		  % packed_rhymes
+		  % action_trans % packed_rhymes
 		  % dynamic_attrs % dynamic_actions;
 	}
 };

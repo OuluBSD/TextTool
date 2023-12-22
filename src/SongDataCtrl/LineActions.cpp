@@ -89,6 +89,7 @@ void SongDataLineActions::DataDataset() {
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
+	uniq_acts.Clear();
 	for (const ActionPhrase& ap : da.action_phrases) {
 		for (const auto& a : ap.actions)
 			uniq_acts.GetAdd(a.action).GetAdd(a.arg, 0)++;
