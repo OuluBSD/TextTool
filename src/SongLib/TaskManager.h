@@ -6,7 +6,8 @@ namespace SongLib {
 
 typedef enum {
 	TASK_ACTIONLIST,
-	TASK_ACTIONTRANSITIONS,
+	TASK_ACTION_PARALLELS,
+	TASK_ACTION_TRANSITIONS,
 	
 	TASK_COUNT
 } TaskType;
@@ -35,9 +36,10 @@ class TaskManager {
 	void RealizePipe();
 	void Process();
 	void GetActionlist(Task* t);
-	void GetActionTransitions(Task* t);
 	void OnActionlistColors(String result, Task* t);
 	void OnActionlistAttrs(String result, Task* t);
+	void GetActionTransitions(Task* t);
+	void GetActionParallels(Task* t);
 	
 	void RemoveTask(Task& t);
 	
@@ -56,7 +58,8 @@ public:
 	void DoActionlistCache(int ds_i);
 	void DoActionlist(int ds_i, int fn);
 	
-	void DoActionTansition(int ds_i, int fn);
+	void DoActionParallel(int ds_i, int fn);
+	void DoActionTransition(int ds_i, int fn);
 	
 };
 

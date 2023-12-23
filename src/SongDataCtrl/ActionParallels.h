@@ -1,0 +1,27 @@
+#ifndef _SongDataCtrl_ActionParallels_h_
+#define _SongDataCtrl_ActionParallels_h_
+
+
+class ActionParallelsPage : public SongToolCtrl {
+	Splitter vsplit, hsplit;
+	ArrayCtrl datasets, actions, action_args, parallels;
+	Mutex lock;
+	
+	VectorMap<String, VectorMap<String, int>> uniq_acts;
+	
+public:
+	typedef ActionParallelsPage CLASSNAME;
+	ActionParallelsPage();
+	
+	void Data() override;
+	void ToolMenu(Bar& bar) override;
+	void DataMain();
+	void DataDataset();
+	void DataAction();
+	void DataActionArg();
+	void UpdateParallels();
+	
+};
+
+
+#endif

@@ -64,6 +64,7 @@ protected:
 	LyricsEditor2					lyrics_editor2;
 	RhymeContainerPage				rhyme_container;
 	ActionAttrsPage					action_attrs;
+	ActionParallelsPage				action_parallels;
 	ActionTransitionsPage			action_transitions;
 	
 	

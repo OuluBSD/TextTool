@@ -1,8 +1,9 @@
 Scheduled work:
-- songlib taskmgr: cache results separately
-- database: average action transitions (from action to action) with scores
-- tool: get actions for received messages, get attributes and colors
+- database: parallel actions
+- menu options: quit without saving, stop SongLib tasks
 - action storyline editor (all action storyline options to be used for lyrics finding)
+- songlib taskmgr: cache results separately
+- tool: get actions for received messages, get attributes and colors
 - database: total progress page
 	- template actions are needed
 		- is all template actions analysed?
@@ -240,3 +241,4 @@ x? vocabulary: for artist, for release, for song
 - database: line based action planning (attributes, etc.)
 	- score new line based on change of attributes to the next line
 - database: color & attribute averages for actions
+- database: average action transitions (from action to action) with scores

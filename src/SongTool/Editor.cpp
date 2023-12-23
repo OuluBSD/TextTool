@@ -77,6 +77,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Template actions"), song_tmplactions);
 	AddItem(t_("Database"), t_("Rhyme container"), rhyme_container);
 	AddItem(t_("Database"), t_("Action attributes"), action_attrs);
+	AddItem(t_("Database"), t_("Action parallels"), action_parallels);
 	AddItem(t_("Database"), t_("Action transitions"), action_transitions);
 	
 	AddItem(t_("Company"), t_("Info"), info);

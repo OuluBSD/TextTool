@@ -1,9 +1,9 @@
 #include "SongDataCtrl.h"
 
-ActionTransitionsPage::ActionTransitionsPage() {
+ActionParallelsPage::ActionParallelsPage() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << vsplit << transitions;
+	hsplit.Horz() << vsplit << parallels;
 	hsplit.SetPos(2000);
 	
 	vsplit.Vert() << datasets << actions << action_args;
@@ -22,31 +22,31 @@ ActionTransitionsPage::ActionTransitionsPage() {
 	action_args.ColumnWidths("3 1");
 	action_args.WhenCursor << THISBACK(DataActionArg);
 	
-	transitions.AddColumn(t_("From action"));
-	transitions.AddColumn(t_("From action arg"));
-	transitions.AddColumn(t_("To action"));
-	transitions.AddColumn(t_("To action arg"));
-	transitions.AddColumn(t_("Score"));
-	transitions.AddColumn(t_("Count"));
-	transitions.AddColumn(t_("Weight"));
-	transitions.AddIndex("IDX0");
-	transitions.AddIndex("IDX1");
-	transitions.ColumnWidths("2 2 2 2 1 1 1");
+	parallels.AddColumn(t_("From action"));
+	parallels.AddColumn(t_("From action arg"));
+	parallels.AddColumn(t_("To action"));
+	parallels.AddColumn(t_("To action arg"));
+	parallels.AddColumn(t_("Score"));
+	parallels.AddColumn(t_("Count"));
+	parallels.AddColumn(t_("Weight"));
+	parallels.AddIndex("IDX0");
+	parallels.AddIndex("IDX1");
+	parallels.ColumnWidths("2 2 2 2 1 1 1");
 	
 }
 
-void ActionTransitionsPage::Data() {
+void ActionParallelsPage::Data() {
 	
 }
 
-void ActionTransitionsPage::ToolMenu(Bar& bar) {
+void ActionParallelsPage::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
 	bar.Separator();
-	bar.Add(t_("Update transitions"), AppImg::RedRing(), THISBACK(UpdateTransitions)).Key(K_F6);
+	bar.Add(t_("Update parallels"), AppImg::RedRing(), THISBACK(UpdateParallels)).Key(K_F6);
 	
 }
 
-void ActionTransitionsPage::DataMain() {
+void ActionParallelsPage::DataMain() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -62,7 +62,7 @@ void ActionTransitionsPage::DataMain() {
 	DataDataset();
 }
 
-void ActionTransitionsPage::DataDataset() {
+void ActionParallelsPage::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 	
@@ -106,7 +106,7 @@ void ActionTransitionsPage::DataDataset() {
 	DataAction();
 }
 
-void ActionTransitionsPage::DataAction() {
+void ActionParallelsPage::DataAction() {
 	if (!datasets.IsCursor() || !actions.IsCursor())
 		return;
 	
@@ -140,7 +140,7 @@ void ActionTransitionsPage::DataAction() {
 	DataActionArg();
 }
 
-void ActionTransitionsPage::DataActionArg() {
+void ActionParallelsPage::DataActionArg() {
 	if (!datasets.IsCursor() || !actions.IsCursor() || !action_args.IsCursor())
 		return;
 	
@@ -157,9 +157,9 @@ void ActionTransitionsPage::DataActionArg() {
 	
 	int idx = -1;
 	int row = 0;
-	for(int i = 0; i < da.action_trans.GetCount(); i++) {
-		const ActionHeader& at0 = da.action_trans.GetKey(i);
-		const auto& v = da.action_trans[i];
+	for(int i = 0; i < da.action_parallel.GetCount(); i++) {
+		const ActionHeader& at0 = da.action_parallel.GetKey(i);
+		const auto& v = da.action_parallel[i];
 		
 		bool at0_skipped = false;
 		if (filter_action) {
@@ -169,7 +169,7 @@ void ActionTransitionsPage::DataActionArg() {
 		
 		for(int j = 0; j < v.GetCount(); j++) {
 			const ActionHeader& at1 = v.GetKey(j);
-			const ActionTransition& at = v[j];
+			const ActionParallel& at = v[j];
 			
 			bool at1_skipped = false;
 			if (filter_action && at0_skipped) {
@@ -179,37 +179,30 @@ void ActionTransitionsPage::DataActionArg() {
 			if (at1_skipped && at1_skipped)
 				continue;
 			
-			transitions.Set(row, "IDX0", i);
-			transitions.Set(row, "IDX1", j);
-			transitions.Set(row, 0, at0.action);
-			transitions.Set(row, 1, at0.arg);
-			if (at0.action != at1.action || at0.arg != at1.arg) {
-				transitions.Set(row, 2, at1.action);
-				transitions.Set(row, 3, at1.arg);
-			}
-			else {
-				// no change
-				transitions.Set(row, 2, Value());
-				transitions.Set(row, 3, Value());
-			}
+			parallels.Set(row, "IDX0", i);
+			parallels.Set(row, "IDX1", j);
+			parallels.Set(row, 0, at0.action);
+			parallels.Set(row, 1, at0.arg);
+			parallels.Set(row, 2, at1.action);
+			parallels.Set(row, 3, at1.arg);
 			
 			double score = at.count > 0 ? at.score_sum / at.count : 0;
 			
-			transitions.Set(row, 4, score);
-			transitions.Set(row, 5, at.count);
-			transitions.Set(row, 6, at.score_sum);
+			parallels.Set(row, 4, score);
+			parallels.Set(row, 5, at.count);
+			parallels.Set(row, 6, at.score_sum);
 			
 			row++;
 		}
 	}
-	transitions.SetCount(row);
-	transitions.SetSortColumn(6, true);
-	if (!transitions.IsCursor() && transitions.GetCount())
-		transitions.SetCursor(0);
+	parallels.SetCount(row);
+	parallels.SetSortColumn(6, true);
+	if (!parallels.IsCursor() && parallels.GetCount())
+		parallels.SetCursor(0);
 	
 }
 
-void ActionTransitionsPage::UpdateTransitions() {
+void ActionParallelsPage::UpdateParallels() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	tm.DoActionTransition(0, 0);
+	tm.DoActionParallel(0, 0);
 }
