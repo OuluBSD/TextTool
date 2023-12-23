@@ -15564,6 +15564,7 @@ bool MockupPhraseParser::Parse(String txt) {
 }
 
 bool MockupPhraseParser::IsVowel(int chr) {
+	chr = ToLower(chr);
 	return	chr == 'a' ||
 			chr == 'e' ||
 			chr == 'i' ||
@@ -15573,6 +15574,7 @@ bool MockupPhraseParser::IsVowel(int chr) {
 }
 
 bool MockupPhraseParser::IsConsonant(int chr) {
+	chr = ToLower(chr);
 	return	chr == 'b' ||
 			chr == 'c' ||
 			chr == 'd' ||
@@ -15594,20 +15596,6 @@ bool MockupPhraseParser::IsConsonant(int chr) {
 			chr == 'z';
 }
 
-/*
-consonant
-n = important
-t = meaningful
-d = meaningless
-s = specific
-
-vocal
-a = important
-i = meaningful
-u = meaningless
-
-
-*/
 
 bool MockupPhraseParser::Process(RhymeContainer& rc) {
 	int lc = tokens.GetCount();
@@ -15618,8 +15606,7 @@ bool MockupPhraseParser::Process(RhymeContainer& rc) {
 	
 	rc.Clear();
 	
-	TODO
-	/*
+	
 	for(int i = 0; i < tokens.GetCount(); i++) {
 		auto& ltokens = tokens[i];
 		bool prev_continued = false;
@@ -15647,14 +15634,14 @@ bool MockupPhraseParser::Process(RhymeContainer& rc) {
 				SetError("part does not start with a consonant");
 				return false;
 			}
-			bool strong = IsUpper(chr0);
-			if (strong) chr0 = ToLower(chr0);
+			bool at_beat = IsUpper(chr0);
+			if (at_beat) chr0 = ToLower(chr0);
 			
-			int type = 0;
-			if      (chr0 == 'n')	type = 1;
-			else if (chr0 == 't')	type = 2;
-			else if (chr0 == 'd')	type = 3;
-			else if (chr0 == 's')	type = 4;
+			int consonant_importance = -1;
+			if      (chr0 == 'd')	consonant_importance = 0;
+			else if (chr0 == 't')	consonant_importance = 1;
+			else if (chr0 == 'n')	consonant_importance = 2;
+			else if (chr0 == 's')	consonant_importance = 3;
 			
 			int chr1 = s[1];
 			if (IsUpper(chr1)) chr1 = ToLower(chr1);
@@ -15662,15 +15649,12 @@ bool MockupPhraseParser::Process(RhymeContainer& rc) {
 				SetError("the second char is not a vowel");
 				return false;
 			}
-			int importance = 0;
-			if      (chr1 == 'a')	importance = 1;
-			else if (chr1 == 'i')	importance = 2;
-			else if (chr1 == 'u')	importance = 3;
+			int vocal_importance = 0;
+			if      (chr1 == 'u')	vocal_importance = 0;
+			else if (chr1 == 'i')	vocal_importance = 1;
+			else if (chr1 == 'a')	vocal_importance = 2;
+			else if (chr1 == 'y')	vocal_importance = 3;
 			
-			SyllableType st = SYL_MEANINGLESS;
-			if (type > 0 && importance > 0) {
-				st = (SyllableType)(1 + type * 3 + (importance-1));
-			}
 			
 			if (prev_continued && word_ptr) {
 				// pass
@@ -15680,21 +15664,21 @@ bool MockupPhraseParser::Process(RhymeContainer& rc) {
 				word_ptr = &w;
 			}
 			RhymeContainer::Syllable& syl = word_ptr->syllables.Add();
-			syl.type = st;
+			syl.consonant_importance = consonant_importance;
+			syl.vocal_importance = vocal_importance;
 			syl.long_ = sc > 2;
-			syl.strong = strong;
+			syl.at_beat = at_beat;
 				
 			prev_continued = continues;
 		}
-	}*/
+	}
 	
 	return true;
 }
 
 String RhymeContainer::ToString() const {
 	String o;
-	TODO
-	/*
+	
 	for (const auto& l : lines) {
 		if (!o.IsEmpty())
 			o << "\n";
@@ -15703,11 +15687,75 @@ String RhymeContainer::ToString() const {
 			int i = 0;
 			for (const auto& s : w.syllables) {
 				if (i++) o << " ";
-				o << GetSyllableTypeString(s.type);
+				o << s.AsString();
 			}
 			o << ")";
 		}
 	}
-	*/
+	
 	return o;
+}
+
+String RhymeContainer::AsNana() const {
+	String s;
+	for (const auto& l : lines) {
+		if (s.GetCount()) s << "\n";
+		s << l.AsNana();
+	}
+	return s;
+}
+
+String RhymeContainer::Line::AsNana() const {
+	String s;
+	int w_i = 0;
+	for (const Word& w : words) {
+		if (w_i++)
+			s.Cat(' ');
+		int sy_i = 0;
+		for (const Syllable& sy : w.syllables) {
+			if (sy_i++) s << "- ";
+			s << sy.AsString();
+		}
+	}
+	return s;
+}
+
+/*
+consonant
+n = important
+t = meaningful
+d = meaningless
+s = specific
+
+vocal
+a = important
+i = meaningful
+u = meaningless
+
+
+*/
+String RhymeContainer::Syllable::AsString() const {
+	int vocal = 0, conso = 0;
+	switch (consonant_importance) {
+		case 0: conso = 'd'; break;
+		case 1: conso = 't'; break;
+		case 2: conso = 'n'; break;
+		case 3: conso = 's'; break;
+		default: break;
+	}
+	
+	switch (vocal_importance) {
+		case 0: vocal = 'u'; break;
+		case 1: vocal = 'i'; break;
+		case 2: vocal = 'a'; break;
+		case 3: vocal = 'y'; break;
+		default: break;
+	}
+	
+	String s;
+	if (conso && at_beat) conso = ToUpper(conso);
+	if (conso) s.Cat(conso);
+	if (vocal) s.Cat(vocal);
+	if (vocal && long_) s.Cat(vocal);
+	return s;
 }

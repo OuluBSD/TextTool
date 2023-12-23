@@ -129,15 +129,17 @@ GUI_APP_MAIN {
 	// Deinit storing of files
 	tm.Stop();
 	m.Stop();
-	if (!fast_exit)
-		db.Store();
 	
-	if (save_songdata) {
-		db.song_data.a.Store();
-		db.song_data.a.StoreJson();
+	if (!fast_exit) {
+		db.Store();
+		
+		if (save_songdata) {
+			db.song_data.a.Store();
+			db.song_data.a.StoreJson();
+		}
+		
+		m.Store();
 	}
 	
-	if (!fast_exit)
-		m.Store();
 	Thread::ShutdownThreads();
 }

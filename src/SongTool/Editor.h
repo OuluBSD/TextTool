@@ -114,6 +114,8 @@ protected:
 	SongDataWordnetScoring	song_wnscoring;
 	SongDataLineActions		song_lineactions;
 	SongDataTmplActions		song_tmplactions;
+	NanaEditor				nana_editor;
+	ActionEditor			action_editor;
 	
 public:
 	typedef Editor CLASSNAME;

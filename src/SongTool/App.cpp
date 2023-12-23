@@ -73,7 +73,7 @@ void SongTool::MainMenu(Bar& bar) {
 			bar.Add(t_("Do not save song data analysis on exit"), THISBACK1(SetSaveSongdata, 0));
 		bar.Separator();
 		bar.Add(t_("Exit"), callback(this, &TopWindow::Close));
-		bar.Add(t_("Fast Exit"), THISBACK(FastExit)).Key(K_F12);
+		bar.Add(t_("Fast Exit"), THISBACK(FastExit)).Key(K_CTRL|K_SHIFT|K_Q);
 	});
 	bar.Sub(t_("View"), [this](Bar& bar) {
 		bar.Add(t_("View Front Page"), THISBACK1(SetView, 0)).Key(K_ALT_1);

@@ -1360,7 +1360,7 @@ void SetColoredListValue(ArrayCtrl& list, int row, int col, const String& txt, C
 
 
 
-#define SYLLABLE_TYPE_LIST \
+/*#define SYLLABLE_TYPE_LIST \
 	SYLLABLE_TYPE(MEANINGLESS) \
 	\
 	SYLLABLE_TYPE(RHYMING_VOWEL_IMPORTANT) \
@@ -1394,22 +1394,23 @@ inline String GetSyllableTypeString(int i) {
 		#undef SYLLABLE_TYPE
 		default: return "invalid";
 	}
-}
+}*/
 
 class RhymeContainer {
 	
 public:
-	byte data;
 	
-	/*struct Syllable : Moveable<Syllable> {
-		SyllableType type;
-		bool strong = false;
+	struct Syllable : Moveable<Syllable> {
+		int consonant_importance;
+		int vocal_importance;
 		bool long_ = false;
+		bool at_beat = false;
 		
 		Syllable() {}
 		Syllable(const Syllable& s) {*this = s;}
-		void operator=(const Syllable& s) {type = s.type; strong = s.strong; long_ = s.long_;}
-		
+		void operator=(const Syllable& s) {consonant_importance = s.consonant_importance; vocal_importance = s.vocal_importance; long_ = s.long_; at_beat = s.at_beat;}
+		void Jsonize(JsonIO& json) {json("c", consonant_importance)("v", vocal_importance)("l", long_)("b", at_beat);}
+		String AsString() const;
 	};
 	
 	struct Word : Moveable<Word> {
@@ -1418,7 +1419,7 @@ public:
 		Word() {}
 		Word(const Word& s) {*this = s;}
 		void operator=(const Word& s) {syllables <<= s.syllables;}
-		
+		void Jsonize(JsonIO& json) {json("syllables", syllables);}
 	};
 	
 	struct Line : Moveable<Line> {
@@ -1427,26 +1428,30 @@ public:
 		Line() {}
 		Line(const Line& s) {*this = s;}
 		void operator=(const Line& s) {words <<= s.words;}
-		
+		void Jsonize(JsonIO& json) {json("words", words);}
+		String AsNana() const;
 	};
 	
 protected:
 	friend class MockupPhraseParser;
-	Vector<Line> lines;*/
+	Vector<Line> lines;
 	
 public:
 	typedef RhymeContainer CLASSNAME;
 	RhymeContainer() {}
 	RhymeContainer(const RhymeContainer& rc) {*this = rc;}
 	
-	//const Vector<Line>& Get() const {return lines;}
+	const Vector<Line>& Get() const {return lines;}
 	
-	void Clear() {TODO}
-	void operator=(const RhymeContainer& rc) {TODO}//lines <<= rc.lines;}
+	void Clear() {lines.Clear();}
+	void operator=(const RhymeContainer& rc) {lines <<= rc.lines;}
 	
 	String ToString() const;
+	String AsNana() const;
 	void Dump() {LOG(ToString());}
-	
+	void Jsonize(JsonIO& json) {
+		json("lines", lines);
+	}
 };
 
 class MockupPhraseParser {
