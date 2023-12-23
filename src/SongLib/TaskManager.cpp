@@ -6,6 +6,15 @@ TaskManager::TaskManager() {
 	
 }
 
+void TaskManager::Clear() {
+	bool was_running = running;
+	if (was_running) Stop();
+	lock.EnterWrite();
+	task_list.Clear();
+	lock.LeaveWrite();
+	if (was_running) Start();
+}
+
 void TaskManager::DoActionlistCache(int ds_i) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;

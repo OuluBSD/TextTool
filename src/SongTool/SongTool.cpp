@@ -104,6 +104,7 @@ GUI_APP_MAIN {
 	
 	// Run main program
 	bool save_songdata = false;
+	bool fast_exit = false;
 	{
 		SongTool t;
 		
@@ -120,6 +121,7 @@ GUI_APP_MAIN {
 		t.Run();
 		
 		save_songdata = t.GetEditor().GetSaveSongdata();
+		fast_exit = t.GetEditor().IsFastExit();
 	}
 	
 	Thread::ShutdownThreads();
@@ -127,13 +129,15 @@ GUI_APP_MAIN {
 	// Deinit storing of files
 	tm.Stop();
 	m.Stop();
-	db.Store();
+	if (!fast_exit)
+		db.Store();
 	
 	if (save_songdata) {
 		db.song_data.a.Store();
 		db.song_data.a.StoreJson();
 	}
 	
-	m.Store();
+	if (!fast_exit)
+		m.Store();
 	Thread::ShutdownThreads();
 }

@@ -25,6 +25,7 @@ protected:
 	int					page_group = 0;
 	VectorMap<int,int>	page;
 	bool				save_songdata = false;
+	bool				fast_exit = false;
 	
 	// Simplified
 	AlbumBriefing					album_briefing;
@@ -137,7 +138,9 @@ public:
 	void MovePart(int d);
 	String GetStatusText();
 	bool GetSaveSongdata() const {return save_songdata;}
+	bool IsFastExit() const {return fast_exit;}
 	void SetSaveSongdata(bool b) {save_songdata = b;}
+	void SetFastExit(bool b) {fast_exit = b;}
 	
 	void ArtistMenu(Bar& bar);
 	void ReleaseMenu(Bar& bar);

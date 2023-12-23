@@ -49,6 +49,7 @@ public:
 	
 	void Start();
 	void Stop();
+	void Clear();
 	bool IsInTaskList(TaskType type) const;
 	Pipe* GetPipe() const {return pipe;}
 	

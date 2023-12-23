@@ -50,6 +50,16 @@ void SongTool::Init() {
 	SetView(page);
 }
 
+void SongTool::FastExit() {
+	ed.SetFastExit(1);
+	TopWindow::Close();
+}
+
+void SongTool::ClearSonglibTasks() {
+	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	tm.Clear();
+}
+
 void SongTool::MainMenu(Bar& bar) {
 	bar.Sub(t_("App"), [this](Bar& bar) {
 		bar.Add(t_("Save"), callback(&Database::Single(), &Database::Store)).Key(K_CTRL_S);
@@ -63,6 +73,7 @@ void SongTool::MainMenu(Bar& bar) {
 			bar.Add(t_("Do not save song data analysis on exit"), THISBACK1(SetSaveSongdata, 0));
 		bar.Separator();
 		bar.Add(t_("Exit"), callback(this, &TopWindow::Close));
+		bar.Add(t_("Fast Exit"), THISBACK(FastExit)).Key(K_F12);
 	});
 	bar.Sub(t_("View"), [this](Bar& bar) {
 		bar.Add(t_("View Front Page"), THISBACK1(SetView, 0)).Key(K_ALT_1);
@@ -82,6 +93,7 @@ void SongTool::MainMenu(Bar& bar) {
 	bar.Sub(t_("Tools"), [this](Bar& bar) {
 		bar.Add(t_("Show orphaned files"), THISBACK(ShowOrphanedFiles));
 		bar.Add(t_("Make Tasks"), THISBACK(MakeTasks));//.Key(K_CTRL_R);
+		bar.Add(t_("Clear SongLib tasks"), THISBACK(ClearSonglibTasks));
 	});
 }
 

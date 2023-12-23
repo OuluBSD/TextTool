@@ -59,6 +59,8 @@ public:
 	void SetBar();
 	void MainBar(Bar& bar);
 	void SetSaveSongdata(bool b) {ed.SetSaveSongdata(b);}
+	void FastExit();
+	void ClearSonglibTasks();
 	
 	Editor& GetEditor() {return ed;}
 	
