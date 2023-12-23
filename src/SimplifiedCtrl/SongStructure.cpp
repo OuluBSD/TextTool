@@ -9,6 +9,7 @@ SongStructure::SongStructure() {
 	vsplit.Vert() << hsplit << active;
 	
 	active.parts.AddColumn(t_("Name"));
+	//active.parts.AddColumn(t_("Type"));
 	active.attrs.AddColumn(t_("Attribute"));
 	
 	
@@ -95,6 +96,9 @@ void SongStructure::DataActive() {
 	
 	Song::StructSuggestion& s = song.active_struct;
 	
+	if (song.parts.GetCount() < s.parts.GetCount())
+		song.parts.SetCount(s.parts.GetCount());
+	
 	//s.chords.SetCount(s.parts.GetCount());
 	
 	int bpm = StrInt(GetParam("BPM", "120"));
@@ -110,13 +114,11 @@ void SongStructure::DataActive() {
 	active.attrs.SetCount(s.attrs.GetCount());
 	
 	for(int i = 0; i < s.parts.GetCount(); i++) {
+		StaticPart& sp = song.parts[i];
 		String abbr = s.parts[i];
 		active.parts.Set(i, 0,
 			AttrText(GetSongPartFromAbbr(abbr)).NormalPaper(GetSongPartPaperColor(abbr)));
 		
-		/*EditString& ch = active.parts.CreateCtrl<EditString>(i, 2);
-		ch.SetData(s.chords[i]);
-		ch.WhenAction << [&ch,i,&s]() {s.chords[i] = ch.GetData();};*/
 	}
 	active.parts.SetCount(s.parts.GetCount());
 	

@@ -53,14 +53,11 @@ void FineStructureCtrl::Data() {
 		list.Set(i, 0, AttrText(part.name).NormalPaper(clr));
 		
 		DropList& dl = list.CreateCtrl<DropList>(i, 1);
-		dl.Add(t_("Singing"));
-		dl.Add(t_("Rapping"));
-		dl.Add(t_("Poetry"));
-		dl.Add(t_("Dialog"));
-		dl.Add(t_("Skip"));
-		int idx = max(0, min(dl.GetCount()-1, part.part_type));
+		for(int j = 0; j < StaticPart::PART_TYPE_COUNT; j++)
+			dl.Add(StaticPart::GetTypeString(j));
+		int idx = max(0, min(dl.GetCount()-1, (int&)part.part_type));
 		dl.SetIndex(idx);
-		dl.WhenAction << [&part,i,&dl]() {part.part_type = dl.GetIndex();};
+		dl.WhenAction << [&part,i,&dl]() {(int&)part.part_type = dl.GetIndex();};
 		
 		EditIntSpin& bc = list.CreateCtrl<EditIntSpin>(i, 2);
 		bc.MinMax(0, 100);

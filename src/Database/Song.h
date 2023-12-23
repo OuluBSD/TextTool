@@ -185,15 +185,38 @@ struct StaticPhrase {
 	}
 };
 
+struct ActionHeader : Moveable<ActionHeader> {
+	String action, arg;
+	
+	ActionHeader() {}
+	ActionHeader(const ActionHeader& a) {action = a.action; arg = a.arg;}
+	void operator=(const ActionHeader& a) {action = a.action; arg = a.arg;}
+	bool operator==(const ActionHeader& a) const {return action == a.action && arg == a.arg;}
+	hash_t GetHashValue() const {CombineHash c; c.Do(action); c.Do(arg); return c;}
+	bool operator()(const ActionHeader& a, const ActionHeader& b) const {
+		if (a.action != b.action) return a.action < b.action;
+		return a.arg < b.arg;
+	}
+	bool IsEmpty() const {return action.IsEmpty() || arg.IsEmpty();}
+	void Jsonize(JsonIO& json) {
+		json("action", action)("arg",arg);
+	}
+	void Serialize(Stream& s) {
+		s % action % arg;
+	}
+};
+
 struct StaticPart {
 	// Part types
-	enum {
+	typedef enum : int {
 		SINGING,
 		RAPPING,
 		POETRY,
 		DIALOG,
-		SKIP
-	};
+		SKIP,
+		
+		PART_TYPE_COUNT
+	} PartType;
 	
 	String name;
 	String type; // abbreviation like V1, PC2, C
@@ -211,7 +234,7 @@ struct StaticPart {
 	bool outdated_suggestions = true;
 	Array<StaticContentSuggestion> contents;
 	int content_cursor = -1;
-	int part_type = 0;
+	PartType part_type = SINGING;
 	int bar_length = 0;
 	Vector<Vector<Vector<Color>>> colors;
 	Vector<Vector<Color>> listener_colors;
@@ -221,7 +244,11 @@ struct StaticPart {
 	Vector<double> wordgroup_factors;
 	Array<StaticPhrase> phrases;
 	RhymeContainer nana;
+	Vector<Vector<ActionHeader>> thrd_actions;
 	
+	static String GetTypeString(int part_type);
+	static String GetTypeString(PartType part_type);
+	String GetTypeString() const;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -239,7 +266,7 @@ struct StaticPart {
 			("contents", contents)
 			("content_cursor", content_cursor)
 			("bar_length", bar_length)
-			("part_type", part_type)
+			("part_type", (int&)part_type)
 			("colors", colors)
 			("listener_colors", listener_colors)
 			("vocabulary", vocabulary)
@@ -249,6 +276,7 @@ struct StaticPart {
 			("phrases", phrases)
 			("mockup", mockup)
 			("nana", nana)
+			("thrd_actions", thrd_actions)
 			;
 		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
 			json(	(String)"active_idea[" + IdeaPathString[IDEAPATH_PARTBEGIN+i][1] + "]",
@@ -400,7 +428,7 @@ struct Song :
 	String						english_title;
 	String						prj_name;
 	String						structure_str;
-	Vector<String>				structure;
+	Vector<String>				structure; // TRASH
 	MArr<String>				content;
 	VectorMap<String,String>	data;
 	Array<StaticPart>			parts;
@@ -422,6 +450,11 @@ struct Song :
 	void Store();
 	void LoadTitle(String title);
 	void ReloadStructure();
+	
+	Vector<int> GetPartPositions(const StaticPart& part) const;
+	Vector<int> GetPreviousParts(const StaticPart& part) const;
+	StaticPart* FindPartByType(const String& type);
+	int GetFirstPartPosition() const;
 	
 	void Serialize(Stream& s) {TODO}
 	void Jsonize(JsonIO& json) {

@@ -490,26 +490,6 @@ struct PackedRhymeHeader : Moveable<PackedRhymeHeader> {
 	}
 };
 
-struct ActionHeader : Moveable<ActionHeader> {
-	String action, arg;
-	
-	ActionHeader() {}
-	ActionHeader(const ActionHeader& a) {action = a.action; arg = a.arg;}
-	void operator=(const ActionHeader& a) {action = a.action; arg = a.arg;}
-	bool operator==(const ActionHeader& a) const {return action == a.action && arg == a.arg;}
-	hash_t GetHashValue() const {CombineHash c; c.Do(action); c.Do(arg); return c;}
-	bool operator()(const ActionHeader& a, const ActionHeader& b) const {
-		if (a.action != b.action) return a.action < b.action;
-		return a.arg < b.arg;
-	}
-	void Jsonize(JsonIO& json) {
-		json("action", action)("arg",arg);
-	}
-	void Serialize(Stream& s) {
-		s % action % arg;
-	}
-};
-
 struct ActionAttrs : Moveable<ActionAttrs> {
 	Color clr;
 	String group, value;

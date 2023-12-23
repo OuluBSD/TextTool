@@ -43,7 +43,6 @@ void PatternSnap::FindAddAttr(const SnapAttrStr& sa) {
 
 
 
-
 void Song::ReloadStructure() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;

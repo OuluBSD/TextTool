@@ -25,12 +25,70 @@ int StaticRhyme::GetBestSuggestion() const {
 	return best_i;
 }
 
+int Song::GetFirstPartPosition() const {
+	for(int i = 0; i < active_struct.parts.GetCount(); i++) {
+		String type = active_struct.parts[i];
+		for(int j = 0; j < parts.GetCount(); j++) {
+			if (parts[j].part_type != StaticPart::SKIP &&
+				parts[j].type == type)
+				return j;
+		}
+	}
+	return -1;
+}
+
+Vector<int> Song::GetPartPositions(const StaticPart& part) const {
+	Vector<int> v;
+	for(int i = 0; i < active_struct.parts.GetCount(); i++) {
+		if (active_struct.parts[i] == part.type)
+			v << i;
+	}
+	return v;
+}
+
+Vector<int> Song::GetPreviousParts(const StaticPart& part) const {
+	Vector<int> pos = GetPartPositions(part);
+	for(int i = 0; i < pos.GetCount(); i++) {
+		int& p = pos[i];
+		if (!p) pos.Remove(i--);
+		p--;
+	}
+	return pos;
+}
+
+StaticPart* Song::FindPartByType(const String& type) {
+	for (StaticPart& sp : parts)
+		if (sp.type == type)
+			return &sp;
+	return 0;
+}
+
 int Song::StructSuggestion::GetEstimatedDuration(int bpm) const {
 	double bars_per_min = (double)bpm / 4.0;
 	double bars_per_sec = bars_per_min / 60.0;
 	int bars = 8 * parts.GetCount();
 	double sec = bars / bars_per_sec;
 	return sec;
+}
+
+
+String StaticPart::GetTypeString() const {
+	return GetTypeString(part_type);
+}
+
+String StaticPart::GetTypeString(int part_type) {
+	return GetTypeString((PartType)part_type);
+}
+
+String StaticPart::GetTypeString(PartType part_type) {
+	switch (part_type) {
+		case SINGING: return t_("Singing");
+		case RAPPING: return t_("Rapping");
+		case POETRY: return t_("Poetry");
+		case DIALOG: return t_("Dialog");
+		case SKIP: return t_("Skip");
+		default: return "<invalid>";
+	}
 }
 
 /*Song::Song() {

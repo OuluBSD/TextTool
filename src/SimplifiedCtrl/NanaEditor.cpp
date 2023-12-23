@@ -17,10 +17,19 @@ NanaEditor::NanaEditor() {
 void NanaEditor::Data() {
 	Song& song = GetSong();
 	
+	
 	for(int i = 0; i < song.parts.GetCount(); i++) {
-		StaticPart& part = song.parts[i];
-		parts.Set(i, 0, part.name);
-		parts.Set(i, 1, part.type);
+		StaticPart& sp = song.parts[i];
+		//parts.Set(i, 0, sp.name);
+		//parts.Set(i, 1, part.GetTypeString());
+		parts.Set(i, 0,
+			AttrText(sp.name).NormalPaper(GetSongPartPaperColor(sp.type)));
+		
+		DropList& dl = parts.CreateCtrl<DropList>(i, 1);
+		for(int j = 0; j < StaticPart::PART_TYPE_COUNT; j++)
+			dl.Add(StaticPart::GetTypeString(j));
+		dl.SetIndex((int&)sp.part_type);
+		dl.WhenAction << [&dl,i,&sp]() {(int&)sp.part_type = dl.GetIndex();};
 	}
 	parts.SetCount(song.parts.GetCount());
 	if (!parts.IsCursor() && parts.GetCount())
