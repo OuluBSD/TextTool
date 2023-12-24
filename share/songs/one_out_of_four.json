@@ -2172,6 +2172,650 @@
 					}
 				}
 			],
+			"mockup": "ni- ni- naa ni- ni- naa ni- ni- na- ni- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- naa\n",
+			"nana": {
+				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 2,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thrd_actions": [
+				[
+					{
+						"action": "bias",
+						"arg": "lack of communication"
+					},
+					{
+						"action": "tone",
+						"arg": "sad"
+					},
+					{
+						"action": "bias",
+						"arg": "inability to truly know someone"
+					},
+					{
+						"action": "bias",
+						"arg": "holding person accountable"
+					},
+					{
+						"action": "bias",
+						"arg": "recognition of situation"
+					},
+					{
+						"action": "bias",
+						"arg": "admitting situation"
+					},
+					{
+						"action": "bias",
+						"arg": "exaggerating"
+					},
+					{
+						"action": "bias",
+						"arg": "inquisitive"
+					}
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				]
+			],
 			"active_idea[CONTENT]": "He studied and researched every aspect of sexuality",
 			"active_idea[IMAGERY]": "He delves into the complexities of desire",
 			"active_idea[SYMBOLISM]": "A telescope representing the search for deeper meaning",
@@ -2539,6 +3183,272 @@
 						"blue": 0
 					}
 				}
+			],
+			"mockup": "ni- ni- naa ni- ni- naa ni- ni- na- ni- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- naa\n",
+			"nana": {
+				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thrd_actions": [
+				[
+					{
+						"action": "bias",
+						"arg": "emphatic"
+					},
+					{
+						"action": "bias",
+						"arg": "powerful"
+					},
+					{
+						"action": "bias",
+						"arg": "comparing self to others"
+					},
+					{
+						"action": "bias",
+						"arg": "respectful"
+					}
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				]
 			],
 			"active_idea[CONTENT]": "He questioned the traditional views on sexuality and embarked on a journey of self-discovery",
 			"active_idea[IMAGERY]": "His mind races with thoughts of curiosity and liberation",
@@ -2992,6 +3902,610 @@
 					}
 				}
 			],
+			"mockup": "ni- ni- naa ni- ni- naa\nni- ni- naa ni- ni- naa\nni- ni- naa ni- ni- naa\nni- ni- na- ni- ni- naa\n",
+			"nana": {
+				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thrd_actions": [
+				[
+					{
+						"action": "bias",
+						"arg": "admiration for oneself"
+					},
+					{
+						"action": "bias",
+						"arg": "boastful"
+					},
+					{
+						"action": "bias",
+						"arg": "contentment/satisfaction"
+					},
+					{
+						"action": "bias",
+						"arg": "feeling superior to others"
+					},
+					{
+						"action": "bias",
+						"arg": "joking about philosopher habits and hobby"
+					},
+					{
+						"action": "bias",
+						"arg": "negative/critical judgement of specific person"
+					},
+					{
+						"action": "bias",
+						"arg": "expanding on idea of protecting like barbed wire. In relation to gang's work and the rest of the song."
+					},
+					{
+						"action": "emotion",
+						"arg": "content"
+					}
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				]
+			],
 			"active_idea[CONTENT]": "am the mad scientist of my own sexual play",
 			"active_idea[IMAGERY]": "A sexual experiment in a laboratory",
 			"active_idea[SYMBOLISM]": "Chemical reactions",
@@ -3325,6 +4839,628 @@
 			"phrases": [
 
 			],
+			"mockup": "ni- ni- naa ni- ni- naa ni- ni- na- ni- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- naa\n",
+			"nana": {
+				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thrd_actions": [
+				[
+					{
+						"action": "bias",
+						"arg": "impulsive"
+					},
+					{
+						"action": "bias",
+						"arg": "having fun"
+					},
+					{
+						"action": "bias",
+						"arg": "impulsive"
+					},
+					{
+						"action": "bias",
+						"arg": "respected"
+					},
+					{
+						"action": "tone",
+						"arg": "proud/assertive"
+					},
+					{
+						"action": "bias",
+						"arg": "respected"
+					},
+					{
+						"action": "emotion",
+						"arg": "pride"
+					},
+					{
+						"action": "bias",
+						"arg": "disruptive"
+					}
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				]
+			],
 			"active_idea[CONTENT]": "She had always been drawn to both the physical and spiritual aspects of intimacy, but it wasn't until she embraced a more scientific approach that she was able to find true balance and fulfillment.",
 			"active_idea[IMAGERY]": "He finds himself lost in the depths of her skin",
 			"active_idea[SYMBOLISM]": "Brain and heart conflicting over what is deemed acceptable",
@@ -3645,6 +5781,272 @@
 			],
 			"phrases": [
 
+			],
+			"mockup": "ni- ni- naa ni- ni- naa ni- ni- na- ni- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- naa\n",
+			"nana": {
+				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thrd_actions": [
+				[
+					{
+						"action": "emotion",
+						"arg": "pride"
+					},
+					{
+						"action": "bias",
+						"arg": "superior"
+					},
+					{
+						"action": "bias",
+						"arg": "casual"
+					},
+					{
+						"action": "bias",
+						"arg": "pleasant"
+					}
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				]
 			],
 			"active_idea[CONTENT]": "She delves into the mysteries of the universe, seeking a deeper connection and understanding of her own sexuality",
 			"active_idea[IMAGERY]": "A wave of liberation, blue",
@@ -3978,6 +6380,610 @@
 			],
 			"phrases": [
 
+			],
+			"mockup": "ni- ni- naa ni- ni- naa\nni- ni- naa ni- ni- naa\nni- ni- naa ni- ni- naa\nni- ni- na- ni- ni- naa\n",
+			"nana": {
+				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thrd_actions": [
+				[
+					{
+						"action": "bias",
+						"arg": "knowing what needs to be done"
+					},
+					{
+						"action": "tone",
+						"arg": "celebratory"
+					},
+					{
+						"action": "tone",
+						"arg": "romantic"
+					},
+					{
+						"action": "tone",
+						"arg": "hypnotic"
+					},
+					{
+						"action": "msg",
+						"arg": "repetition of loved one"
+					},
+					{
+						"action": "attention-mental_state",
+						"arg": "memory of relationship"
+					},
+					{
+						"action": "bias",
+						"arg": "love"
+					},
+					{
+						"action": "bias",
+						"arg": "nostalgia"
+					}
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				]
 			],
 			"active_idea[CONTENT]": "She sheds her old religious beliefs and becomes a spiritual seeker, searching for her own version of divine fulfillment.",
 			"active_idea[IMAGERY]": "A silver or chrome microscope examining the intricacies and complexities of sexual desire",
@@ -4335,6 +7341,454 @@
 			],
 			"phrases": [
 
+			],
+			"mockup": "ni- ni- na- ni- ni- ni- naa\nni- ni- na- ni- ni- naa\nni- ni- na- ni- ni- ni- naa\nni- ni- na- ni- ni- naa\n",
+			"nana": {
+				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thrd_actions": [
+				[
+					{
+						"action": "bias",
+						"arg": "reaction to disrespect"
+					},
+					{
+						"action": "bias",
+						"arg": "defending oneself"
+					},
+					{
+						"action": "bias",
+						"arg": "warning"
+					},
+					{
+						"action": "bias",
+						"arg": "assertive"
+					},
+					{
+						"action": "bias",
+						"arg": "open to reconciliation"
+					},
+					{
+						"action": "bias",
+						"arg": "positive memories"
+					},
+					{
+						"action": "bias",
+						"arg": "appreciation"
+					},
+					{
+						"action": "bias",
+						"arg": "romantic"
+					}
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				]
 			],
 			"active_idea[CONTENT]": "My journey towards individual spirituality is met with skepticism from a secular society, but I remain steadfast in my quest for self-discovery.",
 			"active_idea[IMAGERY]": "A bridge connecting the physical and spiritual realms; the merging of mind and body",
@@ -4696,7 +8150,7 @@
 			],
 			"content_cursor": 2,
 			"bar_length": 0,
-			"part_type": 0,
+			"part_type": 4,
 			"colors": [
 				[
 
@@ -4728,6 +8182,38 @@
 			],
 			"phrases": [
 
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				]
 			],
 			"active_idea[CONTENT]": "They join hands, united in their defiance against societal expectations and norms, ready to embark on their own journey towards fulfillment.",
 			"active_idea[IMAGERY]": "A book with torn pages symbolizing the breaking away from traditional beliefs",
@@ -4851,7 +8337,7 @@
 			],
 			"content_cursor": -1,
 			"bar_length": 0,
-			"part_type": 0,
+			"part_type": 4,
 			"colors": [
 				[
 
@@ -4882,6 +8368,15 @@
 
 			],
 			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
 
 			],
 			"active_idea[CONTENT]": "",
@@ -5138,7 +8633,7 @@
 			],
 			"content_cursor": -1,
 			"bar_length": 0,
-			"part_type": 0,
+			"part_type": 4,
 			"colors": [
 				[
 
@@ -5169,6 +8664,15 @@
 
 			],
 			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
 
 			],
 			"active_idea[CONTENT]": "",
@@ -5305,7 +8809,7 @@
 			],
 			"content_cursor": -1,
 			"bar_length": 0,
-			"part_type": 0,
+			"part_type": 4,
 			"colors": [
 				[
 
@@ -5336,6 +8840,102 @@
 
 			],
 			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		},
+		{
+			"name": "",
+			"type": "",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 4,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
 
 			],
 			"active_idea[CONTENT]": "",
