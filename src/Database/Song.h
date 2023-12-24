@@ -453,6 +453,7 @@ struct Song :
 	
 	Vector<int> GetPartPositions(const StaticPart& part) const;
 	Vector<int> GetPreviousParts(const StaticPart& part) const;
+	Vector<int> GetPreviousPartsNonSkipped(const StaticPart& part) const;
 	StaticPart* FindPartByType(const String& type);
 	int GetFirstPartPosition() const;
 	

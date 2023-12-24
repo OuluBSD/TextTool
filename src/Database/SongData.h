@@ -493,6 +493,11 @@ struct PackedRhymeHeader : Moveable<PackedRhymeHeader> {
 struct ActionAttrs : Moveable<ActionAttrs> {
 	Color clr;
 	String group, value;
+	void operator=(const ActionAttrs& a) {
+		clr = a.clr;
+		group = a.group;
+		value = a.value;
+	}
 	void Jsonize(JsonIO& json) {
 		json("clr", clr)("group",group)("value",value);
 	}

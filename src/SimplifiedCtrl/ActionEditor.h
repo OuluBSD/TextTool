@@ -9,9 +9,18 @@ class ActionEditor : public SongToolCtrl {
 	
 	int def_thread_count = 8;
 	
-	bool mode_all_args = false;
 	int ds_i = 0;
 	VectorMap<String, VectorMap<String, int>> uniq_acts;
+	
+	enum {ANY, TRANSITION, PARALLEL, T_AND_P};
+	struct Sug : Moveable<Sug> {
+		int src;
+		bool skip_attr;
+		ActionAttrs attr;
+		ActionTransition trans;
+		ActionParallel paral;
+	};
+	VectorMap<String, VectorMap<String, Sug>> suggestions;
 	
 public:
 	typedef ActionEditor CLASSNAME;

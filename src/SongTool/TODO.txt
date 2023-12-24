@@ -11,6 +11,12 @@ Scheduled work:
 - database: generate templates based on wordnets, attrs and colors
 - database: export/import data
 
+- ip: storyline etc.
+	- use books
+		- something novel
+
+- topic mapping: what topics a search engine requires to be elevated to an expert?
+
 - lyrics editor:
 	- new version
 		- gui

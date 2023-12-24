@@ -46,6 +46,7 @@ Editor::Editor(SongTool* app) : app(*app) {
 		reverse[i].SetSource(i);
 	
 	rev_pattern.UseRev();
+	
 }
 
 void Editor::AddItem(String g, String i, SongToolCtrl& c) {
@@ -59,6 +60,10 @@ void Editor::InitListItems() {
 		String group = items.GetKey(i);
 		page_group_list.Add(group);
 	}
+	INHIBIT_ACTION(page_group_list);
+	if (page_group_list.GetCount() && !page_group_list.IsCursor())
+		page_group_list.SetCursor(0);
+	PostCallback(THISBACK(ViewPageGroup));
 }
 
 void Editor::InitSimplified() {
@@ -176,6 +181,8 @@ void Editor::InitAdvanced() {
 }
 
 void Editor::Init() {
+	INHIBIT_ACTION_(page_group_list, 0);
+	INHIBIT_ACTION_(page_list, 1);
 	LoadLast();
 	page_group_list.SetCursor(page_group);
 	int page = this->page.GetAdd(page_group, 0);
@@ -207,6 +214,8 @@ void Editor::SetView(int i, int j) {
 }
 
 void Editor::DataPage() {
+	if (app.skip_data) return;
+	
 	StoreLast();
 	
 	int page = this->page.GetAdd(page_group, 0);
@@ -317,6 +326,7 @@ void Editor::ViewPageGroup() {
 		page_list.Set(j, 0, it.item);
 		base.Add(it.ctrl->SizePos());
 	}
+	INHIBIT_ACTION(page_list);
 	page_list.SetCount(v.GetCount());
 	page_list.SetCursor(page);
 	
@@ -337,6 +347,7 @@ void Editor::Data() {
 		Artist& a = db.artists[i];
 		artists.Set(i, 0, a.native_name);
 	}
+	INHIBIT_ACTION(artists);
 	artists.SetCount(db.artists.GetCount());
 	
 	int cursor = max(0, p.GetActiveArtistIndex());
@@ -366,6 +377,7 @@ void Editor::DataArtist() {
 		releases.Set(i, 0, r.native_title);
 		releases.Set(i, 1, r.date);
 	}
+	INHIBIT_ACTION(releases);
 	releases.SetCount(a.releases.GetCount());
 	
 	int cursor = max(0, p.GetActiveReleaseIndex());
@@ -396,6 +408,7 @@ void Editor::DataRelease() {
 		songs.Set(i, 1, s.prj_name);
 		songs.Set(i, 2, s.artist);
 	}
+	INHIBIT_ACTION(songs);
 	songs.SetCount(r.songs.GetCount());
 	
 	int cursor = max(0, p.GetActiveSongIndex());
@@ -442,6 +455,7 @@ void Editor::DataSong() {
 		parts.Set(i, 0, k);
 		parts.Set(i, 1, c);
 	}
+	INHIBIT_ACTION(parts);
 	parts.SetCount(e.parts.GetCount());
 	
 	int cursor = max(0, e.p.GetActivePartIndex());
@@ -460,6 +474,7 @@ void Editor::DataSong() {
 		parts.Set(i, 0, AttrText(k).NormalPaper(clr));
 		parts.Set(i, 1, c);
 	}
+	INHIBIT_ACTION(parts);
 	parts.SetCount(s.parts.GetCount());
 	
 	int cursor = max(0, p.GetActivePartIndex());

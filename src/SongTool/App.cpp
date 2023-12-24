@@ -3,6 +3,8 @@
 
 
 SongTool::SongTool() : ed(this) {
+	skip_data = true;
+	
 	Title("SongTool");
 	MaximizeBox().MinimizeBox().Sizeable();
 	Icon(AppImg::icon());
@@ -48,6 +50,9 @@ void SongTool::Init() {
 	
 	LoadWindowPos();
 	SetView(page);
+	
+	skip_data = false;
+	//PostCallback(THISBACK(Data));
 }
 
 void SongTool::FastExit() {

@@ -21,6 +21,7 @@ class SongTool : public TopWindow {
 	Tasks				ai;
 	TimeCallback		tc;
 	AppMode				mode = MODE_INVALID;
+	bool				skip_data = false;
 	
 	int page = 0;
 	Rect last_window;

@@ -8,6 +8,7 @@ ActionEditor::ActionEditor() {
 	vsplit.Vert() << parts << thrds;
 	
 	mainsplit.Horz() << main_vsplit << song_actions;
+	mainsplit.SetPos(6666);
 	
 	main_vsplit.Vert() << thrd_actions << sug_hsplit;
 	main_vsplit.SetPos(2000);
@@ -19,7 +20,7 @@ ActionEditor::ActionEditor() {
 	
 	parts.AddColumn(t_("Part"));
 	parts.AddColumn(t_("Lines"));
-	parts.AddColumn(t_("First part"));
+	parts.AddColumn(t_("Editable"));
 	parts.ColumnWidths("4 1 1");
 	parts.WhenCursor << THISBACK(DataPart);
 	
@@ -42,6 +43,7 @@ ActionEditor::ActionEditor() {
 	args.AddColumn(t_("Arg"));
 	args.AddColumn(t_("Group"));
 	args.AddColumn(t_("Value"));
+	args.AddColumn(t_("Source"));
 	
 	song_actions.AddColumn(t_(""));
 	
@@ -58,7 +60,7 @@ ActionEditor::ActionEditor() {
 	}
 	if (colors.GetCount() && !colors.IsCursor())
 		colors.SetCursor(0);
-	colors.WhenCursor << THISBACK(DataAction);
+	colors.WhenCursor = THISBACK(DataAction);
 	
 	int gi = 0;
 	int i = 0;
@@ -85,7 +87,7 @@ ActionEditor::ActionEditor() {
 		i++, gi++;
 	ATTR_LIST
 	#undef ATTR_ITEM
-	attrs.WhenCursor << THISBACK(DataAction);
+	attrs.WhenCursor = THISBACK(DataAction);
 
 	if (!attrs.IsCursor() && attrs.GetCount())
 		attrs.SetCursor(0);
@@ -126,6 +128,7 @@ void ActionEditor::Data() {
 		parts.Set(i, 1, sp.nana.Get().GetCount());
 		parts.Set(i, 2, i == get_first_part_i ? "X" : "");
 	}
+	INHIBIT_CURSOR(parts);
 	parts.SetCount(song.parts.GetCount());
 	if (!parts.IsCursor() && parts.GetCount())
 		parts.SetCursor(0);
@@ -152,6 +155,7 @@ void ActionEditor::DataPart() {
 	for(int i = 0; i < part.thrd_actions.GetCount(); i++) {
 		thrds.Set(i, 0, IntStr(i));
 	}
+	INHIBIT_CURSOR(thrds);
 	thrds.SetCount(part.thrd_actions.GetCount());
 	if (!thrds.IsCursor() && thrds.GetCount())
 		thrds.SetCursor(0);
@@ -161,6 +165,7 @@ void ActionEditor::DataPart() {
 
 void ActionEditor::DataThread() {
 	if (!parts.IsCursor() || !thrds.IsCursor()) {
+		thrd_actions.Clear();
 		actions.Clear();
 		args.Clear();
 		return;
@@ -173,6 +178,8 @@ void ActionEditor::DataThread() {
 	
 	if (!parts.IsCursor() || !thrds.IsCursor()) {
 		thrd_actions.Clear();
+		actions.Clear();
+		args.Clear();
 		return;
 	}
 	
@@ -200,8 +207,9 @@ void ActionEditor::DataThread() {
 		}
 		row++;
 	}
+	INHIBIT_CURSOR(thrd_actions);
 	thrd_actions.SetCount(part_thrd_actions.GetCount());
-	if (thrd_actions.GetCount())
+	if (!thrd_actions.IsCursor() && thrd_actions.GetCount())
 		thrd_actions.SetCursor(thrd_actions.GetCount()-1);
 	
 	DataSuggestions();
@@ -222,6 +230,8 @@ void ActionEditor::DataSuggestions() {
 	
 	Song& song = GetSong();
 	StaticPart& sp = song.parts[parts.GetCursor()];
+	int thrd_i = thrds.GetCursor();
+	const Vector<ActionHeader>& part_thrd_actions = sp.thrd_actions[thrd_i];
 	
 	
 	//// Check if previous part has been made
@@ -279,27 +289,160 @@ void ActionEditor::DataSuggestions() {
 		return;
 	}
 	
-	Vector<int> prev_parts = song.GetPreviousParts(sp);
+	Vector<int> prev_parts = song.GetPreviousPartsNonSkipped(sp);
 	
-	if (prev_parts.IsEmpty()) {
+	suggestions.Clear();
+	
+	Vector<ActionHeader> from_actions_parallel, from_actions_transition;
+	
+	// All-time first action when
+	// - thread number 0
+	// - no previous parts
+	// - no previous actions
+	if (thrd_i == 0 && prev_parts.IsEmpty() && part_thrd_actions.IsEmpty()) {
 		// Add all actions
-		mode_all_args = true;
-		
-		actions.Set(0, 0, t_("All"));
 		for(int i = 0; i < uniq_acts.GetCount(); i++) {
-			String key = uniq_acts.GetKey(i);
-			int count = uniq_acts[i].GetCount();
-			actions.Set(1+i, 0, key);
-			actions.Set(1+i, 1, count);
+			String action = uniq_acts.GetKey(i);
+			const auto& args = uniq_acts[i];
+			for(int j = 0; j < args.GetCount(); j++) {
+				String action_arg = args.GetKey(j);
+				
+				ActionHeader h;
+				h.action = action;
+				h.arg = action_arg;
+				
+				Sug& sug = suggestions.GetAdd(action).GetAdd(action_arg);
+				sug.src = ANY;
+				
+				int k = da.action_attrs.Find(h);
+				sug.skip_attr = k < 0;
+				if (!sug.skip_attr) {
+					const auto& src = da.action_attrs[k];
+					sug.attr = src;
+				}
+			}
 		}
-		actions.SetCount(uniq_acts.GetCount());
-		if (actions.GetCount() && !actions.IsCursor())
-			actions.SetCursor(0);
-		
 	}
+	// Thread #0 transitions
+	else if (thrd_i == 0) {
+		// We already checked, that previous parts have actions
+		// So logically, previous action exists in previous part or current part
+		bool is_previous_action_in_previous_part = part_thrd_actions.IsEmpty();
+		
+		
+		// Handle part transition
+		if (is_previous_action_in_previous_part) {
+			for (int part_i : prev_parts) {
+				StaticPart& prev = song.parts[part_i];
+				if (prev.thrd_actions.IsEmpty())
+					continue;
+				const auto& prev_thrd_actions = prev.thrd_actions[thrd_i];
+				
+				// If previous is ready
+				if (prev_thrd_actions.GetCount() && prev.nana.Get().GetCount()) {
+					from_actions_parallel << prev_thrd_actions.Top();
+					from_actions_transition << prev_thrd_actions.Top();
+				}
+			}
+		}
+		// Handle part's internal transition
+		else {
+			from_actions_parallel   << part_thrd_actions.Top();
+			from_actions_transition << part_thrd_actions.Top();
+		}
+	}
+	// Thread >0 suggestions
 	else {
+		bool is_previous_action_in_previous_part = part_thrd_actions.IsEmpty();
 		
+		// Add transitions
+		if (!prev_parts.IsEmpty() || !part_thrd_actions.IsEmpty()) {
+			if (is_previous_action_in_previous_part) {
+				for (int part_i : prev_parts) {
+					StaticPart& prev = song.parts[part_i];
+					if (prev.thrd_actions.IsEmpty())
+						continue;
+					const auto& prev_thrd_actions = prev.thrd_actions[thrd_i];
+					
+					// If previous is ready
+					if (prev_thrd_actions.GetCount() && prev.nana.Get().GetCount()) {
+						from_actions_transition << prev_thrd_actions.Top();
+					}
+				}
+			}
+			// Handle part's internal transition
+			else {
+				from_actions_transition << part_thrd_actions.Top();
+			}
+		}
+		// Add parallels
+		{
+			int act_i = part_thrd_actions.GetCount();
+			for(int thrd_j = 0; thrd_j < thrd_i; thrd_j++) {
+				const Vector<ActionHeader>& part_thrd_actions1 = sp.thrd_actions[thrd_j];
+				if (act_i < part_thrd_actions1.GetCount()) {
+					const ActionHeader& ah1 = part_thrd_actions1[act_i];
+					from_actions_parallel << ah1;
+				}
+			}
+		}
 	}
+	
+	for (const ActionHeader& from_action : from_actions_transition) {
+		// Add transitions
+		int i = da.action_trans.Find(from_action);
+		if (i >= 0) {
+			const auto& transitions = da.action_trans[i];
+			for(int i = 0; i < transitions.GetCount(); i++) {
+				const auto& h = transitions.GetKey(i);
+				Sug& sug = suggestions.GetAdd(h.action).GetAdd(h.arg);
+				sug.src = TRANSITION;
+				sug.trans = transitions[i];
+				
+				int j = da.action_attrs.Find(h);
+				sug.skip_attr = j < 0;
+				if (!sug.skip_attr) {
+					const auto& src = da.action_attrs[j];
+					sug.attr = src;
+				}
+			}
+		}
+	}
+	
+	for (const ActionHeader& from_action : from_actions_parallel) {
+		// Add parallels (for thrd-0)
+		int i = da.action_parallel.Find(from_action);
+		if (i >= 0) {
+			const auto& parallels = da.action_parallel[i];
+			for(int i = 0; i < parallels.GetCount(); i++) {
+				const auto& h = parallels.GetKey(i);
+				Sug& sug = suggestions.GetAdd(h.action).GetAdd(h.arg);
+				if (sug.src == TRANSITION)
+					sug.src = T_AND_P;
+				else
+					sug.src = PARALLEL;
+				sug.paral = parallels[i];
+				
+				int j = da.action_attrs.Find(h);
+				sug.skip_attr = j < 0;
+				if (!sug.skip_attr) {
+					const auto& src = da.action_attrs[j];
+					sug.attr = src;
+				}
+			}
+		}
+	}
+	
+	actions.Set(0,0,t_("All"));
+	for(int i = 0; i < suggestions.GetCount(); i++) {
+		actions.Set(1+i, 0, suggestions.GetKey(i));
+		actions.Set(1+i, 1, suggestions[i].GetCount());
+	}
+	INHIBIT_CURSOR(actions);
+	actions.SetCount(1+suggestions.GetCount());
+	if (actions.GetCount() && !actions.IsCursor())
+		actions.SetCursor(0);
+	
 	
 	DataAction();
 }
@@ -332,37 +475,60 @@ void ActionEditor::DataAction() {
 	bool filter_action = actions.GetCursor() != 0;
 	
 	int row = 0;
-	if (mode_all_args) {
-		for(int i = 0; i < da.action_attrs.GetCount(); i++) {
-			const ActionHeader& ah = da.action_attrs.GetKey(i);
+	for(int i = 0; i < suggestions.GetCount(); i++) {
+		String ah_action = suggestions.GetKey(i);
+		
+		if (filter_action && ah_action != action)
+			continue;
+		
+		const auto& action_args = suggestions[i];
+		for(int j = 0; j < action_args.GetCount(); j++) {
+			String ah_arg = action_args.GetKey(j);
+			const Sug& sug = action_args[j];
+			const auto& aa = sug.attr;
 			
-			if (filter_action && ah.action != action)
-				continue;
-			
-			const ActionAttrs& aa = da.action_attrs[i];
-			
-			if (filter_color) {
-				int cg = GetColorGroup(aa.clr);
-				if (cg != color_group)
+			if (sug.skip_attr) {
+				if (filter_color || filter_attr)
 					continue;
+				args.Set(row, 0, ah_action);
+				args.Set(row, 1, ah_arg);
+				args.Set(row, 2, "");
+				args.Set(row, 3, "");
+			}
+			else {
+				if (filter_color) {
+					int cg = GetColorGroup(aa.clr);
+					if (cg != color_group)
+						continue;
+				}
+				
+				if (filter_attr) {
+					if (aa.group != attr_group || aa.value != attr_value)
+						continue;
+				}
+				
+				SetColoredListValue(args, row, 0, ah_action, aa.clr);
+				SetColoredListValue(args, row, 1, ah_arg, aa.clr);
+				SetColoredListValue(args, row, 2, aa.group, aa.clr);
+				SetColoredListValue(args, row, 3, aa.value, aa.clr);
 			}
 			
-			if (filter_attr) {
-				if (aa.group != attr_group || aa.value != attr_value)
-					continue;
-			}
 			
-			SetColoredListValue(args, row, 0, ah.action, aa.clr);
-			SetColoredListValue(args, row, 1, ah.arg, aa.clr);
-			SetColoredListValue(args, row, 2, aa.group, aa.clr);
-			SetColoredListValue(args, row, 3, aa.value, aa.clr);
+			String src_str;
+			switch(sug.src) {
+				case ANY: src_str = "Any"; break;
+				case TRANSITION: src_str = "Transition"; break;
+				case PARALLEL: src_str = "Parallel"; break;
+				case T_AND_P: src_str = "Trans. and Paral."; break;
+				default: break;
+			};
+			args.Set(row, 4, src_str);
 			
 			row++;
 		}
 	}
 	
 	args.SetCount(row);
-	
 }
 
 void ActionEditor::DataSong() {

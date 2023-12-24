@@ -1478,4 +1478,17 @@ public:
 };
 
 
+
+struct CallbackInhibitor {
+	Event<> cb;
+	Event<>& ref;
+	
+	CallbackInhibitor(Event<>& other) : cb(other), ref(other) {other.Clear();}
+	~CallbackInhibitor() {ref = cb;}
+};
+
+#define INHIBIT_CURSOR(x) CallbackInhibitor __(x.WhenCursor)
+#define INHIBIT_ACTION(x) CallbackInhibitor __(x.WhenAction)
+#define INHIBIT_ACTION_(x, id) CallbackInhibitor __##id(x.WhenAction)
+
 #endif
