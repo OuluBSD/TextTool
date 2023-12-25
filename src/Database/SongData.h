@@ -511,6 +511,39 @@ struct ActionTransition : Moveable<ActionTransition> {
 	}
 };
 
+struct StructureHeader : Moveable<StructureHeader> {
+	int count = 0;
+	VectorMap<String,int> clauses;
+	
+	String GetActionText() const;
+	void Jsonize(JsonIO& json) {
+		json
+			("count", count)
+			("clauses", clauses)
+			;
+	}
+	void Serialize(Stream& s) {
+		s % count % clauses;
+	}
+};
+
+struct StructurePhrase : Moveable<StructurePhrase> {
+	Vector<String> sent_parts, part_types;
+	String struct_type;
+	
+	String GetActionText() const;
+	void Jsonize(JsonIO& json) {
+		json
+			("sent_parts", sent_parts)
+			("part_types", part_types)
+			("struct_type", struct_type)
+			;
+	}
+	void Serialize(Stream& s) {
+		s % sent_parts % part_types % struct_type;
+	}
+};
+
 struct DatasetAnalysis {
 	VectorMap<String, ArtistAnalysis> artists;
 	VectorMap<String, WordGroupAnalysis> groups;
@@ -519,6 +552,8 @@ struct DatasetAnalysis {
 	Vector<Wordnet> wordnets;
 	Vector<ColorWordnet> clr_wordnets;
 	Vector<ActionPhrase> action_phrases;
+	VectorMap<String, StructureHeader> structure_headers;
+	Vector<StructurePhrase> structure_phrases;
 	Vector<ActionTemplate> action_tmpls;
 	VectorMap<ActionHeader, ActionAttrs> action_attrs;
 	VectorMap<ActionHeader, VectorMap<ActionHeader, ActionParallel>> action_parallel;
@@ -557,6 +592,8 @@ struct DatasetAnalysis {
 				("wordnets", wordnets)
 				("clr_wordnets", clr_wordnets)
 				("action_phrases", action_phrases)
+				("structure_headers", structure_headers)
+				("structure_phrases", structure_phrases)
 				("action_tmpls", action_tmpls)
 				("action_attrs", action_attrs)
 				("action_parallel", action_parallel)
@@ -573,7 +610,8 @@ struct DatasetAnalysis {
 	void Serialize(Stream& s) {
 		s % artists % groups % words
 		  % tmpl_phrases % wordnets % clr_wordnets
-		  % action_phrases % action_tmpls % action_attrs
+		  % action_phrases % structure_headers % structure_phrases
+		  % action_tmpls % action_attrs
 		  % action_parallel % action_trans % packed_rhymes
 		  % dynamic_attrs % dynamic_actions;
 	}

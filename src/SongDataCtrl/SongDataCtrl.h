@@ -22,5 +22,6 @@
 #include "ActionAttrs.h"
 #include "ActionParallels.h"
 #include "ActionTransitions.h"
+#include "LineTypes.h"
 
 #endif

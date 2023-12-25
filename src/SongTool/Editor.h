@@ -66,6 +66,7 @@ protected:
 	ActionAttrsPage					action_attrs;
 	ActionParallelsPage				action_parallels;
 	ActionTransitionsPage			action_transitions;
+	LineTypesPage					line_types;
 	
 	
 	

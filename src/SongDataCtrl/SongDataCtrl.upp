@@ -35,6 +35,8 @@ file
 	ActionParallels.cpp,
 	ActionTransitions.h,
 	ActionTransitions.cpp,
+	LineTypes.h,
+	LineTypes.cpp,
 	Loader.h,
 	Loader.cpp;
 
