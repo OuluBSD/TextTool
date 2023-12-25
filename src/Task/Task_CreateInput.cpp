@@ -5418,6 +5418,31 @@ void Task::CreateInput_GetSongDataAnalysis() {
 		}
 		input.response_length = 2048;
 	}
+
+	if (args.fn == 14) {
+		{
+			auto& list = input.AddSub().Title("Clauses of a line, types of clauses and category of sentence structure");
+			list.NumberedLines();
+			list.Add("\"With the birds\" + \"Ill share this lonely view\" == prepositional-phrase + independent-clause == prepositional-clause");
+			list.Add("\"Hey\" + \"you little piss baby\" == interjection + noun-phrase == exclamatory-sentence");
+			list.Add("\"You think youre so fucking cool\" + \"Huh\" == independent-clause + interjection == interrogative-sentence");
+		}
+		{
+			auto& list = input.AddSub().Title("List of sentence types");
+			list.Add("independent-clause + interjection == interrogative-sentence");
+			list.NumberedLines();
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Sentence types with their corresponding metaphorical RGB color value");
+			results.NumberedLines();
+			results.Add("independent-clause + interjection == interrogative-sentence: RGB(255,254,1)");
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
 	
 }
 

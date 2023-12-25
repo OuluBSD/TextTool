@@ -23,9 +23,11 @@ protected:
 	
 	Vector<Wordnet*> tmp_wordnets;
 	Vector<ColorWordnet*> tmp_clr_wordnets;
-	VectorMap<String, VectorMap<String, int>> uniq_acts;
+	VectorMap<String, VectorMap<String, int>> uniq_st;
 	Vector<int> ap_is;
 	int prev_st_i = -1;
+	int per_color_batch = 30;
+	int ds_i = 0;
 	
 	int structure_cols = 7;
 	bool disabled = false;
@@ -50,6 +52,10 @@ public:
 	void ToggleGettingLineStructures();
 	void GetLineStructures(int batch_i);
 	void OnLineStructures(String res, int batch_i);
+	
+	void ToggleGettingStructureColors();
+	void GetStructureColors(int batch_i);
+	void OnStructureColors(String res, int batch_i);
 	
 };
 

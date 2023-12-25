@@ -15,6 +15,7 @@ LineTypesPage::LineTypesPage() {
 	
 	structures.AddColumn(t_("Structure"));
 	structures.AddColumn(t_("Count"));
+	structures.AddIndex("IDX");
 	structures.ColumnWidths("3 1");
 	structures.WhenCursor << THISBACK(DataStructure);
 	
@@ -24,10 +25,10 @@ LineTypesPage::LineTypesPage() {
 	clauses.WhenCursor << THISBACK(DataStructureHeader);
 	
 	phrases.AddColumn(t_("Sentence parts"));
-	phrases.AddColumn(t_("Part types"));
 	phrases.AddColumn(t_("Structure type"));
+	phrases.AddColumn(t_("Part types"));
 	phrases.AddIndex("IDX");
-	phrases.ColumnWidths("3 3 1");
+	phrases.ColumnWidths("3 1 3");
 	
 }
 
@@ -69,19 +70,29 @@ void LineTypesPage::DataDataset() {
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
+	uniq_st.Clear();
+	for(int i = 0; i < da.structure_types.GetCount(); i++) {
+		const StructureType& st = da.structure_types[i];
+		String s = Join(st.part_types, ", ");
+		uniq_st.GetAdd(st.struct_type).GetAdd(s, 0)++;
+	}
+	
 	structures.Set(0, 0, "All");
 	total_struct_count = 0;
-	for(int i = 0; i < da.structure_headers.GetCount(); i++) {
-		const StructureHeader& sp = da.structure_headers[i];
-		structures.Set(1+i, 0, da.structure_headers.GetKey(i));
-		structures.Set(1+i, 1, sp.count);
-		total_struct_count += sp.count;
+	for(int i = 0; i < uniq_st.GetCount(); i++) {
+		const auto& v = uniq_st[i];
+		int c = uniq_st[i].GetCount();
+		structures.Set(1+i, 0, uniq_st.GetKey(i));
+		structures.Set(1+i, 1, c);
+		structures.Set(1+i, "IDX", i);
+		total_struct_count += c;
 	}
 	structures.Set(0, 1, total_struct_count);
 	INHIBIT_CURSOR(structures);
-	structures.SetCount(1+da.structure_headers.GetCount());
+	structures.SetCount(1+da.structure_types.GetCount());
 	if (!structures.IsCursor() && structures.GetCount())
 		structures.SetCursor(0);
+	structures.SetSortColumn(1, true);
 	
 	DataStructure();
 }
@@ -96,6 +107,7 @@ void LineTypesPage::DataStructure() {
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
+	INHIBIT_CURSOR(clauses);
 	int struct_i = structures.GetCursor();
 	if (struct_i == 0) {
 		clauses.SetCount(1);
@@ -103,15 +115,19 @@ void LineTypesPage::DataStructure() {
 		clauses.Set(0, 1, total_struct_count);
 	}
 	else {
-		struct_i--;
-		const StructureHeader& sp = da.structure_headers[struct_i];
+		struct_i = structures.Get(struct_i, "IDX");
+		const auto& v = uniq_st[struct_i];
 		clauses.Set(0, 0, "All");
-		clauses.Set(0, 1, sp.count);
-		for(int i = 0; i < sp.clauses.GetCount(); i++) {
-			clauses.Set(1+i, 0, sp.clauses.GetKey(i));
-			clauses.Set(1+i, 1, sp.clauses[i]);
+		int total = 0;
+		clauses.Set(0, 1, da.structure_phrases.GetCount());
+		for(int i = 0; i < v.GetCount(); i++) {
+			int c = v[i];
+			clauses.Set(1+i, 0, v.GetKey(i));
+			clauses.Set(1+i, 1, c);
+			total += c;
 		}
-		clauses.SetCount(1+sp.clauses.GetCount());
+		clauses.Set(0,1,total);
+		clauses.SetCount(1+v.GetCount());
 	}
 	if (!clauses.IsCursor() && clauses.GetCount())
 		clauses.SetCursor(0);
@@ -137,14 +153,15 @@ void LineTypesPage::DataStructureHeader() {
 	int idx = -1;
 	int row = 0;
 	for (const StructurePhrase& sp : da.structure_phrases) {
+		const StructureType& st = da.structure_types[sp.type];
 		idx++;
 		if (filter_structure) {
-			if (sp.struct_type != structure)
+			if (st.struct_type != structure)
 				continue;
 		}
 		if (filter_clause) {
 			bool found = false;
-			for (const auto& a : sp.part_types) {
+			for (const auto& a : st.part_types) {
 				if (a == clause) {
 					found = true;
 					break;
@@ -154,8 +171,9 @@ void LineTypesPage::DataStructureHeader() {
 		}
 		
 		phrases.Set(row, 0, Join(sp.sent_parts, " + "));
-		phrases.Set(row, 1, Join(sp.part_types, " + "));
-		phrases.Set(row, 2, sp.struct_type);
+		
+		SetColoredListValue(phrases, row, 1, st.struct_type, st.clr);
+		SetColoredListValue(phrases, row, 2, Join(st.part_types, " + "), st.clr);
 		
 		phrases.Set(row, "IDX", idx);
 		row++;
@@ -173,10 +191,16 @@ void LineTypesPage::ToolMenu(Bar& bar) {
 	bar.Separator();
 	bar.Add(t_("Update batches"), AppImg::BlueRing(), THISBACK(UpdateBatches)).Key(K_F5);
 	bar.Separator();
+	
 	if (running0)
 		bar.Add(t_("Stop getting line structures"), AppImg::RedRing(), THISBACK(ToggleGettingLineStructures)).Key(K_F6);
 	else
 		bar.Add(t_("Start getting line structures"), AppImg::RedRing(), THISBACK(ToggleGettingLineStructures)).Key(K_F6);
+	
+	if (running1)
+		bar.Add(t_("Stop getting structure colors"), AppImg::RedRing(), THISBACK(ToggleGettingStructureColors)).Key(K_F7);
+	else
+		bar.Add(t_("Start getting structure colors"), AppImg::RedRing(), THISBACK(ToggleGettingStructureColors)).Key(K_F7);
 	
 }
 
@@ -244,16 +268,15 @@ void LineTypesPage::UpdateBatches() {
 void LineTypesPage::ToggleGettingLineStructures() {
 	running0 = !running0;
 	if (running0) {
-		if (0) {
-			Database& db = Database::Single();
-			SongData& sd = db.song_data;
-			SongDataAnalysis& sda = db.song_data.a;
-			for (DatasetAnalysis& da : sda.datasets) {
-				da.structure_headers.Clear();
-			}
-		}
 		UpdateBatches();
 		Thread::Start(THISBACK1(GetLineStructures, 0));
+	}
+}
+
+void LineTypesPage::ToggleGettingStructureColors() {
+	running1 = !running1;
+	if (running1) {
+		Thread::Start(THISBACK1(GetStructureColors, 0));
 	}
 }
 
@@ -292,8 +315,8 @@ void LineTypesPage::OnLineStructures(String res, int batch_i) {
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	
 	if (!batch_i) {
-		da.structure_headers.Clear();
-		da.structure_transitions.Clear();
+		da.structure_types.Clear();
+		da.structure_phrases.Clear();
 		prev_st_i = -1;
 	}
 	
@@ -326,35 +349,34 @@ void LineTypesPage::OnLineStructures(String res, int batch_i) {
 		Vector<String> part_types = Split(parts[1], "+");
 		if (sent_parts.GetCount() != part_types.GetCount())
 			continue;
+		String struct_type = TrimBoth(parts[2]);
 		
-		StructurePhrase& sp = da.structure_phrases.Add();
-		sp.struct_type = TrimBoth(parts[2]);
-		Swap(sp.sent_parts, sent_parts);
-		Swap(sp.part_types, part_types);
-		for (String& s : sp.sent_parts) {s = TrimBoth(s); RemoveQuotes(s); s = TrimBoth(s);}
-		for (String& s : sp.part_types) s = TrimBoth(s);
-		
-		StructureHeader& sh = da.structure_headers.GetAdd(sp.struct_type);
-		sh.count++;
 		CombineHash ch;
-		ch.Do(sp.struct_type);
-		for (const auto& s : sp.part_types) {
-			sh.clauses.GetAdd(s,0)++;
+		ch.Do(struct_type);
+		for (auto& s : part_types) {
+			s = TrimBoth(s);
 			ch.Do(s);
 		}
 		hash_t type_hash = ch;
 		
-		int cur_st_i = da.structure_transitions.Find(type_hash);
+		int cur_st_i = da.structure_types.Find(type_hash);
 		if (cur_st_i < 0) {
-			cur_st_i = da.structure_transitions.GetCount();
-			StructureTransition& st = da.structure_transitions.Add(type_hash);
-			st.structure = sp.struct_type;
-			st.clauses <<= sp.part_types;
+			cur_st_i = da.structure_types.GetCount();
+			StructureType& st = da.structure_types.Add(type_hash);
+			Swap(st.part_types, part_types);
+			st.struct_type = struct_type;
 		}
-		StructureTransition& st = da.structure_transitions[cur_st_i];
+		StructureType& st = da.structure_types[cur_st_i];
+	
+		int sp_i = da.structure_phrases.GetCount();
+		StructurePhrase& sp = da.structure_phrases.Add();
+		Swap(sp.sent_parts, sent_parts);
+		for (String& s : sp.sent_parts) {s = TrimBoth(s); RemoveQuotes(s); s = TrimBoth(s);}
+		st.phrases << sp_i;
+		sp.type = cur_st_i;
 		
 		if (prev_st_i >= 0) {
-			StructureTransition& st = da.structure_transitions[prev_st_i];
+			StructureType& st = da.structure_types[prev_st_i];
 			st.transition_to << cur_st_i;
 		}
 		
@@ -363,5 +385,94 @@ void LineTypesPage::OnLineStructures(String res, int batch_i) {
 	
 	if (running0)
 		PostCallback(THISBACK1(GetLineStructures, batch_i+1));
+	
+}
+
+void LineTypesPage::GetStructureColors(int batch_i) {
+	if (Thread::IsShutdownThreads())
+		return;
+	
+	int begin = batch_i * per_color_batch;
+	int end = begin + per_color_batch;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	SongDataAnalysisArgs args;
+	args.fn = 14;
+	
+	end = min(end, da.structure_types.GetCount());
+	for (int i = begin; i < end; i++) {
+		const StructureType& st = da.structure_types[i];
+		String s = Join(st.part_types, " + ") + " == " + st.struct_type;
+		args.phrases << s;
+	}
+	
+	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	TaskMgr& m = tm.MakePipe();
+	m.GetSongDataAnalysis(args, THISBACK1(OnStructureColors, batch_i), true);
+}
+
+void LineTypesPage::OnStructureColors(String res, int batch_i) {
+	if (Thread::IsShutdownThreads())
+		return;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	Batch& batch = batches[batch_i];
+	DatasetAnalysis& da = sda.datasets[batch.ds_i];
+	
+	res.Replace("\r", "");
+	Vector<String> lines = Split(res, "\n");
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		l = TrimBoth(l);
+		if (l.IsEmpty() || !IsDigit(l[0])) {lines.Remove(i--); continue;}
+		RemoveLineNumber(l);
+	}
+	
+	// - independent-clause + interjection == interrogative-sentence: RGB(255,254,1)
+	
+	for (String& s : lines) {
+		Vector<String> parts = Split(s, "==");
+		if (parts.GetCount() != 2) continue;
+		Vector<String> clauses = Split(parts[0], "+");
+		for (String& c : clauses) c = TrimBoth(c);
+		String& s1 = parts[1];
+		int a = s1.Find(":");
+		if (a < 0) continue;
+		String structure = TrimBoth(s1.Left(a));
+		a = s1.Find("RGB(", a+1);
+		if (a < 0) continue;
+		a += 4;
+		int b = s1.Find(")");
+		String clr_str = s1.Mid(a,b-a);
+		Vector<String> clr_parts = Split(clr_str, ",");
+		if (clr_parts.GetCount() != 3) continue;
+		int R = StrInt(TrimBoth(clr_parts[0]));
+		int G = StrInt(TrimBoth(clr_parts[1]));
+		int B = StrInt(TrimBoth(clr_parts[2]));
+		Color clr(R,G,B);
+		
+		CombineHash ch;
+		ch.Do(structure);
+		for (String& clause : clauses) {
+			clause = TrimBoth(clause);
+			ch.Do(clause);
+		}
+		hash_t h = ch;
+		
+		int i = da.structure_types.Find(h);
+		if (i >= 0) {
+			StructureType& st = da.structure_types[i];
+			st.clr = clr;
+		}
+	}
+	
+	if (running1)
+		PostCallback(THISBACK1(GetStructureColors, batch_i+1));
 	
 }

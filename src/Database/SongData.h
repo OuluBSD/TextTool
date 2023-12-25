@@ -511,53 +511,39 @@ struct ActionTransition : Moveable<ActionTransition> {
 	}
 };
 
-struct StructureHeader : Moveable<StructureHeader> {
-	int count = 0;
-	VectorMap<String,int> clauses;
-	
-	String GetActionText() const;
-	void Jsonize(JsonIO& json) {
-		json
-			("count", count)
-			("clauses", clauses)
-			;
-	}
-	void Serialize(Stream& s) {
-		s % count % clauses;
-	}
-};
-
 struct StructurePhrase : Moveable<StructurePhrase> {
-	Vector<String> sent_parts, part_types;
-	String struct_type;
-	
-	String GetActionText() const;
+	Vector<String> sent_parts;
+	int type;
 	void Jsonize(JsonIO& json) {
 		json
 			("sent_parts", sent_parts)
-			("part_types", part_types)
-			("struct_type", struct_type)
+			("type", type)
 			;
 	}
 	void Serialize(Stream& s) {
-		s % sent_parts % part_types % struct_type;
+		s % sent_parts % type;
 	}
 };
 
-struct StructureTransition : Moveable<StructureTransition> {
-	Vector<String> clauses;
-	String structure;
+struct StructureType : Moveable<StructureType> {
+	Vector<String> part_types;
+	String struct_type;
 	Vector<int> transition_to;
+	Color clr;
+	Vector<int> phrases;
 	
+	String GetActionText() const;
 	void Jsonize(JsonIO& json) {
 		json
-			("clauses", clauses)
-			("structure", structure)
+			("part_types", part_types)
+			("struct_type", struct_type)
 			("transition_to", transition_to)
+			("clr", clr)
+			("phrases", phrases)
 			;
 	}
 	void Serialize(Stream& s) {
-		s % clauses % structure % transition_to;
+		s % part_types % struct_type % transition_to % clr % phrases;
 	}
 };
 
@@ -569,9 +555,8 @@ struct DatasetAnalysis {
 	Vector<Wordnet> wordnets;
 	Vector<ColorWordnet> clr_wordnets;
 	Vector<ActionPhrase> action_phrases;
-	VectorMap<String, StructureHeader> structure_headers;
 	Vector<StructurePhrase> structure_phrases;
-	VectorMap<int64,StructureTransition> structure_transitions;
+	VectorMap<int64, StructureType> structure_types;
 	Vector<ActionTemplate> action_tmpls;
 	VectorMap<ActionHeader, ActionAttrs> action_attrs;
 	VectorMap<ActionHeader, VectorMap<ActionHeader, ActionParallel>> action_parallel;
@@ -610,9 +595,8 @@ struct DatasetAnalysis {
 				("wordnets", wordnets)
 				("clr_wordnets", clr_wordnets)
 				("action_phrases", action_phrases)
-				("structure_headers", structure_headers)
 				("structure_phrases", structure_phrases)
-				("structure_transitions", structure_transitions)
+				("structure_types", structure_types)
 				("action_tmpls", action_tmpls)
 				("action_attrs", action_attrs)
 				("action_parallel", action_parallel)
@@ -629,8 +613,8 @@ struct DatasetAnalysis {
 	void Serialize(Stream& s) {
 		s % artists % groups % words
 		  % tmpl_phrases % wordnets % clr_wordnets
-		  % action_phrases % structure_headers % structure_phrases
-		  % structure_transitions % action_tmpls % action_attrs
+		  % action_phrases % structure_phrases
+		  % structure_types % action_tmpls % action_attrs
 		  % action_parallel % action_trans % packed_rhymes
 		  % dynamic_attrs % dynamic_actions;
 	}
