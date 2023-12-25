@@ -56,6 +56,28 @@ Vector<int> Song::GetPreviousParts(const StaticPart& part) const {
 	return pos;
 }
 
+Vector<StaticPart*> Song::GetNonSkippedStructureParts() {
+	Vector<StaticPart*> parts;
+	for(int i = 0; i < active_struct.parts.GetCount(); i++) {
+		String type = active_struct.parts[i];
+		for(StaticPart& sp : this->parts) {
+			if (sp.type == type) {
+				parts << &sp;
+				break;
+			}
+		}
+	}
+	return parts;
+}
+
+int Song::FindPart(const StaticPart& part) const {
+	for(int i = 0; i < parts.GetCount(); i++) {
+		if (&parts[i] == &part)
+			return i;
+	}
+	return -1;
+}
+
 Vector<int> Song::GetPreviousPartsNonSkipped(const StaticPart& part) const {
 	Vector<int> pos = GetPartPositions(part);
 	for(int i = 0; i < pos.GetCount(); i++) {

@@ -52,6 +52,7 @@ public:
 	void Clear();
 	bool IsInTaskList(TaskType type) const;
 	Pipe* GetPipe() const {return pipe;}
+	Pipe& MakePipe() {if (!pipe) RealizePipe(); return *pipe;}
 	
 	static TaskManager& Single() {static TaskManager o; return o;}
 	

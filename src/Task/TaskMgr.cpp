@@ -388,6 +388,13 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetActionAnalysis)
 		;
 	
+	AddRule(TASK_GET_LYRICS_PHRASE, "get action analysis")
+		.Input(&Task::CreateInput_GetLyricsPhrase)
+			.Arg(V_PTR_PIPE)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetLyricsPhrase)
+		;
+	
 	
 	
 	
@@ -1965,6 +1972,24 @@ void TaskMgr::GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> Wh
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_ACTION_ANALYSIS);
+	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.p.a = ZeroArg();
+	t.p.pipe = &p;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetLyricsPhrase(const LyricsPhraseArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_LYRICS_PHRASE);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
 	
 	String s = args.Get();

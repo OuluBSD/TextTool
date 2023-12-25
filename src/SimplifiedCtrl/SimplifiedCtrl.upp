@@ -41,8 +41,6 @@ file
 	ActionEditor.cpp,
 	LyricsEditor.h,
 	LyricsEditor.cpp,
-	LyricsEditor2.h,
-	LyricsEditor2.cpp,
 	"Music Video" readonly separator,
 	Checklist readonly separator,
 	Checklists.h,

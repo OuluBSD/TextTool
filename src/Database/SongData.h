@@ -184,24 +184,7 @@ struct SongId : Moveable<SongId> {
 	}
 };
 
-struct ActionArg : Moveable<ActionArg> {
-	String action, arg;
-	
-	void Jsonize(JsonIO& json) {
-		json
-			("action", action)
-			("arg", arg)
-			;
-	}
-	void Serialize(Stream& s) {
-		s % action % arg;
-	}
-	bool operator()(const ActionArg& a, const ActionArg& b) const {
-		return a.action < b.action;
-	}
-};
-
-double GetActionMatching(const Vector<ActionArg>& a, const Vector<ActionArg>& b);
+double GetActionMatching(const Vector<ActionHeader>& a, const Vector<ActionHeader>& b);
 
 struct ActionPhrase : Moveable<ActionPhrase> {
 	struct Score : Moveable<Score> {
@@ -222,7 +205,7 @@ struct ActionPhrase : Moveable<ActionPhrase> {
 		int i32[2];
 	};
 	String txt;
-	Vector<ActionArg> actions;
+	Vector<ActionHeader> actions;
 	Vector<int> next_phrases;
 	Vector<Score> next_scores;
 	int first_lines = 0;
@@ -250,7 +233,7 @@ struct ActionTemplate : Moveable<ActionTemplate> {
 		int i32[2];
 	};
 	int tp_i; // TemplatePhrase idx in dataset
-	Vector<ActionArg> actions;
+	Vector<ActionHeader> actions;
 	
 	void Jsonize(JsonIO& json) {
 		json

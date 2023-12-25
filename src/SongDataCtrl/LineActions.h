@@ -43,7 +43,7 @@ public:
 	void DataMain();
 	void DataDataset();
 	void DataAction();
-	void DataActionArg();
+	void DataActionHeader();
 	void DataNextLine();
 	void ToolMenu(Bar& bar) override;
 	

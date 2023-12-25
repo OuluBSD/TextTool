@@ -205,6 +205,8 @@ void RhymeContainerPage::DataAction() {
 }
 
 void RhymeContainerPage::ManualData() {
+	if (running)
+		return;
 	Data();
 }
 
@@ -388,7 +390,7 @@ void RhymeContainerPage::Process() {
 		int16 act_groups[PackedRhymeContainer::MAX_ACTIONS];
 		int16 act_values[PackedRhymeContainer::MAX_ACTIONS];
 		for(int i = 0; i < act_count; i++) {
-			const ActionArg& aa = at.actions[i];
+			const ActionHeader& aa = at.actions[i];
 			da.RealizeAction(aa.action, aa.arg, act_groups[i], act_values[i]);
 		}
 		

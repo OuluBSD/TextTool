@@ -147,11 +147,11 @@ String ActionPhrase::GetActionText() const {
 	return l;
 }
 
-double GetActionMatching(const Vector<ActionArg>& a, const Vector<ActionArg>& b) {
+double GetActionMatching(const Vector<ActionHeader>& a, const Vector<ActionHeader>& b) {
 	if (!a.GetCount()) return 0;
 	int partial_matches = 0, full_matches = 0;
-	for (const ActionArg& aa : a) {
-		for (const ActionArg& bb : b) {
+	for (const ActionHeader& aa : a) {
+		for (const ActionHeader& bb : b) {
 			if (aa.action == bb.action) {
 				partial_matches++;
 				if (aa.arg == bb.arg) {

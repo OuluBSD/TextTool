@@ -52,7 +52,6 @@
 #include "AttributeDistribution.h"
 #include "NanaEditor.h"
 #include "ActionEditor.h"
-#include "LyricsEditor2.h"
 
 
 #endif

@@ -253,6 +253,7 @@ public:
 	void CreateInput_GetContextIdea();
 	void CreateInput_GetSongDataAnalysis();
 	void CreateInput_GetActionAnalysis();
+	void CreateInput_GetLyricsPhrase();
 	
 	void Process_MakeImportTasks();
 	void Process_MakeContextImportTasks();
@@ -337,6 +338,7 @@ public:
 	void Process_GetContextIdea();
 	void Process_GetSongDataAnalysis();
 	void Process_GetActionAnalysis();
+	void Process_GetLyricsPhrase();
 	
 	void Retry(bool skip_prompt, bool skip_cache);
 	String GetDescription() const;

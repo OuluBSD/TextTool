@@ -5317,3 +5317,33 @@ void Task::CreateInput_GetActionAnalysis() {
 		input.response_length = 2*1024;
 	}
 }
+
+void Task::CreateInput_GetLyricsPhrase() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	LyricsPhraseArgs args;
+	args.Put(this->args[0]);
+	
+	
+	if (args.fn == 0) {
+		{
+			auto& list = input.AddSub().Title("List \"A\" of words");
+			for(int i = 0; i < args.words.GetCount(); i++)
+				list.Add(args.words[i]);
+		}
+		{
+			auto& list = input.AddSub().Title("List \"B\" of template sentences");
+			for(int i = 0; i < args.tmpls.GetCount(); i++)
+				list.Add(args.tmpls[i]);
+		}
+		{
+			auto& answer = input.PreAnswer();
+			answer.Title("List of sentences using words from the list \"A\" and templates from the list \"B\". The templates can be modified slightly. Words surrounded with {} must be replaced. Length of a sentence is " + IntStr(args.len) + " phonetic syllables in total");
+			answer.Add("");
+		}
+		input.response_length = 2*1024;
+	}
+}

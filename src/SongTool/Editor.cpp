@@ -105,8 +105,7 @@ void Editor::InitSimplified() {
 	//AddItem(t_("Song lyrics"), t_("Production idea"), prod_idea);
 	AddItem(t_("Song lyrics"), t_("Nana editor"), nana_editor);
 	AddItem(t_("Song lyrics"), t_("Action editor"), action_editor);
-	AddItem(t_("Song lyrics"), t_("Lyrics editor 1"), lyrics_editor);
-	AddItem(t_("Song lyrics"), t_("Lyrics editor 2"), lyrics_editor2);
+	AddItem(t_("Song lyrics"), t_("Lyrics editor"), lyrics_editor);
 	AddItem(t_("Song lyrics"), t_("Attributes"), ctx_attrs);
 	AddItem(t_("Song lyrics"), t_("Attribute Distribution"), attr_dist);
 	

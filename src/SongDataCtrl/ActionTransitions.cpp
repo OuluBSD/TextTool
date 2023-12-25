@@ -20,7 +20,7 @@ ActionTransitionsPage::ActionTransitionsPage() {
 	action_args.AddColumn(t_("Action args"));
 	action_args.AddColumn(t_("Count"));
 	action_args.ColumnWidths("3 1");
-	action_args.WhenCursor << THISBACK(DataActionArg);
+	action_args.WhenCursor << THISBACK(DataActionHeader);
 	
 	transitions.AddColumn(t_("From action"));
 	transitions.AddColumn(t_("From action arg"));
@@ -137,10 +137,10 @@ void ActionTransitionsPage::DataAction() {
 	if (!action_args.IsCursor() && action_args.GetCount())
 		action_args.SetCursor(0);
 	
-	DataActionArg();
+	DataActionHeader();
 }
 
-void ActionTransitionsPage::DataActionArg() {
+void ActionTransitionsPage::DataActionHeader() {
 	if (!datasets.IsCursor() || !actions.IsCursor() || !action_args.IsCursor())
 		return;
 	

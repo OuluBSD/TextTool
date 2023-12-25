@@ -1915,3 +1915,7 @@ void Task::Process_GetSongDataAnalysis() {
 void Task::Process_GetActionAnalysis() {
 	WhenResult(output);
 }
+
+void Task::Process_GetLyricsPhrase() {
+	WhenResult(output);
+}

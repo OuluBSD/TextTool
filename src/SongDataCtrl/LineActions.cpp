@@ -24,7 +24,7 @@ SongDataLineActions::SongDataLineActions() {
 	action_args.AddColumn(t_("Action args"));
 	action_args.AddColumn(t_("Count"));
 	action_args.ColumnWidths("3 1");
-	action_args.WhenCursor << THISBACK(DataActionArg);
+	action_args.WhenCursor << THISBACK(DataActionHeader);
 	
 	phrases.AddColumn(t_("Txt"));
 	String cw = "2";
@@ -154,10 +154,10 @@ void SongDataLineActions::DataAction() {
 	if (!action_args.IsCursor() && action_args.GetCount())
 		action_args.SetCursor(0);
 	
-	DataActionArg();
+	DataActionHeader();
 }
 
-void SongDataLineActions::DataActionArg() {
+void SongDataLineActions::DataActionHeader() {
 	if (!datasets.IsCursor() || !actions.IsCursor() || !action_args.IsCursor())
 		return;
 	
@@ -407,7 +407,7 @@ void SongDataLineActions::OnLineActions(String res, int batch_i) {
 	Vector<String> txt_lines = Split(batch.txt, "\n");
 	
 	// e.g. tone(desperate) + msg(distracting oneself) + bias(impulsiveness)
-	Vector<ActionArg> actions;
+	Vector<ActionHeader> actions;
 	
 	if (lines.GetCount() == txt_lines.GetCount()) {
 		int line_idx = -1;
@@ -436,13 +436,13 @@ void SongDataLineActions::OnLineActions(String res, int batch_i) {
 				a++;
 				String arg = TrimBoth(s.Mid(a,b-a));
 				
-				ActionArg& aa = actions.Add();
+				ActionHeader& aa = actions.Add();
 				aa.action = action;
 				aa.arg = arg;
 				
 			}
-			Sort(actions, ActionArg());
-			for (ActionArg& aa : actions) {
+			Sort(actions, ActionHeader());
+			for (ActionHeader& aa : actions) {
 				ch.Do(aa.action);
 				ch.Do(aa.arg);
 			}

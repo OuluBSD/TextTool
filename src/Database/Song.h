@@ -185,27 +185,6 @@ struct StaticPhrase {
 	}
 };
 
-struct ActionHeader : Moveable<ActionHeader> {
-	String action, arg;
-	
-	ActionHeader() {}
-	ActionHeader(const ActionHeader& a) {action = a.action; arg = a.arg;}
-	void operator=(const ActionHeader& a) {action = a.action; arg = a.arg;}
-	bool operator==(const ActionHeader& a) const {return action == a.action && arg == a.arg;}
-	hash_t GetHashValue() const {CombineHash c; c.Do(action); c.Do(arg); return c;}
-	bool operator()(const ActionHeader& a, const ActionHeader& b) const {
-		if (a.action != b.action) return a.action < b.action;
-		return a.arg < b.arg;
-	}
-	bool IsEmpty() const {return action.IsEmpty() || arg.IsEmpty();}
-	void Jsonize(JsonIO& json) {
-		json("action", action)("arg",arg);
-	}
-	void Serialize(Stream& s) {
-		s % action % arg;
-	}
-};
-
 struct StaticPart {
 	// Part types
 	typedef enum : int {
@@ -454,6 +433,8 @@ struct Song :
 	Vector<int> GetPartPositions(const StaticPart& part) const;
 	Vector<int> GetPreviousParts(const StaticPart& part) const;
 	Vector<int> GetPreviousPartsNonSkipped(const StaticPart& part) const;
+	int FindPart(const StaticPart& part) const;
+	Vector<StaticPart*> GetNonSkippedStructureParts();
 	StaticPart* FindPartByType(const String& type);
 	int GetFirstPartPosition() const;
 	

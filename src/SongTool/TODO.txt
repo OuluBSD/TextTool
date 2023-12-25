@@ -1,5 +1,5 @@
 Scheduled work:
-- action storyline editor (all action storyline options to be used for lyrics finding)
+- action storyline editor: thread: average action and color
 - songlib taskmgr: cache results separately
 - tool: get actions for received messages, get attributes and colors
 - database: total progress page
@@ -14,6 +14,9 @@ Scheduled work:
 - ip: storyline etc.
 	- use books
 		- something novel
+
+- gender split to database
+
 
 - topic mapping: what topics a search engine requires to be elevated to an expert?
 
@@ -248,3 +251,4 @@ x? vocabulary: for artist, for release, for song
 - database: average action transitions (from action to action) with scores
 - database: parallel actions
 - menu options: quit without saving, stop SongLib tasks
+- action storyline editor (all action storyline options to be used for lyrics finding)
