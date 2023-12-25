@@ -528,18 +528,21 @@ bool Task::RunOpenAI_Image() {
 		}
 	}
 	catch (std::runtime_error e) {
+		if (keep_going) {output = " "; return true;}
 		LOG(prompt);
 		fatal_error = true;
 		SetError(e.what());
 		return false;
 	}
 	catch (std::string e) {
+		if (keep_going) {output = " "; return true;}
 		LOG(prompt);
 		fatal_error = true;
 		SetError(e.c_str());
 		return false;
 	}
 	catch (NLOHMANN_JSON_NAMESPACE::detail::parse_error e) {
+		if (keep_going) {output = " "; return true;}
 		LOG(prompt);
 		LOG(e.what());
 		fatal_error = true;
@@ -547,6 +550,7 @@ bool Task::RunOpenAI_Image() {
 		return false;
 	}
 	catch (std::exception e) {
+		if (keep_going) {output = " "; return true;}
 		LOG(prompt);
 		SetError(e.what());
 		fatal_error = true;
@@ -638,6 +642,7 @@ bool Task::RunOpenAI_Completion() {
 	        output.Clear();
 	}
 	catch (std::runtime_error e) {
+		if (keep_going) {output = " "; return true;}
 		LOG(prompt);
 		LOG(txt);
 		fatal_error = true;
@@ -645,6 +650,7 @@ bool Task::RunOpenAI_Completion() {
 		return false;
 	}
 	catch (std::string e) {
+		if (keep_going) {output = " "; return true;}
 		LOG(prompt);
 		LOG(txt);
 		fatal_error = true;
@@ -652,6 +658,7 @@ bool Task::RunOpenAI_Completion() {
 		return false;
 	}
 	catch (NLOHMANN_JSON_NAMESPACE::detail::parse_error e) {
+		if (keep_going) {output = " "; return true;}
 		LOG(prompt);
 		LOG(txt);
 		LOG(e.what());
@@ -660,6 +667,7 @@ bool Task::RunOpenAI_Completion() {
 		return false;
 	}
 	catch (std::exception e) {
+		if (keep_going) {output = " "; return true;}
 		LOG(prompt);
 		LOG(txt);
 		SetError(e.what());

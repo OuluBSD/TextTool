@@ -12,7 +12,6 @@ class LineTypesPage : public SongToolCtrl {
 	};
 	
 	Vector<Batch> batches;
-	int tmp_batch_i = -1;
 	int total_struct_count = 0;
 	
 	void UpdateBatches();
@@ -26,6 +25,7 @@ protected:
 	Vector<ColorWordnet*> tmp_clr_wordnets;
 	VectorMap<String, VectorMap<String, int>> uniq_acts;
 	Vector<int> ap_is;
+	int prev_st_i = -1;
 	
 	int structure_cols = 7;
 	bool disabled = false;

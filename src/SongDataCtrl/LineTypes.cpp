@@ -208,6 +208,8 @@ void LineTypesPage::UpdateBatches() {
 				bool song_begins = true;
 				for(int k = 0; k < lines.GetCount(); k++) {
 					String l = TrimBoth(lines[k]);
+					if (l.GetCount() > 200)
+						l = l.Left(200);
 					hash_t h = l.GetHashValue();
 					if (VectorFind<hash_t>(line_hashes, h) >= 0)
 						continue;
@@ -264,7 +266,6 @@ void LineTypesPage::GetLineStructures(int batch_i) {
 		return;
 	}
 	Batch& batch = batches[batch_i];
-	tmp_batch_i = batch_i;
 	
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -276,7 +277,7 @@ void LineTypesPage::GetLineStructures(int batch_i) {
 	
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	TaskMgr& m = tm.MakePipe();
-	m.GetSongDataAnalysis(args, THISBACK1(OnLineStructures, batch_i));
+	m.GetSongDataAnalysis(args, THISBACK1(OnLineStructures, batch_i), true);
 }
 
 void LineTypesPage::OnLineStructures(String res, int batch_i) {
@@ -287,11 +288,18 @@ void LineTypesPage::OnLineStructures(String res, int batch_i) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
-	Batch& batch = batches[tmp_batch_i];
+	Batch& batch = batches[batch_i];
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	
-	if (!batch_i)
+	if (!batch_i) {
 		da.structure_headers.Clear();
+		da.structure_transitions.Clear();
+		prev_st_i = -1;
+	}
+	
+	Batch* prev_batch = batch_i > 0 && !batch.song_begins ? &batches[batch_i-1] : 0;
+	if (batch.song_begins)
+		prev_st_i = -1;
 	
 	res.Replace("\r", "");
 	Vector<String> lines = Split(res, "\n");
@@ -328,8 +336,29 @@ void LineTypesPage::OnLineStructures(String res, int batch_i) {
 		
 		StructureHeader& sh = da.structure_headers.GetAdd(sp.struct_type);
 		sh.count++;
-		for (const auto& s : sp.part_types)
+		CombineHash ch;
+		ch.Do(sp.struct_type);
+		for (const auto& s : sp.part_types) {
 			sh.clauses.GetAdd(s,0)++;
+			ch.Do(s);
+		}
+		hash_t type_hash = ch;
+		
+		int cur_st_i = da.structure_transitions.Find(type_hash);
+		if (cur_st_i < 0) {
+			cur_st_i = da.structure_transitions.GetCount();
+			StructureTransition& st = da.structure_transitions.Add(type_hash);
+			st.structure = sp.struct_type;
+			st.clauses <<= sp.part_types;
+		}
+		StructureTransition& st = da.structure_transitions[cur_st_i];
+		
+		if (prev_st_i >= 0) {
+			StructureTransition& st = da.structure_transitions[prev_st_i];
+			st.transition_to << cur_st_i;
+		}
+		
+		prev_st_i = cur_st_i;
 	}
 	
 	if (running0)

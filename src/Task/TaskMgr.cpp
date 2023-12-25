@@ -1950,11 +1950,12 @@ void TaskMgr::GetContextIdea(const ContextIdeaArgs& args, Event<String> WhenResu
 	task_lock.Leave();
 }
 
-void TaskMgr::GetSongDataAnalysis(const SongDataAnalysisArgs& args, Event<String> WhenResult) {
+void TaskMgr::GetSongDataAnalysis(const SongDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_SONG_DATA_ANALYSIS);
 	Pipe& p = dynamic_cast<Pipe&>(*this);
+	
 	
 	String s = args.Get();
 	
@@ -1965,6 +1966,7 @@ void TaskMgr::GetSongDataAnalysis(const SongDataAnalysisArgs& args, Event<String
 	t.p.pipe = &p;
 	t.args << s;
 	t.WhenResult << WhenResult;
+	t.keep_going = keep_going;
 	task_lock.Leave();
 }
 

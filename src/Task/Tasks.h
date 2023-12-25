@@ -132,6 +132,7 @@ public:
 	bool allow_multi_spawn = false;
 	bool is_waiting_deps = false;
 	int tries = 0;
+	bool keep_going = false;
 	
 	PipePtrs p;
 	PatternSnap* snap = 0;

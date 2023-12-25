@@ -544,6 +544,23 @@ struct StructurePhrase : Moveable<StructurePhrase> {
 	}
 };
 
+struct StructureTransition : Moveable<StructureTransition> {
+	Vector<String> clauses;
+	String structure;
+	Vector<int> transition_to;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("clauses", clauses)
+			("structure", structure)
+			("transition_to", transition_to)
+			;
+	}
+	void Serialize(Stream& s) {
+		s % clauses % structure % transition_to;
+	}
+};
+
 struct DatasetAnalysis {
 	VectorMap<String, ArtistAnalysis> artists;
 	VectorMap<String, WordGroupAnalysis> groups;
@@ -554,6 +571,7 @@ struct DatasetAnalysis {
 	Vector<ActionPhrase> action_phrases;
 	VectorMap<String, StructureHeader> structure_headers;
 	Vector<StructurePhrase> structure_phrases;
+	VectorMap<int64,StructureTransition> structure_transitions;
 	Vector<ActionTemplate> action_tmpls;
 	VectorMap<ActionHeader, ActionAttrs> action_attrs;
 	VectorMap<ActionHeader, VectorMap<ActionHeader, ActionParallel>> action_parallel;
@@ -594,6 +612,7 @@ struct DatasetAnalysis {
 				("action_phrases", action_phrases)
 				("structure_headers", structure_headers)
 				("structure_phrases", structure_phrases)
+				("structure_transitions", structure_transitions)
 				("action_tmpls", action_tmpls)
 				("action_attrs", action_attrs)
 				("action_parallel", action_parallel)
@@ -611,7 +630,7 @@ struct DatasetAnalysis {
 		s % artists % groups % words
 		  % tmpl_phrases % wordnets % clr_wordnets
 		  % action_phrases % structure_headers % structure_phrases
-		  % action_tmpls % action_attrs
+		  % structure_transitions % action_tmpls % action_attrs
 		  % action_parallel % action_trans % packed_rhymes
 		  % dynamic_attrs % dynamic_actions;
 	}
