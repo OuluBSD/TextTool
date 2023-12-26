@@ -353,11 +353,13 @@ struct ColorWordnet : Moveable<ColorWordnet> {
 struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
 	static constexpr int MAX_TXT_LEN = 256;
 	static constexpr int MAX_PRON_LEN = 256;
+	static constexpr int MAX_NANA_LEN = 256;
 	static constexpr int MAX_PRON_SZ = MAX_PRON_LEN * sizeof(wchar);
 	static constexpr int MAX_ACTIONS = 20;
 	
 	char txt[MAX_TXT_LEN];
 	wchar pron[MAX_PRON_LEN];
+	byte nana[MAX_NANA_LEN];
 	byte clr[3];
 	int16 attention_groups[MAX_ACTIONS];
 	int16 attention_values[MAX_ACTIONS];
@@ -367,6 +369,7 @@ struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
 		memset(attention_groups, 0xFF, sizeof(attention_groups));
 		memset(attention_values, 0xFF, sizeof(attention_values));
 	}
+	void ZeroNana() {memset(nana, 0, sizeof(nana));}
 	void Jsonize(JsonIO& json) {
 		if (json.IsLoading()) {
 			Zero();
@@ -384,6 +387,11 @@ struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
 			this->clr[0] = clr.GetR();
 			this->clr[1] = clr.GetG();
 			this->clr[2] = clr.GetB();
+			
+			Vector<byte> nana;
+			nana.SetCount(MAX_NANA_LEN);
+			memcpy(nana.Begin(), nana, MAX_NANA_LEN);
+			json("nana", nana);
 			
 			Vector<int> agroups, avalues;
 			json("ag", agroups)("av", avalues);
@@ -403,6 +411,11 @@ struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
 			Color c(clr[0], clr[1], clr[2]);
 			json("clr", c);
 			
+			Vector<byte> nana;
+			json("nana", nana);
+			nana.SetCount(MAX_NANA_LEN, 0);
+			memcpy(nana, nana.Begin(), MAX_NANA_LEN);
+			
 			Vector<int> agroups, avalues;
 			for(int i = 0; i < MAX_ACTIONS; i++) {
 				int16 ag = attention_groups[i];
@@ -417,16 +430,29 @@ struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
 	
 	
 	void Serialize(Stream& s) {
+		#if 0
 		if (s.IsLoading()) {
 			s.Get(txt, MAX_TXT_LEN);
 			s.Get(pron, MAX_PRON_SZ);
 			s.Get(clr, 3);
+			s.Get(attention_groups, sizeof(attention_groups));
+			s.Get(attention_values, sizeof(attention_values));
 		}
 		else {
 			s.Put(txt, MAX_TXT_LEN);
 			s.Put(pron, MAX_PRON_SZ);
 			s.Put(clr, 3);
+			s.Put(attention_groups, sizeof(attention_groups));
+			s.Put(attention_values, sizeof(attention_values));
 		}
+		#else
+		if (s.IsLoading()) {
+			s.Get(this, sizeof(*this));
+		}
+		else {
+			s.Put(this, sizeof(*this));
+		}
+		#endif
 	}
 	
 	String GetText() const;

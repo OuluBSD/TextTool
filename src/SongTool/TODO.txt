@@ -1,5 +1,6 @@
 Scheduled work:
-- action storyline editor: thread: average action and color
+- line structure editor
+- database: structure clause nana-code & phonetic
 - songlib taskmgr: cache results separately
 - tool: get actions for received messages, get attributes and colors
 - database: total progress page
@@ -254,3 +255,4 @@ x? vocabulary: for artist, for release, for song
 - database: parallel actions
 - menu options: quit without saving, stop SongLib tasks
 - action storyline editor (all action storyline options to be used for lyrics finding)
+- action storyline editor: thread: average action and color

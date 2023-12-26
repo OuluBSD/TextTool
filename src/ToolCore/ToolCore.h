@@ -25,6 +25,8 @@ using namespace Upp;
 #include "Utils.h"
 #include "Optimizer.h"
 
+#include "Phoneme.h"
+#include "Nana.h"
 #include "Common.h"
 
 

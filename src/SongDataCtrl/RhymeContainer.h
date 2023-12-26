@@ -28,7 +28,7 @@ public:
 	void ManualData();
 	void DataAction();
 	void ToolMenu(Bar& bar) override;
-	void ProcessData();
+	void MakeNana();
 	void SetProgress(int a, int t) {prog.Set(a,t);}
 	void PostProgress(int a, int t) {PostCallback(THISBACK2(SetProgress, a, t));}
 	

@@ -685,7 +685,7 @@ void SongDataWords::DumpPhoneticChars() {
 		if (ws.IsEmpty()) continue;
 		int c0 = ws[0];
 		int c1 = ws.GetCount() > 1 ? ws[1] : 0;
-		int e = GetPhonomeEnum(c0, c1, 0);
+		int e = GetPhonemeEnum(c0, c1, 0);
 		if (e >= 0)
 			continue;
 		LOG("PHONOME_ALT(\"" << ws << "\", \"\") \\");

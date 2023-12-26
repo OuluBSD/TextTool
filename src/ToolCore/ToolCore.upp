@@ -9,7 +9,13 @@ file
 	OpenAI.h,
 	Json.h,
 	Optimizer.h,
+	Phoneme.h,
+	Phoneme.cpp,
+	Nana.h,
+	Nana.cpp,
 	Common.h,
 	Common.cpp,
+	Color.cpp,
+	ProductionIdeas.cpp,
 	ColorFn.cpp;
 

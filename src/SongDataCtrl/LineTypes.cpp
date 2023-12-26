@@ -90,9 +90,9 @@ void LineTypesPage::DataDataset() {
 	structures.Set(0, 1, total_struct_count);
 	INHIBIT_CURSOR(structures);
 	structures.SetCount(1+da.structure_types.GetCount());
+	structures.SetSortColumn(1, true);
 	if (!structures.IsCursor() && structures.GetCount())
 		structures.SetCursor(0);
-	structures.SetSortColumn(1, true);
 	
 	DataStructure();
 }

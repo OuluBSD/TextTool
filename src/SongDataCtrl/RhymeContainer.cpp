@@ -302,6 +302,8 @@ void RhymeContainerPage::MainData() {
 						int16 ag = prc.attention_groups[i];
 						if (ag < 0) break;
 						int16 av = prc.attention_values[i];
+						if (ag >= da.dynamic_actions.GetCount())
+							continue;
 						String agroup = da.dynamic_actions.GetKey(ag);
 						String avalue = da.dynamic_actions[ag][av];
 						if (!act_str.IsEmpty())
@@ -329,16 +331,39 @@ void RhymeContainerPage::MainData() {
 
 void RhymeContainerPage::ToolMenu(Bar& bar) {
 	bar.Add(t_("Manually update data"), AppImg::BlueRing(), THISBACK(ManualData)).Key(K_CTRL_Q);
-	bar.Add(t_("Start processing data"), AppImg::BlueRing(), THISBACK(Start)).Key(K_F5);
-	bar.Add(t_("Stop processing data"), AppImg::BlueRing(), THISBACK(Stop)).Key(K_F6);
-	
+	if (!running)
+		bar.Add(t_("Start processing data"), AppImg::RedRing(), THISBACK(Start)).Key(K_F5);
+	else
+		bar.Add(t_("Stop processing data"), AppImg::RedRing(), THISBACK(Stop)).Key(K_F5);
+	bar.Separator();
+	bar.Add(t_("Make nana-phrases"), AppImg::RedRing(), THISBACK(MakeNana)).Key(K_F6);
 }
 
-void RhymeContainerPage::ProcessData() {
+void RhymeContainerPage::MakeNana() {
 	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	EnglishPronounciation ep;
 	
+	int ds_i = 0;
+	DatasetAnalysis& da = sda.datasets[ds_i];
 	
+	PhoneticNanaAnalyser anal;
 	
+	for(int i = 0; i < da.packed_rhymes.GetCount(); i++) {
+		const PackedRhymeHeader& h = da.packed_rhymes.GetKey(i);
+		Vector<PackedRhymeContainer>& v = da.packed_rhymes[i];
+		
+		for(int j = 0; j < v.GetCount(); j++) {
+			PackedRhymeContainer& c = v[j];
+			c.ZeroNana();
+			
+			if (!anal.Parse(c.pron, PackedRhymeContainer::MAX_PRON_LEN))
+				continue;
+			
+			anal.WritePackedNana(c.nana, PackedRhymeContainer::MAX_NANA_LEN);
+		}
+	}
 }
 
 void RhymeContainerPage::Start() {
@@ -375,6 +400,8 @@ void RhymeContainerPage::Process() {
 		DatasetAnalysis& da = sda.datasets[ds_i];
 		if (at_i == 0) {
 			da.packed_rhymes.Clear();
+			da.dynamic_actions.Clear();
+			da.dynamic_attrs.Clear();
 		}
 		if (at_i >= da.action_tmpls.GetCount()) {
 			SortByKey(da.packed_rhymes, PackedRhymeHeader());
