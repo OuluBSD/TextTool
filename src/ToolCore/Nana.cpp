@@ -1,6 +1,21 @@
 #include "ToolCore.h"
 
 
+String PackedRhymeContainer::GetText() const {
+	String s(txt, PackedRhymeContainer::MAX_TXT_LEN);
+	Vector<String> parts = Split(s, "\n");
+	String o = Join(parts, " ");
+	return o;
+}
+
+WString PackedRhymeContainer::GetPronounciation() const {
+	WString ws(pron, PackedRhymeContainer::MAX_PRON_LEN);
+	return ws;
+}
+
+
+
+
 
 MockupPhraseParser::MockupPhraseParser() {
 	
@@ -225,9 +240,45 @@ String RhymeContainer::Syllable::AsString() const {
 	return s;
 }
 
+void RhymeContainer::Line::Pack(PackedRhymeContainer& container) const {
+	int i = 0;
+	for (const auto& wrd : words) {
+		int sy_i = 0, sy_c = wrd.syllables.GetCount();
+		for (const auto& sy : wrd.syllables) {
+			byte nana = 0;
+			byte v_cl, c_cl;
+			switch (sy.vocal_importance){
+				case 0: v_cl = NANA_IMPORTANCE_2; break;
+				case 1: v_cl = NANA_IMPORTANCE_1; break;
+				case 2: v_cl = NANA_IMPORTANCE_0; break;
+				case 3: v_cl = NANA_IMPORTANCE_SPECIFIC; break;
+				default: v_cl = NANA_MEANINGLESS; break;
+			}
+			switch (sy.consonant_importance){
+				case 0: c_cl = NANA_IMPORTANCE_2; break;
+				case 1: c_cl = NANA_IMPORTANCE_1; break;
+				case 2: c_cl = NANA_IMPORTANCE_0; break;
+				case 3: c_cl = NANA_IMPORTANCE_SPECIFIC; break;
+				default: c_cl = NANA_MEANINGLESS; break;
+			}
+			nana |= (byte)v_cl;
+			nana |= (byte)c_cl << 3;
+			if (sy.long_)		nana |= (byte)NANA_LONG;
+			if (sy_i > 0)	nana |= (byte)NANA_CONTINUE;
+			container.nana[i] = nana;
+			i++;
+			sy_i++;
+		}
+	}
+	container.nana_len = i;
+}
 
 
-bool PhoneticNanaAnalyser::Parse(wchar* phon, int len) {
+
+
+
+
+bool PhoneticNanaAnalyser::Parse(const wchar* phon, int len) {
 	
 	// Update length
 	for(int i = 0; i < len; i++) {
@@ -248,8 +299,6 @@ bool PhoneticNanaAnalyser::Parse(wchar* phon, int len) {
 	int* end = begin + len;
 	
 	
-	TODO // fail starts here
-	
 	// Get unique vowels and consonants
 	vowels.Clear();
 	consonants.Clear();
@@ -262,8 +311,12 @@ bool PhoneticNanaAnalyser::Parse(wchar* phon, int len) {
 		int p = GetPhonemeEnum(c[0], c[1], &len);
 		if (p < 0) {
 			int w = *c;
-			if (w == '\'')
-				enums << -2; // long vowel
+			if (w == '\'' || w == 712)
+				p = -1; // strong -> syllable change
+			else if (w == ':' || w == 720)
+				enums << -2; // long vowel, 'ˈ' = 712
+			else if (w == '-' || w == '.' || w == 716 || w == 183)
+				enums << -3; // continue
 			else if (IsSpace(w) && prev >= 0)
 				enums << -1;
 			else
@@ -389,86 +442,192 @@ bool PhoneticNanaAnalyser::Parse(wchar* phon, int len) {
 	//DUMPCC(consonant_clusters);
 	
 	
-	// Make nana-code
 	int* ebegin = enums.Begin();
 	int* eend = enums.End();
-	bool continue_prev = false;
-	bool prev_long = false;
-	nana_out.SetCount(0);
+	phon_syllables.SetCount(0);
+	Vector<int>* cur = &phon_syllables.Add();
 	for (int* c = ebegin; c < eend; c++) {
-		int p0 = *c;
-		if (p0 < 0) {
-			if (p0 == -1)
-				continue_prev = false;
-			if (p0 == -2)
-				prev_long = true;
-		}
-		else {
-			bool is_vowel = p0 < PHONOME_VOWEL_COUNT;
-			int v_cl = -1;
-			int c_cl = -1;
-			
-			TODO
-			/*if (is_vowel) {
-				int i = 0;
-				for (const auto& vv : vowel_clusters) {
-					bool found = false;
-					for (int p1 : vv) {
-						if (p0 == p1) {
-							found = true;
+		int p = *c;
+		
+		if ((p == -1 || p == -3) && !cur->IsEmpty()) // space or continue
+			cur = &phon_syllables.Add();
+		else if (p == -1 || p == -3)
+			continue;
+		else
+			cur->Add(p);
+	}
+	if (cur->IsEmpty())
+		phon_syllables.Remove(phon_syllables.GetCount()-1);
+	
+	
+	// Using syllables instead of phonemes might hide some clusters
+	// Remove hidden clusters, so that importance levels are sequential and begins from 0for(int i = 0; i < phon_syllables.GetCount(); i++) {
+	seen_v_clusters.Clear();
+	seen_c_clusters.Clear();
+	for(int i = 0; i < phon_syllables.GetCount(); i++) {
+		const Vector<int>& sy = phon_syllables[i];
+		
+		int lowest_v_cl = NANA_MEANINGLESS;
+		int lowest_c_cl = NANA_MEANINGLESS;
+		
+		for (int p0 : sy) {
+			if (p0 < 0)
+				continue;
+			else {
+				bool is_vowel = p0 < PHONOME_VOWEL_COUNT;
+				int v_cl = -1;
+				int c_cl = -1;
+				
+				if (is_vowel) {
+					int i = 0;
+					for (const auto& vv : vowel_clusters) {
+						bool found = false;
+						for (int p1 : vv) {
+							if (p0 == p1) {
+								found = true;
+								break;
+							}
+						}
+						if (found) {
+							v_cl = i;
 							break;
 						}
+						i++;
 					}
-					if (found) {
-						v_cl = i;
-						break;
-					}
-					i++;
 				}
+				else {
+					int i = 0;
+					for (const auto& vv : consonant_clusters) {
+						bool found = false;
+						for (int p1 : vv) {
+							if (p0 == p1) {
+								found = true;
+								break;
+							}
+						}
+						if (found) {
+							c_cl = i;
+							break;
+						}
+						i++;
+					}
+				}
+				
+				if (v_cl >= 0)
+					lowest_v_cl = min(lowest_v_cl, v_cl);
+				if (c_cl >= 0)
+					lowest_c_cl = min(lowest_c_cl, c_cl);
+			}
+		}
+		
+		seen_v_clusters.FindAdd(lowest_v_cl);
+		seen_c_clusters.FindAdd(lowest_c_cl);
+	}
+	
+	rm_v.SetCount(0);
+	for(int i = 0; i < vowel_clusters.GetCount(); i++)
+		if (seen_v_clusters.Find(i) < 0)
+			rm_v << i;
+	vowel_clusters.Remove(rm_v);
+	
+	rm_c.SetCount(0);
+	for(int i = 0; i < consonant_clusters.GetCount(); i++)
+		if (seen_c_clusters.Find(i) < 0)
+			rm_c << i;
+	consonant_clusters.Remove(rm_c);
+	
+	
+	// Make nana-code
+	bool prev_long = false;
+	bool prev_continue = false;
+	nana_out.SetCount(0);
+	for(int i = 0; i < phon_syllables.GetCount(); i++) {
+		const Vector<int>& sy = phon_syllables[i];
+		
+		int lowest_v_cl = NANA_MEANINGLESS;
+		int lowest_c_cl = NANA_MEANINGLESS;
+		
+		for (int p0 : sy) {
+			if (p0 < 0) {
+				if (p0 == -1)
+					;
+				if (p0 == -2)
+					prev_long = true;
+				if (p0 == -3)
+					prev_continue = true;
 			}
 			else {
-				int i = 0;
-				for (const auto& vv : consonant_clusters) {
-					bool found = false;
-					for (int p1 : vv) {
-						if (p0 == p1) {
-							found = true;
+				bool is_vowel = p0 < PHONOME_VOWEL_COUNT;
+				int v_cl = -1;
+				int c_cl = -1;
+				
+				if (is_vowel) {
+					int i = 0;
+					for (const auto& vv : vowel_clusters) {
+						bool found = false;
+						for (int p1 : vv) {
+							if (p0 == p1) {
+								found = true;
+								break;
+							}
+						}
+						if (found) {
+							v_cl = i;
 							break;
 						}
+						i++;
 					}
-					if (found) {
-						c_cl = i;
-						break;
-					}
-					i++;
 				}
+				else {
+					int i = 0;
+					for (const auto& vv : consonant_clusters) {
+						bool found = false;
+						for (int p1 : vv) {
+							if (p0 == p1) {
+								found = true;
+								break;
+							}
+						}
+						if (found) {
+							c_cl = i;
+							break;
+						}
+						i++;
+					}
+				}
+				
+				if (v_cl >= 0)
+					lowest_v_cl = min(lowest_v_cl, v_cl);
+				if (c_cl >= 0)
+					lowest_c_cl = min(lowest_c_cl, c_cl);
 			}
-			ASSERT(v_cl >= 0);
+		}
 			
+		{
 			// Nana code item
 			byte nana = 0;
-			if (is_vowel) {
-				cl0 = min(7, cl0);
-				nana |= (byte)cl0;
-			}
-			else {
-				cl0 = min(7, cl0);
-				nana |= (byte)cl0 << 3; // consonant offset
-			}
+			
+			nana |= (byte)lowest_v_cl;
+			nana |= (byte)lowest_c_cl << 3; // consonant offset
 			
 			if (prev_long) {
 				prev_long = false;
 				nana |= (byte)NANA_LONG;
 			}
 			
-			if (continue_prev) {
+			if (prev_continue) {
+				prev_continue = false;
 				nana |= (byte)NANA_CONTINUE;
 			}
 			
 			nana_out << nana;
-			*/
-			continue_prev = true;
 		}
+	}
+	
+	
+	
+	for (int* c = ebegin; c < eend; c++) {
+		int p0 = *c;
 	}
 	
 	if (nana_out.IsEmpty())
@@ -477,13 +636,14 @@ bool PhoneticNanaAnalyser::Parse(wchar* phon, int len) {
 	return true;
 }
 
-void PhoneticNanaAnalyser::WritePackedNana(byte* nana, int len) {
+int PhoneticNanaAnalyser::WritePackedNana(byte* nana, int len) {
 	int write = min(len, nana_out.GetCount());
 	int zero = len - write;
 	if (write > 0)
 		memcpy(nana, nana_out.Begin(), write);
 	if (zero > 0)
 		memset(nana + write, 0, zero);
+	return write;
 }
 
 
@@ -494,6 +654,7 @@ int NanaCompare::GetDistance(const byte* nana0, int nana0_len, const byte* nana1
 		!nana1 || nana1_len < 0)
 		return INT_MAX;
 	
+	int len_diff = abs(nana0_len - nana1_len);
 	int len = min(nana0_len, nana1_len);
 	const byte* end0 = nana0 + len;
 	const byte* end1 = nana1 + len;
@@ -544,7 +705,19 @@ int NanaCompare::GetDistance(const byte* nana0, int nana0_len, const byte* nana1
 	SortIndex(seen_c1, StdLess<int>());
 	
 	int distance_sum = 0;
+	
+	// Add length difference as distance
+	distance_sum += len_diff;
+	
 	for (const byte *it0 = nana0, *it1 = nana1; it0 != end0; it0++, it1++) {
+		int disconnect_distance = 0;
+		bool cont0 = *it0 & NANA_CONTINUE;
+		bool cont1 = *it1 & NANA_CONTINUE;
+		if (cont0 == false && cont1 == true) {
+			// Add heavy penalty, if first doesn't allow continuing
+			disconnect_distance = 3;
+		}
+		
 		int v0, v1, c0, c1;
 		{
 			int p0 = *it0 & NANA_CLUSTER_MASK;
@@ -557,9 +730,15 @@ int NanaCompare::GetDistance(const byte* nana0, int nana0_len, const byte* nana1
 			
 			// Skip non-meaningful items
 			if (v0 == NANA_MEANINGLESS || c0 == NANA_MEANINGLESS ||
-				v1 == NANA_MEANINGLESS || c1 == NANA_MEANINGLESS)
+				v1 == NANA_MEANINGLESS || c1 == NANA_MEANINGLESS) {
+				
+				// Add disconnect penalty still
+				distance_sum += disconnect_distance;
+				
 				continue;
+			}
 		}
+		
 		if (v0 < NANA_MEANINGLESS) {
 			v0 = seen_v0.Find(v0);
 		}
@@ -587,7 +766,8 @@ int NanaCompare::GetDistance(const byte* nana0, int nana0_len, const byte* nana1
 			const_dist = abs(c1 - c1);
 		}
 		
-		int distance = vowel_dist + const_dist;
+		
+		int distance = disconnect_distance + vowel_dist + const_dist;
 		distance_sum += distance;
 	}
 	

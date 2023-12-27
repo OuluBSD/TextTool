@@ -16,8 +16,12 @@ public:
 	void Data() override;
 	void DataPhrase();
 	void GetSuggestions();
+	void GetSuggestionsAI();
+	void SetPhrase();
+	void MovePhrase(int i);
 	void OnSuggestions(String res);
 	void ToolMenu(Bar& bar) override;
+	void CopyPronounciationToClipboard();
 	
 };
 

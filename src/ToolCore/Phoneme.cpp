@@ -286,6 +286,7 @@ double GetSpellingDistance(const WString& w0, const WString& w1, bool relative) 
 			// TODO stress
 			if (it[0] == 712 || // ˈ
 				it[0] == 716 || // ˌ
+				it[0] == 183 || // ˌ
 				it[0] == '.'
 				) {
 				it++;

@@ -75,40 +75,63 @@ bool EnglishPronounciation::ParseFinish(DatasetAnalysis& ds) {
 		if (!found)
 			return false;
 	}
-	int r_sum = 0, g_sum = 0, b_sum = 0;
-	int weight = 0;
+	double r_sum = 0, g_sum = 0, b_sum = 0;
+	double r_max = 0, g_max = 0, b_max = 0;
+	//int weight = 0;
+	pronounciation.Clear();
 	for (int wa_i : word_is) {
+		if (!pronounciation.IsEmpty())
+			pronounciation.Cat(' ');
 		const WordAnalysis& wa = ds.words[wa_i];
 		int a = 0;
 		int pc = wa.phonetic.GetCount();
+		int sy_i = 0;
 		for(int i = 0; i < pc; i++) {
-			int chr = wa.phonetic[i];
-			if (chr == '.' || chr == ' ') {
-				if (a < i)
-					pron_parts << wa.phonetic.Mid(a, i-a);
+			int w = wa.phonetic[i];
+			if (w == '.' || w == ' ' || w == '-' || w == 716 || w == 712 || w == 183) {
+				if (a < i) {
+					int extra = w == 712 ? 1 : 0;
+					WString s = wa.phonetic.Mid(a, i-a+extra);
+					pron_parts << s;
+					if (sy_i > 0) pronounciation.Cat('-');
+					pronounciation << s;
+					sy_i++;
+				}
 				a = i+1;
 			}
 		}
-		if (a < pc)
-			pron_parts << wa.phonetic.Mid(a);
+		if (a < pc) {
+			WString s = wa.phonetic.Mid(a);
+			pron_parts << s;
+			if (sy_i > 0) pronounciation.Cat('-');
+			pronounciation << s;
+			sy_i++;
+		}
 		
-		r_sum += wa.clr.GetR() * pc;
+		PutKeyColor(
+			wa.main_class.Begin(),
+			wa.clr.GetR(),
+			wa.clr.GetG(),
+			wa.clr.GetB(),
+			r_sum,
+			g_sum,
+			b_sum,
+			r_max,
+			g_max,
+			b_max);
+		
+		/*r_sum += wa.clr.GetR() * pc;
 		g_sum += wa.clr.GetG() * pc;
 		b_sum += wa.clr.GetB() * pc;
-		weight += pc;
-	}
-	if (!weight)
-		blended_clr = base_clr;
-	else {
-		Color clr(	r_sum / weight,
-					g_sum / weight,
-					b_sum / weight);
-		
-		// Modify color based on words
-		blended_clr = Blend(base_clr, clr);
+		weight += pc;*/
 	}
 	
-	pronounciation = Join(pron_parts, " ");
+	Color clr(	r_max > 0 ? r_sum / r_max * 255 : base_clr.GetR(),
+				g_max > 0 ? g_sum / g_max * 255 : base_clr.GetG(),
+				b_max > 0 ? b_sum / b_max * 255 : base_clr.GetB());
+		
+	blended_clr = clr;
+	
 	return true;
 }
 

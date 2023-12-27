@@ -171,18 +171,6 @@ double GetActionMatching(const Vector<ActionHeader>& a, const Vector<ActionHeade
 }
 
 
-String PackedRhymeContainer::GetText() const {
-	String s(txt, PackedRhymeContainer::MAX_TXT_LEN);
-	Vector<String> parts = Split(s, "\n");
-	String o = Join(parts, " ");
-	return o;
-}
-
-WString PackedRhymeContainer::GetPronounciation() const {
-	WString ws(pron, PackedRhymeContainer::MAX_PRON_LEN);
-	return ws;
-}
-
 
 
 bool DatasetAnalysis::RealizeAttribute(const char* group, const char* value, int& attr_group, int& attr_value) {

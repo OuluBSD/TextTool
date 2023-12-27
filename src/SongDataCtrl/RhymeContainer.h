@@ -12,6 +12,8 @@ class RhymeContainerPage : public SongToolCtrl {
 	
 	void Start();
 	void Stop();
+	void StartNana();
+	void StopNana();
 	void Process();
 	void MakeSplit(Vector<String>& parts, Vector<Index<String>>& wrds);
 	int FindSplit(const Vector<String>& part_words);

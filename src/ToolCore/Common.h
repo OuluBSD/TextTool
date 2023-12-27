@@ -52,6 +52,7 @@ extern const int RhymeSchemeLineCount[RHYME_COUNT];
 
 int FindRhymeType(const char* name);
 
+void PutKeyColor(const char* key, int ir, int ig, int ib, double& r, double& g, double& b, double& sr, double& sg, double& sb);
 
 
 

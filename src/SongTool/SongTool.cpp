@@ -5,6 +5,13 @@ GUI_APP_MAIN {
 	SetDefaultCharset(CHARSET_UTF8);
 	//SetLanguage(GetSystemLNG());
 	
+	/*WString ws = String("ˈsi.ʒər").ToWString();
+	int first = ws[0];
+	PhoneticNanaAnalyser anal;
+	anal.Parse(ws.Begin(), ws.GetCount());
+	byte nana[256];
+	anal.WritePackedNana(nana, 256);*/
+	
 	ChFlatSkin();
 	InstallRedBar();
 	

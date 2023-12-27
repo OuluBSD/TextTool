@@ -224,6 +224,7 @@ struct StaticPart {
 	Array<StaticPhrase> phrases;
 	RhymeContainer nana;
 	Vector<Vector<ActionHeader>> thrd_actions;
+	Vector<String> saved_lyrics;
 	
 	static String GetTypeString(int part_type);
 	static String GetTypeString(PartType part_type);
@@ -256,6 +257,7 @@ struct StaticPart {
 			("mockup", mockup)
 			("nana", nana)
 			("thrd_actions", thrd_actions)
+			("saved_lyrics", saved_lyrics)
 			;
 		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
 			json(	(String)"active_idea[" + IdeaPathString[IDEAPATH_PARTBEGIN+i][1] + "]",

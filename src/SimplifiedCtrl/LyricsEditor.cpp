@@ -26,6 +26,8 @@ LyricsEditor::LyricsEditor() {
 	actions.AddColumn(t_("Arg"));
 	
 	suggestions.AddColumn(t_("Phrase"));
+	suggestions.AddColumn(t_("Pronounciation"));
+	suggestions.WhenCursor = THISBACK(GetSuggestions);
 	
 }
 	
@@ -44,9 +46,13 @@ void LyricsEditor::Data() {
 			const RhymeContainer::Line& line = lines[j];
 			
 			String nana = line.AsNana();
+			String saved;
+			if (j < sp.saved_lyrics.GetCount())
+				saved = sp.saved_lyrics[j];
 			
 			phrase_list.Set(row, 0, part);
 			phrase_list.Set(row, 1, nana);
+			phrase_list.Set(row, 3, saved);
 			phrase_list.Set(row, "PART", i);
 			phrase_list.Set(row, "LINE", j);
 			
@@ -101,15 +107,121 @@ void LyricsEditor::DataPhrase() {
 	if (!actions.IsCursor() && actions.GetCount())
 		actions.SetCursor(0);
 	
-	
+	GetSuggestions();
 }
 
 void LyricsEditor::ToolMenu(Bar& bar) {
-	bar.Add(t_("Get Suggestions"), AppImg::BlueRing(), THISBACK(GetSuggestions)).Key(K_CTRL_Q);
+	//bar.Add(t_("Get Suggestions"), AppImg::BlueRing(), THISBACK(GetSuggestions)).Key(K_CTRL_Q);
+	bar.Add(t_("Set phrase"), AppImg::BlueRing(), THISBACK(SetPhrase)).Key(K_CTRL_Q);
+	bar.Add(t_("Copy pronounciation to clipboard"), AppImg::BlueRing(), THISBACK(CopyPronounciationToClipboard)).Key(K_CTRL_R);
 	
 }
 
+void LyricsEditor::CopyPronounciationToClipboard() {
+	if (!suggestions.IsCursor())
+		return;
+	String p = suggestions.Get(1);
+	WriteClipboardText(p);
+}
+
+void LyricsEditor::SetPhrase() {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Song& song = GetSong();
+	
+	if (!phrase_list.IsCursor() || !suggestions.IsCursor())
+		return;
+	
+	int phrase_i = phrase_list.GetCursor();
+	int part_i = phrase_list.Get("PART");
+	int line_i = phrase_list.Get("LINE");
+	StaticPart& sp = song.parts[part_i];
+	
+	int sug_i = suggestions.GetCursor();
+	
+	if (line_i < 0 ||line_i >= sp.nana.Get().GetCount())
+		return;
+	
+	if (line_i <= sp.saved_lyrics.GetCount())
+		sp.saved_lyrics.SetCount(line_i+1);
+	
+	AttrText at = suggestions.Get(0);
+	String txt = at.text.ToString();
+	sp.saved_lyrics[line_i] = txt;
+	
+	phrase_list.Set(phrase_i, 3, txt);
+	PostCallback(THISBACK1(MovePhrase, 1));
+}
+
+void LyricsEditor::MovePhrase(int i) {
+	if (!phrase_list.IsCursor())
+		return;
+	int cur = phrase_list.GetCursor();
+	if (cur+1 < phrase_list.GetCount())
+		phrase_list.SetCursor(cur+1);
+}
+
 void LyricsEditor::GetSuggestions() {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Song& song = GetSong();
+	
+	if (!phrase_list.IsCursor()) {
+		suggestions.Clear();
+		return;
+	}
+	
+	int part_i = phrase_list.Get("PART");
+	int line_i = phrase_list.Get("LINE");
+	const StaticPart& sp = song.parts[part_i];
+	
+	
+	if (line_i < 0 ||line_i >= sp.nana.Get().GetCount())
+		return;
+	
+	const auto& unpacked_nana = sp.nana.Get()[line_i];
+	PackedRhymeContainer packed_nana;
+	unpacked_nana.Pack(packed_nana);
+	
+	if (packed_nana.nana_len == 0) {
+		suggestions.Clear();
+		return;
+	}
+	
+	int row = 0;
+	NanaCompare cmp;
+	for(int i = 0; i < da.packed_rhymes.GetCount(); i++) {
+		const PackedRhymeHeader& h = da.packed_rhymes.GetKey(i);
+		const Vector<PackedRhymeContainer>& v = da.packed_rhymes[i];
+		
+		for(int j = 0; j < v.GetCount(); j++) {
+			const PackedRhymeContainer& c = v[j];
+			if (c.nana_len == 0)
+				continue;
+			if (c.nana_len != packed_nana.nana_len)
+				continue;
+			int distance = cmp.GetDistance(
+				packed_nana.nana, packed_nana.nana_len,
+				c.nana, c.nana_len);
+			if (distance == 0) {
+				Color clr = c.GetColor();
+				SetColoredListValue(suggestions, row, 0, c.GetText(), clr);
+				SetColoredListValue(suggestions, row, 1, c.GetPronounciation().ToString(), clr);
+				row++;
+			}
+		}
+	}
+	INHIBIT_CURSOR(suggestions);
+	suggestions.SetCount(row);
+	if (!suggestions.IsCursor() && suggestions.GetCount())
+		suggestions.SetCursor(0);
+}
+
+void LyricsEditor::GetSuggestionsAI() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;

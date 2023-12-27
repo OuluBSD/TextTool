@@ -334,9 +334,12 @@ void RhymeContainerPage::ToolMenu(Bar& bar) {
 	if (!running)
 		bar.Add(t_("Start processing data"), AppImg::RedRing(), THISBACK(Start)).Key(K_F5);
 	else
-		bar.Add(t_("Stop processing data"), AppImg::RedRing(), THISBACK(Stop)).Key(K_F5);
+		bar.Add(t_("Stop processing"), AppImg::RedRing(), THISBACK(Stop)).Key(K_F5);
 	bar.Separator();
-	bar.Add(t_("Make nana-phrases"), AppImg::RedRing(), THISBACK(MakeNana)).Key(K_F6);
+	if (!running)
+		bar.Add(t_("Start making nana-phrases"), AppImg::RedRing(), THISBACK(StartNana)).Key(K_F6);
+	else
+		bar.Add(t_("Stop processing"), AppImg::RedRing(), THISBACK(StopNana)).Key(K_F6);
 }
 
 void RhymeContainerPage::MakeNana() {
@@ -350,6 +353,11 @@ void RhymeContainerPage::MakeNana() {
 	
 	PhoneticNanaAnalyser anal;
 	
+	int total = 0;
+	for(int i = 0; i < da.packed_rhymes.GetCount(); i++)
+		total += da.packed_rhymes[i].GetCount();
+	
+	int actual = 0;
 	for(int i = 0; i < da.packed_rhymes.GetCount(); i++) {
 		const PackedRhymeHeader& h = da.packed_rhymes.GetKey(i);
 		Vector<PackedRhymeContainer>& v = da.packed_rhymes[i];
@@ -361,9 +369,18 @@ void RhymeContainerPage::MakeNana() {
 			if (!anal.Parse(c.pron, PackedRhymeContainer::MAX_PRON_LEN))
 				continue;
 			
-			anal.WritePackedNana(c.nana, PackedRhymeContainer::MAX_NANA_LEN);
+			int len = anal.WritePackedNana(c.nana, PackedRhymeContainer::MAX_NANA_LEN);
+			c.nana_len = len;
+			
+			actual++;
+			
+			if (actual % 1000 == 0)
+				PostProgress(actual, total);
 		}
 	}
+	
+	running = false;
+	stopped = true;
 }
 
 void RhymeContainerPage::Start() {
@@ -374,6 +391,19 @@ void RhymeContainerPage::Start() {
 }
 
 void RhymeContainerPage::Stop() {
+	running = false;
+	while (!stopped)
+		Sleep(10);
+}
+
+void RhymeContainerPage::StartNana() {
+	Stop();
+	running = true;
+	stopped = false;
+	Thread::Start(THISBACK(MakeNana));
+}
+
+void RhymeContainerPage::StopNana() {
 	running = false;
 	while (!stopped)
 		Sleep(10);

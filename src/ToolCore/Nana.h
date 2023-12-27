@@ -2,6 +2,101 @@
 #define _ToolCore_Nana_h_
 
 
+struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
+	static constexpr int MAX_TXT_LEN = 256;
+	static constexpr int MAX_PRON_LEN = 256;
+	static constexpr int MAX_NANA_LEN = 256;
+	static constexpr int MAX_PRON_SZ = MAX_PRON_LEN * sizeof(wchar);
+	static constexpr int MAX_ACTIONS = 20;
+	
+	char txt[MAX_TXT_LEN];
+	wchar pron[MAX_PRON_LEN];
+	byte nana[MAX_NANA_LEN];
+	byte nana_len = 0;
+	byte clr[3];
+	int16 attention_groups[MAX_ACTIONS];
+	int16 attention_values[MAX_ACTIONS];
+	
+	void Zero() {
+		memset(this, 0, sizeof(PackedRhymeContainer));
+		memset(attention_groups, 0xFF, sizeof(attention_groups));
+		memset(attention_values, 0xFF, sizeof(attention_values));
+	}
+	void ZeroNana() {memset(nana, 0, sizeof(nana));}
+	void Jsonize(JsonIO& json) {
+		if (json.IsLoading()) {
+			Zero();
+			
+			String s;
+			json("txt", s);
+			strncpy(txt, s.Begin(), min<int>(s.GetCount() * sizeof(char), MAX_TXT_LEN));
+			
+			WString ws;
+			json("pron", ws);
+			memcpy(pron, ws.Begin(), min<int>(ws.GetCount() * sizeof(wchar), MAX_PRON_SZ));
+			
+			Color clr;
+			json("clr", clr);
+			this->clr[0] = clr.GetR();
+			this->clr[1] = clr.GetG();
+			this->clr[2] = clr.GetB();
+			
+			Vector<byte> nana;
+			nana.SetCount(MAX_NANA_LEN);
+			memcpy(nana.Begin(), nana, MAX_NANA_LEN);
+			json("nana", nana);
+			
+			Vector<int> agroups, avalues;
+			json("ag", agroups)("av", avalues);
+			int c = min(MAX_ACTIONS, agroups.GetCount());
+			for(int i = 0; i < c; i++) {
+				attention_groups[i] = agroups[i];
+				attention_values[i] = avalues[i];
+			}
+		}
+		else {
+			String s(txt, strnlen(txt, MAX_TXT_LEN));
+			json("txt", s);
+			
+			WString ws(pron, MAX_PRON_LEN);
+			json("pron", ws);
+			
+			Color c(clr[0], clr[1], clr[2]);
+			json("clr", c);
+			
+			Vector<byte> nana;
+			json("nana", nana);
+			nana.SetCount(MAX_NANA_LEN, 0);
+			memcpy(nana, nana.Begin(), MAX_NANA_LEN);
+			
+			Vector<int> agroups, avalues;
+			for(int i = 0; i < MAX_ACTIONS; i++) {
+				int16 ag = attention_groups[i];
+				if (ag < 0) break;
+				int16 av = attention_values[i];
+				agroups << ag;
+				avalues << av;
+			}
+			json("ag", agroups)("av", avalues);
+		}
+	}
+	
+	
+	void Serialize(Stream& s) {
+		if (s.IsLoading()) {
+			s.Get(this, sizeof(*this));
+		}
+		else {
+			s.Put(this, sizeof(*this));
+		}
+	}
+	
+	String GetText() const;
+	WString GetPronounciation() const;
+	Color GetColor() const {return Color(clr[0], clr[1], clr[2]);}
+	
+};
+
 class RhymeContainer {
 	
 public:
@@ -36,6 +131,7 @@ public:
 		void operator=(const Line& s) {words <<= s.words;}
 		void Jsonize(JsonIO& json) {json("words", words);}
 		String AsNana() const;
+		void Pack(PackedRhymeContainer& container) const;
 	};
 	
 protected:
@@ -58,6 +154,8 @@ public:
 	void Jsonize(JsonIO& json) {
 		json("lines", lines);
 	}
+	;
+	
 };
 
 class MockupPhraseParser {
@@ -90,6 +188,9 @@ class PhoneticNanaAnalyser {
 	VectorMap<int, Tuple2<double,int>> vowels, consonants;
 	Vector<Vector<int>> vowel_clusters, consonant_clusters;
 	Vector<byte> nana_out;
+	Vector<Vector<int>> phon_syllables;
+	Index<int> seen_v_clusters, seen_c_clusters;
+	Vector<int> rm_v, rm_c;
 	
 	// How far away the phoneme is allowed to be in the same cluster [0-1]
 	// See tables vowel_distance and consonant_distance
@@ -97,8 +198,8 @@ class PhoneticNanaAnalyser {
 	
 public:
 	
-	bool Parse(wchar* phon, int len);
-	void WritePackedNana(byte* nana, int len);
+	bool Parse(const wchar* phon, int len);
+	int WritePackedNana(byte* nana, int len);
 	
 	const char* GetError() const {return error;}
 	

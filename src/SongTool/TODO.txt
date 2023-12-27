@@ -1,5 +1,6 @@
 Scheduled work:
 - line structure editor
+- concept oriented songs instead of character oriented
 - database: structure clause nana-code & phonetic
 - songlib taskmgr: cache results separately
 - tool: get actions for received messages, get attributes and colors
