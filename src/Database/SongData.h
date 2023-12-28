@@ -354,7 +354,7 @@ struct PackedRhymeHeader : Moveable<PackedRhymeHeader> {
 	int syllable_count;
 	int color_group;
 	int attr_group;
-	bool attr_value;
+	int attr_value;
 	
 	hash_t GetHashValue() const {
 		CombineHash ch;

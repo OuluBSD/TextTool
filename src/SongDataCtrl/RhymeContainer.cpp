@@ -284,10 +284,10 @@ void RhymeContainerPage::MainData() {
 					if (filter_arg) {
 						skip = true;
 						for(int i = 0; i < PackedRhymeContainer::MAX_ACTIONS; i++) {
-							int16 ag = prc.attention_groups[i];
+							int16 ag = prc.action_groups[i];
 							if (ag < 0) break;
 							if (ag != act_i) continue;
-							int16 av = prc.attention_values[i];
+							int16 av = prc.action_values[i];
 							if (av == arg_i) {
 								skip = false;
 								break;
@@ -299,9 +299,9 @@ void RhymeContainerPage::MainData() {
 					
 					String act_str;
 					for(int i = 0; i < PackedRhymeContainer::MAX_ACTIONS; i++) {
-						int16 ag = prc.attention_groups[i];
+						int16 ag = prc.action_groups[i];
 						if (ag < 0) break;
-						int16 av = prc.attention_values[i];
+						int16 av = prc.action_values[i];
 						if (ag >= da.dynamic_actions.GetCount())
 							continue;
 						String agroup = da.dynamic_actions.GetKey(ag);
@@ -591,8 +591,8 @@ void RhymeContainerPage::Process() {
 					pcr.clr[2] = clr.GetB();
 					
 					for(int i = 0; i < act_count; i++) {
-						pcr.attention_groups[i] = act_groups[i];
-						pcr.attention_values[i] = act_values[i];
+						pcr.action_groups[i] = act_groups[i];
+						pcr.action_values[i] = act_values[i];
 					}
 					
 					if (sort)

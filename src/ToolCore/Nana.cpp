@@ -263,8 +263,10 @@ void RhymeContainer::Line::Pack(PackedRhymeContainer& container) const {
 			}
 			nana |= (byte)v_cl;
 			nana |= (byte)c_cl << 3;
-			if (sy.long_)		nana |= (byte)NANA_LONG;
-			if (sy_i > 0)	nana |= (byte)NANA_CONTINUE;
+			if (sy.long_)
+				nana |= (byte)NANA_LONG;
+			if (sy_i > 0)
+				nana |= (byte)NANA_CONTINUE;
 			container.nana[i] = nana;
 			i++;
 			sy_i++;
@@ -449,9 +451,9 @@ bool PhoneticNanaAnalyser::Parse(const wchar* phon, int len) {
 	for (int* c = ebegin; c < eend; c++) {
 		int p = *c;
 		
-		if ((p == -1 || p == -3) && !cur->IsEmpty()) // space or continue
+		if (p == -1 && !cur->IsEmpty()) // space or continue
 			cur = &phon_syllables.Add();
-		else if (p == -1 || p == -3)
+		else if (p == -1)
 			continue;
 		else
 			cur->Add(p);
@@ -763,7 +765,7 @@ int NanaCompare::GetDistance(const byte* nana0, int nana0_len, const byte* nana1
 		}
 		int const_dist = 0;
 		if (c0 < NANA_MEANINGLESS && c1 < NANA_MEANINGLESS) {
-			const_dist = abs(c1 - c1);
+			const_dist = abs(c0 - c1);
 		}
 		
 		
