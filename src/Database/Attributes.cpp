@@ -1,5 +1,6 @@
 #include "Database.h"
 
+#if 0
 
 Attributes::Attributes() {
 	file_title = "attributes";
@@ -414,3 +415,5 @@ void Attributes::GetAll(Vector<SnapAttrStr>& attrs) {
 		group_i++;
 	}
 }
+
+#endif

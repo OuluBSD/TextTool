@@ -410,7 +410,6 @@ struct Song :
 	String						prj_name;
 	String						structure_str;
 	Vector<String>				structure; // TRASH
-	MArr<String>				content;
 	VectorMap<String,String>	data;
 	Array<StaticPart>			parts;
 	Array<StructSuggestion>		struct_suggs;
@@ -451,7 +450,6 @@ struct Song :
 			("default_attr_count", default_attr_count)
 			("structure_str", structure_str)
 			("structure", structure)
-			("content", content)
 			("data", data)
 			("parts", parts)
 			("active_struct", active_struct)

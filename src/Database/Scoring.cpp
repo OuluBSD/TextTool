@@ -1,5 +1,7 @@
 #include "Database.h"
 
+#if 0
+
 /*void AttrScoreGroup::Realize() {
 	Attributes& g = *snap.pipe;
 	if (scores.GetCount() < g.scorings.GetCount())
@@ -137,3 +139,4 @@ String AttrScoreGroup::ToString(Pipe& pipe) const {
 	return s;
 }
 
+#endif

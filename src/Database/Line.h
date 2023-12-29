@@ -1,6 +1,7 @@
 #ifndef _SongTool_Line_h_
 #define _SongTool_Line_h_
 
+#if 0
 
 struct Line :
 	SnapContext
@@ -41,4 +42,5 @@ struct Line :
 };
 
 
+#endif
 #endif

@@ -1,6 +1,8 @@
 #ifndef _SongTool_Track_h_
 #define _SongTool_Track_h_
 
+#if 0
+
 typedef enum : int {
 	TT_NONE,
 	TT_VOCAL,
@@ -26,4 +28,5 @@ struct Track {
 };
 
 
+#endif
 #endif

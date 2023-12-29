@@ -1,6 +1,7 @@
 #ifndef _SongTool_Scoring_h_
 #define _SongTool_Scoring_h_
 
+#if 0
 
 struct AttrScoreGroup {
 	Vector<SnapAttrStr> attrs;
@@ -139,3 +140,5 @@ struct PatternScore {
 #endif
 
 #endif
+#endif
+

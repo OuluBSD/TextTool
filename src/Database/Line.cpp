@@ -1,5 +1,6 @@
 #include "Database.h"
 
+#if 0
 
 void Line::ParseLine(const SnapArg& a, const String& txt) {
 	Vector<String> parts = Split(txt, "[br]");
@@ -36,3 +37,5 @@ int Line::GetBreakIdx(const Break& b0) const {
 	}
 	return -1;
 }
+
+#endif

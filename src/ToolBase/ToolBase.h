@@ -5,8 +5,6 @@
 
 #include "TranslatorToolBase.h"
 #include "ChecklistBase.h"
-#include "EditorBottom.h"
-#include "EditorCtrl.h"
 #include "ImagePlayerBase.h"
 
 

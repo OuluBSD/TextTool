@@ -1,5 +1,6 @@
 #include "Database.h"
 
+#if 0
 
 /*void PatternSnap::Init(int pos, int len) {
 	this->pos = pos;
@@ -112,3 +113,5 @@ void Song::ReloadStructure() {
 	}
 	#endif
 }
+
+#endif

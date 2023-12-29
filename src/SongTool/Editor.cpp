@@ -417,7 +417,7 @@ void Editor::DataSong() {
 	INHIBIT_ACTION(parts);
 	parts.SetCount(s.parts.GetCount());
 	
-	int cursor = max(0, p.GetActivePartIndex());
+	int cursor = 0;
 	if (cursor >= 0 && cursor < parts.GetCount() && !parts.IsCursor())
 		parts.SetCursor(cursor);
 	

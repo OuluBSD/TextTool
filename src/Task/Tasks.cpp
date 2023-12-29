@@ -70,113 +70,9 @@ String Task::GetDescription() const {
 	return s;
 }
 
-bool Task::HasCreatedTasks(const TaskMgr& m, GroupContext ctx) const {
-	for (const Task& t : m.tasks) {
-		if (t.created_by == this && t.p.a.ctx == ctx)
-			return true;
-	}
-	return false;
-}
-
-bool Task::IsCreatedTasksReady(const TaskMgr& m, GroupContext ctx) const {
-	for (const Task& t : m.tasks) {
-		if (t.created_by != this || t.p.a.ctx != ctx)
-			continue;
-		if (!t.ready)
-			return false;
-	}
-	return true;
-}
-
-String Task::GetTaskDependencyString(bool have_ready_rules, bool rule_names) const {
-	String s;
-	
-	ASSERT(p.pipe);
-	TaskMgr& m = *p.pipe;
-	Index<const TaskRule*> rules;
-	
-	int i = 0;
-	for (const Task& t : m.tasks) {
-		if (t.ready != have_ready_rules) {
-			i++;
-			continue;
-		}
-		bool found = false;
-		for (TaskOutputType ot : this->rule->reqs) {
-			for (TaskOutputType ot0 : t.rule->results) {
-				if (ot == ot0) {
-					found = true;
-					break;
-				}
-			}
-		}
-		if (created_by == &t)
-			found = true;
-		if (found) {
-			if (rule_names) {
-				rules.FindAdd(t.rule);
-			}
-			else {
-				if (!s.IsEmpty()) s << ", ";
-				s << "#" << i;
-			}
-		}
-		i++;
-	}
-	
-	if (rule_names) {
-		for (int i = rules.GetCount()-1; i >= 0; i--) {
-			const TaskRule* r = rules[i];
-			if (!s.IsEmpty()) s << ", ";
-			s << r->name;
-		}
-	}
-	return s;
-}
-
-String Task::GetTaskDepsWaitingString() const {
-	return GetTaskDependencyString(false, false);
-}
-
 String Task::GetTypeString() const {
 	return rule->name;
 }
-/*
-void Task::CreateInput() {
-	switch (type) {
-		case TASK_PATTERNMASK:				CreateInput_PatternMask(); break;
-		case TASK_ANALYSIS:					CreateInput_Analysis(); break;
-		case TASK_STORYARC:					CreateInput_StoryArc(); break;
-		case TASK_IMPACT:					CreateInput_Impact(); break;
-		
-		case TASK_MAKE_PATTERN_TASKS:		break;
-		case TASK_PATTERN:					CreateInput_Pattern(); break;
-		case TASK_IMPACT_SCORING:			CreateInput_ImpactScoring(); break;
-		case TASK_MAKE_IMPACT_SCORING_TASKS:break;
-		
-		case TASK_MAKE_ATTRSCORES_TASKS:	break;
-		case TASK_ATTRSCORES:				CreateInput_AttrScores(); break;
-		case TASK_SONGSCORE:				break;
-		
-		case TASK_MAKE_REVERSE_IMPACT_TASK:	break;
-		case TASK_REVERSE_IMPACT:			break;
-		
-		case TASK_MAKE_REVERSE_MASK_TASK:	break;
-		case TASK_REVERSE_COMMON_MASK:		break;
-		case TASK_REVERSE_SEPARATE_MASK:	break;
-		
-		case TASK_MAKE_REVERSEPATTERN_TASK:	break;
-		case TASK_REVERSEPATTERN:			break;
-		
-		case TASK_MAKE_LYRICS_TASK:			break;
-		case TASK_LYRICS:					CreateInput_Lyrics(); break;
-		case TASK_LYRICS_TRANSLATE:			CreateInput_LyricsTranslate(); break;
-		
-		default: break;
-	}
-	
-	Load();
-}*/
 
 bool Task::ProcessInput() {
 	bool ok = true;
@@ -294,82 +190,10 @@ bool Task::CheckArguments() {
 				return false;
 			}
 			break;
-		case V_PTR_LINE:
-			if (!p.line) {
-				SetFatalError("line pointer is missing");
-				return false;
-			}
-			break;
-		/*case V_PTR_PIPE_UNIQUELINES:
-			for (const SnapArg& a : HumanInputTextArgs()) {
-				if (!p.song->headers[a].unique_lines.GetCount()) {
-					SetFatalError("pipelines's unique lines are missing");
-					return false;
-				}
-			}
-			break;*/
-		case V_MODE:
-			if (p.a.mode < 0) {
-				SetFatalError("mode is not set");
-				return false;
-			}
-			if (p.a.mode < i0 || p.a.mode >= i1) {
-				SetFatalError("mode is not in range");
-				return false;
-			}
-			break;
-		case V_DIR:
-			if (p.a.dir < 0) {
-				SetFatalError("direction is not set");
-				return false;
-			}
-			if (p.a.dir < i0 || p.a.dir >= i1) {
-				SetFatalError("direction is not in range");
-				return false;
-			}
-			break;
 		case V_ARGS:
 			if (args.GetCount() < i0 || args.GetCount() > i1) {
 				SetFatalError(t_("argument count is not in range"));
 				return false;
-			}
-			break;
-		case V_SONG_LYRICS:
-			for (const SnapArg& a : TextInputModeArgs()) {
-				if (p.pipe->content[a].IsEmpty()) {
-					SetFatalError("lyrics are missing for mode " + GetSnapString(a));
-					return false;
-				}
-			}
-			break;
-		case V_SONG_PARTS:
-			if (p.pipe->parts.IsEmpty()) {
-				SetFatalError("no parts in song");
-				return false;
-			}
-			break;
-		case V_LINE_TXT:
-			for (const SnapArg& a : AllArgs()) {
-				for (Part& part : p.pipe->parts) {
-					for (Line& line : part.lines) {
-						if (line.Get(a).txt.IsEmpty()) {
-							SetFatalError("text is missing for mode " + GetSnapString(a));
-							return false;
-						}
-					}
-				}
-			}
-			break;
-		case V_HUMAN_INPUT_LINE_TXT:
-			for (const SnapArg& a : HumanInputTextArgs()) {
-				for (Part& part : p.pipe->parts) {
-					for (Line& line : part.lines) {
-						if (line.Get(a).txt.IsEmpty()) {
-							SetFatalError("text is missing for mode " + GetSnapString(a));
-							return false;
-						}
-					}
-				}
 			}
 			break;
 		default:
@@ -392,8 +216,6 @@ bool Task::WriteResults() {
 		case O_ORDER_IMPORT_DETAILED: break;
 		case O_ORDER_REVERSE: break;
 		
-		case O_DB_ATTRS: ASSERT(pipe.attr_groups.GetCount());  break;
-		case O_DB_ATTR_SCORES: ASSERT(pipe.score_groups.GetCount()); break;
 		
 		case O_TASKS:
 			if (result_tasks.IsEmpty()) {
@@ -704,15 +526,6 @@ void Task::Retry(bool skip_prompt, bool skip_cache) {
 	tries = 0;
 }
 
-Task& Task::ResultTask(int r) {
-	Task& t = result_tasks.Add();
-	t.rule = &TaskMgrConfig::Single().GetRule(r);
-	t.created_by = this;
-	t.p.pipe = this->p.pipe;
-	ASSERT(t.p.pipe);
-	return t;
-}
-
 TaskMgr& Task::GetTaskMgr() {
 	return GetPipe();
 }
@@ -720,27 +533,4 @@ TaskMgr& Task::GetTaskMgr() {
 Pipe& Task::GetPipe() {
 	ASSERT(p.pipe);
 	return *p.pipe;
-}
-
-hash_t Task::GetOrderHash() const {
-	hash_t& hash = order_hash;
-	if (hash)
-		return hash;
-	CombineHash ch;
-	const Task* t = this;
-	while (t) {
-		ch << t->rule->code << t->id;
-		t = t->created_by;
-	}
-	hash = ch;
-	ASSERT(hash || !created_by);
-	return hash;
-}
-
-String Task::GetInfoInline() const {
-	String s;
-	s << rule->name;
-	if (id) s << "[" << id << "]";
-	s << " " << IntStr64(GetOrderHash());
-	return s;
 }

@@ -6,12 +6,6 @@ file
 	TranslatorToolBase.cpp,
 	ChecklistBase.h,
 	ChecklistBase.cpp,
-	EditorCtrl.h,
-	EditorCtrl.cpp,
-	EditorBottom.h,
-	EditorBottom.cpp,
-	EditorRightTabs.cpp,
-	Calculator.cpp,
 	ImagePlayerBase.h,
 	ImagePlayerBase.cpp;
 

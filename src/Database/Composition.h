@@ -1,6 +1,7 @@
 #ifndef _SongTool_Composition_h_
 #define _SongTool_Composition_h_
 
+#if 0
 
 struct Composition {
 	int year = 0;
@@ -56,4 +57,5 @@ struct Composition {
 };
 
 
+#endif
 #endif

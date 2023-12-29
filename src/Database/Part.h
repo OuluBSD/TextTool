@@ -1,6 +1,8 @@
 #ifndef _SongTool_Part_h_
 #define _SongTool_Part_h_
 
+#if 0
+
 struct Part :
 	SnapContext
 {
@@ -51,4 +53,5 @@ struct Part :
 	PATTERNMASK_MACROS
 };
 
+#endif
 #endif

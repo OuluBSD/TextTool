@@ -1,6 +1,7 @@
 #ifndef _SongTool_Block_h_
 #define _SongTool_Block_h_
 
+#if 0
 
 struct BeatTime {
 	int bar = 0;
@@ -36,4 +37,5 @@ struct Block {
 };
 
 
+#endif
 #endif

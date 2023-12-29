@@ -130,14 +130,10 @@ public:
 	bool whole_song = false;
 	bool wait_task = false;
 	bool allow_multi_spawn = false;
-	bool is_waiting_deps = false;
 	int tries = 0;
 	bool keep_going = false;
 	
 	PipePtrs p;
-	PatternSnap* snap = 0;
-	ReverseTask* task = 0;
-	SnapContext* ctx = 0;
 	
 	TaskContent input;
 	String raw_input;
@@ -145,7 +141,6 @@ public:
 	// Temp
 	Array<Task> result_tasks;
 	Vector<Vector<String>> str_map;
-	Task* created_by = 0;
 	Event<> WhenDone;
 	Event<String> WhenResult;
 	Event<Array<Image>&> WhenResultImages;
@@ -164,7 +159,6 @@ public:
 	inline static constexpr int snap_max_per_mode				= snap_max_values / 3;
 	inline static constexpr int snap_gens						= 100;
 	
-	Task& ResultTask(int r);
 	
 	void Store(bool force=false);
 	void Load();
@@ -179,85 +173,23 @@ public:
 	void SetFastExit() {fast_exit = true;}
 	String GetInputHash() const;
 	String GetOutputHash() const;
-	bool HasCreatedTasks(const TaskMgr& m, GroupContext ctx) const;
-	bool IsCreatedTasksReady(const TaskMgr& m, GroupContext ctx) const;
 	bool CheckArguments();
 	bool WriteResults();
-	bool ParseOriginalLyrics();
 	
-	void CreateInput_StoryArc();
-	void CreateInput_StoryArcWeighted();
-	void CreateInput_PatternMask();
-	void CreateInput_PatternMaskWeighted();
-	void CreateInput_Pattern();
-	void CreateInput_PatternWeighted();
-	void CreateInput_Analysis();
-	void CreateInput_AttrScores();
-	void CreateInput_Lyrics();
-	void CreateInput_LyricsTranslate();
-	void CreateInput_Impact();
-	void CreateInput_ImpactWeighted();
-	void CreateInput_ImpactScoring();
-	void CreateInput_ForwardLyricsWeighted();
 	void CreateInput_Translate();
-	void CreateInput_TranslateSongData();
-	void CreateInput_UnpackStructureSongData();
-	void CreateInput_CheckSongStructureErrors();
-	void CreateInput_CheckSongNaturalErrors();
-	void CreateInput_ConvertSongStructureToEnglish();
-	void CreateInput_EvaluateSongAudience();
-	void CreateInput_MakePoetic();
-	void CreateInput_EvaluatePoeticStyles();
-	void CreateInput_ConvertScreenplayToStructure();
-	void CreateInput_ConvertStructureToScreenplay();
-	void CreateInput_CheckScreenplayStructureErrors();
-	void CreateInput_ConvertScreenplayToPlan();
 	void CreateInput_CreateImage();
 	void CreateInput_EditImage();
 	void CreateInput_VariateImage();
 	void CreateInput_RawCompletion();
-	void CreateInput_EvaluateSuggestionScores();
-	void CreateInput_EvaluateSuggestionOrder();
-	void CreateInput_ImproveSourceText();
-	void CreateInput_LimitSyllableCount();
-	void CreateInput_GetAIAttributes();
 	void CreateInput_MorphToAttributes();
 	void CreateInput_GetStructureSuggestions();
 	void CreateInput_GetSuggestionAttributes();
-	void CreateInput_GetNovelThemes();
-	void CreateInput_GetNovelIdeas();
-	void CreateInput_GetContentSuggestions();
-	void CreateInput_GetAllegorySuggestions();
-	void CreateInput_GetToneSuggestions();
-	void CreateInput_GetImagerySuggestions();
-	void CreateInput_GetSymbolismSuggestions();
-	void CreateInput_GetPartContentSuggestions();
-	void CreateInput_GetPartImagerySuggestions();
-	void CreateInput_GetPartSymbolismSuggestions();
-	void CreateInput_GetInternalRhymingFirstLine();
-	void CreateInput_GetInternalRhymingContinueLine();
-	void CreateInput_GetIdeaFromLyrics();
-	void CreateInput_GetAttributesFromLyrics();
-	void CreateInput_GetProductionIdea();
-	void CreateInput_GetIdeaSuggestions();
-	void CreateInput_GetPartIdea();
-	void CreateInput_GetStoryContext();
-	void CreateInput_GetPartContext();
-	void CreateInput_GetPartVisualIdeaContext();
-	void CreateInput_GetPartVisualIdeaCharacters();
-	void CreateInput_GetPartDialogueIdeaContext();
-	void CreateInput_GetPartDialogueIdeaStyleSuggestions();
 	void CreateInput_GetColorIdea();
-	void CreateInput_GetVocabulary();
-	void CreateInput_GetVocabularyIdea();
-	void CreateInput_GetWordSaladIdea();
-	void CreateInput_GetContextIdea();
 	void CreateInput_GetSongDataAnalysis();
 	void CreateInput_GetActionAnalysis();
 	void CreateInput_GetLyricsPhrase();
 	
-	void Process_MakeImportTasks();
-	void Process_MakeContextImportTasks();
+	void Process_GetSuggestionAttributes();
 	void Process_StoryArc();
 	void Process_StoryArcWeighted();
 	void Process_PatternMask();
@@ -265,33 +197,16 @@ public:
 	void Process_Pattern();
 	void Process_PatternWeighted();
 	void Process_Analysis();
-	void Process_MakePatternTasks();
-	void Process_MakeAttrScores();
-	void Process_AttrScores();
-	void Process_SongScores();
-	void Process_MakeReverseImpactTask();
-	void Process_ReverseImpact();
-	void Process_MakeReverseMaskTask();
-	void Process_ReverseCommonMask();
-	void Process_ReverseSeparateMask();
-	void Process_MakeReversePattern();
-	void Process_MakeLyricsTask();
-	void Process_ReversePattern();
-	void Process_Lyrics();
-	void Process_LyricsTranslate();
+
 	void Process_Impact();
 	void Process_ImpactWeighted();
 	void Process_ImpactScoring();
-	void Process_MakeImpactScoringTasks();
 	void Process_ForwardLyricsWeighted();
 	void Process_Translate();
 	void Process_TranslateSongData();
-	void Process_UnpackStructureSongData();
-	void Process_CheckSongStructureErrors();
 	void Process_CheckSongNaturalErrors();
 	void Process_ConvertSongStructureToEnglish();
 	void Process_EvaluateSongAudience();
-	void Process_MakePoetic();
 	void Process_EvaluatePoeticStyles();
 	void Process_ConvertScreenplayToStructure();
 	void Process_ConvertStructureToScreenplay();
@@ -301,37 +216,8 @@ public:
 	void Process_EditImage();
 	void Process_VariateImage();
 	void Process_RawCompletion();
-	void Process_EvaluateSuggestionScores();
-	void Process_EvaluateSuggestionOrder();
-	void Process_ImproveSourceText();
-	void Process_LimitSyllableCount();
-	void Process_GetAIAttributes();
 	void Process_MorphToAttributes();
 	void Process_GetStructureSuggestions();
-	void Process_GetSuggestionAttributes();
-	void Process_GetNovelThemes();
-	void Process_GetNovelIdeas();
-	void Process_GetContentSuggestions();
-	void Process_GetAllegorySuggestions();
-	void Process_GetToneSuggestions();
-	void Process_GetImagerySuggestions();
-	void Process_GetSymbolismSuggestions();
-	void Process_GetPartContentSuggestions();
-	void Process_GetPartImagerySuggestions();
-	void Process_GetPartSymbolismSuggestions();
-	void Process_GetInternalRhymingFirstLine();
-	void Process_GetInternalRhymingContinueLine();
-	void Process_GetIdeaFromLyrics();
-	void Process_GetAttributesFromLyrics();
-	void Process_GetProductionIdea();
-	void Process_GetIdeaSuggestions();
-	void Process_GetPartIdea();
-	void Process_GetStoryContext();
-	void Process_GetPartContext();
-	void Process_GetPartVisualIdeaContext();
-	void Process_GetPartVisualIdeaCharacters();
-	void Process_GetPartDialogueIdeaContext();
-	void Process_GetPartDialogueIdeaStyleSuggestions();
 	void Process_GetColorIdea();
 	void Process_GetVocabulary();
 	void Process_GetVocabularyIdea();
@@ -343,18 +229,11 @@ public:
 	
 	void Retry(bool skip_prompt, bool skip_cache);
 	String GetDescription() const;
-	String GetTaskDependencyString(bool have_ready_rules, bool rule_names) const;
-	String GetTaskDepsWaitingString() const;
 	String GetTypeString() const;
-	bool AddAttrScoreEntry(AttrScoreGroup& ag, String group, String entry_str);
-	void AddAttrScoreId(AttrScoreGroup& ag, const SnapAttrStr& a);
-	hash_t GetOrderHash() const;
-	String GetInfoInline() const;
 	
 	TaskMgr& GetTaskMgr();
 	Pipe& GetPipe();
-	void GetScores(const PatternSnap& snap, Vector<int>& scores);
-	void GetMaskScores(const PatternSnap& snap, Vector<int>& scores);
+	
 };
 
 

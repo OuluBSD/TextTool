@@ -4,7 +4,6 @@
 #include <ToolCore/ToolCore.h>
 
 #include "TaskCommon.h"
-#include "TaskClass.h"
 #include "TaskAbstraction.h"
 #include "Cache.h"
 #include "Tasks.h"

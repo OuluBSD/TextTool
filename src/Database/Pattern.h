@@ -1,6 +1,7 @@
 #ifndef _SongTool_Pattern_h_
 #define _SongTool_Pattern_h_
 
+#if 0
 
 struct Part;
 
@@ -235,4 +236,5 @@ struct SnapContext {
 };
 
 
+#endif
 #endif

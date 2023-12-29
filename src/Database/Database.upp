@@ -24,7 +24,6 @@ file
 	Song.cpp,
 	Pipeline readonly separator,
 	Pipeline.h,
-	Pipeline.cpp,
 	Part.h,
 	Part.cpp,
 	Line.h,

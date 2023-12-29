@@ -99,17 +99,13 @@ void TranslatorToolCtrl::Translate() {
 	
 	p.RealizePipe();
 	
-	if (fn == FN_TRANSLATE_NL) {
+	/*if (fn == FN_TRANSLATE_NL) {
 		String orig_lng = GetCurrentLanguageString().Left(5);
 		String trans_lng = "EN-US";
 		
 		TaskMgr& m = *p.song->pipe;
 		m.TranslateSongData(orig_lng, key, trans_lng, trans_key, THISBACK(OnTranslatedRecv));
-	}
-	else if (fn == FN_UNPACK_STRUCTURE) {
-		TaskMgr& m = *p.song->pipe;
-		m.UnpackStructureSongData(key, trans_key, THISBACK(OnTranslatedRecv));
-	}
+	}*/
 }
 
 String TranslatorToolCtrl::GetOriginalText() const {

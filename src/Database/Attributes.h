@@ -1,6 +1,8 @@
 #ifndef _SongTool_Attributes_h_
 #define _SongTool_Attributes_h_
 
+#if 0
+
 namespace Attr {
 	
 struct Group : Moveable<Group> {
@@ -151,4 +153,5 @@ struct Attributes : DataFile {
 
 
 
+#endif
 #endif

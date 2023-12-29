@@ -1,6 +1,7 @@
 #ifndef _SongTool_Break_h_
 #define _SongTool_Break_h_
 
+#if 0
 
 struct Break :
 	SnapContext
@@ -21,4 +22,5 @@ struct Break :
 };
 
 
+#endif
 #endif

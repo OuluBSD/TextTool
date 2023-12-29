@@ -26,7 +26,6 @@ struct TaskRule {
 	TaskRule& Input(void (Task::*fn)());
 	TaskRule& Arg(TaskArgType arg, int i0=0, int i1=0);
 	TaskRule& Require(TaskOutputType arg);
-	TaskRule& RequireMode(TaskOutputType arg, SnapMode begin, SnapMode end);
 	TaskRule& Process(void (Task::*fn)());
 	TaskRule& Result(TaskOutputType arg);
 	TaskRule& Spawnable(bool b=true);
@@ -41,7 +40,7 @@ struct TaskRule {
 	
 };
 
-struct TaskMgr {
+struct TaskMgr : PipePtrs{
 	Array<Task> tasks;
 	
 	RWMutex lock;
@@ -64,70 +63,20 @@ struct TaskMgr {
 	typedef TaskMgr CLASSNAME;
 	virtual ~TaskMgr() {}
 	
-	// Task order is stored to avoid cache miss, when AI gives bad results and task is skipped.
-	void LoadTaskOrder();
-	void StoreTaskOrder();
-	void Serialize(Stream& s) {s % task_order;}
-	
 	Task& AddTask();
 	void Process();
 	void ProcessSingle(int task_i);
 	void StartSingle(int task_i) {Thread::Start(THISBACK1(ProcessSingle, task_i));}
-	bool SpawnTasks();
-	bool IsDepsReady(Task& t, Index<Task*>& seen) const;
-	GroupContext GetGroupContextLimit() const;
 	
 	hash_t GetSongHash() const;
 	
-	void ImportSongAndMakeReversedSong();
 	void Translate(String orig_lang, String orig_txt, String trans_lang, Event<String> WhenResult);
-	void TranslateSongData(String orig_lang, String orig_key, String trans_lang, String trans_key, Callback WhenDone);
-	void UnpackStructureSongData(String orig_key, String struct_key, Callback WhenDone);
-	void CheckSongStructureErrors(String main_key, String results_key, Callback WhenDone);
-	void CheckSongNaturalErrors(String main_key, String results_key, Callback WhenDone);
-	void ConvertSongStructureToEnglish(String struct_txt, Event<String> WhenResult);
-	void EvaluateSongAudience(String src_key, String dst_key, int mode, Callback WhenDone);
-	void MakePoetic(String style, String src_key, String dst_key, Callback WhenDone);
-	void EvaluatePoeticStyles(const PoeticStylesArgs& args, Event<String> WhenResult);
-	void MorphToAttributes(const MorphArgs& args, Event<String> WhenResult);
-	void ConvertScreenplayToPlan(String src_key, String dst_key, Callback WhenDone);
-	void ConvertScreenplayToStructure(String orig_txt, Event<String> WhenResult);
-	void ConvertStructureToScreenplay(String orig_txt, Event<String> WhenResult);
-	void CheckScreenplayStructureErrors(String txt, Event<String> WhenResult);
+	void GetStructureSuggestions(String req, String avoid, String desc, int total, Event<String> WhenResult);
+	void GetSuggestionAttributes(Vector<String>& structs, Event<String> WhenResult);
 	void CreateImage(String prompt, int count, Event<Array<Image>&> WhenResult, int reduce_size_mode=0, Event<> WhenError=Event<>());
 	void GetEditImage(Image orig, Image mask, String prompt, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
 	void VariateImage(Image orig, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
 	void RawCompletion(String prompt, Event<String> WhenResult);
-	void EvaluateSuggestionScores(const Vector<String>& strs, Event<String> WhenResult);
-	void EvaluateSuggestionOrder(const Vector<String>& strs, Event<String> WhenResult);
-	void ImproveSourceText(const Vector<String>& strs, int style, Event<String> WhenResult);
-	void LimitSyllableCount(const Vector<String>& strs, int syllables, Event<String> WhenResult);
-	void GetAIAttributes(String orig_txt, int attr_count, Event<String> WhenResult);
-	void GetStructureSuggestions(String req, String avoid, String desc, int total, Event<String> WhenResult);
-	void GetSuggestionAttributes(Vector<String>& structs, Event<String> WhenResult);
-	void GetNovelThemes(Vector<String>& attrs, Event<String> WhenResult);
-	void GetNovelIdeas(String theme, Vector<String>& attrs, Event<String> WhenResult);
-	void GetToneSuggestions(String theme, String idea, Vector<String>& attrs, Event<String> WhenResult);
-	void GetAllegorySuggestions(String theme, String idea, String tone, Vector<String>& attrs, Event<String> WhenResult);
-	void GetContentSuggestions(String theme, String idea, String tone, String alleg, Vector<String>& attrs, Event<String> WhenResult);
-	void GetImagerySuggestions(String theme, String idea, String tone, String alleg, String content, Vector<String>& attrs, Event<String> WhenResult);
-	void GetSymbolismSuggestions(String theme, String idea, String tone, String alleg, String content, String imagery, Vector<String>& attrs, Event<String> WhenResult);
-	void GetIdeaSuggestions(const IdeaArgs& args, Event<String> WhenResult);
-	void GetPartContentSuggestions(String theme, String idea, String tone, String alleg, String part, String known_part_ideas, Vector<String>& attrs, Event<String> WhenResult);
-	void GetPartImagerySuggestions(String theme, String idea, String tone, String alleg, String content, String part, String known_part_ideas, Vector<String>& attrs, Event<String> WhenResult);
-	void GetPartSymbolismSuggestions(const IdeaArgs& args, Event<String> WhenResult);
-	void GetPartIdea(const IdeaArgs& args, Event<String> WhenResult);
-	void GetInternalRhymingFirstLine(const RhymingArgs& args, Event<String> WhenResult);
-	void GetInternalRhymingContinueLine(const RhymingArgs& args, Event<String> WhenResult);
-	void GetIdeaFromLyrics(const String& lyrics, Event<String> WhenResult);
-	void GetAttributesFromLyrics(const String& lyrics, Event<String> WhenResult);
-	void GetProductionIdea(const ProductionArgs& args, Event<String> WhenResult);
-	void GetStoryContext(const IdeaArgs& iargs, const StoryContextArgs& args, Event<String> WhenResult);
-	void GetPartContext(const StoryContextArgs& args, Event<String> WhenResult);
-	void GetPartVisualIdeaContext(const StoryContextArgs& args, Event<String> WhenResult);
-	void GetPartVisualIdeaCharacters(const VisualContextArgs& args, Event<String> WhenResult);
-	void GetPartDialogueIdeaContext(const VisualContextArgs& args, Event<String> WhenResult);
-	void GetPartDialogueIdeaStyleSuggestions(const VisualContextArgs& args, Event<String> WhenResult);
 	void GetColorIdea(const ColorIdeaArgs& args, Event<String> WhenResult);
 	void GetVocabulary(const VocabularyArgs& args, Event<String> WhenResult);
 	void GetVocabularyIdea(const VocabularyIdeaArgs& args, Event<String> WhenResult);

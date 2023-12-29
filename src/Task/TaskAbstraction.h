@@ -34,8 +34,6 @@ struct TaskTitledList {
 	
 	// Temp
 	Vector<String> args;
-	SnapContext* ctx = 0;
-	Vector<const Attr::Group*> groups;
 	
 	TaskTitledList& Title(String title_fmt, String value=String()) {title_format_str = title_fmt; title_value = value; return *this;}
 	TaskTitledList& FormatArg(String s) {title_args << s; return *this;}
@@ -59,7 +57,6 @@ struct TaskTitledList {
 	TaskTitledList& Arg(String s) {args.Add(s); return *this;}
 	TaskTitledList& Separator(String s) {separator = s; return *this;}
 	TaskTitledList& LineBegin(int line_begin) {this->line_begin = line_begin; return *this;}
-	TaskTitledList& Context(SnapContext* ctx) {this->ctx = ctx; return *this;}
 	TaskTitledList& NumberedLines(bool b=true) {numbered_lines = b; return *this;}
 	TaskTitledList& NoNumberedLinesSpace(bool b=true) {no_numbered_lines_space = b; return *this;}
 	TaskTitledList& EmptyLineString(String s) {empty_line_string = s; return *this;}

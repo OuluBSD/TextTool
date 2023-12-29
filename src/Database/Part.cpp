@@ -1,4 +1,5 @@
 #include "Database.h"
+#if 0
 
 
 int Part::GetLength(const SnapArg& a) const {
@@ -34,3 +35,5 @@ String Part::CreateLyricsFromBreaks(const SnapArg& a, bool add_comma) const {
 	}
 	return s;
 }
+
+#endif

@@ -1,6 +1,8 @@
 #ifndef _SongTool_PatternMask_h_
 #define _SongTool_PatternMask_h_
 
+#if 0
+
 struct PatternMask : PipePtrs {
 	Index<SnapAttrStr>	mask;
 	Vector<int>			maskscore;
@@ -48,4 +50,5 @@ struct PatternMask : PipePtrs {
 	}
 };
 
+#endif
 #endif
