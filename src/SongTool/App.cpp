@@ -25,7 +25,6 @@ SongTool::SongTool() : ed(this) {
 	Add(fp.SizePos());
 	Add(cal.SizePos());
 	Add(ed.SizePos());
-	Add(seq.SizePos());
 	Add(ai.SizePos());
 	
 	AddFrame(menu);
@@ -141,7 +140,6 @@ void SongTool::Data() {
 		case 1: cal.Data(); break;
 		case 2: ed.Data(); break;
 		case 3: ai.Data(); break;
-		case 4: seq.Data(); break;
 	}
 }
 
@@ -154,7 +152,6 @@ void SongTool::SetBar() {
 		case 1: break;
 		case 2: s = ed.GetStatusText(); break;
 		case 3: break;
-		case 4: break;
 	}
 	statusbar.SetData(s);
 }
@@ -165,7 +162,6 @@ void SongTool::MainBar(Bar& bar) {
 		case 1: cal.ToolMenu(bar); break;
 		case 2: ed.ToolMenu(bar); break;
 		case 3: ai.ToolMenu(bar); break;
-		case 4: seq.ToolMenu(bar); break;
 	}
 }
 
@@ -175,7 +171,6 @@ void SongTool::MovePageGroup(int i) {
 		//case 1: cal.MovePageGroup(i); break;
 		case 2: ed.MovePageGroup(i); break;
 		//case 3: ai.MovePageGroup(i); break;
-		//case 4: seq.MovePageGroup(i); break;
 	}
 }
 
@@ -185,7 +180,6 @@ void SongTool::MovePage(int i) {
 		//case 1: cal.MovePage(i); break;
 		case 2: ed.MovePage(i); break;
 		//case 3: ai.MovePage(i); break;
-		//case 4: seq.MovePage(i); break;
 	}
 }
 
@@ -195,7 +189,6 @@ void SongTool::MovePart(int i) {
 		//case 1: cal.MovePart(i); break;
 		case 2: ed.MovePart(i); break;
 		//case 3: ai.MovePart(i); break;
-		//case 4: seq.MovePart(i); break;
 	}
 }
 
@@ -204,7 +197,6 @@ void SongTool::SetView(int i) {
 	cal.Hide();
 	ed.Hide();
 	ai.Hide();
-	seq.Hide();
 	
 	tc.Kill();
 	
@@ -214,7 +206,6 @@ void SongTool::SetView(int i) {
 		case 1: cal.Show(); break;
 		case 2: ed.Show(); break;
 		case 3: ai.Show(); PostCallback(THISBACK(StartUpdating)); break;
-		case 4: seq.Show(); break;
 	}
 	
 	page = i;

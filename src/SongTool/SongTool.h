@@ -3,7 +3,6 @@
 
 #include <EditorCtrl/EditorCtrl.h>
 #include <SongDataCtrl/SongDataCtrl.h>
-#include <Sequencer/Sequencer.h>
 
 #include "FrontPage.h"
 #include "CalendarPage.h"

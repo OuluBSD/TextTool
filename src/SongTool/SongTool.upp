@@ -7,7 +7,6 @@ uses
 	plugin/gif,
 	BlueBar,
 	RedBar,
-	Sequencer,
 	ToolBase,
 	EditorCtrl,
 	Task,

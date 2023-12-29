@@ -17,7 +17,6 @@ class SongTool : public TopWindow {
 	FrontPage			fp;
 	CalendarPage		cal;
 	Editor				ed;
-	SeqCtrl				seq;
 	Tasks				ai;
 	TimeCallback		tc;
 	AppMode				mode = MODE_INVALID;
