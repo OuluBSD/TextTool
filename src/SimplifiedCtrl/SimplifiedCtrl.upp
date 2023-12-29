@@ -3,8 +3,6 @@ description "\377B128,0,0";
 uses
 	SongLib;
 
-uses(NEVER) AdvancedCtrl;
-
 file
 	SimplifiedCtrl.h,
 	Simplified.lay,

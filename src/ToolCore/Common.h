@@ -1208,5 +1208,6 @@ struct ActionHeader : Moveable<ActionHeader> {
 	}
 };
 
+Color HSVToRGB(double H, double S, double V);
 
 #endif

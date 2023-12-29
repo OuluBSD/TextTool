@@ -3,8 +3,6 @@ description "\377B128,0,0";
 uses
 	Agent;
 
-uses(NEVER) ;
-
 file
 	SongDataCtrl.h,
 	SongDataCtrl.lay,

@@ -14,8 +14,6 @@ uses
 	Database,
 	SongDataCtrl;
 
-uses(NEVER) AdvancedCtrl;
-
 library(WIN32 & CLANG) "curl libcurl.dll.a";
 
 library(POSIX) curl;

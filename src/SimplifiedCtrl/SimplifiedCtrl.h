@@ -1,7 +1,7 @@
 #ifndef _SimplifiedCtrl_SimplifiedCtrl_h_
 #define _SimplifiedCtrl_SimplifiedCtrl_h_
 
-#include <AdvancedCtrl/AdvancedCtrl.h>
+#include <Database/Database.h>
 #include <ToolBase/ToolBase.h>
 #include <Agent/Agent.h>
 #include <SongLib/SongLib.h>
