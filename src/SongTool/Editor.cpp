@@ -12,7 +12,7 @@ Editor::Editor(SongTool* app) : app(*app) {
 	releases.WhenBar << THISBACK(ReleaseMenu);
 	songs.WhenBar << THISBACK(SongMenu);
 	parts.WhenBar << THISBACK(PartMenu);
-	importer.WhenStructureChange << THISBACK(DataSong);
+	//importer.WhenStructureChange << THISBACK(DataSong);
 	
 	page_group_list.AddColumn(t_("Page group"));
 	page_group_list <<= THISBACK(ViewPageGroup);
@@ -40,12 +40,12 @@ Editor::Editor(SongTool* app) : app(*app) {
 	parts <<= THISBACK(DataPart);*/
 	
 	info.editor = this;
-	song_struct.editor = this;
+	//song_struct.editor = this;
 	
-	for(int i = 0; i < 3; i++)
-		reverse[i].SetSource(i);
+	//for(int i = 0; i < 3; i++)
+	//	reverse[i].SetSource(i);
 	
-	rev_pattern.UseRev();
+	//rev_pattern.UseRev();
 	
 }
 
@@ -147,6 +147,7 @@ void Editor::InitSimplified() {
 	InitListItems();
 }
 
+#if 0
 void Editor::InitAdvanced() {
 	// Very deprecated stuff
 	AddItem(t_("All"), t_("Info"), info);
@@ -179,6 +180,7 @@ void Editor::InitAdvanced() {
 	
 	InitListItems();
 }
+#endif
 
 void Editor::Init() {
 	INHIBIT_ACTION_(page_group_list, 0);

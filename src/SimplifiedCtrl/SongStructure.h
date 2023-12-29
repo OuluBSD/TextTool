@@ -32,7 +32,6 @@ public:
 	void OnSuggestionAttributes(String result, Song* song);
 	void LoadActiveStruct();
 	
-	Editor* editor = 0;
 	
 };
 

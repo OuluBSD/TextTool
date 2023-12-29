@@ -1,4 +1,4 @@
-#include "AdvancedCtrl.h"
+#include "SimplifiedCtrl.h"
 #include <SongTool/SongTool.h>
 
 BasicInfoCtrl::BasicInfoCtrl() {

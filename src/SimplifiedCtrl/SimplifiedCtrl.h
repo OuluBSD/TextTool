@@ -52,6 +52,7 @@
 #include "AttributeDistribution.h"
 #include "NanaEditor.h"
 #include "ActionEditor.h"
+#include "BasicInfoCtrl.h"
 
 
 #endif

@@ -10,10 +10,11 @@ uses
 	Sequencer,
 	ToolBase,
 	SimplifiedCtrl,
-	AdvancedCtrl,
 	Task,
 	Database,
 	SongDataCtrl;
+
+uses(NEVER) AdvancedCtrl;
 
 library(WIN32 & CLANG) "curl libcurl.dll.a";
 

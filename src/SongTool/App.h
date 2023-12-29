@@ -50,7 +50,7 @@ public:
 	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed % last_artist % last_release % last_song % last_part;}
 	void Layout() override {SaveWindowPos();}
 	void ShowOrphanedFiles();
-	void MakeTasks();
+	//void MakeTasks();
 	void SaveWindowPos();
 	void LoadWindowPos();
 	void StartUpdating();

@@ -3,6 +3,7 @@
 
 #include <Database/Database.h>
 
+#if 0
 #include "AttrDataCtrl.h"
 #include "BasicInfoCtrl.h"
 #include "RecruimentCtrl.h"
@@ -29,4 +30,5 @@
 #include "LyricsCtrl.h"
 
 
+#endif
 #endif

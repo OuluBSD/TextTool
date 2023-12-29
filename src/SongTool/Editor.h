@@ -72,12 +72,13 @@ protected:
 	
 	// Advanced
 	BasicInfoCtrl			info;
+	CalMgrCtrl				cal;
+	/*
+	ImportCtrl				importer;
 	AttrDataCtrl			attr;
 	RecruimentCtrl			recru;
 	SocialCtrl				social;
-	CalMgrCtrl				cal;
 	TaskMgrCtrl				task;
-	ImportCtrl				importer;
 	PatternMaskCtrl			patmask;
 	PatternView				pattern, rev_pattern;
 	CompositionCtrl			composition;
@@ -95,16 +96,17 @@ protected:
 	MaskScoringCtrl			mask_scoring;
 	LyricsCtrl				lyrics;
 	SocialMediaChecklist	some_chk;
+	//VocabularyCtrl			vocabulary;
+	//FineStructureCtrl		fine_struct;
+	*/
 	SongStructure			song_struct;
 	AutoIdeas				auto_ideas;
 	PartIdea				part_idea;
-	DialogueIdeaCtrl		dialogue_idea;
 	ColorIdeaCtrl			color_idea;
 	VocabularyIdeaCtrl		vocab_idea;
+	DialogueIdeaCtrl		dialogue_idea;
 	WordSaladIdeaCtrl		wordsalad_idea;
 	TextIdeaCtrl			text_idea;
-	//VocabularyCtrl			vocabulary;
-	//FineStructureCtrl		fine_struct;
 	ContextIdeaCtrl			ctx_idea;
 	SongDataPhrases			song_phrases;
 	//SongDataSearchPhrases	song_searchphrases;
@@ -160,7 +162,7 @@ public:
 	void RemoveSong();
 	
 	void InitSimplified();
-	void InitAdvanced();
+	//void InitAdvanced();
 	
 	Callback WhenStartUpdating, WhenStopUpdating;
 	SongTool& app;

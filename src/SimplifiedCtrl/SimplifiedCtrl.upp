@@ -1,12 +1,15 @@
 description "\377B128,0,0";
 
 uses
-	AdvancedCtrl,
 	SongLib;
+
+uses(NEVER) AdvancedCtrl;
 
 file
 	SimplifiedCtrl.h,
 	Simplified.lay,
+	BasicInfoCtrl.h,
+	BasicInfoCtrl.cpp,
 	Company readonly separator,
 	CalMgrCtrl.h,
 	CalMgrCtrl.cpp,

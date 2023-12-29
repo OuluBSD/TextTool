@@ -212,7 +212,6 @@ void SongStructure::LoadStructure() {
 	catch (NoPointerExc e) {}
 	PostCallback(THISBACK(DataActive));
 	
-	editor->DataSong();
 }
 
 void SongStructure::LoadStructureString(String struct_str) {
@@ -234,7 +233,6 @@ void SongStructure::LoadStructureString(String struct_str) {
 		
 	}
 	PostCallback(THISBACK(DataActive));
-	editor->DataSong();
 }
 
 void SongStructure::LoadActiveStruct() {

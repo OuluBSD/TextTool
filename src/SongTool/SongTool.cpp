@@ -115,15 +115,15 @@ GUI_APP_MAIN {
 	{
 		SongTool t;
 		
-		bool advanced = false;
+		/*bool advanced = false;
 		for (const String& arg : CommandLine())
 			if (arg == "-a")
 				advanced = true;
 		
 		if (advanced)
 			t.GetEditor().InitAdvanced();
-		else
-			t.GetEditor().InitSimplified();
+		else*/
+		t.GetEditor().InitSimplified();
 		
 		t.Run();
 		
