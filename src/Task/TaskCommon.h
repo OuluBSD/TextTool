@@ -3,7 +3,6 @@
 
 typedef enum : int {
 	V_ATTR_SCORING,
-	V_PTR_PIPE,
 	V_ARGS
 } TaskArgType;
 

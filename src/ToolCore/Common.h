@@ -191,17 +191,8 @@ struct EditorPtrs {
 	int GetActiveReleaseIndex() const;
 	int GetActiveSongIndex() const;
 	
-	void RealizePipe();
+	//void RealizePipe();
 	
-};
-
-struct PipePtrs {
-	TaskMgr*			pipe = 0;
-	
-	void Clear() {memset(this, 0, sizeof(PipePtrs));}
-	void CopyPtrs(const PipePtrs& p) {
-		memcpy(this, &p, sizeof(PipePtrs));
-	}
 };
 
 struct Context {

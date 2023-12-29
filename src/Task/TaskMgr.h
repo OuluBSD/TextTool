@@ -40,7 +40,7 @@ struct TaskRule {
 	
 };
 
-struct TaskMgr : PipePtrs{
+struct TaskMgr {
 	Array<Task> tasks;
 	
 	RWMutex lock;

@@ -335,9 +335,8 @@ void SongDataTmplActions::GetLineActions(int batch_i) {
 	args.fn = 12;
 	args.phrases <<= Split(batch.txt, "\n");
 	
-	Song& song = GetSong();
-	song.RealizePipe();
-	TaskMgr& m = *song.pipe;
+	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetSongDataAnalysis(args, THISBACK1(OnLineActions, batch_i));
 }
 

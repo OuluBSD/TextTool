@@ -21,7 +21,5 @@ file
 	Release.h,
 	Release.cpp,
 	Song.h,
-	Song.cpp,
-	Pipeline readonly separator,
-	Pipeline.h;
+	Song.cpp;
 

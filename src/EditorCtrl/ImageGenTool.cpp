@@ -168,10 +168,10 @@ void ImageGenTool::GenerateArgs(String prompt_str, int n) {
 	if(!p.song || !p.artist)
 		return;
 	
-	p.RealizePipe();
+	
 	
 	{
-		TaskMgr& m = *p.song->pipe;
+		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 		m.CreateImage(prompt_str, n, THISBACK2(OnImageReady, prompt_str, n), THISBACK(EnableAll));
 	}
 	
@@ -290,7 +290,7 @@ void ImageGenTool::GenerateFromEditor() {
 	if(!p.song || !p.artist)
 		return;
 	
-	p.RealizePipe();
+	
 	
 	{
 		String prompt_str = prompt1.GetData();
@@ -309,7 +309,7 @@ void ImageGenTool::GenerateFromEditor() {
 		
 		int n = count.GetData();
 		
-		TaskMgr& m = *p.song->pipe;
+		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 		m.GetEditImage(editor.image, editor.mask, prompt_str, n, THISBACK2(OnEditReady, prompt_str, n), THISBACK(EnableAll));
 	}
 	
@@ -328,7 +328,7 @@ void ImageGenTool::VariateFromEditor() {
 	if(!p.song || !p.artist)
 		return;
 	
-	p.RealizePipe();
+	
 	
 	{
 		String prompt_str = prompt1.GetData();
@@ -345,7 +345,7 @@ void ImageGenTool::VariateFromEditor() {
 		
 		int n = count.GetData();
 		
-		TaskMgr& m = *p.song->pipe;
+		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 		m.VariateImage(editor.image, n, THISBACK2(OnEditReady, prompt_str, n), THISBACK(EnableAll));
 	}
 	
@@ -473,13 +473,13 @@ void ImageGenTool::Translate(bool editor) {
 	if(!p.song || !p.artist)
 		return;
 	
-	p.RealizePipe();
+	
 	String prompt_str = (editor ? prompt1 : prompt).GetData();
 	
 	{
 		String orig_lng = GetCurrentLanguageString().Left(5);
 		String trans_lng = "EN-US";
-		TaskMgr& m = *p.song->pipe;
+		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 		m.Translate(orig_lng, prompt_str, trans_lng, THISBACK1(PostOnTranslateReady, editor));
 	}
 }

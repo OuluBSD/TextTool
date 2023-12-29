@@ -64,7 +64,7 @@ void Pitching::TranslateEnglishArtistProcess() {
 	if(!p.song || !p.artist || native_pitching_key.IsEmpty())
 		return;
 	
-	p.RealizePipe();
+	
 	
 	String txt = p.song->data.Get(native_pitching_key, "");
 	
@@ -75,7 +75,7 @@ void Pitching::TranslateEnglishArtistProcess() {
 				return;
 		}
 		
-		TaskMgr& m = *p.song->pipe;
+		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 		String orig_lng = GetCurrentLanguageString().Left(5);
 		String trans_lng = "EN-US";
 		m.Translate(orig_lng, txt, trans_lng, THISBACK(PostOnTranslateReady));
@@ -95,7 +95,7 @@ void Pitching::MakeFeedback() {
 	
 	Release& rel = *p.release;
 	
-	p.RealizePipe();
+	
 	
 	String existing = feedback.GetData();
 	if (existing.GetCount()) {
@@ -126,7 +126,7 @@ void Pitching::MakeFeedback() {
 		raw_prompt << "The band has a male politically republican fan (age 80 years old), who has only following positive things to say about this band and song:\n";
 		
 		
-		TaskMgr& m = *p.song->pipe;
+		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 		m.RawCompletion(raw_prompt, THISBACK(PostOnFeedback));
 	}
 }
@@ -144,7 +144,7 @@ void Pitching::MakePitch() {
 	
 	Release& rel = *p.release;
 	
-	p.RealizePipe();
+	
 	
 	String existing = pitching.GetData();
 	if (existing.GetCount()) {
@@ -177,7 +177,7 @@ void Pitching::MakePitch() {
 						"\n"
 						"Artist will pitch this song \"" << title << "\" to a Spotify playlist with the following text:\n";
 		
-		TaskMgr& m = *p.song->pipe;
+		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 		m.RawCompletion(raw_prompt, THISBACK(PostOnPitch));
 	}
 }

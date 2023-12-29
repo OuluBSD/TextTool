@@ -613,7 +613,7 @@ void LyricsEditor::GetSuggestionsAI() {
 		return;
 	}
 	
-	song.RealizePipe();
+	
 	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetLyricsPhrase(args, THISBACK(OnSuggestions));
 }

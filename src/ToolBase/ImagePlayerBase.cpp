@@ -1,5 +1,6 @@
 #include "ToolBase.h"
 #include <Database/Database.h>
+#include <SongLib/SongLib.h>
 
 void PreviewDisplay::Paint(Draw& w, const Rect& r, const Value& q,
 	                       Color ink, Color paper, dword style) const
@@ -128,10 +129,10 @@ void ImagePlayerBase::MakeSingleImage() {
 	if(!p.song || !p.artist)
 		return;
 	
-	p.RealizePipe();
+	
 	
 	{
-		TaskMgr& m = *p.song->pipe;
+		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 		m.CreateImage(prompt, 1, THISBACK1(OnPromptImage, cur));
 	}
 }

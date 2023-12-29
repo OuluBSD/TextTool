@@ -433,12 +433,11 @@ void SongDataWords::GetSyllables(int batch_i, bool start_next) {
 	}
 	
 	Song& song = GetSong();
-	song.RealizePipe();
-	TaskMgr& pipe = *song.pipe;
-	TaskMgr& m = pipe;
+	
 	
 	args.fn = 4;
 	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetSongDataAnalysis(args, THISBACK2(OnSyllables, batch_i, start_next));
 }
 
@@ -554,12 +553,10 @@ void SongDataWords::GetDetails(int batch_i, bool start_next) {
 	}
 	
 	Song& song = GetSong();
-	song.RealizePipe();
-	TaskMgr& pipe = *song.pipe;
-	TaskMgr& m = pipe;
 	
 	args.fn = 5;
 	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetSongDataAnalysis(args, THISBACK2(OnDetails, batch_i, start_next));
 }
 

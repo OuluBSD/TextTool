@@ -283,13 +283,11 @@ void SongDataTemplateScoring::GetTemplateScores(int batch_i, int score_mode) {
 	}
 	
 	Song& song = GetSong();
-	song.RealizePipe();
-	TaskMgr& pipe = *song.pipe;
-	TaskMgr& m = pipe;
 	
 	args.fn = 8;
 	args.score_mode = score_mode;
 	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetSongDataAnalysis(args, THISBACK2(OnTemplateScores, batch_i, score_mode));
 }
 

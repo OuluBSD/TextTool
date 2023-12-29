@@ -677,7 +677,7 @@ void Editor::AddSong() {
 void Editor::RenameSong() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
-	if (!p.song || !p.song->pipe)
+	if (!p.song)
 		return;
 	
 	String title;

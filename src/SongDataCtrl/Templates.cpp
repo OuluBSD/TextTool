@@ -266,12 +266,10 @@ void SongDataTemplates::GetTemplatePhrases(int batch_i) {
 	}
 	
 	Song& song = GetSong();
-	song.RealizePipe();
-	TaskMgr& pipe = *song.pipe;
-	TaskMgr& m = pipe;
 	
 	args.fn = 6;
 	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetSongDataAnalysis(args, THISBACK1(OnTemplatePhrases, batch_i));
 }
 

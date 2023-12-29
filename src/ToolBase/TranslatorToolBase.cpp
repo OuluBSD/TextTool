@@ -97,13 +97,12 @@ void TranslatorToolCtrl::Translate() {
 	if(!p.song || !p.artist || key.IsEmpty() || trans_key.IsEmpty())
 		return;
 	
-	p.RealizePipe();
 	
 	/*if (fn == FN_TRANSLATE_NL) {
 		String orig_lng = GetCurrentLanguageString().Left(5);
 		String trans_lng = "EN-US";
 		
-		TaskMgr& m = *p.song->pipe;
+		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 		m.TranslateSongData(orig_lng, key, trans_lng, trans_key, THISBACK(OnTranslatedRecv));
 	}*/
 }

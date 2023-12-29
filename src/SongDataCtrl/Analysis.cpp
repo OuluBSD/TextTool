@@ -81,8 +81,6 @@ void SongDataAnalysisPage::GetRhymes(int list_i, bool start_next) {
 	PostCallback(THISBACK(DisableAll));
 	
 	Song& song = GetSong();
-	song.RealizePipe();
-	TaskMgr& m = *song.pipe;
 	
 	SongDataAnalysisArgs args;
 	args.fn = 0;
@@ -90,6 +88,7 @@ void SongDataAnalysisPage::GetRhymes(int list_i, bool start_next) {
 	args.song = t.song;
 	args.text = t.text;
 	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetSongDataAnalysis(args, THISBACK2(OnRhymes, list_i, start_next));
 }
 
@@ -168,8 +167,6 @@ void SongDataAnalysisPage::GetWords(int list_i, bool start_next) {
 	PostCallback(THISBACK(DisableAll));
 	
 	Song& song = GetSong();
-	song.RealizePipe();
-	TaskMgr& m = *song.pipe;
 	
 	SongDataAnalysisArgs args;
 	args.fn = 1;
@@ -177,6 +174,7 @@ void SongDataAnalysisPage::GetWords(int list_i, bool start_next) {
 	args.song = t.song;
 	args.text = t.text;
 	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetSongDataAnalysis(args, THISBACK2(OnWords, list_i, start_next));
 }
 
@@ -288,8 +286,6 @@ void SongDataAnalysisPage::GetAttributeDistributions(int list_i, bool start_next
 	PostCallback(THISBACK(DisableAll));
 	
 	Song& song = GetSong();
-	song.RealizePipe();
-	TaskMgr& m = *song.pipe;
 	
 	SongDataAnalysisArgs args;
 	args.fn = 2;
@@ -297,6 +293,7 @@ void SongDataAnalysisPage::GetAttributeDistributions(int list_i, bool start_next
 	args.song = t.song;
 	args.text = t.text;
 	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetSongDataAnalysis(args, THISBACK2(OnRoleDistributions, list_i, start_next));
 }
 
@@ -414,8 +411,6 @@ void SongDataAnalysisPage::GetRhymeLocations(int list_i, bool start_next) {
 	PostCallback(THISBACK(DisableAll));
 	
 	Song& song = GetSong();
-	song.RealizePipe();
-	TaskMgr& m = *song.pipe;
 	
 	SongDataAnalysisArgs args;
 	args.fn = 3;
@@ -423,6 +418,7 @@ void SongDataAnalysisPage::GetRhymeLocations(int list_i, bool start_next) {
 	args.song = t.song;
 	args.text = t.text;
 	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetSongDataAnalysis(args, THISBACK2(OnRhymeLocations, list_i, start_next));
 }
 

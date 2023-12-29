@@ -379,8 +379,8 @@ void SongDataLineActions::GetLineActions(int batch_i) {
 	args.phrases <<= Split(batch.txt, "\n");
 	
 	Song& song = GetSong();
-	song.RealizePipe();
-	TaskMgr& m = *song.pipe;
+	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetSongDataAnalysis(args, THISBACK1(OnLineActions, batch_i));
 }
 
@@ -537,8 +537,8 @@ void SongDataLineActions::GetLineChangeScores(int batch_i, int score_mode) {
 	}*/
 	
 	Song& song = GetSong();
-	song.RealizePipe();
-	TaskMgr& m = *song.pipe;
+	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetSongDataAnalysis(args, THISBACK2(OnLineChangeScores, batch_i, score_mode));
 }
 

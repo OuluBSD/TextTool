@@ -424,9 +424,6 @@ struct Song :
 	Array<ProductionIdea>		prod_ideas;
 	Vector<AttrProbability>		active_roles;
 	
-	// Temp
-	TaskMgr*					pipe = 0;
-	
 	void Store();
 	void LoadTitle(String title);
 	void ReloadStructure();

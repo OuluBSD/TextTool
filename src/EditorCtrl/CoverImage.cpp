@@ -27,7 +27,7 @@ void CoverImage::CreateSuggestionsForPrompts() {
 	
 	Release& rel = *p.release;
 	
-	p.RealizePipe();
+	
 	
 	if (items.GetCount()) {
 		if (!PromptYesNo(DeQtf(t_("Are you sure that you want to replace all in the list?"))))
@@ -59,7 +59,7 @@ void CoverImage::CreateSuggestionsForPrompts() {
 		
 		String result_part = title + " based cover";
 		
-		TaskMgr& m = *p.song->pipe;
+		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 		m.RawCompletion(raw_prompt, THISBACK1(PostOnResult, result_part));
 	}
 }

@@ -144,7 +144,7 @@ int EditorPtrs::GetActiveArtistIndex() const {return VectorFindPtr(artist, Datab
 int EditorPtrs::GetActiveReleaseIndex() const {if (!artist) return -1; return VectorFindPtr(release, artist->releases);}
 int EditorPtrs::GetActiveSongIndex() const {if (!release) return -1; return VectorFindPtr(song, release->songs);}
 
-void EditorPtrs::RealizePipe() {
+/*void EditorPtrs::RealizePipe() {
 	Database& db = Database::Single();
 	
 	if (!song || !artist)
@@ -158,7 +158,7 @@ void EditorPtrs::RealizePipe() {
 	
 	song->pipe = &pipe;
 	pipe.song = song;
-}
+}*/
 
 Color GetPartColor(const String& key, Color def) {
 	if (key.Find("verse") == 0)

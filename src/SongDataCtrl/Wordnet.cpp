@@ -355,12 +355,10 @@ void SongDataWordnet::GetColorAlternatives(int batch_i) {
 	}
 	
 	Song& song = GetSong();
-	song.RealizePipe();
-	TaskMgr& pipe = *song.pipe;
-	TaskMgr& m = pipe;
 	
 	args.fn = 7;
 	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetSongDataAnalysis(args, THISBACK1(OnColorAlternatives, batch_i));
 }
 

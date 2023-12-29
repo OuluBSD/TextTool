@@ -263,17 +263,17 @@ void SongStructure::GetStructureSuggestions() {
 	if (disabled) return;
 	Song& song = GetSong();
 	
-	song.RealizePipe();
+	
 	
 	DisableAll();
 	
-	if (song.pipe) {
+	{
 		String req = GetParam("REQ_PARTS");
 		String avoid = GetParam("AVOID_PARTS");
 		String desc = GetParam("DESC_FOR_STRUCT_SUGGS");
 		String total_str = GetParam("PARTS_TOTAL", "0");
 		int total = StrInt(total_str);
-		TaskMgr& m = *song.pipe;
+		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 		m.GetStructureSuggestions(req, avoid, desc, total, THISBACK1(OnStructureSuggestion, &song));
 	}
 }
@@ -282,15 +282,15 @@ void SongStructure::GetSuggestionAttributes() {
 	if (disabled) return;
 	Song& song = GetSong();
 	
-	song.RealizePipe();
+	
 	
 	DisableAll();
 	
-	if (song.pipe) {
+	{
 		Vector<String> structs;
 		for (auto& sug : song.struct_suggs)
 			structs << Join(sug.parts, ", ");
-		TaskMgr& m = *song.pipe;
+		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 		m.GetSuggestionAttributes(structs, THISBACK1(OnSuggestionAttributes, &song));
 	}
 }

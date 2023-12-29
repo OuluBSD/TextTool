@@ -133,8 +133,6 @@ public:
 	int tries = 0;
 	bool keep_going = false;
 	
-	PipePtrs p;
-	
 	TaskContent input;
 	String raw_input;
 	

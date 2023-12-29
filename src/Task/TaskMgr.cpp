@@ -6,20 +6,17 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 	
 	AddRule(TASK_TRANSLATE, "translate")
 		.Input(&Task::CreateInput_Translate)
-			.Arg(V_PTR_PIPE)
 			.Arg(V_ARGS, 3, 3)
 		.Process(&Task::Process_Translate);
 	
 	AddRule(TASK_GET_SUGGESTION_ATTRIBUTES, "get suggestion attributes")
 		.Input(&Task::CreateInput_GetSuggestionAttributes)
-			.Arg(V_PTR_PIPE)
 			.Arg(V_ARGS, 1, 100)
 		.Process(&Task::Process_GetSuggestionAttributes)
 		;
 	
 	AddRule(TASK_GET_STRUCTURE_SUGGESTIONS, "get structure suggestions")
 		.Input(&Task::CreateInput_GetStructureSuggestions)
-			.Arg(V_PTR_PIPE)
 			.Arg(V_ARGS, 4, 4)
 		.Process(&Task::Process_GetStructureSuggestions)
 		;
@@ -27,7 +24,6 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 	AddRule(TASK_CREATE_IMAGE, "create image")
 		.ImageTask()
 		.Input(&Task::CreateInput_CreateImage)
-			.Arg(V_PTR_PIPE)
 			.Arg(V_ARGS, 3, 3)
 		.Process(&Task::Process_CreateImage)
 		;
@@ -36,7 +32,6 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.ImageTask()
 		.ImageEditTask()
 		.Input(&Task::CreateInput_EditImage)
-			.Arg(V_PTR_PIPE)
 			.Arg(V_ARGS, 2, 2)
 		.Process(&Task::Process_EditImage)
 		;
@@ -45,34 +40,29 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.ImageTask()
 		.ImageVariateTask()
 		.Input(&Task::CreateInput_VariateImage)
-			.Arg(V_PTR_PIPE)
 			.Arg(V_ARGS, 1, 1)
 		.Process(&Task::Process_VariateImage)
 		;
 	
 	AddRule(TASK_GET_SONG_DATA_ANALYSIS, "get song data analysis")
 		.Input(&Task::CreateInput_GetSongDataAnalysis)
-			.Arg(V_PTR_PIPE)
 			.Arg(V_ARGS, 1, 1)
 		.Process(&Task::Process_GetSongDataAnalysis)
 		;
 	
 	AddRule(TASK_GET_ACTION_ANALYSIS, "get action analysis")
 		.Input(&Task::CreateInput_GetActionAnalysis)
-			.Arg(V_PTR_PIPE)
 			.Arg(V_ARGS, 1, 1)
 		.Process(&Task::Process_GetActionAnalysis)
 		;
 	
 	AddRule(TASK_GET_LYRICS_PHRASE, "get action analysis")
 		.Input(&Task::CreateInput_GetLyricsPhrase)
-			.Arg(V_PTR_PIPE)
 			.Arg(V_ARGS, 1, 1)
 		.Process(&Task::Process_GetLyricsPhrase)
 		;
 	
 	AddRule(TASK_RAW_COMPLETION, "raw prompt completion")
-			.Arg(V_PTR_PIPE)
 		.Process(&Task::Process_RawCompletion)
 		;
 }
@@ -90,21 +80,8 @@ void TaskMgrConfig::Process() {
 	
 	while (running) {
 		db.lock.EnterRead();
-		#if 1
 		for (TaskMgr& pipe : db.pipes)
 			pipe.TaskMgr::Process();
-		#else
-		for (Artist& art : db.artists) {
-			for (Release& rel : art.releases) {
-				for (Song& song : rel.songs) {
-					if (song.pipe) {
-						TaskMgr& pipe = *song.pipe;
-						pipe.TaskMgr::Process();
-					}
-				}
-			}
-		}
-		#endif
 		db.lock.LeaveRead();
 		
 		Sleep(10);
@@ -198,7 +175,6 @@ void TaskMgr::Translate(String orig_lang, String orig_txt, String trans_lang, Ev
 	
 	Task& t = AddTask();
 	t.rule = &r;
-	t.p.pipe = &p;
 	t.args << orig_lang << orig_txt << trans_lang;
 	t.WhenResult << WhenResult;
 }
@@ -211,7 +187,6 @@ void TaskMgr::RawCompletion(String prompt, Event<String> WhenResult) {
 	
 	Task& t = AddTask();
 	t.rule = &r;
-	t.p.pipe = &p;
 	t.raw_input = prompt;
 	t.WhenResult << WhenResult;
 }
@@ -224,7 +199,6 @@ void TaskMgr::GetStructureSuggestions(String req, String avoid, String desc, int
 	
 	Task& t = AddTask();
 	t.rule = &r;
-	t.p.pipe = &p;
 	t.args << req << avoid << desc << IntStr(total);
 	t.WhenResult << WhenResult;
 }
@@ -237,7 +211,6 @@ void TaskMgr::GetSuggestionAttributes(Vector<String>& structs, Event<String> Whe
 	
 	Task& t = AddTask();
 	t.rule = &r;
-	t.p.pipe = &p;
 	t.args <<= structs;
 	t.WhenResult << WhenResult;
 }
@@ -250,7 +223,6 @@ void TaskMgr::CreateImage(String prompt, int count, Event<Array<Image>&> WhenRes
 	
 	Task& t = AddTask();
 	t.rule = &r;
-	t.p.pipe = &p;
 	t.args << prompt << IntStr(count) << IntStr(reduce_size_mode);
 	t.WhenResultImages << WhenResult;
 	t.WhenError << WhenError;
@@ -293,7 +265,6 @@ void TaskMgr::GetEditImage(Image orig, Image mask, String prompt, int count, Eve
 	
 	Task& t = AddTask();
 	t.rule = &r;
-	t.p.pipe = &p;
 	t.send_images << orig;
 	t.args << prompt << IntStr(count);
 	t.WhenResultImages << WhenResult;
@@ -308,7 +279,6 @@ void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResul
 	
 	Task& t = AddTask();
 	t.rule = &r;
-	t.p.pipe = &p;
 	t.send_images << orig;
 	t.args << IntStr(count);
 	t.WhenResultImages << WhenResult;
@@ -327,7 +297,6 @@ void TaskMgr::GetSongDataAnalysis(const SongDataAnalysisArgs& args, Event<String
 	task_lock.Enter();
 	Task& t = tasks.Add();
 	t.rule = &r;
-	t.p.pipe = &p;
 	t.args << s;
 	t.WhenResult << WhenResult;
 	t.keep_going = keep_going;
@@ -345,7 +314,6 @@ void TaskMgr::GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> Wh
 	task_lock.Enter();
 	Task& t = tasks.Add();
 	t.rule = &r;
-	t.p.pipe = &p;
 	t.args << s;
 	t.WhenResult << WhenResult;
 	task_lock.Leave();
@@ -362,7 +330,6 @@ void TaskMgr::GetLyricsPhrase(const LyricsPhraseArgs& args, Event<String> WhenRe
 	task_lock.Enter();
 	Task& t = tasks.Add();
 	t.rule = &r;
-	t.p.pipe = &p;
 	t.args << s;
 	t.WhenResult << WhenResult;
 	task_lock.Leave();

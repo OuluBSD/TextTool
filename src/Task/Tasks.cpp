@@ -1,6 +1,6 @@
 #include "Task.h"
 #include <Database/Database.h>
-
+#include <SongLib/SongLib.h>
 
 void Task::Store(bool force) {
 	if (output.IsEmpty()) return;
@@ -183,12 +183,6 @@ bool Task::CheckArguments() {
 		switch (type) {
 		case V_ATTR_SCORING:
 			//TODO
-			break;
-		case V_PTR_PIPE:
-			if (!p.pipe) {
-				SetFatalError("pipeline pointer is missing");
-				return false;
-			}
 			break;
 		case V_ARGS:
 			if (args.GetCount() < i0 || args.GetCount() > i1) {
@@ -531,6 +525,5 @@ TaskMgr& Task::GetTaskMgr() {
 }
 
 TaskMgr& Task::GetPipe() {
-	ASSERT(p.pipe);
-	return *p.pipe;
+	return SongLib::TaskManager::Single().MakePipe();
 }
