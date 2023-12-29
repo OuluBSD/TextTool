@@ -434,7 +434,7 @@ void SongDataWords::GetSyllables(int batch_i, bool start_next) {
 	
 	Song& song = GetSong();
 	song.RealizePipe();
-	Pipe& pipe = *song.pipe;
+	TaskMgr& pipe = *song.pipe;
 	TaskMgr& m = pipe;
 	
 	args.fn = 4;
@@ -555,7 +555,7 @@ void SongDataWords::GetDetails(int batch_i, bool start_next) {
 	
 	Song& song = GetSong();
 	song.RealizePipe();
-	Pipe& pipe = *song.pipe;
+	TaskMgr& pipe = *song.pipe;
 	TaskMgr& m = pipe;
 	
 	args.fn = 5;

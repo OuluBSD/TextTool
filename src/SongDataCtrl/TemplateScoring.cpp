@@ -284,7 +284,7 @@ void SongDataTemplateScoring::GetTemplateScores(int batch_i, int score_mode) {
 	
 	Song& song = GetSong();
 	song.RealizePipe();
-	Pipe& pipe = *song.pipe;
+	TaskMgr& pipe = *song.pipe;
 	TaskMgr& m = pipe;
 	
 	args.fn = 8;

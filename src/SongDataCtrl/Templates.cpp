@@ -267,7 +267,7 @@ void SongDataTemplates::GetTemplatePhrases(int batch_i) {
 	
 	Song& song = GetSong();
 	song.RealizePipe();
-	Pipe& pipe = *song.pipe;
+	TaskMgr& pipe = *song.pipe;
 	TaskMgr& m = pipe;
 	
 	args.fn = 6;

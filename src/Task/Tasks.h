@@ -232,7 +232,7 @@ public:
 	String GetTypeString() const;
 	
 	TaskMgr& GetTaskMgr();
-	Pipe& GetPipe();
+	TaskMgr& GetPipe();
 	
 };
 

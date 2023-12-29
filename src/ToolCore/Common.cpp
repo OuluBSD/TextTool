@@ -152,7 +152,7 @@ void EditorPtrs::RealizePipe() {
 	if (song->pipe)
 		return;
 	
-	Pipe& pipe = db.pipes.Add();
+	TaskMgr& pipe = db.pipes.Add();
 	Artist& a = *artist;
 	Release& r = *release;
 	

@@ -207,7 +207,7 @@ bool Task::CheckArguments() {
 bool Task::WriteResults() {
 	Database& db = Database::Single();
 	TaskMgr& m = GetTaskMgr();
-	Pipe& pipe = GetPipe();
+	TaskMgr& pipe = GetPipe();
 	
 	for (TaskOutputType t :  rule->results) {
 		switch (t) {
@@ -530,7 +530,7 @@ TaskMgr& Task::GetTaskMgr() {
 	return GetPipe();
 }
 
-Pipe& Task::GetPipe() {
+TaskMgr& Task::GetPipe() {
 	ASSERT(p.pipe);
 	return *p.pipe;
 }

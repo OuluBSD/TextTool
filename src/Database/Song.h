@@ -425,7 +425,7 @@ struct Song :
 	Vector<AttrProbability>		active_roles;
 	
 	// Temp
-	Pipe*				pipe = 0;
+	TaskMgr*					pipe = 0;
 	
 	void Store();
 	void LoadTitle(String title);

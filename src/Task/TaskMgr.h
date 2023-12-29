@@ -48,6 +48,7 @@ struct TaskMgr : PipePtrs{
 	Task* active_task = 0;
 	int actual = 0, total = 0;
 	String status;
+	Song* song = 0;
 	
 	// Local
 	Vector<hash_t> task_order;

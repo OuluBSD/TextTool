@@ -91,14 +91,14 @@ void TaskMgrConfig::Process() {
 	while (running) {
 		db.lock.EnterRead();
 		#if 1
-		for (Pipe& pipe : db.pipes)
+		for (TaskMgr& pipe : db.pipes)
 			pipe.TaskMgr::Process();
 		#else
 		for (Artist& art : db.artists) {
 			for (Release& rel : art.releases) {
 				for (Song& song : rel.songs) {
 					if (song.pipe) {
-						Pipe& pipe = *song.pipe;
+						TaskMgr& pipe = *song.pipe;
 						pipe.TaskMgr::Process();
 					}
 				}
@@ -194,7 +194,7 @@ void TaskMgr::Translate(String orig_lang, String orig_txt, String trans_lang, Ev
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_TRANSLATE);
-	Pipe& p = dynamic_cast<Pipe&>(*this);
+	TaskMgr& p = *this;
 	
 	Task& t = AddTask();
 	t.rule = &r;
@@ -207,7 +207,7 @@ void TaskMgr::RawCompletion(String prompt, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_RAW_COMPLETION);
-	Pipe& p = dynamic_cast<Pipe&>(*this);
+	TaskMgr& p = *this;
 	
 	Task& t = AddTask();
 	t.rule = &r;
@@ -220,7 +220,7 @@ void TaskMgr::GetStructureSuggestions(String req, String avoid, String desc, int
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_STRUCTURE_SUGGESTIONS);
-	Pipe& p = dynamic_cast<Pipe&>(*this);
+	TaskMgr& p = *this;
 	
 	Task& t = AddTask();
 	t.rule = &r;
@@ -233,7 +233,7 @@ void TaskMgr::GetSuggestionAttributes(Vector<String>& structs, Event<String> Whe
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_SUGGESTION_ATTRIBUTES);
-	Pipe& p = dynamic_cast<Pipe&>(*this);
+	TaskMgr& p = *this;
 	
 	Task& t = AddTask();
 	t.rule = &r;
@@ -246,7 +246,7 @@ void TaskMgr::CreateImage(String prompt, int count, Event<Array<Image>&> WhenRes
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_CREATE_IMAGE);
-	Pipe& p = dynamic_cast<Pipe&>(*this);
+	TaskMgr& p = *this;
 	
 	Task& t = AddTask();
 	t.rule = &r;
@@ -260,7 +260,7 @@ void TaskMgr::GetEditImage(Image orig, Image mask, String prompt, int count, Eve
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_EDIT_IMAGE);
-	Pipe& p = dynamic_cast<Pipe&>(*this);
+	TaskMgr& p = *this;
 	
 	if (orig.GetSize() != mask.GetSize()) {
 		WhenError();
@@ -304,7 +304,7 @@ void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResul
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_VARIATE_IMAGE);
-	Pipe& p = dynamic_cast<Pipe&>(*this);
+	TaskMgr& p = *this;
 	
 	Task& t = AddTask();
 	t.rule = &r;
@@ -319,7 +319,7 @@ void TaskMgr::GetSongDataAnalysis(const SongDataAnalysisArgs& args, Event<String
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_SONG_DATA_ANALYSIS);
-	Pipe& p = dynamic_cast<Pipe&>(*this);
+	TaskMgr& p = *this;
 
 
 	String s = args.Get();
@@ -338,7 +338,7 @@ void TaskMgr::GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> Wh
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_ACTION_ANALYSIS);
-	Pipe& p = dynamic_cast<Pipe&>(*this);
+	TaskMgr& p = *this;
 
 	String s = args.Get();
 
@@ -355,7 +355,7 @@ void TaskMgr::GetLyricsPhrase(const LyricsPhraseArgs& args, Event<String> WhenRe
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_LYRICS_PHRASE);
-	Pipe& p = dynamic_cast<Pipe&>(*this);
+	TaskMgr& p = *this;
 	
 	String s = args.Get();
 	
@@ -402,7 +402,7 @@ hash_t TaskMgr::GetSongHash() const {
 	if (hash)
 		return hash;
 	
-	const Pipe& pipe = static_cast<const Pipe&>(*this);
+	const TaskMgr& pipe = static_cast<const TaskMgr&>(*this);
 	ASSERT(pipe.song);
 	Song& song = *pipe.song;
 	

@@ -177,7 +177,7 @@ struct Artist;
 struct Release;
 struct Song;
 struct StaticPart;
-struct Pipe;
+struct TaskMgr;
 
 
 
@@ -196,7 +196,7 @@ struct EditorPtrs {
 };
 
 struct PipePtrs {
-	Pipe*			pipe = 0;
+	TaskMgr*			pipe = 0;
 	
 	void Clear() {memset(this, 0, sizeof(PipePtrs));}
 	void CopyPtrs(const PipePtrs& p) {

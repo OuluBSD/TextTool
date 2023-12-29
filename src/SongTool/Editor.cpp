@@ -378,7 +378,7 @@ void Editor::DataSong() {
 		DataPage();
 		return;
 	}
-	Pipe& e = *s.pipe;
+	TaskMgr& e = *s.pipe;
 	
 	for(int i = 0; i < e.parts.GetCount()+1; i++) {
 		String k;
@@ -437,7 +437,7 @@ void Editor::DataPart() {
 	
 	// OLD!!
 	/*
-	Pipe& e = *p.song->pipe;
+	TaskMgr& e = *p.song->pipe;
 	PipePtrs& pp = p.song->pipe->p;
 	
 	int cursor = parts.GetCursor();

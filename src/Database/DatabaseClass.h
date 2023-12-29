@@ -31,7 +31,7 @@ struct Database {
 	VectorMap<String, Translation> translation;
 	
 	// Local (separate)
-	Array<Pipe>		pipes;
+	Array<TaskMgr>	pipes;
 	SongData		song_data;
 	
 	// Temp

@@ -27,7 +27,7 @@ class TaskManager {
 	RWMutex lock;
 	Array<Task> task_list;
 	bool running = false, stopped = true;
-	Pipe* pipe = 0;
+	TaskMgr* pipe = 0;
 	
 	int per_action_clrs = 60;
 	int per_action_attrs = 40;
@@ -51,8 +51,8 @@ public:
 	void Stop();
 	void Clear();
 	bool IsInTaskList(TaskType type) const;
-	Pipe* GetPipe() const {return pipe;}
-	Pipe& MakePipe() {if (!pipe) RealizePipe(); return *pipe;}
+	TaskMgr* GetPipe() const {return pipe;}
+	TaskMgr& MakePipe() {if (!pipe) RealizePipe(); return *pipe;}
 	
 	static TaskManager& Single() {static TaskManager o; return o;}
 	
