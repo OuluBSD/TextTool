@@ -9,7 +9,7 @@ uses
 	RedBar,
 	Sequencer,
 	ToolBase,
-	SimplifiedCtrl,
+	EditorCtrl,
 	Task,
 	Database,
 	SongDataCtrl;

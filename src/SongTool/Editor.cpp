@@ -111,76 +111,14 @@ void Editor::InitSimplified() {
 	AddItem(t_("Song lyrics"), t_("Attribute Distribution"), attr_dist);
 	
 	
-	AddItem(t_("Music Video"), t_("Create structure from existing"), videostruct_import);
-	AddItem(t_("Music Video"), t_("Edit structure"), videostruct_edit);
-	AddItem(t_("Music Video"), t_("Structure to plan"), videostruct_to_plan);
-	
 	AddItem(t_("Checklist"), t_("Song"), checklist_composition);
 	AddItem(t_("Checklist"), t_("Production"), checklist_production);
 	AddItem(t_("Checklist"), t_("Music Video Production"), video_checklist);
 	AddItem(t_("Checklist"), t_("Release"), release_checklist);
 	
 	
-	AddItem(t_("Trash"), t_("Attribute Idea"), attr_idea);
-	AddItem(t_("Trash"), t_("Coherent Idea"), auto_ideas);
-	AddItem(t_("Trash"), t_("Idea of a single part"), part_idea);
-	
-	AddItem(t_("Trash"), t_("Create Translation, Native To English"), structure_native_english);
-	AddItem(t_("Trash"), t_("Create From English"), structure_from_english);
-	AddItem(t_("Trash"), t_("Edit"), structure_edit);
-	
-	AddItem(t_("Trash"), t_("Context idea"), ctx_idea);
-	AddItem(t_("Trash"), t_("Story idea"), story_idea);
-	
-	AddItem(t_("Trash"), t_("Visual idea"), vocal_idea);
-	AddItem(t_("Trash"), t_("Dialogue idea"), dialogue_idea);
-	AddItem(t_("Trash"), t_("Color idea"), color_idea);
-	
-	AddItem(t_("Trash"), t_("Vocabulary idea"), vocab_idea);
-	AddItem(t_("Trash"), t_("Word salad idea"), wordsalad_idea);
-	AddItem(t_("Trash"), t_("Text idea"), text_idea);
-	AddItem(t_("Trash"), t_("English Parallel Compare"), text_autocompare_eng);
-	AddItem(t_("Trash"), t_("English Serial Compare"), serial_compare_eng);
-	AddItem(t_("Trash"), t_("Edit English"), text_edit_english);
-	AddItem(t_("Trash"), t_("Edit Native"), text_edit_native);
-	
 	InitListItems();
 }
-
-#if 0
-void Editor::InitAdvanced() {
-	// Very deprecated stuff
-	AddItem(t_("All"), t_("Info"), info);
-	AddItem(t_("All"), t_("Attributes"), attr);
-	AddItem(t_("Release"), t_("Recruitment"), recru);
-	AddItem(t_("Release"), t_("Social media campaign"), social);
-	AddItem(t_("Release"), t_("Calendar"), cal);
-	AddItem(t_("Release"), t_("Tasks"), task);
-	AddItem(t_("Song"), t_("Importer"), importer);
-	AddItem(t_("Song"), t_("Structure"), structure);
-	AddItem(t_("Song"), t_("Analysis"), analysis);
-	AddItem(t_("Song"), t_("Story"), story);
-	AddItem(t_("Song"), t_("Impact"), impact);
-	AddItem(t_("Song"), t_("Pattern mask"), patmask);
-	AddItem(t_("Song"), t_("Pattern"), pattern);
-	AddItem(t_("Song"), t_("Attribute scoring"), attrscore);
-	AddItem(t_("Song"), t_("Impact scoring"), impact_scoring);
-	AddItem(t_("Song"), t_("Pattern mask scoring"), mask_scoring);
-	AddItem(t_("Song"), t_("Pattern scoring"), scoring);
-	AddItem(t_("Song"), t_("Reverse: make impacts"), reverse_impact);
-	AddItem(t_("Song"), t_("Reverse: make common mask"), reverse[0]);
-	AddItem(t_("Song"), t_("Reverse: make separate mask"), reverse[1]);
-	AddItem(t_("Song"), t_("Reverse: make pattern"), reverse[2]);
-	AddItem(t_("Song"), t_("Reversed Pattern"), rev_pattern);
-	AddItem(t_("Song"), t_("Reverse: make lyrics"), lyrics);
-	AddItem(t_("Song"), t_("Composition"), composition);
-	AddItem(t_("Song"), t_("Production"), production);
-	AddItem(t_("Song"), t_("Rhymes"), rhymes);
-	AddItem(t_("Release"), t_("Social Media"), some_chk);
-	
-	InitListItems();
-}
-#endif
 
 void Editor::Init() {
 	INHIBIT_ACTION_(page_group_list, 0);

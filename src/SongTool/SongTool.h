@@ -1,7 +1,7 @@
 #ifndef _SongTool_SongTool_h_
 #define _SongTool_SongTool_h_
 
-#include <SimplifiedCtrl/SimplifiedCtrl.h>
+#include <EditorCtrl/EditorCtrl.h>
 #include <SongDataCtrl/SongDataCtrl.h>
 #include <Sequencer/Sequencer.h>
 
