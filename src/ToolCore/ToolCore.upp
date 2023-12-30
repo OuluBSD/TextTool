@@ -17,5 +17,7 @@ file
 	Common.cpp,
 	Color.cpp,
 	ProductionIdeas.cpp,
-	ColorFn.cpp;
+	ColorFn.cpp,
+	FileClasses.h,
+	FileClasses.cpp;
 

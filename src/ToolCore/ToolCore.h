@@ -28,6 +28,7 @@ using namespace Upp;
 #include "Phoneme.h"
 #include "Nana.h"
 #include "Common.h"
+#include "FileClasses.h"
 
 
 #endif
