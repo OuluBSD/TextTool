@@ -23,5 +23,6 @@
 #include "ActionParallels.h"
 #include "ActionTransitions.h"
 #include "LineTypes.h"
+#include "Export.h"
 
 #endif

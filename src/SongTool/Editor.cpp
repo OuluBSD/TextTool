@@ -85,6 +85,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Action parallels"), action_parallels);
 	AddItem(t_("Database"), t_("Action transitions"), action_transitions);
 	AddItem(t_("Database"), t_("Line types"), line_types);
+	AddItem(t_("Database"), t_("Export"), export_page);
 	
 	AddItem(t_("Company"), t_("Info"), info);
 	AddItem(t_("Company"), t_("Calendar"), cal);

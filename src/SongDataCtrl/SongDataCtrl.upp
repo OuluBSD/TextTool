@@ -36,6 +36,8 @@ file
 	ActionTransitions.cpp,
 	LineTypes.h,
 	LineTypes.cpp,
+	Export.h,
+	Export.cpp,
 	Loader.h,
 	Loader.cpp;
 

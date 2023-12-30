@@ -64,6 +64,7 @@ protected:
 	SongDataTmplActions				song_tmplactions;
 	NanaEditor						nana_editor;
 	ActionEditor					action_editor;
+	ExportPage						export_page;
 	
 public:
 	typedef Editor CLASSNAME;
