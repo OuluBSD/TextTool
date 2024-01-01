@@ -1,0 +1,2453 @@
+
+exclamatory-sentence
+independent-clause
+declarative-sentence
+complex-sentence
+prepositional-phrase
+interjection
+dependent-clause
+compound-sentence
+prepositional-clause
+verbal phrase
+simple-sentence
+imperative-clause
+gerund-phrase
+conjunctive-phrase
+interrogative-sentence
+coordinating-clause
+adverbial-clause
+infinitive-phrase
+adjectival-phrase
+participial-phrase
+indirect question-clause
+subject-verb-object-clause
+adverbial-clause (time)
+compound-complex-sentence
+conjunction-clause (contrast)
+conjunction-clause
+noun-clause
+noun-gerund-phrase
+participle-phrase
+adjective-clause
+adjective-phrase
+verb- infinitive -phrase
+adverb-clause
+imperative-sentence
+adjectival-clause
+participle
+sentence-fragment
+fragment
+present participle clause
+absolute-clause
+absolute-phrase
+finite clause
+dependent clause
+subject-verb-object-sentence
+prepositional-phrase-sentence
+verb phrase
+noun-phrase
+object-clause
+object-phrase
+imperative-phrase
+conditional-sentence
+conditional-phrase
+verb-phrase
+adverbial-phrase
+relative-clause
+participial-clause
+infinitive-clause
+subject-verb-adverbial-phrase
+exlamatory-sentence
+noun-gerund
+noun
+conditional-clause
+subordinating-clause
+repetitive-sentence
+conjunction-dependent-sentence
+noun-clause-sentence
+plural-adjective-phrase
+present-continuous-verb-phrase
+noun clause
+past-tense-verb-phrase
+noun-phrase-sentence
+imperative-verb-phrase
+present-tense-verb-phrase
+adverb-clause-sentence
+adverb-phrase
+gerund-clause
+coordinating-conjunction
+conjunction clause
+relative-clause of object
+absoluste-phrases
+causal-sentence
+noun-clause-of-subject
+reducer-adverbial-clause
+...
+verb phrase sentence
+gerund-phrases-sentence
+nonfinite-clause
+conjoining-clause
+endorsement-clause
+appositive-clause
+noun-noun-noun-phrase
+non-coordinating-clause
+compound-verb-sentence
+active-voice-sentence
+descriptive-sentence
+coordinated-clauses
+determiner
+subject-verb-adjective-sentence
+subject
+direct-object
+compound-sentences-with-conjunctions
+conjunction
+adverbial-sentence
+adverb
+infinitive-sentence
+elision
+verb
+subordinating-clause + non-coordinating-clause
+coordinating-clause + adjective-clause
+subordinating-clause + coordinating-clause + coordinating-conjunction + coordinating-clause
+coordinating-clause + non-restrictive-clause
+coordinating-clause + noun-clause + coordinating-conjunction + coordinating-clause
+coordinating-clause + coordinating-clause
+noun-phrase + coordinating-clause
+subordinating-conjunction
+parallel-clause
+fragmented-sentence
+poor-clause
+present-progressive-clause
+simple-predicate
+compound-predicate
+coordination-conjunction
+imperative -clause
+declarative-sentence + declarative-sentence
+declarative-sentence + declarative-sentence + declarative-sentence + declarative-sentence
+declarative-sentence + declarative-sentence + declarative-sentence
+proper-noun-phrase
+subject-verb-predicate-sentence
+run-on-sentence
+subject-verb-direct_object-prepositional-phrase-sentence
+subject-verb-adverbial phrase-sentence
+verb sentence
+subject-verb-verb prepositional-phrase-sentence
+subject-sentence
+verb-ing-adjective phrase
+subject-verb-verb phrase
+parallel-sentence
+subject-verb-noun phrase-prepositional phrase
+subject-verb-predicte pronoun-phrase
+subordinate clause
+noun phrase
+subject-verb-object clause
+interrogative-clause
+parallel-structures
+simple-sentence BUT is actually a run on sentence.
+postpositional-phrase
+parallel-sentences
+subordinate-clause
+declarative-clause
+present participle
+prepositional phrase
+participle-clause
+casual-sentence
+coordinated-clause
+coordinate-clause
+compound sentence
+simple sentence
+independent clause
+dependent-clause ("Everything it smells like shit")
+subject-verb-object-phrase ("Everything smells like shit")
+sentence structure: subject-verb-phrase-object
+parallel independent clause
+elliptical-sentence
+elliptical-clause
+compound-clause
+subject-verb-clause
+ellipsis
+cau
+subject-phrase
+nonrestrictive-clause
+adjunct-clause
+subject-phras
+adverbial-clause-of-manner
+subject-phrase + object-phrase + adverbial-clause
+subject-phrase + object-phrase + predicate-phrase
+subject-phrase + object-phrase + subject-phrase + adverbial-phrase
+subject-phrase + direct-object-clause + predicate-phrase
+direct-object-clause
+subordinate-clause + imperative-sentence
+object-verb
+subject-verb-complement-sentence
+interrogative-phrase
+coordinate-clauses
+adverbial-clause-of-time
+relative-clause-of-relative-noun
+subordinate-conjunction/word
+subordinating-conjunction/word
+pronoun
+possessive-adjective
+noun-adjective-phrase
+clause-of-reason
+complex-complex-sentence
+main-clause
+relative-clause-sentence
+independent-clause with coordinating-clauses and an interjection
+coordinating-clauses
+simple-sentence/descriptive-sentence
+subject-verb-adjective phrases
+subject-phrases
+predicate
+simple-sentence/declarative-sentence
+simple-sentence/exclamatory-sentence
+non-coordinating clauses
+present participle phrase
+gerund phrase
+present tense with be verb
+demonstrative pronoun
+present tense verb
+compound adjective
+declarative-sentence + prepositional-clause
+declarative-sentence + adjective-clause
+declarative-sentence + declarative-all
+coordinating-conjunction-clause
+subject-verb-object-coordinating-conjunction-clause
+subject-verb-direct-object-coordinating-conjunction-clause
+subject-verb-adverbial-clause
+subject-verb-object-adverbial-clause
+independent-clause + adverbial-clause
+modified noun
+parallel-structure
+interjection-clause
+independent_clause
+adverbial phrase
+hyphen
+infinitive phrase
+adverbial clause
+verb-clause + noun-clause + declarative-sentence
+verb-clause
+subject-verb-adverb-sentence
+imperative-compound-sentence
+subject-verb-phrase
+subject-verb-predicate
+gerund-sentence
+adverbial-clause-sentence
+stative-sentence
+present-participle-phrase
+object-noun-phrase
+object-gerund-phrase
+present-participial-phrase
+past-participial-phrase
+independent-clauxse
+complex-compound-sentence
+compound-complex sentence
+interjection-sentence
+conjunctive-clause
+adverbial-clause-of-condition
+relative-clause-of-reason
+adverbial-clause-of-concession
+fragment-sentence
+compound-noun-phrase
+compound-sentence-with-conjunctions
+postpositional-clause
+independent -clause
+coordinating-phrase
+pronoun-phrase
+compound-noun phrase
+noun-verb phrase
+subject-auxiliary-verb phrase
+subject-complement phrase
+subject-verb phrase
+compound-verb phrase
+independent-clause-command
+adjective-sentence
+independent- clause
+predicate-clause
+verb-ing-phrase
+reduced-clause
+verb-infinitive-phrase
+subordinating clause
+verb-phrase-sentence
+conjunctional-clause
+appositive-phrase
+adjective-clause-sentence
+prepositional-clause-sentence
+noun-adjective-clause
+prepositional-phrases
+simple interrogative-sentence
+simple declarative-sentence
+complex declarative-sentence
+simple imperative-sentence
+complex imperative-sentence
+compound declarative-sentence
+compound-imperative sentence
+imperative-sentence-with-square.
+non-restrictive-clause
+coordinating conjunction
+declarative-complex-sentence
+noun-clause-in-a-sentence
+parallel-sentence-structure
+None
+adjectival-clause + adverbial-clause
+adverbial-clause + adverbial-clause
+subject-verb-verb-adjective
+subject-verb-adjective
+subject-verb-object
+subject-verb-adjective-prepositional-phrase
+subordinating-conjunction-subject-verb-adjective
+subject-verb-inversion-sentence
+passive-voice-sentence
+noun-clause of object
+adverbial-clause-of-list
+adverbial-clause-of-reason
+compound-sentence-with-adjective-clauses
+relative-clause-of-place
+compound-sentence-with-appositive-clauses
+compound-sentence-with-imperative-clauses
+parallel-structures-sentence
+adjective-depedent-clause
+gerund-noun-clause
+direct-object-sentence
+adverbial-clause-of-cause
+relative-clause-of-purpose
+noun-clause-of-subject-complement
+simple-sente
+adjective
+imperative verb phrase
+adjective phrase
+adjectival-sentence
+independent-clause + analytical-sentence
+independent-clause + complex-sentence
+independent-clause + compound-complex-sentence
+causative-sentence
+compound-independent-clause
+subject-verb-negation-clause
+subject-verb-noun-clause
+verb-phrase-clause
+subject-predicate-clause
+independent-clause-sentence
+adjective-dependent-clause
+demonstrative-sentence
+non-identifying-relative clause
+non-restrictive-phrase
+conjunction-phrase
+interjection-phrase
+participating-phrase
+imperativ
+sentence-conjunctions
+conditional-complex-sentence
+participant-clause
+modifying-clause
+negative present progressive-verb-phrase
+present progressive-verb-phrase
+compound-complex-sentence.
+present participle-verb-phrase
+coordinating-clause or compound-sentence
+coordinating-clause or complex-sentence
+dependent-clause (parenthetical clause)
+restrictive-clause
+preposition
+coordinating-clause + subordinating-clause
+causal-clause
+past simple clause
+adjective predicative
+progressive-clause
+past simple-clause
+compound-sentence-with-comma-splice
+comma splice
+complex-sentence.
+null
+gerund-clause + infinitive-clause
+subject-auxiliary-verb-negation
+noun-clause + subject-verb + relative-clause
+noun-pronoun
+adjectival-clause + independent-clause
+subject-linking-verb-adjective
+noun-clause + infinitive-clause + noun-clause
+gerund-clause + independent-clause
+subject-verb-adverbial
+subject-verb
+gerund-clause + relative-clause
+adverbial-clause + independent-
+subject-verb-adverb
+adjective clause
+dependent-clause-of-indirect-object
+subject-verb-independent-clause
+subject-verb-predicate-clause
+subject-verb-adjective-clause
+adverbial-clause + prepositional-clause
+substantive-clause
+indicative-clause
+objective-clause
+indicative-sentence
+finite-dependent-sentence
+comparative-clause
+verb-phrases
+subject-verb-adjective-phrase
+proper-noun
+idiomatic expression
+idiom
+adjective-noun phrase
+abbreviation
+interrogative clause
+impera
+declarative-sentence (simple-sentence)
+declarative-sentence (compound-sentence)
+declarative-sentence (compound-complex-sentence)
+noun-clause sentence
+double-barreled verb sentence
+noun-clause-as-direct-object
+dependent-clause-as-adjective
+independent-clause-as-object
+series of noun-phrases
+negation
+exclamation-sentence
+imperative-sentences-with-direct-address
+noun-clause-in-an-object
+subject-verb-adverbial-sentence
+subject-verb-compliment-compliment-predicate-sentence
+clause-subordinating-conjunction-clause
+clause
+adjective-adjective-adverb-complete-predicate-sentence
+noun-sentence
+verb-adverb-adverb
+noun-adjective-sentence
+adverbial-phrase-of-reason
+adverbial-phrase-of-comparison
+compound-compound-sentence
+subject-verb-object-phrase
+prepositional-adjective-phrase
+subject-verb-noun-clause-number-verbal-phrase
+repetition-sentence
+repeating-phrase
+possessive-phrase
+sentence-structure
+phrasal-verb-phrases
+noun-clause + noun-clause + noun-clause + adverbial-clause + parallel-sentences-with-conjunctions
+object-clause + subject-clause + prepositional-phrases-with-helping-verbs
+noun-clause + noun-clause + adverbial-clause-with-direct-object
+adverbial-clause + adverbial-clause + adjective-clause
+numeral
+conjunctive-phrases
+adjectival-phrase + adverbial-phrase
+parallel-sentence + adjectival-phrase
+compound-adjectives-sentence
+phrase
+descriptive-phrase
+indirect object-clause
+adverb-phrases
+verb phrase clause
+coordinating-clause + adverbial-clause
+adverb clause
+independent adjective-clause
+noun-clause-of-direct-object
+subjunctive-sentence
+comparative-phrase
+infinitive-preposition-phrase
+noun-clause or noun-adjective-phrase
+parallel-phrases
+verb-phrase-sentence + relative-clause-sentence
+verb-phrase-sentence + adjectival-phrase-sentence
+adjectival-phrases
+verb-phrase-sentence + declarative-sentence
+noun-clause + declarative-sentence
+gerund-phrase-sentence + independent-clause
+adverbial-clause + declarative-sentence
+compound-prepositional-phrases
+none
+interrogative-sentence.
+fused-independent-clauses
+pronoun-verb-expletive-sentence
+pronoun-verb-prepositional-phrase-sentence
+subject-verb-negation-sentence
+subject-verb-comparison-sentence
+subject-verb-object-phrase-sentence
+noun-verb-dependent-clause-sentence
+subordinating-conjunction-independent-clause
+adverbial-phrases
+exclamation
+declarative-sentence with compound-subject
+adjectival-phrases-sentence
+noun-fragment
+adjective-phrases-sentence
+appositive-sentence
+present-perfect-phrase
+condition-clause
+present-simple-phrase
+negative-phrase
+past-perfect-phrase
+"Im a gentleman"
+relative-clause-of-time
+verb-noun-clause
+verb-pronoun-noun-clause
+pronoun-verb-phrase
+verb-subordinate-clause
+pronoun-noun-phrase
+verb-prepositional-clause
+declerative-sentence
+adjective-clause + noun-clause + sentence
+Independent clause
+predicate-phrase
+Independent- clause
+Independent-clause
+introductory-clause + sentence + sentence
+introductory-word
+Independent-clause + sentence
+Independent-clause + sentence + sentence
+coordinating-coclause + sentence + sentence
+correlatives-sentences
+subject-verb-predicate-structure
+coordinate-conjunction
+adjective-dependent-clause-structure
+clause-of-purpose
+clause-with-multiple-objects
+compound-verbs
+nex-complex-sentence
+subject-verb- adverbial-sentence
+noun-clause of direct object
+adverbial-clause of place
+noun phrase of subject
+noun-clause in an object
+adverbial-clause of condition
+adverbial-clause of reason
+adverbial-clause of time
+independent-clase
+subject-verb-sentence
+fused-sentence
+cause-and-effect-sentence
+noun-clause-of-object-preposition
+restrictive-clause-of-subject
+pronoun-adjective-phrase
+determiner-noun-phrase
+appendage-phrase
+present-participle-clause
+progressive-verb-phrase
+finite-verb-phrase
+past-tense-clause
+sentence-fragments
+declarative sentence
+coordinative-clause
+adjective-clause-of-comparison
+noun-clause-of-object
+past-tense verb phrase
+present-tense verb phrase
+past participle phrase
+verb-phrase sentence
+auxiliary verb
+gerund-phrase-sentence
+adverbial-phrases-sentence
+adverbial-clause-of-purpose
+noun-object-clause
+subject-verb-direct-object-sentence
+direct-address
+subject-verb-phrase-sentence
+noun-clause-of-appositive
+dual-imperative-sentence
+ing-participle-phrase
+non-finite-clause
+compound-sentence + declarative-sentence
+declarative-sentence + subordinating-clause
+prepositional-clause + prepositional-phrases
+prepositional-clause + independent-clause
+adverbial-clause + predicate -clause + subject-phrase.
+complex sentence
+compound complex sentence
+compound-subject
+reduced-relative-clause
+present-participle
+prepositonal-phrase
+present-participle-clause + present-participle-clause
+transitive-verb-past-tense
+transitive-verb-imperative
+simile
+exclamatory-clause
+adverbial-clause + independent-clause
+simile-clause
+independent-clause + dependent-clause
+parallel-phrase
+exclamatory-compound-sentence
+noun-verb-clause
+subject-verb-prepositional-clause
+independent-sentence
+present participle-phrase
+adverbial-clause + subject-verb-predicate-sentence
+sentence-combining
+comma-splice-sentence
+indicative mood (implied)
+imperative mood
+modal-auxiliary-clause
+modal auxiliary
+proper noun
+indicative mood
+number
+rhetorical question
+noun-clause-in-a-subject
+noun-clause-of-indirect-object
+noun-clause-as-appositive
+noun-clause (used as an imperative)
+subordinate-clause (adverbial)
+noun-clause (used as a direct object)
+coodinating-clause
+noun-clause (used as a subject)
+adverbial-clause (conditional)
+gerund-phrase + compound-sentence
+nominal-clause
+impertive-sentence
+subject-verb-noun-phrase-sentence
+subject-verb-adverbial-phrase-sentence
+plural subject-verb-adjective-phrase-sentence
+subject-verb-adjective-phrase-sentence
+subject-verb-adverb-phrase-sentence
+adverbial-clause-of-place
+interjected sentence
+triple-sentence
+independent-clause with direct address
+imperitive-sentence
+truly-modal-verb
+progressive-verb
+noun-alternation-type-clause
+relative-clause.
+compound-nouns
+exclamatory-sentence (fragments)
+noun-clause (subject) + adverbial-clause (present participle)
+dependent-clause (verb phrase) + noun-clause (object phrase)
+noun-clause (subject) + noun-clause (predicate)
+compound-sentence-with-direct-address
+noun-clause (direct address)
+noun-clause (subject)
+independent-clause (verb phrase)
+interrogative-sentence + compound-sentence
+independent-clause (question)
+simple-sentence + dependent clause
+independent-clause (subject)
+dependent-clause (verb phrase)
+adverbial-clause (adverb phrase) + independent-clause
+exclamatory-sentence + independent-clause
+independent-clause (consequence)
+modifier-clause
+incomplete-sentence
+subject-verb-predicate-phrase
+present-perfect-verb-phrase
+non-defining-relative-clause
+coordinating-clause + gerund-clause
+coordinating-clause + modal-auxiliary-clause
+verbal-phrase
+vocative-clause
+prepositional-clause + imperative-sentence
+Null
+simple-sentence + imperative-sentence
+phrasal-verb
+that-clause
+subject-verb-negative-sentence
+predicate-noun-phrase
+dependent-clause of consequence
+dependent-clause of sequence
+dependent-clause of result
+dependent-clause of time
+dependent-clause of condition
+predicate-adjective-phrase
+dependent-clause of source
+cooridinating-clause
+simile phrase
+past-participle-phrase
+numerical-adjective
+present-participle phrase
+subject-interjection-sentence
+adjective-prepositional-phrase
+modal-auxiliary-phrase
+idiomatic-sentence
+correlative-sentence
+predicate-sentence
+noun-clause + adverbial-clause
+gerund-clause + adverbial-clause
+compound-adjectives
+verb (present continuous tense)
+subject-verb-agreement sentence
+linking-verb-clause
+modal-verbs-clause
+coodinated-clauses
+coordinating-clause.
+compound-phrase
+adverbial-prepositional-phrase
+adjective-clause sentence structure
+double-negatives-sentence
+run-on-sentence-in-complex-sentence
+(independent-clause)
+noun-clause-of-reason
+adjective-object-phrase
+hypothetical-clause
+noun-clause and adverbial-clause
+list-clause
+complex-sentence + adverbial-phrase
+emotion-phrase
+direct-object-phrase
+proper-noun-phrases
+adverbial-phrase + declarative-sentence
+declarative-sentence + adverbial-phrase
+prepositional-clause + adverbial-clause + declarative-sentence
+predicate-noun-clause
+predicate-adjective-clause
+inependent-clause
+indepedent-clause
+limited-conditional-clause
+noun-clause + gerund-phrase + coordinating-clause
+independent-clause + noun-clause
+noun-clause + participle-clause
+participle-clause + independent-clause
+adjective-clause + participle-clause
+noun-adjective-phrases
+independent-clause with compound-nouns
+independent-clause with compound-adjectives
+parallel-structure with adverb-clause
+adverb phrase
+mixed-phrases
+inadvertent-phrase
+Compound-complex-sentence
+Compound-sentence
+Simple-sentence
+-  dependent-clause
+-  If I should die before I wake clause
+I pray the lord my soul to take clause
+transformation-and-omission-of-clauses
+noun-clause + compound-sentence
+adjunctive-clauses
+adverbial-clauses
+adjective-clauses
+imperative-sentence + declarative-sentence
+noun-adjective-clause + declarative-sentence
+subject-verb-ing-adjective
+noun-clause-sentence + subject-verb-object-sentence + adverbial-clause-sentence
+adverbial-clause-sentence + subject-verb-adjective-sentence + adverbial-clause-sentence
+subject-verb-predicate-sentence + subject-verb-predicate-sentence + adverbial-clause-sentence
+verb-object-sentence
+subject-predicate-sentence
+verb-phrase-sentence + simple-sentence
+negative-sentence
+adverbial-clause-sentence + noun
+imperative-sentence-verb-phrase
+imperative-sentence-noun-adverb-verb
+modifier-clause+ adverbial-clause-of-time
+declarative-sentence + adverbial-clause-of-time
+clause-of-comparison
+adverbial-clause + gerund-clause
+imperative-sentence + adverbial-clause-of-time
+modifier-clause + independent-clause
+adverbial-clause-of-degree
+noun-phrases
+passive-voice-clause
+adverbial-clause-of-comparison
+compound-noun-phrases
+subject-clause
+numeral-adjective
+sentence-with-direct-address
+indirect-question-clause
+intransitive-clause
+noun-clause + complex-sentence
+noun-clause + imperative-sentence
+adjective-clause + declarative-sentence
+noun-clause + simple-sentence
+simple-sentence + noun-clause
+simple-sentence + complex-sentence
+simple-sentence + adjective-clause
+simple-sentence + gerund-clause + gerund-clause + adjective-clause + imperative-clause
+simple-sentence + adjective-clause + participial-clause + participial-clause
+simple-sentence + participle-clause + conjunction-clause + simple-sentence
+simple-sentence + imperative-clause
+imperatve-clause
+until-clause
+compound-compound-complex-sentence
+defendent-clause
+vocative-sentence
+declarative-sentence + conjunction + complex-sentence
+if-clause
+nominal-clause-sentence
+simple-sentence.
+informal-sentence
+independent-clause with contracted verb
+sentence-splicing
+declative-clause
+non-sentence
+interjectory-sentence
+why-clause
+embedded-question-clause
+reported-speech-clause
+modifier-clauses
+run-on-sentence (could be broken into two independent clauses: "I keep buying all these muthafuckin cars" + "I aint got no sense")
+= causal-sentence
+= subject-verb-prepositional-phrase-sentence
+abbreviations
+subject-verb-dependent-clause
+verb-gerund-phrase
+verb-clause + noun-clause
+interjecting-clause
+cohesive-sentence
+subject-verb-inversion-phrase
+negative-verb-phrase
+appositive-noun-sentence
+negative-clause
+demonstrative-phrase
+dependent-clause = parallel-sentence
+subordinating conjunction-in-sentence
+coordination-phrase
+subordinating-clause + compound-sentence
+nominal-sentence
+verb-complex-clause
+sentence fragment
+subject-verb-compound-direct-object-sentence
+subjunctive-clause
+noun-clause + independent-clause
+subordinate-clause + independent-clause
+finite-clause
+adjective-clause + noun-clause
+noun-clause + finite-clause
+copular-phrase
+noun-clause-as-subject
+non-complex-sentence
+subject-verb-noun-noun and object-clause
+subject-predicate-phrase
+subject-verb-adjective-noun-clause
+subject-verb-noun-object
+verb-noun-phrase
+subject-verb-object-dependent-clause
+non-restrictive relative-clause
+predicate-nominative-clause
+null/none
+imperative-sentence-with-direc
+no clause/phrase
+pronoun-clause
+adverb-depended-clause
+independent-clauses
+subject-verb clause
+object-verb phrase independent-clause
+object-verb phrase
+subject-verb-noun sentence
+interogative-sentence
+actual-sentence
+noun-phrase, noun-phrase, interogative-sentence
+cause-and-effect-clause
+prepositional-sentence
+other
+noun-phase
+comparison-sentence
+subject-verb-prepositional-phrase-sentence
+compound gerund phrase
+noun-adjective phrase
+exclamation-phrase
+simple-sentence + prepositional-clause
+simple-sentence + adverbial-clause
+compound-sentence + direct-object-clause
+prepositional-clause + predicate-clause
+complex-sentence + adjective-clause
+adjective-adjective-adjective-clause
+conjunction-sentence
+present-participle-predicate-sentence
+adverbial-conjunction-sentence
+adjective-noun-clause-sentence
+adjective-noun-clause
+verb-object independent-clause
+verb-predicate independent-clause
+verb-particle independent-clause
+adverbial-independent-clause
+adverbial-interrogative independent-clause
+verb-gerund-clause
+verb-noun-phrase independent-clause
+noun-independent-clause
+verb-object adverbial-clause
+None, this is a phrase not a clause
+verb-ing
+subject-complement-clause
+imperative/declarative-sentence
+subordinating-clause + declarative-sentence
+linking-verb-sentence
+independent-clause,complex-sentence
+adverbial-clause + independent-clause, complex-sentence
+non-identifying-relative-clause
+reltive-clause
+ellipsed-clause
+independent-clause with question
+dependent-clause (adverbial)
+independent-clause-with-conditional
+independent-clause-with-participle-phrase
+imperative-clause-with-conjunction
+independent-clause-with-coordinate-phrase
+coordianting-phrase
+independent-clause (implied subject "she")
+compound-direct-objects-sentence
+compound-sentences
+adjective-subject-verb-negation-phrase
+inter
+grammatical-clause
+noun-phrase (adjectival)
+noun-phrase (subject)
+relative-clause-with-adverb
+dependent-clause (subordinating)
+dependent-clause (coordinating)
+dependent-clause (interrogative)
+non-restrictive-clause + coordinate-phrases-in-a-sentence
+compound-sentence with conjunction
+exclamatory sentence
+subject-verb-negation clause
+verb clause
+subject-verb-dependent clause
+verb-object clause
+subject (noun phrase)
+subject-verb-direct object clause
+adverbial-clause-of-instrument
+incomplete sentence
+Adjective-phrase
+Verb-phrase
+compound-sentence-with-comma
+coordinating clause
+verb-out-of-order-sentence
+imperatvive-sentence
+sentence-splicing, sentence-conjunctions
+compound-sentence with conjunctions
+simple-sentence or subject-verb-object-sentence
+adverbial-clause-of- manner
+complete-subject
+incomplete-predicate
+incomplete-subject
+complete-object
+incomplete-complement
+complete-predicate
+infinite-clause
+infinite-sentence
+avitype sentence with a missing verb
+dependent-clause-adjectival
+Interjection
+dependent-clause-adverbial
+complex-imperative-sentence
+Interrogative-phrase
+noun (used as direct object)
+proper noun (used as appositive)
+noun (used as subject)
+verb-phrase (with a modal adjunct)
+object-direct object-sentence
+independent-clause with conjunction
+exclamatory-sentence.
+statement-sentence
+noun-clause-of-object-of-preposition
+subject-verb-conjunction sentence
+subject-verb-adjective-predicative
+coorindating-clause
+expletive-word
+interjection-word
+adjective-word
+imperative-sentence + conditional-sentence
+imperative clause
+possessive-adjective-phrase
+negative-adjective-phrase
+comparative-sentence
+adverb-adverb
+compound-phrase, conjunction-clause
+adverb-adverb, conjunction-adverb
+adverb-adverb-adverb
+independent-clause, conjunction-clause
+noun-pronoun-pronoun-verb conjunction-pronoun-noun-adverb
+pronoun-verb-noun conjunction pronoun-verb-noun-preposition
+independent-clause, conjunction-clause, conjunction-clause
+pronoun-verb-noun conjunction verb-noun conjunction verb-noun
+pronoun-verb verb-adverb verb-adverb conjunction pronoun-verb pronoun-preposition verb-noun
+adverb-adverb adjective-to verb-noun conjunction pronoun-verb preposition noun
+verb-noun pronoun-noun pronoun verb-adverb pronoun conjunction pronoun-noun
+pronoun verb determiner noun conjunction noun verb noun preposition noun
+verb pronoun verb adjective comma pronoun verb pronoun conjunction pronoun-noun conjunction noun
+verb conjunction pronoun verb pronoun adjective
+pronoun verb verb pronoun conjunction pronoun
+pronoun noun verb preposition pronoun
+prepositional-phrase (adverbial) + simple-sentence
+adjective-clause + simple-sentence
+subject-verb-infinitive-sentence
+compound-sentence + adverbial-clause + simple-sentence
+prepositional-phrase + adjective-clause + simple-sentence
+object-clause + simple-sentence
+declarative-sentence + subject-verb-object-sentence
+conditioned-sentence
+gerund-phrase-in-a-sentence
+prepositional-phrase-in-a-sentence
+predicate-sentence-structure
+independent-clause-as-a-complement
+verbal-clause
+relating-clause
+noun-clause-sentence + simple-sentence
+simple-sentence + noun-clause-sentence
+simple-sentence + imperative-sentence + noun-clause-sentence
+simple-sentence + simple-sentence
+adverbial-clause + simple-sentence
+a subordinating-clause + a dependent-clause
+result-clause
+copular-clause
+reason-clause
+no clause
+compound-sentences-with-adverb
+coordination-clause
+subject-verb-conjunctive-clause
+interjection-clause + exclamatory-sentence
+no-role-tut-sentence
+adjunct-clauses
+clause with past participle
+clause with present participle
+clause with infinitive
+imperative-sentence.
+comparative-sentence-structure
+verb phrase fragment
+subject-verb-isolation
+cyclical dependent-clause
+simile subordinate-clause
+subordinating-clause + simple-sentence + imperative-sentence
+subordinating-clause + simple-sentence
+simple-sentence + subordinating-clause
+simple-sentence + simple-sentence + compound-sentence
+simple-sentence + simple-sentence + subordinating-clause
+predicate-positive-sentence
+relative-sentence
+list
+pattern of phrase + independent-clause
+dominant-clause
+dominated-clause
+declarative-sentence + subject-verb-inversion-sentence
+conditional-clause + independent-clause
+person
+expletive
+noun-clause + interrogative-sentence
+noun-clause + coordinating-clause
+adverb-clause + declarative-sentence
+verb-clause + declarative-sentence
+compound verb
+sentence with direct address
+direct address
+NULL
+transition-word
+adverb-adverbial-clause
+subject-verb-indirect-object-sentence
+simple-sentences
+participle-clause, simple-sentence, compound-sentence
+simple-sentence, noun-clause
+noun-clause, noun-clause, simple-sentence
+clause-introducing-conjunction
+subject-adjective_phrase-subject-clause
+adverbial-clause-of-time-complex-sentence
+conjunctive-adverb
+noun-clause (object of the preposition)
+-ing verb
+participial-clause.
+noun-clause.
+gerund-clause.
+comparing-phrases
+identifying-relative-clause
+adjective-dependent-clause-sentence
+existential-clause
+transitive-verb phrase
+noun-adverb-phrase
+exclamation-word/s
+clause-as-object
+command
+independent-clause with elliptical structure
+not a clause
+gerund-clause + infinite-clause
+independent-clause + infinitive-clause
+declarative-phrase
+compounded-sentences
+comma-splice-sentences
+object-noun-clause
+main clause
+adjective-clause-noun-clause
+coordinates-clauses
+"independent-clause
+adjective-adjective-sentence
+subject-verb-predicate-of-predicate-sentence
+negation-adverbial-clause
+adjective-adjective-phrase
+comma splice sentence
+interjection (not a clause)
+dependent-clause of "21"
+dependent-clause of "Woah, woah"
+dependent-clause of "Woah, woah, woah"
+triple-complex-sentence
+question-clause
+additive-sentence
+verb-predicate
+adjectives phrases
+participle-phrases
+phrase + sentence-fragment
+possessive-sentence
+noun-clause (addressed to someone)
+causative-clause
+parallel sentence
+noun-clause as object
+noun-clause as subject
+noun-clause + adjectival-clause
+noun-clause + adverbial-clause + adjective-clause
+noun-clause + adverbial-clause + noun-clause
+noun-clause-of-appositive + simple-sentence
+subject-verb-phrases
+restrictive-clause-of-reason
+restrictive-clause-of-time
+restrictive-clause-of-manner
+adjectival-clause-of-result
+complex-clause
+complex-sentence-with-conjunctions
+conjunction- pronoun-verb-possessive-pronoun-noun-verb-phrase
+conjunction- pronoun-verb-phrase
+conjunction- pronoun-verb-noun-phrase
+pronoun-verb-verb-phrase-prepositional-phrase-noun-phrase
+noun-clause (object-of-preposition)
+subordinating conjunction
+phrasal verb
+relative-pronoun
+declarative-sentence or exclamatory-sentence
+parallel structures
+participial-clause-sentence
+subject-verb-verb-object-sentence
+proper-noun-sentence
+Imperative-sentence
+verb-predicate-sentence
+Declarative-sentence
+imperative-clause, coordinating-clause
+adjective-dependant-clause
+Noun-adjective-phrase
+Adverb
+Appositive-clause
+Complex-sentence
+Interrogative-sentence
+noun phrase (adjective)
+independent-clause (causal-sentence)
+independent-clause (declarative-sentence)
+adarchdjectival-clause
+subject-phrase + object-phrase
+subject-phrase + non-coordinating-clause
+imperative-clause + coordinating-clause
+fractured-sentence
+subject-complement-sentence
+numerical-phrase
+complex-compound sentence
+subject-verb-pattern
+sentence-pattern
+adverb-clause + verb-phrase
+noun-phrases + adverb-clauses
+declarative-sentence + compound-sentence
+expletive-sentence
+noun-adverb
+dependent-clause (conditional)
+dependent-clause (relative)
+dependent-clause (prepositional)
+dependent-clause (noun)
+adverbial-clause-of-contrast
+dependent-clause (causal)
+dependent-clause (conjunction "cause")
+expositional-phrase
+subordinate-clause + declarative-sentence
+not a sentence
+punctuation
+number-phrase
+not a clause, but a phrase
+noun-phrae
+statial-clause
+linking-verb-phrase
+present-gerrund-phrase
+phrasal-verb-phrase
+noun-proper
+noun-adverbial-clause
+fragment-phrase
+indice-predicate
+exclamatory-phrase
+adverbial-clause + declarative-sentence + exclamatory-sentence
+declarative-sentence + adverbial-clause
+noun-phrase with adjective
+simple
+Exclamatory-sentence
+Noun-phrase
+Verb phrase
+Subject-verb Inversion
+Noun
+Verb
+Noun-clause
+Dependent-clause
+triple-noun-clause
+noun-clause-in-object-of-preposition
+adjective-phrases
+adverbial-clause-of-result
+split-infinitive-clause
+auxiliary-verb-object-adverbial-clause
+auxiliary-verb-adverbial-clause
+subject-verb-adverbial-clause-prepositional-clause
+time-clause
+compound-object
+decimal-clause
+decimal-phrase
+Verb-clause
+predicate-noun-phrases
+location-related-sentence
+subjunctive-phrase
+prepositional-clause + compound-clause
+conditional-sentence + noun-clause
+declarative-sentence + relative-clause
+declarative-sentence + noun-clause
+imperat
+noun-clause-of-subject + adjectival-clause
+noun-clause-of-subject + subject-verb-object-sentence
+object-of-preposition-clause
+negative-object-clause
+relative-clauses + compound-sentence
+noun-clause + adjective-clause + complex-sentence
+participle-clause + complex-sentence
+noun-phrase + adjective-clause + complex-sentence
+adverb-clause + simple-sentence
+subject-verb-adverb-sentence + complex-sentence
+adverbial-clause + and-conjunction + independent-clause + simple-sentence
+fragment-clause
+independent-clause (used as a noun)
+noun-clause(indefining-relative)
+verb-adjective-sentence
+simile-sentence
+possessive-noun-phrase
+verb-negation-sentence
+negation-adjective-sentence
+null-sentence
+interrogative-clause + interrogative-sentence
+interrogative-clause + independent-clause + adverbial-clause + interrogative-sentence
+adverbial-clause + independent-clause + declarative-sentence
+main-clause + subordinate-clause + comparative-sentence
+declarative-sentence + imperative-sentence + conditional-clause
+imperative-sentence + verb-clause
+declarative-sentence + verb-clause
+noun-clause + infinitive-clause + adverbial-sentence
+declarative-sentence + verb clause
+noun-clause + noun-clause + verb-clause + declarative-sentence
+main-clause + relative-clause + declarative-sentence
+fragment (unless a subject or verb is added to "nigga")
+relative-clause-without-that
+dependent-clause-without-that
+adverbial-phrase of condition
+prepositional-clause + gerund-clause + noun-clause
+adjective-clause + adjective-clause + prepositional-clause
+gerund-clause + prepositional-clause
+independent-clause + prepositional-clause
+subordinate-clauses
+adverbial-clause-of-dissent
+no sentence structure
+compound-noun-clause
+complex-noun-clause
+non-finite-phrase
+explanatory-sentence
+declarative-sentence + causative-sentence
+noun-noun-phrases
+plural-noun-phrase
+subordinating-clause + coordinating-clause
+coordinating-clause + nonrestrictive-clause
+appositive
+adjective-adverbial-clause
+compound-s
+compound-subjects-sentence
+predicate-adjective-sentence
+compound-sentence (with coordinating conjunction)
+subordinating conjunction in sentence
+indirect-question
+adjective dependent-clause-sentence
+compound-subject-sentence
+subject-verb-pronoun-agreement
+visionary--sentence
+compound-sentence-with-noun-clause
+independent-phrase
+dependent-marker-clause
+procedural-sentence
+adjectival-clause + complex-sentence
+participial-sentence
+question
+subject-verb-kicking-sentence + adverb-non-fuck-you-sentence
+noun-clause-of-indirect-object + subject-verb-adverbial-sentence
+subject-verb-direct-object + adverb-subordinate-clause
+imperative-sentence + noun-adjective-phrase
+verb-dependent-clause
+adjective-dependent-clause + adverb-non-killing-sentence
+subject-verb-dependant-sentence
+imperative-sentence + prepositional-clause
+participle-clause + adjectival-phrase
+verb-participial-phrase + dependent-clause
+inverted-sentence
+"you" as the subject, "hoes" as the object, "coachin" as the verb phrase (coaching)
+"I" as the subject, "get" as the verb, "lit" as the adjective
+adverbial-phrase-sentence
+subject-verb-object/sentence complement
+"I" as the subject, "am" as the verb, "a Backwoods nigga" as the object/subject complement
+"you" as the subject, "are" as the verb, "a lil swisher" as the object/subject complement
+"I" as the subject, "used to pull" as the verb phrase, "a bitch" as the object
+subject-clause + adverb-clause
+subject-clause + subject-clause
+object-clause + object-clause
+object-clause + adverbial-clause
+object-clause + interjection
+simple-sentence x 6
+independent-clause x 6
+exclaamtory-sentence
+you can meet the Russian"
+subject-verb-object-predicate-sentence
+noun-clause + noun-phrase + adjective-object-clause
+noun-clause + object-clause
+adjective-phrase + subordinate-clause
+subject-verb-inversion-sentence + infinitive-clause
+adjective-adjective-clause
+verb-adjective-clause
+dangling-modifiers
+parallel-sentence-structures
+adjective-clause + subordinating-clause
+independently-clause
+adjec
+subordinate-clause + coordinating-clause
+subject-verb-gerund-clause
+independent-clause + independent-clause
+subject-verb-participle-clause
+subject-verb-verb-clause
+direct object
+subordinating-clause + compound-complex-sentence
+statement-structure
+compared-clause
+compound-prepositional-phrase
+contrast-clause
+response-clause
+action-clause
+location-clause
+purpose-clause
+noun-verb-phrase
+noun-prepositional-clause
+noun-prepositional-phrase
+adverb-verb-clause
+adverb-verb-phrase
+adverb-noun-verb-clause
+adverb-noun-verb-phrase
+vocative
+onomatopoeia
+future tense verb
+hyphenated compound-phrase
+verb-object-phrase
+verb-particle-phrase
+<category not specified>
+exclamatory-sentence + subordinate-clause + declarative-sentence
+past-tense-dependent-clause
+future-adverb-clause
+compound-verb
+noun-list
+subject-verb-prepositional phrase
+subject-verb-contitional-sentence
+adjective-direct-object
+present-participle-verb
+subject-gerund-phrase
+linking-verb-adjective
+noun-clause-direct-object
+prepositional-clause = conditional-clause
+adverb-clause-of-condition
+adverb-clause-of-time
+interrogative-pronoun
+imperative-verb
+declarative-sentence + descriptive-sentence
+prepositional-clause + declarative-sentence
+compound-subjects-clause
+article-adjective-phrase
+Fragmented-sentence
+Gerund-phrase
+Subject-phrase
+Prepositional-phrase
+coordinating-clause-combination
+object-clause-with-infinitive
+direct-object-clause-with-infinitive
+past-perfect-verb-clause
+object-clause-with-gerund
+coordinating-conjunction (dependent clause)
+whether-clause
+noun-adjective-phrasen
+participial-syntax
+noun-clause-of-the-subject
+indirect-object-phrase
+sentence structure: complex
+sentence structure: simple
+sentence structure: compound-complex
+clause coordination
+imperative-sentence or exclamatory-sentence depending on tone
+imperative-sentence or declarative-sentence depending on tone
+adverbial-phrase + parallel-sentence-structure
+to-infinitive
+with a whole
+coordination-sentence
+imperatives-sentence
+determiner-pronoun-noun
+parallel-structure-sentence
+conjunctional-phrase
+expository-sentence
+adjective-clause + relative-clause
+relative pronoun
+adverbial-clause + adverbial-phrase
+gerund-clause + adverbial-phrase
+participial-clause + coordinating-clause + independent-clause + adverbial-phrase
+noun-clause + adverbial-phrase
+noun-clause + verb-clause + adverbial-phrase
+dependent-clause + adverbial-phrase
+verb-clause + relative-clause
+noun-clause + verb-clause + noun-clause + verb-clause + adjective-clause
+adjective-clause + noun clause + independent-clause
+interjecting-word
+participial phrase
+energetic-trio-pattern
+with-phrase
+cause-effect adjunct clause
+independent clause with tone of interrogative-sentence
+Coordinating-clause
+Imperative-clause
+Infinitive-clause
+subject-verb-direct-object-clause
+subject-verb-subordinate-clause
+transitional-clause
+transitional-sentence
+coordinating-sentence
+subordinating-conjunction-in-sentence
+exclamation (or interjection)
+idiomatic-expression
+interro
+adverbial-participle-clause
+comparative-adjective-clause
+complete-sentence
+noun-clauses
+appositive-construct
+independent-clause-comma-noun-phrase-rule
+noun-address
+split-infinitive-phrase
+declarative
+predicate-adjective
+adverb-phrasal-clause
+complementary-clauses
+adverb-sentence
+plural-singular-agreement
+plural-singular-agreement-sentence
+unknown
+advberbial-clause
+interrogative -sentence
+introductory-phrase
+exclamatory-sentence + adverbial-sentence + declarative-sentence
+adverbial-sentence + adjective-clause + noun-clause
+exclamatory-sentence + subject-clause + prepositional-clause
+exclamatory-sentence + subject-clause
+exclamatory-sentence + subject-clause + appositive-clause
+interrogative-sentence + subject-clause + appositive-clause
+declarative-sentence + direct-object-clause
+exclamatory-sentence + exclamatory-sentence + subject-clause + object-phrase
+imperative-sentence + subject-clause + object-phrase
+coordinating-independent-clause
+interrogative-independent-clause
+noncoordinating-clause
+complement-clause
+compound-noun
+subject-verb-inversion
+prepopsitional-phrase
+non-identifying-relative
+subject-verb-interrogative
+subject-verb-relative-clause
+clause of reason
+adverb-adjective-phrase
+independent-clausewith-direct-address
+compound-sentences-with-adverbs
+independent-clause with-parallel-sentence
+verbal-phrase-sentence
+adverbial-clause of purpose
+compound-sentence + prepositional-clause
+complex-sentence + compound-sentences-with-semicolon
+interrogative-sentence + imperative-sentence
+prep-phrase
+subject-verb-imperative-sentence
+verb-clause-sentence
+dependent-clause-sentence
+conjunction-dependent-clause
+compound-coordinate-clause
+adverb-condition
+adverb-adverb-independent-clause
+subject-independent-clause
+subject-coordinate-clause
+subject-adjective-independent-clause
+subordinating-conjunction-coordinating-clause
+compound-complex-clause
+parallel-complex-clause
+complex sentence + noun-clause
+compound sentence + relative-clause
+conditional-clause + complex-sentence
+complex sentence + adjectival-clause
+non-finite clause
+complement
+finite-verb
+reducible-clause
+WH-question in present tense
+non-finite-subordinate-clause
+subject-adverb-predicate
+time-adverbial-clause
+subordinating-conjunction-clause
+noun-adverbial-clause-sentence
+ellipse
+adverbial-phrase-of-time
+adverbial-phrase-of-concession
+postpositional-phrases-of-place
+participle-phrase-of-time
+participial-phrase-of-place
+noun-clause-object-of-preposition
+adverbial-phrase-of-manner
+noun-clause-object-complement
+direct-question
+subject-verb-dobj-sentence
+subject-verb-ing-sentence
+subject-verb-adj-sentence
+compound-exclamatory-sentence
+exclamatory-word
+gerund
+interjections
+"independent-clause"
+indipendent-clause
+compound-sentences-with-commas
+imperative-sentence or noun-phrase
+declarative-sentence or noun-phrase
+exclamation-sentence or noun-phrase
+preposition-phrase
+min-clause
+pronoun-verb-adverb-clause
+possessive-adjective-verb-passive-verb-clause
+subject-adjective-verb-clause
+numeral-adjective-noun-prepositional-phrase
+verb-passive-verb-clause
+adverb-verb-preposition-adjective-noun-clause
+imperative-clause, imperative-clause, imperative-clause
+dependent-clause with relative-presentation
+conditional-clause-sentence
+dependent-clause with conditional-presentation
+imperative phrase
+N/A
+relational-clause + profanity-obscurity + exclamatory-sentence
+declarative-senten
+adverbial-conjunction
+independent clause sentence structure
+prepositional-clause + compound-sentence
+"subject
+verb"
+compound-sentence-with-semicolon
+"direct-object
+verb-phrase"
+"subordinating-conjunction
+"verb
+adverbial-phrase"
+"noun
+"prepositional-phrase
+noun"
+collective-noun-phrase
+declarative-sentence + noun-clause-sentence + adverbial-sentence
+exclamatory-sentence + adjective-phrase + subject-sentence + relative-clause-sentence
+declarative-sentence + noun-phrase + adverbial-sentence
+assertive-sentence
+object-clause + gerund-phrase
+object-complement
+adverbial-phrase + adjective-clause
+linking-verb
+easy-sentence
+simple-clause
+declarative-sentence + dependent-clause
+causal-sentence + declarative-sentence
+causal-sentence + noun-clause-in-an-object
+imperative-sentence + infinitive-clause + infinitive-clause
+infinitive-clause + infinitive-clause
+imperative-sentence + infinitive-clause
+noun-clause-in-an-object + adjective-noun-sentence
+single-sentence
+expressed sentence
+coordinated independent-clause
+expressed-independent-clause
+linking-clause
+copula-linking-clause
+inverted-indepedent-clause
+adverbial-clause + relative-clause
+coordinating-clause + independent-clause
+noun-clause + noun-clause
+verb-clause-of-purpose
+sentence-with-relative-clause-of-reason
+primary-conjunction-clause
+infinitive-clause.
+noun-clause-in-object
+present participle-clause
+verb_phrase_sentence
+subject-verb-wh phrase
+subordinating-adverbial-clause
+delimiter-clause
+correlatives-sentence
+noun-appositive
+possesive-noun
+appositive-clause + compound-sentence
+compound-complex-sentence + appositive-clause
+aa independent-clause
+adjectives-phrase
+independent-blaze
+prepositional-clause, complex-sentence, complex-sentence
+prepositional-phrase, independent-clause, independent-clause
+simple-sentence, simple-sentence
+independent-clause, independent-clause
+complex-sentence, complex-sentence
+noun-clause, noun-clause
+compound-sentence, compound-sentence
+complex-sentence, simple-sentence
+complex-sentence, independent-clause
+reducing-clause
+reducing-adverbial-participle-phrase
+adverbial-participle-phrase
+reducing-adverbial-gerund-phrase
+imperative-sentence-with-direct-address
+declarative-sentence-with-conjunction
+additive-clause
+subject-verb-initial-conjunction-adverbial-phrase
+coordinating-conjunction-subordinating-clause-noun-clause
+coodinate-clause
+adjective-noun-phrase
+subordinating-clauses
+Prepositional-clause
+Adverbial-clause
+introductory-adverb
+subject-verb-predicate phrase
+subject noun phrase
+adverbs
+passive-voice-independent-clause
+negative-independent-clause
+compound-complex-complex-sentence
+participle-clause + coordinated-clause
+adverbial-clause + adverbial-clause + adverbial-clause
+noun-clause-of-subject + noun-clause-of-time
+noun-clause-of-subject + noun-clause-of-object + noun-clause-of-reason
+adverbial-clause-of-time + noun-clause-object + noun-clause-of-reason
+subject-verb-object-sentence + adverbial-clause-of-time
+subject-verb-object-sentence + adverbial-phrase
+adverbial-clause-of-comparison + adverbial-clause-of-time
+adverbial-clause-of-time + adverbial-clause-of-purpose
+coordinate
+komplex-sentence
+wh-clause
+descriptivesentence
+compounded-dependent-clause
+declarative-and-conditional-sentence
+imperative-declarative-sentence
+adjective-phrase + independent-clause
+indefinite-phrase
+adjective-clause + adverbial-clause + interjection
+adverbial-clause + infinitive-clause
+adverbial-clause + adjective-clause + interjection
+exact participle
+noun-clause + verb-phrase
+impersonal sentence
+coordinating-clause [(dependent) clause within a compound sentence]
+coordinating-clause (dependent clause)
+adverbial-clause (dependent clause)
+present-participial phrase
+defining-relative-clause
+restrictive-clause (dependent clause)
+prepositional-clause (dependent clause)
+compound-adjectives-sentence [(independent clause) which combines two singular subjects and two singular verbs with "and"]
+object-phrase (object complement)
+adverbial-clause [(independent) clause that begins with a subordinating conjunction "so" to show cause and effect]
+adjective-phrase (subject complement)
+present-participial phrase (an adverbial complement)
+adjectival-phrase (adjectival complement)
+conjunctive-phrase [(dependent) clause within an independent sentence]
+= subject-verb-adjective-sentence
+participle-phrase-sentence
+complete (or "fragmented") phrase
+subject-verb-subject-complement-sentence
+auxiliary-clause
+noun-adjective-verb-sentence
+verb-participle
+subject-verb-noun/adjective-clause
+subject-verb-noun/adjective-sentence
+adverbial-verb-phrase
+absent-complement-phrase
+absent-subject-phrase
+plural-simple-sentence
+compound-sentences-with-semicolon
+adverbial-clause of comparison
+compound-sentences-with-comma
+juxtaposition
+noun-phrasal-sentence
+independent sentence
+complex-sentence (adverbial-clause)
+interjection -sentence
+imperatice-sentence
+noun-vocative
+copular-sentence
+phrase-sentence
+parallel-sentence + prepositional-clause
+pronoun-subject
+adverbial-infinitive-phrase
+attribute-clauses-sentence
+attribute-clause
+adjectival clause
+none, just phrases
+and-subordinating-clause
+coordinator
+compound-sentence.
+two independent-clauses
+adverbial-clause + noun-clause, complex-sentence
+independent-clause + independent clause, compound-complex-sentence
+independent-clause + direct-object-sentence, complex-sentence
+noun-clause-of-object-complement
+absolutely-clause
+simple-present-clause
+simple-present-sentence
+exlcamatory-sentence
+prepositional-sentences
+causal-sentences
+noun-phrase-examples
+imperative-hortative-sentence
+parallel-sentence structure
+conjunction-combined-adjective-clause
+auxiliary-verb-phrase
+numeral-phrase
+temporal-clause
+concessive-clause
+emphatic-clause
+nom-restrictive-clause
+nominative-clause
+adjectives
+adverbial-clause of manner
+no clause, sentence fragment
+declarative-sentence + appositive-phrase
+adverbial-clause + prepositional-phrase
+combined noun-phrases and adjective-phrases
+compound-sentence (coordinating)
+dependent-clause (non-restrictive relative)
+independent-clause (coordinating)
+verb-absolute
+noun-clause-of-prohibiton
+noun-clause-of-question
+- imperative-sentence
+adverbial-clause-of-location
+adjectival-clause-of-restriction
+> independent-clause
+> noun-phrase
+> adverbial-phrase
+> interjection
+> dependent-clause
+subject-verb-noun-phrase
+verb-direct-object
+subject-predicate
+subjunctive
+verb-adverb
+subject-verb-direct-object
+verb-adverbial-clause
+adjective-subject-object
+argumentative-sentence
+coordination-clause + imperative-sentence
+present progressive verb-clause
+list-of-phrases
+plural-noun-list
+defined-clause
+present-participial-phrases
+absolute phrase
+gerund-phrases-in-a-sentence
+adjective-imperative-sentence
+noun-phrase + participial-clause
+present-tense-verb
+adjective-subject-sentence
+exclamatory-sentence + main-clause
+simple-sentence + run-on-sentence
+compound-sentence + complex-sentence
+noun-clause (subject complement)
+noun-clause (direct object)
+conditional-clauses
+demonstrative-pronoun
+complex-adjective-clause
+undamental-phrase
+conjunctive-sentence
+adjective-prepositional-clause
+nominative-absolute-clause
+xxx
+declarative-sentence + noun-adjective-phrase
+subject-verb-object-sentence + prepositional-clause
+verb-phrases-sentence
+noun-clause in object of preposition
+noun-clause of appositive
+noun-clause of subject
+compound-sentence with coordinating conjunction
+grammatical-phrase
+reduction-of-clauses
+adjective-clause-of-purpose
+predicate-adjunct-sentence
+subject-adjective-phrase
+simile-phrase
+main-verb
+cooridnating-clauses
+adverbial-clause + independent-clause + exclamatory-clause
+now
+subordinate-conjuction
+adverbial-clause + independent-clause + prepositional-clause
+adverbial-clause + exclamatory-clause
+participial-clause + modifier-clause + participial-clause + modifier-clause
+modifier-adverb
+subordinating-clause + exclamatory-clause
+subordinating-sentence
+adverbial-clause + independent-clause + independent-clause
+declarative-clause + exclamatory-clause
+singular-noun
+parallel-complex-sentence
+verb-infinitive
+adjective-noun-complex-sentence
+verb-noun-clause-sentence
+adverbial-noun-phrase-sentence
+noun-adverb-verb-clause-sentence
+interjection-noun-adverb-noun-sentence
+adjective-noun-phrase-sentence
+adjective-noun-verb
+pronoun-verb-noun
+compound-verb-phrase
+verb-phrase + object-phrase
+noun-clause + adjectival-phrase + noun-clause + adjectival-phrase
+subordinating conjunction-clause
+indpendent-clause
+noun-clause + adjectival-clause + independent-clause
+adverb-clause + infinitive-clause
+modal-auxiliary-clause + infinitive-clause
+noun-clause + prepositional-clause
+participle-clause + adjective-clause
+participle-clause + prepositional-clause
+noun-clauses = descriptive-sentence
+adjective-adverb-phrase
+subject-verb-article-modifier-adjective-article-noun-noun
+transitive-verb-sentence
+present-progressive-verb-phrase
+coordinating-clause + declarative-sentence
+subordinating-clause + subordinate-clause
+participial-clause + participial-clause
+present-participle-sentence
+prepositional-clause + participial-clause
+coordinating-clause + declarative-sentence + subordinating-clause
+participial-clause + infinitive-clause
+subordinating-phrase
+disjunctive-clause
+noun-clause (as appositive)
+noun-clause (as direct object)
+noun-clause (as subject)
+verb-clause (as predicate)
+declarative-sentence + interrogative-sentence
+declarative-sentence + declarative-sentence + interrogative-sentence
+gerund-clause + subject-verb-predicate-sentence + subject-verb-predicate-sentence
+noun-clause + adjective-clause + imperative-sentence + adjective-clause
+appositive-phrase + conditional-clause
+exclamatory-sentence + subject-verb-adjective-sentence + gerund-clause
+compound-sentence-with-sentence-conjunctions
+adjective-phrase-sentence
+interjection + declarative-sentence
+adjective-clause (describing "men")
+pronoun-noun-adverb-phrase
+subject-verb-complement clause
+conjunction-separator
+object-clause-in-sentence
+informative-clause
+conjunction phrase
+adverbial-clause-of-time sentence
+adverbial-clause sentence
+inverted-sentence-structure-errors sentence
+cohesive-adjectives-phrase
+compound-sentence with semicolon
+adverbial-clause-of-condition sentence
+conjunctive-clause sentence
+imperarive-clause
+existential-sentence
+single-subject-clause
+prepositional-clause + complex-sentence
+causal-clause + independent-clause
+causal-clause + dependent-clause
+noun-clause-of-subject + independent-clause
+vocative-phrase
+modify-be-verb-clause
+adverb-dependent-clause
+adverb independent-clause
+parallel-sentence-structure-errors
+causal-sentence + coordinating-clause
+conditional-sentence + coordinating-clause
+expletive-clause
+adverbial-sentence + declarative-sentence
+simple-sentence + adjective-phrase + verb-phrase
+clause-with-gerund
+onomatopoeia-clause
+gerund-clause + declarative-sentence + declarative-sentence
+non-coordinating-clause + declarative-sentence
+absolute-clause + participial-clause
+imperative-sentence + adverbial-clause + exclamatory-sentence
+present partciple phrase
+prepostitonal-phrase
+prep phrase
+prepositional-clause + noun-clause + noun-clause
+prepositional-clause + independent-clause + adjective-clause
+independent-caluse
+directive-clause
+consecutive-sentence
+modification-clause
+adverbial-phrase (comparing)
+independent-clause (gerund-clause)
+noun-phrase (compound-noun)
+object-phrases
+indefinite-article-phrase
+object-phrase + declarative-sentence + causal-sentence
+adverbial-clause + imperative-sentence + declarative-sentence
+object-phrase + interrogative-sentence
+exclamatory-sentence + declarative-sentence
+adverbial-clause + imperative-sentence
+adverbial-clause + declarative-sentence + declarative-sentence
+noun-clause + adjective-clause + noun-clause
+verb-clause + independent-clause
+verb-clause + noun-clause + interrogative-sentence
+verb-clause + prepositional-clause
+noun-clause + adjective-clause
+com
+nouns-phrase
+compound-nouns-sentence
+indefinite-noun-phrase
+determiner-phrase
+gerund-clause + participle-clause + independent-clause + independent-clause
+adjective-clause + independent-clause + prepositional-phrase
+complex-wentence
+imperative-sentence + noun-phrase
+dependent- clause
+one-word sentence
+declarative-sentence.
+" exclamation
+participial-phrases
+subject-verb-adverbial sentence
+body of sentence
+non-coordinating clause
+compound-adjectives-phrases
+compound-adjective
+imperative-complex-sentence
+modifying-clauses
+None + None + independent clause
+graffiti-token
+lists-sentence
+subordination-clause
+noun-clause (object)
+simple-compound-sentence
+number-noun-noun
+infinite-phrase
+adverbial-clause + coordinating-clause
+Elliptical-clause
+Adjectival-clause
+Adjective-clause
+Participle-clause
+Subject-predicate-clause
+Verb-predicate-clause
+combining-complex-sentence
+ellipital-clause
+participle-sentence
+noun-clause/sentence
+gerund-clause/sentence
+indepenent-clause
+double-subject-clause
+a dependent-clause and independent-clause
+exclamatory-sentence + adjective-clause
+compound-sentence + subordinate-clause
+negative-sentence + declarative-sentence
+interrogative-complex-sentence
+independent-reduced-sentence
+subjectverb-phrase
+none (fragment)
+subject-clause-sentence
+single independent-clause
+independe
+noun-phrase-in-an-object + noun-phrase-in-an-object + adverbial-clause-of-time
+non-restrictive-phrase + non-identifying-relative-clause
+predicate-noun-of-an-object-sentence
+non-restrictive-phrase + non-defining-relative-clause
+multiple independent-clauses
+coordinating-clause + adjectival-clause
+adverbial-clause + subject-verb-predicate-sentence + subject-verb-direct-object-sentence
+adjectival-phrase + noun-phrase
+subject-verb-adverb clause
+noun-pronoun clause
+subject-verb-direct object phrase-adjective phrase
+subject-verb-direct object-intensifier verb-predicate adjective phrase
+subject-verb-direct object phrase
+subject-verb-direct object-adjective-adjective noun-noun
+subject-verb-linking verb-direct object-adjective-adjective noun-noun
+pronoun-verb main auxiliary-auxiliary verb-gerund-object-phrase-preposition article adjective noun
+adverb-adjective phrase
+subject-verb-adjective-attributive-noun, present participle-clause-verb objet = copular-verb-attributive-preposition article article noun-word
+pronoun with verb
+verb-phrase with gerund
+verb-phrase with infinitive
+adverb-vprepositional-phrapse
+adverb-prepositional-phrasial-clause
+declarative-sentence + relative-clause-sentence
+declarative-sentence + adjective-clause-sentence
+participle-phrases-in-a-sentence + adjective-phrases-sentence
+declarative-sentence + interjective-sentence
+declarative-sentence + gerund-phrase-in-a-sentence + coordinating-clause
+non-coordinating-clause + independent-clause
+subordinating-clause + independent-clause
+imperative-sentence + independent-clause
+coordinating-clause + non-coordinating-clause
+non-coordinating-clause + gerund-clause
+-ing participle clause
+gerund-clause + coordinating-clause
+non-coordinating-clause + coordinating-clause
+s identifying-relative-clause
+cause-sentence
+cause
+no additional clause
+semi-auxiliary verb-clause
+main-verb-clause
+objects phrases
+relative-clause-of-subject
+adjective-adverbial-sentence
+non-parallel-compound-sentence
+expletive clause
+noun-clause + compound-complex-sentence
+noun-clause-of-manner
+clause-of-concession
+vocative-noun
+dependent-clause (subordinate clause)
+marking-clause
+noun-clause + sentence-fragment
+past-perfect-verb-to-be
+past-participle-verb-to-have
+past-tense
+past-progressive-tense
+negation-adverbial-phrase
+prepositional-clause + compound-sentence + compound-subjects-sentence
+adverbial-clause + complex-sentence + compound-complex-sentence
+declarative-sentence + complex-sentence
+interje
+past participle
+infinitive
+describing-sentence
+noun-clause as subject complement
+noun-clause-of-time
+Dependent (subordinate) clause
+Dependent (relative) clause
+Independent (coordinating) clause
+Dependent (relative ) clause
+subject-verb-complement sentence
+sentence structure: interrogative-sentence
+auxiliary-verb
+sentence structure: descriptive-sentence
+sentence structure: declarative-sentence
+sentence structure: conditional-sentence
+coordinating-phrases
+condition-sentence
+casaul-sentence
+pronoun-antecedent-agreement-sentence
+present-tense-clause
+present-tense-phrase
+present-continuous-clause
+present-continuous-phrase
+date
+subject-verb-indirect-object independent-clause
+subject-verb-gerund independent-clause
+subject-verb-adjective independent-clause
+subject-verb compound-sentence
+subject-verb complement independent-clause
+subject-verb predicate dependent-clause sentence
+adverbial-adjective independent-clause
+coordinating-verb dependent-clause
+subject-adjective independent-clause
+reason expanded dependent-clause
+complex-sentence-ive
+conjunctive phrase
+prepositional-clause + coordinate-clauses
+verb-phrase + prepositional-phrase + absolute-clause + relative-clause
+verb-ing-participle-clause
+relative-clause-of-object
+verb-phrase + prepositional-phrase
+subordinate-clauses + independent-clause
+absolute-clause + adjectival-clause
+possessive-sentences
+noun-clause, declarative-sentence
+Noun phrases
+noun phrases
+Appositive phrases
+restrictive-independent-clause
+Participial-phrase
+imperative-independent-clause
+compound-sentence-structure
+(missing dependent-clause)
+conjunction-clause-of-purpose
+interjection-adverb
+coordinati
+coodinating-phrase
+finite-phrase
+finite-phrases
+None (no sentence structure)
+None (no clause)
+subject-verb-adjectival-sentence
+subject-verb-gerund-sentence
+coordinatng-clause
+prepositional-clause + compound-complex-sentence
+imperative-clause + declarative-sentence
+coordinating-clause + noun-clause
+adverbial-clause + predicate-sentence
+imperative-clause + compound-sentence
+noun-clause + verb-clause
+personal-pronoun
+independent-clause (interjection)
+verb- phrase
+definite-noun
+present-participal-clause
+complex-sentences
+subject-verb-negator-predicate-sentence
+modified-sentence
+declarative-sentence + noun-clause + dependent-clause
+since independent-clause
+adj-multiple-clause
+adj-clause-phrase
+sentence structure: simple-sentence
+imperatrve-sentence
+compound-sentenc
+coordinatin-clause
+parallel-clauses
+subject-verb-prepositional phrase-sentence
+possessive phrase
+dependent-clause (Because it cannot stand alone without more context)
+verb-phrase-participial-clause
+independent-clause-relative-clause
+independent-clause-verb-phrase
+first-part-of-verb-phrase
+second-part-of-verb-phrase
+interrogativeword
+interrogative-word
+noun-phrases-sentence
+n/a
+punctuation mark
+possessive-adjective-clause
+postpositional-clause + imperative-sentence
+subject-verb-object-sentence + noun-phrase-sentence
+parallel-sentences + parallel-sentence-structure
+subject-verb-object-sentence + adverbial-clause
+subordinating-clause + subordinating-clause + complex-sentence
+adverbial-clause + adjective-clause + complex-sentence
+adjectival-clause + parallel-sentence-structure
+noun-clause + descriptive-sentence
+subject-verb-object-sentence + adverbial-clause + appositive-phrase
+linking-sentence
+clause-of-method
+prepositional-phrase (comparing "you" to "a January first")
+noun-clause ("trap music or dance songs")
+modal-auxiliary-phrase + adverb-clause-of-comparison
+modal-ver-bal ("gonna pull up")
+subject-auxiliary-verb-sentence
+Prepositional-Phrase
+prepositional-clause + gerund-clause
+subordinate-clause + simple-sentence
+simple-sentence + subordinate-clause + subordinate-conjunction
+noun-phrase + simple-sentence
+prepositional-clause + prepositional-clause
+gerund-clause + simple-sentence
+simple-sentence + subordinate-clause
+when-clause
+subordinating-clause + coordinate-clauses
+prepositional-phrase (acting as adverbial-phrase)
+coordinate-clause + subordinating-clause
+correlative-clauses
+noun clause (subject)
+adverbial-clause or noun-clause
+noun-clause-of-subject + adjectival-clause + declarative-sentence
+simple-sentence + infinitive-clause + adverbial-clause
+simple-sentence + adverbial-clause-of-manner
+simple-sentence + adverbial-clause-of-condition
+adverbial_SENTENCE
+expletive-absolute
+ellipsed-sentence
+noun-separator-word
+independent-clause + imperative-sentence
+compound-sentence (with subordinating conjunction)
+conditional-sentence (with implied "if" clause)
+single-clause declarative sentence
+imperative-clauses-with-direct-address
+noun-clause (of direct object)
+noun-clause (of subject)
+adverbial-clause (of time)
+adverbial-clause (of condition)
+noun-clause (of indirect object)
+indirect-object
+nominative-phrase
+subject-verbPredicate-clause
+-independent-clause
+coordinating-clause + coordinating-clause + coordinating-clause
+coordinating-clause + adverbial-phrase
+coordinating-clause + noun-clause + coordinating-clause
+coordinating-clause + prepositional-phrase + coordinating-clause
+restrictive-phrase
+past-participle
+noun-clause as an adverb
+noun-clause as a subject
+noun-clause as an object
+noun-clause as an indirect object
+noun-clause as a direct object
+pronoun-antecedent agreement
+opening dependent-clause
+gerund-clause-sentence
+interjective-sentence
+relative clause
+null-clause
+imparative-sentence
+non-identifying-relative + adjective-clause
+inversion-sentence
+direct-object-clause + object-complement-clause
+dependent-sentence
+noun-phrase clause
+non-relative-clause
+verb-phras
+dependant-clause
+appositive phrase
+predicative-phrase
+idiomatic-phrase
+sentence-adverb-phrase
+parallel-sentences + declarative-sentence
+declarative-sentence + adjectival-phrase
+noun-noun-phrase
+noun-sentence.
+multiple verb-phrase
+noun-clause + parallel-sentence
+infinitive-phase
+sentence conjunction
+compound-subjects
+adjectival-clause-sentence
+coherent-clause
+shouted noun-phrase
+relative-clause + prepositional-clause
+intererogative-sentence
+adjectival-clauses
+incomplete sentence/phrase
+adverbial-clause, noun-clause, independent-clause
+independent-clause, noun-clause
+dependent-clause, independent-clause
+independent-clause, relative-clause
+independent-clause, adverb-clause
+adverb-prepositional-phrase
+compound, sentence
+gerund-participle-clause
+noun-gerund-clause
+verb-participle-clause
+imperartive-sentence
+adverbial-clause-independent-clause
+sentence-sentences
+quotation-elided
+declarative-sentence + adjective-clause + adjective-clause + adjective-clause + adjective-clause
+noun-phrase + noun-phrase + adjective-clause + adjective-clause
+imperative-sentence + modifier-phrase + noun-phrase + adjective-clause
+modifier-phrase
+noun + noun + noun + noun + adjective-clause
+noun-phrase + noun-phrase + modifier-clause + adjective-clause
+declarative-sentence + adverbial-clause + pronoun-clause + adverbial-clause
+inversion
+independent-clause,
+adverbial-clause + complex-sentence + relative-clause
+adjective-clause + complex-sentence + relative-clause
+clause-with-subordinate-conjunction
+additional-clause
+imperative-clause-sentence
+clause-sentence
+declarative-clause-sentence
+noun-clause + adjective-clause + adverbial-clause
+independen-clause
+complex-sente
+unknown structure
+unknown clause
+dependent-clause (non-restrictive)
+noun-clause of object-of-preposition
+present progressive-clause
+gerund/infinitive phrase
+future progressive-clause
+present tense-clause
+future tense-clause
+present continuous-clause
+modals-clause
+reduced-adverbial-clause
+independent-clause (predicate)
+sentence with adverb-phrase
+independent-clause (adjective)
+sentence with object-phrase
+noun-phrase (object)
+independent-clause (adverbial)
+sentence with subject-phrase and adverbial-phrase
+negative-imperative-sentence
+sentence with subject-phrase and object-phrase
+independent-clause (object)
+coordinating-clause joined by a conjunction
+conjunction-and-formula
+subject-verb-object-sentence with noun-phrase
+sentence-combining + adverbial-clause-of-purpose
+parallel-structure-clause
+imperatve-sentence
+postpositional-clause-sentence
+critic-phrase
+conditional-clause + conditional-sentence
+declarative-sentence + noun-clause-of-subject
+declarative-sentence + noun-adjective-clause
+imperative-sentence + coordinating-clause
+declarative-sentence + independent-clause
+declarative-sentence + non-defining-relative-clause
+independent-clause with a question
+dependent-clause-of-essential-meaning
+dependent-clause-of-conditionality
+interrupting-clause
+dependent-clause-of-concession
+complex-sentence and fragment
+noun-clause and adverbial-phrase
+compounded interjection or exclamatory-clause (depending on context)
+adverbial-clause and noun-clause
+noun-clause (depending on context)
+subjunctive-clause and compound-clause (depending on context)
+prepositional-clause + gerund-phrase
+adjective-clause + infinitive-phrase
+sentence-fragment-error
+verb-prepositional-phrase
+noun-clause-of-place
+adverbial-phrase-of-purpose
+adjective-enabled-clause
+coordinated-clauses + parallel-sentence
+subordinating-clause + descriptive-sentence
+coordinated-clauses + compound-sentence
+subordinating-clause + adverbial-phrase
+verb-phrase-clause + adverbial-phrase
+adjective-clause + direct-object-sentence
+propositional-phrase
+contextual-sentence
+addressing-clause
+verb-adjective-predicate
+verb-verb
+possessive-subject-predicate
+verb-preposition-phrasal-verb
+interrogative-pronoun-adverb
+verb-adjective-object-phrasal-verb
+conjunction-noun-verb-negator
+imperaitve-sentence
+question-sentence
+present-continuous-sentence
+two main clauses
+compound-declarative-clause
+adverb-clause with subject
+independent or subordinate-clause
+conjunctions-in-sentence or compound-sentences
+no main-clause, two dependent-clauses connected with a comma
+No main clause, three independent-clauses connected with a conjunction.
+no dependent clauses, two independent-clauses connected with a conjunction
+no main clause, three independent-clauses connected with a comma
+analogous-phrase
+adverb-phras
+noun-pharase
+main-Clause
+imperative-sentences-with-adverbs
+subject-clause + interrogative-clause + imperative-clause
+interrogative-clause + imperative-clause
+noun-clause + participial-clause + interjection-clause
+modal-auxilary-clause
+modvial-auxilary-phrase
+headless-declarative-clause
+interceptive-clause
+compound-sentence (declarative)
+simple-sentence (imperative)
+complex-sentence (declarative)
+compound-complex-sentence (exclamatory)
+compound-complex-sentence (declarative)
+compound-sentence (imperative)
+compound-sentence (interrogative)
+cooperative-clause
+adjectival-clause + declarative-sentence
+adjectival-clause + imperative-sentence
+comparative-adjective-phrase
+impressor-subordinate-clause
+sequential-sentence
+independet-clause
+exclamation-clause
+present-participle clause
+demonstrative-clause (relative)
+noun-clause (appositive)
+prepositional-clause (absolute)
+parallel-constructions
+repetition-sentences
+repeated-phrase
+subject-pronoun-clause
+verb-object-clause
+object-adjective-clause
+exclamatory phrase
+declarative-sentence + adverbial-sentence
+declarative-condition-sentence
+descriptor
+clarifying-sentence
+inferrogative-sentence
+nomial-clause
+adjective clause (modifying "watch")
+noun phrase (subject)
+adjective clause (modifying "songs")
+not a sentence structure
+noun phrase (predicate)
+adjective phrase (modifying "grain")
+adjective clause (modifying "soda")
+conditional-clause, adverb-clause, declarative-sentence
+adjectival-phrase-sentence
+subject-phrase + declarative-sentence
+catenative-clause
+subject-verb-predicate clause
+participial-phrases-in-a-sentence
+restrictive-relative-clauses
+adverbial-clause-phrase
+indirect-object-clause
+compound-adverbial-clause
+adverbial-of-condition
+depending-clause
+participle phrase
+participial clause
+prepositional-clause S
+adjective-adverbial-phrase
+object-prefix
+subject-object-infinitive
+subject-object-verb-phrase
+subject-object-verb
+subject-prefix
+subject-object-verb-clause
+subject-predicate-verb-phrase
+conjunction-phrases
+progressive-aspect-sentence
+imperative-sentence + declarative-sentence.
+subject-verb-construction
+sentence splicing
+co-subordinating-clause
+imperative-sentence + noun-clause
+"interjection"
+independent clause + independent clause + dependent clauses
+interjection + name
+name
+interrogative-sentence + interrogative-sentence + interjection
+independent-clause + punctuations + independent-clause
+dash
+auxiliary-phrase
+conditional-clause complex-sentence
+adverbial-conjunction dependent-clause independent-clause
+adverbial-interrogative dependent-clause
+adverbial-dependent-clause independent-clause
+proper-noun-clause
+adjective-noun
+simple-sentence (exclamatory)
+simple-sentence (interrogative)
+sentence
+adjective-noun-phrases
+verb-independent-clause
+imperative-sentence with direct-address
+no-structure (spoken utterance)
+no-clause
+compound-sentence-noun-clause
+introducting-word
+compound-sentence-exclamatory-sentence
+independent-clause + independent-clause + independent-clause
+noun-interjection
+interjective-phrase
+command-sentence
+adverbial-clause + noun-clause
+noun-clause + prepositional-clause + verb-clause + complex-sentence
+verb-clause + prepositional-clause + simple-sentence
+noun-clause + prepositional-clause + simple-sentence
+noun-clause + relative-clause
+pronoun-clause + prepositional-clause
+adverb-clause + gerund-clause
+noun-clause + prepositional-clause + verb-clause
+prepositional-clause + modifier-clauses
+demonstrative-clause
+adjective-phras
+short-clause
+short-complex-sentence
+declarative-sentence + hastaesthetic-sentence
+subject-verb-imperative-verb
