@@ -5,14 +5,17 @@ void IndexFile::Load(const String& path) {
 	this->path = path;
 	String content = LoadFile(path);
 	content.Replace("\r","");
-	Vector<String> lines = Split(content, "\n");
+	Vector<String> lines = Split(content, "\n", false);
 	for (String& l : lines)
 		idx.Add(l);
 }
 
 void IndexFile::Store() {
-	String content = Join(idx.GetKeys(), "\n");
-	FileOut fout(path);
-	fout << content;
-	fout.Close();
+	String content = Join(idx.GetKeys(), "\n", false);
+	String old_content = LoadFile(path);
+	if (content.GetHashValue() != old_content.GetHashValue()) {
+		FileOut fout(path);
+		fout << content;
+		fout.Close();
+	}
 }

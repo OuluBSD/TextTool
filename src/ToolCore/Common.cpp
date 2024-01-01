@@ -1090,4 +1090,121 @@ String GetScoreKey(int score_mode, int score_attr) {
 
 
 
+hash_t HexHash(const String& s) {
+	const int count = sizeof(hash_t);
+	static_assert(count == 8, "64bit supported only (so far)");
+	union {
+		hash_t out;
+		byte b[sizeof(hash_t)];
+	};
+	int sep = min(count*2, s.GetCount());
+	ASSERT(sep % 2 == 0);
+	sep -= sep % 2;
+	
+	out = 0;
+	byte *t = b;
+	for(int q = 0; q < sep; q+=2) {
+		byte l = s[q+0];
+		byte h = s[q+1];
+		
+		if (l >= '0' && l <= '9') l -= '0';
+		else if (l >= 'a' && l <= 'f') l = l - 'a' + 10;
+		else l = 10 + l - 'A';
+		
+		if (h >= '0' && h <= '9') h -= '0';
+		else if (h >= 'a' && h <= 'f') h = h - 'a' + 10;
+		else h = 10 + h - 'A';
+		
+		*t++ = l | (h << 4);
+	}
+	return out;
+}
 
+String HashHex(hash_t h) {
+	String s;
+	s.Reserve(sizeof(hash_t)*2);
+	union {
+		hash_t in;
+		byte b[sizeof(hash_t)];
+	};
+	in = h;
+	int count = sizeof(hash_t);
+	byte *t = b;
+	for(int i = 0; i < count; i++) {
+		byte l = b[i] & 0xF;
+		byte h = (b[i] & 0xF0) >> 4;
+		
+		if (l >= 0 && l <= 9) s.Cat('0' + l);
+		else s.Cat('a' + l - 10);
+		
+		if (h >= 0 && h <= 9) s.Cat('0' + h);
+		else s.Cat('a' + h - 10);
+	}
+	return s;
+}
+
+int FindNonEscaped(const String& s, const String& search) {
+	int a = 0;
+	while (true) {
+		a = s.Find(search, a);
+		if (a < 0)
+			return -1;
+		else if (a == 0) {
+			return a;
+		}
+		else {
+			char prev = s[a-1];
+			if (prev == '\\') {
+				a++;
+				continue;
+			}
+			else
+				return a;
+		}
+	}
+	return -1;
+}
+
+int FindNonEscaped(const String& s, const String& search, int begin) {
+	int a = begin;
+	while (true) {
+		a = s.Find(search, a);
+		if (a < 0)
+			return -1;
+		else if (a == 0) {
+			return a;
+		}
+		else {
+			char prev = s[a-1];
+			if (prev == '\\') {
+				a++;
+				continue;
+			}
+			else
+				return a;
+		}
+	}
+	return -1;
+}
+
+int FindNonEscaped(const WString& s, const WString& search, int begin) {
+	int a = begin;
+	while (true) {
+		a = s.Find(search, a);
+		if (a < 0)
+			return -1;
+		else if (a == 0) {
+			return a;
+		}
+		else {
+			char prev = s[a-1];
+			if (prev == '\\') {
+				a++;
+				continue;
+			}
+			else
+				return a;
+		}
+	}
+	return -1;
+}

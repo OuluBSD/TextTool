@@ -781,10 +781,11 @@ struct ActionHeader : Moveable<ActionHeader> {
 	String action, arg;
 	
 	ActionHeader() {}
+	ActionHeader(ActionHeader&& a) : action(std::move(a.action)), arg(std::move(a.arg)) {}
 	ActionHeader(const ActionHeader& a) {action = a.action; arg = a.arg;}
 	void operator=(const ActionHeader& a) {action = a.action; arg = a.arg;}
 	bool operator==(const ActionHeader& a) const {return action == a.action && arg == a.arg;}
-	hash_t GetHashValue() const {CombineHash c; c.Do(action); c.Do(arg); return c;}
+	hash_t GetHashValue() const {CombineHash c; c.Do(action); c.Put(1); c.Do(arg); return c;}
 	bool operator()(const ActionHeader& a, const ActionHeader& b) const {
 		if (a.action != b.action) return a.action < b.action;
 		return a.arg < b.arg;
@@ -796,8 +797,39 @@ struct ActionHeader : Moveable<ActionHeader> {
 	void Serialize(Stream& s) {
 		s % action % arg;
 	}
+	void Trim() {action = TrimBoth(action); arg = TrimBoth(arg);}
+};
+
+struct AttrHeader : Moveable<AttrHeader> {
+	String group, value;
+	
+	AttrHeader() {}
+	AttrHeader(AttrHeader&& a) : group(std::move(a.group)), value(std::move(a.value)) {}
+	AttrHeader(const AttrHeader& a) {group = a.group; value = a.value;}
+	void operator=(const AttrHeader& a) {group = a.group; value = a.value;}
+	bool operator==(const AttrHeader& a) const {return group == a.group && value == a.value;}
+	hash_t GetHashValue() const {CombineHash c; c.Do(group); c.Put(1); c.Do(value); return c;}
+	bool operator()(const AttrHeader& a, const AttrHeader& b) const {
+		if (a.group != b.group) return a.group < b.group;
+		return a.value < b.value;
+	}
+	bool IsEmpty() const {return group.IsEmpty() || value.IsEmpty();}
+	void Jsonize(JsonIO& json) {
+		json("group", group)("value",value);
+	}
+	void Serialize(Stream& s) {
+		s % group % value;
+	}
+	void Trim() {group = TrimBoth(group); value = TrimBoth(value);}
 };
 
 Color HSVToRGB(double H, double S, double V);
+
+hash_t HexHash(const String& s);
+String HashHex(hash_t h);
+
+int FindNonEscaped(const String& s, const String& search);
+int FindNonEscaped(const String& s, const String& search, int begin);
+int FindNonEscaped(const WString& s, const WString& search, int begin);
 
 #endif
