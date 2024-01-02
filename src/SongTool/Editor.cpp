@@ -271,6 +271,9 @@ void Editor::ViewPageGroup() {
 	page_list.SetCount(v.GetCount());
 	page_list.SetCursor(page);
 	
+	if (page >= v.GetCount())
+		page = v.GetCount()-1;
+	
 	SetView(page_group, page);
 	DataPage();
 }

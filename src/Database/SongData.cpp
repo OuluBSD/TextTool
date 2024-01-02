@@ -1,5 +1,6 @@
 #include "Database.h"
 
+#if 0
 
 void SongData::Store() {
 	StoreToFile(*this, ConfigFile("SongData.bin"));
@@ -61,7 +62,6 @@ void SongDataAnalysis::LoadJson() {
 }
 
 
-#if 0
 
 String LyricsAnalysis::AsString() const {
 	String s;
@@ -213,3 +213,42 @@ void DatasetAnalysis::RealizeAction(const char* action, const char* arg, int16& 
 }
 
 #endif
+
+
+
+
+void SongData::Load() {
+	for(int i = 0; i < GetCount(); i++) {
+		String key = GetKey(i);
+		auto& ds = a.datasets.GetAdd(key);
+		ds.Load(i, key);
+	}
+}
+
+
+
+DatasetAnalysis::DatasetAnalysis() {
+	
+}
+
+void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	String dir = AppendFileName(db.dir, "share" DIR_SEPS "songdata");
+	RealizeDirectory(dir);
+	
+	String ds_dir = AppendFileName(dir, ds_key);
+	RealizeDirectory(ds_dir);
+	String trans_ds_key;
+	if (ds_i == 0)
+		trans_ds_key = "fi";
+	else
+		trans_ds_key = "en";
+	
+	
+	tokens.Load(ds_dir, "tokens");
+	token_texts.Load(ds_dir, "tokenized texts");
+	
+}

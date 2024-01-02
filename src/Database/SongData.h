@@ -466,7 +466,48 @@ struct StructureType : Moveable<StructureType> {
 #endif
 
 
+struct Token : Moveable<Token> {
+	String txt;
+	
+	String StoreToString() {
+		StringDumper d;
+		d % txt;
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		p % txt;
+	}
+};
+
+struct TokenText : Moveable<TokenText> {
+	Vector<int> tokens;
+	
+	String StoreToString() {
+		StringDumper d;
+		d % tokens.GetCount();
+		for (int t : tokens)
+			d % t;
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		int tc = 0;
+		p % tc;
+		tokens.SetCount(tc);
+		for (int& t : tokens)
+			p % t;
+	}
+};
+
 struct DatasetAnalysis {
+	MapFile<String,Token> tokens;
+	MapFile<hash_t,TokenText> token_texts;
+		
+	
+	DatasetAnalysis();
+	void Load(int ds_i, const String& ds_key);
+	
 	#if 0
 	VectorMap<String, ArtistAnalysis> artists;
 	VectorMap<String, WordGroupAnalysis> groups;
@@ -547,7 +588,7 @@ struct DatasetAnalysis {
 struct SongDataAnalysis {
 	ArrayMap<String, DatasetAnalysis> datasets;
 	
-	void Jsonize(JsonIO& json) {
+	/*void Jsonize(JsonIO& json) {
 		json
 			("datasets", datasets)
 			;
@@ -560,7 +601,7 @@ struct SongDataAnalysis {
 	void StoreJson();
 	void LoadJson();
 	void Store();
-	void Load();
+	void Load();*/
 };
 
 struct SongData {
@@ -588,9 +629,9 @@ struct SongData {
 		}
 		return "";
 	}
-	void Store();
 	void Load();
-	void Serialize(Stream& s);
+	/*void Store();
+	void Serialize(Stream& s);*/
 	bool IsEmpty() const {return artists_en.IsEmpty() || artists_fi.IsEmpty();}
 	
 };

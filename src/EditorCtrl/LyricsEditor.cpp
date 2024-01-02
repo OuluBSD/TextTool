@@ -151,7 +151,6 @@ void LyricsEditor::Data() {
 }
 
 void LyricsEditor::DataPhrase() {
-	TODO
 	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -197,7 +196,6 @@ void LyricsEditor::DataPhrase() {
 }
 
 void LyricsEditor::DataDoActions() {
-	TODO
 	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -241,7 +239,6 @@ void LyricsEditor::DataDoActions() {
 }
 
 void LyricsEditor::DataAction() {
-	TODO
 	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -280,7 +277,6 @@ void LyricsEditor::DataAction() {
 
 
 void LyricsEditor::DataActionHeader() {
-	TODO
 	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;

@@ -341,7 +341,10 @@ void SongDataPage::ImportLyrics() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	
+	Vector<int> token_is;
+	
 	for(int i = 0; i < sd.GetCount(); i++) {
+		DatasetAnalysis& da = sd.a.datasets[i];
 		Vector<ArtistDataset>& artists = sd[i];
 		
 		for(int j = 0; j < artists.GetCount(); j++) {
@@ -355,7 +358,24 @@ void SongDataPage::ImportLyrics() {
 				if (!tk.Parse(lyrics.text))
 					continue;
 				
-				TODO
+				
+				for (const auto& line : tk.GetLines()) {
+					token_is.SetCount(0);
+					CombineHash ch;
+					for (const WString& line : line) {
+						String s = line.ToString();
+						int tk_i = -1;
+						Token& tk = da.tokens.GetAdd(s, tk_i);
+						ch.Do(tk_i);
+						token_is << tk_i;
+					}
+					hash_t h = ch;
+					
+					TokenText& tt = da.token_texts.GetAdd(h);
+					if (tt.tokens.IsEmpty()) {
+						Swap(tt.tokens, token_is);
+					}
+				}
 			}
 		}
 	}

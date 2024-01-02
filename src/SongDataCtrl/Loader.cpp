@@ -13,7 +13,7 @@ void SongDataLoader::Process() {
 	LoadHuggingArtists();
 	LoadHuggingFinn();
 	
-	db.song_data.Store();
+	//db.song_data.Store();
 	PostCallback(THISBACK(Stop));
 }
 

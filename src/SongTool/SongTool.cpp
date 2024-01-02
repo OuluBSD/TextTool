@@ -99,7 +99,7 @@ GUI_APP_MAIN {
 	db.Load();
 	
 	db.song_data.Load();
-	db.song_data.a.Load();
+	//db.song_data.a.Load();
 	
 	if (db.song_data.IsEmpty()) {
 		SongDataLoader loader;
@@ -140,10 +140,10 @@ GUI_APP_MAIN {
 	if (!fast_exit) {
 		db.Store();
 		
-		if (save_songdata) {
+		/*if (save_songdata) {
 			db.song_data.a.Store();
 			db.song_data.a.StoreJson();
-		}
+		}*/
 		
 		m.Store();
 	}

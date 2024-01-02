@@ -3,7 +3,10 @@
 
 
 class NaturalTokenizer {
+	WString ws;
+	Vector<Vector<WString>> lines;
 	
+	static bool IsToken(int chr);
 	
 public:
 	typedef NaturalTokenizer CLASSNAME;
@@ -11,6 +14,7 @@ public:
 	
 	bool Parse(const String& txt);
 	
+	const Vector<Vector<WString>>& GetLines() const {return lines;}
 	
 };
 

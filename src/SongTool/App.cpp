@@ -70,12 +70,12 @@ void SongTool::MainMenu(Bar& bar) {
 		bar.Separator();
 		bar.Add(t_("Set OpenAI token"), THISBACK(SetOpenAIToken));
 		bar.Separator();
-		bar.Add(t_("Save song data analysis"), callback(&Database::Single().song_data, &SongData::Store));
+		/*bar.Add(t_("Save song data analysis"), callback(&Database::Single().song_data, &SongData::Store));
 		if (!ed.save_songdata)
 			bar.Add(t_("Save song data analysis on exit"), THISBACK1(SetSaveSongdata, 1));
 		else
 			bar.Add(t_("Do not save song data analysis on exit"), THISBACK1(SetSaveSongdata, 0));
-		bar.Separator();
+		bar.Separator();*/
 		bar.Add(t_("Exit"), callback(this, &TopWindow::Close));
 		bar.Add(t_("Fast Exit"), THISBACK(FastExit)).Key(K_CTRL|K_SHIFT|K_Q);
 	});

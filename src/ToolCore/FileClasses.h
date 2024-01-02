@@ -48,11 +48,13 @@ struct MapKeys {
 	template<> String KeyString<String>(const String& s) {
 		String key = s;
 		key.Replace("\"", "\\\"");
+		key.Replace("\n", "\\n");
 		return key;
 	}
 	template<> String KeyString<WString>(const WString& s) {
 		String key = s.ToString();
 		key.Replace("\"", "\\\"");
+		key.Replace("\n", "\\n");
 		return key;
 	}
 	template<> String KeyString<hash_t>(const hash_t& k) {
@@ -70,6 +72,7 @@ struct MapKeys {
 		b.Replace(")", "\\)");
 		String key = a + "(" + b + ")";
 		key.Replace("\"", "\\\"");
+		key.Replace("\n", "\\n");
 		return key;
 	}
 	template<> String KeyString<AttrHeader>(const AttrHeader& s) {
@@ -81,17 +84,20 @@ struct MapKeys {
 		b.Replace(")", "\\)");
 		String key = a + "(" + b + ")";
 		key.Replace("\"", "\\\"");
+		key.Replace("\n", "\\n");
 		return key;
 	}
 	
 	template<> String StringKey<String>(const String& s) {
 		String key = s;
 		key.Replace("\\\"", "\"");
+		key.Replace("\\n", "\n");
 		return key;
 	}
 	template<> WString StringKey<WString>(const String& s) {
 		String key = s;
 		key.Replace("\\\"", "\"");
+		key.Replace("\\n", "\n");
 		return key.ToString();
 	}
 	template<> hash_t StringKey<hash_t>(const String& s) {
@@ -103,6 +109,7 @@ struct MapKeys {
 	template<> ActionHeader StringKey<ActionHeader>(const String& s_) {
 		String s = s_;
 		s.Replace("\\\"", "\"");
+		s.Replace("\\n", "\n");
 		ActionHeader ah;
 		int a = FindNonEscaped(s, "(");
 		if (a >= 0) {
@@ -121,6 +128,7 @@ struct MapKeys {
 	template<> AttrHeader StringKey<AttrHeader>(const String& s_) {
 		String s = s_;
 		s.Replace("\\\"", "\"");
+		s.Replace("\\n", "\n");
 		AttrHeader ah;
 		int a = FindNonEscaped(s, "(");
 		if (a >= 0) {
@@ -162,6 +170,7 @@ public:
 		return map.Add(s);
 	}
 	
+	void Load(const String& dir, const String& title) {Load(AppendFileName(dir, title + ".txt"));}
 	void Load(const String& path) {
 		map.Clear();
 		this->path = path;
