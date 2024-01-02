@@ -2,6 +2,8 @@
 #define _SongDataCtrl_ActionParallels_h_
 
 
+#if 0
+
 class ActionParallelsPage : public SongToolCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, actions, action_args, parallels;
@@ -24,4 +26,5 @@ public:
 };
 
 
+#endif
 #endif

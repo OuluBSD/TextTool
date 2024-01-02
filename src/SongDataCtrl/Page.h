@@ -4,7 +4,7 @@
 
 class SongDataPage : public SongToolCtrl {
 	Splitter vsplit, hsplit;
-	ArrayCtrl datasets, artists, songs, active_songs;
+	ArrayCtrl datasets, artists, songs;//, active_songs;
 	DocEdit lyrics, analysis;
 	ProgressIndicator prog;
 	bool disabled = false;
@@ -19,15 +19,16 @@ public:
 	void Data() override;
 	void DataDataset();
 	void DataArtist();
-	void DataArtistActiveSongs();
+	//void DataArtistActiveSongs();
 	void DataSong();
-	void DataActiveSong();
+	//void DataActiveSong();
 	void ToolMenu(Bar& bar) override;
-	void AddRandomSongsToList(int count);
-	void AddSongToActiveList();
-	void RemoveSongFromActiveList();
-	void HotfixText();
-	void StartHotfixText() {if (disabled) return; DisableAll(); Thread::Start(THISBACK(HotfixText));}
+	//void AddRandomSongsToList(int count);
+	//void AddSongToActiveList();
+	//void RemoveSongFromActiveList();
+	//void HotfixText();
+	void ImportLyrics();
+	//void StartHotfixText() {if (disabled) return; DisableAll(); Thread::Start(THISBACK(HotfixText));}
 	void PostProgress(int a, int t) {PostCallback(THISBACK2(SetProgress, a, t));}
 	void SetProgress(int a, int t) {prog.Set(a,t);}
 	

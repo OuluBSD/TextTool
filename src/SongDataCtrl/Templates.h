@@ -1,6 +1,8 @@
 #ifndef _SongDataCtrl_SongDataTemplates_h_
 #define _SongDataCtrl_SongDataTemplates_h_
 
+#if 0
+
 
 class SongDataTemplates : public SongToolCtrl {
 	Splitter vsplit, hsplit;
@@ -35,4 +37,5 @@ public:
 };
 
 
+#endif
 #endif

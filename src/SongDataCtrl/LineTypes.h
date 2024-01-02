@@ -2,6 +2,8 @@
 #define _SongDataCtrl_LineTypes_h_
 
 
+#if 0
+
 class LineTypesPage : public SongToolCtrl {
 	struct Batch : Moveable<Batch> {
 		ArtistDataset* artist;
@@ -60,4 +62,5 @@ public:
 };
 
 
+#endif
 #endif

@@ -70,7 +70,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
 	
 	AddItem(t_("Database"), t_("Songs"), song_data);
-	AddItem(t_("Database"), t_("Analysis"), song_analysis);
+	/*AddItem(t_("Database"), t_("Analysis"), song_analysis);
 	AddItem(t_("Database"), t_("Words"), song_words);
 	AddItem(t_("Database"), t_("Phrases"), song_phrases);
 	//AddItem(t_("Database"), t_("Search phrases"), song_searchphrases);
@@ -85,7 +85,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Action parallels"), action_parallels);
 	AddItem(t_("Database"), t_("Action transitions"), action_transitions);
 	AddItem(t_("Database"), t_("Line types"), line_types);
-	AddItem(t_("Database"), t_("Export"), export_page);
+	AddItem(t_("Database"), t_("Export"), export_page);*/
 	
 	AddItem(t_("Company"), t_("Info"), info);
 	AddItem(t_("Company"), t_("Calendar"), cal);

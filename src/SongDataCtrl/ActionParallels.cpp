@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 ActionParallelsPage::ActionParallelsPage() {
 	Add(hsplit.SizePos());
 	
@@ -206,3 +208,5 @@ void ActionParallelsPage::UpdateParallels() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoActionParallel(0, 0);
 }
+
+#endif

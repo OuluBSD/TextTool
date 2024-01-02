@@ -1,6 +1,8 @@
 #ifndef _SongDataCtrl_SongDataWordnet_h_
 #define _SongDataCtrl_SongDataWordnet_h_
 
+#if 0
+
 
 class SongDataWordnet : public SongToolCtrl {
 	Splitter vsplit, hsplit, vsplit1;
@@ -37,4 +39,5 @@ public:
 };
 
 
+#endif
 #endif

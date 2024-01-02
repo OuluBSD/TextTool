@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 
 LineTypesPage::LineTypesPage() {
 	Add(hsplit.SizePos());
@@ -476,3 +478,5 @@ void LineTypesPage::OnStructureColors(String res, int batch_i) {
 		PostCallback(THISBACK1(GetStructureColors, batch_i+1));
 	
 }
+
+#endif

@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 
 SongDataTemplateScoring::SongDataTemplateScoring() {
 	Add(hsplit.SizePos());
@@ -359,3 +361,5 @@ void SongDataTemplateScoring::OnTemplateScores(String res, int batch_i, int scor
 	if (running)
 		PostCallback(THISBACK2(GetTemplateScores, batch_i+1, score_mode));
 }
+
+#endif

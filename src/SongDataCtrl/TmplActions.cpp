@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 
 SongDataTmplActions::SongDataTmplActions() {
 	Add(hsplit.SizePos());
@@ -426,3 +428,5 @@ void SongDataTmplActions::OnLineActions(String res, int batch_i) {
 	if (running0)
 		PostCallback(THISBACK1(GetLineActions, batch_i+1));
 }
+
+#endif

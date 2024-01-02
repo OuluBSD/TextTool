@@ -157,6 +157,8 @@ void AttributeDistribution::Data() {
 }
 
 void AttributeDistribution::DataSuggestions() {
+	TODO
+	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -283,6 +285,7 @@ void AttributeDistribution::DataSuggestions() {
 		positive.SetCursor(0);
 	if (!negative.IsCursor() && negative.GetCount())
 		negative.SetCursor(0);
+	#endif
 }
 
 void AttributeDistribution::ToolMenu(Bar& bar) {

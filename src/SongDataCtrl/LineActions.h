@@ -1,6 +1,8 @@
 #ifndef _SongDataCtrl_SongDataLineActions_h_
 #define _SongDataCtrl_SongDataLineActions_h_
 
+#if 0
+
 
 class SongDataLineActions : public SongToolCtrl {
 	struct Batch : Moveable<Batch> {
@@ -58,4 +60,5 @@ public:
 };
 
 
+#endif
 #endif

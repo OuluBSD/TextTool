@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 
 SongDataWordnetScoring::SongDataWordnetScoring() {
 	Add(hsplit.SizePos());
@@ -555,3 +557,5 @@ void SongDataWordnetScoring::OnColorWordnetScores(String res, int batch_i, int s
 	if (running)
 		PostCallback(THISBACK2(GetColorWordnetScores, batch_i+1, score_mode));
 }
+
+#endif

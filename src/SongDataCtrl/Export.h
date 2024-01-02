@@ -1,6 +1,8 @@
 #ifndef _SongDataCtrl_Export_h_
 #define _SongDataCtrl_Export_h_
 
+#if 0
+
 
 class ExportPage : public SongToolCtrl {
 	DocEdit log;
@@ -23,4 +25,5 @@ public:
 };
 
 
+#endif
 #endif

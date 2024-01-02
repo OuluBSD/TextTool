@@ -2,6 +2,8 @@
 #define _SongDataCtrl_SongDataPhrases_h_
 
 
+#if 0
+
 class SongDataPhrases : public SongToolCtrl {
 	int phrase_limit = 200000000;
 	Splitter vsplit, hsplit;
@@ -27,4 +29,5 @@ public:
 };
 
 
+#endif
 #endif

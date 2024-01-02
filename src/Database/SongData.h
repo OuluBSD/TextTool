@@ -20,6 +20,8 @@ struct ArtistDataset : Moveable<ArtistDataset> {
 	}
 };
 
+
+#if 0
 struct LyricsAnalysis : Moveable<LyricsAnalysis> {
 	struct Phrase : Moveable<Phrase> {
 		String phrase, group, value;
@@ -461,8 +463,11 @@ struct StructureType : Moveable<StructureType> {
 		s % part_types % struct_type % transition_to % clr % phrases;
 	}
 };
+#endif
+
 
 struct DatasetAnalysis {
+	#if 0
 	VectorMap<String, ArtistAnalysis> artists;
 	VectorMap<String, WordGroupAnalysis> groups;
 	Vector<WordAnalysis> words;
@@ -533,6 +538,10 @@ struct DatasetAnalysis {
 		  % action_parallel % action_trans % packed_rhymes
 		  % dynamic_attrs % dynamic_actions;
 	}
+	#endif
+	
+	void Jsonize(JsonIO& json) {}
+	void Serialize(Stream& s) {}
 };
 
 struct SongDataAnalysis {

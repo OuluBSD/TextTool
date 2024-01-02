@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 SongDataWords::SongDataWords() {
 	Add(hsplit.SizePos());
 	
@@ -688,3 +690,5 @@ void SongDataWords::DumpPhoneticChars() {
 		LOG("PHONOME_ALT(\"" << ws << "\", \"\") \\");
 	}
 }
+
+#endif

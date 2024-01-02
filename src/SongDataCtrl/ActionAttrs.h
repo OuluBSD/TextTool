@@ -2,6 +2,8 @@
 #define _SongDataCtrl_ActionAttrs_h_
 
 
+#if 0
+
 class ActionAttrsPage : public SongToolCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, attrs, colors, actions;
@@ -23,4 +25,5 @@ public:
 };
 
 
+#endif
 #endif

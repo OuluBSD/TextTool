@@ -1,6 +1,8 @@
 #ifndef _SongDataCtrl_SongDataAnalysisPage_h_
 #define _SongDataCtrl_SongDataAnalysisPage_h_
 
+#if 0
+
 
 class SongDataAnalysisPage : public SongToolCtrl {
 	struct Task : Moveable<Task> {
@@ -43,4 +45,5 @@ public:
 };
 
 
+#endif
 #endif

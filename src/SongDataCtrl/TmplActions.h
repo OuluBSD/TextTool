@@ -1,6 +1,8 @@
 #ifndef _SongDataCtrl_SongDataTmplActions_h_
 #define _SongDataCtrl_SongDataTmplActions_h_
 
+#if 0
+
 
 class SongDataTmplActions : public SongToolCtrl {
 	static const int per_batch = 15;
@@ -52,4 +54,5 @@ public:
 };
 
 
+#endif
 #endif

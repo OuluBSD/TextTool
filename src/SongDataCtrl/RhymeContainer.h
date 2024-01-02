@@ -2,6 +2,8 @@
 #define _SongDataCtrl_RhymeContainer_h_
 
 
+#if 0
+
 class RhymeContainerPage : public SongToolCtrl {
 	ProgressIndicator prog;
 	Splitter hsplit, vsplit;
@@ -37,4 +39,5 @@ public:
 };
 
 
+#endif
 #endif

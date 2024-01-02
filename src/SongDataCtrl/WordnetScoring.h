@@ -2,6 +2,8 @@
 #define _SongDataCtrl_SongDataWordnetScoring_h_
 
 
+#if 0
+
 class SongDataWordnetScoring : public SongToolCtrl {
 	Splitter vsplit, hsplit, vsplit1;
 	ArrayCtrl datasets, attrs, colors, wordnets, clr_wordnets;
@@ -39,3 +41,5 @@ public:
 
 
 #endif
+#endif
+

@@ -53,6 +53,8 @@ bool EnglishPronounciation::ParseMore(const String& s, DatasetAnalysis& ds) {
 }
 
 bool EnglishPronounciation::ParseFinish(DatasetAnalysis& ds) {
+	TODO
+	#if 0
 	for (WString& part : parts) {
 		String p = ToLower(part.ToString());
 		p.Replace("'", ""); // hack
@@ -131,6 +133,7 @@ bool EnglishPronounciation::ParseFinish(DatasetAnalysis& ds) {
 				b_max > 0 ? b_sum / b_max * 255 : base_clr.GetB());
 		
 	blended_clr = clr;
+	#endif
 	
 	return true;
 }

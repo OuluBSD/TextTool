@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 SongDataPhrases::SongDataPhrases() {
 	Add(hsplit.HSizePos().VSizePos(0,30));
 	Add(prog.HSizePos().BottomPos(0,30));
@@ -140,3 +142,5 @@ void SongDataPhrases::DataAttribute() {
 void SongDataPhrases::ToolMenu(Bar& bar) {
 	SongToolCtrl::ToolMenu(bar);
 }
+
+#endif

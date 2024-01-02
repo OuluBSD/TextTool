@@ -93,6 +93,7 @@ LyricsEditor::LyricsEditor() {
 		ATTR_LIST
 		#undef ATTR_ITEM
 	
+		INHIBIT_CURSOR(attrs);
 		if (!attrs.IsCursor() && attrs.GetCount())
 			attrs.SetCursor(0);
 	}
@@ -106,6 +107,7 @@ LyricsEditor::LyricsEditor() {
 					.NormalPaper(GetGroupColor(i)).NormalInk(Black())
 					.Paper(Blend(GrayColor(), GetGroupColor(i))).Ink(White()));
 		}
+		INHIBIT_CURSOR(colors);
 		if (colors.GetCount() && !colors.IsCursor())
 			colors.SetCursor(0);
 	}
@@ -149,6 +151,8 @@ void LyricsEditor::Data() {
 }
 
 void LyricsEditor::DataPhrase() {
+	TODO
+	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -189,9 +193,12 @@ void LyricsEditor::DataPhrase() {
 		line_actions.SetCursor(0);
 	
 	DataDoActions();
+	#endif
 }
 
 void LyricsEditor::DataDoActions() {
+	TODO
+	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -230,9 +237,12 @@ void LyricsEditor::DataDoActions() {
 	
 	
 	DataAction();
+	#endif
 }
 
 void LyricsEditor::DataAction() {
+	TODO
+	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -265,10 +275,13 @@ void LyricsEditor::DataAction() {
 		action_args.SetCursor(0);
 	
 	DataActionHeader();
+	#endif
 }
 
 
 void LyricsEditor::DataActionHeader() {
+	TODO
+	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -432,6 +445,7 @@ void LyricsEditor::DataActionHeader() {
 	suggestions.SetCount(row);
 	if (!suggestions.IsCursor() && suggestions.GetCount())
 		suggestions.SetCursor(0);
+	#endif
 }
 
 void LyricsEditor::ToolMenu(Bar& bar) {
@@ -486,7 +500,10 @@ void LyricsEditor::MovePhrase(int i) {
 	if (cur+1 < phrase_list.GetCount())
 		phrase_list.SetCursor(cur+1);
 }
+
 void LyricsEditor::GetSuggestionsAI() {
+	TODO
+	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -616,6 +633,7 @@ void LyricsEditor::GetSuggestionsAI() {
 	
 	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetLyricsPhrase(args, THISBACK(OnSuggestions));
+	#endif
 }
 
 void LyricsEditor::OnSuggestions(String res) {

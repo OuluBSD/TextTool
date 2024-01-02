@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 
 ActionAttrsPage::ActionAttrsPage() {
 	Add(hsplit.SizePos());
@@ -183,3 +185,5 @@ void ActionAttrsPage::UpdateAttributes() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoActionlist(0, 1);
 }
+
+#endif

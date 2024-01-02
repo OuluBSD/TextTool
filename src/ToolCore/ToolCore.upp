@@ -19,5 +19,7 @@ file
 	ProductionIdeas.cpp,
 	ColorFn.cpp,
 	FileClasses.h,
-	FileClasses.cpp;
+	FileClasses.cpp,
+	Tokenizer.h,
+	Tokenizer.cpp;
 

@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 ActionTransitionsPage::ActionTransitionsPage() {
 	Add(hsplit.SizePos());
 	
@@ -213,3 +215,5 @@ void ActionTransitionsPage::UpdateTransitions() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoActionTransition(0, 0);
 }
+
+#endif

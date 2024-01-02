@@ -29,6 +29,7 @@ using namespace Upp;
 #include "Nana.h"
 #include "Common.h"
 #include "FileClasses.h"
+#include "Tokenizer.h"
 
 
 #endif

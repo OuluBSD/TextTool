@@ -87,14 +87,15 @@ ActionEditor::ActionEditor() {
 		i++, gi++;
 	ATTR_LIST
 	#undef ATTR_ITEM
-	attrs.WhenCursor = THISBACK(DataAction);
-
 	if (!attrs.IsCursor() && attrs.GetCount())
 		attrs.SetCursor(0);
+	attrs.WhenCursor = THISBACK(DataAction);
 	
 }
 
 void ActionEditor::Data() {
+	TODO
+	#if 0
 	Song& song = GetSong();
 	
 	{
@@ -135,6 +136,7 @@ void ActionEditor::Data() {
 	
 	DataPart();
 	DataSong();
+	#endif
 }
 
 void ActionEditor::DataPart() {
@@ -164,6 +166,8 @@ void ActionEditor::DataPart() {
 }
 
 void ActionEditor::DataThread() {
+	TODO
+	#if 0
 	if (!parts.IsCursor() || !thrds.IsCursor()) {
 		thrd_actions.Clear();
 		actions.Clear();
@@ -213,9 +217,12 @@ void ActionEditor::DataThread() {
 		thrd_actions.SetCursor(thrd_actions.GetCount()-1);
 	
 	DataSuggestions();
+	#endif
 }
 
 void ActionEditor::DataSuggestions() {
+	TODO
+	#if 0
 	if (!parts.IsCursor() || !thrds.IsCursor()) {
 		actions.Clear();
 		args.Clear();
@@ -445,9 +452,12 @@ void ActionEditor::DataSuggestions() {
 	
 	
 	DataAction();
+	#endif
 }
 
 void ActionEditor::DataAction() {
+	TODO
+	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -529,6 +539,7 @@ void ActionEditor::DataAction() {
 	}
 	
 	args.SetCount(row);
+	#endif
 }
 
 void ActionEditor::DataSong() {

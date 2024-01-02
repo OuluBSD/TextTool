@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 
 SongDataTemplates::SongDataTemplates() {
 	Add(hsplit.SizePos());
@@ -467,3 +469,5 @@ void SongDataTemplates::OnTemplatePhrases(String res, int batch_i) {
 	if (running)
 		PostCallback(THISBACK1(GetTemplatePhrases, batch_i+1));
 }
+
+#endif

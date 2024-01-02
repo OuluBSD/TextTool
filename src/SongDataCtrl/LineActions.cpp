@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 
 SongDataLineActions::SongDataLineActions() {
 	Add(hsplit.SizePos());
@@ -614,3 +616,5 @@ void SongDataLineActions::OnLineChangeScores(String res, int batch_i, int score_
 	if (running1)
 		PostCallback(THISBACK2(GetLineChangeScores, batch_i+1, score_mode));
 }
+
+#endif

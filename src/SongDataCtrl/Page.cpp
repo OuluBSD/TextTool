@@ -10,7 +10,7 @@ SongDataPage::SongDataPage() {
 	hsplit.Horz() << vsplit << lyrics << analysis;
 	hsplit.SetPos(2500);
 	
-	vsplit.Vert() << datasets << artists << songs << active_songs;
+	vsplit.Vert() << datasets << artists << songs;// << active_songs;
 	
 	datasets.AddColumn(t_("Dataset"));
 	datasets.WhenCursor << THISBACK(DataDataset);
@@ -20,15 +20,15 @@ SongDataPage::SongDataPage() {
 	
 	songs.AddColumn(t_("Song"));
 	songs.WhenCursor << THISBACK(DataSong);
-	songs.WhenBar << [this](Bar& bar) {
+	/*songs.WhenBar << [this](Bar& bar) {
 		bar.Add(t_("Add song to active list"), THISBACK(AddSongToActiveList));
-	};
+	};*/
 	
-	active_songs.AddColumn(t_("Song"));
+	/*active_songs.AddColumn(t_("Song"));
 	active_songs.WhenCursor << THISBACK(DataActiveSong);
 	active_songs.WhenBar << [this](Bar& bar) {
 		bar.Add(t_("Remove song from active list"), THISBACK(RemoveSongFromActiveList));
-	};
+	};*/
 	
 	
 }
@@ -38,7 +38,7 @@ void SongDataPage::EnableAll() {
 	datasets.Enable();
 	artists.Enable();
 	songs.Enable();
-	active_songs.Enable();
+	//active_songs.Enable();
 	analysis.Enable();
 }
 
@@ -47,18 +47,19 @@ void SongDataPage::DisableAll() {
 	datasets.Disable();
 	artists.Disable();
 	songs.Disable();
-	active_songs.Disable();
+	//active_songs.Disable();
 	analysis.Disable();
 }
 
 void SongDataPage::ToolMenu(Bar& bar) {
-	bar.Add(t_("Add 10 random songs to list"), AppImg::BlueRing(), THISBACK1(AddRandomSongsToList, 10)).Key(K_CTRL_Q);
-	bar.Add(t_("Remove song from list"), AppImg::BlueRing(), THISBACK(RemoveSongFromActiveList)).Key(K_CTRL_W);
-	bar.Separator();
-	bar.Add(t_("Hotfix text"), AppImg::RedRing(), THISBACK(StartHotfixText)).Key(K_F5);
+	//bar.Add(t_("Add 10 random songs to list"), AppImg::BlueRing(), THISBACK1(AddRandomSongsToList, 10)).Key(K_CTRL_Q);
+	//bar.Add(t_("Remove song from list"), AppImg::BlueRing(), THISBACK(RemoveSongFromActiveList)).Key(K_CTRL_W);
+	//bar.Separator();
+	//bar.Add(t_("Hotfix text"), AppImg::RedRing(), THISBACK(StartHotfixText)).Key(K_F5);
+	bar.Add(t_("Import lyrics"), AppImg::RedRing(), THISBACK(ImportLyrics)).Key(K_F5);
 }
 
-void SongDataPage::AddRandomSongsToList(int count) {
+/*void SongDataPage::AddRandomSongsToList(int count) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -73,7 +74,7 @@ void SongDataPage::AddRandomSongsToList(int count) {
 	String ds_key = sd.GetKey(cur);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 	
-	auto& songs = ds.artists.GetAdd(artist.name).songs;
+	auto& songs = artist.lyrics;// ds.artists.GetAdd(artist.name).songs;
 	
 	for(int i = 0; i < count; i++) {
 		for (int tries = 0; tries < 1000; tries++) {
@@ -95,9 +96,11 @@ void SongDataPage::AddRandomSongsToList(int count) {
 	
 	PostCallback(THISBACK(DataArtistActiveSongs));
 	PostCallback(THISBACK(DataActiveSong));
-}
+}*/
 
-void SongDataPage::AddSongToActiveList() {
+/*void SongDataPage::AddSongToActiveList() {
+	TODO
+	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -120,9 +123,12 @@ void SongDataPage::AddSongToActiveList() {
 	
 	PostCallback(THISBACK(DataArtistActiveSongs));
 	PostCallback(THISBACK(DataActiveSong));
-}
+	#endif
+}*/
 
-void SongDataPage::RemoveSongFromActiveList() {
+/*void SongDataPage::RemoveSongFromActiveList() {
+	TODO
+	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -141,7 +147,8 @@ void SongDataPage::RemoveSongFromActiveList() {
 	
 	PostCallback(THISBACK(DataArtistActiveSongs));
 	PostCallback(THISBACK(DataActiveSong));
-}
+	#endif
+}*/
 
 void SongDataPage::Data() {
 	Database& db = Database::Single();
@@ -199,10 +206,11 @@ void SongDataPage::DataArtist() {
 	if (!songs.IsCursor() && songs.GetCount())
 		songs.SetCursor(0);
 	
-	DataArtistActiveSongs();
+	//DataArtistActiveSongs();
 	DataSong();
 }
 
+#if 0
 void SongDataPage::DataArtistActiveSongs() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -217,18 +225,20 @@ void SongDataPage::DataArtistActiveSongs() {
 	String ds_key = sd.GetKey(cur);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 	
-	int i = ds.artists.Find(artist.name);
+	/*int i = ds.artists.Find(artist.name);
 	if (i < 0) {
 		active_songs.Clear();
 	}
-	else {
-		const auto& songs = ds.artists[i].songs;
-		active_songs.SetCount(songs.GetCount());
-		for(int i = 0; i < songs.GetCount(); i++) {
-			active_songs.Set(i, 0, songs[i].name);
-		}
+	else {*/
+	//const auto& songs = ds.artists[i].songs;
+	const auto& songs = artist.lyrics;
+	active_songs.SetCount(songs.GetCount());
+	for(int i = 0; i < songs.GetCount(); i++) {
+		active_songs.Set(i, 0, songs[i].name);
 	}
+	//}
 }
+#endif
 
 void SongDataPage::DataSong() {
 	Database& db = Database::Single();
@@ -248,7 +258,10 @@ void SongDataPage::DataSong() {
 	analysis.Clear();
 }
 
+#if 0
 void SongDataPage::DataActiveSong() {
+	TODO
+	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -286,6 +299,7 @@ void SongDataPage::DataActiveSong() {
 			analysis.SetData(s);
 		}
 	}
+	#endif
 }
 
 void SongDataPage::HotfixText() {
@@ -319,4 +333,32 @@ void SongDataPage::HotfixText() {
 	}
 	
 	PostCallback(THISBACK(EnableAll));
+}
+
+#endif
+
+void SongDataPage::ImportLyrics() {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	
+	for(int i = 0; i < sd.GetCount(); i++) {
+		Vector<ArtistDataset>& artists = sd[i];
+		
+		for(int j = 0; j < artists.GetCount(); j++) {
+			ArtistDataset& artist = artists[j];
+			
+			for(int k = 0; k < artist.lyrics.GetCount(); k++) {
+				LyricsDataset& lyrics = artist.lyrics[k];
+				
+				NaturalTokenizer tk;
+				
+				if (!tk.Parse(lyrics.text))
+					continue;
+				
+				TODO
+			}
+		}
+	}
+	
+	
 }

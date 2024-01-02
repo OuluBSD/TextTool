@@ -1,6 +1,7 @@
 #ifndef _SongDataCtrl_SongDataWords_h_
 #define _SongDataCtrl_SongDataWords_h_
 
+#if 0
 
 class SongDataWords : public SongToolCtrl {
 	Splitter hsplit, vsplit;
@@ -39,4 +40,5 @@ public:
 };
 
 
+#endif
 #endif

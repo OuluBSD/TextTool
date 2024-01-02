@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 SongDataAnalysisPage::SongDataAnalysisPage() {
 	Add(hsplit.HSizePos().VSizePos(0,30));
 	Add(prog.HSizePos().BottomPos(0,30));
@@ -546,3 +548,5 @@ void SongDataAnalysisPage::UpdateTasks() {
 		}
 	}
 }
+
+#endif

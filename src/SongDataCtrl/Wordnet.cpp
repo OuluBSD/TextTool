@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 
 SongDataWordnet::SongDataWordnet() {
 	Add(hsplit.SizePos());
@@ -529,3 +531,5 @@ void SongDataWordnet::MakeWordnetsFromTemplates() {
 	
 	LOG("MakeWordnetsFromTemplates took: " << ts.ToString());
 }
+
+#endif

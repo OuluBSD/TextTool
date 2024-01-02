@@ -42,6 +42,8 @@ void TaskManager::DoActionlistCache(int ds_i) {
 }
 
 void TaskManager::DoActionlist(int ds_i, int fn) {
+	TODO
+	#if 0
 	if (IsInTaskList(TASK_ACTIONLIST))
 		return;
 	
@@ -73,6 +75,7 @@ void TaskManager::DoActionlist(int ds_i, int fn) {
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
+	#endif
 }
 
 void TaskManager::DoActionParallel(int ds_i, int fn) {
@@ -228,6 +231,8 @@ void TaskManager::GetActionlist(Task* t) {
 }
 
 void TaskManager::OnActionlistColors(String result, Task* t) {
+	TODO
+	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -271,9 +276,12 @@ void TaskManager::OnActionlistColors(String result, Task* t) {
 	
 	t->batch_i++;
 	t->running = false;
+	#endif
 }
 
 void TaskManager::OnActionlistAttrs(String result, Task* t) {
+	TODO
+	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -314,9 +322,12 @@ void TaskManager::OnActionlistAttrs(String result, Task* t) {
 	
 	t->batch_i++;
 	t->running = false;
+	#endif
 }
 
 void TaskManager::GetActionParallels(Task* t) {
+	TODO
+	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -367,9 +378,12 @@ void TaskManager::GetActionParallels(Task* t) {
 	}
 	
 	LOG("TaskManager::GetActionParallels took " << ts.ToString());
+	#endif
 }
 
 void TaskManager::GetActionTransitions(Task* t) {
+	TODO
+	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -416,6 +430,7 @@ void TaskManager::GetActionTransitions(Task* t) {
 	}
 	
 	LOG("TaskManager::GetActionTransitions took " << ts.ToString());
+	#endif
 }
 
 }

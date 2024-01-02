@@ -61,7 +61,7 @@ void SongDataAnalysis::LoadJson() {
 }
 
 
-
+#if 0
 
 String LyricsAnalysis::AsString() const {
 	String s;
@@ -211,3 +211,5 @@ void DatasetAnalysis::RealizeAction(const char* action, const char* arg, int16& 
 		arg_i = idx.FindAdd(arg);
 	}
 }
+
+#endif

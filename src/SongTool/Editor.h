@@ -43,28 +43,32 @@ protected:
 	PublicRelationsCtrl				pubrel;
 	MarketingCtrl					marketing;
 	SongDataPage					song_data;
+	AttributeDistribution			attr_dist;
+	CalMgrCtrl						cal;
+	SongStructure					song_struct;
+	LyricsEditor					lyrics_editor;
+	NanaEditor						nana_editor;
+	ActionEditor					action_editor;
+	BasicInfoCtrl					info;
+	
+	// Database Ctrls
+	/*
 	SongDataAnalysisPage			song_analysis;
 	SongDataWords					song_words;
-	AttributeDistribution			attr_dist;
 	SongDataTemplates				song_tmpl;
 	RhymeContainerPage				rhyme_container;
 	ActionAttrsPage					action_attrs;
 	ActionParallelsPage				action_parallels;
 	ActionTransitionsPage			action_transitions;
 	LineTypesPage					line_types;
-	BasicInfoCtrl					info;
-	CalMgrCtrl						cal;
-	SongStructure					song_struct;
 	SongDataPhrases					song_phrases;
-	LyricsEditor					lyrics_editor;
 	SongDataWordnet					song_wordnet;
 	SongDataTemplateScoring			song_tmplscoring;
 	SongDataWordnetScoring			song_wnscoring;
 	SongDataLineActions				song_lineactions;
 	SongDataTmplActions				song_tmplactions;
-	NanaEditor						nana_editor;
-	ActionEditor					action_editor;
 	ExportPage						export_page;
+	*/
 	
 public:
 	typedef Editor CLASSNAME;

@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 
 RhymeContainerPage::RhymeContainerPage() {
 	Add(hsplit.VSizePos(0,30).HSizePos());
@@ -676,3 +678,5 @@ int RhymeContainerPage::FindSplit(const Vector<String>& part_words) {
 	}
 	return -1;
 }
+
+#endif

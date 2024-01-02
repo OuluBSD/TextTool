@@ -1,5 +1,7 @@
 #include "SongDataCtrl.h"
 
+#if 0
+
 
 
 ExportPage::ExportPage() {
@@ -640,3 +642,5 @@ void ExportPage::Export() {
 	running = false;
 	stopped = true;
 }
+
+#endif
