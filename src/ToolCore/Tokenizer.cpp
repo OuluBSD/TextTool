@@ -16,7 +16,16 @@ bool NaturalTokenizer::Parse(const String& txt) {
 	for(int i = 0; i < ws.GetCount(); i++) {
 		int chr = ws[i];
 		
-		if (IsSpace(chr)) {
+		if (chr != L'ä' && chr != L'Ä' &&
+			chr != L'ö' && chr != L'Ö') {
+			has_foreign = has_foreign ||
+				(chr >= 0x100 && chr < 0x700) || // п, ب
+				chr >= 0xc000 ||
+				(chr >= 0xc0 && chr < 0x100) || // éá
+				0;
+			}
+		
+		if (IsSpace(chr) || chr == 0x2005) {
 			if (!tmp.IsEmpty()) {
 				line << tmp;
 				tmp.Clear();
@@ -47,9 +56,16 @@ bool NaturalTokenizer::Parse(const String& txt) {
 }
 
 bool NaturalTokenizer::IsToken(int chr) {
-	const char* c = "!\"#¤\%&/()=?@£$€{[]}\\+`'*^~,.;:-_<>|";
+	const char* c = "!\"#¤\%&/()=?@£$€{[]}\\+`*^~,.;:-_<>|´"; // skip '
 	for (const char* cmp = c; *cmp; cmp++)
 		if (*cmp == chr)
 			return true;
+	/*if (chr == 0x2014) return true;
+	if (chr == 0x2026) return true;
+	if (chr == 0x2019) return true;
+	if (chr == 0x200a) return true;
+	if (chr == 0x205f) return true;*/
+	if (chr >= 0x2000 && chr < 0x3000) return true;
+	if (chr >= 0xe000 && chr < 0xf000) return true;
 	return false;
 }

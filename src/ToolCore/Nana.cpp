@@ -551,11 +551,11 @@ bool PhoneticNanaAnalyser::Parse(const wchar* phon, int len) {
 		
 		for (int p0 : sy) {
 			if (p0 < 0) {
-				if (p0 == -1)
+				if      (p0 == -1)
 					;
-				if (p0 == -2)
+				else if (p0 == -2)
 					prev_long = true;
-				if (p0 == -3)
+				else if (p0 == -3)
 					prev_continue = true;
 			}
 			else {

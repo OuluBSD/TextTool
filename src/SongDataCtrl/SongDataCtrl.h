@@ -8,6 +8,8 @@
 
 #include "Loader.h"
 #include "Page.h"
+#include "Tokens.h"
+#include "TokenPhrases.h"
 #include "Analysis.h"
 #include "Words.h"
 #include "Phrases.h"
@@ -24,5 +26,6 @@
 #include "ActionTransitions.h"
 #include "LineTypes.h"
 #include "Export.h"
+#include "AmbiguousWordPairs.h"
 
 #endif

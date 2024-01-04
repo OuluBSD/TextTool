@@ -643,9 +643,9 @@ void EditImage::DrawMask(Point p, dword keyflags) {
 		}
 		double ratio = img_rect.Width() / (double)sz.cx;
 		
-		int x = (p.x - img_rect.left) / ratio;
-		int y = (p.y - img_rect.top) / ratio;
-		int w = this->brush_sz / ratio;
+		int x = (int)((p.x - img_rect.left) / ratio);
+		int y = (int)((p.y - img_rect.top) / ratio);
+		int w = (int)(this->brush_sz / ratio);
 		Rect r(
 			x - w,
 			y - w,

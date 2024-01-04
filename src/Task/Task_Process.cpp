@@ -69,3 +69,7 @@ void Task::Process_GetActionAnalysis() {
 void Task::Process_GetLyricsPhrase() {
 	WhenResult(output);
 }
+
+void Task::Process_GetTokenData() {
+	WhenResult(output);
+}

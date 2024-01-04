@@ -85,6 +85,8 @@ typedef enum : int {
 	TASK_GET_SONG_DATA_ANALYSIS,
 	TASK_GET_ACTION_ANALYSIS,
 	
+	TASK_GET_TOKEN_DATA,
+	
 	TASK_COUNT
 } TaskType;
 
@@ -451,6 +453,20 @@ struct LyricsPhraseArgs {
 				("colors", colors)
 				("color_groups", color_groups)
 				("len", len)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct TokenArgs {
+	int fn;
+	Vector<String> words;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("words", words)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

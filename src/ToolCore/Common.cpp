@@ -97,8 +97,8 @@ int FindAttrGroupByValue(const char* value) {
 
 
 String GetAttrNotString(String positive_attr) {
-	static dword pos_hashes[Attr::ATTR_COUNT];
-	static dword neg_hashes[Attr::ATTR_COUNT];
+	static hash_t pos_hashes[Attr::ATTR_COUNT];
+	static hash_t neg_hashes[Attr::ATTR_COUNT];
 	static const char* pos[Attr::ATTR_COUNT];
 	static const char* neg[Attr::ATTR_COUNT];
 	if (!pos[0]) {
@@ -112,7 +112,7 @@ String GetAttrNotString(String positive_attr) {
 		#undef ATTR_ITEM
 	}
 	positive_attr = ToLower(TrimBoth(positive_attr));
-	dword hash = positive_attr.GetHashValue();
+	hash_t hash = positive_attr.GetHashValue();
 	for(int i = 0; i < Attr::ATTR_COUNT; i++) {
 		if (pos_hashes[i] == hash)
 			return positive_attr + " (not " + neg[i] + ")";
@@ -982,6 +982,12 @@ void ReplaceWord(String& s, const String& orig_word, const String& replace_word)
 
 
 
+void HotfixReplaceWord(WString& ws) {
+	String s = ws.ToString();
+	HotfixReplaceWord(s);
+	ws = s.ToWString();
+}
+
 void HotfixReplaceWord(String& s) {
 	ReplaceWord(s, "im", "I'm");
 	ReplaceWord(s, "ive", "I've");
@@ -1001,6 +1007,8 @@ void HotfixReplaceWord(String& s) {
 	ReplaceWord(s, "theyve", "they've");
 	ReplaceWord(s, "theyre", "they're");
 	
+	ReplaceWord(s, "arent", "aren't");
+	ReplaceWord(s, "aint", "ain't");
 	ReplaceWord(s, "didnt", "didn't");
 	ReplaceWord(s, "dont", "don't");
 	
@@ -1155,6 +1163,8 @@ int FindNonEscaped(const String& s, const String& search) {
 		else {
 			char prev = s[a-1];
 			if (prev == '\\') {
+				if (a >= 2 && s[a-2] == '\\')
+					return a;
 				a++;
 				continue;
 			}
@@ -1177,6 +1187,8 @@ int FindNonEscaped(const String& s, const String& search, int begin) {
 		else {
 			char prev = s[a-1];
 			if (prev == '\\') {
+				if (a >= 2 && s[a-2] == '\\')
+					return a;
 				a++;
 				continue;
 			}
@@ -1199,6 +1211,8 @@ int FindNonEscaped(const WString& s, const WString& search, int begin) {
 		else {
 			char prev = s[a-1];
 			if (prev == '\\') {
+				if (a >= 2 && s[a-2] == '\\')
+					return a;
 				a++;
 				continue;
 			}

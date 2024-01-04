@@ -42,7 +42,6 @@ protected:
 	PressReleaseCtrl				pressrel;
 	PublicRelationsCtrl				pubrel;
 	MarketingCtrl					marketing;
-	SongDataPage					song_data;
 	AttributeDistribution			attr_dist;
 	CalMgrCtrl						cal;
 	SongStructure					song_struct;
@@ -52,6 +51,10 @@ protected:
 	BasicInfoCtrl					info;
 	
 	// Database Ctrls
+	SongDataPage					song_data;
+	TokensPage						tokens_data;
+	TokenPhrases					token_phrases;
+	AmbiguousWordPairs				ambiguous_word_pairs;
 	/*
 	SongDataAnalysisPage			song_analysis;
 	SongDataWords					song_words;

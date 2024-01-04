@@ -173,25 +173,6 @@ struct ExportTemplate : Moveable<ExportTemplate> {
 	
 };
 
-struct ExportWord : Moveable<ExportWord> {
-	int main_class = -1;
-	String spelling;
-	WString phonetic;
-	int count = 0;
-	Color clr;
-	
-	String StoreToString() {
-		StringDumper d;
-		d % main_class % spelling % phonetic % count % clr;
-		return d;
-	}
-	void LoadFromString(const String& s) {
-		StringParser p(s);
-		p % main_class % spelling % phonetic % count % clr;
-	}
-	
-};
-
 struct ExportWordnet : Moveable<ExportWordnet> {
 	static const int MAX_WORDS = 64;
 	int word_count = 0;

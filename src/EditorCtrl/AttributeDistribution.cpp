@@ -359,7 +359,7 @@ void AttributeDistribution::AddRandomCombination() {
 	
 	double mul = 100.0 / (double)perc_sum;
 	for(int i = 0; i < idx.GetCount(); i++)
-		idx[i] *= mul;
+		idx[i] = (int)(idx[i] * mul);
 	
 	for(int i = 0; i < idx.GetCount(); i++) {
 		int cur = idx.GetKey(i);

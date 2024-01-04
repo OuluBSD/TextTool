@@ -630,11 +630,11 @@ void rgb_to_hsv(float r, float g, float b, float& h, float& s, float& v) {
 	if (cmax == cmin)
 	  h = 0;
 	else if (cmax == r)
-	  h = fmod((60 * ((g - b) / diff) + 360), 360.0);
+	  h = fmod((60 * ((g - b) / diff) + 360), 360.0f);
 	else if (cmax == g)
-	  h = fmod((60 * ((b - r) / diff) + 120), 360.0);
+	  h = fmod((60 * ((b - r) / diff) + 120), 360.0f);
 	else if (cmax == b)
-	  h = fmod((60 * ((r - g) / diff) + 240), 360.0);
+	  h = fmod((60 * ((r - g) / diff) + 240), 360.0f);
 	// if cmax equal zero
 	  if (cmax == 0)
 	     s = 0;
@@ -647,8 +647,8 @@ void rgb_to_hsv(float r, float g, float b, float& h, float& s, float& v) {
 int GetColorDistance(const Color& a, const Color& b) {
 	float h0, s0, v0;
 	float h1, s1, v1;
-	rgb_to_hsv(a.GetR(), a.GetG(), a.GetB(), h0, s0, v0);
-	rgb_to_hsv(b.GetR(), b.GetG(), b.GetB(), h1, s1, v1);
+	rgb_to_hsv((float)a.GetR(), (float)a.GetG(), (float)a.GetB(), h0, s0, v0);
+	rgb_to_hsv((float)b.GetR(), (float)b.GetG(), (float)b.GetB(), h1, s1, v1);
 	
 	float dh = min(fabs(h1-h0), 360.f-fabs(h1-h0)) / 180.0f;
 	float ds = fabs(s1-s0);
@@ -1048,7 +1048,7 @@ int GetColorGroup(const Color& clr) {
 	while (it != end) {
 		int dist = GetColorDistance(*it, clr);
 		if (dist < closest_dist) {
-			closest_group = it - begin;
+			closest_group = (int)(it - begin);
 			closest_dist = dist;
 		}
 		it++;

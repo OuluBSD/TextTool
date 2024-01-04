@@ -305,7 +305,7 @@ double GetSpellingDistance(const WString& w0, const WString& w1, bool relative) 
 				continue;
 			}
 			bool is_vowel = IsPhonemeVowel(phoneme);
-			bool stress = STRESS_SECONDARY;
+			int stress = STRESS_SECONDARY;
 			if (is_vowel) {
 				if (!vowel_count)
 					stress = STRESS_PRIMARY;

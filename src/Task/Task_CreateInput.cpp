@@ -1592,3 +1592,149 @@ void Task::CreateInput_GetLyricsPhrase() {
 		input.response_length = 2*1024;
 	}
 }
+
+void Task::CreateInput_GetTokenData() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	TokenArgs args;
+	args.Put(this->args[0]);
+	
+	
+	if (args.fn == 0) {
+		{
+			auto& list = input.AddSub().Title("List of word classes");
+			list.Add("Nouns");
+			list.Add("Verbs");
+			list.Add("Adjectives");
+			list.Add("Adverbs");
+			list.Add("Pronouns");
+			list.Add("Prepositions");
+			list.Add("Conjunctions");
+			list.Add("Determiners");
+			list.Add("Interjections");
+			list.Add("Articles");
+			list.Add("Modal verbs");
+			list.Add("Gerunds");
+			list.Add("Infinitives");
+			list.Add("Participles");
+			list.Add("Definite article");
+			list.Add("Indefinite article");
+			list.Add("Proper nouns");
+			list.Add("Collective nouns");
+			list.Add("Concrete nouns");
+			list.Add("Abstract nouns");
+			list.Add("Irregular verbs");
+			list.Add("Regular verbs");
+			list.Add("Transitive verbs");
+			list.Add("Intransitive verbs");
+			list.Add("Auxiliary verbs");
+			list.Add("Reflexive verbs");
+			list.Add("Imperative verbs");
+			list.Add("First person pronouns");
+			list.Add("Second person pronouns");
+			list.Add("Third person pronouns");
+			list.Add("Possessive pronouns");
+			list.Add("Demonstrative pronouns");
+			list.Add("Relative pronouns");
+			list.Add("Intensive pronouns");
+			list.Add("Indefinite pronouns");
+			list.Add("Personal pronouns");
+			list.Add("Subject pronouns");
+			list.Add("Objective pronouns");
+			list.Add("Possessive determiners");
+			list.Add("Possessive adjectives");
+			list.Add("Comparative adjectives");
+			list.Add("Superlative adjectives");
+			list.Add("Proper adjectives");
+			list.Add("Positive adjectives");
+			list.Add("Negative adjectives");
+			list.Add("etc.");
+		}
+		{
+			auto& list = input.AddSub().Title("List \"A\" words");
+			list.NumberedLines();
+			list.Add("You");
+			list.Add("what's");
+			list.Add("smile");
+			for(int i = 0; i < args.words.GetCount(); i++)
+				list.Add(args.words[i]);
+		}
+		{
+			auto& answer = input.PreAnswer();
+			answer.Title("Word classes for the list \"A\" (lowercase)");
+			answer.NumberedLines();
+			answer.Add("you: pronoun");
+			answer.Add("what's: contraction (what + is)");
+			answer.Add("smile: noun | verb");
+		}
+		input.response_length = 2*1024;
+	}
+	if (args.fn == 1) {
+		{
+			auto& list = input.AddSub().Title("List of word classes");
+			list.Add("Nouns");
+			list.Add("Verbs");
+			list.Add("Adjectives");
+			list.Add("Adverbs");
+			list.Add("Pronouns");
+			list.Add("Prepositions");
+			list.Add("Conjunctions");
+			list.Add("Determiners");
+			list.Add("Interjections");
+			list.Add("Articles");
+			list.Add("Modal verbs");
+			list.Add("Gerunds");
+			list.Add("Infinitives");
+			list.Add("Participles");
+			list.Add("Definite article");
+			list.Add("Indefinite article");
+			list.Add("Proper nouns");
+			list.Add("Collective nouns");
+			list.Add("Concrete nouns");
+			list.Add("Abstract nouns");
+			list.Add("Irregular verbs");
+			list.Add("Regular verbs");
+			list.Add("Transitive verbs");
+			list.Add("Intransitive verbs");
+			list.Add("Auxiliary verbs");
+			list.Add("Reflexive verbs");
+			list.Add("Imperative verbs");
+			list.Add("First person pronouns");
+			list.Add("Second person pronouns");
+			list.Add("Third person pronouns");
+			list.Add("Possessive pronouns");
+			list.Add("Demonstrative pronouns");
+			list.Add("Relative pronouns");
+			list.Add("Intensive pronouns");
+			list.Add("Indefinite pronouns");
+			list.Add("Personal pronouns");
+			list.Add("Subject pronouns");
+			list.Add("Objective pronouns");
+			list.Add("Possessive determiners");
+			list.Add("Possessive adjectives");
+			list.Add("Comparative adjectives");
+			list.Add("Superlative adjectives");
+			list.Add("Proper adjectives");
+			list.Add("Positive adjectives");
+			list.Add("Negative adjectives");
+			list.Add("etc.");
+		}
+		{
+			auto& list = input.AddSub().Title("List \"A\" word pairs");
+			list.NumberedLines();
+			list.Add("automobile drives");
+			for(int i = 0; i < args.words.GetCount(); i++)
+				list.Add(args.words[i]);
+		}
+		{
+			auto& answer = input.PreAnswer();
+			answer.Title("Word classes for the list \"A\" (lowercase)");
+			answer.NumberedLines();
+			answer.Add("automobile drives: noun, verb");
+		}
+		input.response_length = 2*1024;
+	}
+}

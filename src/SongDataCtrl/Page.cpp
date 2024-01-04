@@ -344,6 +344,9 @@ void SongDataPage::ImportLyrics() {
 	Vector<int> token_is;
 	
 	for(int i = 0; i < sd.GetCount(); i++) {
+		String sd_key = sd.GetKey(i);
+		bool filter_foreign = sd_key == "en";
+		
 		DatasetAnalysis& da = sd.a.datasets[i];
 		Vector<ArtistDataset>& artists = sd[i];
 		
@@ -355,9 +358,19 @@ void SongDataPage::ImportLyrics() {
 				
 				NaturalTokenizer tk;
 				
-				if (!tk.Parse(lyrics.text))
+				String str = lyrics.text;
+				
+				// Ignore files with hard ambiguities
+				if (str.Find(" well ") >= 0) // well or we'll... too expensive to figure out
 					continue;
 				
+				HotfixReplaceWord(str);
+				
+				if (!tk.Parse(str))
+					continue;
+				
+				if (filter_foreign && tk.HasForeign())
+					continue;
 				
 				for (const auto& line : tk.GetLines()) {
 					token_is.SetCount(0);
@@ -379,6 +392,8 @@ void SongDataPage::ImportLyrics() {
 			}
 		}
 	}
+	
+	
 	
 	
 }

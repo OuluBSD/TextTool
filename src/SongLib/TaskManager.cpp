@@ -15,6 +15,38 @@ void TaskManager::Clear() {
 	if (was_running) Start();
 }
 
+void TaskManager::DoTokens(int ds_i, int fn) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	lock.EnterWrite();
+	Task& t = task_list.Add();
+	t.type = TASK_TOKENS;
+	t.cb = THISBACK1(GetTokenData, &t);
+	t.ds_i = ds_i;
+	t.batch_i = 0;
+	t.fn = fn;
+	lock.LeaveWrite();
+}
+
+void TaskManager::DoAmbiguousWordPairs(int ds_i, int fn) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	lock.EnterWrite();
+	Task& t = task_list.Add();
+	t.type = TASK_AMBIGUOUS_WORD_PAIRS;
+	t.cb = THISBACK1(GetAmbiguousWordPairs, &t);
+	t.ds_i = ds_i;
+	t.batch_i = 0;
+	t.fn = fn;
+	lock.LeaveWrite();
+}
+
 void TaskManager::DoActionlistCache(int ds_i) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -188,6 +220,202 @@ void TaskManager::RealizePipe() {
 		pipe = &db.pipes.Add();
 		pipe->song = 0;
 	}
+}
+
+void TaskManager::GetTokenData(Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	TokenArgs& args = token_args;
+	args.fn = 0;
+	args.words.Clear();
+	
+	int per_action_task = 100;
+	int begin = t->batch_i * per_action_task;
+	int end = begin + per_action_task;
+	end = min(end, da.tokens.GetCount());
+	int count = end - begin;
+	if (count <= 0) {
+		RemoveTask(*t);
+		return;
+	}
+	
+	for(int i = begin; i < end; i++) {
+		const String& tk = da.tokens.GetKey(i);
+		args.words << tk;
+	}
+	
+	RealizePipe();
+	TaskMgr& m = *pipe;
+	if (t->fn == 0)
+		m.GetTokenData(args, THISBACK1(OnTokenData, t));
+	
+}
+
+void TaskManager::OnTokenData(String result, Task* t) {
+	TokenArgs& args = token_args;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	// 9. suppote: verb | noun
+	
+	result.Replace("\r", "");
+	Vector<String> lines = Split(result, "\n");
+	
+	int offset = 3+1;
+	
+	for (String& line : lines) {
+		line = TrimBoth(line);
+		
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		
+		/*int line_i = ScanInt(line);
+		line_i -= offset;
+		if (line_i < 0 || line_i >= args.words.GetCount())
+			continue;
+		
+		const String& orig_word = args.words[line_i];*/
+		
+		int a = line.Find(".");
+		if (a < 0) continue;
+		line = TrimBoth(line.Mid(a+1));
+		
+		a = line.Find(":");
+		if (a == 0) {
+			// Rare case of ":" being asked
+			line = ":" + line;
+			a = 1;
+		}
+		else if (a < 0)
+			continue;
+		
+		//int orig_word_i = ;
+		
+		String result_word = TrimBoth(line.Left(a));
+		/*ExportWord& wrd =
+			orig_word_i >= 0 ?
+				da.words[orig_word_i] :
+				da.words.GetAdd(result_word, orig_word_i);*/
+		int orig_word_i = -1;
+		ExportWord& wrd = da.words.GetAdd(result_word, orig_word_i);
+		
+		//TODO // token to word
+		
+		line = TrimBoth(line.Mid(a+1));
+		
+		Vector<String> parts = Split(line, "|");
+		for (String& p : parts) {
+			p = TrimBoth(p);
+			int wc_i = da.word_classes.FindAdd(p);
+			if (wrd.class_count < wrd.MAX_CLASS_COUNT)
+				FixedIndexFindAdd(wrd.classes, wrd.MAX_CLASS_COUNT, wrd.class_count, wc_i);
+		}
+		
+	}
+	
+	t->running = false;
+	t->batch_i++;
+}
+
+void TaskManager::GetAmbiguousWordPairs(Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	TokenArgs& args = token_args;
+	args.fn = 1;
+	args.words.Clear();
+	
+	int per_action_task = 100;
+	int begin = t->batch_i * per_action_task;
+	int end = begin + per_action_task;
+	end = min(end, da.ambiguous_word_pairs.GetCount());
+	int count = end - begin;
+	if (count <= 0) {
+		RemoveTask(*t);
+		return;
+	}
+	
+	for(int i = begin; i < end; i++) {
+		const auto& wp = da.ambiguous_word_pairs[i];
+		const String& from = da.words.GetKey(wp.from);
+		const String& to = da.words.GetKey(wp.to);
+		args.words << (from + " " + to);
+	}
+	
+	RealizePipe();
+	TaskMgr& m = *pipe;
+	if (t->fn == 1)
+		m.GetTokenData(args, THISBACK1(OnAmbiguousWordPairs, t));
+	
+}
+
+void TaskManager::OnAmbiguousWordPairs(String result, Task* t) {
+	TokenArgs& args = token_args;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	// 9. is something : verb, noun
+	
+	result.Replace("\r", "");
+	Vector<String> lines = Split(result, "\n");
+	
+	int offset = 1+1;
+	
+	for (String& line : lines) {
+		line = TrimBoth(line);
+		
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		
+		int a = line.Find(".");
+		if (a < 0) continue;
+		line = TrimBoth(line.Mid(a+1));
+		
+		a = line.ReverseFind(":");
+		if (a < 0)
+			continue;
+		
+		Vector<String> result_words = Split(TrimBoth(line.Left(a)), " ");
+		if (result_words.GetCount() != 2)
+			continue;
+		
+		int w_i0 = da.words.Find(result_words[0]);
+		int w_i1 = da.words.Find(result_words[1]);
+		CombineHash ch;
+		ch.Do(w_i0).Put(1).Do(w_i1);
+		hash_t h = ch;
+		
+		//ExportWord& wrd0 = da.words[w_i0];
+		//ExportWord& wrd1 = da.words[w_i1];
+		WordPairType& wp = da.ambiguous_word_pairs.GetAdd(h);
+		
+		line = TrimBoth(line.Mid(a+1));
+		
+		Vector<String> parts = Split(line, ",");
+		if (parts.GetCount() != 2)
+			continue;
+		int wc_i_list[2];
+		for(int i = 0; i < parts.GetCount(); i++) {
+			String& p = parts[i];
+			p = TrimBoth(p);
+			wc_i_list[i] = da.word_classes.FindAdd(p);
+		}
+		
+		wp.from_type = wc_i_list[0];
+		wp.to_type = wc_i_list[1];
+	}
+	
+	t->running = false;
+	t->batch_i++;
 }
 
 void TaskManager::GetActionlist(Task* t) {

@@ -61,10 +61,17 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 			.Arg(V_ARGS, 1, 1)
 		.Process(&Task::Process_GetLyricsPhrase)
 		;
-	
+		
 	AddRule(TASK_RAW_COMPLETION, "raw prompt completion")
 		.Process(&Task::Process_RawCompletion)
 		;
+	
+	AddRule(TASK_GET_TOKEN_DATA, "get token data")
+		.Input(&Task::CreateInput_GetTokenData)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetTokenData)
+		;
+	
 }
 
 void TaskMgrConfig::Load() {
@@ -323,6 +330,22 @@ void TaskMgr::GetLyricsPhrase(const LyricsPhraseArgs& args, Event<String> WhenRe
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_LYRICS_PHRASE);
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetTokenData(const TokenArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_TOKEN_DATA);
 	TaskMgr& p = *this;
 	
 	String s = args.Get();

@@ -718,6 +718,8 @@ enum {
 	STRESS_PRIMARY,
 	STRESS_SECONDARY,
 };
+
+void HotfixReplaceWord(WString& ws);
 void HotfixReplaceWord(String& s);
 
 
@@ -831,5 +833,24 @@ String HashHex(hash_t h);
 int FindNonEscaped(const String& s, const String& search);
 int FindNonEscaped(const String& s, const String& search, int begin);
 int FindNonEscaped(const WString& s, const WString& search, int begin);
+
+
+template <class T>
+int FixedIndexFindAdd(T* values, int max_value_count, int& value_count, const T& new_value) {
+	ASSERT(value_count >= 0 && value_count <= max_value_count);
+	T* it = values;
+	T* end = it + value_count;
+	int i = 0;
+	while (it != end) {
+		if (*it == new_value)
+			return i;
+		it++;
+		i++;
+	}
+	ASSERT(value_count < max_value_count);
+	*it = new_value;
+	value_count++;
+	return i;
+}
 
 #endif

@@ -467,16 +467,16 @@ struct StructureType : Moveable<StructureType> {
 
 
 struct Token : Moveable<Token> {
-	String txt;
+	mutable int word_ = -1;
 	
 	String StoreToString() {
 		StringDumper d;
-		d % txt;
+		d % word_;
 		return d;
 	}
 	void LoadFromString(const String& s) {
 		StringParser p(s);
-		p % txt;
+		p % word_;
 	}
 };
 
@@ -500,13 +500,77 @@ struct TokenText : Moveable<TokenText> {
 	}
 };
 
+struct ExportWord : Moveable<ExportWord> {
+	static const int MAX_CLASS_COUNT = 8;
+	int main_class = -1;
+	
+	String spelling;
+	WString phonetic;
+	int count = 0;
+	Color clr;
+	int class_count = 0;
+	int classes[MAX_CLASS_COUNT];
+	
+	
+	String StoreToString() {
+		StringDumper d;
+		d % spelling % phonetic % count % clr % class_count;
+		for(int i = 0; i < class_count; i++)
+			d % classes[i];
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		#if 1
+		// V2
+		p % spelling % phonetic % count % clr % class_count;
+		for(int i = 0; i < class_count; i++)
+			p % classes[i];
+		#else
+		// V1
+		p % main_class % spelling % phonetic % count % clr;
+		class_count = 0;
+		#endif
+	}
+	
+};
+
+struct WordPairType : Moveable<WordPairType> {
+	int from = -1, to = -1;
+	int from_type = -1, to_type = -1;
+	
+	String StoreToString() {
+		StringDumper d;
+		d % from % to % from_type % to_type;
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		#if 1
+		p % from % to % from_type % to_type;
+		#else
+		p % to % from_type % to_type;
+		#endif
+	}
+	
+	hash_t GetHashValue() const {
+		CombineHash c;
+		c.Do(from).Put(1).Do(to);
+		return c;
+	}
+};
+
 struct DatasetAnalysis {
 	MapFile<String,Token> tokens;
 	MapFile<hash_t,TokenText> token_texts;
-		
+	IndexFile word_classes;
+	MapFile<String,ExportWord> words;
+	MapFile<hash_t,WordPairType> ambiguous_word_pairs;
 	
 	DatasetAnalysis();
 	void Load(int ds_i, const String& ds_key);
+	String GetTokenTextString(const TokenText& txt) const;
+	String GetTokenTypeString(const TokenText& txt) const;
 	
 	#if 0
 	VectorMap<String, ArtistAnalysis> artists;

@@ -8,9 +8,10 @@ class IndexFile {
 public:
 	IndexFile() {}
 	IndexFile(const String& p) {Load(p);}
-	IndexFile(const String& dir, const String& title) {Load(AppendFileName(dir, title + ".txt"));}
+	IndexFile(const String& dir, const String& title) {Load(dir, title);}
 	~IndexFile() {Store();}
 	
+	void Load(const String& dir, const String& title) {Load(AppendFileName(dir, title + ".txt"));}
 	void Load(const String& path);
 	void Store();
 	int FindAdd(const String& s) {
@@ -35,6 +36,7 @@ struct MapKeys {
 	template <class K0=K> String StoreToString(K0& o) {return o.StoreToString();}
 	template <class K0=K> void LoadFromString(K0& o, const String& s) {return o.LoadFromString(s);}
 	
+	template <> String StoreToString(int& i) {return "\"" + IntStr(i) + "\"";}
 	template <> String StoreToString(String& s) {return "\"" + s + "\"";}
 	template <> void LoadFromString(String& o, const String& s) {
 		int a = FindNonEscaped(s, "\"");
@@ -44,9 +46,18 @@ struct MapKeys {
 			o = s.Mid(a,b-a);
 		}
 	}
+	template <> void LoadFromString(int& i, const String& s) {
+		int a = FindNonEscaped(s, "\"");
+		int b = FindNonEscaped(s, "\"", a+1);
+		if (a >= 0 && b >= 0) {
+			a++;
+			i = StrInt(s.Mid(a,b-a));
+		}
+	}
 	
 	template<> String KeyString<String>(const String& s) {
 		String key = s;
+		key.Replace("\\", "\\\\");
 		key.Replace("\"", "\\\"");
 		key.Replace("\n", "\\n");
 		return key;
@@ -90,6 +101,7 @@ struct MapKeys {
 	
 	template<> String StringKey<String>(const String& s) {
 		String key = s;
+		key.Replace("\\\\", "\\");
 		key.Replace("\\\"", "\"");
 		key.Replace("\\n", "\n");
 		return key;
@@ -159,7 +171,8 @@ public:
 
 	int FindAdd(const K& s) {return map.FindAdd(s);}
 	int Find(const K& s) const {return map.Find(s);}
-	const String& operator[](int i) const {return map[i];}
+	const T& operator[](int i) const {return map[i];}
+	T& operator[](int i) {return map[i];}
 	int GetCount() const {return map.GetCount();}
 	const Vector<K>& GetKeys() const {return map.GetKeys();}
 	T& GetAdd(const K& s) {return map.GetAdd(s);}
@@ -169,6 +182,7 @@ public:
 		i = map.GetCount();
 		return map.Add(s);
 	}
+	const K& GetKey(int i) const {return map.GetKey(i);}
 	
 	void Load(const String& dir, const String& title) {Load(AppendFileName(dir, title + ".txt"));}
 	void Load(const String& path) {
@@ -176,19 +190,26 @@ public:
 		this->path = path;
 		String content = LoadFile(path);
 		content.Replace("\r","");
+		if (content.IsEmpty())
+			return;
 		Vector<String> lines = Split(content, "\n", false);
 		MapKeys<K> k;
 		MapKeys<T> v;
+		int line_i = -1;
 		for (String& l : lines) {
+			line_i++;
 			int a = FindNonEscaped(l, "\"");
-			if (a < 0) continue;
+			if (a < 0)
+				continue;
 			a++;
 			int b = FindNonEscaped(l, "\"", a);
-			if (b < 0) continue;
+			if (b < 0)
+				continue;
 			K key = k.StringKey(l.Mid(a,b-a));
 			String value = TrimBoth(l.Mid(b+1));
 			v.LoadFromString(map.Add(key), value);
 		}
+		ASSERT(map.GetCount() == lines.GetCount());
 	}
 	
 	void Store() {
@@ -232,6 +253,8 @@ public:
 	const T& At(int i, int j) const {return map[i][j];}
 	int GetCount() const {return map.GetCount();}
 	int GetCount(int i) const {return map[i].GetCount();}
+	const K0& GetKey(int i) const {return map.GetKey(i);}
+	const K1& GetKey(int i, int j) const {return map[i].GetKey(j);}
 	const Vector<K0>& GetKeys() const {return map.GetKeys();}
 	const Vector<K1>& GetKeys(int i) const {return map[i].GetKeys();}
 	const Vector<T>& GetValues(int i) const {return map[i].GetValues();}
@@ -345,9 +368,9 @@ struct StringParser {
 	template <class T> void Do(T& o);
 	template <> void Do<String>(String& o) {
 		DoSpaces();
-		if (a >= o.GetCount() || o[a] != '\"') {err = true; return;}
+		if (a >= s.GetCount() || s[a] != '\"') {err = true; return;}
 		a++;
-		int b = FindNonEscaped(o, "\"", a);
+		int b = FindNonEscaped(s, "\"", a);
 		if (b < 0) {err = true; return;}
 		o = s.Mid(a,b-a);
 		o.Replace("\\\"", "\"");
@@ -355,9 +378,9 @@ struct StringParser {
 	}
 	template <> void Do<WString>(WString& o) {
 		DoSpaces();
-		if (a >= o.GetCount() || o[a] != '\"') {err = true; return;}
+		if (a >= s.GetCount() || s[a] != '\"') {err = true; return;}
 		a++;
-		int b = FindNonEscaped(o, "\"", a);
+		int b = FindNonEscaped(s, "\"", a);
 		if (b < 0) {err = true; return;}
 		String t = s.Mid(a,b-a);
 		t.Replace("\\\"", "\"");

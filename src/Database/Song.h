@@ -391,7 +391,7 @@ struct Song :
 			//chords.Clear();
 			//part_types.Clear();
 		}
-		int GetEstimatedDuration(int bpm) const;
+		double GetEstimatedDuration(int bpm) const;
 		void Jsonize(JsonIO& json) {
 			json
 				("name", name)

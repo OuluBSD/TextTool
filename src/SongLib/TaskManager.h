@@ -5,6 +5,10 @@ namespace SongLib {
 
 
 typedef enum {
+	TASK_TOKENS,
+	TASK_AMBIGUOUS_WORD_PAIRS,
+	
+	// deprecated?
 	TASK_ACTIONLIST,
 	TASK_ACTION_PARALLELS,
 	TASK_ACTION_TRANSITIONS,
@@ -29,6 +33,8 @@ class TaskManager {
 	bool running = false, stopped = true;
 	TaskMgr* pipe = 0;
 	
+	TokenArgs token_args;
+	
 	int per_action_clrs = 60;
 	int per_action_attrs = 40;
 	VectorMap<String, VectorMap<String, int>> uniq_acts;
@@ -40,6 +46,10 @@ class TaskManager {
 	void OnActionlistAttrs(String result, Task* t);
 	void GetActionTransitions(Task* t);
 	void GetActionParallels(Task* t);
+	void GetTokenData(Task* t);
+	void OnTokenData(String result, Task* t);
+	void GetAmbiguousWordPairs(Task* t);
+	void OnAmbiguousWordPairs(String result, Task* t);
 	
 	void RemoveTask(Task& t);
 	
@@ -56,6 +66,8 @@ public:
 	
 	static TaskManager& Single() {static TaskManager o; return o;}
 	
+	void DoTokens(int ds_i, int fn);
+	void DoAmbiguousWordPairs(int ds_i, int fn);
 	
 	void DoActionlistCache(int ds_i);
 	void DoActionlist(int ds_i, int fn);

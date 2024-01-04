@@ -250,5 +250,72 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	
 	tokens.Load(ds_dir, "tokens");
 	token_texts.Load(ds_dir, "tokenized texts");
+	word_classes.Load(ds_dir, "word classes");
+	words.Load(ds_dir, "words");
+	ambiguous_word_pairs.Load(ds_dir, "ambiguous word pairs");
+
+	/*MapFile<int,WordPairType> old_ambiguous_word_pairs;
+	old_ambiguous_word_pairs.Load(ds_dir, "old ambiguous word pairs");
+	for(int i = 0; i < old_ambiguous_word_pairs.GetCount(); i++) {
+		auto& old = old_ambiguous_word_pairs[i];
+		old.from = old_ambiguous_word_pairs.GetKey(i);
+		hash_t h = old.GetHashValue();
+		auto& n = ambiguous_word_pairs.GetAdd(h);
+		n = old;
+	}*/
 	
+}
+
+String DatasetAnalysis::GetTokenTextString(const TokenText& txt) const {
+	String o;
+	for(int tk_i : txt.tokens) {
+		//const Token& tk = tokens[tk_i];
+		const String& key = tokens.GetKey(tk_i);
+		
+		if (key.GetCount() == 1 && NaturalTokenizer::IsToken(key[0])) {
+			o << key;
+		}
+		else {
+			if (!o.IsEmpty())
+				o << " ";
+			o << key;
+		}
+	}
+	return o;
+}
+
+String DatasetAnalysis::GetTokenTypeString(const TokenText& txt) const {
+	String o;
+	for(int tk_i : txt.tokens) {
+		const Token& tk = tokens[tk_i];
+		int w_i = tk.word_;
+		if (w_i < 0) {
+			String key = ToLower(tokens.GetKey(tk_i));
+			w_i = words.Find(key);
+			tk.word_ = w_i;
+		}
+		if (w_i < 0) {
+			o << "{error}";
+		}
+		else {
+			const ExportWord& ew = words[w_i];
+			o << "{";
+			for(int i = 0; i < ew.class_count; i++) {
+				if (i) o << "|";
+				int class_i = ew.classes[i];
+				const String& wc = word_classes[class_i];
+				o << wc;
+			}
+			o << "}";
+			/*if (key.GetCount() == 1 && NaturalTokenizer::IsToken(key[0])) {
+				o << key;
+			}
+			else {
+				if (!o.IsEmpty())
+					o << " ";
+				o << key;
+			}*/
+		}
+	}
+	return o;
 }

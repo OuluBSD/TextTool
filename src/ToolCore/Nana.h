@@ -55,7 +55,7 @@ struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
 			}
 		}
 		else {
-			String s(txt, strnlen(txt, MAX_TXT_LEN));
+			String s(txt, (int)strnlen(txt, MAX_TXT_LEN));
 			json("txt", s);
 			
 			WString ws(pron, MAX_PRON_LEN);

@@ -2000,9 +2000,9 @@ Color GetSentenceColor(const Vector<String>& main_classes, const Vector<Color>& 
 	if (rs > 0) r /= rs;
 	if (gs > 0) g /= gs;
 	if (bs > 0) b /= bs;
-	byte br = 255 * r;
-	byte bg = 255 * g;
-	byte bb = 255 * b;
+	byte br = (byte)(255 * r);
+	byte bg = (byte)(255 * g);
+	byte bb = (byte)(255 * b);
 	Color res(br, bg, bb);
 	return res;
 }
