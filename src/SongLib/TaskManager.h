@@ -7,6 +7,7 @@ namespace SongLib {
 typedef enum {
 	TASK_TOKENS,
 	TASK_AMBIGUOUS_WORD_PAIRS,
+	TASK_VIRTUAL_PHRASES,
 	
 	// deprecated?
 	TASK_ACTIONLIST,
@@ -50,6 +51,8 @@ class TaskManager {
 	void OnTokenData(String result, Task* t);
 	void GetAmbiguousWordPairs(Task* t);
 	void OnAmbiguousWordPairs(String result, Task* t);
+	void GetVirtualPhrases(Task* t);
+	void OnVirtualPhrases(String result, Task* t);
 	
 	void RemoveTask(Task& t);
 	
@@ -68,6 +71,7 @@ public:
 	
 	void DoTokens(int ds_i, int fn);
 	void DoAmbiguousWordPairs(int ds_i, int fn);
+	void DoVirtualPhrases(int ds_i, int fn);
 	
 	void DoActionlistCache(int ds_i);
 	void DoActionlist(int ds_i, int fn);

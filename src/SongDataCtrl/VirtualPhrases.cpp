@@ -1,6 +1,6 @@
 #include "SongDataCtrl.h"
 
-AmbiguousWordPairs::AmbiguousWordPairs() {
+VirtualPhrases::VirtualPhrases() {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << vsplit << texts;
@@ -31,7 +31,7 @@ AmbiguousWordPairs::AmbiguousWordPairs() {
 	
 }
 
-void AmbiguousWordPairs::Data() {
+void VirtualPhrases::Data() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -46,35 +46,56 @@ void AmbiguousWordPairs::Data() {
 	DataDataset();
 }
 
-void AmbiguousWordPairs::DataDataset() {
+String GetTypePhraseString(const Vector<int>& types, const DatasetAnalysis& da) {
+	String o;
+	for (int type_i : types) {
+		String wc = da.word_classes[type_i];
+		
+		int a = wc.Find(",");
+		if (a >= 0)
+			wc = TrimBoth(wc.Left(a));
+		
+		a = wc.Find("(");
+		if (a >= 0)
+			wc = TrimBoth(wc.Left(a));
+		
+		o << "{" << wc << "}";
+	}
+	return o;
+}
+
+void VirtualPhrases::DataDataset() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sd.a.datasets[ds_i];
-	
 	int row = 0;
-	for(int i = 0; i < da.ambiguous_word_pairs.GetCount(); i++) {
-		const WordPairType& wp = da.ambiguous_word_pairs[i];
-		if (wp.from >= 0 && wp.to >= 0) {
-			const String& from = da.words.GetKey(wp.from);
-			const String& to = da.words.GetKey(wp.to);
-			
-			texts.Set(row, 0, from);
-			texts.Set(row, 1, to);
-			row++;
-		}
+	for(int i = 0; i < da.token_texts.GetCount(); i++) {
+		const TokenText& txt = da.token_texts[i];
+		if (txt.virtual_phrase < 0)
+			continue;
+		
+		VirtualPhrase& vp = da.virtual_phrases[txt.virtual_phrase];
+		
+		String txt_str = da.GetTokenTextString(txt);
+		String type_str = GetTypePhraseString(vp.types, da);
+		texts.Set(row, 0, txt_str);
+		texts.Set(row, 1, type_str);
+		row++;
 	}
 	texts.SetCount(row);
 	
+	
 }
 
-void AmbiguousWordPairs::ToolMenu(Bar& bar) {
+void VirtualPhrases::ToolMenu(Bar& bar) {
 	bar.Add(t_("Process"), AppImg::RedRing(), THISBACK(Process)).Key(K_F5);
 	
 }
 
-void AmbiguousWordPairs::Process() {
+void VirtualPhrases::Process() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	tm.DoAmbiguousWordPairs(0, 1);
+	tm.DoVirtualPhrases(0, 0);
 }
+

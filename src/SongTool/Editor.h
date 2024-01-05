@@ -55,6 +55,7 @@ protected:
 	TokensPage						tokens_data;
 	TokenPhrases					token_phrases;
 	AmbiguousWordPairs				ambiguous_word_pairs;
+	VirtualPhrases					virtual_phrases;
 	/*
 	SongDataAnalysisPage			song_analysis;
 	SongDataWords					song_words;

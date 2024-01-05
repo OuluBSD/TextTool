@@ -47,6 +47,22 @@ void TaskManager::DoAmbiguousWordPairs(int ds_i, int fn) {
 	lock.LeaveWrite();
 }
 
+void TaskManager::DoVirtualPhrases(int ds_i, int fn) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	lock.EnterWrite();
+	Task& t = task_list.Add();
+	t.type = TASK_VIRTUAL_PHRASES;
+	t.cb = THISBACK1(GetVirtualPhrases, &t);
+	t.ds_i = ds_i;
+	t.batch_i = 0;
+	t.fn = fn;
+	lock.LeaveWrite();
+}
+
 void TaskManager::DoActionlistCache(int ds_i) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -344,9 +360,11 @@ void TaskManager::GetAmbiguousWordPairs(Task* t) {
 	
 	for(int i = begin; i < end; i++) {
 		const auto& wp = da.ambiguous_word_pairs[i];
-		const String& from = da.words.GetKey(wp.from);
-		const String& to = da.words.GetKey(wp.to);
-		args.words << (from + " " + to);
+		if (wp.from >= 0 && wp.to >= 0) {
+			const String& from = da.words.GetKey(wp.from);
+			const String& to = da.words.GetKey(wp.to);
+			args.words << (from + " " + to);
+		}
 	}
 	
 	RealizePipe();
@@ -413,6 +431,168 @@ void TaskManager::OnAmbiguousWordPairs(String result, Task* t) {
 		wp.from_type = wc_i_list[0];
 		wp.to_type = wc_i_list[1];
 	}
+	
+	t->running = false;
+	t->batch_i++;
+}
+
+bool GetTypePhrase(Vector<int>& types, const DatasetAnalysis& da, int next_w_i, int w_i, int prev_w_i) {
+	if (w_i < 0) {
+		return false;
+	}
+	else {
+		const ExportWord& ew = da.words[w_i];
+		if (!ew.class_count)
+			return false;
+		
+		int class_i = -1;
+		if (ew.class_count > 1) {
+			bool found = false;
+			
+			if (w_i >= 0 && prev_w_i >= 0) {
+				CombineHash ch;
+				ch.Do(prev_w_i).Put(1).Do(w_i);
+				hash_t h = ch;
+				int i = da.ambiguous_word_pairs.Find(h);
+				if (i >= 0) {
+					const WordPairType& wp0 = da.ambiguous_word_pairs[i];
+					if (wp0.to_type >= 0) {
+						class_i = wp0.to_type;
+						found = true;
+					}
+				}
+			}
+			if (!found && w_i >= 0 && next_w_i >= 0) {
+				CombineHash ch;
+				ch.Do(w_i).Put(1).Do(next_w_i);
+				hash_t h = ch;
+				int i = da.ambiguous_word_pairs.Find(h);
+				if (i >= 0) {
+					const WordPairType& wp0 = da.ambiguous_word_pairs[i];
+					if (wp0.from_type >= 0) {
+						class_i = wp0.from_type;
+						found = true;
+					}
+				}
+			}
+			
+			if (!found)
+				return false;
+		}
+		else {
+			class_i = ew.classes[0];
+		}
+		
+		String wc = da.word_classes[class_i];
+		if (wc.Find("contraction") == 0 && wc.Find("(") >= 0) {
+			int a = wc.Find("(");
+			if (a < 0)
+				return false;
+			a++;
+			int b = wc.Find(")", a);
+			if (b < 0)
+				return false;
+			String arg = wc.Mid(a,b-a);
+			
+			a = arg.Find("/");
+			if (a >= 0)
+				arg = TrimBoth(arg.Left(a));
+			
+			a = arg.Find(";");
+			if (a >= 0)
+				arg = TrimBoth(arg.Left(a));
+			
+			const char* split_str = " ";
+			arg.Replace("+", " ");
+			Vector<String> words = Split(arg, " ");
+			
+			int prev_w_j = prev_w_i;
+			Vector<int> w_js;
+			for (String& w : words) {
+				w = TrimBoth(w);
+				int w_j = da.words.Find(w);
+				if (w_j < 0)
+					return false;
+				w_js << w_j;
+			}
+			int c = w_js.GetCount();
+			for(int j = 0; j < c; j++) {
+				int w_j = w_js[j];
+				int next_w_j = j < c-1 ? w_js[j+1] : -1;
+				bool succ = GetTypePhrase(types, da, next_w_j, w_j, prev_w_j);
+				if (!succ)
+					return false;
+				prev_w_j = w_j;
+			}
+		}
+		else {
+			if (class_i < 0)
+				return false;
+			
+			types << class_i;
+		}
+		
+	}
+	return true;
+}
+
+void TaskManager::GetVirtualPhrases(Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	Vector<int> word_is, type_is;
+	for(int i = 0; i < da.token_texts.GetCount(); i++) {
+		TokenText& txt = da.token_texts[i];
+		
+		bool succ = true;
+		word_is.SetCount(0);
+		type_is.SetCount(0);
+		for(int tk_i : txt.tokens) {
+			const Token& tk = da.tokens[tk_i];
+			int w_i = tk.word_;
+			if (w_i < 0) {
+				String key = ToLower(da.tokens.GetKey(tk_i));
+				w_i = da.words.Find(key);
+				tk.word_ = w_i;
+			}
+			word_is << w_i;
+		}
+		
+		int prev_w_i = -1;
+		for(int j = 0; j < word_is.GetCount(); j++) {
+			int w_i = word_is[j];
+			int next_w_i = j+1 < word_is.GetCount() ? word_is[j] : -1;
+			succ = succ && GetTypePhrase(type_is, da, next_w_i, w_i, prev_w_i);
+			prev_w_i = w_i;
+		}
+		
+		if (type_is.IsEmpty())
+			succ = false;
+		
+		if (succ) {
+			CombineHash ch;
+			for (int type_i : type_is)
+				ch.Do(type_i);
+			hash_t h = ch;
+			
+			int vp_i = -1;
+			VirtualPhrase& vp = da.virtual_phrases.GetAdd(h, vp_i);
+			Swap(type_is, vp.types);
+			
+			txt.virtual_phrase = vp_i;
+		}
+	}
+}
+
+void TaskManager::OnVirtualPhrases(String result, Task* t) {
+	TokenArgs& args = token_args;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
 	
 	t->running = false;
 	t->batch_i++;

@@ -253,6 +253,7 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	word_classes.Load(ds_dir, "word classes");
 	words.Load(ds_dir, "words");
 	ambiguous_word_pairs.Load(ds_dir, "ambiguous word pairs");
+	virtual_phrases.Load(ds_dir, "virtual phrases");
 
 	/*MapFile<int,WordPairType> old_ambiguous_word_pairs;
 	old_ambiguous_word_pairs.Load(ds_dir, "old ambiguous word pairs");

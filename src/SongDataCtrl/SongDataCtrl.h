@@ -27,5 +27,6 @@
 #include "LineTypes.h"
 #include "Export.h"
 #include "AmbiguousWordPairs.h"
+#include "VirtualPhrases.h"
 
 #endif

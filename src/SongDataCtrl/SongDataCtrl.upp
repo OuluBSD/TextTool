@@ -14,6 +14,8 @@ file
 	TokenPhrases.cpp,
 	AmbiguousWordPairs.h,
 	AmbiguousWordPairs.cpp,
+	VirtualPhrases.h,
+	VirtualPhrases.cpp,
 	LineTypes.h,
 	LineTypes.cpp,
 	Words.h,

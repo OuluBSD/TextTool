@@ -482,12 +482,14 @@ struct Token : Moveable<Token> {
 
 struct TokenText : Moveable<TokenText> {
 	Vector<int> tokens;
+	int virtual_phrase = -1;
 	
 	String StoreToString() {
 		StringDumper d;
 		d % tokens.GetCount();
 		for (int t : tokens)
 			d % t;
+		d % virtual_phrase;
 		return d;
 	}
 	void LoadFromString(const String& s) {
@@ -497,6 +499,7 @@ struct TokenText : Moveable<TokenText> {
 		tokens.SetCount(tc);
 		for (int& t : tokens)
 			p % t;
+		p % virtual_phrase;
 	}
 };
 
@@ -560,12 +563,40 @@ struct WordPairType : Moveable<WordPairType> {
 	}
 };
 
+struct VirtualPhrase : Moveable<VirtualPhrase> {
+	Vector<int> types;
+	
+	String StoreToString() {
+		StringDumper d;
+		d % types.GetCount();
+		for (int type : types)
+			d % type;
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		int tc = 0;
+		p % tc;
+		types.SetCount(tc);
+		for (int& type : types)
+			p % type;
+	}
+	
+	hash_t GetHashValue() const {
+		CombineHash c;
+		for (int type : types)
+			c.Do(type);
+		return c;
+	}
+};
+
 struct DatasetAnalysis {
 	MapFile<String,Token> tokens;
 	MapFile<hash_t,TokenText> token_texts;
 	IndexFile word_classes;
 	MapFile<String,ExportWord> words;
 	MapFile<hash_t,WordPairType> ambiguous_word_pairs;
+	MapFile<hash_t,VirtualPhrase> virtual_phrases;
 	
 	DatasetAnalysis();
 	void Load(int ds_i, const String& ds_key);
