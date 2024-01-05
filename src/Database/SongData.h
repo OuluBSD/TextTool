@@ -505,7 +505,6 @@ struct TokenText : Moveable<TokenText> {
 
 struct ExportWord : Moveable<ExportWord> {
 	static const int MAX_CLASS_COUNT = 8;
-	int main_class = -1;
 	
 	String spelling;
 	WString phonetic;
@@ -524,16 +523,10 @@ struct ExportWord : Moveable<ExportWord> {
 	}
 	void LoadFromString(const String& s) {
 		StringParser p(s);
-		#if 1
 		// V2
 		p % spelling % phonetic % count % clr % class_count;
 		for(int i = 0; i < class_count; i++)
 			p % classes[i];
-		#else
-		// V1
-		p % main_class % spelling % phonetic % count % clr;
-		class_count = 0;
-		#endif
 	}
 	
 };
@@ -590,6 +583,33 @@ struct VirtualPhrase : Moveable<VirtualPhrase> {
 	}
 };
 
+struct VirtualPhrasePart : Moveable<VirtualPhrasePart> {
+	Vector<int> types;
+	
+	String StoreToString() {
+		StringDumper d;
+		d % types.GetCount();
+		for (int type : types)
+			d % type;
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		int tc = 0;
+		p % tc;
+		types.SetCount(tc);
+		for (int& type : types)
+			p % type;
+	}
+	
+	hash_t GetHashValue() const {
+		CombineHash c;
+		for (int type : types)
+			c.Do(type);
+		return c;
+	}
+};
+
 struct DatasetAnalysis {
 	MapFile<String,Token> tokens;
 	MapFile<hash_t,TokenText> token_texts;
@@ -597,6 +617,7 @@ struct DatasetAnalysis {
 	MapFile<String,ExportWord> words;
 	MapFile<hash_t,WordPairType> ambiguous_word_pairs;
 	MapFile<hash_t,VirtualPhrase> virtual_phrases;
+	MapFile<hash_t,VirtualPhrasePart> virtual_phrase_parts;
 	
 	DatasetAnalysis();
 	void Load(int ds_i, const String& ds_key);

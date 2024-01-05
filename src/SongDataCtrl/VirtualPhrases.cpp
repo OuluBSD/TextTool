@@ -3,10 +3,10 @@
 VirtualPhrases::VirtualPhrases() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << vsplit << texts;
+	hsplit.Horz() << datasets << vsplit;
 	hsplit.SetPos(2000);
 	
-	vsplit.Vert() << datasets;
+	vsplit.Vert() << texts << parts;
 	
 	datasets.AddColumn(t_("Dataset"));
 	datasets.WhenCursor << THISBACK(DataDataset);
@@ -25,6 +25,16 @@ VirtualPhrases::VirtualPhrases() {
 		bar.Add("Copy virtual text", [this]() {
 			int i = texts.GetCursor();
 			String text = texts.Get(i, 1);
+			WriteClipboardText(text);
+		});
+	};
+	
+	parts.AddColumn(t_("From"));
+	parts.AddIndex("IDX");
+	parts.WhenBar << [this](Bar& bar){
+		bar.Add("Copy virtual text", [this]() {
+			int i = parts.GetCursor();
+			String text = parts.Get(i, 0);
 			WriteClipboardText(text);
 		});
 	};
@@ -86,16 +96,36 @@ void VirtualPhrases::DataDataset() {
 	}
 	texts.SetCount(row);
 	
+	row = 0;
+	for(int i = 0; i < da.virtual_phrase_parts.GetCount(); i++) {
+		const VirtualPhrasePart& vpp = da.virtual_phrase_parts[i];
+		if (vpp.types.IsEmpty())
+			continue;
+		
+		String type_str = GetTypePhraseString(vpp.types, da);
+		parts.Set(row, 0, type_str);
+		row++;
+	}
+	parts.SetCount(row);
+	
 	
 }
 
 void VirtualPhrases::ToolMenu(Bar& bar) {
-	bar.Add(t_("Process"), AppImg::RedRing(), THISBACK(Process)).Key(K_F5);
+	bar.Add(t_("Make virtual phrases"), AppImg::RedRing(), THISBACK(ProcessVirtualPhrases)).Key(K_F5);
+	bar.Add(t_("Make virtual phrase parts"), AppImg::RedRing(), THISBACK(ProcessVirtualPhraseParts)).Key(K_F6);
 	
 }
 
-void VirtualPhrases::Process() {
+void VirtualPhrases::ProcessVirtualPhrases() {
+	int ds_i = datasets.GetCursor();
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	tm.DoVirtualPhrases(0, 0);
+	tm.DoVirtualPhrases(ds_i, 0);
+}
+
+void VirtualPhrases::ProcessVirtualPhraseParts() {
+	int ds_i = datasets.GetCursor();
+	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	tm.DoVirtualPhrases(ds_i, 1);
 }
 

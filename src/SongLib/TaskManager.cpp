@@ -542,47 +542,123 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
-	Vector<int> word_is, type_is;
-	for(int i = 0; i < da.token_texts.GetCount(); i++) {
-		TokenText& txt = da.token_texts[i];
-		
-		bool succ = true;
-		word_is.SetCount(0);
-		type_is.SetCount(0);
-		for(int tk_i : txt.tokens) {
-			const Token& tk = da.tokens[tk_i];
-			int w_i = tk.word_;
-			if (w_i < 0) {
-				String key = ToLower(da.tokens.GetKey(tk_i));
-				w_i = da.words.Find(key);
-				tk.word_ = w_i;
+	if (t->fn == 0) {
+		Vector<int> word_is, type_is;
+		for(int i = 0; i < da.token_texts.GetCount(); i++) {
+			TokenText& txt = da.token_texts[i];
+			
+			bool succ = true;
+			word_is.SetCount(0);
+			type_is.SetCount(0);
+			for(int tk_i : txt.tokens) {
+				const Token& tk = da.tokens[tk_i];
+				int w_i = tk.word_;
+				if (w_i < 0) {
+					String key = ToLower(da.tokens.GetKey(tk_i));
+					w_i = da.words.Find(key);
+					tk.word_ = w_i;
+				}
+				word_is << w_i;
 			}
-			word_is << w_i;
-		}
-		
-		int prev_w_i = -1;
-		for(int j = 0; j < word_is.GetCount(); j++) {
-			int w_i = word_is[j];
-			int next_w_i = j+1 < word_is.GetCount() ? word_is[j] : -1;
-			succ = succ && GetTypePhrase(type_is, da, next_w_i, w_i, prev_w_i);
-			prev_w_i = w_i;
-		}
-		
-		if (type_is.IsEmpty())
-			succ = false;
-		
-		if (succ) {
-			CombineHash ch;
-			for (int type_i : type_is)
-				ch.Do(type_i);
-			hash_t h = ch;
 			
-			int vp_i = -1;
-			VirtualPhrase& vp = da.virtual_phrases.GetAdd(h, vp_i);
-			Swap(type_is, vp.types);
+			int prev_w_i = -1;
+			for(int j = 0; j < word_is.GetCount(); j++) {
+				int w_i = word_is[j];
+				int next_w_i = j+1 < word_is.GetCount() ? word_is[j] : -1;
+				succ = succ && GetTypePhrase(type_is, da, next_w_i, w_i, prev_w_i);
+				prev_w_i = w_i;
+			}
 			
-			txt.virtual_phrase = vp_i;
+			if (type_is.IsEmpty())
+				succ = false;
+			
+			if (succ) {
+				CombineHash ch;
+				for (int type_i : type_is)
+					ch.Do(type_i);
+				hash_t h = ch;
+				
+				int vp_i = -1;
+				VirtualPhrase& vp = da.virtual_phrases.GetAdd(h, vp_i);
+				Swap(type_is, vp.types);
+				
+				txt.virtual_phrase = vp_i;
+			}
 		}
+		
+		int punctuation_mark_i = da.word_classes.FindAdd("punctuation mark");
+		int punctuation_i = da.word_classes.FindAdd("punctuation");
+		
+		for(int i = 0; i < da.virtual_phrases.GetCount(); i++) {
+			const VirtualPhrase& vp = da.virtual_phrases[i];
+			Vector<Vector<int>> tmps;
+			Vector<int> tmp;
+			
+			for (int type : vp.types) {
+				if (type == punctuation_mark_i || type == punctuation_i) {
+					if (tmp.GetCount()) {
+						Swap(tmps.Add(), tmp);
+						tmp.SetCount(0);
+					}
+				}
+				else
+					tmp << type;
+			}
+			if (tmp.GetCount()) {
+				Swap(tmps.Add(), tmp);
+				tmp.SetCount(0);
+			}
+			for (const Vector<int>& tmp : tmps) {
+				CombineHash ch;
+				for (int type : tmp)
+					ch.Do(type).Put(1);
+				hash_t h = ch;
+				
+				int vpp_i = -1;
+				VirtualPhrasePart& vpp = da.virtual_phrase_parts.GetAdd(h, vpp_i);
+				if (vpp.types.IsEmpty())
+					vpp.types <<= tmp;
+			}
+		}
+		LOG(da.virtual_phrase_parts.GetCount());
+		LOG(da.virtual_phrase_parts.GetCount() * 100.0 / da.virtual_phrases.GetCount());
+	}
+	else if (t->fn == 1) {
+		TokenArgs& args = token_args;
+		args.fn = 2;
+		args.words.Clear();
+		
+		int per_action_task = 75;
+		int begin = t->batch_i * per_action_task;
+		int end = begin + per_action_task;
+		end = min(end, da.virtual_phrase_parts.GetCount());
+		int count = end - begin;
+		if (count <= 0) {
+			RemoveTask(*t);
+			return;
+		}
+		
+		for(int i = begin; i < end; i++) {
+			const VirtualPhrasePart& vpp = da.virtual_phrase_parts[i];
+			String s;
+			for(int j = 0; j < vpp.types.GetCount(); j++) {
+				if (j) s << ",";
+				int type = vpp.types[j];
+				String type_str = da.word_classes[type];
+				
+				int a = type_str.Find("(");
+				if (a >= 0) type_str = type_str.Left(a);
+				a = type_str.Find(",");
+				if (a >= 0) type_str = type_str.Left(a);
+				
+				s << type_str;
+			}
+			args.words << s;
+		}
+		
+		RealizePipe();
+		TaskMgr& m = *pipe;
+		m.GetTokenData(args, THISBACK1(OnVirtualPhrases, t));
 	}
 }
 

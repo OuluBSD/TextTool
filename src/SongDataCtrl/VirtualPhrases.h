@@ -4,7 +4,7 @@
 
 class VirtualPhrases : public SongToolCtrl {
 	Splitter vsplit, hsplit;
-	ArrayCtrl datasets, texts;
+	ArrayCtrl datasets, texts, parts;
 	
 public:
 	typedef VirtualPhrases CLASSNAME;
@@ -13,7 +13,8 @@ public:
 	void Data() override;
 	void DataDataset();
 	void ToolMenu(Bar& bar) override;
-	void Process();
+	void ProcessVirtualPhrases();
+	void ProcessVirtualPhraseParts();
 	
 };
 
