@@ -16,8 +16,8 @@ bool NaturalTokenizer::Parse(const String& txt) {
 	for(int i = 0; i < ws.GetCount(); i++) {
 		int chr = ws[i];
 		
-		if (chr != L'ä' && chr != L'Ä' &&
-			chr != L'ö' && chr != L'Ö') {
+		if (chr != L"ä"[0] && chr != L"Ä"[0] &&
+			chr != L"ö"[0] && chr != L"Ö"[0]) {
 			has_foreign = has_foreign ||
 				(chr >= 0x100 && chr < 0x700) || // п, ب
 				chr >= 0xc000 ||

@@ -2,6 +2,8 @@
 #define _SongDataCtrl_VirtualPhrases_h_
 
 
+String GetTypePhraseString(const Vector<int>& word_classes, const DatasetAnalysis& da);
+
 class VirtualPhrases : public SongToolCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, texts, parts;
@@ -17,7 +19,6 @@ public:
 	void ProcessVirtualPhraseParts();
 	
 };
-
 
 
 #endif

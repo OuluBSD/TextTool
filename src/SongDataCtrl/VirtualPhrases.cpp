@@ -56,10 +56,14 @@ void VirtualPhrases::Data() {
 	DataDataset();
 }
 
-String GetTypePhraseString(const Vector<int>& types, const DatasetAnalysis& da) {
+String GetTypePhraseString(const Vector<int>& word_classes, const DatasetAnalysis& da) {
 	String o;
-	for (int type_i : types) {
-		String wc = da.word_classes[type_i];
+	for (int wc_i : word_classes) {
+		if (wc_i >= da.word_classes.GetCount()) {
+			o << "{error}";
+			continue;
+		}
+		String wc = da.word_classes[wc_i];
 		
 		int a = wc.Find(",");
 		if (a >= 0)
@@ -89,7 +93,7 @@ void VirtualPhrases::DataDataset() {
 		VirtualPhrase& vp = da.virtual_phrases[txt.virtual_phrase];
 		
 		String txt_str = da.GetTokenTextString(txt);
-		String type_str = GetTypePhraseString(vp.types, da);
+		String type_str = GetTypePhraseString(vp.word_classes, da);
 		texts.Set(row, 0, txt_str);
 		texts.Set(row, 1, type_str);
 		row++;
@@ -99,10 +103,10 @@ void VirtualPhrases::DataDataset() {
 	row = 0;
 	for(int i = 0; i < da.virtual_phrase_parts.GetCount(); i++) {
 		const VirtualPhrasePart& vpp = da.virtual_phrase_parts[i];
-		if (vpp.types.IsEmpty())
+		if (vpp.word_classes.IsEmpty())
 			continue;
 		
-		String type_str = GetTypePhraseString(vpp.types, da);
+		String type_str = GetTypePhraseString(vpp.word_classes, da);
 		parts.Set(row, 0, type_str);
 		row++;
 	}

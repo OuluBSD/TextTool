@@ -7,12 +7,34 @@ TaskManager::TaskManager() {
 }
 
 void TaskManager::Clear() {
-	bool was_running = running;
-	if (was_running) Stop();
+	lock.EnterWrite();
+	Task& t = task_list.Add();
+	t.type = TASK_TOKENS;
+	t.cb = THISBACK1(DoClear, &t);
+	lock.LeaveWrite();
+}
+
+void TaskManager::DoClear(Task* tp) {
+	TimeStop ts;
+	while (1) {
+		bool any_running = false;
+		for (Task& t : task_list) {
+			if (&t == tp)
+				continue;
+			if (t.running)
+				any_running = true;
+		}
+		if (any_running) {
+			if (ts.Seconds() >= 30.0)
+				return;
+			Sleep(10);
+		}
+		else
+			break;
+	}
 	lock.EnterWrite();
 	task_list.Clear();
 	lock.LeaveWrite();
-	if (was_running) Start();
 }
 
 void TaskManager::DoTokens(int ds_i, int fn) {
@@ -543,13 +565,13 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	if (t->fn == 0) {
-		Vector<int> word_is, type_is;
+		Vector<int> word_is, word_classes;
 		for(int i = 0; i < da.token_texts.GetCount(); i++) {
 			TokenText& txt = da.token_texts[i];
 			
 			bool succ = true;
 			word_is.SetCount(0);
-			type_is.SetCount(0);
+			word_classes.SetCount(0);
 			for(int tk_i : txt.tokens) {
 				const Token& tk = da.tokens[tk_i];
 				int w_i = tk.word_;
@@ -565,49 +587,59 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 			for(int j = 0; j < word_is.GetCount(); j++) {
 				int w_i = word_is[j];
 				int next_w_i = j+1 < word_is.GetCount() ? word_is[j] : -1;
-				succ = succ && GetTypePhrase(type_is, da, next_w_i, w_i, prev_w_i);
+				succ = succ && GetTypePhrase(word_classes, da, next_w_i, w_i, prev_w_i);
 				prev_w_i = w_i;
 			}
 			
-			if (type_is.IsEmpty())
+			if (word_classes.IsEmpty())
 				succ = false;
 			
 			if (succ) {
 				CombineHash ch;
-				for (int type_i : type_is)
-					ch.Do(type_i);
+				for (int wc_i : word_classes)
+					ch.Do(wc_i);
 				hash_t h = ch;
 				
 				int vp_i = -1;
 				VirtualPhrase& vp = da.virtual_phrases.GetAdd(h, vp_i);
-				Swap(type_is, vp.types);
+				Swap(word_classes, vp.word_classes);
 				
 				txt.virtual_phrase = vp_i;
 			}
 		}
 		
-		int punctuation_mark_i = da.word_classes.FindAdd("punctuation mark");
-		int punctuation_i = da.word_classes.FindAdd("punctuation");
+		//int punctuation_mark_i = da.word_classes.FindAdd("punctuation mark");
+		//int punctuation_i = da.word_classes.FindAdd("punctuation");
+		for(int i = 0; i < da.virtual_phrase_parts.GetCount(); i++)
+			da.virtual_phrase_parts[i].count = 0;
 		
 		for(int i = 0; i < da.virtual_phrases.GetCount(); i++) {
 			const VirtualPhrase& vp = da.virtual_phrases[i];
 			Vector<Vector<int>> tmps;
 			Vector<int> tmp;
 			
-			for (int type : vp.types) {
-				if (type == punctuation_mark_i || type == punctuation_i) {
+			for (int wc_i : vp.word_classes) {
+				String wc = da.word_classes[wc_i];
+				int a = wc.Find("punctuation");
+				int b = wc.Find("conjunction");
+				//if (type == punctuation_mark_i || type == punctuation_i) {
+				if (a >= 0 || b >= 0) {
 					if (tmp.GetCount()) {
 						Swap(tmps.Add(), tmp);
 						tmp.SetCount(0);
 					}
+					if (b >= 0)
+						tmp << wc_i;
 				}
 				else
-					tmp << type;
+					tmp << wc_i;
 			}
 			if (tmp.GetCount()) {
 				Swap(tmps.Add(), tmp);
 				tmp.SetCount(0);
 			}
+			CombineHash struct_ch;
+			Vector<int> vpp_is;
 			for (const Vector<int>& tmp : tmps) {
 				CombineHash ch;
 				for (int type : tmp)
@@ -616,12 +648,22 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 				
 				int vpp_i = -1;
 				VirtualPhrasePart& vpp = da.virtual_phrase_parts.GetAdd(h, vpp_i);
-				if (vpp.types.IsEmpty())
-					vpp.types <<= tmp;
+				if (vpp.word_classes.IsEmpty())
+					vpp.word_classes <<= tmp;
+				vpp.count++;
+				vpp_is << vpp_i;
+				struct_ch.Do(vpp_i).Put(1);
 			}
+			hash_t vps_h = struct_ch;
+			int vps_i = -1;
+			VirtualPhraseStruct& vps = da.virtual_phrase_structs.GetAdd(vps_h, vps_i);
+			//if (vps.parts.IsEmpty())
+				vps.virtual_phrase_parts <<= vpp_is;
+			vps.count = 0;
 		}
 		LOG(da.virtual_phrase_parts.GetCount());
 		LOG(da.virtual_phrase_parts.GetCount() * 100.0 / da.virtual_phrases.GetCount());
+		RemoveTask(*t);
 	}
 	else if (t->fn == 1) {
 		TokenArgs& args = token_args;
@@ -641,24 +683,77 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 		for(int i = begin; i < end; i++) {
 			const VirtualPhrasePart& vpp = da.virtual_phrase_parts[i];
 			String s;
-			for(int j = 0; j < vpp.types.GetCount(); j++) {
+			int punct_count = 0;
+			bool fail = false;
+			for(int j = 0; j < vpp.word_classes.GetCount(); j++) {
 				if (j) s << ",";
-				int type = vpp.types[j];
-				String type_str = da.word_classes[type];
+				int wc_i = vpp.word_classes[j];
+				if (wc_i >= da.word_classes.GetCount()) {fail = true; break;}
+				String wc = da.word_classes[wc_i];
 				
-				int a = type_str.Find("(");
-				if (a >= 0) type_str = type_str.Left(a);
-				a = type_str.Find(",");
-				if (a >= 0) type_str = type_str.Left(a);
+				int a = wc.Find("(");
+				if (a >= 0) wc = wc.Left(a);
+				a = wc.Find(",");
+				if (a >= 0) wc = wc.Left(a);
 				
-				s << type_str;
+				if (wc.Find("punctuation") >= 0)
+					punct_count++;
+				
+				s << wc;
 			}
-			args.words << s;
+			if (punct_count > 8 || fail)
+				args.words << "error";
+			else
+				args.words << s;
 		}
 		
 		RealizePipe();
 		TaskMgr& m = *pipe;
 		m.GetTokenData(args, THISBACK1(OnVirtualPhrases, t));
+	}
+	else if (t->fn == 2) {
+		TokenArgs& args = token_args;
+		args.fn = 3;
+		args.words.Clear();
+		
+		int per_action_task = 75;
+		int begin = t->batch_i * per_action_task;
+		int end = begin + per_action_task;
+		end = min(end, da.virtual_phrase_structs.GetCount());
+		int count = end - begin;
+		if (count <= 0) {
+			RemoveTask(*t);
+			return;
+		}
+		
+		t->tmp.Clear();
+		for(int i = begin; i < end; i++) {
+			const VirtualPhraseStruct& vps = da.virtual_phrase_structs[i];
+			String s;
+			bool fail = false;
+			for(int j = 0; j < vps.virtual_phrase_parts.GetCount(); j++) {
+				if (j) s << " + ";
+				int vpp_i = vps.virtual_phrase_parts[j];
+				
+				const VirtualPhrasePart& vpp = da.virtual_phrase_parts[vpp_i];
+				if (vpp.struct_part_type < 0) {
+					fail = false;
+					continue;
+				}
+				
+				String type_str = da.struct_part_types[vpp.struct_part_type];
+				s << type_str;
+			}
+			if (fail)
+				args.words << "error";
+			else
+				args.words << s;
+			t->tmp << i;
+		}
+		
+		RealizePipe();
+		TaskMgr& m = *pipe;
+		m.GetTokenData(args, THISBACK1(OnVirtualPhraseTypes, t));
 	}
 }
 
@@ -669,6 +764,122 @@ void TaskManager::OnVirtualPhrases(String result, Task* t) {
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
+	result.Replace("\r", "");
+	Vector<String> lines = Split(result, "\n");
+	Vector<int> word_classes;
+	for (String& line : lines) {
+		line = TrimBoth(line);
+		
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		
+		int a = line.Find(".");
+		if (a < 0) continue;
+		line = TrimBoth(line.Mid(a+1));
+		
+		a = line.ReverseFind(":");
+		if (a < 0)
+			continue;
+		
+		Vector<String> classes = Split(TrimBoth(line.Left(a)), ",");
+		word_classes.SetCount(0);
+		bool fail = false;
+		CombineHash ch;
+		for (String& c : classes) {
+			c = TrimBoth(c);
+			int wc_i = da.word_classes.FindAdd(c);
+			if (wc_i < 0) {
+				fail = true;
+				break;
+			}
+			word_classes << wc_i;
+			ch.Do(wc_i).Put(1);
+		}
+		if (fail) continue;
+		hash_t h = ch;
+		
+		int vpp_i = -1;
+		VirtualPhrasePart& vpp = da.virtual_phrase_parts.GetAdd(h, vpp_i);
+		if (vpp.word_classes.IsEmpty())
+			vpp.word_classes <<= word_classes;
+		
+		line = TrimBoth(line.Mid(a+1));
+		
+		vpp.struct_part_type = da.struct_part_types.FindAdd(line);
+	}
+	
+	
+	t->running = false;
+	t->batch_i++;
+}
+
+void TaskManager::OnVirtualPhraseTypes(String result, Task* t) {
+	TokenArgs& args = token_args;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	// 61. compound-complex sentence + complex sentence: compound-complex sentence
+	
+	int offset = 3+1;
+	result.Replace("\r", "");
+	Vector<String> lines = Split(result, "\n");
+	Vector<int> class_is;
+	for (String& line : lines) {
+		line = TrimBoth(line);
+		
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		
+		int a = line.Find(".");
+		if (a < 0) continue;
+		
+		int line_i = ScanInt(line.Left(a));
+		line_i -= offset;
+		if (line_i < 0 || line_i >= t->tmp.GetCount())
+			continue;
+		int vps_i = t->tmp[line_i];
+		VirtualPhraseStruct& vps = da.virtual_phrase_structs[vps_i];
+		
+		line = TrimBoth(line.Mid(a+1));
+		
+		a = line.ReverseFind(":");
+		if (a < 0)
+			continue;
+		
+		Vector<String> classes = Split(TrimBoth(line.Left(a)), "+");
+		//sp_is.SetCount(0);
+		bool fail = false;
+		CombineHash ch;
+		for (String& c : classes) {
+			c = TrimBoth(c);
+			int sp_i = da.struct_part_types.Find(c);
+			if (sp_i < 0) {
+				fail = true;
+				break;
+			}
+			//sp_is << sp_i;
+			ch.Do(sp_i).Put(1);
+		}
+		if (fail)
+			continue;
+		hash_t h = ch;
+		
+		/*int vps_i = da.virtual_phrase_structs.Find(h);
+		if (vps_i < 0)
+			continue;
+		VirtualPhraseStruct& vps = da.virtual_phrase_structs[vps_i];*/
+		/*int vps_i = -1;
+		VirtualPhraseStruct& vps = da.virtual_phrase_structs.GetAdd(h, vps_i);
+		if (vps.parts.IsEmpty())
+			vps.parts <<= sp_is;*/
+		vps.count++;
+		
+		String struct_type = TrimBoth(line.Mid(a+1));
+		
+		vps.struct_type = da.struct_types.FindAdd(struct_type);
+	}
 	
 	t->running = false;
 	t->batch_i++;

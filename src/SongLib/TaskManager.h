@@ -25,6 +25,7 @@ struct Task {
 	int ds_i = -1;
 	int batch_i = 0;
 	bool running = false;
+	Vector<int> tmp;
 };
 
 
@@ -53,6 +54,8 @@ class TaskManager {
 	void OnAmbiguousWordPairs(String result, Task* t);
 	void GetVirtualPhrases(Task* t);
 	void OnVirtualPhrases(String result, Task* t);
+	void OnVirtualPhraseTypes(String result, Task* t);
+	void DoClear(Task* tp);
 	
 	void RemoveTask(Task& t);
 	

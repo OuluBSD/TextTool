@@ -28,5 +28,7 @@
 #include "Export.h"
 #include "AmbiguousWordPairs.h"
 #include "VirtualPhrases.h"
+#include "VirtualPhraseParts.h"
+#include "VirtualPhraseStructs.h"
 
 #endif

@@ -532,8 +532,8 @@ struct ExportWord : Moveable<ExportWord> {
 };
 
 struct WordPairType : Moveable<WordPairType> {
-	int from = -1, to = -1;
-	int from_type = -1, to_type = -1;
+	int from = -1, to = -1; // word index
+	int from_type = -1, to_type = -1; // word class index
 	
 	String StoreToString() {
 		StringDumper d;
@@ -542,11 +542,7 @@ struct WordPairType : Moveable<WordPairType> {
 	}
 	void LoadFromString(const String& s) {
 		StringParser p(s);
-		#if 1
 		p % from % to % from_type % to_type;
-		#else
-		p % to % from_type % to_type;
-		#endif
 	}
 	
 	hash_t GetHashValue() const {
@@ -557,55 +553,90 @@ struct WordPairType : Moveable<WordPairType> {
 };
 
 struct VirtualPhrase : Moveable<VirtualPhrase> {
-	Vector<int> types;
+	Vector<int> word_classes;
 	
 	String StoreToString() {
 		StringDumper d;
-		d % types.GetCount();
-		for (int type : types)
-			d % type;
+		d % word_classes.GetCount();
+		for (int wc_i : word_classes)
+			d % wc_i;
 		return d;
 	}
 	void LoadFromString(const String& s) {
 		StringParser p(s);
 		int tc = 0;
 		p % tc;
-		types.SetCount(tc);
-		for (int& type : types)
-			p % type;
+		word_classes.SetCount(tc);
+		for (int& wc_i : word_classes)
+			p % wc_i;
 	}
 	
 	hash_t GetHashValue() const {
 		CombineHash c;
-		for (int type : types)
-			c.Do(type);
+		for (int wc_i : word_classes)
+			c.Do(wc_i).Put(1);
 		return c;
 	}
 };
 
 struct VirtualPhrasePart : Moveable<VirtualPhrasePart> {
-	Vector<int> types;
+	Vector<int> word_classes;
+	int struct_part_type = -1;
+	int count = 0;
 	
 	String StoreToString() {
 		StringDumper d;
-		d % types.GetCount();
-		for (int type : types)
-			d % type;
+		d % word_classes.GetCount();
+		for (int wc_i : word_classes)
+			d % wc_i;
+		d % struct_part_type % count;
 		return d;
 	}
 	void LoadFromString(const String& s) {
 		StringParser p(s);
 		int tc = 0;
 		p % tc;
-		types.SetCount(tc);
-		for (int& type : types)
-			p % type;
+		word_classes.SetCount(tc);
+		for (int& wc_i : word_classes)
+			p % wc_i;
+		p % struct_part_type % count;
 	}
 	
 	hash_t GetHashValue() const {
 		CombineHash c;
-		for (int type : types)
-			c.Do(type);
+		for (int wc_i : word_classes)
+			c.Do(wc_i).Put(1);
+		return c;
+	}
+};
+
+struct VirtualPhraseStruct : Moveable<VirtualPhraseStruct> {
+	Vector<int> virtual_phrase_parts;
+	int struct_type = -1;
+	int count = 0;
+	
+	String StoreToString() {
+		StringDumper d;
+		d % virtual_phrase_parts.GetCount();
+		for (int part : virtual_phrase_parts)
+			d % part;
+		d % struct_type % count;
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		int tc = 0;
+		p % tc;
+		virtual_phrase_parts.SetCount(tc);
+		for (int& part : virtual_phrase_parts)
+			p % part;
+		p % struct_type % count;
+	}
+	
+	hash_t GetHashValue() const {
+		CombineHash c;
+		for (int part : virtual_phrase_parts)
+			c.Do(part).Put(1);
 		return c;
 	}
 };
@@ -618,6 +649,9 @@ struct DatasetAnalysis {
 	MapFile<hash_t,WordPairType> ambiguous_word_pairs;
 	MapFile<hash_t,VirtualPhrase> virtual_phrases;
 	MapFile<hash_t,VirtualPhrasePart> virtual_phrase_parts;
+	MapFile<hash_t,VirtualPhraseStruct> virtual_phrase_structs;
+	IndexFile struct_part_types;
+	IndexFile struct_types;
 	
 	DatasetAnalysis();
 	void Load(int ds_i, const String& ds_key);

@@ -1926,4 +1926,62 @@ void Task::CreateInput_GetTokenData() {
 		}
 		input.response_length = 2*1024;
 	}
+	if (args.fn == 3) {
+		if (0) {
+			{
+				auto& list = input.AddSub().Title("List \"A\" sentences");
+				list.Add("With the birds , Ill share this lonely view");
+				list.Add("Soft-spoken with a broken jaw");
+			}
+			{
+				auto& list = input.AddSub().Title("List \"A\" Parts of sentences classified");
+				list.Add("\"With the birds\": prepositional phrase");
+				list.Add("\"Ill share this lonely view\": independent clause");
+				list.Add("\"Soft-spoken\": adjective phrase");
+				list.Add("\"With a broken jaw\": prepositional phrase");
+			}
+			{
+				auto& list = input.AddSub().Title("List \"A\" Classes of sentences");
+				list.Add("prepositional phrase + independent clause");
+				list.Add("adjective phrase + prepositional phrase");
+			}
+			{
+				auto& list = input.AddSub().Title("List \"A\" Categorizations of sentence structures");
+				list.Add("\"prepositional phrase + independent clause\": prepositional clause");
+				list.Add("\"adjective phrase + prepositional phrase\": modifier clause sentence");
+			}
+			{
+				auto& list = input.AddSub().Title("List \"A\" Classes of Sentences");
+				list.Add("noun phrase + independent clause");
+				list.Add("independent clause + dependent clause");
+				list.Add("prepositional phrase + independent clause");
+				list.Add("independent clause + dependent clause");
+			}
+			{
+				auto& list = input.AddSub().Title("List \"A\" Categorizations of sentence structures");
+				list.Add("noun phrase + independent clause: declarative sentence");
+				list.Add("independent clause + dependent clause: conditional sentence");
+				list.Add("prepositional phrase + independent clause: descriptive sentence");
+				list.Add("independent clause + dependent clause: causal sentence");
+			}
+		}
+		{
+			auto& list = input.AddSub().Title("List \"B\" Classes of Sentences");
+			list.NumberedLines();
+			list.Add("noun phrase + independent clause");
+			list.Add("independent clause + dependent clause");
+			list.Add("prepositional phrase + independent clause");
+			for(int i = 0; i < args.words.GetCount(); i++)
+				list.Add(args.words[i]);
+		}
+		{
+			auto& answer = input.PreAnswer();
+			answer.Title("List \"B\" Categorizations of sentence structures");
+			answer.NumberedLines();
+			answer.Add("noun phrase + independent clause: declarative sentence");
+			answer.Add("independent clause + dependent clause: conditional sentence");
+			answer.Add("prepositional phrase + independent clause: descriptive sentence");
+		}
+		input.response_length = 2*1024;
+	}
 }

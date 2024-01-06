@@ -255,7 +255,10 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	ambiguous_word_pairs.Load(ds_dir, "ambiguous word pairs");
 	virtual_phrases.Load(ds_dir, "virtual phrases");
 	virtual_phrase_parts.Load(ds_dir, "virtual phrase parts");
-
+	virtual_phrase_structs.Load(ds_dir, "virtual phrase structure types");
+	struct_part_types.Load(ds_dir, "structure part types");
+	struct_types.Load(ds_dir, "structure types");
+	
 	/*MapFile<int,WordPairType> old_ambiguous_word_pairs;
 	old_ambiguous_word_pairs.Load(ds_dir, "old ambiguous word pairs");
 	for(int i = 0; i < old_ambiguous_word_pairs.GetCount(); i++) {
