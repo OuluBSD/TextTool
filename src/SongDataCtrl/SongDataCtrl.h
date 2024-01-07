@@ -30,5 +30,6 @@
 #include "VirtualPhrases.h"
 #include "VirtualPhraseParts.h"
 #include "VirtualPhraseStructs.h"
+#include "PhraseParts.h"
 
 #endif

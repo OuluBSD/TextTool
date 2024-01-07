@@ -258,6 +258,7 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	virtual_phrase_structs.Load(ds_dir, "virtual phrase structure types");
 	struct_part_types.Load(ds_dir, "structure part types");
 	struct_types.Load(ds_dir, "structure types");
+	phrase_parts.Load(ds_dir, "phrase parts");
 	
 	/*MapFile<int,WordPairType> old_ambiguous_word_pairs;
 	old_ambiguous_word_pairs.Load(ds_dir, "old ambiguous word pairs");
@@ -320,6 +321,37 @@ String DatasetAnalysis::GetTokenTypeString(const TokenText& txt) const {
 					o << " ";
 				o << key;
 			}*/
+		}
+	}
+	return o;
+}
+
+String DatasetAnalysis::GetWordString(const Vector<int>& words) const {
+	String o;
+	for(int w_i : words) {
+		if (w_i < 0) continue;
+		const String& key = this->words.GetKey(w_i);
+		
+		if (key.GetCount() == 1 && NaturalTokenizer::IsToken(key[0])) {
+			o << key;
+		}
+		else {
+			if (!o.IsEmpty())
+				o << " ";
+			o << key;
+		}
+	}
+	return o;
+}
+
+String DatasetAnalysis::GetTypeString(const Vector<int>& word_classes) const {
+	String o;
+	for(int wc_i : word_classes) {
+		if (wc_i < 0)
+			o << "{error}";
+		else {
+			const String& wc = this->word_classes[wc_i];
+			o << "{" << wc << "}";
 		}
 	}
 	return o;

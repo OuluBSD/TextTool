@@ -11,11 +11,12 @@ VirtualPhrases::VirtualPhrases() {
 	datasets.AddColumn(t_("Dataset"));
 	datasets.WhenCursor << THISBACK(DataDataset);
 	
-	texts.AddColumn(t_("From"));
-	texts.AddColumn(t_("To"));
-	texts.AddColumn(t_(""));
+	texts.AddColumn(t_("Phrase"));
+	texts.AddColumn(t_("Classes"));
+	texts.AddColumn(t_("Parts"));
+	texts.AddColumn(t_("Category"));
 	texts.AddIndex("IDX");
-	texts.ColumnWidths("1 1");
+	texts.ColumnWidths("1 1 1 1");
 	texts.WhenBar << [this](Bar& bar){
 		bar.Add("Copy", [this]() {
 			int i = texts.GetCursor();
@@ -94,8 +95,23 @@ void VirtualPhrases::DataDataset() {
 		
 		String txt_str = da.GetTokenTextString(txt);
 		String type_str = GetTypePhraseString(vp.word_classes, da);
+		String parts_str;
+		String struct_str;
+		if (vp.virtual_phrase_struct >= 0) {
+			VirtualPhraseStruct& vps = da.virtual_phrase_structs[vp.virtual_phrase_struct];
+			int struct_type = vps.struct_type;
+			if (struct_type >= 0)
+				struct_str = da.struct_types[struct_type];
+			for (int vpp_i : vps.virtual_phrase_parts) {
+				if (!parts_str.IsEmpty()) parts_str += " + ";
+				const VirtualPhrasePart& vpp = da.virtual_phrase_parts[vpp_i];
+				parts_str += vpp.struct_part_type >= 0 ? da.struct_part_types[vpp.struct_part_type] : String("error");
+			}
+		}
 		texts.Set(row, 0, txt_str);
 		texts.Set(row, 1, type_str);
+		texts.Set(row, 2, parts_str);
+		texts.Set(row, 3, struct_str);
 		row++;
 	}
 	texts.SetCount(row);

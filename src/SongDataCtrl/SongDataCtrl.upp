@@ -20,6 +20,8 @@ file
 	VirtualPhraseParts.cpp,
 	VirtualPhraseStructs.h,
 	VirtualPhraseStructs.cpp,
+	PhraseParts.h,
+	PhraseParts.cpp,
 	LineTypes.h,
 	LineTypes.cpp,
 	Words.h,

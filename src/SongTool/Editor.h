@@ -58,6 +58,7 @@ protected:
 	VirtualPhrases					virtual_phrases;
 	VirtualPhraseParts				virtual_phrase_parts;
 	VirtualPhraseStructs			virtual_phrase_structs;
+	PhraseParts						phrase_parts;
 	/*
 	SongDataAnalysisPage			song_analysis;
 	SongDataWords					song_words;

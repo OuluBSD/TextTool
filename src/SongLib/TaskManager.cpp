@@ -614,9 +614,11 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 			da.virtual_phrase_parts[i].count = 0;
 		
 		for(int i = 0; i < da.virtual_phrases.GetCount(); i++) {
-			const VirtualPhrase& vp = da.virtual_phrases[i];
+			VirtualPhrase& vp = da.virtual_phrases[i];
 			Vector<Vector<int>> tmps;
 			Vector<int> tmp;
+			
+			// NOTE: see duplicate in fn 3
 			
 			for (int wc_i : vp.word_classes) {
 				String wc = da.word_classes[wc_i];
@@ -660,6 +662,7 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 			//if (vps.parts.IsEmpty())
 				vps.virtual_phrase_parts <<= vpp_is;
 			vps.count = 0;
+			vp.virtual_phrase_struct = vps_i;
 		}
 		LOG(da.virtual_phrase_parts.GetCount());
 		LOG(da.virtual_phrase_parts.GetCount() * 100.0 / da.virtual_phrases.GetCount());
@@ -755,6 +758,104 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 		TaskMgr& m = *pipe;
 		m.GetTokenData(args, THISBACK1(OnVirtualPhraseTypes, t));
 	}
+	else if (t->fn == 3) {
+		// NOTE: see duplicate in fn 0
+		// TODO reduce duplicate code
+		Vector<int> word_is, word_classes;
+		
+		for(int i = 0; i < da.token_texts.GetCount(); i++) {
+			const TokenText& txt = da.token_texts[i];
+			if (txt.virtual_phrase < 0)
+				continue;
+			
+			// NOTE: see duplicate in fn 0
+			bool succ = true;
+			word_is.SetCount(0);
+			word_classes.SetCount(0);
+			for(int tk_i : txt.tokens) {
+				const Token& tk = da.tokens[tk_i];
+				int w_i = tk.word_;
+				if (w_i < 0) {
+					String key = ToLower(da.tokens.GetKey(tk_i));
+					w_i = da.words.Find(key);
+					tk.word_ = w_i;
+				}
+				word_is << w_i;
+			}
+			
+			const VirtualPhrase& vp = da.virtual_phrases[txt.virtual_phrase];
+			if (word_is.GetCount() != vp.word_classes.GetCount())
+				continue;
+			
+			
+			
+			Vector<Vector<int>> w_isv, wc_isv;
+			Vector<int> w_is, wc_is;
+			
+			// NOTE: see duplicate in fn 0
+			int c = word_is.GetCount();
+			for(int j = 0; j < vp.word_classes.GetCount(); j++) {
+				int w_i = word_is[j];
+				int wc_i = vp.word_classes[j];
+				
+				String wc = da.word_classes[wc_i];
+				int a = wc.Find("punctuation");
+				int b = wc.Find("conjunction");
+				//if (type == punctuation_mark_i || type == punctuation_i) {
+				if (a >= 0 || b >= 0) {
+					if (w_is.GetCount()) {
+						Swap(w_isv.Add(), w_is);
+						Swap(wc_isv.Add(), wc_is);
+						w_is.SetCount(0);
+						wc_is.SetCount(0);
+					}
+					if (b >= 0) {
+						wc_is << wc_i;
+						w_is << w_i; // NOTE: this is NOT duplicate
+					}
+				}
+				else {
+					wc_is << wc_i;
+					w_is << w_i;
+				}
+			}
+			if (w_is.GetCount()) {
+				Swap(wc_isv.Add(), wc_is);
+				Swap(w_isv.Add(), w_is);
+				wc_is.SetCount(0);
+				w_is.SetCount(0);
+			}
+			
+			
+			for(int j = 0; j < w_isv.GetCount(); j++) {
+				const Vector<int>& wc_is = wc_isv[j];
+				const Vector<int>& w_is = w_isv[j];
+				
+				hash_t wc_h, w_h;
+				{
+					CombineHash ch;
+					for (int wc_i : wc_is)
+						ch.Do(wc_i).Put(1);
+					wc_h = ch;
+				}
+				{
+					CombineHash ch;
+					for (int w_i : w_is)
+						ch.Do(w_i).Put(1);
+					w_h = ch;
+				}
+				
+				int pp_i = -1;
+				PhrasePart& pp = da.phrase_parts.GetAdd(w_h, pp_i);
+				pp.words <<= w_is;
+				pp.tt_i = i;
+				pp.virtual_phrase_part = da.virtual_phrase_parts.Find(wc_h);
+				
+			}
+		}
+		
+		
+	}
 }
 
 void TaskManager::OnVirtualPhrases(String result, Task* t) {
@@ -848,12 +949,16 @@ void TaskManager::OnVirtualPhraseTypes(String result, Task* t) {
 		if (a < 0)
 			continue;
 		
-		Vector<String> classes = Split(TrimBoth(line.Left(a)), "+");
+		Vector<String> classes = Split(TrimBoth(line.Left(a)), "+", false);
 		//sp_is.SetCount(0);
 		bool fail = false;
 		CombineHash ch;
 		for (String& c : classes) {
 			c = TrimBoth(c);
+			if (c.IsEmpty()) {
+				fail = true;
+				break;
+			}
 			int sp_i = da.struct_part_types.Find(c);
 			if (sp_i < 0) {
 				fail = true;
