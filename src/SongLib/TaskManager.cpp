@@ -85,6 +85,22 @@ void TaskManager::DoVirtualPhrases(int ds_i, int fn) {
 	lock.LeaveWrite();
 }
 
+void TaskManager::DoPhrases(int ds_i, int fn) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	lock.EnterWrite();
+	Task& t = task_list.Add();
+	t.type = TASK_PHRASES;
+	t.cb = THISBACK1(GetPhrases, &t);
+	t.ds_i = ds_i;
+	t.batch_i = 0;
+	t.fn = fn;
+	lock.LeaveWrite();
+}
+
 void TaskManager::DoActionlistCache(int ds_i) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -926,7 +942,6 @@ void TaskManager::OnVirtualPhraseTypes(String result, Task* t) {
 	int offset = 3+1;
 	result.Replace("\r", "");
 	Vector<String> lines = Split(result, "\n");
-	Vector<int> class_is;
 	for (String& line : lines) {
 		line = TrimBoth(line);
 		
@@ -988,6 +1003,204 @@ void TaskManager::OnVirtualPhraseTypes(String result, Task* t) {
 	
 	t->running = false;
 	t->batch_i++;
+}
+
+void TaskManager::GetPhrases(Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	PhraseArgs& args = phrase_args;
+	args.fn = t->fn;
+	args.phrases.Clear();
+	
+	int per_action_task = 100;
+	if (args.fn == 2)
+		per_action_task = 35;
+	
+	int begin = t->batch_i * per_action_task;
+	int end = begin + per_action_task;
+	end = min(end, da.ambiguous_word_pairs.GetCount());
+	int count = end - begin;
+	if (count <= 0) {
+		if (t->fn < 2) {
+			t->fn++;
+			t->batch_i = 0;
+			t->running = false;
+		}
+		else RemoveTask(*t);
+		return;
+	}
+	
+	t->tmp.SetCount(0);
+	for(int i = begin; i < end; i++) {
+		const PhrasePart& pp = da.phrase_parts[i];
+		String phrase = da.GetWordString(pp.words);
+		args.phrases << phrase;
+		t->tmp << i;
+	}
+	
+	RealizePipe();
+	TaskMgr& m = *pipe;
+	
+	if (args.fn == 0)
+		m.GetPhraseData(args, THISBACK1(OnPhraseColors, t));
+	else if (args.fn == 1)
+		m.GetPhraseData(args, THISBACK1(OnPhraseAttrs, t));
+	else if (args.fn == 2)
+		m.GetPhraseData(args, THISBACK1(OnPhraseActions, t));
+	
+}
+
+void TaskManager::OnPhraseColors(String result, Task* t) {
+	TokenArgs& args = token_args;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	// 12. RGB(255, 102, 0)
+	
+	int offset = 3+1;
+	result.Replace("\r", "");
+	Vector<String> lines = Split(result, "\n");
+	for (String& line : lines) {
+		line = TrimBoth(line);
+		
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		
+		int a = line.Find(".");
+		if (a < 0) continue;
+		
+		int line_i = ScanInt(line.Left(a));
+		line_i -= offset;
+		if (line_i < 0 || line_i >= t->tmp.GetCount())
+			continue;
+		int pp_i = t->tmp[line_i];
+		PhrasePart& pp = da.phrase_parts[pp_i];
+		
+		a = line.Find("RGB(", a+1);
+		if (a < 0) continue;
+		a += 4;
+		int b = line.Find(")");
+		String clr_str = line.Mid(a,b-a);
+		Vector<String> clr_parts = Split(clr_str, ",");
+		if (clr_parts.GetCount() != 3) continue;
+		int R = StrInt(TrimBoth(clr_parts[0]));
+		int G = StrInt(TrimBoth(clr_parts[1]));
+		int B = StrInt(TrimBoth(clr_parts[2]));
+		Color clr(R,G,B);
+		
+		pp.clr = clr;
+	}
+	
+	
+	t->batch_i++;
+	t->running = false;
+}
+
+void TaskManager::OnPhraseAttrs(String result, Task* t) {
+	TokenArgs& args = token_args;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	// 1. Belief communities: acceptance
+	
+	int offset = 3+1;
+	result.Replace("\r", "");
+	Vector<String> lines = Split(result, "\n");
+	for (String& line : lines) {
+		line = TrimBoth(line);
+		
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		
+		int a = line.Find(".");
+		if (a < 0) continue;
+		
+		int line_i = ScanInt(line.Left(a));
+		line_i -= offset;
+		if (line_i < 0 || line_i >= t->tmp.GetCount())
+			continue;
+		int pp_i = t->tmp[line_i];
+		PhrasePart& pp = da.phrase_parts[pp_i];
+		
+		line = TrimBoth(line.Mid(a+1));
+		a = line.Find(":");
+		if (a < 0) continue;
+		
+		AttrHeader ah;
+		ah.group = ToLower(TrimBoth(line.Left(a)));
+		ah.value = ToLower(TrimBoth(line.Mid(a+1)));
+		da.attrs.GetAdd(ah, pp.attr);
+	}
+	
+	
+	t->batch_i++;
+	t->running = false;
+}
+
+void TaskManager::OnPhraseActions(String result, Task* t) {
+	TokenArgs& args = token_args;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	// 5. tone(admiring) + msg(expressing attraction) + bias(physical appearance) + attention-attribute(referencing arms) + attention-physical_state(strength)
+	
+	Vector<int> actions;
+	int offset = 3+1;
+	result.Replace("\r", "");
+	Vector<String> lines = Split(result, "\n");
+	for (String& line : lines) {
+		line = TrimBoth(line);
+		
+		// Get line number
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		int a = line.Find(".");
+		if (a < 0) continue;
+		
+		int line_i = ScanInt(line.Left(a));
+		line_i -= offset;
+		if (line_i < 0 || line_i >= t->tmp.GetCount())
+			continue;
+		int pp_i = t->tmp[line_i];
+		PhrasePart& pp = da.phrase_parts[pp_i];
+		line = TrimBoth(line.Mid(a+1));
+		
+		// Split rest of the line at '+' character and parse single actions
+		Vector<String> parts = Split(line, "+");
+		CombineHash ch;
+		actions.SetCount(0);
+		for(int i = 0; i < parts.GetCount(); i++) {
+			String& s = parts[i];
+			s = TrimBoth(s);
+			int a = s.Find("(");
+			int b = s.Find(")");
+			if (a < 0 || b < 0 || a > b) {
+				parts.Remove(i--);
+				continue;
+			}
+			ActionHeader aa;
+			aa.action = TrimBoth(s.Left(a));
+			a++;
+			aa.arg = TrimBoth(s.Mid(a,b-a));
+			
+			da.actions.GetAdd(aa, actions.Add());
+		}
+		Sort(actions, StdLess<int>());
+		pp.actions <<= actions;
+	}
+	
+	
+	t->batch_i++;
+	t->running = false;
 }
 
 void TaskManager::GetActionlist(Task* t) {

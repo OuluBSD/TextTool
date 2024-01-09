@@ -259,6 +259,8 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	struct_part_types.Load(ds_dir, "structure part types");
 	struct_types.Load(ds_dir, "structure types");
 	phrase_parts.Load(ds_dir, "phrase parts");
+	attrs.Load(ds_dir, "attributes");
+	actions.Load(ds_dir, "action");
 	
 	/*MapFile<int,WordPairType> old_ambiguous_word_pairs;
 	old_ambiguous_word_pairs.Load(ds_dir, "old ambiguous word pairs");
@@ -352,6 +354,22 @@ String DatasetAnalysis::GetTypeString(const Vector<int>& word_classes) const {
 		else {
 			const String& wc = this->word_classes[wc_i];
 			o << "{" << wc << "}";
+		}
+	}
+	return o;
+}
+
+String DatasetAnalysis::GetActionString(const Vector<int>& actions) const {
+	String o;
+	for(int act_i : actions) {
+		if (!o.IsEmpty()) o << ", ";
+		if (act_i < 0)
+			o << "error";
+		else {
+			const ActionHeader& ah = this->actions.GetKey(act_i);
+			o << ah.action;
+			if (!ah.arg.IsEmpty())
+				o << "(" << ah.arg << ")";
 		}
 	}
 	return o;

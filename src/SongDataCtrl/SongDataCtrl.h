@@ -31,5 +31,6 @@
 #include "VirtualPhraseParts.h"
 #include "VirtualPhraseStructs.h"
 #include "PhraseParts.h"
+#include "PhrasePartAnalysis.h"
 
 #endif

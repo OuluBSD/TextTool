@@ -1985,3 +1985,263 @@ void Task::CreateInput_GetTokenData() {
 		input.response_length = 2*1024;
 	}
 }
+
+void Task::CreateInput_GetPhraseData() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	PhraseArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		{
+			auto& list = input.AddSub().Title("List \"A\" of sentences");
+			list.NumberedLines();
+			list.Add("everyone of us loves her");
+			list.Add("they need to be silenced");
+			list.Add("you need help and we can contribute");
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			auto& answer = input.PreAnswer();
+			answer.Title("Metaphorical RGB colors of sentences of list \"A\"");
+			answer.NumberedLines();
+			answer.Add("RGB(153, 255, 153)");
+			answer.Add("RGB(153, 0, 0)");
+			answer.Add("RGB(255, 153, 204)");
+		}
+		input.response_length = 2*1024;
+	}
+	else if (args.fn == 1) {
+		{
+			TaskTitledList& list = input.AddSub().Title("List of attribute groups and their opposite polarised attribute values");
+			list.NumberedLines();
+			#define ATTR_ITEM(e, g, i0, i1) list.Add(g ": " i0); list.Add(g ": " i1);
+			ATTR_LIST
+			#undef ATTR_ITEM
+		}
+		{
+			auto& list = input.AddSub().Title("List \"A\" of sentences");
+			list.NumberedLines();
+			list.Add("everyone of us loves her");
+			list.Add("they need to be silenced");
+			list.Add("you need help and we can contribute");
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			auto& answer = input.PreAnswer();
+			answer.Title("Matching group and value for sentences of list \"A\"");
+			answer.NumberedLines();
+			answer.Add("belief communities: acceptance");
+			answer.Add("theological opposites: authoritarian");
+			answer.Add("faith and reason seekers: rational thinker");
+		}
+		input.response_length = 1024*3/2;
+	}
+	else if (args.fn == 2) {
+		{
+			// NOTE duplicate
+			auto& list = input.AddSub().Title("List \"B\": Action planner action states for narrator person");
+			list.Add("saying");
+			list.Add("tone");
+			list.Add("msg");
+			list.Add("bias");
+			list.Add("emotion");
+			list.Add("level-of-certainty");
+			list.Add("gesturing");
+			list.Add("pointing");
+			list.Add("describing-surroundings");
+			list.Add("interrupting");
+			list.Add("emphasizing");
+			list.Add("summarizing");
+			list.Add("referencing");
+			list.Add("introducing");
+			list.Add("concluding");
+			list.Add("predicting");
+			list.Add("transitioning");
+			list.Add("questioning");
+			list.Add("reflecting");
+			list.Add("persuading");
+			list.Add("comparing");
+			list.Add("linking");
+			list.Add("agreeing");
+			list.Add("disagreeing");
+			list.Add("apologizing");
+			list.Add("commanding");
+			list.Add("comforting");
+			list.Add("complimenting");
+			list.Add("complaining");
+			list.Add("congratulating");
+			list.Add("correcting");
+			list.Add("denying");
+			list.Add("explaining");
+			list.Add("greeting");
+			list.Add("inviting");
+			list.Add("promising");
+			list.Add("-suggesting");
+			list.Add("thanking");
+			list.Add("warning");
+			list.Add("attention-attribute");
+			list.Add("attention-person");
+			list.Add("attention-person-implied");
+			list.Add("attention-action");
+			list.Add("attention-event");
+			list.Add("attention-recipient");
+			list.Add("attention-recipient-implied");
+			list.Add("attention-relationship");
+			list.Add("attention-purpose");
+			list.Add("attention-place");
+			list.Add("attention-time");
+			list.Add("attention-topic");
+			list.Add("attention-audience");
+			list.Add("attention-occasion");
+			list.Add("attention-conversation ");
+			list.Add("attention-activity");
+			list.Add("attention-emotional_state");
+			list.Add("attention-physical_state");
+			list.Add("attention-mental_state");
+			list.Add("attention-relationship_status");
+			list.Add("attention-goals");
+			list.Add("attention-fears");
+			list.Add("attention-preferences");
+			list.Add("attention-beliefs");
+			list.Add("attention-values");
+			list.Add("attention-traits");
+			list.Add("attention-education");
+			list.Add("attention-work");
+			list.Add("attention-hobbies");
+			list.Add("attention-interests");
+			list.Add("attention-achievement");
+			list.Add("attention-experiences");
+			list.Add("attention-likes");
+			list.Add("attention-dislikes");
+			list.Add("attention-tests");
+			list.Add("attention-evaluation_criteria");
+			list.Add("attention-qualifications");
+			list.Add("attention-requirements");
+			list.Add("attention-qualifications_acquired");
+			list.Add("attention-qualifications_needed");
+			list.Add("attention-suggestions");
+			list.Add("attention-feedback");
+			list.Add("attention-likes_dislikes_comments");
+			list.Add("attention-expectations");
+			list.Add("attention-motivations");
+			list.Add("attention-priorities");
+			list.Add("attention-challenges");
+			list.Add("attention-opportunities");
+			list.Add("attention-problems");
+			list.Add("attention-decisions");
+			list.Add("attention-recommendations");
+			list.Add("attention-trial_discussion");
+			list.Add("attention-agreement");
+			list.Add("attention-disagreement");
+			list.Add("attention-agreement-explanation");
+			list.Add("attention-disagreement-explanation");
+			list.Add("attention-reasoning");
+			list.Add("attention-possibility");
+			list.Add("attention-probability");
+			list.Add("attention-improbable");
+			list.Add("attention-necessity");
+			list.Add("attention-priority");
+			list.Add("attention-order");
+			list.Add("attention-procedure");
+			list.Add("attention-target");
+			list.Add("attention-advocacy");
+			list.Add("attention-advocacy-reasoning");
+			list.Add("attention-evidences");
+			list.Add("attention-negations");
+			list.Add("attention-conclusions");
+			list.Add("attention-persuasion");
+			list.Add("attention-epiphany");
+			list.Add("attention-choosing");
+			list.Add("attention-concepts");
+			list.Add("attention-situations");
+			list.Add("attention-actionplan");
+			list.Add("attention-outcome");
+			list.Add("attention-plan-communication");
+			list.Add("attention-plan-task");
+			list.Add("attention-awakening");
+			list.Add("attention-thinking");
+			list.Add("attention-believing");
+			list.Add("attention-knowing");
+			list.Add("attention-learning");
+			list.Add("attention-realization");
+			list.Add("attention-incidences");
+			list.Add("attention-causations");
+			list.Add("attention-effects");
+			list.Add("attention-solutions");
+			list.Add("attention-progress");
+			list.Add("attention-failure");
+			list.Add("attention-change");
+			list.Add("attention-impact");
+			list.Add("attention-feeling");
+			list.Add("attention-challenge");
+			list.Add("attention-aspiration");
+			list.Add("attention-doubt");
+			list.Add("attention-relationship_goals");
+			list.Add("attention-career_goals");
+			list.Add("attention-emotional_goals");
+			list.Add("attention-physical_goals");
+			list.Add("attention-mental_goals");
+			list.Add("attention-achievements");
+			list.Add("attention-experiences_difficulties");
+			list.Add("attention-explaining");
+			list.Add("attention-analogy");
+			list.Add("attention-fact");
+			list.Add("attention-evidence");
+			list.Add("attention-opinion");
+			list.Add("attention-assumption");
+			list.Add("attention-consequence");
+			list.Add("attention-belief");
+			list.Add("attention-value");
+			list.Add("attention-confirmation");
+			list.Add("attention-excuse");
+			list.Add("attention-exception");
+			list.Add("attention-exciting_feature");
+			list.Add("attention-changemaker");
+			list.Add("attention-mentor");
+			list.Add("attention-friend");
+			list.Add("attention-criticalopinion");
+			list.Add("attention-conflict");
+			list.Add("attention-perspective");
+			list.Add("attention-prediction");
+			list.Add("attention-regret");
+			list.Add("attention-usefulness");
+			list.Add("attention-solidarity");
+			list.Add("attention-compliance");
+			list.Add("attention-lack");
+			list.Add("attention-attention");
+			list.Add("attention-criticism");
+			list.Add("attention-support");
+			list.Add("attention-collaboration");
+			list.Add("attention-anticipation");
+			list.Add("attention-example");
+			list.Add("etc.");
+		}
+		
+		String pc = IntStr(3 + args.phrases.GetCount());
+		{
+			auto& list = input.AddSub().Title(pc + " lines of lyrics");
+			list.NumberedLines();
+			list.Add("2 AM, howlin outside");
+			list.Add("Lookin, but I cannot find");
+			list.Add("Only you can stand my mind");
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.NumberedLines();
+			results.NoListChar();
+			results.Title("Action planner action states for " + pc + " lines of lyrics. With the most matching actions of list \"B\"");
+			results.Add("tone(urgent) + msg(trying to reach someone) + bias(romantic) + emotion(uncertainty) + level-of-certainty(trying/desire) + gesturing(pointing) + describing-surroundings(anywhere in the dark) + attention-place(outside) + attention-time(night) + attention-emotional_state(desire) + attention-action(howling) + attention-activity(driving)");
+			results.Add("msg(searching for someone) + bias(doubt) + emotion(frustration) + level-of-certainty(cannot find) + attention-action(searching) + attention-relationship(checking for person's presence)");
+			results.Add("tone(affectionate) + msg(expressing feelings) + bias(feeling understood by person) + emotion(love) + level-of-certainty(statement) + attention-person(addressed to person) + attention-emotional_state(love/affection) + attention-mental_state(thinking about person constantly) + attention-relationship(checking for compatibility)");
+		}
+		input.response_length = 2048;
+	}
+}

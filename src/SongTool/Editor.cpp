@@ -77,6 +77,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Virtual phrase parts"), virtual_phrase_parts);
 	AddItem(t_("Database"), t_("Virtual phrase structs"), virtual_phrase_structs);
 	AddItem(t_("Database"), t_("Phrase parts"), phrase_parts);
+	AddItem(t_("Database"), t_("Phrase part analysis"), phrase_part_analysis);
 	/*AddItem(t_("Database"), t_("Analysis"), song_analysis);
 	AddItem(t_("Database"), t_("Words"), song_words);
 	AddItem(t_("Database"), t_("Phrases"), song_phrases);

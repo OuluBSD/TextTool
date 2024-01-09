@@ -16,11 +16,20 @@ Scheduled work:
 - database: generate templates based on wordnets, attrs and colors
 - database: export/import data
 
+- artist planner
+	- suno prompt generator
+
+- ai opinions about talking
+	- what things should be talked and what not
+		- during what type of conversation
+
+
 - ip: storyline etc.
 	- use books
 		- something novel
 
 - gender split to database
+- "listener requests" simulated
 
 - fix missing character ' in lyrics and gpt queries
 

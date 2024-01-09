@@ -648,13 +648,19 @@ struct PhrasePart : Moveable<PhrasePart> {
 	Vector<int> words;
 	int tt_i = -1;
 	int virtual_phrase_part = -1;
+	int attr = -1;
+	Color clr = Black();
+	Vector<int> actions;
 	
 	String StoreToString() {
 		StringDumper d;
 		d % words.GetCount();
 		for (int w_i : words)
 			d % w_i;
-		d % tt_i % virtual_phrase_part;
+		d % tt_i % virtual_phrase_part % attr % clr;
+		d % actions.GetCount();
+		for (int ah_i : actions)
+			d % ah_i;
 		return d;
 	}
 	void LoadFromString(const String& s) {
@@ -665,6 +671,12 @@ struct PhrasePart : Moveable<PhrasePart> {
 		for (int& w_i : words)
 			p % w_i;
 		p % tt_i % virtual_phrase_part;
+		p % attr % clr;
+		int ac = 0;
+		p % ac;
+		actions.SetCount(ac);
+		for (int& ah_i : actions)
+			p % ah_i;
 	}
 	
 	hash_t GetHashValue() const {
@@ -673,6 +685,34 @@ struct PhrasePart : Moveable<PhrasePart> {
 			c.Do(w_i).Put(1);
 		return c;
 	}
+};
+
+struct ExportAttr : Moveable<ExportAttr> {
+	
+	String StoreToString() {
+		return String();
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		
+	}
+	
+};
+
+struct ExportAction : Moveable<ExportAction> {
+	int attr = -1;
+	Color clr;
+	
+	String StoreToString() {
+		StringDumper d;
+		d % attr % clr;
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		p % attr % clr;
+	}
+	
 };
 
 struct DatasetAnalysis {
@@ -687,6 +727,8 @@ struct DatasetAnalysis {
 	MapFile<hash_t,PhrasePart> phrase_parts;
 	IndexFile struct_part_types;
 	IndexFile struct_types;
+	MapFile<AttrHeader,ExportAttr> attrs;
+	MapFile<ActionHeader,ExportAction> actions;
 	
 	DatasetAnalysis();
 	void Load(int ds_i, const String& ds_key);
@@ -694,6 +736,7 @@ struct DatasetAnalysis {
 	String GetTokenTypeString(const TokenText& txt) const;
 	String GetWordString(const Vector<int>& words) const;
 	String GetTypeString(const Vector<int>& word_classes) const;
+	String GetActionString(const Vector<int>& actions) const;
 	
 	#if 0
 	VectorMap<String, ArtistAnalysis> artists;

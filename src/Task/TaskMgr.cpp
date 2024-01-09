@@ -72,6 +72,12 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetTokenData)
 		;
 	
+	AddRule(TASK_GET_PHRASE_DATA, "get phrase data")
+		.Input(&Task::CreateInput_GetPhraseData)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetPhraseData)
+		;
+	
 }
 
 void TaskMgrConfig::Load() {
@@ -346,6 +352,22 @@ void TaskMgr::GetTokenData(const TokenArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_TOKEN_DATA);
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetPhraseData(const PhraseArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_PHRASE_DATA);
 	TaskMgr& p = *this;
 	
 	String s = args.Get();

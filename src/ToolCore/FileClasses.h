@@ -354,6 +354,10 @@ struct StringDumper {
 		if (!s.IsEmpty()) s.Cat(' ');
 		s << c.GetR() << " " << c.GetG() << " " << c.GetB();
 	}
+	template <> void Do<ActionHeader>(const ActionHeader& c) {
+		Do(c.action);
+		Do(c.arg);
+	}
 	operator String() const {return s;}
 	template <class T> StringDumper& operator%(const T& o) {Do(o); return *this;}
 };
@@ -401,6 +405,10 @@ struct StringParser {
 		Do(g);
 		Do(b);
 		o = Color(r,g,b);
+	}
+	template <> void Do<ActionHeader>(ActionHeader& o) {
+		Do(o.action);
+		Do(o.arg);
 	}
 	template <class T> StringParser& operator%(T& o) {Do(o); return *this;}
 	void Chk() {ASSERT(!err);}

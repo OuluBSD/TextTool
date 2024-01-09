@@ -187,8 +187,10 @@ public:
 	void CreateInput_GetActionAnalysis();
 	void CreateInput_GetLyricsPhrase();
 	void CreateInput_GetTokenData();
+	void CreateInput_GetPhraseData();
 	
 	void Process_GetTokenData();
+	void Process_GetPhraseData();
 	
 	void Process_GetSuggestionAttributes();
 	void Process_StoryArc();

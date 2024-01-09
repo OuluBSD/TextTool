@@ -8,6 +8,7 @@ typedef enum {
 	TASK_TOKENS,
 	TASK_AMBIGUOUS_WORD_PAIRS,
 	TASK_VIRTUAL_PHRASES,
+	TASK_PHRASES,
 	
 	// deprecated?
 	TASK_ACTIONLIST,
@@ -36,6 +37,7 @@ class TaskManager {
 	TaskMgr* pipe = 0;
 	
 	TokenArgs token_args;
+	PhraseArgs phrase_args;
 	
 	int per_action_clrs = 60;
 	int per_action_attrs = 40;
@@ -56,6 +58,10 @@ class TaskManager {
 	void OnVirtualPhrases(String result, Task* t);
 	void OnVirtualPhraseTypes(String result, Task* t);
 	void DoClear(Task* tp);
+	void GetPhrases(Task* tp);
+	void OnPhraseColors(String result, Task* t);
+	void OnPhraseAttrs(String result, Task* t);
+	void OnPhraseActions(String result, Task* t);
 	
 	void RemoveTask(Task& t);
 	
@@ -75,6 +81,7 @@ public:
 	void DoTokens(int ds_i, int fn);
 	void DoAmbiguousWordPairs(int ds_i, int fn);
 	void DoVirtualPhrases(int ds_i, int fn);
+	void DoPhrases(int ds_i, int fn);
 	
 	void DoActionlistCache(int ds_i);
 	void DoActionlist(int ds_i, int fn);

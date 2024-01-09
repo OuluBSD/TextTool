@@ -70,34 +70,6 @@ struct ExportText : Moveable<ExportText> {
 	
 };
 
-struct ExportAction : Moveable<ExportAction> {
-	int attr = -1;
-	Color clr;
-	
-	String StoreToString() {
-		StringDumper d;
-		d % attr % clr;
-		return d;
-	}
-	void LoadFromString(const String& s) {
-		StringParser p(s);
-		p % attr % clr;
-	}
-	
-};
-
-struct ExportAttr : Moveable<ExportAttr> {
-	
-	String StoreToString() {
-		return String();
-	}
-	void LoadFromString(const String& s) {
-		StringParser p(s);
-		
-	}
-	
-};
-
 struct ExportParallel : Moveable<ExportParallel> {
 	int count = 0, score_sum= 0;
 	
