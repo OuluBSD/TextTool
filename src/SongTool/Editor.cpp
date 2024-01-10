@@ -78,6 +78,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Virtual phrase structs"), virtual_phrase_structs);
 	AddItem(t_("Database"), t_("Phrase parts"), phrase_parts);
 	AddItem(t_("Database"), t_("Phrase part analysis"), phrase_part_analysis);
+	AddItem(t_("Database"), t_("Rhyme container"), rhyme_container);
 	/*AddItem(t_("Database"), t_("Analysis"), song_analysis);
 	AddItem(t_("Database"), t_("Words"), song_words);
 	AddItem(t_("Database"), t_("Phrases"), song_phrases);
@@ -88,7 +89,6 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Wordnet scoring"), song_wnscoring);
 	AddItem(t_("Database"), t_("Line actions"), song_lineactions);
 	AddItem(t_("Database"), t_("Template actions"), song_tmplactions);
-	AddItem(t_("Database"), t_("Rhyme container"), rhyme_container);
 	AddItem(t_("Database"), t_("Action attributes"), action_attrs);
 	AddItem(t_("Database"), t_("Action parallels"), action_parallels);
 	AddItem(t_("Database"), t_("Action transitions"), action_transitions);

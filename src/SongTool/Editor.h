@@ -60,11 +60,11 @@ protected:
 	VirtualPhraseStructs			virtual_phrase_structs;
 	PhraseParts						phrase_parts;
 	PhrasePartAnalysis				phrase_part_analysis;
+	RhymeContainerPage				rhyme_container;
 	/*
 	SongDataAnalysisPage			song_analysis;
 	SongDataWords					song_words;
 	SongDataTemplates				song_tmpl;
-	RhymeContainerPage				rhyme_container;
 	ActionAttrsPage					action_attrs;
 	ActionParallelsPage				action_parallels;
 	ActionTransitionsPage			action_transitions;

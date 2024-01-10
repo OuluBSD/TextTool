@@ -351,44 +351,42 @@ struct ColorWordnet : Moveable<ColorWordnet> {
 	}
 };
 
+#endif
 
 struct PackedRhymeHeader : Moveable<PackedRhymeHeader> {
 	int syllable_count;
 	int color_group;
-	int attr_group;
-	int attr_value;
+	int attr;
 	
 	hash_t GetHashValue() const {
 		CombineHash ch;
 		ch.Do(syllable_count);
 		ch.Do(color_group);
-		ch.Do(attr_group);
-		ch.Do(attr_value);
+		ch.Do(attr);
 		return ch;
 	}
 	void Jsonize(JsonIO& json) {
 		json
 			("sc", syllable_count)
 			("cg", color_group)
-			("ag", attr_group)
-			("av", attr_value);
+			("at", attr);
 	}
 	void Serialize(Stream& s) {
-		s % syllable_count % color_group % attr_group % attr_value;
+		s % syllable_count % color_group % attr;
 	}
 	bool operator==(const PackedRhymeHeader& b) const {
 		return	syllable_count == b.syllable_count &&
 				color_group == b.color_group &&
-				attr_group == b.attr_group &&
-				attr_value == b.attr_value;
+				attr == b.attr;
 	}
 	bool operator()(const PackedRhymeHeader& a, const PackedRhymeHeader& b) const {
 		if (a.syllable_count != b.syllable_count) return a.syllable_count < b.syllable_count;
 		if (a.color_group != b.color_group) return a.color_group < b.color_group;
-		if (a.attr_group != b.attr_group) return a.attr_group < b.attr_group;
-		return a.attr_value < b.attr_value;
+		return a.attr < b.attr;
 	}
 };
+
+#if 0
 
 struct ActionAttrs : Moveable<ActionAttrs> {
 	Color clr;
@@ -730,13 +728,28 @@ struct DatasetAnalysis {
 	MapFile<AttrHeader,ExportAttr> attrs;
 	MapFile<ActionHeader,ExportAction> actions;
 	
+	// Cached data
+	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;
+	
+	
 	DatasetAnalysis();
+	DatasetAnalysis(DatasetAnalysis&) {}
 	void Load(int ds_i, const String& ds_key);
 	String GetTokenTextString(const TokenText& txt) const;
 	String GetTokenTypeString(const TokenText& txt) const;
 	String GetWordString(const Vector<int>& words) const;
 	String GetTypeString(const Vector<int>& word_classes) const;
 	String GetActionString(const Vector<int>& actions) const;
+	
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("packed_rhymes", packed_rhymes)
+			;
+	}
+	void Serialize(Stream& s) {
+		s % packed_rhymes;
+	}
 	
 	#if 0
 	VectorMap<String, ArtistAnalysis> artists;
@@ -752,11 +765,6 @@ struct DatasetAnalysis {
 	VectorMap<ActionHeader, ActionAttrs> action_attrs;
 	VectorMap<ActionHeader, VectorMap<ActionHeader, ActionParallel>> action_parallel;
 	VectorMap<ActionHeader, VectorMap<ActionHeader, ActionTransition>> action_trans;
-	
-	// Grouped fixed values
-	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;
-	VectorMap<String, Index<String>> dynamic_attrs;
-	VectorMap<String, Index<String>> dynamic_actions;
 	
 	int FindWord(const String& w) const {
 		int i = 0;
@@ -776,49 +784,14 @@ struct DatasetAnalysis {
 		wa.txt = w;
 		return wa;
 	}
-	void Jsonize(JsonIO& json) {
-		{
-			json
-				("artists", artists)
-				("groups", groups)
-				("word", words)
-				("tmpl_phrases", tmpl_phrases)
-				("wordnets", wordnets)
-				("clr_wordnets", clr_wordnets)
-				("action_phrases", action_phrases)
-				("structure_phrases", structure_phrases)
-				("structure_types", structure_types)
-				("action_tmpls", action_tmpls)
-				("action_attrs", action_attrs)
-				("action_parallel", action_parallel)
-				("action_trans", action_trans)
-				("packed_rhymes", packed_rhymes)
-				("dynamic_attrs", dynamic_attrs)
-				("dynamic_actions", dynamic_actions)
-				;
-		}
-	}
-	bool RealizeAttribute(const char* group, const char* value, int& attr_group, int& attr_value);
-	void RealizeAction(const char* action, const char* arg, int16& action_i, int16& arg_i);
-	
-	void Serialize(Stream& s) {
-		s % artists % groups % words
-		  % tmpl_phrases % wordnets % clr_wordnets
-		  % action_phrases % structure_phrases
-		  % structure_types % action_tmpls % action_attrs
-		  % action_parallel % action_trans % packed_rhymes
-		  % dynamic_attrs % dynamic_actions;
-	}
 	#endif
 	
-	void Jsonize(JsonIO& json) {}
-	void Serialize(Stream& s) {}
 };
 
 struct SongDataAnalysis {
 	ArrayMap<String, DatasetAnalysis> datasets;
 	
-	/*void Jsonize(JsonIO& json) {
+	void Jsonize(JsonIO& json) {
 		json
 			("datasets", datasets)
 			;
@@ -831,7 +804,7 @@ struct SongDataAnalysis {
 	void StoreJson();
 	void LoadJson();
 	void Store();
-	void Load();*/
+	void Load();
 };
 
 struct SongData {
@@ -842,6 +815,7 @@ struct SongData {
 	SongDataAnalysis a;
 	
 	
+	SongData();
 	int GetCount() const {return 2;}
 	Vector<ArtistDataset>& operator[](int i) {
 		switch (i) {
@@ -860,8 +834,11 @@ struct SongData {
 		return "";
 	}
 	void Load();
-	/*void Store();
-	void Serialize(Stream& s);*/
+	void Store();
+	void Serialize(Stream& s);
+	/*void LoadJson();
+	void StoreJson();
+	void Jsonize(JsonIO& json);*/
 	bool IsEmpty() const {return artists_en.IsEmpty() || artists_fi.IsEmpty();}
 	
 };

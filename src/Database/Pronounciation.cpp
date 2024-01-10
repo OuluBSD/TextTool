@@ -11,7 +11,7 @@ void EnglishPronounciation::Clear() {
 	word_is.SetCount(0);
 	pron_parts.SetCount(0);
 	pronounciation.Clear();
-	base_clr = GrayColor();
+	//base_clr = GrayColor();
 }
 
 bool EnglishPronounciation::Parse(const String& s) {
@@ -53,17 +53,23 @@ bool EnglishPronounciation::ParseMore(const String& s, DatasetAnalysis& ds) {
 }
 
 bool EnglishPronounciation::ParseFinish(DatasetAnalysis& ds) {
-	TODO
-	#if 0
+	
 	for (WString& part : parts) {
 		String p = ToLower(part.ToString());
 		p.Replace("'", ""); // hack
 		if (p.IsEmpty())
 			continue;
-		hash_t h = p.GetHashValue();
-		bool found = false;
+		int i = ds.words.Find(p);
+		if (i < 0)
+			return false;
+		ExportWord& wa = ds.words[i];
+		// fail
+		if (wa.phonetic.IsEmpty())
+			break;
+		word_is << i;
+		/*
 		int i = 0;
-		for (const WordAnalysis& wa : ds.words) {
+		for (const WordAnalysis& wa : ds.words.GetVa) {
 			if (wa.hash == h) {
 				// fail
 				if (wa.phonetic.IsEmpty())
@@ -75,7 +81,7 @@ bool EnglishPronounciation::ParseFinish(DatasetAnalysis& ds) {
 			i++;
 		}
 		if (!found)
-			return false;
+			return false;*/
 	}
 	double r_sum = 0, g_sum = 0, b_sum = 0;
 	double r_max = 0, g_max = 0, b_max = 0;
@@ -84,7 +90,8 @@ bool EnglishPronounciation::ParseFinish(DatasetAnalysis& ds) {
 	for (int wa_i : word_is) {
 		if (!pronounciation.IsEmpty())
 			pronounciation.Cat(' ');
-		const WordAnalysis& wa = ds.words[wa_i];
+		//const WordAnalysis& wa = ds.words[wa_i];
+		const ExportWord& wa = ds.words[wa_i];
 		int a = 0;
 		int pc = wa.phonetic.GetCount();
 		int sy_i = 0;
@@ -110,17 +117,21 @@ bool EnglishPronounciation::ParseFinish(DatasetAnalysis& ds) {
 			sy_i++;
 		}
 		
-		PutKeyColor(
-			wa.main_class.Begin(),
-			wa.clr.GetR(),
-			wa.clr.GetG(),
-			wa.clr.GetB(),
-			r_sum,
-			g_sum,
-			b_sum,
-			r_max,
-			g_max,
-			b_max);
+		if (wa.class_count) {
+			// NOTE Deprecated: doesn't really make sense anymore
+			String first_class = ds.word_classes[wa.classes[0]];
+			PutKeyColor(
+				first_class.Begin(),
+				wa.clr.GetR(),
+				wa.clr.GetG(),
+				wa.clr.GetB(),
+				r_sum,
+				g_sum,
+				b_sum,
+				r_max,
+				g_max,
+				b_max);
+		}
 		
 		/*r_sum += wa.clr.GetR() * pc;
 		g_sum += wa.clr.GetG() * pc;
@@ -128,12 +139,11 @@ bool EnglishPronounciation::ParseFinish(DatasetAnalysis& ds) {
 		weight += pc;*/
 	}
 	
-	Color clr(	r_max > 0 ? r_sum / r_max * 255 : base_clr.GetR(),
+	/*Color clr(	r_max > 0 ? r_sum / r_max * 255 : base_clr.GetR(),
 				g_max > 0 ? g_sum / g_max * 255 : base_clr.GetG(),
 				b_max > 0 ? b_sum / b_max * 255 : base_clr.GetB());
 		
-	blended_clr = clr;
-	#endif
+	blended_clr = clr;*/
 	
 	return true;
 }

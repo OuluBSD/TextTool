@@ -1,6 +1,9 @@
 #include "Database.h"
 
-#if 0
+
+SongData::SongData() {
+	
+}
 
 void SongData::Store() {
 	StoreToFile(*this, ConfigFile("SongData.bin"));
@@ -14,6 +17,22 @@ void SongData::Serialize(Stream& s) {
 	s % artists_en % artists_fi;
 }
 
+/*void SongData::StoreJson() {
+	String dir = Database::Single().dir;
+	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json", true);
+}
+
+void SongData::LoadJson() {
+	String dir = Database::Single().dir;
+	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json");
+}
+
+void SongData::Jsonize(JsonIO& json) {
+	json
+		("artists_en", artists_en)
+		("artists_fi", artists_fi)
+		;
+}*/
 
 
 
@@ -26,6 +45,13 @@ void SongDataAnalysis::Load() {
 	LoadFromFile(*this, ConfigFile("SongData_Analysis.bin"));
 	if (datasets.IsEmpty())
 		LoadJson();
+	
+	SongData& sd = Database::Single().song_data;
+	for(int i = 0; i < sd.GetCount(); i++) {
+		String key = sd.GetKey(i);
+		auto& ds = sd.a.datasets.GetAdd(key);
+		ds.Load(i, key);
+	}
 }
 
 void SongDataAnalysis::StoreJson() {
@@ -62,6 +88,7 @@ void SongDataAnalysis::LoadJson() {
 }
 
 
+#if 0
 
 String LyricsAnalysis::AsString() const {
 	String s;
@@ -217,14 +244,6 @@ void DatasetAnalysis::RealizeAction(const char* action, const char* arg, int16& 
 
 
 
-void SongData::Load() {
-	for(int i = 0; i < GetCount(); i++) {
-		String key = GetKey(i);
-		auto& ds = a.datasets.GetAdd(key);
-		ds.Load(i, key);
-	}
-}
-
 
 
 DatasetAnalysis::DatasetAnalysis() {
@@ -261,6 +280,8 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	phrase_parts.Load(ds_dir, "phrase parts");
 	attrs.Load(ds_dir, "attributes");
 	actions.Load(ds_dir, "action");
+	
+	//DUMP(phrase_parts.GetCount());
 	
 	/*MapFile<int,WordPairType> old_ambiguous_word_pairs;
 	old_ambiguous_word_pairs.Load(ds_dir, "old ambiguous word pairs");

@@ -15,8 +15,6 @@ PhrasePartAnalysis::PhrasePartAnalysis() {
 	
 	attrs.AddColumn(t_("Group"));
 	attrs.AddColumn(t_("Value"));
-	attrs.AddIndex("GROUP");
-	attrs.AddIndex("VALUE");
 	attrs.ColumnWidths("1 1");
 	attrs.WhenCursor << THISBACK(DataAttribute);
 	
@@ -68,30 +66,21 @@ void PhrasePartAnalysis::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	int ds_i = datasets.GetCursor();
+	DatasetAnalysis& da = sda.datasets[ds_i];
 	
-	int gi = 0;
-	int i = 0;
-	
-	attrs.Set(i, 0, "All");
-	attrs.Set(i, 1, "All");
-	attrs.Set(i, "GROUP", -1);
-	attrs.Set(i, "VALUE", -1);
-	i++;
-	
-	#define ATTR_ITEM(e, g, i0, i1) \
-		attrs.Set(i, 0, g); \
-		attrs.Set(i, 1, i0); \
-		attrs.Set(i, "GROUP", gi); \
-		attrs.Set(i, "VALUE", 0); \
-		i++; \
-		attrs.Set(i, 0, g); \
-		attrs.Set(i, 1, i1); \
-		attrs.Set(i, "GROUP", gi); \
-		attrs.Set(i, "VALUE", 1); \
-		i++, gi++;
-	ATTR_LIST
-	#undef ATTR_ITEM
-
+	// Set attributes
+	attrs.Set(0,0, "All");
+	for(int i = 0; i < da.attrs.GetCount(); i++) {
+		const AttrHeader& ah = da.attrs.GetKey(i);
+		attrs.Set(1+i, 0, ah.group);
+		attrs.Set(1+i, 1, ah.value);
+	}
+	INHIBIT_CURSOR(attrs);
+	attrs.SetCount(da.attrs.GetCount());
 	if (!attrs.IsCursor() && attrs.GetCount())
 		attrs.SetCursor(0);
 	
@@ -197,20 +186,17 @@ void PhrasePartAnalysis::DataActionHeader() {
 	int clr_i = colors.GetCursor();
 	int act_i = actions.GetCursor();
 	int arg_i = action_args.GetCursor();
-	int attr_group_i = attrs.Get("GROUP");
-	int attr_value_i = attrs.Get("VALUE");
-	int match_attr = -1;
-	if (attr_group_i >= 0) {
-		AttrHeader ah;
-		ah.group = ToLower(Attr::AttrKeys[attr_group_i][1]);
-		ah.value = ToLower(Attr::AttrKeys[attr_group_i][2 + attr_value_i]);
-		match_attr = da.attrs.Find(ah);
-	}
+	int attr_i = attrs.GetCursor();
 	
 	bool clr_filter = clr_i > 0;
-	bool attr_filter = attr_group_i >= 0;
+	bool attr_filter = attr_i > 0;
 	bool action_filter = act_i > 0;
 	bool arg_filter = arg_i > 0;
+	
+	int match_attr = -1;
+	if (attr_filter)
+		match_attr = attr_i - 1;
+	
 	clr_i--;
 	
 	String action_str, arg_str;

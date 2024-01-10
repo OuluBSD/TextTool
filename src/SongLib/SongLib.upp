@@ -6,5 +6,8 @@ uses
 file
 	SongLib.h,
 	TaskManager.h,
-	TaskManager.cpp;
+	TaskManager.cpp,
+	Do.cpp,
+	Get.cpp,
+	On.cpp;
 

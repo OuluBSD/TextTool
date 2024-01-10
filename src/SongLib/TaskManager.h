@@ -9,6 +9,7 @@ typedef enum {
 	TASK_AMBIGUOUS_WORD_PAIRS,
 	TASK_VIRTUAL_PHRASES,
 	TASK_PHRASES,
+	TASK_CONTAINER,
 	
 	// deprecated?
 	TASK_ACTIONLIST,
@@ -22,6 +23,7 @@ typedef enum {
 struct Task {
 	TaskType type;
 	Callback cb;
+	Callback2<int,int> update;
 	int fn = -1;
 	int ds_i = -1;
 	int batch_i = 0;
@@ -62,6 +64,10 @@ class TaskManager {
 	void OnPhraseColors(String result, Task* t);
 	void OnPhraseAttrs(String result, Task* t);
 	void OnPhraseActions(String result, Task* t);
+	void MakeNana(Task* t);
+	void GetRhymeContainers(Task* t);
+	void GetRhymeContainersFromTemplates(Task* t);
+	void GetContainer(Task* t);
 	
 	void RemoveTask(Task& t);
 	
@@ -82,6 +88,7 @@ public:
 	void DoAmbiguousWordPairs(int ds_i, int fn);
 	void DoVirtualPhrases(int ds_i, int fn);
 	void DoPhrases(int ds_i, int fn);
+	void DoContainer(int ds_i, int fn, Callback2<int,int> update);
 	
 	void DoActionlistCache(int ds_i);
 	void DoActionlist(int ds_i, int fn);
@@ -90,6 +97,8 @@ public:
 	void DoActionTransition(int ds_i, int fn);
 	
 };
+
+bool GetTypePhrase(Vector<int>& types, const DatasetAnalysis& da, int next_w_i, int w_i, int prev_w_i);
 
 
 }

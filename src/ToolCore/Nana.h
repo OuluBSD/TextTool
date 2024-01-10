@@ -14,13 +14,11 @@ struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
 	byte nana[MAX_NANA_LEN];
 	byte nana_len = 0;
 	byte clr[3];
-	int16 action_groups[MAX_ACTIONS];
-	int16 action_values[MAX_ACTIONS];
+	int actions[MAX_ACTIONS];
 	
 	void Zero() {
 		memset(this, 0, sizeof(PackedRhymeContainer));
-		memset(action_groups, 0xFF, sizeof(action_groups));
-		memset(action_values, 0xFF, sizeof(action_values));
+		memset(actions, 0xFF, sizeof(actions));
 	}
 	void ZeroNana() {memset(nana, 0, sizeof(nana));}
 	void Jsonize(JsonIO& json) {
@@ -46,12 +44,11 @@ struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
 			memcpy(nana.Begin(), nana, MAX_NANA_LEN);
 			json("nana", nana);
 			
-			Vector<int> agroups, avalues;
-			json("ag", agroups)("av", avalues);
-			int c = min(MAX_ACTIONS, agroups.GetCount());
+			Vector<int> ac;
+			json("ac", ac);
+			int c = min(MAX_ACTIONS, ac.GetCount());
 			for(int i = 0; i < c; i++) {
-				action_groups[i] = agroups[i];
-				action_values[i] = avalues[i];
+				actions[i] = ac[i];
 			}
 		}
 		else {
@@ -69,15 +66,13 @@ struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
 			nana.SetCount(MAX_NANA_LEN, 0);
 			memcpy(nana, nana.Begin(), MAX_NANA_LEN);
 			
-			Vector<int> agroups, avalues;
+			Vector<int> ac;
 			for(int i = 0; i < MAX_ACTIONS; i++) {
-				int16 ag = action_groups[i];
-				if (ag < 0) break;
-				int16 av = action_values[i];
-				agroups << ag;
-				avalues << av;
+				int a = actions[i];
+				if (a < 0) break;
+				ac << a;
 			}
-			json("ag", agroups)("av", avalues);
+			json("ac", ac);
 		}
 	}
 	
