@@ -1069,7 +1069,7 @@ void HotfixReplaceWord(String& s) {
 }
 
 
-const char* ScoreTitles[SCORE_MODE_COUNT][SCORE_ATTR_COUNT] = {
+/*const char* ScoreTitles[SCORE_MODE_COUNT][SCORE_ATTR_COUNT] = {
 	// Statistical measurements
 	{
 		"Idea",
@@ -1093,6 +1093,29 @@ String GetScoreKey(int score_mode, int score_attr) {
 		return "sc(" + IntStr(score_attr) + ")";
 	else
 		return "sc(" + IntStr(score_mode) + "," + IntStr(score_attr) + ")";
+}*/
+
+const char* ScoreTitles[SCORE_COUNT] = {
+	// Statistical measurements
+	
+		"Idea",
+		"Emotion",
+		"Hook",
+		"Share",
+		"Value",
+	
+	// Human value measurements (meaning)
+	
+		"Comedy",
+		"Sex",
+		"Politics",
+		"Love",
+		"Social issues"
+	
+};
+
+String GetScoreKey(int score) {
+	return "sc(" + IntStr(score) + ")";
 }
 
 

@@ -6,17 +6,22 @@
 
 
 
-/*enum {
+enum {
 	SCORE_IDEA,
 	SCORE_EMOTION,
 	SCORE_HOOK,
 	SCORE_SHARE,
 	SCORE_VALUE,
+	SCORE_COMEDY,
+	SCORE_SEX,
+	SCORE_POLITICS,
+	SCORE_LOVE,
+	SCORE_SOCIAL,
 	
 	SCORE_COUNT
-};*/
+};
 
-enum {
+/*enum {
 	SCORE_MODE_STATS,
 	SCORE_MODE_MEANING,
 	
@@ -28,6 +33,9 @@ enum {
 
 extern const char* ScoreTitles[SCORE_MODE_COUNT][SCORE_ATTR_COUNT];
 String GetScoreKey(int score_mode, int score_attr);
+*/
+extern const char* ScoreTitles[SCORE_COUNT];
+String GetScoreKey(int score);
 
 enum {
 	RHYME_A_A,

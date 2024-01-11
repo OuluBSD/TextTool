@@ -649,6 +649,7 @@ struct PhrasePart : Moveable<PhrasePart> {
 	int attr = -1;
 	Color clr = Black();
 	Vector<int> actions;
+	int scores[SCORE_COUNT] = {0,0,0,0,0,0,0,0,0,0};
 	
 	String StoreToString() {
 		StringDumper d;
@@ -659,6 +660,8 @@ struct PhrasePart : Moveable<PhrasePart> {
 		d % actions.GetCount();
 		for (int ah_i : actions)
 			d % ah_i;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			d % scores[i];
 		return d;
 	}
 	void LoadFromString(const String& s) {
@@ -675,6 +678,8 @@ struct PhrasePart : Moveable<PhrasePart> {
 		actions.SetCount(ac);
 		for (int& ah_i : actions)
 			p % ah_i;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			p % scores[i];
 	}
 	
 	hash_t GetHashValue() const {

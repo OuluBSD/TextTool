@@ -2244,4 +2244,44 @@ void Task::CreateInput_GetPhraseData() {
 		}
 		input.response_length = 2048;
 	}
+	else if (args.fn == 3) {
+		{
+			auto& list = input.AddSub().Title("Action planner heuristic score factors");
+			list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
+			list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
+			list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
+			list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
+			list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+			list.Add("S5: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
+			list.Add("S6: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
+			list.Add("S7: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
+			list.Add("S8: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
+			list.Add("S9: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
+		}
+		{
+			auto& list = input.AddSub().Title("Example 1");
+			list.Add("Score factors are S0-S9");
+			list.Add("The value of a score factor is between 0-10");
+			list.Add("Phrase is \"bleeding after you\"");
+			list.Add("Score factors for the phrase \"bleeding after you\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7, S5: 9, S6: 4, S7: 2, S8: 3, S9: 2");
+			list.Add("The score factors in shortened format: 9 8 8 6 7 9 4 2 3 2");
+		}
+		
+		String pc = IntStr(1 + args.phrases.GetCount());
+		{
+			auto& list = input.AddSub().Title("List \"A\" of " + pc + " phrases, with example arguments for making the action plan");
+			list.NumberedLines();
+			list.Add("bleeding after you");
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.NumberedLines();
+			results.NoListChar();
+			results.Title(pc + " score factors for list \"A\" of phrases");
+			results.Add("9 8 8 6 7 9 4 2 3 2");
+		}
+		input.response_length = 2048;
+	}
 }

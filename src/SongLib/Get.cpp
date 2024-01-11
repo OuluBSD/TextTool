@@ -381,7 +381,7 @@ void TaskManager::GetPhrases(Task* t) {
 	args.phrases.Clear();
 	
 	int per_action_task = 100;
-	if (args.fn == 2)
+	if (args.fn == 2 || args.fn == 3)
 		per_action_task = 35;
 	
 	int begin = t->batch_i * per_action_task;
@@ -415,6 +415,8 @@ void TaskManager::GetPhrases(Task* t) {
 		m.GetPhraseData(args, THISBACK1(OnPhraseAttrs, t));
 	else if (args.fn == 2)
 		m.GetPhraseData(args, THISBACK1(OnPhraseActions, t));
+	else if (args.fn == 3)
+		m.GetPhraseData(args, THISBACK1(OnPhraseScores, t));
 	
 }
 

@@ -413,6 +413,58 @@ void TaskManager::OnPhraseActions(String result, Task* t) {
 	t->running = false;
 }
 
+void TaskManager::OnPhraseScores(String result, Task* t) {
+	TokenArgs& args = token_args;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	// 8. 4 5 7 9 6 7 9 8 6 3
+	
+	Vector<int> actions;
+	int offset = 1+1;
+	result.Replace("\r", "");
+	Vector<String> lines = Split(result, "\n");
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		if (l.Find("(") >= 0)
+			lines.Remove(i--);
+	}
+	for (String& line : lines) {
+		line = TrimBoth(line);
+		
+		// Get line number
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		int a = line.Find(".");
+		if (a < 0) continue;
+		
+		int line_i = ScanInt(line.Left(a));
+		line_i -= offset;
+		if (line_i < 0 || line_i >= t->tmp.GetCount())
+			continue;
+		int pp_i = t->tmp[line_i];
+		PhrasePart& pp = da.phrase_parts[pp_i];
+		line = TrimBoth(line.Mid(a+1));
+		
+		// Split rest of the line at space character
+		Vector<String> parts = Split(line, " ");
+		
+		// Expect x values
+		if (parts.GetCount() != SCORE_COUNT)
+			continue;
+		
+		int i = 0;
+		for (const String& part : parts)
+			pp.scores[i++] = ScanInt(part);
+	}
+	
+	
+	t->batch_i++;
+	t->running = false;
+}
+
 void TaskManager::OnActionlistColors(String result, Task* t) {
 	TODO
 	#if 0

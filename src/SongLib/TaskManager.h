@@ -64,6 +64,7 @@ class TaskManager {
 	void OnPhraseColors(String result, Task* t);
 	void OnPhraseAttrs(String result, Task* t);
 	void OnPhraseActions(String result, Task* t);
+	void OnPhraseScores(String result, Task* t);
 	void MakeNana(Task* t);
 	void GetRhymeContainers(Task* t);
 	void GetRhymeContainersFromTemplates(Task* t);

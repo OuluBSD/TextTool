@@ -2,6 +2,11 @@
 #define _SongDataCtrl_PhrasePartAnalysis_h_
 
 
+struct ScoreDisplay : public Display {
+	virtual void Paint(Draw& w, const Rect& r, const Value& q,
+	                   Color ink, Color paper, dword style) const;
+};
+
 class PhrasePartAnalysis : public SongToolCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, attrs, colors, actions, action_args, parts;
