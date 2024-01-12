@@ -94,8 +94,6 @@ ActionEditor::ActionEditor() {
 }
 
 void ActionEditor::Data() {
-	TODO
-	#if 0
 	Song& song = GetSong();
 	
 	{
@@ -103,11 +101,10 @@ void ActionEditor::Data() {
 		SongData& sd = db.song_data;
 		SongDataAnalysis& sda = db.song_data.a;
 		DatasetAnalysis& da = sda.datasets[ds_i];
-		
+				
 		uniq_acts.Clear();
-		for (const ActionPhrase& ap : da.action_phrases) {
-			for (const auto& a : ap.actions)
-				uniq_acts.GetAdd(a.action).GetAdd(a.arg, 0)++;
+		for (const ActionHeader& ah : da.actions.GetKeys()) {
+			uniq_acts.GetAdd(ah.action).GetAdd(ah.arg, 0)++;
 		}
 		struct Sorter {
 			bool operator()(const VectorMap<String, int>& a, const VectorMap<String, int>& b) const {
@@ -117,6 +114,7 @@ void ActionEditor::Data() {
 		SortByValue(uniq_acts, Sorter());
 		for (auto& v : uniq_acts.GetValues())
 			SortByValue(v, StdGreater<int>());
+
 	}
 	
 	
@@ -136,7 +134,6 @@ void ActionEditor::Data() {
 	
 	DataPart();
 	DataSong();
-	#endif
 }
 
 void ActionEditor::DataPart() {
@@ -166,8 +163,6 @@ void ActionEditor::DataPart() {
 }
 
 void ActionEditor::DataThread() {
-	TODO
-	#if 0
 	if (!parts.IsCursor() || !thrds.IsCursor()) {
 		thrd_actions.Clear();
 		actions.Clear();
@@ -190,24 +185,25 @@ void ActionEditor::DataThread() {
 	Song& song = GetSong();
 	StaticPart& part = song.parts[parts.GetCursor()];
 	int thrd_i = thrds.GetCursor();
-	const Vector<ActionHeader>& part_thrd_actions = part.thrd_actions[thrd_i];
+	const Vector<int>& part_thrd_actions = part.thrd_actions[thrd_i];
 	int row = 0;
 	
 	for(int i = 0; i < part_thrd_actions.GetCount(); i++) {
-		const ActionHeader& ah = part_thrd_actions[i];
-		int j = da.action_attrs.Find(ah);
-		if (j < 0) {
+		int ah_i = part_thrd_actions[i];
+		const ActionHeader& ah = da.actions.GetKey(ah_i);
+		const ExportAction& ea = da.actions[ah_i];
+		if (ea.attr < 0) {
 			thrd_actions.Set(row, 0, ah.action);
 			thrd_actions.Set(row, 1, ah.arg);
 			thrd_actions.Set(row, 2, "");
 			thrd_actions.Set(row, 3, "");
 		}
 		else {
-			const ActionAttrs& aa = da.action_attrs[j];
-			SetColoredListValue(thrd_actions, row, 0, ah.action, aa.clr);
-			SetColoredListValue(thrd_actions, row, 1, ah.arg, aa.clr);
-			SetColoredListValue(thrd_actions, row, 2, aa.group, aa.clr);
-			SetColoredListValue(thrd_actions, row, 3, aa.value, aa.clr);
+			const AttrHeader& eat = da.attrs.GetKey(ea.attr);
+			SetColoredListValue(thrd_actions, row, 0, ah.action, ea.clr);
+			SetColoredListValue(thrd_actions, row, 1, ah.arg, ea.clr);
+			SetColoredListValue(thrd_actions, row, 2, eat.group, ea.clr);
+			SetColoredListValue(thrd_actions, row, 3, eat.value, ea.clr);
 		}
 		row++;
 	}
@@ -217,12 +213,9 @@ void ActionEditor::DataThread() {
 		thrd_actions.SetCursor(thrd_actions.GetCount()-1);
 	
 	DataSuggestions();
-	#endif
 }
 
 void ActionEditor::DataSuggestions() {
-	TODO
-	#if 0
 	if (!parts.IsCursor() || !thrds.IsCursor()) {
 		actions.Clear();
 		args.Clear();
@@ -238,7 +231,7 @@ void ActionEditor::DataSuggestions() {
 	Song& song = GetSong();
 	StaticPart& sp = song.parts[parts.GetCursor()];
 	int thrd_i = thrds.GetCursor();
-	const Vector<ActionHeader>& part_thrd_actions = sp.thrd_actions[thrd_i];
+	const Vector<int>& part_thrd_actions = sp.thrd_actions[thrd_i];
 	
 	
 	//// Check if previous part has been made
@@ -279,8 +272,9 @@ void ActionEditor::DataSuggestions() {
 		}
 		
 		// Check that last nana-code line has at least 1 action
-		const auto& last_action = thrd0.Top();
-		if (last_action.IsEmpty()) {
+		int a_i = thrd0.Top();
+		//const ActionHeader& last_action = da.actions.GetKey(a_i);
+		if (a_i < 0) {
 			previous_ready = false; reason = 3;
 			break;
 		}
@@ -300,7 +294,7 @@ void ActionEditor::DataSuggestions() {
 	
 	suggestions.Clear();
 	
-	Vector<ActionHeader> from_actions_parallel, from_actions_transition;
+	Vector<int> from_actions_parallel, from_actions_transition;
 	
 	// All-time first action when
 	// - thread number 0
@@ -321,12 +315,7 @@ void ActionEditor::DataSuggestions() {
 				Sug& sug = suggestions.GetAdd(action).GetAdd(action_arg);
 				sug.src = ANY;
 				
-				int k = da.action_attrs.Find(h);
-				sug.skip_attr = k < 0;
-				if (!sug.skip_attr) {
-					const auto& src = da.action_attrs[k];
-					sug.attr = src;
-				}
+				sug.act = da.actions.Find(h);
 			}
 		}
 	}
@@ -386,56 +375,48 @@ void ActionEditor::DataSuggestions() {
 		{
 			int act_i = part_thrd_actions.GetCount();
 			for(int thrd_j = 0; thrd_j < thrd_i; thrd_j++) {
-				const Vector<ActionHeader>& part_thrd_actions1 = sp.thrd_actions[thrd_j];
+				const Vector<int>& part_thrd_actions1 = sp.thrd_actions[thrd_j];
 				if (act_i < part_thrd_actions1.GetCount()) {
-					const ActionHeader& ah1 = part_thrd_actions1[act_i];
+					int ah1 = part_thrd_actions1[act_i];
 					from_actions_parallel << ah1;
 				}
 			}
 		}
 	}
 	
-	for (const ActionHeader& from_action : from_actions_transition) {
+	for (int from_action : from_actions_transition) {
 		// Add transitions
-		int i = da.action_trans.Find(from_action);
+		int i = da.trans.Find(from_action);
 		if (i >= 0) {
-			const auto& transitions = da.action_trans[i];
-			for(int i = 0; i < transitions.GetCount(); i++) {
-				const auto& h = transitions.GetKey(i);
+			const auto& transitions = da.trans[i];
+			for(int j = 0; j < transitions.GetCount(); j++) {
+				int ah_i = transitions.GetKey(j);
+				const ActionHeader& h = da.actions.GetKey(ah_i);
 				Sug& sug = suggestions.GetAdd(h.action).GetAdd(h.arg);
 				sug.src = TRANSITION;
-				sug.trans = transitions[i];
-				
-				int j = da.action_attrs.Find(h);
-				sug.skip_attr = j < 0;
-				if (!sug.skip_attr) {
-					const auto& src = da.action_attrs[j];
-					sug.attr = src;
-				}
+				sug.act = ah_i;
+				sug.attr0 = i;
+				sug.attr1 = j;
 			}
 		}
 	}
 	
-	for (const ActionHeader& from_action : from_actions_parallel) {
+	for (int from_action : from_actions_parallel) {
 		// Add parallels (for thrd-0)
-		int i = da.action_parallel.Find(from_action);
+		int i = da.parallel.Find(from_action);
 		if (i >= 0) {
-			const auto& parallels = da.action_parallel[i];
-			for(int i = 0; i < parallels.GetCount(); i++) {
-				const auto& h = parallels.GetKey(i);
+			const auto& parallels = da.parallel[i];
+			for(int j = 0; j < parallels.GetCount(); j++) {
+				int ah_i = parallels.GetKey(j);
+				const ActionHeader& h = da.actions.GetKey(ah_i);
 				Sug& sug = suggestions.GetAdd(h.action).GetAdd(h.arg);
 				if (sug.src == TRANSITION)
 					sug.src = T_AND_P;
 				else
 					sug.src = PARALLEL;
-				sug.paral = parallels[i];
-				
-				int j = da.action_attrs.Find(h);
-				sug.skip_attr = j < 0;
-				if (!sug.skip_attr) {
-					const auto& src = da.action_attrs[j];
-					sug.attr = src;
-				}
+				sug.act = ah_i;
+				sug.attr0 = i;
+				sug.attr1 = j;
 			}
 		}
 	}
@@ -452,12 +433,9 @@ void ActionEditor::DataSuggestions() {
 	
 	
 	DataAction();
-	#endif
 }
 
 void ActionEditor::DataAction() {
-	TODO
-	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -495,9 +473,8 @@ void ActionEditor::DataAction() {
 		for(int j = 0; j < action_args.GetCount(); j++) {
 			String ah_arg = action_args.GetKey(j);
 			const Sug& sug = action_args[j];
-			const auto& aa = sug.attr;
 			
-			if (sug.skip_attr) {
+			if (sug.act < 0) {
 				if (filter_color || filter_attr)
 					continue;
 				args.Set(row, 0, ah_action);
@@ -506,21 +483,24 @@ void ActionEditor::DataAction() {
 				args.Set(row, 3, "");
 			}
 			else {
+				const ExportAction& aa = da.actions[sug.act];
+				const AttrHeader* ath = aa.attr >= 0 ? &da.attrs.GetKey(aa.attr) : 0;
+				
 				if (filter_color) {
 					int cg = GetColorGroup(aa.clr);
 					if (cg != color_group)
 						continue;
 				}
 				
-				if (filter_attr) {
-					if (aa.group != attr_group || aa.value != attr_value)
+				if (filter_attr && ath) {
+					if (ath->group != attr_group || ath->value != attr_value)
 						continue;
 				}
 				
 				SetColoredListValue(args, row, 0, ah_action, aa.clr);
 				SetColoredListValue(args, row, 1, ah_arg, aa.clr);
-				SetColoredListValue(args, row, 2, aa.group, aa.clr);
-				SetColoredListValue(args, row, 3, aa.value, aa.clr);
+				SetColoredListValue(args, row, 2, ath ? ath->group : String(), aa.clr);
+				SetColoredListValue(args, row, 3, ath ? ath->value : String(), aa.clr);
 			}
 			
 			
@@ -539,7 +519,6 @@ void ActionEditor::DataAction() {
 	}
 	
 	args.SetCount(row);
-	#endif
 }
 
 void ActionEditor::DataSong() {
@@ -547,6 +526,11 @@ void ActionEditor::DataSong() {
 }
 
 void ActionEditor::AddAction() {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
 	if (!args.IsCursor()) return;
 	int arg_i = args.GetCursor();
 	
@@ -556,18 +540,20 @@ void ActionEditor::AddAction() {
 	Song& song = GetSong();
 	StaticPart& sp = song.parts[parts.GetCursor()];
 	int thrd_i = thrds.GetCursor();
-	Vector<ActionHeader>& part_thrd_actions = sp.thrd_actions[thrd_i];
+	Vector<int>& part_thrd_actions = sp.thrd_actions[thrd_i];
 	
 	// Enough actions
 	if (part_thrd_actions.GetCount() >= sp.nana.Get().GetCount())
 		return;
 	
-	ActionHeader& ah = part_thrd_actions.Add();
 	AttrText action = args.Get(arg_i, 0);
 	AttrText arg = args.Get(arg_i, 1);
+	ActionHeader ah;
 	ah.action = action.text.ToString();
 	ah.arg = arg.text.ToString();
+	int ah_i = da.actions.Find(ah);
 	
+	part_thrd_actions.Add() = ah_i;
 	PostCallback(THISBACK(DataThread));
 }
 
@@ -575,7 +561,7 @@ void ActionEditor::RemoveAction() {
 	Song& song = GetSong();
 	StaticPart& sp = song.parts[parts.GetCursor()];
 	int thrd_i = thrds.GetCursor();
-	Vector<ActionHeader>& part_thrd_actions = sp.thrd_actions[thrd_i];
+	Vector<int>& part_thrd_actions = sp.thrd_actions[thrd_i];
 	
 	// Enough actions
 	if (part_thrd_actions.IsEmpty())

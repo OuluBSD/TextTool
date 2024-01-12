@@ -170,7 +170,8 @@ void LyricsEditor::DataPhrase() {
 	for(int i = 0; i < sp.thrd_actions.GetCount(); i++) {
 		const auto& thrd = sp.thrd_actions[i];
 		if (line_i < thrd.GetCount()) {
-			const ActionHeader& ah = thrd[line_i];
+			int ah_i = thrd[line_i];
+			const ActionHeader& ah = da.actions.GetKey(ah_i);
 			
 			int j = da.actions.Find(ah);
 			if (j < 0) {
@@ -194,35 +195,26 @@ void LyricsEditor::DataPhrase() {
 }
 
 void LyricsEditor::DataDoActions() {
-	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	uniq_acts.Clear();
-	for (const ActionPhrase& ap : da.action_phrases) {
-		for (const auto& a : ap.actions)
-			uniq_acts.GetAdd(a.action).GetAdd(a.arg, 0)++;
+	for (const ActionHeader& ah : da.actions.GetKeys()) {
+		uniq_acts.GetAdd(ah.action).GetAdd(ah.arg, 0)++;
 	}
-	if (0) {
-		SortByKey(uniq_acts, StdLess<String>());
-		for (auto& v : uniq_acts.GetValues())
-			SortByKey(v, StdLess<String>());
-	}
-	else {
-		struct Sorter {
-			bool operator()(const VectorMap<String, int>& a, const VectorMap<String, int>& b) const {
-				return a.GetCount() > b.GetCount();
-			}
-		};
-		SortByValue(uniq_acts, Sorter());
-		for (auto& v : uniq_acts.GetValues())
-			SortByValue(v, StdGreater<int>());
-	}
+	struct Sorter {
+		bool operator()(const VectorMap<String, int>& a, const VectorMap<String, int>& b) const {
+			return a.GetCount() > b.GetCount();
+		}
+	};
+	SortByValue(uniq_acts, Sorter());
+	for (auto& v : uniq_acts.GetValues())
+		SortByValue(v, StdGreater<int>());
 	
 	actions.Set(0, 0, "All");
-	actions.Set(0, 1, da.action_phrases.GetCount());
+	actions.Set(0, 1, da.actions.GetCount());
 	for(int i = 0; i < uniq_acts.GetCount(); i++) {
 		actions.Set(1+i, 0, uniq_acts.GetKey(i));
 		actions.Set(1+i, 1, uniq_acts[i].GetCount());
@@ -231,13 +223,10 @@ void LyricsEditor::DataDoActions() {
 	if (!actions.IsCursor() && actions.GetCount())
 		actions.SetCursor(0);
 	
-	
 	DataAction();
-	#endif
 }
 
 void LyricsEditor::DataAction() {
-	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -270,12 +259,10 @@ void LyricsEditor::DataAction() {
 		action_args.SetCursor(0);
 	
 	DataActionHeader();
-	#endif
 }
 
 
 void LyricsEditor::DataActionHeader() {
-	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -321,7 +308,7 @@ void LyricsEditor::DataActionHeader() {
 	// Thread action filtering
 	int thrd_action_filter = action_thrd.Get(0);
 	bool filter_thrd_actions = thrd_action_filter > 0;
-	VectorMap<ActionHeader, bool> thrd_actions;
+	VectorMap<int, bool> thrd_actions;
 	for(int i = 0; i < sp.thrd_actions.GetCount(); i++) {
 		const auto& v = sp.thrd_actions[i];
 		if (line_i < v.GetCount())
@@ -367,23 +354,12 @@ void LyricsEditor::DataActionHeader() {
 					if (cg != clr_i)
 						continue;
 				}
-				String attr, value;
-				if (h.attr_group >= 0 && h.attr_group < Attr::ATTR_COUNT + da.dynamic_attrs.GetCount()) {
-					if (h.attr_group < Attr::ATTR_COUNT) {
-						attr = Attr::AttrKeys[h.attr_group][1];
-						value = Attr::AttrKeys[h.attr_group][2 + h.attr_value];
-					}
-					else {
-						int g = h.attr_group - Attr::ATTR_COUNT;
-						attr = da.dynamic_attrs.GetKey(g);
-						const auto& av = da.dynamic_attrs[g];
-						if (h.attr_value >= 0 && h.attr_value < av.GetCount())
-							value = av[h.attr_value];
-					}
-				}
-				if (attr_filter) {
-					if (attr != group_str || value != value_str)
+				const AttrHeader* ap = 0;
+				if (attr_filter && h.attr >= 0) {
+					const AttrHeader& attr = da.attrs.GetKey(h.attr);
+					if (attr.group != group_str || attr.value != value_str)
 						continue;
+					ap = &attr;
 				}
 				bool has_act = !filter_action;
 				bool has_arg = !filter_action_arg;
@@ -393,22 +369,21 @@ void LyricsEditor::DataActionHeader() {
 						v = false;
 				for(int i = 0; i < c.MAX_ACTIONS; i++) {
 					if (i) acts << ", ";
-					int a = c.action_groups[i];
-					int b = c.action_values[i];
-					if (a < 0 || b < 0) break;
-					const String& act = da.dynamic_actions.GetKey(a);
-					const String& arg = da.dynamic_actions[a][b];
-					acts << act << "(" << arg << ")";
+					int a = c.actions[i];
+					if (a < 0) break;
+					const ActionHeader& act = da.actions.GetKey(a);
+					acts << act.action << "(" << act.arg << ")";
 					
 					// Check if user filters are matching
-					if (filter_action && act == action) has_act = true;
-					if (filter_action_arg && arg == action_arg) has_arg = true;
+					if (filter_action && act.action == action) has_act = true;
+					if (filter_action_arg && act.arg == action_arg) has_arg = true;
 					
 					// Check if thrd rhyme container matches required thread actions
 					if (filter_thrd_actions) {
 						int ah_i = 0;
-						for (const ActionHeader& ah : thrd_actions.GetKeys()) {
-							if (ah.action == act && ah.arg == arg) {
+						for (int ah_i : thrd_actions.GetKeys()) {
+							//if (ah.action == act.action && ah.arg == act.arg) {
+							if (ah_i == a) {
 								thrd_actions[ah_i] = true;
 								break;
 							}
@@ -427,8 +402,8 @@ void LyricsEditor::DataActionHeader() {
 				}
 				SetColoredListValue(suggestions, row, 0, c.GetText(), clr);
 				SetColoredListValue(suggestions, row, 1, c.GetPronounciation().ToString(), clr);
-				SetColoredListValue(suggestions, row, 2, attr, clr);
-				SetColoredListValue(suggestions, row, 3, value, clr);
+				SetColoredListValue(suggestions, row, 2, ap ? ap->group : String(), clr);
+				SetColoredListValue(suggestions, row, 3, ap ? ap->value : String(), clr);
 				SetColoredListValue(suggestions, row, 4, acts, clr);
 				
 				row++;
@@ -439,7 +414,6 @@ void LyricsEditor::DataActionHeader() {
 	suggestions.SetCount(row);
 	if (!suggestions.IsCursor() && suggestions.GetCount())
 		suggestions.SetCursor(0);
-	#endif
 }
 
 void LyricsEditor::ToolMenu(Bar& bar) {
@@ -495,9 +469,8 @@ void LyricsEditor::MovePhrase(int i) {
 		phrase_list.SetCursor(cur+1);
 }
 
+#if 0
 void LyricsEditor::GetSuggestionsAI() {
-	TODO
-	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -518,10 +491,11 @@ void LyricsEditor::GetSuggestionsAI() {
 	const StaticPart& sp = song.parts[part_i];
 	
 	int row = 0;
+	
 	for(int i = 0; i < sp.thrd_actions.GetCount(); i++) {
 		const auto& thrd = sp.thrd_actions[i];
 		if (line_i < thrd.GetCount()) {
-			const auto& ah = thrd[line_i];
+			const ActionHeader& ah = thrd[line_i];
 			
 			args.actions << ah;
 			
@@ -627,8 +601,8 @@ void LyricsEditor::GetSuggestionsAI() {
 	
 	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 	m.GetLyricsPhrase(args, THISBACK(OnSuggestions));
-	#endif
 }
+#endif
 
 void LyricsEditor::OnSuggestions(String res) {
 	

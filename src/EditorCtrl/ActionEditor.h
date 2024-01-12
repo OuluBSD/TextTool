@@ -12,15 +12,14 @@ class ActionEditor : public SongToolCtrl {
 	int ds_i = 0;
 	VectorMap<String, VectorMap<String, int>> uniq_acts;
 	
-	/*enum {ANY, TRANSITION, PARALLEL, T_AND_P};
+	enum {ANY, TRANSITION, PARALLEL, T_AND_P};
 	struct Sug : Moveable<Sug> {
-		int src;
-		bool skip_attr;
-		ActionAttrs attr;
-		ActionTransition trans;
-		ActionParallel paral;
+		int src = 0;
+		int act = -1;
+		int attr0 = -1;
+		int attr1 = -1;
 	};
-	VectorMap<String, VectorMap<String, Sug>> suggestions;*/
+	VectorMap<String, VectorMap<String, Sug>> suggestions;
 	
 public:
 	typedef ActionEditor CLASSNAME;

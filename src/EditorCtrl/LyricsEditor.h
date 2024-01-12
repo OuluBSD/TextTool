@@ -20,7 +20,7 @@ public:
 	void DataDoActions();
 	void DataAction();
 	void DataActionHeader();
-	void GetSuggestionsAI();
+	//void GetSuggestionsAI();
 	void SetPhrase();
 	void MovePhrase(int i);
 	void OnSuggestions(String res);

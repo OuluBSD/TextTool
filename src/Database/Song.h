@@ -223,7 +223,7 @@ struct StaticPart {
 	Vector<double> wordgroup_factors;
 	Array<StaticPhrase> phrases;
 	RhymeContainer nana;
-	Vector<Vector<ActionHeader>> thrd_actions;
+	Vector<Vector<int>> thrd_actions;
 	Vector<String> saved_lyrics;
 	
 	static String GetTypeString(int part_type);
