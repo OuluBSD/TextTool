@@ -261,9 +261,7 @@ void SongDataLineActions::DataNextLine() {
 
 void SongDataLineActions::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
-	bar.Separator();
-	bar.Add(t_("Update batches"), AppImg::BlueRing(), THISBACK(UpdateBatches)).Key(K_F5);
-	bar.Separator();
+	/*bar.Separator();
 	if (running0)
 		bar.Add(t_("Stop getting line actions"), AppImg::RedRing(), THISBACK(ToggleGettingLineActions)).Key(K_F6);
 	else
@@ -275,7 +273,7 @@ void SongDataLineActions::ToolMenu(Bar& bar) {
 			bar.Add(t_("Stop getting colored wordnet scores") + Format(" %d",i), AppImg::RedRing(), THISBACK1(ToggleGettingLineChangeScores,i)).Key(K_F7 + i);
 		else
 			bar.Add(t_("Start getting colored wordnet scores") + Format(" %d",i), AppImg::RedRing(), THISBACK1(ToggleGettingLineChangeScores,i)).Key(K_F7 + i);
-	}
+	}*/
 }
 
 /*void SongDataLineActions::ToggleGettingLineActions() {

@@ -7,7 +7,7 @@ SongDataWords::SongDataWords() {
 	hsplit.Horz() << vsplit << words;
 	hsplit.SetPos(2500);
 	
-	vsplit.Vert() << datasets << artists << colors;
+	vsplit.Vert() << datasets << colors;
 	
 	datasets.AddColumn(t_("Dataset"));
 	datasets.WhenCursor << THISBACK(DataDataset);
@@ -15,9 +15,6 @@ SongDataWords::SongDataWords() {
 	colors.AddColumn(t_("Word group"));
 	colors.ColumnWidths("1");
 	colors.WhenCursor << THISBACK(DataColor);
-	
-	artists.AddColumn(t_("Artist"));
-	artists.WhenCursor << THISBACK(DataArtist);
 	
 	words.AddColumn(t_("Word"));
 	words.AddColumn(t_("Translation"));
@@ -36,7 +33,6 @@ void SongDataWords::EnableAll() {
 	words.Enable();
 	datasets.Enable();
 	colors.Enable();
-	artists.Enable();
 }
 
 void SongDataWords::DisableAll() {
@@ -44,7 +40,6 @@ void SongDataWords::DisableAll() {
 	words.Disable();
 	datasets.Disable();
 	colors.Disable();
-	artists.Disable();
 }
 
 void SongDataWords::Data() {
@@ -78,36 +73,6 @@ void SongDataWords::DataDataset() {
 	
 	int ds_i = datasets.GetCursor();
 	
-	artists.Set(0, 0, t_("All artists"));
-	
-	String ds_key = sd.GetKey(ds_i);
-	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
-	
-	Vector<ArtistDataset>& avec = sd[ds_i];
-	artists.SetCount(avec.GetCount());
-	for(int j = 0; j < avec.GetCount(); j++) {
-		const ArtistDataset& artist = avec[j];
-		const ArtistAnalysis& aa = ds.artists.GetAdd(artist.name);
-		artists.Set(1+j, 0, artist.name);
-	}
-	
-	if (!artists.IsCursor() && artists.GetCount())
-		artists.SetCursor(0);
-	
-	DataArtist();
-}
-
-void SongDataWords::DataArtist() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
-	
-	if (!datasets.IsCursor() || !artists.IsCursor())
-		return;
-	
-	int ds_i = datasets.GetCursor();
-	int a_i = artists.GetCursor();
-	
 	String ds_key = sd.GetKey(ds_i);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 	Vector<ArtistDataset>& avec = sd[ds_i];
@@ -132,11 +97,10 @@ void SongDataWords::DataColor() {
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
-	if (!datasets.IsCursor() || !artists.IsCursor() || !colors.IsCursor())
+	if (!datasets.IsCursor() || !colors.IsCursor())
 		return;
 	
 	int ds_i = datasets.GetCursor();
-	int a_i = artists.GetCursor();
 	int wg_i = colors.GetCursor();
 	String ds_key = sd.GetKey(ds_i);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
@@ -144,33 +108,15 @@ void SongDataWords::DataColor() {
 	
 	{
 		bool clr_filter = wg_i > 0;
-		bool loop_artist = a_i > 0;
-		a_i--;
 		wg_i--;
 		const ArtistDataset* artist = 0;
-		const ArtistAnalysis* aa = 0;
-		if (loop_artist) {
-			artist = &avec[a_i];
-			aa = &ds.artists.GetAdd(artist->name);
-		}
 		
-		int count = loop_artist ? aa->word_counts.GetCount () : ds.words.GetCount();
+		int count = ds.words.GetCount();
 		int limit = count > 10000 ? 10 : 0;
 		int row = 0;
 		for (int i = 0; i < count; i++) {
-			String key;
-			WordAnalysis* wap;
-			if (loop_artist) {
-				key = aa->word_counts.GetKey(i);
-				int j = ds.FindWord(key);
-				if (j < 0) continue;
-				wap = &ds.words[j];
-			}
-			else {
-				key = ds.words[i].txt;
-				wap = &ds.words[i];
-			}
-			WordAnalysis& wa = *wap;
+			String key = ds.words.GetKey(i);
+			ExportWord& wa = ds.words[i];
 			
 			if (wa.count < limit)
 				continue;
@@ -179,25 +125,30 @@ void SongDataWords::DataColor() {
 			if (clr_filter && GetColorGroup(wa.clr) != wg_i)
 				continue;
 			
+			// Translation
+			int t_i = ds.translations.Find(key);
+			String translation = t_i >= 0 ? ds.translations[t_i] : String();
+			
 			// If details have parsed
-			if (wa.main_class.GetCount()) {
+			if (wa.class_count > 0) {
 				words.Set(row, 0,
 					AttrText(key)
 						.NormalPaper(Blend(wa.clr, White(), 128+64)).NormalInk(Black())
 						.Paper(Blend(wa.clr, GrayColor())).Ink(White())
 				);
+				
 				words.Set(row, 1,
-					AttrText(wa.translation)
+					AttrText(translation)
 						.NormalPaper(Blend(wa.clr, White(), 128+64)).NormalInk(Black())
 						.Paper(Blend(wa.clr, GrayColor())).Ink(White())
 				);
 			}
 			else {
 				words.Set(row, 0, key);
-				words.Set(row, 1, wa.translation);
+				words.Set(row, 1, translation);
 			}
 			
-			bool has_main_class_clr = wa.main_class_clr != Black();
+			/*bool has_main_class_clr = wa.main_class_clr != Black();
 			if (!has_main_class_clr) {
 				int j = GetWordgroupColors().Find(wa.main_class);
 				if (j >= 0) {
@@ -212,9 +163,14 @@ void SongDataWords::DataColor() {
 						.Paper(Blend(wa.main_class_clr, GrayColor())).Ink(White())
 				);
 			}
-			else {
-				words.Set(row, 2, wa.main_class);
+			else {*/
+			String cls_str;
+			for(int i = 0; i < wa.class_count; i++) {
+				if (!cls_str.IsEmpty()) cls_str += ", ";
+				cls_str << ds.word_classes[wa.classes[i]];
 			}
+			words.Set(row, 2, cls_str);
+			//}
 			words.Set(row, 3, wa.spelling);
 			words.Set(row, 4, wa.phonetic);
 			words.Set(row, 5, wa.count);
@@ -240,13 +196,12 @@ void SongDataWords::ToolMenu(Bar& bar) {
 	//bar.Add(t_("Update all word groups"), AppImg::RedRing(), THISBACK(UpdateWordFlagGroups)).Key(K_F6);
 	//bar.Add(t_("Update all word flags"), AppImg::RedRing(), THISBACK(UpdateWordFlags)).Key(K_F7);
 	bar.Separator();
-	bar.Add(t_("Get details"), AppImg::BlueRing(), THISBACK2(GetDetails, -1, false)).Key(K_CTRL_W);
-	bar.Add(t_("Get all details"), AppImg::RedRing(), THISBACK2(GetDetails, 0, true)).Key(K_F6);
+	bar.Add(t_("Get details"), AppImg::BlueRing(), THISBACK1(DoWords, 0)).Key(K_CTRL_W);
+	bar.Add(t_("Get all details"), AppImg::RedRing(), THISBACK1(DoWords, 1)).Key(K_F6);
 	bar.Separator();
-	bar.Add(t_("Get word syllables"), AppImg::BlueRing(), THISBACK2(GetSyllables, -1, false)).Key(K_CTRL_Q);
-	bar.Add(t_("Get all syllables"), AppImg::RedRing(), THISBACK2(GetSyllables, 0, true)).Key(K_F7);
-	bar.Separator();
-	bar.Add(t_("Get everything"), AppImg::RedRing(), THISBACK(GetEverything)).Key(K_F8);
+	bar.Add(t_("Get word syllables"), AppImg::BlueRing(), THISBACK1(DoWords, 2)).Key(K_CTRL_Q);
+	bar.Add(t_("Get all syllables"), AppImg::RedRing(), THISBACK1(DoWords, 3)).Key(K_F7);
+	
 	bar.Separator();
 	bar.Add(t_("Debug dump word groups"), AppImg::BlueRing(), THISBACK(DumpWordGroups)).Key(K_F9);
 	bar.Add(t_("Debug dump phonetic characters"), AppImg::BlueRing(), THISBACK(DumpPhoneticChars)).Key(K_F10);
@@ -269,13 +224,11 @@ void SongDataWords::UpdateWordsProcess() {
 		String ds_key = sd.GetKey(i);
 		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 		
-		ds.words.Clear();
-		
 		const Vector<ArtistDataset>& dataset = sd[i];
 		for(int j = 0; j < dataset.GetCount(); j++) {
 			const ArtistDataset& artist = dataset[j];
-			ArtistAnalysis& aa = ds.artists.GetAdd(artist.name);
-			aa.word_counts.Clear();
+			//ArtistAnalysis& aa = ds.artists.GetAdd(artist.name);
+			//aa.word_counts.Clear();
 			
 			for(int k = 0; k < artist.lyrics.GetCount(); k++) {
 				const LyricsDataset& song = artist.lyrics[k];
@@ -294,10 +247,11 @@ void SongDataWords::UpdateWordsProcess() {
 						w = ToLower(w.ToWString()).ToString();
 					}
 					
-					aa.total_words += words.GetCount();
+					//aa.total_words += words.GetCount();
 					for (String& w : words) {
-						aa.word_counts.GetAdd(w, 0)++;
-						WordAnalysis& wa = ds.GetAddWord(w);
+						//aa.word_counts.GetAdd(w, 0)++;
+						int w_i = -1;
+						ExportWord& wa = ds.words.GetAdd(w, w_i);
 						wa.count++;
 					}
 				}
@@ -381,31 +335,28 @@ void SongDataWords::UpdateWordsProcess() {
 	}
 }*/
 
-void SongDataWords::GetEverything() {
-	if (disabled) return;
-	batch = true;
-	GetDetails(0, true);
-}
-
 void SongDataWords::DumpWordGroups() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
-	Index<String> main_classes;
+	Index<int> main_classes;
 	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
 		String ds_key = sd.GetKey(ds_i);
 		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 		
 		for(int i = 0; i < ds.words.GetCount(); i++) {
-			const WordAnalysis& wa = ds.words[i];
-			main_classes.FindAdd(wa.main_class);
+			const ExportWord& wa = ds.words[i];
+			for(int j = 0; j < wa.class_count; j++)
+				main_classes.FindAdd(wa.classes[j]);
+		}
+		
+		LOG("Dataset ds_key:");
+		for(int i = 0; i < main_classes.GetCount(); i++) {
+			LOG("- " << ds.word_classes[main_classes[i]]);
 		}
 	}
 	
-	for(int i = 0; i < main_classes.GetCount(); i++) {
-		LOG("- " << main_classes[i]);
-	}
 }
 
 void SongDataWords::DumpPhoneticChars() {
@@ -419,7 +370,7 @@ void SongDataWords::DumpPhoneticChars() {
 		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 		
 		for(int i = 0; i < ds.words.GetCount(); i++) {
-			const WordAnalysis& wa = ds.words[i];
+			const ExportWord& wa = ds.words[i];
 			for(int j = 0; j < wa.phonetic.GetCount(); j++) {
 				chars.FindAdd(wa.phonetic.Mid(j,1));
 			}
@@ -438,3 +389,8 @@ void SongDataWords::DumpPhoneticChars() {
 	}
 }
 
+void SongDataWords::DoWords(int fn) {
+	int ds_i = datasets.GetCursor();
+	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	tm.DoPhrases(ds_i, fn);
+}

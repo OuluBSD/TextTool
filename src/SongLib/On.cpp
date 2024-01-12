@@ -575,6 +575,7 @@ void TaskManager::OnLineActions(String res, Task* t) {
 	}
 	
 	Vector<String> txt_lines = Split(batch.txt, "\n");
+	ASSERT(txt_lines.GetCount());
 	
 	// e.g. tone(desperate) + msg(distracting oneself) + bias(impulsiveness)
 	Vector<ActionHeader> actions;
@@ -611,7 +612,7 @@ void TaskManager::OnLineActions(String res, Task* t) {
 				aa.arg = arg;
 				
 			}
-			Sort(actions, ActionHeader());
+			/*Sort(actions, ActionHeader());
 			for (ActionHeader& aa : actions) {
 				ch.Do(aa.action);
 				ch.Do(aa.arg);
@@ -620,7 +621,7 @@ void TaskManager::OnLineActions(String res, Task* t) {
 			
 			bool found = false;
 			int i = 0;
-			for (ExportDepActionPhrase& ap : da.action_phrases) {
+			for (ExportDepActionPhrase& ap : da.action_phrases.GetValues()) {
 				if (ap.hash == h) {
 					found = true;
 					ap_is << i;
@@ -629,13 +630,17 @@ void TaskManager::OnLineActions(String res, Task* t) {
 				}
 				i++;
 			}
-			if (!found) {
-				ap_is << da.action_phrases.GetCount();
-				ExportDepActionPhrase& ap = da.action_phrases.Add();
-				ap.hash = h;
-				ap.txt = txt;
+			if (!found) {*/
+			int ap_i = -1;
+			ExportDepActionPhrase& ap = da.action_phrases.GetAdd(txt, ap_i);
+			ap_is << ap_i;
+			if (ap.actions.IsEmpty()) {
+				//ap.hash = h;
+				//ap.txt = txt;
 				ap.first_lines = line_idx == 0 && batch.song_begins ? 1 : 0;
-				Swap(ap.actions, actions);
+				//Swap(ap.actions, actions);
+				for (const ActionHeader& ah : actions)
+					da.actions.GetAdd(ah, ap.actions.Add());
 			}
 		}
 		for(int i = 1; i < ap_is.GetCount(); i++) {
@@ -652,7 +657,7 @@ void TaskManager::OnLineActions(String res, Task* t) {
 	t->running = false;
 }
 
-void TaskManager::OnSyllables(String res, int batch_i, bool start_next) {
+void TaskManager::OnSyllables(String res, Task* t) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
@@ -679,7 +684,7 @@ void TaskManager::OnSyllables(String res, int batch_i, bool start_next) {
 		if (b < 0) continue;
 		WString phonetic = TrimBoth(line.Mid(a,b-a)).ToWString();
 		
-		int ds_i = tmp_map_ds_i.Get(wrd, -1);
+		int ds_i = t->tmp_map_ds_i.Get(wrd, -1);
 		if (ds_i < 0) continue;
 		String ds_key = sd.GetKey(ds_i);
 		
@@ -690,18 +695,16 @@ void TaskManager::OnSyllables(String res, int batch_i, bool start_next) {
 		}
 		
 		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
-		WordAnalysis& wa = ds.GetAddWord(wrd);
+		ExportWord& wa = ds.words.GetAdd(wrd);
 		wa.spelling = spelling;
 		wa.phonetic = phonetic;
 	}
 	
-	if (start_next) {
-		disabled = false;
-		GetSyllables(batch_i+1, true);
-	}
+	t->batch_i++;
+	t->running = false;
 }
 
-void TaskManager::OnDetails(String res, int batch_i, bool start_next) {
+void TaskManager::OnDetails(String res, Task* t) {
 	if (Thread::IsShutdownThreads())
 		return;
 	Database& db = Database::Single();
@@ -750,17 +753,23 @@ void TaskManager::OnDetails(String res, int batch_i, bool start_next) {
 		
 		String translation = TrimBoth(l);
 		
-		int j = tmp_words.Find(orig);
+		int j = t->tmp_words.Find(orig);
 		if (j < 0) continue;
-		int ds_i = tmp_ds_i[j];
+		int ds_i = t->tmp_ds_i[j];
 		DatasetAnalysis& ds = sda.datasets[ds_i];
 		
-		j = ds.FindWord(orig);
+		j = ds.words.Find(orig);
 		if (j < 0) continue;
 		
-		WordAnalysis& wa = ds.words[j];
-		wa.main_class = main_class;
-		wa.translation = translation;
+		ExportWord& wa = ds.words[j];
+		if (wa.class_count == 0) {
+			int c_i = ds.word_classes.FindAdd(main_class);
+			wa.classes[wa.class_count++] = c_i;
+		}
+		
+		String& trans_dst = ds.translations.GetAdd(orig);
+		if (trans_dst.IsEmpty())
+			trans_dst = translation;
 		
 		Vector<String> clr_str = Split(rgb, ",");
 		if (clr_str.GetCount() == 3) {
@@ -771,22 +780,18 @@ void TaskManager::OnDetails(String res, int batch_i, bool start_next) {
 		}
 	}
 	
-	
-	
-	if (start_next) {
-		disabled = false;
-		GetDetails(batch_i+1, true);
-	}
+	t->batch_i++;
+	t->running = false;
 }
 
-void TaskManager::OnLineChangeScores(String res, int batch_i, int score_mode) {
+void TaskManager::OnLineChangeScores(String res, Task* t) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
-	Batch& batch = batches[tmp_batch_i];
+	Task::Batch& batch = t->batches[t->batch_i];
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	
 	res.Replace("\r", "");
@@ -801,6 +806,8 @@ void TaskManager::OnLineChangeScores(String res, int batch_i, int score_mode) {
 		if (l.IsEmpty() || l[0] == '-')
 			lines.Remove(i--);
 	}
+	
+	Vector<int>& ap_is = t->tmp;
 	
 	for (String& l : lines) {
 		int a = l.Find("line");
@@ -849,8 +856,14 @@ void TaskManager::OnLineChangeScores(String res, int batch_i, int score_mode) {
 		}
 	}
 	
-	if (running1)
-		PostCallback(THISBACK2(GetLineChangeScores, batch_i+1, score_mode));
+	t->batch_i++;
+	t->running = false;
+}
+
+void TaskManager::OnWordData(String res, Task* t) {
+	
+	
+	
 }
 
 }

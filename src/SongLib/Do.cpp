@@ -180,4 +180,23 @@ void TaskManager::DoActionTransition(int ds_i, int fn) {
 	lock.LeaveWrite();
 }
 
+void TaskManager::DoWords(int ds_i, int fn) {
+	if (IsInTaskList(TASK_WORD_DATA))
+		return;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	lock.EnterWrite();
+	Task& t = task_list.Add();
+	t.type = TASK_WORD_DATA;
+	t.cb = THISBACK1(GetWordData, &t);
+	t.ds_i = ds_i;
+	t.batch_i = 0;
+	t.fn = fn;
+	lock.LeaveWrite();
+}
+
 }

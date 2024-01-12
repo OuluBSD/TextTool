@@ -812,6 +812,7 @@ struct DatasetAnalysis {
 	MapMapFile<int,int,ExportParallel> parallel;
 	MapMapFile<int,int,ExportTransition> trans;
 	MapFile<String,ExportDepActionPhrase> action_phrases;
+	MapFile<String,String> translations;
 	
 	// Cached data
 	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;

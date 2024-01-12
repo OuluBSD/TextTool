@@ -175,6 +175,7 @@ public:
 	T& operator[](int i) {return map[i];}
 	int GetCount() const {return map.GetCount();}
 	const Vector<K>& GetKeys() const {return map.GetKeys();}
+	const Vector<T>& GetValues() const {return map.GetValues();}
 	T& GetAdd(const K& s) {return map.GetAdd(s);}
 	T& GetAdd(const K& s, int& i) {
 		i = map.Find(s);

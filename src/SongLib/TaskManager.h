@@ -13,6 +13,7 @@ typedef enum {
 	TASK_ACTIONLIST,
 	TASK_ACTION_PARALLELS,
 	TASK_ACTION_TRANSITIONS,
+	TASK_WORD_DATA,
 	
 	TASK_COUNT
 } TaskType;
@@ -38,6 +39,9 @@ struct Task {
 	bool running = false;
 	Vector<int> tmp;
 	Vector<Batch> batches;
+	VectorMap<String, int> tmp_map_ds_i;
+	Vector<int> tmp_ds_i;
+	Index<String> tmp_words;
 };
 
 
@@ -56,30 +60,51 @@ class TaskManager {
 	
 	void RealizePipe();
 	void Process();
+	
 	void GetActionlist(Task* t);
 	void OnActionlistColors(String result, Task* t);
 	void OnActionlistAttrs(String result, Task* t);
+	
 	void GetActionTransitions(Task* t);
 	void GetActionParallels(Task* t);
+	
 	void GetTokenData(Task* t);
 	void OnTokenData(String result, Task* t);
+	
 	void GetAmbiguousWordPairs(Task* t);
 	void OnAmbiguousWordPairs(String result, Task* t);
+	
 	void GetVirtualPhrases(Task* t);
 	void OnVirtualPhrases(String result, Task* t);
 	void OnVirtualPhraseTypes(String result, Task* t);
+	
 	void DoClear(Task* tp);
+	
 	void GetPhrases(Task* tp);
 	void OnPhraseColors(String result, Task* t);
 	void OnPhraseAttrs(String result, Task* t);
 	void OnPhraseActions(String result, Task* t);
 	void OnPhraseScores(String result, Task* t);
+	
 	void MakeNana(Task* t);
 	void GetRhymeContainers(Task* t);
 	void GetRhymeContainersFromTemplates(Task* t);
 	void GetContainer(Task* t);
+	
 	void GetLineActions(Task* t);
 	void OnLineActions(String res, Task* t);
+	
+	void GetWordData(Task* t);
+	void OnWordData(String res, Task* t);
+	
+	void GetSyllables(Task* t);
+	void OnSyllables(String res, Task* t);
+	
+	void GetDetails(Task* t);
+	void OnDetails(String res, Task* t);
+	
+	void GetLineChangeScores(Task* t);
+	void OnLineChangeScores(String res, Task* t);
 	
 	void RemoveTask(Task& t);
 	
@@ -101,6 +126,7 @@ public:
 	void DoVirtualPhrases(int ds_i, int fn);
 	void DoPhrases(int ds_i, int fn);
 	void DoContainer(int ds_i, int fn, Callback2<int,int> update);
+	void DoWords(int ds_i, int fn);
 	
 	void DoActionlistCache(int ds_i);
 	void DoActionlist(int ds_i, int fn);

@@ -4,12 +4,8 @@
 
 class SongDataWords : public SongToolCtrl {
 	Splitter hsplit, vsplit;
-	ArrayCtrl datasets, colors, artists, words;
+	ArrayCtrl datasets, colors, words;
 	bool disabled = false;
-	int per_batch = 30;
-	Vector<int> tmp_ds_i;
-	VectorMap<String, int> tmp_map_ds_i;
-	Index<String> tmp_words;
 	bool batch = false;
 	
 public:
@@ -22,7 +18,6 @@ public:
 	void DataMain();
 	void DataDataset();
 	void DataColor();
-	void DataArtist();
 	void ToolMenu(Bar& bar) override;
 	void UpdateWords();
 	void UpdateWordsProcess();
@@ -30,11 +25,7 @@ public:
 	//void UpdateWordFlags();
 	void DumpWordGroups();
 	void DumpPhoneticChars();
-	/*void GetEverything();
-	void GetSyllables(int batch_i, bool start_next);
-	void GetDetails(int batch_i, bool start_next);
-	void OnSyllables(String res, int batch_i, bool start_next);
-	void OnDetails(String res, int batch_i, bool start_next);*/
+	void DoWords(int fn);
 	
 };
 
