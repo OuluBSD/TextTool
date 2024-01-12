@@ -2,8 +2,6 @@
 #define _SongDataCtrl_ActionTransitions_h_
 
 
-#if 0
-
 class ActionTransitionsPage : public SongToolCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, actions, action_args, transitions;
@@ -26,5 +24,4 @@ public:
 };
 
 
-#endif
 #endif

@@ -1,7 +1,6 @@
 #ifndef _SongDataCtrl_SongDataWords_h_
 #define _SongDataCtrl_SongDataWords_h_
 
-#if 0
 
 class SongDataWords : public SongToolCtrl {
 	Splitter hsplit, vsplit;
@@ -31,14 +30,13 @@ public:
 	//void UpdateWordFlags();
 	void DumpWordGroups();
 	void DumpPhoneticChars();
-	void GetEverything();
+	/*void GetEverything();
 	void GetSyllables(int batch_i, bool start_next);
 	void GetDetails(int batch_i, bool start_next);
 	void OnSyllables(String res, int batch_i, bool start_next);
-	void OnDetails(String res, int batch_i, bool start_next);
+	void OnDetails(String res, int batch_i, bool start_next);*/
 	
 };
 
 
-#endif
 #endif

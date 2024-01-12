@@ -718,6 +718,83 @@ struct ExportAction : Moveable<ExportAction> {
 	
 };
 
+struct ExportParallel : Moveable<ExportParallel> {
+	int count = 0, score_sum= 0;
+	
+	String StoreToString() {
+		StringDumper d;
+		d % count % score_sum;
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		p % count % score_sum;
+	}
+	
+};
+
+struct ExportTransition : Moveable<ExportTransition> {
+	int count = 0, score_sum= 0;
+	
+	String StoreToString() {
+		StringDumper d;
+		d % count % score_sum;
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		p % count % score_sum;
+	}
+	
+};
+
+struct ExportDepActionPhrase : Moveable<ExportDepActionPhrase> {
+	Vector<int> actions;
+	Vector<int> next_phrases;
+	Vector<Vector<int>> next_scores;
+	int first_lines = 0;
+	int attr = -1;
+	Color clr = Black();
+	
+	String StoreToString() {
+		StringDumper d;
+		d.Do(actions.GetCount());
+		for (int a : actions) d.Do(a);
+		int c = next_phrases.GetCount();
+		d.Do(c);
+		for (int a : next_phrases) d.Do(a);
+		for(int i = 0; i < c; i++) {
+			auto& v = next_scores[i];
+			d.Do(v.GetCount());
+			for (int& s : v)
+				d.Do(s);
+		}
+		d % first_lines % attr % clr;
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		int ac = 0;
+		p % ac;
+		actions.SetCount(ac);
+		for (int& a : actions) p % a;
+		int c = 0;
+		p % c;
+		next_phrases.SetCount(c);
+		next_scores.SetCount(c);
+		for (int& i : next_phrases) p % i;
+		for (auto& v : next_scores) {
+			int sc = 0;
+			p % sc;
+			v.SetCount(sc);
+			for (int& s : v)
+				p.Do(s);
+		}
+		p % first_lines % attr % clr;
+	}
+	
+};
+
 struct DatasetAnalysis {
 	MapFile<String,Token> tokens;
 	MapFile<hash_t,TokenText> token_texts;
@@ -732,6 +809,9 @@ struct DatasetAnalysis {
 	IndexFile struct_types;
 	MapFile<AttrHeader,ExportAttr> attrs;
 	MapFile<ActionHeader,ExportAction> actions;
+	MapMapFile<int,int,ExportParallel> parallel;
+	MapMapFile<int,int,ExportTransition> trans;
+	MapFile<String,ExportDepActionPhrase> action_phrases;
 	
 	// Cached data
 	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;

@@ -151,7 +151,6 @@ void LyricsEditor::Data() {
 }
 
 void LyricsEditor::DataPhrase() {
-	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -171,15 +170,15 @@ void LyricsEditor::DataPhrase() {
 	for(int i = 0; i < sp.thrd_actions.GetCount(); i++) {
 		const auto& thrd = sp.thrd_actions[i];
 		if (line_i < thrd.GetCount()) {
-			const auto& ah = thrd[line_i];
+			const ActionHeader& ah = thrd[line_i];
 			
-			int j = da.action_attrs.Find(ah);
+			int j = da.actions.Find(ah);
 			if (j < 0) {
 				line_actions.Set(row, 0, ah.action);
 				line_actions.Set(row, 1, ah.arg);
 			}
 			else {
-				const ActionAttrs& aa = da.action_attrs[j];
+				const ExportAction& aa = da.actions[j];
 				SetColoredListValue(line_actions, row, 0, ah.action, aa.clr);
 				SetColoredListValue(line_actions, row, 1, ah.arg, aa.clr);
 			}
@@ -192,7 +191,6 @@ void LyricsEditor::DataPhrase() {
 		line_actions.SetCursor(0);
 	
 	DataDoActions();
-	#endif
 }
 
 void LyricsEditor::DataDoActions() {

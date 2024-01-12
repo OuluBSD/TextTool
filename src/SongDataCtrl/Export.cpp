@@ -186,53 +186,6 @@ struct ExportWordnet : Moveable<ExportWordnet> {
 	
 };
 
-struct ExportDepActionPhrase : Moveable<ExportDepActionPhrase> {
-	Vector<int> actions;
-	Vector<int> next_phrases;
-	Vector<Vector<int>> next_scores;
-	int first_lines = 0;
-	int attr = -1;
-	Color clr = Black();
-	
-	String StoreToString() {
-		StringDumper d;
-		d.Do(actions.GetCount());
-		for (int a : actions) d.Do(a);
-		int c = next_phrases.GetCount();
-		d.Do(c);
-		for (int a : next_phrases) d.Do(a);
-		for(int i = 0; i < c; i++) {
-			auto& v = next_scores[i];
-			d.Do(v.GetCount());
-			for (int& s : v)
-				d.Do(s);
-		}
-		d % first_lines % attr % clr;
-		return d;
-	}
-	void LoadFromString(const String& s) {
-		StringParser p(s);
-		int ac = 0;
-		p % ac;
-		actions.SetCount(ac);
-		for (int& a : actions) p % a;
-		int c = 0;
-		p % c;
-		next_phrases.SetCount(c);
-		next_scores.SetCount(c);
-		for (int& i : next_phrases) p % i;
-		for (auto& v : next_scores) {
-			int sc = 0;
-			p % sc;
-			v.SetCount(sc);
-			for (int& s : v)
-				p.Do(s);
-		}
-		p % first_lines % attr % clr;
-	}
-	
-};
-
 void ExportPage::Export() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -265,7 +218,7 @@ void ExportPage::Export() {
 		MapMapFile<int,int,ExportTransition> trans(ds_dir, "action transition");
 		MapFile<String,ExportWord> words(ds_dir, "words");
 		MapFile<hash_t,ExportTemplate> tmpls(ds_dir, "templates");
-		MapFile<String,ExportDepActionPhrase> act_phrases(ds_dir, "deprecated action phrases");
+		MapFile<String,ExportDepActionPhrase> act_phrases(ds_dir, "action phrases");
 		MapFile<hash_t,ExportWordnet> wordnets(ds_dir, "wordnets");
 		MapFile<String,String> translations(ds_dir, trans_ds_key);
 		

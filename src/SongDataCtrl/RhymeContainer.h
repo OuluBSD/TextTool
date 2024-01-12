@@ -8,6 +8,7 @@ class RhymeContainerPage : public SongToolCtrl {
 	ArrayCtrl datasets, syl_counts, colors, attrs, actions, action_args, data;
 	
 	VectorMap<String, String> mirror_words;
+	VectorMap<String, VectorMap<String, int>> uniq_acts;
 	
 	void MakeSplit(Vector<String>& parts, Vector<Index<String>>& wrds);
 	int FindSplit(const Vector<String>& part_words);

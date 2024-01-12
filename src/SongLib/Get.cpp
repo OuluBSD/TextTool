@@ -461,15 +461,12 @@ void TaskManager::GetActionlist(Task* t) {
 }
 
 void TaskManager::GetActionParallels(Task* t) {
-	TODO
-	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	TimeStop ts;
-	da.action_parallel.Clear();
 	
 	// Loop from previous to 'current' to get score at the 'current'
 	// (Instead of 'current' to next)
@@ -513,12 +510,9 @@ void TaskManager::GetActionParallels(Task* t) {
 	}
 	
 	LOG("TaskManager::GetActionParallels took " << ts.ToString());
-	#endif
 }
 
 void TaskManager::GetActionTransitions(Task* t) {
-	TODO
-	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -565,7 +559,6 @@ void TaskManager::GetActionTransitions(Task* t) {
 	}
 	
 	LOG("TaskManager::GetActionTransitions took " << ts.ToString());
-	#endif
 }
 
 void TaskManager::GetContainer(Task* t) {
@@ -919,6 +912,216 @@ void TaskManager::GetRhymeContainersFromTemplates(Task* t) {
 	running = false;
 	stopped = true;
 	#endif
+}
+
+void TaskManager::GetLineActions(Task* t) {
+	if (Thread::IsShutdownThreads())
+		return;
+	if (batches.IsEmpty())
+		UpdateBatches();
+	if (batch_i < 0 || batch_i >= batches.GetCount()) {
+		this->batch = false;
+		return;
+	}
+	Batch& batch = batches[batch_i];
+	tmp_batch_i = batch_i;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	SongDataAnalysisArgs args;
+	args.fn = 10;
+	args.phrases <<= Split(batch.txt, "\n");
+	
+	Song& song = GetSong();
+	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	m.GetSongDataAnalysis(args, THISBACK1(OnLineActions, batch_i));
+}
+
+void TaskManager::GetSyllables(int batch_i, bool start_next) {
+	if (Thread::IsShutdownThreads())
+		return;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	int begin = batch_i * per_batch;
+	int end = (batch_i+1) * per_batch;
+	
+	if (batch_i < 0) {
+		begin = 0;
+		end = 1;
+	}
+	
+	SongDataAnalysisArgs args;
+	tmp_map_ds_i.Clear();
+	
+	int iter = 0;
+	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
+		String ds_key = sd.GetKey(ds_i);
+		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+		
+		for(int i = 0; i < ds.words.GetCount(); i++) {
+			if (iter >= begin) {
+				String wrd = ds.words[i].txt;
+				
+				// hotfix
+				HotfixReplaceWord(wrd);
+				
+				args.words << wrd;
+				tmp_map_ds_i.Add(wrd, ds_i);
+			}
+			iter++;
+			if (iter >= end) break;
+		}
+		if (iter >=  end) break;
+	}
+	
+	if (args.words.IsEmpty()) {
+		if (batch)
+			batch = false;
+		return;
+	}
+	
+	Song& song = GetSong();
+	
+	
+	args.fn = 4;
+	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	m.GetSongDataAnalysis(args, THISBACK2(OnSyllables, batch_i, start_next));
+}
+
+void TaskManager::GetDetails(int batch_i, bool start_next) {
+	if (Thread::IsShutdownThreads())
+		return;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	int begin = batch_i * per_batch;
+	int end = (batch_i+1) * per_batch;
+	
+	if (batch_i < 0) {
+		begin = 0;
+		end = 1;
+	}
+	
+	tmp_ds_i.Clear();
+	tmp_words.Clear();
+	
+	SongDataAnalysisArgs args;
+	
+	int iter = 0;
+	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
+		String ds_key = sd.GetKey(ds_i);
+		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+		
+		for(int i = 0; i < ds.words.GetCount(); i++) {
+			auto& wa = ds.words[i];
+			if (wa.translation.GetCount())
+				continue;
+			String wrd = ds.words[i].txt;
+			
+			// Skip cyrillic words
+			bool is_cyrillic = false;
+			WString ws = wrd.ToWString();
+			for(int j = 0; j < ws.GetCount(); j++) {
+				int chr = ws[j];
+				if (chr >= 0x0400 && chr < 0x052F) {
+					is_cyrillic = true;
+					break;
+				}
+			}
+			if (is_cyrillic)
+				continue;
+			
+			if (iter >= begin) {
+				args.words << wrd;
+				tmp_ds_i << ds_i;
+				tmp_words.Add(wrd);
+			}
+			iter++;
+			if (iter >= end) break;
+		}
+		if (iter >= end) break;
+	}
+	
+	if (args.words.IsEmpty()) {
+		if (batch)
+			GetSyllables(0, true);
+		return;
+	}
+	
+	Song& song = GetSong();
+	
+	args.fn = 5;
+	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	m.GetSongDataAnalysis(args, THISBACK2(OnDetails, batch_i, start_next));
+}
+
+void TaskManager::GetLineChangeScores(int batch_i, int score_mode) {
+	if (Thread::IsShutdownThreads())
+		return;
+	if (batches.IsEmpty()) UpdateBatches();
+	if (batch_i < 0 || batch_i >= batches.GetCount()) {
+		this->batch = false;
+		return;
+	}
+	Batch& batch = batches[batch_i];
+	tmp_batch_i = batch_i;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[batch.ds_i];
+	
+	SongDataAnalysisArgs args;
+	args.fn = 11;
+	args.score_mode = score_mode;
+	args.phrases <<= Split(batch.txt, "\n");
+	
+	ap_is.Clear();
+	
+	bool fail = false;
+	for (String& l : args.phrases) {
+		int ap_i = 0;
+		bool found = false;
+		for(int i = 0; i < da.action_phrases.GetCount(); i++) {
+			const String& txt = da.action_phrases.GetKey(i);
+			const ExportDepActionPhrase& ap = da.action_phrases[i];
+			
+			if (txt == l) {
+				l.Clear();
+				for (int a : ap.actions) {
+					const ActionHeader& ah = da.actions.GetKey(a);
+					if (!l.IsEmpty()) l << " + ";
+					l << ah.action << "(" << ah.arg << ")";
+				}
+				found = true;
+				break;
+			}
+			ap_i++;
+		}
+		ap_is << (found ? ap_i : -1);
+		if (!found)
+			fail = true;
+	}
+	
+	/*if (fail) {
+		PromptOK("Failed to finish line change scores");
+		return;
+	}*/
+	
+	Song& song = GetSong();
+	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	m.GetSongDataAnalysis(args, THISBACK2(OnLineChangeScores, batch_i, score_mode));
 }
 
 }

@@ -61,19 +61,19 @@ protected:
 	PhraseParts						phrase_parts;
 	PhrasePartAnalysis				phrase_part_analysis;
 	RhymeContainerPage				rhyme_container;
-	/*
-	SongDataAnalysisPage			song_analysis;
-	SongDataWords					song_words;
-	SongDataTemplates				song_tmpl;
 	ActionAttrsPage					action_attrs;
+	SongDataLineActions				song_lineactions;
 	ActionParallelsPage				action_parallels;
 	ActionTransitionsPage			action_transitions;
+	SongDataWords					song_words;
+	/*
+	SongDataAnalysisPage			song_analysis;
+	SongDataTemplates				song_tmpl;
 	LineTypesPage					line_types;
 	SongDataPhrases					song_phrases;
 	SongDataWordnet					song_wordnet;
 	SongDataTemplateScoring			song_tmplscoring;
 	SongDataWordnetScoring			song_wnscoring;
-	SongDataLineActions				song_lineactions;
 	SongDataTmplActions				song_tmplactions;
 	ExportPage						export_page;
 	*/

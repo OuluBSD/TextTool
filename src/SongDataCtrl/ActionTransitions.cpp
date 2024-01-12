@@ -1,6 +1,5 @@
 #include "SongDataCtrl.h"
 
-#if 0
 
 ActionTransitionsPage::ActionTransitionsPage() {
 	Add(hsplit.SizePos());
@@ -75,28 +74,20 @@ void ActionTransitionsPage::DataDataset() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	uniq_acts.Clear();
-	for (const ActionPhrase& ap : da.action_phrases) {
-		for (const auto& a : ap.actions)
-			uniq_acts.GetAdd(a.action).GetAdd(a.arg, 0)++;
+	for (const ActionHeader& ah : da.actions.GetKeys()) {
+		uniq_acts.GetAdd(ah.action).GetAdd(ah.arg, 0)++;
 	}
-	if (0) {
-		SortByKey(uniq_acts, StdLess<String>());
-		for (auto& v : uniq_acts.GetValues())
-			SortByKey(v, StdLess<String>());
-	}
-	else {
-		struct Sorter {
-			bool operator()(const VectorMap<String, int>& a, const VectorMap<String, int>& b) const {
-				return a.GetCount() > b.GetCount();
-			}
-		};
-		SortByValue(uniq_acts, Sorter());
-		for (auto& v : uniq_acts.GetValues())
-			SortByValue(v, StdGreater<int>());
-	}
+	struct Sorter {
+		bool operator()(const VectorMap<String, int>& a, const VectorMap<String, int>& b) const {
+			return a.GetCount() > b.GetCount();
+		}
+	};
+	SortByValue(uniq_acts, Sorter());
+	for (auto& v : uniq_acts.GetValues())
+		SortByValue(v, StdGreater<int>());
 	
 	actions.Set(0, 0, "All");
-	actions.Set(0, 1, da.action_phrases.GetCount());
+	actions.Set(0, 1, da.actions.GetCount());
 	for(int i = 0; i < uniq_acts.GetCount(); i++) {
 		actions.Set(1+i, 0, uniq_acts.GetKey(i));
 		actions.Set(1+i, 1, uniq_acts[i].GetCount());
@@ -124,7 +115,7 @@ void ActionTransitionsPage::DataAction() {
 	if (i < 0) {
 		action_args.SetCount(1);
 		action_args.Set(0, 0, "All");
-		action_args.Set(0, 1, da.action_phrases.GetCount());
+		action_args.Set(0, 1, da.actions.GetCount());
 	}
 	else {
 		auto& args = uniq_acts[i];
@@ -159,9 +150,10 @@ void ActionTransitionsPage::DataActionHeader() {
 	
 	int idx = -1;
 	int row = 0;
-	for(int i = 0; i < da.action_trans.GetCount(); i++) {
-		const ActionHeader& at0 = da.action_trans.GetKey(i);
-		const auto& v = da.action_trans[i];
+	for(int i = 0; i < da.trans.GetCount(); i++) {
+		int from_a = da.trans.GetKey(i);
+		const ActionHeader& at0 = da.actions.GetKey(from_a);
+		const Vector<ExportTransition>& to_v = da.trans.GetValues(i);
 		
 		bool at0_skipped = false;
 		if (filter_action) {
@@ -169,9 +161,10 @@ void ActionTransitionsPage::DataActionHeader() {
 				at0_skipped = true;
 		}
 		
-		for(int j = 0; j < v.GetCount(); j++) {
-			const ActionHeader& at1 = v.GetKey(j);
-			const ActionTransition& at = v[j];
+		for(int j = 0; j < to_v.GetCount(); j++) {
+			int to_a = da.trans.GetKey(i, j);
+			const ActionHeader& at1 = da.actions.GetKey(to_a);
+			const ExportTransition& at = to_v[j];
 			
 			bool at1_skipped = false;
 			if (filter_action && at0_skipped) {
@@ -215,5 +208,3 @@ void ActionTransitionsPage::UpdateTransitions() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoActionTransition(0, 0);
 }
-
-#endif

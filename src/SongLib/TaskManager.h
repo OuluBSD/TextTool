@@ -10,8 +10,6 @@ typedef enum {
 	TASK_VIRTUAL_PHRASES,
 	TASK_PHRASES,
 	TASK_CONTAINER,
-	
-	// deprecated?
 	TASK_ACTIONLIST,
 	TASK_ACTION_PARALLELS,
 	TASK_ACTION_TRANSITIONS,
@@ -21,6 +19,16 @@ typedef enum {
 
 
 struct Task {
+	struct Batch : Moveable<Batch> {
+		ArtistDataset* artist;
+		LyricsDataset* lyrics;
+		String txt;
+		int ds_i;
+		bool song_begins;
+	};
+	
+	void UpdateBatches(int per_batch);
+	
 	TaskType type;
 	Callback cb;
 	Callback2<int,int> update;
@@ -29,6 +37,7 @@ struct Task {
 	int batch_i = 0;
 	bool running = false;
 	Vector<int> tmp;
+	Vector<Batch> batches;
 };
 
 
@@ -69,6 +78,8 @@ class TaskManager {
 	void GetRhymeContainers(Task* t);
 	void GetRhymeContainersFromTemplates(Task* t);
 	void GetContainer(Task* t);
+	void GetLineActions(Task* t);
+	void OnLineActions(String res, Task* t);
 	
 	void RemoveTask(Task& t);
 	

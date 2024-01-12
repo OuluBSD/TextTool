@@ -110,8 +110,6 @@ void TaskManager::DoActionlistCache(int ds_i) {
 }
 
 void TaskManager::DoActionlist(int ds_i, int fn) {
-	TODO
-	#if 0
 	if (IsInTaskList(TASK_ACTIONLIST))
 		return;
 	
@@ -121,9 +119,8 @@ void TaskManager::DoActionlist(int ds_i, int fn) {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	if (uniq_acts.IsEmpty()) {
-		for (const ActionPhrase& ap : da.action_phrases) {
-			for (const auto& a : ap.actions)
-				uniq_acts.GetAdd(a.action).GetAdd(a.arg, 0)++;
+		for (const ActionHeader& ah : da.actions.GetKeys()) {
+			uniq_acts.GetAdd(ah.action).GetAdd(ah.arg, 0)++;
 		}
 		struct Sorter {
 			bool operator()(const VectorMap<String, int>& a, const VectorMap<String, int>& b) const {
@@ -143,7 +140,6 @@ void TaskManager::DoActionlist(int ds_i, int fn) {
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
-	#endif
 }
 
 void TaskManager::DoActionParallel(int ds_i, int fn) {

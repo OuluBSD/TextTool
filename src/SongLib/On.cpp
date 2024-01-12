@@ -466,8 +466,6 @@ void TaskManager::OnPhraseScores(String result, Task* t) {
 }
 
 void TaskManager::OnActionlistColors(String result, Task* t) {
-	TODO
-	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -505,18 +503,15 @@ void TaskManager::OnActionlistColors(String result, Task* t) {
 		b = full_action.Find(")", a);
 		ah.arg = full_action.Mid(a,b-a);
 		
-		ActionAttrs& aa = da.action_attrs.GetAdd(ah);
+		ExportAction& aa = da.actions.GetAdd(ah);
 		aa.clr = clr;
 	}
 	
 	t->batch_i++;
 	t->running = false;
-	#endif
 }
 
 void TaskManager::OnActionlistAttrs(String result, Task* t) {
-	TODO
-	#if 0
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -538,9 +533,10 @@ void TaskManager::OnActionlistAttrs(String result, Task* t) {
 		a = b+1;
 		b = line.Find("/", b);
 		if (a < 0) continue;
-		String attr_group = TrimBoth(line.Mid(a,b-a));
+		AttrHeader ath;
+		ath.group = TrimBoth(line.Mid(a,b-a));
 		a = b+1;
-		String attr_value = TrimBoth(line.Mid(a));
+		ath.value = TrimBoth(line.Mid(a));
 		
 		a = full_action.Find("(");
 		if (a < 0) continue;
@@ -550,14 +546,311 @@ void TaskManager::OnActionlistAttrs(String result, Task* t) {
 		b = full_action.Find(")", a);
 		ah.arg = full_action.Mid(a,b-a);
 		
-		ActionAttrs& aa = da.action_attrs.GetAdd(ah);
-		aa.group = attr_group;
-		aa.value = attr_value;
+		ExportAction& aa = da.actions.GetAdd(ah);
+		da.attrs.GetAdd(ath, aa.attr);
 	}
 	
 	t->batch_i++;
 	t->running = false;
-	#endif
+}
+
+void TaskManager::OnLineActions(String res, Task* t) {
+	if (Thread::IsShutdownThreads())
+		return;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	Task::Batch& batch = t->batches[t->batch_i];
+	DatasetAnalysis& da = sda.datasets[batch.ds_i];
+	
+	res.Replace("\r", "");
+	Vector<String> lines = Split(res, "\n");
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		RemoveLineNumber(l);
+		l = TrimBoth(l);
+		if (l.IsEmpty() || l[0] == '-')
+			lines.Remove(i--);
+	}
+	
+	Vector<String> txt_lines = Split(batch.txt, "\n");
+	
+	// e.g. tone(desperate) + msg(distracting oneself) + bias(impulsiveness)
+	Vector<ActionHeader> actions;
+	
+	if (lines.GetCount() == txt_lines.GetCount()) {
+		int line_idx = -1;
+		Vector<int> ap_is;
+		for (String& l : lines) {
+			line_idx++;
+			l = TrimBoth(l);
+			if (l.IsEmpty())
+				continue;
+			
+			const String& txt = txt_lines[line_idx];
+			actions.SetCount(0);
+			
+			Vector<String> parts = Split(l, "+");
+			CombineHash ch;
+			for(int i = 0; i < parts.GetCount(); i++) {
+				String& s = parts[i];
+				s = TrimBoth(s);
+				int a = s.Find("(");
+				int b = s.Find(")");
+				if (a < 0 || b < 0 || a > b) {
+					parts.Remove(i--);
+					continue;
+				}
+				String action = TrimBoth(s.Left(a));
+				a++;
+				String arg = TrimBoth(s.Mid(a,b-a));
+				
+				ActionHeader& aa = actions.Add();
+				aa.action = action;
+				aa.arg = arg;
+				
+			}
+			Sort(actions, ActionHeader());
+			for (ActionHeader& aa : actions) {
+				ch.Do(aa.action);
+				ch.Do(aa.arg);
+			}
+			hash_t h = ch;
+			
+			bool found = false;
+			int i = 0;
+			for (ExportDepActionPhrase& ap : da.action_phrases) {
+				if (ap.hash == h) {
+					found = true;
+					ap_is << i;
+					if (line_idx == 0 && batch.song_begins)
+						ap.first_lines++;
+				}
+				i++;
+			}
+			if (!found) {
+				ap_is << da.action_phrases.GetCount();
+				ExportDepActionPhrase& ap = da.action_phrases.Add();
+				ap.hash = h;
+				ap.txt = txt;
+				ap.first_lines = line_idx == 0 && batch.song_begins ? 1 : 0;
+				Swap(ap.actions, actions);
+			}
+		}
+		for(int i = 1; i < ap_is.GetCount(); i++) {
+			int ap_i0 = ap_is[i-1];
+			int ap_i1 = ap_is[i];
+			ExportDepActionPhrase& ap0 = da.action_phrases[ap_i0];
+			VectorFindAdd(ap0.next_phrases, ap_i1);
+		}
+	}
+	
+	t->update(t->batch_i, t->batches.GetCount());
+	
+	t->batch_i++;
+	t->running = false;
+}
+
+void TaskManager::OnSyllables(String res, int batch_i, bool start_next) {
+	if (Thread::IsShutdownThreads())
+		return;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	//-hey: hey [heɪ]
+	//- hello: hel-lo [hɛˈloʊ]
+	
+	res.Replace("\r", "");
+	Vector<String> lines = Split(res, "\n");
+	for (String& line : lines) {
+		RemoveLineChar(line);
+		int a = line.Find(":");
+		if (a < 0) continue;
+		String wrd = TrimBoth(line.Left(a));
+		line = line.Mid(a+1);
+		
+		a = line.Find("[");
+		if (a < 0) continue;
+		String spelling = TrimBoth(line.Left(a));
+		a++;
+		int b = line.Find("]", a);
+		if (b < 0) continue;
+		WString phonetic = TrimBoth(line.Mid(a,b-a)).ToWString();
+		
+		int ds_i = tmp_map_ds_i.Get(wrd, -1);
+		if (ds_i < 0) continue;
+		String ds_key = sd.GetKey(ds_i);
+		
+		// hotfix
+		if (1) {
+			wrd = ToLower(wrd.ToWString()).ToString();
+			wrd.Replace("'", "");
+		}
+		
+		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+		WordAnalysis& wa = ds.GetAddWord(wrd);
+		wa.spelling = spelling;
+		wa.phonetic = phonetic;
+	}
+	
+	if (start_next) {
+		disabled = false;
+		GetSyllables(batch_i+1, true);
+	}
+}
+
+void TaskManager::OnDetails(String res, int batch_i, bool start_next) {
+	if (Thread::IsShutdownThreads())
+		return;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	
+	res.Replace("\r", "");
+	
+	Vector<String> lines = Split(res, "\n");
+	//DUMPC(lines);
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		
+		RemoveLineChar(l);
+		
+		int a = l.Find(":");
+		if (a < 0) continue;
+		String orig = l.Left(a);
+		l = TrimBoth(l.Mid(a+1));
+		
+		a = l.Find(" or ");
+		if (a > 0) {
+			l = TrimBoth(l.Mid(a+4));
+		}
+		
+		
+		//orig = ToLower(orig.ToWString()).ToString();
+		//orig.Replace("'", "");
+		
+		
+		
+		a = l.Find(",");
+		if (a < 0) continue;
+		String main_class = TrimBoth(l.Left(a));
+		l = TrimBoth(l.Mid(a+1));
+		
+		a = l.Find("),");
+		if (a < 0) continue;
+		String rgb = TrimBoth(l.Left(a));
+		l = TrimBoth(l.Mid(a+2));
+		a = rgb.Find("(");
+		if (a < 0) continue;
+		rgb = TrimBoth(rgb.Mid(a+1));
+		
+		String translation = TrimBoth(l);
+		
+		int j = tmp_words.Find(orig);
+		if (j < 0) continue;
+		int ds_i = tmp_ds_i[j];
+		DatasetAnalysis& ds = sda.datasets[ds_i];
+		
+		j = ds.FindWord(orig);
+		if (j < 0) continue;
+		
+		WordAnalysis& wa = ds.words[j];
+		wa.main_class = main_class;
+		wa.translation = translation;
+		
+		Vector<String> clr_str = Split(rgb, ",");
+		if (clr_str.GetCount() == 3) {
+			wa.clr = Color(
+				ScanInt(TrimBoth(clr_str[0])),
+				ScanInt(TrimBoth(clr_str[1])),
+				ScanInt(TrimBoth(clr_str[2])));
+		}
+	}
+	
+	
+	
+	if (start_next) {
+		disabled = false;
+		GetDetails(batch_i+1, true);
+	}
+}
+
+void TaskManager::OnLineChangeScores(String res, int batch_i, int score_mode) {
+	if (Thread::IsShutdownThreads())
+		return;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	Batch& batch = batches[tmp_batch_i];
+	DatasetAnalysis& da = sda.datasets[batch.ds_i];
+	
+	res.Replace("\r", "");
+	res = "1. Stop line 1 & start line 2: S0:" + res;
+	res.Replace("not applicable", "0");
+	
+	Vector<String> lines = Split(res, "\n");
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		RemoveLineNumber(l);
+		l = TrimBoth(l);
+		if (l.IsEmpty() || l[0] == '-')
+			lines.Remove(i--);
+	}
+	
+	for (String& l : lines) {
+		int a = l.Find("line");
+		if (a < 0) continue;
+		int b = l.Find("&", a);
+		if (b < 0) continue;
+		a += 4;
+		int line0 = StrInt(TrimBoth(l.Mid(a,b-a)));
+		a = l.Find("line",b);
+		if (a < 0) continue;
+		b = l.Find(":", a);
+		if (b < 0) continue;
+		a += 4;
+		int line1 = StrInt(TrimBoth(l.Mid(a,b-a)));
+		
+		Vector<String> parts = Split(l.Mid(b+1), ",");
+		if (parts.GetCount() != SCORE_COUNT)
+			continue;
+		int score[SCORE_COUNT] = {0,0,0,0,0};
+		for(int i = 0; i < parts.GetCount(); i++) {
+			String& s = parts[i];
+			int a = s.Find(":");
+			if (a < 0) continue;
+			score[i] = StrInt(TrimBoth(s.Mid(a+1)));
+		}
+		
+		line0--;
+		line1--;
+		if (line0 >= ap_is.GetCount() || line1 >= ap_is.GetCount()) continue;
+		
+		int ap_i0 = ap_is[line0];
+		int ap_i1 = ap_is[line1];
+		if (ap_i0 < 0 || ap_i1 < 0)
+			continue;
+		
+		ExportDepActionPhrase& ap0 = da.action_phrases[ap_i0];
+		
+		int j = VectorFind(ap0.next_phrases, ap_i1);
+		if (j >= 0) {
+			if (ap0.next_scores.GetCount() <= j)
+				ap0.next_scores.SetCount(j+1);
+			Vector<int>& tgt = ap0.next_scores[j];
+			tgt.SetCount(SCORE_COUNT);
+			for(int j = 0; j < SCORE_COUNT; j++)
+				tgt[j] = score[j];
+		}
+	}
+	
+	if (running1)
+		PostCallback(THISBACK2(GetLineChangeScores, batch_i+1, score_mode));
 }
 
 }

@@ -72,6 +72,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Songs"), song_data);
 	AddItem(t_("Database"), t_("Tokens"), tokens_data);
 	AddItem(t_("Database"), t_("Token phrases"), token_phrases);
+	AddItem(t_("Database"), t_("Words"), song_words);
 	AddItem(t_("Database"), t_("Ambiguous word pairs"), ambiguous_word_pairs);
 	AddItem(t_("Database"), t_("Virtual phrases"), virtual_phrases);
 	AddItem(t_("Database"), t_("Virtual phrase parts"), virtual_phrase_parts);
@@ -79,8 +80,10 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Phrase parts"), phrase_parts);
 	AddItem(t_("Database"), t_("Phrase part analysis"), phrase_part_analysis);
 	AddItem(t_("Database"), t_("Rhyme container"), rhyme_container);
+	AddItem(t_("Database"), t_("Action attributes"), action_attrs);
+	AddItem(t_("Database"), t_("Action parallels"), action_parallels);
+	AddItem(t_("Database"), t_("Action transitions"), action_transitions);
 	/*AddItem(t_("Database"), t_("Analysis"), song_analysis);
-	AddItem(t_("Database"), t_("Words"), song_words);
 	AddItem(t_("Database"), t_("Phrases"), song_phrases);
 	//AddItem(t_("Database"), t_("Search phrases"), song_searchphrases);
 	AddItem(t_("Database"), t_("Phrase templates"), song_tmpl);
@@ -89,9 +92,6 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Wordnet scoring"), song_wnscoring);
 	AddItem(t_("Database"), t_("Line actions"), song_lineactions);
 	AddItem(t_("Database"), t_("Template actions"), song_tmplactions);
-	AddItem(t_("Database"), t_("Action attributes"), action_attrs);
-	AddItem(t_("Database"), t_("Action parallels"), action_parallels);
-	AddItem(t_("Database"), t_("Action transitions"), action_transitions);
 	AddItem(t_("Database"), t_("Line types"), line_types);
 	AddItem(t_("Database"), t_("Export"), export_page);*/
 	

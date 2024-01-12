@@ -48,9 +48,13 @@ PhrasePartAnalysis::PhrasePartAnalysis() {
 	colors.WhenCursor << THISBACK(DataColor);
 	
 	actions.AddColumn(t_("Action"));
+	actions.AddColumn(t_("Count"));
+	actions.ColumnWidths("3 1");
 	actions.WhenCursor << THISBACK(DataAction);
 	
 	action_args.AddColumn(t_("Action args"));
+	action_args.AddColumn(t_("Count"));
+	action_args.ColumnWidths("3 1");
 	action_args.WhenCursor << THISBACK(DataActionHeader);
 	
 	parts.AddColumn(t_("Actions"));
@@ -150,16 +154,26 @@ void PhrasePartAnalysis::DataColor() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	
+	uniq_acts.Clear();
+	for (const ActionHeader& ah : da.actions.GetKeys()) {
+		uniq_acts.GetAdd(ah.action).GetAdd(ah.arg, 0)++;
+	}
+	struct Sorter {
+		bool operator()(const VectorMap<String, int>& a, const VectorMap<String, int>& b) const {
+			return a.GetCount() > b.GetCount();
+		}
+	};
+	SortByValue(uniq_acts, Sorter());
+	for (auto& v : uniq_acts.GetValues())
+		SortByValue(v, StdGreater<int>());
+	
 	actions.Set(0, 0, "All");
-	Index<String> uniq_actions;
-	for(int i = 0; i < da.actions.GetCount(); i++) {
-		const ActionHeader& ah = da.actions.GetKey(i);
-		uniq_actions.FindAdd(ah.action);
+	actions.Set(0, 1, da.actions.GetCount());
+	for(int i = 0; i < uniq_acts.GetCount(); i++) {
+		actions.Set(1+i, 0, uniq_acts.GetKey(i));
+		actions.Set(1+i, 1, uniq_acts[i].GetCount());
 	}
-	for(int i = 0; i < uniq_actions.GetCount(); i++) {
-		actions.Set(1+i, 0, uniq_actions[i]);
-	}
-	actions.SetCount(1+uniq_actions.GetCount());
+	actions.SetCount(1+uniq_acts.GetCount());
 	if (!actions.IsCursor() && actions.GetCount())
 		actions.SetCursor(0);
 	
@@ -176,27 +190,26 @@ void PhrasePartAnalysis::DataAction() {
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
-	int i = actions.GetCursor();
-	if (i == 0) {
-		action_args.Set(0, 0, "All");
+	String action = actions.Get(0);
+	int i = uniq_acts.Find(action);
+	if (i < 0) {
 		action_args.SetCount(1);
+		action_args.Set(0, 0, "All");
+		action_args.Set(0, 1, da.actions.GetCount());
 	}
 	else {
-		const ActionHeader& ah0 = da.actions.GetKey(i-1);
-		
+		auto& args = uniq_acts[i];
 		action_args.Set(0, 0, "All");
-		int row = 1;
-		for(int i = 0; i < da.actions.GetCount(); i++) {
-			const ActionHeader& ah1 = da.actions.GetKey(i);
-			if (ah0.action == ah1.action) {
-				action_args.Set(row, 0, ah1.arg);
-				row++;
-			}
+		action_args.Set(0, 1, args.GetCount());
+		for(int i = 0; i < args.GetCount(); i++) {
+			action_args.Set(1+i, 0, args.GetKey(i));
+			action_args.Set(1+i, 1, args[i]);
 		}
-		action_args.SetCount(row);
+		action_args.SetCount(1+args.GetCount());
 	}
 	if (!action_args.IsCursor() && action_args.GetCount())
 		action_args.SetCursor(0);
+	
 	
 	DataActionHeader();
 }

@@ -274,6 +274,7 @@ public:
 		return m.Add(s);
 	}
 	
+	void Load(const String& dir, const String& title) {Load(AppendFileName(dir, title + ".txt"));}
 	void Load(const String& path) {
 		map.Clear();
 		this->path = path;

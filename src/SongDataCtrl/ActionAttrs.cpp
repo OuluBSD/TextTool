@@ -1,7 +1,5 @@
 #include "SongDataCtrl.h"
 
-#if 0
-
 
 ActionAttrsPage::ActionAttrsPage() {
 	Add(hsplit.SizePos());
@@ -139,21 +137,24 @@ void ActionAttrsPage::DataColor() {
 	clr_i--;
 	
 	int row = 0;
-	for(int i = 0; i < da.action_attrs.GetCount(); i++) {
-		const ActionHeader& ah = da.action_attrs.GetKey(i);
-		ActionAttrs& aa = da.action_attrs[i];
+	for(int i = 0; i < da.actions.GetCount(); i++) {
+		const ActionHeader& ah = da.actions.GetKey(i);
+		ExportAction& aa = da.actions[i];
 		
 		// Filter by color group
 		if (clr_filter && GetColorGroup(aa.clr) != clr_i)
 			continue;
 		
 		// Filter by attribute
-		if (attr_filter && (aa.group != group_str || aa.value != value_str))
+		if (aa.attr < 0)
+			continue;
+		const AttrHeader& ath = da.attrs.GetKey(aa.attr);
+		if (attr_filter && (ath.group != group_str || ath.value != value_str))
 			continue;
 		
 		actions.Set(row, "IDX", i);
-		actions.Set(row, 0, aa.group);
-		actions.Set(row, 1, aa.value);
+		actions.Set(row, 0, ath.group);
+		actions.Set(row, 1, ath.value);
 		actions.Set(row, 2,
 			AttrText(ah.action)
 				.NormalPaper(Blend(aa.clr, White(), 128+64)).NormalInk(Black())
@@ -186,4 +187,3 @@ void ActionAttrsPage::UpdateAttributes() {
 	tm.DoActionlist(0, 1);
 }
 
-#endif

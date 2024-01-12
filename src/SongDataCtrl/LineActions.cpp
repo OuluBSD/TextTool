@@ -1,7 +1,5 @@
 #include "SongDataCtrl.h"
 
-#if 0
-
 
 SongDataLineActions::SongDataLineActions() {
 	Add(hsplit.SizePos());
@@ -43,11 +41,9 @@ SongDataLineActions::SongDataLineActions() {
 	next_lines.AddColumn(t_("Txt"));
 	next_lines.AddColumn(t_("Total score"));
 	String sc;
-	for(int i = 0; i < SCORE_MODE_COUNT; i++) {
-		for(int j = 0; j < SCORE_ATTR_COUNT; j++) {
-			next_lines.AddColumn(ScoreTitles[i][j]);
-			sc << " 1";
-		}
+	for(int i = 0; i < SCORE_COUNT; i++) {
+		next_lines.AddColumn(ScoreTitles[i]);
+		sc << " 1";
 	}
 	next_lines.ColumnWidths("3 1" + sc);
 	
@@ -92,28 +88,20 @@ void SongDataLineActions::DataDataset() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	uniq_acts.Clear();
-	for (const ActionPhrase& ap : da.action_phrases) {
-		for (const auto& a : ap.actions)
-			uniq_acts.GetAdd(a.action).GetAdd(a.arg, 0)++;
+	for (const ActionHeader& ah : da.actions.GetKeys()) {
+		uniq_acts.GetAdd(ah.action).GetAdd(ah.arg, 0)++;
 	}
-	if (0) {
-		SortByKey(uniq_acts, StdLess<String>());
-		for (auto& v : uniq_acts.GetValues())
-			SortByKey(v, StdLess<String>());
-	}
-	else {
-		struct Sorter {
-			bool operator()(const VectorMap<String, int>& a, const VectorMap<String, int>& b) const {
-				return a.GetCount() > b.GetCount();
-			}
-		};
-		SortByValue(uniq_acts, Sorter());
-		for (auto& v : uniq_acts.GetValues())
-			SortByValue(v, StdGreater<int>());
-	}
+	struct Sorter {
+		bool operator()(const VectorMap<String, int>& a, const VectorMap<String, int>& b) const {
+			return a.GetCount() > b.GetCount();
+		}
+	};
+	SortByValue(uniq_acts, Sorter());
+	for (auto& v : uniq_acts.GetValues())
+		SortByValue(v, StdGreater<int>());
 	
 	actions.Set(0, 0, "All");
-	actions.Set(0, 1, da.action_phrases.GetCount());
+	actions.Set(0, 1, da.actions.GetCount());
 	for(int i = 0; i < uniq_acts.GetCount(); i++) {
 		actions.Set(1+i, 0, uniq_acts.GetKey(i));
 		actions.Set(1+i, 1, uniq_acts[i].GetCount());
@@ -135,13 +123,12 @@ void SongDataLineActions::DataAction() {
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
-	
 	String action = actions.Get(0);
 	int i = uniq_acts.Find(action);
 	if (i < 0) {
 		action_args.SetCount(1);
 		action_args.Set(0, 0, "All");
-		action_args.Set(0, 1, da.action_phrases.GetCount());
+		action_args.Set(0, 1, da.actions.GetCount());
 	}
 	else {
 		auto& args = uniq_acts[i];
@@ -155,6 +142,7 @@ void SongDataLineActions::DataAction() {
 	}
 	if (!action_args.IsCursor() && action_args.GetCount())
 		action_args.SetCursor(0);
+	
 	
 	DataActionHeader();
 }
@@ -174,14 +162,18 @@ void SongDataLineActions::DataActionHeader() {
 	bool filter_action = action != "All";
 	bool filter_action_arg = action_arg != "All";
 	
-	int idx = -1;
 	int row = 0;
-	for (const ActionPhrase& ap : da.action_phrases) {
-		idx++;
+	for(int i = 0; i < da.action_phrases.GetCount(); i++) {
+		const String& txt = da.action_phrases.GetKey(i);
+		const ExportDepActionPhrase& ap = da.action_phrases[i];
+		
+		// TODO optimize: use attribute idx integer comparison
+		
 		if (filter_action) {
 			bool found = false;
-			for (const auto& a : ap.actions) {
-				if (a.action == action) {
+			for (int a : ap.actions) {
+				const ActionHeader& ah = da.actions.GetKey(a);
+				if (ah.action == action) {
 					found = true;
 					break;
 				}
@@ -190,8 +182,9 @@ void SongDataLineActions::DataActionHeader() {
 		}
 		if (filter_action_arg) {
 			bool found = false;
-			for (const auto& a : ap.actions) {
-				if (a.arg == action_arg) {
+			for (int a : ap.actions) {
+				const ActionHeader& ah = da.actions.GetKey(a);
+				if (ah.arg == action_arg) {
 					found = true;
 					break;
 				}
@@ -199,11 +192,12 @@ void SongDataLineActions::DataActionHeader() {
 			if (!found) continue;
 		}
 		
-		phrases.Set(row, 0, ap.txt);
+		phrases.Set(row, 0, txt);
 		int c = min(action_cols, ap.actions.GetCount());
 		for(int j = 0; j < c; j++) {
-			const auto& aa = ap.actions[j];
-			String s = aa.action + "("+ aa.arg + ")";
+			int aa = ap.actions[j];
+			const ActionHeader& ah = da.actions.GetKey(aa);
+			String s = ah.action + "("+ ah.arg + ")";
 			phrases.Set(row, 1+j, s);
 		}
 		for(int j = c; j < action_cols; j++)
@@ -214,7 +208,7 @@ void SongDataLineActions::DataActionHeader() {
 		else
 			phrases.Set(row, 1+action_cols, Value());
 		
-		phrases.Set(row, "IDX", idx);
+		phrases.Set(row, "IDX", i);
 		row++;
 	}
 	phrases.SetCount(row);
@@ -237,28 +231,26 @@ void SongDataLineActions::DataNextLine() {
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	int phrase_i = phrases.Get("IDX");
-	const ActionPhrase& ap = da.action_phrases[phrase_i];
+	const ExportDepActionPhrase& ap = da.action_phrases[phrase_i];
 	
 	for(int i = 0; i < ap.next_phrases.GetCount(); i++) {
 		int next_i = ap.next_phrases[i];
-		const ActionPhrase& next = da.action_phrases[next_i];
-		next_lines.Set(i, 0, next.txt);
+		const String& next_txt = da.action_phrases.GetKey(next_i);
+		const ExportDepActionPhrase& next = da.action_phrases[next_i];
+		next_lines.Set(i, 0, next_txt);
 		if (i < next.next_scores.GetCount()) {
-			auto& sc = next.next_scores[i];
+			const Vector<int>& sc = next.next_scores[i];
 			int total_score = 0, l = 0;
-			for(int j = 0; j < SCORE_MODE_COUNT; j++) {
-				for(int k = 0; k < SCORE_ATTR_COUNT; k++) {
-					int v = sc.scores[j][k];
-					total_score += v;
-					next_lines.Set(i, 2+l, v);
-					l++;
-				}
+			for(int v : sc) {
+				total_score += v;
+				next_lines.Set(i, 2+l, v);
+				l++;
 			}
 			next_lines.Set(i, 1, total_score);
 		}
 		else {
 			next_lines.Set(i, 1, Value());
-			for(int j = 0; j < (SCORE_MODE_COUNT * SCORE_ATTR_COUNT); j++) {
+			for(int j = 0; j < SCORE_COUNT; j++) {
 				next_lines.Set(i, 2+j, Value());
 			}
 		}
@@ -276,7 +268,7 @@ void SongDataLineActions::ToolMenu(Bar& bar) {
 		bar.Add(t_("Stop getting line actions"), AppImg::RedRing(), THISBACK(ToggleGettingLineActions)).Key(K_F6);
 	else
 		bar.Add(t_("Start getting line actions"), AppImg::RedRing(), THISBACK(ToggleGettingLineActions)).Key(K_F6);
-	for(int i = 0; i < SCORE_MODE_COUNT; i++) {
+	for(int i = 0; i < SCORE_COUNT; i++) {
 		bar.Separator();
 		
 		if (running1)
@@ -286,200 +278,12 @@ void SongDataLineActions::ToolMenu(Bar& bar) {
 	}
 }
 
-void SongDataLineActions::UpdateBatches() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	
-	batches.SetCount(0);
-	batches.Reserve(1000);
-	
-	Vector<hash_t> line_hashes;
-	Vector<String> added_lines;
-	
-	for (int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
-		Vector<ArtistDataset>& artists = sd[ds_i];
-		for(int i = 0; i < artists.GetCount(); i++) {
-			ArtistDataset& artist = artists[i];
-			for(int j = 0; j < artist.lyrics.GetCount(); j++) {
-				LyricsDataset& lyrics = artist.lyrics[j];
-				Vector<String> lines = Split(lyrics.text, "\n");
-				for(int k = 0; k < lines.GetCount(); k++) {
-					String& l = lines[k];
-					l = TrimBoth(l);
-					if (l.IsEmpty()) lines.Remove(k--);
-				}
-				if (lines.IsEmpty()) continue;
-				added_lines.SetCount(0);
-				line_hashes.SetCount(0);
-				bool song_begins = true;
-				for(int k = 0; k < lines.GetCount(); k++) {
-					String l = TrimBoth(lines[k]);
-					hash_t h = l.GetHashValue();
-					if (VectorFind<hash_t>(line_hashes, h) >= 0)
-						continue;
-					line_hashes << h;
-					added_lines << l;
-					if (added_lines.GetCount() >= per_batch) {
-						Batch& b = batches.Add();
-						b.song_begins = song_begins;
-						b.artist = &artist;
-						b.lyrics = &lyrics;
-						b.ds_i = ds_i;
-						b.txt = Join(added_lines, "\n");
-						ASSERT(b.txt.GetCount());
-						added_lines.SetCount(0);
-						song_begins = false;
-					}
-				}
-				if (added_lines.GetCount()) {
-					Batch& b = batches.Add();
-					b.song_begins = song_begins;
-					b.artist = &artist;
-					b.lyrics = &lyrics;
-					b.ds_i = ds_i;
-					b.txt = Join(added_lines, "\n");
-					ASSERT(b.txt.GetCount());
-				}
-			}
-		}
-	}
-}
-
-void SongDataLineActions::ToggleGettingLineActions() {
+/*void SongDataLineActions::ToggleGettingLineActions() {
 	running0 = !running0;
 	if (running0) {
-		if (0) {
-			Database& db = Database::Single();
-			SongData& sd = db.song_data;
-			SongDataAnalysis& sda = db.song_data.a;
-			for (DatasetAnalysis& da : sda.datasets) {
-				da.action_phrases.Clear();
-			}
-		}
 		UpdateBatches();
 		Thread::Start(THISBACK1(GetLineActions, 0));
 	}
-}
-
-void SongDataLineActions::GetLineActions(int batch_i) {
-	if (Thread::IsShutdownThreads())
-		return;
-	if (batches.IsEmpty()) UpdateBatches();
-	if (batch_i < 0 || batch_i >= batches.GetCount()) {
-		this->batch = false;
-		return;
-	}
-	Batch& batch = batches[batch_i];
-	tmp_batch_i = batch_i;
-	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
-	
-	SongDataAnalysisArgs args;
-	args.fn = 10;
-	args.phrases <<= Split(batch.txt, "\n");
-	
-	Song& song = GetSong();
-	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
-	m.GetSongDataAnalysis(args, THISBACK1(OnLineActions, batch_i));
-}
-
-void SongDataLineActions::OnLineActions(String res, int batch_i) {
-	if (Thread::IsShutdownThreads())
-		return;
-	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
-	Batch& batch = batches[tmp_batch_i];
-	DatasetAnalysis& da = sda.datasets[batch.ds_i];
-	
-	res.Replace("\r", "");
-	Vector<String> lines = Split(res, "\n");
-	for(int i = 0; i < lines.GetCount(); i++) {
-		String& l = lines[i];
-		RemoveLineNumber(l);
-		l = TrimBoth(l);
-		if (l.IsEmpty() || l[0] == '-')
-			lines.Remove(i--);
-	}
-	
-	Vector<String> txt_lines = Split(batch.txt, "\n");
-	
-	// e.g. tone(desperate) + msg(distracting oneself) + bias(impulsiveness)
-	Vector<ActionHeader> actions;
-	
-	if (lines.GetCount() == txt_lines.GetCount()) {
-		int line_idx = -1;
-		Vector<int> ap_is;
-		for (String& l : lines) {
-			line_idx++;
-			l = TrimBoth(l);
-			if (l.IsEmpty())
-				continue;
-			
-			const String& txt = txt_lines[line_idx];
-			actions.SetCount(0);
-			
-			Vector<String> parts = Split(l, "+");
-			CombineHash ch;
-			for(int i = 0; i < parts.GetCount(); i++) {
-				String& s = parts[i];
-				s = TrimBoth(s);
-				int a = s.Find("(");
-				int b = s.Find(")");
-				if (a < 0 || b < 0 || a > b) {
-					parts.Remove(i--);
-					continue;
-				}
-				String action = TrimBoth(s.Left(a));
-				a++;
-				String arg = TrimBoth(s.Mid(a,b-a));
-				
-				ActionHeader& aa = actions.Add();
-				aa.action = action;
-				aa.arg = arg;
-				
-			}
-			Sort(actions, ActionHeader());
-			for (ActionHeader& aa : actions) {
-				ch.Do(aa.action);
-				ch.Do(aa.arg);
-			}
-			hash_t h = ch;
-			
-			bool found = false;
-			int i = 0;
-			for (ActionPhrase& ap : da.action_phrases) {
-				if (ap.hash == h) {
-					found = true;
-					ap_is << i;
-					if (line_idx == 0 && batch.song_begins)
-						ap.first_lines++;
-				}
-				i++;
-			}
-			if (!found) {
-				ap_is << da.action_phrases.GetCount();
-				ActionPhrase& ap = da.action_phrases.Add();
-				ap.hash = h;
-				ap.txt = txt;
-				ap.first_lines = line_idx == 0 && batch.song_begins ? 1 : 0;
-				Swap(ap.actions, actions);
-			}
-		}
-		for(int i = 1; i < ap_is.GetCount(); i++) {
-			int ap_i0 = ap_is[i-1];
-			int ap_i1 = ap_is[i];
-			ActionPhrase& ap0 = da.action_phrases[ap_i0];
-			VectorFindAdd(ap0.next_phrases, ap_i1);
-		}
-	}
-	
-	if (running0)
-		PostCallback(THISBACK1(GetLineActions, batch_i+1));
 }
 
 void SongDataLineActions::ToggleGettingLineChangeScores(int score_mode) {
@@ -487,134 +291,4 @@ void SongDataLineActions::ToggleGettingLineChangeScores(int score_mode) {
 	if (running1) {
 		Thread::Start(THISBACK2(GetLineChangeScores, 0, score_mode));
 	}
-}
-
-void SongDataLineActions::GetLineChangeScores(int batch_i, int score_mode) {
-	if (Thread::IsShutdownThreads())
-		return;
-	if (batches.IsEmpty()) UpdateBatches();
-	if (batch_i < 0 || batch_i >= batches.GetCount()) {
-		this->batch = false;
-		return;
-	}
-	Batch& batch = batches[batch_i];
-	tmp_batch_i = batch_i;
-	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
-	DatasetAnalysis& da = sda.datasets[batch.ds_i];
-	
-	SongDataAnalysisArgs args;
-	args.fn = 11;
-	args.score_mode = score_mode;
-	args.phrases <<= Split(batch.txt, "\n");
-	
-	ap_is.Clear();
-	
-	bool fail = false;
-	for (String& l : args.phrases) {
-		int ap_i = 0;
-		bool found = false;
-		for (ActionPhrase& ap : da.action_phrases) {
-			if (ap.txt == l) {
-				l.Clear();
-				for (const auto& arg : ap.actions) {
-					if (!l.IsEmpty()) l << " + ";
-					l << arg.action << "(" << arg.arg << ")";
-				}
-				found = true;
-				break;
-			}
-			ap_i++;
-		}
-		ap_is << (found ? ap_i : -1);
-		if (!found)
-			fail = true;
-	}
-	
-	/*if (fail) {
-		PromptOK("Failed to finish line change scores");
-		return;
-	}*/
-	
-	Song& song = GetSong();
-	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
-	m.GetSongDataAnalysis(args, THISBACK2(OnLineChangeScores, batch_i, score_mode));
-}
-
-void SongDataLineActions::OnLineChangeScores(String res, int batch_i, int score_mode) {
-	if (Thread::IsShutdownThreads())
-		return;
-	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
-	Batch& batch = batches[tmp_batch_i];
-	DatasetAnalysis& da = sda.datasets[batch.ds_i];
-	
-	res.Replace("\r", "");
-	res = "1. Stop line 1 & start line 2: S0:" + res;
-	res.Replace("not applicable", "0");
-	
-	Vector<String> lines = Split(res, "\n");
-	for(int i = 0; i < lines.GetCount(); i++) {
-		String& l = lines[i];
-		RemoveLineNumber(l);
-		l = TrimBoth(l);
-		if (l.IsEmpty() || l[0] == '-')
-			lines.Remove(i--);
-	}
-	
-	for (String& l : lines) {
-		int a = l.Find("line");
-		if (a < 0) continue;
-		int b = l.Find("&", a);
-		if (b < 0) continue;
-		a += 4;
-		int line0 = StrInt(TrimBoth(l.Mid(a,b-a)));
-		a = l.Find("line",b);
-		if (a < 0) continue;
-		b = l.Find(":", a);
-		if (b < 0) continue;
-		a += 4;
-		int line1 = StrInt(TrimBoth(l.Mid(a,b-a)));
-		
-		Vector<String> parts = Split(l.Mid(b+1), ",");
-		if (parts.GetCount() != SCORE_ATTR_COUNT)
-			continue;
-		int score[SCORE_ATTR_COUNT] = {0,0,0,0,0};
-		for(int i = 0; i < parts.GetCount(); i++) {
-			String& s = parts[i];
-			int a = s.Find(":");
-			if (a < 0) continue;
-			score[i] = StrInt(TrimBoth(s.Mid(a+1)));
-		}
-		
-		line0--;
-		line1--;
-		if (line0 >= ap_is.GetCount() || line1 >= ap_is.GetCount()) continue;
-		
-		int ap_i0 = ap_is[line0];
-		int ap_i1 = ap_is[line1];
-		if (ap_i0 < 0 || ap_i1 < 0)
-			continue;
-		
-		ActionPhrase& ap0 = da.action_phrases[ap_i0];
-		//ActionPhrase& ap1 = da.action_phrases[ap_i1];
-		int j = VectorFind(ap0.next_phrases, ap_i1);
-		if (j >= 0) {
-			if (ap0.next_scores.GetCount() <= j)
-				ap0.next_scores.SetCount(j+1);
-			auto& tgt = ap0.next_scores[j];
-			for(int j = 0; j < SCORE_ATTR_COUNT; j++)
-				tgt.scores[score_mode][j] = score[j];
-		}
-	}
-	
-	if (running1)
-		PostCallback(THISBACK2(GetLineChangeScores, batch_i+1, score_mode));
-}
-
-#endif
+}*/

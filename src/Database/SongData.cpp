@@ -280,6 +280,9 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	phrase_parts.Load(ds_dir, "phrase parts");
 	attrs.Load(ds_dir, "attributes");
 	actions.Load(ds_dir, "action");
+	parallel.Load(ds_dir, "action parallel");
+	trans.Load(ds_dir, "action transition");
+	action_phrases.Load(ds_dir, "action phrases");
 	
 	//DUMP(phrase_parts.GetCount());
 	
