@@ -33,15 +33,381 @@
 		{
 			"key": "ENGLISH_UNPACKED_STRUCTURE_TO_NATURAL_NATIVE",
 			"value": ""
+		},
+		{
+			"key": "USER_STRUCT",
+			"value": "V1,PC1,C,O"
 		}
 	],
 	"parts": [
+		{
+			"name": "Chorus",
+			"type": "C",
+			"active_source_wordsalad": [
 
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		},
+		{
+			"name": "Verse 1",
+			"type": "V1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		},
+		{
+			"name": "Pre-Chorus 1",
+			"type": "PC1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		},
+		{
+			"name": "Outro",
+			"type": "O",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		}
 	],
 	"active_struct": {
-		"name": "",
+		"name": "User's structure",
 		"parts": [
-
+			"V1",
+			"PC1",
+			"C",
+			"O"
 		],
 		"attrs": [
 

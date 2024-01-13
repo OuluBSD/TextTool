@@ -68,7 +68,7 @@
 		},
 		{
 			"key": "USER_STRUCT",
-			"value": "V1,PC1,C,O"
+			"value": "I,V1,PC1,C,V2,PC2,C,B,C"
 		},
 		{
 			"key": "REQ_PARTS",
@@ -88,7 +88,7 @@
 		},
 		{
 			"key": "BPM",
-			"value": "120"
+			"value": "78"
 		},
 		{
 			"key": "SITUATION_RELATION",
@@ -237,6 +237,774 @@
 	],
 	"parts": [
 		{
+			"name": "Intro",
+			"type": "I",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 4,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				]
+			],
+			"saved_lyrics": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		},
+		{
+			"name": "Chorus",
+			"type": "C",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"thrd_actions": [
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				],
+				[
+
+				]
+			],
+			"saved_lyrics": [
+				"if a girl want it",
+				"what a way to make it through"
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		},
+		{
 			"name": "Verse 1",
 			"type": "V1",
 			"active_source_wordsalad": [
@@ -255,1791 +1023,21 @@
 
 			],
 			"rhymes": [
-				{
-					"source": [
 
-					],
-					"notes": [
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						}
-					],
-					"suggestion": [
-						{
-							"style": "Eminem",
-							"content": "As I examine my wants and needs, I see a deeper seed",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Kendrick Lamar",
-							"content": "Staring through this lens, searching for a spiritual cleanse",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "MF DOOM",
-							"content": "Peep the complexities, these desires run deep in me",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Big L",
-							"content": "Dive into the unknown, where true meanings are grown",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Aesop Rock",
-							"content": "Through this telescope, my true self I hope to cope",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 1
-						},
-						{
-							"style": "Busta Rhymes",
-							"content": "Can't ignore these cravings, they're like a fire blazing",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Earl Sweatshirt",
-							"content": "Clearer with each turn, my desires constantly yearn",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Tech N9ne",
-							"content": "I analyze with precision, seeking divine vision",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Logic",
-							"content": "Through this scope of mine, I hope to find a way to shine",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Kool G Rap",
-							"content": "My mind is ablaze, as I delve into these complex ways",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Royce da 5'9",
-							"content": "Through this telescope, I hope to find my inner scope",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Rakim",
-							"content": "My mind is focused, on fulfilling these desires bestowed",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Black Thought",
-							"content": "Peering through this lens, in search of my true ends",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Canibus",
-							"content": "As I delve into the depths, my desires won't accept any half-steps",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Blackalicious",
-							"content": "Through this telescope, I see my path unfold",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 2
-						},
-						{
-							"style": "Danny Brown",
-							"content": "My wants and needs, they constantly breed",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Big Pun",
-							"content": "Through this lens, my inner demons I must cleanse",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "GZA/Genius",
-							"content": "My thoughts run rampant, as I peer through this instrument",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "R.A. the Rugged Man",
-							"content": "In this pursuit of pleasure, I see a deeper treasure",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Jean Grae",
-							"content": "Through this scope of mine, I hope to find a deeper kind.",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						}
-					],
-					"data": [
-						{
-							"key": "SYLLABLES_COUNT",
-							"value": ""
-						},
-						{
-							"key": "FORBIDDEN_WORDS",
-							"value": ""
-						},
-						{
-							"key": "FROZEN_BEGIN",
-							"value": ""
-						},
-						{
-							"key": "FROZEN_END",
-							"value": ""
-						},
-						{
-							"key": "SPECIFIC_IMAGERY",
-							"value": "He delves into the complexities of desire"
-						},
-						{
-							"key": "SYMBOLISM",
-							"value": "A telescope representing the search for deeper meaning"
-						},
-						{
-							"key": "FAITH_AND_REASON_SEEKER",
-							"value": "0"
-						},
-						{
-							"key": "GROUP_FAITH",
-							"value": "0"
-						},
-						{
-							"key": "BELIF_SPECTRUM",
-							"value": "0"
-						},
-						{
-							"key": "OLD_AND_NEW_BELIEVER",
-							"value": "0"
-						},
-						{
-							"key": "BELIF_COMMUNITY",
-							"value": "0"
-						},
-						{
-							"key": "THEOLOGICAL_OPPOSITE",
-							"value": "0"
-						},
-						{
-							"key": "SEEKER_OF_TRUTH",
-							"value": "0"
-						},
-						{
-							"key": "INTUITIVE_THINKER",
-							"value": "0"
-						},
-						{
-							"key": "RATIONAL_BELIEF",
-							"value": "0"
-						},
-						{
-							"key": "PHYSICAL_PREFERENCE",
-							"value": "0"
-						},
-						{
-							"key": "SEXUAL_ORIENTATION",
-							"value": "0"
-						},
-						{
-							"key": "SEXUAL_PREFERENCE",
-							"value": "0"
-						},
-						{
-							"key": "FAITH_EXTREME",
-							"value": "0"
-						},
-						{
-							"key": "AVERAGE_EXPECTATIONS",
-							"value": "1"
-						},
-						{
-							"key": "IMAGERY",
-							"value": "1"
-						},
-						{
-							"key": "EXPRESSION",
-							"value": "1"
-						},
-						{
-							"key": "RELATIONSHIP_FOCUS",
-							"value": "1"
-						},
-						{
-							"key": "HUMAN_STRENGTH",
-							"value": "1"
-						},
-						{
-							"key": "GENDER",
-							"value": "1"
-						},
-						{
-							"key": "RATIONALITY",
-							"value": "1"
-						},
-						{
-							"key": "INTEGRITY",
-							"value": "1"
-						},
-						{
-							"key": "SEXUALIZATION",
-							"value": "1"
-						},
-						{
-							"key": "EXPECTATIONS",
-							"value": "1"
-						},
-						{
-							"key": "PROBLEM_SOLVING",
-							"value": "1"
-						},
-						{
-							"key": "RESPONSIBILITY",
-							"value": "1"
-						},
-						{
-							"key": "SOCIAL",
-							"value": "1"
-						},
-						{
-							"key": "ECONOMIC",
-							"value": "1"
-						},
-						{
-							"key": "CULTURE",
-							"value": "1"
-						},
-						{
-							"key": "MOTIVATION",
-							"value": "1"
-						},
-						{
-							"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
-							"value": "-1"
-						},
-						{
-							"key": "ATTITUDE_HOPEFUL_DESPAIR",
-							"value": "1"
-						},
-						{
-							"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
-							"value": "1"
-						},
-						{
-							"key": "SEXUALITY",
-							"value": "0"
-						},
-						{
-							"key": "SEXUAL_ACTING",
-							"value": "0"
-						},
-						{
-							"key": "SEXUAL_COMMITMENT",
-							"value": "0"
-						},
-						{
-							"key": "MOOD_JOYFUL_MELANCHOLIC",
-							"value": "-1"
-						},
-						{
-							"key": "MOOD_LIGHTHEARTED_SOMBER",
-							"value": "-1"
-						},
-						{
-							"key": "MOOD_UPLIFTING_HEAVY",
-							"value": "-1"
-						},
-						{
-							"key": "MOOD_HUMOROUS_DRAMATIC",
-							"value": "1"
-						},
-						{
-							"key": "MOOD_PLAYFUL_SERIOUS",
-							"value": "-1"
-						}
-					],
-					"outdated_suggestions": false,
-					"beat_length": 4
-				},
-				{
-					"source": [
-
-					],
-					"notes": [
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						}
-					],
-					"suggestion": [
-						{
-							"style": "Eminem",
-							"content": "In my mind, the mysteries untold",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Kendrick Lamar",
-							"content": "My desires, they can't be controlled",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "MF DOOM",
-							"content": "The search for truth, I'll never fold",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 9
-						},
-						{
-							"style": "Big L",
-							"content": "My heart and soul, forever bold",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Aesop Rock",
-							"content": "Scratching the surface, my thoughts are cold",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Busta Rhymes",
-							"content": "Digging deeper, the story's told",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Earl Sweatshirt",
-							"content": "Finding myself, becoming whole",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Tech N9ne",
-							"content": "My journey, an endless road",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Logic",
-							"content": "Unlocking secrets, my mind's stronghold",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 8
-						},
-						{
-							"style": "Kool G Rap",
-							"content": "Seeking answers, the story unfolds",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Royce da 5'9",
-							"content": "My yearning, it never grows old",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 5
-						},
-						{
-							"style": "Rakim",
-							"content": "The search for meaning, my heart's threshold",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 7
-						},
-						{
-							"style": "Black Thought",
-							"content": "Through this telescope, I am controlled",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Canibus",
-							"content": "Knowledge and wisdom, I must behold",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Blackalicious",
-							"content": "Embracing desire, my freedom I've stole",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 6
-						},
-						{
-							"style": "Danny Brown",
-							"content": "In this journey, I take my own toll",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Big Pun",
-							"content": "Exploring depths, my passion enfold",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 4
-						},
-						{
-							"style": "GZA/Genius",
-							"content": "Understanding, what lies untold",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 1
-						},
-						{
-							"style": "R.A. the Rugged Man",
-							"content": "Through this telescope, my truth will be told",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 2
-						},
-						{
-							"style": "Jean Grae",
-							"content": "Seeking clarity, my path will unfold",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 3
-						}
-					],
-					"data": [
-						{
-							"key": "SYLLABLES_COUNT",
-							"value": ""
-						},
-						{
-							"key": "FORBIDDEN_WORDS",
-							"value": ""
-						},
-						{
-							"key": "FROZEN_BEGIN",
-							"value": ""
-						},
-						{
-							"key": "FROZEN_END",
-							"value": ""
-						},
-						{
-							"key": "SPECIFIC_IMAGERY",
-							"value": "He delves into the complexities of desire"
-						},
-						{
-							"key": "SYMBOLISM",
-							"value": "A telescope representing the search for deeper meaning"
-						},
-						{
-							"key": "FAITH_AND_REASON_SEEKER",
-							"value": "0"
-						},
-						{
-							"key": "GROUP_FAITH",
-							"value": "0"
-						},
-						{
-							"key": "BELIF_SPECTRUM",
-							"value": "0"
-						},
-						{
-							"key": "OLD_AND_NEW_BELIEVER",
-							"value": "0"
-						},
-						{
-							"key": "BELIF_COMMUNITY",
-							"value": "0"
-						},
-						{
-							"key": "THEOLOGICAL_OPPOSITE",
-							"value": "0"
-						},
-						{
-							"key": "SEEKER_OF_TRUTH",
-							"value": "0"
-						},
-						{
-							"key": "INTUITIVE_THINKER",
-							"value": "0"
-						},
-						{
-							"key": "RATIONAL_BELIEF",
-							"value": "0"
-						},
-						{
-							"key": "PHYSICAL_PREFERENCE",
-							"value": "0"
-						},
-						{
-							"key": "SEXUAL_ORIENTATION",
-							"value": "0"
-						},
-						{
-							"key": "SEXUAL_PREFERENCE",
-							"value": "0"
-						},
-						{
-							"key": "FAITH_EXTREME",
-							"value": "0"
-						},
-						{
-							"key": "AVERAGE_EXPECTATIONS",
-							"value": "0"
-						},
-						{
-							"key": "IMAGERY",
-							"value": "0"
-						},
-						{
-							"key": "EXPRESSION",
-							"value": "0"
-						},
-						{
-							"key": "RELATIONSHIP_FOCUS",
-							"value": "0"
-						},
-						{
-							"key": "HUMAN_STRENGTH",
-							"value": "0"
-						},
-						{
-							"key": "GENDER",
-							"value": "0"
-						},
-						{
-							"key": "RATIONALITY",
-							"value": "0"
-						},
-						{
-							"key": "INTEGRITY",
-							"value": "0"
-						},
-						{
-							"key": "SEXUALIZATION",
-							"value": "0"
-						},
-						{
-							"key": "EXPECTATIONS",
-							"value": "0"
-						},
-						{
-							"key": "PROBLEM_SOLVING",
-							"value": "0"
-						},
-						{
-							"key": "RESPONSIBILITY",
-							"value": "0"
-						},
-						{
-							"key": "SOCIAL",
-							"value": "0"
-						},
-						{
-							"key": "ECONOMIC",
-							"value": "0"
-						},
-						{
-							"key": "CULTURE",
-							"value": "0"
-						},
-						{
-							"key": "MOTIVATION",
-							"value": "0"
-						},
-						{
-							"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
-							"value": "0"
-						},
-						{
-							"key": "ATTITUDE_HOPEFUL_DESPAIR",
-							"value": "0"
-						},
-						{
-							"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
-							"value": "0"
-						},
-						{
-							"key": "SEXUALITY",
-							"value": "0"
-						},
-						{
-							"key": "SEXUAL_ACTING",
-							"value": "0"
-						},
-						{
-							"key": "SEXUAL_COMMITMENT",
-							"value": "0"
-						},
-						{
-							"key": "MOOD_JOYFUL_MELANCHOLIC",
-							"value": "0"
-						},
-						{
-							"key": "MOOD_LIGHTHEARTED_SOMBER",
-							"value": "0"
-						},
-						{
-							"key": "MOOD_UPLIFTING_HEAVY",
-							"value": "0"
-						},
-						{
-							"key": "MOOD_HUMOROUS_DRAMATIC",
-							"value": "0"
-						},
-						{
-							"key": "MOOD_PLAYFUL_SERIOUS",
-							"value": "0"
-						}
-					],
-					"outdated_suggestions": false,
-					"beat_length": 4
-				},
-				{
-					"source": [
-
-					],
-					"notes": [
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						}
-					],
-					"suggestion": [
-						{
-							"style": "Eminem",
-							"content": "In this rap game, I'll never be sold",
-							"score": 0,
-							"ai_score": 2,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Kendrick Lamar",
-							"content": "My words are weapons, my stories untold",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "MF DOOM",
-							"content": "The rhyme schemes I craft, my flow so bold",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Big L",
-							"content": "In the underworld, my rhymes hold gold",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Aesop Rock",
-							"content": "My words twist and turn, never getting old",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 1
-						},
-						{
-							"style": "Busta Rhymes",
-							"content": "With each verse, my flow grows untold",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Earl Sweatshirt",
-							"content": "Embracing complexities, I'll never scold",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Tech N9ne",
-							"content": "My mind sharp, my rhymes never fold",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Logic",
-							"content": "My lyrics run deep, my stories untold",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Kool G Rap",
-							"content": "A master of the art, my rhymes controlled",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Royce da 5'9",
-							"content": "I spit fire, my words never cold",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Rakim",
-							"content": "My rhymes are timeless, my legacy foretold",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 2
-						},
-						{
-							"style": "Black Thought",
-							"content": "In this game, I'll never be overthrown",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Canibus",
-							"content": "My flow complex, my rhymes never cloned",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Blackalicious",
-							"content": "In lyrical feats, I'll never be dethroned",
-							"score": 0,
-							"ai_score": 5,
-							"ai_score_extra": 3
-						},
-						{
-							"style": "Danny Brown",
-							"content": "Delving into desires, my mind unfolds",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Big Pun",
-							"content": "Through my rhymes, my legacy will be told",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "GZA/Genius",
-							"content": "My words penetrate, my stories unfold",
-							"score": 0,
-							"ai_score": 3,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "R.A. the Rugged Man",
-							"content": "In this rap game, I'll never be controlled",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						},
-						{
-							"style": "Jean Grae",
-							"content": "My words speak truth, my stories never sold",
-							"score": 0,
-							"ai_score": 4,
-							"ai_score_extra": 0
-						}
-					],
-					"data": [
-						{
-							"key": "SYLLABLES_COUNT",
-							"value": ""
-						},
-						{
-							"key": "FORBIDDEN_WORDS",
-							"value": ""
-						},
-						{
-							"key": "FROZEN_BEGIN",
-							"value": ""
-						},
-						{
-							"key": "FROZEN_END",
-							"value": ""
-						},
-						{
-							"key": "SPECIFIC_IMAGERY",
-							"value": "He delves into the complexities of desire"
-						},
-						{
-							"key": "SYMBOLISM",
-							"value": "A telescope representing the search for deeper meaning"
-						},
-						{
-							"key": "FAITH_AND_REASON_SEEKER",
-							"value": "0"
-						},
-						{
-							"key": "GROUP_FAITH",
-							"value": "0"
-						},
-						{
-							"key": "BELIF_SPECTRUM",
-							"value": "0"
-						},
-						{
-							"key": "OLD_AND_NEW_BELIEVER",
-							"value": "0"
-						},
-						{
-							"key": "BELIF_COMMUNITY",
-							"value": "0"
-						},
-						{
-							"key": "THEOLOGICAL_OPPOSITE",
-							"value": "0"
-						},
-						{
-							"key": "SEEKER_OF_TRUTH",
-							"value": "0"
-						},
-						{
-							"key": "INTUITIVE_THINKER",
-							"value": "0"
-						},
-						{
-							"key": "RATIONAL_BELIEF",
-							"value": "0"
-						},
-						{
-							"key": "PHYSICAL_PREFERENCE",
-							"value": "0"
-						},
-						{
-							"key": "SEXUAL_ORIENTATION",
-							"value": "0"
-						},
-						{
-							"key": "SEXUAL_PREFERENCE",
-							"value": "0"
-						},
-						{
-							"key": "FAITH_EXTREME",
-							"value": "0"
-						},
-						{
-							"key": "AVERAGE_EXPECTATIONS",
-							"value": "0"
-						},
-						{
-							"key": "IMAGERY",
-							"value": "0"
-						},
-						{
-							"key": "EXPRESSION",
-							"value": "0"
-						},
-						{
-							"key": "RELATIONSHIP_FOCUS",
-							"value": "0"
-						},
-						{
-							"key": "HUMAN_STRENGTH",
-							"value": "0"
-						},
-						{
-							"key": "GENDER",
-							"value": "0"
-						},
-						{
-							"key": "RATIONALITY",
-							"value": "0"
-						},
-						{
-							"key": "INTEGRITY",
-							"value": "0"
-						},
-						{
-							"key": "SEXUALIZATION",
-							"value": "0"
-						},
-						{
-							"key": "EXPECTATIONS",
-							"value": "0"
-						},
-						{
-							"key": "PROBLEM_SOLVING",
-							"value": "0"
-						},
-						{
-							"key": "RESPONSIBILITY",
-							"value": "0"
-						},
-						{
-							"key": "SOCIAL",
-							"value": "0"
-						},
-						{
-							"key": "ECONOMIC",
-							"value": "0"
-						},
-						{
-							"key": "CULTURE",
-							"value": "0"
-						},
-						{
-							"key": "MOTIVATION",
-							"value": "0"
-						},
-						{
-							"key": "ATTITUDE_ATTITUDE_OPEN_CLOSED",
-							"value": "0"
-						},
-						{
-							"key": "ATTITUDE_HOPEFUL_DESPAIR",
-							"value": "0"
-						},
-						{
-							"key": "ATTITUDE_OPTIMISTIC_PESSIMISTIC",
-							"value": "0"
-						},
-						{
-							"key": "SEXUALITY",
-							"value": "0"
-						},
-						{
-							"key": "SEXUAL_ACTING",
-							"value": "0"
-						},
-						{
-							"key": "SEXUAL_COMMITMENT",
-							"value": "0"
-						},
-						{
-							"key": "MOOD_JOYFUL_MELANCHOLIC",
-							"value": "0"
-						},
-						{
-							"key": "MOOD_LIGHTHEARTED_SOMBER",
-							"value": "0"
-						},
-						{
-							"key": "MOOD_UPLIFTING_HEAVY",
-							"value": "0"
-						},
-						{
-							"key": "MOOD_HUMOROUS_DRAMATIC",
-							"value": "0"
-						},
-						{
-							"key": "MOOD_PLAYFUL_SERIOUS",
-							"value": "0"
-						}
-					],
-					"outdated_suggestions": false,
-					"beat_length": 4
-				},
-				{
-					"source": [
-
-					],
-					"notes": [
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						}
-					],
-					"suggestion": [
-
-					],
-					"data": [
-
-					],
-					"outdated_suggestions": true,
-					"beat_length": 3
-				},
-				{
-					"source": [
-
-					],
-					"notes": [
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						},
-						{
-							"frozen_syllable": "",
-							"only_first_syllable": false,
-							"long_singable_syllable": false
-						}
-					],
-					"suggestion": [
-
-					],
-					"data": [
-
-					],
-					"outdated_suggestions": true,
-					"beat_length": 5
-				}
 			],
 			"rhyme_scheme": "",
 			"data": [
-				{
-					"key": "DIALOGUE_IDEA_STYLE1",
-					"value": "surreal"
-				},
-				{
-					"key": "DIALOGUE_IDEA_STYLE2",
-					"value": "dreamy"
-				}
+
 			],
 			"outdated_suggestions": true,
 			"contents": [
-				{
-					"text": "He studied and researched every aspect of sexuality",
-					"clr": {
-						"red": 84,
-						"green": 153,
-						"blue": 199
-					},
-					"imageries": [
-						{
-							"text": "He delves into the complexities of desire",
-							"clr": {
-								"red": 55,
-								"green": 148,
-								"blue": 192
-							},
-							"symbolisms": [
-								{
-									"text": "A microscope examining the intricacies of desire",
-									"clr": {
-										"red": 85,
-										"green": 107,
-										"blue": 47
-									},
-									"persons": [
 
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A lab coat symbolizing the scientific approach",
-									"clr": {
-										"red": 240,
-										"green": 248,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Chains representing kinky desires",
-									"clr": {
-										"red": 72,
-										"green": 61,
-										"blue": 139
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Goggles representing sexual experimentation",
-									"clr": {
-										"red": 255,
-										"green": 255,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "The New Age of Sexuality",
-									"clr": {
-										"red": 255,
-										"green": 192,
-										"blue": 203
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A scale symbolizing balance in one's individual spirituality",
-									"clr": {
-										"red": 218,
-										"green": 165,
-										"blue": 32
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A telescope representing the search for deeper meaning",
-									"clr": {
-										"red": 176,
-										"green": 224,
-										"blue": 230
-									},
-									"persons": [
-
-									],
-									"cursor": 6
-								},
-								{
-									"text": "A candle flame symbolizing the burning desire for knowledge",
-									"clr": {
-										"red": 255,
-										"green": 69,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A hand reaching for enlightenment",
-									"clr": {
-										"red": 0,
-										"green": 255,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A map guiding the way towards sexual and spiritual fulfillment",
-									"clr": {
-										"red": 0,
-										"green": 0,
-										"blue": 205
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								}
-							],
-							"cursor": 6
-						},
-						{
-							"text": "Unraveling the mysteries of pleasure",
-							"clr": {
-								"red": 192,
-								"green": 85,
-								"blue": 55
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Breaking away from traditional beliefs",
-							"clr": {
-								"red": 240,
-								"green": 195,
-								"blue": 48
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Releasing from societal chains",
-							"clr": {
-								"red": 111,
-								"green": 111,
-								"blue": 111
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Sifting through theories and studies",
-							"clr": {
-								"red": 125,
-								"green": 193,
-								"blue": 56
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Finding truths beyond the superficial",
-							"clr": {
-								"red": 234,
-								"green": 110,
-								"blue": 234
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "His mind races, searching for answers",
-							"clr": {
-								"red": 34,
-								"green": 67,
-								"blue": 210
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Questioning everything he's been taught",
-							"clr": {
-								"red": 103,
-								"green": 103,
-								"blue": 103
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Pushing past boundaries, refusing to be caught",
-							"clr": {
-								"red": 3,
-								"green": 190,
-								"blue": 84
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						}
-					],
-					"cursor": 0
-				},
-				{
-					"text": "But found little truth in societal norms and expectations",
-					"clr": {
-						"red": 203,
-						"green": 98,
-						"blue": 92
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "His curiosity led him to explore the depths of taboo desires",
-					"clr": {
-						"red": 67,
-						"green": 97,
-						"blue": 151
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He broke free from the constraints of traditional beliefs",
-					"clr": {
-						"red": 146,
-						"green": 186,
-						"blue": 82
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Seeking a more fulfilling and authentic experience",
-					"clr": {
-						"red": 229,
-						"green": 151,
-						"blue": 104
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "His atheistic views clashed with his spiritual seeking",
-					"clr": {
-						"red": 135,
-						"green": 166,
-						"blue": 232
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "But he found his own path to spiritual connection",
-					"clr": {
-						"red": 192,
-						"green": 91,
-						"blue": 212
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Rejecting the narrow-mindedness of a secular society",
-					"clr": {
-						"red": 102,
-						"green": 102,
-						"blue": 102
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He immersed himself in the mystic practices of old",
-					"clr": {
-						"red": 130,
-						"green": 111,
-						"blue": 57
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Welcoming the new age of individual spirituality",
-					"clr": {
-						"red": 252,
-						"green": 204,
-						"blue": 92
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Believing in a higher power of divine worship",
-					"clr": {
-						"red": 208,
-						"green": 160,
-						"blue": 109
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "And embracing his own individualistic approach",
-					"clr": {
-						"red": 243,
-						"green": 194,
-						"blue": 95
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He defied societal labels and expectations",
-					"clr": {
-						"red": 203,
-						"green": 100,
-						"blue": 215
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing his own unique blend of belief and reason",
-					"clr": {
-						"red": 79,
-						"green": 166,
-						"blue": 187
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "His sexuality and spirituality coming together in harmony",
-					"clr": {
-						"red": 224,
-						"green": 153,
-						"blue": 60
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Igniting a fire within him, strong and unapologetic",
-					"clr": {
-						"red": 248,
-						"green": 85,
-						"blue": 69
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The journey towards self-discovery and freedom",
-					"clr": {
-						"red": 167,
-						"green": 114,
-						"blue": 175
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "being honest, adventurous, and confident",
-					"clr": {
-						"red": 235,
-						"green": 212,
-						"blue": 115
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "And breaking free from the confines of societal norms",
-					"clr": {
-						"red": 138,
-						"green": 185,
-						"blue": 249
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "His journey a colorful mix of melancholy and hope",
-					"clr": {
-						"red": 90,
-						"green": 140,
-						"blue": 220
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Finding liberation in embracing his own truth",
-					"clr": {
-						"red": 174,
-						"green": 231,
-						"blue": 151
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "And ultimately reaching a state of fulfillment",
-					"clr": {
-						"red": 250,
-						"green": 164,
-						"blue": 58
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "A proud and bold expression of his individuality",
-					"clr": {
-						"red": 219,
-						"green": 80,
-						"blue": 148
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Breaking the barriers of societal expectations",
-					"clr": {
-						"red": 126,
-						"green": 177,
-						"blue": 163
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "And stepping into a world of endless possibilities",
-					"clr": {
-						"red": 240,
-						"green": 184,
-						"blue": 186
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "His own quantum connection, unique and powerful",
-					"clr": {
-						"red": 130,
-						"green": 201,
-						"blue": 234
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				}
 			],
-			"content_cursor": 0,
-			"bar_length": 5,
+			"content_cursor": -1,
+			"bar_length": 0,
 			"part_type": 0,
 			"colors": [
-				[
 
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				]
 			],
 			"listener_colors": [
 
@@ -2057,116 +1055,9 @@
 
 			],
 			"phrases": [
-				{
-					"txt": "You know you ain't fine",
-					"src_artist": "Green Day",
-					"src_song": "191",
-					"group": "truthfulness",
-					"group_value": "personal experience",
-					"clr": {
-						"red": 204,
-						"green": 0,
-						"blue": 102
-					}
-				},
-				{
-					"txt": "That's right",
-					"src_artist": "Red Hot Chili Peppers",
-					"src_song": "148",
-					"group": "truthfulness",
-					"group_value": "personal experience",
-					"clr": {
-						"red": 150,
-						"green": 0,
-						"blue": 0
-					}
-				},
-				{
-					"txt": "Deep in this shit",
-					"src_artist": "Lil Baby",
-					"src_song": "122",
-					"group": "truthfulness",
-					"group_value": "personal experience",
-					"clr": {
-						"red": 255,
-						"green": 0,
-						"blue": 0
-					}
-				},
-				{
-					"txt": "I went out and got it",
-					"src_artist": "Adele",
-					"src_song": "59",
-					"group": "narrative",
-					"group_value": "protagonist storytelling",
-					"clr": {
-						"red": 255,
-						"green": 94,
-						"blue": 0
-					}
-				},
-				{
-					"txt": "Hollerin at us",
-					"src_artist": "Bob Dylan",
-					"src_song": "1990",
-					"group": "intelligence",
-					"group_value": "emotional",
-					"clr": {
-						"red": 223,
-						"green": 93,
-						"blue": 32
-					}
-				},
-				{
-					"txt": "So if you wanna leave",
-					"src_artist": "Aaron Watson",
-					"src_song": "139",
-					"group": "truthfulness",
-					"group_value": "personal experience",
-					"clr": {
-						"red": 255,
-						"green": 20,
-						"blue": 147
-					}
-				},
-				{
-					"txt": "I'm not ready to leave",
-					"src_artist": "Enigma",
-					"src_song": "39",
-					"group": "group experience",
-					"group_value": "group-oriented",
-					"clr": {
-						"red": 255,
-						"green": 0,
-						"blue": 255
-					}
-				},
-				{
-					"txt": "I swear on fucking god",
-					"src_artist": "Lil Nas X",
-					"src_song": "90",
-					"group": "faith and reason seekers",
-					"group_value": "divine worshipers",
-					"clr": {
-						"red": 255,
-						"green": 0,
-						"blue": 204
-					}
-				},
-				{
-					"txt": "And hope for the best",
-					"src_artist": "Arctic Monkeys",
-					"src_song": "144",
-					"group": "attitude 3",
-					"group_value": "optimistic",
-					"clr": {
-						"red": 255,
-						"green": 0,
-						"blue": 255
-					}
-				}
+
 			],
-			"mockup": "ni- ni- naa ni- ni- naa ni- ni- na- ni- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- naa\n",
+			"mockup": "",
 			"nana": {
 				"lines": [
 					{
@@ -2755,38 +1646,14 @@
 			},
 			"thrd_actions": [
 				[
-					{
-						"action": "bias",
-						"arg": "lack of communication"
-					},
-					{
-						"action": "tone",
-						"arg": "sad"
-					},
-					{
-						"action": "bias",
-						"arg": "inability to truly know someone"
-					},
-					{
-						"action": "bias",
-						"arg": "holding person accountable"
-					},
-					{
-						"action": "bias",
-						"arg": "recognition of situation"
-					},
-					{
-						"action": "bias",
-						"arg": "admitting situation"
-					},
-					{
-						"action": "bias",
-						"arg": "exaggerating"
-					},
-					{
-						"action": "bias",
-						"arg": "inquisitive"
-					}
+					9,
+					5031,
+					3099,
+					18842,
+					18097,
+					22159,
+					4038,
+					4038
 				],
 				[
 
@@ -2811,30 +1678,32 @@
 				]
 			],
 			"saved_lyrics": [
-				"Mount of happiness in the place",
-				"Straight facts , quickly react bitch , I push your body back",
-				"I chief executive on the reefer",
-				"Hit her with my Glizzy , boy , I keep that money",
-				"you aint got no plan , wheres your etiquette"
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"but i hate it when i take it out"
 			],
-			"active_idea[CONTENT]": "He studied and researched every aspect of sexuality",
-			"active_idea[IMAGERY]": "He delves into the complexities of desire",
-			"active_idea[SYMBOLISM]": "A telescope representing the search for deeper meaning",
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
 			"active_idea[PERSON]": "",
 			"active_idea_clr[CONTENT]": {
-				"red": 84,
-				"green": 153,
-				"blue": 199
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[IMAGERY]": {
-				"red": 55,
-				"green": 148,
-				"blue": 192
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[SYMBOLISM]": {
-				"red": 176,
-				"green": 224,
-				"blue": 230
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[PERSON]": {
 				"red": null,
@@ -2865,272 +1734,17 @@
 			],
 			"rhyme_scheme": "",
 			"data": [
-				{
-					"key": "DIALOGUE_IDEA_STYLE1",
-					"value": "surreal"
-				},
-				{
-					"key": "DIALOGUE_IDEA_STYLE2",
-					"value": "dreamy"
-				}
+
 			],
 			"outdated_suggestions": true,
 			"contents": [
-				{
-					"text": "He questioned the traditional views on sexuality and embarked on a journey of self-discovery",
-					"clr": {
-						"red": 178,
-						"green": 255,
-						"blue": 175
-					},
-					"imageries": [
-						{
-							"text": "His mind races with thoughts of curiosity and liberation",
-							"clr": {
-								"red": 174,
-								"green": 221,
-								"blue": 246
-							},
-							"symbolisms": [
-								{
-									"text": "A lock and key symbolizing unlocking desires",
-									"clr": {
-										"red": 204,
-										"green": 185,
-										"blue": 120
-									},
-									"persons": [
 
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A scientific formula for attraction",
-									"clr": {
-										"red": 0,
-										"green": 169,
-										"blue": 169
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A compass leading him towards exploration",
-									"clr": {
-										"red": 255,
-										"green": 132,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "An equation of individuality and expression",
-									"clr": {
-										"red": 255,
-										"green": 187,
-										"blue": 25
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A kaleidoscope showcasing different perspectives",
-									"clr": {
-										"red": 204,
-										"green": 153,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A map of the body, uncovering mysteries",
-									"clr": {
-										"red": 255,
-										"green": 192,
-										"blue": 203
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A puzzle piece representing the complexity of desire",
-									"clr": {
-										"red": 204,
-										"green": 0,
-										"blue": 204
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A microscope revealing hidden desires",
-									"clr": {
-										"red": 255,
-										"green": 102,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A flame symbolizing passion and intensity",
-									"clr": {
-										"red": 255,
-										"green": 0,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A prism reflecting different aspects of sexuality",
-									"clr": {
-										"red": 0,
-										"green": 0,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								}
-							],
-							"cursor": 1
-						},
-						{
-							"text": "The unknown calls to him, he can't resist",
-							"clr": {
-								"red": 255,
-								"green": 197,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "He breaks free from societal constraints",
-							"clr": {
-								"red": 120,
-								"green": 200,
-								"blue": 55
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Like a scientist, he takes careful notes",
-							"clr": {
-								"red": 68,
-								"green": 85,
-								"blue": 90
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "The journey towards enlightenment begins",
-							"clr": {
-								"red": 234,
-								"green": 175,
-								"blue": 176
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						}
-					],
-					"cursor": 0
-				},
-				{
-					"text": "She explored different forms of spirituality, seeking a deeper understanding of herself",
-					"clr": {
-						"red": 255,
-						"green": 242,
-						"blue": 178
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He found solace in the harmony between science and spirituality, embracing both sides of his identity",
-					"clr": {
-						"red": 140,
-						"green": 204,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She rejected societal expectations and found liberation in her individual spirituality",
-					"clr": {
-						"red": 255,
-						"green": 191,
-						"blue": 232
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He delved into quantum theory to better understand the interconnectedness of all things",
-					"clr": {
-						"red": 237,
-						"green": 237,
-						"blue": 237
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				}
 			],
 			"content_cursor": -1,
 			"bar_length": 0,
 			"part_type": 0,
 			"colors": [
-				[
 
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				]
 			],
 			"listener_colors": [
 
@@ -3148,44 +1762,9 @@
 
 			],
 			"phrases": [
-				{
-					"txt": "Wash away all the evidence",
-					"src_artist": "Lil Baby",
-					"src_song": "11",
-					"group": "truthfulness",
-					"group_value": "personal experience",
-					"clr": {
-						"red": 255,
-						"green": 204,
-						"blue": 0
-					}
-				},
-				{
-					"txt": "I got sunshine, I got you",
-					"src_artist": "Gorillaz",
-					"src_song": "93",
-					"group": "relationship",
-					"group_value": "romantic couple",
-					"clr": {
-						"red": 255,
-						"green": 255,
-						"blue": 0
-					}
-				},
-				{
-					"txt": "Up all night",
-					"src_artist": "Alan Walker",
-					"src_song": "175",
-					"group": "attitude 3",
-					"group_value": "optimistic",
-					"clr": {
-						"red": 255,
-						"green": 255,
-						"blue": 0
-					}
-				}
+
 			],
-			"mockup": "ni- ni- naa ni- ni- naa ni- ni- na- ni- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- naa\n",
+			"mockup": "",
 			"nana": {
 				"lines": [
 					{
@@ -3412,22 +1991,10 @@
 			},
 			"thrd_actions": [
 				[
-					{
-						"action": "bias",
-						"arg": "emphatic"
-					},
-					{
-						"action": "bias",
-						"arg": "powerful"
-					},
-					{
-						"action": "bias",
-						"arg": "comparing self to others"
-					},
-					{
-						"action": "bias",
-						"arg": "respectful"
-					}
+					0,
+					8056,
+					23443,
+					24784
 				],
 				[
 
@@ -3452,1085 +2019,29 @@
 				]
 			],
 			"saved_lyrics": [
-
+				"",
+				"",
+				"",
+				"why you doing dabs"
 			],
-			"active_idea[CONTENT]": "He questioned the traditional views on sexuality and embarked on a journey of self-discovery",
-			"active_idea[IMAGERY]": "His mind races with thoughts of curiosity and liberation",
-			"active_idea[SYMBOLISM]": "A scientific formula for attraction",
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
 			"active_idea[PERSON]": "",
 			"active_idea_clr[CONTENT]": {
-				"red": 178,
-				"green": 255,
-				"blue": 175
-			},
-			"active_idea_clr[IMAGERY]": {
-				"red": 174,
-				"green": 221,
-				"blue": 246
-			},
-			"active_idea_clr[SYMBOLISM]": {
-				"red": 0,
-				"green": 169,
-				"blue": 169
-			},
-			"active_idea_clr[PERSON]": {
 				"red": null,
 				"green": null,
 				"blue": null
-			}
-		},
-		{
-			"name": "Chorus 1",
-			"type": "C1",
-			"active_source_wordsalad": [
-
-			],
-			"active_source_text": [
-
-			],
-			"source_text_suggestions": [
-
-			],
-			"source": [
-
-			],
-			"ai_source": [
-
-			],
-			"rhymes": [
-
-			],
-			"rhyme_scheme": "",
-			"data": [
-				{
-					"key": "DIALOGUE_IDEA_STYLE1",
-					"value": "surreal"
-				},
-				{
-					"key": "DIALOGUE_IDEA_STYLE2",
-					"value": "dreamy"
-				}
-			],
-			"outdated_suggestions": true,
-			"contents": [
-				{
-					"text": "She becomes a mad scientist, experimenting with different forms of sexual pleasure in her laboratory, leaving behind societal norms and expectations.",
-					"clr": {
-						"red": 102,
-						"green": 102,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He breaks free from the confines of traditional beliefs, embracing a more individualistic approach to his sexuality and discovering the ultimate fulfillment.",
-					"clr": {
-						"red": 255,
-						"green": 102,
-						"blue": 102
-					},
-					"imageries": [
-						{
-							"text": "A sexual experiment in a laboratory",
-							"clr": {
-								"red": 0,
-								"green": 0,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A bubbling beaker filled with desire",
-							"clr": {
-								"red": 255,
-								"green": 240,
-								"blue": 0
-							},
-							"symbolisms": [
-								{
-									"text": "A laboratory experiment",
-									"clr": {
-										"red": 228,
-										"green": 211,
-										"blue": 206
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Chemical reactions",
-									"clr": {
-										"red": 111,
-										"green": 163,
-										"blue": 182
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A colorful explosion",
-									"clr": {
-										"red": 255,
-										"green": 141,
-										"blue": 42
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Mixing colors on a palette",
-									"clr": {
-										"red": 250,
-										"green": 217,
-										"blue": 102
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Rising bubbles in a beaker",
-									"clr": {
-										"red": 219,
-										"green": 255,
-										"blue": 242
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A fire burning",
-									"clr": {
-										"red": 255,
-										"green": 114,
-										"blue": 45
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A rainbow of emotions",
-									"clr": {
-										"red": 255,
-										"green": 182,
-										"blue": 193
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A kaleidoscope of desire",
-									"clr": {
-										"red": 213,
-										"green": 182,
-										"blue": 240
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A fusion of science and sensuality",
-									"clr": {
-										"red": 221,
-										"green": 255,
-										"blue": 146
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Breaking free from societal norms",
-									"clr": {
-										"red": 128,
-										"green": 128,
-										"blue": 128
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								}
-							],
-							"cursor": 0
-						},
-						{
-							"text": "Chemical reactions in the brain",
-							"clr": {
-								"red": 0,
-								"green": 125,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A spiritual awakening through science",
-							"clr": {
-								"red": 240,
-								"green": 150,
-								"blue": 240
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Merging mind and body",
-							"clr": {
-								"red": 200,
-								"green": 200,
-								"blue": 200
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Breaking free from societal norms",
-							"clr": {
-								"red": 255,
-								"green": 0,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Embracing our own unique journey",
-							"clr": {
-								"red": 0,
-								"green": 255,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Balancing science and spirituality",
-							"clr": {
-								"red": 200,
-								"green": 120,
-								"blue": 80
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Igniting the fire within",
-							"clr": {
-								"red": 255,
-								"green": 128,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Rebel against expectations",
-							"clr": {
-								"red": 255,
-								"green": 255,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						}
-					],
-					"cursor": 1
-				},
-				{
-					"text": "They come together, rejecting the narrow-minded views of society and engaging in a passionate and liberating sexual experiment.",
-					"clr": {
-						"red": 255,
-						"green": 51,
-						"blue": 153
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She uses her scientific knowledge to break down the barriers of shame and guilt in regards to her sexuality, transcending into a new realm of confidence and acceptance.",
-					"clr": {
-						"red": 0,
-						"green": 102,
-						"blue": 51
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He boldly challenges the status quo, delving into the complexities of desire and finding a deeper understanding of himself through his sexual explorations.",
-					"clr": {
-						"red": 204,
-						"green": 0,
-						"blue": 204
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "They reject the religious dogmas surrounding sexuality and instead embark on a spiritual journey of self-discovery, finding liberation and fulfillment in their own individualistic beliefs.",
-					"clr": {
-						"red": 153,
-						"green": 51,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				}
-			],
-			"content_cursor": 1,
-			"bar_length": 0,
-			"part_type": 0,
-			"colors": [
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				]
-			],
-			"listener_colors": [
-
-			],
-			"vocabulary": [
-
-			],
-			"wordsalads": [
-
-			],
-			"wordsalad_clrs": [
-
-			],
-			"wordgroup_factors": [
-
-			],
-			"phrases": [
-				{
-					"txt": "Put it on my life, higher than a kite",
-					"src_artist": "Lil Uzi Vert",
-					"src_song": "172",
-					"group": "emotional realism",
-					"group_value": "happiness",
-					"clr": {
-						"red": 255,
-						"green": 255,
-						"blue": 0
-					}
-				},
-				{
-					"txt": "And I told them, nah, you don't know me",
-					"src_artist": "Linkin Park",
-					"src_song": "420",
-					"group": "independence",
-					"group_value": "independence",
-					"clr": {
-						"red": 224,
-						"green": 224,
-						"blue": 159
-					}
-				},
-				{
-					"txt": "Gettin' cold at night, she can keep me warm",
-					"src_artist": "Aaron Watson",
-					"src_song": "115",
-					"group": "sexual acting",
-					"group_value": "confident",
-					"clr": {
-						"red": 255,
-						"green": 183,
-						"blue": 76
-					}
-				},
-				{
-					"txt": "Baby we can get messy as you want",
-					"src_artist": "Doja Cat",
-					"src_song": "147",
-					"group": "patience",
-					"group_value": "instant gratification",
-					"clr": {
-						"red": 255,
-						"green": 124,
-						"blue": 3
-					}
-				}
-			],
-			"mockup": "ni- ni- naa ni- ni- naa\nni- ni- naa ni- ni- naa\nni- ni- naa ni- ni- naa\nni- ni- na- ni- ni- naa\n",
-			"nana": {
-				"lines": [
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									}
-								]
-							},
-							{
-								"syllables": [
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									}
-								]
-							},
-							{
-								"syllables": [
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									}
-								]
-							},
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									}
-								]
-							},
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									}
-								]
-							},
-							{
-								"syllables": [
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									}
-								]
-							},
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									}
-								]
-							},
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			"thrd_actions": [
-				[
-					{
-						"action": "bias",
-						"arg": "admiration for oneself"
-					},
-					{
-						"action": "bias",
-						"arg": "boastful"
-					},
-					{
-						"action": "bias",
-						"arg": "contentment/satisfaction"
-					},
-					{
-						"action": "bias",
-						"arg": "feeling superior to others"
-					},
-					{
-						"action": "bias",
-						"arg": "joking about philosopher habits and hobby"
-					},
-					{
-						"action": "bias",
-						"arg": "negative/critical judgement of specific person"
-					},
-					{
-						"action": "bias",
-						"arg": "expanding on idea of protecting like barbed wire. In relation to gang's work and the rest of the song."
-					},
-					{
-						"action": "emotion",
-						"arg": "content"
-					}
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				]
-			],
-			"saved_lyrics": [
-
-			],
-			"active_idea[CONTENT]": "am the mad scientist of my own sexual play",
-			"active_idea[IMAGERY]": "A sexual experiment in a laboratory",
-			"active_idea[SYMBOLISM]": "Chemical reactions",
-			"active_idea[PERSON]": "",
-			"active_idea_clr[CONTENT]": {
-				"red": 112,
-				"green": 128,
-				"blue": 144
 			},
 			"active_idea_clr[IMAGERY]": {
-				"red": 255,
-				"green": 138,
-				"blue": 255
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[SYMBOLISM]": {
-				"red": 136,
-				"green": 248,
-				"blue": 163
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[PERSON]": {
 				"red": null,
@@ -4561,272 +2072,17 @@
 			],
 			"rhyme_scheme": "",
 			"data": [
-				{
-					"key": "DIALOGUE_IDEA_STYLE1",
-					"value": "surreal"
-				},
-				{
-					"key": "DIALOGUE_IDEA_STYLE2",
-					"value": "dreamy"
-				}
+
 			],
 			"outdated_suggestions": true,
 			"contents": [
-				{
-					"text": "He had always been considered a rebel, always questioning the traditional ideas of love and marriage. But it wasn't until he stumbled upon a scientific study on the correlation between sexual preferences and brain chemistry, that he truly understood his own desires.",
-					"clr": {
-						"red": 207,
-						"green": 37,
-						"blue": 130
-					},
-					"imageries": [
 
-					],
-					"cursor": -1
-				},
-				{
-					"text": "As she delved deeper into her studies, she realized that her own sexual experiences were mirroring the theories she was learning about human behavior and desire.",
-					"clr": {
-						"red": 241,
-						"green": 121,
-						"blue": 41
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Despite growing up in a conservative and religious household, he found solace in the scientific approach to sexuality and spirituality, freeing himself from the guilt and shame society had placed upon him.",
-					"clr": {
-						"red": 30,
-						"green": 166,
-						"blue": 92
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She had always been drawn to both the physical and spiritual aspects of intimacy, but it wasn't until she embraced a more scientific approach that she was able to find true balance and fulfillment.",
-					"clr": {
-						"red": 1,
-						"green": 87,
-						"blue": 155
-					},
-					"imageries": [
-						{
-							"text": "He finds himself lost in the depths of her skin",
-							"clr": {
-								"red": 23,
-								"green": 56,
-								"blue": 78
-							},
-							"symbolisms": [
-								{
-									"text": "Magnifying glass and microscope examining body parts",
-									"clr": {
-										"red": 145,
-										"green": 199,
-										"blue": 233
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "DNA strands unraveling to reveal our primal desires",
-									"clr": {
-										"red": 255,
-										"green": 192,
-										"blue": 2
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Hands tracing over curves and crevices",
-									"clr": {
-										"red": 255,
-										"green": 134,
-										"blue": 143
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Brain and heart conflicting over what is deemed acceptable",
-									"clr": {
-										"red": 173,
-										"green": 216,
-										"blue": 230
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A scale weighing pleasure against conventional ideas",
-									"clr": {
-										"red": 240,
-										"green": 128,
-										"blue": 128
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A map of our sexual journey, complete with twists and turns",
-									"clr": {
-										"red": 152,
-										"green": 251,
-										"blue": 152
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A diagram of various sexual positions and techniques",
-									"clr": {
-										"red": 250,
-										"green": 128,
-										"blue": 114
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A graph depicting the correlation between love and lust",
-									"clr": {
-										"red": 238,
-										"green": 130,
-										"blue": 238
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A collage of diverse individuals embracing their sexuality",
-									"clr": {
-										"red": 255,
-										"green": 165,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A spectrum of colors representing the diverse expressions of sexuality",
-									"clr": {
-										"red": 186,
-										"green": 85,
-										"blue": 211
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								}
-							],
-							"cursor": 3
-						},
-						{
-							"text": "Exploring the curves and contours with his fingertips",
-							"clr": {
-								"red": 89,
-								"green": 45,
-								"blue": 19
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Their bodies dancing together in a scientific symphony",
-							"clr": {
-								"red": 123,
-								"green": 67,
-								"blue": 89
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Every touch ignites a spark, a string of quantum connections",
-							"clr": {
-								"red": 78,
-								"green": 23,
-								"blue": 45
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A new form of intimacy, breaking free from old conventions",
-							"clr": {
-								"red": 98,
-								"green": 76,
-								"blue": 54
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						}
-					],
-					"cursor": 0
-				},
-				{
-					"text": "too kinky\" by past partners, but as he studied more about human sexuality and the complexity of desires, he began to see his desires as a beautiful and natural part of himself.",
-					"clr": {
-						"red": 113,
-						"green": 53,
-						"blue": 211
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				}
 			],
-			"content_cursor": 3,
+			"content_cursor": -1,
 			"bar_length": 0,
 			"part_type": 0,
 			"colors": [
-				[
 
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				]
 			],
 			"listener_colors": [
 
@@ -4846,7 +2102,7 @@
 			"phrases": [
 
 			],
-			"mockup": "ni- ni- naa ni- ni- naa ni- ni- na- ni- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- naa\n",
+			"mockup": "",
 			"nana": {
 				"lines": [
 					{
@@ -5413,38 +2669,7 @@
 			},
 			"thrd_actions": [
 				[
-					{
-						"action": "bias",
-						"arg": "impulsive"
-					},
-					{
-						"action": "bias",
-						"arg": "having fun"
-					},
-					{
-						"action": "bias",
-						"arg": "impulsive"
-					},
-					{
-						"action": "bias",
-						"arg": "respected"
-					},
-					{
-						"action": "tone",
-						"arg": "proud/assertive"
-					},
-					{
-						"action": "bias",
-						"arg": "respected"
-					},
-					{
-						"action": "emotion",
-						"arg": "pride"
-					},
-					{
-						"action": "bias",
-						"arg": "disruptive"
-					}
+
 				],
 				[
 
@@ -5471,24 +2696,24 @@
 			"saved_lyrics": [
 
 			],
-			"active_idea[CONTENT]": "She had always been drawn to both the physical and spiritual aspects of intimacy, but it wasn't until she embraced a more scientific approach that she was able to find true balance and fulfillment.",
-			"active_idea[IMAGERY]": "He finds himself lost in the depths of her skin",
-			"active_idea[SYMBOLISM]": "Brain and heart conflicting over what is deemed acceptable",
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
 			"active_idea[PERSON]": "",
 			"active_idea_clr[CONTENT]": {
-				"red": 1,
-				"green": 87,
-				"blue": 155
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[IMAGERY]": {
-				"red": 23,
-				"green": 56,
-				"blue": 78
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[SYMBOLISM]": {
-				"red": 173,
-				"green": 216,
-				"blue": 230
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[PERSON]": {
 				"red": null,
@@ -5519,260 +2744,17 @@
 			],
 			"rhyme_scheme": "",
 			"data": [
-				{
-					"key": "DIALOGUE_IDEA_STYLE1",
-					"value": "surreal"
-				},
-				{
-					"key": "DIALOGUE_IDEA_STYLE2",
-					"value": "dreamy"
-				}
+
 			],
 			"outdated_suggestions": true,
 			"contents": [
-				{
-					"text": "He breaks free from the expectations of society and explores his own individual spirituality",
-					"clr": {
-						"red": 255,
-						"green": 102,
-						"blue": 0
-					},
-					"imageries": [
 
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She delves into the mysteries of the universe, seeking a deeper connection and understanding of her own sexuality",
-					"clr": {
-						"red": 153,
-						"green": 51,
-						"blue": 255
-					},
-					"imageries": [
-						{
-							"text": "A burning desire, red",
-							"clr": {
-								"red": 255,
-								"green": 0,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A spark of curiosity, yellow",
-							"clr": {
-								"red": 255,
-								"green": 255,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A wave of liberation, blue",
-							"clr": {
-								"red": 0,
-								"green": 0,
-								"blue": 255
-							},
-							"symbolisms": [
-								{
-									"text": "Calculations running through my head",
-									"clr": {
-										"red": 129,
-										"green": 229,
-										"blue": 226
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Shaking off society's expectations",
-									"clr": {
-										"red": 255,
-										"green": 51,
-										"blue": 153
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Embracing my own unique desire",
-									"clr": {
-										"red": 253,
-										"green": 221,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Breaking free from tropes",
-									"clr": {
-										"red": 0,
-										"green": 204,
-										"blue": 102
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Exploring the depths of my psyche",
-									"clr": {
-										"red": 176,
-										"green": 224,
-										"blue": 230
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								}
-							],
-							"cursor": 0
-						},
-						{
-							"text": "A journey of self-discovery, green",
-							"clr": {
-								"red": 0,
-								"green": 255,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A breaking of societal norms, orange",
-							"clr": {
-								"red": 255,
-								"green": 165,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A search for truth, purple",
-							"clr": {
-								"red": 128,
-								"green": 0,
-								"blue": 128
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A revolution of the mind, magenta",
-							"clr": {
-								"red": 255,
-								"green": 0,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A fusion of science and spirituality, turquoise",
-							"clr": {
-								"red": 64,
-								"green": 224,
-								"blue": 208
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A prism of colors, representing the complexities of sexuality and identity",
-							"clr": {
-								"red": 255,
-								"green": 255,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						}
-					],
-					"cursor": 2
-				},
-				{
-					"text": "They reject conventional beliefs and embrace their own personal journey towards sexual and spiritual fulfillment",
-					"clr": {
-						"red": 51,
-						"green": 153,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He discovers the power of sexual energy and its connection to the universe, challenging traditional notions of sexuality",
-					"clr": {
-						"red": 255,
-						"green": 102,
-						"blue": 204
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She uncovers a hidden realm of spiritual ecstasy through exploring her own desires and fantasies",
-					"clr": {
-						"red": 255,
-						"green": 153,
-						"blue": 51
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				}
 			],
-			"content_cursor": 1,
+			"content_cursor": -1,
 			"bar_length": 0,
 			"part_type": 0,
 			"colors": [
-				[
 
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				]
 			],
 			"listener_colors": [
 
@@ -5792,7 +2774,7 @@
 			"phrases": [
 
 			],
-			"mockup": "ni- ni- naa ni- ni- naa ni- ni- na- ni- ni- ni- naa\nni- ni- naa ni- ni- naa ni- ni- na- ni- ni- naa\n",
+			"mockup": "",
 			"nana": {
 				"lines": [
 					{
@@ -6019,22 +3001,7 @@
 			},
 			"thrd_actions": [
 				[
-					{
-						"action": "emotion",
-						"arg": "pride"
-					},
-					{
-						"action": "bias",
-						"arg": "superior"
-					},
-					{
-						"action": "bias",
-						"arg": "casual"
-					},
-					{
-						"action": "bias",
-						"arg": "pleasant"
-					}
+
 				],
 				[
 
@@ -6061,24 +3028,24 @@
 			"saved_lyrics": [
 
 			],
-			"active_idea[CONTENT]": "She delves into the mysteries of the universe, seeking a deeper connection and understanding of her own sexuality",
-			"active_idea[IMAGERY]": "A wave of liberation, blue",
-			"active_idea[SYMBOLISM]": "Calculations running through my head",
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
 			"active_idea[PERSON]": "",
 			"active_idea_clr[CONTENT]": {
-				"red": 153,
-				"green": 51,
-				"blue": 255
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[IMAGERY]": {
-				"red": 0,
-				"green": 0,
-				"blue": 255
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[SYMBOLISM]": {
-				"red": 129,
-				"green": 229,
-				"blue": 226
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[PERSON]": {
 				"red": null,
@@ -6087,947 +3054,7 @@
 			}
 		},
 		{
-			"name": "Chorus 2",
-			"type": "C2",
-			"active_source_wordsalad": [
-
-			],
-			"active_source_text": [
-
-			],
-			"source_text_suggestions": [
-
-			],
-			"source": [
-
-			],
-			"ai_source": [
-
-			],
-			"rhymes": [
-
-			],
-			"rhyme_scheme": "",
-			"data": [
-				{
-					"key": "DIALOGUE_IDEA_STYLE1",
-					"value": "surreal"
-				},
-				{
-					"key": "DIALOGUE_IDEA_STYLE2",
-					"value": "dreamy"
-				}
-			],
-			"outdated_suggestions": true,
-			"contents": [
-				{
-					"text": "He breaks free from society's expectations, embracing his individual sexuality and spirituality.",
-					"clr": {
-						"red": 255,
-						"green": 0,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She delves deeper into her inner mystic, exploring the spiritual and sexual realms.",
-					"clr": {
-						"red": 0,
-						"green": 255,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "They reject traditional beliefs and embrace a new age spirituality, finding a deeper connection with each other.",
-					"clr": {
-						"red": 0,
-						"green": 0,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He worships at the temple of his own desires, unapologetically indulging in his kinky fantasies.",
-					"clr": {
-						"red": 128,
-						"green": 0,
-						"blue": 128
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She sheds her old religious beliefs and becomes a spiritual seeker, searching for her own version of divine fulfillment.",
-					"clr": {
-						"red": 255,
-						"green": 165,
-						"blue": 0
-					},
-					"imageries": [
-						{
-							"text": "An intertwined DNA structure representing the perfect balance of physical and spiritual connection",
-							"clr": {
-								"red": 255,
-								"green": 255,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A kaleidoscope of colors representing the different types of desires and pleasures",
-							"clr": {
-								"red": 255,
-								"green": 165,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A silver or chrome microscope examining the intricacies and complexities of sexual desire",
-							"clr": {
-								"red": 192,
-								"green": 192,
-								"blue": 192
-							},
-							"symbolisms": [
-								{
-									"text": "A microscope examining a flower, representing the intricate beauty of sexual desire",
-									"clr": {
-										"red": 112,
-										"green": 180,
-										"blue": 25
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A kaleidoscope of different shapes and colors, symbolizing the diverse spectrum of sexual expression",
-									"clr": {
-										"red": 255,
-										"green": 153,
-										"blue": 102
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A bridge connecting two separate worlds, representing the merging of sexuality and spirituality",
-									"clr": {
-										"red": 0,
-										"green": 160,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A puzzle coming together, symbolizing the satisfaction of understanding one's own desires",
-									"clr": {
-										"red": 255,
-										"green": 255,
-										"blue": 102
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A prism reflecting a rainbow of colors, representing the full spectrum of sexual identities",
-									"clr": {
-										"red": 255,
-										"green": 255,
-										"blue": 51
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								}
-							],
-							"cursor": 0
-						},
-						{
-							"text": "A bright shining sun symbolizing the ultimate pleasure and enlightenment",
-							"clr": {
-								"red": 255,
-								"green": 255,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A constellation of stars representing the infinite possibilities and connections in the universe",
-							"clr": {
-								"red": 0,
-								"green": 0,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A tree with roots and branches intertwining, symbolizing the interconnectedness of all things",
-							"clr": {
-								"red": 0,
-								"green": 128,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A bright red rose blooming, symbolizing passion and love",
-							"clr": {
-								"red": 255,
-								"green": 0,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A prism splitting light into a rainbow, representing the diversity and individuality of desires",
-							"clr": {
-								"red": 118,
-								"green": 214,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "An intricate puzzle coming together, representing the satisfaction of finding one's true desires",
-							"clr": {
-								"red": 218,
-								"green": 112,
-								"blue": 214
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A diverse group of people embracing and celebrating their unique sexualities",
-							"clr": {
-								"red": 255,
-								"green": 140,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						}
-					],
-					"cursor": 2
-				}
-			],
-			"content_cursor": 4,
-			"bar_length": 0,
-			"part_type": 0,
-			"colors": [
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				]
-			],
-			"listener_colors": [
-
-			],
-			"vocabulary": [
-
-			],
-			"wordsalads": [
-
-			],
-			"wordsalad_clrs": [
-
-			],
-			"wordgroup_factors": [
-
-			],
-			"phrases": [
-
-			],
-			"mockup": "ni- ni- naa ni- ni- naa\nni- ni- naa ni- ni- naa\nni- ni- naa ni- ni- naa\nni- ni- na- ni- ni- naa\n",
-			"nana": {
-				"lines": [
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									}
-								]
-							},
-							{
-								"syllables": [
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									}
-								]
-							},
-							{
-								"syllables": [
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									}
-								]
-							},
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									}
-								]
-							},
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									}
-								]
-							},
-							{
-								"syllables": [
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									}
-								]
-							},
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									}
-								]
-							},
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 1,
-										"v": 1,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 2,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			"thrd_actions": [
-				[
-					{
-						"action": "bias",
-						"arg": "knowing what needs to be done"
-					},
-					{
-						"action": "tone",
-						"arg": "celebratory"
-					},
-					{
-						"action": "tone",
-						"arg": "romantic"
-					},
-					{
-						"action": "tone",
-						"arg": "hypnotic"
-					},
-					{
-						"action": "msg",
-						"arg": "repetition of loved one"
-					},
-					{
-						"action": "attention-mental_state",
-						"arg": "memory of relationship"
-					},
-					{
-						"action": "bias",
-						"arg": "love"
-					},
-					{
-						"action": "bias",
-						"arg": "nostalgia"
-					}
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				]
-			],
-			"saved_lyrics": [
-
-			],
-			"active_idea[CONTENT]": "She sheds her old religious beliefs and becomes a spiritual seeker, searching for her own version of divine fulfillment.",
-			"active_idea[IMAGERY]": "A silver or chrome microscope examining the intricacies and complexities of sexual desire",
-			"active_idea[SYMBOLISM]": "A microscope examining a flower, representing the intricate beauty of sexual desire",
-			"active_idea[PERSON]": "",
-			"active_idea_clr[CONTENT]": {
-				"red": 255,
-				"green": 165,
-				"blue": 0
-			},
-			"active_idea_clr[IMAGERY]": {
-				"red": 192,
-				"green": 192,
-				"blue": 192
-			},
-			"active_idea_clr[SYMBOLISM]": {
-				"red": 112,
-				"green": 180,
-				"blue": 25
-			},
-			"active_idea_clr[PERSON]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			}
-		},
-		{
-			"name": "Bridge ",
+			"name": "Bridge",
 			"type": "B",
 			"active_source_wordsalad": [
 
@@ -7049,296 +3076,17 @@
 			],
 			"rhyme_scheme": "",
 			"data": [
-				{
-					"key": "DIALOGUE_IDEA_STYLE1",
-					"value": "surreal"
-				},
-				{
-					"key": "DIALOGUE_IDEA_STYLE2",
-					"value": "dreamy"
-				}
+
 			],
 			"outdated_suggestions": true,
 			"contents": [
-				{
-					"text": "I shed the chains of societal expectations and embrace my own sexual and spiritual awakening, boldly stepping into the unknown with confidence and passion.",
-					"clr": {
-						"red": 255,
-						"green": 152,
-						"blue": 0
-					},
-					"imageries": [
 
-					],
-					"cursor": -1
-				},
-				{
-					"text": "No longer bound by heteronormative beliefs, I explore the depths of my desires and find true liberation in my own unique path.",
-					"clr": {
-						"red": 25,
-						"green": 118,
-						"blue": 210
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "As a mystic practitioner, I transcend the limitations of traditional religion and discover a deeper connection to the divine within myself.",
-					"clr": {
-						"red": 103,
-						"green": 93,
-						"blue": 158
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "With a scientific and atheistic outlook, I unravel the mysteries of sexuality and find beauty in the complexity of human desire.",
-					"clr": {
-						"red": 190,
-						"green": 33,
-						"blue": 93
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "My journey towards individual spirituality is met with skepticism from a secular society, but I remain steadfast in my quest for self-discovery.",
-					"clr": {
-						"red": 255,
-						"green": 234,
-						"blue": 0
-					},
-					"imageries": [
-						{
-							"text": "A bridge connecting the physical and spiritual realms; the merging of mind and body",
-							"clr": {
-								"red": 255,
-								"green": 128,
-								"blue": 0
-							},
-							"symbolisms": [
-								{
-									"text": "Exploring the depths of the unknown",
-									"clr": {
-										"red": 120,
-										"green": 120,
-										"blue": 250
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Breaking free from societal norms",
-									"clr": {
-										"red": 0,
-										"green": 190,
-										"blue": 190
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Merging mind and body",
-									"clr": {
-										"red": 220,
-										"green": 40,
-										"blue": 220
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Reaching for enlightenment",
-									"clr": {
-										"red": 200,
-										"green": 200,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Embracing individual spirituality",
-									"clr": {
-										"red": 70,
-										"green": 250,
-										"blue": 70
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A journey towards self-discovery",
-									"clr": {
-										"red": 150,
-										"green": 80,
-										"blue": 150
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Finding balance between science and spirituality",
-									"clr": {
-										"red": 250,
-										"green": 150,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Cerebral and mystical connection",
-									"clr": {
-										"red": 180,
-										"green": 220,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Liberation from traditional beliefs",
-									"clr": {
-										"red": 40,
-										"green": 200,
-										"blue": 200
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Blending logic and intuition",
-									"clr": {
-										"red": 50,
-										"green": 50,
-										"blue": 250
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								}
-							],
-							"cursor": 6
-						},
-						{
-							"text": "A bookshelf filled with sacred texts, science books, and new age spirituality guides",
-							"clr": {
-								"red": 204,
-								"green": 153,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A compass representing the journey towards self-discovery",
-							"clr": {
-								"red": 0,
-								"green": 255,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A kaleidoscope of colors representing individual perspectives on sexuality and spirituality",
-							"clr": {
-								"red": 255,
-								"green": 255,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A mirror reflecting back the layers of our desires and beliefs",
-							"clr": {
-								"red": 255,
-								"green": 0,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A jigsaw puzzle representing the pieces of ourselves that come together to form our identity",
-							"clr": {
-								"red": 153,
-								"green": 0,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A blank canvas waiting to be painted with our unique vision of sexuality and spirituality",
-							"clr": {
-								"red": 255,
-								"green": 255,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						}
-					],
-					"cursor": 0
-				}
 			],
-			"content_cursor": 4,
+			"content_cursor": -1,
 			"bar_length": 0,
 			"part_type": 0,
 			"colors": [
-				[
 
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				]
 			],
 			"listener_colors": [
 
@@ -7358,7 +3106,7 @@
 			"phrases": [
 
 			],
-			"mockup": "ni- ni- na- ni- ni- ni- naa\nni- ni- na- ni- ni- naa\nni- ni- na- ni- ni- ni- naa\nni- ni- na- ni- ni- naa\n",
+			"mockup": "",
 			"nana": {
 				"lines": [
 					{
@@ -7376,15 +3124,25 @@
 										"v": 0,
 										"l": false,
 										"b": false
-									},
+									}
+								]
+							},
+							{
+								"syllables": [
 									{
-										"c": 0,
-										"v": 0,
+										"c": 1,
+										"v": 1,
 										"l": true,
 										"b": false
 									},
 									{
-										"c": 0,
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
 										"v": 2,
 										"l": true,
 										"b": false
@@ -7420,59 +3178,25 @@
 										"v": 0,
 										"l": false,
 										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 2,
-										"l": true,
-										"b": false
 									}
 								]
-							}
-						]
-					},
-					{
-						"words": [
+							},
 							{
 								"syllables": [
 									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
+										"c": 1,
+										"v": 1,
 										"l": true,
 										"b": false
 									},
 									{
-										"c": 0,
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
 										"v": 2,
 										"l": true,
 										"b": false
@@ -7507,180 +3231,6 @@
 										"c": 0,
 										"v": 0,
 										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 2,
-										"l": true,
-										"b": false
-									}
-								]
-							}
-						]
-					},
-					{
-						"words": [
-							{
-								"syllables": [
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": false,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 0,
-										"l": true,
-										"b": false
-									},
-									{
-										"c": 0,
-										"v": 2,
-										"l": true,
 										"b": false
 									}
 								]
@@ -7694,7 +3244,165 @@
 										"b": false
 									},
 									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
 										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
 										"v": 2,
 										"l": true,
 										"b": false
@@ -7730,7 +3438,65 @@
 										"v": 0,
 										"l": false,
 										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
 									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
 									{
 										"c": 0,
 										"v": 0,
@@ -7738,7 +3504,145 @@
 										"b": false
 									},
 									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
 										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 0,
+										"v": 0,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 0,
+										"v": 0,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 1,
+										"v": 1,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
 										"v": 2,
 										"l": true,
 										"b": false
@@ -7751,465 +3655,6 @@
 			},
 			"thrd_actions": [
 				[
-					{
-						"action": "bias",
-						"arg": "reaction to disrespect"
-					},
-					{
-						"action": "bias",
-						"arg": "defending oneself"
-					},
-					{
-						"action": "bias",
-						"arg": "warning"
-					},
-					{
-						"action": "bias",
-						"arg": "assertive"
-					},
-					{
-						"action": "bias",
-						"arg": "open to reconciliation"
-					},
-					{
-						"action": "bias",
-						"arg": "positive memories"
-					},
-					{
-						"action": "bias",
-						"arg": "appreciation"
-					},
-					{
-						"action": "bias",
-						"arg": "romantic"
-					}
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				]
-			],
-			"saved_lyrics": [
-
-			],
-			"active_idea[CONTENT]": "My journey towards individual spirituality is met with skepticism from a secular society, but I remain steadfast in my quest for self-discovery.",
-			"active_idea[IMAGERY]": "A bridge connecting the physical and spiritual realms; the merging of mind and body",
-			"active_idea[SYMBOLISM]": "Finding balance between science and spirituality",
-			"active_idea[PERSON]": "",
-			"active_idea_clr[CONTENT]": {
-				"red": 255,
-				"green": 234,
-				"blue": 0
-			},
-			"active_idea_clr[IMAGERY]": {
-				"red": 255,
-				"green": 128,
-				"blue": 0
-			},
-			"active_idea_clr[SYMBOLISM]": {
-				"red": 250,
-				"green": 150,
-				"blue": 0
-			},
-			"active_idea_clr[PERSON]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			}
-		},
-		{
-			"name": "Outro ",
-			"type": "O",
-			"active_source_wordsalad": [
-
-			],
-			"active_source_text": [
-
-			],
-			"source_text_suggestions": [
-
-			],
-			"source": [
-
-			],
-			"ai_source": [
-
-			],
-			"rhymes": [
-
-			],
-			"rhyme_scheme": "",
-			"data": [
-				{
-					"key": "DIALOGUE_IDEA_STYLE1",
-					"value": "surreal"
-				},
-				{
-					"key": "DIALOGUE_IDEA_STYLE2",
-					"value": "dreamy"
-				}
-			],
-			"outdated_suggestions": true,
-			"contents": [
-				{
-					"text": "He closes his eyes and takes a deep breath, feeling the energy flow through his body as he embraces his individualistic approach to sexuality and spirituality.",
-					"clr": {
-						"red": 255,
-						"green": 165,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She stands tall, confident in her identity as a scientific and spiritual practitioner, despite the criticism and doubt from those around her.",
-					"clr": {
-						"red": 0,
-						"green": 255,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "They join hands, united in their defiance against societal expectations and norms, ready to embark on their own journey towards fulfillment.",
-					"clr": {
-						"red": 128,
-						"green": 0,
-						"blue": 128
-					},
-					"imageries": [
-						{
-							"text": "A rainbow representing the spectrum of sexuality",
-							"clr": {
-								"red": 255,
-								"green": 94,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A constellation of stars representing the vastness of spirituality",
-							"clr": {
-								"red": 0,
-								"green": 48,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A bridge connecting the physical and spiritual realms",
-							"clr": {
-								"red": 255,
-								"green": 255,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A book with torn pages symbolizing the breaking away from traditional beliefs",
-							"clr": {
-								"red": 0,
-								"green": 0,
-								"blue": 0
-							},
-							"symbolisms": [
-								{
-									"text": "A butterfly with wings made of scientific equations",
-									"clr": {
-										"red": 23,
-										"green": 117,
-										"blue": 25
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A tree with roots consisting of diverse belief systems",
-									"clr": {
-										"red": 97,
-										"green": 66,
-										"blue": 31
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A prism reflecting different shades of sexuality",
-									"clr": {
-										"red": 255,
-										"green": 166,
-										"blue": 187
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A puzzle with missing pieces representing the knowledge yet to be discovered",
-									"clr": {
-										"red": 176,
-										"green": 240,
-										"blue": 147
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A compass pointing towards the path of individual spirituality",
-									"clr": {
-										"red": 234,
-										"green": 148,
-										"blue": 31
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A phoenix rising from the ashes of societal expectations",
-									"clr": {
-										"red": 226,
-										"green": 88,
-										"blue": 34
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A garden filled with flowers symbolizing different forms of sexual expression",
-									"clr": {
-										"red": 198,
-										"green": 237,
-										"blue": 184
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A mirror reflecting the duality of our desires and beliefs",
-									"clr": {
-										"red": 107,
-										"green": 128,
-										"blue": 235
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A storm brewing, representing the turmoil of breaking free from societal norms",
-									"clr": {
-										"red": 119,
-										"green": 118,
-										"blue": 121
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "A circuit board connecting the mind and body",
-									"clr": {
-										"red": 255,
-										"green": 107,
-										"blue": 248
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								}
-							],
-							"cursor": 6
-						},
-						{
-							"text": "A caged bird breaking free, representing personal liberation",
-							"clr": {
-								"red": 47,
-								"green": 194,
-								"blue": 255
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A flower blooming, symbolizing self-discovery and growth",
-							"clr": {
-								"red": 255,
-								"green": 194,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A DNA strand, representing the scientific and biological aspect of sexuality",
-							"clr": {
-								"red": 0,
-								"green": 255,
-								"blue": 0
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A spiral staircase, representing the journey towards spiritual enlightenment",
-							"clr": {
-								"red": 200,
-								"green": 0,
-								"blue": 200
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A puzzle with missing pieces, symbolizing the search for answers and completion",
-							"clr": {
-								"red": 255,
-								"green": 0,
-								"blue": 50
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "A phoenix rising from the ashes, symbolizing transformation and rebirth",
-							"clr": {
-								"red": 255,
-								"green": 0,
-								"blue": 150
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						}
-					],
-					"cursor": 3
-				},
-				{
-					"text": "He looks up at the stars, knowing that his scientific and rational perspective has led him to a deeper understanding of himself and the universe.",
-					"clr": {
-						"red": 255,
-						"green": 215,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She dances under the moonlight, embracing her kinky desires and spiritual beliefs without shame or hesitation.",
-					"clr": {
-						"red": 255,
-						"green": 0,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				}
-			],
-			"content_cursor": 2,
-			"bar_length": 0,
-			"part_type": 4,
-			"colors": [
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				]
-			],
-			"listener_colors": [
-
-			],
-			"vocabulary": [
-
-			],
-			"wordsalads": [
-
-			],
-			"wordsalad_clrs": [
-
-			],
-			"wordgroup_factors": [
-
-			],
-			"phrases": [
-
-			],
-			"mockup": "",
-			"nana": {
-				"lines": [
-
-				]
-			},
-			"thrd_actions": [
-				[
 
 				],
 				[
@@ -8233,741 +3678,6 @@
 				[
 
 				]
-			],
-			"saved_lyrics": [
-
-			],
-			"active_idea[CONTENT]": "They join hands, united in their defiance against societal expectations and norms, ready to embark on their own journey towards fulfillment.",
-			"active_idea[IMAGERY]": "A book with torn pages symbolizing the breaking away from traditional beliefs",
-			"active_idea[SYMBOLISM]": "A garden filled with flowers symbolizing different forms of sexual expression",
-			"active_idea[PERSON]": "",
-			"active_idea_clr[CONTENT]": {
-				"red": 128,
-				"green": 0,
-				"blue": 128
-			},
-			"active_idea_clr[IMAGERY]": {
-				"red": 0,
-				"green": 0,
-				"blue": 0
-			},
-			"active_idea_clr[SYMBOLISM]": {
-				"red": 198,
-				"green": 237,
-				"blue": 184
-			},
-			"active_idea_clr[PERSON]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			}
-		},
-		{
-			"name": "Theme melody ",
-			"type": "T",
-			"active_source_wordsalad": [
-
-			],
-			"active_source_text": [
-
-			],
-			"source_text_suggestions": [
-
-			],
-			"source": [
-
-			],
-			"ai_source": [
-
-			],
-			"rhymes": [
-
-			],
-			"rhyme_scheme": "",
-			"data": [
-				{
-					"key": "DIALOGUE_IDEA_STYLE1",
-					"value": "surreal"
-				},
-				{
-					"key": "DIALOGUE_IDEA_STYLE2",
-					"value": "dreamy"
-				}
-			],
-			"outdated_suggestions": true,
-			"contents": [
-				{
-					"text": "She dances through the stars, unbound by societal standards, her body and spirit intertwined in a dazzling display of freedom and self-expression.",
-					"clr": {
-						"red": 255,
-						"green": 255,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He rises from the ashes of his past, his sexuality and spirituality reborn into a vibrant and colorful existence.",
-					"clr": {
-						"red": 255,
-						"green": 153,
-						"blue": 51
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "They march to the beat of their own drum, rejecting the constraints of traditional beliefs and embracing their own unique journey towards fulfillment.",
-					"clr": {
-						"red": 0,
-						"green": 0,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She spreads her wings, leaving behind the limitations of her upbringing, and soars towards a bright and colorful future of sexual and spiritual exploration.",
-					"clr": {
-						"red": 102,
-						"green": 255,
-						"blue": 102
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He breaks free from the chains of conformity, reveling in the freedom and empowerment of embracing his true desires.",
-					"clr": {
-						"red": 255,
-						"green": 0,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				}
-			],
-			"content_cursor": -1,
-			"bar_length": 0,
-			"part_type": 4,
-			"colors": [
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				]
-			],
-			"listener_colors": [
-
-			],
-			"vocabulary": [
-
-			],
-			"wordsalads": [
-
-			],
-			"wordsalad_clrs": [
-
-			],
-			"wordgroup_factors": [
-
-			],
-			"phrases": [
-
-			],
-			"mockup": "",
-			"nana": {
-				"lines": [
-
-				]
-			},
-			"thrd_actions": [
-
-			],
-			"saved_lyrics": [
-
-			],
-			"active_idea[CONTENT]": "",
-			"active_idea[IMAGERY]": "",
-			"active_idea[SYMBOLISM]": "",
-			"active_idea[PERSON]": "",
-			"active_idea_clr[CONTENT]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			},
-			"active_idea_clr[IMAGERY]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			},
-			"active_idea_clr[SYMBOLISM]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			},
-			"active_idea_clr[PERSON]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			}
-		},
-		{
-			"name": "Solo ",
-			"type": "S",
-			"active_source_wordsalad": [
-
-			],
-			"active_source_text": [
-
-			],
-			"source_text_suggestions": [
-
-			],
-			"source": [
-
-			],
-			"ai_source": [
-
-			],
-			"rhymes": [
-
-			],
-			"rhyme_scheme": "",
-			"data": [
-				{
-					"key": "DIALOGUE_IDEA_STYLE1",
-					"value": "surreal"
-				},
-				{
-					"key": "DIALOGUE_IDEA_STYLE2",
-					"value": "dreamy"
-				}
-			],
-			"outdated_suggestions": true,
-			"contents": [
-				{
-					"text": "He closes his eyes, lost in the rhythm of his own desires, painting a canvas with every movement of his body",
-					"clr": {
-						"red": 255,
-						"green": 195,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She allows herself to fully surrender to the pleasure coursing through her body, a kaleidoscope of colors swirling in her mind",
-					"clr": {
-						"red": 0,
-						"green": 153,
-						"blue": 204
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He discovers new heights of pleasure, his mind and body in perfect harmony, a symphony of crimson and gold",
-					"clr": {
-						"red": 255,
-						"green": 0,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She explores taboo fantasies and finds liberation in her own desires, a mosaic of electric blues and purples",
-					"clr": {
-						"red": 102,
-						"green": 51,
-						"blue": 153
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "They come together, their bodies a canvas for sparks of passion and desire, in a fiery explosion of oranges and yellows",
-					"clr": {
-						"red": 255,
-						"green": 102,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He takes her on a journey through his imagination, a universe of vivid colors and uninhibited desires",
-					"clr": {
-						"red": 51,
-						"green": 51,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She sheds her inhibitions and explores her body with newfound curiosity, every touch a burst of vibrant pinks and greens",
-					"clr": {
-						"red": 255,
-						"green": 51,
-						"blue": 153
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He embraces his kinks and explores new depths of pleasure, a display of neon greens and purples",
-					"clr": {
-						"red": 102,
-						"green": 153,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She creates her own world of ecstasy, with each touch a brushstroke of intense reds and deep blues",
-					"clr": {
-						"red": 153,
-						"green": 0,
-						"blue": 204
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He finds freedom in his sexual identity, a mosaic of pastel hues painting a picture of self-acceptance",
-					"clr": {
-						"red": 204,
-						"green": 153,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She transcends past societal expectations and explores her own unique desires, a spectrum of rainbow colors guiding her towards fulfillment",
-					"clr": {
-						"red": 255,
-						"green": 153,
-						"blue": 51
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He let's go of his physical and mental barriers, a rush of electric greens and blues filling his mind",
-					"clr": {
-						"red": 51,
-						"green": 153,
-						"blue": 102
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She embraces her erotic fantasies, a symphony of deep purples and fiery oranges painting a world of pure pleasure",
-					"clr": {
-						"red": 153,
-						"green": 0,
-						"blue": 102
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "They come together in a passionate embrace, a swirl of passionate reds and gentle pinks enveloping them in a moment of pure connection",
-					"clr": {
-						"red": 255,
-						"green": 0,
-						"blue": 102
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He breaks free from societal expectations and embraces his true desires, a burst of gold and silver emanating from within",
-					"clr": {
-						"red": 255,
-						"green": 255,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "She discovers the power of self-love, a rainbow of colors shining through in her liberated expression of sexuality",
-					"clr": {
-						"red": 255,
-						"green": 102,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				}
-			],
-			"content_cursor": -1,
-			"bar_length": 0,
-			"part_type": 4,
-			"colors": [
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				]
-			],
-			"listener_colors": [
-
-			],
-			"vocabulary": [
-
-			],
-			"wordsalads": [
-
-			],
-			"wordsalad_clrs": [
-
-			],
-			"wordgroup_factors": [
-
-			],
-			"phrases": [
-
-			],
-			"mockup": "",
-			"nana": {
-				"lines": [
-
-				]
-			},
-			"thrd_actions": [
-
-			],
-			"saved_lyrics": [
-
-			],
-			"active_idea[CONTENT]": "",
-			"active_idea[IMAGERY]": "",
-			"active_idea[SYMBOLISM]": "",
-			"active_idea[PERSON]": "",
-			"active_idea_clr[CONTENT]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			},
-			"active_idea_clr[IMAGERY]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			},
-			"active_idea_clr[SYMBOLISM]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			},
-			"active_idea_clr[PERSON]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			}
-		},
-		{
-			"name": "Instrumental ",
-			"type": "IN",
-			"active_source_wordsalad": [
-
-			],
-			"active_source_text": [
-
-			],
-			"source_text_suggestions": [
-
-			],
-			"source": [
-
-			],
-			"ai_source": [
-
-			],
-			"rhymes": [
-
-			],
-			"rhyme_scheme": "",
-			"data": [
-				{
-					"key": "DIALOGUE_IDEA_STYLE1",
-					"value": "surreal"
-				},
-				{
-					"key": "DIALOGUE_IDEA_STYLE2",
-					"value": "dreamy"
-				}
-			],
-			"outdated_suggestions": true,
-			"contents": [
-				{
-					"text": "Her hands ran up his spine, sending shivers down his body, as they surrendered to the moment.",
-					"clr": {
-						"red": 255,
-						"green": 192,
-						"blue": 203
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He closed his eyes and let the music guide his movements, losing himself in the rhythm and the touch of her skin.",
-					"clr": {
-						"red": 135,
-						"green": 206,
-						"blue": 250
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "They danced in the moonlight, the language of their bodies expressing desires words could not convey.",
-					"clr": {
-						"red": 255,
-						"green": 250,
-						"blue": 240
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The beat of the drums grew louder, intensifying the passion between them, drawing them closer and closer.",
-					"clr": {
-						"red": 255,
-						"green": 0,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "As the guitar strings strummed in harmony, their bodies moved in perfect synchronization, their souls entwined.",
-					"clr": {
-						"red": 255,
-						"green": 255,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "They stood at the edge of the cliff, the wind whipping around them, as they experienced an exhilarating rush filled with freedom and abandon.",
-					"clr": {
-						"red": 124,
-						"green": 252,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				}
-			],
-			"content_cursor": -1,
-			"bar_length": 0,
-			"part_type": 4,
-			"colors": [
-				[
-
-				],
-				[
-
-				],
-				[
-
-				],
-				[
-
-				]
-			],
-			"listener_colors": [
-
-			],
-			"vocabulary": [
-
-			],
-			"wordsalads": [
-
-			],
-			"wordsalad_clrs": [
-
-			],
-			"wordgroup_factors": [
-
-			],
-			"phrases": [
-
-			],
-			"mockup": "",
-			"nana": {
-				"lines": [
-
-				]
-			},
-			"thrd_actions": [
-
-			],
-			"saved_lyrics": [
-
-			],
-			"active_idea[CONTENT]": "",
-			"active_idea[IMAGERY]": "",
-			"active_idea[SYMBOLISM]": "",
-			"active_idea[PERSON]": "",
-			"active_idea_clr[CONTENT]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			},
-			"active_idea_clr[IMAGERY]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			},
-			"active_idea_clr[SYMBOLISM]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			},
-			"active_idea_clr[PERSON]": {
-				"red": null,
-				"green": null,
-				"blue": null
-			}
-		},
-		{
-			"name": "",
-			"type": "",
-			"active_source_wordsalad": [
-
-			],
-			"active_source_text": [
-
-			],
-			"source_text_suggestions": [
-
-			],
-			"source": [
-
-			],
-			"ai_source": [
-
-			],
-			"rhymes": [
-
-			],
-			"rhyme_scheme": "",
-			"data": [
-
-			],
-			"outdated_suggestions": true,
-			"contents": [
-
-			],
-			"content_cursor": -1,
-			"bar_length": 0,
-			"part_type": 4,
-			"colors": [
-
-			],
-			"listener_colors": [
-
-			],
-			"vocabulary": [
-
-			],
-			"wordsalads": [
-
-			],
-			"wordsalad_clrs": [
-
-			],
-			"wordgroup_factors": [
-
-			],
-			"phrases": [
-
-			],
-			"mockup": "",
-			"nana": {
-				"lines": [
-
-				]
-			},
-			"thrd_actions": [
-
 			],
 			"saved_lyrics": [
 
@@ -8999,2018 +3709,78 @@
 		}
 	],
 	"active_struct": {
-		"name": "The Instrumental Impression",
+		"name": "User's structure",
 		"parts": [
+			"I",
 			"V1",
 			"PC1",
-			"C1",
+			"C",
 			"V2",
 			"PC2",
-			"C2",
-			"IN",
-			"T",
+			"C",
 			"B",
-			"S",
-			"C1",
-			"O"
+			"C"
 		],
 		"attrs": [
-			"utilizes multiple prechoruses for variation in the chorus",
-			"includes a solo for instrumental showcase",
-			"ends with a strong and memorable chorus in the outro"
+
 		]
 	},
 	"struct_suggs": [
-		{
-			"name": "The Explosive Escalation",
-			"parts": [
-				"V1",
-				"V2",
-				"C1",
-				"C2",
-				"V3",
-				"C3",
-				"B",
-				"C1",
-				"C2",
-				"V4",
-				"C4",
-				"O"
-			],
-			"attrs": [
-				"provides a balance between verses and choruses",
-				"includes a bridge for variety and climax",
-				"has a clear build up to the final chorus in the outro"
-			]
-		},
-		{
-			"name": "The Intense Introvert",
-			"parts": [
-				"I",
-				"V1",
-				"PC1",
-				"C1",
-				"V2",
-				"PC2",
-				"C1",
-				"C2",
-				"V3",
-				"PC3",
-				"C1",
-				"C2",
-				"C3",
-				"B",
-				"C1",
-				"O"
-			],
-			"attrs": [
-				"has a strong and attention-grabbing intro",
-				"allows for development and variation in the chorus with multiple prechoruses",
-				"includes a bridge for a change in tempo and intensity"
-			]
-		},
-		{
-			"name": "The Smooth Synergy",
-			"parts": [
-				"V1",
-				"C1",
-				"V2",
-				"C2",
-				"IN",
-				"V3",
-				"C3",
-				"B",
-				"C1",
-				"C2",
-				"O"
-			],
-			"attrs": [
-				"focuses on alternating verses and choruses",
-				"includes an instrumental section for a break and showcase",
-				"clearly builds up to the final chorus in the outro"
-			]
-		},
-		{
-			"name": "The Instrumental Impression",
-			"parts": [
-				"V1",
-				"PC1",
-				"C1",
-				"V2",
-				"PC2",
-				"C2",
-				"IN",
-				"T",
-				"B",
-				"S",
-				"C1",
-				"O"
-			],
-			"attrs": [
-				"utilizes multiple prechoruses for variation in the chorus",
-				"includes a solo for instrumental showcase",
-				"ends with a strong and memorable chorus in the outro"
-			]
-		},
-		{
-			"name": "The Dynamic Drive",
-			"parts": [
-				"V1",
-				"C1",
-				"IN",
-				"V2",
-				"C2",
-				"B",
-				"C1",
-				"C2",
-				"C3",
-				"O"
-			],
-			"attrs": [
-				"focuses on alternating verses and choruses",
-				"utilizes an intro and instrumental section for a break and buildup to the chorus",
-				"has room for a longer story arc with multiple choruses"
-			]
-		},
-		{
-			"name": "The Enigmatic Energy",
-			"parts": [
-				"I",
-				"V1",
-				"PC1",
-				"C1",
-				"IN",
-				"B",
-				"C1",
-				"C2",
-				"V2",
-				"PC2",
-				"C1",
-				"C2",
-				"O"
-			],
-			"attrs": [
-				"has a strong and attention-grabbing intro",
-				"includes a prechorus for variation in the chorus",
-				"provides a break and buildup in the bridge before the climax in the final chorus"
-			]
-		},
-		{
-			"name": "The Experimental Excitement",
-			"parts": [
-				"V1",
-				"I",
-				"V2",
-				"PC1",
-				"C1",
-				"B",
-				"IN",
-				"S",
-				"C1",
-				"V3",
-				"C2",
-				"PC2",
-				"C3",
-				"O"
-			],
-			"attrs": [
-				"starts with an instrumental intro to captivate the listener's attention",
-				"includes a solo and bridge for variation and development",
-				"builds up to the final chorus in the outro"
-			]
-		},
-		{
-			"name": "The Melodious Makeover",
-			"parts": [
-				"V1",
-				"PC1",
-				"C1",
-				"V2",
-				"PC2",
-				"C1",
-				"C2",
-				"B",
-				"IN",
-				"T",
-				"C1",
-				"C2",
-				"O"
-			],
-			"attrs": [
-				"utilizes multiple prechoruses for variation in the chorus",
-				"includes an instrumental theme melody for a memorable hook",
-				"provides a clear buildup to the final chorus in the outro"
-			]
-		},
-		{
-			"name": "The Seamless Storyteller",
-			"parts": [
-				"V1",
-				"C1",
-				"V2",
-				"C2",
-				"V3",
-				"C3",
-				"V4",
-				"C4",
-				"B",
-				"O"
-			],
-			"attrs": [
-				"focuses on alternating verses and choruses with an increasing intensity",
-				"includes a bridge for a change in tempo and intensity",
-				"ends with a strong and memorable final chorus in the outro"
-			]
-		},
-		{
-			"name": "The Instrumental Odyssey",
-			"parts": [
-				"V1",
-				"C1",
-				"IN",
-				"B",
-				"V2",
-				"C2",
-				"IN",
-				"T",
-				"C1",
-				"C2",
-				"O"
-			],
-			"attrs": [
-				"utilizes an intro and instrumental section for a break and development",
-				"includes a solo and prechorus for variation in the chorus",
-				"has a clear buildup to the final chorus in the outro."
-			]
-		}
+
 	],
 	"themes": [
-		{
-			"text": "Worshiping the divine,",
-			"clr": {
-				"red": 230,
-				"green": 230,
-				"blue": 250
-			},
-			"ideas": [
 
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Unleashing my spirituality,",
-			"clr": {
-				"red": 255,
-				"green": 192,
-				"blue": 203
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "A believer on my own path,",
-			"clr": {
-				"red": 255,
-				"green": 215,
-				"blue": 0
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Embracing new age beliefs,",
-			"clr": {
-				"red": 0,
-				"green": 255,
-				"blue": 127
-			},
-			"ideas": [
-				{
-					"text": "A woman awakening her divine spirituality amidst a secular society",
-					"clr": {
-						"red": 255,
-						"green": 255,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The journey of a spiritual seeker and her experiences with new age beliefs",
-					"clr": {
-						"red": 153,
-						"green": 102,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "An exploration of new age practices and their impact on one's individual spirituality",
-					"clr": {
-						"red": 51,
-						"green": 153,
-						"blue": 204
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing new age beliefs to find inner peace and balance in life",
-					"clr": {
-						"red": 255,
-						"green": 204,
-						"blue": 153
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "A woman breaking free from traditional religion and embracing new age spirituality",
-					"clr": {
-						"red": 255,
-						"green": 204,
-						"blue": 0
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The contrast between a theistic and atheistic perspective on embracing new age beliefs",
-					"clr": {
-						"red": 255,
-						"green": 153,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The concept of divine worship and self-discovery through new age practices",
-					"clr": {
-						"red": 255,
-						"green": 102,
-						"blue": 178
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Uncovering the truth behind misconceptions and stereotypes of new age spirituality",
-					"clr": {
-						"red": 0,
-						"green": 153,
-						"blue": 76
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Navigating societal pressures and embracing individual spirituality through new age beliefs",
-					"clr": {
-						"red": 51,
-						"green": 255,
-						"blue": 102
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The beauty in embracing one's spirituality, regardless of societal expectations",
-					"clr": {
-						"red": 204,
-						"green": 153,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The transformative power of new age beliefs on a person's mindset and perspective",
-					"clr": {
-						"red": 255,
-						"green": 102,
-						"blue": 0
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing new age ideals of love, peace, and unity in a world filled with division and hate",
-					"clr": {
-						"red": 204,
-						"green": 255,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "A journey of self-discovery and embracing new age beliefs as a means of personal growth",
-					"clr": {
-						"red": 102,
-						"green": 204,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Reconnecting with nature and embracing its wisdom through new age practices",
-					"clr": {
-						"red": 0,
-						"green": 153,
-						"blue": 153
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The empowerment and strength found in embracing new age beliefs and breaking away from societal norms",
-					"clr": {
-						"red": 153,
-						"green": 51,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "A woman finding her true self through embracing new age beliefs and shedding societal expectations",
-					"clr": {
-						"red": 255,
-						"green": 153,
-						"blue": 204
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The intersection of science and spirituality in the realm of new age beliefs",
-					"clr": {
-						"red": 204,
-						"green": 51,
-						"blue": 0
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The paradox of individualism and collective consciousness within the context of new age spirituality",
-					"clr": {
-						"red": 255,
-						"green": 204,
-						"blue": 51
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing new age beliefs as a means of healing and overcoming past traumas",
-					"clr": {
-						"red": 102,
-						"green": 255,
-						"blue": 153
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The freedom and acceptance found in shedding traditional religion and embracing new age spirituality",
-					"clr": {
-						"red": 76,
-						"green": 204,
-						"blue": 0
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				}
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Separate from society's norms,",
-			"clr": {
-				"red": 255,
-				"green": 160,
-				"blue": 122
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Finding solace in theism,",
-			"clr": {
-				"red": 255,
-				"green": 105,
-				"blue": 180
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "A spiritual seeker's journey,",
-			"clr": {
-				"red": 127,
-				"green": 255,
-				"blue": 212
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Balancing reason and faith,",
-			"clr": {
-				"red": 218,
-				"green": 112,
-				"blue": 214
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Living a religious life,",
-			"clr": {
-				"red": 255,
-				"green": 69,
-				"blue": 0
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Embracing my body's beauty,",
-			"clr": {
-				"red": 255,
-				"green": 20,
-				"blue": 147
-			},
-			"ideas": [
-				{
-					"text": "Embracing my curves and flaws",
-					"clr": {
-						"red": 255,
-						"green": 192,
-						"blue": 203
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Celebrating my stretch marks as reminders of growth",
-					"clr": {
-						"red": 255,
-						"green": 153,
-						"blue": 102
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Finding beauty in my imperfections",
-					"clr": {
-						"red": 255,
-						"green": 228,
-						"blue": 196
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Loving my body as it changes",
-					"clr": {
-						"red": 153,
-						"green": 153,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Nourishing my body with self-love",
-					"clr": {
-						"red": 255,
-						"green": 204,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Daring to bare it all without fear",
-					"clr": {
-						"red": 255,
-						"green": 99,
-						"blue": 71
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Refusing to conform to societal beauty standards",
-					"clr": {
-						"red": 102,
-						"green": 204,
-						"blue": 153
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing my body's natural and unique shape",
-					"clr": {
-						"red": 255,
-						"green": 204,
-						"blue": 153
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Seeing my stretch marks as a sign of strength",
-					"clr": {
-						"red": 255,
-						"green": 255,
-						"blue": 102
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Finding confidence in my scars and all",
-					"clr": {
-						"red": 255,
-						"green": 192,
-						"blue": 203
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Recognizing my body's capabilities and embracing them",
-					"clr": {
-						"red": 255,
-						"green": 153,
-						"blue": 153
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing my body as a canvas for self-expression",
-					"clr": {
-						"red": 255,
-						"green": 255,
-						"blue": 204
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing my body's natural aging process",
-					"clr": {
-						"red": 204,
-						"green": 163,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Finding beauty in my body's diversity",
-					"clr": {
-						"red": 102,
-						"green": 204,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Choosing self-love over societal beauty standards",
-					"clr": {
-						"red": 153,
-						"green": 255,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Empowering myself through body positivity",
-					"clr": {
-						"red": 255,
-						"green": 204,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing my body as a vessel for my soul",
-					"clr": {
-						"red": 255,
-						"green": 255,
-						"blue": 102
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Seeing the beauty in my body beyond physical appearance",
-					"clr": {
-						"red": 153,
-						"green": 153,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing my body's unique talents and abilities",
-					"clr": {
-						"red": 255,
-						"green": 192,
-						"blue": 203
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Finding strength in my body's journey",
-					"clr": {
-						"red": 204,
-						"green": 102,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Loving my body as it is, without comparison",
-					"clr": {
-						"red": 255,
-						"green": 204,
-						"blue": 153
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing my body's natural cycles and changes",
-					"clr": {
-						"red": 204,
-						"green": 204,
-						"blue": 255
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Choosing to see beauty in all shapes and sizes",
-					"clr": {
-						"red": 255,
-						"green": 153,
-						"blue": 204
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing my body's scars as symbols of resilience",
-					"clr": {
-						"red": 204,
-						"green": 102,
-						"blue": 153
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Celebrating the beauty of my body's diversity",
-					"clr": {
-						"red": 255,
-						"green": 255,
-						"blue": 102
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				}
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Embracing my heterosexuality,",
-			"clr": {
-				"red": 235,
-				"green": 64,
-				"blue": 52
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Being content with being normal,",
-			"clr": {
-				"red": 152,
-				"green": 251,
-				"blue": 152
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Doubting my faith as an agnostic,",
-			"clr": {
-				"red": 139,
-				"green": 0,
-				"blue": 139
-			},
-			"ideas": [
-				{
-					"text": "Breaking free from the norms and expectations of organized religion",
-					"clr": {
-						"red": 187,
-						"green": 59,
-						"blue": 124
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing individual spirituality and questioning all beliefs",
-					"clr": {
-						"red": 23,
-						"green": 104,
-						"blue": 120
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Finding inner peace and spirituality without subscribing to traditional religions",
-					"clr": {
-						"red": 231,
-						"green": 173,
-						"blue": 80
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Rejecting societal pressures to conform to a specific religion or belief system",
-					"clr": {
-						"red": 182,
-						"green": 61,
-						"blue": 34
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Exploring the possibility of a higher power beyond traditional concepts of god",
-					"clr": {
-						"red": 211,
-						"green": 148,
-						"blue": 189
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Challenging the idea that only organized religion can provide answers and comfort",
-					"clr": {
-						"red": 27,
-						"green": 50,
-						"blue": 82
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Questioning the validity of religious authority and dogma",
-					"clr": {
-						"red": 106,
-						"green": 161,
-						"blue": 174
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing skepticism and critical thinking instead of blind faith",
-					"clr": {
-						"red": 183,
-						"green": 110,
-						"blue": 63
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Refusing to be labeled as either a believer or non-believer, and embracing ambiguity",
-					"clr": {
-						"red": 154,
-						"green": 139,
-						"blue": 76
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Finding beauty and wonder in the unknown and unexplainable",
-					"clr": {
-						"red": 100,
-						"green": 85,
-						"blue": 61
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Rejecting the binary of good vs. evil and embracing the gray areas of morality",
-					"clr": {
-						"red": 124,
-						"green": 44,
-						"blue": 46
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Questioning the societal pressure to conform to a heteronormative lifestyle",
-					"clr": {
-						"red": 166,
-						"green": 107,
-						"blue": 235
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Finding peace and fulfillment in non-traditional relationships and partnerships",
-					"clr": {
-						"red": 165,
-						"green": 234,
-						"blue": 245
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing the unknown and uncharted territories of spirituality",
-					"clr": {
-						"red": 255,
-						"green": 186,
-						"blue": 227
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Standing up against the expectations and pressures of religious fundamentalism",
-					"clr": {
-						"red": 47,
-						"green": 72,
-						"blue": 68
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Finding strength and courage in doubt and questioning of faith",
-					"clr": {
-						"red": 87,
-						"green": 112,
-						"blue": 96
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing the uncertain and constantly evolving nature of spirituality",
-					"clr": {
-						"red": 235,
-						"green": 203,
-						"blue": 137
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Questioning the idea of a higher power with human-like qualities and demands",
-					"clr": {
-						"red": 24,
-						"green": 108,
-						"blue": 121
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing personal responsibility and free will instead of relying on a higher power",
-					"clr": {
-						"red": 245,
-						"green": 224,
-						"blue": 171
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Finding freedom and empowerment in breaking away from traditional beliefs",
-					"clr": {
-						"red": 214,
-						"green": 152,
-						"blue": 51
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Challenging the idea of a strict dichotomy between science and religion",
-					"clr": {
-						"red": 67,
-						"green": 94,
-						"blue": 100
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing the beauty and complexity of a constantly evolving spiritual journey",
-					"clr": {
-						"red": 185,
-						"green": 255,
-						"blue": 254
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Embracing the strength and resilience of doubt and questioning",
-					"clr": {
-						"red": 122,
-						"green": 182,
-						"blue": 122
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Finding hope and comfort in the unknowable and mysterious aspects of life",
-					"clr": {
-						"red": 242,
-						"green": 164,
-						"blue": 87
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Letting go of fear and guilt associated with questioning and doubting faith",
-					"clr": {
-						"red": 247,
-						"green": 99,
-						"blue": 201
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Exploring the idea of spirituality beyond traditional religious constructs",
-					"clr": {
-						"red": 63,
-						"green": 167,
-						"blue": 178
-					},
-					"tones": [
-
-					],
-					"cursor": -1
-				}
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Conforming to societal expectations,",
-			"clr": {
-				"red": 192,
-				"green": 192,
-				"blue": 192
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Reinforcing society's tropes,",
-			"clr": {
-				"red": 255,
-				"green": 165,
-				"blue": 0
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Being open and explicit about my beliefs,",
-			"clr": {
-				"red": 255,
-				"green": 0,
-				"blue": 0
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Focusing on my partner's needs,",
-			"clr": {
-				"red": 238,
-				"green": 130,
-				"blue": 238
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Embracing my strength as a woman,",
-			"clr": {
-				"red": 255,
-				"green": 99,
-				"blue": 71
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "The unreasonable ideals of perfection,",
-			"clr": {
-				"red": 75,
-				"green": 0,
-				"blue": 130
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Taking the easy way out in love,",
-			"clr": {
-				"red": 255,
-				"green": 222,
-				"blue": 173
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Being irresponsible in love,",
-			"clr": {
-				"red": 255,
-				"green": 20,
-				"blue": 147
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Authoritarian views on love,",
-			"clr": {
-				"red": 0,
-				"green": 0,
-				"blue": 255
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Embracing my liberal and free spirit,",
-			"clr": {
-				"red": 255,
-				"green": 255,
-				"blue": 0
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Celebrating my individuality,",
-			"clr": {
-				"red": 255,
-				"green": 160,
-				"blue": 122
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Being rewarded for my beliefs,",
-			"clr": {
-				"red": 255,
-				"green": 218,
-				"blue": 185
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Closed off from society's norms,",
-			"clr": {
-				"red": 128,
-				"green": 0,
-				"blue": 128
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Holding onto hope in difficult times,",
-			"clr": {
-				"red": 165,
-				"green": 42,
-				"blue": 42
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Optimistic about the future,",
-			"clr": {
-				"red": 0,
-				"green": 128,
-				"blue": 0
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Embracing my melancholic nature,",
-			"clr": {
-				"red": 128,
-				"green": 0,
-				"blue": 0
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Finding beauty in somber moments,",
-			"clr": {
-				"red": 128,
-				"green": 128,
-				"blue": 0
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Letting my heavy burdens lift,",
-			"clr": {
-				"red": 0,
-				"green": 128,
-				"blue": 128
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Finding humor in the struggles of faith,",
-			"clr": {
-				"red": 255,
-				"green": 0,
-				"blue": 255
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Taking my spirituality seriously,",
-			"clr": {
-				"red": 255,
-				"green": 215,
-				"blue": 0
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Happy christmas",
-			"clr": {
-				"red": 255,
-				"green": 255,
-				"blue": 255
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Sad christmas",
-			"clr": {
-				"red": 255,
-				"green": 255,
-				"blue": 255
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Nostalgic christmas",
-			"clr": {
-				"red": 255,
-				"green": 255,
-				"blue": 255
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Fantasy christmas",
-			"clr": {
-				"red": 255,
-				"green": 255,
-				"blue": 255
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Nordic fantasy christmas with elves",
-			"clr": {
-				"red": 255,
-				"green": 255,
-				"blue": 255
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Nordic traditional fantasy christmas with elves and without Santa Claus",
-			"clr": {
-				"red": 255,
-				"green": 255,
-				"blue": 255
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Nordic traditional fantasy christmas with hiding house elves and without Santa Claus",
-			"clr": {
-				"red": 255,
-				"green": 255,
-				"blue": 255
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		},
-		{
-			"text": "Nordic traditional fantasy christmas with house elves as personifications of small animals and without Santa Claus",
-			"clr": {
-				"red": 255,
-				"green": 255,
-				"blue": 255
-			},
-			"ideas": [
-
-			],
-			"cursor": -1
-		}
 	],
-	"theme_cursor": 12,
-	"part_cursor": 0,
+	"theme_cursor": -1,
+	"part_cursor": -1,
 	"prod_ideas": [
 
 	],
 	"active_roles": [
-		{
-			"group": "group experience",
-			"value": "group-oriented",
-			"percent": 50
-		},
-		{
-			"group": "faith and reason seekers",
-			"value": "divine worshipers",
-			"percent": 50
-		},
-		{
-			"group": "relationship",
-			"value": "romantic couple",
-			"percent": 50
-		},
-		{
-			"group": "group faith",
-			"value": "individual spirituality",
-			"percent": 10
-		},
-		{
-			"group": "attitude 2",
-			"value": "hopeful",
-			"percent": 30
-		},
-		{
-			"group": "economic",
-			"value": "liberal",
-			"percent": 20
-		},
-		{
-			"group": "belief spectrum",
-			"value": "believer",
-			"percent": 20
-		},
-		{
-			"group": "sexual acting",
-			"value": "confident",
-			"percent": 40
-		},
-		{
-			"group": "sophistication",
-			"value": "sophisticated",
-			"percent": 40
-		},
-		{
-			"group": "old and new believers",
-			"value": "new age spirituality",
-			"percent": 10
-		},
-		{
-			"group": "attitude 3",
-			"value": "optimistic",
-			"percent": 50
-		},
-		{
-			"group": "life and love",
-			"value": "aspirational",
-			"percent": 40
-		},
-		{
-			"group": "intuitive thinkers",
-			"value": "rationalist",
-			"percent": 40
-		},
-		{
-			"group": "lyrical emphasis",
-			"value": "witty wordplay",
-			"percent": 60
-		},
-		{
-			"group": "mood 4",
-			"value": "humorous",
-			"percent": 20
-		},
-		{
-			"group": "rational believers",
-			"value": "religious",
-			"percent": 30
-		},
-		{
-			"group": "emotional realism",
-			"value": "happiness",
-			"percent": 60
-		},
-		{
-			"group": "party relation",
-			"value": "party anthems",
-			"percent": 10
-		},
-		{
-			"group": "physical preference",
-			"value": "body enhancing beauty",
-			"percent": 20
-		},
-		{
-			"group": "attitude 1",
-			"value": "closed",
-			"percent": 40
-		},
-		{
-			"group": "expectations",
-			"value": "perfection",
-			"percent": 30
-		},
-		{
-			"group": "sexual orientation",
-			"value": "heterosexual",
-			"percent": 30
-		},
-		{
-			"group": "relationship focus",
-			"value": "partner-focused",
-			"percent": 30
-		},
-		{
-			"group": "culture",
-			"value": "individualistic",
-			"percent": 40
-		},
-		{
-			"group": "cultural elements",
-			"value": "globalization",
-			"percent": 40
-		},
-		{
-			"group": "corporation relations",
-			"value": "consumerism",
-			"percent": 60
-		},
-		{
-			"group": "sexual preference",
-			"value": "normal",
-			"percent": 30
-		},
-		{
-			"group": "faith extremes",
-			"value": "agnostic",
-			"percent": 30
-		},
-		{
-			"group": "social",
-			"value": "authoritarian",
-			"percent": 40
-		},
-		{
-			"group": "production style",
-			"value": "acoustic",
-			"percent": 30
-		},
-		{
-			"group": "reality",
-			"value": "escapism",
-			"percent": 40
-		},
-		{
-			"group": "average expectations",
-			"value": "expectation-conformed",
-			"percent": 30
-		},
-		{
-			"group": "lyrical emphasis",
-			"value": "emotionally charged",
-			"percent": 30
-		},
-		{
-			"group": "age target",
-			"value": "youth-oriented",
-			"percent": 50
-		},
-		{
-			"group": "patience",
-			"value": "instant gratification",
-			"percent": 40
-		},
-		{
-			"group": "human strength",
-			"value": "strong",
-			"percent": 10
-		},
-		{
-			"group": "audience",
-			"value": "mainstream",
-			"percent": 40
-		},
-		{
-			"group": "love status",
-			"value": "loving now",
-			"percent": 50
-		},
-		{
-			"group": "gender",
-			"value": "female",
-			"percent": 10
-		},
-		{
-			"group": "sexualization",
-			"value": "sexual",
-			"percent": 40
-		},
-		{
-			"group": "responsibility",
-			"value": "irresponsible",
-			"percent": 20
-		},
-		{
-			"group": "mindfulness",
-			"value": "mindless",
-			"percent": 40
-		},
-		{
-			"group": "situation relation",
-			"value": "prescriptive",
-			"percent": 50
-		},
-		{
-			"group": "commercial appeal",
-			"value": "mainstream success",
-			"percent": 10
-		},
-		{
-			"group": "competitiveness",
-			"value": "competition",
-			"percent": 40
-		},
-		{
-			"group": "independence",
-			"value": "independence",
-			"percent": 50
-		},
-		{
-			"group": "storymode",
-			"value": "storytelling",
-			"percent": 10
-		},
-		{
-			"group": "truthfulness",
-			"value": "personal experience",
-			"percent": 100
-		},
-		{
-			"group": "narrative",
-			"value": "protagonist storytelling",
-			"percent": 100
-		},
-		{
-			"group": "motivation",
-			"value": "rewarding",
-			"percent": 24
-		},
-		{
-			"group": "problem solving strategy",
-			"value": "shortcut taking",
-			"percent": 41
-		},
-		{
-			"group": "integrity",
-			"value": "twisted",
-			"percent": 33
-		},
-		{
-			"group": "story-motivation",
-			"value": "narrative-driven",
-			"percent": 14
-		},
-		{
-			"group": "mood 5",
-			"value": "serious",
-			"percent": 48
-		},
-		{
-			"group": "mood 3",
-			"value": "heavy",
-			"percent": 37
-		},
-		{
-			"group": "concepts",
-			"value": "grounded",
-			"percent": 40
-		},
-		{
-			"group": "seekers of truth",
-			"value": "spiritual seeker",
-			"percent": 28
-		},
-		{
-			"group": "mood 2",
-			"value": "somber",
-			"percent": 31
-		},
-		{
-			"group": "sexual commitment",
-			"value": "monogamy",
-			"percent": 42
-		},
-		{
-			"group": "rationality",
-			"value": "unreasonable",
-			"percent": 16
-		},
-		{
-			"group": "mood 1",
-			"value": "melancholic",
-			"percent": 41
-		},
-		{
-			"group": "imagery",
-			"value": "trope-reinforcing",
-			"percent": 34
-		},
-		{
-			"group": "peacefulness",
-			"value": "peacemaker",
-			"percent": 48
-		},
-		{
-			"group": "provocativity",
-			"value": "edgy",
-			"percent": 16
-		},
-		{
-			"group": "expression",
-			"value": "explicit",
-			"percent": 27
-		},
-		{
-			"group": "sexuality",
-			"value": "adventurous",
-			"percent": 57
-		},
-		{
-			"group": "relation to others",
-			"value": "comparison",
-			"percent": 15
-		},
-		{
-			"group": "theological opposites",
-			"value": "theistic",
-			"percent": 16
-		},
-		{
-			"group": "authencity",
-			"value": "social media-driven",
-			"percent": 37
-		},
-		{
-			"group": "target of love",
-			"value": "romantic love",
-			"percent": 46
-		},
-		{
-			"group": "transparency",
-			"value": "transparent",
-			"percent": 46
-		},
-		{
-			"group": "celebrity Persona",
-			"value": "celebrity worship",
-			"percent": 24
-		},
-		{
-			"group": "source of inspiration",
-			"value": "nostalgic",
-			"percent": 29
-		},
-		{
-			"group": "intelligence",
-			"value": "emotional",
-			"percent": 70
-		},
-		{
-			"group": "belief communities",
-			"value": "secular society",
-			"percent": 29
-		}
+
 	],
-	"active_idea[THEME]": "Embracing a scientific and rational perspective on sexuality and spirituality",
-	"active_idea[IDEA]": "Quantum Connections",
-	"active_idea[TONE]": "Merging Mind and Body",
-	"active_idea[ALLEGORY]": "A call to reject societal norms and expectations and embrace our own unique journey towards sexual and spiritual fulfillment",
-	"active_idea[CONTENT]": "A libertarian and liberal individual who champions individualistic and secular values, advocating for sexual freedom and diversity",
-	"active_idea[IMAGERY]": "Surrendering to the mystical experience",
-	"active_idea[SYMBOLISM]": "A brain floating in space connected to a heart by lightning bolts",
+	"active_idea[THEME]": "",
+	"active_idea[IDEA]": "",
+	"active_idea[TONE]": "",
+	"active_idea[ALLEGORY]": "",
+	"active_idea[CONTENT]": "",
+	"active_idea[IMAGERY]": "",
+	"active_idea[SYMBOLISM]": "",
 	"active_idea[PERSON]": "",
 	"active_idea_clr[THEME]": {
-		"red": 0,
-		"green": 127,
-		"blue": 255
+		"red": null,
+		"green": null,
+		"blue": null
 	},
 	"active_idea_clr[IDEA]": {
-		"red": 0,
-		"green": 255,
-		"blue": 255
+		"red": null,
+		"green": null,
+		"blue": null
 	},
 	"active_idea_clr[TONE]": {
-		"red": 23,
-		"green": 129,
-		"blue": 221
+		"red": null,
+		"green": null,
+		"blue": null
 	},
 	"active_idea_clr[ALLEGORY]": {
-		"red": 0,
-		"green": 102,
-		"blue": 255
+		"red": null,
+		"green": null,
+		"blue": null
 	},
 	"active_idea_clr[CONTENT]": {
-		"red": 68,
-		"green": 114,
-		"blue": 196
+		"red": null,
+		"green": null,
+		"blue": null
 	},
 	"active_idea_clr[IMAGERY]": {
-		"red": 0,
-		"green": 255,
-		"blue": 255
+		"red": null,
+		"green": null,
+		"blue": null
 	},
 	"active_idea_clr[SYMBOLISM]": {
-		"red": 0,
-		"green": 255,
-		"blue": 255
+		"red": null,
+		"green": null,
+		"blue": null
 	},
 	"active_idea_clr[PERSON]": {
 		"red": null,
