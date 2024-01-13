@@ -66,12 +66,12 @@ protected:
 	ActionParallelsPage				action_parallels;
 	ActionTransitionsPage			action_transitions;
 	SongDataWords					song_words;
+	SongDataWordnet					song_wordnet;
 	/*
 	SongDataAnalysisPage			song_analysis;
 	SongDataTemplates				song_tmpl;
 	LineTypesPage					line_types;
 	SongDataPhrases					song_phrases;
-	SongDataWordnet					song_wordnet;
 	SongDataTemplateScoring			song_tmplscoring;
 	SongDataWordnetScoring			song_wnscoring;
 	SongDataTmplActions				song_tmplactions;

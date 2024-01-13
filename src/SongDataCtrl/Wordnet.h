@@ -1,22 +1,16 @@
 #ifndef _SongDataCtrl_SongDataWordnet_h_
 #define _SongDataCtrl_SongDataWordnet_h_
 
-#if 0
-
 
 class SongDataWordnet : public SongToolCtrl {
-	Splitter vsplit, hsplit, vsplit1;
-	ArrayCtrl datasets, attrs, colors, wordnets, clr_wordnets;
+	Splitter vsplit, hsplit;
+	ArrayCtrl datasets, attrs, colors, wordnets;
 	Mutex lock;
 	
 	String tmp_first_line;
-	VectorMap<String, int> word_ds;
-	VectorMap<String, Color> word_clr;
-	
-	bool disabled = false;
-	bool running = false;
+	/*
 	int per_batch = 25;
-	bool batch = false;
+	bool batch = false;*/
 public:
 	typedef SongDataWordnet CLASSNAME;
 	SongDataWordnet();
@@ -34,10 +28,9 @@ public:
 	void GetColorAlternatives(int batch_i);
 	void OnColorAlternatives(String res, int batch_i);
 	
-	void MakeWordnetsFromTemplates();
+	void DoWordnet(int fn);
 	
 };
 
 
-#endif
 #endif

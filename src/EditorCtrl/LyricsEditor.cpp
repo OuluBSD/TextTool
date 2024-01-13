@@ -35,8 +35,7 @@ LyricsEditor::LyricsEditor() {
 	
 	attrs.AddColumn(t_("Group"));
 	attrs.AddColumn(t_("Value"));
-	attrs.AddIndex("GROUP");
-	attrs.AddIndex("VALUE");
+	attrs.AddIndex("IDX");
 	attrs.ColumnWidths("1 1");
 	attrs.WhenCursor << THISBACK(DataAction);
 	
@@ -68,35 +67,6 @@ LyricsEditor::LyricsEditor() {
 		rhyme_level.Add(i);
 	rhyme_level.SetCursor(0);
 	rhyme_level.WhenCursor << THISBACK(DataAction);
-	
-	{
-		int gi = 0;
-		int i = 0;
-		
-		attrs.Set(i, 0, "All");
-		attrs.Set(i, 1, "All");
-		attrs.Set(i, "GROUP", -1);
-		attrs.Set(i, "VALUE", -1);
-		i++;
-		
-		#define ATTR_ITEM(e, g, i0, i1) \
-			attrs.Set(i, 0, g); \
-			attrs.Set(i, 1, i0); \
-			attrs.Set(i, "GROUP", gi); \
-			attrs.Set(i, "VALUE", 0); \
-			i++; \
-			attrs.Set(i, 0, g); \
-			attrs.Set(i, 1, i1); \
-			attrs.Set(i, "GROUP", gi); \
-			attrs.Set(i, "VALUE", 1); \
-			i++, gi++;
-		ATTR_LIST
-		#undef ATTR_ITEM
-	
-		INHIBIT_CURSOR(attrs);
-		if (!attrs.IsCursor() && attrs.GetCount())
-			attrs.SetCursor(0);
-	}
 	
 	{
 		colors.SetCount(1+GetColorGroupCount());
@@ -147,6 +117,7 @@ void LyricsEditor::Data() {
 	if (!phrase_list.IsCursor() && phrase_list.GetCount())
 		phrase_list.SetCursor(0);
 	
+	
 	DataPhrase();
 }
 
@@ -190,6 +161,27 @@ void LyricsEditor::DataPhrase() {
 	line_actions.SetCount(row);
 	if (!line_actions.IsCursor() && line_actions.GetCount())
 		line_actions.SetCursor(0);
+	
+	
+	{
+		INHIBIT_CURSOR(attrs);
+		int max_attrs = min(128, da.attrs.GetCount());
+		for(int i = 0; i < max_attrs; i++) {
+			const AttrHeader& ah = da.attrs.GetKey(i);
+			attrs.Set(i, 0, ah.group);
+			attrs.Set(i, 1, ah.value);
+			attrs.Set(i, "IDX", i);
+		}
+		{
+			INHIBIT_CURSOR(attrs);
+			attrs.SetCount(max_attrs);
+			attrs.SetSortColumn(0);
+			attrs.Insert(0);
+			attrs.Set(0,0,"All");
+			if (!attrs.IsCursor() && attrs.GetCount())
+				attrs.SetCursor(0);
+		}
+	}
 	
 	DataDoActions();
 }
@@ -287,13 +279,14 @@ void LyricsEditor::DataActionHeader() {
 	
 	// Color filtering
 	int clr_i = colors.GetCursor();
-	int attr_group_i = attrs.Get("GROUP");
-	int attr_value_i = attrs.Get("VALUE");
-	String group_str = attr_group_i >= 0 ? ToLower(Attr::AttrKeys[attr_group_i][1]) : String();
-	String value_str = attr_group_i >= 0 ? ToLower(Attr::AttrKeys[attr_group_i][2 + attr_value_i]) : String();
+	int attr_i = attrs.Get("IDX");
+	AttrHeader ath;
+	if (attr_i >= 0) {
+		ath = da.attrs.GetKey(attr_i);
+	}
 	
 	bool clr_filter = clr_i > 0;
-	bool attr_filter = attr_group_i >= 0;
+	bool attr_filter = attr_i >= 0;
 	clr_i--;
 	
 	
@@ -354,12 +347,16 @@ void LyricsEditor::DataActionHeader() {
 					if (cg != clr_i)
 						continue;
 				}
+				
 				const AttrHeader* ap = 0;
-				if (attr_filter && h.attr >= 0) {
-					const AttrHeader& attr = da.attrs.GetKey(h.attr);
-					if (attr.group != group_str || attr.value != value_str)
+				if (h.attr >= 0)
+					ap = &da.attrs.GetKey(h.attr);
+				
+				if (attr_filter) {
+					//const AttrHeader& attr = da.attrs.GetKey(h.attr);
+					//if (attr.group != group_str || attr.value != value_str)
+					if (h.attr != attr_i)
 						continue;
-					ap = &attr;
 				}
 				bool has_act = !filter_action;
 				bool has_arg = !filter_action_arg;
@@ -380,14 +377,14 @@ void LyricsEditor::DataActionHeader() {
 					
 					// Check if thrd rhyme container matches required thread actions
 					if (filter_thrd_actions) {
-						int ah_i = 0;
+						int i = 0;
 						for (int ah_i : thrd_actions.GetKeys()) {
 							//if (ah.action == act.action && ah.arg == act.arg) {
 							if (ah_i == a) {
-								thrd_actions[ah_i] = true;
+								thrd_actions[i] = true;
 								break;
 							}
-							ah_i++;
+							i++;
 						}
 					}
 				}
@@ -450,7 +447,7 @@ void LyricsEditor::SetPhrase() {
 	if (line_i < 0 || line_i >= sp.nana.Get().GetCount())
 		return;
 	
-	if (line_i <= sp.saved_lyrics.GetCount())
+	if (line_i >= sp.saved_lyrics.GetCount())
 		sp.saved_lyrics.SetCount(line_i+1);
 	
 	AttrText at = suggestions.Get(0);

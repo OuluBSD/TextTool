@@ -14,6 +14,7 @@ typedef enum {
 	TASK_ACTION_PARALLELS,
 	TASK_ACTION_TRANSITIONS,
 	TASK_WORD_DATA,
+	TASK_WORDNET,
 	
 	TASK_COUNT
 } TaskType;
@@ -42,6 +43,8 @@ struct Task {
 	VectorMap<String, int> tmp_map_ds_i;
 	Vector<int> tmp_ds_i;
 	Index<String> tmp_words;
+	VectorMap<String, Color> word_clr;
+	String tmp_str;
 };
 
 
@@ -106,6 +109,11 @@ class TaskManager {
 	void GetLineChangeScores(Task* t);
 	void OnLineChangeScores(String res, Task* t);
 	
+	void GetWordnet(Task* t);
+	void GetColorAlternatives(Task* t);
+	void OnColorAlternatives(String res, Task* t);
+	void MakeWordnetsFromTemplates(Task* t);
+	
 	void RemoveTask(Task& t);
 	
 public:
@@ -133,6 +141,7 @@ public:
 	
 	void DoActionParallel(int ds_i, int fn);
 	void DoActionTransition(int ds_i, int fn);
+	void DoWordnet(int ds_i, int fn);
 	
 };
 

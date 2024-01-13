@@ -860,6 +860,100 @@ void TaskManager::OnLineChangeScores(String res, Task* t) {
 	t->running = false;
 }
 
+void TaskManager::OnColorAlternatives(String res, Task* t) {
+	if (Thread::IsShutdownThreads())
+		return;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	VectorMap<String, int>& word_ds = t->tmp_map_ds_i;
+	VectorMap<String, Color>& word_clr = t->word_clr;
+	
+	res = t->tmp_str + res;
+	
+	res.Replace("\r", "");
+	Vector<String> lines = Split(res, "\n");
+	VectorMap<int,Vector<String>> iter_phrase_parts;
+	VectorMap<int,Vector<Vector<String>>> iter_phrase_words;
+	
+	for (String& l : lines) {
+		l = TrimBoth(l);
+		if (l.IsEmpty()) continue;
+		
+		int a = l.Find(":");
+		if (a < 0) continue;
+		String main_class = TrimBoth(l.Left(a));
+		l = TrimBoth(l.Mid(a+1));
+		
+		a = l.Find("->");
+		if (a < 0) continue;
+		String src_word = TrimBoth(l.Left(a));
+		l = TrimBoth(l.Mid(a+2));
+		
+		a = l.Find(":");
+		if (a < 0) continue;
+		String dst_clr_str = TrimBoth(l.Left(a));
+		l = TrimBoth(l.Mid(a+1));
+		
+		String dst_word = l;
+		
+		
+		dst_clr_str = dst_clr_str.Mid(dst_clr_str.Find("(") + 1);
+		dst_clr_str = dst_clr_str.Left(dst_clr_str.GetCount()-1);
+		
+		int clr_i[3];
+		Vector<String> clr_parts = Split(dst_clr_str, ",");
+		if (clr_parts.GetCount() != 3)
+			continue;
+		for(int i = 0; i < clr_parts.GetCount(); i++)
+			clr_i[i] = StrInt(clr_parts[i]);
+		Color dst_clr(clr_i[0], clr_i[1], clr_i[2]);
+		
+		int ds_i = word_ds.Get(src_word, -1);
+		if (ds_i < 0)
+			continue;
+		
+		Color src_clr = word_clr.Get(src_word, Black());
+		
+		
+		
+		
+		CombineHash ch;
+		ch.Do(main_class);
+		ch.Do(src_word);
+		ch.Do(src_clr);
+		hash_t h = ch;
+		
+		TODO // difficult problem: hash is calculated differently & matching is done differently
+		#if 0
+		DatasetAnalysis& ds = sda.datasets[ds_i];
+		bool found = false;
+		for (ColorWordnet& wn : ds.clr_wordnets) {
+			if (wn.hash == h) {
+				int j = VectorFindAdd(wn.words, dst_word);
+				if (j == wn.colors.GetCount())
+					wn.colors.Add(dst_clr);
+				found = true;
+			}
+		}
+		if (!found) {
+			ColorWordnet& wn = ds.clr_wordnets.Add();
+			wn.hash = h;
+			wn.words << dst_word;
+			wn.colors << dst_clr;
+			wn.main_class = main_class;
+			wn.src_word = src_word;
+			wn.clr = src_clr;
+			wn.clr_group = GetColorGroup(src_clr);
+		}
+		#endif
+	}
+	
+	t->batch_i++;
+	t->running = false;
+}
+
 void TaskManager::OnWordData(String res, Task* t) {
 	
 	

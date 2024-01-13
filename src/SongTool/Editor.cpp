@@ -83,11 +83,11 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Action attributes"), action_attrs);
 	AddItem(t_("Database"), t_("Action parallels"), action_parallels);
 	AddItem(t_("Database"), t_("Action transitions"), action_transitions);
+	AddItem(t_("Database"), t_("Wordnet"), song_wordnet);
 	/*AddItem(t_("Database"), t_("Analysis"), song_analysis);
 	AddItem(t_("Database"), t_("Phrases"), song_phrases);
 	//AddItem(t_("Database"), t_("Search phrases"), song_searchphrases);
 	AddItem(t_("Database"), t_("Phrase templates"), song_tmpl);
-	AddItem(t_("Database"), t_("Wordnet"), song_wordnet);
 	AddItem(t_("Database"), t_("Template scoring"), song_tmplscoring);
 	AddItem(t_("Database"), t_("Wordnet scoring"), song_wnscoring);
 	AddItem(t_("Database"), t_("Line actions"), song_lineactions);

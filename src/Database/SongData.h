@@ -795,6 +795,45 @@ struct ExportDepActionPhrase : Moveable<ExportDepActionPhrase> {
 	
 };
 
+struct ExportWordnet : Moveable<ExportWordnet> {
+	static const int MAX_WORDS = 64;
+	int word_count = 0;
+	int words[MAX_WORDS] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
+	int word_clr_count = 0;
+	Color word_clrs[MAX_WORDS];
+	int main_class = -1;
+	int attr = -1;
+	Color clr;
+	int scores[SCORE_COUNT] = {0,0,0,0,0,0,0,0,0,0};
+	
+	String StoreToString() {
+		StringDumper d;
+		d % word_count;
+		for(int i = 0; i < word_count; i++)
+			d % words[i];
+		d % word_clr_count;
+		for(int i = 0; i < word_clr_count; i++)
+			d % word_clrs[i];
+		d % main_class % attr % clr;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			d % scores[i];
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		p % word_count;
+		for(int i = 0; i < word_count; i++)
+			p % words[i];
+		p % word_clr_count;
+		for(int i = 0; i < word_clr_count; i++)
+			p % word_clrs[i];
+		p % main_class % attr % clr;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			p % scores[i];
+	}
+	
+};
+
 struct DatasetAnalysis {
 	MapFile<String,Token> tokens;
 	MapFile<hash_t,TokenText> token_texts;
@@ -813,6 +852,7 @@ struct DatasetAnalysis {
 	MapMapFile<int,int,ExportTransition> trans;
 	MapFile<String,ExportDepActionPhrase> action_phrases;
 	MapFile<String,String> translations;
+	MapFile<hash_t,ExportWordnet> wordnets;
 	
 	// Cached data
 	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;

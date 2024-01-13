@@ -602,11 +602,12 @@ void TaskManager::MakeNana(Task* t) {
 			
 			actual++;
 			
-			//if (actual % 1000 == 0)
-			//	PostProgress(actual, total);
+			if (actual % 1000 == 0)
+				t->update(actual, total);
 		}
 	}
 	
+	t->update(0, 1);
 }
 
 void TaskManager::GetRhymeContainers(Task* t) {
@@ -1140,6 +1141,151 @@ void TaskManager::GetWordData(Task* t) {
 	void OnSyllables(String res, int batch_i, bool start_next);
 	void OnDetails(String res, int batch_i, bool start_next);*/
 	
+}
+
+void TaskManager::GetWordnet(Task* t) {
+	if (t->fn == 0)
+		MakeWordnetsFromTemplates(t);
+	else if (t->fn == 1)
+		GetColorAlternatives(t);
+}
+
+void TaskManager::GetColorAlternatives(Task* t) {
+	if (Thread::IsShutdownThreads())
+		return;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	int per_batch = 25;
+	int begin = t->batch_i * per_batch;
+	int end = (t->batch_i+1) * per_batch;
+	
+	if (t->batch_i < 0) {
+		begin = 0;
+		end = 1;
+	}
+	
+	SongDataAnalysisArgs args;
+	
+	VectorMap<String, int>& word_ds = t->tmp_map_ds_i;
+	VectorMap<String, Color>& word_clr = t->word_clr;
+	word_ds.Clear();
+	word_clr.Clear();
+	
+	int iter = 0;
+	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
+		String ds_key = sd.GetKey(ds_i);
+		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+		
+		for(int i = 0; i < ds.words.GetCount(); i++) {
+			if (iter >= begin) {
+				const String& txt = ds.words.GetKey(i);
+				ExportWord& wa = ds.words[i];
+				
+				String wc = wa.class_count > 0 ? ds.word_classes[wa.classes[0]] : String();
+				String header = wc + ": " + txt;
+				String key = header;
+				key << ", RGB(" << (int)wa.clr.GetR() << "," << (int)wa.clr.GetG() << "," << (int)wa.clr.GetB() << ")";
+				args.words << key;
+				
+				word_ds.Add(txt, ds_i);
+				word_clr.Add(txt, wa.clr);
+				
+				if (args.words.GetCount() == 1) {
+					t->tmp_str = header;
+				}
+			}
+			iter++;
+			if (iter >=  end) break;
+		}
+		if (iter >=  end) break;
+	}
+	
+	if (args.words.IsEmpty()) {
+		RemoveTask(*t);
+		return;
+	}
+	
+	args.fn = 7;
+	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	m.GetSongDataAnalysis(args, THISBACK1(OnColorAlternatives, t));
+}
+
+void TaskManager::MakeWordnetsFromTemplates(Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	TimeStop ts;
+	
+	PromptOK("TODO");
+	#if 0
+	for(int i = 0; i < sda.datasets.GetCount(); i++) {
+		DatasetAnalysis& da = sda.datasets[i];
+		for(int j = 0; j < da.tmpl_phrases.GetCount(); j++) {
+			TemplatePhrase& tp = da.tmpl_phrases[j];
+			String group = tp.group;
+			String value = tp.value;
+			Color clr = tp.clr;
+			int clr_group = GetColorGroup(clr);
+			Vector<String> main_classes;
+			for (const String& part : tp.parts) {
+				if (part.IsEmpty()) continue;
+				if (part[0] == '{')
+					main_classes << part.Mid(1,part.GetCount()-2);
+			}
+			for(int k = 0; k < tp.words.GetCount(); k++) {
+				if (k >= main_classes.GetCount()) break;
+				const String& main_class = main_classes[k];
+				auto& words = tp.words[k];
+				
+				// Find wordnet
+				bool found = false;
+				for (ExportWordnet& wn : da.wordnets) {
+					if (wn.clr_group == clr_group &&
+						wn.group == group &&
+						wn.value == value &&
+						wn.main_class == main_class) {
+						bool any_match = false;
+						for (const String& dst : wn.words) {
+							for (const String& src : words) {
+								if (dst == src) {
+									any_match = true;
+									break;
+								}
+							}
+							if (any_match) break;
+						}
+						if (any_match) {
+							
+							// Append wordnet
+							for (const String& src : words)
+								VectorFindAdd(wn.words, src);
+							
+							found = true;
+							break;
+						}
+					}
+				}
+				if (!found) {
+					// New wordnet
+					ExportWordnet& wn = da.wordnets.Add();
+					wn.main_class = main_class;
+					wn.group = group;
+					wn.value = value;
+					wn.clr = clr;
+					wn.clr_group = clr_group;
+					wn.words <<= words;
+				}
+			}
+		}
+	}
+	
+	LOG("MakeWordnetsFromTemplates took: " << ts.ToString());
+	#endif
 }
 
 }

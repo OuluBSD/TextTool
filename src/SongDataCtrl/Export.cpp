@@ -145,47 +145,6 @@ struct ExportTemplate : Moveable<ExportTemplate> {
 	
 };
 
-struct ExportWordnet : Moveable<ExportWordnet> {
-	static const int MAX_WORDS = 64;
-	int word_count = 0;
-	int words[MAX_WORDS] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
-	int word_clr_count = 0;
-	Color word_clrs[MAX_WORDS];
-	int main_class = -1;
-	int attr = -1;
-	Color clr;
-	int scores[SCORE_MODE_COUNT][SCORE_ATTR_COUNT] = {{0,0,0,0,0},{0,0,0,0,0}};
-	
-	String StoreToString() {
-		StringDumper d;
-		d % word_count;
-		for(int i = 0; i < word_count; i++)
-			d % words[i];
-		d % word_clr_count;
-		for(int i = 0; i < word_clr_count; i++)
-			d % word_clrs[i];
-		d % main_class % attr % clr;
-		for(int i = 0; i < SCORE_MODE_COUNT; i++)
-			for(int j = 0; j < SCORE_ATTR_COUNT; j++)
-				d % scores[i][j];
-		return d;
-	}
-	void LoadFromString(const String& s) {
-		StringParser p(s);
-		p % word_count;
-		for(int i = 0; i < word_count; i++)
-			p % words[i];
-		p % word_clr_count;
-		for(int i = 0; i < word_clr_count; i++)
-			p % word_clrs[i];
-		p % main_class % attr % clr;
-		for(int i = 0; i < SCORE_MODE_COUNT; i++)
-			for(int j = 0; j < SCORE_ATTR_COUNT; j++)
-				p % scores[i][j];
-	}
-	
-};
-
 void ExportPage::Export() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;

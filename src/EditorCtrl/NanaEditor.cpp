@@ -31,6 +31,7 @@ void NanaEditor::Data() {
 		dl.SetIndex((int&)sp.part_type);
 		dl.WhenAction << [&dl,i,&sp]() {(int&)sp.part_type = dl.GetIndex();};
 	}
+	INHIBIT_CURSOR(parts);
 	parts.SetCount(song.parts.GetCount());
 	if (!parts.IsCursor() && parts.GetCount())
 		parts.SetCursor(0);

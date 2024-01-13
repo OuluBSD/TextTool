@@ -96,9 +96,6 @@ void SongStructure::DataActive() {
 	
 	Song::StructSuggestion& s = song.active_struct;
 	
-	if (song.parts.GetCount() < s.parts.GetCount())
-		song.parts.SetCount(s.parts.GetCount());
-	
 	//s.chords.SetCount(s.parts.GetCount());
 	
 	int bpm = StrInt(GetParam("BPM", "120"));
@@ -114,7 +111,7 @@ void SongStructure::DataActive() {
 	active.attrs.SetCount(s.attrs.GetCount());
 	
 	for(int i = 0; i < s.parts.GetCount(); i++) {
-		StaticPart& sp = song.parts[i];
+		StaticPart* sp = song.FindPartByType(s.parts[i]);
 		String abbr = s.parts[i];
 		active.parts.Set(i, 0,
 			AttrText(GetSongPartFromAbbr(abbr)).NormalPaper(GetSongPartPaperColor(abbr)));

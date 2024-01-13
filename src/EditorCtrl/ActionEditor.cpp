@@ -188,6 +188,9 @@ void ActionEditor::DataThread() {
 	const Vector<int>& part_thrd_actions = part.thrd_actions[thrd_i];
 	int row = 0;
 	
+	if (part_thrd_actions.GetCount() && part_thrd_actions[0] >= 1000000000)
+		part.thrd_actions[thrd_i].Clear();
+	
 	for(int i = 0; i < part_thrd_actions.GetCount(); i++) {
 		int ah_i = part_thrd_actions[i];
 		const ActionHeader& ah = da.actions.GetKey(ah_i);
@@ -266,6 +269,7 @@ void ActionEditor::DataSuggestions() {
 		
 		// Check that nana line count matches thread line count
 		const auto& thrd0 = prev->thrd_actions[0];
+		#if 0
 		if (thrd0.GetCount() != nana_lines.GetCount()) {
 			previous_ready = false; reason = 2;
 			break;
@@ -278,6 +282,7 @@ void ActionEditor::DataSuggestions() {
 			previous_ready = false; reason = 3;
 			break;
 		}
+		#endif
 		
 		// No problem. Continue.
 		
