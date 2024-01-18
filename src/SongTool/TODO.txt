@@ -1,5 +1,22 @@
 Scheduled work:
+- database: total progress page
+	- how much needs to be processed still
+	- check for missing data
+		- e.g. action colors/attrs might not get all 40/60 responses
 - line structure editor
+- attr & color editor (use existing action threads)
+- pre-processing of suggestions: (use scores too)
+? new lyrics editor based on pre-processed suggestions
+
+- radio pages
+	- songs what radios play
+	- analysis
+	- timeline
+- 5t model for evaluation
+- professional contacts (who is who, roles)
+	- for tasks to contact people
+
+
 - concept oriented songs instead of character oriented
 	- wins & losses
 	- events
@@ -7,14 +24,6 @@ Scheduled work:
 - database: structure clause nana-code & phonetic
 - songlib taskmgr: cache results separately
 - tool: get actions for received messages, get attributes and colors
-- database: total progress page
-	- template actions are needed
-		- is all template actions analysed?
-	- how much needs to be processed still
-	- check for missing data
-		- e.g. action colors/attrs might not get all 40/60 responses
-- database: generate templates based on wordnets, attrs and colors
-- database: export/import data
 
 - artist planner
 	- suno prompt generator
@@ -269,3 +278,4 @@ x? vocabulary: for artist, for release, for song
 - menu options: quit without saving, stop SongLib tasks
 - action storyline editor (all action storyline options to be used for lyrics finding)
 - action storyline editor: thread: average action and color
+- database: export/import data
