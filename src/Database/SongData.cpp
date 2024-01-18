@@ -285,6 +285,7 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	action_phrases.Load(ds_dir, "action phrases");
 	translations.Load(ds_dir, trans_ds_key);
 	wordnets.Load(ds_dir, "wordnets");
+	diagnostics.Load(ds_dir, "diagnostics");
 	
 	//DUMP(phrase_parts.GetCount());
 	

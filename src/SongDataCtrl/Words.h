@@ -19,8 +19,8 @@ public:
 	void DataDataset();
 	void DataColor();
 	void ToolMenu(Bar& bar) override;
-	void UpdateWords();
-	void UpdateWordsProcess();
+	//void UpdateWords();
+	//void UpdateWordsProcess();
 	//void UpdateWordFlagGroups();
 	//void UpdateWordFlags();
 	void DumpWordGroups();

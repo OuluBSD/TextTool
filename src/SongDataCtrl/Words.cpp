@@ -43,13 +43,8 @@ void SongDataWords::DisableAll() {
 }
 
 void SongDataWords::Data() {
-	// Pass
-}
-
-void SongDataWords::DataMain() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
-	
 	
 	datasets.SetCount(sd.GetCount());
 	for(int i = 0; i < sd.GetCount(); i++) {
@@ -60,6 +55,11 @@ void SongDataWords::DataMain() {
 	if (!datasets.IsCursor() && datasets.GetCount())
 		datasets.SetCursor(0);
 	
+}
+
+void SongDataWords::DataMain() {
+	
+	Data();
 	DataDataset();
 }
 
@@ -192,15 +192,11 @@ void SongDataWords::DataColor() {
 void SongDataWords::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
 	bar.Separator();
-	bar.Add(t_("Update all words"), AppImg::RedRing(), THISBACK(UpdateWords)).Key(K_F5);
+	bar.Add(t_("Update all words"), AppImg::RedRing(), THISBACK1(DoWords, 0)).Key(K_F5);
 	//bar.Add(t_("Update all word groups"), AppImg::RedRing(), THISBACK(UpdateWordFlagGroups)).Key(K_F6);
 	//bar.Add(t_("Update all word flags"), AppImg::RedRing(), THISBACK(UpdateWordFlags)).Key(K_F7);
-	bar.Separator();
-	bar.Add(t_("Get details"), AppImg::BlueRing(), THISBACK1(DoWords, 0)).Key(K_CTRL_W);
 	bar.Add(t_("Get all details"), AppImg::RedRing(), THISBACK1(DoWords, 1)).Key(K_F6);
-	bar.Separator();
-	bar.Add(t_("Get word syllables"), AppImg::BlueRing(), THISBACK1(DoWords, 2)).Key(K_CTRL_Q);
-	bar.Add(t_("Get all syllables"), AppImg::RedRing(), THISBACK1(DoWords, 3)).Key(K_F7);
+	bar.Add(t_("Get all syllables"), AppImg::RedRing(), THISBACK1(DoWords, 2)).Key(K_F7);
 	
 	bar.Separator();
 	bar.Add(t_("Debug dump word groups"), AppImg::BlueRing(), THISBACK(DumpWordGroups)).Key(K_F9);
@@ -208,60 +204,7 @@ void SongDataWords::ToolMenu(Bar& bar) {
 	
 }
 
-void SongDataWords::UpdateWords() {
-	if (disabled) return;
-	DisableAll();
-	Thread::Start(THISBACK(UpdateWordsProcess));
-}
 
-void SongDataWords::UpdateWordsProcess() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
-	
-	
-	for(int i = 0; i < sd.GetCount(); i++) {
-		String ds_key = sd.GetKey(i);
-		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
-		
-		const Vector<ArtistDataset>& dataset = sd[i];
-		for(int j = 0; j < dataset.GetCount(); j++) {
-			const ArtistDataset& artist = dataset[j];
-			//ArtistAnalysis& aa = ds.artists.GetAdd(artist.name);
-			//aa.word_counts.Clear();
-			
-			for(int k = 0; k < artist.lyrics.GetCount(); k++) {
-				const LyricsDataset& song = artist.lyrics[k];
-				
-				String text = song.text;
-				if (GetDefaultCharset() != CHARSET_UTF8)
-					text = ToCharset(CHARSET_DEFAULT, text, CHARSET_UTF8);
-				
-				Vector<String> lines = Split(text, "\n");
-				for (String& l : lines) {
-					Vector<String> words;
-					GetWords(l, words);
-					if (words.IsEmpty()) continue;
-					
-					for (String& w : words) {
-						w = ToLower(w.ToWString()).ToString();
-					}
-					
-					//aa.total_words += words.GetCount();
-					for (String& w : words) {
-						//aa.word_counts.GetAdd(w, 0)++;
-						int w_i = -1;
-						ExportWord& wa = ds.words.GetAdd(w, w_i);
-						wa.count++;
-					}
-				}
-			}
-		}
-	}
-	
-	
-	PostCallback(THISBACK(EnableAll));
-}
 
 /*void SongDataWords::UpdateWordFlagGroups() {
 	Database& db = Database::Single();
@@ -353,7 +296,10 @@ void SongDataWords::DumpWordGroups() {
 		
 		LOG("Dataset ds_key:");
 		for(int i = 0; i < main_classes.GetCount(); i++) {
-			LOG("- " << ds.word_classes[main_classes[i]]);
+			int wc = main_classes[i];
+			if (wc < ds.word_classes.GetCount()) {
+				LOG("- " << ds.word_classes[wc]);
+			}
 		}
 	}
 	
@@ -390,7 +336,9 @@ void SongDataWords::DumpPhoneticChars() {
 }
 
 void SongDataWords::DoWords(int fn) {
+	if (!datasets.IsCursor())
+		return;
 	int ds_i = datasets.GetCursor();
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	tm.DoPhrases(ds_i, fn);
+	tm.DoWords(ds_i, fn);
 }

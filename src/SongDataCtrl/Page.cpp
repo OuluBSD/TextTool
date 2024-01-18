@@ -338,62 +338,9 @@ void SongDataPage::HotfixText() {
 #endif
 
 void SongDataPage::ImportLyrics() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	
-	Vector<int> token_is;
-	
-	for(int i = 0; i < sd.GetCount(); i++) {
-		String sd_key = sd.GetKey(i);
-		bool filter_foreign = sd_key == "en";
-		
-		DatasetAnalysis& da = sd.a.datasets[i];
-		Vector<ArtistDataset>& artists = sd[i];
-		
-		for(int j = 0; j < artists.GetCount(); j++) {
-			ArtistDataset& artist = artists[j];
-			
-			for(int k = 0; k < artist.lyrics.GetCount(); k++) {
-				LyricsDataset& lyrics = artist.lyrics[k];
-				
-				NaturalTokenizer tk;
-				
-				String str = lyrics.text;
-				
-				// Ignore files with hard ambiguities
-				if (str.Find(" well ") >= 0) // well or we'll... too expensive to figure out
-					continue;
-				
-				HotfixReplaceWord(str);
-				
-				if (!tk.Parse(str))
-					continue;
-				
-				if (filter_foreign && tk.HasForeign())
-					continue;
-				
-				for (const auto& line : tk.GetLines()) {
-					token_is.SetCount(0);
-					CombineHash ch;
-					for (const WString& line : line) {
-						String s = line.ToString();
-						int tk_i = -1;
-						Token& tk = da.tokens.GetAdd(s, tk_i);
-						ch.Do(tk_i);
-						token_is << tk_i;
-					}
-					hash_t h = ch;
-					
-					TokenText& tt = da.token_texts.GetAdd(h);
-					if (tt.tokens.IsEmpty()) {
-						Swap(tt.tokens, token_is);
-					}
-				}
-			}
-		}
-	}
-	
-	
-	
-	
+	if (!datasets.IsCursor())
+		return;
+	int ds_i = datasets.GetCursor();
+	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	tm.DoSongs(ds_i, 0);
 }

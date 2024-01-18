@@ -2,6 +2,93 @@
 
 namespace SongLib {
 
+void TaskManager::GetSongs(Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	
+	Vector<int> token_is;
+	
+	
+	String sd_key = sd.GetKey(t->ds_i);
+	bool filter_foreign = sd_key == "en";
+	
+	DatasetAnalysis& da = sd.a.datasets[t->ds_i];
+	Vector<ArtistDataset>& artists = sd[t->ds_i];
+	
+	TimeStop ts;
+	int total = 0, actual = 0;
+	int well_filter_loss = 0, parse_loss = 0, foreign_loss = 0;
+	for(int j = 0; j < artists.GetCount(); j++) {
+		ArtistDataset& artist = artists[j];
+		
+		for(int k = 0; k < artist.lyrics.GetCount(); k++) {
+			total++;
+			LyricsDataset& lyrics = artist.lyrics[k];
+			
+			NaturalTokenizer tk;
+			
+			String str = lyrics.text;
+			
+			// Ignore files with hard ambiguities
+			if (str.Find(" well ") >= 0) {
+				// well or we'll... too expensive to figure out
+				well_filter_loss++;
+				continue;
+			}
+			
+			HotfixReplaceWord(str);
+			
+			if (!tk.Parse(str)) {
+				parse_loss++;
+				continue;
+			}
+			
+			if (filter_foreign && tk.HasForeign()) {
+				foreign_loss++;
+				continue;
+			}
+			
+			for (const auto& line : tk.GetLines()) {
+				token_is.SetCount(0);
+				CombineHash ch;
+				for (const WString& line : line) {
+					String s = line.ToString();
+					int tk_i = -1;
+					Token& tk = da.tokens.GetAdd(s, tk_i);
+					ch.Do(tk_i);
+					token_is << tk_i;
+				}
+				hash_t h = ch;
+				
+				TokenText& tt = da.token_texts.GetAdd(h);
+				if (tt.tokens.IsEmpty()) {
+					Swap(tt.tokens, token_is);
+				}
+			}
+			
+			actual++;
+			
+			if (total % 500 == 0) {
+				da.diagnostics.GetAdd("songs: total") = IntStr(total);
+				da.diagnostics.GetAdd("songs: actual") =  IntStr(actual);
+				da.diagnostics.GetAdd("songs: percentage") =  DblStr((double)actual / (double) total * 100);
+				da.diagnostics.GetAdd("songs: filter 'well' loss") =  DblStr((double)well_filter_loss / (double) total * 100);
+				da.diagnostics.GetAdd("songs: filter 'parse success' loss") =  DblStr((double)parse_loss / (double) total * 100);
+				da.diagnostics.GetAdd("songs: filter 'foreign' loss") =  DblStr((double)foreign_loss / (double) total * 100);
+			}
+		}
+	}
+	
+	da.diagnostics.GetAdd("songs: total") = IntStr(total);
+	da.diagnostics.GetAdd("songs: actual") =  IntStr(actual);
+	da.diagnostics.GetAdd("songs: percentage") =  DblStr((double)actual / (double) total * 100);
+	da.diagnostics.GetAdd("songs: filter 'well' loss") =  DblStr((double)well_filter_loss / (double) total * 100);
+	da.diagnostics.GetAdd("songs: filter 'parse success' loss") =  DblStr((double)parse_loss / (double) total * 100);
+	da.diagnostics.GetAdd("songs: filter 'foreign' loss") =  DblStr((double)foreign_loss / (double) total * 100);
+	da.diagnostics.GetAdd("songs: duration of song process") =  ts.ToString();
+	
+}
+
 void TaskManager::GetTokenData(Task* t) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -27,11 +114,73 @@ void TaskManager::GetTokenData(Task* t) {
 		args.words << tk;
 	}
 	
+	t->total += args.words.GetCount();
+	
 	RealizePipe();
 	TaskMgr& m = *pipe;
 	if (t->fn == 0)
 		m.GetTokenData(args, THISBACK1(OnTokenData, t));
 	
+}
+
+void TaskManager::GetUnknownTokenPairs(Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	
+	DatasetAnalysis& da = sd.a.datasets[t->ds_i];
+	
+	for(int i = 0; i < da.token_texts.GetCount(); i++) {
+		const TokenText& txt = da.token_texts[i];
+		if (txt.tokens.GetCount() < 2)
+			continue;
+		int prev_w_i = -1;
+		for(int j = 0; j < txt.tokens.GetCount(); j++) {
+			int tk_i = txt.tokens[j];
+			bool is_first = j == 0;
+			bool is_last = j == txt.tokens.GetCount()-1;
+			bool prev_unknown = false;
+			
+			const Token& tk = da.tokens[tk_i];
+			int w_i = tk.word_;
+			if (w_i < 0) {
+				String key = ToLower(da.tokens.GetKey(tk_i));
+				w_i = da.words.Find(key);
+				tk.word_ = w_i;
+			}
+			if (w_i >= 0) {
+				const ExportWord& ew = da.words[w_i];
+				bool is_unknown = ew.class_count > 1;
+				
+				/*bool next_unknown = false;
+				if (!is_last && !prev_unknown && is_unknown) {
+					int next_tk_i = txt.tokens[j+1];
+					const Token& next_tk = da.tokens[next_tk_i];
+					if (next_tk.word_ >= 0) {
+						const ExportWord& next_ew = da.words[next_tk.word_];
+						next_unknown = next_ew.class_count > 1;
+					}
+				}
+				
+				if (!prev_unknown && is_unknown && next_unknown) {
+					// do nothing: wait until next
+				}
+				else*/
+				if (prev_unknown || (is_unknown && is_last)) {
+					if (prev_w_i >= 0) {
+						CombineHash c;
+						c.Do(prev_w_i).Put(1).Do(w_i);
+						hash_t h = c;
+						WordPairType& wp = da.ambiguous_word_pairs.GetAdd(h);
+						wp.from = prev_w_i;
+						wp.to = w_i;
+					}
+				}
+				
+				prev_unknown = is_unknown;
+			}
+			prev_w_i = w_i;
+		}
+	}
 }
 
 void TaskManager::GetAmbiguousWordPairs(Task* t) {
@@ -68,6 +217,50 @@ void TaskManager::GetAmbiguousWordPairs(Task* t) {
 	if (t->fn == 1)
 		m.GetTokenData(args, THISBACK1(OnAmbiguousWordPairs, t));
 	
+}
+
+void TaskManager::GetWordProcess(Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	String ds_key = sd.GetKey(t->ds_i);
+	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	
+	
+	const Vector<ArtistDataset>& dataset = sd[t->ds_i];
+	for(int j = 0; j < dataset.GetCount(); j++) {
+		const ArtistDataset& artist = dataset[j];
+		//ArtistAnalysis& aa = ds.artists.GetAdd(artist.name);
+		//aa.word_counts.Clear();
+		
+		for(int k = 0; k < artist.lyrics.GetCount(); k++) {
+			const LyricsDataset& song = artist.lyrics[k];
+			
+			String text = song.text;
+			if (GetDefaultCharset() != CHARSET_UTF8)
+				text = ToCharset(CHARSET_DEFAULT, text, CHARSET_UTF8);
+			
+			Vector<String> lines = Split(text, "\n");
+			for (String& l : lines) {
+				Vector<String> words;
+				GetWords(l, words);
+				if (words.IsEmpty()) continue;
+				
+				for (String& w : words) {
+					w = ToLower(w.ToWString()).ToString();
+				}
+				
+				//aa.total_words += words.GetCount();
+				for (String& w : words) {
+					//aa.word_counts.GetAdd(w, 0)++;
+					int w_i = -1;
+					ExportWord& wa = ds.words.GetAdd(w, w_i);
+					wa.count++;
+				}
+			}
+		}
+	}
 }
 
 void TaskManager::GetVirtualPhrases(Task* t) {
@@ -941,9 +1134,6 @@ void TaskManager::GetLineActions(Task* t) {
 }
 
 void TaskManager::GetSyllables(Task* t) {
-	if (Thread::IsShutdownThreads())
-		return;
-	
 	int per_batch = 30;
 	
 	Database& db = Database::Single();
@@ -955,34 +1145,56 @@ void TaskManager::GetSyllables(Task* t) {
 	
 	
 	SongDataAnalysisArgs args;
-	t->tmp_map_ds_i.Clear();
 	
 	int iter = 0;
-	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
-		String ds_key = sd.GetKey(ds_i);
-		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	int ds_i = t->ds_i;
+	String ds_key = sd.GetKey(ds_i);
+	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	
+	for(int i = 0; i < ds.words.GetCount(); i++) {
+		const String& wrd = ds.words.GetKey(i);
+		const ExportWord& wa = ds.words[i];
 		
-		for(int i = 0; i < ds.words.GetCount(); i++) {
-			if (iter >= begin) {
-				String wrd = ds.words.GetKey(i);
-				
-				// hotfix
-				HotfixReplaceWord(wrd);
-				
-				args.words << wrd;
-				t->tmp_map_ds_i.Add(wrd, ds_i);
-			}
-			iter++;
-			if (iter >= end) break;
+		// HASH BREAKING CODE
+		#if 1
+		if (wa.phonetic.GetCount() && wa.spelling.GetCount()) {
+			t->total++;
+			t->actual++;
+			continue;
 		}
-		if (iter >=  end) break;
+		#endif
+		
+		if (wrd.IsEmpty())
+			continue;
+		
+		#if 1
+		// HASH BREAKING FEATURE
+		if (wrd[0] == '{' || wrd[wrd.GetCount()-1] == '}') {
+			t->total++;
+			t->actual++;
+			continue;
+		}
+		#endif
+		
+		
+		if (iter >= begin) {
+			String wrd = ds.words.GetKey(i);
+			
+			// hotfix
+			HotfixReplaceWord(wrd);
+			args.words << wrd;
+		}
+		iter++;
+		if (iter >= end) break;
 	}
+	
 	
 	if (args.words.IsEmpty()) {
 		RemoveTask(*t);
 		return;
 	}
 	
+	t->total += args.words.GetCount();
 	
 	args.fn = 4;
 	
@@ -991,70 +1203,78 @@ void TaskManager::GetSyllables(Task* t) {
 }
 
 void TaskManager::GetDetails(Task* t) {
-	if (Thread::IsShutdownThreads())
-		return;
-	
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
 	int per_batch = 30;
 	
+	ASSERT(t->batch_i >= 0);
 	int begin = t->batch_i * per_batch;
 	int end = (t->batch_i+1) * per_batch;
 	
-	if (t->batch_i < 0) {
-		begin = 0;
-		end = 1;
-	}
-	
-	t->tmp_ds_i.Clear();
 	t->tmp_words.Clear();
 	
 	SongDataAnalysisArgs args;
 	
+	int ds_i = t->ds_i;
 	int iter = 0;
-	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
-		String ds_key = sd.GetKey(ds_i);
-		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	String ds_key = sd.GetKey(ds_i);
+	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	Color black(0,0,0);
+	
+	for(int i = 0; i < ds.words.GetCount(); i++) {
+		ExportWord& wa = ds.words[i];
+		const String& wrd = ds.words.GetKey(i);
 		
-		for(int i = 0; i < ds.words.GetCount(); i++) {
-			if (iter >= begin) {
-				const String& wrd = ds.words.GetKey(i);
-				
-				#if 0
-				int translation_i = ds.translations.Find(wrd);
-				if (translation_i < 0)
-					continue;
-				#endif
-				
-				// Skip cyrillic words
-				bool is_cyrillic = false;
-				WString ws = wrd.ToWString();
-				for(int j = 0; j < ws.GetCount(); j++) {
-					int chr = ws[j];
-					if (chr >= 0x0400 && chr < 0x052F) {
-						is_cyrillic = true;
-						break;
-					}
-				}
-				if (is_cyrillic)
-					continue;
-				
-				args.words << wrd;
-				t->tmp_ds_i << ds_i;
-				t->tmp_words.Add(wrd);
-			}
-			iter++;
-			if (iter >= end) break;
+		if (wrd.IsEmpty())
+			continue;
+		
+		#if 1
+		// HASH BREAKING FEATURE
+		if (wa.clr != black || wrd[0] == '{' || wrd[wrd.GetCount()-1] == '}') {
+			t->total++;
+			t->actual++;
+			continue;
 		}
+		#endif
+		
+		
+		#if 0
+		int translation_i = ds.translations.Find(wrd);
+		if (translation_i < 0)
+			continue;
+		#endif
+		
+		// Skip cyrillic words
+		bool is_cyrillic = false;
+		WString ws = wrd.ToWString();
+		for(int j = 0; j < ws.GetCount(); j++) {
+			int chr = ws[j];
+			if (chr >= 0x0400 && chr < 0x052F) {
+				is_cyrillic = true;
+				break;
+			}
+		}
+		if (is_cyrillic)
+			continue;
+		
+		
+		if (iter >= begin) {
+			args.words << wrd;
+			t->tmp_words.Add(wrd);
+		}
+		iter++;
 		if (iter >= end) break;
 	}
 	
 	if (args.words.IsEmpty()) {
-		RemoveTask(*t);
+		//RemoveTask(*t);
+		t->fn++;
 		return;
 	}
+	
+	t->total += args.words.GetCount();
 	
 	args.fn = 5;
 	
@@ -1127,20 +1347,17 @@ void TaskManager::GetLineChangeScores(Task* t) {
 }
 
 void TaskManager::GetWordData(Task* t) {
+	t->actual = 0;
+	t->total = 0;
 	
-	
-	/*bar.Add(t_("Get details"), AppImg::BlueRing(), THISBACK2(GetDetails, -1, false)).Key(K_CTRL_W);
-	bar.Add(t_("Get all details"), AppImg::RedRing(), THISBACK2(GetDetails, 0, true)).Key(K_F6);
-	bar.Separator();
-	bar.Add(t_("Get word syllables"), AppImg::BlueRing(), THISBACK2(GetSyllables, -1, false)).Key(K_CTRL_Q);
-	bar.Add(t_("Get all syllables"), AppImg::RedRing(), THISBACK2(GetSyllables, 0, true)).Key(K_F7);*/
-	
-	/*void GetEverything();
-	void GetSyllables(int batch_i, bool start_next);
-	void GetDetails(int batch_i, bool start_next);
-	void OnSyllables(String res, int batch_i, bool start_next);
-	void OnDetails(String res, int batch_i, bool start_next);*/
-	
+	if (t->fn == 0)
+		GetWordProcess(t);
+	else if (t->fn == 1)
+		GetDetails(t);
+	else if (t->fn == 2)
+		GetSyllables(t);
+	else
+		RemoveTask(*t);
 }
 
 void TaskManager::GetWordnet(Task* t) {
@@ -1169,9 +1386,7 @@ void TaskManager::GetColorAlternatives(Task* t) {
 	
 	SongDataAnalysisArgs args;
 	
-	VectorMap<String, int>& word_ds = t->tmp_map_ds_i;
 	VectorMap<String, Color>& word_clr = t->word_clr;
-	word_ds.Clear();
 	word_clr.Clear();
 	
 	int iter = 0;
@@ -1190,7 +1405,6 @@ void TaskManager::GetColorAlternatives(Task* t) {
 				key << ", RGB(" << (int)wa.clr.GetR() << "," << (int)wa.clr.GetG() << "," << (int)wa.clr.GetB() << ")";
 				args.words << key;
 				
-				word_ds.Add(txt, ds_i);
 				word_clr.Add(txt, wa.clr);
 				
 				if (args.words.GetCount() == 1) {

@@ -9,7 +9,7 @@ TaskManager::TaskManager() {
 void TaskManager::Clear() {
 	lock.EnterWrite();
 	Task& t = task_list.Add();
-	t.type = TASK_TOKENS;
+	t.type = TASK_CLEAR;
 	t.cb = THISBACK1(DoClear, &t);
 	lock.LeaveWrite();
 }

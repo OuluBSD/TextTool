@@ -64,7 +64,13 @@ void TaskManager::OnTokenData(String result, Task* t) {
 				FixedIndexFindAdd(wrd.classes, wrd.MAX_CLASS_COUNT, wrd.class_count, wc_i);
 		}
 		
+		t->actual++;
 	}
+	
+	
+	da.diagnostics.GetAdd("tokens: total") = IntStr(t->total);
+	da.diagnostics.GetAdd("tokens: actual") =  IntStr(t->actual);
+	da.diagnostics.GetAdd("tokens: percentage") =  DblStr((double)t->actual / (double) t->total * 100);
 	
 	t->running = false;
 	t->batch_i++;
@@ -658,14 +664,15 @@ void TaskManager::OnLineActions(String res, Task* t) {
 }
 
 void TaskManager::OnSyllables(String res, Task* t) {
-	if (Thread::IsShutdownThreads())
-		return;
-	
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	//-hey: hey [heɪ]
 	//- hello: hel-lo [hɛˈloʊ]
+	
+	int ds_i = t->ds_i;
+	String ds_key = sd.GetKey(ds_i);
 	
 	res.Replace("\r", "");
 	Vector<String> lines = Split(res, "\n");
@@ -684,9 +691,6 @@ void TaskManager::OnSyllables(String res, Task* t) {
 		if (b < 0) continue;
 		WString phonetic = TrimBoth(line.Mid(a,b-a)).ToWString();
 		
-		int ds_i = t->tmp_map_ds_i.Get(wrd, -1);
-		if (ds_i < 0) continue;
-		String ds_key = sd.GetKey(ds_i);
 		
 		// hotfix
 		if (1) {
@@ -698,24 +702,32 @@ void TaskManager::OnSyllables(String res, Task* t) {
 		ExportWord& wa = ds.words.GetAdd(wrd);
 		wa.spelling = spelling;
 		wa.phonetic = phonetic;
+		
+		t->actual++;
 	}
+	
+	da.diagnostics.GetAdd("syllables: total") = IntStr(t->total);
+	da.diagnostics.GetAdd("syllables: actual") =  IntStr(t->actual);
+	da.diagnostics.GetAdd("syllables: percentage") =  DblStr((double)t->actual / (double) t->total * 100);
 	
 	t->batch_i++;
 	t->running = false;
 }
 
 void TaskManager::OnDetails(String res, Task* t) {
-	if (Thread::IsShutdownThreads())
-		return;
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
-	
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	res.Replace("\r", "");
 	
 	Vector<String> lines = Split(res, "\n");
 	//DUMPC(lines);
+	int ds_i = t->ds_i;
+	
+	Color black(0,0,0);
+	Color non_black(1,1,1);
 	
 	for(int i = 0; i < lines.GetCount(); i++) {
 		String& l = lines[i];
@@ -755,16 +767,26 @@ void TaskManager::OnDetails(String res, Task* t) {
 		
 		int j = t->tmp_words.Find(orig);
 		if (j < 0) continue;
-		int ds_i = t->tmp_ds_i[j];
 		DatasetAnalysis& ds = sda.datasets[ds_i];
 		
 		j = ds.words.Find(orig);
 		if (j < 0) continue;
 		
 		ExportWord& wa = ds.words[j];
+		int c_i = ds.word_classes.FindAdd(main_class);
 		if (wa.class_count == 0) {
-			int c_i = ds.word_classes.FindAdd(main_class);
 			wa.classes[wa.class_count++] = c_i;
+		}
+		else {
+			bool found = false;
+			for(int i = 0; i < wa.class_count; i++) {
+				if (wa.classes[i] == c_i) {
+					found = true;
+					break;
+				}
+			}
+			if (!found && wa.class_count < ExportWord::MAX_CLASS_COUNT)
+				wa.classes[wa.class_count++] = c_i;
 		}
 		
 		String& trans_dst = ds.translations.GetAdd(orig);
@@ -777,8 +799,16 @@ void TaskManager::OnDetails(String res, Task* t) {
 				ScanInt(TrimBoth(clr_str[0])),
 				ScanInt(TrimBoth(clr_str[1])),
 				ScanInt(TrimBoth(clr_str[2])));
+			if (wa.clr == black)
+				wa.clr = non_black;
 		}
+		t->actual++;
 	}
+	
+	
+	da.diagnostics.GetAdd("words: total") = IntStr(t->total);
+	da.diagnostics.GetAdd("words: actual") =  IntStr(t->actual);
+	da.diagnostics.GetAdd("words: percentage") =  DblStr((double)t->actual / (double) t->total * 100);
 	
 	t->batch_i++;
 	t->running = false;
@@ -867,7 +897,6 @@ void TaskManager::OnColorAlternatives(String res, Task* t) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
-	VectorMap<String, int>& word_ds = t->tmp_map_ds_i;
 	VectorMap<String, Color>& word_clr = t->word_clr;
 	
 	res = t->tmp_str + res;
@@ -876,6 +905,8 @@ void TaskManager::OnColorAlternatives(String res, Task* t) {
 	Vector<String> lines = Split(res, "\n");
 	VectorMap<int,Vector<String>> iter_phrase_parts;
 	VectorMap<int,Vector<Vector<String>>> iter_phrase_words;
+	
+	int ds_i = t->ds_i;
 	
 	for (String& l : lines) {
 		l = TrimBoth(l);
@@ -909,10 +940,6 @@ void TaskManager::OnColorAlternatives(String res, Task* t) {
 		for(int i = 0; i < clr_parts.GetCount(); i++)
 			clr_i[i] = StrInt(clr_parts[i]);
 		Color dst_clr(clr_i[0], clr_i[1], clr_i[2]);
-		
-		int ds_i = word_ds.Get(src_word, -1);
-		if (ds_i < 0)
-			continue;
 		
 		Color src_clr = word_clr.Get(src_word, Black());
 		

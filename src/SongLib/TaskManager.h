@@ -5,7 +5,10 @@ namespace SongLib {
 
 
 typedef enum {
+	TASK_CLEAR,
+	TASK_SONGS,
 	TASK_TOKENS,
+	TASK_UNKNOWN_TOKEN_PAIRS,
 	TASK_AMBIGUOUS_WORD_PAIRS,
 	TASK_VIRTUAL_PHRASES,
 	TASK_PHRASES,
@@ -40,11 +43,10 @@ struct Task {
 	bool running = false;
 	Vector<int> tmp;
 	Vector<Batch> batches;
-	VectorMap<String, int> tmp_map_ds_i;
-	Vector<int> tmp_ds_i;
 	Index<String> tmp_words;
 	VectorMap<String, Color> word_clr;
 	String tmp_str;
+	int actual = 0, total = 0;
 };
 
 
@@ -64,15 +66,20 @@ class TaskManager {
 	void RealizePipe();
 	void Process();
 	
+	void GetSongs(Task* t);
+	
+	void GetTokenData(Task* t);
+	void OnTokenData(String result, Task* t);
+	
+	void GetUnknownTokenPairs(Task* t);
+	void GetWordProcess(Task* t);
+	
 	void GetActionlist(Task* t);
 	void OnActionlistColors(String result, Task* t);
 	void OnActionlistAttrs(String result, Task* t);
 	
 	void GetActionTransitions(Task* t);
 	void GetActionParallels(Task* t);
-	
-	void GetTokenData(Task* t);
-	void OnTokenData(String result, Task* t);
 	
 	void GetAmbiguousWordPairs(Task* t);
 	void OnAmbiguousWordPairs(String result, Task* t);
@@ -129,7 +136,9 @@ public:
 	
 	static TaskManager& Single() {static TaskManager o; return o;}
 	
+	void DoSongs(int ds_i, int fn);
 	void DoTokens(int ds_i, int fn);
+	void DoUnknownTokenPairs(int ds_i, int fn);
 	void DoAmbiguousWordPairs(int ds_i, int fn);
 	void DoVirtualPhrases(int ds_i, int fn);
 	void DoPhrases(int ds_i, int fn);

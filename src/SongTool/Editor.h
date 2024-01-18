@@ -67,6 +67,7 @@ protected:
 	ActionTransitionsPage			action_transitions;
 	SongDataWords					song_words;
 	SongDataWordnet					song_wordnet;
+	SongDataDiagnostics				db_diagnostics;
 	/*
 	SongDataAnalysisPage			song_analysis;
 	SongDataTemplates				song_tmpl;

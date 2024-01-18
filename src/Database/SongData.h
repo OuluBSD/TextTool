@@ -853,6 +853,7 @@ struct DatasetAnalysis {
 	MapFile<String,ExportDepActionPhrase> action_phrases;
 	MapFile<String,String> translations;
 	MapFile<hash_t,ExportWordnet> wordnets;
+	MapFile<String,String> diagnostics;
 	
 	// Cached data
 	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;

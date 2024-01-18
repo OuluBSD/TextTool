@@ -40,6 +40,8 @@ file
 	Wordnet.cpp,
 	Loader.h,
 	Loader.cpp,
+	Diagnostics.h,
+	Diagnostics.cpp,
 	TODO readonly separator,
 	LineTypes.h,
 	LineTypes.cpp,

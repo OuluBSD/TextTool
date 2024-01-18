@@ -2,6 +2,22 @@
 
 namespace SongLib {
 
+void TaskManager::DoSongs(int ds_i, int fn) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	lock.EnterWrite();
+	Task& t = task_list.Add();
+	t.type = TASK_SONGS;
+	t.cb = THISBACK1(GetSongs, &t);
+	t.ds_i = ds_i;
+	t.batch_i = 0;
+	t.fn = fn;
+	lock.LeaveWrite();
+}
+
 void TaskManager::DoTokens(int ds_i, int fn) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -12,6 +28,22 @@ void TaskManager::DoTokens(int ds_i, int fn) {
 	Task& t = task_list.Add();
 	t.type = TASK_TOKENS;
 	t.cb = THISBACK1(GetTokenData, &t);
+	t.ds_i = ds_i;
+	t.batch_i = 0;
+	t.fn = fn;
+	lock.LeaveWrite();
+}
+
+void TaskManager::DoUnknownTokenPairs(int ds_i, int fn) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	lock.EnterWrite();
+	Task& t = task_list.Add();
+	t.type = TASK_UNKNOWN_TOKEN_PAIRS;
+	t.cb = THISBACK1(GetUnknownTokenPairs, &t);
 	t.ds_i = ds_i;
 	t.batch_i = 0;
 	t.fn = fn;

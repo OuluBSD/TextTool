@@ -15,7 +15,8 @@ Scheduled work:
 - 5t model for evaluation
 - professional contacts (who is who, roles)
 	- for tasks to contact people
-
+- trading for artist: trainer
+	 - like phone seller: direct selling
 
 - concept oriented songs instead of character oriented
 	- wins & losses

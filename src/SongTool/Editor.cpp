@@ -84,6 +84,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Action parallels"), action_parallels);
 	AddItem(t_("Database"), t_("Action transitions"), action_transitions);
 	AddItem(t_("Database"), t_("Wordnet"), song_wordnet);
+	AddItem(t_("Database"), t_("Diagnostics"), db_diagnostics);
 	/*AddItem(t_("Database"), t_("Analysis"), song_analysis);
 	AddItem(t_("Database"), t_("Phrases"), song_phrases);
 	//AddItem(t_("Database"), t_("Search phrases"), song_searchphrases);
