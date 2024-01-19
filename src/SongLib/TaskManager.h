@@ -8,16 +8,17 @@ typedef enum {
 	TASK_CLEAR,
 	TASK_SONGS,
 	TASK_TOKENS,
+	TASK_WORD_DATA,
+	TASK_WORD_FIX,
 	TASK_UNKNOWN_TOKEN_PAIRS,
 	TASK_AMBIGUOUS_WORD_PAIRS,
+	
 	TASK_VIRTUAL_PHRASES,
 	TASK_PHRASES,
 	TASK_CONTAINER,
 	TASK_ACTIONLIST,
 	TASK_ACTION_PARALLELS,
 	TASK_ACTION_TRANSITIONS,
-	TASK_WORD_DATA,
-	TASK_WORD_FIX,
 	TASK_WORDNET,
 	
 	TASK_COUNT
@@ -46,6 +47,7 @@ struct Task {
 	Vector<Batch> batches;
 	Index<String> tmp_words;
 	VectorMap<String, Color> word_clr;
+	Vector<void*> tmp_ptrs;
 	String tmp_str;
 	int actual = 0, total = 0;
 };

@@ -3,6 +3,9 @@ Scheduled work:
 	- how much needs to be processed still
 	- check for missing data
 		- e.g. action colors/attrs might not get all 40/60 responses
+- songlib: all iter loop 'continue statements' ruins batch calculations
+- database: GetVirtualPhrases fn 2 cache
+
 - line structure editor
 - attr & color editor (use existing action threads)
 - pre-processing of suggestions: (use scores too)

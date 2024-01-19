@@ -76,7 +76,7 @@ void TaskManager::OnTokenData(String result, Task* t) {
 	t->batch_i++;
 }
 
-void TaskManager::OnAmbiguousWordPairs(String result, Task* t) {
+void TaskManager::OnAmbiguousWordPairs(String res, Task* t) {
 	TokenArgs& args = token_args;
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -85,12 +85,15 @@ void TaskManager::OnAmbiguousWordPairs(String result, Task* t) {
 	
 	// 9. is something : verb, noun
 	
-	result.Replace("\r", "");
-	Vector<String> lines = Split(result, "\n");
+	RemoveEmptyLines(res);
+	Vector<String> lines = Split(res, "\n");
 	
+	bool line_match = t->tmp_ptrs.GetCount() == lines.GetCount();
 	int offset = 1+1;
 	
+	int line_i = -1;
 	for (String& line : lines) {
+		line_i++;
 		line = TrimBoth(line);
 		
 		if (line.IsEmpty() ||!IsDigit(line[0]))
@@ -108,15 +111,21 @@ void TaskManager::OnAmbiguousWordPairs(String result, Task* t) {
 		if (result_words.GetCount() != 2)
 			continue;
 		
-		int w_i0 = da.words.Find(result_words[0]);
-		int w_i1 = da.words.Find(result_words[1]);
-		CombineHash ch;
-		ch.Do(w_i0).Put(1).Do(w_i1);
-		hash_t h = ch;
-		
-		//ExportWord& wrd0 = da.words[w_i0];
-		//ExportWord& wrd1 = da.words[w_i1];
-		WordPairType& wp = da.ambiguous_word_pairs.GetAdd(h);
+		WordPairType* wpp;
+		if (line_match)
+			wpp = (WordPairType*)t->tmp_ptrs[line_i];
+		else {
+			int w_i0 = da.words.Find(result_words[0]);
+			int w_i1 = da.words.Find(result_words[1]);
+			CombineHash ch;
+			ch.Do(w_i0).Put(1).Do(w_i1);
+			hash_t h = ch;
+			
+			//ExportWord& wrd0 = da.words[w_i0];
+			//ExportWord& wrd1 = da.words[w_i1];
+			wpp = &da.ambiguous_word_pairs.GetAdd(h);
+		}
+		WordPairType& wp = *wpp;
 		
 		line = TrimBoth(line.Mid(a+1));
 		
@@ -134,21 +143,39 @@ void TaskManager::OnAmbiguousWordPairs(String result, Task* t) {
 		wp.to_type = wc_i_list[1];
 	}
 	
+	int a = 0;
+	for (const WordPairType& wp : da.ambiguous_word_pairs.GetValues()) {
+		if (wp.from < 0 || wp.to < 0)
+			continue;
+		if (wp.from_type >= 0 && wp.to_type >= 0)
+			a++;
+	}
+	da.diagnostics.GetAdd("ambiguous word pairs: total") = IntStr(da.ambiguous_word_pairs.GetCount());
+	da.diagnostics.GetAdd("ambiguous word pairs: actual") = IntStr(a);
+	da.diagnostics.GetAdd("ambiguous word pairs: percentage") =  DblStr((double)a / (double)da.ambiguous_word_pairs.GetCount() * 100);
+	
 	t->running = false;
 	t->batch_i++;
 }
 
-void TaskManager::OnVirtualPhrases(String result, Task* t) {
+void TaskManager::OnVirtualPhrases(String res, Task* t) {
 	TokenArgs& args = token_args;
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
-	result.Replace("\r", "");
-	Vector<String> lines = Split(result, "\n");
+	t->actual = 0;
+	t->total = 0;
+	
+	RemoveEmptyLines(res);
+	Vector<String> lines = Split(res, "\n");
+	bool line_match = t->tmp_ptrs.GetCount() == lines.GetCount();
+	
 	Vector<int> word_classes;
+	int line_i = -1;
 	for (String& line : lines) {
+		line_i++;
 		line = TrimBoth(line);
 		
 		if (line.IsEmpty() ||!IsDigit(line[0]))
@@ -164,23 +191,29 @@ void TaskManager::OnVirtualPhrases(String result, Task* t) {
 		
 		Vector<String> classes = Split(TrimBoth(line.Left(a)), ",");
 		word_classes.SetCount(0);
-		bool fail = false;
-		CombineHash ch;
-		for (String& c : classes) {
-			c = TrimBoth(c);
-			int wc_i = da.word_classes.FindAdd(c);
-			if (wc_i < 0) {
-				fail = true;
-				break;
-			}
-			word_classes << wc_i;
-			ch.Do(wc_i).Put(1);
-		}
-		if (fail) continue;
-		hash_t h = ch;
 		
-		int vpp_i = -1;
-		VirtualPhrasePart& vpp = da.virtual_phrase_parts.GetAdd(h, vpp_i);
+		VirtualPhrasePart* vpp_p;
+		if (line_match)
+			vpp_p = (VirtualPhrasePart*)t->tmp_ptrs[line_i];
+		else {
+			bool fail = false;
+			CombineHash ch;
+			for (String& c : classes) {
+				c = TrimBoth(c);
+				int wc_i = da.word_classes.FindAdd(c);
+				if (wc_i < 0) {
+					fail = true;
+					break;
+				}
+				word_classes << wc_i;
+				ch.Do(wc_i).Put(1);
+			}
+			if (fail) continue;
+			hash_t h = ch;
+			vpp_p = &da.virtual_phrase_parts.GetAdd(h);
+		}
+		VirtualPhrasePart& vpp = *vpp_p;
+		
 		if (vpp.word_classes.IsEmpty())
 			vpp.word_classes <<= word_classes;
 		
@@ -190,11 +223,20 @@ void TaskManager::OnVirtualPhrases(String result, Task* t) {
 	}
 	
 	
+	int a = 0;
+	for (const VirtualPhrasePart& vpp : da.virtual_phrase_parts.GetValues())
+		if (vpp.struct_part_type >= 0)
+			a++;
+	da.diagnostics.GetAdd("virtual phrases: total") = IntStr(da.virtual_phrase_parts.GetCount());
+	da.diagnostics.GetAdd("virtual phrases: actual") =  IntStr(a);
+	da.diagnostics.GetAdd("virtual phrases: percentage") =  DblStr((double)a / (double) da.virtual_phrase_parts.GetCount() * 100);
+	
+	
 	t->running = false;
 	t->batch_i++;
 }
 
-void TaskManager::OnVirtualPhraseTypes(String result, Task* t) {
+void TaskManager::OnVirtualPhraseTypes(String res, Task* t) {
 	TokenArgs& args = token_args;
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -204,8 +246,10 @@ void TaskManager::OnVirtualPhraseTypes(String result, Task* t) {
 	// 61. compound-complex sentence + complex sentence: compound-complex sentence
 	
 	int offset = 3+1;
-	result.Replace("\r", "");
-	Vector<String> lines = Split(result, "\n");
+	RemoveEmptyLines(res);
+	Vector<String> lines = Split(res, "\n");
+	bool line_match = t->tmp_ptrs.GetCount() == lines.GetCount();
+	
 	for (String& line : lines) {
 		line = TrimBoth(line);
 		
@@ -217,10 +261,10 @@ void TaskManager::OnVirtualPhraseTypes(String result, Task* t) {
 		
 		int line_i = ScanInt(line.Left(a));
 		line_i -= offset;
-		if (line_i < 0 || line_i >= t->tmp.GetCount())
+		if (line_i < 0 || line_i >= t->tmp_ptrs.GetCount())
 			continue;
-		int vps_i = t->tmp[line_i];
-		VirtualPhraseStruct& vps = da.virtual_phrase_structs[vps_i];
+		
+		VirtualPhraseStruct& vps = *(VirtualPhraseStruct*)t->tmp_ptrs[line_i];
 		
 		line = TrimBoth(line.Mid(a+1));
 		
@@ -248,9 +292,9 @@ void TaskManager::OnVirtualPhraseTypes(String result, Task* t) {
 		}
 		if (fail)
 			continue;
-		hash_t h = ch;
+		/*hash_t h = ch;
 		
-		/*int vps_i = da.virtual_phrase_structs.Find(h);
+		int vps_i = da.virtual_phrase_structs.Find(h);
 		if (vps_i < 0)
 			continue;
 		VirtualPhraseStruct& vps = da.virtual_phrase_structs[vps_i];*/
@@ -265,11 +309,19 @@ void TaskManager::OnVirtualPhraseTypes(String result, Task* t) {
 		vps.struct_type = da.struct_types.FindAdd(struct_type);
 	}
 	
+	int a = 0;
+	for (const VirtualPhraseStruct& vps : da.virtual_phrase_structs.GetValues())
+		if (vps.struct_type >= 0)
+			a++;
+	da.diagnostics.GetAdd("virtual phrase structs: total") = IntStr(da.virtual_phrase_structs.GetCount());
+	da.diagnostics.GetAdd("virtual phrase structs: actual") =  IntStr(a);
+	da.diagnostics.GetAdd("virtual phrase structs: percentage") =  DblStr((double)a / (double) da.virtual_phrase_structs.GetCount() * 100);
+	
 	t->running = false;
 	t->batch_i++;
 }
 
-void TaskManager::OnPhraseColors(String result, Task* t) {
+void TaskManager::OnPhraseColors(String res, Task* t) {
 	TokenArgs& args = token_args;
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -278,10 +330,16 @@ void TaskManager::OnPhraseColors(String result, Task* t) {
 	
 	// 12. RGB(255, 102, 0)
 	
+	Color black(0,0,0);
+	Color non_black(1,1,1);
 	int offset = 3+1;
-	result.Replace("\r", "");
-	Vector<String> lines = Split(result, "\n");
+	RemoveEmptyLines(res);
+	Vector<String> lines = Split(res, "\n");
+	bool line_match = t->tmp_ptrs.GetCount() == lines.GetCount();
+	
+	int line_i = -1;
 	for (String& line : lines) {
+		line_i++;
 		line = TrimBoth(line);
 		
 		if (line.IsEmpty() ||!IsDigit(line[0]))
@@ -290,12 +348,19 @@ void TaskManager::OnPhraseColors(String result, Task* t) {
 		int a = line.Find(".");
 		if (a < 0) continue;
 		
-		int line_i = ScanInt(line.Left(a));
-		line_i -= offset;
-		if (line_i < 0 || line_i >= t->tmp.GetCount())
-			continue;
-		int pp_i = t->tmp[line_i];
-		PhrasePart& pp = da.phrase_parts[pp_i];
+		PhrasePart* pp_p;
+		if (line_match)
+			pp_p = (PhrasePart*)t->tmp_ptrs[line_i];
+		else {
+			int line_i = ScanInt(line.Left(a));
+			line_i -= offset;
+			if (line_i < 0 || line_i >= t->tmp.GetCount())
+				continue;
+			int pp_i = t->tmp[line_i];
+			PhrasePart& pp = da.phrase_parts[pp_i];
+			pp_p = &da.phrase_parts[pp_i];
+		}
+		PhrasePart& pp = *pp_p;
 		
 		a = line.Find("RGB(", a+1);
 		if (a < 0) continue;
@@ -309,15 +374,27 @@ void TaskManager::OnPhraseColors(String result, Task* t) {
 		int B = StrInt(TrimBoth(clr_parts[2]));
 		Color clr(R,G,B);
 		
+		if (clr == black)
+			clr = non_black;
+		
 		pp.clr = clr;
 	}
+	
+	
+	int a = 0;
+	for (const PhrasePart& pp : da.phrase_parts.GetValues())
+		if (pp.clr != black)
+			a++;
+	da.diagnostics.GetAdd("phrase part color: total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd("phrase part color: actual") = IntStr(a);
+	da.diagnostics.GetAdd("phrase part color: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
 	
 	
 	t->batch_i++;
 	t->running = false;
 }
 
-void TaskManager::OnPhraseAttrs(String result, Task* t) {
+void TaskManager::OnPhraseAttrs(String res, Task* t) {
 	TokenArgs& args = token_args;
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -327,9 +404,13 @@ void TaskManager::OnPhraseAttrs(String result, Task* t) {
 	// 1. Belief communities: acceptance
 	
 	int offset = 3+1;
-	result.Replace("\r", "");
-	Vector<String> lines = Split(result, "\n");
+	RemoveEmptyLines(res);
+	Vector<String> lines = Split(res, "\n");
+	bool line_match = t->tmp_ptrs.GetCount() == lines.GetCount();
+	
+	int line_i = -1;
 	for (String& line : lines) {
+		line_i++;
 		line = TrimBoth(line);
 		
 		if (line.IsEmpty() ||!IsDigit(line[0]))
@@ -338,12 +419,19 @@ void TaskManager::OnPhraseAttrs(String result, Task* t) {
 		int a = line.Find(".");
 		if (a < 0) continue;
 		
-		int line_i = ScanInt(line.Left(a));
-		line_i -= offset;
-		if (line_i < 0 || line_i >= t->tmp.GetCount())
-			continue;
-		int pp_i = t->tmp[line_i];
-		PhrasePart& pp = da.phrase_parts[pp_i];
+		PhrasePart* pp_p;
+		if (line_match)
+			pp_p = (PhrasePart*)t->tmp_ptrs[line_i];
+		else {
+			int line_i = ScanInt(line.Left(a));
+			line_i -= offset;
+			if (line_i < 0 || line_i >= t->tmp.GetCount())
+				continue;
+			int pp_i = t->tmp[line_i];
+			pp_p = &da.phrase_parts[pp_i];
+		}
+		PhrasePart& pp = *pp_p;
+		ASSERT(pp.attr < 0);
 		
 		line = TrimBoth(line.Mid(a+1));
 		a = line.Find(":");
@@ -356,11 +444,20 @@ void TaskManager::OnPhraseAttrs(String result, Task* t) {
 	}
 	
 	
+	int a = 0;
+	for (const PhrasePart& pp : da.phrase_parts.GetValues())
+		if (pp.attr >= 0)
+			a++;
+	da.diagnostics.GetAdd("phrase part attrs: total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd("phrase part attrs: actual") = IntStr(a);
+	da.diagnostics.GetAdd("phrase part attrs: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	
+	
 	t->batch_i++;
 	t->running = false;
 }
 
-void TaskManager::OnPhraseActions(String result, Task* t) {
+void TaskManager::OnPhraseActions(String res, Task* t) {
 	TokenArgs& args = token_args;
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -371,9 +468,13 @@ void TaskManager::OnPhraseActions(String result, Task* t) {
 	
 	Vector<int> actions;
 	int offset = 3+1;
-	result.Replace("\r", "");
-	Vector<String> lines = Split(result, "\n");
+	RemoveEmptyLines(res);
+	Vector<String> lines = Split(res, "\n");
+	bool line_match = t->tmp_ptrs.GetCount() == lines.GetCount();
+	
+	int line_i = -1;
 	for (String& line : lines) {
+		line_i++;
 		line = TrimBoth(line);
 		
 		// Get line number
@@ -382,12 +483,18 @@ void TaskManager::OnPhraseActions(String result, Task* t) {
 		int a = line.Find(".");
 		if (a < 0) continue;
 		
-		int line_i = ScanInt(line.Left(a));
-		line_i -= offset;
-		if (line_i < 0 || line_i >= t->tmp.GetCount())
-			continue;
-		int pp_i = t->tmp[line_i];
-		PhrasePart& pp = da.phrase_parts[pp_i];
+		PhrasePart* pp_p;
+		if (line_match)
+			pp_p = (PhrasePart*)t->tmp_ptrs[line_i];
+		else {
+			int line_i = ScanInt(line.Left(a));
+			line_i -= offset;
+			if (line_i < 0 || line_i >= t->tmp.GetCount())
+				continue;
+			int pp_i = t->tmp[line_i];
+			pp_p = &da.phrase_parts[pp_i];
+		}
+		PhrasePart& pp = *pp_p;
 		line = TrimBoth(line.Mid(a+1));
 		
 		// Split rest of the line at '+' character and parse single actions
@@ -415,11 +522,20 @@ void TaskManager::OnPhraseActions(String result, Task* t) {
 	}
 	
 	
+	int a = 0;
+	for (const PhrasePart& pp : da.phrase_parts.GetValues())
+		if (!pp.actions.IsEmpty())
+			a++;
+	da.diagnostics.GetAdd("phrase part actions: total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd("phrase part actions: actual") = IntStr(a);
+	da.diagnostics.GetAdd("phrase part actions: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	
+	
 	t->batch_i++;
 	t->running = false;
 }
 
-void TaskManager::OnPhraseScores(String result, Task* t) {
+void TaskManager::OnPhraseScores(String res, Task* t) {
 	TokenArgs& args = token_args;
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -430,14 +546,19 @@ void TaskManager::OnPhraseScores(String result, Task* t) {
 	
 	Vector<int> actions;
 	int offset = 1+1;
-	result.Replace("\r", "");
-	Vector<String> lines = Split(result, "\n");
+	RemoveEmptyLines(res);
+	Vector<String> lines = Split(res, "\n");
+	bool line_match = t->tmp_ptrs.GetCount() == lines.GetCount();
+	
 	for(int i = 0; i < lines.GetCount(); i++) {
 		String& l = lines[i];
 		if (l.Find("(") >= 0)
 			lines.Remove(i--);
 	}
+	
+	int line_i = -1;
 	for (String& line : lines) {
+		line_i++;
 		line = TrimBoth(line);
 		
 		// Get line number
@@ -446,12 +567,18 @@ void TaskManager::OnPhraseScores(String result, Task* t) {
 		int a = line.Find(".");
 		if (a < 0) continue;
 		
-		int line_i = ScanInt(line.Left(a));
-		line_i -= offset;
-		if (line_i < 0 || line_i >= t->tmp.GetCount())
-			continue;
-		int pp_i = t->tmp[line_i];
-		PhrasePart& pp = da.phrase_parts[pp_i];
+		PhrasePart* pp_p;
+		if (line_match)
+			pp_p = (PhrasePart*)t->tmp_ptrs[line_i];
+		else {
+			int line_i = ScanInt(line.Left(a));
+			line_i -= offset;
+			if (line_i < 0 || line_i >= t->tmp.GetCount())
+				continue;
+			int pp_i = t->tmp[line_i];
+			pp_p = &da.phrase_parts[pp_i];
+		}
+		PhrasePart& pp = *pp_p;
 		line = TrimBoth(line.Mid(a+1));
 		
 		// Split rest of the line at space character
@@ -465,6 +592,15 @@ void TaskManager::OnPhraseScores(String result, Task* t) {
 		for (const String& part : parts)
 			pp.scores[i++] = ScanInt(part);
 	}
+	
+	
+	int a = 0;
+	for (const PhrasePart& pp : da.phrase_parts.GetValues())
+		if (pp.HasScores())
+			a++;
+	da.diagnostics.GetAdd("phrase part scores: total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd("phrase part scores: actual") = IntStr(a);
+	da.diagnostics.GetAdd("phrase part scores: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
 	
 	
 	t->batch_i++;
@@ -570,15 +706,8 @@ void TaskManager::OnLineActions(String res, Task* t) {
 	Task::Batch& batch = t->batches[t->batch_i];
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	
-	res.Replace("\r", "");
+	RemoveEmptyLines2(res);
 	Vector<String> lines = Split(res, "\n");
-	for(int i = 0; i < lines.GetCount(); i++) {
-		String& l = lines[i];
-		RemoveLineNumber(l);
-		l = TrimBoth(l);
-		if (l.IsEmpty() || l[0] == '-')
-			lines.Remove(i--);
-	}
 	
 	Vector<String> txt_lines = Split(batch.txt, "\n");
 	ASSERT(txt_lines.GetCount());
@@ -676,13 +805,8 @@ void TaskManager::OnSyllables(String res, Task* t) {
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 	
 	res.Replace("\r", "");
+	RemoveEmptyLines(res);
 	Vector<String> lines = Split(res, "\n");
-	for(int i = 0; i < lines.GetCount(); i++) {
-		String& l = lines[i];
-		l = TrimBoth(l);
-		if (l.IsEmpty())
-			lines.Remove(i--);
-	}
 	bool line_match = t->tmp_words.GetCount() == lines.GetCount();
 	
 	int line_i = -1;
@@ -751,13 +875,9 @@ void TaskManager::OnDetails(String res, Task* t) {
 	
 	res.Replace("\r", "");
 	
+	RemoveEmptyLines(res);
 	Vector<String> lines = Split(res, "\n");
-	for(int i = 0; i < lines.GetCount(); i++) {
-		String& l = lines[i];
-		l = TrimBoth(l);
-		if (l.IsEmpty())
-			lines.Remove(i--);
-	}
+	
 	//DUMPC(lines);
 	int ds_i = t->ds_i;
 	
@@ -881,14 +1001,9 @@ void TaskManager::OnLineChangeScores(String res, Task* t) {
 	res = "1. Stop line 1 & start line 2: S0:" + res;
 	res.Replace("not applicable", "0");
 	
+	RemoveEmptyLines2(res);
 	Vector<String> lines = Split(res, "\n");
-	for(int i = 0; i < lines.GetCount(); i++) {
-		String& l = lines[i];
-		RemoveLineNumber(l);
-		l = TrimBoth(l);
-		if (l.IsEmpty() || l[0] == '-')
-			lines.Remove(i--);
-	}
+	
 	
 	Vector<int>& ap_is = t->tmp;
 	

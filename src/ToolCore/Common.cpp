@@ -223,6 +223,31 @@ void RemoveLineChar(String& s) {
 		s = TrimBoth(s);
 }
 
+void RemoveEmptyLines(String& s) {
+	s.Replace("\r","");
+	Vector<String> lines = Split(s, "\n");
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		l = TrimBoth(l);
+		if (l.IsEmpty())
+			lines.Remove(i--);
+	}
+	s = Join(lines, "\n");
+}
+
+void RemoveEmptyLines2(String& s) {
+	s.Replace("\r","");
+	Vector<String> lines = Split(s, "\n");
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		RemoveLineNumber(l);
+		l = TrimBoth(l);
+		if (l.IsEmpty() || l[0] == '-')
+			lines.Remove(i--);
+	}
+	s = Join(lines, "\n");
+}
+
 
 
 

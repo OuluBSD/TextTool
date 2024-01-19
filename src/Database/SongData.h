@@ -665,6 +665,12 @@ struct PhrasePart : Moveable<PhrasePart> {
 	Vector<int> actions;
 	int scores[SCORE_COUNT] = {0,0,0,0,0,0,0,0,0,0};
 	
+	bool HasScores() const {
+		for(int i = 0; i < SCORE_COUNT; i++)
+			if (scores[i] != 0)
+				return true;
+		return false;
+	}
 	String StoreToString() {
 		StringDumper d;
 		d % words.GetCount();

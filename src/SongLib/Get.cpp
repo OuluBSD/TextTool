@@ -197,19 +197,29 @@ void TaskManager::GetAmbiguousWordPairs(Task* t) {
 	int begin = t->batch_i * per_action_task;
 	int end = begin + per_action_task;
 	end = min(end, da.ambiguous_word_pairs.GetCount());
-	int count = end - begin;
-	if (count <= 0) {
-		RemoveTask(*t);
-		return;
-	}
+	int iter = 0;
 	
-	for(int i = begin; i < end; i++) {
-		const auto& wp = da.ambiguous_word_pairs[i];
-		if (wp.from >= 0 && wp.to >= 0) {
+	t->tmp_ptrs.Clear();
+	
+	for (const WordPairType& wp : da.ambiguous_word_pairs.GetValues()) {
+		if (wp.from < 0 || wp.to < 0)
+			continue;
+		if (wp.from_type >= 0 && wp.to_type >= 0)
+			continue;
+		
+		if (iter >= begin && iter < end) {
 			const String& from = da.words.GetKey(wp.from);
 			const String& to = da.words.GetKey(wp.to);
 			args.words << (from + " " + to);
+			t->tmp_ptrs << (void*)&wp;
 		}
+		else if (iter >= end)
+			break;
+		iter++;
+	}
+	if (args.words.IsEmpty()) {
+		RemoveTask(*t);
+		return;
 	}
 	
 	RealizePipe();
@@ -376,8 +386,11 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 	
 	if (t->fn == 0) {
 		Vector<int> word_is, word_classes;
+		t->actual = 0;
+		t->total = 0;
 		for(int i = 0; i < da.token_texts.GetCount(); i++) {
 			TokenText& txt = da.token_texts[i];
+			t->total++;
 			
 			bool succ = true;
 			word_is.SetCount(0);
@@ -386,8 +399,12 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 				const Token& tk = da.tokens[tk_i];
 				int w_i = tk.word_;
 				if (w_i < 0) {
-					String key = ToLower(da.tokens.GetKey(tk_i));
+					String key = da.tokens.GetKey(tk_i);
 					w_i = da.words.Find(key);
+					if (w_i < 0) {
+						key = ToLower(da.tokens.GetKey(tk_i));
+						w_i = da.words.Find(key);
+					}
 					tk.word_ = w_i;
 				}
 				word_is << w_i;
@@ -415,8 +432,13 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 				Swap(word_classes, vp.word_classes);
 				
 				txt.virtual_phrase = vp_i;
+				t->actual++;
 			}
 		}
+		
+		da.diagnostics.GetAdd("token texts to virtual phrases: total") = IntStr(t->total);
+		da.diagnostics.GetAdd("token texts to virtual phrases: actual") =  IntStr(t->actual);
+		da.diagnostics.GetAdd("token texts to virtual phrases: percentage") =  DblStr((double)t->actual / (double) t->total * 100);
 		
 		//int punctuation_mark_i = da.word_classes.FindAdd("punctuation mark");
 		//int punctuation_i = da.word_classes.FindAdd("punctuation");
@@ -484,40 +506,53 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 		args.words.Clear();
 		
 		int per_action_task = 75;
+		int iter = 0;
 		int begin = t->batch_i * per_action_task;
 		int end = begin + per_action_task;
 		end = min(end, da.virtual_phrase_parts.GetCount());
-		int count = end - begin;
-		if (count <= 0) {
-			RemoveTask(*t);
-			return;
+		t->tmp_ptrs.Clear();
+		
+		for (const VirtualPhrasePart& vpp : da.virtual_phrase_parts.GetValues()) {
+			
+			if (vpp.struct_part_type >= 0)
+				continue;
+			
+			if (iter >= begin && iter < end) {
+				String s;
+				int punct_count = 0;
+				bool fail = false;
+				for(int j = 0; j < vpp.word_classes.GetCount(); j++) {
+					if (j) s << ",";
+					int wc_i = vpp.word_classes[j];
+					if (wc_i >= da.word_classes.GetCount()) {fail = true; break;}
+					String wc = da.word_classes[wc_i];
+					
+					int a = wc.Find("(");
+					if (a >= 0) wc = wc.Left(a);
+					a = wc.Find(",");
+					if (a >= 0) wc = wc.Left(a);
+					
+					if (wc.Find("punctuation") >= 0)
+						punct_count++;
+					
+					s << wc;
+				}
+				
+				if (punct_count > 8 || fail)
+					continue;
+				
+				args.words << s;
+				t->tmp_ptrs << (void*)&vpp;
+			}
+			else if (iter >= end)
+				break;
+			
+			iter++;
 		}
 		
-		for(int i = begin; i < end; i++) {
-			const VirtualPhrasePart& vpp = da.virtual_phrase_parts[i];
-			String s;
-			int punct_count = 0;
-			bool fail = false;
-			for(int j = 0; j < vpp.word_classes.GetCount(); j++) {
-				if (j) s << ",";
-				int wc_i = vpp.word_classes[j];
-				if (wc_i >= da.word_classes.GetCount()) {fail = true; break;}
-				String wc = da.word_classes[wc_i];
-				
-				int a = wc.Find("(");
-				if (a >= 0) wc = wc.Left(a);
-				a = wc.Find(",");
-				if (a >= 0) wc = wc.Left(a);
-				
-				if (wc.Find("punctuation") >= 0)
-					punct_count++;
-				
-				s << wc;
-			}
-			if (punct_count > 8 || fail)
-				args.words << "error";
-			else
-				args.words << s;
+		if (args.words.IsEmpty()) {
+			RemoveTask(*t);
+			return;
 		}
 		
 		RealizePipe();
@@ -533,46 +568,63 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 		int begin = t->batch_i * per_action_task;
 		int end = begin + per_action_task;
 		end = min(end, da.virtual_phrase_structs.GetCount());
-		int count = end - begin;
-		if (count <= 0) {
-			RemoveTask(*t);
-			return;
+		
+		int iter = 0;
+		t->tmp_ptrs.Clear();
+		for (const VirtualPhraseStruct& vps : da.virtual_phrase_structs.GetValues()) {
+			if (vps.struct_type >= 0)
+				continue;
+			
+			if (iter >= begin && iter < end) {
+				String s;
+				bool fail = false;
+				for(int j = 0; j < vps.virtual_phrase_parts.GetCount(); j++) {
+					if (j) s << " + ";
+					int vpp_i = vps.virtual_phrase_parts[j];
+					
+					const VirtualPhrasePart& vpp = da.virtual_phrase_parts[vpp_i];
+					if (vpp.struct_part_type < 0) {
+						fail = true;
+						break;
+					}
+					
+					String type_str = da.struct_part_types[vpp.struct_part_type];
+					if (type_str.IsEmpty()) {
+						fail = true;
+						break;
+					}
+					s << type_str;
+				}
+				if (fail)
+					continue;
+				if (s.IsEmpty())
+					continue;
+				
+				args.words << s;
+				t->tmp_ptrs << (void*)&vps;
+			}
+			else if (iter >= end)
+				break;
+			
+			iter++;
 		}
 		
-		t->tmp.Clear();
-		for(int i = begin; i < end; i++) {
-			const VirtualPhraseStruct& vps = da.virtual_phrase_structs[i];
-			String s;
-			bool fail = false;
-			for(int j = 0; j < vps.virtual_phrase_parts.GetCount(); j++) {
-				if (j) s << " + ";
-				int vpp_i = vps.virtual_phrase_parts[j];
-				
-				const VirtualPhrasePart& vpp = da.virtual_phrase_parts[vpp_i];
-				if (vpp.struct_part_type < 0) {
-					fail = false;
-					continue;
-				}
-				
-				String type_str = da.struct_part_types[vpp.struct_part_type];
-				s << type_str;
-			}
-			if (fail)
-				args.words << "error";
-			else
-				args.words << s;
-			t->tmp << i;
+		if (args.words.IsEmpty()) {
+			RemoveTask(*t);
+			return;
 		}
 		
 		RealizePipe();
 		TaskMgr& m = *pipe;
 		m.GetTokenData(args, THISBACK1(OnVirtualPhraseTypes, t));
 	}
+	
+	// Token texts to phrases
 	else if (t->fn == 3) {
 		// NOTE: see duplicate in fn 0
 		// TODO reduce duplicate code
 		Vector<int> word_is, word_classes;
-		
+		int a = 0;
 		for(int i = 0; i < da.token_texts.GetCount(); i++) {
 			const TokenText& txt = da.token_texts[i];
 			if (txt.virtual_phrase < 0)
@@ -586,8 +638,12 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 				const Token& tk = da.tokens[tk_i];
 				int w_i = tk.word_;
 				if (w_i < 0) {
-					String key = ToLower(da.tokens.GetKey(tk_i));
+					String key = da.tokens.GetKey(tk_i);
 					w_i = da.words.Find(key);
+					if (w_i < 0) {
+						key = ToLower(da.tokens.GetKey(tk_i));
+						w_i = da.words.Find(key);
+					}
 					tk.word_ = w_i;
 				}
 				word_is << w_i;
@@ -597,7 +653,7 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 			if (word_is.GetCount() != vp.word_classes.GetCount())
 				continue;
 			
-			
+			a++;
 			
 			Vector<Vector<int>> w_isv, wc_isv;
 			Vector<int> w_is, wc_is;
@@ -664,6 +720,9 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 			}
 		}
 		
+		da.diagnostics.GetAdd("token text to phrase: total") = IntStr(da.token_texts.GetCount());
+		da.diagnostics.GetAdd("token text to phrase: actual") = IntStr(a);
+		da.diagnostics.GetAdd("token text to phrase: percentage") =  DblStr((double)a / (double)da.token_texts.GetCount() * 100);
 		
 	}
 }
@@ -685,8 +744,36 @@ void TaskManager::GetPhrases(Task* t) {
 	int begin = t->batch_i * per_action_task;
 	int end = begin + per_action_task;
 	end = min(end, da.ambiguous_word_pairs.GetCount());
-	int count = end - begin;
-	if (count <= 0) {
+	
+	Color black(0,0,0);
+	t->tmp_ptrs.SetCount(0);
+	
+	int iter = 0;
+	for (const PhrasePart& pp : da.phrase_parts.GetValues()) {
+		
+		if (t->fn == 0 && pp.clr != black)
+			continue;
+		
+		if (t->fn == 1 && pp.attr >= 0)
+			continue;
+		
+		if (t->fn == 2 && !pp.actions.IsEmpty())
+			continue;
+		
+		if (t->fn == 3 && pp.HasScores())
+			continue;
+		
+		if (iter >= begin && iter < end) {
+			String phrase = da.GetWordString(pp.words);
+			args.phrases << phrase;
+			t->tmp_ptrs << (void*)&pp;
+		}
+		else if (iter >= end)
+			break;
+		iter++;
+	}
+	
+	if (args.phrases.IsEmpty()) {
 		if (t->fn < 3) {
 			t->fn++;
 			t->batch_i = 0;
@@ -694,14 +781,6 @@ void TaskManager::GetPhrases(Task* t) {
 		}
 		else RemoveTask(*t);
 		return;
-	}
-	
-	t->tmp.SetCount(0);
-	for(int i = begin; i < end; i++) {
-		const PhrasePart& pp = da.phrase_parts[i];
-		String phrase = da.GetWordString(pp.words);
-		args.phrases << phrase;
-		t->tmp << i;
 	}
 	
 	RealizePipe();
@@ -858,14 +937,12 @@ void TaskManager::GetActionTransitions(Task* t) {
 }
 
 void TaskManager::GetContainer(Task* t) {
-	
 	if (t->fn == 0) {
 		GetRhymeContainers(t);
 	}
 	else if (t->fn == 1) {
 		MakeNana(t);
 	}
-	
 }
 
 void TaskManager::MakeNana(Task* t) {
@@ -874,16 +951,16 @@ void TaskManager::MakeNana(Task* t) {
 	SongDataAnalysis& sda = db.song_data.a;
 	EnglishPronounciation ep;
 	
-	int ds_i = 0;
+	int ds_i = t->ds_i;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	PhoneticNanaAnalyser anal;
 	
-	int total = 0;
+	t->total = 0;
 	for(int i = 0; i < da.packed_rhymes.GetCount(); i++)
-		total += da.packed_rhymes[i].GetCount();
+		t->total += da.packed_rhymes[i].GetCount();
 	
-	int actual = 0;
+	t->actual = 0;
 	for(int i = 0; i < da.packed_rhymes.GetCount(); i++) {
 		const PackedRhymeHeader& h = da.packed_rhymes.GetKey(i);
 		Vector<PackedRhymeContainer>& v = da.packed_rhymes[i];
@@ -898,12 +975,16 @@ void TaskManager::MakeNana(Task* t) {
 			int len = anal.WritePackedNana(c.nana, PackedRhymeContainer::MAX_NANA_LEN);
 			c.nana_len = len;
 			
-			actual++;
+			t->actual++;
 			
-			if (actual % 1000 == 0)
-				t->update(actual, total);
+			if (t->actual % 1000 == 0)
+				t->update(t->actual, t->total);
 		}
 	}
+	
+	da.diagnostics.GetAdd("rhyme container nana: total") = IntStr(t->total);
+	da.diagnostics.GetAdd("rhyme container nana: actual") = IntStr(t->actual);
+	da.diagnostics.GetAdd("rhyme container nana: percentage") =  DblStr((double)t->actual / (double)t->total * 100);
 	
 	t->update(0, 1);
 }
@@ -914,35 +995,24 @@ void TaskManager::GetRhymeContainers(Task* t) {
 	SongDataAnalysis& sda = db.song_data.a;
 	EnglishPronounciation ep;
 	
-	int ds_i = 0;
-	int pp_i = 0;
 	
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	da.packed_rhymes.Clear();
 	
 	Vector<int> comb;
 	Vector<Index<String>> words;
 	Vector<String> parts;
-	int phrase_count = 0;
 	
-	while (running) {
+	t->actual = 0;
+	
+	int pp_i = -1;
+	for (const PhrasePart& pp : da.phrase_parts.GetValues()) {
+		pp_i++;
 		
-		if (ds_i >= sda.datasets.GetCount())
-			break;
-		DatasetAnalysis& da = sda.datasets[ds_i];
-		if (pp_i == 0) {
-			da.packed_rhymes.Clear();
-		}
-		if (pp_i >= da.phrase_parts.GetCount()) {
-			SortByKey(da.packed_rhymes, PackedRhymeHeader());
-			pp_i = 0;
-			ds_i++;
+		if (pp.words.IsEmpty() || pp.attr < 0)
 			continue;
-		}
 		
-		const PhrasePart& pp = da.phrase_parts[pp_i];
-		if (pp.words.IsEmpty() || pp.attr < 0) {
-			pp_i++;
-			continue;
-		}
 		
 		int act_count = min(PackedRhymeContainer::MAX_ACTIONS, pp.actions.GetCount());
 		int acts[PackedRhymeContainer::MAX_ACTIONS];
@@ -983,17 +1053,21 @@ void TaskManager::GetRhymeContainers(Task* t) {
 					pcr.actions[i] = acts[i];
 				}
 				
-				phrase_count++;
+				t->actual++;
 			}
 		}
-		
-		//Sleep(1);
-		pp_i++;
 		
 		if ((pp_i % 100) == 0)
 			t->update(pp_i, da.phrase_parts.GetCount());
 	}
 	
+	
+	da.diagnostics.GetAdd("rhyme container: total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd("rhyme container: actual") = IntStr(t->actual);
+	da.diagnostics.GetAdd("rhyme container: percentage") =  DblStr((double)t->actual / (double)da.phrase_parts.GetCount() * 100);
+	
+	
+	SortByKey(da.packed_rhymes, PackedRhymeHeader());
 	for(int i = 0; i < sda.datasets.GetCount(); i++)
 		SortByKey(sda.datasets[i].packed_rhymes, PackedRhymeHeader());
 	
@@ -1282,6 +1356,20 @@ void TaskManager::GetSyllables(Task* t) {
 		if (wa.link >= 0)
 			continue;
 		#endif
+		
+		
+		// Skip cyrillic words
+		bool is_cyrillic = false;
+		WString ws = wrd.ToWString();
+		for(int j = 0; j < ws.GetCount(); j++) {
+			int chr = ws[j];
+			if (chr >= 0x0400 && chr < 0x052F) {
+				is_cyrillic = true;
+				break;
+			}
+		}
+		if (is_cyrillic)
+			continue;
 		
 		
 		if (iter >= begin) {

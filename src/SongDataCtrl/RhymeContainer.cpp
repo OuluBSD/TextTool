@@ -319,17 +319,6 @@ void RhymeContainerPage::ToolMenu(Bar& bar) {
 	bar.Separator();
 	bar.Add(t_("Process rhyme container"), AppImg::RedRing(), THISBACK1(DoContainer, 0)).Key(K_F5);
 	bar.Add(t_("Process nana"), AppImg::RedRing(), THISBACK1(DoContainer, 1)).Key(K_F6);
-	
-	/*if (!running)
-		bar.Add(t_("Start processing data"), AppImg::RedRing(), THISBACK(Start)).Key(K_F5);
-	else
-		bar.Add(t_("Stop processing"), AppImg::RedRing(), THISBACK(Stop)).Key(K_F5);
-	bar.Separator();
-	if (!running)
-		bar.Add(t_("Start making nana-phrases"), AppImg::RedRing(), THISBACK(StartNana)).Key(K_F6);
-	else
-		bar.Add(t_("Stop processing"), AppImg::RedRing(), THISBACK(StopNana)).Key(K_F6);*/
-		
 }
 
 void RhymeContainerPage::DoContainer(int fn) {
