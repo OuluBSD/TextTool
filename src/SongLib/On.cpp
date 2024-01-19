@@ -673,15 +673,30 @@ void TaskManager::OnSyllables(String res, Task* t) {
 	
 	int ds_i = t->ds_i;
 	String ds_key = sd.GetKey(ds_i);
+	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 	
 	res.Replace("\r", "");
 	Vector<String> lines = Split(res, "\n");
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		l = TrimBoth(l);
+		if (l.IsEmpty())
+			lines.Remove(i--);
+	}
+	bool line_match = t->tmp_words.GetCount() == lines.GetCount();
+	
+	int line_i = -1;
 	for (String& line : lines) {
+		line_i++;
+		
 		RemoveLineChar(line);
 		int a = line.Find(":");
 		if (a < 0) continue;
 		String wrd = TrimBoth(line.Left(a));
 		line = line.Mid(a+1);
+		
+		if (line_match)
+			wrd = t->tmp_words[line_i];
 		
 		a = line.Find("[");
 		if (a < 0) continue;
@@ -693,22 +708,36 @@ void TaskManager::OnSyllables(String res, Task* t) {
 		
 		
 		// hotfix
-		if (1) {
+		/*if (0) {
 			wrd = ToLower(wrd.ToWString()).ToString();
 			wrd.Replace("'", "");
-		}
+		}*/
 		
-		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
-		ExportWord& wa = ds.words.GetAdd(wrd);
+		int j = ds.words.Find(wrd);
+		if (j < 0)
+			continue;
+		
+		if (spelling.IsEmpty()) spelling = "-";
+		if (phonetic.IsEmpty()) phonetic = "-";
+		
+		ExportWord& wa = ds.words[j];
 		wa.spelling = spelling;
 		wa.phonetic = phonetic;
 		
 		t->actual++;
 	}
 	
-	da.diagnostics.GetAdd("syllables: total") = IntStr(t->total);
-	da.diagnostics.GetAdd("syllables: actual") =  IntStr(t->actual);
-	da.diagnostics.GetAdd("syllables: percentage") =  DblStr((double)t->actual / (double) t->total * 100);
+	//da.diagnostics.GetAdd("syllables: total") = IntStr(t->total);
+	//da.diagnostics.GetAdd("syllables: actual") =  IntStr(t->actual);
+	//da.diagnostics.GetAdd("syllables: percentage") =  DblStr((double)t->actual / (double) t->total * 100);
+	
+	int a = 0;
+	for(const ExportWord& wa : da.words.GetValues())
+		if (!wa.phonetic.IsEmpty())
+			a++;
+	da.diagnostics.GetAdd("syllables: total") = IntStr(da.words.GetCount());
+	da.diagnostics.GetAdd("syllables: actual") = IntStr(a);
+	da.diagnostics.GetAdd("syllables: percentage") =  DblStr((double)a / (double)da.words.GetCount() * 100);
 	
 	t->batch_i++;
 	t->running = false;
@@ -723,11 +752,21 @@ void TaskManager::OnDetails(String res, Task* t) {
 	res.Replace("\r", "");
 	
 	Vector<String> lines = Split(res, "\n");
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		l = TrimBoth(l);
+		if (l.IsEmpty())
+			lines.Remove(i--);
+	}
 	//DUMPC(lines);
 	int ds_i = t->ds_i;
 	
 	Color black(0,0,0);
 	Color non_black(1,1,1);
+	
+	DatasetAnalysis& ds = sda.datasets[ds_i];
+	
+	bool line_match = t->tmp_words.GetCount() == lines.GetCount();
 	
 	for(int i = 0; i < lines.GetCount(); i++) {
 		String& l = lines[i];
@@ -745,9 +784,14 @@ void TaskManager::OnDetails(String res, Task* t) {
 		}
 		
 		
-		//orig = ToLower(orig.ToWString()).ToString();
-		//orig.Replace("'", "");
-		
+		if (line_match)
+			orig = t->tmp_words[i];
+		else {
+			orig = TrimBoth(orig);
+			orig = orig.ToWString().ToString();
+			//orig = ToLower(orig.ToWString()).ToString();
+			//orig.Replace("'", "");
+		}
 		
 		
 		a = l.Find(",");
@@ -765,12 +809,12 @@ void TaskManager::OnDetails(String res, Task* t) {
 		
 		String translation = TrimBoth(l);
 		
-		int j = t->tmp_words.Find(orig);
-		if (j < 0) continue;
-		DatasetAnalysis& ds = sda.datasets[ds_i];
+		//int j = t->tmp_words.Find(orig);
+		//if (j < 0) continue;
 		
-		j = ds.words.Find(orig);
-		if (j < 0) continue;
+		int j = ds.words.Find(orig);
+		if (j < 0)
+			continue;
 		
 		ExportWord& wa = ds.words[j];
 		int c_i = ds.word_classes.FindAdd(main_class);
@@ -779,12 +823,13 @@ void TaskManager::OnDetails(String res, Task* t) {
 		}
 		else {
 			bool found = false;
-			for(int i = 0; i < wa.class_count; i++) {
+			for(int i = 0; i < wa.class_count && i < ExportWord::MAX_CLASS_COUNT; i++) {
 				if (wa.classes[i] == c_i) {
 					found = true;
 					break;
 				}
 			}
+			
 			if (!found && wa.class_count < ExportWord::MAX_CLASS_COUNT)
 				wa.classes[wa.class_count++] = c_i;
 		}
@@ -805,10 +850,18 @@ void TaskManager::OnDetails(String res, Task* t) {
 		t->actual++;
 	}
 	
+	//da.diagnostics.GetAdd("words: total") = IntStr(t->total);
+	//da.diagnostics.GetAdd("words: total") = IntStr(da.words.GetCount());
+	//da.diagnostics.GetAdd("words: actual") =  IntStr(t->actual);
+	//da.diagnostics.GetAdd("words: percentage") =  DblStr((double)t->actual / (double) t->total * 100);
 	
-	da.diagnostics.GetAdd("words: total") = IntStr(t->total);
-	da.diagnostics.GetAdd("words: actual") =  IntStr(t->actual);
-	da.diagnostics.GetAdd("words: percentage") =  DblStr((double)t->actual / (double) t->total * 100);
+	int a = 0;
+	for(const ExportWord& wa : da.words.GetValues())
+		if (wa.clr != black)
+			a++;
+	da.diagnostics.GetAdd("words: actual") =  IntStr(a);
+	da.diagnostics.GetAdd("words: total") = IntStr(da.words.GetCount());
+	da.diagnostics.GetAdd("words: percentage") =  DblStr((double)a / (double)da.words.GetCount() * 100);
 	
 	t->batch_i++;
 	t->running = false;

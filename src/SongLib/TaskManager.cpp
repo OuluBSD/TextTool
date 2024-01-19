@@ -45,6 +45,8 @@ bool TaskManager::IsInTaskList(TaskType type) const {
 }
 
 void TaskManager::Start() {
+	//ImportPromptAnswers();
+	
 	if (running) return;
 	running = true;
 	stopped = false;
@@ -209,6 +211,28 @@ bool GetTypePhrase(Vector<int>& types, const DatasetAnalysis& da, int next_w_i, 
 		
 	}
 	return true;
+}
+
+void TaskManager::ImportPromptAnswers() {
+	String dir = ConfigFile("import");
+	FindFile ff(AppendFileName(dir, "*.txt"));
+	int i = 0;
+	do {
+		String path = ff.GetPath();
+		String content = LoadFileBOM(path);
+		
+		Task t;
+		t.ds_i = 0;
+		if (content.Find("RGB(") >= 0) {
+			OnDetails(content, &t);
+		}
+		else {
+			OnSyllables(content, &t);
+		}
+		i++;
+	}
+	while (ff.Next());
+	
 }
 
 }

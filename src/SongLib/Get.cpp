@@ -263,6 +263,111 @@ void TaskManager::GetWordProcess(Task* t) {
 	}
 }
 
+void TaskManager::GetWordFix(Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	String ds_key = sd.GetKey(t->ds_i);
+	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	
+	if (t->fn == 0) {
+		int fails = 0;
+		for(int i = 0; i < ds.words.GetCount(); i++) {
+			WString wrd = ds.words.GetKey(i).ToWString();
+			ExportWord& wa = ds.words[i];
+			
+			bool search_alt = false;
+			bool needs_alt = false;
+			for(int j = 0; j < wrd.GetCount(); j++) {
+				int chr = wrd[j];
+				if (NaturalTokenizer::IsToken(chr) && chr != '\'') {
+					search_alt = true;
+					needs_alt = true;
+					break;
+				}
+				if (IsUpper(chr)) {
+					search_alt = true;
+					break;
+				}
+			}
+			
+			if (search_alt || needs_alt) {
+				WString alt;
+				for(int j = 0; j < wrd.GetCount(); j++) {
+					int chr = wrd[j];
+					if (NaturalTokenizer::IsToken(chr))
+						continue;
+					
+					if (IsUpper(chr))
+						alt.Cat(ToLower(chr));
+					else
+						alt.Cat(chr);
+				}
+				String alt_s = alt.ToString();
+				int j = ds.words.Find(alt_s);
+				if (j >= 0) {
+					ExportWord& link = ds.words[j];
+					wa.link = j;
+				}
+				else if (needs_alt) {
+					ExportWord& link = ds.words.GetAdd(alt_s, j);
+					ds.words[i].link = j; // re-fetch reference
+				}
+				else {
+					fails++;
+				}
+			}
+			else wa.link = -1;
+		}
+		
+		ds.diagnostics.GetAdd("word fix: fail percentage") = DblStr((double)fails / (double)ds.words.GetCount() * 100);
+	}
+	else if (t->fn == 1) {
+		Color black(0,0,0);
+		for(int i = 0; i < ds.words.GetCount(); i++) {
+			ExportWord& wa = ds.words[i];
+			
+			int fail = -1;
+			for(int i = 0; i < wa.class_count && i < ExportWord::MAX_CLASS_COUNT; i++) {
+				if (wa.classes[i] < 0 || wa.classes[i] >= ds.word_classes.GetCount()) {
+					fail = i;
+					break;
+				}
+			}
+			if (fail >= 0)
+				wa.class_count = fail;
+			else if (wa.class_count < 0)
+				wa.class_count = 0;
+			else if (wa.class_count > ExportWord::MAX_CLASS_COUNT)
+				wa.class_count = ExportWord::MAX_CLASS_COUNT;
+		}
+		
+		for(int i = 0; i < ds.words.GetCount(); i++) {
+			ExportWord& wa = ds.words[i];
+			if (wa.link >= 0 && wa.link < ds.words.GetCount()) {
+				ExportWord& from = ds.words[wa.link];
+				if (from.spelling.IsEmpty()) {
+					from.spelling = wa.spelling;
+				}
+				if (from.phonetic.IsEmpty()) {
+					from.phonetic = wa.phonetic;
+				}
+				if (from.clr == black) {
+					from.clr = wa.clr;
+					from.class_count = wa.class_count;
+					for(int i = 0; i < wa.class_count; i++) {
+						from.classes[i] = wa.classes[i];
+					}
+				}
+				wa.CopyFrom(from);
+			}
+			else if (wa.link >= 0)
+				wa.link = -1;
+		}
+	}
+}
+
 void TaskManager::GetVirtualPhrases(Task* t) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -1174,6 +1279,8 @@ void TaskManager::GetSyllables(Task* t) {
 			t->actual++;
 			continue;
 		}
+		if (wa.link >= 0)
+			continue;
 		#endif
 		
 		
@@ -1181,8 +1288,9 @@ void TaskManager::GetSyllables(Task* t) {
 			String wrd = ds.words.GetKey(i);
 			
 			// hotfix
-			HotfixReplaceWord(wrd);
+			//HotfixReplaceWord(wrd);
 			args.words << wrd;
+			t->tmp_words << wrd;
 		}
 		iter++;
 		if (iter >= end) break;
@@ -1237,6 +1345,8 @@ void TaskManager::GetDetails(Task* t) {
 			t->actual++;
 			continue;
 		}
+		if (wa.link >= 0)
+			continue;
 		#endif
 		
 		

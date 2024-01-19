@@ -11,8 +11,8 @@ VirtualPhraseStructs::VirtualPhraseStructs() {
 	datasets.AddColumn(t_("Dataset"));
 	datasets.WhenCursor << THISBACK(DataDataset);
 	
-	texts.AddColumn(t_("Types"));
 	texts.AddColumn(t_("Structural name"));
+	texts.AddColumn(t_("Types"));
 	texts.AddColumn(t_("Count"));
 	texts.AddIndex("IDX");
 	texts.ColumnWidths("3 2 1");

@@ -17,6 +17,7 @@ typedef enum {
 	TASK_ACTION_PARALLELS,
 	TASK_ACTION_TRANSITIONS,
 	TASK_WORD_DATA,
+	TASK_WORD_FIX,
 	TASK_WORDNET,
 	
 	TASK_COUNT
@@ -63,6 +64,7 @@ class TaskManager {
 	int per_action_attrs = 40;
 	VectorMap<String, VectorMap<String, int>> uniq_acts;
 	
+	void ImportPromptAnswers();
 	void RealizePipe();
 	void Process();
 	
@@ -73,6 +75,7 @@ class TaskManager {
 	
 	void GetUnknownTokenPairs(Task* t);
 	void GetWordProcess(Task* t);
+	void GetWordFix(Task* t);
 	
 	void GetActionlist(Task* t);
 	void OnActionlistColors(String result, Task* t);
@@ -144,6 +147,7 @@ public:
 	void DoPhrases(int ds_i, int fn);
 	void DoContainer(int ds_i, int fn, Callback2<int,int> update);
 	void DoWords(int ds_i, int fn);
+	void DoWordFix(int ds_i, int fn);
 	
 	void DoActionlistCache(int ds_i);
 	void DoActionlist(int ds_i, int fn);
