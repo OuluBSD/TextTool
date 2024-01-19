@@ -14283,3 +14283,361 @@ incomplete question
 incomplete list sentence
 mathematical question sentence
 top-level sentence
+quantity phrase
+expression of emotion
+non-grammatical sentence
+exclamatory sentence with intensifier
+non-verbal sentence
+connecting adverb clause
+balancing relative clause
+adjective relative clause
+slang/colloquialism construction
+verb-particle construction
+prepositional initialism phrase
+adverbial object clause
+noun modifier clause
+connecting predicate sentence
+active verb construction
+double verb clause
+informal prepositional phrase
+hybrid noun phrase
+ganglion construction
+possessive adverbial phrase
+phrasal-verb construction
+noun noun phrase
+numerable noun phrase
+prepositional pronoun phrase
+descriptive fragment
+complex sentence, informal language
+compound-complex sentence, informal language
+imperative statement
+simple sentence, informal language
+adjective phrases
+short and simple sentence
+adverbial phrase with possessive modifier
+interjection followed by complex sentence
+complex sentence with modifiers and multiple clauses
+characteristic phrase
+interjection followed by punctuation
+adverbial phrase with modifiers
+verb phrase with modifiers and pronoun
+imperative sentence with modifiers
+characteristic sentence
+adverbial clause with modifiers
+characteristic sentence with multiple nouns
+descriptive phrase with modifiers
+compound-complex sentence with modifiers and punctuation
+adverbial clause with multiple modifiers
+informal prepositional sentence
+complex sentence with objects
+complex sentence with abbreviations and possessive noun phrase
+compound sentence with repeated pronouns
+complex sentence with conjunction and slang/colloquialism
+compound sentence with modifiers and punctuation
+compound sentence with multiple verbs and punctuation
+complex sentence with modifiers and possessive noun phrase
+complex sentence with conjunction, adverb, and adjective phrase
+complex sentence with auxiliary verb and prepositional phrase
+complex sentence with interjection, adverb, and verb
+prepositional phrase with verb and object
+prepositional phrase with determiner and interjection
+complex sentence with possessive noun phrase and gerund phrase
+compound sentence with conjunction and repeated pronouns
+complex sentence with auxiliary verb and possessive noun phrase
+prepositional phrase with multiple verbs and adverbs
+prepositional phrase with multiple verbs and pronouns
+compound sentence with multiple prepositions and nouns
+complex sentence with possessive noun phrase and multiple verbs
+compound sentence with adverb and pronoun
+prepositional phrase with multiple modifiers and pronoun
+prepositional phrase with multiple articles and adjectives
+prepositional phrase with multiple pronouns and nouns
+imperative sentence with pronoun
+prepositional phrase with multiple modifiers and determiner
+complex sentence with possessive pronoun and adjective phrase
+complex sentence with interjection and punctuation
+compound sentence with multiple articles and gerunds
+prepositional phrase with multiple articles and pronouns
+compound sentence with no subject
+prepositional phrase with multiple adverbs and punctuation
+prepositional phrase with multiple verbs and punctuation
+a phrase
+a sentence
+a construction
+a phrasal verb
+a subject
+indirect Object Construction
+adjectival object phrase
+neuter
+oral participial construction
+an object
+direct object complement construction
+idiomatic construction
+Cleft sentence
+prepositional idiom
+modal predicate
+simple sentence with abbreviations
+single word
+salutation
+academic paper heading
+book title
+list heading
+indefinite pronouns used in a sentence
+compound-complex sentence with object-verb agreement
+simple sentence with subject-verb agreement
+question sentence structure
+complex sentence with coordinating and subordinating conjunction
+sentence with pronoun as the subject
+complex sentence with adjectives describing pronouns
+sentence with possessive pronoun and nouns
+sentence with adjectives describing pronouns
+sentence with interjection between preposition and object
+complex sentence with interjection following the main clause
+sentence with adjectives modifying pronouns
+sentence with object of preposition
+sentence with multiple verbs and object
+sentence with coordinating conjunction connecting independent clauses
+sentence with infinitive verb phrase
+simple sentence in the past tense
+sentence with coordinating and subordinating conjunctions
+sentence with subordinating conjunction and adverbial phrase
+compound sentence with conjunction and punctuation mark
+sentence with coordinating conjunction connecting two verb phrases
+sentence with indefinite article and adjective modifying noun
+sentence with gerund as object of preposition
+complex sentence with determiners and adjectives modifying pronoun
+sentence with multiple pronouns and nouns
+complex sentence with adverb-modifying clause
+complex sentence with mixed tenses
+sentence with punctuation mark interrupting prepositional phrase
+sentence with two adverbs modifying verb
+sentence with punctuation mark after direct object
+sentence with adverbial clause, infinitive phrase, and pronoun
+complex sentence with multiple compound elements
+sentence with possessive noun phrase and coordinating conjunction
+compound-complex sentence with noun and pronoun as objects
+sentence with adverb and modal verb
+sentence with adverbs modifying verb
+complex sentence with mixed types
+complex sentence with possessive noun and object of preposition
+simple sentence with object of preposition
+complex sentence with coordinating conjunction and adjectives modifying noun
+sentence with prepositional phrase and punctuation mark
+complex sentence with prepositional phrase and punctuation mark
+compound sentence with coordinating conjunction connecting prepositional phrases
+sentence with prepositional phrase and adjective modifying noun
+sentence with adverb and adjective modifying pronouns
+compound sentence with verb and noun objects
+past tense verb modifier
+compound sentence with subject pronoun and direct object
+complex sentence with adjective modifying pronoun
+present tense verb modifier
+interjection with pauses
+noun clause as object of the preposition
+dependent clause as adverbial modifier
+date sentence
+financial sentence
+compound-modifier sentence
+compound-adjective sentence
+possessive determiner sentence
+object of comparison sentence
+prepositional verb sentence with modifiers
+sentence with verb particle
+complicated compound-complex sentence
+very long sentence highlighting complex sentence structure
+sentence with prepositional object phrase
+sentence with conjunctive object
+sentence with modal phrase
+sentence fragment with modifiers
+sentence with modal and pronominal verbs
+sentence highlighting indefinite pronouns
+complex sentence with definite article and modifiers
+list fragment
+complex sentence with dependent clause and adverbial clause
+complex sentence with dependent clause and adjective phrase
+complex sentence with dependent clause and prepositional phrase
+simple sentence in passive voice
+simple sentence in imperative form
+complex sentence with possessive pronoun and dependent clause
+compound-complex sentence with two verbs and adverb
+complex sentence with quantifier phrase and adjective phrase
+complex sentence with dependent clause and multiple phrases
+compound-complex sentence with dependent clause and multiple phrases
+compound-complex sentence with two dependent clauses and adjective phrase
+compound sentence with modal verb and noun phrase
+compound sentence with two verbs and adjective phrase
+compound-complex sentence with two dependent clauses and prepositional phrase
+compound-complex sentence with dependent clause and multiple adverbs
+interjection sentence with prepositional phrase
+compound-complex sentence with dependent clause and multiple adverbial phrases
+complex sentence with prepositional phrase and object pronoun
+compound-complex sentence with object pronoun and prepositional phrase
+simple sentence with prepositional phrase and object pronoun
+compound sentence with dependent clause and prepositional phrase
+compound sentence with object pronoun and adverbial phrase
+simple sentence with multiple object pronouns
+interjection sentence with two interjections
+run-on sentence with punctuation errors
+compound-complex sentence with modal verb and adverb
+simple sentence with modal verb
+compound-complex sentence with two prepositional phrases
+complex sentence with dependent clauses and quantifier phrase
+compound-complex sentence with dependent clause and prepositional phrase
+complex sentence with adverbial phrase and adjective phrase
+compound-complex sentence with dependent clause and punctuation errors
+rollercoaster sentence
+interjection parade
+phrasal predicate sentence
+interjection dialogue
+imperative dialogue
+clause of result
+sentence series
+interjection question
+adjective clause of manner
+compound-complex complex sentence
+double attributive clause
+adverbial gerund clause
+complex sentence of comment
+phrasal object sentence
+descriptive absolute phrase
+object-adverbial clause
+complicated infinitive phrase
+subjectless sentence
+complex sentence of negation
+continuous sentences
+odd sentence
+adjective phrase clause
+long sentence fragment
+mental state sentence
+ditransitive verb sentence
+subject-verb word order
+adverbial comparison sentence
+double preposition phrase
+slang request
+cardinal number phrase
+abstract phrase
+quantified noun phrase
+sentence command
+adjunct adverbial phrase
+semi-complex sentence
+modal noun phrase
+incomplete complex sentence
+very complex sentence
+compound-complex sentence with prepositional phrases and a past participle phrase
+complex sentence with parallel pronouns
+interjection sentence with verb phrase
+adjective number sentence
+exclamatory sentence with punctuation marks and interjections
+incomplete complex sentence with punctuation marks and adjectives
+noun dependent clause
+verb phrase sentence with interjection
+complex sentence with prepositional and adjective phrases
+slang/colloquialism complex verb phrase sentence
+exclamatory sentence with a noun object
+complex sentence with modals and prepositions
+exclamatory sentence with punctuation and interjection
+abbreviating sentence
+punctuated sentence with verb phrase
+proper sentence with punctuation
+punctuated sentence with preposition and adverb
+incomplete prepositional phrase sentence with conjunction
+complex sentence with adverb and adjective phrases
+super complex sentence
+prepositional phrase sentence with multiple nouns and prepositions
+exclamatory sentence with multiple punctuation marks and interjections
+proper sentence with adjective phrase and punctuation
+interjection or expletive sentence
+title of a work
+jumbled sentence or interrupted thought
+two-word sentence or noun phrase
+programming sentence
+conjunctive adverb
+conditional clause with adverbs
+simple verb phrase
+simple adverbial phrase
+multiple noun phrases in one sentence
+compound sentence with punctuations
+sentence with suspense
+incompletely punctuated sentence
+sentence with missing elements
+noun phrase with adverbial phrase
+slang expression as a sentence
+colloquial phrase as a sentence
+sentence with conjunction and punctuation marks
+sentence with interchanges of parts of speech
+sentence with emphasis on adjective
+sentence with interjection and conjunction
+sentence with exclamation
+preposition with noun phrase
+sentence with possessive pronoun and noun phrase
+interjection as a sentence
+sentence with adjective
+sentence with article and noun
+sentence with list of nouns
+sentence with descriptive adjectives and adverbs
+sentence with modal verb and punctuation marks
+sentence with incomplete sentence
+sentence with symbols and adverbs
+sentence with incomplete punctuation
+sentence with descriptive phrases and conjunctions
+sentence with multiple adverbial clauses and phrases
+declarative sentence with verb and noun phrase
+sentence with missing adverbial phrase
+sentence with missing verbs
+sentence with imperative verb and adverb
+qualifying clause
+interjection followed by prepositional phrase
+interjection followed by noun phrase
+date or time sentence
+exclamative phrase
+unit sentence
+statistic sentence
+relational sentence
+exclamatory sentence.
+topic-comment sentence
+consecutive verb sentence
+adjective phrase with modifying clause
+adjective phrase with modifier
+adjective phrase with possessive pronoun
+verb phrase with adjectives
+verb phrase with coordinated pronouns
+nominal relative clause
+verb phrase with exclamatory word
+adjective phrase with preposition
+infinitive phrase with gerund
+verb phrase with prepositional object
+possessive noun phrase with subordinate clause
+subordinate clause with conjunction
+noun phrase with modifier
+subject-possessive sentence
+infinitive phrase with gerund object
+subordinate clause with coordinating conjunction
+clause with prepositional phrase
+verb phrase with prepositional complement
+complex sentence with elliptical construction.
+slang/colloquial command
+possessive statement
+exclamatory title
+interjection spree
+possessive interrogative sentence
+imperative request
+prepositional phrase with two determiners
+run-on question
+run-on statement
+complex sentence with compound adjective
+descriptive title
+compound pronoun
+descriptive sentence with multiple articles
+interjection with punctuation
+complex sentence with compound adverb
+descriptive sentence with multiple verbs and prepositions
+colloquial sentence with slang
+descriptive sentence with compound object and modifiers
+interrogative sentence with compound verb
+interjection with punctuation before sentence
+complex sentence with multiple conjunctions and slang
+imperative sentence with punctuation
+simple interjection
+command with punctuation
+descriptive sentence with multiple modifiers, prepositions, and punctuation
+Compound sentence

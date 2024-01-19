@@ -7067,3 +7067,412 @@ auxiliary verb"to be"
 pronoun & verb
 contraction / abbreviation
 declarative sentence
+verb-ed form
+modal verb/adjective
+abbreviation for "you have"
+adjective/intensifier
+noun/numeral
+pronoun/modal
+noun/possessive
+pronoun/relative
+abbreviation/nickname
+slang/misspelling
+abbreviation/name
+phrase/adjective
+phrase/verb
+noun + gerund
+verb + future tense
+verb + preposition + pronoun
+question
+request
+statement
+nuoun
+preposition phrase
+possessive pronoun/ noun
+adverb/ adjective
+preposition/ pronoun
+adjective/ verb
+noun/ verb
+verb/ phrasal verb
+contraction of "They are"
+adjective + adverb
+pronoun + verb + adverb
+verb + preposition
+noun/noun+possessive
+exclamatory phrase
+measurement
+prep phrase
+letter/slang term for "black"
+noun/term of endearment
+adjective/phrase
+verb/phrase
+noun (short for Percocet)
+noun (slang for MDMA)
+noun (abbreviated for 'sports utility vehicle')
+verb (slang for "sleeping")
+verb + punctuation
+company name
+celebrity name
+conjunction phrase
+proper noun phrase
+hexadecimal number
+octal number
+base 6 number
+noun quantifier
+Latin phrase
+hexadecimal color code
+noun/person
+imperative verb phrase
+adverbial phrase
+nouna
+person's name
+equation
+metaphorical
+literal
+adjective + adjective + noun
+noun + noun
+verb+noun
+name/nick
+noun/acronym
+name/acronym
+noun/exclamation
+verb prefix
+onomatopoeic word
+idiomatic phrase
+adjective+noun
+preposition+verb
+noun slang
+Adverb
+nooun
+age
+noun (fandom name)
+- number
+contraction of "will not"
+contraction of "cannot"
+contraction of "you are"
+contraction of "am not"
+contraction of "who is"
+contraction of "that is"
+contraction of "I am going to"
+contraction of "is not it"
+contracted verb phrase
+acronym for "What the heck"
+acronym for Attention Deficit Hyperactivity Disorder
+exclamatory
+- - -
+prop noun
+unknown/misspelled
+noun/brand
+abbreviation for "Senhora"
+number/quantity
+alpha-numeric
+adjektiv
+Italian verb
+Italian noun
+Italian adjective
+Italian phrase
+Italian adverb
+English noun
+fictitious name
+Hungarian verb
+Hungarian adverb
+Hungarian adjective
+Hungarian pronoun
+Hungarian noun
+arbitrary
+inexpressible
+nonconformist
+intangible
+evasive
+perplexing
+foreign
+translation
+disjointed
+burden
+personal quality/character
+preposition (in)
+emotion
+game
+pronoun (we)
+preposition (on)
+article (the)
+code
+slang term for "mainstream"
+misspelling of "chameleon"
+abbreviation for "electronic"
+abbreviation for "night and day"
+misspelling of "nasty"
+slang term for "problematic"
+abbreviation for "video-on-demand"
+slang term used by rapper 6ix9ine
+expression of excitement
+slang term for "coaster"
+misspelling of "naming"
+misspelling of "forgiato"
+abbreviation for "personal defense weapon"
+abbreviation for "front-facing camera"
+Italian verb meaning "to go away"
+product
+contraction of "nu am"
+propernoun
+onomatopoeic exclamation
+affirmative prefix
+gachi-adjective
+noun/string
+verb/song lyric
+prefix and number
+adjective and number
+verb and gerund
+noun and number
+number and proper noun
+proper noun and number
+adverb and number
+expression and number
+pronoun/adverb
+adnjective
+numerical expression
+number code
+non-existent
+repeated letter
+sound word
+idle
+celebrity
+abbreviation (for "roommates")
+verbal filler
+naun
+combination
+conlunjction
+adjective/prefix
+adverb and conjunction
+noun/djective
+conditional verb
+continuous verb
+no translation available
+noun/gerund
+invalid
+string of numbers
+cocktail
+number+adjective
+prefix/suffix
+numeric
+reptile
+dance
+seducer
+weight/money
+journalist
+observer
+caught
+events
+betrayer
+news network
+fish
+hole/trap
+advanced tools
+bite
+Egyptian god
+unkempt
+popular
+powerful forces
+unbeatable
+exclamation of excitement
+party
+prince
+slang term for expensive things
+BMW cars
+random sequence
+symboli
+slang/interjection
+noun (family name)
+noun (ethnic group)
+Adverb suffix
+State abbreviation
+Symbol
+Province abbreviation
+Bank abbreviation
+contraction of "here is"
+contraction of "you have"
+contraction of "is not"
+contraction of "they are"
+hidden
+complex
+tangled
+elusive
+mysterious
+enigmatic
+puzzling
+distorted
+cryptic
+convoluted
+mind-boggling
+inexplicable
+baffling
+confounding
+labyrinthine
+incomprehensible
+obscure
+arcane
+unfathomable
+unintelligible
+noun/initial
+
+
+contraction of "does not"
+contraction of "he is"
+contraction of "you all"
+contraction of "let us"
+unwritten
+invisible
+ambiguous
+uproot
+camouflage
+dissolve
+unravel
+vague
+inscrutable
+disguise
+unseen
+blur
+veil
+intricate
+enigma
+shroud
+verbal pause
+overwhelming
+chaotic
+fragmented
+intense
+treacherous
+hazardous
+deceptive
+contradictory
+harmonious
+vibrant
+surreal
+delicate
+unpredictable
+engulfing
+numbing
+soothing
+startling
+unyielding
+vast
+vivid
+empty
+silence
+prep. noun
+contraction/verb
+:': concise
+tarkoitukseton
+hämärä
+adjective?
+preposition?
+r: verb
+null
+"darling"
+adjective/slang term for "popular"
+initial
+
+
+{contraction of "does not"}
+{contraction of "do not"}
+adj. underwhelming
+adj. adventurous
+adj. free-spirited
+adj. mythical
+adj. majestic
+adj. resilient
+adj. creative
+adj. passionate
+adj. mysterious
+adj. rebellious
+short form of "I am"
+contraction of "Let us"
+colloquial pronoun
+noun
+consonant
+visible but unremarkable
+invisible but remarkable
+loudness
+vastness
+fluid
+rigid
+fragility
+strength
+chaos
+clarity
+mystery
+growth
+decay
+balance
+contrast
+verb
+adjective
+- / -
+uppercase letter
+enthralling
+suppressed
+alien
+overlapping
+haunting
+sensitive
+fleeting
+striking
+incessant
+: verb
+: noun
+: number
+(no word)
+pronoun/contraction
+Unknown
+- -: verb
+: noun
+: None
+None
+name/nickname
+nothingness
+emptiness
+filler
+-adjective
+slang (female genitals)
+spacing (multiple)
+adjektive
+intensity
+uncertainty
+hesitation
+comparison
+complexity
+conformity
+limit
+uniqueness
+progression
+contradiction
+precision
+manipulation
+self-awareness
+rebellion
+isolation
+fear
+individuality
+fluidity
+evolution
+beauty
+freedom
+-unknown-
+contraction of "them"
+proper nouns
+verb noun
+conditional particle
+enough
+full stop (punctuation)
+colon (punctuation)
+letter/symbol
+question mark (punctuation)
+possessive ending
+parenthesis
+verb + participle
+verb + ing
+verb + ed
+percentage
+quotation
+question phrase
+symbol/abbreviation
