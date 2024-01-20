@@ -4,6 +4,7 @@
 
 typedef String NoPointerExc;
 struct Song;
+struct Artist;
 
 
 class SongToolCtrl : public Ctrl {
@@ -16,6 +17,10 @@ public:
 	virtual String GetStatusText() {return String();}
 	
 	Song& GetSong();
+	Artist& GetArtist();
+	String GetSongTitle() const;
+	
+	void MakeSongParts(ArrayCtrl& parts);
 	void GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v);
 	
 };

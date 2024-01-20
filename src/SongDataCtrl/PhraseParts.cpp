@@ -64,10 +64,10 @@ void PhraseParts::DataDataset() {
 			continue;
 		const String& struct_part_type = da.struct_part_types[vpp.struct_part_type];
 		
-		String pharse = da.GetWordString(pp.words);
+		String phrase = da.GetWordString(pp.words);
 		String type_str = da.GetTypeString(vpp.word_classes);
 		
-		texts.Set(row, 0, pharse);
+		texts.Set(row, 0, phrase);
 		texts.Set(row, 1, type_str);
 		texts.Set(row, 2, struct_part_type);
 		texts.Set(row, "IDX", i);

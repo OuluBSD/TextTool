@@ -25,7 +25,20 @@ Preprocessing::Preprocessing() {
 }
 
 void Preprocessing::Data() {
+	Song& song = GetSong();
 	
+	for(int i = 0; i < song.parts.GetCount(); i++) {
+		StaticPart& sp = song.parts[i];
+		Color clr = GetSongPartPaperColor(sp.type);
+		SetColoredListValue(parts, i, 0, sp.name, clr, false);
+		SetColoredListValue(parts, i, 1, sp.GetTypeString(), clr, false);
+	}
+	INHIBIT_CURSOR(parts);
+	parts.SetCount(song.parts.GetCount());
+	if (!parts.IsCursor() && parts.GetCount())
+		parts.SetCursor(0);
+	
+	DataPart();
 }
 
 void Preprocessing::DataPart() {

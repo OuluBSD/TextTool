@@ -401,3 +401,12 @@ String DatasetAnalysis::GetActionString(const Vector<int>& actions) const {
 	}
 	return o;
 }
+
+
+
+void SongCandidateCache::Realize(Song& song) {
+	if (song.parts.GetCount() != parts.GetCount()) {
+		parts.SetCount(song.parts.GetCount());
+		
+	}
+}

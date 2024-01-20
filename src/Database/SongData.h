@@ -856,18 +856,21 @@ struct ExportWordnet : Moveable<ExportWordnet> {
 
 struct SongCandidateCache {
 	struct Part : Moveable<Part> {
-		
+		void Serialize(Stream& s) {}
+		void Jsonize(JsonIO& json) {
+			
+		}
 	};
 	
 	Vector<Part> parts;
 	 
 	
-	
-	void Serialize(Stream& s) {}
+	void Realize(Song& song);
+	void Serialize(Stream& s) {s % parts;}
 	void Jsonize(JsonIO& json) {
-		/*json
-			("phrase", phrase)
-			;*/
+		json
+			("parts", parts)
+			;
 	}
 };
 
