@@ -254,6 +254,9 @@ void TaskManager::DoWordnet(int ds_i, int fn) {
 	if (IsInTaskList(TASK_WORDNET))
 		return;
 	
+	PromptOK("TODO");
+	return;
+	
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;

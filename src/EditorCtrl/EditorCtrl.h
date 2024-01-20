@@ -28,6 +28,8 @@
 #include "NanaEditor.h"
 #include "ActionEditor.h"
 #include "BasicInfoCtrl.h"
+#include "LineStructureEditor.h"
+#include "Preprocessing.h"
 
 
 #endif

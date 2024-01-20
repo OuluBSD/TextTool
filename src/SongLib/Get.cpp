@@ -813,11 +813,25 @@ void TaskManager::GetActionlist(Task* t) {
 	int begin = t->batch_i * per_action_task;
 	int end = begin + per_action_task;
 	
+	Color black(0,0,0);
 	int iter = 0;
 	for(int i = 0; i < uniq_acts.GetCount(); i++) {
+		ActionHeader ah;
+		ah.action = uniq_acts.GetKey(i);
+		
 		const VectorMap<String,int>& idx = uniq_acts[i];
 		for(int j = 0; j < idx.GetCount(); j++) {
+			ah.arg = idx.GetKey(j);
+			
 			if (iter >= begin && iter < end) {
+				ExportAction& aa = da.actions.GetAdd(ah);
+				
+				if (t->fn == 0 && aa.clr != black)
+					continue;
+				
+				if (t->fn == 1 && aa.attr >= 0)
+					continue;
+				
 				String s = uniq_acts.GetKey(i) + "(" + idx.GetKey(j) + ")";
 				args.actions << s;
 			}
@@ -847,6 +861,8 @@ void TaskManager::GetActionParallels(Task* t) {
 	
 	// Loop from previous to 'current' to get score at the 'current'
 	// (Instead of 'current' to next)
+	int next_t = 0, next_a = 0;
+	int score_t = 0, score_a = 0;
 	
 	for(const ExportDepActionPhrase& prev : da.action_phrases.GetValues()) {
 		for(int k = 0; k < prev.next_phrases.GetCount(); k++) {
@@ -869,8 +885,7 @@ void TaskManager::GetActionParallels(Task* t) {
 					ah1.action = aa1.action;
 					ah1.arg = aa1.arg;
 					
-					int ap_i = -1;
-					ExportParallel& ap = da.parallel.GetAdd(aa0_i, aa1_i, ap_i);
+					ExportParallel& ap = da.parallel.GetAdd3(aa0_i, aa1_i);
 					ap.count++; // increase count
 					
 					if (k < prev.next_scores.GetCount()) {
@@ -880,14 +895,23 @@ void TaskManager::GetActionParallels(Task* t) {
 							int v = sc[j];
 							total_score += v;
 						}
+						if (!sc.IsEmpty()) score_a++;
+						score_t++;
+						
 						ap.score_sum += max(0, min(
 							(int)SCORE_COUNT,
 							total_score));
+						
+						next_a++;
 					}
+					next_t++;
 				}
 			}
 		}
 	}
+	
+	da.diagnostics.GetAdd("action parallels: next percentage") =  DblStr((double)next_a / (double) next_t * 100);
+	da.diagnostics.GetAdd("action parallels: score percentage") =  DblStr((double)score_a / (double) score_t * 100);
 	
 	LOG("TaskManager::GetActionParallels took " << ts.ToString());
 }
@@ -900,10 +924,14 @@ void TaskManager::GetActionTransitions(Task* t) {
 	
 	TimeStop ts;
 	
+	int score_a = 0, score_t = 0;
+	int next_a = 0, next_t = 0;
 	for(const ExportDepActionPhrase& ap : da.action_phrases.GetValues()) {
 		int ap_i0 = 0;
 		for(int next_i : ap.next_phrases) {
+			next_t++;
 			if (ap_i0 < ap.next_scores.GetCount()) {
+				next_a++;
 				const ExportDepActionPhrase& next = da.action_phrases[next_i];
 				
 				for (const auto& aa0 : ap.actions) {
@@ -915,7 +943,7 @@ void TaskManager::GetActionTransitions(Task* t) {
 							const ActionHeader& ah1 = da.actions.GetKey(aa1);
 							#endif
 							
-							ExportTransition& at = da.trans.GetAdd(aa0, aa1);
+							ExportTransition& at = da.trans.GetAdd3(aa0, aa1);
 							at.count++; // increase count
 							
 							const auto& sc = ap.next_scores[ap_i0];
@@ -925,6 +953,9 @@ void TaskManager::GetActionTransitions(Task* t) {
 							at.score_sum += max(0, min(
 								(int)SCORE_COUNT,
 								total_score));
+							
+							if (sc.GetCount()) score_a++;
+							score_t++;
 						}
 					}
 				}
@@ -932,6 +963,8 @@ void TaskManager::GetActionTransitions(Task* t) {
 			ap_i0++;
 		}
 	}
+	da.diagnostics.GetAdd("action transition: next percentage") =  DblStr((double)next_a / (double) next_t * 100);
+	da.diagnostics.GetAdd("action transition: score percentage") =  DblStr((double)score_a / (double) score_t * 100);
 	
 	LOG("TaskManager::GetActionTransitions took " << ts.ToString());
 }

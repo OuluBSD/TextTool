@@ -854,6 +854,23 @@ struct ExportWordnet : Moveable<ExportWordnet> {
 	
 };
 
+struct SongCandidateCache {
+	struct Part : Moveable<Part> {
+		
+	};
+	
+	Vector<Part> parts;
+	 
+	
+	
+	void Serialize(Stream& s) {}
+	void Jsonize(JsonIO& json) {
+		/*json
+			("phrase", phrase)
+			;*/
+	}
+};
+
 struct DatasetAnalysis {
 	MapFile<String,Token> tokens;
 	MapFile<hash_t,TokenText> token_texts;
@@ -877,6 +894,7 @@ struct DatasetAnalysis {
 	
 	// Cached data
 	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;
+	ArrayMap<String, SongCandidateCache> song_cache;
 	
 	
 	DatasetAnalysis();
@@ -892,10 +910,11 @@ struct DatasetAnalysis {
 	void Jsonize(JsonIO& json) {
 		json
 			("packed_rhymes", packed_rhymes)
+			("song_cache", song_cache)
 			;
 	}
 	void Serialize(Stream& s) {
-		s % packed_rhymes;
+		s % packed_rhymes % song_cache;
 	}
 	
 	#if 0

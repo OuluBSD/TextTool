@@ -233,7 +233,7 @@ void SongDataWordnet::DataColor() {
 void SongDataWordnet::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
 	bar.Separator();
-	bar.Add(t_("Make wordnets from template phrases"), AppImg::RedRing(), THISBACK1(DoWordnet, 0)).Key(K_F5);
+	//bar.Add(t_("Make wordnets from template phrases"), AppImg::RedRing(), THISBACK1(DoWordnet, 0)).Key(K_F5);
 	bar.Add(t_("Get color alternatives"), AppImg::RedRing(), THISBACK1(DoWordnet, 1)).Key(K_F6);
 }
 

@@ -615,6 +615,9 @@ void TaskManager::OnActionlistColors(String result, Task* t) {
 	
 	// "attention-humor(not taking life too seriously)" RGB(255, 255, 0)
 	
+	Color black(0,0,0);
+	Color non_black(1,1,1);
+	
 	result.Replace("\r", "");
 	Vector<String> lines = Split(result, "\n");
 	for (String& line : lines) {
@@ -622,9 +625,10 @@ void TaskManager::OnActionlistColors(String result, Task* t) {
 		if (line.IsEmpty()) continue;
 		if (line[0] != '\"') continue;
 		int a = 1;
-		int b = line.Find("\"", 1);
+		int b = line.ReverseFind("\"");
 		if (b < 0) continue;
 		String full_action = line.Mid(a, b-a);
+		
 		a = line.Find("RGB(", b);
 		if (a < 0) continue;
 		a += 4;
@@ -639,15 +643,27 @@ void TaskManager::OnActionlistColors(String result, Task* t) {
 		Color clr(R,G,B);
 		a = full_action.Find("(");
 		if (a < 0) continue;
+		
 		ActionHeader ah;
 		ah.action = full_action.Left(a);
 		a++;
-		b = full_action.Find(")", a);
+		b = full_action.ReverseFind(")");
 		ah.arg = full_action.Mid(a,b-a);
+		
+		if (clr == black)
+			clr = non_black;
 		
 		ExportAction& aa = da.actions.GetAdd(ah);
 		aa.clr = clr;
 	}
+	
+	int a = 0;
+	for (const ExportAction& ea : da.actions.GetValues())
+		if (ea.clr != black)
+			a++;
+	da.diagnostics.GetAdd("actionlist colors: total") = IntStr(da.virtual_phrase_parts.GetCount());
+	da.diagnostics.GetAdd("actionlist colors: actual") =  IntStr(a);
+	da.diagnostics.GetAdd("actionlist colors: percentage") =  DblStr((double)a / (double) da.virtual_phrase_parts.GetCount() * 100);
 	
 	t->batch_i++;
 	t->running = false;
@@ -668,7 +684,7 @@ void TaskManager::OnActionlistAttrs(String result, Task* t) {
 		if (line.IsEmpty()) continue;
 		if (line[0] != '\"') continue;
 		int a = 1;
-		int b = line.Find("\"", 1);
+		int b = line.ReverseFind("\"");
 		if (b < 0) continue;
 		String full_action = line.Mid(a, b-a);
 		
@@ -685,12 +701,20 @@ void TaskManager::OnActionlistAttrs(String result, Task* t) {
 		ActionHeader ah;
 		ah.action = full_action.Left(a);
 		a++;
-		b = full_action.Find(")", a);
+		b = full_action.ReverseFind(")");
 		ah.arg = full_action.Mid(a,b-a);
 		
 		ExportAction& aa = da.actions.GetAdd(ah);
 		da.attrs.GetAdd(ath, aa.attr);
 	}
+	
+	int a = 0;
+	for (const ExportAction& ea : da.actions.GetValues())
+		if (ea.attr >= 0)
+			a++;
+	da.diagnostics.GetAdd("actionlist attrs: total") = IntStr(da.virtual_phrase_parts.GetCount());
+	da.diagnostics.GetAdd("actionlist attrs: actual") =  IntStr(a);
+	da.diagnostics.GetAdd("actionlist attrs: percentage") =  DblStr((double)a / (double) da.virtual_phrase_parts.GetCount() * 100);
 	
 	t->batch_i++;
 	t->running = false;
@@ -1120,7 +1144,7 @@ void TaskManager::OnColorAlternatives(String res, Task* t) {
 		ch.Do(src_clr);
 		hash_t h = ch;
 		
-		TODO // difficult problem: hash is calculated differently & matching is done differently
+		break; // difficult problem: hash is calculated differently & matching is done differently
 		#if 0
 		DatasetAnalysis& ds = sda.datasets[ds_i];
 		bool found = false;

@@ -5,6 +5,7 @@ Scheduled work:
 		- e.g. action colors/attrs might not get all 40/60 responses
 - songlib: all iter loop 'continue statements' ruins batch calculations
 - database: GetVirtualPhrases fn 2 cache
+- database: da.parallel && da.trans is probably corrupted
 
 - line structure editor
 - attr & color editor (use existing action threads)

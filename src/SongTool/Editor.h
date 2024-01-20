@@ -68,6 +68,8 @@ protected:
 	SongDataWords					song_words;
 	SongDataWordnet					song_wordnet;
 	SongDataDiagnostics				db_diagnostics;
+	LineStructureEditor				line_struct;
+	Preprocessing					preprocessing;
 	/*
 	SongDataAnalysisPage			song_analysis;
 	SongDataTemplates				song_tmpl;

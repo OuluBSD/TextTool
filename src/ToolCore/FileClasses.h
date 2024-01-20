@@ -259,20 +259,23 @@ public:
 	const Vector<K0>& GetKeys() const {return map.GetKeys();}
 	const Vector<K1>& GetKeys(int i) const {return map[i].GetKeys();}
 	const Vector<T>& GetValues(int i) const {return map[i].GetValues();}
-	VectorMap<K1,T>& GetAdd(const K0& s) {return map.GetAdd(s);}
-	VectorMap<K1,T>& GetAdd(const K0& s, int& i) {
+	VectorMap<K1,T>& GetAdd1(const K0& s) {return map.GetAdd(s);}
+	VectorMap<K1,T>& GetAdd1(const K0& s, int& i) {
 		i = map.Find(s);
 		if (i >= 0) return map[i];
 		i = map.GetCount();
 		return map.Add(s);
 	}
-	T& GetAdd(int i, const K1& s) {return map[i].GetAdd(s);}
-	T& GetAdd(int i, const K1& s, int& j) {
+	T& GetAdd2(int i, const K1& s) {return map[i].GetAdd(s);}
+	T& GetAdd2(int i, const K1& s, int& j) {
 		auto& m = map[i];
 		j = m.Find(s);
 		if (j >= 0) return m[j];
 		j = m.GetCount();
 		return m.Add(s);
+	}
+	T& GetAdd3(const K0& s0, const K1& s1) {
+		return map.GetAdd(s0).GetAdd(s1);
 	}
 	
 	void Load(const String& dir, const String& title) {Load(AppendFileName(dir, title + ".txt"));}

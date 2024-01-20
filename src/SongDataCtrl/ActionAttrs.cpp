@@ -38,7 +38,7 @@ void ActionAttrsPage::Data() {
 void ActionAttrsPage::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
 	bar.Separator();
-	bar.Add(t_("Update from cache"), AppImg::RedRing(), THISBACK(UpdateFromCache)).Key(K_F5);
+	//bar.Add(t_("Update from cache"), AppImg::RedRing(), THISBACK(UpdateFromCache)).Key(K_F5);
 	bar.Add(t_("Update action colors"), AppImg::RedRing(), THISBACK(UpdateColors)).Key(K_F6);
 	bar.Add(t_("Update action attributes"), AppImg::RedRing(), THISBACK(UpdateAttributes)).Key(K_F7);
 	
