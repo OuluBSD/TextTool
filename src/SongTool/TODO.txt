@@ -3,6 +3,14 @@ Scheduled work:
 - add rhyming to nana-code page
 - keep only preprocessing
 	- make full lyrics, which rhymes
+		- use genetic solver + gpt
+			- calculate rhyming score
+			- use gpt to make combinations/mutations
+				- ask also scores (10 known)
+			- mutators
+				- weakest lines by ai, and better options by ai
+				- own suggestions to weakest lines
+				- random new lines locally, which matches partially the replaced line
 		- many threads (for combining later)
 			- keep alternatives per line in thread
 		- process: find candidates per line
