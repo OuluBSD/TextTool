@@ -403,6 +403,13 @@ struct StringParser {
 		o = StrInt(s.Mid(a,b-a));
 		a = b;
 	}
+	template <> void Do<bool>(bool& o) {
+		DoSpaces();
+		int b = a;
+		while (b < s.GetCount() && !IsSpace(s[b])) {b++;}
+		o = StrInt(s.Mid(a,b-a));
+		a = b;
+	}
 	template <> void Do<Color>(Color& o) {
 		DoSpaces();
 		int r = 0, g = 0, b = 0;

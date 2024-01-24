@@ -32,6 +32,7 @@ Scheduled work:
 - attr & color editor (use existing action threads)
 ? new lyrics editor based on pre-processed suggestions
 
+
 - radio pages
 	- songs what radios play
 	- analysis
@@ -39,8 +40,10 @@ Scheduled work:
 - 5t model for evaluation
 - professional contacts (who is who, roles)
 	- for tasks to contact people
-- trading for artist: trainer
-	 - like phone seller: direct selling
+- AI conversation trainer
+	- trading for artist: trainer
+	 	- like phone seller: direct selling
+	- debating vs just-do-it culture balancing
 
 
 - powerpoint pages: ai content

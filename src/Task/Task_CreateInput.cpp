@@ -2302,15 +2302,91 @@ void Task::CreateInput_GetAttributes() {
 			const String& s = args.values[i];
 			list.Add(s);
 		}
-		{
+		if (end > 2) {
 			TaskTitledList& results = input.PreAnswer();
 			results.Title("2 main values of list \"A\", which summarizes all values in a way, that the first value is the common attribute of modern pop and rock songs, and the second value is the polar opposite of the first");
+			results.NumberedLines();
+			results.Add("");
+		}
+		else {
+			list.NumberedLines();
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Sort 2 values of list \"A\" in a way, that the first value is the once which is closer to a common attribute of modern pop and rock songs. Use same values, but just sort the values. Don't add any text");
 			results.NumberedLines();
 			results.Add("");
 		}
 		input.response_length = 2048;
 	}
 	else if (args.fn == 1) {
-		
+		ASSERT(args.attr0.GetCount());
+		ASSERT(args.attr1.GetCount());
+		{
+			auto& list = input.AddSub().Title("List \"A\" values in the same group 'socioeconomic status'");
+			list.NumberedLines();
+			list.Add("urban");
+			list.Add("gang affiliation");
+			list.Add("drug dealing");
+		}
+		{
+			auto& list = input.AddSub().Title("List \"B\" polar opposites of the group 'socioeconomic status'");
+			list.Add("positive: wealth");
+			list.Add("negative: poverty");
+		}
+		{
+			auto& list = input.AddSub().Title("Values of list \"A\", with their closest polar opposite value of list \"B\". Either 'positive' or 'negative");
+			list.NumberedLines();
+			list.Add("positive");
+			list.Add("negative");
+			list.Add("negative");
+		}
+		{
+			auto& list = input.AddSub().Title("List \"C\" values in the same group '" + args.group + "'");
+			list.NumberedLines();
+			for(int i = 0; i < args.values.GetCount(); i++) {
+				const String& s = args.values[i];
+				list.Add(s);
+			}
+		}
+		{
+			auto& list = input.AddSub().Title("List \"D\" polar opposites of the group '" + args.group + "'");
+			list.Add("positive: " + args.attr0);
+			list.Add("negative: " + args.attr1);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Values of list \"C\", with their closest polar opposite value of list \"D\". Either 'positive' or 'negative");
+			results.NumberedLines();
+			results.Add("");
+			//results.Add(args.values[0] + ":");
+			//tmp_str = args.values[0] + ":";
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 2) {
+		ASSERT(args.groups.GetCount());
+		ASSERT(args.values.GetCount());
+		{
+			auto& list = input.AddSub().Title("List \"A\" attribute groups with polarised extremes");
+			list.NumberedLines();
+			for(int i = 0; i < args.groups.GetCount(); i++)
+				list.Add(args.groups[i]);
+		}
+		{
+			auto& list = input.AddSub().Title("List \"B\" orphaned groups/value pairs");
+			list.NumberedLines();
+			list.Add("culture: mainstream success");
+			for(int i = 0; i < args.values.GetCount(); i++)
+				list.Add(args.values[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("For the values of the list \"B\", their closest matching group and polarised extreme value from the list \"A\"");
+			results.NumberedLines();
+			results.Add("5 +");
+			results.Add("");
+			//results.Add(args.values[0] + ":");
+			//tmp_str = args.values[0] + ":";
+		}
+		input.response_length = 2048;
 	}
 }

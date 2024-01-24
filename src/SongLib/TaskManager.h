@@ -35,6 +35,26 @@ struct Task {
 		bool song_begins;
 	};
 	
+	
+	struct AttrExtremesBatch : Moveable<AttrExtremesBatch> {
+		String group;
+	};
+	Vector<AttrExtremesBatch> attr_extremes_batches;
+	
+	
+	struct AttrPolarBatch : Moveable<AttrPolarBatch> {
+		String group, attr0, attr1;
+		Vector<String> attrs;
+	};
+	Vector<AttrPolarBatch> attr_polar_batches;
+	
+	
+	struct AttrJoinBatch : Moveable<AttrJoinBatch> {
+		Vector<String> groups, values;
+	};
+	Vector<AttrJoinBatch> attr_join_batches;
+	
+	
 	void UpdateBatches(int per_batch);
 	
 	TaskType type;
@@ -46,7 +66,7 @@ struct Task {
 	bool running = false;
 	Vector<int> tmp;
 	Vector<Batch> batches;
-	Index<String> tmp_words;
+	Index<String> tmp_words, tmp_words2;
 	VectorMap<String, Color> word_clr;
 	Vector<void*> tmp_ptrs;
 	String tmp_str;
@@ -78,6 +98,8 @@ class TaskManager {
 	
 	void GetAttributes(Task* t);
 	void OnAttributes(String result, Task* t);
+	void OnAttributePolars(String result, Task* t);
+	void OnAttributeJoins(String result, Task* t);
 	
 	void GetUnknownTokenPairs(Task* t);
 	void GetWordProcess(Task* t);

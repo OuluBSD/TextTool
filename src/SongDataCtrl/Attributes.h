@@ -7,6 +7,7 @@ class Attributes : public SongToolCtrl {
 	ArrayCtrl datasets, groups, values, pos_values, neg_values;
 	
 	VectorMap<String,Index<String>> uniq_attrs;
+	VectorMap<String,Index<int>> uniq_attrs_i;
 	
 public:
 	typedef Attributes CLASSNAME;

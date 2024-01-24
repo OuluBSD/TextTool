@@ -1188,10 +1188,25 @@ void TaskManager::OnAttributes(String res, Task* t) {
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	
-	Vector<String> parts = Split(res, "2.");
+	RemoveEmptyLines2(res);
+	Vector<String> parts = Split(res, "\n");
+	
+	if (parts.GetCount() != 2) {
+		if (parts.GetCount() == 1) {
+			if (parts[0].Find(" vs. ") >= 0)	parts = Split(parts[0], " vs. ");
+			if (parts[0].Find("/") >= 0)		parts = Split(parts[0], "/");
+			if (parts[0].Find(" vs ") >= 0)		parts = Split(parts[0], " vs ");
+			if (parts[0].Find(" - ") >= 0)		parts = Split(parts[0], " - ");
+			if (parts[0].Find(" and ") >= 0)	parts = Split(parts[0], " and ");
+		}
+	}
 	if (parts.GetCount() == 2) {
+		if (parts[0].Find(" vs. ") >= 0)
+			parts = Split(parts[0], " vs. ");
 		String& f = parts[0];
 		String& l = parts[1];
+		RemoveLineChar(f);
+		RemoveLineChar(l);
 		int a = f.Find("1.");
 		if (a >= 0) {
 			f = f.Mid(a+2);
@@ -1207,15 +1222,31 @@ void TaskManager::OnAttributes(String res, Task* t) {
 			int a1 = part.Find("-");
 			int a2 = part.Find("/");
 			int a3 = part.Find("\n");
-			int a = min(a0, min(a1, min(a2, a3)));
-			if (a < 0) continue;
+			int a4 = part.Find(",");
+			int a5 = part.Find("(");
+			int a = INT_MAX;
+			if (a0 >= 0 && a0 < a) a = a0;
+			if (a1 >= 0 && a1 < a) a = a1;
+			if (a2 >= 0 && a2 < a) a = a2;
+			if (a3 >= 0 && a3 < a) a = a3;
+			if (a4 >= 0 && a4 < a) a = a4;
+			if (a5 >= 0 && a5 < a) a = a5;
+			if (a == INT_MAX) a = part.GetCount();
+			/*if (a == INT_MAX && part.GetCount() < 100) a = part.GetCount();
+			if (a == INT_MAX) {
+				WString ws = part.ToWString();
+				LOG(ws);
+				DUMPC(ws);
+			}*/
+			if (a == INT_MAX)
+				continue;
 			String& key = keys[i];
 			key = TrimBoth(part.Left(a));
 		}
 		
-		if (parts[0].GetCount() && parts[1].GetCount()) {
+		if (keys[0].GetCount() && keys[1].GetCount()) {
 			int attr_i[2] = {-1,-1};
-			for(int i = 0; i < parts.GetCount(); i++) {
+			for(int i = 0; i < keys.GetCount(); i++) {
 				AttrHeader ah;
 				ah.group = ToLower(t->tmp_str);
 				ah.value = ToLower(keys[i]);
@@ -1224,14 +1255,122 @@ void TaskManager::OnAttributes(String res, Task* t) {
 			}
 			
 			
-			ExportSimpleAttr& sat = da.simple_attrs.GetAdd3(attr_i[0], attr_i[1]);
-			sat.attr_group = t->batch_i;
-			
-			if (da.attr_group_main.GetCount() <= t->batch_i)
-				da.attr_group_main.SetCount(t->batch_i+1);
-			
-			da.attr_group_main[t->batch_i] = Tuple2<int,int>(attr_i[0], attr_i[1]);
+			ExportSimpleAttr& sat = da.simple_attrs.GetAdd(t->tmp_str);
+			sat.attr_i0 = attr_i[0];
+			sat.attr_i1 = attr_i[1];
 		}
+	}
+	
+	
+	t->batch_i++;
+	t->running = false;
+}
+
+void TaskManager::OnAttributePolars(String res, Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	RemoveEmptyLines2(res);
+	Vector<String> lines = Split(res, "\n");
+	
+	
+	if (lines.GetCount() == t->tmp_words.GetCount()) {
+		String group = t->tmp_str;
+		int i = da.simple_attrs.Find(group);
+		String pos_value, neg_value;
+		if (i >= 0) {
+			const ExportSimpleAttr& esa = da.simple_attrs[i];
+			pos_value = da.attrs.GetKey(esa.attr_i0).value;
+			neg_value = da.attrs.GetKey(esa.attr_i1).value;
+		}
+		for(int i = 0; i < lines.GetCount(); i++) {
+			String key = t->tmp_words[i];
+			String value = TrimBoth(ToLower(lines[i]));
+			bool is_negative = value.Find("negative") >= 0;
+			
+			// Force the value, if the key is the extreme (and AI got it wrong somehow)
+			if (key == pos_value)
+				is_negative = false;
+			else if (key == neg_value)
+				is_negative = true;
+			
+			AttrHeader ah;
+			ah.group = group;
+			ah.value = key;
+			int j = da.attrs.Find(ah);
+			if (j < 0)
+				continue;
+			
+			ExportAttr& ea = da.attrs[j];
+			ea.positive = !is_negative;
+		}
+		
+	}
+	
+	
+	t->batch_i++;
+	t->running = false;
+}
+
+void TaskManager::OnAttributeJoins(String res, Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	RemoveEmptyLines2(res);
+	Vector<String> lines = Split(res, "\n");
+	
+	
+	if (lines.GetCount() == t->tmp_words.GetCount()) {
+		
+		for(int i = 0; i < lines.GetCount(); i++) {
+			String& l = lines[i];
+			Vector<String> ah_parts = Split(t->tmp_words[i], ": ");
+			if (ah_parts.GetCount() != 2)
+				continue;
+			AttrHeader ah;
+			ah.group = ah_parts[0];
+			ah.value = ah_parts[1];
+			
+			int attr_i = da.attrs.Find(ah);
+			if (attr_i < 0)
+				continue;
+			ExportAttr& ea = da.attrs[attr_i];
+			
+			String digit, sign;
+			for(int i = 0; i < l.GetCount(); i++) {
+				int chr = l[i];
+				if (IsDigit(chr))
+					digit.Cat(chr);
+				else if (chr == '+' || chr == '-') {
+					sign.Cat(chr);
+					break;
+				}
+				else if (chr == ',')
+					break;
+			}
+			if (digit.IsEmpty() || sign.IsEmpty())
+				continue;
+			
+			int group_i = ScanInt(digit);
+			bool is_positive = sign == "+";
+			
+			if (group_i < 0 || group_i >= t->tmp_words2.GetCount())
+				continue;
+			String group = t->tmp_words2[group_i];
+			
+			AttrHeader link_ah;
+			link_ah.group = group;
+			link_ah.value = ah.value;
+			int link_i = -1;
+			da.attrs.GetAdd(link_ah, link_i);
+			
+			ea.link = link_i;
+		}
+		
 	}
 	
 	

@@ -1748,33 +1748,57 @@ void TaskManager::GetAttributes(Task* t) {
 	
 	struct Sorter {
 		bool operator()(const Index<String>& a, const Index<String>& b) const {
-			return a.GetCount() > b.GetCount();
+			if (a.GetCount() != b.GetCount())
+				return a.GetCount() > b.GetCount();
+			if (a.GetCount() && b.GetCount())
+				return StdLess<String>()(a[0], b[0]);
+			return false;
 		}
 	};
 	SortByValue(uniq_attrs, Sorter());
 	
-	
 	if (t->fn == 0) {
-		Database& db = Database::Single();
-		SongData& sd = db.song_data;
-		SongDataAnalysis& sda = db.song_data.a;
-		DatasetAnalysis& da = sda.datasets[t->ds_i];
+		Vector<Task::AttrExtremesBatch>& batches = t->attr_extremes_batches;
 		
-		if (t->batch_i >= uniq_attrs.GetCount()) {
+		if (batches.IsEmpty()) {
+			for(int i = 0; i < uniq_attrs.GetCount(); i++) {
+				String group = uniq_attrs.GetKey(i);
+				int j = da.simple_attrs.Find(group);
+				if (j >= 0) {
+					const ExportSimpleAttr& esa = da.simple_attrs[j];
+					if (esa.attr_i0 >= 0 && esa.attr_i1 >= 0)
+						continue;
+				}
+				Task::AttrExtremesBatch& b = batches.Add();
+				b.group = group;
+			}
+		}
+		
+		if (t->batch_i >= batches.GetCount()) {
 			RemoveTask(*t);
 			return;
 		}
+		Task::AttrExtremesBatch& batch = batches[t->batch_i];
 		
-		const Index<String>& values = uniq_attrs[t->batch_i];
-		if (values.GetCount() <= 2) {
+		if (0) {
+			while (1) {
+				const Index<String>& values = uniq_attrs[t->batch_i];
+				if (values.GetCount() > 2) t->batch_i++;
+				else break;
+			}
+		}
+		
+		const Index<String>& values = uniq_attrs.Get(batch.group);
+		if (values.GetCount() < 2) {
 			RemoveTask(*t);
 			return;
 		}
 		
 		
 		AttrArgs args;
-		args.group = uniq_attrs.GetKey(t->batch_i);
-		args.values <<= uniq_attrs[t->batch_i].GetKeys();
+		args.fn = t->fn;
+		args.group = batch.group;
+		args.values <<= values.GetKeys();
 		
 		if (args.group.IsEmpty()) {
 			t->batch_i++;
@@ -1789,9 +1813,129 @@ void TaskManager::GetAttributes(Task* t) {
 		m.GetAttributes(args, THISBACK1(OnAttributes, t));
 	}
 	else if (t->fn == 1) {
+		int per_batch = 50;
+		
+		Vector<Task::AttrPolarBatch>& batches = t->attr_polar_batches;
+		
+		if (batches.IsEmpty()) {
+			for(int i = 0; i < uniq_attrs.GetCount(); i++) {
+				String group = uniq_attrs.GetKey(i);
+				int j = da.simple_attrs.Find(group);
+				if (j < 0) continue;
+				const auto& gsa = da.simple_attrs[j];
+				
+				const Index<String>& v = uniq_attrs[i];
+				Task::AttrPolarBatch& b = batches.Add();
+				b.attr0 = da.attrs.GetKey(gsa.attr_i0).value;
+				b.attr1 = da.attrs.GetKey(gsa.attr_i1).value;
+				ASSERT(da.attrs.GetKey(gsa.attr_i0).group == group);
+				b.group = group;
+				for(int j = 0; j < v.GetCount(); j++) {
+					if (batches.Top().attrs.GetCount() >= per_batch) {
+						Task::AttrPolarBatch& b0 = batches.Add();
+						Task::AttrPolarBatch& b = batches[batches.GetCount()-2];
+						b0.group = b.group;
+						b0.attr0 = b.attr0;
+						b0.attr1 = b.attr1;
+					}
+					
+					AttrHeader ah;
+					ah.group = group;
+					ah.value = v[j];
+					int k = da.attrs.Find(ah);
+					if (k >= 0) {
+						const ExportAttr& ea = da.attrs[k];
+						if (ea.positive >= 0)
+							continue;
+					}
+					
+					batches.Top().attrs << v[j];
+				}
+				if (batches.Top().attrs.IsEmpty())
+					batches.Remove(batches.GetCount()-1);
+			}
+		}
 		
 		
+		if (t->batch_i >= batches.GetCount()) {
+			RemoveTask(*t);
+			return;
+		}
 		
+		Task::AttrPolarBatch& batch = batches[t->batch_i];
+		AttrArgs args;
+		args.fn = t->fn;
+		args.group = batch.group;
+		args.values <<= batch.attrs;
+		args.attr0 = batch.attr0;
+		args.attr1 = batch.attr1;
+		
+		t->tmp_words <<= batch.attrs;
+		t->tmp_str = args.group;
+		
+		RealizePipe();
+		TaskMgr& m = *pipe;
+		m.GetAttributes(args, THISBACK1(OnAttributePolars, t));
+	}
+	else if (t->fn == 2) {
+		int per_batch = 35;
+		Vector<Task::AttrJoinBatch>& batches = t->attr_join_batches;
+		
+		if (batches.IsEmpty()) {
+			for(int i = 0; i < uniq_attrs.GetCount(); i++) {
+				String group = uniq_attrs.GetKey(i);
+				const Index<String>& v = uniq_attrs[i];
+				if (v.GetCount() > 1) continue;
+				if (v.IsEmpty()) break;
+				if (batches.IsEmpty() || batches.Top().values.GetCount() >= per_batch) {
+					batches.Add();
+				}
+				AttrHeader ah;
+				ah.group = group;
+				ah.value = v[0];
+				
+				int j = da.attrs.Find(ah);
+				if (j < 0)
+					continue;
+				
+				const ExportAttr& ea = da.attrs[j];
+				if (ea.link >= 0)
+					continue; // already linked
+				
+				Task::AttrJoinBatch& b = batches.Top();
+				b.values << (ah.group + ": " + ah.value);
+			}
+		}
+		
+		if (t->batch_i >= batches.GetCount()) {
+			RemoveTask(*t);
+			return;
+		}
+		
+		Task::AttrJoinBatch& batch = batches[t->batch_i];
+		AttrArgs args;
+		args.fn = t->fn;
+		//args.groups <<= batch.groups;
+		args.values <<= batch.values;
+		int count = min(20, uniq_attrs.GetCount());
+		t->tmp_words2.Clear();
+		for(int i = 0; i < count; i++) {
+			String group = uniq_attrs.GetKey(i);
+			if (!group.IsEmpty()) {
+				const ExportSimpleAttr& ea = da.simple_attrs.GetAdd(group);
+				String a0 = da.attrs.GetKey(ea.attr_i0).value;
+				String a1 = da.attrs.GetKey(ea.attr_i1).value;
+				args.groups << (group + ": +(" + a0 + "), -(" + a1 + ")");
+				t->tmp_words2 << group;
+			}
+		}
+		
+		t->tmp_words <<= batch.values;
+		t->tmp_str = args.group;
+		
+		RealizePipe();
+		TaskMgr& m = *pipe;
+		m.GetAttributes(args, THISBACK1(OnAttributeJoins, t));
 	}
 	
 }

@@ -143,7 +143,7 @@ public:
 	Event<String> WhenResult;
 	Event<Array<Image>&> WhenResultImages;
 	Event<> WhenError;
-	String image_n, image_sz;
+	String image_n, image_sz, tmp_str;
 	Array<Image> send_images, recv_images;
 	
 	inline static constexpr int common_mask_gen_multiplier		= 8;

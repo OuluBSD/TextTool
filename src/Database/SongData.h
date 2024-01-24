@@ -712,15 +712,17 @@ struct PhrasePart : Moveable<PhrasePart> {
 
 struct ExportAttr : Moveable<ExportAttr> {
 	int simple_group = -1, simple_value = -1;
+	int positive = -1, link = -1;
 	
 	String StoreToString() {
 		StringDumper d;
-		d % simple_group % simple_value;
+		d % simple_group % simple_value % positive % link;
 		return d;
 	}
 	void LoadFromString(const String& s) {
 		StringParser p(s);
-		p % simple_group % simple_value;
+		p % simple_group % simple_value % positive % link;
+		positive = min(1, max(0, positive));
 	}
 	
 };
@@ -858,16 +860,16 @@ struct ExportWordnet : Moveable<ExportWordnet> {
 };
 
 struct ExportSimpleAttr : Moveable<ExportSimpleAttr> {
-	int attr_group = -1;
+	int attr_i0 = -1, attr_i1 = -1;
 	
 	String StoreToString() {
 		StringDumper d;
-		d % attr_group;
+		d % attr_i0 % attr_i1;
 		return d;
 	}
 	void LoadFromString(const String& s) {
 		StringParser p(s);
-		p % attr_group;
+		p % attr_i0 % attr_i1;
 	}
 	
 };
@@ -912,14 +914,11 @@ struct DatasetAnalysis {
 	MapFile<String,String> translations;
 	MapFile<hash_t,ExportWordnet> wordnets;
 	MapFile<String,String> diagnostics;
-	MapMapFile<int,int,ExportSimpleAttr> simple_attrs;
+	MapFile<String,ExportSimpleAttr> simple_attrs;
 	
 	// Cached data
 	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;
 	ArrayMap<String, SongCandidateCache> song_cache;
-	
-	// Temp data
-	Vector<Tuple2<int,int>> attr_group_main;
 	
 	
 	DatasetAnalysis();

@@ -493,12 +493,16 @@ struct PhraseArgs {
 struct AttrArgs {
 	int fn;
 	String group;
-	Vector<String> values;
+	Vector<String> groups, values;
+	String attr0, attr1;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
 				("group", group)
+				("groups", groups)
 				("values", values)
+				("attr0", attr0)
+				("attr1", attr1)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

@@ -79,5 +79,12 @@ void Task::Process_GetPhraseData() {
 }
 
 void Task::Process_GetAttributes() {
-	WhenResult("1. " + output);
+	AttrArgs args;
+	args.Put(this->args[0]);
+	if (args.fn == 0)
+		WhenResult("1. " + output);
+	/*else if (args.fn == 1)
+		WhenResult(tmp_str + output);*/
+	else
+		WhenResult(output);
 }
