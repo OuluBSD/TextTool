@@ -1,5 +1,7 @@
 #include "EditorCtrl.h"
 
+#if 0
+
 ActionEditor::ActionEditor() {
 	Add(hsplit.Horz());
 	hsplit.Horz() << vsplit << mainsplit;
@@ -582,3 +584,4 @@ void ActionEditor::ToolMenu(Bar& bar) {
 	
 }
 
+#endif

@@ -1,6 +1,7 @@
 #ifndef _EditorCtrl_AttributeDistribution_h_
 #define _EditorCtrl_AttributeDistribution_h_
 
+#if 0
 
 class AttributeDistribution : public SongToolCtrl {
 	bool disabled = false;
@@ -26,4 +27,5 @@ public:
 };
 
 
+#endif
 #endif

@@ -1,6 +1,8 @@
 #ifndef _EditorCtrl_LineStructureEditor_h_
 #define _EditorCtrl_LineStructureEditor_h_
 
+#if 0
+
 
 class LineStructureEditor : public SongToolCtrl {
 	struct PartSug : Moveable<PartSug> {
@@ -36,4 +38,5 @@ public:
 };
 
 
+#endif
 #endif

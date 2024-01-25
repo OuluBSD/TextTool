@@ -5,7 +5,7 @@
 class ContextAttributesCtrl : public SongToolCtrl {
 	Splitter hsplit;
 	ArrayCtrl artist, release, song;
-	
+	int ds_i = 0;
 	
 	void InitList(ArrayCtrl& a);
 	

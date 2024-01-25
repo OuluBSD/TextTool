@@ -1,5 +1,7 @@
 #include "EditorCtrl.h"
 
+#if 0
+
 
 AttributeDistribution::AttributeDistribution() {
 	Add(hsplit.SizePos());
@@ -393,3 +395,4 @@ void AttributeDistribution::RemoveActiveAttribute() {
 	PostCallback(THISBACK(Data));
 }
 
+#endif

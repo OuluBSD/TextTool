@@ -1,5 +1,7 @@
 #include "EditorCtrl.h"
 
+#if 0
+
 
 LyricsEditor::LyricsEditor() {
 	Add(vsplit.SizePos());
@@ -604,3 +606,5 @@ void LyricsEditor::GetSuggestionsAI() {
 void LyricsEditor::OnSuggestions(String res) {
 	
 }
+
+#endif

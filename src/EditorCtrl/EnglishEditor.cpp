@@ -1,6 +1,6 @@
 #include "EditorCtrl.h"
 
-Preprocessing::Preprocessing() {
+EnglishEditor::EnglishEditor() {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << parts << lines << candidates;
@@ -24,7 +24,7 @@ Preprocessing::Preprocessing() {
 	
 }
 
-void Preprocessing::Data() {
+void EnglishEditor::Data() {
 	Song& song = GetSong();
 	
 	for(int i = 0; i < song.parts.GetCount(); i++) {
@@ -41,11 +41,11 @@ void Preprocessing::Data() {
 	DataPart();
 }
 
-void Preprocessing::DataPart() {
+void EnglishEditor::DataPart() {
 	
 }
 
-void Preprocessing::ToolMenu(Bar& bar) {
+void EnglishEditor::ToolMenu(Bar& bar) {
 	SongToolCtrl::ToolMenu(bar);
 	
 }

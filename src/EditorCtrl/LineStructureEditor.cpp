@@ -1,5 +1,7 @@
 #include "EditorCtrl.h"
 
+#if 0
+
 
 
 LineStructureEditor::LineStructureEditor() {
@@ -207,3 +209,5 @@ void LineStructureEditor::UpdateSuggestions() {
 		SortByKey(struct_sugs, StdLess<String>());
 	}
 }
+
+#endif

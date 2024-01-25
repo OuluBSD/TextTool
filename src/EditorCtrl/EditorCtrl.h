@@ -29,7 +29,10 @@
 #include "ActionEditor.h"
 #include "BasicInfoCtrl.h"
 #include "LineStructureEditor.h"
-#include "Preprocessing.h"
+#include "EnglishEditor.h"
+#include "LinePicker.h"
+#include "LineSetter.h"
+#include "NativeEditor.h"
 
 
 #endif

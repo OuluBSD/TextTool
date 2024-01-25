@@ -1,5 +1,4 @@
 Scheduled work:
-- song attrs and colors -page (and rhyme scheme)
 - add rhyming to nana-code page
 - keep only preprocessing
 	- make full lyrics, which rhymes
@@ -314,3 +313,4 @@ x? vocabulary: for artist, for release, for song
 - action storyline editor: thread: average action and color
 - database: export/import data
 - database: diagnostics
+- song attrs and colors -page (and rhyme scheme)

@@ -1,6 +1,8 @@
 #ifndef _EditorCtrl_LyricsEditor_h_
 #define _EditorCtrl_LyricsEditor_h_
 
+#if 0
+
 
 class LyricsEditor : public SongToolCtrl {
 	Splitter vsplit, hsplit0, hsplit1, vsplit1;
@@ -30,4 +32,5 @@ public:
 };
 
 
+#endif
 #endif

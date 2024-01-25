@@ -1,6 +1,8 @@
 #ifndef _EditorCtrl_ActionEditor_h_
 #define _EditorCtrl_ActionEditor_h_
 
+#if 0
+
 
 class ActionEditor : public SongToolCtrl {
 	Splitter hsplit, vsplit, mainsplit, main_vsplit, sug_hsplit, sug_vsplit;
@@ -38,4 +40,5 @@ public:
 };
 
 
+#endif
 #endif

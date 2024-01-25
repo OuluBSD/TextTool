@@ -42,12 +42,11 @@ protected:
 	PressReleaseCtrl				pressrel;
 	PublicRelationsCtrl				pubrel;
 	MarketingCtrl					marketing;
-	AttributeDistribution			attr_dist;
+	//AttributeDistribution			attr_dist;
 	CalMgrCtrl						cal;
 	SongStructure					song_struct;
-	LyricsEditor					lyrics_editor;
-	NanaEditor						nana_editor;
-	ActionEditor					action_editor;
+	//LyricsEditor					lyrics_editor;
+	//ActionEditor					action_editor;
 	BasicInfoCtrl					info;
 	
 	// Database Ctrls
@@ -68,8 +67,12 @@ protected:
 	SongDataWords					song_words;
 	SongDataWordnet					song_wordnet;
 	SongDataDiagnostics				db_diagnostics;
-	LineStructureEditor				line_struct;
-	Preprocessing					preprocessing;
+	//LineStructureEditor				line_struct;
+	LinePicker						line_picker;
+	LineSetter						line_setter;
+	NativeEditor					nat_editor;
+	NanaEditor						nana_editor;
+	EnglishEditor					eng_edit;
 	Attributes						db_attrs;
 	
 	/*
