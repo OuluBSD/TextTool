@@ -65,6 +65,14 @@ PhrasePartAnalysis::PhrasePartAnalysis() {
 	parts.AddColumn(t_("Score-sum"));
 	parts.AddIndex("IDX");
 	parts.ColumnWidths("16 6 6 8 3 1");
+	parts.WhenBar << [this](Bar& bar){
+		bar.Add("Copy", [this]() {
+			int i = parts.GetCursor();
+			AttrText text = parts.Get(i, 3);
+			String s = text.text.ToString();
+			WriteClipboardText(s);
+		});
+	};
 	
 }
 
