@@ -41,7 +41,15 @@ void SongDataDiagnostics::DataDataset() {
 		const String& value = da.diagnostics[i];
 		
 		values.Set(i, 0, key);
-		values.Set(i, 1, value);
+		
+		if (key.Find("percentage") >= 0 && key.Find("fail percentage") < 0) {
+			double perc = StrDbl(value);
+			if (perc < 50)
+				SetColoredListValue(values, i, 1, Format("%.3m", perc), Red());
+			else
+				values.Set(i, 1, value);
+		}
+		else values.Set(i, 1, value);
 	}
 	values.SetCount(da.diagnostics.GetCount());
 	
