@@ -423,6 +423,7 @@ struct Song :
 	Color						active_idea_clr[IDEAPATH_COUNT];
 	Array<ProductionIdea>		prod_ideas;
 	Vector<AttrProbability>		active_roles;
+	Index<int>					picked_phrase_parts;
 	
 	void Store();
 	void LoadTitle(String title);
@@ -456,6 +457,7 @@ struct Song :
 			("part_cursor", part_cursor)
 			("prod_ideas", prod_ideas)
 			("active_roles", active_roles)
+			("picked_phrase_parts", picked_phrase_parts)
 			;
 		for(int i = 0; i < IDEAPATH_COUNT; i++)
 			json((String)"active_idea[" + IdeaPathString[i][1] + "]", active_idea[i]);

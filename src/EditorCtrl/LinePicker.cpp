@@ -26,7 +26,10 @@ void Paint_ScoreCtrl(Size& sz, ImageDraw& d, int q[SCORE_COUNT]) {
 
 
 LinePicker::LinePicker() {
-	Add(hsplit.SizePos());
+	Add(main_split.SizePos());
+	
+	main_split.Vert() << hsplit << picked;
+	main_split.SetPos(8000);
 	
 	hsplit.Horz() << vsplit << parts;
 	hsplit.SetPos(2000);
@@ -94,17 +97,28 @@ LinePicker::LinePicker() {
 		});
 	};
 	
+	picked.AddColumn(t_("Actions"));
+	picked.AddColumn(t_("Group"));
+	picked.AddColumn(t_("Value"));
+	picked.AddColumn(t_("Phrase"));
+	picked.AddColumn(t_("Scores (Ide,Emo,Hoo,Sha,Val,Com,Sex,Pol,Lov,Soc)"));
+	picked.AddColumn(t_("Score-sum"));
+	picked.AddIndex("IDX");
+	picked.ColumnWidths("16 6 6 8 3 1");
+	parts.WhenBar << [this](Bar& bar){
+		bar.Add("Remove", THISBACK(RemoveLine));
+	};
+	
 }
 
 void LinePicker::ToolMenu(Bar& bar) {
-	bar.Add(t_("Get phrase colors"), AppImg::RedRing(), THISBACK1(DoPhrases, 0)).Key(K_F5);
-	bar.Add(t_("Get phrase attributes"), AppImg::RedRing(), THISBACK1(DoPhrases, 1)).Key(K_F6);
-	bar.Add(t_("Get phrase actions"), AppImg::RedRing(), THISBACK1(DoPhrases, 2)).Key(K_F7);
-	bar.Add(t_("Get phrase scores"), AppImg::RedRing(), THISBACK1(DoPhrases, 3)).Key(K_F8);
+	bar.Add(t_("Add line"), AppImg::BlueRing(), THISBACK(AddLine)).Key(K_CTRL_Q);
+	bar.Add(t_("Remove line"), AppImg::BlueRing(), THISBACK(RemoveLine)).Key(K_CTRL_W);
 }
 
 void LinePicker::Data() {
 	DataMain();
+	DataPicked();
 }
 
 void LinePicker::DataMain() {
@@ -254,8 +268,89 @@ void LinePicker::DataActionHeader() {
 	
 }
 
+void LinePicker::DataPicked() {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Song& song = GetSong();
+	
+	int cursor = picked.IsCursor() ? picked.GetCursor() : -1;
+	
+	for(int i = 0; i < song.picked_phrase_parts.GetCount(); i++) {
+		int pp_i = song.picked_phrase_parts[i];
+		int row = i;
+		PhrasePart& pp = da.phrase_parts[pp_i];
+		
+		picked.Set(row, 0, da.GetActionString(pp.actions));
+		
+		String group, value;
+		if (pp.attr >= 0) {
+			const AttrHeader& ah = da.attrs.GetKey(pp.attr);
+			picked.Set(row, 1, ah.group);
+			picked.Set(row, 2, ah.value);
+		}
+		else {
+			picked.Set(row, 1, Value());
+			picked.Set(row, 2, Value());
+		}
+		
+		picked.Set(row, "IDX", i);
+		
+		String phrase = da.GetWordString(pp.words);
+		picked.Set(row, 3,
+			AttrText(phrase)
+				.NormalPaper(Blend(pp.clr, White(), 128+64)).NormalInk(Black())
+				.Paper(Blend(pp.clr, GrayColor())).Ink(White())
+			);
+		
+		Size sz(80, 10);
+		ImageDraw id(sz);
+		Paint_ScoreCtrl(sz, id, pp.scores);
+		picked.Set(row, 4, AttrText().SetImage(id));
+		
+		
+		int sum = 0;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			sum += pp.scores[i];
+		picked.Set(row, 5, sum);
+	}
+	picked.SetCount(song.picked_phrase_parts.GetCount());
+	picked.SetSortColumn(5, true);
+	
+	if (!picked.IsCursor() && cursor >= 0) {
+		if (cursor < picked.GetCount())
+			picked.SetCursor(cursor);
+		else if (cursor >= picked.GetCount() && picked.GetCount() > 0)
+			picked.SetCursor(picked.GetCount()-1);
+	}
+}
+
 void LinePicker::DoPhrases(int fn) {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoPhrases(ds_i, fn);
+}
+
+void LinePicker::AddLine() {
+	Song& song = GetSong();
+	
+	if (!parts.IsCursor())
+		return;
+	int pp_i = parts.Get("IDX");
+	song.picked_phrase_parts.FindAdd(pp_i);
+	
+	PostCallback(THISBACK(DataPicked));
+}
+
+void LinePicker::RemoveLine() {
+	Song& song = GetSong();
+	
+	if (!picked.IsCursor())
+		return;
+	
+	int idx = picked.Get("IDX");
+	song.picked_phrase_parts.Remove(idx);
+	
+	PostCallback(THISBACK(DataPicked));
 }
 
