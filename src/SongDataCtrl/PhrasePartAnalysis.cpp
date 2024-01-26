@@ -259,17 +259,6 @@ void PhrasePartAnalysis::DataActionHeader() {
 		}
 		parts.Set(row, 4, va);
 		parts.Set(row, 5, sum);
-		
-		/*parts.Set(row, 2,
-			AttrText(ah.action)
-				.NormalPaper(Blend(pp.clr, White(), 128+64)).NormalInk(Black())
-				.Paper(Blend(pp.clr, GrayColor())).Ink(White())
-			);
-		parts.Set(row, 3,
-			AttrText(ah.arg	)
-				.NormalPaper(Blend(pp.clr, White(), 128+64)).NormalInk(Black())
-				.Paper(Blend(pp.clr, GrayColor())).Ink(White())
-			);*/
 	}
 	parts.SetCount(count);
 	parts.SetSortColumn(5, true);
@@ -307,6 +296,5 @@ void PhrasePartAnalysis::UpdateCounts() {
 			ea.count++;
 		}
 	}
-	
 }
 

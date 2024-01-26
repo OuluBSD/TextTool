@@ -42,7 +42,7 @@ public:
 	Vector<ActionValue> values;
 	int ds_i = -1;
 	Vector<int> data;
-	
+	int sorting = 0;
 	
 public:
 	
@@ -58,6 +58,7 @@ public:
 	void DataGroup();
 	void DataValue();
 	
+	void SortBy(int i);
 	void Serialize(Stream& s) {s % datasets;}
 	void Store();
 	void Load();

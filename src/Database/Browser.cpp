@@ -338,6 +338,8 @@ void DatabaseBrowser::DataValue() {
 		
 		data << i;
 	}
+	
+	SortBy(sorting);
 }
 
 void DatabaseBrowser::Store() {
@@ -348,4 +350,44 @@ void DatabaseBrowser::Store() {
 void DatabaseBrowser::Load() {
 	String file = ConfigFile("DatabaseBrowser.bin");
 	LoadFromFile(*this, file);
+}
+
+void DatabaseBrowser::SortBy(int i) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	if (i == 0) {
+		struct Sorter {
+			MapFile<hash_t, PhrasePart>* phrase_parts;
+			bool operator()(int a, int b) const {
+				int at = 0, bt = 0;
+				PhrasePart& pa = (*phrase_parts)[a];
+				PhrasePart& pb = (*phrase_parts)[b];
+				for(int i = 0; i < SCORE_COUNT; i++) {
+					at += pa.scores[i];
+					bt += pb.scores[i];
+				}
+				return at > bt;
+			}
+		} s;
+		s.phrase_parts = &da.phrase_parts;
+		Sort(data, s);
+	}
+	else if (i >= 1 && i < SCORE_COUNT+1) {
+		i--;
+		struct Sorter {
+			MapFile<hash_t, PhrasePart>* phrase_parts;
+			int i;
+			bool operator()(int a, int b) const {
+				return (*phrase_parts)[a].scores[i] > (*phrase_parts)[b].scores[i];
+			}
+		} s;
+		s.i = i;
+		s.phrase_parts = &da.phrase_parts;
+		Sort(data, s);
+	}
+	
+	sorting = i;
 }
