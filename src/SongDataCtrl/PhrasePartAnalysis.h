@@ -7,11 +7,10 @@ struct ScoreDisplay : public Display {
 	                   Color ink, Color paper, dword style) const;
 };
 
+
 class PhrasePartAnalysis : public SongToolCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, attrs, colors, actions, action_args, parts;
-	
-	VectorMap<String, VectorMap<String, int>> uniq_acts;
 	
 public:
 	typedef PhrasePartAnalysis CLASSNAME;
@@ -26,6 +25,7 @@ public:
 	void DataActionHeader();
 	void ToolMenu(Bar& bar) override;
 	void DoPhrases(int fn);
+	void UpdateCounts();
 	
 };
 

@@ -109,6 +109,8 @@ GUI_APP_MAIN {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.Start();
 	
+	DatabaseBrowser::Single().Load();
+	
 	// Run main program
 	bool save_songdata = false;
 	bool fast_exit = false;
@@ -138,6 +140,8 @@ GUI_APP_MAIN {
 	m.Stop();
 	
 	if (!fast_exit) {
+		DatabaseBrowser::Single().Store();
+		
 		db.Store();
 		
 		if (save_songdata) {

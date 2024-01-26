@@ -10,6 +10,7 @@
 #include "SongData.h"
 #include "DatabaseClass.h"
 #include "Pronounciation.h"
+#include "Browser.h"
 
 
 
