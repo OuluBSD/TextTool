@@ -248,6 +248,19 @@ void RemoveEmptyLines2(String& s) {
 	s = Join(lines, "\n");
 }
 
+void RemoveEmptyLines3(String& s) {
+	s.Replace("\r","");
+	Vector<String> lines = Split(s, "\n");
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		RemoveLineChar(l);
+		l = TrimBoth(l);
+		if (l.IsEmpty())
+			lines.Remove(i--);
+	}
+	s = Join(lines, "\n");
+}
+
 
 
 

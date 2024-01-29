@@ -1181,6 +1181,72 @@ void TaskManager::OnWordData(String res, Task* t) {
 	t->running = false;
 }
 
+void TaskManager::OnSongStory(String res, Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	Song& song = *t->song;
+	
+	
+	RemoveEmptyLines3(res);
+	
+	VectorMap<String, Vector<int>> results;
+	
+	Vector<String> lines = Split(res, "\n");
+	for(String& line : lines) {
+		int a = line.Find(":");
+		if (a < 0) continue;
+		
+		String part_name = TrimBoth(line.Left(a));
+		
+		a = line.Find(":", a+1);
+		if (a < 0) continue;
+		
+		auto& part_results = results.GetAdd(ToLower(part_name));
+		
+		String parts_str = TrimBoth(line.Mid(a+1));
+		Vector<String> parts = Split(parts_str, ",");
+		for (String& p : parts) {
+			p = TrimBoth(p);
+			int c = ScanInt(p);
+			c--;
+			part_results << c;
+		}
+	}
+	
+	for(int i = 0; i < results.GetCount(); i++) {
+		String res_part = results.GetKey(i);
+		const auto& part_lines = results[i];
+		StaticPart* sp = song.FindPartByName(res_part);
+		if (!sp)
+			continue;
+		
+		const auto& nana_lines = sp->nana.Get();
+		int c = min(part_lines.GetCount(), nana_lines.GetCount());
+		for(int j = 0; j < c; j++) {
+			int row = part_lines[j];
+			int pp_i = song.picked_phrase_parts[row];
+			sp->nana.SetPhrasePart(j, pp_i);
+		}
+	}
+	//t->batch_i++;
+	//t->running = false;
+	t->on_ready();
+	
+	RemoveTask(*t);
+}
+
+void TaskManager::OnNanaFit(String result, Task* t) {
+	
+	
+	
+	
+	t->on_ready();
+	
+	RemoveTask(*t);
+}
+
 void TaskManager::OnAttributes(String res, Task* t) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;

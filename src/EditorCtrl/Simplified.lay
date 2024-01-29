@@ -65,8 +65,10 @@ LAYOUT(LineEditor, 1240, 24)
 	ITEM(Upp::EditIntSpin, syllable_range, Min(-5).Max(5).HCenterPosZ(48, -456).TopPosZ(4, 19))
 END_LAYOUT
 
-LAYOUT(LinePicker, 308, 36)
+LAYOUT(LinePicker, 308, 56)
 	ITEM(Upp::StaticText, dv___0, SetText(t_("Sorting:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(4, 88).TopPosZ(4, 19))
 	ITEM(Upp::DropList, sort_list, HSizePosZ(96, 4).TopPosZ(4, 19))
+	ITEM(Upp::StaticText, dv___2, SetText(t_("Browser mode:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(4, 88).TopPosZ(28, 19))
+	ITEM(Upp::DropList, browser_list, HSizePosZ(96, 4).TopPosZ(28, 19))
 END_LAYOUT
 

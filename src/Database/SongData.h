@@ -929,6 +929,7 @@ struct DatasetAnalysis {
 	String GetTokenTextString(const TokenText& txt) const;
 	String GetTokenTypeString(const TokenText& txt) const;
 	String GetWordString(const Vector<int>& words) const;
+	WString GetWordPronounciation(const Vector<int>& words) const;
 	String GetTypeString(const Vector<int>& word_classes) const;
 	String GetActionString(const Vector<int>& actions) const;
 	

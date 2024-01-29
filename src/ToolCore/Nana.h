@@ -98,14 +98,14 @@ public:
 	
 	struct Syllable : Moveable<Syllable> {
 		int consonant_importance;
-		int vocal_importance;
+		int vowel_importance;
 		bool long_ = false;
 		bool at_beat = false;
 		
 		Syllable() {}
 		Syllable(const Syllable& s) {*this = s;}
-		void operator=(const Syllable& s) {consonant_importance = s.consonant_importance; vocal_importance = s.vocal_importance; long_ = s.long_; at_beat = s.at_beat;}
-		void Jsonize(JsonIO& json) {json("c", consonant_importance)("v", vocal_importance)("l", long_)("b", at_beat);}
+		void operator=(const Syllable& s) {consonant_importance = s.consonant_importance; vowel_importance = s.vowel_importance; long_ = s.long_; at_beat = s.at_beat;}
+		void Jsonize(JsonIO& json) {json("c", consonant_importance)("v", vowel_importance)("l", long_)("b", at_beat);}
 		String AsString() const;
 	};
 	
@@ -120,13 +120,17 @@ public:
 	
 	struct Line : Moveable<Line> {
 		Vector<Word> words;
+		int pp_i = -1;
+		Index<int> sub_pp_i;
 		
 		Line() {}
 		Line(const Line& s) {*this = s;}
-		void operator=(const Line& s) {words <<= s.words;}
-		void Jsonize(JsonIO& json) {json("words", words);}
+		void operator=(const Line& s) {words <<= s.words; pp_i = s.pp_i; sub_pp_i <<= s.sub_pp_i;}
+		void Jsonize(JsonIO& json) {json("words", words)("pp",pp_i)("spp",sub_pp_i);}
 		String AsNana() const;
 		void Pack(PackedRhymeContainer& container) const;
+		void Clear() {words.Clear(); pp_i = -1; sub_pp_i.Clear();}
+		void ClearLineWords() {words.Clear();}
 	};
 	
 protected:
@@ -139,8 +143,13 @@ public:
 	RhymeContainer(const RhymeContainer& rc) {*this = rc;}
 	
 	const Vector<Line>& Get() const {return lines;}
+	void SetPhrasePart(int line, int pp_i) {lines[line].pp_i = pp_i;}
+	void SetSubPicked(int line, int pp_i) {lines[line].sub_pp_i.FindAdd(pp_i);}
+	void RemoveSubPicked(int line, int pp_i) {lines[line].sub_pp_i.RemoveKey(pp_i);}
+	void ClearSubPicked(int line) {lines[line].sub_pp_i.Clear();}
 	
 	void Clear() {lines.Clear();}
+	void ClearLineWords(int line_i) {lines[line_i].ClearLineWords();}
 	void operator=(const RhymeContainer& rc) {lines <<= rc.lines;}
 	
 	String ToString() const;
@@ -159,6 +168,8 @@ class MockupPhraseParser {
 	Vector<Vector<String>> tokens;
 	
 	void SetError(String s) {fail = true; err = s;}
+	bool Process(RhymeContainer::Line& line, Vector<String>& ltokens);
+	
 public:
 	
 	static bool IsVowel(int chr);
@@ -170,6 +181,7 @@ public:
 	
 	bool Parse(String txt);
 	bool Process(RhymeContainer& rc);
+	bool ProcessLine(int line, RhymeContainer& rc);
 	
 	String GetError() const {return err;}
 	

@@ -5,24 +5,32 @@
 class LinePicker : public SongToolCtrl {
 	WithLinePicker<Ctrl> ctrls;
 	Splitter main_split, vsplit, hsplit;
-	ArrayCtrl attrs, colors, actions, action_args, parts, picked;
+	ArrayCtrl attrs, colors, actions, action_args, parts, picked, subpicked;
 	int ds_i = 0;
+	int mode = 0;
+	
+	enum {
+		MODE_PICKED,
+		MODE_SUBPICKED,
+	};
 	
 public:
 	typedef LinePicker CLASSNAME;
 	LinePicker();
 	
+	void SetBrowserMode(int i);
 	void Data() override;
-	void DataMain();
-	void DataAttribute();
-	void DataColor();
-	void DataAction();
-	void DataActionHeader();
+	void DataMain(int cur);
+	void DataPhrases();
 	void ToolMenu(Bar& bar) override;
 	void DoPhrases(int fn);
 	void DataPicked();
+	void DataSubPicked();
 	void AddLine();
 	void RemoveLine();
+	void ClearAll();
+	void SetView(int i);
+	void ToggleView() {SetView(!mode);}
 	
 };
 

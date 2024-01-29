@@ -797,6 +797,59 @@ void TaskManager::GetPhrases(Task* t) {
 	
 }
 
+void TaskManager::GetNana(Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	Song& song = *t->song;
+	
+	t->tmp.Clear();
+	
+	NanaArgs args;
+	args.fn = t->fn;
+	
+	if (args.fn == 0) {
+		for(int i = 0; i < song.parts.GetCount(); i++) {
+			const StaticPart& sp = song.parts[i];
+			args.parts << sp.name;
+			args.counts << sp.nana.Get().GetCount();
+		}
+		for(int i = 0; i < song.picked_phrase_parts.GetCount(); i++) {
+			int pp_i = song.picked_phrase_parts[i];
+			const PhrasePart& pp = da.phrase_parts[pp_i];
+			String phrase = da.GetWordString(pp.words);
+			args.phrases << phrase;
+		}
+	}
+	if (args.fn == 1) {
+		ASSERT(t->part_i >= 0 && t->line_i >= 0);
+		const StaticPart& sp = song.parts[t->part_i];
+		const auto& line = sp.nana.Get()[t->line_i];
+		
+		//const StaticPhrase& spa = sp.phrases[t->line_i];
+		if (line.pp_i < 0) {
+			RemoveTask(*t);
+			return;
+		}
+		const PhrasePart& pp = da.phrase_parts[line.pp_i];
+		
+		args.nana = line.AsNana();
+		args.phrase = da.GetWordString(pp.words);
+		args.pron = da.GetWordPronounciation(pp.words);
+		
+	}
+	
+	
+	RealizePipe();
+	TaskMgr& m = *pipe;
+	
+	if (args.fn == 0)
+		m.GetNanaData(args, THISBACK1(OnSongStory, t));
+	if (args.fn == 1)
+		m.GetNanaData(args, THISBACK1(OnNanaFit, t));
+}
+
 void TaskManager::GetActionlist(Task* t) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;

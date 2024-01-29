@@ -84,6 +84,12 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetAttributes)
 		;
 	
+	AddRule(TASK_NANA_DATA, "get nana data")
+		.Input(&Task::CreateInput_GetNanaData)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetNanaData)
+		;
+	
 }
 
 void TaskMgrConfig::Load() {
@@ -390,6 +396,22 @@ void TaskMgr::GetAttributes(const AttrArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_ATTRIBUTES);
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetNanaData(const NanaArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_NANA_DATA);
 	TaskMgr& p = *this;
 	
 	String s = args.Get();

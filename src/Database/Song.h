@@ -435,6 +435,7 @@ struct Song :
 	int FindPart(const StaticPart& part) const;
 	Vector<StaticPart*> GetNonSkippedStructureParts();
 	StaticPart* FindPartByType(const String& type);
+	StaticPart* FindPartByName(const String& name);
 	int GetFirstPartPosition() const;
 	
 	void Serialize(Stream& s) {TODO}

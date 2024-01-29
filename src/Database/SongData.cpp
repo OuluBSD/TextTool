@@ -375,6 +375,25 @@ String DatasetAnalysis::GetWordString(const Vector<int>& words) const {
 	return o;
 }
 
+WString DatasetAnalysis::GetWordPronounciation(const Vector<int>& words) const {
+	WString o;
+	for(int w_i : words) {
+		if (w_i < 0) continue;
+		const ExportWord& ew = this->words[w_i];
+		const WString& key = ew.phonetic;
+		
+		if (key.GetCount() == 1 && NaturalTokenizer::IsToken(key[0])) {
+			o << key;
+		}
+		else {
+			if (!o.IsEmpty())
+				o << " ";
+			o << key;
+		}
+	}
+	return o;
+}
+
 String DatasetAnalysis::GetTypeString(const Vector<int>& word_classes) const {
 	String o;
 	for(int wc_i : word_classes) {

@@ -77,6 +77,27 @@ bool MockupPhraseParser::IsConsonant(int chr) {
 }
 
 
+bool MockupPhraseParser::ProcessLine(int line_i, RhymeContainer& rc) {
+	int lc = tokens.GetCount();
+	if (!lc) {
+		SetError("no tokens");
+		return false;
+	}
+	if (lc > 1) {
+		SetError("expecting only one line");
+		return false;
+	}
+	
+	RhymeContainer::Line& line = rc.lines[line_i];
+	line.ClearLineWords();
+	auto& ltokens = tokens[0];
+	if (!Process(line, ltokens))
+		return false;
+	
+	return true;
+}
+
+
 bool MockupPhraseParser::Process(RhymeContainer& rc) {
 	int lc = tokens.GetCount();
 	if (!lc) {
@@ -89,68 +110,75 @@ bool MockupPhraseParser::Process(RhymeContainer& rc) {
 	
 	for(int i = 0; i < tokens.GetCount(); i++) {
 		auto& ltokens = tokens[i];
-		bool prev_continued = false;
-		RhymeContainer::Word* word_ptr = 0;
 		RhymeContainer::Line& line = rc.lines.Add();
-		for(int j = 0; j < ltokens.GetCount(); j++) {
-			const String& s = ltokens[j];
-			int sc = s.GetCount();
-			ASSERT(sc);
-			bool continues = false;
-			if (s[sc-1] == '-') {
-				continues = true;
-				sc--;
-			}
-			if (!sc) {
-				SetError("part without wovels nor consonants");
-				return false;
-			}
-			if (sc < 2) {
-				SetError("part is too short");
-				return false;
-			}
-			int chr0 = s[0];
-			if (!IsConsonant(chr0)) {
-				SetError("part does not start with a consonant");
-				return false;
-			}
-			bool at_beat = IsUpper(chr0);
-			if (at_beat) chr0 = ToLower(chr0);
-			
-			int consonant_importance = -1;
-			if      (chr0 == 'd')	consonant_importance = 0;
-			else if (chr0 == 't')	consonant_importance = 1;
-			else if (chr0 == 'n')	consonant_importance = 2;
-			else if (chr0 == 's')	consonant_importance = 3;
-			
-			int chr1 = s[1];
-			if (IsUpper(chr1)) chr1 = ToLower(chr1);
-			if (!IsVowel(chr1)) {
-				SetError("the second char is not a vowel");
-				return false;
-			}
-			int vocal_importance = 0;
-			if      (chr1 == 'u')	vocal_importance = 0;
-			else if (chr1 == 'i')	vocal_importance = 1;
-			else if (chr1 == 'a')	vocal_importance = 2;
-			else if (chr1 == 'y')	vocal_importance = 3;
-			
-			
-			if (prev_continued && word_ptr) {
-				// pass
-			}
-			else {
-				RhymeContainer::Word& w = line.words.Add();
-				word_ptr = &w;
-			}
-			RhymeContainer::Syllable& syl = word_ptr->syllables.Add();
-			syl.consonant_importance = consonant_importance;
-			syl.vocal_importance = vocal_importance;
-			syl.long_ = sc > 2;
-			syl.at_beat = at_beat;
-				
-			prev_continued = continues;
+		if (!Process(line, ltokens))
+			return false;
+	}
+	
+	return true;
+}
+
+bool MockupPhraseParser::Process(RhymeContainer::Line& line, Vector<String>& ltokens) {
+	bool prev_continued = false;
+	RhymeContainer::Word* word_ptr = 0;
+	for(int j = 0; j < ltokens.GetCount(); j++) {
+		const String& s = ltokens[j];
+		int sc = s.GetCount();
+		ASSERT(sc);
+		bool continues = false;
+		if (s[sc-1] == '-') {
+			continues = true;
+			sc--;
 		}
+		if (!sc) {
+			SetError("part without wovels nor consonants");
+			return false;
+		}
+		if (sc < 2) {
+			SetError("part is too short");
+			return false;
+		}
+		int chr0 = s[0];
+		if (!IsConsonant(chr0)) {
+			SetError("part does not start with a consonant");
+			return false;
+		}
+		bool at_beat = IsUpper(chr0);
+		if (at_beat) chr0 = ToLower(chr0);
+		
+		int consonant_importance = -1;
+		if      (chr0 == 'd')	consonant_importance = 0;
+		else if (chr0 == 't')	consonant_importance = 1;
+		else if (chr0 == 'n')	consonant_importance = 2;
+		else if (chr0 == 's')	consonant_importance = 3;
+		
+		int chr1 = s[1];
+		if (IsUpper(chr1)) chr1 = ToLower(chr1);
+		if (!IsVowel(chr1)) {
+			SetError("the second char is not a vowel");
+			return false;
+		}
+		int vowel_importance = 0;
+		if      (chr1 == 'u')	vowel_importance = 0;
+		else if (chr1 == 'i')	vowel_importance = 1;
+		else if (chr1 == 'a')	vowel_importance = 2;
+		else if (chr1 == 'y')	vowel_importance = 3;
+		
+		
+		if (prev_continued && word_ptr) {
+			// pass
+		}
+		else {
+			RhymeContainer::Word& w = line.words.Add();
+			word_ptr = &w;
+		}
+		RhymeContainer::Syllable& syl = word_ptr->syllables.Add();
+		syl.consonant_importance = consonant_importance;
+		syl.vowel_importance = vowel_importance;
+		syl.long_ = sc > 2;
+		syl.at_beat = at_beat;
+			
+		prev_continued = continues;
 	}
 	
 	return true;
@@ -224,7 +252,7 @@ String RhymeContainer::Syllable::AsString() const {
 		default: break;
 	}
 	
-	switch (vocal_importance) {
+	switch (vowel_importance) {
 		case 0: vocal = 'u'; break;
 		case 1: vocal = 'i'; break;
 		case 2: vocal = 'a'; break;
@@ -247,7 +275,7 @@ void RhymeContainer::Line::Pack(PackedRhymeContainer& container) const {
 		for (const auto& sy : wrd.syllables) {
 			byte nana = 0;
 			byte v_cl, c_cl;
-			switch (sy.vocal_importance){
+			switch (sy.vowel_importance){
 				case 0: v_cl = NANA_IMPORTANCE_2; break;
 				case 1: v_cl = NANA_IMPORTANCE_1; break;
 				case 2: v_cl = NANA_IMPORTANCE_0; break;

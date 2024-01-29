@@ -184,10 +184,10 @@ void SongStructure::DataSuggestionAttributes() {
 }
 
 void SongStructure::ToolMenu(Bar& bar) {
-	bar.Add(t_("Load user's structure"), AppImg::RedRing(), THISBACK(LoadUserStructure)).Key(K_F5);
-	bar.Add(t_("Get structure suggestions"), AppImg::BlueRing(), THISBACK(GetStructureSuggestions)).Key(K_F6);
-	bar.Add(t_("Get attributes for suggestions"), AppImg::BlueRing(), THISBACK(GetSuggestionAttributes)).Key(K_F7);
-	bar.Add(t_("Load selected structure"), AppImg::BlueRing(), THISBACK(LoadStructure)).Key(K_F8);
+	bar.Add(t_("Load user's structure"), AppImg::BlueRing(), THISBACK(LoadUserStructure)).Key(K_F5);
+	bar.Add(t_("Get structure suggestions"), AppImg::RedRing(), THISBACK(GetStructureSuggestions)).Key(K_F6);
+	bar.Add(t_("Get attributes for suggestions"), AppImg::RedRing(), THISBACK(GetSuggestionAttributes)).Key(K_F7);
+	bar.Add(t_("Load selected structure"), AppImg::RedRing(), THISBACK(LoadStructure)).Key(K_F8);
 }
 
 String SongStructure::GetStatusText() {

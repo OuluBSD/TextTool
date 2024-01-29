@@ -189,6 +189,7 @@ public:
 	void CreateInput_GetTokenData();
 	void CreateInput_GetPhraseData();
 	void CreateInput_GetAttributes();
+	void CreateInput_GetNanaData();
 	
 	void Process_GetTokenData();
 	void Process_GetPhraseData();
@@ -231,6 +232,7 @@ public:
 	void Process_GetActionAnalysis();
 	void Process_GetLyricsPhrase();
 	void Process_GetAttributes();
+	void Process_GetNanaData();
 	
 	void Retry(bool skip_prompt, bool skip_cache);
 	String GetDescription() const;

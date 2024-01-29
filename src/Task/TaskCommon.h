@@ -88,6 +88,7 @@ typedef enum : int {
 	TASK_GET_TOKEN_DATA,
 	TASK_GET_PHRASE_DATA,
 	TASK_GET_ATTRIBUTES,
+	TASK_NANA_DATA,
 	
 	TASK_COUNT
 } TaskType;
@@ -503,6 +504,28 @@ struct AttrArgs {
 				("values", values)
 				("attr0", attr0)
 				("attr1", attr1)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct NanaArgs {
+	int fn;
+	Vector<String> phrases, parts;
+	Vector<int> counts;
+	String nana, phrase;
+	WString pron;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("parts", parts)
+				("phrases", phrases)
+				("counts", counts)
+				("nana", nana)
+				("phrase", phrase)
+				("pron", pron)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

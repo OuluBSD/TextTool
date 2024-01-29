@@ -88,3 +88,7 @@ void Task::Process_GetAttributes() {
 	else
 		WhenResult(output);
 }
+
+void Task::Process_GetNanaData() {
+	WhenResult(output);
+}

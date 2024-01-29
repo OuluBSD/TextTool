@@ -15,6 +15,7 @@ typedef enum {
 	
 	TASK_VIRTUAL_PHRASES,
 	TASK_PHRASES,
+	TASK_NANA,
 	TASK_CONTAINER,
 	TASK_ACTIONLIST,
 	TASK_ACTION_PARALLELS,
@@ -59,10 +60,13 @@ struct Task {
 	
 	TaskType type;
 	Callback cb;
+	Callback on_ready;
 	Callback2<int,int> update;
 	int fn = -1;
 	int ds_i = -1;
 	int batch_i = 0;
+	int part_i = -1;
+	int line_i = -1;
 	bool running = false;
 	Vector<int> tmp;
 	Vector<Batch> batches;
@@ -71,6 +75,8 @@ struct Task {
 	Vector<void*> tmp_ptrs;
 	String tmp_str;
 	int actual = 0, total = 0;
+	Song* song = 0;
+	
 };
 
 
@@ -127,6 +133,10 @@ class TaskManager {
 	void OnPhraseActions(String result, Task* t);
 	void OnPhraseScores(String result, Task* t);
 	
+	void GetNana(Task* tp);
+	void OnSongStory(String result, Task* t);
+	void OnNanaFit(String result, Task* t);
+	
 	void MakeNana(Task* t);
 	void GetRhymeContainers(Task* t);
 	void GetRhymeContainersFromTemplates(Task* t);
@@ -173,6 +183,7 @@ public:
 	void DoAmbiguousWordPairs(int ds_i, int fn);
 	void DoVirtualPhrases(int ds_i, int fn);
 	void DoPhrases(int ds_i, int fn);
+	void DoNana(int ds_i, int fn, Song& song, Callback OnReady, int line_i=-1, int part_i=-1);
 	void DoContainer(int ds_i, int fn, Callback2<int,int> update);
 	void DoWords(int ds_i, int fn);
 	void DoWordFix(int ds_i, int fn);

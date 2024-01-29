@@ -2390,3 +2390,46 @@ void Task::CreateInput_GetAttributes() {
 		input.response_length = 2048;
 	}
 }
+
+void Task::CreateInput_GetNanaData() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	NanaArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		{
+			auto& list = input.AddSub().Title("Song \"B\": parts");
+			for(int i = 0; i < args.parts.GetCount(); i++)
+				list.Add(args.parts[i] + ": " + IntStr(args.counts[i]) + " lines");
+		}
+		{
+			auto& list = input.AddSub().Title("Song \"B\": Potential phrases");
+			list.NumberedLines();
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			auto& list = input.AddSub().Title("Example \"A\": lines per parts");
+			list.NumberedLines();
+			list.Add("Intro: 0 lines");
+			list.Add("Verse 1: 4 lines: 4, 2, 3, 6");
+			list.Add("Chorus: 4 lines: 8, 13, 12, 1");
+			list.Add("Verse 2: 4 lines: 10, 9, 11, 14");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Song \"B\": lines per parts. Sort lines in a way, that the story of the song is best");
+			results.EmptyLine();
+		}
+		input.response_length = 2048;
+	}
+	if (args.fn == 1) {
+		
+		
+		
+	}
+}

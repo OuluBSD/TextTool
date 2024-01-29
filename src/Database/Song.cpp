@@ -116,6 +116,14 @@ StaticPart* Song::FindPartByType(const String& type) {
 	return 0;
 }
 
+StaticPart* Song::FindPartByName(const String& name) {
+	String lname = ToLower(name);
+	for (StaticPart& sp : parts)
+		if (ToLower(sp.name) == lname)
+			return &sp;
+	return 0;
+}
+
 double Song::StructSuggestion::GetEstimatedDuration(int bpm) const {
 	double bars_per_min = (double)bpm / 4.0;
 	double bars_per_sec = bars_per_min / 60.0;

@@ -223,6 +223,7 @@ void RemoveLineNumber(String& s);
 void RemoveLineChar(String& s);
 void RemoveEmptyLines(String& s);
 void RemoveEmptyLines2(String& s);
+void RemoveEmptyLines3(String& s);
 
 template <class T>
 void CalculateWeightedGenderDifference(Vector<double>& values, const Vector<T>& score, const Vector<T>& other_score);
