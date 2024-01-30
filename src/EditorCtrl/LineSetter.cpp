@@ -14,6 +14,7 @@ LineSetter::LineSetter() {
 	lines.AddIndex("PART");
 	lines.AddIndex("LINE");
 	lines.ColumnWidths("1 3 3");
+	lines.WhenCursor << THISBACK(DataSubPicked);
 	
 	picked.AddColumn(t_("Phrase"));
 	picked.AddColumn(t_("Actions"));
@@ -142,11 +143,68 @@ void LineSetter::DataSubPicked() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Song& song = GetSong();
 	
-	int cursor = picked.IsCursor() ? picked.GetCursor() : -1;
+	if (!lines.IsCursor()) {
+		subpicked.Clear();
+		return;
+	}
+	int part_i = lines.Get("PART");
+	int line_i = lines.Get("LINE");
 	
 	
+	StaticPart& sp = song.parts[part_i];
+	const auto& lines = sp.nana.Get();
+	const Index<int>& line_pps = lines[line_i].sub_pp_i;
 	
 	
+	int cursor = subpicked.IsCursor() ? subpicked.GetCursor() : -1;
+	
+	for(int i = 0; i < line_pps.GetCount(); i++) {
+		int pp_i = line_pps[i];
+		int row = i;
+		PhrasePart& pp = da.phrase_parts[pp_i];
+		
+		subpicked.Set(row, 1, da.GetActionString(pp.actions));
+		
+		String group, value;
+		if (pp.attr >= 0) {
+			const AttrHeader& ah = da.attrs.GetKey(pp.attr);
+			subpicked.Set(row, 2, ah.group);
+			subpicked.Set(row, 3, ah.value);
+		}
+		else {
+			subpicked.Set(row, 2, Value());
+			subpicked.Set(row, 3, Value());
+		}
+		
+		subpicked.Set(row, "IDX", pp_i);
+		
+		String phrase = da.GetWordString(pp.words);
+		subpicked.Set(row, 0,
+			AttrText(phrase)
+				.NormalPaper(Blend(pp.clr, White(), 128+64)).NormalInk(Black())
+				.Paper(Blend(pp.clr, GrayColor())).Ink(White())
+			);
+		
+		Size sz(80, 10);
+		ImageDraw id(sz);
+		Paint_ScoreCtrl(sz, id, pp.scores);
+		subpicked.Set(row, 4, AttrText().SetImage(id));
+		
+		
+		int sum = 0;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			sum += pp.scores[i];
+		subpicked.Set(row, 5, sum);
+	}
+	subpicked.SetCount(line_pps.GetCount());
+	subpicked.SetSortColumn(5, true);
+	
+	if (!subpicked.IsCursor() && cursor >= 0) {
+		if (cursor < subpicked.GetCount())
+			subpicked.SetCursor(cursor);
+		else if (cursor >= subpicked.GetCount() && subpicked.GetCount() > 0)
+			subpicked.SetCursor(subpicked.GetCount()-1);
+	}
 }
 
 void LineSetter::ToolMenu(Bar& bar) {
@@ -154,7 +212,8 @@ void LineSetter::ToolMenu(Bar& bar) {
 	bar.Add(t_("Remove line"), AppImg::BlueRing(), THISBACK(ClearLine)).Key(K_CTRL_W);
 	bar.Add(t_("Copy text"), AppImg::BlueRing(), THISBACK(CopyText)).Key(K_CTRL_E);
 	bar.Separator();
-	bar.Add(t_("Fill by AI"), AppImg::RedRing(), THISBACK1(DoNana, 0)).Key(K_F5);
+	bar.Add(t_("Fill main by AI"), AppImg::RedRing(), THISBACK1(DoNana, 0)).Key(K_F5);
+	bar.Add(t_("Fill sub by AI"), AppImg::RedRing(), THISBACK1(DoNana, 1)).Key(K_F6);
 }
 
 void LineSetter::SetLine() {
@@ -221,6 +280,11 @@ void LineSetter::MoveLine(int n) {
 }
 
 void LineSetter::DoNana(int fn) {
+	int part_i = -1, line_i = -1;
+	if (lines.IsCursor()) {
+		part_i = lines.Get("PART");
+		line_i = lines.Get("LINE");
+	}
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	tm.DoNana(ds_i, fn, GetSong(), THISBACK(PostData));
+	tm.DoNana(ds_i, fn, GetSong(), THISBACK(PostData), line_i, part_i);
 }

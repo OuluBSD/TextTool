@@ -360,6 +360,10 @@ void DatabaseBrowser::DataAttr1() {
 				continue;
 		}
 		
+		// Filter by pronounciation
+		if (FilterPronounciation(da, pp))
+			continue;
+		
 		data << i;
 	}
 	

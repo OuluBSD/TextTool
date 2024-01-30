@@ -65,10 +65,18 @@ LAYOUT(LineEditor, 1240, 24)
 	ITEM(Upp::EditIntSpin, syllable_range, Min(-5).Max(5).HCenterPosZ(48, -456).TopPosZ(4, 19))
 END_LAYOUT
 
-LAYOUT(LinePicker, 308, 56)
+LAYOUT(LinePicker, 308, 100)
 	ITEM(Upp::StaticText, dv___0, SetText(t_("Sorting:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(4, 88).TopPosZ(4, 19))
 	ITEM(Upp::DropList, sort_list, HSizePosZ(96, 4).TopPosZ(4, 19))
 	ITEM(Upp::StaticText, dv___2, SetText(t_("Browser mode:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(4, 88).TopPosZ(28, 19))
+	ITEM(Upp::StaticText, dv___3, SetText(t_("Mid-rhyme:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(4, 64).TopPosZ(52, 19))
 	ITEM(Upp::DropList, browser_list, HSizePosZ(96, 4).TopPosZ(28, 19))
+	ITEM(Upp::EditString, mid_rhyme, LeftPosZ(72, 72).TopPosZ(52, 19))
+	ITEM(Upp::StaticText, dv___6, SetText(t_("End-rhyme:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(148, 64).TopPosZ(52, 19))
+	ITEM(Upp::StaticText, dv___7, SetText(t_("Mid-rhyming:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(4, 88).VSizePosZ(76, 5))
+	ITEM(Upp::EditDoubleSpin, mid_rhyming_limit, Min(-1).Max(1).LeftPosZ(96, 56).TopPosZ(76, 19))
+	ITEM(Upp::StaticText, dv___9, SetText(t_("End-rhyming:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(156, 88).VSizePosZ(76, 5))
+	ITEM(Upp::EditDoubleSpin, end_rhyming_limit, SetInc(0.005).Min(-1).Max(1).LeftPosZ(248, 56).TopPosZ(76, 19))
+	ITEM(Upp::EditString, end_rhyme, HSizePosZ(216, 4).TopPosZ(52, 19))
 END_LAYOUT
 

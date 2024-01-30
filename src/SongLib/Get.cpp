@@ -827,6 +827,23 @@ void TaskManager::GetNana(Task* t) {
 		const StaticPart& sp = song.parts[t->part_i];
 		const auto& line = sp.nana.Get()[t->line_i];
 		
+		if (line.pp_i < 0 || line.sub_pp_i.IsEmpty()) {
+			RemoveTask(*t);
+			return;
+		}
+		
+		const PhrasePart& pp = da.phrase_parts[line.pp_i];
+		args.phrase = da.GetWordString(pp.words);
+		for(int i = 0; i < line.sub_pp_i.GetCount(); i++) {
+			const PhrasePart& pp0 = da.phrase_parts[line.sub_pp_i[i]];
+			args.phrases << da.GetWordString(pp0.words);
+		}
+	}
+	/*if (args.fn == 1) {
+		ASSERT(t->part_i >= 0 && t->line_i >= 0);
+		const StaticPart& sp = song.parts[t->part_i];
+		const auto& line = sp.nana.Get()[t->line_i];
+		
 		//const StaticPhrase& spa = sp.phrases[t->line_i];
 		if (line.pp_i < 0) {
 			RemoveTask(*t);
@@ -838,7 +855,7 @@ void TaskManager::GetNana(Task* t) {
 		args.phrase = da.GetWordString(pp.words);
 		args.pron = da.GetWordPronounciation(pp.words);
 		
-	}
+	}*/
 	
 	
 	RealizePipe();
@@ -847,7 +864,8 @@ void TaskManager::GetNana(Task* t) {
 	if (args.fn == 0)
 		m.GetNanaData(args, THISBACK1(OnSongStory, t));
 	if (args.fn == 1)
-		m.GetNanaData(args, THISBACK1(OnNanaFit, t));
+		//m.GetNanaData(args, THISBACK1(OnNanaFit, t));
+		m.GetNanaData(args, THISBACK1(OnSubPicked, t));
 }
 
 void TaskManager::GetActionlist(Task* t) {

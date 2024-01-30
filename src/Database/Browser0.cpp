@@ -294,6 +294,10 @@ void DatabaseBrowser::DataValue0() {
 				continue;
 		}
 		
+		// Filter by pronounciation
+		if (FilterPronounciation(da, pp))
+			continue;
+		
 		data << i;
 	}
 	

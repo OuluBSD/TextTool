@@ -45,13 +45,24 @@ public:
 	int mode = -1;
 	Vector<int> data;
 	int sorting = 0;
+	bool filter_mid_rhyme = false, filter_end_rhyme = false;
+	WString mid_rhyme, end_rhyme;
+	double mid_rhyme_distance_limit = 0.005;
+	double end_rhyme_distance_limit = 0.005;
+	
+	bool FilterPronounciation(DatasetAnalysis& da, const PhrasePart& pp);
 	
 public:
 	
 	DatabaseBrowser();
 	void Init();
+	void Update();
 	void SetDataset(int i);
 	void SetMode(int i);
+	void SetMidRhymeFilter(WString wrd, bool up=true);
+	void SetEndRhymeFilter(WString wrd, bool up=true);
+	void SetMidRhymingLimit(double d, bool up=true);
+	void SetEndRhymingLimit(double d, bool up=true);
 	void SetAttr(int i);
 	void SetColor(int i);
 	void SetGroup(int i);
@@ -62,6 +73,8 @@ public:
 	void DataValue();
 	int GetCur(int cursor_i) const;
 	bool IsSub(int cur, int cursor_i) const;
+	double GetMidRhymingLimit() const {return mid_rhyme_distance_limit;}
+	double GetEndRhymingLimit() const {return end_rhyme_distance_limit;}
 	
 	// Mode 0: Attribute - Color - Action
 	void SetAttr0(int i);

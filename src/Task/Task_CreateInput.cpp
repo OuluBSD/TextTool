@@ -2428,8 +2428,27 @@ void Task::CreateInput_GetNanaData() {
 		input.response_length = 2048;
 	}
 	if (args.fn == 1) {
-		
-		
-		
+		{
+			auto& list = input.AddSub().Title("Song \"B\": phrase 1.");
+			list.Add(args.phrase);
+		}
+		{
+			auto& list = input.AddSub().Title("Song \"B\": Potential phrases to add after phrase 1.");
+			list.NumberedLines();
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			auto& list = input.AddSub().Title("Example: Song \"A\": best fitting line after phrase 1");
+			//list.NumberedLines();
+			int id = 1 + min(args.phrases.GetCount(), 2);
+			list.Add(IntStr(id) + ". " + args.phrases[id]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Exercise: Song \"B\": best fitting line after phrase 1");
+			results.EmptyLine();
+		}
+		input.response_length = 2048;
 	}
 }

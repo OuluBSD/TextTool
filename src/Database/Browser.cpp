@@ -59,6 +59,14 @@ void DatabaseBrowser::Init() {
 	if (mode == 3) SetColor3(0);
 }
 
+
+void DatabaseBrowser::Update() {
+	if (mode == 0) DataValue0();
+	if (mode == 1) DataAttr1();
+	if (mode == 2) DataAttr2();
+	if (mode == 3) DataValue3();
+}
+
 void DatabaseBrowser::SetAttr(int i) {
 	if (mode == 0) SetAttr0(i);
 	if (mode == 1) SetAttr1(i);
@@ -184,4 +192,77 @@ void DatabaseBrowser::SortBy(int i) {
 	}
 	
 	sorting = i;
+}
+
+void DatabaseBrowser::SetMidRhymingLimit(double d, bool up) {
+	mid_rhyme_distance_limit = d;
+	if (up) Update();
+}
+
+void DatabaseBrowser::SetEndRhymingLimit(double d, bool up) {
+	end_rhyme_distance_limit = d;
+	if (up) Update();
+}
+
+void DatabaseBrowser::SetMidRhymeFilter(WString wrd, bool up) {
+	mid_rhyme = wrd;
+	filter_mid_rhyme = !wrd.IsEmpty();
+	if (up) Update();
+}
+
+void DatabaseBrowser::SetEndRhymeFilter(WString wrd, bool up) {
+	end_rhyme = wrd;
+	filter_end_rhyme = !wrd.IsEmpty();
+	if (up) Update();
+}
+
+bool DatabaseBrowser::FilterPronounciation(DatasetAnalysis& da, const PhrasePart& pp) {
+	if (filter_mid_rhyme) {
+		bool found = false;
+		int count = pp.words.GetCount()-1;
+		for(int i = 0; i < count; i++) {
+			WString phonetic = da.words[pp.words[i]].phonetic;
+			double limit = mid_rhyme_distance_limit;
+			
+			// Limit phonetic word using only ending (easy solution)
+			int count = min(phonetic.GetCount(), mid_rhyme.GetCount());
+			if (!count)
+				return true;
+			if (limit >= 0)
+				phonetic = phonetic.Mid(phonetic.GetCount()-count, count);
+			else {
+				limit = -limit;
+				phonetic = phonetic.Left(count);
+			}
+			
+			double dist = GetSpellingRelativeDistance(mid_rhyme, phonetic);
+			if (dist <= limit) {
+				found = true;
+				break;
+			}
+		}
+		if (!found && count > 0)
+			return true;
+	}
+	if (filter_end_rhyme) {
+		int last_wrd = pp.words.Top();
+		WString phonetic = da.words[last_wrd].phonetic;
+		double limit = end_rhyme_distance_limit;
+		
+		// Limit phonetic word using only ending (easy solution)
+		int count = min(phonetic.GetCount(), end_rhyme.GetCount());
+		if (!count)
+			return true;
+		if (limit >= 0)
+			phonetic = phonetic.Mid(phonetic.GetCount()-count, count);
+		else {
+			limit = -limit;
+			phonetic = phonetic.Left(phonetic.GetCount()-count);
+		}
+		
+		double dist = GetSpellingRelativeDistance(end_rhyme, phonetic);
+		if (dist > limit)
+			return true;
+	}
+	return false;
 }

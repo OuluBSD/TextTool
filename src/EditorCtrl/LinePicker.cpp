@@ -40,7 +40,7 @@ void LinePicker::SetBrowserMode(int i) {
 		vsplit.Vert() << ctrls << colors << actions << action_args << attrs;
 	if (i == 3)
 		vsplit.Vert() << ctrls << colors << actions << attrs << action_args;
-	vsplit.SetPos(1000,0);
+	vsplit.SetPos(1500,0);
 }
 
 
@@ -57,6 +57,7 @@ LinePicker::LinePicker() {
 	
 	
 	CtrlLayout(ctrls);
+	
 	ctrls.browser_list.Add(t_("Attribute - Color - Action"));
 	ctrls.browser_list.Add(t_("Action - Color - Attribute"));
 	ctrls.browser_list.Add(t_("Color - Action - Attribute"));
@@ -77,6 +78,24 @@ LinePicker::LinePicker() {
 		DatabaseBrowser::Single().SortBy(ctrls.sort_list.GetIndex());
 		PostCallback(THISBACK(DataPhrases));
 	};
+	ctrls.end_rhyme.WhenEnter << [this]() {
+		SetEndRhyme(ctrls.end_rhyme.GetData());
+	};
+	ctrls.mid_rhyme.WhenEnter << [this]() {
+		SetMidRhyme(ctrls.mid_rhyme.GetData());
+	};
+	ctrls.mid_rhyming_limit.SetData(DatabaseBrowser::Single().GetMidRhymingLimit());
+	ctrls.mid_rhyming_limit.WhenEnter << [this]() {
+		DatabaseBrowser& b = DatabaseBrowser::Single();
+		b.SetMidRhymingLimit(ctrls.mid_rhyming_limit.GetData());
+		PostCallback(THISBACK1(DataMain, -1));
+	};
+	ctrls.end_rhyming_limit.SetData(DatabaseBrowser::Single().GetEndRhymingLimit());
+	ctrls.end_rhyming_limit.WhenEnter << [this]() {
+		DatabaseBrowser& b = DatabaseBrowser::Single();
+		b.SetEndRhymingLimit(ctrls.end_rhyming_limit.GetData());
+		PostCallback(THISBACK1(DataMain, -1));
+	};
 	
 	PostCallback([this]() {
 		SetBrowserMode(0);
@@ -90,6 +109,7 @@ LinePicker::LinePicker() {
 	attrs.AddColumn(t_("Count"));
 	attrs.ColumnWidths("3 3 1");
 	attrs.WhenCursor << [this]() {
+		SetFilterValues();
 		DatabaseBrowser& b = DatabaseBrowser::Single();
 		b.SetAttr(attrs.GetCursor());
 		PostCallback(THISBACK1(DataMain, b.GetCur(0)));
@@ -99,6 +119,7 @@ LinePicker::LinePicker() {
 	colors.AddColumn(t_("Count"));
 	colors.ColumnWidths("3 1");
 	colors.WhenCursor << [this]() {
+		SetFilterValues();
 		DatabaseBrowser& b = DatabaseBrowser::Single();
 		b.SetColor(colors.GetCursor());
 		PostCallback(THISBACK1(DataMain, b.GetCur(1)));
@@ -108,6 +129,7 @@ LinePicker::LinePicker() {
 	actions.AddColumn(t_("Count"));
 	actions.ColumnWidths("3 1");
 	actions.WhenCursor << [this]() {
+		SetFilterValues();
 		DatabaseBrowser& b = DatabaseBrowser::Single();
 		b.SetGroup(actions.GetCursor());
 		PostCallback(THISBACK1(DataMain, b.GetCur(2)));
@@ -117,6 +139,7 @@ LinePicker::LinePicker() {
 	action_args.AddColumn(t_("Count"));
 	action_args.ColumnWidths("3 1");
 	action_args.WhenCursor << [this]() {
+		SetFilterValues();
 		DatabaseBrowser& b = DatabaseBrowser::Single();
 		b.SetValue(action_args.GetCursor());
 		PostCallback(THISBACK1(DataMain, b.GetCur(3)));
@@ -216,6 +239,14 @@ void LinePicker::Data() {
 		DataSubPicked();
 }
 
+void LinePicker::SetFilterValues() {
+	DatabaseBrowser& b = DatabaseBrowser::Single();
+	b.SetMidRhymeFilter(ctrls.mid_rhyme.GetData(), false);
+	b.SetEndRhymeFilter(ctrls.end_rhyme.GetData(), false);
+	b.SetMidRhymingLimit(ctrls.mid_rhyming_limit.GetData(), false);
+	b.SetEndRhymingLimit(ctrls.end_rhyming_limit.GetData(), false);
+}
+
 void LinePicker::DataMain(int cur) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -223,7 +254,7 @@ void LinePicker::DataMain(int cur) {
 	
 	DatabaseBrowser& b = DatabaseBrowser::Single();
 	b.SetDataset(ds_i);
-		
+	
 	// Set attributes
 	if (b.IsSub(cur, 0)) {
 		for(int i = 0; i < b.attrs.GetCount(); i++) {
@@ -579,3 +610,48 @@ void LinePicker::ClearAll() {
 	}
 }
 
+void LinePicker::SetMidRhyme(String word_) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Song& song = GetSong();
+	
+	DatabaseBrowser& b = DatabaseBrowser::Single();
+	
+	if (!word_.IsEmpty()) {
+		int wrd_i = da.words.Find(word_);
+		if (wrd_i < 0) {
+			PromptOK("Word was not found in the database");
+			return;
+		}
+		b.SetMidRhymingLimit(ctrls.mid_rhyming_limit.GetData(), false);
+		b.SetMidRhymeFilter(da.words[wrd_i].phonetic);
+	}
+	else b.SetMidRhymeFilter(WString());
+	
+	PostCallback(THISBACK1(DataMain, -1));
+}
+
+void LinePicker::SetEndRhyme(String word_) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Song& song = GetSong();
+	
+	DatabaseBrowser& b = DatabaseBrowser::Single();
+	
+	if (!word_.IsEmpty()) {
+		int wrd_i = da.words.Find(word_);
+		if (wrd_i < 0) {
+			PromptOK("Word was not found in the database");
+			return;
+		}
+		b.SetEndRhymingLimit(ctrls.end_rhyming_limit.GetData(), false);
+		b.SetEndRhymeFilter(da.words[wrd_i].phonetic);
+	}
+	else b.SetEndRhymeFilter(WString());
+	
+	PostCallback(THISBACK1(DataMain, -1));
+}

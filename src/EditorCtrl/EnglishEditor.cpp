@@ -108,7 +108,7 @@ void EnglishEditor::DataPart() {
 }
 
 void EnglishEditor::ToolMenu(Bar& bar) {
-	bar.Add(t_("Fit to nana by AI"), AppImg::RedRing(), THISBACK1(DoNana, 1)).Key(K_F5);
+	//bar.Add(t_("Fit to nana by AI"), AppImg::RedRing(), THISBACK1(DoNana, 1)).Key(K_F5);
 }
 
 void EnglishEditor::DoNana(int fn) {

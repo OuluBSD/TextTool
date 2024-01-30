@@ -282,7 +282,7 @@ double GetSpellingDistance(const WString& w0, const WString& w1, bool relative) 
 		const wchar* end = w.End();
 		int vowel_count = 0;
 		bool double_len = false;
-		while (it != end) {
+		while (it < end) {
 			// TODO stress
 			if (it[0] == 712 || // ˈ
 				it[0] == 716 || // ˌ

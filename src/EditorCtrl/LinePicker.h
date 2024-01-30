@@ -31,6 +31,9 @@ public:
 	void ClearAll();
 	void SetView(int i);
 	void ToggleView() {SetView(!mode);}
+	void SetMidRhyme(String word_);
+	void SetEndRhyme(String word_);
+	void SetFilterValues();
 	
 };
 

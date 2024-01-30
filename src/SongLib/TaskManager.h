@@ -135,6 +135,7 @@ class TaskManager {
 	
 	void GetNana(Task* tp);
 	void OnSongStory(String result, Task* t);
+	void OnSubPicked(String result, Task* t);
 	void OnNanaFit(String result, Task* t);
 	
 	void MakeNana(Task* t);

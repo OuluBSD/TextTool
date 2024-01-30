@@ -1237,6 +1237,16 @@ void TaskManager::OnSongStory(String res, Task* t) {
 	RemoveTask(*t);
 }
 
+void TaskManager::OnSubPicked(String result, Task* t) {
+	
+	
+	
+	
+	t->on_ready();
+	
+	RemoveTask(*t);
+}
+
 void TaskManager::OnNanaFit(String result, Task* t) {
 	
 	
