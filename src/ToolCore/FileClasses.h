@@ -110,7 +110,7 @@ struct MapKeys {
 		String key = s;
 		key.Replace("\\\"", "\"");
 		key.Replace("\\n", "\n");
-		return key.ToString();
+		return key.ToWString();
 	}
 	template<> hash_t StringKey<hash_t>(const String& s) {
 		return HexHash(s);

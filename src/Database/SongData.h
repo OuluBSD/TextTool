@@ -925,6 +925,7 @@ struct DatasetAnalysis {
 	
 	DatasetAnalysis();
 	DatasetAnalysis(DatasetAnalysis&) {}
+	DatasetAnalysis(DatasetAnalysis&& o) {LOG("warning: TODO: DatasetAnalysis(DatasetAnalysis&& o)");}
 	void Load(int ds_i, const String& ds_key);
 	String GetTokenTextString(const TokenText& txt) const;
 	String GetTokenTypeString(const TokenText& txt) const;
