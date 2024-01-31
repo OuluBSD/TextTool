@@ -2428,25 +2428,36 @@ void Task::CreateInput_GetNanaData() {
 		input.response_length = 2048;
 	}
 	if (args.fn == 1) {
+		Vector<String> pre = Split(args.pre_text, "\n");
+		int cur = pre.GetCount() + 1;
+		if (pre.GetCount() == 1) {
+			auto& list = input.AddSub().Title("Song \"B\": phrases 1.");
+			list.Add(pre[0]);
+		}
+		else if (pre.GetCount() > 1) {
+			auto& list = input.AddSub().Title("Song \"B\": phrases 1-" + IntStr(pre.GetCount()) + ".");
+			for(int i = 0; i < pre.GetCount(); i++)
+				list.Add(pre[i]);
+		}
 		{
-			auto& list = input.AddSub().Title("Song \"B\": phrase 1.");
+			auto& list = input.AddSub().Title("Song \"B\": phrase " + IntStr(cur) + ".");
 			list.Add(args.phrase);
 		}
 		{
-			auto& list = input.AddSub().Title("Song \"B\": Potential phrases to add after phrase 1.");
+			auto& list = input.AddSub().Title("Song \"B\": Potential phrases to add after " + IntStr(cur) + ".");
 			list.NumberedLines();
 			for(int i = 0; i < args.phrases.GetCount(); i++)
 				list.Add(args.phrases[i]);
 		}
 		{
-			auto& list = input.AddSub().Title("Example: Song \"A\": best fitting line after phrase 1");
+			auto& list = input.AddSub().Title("Example: Song \"A\": best fitting line after phrase " + IntStr(cur) + ".");
 			//list.NumberedLines();
 			int id = 1 + min(args.phrases.GetCount(), 2);
-			list.Add(IntStr(id) + ". " + args.phrases[id]);
+			list.Add(IntStr(id) + ". " + args.phrases[id-1]);
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Exercise: Song \"B\": best fitting line after phrase 1");
+			results.Title("Exercise: Song \"B\": best fitting line after phrase " + IntStr(cur) + ".");
 			results.EmptyLine();
 		}
 		input.response_length = 2048;

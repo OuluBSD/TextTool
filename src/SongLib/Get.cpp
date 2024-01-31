@@ -838,6 +838,34 @@ void TaskManager::GetNana(Task* t) {
 			const PhrasePart& pp0 = da.phrase_parts[line.sub_pp_i[i]];
 			args.phrases << da.GetWordString(pp0.words);
 		}
+		
+		String pre_text;
+		for(int i = 0; i < song.parts.GetCount(); i++) {
+			const auto& lines = sp.nana.Get();
+			bool end = false;
+			for(int j = 0; j < lines.GetCount(); j++) {
+				const auto& line0 = lines[j];
+				if (&line0 == &line) {
+					end = true;
+					break;
+				}
+				if (!pre_text.IsEmpty())
+					pre_text << "\n";
+				if (line0.pp_i >= 0) {
+					const PhrasePart& pp0 = da.phrase_parts[line0.pp_i];
+					pre_text << da.GetWordString(pp0.words);
+				}
+				if (line0.end_pp_i >= 0) {
+					const PhrasePart& pp1 = da.phrase_parts[line0.end_pp_i];
+					if (line0.pp_i >= 0)
+						pre_text << " ";
+					pre_text << da.GetWordString(pp1.words);
+				}
+			}
+			if (end)
+				break;
+		}
+		args.pre_text = pre_text;
 	}
 	/*if (args.fn == 1) {
 		ASSERT(t->part_i >= 0 && t->line_i >= 0);

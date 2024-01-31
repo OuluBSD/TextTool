@@ -1,4 +1,6 @@
 Scheduled work:
+- explanation page for joining english primary and secondary lines to a coherent story
+
 - add rhyming to nana-code page
 - keep only preprocessing
 	- make full lyrics, which rhymes

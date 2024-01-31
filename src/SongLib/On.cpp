@@ -1238,9 +1238,26 @@ void TaskManager::OnSongStory(String res, Task* t) {
 }
 
 void TaskManager::OnSubPicked(String result, Task* t) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	Song& song = *t->song;
 	
+	result = TrimBoth(result);
+	int sub_i = ScanInt(result) - 1;
 	
+	ASSERT(t->part_i >= 0 && t->line_i >= 0);
+	StaticPart& sp = song.parts[t->part_i];
+	auto& line = sp.nana.Get()[t->line_i];
 	
+	if (sub_i >= 0 && sub_i < line.sub_pp_i.GetCount()) {
+		int pp_i = line.sub_pp_i[sub_i];
+		line.end_pp_i = pp_i;
+	}
+	else {
+		line.end_pp_i = -1;
+	}
 	
 	t->on_ready();
 	

@@ -9,8 +9,8 @@ LineSetter::LineSetter() {
 	hsplit.Horz() << vsplit << picked;
 	vsplit.Vert() << lines << subpicked;
 	lines.AddColumn(t_("Part"));
-	lines.AddColumn(t_("Nana"));
-	lines.AddColumn(t_("Picked line"));
+	lines.AddColumn(t_("Primary line"));
+	lines.AddColumn(t_("Secondary line"));
 	lines.AddIndex("PART");
 	lines.AddIndex("LINE");
 	lines.ColumnWidths("1 3 3");
@@ -62,9 +62,15 @@ void LineSetter::DataSet() {
 				lines.Set(row, "PART", i);
 				lines.Set(row, "LINE", j);
 				lines.Set(row, 0, part.name);
-				lines.Set(row, 1, line.AsNana());
+				//lines.Set(row, 1, line.AsNana());
 				if (line.pp_i >= 0) {
 					String phrase = da.GetWordString(da.phrase_parts[line.pp_i].words);
+					lines.Set(row, 1, phrase);
+				}
+				else
+					lines.Set(row, 1, Value());
+				if (line.end_pp_i >= 0) {
+					String phrase = da.GetWordString(da.phrase_parts[line.end_pp_i].words);
 					lines.Set(row, 2, phrase);
 				}
 				else
@@ -259,7 +265,7 @@ void LineSetter::CopyText() {
 	String s;
 	for(int i = 0; i < lines.GetCount(); i++) {
 		if (i) s << "\n";
-		s << lines.Get(i, 2);
+		s << lines.Get(i, 1) << " " << lines.Get(i, 2);
 	}
 	WriteClipboardText(s);
 }
