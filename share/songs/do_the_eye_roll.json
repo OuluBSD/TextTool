@@ -1,0 +1,1844 @@
+{
+	"artist": "",
+	"title": "Pyöritä silmiäs",
+	"english_title": "Do the eye roll",
+	"prj_name": "",
+	"default_line_syllables": 0,
+	"default_attr_count": 7,
+	"structure_str": "",
+	"structure": [
+
+	],
+	"data": [
+		{
+			"key": "BPM",
+			"value": "140"
+		},
+		{
+			"key": "DESC_FOR_STRUCT_SUGGS",
+			"value": "Upbeat, tensioned, mysterious"
+		}
+	],
+	"parts": [
+		{
+			"name": "Intro",
+			"type": "I",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 4,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		},
+		{
+			"name": "Verse 1",
+			"type": "V1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							},
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									},
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 141327,
+						"epp": 183637,
+						"spp": [
+							17834,
+							16694,
+							34273,
+							168046,
+							113858,
+							152552,
+							130355,
+							183637,
+							102578,
+							61657,
+							169027,
+							97770,
+							20862,
+							168911
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 15152,
+						"epp": 74838,
+						"spp": [
+							74838,
+							134601,
+							113194,
+							119455,
+							182932,
+							107506,
+							104886,
+							113591,
+							16640,
+							163672,
+							16645
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 66459,
+						"epp": 100155,
+						"spp": [
+							105356,
+							108052,
+							146466,
+							165456,
+							1638,
+							15888,
+							38884,
+							153703,
+							183815,
+							100155,
+							175732,
+							126219,
+							69466,
+							32612,
+							104845
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 150451,
+						"epp": 165451,
+						"spp": [
+							181286,
+							109777,
+							110284,
+							119097,
+							53547,
+							136177,
+							19046,
+							46072,
+							47212,
+							160683,
+							78664,
+							9925,
+							165451,
+							121309,
+							183371,
+							165204,
+							171768,
+							145467,
+							50665,
+							64287,
+							60420,
+							96365,
+							12390,
+							171211,
+							40182,
+							159992,
+							114435,
+							50197,
+							65107,
+							37917,
+							84477,
+							77854,
+							7022,
+							53591,
+							175520
+						]
+					}
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		},
+		{
+			"name": "Pre-Chorus 1",
+			"type": "PC1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 120786,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 11534,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 983,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 78343,
+						"epp": -1,
+						"spp": [
+
+						]
+					}
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		},
+		{
+			"name": "Chorus 1",
+			"type": "C1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 147301,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 173225,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 52768,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 25013,
+						"epp": -1,
+						"spp": [
+
+						]
+					}
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		},
+		{
+			"name": "Verse 2",
+			"type": "V2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 33383,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 75504,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 122014,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 90932,
+						"epp": -1,
+						"spp": [
+
+						]
+					}
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		},
+		{
+			"name": "Chorus 2",
+			"type": "C2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 32112,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 16616,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 129434,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 1939,
+						"epp": -1,
+						"spp": [
+
+						]
+					}
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		},
+		{
+			"name": "Bridge",
+			"type": "B",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 82501,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 108719,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 151238,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 33905,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 123612,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 62751,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": true,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 183800,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 104117,
+						"epp": -1,
+						"spp": [
+
+						]
+					}
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		},
+		{
+			"name": "Outro",
+			"type": "O",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 4,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		},
+		{
+			"name": "Instrumental",
+			"type": "IN",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhymes": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"contents": [
+
+			],
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 4,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"phrases": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
+			"active_idea[PERSON]": "",
+			"active_idea_clr[CONTENT]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[IMAGERY]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[SYMBOLISM]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			},
+			"active_idea_clr[PERSON]": {
+				"red": null,
+				"green": null,
+				"blue": null
+			}
+		}
+	],
+	"active_struct": {
+		"name": "The Catchy Cycle",
+		"parts": [
+			"I",
+			"V1",
+			"PC1",
+			"C1",
+			"V2",
+			"C1",
+			"B",
+			"C2",
+			"IN",
+			"C1",
+			"O"
+		],
+		"attrs": [
+			"has an intro that reveals the main melody or theme",
+			"features a prechorus before each chorus",
+			"has a bridge that leads into the final choruses and adds dynamics to the song",
+			"contains a varied chorus with added instrumentation or vocal harmonies",
+			"ends with a short outro."
+		]
+	},
+	"struct_suggs": [
+		{
+			"name": "The Climactic Cascade",
+			"parts": [
+				"I",
+				"V1",
+				"C1",
+				"V2",
+				"C2",
+				"PC1",
+				"C1",
+				"B",
+				"C1",
+				"C2",
+				"O"
+			],
+			"attrs": [
+				"starts with a strong intro to capture the listener's attention",
+				"features a clear verse-chorus structure",
+				"builds up to the chorus in the bridge",
+				"allows for repetition and variation of the chorus",
+				"ends with a shorter outro for a concise finish."
+			]
+		},
+		{
+			"name": "The Evolutionary Euphony",
+			"parts": [
+				"V1",
+				"PC1",
+				"C1",
+				"B",
+				"V2",
+				"C2",
+				"C1",
+				"C2",
+				"IN",
+				"C1",
+				"O"
+			],
+			"attrs": [
+				"has a climactic bridge that leads into the final chorus",
+				"features a prechorus before the first chorus, creating anticipation for the chorus",
+				"includes two distinct verses before the bridge",
+				"has an instrumental solo in the middle of the song",
+				"ends with a longer outro for a dramatic finish."
+			]
+		},
+		{
+			"name": "The Rise and Release",
+			"parts": [
+				"I",
+				"V1",
+				"PC1",
+				"C1",
+				"V2",
+				"PC2",
+				"C1",
+				"C2",
+				"B",
+				"C1",
+				"O"
+			],
+			"attrs": [
+				"contains a well-structured intro that sets the tone for the song",
+				"features a prechorus before each chorus to add dynamics and variation",
+				"has a catchy chorus that appears multiple times in the song",
+				"includes a bridge for a change of pace and added depth",
+				"ends with a final chorus and a short outro."
+			]
+		},
+		{
+			"name": "The Unconventional Unfurling",
+			"parts": [
+				"V1",
+				"C1",
+				"V2",
+				"IN",
+				"PC1",
+				"C2",
+				"B",
+				"C1",
+				"C2",
+				"O"
+			],
+			"attrs": [
+				"has a shorter intro that leads right into the first verse",
+				"contains an instrumental section after the second verse",
+				"features a prechorus and bridge before the final choruses",
+				"has variation in the chorus melodies and lyrics",
+				"ends with a short outro."
+			]
+		},
+		{
+			"name": "The Minimalistic Momentum",
+			"parts": [
+				"I",
+				"V1",
+				"C1",
+				"B",
+				"V2",
+				"PC1",
+				"C1",
+				"C2",
+				"C1",
+				"O"
+			],
+			"attrs": [
+				"starts with a strong intro that features the main melody or theme",
+				"has a shorter instrumental intro to set up the first verse",
+				"contains a shorter prechorus before the final chorus",
+				"includes only one bridge, but with heavy instrumentation for impact",
+				"has a longer outro for a fade-out ending."
+			]
+		},
+		{
+			"name": "The Surprising Symphony",
+			"parts": [
+				"V1",
+				"PC1",
+				"C1",
+				"V2",
+				"B",
+				"C2",
+				"IN",
+				"PC2",
+				"C1",
+				"C2",
+				"O"
+			],
+			"attrs": [
+				"features a prechorus before both the first and second choruses",
+				"has a bridge that changes the rhythm and tempo of the song",
+				"includes an instrumental solo after the bridge",
+				"has a varied chorus with added instrumentation and/or vocal harmonies",
+				"ends with a shorter outro."
+			]
+		},
+		{
+			"name": "The Layered Melodrama",
+			"parts": [
+				"I",
+				"V1",
+				"C1",
+				"B",
+				"V2",
+				"IN",
+				"PC1",
+				"C1",
+				"C2",
+				"C1",
+				"O"
+			],
+			"attrs": [
+				"has an intro that sets the mood for the song without revealing too much of the main melody",
+				"has a shorter prechorus before the first chorus, and a longer one before the final chorus",
+				"features a bridge that has lyrics and melody variation from the rest of the song",
+				"has a final chorus that builds upon the previous ones",
+				"ends with a short outro."
+			]
+		},
+		{
+			"name": "The Musical Odyssey",
+			"parts": [
+				"V1",
+				"C1",
+				"V2",
+				"B",
+				"C1",
+				"C2",
+				"IN",
+				"C1",
+				"C2",
+				"O"
+			],
+			"attrs": [
+				"has a shorter, instrumental intro that sets up the first verse",
+				"contains only one prechorus before the first chorus",
+				"features a bridge with lyrics and melody variation from the rest of the song",
+				"has a longer final chorus with added instrumentation and/or vocal harmonies",
+				"ends with a short outro."
+			]
+		},
+		{
+			"name": "The Catchy Cycle",
+			"parts": [
+				"I",
+				"V1",
+				"PC1",
+				"C1",
+				"V2",
+				"C1",
+				"B",
+				"C2",
+				"IN",
+				"C1",
+				"O"
+			],
+			"attrs": [
+				"has an intro that reveals the main melody or theme",
+				"features a prechorus before each chorus",
+				"has a bridge that leads into the final choruses and adds dynamics to the song",
+				"contains a varied chorus with added instrumentation or vocal harmonies",
+				"ends with a short outro."
+			]
+		},
+		{
+			"name": "The Building Block Boogie",
+			"parts": [
+				"V1",
+				"C1",
+				"B",
+				"V2",
+				"C2",
+				"IN",
+				"PC1",
+				"C1",
+				"C2",
+				"C1",
+				"O"
+			],
+			"attrs": [
+				"has a shorter intro that leads directly into the first verse",
+				"contains a longer prechorus before the first chorus, and a shorter one before the final chorus",
+				"features a bridge that has lyrics and melody variation from the rest of the song",
+				"has a final chorus with added instrumentation and/or vocal harmonies",
+				"ends with a longer outro for a dramatic finish."
+			]
+		}
+	],
+	"themes": [
+
+	],
+	"theme_cursor": -1,
+	"part_cursor": -1,
+	"prod_ideas": [
+
+	],
+	"active_roles": [
+
+	],
+	"picked_phrase_parts": [
+		21101,
+		131331,
+		141327,
+		15152,
+		169925,
+		16541,
+		66459,
+		176828,
+		164138,
+		6340,
+		30559,
+		169421,
+		141073,
+		140170,
+		52768,
+		147301,
+		173225,
+		25013,
+		33383,
+		75504,
+		122014,
+		90932,
+		33905,
+		123612,
+		62751,
+		82501,
+		108719,
+		16616,
+		104117,
+		183800,
+		32112,
+		151238,
+		129434,
+		1939,
+		187115,
+		150451,
+		172722,
+		120786,
+		983,
+		11534,
+		78343,
+		68968,
+		79787,
+		54245,
+		177824,
+		74024,
+		173913,
+		114799,
+		179409,
+		94397,
+		173899,
+		162155,
+		23606,
+		139675,
+		16709,
+		52723,
+		177787,
+		108603,
+		16700,
+		32613
+	],
+	"active_idea[THEME]": "",
+	"active_idea[IDEA]": "",
+	"active_idea[TONE]": "",
+	"active_idea[ALLEGORY]": "",
+	"active_idea[CONTENT]": "",
+	"active_idea[IMAGERY]": "",
+	"active_idea[SYMBOLISM]": "",
+	"active_idea[PERSON]": "",
+	"active_idea_clr[THEME]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	},
+	"active_idea_clr[IDEA]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	},
+	"active_idea_clr[TONE]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	},
+	"active_idea_clr[ALLEGORY]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	},
+	"active_idea_clr[CONTENT]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	},
+	"active_idea_clr[IMAGERY]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	},
+	"active_idea_clr[SYMBOLISM]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	},
+	"active_idea_clr[PERSON]": {
+		"red": null,
+		"green": null,
+		"blue": null
+	}
+}

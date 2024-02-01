@@ -154,6 +154,14 @@
 		{
 			"key": "MOOD_PLAYFUL_SERIOUS",
 			"value": "-1"
+		},
+		{
+			"key": "A8",
+			"value": "1"
+		},
+		{
+			"key": "A10",
+			"value": "1"
 		}
 	],
 	"ideas": [

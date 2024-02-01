@@ -617,6 +617,14 @@
 		{
 			"key": "PROD_ATTITUDE_OPTIMISTIC_PESSIMISTIC",
 			"value": "1"
+		},
+		{
+			"key": "A13",
+			"value": "1"
+		},
+		{
+			"key": "A16",
+			"value": "1"
 		}
 	],
 	"parts": [
@@ -3277,6 +3285,9 @@
 	],
 	"active_roles": [
 
+	],
+	"picked_phrase_parts": [
+		146206
 	],
 	"active_idea[THEME]": "the struggles and regrets of a failing relationship",
 	"active_idea[IDEA]": "the importance of communication and effort in a relationship",

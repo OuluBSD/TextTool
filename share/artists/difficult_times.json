@@ -93,6 +93,18 @@
 		{
 			"key": "FAITH_AND_REASON_SEEKER",
 			"value": "1"
+		},
+		{
+			"key": "A0",
+			"value": "1"
+		},
+		{
+			"key": "A2",
+			"value": "1"
+		},
+		{
+			"key": "A5",
+			"value": "1"
 		}
 	],
 	"phrases": [
@@ -972,6 +984,8 @@
 		"an_unreasonable_woman_19",
 		"don't_go_inside_the_tower_20",
 		"had_no_teacher_21",
-		"cheapest_hussy_22"
+		"cheapest_hussy_22",
+		"back_to_school_23",
+		"deadline_24"
 	]
 }
