@@ -1245,21 +1245,29 @@ void TaskManager::OnSubPicked(String result, Task* t) {
 	Song& song = *t->song;
 	
 	result = TrimBoth(result);
-	int sub_i = ScanInt(result) - 1;
-	
-	ASSERT(t->part_i >= 0 && t->line_i >= 0);
-	StaticPart& sp = song.parts[t->part_i];
-	auto& line = sp.nana.Get()[t->line_i];
-	
-	if (sub_i >= 0 && sub_i < line.sub_pp_i.GetCount()) {
-		int pp_i = line.sub_pp_i[sub_i];
-		line.end_pp_i = pp_i;
+	if (result.GetCount()) {
+		int sub_i = -1;
+		if (IsDigit(result[0]))
+			sub_i = ScanInt(result) - 1;
+		else
+			sub_i = t->tmp_words.Find(result);
+		
+		if (sub_i >= 0) {
+			ASSERT(t->part_i >= 0 && t->line_i >= 0);
+			StaticPart& sp = song.parts[t->part_i];
+			auto& line = sp.nana.Get()[t->line_i];
+			
+			if (sub_i >= 0 && sub_i < line.sub_pp_i.GetCount()) {
+				int pp_i = line.sub_pp_i[sub_i];
+				line.end_pp_i = pp_i;
+			}
+			else {
+				line.end_pp_i = -1;
+			}
+			
+			t->on_ready();
+		}
 	}
-	else {
-		line.end_pp_i = -1;
-	}
-	
-	t->on_ready();
 	
 	RemoveTask(*t);
 }

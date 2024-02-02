@@ -836,7 +836,9 @@ void TaskManager::GetNana(Task* t) {
 		args.phrase = da.GetWordString(pp.words);
 		for(int i = 0; i < line.sub_pp_i.GetCount(); i++) {
 			const PhrasePart& pp0 = da.phrase_parts[line.sub_pp_i[i]];
-			args.phrases << da.GetWordString(pp0.words);
+			String p = da.GetWordString(pp0.words);
+			args.phrases << p;
+			t->tmp_words.Add(p);
 		}
 		
 		String pre_text;
@@ -858,7 +860,7 @@ void TaskManager::GetNana(Task* t) {
 				if (line0.end_pp_i >= 0) {
 					const PhrasePart& pp1 = da.phrase_parts[line0.end_pp_i];
 					if (line0.pp_i >= 0)
-						pre_text << " ";
+						pre_text << ", ";
 					pre_text << da.GetWordString(pp1.words);
 				}
 			}

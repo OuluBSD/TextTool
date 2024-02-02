@@ -265,7 +265,7 @@ void LineSetter::CopyText() {
 	String s;
 	for(int i = 0; i < lines.GetCount(); i++) {
 		if (i) s << "\n";
-		s << lines.Get(i, 1) << " " << lines.Get(i, 2);
+		s << lines.Get(i, 1) << ", " << lines.Get(i, 2);
 	}
 	WriteClipboardText(s);
 }

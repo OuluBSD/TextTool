@@ -2450,14 +2450,14 @@ void Task::CreateInput_GetNanaData() {
 				list.Add(args.phrases[i]);
 		}
 		{
-			auto& list = input.AddSub().Title("Example: Song \"A\": best fitting line after phrase " + IntStr(cur) + ".");
+			auto& list = input.AddSub().Title("Example: Song \"A\": best storyline fitting line after phrase " + IntStr(cur) + "., when only story matters and not rhyming");
 			//list.NumberedLines();
 			int id = 1 + min(args.phrases.GetCount(), 2);
 			list.Add(IntStr(id) + ". " + args.phrases[id-1]);
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Exercise: Song \"B\": best fitting line after phrase " + IntStr(cur) + ".");
+			results.Title("Exercise: Song \"B\": best storyline fitting line after phrase " + IntStr(cur) + ".");
 			results.EmptyLine();
 		}
 		input.response_length = 2048;

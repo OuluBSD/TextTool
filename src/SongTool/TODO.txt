@@ -1,4 +1,16 @@
 Scheduled work:
+- for debugging:
+	- show DatabaseBrowser cursor state etc.
+- missing features:
+	- ask AI narrowing suggestions for secondary phrase
+	- ask AI freeform sentence for user
+	- ask AI to rate user's secondary phrase suggestions
+	- pick all matching end rhymes and test all of them
+	- pick random primary phrase suggestions based on suggested ranges
+	- list of rhyming words for a word
+	- pattern search: "begins with verb"
+
+
 - explanation page for joining english primary and secondary lines to a coherent story
 
 - add rhyming to nana-code page
