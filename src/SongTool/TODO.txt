@@ -1,4 +1,5 @@
 Scheduled work:
+- database: fixed rhyming word connections for filtering
 - for debugging:
 	- show DatabaseBrowser cursor state etc.
 - missing features:
@@ -9,6 +10,7 @@ Scheduled work:
 	- pick random primary phrase suggestions based on suggested ranges
 	- list of rhyming words for a word
 	- pattern search: "begins with verb"
+	- whole "optimization page for F6 in line setter"
 
 
 - explanation page for joining english primary and secondary lines to a coherent story
