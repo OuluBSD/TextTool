@@ -5,6 +5,8 @@ GUI_APP_MAIN {
 	SetDefaultCharset(CHARSET_UTF8);
 	//SetLanguage(GetSystemLNG());
 	
+	
+	
 	/*WString ws = String("ˈsi.ʒər").ToWString();
 	int first = ws[0];
 	PhoneticNanaAnalyser anal;
@@ -12,8 +14,12 @@ GUI_APP_MAIN {
 	byte nana[256];
 	anal.WritePackedNana(nana, 256);*/
 	
+	#if defined flagX11 && defined flagPOSIX
+	SetStdFont(SansSerif(11));
+	#endif
 	ChFlatSkin();
 	InstallRedBar();
+	
 	
 	// Load task manager
 	TaskMgrConfig& m = TaskMgrConfig::Single();

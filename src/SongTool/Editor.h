@@ -74,6 +74,7 @@ protected:
 	NanaEditor						nana_editor;
 	EnglishEditor					eng_edit;
 	Attributes						db_attrs;
+	//SecondarySetter					sec_setter;
 	
 	/*
 	SongDataAnalysisPage			song_analysis;

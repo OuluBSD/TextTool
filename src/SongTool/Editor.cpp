@@ -119,6 +119,7 @@ void Editor::InitSimplified() {
 	AddItem(t_("Song lyrics"), t_("Nana editor"), nana_editor);
 	AddItem(t_("Song lyrics"), t_("Line picker"), line_picker);
 	AddItem(t_("Song lyrics"), t_("Line setter"), line_setter);
+	//AddItem(t_("Song lyrics"), t_("Secondary setter"), sec_setter);
 	AddItem(t_("Song lyrics"), t_("Native editor"), nat_editor);
 	AddItem(t_("Song lyrics"), t_("English editor"), eng_edit);
 	

@@ -20,9 +20,9 @@ library(POSIX) curl;
 library(WIN32 & MSC) libcurl;
 
 file
+	SongTool.cpp,
 	TODO.txt,
 	SongTool.h,
-	SongTool.cpp,
 	SongTool.rc,
 	SongTool.t,
 	App.h,
@@ -39,5 +39,6 @@ file
 	_ readonly separator;
 
 mainconfig
-	"" = "GUI";
+	"" = "GUI",
+	"" = "GUI X11";
 

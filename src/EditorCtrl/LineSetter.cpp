@@ -7,7 +7,10 @@ LineSetter::LineSetter() {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << vsplit << picked;
-	vsplit.Vert() << lines << subpicked;
+	vsplit.Vert() << lines << subpicked << lineconf;
+	vsplit.SetPos(5000,0);
+	vsplit.SetPos(7500,1);
+	
 	lines.AddColumn(t_("Part"));
 	lines.AddColumn(t_("Primary line"));
 	lines.AddColumn(t_("Secondary line"));
@@ -219,7 +222,9 @@ void LineSetter::ToolMenu(Bar& bar) {
 	bar.Add(t_("Copy text"), AppImg::BlueRing(), THISBACK(CopyText)).Key(K_CTRL_E);
 	bar.Separator();
 	bar.Add(t_("Fill main by AI"), AppImg::RedRing(), THISBACK1(DoNana, 0)).Key(K_F5);
-	bar.Add(t_("Fill sub by AI"), AppImg::RedRing(), THISBACK1(DoNana, 1)).Key(K_F6);
+	bar.Separator();
+	//bar.Add(t_("Fill sub by AI"), AppImg::RedRing(), THISBACK1(DoNana, 1)).Key(K_F6);
+	//bar.Add(t_("Fill sub by AI"), AppImg::RedRing(), THISBACK1(DoNana, 1)).Key(K_F6);
 }
 
 void LineSetter::SetLine() {

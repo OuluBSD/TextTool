@@ -4,7 +4,7 @@
 
 class LineSetter : public SongToolCtrl {
 	Splitter hsplit, vsplit;
-	ArrayCtrl lines, picked, subpicked;
+	ArrayCtrl lines, picked, subpicked, lineconf;
 	int ds_i = 0;
 	
 public:

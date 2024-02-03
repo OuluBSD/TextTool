@@ -51,6 +51,8 @@ file
 	Checklists.h,
 	Checklists.cpp,
 	Trash readonly separator,
+	SecondarySetter.h,
+	SecondarySetter.cpp,
 	AttributeDistribution.h,
 	AttributeDistribution.cpp,
 	LineStructureEditor.h,

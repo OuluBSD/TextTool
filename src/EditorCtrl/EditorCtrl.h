@@ -33,6 +33,7 @@
 #include "LinePicker.h"
 #include "LineSetter.h"
 #include "NativeEditor.h"
+#include "SecondarySetter.h"
 
 
 #endif

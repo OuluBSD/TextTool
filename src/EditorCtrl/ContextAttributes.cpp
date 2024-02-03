@@ -18,6 +18,7 @@ void ContextAttributesCtrl::InitList(ArrayCtrl& attrs) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
+	if (sda.datasets.IsEmpty()) return;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	attrs.AddColumn(t_("Key group"));
