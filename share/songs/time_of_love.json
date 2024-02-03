@@ -304,7 +304,7 @@
 		},
 		{
 			"key": "USER_STRUCT",
-			"value": "I,C,V1,V2,C,V3,V4,C,V5,V6,C,O"
+			"value": "I,C,V1,V2,C,V3,V4,C,O"
 		},
 		{
 			"key": "BPM",
@@ -589,186 +589,7 @@
 			],
 			"outdated_suggestions": true,
 			"contents": [
-				{
-					"text": "She left me alone in our house of love, the flame of our relationship now extinguished",
-					"clr": {
-						"red": 255,
-						"green": 102,
-						"blue": 60
-					},
-					"imageries": [
 
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He burned me with his lies and now I'm walking away from our red-hot marriage",
-					"clr": {
-						"red": 255,
-						"green": 0,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "I painted our love with every color, but now it's just a black and white memory",
-					"clr": {
-						"red": 0,
-						"green": 0,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "We built a life together, but now our love is fading away like the setting sun",
-					"clr": {
-						"red": 255,
-						"green": 204,
-						"blue": 102
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The love we once had has now turned to ash, and I'm walking away for good",
-					"clr": {
-						"red": 102,
-						"green": 102,
-						"blue": 102
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "I tried to hold onto our love, but it slipped through my fingertips like water",
-					"clr": {
-						"red": 0,
-						"green": 128,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Our castle of love has crumbled, and I have to leave before I drown in the ruins",
-					"clr": {
-						"red": 255,
-						"green": 168,
-						"blue": 101
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "My heart once overflowed with love for you, but now it's empty and broken",
-					"clr": {
-						"red": 0,
-						"green": 255,
-						"blue": 127
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "This house we built with love has now become a prison, and I'm escaping from it",
-					"clr": {
-						"red": 255,
-						"green": 255,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Our love was once vibrant and bright, but now it's just a dark and painful memory",
-					"clr": {
-						"red": 102,
-						"green": 0,
-						"blue": 102
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "I thought our love was unbreakable, but now all I feel is shattered",
-					"clr": {
-						"red": 128,
-						"green": 128,
-						"blue": 128
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The flame of our love has died out, and I have to leave before I burn in the ashes",
-					"clr": {
-						"red": 255,
-						"green": 70,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Like a piece of glass, our love was fragile and easily broken, and now I'm walking away",
-					"clr": {
-						"red": 239,
-						"green": 250,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "I used to call this house a home, but now it's just a reminder of our failed love",
-					"clr": {
-						"red": 204,
-						"green": 204,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Our love was a wild fire, but now it's just a small flicker, and I'm moving on",
-					"clr": {
-						"red": 212,
-						"green": 175,
-						"blue": 55
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				}
 			],
 			"content_cursor": -1,
 			"bar_length": 0,
@@ -797,7 +618,167 @@
 			"mockup": "",
 			"nana": {
 				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 36089,
+						"epp": 97938,
+						"spp": [
+							173479,
+							131407,
+							122067,
+							45152,
+							112879,
+							31416,
+							158769,
+							44619,
+							158143,
+							74863,
+							946,
+							82242,
+							93081,
+							40498,
+							63691,
+							12428,
+							1897,
+							105009,
+							131327,
+							112878,
+							33169,
+							173263,
+							73753,
+							127286,
+							20619,
+							18930,
+							36514,
+							31016,
+							62818,
+							13829,
+							74241,
+							174981,
+							153351,
+							45524,
+							47060,
+							12435,
+							117897,
+							97938,
+							145461,
+							134295,
+							121207,
+							36381,
+							40274,
+							38085,
+							116714,
+							92030,
+							7195,
+							45500,
+							41182,
+							33360,
+							179,
+							56193
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 46988,
+						"epp": 79151,
+						"spp": [
+							139798,
+							117791,
+							154808,
+							79151,
+							51082,
+							45676,
+							108753,
+							166038,
+							47109,
+							153699,
+							53527,
+							149094,
+							176647,
+							32549,
+							175780,
+							56880,
+							144694,
+							48309,
+							56428,
+							158801,
+							156959,
+							84174,
+							13752,
+							91015,
+							28777,
+							52809
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 48430,
+						"epp": -1,
+						"spp": [
 
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 48984,
+						"epp": 187104,
+						"spp": [
+							75084,
+							25317,
+							113534,
+							187227,
+							48830,
+							123643,
+							187105,
+							187104,
+							54071,
+							40769
+						]
+					}
 				]
 			},
 			"thrd_actions": [
@@ -806,24 +787,24 @@
 			"saved_lyrics": [
 
 			],
-			"active_idea[CONTENT]": "struggling relationship, decision to end it",
-			"active_idea[IMAGERY]": "a home made of love, heat needing a flame",
-			"active_idea[SYMBOLISM]": "the flame as a metaphor for passion and warmth in the relationship",
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
 			"active_idea[PERSON]": "",
 			"active_idea_clr[CONTENT]": {
-				"red": 0,
-				"green": 85,
-				"blue": 0
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[IMAGERY]": {
-				"red": 255,
-				"green": 128,
-				"blue": 0
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[SYMBOLISM]": {
-				"red": 255,
-				"green": 102,
-				"blue": 0
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[PERSON]": {
 				"red": null,
@@ -858,354 +839,9 @@
 			],
 			"outdated_suggestions": true,
 			"contents": [
-				{
-					"text": "She stares at the empty rooms of their house, once filled with love and laughter. The walls are now painted with the fading colors of their failed marriage.",
-					"clr": {
-						"red": 128,
-						"green": 64,
-						"blue": 64
-					},
-					"imageries": [
-						{
-							"text": "Faded colors and quietness",
-							"clr": {
-								"red": 237,
-								"green": 201,
-								"blue": 175
-							},
-							"symbolisms": [
-								{
-									"text": "A house built with love",
-									"clr": {
-										"red": 0,
-										"green": 0,
-										"blue": 0
-									},
-									"persons": [
 
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Faded colors",
-									"clr": {
-										"red": 255,
-										"green": 255,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Empty rooms",
-									"clr": {
-										"red": 0,
-										"green": 0,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Walls",
-									"clr": {
-										"red": 0,
-										"green": 0,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Painted",
-									"clr": {
-										"red": 255,
-										"green": 255,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Fading colors",
-									"clr": {
-										"red": 255,
-										"green": 255,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Failed marriage",
-									"clr": {
-										"red": 255,
-										"green": 255,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Colorless",
-									"clr": {
-										"red": 0,
-										"green": 0,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Quietness",
-									"clr": {
-										"red": 255,
-										"green": 255,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Emptiness",
-									"clr": {
-										"red": 255,
-										"green": 255,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Lost love",
-									"clr": {
-										"red": 0,
-										"green": 0,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Vanished",
-									"clr": {
-										"red": 255,
-										"green": 255,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Gray sky",
-									"clr": {
-										"red": 255,
-										"green": 255,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Dullness",
-									"clr": {
-										"red": 0,
-										"green": 0,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Broken",
-									"clr": {
-										"red": 255,
-										"green": 255,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Bleak",
-									"clr": {
-										"red": 255,
-										"green": 255,
-										"blue": 255
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Ghostly",
-									"clr": {
-										"red": 0,
-										"green": 0,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Empty canvas",
-									"clr": {
-										"red": 0,
-										"green": 0,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								},
-								{
-									"text": "Diminished",
-									"clr": {
-										"red": 0,
-										"green": 0,
-										"blue": 0
-									},
-									"persons": [
-
-									],
-									"cursor": -1
-								}
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Empty house with peeling paint",
-							"clr": {
-								"red": 255,
-								"green": 228,
-								"blue": 195
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Walls once filled with laughter now echoing silence",
-							"clr": {
-								"red": 255,
-								"green": 216,
-								"blue": 186
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Memories on every corner",
-							"clr": {
-								"red": 255,
-								"green": 202,
-								"blue": 172
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						},
-						{
-							"text": "Dusty photographs on the mantle",
-							"clr": {
-								"red": 250,
-								"green": 205,
-								"blue": 177
-							},
-							"symbolisms": [
-
-							],
-							"cursor": -1
-						}
-					],
-					"cursor": 0
-				},
-				{
-					"text": "He stands in the quiet and dull house, missing the bright colors and liveliness that his partner brought.",
-					"clr": {
-						"red": 192,
-						"green": 192,
-						"blue": 192
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The red curtains in their bedroom, once a symbol of passion, now represent the anger and pain that fills their broken relationship.",
-					"clr": {
-						"red": 255,
-						"green": 0,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "As she packs her belongings, she remembers the happy memories shared in this house. But now, the colors seem to have drained away, leaving only shades of grey.",
-					"clr": {
-						"red": 128,
-						"green": 128,
-						"blue": 128
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "He walks through the empty halls, haunted by the echoes of their arguments and the fading colors of their love.",
-					"clr": {
-						"red": 128,
-						"green": 0,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				}
 			],
-			"content_cursor": 0,
+			"content_cursor": -1,
 			"bar_length": 0,
 			"part_type": 0,
 			"colors": [
@@ -1232,7 +868,178 @@
 			"mockup": "",
 			"nana": {
 				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 156917,
+						"epp": 173807,
+						"spp": [
+							86,
+							173807,
+							40760,
+							34808
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 84043,
+						"epp": 37458,
+						"spp": [
+							171174,
+							126148,
+							104468,
+							149353,
+							152759,
+							99362,
+							2161,
+							37458,
+							125758,
+							30675,
+							144694,
+							170573,
+							92192,
+							99655,
+							120384,
+							85781,
+							103106,
+							145338
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 91213,
+						"epp": -1,
+						"spp": [
 
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 126432,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 95061,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 50474,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 130276,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 60705,
+						"epp": -1,
+						"spp": [
+
+						]
+					}
 				]
 			},
 			"thrd_actions": [
@@ -1241,24 +1048,24 @@
 			"saved_lyrics": [
 
 			],
-			"active_idea[CONTENT]": "the speaker acknowledging their wrongdoings and their partner's difficult behavior",
-			"active_idea[IMAGERY]": "lost trust,\" \"took the colors away",
-			"active_idea[SYMBOLISM]": "colors\" representing love and happiness in their relationship",
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
 			"active_idea[PERSON]": "",
 			"active_idea_clr[CONTENT]": {
-				"red": 255,
-				"green": 255,
-				"blue": 255
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[IMAGERY]": {
-				"red": 255,
-				"green": 255,
-				"blue": 255
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[SYMBOLISM]": {
-				"red": 255,
-				"green": 255,
-				"blue": 255
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[PERSON]": {
 				"red": null,
@@ -1322,7 +1129,158 @@
 			"mockup": "",
 			"nana": {
 				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 44243,
+						"epp": -1,
+						"spp": [
 
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 99263,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 60744,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 123588,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 91001,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 82016,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 166780,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 125246,
+						"epp": -1,
+						"spp": [
+
+						]
+					}
 				]
 			},
 			"thrd_actions": [
@@ -1331,24 +1289,24 @@
 			"saved_lyrics": [
 
 			],
-			"active_idea[CONTENT]": "describing the actions and emotions of the speaker",
-			"active_idea[IMAGERY]": "mentioning gossiping and selling property",
-			"active_idea[SYMBOLISM]": "sleep representing death or final separation from the partner",
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
 			"active_idea[PERSON]": "",
 			"active_idea_clr[CONTENT]": {
-				"red": 100,
-				"green": 100,
-				"blue": 100
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[IMAGERY]": {
-				"red": 140,
-				"green": 120,
-				"blue": 80
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[SYMBOLISM]": {
-				"red": 80,
-				"green": 80,
-				"blue": 80
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[PERSON]": {
 				"red": null,
@@ -1412,7 +1370,158 @@
 			"mockup": "",
 			"nana": {
 				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 110828,
+						"epp": -1,
+						"spp": [
 
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 104967,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 82367,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 97412,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 126927,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 136106,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 42538,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 57424,
+						"epp": -1,
+						"spp": [
+
+						]
+					}
 				]
 			},
 			"thrd_actions": [
@@ -1421,24 +1530,24 @@
 			"saved_lyrics": [
 
 			],
-			"active_idea[CONTENT]": "the content is about the breakdown of a romantic relationship and the feelings of hurt and betrayal that come with it.",
-			"active_idea[IMAGERY]": "the specific imagery used is squeezing testicles with fingernails, which conveys a painful and violent image.",
-			"active_idea[SYMBOLISM]": "the lyrics may symbolize the breaking of trust and love in a relationship.",
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
 			"active_idea[PERSON]": "",
 			"active_idea_clr[CONTENT]": {
-				"red": 255,
-				"green": 255,
-				"blue": 0
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[IMAGERY]": {
-				"red": 255,
-				"green": 192,
-				"blue": 203
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[SYMBOLISM]": {
-				"red": 128,
-				"green": 128,
-				"blue": 128
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[PERSON]": {
 				"red": null,
@@ -1502,7 +1611,158 @@
 			"mockup": "",
 			"nana": {
 				"lines": [
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 69278,
+						"epp": -1,
+						"spp": [
 
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 127877,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 170601,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 174660,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 11834,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 44243,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 25594,
+						"epp": -1,
+						"spp": [
+
+						]
+					},
+					{
+						"words": [
+							{
+								"syllables": [
+									{
+										"c": 2,
+										"v": 2,
+										"l": false,
+										"b": false
+									}
+								]
+							}
+						],
+						"pp": 90009,
+						"epp": -1,
+						"spp": [
+
+						]
+					}
 				]
 			},
 			"thrd_actions": [
@@ -1511,204 +1771,24 @@
 			"saved_lyrics": [
 
 			],
-			"active_idea[CONTENT]": "partner's infidelity and resulting anger",
-			"active_idea[IMAGERY]": "sneaking around, drinking, and guilt",
-			"active_idea[SYMBOLISM]": "holiday representing a reward for bad behavior",
+			"active_idea[CONTENT]": "",
+			"active_idea[IMAGERY]": "",
+			"active_idea[SYMBOLISM]": "",
 			"active_idea[PERSON]": "",
 			"active_idea_clr[CONTENT]": {
-				"red": 255,
-				"green": 0,
-				"blue": 255
-			},
-			"active_idea_clr[IMAGERY]": {
-				"red": 0,
-				"green": 0,
-				"blue": 255
-			},
-			"active_idea_clr[SYMBOLISM]": {
-				"red": 0,
-				"green": 255,
-				"blue": 255
-			},
-			"active_idea_clr[PERSON]": {
 				"red": null,
 				"green": null,
 				"blue": null
-			}
-		},
-		{
-			"name": "Verse 5",
-			"type": "V5",
-			"active_source_wordsalad": [
-
-			],
-			"active_source_text": [
-
-			],
-			"source_text_suggestions": [
-
-			],
-			"source": [
-
-			],
-			"ai_source": [
-
-			],
-			"rhymes": [
-
-			],
-			"rhyme_scheme": "",
-			"data": [
-
-			],
-			"outdated_suggestions": true,
-			"contents": [
-
-			],
-			"content_cursor": -1,
-			"bar_length": 0,
-			"part_type": 0,
-			"colors": [
-
-			],
-			"listener_colors": [
-
-			],
-			"vocabulary": [
-
-			],
-			"wordsalads": [
-
-			],
-			"wordsalad_clrs": [
-
-			],
-			"wordgroup_factors": [
-
-			],
-			"phrases": [
-
-			],
-			"mockup": "",
-			"nana": {
-				"lines": [
-
-				]
-			},
-			"thrd_actions": [
-
-			],
-			"saved_lyrics": [
-
-			],
-			"active_idea[CONTENT]": "the speaker is defending themselves against accusations",
-			"active_idea[IMAGERY]": "references to body parts",
-			"active_idea[SYMBOLISM]": "niceness\" and their partner's \"meanness\" symbolize the dynamics of their relationship",
-			"active_idea[PERSON]": "",
-			"active_idea_clr[CONTENT]": {
-				"red": 0,
-				"green": 166,
-				"blue": 176
 			},
 			"active_idea_clr[IMAGERY]": {
-				"red": 240,
-				"green": 57,
-				"blue": 202
-			},
-			"active_idea_clr[SYMBOLISM]": {
-				"red": 255,
-				"green": 237,
-				"blue": 30
-			},
-			"active_idea_clr[PERSON]": {
 				"red": null,
 				"green": null,
 				"blue": null
-			}
-		},
-		{
-			"name": "Verse 6",
-			"type": "V6",
-			"active_source_wordsalad": [
-
-			],
-			"active_source_text": [
-
-			],
-			"source_text_suggestions": [
-
-			],
-			"source": [
-
-			],
-			"ai_source": [
-
-			],
-			"rhymes": [
-
-			],
-			"rhyme_scheme": "",
-			"data": [
-
-			],
-			"outdated_suggestions": true,
-			"contents": [
-
-			],
-			"content_cursor": -1,
-			"bar_length": 0,
-			"part_type": 0,
-			"colors": [
-
-			],
-			"listener_colors": [
-
-			],
-			"vocabulary": [
-
-			],
-			"wordsalads": [
-
-			],
-			"wordsalad_clrs": [
-
-			],
-			"wordgroup_factors": [
-
-			],
-			"phrases": [
-
-			],
-			"mockup": "",
-			"nana": {
-				"lines": [
-
-				]
-			},
-			"thrd_actions": [
-
-			],
-			"saved_lyrics": [
-
-			],
-			"active_idea[CONTENT]": "the narrator's feelings of loneliness and finding comfort in being alone",
-			"active_idea[IMAGERY]": "drowning sorrows in beer",
-			"active_idea[SYMBOLISM]": "the door as a representation of the marriage",
-			"active_idea[PERSON]": "",
-			"active_idea_clr[CONTENT]": {
-				"red": 255,
-				"green": 255,
-				"blue": 255
-			},
-			"active_idea_clr[IMAGERY]": {
-				"red": 255,
-				"green": 255,
-				"blue": 255
 			},
 			"active_idea_clr[SYMBOLISM]": {
-				"red": 255,
-				"green": 255,
-				"blue": 255
+				"red": null,
+				"green": null,
+				"blue": null
 			},
 			"active_idea_clr[PERSON]": {
 				"red": null,
@@ -1743,78 +1823,7 @@
 			],
 			"outdated_suggestions": true,
 			"contents": [
-				{
-					"text": "As I pack my bags and leave this house of broken love behind, the colors of our once vibrant life now fade away",
-					"clr": {
-						"red": 0,
-						"green": 0,
-						"blue": 0
-					},
-					"imageries": [
 
-					],
-					"cursor": -1
-				},
-				{
-					"text": "I watch the flames engulf our marriage bed, burning away the memories of us and the love we once shared",
-					"clr": {
-						"red": 255,
-						"green": 255,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "Holding back tears as I drive away from the home we built together, the red leaves of autumn remind me of our dying love",
-					"clr": {
-						"red": 0,
-						"green": 0,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The sound of my footsteps echoing in the hollow halls of our now empty and lifeless house, painting a picture of our failed relationship",
-					"clr": {
-						"red": 0,
-						"green": 0,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "As I turn the key in the lock for the last time, I can't help but feel a sense of freedom and relief",
-					"clr": {
-						"red": 255,
-						"green": 255,
-						"blue": 255
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				},
-				{
-					"text": "The crashing waves of the ocean bring me peace as I sit on the beach, reflecting on the end of our marriage",
-					"clr": {
-						"red": 0,
-						"green": 0,
-						"blue": 0
-					},
-					"imageries": [
-
-					],
-					"cursor": -1
-				}
 			],
 			"content_cursor": -1,
 			"bar_length": 0,
@@ -1889,9 +1898,6 @@
 			"V3",
 			"V4",
 			"C",
-			"V5",
-			"V6",
-			"C",
 			"O"
 		],
 		"attrs": [
@@ -1944,7 +1950,6 @@
 		176845,
 		177568,
 		72453,
-		158159,
 		130283,
 		96117,
 		85776,
@@ -1992,7 +1997,6 @@
 		60744,
 		166780,
 		104967,
-		162435,
 		118433,
 		80712,
 		121634,
@@ -2014,11 +2018,7 @@
 		46988,
 		11226,
 		83428,
-		84592,
-		19717,
-		21793,
 		92807,
-		8843,
 		21328,
 		44243,
 		142315,
@@ -2029,7 +2029,6 @@
 		121181,
 		178211,
 		98669,
-		59358,
 		33666,
 		34408,
 		36089,
@@ -2042,9 +2041,7 @@
 		63304,
 		65210,
 		67322,
-		15191,
 		73500,
-		74571,
 		78673,
 		90009,
 		94168,
@@ -2053,12 +2050,10 @@
 		106250,
 		108665,
 		74741,
-		89835,
 		65305,
 		18714,
 		82367,
 		88979,
-		89816,
 		97787,
 		17582,
 		27782,
@@ -2088,12 +2083,67 @@
 		109118,
 		34919,
 		66808,
-		67153,
-		74551,
 		83525,
 		12993,
 		85649,
-		86747
+		86747,
+		76629,
+		108747,
+		117963,
+		43024,
+		84824,
+		128540,
+		54247,
+		7304,
+		84609,
+		122753,
+		125246,
+		75080,
+		4143,
+		14964,
+		177803,
+		132011,
+		63302,
+		128585,
+		121153,
+		24453,
+		30926,
+		175328,
+		81611,
+		57745,
+		80585,
+		98427,
+		111195,
+		35008,
+		25010,
+		63600,
+		128397,
+		58742,
+		36863,
+		66345,
+		71444,
+		120436,
+		76634,
+		65866,
+		166267,
+		99881,
+		7715,
+		95212,
+		126825,
+		101715,
+		115623,
+		103717,
+		161401,
+		36657,
+		92097,
+		118329,
+		144273,
+		16978,
+		87741,
+		24539,
+		139521,
+		27168,
+		77161
 	],
 	"active_idea[THEME]": "the breakdown of a marriage",
 	"active_idea[IDEA]": "the speaker's frustration and resentment towards their spouse",
