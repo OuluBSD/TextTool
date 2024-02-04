@@ -111,6 +111,7 @@ void Editor::InitSimplified() {
 	
 	AddItem(t_("Song"), t_("Briefing"), song_briefing); // initial ideas, notes, etc.
 	AddItem(t_("Song"), t_("Structure"), song_struct);
+	AddItem(t_("Song"), t_("Lyrics solver"), lyrics_solver);
 	//AddItem(t_("Song"), t_("Fine Structure"), fine_struct);
 	//AddItem(t_("Song"), t_("Rhyme Structure"), rhyme_struct);
 	

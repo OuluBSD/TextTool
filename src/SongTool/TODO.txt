@@ -1,5 +1,19 @@
 Scheduled work:
+- next:
+	- use user text as input
+	- ask AI attributes from text input
+	- ask AI colors from text input
+	- get actions based on attrs & color
+	- sort based on score (total or other)
+	- ask AI primary list as previously
+	- ask AI word classes, which can continue primary
+	- add rhyming filter based on rhyme scheme
+	- use primary filtering otherwise
+	- ask AI secondary values as previously
+
 - database: fixed rhyming word connections for filtering
+- database: tool to find rhyming words, and to compare two words
+	- word to word rhyming visualization
 - for debugging:
 	- show DatabaseBrowser cursor state etc.
 - missing features:

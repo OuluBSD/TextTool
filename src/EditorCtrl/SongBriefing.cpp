@@ -57,6 +57,7 @@ void SongBriefing::Data() {
 			switch(i) {
 				case ATTR_REFERENCE_SONG: list.Set(i, 1, t_("Reference song")); list.Set(i, 2, song.data.Get("ATTR_REFERENCE_SONG", "")); break;
 				case ATTR_BIRTH_OF_SONG: list.Set(i, 1, t_("Birth of song")); list.Set(i, 2, song.data.Get("ATTR_BIRTH_OF_SONG", "")); break;
+				case ATTR_CONTENT_VISION: list.Set(i, 1, t_("Content vision")); list.Set(i, 2, song.data.Get("ATTR_CONTENT_VISION", "")); break;
 				
 				/*#define ATTR_ITEM(e, g, i0, i1) case ITEM_GENERIC_##e: \
 					astr = db.Translate(g) + ": " + db.Translate(i0) + "/" + db.Translate(i1); \
@@ -115,6 +116,7 @@ void SongBriefing::OnListCursor() {
 		switch (list.GetCursor()) {
 			case ATTR_REFERENCE_SONG:  key.SetData(t_("Reference song")); description.SetData(t_("Which song is used as the structural reference for lyrics?")); value_str = song.data.Get("ATTR_REFERENCE_SONG", ""); break;
 			case ATTR_BIRTH_OF_SONG:  key.SetData(t_("Birth of song")); description.SetData(t_("How the song was born?")); value_str = song.data.Get("ATTR_BIRTH_OF_SONG", ""); break;
+			case ATTR_CONTENT_VISION:  key.SetData(t_("Content vision")); description.SetData(t_("What is the vision for the song?")); value_str = song.data.Get("ATTR_CONTENT_VISION", ""); break;
 			
 			/*#define ATTR_ITEM(e, g, i0, i1) case ITEM_GENERIC_##e: \
 				astr = db.Translate(g) + ": " + db.Translate(i0) + "/" + db.Translate(i1); \
@@ -151,6 +153,7 @@ void SongBriefing::OnValueChange() {
 		switch (list.GetCursor()) {
 			case ATTR_REFERENCE_SONG: key_str = "ATTR_REFERENCE_SONG"; break;
 			case ATTR_BIRTH_OF_SONG: key_str = "ATTR_BIRTH_OF_SONG"; break;
+			case ATTR_CONTENT_VISION: key_str = "ATTR_CONTENT_VISION"; break;
 			
 			/*#define ATTR_ITEM(e, g, i0, i1) case ITEM_GENERIC_##e: key_str = "ATTR_GENERIC_"#e; break;
 			ATTR_LIST

@@ -4,6 +4,7 @@
 #include <Database/Database.h>
 
 #include "TaskManager.h"
+#include "LyricsSolver.h"
 
 
 #endif

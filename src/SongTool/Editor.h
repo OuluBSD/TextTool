@@ -74,6 +74,7 @@ protected:
 	NanaEditor						nana_editor;
 	EnglishEditor					eng_edit;
 	Attributes						db_attrs;
+	LyricsSolverCtrl				lyrics_solver;
 	//SecondarySetter					sec_setter;
 	
 	/*

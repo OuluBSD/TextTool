@@ -90,6 +90,7 @@ struct TaskMgr {
 	void GetPhraseData(const PhraseArgs& args, Event<String> WhenResult);
 	void GetAttributes(const AttrArgs& args, Event<String> WhenResult);
 	void GetNanaData(const NanaArgs& args, Event<String> WhenResult);
+	void GetLyricsSolver(const LyricsSolverArgs& args, Event<String> WhenResult);
 	
 };
 

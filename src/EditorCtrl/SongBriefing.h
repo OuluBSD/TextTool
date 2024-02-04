@@ -14,6 +14,7 @@ class SongBriefing : public SongToolCtrl {
 	enum {
 		ATTR_REFERENCE_SONG,
 		ATTR_BIRTH_OF_SONG,
+		ATTR_CONTENT_VISION,
 		
 		/*#define ATTR_ITEM(e, g, i0, i1) ITEM_GENERIC_##e,
 		ATTR_LIST

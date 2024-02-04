@@ -89,6 +89,7 @@ typedef enum : int {
 	TASK_GET_PHRASE_DATA,
 	TASK_GET_ATTRIBUTES,
 	TASK_NANA_DATA,
+	TASK_LYRICS_SOLVER,
 	
 	TASK_COUNT
 } TaskType;
@@ -527,6 +528,22 @@ struct NanaArgs {
 				("phrase", phrase)
 				("pre_text", pre_text)
 				("pron", pron)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct LyricsSolverArgs {
+	int fn;
+	VectorMap<String,String> artist, release, song;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("artist", artist)
+				("release", release)
+				("song", song)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

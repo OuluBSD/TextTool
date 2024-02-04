@@ -34,6 +34,7 @@
 #include "LineSetter.h"
 #include "NativeEditor.h"
 #include "SecondarySetter.h"
+#include "LyricsSolverCtrl.h"
 
 
 #endif

@@ -90,6 +90,12 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetNanaData)
 		;
 	
+	AddRule(TASK_LYRICS_SOLVER, "lyrics solver")
+		.Input(&Task::CreateInput_LyricsSolver)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_LyricsSolver)
+		;
+	
 }
 
 void TaskMgrConfig::Load() {
@@ -412,6 +418,22 @@ void TaskMgr::GetNanaData(const NanaArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_NANA_DATA);
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetLyricsSolver(const LyricsSolverArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	Database& db = Database::Single();
+	const TaskRule& r = mgr.GetRule(TASK_LYRICS_SOLVER);
 	TaskMgr& p = *this;
 	
 	String s = args.Get();

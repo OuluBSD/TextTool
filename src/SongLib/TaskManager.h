@@ -94,7 +94,6 @@ class TaskManager {
 	VectorMap<String, VectorMap<String, int>> uniq_acts;
 	
 	void ImportPromptAnswers();
-	void RealizePipe();
 	void Process();
 	
 	void GetSongs(Task* t);
@@ -173,6 +172,7 @@ public:
 	void Stop();
 	void Clear();
 	bool IsInTaskList(TaskType type) const;
+	void RealizePipe();
 	TaskMgr* GetPipe() const {return pipe;}
 	TaskMgr& MakePipe() {if (!pipe) RealizePipe(); return *pipe;}
 	

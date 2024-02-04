@@ -10,5 +10,7 @@ file
 	TaskManager.cpp,
 	Do.cpp,
 	Get.cpp,
-	On.cpp;
+	On.cpp,
+	LyricsSolver.h,
+	LyricsSolver.cpp;
 

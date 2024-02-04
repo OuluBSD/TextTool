@@ -12,6 +12,14 @@ Song& SongToolCtrl::GetSong() {
 	return song;
 }
 
+Release& SongToolCtrl::GetRelease() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.release)
+		throw NoPointerExc("no release");
+	return *p.release;
+}
+
 Artist& SongToolCtrl::GetArtist() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;

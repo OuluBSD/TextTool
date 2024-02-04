@@ -92,3 +92,7 @@ void Task::Process_GetAttributes() {
 void Task::Process_GetNanaData() {
 	WhenResult(output);
 }
+
+void Task::Process_LyricsSolver() {
+	WhenResult(output);
+}

@@ -2463,3 +2463,73 @@ void Task::CreateInput_GetNanaData() {
 		input.response_length = 2048;
 	}
 }
+
+void Task::CreateInput_LyricsSolver() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	LyricsSolverArgs args;
+	args.Put(this->args[0]);
+	
+	// Color
+	if (args.fn == 0) {
+		{
+			auto& list = input.AddSub().Title("About the artist");
+			for(int i = 0; i < args.artist.GetCount(); i++)
+				list.Add(args.artist.GetKey(i) + ": " + args.artist[i]);
+		}
+		{
+			auto& list = input.AddSub().Title("About the release");
+			for(int i = 0; i < args.release.GetCount(); i++)
+				list.Add(args.release.GetKey(i) + ": " + args.release[i]);
+		}
+		{
+			auto& list = input.AddSub().Title("About the song");
+			for(int i = 0; i < args.song.GetCount(); i++)
+				list.Add(args.song.GetKey(i) + ": " + args.song[i]);
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Example phrases, with metaphorical color of the phrase");
+			list.Add("\"Smoking cigs in the bar\": RGB(122,81,69)");
+			list.Add("\"You fucked up your last try\": RGB(255,0,0)");
+			list.Add("\"I was dying to find a way to kill time\": RGB(74,135,59)");
+		}
+		{
+			int c = GetColorGroupCount();
+			auto& list = input.AddSub().Title("Metaphorical colors");
+			list.NumberedLines();
+			for(int i = 0; i < c; i++) {
+				Color clr = GetGroupColor(i);
+				list.Add("RGB(" + IntStr(clr.GetR()) + "," + IntStr(clr.GetG()) + "," + IntStr(clr.GetB()) + ")");
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of metaphorical colors, which does not match artist nor release nor song");
+			results.Add("RGB(");
+		}
+		input.response_length = 2048;
+	}
+	else {
+		{
+			auto& list = input.AddSub().Title("About the artist");
+			for(int i = 0; i < args.artist.GetCount(); i++)
+				list.Add(args.artist.GetKey(i) + ": " + args.artist[i]);
+		}
+		{
+			auto& list = input.AddSub().Title("About the release");
+			for(int i = 0; i < args.release.GetCount(); i++)
+				list.Add(args.release.GetKey(i) + ": " + args.release[i]);
+		}
+		{
+			auto& list = input.AddSub().Title("About the song");
+			for(int i = 0; i < args.song.GetCount(); i++)
+				list.Add(args.song.GetKey(i) + ": " + args.song[i]);
+		}
+		TODO
+		
+	}
+}

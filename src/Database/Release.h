@@ -12,6 +12,7 @@ struct Release :
 	Date						date;
 	VectorMap<String,String>	data;
 	Array<SongIdea>				ideas;
+	int							year_of_content = 0;
 	
 	// Public (separate files)
 	Array<Song>		songs;
@@ -26,6 +27,7 @@ struct Release :
 			% english_title
 			% date
 			% ideas
+			% year_of_content
 			% songs;
 	}
 	void Jsonize(JsonIO& json) {
@@ -34,6 +36,7 @@ struct Release :
 			("english_title", english_title)
 			("date", date)
 			("data", data)
+			("year_of_content", year_of_content)
 			("ideas", ideas)
 			;
 		if (json.IsStoring()) {

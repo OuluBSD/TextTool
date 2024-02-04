@@ -4,6 +4,7 @@
 
 typedef String NoPointerExc;
 struct Song;
+struct Release;
 struct Artist;
 
 
@@ -17,6 +18,7 @@ public:
 	virtual String GetStatusText() {return String();}
 	
 	Song& GetSong();
+	Release& GetRelease();
 	Artist& GetArtist();
 	String GetSongTitle() const;
 	

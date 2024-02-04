@@ -21,6 +21,7 @@ BasicInfoCtrl::BasicInfoCtrl() {
 	english_song_title <<= THISBACK(OnValueChange);
 	song_prj_name <<= THISBACK(OnValueChange);
 	vocalist_visual <<= THISBACK(OnValueChange);
+	year_of_content <<= THISBACK(OnValueChange);
 	
 }
 
@@ -42,6 +43,7 @@ void BasicInfoCtrl::Clear() {
 	this->native_song_title			.Clear();
 	this->english_song_title		.Clear();
 	this->song_prj_name				.Clear();
+	this->year_of_content				.Clear();
 }
 
 void BasicInfoCtrl::Data() {
@@ -71,6 +73,7 @@ void BasicInfoCtrl::Data() {
 		native_album_title.SetData(r.native_title);
 		english_album_title.SetData(r.english_title);
 		album_date.SetData(r.date);
+		year_of_content.SetData(r.year_of_content);
 	}
 	
 	if (p.song) {
@@ -110,6 +113,7 @@ void BasicInfoCtrl::OnValueChange() {
 		r.native_title = native_album_title.GetData();
 		r.english_title = english_album_title.GetData();
 		r.date = album_date.GetData();
+		r.year_of_content = year_of_content.GetData();
 		
 		int c = editor->releases.GetCursor();
 		editor->releases.Set(c, 0, r.native_title);

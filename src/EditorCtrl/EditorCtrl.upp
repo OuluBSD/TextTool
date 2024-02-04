@@ -33,6 +33,8 @@ file
 	SongBriefing.cpp,
 	SongStructure.h,
 	SongStructure.cpp,
+	LyricsSolverCtrl.h,
+	LyricsSolverCtrl.cpp,
 	"Song lyrics" readonly separator,
 	ContextAttributes.h,
 	ContextAttributes.cpp,
