@@ -3840,3 +3840,11 @@
 "artistic influence" 21931 13090
 "vibe" 50198 50199
 "socio-political beliefs" 50200 50201
+"friendship" 50953 50954
+"agency" 50955 50956
+"time frame" 50957 50958
+"personal preference" 50959 50960
+"interpretation" 50961 50962
+"emotion(uncertainty)" 50963 50964
+"emotion intelligence" 12102 12095
+"aquatic metaphors" 33049 33048

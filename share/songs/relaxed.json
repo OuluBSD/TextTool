@@ -105,6 +105,10 @@
 			"saved_lyrics": [
 
 			],
+			"clr_list": [
+
+			],
+			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "",
 			"active_idea[IMAGERY]": "",
 			"active_idea[SYMBOLISM]": "",
@@ -195,6 +199,10 @@
 			"saved_lyrics": [
 
 			],
+			"clr_list": [
+
+			],
+			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "",
 			"active_idea[IMAGERY]": "",
 			"active_idea[SYMBOLISM]": "",
@@ -285,6 +293,10 @@
 			"saved_lyrics": [
 
 			],
+			"clr_list": [
+
+			],
+			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "",
 			"active_idea[IMAGERY]": "",
 			"active_idea[SYMBOLISM]": "",
@@ -375,6 +387,10 @@
 			"saved_lyrics": [
 
 			],
+			"clr_list": [
+
+			],
+			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "",
 			"active_idea[IMAGERY]": "",
 			"active_idea[SYMBOLISM]": "",
@@ -430,6 +446,7 @@
 	"picked_phrase_parts": [
 
 	],
+	"simple_attrs": "\u0001\u0000\u0000\u0000\u0010\u0001",
 	"active_idea[THEME]": "",
 	"active_idea[IDEA]": "",
 	"active_idea[TONE]": "",
