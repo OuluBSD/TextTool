@@ -1840,8 +1840,9 @@ void TaskManager::GetAttributes(Task* t) {
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
-	
+	// TODO optimize: this is being done every time
 	VectorMap<String,Index<String>> uniq_attrs;
+	uniq_attrs.Clear();
 	for(int i = 0; i < da.attrs.GetCount(); i++) {
 		const AttrHeader& ah = da.attrs.GetKey(i);
 		uniq_attrs.GetAdd(ah.group).FindAdd(ah.value);
@@ -2038,7 +2039,27 @@ void TaskManager::GetAttributes(Task* t) {
 		TaskMgr& m = *pipe;
 		m.GetAttributes(args, THISBACK1(OnAttributeJoins, t));
 	}
-	
+	else if (t->fn == 3) {
+		for(int i = 0; i < da.attrs.GetCount(); i++) {
+			da.attrs[i].simple_attr = -1;
+		}
+		// Fix: add simple_attr index value to ExportAttr
+		for(int i = 0; i < uniq_attrs.GetCount(); i++) {
+			AttrHeader ah;
+			ah.group = uniq_attrs.GetKey(i);
+			const auto& values = uniq_attrs[i];
+			int sa_i = da.simple_attrs.Find(ah.group);
+			if (sa_i < 0)
+				continue;
+			for(int j = 0; j < values.GetCount(); j++) {
+				ah.value = values[j];
+				int k = da.attrs.Find(ah);
+				ASSERT(k >= 0);
+				ExportAttr& ea = da.attrs[k];
+				ea.simple_attr = sa_i;
+			}
+		}
+	}
 }
 
 }

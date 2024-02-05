@@ -2491,6 +2491,11 @@ void Task::CreateInput_LyricsSolver() {
 				list.Add(args.song.GetKey(i) + ": " + args.song[i]);
 		}
 		{
+			auto& list = input.AddSub().Title("Parts off the song");
+			for(int i = 0; i < args.parts.GetCount(); i++)
+				list.Add(args.parts[i]);
+		}
+		{
 			auto& list = input.AddSub();
 			list.Title("Example phrases, with metaphorical color of the phrase");
 			list.Add("\"Smoking cigs in the bar\": RGB(122,81,69)");
@@ -2508,7 +2513,7 @@ void Task::CreateInput_LyricsSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("List of metaphorical colors, which does not match artist nor release nor song");
+			results.Title("List of metaphorical colors for the part '" + args.part + "', which does not match artist nor release nor song");
 			results.Add("RGB(");
 		}
 		input.response_length = 2048;
@@ -2529,7 +2534,27 @@ void Task::CreateInput_LyricsSolver() {
 			for(int i = 0; i < args.song.GetCount(); i++)
 				list.Add(args.song.GetKey(i) + ": " + args.song[i]);
 		}
-		TODO
-		
+		{
+			auto& list = input.AddSub().Title("Parts off the song");
+			for(int i = 0; i < args.parts.GetCount(); i++)
+				list.Add(args.parts[i]);
+		}
+		{
+			auto& list = input.AddSub().Title("List of attribute groups and their positive/negative values");
+			list.NumberedLines();
+			list.Add("unrelated example 1: +plus/-minus");
+			list.Add("unrelated example 2: +large/-small");
+			for(int i = 0; i < args.attrs.GetCount(); i++)
+				list.Add(args.attrs[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of " + IntStr(args.attrs.GetCount()+2) + " attributes and the sign, which would suit better the lyrics of the song/release/artist");
+			results.NumberedLines();
+			results.Add("+/-");
+			results.Add("-/+");
+			results.Add("");
+		}
+		input.response_length = 2048;
 	}
 }

@@ -538,12 +538,17 @@ struct NanaArgs {
 struct LyricsSolverArgs {
 	int fn;
 	VectorMap<String,String> artist, release, song;
+	Vector<String> parts, attrs;
+	String part;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
 				("artist", artist)
 				("release", release)
 				("song", song)
+				("parts", parts)
+				("attrs", attrs)
+				("part", part)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

@@ -76,6 +76,7 @@ struct Task {
 	String tmp_str;
 	int actual = 0, total = 0;
 	Song* song = 0;
+	VectorMap<String,Index<String>> uniq_attrs;
 	
 };
 

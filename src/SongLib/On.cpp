@@ -1346,10 +1346,11 @@ void TaskManager::OnAttributes(String res, Task* t) {
 		}
 		
 		if (keys[0].GetCount() && keys[1].GetCount()) {
+			String group = ToLower(t->tmp_str);
 			int attr_i[2] = {-1,-1};
 			for(int i = 0; i < keys.GetCount(); i++) {
 				AttrHeader ah;
-				ah.group = ToLower(t->tmp_str);
+				ah.group = group;
 				ah.value = ToLower(keys[i]);
 				
 				da.attrs.GetAdd(ah, attr_i[i]);
@@ -1359,6 +1360,8 @@ void TaskManager::OnAttributes(String res, Task* t) {
 			ExportSimpleAttr& sat = da.simple_attrs.GetAdd(t->tmp_str);
 			sat.attr_i0 = attr_i[0];
 			sat.attr_i1 = attr_i[1];
+			
+			const Index<String>& v = t->uniq_attrs.Get(group);
 		}
 	}
 	
@@ -1406,6 +1409,7 @@ void TaskManager::OnAttributePolars(String res, Task* t) {
 			
 			ExportAttr& ea = da.attrs[j];
 			ea.positive = !is_negative;
+			ea.simple_attr = i;
 		}
 		
 	}

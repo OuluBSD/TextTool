@@ -711,18 +711,18 @@ struct PhrasePart : Moveable<PhrasePart> {
 };
 
 struct ExportAttr : Moveable<ExportAttr> {
-	int simple_group = -1, simple_value = -1;
+	int simple_attr = -1, unused = -1;
 	int positive = -1, link = -1;
 	int count = 0;
 	
 	String StoreToString() {
 		StringDumper d;
-		d % simple_group % simple_value % positive % link % count;
+		d % simple_attr % unused % positive % link % count;
 		return d;
 	}
 	void LoadFromString(const String& s) {
 		StringParser p(s);
-		p % simple_group % simple_value % positive % link % count;
+		p % simple_attr % unused % positive % link % count;
 		positive = min(1, max(0, positive));
 	}
 	

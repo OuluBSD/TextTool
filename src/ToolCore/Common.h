@@ -864,4 +864,25 @@ int FixedIndexFindAdd(T* values, int max_value_count, int& value_count, const T&
 	return i;
 }
 
+
+template <class T>
+void JsonCompressedStream(JsonIO& json, const String& key, T& o) {
+	if (json.IsLoading()) {
+		String s;
+		json(key, s);
+		if (s.GetCount())
+			s = FastDecompress(s);
+		StringStream ss(s);
+		ss % o;
+	}
+	else {
+		StringStream ss;
+		ss % o;
+		String s = ss.GetResult();
+		if (s.GetCount())
+			s = FastCompress(s);
+		json(key, s);
+	}
+}
+
 #endif

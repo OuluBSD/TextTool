@@ -20,6 +20,8 @@ class LyricsSolver {
 	};
 	Time time_started, time_stopped;
 	int phase = LS_BEGIN;
+	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
+	int ds_i = 0;
 	TaskMgr* pipe = 0;
 	Artist* artist = 0;
 	Release* release = 0;
@@ -27,16 +29,22 @@ class LyricsSolver {
 	
 	bool waiting = false;
 	bool running = false, stopped = true;
+	bool skip_ready = true;
 	
 	void RealizePipe();
 	void Process();
 	void ProcessColor();
 	void ProcessAttr();
+	void ProcessAction();
 	void OnProcessColor(String result);
 	void OnProcessAttr(String result);
 	void PostProgress() {WhenProgress(phase, LS_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}
+	void NextPhase() {phase++; batch = 0;}
+	void NextBatch() {batch++; sub_batch = 0;}
+	void NextSubBatch() {sub_batch++;}
+	
 public:
 	typedef LyricsSolver CLASSNAME;
 	LyricsSolver();
