@@ -109,6 +109,7 @@
 
 			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "",
 			"active_idea[IMAGERY]": "",
 			"active_idea[SYMBOLISM]": "",
@@ -203,6 +204,7 @@
 
 			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "",
 			"active_idea[IMAGERY]": "",
 			"active_idea[SYMBOLISM]": "",
@@ -297,6 +299,7 @@
 
 			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "",
 			"active_idea[IMAGERY]": "",
 			"active_idea[SYMBOLISM]": "",
@@ -391,6 +394,7 @@
 
 			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "",
 			"active_idea[IMAGERY]": "",
 			"active_idea[SYMBOLISM]": "",
