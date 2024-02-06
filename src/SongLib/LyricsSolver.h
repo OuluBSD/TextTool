@@ -36,8 +36,11 @@ class LyricsSolver {
 	void ProcessColor();
 	void ProcessAttr();
 	void ProcessAction();
+	void ProcessFilter();
+	void ProcessPrimary();
 	void OnProcessColor(String result);
 	void OnProcessAttr(String result);
+	void OnProcessPrimary();
 	void PostProgress() {WhenProgress(phase, LS_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}

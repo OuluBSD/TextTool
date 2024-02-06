@@ -516,7 +516,7 @@ struct NanaArgs {
 	int fn;
 	Vector<String> phrases, parts;
 	Vector<int> counts;
-	String nana, phrase, pre_text;
+	String part, nana, phrase, pre_text;
 	WString pron;
 	
 	void Jsonize(JsonIO& json) {
@@ -524,6 +524,7 @@ struct NanaArgs {
 				("parts", parts)
 				("phrases", phrases)
 				("counts", counts)
+				("part", part)
 				("nana", nana)
 				("phrase", phrase)
 				("pre_text", pre_text)

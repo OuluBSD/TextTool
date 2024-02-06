@@ -2412,9 +2412,16 @@ void Task::CreateInput_GetNanaData() {
 			for(int i = 0; i < args.phrases.GetCount(); i++)
 				list.Add(args.phrases[i]);
 		}
+		Vector<String> pre_lines = Split(args.pre_text, "\n");
+		if (!pre_lines.IsEmpty()) {
+			auto& list = input.AddSub().Title("Song \"B\": earlier phrases in the same song");
+			list.NumberedLines();
+			for(int i = 0; i < pre_lines.GetCount(); i++)
+				list.Add(pre_lines[i]);
+		}
 		{
 			auto& list = input.AddSub().Title("Example \"A\": lines per parts");
-			list.NumberedLines();
+			//list.NumberedLines();
 			list.Add("Intro: 0 lines");
 			list.Add("Verse 1: 4 lines: 4, 2, 3, 6");
 			list.Add("Chorus: 4 lines: 8, 13, 12, 1");

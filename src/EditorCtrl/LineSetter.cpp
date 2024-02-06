@@ -95,6 +95,8 @@ void LineSetter::DataPicked() {
 	
 	int cursor = picked.IsCursor() ? picked.GetCursor() : -1;
 	
+	LOG("TODO");
+	#if 0
 	for(int i = 0; i < song.picked_phrase_parts.GetCount(); i++) {
 		int pp_i = song.picked_phrase_parts[i];
 		int row = i;
@@ -143,6 +145,7 @@ void LineSetter::DataPicked() {
 		else if (cursor >= picked.GetCount() && picked.GetCount() > 0)
 			picked.SetCursor(picked.GetCount()-1);
 	}
+	#endif
 }
 
 void LineSetter::DataSubPicked() {

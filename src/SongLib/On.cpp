@@ -1191,9 +1191,10 @@ void TaskManager::OnSongStory(String res, Task* t) {
 	
 	RemoveEmptyLines3(res);
 	
-	VectorMap<String, Vector<int>> results;
-	
 	Vector<String> lines = Split(res, "\n");
+	VectorMap<String, Vector<int>> results;
+	StaticPart& sp = song.parts[t->part_i];
+	
 	for(String& line : lines) {
 		int a = line.Find(":");
 		if (a < 0) continue;
@@ -1218,18 +1219,24 @@ void TaskManager::OnSongStory(String res, Task* t) {
 	for(int i = 0; i < results.GetCount(); i++) {
 		String res_part = results.GetKey(i);
 		const auto& part_lines = results[i];
+		#if 0
 		StaticPart* sp = song.FindPartByName(res_part);
 		if (!sp)
 			continue;
+		#else
+		if (ToLower(res_part) != ToLower(sp.name))
+			continue;
+		#endif
 		
-		const auto& nana_lines = sp->nana.Get();
+		const auto& nana_lines = sp.nana.Get();
 		int c = min(part_lines.GetCount(), nana_lines.GetCount());
 		for(int j = 0; j < c; j++) {
 			int row = part_lines[j];
-			int pp_i = song.picked_phrase_parts[row];
-			sp->nana.SetPhrasePart(j, pp_i);
+			int pp_i = sp.picked_phrase_parts[row];
+			sp.nana.SetPhrasePart(j, pp_i);
 		}
 	}
+	
 	//t->batch_i++;
 	//t->running = false;
 	t->on_ready();

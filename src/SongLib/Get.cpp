@@ -810,13 +810,16 @@ void TaskManager::GetNana(Task* t) {
 	args.fn = t->fn;
 	
 	if (args.fn == 0) {
+		ASSERT(t->part_i >= 0);
 		for(int i = 0; i < song.parts.GetCount(); i++) {
 			const StaticPart& sp = song.parts[i];
 			args.parts << sp.name;
 			args.counts << sp.nana.Get().GetCount();
 		}
-		for(int i = 0; i < song.picked_phrase_parts.GetCount(); i++) {
-			int pp_i = song.picked_phrase_parts[i];
+		const StaticPart& sp = song.parts[t->part_i];
+		args.part = sp.name;
+		for(int i = 0; i < sp.picked_phrase_parts.GetCount(); i++) {
+			int pp_i = sp.picked_phrase_parts[i];
 			const PhrasePart& pp = da.phrase_parts[pp_i];
 			String phrase = da.GetWordString(pp.words);
 			args.phrases << phrase;
@@ -840,16 +843,23 @@ void TaskManager::GetNana(Task* t) {
 			args.phrases << p;
 			t->tmp_words.Add(p);
 		}
-		
+	}
+	
+	if (t->part_i >= 0) {
+		const StaticPart& sp = song.parts[t->part_i];
+		const RhymeContainer::Line* line = t->line_i >= 0 ? &sp.nana.Get()[t->line_i] : 0;
 		String pre_text;
 		for(int i = 0; i < song.parts.GetCount(); i++) {
-			const auto& lines = sp.nana.Get();
+			const auto& lines = song.parts[i].nana.Get();
 			bool end = false;
+			if (i == t->part_i && t->line_i < 0) break;
 			for(int j = 0; j < lines.GetCount(); j++) {
 				const auto& line0 = lines[j];
-				if (&line0 == &line) {
-					end = true;
-					break;
+				if (i == t->line_i && i == t->part_i) {
+					if (&line0 == line) {
+						end = true;
+						break;
+					}
 				}
 				if (!pre_text.IsEmpty())
 					pre_text << "\n";
