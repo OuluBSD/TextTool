@@ -7,7 +7,7 @@ LineSetter::LineSetter() {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << vsplit << picked;
-	vsplit.Vert() << lines << subpicked << lineconf;
+	vsplit.Vert() << lines << subpicked;// << lineconf;
 	vsplit.SetPos(5000,0);
 	vsplit.SetPos(7500,1);
 	
@@ -95,8 +95,6 @@ void LineSetter::DataPicked() {
 	
 	int cursor = picked.IsCursor() ? picked.GetCursor() : -1;
 	
-	LOG("TODO");
-	#if 0
 	for(int i = 0; i < song.picked_phrase_parts.GetCount(); i++) {
 		int pp_i = song.picked_phrase_parts[i];
 		int row = i;
@@ -145,7 +143,6 @@ void LineSetter::DataPicked() {
 		else if (cursor >= picked.GetCount() && picked.GetCount() > 0)
 			picked.SetCursor(picked.GetCount()-1);
 	}
-	#endif
 }
 
 void LineSetter::DataSubPicked() {
@@ -164,6 +161,11 @@ void LineSetter::DataSubPicked() {
 	
 	
 	StaticPart& sp = song.parts[part_i];
+	if (sp.part_type == StaticPart::SKIP) {
+		subpicked.Clear();
+		return;
+	}
+	
 	const auto& lines = sp.nana.Get();
 	const Index<int>& line_pps = lines[line_i].sub_pp_i;
 	
@@ -226,14 +228,13 @@ void LineSetter::ToolMenu(Bar& bar) {
 	bar.Separator();
 	bar.Add(t_("Fill main by AI"), AppImg::RedRing(), THISBACK1(DoNana, 0)).Key(K_F5);
 	bar.Separator();
-	//bar.Add(t_("Fill sub by AI"), AppImg::RedRing(), THISBACK1(DoNana, 1)).Key(K_F6);
-	//bar.Add(t_("Fill sub by AI"), AppImg::RedRing(), THISBACK1(DoNana, 1)).Key(K_F6);
+	bar.Add(t_("Fill sub by AI"), AppImg::RedRing(), THISBACK1(DoNana, 1)).Key(K_F6);
 }
 
 void LineSetter::SetLine() {
 	Song& song = GetSong();
 	
-	if (!picked.IsCursor() && !lines.IsCursor())
+	if (!picked.IsCursor() || !lines.IsCursor())
 		return;
 	
 	int part_i = lines.Get("PART");

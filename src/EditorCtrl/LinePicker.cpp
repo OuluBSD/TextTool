@@ -395,8 +395,6 @@ void LinePicker::DataPicked() {
 		}
 	}
 	
-	LOG("TODO");
-	#if 0
 	int count =
 		mode == MODE_PICKED ?
 			song.picked_phrase_parts.GetCount() :
@@ -466,7 +464,6 @@ void LinePicker::DataPicked() {
 		else if (cursor >= picked.GetCount() && picked.GetCount() > 0)
 			picked.SetCursor(picked.GetCount()-1);
 	}
-	#endif
 }
 
 void LinePicker::DataSubPicked() {
@@ -552,8 +549,6 @@ void LinePicker::AddLine() {
 	
 	Song& song = GetSong();
 	
-	PromptOK("TODO");
-	#if 0
 	if (mode == MODE_PICKED) {
 		int pp_i = parts.Get("IDX");
 		song.picked_phrase_parts.FindAdd(pp_i);
@@ -570,14 +565,11 @@ void LinePicker::AddLine() {
 		sp.nana.SetSubPicked(line_i, pp_i);
 		PostCallback(THISBACK(DataSubPicked));
 	}
-	#endif
 }
 
 void LinePicker::RemoveLine() {
 	Song& song = GetSong();
 	
-	PromptOK("TODO");
-	#if 0
 	if (mode == MODE_PICKED) {
 		if (!picked.IsCursor())
 			return;
@@ -597,15 +589,12 @@ void LinePicker::RemoveLine() {
 		sp.nana.RemoveSubPicked(line_i, pp_i);
 		PostCallback(THISBACK(DataSubPicked));
 	}
-	#endif
 }
 
 
 void LinePicker::ClearAll() {
 	Song& song = GetSong();
 	
-	PromptOK("TODO");
-	#if 0
 	if (mode == MODE_PICKED) {
 		song.picked_phrase_parts.Clear();
 		PostCallback(THISBACK(DataPicked));
@@ -619,7 +608,6 @@ void LinePicker::ClearAll() {
 		sp.nana.ClearSubPicked(line_i);
 		PostCallback(THISBACK(DataSubPicked));
 	}
-	#endif
 }
 
 void LinePicker::SetMidRhyme(String word_) {

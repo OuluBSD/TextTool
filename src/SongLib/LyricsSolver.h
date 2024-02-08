@@ -14,6 +14,7 @@ class LyricsSolver {
 		LS_FILTER,
 		LS_PRIMARY,
 		LS_SECONDARY_WORD_CLASS,
+		LS_SECONDARY_FILTER,
 		LS_SECONDARY,
 		
 		LS_COUNT
@@ -31,16 +32,28 @@ class LyricsSolver {
 	bool running = false, stopped = true;
 	bool skip_ready = true;
 	
+	// params
+	double dist_limit = 0.005;
+	int primary_count = 50;
+	int rhyming_list_count = 5;
+	
+	
 	void RealizePipe();
 	void Process();
+	void ClearLyrics();
 	void ProcessColor();
 	void ProcessAttr();
 	void ProcessAction();
 	void ProcessFilter();
 	void ProcessPrimary();
+	void ProcessSecondaryWordClass();
+	void ProcessSecondaryFilter();
+	void ProcessSecondary();
 	void OnProcessColor(String result);
 	void OnProcessAttr(String result);
 	void OnProcessPrimary();
+	void OnProcessSecondaryWordClass(String res);
+	void OnProcessSecondary();
 	void PostProgress() {WhenProgress(phase, LS_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}

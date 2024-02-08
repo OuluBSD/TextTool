@@ -1,17 +1,8 @@
 Scheduled work:
-- next:
-	- use user text as input
-	- ask AI attributes from text input
-	- ask AI colors from text input
-	- get actions based on attrs & color
-	- sort based on score (total or other)
-	- ask AI primary list as previously
-	- ask AI word classes, which can continue primary
-	- add rhyming filter based on rhyme scheme
-	- use primary filtering otherwise
-	- ask AI secondary values as previously
-
+- database: TYPECAST & IDENTITY stuff... profile, primary/secondary person (all gendered)
+	- ask I which it CAN'T be to avoid random answers
 - database: fixed rhyming word connections for filtering
+- lyrics solver: iterate phrase lists and offer AI to change few lines to better
 - database: tool to find rhyming words, and to compare two words
 	- word to word rhyming visualization
 - for debugging:

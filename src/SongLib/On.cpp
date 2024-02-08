@@ -1193,7 +1193,8 @@ void TaskManager::OnSongStory(String res, Task* t) {
 	
 	Vector<String> lines = Split(res, "\n");
 	VectorMap<String, Vector<int>> results;
-	StaticPart& sp = song.parts[t->part_i];
+	
+	//StaticPart& sp = song.parts[t->part_i];
 	
 	for(String& line : lines) {
 		int a = line.Find(":");
@@ -1219,22 +1220,33 @@ void TaskManager::OnSongStory(String res, Task* t) {
 	for(int i = 0; i < results.GetCount(); i++) {
 		String res_part = results.GetKey(i);
 		const auto& part_lines = results[i];
-		#if 0
+		#if 1
 		StaticPart* sp = song.FindPartByName(res_part);
 		if (!sp)
 			continue;
+		const auto& nana_lines = sp->nana.Get();
+		int c = min(part_lines.GetCount(), nana_lines.GetCount());
+		for(int j = 0; j < c; j++) {
+			int row = part_lines[j];
+			int pp_i = -1;
+			if (row < song.picked_phrase_parts.GetCount())
+				pp_i = song.picked_phrase_parts[row];
+			sp->nana.SetPhrasePart(j, pp_i);
+		}
 		#else
 		if (ToLower(res_part) != ToLower(sp.name))
 			continue;
-		#endif
-		
 		const auto& nana_lines = sp.nana.Get();
 		int c = min(part_lines.GetCount(), nana_lines.GetCount());
 		for(int j = 0; j < c; j++) {
 			int row = part_lines[j];
-			int pp_i = sp.picked_phrase_parts[row];
+			int pp_i = -1;
+			if (row < sp.picked_phrase_parts.GetCount())
+				pp_i = sp.picked_phrase_parts[row];
 			sp.nana.SetPhrasePart(j, pp_i);
 		}
+		#endif
+		
 	}
 	
 	//t->batch_i++;
@@ -1271,10 +1283,10 @@ void TaskManager::OnSubPicked(String result, Task* t) {
 			else {
 				line.end_pp_i = -1;
 			}
-			
-			t->on_ready();
 		}
 	}
+	
+	t->on_ready();
 	
 	RemoveTask(*t);
 }

@@ -2459,7 +2459,7 @@ void Task::CreateInput_GetNanaData() {
 		{
 			auto& list = input.AddSub().Title("Example: Song \"A\": best storyline fitting line after phrase " + IntStr(cur) + "., when only story matters and not rhyming");
 			//list.NumberedLines();
-			int id = 1 + min(args.phrases.GetCount(), 2);
+			int id = min(args.phrases.GetCount(), 3);
 			list.Add(IntStr(id) + ". " + args.phrases[id-1]);
 		}
 		{
@@ -2525,7 +2525,7 @@ void Task::CreateInput_LyricsSolver() {
 		}
 		input.response_length = 2048;
 	}
-	else {
+	else if (args.fn == 1) {
 		{
 			auto& list = input.AddSub().Title("About the artist");
 			for(int i = 0; i < args.artist.GetCount(); i++)
@@ -2560,6 +2560,28 @@ void Task::CreateInput_LyricsSolver() {
 			results.NumberedLines();
 			results.Add("+/-");
 			results.Add("-/+");
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 2) {
+		{
+			auto& list = input.AddSub().Title("List of main word classes");
+			for(int i = 0; i < args.attrs.GetCount(); i++)
+				list.Add(args.attrs[i]);
+		}
+		{
+			auto& list = input.AddSub().Title("Phrases of the song");
+			list.NumberedLines();
+			list.Add("I am");
+			for(int i = 0; i < args.parts.GetCount(); i++)
+				list.Add(args.parts[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of possible word classes for the immediate next word of the phrases of the song. " + IntStr(args.parts.GetCount()+1) + " lines");
+			results.NumberedLines();
+			results.Add("adjective, noun, verb, adverb, prepositional phrase");
 			results.Add("");
 		}
 		input.response_length = 2048;

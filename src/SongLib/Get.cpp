@@ -810,12 +810,20 @@ void TaskManager::GetNana(Task* t) {
 	args.fn = t->fn;
 	
 	if (args.fn == 0) {
-		ASSERT(t->part_i >= 0);
 		for(int i = 0; i < song.parts.GetCount(); i++) {
 			const StaticPart& sp = song.parts[i];
 			args.parts << sp.name;
 			args.counts << sp.nana.Get().GetCount();
 		}
+		#if !PRIMARY_STATIC_PART
+		for(int i = 0; i < song.picked_phrase_parts.GetCount(); i++) {
+			int pp_i = song.picked_phrase_parts[i];
+			const PhrasePart& pp = da.phrase_parts[pp_i];
+			String phrase = da.GetWordString(pp.words);
+			args.phrases << phrase;
+		}
+		#else
+		ASSERT(t->part_i >= 0);
 		const StaticPart& sp = song.parts[t->part_i];
 		args.part = sp.name;
 		for(int i = 0; i < sp.picked_phrase_parts.GetCount(); i++) {
@@ -824,6 +832,7 @@ void TaskManager::GetNana(Task* t) {
 			String phrase = da.GetWordString(pp.words);
 			args.phrases << phrase;
 		}
+		#endif
 	}
 	if (args.fn == 1) {
 		ASSERT(t->part_i >= 0 && t->line_i >= 0);
