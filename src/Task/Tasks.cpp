@@ -1,6 +1,8 @@
 #include "Task.h"
 #include <Database/Database.h>
 #include <SongLib/SongLib.h>
+#include <LlamaCpp/LlamaCpp.h>
+
 
 void Task::Store(bool force) {
 	if (output.IsEmpty()) return;
@@ -420,85 +422,96 @@ bool Task::RunOpenAI_Completion() {
 			input.AsString();
 	//LOG(prompt);
 	
-	/*prompt.Replace("\r", "");
-	prompt.Replace("\n", "\\n");
-	prompt.Replace("\t", "\\t");
-	prompt.Replace("\"", "\\\"");*/
-	EscapeString(prompt);
-	
-	//prompt = FixInvalidChars(prompt); // NOTE: warning: might break something
-	//prompt.Replace("\'", "\\\'");
-	
-	if (GetDefaultCharset() != CHARSET_UTF8)
-		prompt = ToCharset(CHARSET_UTF8, prompt, CHARSET_DEFAULT);
-	
-    // "model": "text-davinci-003",
-    
-	String txt = R"_({
-    "model": "gpt-3.5-turbo-instruct",
-    "prompt": ")_" + prompt + R"_(",
-    "max_tokens": )_" + IntStr(input.response_length) + R"_(,
-    "temperature": 1
-})_";
-    //LOG(txt);
-	
-	try {
-		nlohmann::json json = nlohmann::json::parse(txt.Begin(), txt.End());
-		auto completion = openai::completion().create(json);
-	    //LOG("Response is:\n" << completion.dump(2));
+	#ifdef flagLLAMACPP
+	if (1) {
+		LlamaCppResponse response;
+		response.SetPrompt(prompt);
+		response.SetMaxTokens(input.response_length);
+		response.Process();
+		output = response.GetOutput();
+	} else
+	#endif
+	{
+		/*prompt.Replace("\r", "");
+		prompt.Replace("\n", "\\n");
+		prompt.Replace("\t", "\\t");
+		prompt.Replace("\"", "\\\"");*/
+		EscapeString(prompt);
+		
+		//prompt = FixInvalidChars(prompt); // NOTE: warning: might break something
+		//prompt.Replace("\'", "\\\'");
+		
+		if (GetDefaultCharset() != CHARSET_UTF8)
+			prompt = ToCharset(CHARSET_UTF8, prompt, CHARSET_DEFAULT);
+		
+	    // "model": "text-davinci-003",
 	    
-	    OpenAiResponse response;
-	    
-	    LoadFromJson(response, String(completion.dump(2)));
-	    //LOG(response.ToString());
-	    
-	    if (response.choices.GetCount())
-			output = response.choices[0].text;
-	    else
-	        output.Clear();
+		String txt = R"_({
+	    "model": "gpt-3.5-turbo-instruct",
+	    "prompt": ")_" + prompt + R"_(",
+	    "max_tokens": )_" + IntStr(input.response_length) + R"_(,
+	    "temperature": 1
+	})_";
+	    //LOG(txt);
+		
+		try {
+			nlohmann::json json = nlohmann::json::parse(txt.Begin(), txt.End());
+			auto completion = openai::completion().create(json);
+		    //LOG("Response is:\n" << completion.dump(2));
+		    
+		    OpenAiResponse response;
+		    
+		    LoadFromJson(response, String(completion.dump(2)));
+		    //LOG(response.ToString());
+		    
+		    if (response.choices.GetCount())
+				output = response.choices[0].text;
+		    else
+		        output.Clear();
+		}
+		catch (std::runtime_error e) {
+			if (keep_going) {output = " "; return true;}
+			LOG(prompt);
+			LOG(txt);
+			fatal_error = true;
+			SetError(e.what());
+			return false;
+		}
+		catch (std::string e) {
+			if (keep_going) {output = " "; return true;}
+			LOG(prompt);
+			LOG(txt);
+			fatal_error = true;
+			SetError(e.c_str());
+			return false;
+		}
+		catch (NLOHMANN_JSON_NAMESPACE::detail::parse_error e) {
+			if (keep_going) {output = " "; return true;}
+			LOG(prompt);
+			LOG(txt);
+			LOG(e.what());
+			fatal_error = true;
+			SetError(e.what());
+			return false;
+		}
+		catch (std::exception e) {
+			if (keep_going) {output = " "; return true;}
+			LOG(prompt);
+			LOG(txt);
+			SetError(e.what());
+			fatal_error = true;
+			return false;
+		}
+		/*catch (...) {
+			SetError("unknown error");
+			return false;
+		}*/
+		
+		//LOG(IntStr64(input.AsString().GetHashValue()));
+		
+		// Fix unicode formatting
+		output = ToUnicode(output, CHARSET_UTF8).ToString();
 	}
-	catch (std::runtime_error e) {
-		if (keep_going) {output = " "; return true;}
-		LOG(prompt);
-		LOG(txt);
-		fatal_error = true;
-		SetError(e.what());
-		return false;
-	}
-	catch (std::string e) {
-		if (keep_going) {output = " "; return true;}
-		LOG(prompt);
-		LOG(txt);
-		fatal_error = true;
-		SetError(e.c_str());
-		return false;
-	}
-	catch (NLOHMANN_JSON_NAMESPACE::detail::parse_error e) {
-		if (keep_going) {output = " "; return true;}
-		LOG(prompt);
-		LOG(txt);
-		LOG(e.what());
-		fatal_error = true;
-		SetError(e.what());
-		return false;
-	}
-	catch (std::exception e) {
-		if (keep_going) {output = " "; return true;}
-		LOG(prompt);
-		LOG(txt);
-		SetError(e.what());
-		fatal_error = true;
-		return false;
-	}
-	/*catch (...) {
-		SetError("unknown error");
-		return false;
-	}*/
-	
-	//LOG(IntStr64(input.AsString().GetHashValue()));
-	
-	// Fix unicode formatting
-	output = ToUnicode(output, CHARSET_UTF8).ToString();
 	
 	changed = true;
 	Store();

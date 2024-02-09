@@ -1,8 +1,9 @@
 description "\377B128,0,0";
 
 uses
-	Database,
-	LlamaCpp;
+	Database;
+
+uses(LLAMACPP) LlamaCpp;
 
 file
 	Task.h,

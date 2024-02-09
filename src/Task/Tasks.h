@@ -4,14 +4,6 @@
 
 struct TaskMgr;
 
-struct LlamaCppResponse {
-	
-	
-	
-	void Process();
-	
-};
-
 struct OpenAiResponse {
 	struct Choice : Moveable<Choice> {
 		String text;

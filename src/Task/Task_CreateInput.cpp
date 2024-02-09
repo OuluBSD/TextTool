@@ -1,6 +1,10 @@
 #include "Task.h"
 #include <Database/Database.h>
 
+#ifdef flagLLAMACPP
+#include <LlamaCpp/LlamaCpp.h>
+#endif
+
 
 void Task::CreateInput_Translate() {
 	String orig_lng = args[0];
