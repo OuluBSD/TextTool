@@ -885,4 +885,17 @@ void JsonCompressedStream(JsonIO& json, const String& key, T& o) {
 	}
 }
 
+
+const Index<String>& GetTypecasts();
+int GetTypecastCount();
+
+const Index<String>& GetProfiles();
+int GetProfileCount();
+
+const Index<String>& GetPrimary();
+int GetPrimaryCount();
+
+const Index<String>& GetSecondary();
+int GetSecondaryCount();
+
 #endif

@@ -607,6 +607,342 @@ void TaskManager::OnPhraseScores(String res, Task* t) {
 	t->running = false;
 }
 
+void TaskManager::OnPhraseTypecasts(String res, Task* t) {
+	TokenArgs& args = token_args;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	// 14. 2 5 9 11 14 19 22 28 34 44
+	
+	res = "2." + res;
+	
+	int opt_count = GetTypecastCount();
+	
+	Vector<int> actions;
+	int offset = 1+1;
+	RemoveEmptyLines(res);
+	Vector<String> lines = Split(res, "\n");
+	bool line_match = t->tmp_ptrs.GetCount() == lines.GetCount();
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		if (l.Find("(") >= 0)
+			lines.Remove(i--);
+	}
+	
+	int line_i = -1;
+	for (String& line : lines) {
+		line_i++;
+		line = TrimBoth(line);
+		
+		// Get line number
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		int a = line.Find(".");
+		if (a < 0) continue;
+		
+		PhrasePart* pp_p;
+		if (line_match)
+			pp_p = (PhrasePart*)t->tmp_ptrs[line_i];
+		else {
+			int line_i = ScanInt(line.Left(a));
+			line_i -= offset;
+			if (line_i < 0 || line_i >= t->tmp.GetCount())
+				continue;
+			int pp_i = t->tmp[line_i];
+			pp_p = &da.phrase_parts[pp_i];
+		}
+		PhrasePart& pp = *pp_p;
+		line = TrimBoth(line.Mid(a+1));
+		
+		// Split rest of the line at space character
+		Vector<String> parts = Split(line, " ");
+		
+		
+		if (parts.IsEmpty())
+			continue;
+		
+		pp.typecasts.Clear();
+		int i = 0;
+		for (const String& part : parts) {
+			int opt = ScanInt(part);
+			if (opt <= 0 || opt > opt_count) {
+				pp.typecasts.Clear();
+				break;
+			}
+			opt--; // convert to 0-based index
+			pp.typecasts.Add(opt);
+		}
+	}
+	
+	
+	int a = 0;
+	for (const PhrasePart& pp : da.phrase_parts.GetValues())
+		if (pp.typecasts.GetCount())
+			a++;
+	da.diagnostics.GetAdd("typecasts: total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd("typecasts: actual") = IntStr(a);
+	da.diagnostics.GetAdd("typecasts: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	
+	
+	t->batch_i++;
+	t->running = false;
+}
+
+void TaskManager::OnPhraseProfile(String res, Task* t) {
+	TokenArgs& args = token_args;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	// 14. 2 5 9 11 14 19 22 28 34 44
+	
+	res = "2." + res;
+	
+	int opt_count = GetTypecastCount();
+	
+	Vector<int> actions;
+	int offset = 1+1;
+	RemoveEmptyLines(res);
+	Vector<String> lines = Split(res, "\n");
+	bool line_match = t->tmp_ptrs.GetCount() == lines.GetCount();
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		if (l.Find("(") >= 0)
+			lines.Remove(i--);
+	}
+	
+	int line_i = -1;
+	for (String& line : lines) {
+		line_i++;
+		line = TrimBoth(line);
+		
+		// Get line number
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		int a = line.Find(".");
+		if (a < 0) continue;
+		
+		PhrasePart* pp_p;
+		if (line_match)
+			pp_p = (PhrasePart*)t->tmp_ptrs[line_i];
+		else {
+			int line_i = ScanInt(line.Left(a));
+			line_i -= offset;
+			if (line_i < 0 || line_i >= t->tmp.GetCount())
+				continue;
+			int pp_i = t->tmp[line_i];
+			pp_p = &da.phrase_parts[pp_i];
+		}
+		PhrasePart& pp = *pp_p;
+		line = TrimBoth(line.Mid(a+1));
+		
+		// Split rest of the line at space character
+		Vector<String> parts = Split(line, " ");
+		
+		
+		if (parts.IsEmpty())
+			continue;
+		
+		pp.profiles.Clear();
+		int i = 0;
+		for (const String& part : parts) {
+			int opt = ScanInt(part);
+			if (opt <= 0 || opt > opt_count) {
+				pp.profiles.Clear();
+				break;
+			}
+			opt--; // convert to 0-based index
+			pp.profiles.Add(opt);
+		}
+	}
+	
+	
+	int a = 0;
+	for (const PhrasePart& pp : da.phrase_parts.GetValues())
+		if (pp.profiles.GetCount())
+			a++;
+	da.diagnostics.GetAdd("singer profiles: total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd("singer profiles: actual") = IntStr(a);
+	da.diagnostics.GetAdd("singer profiles: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	
+	
+	t->batch_i++;
+	t->running = false;
+}
+
+void TaskManager::OnPhrasePrimary(String res, Task* t) {
+	TokenArgs& args = token_args;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	// 14. 2 5 9 11 14 19 22 28 34 44
+	
+	res = "2." + res;
+	
+	int opt_count = GetTypecastCount();
+	
+	Vector<int> actions;
+	int offset = 1+1;
+	RemoveEmptyLines(res);
+	Vector<String> lines = Split(res, "\n");
+	bool line_match = t->tmp_ptrs.GetCount() == lines.GetCount();
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		if (l.Find("(") >= 0)
+			lines.Remove(i--);
+	}
+	
+	int line_i = -1;
+	for (String& line : lines) {
+		line_i++;
+		line = TrimBoth(line);
+		
+		// Get line number
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		int a = line.Find(".");
+		if (a < 0) continue;
+		
+		PhrasePart* pp_p;
+		if (line_match)
+			pp_p = (PhrasePart*)t->tmp_ptrs[line_i];
+		else {
+			int line_i = ScanInt(line.Left(a));
+			line_i -= offset;
+			if (line_i < 0 || line_i >= t->tmp.GetCount())
+				continue;
+			int pp_i = t->tmp[line_i];
+			pp_p = &da.phrase_parts[pp_i];
+		}
+		PhrasePart& pp = *pp_p;
+		line = TrimBoth(line.Mid(a+1));
+		
+		// Split rest of the line at space character
+		Vector<String> parts = Split(line, " ");
+		
+		
+		if (parts.IsEmpty())
+			continue;
+		
+		pp.primary.Clear();
+		int i = 0;
+		for (const String& part : parts) {
+			int opt = ScanInt(part);
+			if (opt <= 0 || opt > opt_count) {
+				pp.primary.Clear();
+				break;
+			}
+			opt--; // convert to 0-based index
+			pp.primary.Add(opt);
+		}
+	}
+	
+	
+	int a = 0;
+	for (const PhrasePart& pp : da.phrase_parts.GetValues())
+		if (pp.primary.GetCount())
+			a++;
+	da.diagnostics.GetAdd("primary focus: total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd("primary focus: actual") = IntStr(a);
+	da.diagnostics.GetAdd("primary focus: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	
+	
+	t->batch_i++;
+	t->running = false;
+}
+
+void TaskManager::OnPhraseSecondary(String res, Task* t) {
+	TokenArgs& args = token_args;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	// 14. 2 5 9 11 14 19 22 28 34 44
+	
+	res = "2." + res;
+	
+	int opt_count = GetTypecastCount();
+	
+	Vector<int> actions;
+	int offset = 1+1;
+	RemoveEmptyLines(res);
+	Vector<String> lines = Split(res, "\n");
+	bool line_match = t->tmp_ptrs.GetCount() == lines.GetCount();
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		if (l.Find("(") >= 0)
+			lines.Remove(i--);
+	}
+	
+	int line_i = -1;
+	for (String& line : lines) {
+		line_i++;
+		line = TrimBoth(line);
+		
+		// Get line number
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		int a = line.Find(".");
+		if (a < 0) continue;
+		
+		PhrasePart* pp_p;
+		if (line_match)
+			pp_p = (PhrasePart*)t->tmp_ptrs[line_i];
+		else {
+			int line_i = ScanInt(line.Left(a));
+			line_i -= offset;
+			if (line_i < 0 || line_i >= t->tmp.GetCount())
+				continue;
+			int pp_i = t->tmp[line_i];
+			pp_p = &da.phrase_parts[pp_i];
+		}
+		PhrasePart& pp = *pp_p;
+		line = TrimBoth(line.Mid(a+1));
+		
+		// Split rest of the line at space character
+		Vector<String> parts = Split(line, " ");
+		
+		
+		if (parts.IsEmpty())
+			continue;
+		
+		pp.secondary.Clear();
+		int i = 0;
+		for (const String& part : parts) {
+			int opt = ScanInt(part);
+			if (opt <= 0 || opt > opt_count) {
+				pp.secondary.Clear();
+				break;
+			}
+			opt--; // convert to 0-based index
+			pp.secondary.Add(opt);
+		}
+	}
+	
+	
+	int a = 0;
+	for (const PhrasePart& pp : da.phrase_parts.GetValues())
+		if (pp.secondary.GetCount())
+			a++;
+	da.diagnostics.GetAdd("secondary focus: total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd("secondary focus: actual") = IntStr(a);
+	da.diagnostics.GetAdd("secondary focus: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	
+	
+	t->batch_i++;
+	t->running = false;
+}
+
 void TaskManager::OnActionlistColors(String result, Task* t) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;

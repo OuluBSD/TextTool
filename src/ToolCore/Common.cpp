@@ -1283,3 +1283,243 @@ int FindNonEscaped(const WString& s, const WString& search, int begin) {
 	}
 	return -1;
 }
+
+const Index<String>& GetTypecasts() {
+	thread_local static Index<String> list;
+	if (list.IsEmpty()) {
+		list.Add("Heartbroken/lovesick");
+		list.Add("Rebel/anti-establishment");
+		list.Add("Political activist");
+		list.Add("Social justice advocate");
+		list.Add("Party/club");
+		list.Add("Hopeful/dreamer");
+		list.Add("Confident/empowered");
+		list.Add("Vulnerable/raw");
+		list.Add("Romantic/love-driven");
+		list.Add("Failure/loser");
+		list.Add("Spiritual/faithful");
+		list.Add("Passionate/determined");
+		list.Add("Reflective/self-reflective");
+		list.Add("Witty/sarcastic");
+		list.Add("Melancholic/sad");
+		list.Add("Humble/down-to-earth");
+		list.Add("Charismatic/charming");
+		list.Add("Resilient/overcoming adversity");
+		list.Add("Carefree/joyful");
+		list.Add("Dark/mysterious");
+		list.Add("Comical/humorous");
+		list.Add("Controversial/provocative");
+		list.Add("Nostalgic/sentimental");
+		list.Add("Wise/philosophical");
+		list.Add("Angry/outspoken");
+		list.Add("Calm/peaceful.");
+		list.Add("Confident/self-assured");
+		list.Add("Self-destructive/self-sabotaging");
+		list.Add("Hopeful/optimistic");
+		list.Add("Fearful/anxious");
+		list.Add("Eccentric/quirky");
+		list.Add("Sensitive/emotional");
+		list.Add("Bitter/resentful");
+		list.Add("Unique/nonconformist");
+		list.Add("Free-spirited/nonconformist");
+		list.Add("Sultry/seductive");
+		list.Add("Inspirational/motivational");
+		list.Add("Authentic/real");
+		list.Add("Mysterious/enigmatic");
+		list.Add("Carefree/bohemian");
+		list.Add("Street-smart/tough");
+		list.Add("Romantic/idealistic");
+		list.Add("Nurturing/motherly");
+		list.Add("Dark/tormented");
+		list.Add("Remorseful/regretful");
+		list.Add("Bold/brave");
+		list.Add("Outcast/rebel");
+		list.Add("Lost/disconnected");
+		list.Add("Tough/badass");
+		list.Add("Sincere/genuine");
+		list.Add("Honest/vulnerable");
+		list.Add("Innocent/naive");
+		list.Add("Bold/risk-taking");
+	}
+	return list;
+}
+
+int GetTypecastCount() {
+	return GetTypecasts().GetCount();
+}
+
+const Index<String>& GetProfiles() {
+	thread_local static Index<String> list;
+	if (list.IsEmpty()) {
+		// "singer is ..."
+        list.Add("a third-party observer/commentator");
+        list.Add("expressing personal emotions/thoughts");
+        list.Add("conveying a message or lesson");
+        list.Add("embodying a character or persona");
+        list.Add("a storyteller or messenger for a community or culture");
+        list.Add("reflecting on past experiences or memories");
+        list.Add("interpreting or analyzing the lyrics for the listener");
+        list.Add("challenging societal norms or addressing social issues");
+        list.Add("invoking a particular mood or atmosphere through vocals");
+        list.Add("having a dialogue with another singer");
+        list.Add("having a dialogue with the audience");
+        list.Add("using abstract or poetic language to convey feelings or ideas");
+        list.Add("highlighting the beauty or poeticism of the lyrics through their performance");
+        list.Add("asking questions and exploring different perspectives on the topic of the lyrics");
+        list.Add("using irony or satire to convey a message or make a statement");
+        list.Add("evoking nostalgia or longing through the lyrics");
+        list.Add("using personal experiences to give depth and authenticity to the lyrics ");
+        list.Add("using humor or wit to engage with the lyrics");
+        list.Add("challenging the listener's perspective or beliefs with the lyrics");
+        list.Add("using vocal techniques or styles to add layers of meaning to the lyrics");
+        list.Add("creating a sense of intimacy or connection through their performance of the lyrics");
+        list.Add("breaking societal expectations and norms through their interpretation of the lyrics");
+        list.Add("offering a unique perspective on a commonly addressed topic in the lyrics");
+        list.Add("creating a soundtrack or anthem for a specific group or community");
+        list.Add("using repetition or emphasis to emphasize the importance of the lyrics");
+        list.Add("using double entendres or wordplay to add depth and complexity to the lyrics ");
+        list.Add("reflecting on personal growth or transformation through the lyrics");
+        list.Add("embodying a specific emotion or feeling portrayed in the lyrics");
+        list.Add("representing a marginalized or underrepresented group through the lyrics");
+        list.Add("using imagery or metaphors to convey a deeper meaning behind the lyrics");
+        list.Add("expressing vulnerability or raw emotion through the lyrics");
+        list.Add("narrating a specific event or experience through the lyrics");
+        list.Add("using the lyrics to convey a sense of empowerment or strength");
+        list.Add("engaging in introspection and self-reflection through the lyrics");
+        list.Add("confronting personal demons or struggles in the lyrics ");
+        list.Add("using the lyrics to express social or cultural commentary");
+	}
+	return list;
+}
+
+int GetProfileCount() {
+	return GetProfiles().GetCount();
+}
+
+
+
+
+
+const Index<String>& GetPrimary() {
+	thread_local static Index<String> list;
+	if (list.IsEmpty()) {
+        list.Add("15-18 years old male");
+        list.Add("18-25 years old male");
+        list.Add("25-35 years old male");
+        list.Add("35-45 years old male");
+        list.Add("45+ years old male");
+        list.Add("15-18 years old female");
+        list.Add("18-25 years old female");
+        list.Add("25-35 years old female");
+        list.Add("35-45 years old female");
+        list.Add("45+ years old female");
+        list.Add("Non-binary person");
+        list.Add("Children/Youth");
+        list.Add("Elderly individuals");
+        list.Add("People from poor background");
+        list.Add("People from middle class background");
+        list.Add("People from rich background");
+        list.Add("People going to the gym");
+        list.Add("People going to the dance club");
+        list.Add("People going to bars");
+        list.Add("People dreaming about better life");
+        list.Add("Outgoing people");
+        list.Add("Introverted people");
+        list.Add("People without a relationship");
+        list.Add("People in a relationship");
+        list.Add("Married people");
+        list.Add("People falling in love");
+        list.Add("People overcoming challenges");
+        list.Add("People dealing with loss");
+        list.Add("Nature loving people");
+        list.Add("Travelling people");
+        list.Add("People seeking justice or social change");
+        list.Add("People exploring their identity or sexuality");
+        list.Add("Individuals with mental health struggles");
+        list.Add("Individuals with physical disabilities");
+        list.Add("People in positions of power or leadership");
+        list.Add("Depressed or anxious individuals");
+        list.Add("Those experiencing a spiritual or religious awakening");
+        list.Add("Individuals from a snowy-winter culture");
+        list.Add("Individuals from a snowless-winter culture");
+        list.Add("Artists or musicians");
+        list.Add("Workers in food industry");
+        list.Add("Workers in sex industry");
+        list.Add("Workers in car industry");
+        list.Add("Workers in house construction industry");
+        list.Add("Workers in transportation industry");
+        list.Add("Workers in healthcare industry");
+        list.Add("Workers in IT industry");
+        list.Add("Politicians");
+        list.Add("Democratic Politicians");
+        list.Add("Republican Politicians");
+        list.Add("Police officers");
+        list.Add("Teachers or educators");
+        list.Add("Students (college, high school, etc.)");
+        list.Add("Athletes");
+        list.Add("Homeowners");
+        list.Add("Single parents");
+        list.Add("Divorced or separated individuals");
+        list.Add("Retired individuals");
+        list.Add("Blue-collar workers");
+        list.Add("White-collar workers");
+        list.Add("Bystanders witnessing an act of injustice or violence");
+        list.Add("Survivors of trauma or abuse");
+        list.Add("People living in a war-torn or conflict-ridden area");
+        list.Add("People living in poverty");
+	}
+	return list;
+}
+
+int GetPrimaryCount() {
+	return GetPrimary().GetCount();
+}
+
+
+const Index<String>& GetSecondary() {
+	thread_local static Index<String> list;
+	if (list.IsEmpty()) {
+        list.Add("Romantic partner or love interest");
+        list.Add("Family members (parents, siblings, children)");
+        list.Add("Friends");
+        list.Add("Cultural or ethnic community");
+        list.Add("Religious or spiritual community");
+        list.Add("Fellow activists or social justice advocates");
+        list.Add("Musical collaborators or bandmates");
+        list.Add("Higher power or divine figure");
+        list.Add("Beloved pet or animal companion");
+        list.Add("Society or societal expectations");
+        list.Add("Government or political figures");
+        list.Add("Nature or the environment");
+        list.Add("Nostalgic memories or past self");
+        list.Add("Oppressed or marginalized groups");
+        list.Add("Inner demons or mental health struggles");
+        list.Add("External obstacles or challenges");
+        list.Add("Social media or technology");
+        list.Add("Dreams or ambitions");
+        list.Add("Material possessions or wealth");
+        list.Add("Personal flaws or mistakes");
+        list.Add("Other significant person or group in the singer's life");
+        list.Add("Audience/listeners of the song");
+        list.Add("Personal goals or aspirations ");
+        list.Add("Past relationships or significant others");
+        list.Add("Romantic rival or competition");
+        list.Add("Past or present enemies/adversaries");
+        list.Add("Dreams/goals/aspirations");
+        list.Add("An unknown or imaginary person");
+        list.Add("Celebrities or public figures");
+        list.Add("Influence or legacy of a role model or idol");
+        list.Add("Past or present self/inner self");
+        list.Add("Memories or past experiences");
+        list.Add("Social pressure or expectations");
+        list.Add("Society as a whole");
+        list.Add("The injustices in the world");
+        list.Add("Personal growth or transformation");
+	}
+	return list;
+}
+
+int GetSecondaryCount() {
+	return GetSecondary().GetCount();
+}
+

@@ -663,6 +663,10 @@ struct PhrasePart : Moveable<PhrasePart> {
 	int attr = -1;
 	Color clr = Black();
 	Vector<int> actions;
+	Vector<int> typecasts;
+	Vector<int> profiles;
+	Vector<int> primary;
+	Vector<int> secondary;
 	int scores[SCORE_COUNT] = {0,0,0,0,0,0,0,0,0,0};
 	
 	bool HasScores() const {
@@ -682,6 +686,18 @@ struct PhrasePart : Moveable<PhrasePart> {
 			d % ah_i;
 		for(int i = 0; i < SCORE_COUNT; i++)
 			d % scores[i];
+		d % typecasts.GetCount();
+		for (int tc_i : typecasts)
+			d % tc_i;
+		d % profiles.GetCount();
+		for (int tc_i : profiles)
+			d % tc_i;
+		d % primary.GetCount();
+		for (int tc_i : primary)
+			d % tc_i;
+		d % secondary.GetCount();
+		for (int tc_i : secondary)
+			d % tc_i;
 		return d;
 	}
 	void LoadFromString(const String& s) {
@@ -700,6 +716,26 @@ struct PhrasePart : Moveable<PhrasePart> {
 			p % ah_i;
 		for(int i = 0; i < SCORE_COUNT; i++)
 			p % scores[i];
+		p % tc;
+		if (tc < 0 || tc > 60) tc = 0;
+		typecasts.SetCount(tc);
+		for (int& tc_i : typecasts)
+			p % tc_i;
+		p % tc;
+		if (tc < 0 || tc > 60) tc = 0;
+		profiles.SetCount(tc);
+		for (int& tc_i : profiles)
+			p % tc_i;
+		p % tc;
+		if (tc < 0 || tc > 60) tc = 0;
+		primary.SetCount(tc);
+		for (int& tc_i : primary)
+			p % tc_i;
+		p % tc;
+		if (tc < 0 || tc > 60) tc = 0;
+		secondary.SetCount(tc);
+		for (int& tc_i : secondary)
+			p % tc_i;
 	}
 	
 	hash_t GetHashValue() const {

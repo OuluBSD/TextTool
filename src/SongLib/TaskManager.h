@@ -132,6 +132,10 @@ class TaskManager {
 	void OnPhraseAttrs(String result, Task* t);
 	void OnPhraseActions(String result, Task* t);
 	void OnPhraseScores(String result, Task* t);
+	void OnPhraseTypecasts(String result, Task* t);
+	void OnPhraseProfile(String result, Task* t);
+	void OnPhrasePrimary(String result, Task* t);
+	void OnPhraseSecondary(String result, Task* t);
 	
 	void GetNana(Task* tp);
 	void OnSongStory(String result, Task* t);

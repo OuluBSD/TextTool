@@ -738,20 +738,20 @@ void TaskManager::GetPhrases(Task* t) {
 	args.phrases.Clear();
 	
 	int per_action_task = 100;
-	if (args.fn == 2 || args.fn == 3)
+	if (args.fn >= 2)
 		per_action_task = 35;
 	
 	int begin = t->batch_i * per_action_task;
 	int end = begin + per_action_task;
 	end = min(end, da.ambiguous_word_pairs.GetCount());
 	
-	Color black(0,0,0);
+	Color no_clr(0,0,0);
 	t->tmp_ptrs.SetCount(0);
 	
 	int iter = 0;
 	for (const PhrasePart& pp : da.phrase_parts.GetValues()) {
 		
-		if (t->fn == 0 && pp.clr != black)
+		if (t->fn == 0 && pp.clr != no_clr)
 			continue;
 		
 		if (t->fn == 1 && pp.attr >= 0)
@@ -761,6 +761,18 @@ void TaskManager::GetPhrases(Task* t) {
 			continue;
 		
 		if (t->fn == 3 && pp.HasScores())
+			continue;
+		
+		if (t->fn == 4 && !pp.typecasts.IsEmpty())
+			continue;
+		
+		if (t->fn == 5 && !pp.profiles.IsEmpty())
+			continue;
+		
+		if (t->fn == 6 && !pp.primary.IsEmpty())
+			continue;
+		
+		if (t->fn == 7 && !pp.secondary.IsEmpty())
 			continue;
 		
 		if (iter >= begin && iter < end) {
@@ -794,6 +806,14 @@ void TaskManager::GetPhrases(Task* t) {
 		m.GetPhraseData(args, THISBACK1(OnPhraseActions, t));
 	else if (args.fn == 3)
 		m.GetPhraseData(args, THISBACK1(OnPhraseScores, t));
+	else if (args.fn == 4)
+		m.GetPhraseData(args, THISBACK1(OnPhraseTypecasts, t));
+	else if (args.fn == 5)
+		m.GetPhraseData(args, THISBACK1(OnPhraseProfile, t));
+	else if (args.fn == 6)
+		m.GetPhraseData(args, THISBACK1(OnPhrasePrimary, t));
+	else if (args.fn == 7)
+		m.GetPhraseData(args, THISBACK1(OnPhraseSecondary, t));
 	
 }
 
