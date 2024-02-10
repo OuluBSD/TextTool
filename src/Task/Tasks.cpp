@@ -1,8 +1,10 @@
 #include "Task.h"
 #include <Database/Database.h>
 #include <SongLib/SongLib.h>
-#include <LlamaCpp/LlamaCpp.h>
 
+#ifdef flagLLAMACCP
+#include <LlamaCpp/LlamaCpp.h>
+#endif
 
 void Task::Store(bool force) {
 	if (output.IsEmpty()) return;

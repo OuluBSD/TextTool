@@ -786,7 +786,7 @@ void TaskManager::GetPhrases(Task* t) {
 	}
 	
 	if (args.phrases.IsEmpty()) {
-		if (t->fn < 3) {
+		if (t->fn < 7) {
 			t->fn++;
 			t->batch_i = 0;
 			t->running = false;
