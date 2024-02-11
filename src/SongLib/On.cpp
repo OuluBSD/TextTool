@@ -702,7 +702,7 @@ void TaskManager::OnPhraseProfile(String res, Task* t) {
 	
 	res = "2." + res;
 	
-	int opt_count = GetTypecastCount();
+	int opt_count = GetProfileCount();
 	
 	Vector<int> actions;
 	int offset = 1+1;
@@ -786,7 +786,7 @@ void TaskManager::OnPhrasePrimary(String res, Task* t) {
 	
 	res = "2." + res;
 	
-	int opt_count = GetTypecastCount();
+	int opt_count = GetPrimaryCount();
 	
 	Vector<int> actions;
 	int offset = 1+1;
@@ -870,7 +870,11 @@ void TaskManager::OnPhraseSecondary(String res, Task* t) {
 	
 	res = "2." + res;
 	
-	int opt_count = GetTypecastCount();
+	#if 0
+	int opt_count = GetSecondaryCount();
+	#else
+	int opt_count = GetArchetypeCount();
+	#endif
 	
 	Vector<int> actions;
 	int offset = 1+1;
@@ -916,6 +920,7 @@ void TaskManager::OnPhraseSecondary(String res, Task* t) {
 		if (parts.IsEmpty())
 			continue;
 		
+		#if 0
 		pp.secondary.Clear();
 		int i = 0;
 		for (const String& part : parts) {
@@ -927,9 +932,22 @@ void TaskManager::OnPhraseSecondary(String res, Task* t) {
 			opt--; // convert to 0-based index
 			pp.secondary.Add(opt);
 		}
+		#else
+		pp.archetypes.Clear();
+		int i = 0;
+		for (const String& part : parts) {
+			int opt = ScanInt(part);
+			if (opt <= 0 || opt > opt_count) {
+				pp.archetypes.Clear();
+				break;
+			}
+			opt--; // convert to 0-based index
+			pp.archetypes.Add(opt);
+		}
+		#endif
 	}
 	
-	
+	#if 0
 	int a = 0;
 	for (const PhrasePart& pp : da.phrase_parts.GetValues())
 		if (pp.secondary.GetCount())
@@ -937,7 +955,15 @@ void TaskManager::OnPhraseSecondary(String res, Task* t) {
 	da.diagnostics.GetAdd("secondary focus: total") = IntStr(da.phrase_parts.GetCount());
 	da.diagnostics.GetAdd("secondary focus: actual") = IntStr(a);
 	da.diagnostics.GetAdd("secondary focus: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
-	
+	#else
+	int a = 0;
+	for (const PhrasePart& pp : da.phrase_parts.GetValues())
+		if (pp.archetypes.GetCount())
+			a++;
+	da.diagnostics.GetAdd("archetypes: total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd("archetypes: actual") = IntStr(a);
+	da.diagnostics.GetAdd("archetypes: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	#endif
 	
 	t->batch_i++;
 	t->running = false;

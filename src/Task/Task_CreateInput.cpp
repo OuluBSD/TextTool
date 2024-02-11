@@ -2364,12 +2364,21 @@ void Task::CreateInput_GetPhraseData() {
 		input.response_length = 2048;
 	}
 	else if (args.fn == 7) {
+		#if 0
 		{
 			auto& list = input.AddSub().Title("Secondary human (focus of the primary person of a song)");
 			list.NumberedLines();
 			for (String tc : GetSecondary())
 				list.Add(tc);
 		}
+		#else
+		{
+			auto& list = input.AddSub().Title("Stereotypical architypes of the storyline of a moder pop/rock/EDM/folk/metal song");
+			list.NumberedLines();
+			for (String tc : GetArchetypes())
+				list.Add(tc);
+		}
+		#endif
 		String pc = IntStr(1 + args.phrases.GetCount());
 		{
 			auto& list = input.AddSub().Title("List \"A\" of " + pc + " phrases");
@@ -2382,8 +2391,13 @@ void Task::CreateInput_GetPhraseData() {
 			TaskTitledList& results = input.PreAnswer();
 			results.NumberedLines();
 			results.NoListChar();
+			#if 0
 			results.Title(pc + " secondary-number sequences for list \"A\" of phrases. Description: phrases can be telling about these humans");
 			results.Add("1 15 18 24 36 2 10 14 13 20 3 6 26 32 31 34 35 37 9 4");
+			#else
+			results.Title(pc + " archetype-number sequences for list \"A\" of phrases. Description: phrases could be used in following archetypes");
+			results.Add("2 10 12 13 17 27 24");
+			#endif
 			results.Add("");
 		}
 		input.response_length = 2048;

@@ -895,7 +895,10 @@ int GetProfileCount();
 const Index<String>& GetPrimary();
 int GetPrimaryCount();
 
-const Index<String>& GetSecondary();
-int GetSecondaryCount();
+//const Index<String>& GetSecondary();
+//int GetSecondaryCount();
+
+const VectorMap<String,String>& GetArchetypes();
+int GetArchetypeCount();
 
 #endif

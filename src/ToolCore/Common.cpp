@@ -1523,3 +1523,52 @@ int GetSecondaryCount() {
 	return GetSecondary().GetCount();
 }
 
+const VectorMap<String,String>& GetArchetypes() {
+	thread_local static VectorMap<String,String> list;
+	if (list.IsEmpty()) {
+		list.Add("Young Love","a song about the electric and passionate romance between two young lovers");
+		list.Add("Heartbreak","a song about a devastating breakup and the pain that follows");
+		list.Add("Party All Night","a song about letting loose and having a wild night with friends");
+		list.Add("Rebellious Spirit","a song about going against the rules and living life on your own terms");
+		list.Add("Hopeful Anthem","a song about never giving up and finding hope in dark times");
+		list.Add("Summer Beach Days","a song about carefree summer days spent at the beach with friends");
+		list.Add("New Beginnings","a song about starting over and moving forward after a difficult chapter");
+		list.Add("Road Trip","a song about hitting the open road and going on an adventure");
+		list.Add("Empowerment","a song about overcoming challenges and standing strong");
+		list.Add("Lost Love","a song about reminiscing on a past love that got away");
+		list.Add("Inspiring Journey","a song about personal growth and achieving your dreams");
+		list.Add("Revenge","a song about getting back at someone who has wronged you");
+		list.Add("Brokenness","a song about being broken and trying to put the pieces back together");
+		list.Add("Escape","a song about leaving behind a toxic situation or relationship");
+		list.Add("Friendship","a song celebrating the unbreakable bond between friends");
+		list.Add("Heart on Fire","a song about the intense and passionate love for someone");
+		list.Add("Dark Secrets","a song about hidden struggles and pain");
+		list.Add("Chasing Dreams","a song about pursuing your aspirations and never giving up");
+		list.Add("Rise Up","a song about standing up for what you believe in and fighting for change");
+		list.Add("Forbidden Love","a song about a love that is deemed wrong or forbidden by society");
+		list.Add("Hometown Glory","a song about the nostalgia and sense of belonging in one's hometown");
+		list.Add("Survivor","a song about overcoming adversity and coming out stronger on the other side");
+		list.Add("Euphoric Nights","a song about the euphoria and excitement of a wild night out");
+		list.Add("Broken Promises","a song about the hurt and disappointment of broken promises in a relationship");
+		list.Add("Finding Yourself","a song about self-discovery and finding your true identity");
+		list.Add("Addiction","a song about struggling with addiction and the battle to overcome it");
+		list.Add("Unrequited Love","a song about loving someone who does not feel the same way");
+		list.Add("Unity","a song about coming together and standing as one");
+		list.Add("Heartfelt Ballad","a slow, emotional ballad about a deep love or loss");
+		list.Add("Live in the Moment","a song about living in the present and not worrying about the future");
+		list.Add("Black Sheep","a song about feeling like an outsider or rebel");
+		list.Add("Finding Closure","a song about finding closure and moving on from a past relationship");
+		list.Add("Freedom","a song about breaking free from societal expectations and living on your own terms");
+		list.Add("Against the World","a song about a couple's unwavering love for each other despite adversity");
+		list.Add("Broken Family","a song about the struggles and heartache of a broken family");
+		list.Add("Fight Song","an anthem about never giving up and fighting for what you believe in");
+		list.Add("Bittersweet Memories","a song about reminiscing on both the good and bad times in a relationship");
+		list.Add("Live Like There's No Tomorrow","a song about living life to the fullest without regrets");
+	}
+	return list;
+}
+
+int GetArchetypeCount() {
+	return GetArchetypes().GetCount();
+}
+

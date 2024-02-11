@@ -97,11 +97,6 @@ void PhrasePartAnalysis::ToolMenu(Bar& bar) {
 	bar.Add(t_("Get phrase actions"), AppImg::RedRing(), THISBACK1(DoPhrases, 2)).Key(K_F7);
 	bar.Add(t_("Get phrase scores"), AppImg::RedRing(), THISBACK1(DoPhrases, 3)).Key(K_F8);
 	bar.Separator();
-	bar.Add(t_("Get typecasts"), AppImg::RedRing(), THISBACK1(DoPhrases, 4)).Key(K_CTRL_1);
-	bar.Add(t_("Get singer profile"), AppImg::RedRing(), THISBACK1(DoPhrases, 5)).Key(K_CTRL_2);
-	bar.Add(t_("Get primary human"), AppImg::RedRing(), THISBACK1(DoPhrases, 6)).Key(K_CTRL_3);
-	bar.Add(t_("Get secondary human"), AppImg::RedRing(), THISBACK1(DoPhrases, 7)).Key(K_CTRL_4);
-	bar.Separator();
 	bar.Add(t_("Update action counts"), AppImg::RedRing(), THISBACK(UpdateCounts)).Key(K_F9);
 }
 

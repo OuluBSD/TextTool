@@ -59,6 +59,7 @@ protected:
 	VirtualPhraseStructs			virtual_phrase_structs;
 	PhraseParts						phrase_parts;
 	PhrasePartAnalysis				phrase_part_analysis;
+	PhrasePartAnalysis2				phrase_part_analysis2;
 	RhymeContainerPage				rhyme_container;
 	ActionAttrsPage					action_attrs;
 	SongDataLineActions				song_lineactions;

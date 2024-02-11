@@ -667,6 +667,7 @@ struct PhrasePart : Moveable<PhrasePart> {
 	Vector<int> profiles;
 	Vector<int> primary;
 	Vector<int> secondary;
+	Vector<int> archetypes;
 	int scores[SCORE_COUNT] = {0,0,0,0,0,0,0,0,0,0};
 	
 	bool HasScores() const {
@@ -698,6 +699,9 @@ struct PhrasePart : Moveable<PhrasePart> {
 		d % secondary.GetCount();
 		for (int tc_i : secondary)
 			d % tc_i;
+		d % archetypes.GetCount();
+		for (int i : archetypes)
+			d % i;
 		return d;
 	}
 	void LoadFromString(const String& s) {
@@ -735,6 +739,10 @@ struct PhrasePart : Moveable<PhrasePart> {
 		if (tc < 0 || tc > 60) tc = 0;
 		secondary.SetCount(tc);
 		for (int& tc_i : secondary)
+			p % tc_i;
+		p % tc;
+		archetypes.SetCount(tc);
+		for (int& tc_i : archetypes)
 			p % tc_i;
 	}
 	

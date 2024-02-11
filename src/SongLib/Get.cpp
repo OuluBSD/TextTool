@@ -772,8 +772,13 @@ void TaskManager::GetPhrases(Task* t) {
 		if (t->fn == 6 && !pp.primary.IsEmpty())
 			continue;
 		
+		#if 0
 		if (t->fn == 7 && !pp.secondary.IsEmpty())
 			continue;
+		#else
+		if (t->fn == 7 && !pp.archetypes.IsEmpty())
+			continue;
+		#endif
 		
 		if (iter >= begin && iter < end) {
 			String phrase = da.GetWordString(pp.words);

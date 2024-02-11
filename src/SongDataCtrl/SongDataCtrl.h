@@ -32,6 +32,7 @@
 #include "VirtualPhraseStructs.h"
 #include "PhraseParts.h"
 #include "PhrasePartAnalysis.h"
+#include "PhrasePartAnalysis2.h"
 #include "Diagnostics.h"
 #include "Attributes.h"
 

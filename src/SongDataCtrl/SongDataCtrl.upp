@@ -26,6 +26,8 @@ file
 	PhraseParts.cpp,
 	PhrasePartAnalysis.h,
 	PhrasePartAnalysis.cpp,
+	PhrasePartAnalysis2.h,
+	PhrasePartAnalysis2.cpp,
 	RhymeContainer.h,
 	RhymeContainer.cpp,
 	ActionAttrs.h,
