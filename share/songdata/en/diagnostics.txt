@@ -67,3 +67,6 @@
 "secondary focus: total" "235674"
 "secondary focus: actual" "4144"
 "secondary focus: percentage" "1.75836112596213"
+"archetypes: total" "235674"
+"archetypes: actual" "137106"
+"archetypes: percentage" "58.1761246467578"
