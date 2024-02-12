@@ -2339,12 +2339,24 @@ void Task::CreateInput_GetPhraseData() {
 		input.response_length = 2048;
 	}
 	else if (args.fn == 6) {
+		#if 0
 		{
 			auto& list = input.AddSub().Title("Primary human (main focus of the song or the singer of lyrics)");
 			list.NumberedLines();
 			for (String tc : GetPrimary())
 				list.Add(tc);
 		}
+		#else
+		{
+			auto& list = input.AddSub().Title("List of names for archetypical parts of storyline of a modern pop/rock/edm songs, which contrasts each other");
+			list.NumberedLines();
+			for (const auto& it : GetContrasts()) {
+				String s;
+				s << "A: " << it.parts[0] << ", B: " << it.parts[1] << ", C: " << it.parts[2];
+				list.Add(s);
+			}
+		}
+		#endif
 		String pc = IntStr(1 + args.phrases.GetCount());
 		{
 			auto& list = input.AddSub().Title("List \"A\" of " + pc + " phrases");
@@ -2357,8 +2369,13 @@ void Task::CreateInput_GetPhraseData() {
 			TaskTitledList& results = input.PreAnswer();
 			results.NumberedLines();
 			results.NoListChar();
+			#if 0
 			results.Title(pc + " primary-number sequences for list \"A\" of phrases. Description: phrases are sang by or tells about this kind of character");
 			results.Add("33 62 61 63 64 31 28 36 27 23 57");
+			#else
+			results.Title(pc + " archetypical part number-alpha sequences for list \"A\" of phrases. Description: phrases would fit to following storyline parts");
+			results.Add("33A 15C 9B 31B 32A 34B 36C 27C 40C");
+			#endif
 			results.Add("");
 		}
 		input.response_length = 2048;

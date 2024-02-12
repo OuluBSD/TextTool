@@ -784,9 +784,13 @@ void TaskManager::OnPhrasePrimary(String res, Task* t) {
 	
 	// 14. 2 5 9 11 14 19 22 28 34 44
 	
-	res = "2." + res;
+	res = "2. " + res;
 	
+	#if 0
 	int opt_count = GetPrimaryCount();
+	#else
+	int opt_count = GetContrastCount();
+	#endif
 	
 	Vector<int> actions;
 	int offset = 1+1;
@@ -832,6 +836,7 @@ void TaskManager::OnPhrasePrimary(String res, Task* t) {
 		if (parts.IsEmpty())
 			continue;
 		
+		#if 0
 		pp.primary.Clear();
 		int i = 0;
 		for (const String& part : parts) {
@@ -843,9 +848,30 @@ void TaskManager::OnPhrasePrimary(String res, Task* t) {
 			opt--; // convert to 0-based index
 			pp.primary.Add(opt);
 		}
+		#else
+		pp.contrasts.Clear();
+		int i = 0;
+		for (const String& part : parts) {
+			int opt = ScanInt(part);
+			if (opt <= 0 || opt > opt_count) {
+				//pp.contrasts.Clear();
+				//break;
+				continue;
+			}
+			int mod = -1;
+			if      (part.Find("A") >= 0 || part.Find("a") >= 0) mod = 0;
+			else if (part.Find("B") >= 0 || part.Find("b") >= 0) mod = 1;
+			else if (part.Find("C") >= 0 || part.Find("c") >= 0) mod = 2;
+			else continue;
+			opt--; // convert to 0-based index
+			int code = opt * ContrastType::PART_COUNT + mod;
+			pp.contrasts.Add(code);
+		}
+		#endif
 	}
 	
 	
+	#if 0
 	int a = 0;
 	for (const PhrasePart& pp : da.phrase_parts.GetValues())
 		if (pp.primary.GetCount())
@@ -853,6 +879,15 @@ void TaskManager::OnPhrasePrimary(String res, Task* t) {
 	da.diagnostics.GetAdd("primary focus: total") = IntStr(da.phrase_parts.GetCount());
 	da.diagnostics.GetAdd("primary focus: actual") = IntStr(a);
 	da.diagnostics.GetAdd("primary focus: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	#else
+	int a = 0;
+	for (const PhrasePart& pp : da.phrase_parts.GetValues())
+		if (pp.contrasts.GetCount())
+			a++;
+	da.diagnostics.GetAdd("contrast: total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd("contrast: actual") = IntStr(a);
+	da.diagnostics.GetAdd("contrast: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	#endif
 	
 	
 	t->batch_i++;

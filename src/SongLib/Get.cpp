@@ -738,7 +738,9 @@ void TaskManager::GetPhrases(Task* t) {
 	args.phrases.Clear();
 	
 	int per_action_task = 100;
-	if (args.fn >= 2)
+	if (args.fn == 6)
+		per_action_task = 25;
+	else if (args.fn >= 2)
 		per_action_task = 35;
 	
 	int begin = t->batch_i * per_action_task;
@@ -769,8 +771,13 @@ void TaskManager::GetPhrases(Task* t) {
 		if (t->fn == 5 && !pp.profiles.IsEmpty())
 			continue;
 		
+		#if 0
 		if (t->fn == 6 && !pp.primary.IsEmpty())
 			continue;
+		#else
+		if (t->fn == 6 && !pp.contrasts.IsEmpty())
+			continue;
+		#endif
 		
 		#if 0
 		if (t->fn == 7 && !pp.secondary.IsEmpty())

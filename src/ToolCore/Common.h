@@ -892,11 +892,27 @@ int GetTypecastCount();
 const Index<String>& GetProfiles();
 int GetProfileCount();
 
-const Index<String>& GetPrimary();
-int GetPrimaryCount();
+//const Index<String>& GetPrimary();
+//int GetPrimaryCount();
 
 //const Index<String>& GetSecondary();
 //int GetSecondaryCount();
+
+struct ContrastType : Moveable<ContrastType> {
+	static const int PART_COUNT = 3;
+	String key, parts[PART_COUNT];
+	
+	void Set(String k, String p0, String p1, String p2) {
+		key = k;
+		parts[0] = p0;
+		parts[1] = p1;
+		parts[2] = p2;
+	}
+};
+
+const Vector<ContrastType>& GetContrasts();
+const Vector<String>& GetContrastParts();
+int GetContrastCount();
 
 const VectorMap<String,String>& GetArchetypes();
 int GetArchetypeCount();

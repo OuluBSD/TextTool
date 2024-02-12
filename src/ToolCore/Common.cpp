@@ -1572,3 +1572,70 @@ int GetArchetypeCount() {
 	return GetArchetypes().GetCount();
 }
 
+
+const Vector<ContrastType>& GetContrasts() {
+	thread_local static Vector<ContrastType> list;
+	if (list.IsEmpty()) {
+		list.Add().Set("Seductive intro", "a seductive and sultry melody draws the listener in", "the lyrics talk about a passionate and intense relationship", "the mood shifts as the singer realizes they are not truly in love");
+		list.Add().Set("Rise and fall", "the beat builds and intensifies, creating a sense of excitement and anticipation", "the lyrics tell a story of overcoming obstacles and achieving success", "the energy drops suddenly and the singer reflects on the sacrifices and struggles that came with their success");
+		list.Add().Set("Fun and games", "a carefree and lively melody sets the tone for a carefree party anthem", "the lyrics are about enjoying life and living in the moment", "the party comes to an end and the reality of responsibilities and consequences sink in");
+		list.Add().Set("Love at first sight", "a romantic and dreamy melody introduces the concept of falling in love at first sight", "the lyrics describe the intense feelings and desires that come with falling for someone instantly", "the singer wakes up from the fantasy and realizes");
+		list.Add().Set("Struggle and triumph", "a slower and melancholic melody sets the scene for a character facing challenges and adversity", "the lyrics depict the struggles and hardships they have faced", "the pace picks up and the music becomes more triumphant as the character overcomes their struggles and achieves success");
+		list.Add().Set("Ups and downs", "a catchy and upbeat melody reflects the highs of a new relationship", "the lyrics delve into the challenges and conflicts that arise within the relationship", "the music slows down as the couple try to work through their problems and find a resolution");
+		list.Add().Set("Escape to paradise", "a tropical and laid-back beat transports the listener to a paradise destination", "the lyrics describe a desire to escape from reality and find solace in a beautiful location", "the singer comes back to reality and faces the consequences of leaving everything behind");
+		list.Add().Set("Rebellious spirit", "a rebellious and edgy guitar riff sets the rebellious tone of the song", "the lyrics speak of breaking rules and societal expectations", "the song ends with the realization that rebellion can have consequences");
+		list.Add().Set("Broken and mended", "a somber and melancholic melody reflects a heartbroken state", "the lyrics describe the pain and sadness of a broken relationship", "the tone shifts as the singer begins to heal and move on from the heartbreak");
+		list.Add().Set("Chase your dreams", "an uplifting and motivational melody encourages listeners to chase their dreams", "the lyrics tell a story of overcoming obstacles and pursuing one's passions", "the song concludes with a sense of fulfillment and the realization that the journey towards achieving dreams is never-ending");
+		list.Add().Set("Dark secrets", "a haunting and mysterious introduction sets the tone for secrets and deceit", "the lyrics reveal dark secrets and hidden motives among the characters", "the song ends with a sense of betrayal and the consequences of keeping secrets");
+		list.Add().Set("Rags to riches", "a humble and modest melody represents the beginnings of a character's journey", "the lyrics describe the climb to success and wealth", "the music becomes more grandiose as the character achieves their dreams and reflects on their journey");
+		list.Add().Set("Lost and found", "a haunting and melancholic melody portrays a sense of being lost and alone", "the lyrics depict a journey of self-discovery and finding one's place in the world", "the music becomes more uplifting as the character finds a sense of belonging and purpose");
+		list.Add().Set("Ignite the fire", "an energetic and intense beat sparks excitement and passion", "the lyrics describe the power and intensity of a new love or passion", "the music dies down as the flame fades and the singer is left with the memories of the passion that once consumed them");
+		list.Add().Set("From the ashes", "a slow and mournful melody sets the scene for a character who has hit rock bottom", "the lyrics depict the struggles and hardships they have faced", "the music picks up as the character rises from the ashes and rebuilds their life" );
+		list.Add().Set("Fame and fortune", "a flashy and upbeat melody represents the allure of fame and fortune", "the lyrics describe the glamorous lifestyle and perks that come with success", "the song ends with a cautionary tale about the emptiness and pitfalls of a life solely focused on money and fame");
+		list.Add().Set("Healing in the darkness", "a haunting and ethereal melody reflects a state of darkness and pain", "the lyrics speak of finding light and healing in the darkest times", "the music builds to a triumphant and uplifting finale as the singer finds strength and hope in their struggles");
+		list.Add().Set("City lights and lonely nights", "a bustling and energetic beat represents the excitement of the city at night", "the lyrics tell a story of chasing dreams and living life to the fullest in the city", "the song ends with a sense of loneliness and longing for something more meaningful outside of the fast-paced city life");
+		list.Add().Set("Breaking the mold", "a unique and unconventional melody sets the tone for breaking the norm", "the lyrics describe defying expectations and being true to oneself", "the song ends with a sense of liberation and empowerment as the singer embraces their individuality");
+		list.Add().Set("Haunted by the past", "a haunting and eerie melody reflects the weight of a character's past traumas", "the lyrics delve into the pain and struggles of moving on from the past", "the music becomes more hopeful as the character learns to let go and move forward");
+		list.Add().Set("Wild and free", "a carefree and adventurous melody embodies the thrill of living life on the edge", "the lyrics describe the rush and excitement of taking risks and living in the moment", "the song concludes with a reminder that with freedom comes consequences and responsibilities");
+		list.Add().Set("Clash of opinions", "a catchy and upbeat melody sets the tone for a heated argument", "the lyrics depict conflicting opinions and viewpoints", "the song ends with the understanding that sometimes it's best to agree to disagree and move on" );
+		list.Add().Set("Long distance love", "a soft and tender melody represents the longing and distance in a relationship", "the lyrics tell a story of the struggles and sacrifices of maintaining a long distance love", "the song ends with a sense of hope and determination to make the relationship work");
+		list.Add().Set("Finding inner strength", "a slow and contemplative melody represents a character facing inner struggles", "the lyrics speak of finding courage and strength from within to overcome challenges", "the song crescendos as the singer embraces their inner strength and triumphs over their struggles");
+		list.Add().Set("Living a double life", "a mysterious and seductive beat sets the stage for a character leading a secretive life", "the lyrics tell the story of juggling two separate identities and the dangers that come with it", "the song concludes with the realization that living a lie is destructive and unsustainable");
+		list.Add().Set("Caught in the spotlight", "a bright and flashy melody reflects the thrill of being in the spotlight", "the lyrics depict the pressure and challenges of fame and constantly being in the public eye", "the music slows down as the singer reflects on the toll fame has taken on their personal life");
+		list.Add().Set("Love and war", "a powerful and intense beat represents the passionate and tumultuous nature of love", "the lyrics depict a couple's constant battle and struggle to make their relationship work", "the song ends with a bittersweet realization that love can be both beautiful and painful");
+		list.Add().Set("The art of letting go", "a slow and somber melody sets the tone for learning to let go", "the lyrics describe the struggles of moving on and leaving the past behind", "the music builds to a hopeful and empowering finale as the singer finally finds the strength to let go");
+		list.Add().Set("Living in the moment", "an upbeat and carefree melody represents living life with no regrets", "the lyrics encourage taking chances and embracing every moment", "the song ends with a reminder to cherish the present and not dwell on the past or worry about the future");
+		list.Add().Set("Conquering fears", "a tense and ominous melody reflects the fear and anxiety a character faces", "the lyrics speak of overcoming fears and finding courage to face them", "the music becomes triumphant and uplifting as the character conquers their fears and grows stronger" );
+		/*list.Add().Set("Heart vs. Mind", "a gentle and emotional melody sets the stage for a character torn between their heart and their logical mind", "the lyrics describe the internal struggle between following one's emotions and making rational decisions", "the song ends on a reflective note as the character finds a balance between their heart and mind");
+		list.Add().Set("Surviving the storm", "a stormy and intense melody represents facing difficult and challenging times", "the lyrics speak of resilience and perseverance through tough situations", "the music calms down as the singer finds strength and hope in surviving the storm");
+		list.Add().Set("Living a lie", "a dark and deceptive melody reflects the deception in a character's life", "the lyrics depict the consequences and chaos that come with living a lie", "the song ends with the realization that living a lie can destroy relationships and one's own sense of self");
+		list.Add().Set("Forgotten memories", "a melancholic and haunting melody sets the scene for a character's forgotten memories", "the lyrics unravel the mystery and pain behind the forgotten memories", "the music becomes reflective and haunting as the singer realizes the true impact of their forgotten memories on their life");
+		list.Add().Set("Breaking free", "a powerful and empowering melody reflects the desire to break free from constraints and expectations", "the lyrics describe the journey of breaking through obstacles and finding independence", "the song ends on a triumphant note as the character finally breaks free and finds freedom and happiness" );
+		list.Add().Set("Fake love", "a catchy and upbeat melody represents the facade of a fake love", "the lyrics reveal the deceit and manipulation in a fake relationship", "the song ends with the realization of the emptiness and pain of a love built on lies and false promises");
+		list.Add().Set("Strangers in love", "a soft and romantic melody represents the initial attraction and connection between two strangers", "the lyrics follow the journey of getting to know each other and falling in love", "the song ends with the uncertainty and fear of whether their love will last or if they were always destined to be strangers");
+		list.Add().Set("Guy in club", "an upbeat and danceable melody sets the scene for a night out at the club", "the lyrics depict the excitement and charm of a guy at the club", "the song ends on a reflective note as the singer realizes the emptiness and lack of substance in these interactions");
+		list.Add().Set("Angels and demons", "a haunting and eerie melody sets the tone for the duality within a character", "the lyrics describe the battle between good and evil within oneself", "the music becomes more chaotic as the character struggles to find balance between their angels and demons");
+		list.Add().Set("Living on the edge", "a fast-paced and thrilling beat represents the risky and dangerous lifestyle of living on the edge", "the lyrics depict the rush and adrenaline that comes with constantly pushing boundaries", "the song ends with a sense of exhaustion and questioning if the thrill is worth the consequences");*/
+	}
+	return list;
+}
+
+int GetContrastCount() {
+	return GetContrasts().GetCount();
+}
+
+const Vector<String>& GetContrastParts() {
+	thread_local static Vector<String> list;
+	if (list.IsEmpty()) {
+		const auto& v = GetContrasts();
+		for(int i = 0; i < v.GetCount(); i++) {
+			const auto& it = v[i];
+			for(int j = 0; j < ContrastType::PART_COUNT; j++) {
+				list.Add() = it.key + " #" + IntStr(j+1) + ": " + it.parts[j];
+			}
+		}
+	}
+	return list;
+}
+
+

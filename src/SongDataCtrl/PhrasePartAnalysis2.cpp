@@ -160,7 +160,7 @@ void PhrasePartAnalysis2::DataProfile() {
 	DatabaseBrowser& b = DatabaseBrowser::Single();
 		
 	// Set color
-	const auto& vec = GetPrimary();
+	const auto& vec = GetContrastParts();
 	primaries.Set(0, 0, "All");
 	for(int i = 0; i < vec.GetCount(); i++) {
 		/*DatabaseBrowser::ActionGroup& a = b.groups[i];
@@ -234,9 +234,12 @@ void PhrasePartAnalysis2::DataSecondary() {
 	int p_i = primaries.GetCursor() - 1;
 	int s_i = secondaries.GetCursor() - 1;
 	
+	int con_i = p_i >= 0 ? p_i / ContrastType::PART_COUNT : -1;
+	int con_part = p_i >= 0 ? p_i % ContrastType::PART_COUNT : -1;
+	
 	const auto& v0 = GetTypecasts();
 	const auto& v1 = GetProfiles();
-	const auto& v2 = GetPrimary();
+	const auto& v2 = GetContrasts();
 	//const auto& v3 = GetSecondary();
 	const auto& v3 = GetArchetypes();
 	
@@ -249,13 +252,6 @@ void PhrasePartAnalysis2::DataSecondary() {
 		PhrasePart& pp = da.phrase_parts[pp_i];*/
 		int pp_i = i;
 		PhrasePart& pp = da.phrase_parts[i];
-		
-		int sum = 0;
-		for(int i = 0; i < SCORE_COUNT; i++) {
-			sum += pp.scores[i];
-		}
-		if (sum < 50)
-			continue;
 		
 		if (tc_i >= 0) {
 			bool found = false;
@@ -273,6 +269,7 @@ void PhrasePartAnalysis2::DataSecondary() {
 			if (!found) continue;
 		}
 		
+		#if 0
 		if (p_i >= 0) {
 			bool found = false;
 			for (int j : pp.primary)
@@ -280,6 +277,15 @@ void PhrasePartAnalysis2::DataSecondary() {
 					{found = true; break;}
 			if (!found) continue;
 		}
+		#else
+		if (p_i >= 0) {
+			bool found = false;
+			for (int j : pp.contrasts)
+				if (j == p_i)
+					{found = true; break;}
+			if (!found) continue;
+		}
+		#endif
 		
 		#if 0
 		if (s_i >= 0) {
@@ -313,12 +319,24 @@ void PhrasePartAnalysis2::DataSecondary() {
 			parts.Set(row, 2, s);
 		}
 		
+		#if 0
 		{
 			String s;
 			for (int j : pp.primary)
 				s << v2[j] << ", ";
 			parts.Set(row, 3, s);
 		}
+		#else
+		{
+			String s;
+			for (int j : pp.contrasts) {
+				int con_i = j / ContrastType::PART_COUNT;
+				int con_j = j % ContrastType::PART_COUNT;
+				s << v2[con_i].key << " #" << (con_j+1) << ", ";
+			}
+			parts.Set(row, 3, s);
+		}
+		#endif
 		
 		#if 0
 		{
@@ -344,10 +362,19 @@ void PhrasePartAnalysis2::DataSecondary() {
 				.NormalPaper(Blend(pp.clr, White(), 128+64)).NormalInk(Black())
 				.Paper(Blend(pp.clr, GrayColor())).Ink(White())
 			);
-			
+		
+		int sum = 0;
+		for(int i = 0; i < SCORE_COUNT; i++) {
+			sum += pp.scores[i];
+		}
+		
 		parts.Set(row, 5, sum);
 		
 		row++;
+		
+		
+		if (row >= 10000)
+			break;
 	}
 	parts.SetCount(row);
 	parts.SetSortColumn(5, true);
