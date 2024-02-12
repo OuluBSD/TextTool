@@ -71,5 +71,5 @@
 "archetypes: actual" "137106"
 "archetypes: percentage" "58.1761246467578"
 "contrast: total" "235674"
-"contrast: actual" "128065"
-"contrast: percentage" "54.3398932423602"
+"contrast: actual" "165128"
+"contrast: percentage" "70.0662779941784"
