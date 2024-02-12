@@ -738,7 +738,7 @@ void TaskManager::GetPhrases(Task* t) {
 	args.phrases.Clear();
 	
 	int per_action_task = 100;
-	if (args.fn == 6)
+	if (args.fn == 5)
 		per_action_task = 25;
 	else if (args.fn >= 2)
 		per_action_task = 35;

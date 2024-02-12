@@ -400,7 +400,7 @@ void PhrasePartAnalysis2::DataSecondary() {
 			break;
 	}
 	parts.SetCount(row);
-	parts.SetSortColumn(5, true);
+	parts.SetSortColumn(7, true);
 	
 }
 
