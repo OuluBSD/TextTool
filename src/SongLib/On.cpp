@@ -691,6 +691,97 @@ void TaskManager::OnPhraseTypecasts(String res, Task* t) {
 	t->running = false;
 }
 
+void TaskManager::OnPhraseContrast(String res, Task* t) {
+	TokenArgs& args = token_args;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	// 14. 2 5 9 11 14 19 22 28 34 44
+	
+	res = "2. " + res;
+	
+	int opt_count = GetContrastCount();
+	
+	Vector<int> actions;
+	int offset = 1+1;
+	RemoveEmptyLines(res);
+	Vector<String> lines = Split(res, "\n");
+	bool line_match = t->tmp_ptrs.GetCount() == lines.GetCount();
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		if (l.Find("(") >= 0)
+			lines.Remove(i--);
+	}
+	
+	int line_i = -1;
+	for (String& line : lines) {
+		line_i++;
+		line = TrimBoth(line);
+		
+		// Get line number
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		int a = line.Find(".");
+		if (a < 0) continue;
+		
+		PhrasePart* pp_p;
+		if (line_match)
+			pp_p = (PhrasePart*)t->tmp_ptrs[line_i];
+		else {
+			int line_i = ScanInt(line.Left(a));
+			line_i -= offset;
+			if (line_i < 0 || line_i >= t->tmp.GetCount())
+				continue;
+			int pp_i = t->tmp[line_i];
+			pp_p = &da.phrase_parts[pp_i];
+		}
+		PhrasePart& pp = *pp_p;
+		line = TrimBoth(line.Mid(a+1));
+		
+		// Split rest of the line at space character
+		Vector<String> parts = Split(line, " ");
+		
+		
+		if (parts.IsEmpty())
+			continue;
+		
+		pp.contrasts.Clear();
+		int i = 0;
+		for (const String& part : parts) {
+			int opt = ScanInt(part);
+			if (opt <= 0 || opt > opt_count) {
+				//pp.contrasts.Clear();
+				//break;
+				continue;
+			}
+			int mod = -1;
+			if      (part.Find("A") >= 0 || part.Find("a") >= 0) mod = 0;
+			else if (part.Find("B") >= 0 || part.Find("b") >= 0) mod = 1;
+			else if (part.Find("C") >= 0 || part.Find("c") >= 0) mod = 2;
+			else continue;
+			opt--; // convert to 0-based index
+			int code = opt * ContrastType::PART_COUNT + mod;
+			pp.contrasts.Add(code);
+		}
+	}
+	
+	
+	int a = 0;
+	for (const PhrasePart& pp : da.phrase_parts.GetValues())
+		if (pp.contrasts.GetCount())
+			a++;
+	da.diagnostics.GetAdd("contrast: total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd("contrast: actual") = IntStr(a);
+	da.diagnostics.GetAdd("contrast: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	
+	
+	t->batch_i++;
+	t->running = false;
+}
+
 void TaskManager::OnPhraseProfile(String res, Task* t) {
 	TokenArgs& args = token_args;
 	Database& db = Database::Single();
@@ -775,7 +866,7 @@ void TaskManager::OnPhraseProfile(String res, Task* t) {
 	t->running = false;
 }
 
-void TaskManager::OnPhrasePrimary(String res, Task* t) {
+void TaskManager::OnPhraseArchetype(String res, Task* t) {
 	TokenArgs& args = token_args;
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -784,13 +875,9 @@ void TaskManager::OnPhrasePrimary(String res, Task* t) {
 	
 	// 14. 2 5 9 11 14 19 22 28 34 44
 	
-	res = "2. " + res;
+	res = "2." + res;
 	
-	#if 0
-	int opt_count = GetPrimaryCount();
-	#else
-	int opt_count = GetContrastCount();
-	#endif
+	int opt_count = GetArchetypeCount();
 	
 	Vector<int> actions;
 	int offset = 1+1;
@@ -836,7 +923,88 @@ void TaskManager::OnPhrasePrimary(String res, Task* t) {
 		if (parts.IsEmpty())
 			continue;
 		
-		#if 0
+		pp.archetypes.Clear();
+		int i = 0;
+		for (const String& part : parts) {
+			int opt = ScanInt(part);
+			if (opt <= 0 || opt > opt_count) {
+				pp.archetypes.Clear();
+				break;
+			}
+			opt--; // convert to 0-based index
+			pp.archetypes.Add(opt);
+		}
+	}
+	
+	int a = 0;
+	for (const PhrasePart& pp : da.phrase_parts.GetValues())
+		if (pp.archetypes.GetCount())
+			a++;
+	da.diagnostics.GetAdd("archetypes: total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd("archetypes: actual") = IntStr(a);
+	da.diagnostics.GetAdd("archetypes: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	
+	t->batch_i++;
+	t->running = false;
+}
+
+void TaskManager::OnPhrasePrimary(String res, Task* t) {
+	TokenArgs& args = token_args;
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	// 14. 2 5 9 11 14 19 22 28 34 44
+	
+	res = "2. " + res;
+	
+	int opt_count = GetPrimaryCount();
+	
+	Vector<int> actions;
+	int offset = 1+1;
+	RemoveEmptyLines(res);
+	Vector<String> lines = Split(res, "\n");
+	bool line_match = t->tmp_ptrs.GetCount() == lines.GetCount();
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& l = lines[i];
+		if (l.Find("(") >= 0)
+			lines.Remove(i--);
+	}
+	
+	int line_i = -1;
+	for (String& line : lines) {
+		line_i++;
+		line = TrimBoth(line);
+		
+		// Get line number
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		int a = line.Find(".");
+		if (a < 0) continue;
+		
+		PhrasePart* pp_p;
+		if (line_match)
+			pp_p = (PhrasePart*)t->tmp_ptrs[line_i];
+		else {
+			int line_i = ScanInt(line.Left(a));
+			line_i -= offset;
+			if (line_i < 0 || line_i >= t->tmp.GetCount())
+				continue;
+			int pp_i = t->tmp[line_i];
+			pp_p = &da.phrase_parts[pp_i];
+		}
+		PhrasePart& pp = *pp_p;
+		line = TrimBoth(line.Mid(a+1));
+		
+		// Split rest of the line at space character
+		Vector<String> parts = Split(line, " ");
+		
+		
+		if (parts.IsEmpty())
+			continue;
+		
 		pp.primary.Clear();
 		int i = 0;
 		for (const String& part : parts) {
@@ -848,30 +1016,9 @@ void TaskManager::OnPhrasePrimary(String res, Task* t) {
 			opt--; // convert to 0-based index
 			pp.primary.Add(opt);
 		}
-		#else
-		pp.contrasts.Clear();
-		int i = 0;
-		for (const String& part : parts) {
-			int opt = ScanInt(part);
-			if (opt <= 0 || opt > opt_count) {
-				//pp.contrasts.Clear();
-				//break;
-				continue;
-			}
-			int mod = -1;
-			if      (part.Find("A") >= 0 || part.Find("a") >= 0) mod = 0;
-			else if (part.Find("B") >= 0 || part.Find("b") >= 0) mod = 1;
-			else if (part.Find("C") >= 0 || part.Find("c") >= 0) mod = 2;
-			else continue;
-			opt--; // convert to 0-based index
-			int code = opt * ContrastType::PART_COUNT + mod;
-			pp.contrasts.Add(code);
-		}
-		#endif
 	}
 	
 	
-	#if 0
 	int a = 0;
 	for (const PhrasePart& pp : da.phrase_parts.GetValues())
 		if (pp.primary.GetCount())
@@ -879,16 +1026,6 @@ void TaskManager::OnPhrasePrimary(String res, Task* t) {
 	da.diagnostics.GetAdd("primary focus: total") = IntStr(da.phrase_parts.GetCount());
 	da.diagnostics.GetAdd("primary focus: actual") = IntStr(a);
 	da.diagnostics.GetAdd("primary focus: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
-	#else
-	int a = 0;
-	for (const PhrasePart& pp : da.phrase_parts.GetValues())
-		if (pp.contrasts.GetCount())
-			a++;
-	da.diagnostics.GetAdd("contrast: total") = IntStr(da.phrase_parts.GetCount());
-	da.diagnostics.GetAdd("contrast: actual") = IntStr(a);
-	da.diagnostics.GetAdd("contrast: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
-	#endif
-	
 	
 	t->batch_i++;
 	t->running = false;
@@ -905,11 +1042,7 @@ void TaskManager::OnPhraseSecondary(String res, Task* t) {
 	
 	res = "2." + res;
 	
-	#if 0
 	int opt_count = GetSecondaryCount();
-	#else
-	int opt_count = GetArchetypeCount();
-	#endif
 	
 	Vector<int> actions;
 	int offset = 1+1;
@@ -955,7 +1088,6 @@ void TaskManager::OnPhraseSecondary(String res, Task* t) {
 		if (parts.IsEmpty())
 			continue;
 		
-		#if 0
 		pp.secondary.Clear();
 		int i = 0;
 		for (const String& part : parts) {
@@ -967,22 +1099,8 @@ void TaskManager::OnPhraseSecondary(String res, Task* t) {
 			opt--; // convert to 0-based index
 			pp.secondary.Add(opt);
 		}
-		#else
-		pp.archetypes.Clear();
-		int i = 0;
-		for (const String& part : parts) {
-			int opt = ScanInt(part);
-			if (opt <= 0 || opt > opt_count) {
-				pp.archetypes.Clear();
-				break;
-			}
-			opt--; // convert to 0-based index
-			pp.archetypes.Add(opt);
-		}
-		#endif
 	}
 	
-	#if 0
 	int a = 0;
 	for (const PhrasePart& pp : da.phrase_parts.GetValues())
 		if (pp.secondary.GetCount())
@@ -990,15 +1108,6 @@ void TaskManager::OnPhraseSecondary(String res, Task* t) {
 	da.diagnostics.GetAdd("secondary focus: total") = IntStr(da.phrase_parts.GetCount());
 	da.diagnostics.GetAdd("secondary focus: actual") = IntStr(a);
 	da.diagnostics.GetAdd("secondary focus: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
-	#else
-	int a = 0;
-	for (const PhrasePart& pp : da.phrase_parts.GetValues())
-		if (pp.archetypes.GetCount())
-			a++;
-	da.diagnostics.GetAdd("archetypes: total") = IntStr(da.phrase_parts.GetCount());
-	da.diagnostics.GetAdd("archetypes: actual") = IntStr(a);
-	da.diagnostics.GetAdd("archetypes: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
-	#endif
 	
 	t->batch_i++;
 	t->running = false;

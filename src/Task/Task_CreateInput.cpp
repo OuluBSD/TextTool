@@ -2315,6 +2315,34 @@ void Task::CreateInput_GetPhraseData() {
 	}
 	else if (args.fn == 5) {
 		{
+			auto& list = input.AddSub().Title("List of names for archetypical parts of storyline of a modern pop/rock/edm songs, which contrasts each other");
+			list.NumberedLines();
+			for (const auto& it : GetContrasts()) {
+				String s;
+				s << "A: " << it.parts[0] << ", B: " << it.parts[1] << ", C: " << it.parts[2];
+				list.Add(s);
+			}
+		}
+		String pc = IntStr(1 + args.phrases.GetCount());
+		{
+			auto& list = input.AddSub().Title("List \"A\" of " + pc + " phrases");
+			list.NumberedLines();
+			list.Add("bleeding after you");
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.NumberedLines();
+			results.NoListChar();
+			results.Title(pc + " archetypical part number-alpha sequences for list \"A\" of phrases. Description: phrases would fit to following storyline parts");
+			results.Add("33A 15C 9B 31B 32A 34B 36C 27C 40C");
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 6) {
+		{
 			auto& list = input.AddSub().Title("Types of profiles of the role of the singer of a song in relation to the lyrics");
 			list.NumberedLines();
 			for (String s : GetProfiles())
@@ -2338,64 +2366,13 @@ void Task::CreateInput_GetPhraseData() {
 		}
 		input.response_length = 2048;
 	}
-	else if (args.fn == 6) {
-		#if 0
-		{
-			auto& list = input.AddSub().Title("Primary human (main focus of the song or the singer of lyrics)");
-			list.NumberedLines();
-			for (String tc : GetPrimary())
-				list.Add(tc);
-		}
-		#else
-		{
-			auto& list = input.AddSub().Title("List of names for archetypical parts of storyline of a modern pop/rock/edm songs, which contrasts each other");
-			list.NumberedLines();
-			for (const auto& it : GetContrasts()) {
-				String s;
-				s << "A: " << it.parts[0] << ", B: " << it.parts[1] << ", C: " << it.parts[2];
-				list.Add(s);
-			}
-		}
-		#endif
-		String pc = IntStr(1 + args.phrases.GetCount());
-		{
-			auto& list = input.AddSub().Title("List \"A\" of " + pc + " phrases");
-			list.NumberedLines();
-			list.Add("bleeding after you");
-			for(int i = 0; i < args.phrases.GetCount(); i++)
-				list.Add(args.phrases[i]);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.NumberedLines();
-			results.NoListChar();
-			#if 0
-			results.Title(pc + " primary-number sequences for list \"A\" of phrases. Description: phrases are sang by or tells about this kind of character");
-			results.Add("33 62 61 63 64 31 28 36 27 23 57");
-			#else
-			results.Title(pc + " archetypical part number-alpha sequences for list \"A\" of phrases. Description: phrases would fit to following storyline parts");
-			results.Add("33A 15C 9B 31B 32A 34B 36C 27C 40C");
-			#endif
-			results.Add("");
-		}
-		input.response_length = 2048;
-	}
 	else if (args.fn == 7) {
-		#if 0
-		{
-			auto& list = input.AddSub().Title("Secondary human (focus of the primary person of a song)");
-			list.NumberedLines();
-			for (String tc : GetSecondary())
-				list.Add(tc);
-		}
-		#else
 		{
 			auto& list = input.AddSub().Title("Stereotypical architypes of the storyline of a moder pop/rock/EDM/folk/metal song");
 			list.NumberedLines();
 			for (String tc : GetArchetypes())
 				list.Add(tc);
 		}
-		#endif
 		String pc = IntStr(1 + args.phrases.GetCount());
 		{
 			auto& list = input.AddSub().Title("List \"A\" of " + pc + " phrases");
@@ -2408,13 +2385,58 @@ void Task::CreateInput_GetPhraseData() {
 			TaskTitledList& results = input.PreAnswer();
 			results.NumberedLines();
 			results.NoListChar();
-			#if 0
-			results.Title(pc + " secondary-number sequences for list \"A\" of phrases. Description: phrases can be telling about these humans");
-			results.Add("1 15 18 24 36 2 10 14 13 20 3 6 26 32 31 34 35 37 9 4");
-			#else
 			results.Title(pc + " archetype-number sequences for list \"A\" of phrases. Description: phrases could be used in following archetypes");
 			results.Add("2 10 12 13 17 27 24");
-			#endif
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 8) {
+		{
+			auto& list = input.AddSub().Title("Primary human (main focus of the song or the singer of lyrics)");
+			list.NumberedLines();
+			for (String tc : GetPrimary())
+				list.Add(tc);
+		}
+		String pc = IntStr(1 + args.phrases.GetCount());
+		{
+			auto& list = input.AddSub().Title("List \"A\" of " + pc + " phrases");
+			list.NumberedLines();
+			list.Add("bleeding after you");
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.NumberedLines();
+			results.NoListChar();
+			results.Title(pc + " primary-number sequences for list \"A\" of phrases. Description: phrases are sang by or tells about this kind of character");
+			results.Add("33 62 61 63 64 31 28 36 27 23 57");
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 9) {
+		{
+			auto& list = input.AddSub().Title("Secondary human (focus of the primary person of a song)");
+			list.NumberedLines();
+			for (String tc : GetSecondary())
+				list.Add(tc);
+		}
+		String pc = IntStr(1 + args.phrases.GetCount());
+		{
+			auto& list = input.AddSub().Title("List \"A\" of " + pc + " phrases");
+			list.NumberedLines();
+			list.Add("bleeding after you");
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.NumberedLines();
+			results.NoListChar();
+			results.Title(pc + " secondary-number sequences for list \"A\" of phrases. Description: phrases can be telling about these humans");
+			results.Add("1 15 18 24 36 2 10 14 13 20 3 6 26 32 31 34 35 37 9 4");
 			results.Add("");
 		}
 		input.response_length = 2048;

@@ -7,7 +7,7 @@ PhrasePartAnalysis2::PhrasePartAnalysis2() {
 	hsplit.Horz() << vsplit << parts;
 	hsplit.SetPos(2000);
 	
-	vsplit.Vert() << datasets << typecasts << profiles << primaries << secondaries;
+	vsplit.Vert() << datasets << typecasts << contrasts << profiles << archetypes << primaries << secondaries;
 	vsplit.SetPos(1000,0);
 	
 	datasets.AddColumn(t_("Dataset"));
@@ -17,51 +17,61 @@ PhrasePartAnalysis2::PhrasePartAnalysis2() {
 	typecasts.AddColumn(t_("Count"));
 	typecasts.ColumnWidths("3 1");
 	typecasts.WhenCursor << [this]() {
-		DatabaseBrowser::Single().SetAttr(typecasts.GetCursor());
+		//DatabaseBrowser::Single().SetAttr(typecasts.GetCursor());
 		DataTypecast();
+	};
+	
+	contrasts.AddColumn(t_("Profile"));
+	contrasts.AddColumn(t_("Count"));
+	contrasts.ColumnWidths("3 1");
+	contrasts.WhenCursor << [this]() {
+		//DatabaseBrowser::Single().SetColor(contrasts.GetCursor());
+		DataContrast();
 	};
 	
 	profiles.AddColumn(t_("Profile"));
 	profiles.AddColumn(t_("Count"));
 	profiles.ColumnWidths("3 1");
 	profiles.WhenCursor << [this]() {
-		DatabaseBrowser::Single().SetColor(profiles.GetCursor());
+		//DatabaseBrowser::Single().SetColor(profiles.GetCursor());
 		DataProfile();
+	};
+	
+	archetypes.AddColumn(t_("Archetype"));
+	archetypes.AddColumn(t_("Description"));
+	archetypes.AddColumn(t_("Count"));
+	archetypes.ColumnWidths("3 3 1");
+	archetypes.WhenCursor << [this]() {
+		//DatabaseBrowser::Single().SetColor(profiles.GetCursor());
+		DataArchetype();
 	};
 	
 	primaries.AddColumn(t_("Primary"));
 	primaries.AddColumn(t_("Count"));
 	primaries.ColumnWidths("3 1");
 	primaries.WhenCursor << [this]() {
-		DatabaseBrowser::Single().SetGroup(primaries.GetCursor());
+		//DatabaseBrowser::Single().SetGroup(primaries.GetCursor());
 		DataPrimary();
 	};
 	
-	#if 0
 	secondaries.AddColumn(t_("Secondary"));
-	#else
-	secondaries.AddColumn(t_("Archetype"));
-	secondaries.AddColumn(t_("Description"));
-	#endif
 	secondaries.AddColumn(t_("Count"));
 	secondaries.ColumnWidths("3 1");
 	secondaries.WhenCursor << [this]() {
-		DatabaseBrowser::Single().SetValue(secondaries.GetCursor());
+		//DatabaseBrowser::Single().SetValue(secondaries.GetCursor());
 		DataSecondary();
 	};
 	
 	parts.AddColumn(t_("Phrase"));
 	parts.AddColumn(t_("Typecast"));
+	parts.AddColumn(t_("Contrast"));
 	parts.AddColumn(t_("Profile"));
-	parts.AddColumn(t_("Primary"));
-	#if 0
-	parts.AddColumn(t_("Secondary"));
-	#else
 	parts.AddColumn(t_("Archetype"));
-	#endif
+	parts.AddColumn(t_("Primary"));
+	parts.AddColumn(t_("Secondary"));
 	parts.AddColumn(t_("Score-sum"));
 	parts.AddIndex("IDX");
-	parts.ColumnWidths("16 6 6 8 3 1");
+	parts.ColumnWidths("16 6 6 3 3 3 3 1");
 	parts.WhenBar << [this](Bar& bar){
 		bar.Add("Copy", [this]() {
 			int i = parts.GetCursor();
@@ -75,9 +85,11 @@ PhrasePartAnalysis2::PhrasePartAnalysis2() {
 
 void PhrasePartAnalysis2::ToolMenu(Bar& bar) {
 	bar.Add(t_("Get typecasts"), AppImg::RedRing(), THISBACK1(DoPhrases, 4)).Key(K_CTRL_1);
-	bar.Add(t_("Get singer profile"), AppImg::RedRing(), THISBACK1(DoPhrases, 5)).Key(K_CTRL_2);
-	bar.Add(t_("Get primary human"), AppImg::RedRing(), THISBACK1(DoPhrases, 6)).Key(K_CTRL_3);
-	bar.Add(t_("Get secondary human"), AppImg::RedRing(), THISBACK1(DoPhrases, 7)).Key(K_CTRL_4);
+	bar.Add(t_("Get contrasts"), AppImg::RedRing(), THISBACK1(DoPhrases, 5)).Key(K_CTRL_2);
+	bar.Add(t_("Get singer profile"), AppImg::RedRing(), THISBACK1(DoPhrases, 6)).Key(K_CTRL_3);
+	bar.Add(t_("Get archetypes"), AppImg::RedRing(), THISBACK1(DoPhrases, 7)).Key(K_CTRL_4);
+	bar.Add(t_("Get primary human"), AppImg::RedRing(), THISBACK1(DoPhrases, 8)).Key(K_CTRL_5);
+	bar.Add(t_("Get secondary human"), AppImg::RedRing(), THISBACK1(DoPhrases, 9)).Key(K_CTRL_6);
 	bar.Separator();
 	bar.Add(t_("Update action counts"), AppImg::RedRing(), THISBACK(UpdateCounts)).Key(K_F9);
 }
@@ -131,9 +143,32 @@ void PhrasePartAnalysis2::DataTypecast() {
 	if (!typecasts.IsCursor())
 		return;
 	
-	DatabaseBrowser& b = DatabaseBrowser::Single();
+	//DatabaseBrowser& b = DatabaseBrowser::Single();
 		
-	// Set color
+	const auto& vec = GetContrastParts();
+	contrasts.Set(0, 0, "All");
+	for(int i = 0; i < vec.GetCount(); i++) {
+		/*DatabaseBrowser::ActionGroup& a = b.groups[i];
+		contrasts.Set(i, 0, a.group);
+		contrasts.Set(i, 1, a.count);*/
+		contrasts.Set(1+i, 0, vec[i]);
+		contrasts.Set(1+i, 1, 0);
+	}
+	INHIBIT_CURSOR(contrasts);
+	contrasts.SetCount(1+vec.GetCount());
+	//contrasts.SetSortColumn(1, true);
+	if (!contrasts.IsCursor() && contrasts.GetCount())
+		contrasts.SetCursor(0);
+	
+	DataContrast();
+}
+
+
+void PhrasePartAnalysis2::DataContrast() {
+	if (!contrasts.IsCursor())
+		return;
+	
+	
 	const auto& vec = GetProfiles();
 	profiles.Set(0, 0, "All");
 	for(int i = 0; i < vec.GetCount(); i++) {
@@ -143,7 +178,7 @@ void PhrasePartAnalysis2::DataTypecast() {
 		profiles.Set(1+i, 0, vec[i]);
 		profiles.Set(1+i, 1, 0);
 	}
-	INHIBIT_CURSOR(typecasts);
+	INHIBIT_CURSOR(profiles);
 	profiles.SetCount(1+vec.GetCount());
 	//profiles.SetSortColumn(1, true);
 	if (!profiles.IsCursor() && profiles.GetCount())
@@ -158,9 +193,29 @@ void PhrasePartAnalysis2::DataProfile() {
 		return;
 	
 	DatabaseBrowser& b = DatabaseBrowser::Single();
-		
-	// Set color
-	const auto& vec = GetContrastParts();
+	
+	
+	const auto& vec = GetArchetypes();
+	archetypes.Set(0, 0, "All");
+	for(int i = 0; i < vec.GetCount(); i++) {
+		/*DatabaseBrowser::ActionValue& a = b.values[i];
+		archetypes.Set(i, 0, a.value);
+		archetypes.Set(i, 1, a.count);*/
+		archetypes.Set(1+i, 0, vec.GetKey(i));
+		archetypes.Set(1+i, 1, vec[i]);
+		archetypes.Set(1+i, 2, 0);
+	}
+	INHIBIT_CURSOR(archetypes);
+	archetypes.SetCount(1+vec.GetCount());
+	//archetypes.SetSortColumn(2, true);
+	if (!archetypes.IsCursor() && archetypes.GetCount())
+		archetypes.SetCursor(0);
+	
+	DataArchetype();
+}
+
+void PhrasePartAnalysis2::DataArchetype() {
+	const auto& vec = GetPrimary();
 	primaries.Set(0, 0, "All");
 	for(int i = 0; i < vec.GetCount(); i++) {
 		/*DatabaseBrowser::ActionGroup& a = b.groups[i];
@@ -183,9 +238,7 @@ void PhrasePartAnalysis2::DataPrimary() {
 		return;
 	
 	DatabaseBrowser& b = DatabaseBrowser::Single();
-		
-	// Set color
-	#if 0
+	
 	const auto& vec = GetSecondary();
 	secondaries.Set(0, 0, "All");
 	for(int i = 0; i < vec.GetCount(); i++) {
@@ -195,18 +248,6 @@ void PhrasePartAnalysis2::DataPrimary() {
 		secondaries.Set(1+i, 0, vec[i]);
 		secondaries.Set(1+i, 1, 0);
 	}
-	#else
-	const auto& vec = GetArchetypes();
-	secondaries.Set(0, 0, "All");
-	for(int i = 0; i < vec.GetCount(); i++) {
-		/*DatabaseBrowser::ActionValue& a = b.values[i];
-		secondaries.Set(i, 0, a.value);
-		secondaries.Set(i, 1, a.count);*/
-		secondaries.Set(1+i, 0, vec.GetKey(i));
-		secondaries.Set(1+i, 1, vec[i]);
-		secondaries.Set(1+i, 2, 0);
-	}
-	#endif
 	INHIBIT_CURSOR(secondaries);
 	secondaries.SetCount(1+vec.GetCount());
 	//secondaries.SetSortColumn(2, true);
@@ -230,18 +271,18 @@ void PhrasePartAnalysis2::DataSecondary() {
 
 	//DatabaseBrowser& b = DatabaseBrowser::Single();
 	int tc_i = typecasts.GetCursor() - 1;
-	int pr_i = profiles.GetCursor() - 1;
-	int p_i = primaries.GetCursor() - 1;
+	int con_i = contrasts.GetCursor() - 1;
+	int pro_i = profiles.GetCursor() - 1;
+	int a_i = archetypes.GetCursor() - 1;
+	int pri_i = primaries.GetCursor() - 1;
 	int s_i = secondaries.GetCursor() - 1;
 	
-	int con_i = p_i >= 0 ? p_i / ContrastType::PART_COUNT : -1;
-	int con_part = p_i >= 0 ? p_i % ContrastType::PART_COUNT : -1;
-	
-	const auto& v0 = GetTypecasts();
-	const auto& v1 = GetProfiles();
-	const auto& v2 = GetContrasts();
-	//const auto& v3 = GetSecondary();
-	const auto& v3 = GetArchetypes();
+	const auto& tc_v = GetTypecasts();
+	const auto& con_v = GetContrasts();
+	const auto& pro_v = GetProfiles();
+	const auto& a_v = GetArchetypes();
+	const auto& pri_v = GetPrimary();
+	const auto& sec_v = GetSecondary();
 	
 	//int count = min(b.data.GetCount(), 10000);
 	int count = da.phrase_parts.GetCount();
@@ -260,34 +301,34 @@ void PhrasePartAnalysis2::DataSecondary() {
 					{found = true; break;}
 			if (!found) continue;
 		}
-		
-		if (pr_i >= 0) {
-			bool found = false;
-			for (int j : pp.profiles)
-				if (j == pr_i)
-					{found = true; break;}
-			if (!found) continue;
-		}
-		
-		#if 0
-		if (p_i >= 0) {
-			bool found = false;
-			for (int j : pp.primary)
-				if (j == p_i)
-					{found = true; break;}
-			if (!found) continue;
-		}
-		#else
-		if (p_i >= 0) {
+		if (con_i >= 0) {
 			bool found = false;
 			for (int j : pp.contrasts)
-				if (j == p_i)
+				if (j == con_i)
 					{found = true; break;}
 			if (!found) continue;
 		}
-		#endif
-		
-		#if 0
+		if (pro_i >= 0) {
+			bool found = false;
+			for (int j : pp.profiles)
+				if (j == pro_i)
+					{found = true; break;}
+			if (!found) continue;
+		}
+		if (a_i >= 0) {
+			bool found = false;
+			for (int j : pp.archetypes)
+				if (j == a_i)
+					{found = true; break;}
+			if (!found) continue;
+		}
+		if (pri_i >= 0) {
+			bool found = false;
+			for (int j : pp.primary)
+				if (j == pri_i)
+					{found = true; break;}
+			if (!found) continue;
+		}
 		if (s_i >= 0) {
 			bool found = false;
 			for (int j : pp.secondary)
@@ -295,64 +336,46 @@ void PhrasePartAnalysis2::DataSecondary() {
 					{found = true; break;}
 			if (!found) continue;
 		}
-		#else
-		if (s_i >= 0) {
-			bool found = false;
-			for (int j : pp.archetypes)
-				if (j == s_i)
-					{found = true; break;}
-			if (!found) continue;
-		}
-		#endif
 		
 		{
 			String s;
 			for (int j : pp.typecasts)
-				s << v0[j] << ", ";
+				s << tc_v[j] << ", ";
 			parts.Set(row, 1, s);
 		}
-		
-		{
-			String s;
-			for (int j : pp.profiles)
-				s << v1[j] << ", ";
-			parts.Set(row, 2, s);
-		}
-		
-		#if 0
-		{
-			String s;
-			for (int j : pp.primary)
-				s << v2[j] << ", ";
-			parts.Set(row, 3, s);
-		}
-		#else
 		{
 			String s;
 			for (int j : pp.contrasts) {
 				int con_i = j / ContrastType::PART_COUNT;
 				int con_j = j % ContrastType::PART_COUNT;
-				s << v2[con_i].key << " #" << (con_j+1) << ", ";
+				s << con_v[con_i].key << " #" << (con_j+1) << ", ";
 			}
-			parts.Set(row, 3, s);
+			parts.Set(row, 2, s);
 		}
-		#endif
-		
-		#if 0
 		{
 			String s;
-			for (int j : pp.secondary)
-				s << v3[j] << ", ";
-			parts.Set(row, 4, s);
+			for (int j : pp.profiles)
+				s << pro_v[j] << ", ";
+			parts.Set(row, 3, s);
 		}
-		#else
 		{
 			String s;
 			for (int j : pp.archetypes)
-				s << v3.GetKey(j) << ", ";
+				s << a_v.GetKey(j) << ", ";
 			parts.Set(row, 4, s);
 		}
-		#endif
+		{
+			String s;
+			for (int j : pp.primary)
+				s << pri_v[j] << ", ";
+			parts.Set(row, 5, s);
+		}
+		{
+			String s;
+			for (int j : pp.secondary)
+				s << sec_v[j] << ", ";
+			parts.Set(row, 6, s);
+		}
 		
 		parts.Set(row, "IDX", pp_i);
 		
@@ -368,7 +391,7 @@ void PhrasePartAnalysis2::DataSecondary() {
 			sum += pp.scores[i];
 		}
 		
-		parts.Set(row, 5, sum);
+		parts.Set(row, 7, sum);
 		
 		row++;
 		

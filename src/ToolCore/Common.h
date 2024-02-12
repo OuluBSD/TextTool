@@ -892,11 +892,11 @@ int GetTypecastCount();
 const Index<String>& GetProfiles();
 int GetProfileCount();
 
-//const Index<String>& GetPrimary();
-//int GetPrimaryCount();
+const Index<String>& GetPrimary();
+int GetPrimaryCount();
 
-//const Index<String>& GetSecondary();
-//int GetSecondaryCount();
+const Index<String>& GetSecondary();
+int GetSecondaryCount();
 
 struct ContrastType : Moveable<ContrastType> {
 	static const int PART_COUNT = 3;

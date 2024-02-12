@@ -768,24 +768,20 @@ void TaskManager::GetPhrases(Task* t) {
 		if (t->fn == 4 && !pp.typecasts.IsEmpty())
 			continue;
 		
-		if (t->fn == 5 && !pp.profiles.IsEmpty())
+		if (t->fn == 5 && !pp.contrasts.IsEmpty())
 			continue;
 		
-		#if 0
-		if (t->fn == 6 && !pp.primary.IsEmpty())
+		if (t->fn == 6 && !pp.profiles.IsEmpty())
 			continue;
-		#else
-		if (t->fn == 6 && !pp.contrasts.IsEmpty())
-			continue;
-		#endif
 		
-		#if 0
-		if (t->fn == 7 && !pp.secondary.IsEmpty())
-			continue;
-		#else
 		if (t->fn == 7 && !pp.archetypes.IsEmpty())
 			continue;
-		#endif
+		
+		if (t->fn == 8 && !pp.primary.IsEmpty())
+			continue;
+		
+		if (t->fn == 9 && !pp.secondary.IsEmpty())
+			continue;
 		
 		if (iter >= begin && iter < end) {
 			String phrase = da.GetWordString(pp.words);
@@ -798,7 +794,7 @@ void TaskManager::GetPhrases(Task* t) {
 	}
 	
 	if (args.phrases.IsEmpty()) {
-		if (t->fn < 7) {
+		if (t->fn < 5) {
 			t->fn++;
 			t->batch_i = 0;
 			t->running = false;
@@ -821,10 +817,14 @@ void TaskManager::GetPhrases(Task* t) {
 	else if (args.fn == 4)
 		m.GetPhraseData(args, THISBACK1(OnPhraseTypecasts, t));
 	else if (args.fn == 5)
-		m.GetPhraseData(args, THISBACK1(OnPhraseProfile, t));
+		m.GetPhraseData(args, THISBACK1(OnPhraseContrast, t));
 	else if (args.fn == 6)
-		m.GetPhraseData(args, THISBACK1(OnPhrasePrimary, t));
+		m.GetPhraseData(args, THISBACK1(OnPhraseProfile, t));
 	else if (args.fn == 7)
+		m.GetPhraseData(args, THISBACK1(OnPhraseArchetype, t));
+	else if (args.fn == 8)
+		m.GetPhraseData(args, THISBACK1(OnPhrasePrimary, t));
+	else if (args.fn == 9)
 		m.GetPhraseData(args, THISBACK1(OnPhraseSecondary, t));
 	
 }

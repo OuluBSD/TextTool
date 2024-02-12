@@ -133,7 +133,9 @@ class TaskManager {
 	void OnPhraseActions(String result, Task* t);
 	void OnPhraseScores(String result, Task* t);
 	void OnPhraseTypecasts(String result, Task* t);
+	void OnPhraseContrast(String result, Task* t);
 	void OnPhraseProfile(String result, Task* t);
+	void OnPhraseArchetype(String result, Task* t);
 	void OnPhrasePrimary(String result, Task* t);
 	void OnPhraseSecondary(String result, Task* t);
 	
