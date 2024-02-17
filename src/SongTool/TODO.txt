@@ -1,4 +1,12 @@
 Scheduled work:
+- song generator: to new dataset
+	- song datasets
+		- virtual datasets, in addition to normal
+		- linked to normal datasets (inherits english dataset)
+		- both pre and post datasets
+			- pre is for phrase pool
+			- post is for synthesized rhyme pairs
+
 - database: TYPECAST & IDENTITY stuff... profile, primary/secondary person (all gendered)
 	- ask I which it CAN'T be to avoid random answers
 - database: fixed rhyming word connections for filtering
@@ -64,7 +72,9 @@ Scheduled work:
 	- trading for artist: trainer
 	 	- like phone seller: direct selling
 	- debating vs just-do-it culture balancing
-
+- AI
+	- be always still in "school mode": connect with professionals
+		- make the AI to guide you to where to look at
 
 - powerpoint pages: ai content
 	- advertisements

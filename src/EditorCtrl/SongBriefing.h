@@ -15,6 +15,9 @@ class SongBriefing : public SongToolCtrl {
 		ATTR_REFERENCE_SONG,
 		ATTR_BIRTH_OF_SONG,
 		ATTR_CONTENT_VISION,
+		ATTR_TYPECAST,
+		ATTR_ARCHETYPE,
+		
 		
 		/*#define ATTR_ITEM(e, g, i0, i1) ITEM_GENERIC_##e,
 		ATTR_LIST

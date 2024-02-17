@@ -15,6 +15,41 @@ SongBriefing::SongBriefing() {
 	list.WhenCursor << THISBACK(OnListCursor);
 	values.value.WhenAction << THISBACK(OnValueChange);
 	
+	for(int i = 0; i < ITEM_COUNT; i++) {
+		switch(i) {
+			
+			case ATTR_TYPECAST: {
+				DropList* dl = new DropList;
+				list.SetCtrl(i, 1, dl);
+				for(int j = 0; j < GetTypecastArtists().GetCount(); j++) {
+					dl->Add(GetTypecastArtists().GetKey(j));
+				}
+				dl->SetIndex(0);
+				dl->WhenAction << [this, dl]() {
+					int tc = dl->GetIndex();
+					GetSong().data.GetAdd("ATTR_TYPECAST") = IntStr(tc);
+				};
+			}
+			break;
+			
+			case ATTR_ARCHETYPE: {
+				DropList* dl = new DropList;
+				list.SetCtrl(i, 1, dl);
+				for(int j = 0; j < GetArchetypes().GetCount(); j++) {
+					dl->Add(GetArchetypes().GetKey(j));
+				}
+				dl->SetIndex(0);
+				dl->WhenAction << [this, dl]() {
+					int tc = dl->GetIndex();
+					GetSong().data.GetAdd("ATTR_ARCHETYPE") = IntStr(tc);
+				};
+			}
+			break;
+			
+			default: break;
+			
+		}
+	}
 	
 	/*poll.AddColumn(t_("Group"));
 	poll.AddColumn(t_("Positive"));
@@ -58,6 +93,21 @@ void SongBriefing::Data() {
 				case ATTR_REFERENCE_SONG: list.Set(i, 1, t_("Reference song")); list.Set(i, 2, song.data.Get("ATTR_REFERENCE_SONG", "")); break;
 				case ATTR_BIRTH_OF_SONG: list.Set(i, 1, t_("Birth of song")); list.Set(i, 2, song.data.Get("ATTR_BIRTH_OF_SONG", "")); break;
 				case ATTR_CONTENT_VISION: list.Set(i, 1, t_("Content vision")); list.Set(i, 2, song.data.Get("ATTR_CONTENT_VISION", "")); break;
+				case ATTR_TYPECAST: {
+					list.Set(i, 1, t_("Artist's typecast"));
+					int tc = ScanInt(song.data.Get("ATTR_TYPECAST", "0"));
+					DropList* dl = dynamic_cast<DropList*>(list.GetCtrl(i, 1));
+					if (dl && tc >= 0 && tc < dl->GetCount()) dl->SetIndex(tc);
+				}
+				break;
+				
+				case ATTR_ARCHETYPE: {
+					list.Set(i, 1, t_("Content's archetype"));
+					int tc = ScanInt(song.data.Get("ATTR_ARCHETYPE", "0"));
+					DropList* dl = dynamic_cast<DropList*>(list.GetCtrl(i, 1));
+					if (dl && tc >= 0 && tc < dl->GetCount()) dl->SetIndex(tc);
+				}
+				break;
 				
 				/*#define ATTR_ITEM(e, g, i0, i1) case ITEM_GENERIC_##e: \
 					astr = db.Translate(g) + ": " + db.Translate(i0) + "/" + db.Translate(i1); \

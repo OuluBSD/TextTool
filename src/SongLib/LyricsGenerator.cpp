@@ -45,7 +45,9 @@ void LyricsGenerator::Process() {
 			//skip_ready = false;
 			NextPhase();
 		}
-		
+		else if (phase == LG_MAKE_SOURCE_POOL) {
+			
+		}
 		
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
