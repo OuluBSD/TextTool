@@ -290,7 +290,7 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	simple_attrs.Load(ds_dir, "simple_attrs");
 	
 	
-	String song_dir = AppendFileName(dir, "songs");
+	String song_dir = AppendFileName(ds_dir, "songs");
 	RealizeDirectory(song_dir);
 	
 	songs.Clear();
@@ -315,7 +315,10 @@ SongAnalysis& DatasetAnalysis::GetSongAnalysis(const String& name) {
 	String dir = AppendFileName(db.dir, "share" DIR_SEPS "songdata");
 	RealizeDirectory(dir);
 	
-	String song_dir = AppendFileName(dir, "songs" DIR_SEPS + name);
+	String ds_dir = AppendFileName(dir, sd.GetKey(ds_i));
+	RealizeDirectory(ds_dir);
+	
+	String song_dir = AppendFileName(ds_dir, "songs" DIR_SEPS + name);
 	RealizeDirectory(song_dir);
 	
 	SongAnalysis& sa = songs.GetAdd(name);
@@ -332,6 +335,9 @@ void SongAnalysis::Load(const String& dir) {
 	
 	for(int i = 0; i < ContrastType::PART_COUNT; i++) {
 		phrase_parts[i].Load(dir, "phrase parts " + IntStr(i));
+	}
+	
+	for(int i = 0; i < ContrastType::PART_COUNT; i++) {
 		source_pool[i].Load(dir, "source pool " + IntStr(i));
 	}
 	
