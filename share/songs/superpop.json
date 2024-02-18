@@ -3926,9 +3926,6 @@
 			"saved_lyrics": [
 
 			],
-			"clr_list": [
-
-			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "",
@@ -11373,9 +11370,6 @@
 			"saved_lyrics": [
 
 			],
-			"clr_list": [
-
-			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "The motorcycle roared down the empty highway, his heart racing as he held onto her tightly. Together, they were unstoppable on their wild ride towards an uncertain future.",
@@ -15261,9 +15255,6 @@
 
 			],
 			"saved_lyrics": [
-
-			],
-			"clr_list": [
 
 			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
@@ -19991,9 +19982,6 @@
 
 			],
 			"saved_lyrics": [
-
-			],
-			"clr_list": [
 
 			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
@@ -27704,9 +27692,6 @@
 			"saved_lyrics": [
 
 			],
-			"clr_list": [
-
-			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "He could feel the weight of her arms around his waist, a constant reminder of their unbreakable bond as they rode off into the sunset",
@@ -31539,9 +31524,6 @@
 
 			],
 			"saved_lyrics": [
-
-			],
-			"clr_list": [
 
 			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
@@ -38070,9 +38052,6 @@
 			"saved_lyrics": [
 
 			],
-			"clr_list": [
-
-			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "The highway stretched out before them, the moon guiding their way. His strong, muscular arms encircled her, and they rode free, leaving behind any doubts or expectations. They were unapologetically themselves, and nothing could stop them.",
@@ -39857,9 +39836,6 @@
 			"saved_lyrics": [
 
 			],
-			"clr_list": [
-
-			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "",
@@ -41359,9 +41335,6 @@
 
 			],
 			"saved_lyrics": [
-
-			],
-			"clr_list": [
 
 			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
@@ -43850,6 +43823,9 @@
 
 	],
 	"picked_phrase_parts": [
+
+	],
+	"clr_list": [
 
 	],
 	"simple_attrs": "\u0001\u0000\u0000\u0000\u0010\u0001",

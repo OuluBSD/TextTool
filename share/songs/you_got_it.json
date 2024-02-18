@@ -460,9 +460,6 @@
 			"saved_lyrics": [
 
 			],
-			"clr_list": [
-
-			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "",
@@ -830,9 +827,6 @@
 
 			],
 			"saved_lyrics": [
-
-			],
-			"clr_list": [
 
 			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
@@ -1419,9 +1413,6 @@
 			"saved_lyrics": [
 
 			],
-			"clr_list": [
-
-			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "",
@@ -1938,9 +1929,6 @@
 			"saved_lyrics": [
 
 			],
-			"clr_list": [
-
-			],
 			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001",
 			"active_idea[CONTENT]": "",
@@ -1998,6 +1986,9 @@
 
 	],
 	"picked_phrase_parts": [
+
+	],
+	"clr_list": [
 
 	],
 	"simple_attrs": "\u0001\u0000\u0000\u0000\u0010\u0001",
