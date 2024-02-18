@@ -34,6 +34,7 @@ class LyricsGenerator {
 	
 	void RealizePipe();
 	void Process();
+	void ProcessSourcePool();
 	void PostProgress() {WhenProgress(phase, LG_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}

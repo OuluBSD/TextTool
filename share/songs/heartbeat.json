@@ -629,6 +629,10 @@
 		{
 			"key": "ATTR_CONTENT_VISION",
 			"value": "The protagonist of the song is separating from his wife. He tells that he never meant to hurt her. He tells also about who he met his new wife."
+		},
+		{
+			"key": "ATTR_ARCHETYPE",
+			"value": "1"
 		}
 	],
 	"parts": [

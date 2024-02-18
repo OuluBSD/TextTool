@@ -473,6 +473,14 @@
 		{
 			"key": "ATTR_CONTENT_VISION",
 			"value": "Wife and husband fights violently. They shout very offending insults to each other. They still have sexual attraction to each other. They are very close to divorcing during the song."
+		},
+		{
+			"key": "ATTR_TYPECAST",
+			"value": "13"
+		},
+		{
+			"key": "ATTR_ARCHETYPE",
+			"value": "1"
 		}
 	],
 	"parts": [
