@@ -60,6 +60,9 @@ void LyricsGenerator::Process() {
 		else if (phase == LG_MAKE_PHRASE_PAIRS) {
 			ProcessPairPhrases();
 		}
+		else if (phase == LG_MAKE_RHYMES) {
+			ProcessRhymes();
+		}
 		
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
@@ -220,6 +223,10 @@ void LyricsGenerator::ProcessPairPhrases() {
 		NextPhase();
 		return;
 	}
+	if (skip_ready && sa.phrase_combs[batch].GetCount() >= pair_limit) {
+		NextBatch();
+		return;
+	}
 	
 	LyricsSolverArgs args;
 	args.fn = 3;
@@ -272,24 +279,31 @@ void LyricsGenerator::OnProcessPairPhrases(String res) {
 		if (a >= 0) {
 			line = TrimBoth(line.Left(a));
 		}
+		a = line.Find(":");
+		if (a >= 0)
+			line = TrimBoth(line.Mid(a+1));
 		
 		Vector<String> parts = Split(line, ",");
 		if (parts.GetCount() > 0) {
 			Vector<int> pp_is;
 			CombineHash ch;
+			bool fail = false;
 			for (String& part : parts) {
 				part = TrimBoth(part);
 				if (part.IsEmpty() || !IsDigit(part[0]))
 					break;
 				int j = ScanInt(part) - 1;
+				if (j <= 0 || j >= per_sub_batch) {fail = true; break;}
 				ASSERT(j >= 0);
-				int pp_i = begin + j;
+				int k = begin + j;
+				if (k >= this->phrases[batch].GetCount()) {fail = true; break;}
+				int pp_i = this->phrases[batch].GetKey(k);
 				ASSERT(pp_i >= 0 && pp_i < 100000000);
 				pp_is.Add(pp_i);
 				ch.Do(pp_i);
 				if (pp_is.GetCount() == 3) break; // limit
 			}
-			if (pp_is.GetCount()) {
+			if (!fail && pp_is.GetCount()) {
 				PhraseComb& pc = p.GetAdd(ch);
 				if (pc.phrase_parts.IsEmpty())
 					Swap(pp_is, pc.phrase_parts);
@@ -304,6 +318,63 @@ void LyricsGenerator::OnProcessPairPhrases(String res) {
 		NextBatch();
 	else
 		NextSubBatch();
+}
+
+void LyricsGenerator::ProcessRhymes() {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Song& song = *this->song;
+	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	
+	
+	if (batch >= ContrastType::PART_COUNT) {
+		NextPhase();
+		return;
+	}
+	
+	
+	LyricsSolverArgs args;
+	args.fn = 4;
+	
+	per_sub_batch =  30;
+	int begin = sub_batch * per_sub_batch;
+	int end = min(begin + per_sub_batch, sa.phrase_combs[batch].GetCount());
+	if (end <= begin) {
+		NextBatch();
+		return;
+	}
+	
+	for(int i = begin; i < end; i++) {
+		const PhraseComb& pc = sa.phrase_combs[batch][i];
+		
+		String p;
+		for (int pp_i : pc.phrase_parts) {
+			const PhrasePart& pp = da.phrase_parts[pp_i];
+			if (!p.IsEmpty()) p << ", ";
+			p << '\''<< da.GetWordString(pp.words) << '\'';
+		}
+		args.phrases << p;
+	}
+	
+	
+	int song_tc = ScanInt(song.data.Get("ATTR_TYPECAST", "0"));
+	const Vector<String>& artists = GetTypecastArtists()[song_tc];
+	args.parts <<= artists;
+	
+	SetWaiting(1);
+	RealizePipe();
+	TaskMgr& m = *pipe;
+	m.GetLyricsSolver(args, THISBACK(OnProcessRhymes));
+}
+
+void LyricsGenerator::OnProcessRhymes(String res) {
+	
+	
+	
+	SetWaiting(0);
+	NextSubBatch();
 }
 
 }

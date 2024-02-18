@@ -2774,4 +2774,27 @@ void Task::CreateInput_LyricsSolver() {
 		input.response_length = 2048;
 	}
 	
+	else if (args.fn == 4) {
+		{
+			auto& list = input.AddSub().Title("List of artists");
+			for(int i = 0; i < args.parts.GetCount(); i++)
+				list.Add(args.parts[i]);
+		}
+		{
+			auto& list = input.AddSub().Title("List A: Phrases");
+			list.NumberedLines();
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Use least amount of new words to combine phrases in their exact form to new sentences, using style of artist from the list");
+			results.NumberedLines();
+			results.Add("'where are my panties', 'murder all these monsters': \"This girl got me feeling hella scarce, / That's why I gotta kill all these underwear monsters in her drawers.\"");
+			results.Add("'we never asked', 'we just wanna be': \"We never asked to be living this way, / We just wanna be free, escape the fray.\"");
+			results.Add(args.phrases[0] + ": \"");
+		}
+		input.response_length = 2048;
+	}
+	
 }

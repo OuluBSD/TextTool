@@ -13,6 +13,7 @@ class LyricsGenerator {
 		LG_ACTION,
 		LG_MAKE_SOURCE_POOL,
 		LG_MAKE_PHRASE_PAIRS,
+		LG_MAKE_RHYMES,
 		
 		LG_GET_AI_SMOOTHED,
 		LG_GET_AI_SCORES,
@@ -46,9 +47,11 @@ class LyricsGenerator {
 	void ProcessColor();
 	void ProcessAttr();
 	void ProcessAction();
+	void ProcessRhymes();
 	void OnProcessColor(String result);
 	void OnProcessAttr(String result);
 	void OnProcessPairPhrases(String result);
+	void OnProcessRhymes(String result);
 	void PostProgress() {WhenProgress(phase, LG_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}
