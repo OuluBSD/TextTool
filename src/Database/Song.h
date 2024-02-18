@@ -225,7 +225,7 @@ struct StaticPart {
 	RhymeContainer nana;
 	Vector<Vector<int>> thrd_actions;
 	Vector<String> saved_lyrics;
-	Vector<int> clr_list;
+	//Vector<int> clr_list;
 	Vector<bool> actions_enabled;
 	Vector<int> phrase_parts;
 	//Index<int> picked_phrase_parts;
@@ -262,7 +262,7 @@ struct StaticPart {
 			("nana", nana)
 			("thrd_actions", thrd_actions)
 			("saved_lyrics", saved_lyrics)
-			("clr_list", clr_list)
+			//("clr_list", clr_list)
 			//("picked_phrase_parts", picked_phrase_parts)
 			;
 		JsonCompressedStream(json, "actions_enabled", actions_enabled);
@@ -433,6 +433,7 @@ struct Song :
 	Vector<AttrProbability>		active_roles;
 	Vector<bool>				simple_attrs;
 	Index<int>					picked_phrase_parts;
+	Vector<int>					clr_list;
 	
 	void Store();
 	void LoadTitle(String title);
@@ -468,6 +469,7 @@ struct Song :
 			("prod_ideas", prod_ideas)
 			("active_roles", active_roles)
 			("picked_phrase_parts", picked_phrase_parts)
+			("clr_list", clr_list)
 			;
 		JsonCompressedStream(json, "simple_attrs", simple_attrs);
 		

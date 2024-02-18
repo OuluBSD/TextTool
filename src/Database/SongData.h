@@ -951,11 +951,29 @@ struct SongCandidateCache {
 
 struct DatasetAnalysis;
 
+struct PhraseComb : Moveable<PhraseComb> {
+	Vector<int> phrase_parts;
+	
+	String StoreToString() {
+		StringDumper d;
+		for (int i : phrase_parts)
+			d % i;
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		Vector<String> parts = Split(s, " ");
+		phrase_parts.Clear();
+		for (String& p : parts)
+			phrase_parts << ScanInt(p);
+	}
+};
+
 struct SongAnalysis {
 	DatasetAnalysis* da = 0;
 	
 	MapFile<hash_t,PhrasePart> phrase_parts[ContrastType::PART_COUNT];
 	IntIndexFile source_pool[ContrastType::PART_COUNT];
+	MapFile<hash_t,PhraseComb> phrase_combs[ContrastType::PART_COUNT];
 	
 	void Load(const String& dir);
 };

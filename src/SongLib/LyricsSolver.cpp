@@ -46,15 +46,6 @@ void LyricsSolver::Process() {
 			NextPhase();
 			ClearLyrics();
 		}
-		else if (phase == LS_COLOR) {
-			ProcessColor();
-		}
-		else if (phase == LS_ATTR) {
-			ProcessAttr();
-		}
-		else if (phase == LS_ACTION) {
-			ProcessAction();
-		}
 		else if (phase == LS_FILTER) {
 			ProcessFilter();
 		}
@@ -101,20 +92,26 @@ void LyricsSolver::ClearLyrics() {
 	song->picked_phrase_parts.Clear();
 }
 
-void LyricsSolver::ProcessColor() {
+void LyricsGenerator::ProcessColor() {
 	if (batch >= song->parts.GetCount()) {
 		NextPhase();
 		return;
 	}
 	
-	StaticPart& sp = song->parts[batch];
+	Song& song = *this->song;
+	if (skip_ready && song.clr_list.GetCount()) {
+		NextPhase();
+		return;
+	}
+	
+	/*StaticPart& sp = song->parts[batch];
 	if (sp.part_type == StaticPart::SKIP ||
 		sp.name.IsEmpty() ||
 		(skip_ready && sp.clr_list.GetCount())) {
 		NextBatch();
 		return;
 	}
-	
+	*/
 	
 	LyricsSolverArgs args;
 	args.fn = 0;
@@ -131,13 +128,13 @@ void LyricsSolver::ProcessColor() {
 	args.release.Add("year of content", IntStr(release->year_of_content));
 	
 	// Song information
-	args.song.Add("title of song", song->english_title);
-	args.song.Add("artist's content vision", song->data.Get("ATTR_CONTENT_VISION", ""));
+	args.song.Add("title of song", song.english_title);
+	args.song.Add("artist's content vision", song.data.Get("ATTR_CONTENT_VISION", ""));
 	
 	// Parts
-	for(int i = 0; i < song->parts.GetCount(); i++)
-		args.parts << song->parts[i].name;
-	args.part = sp.name; // active part
+	for(int i = 0; i < song.parts.GetCount(); i++)
+		args.parts << song.parts[i].name;
+	//args.part = sp.name; // active part
 	
 	SetWaiting(1);
 	RealizePipe();
@@ -145,9 +142,9 @@ void LyricsSolver::ProcessColor() {
 	m.GetLyricsSolver(args, THISBACK(OnProcessColor));
 }
 
-void LyricsSolver::OnProcessColor(String result) {
+void LyricsGenerator::OnProcessColor(String result) {
 	//LOG(result);
-	StaticPart& sp = song->parts[batch];
+	Song& song = *this->song;
 	
 	result = "- RGB(" + result;
 	
@@ -173,17 +170,17 @@ void LyricsSolver::OnProcessColor(String result) {
 		no_clr_list.FindAdd(clr_group);
 	}
 	
-	sp.clr_list.Clear();
+	song.clr_list.Clear();
 	int c = GetColorGroupCount();
 	for(int i = 0; i < c; i++)
 		if (no_clr_list.Find(i) < 0)
-			sp.clr_list.Add(i);
+			song.clr_list.Add(i);
 	
-	NextBatch();
+	NextPhase();
 	SetWaiting(0);
 }
 
-void LyricsSolver::ProcessAttr() {
+void LyricsGenerator::ProcessAttr() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -248,7 +245,7 @@ void LyricsSolver::ProcessAttr() {
 	m.GetLyricsSolver(args, THISBACK(OnProcessAttr));
 }
 
-void LyricsSolver::OnProcessAttr(String result) {
+void LyricsGenerator::OnProcessAttr(String result) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -290,7 +287,7 @@ void LyricsSolver::OnProcessAttr(String result) {
 	SetWaiting(0);
 }
 
-void LyricsSolver::ProcessAction() {
+void LyricsGenerator::ProcessAction() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -333,7 +330,7 @@ void LyricsSolver::ProcessAction() {
 		// Filter by color
 		if (ea.clr != no_clr) {
 			int clr_group = GetColorGroup(ea.clr);
-			enabled = VectorFind(sp.clr_list, clr_group) >= 0;
+			enabled = VectorFind(song->clr_list, clr_group) >= 0;
 			continue;
 		}
 		
@@ -348,6 +345,8 @@ void LyricsSolver::ProcessFilter() {
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	TODO // Move staticpart stuff to song
 	
 	if (batch >= song->parts.GetCount()) {
 		NextPhase();
@@ -387,7 +386,7 @@ void LyricsSolver::ProcessFilter() {
 		// Check clr
 		if (pp.clr != no_clr) {
 			int clr_group = GetColorGroup(pp.clr);
-			bool part_enabled = VectorFind(sp.clr_list, clr_group) >= 0;
+			bool part_enabled = VectorFind(song->clr_list, clr_group) >= 0;
 			if (!part_enabled)
 				continue;
 		}

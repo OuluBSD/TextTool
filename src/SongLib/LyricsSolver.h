@@ -8,9 +8,6 @@ namespace SongLib {
 class LyricsSolver {
 	enum {
 		LS_BEGIN,
-		LS_COLOR,
-		LS_ATTR,
-		LS_ACTION,
 		LS_FILTER,
 		LS_PRIMARY,
 		LS_SECONDARY_WORD_CLASS,
@@ -41,16 +38,11 @@ class LyricsSolver {
 	void RealizePipe();
 	void Process();
 	void ClearLyrics();
-	void ProcessColor();
-	void ProcessAttr();
-	void ProcessAction();
 	void ProcessFilter();
 	void ProcessPrimary();
 	void ProcessSecondaryWordClass();
 	void ProcessSecondaryFilter();
 	void ProcessSecondary();
-	void OnProcessColor(String result);
-	void OnProcessAttr(String result);
 	void OnProcessPrimary();
 	void OnProcessSecondaryWordClass(String res);
 	void OnProcessSecondary();

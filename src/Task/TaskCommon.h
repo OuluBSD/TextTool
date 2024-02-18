@@ -539,7 +539,7 @@ struct NanaArgs {
 struct LyricsSolverArgs {
 	int fn;
 	VectorMap<String,String> artist, release, song;
-	Vector<String> parts, attrs;
+	Vector<String> parts, attrs, phrases;
 	String part;
 	
 	void Jsonize(JsonIO& json) {
@@ -549,6 +549,7 @@ struct LyricsSolverArgs {
 				("song", song)
 				("parts", parts)
 				("attrs", attrs)
+				("phrases", phrases)
 				("part", part)
 				;
 	}

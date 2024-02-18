@@ -335,10 +335,8 @@ void SongAnalysis::Load(const String& dir) {
 	
 	for(int i = 0; i < ContrastType::PART_COUNT; i++) {
 		phrase_parts[i].Load(dir, "phrase parts " + IntStr(i));
-	}
-	
-	for(int i = 0; i < ContrastType::PART_COUNT; i++) {
 		source_pool[i].Load(dir, "source pool " + IntStr(i));
+		phrase_combs[i].Load(dir, "phrase combinations " + IntStr(i));
 	}
 	
 }

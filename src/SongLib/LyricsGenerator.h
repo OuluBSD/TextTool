@@ -8,9 +8,12 @@ namespace SongLib {
 class LyricsGenerator {
 	enum {
 		LG_BEGIN,
+		LG_COLOR,
+		LG_ATTR,
+		LG_ACTION,
 		LG_MAKE_SOURCE_POOL,
-		LG_MAKE_PRIMARY_PAIRS,
-		LG_MAKE_SECONDARY_FILLS,
+		LG_MAKE_PHRASE_PAIRS,
+		
 		LG_GET_AI_SMOOTHED,
 		LG_GET_AI_SCORES,
 		
@@ -30,11 +33,22 @@ class LyricsGenerator {
 	bool skip_ready = true;
 	
 	// params
+	int per_sub_batch =  50;
+	int pair_limit = 300;
 	
+	// temp
+	Vector<VectorMap<int,double>> phrases;
 	
 	void RealizePipe();
 	void Process();
 	void ProcessSourcePool();
+	void ProcessPairPhrases();
+	void ProcessColor();
+	void ProcessAttr();
+	void ProcessAction();
+	void OnProcessColor(String result);
+	void OnProcessAttr(String result);
+	void OnProcessPairPhrases(String result);
 	void PostProgress() {WhenProgress(phase, LG_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}

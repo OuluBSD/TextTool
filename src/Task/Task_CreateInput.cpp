@@ -2675,11 +2675,19 @@ void Task::CreateInput_LyricsSolver() {
 				list.Add("RGB(" + IntStr(clr.GetR()) + "," + IntStr(clr.GetG()) + "," + IntStr(clr.GetB()) + ")");
 			}
 		}
+		#if 0
 		{
 			TaskTitledList& results = input.PreAnswer();
 			results.Title("List of metaphorical colors for the part '" + args.part + "', which does not match artist nor release nor song");
 			results.Add("RGB(");
 		}
+		#else
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of metaphorical colors, which does not match artist nor release nor song");
+			results.Add("RGB(");
+		}
+		#endif
 		input.response_length = 2048;
 	}
 	else if (args.fn == 1) {
@@ -2743,4 +2751,27 @@ void Task::CreateInput_LyricsSolver() {
 		}
 		input.response_length = 2048;
 	}
+	else if (args.fn == 3) {
+		{
+			auto& list = input.AddSub().Title("List of artists");
+			for(int i = 0; i < args.parts.GetCount(); i++)
+				list.Add(args.parts[i]);
+		}
+		{
+			auto& list = input.AddSub().Title("List A: Phrases");
+			list.NumberedLines();
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("50 good combinations of List A Phrases, which would suit for given artists, with combination size 2-3");
+			results.NumberedLines();
+			results.Add("1,4");
+			results.Add("7,3,10");
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	
 }

@@ -2,6 +2,26 @@
 #define _ToolCore_FileClasses_h_
 
 
+class IntVectorFile {
+	Vector<int> idx;
+	String path;
+public:
+	IntVectorFile() {}
+	IntVectorFile(const String& p) {Load(p);}
+	IntVectorFile(const String& dir, const String& title) {Load(dir, title);}
+	~IntVectorFile() {Store();}
+	
+	void Load(const String& dir, const String& title) {Load(AppendFileName(dir, title + ".txt"));}
+	void Load(const String& path);
+	void Store();
+	void Add(int s) {idx.Add(s);}
+	int operator[](int i) const {return idx[i];}
+	int GetCount() const {return idx.GetCount();}
+	const Vector<int>& GetValues() const {return idx;}
+	void Clear() {idx.Clear();}
+	
+};
+
 class IntIndexFile {
 	Index<int> idx;
 	String path;
@@ -25,6 +45,7 @@ public:
 	int operator[](int i) const {return idx[i];}
 	int GetCount() const {return idx.GetCount();}
 	const Vector<int>& GetKeys() const {return idx.GetKeys();}
+	void Clear() {idx.Clear();}
 	
 };
 
@@ -184,6 +205,59 @@ struct MapKeys {
 	}
 };
 
+template <class T>
+class VectorFile {
+	Vector<T> map;
+	String path;
+	
+public:
+	VectorFile() {}
+	VectorFile(const String& p) {Load(p);}
+	VectorFile(const String& dir, const String& title) {Load(AppendFileName(dir, title + ".txt"));}
+	~VectorFile() {Store();}
+
+	const T& operator[](int i) const {return map[i];}
+	T& operator[](int i) {return map[i];}
+	int GetCount() const {return map.GetCount();}
+	const Vector<T>& GetValues() const {return map;}
+	Vector<T>& GetValues() {return map;}
+	T& Add() {return map.Add();}
+	T& Add(const T& s) {return map.Add(s);}
+	
+	void Load(const String& dir, const String& title) {Load(AppendFileName(dir, title + ".txt"));}
+	void Load(const String& path) {
+		map.Clear();
+		this->path = path;
+		String content = LoadFile(path);
+		content.Replace("\r","");
+		if (content.IsEmpty())
+			return;
+		Vector<String> lines = Split(content, "\n", false);
+		for (String& l : lines) {
+			auto& v = map.Add();
+			v.LoadFromString(l);
+		}
+		ASSERT(map.GetCount() == lines.GetCount());
+	}
+	
+	void Store() {
+		String content;
+		for(int i = 0; i < map.GetCount(); i++) {
+			if (i) content << "\n";
+			content << map[i].StoreToString();
+		}
+		String old_content = LoadFile(path);
+		if (old_content.GetHashValue() != content.GetHashValue()) {
+			FileOut fout(path);
+			fout << content;
+			fout.Close();
+		}
+	}
+	
+	void Clear() {map.Clear();}
+	
+};
+
 template <class K, class T>
 class MapFile {
 	VectorMap<K, T> map;
@@ -259,6 +333,8 @@ public:
 			fout.Close();
 		}
 	}
+	
+	void Clear() {map.Clear();}
 	
 };
 
