@@ -18,6 +18,21 @@ SongBriefing::SongBriefing() {
 	for(int i = 0; i < ITEM_COUNT; i++) {
 		switch(i) {
 			
+			case ATTR_DATASET: {
+				SongData& sd = Database::Single().song_data;
+				DropList* dl = new DropList;
+				list.SetCtrl(i, 1, dl);
+				for(int j = 0; j < sd.GetCount(); j++) {
+					dl->Add(sd.GetKey(j));
+				}
+				dl->SetIndex(0);
+				dl->WhenAction << [this, dl]() {
+					int tc = dl->GetIndex();
+					GetSong().data.GetAdd("ATTR_DATASET") = IntStr(tc);
+				};
+			}
+			break;
+			
 			case ATTR_TYPECAST: {
 				DropList* dl = new DropList;
 				list.SetCtrl(i, 1, dl);
@@ -28,6 +43,20 @@ SongBriefing::SongBriefing() {
 				dl->WhenAction << [this, dl]() {
 					int tc = dl->GetIndex();
 					GetSong().data.GetAdd("ATTR_TYPECAST") = IntStr(tc);
+				};
+			}
+			break;
+			
+			case ATTR_CONTRAST: {
+				DropList* dl = new DropList;
+				list.SetCtrl(i, 1, dl);
+				for(int j = 0; j < GetContrasts().GetCount(); j++) {
+					dl->Add(GetContrasts()[j].key);
+				}
+				dl->SetIndex(0);
+				dl->WhenAction << [this, dl]() {
+					int tc = dl->GetIndex();
+					GetSong().data.GetAdd("ATTR_CONTRAST") = IntStr(tc);
 				};
 			}
 			break;
@@ -93,9 +122,24 @@ void SongBriefing::Data() {
 				case ATTR_REFERENCE_SONG: list.Set(i, 1, t_("Reference song")); list.Set(i, 2, song.data.Get("ATTR_REFERENCE_SONG", "")); break;
 				case ATTR_BIRTH_OF_SONG: list.Set(i, 1, t_("Birth of song")); list.Set(i, 2, song.data.Get("ATTR_BIRTH_OF_SONG", "")); break;
 				case ATTR_CONTENT_VISION: list.Set(i, 1, t_("Content vision")); list.Set(i, 2, song.data.Get("ATTR_CONTENT_VISION", "")); break;
+				case ATTR_DATASET: {
+					list.Set(i, 1, t_("Song uses dataset"));
+					int tc = ScanInt(song.data.Get("ATTR_DATASET", "0"));
+					DropList* dl = dynamic_cast<DropList*>(list.GetCtrl(i, 1));
+					if (dl && tc >= 0 && tc < dl->GetCount()) dl->SetIndex(tc);
+				}
+				break;
 				case ATTR_TYPECAST: {
 					list.Set(i, 1, t_("Artist's typecast"));
 					int tc = ScanInt(song.data.Get("ATTR_TYPECAST", "0"));
+					DropList* dl = dynamic_cast<DropList*>(list.GetCtrl(i, 1));
+					if (dl && tc >= 0 && tc < dl->GetCount()) dl->SetIndex(tc);
+				}
+				break;
+				
+				case ATTR_CONTRAST: {
+					list.Set(i, 1, t_("Content's contrast"));
+					int tc = ScanInt(song.data.Get("ATTR_CONTRAST", "0"));
 					DropList* dl = dynamic_cast<DropList*>(list.GetCtrl(i, 1));
 					if (dl && tc >= 0 && tc < dl->GetCount()) dl->SetIndex(tc);
 				}

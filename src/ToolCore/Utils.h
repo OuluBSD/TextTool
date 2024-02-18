@@ -21,6 +21,7 @@ public:
 	Release& GetRelease();
 	Artist& GetArtist();
 	String GetSongTitle() const;
+	int GetDataset();
 	
 	void MakeSongParts(ArrayCtrl& parts);
 	void GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v);

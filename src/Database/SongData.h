@@ -948,7 +948,21 @@ struct SongCandidateCache {
 	}
 };
 
+
+struct DatasetAnalysis;
+
+struct SongAnalysis {
+	DatasetAnalysis* da = 0;
+	
+	MapFile<hash_t,PhrasePart> phrase_parts[ContrastType::PART_COUNT];
+	IntIndexFile source_pool[ContrastType::PART_COUNT];
+	
+	void Load(const String& dir);
+};
+
 struct DatasetAnalysis {
+	ArrayMap<String, SongAnalysis> songs;
+	
 	MapFile<String,Token> tokens;
 	MapFile<hash_t,TokenText> token_texts;
 	IndexFile word_classes;
@@ -974,6 +988,9 @@ struct DatasetAnalysis {
 	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;
 	ArrayMap<String, SongCandidateCache> song_cache;
 	
+	// Temp
+	int ds_i = -1;
+	
 	
 	DatasetAnalysis();
 	DatasetAnalysis(DatasetAnalysis&) {}
@@ -985,7 +1002,7 @@ struct DatasetAnalysis {
 	WString GetWordPronounciation(const Vector<int>& words) const;
 	String GetTypeString(const Vector<int>& word_classes) const;
 	String GetActionString(const Vector<int>& actions) const;
-	
+	SongAnalysis& GetSongAnalysis(const String& name);
 	
 	void Jsonize(JsonIO& json) {
 		json

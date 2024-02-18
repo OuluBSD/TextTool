@@ -266,6 +266,7 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	else
 		trans_ds_key = "en";
 	
+	this->ds_i = ds_i;
 	
 	tokens.Load(ds_dir, "tokens");
 	token_texts.Load(ds_dir, "tokenized texts");
@@ -289,17 +290,50 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	simple_attrs.Load(ds_dir, "simple_attrs");
 	
 	
-	//DUMP(phrase_parts.GetCount());
+	String song_dir = AppendFileName(dir, "songs");
+	RealizeDirectory(song_dir);
 	
-	/*MapFile<int,WordPairType> old_ambiguous_word_pairs;
-	old_ambiguous_word_pairs.Load(ds_dir, "old ambiguous word pairs");
-	for(int i = 0; i < old_ambiguous_word_pairs.GetCount(); i++) {
-		auto& old = old_ambiguous_word_pairs[i];
-		old.from = old_ambiguous_word_pairs.GetKey(i);
-		hash_t h = old.GetHashValue();
-		auto& n = ambiguous_word_pairs.GetAdd(h);
-		n = old;
-	}*/
+	songs.Clear();
+	FindFile ff(AppendFileName(song_dir, "*"));
+	do {
+		if (!ff.IsDirectory()) continue;
+		String title = ff.GetName();
+		if (title.Find(".") == 0) continue;
+		
+		SongAnalysis& sa = songs.Add(title);
+		sa.da = this;
+		sa.Load(ff.GetPath());
+	}
+	while (ff.Next());
+}
+
+SongAnalysis& DatasetAnalysis::GetSongAnalysis(const String& name) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	
+	String dir = AppendFileName(db.dir, "share" DIR_SEPS "songdata");
+	RealizeDirectory(dir);
+	
+	String song_dir = AppendFileName(dir, "songs" DIR_SEPS + name);
+	RealizeDirectory(song_dir);
+	
+	SongAnalysis& sa = songs.GetAdd(name);
+	
+	if (sa.da == 0) {
+		sa.da = this;
+		sa.Load(song_dir);
+	}
+	
+	return sa;
+}
+
+void SongAnalysis::Load(const String& dir) {
+	
+	for(int i = 0; i < ContrastType::PART_COUNT; i++) {
+		phrase_parts[i].Load(dir, "phrase parts " + IntStr(i));
+		source_pool[i].Load(dir, "source pool " + IntStr(i));
+	}
 	
 }
 

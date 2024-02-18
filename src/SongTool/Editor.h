@@ -76,7 +76,7 @@ protected:
 	EnglishEditor					eng_edit;
 	Attributes						db_attrs;
 	LyricsSolverCtrl				lyrics_solver;
-	SongPool					song_typecast;
+	SongPool						song_pool;
 	//SecondarySetter					sec_setter;
 	
 	/*

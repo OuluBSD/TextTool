@@ -65,59 +65,76 @@ void LyricsGenerator::Process() {
 }
 
 void LyricsGenerator::ProcessSourcePool() {
-	/*if (batch >= song->parts.GetCount()) {
-		NextPhase();
-		return;
+	TimeStop ts;
+	
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Song& song = *this->song;
+	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	
+	int song_tc = ScanInt(song.data.Get("ATTR_TYPECAST", "0"));
+	int song_con_base = ScanInt(song.data.Get("ATTR_CONTRAST", "0"));
+	int song_arch = ScanInt(song.data.Get("ATTR_ARCHETYPE", "0"));
+	
+	
+	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
+		PhrasePart& pp = da.phrase_parts[i];
+		
+		// Typecast
+		// - get song's typecast
+		// - check that phrase matches to typecast
+		{
+			bool found = false;
+			for (int tc : pp.typecasts)
+				if (tc == song_tc)
+					{found = true; break;}
+			if (!found)
+				continue;
+		}
+		
+		// Contrast type
+		bool found_contrast[ContrastType::PART_COUNT] = {false,false,false};
+		{
+			bool found = false;
+			for (int con : pp.contrasts) {
+				int con_base = con / ContrastType::PART_COUNT;
+				int con_mod = con % ContrastType::PART_COUNT;
+				if (con_base == song_con_base) {
+					found = true;
+					found_contrast[con_mod] = true;
+				}
+			}
+			if (!found)
+				continue;
+		}
+		
+		// Archetype
+		// - get song's archetype
+		// - check that phrases matches to the archetype
+		// NOTE skip this since data is not usualle fetched
+		if (0) {
+			bool found = false;
+			for (int arch : pp.archetypes)
+				if (arch == song_arch)
+					{found = true; break;}
+			if (!found)
+				continue;
+		}
+		
+		for(int j = 0; j < ContrastType::PART_COUNT; j++) {
+			if (found_contrast[j])
+				sa.source_pool[j].FindAdd(i);
+		}
 	}
 	
-	StaticPart& sp = song->parts[batch];
-	if (sp.part_type == StaticPart::SKIP ||
-		sp.name.IsEmpty() ||
-		(skip_ready && sp.clr_list.GetCount())) {
-		NextBatch();
-		return;
-	}*/
+	LOG("LyricsGenerator::ProcessSourcePool: took " << ts.ToString());
+	for(int j = 0; j < ContrastType::PART_COUNT; j++) {
+		LOG("LyricsGenerator::ProcessSourcePool: in pool #" << j << ": " << sa.source_pool[j].GetCount() << " phrases");
+	}
 	
-	
-	// Typecast
-	// - get song's typecast
-	// - get artists of the typecast
-	// unrelated
-	
-	// Archetype
-	// - get song's archetype
-	// - get phrases which matches to the archetype
-	// - 
-	
-	
-	
-	/*LyricsGeneratorArgs args;
-	args.fn = 0;
-	
-	// Artist information
-	args.artist.Add("year of birth", IntStr(artist->year_of_birth));
-	args.artist.Add("year of beginning of career", IntStr(artist->year_of_career_begin));
-	args.artist.Add("biography", artist->biography);
-	args.artist.Add("musical style", artist->musical_style);
-	args.artist.Add("vocalist visually", artist->vocalist_visual);
-	
-	// Release information
-	args.release.Add("title of release", release->english_title);
-	args.release.Add("year of content", IntStr(release->year_of_content));
-	
-	// Song information
-	args.song.Add("title of song", song->english_title);
-	args.song.Add("artist's content vision", song->data.Get("ATTR_CONTENT_VISION", ""));
-	
-	// Parts
-	for(int i = 0; i < song->parts.GetCount(); i++)
-		args.parts << song->parts[i].name;
-	args.part = sp.name; // active part*/
-	
-	/*SetWaiting(1);
-	RealizePipe();
-	TaskMgr& m = *pipe;
-	m.GetLyricsSolver(args, THISBACK(OnProcessSourcePool));*/
+	NextPhase();
 }
 
 

@@ -40,6 +40,15 @@ String SongToolCtrl::GetSongTitle() const {
 	return s;
 }
 
+int SongToolCtrl::GetDataset() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.song || !p.artist)
+		throw NoPointerExc("no song");
+	Song& song = *p.song;
+	return ScanInt(song.data.Get("ATTR_DATASET", "0"));
+}
+
 void SongToolCtrl::GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v) {
 	for(int i = 0; i < Attr::ATTR_COUNT; i++) {
 		const char* key = Attr::AttrKeys[i][0];

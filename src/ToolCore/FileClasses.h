@@ -2,6 +2,32 @@
 #define _ToolCore_FileClasses_h_
 
 
+class IntIndexFile {
+	Index<int> idx;
+	String path;
+public:
+	IntIndexFile() {}
+	IntIndexFile(const String& p) {Load(p);}
+	IntIndexFile(const String& dir, const String& title) {Load(dir, title);}
+	~IntIndexFile() {Store();}
+	
+	void Load(const String& dir, const String& title) {Load(AppendFileName(dir, title + ".txt"));}
+	void Load(const String& path);
+	void Store();
+	int FindAdd(int s) {
+		int i = idx.Find(s);
+		if (i >= 0) return i;
+		i = idx.GetCount();
+		idx.Add(s);
+		return i;
+	}
+	int Find(int s) const {return idx.Find(s);}
+	int operator[](int i) const {return idx[i];}
+	int GetCount() const {return idx.GetCount();}
+	const Vector<int>& GetKeys() const {return idx.GetKeys();}
+	
+};
+
 class IndexFile {
 	Index<String> idx;
 	String path;
