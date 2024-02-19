@@ -970,16 +970,17 @@ struct PhraseComb : Moveable<PhraseComb> {
 
 struct LyricsSuggestions : Moveable<LyricsSuggestions> {
 	VectorMap<String,Vector<String>> lines;
-	
+	int rank = -1;
 	
 	String StoreToString() {
 		StringDumper d;
-		d % lines;
+		d % lines % rank;
 		return d;
 	}
 	void LoadFromString(const String& s) {
 		StringParser p(s);
 		p % lines;
+		p % rank;
 	}
 };
 

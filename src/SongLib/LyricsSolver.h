@@ -10,9 +10,11 @@ class LyricsSolver {
 		LS_BEGIN,
 		LS_FILTER,
 		LS_PRIMARY,
-		LS_SECONDARY_WORD_CLASS,
+		LS_COMPARISON,
+		
+		/*LS_SECONDARY_WORD_CLASS,
 		LS_SECONDARY_FILTER,
-		LS_SECONDARY,
+		LS_SECONDARY,*/
 		
 		LS_COUNT
 	};
@@ -38,18 +40,23 @@ class LyricsSolver {
 	// temp
 	Vector<VectorMap<int,double>> phrase_parts;
 	Vector<String> phrases;
+	Vector<Tuple2<int,int>> matches;
+	Index<int> remaining;
+	VectorMap<String,int> part_sizes;
 	
 	void RealizePipe();
 	void Process();
 	void ClearLyrics();
 	void ProcessFilter();
 	void ProcessPrimary();
-	void ProcessSecondaryWordClass();
+	void ProcessComparison();
+	/*void ProcessSecondaryWordClass();
 	void ProcessSecondaryFilter();
-	void ProcessSecondary();
+	void ProcessSecondary();*/
 	void OnProcessPrimary(String res);
-	void OnProcessSecondaryWordClass(String res);
-	void OnProcessSecondary();
+	void OnProcessComparison(String res);
+	/*void OnProcessSecondaryWordClass(String res);
+	void OnProcessSecondary();*/
 	void PostProgress() {WhenProgress(phase, LS_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}

@@ -2878,4 +2878,22 @@ void Task::CreateInput_LyricsSolver() {
 		input.response_length = 2048;
 	}
 	
+	else if (args.fn == 7) {
+		for(int i = 0; i < args.phrases.GetCount(); i++) {
+			const String& p = args.phrases[i];
+			Vector<String> lines = Split(p, "\n");
+			{
+				auto& list = input.AddSub().Title("Lyrics competition entry #" + IntStr(i+1));
+				list.NoListChar();
+				for(int i = 0; i < lines.GetCount(); i++)
+					list.Add(lines[i]);
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Competition results");
+			results.Add("Winner is entry: #");
+			input.response_length = 2048;
+		}
+	}
 }
