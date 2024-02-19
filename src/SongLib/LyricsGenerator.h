@@ -14,8 +14,6 @@ class LyricsGenerator {
 		LG_MAKE_SOURCE_POOL,
 		LG_MAKE_PHRASE_PAIRS,
 		LG_MAKE_RHYMES,
-		
-		LG_GET_AI_SMOOTHED,
 		LG_GET_AI_SCORES,
 		
 		LG_COUNT
@@ -36,6 +34,7 @@ class LyricsGenerator {
 	// params
 	int per_sub_batch =  50;
 	int pair_limit = 300;
+	int phrase_limit = 150;
 	
 	// temp
 	Vector<VectorMap<int,double>> phrases;
@@ -55,7 +54,7 @@ class LyricsGenerator {
 	void PostProgress() {WhenProgress(phase, LG_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}
-	void NextPhase() {phase++; batch = 0;}
+	void NextPhase() {phase++; batch = 0; sub_batch = 0;}
 	void NextBatch() {batch++; sub_batch = 0;}
 	void NextSubBatch() {sub_batch++;}
 	

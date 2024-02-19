@@ -334,11 +334,15 @@ void LyricsGenerator::ProcessRhymes() {
 		return;
 	}
 	
+	if (skip_ready && sa.phrase_parts[batch].GetCount() >= phrase_limit) {
+		NextBatch();
+		return;
+	}
 	
 	LyricsSolverArgs args;
 	args.fn = 4;
 	
-	per_sub_batch =  30;
+	per_sub_batch =  15;
 	int begin = sub_batch * per_sub_batch;
 	int end = min(begin + per_sub_batch, sa.phrase_combs[batch].GetCount());
 	if (end <= begin) {
@@ -370,11 +374,104 @@ void LyricsGenerator::ProcessRhymes() {
 }
 
 void LyricsGenerator::OnProcessRhymes(String res) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Song& song = *this->song;
+	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
+	res = "3. '','': \"" + res;
+	
+	int begin = sub_batch * per_sub_batch;
+	ASSERT(begin >= 0);
+	MapFile<hash_t,PhraseComb>& p = sa.phrase_combs[batch];
+	
+	RemoveEmptyLines2(res);
+	Vector<String> lines = Split(res, "\n");
+	Vector<int> token_is, word_is;
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		//LOG(line);
+		
+		int a = line.Find(":");
+		if (a < 0) continue;
+		
+		line = TrimBoth(line.Mid(a+1));
+		RemoveQuotes(line);
+		
+		if (line.IsEmpty()) continue;
+		
+		
+		// Parse text
+		NaturalTokenizer tk;
+		
+		String str = line;
+		
+		if (!tk.Parse(str)) {
+			continue;
+		}
+		
+		//LOG("Lines: " << tk.GetLines().GetCount());
+		for (const auto& line : tk.GetLines()) {
+			token_is.SetCount(0);
+			CombineHash ch;
+			for (const WString& line : line) {
+				String s = line.ToString();
+				int tk_i = -1;
+				Token& tk = da.tokens.GetAdd(s, tk_i);
+				ch.Do(tk_i);
+				token_is << tk_i;
+			}
+			hash_t h = ch;
+			
+			int tt_i = -1;
+			TokenText& tt = da.token_texts.GetAdd(h, tt_i);
+			if (tt.tokens.IsEmpty()) {
+				Swap(tt.tokens, token_is);
+			}
+			
+			word_is.SetCount(0);
+			for (int tk_i : tt.tokens) {
+				const Token& tk = da.tokens[tk_i];
+				if (tk.word_ < 0) {
+					String key = ToLower(da.tokens.GetKey(tk_i));
+					tk.word_ = da.words.FindAdd(key);
+				}
+				int w_i = tk.word_;
+				word_is << w_i;
+			}
+			
+			if (word_is.GetCount() == 0)
+				continue;
+			
+			if (0) {
+				LOG("Original: " << str);
+				LOG("Token string: " << da.GetTokenTextString(tt));
+				LOG("Word string: " << da.GetWordString(word_is));
+			}
+			
+			hash_t w_h;
+			{
+				CombineHash ch;
+				for (int w_i : word_is)
+					ch.Do(w_i).Put(1);
+				w_h = ch;
+			}
+			
+			PhrasePart& pp = sa.phrase_parts[batch].GetAdd(w_h);
+			pp.tt_i = tt_i;
+			if (pp.words.IsEmpty())
+				Swap(pp.words, word_is);
+		}
+	}
 	
 	
 	SetWaiting(0);
-	NextSubBatch();
+	if (sa.phrase_parts[batch].GetCount() >= phrase_limit)
+		NextBatch();
+	else
+		NextSubBatch();
 }
 
 }

@@ -49,6 +49,8 @@ bool NaturalTokenizer::Parse(const String& txt) {
 	if (!tmp.IsEmpty()) {
 		line << tmp;
 		tmp.Clear();
+	}
+	if (line.GetCount()) {
 		Swap(lines.Add(), line);
 	}
 	
