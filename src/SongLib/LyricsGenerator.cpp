@@ -488,15 +488,21 @@ void LyricsGenerator::ProcessScores() {
 	if (sub_batch == 0)
 		iter = 0;
 	
+	if (batch >= ContrastType::PART_COUNT) {
+		NextPhase();
+		return;
+	}
+	
 	LyricsSolverArgs args;
 	args.fn = 5;
 	
 	per_sub_batch =  15;
 	
+	const auto& v = sa.phrase_parts[batch];
 	pp_is.Clear();
-	while(iter < sa.phrase_parts[batch].GetCount()) {
+	while(iter < v.GetCount()) {
 		int pp_i = iter++;
-		const PhrasePart& pp = sa.phrase_parts[batch][pp_i];
+		const PhrasePart& pp = v[pp_i];
 		
 		// Check if score is fetched already
 		int total_score = 0;
@@ -515,10 +521,7 @@ void LyricsGenerator::ProcessScores() {
 	}
 	
 	if (args.phrases.IsEmpty()) {
-		if (batch >= ContrastType::PART_COUNT)
-			NextPhase();
-		else
-			NextBatch();
+		NextBatch();
 		return;
 	}
 	
