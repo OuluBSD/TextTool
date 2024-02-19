@@ -11,6 +11,7 @@ class LyricsSolver {
 		LS_FILTER,
 		LS_PRIMARY,
 		LS_COMPARISON,
+		LS_FINETUNING,
 		
 		/*LS_SECONDARY_WORD_CLASS,
 		LS_SECONDARY_FILTER,
@@ -50,11 +51,13 @@ class LyricsSolver {
 	void ProcessFilter();
 	void ProcessPrimary();
 	void ProcessComparison();
+	void ProcessFineTuning();
 	/*void ProcessSecondaryWordClass();
 	void ProcessSecondaryFilter();
 	void ProcessSecondary();*/
 	void OnProcessPrimary(String res);
 	void OnProcessComparison(String res);
+	void OnProcessFineTuning(String res);
 	/*void OnProcessSecondaryWordClass(String res);
 	void OnProcessSecondary();*/
 	void PostProgress() {WhenProgress(phase, LS_COUNT);}

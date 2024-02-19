@@ -55,6 +55,9 @@ void LyricsSolver::Process() {
 		else if (phase == LS_COMPARISON) {
 			ProcessComparison();
 		}
+		else if (phase == LS_FINETUNING) {
+			ProcessFineTuning();
+		}
 		/*else if (phase == LS_SECONDARY_WORD_CLASS) {
 			ProcessSecondaryWordClass();
 		}
@@ -604,6 +607,18 @@ void LyricsSolver::OnProcessComparison(String res) {
 	
 	SetWaiting(0);
 	NextBatch();
+}
+
+void LyricsSolver::ProcessFineTuning() {
+	
+	
+	
+}
+
+void LyricsSolver::OnProcessFineTuning(String res) {
+	
+	
+	
 }
 
 #if 0
