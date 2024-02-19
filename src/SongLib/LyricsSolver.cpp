@@ -345,87 +345,25 @@ void LyricsSolver::ProcessFilter() {
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
+	Song& song = *this->song;
+	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
-	TODO // Move staticpart stuff to song
-	
-	if (batch >= song->parts.GetCount()) {
-		NextPhase();
-		return;
-	}
-	
-	StaticPart& sp = song->parts[batch];
-	sp.phrase_parts.Clear();
-	if ((skip_ready && sp.phrase_parts.GetCount() == da.phrase_parts.GetCount()) ||
-		sp.part_type == StaticPart::SKIP) {
-		NextBatch();
-		return;
-	}
-	
-	Color no_clr(0,0,0);
-	
-	sp.phrase_parts.Reserve(da.phrase_parts.GetCount());
-	
-	VectorMap<int,int> phrase_parts;
-	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
-		const PhrasePart& pp = da.phrase_parts[i];
-		
-		// Check attr
-		if (pp.attr >= 0) {
-			const ExportAttr* ea = &da.attrs[pp.attr];
-			if (ea->link >= 0)
-				ea = &da.attrs[ea->link];
-			if (ea->simple_attr >= 0) {
-				bool song_enabled = song->simple_attrs[ea->simple_attr];
-				if (!song_enabled)
-					continue;
-			}
-			else continue;
+	this->phrase_parts.Clear();
+	this->phrase_parts.SetCount(ContrastType::PART_COUNT);
+	for(int i = 0; i < ContrastType::PART_COUNT; i++) {
+		auto& m = this->phrase_parts[i];
+		for(int j = 0; j < sa.phrase_parts[i].GetCount(); j++) {
+			const PhrasePart& pp = sa.phrase_parts[i][j];
+			
+			double score = 0;
+			for(int j = 0; j < SCORE_COUNT; j++)
+				score += pp.scores[j];
+			m.Add(j, score);
 		}
-		
-		
-		// Check clr
-		if (pp.clr != no_clr) {
-			int clr_group = GetColorGroup(pp.clr);
-			bool part_enabled = VectorFind(song->clr_list, clr_group) >= 0;
-			if (!part_enabled)
-				continue;
-		}
-		else continue;
-		
-		
-		// Phrase is enabled
-		phrase_parts.Add(i);
+		SortByValue(m, StdGreater<double>());
 	}
 	
-	
-	double perc = 100 * phrase_parts.GetCount() / da.phrase_parts.GetCount();
-	LOG("Part " << sp.name << ": " << phrase_parts.GetCount() << " parts (" << perc << "\%)");
-	
-	
-	// Sort based on score
-	for(int i = 0; i < phrase_parts.GetCount(); i++) {
-		int pp_i = phrase_parts.GetKey(i);
-		const PhrasePart& pp = da.phrase_parts[pp_i];
-		
-		int score_sum = 0;
-		for(int j = 0; j < SCORE_COUNT; j++)
-			score_sum += pp.scores[j];
-		
-		phrase_parts[i] = score_sum;
-	}
-	
-	struct Sorter {
-		bool operator()(int a, int b) const {
-			return a < b;
-		}
-	};
-	SortByValue(phrase_parts, Sorter());
-	
-	
-	sp.phrase_parts <<= phrase_parts.GetKeys();
-	
-	
-	NextBatch();
+	NextPhase();
 }
 
 void LyricsSolver::ProcessPrimary() {
@@ -434,92 +372,131 @@ void LyricsSolver::ProcessPrimary() {
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Song& song = *this->song;
+	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
-	#if !PRIMARY_STATIC_PART
-	if ((skip_ready && song.picked_phrase_parts.GetCount())) {
-		NextBatch();
-		return;
-	}
-	
-	Vector<int> prob_phrase;
-	prob_phrase.Reserve(1000000);
-	for(int i = 0; i < song.parts.GetCount(); i++) {
-		const StaticPart& sp = song.parts[i];
-		
-		for(int i = 0; i < sp.phrase_parts.GetCount(); i++) {
-			int pp_i = sp.phrase_parts[i];
-			int slots = 1 + (sp.phrase_parts.GetCount()-1-i)*10 / sp.phrase_parts.GetCount();
-			for(int j = 0; j < slots; j++)
-				prob_phrase << pp_i;
-		}
-	}
-	
-	int primary_count = min(this->primary_count, prob_phrase.GetCount());
-	Index<int> primary;
-	while (true) {
-		int j = Random(prob_phrase.GetCount());
-		int pp_i = prob_phrase[j];
-		primary.FindAdd(pp_i);
-		if (primary.GetCount() >= primary_count)
-			break;
-	}
-	
-	song.picked_phrase_parts <<= primary.GetKeys();
-	
-	SetWaiting(1);
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	tm.DoNana(ds_i, 0, song, THISBACK(OnProcessPrimary), -1, -1);
-	#else
-	if (batch >= song->parts.GetCount()) {
+	if ((skip_ready && sa.lyrics_suggs.GetCount() >= sugg_limit)) {
 		NextPhase();
 		return;
 	}
 	
-	StaticPart& sp = song->parts[batch];
-	if (sp.part_type == StaticPart::SKIP ||
-		sp.phrase_parts.GetCount() == 0 ||
-		(skip_ready && sp.picked_phrase_parts.GetCount())) {
-		NextBatch();
+	LyricsSolverArgs args;
+	args.fn = 6;
+	
+	int per_part = 15;
+	int min_per_part = 5;
+	bool fail = false;
+	int begin = batch * per_part;
+	int end = begin + per_part;
+	this->phrases.Clear();
+	for(int i = 0; i < ContrastType::PART_COUNT; i++) {
+		const auto& map = this->phrase_parts[i];
+		
+		// Save offsets for reading
+		args.offsets << args.phrases.GetCount();
+		
+		// Add phrases
+		int end0 = min(map.GetCount(), end);
+		int count = end0 - begin;
+		if (count < min_per_part) {
+			fail = true;
+			break;
+		}
+		for(int j = begin; j < end0; j++) {
+			int pp_i = map.GetKey(j);
+			const PhrasePart& pp = sa.phrase_parts[i][pp_i];
+			String s = da.GetWordString(pp.words);
+			args.phrases << s;
+			this->phrases << s;
+		}
+	}
+	if (args.phrases.IsEmpty())
+		fail = true;
+	
+	if (fail) {
+		NextPhase();
+		running = false;
 		return;
 	}
 	
-	
-	Vector<int> prob_phrase;
-	prob_phrase.Reserve(sp.phrase_parts.GetCount() * 10);
-	
-	for(int i = 0; i < sp.phrase_parts.GetCount(); i++) {
-		int pp_i = sp.phrase_parts[i];
-		int slots = 1 + (sp.phrase_parts.GetCount()-1-i)*10 / sp.phrase_parts.GetCount();
-		for(int j = 0; j < slots; j++)
-			prob_phrase << pp_i;
+	// Parts
+	for(int i = 0; i < song.parts.GetCount(); i++) {
+		const StaticPart& sp = song.parts[i];
+		args.parts << sp.name;
+		
+		int nc = sp.nana.Get().GetCount();
+		int c = nc / 2; // these "phrases" has 2 rhyming phrases
+		if (nc % 2) c++;
+		
+		args.counts << c;
 	}
-	
-	int primary_count = min(this->primary_count, prob_phrase.GetCount());
-	Index<int> primary;
-	while (true) {
-		int j = Random(prob_phrase.GetCount());
-		int pp_i = prob_phrase[j];
-		primary.FindAdd(pp_i);
-		if (primary.GetCount() >= primary_count)
-			break;
-	}
-	
-	sp.picked_phrase_parts <<= primary.GetKeys();
 	
 	SetWaiting(1);
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	tm.DoNana(ds_i, 0, song, THISBACK(OnProcessPrimary), -1, batch);
-	#endif
+	RealizePipe();
+	TaskMgr& m = *pipe;
+	m.GetLyricsSolver(args, THISBACK(OnProcessPrimary));
 }
 
-void LyricsSolver::OnProcessPrimary() {
-	SetWaiting(0);
+void LyricsSolver::OnProcessPrimary(String res) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Song& song = *this->song;
+	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
-	#if !PRIMARY_STATIC_PART
-	NextPhase();
-	#else
+	res = "- " + res;
+	
+	CombineHash ch;
+	VectorMap<String,Vector<String>> sugg;
+	bool fail = false;
+	
+	RemoveEmptyLines3(res);
+	Vector<String> lines = Split(res, "\n");
+	int scores[SCORE_COUNT];
+	Vector<int> part_is;
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		
+		int a = line.Find(":");
+		if (a < 0) continue;
+		String part = TrimBoth(line.Left(a));
+		ch.Do(part);
+		line = line.Mid(a+1);
+		a = line.Find(":");
+		if (a < 0) continue;
+		line = line.Mid(a+1);
+		
+		
+		part_is.SetCount(0);
+		Vector<String> parts = Split(line, ",");
+		for (String& part : parts) {
+			part = TrimBoth(part);
+			part_is << (ScanInt(part)-1);
+		}
+		for(int i = 0; i < part_is.GetCount(); i++) {
+			int part_i = part_is[i];
+			if (part_i < 0 || part_i >= this->phrases.GetCount()) {
+				fail = true;
+				break;
+			}
+			Vector<String> phrase_lines = Split(this->phrases[part_i], "/");
+			for (String& phrase_line : phrase_lines) {
+				phrase_line = TrimBoth(phrase_line);
+				sugg.GetAdd(part).Add(phrase_line);
+				ch.Do(phrase_line);
+			}
+		}
+	}
+	
+	//DUMPM(sugg);
+	
+	hash_t h = ch;
+	LyricsSuggestions& ls = sa.lyrics_suggs.GetAdd(h);
+	if (ls.lines.IsEmpty())
+		Swap(ls.lines, sugg);
+	
+	SetWaiting(0);
 	NextBatch();
-	#endif
 }
 
 void LyricsSolver::ProcessSecondaryWordClass() {

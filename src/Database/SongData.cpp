@@ -339,6 +339,8 @@ void SongAnalysis::Load(const String& dir) {
 		phrase_combs[i].Load(dir, "phrase combinations " + IntStr(i));
 	}
 	
+	lyrics_suggs.Load(dir, "lyrics suggestions");
+	
 }
 
 String DatasetAnalysis::GetTokenTextString(const TokenText& txt) const {

@@ -968,12 +968,28 @@ struct PhraseComb : Moveable<PhraseComb> {
 	}
 };
 
+struct LyricsSuggestions : Moveable<LyricsSuggestions> {
+	VectorMap<String,Vector<String>> lines;
+	
+	
+	String StoreToString() {
+		StringDumper d;
+		d % lines;
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		p % lines;
+	}
+};
+
 struct SongAnalysis {
 	DatasetAnalysis* da = 0;
 	
 	MapFile<hash_t,PhrasePart> phrase_parts[ContrastType::PART_COUNT];
 	IntIndexFile source_pool[ContrastType::PART_COUNT];
 	MapFile<hash_t,PhraseComb> phrase_combs[ContrastType::PART_COUNT];
+	MapFile<hash_t,LyricsSuggestions> lyrics_suggs;
 	
 	void Load(const String& dir);
 };

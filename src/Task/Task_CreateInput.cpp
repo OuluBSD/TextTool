@@ -2832,4 +2832,50 @@ void Task::CreateInput_LyricsSolver() {
 		input.response_length = 2048;
 	}
 	
+	else if (args.fn == 6) {
+		{
+			auto& list = input.AddSub().Title("Song \"B\": parts");
+			for(int i = 0; i < args.parts.GetCount(); i++)
+				list.Add(args.parts[i] + ": " + IntStr(args.counts[i]) + " lines");
+		}
+		{
+			auto& list = input.AddSub().Title("Song \"B\": Potential phrases");
+			list.NumberedLines();
+			for(int j = 0; j < args.phrases.GetCount(); j++) {
+				const String& phrase = args.phrases[j];
+				list.Add(phrase);
+			}
+		}
+		/*for(int i = 0; i < args.offsets.GetCount(); i++) {
+			auto& list = input.AddSub().Title("Song \"B\": Potential phrases");
+			int begin = args.offsets[i];
+			int end = i+1 < args.offsets.GetCount() ? args.offsets[i+1] : args.phrases.GetCount();
+			for(int j = begin; j < end; j++) {
+				const String& phrase = args.phrases[j];
+				list.Add(phrase);
+			}
+		}*/
+		/*Vector<String> pre_lines = Split(args.pre_text, "\n");
+		if (!pre_lines.IsEmpty()) {
+			auto& list = input.AddSub().Title("Song \"B\": earlier phrases in the same song");
+			list.NumberedLines();
+			for(int i = 0; i < pre_lines.GetCount(); i++)
+				list.Add(pre_lines[i]);
+		}*/
+		{
+			auto& list = input.AddSub().Title("Example \"A\": lines per parts, and phrase's line numbers");
+			//list.NumberedLines();
+			list.Add("Intro: 0 lines");
+			list.Add("Verse 1: 4 lines: 4, 2, 3, 6");
+			list.Add("Chorus: 4 lines: 8, 13, 12, 1");
+			list.Add("Verse 2: 4 lines: 10, 9, 11, 14");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Song \"B\": lines per parts. Sort lines/phrases in a way, that the story of the song is best");
+			results.EmptyLine();
+		}
+		input.response_length = 2048;
+	}
+	
 }

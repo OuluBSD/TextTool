@@ -33,7 +33,11 @@ class LyricsSolver {
 	double dist_limit = 0.005;
 	int primary_count = 50;
 	int rhyming_list_count = 5;
+	int sugg_limit = 8;
 	
+	// temp
+	Vector<VectorMap<int,double>> phrase_parts;
+	Vector<String> phrases;
 	
 	void RealizePipe();
 	void Process();
@@ -43,7 +47,7 @@ class LyricsSolver {
 	void ProcessSecondaryWordClass();
 	void ProcessSecondaryFilter();
 	void ProcessSecondary();
-	void OnProcessPrimary();
+	void OnProcessPrimary(String res);
 	void OnProcessSecondaryWordClass(String res);
 	void OnProcessSecondary();
 	void PostProgress() {WhenProgress(phase, LS_COUNT);}

@@ -540,6 +540,7 @@ struct LyricsSolverArgs {
 	int fn;
 	VectorMap<String,String> artist, release, song;
 	Vector<String> parts, attrs, phrases;
+	Vector<int> counts, offsets;
 	String part;
 	
 	void Jsonize(JsonIO& json) {
@@ -550,6 +551,8 @@ struct LyricsSolverArgs {
 				("parts", parts)
 				("attrs", attrs)
 				("phrases", phrases)
+				("counts", counts)
+				("offsets", offsets)
 				("part", part)
 				;
 	}

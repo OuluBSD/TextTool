@@ -466,6 +466,19 @@ struct StringDumper {
 		Do(c.action);
 		Do(c.arg);
 	}
+	template <> void Do<VectorMap<String,Vector<String>>>(const VectorMap<String,Vector<String>>& lines) {
+		int c = lines.GetCount();
+		(*this) % c;
+		for(int i = 0; i < lines.GetCount(); i++) {
+			const String& key = lines.GetKey(i);
+			(*this) % key;
+			const auto& v = lines[i];
+			c = v.GetCount();
+			(*this) % c;
+			for(int j = 0; j < c; j++)
+				(*this) % v[j];
+		}
+	}
 	operator String() const {return s;}
 	template <class T> StringDumper& operator%(const T& o) {Do(o); return *this;}
 };
@@ -524,6 +537,19 @@ struct StringParser {
 	template <> void Do<ActionHeader>(ActionHeader& o) {
 		Do(o.action);
 		Do(o.arg);
+	}
+	template <> void Do<VectorMap<String,Vector<String>>>(VectorMap<String,Vector<String>>& lines) {
+		lines.Clear();
+		int c = 0;
+		(*this) % c;
+		for(int i = 0; i < c; i++) {
+			String key;
+			(*this) % key;
+			auto& v = lines.Add(key);
+			(*this) % c;
+			for(int j = 0; j < c; j++)
+				(*this) % v.Add();
+		}
 	}
 	template <class T> StringParser& operator%(T& o) {Do(o); return *this;}
 	void Chk() {ASSERT(!err);}
