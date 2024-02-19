@@ -63,6 +63,9 @@ void LyricsGenerator::Process() {
 		else if (phase == LG_MAKE_RHYMES) {
 			ProcessRhymes();
 		}
+		else if (phase == LG_GET_AI_SCORES) {
+			ProcessScores();
+		}
 		
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
@@ -472,6 +475,127 @@ void LyricsGenerator::OnProcessRhymes(String res) {
 		NextBatch();
 	else
 		NextSubBatch();
+}
+
+void LyricsGenerator::ProcessScores() {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Song& song = *this->song;
+	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	
+	if (sub_batch == 0)
+		iter = 0;
+	
+	LyricsSolverArgs args;
+	args.fn = 5;
+	
+	per_sub_batch =  15;
+	
+	pp_is.Clear();
+	while(iter < sa.phrase_parts[batch].GetCount()) {
+		int pp_i = iter++;
+		const PhrasePart& pp = sa.phrase_parts[batch][pp_i];
+		
+		// Check if score is fetched already
+		int total_score = 0;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			total_score += pp.scores[i];
+		if (total_score > 0)
+			continue;
+		
+		// Fetch scores for the phrase
+		String phrase = da.GetWordString(pp.words);
+		args.phrases << phrase;
+		pp_is.Add(phrase, pp_i);
+		
+		if (args.phrases.GetCount() >= per_sub_batch)
+			break;
+	}
+	
+	if (args.phrases.IsEmpty()) {
+		if (batch >= ContrastType::PART_COUNT)
+			NextPhase();
+		else
+			NextBatch();
+		return;
+	}
+	
+	SetWaiting(1);
+	RealizePipe();
+	TaskMgr& m = *pipe;
+	m.GetLyricsSolver(args, THISBACK(OnProcessScores));
+}
+
+void LyricsGenerator::OnProcessScores(String res) {
+	Database& db = Database::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Song& song = *this->song;
+	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	
+	res = "2. \"" + res;
+	
+	RemoveEmptyLines2(res);
+	Vector<String> lines = Split(res, "\n");
+	int scores[SCORE_COUNT];
+	bool use_tmp = lines.GetCount() == pp_is.GetCount();
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		
+		int a = line.Find(":");
+		if (a < 0) continue;
+		
+		int pp_i = -1;
+		
+		if (use_tmp)
+			pp_i = pp_is[i];
+		else {
+			String phrase = line.Left(a);
+			RemoveQuotes(phrase);
+			pp_i = pp_is.Get(phrase, -1);
+			if (pp_i < 0)
+				continue;
+		}
+		
+		line = TrimBoth(line.Mid(a+1));
+		
+		PhrasePart& pp = sa.phrase_parts[batch][pp_i];
+		
+		Vector<String> parts = Split(line, ",");
+		if (parts.GetCount() != SCORE_COUNT)
+			continue;
+		
+		bool fail = false;
+		
+		for(int j = 0; j < parts.GetCount(); j++) {
+			String& part = parts[j];
+			a = part.Find(":");
+			if (a < 0) {
+				fail = true;
+				break;
+			}
+			a++;
+			part = TrimBoth(part.Mid(a));
+			if (part.IsEmpty() || !IsDigit(part[0])) {
+				fail = true;
+				break;
+			}
+			int score = ScanInt(part);
+			scores[j] = score;
+		}
+		if (fail)
+			continue;
+		
+		for(int j = 0; j < SCORE_COUNT; j++) {
+			pp.scores[j] = scores[j];
+		}
+	}
+	
+	SetWaiting(0);
+	NextSubBatch();
 }
 
 }

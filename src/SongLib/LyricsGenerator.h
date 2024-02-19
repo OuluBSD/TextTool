@@ -38,6 +38,8 @@ class LyricsGenerator {
 	
 	// temp
 	Vector<VectorMap<int,double>> phrases;
+	int iter = 0;
+	VectorMap<String, int> pp_is;
 	
 	void RealizePipe();
 	void Process();
@@ -47,10 +49,12 @@ class LyricsGenerator {
 	void ProcessAttr();
 	void ProcessAction();
 	void ProcessRhymes();
+	void ProcessScores();
 	void OnProcessColor(String result);
 	void OnProcessAttr(String result);
 	void OnProcessPairPhrases(String result);
 	void OnProcessRhymes(String result);
+	void OnProcessScores(String result);
 	void PostProgress() {WhenProgress(phase, LG_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}
