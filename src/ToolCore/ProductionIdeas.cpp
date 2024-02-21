@@ -5974,7 +5974,6 @@ const Vector<ProductionIdeaTopic>& ProductionIdeas() {
 		v.AddPos("\"free as a bird\" -> \"free as a member of One Direction\"");
 		v.AddPos("\"slippery as an eel\" -> \"slippery as a Kardashian in a paparazzi chase\" ");
 		v.AddPos("\"clever as a fox\" -> \"clever as Sherlock Holmes\"");
-		v.AddPos("\"loyal as a dog\" -> \"loyal as a fan of Taylor Swift\"");
 		v.AddPos("\"hungry as a bear\" -> \"hungry as a member of BTS on tour\"");
 		v.AddPos("\"playful as a kitten\" -> \"playful as a Disney character\" ");
 		v.AddPos("\"fast as a cheetah\" -> \"fast as a race car in the Fast and Furious franchise\"");

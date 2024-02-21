@@ -915,6 +915,7 @@
 			"value": "timeless"
 		}
 	],
+	"is_female": false,
 	"releases": [
 		"mustat3"
 	]

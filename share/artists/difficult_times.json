@@ -963,6 +963,7 @@
 			"value": "timeless"
 		}
 	],
+	"is_female": false,
 	"releases": [
 		"my_page",
 		"pms_07",

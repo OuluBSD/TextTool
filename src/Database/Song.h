@@ -434,6 +434,7 @@ struct Song :
 	Vector<bool>				simple_attrs;
 	Index<int>					picked_phrase_parts;
 	Vector<int>					clr_list;
+	bool						is_rapper = false;
 	
 	void Store();
 	void LoadTitle(String title);
@@ -470,6 +471,7 @@ struct Song :
 			("active_roles", active_roles)
 			("picked_phrase_parts", picked_phrase_parts)
 			("clr_list", clr_list)
+			("is_rapper", is_rapper)
 			;
 		JsonCompressedStream(json, "simple_attrs", simple_attrs);
 		

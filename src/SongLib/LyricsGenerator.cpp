@@ -250,7 +250,9 @@ void LyricsGenerator::ProcessPairPhrases() {
 	
 	
 	int song_tc = ScanInt(song.data.Get("ATTR_TYPECAST", "0"));
-	const Vector<String>& artists = GetTypecastArtists()[song_tc];
+	bool is_rapper = ScanInt(song.data.Get("ATTR_IS_RAPPER", "0"));
+	bool is_female = artist->is_female;
+	const Vector<String>& artists = GetTypecastArtists(is_rapper, is_female)[song_tc];
 	args.parts <<= artists;
 	
 	SetWaiting(1);
@@ -367,7 +369,9 @@ void LyricsGenerator::ProcessRhymes() {
 	
 	
 	int song_tc = ScanInt(song.data.Get("ATTR_TYPECAST", "0"));
-	const Vector<String>& artists = GetTypecastArtists()[song_tc];
+	bool is_rapper = ScanInt(song.data.Get("ATTR_IS_RAPPER", "0"));
+	bool is_female = artist->is_female;
+	const Vector<String>& artists = GetTypecastArtists(is_rapper, is_female)[song_tc];
 	args.parts <<= artists;
 	
 	SetWaiting(1);

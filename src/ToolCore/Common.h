@@ -917,7 +917,14 @@ int GetContrastCount();
 const VectorMap<String,String>& GetArchetypes();
 int GetArchetypeCount();
 
-VectorMap<String,Vector<String>>& GetTypecastArtists();
+VectorMap<String,Vector<String>>& GetTypecastSingers();
+VectorMap<String,Vector<String>>& GetTypecastSingersMale();
+VectorMap<String,Vector<String>>& GetTypecastSingersFemale();
+VectorMap<String,Vector<String>>& GetTypecastRappersMale();
+VectorMap<String,Vector<String>>& GetTypecastRappersFemale();
+VectorMap<String,Vector<String>>& GetTypecastSingers(bool gender);
+VectorMap<String,Vector<String>>& GetTypecastRappers(bool gender);
+VectorMap<String,Vector<String>>& GetTypecastArtists(bool rapper, bool gender);
 
 
 #endif

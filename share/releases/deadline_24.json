@@ -3,7 +3,38 @@
 	"english_title": "Deadline 24",
 	"date": null,
 	"data": [
-
+		{
+			"key": "LIFE_BEGINNING",
+			"value": "The author is studying music production in the Lappia, Tornio, Finland. He is having nice schoolfriends there."
+		},
+		{
+			"key": "LIFE_SCHOOL",
+			"value": "Lappia, Tornio, Finland"
+		},
+		{
+			"key": "LIFE_RELATIONSHIPS",
+			"value": "Some sparks"
+		},
+		{
+			"key": "LIFE_NERDINESS",
+			"value": "Very much c++ programming because of the SongTool app"
+		},
+		{
+			"key": "LIFE_MUSIC_PRODUCTION",
+			"value": "Cubase 13, Kontakt 7, Ezdrummer 3, Ezkeys 2, Ezbass, Izotope Advanced"
+		},
+		{
+			"key": "LIFE_FAMILY",
+			"value": "Mother's side grandfather died."
+		},
+		{
+			"key": "HEADSPACE_POSITIVITY",
+			"value": "SongTool and the first DiffTimes album is close to being released."
+		},
+		{
+			"key": "HEADSPACE_NEGATIVITY",
+			"value": "The SongTool haven't been working yet, and it's very difficult and tedious job to make it work."
+		}
 	],
 	"year_of_content": 2024,
 	"ideas": [

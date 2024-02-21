@@ -55,9 +55,9 @@ void LyricsSolver::Process() {
 		else if (phase == LS_COMPARISON) {
 			ProcessComparison();
 		}
-		else if (phase == LS_FINETUNING) {
+		/*else if (phase == LS_FINETUNING) {
 			ProcessFineTuning();
-		}
+		}*/
 		/*else if (phase == LS_SECONDARY_WORD_CLASS) {
 			ProcessSecondaryWordClass();
 		}
@@ -438,6 +438,8 @@ void LyricsSolver::ProcessPrimary() {
 		part_sizes.Add(sp.name, c2);
 	}
 	
+	args.part = song.data.Get("ATTR_CONTENT_VISION", "");
+	
 	SetWaiting(1);
 	RealizePipe();
 	TaskMgr& m = *pipe;
@@ -481,8 +483,27 @@ void LyricsSolver::OnProcessPrimary(String res) {
 			part = TrimBoth(part);
 			part_is << (ScanInt(part)-1);
 		}
-		int len = part_sizes.Get(part,0);
-		auto& v = sugg.GetAdd(part);
+		int len = 0;
+		int j = part_sizes.Find(part);
+		if (j >= 0)
+			len = part_sizes[j];
+		else {
+			int a = part.ReverseFind(" ");
+			if (a >= 0) {
+				j = part_sizes.Find(part.Left(a));
+				if (j >= 0)
+					len = part_sizes[j];
+				else a = -1; // fail
+			}
+			else {
+				j = part_sizes.Find(part + " 1");
+				if (j >= 0)
+					len = part_sizes[j];
+			}
+			//if (a < 0) // if fail
+			//	len = 16; // give up on limiting
+		}
+		auto& v = sugg.Add(part);
 		
 		for(int i = 0; i < part_is.GetCount(); i++) {
 			int part_i = part_is[i];
@@ -555,6 +576,8 @@ void LyricsSolver::ProcessComparison() {
 		args.phrases << content;
 	}
 	
+	args.part = song.data.Get("ATTR_CONTENT_VISION", "");
+	
 	SetWaiting(1);
 	RealizePipe();
 	TaskMgr& m = *pipe;
@@ -569,10 +592,11 @@ void LyricsSolver::OnProcessComparison(String res) {
 	Song& song = *this->song;
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
+	int loser = 0;
 	
+	#if 0
 	res = TrimLeft(res);
 	
-	int loser = 0;
 	if (res.IsEmpty() || !IsDigit(res[0])) {
 		loser = 0;
 	}
@@ -580,6 +604,35 @@ void LyricsSolver::OnProcessComparison(String res) {
 		int winner = res[0] == 1 ? 0 : 1;
 		loser = !winner;
 	}
+	#else
+	res = "entry #1: S0:" + res;
+	
+	RemoveEmptyLines3(res);
+	Vector<String> lines = Split(res, "\n");
+	Vector<double> total_scores;
+	for (String& line : lines) {
+		int a = line.Find(":");
+		if (a < 0) continue;
+		line = TrimBoth(line.Mid(a+1));
+		Vector<String> parts = Split(line, ",");
+		int score_sum = 0, score_count = 0;
+		for (String& p : parts) {
+			p = TrimBoth(p);
+			a = p.Find(":");
+			if (a < 0) continue;
+			p = p.Mid(a+1);
+			int score = ScanInt(TrimLeft(p));
+			score_sum += score;
+			score_count++;
+		}
+		double score = (double)score_sum / score_count;
+		total_scores << score;
+	}
+	if (total_scores.GetCount() >= 2)
+		loser = total_scores[0] > total_scores[1] ? 1:0;
+	else
+		loser = 0; // error
+	#endif
 	int loser_sugg_i = remaining[loser];
 	LyricsSuggestions& ls = sa.lyrics_suggs[loser_sugg_i];
 	ls.rank = remaining.GetCount()-1;
@@ -609,6 +662,7 @@ void LyricsSolver::OnProcessComparison(String res) {
 	NextBatch();
 }
 
+#if 0
 void LyricsSolver::ProcessFineTuning() {
 	
 	
@@ -621,7 +675,6 @@ void LyricsSolver::OnProcessFineTuning(String res) {
 	
 }
 
-#if 0
 void LyricsSolver::ProcessSecondaryWordClass() {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;

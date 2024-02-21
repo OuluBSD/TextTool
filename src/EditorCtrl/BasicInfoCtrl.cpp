@@ -4,6 +4,9 @@
 BasicInfoCtrl::BasicInfoCtrl() {
 	CtrlLayout(*this);
 	
+	sex.Add(t_("Male"));
+	sex.Add(t_("Female"));
+	
 	native_name <<= THISBACK(OnValueChange);
 	english_name <<= THISBACK(OnValueChange);
 	year_of_birth <<= THISBACK(OnValueChange);
@@ -22,6 +25,7 @@ BasicInfoCtrl::BasicInfoCtrl() {
 	song_prj_name <<= THISBACK(OnValueChange);
 	vocalist_visual <<= THISBACK(OnValueChange);
 	year_of_content <<= THISBACK(OnValueChange);
+	sex <<= THISBACK(OnValueChange);
 	
 }
 
@@ -43,7 +47,8 @@ void BasicInfoCtrl::Clear() {
 	this->native_song_title			.Clear();
 	this->english_song_title		.Clear();
 	this->song_prj_name				.Clear();
-	this->year_of_content				.Clear();
+	this->year_of_content			.Clear();
+	this->sex						.SetIndex(0);
 }
 
 void BasicInfoCtrl::Data() {
@@ -65,6 +70,7 @@ void BasicInfoCtrl::Data() {
 		this->acoustic_instruments		.SetData(a.acoustic_instruments);
 		this->electronic_instruments	.SetData(a.electronic_instruments);
 		this->vocalist_visual			.SetData(a.vocalist_visual);
+		this->sex						.SetIndex(a.is_female);
 	}
 	
 	if (p.release) {
@@ -102,6 +108,7 @@ void BasicInfoCtrl::OnValueChange() {
 		o.acoustic_instruments		= this->acoustic_instruments.GetData();
 		o.electronic_instruments	= this->electronic_instruments.GetData();
 		o.vocalist_visual			= this->vocalist_visual.GetData();
+		o.is_female					= this->sex.GetIndex();
 		
 		int c = editor->artists.GetCursor();
 		editor->artists.Set(c, 0, o.native_name);

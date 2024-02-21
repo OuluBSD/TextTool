@@ -20,6 +20,7 @@ struct Artist :
 	VectorMap<String,String>	data;
 	VectorMap<String,String>	phrases_nat;
 	VectorMap<String,String>	phrases_eng;
+	bool is_female = false;
 	
 	// Public (separate files)
 	Array<Release> releases;
@@ -66,6 +67,7 @@ struct Artist :
 			% data
 			% phrases_nat
 			% phrases_eng
+			% is_female
 			;
 		//SnapContext::Serialize(s);
 	}
@@ -84,6 +86,7 @@ struct Artist :
 			("data", data)
 			("phrases", phrases_nat)
 			("phrases_eng", phrases_eng)
+			("is_female", is_female)
 			;
 		if (json.IsStoring()) {
 			Vector<String> names;

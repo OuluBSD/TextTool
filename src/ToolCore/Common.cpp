@@ -1638,4 +1638,23 @@ const Vector<String>& GetContrastParts() {
 	return list;
 }
 
+VectorMap<String,Vector<String>>& GetTypecastSingers(bool gender) {
+	if (!gender)
+		return GetTypecastSingersMale();
+	else
+		return GetTypecastSingersFemale();
+}
 
+VectorMap<String,Vector<String>>& GetTypecastRappers(bool gender) {
+	if (!gender)
+		return GetTypecastRappersMale();
+	else
+		return GetTypecastRappersFemale();
+}
+
+VectorMap<String,Vector<String>>& GetTypecastArtists(bool rapper, bool gender) {
+	if (!rapper)
+		return GetTypecastSingers(gender);
+	else
+		return GetTypecastRappers(gender);
+}

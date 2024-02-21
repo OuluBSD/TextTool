@@ -2871,6 +2871,13 @@ void Task::CreateInput_LyricsSolver() {
 			list.Add("Verse 2: 4 lines: 10, 9, 11, 14");
 		}
 		{
+			auto& list = input.AddSub().Title("Song \"B\" should fit the following vision of the song");
+			//list.NumberedLines();
+			Vector<String> lines = Split(args.part, ". ");
+			for (String& l : lines)
+				list.Add(l);
+		}
+		{
 			TaskTitledList& results = input.PreAnswer();
 			results.Title("Song \"B\": lines per parts. Sort lines/phrases in a way, that the story of the song is best");
 			results.EmptyLine();
@@ -2879,20 +2886,46 @@ void Task::CreateInput_LyricsSolver() {
 	}
 	
 	else if (args.fn == 7) {
+		{
+			auto& list = input.AddSub().Title("Lyrics heuristic score factors");
+			list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
+			list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
+			list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
+			list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
+			list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+			list.Add("S5: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
+			list.Add("S6: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
+			list.Add("S7: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
+			list.Add("S8: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
+			list.Add("S9: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
+			list.Add("S10: How well lyrics fit the original vision.");
+		}
+		{
+			auto& list = input.AddSub().Title("Lyrics heuristic score factors for single phrase");
+			list.Add("\"I'm bleeding after you\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7, S5: 9, S6: 4, S7: 2, S8: 3, S9: 2, s10: 5");
+		}
+		
 		for(int i = 0; i < args.phrases.GetCount(); i++) {
 			const String& p = args.phrases[i];
 			Vector<String> lines = Split(p, "\n");
 			{
-				auto& list = input.AddSub().Title("Lyrics competition entry #" + IntStr(i+1));
+				auto& list = input.AddSub().Title("Lyrics entry #" + IntStr(i+1));
 				list.NoListChar();
 				for(int i = 0; i < lines.GetCount(); i++)
 					list.Add(lines[i]);
 			}
 		}
 		{
+			auto& list = input.AddSub().Title("Original vision of the song");
+			//list.NumberedLines();
+			Vector<String> lines = Split(args.part, ". ");
+			for (String& l : lines)
+				list.Add(l);
+		}
+		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Competition results");
-			results.Add("Winner is entry: #");
+			results.Title("Lyrics heuristic score factors");
+			results.Add("entry #1: S0:");
 			input.response_length = 2048;
 		}
 	}

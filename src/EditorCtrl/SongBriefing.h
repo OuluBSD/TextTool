@@ -19,6 +19,7 @@ class SongBriefing : public SongToolCtrl {
 		ATTR_TYPECAST,
 		ATTR_CONTRAST,
 		ATTR_ARCHETYPE,
+		ATTR_IS_RAPPER,
 		
 		
 		/*#define ATTR_ITEM(e, g, i0, i1) ITEM_GENERIC_##e,

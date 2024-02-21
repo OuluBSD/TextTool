@@ -51,13 +51,13 @@ class LyricsSolver {
 	void ProcessFilter();
 	void ProcessPrimary();
 	void ProcessComparison();
-	void ProcessFineTuning();
+	//void ProcessFineTuning();
 	/*void ProcessSecondaryWordClass();
 	void ProcessSecondaryFilter();
 	void ProcessSecondary();*/
 	void OnProcessPrimary(String res);
 	void OnProcessComparison(String res);
-	void OnProcessFineTuning(String res);
+	//void OnProcessFineTuning(String res);
 	/*void OnProcessSecondaryWordClass(String res);
 	void OnProcessSecondary();*/
 	void PostProgress() {WhenProgress(phase, LS_COUNT);}
