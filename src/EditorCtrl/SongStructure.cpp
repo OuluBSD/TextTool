@@ -92,9 +92,9 @@ void SongStructure::Data() {
 }
 
 void SongStructure::DataActive() {
-	Song& song = GetSong();
+	Lyrics& l = GetLyrics();
 	
-	Song::StructSuggestion& s = song.active_struct;
+	StructSuggestion& s = l.active_struct;
 	
 	//s.chords.SetCount(s.parts.GetCount());
 	
@@ -111,7 +111,7 @@ void SongStructure::DataActive() {
 	active.attrs.SetCount(s.attrs.GetCount());
 	
 	for(int i = 0; i < s.parts.GetCount(); i++) {
-		StaticPart* sp = song.FindPartByType(s.parts[i]);
+		StaticPart* sp = l.FindPartByType(s.parts[i]);
 		String abbr = s.parts[i];
 		active.parts.Set(i, 0,
 			AttrText(GetSongPartFromAbbr(abbr)).NormalPaper(GetSongPartPaperColor(abbr)));
@@ -122,7 +122,7 @@ void SongStructure::DataActive() {
 }
 
 void SongStructure::DataSong() {
-	Song& song = GetSong();
+	Lyrics& l = GetLyrics();
 	
 	params.Set(0, 1, GetParam("USER_STRUCT"));
 	params.Set(1, 1, GetParam("REQ_PARTS"));
@@ -135,13 +135,13 @@ void SongStructure::DataSong() {
 }
 
 void SongStructure::DataSuggestions() {
-	Song& song = GetSong();
+	Lyrics& l = GetLyrics();
 	
 	int bpm = StrInt(GetParam("BPM", "120"));
 	
-	int c = song.struct_suggs.GetCount();
+	int c = l.struct_suggs.GetCount();
 	for(int i = 0; i < c; i++) {
-		Song::StructSuggestion& sug = song.struct_suggs[i];
+		StructSuggestion& sug = l.struct_suggs[i];
 		
 		structs.Set(i, 0, i);
 		structs.Set(i, 1, sug.name);
@@ -158,7 +158,7 @@ void SongStructure::DataSuggestions() {
 }
 
 void SongStructure::DataSuggestionAttributes() {
-	Song& song = GetSong();
+	Lyrics& l = GetLyrics();
 	
 	if (!structs.IsCursor()) {
 		attributes.Clear();
@@ -168,7 +168,7 @@ void SongStructure::DataSuggestionAttributes() {
 	
 	int cur = structs.GetCursor();
 	int idx = structs.Get(cur, 0);
-	Song::StructSuggestion& sug = song.struct_suggs[idx];
+	StructSuggestion& sug = l.struct_suggs[idx];
 	
 	for(int i = 0; i < sug.attrs.GetCount(); i++) {
 		String& attr = sug.attrs[i];
@@ -198,11 +198,11 @@ void SongStructure::LoadStructure() {
 	if (!structs.IsCursor())
 		return;
 	try {
-		Song& song = GetSong();
+		Lyrics& l = GetLyrics();
 		int cur = structs.GetCursor();
 		int idx = structs.Get(cur, 0);
-		Song::StructSuggestion& sug = song.struct_suggs[idx];
-		song.active_struct = sug;
+		StructSuggestion& sug = l.struct_suggs[idx];
+		l.active_struct = sug;
 		
 		LoadActiveStruct();
 	}
@@ -216,12 +216,12 @@ void SongStructure::LoadStructureString(String struct_str) {
 		return;
 	
 	try {
-		Song& song = GetSong();
-		Song::StructSuggestion& sug = song.active_struct;
+		Lyrics& l = GetLyrics();
+		StructSuggestion& sug = l.active_struct;
 		sug.Clear();
 		sug.name = "User's structure";
 		sug.parts <<= Split(struct_str, ",");
-		for (auto& s : song.active_struct.parts) s = TrimBoth(s);
+		for (auto& s : l.active_struct.parts) s = TrimBoth(s);
 		
 		
 		LoadActiveStruct();
@@ -233,19 +233,19 @@ void SongStructure::LoadStructureString(String struct_str) {
 }
 
 void SongStructure::LoadActiveStruct() {
-	Song& song = GetSong();
+	Lyrics& l = GetLyrics();
 	
 	Index<String> unique_parts;
-	for(int i = 0; i < song.active_struct.parts.GetCount(); i++) {
-		String abbr = song.active_struct.parts[i];
+	for(int i = 0; i < l.active_struct.parts.GetCount(); i++) {
+		String abbr = l.active_struct.parts[i];
 		unique_parts.FindAdd(abbr);
 	}
 	SortIndex(unique_parts, PartAbbrSorter());
 	
-	song.parts.Clear();
+	l.parts.Clear();
 	for(int i = 0; i < unique_parts.GetCount(); i++) {
 		String abbr = unique_parts[i];
-		StaticPart& part = song.parts.Add();
+		StaticPart& part = l.parts.Add();
 		part.name = TrimBoth(GetSongPartFromAbbr(abbr));
 		part.type = abbr;
 	}
@@ -258,9 +258,7 @@ void SongStructure::LoadUserStructure() {
 
 void SongStructure::GetStructureSuggestions() {
 	if (disabled) return;
-	Song& song = GetSong();
-	
-	
+	Lyrics& l = GetLyrics();
 	
 	DisableAll();
 	
@@ -271,24 +269,22 @@ void SongStructure::GetStructureSuggestions() {
 		String total_str = GetParam("PARTS_TOTAL", "0");
 		int total = StrInt(total_str);
 		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
-		m.GetStructureSuggestions(req, avoid, desc, total, THISBACK1(OnStructureSuggestion, &song));
+		m.GetStructureSuggestions(req, avoid, desc, total, THISBACK1(OnStructureSuggestion, &l));
 	}
 }
 
 void SongStructure::GetSuggestionAttributes() {
 	if (disabled) return;
-	Song& song = GetSong();
-	
-	
+	Lyrics& l = GetLyrics();
 	
 	DisableAll();
 	
 	{
 		Vector<String> structs;
-		for (auto& sug : song.struct_suggs)
+		for (auto& sug : l.struct_suggs)
 			structs << Join(sug.parts, ", ");
 		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
-		m.GetSuggestionAttributes(structs, THISBACK1(OnSuggestionAttributes, &song));
+		m.GetSuggestionAttributes(structs, THISBACK1(OnSuggestionAttributes, &l));
 	}
 }
 
@@ -302,12 +298,12 @@ String SongStructure::GetParam(String key, String def) {
 	return song.data.Get(key, def);
 }
 
-void SongStructure::OnStructureSuggestion(String result, Song* song_) {
+void SongStructure::OnStructureSuggestion(String result, Lyrics* l_) {
 	PostCallback(THISBACK(EnableAll));
 	//LOG(result);
 	
-	Song& song = *song_;
-	song.struct_suggs.Clear();
+	Lyrics& l = *l_;
+	l.struct_suggs.Clear();
 	
 	Vector<String> suggestions = Split(result, "\n");
 	for (String& sug : suggestions) {
@@ -324,7 +320,7 @@ void SongStructure::OnStructureSuggestion(String result, Song* song_) {
 		}
 		if (sug.Left(1) == "\"") sug = TrimBoth(sug.Mid(1, sug.GetCount()-2));
 		
-		Song::StructSuggestion& struct_sug = song.struct_suggs.Add();
+		StructSuggestion& struct_sug = l.struct_suggs.Add();
 		struct_sug.name = name;
 		struct_sug.parts = Split(sug, ",");
 		for (String& p : struct_sug.parts)
@@ -334,14 +330,14 @@ void SongStructure::OnStructureSuggestion(String result, Song* song_) {
 	PostCallback(THISBACK(DataSuggestions));
 }
 
-void SongStructure::OnSuggestionAttributes(String result, Song* song) {
+void SongStructure::OnSuggestionAttributes(String result, Lyrics* l) {
 	PostCallback(THISBACK(EnableAll));
 	//LOG(result);
 	
 	Vector<String> parts = Split(result, "\n\n");
 	
-	if (parts.GetCount() != song->struct_suggs.GetCount()) {
-		PromptOK("Result: part count mismatch: " + IntStr(parts.GetCount()) + " != " + IntStr(song->struct_suggs.GetCount()));
+	if (parts.GetCount() != l->struct_suggs.GetCount()) {
+		PromptOK("Result: part count mismatch: " + IntStr(parts.GetCount()) + " != " + IntStr(l->struct_suggs.GetCount()));
 		return;
 	}
 	
@@ -351,7 +347,7 @@ void SongStructure::OnSuggestionAttributes(String result, Song* song) {
 		if (lines[0].Left(1) != "-")
 			lines.Remove(0);
 		
-		Song::StructSuggestion& sug = song->struct_suggs[i];
+		StructSuggestion& sug = l->struct_suggs[i];
 		sug.attrs.Clear();
 		for (String& l : lines)
 			sug.attrs << TrimBoth(l.Mid(1));

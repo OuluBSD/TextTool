@@ -27,5 +27,7 @@ file
 	Release.h,
 	Release.cpp,
 	Song.h,
-	Song.cpp;
+	Song.cpp,
+	Lyrics.h,
+	Lyrics.cpp;
 

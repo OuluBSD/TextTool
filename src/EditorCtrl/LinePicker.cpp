@@ -1,5 +1,6 @@
 #include "EditorCtrl.h"
 
+#if 0
 
 void Paint_ScoreCtrl(Size& sz, ImageDraw& d, int q[SCORE_COUNT]) {
 	d.DrawRect(sz, White());
@@ -655,3 +656,5 @@ void LinePicker::SetEndRhyme(String word_) {
 	
 	PostCallback(THISBACK1(DataMain, -1));
 }
+
+#endif

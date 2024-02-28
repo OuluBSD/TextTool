@@ -73,7 +73,8 @@ void BasicInfoCtrl::Data() {
 		this->sex						.SetIndex(a.is_female);
 	}
 	
-	if (p.release) {
+	TODO
+	/*if (p.release) {
 		Release& r = *p.release;
 		
 		native_album_title.SetData(r.native_title);
@@ -89,7 +90,7 @@ void BasicInfoCtrl::Data() {
 		native_song_title.SetData(s.native_title);
 		english_song_title.SetData(s.english_title);
 		song_prj_name.SetData(s.prj_name);
-	}
+	}*/
 }
 
 void BasicInfoCtrl::OnValueChange() {
@@ -114,7 +115,8 @@ void BasicInfoCtrl::OnValueChange() {
 		editor->artists.Set(c, 0, o.native_name);
 	}
 	
-	if (p.release && editor->releases.IsCursor()) {
+	TODO
+	/*if (p.release && editor->releases.IsCursor()) {
 		Release& r = *p.release;
 		
 		r.native_title = native_album_title.GetData();
@@ -138,5 +140,5 @@ void BasicInfoCtrl::OnValueChange() {
 		editor->songs.Set(c, 0, s.artist);
 		editor->songs.Set(c, 1, s.native_title);
 		editor->songs.Set(c, 2, s.prj_name);
-	}
+	}*/
 }

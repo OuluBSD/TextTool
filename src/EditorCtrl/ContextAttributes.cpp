@@ -1,5 +1,6 @@
 #include "EditorCtrl.h"
-#include "EditorCtrl.h"
+
+#if 0
 
 
 ContextAttributesCtrl::ContextAttributesCtrl() {
@@ -136,3 +137,5 @@ void ContextAttributesCtrl::Data() {
 	SetData(p.song->data, song);
 	
 }
+
+#endif

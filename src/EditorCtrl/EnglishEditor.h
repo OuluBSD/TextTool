@@ -1,6 +1,7 @@
 #ifndef _EditorCtrl_EnglishEditor_h_
 #define _EditorCtrl_EnglishEditor_h_
 
+#if 0
 
 class EnglishEditor : public SongToolCtrl {
 	Splitter hsplit;
@@ -20,4 +21,5 @@ public:
 };
 
 
+#endif
 #endif

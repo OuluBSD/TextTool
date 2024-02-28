@@ -1,6 +1,7 @@
 #ifndef _EditorCtrl_LinePicker_h_
 #define _EditorCtrl_LinePicker_h_
 
+#if 0
 
 class LinePicker : public SongToolCtrl {
 	WithLinePicker<Ctrl> ctrls;
@@ -38,4 +39,5 @@ public:
 };
 
 
+#endif
 #endif

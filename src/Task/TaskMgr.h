@@ -69,8 +69,6 @@ struct TaskMgr {
 	void ProcessSingle(int task_i);
 	void StartSingle(int task_i) {Thread::Start(THISBACK1(ProcessSingle, task_i));}
 	
-	hash_t GetSongHash() const;
-	
 	void Translate(String orig_lang, String orig_txt, String trans_lang, Event<String> WhenResult);
 	void GetStructureSuggestions(String req, String avoid, String desc, int total, Event<String> WhenResult);
 	void GetSuggestionAttributes(Vector<String>& structs, Event<String> WhenResult);

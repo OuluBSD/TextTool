@@ -111,20 +111,21 @@ void Editor::InitSimplified() {
 	AddItem(t_("Product"), t_("Pitching"), pitching);
 	
 	AddItem(t_("Song"), t_("Briefing"), song_briefing); // initial ideas, notes, etc.
-	AddItem(t_("Song"), t_("Structure"), song_struct);
-	AddItem(t_("Song"), t_("Song pool"), song_pool);
-	AddItem(t_("Song"), t_("Lyrics solver"), lyrics_solver);
+	
+	AddItem(t_("Lyrics"), t_("Structure"), song_struct);
+	AddItem(t_("Lyrics"), t_("Nana editor"), nana_editor);
+	AddItem(t_("Lyrics"), t_("Song pool"), song_pool);
+	AddItem(t_("Lyrics"), t_("Lyrics solver"), lyrics_solver);
 	//AddItem(t_("Song"), t_("Fine Structure"), fine_struct);
 	//AddItem(t_("Song"), t_("Rhyme Structure"), rhyme_struct);
 	
 	//AddItem(t_("Song lyrics"), t_("Production idea"), prod_idea);
-	AddItem(t_("Song lyrics"), t_("Attributes"), ctx_attrs);
-	AddItem(t_("Song lyrics"), t_("Nana editor"), nana_editor);
+	/*AddItem(t_("Song lyrics"), t_("Attributes"), ctx_attrs);
 	AddItem(t_("Song lyrics"), t_("Line picker"), line_picker);
 	AddItem(t_("Song lyrics"), t_("Line setter"), line_setter);
 	//AddItem(t_("Song lyrics"), t_("Secondary setter"), sec_setter);
 	AddItem(t_("Song lyrics"), t_("Native editor"), nat_editor);
-	AddItem(t_("Song lyrics"), t_("English editor"), eng_edit);
+	AddItem(t_("Song lyrics"), t_("English editor"), eng_edit);*/
 	
 	
 	AddItem(t_("Checklist"), t_("Song"), checklist_composition);
@@ -239,7 +240,7 @@ void Editor::LoadLast() {
 				if (r.native_title == app.last_release) {
 					p.release = &r;
 					for (Song& s : r.songs) {
-						if (s.native_title == app.last_song) {
+						/*if (s.native_title == app.last_song) {
 							p.song = &s;
 							for (StaticPart& part : s.parts) {
 								if (part.name == app.last_part) {
@@ -248,7 +249,7 @@ void Editor::LoadLast() {
 								}
 							}
 							break;
-						}
+						}*/
 					}
 					break;
 				}
@@ -263,7 +264,7 @@ void Editor::StoreLast() {
 	EditorPtrs& p = db.ctx.ed;
 	app.last_artist = p.artist ? p.artist->native_name : String();
 	app.last_release = p.release ? p.release->native_title : String();
-	app.last_song = p.song ? p.song->native_title : String();
+	TODO //app.last_song = p.song ? p.song->native_title : String();
 	app.last_part = p.part ? p.part->name : String();
 	app.Store();
 }
@@ -363,9 +364,9 @@ void Editor::DataRelease() {
 	
 	for(int i = 0; i < r.songs.GetCount(); i++) {
 		Song& s = r.songs[i];
-		songs.Set(i, 0, s.native_title);
+		TODO /*songs.Set(i, 0, s.native_title);
 		songs.Set(i, 1, s.prj_name);
-		songs.Set(i, 2, s.artist);
+		songs.Set(i, 2, s.artist);*/
 	}
 	INHIBIT_ACTION(songs);
 	songs.SetCount(r.songs.GetCount());
@@ -422,6 +423,8 @@ void Editor::DataSong() {
 		parts.SetCursor(cursor);
 	#else
 	
+	TODO
+	/*
 	for(int i = 0; i < s.parts.GetCount(); i++) {
 		String k;
 		int c = 0;
@@ -434,7 +437,7 @@ void Editor::DataSong() {
 		parts.Set(i, 1, c);
 	}
 	INHIBIT_ACTION(parts);
-	parts.SetCount(s.parts.GetCount());
+	parts.SetCount(s.parts.GetCount());*/
 	
 	int cursor = 0;
 	if (cursor >= 0 && cursor < parts.GetCount() && !parts.IsCursor())
@@ -672,6 +675,8 @@ void Editor::AddSong() {
 	);
 	if (!b) return;
 	
+	TODO
+	/*
 	int rel_i = -1;
 	for(int i = 0; i < r.songs.GetCount(); i++) {
 		Song& s = r.songs[i];
@@ -689,7 +694,7 @@ void Editor::AddSong() {
 	s.file_title = MakeTitle(title);
 	s.english_title = title;
 	p.song = &s;
-	
+	*/
 	DataArtist();
 }
 
@@ -708,7 +713,8 @@ void Editor::RenameSong() {
 	);
 	if (!b) return;
 	
-	p.song->english_title = title.ToString();
+	
+	TODO //p.song->english_title = title.ToString();
 	
 	DataRelease();
 }

@@ -38,7 +38,7 @@ protected:
 	ChecklistMusicVideoProduction	video_checklist;
 	ChecklistRelease				release_checklist;
 	ImageGenTool					image_gen;
-	ContextAttributesCtrl			ctx_attrs;
+	//ContextAttributesCtrl			ctx_attrs;
 	PressReleaseCtrl				pressrel;
 	PublicRelationsCtrl				pubrel;
 	MarketingCtrl					marketing;
@@ -69,11 +69,11 @@ protected:
 	SongDataWordnet					song_wordnet;
 	SongDataDiagnostics				db_diagnostics;
 	//LineStructureEditor				line_struct;
-	LinePicker						line_picker;
-	LineSetter						line_setter;
-	NativeEditor					nat_editor;
+	//LinePicker						line_picker;
+	//LineSetter						line_setter;
+	//NativeEditor					nat_editor;
 	NanaEditor						nana_editor;
-	EnglishEditor					eng_edit;
+	//EnglishEditor					eng_edit;
 	Attributes						db_attrs;
 	LyricsSolverCtrl				lyrics_solver;
 	SongPool						song_pool;

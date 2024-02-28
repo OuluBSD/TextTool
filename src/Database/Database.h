@@ -4,6 +4,7 @@
 #include <Task/Task.h>
 
 
+#include "Lyrics.h"
 #include "Song.h"
 #include "Release.h"
 #include "Artist.h"

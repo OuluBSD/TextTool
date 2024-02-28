@@ -28,8 +28,8 @@ public:
 	void SetParam(String key, String value);
 	String GetParam(String key, String def="");
 	void LoadStructureString(String struct_str);
-	void OnStructureSuggestion(String result, Song* song);
-	void OnSuggestionAttributes(String result, Song* song);
+	void OnStructureSuggestion(String result, Lyrics* l);
+	void OnSuggestionAttributes(String result, Lyrics* l);
 	void LoadActiveStruct();
 	
 	

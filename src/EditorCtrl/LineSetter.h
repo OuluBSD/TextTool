@@ -1,6 +1,7 @@
 #ifndef _EditorCtrl_LineSetter_h_
 #define _EditorCtrl_LineSetter_h_
 
+#if 0
 
 class LineSetter : public SongToolCtrl {
 	Splitter hsplit, vsplit;
@@ -26,4 +27,5 @@ public:
 };
 
 
+#endif
 #endif

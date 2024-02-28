@@ -139,8 +139,8 @@ class TaskManager {
 	void OnPhrasePrimary(String result, Task* t);
 	void OnPhraseSecondary(String result, Task* t);
 	
-	void GetNana(Task* tp);
-	void OnSongStory(String result, Task* t);
+	//void GetNana(Task* tp);
+	//void OnSongStory(String result, Task* t);
 	void OnSubPicked(String result, Task* t);
 	void OnNanaFit(String result, Task* t);
 	

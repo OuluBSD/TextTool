@@ -1,5 +1,6 @@
 #include "EditorCtrl.h"
 
+#if 0
 
 NativeEditor::NativeEditor() {
 	
@@ -16,3 +17,5 @@ void NativeEditor::DataPart() {
 void NativeEditor::ToolMenu(Bar& bar) {
 	
 }
+
+#endif

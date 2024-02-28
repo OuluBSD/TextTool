@@ -939,7 +939,7 @@ struct SongCandidateCache {
 	Vector<Part> parts;
 	 
 	
-	void Realize(Song& song);
+	void Realize(Lyrics& l);
 	void Serialize(Stream& s) {s % parts;}
 	void Jsonize(JsonIO& json) {
 		json
