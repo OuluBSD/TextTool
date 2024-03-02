@@ -1,51 +1,13 @@
 {
 	"artist": "",
-	"title": "Sun rinnalla",
-	"english_title": "By your side",
-	"prj_name": "by your side",
+	"prj_name": "",
+	"origins": "",
+	"reference": "",
+	"lyrics_file_title": "",
 	"default_line_syllables": 0,
 	"default_attr_count": 7,
-	"structure_str": "",
-	"structure": [
-
-	],
-	"data": [
-
-	],
-	"parts": [
-
-	],
-	"active_struct": {
-		"name": "",
-		"parts": [
-
-		],
-		"attrs": [
-
-		]
-	},
-	"struct_suggs": [
-
-	],
-	"themes": [
-
-	],
 	"theme_cursor": 0,
 	"part_cursor": -1,
-	"prod_ideas": [
-
-	],
-	"active_roles": [
-
-	],
-	"picked_phrase_parts": [
-
-	],
-	"clr_list": [
-
-	],
-	"is_rapper": false,
-	"simple_attrs": "\u0001\u0000\u0000\u0000\u0010\u0001",
 	"active_idea[THEME]": "",
 	"active_idea[IDEA]": "",
 	"active_idea[TONE]": "",

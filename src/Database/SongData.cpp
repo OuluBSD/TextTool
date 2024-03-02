@@ -471,3 +471,19 @@ void SongCandidateCache::Realize(Lyrics& l) {
 		
 	}
 }
+
+String LyricsSuggestions::GetText() const {
+	String content;
+	for(int j = 0; j < lines.GetCount(); j++) {
+		String part = lines.GetKey(j);
+		const auto& v = lines[j];
+		if (part.IsEmpty() || v.IsEmpty()) continue;
+		content << part << ":\n";
+		
+		for(int k = 0; k < v.GetCount(); k++) {
+			content << v[k] << "\n";
+		}
+		content << "\n";
+	}
+	return content;
+}

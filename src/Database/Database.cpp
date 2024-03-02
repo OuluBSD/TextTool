@@ -19,20 +19,8 @@ String Database::GetSongsDir() const {
 	return dir + DIR_SEPS "share" DIR_SEPS "songs" DIR_SEPS;
 }
 
-String Database::GetLyricsDir() const {
-	return dir + DIR_SEPS "share" DIR_SEPS "lyrics" DIR_SEPS;
-}
-
 void Database::Store() {
 	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json", true);
-	
-	for (auto& tc : typecasts) {
-		for (auto& at : tc.archetypes) {
-			for (auto& l : at.lyrics) {
-				l.Store();
-			}
-		}
-	}
 }
 
 void Database::Load() {
@@ -42,40 +30,6 @@ void Database::Load() {
 	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json");
 	lock.LeaveWrite();
 	
-	
-	{
-		RealizeTypecasts();
-		FindFile ff(AppendFileName(GetLyricsDir(), "*.json"));
-		do {
-			String path = ff.GetPath();
-			String title = UPP::GetFileTitle(path);
-			Vector<String> parts = Split(title, "_");
-			if (parts.GetCount() >= 3) {
-				int tc = ScanInt(parts[0]);
-				int ac = ScanInt(parts[1]);
-				if (tc >= 0 && tc < typecasts.GetCount()) {
-					Typecast& t = typecasts[tc];
-					if (ac >= 0 && ac < t.archetypes.GetCount()) {
-						Lyrics& lyr = t.archetypes[ac].lyrics.Add();
-						lyr.LoadTitle(title);
-					}
-				}
-			}
-		}
-		while (ff.Next());
-	}
-}
-
-void Database::RealizeTypecasts() {
-	const auto& tcs = GetTypecasts();
-	const auto& cons = GetContrasts();
-	if (typecasts.GetCount() != tcs.GetCount()) {
-		typecasts.SetCount(tcs.GetCount());
-		for(int i = 0; i < tcs.GetCount(); i++) {
-			auto& tc = typecasts[i];
-			tc.archetypes.SetCount(cons.GetCount());
-		}
-	}
 }
 
 void Database::FindOrphaned() {

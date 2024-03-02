@@ -1,62 +1,13 @@
 {
 	"artist": "",
-	"title": "Taistelu",
-	"english_title": "Battle of Words",
-	"prj_name": "taistelu",
+	"prj_name": "",
+	"origins": "",
+	"reference": "",
+	"lyrics_file_title": "",
 	"default_line_syllables": 0,
 	"default_attr_count": 7,
-	"structure_str": "",
-	"structure": [
-
-	],
-	"data": [
-		{
-			"key": "REFERENCE_SONG__ENGLISH_TEXT",
-			"value": "Verse 1:\nEveryone has a bomb in their mind\nAnd when it explodes\nBlows your mind\nAfter it all you'll wonder why\nSit back and look at you and I\n\nChorus:\nHasn't it been nice? Paradise?\nLivin' lovin' life\nWhat ya doin'?\nTo me?\n\nVerse 2:\nSome dawn we will wake up all mankind\nAnd the outcome will shake up\nThe solitary mind\nSome may look and some may see\nWhat life has meant to you and me\n\nVerse 3:\nWe've been hitchin' a ride all our lives\nJust a-bumbin' a ride all our lives\nThrough the streets of have and hold\nThe morals new but the story's been told\n"
-		},
-		{
-			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
-			"value": "verse 1 {\n\teveryone {\n\t\thas {\n\t\t\ta bomb (in) {\n\t\t\t\ttheir mind\n\t\t\t}\n\t\t\tand when (it explodes) {\n\t\t\t\tblows (your mind)\n\t\t\t\tafter it all {\n\t\t\t\t\tyou'll wonder why\n\t\t\t\t\tsit back and look {\n\t\t\t\t\t\tat you (and I)\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nChorus {\n\tme {\n\t\thasn't it been nice? {\n\t\t\tparadise?\n\t\t\tlivin? lovin? life\n\t\t}\n\t\twhat ya doin? {\n\t\t\tto me?\n\t\t}\n\t}\n}\nverse 2 {\n\tsome (dawn) {\n\t\twe will wake up {\n\t\t\tall mankind\n\t\t\tand the outcome {\n\t\t\t\twill shake up {\n\t\t\t\t\tthe solitary mind\n\t\t\t\t\tsome may look (and) {\n\t\t\t\t\t\tsome may see\n\t\t\t\t\t}\n\t\t\t\t\twhat life {\n\t\t\t\t\t\thas meant (to you and me)\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3 {\n\twe've been {\n\t\thitchin? {\n\t\t\ta ride (all our lives)\n\t\t\tjust a-bumbin' (a ride all our lives)\n\t\t\tthrough the streets {\n\t\t\t\tof have and hold\n\t\t\t\tthe morals new {\n\t\t\t\t\tbut the story's been told\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}"
-		},
-		{
-			"key": "ENGLISH_UNPACKED_STRUCTURE",
-			"value": "verse 1 {\n\teveryone {\n\t\thas {\n\t\t\ta bomb (in) {\n\t\t\t\ttheir mind\n\t\t\t}\n\t\t\tand when (it explodes) {\n\t\t\t\tblows (your mind)\n\t\t\t\tafter it all {\n\t\t\t\t\tyou wizll wonder why\n\t\t\t\t\tsit back and look {\n\t\t\t\t\t\tat you (and I)\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nChorus {\n\tme {\n\t\thasn't it been nice? {\n\t\t\tparadise?\n\t\t\tliving loving life\n\t\t}\n\t\twhat ya doing {\n\t\t\tto me?\n\t\t}\n\t}\n}\nverse 2 {\n\tsome (dawn) {\n\t\twe will wake up {\n\t\t\tall mankind\n\t\t\tand the outcome {\n\t\t\t\twill shake up {\n\t\t\t\t\tthe solitary mind\n\t\t\t\t\tsome may look (and) {\n\t\t\t\t\t\tsome may see\n\t\t\t\t\t}\n\t\t\t\t\twhat life {\n\t\t\t\t\t\thas meant (to you and me)\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3 {\n\twe've been {\n\t\thitching {\n\t\t\ta ride (all our lives)\n\t\t\tjust a-bumbin' (a ride all our lives)\n\t\t\tthrough the streets {\n\t\t\t\tof have and hold\n\t\t\t\tthe morals new {\n\t\t\t\t\tbut the story's been told\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}"
-		}
-	],
-	"parts": [
-
-	],
-	"active_struct": {
-		"name": "",
-		"parts": [
-
-		],
-		"attrs": [
-
-		]
-	},
-	"struct_suggs": [
-
-	],
-	"themes": [
-
-	],
 	"theme_cursor": 0,
 	"part_cursor": -1,
-	"prod_ideas": [
-
-	],
-	"active_roles": [
-
-	],
-	"picked_phrase_parts": [
-
-	],
-	"clr_list": [
-
-	],
-	"is_rapper": false,
-	"simple_attrs": "\u0001\u0000\u0000\u0000\u0010\u0001",
 	"active_idea[THEME]": "",
 	"active_idea[IDEA]": "",
 	"active_idea[TONE]": "",

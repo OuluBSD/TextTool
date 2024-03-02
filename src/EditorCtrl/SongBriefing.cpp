@@ -1,5 +1,7 @@
 #include "EditorCtrl.h"
 
+#if 0
+
 
 SongBriefing::SongBriefing() {
 	Database& db = Database::Single();
@@ -302,3 +304,4 @@ void SongBriefing::OnValueChange() {
 	}
 }*/
 
+#endif

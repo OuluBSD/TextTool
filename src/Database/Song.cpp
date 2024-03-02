@@ -90,3 +90,17 @@ void Song::LoadTitle(String title) {
 	LoadFromJsonFileStandard(*this, json_path);
 }
 
+String Song::GetAnyTitle(Artist& a) const {
+	int focus_tc = -1, focus_arch = -1, focus_lyr = -1;
+	a.FindSong(focus_tc, focus_arch, focus_lyr, lyrics_file_title);
+	if (focus_tc >= 0) {
+		const Lyrics& l = a.typecasts[focus_tc].archetypes[focus_arch].lyrics[focus_lyr];
+		if (l.native_title.GetCount())
+			return l.native_title;
+		
+		if (l.english_title.GetCount())
+			return l.english_title;
+		
+	}
+	return file_title;
+}

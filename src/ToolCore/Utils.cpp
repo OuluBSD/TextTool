@@ -4,9 +4,11 @@
 
 
 Lyrics& SongToolCtrl::GetLyrics() {
-	throw NoPointerExc("no lyrics");
-	static Lyrics l;
-	return l;
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if(!p.lyrics)
+		throw NoPointerExc("no lyrics");
+	return *p.lyrics;
 }
 
 Song& SongToolCtrl::GetSong() {
@@ -48,14 +50,14 @@ String SongToolCtrl::GetSongTitle() const {
 	return "";
 }
 
-int SongToolCtrl::GetDataset() {
+/*int SongToolCtrl::GetDataset() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if(!p.song || !p.artist)
 		throw NoPointerExc("no song");
 	Song& song = *p.song;
 	return ScanInt(song.data.Get("ATTR_DATASET", "0"));
-}
+}*/
 
 void SongToolCtrl::GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v) {
 	for(int i = 0; i < Attr::ATTR_COUNT; i++) {

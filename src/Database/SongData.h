@@ -982,6 +982,7 @@ struct LyricsSuggestions : Moveable<LyricsSuggestions> {
 		p % lines;
 		p % rank;
 	}
+	String GetText() const;
 };
 
 struct SongAnalysis {

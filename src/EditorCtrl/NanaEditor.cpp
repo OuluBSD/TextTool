@@ -1,3 +1,4 @@
+#if 0
 #include "EditorCtrl.h"
 
 NanaEditor::NanaEditor() {
@@ -74,3 +75,5 @@ void NanaEditor::ParseCode() {
 	
 	PostCallback(THISBACK(DataPart));
 }
+
+#endif

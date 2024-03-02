@@ -1,62 +1,13 @@
 {
 	"artist": "",
-	"title": "Syksyn sävel",
-	"english_title": "Autumn tone",
-	"prj_name": "autumn tone - a",
+	"prj_name": "",
+	"origins": "",
+	"reference": "",
+	"lyrics_file_title": "",
 	"default_line_syllables": 0,
 	"default_attr_count": 7,
-	"structure_str": "",
-	"structure": [
-
-	],
-	"data": [
-		{
-			"key": "REFERENCE_SONG__ENGLISH_TEXT",
-			"value": "Verse 1:\nThis town\nIs a lonely town\nNot the only town\nLike this town\nThis town\nIs a make-you town\nOr a break-you-town\nAnd bring-you-down town\n\nVerse 2:\nThis town\nIs a quiet town\nFor a riot town\nLike this town\nThis town\nIs a love-you town\nAnd a shove-you-down\nAnd push-you-'round town\n\nVerse 3:\nThis town\nWell, it's an all-right town\nFor an uptight town\nLike this town\nThis town\nIs a use-you town\nAn abuse-you town\nUntil-you're-found town\n"
-		},
-		{
-			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
-			"value": "verse 1 {\n\tme {\n\t\tThis town {\n\t\t\tis {\n\t\t\t\ta lonely town\n\t\t\t}\n\t\t\tnot {\n\t\t\t\tthe only town\n\t\t\t\tlike {\n\t\t\t\t\tthis town\n\t\t\t\t}\n\t\t\t}\n\t\t\ta make-you town {\n\t\t\t\tor {\n\t\t\t\t\ta break-you-town\n\t\t\t\t\tand {\n\t\t\t\t\t\tbring-you-down town\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2 {\n\tme {\n\t\tthis town {\n\t\t\tis {\n\t\t\t\ta quiet town\n\t\t\t\tfor {\n\t\t\t\t\ta riot town\n\t\t\t\t\tlike {\n\t\t\t\t\t\tthis town\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\ta love-you town {\n\t\t\t\t\tand {\n\t\t\t\t\t\ta shove-you-down\n\t\t\t\t\t\tand {\n\t\t\t\t\t\t\tpush-you-'round town\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3 {\n\tme {\n\t\tthis town {\n\t\t\twell {\n\t\t\t\tit's an all-right town\n\t\t\t\tfor {\n\t\t\t\t\tan uptight town\n\t\t\t\t\tlike {\n\t\t\t\t\t\tthis town\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\ta use-you town {\n\t\t\t\t\tan abuse-you town\n\t\t\t\t\tuntil-you're-found town\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}"
-		},
-		{
-			"key": "ENGLISH_UNPACKED_STRUCTURE",
-			"value": "verse 1 {\n\tthis town {\n\t\tis {\n\t\t\ta lonely town\n\t\t}\n\t\tnot {\n\t\t\tthe only town\n\t\t\tlike {\n\t\t\t\tthis town\n\t\t\t}\n\t\t}\n\t\ta make-you town {\n\t\t\tor {\n\t\t\t\ta break-you-town\n\t\t\t\tand {\n\t\t\t\t\tbring-you-down town\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 2 {\n\tthis town {\n\t\tis {\n\t\t\ta quiet town\n\t\t\tfor {\n\t\t\t\ta riot town\n\t\t\t\tlike {\n\t\t\t\t\tthis town\n\t\t\t\t}\n\t\t\t}\n\t\t\ta love-you town {\n\t\t\t\tand {\n\t\t\t\t\ta shove-you-down\n\t\t\t\t\tand {\n\t\t\t\t\t\tpush-you-around town\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 3 {\n\tthis town {\n\t\twell {\n\t\t\tit is an all-right town\n\t\t\tfor {\n\t\t\t\tan uptight town {\n\t\t\t\t\tlike {\n\t\t\t\t\t\tthis town\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\ta use-you town {\n\t\t\t\tan abuse-you town\n\t\t\t\tuntil-you-are-found town\n\t\t\t}\n\t\t}\n\t}\n}\n"
-		}
-	],
-	"parts": [
-
-	],
-	"active_struct": {
-		"name": "",
-		"parts": [
-
-		],
-		"attrs": [
-
-		]
-	},
-	"struct_suggs": [
-
-	],
-	"themes": [
-
-	],
 	"theme_cursor": 0,
 	"part_cursor": -1,
-	"prod_ideas": [
-
-	],
-	"active_roles": [
-
-	],
-	"picked_phrase_parts": [
-
-	],
-	"clr_list": [
-
-	],
-	"is_rapper": false,
-	"simple_attrs": "\u0001\u0000\u0000\u0000\u0010\u0001",
 	"active_idea[THEME]": "",
 	"active_idea[IDEA]": "",
 	"active_idea[TONE]": "",

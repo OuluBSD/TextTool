@@ -28,7 +28,7 @@ public:
 	void OnOriginalChange();
 	void OnTranslatedChange();
 	void OnTranslatedRecv();
-	String GetOriginalText() const;
+	//String GetOriginalText() const;
 	String GetTranslatedText() const;
 	void InitEditor(CodeEditor& edit);
 	
