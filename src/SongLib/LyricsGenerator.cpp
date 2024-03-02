@@ -8,7 +8,7 @@ LyricsGenerator::LyricsGenerator() {
 	
 }
 
-LyricsGenerator& LyricsGenerator::Get(Artist& a, Release& r, Song& s) {
+LyricsGenerator& LyricsGenerator::Get(Artist& a, Lyrics& l) {
 	/*
 	String t = a.english_name + " - " + r.english_title + " - " + s.english_title;
 	hash_t h = t.GetHashValue();
@@ -24,8 +24,8 @@ LyricsGenerator& LyricsGenerator::Get(Artist& a, Release& r, Song& s) {
 	return ls;
 	*/
 	TODO
-	static LyricsGenerator l;
-	return l;
+	static LyricsGenerator lg;
+	return lg;
 }
 
 void LyricsGenerator::RealizePipe() {
@@ -77,7 +77,8 @@ void LyricsGenerator::Process() {
 			phase = LG_BEGIN;
 			
 			// Start LyricsSolver
-			LyricsSolver& ls = LyricsSolver::Get(*artist,*release,*song);
+			ASSERT(artist && lyrics);
+			LyricsSolver& ls = LyricsSolver::Get(*artist,*lyrics);
 			ls.Start();
 			
 			break;
