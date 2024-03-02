@@ -1,6 +1,20 @@
 #include "Database.h"
 
 
+void Lyrics::Store() {
+	String dir = Database::Single().GetLyricsDir();
+	RealizeDirectory(dir);
+	String json_path = dir + file_title + ".json";
+	StoreAsJsonFileStandard(*this, json_path, true);
+}
+
+void Lyrics::LoadTitle(String title) {
+	String dir = Database::Single().GetLyricsDir();
+	file_title = title;
+	String json_path = dir + file_title + ".json";
+	LoadFromJsonFileStandard(*this, json_path);
+}
+
 int Lyrics::GetFirstPartPosition() const {
 	for(int i = 0; i < active_struct.parts.GetCount(); i++) {
 		String type = active_struct.parts[i];

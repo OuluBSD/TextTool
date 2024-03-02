@@ -115,7 +115,7 @@ struct StructSuggestion {
 	}
 };
 
-struct Lyrics {
+struct Lyrics : DataFile {
 	String						native_title;
 	String						english_title;
 	String						prj_name;
@@ -138,6 +138,8 @@ struct Lyrics {
 	StaticPart* FindPartByName(const String& name);
 	int GetFirstPartPosition() const;
 	
+	void Store();
+	void LoadTitle(String title);
 	void Jsonize(JsonIO& json) {
 		json
 			("title", native_title)

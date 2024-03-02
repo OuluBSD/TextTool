@@ -5,6 +5,8 @@
 
 
 #include "Lyrics.h"
+#include "Archetype.h"
+#include "Typecast.h"
 #include "Song.h"
 #include "Release.h"
 #include "Artist.h"

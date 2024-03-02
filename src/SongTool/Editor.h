@@ -19,8 +19,11 @@ protected:
 	friend class BasicInfoCtrl;
 	friend class SongTool;
 	
-	Splitter			hsplit, menusplit;
-	ArrayCtrl			page_group_list, page_list, artists, releases, songs, parts;
+	Ctrl				subsplit;
+	Splitter			hsplit, menusplit, songsplit, lyricssplit;
+	ArrayCtrl			page_group_list, page_list, artists;
+	ArrayCtrl			releases, songs, parts;
+	ArrayCtrl			typecasts, archetypes, lyrics;
 	Ctrl				base;
 	int					page_group = 0;
 	VectorMap<int,int>	page;
@@ -103,9 +106,13 @@ public:
 	void DataArtist();
 	void DataRelease();
 	void DataSong();
+	void DataTypecast();
+	void DataArchetype();
+	void DataLyrics();
 	//void DataPart();
 	void ToolMenu(Bar& bar);
 	void SetView(int i, int j);
+	void SetSubMenu(int i);
 	void LoadLast();
 	void StoreLast();
 	void MovePageGroup(int d);
@@ -120,7 +127,7 @@ public:
 	void ArtistMenu(Bar& bar);
 	void ReleaseMenu(Bar& bar);
 	void SongMenu(Bar& bar);
-	void PartMenu(Bar& bar);
+	void LyricsMenu(Bar& bar);
 	
 	void AddArtist();
 	void RenameArtist();
@@ -131,6 +138,8 @@ public:
 	void AddSong();
 	void RenameSong();
 	void RemoveSong();
+	void AddLyrics();
+	void RemoveLyrics();
 	
 	void InitSimplified();
 	//void InitAdvanced();

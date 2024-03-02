@@ -8,8 +8,8 @@ LyricsSolver::LyricsSolver() {
 	
 }
 
-/*LyricsSolver& LyricsSolver::Get(Artist& a, Release& r, Song& s) {
-	String t = a.english_name + " - " + r.english_title + " - " + s.english_title;
+LyricsSolver& LyricsSolver::Get(Artist& a, Release& r, Song& s) {
+	/*String t = a.english_name + " - " + r.english_title + " - " + s.english_title;
 	hash_t h = t.GetHashValue();
 	static ArrayMap<hash_t, LyricsSolver> map;
 	int i = map.Find(h);
@@ -20,8 +20,11 @@ LyricsSolver::LyricsSolver() {
 	ls.song = &s;
 	ls.release = &r;
 	ls.artist = &a;
-	return ls;
-}*/
+	return ls;*/
+	TODO
+	static LyricsSolver l;
+	return l;
+}
 
 void LyricsSolver::RealizePipe() {
 	Database& db = Database::Single();

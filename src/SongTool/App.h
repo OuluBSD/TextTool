@@ -33,7 +33,8 @@ class SongTool : public TopWindow {
 protected:
 	friend class Editor;
 	
-	String last_artist, last_release, last_song, last_part;
+	String last_typecast, last_archetype, last_lyrics, last_part;
+	String last_artist, last_release, last_song;
 	
 public:
 	typedef SongTool CLASSNAME;
@@ -46,7 +47,7 @@ public:
 	void PostInit() {PostCallback(THISBACK(Init));}
 	void Data();
 	void SetView(int i);
-	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed % last_artist % last_release % last_song % last_part;}
+	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed % last_artist % last_release % last_song % last_typecast % last_archetype % last_lyrics % last_part;}
 	void Layout() override {SaveWindowPos();}
 	void ShowOrphanedFiles();
 	//void MakeTasks();

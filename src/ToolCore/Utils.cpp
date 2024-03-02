@@ -3,9 +3,11 @@
 
 
 
-/*Lyrics& SongToolCtrl::GetLyrics() {
-	TODO
-}*/
+Lyrics& SongToolCtrl::GetLyrics() {
+	throw NoPointerExc("no lyrics");
+	static Lyrics l;
+	return l;
+}
 
 Song& SongToolCtrl::GetSong() {
 	Database& db = Database::Single();
@@ -91,7 +93,6 @@ void SongToolCtrl::MakeSongParts(ArrayCtrl& parts) {
 	parts.SetCount(song.parts.GetCount());
 	if (!parts.IsCursor() && parts.GetCount())
 		parts.SetCursor(0);*/
-	TODO
 }
 
 

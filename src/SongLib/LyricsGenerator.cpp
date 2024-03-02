@@ -8,7 +8,8 @@ LyricsGenerator::LyricsGenerator() {
 	
 }
 
-/*LyricsGenerator& LyricsGenerator::Get(Artist& a, Release& r, Song& s) {
+LyricsGenerator& LyricsGenerator::Get(Artist& a, Release& r, Song& s) {
+	/*
 	String t = a.english_name + " - " + r.english_title + " - " + s.english_title;
 	hash_t h = t.GetHashValue();
 	static ArrayMap<hash_t, LyricsGenerator> map;
@@ -21,7 +22,11 @@ LyricsGenerator::LyricsGenerator() {
 	ls.release = &r;
 	ls.artist = &a;
 	return ls;
-}*/
+	*/
+	TODO
+	static LyricsGenerator l;
+	return l;
+}
 
 void LyricsGenerator::RealizePipe() {
 	Database& db = Database::Single();

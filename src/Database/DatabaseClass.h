@@ -27,6 +27,7 @@ struct Translation : Moveable<Translation> {
 
 struct Database {
 	// Public
+	Array<Typecast>	typecasts;
 	Array<Artist>	artists;
 	VectorMap<String, Translation> translation;
 	
@@ -42,10 +43,10 @@ struct Database {
 	Database();
 	Array<Artist>& GetSub() {return artists;}
 	const Array<Artist>& GetSub() const {return artists;}
-	void Clear() {artists.Clear();}
+	void Clear() {artists.Clear(); typecasts.Clear();}
 	void Store();
 	void Load();
-	//void RealizeAttrIds();
+	void RealizeTypecasts();
 	void FindOrphaned();
 	void Serialize(Stream& s) {
 		s	% artists
@@ -54,15 +55,11 @@ struct Database {
 			% attrscores*/;
 	}
 	void Jsonize(JsonIO& json) {
-		//if (json.IsLoading())
-		//	json("song_data", song_data);
 		json ("translation", translation);
 		if (json.IsStoring()) {
 			Vector<String> names;
 			for (Artist& a : artists) {a.Store(); names.Add(a.file_title);}
 			json("artists", names);
-			//attrscores.Store();
-			//attrs.Store();
 		}
 		if (json.IsLoading()) {
 			String lng = GetCurrentLanguageString().Left(5);
@@ -72,18 +69,12 @@ struct Database {
 			json("artists", names);
 			for (String n : names) artists.Add().LoadTitle(n);
 			Sort(artists, Artist());
-			//FindOrphaned();
-			/*
-			attrs.Load();
-			attrscores.Load();
-			if (attr_groups.IsEmpty())
-				for (Artist& a : artists)
-					a.ClearAttrs();*/
 		}
 	}
 	String GetArtistsDir() const;
 	String GetReleasesDir() const;
 	String GetSongsDir() const;
+	String GetLyricsDir() const;
 	
 	String Translate(const String& s);
 	

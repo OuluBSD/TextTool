@@ -73,7 +73,7 @@ void BasicInfoCtrl::Data() {
 		this->sex						.SetIndex(a.is_female);
 	}
 	
-	TODO
+	
 	/*if (p.release) {
 		Release& r = *p.release;
 		

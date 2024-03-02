@@ -184,6 +184,9 @@ struct DataFile {
 struct Artist;
 struct Release;
 struct Song;
+struct Typecast;
+struct Archetype;
+struct Lyrics;
 struct StaticPart;
 struct TaskMgr;
 
@@ -193,7 +196,14 @@ struct EditorPtrs {
 	Artist*			artist = 0;
 	Release*		release = 0;
 	Song*			song = 0;
+	Typecast*		typecast = 0;
+	Archetype*		archetype = 0;
+	Lyrics*			lyrics = 0;
 	StaticPart*		part = 0;
+	
+	int GetActiveTypecastIndex() const;
+	int GetActiveArchetypeIndex() const;
+	int GetActiveLyricsIndex() const;
 	
 	int GetActiveArtistIndex() const;
 	int GetActiveReleaseIndex() const;
@@ -926,5 +936,8 @@ VectorMap<String,Vector<String>>& GetTypecastSingers(bool gender);
 VectorMap<String,Vector<String>>& GetTypecastRappers(bool gender);
 VectorMap<String,Vector<String>>& GetTypecastArtists(bool rapper, bool gender);
 
+
+
+void SetIndexCursor(ArrayCtrl& arr, int cur);
 
 #endif
