@@ -1,5 +1,7 @@
 #include "EditorCtrl.h"
 
+#if 0
+
 EnglishEditor::EnglishEditor() {
 	Add(hsplit.SizePos());
 	
@@ -125,3 +127,5 @@ void EnglishEditor::DoNana(int fn) {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoNana(ds_i, fn, GetSong(), THISBACK(PostData), part_i, line_i);
 }
+
+#endif

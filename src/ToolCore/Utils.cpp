@@ -3,6 +3,12 @@
 
 
 
+Lyrics& SongToolCtrl::GetLyrics() {
+	throw NoPointerExc("no lyrics");
+	static Lyrics l;
+	return l;
+}
+
 Song& SongToolCtrl::GetSong() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
@@ -29,7 +35,7 @@ Artist& SongToolCtrl::GetArtist() {
 }
 
 String SongToolCtrl::GetSongTitle() const {
-	Database& db = Database::Single();
+	/*Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	if(!p.song || !p.artist)
 		throw NoPointerExc("no song");
@@ -37,7 +43,9 @@ String SongToolCtrl::GetSongTitle() const {
 	Artist& artist = *p.artist;
 	String s;
 	s << artist.english_name << " - " << song.english_title;
-	return s;
+	return s;*/
+	TODO
+	return "";
 }
 
 int SongToolCtrl::GetDataset() {
@@ -66,7 +74,7 @@ void SongToolCtrl::GetAttrs(const VectorMap<String,String>& data, VectorMap<Stri
 }
 
 void SongToolCtrl::MakeSongParts(ArrayCtrl& parts) {
-	Song& song = GetSong();
+	/*Song& song = GetSong();
 	
 	for(int i = 0; i < song.parts.GetCount(); i++) {
 		StaticPart& sp = song.parts[i];
@@ -84,7 +92,7 @@ void SongToolCtrl::MakeSongParts(ArrayCtrl& parts) {
 	INHIBIT_CURSOR(parts);
 	parts.SetCount(song.parts.GetCount());
 	if (!parts.IsCursor() && parts.GetCount())
-		parts.SetCursor(0);
+		parts.SetCursor(0);*/
 }
 
 

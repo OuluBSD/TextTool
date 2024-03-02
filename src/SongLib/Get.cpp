@@ -829,6 +829,7 @@ void TaskManager::GetPhrases(Task* t) {
 	
 }
 
+#if 0
 void TaskManager::GetNana(Task* t) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -948,6 +949,7 @@ void TaskManager::GetNana(Task* t) {
 		//m.GetNanaData(args, THISBACK1(OnNanaFit, t));
 		m.GetNanaData(args, THISBACK1(OnSubPicked, t));
 }
+#endif
 
 void TaskManager::GetActionlist(Task* t) {
 	Database& db = Database::Single();

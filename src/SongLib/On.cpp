@@ -1687,6 +1687,7 @@ void TaskManager::OnWordData(String res, Task* t) {
 	t->running = false;
 }
 
+#if 0
 void TaskManager::OnSongStory(String res, Task* t) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
@@ -1761,6 +1762,7 @@ void TaskManager::OnSongStory(String res, Task* t) {
 	
 	RemoveTask(*t);
 }
+#endif
 
 void TaskManager::OnSubPicked(String result, Task* t) {
 	Database& db = Database::Single();
@@ -1768,6 +1770,9 @@ void TaskManager::OnSubPicked(String result, Task* t) {
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	Song& song = *t->song;
+	
+	TODO
+	#if 0
 	
 	result = TrimBoth(result);
 	if (result.GetCount()) {
@@ -1795,6 +1800,7 @@ void TaskManager::OnSubPicked(String result, Task* t) {
 	t->on_ready();
 	
 	RemoveTask(*t);
+	#endif
 }
 
 void TaskManager::OnNanaFit(String result, Task* t) {

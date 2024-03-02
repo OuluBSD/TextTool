@@ -27,5 +27,11 @@ file
 	Release.h,
 	Release.cpp,
 	Song.h,
-	Song.cpp;
+	Song.cpp,
+	Typecast.h,
+	Typecast.cpp,
+	Archetype.h,
+	Archetype.cpp,
+	Lyrics.h,
+	Lyrics.cpp;
 

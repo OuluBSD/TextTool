@@ -140,6 +140,9 @@ const char* IdeaPathString[IDEAPATH_COUNT][2] {
 
 
 
+int EditorPtrs::GetActiveTypecastIndex() const {return VectorFindPtr(typecast, Database::Single().typecasts);}
+int EditorPtrs::GetActiveArchetypeIndex() const {return VectorFindPtr(archetype, typecast->archetypes);}
+int EditorPtrs::GetActiveLyricsIndex() const {return VectorFindPtr(lyrics, archetype->lyrics);}
 int EditorPtrs::GetActiveArtistIndex() const {return VectorFindPtr(artist, Database::Single().artists);}
 int EditorPtrs::GetActiveReleaseIndex() const {if (!artist) return -1; return VectorFindPtr(release, artist->releases);}
 int EditorPtrs::GetActiveSongIndex() const {if (!release) return -1; return VectorFindPtr(song, release->songs);}
@@ -480,7 +483,7 @@ template <>
 void CheckSerialisationData<Song>(const String& json) {
 	Song song;
 	LoadFromJson(song, json);
-	ASSERT(song.native_title.GetCount() || song.english_title.GetCount());
+	//ASSERT(song.native_title.GetCount() || song.english_title.GetCount());
 }
 
 String ToMinSec(double sec) {
@@ -1657,4 +1660,14 @@ VectorMap<String,Vector<String>>& GetTypecastArtists(bool rapper, bool gender) {
 		return GetTypecastSingers(gender);
 	else
 		return GetTypecastRappers(gender);
+}
+
+void SetIndexCursor(ArrayCtrl& arr, int cur) {
+	for(int i = 0; i < arr.GetCount(); i++) {
+		int idx = arr.Get(i, "IDX");
+		if (idx == cur) {
+			arr.SetCursor(i);
+			break;
+		}
+	}
 }

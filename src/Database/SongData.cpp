@@ -465,9 +465,9 @@ String DatasetAnalysis::GetActionString(const Vector<int>& actions) const {
 
 
 
-void SongCandidateCache::Realize(Song& song) {
-	if (song.parts.GetCount() != parts.GetCount()) {
-		parts.SetCount(song.parts.GetCount());
+void SongCandidateCache::Realize(Lyrics& l) {
+	if (l.parts.GetCount() != parts.GetCount()) {
+		parts.SetCount(l.parts.GetCount());
 		
 	}
 }

@@ -1,6 +1,7 @@
 #ifndef _EditorCtrl_ContextAttributes_h_
 #define _EditorCtrl_ContextAttributes_h_
 
+#if 0
 
 class ContextAttributesCtrl : public SongToolCtrl {
 	Splitter hsplit;
@@ -24,4 +25,5 @@ public:
 };
 
 
+#endif
 #endif

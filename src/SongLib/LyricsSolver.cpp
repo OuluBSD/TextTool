@@ -9,7 +9,7 @@ LyricsSolver::LyricsSolver() {
 }
 
 LyricsSolver& LyricsSolver::Get(Artist& a, Release& r, Song& s) {
-	String t = a.english_name + " - " + r.english_title + " - " + s.english_title;
+	/*String t = a.english_name + " - " + r.english_title + " - " + s.english_title;
 	hash_t h = t.GetHashValue();
 	static ArrayMap<hash_t, LyricsSolver> map;
 	int i = map.Find(h);
@@ -20,7 +20,10 @@ LyricsSolver& LyricsSolver::Get(Artist& a, Release& r, Song& s) {
 	ls.song = &s;
 	ls.release = &r;
 	ls.artist = &a;
-	return ls;
+	return ls;*/
+	TODO
+	static LyricsSolver l;
+	return l;
 }
 
 void LyricsSolver::RealizePipe() {
@@ -85,8 +88,8 @@ void LyricsSolver::Process() {
 }
 
 void LyricsSolver::ClearLyrics() {
-	for(int i = 0; i < song->parts.GetCount(); i++) {
-		StaticPart& sp = song->parts[i];
+	for(int i = 0; i < lyrics->parts.GetCount(); i++) {
+		StaticPart& sp = lyrics->parts[i];
 		auto& lines = sp.nana.Get();
 		for(int j = 0; j < lines.GetCount(); j++) {
 			auto& line = lines[j];
@@ -95,22 +98,22 @@ void LyricsSolver::ClearLyrics() {
 		}
 		sp.phrase_parts.Clear();
 	}
-	song->picked_phrase_parts.Clear();
+	lyrics->picked_phrase_parts.Clear();
 }
 
 void LyricsGenerator::ProcessColor() {
-	if (batch >= song->parts.GetCount()) {
+	if (batch >= lyrics->parts.GetCount()) {
 		NextPhase();
 		return;
 	}
 	
-	Song& song = *this->song;
+	Lyrics& song = *this->lyrics;
 	if (skip_ready && song.clr_list.GetCount()) {
 		NextPhase();
 		return;
 	}
 	
-	/*StaticPart& sp = song->parts[batch];
+	/*StaticPart& sp = lyrics->parts[batch];
 	if (sp.part_type == StaticPart::SKIP ||
 		sp.name.IsEmpty() ||
 		(skip_ready && sp.clr_list.GetCount())) {
@@ -121,6 +124,9 @@ void LyricsGenerator::ProcessColor() {
 	
 	LyricsSolverArgs args;
 	args.fn = 0;
+	
+	TODO
+	#if 0
 	
 	// Artist information
 	args.artist.Add("year of birth", IntStr(artist->year_of_birth));
@@ -146,11 +152,13 @@ void LyricsGenerator::ProcessColor() {
 	RealizePipe();
 	TaskMgr& m = *pipe;
 	m.GetLyricsSolver(args, THISBACK(OnProcessColor));
+	
+	#endif
 }
 
 void LyricsGenerator::OnProcessColor(String result) {
 	//LOG(result);
-	Song& song = *this->song;
+	Lyrics& song = *this->lyrics;
 	
 	result = "- RGB(" + result;
 	
@@ -196,6 +204,9 @@ void LyricsGenerator::ProcessAttr() {
 	LyricsSolverArgs args;
 	args.fn = 1;
 	
+	TODO
+	#if 0
+	
 	// Artist information
 	args.artist.Add("year of birth", IntStr(artist->year_of_birth));
 	args.artist.Add("year of beginning of career", IntStr(artist->year_of_career_begin));
@@ -208,12 +219,12 @@ void LyricsGenerator::ProcessAttr() {
 	args.release.Add("year of content", IntStr(release->year_of_content));
 	
 	// Song information
-	args.song.Add("title of song", song->english_title);
-	args.song.Add("artist's content vision", song->data.Get("ATTR_CONTENT_VISION", ""));
+	args.song.Add("title of song", lyrics->english_title);
+	args.song.Add("artist's content vision", lyrics->data.Get("ATTR_CONTENT_VISION", ""));
 	
 	// Parts
-	for(int i = 0; i < song->parts.GetCount(); i++)
-		args.parts << song->parts[i].name;
+	for(int i = 0; i < lyrics->parts.GetCount(); i++)
+		args.parts << lyrics->parts[i].name;
 	
 	
 	per_batch = 50;
@@ -221,11 +232,11 @@ void LyricsGenerator::ProcessAttr() {
 	int end = begin + per_batch;
 	end = min(end, da.simple_attrs.GetCount());
 	
-	if (skip_ready && end < song->simple_attrs.GetCount()) {
+	if (skip_ready && end < lyrics->simple_attrs.GetCount()) {
 		NextBatch();
 		return;
 	}
-	if (skip_ready && end == song->simple_attrs.GetCount()) {
+	if (skip_ready && end == lyrics->simple_attrs.GetCount()) {
 		NextPhase();
 		return;
 	}
@@ -249,6 +260,8 @@ void LyricsGenerator::ProcessAttr() {
 	RealizePipe();
 	TaskMgr& m = *pipe;
 	m.GetLyricsSolver(args, THISBACK(OnProcessAttr));
+	
+	#endif
 }
 
 void LyricsGenerator::OnProcessAttr(String result) {
@@ -261,8 +274,8 @@ void LyricsGenerator::OnProcessAttr(String result) {
 	int end = begin + per_batch;
 	end = min(end, da.simple_attrs.GetCount());
 	
-	if (end > song->simple_attrs.GetCount())
-		song->simple_attrs.SetCount(end, 0);
+	if (end > lyrics->simple_attrs.GetCount())
+		lyrics->simple_attrs.SetCount(end, 0);
 	
 	RemoveEmptyLines3(result);
 	Vector<String> lines = Split(result, "\n");
@@ -286,7 +299,7 @@ void LyricsGenerator::OnProcessAttr(String result) {
 			positive = false;
 		bool negative = !positive;
 		
-		song->simple_attrs[pos] = negative;
+		lyrics->simple_attrs[pos] = negative;
 	}
 	
 	NextBatch();
@@ -299,12 +312,12 @@ void LyricsGenerator::ProcessAction() {
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
-	if (batch >= song->parts.GetCount()) {
+	if (batch >= lyrics->parts.GetCount()) {
 		NextPhase();
 		return;
 	}
 	
-	StaticPart& sp = song->parts[batch];
+	StaticPart& sp = lyrics->parts[batch];
 	if ((skip_ready && sp.actions_enabled.GetCount() == da.actions.GetCount()) ||
 		sp.part_type == StaticPart::SKIP) {
 		NextBatch();
@@ -327,7 +340,7 @@ void LyricsGenerator::ProcessAction() {
 			
 			if (eat->simple_attr >= 0) {
 				const ExportSimpleAttr& esa = da.simple_attrs[eat->simple_attr];
-				bool song_positive = song->simple_attrs[eat->simple_attr];
+				bool song_positive = lyrics->simple_attrs[eat->simple_attr];
 				bool attr_positive = eat->positive;
 				enabled = song_positive == attr_positive;
 				continue;
@@ -336,7 +349,7 @@ void LyricsGenerator::ProcessAction() {
 		// Filter by color
 		if (ea.clr != no_clr) {
 			int clr_group = GetColorGroup(ea.clr);
-			enabled = VectorFind(song->clr_list, clr_group) >= 0;
+			enabled = VectorFind(lyrics->clr_list, clr_group) >= 0;
 			continue;
 		}
 		
@@ -351,7 +364,10 @@ void LyricsSolver::ProcessFilter() {
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Song& song = *this->song;
+	Lyrics& song = *this->lyrics;
+	
+	TODO
+	#if 0
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
 	this->phrase_parts.Clear();
@@ -370,6 +386,7 @@ void LyricsSolver::ProcessFilter() {
 	}
 	
 	NextPhase();
+	#endif
 }
 
 void LyricsSolver::ProcessPrimary() {
@@ -377,7 +394,9 @@ void LyricsSolver::ProcessPrimary() {
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Song& song = *this->song;
+	Lyrics& song = *this->lyrics;
+	
+	#if 0
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
 	if ((skip_ready && sa.lyrics_suggs.GetCount() >= sugg_limit)) {
@@ -444,6 +463,7 @@ void LyricsSolver::ProcessPrimary() {
 	RealizePipe();
 	TaskMgr& m = *pipe;
 	m.GetLyricsSolver(args, THISBACK(OnProcessPrimary));
+	#endif
 }
 
 void LyricsSolver::OnProcessPrimary(String res) {
@@ -451,7 +471,10 @@ void LyricsSolver::OnProcessPrimary(String res) {
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Song& song = *this->song;
+	Lyrics& song = *this->lyrics;
+	
+	TODO
+	#if 0
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
 	res = "- " + res;
@@ -462,7 +485,7 @@ void LyricsSolver::OnProcessPrimary(String res) {
 	
 	RemoveEmptyLines3(res);
 	Vector<String> lines = Split(res, "\n");
-	int scores[SCORE_COUNT];
+	
 	Vector<int> part_is;
 	for(int i = 0; i < lines.GetCount(); i++) {
 		String& line = lines[i];
@@ -531,6 +554,7 @@ void LyricsSolver::OnProcessPrimary(String res) {
 	
 	SetWaiting(0);
 	NextBatch();
+	#endif
 }
 
 void LyricsSolver::ProcessComparison() {
@@ -538,7 +562,10 @@ void LyricsSolver::ProcessComparison() {
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Song& song = *this->song;
+	Lyrics& song = *this->lyrics;
+	
+	#if 0
+	
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
 	LyricsSolverArgs args;
@@ -582,6 +609,8 @@ void LyricsSolver::ProcessComparison() {
 	RealizePipe();
 	TaskMgr& m = *pipe;
 	m.GetLyricsSolver(args, THISBACK(OnProcessComparison));
+	
+	#endif
 }
 
 void LyricsSolver::OnProcessComparison(String res) {
@@ -589,7 +618,10 @@ void LyricsSolver::OnProcessComparison(String res) {
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Song& song = *this->song;
+	Lyrics& song = *this->lyrics;
+	
+	#if 0
+	
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
 	int loser = 0;
@@ -660,6 +692,8 @@ void LyricsSolver::OnProcessComparison(String res) {
 	
 	SetWaiting(0);
 	NextBatch();
+	
+	#endif
 }
 
 #if 0
@@ -684,8 +718,8 @@ void LyricsSolver::ProcessSecondaryWordClass() {
 	LyricsSolverArgs args;
 	args.fn = 2;
 	
-	for(int i = 0; i < song->parts.GetCount(); i++) {
-		const StaticPart& sp = song->parts[i];
+	for(int i = 0; i < lyrics->parts.GetCount(); i++) {
+		const StaticPart& sp = lyrics->parts[i];
 		const auto& lines = sp.nana.Get();
 		for(int j = 0; j < lines.GetCount(); j++) {
 			const auto& line = lines[j];
@@ -751,8 +785,8 @@ void LyricsSolver::OnProcessSecondaryWordClass(String res) {
 	}
 	
 	int idx = 0;
-	for(int i = 0; i < song->parts.GetCount(); i++) {
-		StaticPart& sp = song->parts[i];
+	for(int i = 0; i < lyrics->parts.GetCount(); i++) {
+		StaticPart& sp = lyrics->parts[i];
 		auto& lines = sp.nana.Get();
 		for(int j = 0; j < lines.GetCount(); j++) {
 			auto& line = lines[j];
@@ -783,8 +817,8 @@ void LyricsSolver::ProcessSecondaryFilter() {
 	
 	
 	Vector<Tuple2<int,int>> part_lines;
-	for(int i = 0; i < song->parts.GetCount(); i++) {
-		const StaticPart& sp = song->parts[i];
+	for(int i = 0; i < lyrics->parts.GetCount(); i++) {
+		const StaticPart& sp = lyrics->parts[i];
 		const auto& l = sp.nana.Get();
 		for(int j = 0; j < l.GetCount(); j++)
 			part_lines.Add(Tuple2<int,int>(i, j));
@@ -797,7 +831,7 @@ void LyricsSolver::ProcessSecondaryFilter() {
 	
 	int part_i = part_lines[batch].a;
 	int line_i = part_lines[batch].b;
-	StaticPart& sp = song->parts[part_i];
+	StaticPart& sp = lyrics->parts[part_i];
 	auto& line = sp.nana.Get()[line_i];
 	
 	if (/*(skip_ready && line.sub_pp_i.GetCount()) ||*/
@@ -904,8 +938,8 @@ void LyricsSolver::ProcessSecondary() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	Vector<Tuple2<int,int>> part_lines;
-	for(int i = 0; i < song->parts.GetCount(); i++) {
-		const StaticPart& sp = song->parts[i];
+	for(int i = 0; i < lyrics->parts.GetCount(); i++) {
+		const StaticPart& sp = lyrics->parts[i];
 		const auto& l = sp.nana.Get();
 		for(int j = 0; j < l.GetCount(); j++)
 			part_lines.Add(Tuple2<int,int>(i, j));

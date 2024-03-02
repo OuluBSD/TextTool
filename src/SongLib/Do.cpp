@@ -98,7 +98,7 @@ void TaskManager::DoPhrases(int ds_i, int fn) {
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoNana(int ds_i, int fn, Song& song, Callback OnReady, int line_i, int part_i) {
+/*void TaskManager::DoNana(int ds_i, int fn, Song& song, Callback OnReady, int line_i, int part_i) {
 	Database& db = Database::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
@@ -116,7 +116,7 @@ void TaskManager::DoNana(int ds_i, int fn, Song& song, Callback OnReady, int lin
 	t.line_i = line_i;
 	t.part_i = part_i;
 	lock.LeaveWrite();
-}
+}*/
 
 void TaskManager::DoContainer(int ds_i, int fn, Callback2<int,int> update) {
 	Database& db = Database::Single();

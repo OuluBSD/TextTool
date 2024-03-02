@@ -109,7 +109,8 @@ void Pitching::MakeFeedback() {
 		if (lyrics.IsEmpty())
 			return;
 		
-		String title = !song.english_title.IsEmpty() ? song.english_title : song.native_title;
+		String title;// = !song.english_title.IsEmpty() ? song.english_title : song.native_title;
+		PromptOK("TODO");
 		
 		String raw_prompt;
 		raw_prompt << "Artist: " << p.artist->english_name << "\n";
@@ -158,7 +159,8 @@ void Pitching::MakePitch() {
 		if (lyrics.IsEmpty())
 			return;
 		
-		String title = !song.english_title.IsEmpty() ? song.english_title : song.native_title;
+		String title;// = !song.english_title.IsEmpty() ? song.english_title : song.native_title;
+		PromptOK("TODO");
 		
 		String raw_prompt;
 		raw_prompt << "Artist: " << p.artist->english_name << "\n";

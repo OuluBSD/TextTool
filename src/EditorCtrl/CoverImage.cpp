@@ -41,7 +41,8 @@ void CoverImage::CreateSuggestionsForPrompts() {
 		if (lyrics.IsEmpty())
 			continue;
 		
-		String title = !song.english_title.IsEmpty() ? song.english_title : song.native_title;
+		String title;// = !song.english_title.IsEmpty() ? song.english_title : song.native_title;
+		PromptOK("TODO");
 		
 		String raw_prompt;
 		raw_prompt << "Artist: " << p.artist->english_name << "\n";

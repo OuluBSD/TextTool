@@ -1,5 +1,7 @@
 #include "EditorCtrl.h"
 
+#if 0
+
 void Paint_ScoreCtrl(Size& sz, ImageDraw& d, int q[SCORE_COUNT]);
 
 
@@ -303,3 +305,5 @@ void LineSetter::DoNana(int fn) {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoNana(ds_i, fn, GetSong(), THISBACK(PostData), line_i, part_i);
 }
+
+#endif

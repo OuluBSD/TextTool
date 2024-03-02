@@ -476,22 +476,6 @@ TaskRule& TaskMgrConfig::AddRule(int code, String name) {
 	return r;
 }
 
-hash_t TaskMgr::GetSongHash() const {
-	if (hash)
-		return hash;
-	
-	const TaskMgr& pipe = static_cast<const TaskMgr&>(*this);
-	ASSERT(pipe.song);
-	Song& song = *pipe.song;
-	
-	CombineHash ch;
-	ch << song.EditorPtrs::artist->native_name;
-	ch << song.EditorPtrs::release->native_title;
-	ch << song.native_title;
-	hash = ch;
-	ASSERT(hash != 0);
-	return hash;
-}
 
 
 

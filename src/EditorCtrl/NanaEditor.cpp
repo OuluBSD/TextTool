@@ -25,8 +25,8 @@ void NanaEditor::DataPart() {
 		return;
 	}
 	
-	Song& song = GetSong();
-	StaticPart& part = song.parts[parts.GetCursor()];
+	Lyrics& l = GetLyrics();
+	StaticPart& part = l.parts[parts.GetCursor()];
 	
 	code.SetData(part.nana.AsNana());
 	
@@ -47,8 +47,8 @@ void NanaEditor::ParseCode() {
 	if (!parts.IsCursor())
 		return;
 	
-	Song& song = GetSong();
-	StaticPart& part = song.parts[parts.GetCursor()];
+	Lyrics& l = GetLyrics();
+	StaticPart& part = l.parts[parts.GetCursor()];
 	
 	MockupPhraseParser parser;
 	

@@ -3,6 +3,7 @@
 
 
 typedef String NoPointerExc;
+struct Lyrics;
 struct Song;
 struct Release;
 struct Artist;
@@ -17,6 +18,7 @@ public:
 	virtual void ToolMenu(Bar& bar) {bar.Add("", AppImg::placeholder16(), Callback());}
 	virtual String GetStatusText() {return String();}
 	
+	Lyrics& GetLyrics();
 	Song& GetSong();
 	Release& GetRelease();
 	Artist& GetArtist();
