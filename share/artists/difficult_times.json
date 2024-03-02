@@ -964,6 +964,7 @@
 		}
 	],
 	"is_female": false,
+	"language": 0,
 	"releases": [
 		"my_page",
 		"pms_07",

@@ -916,6 +916,7 @@
 		}
 	],
 	"is_female": false,
+	"language": 0,
 	"releases": [
 		"mustat3"
 	]

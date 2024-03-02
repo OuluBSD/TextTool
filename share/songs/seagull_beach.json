@@ -1,62 +1,13 @@
 {
 	"artist": "",
-	"title": "Rantalokit",
-	"english_title": "Seagull beach",
-	"prj_name": "summer 2004 (seagull beach)",
+	"prj_name": "",
+	"origins": "",
+	"reference": "",
+	"lyrics_file_title": "",
 	"default_line_syllables": 0,
 	"default_attr_count": 7,
-	"structure_str": "",
-	"structure": [
-
-	],
-	"data": [
-		{
-			"key": "REFERENCE_SONG__ENGLISH_TEXT",
-			"value": "Verse 1:\nI was only passing by\nand then you caught my eye\nWhat a girl\nmy heart can't last that skirt\nLucky for me that you\ncan show the engine view\nI took one look and knew\nYou were love\nI bet the stars above\nlike you were passing by\n\nChorus:\nAnd I never dreamt that I discover\na passer by that'll be my lover\nand now on we'll walk together\nand that love will seem so grand\nas we walk hand in hand\nyou and I, passing by\npassing by\n\nOutro:\njust passing by\n\n"
-		},
-		{
-			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
-			"value": "verse 1 {\n\tme {\n\t\tjust (passing) {\n\t\t\tby\n\t\t}\n\t\tthen (you) {\n\t\t\tcaught (my) {\n\t\t\t\teye\n\t\t\t}\n\t\t}\n\t\tyou {\n\t\t\twhat (a) {\n\t\t\t\tgirl\n\t\t\t}\n\t\t\tmy {\n\t\t\t\theart (can't) {\n\t\t\t\t\tlast (that) {\n\t\t\t\t\t\tskirt\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tlucky {\n\t\t\t\tfor (me) {\n\t\t\t\t\tthat (you) {\n\t\t\t\t\t\tcan {\n\t\t\t\t\t\t\tshow (the) {\n\t\t\t\t\t\t\t\tengine view\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tI {\n\t\t\t\t\ttook (one) {\n\t\t\t\t\t\tlook\n\t\t\t\t\t}\n\t\t\t\t\tand (knew) {\n\t\t\t\t\t\tyou (were) {\n\t\t\t\t\t\t\tlove\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tI {\n\t\t\t\t\tbet (the) {\n\t\t\t\t\t\tstars (above) {\n\t\t\t\t\t\t\tlike (you) {\n\t\t\t\t\t\t\t\twere {\n\t\t\t\t\t\t\t\t\tpassing (by)\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\nchorus {\n\tme {\n\t\tnever {\n\t\t\tdreamt (that) {\n\t\t\t\tI {\n\t\t\t\t\tdiscover {\n\t\t\t\t\t\ta {\n\t\t\t\t\t\t\tpasser (by) {\n\t\t\t\t\t\t\t\tthat'll {\n\t\t\t\t\t\t\t\t\tbe (my) {\n\t\t\t\t\t\t\t\t\t\tlover\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tand {\n\t\t\t\t\tnow {\n\t\t\t\t\t\ton (we'll) {\n\t\t\t\t\t\t\twalk (together) {\n\t\t\t\t\t\t\t\tand (that) {\n\t\t\t\t\t\t\t\t\tlove {\n\t\t\t\t\t\t\t\t\t\twill (seem) {\n\t\t\t\t\t\t\t\t\t\t\tso {\n\t\t\t\t\t\t\t\t\t\t\t\tgrand\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\tas {\n\t\t\t\t\t\t\t\t\t\twe {\n\t\t\t\t\t\t\t\t\t\t\twalk (hand) {\n\t\t\t\t\t\t\t\t\t\t\t\tin (hand)\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\tyou {\n\t\t\t\t\t\t\t\t\t\t\tand (I)\n\t\t\t\t\t\t\t\t\t\t\tpassing {\n\t\t\t\t\t\t\t\t\t\t\t\tby\n\t\t\t\t\t\t\t\t\t\t\t\tpassing (by)\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\noutro {\n\tme {\n\t\tjust {\n\t\t\tpassing (by)\n\t\t}\n\t}\n}"
-		},
-		{
-			"key": "ENGLISH_UNPACKED_STRUCTURE",
-			"value": "verse 1 {\n\tme {\n\t\tjust (passing) {\n\t\t\tby\n\t\t}\n\t\tthen (you) {\n\t\t\tcaught (my) {\n\t\t\t\teye\n\t\t\t}\n\t\t}\n\t\tyou {\n\t\t\twhat (a) {\n\t\t\t\tgirl\n\t\t\t}\n\t\t\tmy {\n\t\t\t\theart (can't) {\n\t\t\t\t\tlast (that) {\n\t\t\t\t\t\tskirt\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tlucky {\n\t\t\t\tfor (me) {\n\t\t\t\t\tthat (you) {\n\t\t\t\t\t\tcan {\n\t\t\t\t\t\t\tshow (the) {\n\t\t\t\t\t\t\t\tengine view\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tI {\n\t\t\t\t\ttook (one) {\n\t\t\t\t\t\tlook\n\t\t\t\t\t}\n\t\t\t\t\tand (knew) {\n\t\t\t\t\t\tyou (were) {\n\t\t\t\t\t\t\tlove\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tI {\n\t\t\t\t\tbet (the) {\n\t\t\t\t\t\tstars (above) {\n\t\t\t\t\t\t\tlike (you) {\n\t\t\t\t\t\t\t\twere {\n\t\t\t\t\t\t\t\t\tpassing (by)\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\nchorus {\n\tme {\n\t\tnever {\n\t\t\tdreamt (that) {\n\t\t\t\tI {\n\t\t\t\t\tdiscover {\n\t\t\t\t\t\ta {\n\t\t\t\t\t\t\tpasser (by) {\n\t\t\t\t\t\t\t\tthat'll {\n\t\t\t\t\t\t\t\t\tbe (my) {\n\t\t\t\t\t\t\t\t\t\tlover\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tand {\n\t\t\t\t\tnow {\n\t\t\t\t\t\ton (we'll) {\n\t\t\t\t\t\t\twalk (together) {\n\t\t\t\t\t\t\t\tand (that) {\n\t\t\t\t\t\t\t\t\tlove {\n\t\t\t\t\t\t\t\t\t\twill (seem) {\n\t\t\t\t\t\t\t\t\t\t\tso {\n\t\t\t\t\t\t\t\t\t\t\t\tgrand\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\tas {\n\t\t\t\t\t\t\t\t\t\twe {\n\t\t\t\t\t\t\t\t\t\t\twalk (hand) {\n\t\t\t\t\t\t\t\t\t\t\t\tin (hand)\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\tyou {\n\t\t\t\t\t\t\t\t\t\t\tand (I)\n\t\t\t\t\t\t\t\t\t\t\tpassing {\n\t\t\t\t\t\t\t\t\t\t\t\tby\n\t\t\t\t\t\t\t\t\t\t\t\tpassing (by)\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\noutro {\n\tme {\n\t\tjust {\n\t\t\tpassing (by)\n\t\t}\n\t}\n}"
-		}
-	],
-	"parts": [
-
-	],
-	"active_struct": {
-		"name": "",
-		"parts": [
-
-		],
-		"attrs": [
-
-		]
-	},
-	"struct_suggs": [
-
-	],
-	"themes": [
-
-	],
 	"theme_cursor": 0,
 	"part_cursor": -1,
-	"prod_ideas": [
-
-	],
-	"active_roles": [
-
-	],
-	"picked_phrase_parts": [
-
-	],
-	"clr_list": [
-
-	],
-	"is_rapper": false,
-	"simple_attrs": "\u0001\u0000\u0000\u0000\u0010\u0001",
 	"active_idea[THEME]": "",
 	"active_idea[IDEA]": "",
 	"active_idea[TONE]": "",

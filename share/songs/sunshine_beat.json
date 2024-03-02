@@ -1,66 +1,13 @@
 {
 	"artist": "",
-	"title": "Aurinkobiitti",
-	"english_title": "Sunshine beat",
-	"prj_name": "summer 2002",
+	"prj_name": "",
+	"origins": "",
+	"reference": "",
+	"lyrics_file_title": "",
 	"default_line_syllables": 0,
 	"default_attr_count": 7,
-	"structure_str": "",
-	"structure": [
-
-	],
-	"data": [
-		{
-			"key": "REFERENCE_SONG__ENGLISH_TEXT",
-			"value": "Verse 1:\nI dont ever wanna see you crying\nAnd i dont ever wanna see you blue\nOh no\nAll i ever wanted to do was know you\nAnd maybe hope you could know me too\n\nVerse 2:\nWell i dont ever wanna make you sorry\nFor anything you have ever said or done\nOh no\nAll i ever wanted to do was love you\nAnd maybe hope you could love me too\n\nBridge:\nAnd its all right baby\nI am in love with you\nAnd its all right\nI would never make you blue\nOr try to play with you\n\nVerse 3:\nI dont ever wanna spoil your party babe\nOr tell you where to go or what to do\nOh no\nAll i ever wanted to do was know you\nAnd maybe hope you could know me too\n\nVerse 4:\nWell i dont ever wanna spoil your party babe\nOr tell you where to go or what to do\nOh no\nAll i ever wanted to do was love you\nAnd maybe hope you could love me too\n"
-		},
-		{
-			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
-			"value": "verse 1 {\n\tme {\n\t\tI {\n\t\t\tnot {\n\t\t\t\tever {\n\t\t\t\t\twant {\n\t\t\t\t\t\t(to) see {\n\t\t\t\t\t\t\tyou {\n\t\t\t\t\t\t\t\tcrying\n\t\t\t\t\t\t\t\tblue\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tall {\n\t\t\t\tever {\n\t\t\t\t\twant {\n\t\t\t\t\t\t(to) do {\n\t\t\t\t\t\t\tknow {\n\t\t\t\t\t\t\t\tyou\n\t\t\t\t\t\t\t\t(maybe) hope {\n\t\t\t\t\t\t\t\t\tyou {\n\t\t\t\t\t\t\t\t\t\tknow me too\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n\nverse 2 {\n\tme {\n\t\tI {\n\t\t\tnot {\n\t\t\t\tever {\n\t\t\t\t\twant {\n\t\t\t\t\t\t(to) make {\n\t\t\t\t\t\t\tyou {\n\t\t\t\t\t\t\t\tsorry {\n\t\t\t\t\t\t\t\t\tfor anything {\n\t\t\t\t\t\t\t\t\t\tyou {\n\t\t\t\t\t\t\t\t\t\t\thave {\n\t\t\t\t\t\t\t\t\t\t\t\tever said\n\t\t\t\t\t\t\t\t\t\t\t\tdone\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tall {\n\t\t\t\t\tever {\n\t\t\t\t\t\twant {\n\t\t\t\t\t\t\t(to) do {\n\t\t\t\t\t\t\t\tlove {\n\t\t\t\t\t\t\t\t\tyou\n\t\t\t\t\t\t\t\t\t(maybe) hope {\n\t\t\t\t\t\t\t\t\t\tyou {\n\t\t\t\t\t\t\t\t\t\t\tlove me too\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n}\n\nbridge {\n\tme {\n\t\tit {\n\t\t\tall right {\n\t\t\t\tbaby\n\t\t\t\tI {\n\t\t\t\t\tam {\n\t\t\t\t\t\tin {\n\t\t\t\t\t\t\tlove {\n\t\t\t\t\t\t\t\twith {\n\t\t\t\t\t\t\t\t\tyou\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tit {\n\t\t\t\tall right\n\t\t\t\tI {\n\t\t\t\t\twould {\n\t\t\t\t\t\tnever {\n\t\t\t\t\t\t\tmake {\n\t\t\t\t\t\t\t\tyou {\n\t\t\t\t\t\t\t\t\tblue\n\t\t\t\t\t\t\t\t\t(try to) play {\n\t\t\t\t\t\t\t\t\t\twith {\n\t\t\t\t\t\t\t\t\t\t\tyou\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n\nverse 3 {\n\tme {\n\t\tI {\n\t\t\tnot {\n\t\t\t\tever {\n\t\t\t\t\twant {\n\t\t\t\t\t\t(to) spoil {\n\t\t\t\t\t\t\tyour {\n\t\t\t\t\t\t\t\tparty {\n\t\t\t\t\t\t\t\t\tbabe\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\ttell {\n\t\t\t\t\t\t\t\t\tyou {\n\t\t\t\t\t\t\t\t\t\twhere {\n\t\t\t\t\t\t\t\t\t\t\tto go\n\t\t\t\t\t\t\t\t\t\t\twhat {\n\t\t\t\t\t\t\t\t\t\t\t\tto do\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tall {\n\t\t\t\t\tever {\n\t\t\t\t\t\twant {\n\t\t\t\t\t\t\t(to) do {\n\t\t\t\t\t\t\t\tknow {\n\t\t\t\t\t\t\t\t\tyou\n\t\t\t\t\t\t\t\t\t(maybe) hope {\n\t\t\t\t\t\t\t\t\t\tyou {\n\t\t\t\t\t\t\t\t\t\t\tknow me too\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n}\n\nverse 4 {\n\tme {\n\t\tI {\n\t\t\tnot {\n\t\t\t\tever {\n\t\t\t\t\twant {\n\t\t\t\t\t\t(to) spoil {\n\t\t\t\t\t\t\tyour {\n\t\t\t\t\t\t\t\tparty {\n\t\t\t\t\t\t\t\t\tbabe\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\ttell {\n\t\t\t\t\t\t\t\t\tyou {\n\t\t\t\t\t\t\t\t\t\twhere {\n\t\t\t\t\t\t\t\t\t\t\tto go\n\t\t\t\t\t\t\t\t\t\t\twhat {\n\t\t\t\t\t\t\t\t\t\t\t\tto do\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tall {\n\t\t\t\t\tever {\n\t\t\t\t\t\twant {\n\t\t\t\t\t\t\t(to) do {\n\t\t\t\t\t\t\t\tlove {\n\t\t\t\t\t\t\t\t\tyou\n\t\t\t\t\t\t\t\t\t(maybe) hope {\n\t\t\t\t\t\t\t\t\t\tyou {\n\t\t\t\t\t\t\t\t\t\t\tlove me too\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n}"
-		},
-		{
-			"key": "REFERENCE_SONG__NATIVE_TEXT",
-			"value": ""
-		},
-		{
-			"key": "ENGLISH_UNPACKED_STRUCTURE",
-			"value": "verse 1 {\n\tI {\n\t\tnot want (ever) {\n\t\t\tto see {\n\t\t\t\tyou {\n\t\t\t\t\tbored\n\t\t\t\t\talone\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\twant (all, ever) {\n\t\t\tto know {\n\t\t\t\tyou\n\t\t\t\tmaybe hope {\n\t\t\t\t\tyou {\n\t\t\t\t\t\tknow me too\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n\nverse 2 {\n\tI {\n\t\tnot want (ever) {\n\t\t\tto see {\n\t\t\t\tyou {\n\t\t\t\t\tbe sorry for anything {\n\t\t\t\t\t\tyou have ever said\n\t\t\t\t\t\tor done\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\twant (all, ever) {\n\t\t\tto love {\n\t\t\t\tyou\n\t\t\t\tmaybe hope {\n\t\t\t\t\tyou {\n\t\t\t\t\t\tlove me too\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n\nbridge {\n\tit is {\n\t\tall right baby {\n\t\t\tI am in love with you\n\t\t}\n\t}\n\tI {\n\t\twould never make {\n\t\t\tyou blue\n\t\t\t(try to) play {\n\t\t\t\twith {\n\t\t\t\t\tyou\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n\nverse 3 {\n\tI {\n\t\tnot want (ever) {\n\t\t\tto spoil {\n\t\t\t\tyour {\n\t\t\t\t\tparty (babe)\n\t\t\t\t}\n\t\t\t\ttell {\n\t\t\t\t\tyou {\n\t\t\t\t\t\twhere {\n\t\t\t\t\t\t\tto go\n\t\t\t\t\t\t\twhat {\n\t\t\t\t\t\t\t\tto do\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\twant (all, ever) {\n\t\t\tto know {\n\t\t\t\tyou\n\t\t\t\tmaybe hope {\n\t\t\t\t\tyou {\n\t\t\t\t\t\tknow me too\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n\nverse 4 {\n\tI {\n\t\tnot want (ever) {\n\t\t\tto spoil {\n\t\t\t\tyour {\n\t\t\t\t\tparty (babe)\n\t\t\t\t}\n\t\t\t\ttell {\n\t\t\t\t\tyou {\n\t\t\t\t\t\twhere {\n\t\t\t\t\t\t\tto go\n\t\t\t\t\t\t\twhat {\n\t\t\t\t\t\t\t\tto do\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\twant (all, ever) {\n\t\t\tto love {\n\t\t\t\tyou\n\t\t\t\tmaybe hope {\n\t\t\t\t\tyou {\n\t\t\t\t\t\tlove me too\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}"
-		}
-	],
-	"parts": [
-
-	],
-	"active_struct": {
-		"name": "",
-		"parts": [
-
-		],
-		"attrs": [
-
-		]
-	},
-	"struct_suggs": [
-
-	],
-	"themes": [
-
-	],
 	"theme_cursor": 0,
 	"part_cursor": -1,
-	"prod_ideas": [
-
-	],
-	"active_roles": [
-
-	],
-	"picked_phrase_parts": [
-
-	],
-	"clr_list": [
-
-	],
-	"is_rapper": false,
-	"simple_attrs": "\u0001\u0000\u0000\u0000\u0010\u0001",
 	"active_idea[THEME]": "",
 	"active_idea[IDEA]": "",
 	"active_idea[TONE]": "",
