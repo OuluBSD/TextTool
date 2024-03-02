@@ -9,8 +9,7 @@ LyricsGenerator::LyricsGenerator() {
 }
 
 LyricsGenerator& LyricsGenerator::Get(Artist& a, Lyrics& l) {
-	/*
-	String t = a.english_name + " - " + r.english_title + " - " + s.english_title;
+	String t = a.file_title + " - " + l.file_title;
 	hash_t h = t.GetHashValue();
 	static ArrayMap<hash_t, LyricsGenerator> map;
 	int i = map.Find(h);
@@ -18,14 +17,9 @@ LyricsGenerator& LyricsGenerator::Get(Artist& a, Lyrics& l) {
 		return map[i];
 	
 	LyricsGenerator& ls = map.Add(h);
-	ls.song = &s;
-	ls.release = &r;
 	ls.artist = &a;
+	ls.lyrics = &l;
 	return ls;
-	*/
-	TODO
-	static LyricsGenerator lg;
-	return lg;
 }
 
 void LyricsGenerator::RealizePipe() {
@@ -101,13 +95,12 @@ void LyricsGenerator::ProcessSourcePool() {
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Lyrics& song = *this->lyrics;
-	TODO
-	#if 0
+	
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
-	int song_tc = ScanInt(song.data.Get("ATTR_TYPECAST", "0"));
-	int song_con_base = ScanInt(song.data.Get("ATTR_CONTRAST", "0"));
-	int song_arch = ScanInt(song.data.Get("ATTR_ARCHETYPE", "0"));
+	int song_tc = song.typecast;
+	int song_con_base = song.archetype; // archetype/contrast has name mix-up problem
+	//int song_arch = ScanInt(song.data.Get("ATTR_ARCHETYPE", "0"));
 	
 	Color no_clr(0,0,0);
 	
@@ -154,14 +147,14 @@ void LyricsGenerator::ProcessSourcePool() {
 		// - get song's archetype
 		// - check that phrases matches to the archetype
 		// NOTE skip this since data is not usualle fetched
-		if (0) {
+		/*if (0) {
 			bool found = false;
 			for (int arch : pp.archetypes)
 				if (arch == song_arch)
 					{found = true; break;}
 			if (!found)
 				continue;
-		}
+		}*/
 		
 		// Check attr
 		if (pp.attr >= 0) {
@@ -199,7 +192,6 @@ void LyricsGenerator::ProcessSourcePool() {
 	
 	NextPhase();
 	
-	#endif
 }
 
 void LyricsGenerator::ProcessPairPhrases() {
@@ -209,7 +201,6 @@ void LyricsGenerator::ProcessPairPhrases() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Lyrics& song = *this->lyrics;
 	
-	#if 0
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
 	// Prepare process
@@ -266,8 +257,8 @@ void LyricsGenerator::ProcessPairPhrases() {
 	}
 	
 	
-	int song_tc = ScanInt(song.data.Get("ATTR_TYPECAST", "0"));
-	bool is_rapper = ScanInt(song.data.Get("ATTR_IS_RAPPER", "0"));
+	int song_tc = song.typecast;
+	bool is_rapper = song.is_rapper;
 	bool is_female = artist->is_female;
 	const Vector<String>& artists = GetTypecastArtists(is_rapper, is_female)[song_tc];
 	args.parts <<= artists;
@@ -277,7 +268,6 @@ void LyricsGenerator::ProcessPairPhrases() {
 	TaskMgr& m = *pipe;
 	m.GetLyricsSolver(args, THISBACK(OnProcessPairPhrases));
 	
-	#endif
 }
 
 void LyricsGenerator::OnProcessPairPhrases(String res) {
@@ -287,7 +277,6 @@ void LyricsGenerator::OnProcessPairPhrases(String res) {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Lyrics& song = *this->lyrics;
 	
-	#if 0
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
 	res = "3. " + res;
@@ -345,7 +334,6 @@ void LyricsGenerator::OnProcessPairPhrases(String res) {
 	else
 		NextSubBatch();
 	
-	#endif
 }
 
 void LyricsGenerator::ProcessRhymes() {
@@ -355,7 +343,6 @@ void LyricsGenerator::ProcessRhymes() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Lyrics& song = *this->lyrics;
 	
-	#if 0
 	
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
@@ -394,8 +381,8 @@ void LyricsGenerator::ProcessRhymes() {
 	}
 	
 	
-	int song_tc = ScanInt(song.data.Get("ATTR_TYPECAST", "0"));
-	bool is_rapper = ScanInt(song.data.Get("ATTR_IS_RAPPER", "0"));
+	int song_tc = song.typecast;
+	bool is_rapper = song.is_rapper;
 	bool is_female = artist->is_female;
 	const Vector<String>& artists = GetTypecastArtists(is_rapper, is_female)[song_tc];
 	args.parts <<= artists;
@@ -405,7 +392,6 @@ void LyricsGenerator::ProcessRhymes() {
 	TaskMgr& m = *pipe;
 	m.GetLyricsSolver(args, THISBACK(OnProcessRhymes));
 	
-	#endif
 }
 
 void LyricsGenerator::OnProcessRhymes(String res) {
@@ -415,7 +401,6 @@ void LyricsGenerator::OnProcessRhymes(String res) {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Lyrics& song = *this->lyrics;
 	
-	#if 0
 	
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
@@ -511,7 +496,6 @@ void LyricsGenerator::OnProcessRhymes(String res) {
 	else
 		NextSubBatch();
 	
-	#endif
 }
 
 void LyricsGenerator::ProcessScores() {
@@ -521,7 +505,6 @@ void LyricsGenerator::ProcessScores() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Lyrics& song = *this->lyrics;
 	
-	#if 0
 	
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
@@ -570,7 +553,6 @@ void LyricsGenerator::ProcessScores() {
 	TaskMgr& m = *pipe;
 	m.GetLyricsSolver(args, THISBACK(OnProcessScores));
 	
-	#endif
 }
 
 void LyricsGenerator::OnProcessScores(String res) {
@@ -580,7 +562,6 @@ void LyricsGenerator::OnProcessScores(String res) {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Lyrics& song = *this->lyrics;
 	
-	#if 0
 	
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
@@ -645,7 +626,6 @@ void LyricsGenerator::OnProcessScores(String res) {
 	SetWaiting(0);
 	NextSubBatch();
 	
-	#endif
 }
 
 }

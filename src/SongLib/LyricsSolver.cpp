@@ -9,7 +9,7 @@ LyricsSolver::LyricsSolver() {
 }
 
 LyricsSolver& LyricsSolver::Get(Artist& a, Lyrics& l) {
-	/*String t = a.english_name + " - " + r.english_title + " - " + s.english_title;
+	String t = a.file_title + " - " + l.file_title;
 	hash_t h = t.GetHashValue();
 	static ArrayMap<hash_t, LyricsSolver> map;
 	int i = map.Find(h);
@@ -17,12 +17,8 @@ LyricsSolver& LyricsSolver::Get(Artist& a, Lyrics& l) {
 		return map[i];
 	
 	LyricsSolver& ls = map.Add(h);
-	ls.song = &s;
-	ls.release = &r;
 	ls.artist = &a;
-	return ls;*/
-	TODO
-	static LyricsSolver ls;
+	ls.lyrics = &l;
 	return ls;
 }
 
@@ -125,8 +121,6 @@ void LyricsGenerator::ProcessColor() {
 	LyricsSolverArgs args;
 	args.fn = 0;
 	
-	TODO
-	#if 0
 	
 	// Artist information
 	args.artist.Add("year of birth", IntStr(artist->year_of_birth));
@@ -136,12 +130,15 @@ void LyricsGenerator::ProcessColor() {
 	args.artist.Add("vocalist visually", artist->vocalist_visual);
 	
 	// Release information
-	args.release.Add("title of release", release->english_title);
-	args.release.Add("year of content", IntStr(release->year_of_content));
+	/*args.release.Add("title of release", release->english_title);
+	args.release.Add("year of content", IntStr(release->year_of_content));*/
 	
 	// Song information
-	args.song.Add("title of song", song.english_title);
-	args.song.Add("artist's content vision", song.data.Get("ATTR_CONTENT_VISION", ""));
+	if (song.english_title.GetCount())
+		args.song.Add("title of song", song.english_title);
+	args.song.Add("artist's content vision", song.content_vision);
+	args.song.Add("typecast", GetTypecasts()[song.typecast]);
+	args.song.Add("archetype", GetContrasts()[song.archetype].key);
 	
 	// Parts
 	for(int i = 0; i < song.parts.GetCount(); i++)
@@ -153,7 +150,6 @@ void LyricsGenerator::ProcessColor() {
 	TaskMgr& m = *pipe;
 	m.GetLyricsSolver(args, THISBACK(OnProcessColor));
 	
-	#endif
 }
 
 void LyricsGenerator::OnProcessColor(String result) {
@@ -204,8 +200,6 @@ void LyricsGenerator::ProcessAttr() {
 	LyricsSolverArgs args;
 	args.fn = 1;
 	
-	TODO
-	#if 0
 	
 	// Artist information
 	args.artist.Add("year of birth", IntStr(artist->year_of_birth));
@@ -215,12 +209,15 @@ void LyricsGenerator::ProcessAttr() {
 	args.artist.Add("vocalist visually", artist->vocalist_visual);
 	
 	// Release information
-	args.release.Add("title of release", release->english_title);
-	args.release.Add("year of content", IntStr(release->year_of_content));
+	/*args.release.Add("title of release", release->english_title);
+	args.release.Add("year of content", IntStr(release->year_of_content));*/
 	
 	// Song information
-	args.song.Add("title of song", lyrics->english_title);
-	args.song.Add("artist's content vision", lyrics->data.Get("ATTR_CONTENT_VISION", ""));
+	if (lyrics->english_title.GetCount())
+		args.song.Add("title of song", lyrics->english_title);
+	args.song.Add("artist's content vision", lyrics->content_vision);
+	args.song.Add("typecast", GetTypecasts()[lyrics->typecast]);
+	args.song.Add("archetype", GetContrasts()[lyrics->archetype].key);
 	
 	// Parts
 	for(int i = 0; i < lyrics->parts.GetCount(); i++)
@@ -261,7 +258,6 @@ void LyricsGenerator::ProcessAttr() {
 	TaskMgr& m = *pipe;
 	m.GetLyricsSolver(args, THISBACK(OnProcessAttr));
 	
-	#endif
 }
 
 void LyricsGenerator::OnProcessAttr(String result) {
@@ -366,8 +362,6 @@ void LyricsSolver::ProcessFilter() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Lyrics& song = *this->lyrics;
 	
-	TODO
-	#if 0
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
 	this->phrase_parts.Clear();
@@ -386,7 +380,6 @@ void LyricsSolver::ProcessFilter() {
 	}
 	
 	NextPhase();
-	#endif
 }
 
 void LyricsSolver::ProcessPrimary() {
@@ -396,7 +389,6 @@ void LyricsSolver::ProcessPrimary() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Lyrics& song = *this->lyrics;
 	
-	#if 0
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
 	if ((skip_ready && sa.lyrics_suggs.GetCount() >= sugg_limit)) {
@@ -448,22 +440,30 @@ void LyricsSolver::ProcessPrimary() {
 		const StaticPart& sp = song.parts[i];
 		args.parts << sp.name;
 		
-		int nc = sp.nana.Get().GetCount();
-		int c = nc / 4; // these "phrases" has 4 rhyming phrases
-		if (nc % 4) c++;
-		int c2 = nc / 2;
-		if (nc % 2) c2++;
-		args.counts << c;
-		part_sizes.Add(sp.name, c2);
+		int len = 2;
+		
+		if (sp.name.Find("Verse") == 0)
+			len = song.verse_length;
+		
+		if (sp.name.Find("Prechorus") == 0)
+			len = song.prechorus_length;
+		
+		if (sp.name.Find("Chorus") == 0)
+			len = song.chorus_length;
+		
+		if (sp.name.Find("Bridge") == 0)
+			len = song.bridge_length;
+		
+		args.counts << len;
+		part_sizes.Add(sp.name, len);
 	}
 	
-	args.part = song.data.Get("ATTR_CONTENT_VISION", "");
+	args.part = song.content_vision;
 	
 	SetWaiting(1);
 	RealizePipe();
 	TaskMgr& m = *pipe;
 	m.GetLyricsSolver(args, THISBACK(OnProcessPrimary));
-	#endif
 }
 
 void LyricsSolver::OnProcessPrimary(String res) {
@@ -473,8 +473,6 @@ void LyricsSolver::OnProcessPrimary(String res) {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Lyrics& song = *this->lyrics;
 	
-	TODO
-	#if 0
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
 	res = "- " + res;
@@ -554,7 +552,6 @@ void LyricsSolver::OnProcessPrimary(String res) {
 	
 	SetWaiting(0);
 	NextBatch();
-	#endif
 }
 
 void LyricsSolver::ProcessComparison() {
@@ -564,7 +561,6 @@ void LyricsSolver::ProcessComparison() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Lyrics& song = *this->lyrics;
 	
-	#if 0
 	
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
@@ -603,14 +599,12 @@ void LyricsSolver::ProcessComparison() {
 		args.phrases << content;
 	}
 	
-	args.part = song.data.Get("ATTR_CONTENT_VISION", "");
+	args.part = song.content_vision;
 	
 	SetWaiting(1);
 	RealizePipe();
 	TaskMgr& m = *pipe;
 	m.GetLyricsSolver(args, THISBACK(OnProcessComparison));
-	
-	#endif
 }
 
 void LyricsSolver::OnProcessComparison(String res) {
@@ -620,23 +614,12 @@ void LyricsSolver::OnProcessComparison(String res) {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Lyrics& song = *this->lyrics;
 	
-	#if 0
 	
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
 	int loser = 0;
 	
-	#if 0
-	res = TrimLeft(res);
 	
-	if (res.IsEmpty() || !IsDigit(res[0])) {
-		loser = 0;
-	}
-	else {
-		int winner = res[0] == 1 ? 0 : 1;
-		loser = !winner;
-	}
-	#else
 	res = "entry #1: S0:" + res;
 	
 	RemoveEmptyLines3(res);
@@ -664,36 +647,30 @@ void LyricsSolver::OnProcessComparison(String res) {
 		loser = total_scores[0] > total_scores[1] ? 1:0;
 	else
 		loser = 0; // error
-	#endif
+	
+	
 	int loser_sugg_i = remaining[loser];
 	LyricsSuggestions& ls = sa.lyrics_suggs[loser_sugg_i];
 	ls.rank = remaining.GetCount()-1;
+	song.suggestions.GetAdd(ls.rank) = ls.GetText();
 	remaining.Remove(loser);
 	
 	if (remaining.GetCount() == 1) {
 		int sugg_i = remaining[0];
 		LyricsSuggestions& ls = sa.lyrics_suggs[sugg_i];
 		ls.rank = 0;
-		String content;
-		for(int j = 0; j < ls.lines.GetCount(); j++) {
-			String part = ls.lines.GetKey(j);
-			const auto& v = ls.lines[j];
-			if (part.IsEmpty() || v.IsEmpty()) continue;
-			content << part << ":\n";
-			
-			for(int k = 0; k < v.GetCount(); k++) {
-				content << v[k] << "\n";
-			}
-			content << "\n";
-		}
+		String& content = song.suggestions.GetAdd(ls.rank);
+		content = ls.GetText();
+		
 		LOG("Winner lyrics:");
 		LOG(content);
+		
+		song.text = content;
 	}
+	SortByKey(song.suggestions, StdLess<int>());
 	
 	SetWaiting(0);
 	NextBatch();
-	
-	#endif
 }
 
 #if 0

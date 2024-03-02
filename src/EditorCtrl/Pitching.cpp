@@ -1,5 +1,6 @@
 #include "EditorCtrl.h"
 
+#if 0
 
 
 
@@ -188,3 +189,5 @@ void Pitching::OnPitch(String result) {
 	pitching.SetData(result);
 	OnText(&pitching, final_pitching_key);
 }
+
+#endif

@@ -7,13 +7,22 @@ LyricsSolverCtrl::LyricsSolverCtrl() {
 	
 	// Tab 1
 	tabs.Add(summary_split, t_("Summary"));
-	summary_split.Vert() << summary_bar << summary_tasks << lyrics;
+	summary_split.Vert() << summary_bar << summary_tasks << result_split;
 	summary_split.SetPos(250, 0);
 	summary_split.SetPos(3000, 1);
 	summary_tasks.AddColumn("#");
 	summary_tasks.AddColumn("Title");
 	summary_tasks.AddColumn("Description");
 	summary_tasks.ColumnWidths("1 4 10");
+	
+	result_split.Horz() << result_list << suggestion << lyrics;
+	result_split.SetPos(1000, 0);
+	result_split.SetPos(5000, 1);
+	
+	result_list.AddColumn(t_("Rank"));
+	result_list.AddIndex("IDX");
+	result_list.WhenCursor << THISBACK(DataSuggestion);
+	lyrics.WhenAction << THISBACK(UserLyricsChange);
 	
 	
 	// Tab 2
@@ -71,9 +80,10 @@ LyricsSolverCtrl::LyricsSolverCtrl() {
 }
 
 void LyricsSolverCtrl::ToolMenu(Bar& bar) {
-	bar.Add(t_("Start process"), AppImg::BlueRing(), THISBACK(StartProcess)).Key(K_F5);
-	bar.Add(t_("Stop process"), AppImg::BlueRing(), THISBACK(StopProcess)).Key(K_F6);
-	
+	bar.Add(t_("Start process"), AppImg::RedRing(), THISBACK(StartProcess)).Key(K_F5);
+	bar.Add(t_("Stop process"), AppImg::RedRing(), THISBACK(StopProcess)).Key(K_F6);
+	bar.Separator();
+	bar.Add(t_("Get new song title"), AppImg::RedRing(), THISBACK(GetNewTitle)).Key(K_F7);
 }
 
 void LyricsSolverCtrl::StartProcess() {
@@ -88,5 +98,68 @@ void LyricsSolverCtrl::StopProcess() {
 }
 
 void LyricsSolverCtrl::Data() {
+	Lyrics& l = GetLyrics();
 	
+	if (tabs.Get() == 0) {
+		for(int i = 0; i < l.suggestions.GetCount(); i++) {
+			int rank = l.suggestions.GetKey(i);
+			result_list.Set(i, 0, rank);
+			result_list.Set(i, "IDX", i);
+		}
+		result_list.SetCount(l.suggestions.GetCount());
+		
+		if (!result_list.IsCursor() && result_list.GetCount())
+			result_list.SetCursor(0);
+		
+		lyrics.SetData(l.text);
+		
+		DataSuggestion();
+	}
+	
+}
+
+void LyricsSolverCtrl::DataSuggestion() {
+	Lyrics& l = GetLyrics();
+	if (!result_list.IsCursor()) {
+		suggestion.Clear();
+		return;
+	}
+	
+	int idx = result_list.Get("IDX");
+	
+	suggestion.SetData(l.suggestions[idx]);
+}
+
+void LyricsSolverCtrl::UserLyricsChange() {
+	Database& db = Database::Single();
+	EditorPtrs& p = db.ctx.ed;
+	if (!p.lyrics)
+		return;
+	
+	p.lyrics->text = lyrics.GetData();
+}
+
+void LyricsSolverCtrl::GetNewTitle() {
+	Lyrics& l = GetLyrics();
+	
+	LyricsSolverArgs args;
+	args.fn = 8;
+	args.part = l.text;
+	
+	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	m.GetLyricsSolver(args, THISBACK(OnNewTitle));
+}
+
+void LyricsSolverCtrl::OnNewTitle(String res) {
+	Lyrics& l = GetLyrics();
+	
+	res.Replace("\n","");
+	res.Replace("\r","");
+	res.Replace("\"","");
+	res = TrimBoth(res);
+	
+	if (res.GetCount()) {
+		l.english_title = res;
+		l.native_title.Clear();
+	}
 }

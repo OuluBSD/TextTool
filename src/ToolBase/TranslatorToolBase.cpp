@@ -12,8 +12,10 @@ TranslatorToolCtrl::TranslatorToolCtrl() {
 	orig.SetFont(Monospace(15));
 	trans.SetFont(Monospace(15));
 	
+	#if 0
 	orig.WhenAction << THISBACK(OnOriginalChange);
 	trans.WhenAction << THISBACK(OnTranslatedChange);
+	#endif
 	
 }
 
@@ -77,9 +79,10 @@ void TranslatorToolCtrl::Data() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	
+	#if 0
 	orig.SetData(GetOriginalText());
 	trans.SetData(GetTranslatedText());
-	
+	#endif
 }
 
 void TranslatorToolCtrl::ToolMenu(Bar& bar) {
@@ -106,7 +109,7 @@ void TranslatorToolCtrl::Translate() {
 		m.TranslateSongData(orig_lng, key, trans_lng, trans_key, THISBACK(OnTranslatedRecv));
 	}*/
 }
-
+/*
 String TranslatorToolCtrl::GetOriginalText() const {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
@@ -177,13 +180,15 @@ void TranslatorToolCtrl::OnTranslatedChange() {
 			p.song->data.GetAdd(trans_key) = txt;
 		}
 	}
-}
+}*/
 
 void TranslatorToolCtrl::OnTranslatedRecv() {
+	#if 0
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	
 	trans.SetData(GetTranslatedText());
+	#endif
 }
 
 

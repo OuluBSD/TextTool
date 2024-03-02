@@ -25,8 +25,8 @@ public:
 	void LoadUserStructure();
 	void GetStructureSuggestions();
 	void GetSuggestionAttributes();
-	void SetParam(String key, String value);
-	String GetParam(String key, String def="");
+	//void SetParam(String key, String value);
+	//String GetParam(String key, String def="");
 	void LoadStructureString(String struct_str);
 	void OnStructureSuggestion(String result, Lyrics* l);
 	void OnSuggestionAttributes(String result, Lyrics* l);
@@ -34,6 +34,5 @@ public:
 	
 	
 };
-
 
 #endif

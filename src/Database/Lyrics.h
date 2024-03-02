@@ -118,15 +118,33 @@ struct StructSuggestion {
 struct Lyrics : DataFile {
 	String						native_title;
 	String						english_title;
-	String						prj_name;
+	String						copyright;
+	String						content_vision;
+	int							typecast = 0;
+	int							archetype = 0;
+	bool						is_rapper = false;
+	
+	String user_structure;
+	String required_parts;
+	String avoid_parts;
+	String structure_suggestion_description;
+	int parts_total = 0;
+	int bpm = 0;
+	
+	int verse_length = 8;
+	int prechorus_length = 2;
+	int chorus_length = 4;
+	int bridge_length = 4;
+	
 	String						structure_str;
+	String						text;
 	StructSuggestion			active_struct;
 	Array<StaticPart>			parts;
 	Array<StructSuggestion>		struct_suggs;
 	Vector<bool>				simple_attrs;
 	Index<int>					picked_phrase_parts;
 	Vector<int>					clr_list;
-	bool						is_rapper = false;
+	VectorMap<int, String>		suggestions;
 	
 	
 	Vector<int> GetPartPositions(const StaticPart& part) const;
@@ -137,22 +155,43 @@ struct Lyrics : DataFile {
 	StaticPart* FindPartByType(const String& type);
 	StaticPart* FindPartByName(const String& name);
 	int GetFirstPartPosition() const;
+	String GetAnyTitle() const;
 	
-	void Store();
-	void LoadTitle(String title);
+	Lyrics() {}
+	void Store(Artist& a);
+	void LoadTitle(Artist& a, String title);
 	void Jsonize(JsonIO& json) {
 		json
 			("title", native_title)
 			("english_title", english_title)
-			("prj_name", prj_name)
+			("copyright", copyright)
+			("content_vision", content_vision)
+			("typecast", typecast)
+			("archetype", archetype)
+			("is_rapper", is_rapper)
+			
+			("user_structure", user_structure)
+			("required_parts", required_parts)
+			("avoid_parts", avoid_parts)
+			("structure_suggestion_description", structure_suggestion_description)
+			("parts_total", parts_total)
+			("bpm", bpm)
+			
+			("verse_length", verse_length)
+			("prechorus_length", prechorus_length)
+			("chorus_length", chorus_length)
+			("bridge_length", bridge_length)
+			
 			("structure_str", structure_str)
-			("parts", parts)
+			("text", text)
 			("active_struct", active_struct)
+			("parts", parts)
 			("struct_suggs", struct_suggs)
 			("picked_phrase_parts", picked_phrase_parts)
 			("clr_list", clr_list)
-			("is_rapper", is_rapper)
+			("suggestions", suggestions)
 			;
+		
 		JsonCompressedStream(json, "simple_attrs", simple_attrs);
 		
 	}

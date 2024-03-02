@@ -1,5 +1,7 @@
 #include "EditorCtrl.h"
 
+#if 0
+
 
 ChecklistComposition::ChecklistComposition() {
 	
@@ -64,3 +66,5 @@ void SocialMediaChecklist::InitKeys() {
 	#undef CHK_SOME
 }
 
+
+#endif

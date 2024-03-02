@@ -1,66 +1,13 @@
 {
 	"artist": "",
-	"title": "Lähtö pois",
-	"english_title": "Getaway",
-	"prj_name": "getaway",
+	"prj_name": "",
+	"origins": "",
+	"reference": "",
+	"lyrics_file_title": "",
 	"default_line_syllables": 0,
 	"default_attr_count": 7,
-	"structure_str": "",
-	"structure": [
-
-	],
-	"data": [
-		{
-			"key": "REFERENCE_SONG__ENGLISH_TEXT",
-			"value": "Chorus:\nOh see, C. C. Rider\nI said see, what you have done now\nOh, I'm going with my baby\nAnd I won't be back 'til fall, yeah\n\nVerse 1:\nAhh, you made me love you\nNow, your man has gone\nAnd if I find me a new girl\nI won't be back at all\n\nBridge:\nAh, Jenny, Jenny, Jenny, won't you come along with me\nJenny Jenny, Jenny, won't you come along with me\nI worry 'bout you, baby, spendin' nights in misery\nSpinnin', spinnin', spinnin', spinnin' like a spinnin' top\n\nOutro:\nCome along baby,\nSpin, spin, spinnin' like a spinnin' top\n"
-		},
-		{
-			"key": "REFERENCE_SONG__ENGLISH_UNPACKED_STRUCTURE",
-			"value": "chorus {\n\tme {\n\t\tOh (see) {\n\t\t\tC.C. Rider  \n\t\t}\n\t\tI said see {\n\t\t\twhat (you have) {\n\t\t\t\tdone (now)\n\t\t\t}\n\t\t}\n\t\tOh {\n\t\t\tI'm (going) {\n\t\t\t\twith {\n\t\t\t\t\tmy {\n\t\t\t\t\t\tbaby\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tAnd I (won't) {\n\t\t\t\tbe (back) {\n\t\t\t\t\t'til (fall), yeah\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1 {\n\tme {\n\t\tAhh {\n\t\t\tyou (made) {\n\t\t\t\tme (love) {\n\t\t\t\t\tyou\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tNow {\n\t\t\tyour (man) {\n\t\t\t\thas (gone)\n\t\t\t}\n\t\t}\n\t\tAnd (if) {\n\t\t\tI (find) {\n\t\t\t\tme (a) {\n\t\t\t\t\tnew (girl)\n\t\t\t\t}\n\t\t\t}\n\t\t\tI (won't) {\n\t\t\t\tbe (back) {\n\t\t\t\t\tat (all)\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\nbridge {\n\tme {\n\t\tAh {\n\t\t\tJenny {\n\t\t\t\tJenny {\n\t\t\t\t\t"
-		},
-		{
-			"key": "REFERENCE_SONG__NATIVE_TEXT",
-			"value": ""
-		},
-		{
-			"key": "ENGLISH_UNPACKED_STRUCTURE",
-			"value": "chorus {\n\tme {\n\t\tOh (see) {\n\t\t\tthe guy who sleep and waits\n\t\t}\n\t}\n\tyou {\n\t\twhat (have) {\n\t\t\tdone (now)\n\t\t}\n\t}\n\tme {\n\t\tgoing {\n\t\t\twith {\n\t\t\t\tmy baby\n\t\t\t}\n\t\t}\n\t\tnot coming {\n\t\t\tback {\n\t\t\t\tuntil fall\n\t\t\t}\n\t\t}\n\t}\n}\nverse 1 {\n\tyou (made) {\n\t\tme (love) {\n\t\t\tyou\n\t\t}\n\t}\n\tyour (man) {\n\t\thas (gone) {\n\t\t\tnow\n\t\t}\n\t}\n\tif I find {\n\t\ta new girl (then) {\n\t\t\tI won't be back (at all)\n\t\t}\n\t}\n}\nbridge {\n\toh Jenny Jenny\n}\n\t\t\t\t\t"
-		}
-	],
-	"parts": [
-
-	],
-	"active_struct": {
-		"name": "",
-		"parts": [
-
-		],
-		"attrs": [
-
-		]
-	},
-	"struct_suggs": [
-
-	],
-	"themes": [
-
-	],
 	"theme_cursor": 0,
 	"part_cursor": -1,
-	"prod_ideas": [
-
-	],
-	"active_roles": [
-
-	],
-	"picked_phrase_parts": [
-
-	],
-	"clr_list": [
-
-	],
-	"is_rapper": false,
-	"simple_attrs": "\u0001\u0000\u0000\u0000\u0010\u0001",
 	"active_idea[THEME]": "",
 	"active_idea[IDEA]": "",
 	"active_idea[TONE]": "",

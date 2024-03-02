@@ -1,6 +1,8 @@
 #ifndef _EditorCtrl_NanaEditor_h_
 #define _EditorCtrl_NanaEditor_h_
 
+#if 0
+
 
 class NanaEditor : public SongToolCtrl {
 	Splitter hsplit;
@@ -19,4 +21,5 @@ public:
 };
 
 
+#endif
 #endif

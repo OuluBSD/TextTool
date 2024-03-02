@@ -1,6 +1,7 @@
 #ifndef _ToolBase_ChecklistComposition_h_
 #define _ToolBase_ChecklistComposition_h_
 
+#if 0
 
 class ChecklistBase : public SongToolCtrl {
 	ArrayCtrl list;
@@ -24,4 +25,5 @@ public:
 	
 };
 
+#endif
 #endif

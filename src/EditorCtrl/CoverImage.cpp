@@ -37,12 +37,13 @@ void CoverImage::CreateSuggestionsForPrompts() {
 	int row = 0;
 	for(int i = 0; i < rel.songs.GetCount(); i++) {
 		const Song& song = rel.songs[i];
-		String lyrics = song.data.Get(user_natural_english_key, "");
+		PromptOK("TODO");
+		String lyrics;
+		/*String lyrics = song.data.Get(user_natural_english_key, "");
 		if (lyrics.IsEmpty())
-			continue;
+			continue;*/
 		
 		String title;// = !song.english_title.IsEmpty() ? song.english_title : song.native_title;
-		PromptOK("TODO");
 		
 		String raw_prompt;
 		raw_prompt << "Artist: " << p.artist->english_name << "\n";

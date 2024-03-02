@@ -3,8 +3,7 @@
 
 
 struct Artist :
-	DataFile,
-	EditorPtrs
+	DataFile
 {
 	// Public
 	String native_name;
@@ -21,8 +20,10 @@ struct Artist :
 	VectorMap<String,String>	phrases_nat;
 	VectorMap<String,String>	phrases_eng;
 	bool is_female = false;
+	int language = 0;
 	
 	// Public (separate files)
+	Array<Typecast>	typecasts;
 	Array<Release> releases;
 	
 	void Clear() {
@@ -39,7 +40,11 @@ struct Artist :
 		phrases_eng.Clear();
 	}
 	void Store();
+	void StoreLyrics();
+	void LoadLyrics();
+	void RealizeTypecasts();
 	void LoadTitle(String title);
+	String GetLyricsDir() const;
 	/*void FixPtrs() {
 		SetArtistPtr(this);
 		int id = 0;
@@ -68,6 +73,7 @@ struct Artist :
 			% phrases_nat
 			% phrases_eng
 			% is_female
+			% language
 			;
 		//SnapContext::Serialize(s);
 	}
@@ -87,35 +93,28 @@ struct Artist :
 			("phrases", phrases_nat)
 			("phrases_eng", phrases_eng)
 			("is_female", is_female)
+			("language", language)
 			;
 		if (json.IsStoring()) {
 			Vector<String> names;
 			for (Release& r : releases) {r.Store(); names.Add(r.file_title);}
 			json("releases", names);
+			
 		}
 		if (json.IsLoading()) {
 			releases.Clear();
 			Vector<String> names;
 			json("releases", names);
 			for (String n : names) releases.Add().LoadTitle(n);
-			//Sort(releases, Release());
-			
-			FixPtrs();
 		}
-		//SnapContext::Jsonize(json);
 	}
 	
-	void FixPtrs() {
-		for (Release& r : releases) {
-			r.EditorPtrs::artist = this;
-			r.FixPtrs();
-		}
-	}
 	bool operator()(const Artist& a, const Artist& b) const {
 		if (a.year_of_birth != b.year_of_birth) return a.year_of_birth < b.year_of_birth;
 		return a.native_name < b.native_name;
 	}
 	
+	bool FindSong(int& tc, int& arch, int& lyr_i, const String& lyrics_file_title) const;
 	
 };
 
