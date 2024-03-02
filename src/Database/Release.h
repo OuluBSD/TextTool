@@ -3,8 +3,7 @@
 
 
 struct Release :
-	DataFile,
-	EditorPtrs
+	DataFile
 {
 	// Public
 	String						native_title;
@@ -53,22 +52,16 @@ struct Release :
 				json("songs", names);
 				for (String n : names) songs.Add().LoadTitle(n);
 			}
-			FixPtrs();
 		}
 	}
-	void FixPtrs() {
-		for (Song& s : songs) {
-			s.EditorPtrs::release = this;
-			s.EditorPtrs::artist = EditorPtrs::artist;
-			s.FixPtrs();
-		}
-	}
+	
 	Array<Song>& GetSub() {return songs;}
 	const Array<Song>& GetSub() const {return songs;}
 	bool operator()(const Release& a, const Release& b) const {
 		if (a.date != b.date) return a.date < b.date;
 		return a.native_title < b.native_title;
 	}
+	
 	
 	
 };

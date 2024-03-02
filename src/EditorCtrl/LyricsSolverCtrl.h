@@ -6,10 +6,10 @@ class LyricsSolverCtrl : public SongToolCtrl {
 	TabCtrl tabs;
 	
 	// Tab 1: process summary
-	Splitter summary_split;
+	Splitter summary_split, result_split;
 	ProgressIndicator summary_bar;
-	ArrayCtrl summary_tasks;
-	ArrayCtrl lyrics;
+	ArrayCtrl summary_tasks, result_list;
+	DocEdit suggestion, lyrics;
 	
 	// Tab 2: metaphorical color process
 	ArrayCtrl part_colors;
@@ -40,6 +40,10 @@ public:
 	void Data() override;
 	void StartProcess();
 	void StopProcess();
+	void DataSuggestion();
+	void UserLyricsChange();
+	void GetNewTitle();
+	void OnNewTitle(String res);
 	
 	void PostProgress(int a, int t) {PostCallback(THISBACK2(SetProgress, a, t));}
 	void SetProgress(int a, int t) {summary_bar.Set(a,t);}

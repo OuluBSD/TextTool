@@ -1,6 +1,7 @@
 #ifndef _SongTool_ChecklistProduction_h_
 #define _SongTool_ChecklistProduction_h_
 
+#if 0
 
 #define CHK_COMPOSITION_LIST \
 	CHK_COMP(15,	CHORDS, t_("chords")) \
@@ -205,4 +206,5 @@ public:
 
 
 
+#endif
 #endif

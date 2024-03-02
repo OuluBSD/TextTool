@@ -37,13 +37,13 @@ Editor::Editor(SongTool* app) : app(*app) {
 	
 	typecasts.AddColumn(t_("Typecast"));
 	typecasts.AddColumn(t_("Count"));
-	typecasts.ColumnWidths("3 2");
+	typecasts.ColumnWidths("3 1");
 	typecasts <<= THISBACK(DataTypecast);
 	typecasts.AddIndex("IDX");
 	
 	archetypes.AddColumn(t_("Archetype"));
 	archetypes.AddColumn(t_("Count"));
-	archetypes.ColumnWidths("3 2");
+	archetypes.ColumnWidths("3 1");
 	archetypes <<= THISBACK(DataArchetype);
 	archetypes.AddIndex("IDX");
 	
@@ -51,7 +51,10 @@ Editor::Editor(SongTool* app) : app(*app) {
 	lyrics.AddIndex("IDX");
 	lyrics <<= THISBACK(DataLyrics);
 	
-	info.editor = this;
+	company_info.editor = this;
+	product_info.editor = this;
+	song_info.editor = this;
+	lyrics_info.editor = this;
 	
 	SetSubMenu(0);
 }
@@ -115,22 +118,25 @@ void Editor::InitSimplified() {
 	AddItem(t_("Database"), t_("Line types"), line_types);
 	AddItem(t_("Database"), t_("Export"), export_page);*/
 	
-	AddItem(t_("Company"), t_("Info"), info);
+	AddItem(t_("Company"), t_("Info"), company_info);
 	AddItem(t_("Company"), t_("Calendar"), cal);
 	AddItem(t_("Company"), t_("Press Release"), pressrel);
 	AddItem(t_("Company"), t_("Public Relations"), pubrel);
 	AddItem(t_("Company"), t_("Marketing"), marketing);
 	//AddItem(t_("Company"), t_("Vocabulary"), vocabulary);
 	
+	AddItem(t_("Product"), t_("Info"), product_info);
 	AddItem(t_("Product"), t_("Briefing"), album_briefing);
 	AddItem(t_("Product"), t_("Idea notepad"), album_ideas);
 	AddItem(t_("Product"), t_("Cover Image"), cover_image);
-	AddItem(t_("Product"), t_("Pitching"), pitching);
+	//AddItem(t_("Product"), t_("Pitching"), pitching);
 	
-	AddItem(t_("Song"), t_("Briefing"), song_briefing); // initial ideas, notes, etc.
+	AddItem(t_("Song"), t_("Info"), song_info);
+	//AddItem(t_("Song"), t_("Briefing"), song_briefing); // initial ideas, notes, etc.
 	
+	AddItem(t_("Lyrics"), t_("Info"), lyrics_info);
 	AddItem(t_("Lyrics"), t_("Structure"), song_struct);
-	AddItem(t_("Lyrics"), t_("Nana editor"), nana_editor);
+	//AddItem(t_("Lyrics"), t_("Nana editor"), nana_editor);
 	AddItem(t_("Lyrics"), t_("Song pool"), song_pool);
 	AddItem(t_("Lyrics"), t_("Lyrics solver"), lyrics_solver);
 	//AddItem(t_("Song"), t_("Fine Structure"), fine_struct);
@@ -145,10 +151,10 @@ void Editor::InitSimplified() {
 	AddItem(t_("Song lyrics"), t_("English editor"), eng_edit);*/
 	
 	
-	AddItem(t_("Checklist"), t_("Song"), checklist_composition);
+	/*AddItem(t_("Checklist"), t_("Song"), checklist_composition);
 	AddItem(t_("Checklist"), t_("Production"), checklist_production);
 	AddItem(t_("Checklist"), t_("Music Video Production"), video_checklist);
-	AddItem(t_("Checklist"), t_("Release"), release_checklist);
+	AddItem(t_("Checklist"), t_("Release"), release_checklist);*/
 	
 	
 	InitListItems();
@@ -258,31 +264,31 @@ void Editor::LoadLast() {
 	p.artist = 0;
 	p.release = 0;
 	p.song = 0;
-	for (Typecast& a : db.typecasts) {
-		if (a.file_title == app.last_artist) {
-			p.typecast = &a;
-			for (Archetype& r : a.archetypes) {
-				if (r.file_title == app.last_release) {
-					p.archetype = &r;
-					for (Lyrics& s : r.lyrics) {
-						if (s.file_title == app.last_song) {
-							p.lyrics = &s;
-							for (StaticPart& part : s.parts) {
-								if (part.name == app.last_part) {
-									p.part = &part;
-									break;
-								}
-							}
-							break;
-						}
-					}
-					break;
-				}
-			}
-			break;
-		}
-	}
 	for (Artist& a : db.artists) {
+		for (Typecast& a : a.typecasts) {
+			if (a.file_title == app.last_artist) {
+				p.typecast = &a;
+				for (Archetype& r : a.archetypes) {
+					if (r.file_title == app.last_release) {
+						p.archetype = &r;
+						for (Lyrics& s : r.lyrics) {
+							if (s.file_title == app.last_song) {
+								p.lyrics = &s;
+								for (StaticPart& part : s.parts) {
+									if (part.name == app.last_part) {
+										p.part = &part;
+										break;
+									}
+								}
+								break;
+							}
+						}
+						break;
+					}
+				}
+				break;
+			}
+		}
 		if (a.file_title == app.last_artist) {
 			p.artist = &a;
 			for (Release& r : a.releases) {
@@ -360,14 +366,14 @@ void Editor::Data() {
 	if (cursor >= 0 && cursor < artists.GetCount())
 		artists.SetCursor(cursor);
 
-
-	db.RealizeTypecasts();
+	Artist& a = *p.artist;
+	a.RealizeTypecasts();
 	const auto& tcs = GetTypecasts();
 	for(int i = 0; i < tcs.GetCount(); i++) {
 		const String& tc = tcs[i];
 		typecasts.Set(i, "IDX", i);
 		typecasts.Set(i, 0, tc);
-		typecasts.Set(i, 1, db.typecasts[i].GetLyricsCount());
+		typecasts.Set(i, 1, a.typecasts[i].GetLyricsCount());
 	}
 	INHIBIT_ACTION_(typecasts, tc);
 	typecasts.SetCount(tcs.GetCount());
@@ -429,7 +435,7 @@ void Editor::DataRelease() {
 	
 	for(int i = 0; i < r.songs.GetCount(); i++) {
 		Song& s = r.songs[i];
-		songs.Set(i, 0, s.file_title);
+		songs.Set(i, 0, s.GetAnyTitle(a));
 		/*songs.Set(i, 0, s.native_title);
 		songs.Set(i, 1, s.prj_name);
 		songs.Set(i, 2, s.artist);*/
@@ -492,8 +498,9 @@ void Editor::DataTypecast() {
 		return;
 	}
 	
-	db.RealizeTypecasts();
-	p.typecast = &db.typecasts[typecasts.Get("IDX")];
+	Artist& a = *p.artist;
+	a.RealizeTypecasts();
+	p.typecast = &a.typecasts[typecasts.Get("IDX")];
 	Typecast& t = *p.typecast;
 	
 	const auto& cons = GetContrasts();
@@ -529,7 +536,8 @@ void Editor::DataArchetype() {
 	
 	for(int i = 0; i < a.lyrics.GetCount(); i++) {
 		const Lyrics& l = a.lyrics[i];
-		lyrics.Set(i, 0, l.file_title);
+		lyrics.Set(i, "IDX", i);
+		lyrics.Set(i, 0, l.GetAnyTitle());
 	}
 	INHIBIT_CURSOR(lyrics);
 	lyrics.SetCount(a.lyrics.GetCount());
@@ -556,6 +564,7 @@ void Editor::DataLyrics() {
 	Lyrics& l = *p.lyrics;
 	
 	
+	DataPage();
 }
 
 #if 0
@@ -857,13 +866,14 @@ void Editor::AddLyrics() {
 	int a_i = p.GetActiveArchetypeIndex();
 	
 	String title;
-	title << t_i << "_" << a_i << "_";
 	for(int i = 0; i < 8; i++) {
 		title.Cat('a' + Random('z' - 'a' + 1));
 	}
 	
 	Lyrics& l = a.lyrics.Add();
 	l.file_title = MakeTitle(title);
+	l.typecast = t_i;
+	l.archetype = a_i;
 	p.lyrics = &l;
 	
 	Data();

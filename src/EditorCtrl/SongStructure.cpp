@@ -38,32 +38,52 @@ SongStructure::SongStructure() {
 	{
 		params.Add(t_("User's structure"), "");
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {SetParam("USER_STRUCT", e.GetData());};
+		e.WhenAction << [this,&e]() {GetLyrics().user_structure = e.GetData();};
 	}
 	{
 		params.Add(t_("Required parts"), "");
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {SetParam("REQ_PARTS", e.GetData());};
+		e.WhenAction << [this,&e]() {GetLyrics().required_parts =  e.GetData();};
 	}
 	{
 		params.Add(t_("Avoid parts"), "");
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {SetParam("AVOID_PARTS", e.GetData());};
+		e.WhenAction << [this,&e]() {GetLyrics().avoid_parts = e.GetData();};
 	}
 	{
 		params.Add(t_("Description of the song for suggestions"), "");
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {SetParam("DESC_FOR_STRUCT_SUGGS", e.GetData());};
+		e.WhenAction << [this,&e]() {GetLyrics().structure_suggestion_description = e.GetData();};
 	}
 	{
 		params.Add(t_("Parts in total for suggestions"), "");
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {SetParam("PARTS_TOTAL", IntStr(e.GetData()));};
+		e.WhenAction << [this,&e]() {GetLyrics().parts_total = e.GetData();};
 	}
 	{
 		params.Add(t_("Song bpm"), "");
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {SetParam("BPM", IntStr(e.GetData())); DataActive(); DataSuggestions();};
+		e.WhenAction << [this,&e]() {GetLyrics().bpm =  e.GetData(); DataActive(); DataSuggestions();};
+	}
+	{
+		params.Add(t_("Verse length (2 rhymes, 4 bars)"), "");
+		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
+		e.WhenAction << [this,&e]() {GetLyrics().verse_length = e.GetData();};
+	}
+	{
+		params.Add(t_("Pre-chorus length (2 rhymes, 4 bars)"), "");
+		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
+		e.WhenAction << [this,&e]() {GetLyrics().prechorus_length = e.GetData();};
+	}
+	{
+		params.Add(t_("Chorus length (2 rhymes, 4 bars)"), "");
+		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
+		e.WhenAction << [this,&e]() {GetLyrics().chorus_length = e.GetData();};
+	}
+	{
+		params.Add(t_("Bridge length (2 rhymes, 4 bars)"), "");
+		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
+		e.WhenAction << [this,&e]() {GetLyrics().bridge_length = e.GetData();};
 	}
 	
 }
@@ -98,7 +118,7 @@ void SongStructure::DataActive() {
 	
 	//s.chords.SetCount(s.parts.GetCount());
 	
-	int bpm = StrInt(GetParam("BPM", "120"));
+	int bpm = GetLyrics().bpm;
 	
 	active.struct_name.SetData(s.name);
 	active.struct_str.SetData(Join(s.parts, ", "));
@@ -124,12 +144,16 @@ void SongStructure::DataActive() {
 void SongStructure::DataSong() {
 	Lyrics& l = GetLyrics();
 	
-	params.Set(0, 1, GetParam("USER_STRUCT"));
-	params.Set(1, 1, GetParam("REQ_PARTS"));
-	params.Set(2, 1, GetParam("AVOID_PARTS"));
-	params.Set(3, 1, GetParam("DESC_FOR_STRUCT_SUGGS"));
-	params.Set(4, 1, GetParam("PARTS_TOTAL", "0"));
-	params.Set(5, 1, GetParam("BPM", "120"));
+	params.Set(0, 1, l.user_structure);
+	params.Set(1, 1, l.required_parts);
+	params.Set(2, 1, l.avoid_parts);
+	params.Set(3, 1, l.structure_suggestion_description);
+	params.Set(4, 1, l.parts_total);
+	params.Set(5, 1, l.bpm);
+	params.Set(6, 1, l.verse_length);
+	params.Set(7, 1, l.prechorus_length);
+	params.Set(8, 1, l.chorus_length);
+	params.Set(9, 1, l.bridge_length);
 	
 	DataSuggestions();
 }
@@ -137,7 +161,7 @@ void SongStructure::DataSong() {
 void SongStructure::DataSuggestions() {
 	Lyrics& l = GetLyrics();
 	
-	int bpm = StrInt(GetParam("BPM", "120"));
+	int bpm = l.bpm;
 	
 	int c = l.struct_suggs.GetCount();
 	for(int i = 0; i < c; i++) {
@@ -184,10 +208,11 @@ void SongStructure::DataSuggestionAttributes() {
 }
 
 void SongStructure::ToolMenu(Bar& bar) {
-	bar.Add(t_("Load user's structure"), AppImg::BlueRing(), THISBACK(LoadUserStructure)).Key(K_F5);
-	bar.Add(t_("Get structure suggestions"), AppImg::RedRing(), THISBACK(GetStructureSuggestions)).Key(K_F6);
-	bar.Add(t_("Get attributes for suggestions"), AppImg::RedRing(), THISBACK(GetSuggestionAttributes)).Key(K_F7);
-	bar.Add(t_("Load selected structure"), AppImg::RedRing(), THISBACK(LoadStructure)).Key(K_F8);
+	bar.Add(t_("Load user's structure"), AppImg::BlueRing(), THISBACK(LoadUserStructure)).Key(K_CTRL_Q);
+	bar.Separator();
+	bar.Add(t_("Get structure suggestions"), AppImg::RedRing(), THISBACK(GetStructureSuggestions)).Key(K_F5);
+	bar.Add(t_("Get attributes for suggestions"), AppImg::RedRing(), THISBACK(GetSuggestionAttributes)).Key(K_F6);
+	bar.Add(t_("Load selected structure"), AppImg::RedRing(), THISBACK(LoadStructure)).Key(K_F7);
 }
 
 String SongStructure::GetStatusText() {
@@ -252,8 +277,8 @@ void SongStructure::LoadActiveStruct() {
 }
 
 void SongStructure::LoadUserStructure() {
-	String struct_str = GetParam("USER_STRUCT");
-	LoadStructureString(struct_str);
+	Lyrics& l = GetLyrics();
+	LoadStructureString(l.user_structure);
 }
 
 void SongStructure::GetStructureSuggestions() {
@@ -263,11 +288,10 @@ void SongStructure::GetStructureSuggestions() {
 	DisableAll();
 	
 	{
-		String req = GetParam("REQ_PARTS");
-		String avoid = GetParam("AVOID_PARTS");
-		String desc = GetParam("DESC_FOR_STRUCT_SUGGS");
-		String total_str = GetParam("PARTS_TOTAL", "0");
-		int total = StrInt(total_str);
+		String req = l.required_parts;
+		String avoid = l.avoid_parts;
+		String desc = l.structure_suggestion_description;
+		int total = l.parts_total;
 		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
 		m.GetStructureSuggestions(req, avoid, desc, total, THISBACK1(OnStructureSuggestion, &l));
 	}
@@ -288,7 +312,7 @@ void SongStructure::GetSuggestionAttributes() {
 	}
 }
 
-void SongStructure::SetParam(String key, String value) {
+/*void SongStructure::SetParam(String key, String value) {
 	Song& song = GetSong();
 	song.data.GetAdd(key) = value;
 }
@@ -296,7 +320,7 @@ void SongStructure::SetParam(String key, String value) {
 String SongStructure::GetParam(String key, String def) {
 	Song& song = GetSong();
 	return song.data.Get(key, def);
-}
+}*/
 
 void SongStructure::OnStructureSuggestion(String result, Lyrics* l_) {
 	PostCallback(THISBACK(EnableAll));

@@ -1,7 +1,7 @@
 #include "EditorCtrl.h"
 #include <SongTool/SongTool.h>
 
-BasicInfoCtrl::BasicInfoCtrl() {
+CompanyInfoCtrl::CompanyInfoCtrl() {
 	CtrlLayout(*this);
 	
 	sex.Add(t_("Male"));
@@ -16,20 +16,13 @@ BasicInfoCtrl::BasicInfoCtrl() {
 	vibe_of_voice <<= THISBACK(OnValueChange);
 	acoustic_instruments <<= THISBACK(OnValueChange);
 	electronic_instruments <<= THISBACK(OnValueChange);
-	native_album_title <<= THISBACK(OnValueChange);
-	english_album_title <<= THISBACK(OnValueChange);
-	album_date <<= THISBACK(OnValueChange);
-	song_artist <<= THISBACK(OnValueChange);
-	native_song_title <<= THISBACK(OnValueChange);
-	english_song_title <<= THISBACK(OnValueChange);
-	song_prj_name <<= THISBACK(OnValueChange);
 	vocalist_visual <<= THISBACK(OnValueChange);
-	year_of_content <<= THISBACK(OnValueChange);
 	sex <<= THISBACK(OnValueChange);
+	language <<= THISBACK(OnValueChange);
 	
 }
 
-void BasicInfoCtrl::Clear() {
+void CompanyInfoCtrl::Clear() {
 	this->native_name				.Clear();
 	this->english_name				.Clear();
 	this->year_of_birth				.Clear();
@@ -40,20 +33,18 @@ void BasicInfoCtrl::Clear() {
 	this->acoustic_instruments		.Clear();
 	this->electronic_instruments	.Clear();
 	this->vocalist_visual			.Clear();
-	this->native_album_title		.Clear();
-	this->english_album_title		.Clear();
-	this->album_date				.Clear();
-	this->song_artist				.Clear();
-	this->native_song_title			.Clear();
-	this->english_song_title		.Clear();
-	this->song_prj_name				.Clear();
-	this->year_of_content			.Clear();
 	this->sex						.SetIndex(0);
 }
 
-void BasicInfoCtrl::Data() {
+void CompanyInfoCtrl::Data() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
+	
+	if (language.GetCount() == 0 && db.song_data.GetCount()) {
+		for(int i = 0; i < db.song_data.GetCount(); i++)
+			language.Add(db.song_data.GetKey(i));
+		language.SetIndex(0);
+	}
 	
 	Clear();
 	
@@ -71,29 +62,13 @@ void BasicInfoCtrl::Data() {
 		this->electronic_instruments	.SetData(a.electronic_instruments);
 		this->vocalist_visual			.SetData(a.vocalist_visual);
 		this->sex						.SetIndex(a.is_female);
+		this->language					.SetIndex(a.language);
 	}
 	
 	
-	/*if (p.release) {
-		Release& r = *p.release;
-		
-		native_album_title.SetData(r.native_title);
-		english_album_title.SetData(r.english_title);
-		album_date.SetData(r.date);
-		year_of_content.SetData(r.year_of_content);
-	}
-	
-	if (p.song) {
-		Song& s = *p.song;
-		
-		song_artist.SetData(s.artist);
-		native_song_title.SetData(s.native_title);
-		english_song_title.SetData(s.english_title);
-		song_prj_name.SetData(s.prj_name);
-	}*/
 }
 
-void BasicInfoCtrl::OnValueChange() {
+void CompanyInfoCtrl::OnValueChange() {
 	Database& db = Database::Single();
 	EditorPtrs& p = db.ctx.ed;
 	
@@ -110,35 +85,9 @@ void BasicInfoCtrl::OnValueChange() {
 		o.electronic_instruments	= this->electronic_instruments.GetData();
 		o.vocalist_visual			= this->vocalist_visual.GetData();
 		o.is_female					= this->sex.GetIndex();
+		o.language					= this->language.GetIndex();
 		
 		int c = editor->artists.GetCursor();
 		editor->artists.Set(c, 0, o.native_name);
 	}
-	
-	TODO
-	/*if (p.release && editor->releases.IsCursor()) {
-		Release& r = *p.release;
-		
-		r.native_title = native_album_title.GetData();
-		r.english_title = english_album_title.GetData();
-		r.date = album_date.GetData();
-		r.year_of_content = year_of_content.GetData();
-		
-		int c = editor->releases.GetCursor();
-		editor->releases.Set(c, 0, r.native_title);
-	}
-	
-	if (p.song && editor->songs.IsCursor()) {
-		Song& s = *p.song;
-		
-		s.artist = song_artist.GetData();
-		s.native_title = native_song_title.GetData();
-		s.english_title = english_song_title.GetData();
-		s.prj_name = song_prj_name.GetData();
-		
-		int c = editor->songs.GetCursor();
-		editor->songs.Set(c, 0, s.artist);
-		editor->songs.Set(c, 1, s.native_title);
-		editor->songs.Set(c, 2, s.prj_name);
-	}*/
 }

@@ -140,10 +140,10 @@ const char* IdeaPathString[IDEAPATH_COUNT][2] {
 
 
 
-int EditorPtrs::GetActiveTypecastIndex() const {return VectorFindPtr(typecast, Database::Single().typecasts);}
+int EditorPtrs::GetActiveArtistIndex() const {return VectorFindPtr(artist, Database::Single().artists);}
+int EditorPtrs::GetActiveTypecastIndex() const {return VectorFindPtr(typecast, artist->typecasts);}
 int EditorPtrs::GetActiveArchetypeIndex() const {return VectorFindPtr(archetype, typecast->archetypes);}
 int EditorPtrs::GetActiveLyricsIndex() const {return VectorFindPtr(lyrics, archetype->lyrics);}
-int EditorPtrs::GetActiveArtistIndex() const {return VectorFindPtr(artist, Database::Single().artists);}
 int EditorPtrs::GetActiveReleaseIndex() const {if (!artist) return -1; return VectorFindPtr(release, artist->releases);}
 int EditorPtrs::GetActiveSongIndex() const {if (!release) return -1; return VectorFindPtr(song, release->songs);}
 

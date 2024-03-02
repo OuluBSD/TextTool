@@ -27,7 +27,6 @@ struct Translation : Moveable<Translation> {
 
 struct Database {
 	// Public
-	Array<Typecast>	typecasts;
 	Array<Artist>	artists;
 	VectorMap<String, Translation> translation;
 	
@@ -43,10 +42,9 @@ struct Database {
 	Database();
 	Array<Artist>& GetSub() {return artists;}
 	const Array<Artist>& GetSub() const {return artists;}
-	void Clear() {artists.Clear(); typecasts.Clear();}
+	void Clear() {artists.Clear(); }
 	void Store();
 	void Load();
-	void RealizeTypecasts();
 	void FindOrphaned();
 	void Serialize(Stream& s) {
 		s	% artists
@@ -74,7 +72,6 @@ struct Database {
 	String GetArtistsDir() const;
 	String GetReleasesDir() const;
 	String GetSongsDir() const;
-	String GetLyricsDir() const;
 	
 	String Translate(const String& s);
 	

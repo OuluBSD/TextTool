@@ -12,8 +12,8 @@ SongPool::SongPool() {
 }
 
 void SongPool::ToolMenu(Bar& bar) {
-	bar.Add(t_("Start process"), AppImg::BlueRing(), THISBACK(StartProcess)).Key(K_F5);
-	bar.Add(t_("Stop process"), AppImg::BlueRing(), THISBACK(StopProcess)).Key(K_F6);
+	bar.Add(t_("Start process"), AppImg::RedRing(), THISBACK(StartProcess)).Key(K_F5);
+	bar.Add(t_("Stop process"), AppImg::RedRing(), THISBACK(StopProcess)).Key(K_F6);
 	
 }
 

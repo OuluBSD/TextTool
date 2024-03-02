@@ -1,6 +1,7 @@
 #ifndef _SongTool_SongBriefing_h_
 #define _SongTool_SongBriefing_h_
 
+#if 0
 
 class SongBriefing : public SongToolCtrl {
 	Splitter vsplit;
@@ -48,4 +49,5 @@ public:
 };
 
 
+#endif
 #endif

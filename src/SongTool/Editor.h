@@ -16,7 +16,10 @@ private:
 	void InitListItems();
 	
 protected:
-	friend class BasicInfoCtrl;
+	friend class CompanyInfoCtrl;
+	friend class ProductInfoCtrl;
+	friend class SongInfoCtrl;
+	friend class LyricsInfoCtrl;
 	friend class SongTool;
 	
 	Ctrl				subsplit;
@@ -34,12 +37,12 @@ protected:
 	AlbumBriefing					album_briefing;
 	AlbumIdeas						album_ideas;
 	CoverImage						cover_image;
-	Pitching						pitching;
-	SongBriefing					song_briefing;
-	ChecklistComposition			checklist_composition;
+	//Pitching						pitching;
+	//SongBriefing					song_briefing;
+	/*ChecklistComposition			checklist_composition;
 	ChecklistProduction				checklist_production;
 	ChecklistMusicVideoProduction	video_checklist;
-	ChecklistRelease				release_checklist;
+	ChecklistRelease				release_checklist;*/
 	ImageGenTool					image_gen;
 	//ContextAttributesCtrl			ctx_attrs;
 	PressReleaseCtrl				pressrel;
@@ -50,7 +53,10 @@ protected:
 	SongStructure					song_struct;
 	//LyricsEditor					lyrics_editor;
 	//ActionEditor					action_editor;
-	BasicInfoCtrl					info;
+	CompanyInfoCtrl					company_info;
+	ProductInfoCtrl					product_info;
+	SongInfoCtrl					song_info;
+	LyricsInfoCtrl					lyrics_info;
 	
 	// Database Ctrls
 	SongDataPage					song_data;
@@ -75,7 +81,7 @@ protected:
 	//LinePicker						line_picker;
 	//LineSetter						line_setter;
 	//NativeEditor					nat_editor;
-	NanaEditor						nana_editor;
+	//NanaEditor						nana_editor;
 	//EnglishEditor					eng_edit;
 	Attributes						db_attrs;
 	LyricsSolverCtrl				lyrics_solver;

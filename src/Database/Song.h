@@ -26,13 +26,15 @@ struct SongIdea {
 
 
 struct Song :
-	DataFile,
-	EditorPtrs
+	DataFile
 {
 	
 	// Public
 	String						artist;
-	VectorMap<String,String>	data;
+	String						prj_name;
+	String						reference;
+	String						origins;
+	String						lyrics_file_title;
 	int							default_line_syllables = 0;
 	int							default_attr_count = 7;
 	int							theme_cursor = -1;
@@ -43,14 +45,18 @@ struct Song :
 	void Store();
 	void LoadTitle(String title);
 	void ReloadStructure();
+	String GetAnyTitle(Artist& a) const;
 	
 	void Serialize(Stream& s) {TODO}
 	void Jsonize(JsonIO& json) {
 		json
 			("artist", artist)
+			("prj_name", prj_name)
+			("origins", origins)
+			("reference", reference)
+			("lyrics_file_title", lyrics_file_title)
 			("default_line_syllables", default_line_syllables)
 			("default_attr_count", default_attr_count)
-			("data", data)
 			("theme_cursor", theme_cursor)
 			("part_cursor", part_cursor)
 			;
@@ -62,13 +68,7 @@ struct Song :
 			json((String)"active_idea_clr[" + IdeaPathString[i][1] + "]", active_idea_clr[i]);
 		
 	}
-	void FixPtrs() {
-		{
-			EditorPtrs::release = EditorPtrs::release;
-			EditorPtrs::artist = EditorPtrs::artist;
-			EditorPtrs::song = this;
-		}
-	}
+	
 };
 
 

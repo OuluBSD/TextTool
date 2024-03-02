@@ -1,18 +1,28 @@
 #include "Database.h"
 
 
-void Lyrics::Store() {
-	String dir = Database::Single().GetLyricsDir();
+void Lyrics::Store(Artist& a) {
+	String dir = a.GetLyricsDir();
 	RealizeDirectory(dir);
 	String json_path = dir + file_title + ".json";
 	StoreAsJsonFileStandard(*this, json_path, true);
 }
 
-void Lyrics::LoadTitle(String title) {
-	String dir = Database::Single().GetLyricsDir();
+void Lyrics::LoadTitle(Artist& a, String title) {
+	String dir = a.GetLyricsDir();
 	file_title = title;
 	String json_path = dir + file_title + ".json";
 	LoadFromJsonFileStandard(*this, json_path);
+}
+
+String Lyrics::GetAnyTitle() const {
+	if (native_title.GetCount())
+		return native_title;
+	
+	if (english_title.GetCount())
+		return english_title;
+	
+	return file_title;
 }
 
 int Lyrics::GetFirstPartPosition() const {

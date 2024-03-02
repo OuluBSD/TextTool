@@ -2644,7 +2644,7 @@ void Task::CreateInput_LyricsSolver() {
 			for(int i = 0; i < args.artist.GetCount(); i++)
 				list.Add(args.artist.GetKey(i) + ": " + args.artist[i]);
 		}
-		{
+		if (args.release.GetCount()) {
 			auto& list = input.AddSub().Title("About the release");
 			for(int i = 0; i < args.release.GetCount(); i++)
 				list.Add(args.release.GetKey(i) + ": " + args.release[i]);
@@ -2696,7 +2696,7 @@ void Task::CreateInput_LyricsSolver() {
 			for(int i = 0; i < args.artist.GetCount(); i++)
 				list.Add(args.artist.GetKey(i) + ": " + args.artist[i]);
 		}
-		{
+		if (args.release.GetCount()) {
 			auto& list = input.AddSub().Title("About the release");
 			for(int i = 0; i < args.release.GetCount(); i++)
 				list.Add(args.release.GetKey(i) + ": " + args.release[i]);
@@ -2929,4 +2929,19 @@ void Task::CreateInput_LyricsSolver() {
 			input.response_length = 2048;
 		}
 	}
+	
+	else if (args.fn == 8) {
+		{
+			auto& list = input.AddSub().Title("Lyrics of the unnamed song:");
+			list.NoListChar();
+			Vector<String> lines = Split(args.part, ". ");
+			for (String& l : lines)
+				list.Add(l);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Novel new name for the previous song");
+		}
+	}
+	
 }

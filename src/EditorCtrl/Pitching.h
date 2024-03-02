@@ -2,6 +2,8 @@
 #define _SongTool_Pitching_h_
 
 
+#if 0
+
 class Pitching : public SongToolCtrl {
 	Splitter hsplit, vsplit0, vsplit1;
 	DocEdit native, english, feedback, pitching;
@@ -33,4 +35,5 @@ public:
 };
 
 
+#endif
 #endif

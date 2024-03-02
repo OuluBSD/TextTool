@@ -1,6 +1,7 @@
 #include "ToolBase.h"
 #include <Database/Database.h>
 
+#if 0
 
 ChecklistBase::ChecklistBase() {
 	Add(list.SizePos());
@@ -74,3 +75,5 @@ void ChecklistBase::OnOptionChange(int i) {
 		song.data.GetAdd(key) = IntStr(b);
 	}
 }
+
+#endif
