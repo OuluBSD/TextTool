@@ -24,9 +24,7 @@ class LyricsSolver {
 	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
 	int ds_i = 0;
 	TaskMgr* pipe = 0;
-	/*Artist* artist = 0;
-	Release* release = 0;
-	Song* song = 0;*/
+	Artist* artist = 0;
 	Lyrics* lyrics = 0;
 		
 	bool waiting = false;
@@ -75,7 +73,7 @@ public:
 	void Start() {if (!running) {running = true; stopped = false; Thread::Start(THISBACK(Process));}}
 	void Stop() {running = false; while (!stopped) Sleep(1);}
 	
-	static LyricsSolver& Get(Artist& a, Release& r, Song& s);
+	static LyricsSolver& Get(Artist& a, Lyrics& l);
 	
 	Callback2<int,int> WhenProgress;
 	

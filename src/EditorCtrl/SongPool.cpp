@@ -18,13 +18,13 @@ void SongPool::ToolMenu(Bar& bar) {
 }
 
 void SongPool::StartProcess() {
-	SongLib::LyricsGenerator& ls = SongLib::LyricsGenerator::Get(GetArtist(), GetRelease(), GetSong());
+	SongLib::LyricsGenerator& ls = SongLib::LyricsGenerator::Get(GetArtist(), GetLyrics());
 	ls.WhenProgress = THISBACK(PostProgress);
 	ls.Start();
 }
 
 void SongPool::StopProcess() {
-	SongLib::LyricsGenerator& ls = SongLib::LyricsGenerator::Get(GetArtist(), GetRelease(), GetSong());
+	SongLib::LyricsGenerator& ls = SongLib::LyricsGenerator::Get(GetArtist(), GetLyrics());
 	ls.Stop();
 }
 

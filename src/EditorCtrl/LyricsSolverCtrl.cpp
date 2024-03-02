@@ -77,13 +77,13 @@ void LyricsSolverCtrl::ToolMenu(Bar& bar) {
 }
 
 void LyricsSolverCtrl::StartProcess() {
-	SongLib::LyricsSolver& ls = SongLib::LyricsSolver::Get(GetArtist(), GetRelease(), GetSong());
+	SongLib::LyricsSolver& ls = SongLib::LyricsSolver::Get(GetArtist(), GetLyrics());
 	ls.WhenProgress = THISBACK(PostProgress);
 	ls.Start();
 }
 
 void LyricsSolverCtrl::StopProcess() {
-	SongLib::LyricsSolver& ls = SongLib::LyricsSolver::Get(GetArtist(), GetRelease(), GetSong());
+	SongLib::LyricsSolver& ls = SongLib::LyricsSolver::Get(GetArtist(), GetLyrics());
 	ls.Stop();
 }
 
