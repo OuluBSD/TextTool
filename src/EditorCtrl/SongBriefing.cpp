@@ -36,8 +36,8 @@ SongBriefing::SongBriefing() {
 			case ATTR_TYPECAST: {
 				DropList* dl = new DropList;
 				list.SetCtrl(i, 1, dl);
-				for(int j = 0; j < GetTypecastSingers().GetCount(); j++) {
-					dl->Add(GetTypecastSingers().GetKey(j));
+				for(int j = 0; j < GetTypecasts().GetCount(); j++) {
+					dl->Add(GetTypecasts()[j]);
 				}
 				dl->SetIndex(0);
 				dl->WhenAction << [this, dl]() {

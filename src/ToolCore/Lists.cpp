@@ -1,6 +1,6 @@
 #include "ToolCore.h"
 
-
+#if 0
 VectorMap<String,Vector<String>>& GetTypecastSingers() {
 	thread_local static VectorMap<String,Vector<String>> list;
 	if (!list.IsEmpty()) return list;
@@ -946,6 +946,7 @@ VectorMap<String,Vector<String>>& GetTypecastRappers() {
 	ASSERT(list.GetCount() == GetTypecastSingers().GetCount());
 	return list;
 }
+#endif
 
 VectorMap<String,Vector<String>>& GetTypecastSingersFemale() {
 	thread_local static VectorMap<String,Vector<String>> list;
@@ -1303,7 +1304,7 @@ VectorMap<String,Vector<String>>& GetTypecastSingersFemale() {
 	tc.Add("Beyoncé");
 	tc.Add("Miley Cyrus");}
 	
-	ASSERT(list.GetCount() == GetTypecastSingers().GetCount());
+	ASSERT(list.GetCount() == GetTypecastCount());
 	return list;
 }
 
@@ -1708,7 +1709,7 @@ VectorMap<String,Vector<String>>& GetTypecastRappersFemale() {
 	tc.Add("Angel Haze");
 	tc.Add("Rapsody");}
 
-	ASSERT(list.GetCount() == GetTypecastSingers().GetCount());
+	ASSERT(list.GetCount() == GetTypecastCount());
 	return list;
 }
 
@@ -1716,362 +1717,648 @@ VectorMap<String,Vector<String>>& GetTypecastSingersMale() {
 	thread_local static VectorMap<String,Vector<String>> list;
 	if (!list.IsEmpty()) return list;
 	
-	{auto& tc = list.Add("Heartbroken/lovesick");
+	{auto& tc = list.GetAdd("Heartbroken/lovesick");
 	tc.Add("Sam Smith");
 	tc.Add("Harry Styles");
 	tc.Add("Ed Sheeran");
 	tc.Add("John Mayer");
 	tc.Add("The Weeknd");}
 
-	{auto& tc = list.Add("Rebel/anti-establishment");
+	{auto& tc = list.GetAdd("Rebel/anti-establishment");
 	tc.Add("John Lennon");
 	tc.Add("Kurt Cobain");
 	tc.Add("Bob Dylan");
-	tc.Add("Elvis Presley");
+	tc.Add("Red Hot Chili Peppers");
 	tc.Add("Freddie Mercury");}
 
-	{auto& tc = list.Add("Political activist");
+	{auto& tc = list.GetAdd("Political activist");
 	tc.Add("Bob Marley");
 	tc.Add("Michael Franti");
 	tc.Add("Neil Young");
 	tc.Add("Bono");
 	tc.Add("Woody Guthrie");}
 
-	{auto& tc = list.Add("Social justice advocate");
+	{auto& tc = list.GetAdd("Social justice advocate");
 	tc.Add("Marvin Gaye");
 	tc.Add("Stevie Wonder");
 	tc.Add("John Legend");
 	tc.Add("Kendrick Lamar");
 	tc.Add("Common");}
 
-	{auto& tc = list.Add("Party/club");
+	{auto& tc = list.GetAdd("Party/club");
 	tc.Add("Pitbull");
 	tc.Add("Usher");
 	tc.Add("Justin Timberlake");
 	tc.Add("Bruno Mars");
 	tc.Add("Jason Derulo");}
 
-	{auto& tc = list.Add("Hopeful/dreamer");
+	{auto& tc = list.GetAdd("Hopeful/dreamer");
 	tc.Add("Imagine Dragons");
 	tc.Add("Coldplay");
 	tc.Add("Phillip Phillips");
 	tc.Add("John Mayer");
-	tc.Add("Jason Mraz");}
+	tc.Add("Red Hot Chili Peppers");}
 
-	{auto& tc = list.Add("Confident/empowered");
-	tc.Add("Beyonce");
-	tc.Add("Eminem");
-	tc.Add("Beyoncé");
-	tc.Add("Queen");
-	tc.Add("Alicia Keys");}
+	{auto& tc = list.GetAdd("Confident/empowered");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("Van Halen");
+	tc.Add("Green Day");
+	tc.Add("Blink-182");
+	tc.Add("Nirvana");}
 
-	{auto& tc = list.Add("Vulnerable/raw");
-	tc.Add("Adele");
+	{auto& tc = list.GetAdd("Vulnerable/raw");
+	tc.Add("Red Hot Chili Peppers");
 	tc.Add("Sam Smith");
 	tc.Add("Ed Sheeran");
 	tc.Add("Sia");
 	tc.Add("Amy Winehouse");}
 
-	{auto& tc = list.Add("Romantic/love-driven");
+	{auto& tc = list.GetAdd("Romantic/love-driven");
+	tc.Add("Red Hot Chili Peppers");
 	tc.Add("Ed Sheeran");
 	tc.Add("John Legend");
 	tc.Add("John Mayer");
-	tc.Add("Bruno Mars");
 	tc.Add("Sam Smith");}
 
-	{auto& tc = list.Add("Failure/loser");
+	{auto& tc = list.GetAdd("Failure/loser");
+	tc.Add("Red Hot Chili Peppers");
 	tc.Add("Air Supply");
 	tc.Add("Bon Jovi");
 	tc.Add("Shawn Mendes");
 	tc.Add("Fall Out Boy");}
 
-	{auto& tc = list.Add("Spiritual/faithful");
-	tc.Add("Hozier");
+	{auto& tc = list.GetAdd("Spiritual/faithful");
+	tc.Add("Red Hot Chili Peppers");
 	tc.Add("Johnny Cash");
 	tc.Add("Jason Mraz");
 	tc.Add("Hillsong United");
 	tc.Add("Chris Tomlin");}
 
-	{auto& tc = list.Add("Passionate/determined");
-	tc.Add("Beyoncé");
-	tc.Add("Christina Aguilera");
-	tc.Add("Elton John");}
+	{auto& tc = list.GetAdd("Passionate/determined");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("Elton John");
+	}
 
-	{auto& tc = list.Add("Reflective/self-reflective");
+	{auto& tc = list.GetAdd("Reflective/self-reflective");
+	tc.Add("Red Hot Chili Peppers");
 	tc.Add("Leonard Cohen");
 	tc.Add("Bob Dylan");
 	tc.Add("James Taylor");
 	tc.Add("Tracy Chapman");
 	tc.Add("Jack Johnson");}
 
-	{auto& tc = list.Add("Witty/sarcastic");
+	{auto& tc = list.GetAdd("Witty/sarcastic");
 	tc.Add("Eminem");
 	tc.Add("Kendrick Lamar");
 	tc.Add("Arctic Monkeys");
-	tc.Add("Childish Gambino");
-	tc.Add("Lily Allen");}
+	tc.Add("Childish Gambino");}
 
-	{auto& tc = list.Add("Melancholic/sad");
+	{auto& tc = list.GetAdd("Melancholic/sad");
 	tc.Add("Hozier");
 	tc.Add("Lana Del Rey");
-	tc.Add("Billie Eilish");
-	tc.Add("The Weeknd");
-	tc.Add("Adele");}
+	tc.Add("The Weeknd");}
 
-	{auto& tc = list.Add("Humble/down-to-earth");
+	{auto& tc = list.GetAdd("Humble/down-to-earth");
 	tc.Add("Ed Sheeran");
 	tc.Add("Bruno Mars");
 	tc.Add("Jason Mraz");
-	tc.Add("John Mayer");
-	tc.Add("Missy Higgins");}
+	tc.Add("John Mayer");}
 
-	{auto& tc = list.Add("Charismatic/charming");
+	{auto& tc = list.GetAdd("Charismatic/charming");
 	tc.Add("Bruno Mars");
 	tc.Add("Justin Timberlake");
 	tc.Add("Frank Sinatra");
 	tc.Add("Michael Buble");
 	tc.Add("Harry Connick Jr.");}
 
-	{auto& tc = list.Add("Resilient/overcoming adversity");
-	tc.Add("Eminem");
-	tc.Add("Demi Lovato");
-	tc.Add("Kesha");
-	tc.Add("Kelly Clarkson");}
+	{auto& tc = list.GetAdd("Resilient/overcoming adversity");
+	tc.Add("Eminem");}
 
-	{auto& tc = list.Add("Carefree/joyful");
+	{auto& tc = list.GetAdd("Carefree/joyful");
 	tc.Add("Maroon 5");
 	tc.Add("Jason Mraz");
 	tc.Add("Jack Johnson");}
 
-	{auto& tc = list.Add("Dark/mysterious");
+	{auto& tc = list.GetAdd("Dark/mysterious");
 	tc.Add("The Weeknd");
-	tc.Add("Lana Del Rey");
-	tc.Add("Billie Eilish");
-	tc.Add("David Bowie");
-	tc.Add("Florence + The Machine");}
+	tc.Add("David Bowie");}
 
-	{auto& tc = list.Add("Comical/humorous");
+	{auto& tc = list.GetAdd("Comical/humorous");
 	tc.Add("Weird Al Yankovic");
 	tc.Add("Flight of the Conchords");
 	tc.Add("Stephen Lynch");
 	tc.Add("Rodney Carrington");
 	tc.Add("The Lonely Island");}
 
-	{auto& tc = list.Add("Controversial/provocative");
+	{auto& tc = list.GetAdd("Controversial/provocative");
 	tc.Add("Marilyn Manson");
-	tc.Add("Madonna");
-	tc.Add("Miley Cyrus");
 	tc.Add("Die Antwoord");}
 
-	{auto& tc = list.Add("Nostalgic/sentimental");
+	{auto& tc = list.GetAdd("Nostalgic/sentimental");
 	tc.Add("The Beatles");
 	tc.Add("Fleetwood Mac");
 	tc.Add("Elton John");
 	tc.Add("Billy Joel");
 	tc.Add("James Taylor");}
 
-	{auto& tc = list.Add("Wise/philosophical");
+	{auto& tc = list.GetAdd("Wise/philosophical");
 	tc.Add("Bob Dylan");
 	tc.Add("Leonard Cohen");
 	tc.Add("Neil Young");
 	tc.Add("Paul Simon");
 	tc.Add("Tom Petty");}
 
-	{auto& tc = list.Add("Angry/outspoken");
+	{auto& tc = list.GetAdd("Angry/outspoken");
 	tc.Add("Rage Against the Machine");
 	tc.Add("Green Day");
 	tc.Add("Eminem");
 	tc.Add("Kanye West");
 	tc.Add("System of a Down");}
 
-	{auto& tc = list.Add("Calm/peaceful");
+	{auto& tc = list.GetAdd("Calm/peaceful");
 	tc.Add("Jack Johnson");
 	tc.Add("Jason Mraz");
 	tc.Add("James Taylor");
 	tc.Add("John Mayer");
 	tc.Add("Ben Howard");}
 
-	{auto& tc = list.Add("Confident/self-assured");
-	tc.Add("Beyoncé");
-	tc.Add("Eminem");
-	tc.Add("Kanye West");
-	tc.Add("Drake");}
+	{auto& tc = list.GetAdd("Confident/self-assured");
+	tc.Add("Eminem");}
 
-	{auto& tc = list.Add("Self-destructive/self-sabotaging");
-	tc.Add("Amy Winehouse");
+	{auto& tc = list.GetAdd("Self-destructive/self-sabotaging");
 	tc.Add("Nirvana");
 	tc.Add("Kurt Cobain");
-	tc.Add("Nine Inch Nails");
-	tc.Add("Elliott Smith");}
+	tc.Add("Nine Inch Nails");}
 
-	{auto& tc = list.Add("Hopeful/optimistic");
+	{auto& tc = list.GetAdd("Hopeful/optimistic");
 	tc.Add("Coldplay");
 	tc.Add("Phillip Phillips");
 	tc.Add("Imagine Dragons");
 	tc.Add("U2");
 	tc.Add("OneRepublic");}
 
-	{auto& tc = list.Add("Fearful/anxious");
-	tc.Add("Twenty One Pilots");
-	tc.Add("Lana Del Rey");
-	tc.Add("Lorde");
-	tc.Add("Ellie Goulding");
-	tc.Add("Adele");}
+	{auto& tc = list.GetAdd("Fearful/anxious");
+	tc.Add("Twenty One Pilots");}
 
-	{auto& tc = list.Add("Eccentric/quirky");
-	tc.Add("Björk");
+	{auto& tc = list.GetAdd("Eccentric/quirky");
 	tc.Add("David Bowie");
 	tc.Add("Prince");
 	tc.Add("Tame Impala");}
 
-	{auto& tc = list.Add("Sensitive/emotional");
-	tc.Add("Adele");
-	tc.Add("Sam Smith");
+	{auto& tc = list.GetAdd("Sensitive/emotional");
 	tc.Add("James Bay");
 	tc.Add("James Taylor");
 	tc.Add("Passenger");}
 
-	{auto& tc = list.Add("Bitter/resentful");
-	tc.Add("Alanis Morissette");
+	{auto& tc = list.GetAdd("Bitter/resentful");
 	tc.Add("Nirvana");
-	tc.Add("Fiona Apple");
 	tc.Add("Nine Inch Nails");}
 
-	{auto& tc = list.Add("Unique/nonconformist");
+	{auto& tc = list.GetAdd("Unique/nonconformist");
 	tc.Add("David Bowie");
-	tc.Add("Prince");
-	tc.Add("Björk");
-	tc.Add("Madonna");}
+	tc.Add("Prince");}
 
-	{auto& tc = list.Add("Free-spirited/nonconformist");
-	tc.Add("Janis Joplin");
-	tc.Add("Patti Smith");
+	{auto& tc = list.GetAdd("Free-spirited/nonconformist");
 	tc.Add("Johnny Cash");
 	tc.Add("Bob Dylan");
 	tc.Add("Jimi Hendrix");}
 
-	{auto& tc = list.Add("Sultry/seductive");
-	tc.Add("Beyoncé");
-	tc.Add("Lana Del Rey");
+	{auto& tc = list.GetAdd("Sultry/seductive");
 	tc.Add("Chris Isaak");
-	tc.Add("Frank Sinatra");
-	tc.Add("Rihanna");}
+	tc.Add("Frank Sinatra");}
 
-	{auto& tc = list.Add("Inspirational/motivational");
-	tc.Add("Whitney Houston");
+	{auto& tc = list.GetAdd("Inspirational/motivational");
 	tc.Add("Michael Jackson");
-	tc.Add("Imagine Dragons");
-	tc.Add("Rachel Platten");
-	tc.Add("Miley Cyrus");}
+	tc.Add("Imagine Dragons");}
 
-	{auto& tc = list.Add("Authentic/real");
+	{auto& tc = list.GetAdd("Authentic/real");
 	tc.Add("John Mayer");
 	tc.Add("Jason Mraz");
 	tc.Add("Ed Sheeran");
-	tc.Add("Hozier");
-	tc.Add("Adele");}
+	tc.Add("Hozier");}
 
-	{auto& tc = list.Add("Mysterious/enigmatic");
-	tc.Add("Lana Del Rey");
+	{auto& tc = list.GetAdd("Mysterious/enigmatic");
 	tc.Add("Billie Eilish");
 	tc.Add("David Bowie");
 	tc.Add("Florence + The Machine");
 	tc.Add("The Weeknd");}
 
-	{auto& tc = list.Add("Carefree/bohemian");
+	{auto& tc = list.GetAdd("Carefree/bohemian");
 	tc.Add("Fleetwood Mac");
 	tc.Add("Grateful Dead");
 	tc.Add("Jack Johnson");
 	tc.Add("Ben Howard");
 	tc.Add("Bob Marley");}
 
-	{auto& tc = list.Add("Street-smart/tough");
+	{auto& tc = list.GetAdd("Street-smart/tough");
 	tc.Add("N.W.A");
 	tc.Add("Tupac Shakur");
 	tc.Add("Eminem");
 	tc.Add("Jay-Z");
 	tc.Add("The Notorious B.I.G.");}
 
-	{auto& tc = list.Add("Romantic/idealistic");
+	{auto& tc = list.GetAdd("Romantic/idealistic");
 	tc.Add("John Legend");
 	tc.Add("John Mayer");
 	tc.Add("Bruno Mars");
 	tc.Add("Sam Smith");
 	tc.Add("Rex Orange County");}
 
-	{auto& tc = list.Add("Nurturing/motherly");
-	tc.Add("Beyoncé");
-	tc.Add("Adele");
-	tc.Add("P!nk");
-	tc.Add("Alicia Keys");}
+	{auto& tc = list.GetAdd("Nurturing/motherly");
+	tc.Add("Red Hot Chili Peppers");}
 
-	{auto& tc = list.Add("Dark/tormented");
-	tc.Add("Lana Del Rey");
-	tc.Add("Billie Eilish");
+	{auto& tc = list.GetAdd("Dark/tormented");
 	tc.Add("The Weeknd");
 	tc.Add("Kanye West");
 	tc.Add("Kendrick Lamar");}
 
-	{auto& tc = list.Add("Remorseful/regretful");
+	{auto& tc = list.GetAdd("Remorseful/regretful");
 	tc.Add("Justin Bieber");
-	tc.Add("Adele");
 	tc.Add("Eminem");
 	tc.Add("Maroon 5");
 	tc.Add("Coldplay");}
 
-	{auto& tc = list.Add("Bold/brave");
-	tc.Add("Beyoncé");
-	tc.Add("Queen");
-	tc.Add("P!nk");}
+	{auto& tc = list.GetAdd("Bold/brave");
+	tc.Add("Red Hot Chili Peppers");}
 
-	{auto& tc = list.Add("Outcast/rebel");
+	{auto& tc = list.GetAdd("Outcast/rebel");
 	tc.Add("Nirvana");
 	tc.Add("Green Day");
 	tc.Add("Eminem");
-	tc.Add("Lana Del Rey");
 	tc.Add("Kurt Cobain");}
 
-	{auto& tc = list.Add("Lost/disconnected");
-	tc.Add("Lana Del Rey");
-	tc.Add("Billie Eilish");
+	{auto& tc = list.GetAdd("Lost/disconnected");
 	tc.Add("Radiohead");
 	tc.Add("Tame Impala");
 	tc.Add("The Weeknd");}
 
-	{auto& tc = list.Add("Tough/badass");
+	{auto& tc = list.GetAdd("Tough/badass");
 	tc.Add("AC/DC");
 	tc.Add("Metallica");
 	tc.Add("Lynyrd Skynyrd");
 	tc.Add("Guns N' Roses");
 	tc.Add("Queen");}
 
-	{auto& tc = list.Add("Sincere/genuine");
+	{auto& tc = list.GetAdd("Sincere/genuine");
 	tc.Add("Ed Sheeran");
 	tc.Add("John Mayer");
 	tc.Add("Jason Mraz");
 	tc.Add("James Bay");
 	tc.Add("Hozier");}
 
-	{auto& tc = list.Add("Honest/vulnerable");
+	{auto& tc = list.GetAdd("Honest/vulnerable");
 	tc.Add("Sam Smith");
 	tc.Add("James Bay");
-	tc.Add("Adele");
-	tc.Add("Ed Sheeran");
-	tc.Add("Sia");}
+	tc.Add("Ed Sheeran");}
 
-	{auto& tc = list.Add("Innocent/naive");
+	{auto& tc = list.GetAdd("Innocent/naive");
 	tc.Add("One Direction");
 	tc.Add("Shawn Mendes");
 	tc.Add("Justin Bieber");
 	tc.Add("Bruno Mars");}
 
-	{auto& tc = list.Add("Bold/risk-taking");
-	tc.Add("Beyoncé");
-	tc.Add("Kanye West");
+	{auto& tc = list.GetAdd("Bold/risk-taking");
+	tc.Add("Kanye West");}
+
+
+
+
+	{auto& tc = list.GetAdd("Heartbroken/lovesick");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("Nirvana");
+	tc.Add("The Beatles");
+	tc.Add("Bob Dylan");
+	tc.Add("The Doors");}
+
+	{auto& tc = list.GetAdd("Rebel/anti-establishment");
+	tc.Add("The Offspring");
+	tc.Add("The Clash");
+	tc.Add("Rage Against the Machine");
+	tc.Add("N.W.A");
+	tc.Add("Public Enemy");
+	tc.Add("Green Day");}
+
+	{auto& tc = list.GetAdd("Political activist");
+	tc.Add("Bob Marley");
+	tc.Add("Bob Dylan");
+	tc.Add("Public Enemy");
+	tc.Add("Rage Against the Machine");
+	tc.Add("The Clash");}
+
+	{auto& tc = list.GetAdd("Social justice advocate");
+	tc.Add("Bob Marley");
+	tc.Add("Public Enemy");
+	tc.Add("The Clash");
+	tc.Add("Marvin Gaye");
+	tc.Add("N.W.A");}
+
+	{auto& tc = list.GetAdd("Party/club");
+	tc.Add("The Offspring");
+	tc.Add("Limp Bizkit");
+	tc.Add("Jay-Z");
 	tc.Add("Madonna");
-	tc.Add("Miley Cyrus");}
+	tc.Add("The Beastie Boys");
+	tc.Add("Beyonce");}
+
+	{auto& tc = list.GetAdd("Hopeful/dreamer");
+	tc.Add("The Beach Boys");
+	tc.Add("ABBA");
+	tc.Add("Elton John");
+	tc.Add("Bon Jovi");
+	tc.Add("U2");}
+
+	{auto& tc = list.GetAdd("Confident/empowered");
+	tc.Add("The Offspring");
+	tc.Add("Queen");
+	tc.Add("AC/DC");}
+
+	{auto& tc = list.GetAdd("Vulnerable/raw");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("Bon Iver");
+	tc.Add("The National");}
+
+	{auto& tc = list.GetAdd("Romantic/love-driven");
+	tc.Add("The Offspring");
+	tc.Add("The Beatles");
+	tc.Add("Ed Sheeran");
+	tc.Add("Coldplay");}
+
+	{auto& tc = list.GetAdd("Failure/loser");
+	tc.Add("The Offspring");
+	tc.Add("Green Day");
+	tc.Add("The Smiths");
+	tc.Add("Radiohead");
+	tc.Add("Blink-182");
+	tc.Add("Morrissey");}
+
+	{auto& tc = list.GetAdd("Spiritual/faithful");
+	tc.Add("U2");
+	tc.Add("Bob Dylan");
+	tc.Add("Sufjan Stevens");
+	tc.Add("Mumford & Sons");}
+
+	{auto& tc = list.GetAdd("Passionate/determined");
+	tc.Add("The Offspring");
+	tc.Add("Bruce Springsteen");
+	tc.Add("Nirvana");}
+
+	{auto& tc = list.GetAdd("Reflective/self-reflective");
+	tc.Add("Radiohead");
+	tc.Add("The National");
+	tc.Add("Red Hot Chili Peppers");}
+
+	{auto& tc = list.GetAdd("Witty/sarcastic");
+	tc.Add("The Offspring");
+	tc.Add("Flight of the Conchords");
+	tc.Add("The Lonely Island");
+	tc.Add("Weird Al Yankovic");
+	tc.Add("Tenacious D");
+	tc.Add("The Lonely Island");}
+
+	{auto& tc = list.GetAdd("Melancholic/sad");
+	tc.Add("The Smiths");
+	tc.Add("Joy Division");
+	tc.Add("The Cure");}
+
+	{auto& tc = list.GetAdd("Humble/down-to-earth");
+	tc.Add("Johnny Cash");
+	tc.Add("Bob Dylan");
+	tc.Add("Mumford & Sons");
+	tc.Add("Ed Sheeran");}
+
+	{auto& tc = list.GetAdd("Charismatic/charming");
+	tc.Add("The Rolling Stones");
+	tc.Add("Justin Timberlake");
+	tc.Add("Maroon 5");}
+
+	{auto& tc = list.GetAdd("Resilient/overcoming adversity");
+	tc.Add("The Offspring");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("The Doors");
+	tc.Add("Green Day");
+	tc.Add("Foo Fighters");
+	}
+
+	{auto& tc = list.GetAdd("Carefree/joyful");
+	tc.Add("The Offspring");
+	tc.Add("The Beach Boys");
+	tc.Add("Jack Johnson");
+	tc.Add("The Beatles");}
+
+	{auto& tc = list.GetAdd("Dark/mysterious");
+	tc.Add("Joy Division");
+	tc.Add("Nine Inch Nails");
+	tc.Add("Radiohead");
+	tc.Add("The Smashing Pumpkins");
+	tc.Add("PJ Harvey");}
+
+	{auto& tc = list.GetAdd("Comical/humorous");
+	tc.Add("The Offspring");
+	tc.Add("Flight of the Conchords");
+	tc.Add("Tenacious D");
+	tc.Add("The Lonely Island");
+	tc.Add("Tim Minchin");}
+
+	{auto& tc = list.GetAdd("Controversial/provocative");
+	tc.Add("The Offspring");
+	tc.Add("Marilyn Manson");
+	tc.Add("Rage Against the Machine");}
+
+	{auto& tc = list.GetAdd("Nostalgic/sentimental");
+	tc.Add("The Offspring");
+	tc.Add("The Beatles");
+	tc.Add("Fleetwood Mac");
+	tc.Add("Queen");
+	tc.Add("The Eagles");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("Bon Jovi");}
+
+	{auto& tc = list.GetAdd("Wise/philosophical");
+	tc.Add("The Offspring");
+	tc.Add("Bob Dylan");
+	tc.Add("Leonard Cohen");
+	tc.Add("Simon & Garfunkel");}
+
+	{auto& tc = list.GetAdd("Angry/outspoken");
+	tc.Add("The Offspring");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("Rage Against the Machine");
+	tc.Add("Green Day");}
+
+	{auto& tc = list.GetAdd("Calm/peaceful");
+	tc.Add("Jack Johnson");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("Bob Marley");
+	tc.Add("Feist");
+	tc.Add("Ben Harper");}
+
+	{auto& tc = list.GetAdd("Self-destructive/self-sabotaging");
+	tc.Add("Kurt Cobain");
+	tc.Add("Nirvana");
+	tc.Add("Red Hot Chili Peppers");
+	}
+
+	{auto& tc = list.GetAdd("Hopeful/optimistic");
+	tc.Add("U2");
+	tc.Add("Coldplay");
+	tc.Add("Imagine Dragons");
+	tc.Add("The Lumineers");
+	tc.Add("Mumford & Sons");}
+
+	{auto& tc = list.GetAdd("Fearful/anxious");
+	tc.Add("The Offspring");
+	tc.Add("Radiohead");
+	tc.Add("The National");
+	tc.Add("Arcade Fire");
+	tc.Add("Bon Iver");}
+
+	{auto& tc = list.GetAdd("Eccentric/quirky");
+	tc.Add("The Offspring");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("The Flaming Lips");
+	tc.Add("David Bowie");
+	tc.Add("They Might Be Giants");
+	tc.Add("Neutral Milk Hotel");}
+
+	{auto& tc = list.GetAdd("Sensitive/emotional");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("Bon Iver");
+	tc.Add("Sam Smith");
+	tc.Add("James Blake");}
+
+	{auto& tc = list.GetAdd("Bitter/resentful");
+	tc.Add("Marilyn Manson");
+	tc.Add("The Offspring");
+	}
+
+	{auto& tc = list.GetAdd("Unique/nonconformist");
+	tc.Add("The Offspring");
+	tc.Add("David Bowie");
+	tc.Add("Queen");
+	tc.Add("The Velvet Underground");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("Prince");}
+
+	{auto& tc = list.GetAdd("Free-spirited/nonconformist");
+	tc.Add("The Offspring");
+	tc.Add("Bob Dylan");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("The Grateful Dead");
+	tc.Add("Fleetwood Mac");
+	tc.Add("Joan Baez");}
+
+	{auto& tc = list.GetAdd("Sultry/seductive");
+	tc.Add("Billie Holiday");
+	tc.Add("The Weeknd");
+	tc.Add("Marvin Gaye");}
+
+	{auto& tc = list.GetAdd("Inspirational/motivational");
+	tc.Add("U2");
+	tc.Add("Coldplay");
+	tc.Add("Bruce Springsteen");}
+
+	{auto& tc = list.GetAdd("Authentic/real");
+	tc.Add("The Offspring");
+	tc.Add("Bon Iver");
+	tc.Add("Frank Ocean");
+	tc.Add("Kendrick Lamar");}
+
+	{auto& tc = list.GetAdd("Mysterious/enigmatic");
+	tc.Add("Radiohead");
+	tc.Add("The Black Keys");
+	tc.Add("Tom Waits");
+	tc.Add("Portishead");}
+
+	{auto& tc = list.GetAdd("Carefree/bohemian");
+	tc.Add("The Offspring");
+	tc.Add("Edward Sharpe and the Magnetic Zeros");
+	tc.Add("Bob Marley");
+	tc.Add("Jack Johnson");
+	tc.Add("The Grateful Dead");
+	tc.Add("The Beatles");}
+
+	{auto& tc = list.GetAdd("Street-smart/tough");
+	tc.Add("The Offspring");
+	tc.Add("Red Hot Chili Peppers");
+	}
+
+	{auto& tc = list.GetAdd("Romantic/idealistic");
+	tc.Add("The Beatles");
+	tc.Add("Bob Dylan");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("Coldplay");}
+
+	{auto& tc = list.GetAdd("Nurturing/motherly");
+	tc.Add("Johnny Cash");}
+
+	{auto& tc = list.GetAdd("Dark/tormented");
+	tc.Add("Joy Division");
+	tc.Add("Nine Inch Nails");
+	tc.Add("Elliott Smith");
+	tc.Add("Nick Cave and the Bad Seeds");
+	tc.Add("The Cure");}
+
+	{auto& tc = list.GetAdd("Remorseful/regretful");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("Kurt Cobain");
+	tc.Add("The National");}
+
+	{auto& tc = list.GetAdd("Bold/brave");
+	tc.Add("The Offspring");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("The Clash");
+	tc.Add("Bruce Springsteen");}
+
+	{auto& tc = list.GetAdd("Outcast/rebel");
+	tc.Add("The Offspring");
+	tc.Add("Nirvana");
+	tc.Add("The Smiths");
+	tc.Add("Eminem");
+	tc.Add("Green Day");
+	tc.Add("Red Hot Chili Peppers");}
+
+	{auto& tc = list.GetAdd("Lost/disconnected");
+	tc.Add("Radiohead");
+	tc.Add("Pink Floyd");
+	tc.Add("Nine Inch Nails");
+	tc.Add("The National");
+	tc.Add("Red Hot Chili Peppers");}
+
+	{auto& tc = list.GetAdd("Tough/badass");
+	tc.Add("AC/DC");
+	tc.Add("Metallica");
+	tc.Add("Guns N' Roses");
+	tc.Add("Led Zeppelin");
+	tc.Add("The Rolling Stones");
+	tc.Add("The Offspring");
+	tc.Add("Red Hot Chili Peppers");
+	}
+
+	{auto& tc = list.GetAdd("Sincere/genuine");
+	tc.Add("John Mayer");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("Fleetwood Mac");
+	tc.Add("The Offspring");
+	tc.Add("James Taylor");}
+
+	{auto& tc = list.GetAdd("Honest/vulnerable");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("Ryan Adams");
+	tc.Add("Sufjan Stevens");
+	tc.Add("Phoebe Bridgers");}
+
+	{auto& tc = list.GetAdd("Innocent/naive");
+	tc.Add("The Beach Boys");
+	tc.Add("Simon & Garfunkel");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("The Beatles");}
+
+	{auto& tc = list.GetAdd("Bold/risk-taking");
+	tc.Add("Red Hot Chili Peppers");
+	tc.Add("The Offspring");
+	tc.Add("Nirvana");}
 	
-	ASSERT(list.GetCount() == GetTypecastSingers().GetCount());
+	ASSERT(list.GetCount() == GetTypecastCount());
 	return list;
 }
 
@@ -2450,6 +2737,6 @@ VectorMap<String,Vector<String>>& GetTypecastRappersMale() {
 	tc.Add("N.W.A");
 	tc.Add("Public Enemy");}
 	
-	ASSERT(list.GetCount() == GetTypecastSingers().GetCount());
+	ASSERT(list.GetCount() == GetTypecastCount());
 	return list;
 }

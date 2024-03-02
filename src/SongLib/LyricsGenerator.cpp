@@ -70,6 +70,11 @@ void LyricsGenerator::Process() {
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
 			phase = LG_BEGIN;
+			
+			// Start LyricsSolver
+			LyricsSolver& ls = LyricsSolver::Get(*artist,*release,*song);
+			ls.Start();
+			
 			break;
 		}
 		

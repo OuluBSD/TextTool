@@ -1,12 +1,6 @@
 Scheduled work:
-- song generator: to new dataset
-	- song datasets
-		- virtual datasets, in addition to normal
-		- linked to normal datasets (inherits english dataset)
-		- both pre and post datasets
-			- pre is for phrase pool
-			- post is for synthesized rhyme pairs
-
+- separate generated songs and band songs
+	- to make pool of lyrics, which to choose from
 - database: TYPECAST & IDENTITY stuff... profile, primary/secondary person (all gendered)
 	- ask I which it CAN'T be to avoid random answers
 - database: fixed rhyming word connections for filtering
@@ -345,3 +339,5 @@ x? vocabulary: for artist, for release, for song
 - database: export/import data
 - database: diagnostics
 - song attrs and colors -page (and rhyme scheme)
+- song generator: to new dataset
+
