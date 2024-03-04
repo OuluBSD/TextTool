@@ -3,7 +3,7 @@
 
 class Editor;
 
-class CompanyInfoCtrl : public WithCompanyInfo<SongToolCtrl> {
+class CompanyInfoCtrl : public WithCompanyInfo<ToolAppCtrl> {
 	
 	
 public:

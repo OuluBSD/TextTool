@@ -4,7 +4,7 @@
 
 #if 0
 
-class SongDataPhrases : public SongToolCtrl {
+class SongDataPhrases : public ToolAppCtrl {
 	int phrase_limit = 200000000;
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, attrs, songs;

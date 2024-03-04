@@ -33,7 +33,7 @@ void ChecklistBase::Init() {
 
 void ChecklistBase::Data() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song) return;
 	Song& song = *p.song;
 	
@@ -50,7 +50,7 @@ void ChecklistBase::Data() {
 
 void ChecklistBase::OnValueChange(int i) {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song) return;
 	Song& song = *p.song;
 	
@@ -64,7 +64,7 @@ void ChecklistBase::OnValueChange(int i) {
 
 void ChecklistBase::OnOptionChange(int i) {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song) return;
 	Song& song = *p.song;
 	

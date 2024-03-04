@@ -2,7 +2,7 @@
 #define _SongCtrl_SongPool_h_
 
 
-class SongPool : public SongToolCtrl {
+class SongPool : public ToolAppCtrl {
 	ArrayCtrl list;
 	ProgressIndicator summary_bar;
 	

@@ -36,7 +36,7 @@ void SongInfoCtrl::Clear() {
 
 void SongInfoCtrl::Data() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	Clear();
 	
@@ -87,7 +87,7 @@ void SongInfoCtrl::Data() {
 
 void SongInfoCtrl::DataTypecast() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist || !typecasts.IsCursor()) {
 		archetypes.Clear();
 		lyrics.Clear();
@@ -116,7 +116,7 @@ void SongInfoCtrl::DataTypecast() {
 
 void SongInfoCtrl::DataArchetype() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist || !typecasts.IsCursor() || !archetypes.IsCursor()) {
 		lyrics.Clear();
 		return;
@@ -142,7 +142,7 @@ void SongInfoCtrl::DataArchetype() {
 
 void SongInfoCtrl::DataLyrics() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist || !typecasts.IsCursor() || !archetypes.IsCursor() || !lyrics.IsCursor()) {
 		lyrics_text.Clear();
 		return;
@@ -166,7 +166,7 @@ void SongInfoCtrl::DataLyrics() {
 
 void SongInfoCtrl::OnValueChange() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	if (p.song && editor->songs.IsCursor()) {
 		Song& s = *p.song;
@@ -184,7 +184,7 @@ void SongInfoCtrl::OnValueChange() {
 
 void SongInfoCtrl::SetLyrics() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	Song& s = *p.song;
 	
 	if (!p.artist || !p.song || !typecasts.IsCursor() || !archetypes.IsCursor() || !lyrics.IsCursor()) {

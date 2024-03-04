@@ -4,7 +4,7 @@
 #if 0
 
 
-class LineStructureEditor : public SongToolCtrl {
+class LineStructureEditor : public ToolAppCtrl {
 	struct PartSug : Moveable<PartSug> {
 		static const int EX_COUNT = 2;
 		String examples[EX_COUNT];

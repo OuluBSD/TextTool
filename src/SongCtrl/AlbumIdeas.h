@@ -2,7 +2,7 @@
 #define _SongTool_AlbumIdeas_h_
 
 
-class AlbumIdeas : public SongToolCtrl {
+class AlbumIdeas : public ToolAppCtrl {
 	Splitter hsplit;
 	ArrayCtrl list;
 	WithAlbumIdeas<Ctrl> idea;

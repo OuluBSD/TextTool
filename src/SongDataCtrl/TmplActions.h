@@ -4,7 +4,7 @@
 #if 0
 
 
-class SongDataTmplActions : public SongToolCtrl {
+class SongDataTmplActions : public ToolAppCtrl {
 	static const int per_batch = 15;
 	
 	struct Batch : Moveable<Batch> {

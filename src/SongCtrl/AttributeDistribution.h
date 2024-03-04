@@ -3,7 +3,7 @@
 
 #if 0
 
-class AttributeDistribution : public SongToolCtrl {
+class AttributeDistribution : public ToolAppCtrl {
 	bool disabled = false;
 	Splitter vsplit, hsplit;
 	ArrayCtrl attrs, active, positive, negative;

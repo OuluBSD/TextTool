@@ -3,7 +3,7 @@
 
 #if 0
 
-class EnglishEditor : public SongToolCtrl {
+class EnglishEditor : public ToolAppCtrl {
 	Splitter hsplit;
 	ArrayCtrl parts, lines, candidates;
 	int ds_i = 0;

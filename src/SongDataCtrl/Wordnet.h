@@ -2,7 +2,7 @@
 #define _SongDataCtrl_SongDataWordnet_h_
 
 
-class SongDataWordnet : public SongToolCtrl {
+class SongDataWordnet : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, attrs, colors, wordnets;
 	Mutex lock;

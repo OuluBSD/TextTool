@@ -4,7 +4,7 @@
 #if 0
 
 
-class ExportPage : public SongToolCtrl {
+class ExportPage : public ToolAppCtrl {
 	DocEdit log;
 	ProgressIndicator prog;
 	bool running = 0, stopped = 1;

@@ -292,7 +292,7 @@ void SongStructure::GetStructureSuggestions() {
 		String avoid = l.avoid_parts;
 		String desc = l.structure_suggestion_description;
 		int total = l.parts_total;
-		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+		TaskMgr& m = TaskMgr::Single();
 		m.GetStructureSuggestions(req, avoid, desc, total, THISBACK1(OnStructureSuggestion, &l));
 	}
 }
@@ -307,7 +307,7 @@ void SongStructure::GetSuggestionAttributes() {
 		Vector<String> structs;
 		for (auto& sug : l.struct_suggs)
 			structs << Join(sug.parts, ", ");
-		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+		TaskMgr& m = TaskMgr::Single();
 		m.GetSuggestionAttributes(structs, THISBACK1(OnSuggestionAttributes, &l));
 	}
 }

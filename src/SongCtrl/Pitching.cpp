@@ -41,7 +41,7 @@ void Pitching::Data() {
 
 void Pitching::SetText(DocEdit& e, String data_key) {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist || data_key.IsEmpty())
 		return;
 	
@@ -51,7 +51,7 @@ void Pitching::SetText(DocEdit& e, String data_key) {
 
 void Pitching::OnText(DocEdit* e, String data_key) {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist || data_key.IsEmpty())
 		return;
 	
@@ -61,7 +61,7 @@ void Pitching::OnText(DocEdit* e, String data_key) {
 
 void Pitching::TranslateEnglishArtistProcess() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist || native_pitching_key.IsEmpty())
 		return;
 	
@@ -76,7 +76,7 @@ void Pitching::TranslateEnglishArtistProcess() {
 				return;
 		}
 		
-		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+		TaskMgr& m = TaskMgr::Single();
 		String orig_lng = GetCurrentLanguageString().Left(5);
 		String trans_lng = "EN-US";
 		m.Translate(orig_lng, txt, trans_lng, THISBACK(PostOnTranslateReady));
@@ -90,7 +90,7 @@ void Pitching::OnTranslateReady(String res) {
 
 void Pitching::MakeFeedback() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist ||!p.release)
 		return;
 	
@@ -128,7 +128,7 @@ void Pitching::MakeFeedback() {
 		raw_prompt << "The band has a male politically republican fan (age 80 years old), who has only following positive things to say about this band and song:\n";
 		
 		
-		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+		TaskMgr& m = TaskMgr::Single();
 		m.RawCompletion(raw_prompt, THISBACK(PostOnFeedback));
 	}
 }
@@ -140,7 +140,7 @@ void Pitching::OnFeedback(String result) {
 
 void Pitching::MakePitch() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist ||!p.release)
 		return;
 	
@@ -180,7 +180,7 @@ void Pitching::MakePitch() {
 						"\n"
 						"Artist will pitch this song \"" << title << "\" to a Spotify playlist with the following text:\n";
 		
-		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+		TaskMgr& m = TaskMgr::Single();
 		m.RawCompletion(raw_prompt, THISBACK(PostOnPitch));
 	}
 }

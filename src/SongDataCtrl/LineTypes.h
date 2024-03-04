@@ -4,7 +4,7 @@
 
 #if 0
 
-class LineTypesPage : public SongToolCtrl {
+class LineTypesPage : public ToolAppCtrl {
 	struct Batch : Moveable<Batch> {
 		ArtistDataset* artist;
 		LyricsDataset* lyrics;

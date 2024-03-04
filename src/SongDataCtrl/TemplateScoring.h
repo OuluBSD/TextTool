@@ -4,7 +4,7 @@
 #if 0
 
 
-class SongDataTemplateScoring : public SongToolCtrl {
+class SongDataTemplateScoring : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, attrs, colors, scores;
 	Mutex lock;

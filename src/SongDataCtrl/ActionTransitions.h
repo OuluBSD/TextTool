@@ -2,7 +2,7 @@
 #define _SongDataCtrl_ActionTransitions_h_
 
 
-class ActionTransitionsPage : public SongToolCtrl {
+class ActionTransitionsPage : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, actions, action_args, transitions;
 	Mutex lock;

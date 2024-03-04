@@ -7,6 +7,8 @@
 #include "FrontPage.h"
 #include "CalendarPage.h"
 #include "TaskCtrl.h"
+#include "Fns.h"
+#include "ImageGenTool.h"
 
 
 #endif

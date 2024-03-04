@@ -2,7 +2,7 @@
 #define _SongCtrl_Marketing_h_
 
 
-class MarketingCtrl : public SongToolCtrl {
+class MarketingCtrl : public ToolAppCtrl {
 	
 	
 public:

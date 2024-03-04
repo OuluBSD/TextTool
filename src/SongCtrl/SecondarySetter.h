@@ -2,7 +2,7 @@
 #define _SongCtrl_SecondarySetter_h_
 
 #if 0
-class SecondarySetter : public SongToolCtrl {
+class SecondarySetter : public ToolAppCtrl {
 	
 public:
 	typedef SecondarySetter CLASSNAME;

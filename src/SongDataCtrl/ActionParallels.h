@@ -2,7 +2,7 @@
 #define _SongDataCtrl_ActionParallels_h_
 
 
-class ActionParallelsPage : public SongToolCtrl {
+class ActionParallelsPage : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, actions, action_args, parallels;
 	Mutex lock;

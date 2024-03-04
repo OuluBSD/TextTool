@@ -78,7 +78,7 @@ void PhraseParts::DataDataset() {
 }
 
 void PhraseParts::ToolMenu(Bar& bar) {
-	SongToolCtrl::ToolMenu(bar);
+	ToolAppCtrl::ToolMenu(bar);
 }
 
 void PhraseParts::Process() {

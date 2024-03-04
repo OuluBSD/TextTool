@@ -35,7 +35,6 @@ struct Database {
 	SongData		song_data;
 	
 	// Temp
-	Context			ctx;
 	String			dir;
 	RWMutex			lock;
 	

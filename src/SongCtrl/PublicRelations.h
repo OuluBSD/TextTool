@@ -2,7 +2,7 @@
 #define _SongCtrl_PublicRelations_h_
 
 
-class PublicRelationsCtrl : public SongToolCtrl {
+class PublicRelationsCtrl : public ToolAppCtrl {
 	
 	
 public:

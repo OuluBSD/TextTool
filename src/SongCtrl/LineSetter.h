@@ -3,7 +3,7 @@
 
 #if 0
 
-class LineSetter : public SongToolCtrl {
+class LineSetter : public ToolAppCtrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl lines, picked, subpicked, lineconf;
 	int ds_i = 0;

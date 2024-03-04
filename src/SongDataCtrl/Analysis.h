@@ -4,7 +4,7 @@
 #if 0
 
 
-class SongDataAnalysisPage : public SongToolCtrl {
+class SongDataAnalysisPage : public ToolAppCtrl {
 	struct Task : Moveable<Task> {
 		String artist, song, text;
 		LyricsDataset* ld = 0;

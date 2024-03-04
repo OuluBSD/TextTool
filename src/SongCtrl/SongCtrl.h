@@ -17,7 +17,6 @@
 #include "Pitching.h"
 #include "SongBriefing.h"
 #include "SongStructure.h"
-#include "ImageGenTool.h"
 #include "CalMgrCtrl.h"
 #include "ContextAttributes.h"
 #include "PublicRelations.h"
@@ -39,6 +38,7 @@
 #include "SecondarySetter.h"
 #include "LyricsSolverCtrl.h"
 #include "SongPool.h"
+#include "Fns.h"
 
 
 #endif

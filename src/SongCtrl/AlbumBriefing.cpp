@@ -21,7 +21,7 @@ AlbumBriefing::AlbumBriefing() {
 
 void AlbumBriefing::Data() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release) return;
 	Release& release = *p.release;
 	for(int i = 0; i < ITEM_COUNT; i++) {
@@ -47,7 +47,7 @@ void AlbumBriefing::OnListCursor() {
 	values.value.Clear();
 	
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release) return;
 	Release& release = *p.release;
 	
@@ -65,7 +65,7 @@ void AlbumBriefing::OnListCursor() {
 
 void AlbumBriefing::OnValueChange() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release) return;
 	Release& release = *p.release;
 	

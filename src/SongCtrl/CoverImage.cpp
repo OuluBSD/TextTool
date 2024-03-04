@@ -21,7 +21,7 @@ void CoverImage::ToolMenu(Bar& bar) {
 
 void CoverImage::CreateSuggestionsForPrompts() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist ||!p.release)
 		return;
 	
@@ -61,7 +61,7 @@ void CoverImage::CreateSuggestionsForPrompts() {
 		
 		String result_part = title + " based cover";
 		
-		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+		TaskMgr& m = TaskMgr::Single();
 		m.RawCompletion(raw_prompt, THISBACK1(PostOnResult, result_part));
 	}
 }

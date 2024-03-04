@@ -124,7 +124,7 @@ SongBriefing::SongBriefing() {
 
 void SongBriefing::Data() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song) return;
 	Song& song = *p.song;
 	
@@ -224,7 +224,7 @@ void SongBriefing::OnListCursor() {
 		value.Clear();
 		
 		Database& db = Database::Single();
-		EditorPtrs& p = db.ctx.ed;
+		EditorPtrs& p = EditorPtrs::Single();
 		if (!p.song) return;
 		Song& song = *p.song;
 		
@@ -256,7 +256,7 @@ void SongBriefing::OnListCursor() {
 
 void SongBriefing::OnValueChange() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song) return;
 	Song& song = *p.song;
 	
@@ -292,7 +292,7 @@ void SongBriefing::OnValueChange() {
 
 /*void SongBriefing::OnPollValueChange(int i, const char* key) {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song) return;
 	Song& song = *p.song;
 	

@@ -2,7 +2,7 @@
 #define _SongDataCtrl_RhymeContainer_h_
 
 
-class RhymeContainerPage : public SongToolCtrl {
+class RhymeContainerPage : public ToolAppCtrl {
 	ProgressIndicator prog;
 	Splitter hsplit, vsplit;
 	ArrayCtrl datasets, syl_counts, colors, attrs, actions, action_args, data;

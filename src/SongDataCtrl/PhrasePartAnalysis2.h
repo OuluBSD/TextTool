@@ -2,7 +2,7 @@
 #define _SongDataCtrl_PhrasePartAnalysis2_h_
 
 
-class PhrasePartAnalysis2 : public SongToolCtrl {
+class PhrasePartAnalysis2 : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, typecasts, contrasts, profiles, archetypes, primaries, secondaries, parts;
 	

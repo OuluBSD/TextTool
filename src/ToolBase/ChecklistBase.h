@@ -3,7 +3,7 @@
 
 #if 0
 
-class ChecklistBase : public SongToolCtrl {
+class ChecklistBase : public ToolAppCtrl {
 	ArrayCtrl list;
 	Vector<Option*> opts;
 	Vector<EditString*> edits;

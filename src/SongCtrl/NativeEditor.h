@@ -3,7 +3,7 @@
 
 #if 0
 
-class NativeEditor : public SongToolCtrl {
+class NativeEditor : public ToolAppCtrl {
 	
 public:
 	typedef NativeEditor CLASSNAME;

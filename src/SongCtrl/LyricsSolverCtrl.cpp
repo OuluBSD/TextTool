@@ -132,7 +132,7 @@ void LyricsSolverCtrl::DataSuggestion() {
 
 void LyricsSolverCtrl::UserLyricsChange() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.lyrics)
 		return;
 	
@@ -146,7 +146,7 @@ void LyricsSolverCtrl::GetNewTitle() {
 	args.fn = 8;
 	args.part = l.text;
 	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	TaskMgr& m = TaskMgr::Single();
 	m.GetLyricsSolver(args, THISBACK(OnNewTitle));
 }
 

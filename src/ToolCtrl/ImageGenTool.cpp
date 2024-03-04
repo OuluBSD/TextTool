@@ -1,4 +1,4 @@
-#include "SongCtrl.h"
+#include "ToolCtrl.h"
 
 
 
@@ -163,15 +163,14 @@ void ImageGenTool::Generate() {
 }
 
 void ImageGenTool::GenerateArgs(String prompt_str, int n) {
-	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist)
 		return;
 	
 	
 	
 	{
-		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+		TaskMgr& m = TaskMgr::Single();
 		m.CreateImage(prompt_str, n, THISBACK2(OnImageReady, prompt_str, n), THISBACK(EnableAll));
 	}
 	
@@ -285,8 +284,7 @@ void ImageGenTool::DataRecent() {
 }
 
 void ImageGenTool::GenerateFromEditor() {
-	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist)
 		return;
 	
@@ -309,7 +307,7 @@ void ImageGenTool::GenerateFromEditor() {
 		
 		int n = count.GetData();
 		
-		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+		TaskMgr& m = TaskMgr::Single();
 		m.GetEditImage(editor.image, editor.mask, prompt_str, n, THISBACK2(OnEditReady, prompt_str, n), THISBACK(EnableAll));
 	}
 	
@@ -323,8 +321,7 @@ void ImageGenTool::GenerateFromEditor() {
 }
 
 void ImageGenTool::VariateFromEditor() {
-	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist)
 		return;
 	
@@ -345,7 +342,7 @@ void ImageGenTool::VariateFromEditor() {
 		
 		int n = count.GetData();
 		
-		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+		TaskMgr& m = TaskMgr::Single();
 		m.VariateImage(editor.image, n, THISBACK2(OnEditReady, prompt_str, n), THISBACK(EnableAll));
 	}
 	
@@ -468,8 +465,7 @@ void ImageGenTool::Upload() {
 }
 
 void ImageGenTool::Translate(bool editor) {
-	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist)
 		return;
 	
@@ -479,7 +475,7 @@ void ImageGenTool::Translate(bool editor) {
 	{
 		String orig_lng = GetCurrentLanguageString().Left(5);
 		String trans_lng = "EN-US";
-		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+		TaskMgr& m = TaskMgr::Single();
 		m.Translate(orig_lng, prompt_str, trans_lng, THISBACK1(PostOnTranslateReady, editor));
 	}
 }

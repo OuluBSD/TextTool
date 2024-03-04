@@ -2,7 +2,7 @@
 #define _SongCtrl_PressRelease_h_
 
 
-class PressReleaseCtrl : public SongToolCtrl {
+class PressReleaseCtrl : public ToolAppCtrl {
 	
 	
 public:

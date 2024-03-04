@@ -23,7 +23,7 @@ public:
 };
 
 
-class CalMgrCtrl : public SongToolCtrl {
+class CalMgrCtrl : public ToolAppCtrl {
 	Splitter split;
 	TabCtrl tabs;
 	ArtistCalendarCtrl cal;

@@ -4,7 +4,7 @@
 
 #if 0
 
-class SongDataWordnetScoring : public SongToolCtrl {
+class SongDataWordnetScoring : public ToolAppCtrl {
 	Splitter vsplit, hsplit, vsplit1;
 	ArrayCtrl datasets, attrs, colors, wordnets, clr_wordnets;
 	Mutex lock;

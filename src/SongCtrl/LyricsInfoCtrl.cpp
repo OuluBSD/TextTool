@@ -41,7 +41,7 @@ void LyricsInfoCtrl::Clear() {
 
 void LyricsInfoCtrl::Data() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	Clear();
 	
@@ -61,7 +61,7 @@ void LyricsInfoCtrl::Data() {
 
 void LyricsInfoCtrl::OnValueChange() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	if (p.lyrics && editor->lyrics.IsCursor()) {
 		Lyrics& l = *p.lyrics;

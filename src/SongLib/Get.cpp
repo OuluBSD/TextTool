@@ -1495,7 +1495,7 @@ void TaskManager::GetLineActions(Task* t) {
 	args.fn = 10;
 	args.phrases <<= Split(batch.txt, "\n");
 	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	TaskMgr& m = TaskMgr::Single();
 	m.GetSongDataAnalysis(args, THISBACK1(OnLineActions, t));
 }
 
@@ -1581,7 +1581,7 @@ void TaskManager::GetSyllables(Task* t) {
 	
 	args.fn = 4;
 	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	TaskMgr& m = TaskMgr::Single();
 	m.GetSongDataAnalysis(args, THISBACK1(OnSyllables, t));
 }
 
@@ -1663,7 +1663,7 @@ void TaskManager::GetDetails(Task* t) {
 	
 	args.fn = 5;
 	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	TaskMgr& m = TaskMgr::Single();
 	m.GetSongDataAnalysis(args, THISBACK1(OnDetails, t));
 }
 
@@ -1727,7 +1727,7 @@ void TaskManager::GetLineChangeScores(Task* t) {
 	}*/
 	
 	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	TaskMgr& m = TaskMgr::Single();
 	m.GetSongDataAnalysis(args, THISBACK1(OnLineChangeScores, t));
 }
 
@@ -1809,7 +1809,7 @@ void TaskManager::GetColorAlternatives(Task* t) {
 	
 	args.fn = 7;
 	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	TaskMgr& m = TaskMgr::Single();
 	m.GetSongDataAnalysis(args, THISBACK1(OnColorAlternatives, t));
 }
 

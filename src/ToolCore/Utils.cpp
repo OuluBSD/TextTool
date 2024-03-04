@@ -3,42 +3,42 @@
 
 
 
-Lyrics& SongToolCtrl::GetLyrics() {
+Lyrics& ToolAppCtrl::GetLyrics() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.lyrics)
 		throw NoPointerExc("no lyrics");
 	return *p.lyrics;
 }
 
-Song& SongToolCtrl::GetSong() {
+Song& ToolAppCtrl::GetSong() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist)
 		throw NoPointerExc("no song");
 	Song& song = *p.song;
 	return song;
 }
 
-Release& SongToolCtrl::GetRelease() {
+Release& ToolAppCtrl::GetRelease() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.release)
 		throw NoPointerExc("no release");
 	return *p.release;
 }
 
-Artist& SongToolCtrl::GetArtist() {
+Artist& ToolAppCtrl::GetArtist() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.artist)
 		throw NoPointerExc("no artist");
 	return *p.artist;
 }
 
-String SongToolCtrl::GetSongTitle() const {
+String ToolAppCtrl::GetSongTitle() const {
 	/*Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist)
 		throw NoPointerExc("no song");
 	Song& song = *p.song;
@@ -50,16 +50,16 @@ String SongToolCtrl::GetSongTitle() const {
 	return "";
 }
 
-/*int SongToolCtrl::GetDataset() {
+/*int ToolAppCtrl::GetDataset() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist)
 		throw NoPointerExc("no song");
 	Song& song = *p.song;
 	return ScanInt(song.data.Get("ATTR_DATASET", "0"));
 }*/
 
-void SongToolCtrl::GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v) {
+void ToolAppCtrl::GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v) {
 	for(int i = 0; i < Attr::ATTR_COUNT; i++) {
 		const char* key = Attr::AttrKeys[i][0];
 		int value = StrInt(data.Get(key, "0"));
@@ -75,7 +75,7 @@ void SongToolCtrl::GetAttrs(const VectorMap<String,String>& data, VectorMap<Stri
 	}
 }
 
-void SongToolCtrl::MakeSongParts(ArrayCtrl& parts) {
+void ToolAppCtrl::MakeSongParts(ArrayCtrl& parts) {
 	/*Song& song = GetSong();
 	
 	for(int i = 0; i < song.parts.GetCount(); i++) {

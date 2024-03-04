@@ -1,0 +1,813 @@
+#include "SocialCtrl.h"
+#include <SocialTool/SocialTool.h>
+
+
+SocialEditor::SocialEditor(SocialTool* app) : app(*app) {
+	Add(hsplit.SizePos());
+	
+	hsplit.Horz() << menusplit << base;
+	hsplit.SetPos(1000);
+	
+	menusplit.Vert() << page_group_list << page_list << subsplit;
+	menusplit.SetPos(10000 / 5, 0);
+	menusplit.SetPos(10000 * 2 / 5, 1);
+	songsplit.Vert() << artists << releases << songs;
+	lyricssplit.Vert() << typecasts << archetypes << lyrics;
+	
+	
+	lyrics.WhenBar << THISBACK(LyricsMenu);
+	artists.WhenBar << THISBACK(ArtistMenu);
+	releases.WhenBar << THISBACK(ReleaseMenu);
+	songs.WhenBar << THISBACK(SocialMenu);
+	
+	page_group_list.AddColumn(t_("Page group"));
+	page_group_list <<= THISBACK(ViewPageGroup);
+	
+	page_list.AddColumn(t_("Page"));
+	page_list <<= THISBACK(ViewPage);
+	
+	artists.AddColumn(t_("Artist"));
+	artists <<= THISBACK(DataArtist);
+	
+	releases.AddColumn(t_("Release"));
+	releases.ColumnWidths("3 2");
+	releases <<= THISBACK(DataRelease);
+	
+	songs.AddColumn(t_("Social"));
+	songs <<= THISBACK(DataSocial);
+	
+	typecasts.AddColumn(t_("Typecast"));
+	typecasts.AddColumn(t_("Count"));
+	typecasts.ColumnWidths("3 1");
+	typecasts <<= THISBACK(DataTypecast);
+	typecasts.AddIndex("IDX");
+	
+	archetypes.AddColumn(t_("Archetype"));
+	archetypes.AddColumn(t_("Count"));
+	archetypes.ColumnWidths("3 1");
+	archetypes <<= THISBACK(DataArchetype);
+	archetypes.AddIndex("IDX");
+	
+	lyrics.AddColumn(t_("Lyrics"));
+	lyrics.AddIndex("IDX");
+	lyrics <<= THISBACK(DataLyrics);
+	
+	SetSubMenu(0);
+}
+
+void SocialEditor::SetSubMenu(int i) {
+	subsplit.RemoveChild(&songsplit);
+	subsplit.RemoveChild(&lyricssplit);
+	
+	if (i == 0)
+		subsplit.Add(songsplit.SizePos());
+	else
+		subsplit.Add(lyricssplit.SizePos());
+}
+
+void SocialEditor::AddItem(String g, String i, ToolAppCtrl& c) {
+	ListItem& it = items.GetAdd(g).Add();
+	it.item = i;
+	it.ctrl = &c;
+}
+
+void SocialEditor::InitListItems() {
+	for(int i = 0; i < items.GetCount(); i++) {
+		String group = items.GetKey(i);
+		page_group_list.Add(group);
+	}
+	INHIBIT_ACTION(page_group_list);
+	if (page_group_list.GetCount() && !page_group_list.IsCursor())
+		page_group_list.SetCursor(0);
+	PostCallback(THISBACK(ViewPageGroup));
+}
+
+void SocialEditor::InitSimplified() {
+	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
+	
+	
+	
+	InitListItems();
+}
+
+void SocialEditor::Init() {
+	INHIBIT_ACTION_(page_group_list, 0);
+	INHIBIT_ACTION_(page_list, 1);
+	LoadLast();
+	page_group_list.SetCursor(page_group);
+	int page = this->page.GetAdd(page_group, 0);
+	page_list.SetCursor(page);
+	SetView(page_group, page);
+	Data();
+	app.SetBar(); // requires Data();
+}
+
+void SocialEditor::SetView(int i, int j) {
+	for (const auto& v : items)
+		for (const ListItem& it : v)
+			it.ctrl->Hide();
+	
+	parts.Enable();
+	
+	WhenStopUpdating();
+	
+	if (i >= 0 && i < items.GetCount() && j >= 0 && j < items[i].GetCount())
+		items[i][j].ctrl->Show();
+	
+	// Save 'cookie' about last viewed page
+	page_group = i;
+	page.GetAdd(i) = j;
+	
+	if (page_group == items.Find("Lyrics"))
+		SetSubMenu(1);
+	else
+		SetSubMenu(0);
+	
+	DataPage();
+	
+	app.SetBar();
+}
+
+void SocialEditor::DataPage() {
+	if (app.skip_data) return;
+	
+	StoreLast();
+	
+	int page = this->page.GetAdd(page_group, 0);
+	try {
+		if (page_group >= 0 && page_group < items.GetCount() && page >= 0 && page < items[page_group].GetCount())
+			items[page_group][page].ctrl->Data();
+	}
+	catch (NoPointerExc e) {
+		LOG("error: " << e);
+	}
+}
+
+void SocialEditor::ToolMenu(Bar& bar) {
+	int page = this->page.GetAdd(page_group, 0);
+	if (page_group >= 0 && page_group < items.GetCount() && page >= 0 && page < items[page_group].GetCount())
+		items[page_group][page].ctrl->ToolMenu(bar);
+}
+
+String SocialEditor::GetStatusText() {
+	int page = this->page.GetAdd(page_group, 0);
+	if (page_group >= 0 && page_group < items.GetCount() && page >= 0 && page < items[page_group].GetCount())
+		return items[page_group][page].ctrl->GetStatusText();
+	else
+		return String();
+}
+
+void SocialEditor::MovePageGroup(int d) {
+	if (page_group_list.IsCursor()) {
+		int c = page_group_list.GetCursor();
+		c += d;
+		if (c >= 0 && c < page_group_list.GetCount())
+			page_group_list.SetCursor(c);
+	}
+}
+
+void SocialEditor::MovePage(int d) {
+	if (page_list.IsCursor()) {
+		int c = page_list.GetCursor();
+		c += d;
+		if (c >= 0 && c < page_list.GetCount())
+			page_list.SetCursor(c);
+	}
+}
+
+void SocialEditor::MovePart(int d) {
+	if (parts.IsCursor()) {
+		int c = parts.GetCursor();
+		c += d;
+		if (c >= 0 && c < parts.GetCount())
+			parts.SetCursor(c);
+	}
+}
+
+void SocialEditor::LoadLast() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	p.Zero();
+	for (Artist& a : db.artists) {
+		for (Typecast& a : a.typecasts) {
+			if (a.file_title == app.last_artist) {
+				p.typecast = &a;
+				for (Archetype& r : a.archetypes) {
+					if (r.file_title == app.last_release) {
+						p.archetype = &r;
+						for (Lyrics& s : r.lyrics) {
+							if (s.file_title == app.last_song) {
+								p.lyrics = &s;
+								for (StaticPart& part : s.parts) {
+									if (part.name == app.last_part) {
+										p.part = &part;
+										break;
+									}
+								}
+								break;
+							}
+						}
+						break;
+					}
+				}
+				break;
+			}
+		}
+		if (a.file_title == app.last_artist) {
+			p.artist = &a;
+			for (Release& r : a.releases) {
+				if (r.file_title == app.last_release) {
+					p.release = &r;
+					for (Social& s : r.songs) {
+						if (s.file_title == app.last_song) {
+							p.song = &s;
+							break;
+						}
+					}
+					break;
+				}
+			}
+			break;
+		}
+	}
+}
+
+void SocialEditor::StoreLast() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	app.last_typecast = p.typecast ? p.typecast->file_title : String();
+	app.last_archetype = p.archetype ? p.archetype->file_title : String();
+	app.last_lyrics = p.lyrics ? p.lyrics->file_title : String();
+	app.last_part = p.part ? p.part->name : String();
+	app.last_artist = p.artist ? p.artist->file_title : String();
+	app.last_release = p.release ? p.release->file_title : String();
+	app.last_song = p.song ? p.song->file_title : String();
+	app.Store();
+}
+
+void SocialEditor::ViewPageGroup() {
+	int page_group = page_group_list.GetCursor();
+	int page = this->page.GetAdd(page_group, 0);
+	
+	if (!page_group_list.IsCursor() || page_group < 0 || page_group >= items.GetCount()) {
+		return;
+	}
+	
+	const auto& v = items[page_group];
+	for(int j = 0; j < v.GetCount(); j++) {
+		const ListItem& it = v[j];
+		page_list.Set(j, 0, it.item);
+		base.Add(it.ctrl->SizePos());
+	}
+	INHIBIT_ACTION(page_list);
+	page_list.SetCount(v.GetCount());
+	page_list.SetCursor(page);
+	
+	if (page >= v.GetCount())
+		page = v.GetCount()-1;
+	
+	SetView(page_group, page);
+	DataPage();
+}
+
+void SocialEditor::ViewPage() {
+	SetView(page_group_list.GetCursor(), page_list.GetCursor());
+	//DataPage(); // Duplicate
+}
+
+void SocialEditor::Data() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	
+	for(int i = 0; i < db.artists.GetCount(); i++) {
+		Artist& a = db.artists[i];
+		artists.Set(i, 0, a.native_name);
+	}
+	INHIBIT_ACTION(artists);
+	artists.SetCount(db.artists.GetCount());
+	
+	int cursor = max(0, p.GetActiveArtistIndex());
+	if (cursor >= 0 && cursor < artists.GetCount())
+		artists.SetCursor(cursor);
+	
+	if (!p.artist)
+		return;
+	
+	Artist& a = *p.artist;
+	a.RealizeTypecasts();
+	const auto& tcs = GetTypecasts();
+	for(int i = 0; i < tcs.GetCount(); i++) {
+		const String& tc = tcs[i];
+		typecasts.Set(i, "IDX", i);
+		typecasts.Set(i, 0, tc);
+		typecasts.Set(i, 1, a.typecasts[i].GetLyricsCount());
+	}
+	INHIBIT_ACTION_(typecasts, tc);
+	typecasts.SetCount(tcs.GetCount());
+	typecasts.SetSortColumn(1, true);
+	
+	cursor = max(0, p.GetActiveTypecastIndex());
+	if (cursor >= 0 && cursor < typecasts.GetCount())
+		SetIndexCursor(typecasts, cursor);
+
+	
+	DataArtist();
+	DataTypecast();
+}
+
+void SocialEditor::DataArtist() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!artists.IsCursor()) {
+		p.artist = 0;
+		p.release = 0;
+		p.song = 0;
+		p.part = 0;
+		DataPage();
+		return;
+	}
+	
+	p.artist = &db.artists[artists.GetCursor()];
+	Artist& a = *p.artist;
+	
+	for(int i = 0; i < a.releases.GetCount(); i++) {
+		Release& r = a.releases[i];
+		releases.Set(i, 0, r.native_title);
+		releases.Set(i, 1, r.date);
+	}
+	INHIBIT_ACTION(releases);
+	releases.SetCount(a.releases.GetCount());
+	
+	int cursor = max(0, p.GetActiveReleaseIndex());
+	if (cursor >= 0 && cursor < releases.GetCount())
+		releases.SetCursor(cursor);
+	
+	DataRelease();
+}
+
+void SocialEditor::DataRelease() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!releases.IsCursor() || !p.artist) {
+		p.release = 0;
+		p.song = 0;
+		p.part = 0;
+		DataPage();
+		return;
+	}
+	
+	p.release = &p.artist->releases[releases.GetCursor()];
+	Artist& a = *p.artist;
+	Release& r = *p.release;
+	
+	for(int i = 0; i < r.songs.GetCount(); i++) {
+		Social& s = r.songs[i];
+		songs.Set(i, 0, s.GetAnyTitle(a));
+		/*songs.Set(i, 0, s.native_title);
+		songs.Set(i, 1, s.prj_name);
+		songs.Set(i, 2, s.artist);*/
+	}
+	INHIBIT_ACTION(songs);
+	songs.SetCount(r.songs.GetCount());
+	
+	int cursor = max(0, p.GetActiveSocialIndex());
+	if (cursor >= 0 && cursor < songs.GetCount())
+		songs.SetCursor(cursor);
+	
+	DataSocial();
+}
+
+void SocialEditor::DataSocial() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!songs.IsCursor() || !p.artist || !p.release) {
+		p.song = 0;
+		DataPage();
+		return;
+	}
+	
+	p.song = &p.release->songs[songs.GetCursor()];
+	Artist& a = *p.artist;
+	Release& r = *p.release;
+	Social& s = *p.song;
+	
+	
+	/*
+	for(int i = 0; i < s.parts.GetCount(); i++) {
+		String k;
+		int c = 0;
+		Color clr = White();
+		StaticPart& p = s.parts[i];
+		k = p.name;
+		clr = GetSocialPartPaperColor(p.type);
+		c = p.rhymes.GetCount();
+		parts.Set(i, 0, AttrText(k).NormalPaper(clr));
+		parts.Set(i, 1, c);
+	}
+	INHIBIT_ACTION(parts);
+	parts.SetCount(s.parts.GetCount());
+	
+	int cursor = 0;
+	if (cursor >= 0 && cursor < parts.GetCount() && !parts.IsCursor())
+		parts.SetCursor(cursor);*/
+	
+	DataPage();
+}
+
+void SocialEditor::DataTypecast() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!typecasts.IsCursor()) {
+		p.typecast = 0;
+		p.archetype = 0;
+		p.lyrics = 0;
+		DataPage();
+		return;
+	}
+	
+	Artist& a = *p.artist;
+	a.RealizeTypecasts();
+	p.typecast = &a.typecasts[typecasts.Get("IDX")];
+	Typecast& t = *p.typecast;
+	
+	const auto& cons = GetContrasts();
+	for(int i = 0; i < cons.GetCount(); i++) {
+		const auto& con = cons[i];
+		archetypes.Set(i, "IDX", i);
+		archetypes.Set(i, 0, con.key);
+		archetypes.Set(i, 1, t.archetypes[i].lyrics.GetCount());
+	}
+	INHIBIT_CURSOR(archetypes);
+	archetypes.SetSortColumn(1, true);
+	
+	int cursor = max(0, p.GetActiveArchetypeIndex());
+	if (cursor >= 0 && cursor < archetypes.GetCount())
+		SetIndexCursor(archetypes, cursor);
+
+	DataArchetype();
+}
+
+void SocialEditor::DataArchetype() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!archetypes.IsCursor()) {
+		p.archetype = 0;
+		p.lyrics = 0;
+		DataPage();
+		return;
+	}
+	
+	Typecast& t = *p.typecast;
+	p.archetype = &t.archetypes[archetypes.Get("IDX")];
+	Archetype& a = *p.archetype;
+	
+	for(int i = 0; i < a.lyrics.GetCount(); i++) {
+		const Lyrics& l = a.lyrics[i];
+		lyrics.Set(i, "IDX", i);
+		lyrics.Set(i, 0, l.GetAnyTitle());
+	}
+	INHIBIT_CURSOR(lyrics);
+	lyrics.SetCount(a.lyrics.GetCount());
+	
+	int cursor = max(0, p.GetActiveLyricsIndex());
+	if (cursor >= 0 && cursor < lyrics.GetCount())
+		SetIndexCursor(lyrics, cursor);
+
+	DataLyrics();
+}
+
+void SocialEditor::DataLyrics() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!lyrics.IsCursor()) {
+		p.lyrics = 0;
+		DataPage();
+		return;
+	}
+	
+	Typecast& t = *p.typecast;
+	Archetype& a = *p.archetype;
+	p.lyrics = &a.lyrics[lyrics.GetCursor()];
+	Lyrics& l = *p.lyrics;
+	
+	
+	DataPage();
+}
+
+#if 0
+void SocialEditor::DataPart() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!parts.IsCursor() || !p.artist || !p.release || !p.song /*|| !p.song->pipe*/) {
+		DataPage();
+		return;
+	}
+	
+	// OLD!!
+	/*
+	TaskMgr& e = *p.song->pipe;
+	PipePtrs& pp = p.song->pipe->p;
+	
+	int cursor = parts.GetCursor();
+	if (!cursor) {
+		db.ctx.active_wholesong = true;
+		pp.part = 0;
+	}
+	else {
+		db.ctx.active_wholesong = false;
+		pp.part = &e.parts[cursor-1];
+	}
+	
+	int part_i = pp.GetActivePartIndex();
+	if (part_i >= 0 && part_i < parts.GetCount() && !parts.IsCursor())
+		parts.SetCursor(1+part_i);
+	*/
+	
+	Social& song = *p.song;
+	int cursor = parts.GetCursor();
+	
+	db.ctx.active_wholesong = false;
+	p.part = &song.parts[cursor];
+	
+	int part_i = p.GetActivePartIndex();
+	if (part_i >= 0 && part_i < parts.GetCount() && !parts.IsCursor())
+		parts.SetCursor(part_i);
+	
+	
+	DataPage();
+}
+#endif
+
+void SocialEditor::ArtistMenu(Bar& bar) {
+	bar.Add(t_("Add Artist"), THISBACK(AddArtist));
+	
+	if (artists.IsCursor()) {
+		bar.Add(t_("Rename Artist"), THISBACK(RenameArtist));
+		bar.Add(t_("Delete Artist"), THISBACK(RemoveArtist));
+	}
+}
+
+void SocialEditor::ReleaseMenu(Bar& bar) {
+	bar.Add(t_("Add Release"), THISBACK(AddRelease));
+	
+	if (releases.IsCursor()) {
+		bar.Add(t_("Rename Release"), THISBACK(RenameRelease));
+		bar.Add(t_("Delete Release"), THISBACK(RemoveRelease));
+	}
+}
+
+void SocialEditor::SocialMenu(Bar& bar) {
+	bar.Add(t_("Add Social"), THISBACK(AddSocial));
+	
+	if (songs.IsCursor()) {
+		bar.Add(t_("Rename Social"), THISBACK(RenameSocial));
+		bar.Add(t_("Delete Social"), THISBACK(RemoveSocial));
+	}
+}
+
+void SocialEditor::LyricsMenu(Bar& bar) {
+	bar.Add(t_("Add Lyrics"), THISBACK(AddLyrics));
+	
+	if (lyrics.IsCursor()) {
+		bar.Add(t_("Delete Lyrics"), THISBACK(RemoveLyrics));
+	}
+}
+
+void SocialEditor::AddArtist() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	
+	String name;
+	bool b = EditTextNotNull(
+		name,
+		t_("Add Artist"),
+		t_("Artist's English name"),
+		0
+	);
+	if (!b) return;
+	
+	int artist_i = -1;
+	for(int i = 0; i < db.artists.GetCount(); i++) {
+		Artist& a = db.artists[i];
+		if (a.english_name == name) {
+			artist_i = i;
+			break;
+		}
+	}
+	if (artist_i >= 0) {
+		/*if (!PromptYesNo(DeQtf(Format(t_("Do you want to replace file for artist '%s'"), name)))
+			return;*/
+		PromptOK(DeQtf(t_("Artist exist already")));
+		return;
+	}
+	
+	Artist& a = db.artists.Add();
+	a.file_title = MakeTitle(name);
+	a.english_name = name;
+	p.artist = &a;
+	
+	Data();
+}
+
+void SocialEditor::RenameArtist() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!p.artist)
+		return;
+	
+	String name;
+	bool b = EditTextNotNull(
+		name,
+		t_("Rename Artist"),
+		t_("Artist's English name"),
+		0
+	);
+	if (!b) return;
+	
+	p.artist->english_name = name;
+	
+	Data();
+}
+
+void SocialEditor::RemoveArtist() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!p.artist)
+		return;
+	int idx = p.GetActiveArtistIndex();
+	if (idx < 0) return;
+	db.artists.Remove(idx);
+	Data();
+}
+
+void SocialEditor::AddRelease() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!p.artist)
+		return;
+	Artist& a = *p.artist;
+	
+	String title;
+	bool b = EditTextNotNull(
+		title,
+		t_("Add Release"),
+		t_("Release's English title"),
+		0
+	);
+	if (!b) return;
+	
+	int rel_i = -1;
+	for(int i = 0; i < a.releases.GetCount(); i++) {
+		Release& r = a.releases[i];
+		if (r.english_title == title) {
+			rel_i = i;
+			break;
+		}
+	}
+	if (rel_i >= 0) {
+		PromptOK(DeQtf(t_("Release exist already")));
+		return;
+	}
+	
+	Release& r = a.releases.Add();
+	r.file_title = MakeTitle(title);
+	r.english_title = title;
+	p.release = &r;
+	
+	DataArtist();
+}
+
+void SocialEditor::RenameRelease() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!p.release)
+		return;
+	
+	String title;
+	bool b = EditTextNotNull(
+		title,
+		t_("Rename Release"),
+		t_("Release's English title"),
+		0
+	);
+	if (!b) return;
+	
+	p.release->english_title = title;
+	
+	DataArtist();
+}
+
+void SocialEditor::RemoveRelease() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!p.artist || !p.release)
+		return;
+	int idx = p.GetActiveReleaseIndex();
+	if (idx < 0) return;
+	p.artist->releases.Remove(idx);
+	DataArtist();
+}
+
+void SocialEditor::AddSocial() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!p.artist)
+		return;
+	Artist& a = *p.artist;
+	Release& r = *p.release;
+	
+	String title;
+	bool b = EditTextNotNull(
+		title,
+		t_("Add Social"),
+		t_("Social's English title"),
+		0
+	);
+	if (!b) return;
+	
+	TODO
+	/*
+	int rel_i = -1;
+	for(int i = 0; i < r.songs.GetCount(); i++) {
+		Social& s = r.songs[i];
+		if (s.english_title == title) {
+			rel_i = i;
+			break;
+		}
+	}
+	if (rel_i >= 0) {
+		PromptOK(DeQtf(t_("Social exist already")));
+		return;
+	}
+	
+	Social& s = r.songs.Add();
+	s.file_title = MakeTitle(title);
+	s.english_title = title;
+	p.song = &s;
+	*/
+	DataArtist();
+}
+
+void SocialEditor::RenameSocial() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!p.song)
+		return;
+	
+	String title;
+	bool b = EditTextNotNull(
+		title,
+		t_("Rename Social"),
+		t_("Social's English title"),
+		0
+	);
+	if (!b) return;
+	
+	
+	TODO //p.song->english_title = title.ToString();
+	
+	DataRelease();
+}
+
+void SocialEditor::RemoveSocial() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!p.song || !p.release)
+		return;
+	int idx = p.GetActiveSocialIndex();
+	if (idx < 0) return;
+	p.release->songs.Remove(idx);
+	p.song = 0;
+	DataRelease();
+}
+
+void SocialEditor::AddLyrics() {
+	SocialDatabase& db = SocialDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!p.archetype)
+		return;
+	Typecast& t = *p.typecast;
+	Archetype& a = *p.archetype;
+	
+	int t_i = p.GetActiveTypecastIndex();
+	int a_i = p.GetActiveArchetypeIndex();
+	
+	String title;
+	for(int i = 0; i < 8; i++) {
+		title.Cat('a' + Random('z' - 'a' + 1));
+	}
+	
+	Lyrics& l = a.lyrics.Add();
+	l.file_title = MakeTitle(title);
+	l.typecast = t_i;
+	l.archetype = a_i;
+	p.lyrics = &l;
+	
+	Data();
+}
+
+void SocialEditor::RemoveLyrics() {
+	
+	
+	
+}

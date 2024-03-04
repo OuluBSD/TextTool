@@ -2,7 +2,7 @@
 #define _SongDataCtrl_Attributes_h_
 
 
-class Attributes : public SongToolCtrl {
+class Attributes : public ToolAppCtrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl datasets, groups, values, pos_values, neg_values;
 	

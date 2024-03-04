@@ -140,7 +140,7 @@ void SongDataPhrases::DataAttribute() {
 }
 
 void SongDataPhrases::ToolMenu(Bar& bar) {
-	SongToolCtrl::ToolMenu(bar);
+	ToolAppCtrl::ToolMenu(bar);
 }
 
 #endif

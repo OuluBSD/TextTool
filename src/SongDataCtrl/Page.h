@@ -2,7 +2,7 @@
 #define _SongDataCtrl_SongDataPage_h_
 
 
-class SongDataPage : public SongToolCtrl {
+class SongDataPage : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, artists, songs;//, active_songs;
 	DocEdit lyrics, analysis;

@@ -2,7 +2,7 @@
 #define _SongCtrl_LyricsSolverCtrl_h_
 
 
-class LyricsSolverCtrl : public SongToolCtrl {
+class LyricsSolverCtrl : public ToolAppCtrl {
 	TabCtrl tabs;
 	
 	// Tab 1: process summary

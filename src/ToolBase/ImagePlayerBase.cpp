@@ -125,14 +125,14 @@ void ImagePlayerBase::MakeSingleImage() {
 	String prompt = item.prompt;
 	
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist)
 		return;
 	
 	
 	
 	{
-		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+		TaskMgr& m = TaskMgr::Single();
 		m.CreateImage(prompt, 1, THISBACK1(OnPromptImage, cur));
 	}
 }

@@ -128,7 +128,7 @@ void ContextAttributesCtrl::ToolMenu(Bar& bar) {
 
 void ContextAttributesCtrl::Data() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.release || !p.artist)
 		return;
 	

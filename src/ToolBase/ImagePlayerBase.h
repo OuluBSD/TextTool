@@ -23,7 +23,7 @@ public:
 	
 };
 
-class ImagePlayerBase : public SongToolCtrl {
+class ImagePlayerBase : public ToolAppCtrl {
 	Splitter hsplit;
 	ArrayCtrl list;
 	Ctrl player;

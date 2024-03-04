@@ -2,7 +2,7 @@
 #define _SongDataCtrl_Tokens_h_
 
 
-class TokensPage : public SongToolCtrl {
+class TokensPage : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, tokens;
 	

@@ -381,7 +381,7 @@ void SongDataWordnetScoring::GetWordnetScores(int batch_i, int score_mode) {
 	args.fn = 9;
 	args.score_mode = score_mode;
 	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	TaskMgr& m = TaskMgr::Single();
 	m.GetSongDataAnalysis(args, THISBACK2(OnWordnetScores, batch_i, score_mode));
 }
 
@@ -501,7 +501,7 @@ void SongDataWordnetScoring::GetColorWordnetScores(int batch_i, int score_mode) 
 	args.fn = 9;
 	args.score_mode = score_mode;
 	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	TaskMgr& m = TaskMgr::Single();
 	m.GetSongDataAnalysis(args, THISBACK2(OnColorWordnetScores, batch_i, score_mode));
 }
 

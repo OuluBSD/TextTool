@@ -8,7 +8,7 @@ struct ScoreDisplay : public Display {
 };
 
 
-class PhrasePartAnalysis : public SongToolCtrl {
+class PhrasePartAnalysis : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, attrs, colors, actions, action_args, parts;
 	

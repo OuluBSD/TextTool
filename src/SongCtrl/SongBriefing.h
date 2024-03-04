@@ -3,7 +3,7 @@
 
 #if 0
 
-class SongBriefing : public SongToolCtrl {
+class SongBriefing : public ToolAppCtrl {
 	Splitter vsplit;
 	ArrayCtrl list;
 	WithKeyValueList<Ctrl> values;

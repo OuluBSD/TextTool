@@ -598,7 +598,7 @@ void LyricsEditor::GetSuggestionsAI() {
 	}
 	
 	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	TaskMgr& m = TaskMgr::Single();
 	m.GetLyricsPhrase(args, THISBACK(OnSuggestions));
 }
 #endif

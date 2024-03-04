@@ -1,5 +1,5 @@
-#ifndef _SongTool_ImageGenTool_h_
-#define _SongTool_ImageGenTool_h_
+#ifndef _ToolCtrl_ImageGenTool_h_
+#define _ToolCtrl_ImageGenTool_h_
 
 
 class ImageGenTool;
@@ -61,7 +61,7 @@ public:
 	
 };
 
-class ImageGenTool : public SongToolCtrl {
+class ImageGenTool : public ToolAppCtrl {
 	TabCtrl tabs;
 	
 	

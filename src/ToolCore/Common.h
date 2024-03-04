@@ -201,6 +201,10 @@ struct EditorPtrs {
 	Lyrics*			lyrics = 0;
 	StaticPart*		part = 0;
 	
+	void Zero() {memset(this, 0, sizeof(EditorPtrs));}
+	
+	bool HasSong() const {return song;}
+	
 	int GetActiveTypecastIndex() const;
 	int GetActiveArchetypeIndex() const;
 	int GetActiveLyricsIndex() const;
@@ -211,16 +215,7 @@ struct EditorPtrs {
 	
 	//void RealizePipe();
 	
-};
-
-struct Context {
-	EditorPtrs			ed;
-	
-	Context() {
-	}
-	bool HasSong() const {return ed.song;}
-	
-	//Ptrs& operator[](int i) {ASSERT(i >= 0 && i < MODE_COUNT); return p[i];}
+	static EditorPtrs& Single() {static EditorPtrs e; return e;}
 };
 
 

@@ -2,7 +2,7 @@
 #define _SongCtrl_SongStructure_h_
 
 
-class SongStructure : public SongToolCtrl {
+class SongStructure : public ToolAppCtrl {
 	Splitter vsplit, hsplit, attr_split;
 	WithSongStructure<Ctrl> active;
 	ArrayCtrl params, structs, attributes, parts;

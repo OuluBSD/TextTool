@@ -4,7 +4,7 @@
 
 #if 0
 
-class Pitching : public SongToolCtrl {
+class Pitching : public ToolAppCtrl {
 	Splitter hsplit, vsplit0, vsplit1;
 	DocEdit native, english, feedback, pitching;
 	

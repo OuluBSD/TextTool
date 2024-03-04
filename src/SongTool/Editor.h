@@ -8,11 +8,11 @@ class Editor : public Ctrl {
 private:
 	struct ListItem : Moveable<ListItem> {
 		String item;
-		SongToolCtrl* ctrl = 0;
+		ToolAppCtrl* ctrl = 0;
 	};
 	VectorMap<String, Vector<ListItem>> items;
 	
-	void AddItem(String g, String i, SongToolCtrl& c);
+	void AddItem(String g, String i, ToolAppCtrl& c);
 	void InitListItems();
 	
 protected:

@@ -2,7 +2,7 @@
 #define _SongDataCtrl_Diagnostics_h_
 
 
-class SongDataDiagnostics : public SongToolCtrl {
+class SongDataDiagnostics : public ToolAppCtrl {
 	Splitter hsplit;
 	ArrayCtrl datasets, values;
 	

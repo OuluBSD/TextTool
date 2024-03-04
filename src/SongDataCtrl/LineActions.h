@@ -2,7 +2,7 @@
 #define _SongDataCtrl_SongDataLineActions_h_
 
 
-class SongDataLineActions : public SongToolCtrl {
+class SongDataLineActions : public ToolAppCtrl {
 	
 	
 protected:

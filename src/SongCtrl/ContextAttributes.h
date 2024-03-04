@@ -3,7 +3,7 @@
 
 #if 0
 
-class ContextAttributesCtrl : public SongToolCtrl {
+class ContextAttributesCtrl : public ToolAppCtrl {
 	Splitter hsplit;
 	ArrayCtrl artist, release, song;
 	int ds_i = 0;

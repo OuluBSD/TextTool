@@ -6,8 +6,8 @@ uses
 file
 	SongCtrl.h,
 	Simplified.lay,
-	ImageGenTool.h,
-	ImageGenTool.cpp,
+	Fns.h,
+	Fns.cpp,
 	Company readonly separator,
 	CompanyInfoCtrl.h,
 	CompanyInfoCtrl.cpp,

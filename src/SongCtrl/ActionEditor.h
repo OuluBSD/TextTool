@@ -4,7 +4,7 @@
 #if 0
 
 
-class ActionEditor : public SongToolCtrl {
+class ActionEditor : public ToolAppCtrl {
 	Splitter hsplit, vsplit, mainsplit, main_vsplit, sug_hsplit, sug_vsplit;
 	ArrayCtrl parts, thrds, thrd_actions, actions, args, song_actions;
 	ArrayCtrl colors, attrs;

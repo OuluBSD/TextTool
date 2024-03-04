@@ -20,7 +20,7 @@ void ProductInfoCtrl::Clear() {
 
 void ProductInfoCtrl::Data() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	Clear();
 	
@@ -37,7 +37,7 @@ void ProductInfoCtrl::Data() {
 
 void ProductInfoCtrl::OnValueChange() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	if (p.release && editor->releases.IsCursor()) {
 		Release& r = *p.release;

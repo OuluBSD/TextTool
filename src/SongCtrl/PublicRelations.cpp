@@ -10,5 +10,5 @@ void PublicRelationsCtrl::Data() {
 }
 
 void PublicRelationsCtrl::ToolMenu(Bar& bar) {
-	SongToolCtrl::ToolMenu(bar);
+	ToolAppCtrl::ToolMenu(bar);
 }

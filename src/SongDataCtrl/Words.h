@@ -2,7 +2,7 @@
 #define _SongDataCtrl_SongDataWords_h_
 
 
-class SongDataWords : public SongToolCtrl {
+class SongDataWords : public ToolAppCtrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl datasets, colors, words;
 	bool disabled = false;

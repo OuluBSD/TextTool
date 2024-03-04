@@ -2,7 +2,7 @@
 #define _SongDataCtrl_TokenPhrases_h_
 
 
-class TokenPhrases : public SongToolCtrl {
+class TokenPhrases : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, texts;
 	

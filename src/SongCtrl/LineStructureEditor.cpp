@@ -122,7 +122,7 @@ void LineStructureEditor::DataSuggestions() {
 }
 
 void LineStructureEditor::ToolMenu(Bar& bar) {
-	SongToolCtrl::ToolMenu(bar);
+	ToolAppCtrl::ToolMenu(bar);
 	
 }
 

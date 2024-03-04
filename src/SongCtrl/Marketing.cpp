@@ -10,5 +10,5 @@ void MarketingCtrl::Data() {
 }
 
 void MarketingCtrl::ToolMenu(Bar& bar) {
-	SongToolCtrl::ToolMenu(bar);
+	ToolAppCtrl::ToolMenu(bar);
 }

@@ -2,7 +2,7 @@
 #define _ToolBase_TxtStructTranslate_h_
 
 
-class TranslatorToolCtrl : public SongToolCtrl {
+class TranslatorToolCtrl : public ToolAppCtrl {
 	Splitter hsplit;
 	CodeEditor orig, trans;
 	

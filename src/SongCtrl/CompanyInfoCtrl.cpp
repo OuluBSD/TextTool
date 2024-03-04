@@ -38,7 +38,7 @@ void CompanyInfoCtrl::Clear() {
 
 void CompanyInfoCtrl::Data() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	if (language.GetCount() == 0 && db.song_data.GetCount()) {
 		for(int i = 0; i < db.song_data.GetCount(); i++)
@@ -70,7 +70,7 @@ void CompanyInfoCtrl::Data() {
 
 void CompanyInfoCtrl::OnValueChange() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	if (p.artist && editor->artists.IsCursor()) {
 		Artist& o = *p.artist;

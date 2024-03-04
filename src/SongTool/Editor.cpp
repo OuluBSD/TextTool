@@ -69,7 +69,7 @@ void Editor::SetSubMenu(int i) {
 		subsplit.Add(lyricssplit.SizePos());
 }
 
-void Editor::AddItem(String g, String i, SongToolCtrl& c) {
+void Editor::AddItem(String g, String i, ToolAppCtrl& c) {
 	ListItem& it = items.GetAdd(g).Add();
 	it.item = i;
 	it.ctrl = &c;
@@ -256,14 +256,8 @@ void Editor::MovePart(int d) {
 
 void Editor::LoadLast() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
-	p.typecast = 0;
-	p.archetype = 0;
-	p.lyrics = 0;
-	p.part = 0;
-	p.artist = 0;
-	p.release = 0;
-	p.song = 0;
+	EditorPtrs& p = EditorPtrs::Single();
+	p.Zero();
 	for (Artist& a : db.artists) {
 		for (Typecast& a : a.typecasts) {
 			if (a.file_title == app.last_artist) {
@@ -310,7 +304,7 @@ void Editor::LoadLast() {
 
 void Editor::StoreLast() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	app.last_typecast = p.typecast ? p.typecast->file_title : String();
 	app.last_archetype = p.archetype ? p.archetype->file_title : String();
 	app.last_lyrics = p.lyrics ? p.lyrics->file_title : String();
@@ -353,7 +347,7 @@ void Editor::ViewPage() {
 
 void Editor::Data() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	for(int i = 0; i < db.artists.GetCount(); i++) {
 		Artist& a = db.artists[i];
@@ -393,7 +387,7 @@ void Editor::Data() {
 
 void Editor::DataArtist() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!artists.IsCursor()) {
 		p.artist = 0;
 		p.release = 0;
@@ -423,7 +417,7 @@ void Editor::DataArtist() {
 
 void Editor::DataRelease() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!releases.IsCursor() || !p.artist) {
 		p.release = 0;
 		p.song = 0;
@@ -455,7 +449,7 @@ void Editor::DataRelease() {
 
 void Editor::DataSong() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!songs.IsCursor() || !p.artist || !p.release) {
 		p.song = 0;
 		DataPage();
@@ -492,7 +486,7 @@ void Editor::DataSong() {
 
 void Editor::DataTypecast() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!typecasts.IsCursor()) {
 		p.typecast = 0;
 		p.archetype = 0;
@@ -525,7 +519,7 @@ void Editor::DataTypecast() {
 
 void Editor::DataArchetype() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!archetypes.IsCursor()) {
 		p.archetype = 0;
 		p.lyrics = 0;
@@ -554,7 +548,7 @@ void Editor::DataArchetype() {
 
 void Editor::DataLyrics() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!lyrics.IsCursor()) {
 		p.lyrics = 0;
 		DataPage();
@@ -573,7 +567,7 @@ void Editor::DataLyrics() {
 #if 0
 void Editor::DataPart() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!parts.IsCursor() || !p.artist || !p.release || !p.song /*|| !p.song->pipe*/) {
 		DataPage();
 		return;
@@ -651,7 +645,7 @@ void Editor::LyricsMenu(Bar& bar) {
 
 void Editor::AddArtist() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	String name;
 	bool b = EditTextNotNull(
@@ -687,7 +681,7 @@ void Editor::AddArtist() {
 
 void Editor::RenameArtist() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist)
 		return;
 	
@@ -707,7 +701,7 @@ void Editor::RenameArtist() {
 
 void Editor::RemoveArtist() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist)
 		return;
 	int idx = p.GetActiveArtistIndex();
@@ -718,7 +712,7 @@ void Editor::RemoveArtist() {
 
 void Editor::AddRelease() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist)
 		return;
 	Artist& a = *p.artist;
@@ -755,7 +749,7 @@ void Editor::AddRelease() {
 
 void Editor::RenameRelease() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release)
 		return;
 	
@@ -775,7 +769,7 @@ void Editor::RenameRelease() {
 
 void Editor::RemoveRelease() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist || !p.release)
 		return;
 	int idx = p.GetActiveReleaseIndex();
@@ -786,7 +780,7 @@ void Editor::RemoveRelease() {
 
 void Editor::AddSong() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist)
 		return;
 	Artist& a = *p.artist;
@@ -826,7 +820,7 @@ void Editor::AddSong() {
 
 void Editor::RenameSong() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song)
 		return;
 	
@@ -847,7 +841,7 @@ void Editor::RenameSong() {
 
 void Editor::RemoveSong() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song || !p.release)
 		return;
 	int idx = p.GetActiveSongIndex();
@@ -859,7 +853,7 @@ void Editor::RemoveSong() {
 
 void Editor::AddLyrics() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.archetype)
 		return;
 	Typecast& t = *p.typecast;

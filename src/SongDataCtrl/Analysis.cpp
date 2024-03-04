@@ -90,7 +90,7 @@ void SongDataAnalysisPage::GetRhymes(int list_i, bool start_next) {
 	args.song = t.song;
 	args.text = t.text;
 	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	TaskMgr& m = TaskMgr::Single();
 	m.GetSongDataAnalysis(args, THISBACK2(OnRhymes, list_i, start_next));
 }
 
@@ -176,7 +176,7 @@ void SongDataAnalysisPage::GetWords(int list_i, bool start_next) {
 	args.song = t.song;
 	args.text = t.text;
 	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	TaskMgr& m = TaskMgr::Single();
 	m.GetSongDataAnalysis(args, THISBACK2(OnWords, list_i, start_next));
 }
 
@@ -295,7 +295,7 @@ void SongDataAnalysisPage::GetAttributeDistributions(int list_i, bool start_next
 	args.song = t.song;
 	args.text = t.text;
 	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	TaskMgr& m = TaskMgr::Single();
 	m.GetSongDataAnalysis(args, THISBACK2(OnRoleDistributions, list_i, start_next));
 }
 
@@ -420,7 +420,7 @@ void SongDataAnalysisPage::GetRhymeLocations(int list_i, bool start_next) {
 	args.song = t.song;
 	args.text = t.text;
 	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	TaskMgr& m = TaskMgr::Single();
 	m.GetSongDataAnalysis(args, THISBACK2(OnRhymeLocations, list_i, start_next));
 }
 

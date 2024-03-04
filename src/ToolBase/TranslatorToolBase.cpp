@@ -77,7 +77,7 @@ void TranslatorToolCtrl::InitEditor(CodeEditor& codeedit) {
 
 void TranslatorToolCtrl::Data() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	#if 0
 	orig.SetData(GetOriginalText());
@@ -96,7 +96,7 @@ String TranslatorToolCtrl::GetStatusText() {
 
 void TranslatorToolCtrl::Translate() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist || key.IsEmpty() || trans_key.IsEmpty())
 		return;
 	
@@ -105,14 +105,14 @@ void TranslatorToolCtrl::Translate() {
 		String orig_lng = GetCurrentLanguageString().Left(5);
 		String trans_lng = "EN-US";
 		
-		TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+		TaskMgr& m = TaskMgr::Single();
 		m.TranslateSongData(orig_lng, key, trans_lng, trans_key, THISBACK(OnTranslatedRecv));
 	}*/
 }
 /*
 String TranslatorToolCtrl::GetOriginalText() const {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	if (key.GetCount()) {
 		if (artist && p.artist) {
@@ -130,7 +130,7 @@ String TranslatorToolCtrl::GetOriginalText() const {
 
 String TranslatorToolCtrl::GetTranslatedText() const {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	if (trans_key.GetCount()) {
 		if (artist && p.artist) {
@@ -148,7 +148,7 @@ String TranslatorToolCtrl::GetTranslatedText() const {
 
 void TranslatorToolCtrl::OnOriginalChange() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	String txt = orig.GetData();
 	if (key.GetCount()) {
@@ -166,7 +166,7 @@ void TranslatorToolCtrl::OnOriginalChange() {
 
 void TranslatorToolCtrl::OnTranslatedChange() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	String txt = trans.GetData();
 	if (trans_key.GetCount()) {
@@ -185,7 +185,7 @@ void TranslatorToolCtrl::OnTranslatedChange() {
 void TranslatorToolCtrl::OnTranslatedRecv() {
 	#if 0
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	
 	trans.SetData(GetTranslatedText());
 	#endif

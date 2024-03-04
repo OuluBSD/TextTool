@@ -2,7 +2,7 @@
 #define _SongDataCtrl_AmbiguousWordPairs_h_
 
 
-class AmbiguousWordPairs : public SongToolCtrl {
+class AmbiguousWordPairs : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, texts;
 	

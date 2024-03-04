@@ -4,7 +4,7 @@
 #if 0
 
 
-class NanaEditor : public SongToolCtrl {
+class NanaEditor : public ToolAppCtrl {
 	Splitter hsplit;
 	DocEdit code;
 	ArrayCtrl parts, data;

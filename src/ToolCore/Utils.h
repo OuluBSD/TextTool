@@ -9,11 +9,11 @@ struct Release;
 struct Artist;
 
 
-class SongToolCtrl : public Ctrl {
+class ToolAppCtrl : public Ctrl {
 	
 	
 public:
-	virtual ~SongToolCtrl() {}
+	virtual ~ToolAppCtrl() {}
 	virtual void Data() = 0;
 	virtual void ToolMenu(Bar& bar) {bar.Add("", AppImg::placeholder16(), Callback());}
 	virtual String GetStatusText() {return String();}

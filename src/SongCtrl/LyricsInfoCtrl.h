@@ -4,7 +4,7 @@
 
 class Editor;
 
-class LyricsInfoCtrl : public WithLyricsInfo<SongToolCtrl> {
+class LyricsInfoCtrl : public WithLyricsInfo<ToolAppCtrl> {
 	
 	
 public:

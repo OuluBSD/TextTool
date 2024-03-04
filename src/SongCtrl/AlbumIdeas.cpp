@@ -30,7 +30,7 @@ void AlbumIdeas::Clear() {
 
 void AlbumIdeas::Data() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release) {
 		Clear();
 		return;
@@ -52,7 +52,7 @@ void AlbumIdeas::Data() {
 
 void AlbumIdeas::IdeaData() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release || !list.IsCursor()) {
 		Clear();
 		return;
@@ -69,7 +69,7 @@ void AlbumIdeas::IdeaData() {
 
 void AlbumIdeas::OnValueChange() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release) return;
 	Release& release = *p.release;
 	
@@ -92,7 +92,7 @@ void AlbumIdeas::OnListMenu(Bar& bar) {
 
 void AlbumIdeas::AddIdea() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release) return;
 	Release& release = *p.release;
 	
@@ -129,7 +129,7 @@ void AlbumIdeas::AddIdea() {
 
 void AlbumIdeas::RemoveIdea() {
 	Database& db = Database::Single();
-	EditorPtrs& p = db.ctx.ed;
+	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release) return;
 	Release& release = *p.release;
 	

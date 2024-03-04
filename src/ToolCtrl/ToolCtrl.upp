@@ -2,10 +2,15 @@ description "\377B0,0,128";
 
 uses
 	ToolBase,
-	Task;
+	Task,
+	CodeEditor;
 
 file
 	ToolCtrl.h,
+	Fns.h,
+	Fns.cpp,
+	ImageGenTool.h,
+	ImageGenTool.cpp,
 	CalendarPage.h,
 	CalendarPage.cpp,
 	FrontPage.h,

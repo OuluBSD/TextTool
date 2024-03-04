@@ -2,7 +2,7 @@
 #define _SongDataCtrl_VirtualPhraseParts_h_
 
 
-class VirtualPhraseParts : public SongToolCtrl {
+class VirtualPhraseParts : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, texts, parts;
 	

@@ -4,7 +4,7 @@
 
 class Editor;
 
-class ProductInfoCtrl : public WithProductInfo<SongToolCtrl> {
+class ProductInfoCtrl : public WithProductInfo<ToolAppCtrl> {
 	
 	
 public:

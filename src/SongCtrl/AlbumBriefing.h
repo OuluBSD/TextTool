@@ -2,7 +2,7 @@
 #define _SongTool_AlbumBriefing_h_
 
 
-class AlbumBriefing : public SongToolCtrl {
+class AlbumBriefing : public ToolAppCtrl {
 	WithKeyValueList<Ctrl> values;
 	ArrayCtrl list;
 	Splitter vsplit;

@@ -4,22 +4,13 @@
 
 
 class SongTool : public TopWindow {
-	typedef enum {
-		MODE_INVALID,
-		MODE_SIMPLIFIED,
-		MODE_ADVANCED,
-	} AppMode;
-	
 	MenuBar				menu;
 	ToolBar				toolbar;
 	StatusBar			statusbar;
 	
-	FrontPage			fp;
-	CalendarPage		cal;
 	Editor				ed;
 	Tasks				ai;
 	TimeCallback		tc;
-	AppMode				mode = MODE_INVALID;
 	bool				skip_data = false;
 	
 	int page = 0;

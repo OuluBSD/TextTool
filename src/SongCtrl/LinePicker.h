@@ -3,7 +3,7 @@
 
 #if 0
 
-class LinePicker : public SongToolCtrl {
+class LinePicker : public ToolAppCtrl {
 	WithLinePicker<Ctrl> ctrls;
 	Splitter main_split, vsplit, hsplit;
 	ArrayCtrl attrs, colors, actions, action_args, parts, picked, subpicked;

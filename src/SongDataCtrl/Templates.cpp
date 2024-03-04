@@ -271,7 +271,7 @@ void SongDataTemplates::GetTemplatePhrases(int batch_i) {
 	
 	args.fn = 6;
 	
-	TaskMgr& m = SongLib::TaskManager::Single().MakePipe();
+	TaskMgr& m = TaskMgr::Single();
 	m.GetSongDataAnalysis(args, THISBACK1(OnTemplatePhrases, batch_i));
 }
 

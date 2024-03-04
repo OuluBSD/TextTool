@@ -4,7 +4,7 @@
 
 String GetTypePhraseString(const Vector<int>& word_classes, const DatasetAnalysis& da);
 
-class VirtualPhrases : public SongToolCtrl {
+class VirtualPhrases : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, texts, parts;
 	

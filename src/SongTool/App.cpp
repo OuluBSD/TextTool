@@ -22,8 +22,6 @@ SongTool::SongTool() : ed(this) {
 	};
 	ed.WhenStopUpdating << [this](){tc.Kill();};
 	
-	Add(fp.SizePos());
-	Add(cal.SizePos());
 	Add(ed.SizePos());
 	Add(ai.SizePos());
 	
@@ -136,8 +134,6 @@ void SongTool::SaveWindowPos() {
 
 void SongTool::Data() {
 	switch (page) {
-		case 0: fp.Data(); break;
-		case 1: cal.Data(); break;
 		case 2: ed.Data(); break;
 		case 3: ai.Data(); break;
 	}
@@ -158,8 +154,6 @@ void SongTool::SetBar() {
 
 void SongTool::MainBar(Bar& bar) {
 	switch (page) {
-		case 0: fp.ToolMenu(bar); break;
-		case 1: cal.ToolMenu(bar); break;
 		case 2: ed.ToolMenu(bar); break;
 		case 3: ai.ToolMenu(bar); break;
 	}
@@ -193,8 +187,6 @@ void SongTool::MovePart(int i) {
 }
 
 void SongTool::SetView(int i) {
-	fp.Hide();
-	cal.Hide();
 	ed.Hide();
 	ai.Hide();
 	
@@ -202,8 +194,6 @@ void SongTool::SetView(int i) {
 	
 	switch (i) {
 		default: i = 0;
-		case 0: fp.Show(); break;
-		case 1: cal.Show(); break;
 		case 2: ed.Show(); break;
 		case 3: ai.Show(); PostCallback(THISBACK(StartUpdating)); break;
 	}

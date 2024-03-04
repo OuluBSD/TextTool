@@ -4,7 +4,7 @@
 #if 0
 
 
-class LyricsEditor : public SongToolCtrl {
+class LyricsEditor : public ToolAppCtrl {
 	Splitter vsplit, hsplit0, hsplit1, vsplit1;
 	ArrayCtrl phrase_list, suggestions, line_actions, fitting;
 	ArrayCtrl attrs, colors, actions, action_args, action_thrd, rhyme_level;
