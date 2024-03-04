@@ -1,0 +1,45 @@
+description "\377B0,0,128";
+
+uses
+	SocialDatabase;
+
+file
+	SocialCtrl.h,
+	Editor.h,
+	Editor.cpp,
+	Fns.h,
+	Fns.cpp,
+	Simplified.lay,
+	Company readonly separator,
+	CompanyInfoCtrl.h,
+	CompanyInfoCtrl.cpp,
+	Campaign readonly separator,
+	CampaignInfoCtrl.h,
+	CampaignInfoCtrl.cpp,
+	CampaignBriefing.h,
+	CampaignBriefing.cpp,
+	CampaignIdeas.h,
+	CampaignIdeas.cpp,
+	CoverImage.h,
+	CoverImage.cpp,
+	Marketing.h,
+	Marketing.cpp,
+	CalMgrCtrl.cpp,
+	CalMgrCtrl.h,
+	PressRelease.h,
+	PressRelease.cpp,
+	PublicRelations.h,
+	PublicRelations.cpp,
+	Program readonly separator,
+	ProgramInfoCtrl.h,
+	ProgramInfoCtrl.cpp,
+	Story readonly separator,
+	StoryInfoCtrl.h,
+	StoryInfoCtrl.cpp,
+	StoryStructure.h,
+	StoryStructure.cpp,
+	StoryPool.h,
+	StoryPool.cpp,
+	StorySolverCtrl.h,
+	StorySolverCtrl.cpp;
+

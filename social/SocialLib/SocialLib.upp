@@ -1,0 +1,15 @@
+description "\377B128,0,0";
+
+file
+	SongLib.h,
+	TaskManager.h,
+	Task.cpp,
+	TaskManager.cpp,
+	Do.cpp,
+	Get.cpp,
+	On.cpp,
+	LyricsGenerator.h,
+	LyricsGenerator.cpp,
+	LyricsSolver.h,
+	LyricsSolver.cpp;
+

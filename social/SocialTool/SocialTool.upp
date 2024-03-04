@@ -1,0 +1,17 @@
+uses
+	ToolCtrl,
+	SocialCtrl,
+	SocialDataCtrl,
+	SocialLib;
+
+file
+	SocialTool.h,
+	SocialTool.rc,
+	SocialTool.cpp,
+	SocialTool.iml,
+	App.h,
+	App.cpp;
+
+mainconfig
+	"" = "GUI";
+

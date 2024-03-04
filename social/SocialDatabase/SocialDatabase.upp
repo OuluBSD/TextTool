@@ -1,0 +1,23 @@
+description "\377B128,0,0";
+
+file
+	SocialDatabase.h,
+	Database.h,
+	Database.cpp,
+	ProgramData.h,
+	ProgramData.cpp,
+	Data readonly separator,
+	Company.h,
+	Company.cpp,
+	Campaign.h,
+	Campaign.cpp,
+	Program.h,
+	Program.cpp,
+	Role.h,
+	Role.cpp,
+	Generic.h,
+	Generic.cpp,
+	Story.h,
+	Story.cpp,
+	_ readonly separator;
+
