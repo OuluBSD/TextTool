@@ -7,6 +7,8 @@ struct Lyrics;
 struct Song;
 struct Release;
 struct Artist;
+struct Company;
+struct Story;
 
 
 class ToolAppCtrl : public Ctrl {
@@ -22,6 +24,8 @@ public:
 	Song& GetSong();
 	Release& GetRelease();
 	Artist& GetArtist();
+	Company& GetCompany();
+	Story& GetStory();
 	String GetSongTitle() const;
 	//int GetDataset();
 	

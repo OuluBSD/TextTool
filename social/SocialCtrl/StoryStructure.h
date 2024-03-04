@@ -1,21 +1,21 @@
-#ifndef _SocialCtrl_SongStructure_h_
-#define _SocialCtrl_SongStructure_h_
+#ifndef _SocialCtrl_StoryStructure_h_
+#define _SocialCtrl_StoryStructure_h_
 
 
-class SongStructure : public ToolAppCtrl {
+class StoryStructure : public ToolAppCtrl {
 	Splitter vsplit, hsplit, attr_split;
-	WithSongStructure<Ctrl> active;
+	WithStoryStructure<Ctrl> active;
 	ArrayCtrl params, structs, attributes, parts;
 	bool disabled = false;
 	
 public:
-	typedef SongStructure CLASSNAME;
-	SongStructure();
+	typedef StoryStructure CLASSNAME;
+	StoryStructure();
 	
 	void DisableAll();
 	void EnableAll();
 	void Data() override;
-	void DataSong();
+	void DataProgram();
 	void DataSuggestions();
 	void DataSuggestionAttributes();
 	void DataActive();
@@ -28,8 +28,8 @@ public:
 	//void SetParam(String key, String value);
 	//String GetParam(String key, String def="");
 	void LoadStructureString(String struct_str);
-	void OnStructureSuggestion(String result, Lyrics* l);
-	void OnSuggestionAttributes(String result, Lyrics* l);
+	void OnStructureSuggestion(String result, Story* l);
+	void OnSuggestionAttributes(String result, Story* l);
 	void LoadActiveStruct();
 	
 	

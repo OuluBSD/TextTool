@@ -1,6 +1,6 @@
-#include "SongLib.h"
+#include "SocialLib.h"
 
-namespace SongLib {
+namespace SocialLib {
 
 TaskManager::TaskManager() {
 	
@@ -106,10 +106,9 @@ void TaskManager::RemoveTask(Task& t) {
 }
 
 void TaskManager::RealizePipe() {
-	Database& db = Database::Single();
+	SocialDatabase& db = SocialDatabase::Single();
 	if (!pipe) {
-		pipe = &db.pipes.Add();
-		pipe->song = 0;
+		pipe = &TaskMgr::Single();
 	}
 }
 

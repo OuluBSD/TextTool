@@ -1,15 +1,15 @@
 #include "SocialDatabase.h"
 
 
-String StaticPart::GetTypeString() const {
+String StoryPart::GetTypeString() const {
 	return GetTypeString(part_type);
 }
 
-String StaticPart::GetTypeString(int part_type) {
+String StoryPart::GetTypeString(int part_type) {
 	return GetTypeString((PartType)part_type);
 }
 
-String StaticPart::GetTypeString(PartType part_type) {
+String StoryPart::GetTypeString(PartType part_type) {
 	switch (part_type) {
 		case SINGING: return t_("Singing");
 		case RAPPING: return t_("Rapping");
@@ -90,10 +90,10 @@ void Program::LoadTitle(String title) {
 }
 
 String Program::GetAnyTitle(Company& a) const {
-	int focus_tc = -1, focus_arch = -1, focus_lyr = -1;
-	a.FindProgram(focus_tc, focus_arch, focus_lyr, stories_file_title);
-	if (focus_tc >= 0) {
-		const Story& l = a.roles[focus_tc].generics[focus_arch].stories[focus_lyr];
+	int focus_role = -1, focus_generic = -1, focus_story = -1;
+	a.FindProgram(focus_role, focus_generic, focus_story, story_file_title);
+	if (focus_role >= 0) {
+		const Story& l = a.roles[focus_role].generics[focus_generic].stories[focus_story];
 		if (l.native_title.GetCount())
 			return l.native_title;
 		

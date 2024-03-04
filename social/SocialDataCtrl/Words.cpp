@@ -1,7 +1,7 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 
-SongDataWords::SongDataWords() {
+ProgramDataWords::ProgramDataWords() {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << vsplit << words;
@@ -28,23 +28,23 @@ SongDataWords::SongDataWords() {
 	
 }
 
-void SongDataWords::EnableAll() {
+void ProgramDataWords::EnableAll() {
 	disabled = false;
 	words.Enable();
 	datasets.Enable();
 	colors.Enable();
 }
 
-void SongDataWords::DisableAll() {
+void ProgramDataWords::DisableAll() {
 	disabled = true;
 	words.Disable();
 	datasets.Disable();
 	colors.Disable();
 }
 
-void SongDataWords::Data() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
+void ProgramDataWords::Data() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
 	
 	datasets.SetCount(sd.GetCount());
 	for(int i = 0; i < sd.GetCount(); i++) {
@@ -57,16 +57,16 @@ void SongDataWords::Data() {
 	
 }
 
-void SongDataWords::DataMain() {
+void ProgramDataWords::DataMain() {
 	
 	Data();
 	DataDataset();
 }
 
-void SongDataWords::DataDataset() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataWords::DataDataset() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	if (!datasets.IsCursor())
 		return;
@@ -75,7 +75,7 @@ void SongDataWords::DataDataset() {
 	
 	String ds_key = sd.GetKey(ds_i);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
-	Vector<ArtistDataset>& avec = sd[ds_i];
+	Vector<CompanyDataset>& avec = sd[ds_i];
 	
 	
 	colors.SetCount(1+GetColorGroupCount());
@@ -92,10 +92,10 @@ void SongDataWords::DataDataset() {
 	DataColor();
 }
 
-void SongDataWords::DataColor() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataWords::DataColor() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	if (!datasets.IsCursor() || !colors.IsCursor())
 		return;
@@ -104,12 +104,12 @@ void SongDataWords::DataColor() {
 	int wg_i = colors.GetCursor();
 	String ds_key = sd.GetKey(ds_i);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
-	const Vector<ArtistDataset>& avec = sd[ds_i];
+	const Vector<CompanyDataset>& avec = sd[ds_i];
 	
 	{
 		bool clr_filter = wg_i > 0;
 		wg_i--;
-		const ArtistDataset* artist = 0;
+		const CompanyDataset* company = 0;
 		
 		int count = ds.words.GetCount();
 		int limit = count > 10000 ? 10 : 0;
@@ -189,7 +189,7 @@ void SongDataWords::DataColor() {
 	}
 }
 
-void SongDataWords::ToolMenu(Bar& bar) {
+void ProgramDataWords::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
 	bar.Separator();
 	bar.Add(t_("Fix all words"), AppImg::RedRing(), THISBACK1(DoWordFix, 0)).Key(K_F4);
@@ -208,10 +208,10 @@ void SongDataWords::ToolMenu(Bar& bar) {
 
 
 
-/*void SongDataWords::UpdateWordFlagGroups() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+/*void ProgramDataWords::UpdateWordFlagGroups() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	Index<String> unique_wordgroups;
 	
@@ -221,12 +221,12 @@ void SongDataWords::ToolMenu(Bar& bar) {
 			
 		ds.groups.Clear();
 		
-		for(int i = 0; i < ds.artists.GetCount(); i++) {
-			String key = ds.artists.GetKey(i);
-			ArtistAnalysis& aa = ds.artists[i];
+		for(int i = 0; i < ds.companies.GetCount(); i++) {
+			String key = ds.companies.GetKey(i);
+			CompanyAnalysis& aa = ds.companies[i];
 			
-			for(int j = 0; j < aa.songs.GetCount(); j++) {
-				LyricsAnalysis& la = aa.songs[j];
+			for(int j = 0; j < aa.programs.GetCount(); j++) {
+				StoryAnalysis& la = aa.programs[j];
 				
 				for(int k = 0; k < la.word_groups.GetCount(); k++) {
 					String group = la.word_groups.GetKey(k);
@@ -249,13 +249,13 @@ void SongDataWords::ToolMenu(Bar& bar) {
 	
 	DUMPC(unique_wordgroups);
 	
-	PostCallback(THISBACK(DataArtist));
+	PostCallback(THISBACK(DataCompany));
 }*/
 
-/*void SongDataWords::UpdateWordFlags() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+/*void ProgramDataWords::UpdateWordFlags() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
 		String ds_key = sd.GetKey(ds_i);
@@ -280,10 +280,10 @@ void SongDataWords::ToolMenu(Bar& bar) {
 	}
 }*/
 
-void SongDataWords::DumpWordGroups() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataWords::DumpWordGroups() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	Index<int> main_classes;
 	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
@@ -307,10 +307,10 @@ void SongDataWords::DumpWordGroups() {
 	
 }
 
-void SongDataWords::DumpPhoneticChars() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataWords::DumpPhoneticChars() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	Index<WString> chars;
 	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
@@ -337,18 +337,18 @@ void SongDataWords::DumpPhoneticChars() {
 	}
 }
 
-void SongDataWords::DoWordFix(int fn) {
+void ProgramDataWords::DoWordFix(int fn) {
 	if (!datasets.IsCursor())
 		return;
 	int ds_i = datasets.GetCursor();
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoWordFix(ds_i, fn);
 }
 
-void SongDataWords::DoWords(int fn) {
+void ProgramDataWords::DoWords(int fn) {
 	if (!datasets.IsCursor())
 		return;
 	int ds_i = datasets.GetCursor();
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoWords(ds_i, fn);
 }

@@ -8,7 +8,7 @@ LAYOUT(KeyValueList, 400, 132)
 	ITEM(Upp::DocEdit, value, HSizePosZ(100, 12).TopPosZ(68, 56))
 END_LAYOUT
 
-LAYOUT(AlbumIdeas, 400, 228)
+LAYOUT(CampaignIdeas, 400, 228)
 	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Idea")).HSizePosZ(4, 4).VSizePosZ(4, 4))
 	ITEM(Upp::Label, dv___1, SetLabel(t_("Title:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 84).TopPosZ(20, 19))
 	ITEM(Upp::EditString, title, HSizePosZ(100, 12).TopPosZ(20, 19))
@@ -20,7 +20,7 @@ LAYOUT(AlbumIdeas, 400, 228)
 	ITEM(Upp::DocEdit, desc, HSizePosZ(100, 12).VSizePosZ(92, 12))
 END_LAYOUT
 
-LAYOUT(SongStructure, 780, 200)
+LAYOUT(StoryStructure, 780, 200)
 	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Active song structure")).HCenterPosZ(360, -206).VCenterPosZ(192, 0))
 	ITEM(Upp::Label, dv___1, SetLabel(t_("Name of the structure:")).SetAlign(Upp::ALIGN_RIGHT).HCenterPosZ(120, -322).VCenterPosZ(20, -62))
 	ITEM(Upp::EditString, struct_name, SetEditable(false).HCenterPosZ(228, -144).VCenterPosZ(20, -62))

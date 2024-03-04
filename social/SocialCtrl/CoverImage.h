@@ -1,5 +1,5 @@
-#ifndef _SongTool_CoverImage_h_
-#define _SongTool_CoverImage_h_
+#ifndef _SocialTool_CoverImage_h_
+#define _SocialTool_CoverImage_h_
 
 
 class CoverImage : public ImagePlayerBase {

@@ -1,38 +1,38 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
-SongDataLoader::SongDataLoader() {
+SocialDataLoader::SocialDataLoader() {
 	CtrlLayout(*this);
-	Title("SongData loader");
+	Title("ProgramData loader");
 	
 	PostCallback(THISBACK(Start));
 }
 
-void SongDataLoader::Process() {
-	Database& db = Database::Single();
+void SocialDataLoader::Process() {
+	SocialDatabase& db = SocialDatabase::Single();
 	
-	LoadHuggingArtists();
+	LoadHuggingCompanys();
 	LoadHuggingFinn();
 	
-	//db.song_data.Store();
+	//db.program_data.Store();
 	PostCallback(THISBACK(Stop));
 }
 
-void SongDataLoader::LoadHuggingArtists() {
+void SocialDataLoader::LoadHuggingCompanys() {
 	String dir;
 	#ifdef flagWIN32
-	dir = AppendFileName(GetHomeDirectory(), "SongData\\huggingartists");
+	dir = AppendFileName(GetHomeDirectory(), "ProgramData\\huggingcompanies");
 	#elif defined flagPOSIX
-	dir = GetHomeDirFile("SongData/huggingartists");
+	dir = GetHomeDirFile("ProgramData/huggingcompanies");
 	#endif
 	if (!DirectoryExists(dir)) {
 		PromptOK("Directory doesn't exist: " + dir);
 		return;
 	}
 	
-	Database& db = Database::Single();
-	db.song_data.artists_en.Clear();
+	SocialDatabase& db = SocialDatabase::Single();
+	db.program_data.companies_en.Clear();
 	
-	PostMessage("Searching for huggingartists dataset json files");
+	PostMessage("Searching for huggingcompanies dataset json files");
 	PostProgress(0,1);
 	
 	Vector<String> files;
@@ -70,7 +70,7 @@ void SongDataLoader::LoadHuggingArtists() {
 			title == "ghostmane" ||
 			title == "grigory leps" ||
 			title == "gpsd" ||
-			title == "hillsong worship" ||
+			title == "hillprogram worship" ||
 			title == "hyuna" ||
 			title == "idktime" ||
 			title == "jah khalib" ||
@@ -138,17 +138,17 @@ void SongDataLoader::LoadHuggingArtists() {
 		String path = files[i];
 		String title = GetFileTitle(path);
 		
-		ArtistDataset& artist = db.song_data.artists_en.Add();
-		artist.name = Capitalize(title);
+		CompanyDataset& company = db.program_data.companies_en.Add();
+		company.name = Capitalize(title);
 		if (GetDefaultCharset() != CHARSET_UTF8)
-			artist.name = ToCharset(CHARSET_UTF8, artist.name, CHARSET_DEFAULT);
+			company.name = ToCharset(CHARSET_UTF8, company.name, CHARSET_DEFAULT);
 		
-		Vector<String> name_parts = Split(artist.name, "-");
+		Vector<String> name_parts = Split(company.name, "-");
 		for (String& n : name_parts)
 			n = Capitalize(ToLower(n));
-		artist.name = Join(name_parts, " ");
+		company.name = Join(name_parts, " ");
 		
-		PostMessage("Loading artist: " + artist.name);
+		PostMessage("Loading company: " + company.name);
 		PostProgress(i, files.GetCount());
 		
 		String s = LoadFile(path);
@@ -156,7 +156,7 @@ void SongDataLoader::LoadHuggingArtists() {
 		//DUMPC(js);
 		
 		for(int i = 0; i < js.GetCount(); i++) {
-			LyricsDataset& l = artist.lyrics.Add();
+			StoryDataset& l = company.stories.Add();
 			l.name = IntStr(i);
 			l.text = js[i];
 			l.text.Replace("\r", "");
@@ -164,20 +164,20 @@ void SongDataLoader::LoadHuggingArtists() {
 	}
 }
 
-void SongDataLoader::LoadHuggingFinn() {
+void SocialDataLoader::LoadHuggingFinn() {
 	String dir;
 	#ifdef flagWIN32
-	dir = AppendFileName(GetHomeDirectory(), "SongData\\huggingfinn");
+	dir = AppendFileName(GetHomeDirectory(), "ProgramData\\huggingfinn");
 	#elif defined flagPOSIX
-	dir = GetHomeDirFile("SongData/huggingfinn");
+	dir = GetHomeDirFile("ProgramData/huggingfinn");
 	#endif
 	if (!DirectoryExists(dir)) {
 		PromptOK("Directory doesn't exist: " + dir);
 		return;
 	}
 	
-	Database& db = Database::Single();
-	db.song_data.artists_fi.Clear();
+	SocialDatabase& db = SocialDatabase::Single();
+	db.program_data.companies_fi.Clear();
 	
 	PostMessage("Searching for huggingfinn dataset json files");
 	PostProgress(0,1);
@@ -202,19 +202,19 @@ void SongDataLoader::LoadHuggingFinn() {
 	
 	int actual = 0;
 	for(int i = 0; i < files.GetCount(); i++) {
-		ArtistDataset& artist = db.song_data.artists_fi.Add();
-		artist.name = files.GetKey(i);
+		CompanyDataset& company = db.program_data.companies_fi.Add();
+		company.name = files.GetKey(i);
 		if (GetDefaultCharset() != CHARSET_UTF8)
-			artist.name = ToCharset(CHARSET_UTF8, artist.name, CHARSET_DEFAULT);
+			company.name = ToCharset(CHARSET_UTF8, company.name, CHARSET_DEFAULT);
 		const auto& v = files[i];
 		
-		PostMessage("Loading artist: " + artist.name);
+		PostMessage("Loading company: " + company.name);
 		
 		for(int j = 0; j < v.GetCount(); j++) {
-			PostMessage("Loading: " + artist.name + " - " + GetFileTitle(v[j]));
+			PostMessage("Loading: " + company.name + " - " + GetFileTitle(v[j]));
 			PostProgress(actual++, total_files);
 			
-			LyricsDataset& l = artist.lyrics.Add();
+			StoryDataset& l = company.stories.Add();
 			l.name = GetFileTitle(v[j]);
 			if (GetDefaultCharset() != CHARSET_UTF8)
 				l.name = ToCharset(CHARSET_UTF8, l.name, CHARSET_DEFAULT);

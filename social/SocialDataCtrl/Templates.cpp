@@ -1,9 +1,9 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 #if 0
 
 
-SongDataTemplates::SongDataTemplates() {
+ProgramDataTemplates::ProgramDataTemplates() {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << vsplit << tmpls;
@@ -39,22 +39,22 @@ SongDataTemplates::SongDataTemplates() {
 	
 }
 
-void SongDataTemplates::EnableAll() {
+void ProgramDataTemplates::EnableAll() {
 	
 }
 
-void SongDataTemplates::DisableAll() {
+void ProgramDataTemplates::DisableAll() {
 	
 }
 
-void SongDataTemplates::Data() {
+void ProgramDataTemplates::Data() {
 	
 }
 
-void SongDataTemplates::DataMain() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataTemplates::DataMain() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -67,7 +67,7 @@ void SongDataTemplates::DataMain() {
 	DataDataset();
 }
 	
-void SongDataTemplates::DataDataset() {
+void ProgramDataTemplates::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 	
@@ -102,7 +102,7 @@ void SongDataTemplates::DataDataset() {
 	DataAttribute();
 }
 
-void SongDataTemplates::DataAttribute() {
+void ProgramDataTemplates::DataAttribute() {
 	if (!attrs.IsCursor())
 		return;
 	
@@ -123,13 +123,13 @@ void SongDataTemplates::DataAttribute() {
 	DataColor();
 }
 
-void SongDataTemplates::DataColor() {
+void ProgramDataTemplates::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -183,7 +183,7 @@ void SongDataTemplates::DataColor() {
 	lock.Leave();
 }
 
-void SongDataTemplates::ToolMenu(Bar& bar) {
+void ProgramDataTemplates::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
 	bar.Separator();
 	if (running)
@@ -192,15 +192,15 @@ void SongDataTemplates::ToolMenu(Bar& bar) {
 		bar.Add(t_("Start getting templates"), AppImg::RedRing(), THISBACK(ToggleGettingTemplates)).Key(K_F5);
 }
 
-void SongDataTemplates::ToggleGettingTemplates() {
+void ProgramDataTemplates::ToggleGettingTemplates() {
 	running = !running;
 	if (running) {
 		
 		// To clear old data
 		if (0) {
-			Database& db = Database::Single();
-			SongData& sd = db.song_data;
-			SongDataAnalysis& sda = db.song_data.a;
+			SocialDatabase& db = SocialDatabase::Single();
+			ProgramData& sd = db.program_data;
+			ProgramDataAnalysis& sda = db.program_data.a;
 			for(int i = 0; i < sda.datasets.GetCount(); i++)
 				sda.datasets[i].tmpl_phrases.Clear();
 		}
@@ -209,13 +209,13 @@ void SongDataTemplates::ToggleGettingTemplates() {
 	}
 }
 
-void SongDataTemplates::GetTemplatePhrases(int batch_i) {
+void ProgramDataTemplates::GetTemplatePhrases(int batch_i) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	int begin = batch_i * per_batch;
 	int end = (batch_i+1) * per_batch;
@@ -225,7 +225,7 @@ void SongDataTemplates::GetTemplatePhrases(int batch_i) {
 		end = 1;
 	}
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	
 	line_to_src.Clear();
 	ds_is.Clear();
@@ -235,13 +235,13 @@ void SongDataTemplates::GetTemplatePhrases(int batch_i) {
 		String ds_key = sd.GetKey(ds_i);
 		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 		
-		for(int i = 0; i < ds.artists.GetCount(); i++) {
-			ArtistAnalysis& artist = ds.artists[i];
-			for(int j = 0; j < artist.songs.GetCount(); j++) {
-				LyricsAnalysis& song = artist.songs[j];
-				for(int k = 0; k < song.phrases.GetCount(); k++) {
+		for(int i = 0; i < ds.companies.GetCount(); i++) {
+			CompanyAnalysis& company = ds.companies[i];
+			for(int j = 0; j < company.programs.GetCount(); j++) {
+				StoryAnalysis& program = company.programs[j];
+				for(int k = 0; k < program.phrases.GetCount(); k++) {
 					if (iter >= begin) {
-						LyricsAnalysis::Phrase& p = song.phrases[k];
+						StoryAnalysis::Phrase& p = program.phrases[k];
 						Vector<String> parts = Split(p.phrase, ", ");
 						for (String& part : parts) {
 							line_to_src.Add(args.phrases.GetCount(), iter);
@@ -267,23 +267,23 @@ void SongDataTemplates::GetTemplatePhrases(int batch_i) {
 		return;
 	}
 	
-	Song& song = GetSong();
+	Program& program = GetProgram();
 	
 	args.fn = 6;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSongDataAnalysis(args, THISBACK1(OnTemplatePhrases, batch_i));
+	m.GetProgramDataAnalysis(args, THISBACK1(OnTemplatePhrases, batch_i));
 }
 
-void SongDataTemplates::OnTemplatePhrases(String res, int batch_i) {
+void ProgramDataTemplates::OnTemplatePhrases(String res, int batch_i) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
 	lock.Enter();
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	res.Replace("\r", "");
 	Vector<String> lines = Split(res, "\n");

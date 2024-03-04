@@ -1,7 +1,7 @@
-#ifndef _SongTool_CompanyInfoCtrl_h_
-#define _SongTool_CompanyInfoCtrl_h_
+#ifndef _SocialTool_CompanyInfoCtrl_h_
+#define _SocialTool_CompanyInfoCtrl_h_
 
-class Editor;
+class SocialEditor;
 
 class CompanyInfoCtrl : public WithCompanyInfo<ToolAppCtrl> {
 	
@@ -14,7 +14,7 @@ public:
 	void Clear();
 	void OnValueChange();
 	
-	Editor* editor = 0;
+	SocialEditor* editor = 0;
 	
 };
 

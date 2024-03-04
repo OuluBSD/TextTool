@@ -1,13 +1,13 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 #if 0
 
-SongDataPhrases::SongDataPhrases() {
+ProgramDataPhrases::ProgramDataPhrases() {
 	Add(hsplit.HSizePos().VSizePos(0,30));
 	Add(prog.HSizePos().BottomPos(0,30));
 	prog.Set(0,1);
 	
-	hsplit.Horz() << vsplit << songs;
+	hsplit.Horz() << vsplit << programs;
 	hsplit.SetPos(4000);
 	
 	vsplit.Vert() << datasets << attrs;
@@ -23,35 +23,35 @@ SongDataPhrases::SongDataPhrases() {
 	attrs.ColumnWidths("1 1");
 	attrs.WhenCursor << THISBACK(DataAttribute);
 	
-	songs.AddColumn(t_("Phrase"));
-	songs.AddColumn(t_("Artist"));
-	songs.AddColumn(t_("Song"));
-	songs.ColumnWidths("3 1 1");
+	programs.AddColumn(t_("Phrase"));
+	programs.AddColumn(t_("Company"));
+	programs.AddColumn(t_("Program"));
+	programs.ColumnWidths("3 1 1");
 	
 }
 
-void SongDataPhrases::EnableAll() {
+void ProgramDataPhrases::EnableAll() {
 	disabled = false;
 	datasets.Enable();
 	attrs.Enable();
-	songs.Enable();
+	programs.Enable();
 }
 
-void SongDataPhrases::DisableAll() {
+void ProgramDataPhrases::DisableAll() {
 	disabled = true;
 	datasets.Disable();
 	attrs.Disable();
-	songs.Disable();
+	programs.Disable();
 }
 
-void SongDataPhrases::Data() {
+void ProgramDataPhrases::Data() {
 	DataDataset();
 }
 
-void SongDataPhrases::DataDataset() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataPhrases::DataDataset() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	datasets.SetCount(sda.datasets.GetCount());
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -63,10 +63,10 @@ void SongDataPhrases::DataDataset() {
 	DataMain();
 }
 
-void SongDataPhrases::DataMain() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataPhrases::DataMain() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	if (!datasets.IsCursor()) {
 		attrs.Clear();
@@ -96,13 +96,13 @@ void SongDataPhrases::DataMain() {
 	DataAttribute();
 }
 
-void SongDataPhrases::DataAttribute() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataPhrases::DataAttribute() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	if (!datasets.IsCursor() || !attrs.IsCursor()) {
-		songs.Clear();
+		programs.Clear();
 		return;
 	}
 	
@@ -115,31 +115,31 @@ void SongDataPhrases::DataAttribute() {
 	String value_str = ToLower(Attr::AttrKeys[attr_group_i][2 + attr_value_i]);
 	
 	int row = 0;
-	for(int i = 0; i < da.artists.GetCount(); i++) {
-		ArtistAnalysis& artist = da.artists[i];
-		for(int j = 0; j < artist.songs.GetCount(); j++) {
-			LyricsAnalysis& song = artist.songs[j];
-			for(int k = 0; k < song.phrases.GetCount(); k++) {
-				LyricsAnalysis::Phrase& phrase = song.phrases[k];
+	for(int i = 0; i < da.companies.GetCount(); i++) {
+		CompanyAnalysis& company = da.companies[i];
+		for(int j = 0; j < company.programs.GetCount(); j++) {
+			StoryAnalysis& program = company.programs[j];
+			for(int k = 0; k < program.phrases.GetCount(); k++) {
+				StoryAnalysis::Phrase& phrase = program.phrases[k];
 				if (phrase.group == group_str && phrase.value == value_str) {
-					songs.Set(row, 0,
+					programs.Set(row, 0,
 						AttrText(phrase.phrase)
 							.NormalPaper(Blend(phrase.clr, White(), 128+64)).NormalInk(Black())
 							.Paper(Blend(phrase.clr, GrayColor())).Ink(White()));
-					songs.Set(row, 1, da.artists.GetKey(i));
-					songs.Set(row, 2, song.name);
+					programs.Set(row, 1, da.companies.GetKey(i));
+					programs.Set(row, 2, program.name);
 					row++;
 				}
 			}
 		}
 	}
-	songs.SetCount(row);
-	if (!songs.IsCursor() && songs.GetCount())
-		songs.SetCursor(0);
+	programs.SetCount(row);
+	if (!programs.IsCursor() && programs.GetCount())
+		programs.SetCursor(0);
 	
 }
 
-void SongDataPhrases::ToolMenu(Bar& bar) {
+void ProgramDataPhrases::ToolMenu(Bar& bar) {
 	ToolAppCtrl::ToolMenu(bar);
 }
 

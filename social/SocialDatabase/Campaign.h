@@ -2,14 +2,14 @@
 #define _SocialDatabase_Campaign_h_
 
 
-struct Release : DataFile
+struct Campaign : DataFile
 {
 	// Public
 	String						native_title;
 	String						english_title;
 	Date						date;
 	VectorMap<String,String>	data;
-	Array<ProgramIdea>				ideas;
+	Array<ProgramIdea>			ideas;
 	int							year_of_content = 0;
 	
 	// Public (separate files)
@@ -55,7 +55,7 @@ struct Release : DataFile
 	
 	Array<Program>& GetSub() {return programs;}
 	const Array<Program>& GetSub() const {return programs;}
-	bool operator()(const Release& a, const Release& b) const {
+	bool operator()(const Campaign& a, const Campaign& b) const {
 		if (a.date != b.date) return a.date < b.date;
 		return a.native_title < b.native_title;
 	}

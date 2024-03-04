@@ -1,4 +1,4 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 #if 0
 
@@ -47,9 +47,9 @@ void LineTypesPage::Data() {
 }
 
 void LineTypesPage::DataMain() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -66,9 +66,9 @@ void LineTypesPage::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -103,9 +103,9 @@ void LineTypesPage::DataStructure() {
 	if (!datasets.IsCursor() || !structures.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -141,9 +141,9 @@ void LineTypesPage::DataStructureHeader() {
 	if (!datasets.IsCursor() || !structures.IsCursor() || !clauses.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -207,8 +207,8 @@ void LineTypesPage::ToolMenu(Bar& bar) {
 }
 
 void LineTypesPage::UpdateBatches() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
 	
 	batches.SetCount(0);
 	batches.Reserve(1000);
@@ -217,12 +217,12 @@ void LineTypesPage::UpdateBatches() {
 	Vector<String> added_lines;
 	
 	for (int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
-		Vector<ArtistDataset>& artists = sd[ds_i];
-		for(int i = 0; i < artists.GetCount(); i++) {
-			ArtistDataset& artist = artists[i];
-			for(int j = 0; j < artist.lyrics.GetCount(); j++) {
-				LyricsDataset& lyrics = artist.lyrics[j];
-				Vector<String> lines = Split(lyrics.text, "\n");
+		Vector<CompanyDataset>& companies = sd[ds_i];
+		for(int i = 0; i < companies.GetCount(); i++) {
+			CompanyDataset& company = companies[i];
+			for(int j = 0; j < company.stories.GetCount(); j++) {
+				StoryDataset& story = company.stories[j];
+				Vector<String> lines = Split(story.text, "\n");
 				for(int k = 0; k < lines.GetCount(); k++) {
 					String& l = lines[k];
 					l = TrimBoth(l);
@@ -231,7 +231,7 @@ void LineTypesPage::UpdateBatches() {
 				if (lines.IsEmpty()) continue;
 				added_lines.SetCount(0);
 				line_hashes.SetCount(0);
-				bool song_begins = true;
+				bool program_begins = true;
 				for(int k = 0; k < lines.GetCount(); k++) {
 					String l = TrimBoth(lines[k]);
 					if (l.GetCount() > 200)
@@ -243,21 +243,21 @@ void LineTypesPage::UpdateBatches() {
 					added_lines << l;
 					if (added_lines.GetCount() >= per_batch) {
 						Batch& b = batches.Add();
-						b.song_begins = song_begins;
-						b.artist = &artist;
-						b.lyrics = &lyrics;
+						b.program_begins = program_begins;
+						b.company = &company;
+						b.story = &story;
 						b.ds_i = ds_i;
 						b.txt = Join(added_lines, "\n");
 						ASSERT(b.txt.GetCount());
 						added_lines.SetCount(0);
-						song_begins = false;
+						program_begins = false;
 					}
 				}
 				if (added_lines.GetCount()) {
 					Batch& b = batches.Add();
-					b.song_begins = song_begins;
-					b.artist = &artist;
-					b.lyrics = &lyrics;
+					b.program_begins = program_begins;
+					b.company = &company;
+					b.story = &story;
 					b.ds_i = ds_i;
 					b.txt = Join(added_lines, "\n");
 					ASSERT(b.txt.GetCount());
@@ -292,17 +292,17 @@ void LineTypesPage::GetLineStructures(int batch_i) {
 	}
 	Batch& batch = batches[batch_i];
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	args.fn = 13;
 	args.phrases <<= Split(batch.txt, "\n");
 	
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	TaskMgr& m = tm.MakePipe();
-	m.GetSongDataAnalysis(args, THISBACK1(OnLineStructures, batch_i), true);
+	m.GetProgramDataAnalysis(args, THISBACK1(OnLineStructures, batch_i), true);
 }
 
 void LineTypesPage::OnLineStructures(String res, int batch_i) {
@@ -310,9 +310,9 @@ void LineTypesPage::OnLineStructures(String res, int batch_i) {
 		return;
 	
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	Batch& batch = batches[batch_i];
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	
@@ -322,8 +322,8 @@ void LineTypesPage::OnLineStructures(String res, int batch_i) {
 		prev_st_i = -1;
 	}
 	
-	Batch* prev_batch = batch_i > 0 && !batch.song_begins ? &batches[batch_i-1] : 0;
-	if (batch.song_begins)
+	Batch* prev_batch = batch_i > 0 && !batch.program_begins ? &batches[batch_i-1] : 0;
+	if (batch.program_begins)
 		prev_st_i = -1;
 	
 	res.Replace("\r", "");
@@ -397,12 +397,12 @@ void LineTypesPage::GetStructureColors(int batch_i) {
 	int begin = batch_i * per_color_batch;
 	int end = begin + per_color_batch;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	args.fn = 14;
 	
 	end = min(end, da.structure_types.GetCount());
@@ -412,18 +412,18 @@ void LineTypesPage::GetStructureColors(int batch_i) {
 		args.phrases << s;
 	}
 	
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	TaskMgr& m = tm.MakePipe();
-	m.GetSongDataAnalysis(args, THISBACK1(OnStructureColors, batch_i), true);
+	m.GetProgramDataAnalysis(args, THISBACK1(OnStructureColors, batch_i), true);
 }
 
 void LineTypesPage::OnStructureColors(String res, int batch_i) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	Batch& batch = batches[batch_i];
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	

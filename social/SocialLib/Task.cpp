@@ -1,10 +1,10 @@
-#include "SongLib.h"
+#include "SocialLib.h"
 
-namespace SongLib {
+namespace SocialLib {
 
 void Task::UpdateBatches(int per_batch) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
 	
 	batches.SetCount(0);
 	batches.Reserve(1000);
@@ -13,12 +13,12 @@ void Task::UpdateBatches(int per_batch) {
 	Vector<String> added_lines;
 	
 	for (int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
-		Vector<ArtistDataset>& artists = sd[ds_i];
-		for(int i = 0; i < artists.GetCount(); i++) {
-			ArtistDataset& artist = artists[i];
-			for(int j = 0; j < artist.lyrics.GetCount(); j++) {
-				LyricsDataset& lyrics = artist.lyrics[j];
-				Vector<String> lines = Split(lyrics.text, "\n");
+		Vector<CompanyDataset>& companies = sd[ds_i];
+		for(int i = 0; i < companies.GetCount(); i++) {
+			CompanyDataset& company = companies[i];
+			for(int j = 0; j < company.stories.GetCount(); j++) {
+				StoryDataset& story = company.stories[j];
+				Vector<String> lines = Split(story.text, "\n");
 				for(int k = 0; k < lines.GetCount(); k++) {
 					String& l = lines[k];
 					l = TrimBoth(l);
@@ -27,7 +27,7 @@ void Task::UpdateBatches(int per_batch) {
 				if (lines.IsEmpty()) continue;
 				added_lines.SetCount(0);
 				line_hashes.SetCount(0);
-				bool song_begins = true;
+				bool program_begins = true;
 				for(int k = 0; k < lines.GetCount(); k++) {
 					String l = TrimBoth(lines[k]);
 					hash_t h = l.GetHashValue();
@@ -37,21 +37,21 @@ void Task::UpdateBatches(int per_batch) {
 					added_lines << l;
 					if (added_lines.GetCount() >= per_batch) {
 						Batch& b = batches.Add();
-						b.song_begins = song_begins;
-						b.artist = &artist;
-						b.lyrics = &lyrics;
+						b.program_begins = program_begins;
+						b.company = &company;
+						b.story = &story;
 						b.ds_i = ds_i;
 						b.txt = Join(added_lines, "\n");
 						ASSERT(b.txt.GetCount());
 						added_lines.SetCount(0);
-						song_begins = false;
+						program_begins = false;
 					}
 				}
 				if (added_lines.GetCount()) {
 					Batch& b = batches.Add();
-					b.song_begins = song_begins;
-					b.artist = &artist;
-					b.lyrics = &lyrics;
+					b.program_begins = program_begins;
+					b.company = &company;
+					b.story = &story;
 					b.ds_i = ds_i;
 					b.txt = Join(added_lines, "\n");
 					ASSERT(b.txt.GetCount());

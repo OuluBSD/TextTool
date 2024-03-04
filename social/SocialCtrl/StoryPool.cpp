@@ -1,6 +1,6 @@
 #include "SocialCtrl.h"
 
-SongPool::SongPool() {
+StoryPool::StoryPool() {
 	Add(list.SizePos());
 	
 	list.AddColumn("Phrase 1");
@@ -11,24 +11,24 @@ SongPool::SongPool() {
 	
 }
 
-void SongPool::ToolMenu(Bar& bar) {
+void StoryPool::ToolMenu(Bar& bar) {
 	bar.Add(t_("Start process"), AppImg::RedRing(), THISBACK(StartProcess)).Key(K_F5);
 	bar.Add(t_("Stop process"), AppImg::RedRing(), THISBACK(StopProcess)).Key(K_F6);
 	
 }
 
-void SongPool::StartProcess() {
-	SongLib::LyricsGenerator& ls = SongLib::LyricsGenerator::Get(GetArtist(), GetLyrics());
+void StoryPool::StartProcess() {
+	SocialLib::StoryGenerator& ls = SocialLib::StoryGenerator::Get(GetCompany(), GetStory());
 	ls.WhenProgress = THISBACK(PostProgress);
 	ls.Start();
 }
 
-void SongPool::StopProcess() {
-	SongLib::LyricsGenerator& ls = SongLib::LyricsGenerator::Get(GetArtist(), GetLyrics());
+void StoryPool::StopProcess() {
+	SocialLib::StoryGenerator& ls = SocialLib::StoryGenerator::Get(GetCompany(), GetStory());
 	ls.Stop();
 }
 
-void SongPool::Data() {
+void StoryPool::Data() {
 	
 }
 

@@ -30,7 +30,7 @@ protected:
 protected:
 	friend class SocialEditor;
 	
-	String last_role, last_generic, last_story, last_part;
+	String last_role, last_generic, last_story, last_story_part;
 	String last_company, last_campaign, last_program;
 	
 public:
@@ -44,7 +44,7 @@ public:
 	void PostInit() {PostCallback(THISBACK(Init));}
 	void Data();
 	void SetView(int i);
-	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed % last_company % last_campaign % last_program % last_role % last_generic % last_story % last_part;}
+	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed % last_company % last_campaign % last_program % last_role % last_generic % last_story % last_story_part;}
 	void Layout() override {SaveWindowPos();}
 	void ShowOrphanedFiles();
 	//void MakeTasks();
@@ -53,12 +53,11 @@ public:
 	void StartUpdating();
 	void MovePageGroup(int d);
 	void MovePage(int d);
-	void MovePart(int d);
 	void SetBar();
 	void MainBar(Bar& bar);
-	void SetSaveSocialdata(bool b) {ed.SetSaveSocialdata(b);}
+	void SetSaveProgramData(bool b) {ed.SetSaveProgramData(b);}
 	void FastExit();
-	void ClearSongLibTasks();
+	void ClearSocialLibTasks();
 	
 	SocialEditor& GetEditor() {return ed;}
 	

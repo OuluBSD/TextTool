@@ -1,19 +1,19 @@
-#ifndef _SongDataCtrl_SongDataPhrases_h_
-#define _SongDataCtrl_SongDataPhrases_h_
+#ifndef _SocialDataCtrl_ProgramDataPhrases_h_
+#define _SocialDataCtrl_ProgramDataPhrases_h_
 
 
 #if 0
 
-class SongDataPhrases : public ToolAppCtrl {
+class ProgramDataPhrases : public ToolAppCtrl {
 	int phrase_limit = 200000000;
 	Splitter vsplit, hsplit;
-	ArrayCtrl datasets, attrs, songs;
+	ArrayCtrl datasets, attrs, programs;
 	ProgressIndicator prog;
 	bool disabled = false;
 	
 public:
-	typedef SongDataPhrases CLASSNAME;
-	SongDataPhrases();
+	typedef ProgramDataPhrases CLASSNAME;
+	ProgramDataPhrases();
 	
 	void EnableAll();
 	void DisableAll();

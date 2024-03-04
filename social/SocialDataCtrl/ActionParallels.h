@@ -1,5 +1,5 @@
-#ifndef _SongDataCtrl_ActionParallels_h_
-#define _SongDataCtrl_ActionParallels_h_
+#ifndef _SocialDataCtrl_ActionParallels_h_
+#define _SocialDataCtrl_ActionParallels_h_
 
 
 class ActionParallelsPage : public ToolAppCtrl {

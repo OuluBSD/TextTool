@@ -1,5 +1,5 @@
-#ifndef _SongDataCtrl_AmbiguousWordPairs_h_
-#define _SongDataCtrl_AmbiguousWordPairs_h_
+#ifndef _SocialDataCtrl_AmbiguousWordPairs_h_
+#define _SocialDataCtrl_AmbiguousWordPairs_h_
 
 
 class AmbiguousWordPairs : public ToolAppCtrl {

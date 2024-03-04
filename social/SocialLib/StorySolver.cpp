@@ -1,29 +1,29 @@
-#include "SongLib.h"
+#include "SocialLib.h"
 
 
-namespace SongLib {
+namespace SocialLib {
 
 
-LyricsSolver::LyricsSolver() {
+StorySolver::StorySolver() {
 	
 }
 
-LyricsSolver& LyricsSolver::Get(Artist& a, Lyrics& l) {
+StorySolver& StorySolver::Get(Company& a, Story& l) {
 	String t = a.file_title + " - " + l.file_title;
 	hash_t h = t.GetHashValue();
-	static ArrayMap<hash_t, LyricsSolver> map;
+	static ArrayMap<hash_t, StorySolver> map;
 	int i = map.Find(h);
 	if (i >= 0)
 		return map[i];
 	
-	LyricsSolver& ls = map.Add(h);
-	ls.artist = &a;
-	ls.lyrics = &l;
+	StorySolver& ls = map.Add(h);
+	ls.company = &a;
+	ls.story = &l;
 	return ls;
 }
 
-void LyricsSolver::RealizePipe() {
-	Database& db = Database::Single();
+void StorySolver::RealizePipe() {
+	SocialDatabase& db = SocialDatabase::Single();
 	if (!pipe) {
 		TaskManager::Single().RealizePipe();
 		pipe = TaskManager::Single().GetPipe();
@@ -31,7 +31,7 @@ void LyricsSolver::RealizePipe() {
 	}
 }
 
-void LyricsSolver::Process() {
+void StorySolver::Process() {
 	
 	while (running && !Thread::IsShutdownThreads()) {
 		if (waiting) {
@@ -43,7 +43,7 @@ void LyricsSolver::Process() {
 			time_started = GetSysTime();
 			//skip_ready = false;
 			NextPhase();
-			ClearLyrics();
+			ClearStory();
 		}
 		else if (phase == LS_FILTER) {
 			ProcessFilter();
@@ -83,9 +83,9 @@ void LyricsSolver::Process() {
 	stopped = true;
 }
 
-void LyricsSolver::ClearLyrics() {
-	for(int i = 0; i < lyrics->parts.GetCount(); i++) {
-		StaticPart& sp = lyrics->parts[i];
+void StorySolver::ClearStory() {
+	for(int i = 0; i < story->parts.GetCount(); i++) {
+		StoryPart& sp = story->parts[i];
 		auto& lines = sp.nana.Get();
 		for(int j = 0; j < lines.GetCount(); j++) {
 			auto& line = lines[j];
@@ -94,23 +94,23 @@ void LyricsSolver::ClearLyrics() {
 		}
 		sp.phrase_parts.Clear();
 	}
-	lyrics->picked_phrase_parts.Clear();
+	story->picked_phrase_parts.Clear();
 }
 
-void LyricsGenerator::ProcessColor() {
-	if (batch >= lyrics->parts.GetCount()) {
+void StoryGenerator::ProcessColor() {
+	if (batch >= story->parts.GetCount()) {
 		NextPhase();
 		return;
 	}
 	
-	Lyrics& song = *this->lyrics;
-	if (skip_ready && song.clr_list.GetCount()) {
+	Story& program = *this->story;
+	if (skip_ready && program.clr_list.GetCount()) {
 		NextPhase();
 		return;
 	}
 	
-	/*StaticPart& sp = lyrics->parts[batch];
-	if (sp.part_type == StaticPart::SKIP ||
+	/*StoryPart& sp = story->parts[batch];
+	if (sp.part_type == StoryPart::SKIP ||
 		sp.name.IsEmpty() ||
 		(skip_ready && sp.clr_list.GetCount())) {
 		NextBatch();
@@ -118,43 +118,43 @@ void LyricsGenerator::ProcessColor() {
 	}
 	*/
 	
-	LyricsSolverArgs args;
+	StorySolverArgs args;
 	args.fn = 0;
 	
 	
-	// Artist information
-	args.artist.Add("year of birth", IntStr(artist->year_of_birth));
-	args.artist.Add("year of beginning of career", IntStr(artist->year_of_career_begin));
-	args.artist.Add("biography", artist->biography);
-	args.artist.Add("musical style", artist->musical_style);
-	args.artist.Add("vocalist visually", artist->vocalist_visual);
+	// Company information
+	args.company.Add("year of birth", IntStr(company->year_of_birth));
+	args.company.Add("year of beginning of career", IntStr(company->year_of_career_begin));
+	args.company.Add("biography", company->biography);
+	args.company.Add("musical style", company->musical_style);
+	args.company.Add("vocalist visually", company->vocalist_visual);
 	
-	// Release information
-	/*args.release.Add("title of release", release->english_title);
-	args.release.Add("year of content", IntStr(release->year_of_content));*/
+	// Campaign information
+	/*args.campaign.Add("title of campaign", campaign->english_title);
+	args.campaign.Add("year of content", IntStr(campaign->year_of_content));*/
 	
 	// Song information
-	if (song.english_title.GetCount())
-		args.song.Add("title of song", song.english_title);
-	args.song.Add("artist's content vision", song.content_vision);
-	args.song.Add("typecast", GetTypecasts()[song.typecast]);
-	args.song.Add("archetype", GetContrasts()[song.archetype].key);
+	if (program.english_title.GetCount())
+		args.program.Add("title of program", program.english_title);
+	args.program.Add("company's content vision", program.content_vision);
+	args.program.Add("role", GetRoles()[program.role]);
+	args.program.Add("generic", GetContrasts()[program.generic].key);
 	
 	// Parts
-	for(int i = 0; i < song.parts.GetCount(); i++)
-		args.parts << song.parts[i].name;
+	for(int i = 0; i < program.parts.GetCount(); i++)
+		args.parts << program.parts[i].name;
 	//args.part = sp.name; // active part
 	
 	SetWaiting(1);
 	RealizePipe();
 	TaskMgr& m = *pipe;
-	m.GetLyricsSolver(args, THISBACK(OnProcessColor));
+	m.GetStorySolver(args, THISBACK(OnProcessColor));
 	
 }
 
-void LyricsGenerator::OnProcessColor(String result) {
+void StoryGenerator::OnProcessColor(String result) {
 	//LOG(result);
-	Lyrics& song = *this->lyrics;
+	Story& program = *this->story;
 	
 	result = "- RGB(" + result;
 	
@@ -180,48 +180,48 @@ void LyricsGenerator::OnProcessColor(String result) {
 		no_clr_list.FindAdd(clr_group);
 	}
 	
-	song.clr_list.Clear();
+	program.clr_list.Clear();
 	int c = GetColorGroupCount();
 	for(int i = 0; i < c; i++)
 		if (no_clr_list.Find(i) < 0)
-			song.clr_list.Add(i);
+			program.clr_list.Add(i);
 	
 	NextPhase();
 	SetWaiting(0);
 }
 
-void LyricsGenerator::ProcessAttr() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StoryGenerator::ProcessAttr() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	
-	LyricsSolverArgs args;
+	StorySolverArgs args;
 	args.fn = 1;
 	
 	
-	// Artist information
-	args.artist.Add("year of birth", IntStr(artist->year_of_birth));
-	args.artist.Add("year of beginning of career", IntStr(artist->year_of_career_begin));
-	args.artist.Add("biography", artist->biography);
-	args.artist.Add("musical style", artist->musical_style);
-	args.artist.Add("vocalist visually", artist->vocalist_visual);
+	// Company information
+	args.company.Add("year of birth", IntStr(company->year_of_birth));
+	args.company.Add("year of beginning of career", IntStr(company->year_of_career_begin));
+	args.company.Add("biography", company->biography);
+	args.company.Add("musical style", company->musical_style);
+	args.company.Add("vocalist visually", company->vocalist_visual);
 	
-	// Release information
-	/*args.release.Add("title of release", release->english_title);
-	args.release.Add("year of content", IntStr(release->year_of_content));*/
+	// Campaign information
+	/*args.campaign.Add("title of campaign", campaign->english_title);
+	args.campaign.Add("year of content", IntStr(campaign->year_of_content));*/
 	
 	// Song information
-	if (lyrics->english_title.GetCount())
-		args.song.Add("title of song", lyrics->english_title);
-	args.song.Add("artist's content vision", lyrics->content_vision);
-	args.song.Add("typecast", GetTypecasts()[lyrics->typecast]);
-	args.song.Add("archetype", GetContrasts()[lyrics->archetype].key);
+	if (story->english_title.GetCount())
+		args.program.Add("title of program", story->english_title);
+	args.program.Add("company's content vision", story->content_vision);
+	args.program.Add("role", GetRoles()[story->role]);
+	args.program.Add("generic", GetContrasts()[story->generic].key);
 	
 	// Parts
-	for(int i = 0; i < lyrics->parts.GetCount(); i++)
-		args.parts << lyrics->parts[i].name;
+	for(int i = 0; i < story->parts.GetCount(); i++)
+		args.parts << story->parts[i].name;
 	
 	
 	per_batch = 50;
@@ -229,11 +229,11 @@ void LyricsGenerator::ProcessAttr() {
 	int end = begin + per_batch;
 	end = min(end, da.simple_attrs.GetCount());
 	
-	if (skip_ready && end < lyrics->simple_attrs.GetCount()) {
+	if (skip_ready && end < story->simple_attrs.GetCount()) {
 		NextBatch();
 		return;
 	}
-	if (skip_ready && end == lyrics->simple_attrs.GetCount()) {
+	if (skip_ready && end == story->simple_attrs.GetCount()) {
 		NextPhase();
 		return;
 	}
@@ -256,22 +256,22 @@ void LyricsGenerator::ProcessAttr() {
 	SetWaiting(1);
 	RealizePipe();
 	TaskMgr& m = *pipe;
-	m.GetLyricsSolver(args, THISBACK(OnProcessAttr));
+	m.GetStorySolver(args, THISBACK(OnProcessAttr));
 	
 }
 
-void LyricsGenerator::OnProcessAttr(String result) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StoryGenerator::OnProcessAttr(String result) {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	int begin = batch * per_batch;
 	int end = begin + per_batch;
 	end = min(end, da.simple_attrs.GetCount());
 	
-	if (end > lyrics->simple_attrs.GetCount())
-		lyrics->simple_attrs.SetCount(end, 0);
+	if (end > story->simple_attrs.GetCount())
+		story->simple_attrs.SetCount(end, 0);
 	
 	RemoveEmptyLines3(result);
 	Vector<String> lines = Split(result, "\n");
@@ -295,27 +295,27 @@ void LyricsGenerator::OnProcessAttr(String result) {
 			positive = false;
 		bool negative = !positive;
 		
-		lyrics->simple_attrs[pos] = negative;
+		story->simple_attrs[pos] = negative;
 	}
 	
 	NextBatch();
 	SetWaiting(0);
 }
 
-void LyricsGenerator::ProcessAction() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StoryGenerator::ProcessAction() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
-	if (batch >= lyrics->parts.GetCount()) {
+	if (batch >= story->parts.GetCount()) {
 		NextPhase();
 		return;
 	}
 	
-	StaticPart& sp = lyrics->parts[batch];
+	StoryPart& sp = story->parts[batch];
 	if ((skip_ready && sp.actions_enabled.GetCount() == da.actions.GetCount()) ||
-		sp.part_type == StaticPart::SKIP) {
+		sp.part_type == StoryPart::SKIP) {
 		NextBatch();
 		return;
 	}
@@ -336,16 +336,16 @@ void LyricsGenerator::ProcessAction() {
 			
 			if (eat->simple_attr >= 0) {
 				const ExportSimpleAttr& esa = da.simple_attrs[eat->simple_attr];
-				bool song_positive = lyrics->simple_attrs[eat->simple_attr];
+				bool program_positive = story->simple_attrs[eat->simple_attr];
 				bool attr_positive = eat->positive;
-				enabled = song_positive == attr_positive;
+				enabled = program_positive == attr_positive;
 				continue;
 			}
 		}
 		// Filter by color
 		if (ea.clr != no_clr) {
 			int clr_group = GetColorGroup(ea.clr);
-			enabled = VectorFind(lyrics->clr_list, clr_group) >= 0;
+			enabled = VectorFind(story->clr_list, clr_group) >= 0;
 			continue;
 		}
 		
@@ -355,14 +355,14 @@ void LyricsGenerator::ProcessAction() {
 	NextBatch();
 }
 
-void LyricsSolver::ProcessFilter() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StorySolver::ProcessFilter() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Lyrics& song = *this->lyrics;
+	Story& program = *this->story;
 	
-	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	ProgramAnalysis& sa = da.GetProgramAnalysis(company->native_name + " - " + program.native_title);
 	
 	this->phrase_parts.Clear();
 	this->phrase_parts.SetCount(ContrastType::PART_COUNT);
@@ -382,21 +382,21 @@ void LyricsSolver::ProcessFilter() {
 	NextPhase();
 }
 
-void LyricsSolver::ProcessPrimary() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StorySolver::ProcessPrimary() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Lyrics& song = *this->lyrics;
+	Story& program = *this->story;
 	
-	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	ProgramAnalysis& sa = da.GetProgramAnalysis(company->native_name + " - " + program.native_title);
 	
-	if ((skip_ready && sa.lyrics_suggs.GetCount() >= sugg_limit)) {
+	if ((skip_ready && sa.story_suggs.GetCount() >= sugg_limit)) {
 		NextPhase();
 		return;
 	}
 	
-	LyricsSolverArgs args;
+	StorySolverArgs args;
 	args.fn = 6;
 	
 	int per_part = 15;
@@ -436,44 +436,44 @@ void LyricsSolver::ProcessPrimary() {
 	
 	// Parts
 	part_sizes.Clear();
-	for(int i = 0; i < song.parts.GetCount(); i++) {
-		const StaticPart& sp = song.parts[i];
+	for(int i = 0; i < program.parts.GetCount(); i++) {
+		const StoryPart& sp = program.parts[i];
 		args.parts << sp.name;
 		
 		int len = 2;
 		
 		if (sp.name.Find("Verse") == 0)
-			len = song.verse_length;
+			len = program.verse_length;
 		
 		if (sp.name.Find("Prechorus") == 0)
-			len = song.prechorus_length;
+			len = program.prechorus_length;
 		
 		if (sp.name.Find("Chorus") == 0)
-			len = song.chorus_length;
+			len = program.chorus_length;
 		
 		if (sp.name.Find("Bridge") == 0)
-			len = song.bridge_length;
+			len = program.bridge_length;
 		
 		args.counts << len;
 		part_sizes.Add(sp.name, len);
 	}
 	
-	args.part = song.content_vision;
+	args.part = program.content_vision;
 	
 	SetWaiting(1);
 	RealizePipe();
 	TaskMgr& m = *pipe;
-	m.GetLyricsSolver(args, THISBACK(OnProcessPrimary));
+	m.GetStorySolver(args, THISBACK(OnProcessPrimary));
 }
 
-void LyricsSolver::OnProcessPrimary(String res) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StorySolver::OnProcessPrimary(String res) {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Lyrics& song = *this->lyrics;
+	Story& program = *this->story;
 	
-	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	ProgramAnalysis& sa = da.GetProgramAnalysis(company->native_name + " - " + program.native_title);
 	
 	res = "- " + res;
 	
@@ -546,7 +546,7 @@ void LyricsSolver::OnProcessPrimary(String res) {
 	//DUMPM(sugg);
 	
 	hash_t h = ch;
-	LyricsSuggestions& ls = sa.lyrics_suggs.GetAdd(h);
+	StorySuggestions& ls = sa.story_suggs.GetAdd(h);
 	if (ls.lines.IsEmpty())
 		Swap(ls.lines, sugg);
 	
@@ -554,24 +554,24 @@ void LyricsSolver::OnProcessPrimary(String res) {
 	NextBatch();
 }
 
-void LyricsSolver::ProcessComparison() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StorySolver::ProcessComparison() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Lyrics& song = *this->lyrics;
+	Story& program = *this->story;
 	
 	
-	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	ProgramAnalysis& sa = da.GetProgramAnalysis(company->native_name + " - " + program.native_title);
 	
-	LyricsSolverArgs args;
+	StorySolverArgs args;
 	args.fn = 7;
 	
 	if (batch == 0 && sub_batch == 0) {
 		// Do matches until 1 remaining
 		matches.Clear();
 		remaining.Clear();
-		for(int i = 0; i < sa.lyrics_suggs.GetCount(); i++) {
+		for(int i = 0; i < sa.story_suggs.GetCount(); i++) {
 			remaining.Add(i);
 		}
 	}
@@ -583,7 +583,7 @@ void LyricsSolver::ProcessComparison() {
 	
 	for(int i = 0; i < 2; i++) {
 		int sugg_i = remaining[i];
-		const LyricsSuggestions& ls = sa.lyrics_suggs[sugg_i];
+		const StorySuggestions& ls = sa.story_suggs[sugg_i];
 		String content;
 		for(int j = 0; j < ls.lines.GetCount(); j++) {
 			String part = ls.lines.GetKey(j);
@@ -599,23 +599,23 @@ void LyricsSolver::ProcessComparison() {
 		args.phrases << content;
 	}
 	
-	args.part = song.content_vision;
+	args.part = program.content_vision;
 	
 	SetWaiting(1);
 	RealizePipe();
 	TaskMgr& m = *pipe;
-	m.GetLyricsSolver(args, THISBACK(OnProcessComparison));
+	m.GetStorySolver(args, THISBACK(OnProcessComparison));
 }
 
-void LyricsSolver::OnProcessComparison(String res) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StorySolver::OnProcessComparison(String res) {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Lyrics& song = *this->lyrics;
+	Story& program = *this->story;
 	
 	
-	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	ProgramAnalysis& sa = da.GetProgramAnalysis(company->native_name + " - " + program.native_title);
 	
 	int loser = 0;
 	
@@ -650,53 +650,53 @@ void LyricsSolver::OnProcessComparison(String res) {
 	
 	
 	int loser_sugg_i = remaining[loser];
-	LyricsSuggestions& ls = sa.lyrics_suggs[loser_sugg_i];
+	StorySuggestions& ls = sa.story_suggs[loser_sugg_i];
 	ls.rank = remaining.GetCount()-1;
-	song.suggestions.GetAdd(ls.rank) = ls.GetText();
+	program.suggestions.GetAdd(ls.rank) = ls.GetText();
 	remaining.Remove(loser);
 	
 	if (remaining.GetCount() == 1) {
 		int sugg_i = remaining[0];
-		LyricsSuggestions& ls = sa.lyrics_suggs[sugg_i];
+		StorySuggestions& ls = sa.story_suggs[sugg_i];
 		ls.rank = 0;
-		String& content = song.suggestions.GetAdd(ls.rank);
+		String& content = program.suggestions.GetAdd(ls.rank);
 		content = ls.GetText();
 		
-		LOG("Winner lyrics:");
+		LOG("Winner story:");
 		LOG(content);
 		
-		song.text = content;
+		program.text = content;
 	}
-	SortByKey(song.suggestions, StdLess<int>());
+	SortByKey(program.suggestions, StdLess<int>());
 	
 	SetWaiting(0);
 	NextBatch();
 }
 
 #if 0
-void LyricsSolver::ProcessFineTuning() {
+void StorySolver::ProcessFineTuning() {
 	
 	
 	
 }
 
-void LyricsSolver::OnProcessFineTuning(String res) {
+void StorySolver::OnProcessFineTuning(String res) {
 	
 	
 	
 }
 
-void LyricsSolver::ProcessSecondaryWordClass() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StorySolver::ProcessSecondaryWordClass() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
-	LyricsSolverArgs args;
+	StorySolverArgs args;
 	args.fn = 2;
 	
-	for(int i = 0; i < lyrics->parts.GetCount(); i++) {
-		const StaticPart& sp = lyrics->parts[i];
+	for(int i = 0; i < story->parts.GetCount(); i++) {
+		const StoryPart& sp = story->parts[i];
 		const auto& lines = sp.nana.Get();
 		for(int j = 0; j < lines.GetCount(); j++) {
 			const auto& line = lines[j];
@@ -717,13 +717,13 @@ void LyricsSolver::ProcessSecondaryWordClass() {
 	SetWaiting(1);
 	RealizePipe();
 	TaskMgr& m = *pipe;
-	m.GetLyricsSolver(args, THISBACK(OnProcessSecondaryWordClass));
+	m.GetStorySolver(args, THISBACK(OnProcessSecondaryWordClass));
 }
 
-void LyricsSolver::OnProcessSecondaryWordClass(String res) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StorySolver::OnProcessSecondaryWordClass(String res) {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	res = "2. " + res;
@@ -762,8 +762,8 @@ void LyricsSolver::OnProcessSecondaryWordClass(String res) {
 	}
 	
 	int idx = 0;
-	for(int i = 0; i < lyrics->parts.GetCount(); i++) {
-		StaticPart& sp = lyrics->parts[i];
+	for(int i = 0; i < story->parts.GetCount(); i++) {
+		StoryPart& sp = story->parts[i];
 		auto& lines = sp.nana.Get();
 		for(int j = 0; j < lines.GetCount(); j++) {
 			auto& line = lines[j];
@@ -786,16 +786,16 @@ void LyricsSolver::OnProcessSecondaryWordClass(String res) {
 	NextPhase();
 }
 
-void LyricsSolver::ProcessSecondaryFilter() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StorySolver::ProcessSecondaryFilter() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	
 	Vector<Tuple2<int,int>> part_lines;
-	for(int i = 0; i < lyrics->parts.GetCount(); i++) {
-		const StaticPart& sp = lyrics->parts[i];
+	for(int i = 0; i < story->parts.GetCount(); i++) {
+		const StoryPart& sp = story->parts[i];
 		const auto& l = sp.nana.Get();
 		for(int j = 0; j < l.GetCount(); j++)
 			part_lines.Add(Tuple2<int,int>(i, j));
@@ -808,11 +808,11 @@ void LyricsSolver::ProcessSecondaryFilter() {
 	
 	int part_i = part_lines[batch].a;
 	int line_i = part_lines[batch].b;
-	StaticPart& sp = lyrics->parts[part_i];
+	StoryPart& sp = story->parts[part_i];
 	auto& line = sp.nana.Get()[line_i];
 	
 	if (/*(skip_ready && line.sub_pp_i.GetCount()) ||*/
-		sp.part_type == StaticPart::SKIP) {
+		sp.part_type == StoryPart::SKIP) {
 		NextBatch();
 		return;
 	}
@@ -908,15 +908,15 @@ void LyricsSolver::ProcessSecondaryFilter() {
 	NextBatch();
 }
 
-void LyricsSolver::ProcessSecondary() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StorySolver::ProcessSecondary() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	Vector<Tuple2<int,int>> part_lines;
-	for(int i = 0; i < lyrics->parts.GetCount(); i++) {
-		const StaticPart& sp = lyrics->parts[i];
+	for(int i = 0; i < story->parts.GetCount(); i++) {
+		const StoryPart& sp = story->parts[i];
 		const auto& l = sp.nana.Get();
 		for(int j = 0; j < l.GetCount(); j++)
 			part_lines.Add(Tuple2<int,int>(i, j));
@@ -934,11 +934,11 @@ void LyricsSolver::ProcessSecondary() {
 	int line = part_line.b;
 	
 	SetWaiting(1);
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	tm.DoNana(ds_i, 1, *song, THISBACK(OnProcessSecondary), line, part);
+	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
+	tm.DoNana(ds_i, 1, *program, THISBACK(OnProcessSecondary), line, part);
 }
 
-void LyricsSolver::OnProcessSecondary() {
+void StorySolver::OnProcessSecondary() {
 	SetWaiting(0);
 	NextBatch();
 }

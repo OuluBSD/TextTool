@@ -1,10 +1,10 @@
-#ifndef _SongDataCtrl_SongDataTmplActions_h_
-#define _SongDataCtrl_SongDataTmplActions_h_
+#ifndef _SocialDataCtrl_ProgramDataTmplActions_h_
+#define _SocialDataCtrl_ProgramDataTmplActions_h_
 
 #if 0
 
 
-class SongDataTmplActions : public ToolAppCtrl {
+class ProgramDataTmplActions : public ToolAppCtrl {
 	static const int per_batch = 15;
 	
 	struct Batch : Moveable<Batch> {
@@ -34,8 +34,8 @@ protected:
 	bool running1 = false;
 	bool batch = false;
 public:
-	typedef SongDataTmplActions CLASSNAME;
-	SongDataTmplActions();
+	typedef ProgramDataTmplActions CLASSNAME;
+	ProgramDataTmplActions();
 	
 	void EnableAll();
 	void DisableAll();

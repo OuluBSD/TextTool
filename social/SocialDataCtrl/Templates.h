@@ -1,10 +1,10 @@
-#ifndef _SongDataCtrl_SongDataTemplates_h_
-#define _SongDataCtrl_SongDataTemplates_h_
+#ifndef _SocialDataCtrl_ProgramDataTemplates_h_
+#define _SocialDataCtrl_ProgramDataTemplates_h_
 
 #if 0
 
 
-class SongDataTemplates : public ToolAppCtrl {
+class ProgramDataTemplates : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, attrs, colors, tmpls;
 	Mutex lock;
@@ -15,11 +15,11 @@ class SongDataTemplates : public ToolAppCtrl {
 	bool batch = false;
 	
 	VectorMap<int,int> line_to_src, ds_is;
-	VectorMap<int,LyricsAnalysis::Phrase*> phrases;
+	VectorMap<int,StoryAnalysis::Phrase*> phrases;
 	
 public:
-	typedef SongDataTemplates CLASSNAME;
-	SongDataTemplates();
+	typedef ProgramDataTemplates CLASSNAME;
+	ProgramDataTemplates();
 	
 	void EnableAll();
 	void DisableAll();

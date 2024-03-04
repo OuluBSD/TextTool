@@ -1,21 +1,21 @@
-#ifndef _SocialCtrl_LyricsSolverCtrl_h_
-#define _SocialCtrl_LyricsSolverCtrl_h_
+#ifndef _SocialCtrl_StorySolverCtrl_h_
+#define _SocialCtrl_StorySolverCtrl_h_
 
 
-class LyricsSolverCtrl : public ToolAppCtrl {
+class StorySolverCtrl : public ToolAppCtrl {
 	TabCtrl tabs;
 	
 	// Tab 1: process summary
 	Splitter summary_split, result_split;
 	ProgressIndicator summary_bar;
 	ArrayCtrl summary_tasks, result_list;
-	DocEdit suggestion, lyrics;
+	DocEdit suggestion, story;
 	
 	// Tab 2: metaphorical color process
 	ArrayCtrl part_colors;
 	
 	// Tab 3: attribute process
-	ArrayCtrl song_attrs;
+	ArrayCtrl program_attrs;
 	
 	// Tab 4: action process
 	Splitter action_split;
@@ -33,15 +33,15 @@ class LyricsSolverCtrl : public ToolAppCtrl {
 	
 	
 public:
-	typedef LyricsSolverCtrl CLASSNAME;
-	LyricsSolverCtrl();
+	typedef StorySolverCtrl CLASSNAME;
+	StorySolverCtrl();
 	
 	void ToolMenu(Bar& bar) override;
 	void Data() override;
 	void StartProcess();
 	void StopProcess();
 	void DataSuggestion();
-	void UserLyricsChange();
+	void UserStoryChange();
 	void GetNewTitle();
 	void OnNewTitle(String res);
 	

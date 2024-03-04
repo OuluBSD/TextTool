@@ -1,5 +1,5 @@
-#ifndef _SongDataCtrl_Attributes_h_
-#define _SongDataCtrl_Attributes_h_
+#ifndef _SocialDataCtrl_Attributes_h_
+#define _SocialDataCtrl_Attributes_h_
 
 
 class Attributes : public ToolAppCtrl {

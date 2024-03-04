@@ -1,5 +1,5 @@
-#ifndef _SongDataCtrl_VirtualPhraseStructs_h_
-#define _SongDataCtrl_VirtualPhraseStructs_h_
+#ifndef _SocialDataCtrl_VirtualPhraseStructs_h_
+#define _SocialDataCtrl_VirtualPhraseStructs_h_
 
 
 class VirtualPhraseStructs : public ToolAppCtrl {

@@ -30,7 +30,7 @@ void Company::StoreStory() {
 }
 
 void Company::LoadStory() {
-	Database& db = SocialDatabase::Single();
+	SocialDatabase& db = SocialDatabase::Single();
 	RealizeRoles();
 	FindFile ff(AppendFileName(GetStoryDir(), "*.json"));
 	do {
@@ -42,8 +42,8 @@ void Company::LoadStory() {
 		const auto& roles = GetRoles();
 		const auto& generics = GetContrasts();
 		if (lyr.role >= 0 && lyr.role < roles.GetCount() &&
-			lyr.archetype >= 0 && lyr.archetype < generics.GetCount()) {
-			this->roles[lyr.role].generics[lyr.archetype].stories.Add()
+			lyr.generic >= 0 && lyr.generic < generics.GetCount()) {
+			this->roles[lyr.role].generics[lyr.generic].stories.Add()
 				.LoadTitle(*this, title); // TODO avoid duplicate loading
 		}
 	}
@@ -65,11 +65,11 @@ void Company::RealizeRoles() {
 
 String Company::GetStoryDir() const {
 	ASSERT(!file_title.IsEmpty());
-	Database& db = SocialDatabase::Single();
+	SocialDatabase& db = SocialDatabase::Single();
 	return db.dir + DIR_SEPS "share" DIR_SEPS "stories" DIR_SEPS + file_title + DIR_SEPS;
 }
 
-bool Company::FindProgram(int& tc_i, int& arch_i, int& lyr_i, const String& stories_file_title) const {
+bool Company::FindProgram(int& tc_i, int& arch_i, int& lyr_i, const String& story_file_title) const {
 	tc_i = -1;
 	arch_i = -1;
 	lyr_i = -1;
@@ -79,7 +79,7 @@ bool Company::FindProgram(int& tc_i, int& arch_i, int& lyr_i, const String& stor
 			const Generic& arch = tc.generics[j];
 			for(int k = 0; k < arch.stories.GetCount(); k++) {
 				const Story& lyr = arch.stories[k];
-				if (lyr.file_title == stories_file_title) {
+				if (lyr.file_title == story_file_title) {
 					tc_i = i;
 					arch_i = j;
 					lyr_i = k;

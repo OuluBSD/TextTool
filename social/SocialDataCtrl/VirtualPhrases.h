@@ -1,5 +1,5 @@
-#ifndef _SongDataCtrl_VirtualPhrases_h_
-#define _SongDataCtrl_VirtualPhrases_h_
+#ifndef _SocialDataCtrl_VirtualPhrases_h_
+#define _SocialDataCtrl_VirtualPhrases_h_
 
 
 String GetTypePhraseString(const Vector<int>& word_classes, const DatasetAnalysis& da);

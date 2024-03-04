@@ -5,7 +5,7 @@
 struct Company;
 
 
-struct StaticPart {
+struct StoryPart {
 	// Part types
 	typedef enum : int {
 		SINGING,
@@ -93,12 +93,12 @@ struct StaticPart {
 	Vector<int> valid_rhyme_schemes;
 };
 
-struct StructSuggestion {
+struct StoryStructSuggestion {
 	String name;
 	Vector<String> parts;
 	Vector<String> attrs;
 	
-	void operator=(const StructSuggestion& s) {
+	void operator=(const StoryStructSuggestion& s) {
 		name = s.name;
 		parts <<= s.parts;
 		attrs <<= s.attrs;
@@ -124,8 +124,8 @@ struct Story : DataFile {
 	String						copyright;
 	String						content_vision;
 	int							role = 0;
-	int							archetype = 0;
-	bool						is_rapper = false;
+	int							generic = 0;
+	bool						is_unsafe = false;
 	
 	String user_structure;
 	String required_parts;
@@ -141,22 +141,22 @@ struct Story : DataFile {
 	
 	String						structure_str;
 	String						text;
-	StructSuggestion			active_struct;
-	Array<StaticPart>			parts;
-	Array<StructSuggestion>		struct_suggs;
+	StoryStructSuggestion			active_struct;
+	Array<StoryPart>			parts;
+	Array<StoryStructSuggestion>		struct_suggs;
 	Vector<bool>				simple_attrs;
 	Index<int>					picked_phrase_parts;
 	Vector<int>					clr_list;
 	VectorMap<int, String>		suggestions;
 	
 	
-	Vector<int> GetPartPositions(const StaticPart& part) const;
-	Vector<int> GetPreviousParts(const StaticPart& part) const;
-	Vector<int> GetPreviousPartsNonSkipped(const StaticPart& part) const;
-	int FindPart(const StaticPart& part) const;
-	Vector<StaticPart*> GetNonSkippedStructureParts();
-	StaticPart* FindPartByType(const String& type);
-	StaticPart* FindPartByName(const String& name);
+	Vector<int> GetPartPositions(const StoryPart& part) const;
+	Vector<int> GetPreviousParts(const StoryPart& part) const;
+	Vector<int> GetPreviousPartsNonSkipped(const StoryPart& part) const;
+	int FindPart(const StoryPart& part) const;
+	Vector<StoryPart*> GetNonSkippedStructureParts();
+	StoryPart* FindPartByType(const String& type);
+	StoryPart* FindPartByName(const String& name);
 	int GetFirstPartPosition() const;
 	String GetAnyTitle() const;
 	
@@ -170,8 +170,8 @@ struct Story : DataFile {
 			("copyright", copyright)
 			("content_vision", content_vision)
 			("role", role)
-			("archetype", archetype)
-			("is_rapper", is_rapper)
+			("generic", generic)
+			("is_unsafe", is_unsafe)
 			
 			("user_structure", user_structure)
 			("required_parts", required_parts)

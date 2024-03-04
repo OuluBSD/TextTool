@@ -1,10 +1,10 @@
-#ifndef _SongDataCtrl_SongDataTemplateScoring_h_
-#define _SongDataCtrl_SongDataTemplateScoring_h_
+#ifndef _SocialDataCtrl_ProgramDataTemplateScoring_h_
+#define _SocialDataCtrl_ProgramDataTemplateScoring_h_
 
 #if 0
 
 
-class SongDataTemplateScoring : public ToolAppCtrl {
+class ProgramDataTemplateScoring : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, attrs, colors, scores;
 	Mutex lock;
@@ -18,8 +18,8 @@ class SongDataTemplateScoring : public ToolAppCtrl {
 	Vector<TemplatePhrase*> phrases;
 	
 public:
-	typedef SongDataTemplateScoring CLASSNAME;
-	SongDataTemplateScoring();
+	typedef ProgramDataTemplateScoring CLASSNAME;
+	ProgramDataTemplateScoring();
 	
 	void EnableAll();
 	void DisableAll();

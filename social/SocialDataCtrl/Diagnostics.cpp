@@ -1,7 +1,7 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 
-SongDataDiagnostics::SongDataDiagnostics() {
+ProgramDataDiagnostics::ProgramDataDiagnostics() {
 	Add(hsplit.HSizePos().VSizePos(0,30));
 	
 	hsplit.Horz() << datasets << values;
@@ -14,10 +14,10 @@ SongDataDiagnostics::SongDataDiagnostics() {
 	values.AddColumn(t_("Value"));
 }
 
-void SongDataDiagnostics::Data() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataDiagnostics::Data() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
 		datasets.Set(i, 0, sda.datasets.GetKey(i));
@@ -29,12 +29,12 @@ void SongDataDiagnostics::Data() {
 	DataDataset();
 }
 
-void SongDataDiagnostics::DataDataset() {
-	Database& db = Database::Single();
+void ProgramDataDiagnostics::DataDataset() {
+	SocialDatabase& db = SocialDatabase::Single();
 	
 	if (!datasets.IsCursor()) return;
 	int cur = datasets.GetCursor();
-	const DatasetAnalysis& da = db.song_data.a.datasets[cur];
+	const DatasetAnalysis& da = db.program_data.a.datasets[cur];
 	
 	for(int i = 0; i < da.diagnostics.GetCount(); i++) {
 		const String& key = da.diagnostics.GetKey(i);
@@ -55,6 +55,6 @@ void SongDataDiagnostics::DataDataset() {
 	
 }
 
-void SongDataDiagnostics::ToolMenu(Bar& bar) {
+void ProgramDataDiagnostics::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataDataset)).Key(K_CTRL_Q);
 }

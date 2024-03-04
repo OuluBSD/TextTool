@@ -1,5 +1,5 @@
-#ifndef _SongDataCtrl_ActionTransitions_h_
-#define _SongDataCtrl_ActionTransitions_h_
+#ifndef _SocialDataCtrl_ActionTransitions_h_
+#define _SocialDataCtrl_ActionTransitions_h_
 
 
 class ActionTransitionsPage : public ToolAppCtrl {

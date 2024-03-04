@@ -2,7 +2,7 @@
 
 
 
-AlbumIdeas::AlbumIdeas() {
+CampaignIdeas::CampaignIdeas() {
 	CtrlLayout(idea);
 	
 	Add(hsplit.SizePos());
@@ -21,27 +21,27 @@ AlbumIdeas::AlbumIdeas() {
 	idea.desc.WhenAction << THISBACK(OnValueChange);
 }
 
-void AlbumIdeas::Clear() {
+void CampaignIdeas::Clear() {
 	idea.title.Clear();
 	idea.target.Clear();
 	idea.ref.Clear();
 	idea.desc.Clear();
 }
 
-void AlbumIdeas::Data() {
-	Database& db = Database::Single();
+void CampaignIdeas::Data() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.release) {
+	if (!p.campaign) {
 		Clear();
 		return;
 	}
-	Release& release = *p.release;
+	Campaign& campaign = *p.campaign;
 	
-	for(int i = 0; i < release.ideas.GetCount(); i++) {
-		const SongIdea& idea = release.ideas[i];
+	for(int i = 0; i < campaign.ideas.GetCount(); i++) {
+		const ProgramIdea& idea = campaign.ideas[i];
 		list.Set(i, 0, idea.title);
 	}
-	list.SetCount(release.ideas.GetCount());
+	list.SetCount(campaign.ideas.GetCount());
 	
 	int idea_idx = 0;
 	if (idea_idx >= 0 && idea_idx < list.GetCount())
@@ -50,51 +50,51 @@ void AlbumIdeas::Data() {
 	IdeaData();
 }
 
-void AlbumIdeas::IdeaData() {
-	Database& db = Database::Single();
+void CampaignIdeas::IdeaData() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.release || !list.IsCursor()) {
+	if (!p.campaign || !list.IsCursor()) {
 		Clear();
 		return;
 	}
-	Release& release = *p.release;
+	Campaign& campaign = *p.campaign;
 	int idea_idx = list.GetCursor();
-	const SongIdea& obj = release.ideas[idea_idx];
+	const ProgramIdea& obj = campaign.ideas[idea_idx];
 	
 	this->idea.title.SetData(obj.title);
-	this->idea.target.SetData(obj.target_song);
-	this->idea.ref.SetData(obj.reference_song);
+	this->idea.target.SetData(obj.target_program);
+	this->idea.ref.SetData(obj.reference_program);
 	this->idea.desc.SetData(obj.description);
 }
 
-void AlbumIdeas::OnValueChange() {
-	Database& db = Database::Single();
+void CampaignIdeas::OnValueChange() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.release) return;
-	Release& release = *p.release;
+	if (!p.campaign) return;
+	Campaign& campaign = *p.campaign;
 	
 	if (!list.IsCursor()) return;
 	int idea_idx = list.GetCursor();
-	SongIdea& obj = release.ideas[idea_idx];
+	ProgramIdea& obj = campaign.ideas[idea_idx];
 	
 	obj.title = idea.title.GetData();
-	obj.target_song = idea.target.GetData();
-	obj.reference_song = idea.ref.GetData();
+	obj.target_program = idea.target.GetData();
+	obj.reference_program = idea.ref.GetData();
 	obj.description = idea.desc.GetData();
 	
 	list.Set(0, obj.title);
 }
 
-void AlbumIdeas::OnListMenu(Bar& bar) {
+void CampaignIdeas::OnListMenu(Bar& bar) {
 	bar.Add(t_("Add Idea"), THISBACK(AddIdea));
 	bar.Add(t_("Remove Idea"), THISBACK(RemoveIdea));
 }
 
-void AlbumIdeas::AddIdea() {
-	Database& db = Database::Single();
+void CampaignIdeas::AddIdea() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.release) return;
-	Release& release = *p.release;
+	if (!p.campaign) return;
+	Campaign& campaign = *p.campaign;
 	
 	
 	String title;
@@ -107,8 +107,8 @@ void AlbumIdeas::AddIdea() {
 	if (!b) return;
 	
 	int idea_i = -1;
-	for(int i = 0; i < release.ideas.GetCount(); i++) {
-		SongIdea& idea = release.ideas[i];
+	for(int i = 0; i < campaign.ideas.GetCount(); i++) {
+		ProgramIdea& idea = campaign.ideas[i];
 		if (idea.title == title) {
 			idea_i = i;
 			break;
@@ -119,7 +119,7 @@ void AlbumIdeas::AddIdea() {
 		return;
 	}
 	
-	SongIdea& idea = release.ideas.Add();
+	ProgramIdea& idea = campaign.ideas.Add();
 	idea.title = title;
 	
 	list.Add(title);
@@ -127,14 +127,14 @@ void AlbumIdeas::AddIdea() {
 	this->idea.target.SetFocus();
 }
 
-void AlbumIdeas::RemoveIdea() {
-	Database& db = Database::Single();
+void CampaignIdeas::RemoveIdea() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.release) return;
-	Release& release = *p.release;
+	if (!p.campaign) return;
+	Campaign& campaign = *p.campaign;
 	
 	if (!list.IsCursor()) return;
 	int idx = list.GetCursor();
-	release.ideas.Remove(idx);
+	campaign.ideas.Remove(idx);
 	Data();
 }

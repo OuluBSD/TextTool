@@ -1,7 +1,7 @@
-#ifndef _SongLib_SongDataManager_h_
-#define _SongLib_SongDataManager_h_
+#ifndef _SocialLib_ProgramDataManager_h_
+#define _SocialLib_ProgramDataManager_h_
 
-namespace SongLib {
+namespace SocialLib {
 
 
 typedef enum {
@@ -29,11 +29,11 @@ typedef enum {
 
 struct Task {
 	struct Batch : Moveable<Batch> {
-		ArtistDataset* artist;
-		LyricsDataset* lyrics;
+		CompanyDataset* company;
+		StoryDataset* story;
 		String txt;
 		int ds_i;
-		bool song_begins;
+		bool program_begins;
 	};
 	
 	
@@ -75,7 +75,7 @@ struct Task {
 	Vector<void*> tmp_ptrs;
 	String tmp_str;
 	int actual = 0, total = 0;
-	Song* song = 0;
+	Program* program = 0;
 	VectorMap<String,Index<String>> uniq_attrs;
 	
 };
@@ -97,7 +97,7 @@ class TaskManager {
 	void ImportPromptAnswers();
 	void Process();
 	
-	void GetSongs(Task* t);
+	void GetPrograms(Task* t);
 	
 	void GetTokenData(Task* t);
 	void OnTokenData(String result, Task* t);
@@ -132,15 +132,11 @@ class TaskManager {
 	void OnPhraseAttrs(String result, Task* t);
 	void OnPhraseActions(String result, Task* t);
 	void OnPhraseScores(String result, Task* t);
-	void OnPhraseTypecasts(String result, Task* t);
-	void OnPhraseContrast(String result, Task* t);
-	void OnPhraseProfile(String result, Task* t);
-	void OnPhraseArchetype(String result, Task* t);
-	void OnPhrasePrimary(String result, Task* t);
-	void OnPhraseSecondary(String result, Task* t);
+	void OnPhraseRoles(String result, Task* t);
+	void OnPhraseGeneric(String result, Task* t);
 	
 	//void GetNana(Task* tp);
-	//void OnSongStory(String result, Task* t);
+	//void OnProgramStory(String result, Task* t);
 	void OnSubPicked(String result, Task* t);
 	void OnNanaFit(String result, Task* t);
 	
@@ -185,13 +181,13 @@ public:
 	
 	static TaskManager& Single() {static TaskManager o; return o;}
 	
-	void DoSongs(int ds_i, int fn);
+	void DoPrograms(int ds_i, int fn);
 	void DoTokens(int ds_i, int fn);
 	void DoUnknownTokenPairs(int ds_i, int fn);
 	void DoAmbiguousWordPairs(int ds_i, int fn);
 	void DoVirtualPhrases(int ds_i, int fn);
 	void DoPhrases(int ds_i, int fn);
-	void DoNana(int ds_i, int fn, Song& song, Callback OnReady, int line_i=-1, int part_i=-1);
+	void DoNana(int ds_i, int fn, Program& program, Callback OnReady, int line_i=-1, int part_i=-1);
 	void DoContainer(int ds_i, int fn, Callback2<int,int> update);
 	void DoWords(int ds_i, int fn);
 	void DoWordFix(int ds_i, int fn);

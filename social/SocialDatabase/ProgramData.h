@@ -1,5 +1,5 @@
-#ifndef _SocialDatabase_ProgramData_h_
-#define _SocialDatabase_ProgramData_h_
+#ifndef _ToolBase_ProgramData_h_
+#define _ToolBase_ProgramData_h_
 
 
 struct StoryDataset : Moveable<StoryDataset> {
@@ -20,14 +20,13 @@ struct CompanyDataset : Moveable<CompanyDataset> {
 	}
 };
 
-struct PackedRhymeHeader : Moveable<PackedRhymeHeader> {
+struct PackedImpactHeader : Moveable<PackedImpactHeader> {
 	int syllable_count;
 	int color_group;
 	int attr;
 	
 	hash_t GetHashValue() const {
 		CombineHash ch;
-		ch.Do(syllable_count);
 		ch.Do(color_group);
 		ch.Do(attr);
 		return ch;
@@ -41,12 +40,12 @@ struct PackedRhymeHeader : Moveable<PackedRhymeHeader> {
 	void Serialize(Stream& s) {
 		s % syllable_count % color_group % attr;
 	}
-	bool operator==(const PackedRhymeHeader& b) const {
+	bool operator==(const PackedImpactHeader& b) const {
 		return	syllable_count == b.syllable_count &&
 				color_group == b.color_group &&
 				attr == b.attr;
 	}
-	bool operator()(const PackedRhymeHeader& a, const PackedRhymeHeader& b) const {
+	bool operator()(const PackedImpactHeader& a, const PackedImpactHeader& b) const {
 		if (a.syllable_count != b.syllable_count) return a.syllable_count < b.syllable_count;
 		if (a.color_group != b.color_group) return a.color_group < b.color_group;
 		return a.attr < b.attr;
@@ -253,11 +252,7 @@ struct PhrasePart : Moveable<PhrasePart> {
 	Color clr = Black();
 	Vector<int> actions;
 	Vector<int> roles;
-	Vector<int> profiles;
-	Vector<int> primary;
-	Vector<int> secondary;
 	Vector<int> generics;
-	Vector<int> contrasts;
 	int scores[SCORE_COUNT] = {0,0,0,0,0,0,0,0,0,0};
 	
 	bool HasScores() const {
@@ -280,20 +275,8 @@ struct PhrasePart : Moveable<PhrasePart> {
 		d % roles.GetCount();
 		for (int tc_i : roles)
 			d % tc_i;
-		d % profiles.GetCount();
-		for (int tc_i : profiles)
-			d % tc_i;
-		d % primary.GetCount();
-		for (int tc_i : primary)
-			d % tc_i;
-		d % secondary.GetCount();
-		for (int tc_i : secondary)
-			d % tc_i;
 		d % generics.GetCount();
 		for (int i : generics)
-			d % i;
-		d % contrasts.GetCount();
-		for (int i : contrasts)
 			d % i;
 		return d;
 	}
@@ -319,27 +302,8 @@ struct PhrasePart : Moveable<PhrasePart> {
 		for (int& tc_i : roles)
 			p % tc_i;
 		p % tc;
-		if (tc < 0 || tc > 60) tc = 0;
-		profiles.SetCount(tc);
-		for (int& tc_i : profiles)
-			p % tc_i;
-		p % tc;
-		if (tc < 0 || tc > 60) tc = 0;
-		primary.SetCount(tc);
-		for (int& tc_i : primary)
-			p % tc_i;
-		p % tc;
-		if (tc < 0 || tc > 60) tc = 0;
-		secondary.SetCount(tc);
-		for (int& tc_i : secondary)
-			p % tc_i;
-		p % tc;
 		generics.SetCount(tc);
 		for (int& tc_i : generics)
-			p % tc_i;
-		p % tc;
-		contrasts.SetCount(tc);
-		for (int& tc_i : contrasts)
 			p % tc_i;
 	}
 	
@@ -580,7 +544,7 @@ struct ProgramAnalysis {
 	MapFile<hash_t,PhrasePart> phrase_parts[ContrastType::PART_COUNT];
 	IntIndexFile source_pool[ContrastType::PART_COUNT];
 	MapFile<hash_t,PhraseComb> phrase_combs[ContrastType::PART_COUNT];
-	MapFile<hash_t,StorySuggestions> stories_suggs;
+	MapFile<hash_t,StorySuggestions> story_suggs;
 	
 	void Load(const String& dir);
 };
@@ -610,7 +574,7 @@ struct DatasetAnalysis {
 	MapFile<String,ExportSimpleAttr> simple_attrs;
 	
 	// Cached data
-	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;
+	VectorMap<PackedImpactHeader, Vector<PackedRhymeContainer>> packed_rhymes;
 	ArrayMap<String, ProgramCandidateCache> program_cache;
 	
 	// Temp

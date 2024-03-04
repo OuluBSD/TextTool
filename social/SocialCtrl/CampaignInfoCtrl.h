@@ -1,21 +1,21 @@
-#ifndef _SocialCtrl_ProductInfoCtrl_h_
-#define _SocialCtrl_ProductInfoCtrl_h_
+#ifndef _SocialCtrl_CampaignInfoCtrl_h_
+#define _SocialCtrl_CampaignInfoCtrl_h_
 
 
-class Editor;
+class SocialEditor;
 
-class ProductInfoCtrl : public WithProductInfo<ToolAppCtrl> {
+class CampaignInfoCtrl : public WithProductInfo<ToolAppCtrl> {
 	
 	
 public:
-	typedef ProductInfoCtrl CLASSNAME;
-	ProductInfoCtrl();
+	typedef CampaignInfoCtrl CLASSNAME;
+	CampaignInfoCtrl();
 	
 	void Data();
 	void Clear();
 	void OnValueChange();
 	
-	Editor* editor = 0;
+	SocialEditor* editor = 0;
 	
 };
 

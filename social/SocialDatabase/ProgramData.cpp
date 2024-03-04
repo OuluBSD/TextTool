@@ -95,7 +95,7 @@ DatasetAnalysis::DatasetAnalysis() {
 }
 
 void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
-	Database& db = SocialDatabase::Single();
+	SocialDatabase& db = SocialDatabase::Single();
 	ProgramData& sd = db.program_data;
 	ProgramDataAnalysis& sda = db.program_data.a;
 	
@@ -152,7 +152,7 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 }
 
 ProgramAnalysis& DatasetAnalysis::GetProgramAnalysis(const String& name) {
-	Database& db = SocialDatabase::Single();
+	SocialDatabase& db = SocialDatabase::Single();
 	ProgramData& sd = db.program_data;
 	ProgramDataAnalysis& sda = db.program_data.a;
 	
@@ -183,7 +183,7 @@ void ProgramAnalysis::Load(const String& dir) {
 		phrase_combs[i].Load(dir, "phrase combinations " + IntStr(i));
 	}
 	
-	stories_suggs.Load(dir, "stories suggestions");
+	story_suggs.Load(dir, "stories suggestions");
 	
 }
 

@@ -1,5 +1,5 @@
-#ifndef _SongDataCtrl_PhraseParts_h_
-#define _SongDataCtrl_PhraseParts_h_
+#ifndef _SocialDataCtrl_PhraseParts_h_
+#define _SocialDataCtrl_PhraseParts_h_
 
 
 class PhraseParts : public ToolAppCtrl {

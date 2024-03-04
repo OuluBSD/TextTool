@@ -22,7 +22,7 @@ struct Company : DataFile
 	
 	// Public (separate files)
 	Array<Role>	roles;
-	Array<Release> releases;
+	Array<Campaign> campaigns;
 	
 	void Clear() {
 		native_name.Clear();
@@ -44,8 +44,8 @@ struct Company : DataFile
 	void LoadTitle(String title);
 	String GetStoryDir() const;
 	
-	Array<Release>& GetSub() {return releases;}
-	const Array<Release>& GetSub() const {return releases;}
+	Array<Campaign>& GetSub() {return campaigns;}
+	const Array<Campaign>& GetSub() const {return campaigns;}
 	void Serialize(Stream& s) {
 		s	% native_name
 			% english_name
@@ -57,7 +57,7 @@ struct Company : DataFile
 			% acoustic_instruments
 			% electronic_instruments
 			% vocalist_visual
-			% releases
+			% campaigns
 			% phrases_nat
 			% phrases_eng
 			% is_female
@@ -83,15 +83,15 @@ struct Company : DataFile
 			;
 		if (json.IsStoring()) {
 			Vector<String> names;
-			for (Release& r : releases) {r.Store(); names.Add(r.file_title);}
-			json("releases", names);
+			for (Campaign& r : campaigns) {r.Store(); names.Add(r.file_title);}
+			json("campaigns", names);
 			
 		}
 		if (json.IsLoading()) {
-			releases.Clear();
+			campaigns.Clear();
 			Vector<String> names;
-			json("releases", names);
-			for (String n : names) releases.Add().LoadTitle(n);
+			json("campaigns", names);
+			for (String n : names) campaigns.Add().LoadTitle(n);
 		}
 	}
 	
@@ -100,7 +100,7 @@ struct Company : DataFile
 		return a.native_name < b.native_name;
 	}
 	
-	bool FindProgram(int& tc, int& arch, int& lyr_i, const String& stories_file_title) const;
+	bool FindProgram(int& tc, int& arch, int& lyr_i, const String& story_file_title) const;
 	
 };
 

@@ -1,8 +1,8 @@
 description "\377B0,0,128";
 
 file
-	SongDataCtrl.h,
-	SongDataCtrl.lay,
+	SocialDataCtrl.h,
+	SocialDataCtrl.lay,
 	Page.h,
 	Page.cpp,
 	Tokens.h,

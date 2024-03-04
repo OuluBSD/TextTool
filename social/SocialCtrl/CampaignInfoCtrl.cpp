@@ -1,7 +1,7 @@
 #include "SocialCtrl.h"
-#include <SongTool/SongTool.h>
+#include <SocialTool/SocialTool.h>
 
-ProductInfoCtrl::ProductInfoCtrl() {
+CampaignInfoCtrl::CampaignInfoCtrl() {
 	CtrlLayout(*this);
 	
 	native_album_title <<= THISBACK(OnValueChange);
@@ -11,21 +11,21 @@ ProductInfoCtrl::ProductInfoCtrl() {
 	
 }
 
-void ProductInfoCtrl::Clear() {
+void CampaignInfoCtrl::Clear() {
 	this->native_album_title		.Clear();
 	this->english_album_title		.Clear();
 	this->album_date				.Clear();
 	this->year_of_content			.Clear();
 }
 
-void ProductInfoCtrl::Data() {
-	Database& db = Database::Single();
+void CampaignInfoCtrl::Data() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	Clear();
 	
-	if (p.release) {
-		Release& r = *p.release;
+	if (p.campaign) {
+		Campaign& r = *p.campaign;
 		
 		native_album_title.SetData(r.native_title);
 		english_album_title.SetData(r.english_title);
@@ -35,20 +35,20 @@ void ProductInfoCtrl::Data() {
 	
 }
 
-void ProductInfoCtrl::OnValueChange() {
-	Database& db = Database::Single();
+void CampaignInfoCtrl::OnValueChange() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
-	if (p.release && editor->releases.IsCursor()) {
-		Release& r = *p.release;
+	if (p.campaign && editor->campaigns.IsCursor()) {
+		Campaign& r = *p.campaign;
 		
 		r.native_title = native_album_title.GetData();
 		r.english_title = english_album_title.GetData();
 		r.date = album_date.GetData();
 		r.year_of_content = year_of_content.GetData();
 		
-		int c = editor->releases.GetCursor();
-		editor->releases.Set(c, 0, r.native_title);
+		int c = editor->campaigns.GetCursor();
+		editor->campaigns.Set(c, 0, r.native_title);
 	}
 	
 }

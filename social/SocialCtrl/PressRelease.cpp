@@ -2,14 +2,14 @@
 
 
 
-PressReleaseCtrl::PressReleaseCtrl() {
+PressCampaignCtrl::PressCampaignCtrl() {
 	
 }
 
-void PressReleaseCtrl::Data() {
+void PressCampaignCtrl::Data() {
 	
 }
 
-void PressReleaseCtrl::ToolMenu(Bar& bar) {
+void PressCampaignCtrl::ToolMenu(Bar& bar) {
 	ToolAppCtrl::ToolMenu(bar);
 }

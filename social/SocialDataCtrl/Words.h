@@ -1,16 +1,16 @@
-#ifndef _SongDataCtrl_SongDataWords_h_
-#define _SongDataCtrl_SongDataWords_h_
+#ifndef _SocialDataCtrl_ProgramDataWords_h_
+#define _SocialDataCtrl_ProgramDataWords_h_
 
 
-class SongDataWords : public ToolAppCtrl {
+class ProgramDataWords : public ToolAppCtrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl datasets, colors, words;
 	bool disabled = false;
 	bool batch = false;
 	
 public:
-	typedef SongDataWords CLASSNAME;
-	SongDataWords();
+	typedef ProgramDataWords CLASSNAME;
+	ProgramDataWords();
 	
 	void EnableAll();
 	void DisableAll();

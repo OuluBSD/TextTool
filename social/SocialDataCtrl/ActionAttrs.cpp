@@ -1,4 +1,4 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 
 ActionAttrsPage::ActionAttrsPage() {
@@ -45,9 +45,9 @@ void ActionAttrsPage::ToolMenu(Bar& bar) {
 }
 
 void ActionAttrsPage::DataMain() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -120,9 +120,9 @@ void ActionAttrsPage::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -173,17 +173,17 @@ void ActionAttrsPage::DataColor() {
 }
 
 void ActionAttrsPage::UpdateFromCache() {
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoActionlistCache(0);
 }
 
 void ActionAttrsPage::UpdateColors() {
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoActionlist(0, 0);
 }
 
 void ActionAttrsPage::UpdateAttributes() {
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoActionlist(0, 1);
 }
 

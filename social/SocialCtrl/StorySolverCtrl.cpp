@@ -1,7 +1,7 @@
 #include "SocialCtrl.h"
 
 
-LyricsSolverCtrl::LyricsSolverCtrl() {
+StorySolverCtrl::StorySolverCtrl() {
 	
 	Add(tabs.SizePos());
 	
@@ -15,14 +15,14 @@ LyricsSolverCtrl::LyricsSolverCtrl() {
 	summary_tasks.AddColumn("Description");
 	summary_tasks.ColumnWidths("1 4 10");
 	
-	result_split.Horz() << result_list << suggestion << lyrics;
+	result_split.Horz() << result_list << suggestion << story;
 	result_split.SetPos(1000, 0);
 	result_split.SetPos(5000, 1);
 	
 	result_list.AddColumn(t_("Rank"));
 	result_list.AddIndex("IDX");
 	result_list.WhenCursor << THISBACK(DataSuggestion);
-	lyrics.WhenAction << THISBACK(UserLyricsChange);
+	story.WhenAction << THISBACK(UserStoryChange);
 	
 	
 	// Tab 2
@@ -34,11 +34,11 @@ LyricsSolverCtrl::LyricsSolverCtrl() {
 	
 	
 	// Tab 3
-	tabs.Add(song_attrs.SizePos(), t_("Attribute process"));
-	song_attrs.AddColumn(t_("Key group"));
-	song_attrs.AddColumn(t_("Positive"));
-	song_attrs.AddColumn(t_("Negative"));
-	song_attrs.AddColumn(t_("Value"));
+	tabs.Add(program_attrs.SizePos(), t_("Attribute process"));
+	program_attrs.AddColumn(t_("Key group"));
+	program_attrs.AddColumn(t_("Positive"));
+	program_attrs.AddColumn(t_("Negative"));
+	program_attrs.AddColumn(t_("Value"));
 	
 	
 	// Tab 4
@@ -79,26 +79,26 @@ LyricsSolverCtrl::LyricsSolverCtrl() {
 	
 }
 
-void LyricsSolverCtrl::ToolMenu(Bar& bar) {
+void StorySolverCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Start process"), AppImg::RedRing(), THISBACK(StartProcess)).Key(K_F5);
 	bar.Add(t_("Stop process"), AppImg::RedRing(), THISBACK(StopProcess)).Key(K_F6);
 	bar.Separator();
-	bar.Add(t_("Get new song title"), AppImg::RedRing(), THISBACK(GetNewTitle)).Key(K_F7);
+	bar.Add(t_("Get new program title"), AppImg::RedRing(), THISBACK(GetNewTitle)).Key(K_F7);
 }
 
-void LyricsSolverCtrl::StartProcess() {
-	SongLib::LyricsSolver& ls = SongLib::LyricsSolver::Get(GetArtist(), GetLyrics());
+void StorySolverCtrl::StartProcess() {
+	SocialLib::StorySolver& ls = SocialLib::StorySolver::Get(GetCompany(), GetStory());
 	ls.WhenProgress = THISBACK(PostProgress);
 	ls.Start();
 }
 
-void LyricsSolverCtrl::StopProcess() {
-	SongLib::LyricsSolver& ls = SongLib::LyricsSolver::Get(GetArtist(), GetLyrics());
+void StorySolverCtrl::StopProcess() {
+	SocialLib::StorySolver& ls = SocialLib::StorySolver::Get(GetCompany(), GetStory());
 	ls.Stop();
 }
 
-void LyricsSolverCtrl::Data() {
-	Lyrics& l = GetLyrics();
+void StorySolverCtrl::Data() {
+	Story& l = GetStory();
 	
 	if (tabs.Get() == 0) {
 		for(int i = 0; i < l.suggestions.GetCount(); i++) {
@@ -111,15 +111,15 @@ void LyricsSolverCtrl::Data() {
 		if (!result_list.IsCursor() && result_list.GetCount())
 			result_list.SetCursor(0);
 		
-		lyrics.SetData(l.text);
+		story.SetData(l.text);
 		
 		DataSuggestion();
 	}
 	
 }
 
-void LyricsSolverCtrl::DataSuggestion() {
-	Lyrics& l = GetLyrics();
+void StorySolverCtrl::DataSuggestion() {
+	Story& l = GetStory();
 	if (!result_list.IsCursor()) {
 		suggestion.Clear();
 		return;
@@ -130,28 +130,28 @@ void LyricsSolverCtrl::DataSuggestion() {
 	suggestion.SetData(l.suggestions[idx]);
 }
 
-void LyricsSolverCtrl::UserLyricsChange() {
-	Database& db = Database::Single();
+void StorySolverCtrl::UserStoryChange() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.lyrics)
+	if (!p.story)
 		return;
 	
-	p.lyrics->text = lyrics.GetData();
+	p.story->text = story.GetData();
 }
 
-void LyricsSolverCtrl::GetNewTitle() {
-	Lyrics& l = GetLyrics();
+void StorySolverCtrl::GetNewTitle() {
+	Story& l = GetStory();
 	
-	LyricsSolverArgs args;
+	StorySolverArgs args;
 	args.fn = 8;
 	args.part = l.text;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetLyricsSolver(args, THISBACK(OnNewTitle));
+	m.GetStorySolver(args, THISBACK(OnNewTitle));
 }
 
-void LyricsSolverCtrl::OnNewTitle(String res) {
-	Lyrics& l = GetLyrics();
+void StorySolverCtrl::OnNewTitle(String res) {
+	Story& l = GetStory();
 	
 	res.Replace("\n","");
 	res.Replace("\r","");

@@ -48,7 +48,6 @@ struct TaskMgr {
 	Task* active_task = 0;
 	int actual = 0, total = 0;
 	String status;
-	Song* song = 0;
 	
 	// Local
 	Vector<hash_t> task_order;
@@ -89,6 +88,8 @@ struct TaskMgr {
 	void GetAttributes(const AttrArgs& args, Event<String> WhenResult);
 	void GetNanaData(const NanaArgs& args, Event<String> WhenResult);
 	void GetLyricsSolver(const LyricsSolverArgs& args, Event<String> WhenResult);
+	void GetStorySolver(const StorySolverArgs& args, Event<String> WhenResult);
+	void GetProgramDataAnalysis(const ProgramDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going=false);
 	
 	static TaskMgr& Single() {static TaskMgr tm; return tm;}
 	

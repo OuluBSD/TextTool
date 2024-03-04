@@ -1,14 +1,14 @@
-#ifndef _SongDataCtrl_SongDataAnalysisPage_h_
-#define _SongDataCtrl_SongDataAnalysisPage_h_
+#ifndef _SocialDataCtrl_ProgramDataAnalysisPage_h_
+#define _SocialDataCtrl_ProgramDataAnalysisPage_h_
 
 #if 0
 
 
-class SongDataAnalysisPage : public ToolAppCtrl {
+class ProgramDataAnalysisPage : public ToolAppCtrl {
 	struct Task : Moveable<Task> {
-		String artist, song, text;
-		LyricsDataset* ld = 0;
-		LyricsAnalysis* analysis = 0;
+		String company, program, text;
+		StoryDataset* ld = 0;
+		StoryAnalysis* analysis = 0;
 		int progress = 0;
 	};
 	
@@ -23,8 +23,8 @@ private:
 	bool batch = false;
 	bool disabled = false;
 public:
-	typedef SongDataAnalysisPage CLASSNAME;
-	SongDataAnalysisPage();
+	typedef ProgramDataAnalysisPage CLASSNAME;
+	ProgramDataAnalysisPage();
 	
 	void DisableAll();
 	void EnableAll();

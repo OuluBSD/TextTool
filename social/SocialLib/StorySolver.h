@@ -1,11 +1,11 @@
-#ifndef _SongLib_LyricsSolver_h_
-#define _SongLib_LyricsSolver_h_
+#ifndef _SocialLib_StorySolver_h_
+#define _SocialLib_StorySolver_h_
 
 
-namespace SongLib {
+namespace SocialLib {
 
 
-class LyricsSolver {
+class StorySolver {
 	enum {
 		LS_BEGIN,
 		LS_FILTER,
@@ -24,8 +24,8 @@ class LyricsSolver {
 	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
 	int ds_i = 0;
 	TaskMgr* pipe = 0;
-	Artist* artist = 0;
-	Lyrics* lyrics = 0;
+	Company* company = 0;
+	Story* story = 0;
 		
 	bool waiting = false;
 	bool running = false, stopped = true;
@@ -46,7 +46,7 @@ class LyricsSolver {
 	
 	void RealizePipe();
 	void Process();
-	void ClearLyrics();
+	void ClearStory();
 	void ProcessFilter();
 	void ProcessPrimary();
 	void ProcessComparison();
@@ -67,13 +67,13 @@ class LyricsSolver {
 	void NextSubBatch() {sub_batch++;}
 	
 public:
-	typedef LyricsSolver CLASSNAME;
-	LyricsSolver();
+	typedef StorySolver CLASSNAME;
+	StorySolver();
 	
 	void Start() {if (!running) {running = true; stopped = false; Thread::Start(THISBACK(Process));}}
 	void Stop() {running = false; while (!stopped) Sleep(1);}
 	
-	static LyricsSolver& Get(Artist& a, Lyrics& l);
+	static StorySolver& Get(Company& a, Story& l);
 	
 	Callback2<int,int> WhenProgress;
 	

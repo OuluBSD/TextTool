@@ -1,9 +1,9 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 #if 0
 
 
-SongDataTemplateScoring::SongDataTemplateScoring() {
+ProgramDataTemplateScoring::ProgramDataTemplateScoring() {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << vsplit << scores;
@@ -41,22 +41,22 @@ SongDataTemplateScoring::SongDataTemplateScoring() {
 	
 }
 
-void SongDataTemplateScoring::EnableAll() {
+void ProgramDataTemplateScoring::EnableAll() {
 	
 }
 
-void SongDataTemplateScoring::DisableAll() {
+void ProgramDataTemplateScoring::DisableAll() {
 	
 }
 
-void SongDataTemplateScoring::Data() {
+void ProgramDataTemplateScoring::Data() {
 	
 }
 
-void SongDataTemplateScoring::DataMain() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataTemplateScoring::DataMain() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -69,7 +69,7 @@ void SongDataTemplateScoring::DataMain() {
 	DataDataset();
 }
 	
-void SongDataTemplateScoring::DataDataset() {
+void ProgramDataTemplateScoring::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 	
@@ -104,7 +104,7 @@ void SongDataTemplateScoring::DataDataset() {
 	DataAttribute();
 }
 
-void SongDataTemplateScoring::DataAttribute() {
+void ProgramDataTemplateScoring::DataAttribute() {
 	if (!attrs.IsCursor())
 		return;
 	
@@ -125,13 +125,13 @@ void SongDataTemplateScoring::DataAttribute() {
 	DataColor();
 }
 
-void SongDataTemplateScoring::DataColor() {
+void ProgramDataTemplateScoring::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -196,7 +196,7 @@ void SongDataTemplateScoring::DataColor() {
 	lock.Leave();
 }
 
-void SongDataTemplateScoring::ToolMenu(Bar& bar) {
+void ProgramDataTemplateScoring::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
 	for(int i = 0; i < SCORE_MODE_COUNT; i++) {
 		bar.Separator();
@@ -207,20 +207,20 @@ void SongDataTemplateScoring::ToolMenu(Bar& bar) {
 	}
 }
 
-void SongDataTemplateScoring::ToggleGettingTemplates(int score_mode) {
+void ProgramDataTemplateScoring::ToggleGettingTemplates(int score_mode) {
 	running = !running;
 	if (running) {
 		Thread::Start(THISBACK2(GetTemplateScores, 0, score_mode));
 	}
 }
 
-void SongDataTemplateScoring::GetTemplateScores(int batch_i, int score_mode) {
+void ProgramDataTemplateScoring::GetTemplateScores(int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	int begin = batch_i * per_batch;
 	int end = (batch_i+1) * per_batch;
@@ -230,7 +230,7 @@ void SongDataTemplateScoring::GetTemplateScores(int batch_i, int score_mode) {
 		end = 1;
 	}
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	
 	line_to_src.Clear();
 	ds_is.Clear();
@@ -284,16 +284,16 @@ void SongDataTemplateScoring::GetTemplateScores(int batch_i, int score_mode) {
 		return;
 	}
 	
-	Song& song = GetSong();
+	Program& program = GetProgram();
 	
 	args.fn = 8;
 	args.score_mode = score_mode;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSongDataAnalysis(args, THISBACK2(OnTemplateScores, batch_i, score_mode));
+	m.GetProgramDataAnalysis(args, THISBACK2(OnTemplateScores, batch_i, score_mode));
 }
 
-void SongDataTemplateScoring::OnTemplateScores(String res, int batch_i, int score_mode) {
+void ProgramDataTemplateScoring::OnTemplateScores(String res, int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
@@ -311,9 +311,9 @@ void SongDataTemplateScoring::OnTemplateScores(String res, int batch_i, int scor
 	
 	lock.Enter();
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	res.Replace("\r", "");
 	Vector<String> lines = Split(res, "\n");

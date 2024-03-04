@@ -1,4 +1,4 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 #if 0
 
@@ -146,11 +146,11 @@ struct ExportTemplate : Moveable<ExportTemplate> {
 };
 
 void ExportPage::Export() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
-	String dir = AppendFileName(db.dir, "share" DIR_SEPS "songdata");
+	String dir = AppendFileName(db.dir, "share" DIR_SEPS "programdata");
 	RealizeDirectory(dir);
 	
 	Vector<int> word_is;
@@ -482,12 +482,12 @@ void ExportPage::Export() {
 		
 		
 		// Phrases (from different location)
-		for(int i = 0; i < da.artists.GetCount(); i++) {
-			ArtistAnalysis& artist = da.artists[i];
-			for(int j = 0; j < artist.songs.GetCount(); j++) {
-				LyricsAnalysis& song = artist.songs[j];
-				for(int k = 0; k < song.phrases.GetCount(); k++) {
-					const LyricsAnalysis::Phrase& phrase = song.phrases[k];
+		for(int i = 0; i < da.companies.GetCount(); i++) {
+			CompanyAnalysis& company = da.companies[i];
+			for(int j = 0; j < company.programs.GetCount(); j++) {
+				StoryAnalysis& program = company.programs[j];
+				for(int k = 0; k < program.phrases.GetCount(); k++) {
+					const StoryAnalysis::Phrase& phrase = program.phrases[k];
 					ExportDepActionPhrase& eap = act_phrases.GetAdd(phrase.phrase);
 					
 					// Copy attribute

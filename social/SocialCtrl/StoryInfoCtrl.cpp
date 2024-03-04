@@ -1,80 +1,80 @@
 #include "SocialCtrl.h"
-#include <SongTool/SongTool.h>
+#include <SocialTool/SocialTool.h>
 
-LyricsInfoCtrl::LyricsInfoCtrl() {
+StoryInfoCtrl::StoryInfoCtrl() {
 	CtrlLayout(*this);
 	
 	copyright <<= THISBACK(OnValueChange);
 	native_title <<= THISBACK(OnValueChange);
 	english_title <<= THISBACK(OnValueChange);
 	content_vision <<= THISBACK(OnValueChange);
-	//typecast <<= THISBACK(OnValueChange);
-	//archetype <<= THISBACK(OnValueChange);
-	is_rapper <<= THISBACK(OnValueChange);
+	//role <<= THISBACK(OnValueChange);
+	//generic <<= THISBACK(OnValueChange);
+	is_unsafe <<= THISBACK(OnValueChange);
 	
-	typecast.Disable();
-	archetype.Disable();
+	role.Disable();
+	generic.Disable();
 	
-	const auto& tcs = GetTypecasts();
+	const auto& tcs = GetRoles();
 	for(int i = 0; i < tcs.GetCount(); i++) {
-		typecast.Add(tcs[i]);
+		role.Add(tcs[i]);
 	}
 	
 	const auto& archs = GetContrasts();
 	for(int i = 0; i < archs.GetCount(); i++) {
-		archetype.Add(archs[i].key);
+		generic.Add(archs[i].key);
 	}
 	
-	is_rapper.Add(t_("Not a rap song"));
-	is_rapper.Add(t_("This is a rap song"));
+	is_unsafe.Add(t_("Not unsafe program"));
+	is_unsafe.Add(t_("This is unsafe program"));
 }
 
-void LyricsInfoCtrl::Clear() {
+void StoryInfoCtrl::Clear() {
 	this->copyright			.Clear();
 	this->native_title		.Clear();
 	this->english_title		.Clear();
 	this->content_vision	.Clear();
-	this->typecast			.SetIndex(0);
-	this->archetype			.SetIndex(0);
-	this->is_rapper			.SetIndex(0);
+	this->role				.SetIndex(0);
+	this->generic			.SetIndex(0);
+	this->is_unsafe			.SetIndex(0);
 }
 
-void LyricsInfoCtrl::Data() {
-	Database& db = Database::Single();
+void StoryInfoCtrl::Data() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	Clear();
 	
 	
-	if (p.lyrics) {
-		Lyrics& l = *p.lyrics;
+	if (p.story) {
+		Story& l = *p.story;
 		
 		copyright.SetData(l.copyright);
 		native_title.SetData(l.native_title);
 		english_title.SetData(l.english_title);
 		content_vision.SetData(l.content_vision);
-		typecast.SetIndex(l.typecast);
-		archetype.SetIndex(l.archetype);
-		is_rapper.SetIndex(l.is_rapper);
+		role.SetIndex(l.role);
+		generic.SetIndex(l.generic);
+		is_unsafe.SetIndex(l.is_unsafe);
 	}
 }
 
-void LyricsInfoCtrl::OnValueChange() {
-	Database& db = Database::Single();
+void StoryInfoCtrl::OnValueChange() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
-	if (p.lyrics && editor->lyrics.IsCursor()) {
-		Lyrics& l = *p.lyrics;
+	if (p.story && editor->stories.IsCursor()) {
+		Story& l = *p.story;
 		
 		l.copyright = copyright.GetData();
 		l.native_title = native_title.GetData();
 		l.english_title = english_title.GetData();
 		l.content_vision = content_vision.GetData();
-		l.typecast = typecast.GetIndex();
-		l.archetype = archetype.GetIndex();
-		l.is_rapper = is_rapper.GetIndex();
+		l.role = role.GetIndex();
+		l.generic = generic.GetIndex();
+		l.is_unsafe = is_unsafe.GetIndex();
 		
-		int c = editor->lyrics.GetCursor();
-		editor->lyrics.Set(c, 0, l.GetAnyTitle());
+		int c = editor->stories.GetCursor();
+		editor->stories.Set(c, 0, l.GetAnyTitle());
 	}
 }

@@ -1,16 +1,16 @@
-#ifndef _SongTool_CalMgrCtrl_h_
-#define _SongTool_CalMgrCtrl_h_
+#ifndef _SocialTool_CalMgrCtrl_h_
+#define _SocialTool_CalMgrCtrl_h_
 
 
-class ArtistCalendarCtrl : public Ctrl {
+class CompanyCalendarCtrl : public Ctrl {
 	Color bg;
 	Date scroll_date;
 	Date cursor_date;
 	int month_offset, month_len;
 	
 public:
-	typedef ArtistCalendarCtrl CLASSNAME;
-	ArtistCalendarCtrl();
+	typedef CompanyCalendarCtrl CLASSNAME;
+	CompanyCalendarCtrl();
 	
 	void Paint(Draw& d);
 	
@@ -26,7 +26,7 @@ public:
 class CalMgrCtrl : public ToolAppCtrl {
 	Splitter split;
 	TabCtrl tabs;
-	ArtistCalendarCtrl cal;
+	CompanyCalendarCtrl cal;
 	ArrayCtrl events;
 	
 public:

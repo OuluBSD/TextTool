@@ -1,4 +1,4 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 AmbiguousWordPairs::AmbiguousWordPairs() {
 	Add(hsplit.SizePos());
@@ -32,9 +32,9 @@ AmbiguousWordPairs::AmbiguousWordPairs() {
 }
 
 void AmbiguousWordPairs::Data() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
 		datasets.Set(i, 0, sda.datasets.GetKey(i));
@@ -47,8 +47,8 @@ void AmbiguousWordPairs::Data() {
 }
 
 void AmbiguousWordPairs::DataDataset() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
 	
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sd.a.datasets[ds_i];
@@ -75,6 +75,6 @@ void AmbiguousWordPairs::ToolMenu(Bar& bar) {
 }
 
 void AmbiguousWordPairs::Process() {
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoAmbiguousWordPairs(0, 1);
 }

@@ -1,41 +1,41 @@
 #include "SocialCtrl.h"
-#include <SongDataCtrl/SongDataCtrl.h>
+#include <SocialDataCtrl/SocialDataCtrl.h>
 
 
 void SongStartup() {
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	Database& db = Database::Single();
+	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
+	SocialDatabase& db = SocialDatabase::Single();
 	TaskMgrConfig& m = TaskMgrConfig::Single();
 	
-	// Load Database
+	// Load SocialDatabase
 	#ifdef flagWIN32
-	db.dir = AppendFileName(GetHomeDirectory(), "SongTool");
+	db.dir = AppendFileName(GetHomeDirectory(), "SocialTool");
 	#else
-	db.dir = GetHomeDirFile("SongTool");
+	db.dir = GetHomeDirFile("SocialTool");
 	#endif
 	if (!DirectoryExists(db.dir)) {
-		PromptOK(DeQtf("Default path not found.\nSelect SongTool directory."));
+		PromptOK(DeQtf("Default path not found.\nSelect SocialTool directory."));
 		db.dir = SelectDirectory();
 	}
 	db.Load();
 	
-	db.song_data.Load();
-	db.song_data.a.Load();
+	db.program_data.Load();
+	db.program_data.a.Load();
 	
-	if (db.song_data.IsEmpty()) {
-		SongDataLoader loader;
+	if (db.program_data.IsEmpty()) {
+		SocialDataLoader loader;
 		loader.Run();
 	}
 	
 	tm.Start();
 	
-	DatabaseBrowser::Single().Load();
+	//SocialDatabaseBrowser::Single().Load();
 	
 }
 
-void SongShutdown(bool fast_exit, bool save_songdata) {
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	Database& db = Database::Single();
+void SongShutdown(bool fast_exit, bool save_programdata) {
+	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
+	SocialDatabase& db = SocialDatabase::Single();
 	TaskMgrConfig& m = TaskMgrConfig::Single();
 	
 	// Deinit storing of files
@@ -43,13 +43,13 @@ void SongShutdown(bool fast_exit, bool save_songdata) {
 	m.Stop();
 	
 	if (!fast_exit) {
-		DatabaseBrowser::Single().Store();
+		//SocialDatabaseBrowser::Single().Store();
 		
 		db.Store();
 		
-		if (save_songdata) {
-			db.song_data.a.Store();
-			db.song_data.a.StoreJson();
+		if (save_programdata) {
+			db.program_data.a.Store();
+			db.program_data.a.StoreJson();
 		}
 		
 		m.Store();

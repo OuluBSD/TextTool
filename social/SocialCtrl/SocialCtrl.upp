@@ -1,7 +1,9 @@
 description "\377B0,0,128";
 
 uses
-	SocialDatabase;
+	SocialDatabase,
+	plugin/jpg,
+	RedBar;
 
 file
 	SocialCtrl.h,
@@ -24,8 +26,8 @@ file
 	CoverImage.cpp,
 	Marketing.h,
 	Marketing.cpp,
-	CalMgrCtrl.cpp,
 	CalMgrCtrl.h,
+	CalMgrCtrl.cpp,
 	PressRelease.h,
 	PressRelease.cpp,
 	PublicRelations.h,

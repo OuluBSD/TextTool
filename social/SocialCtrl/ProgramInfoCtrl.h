@@ -1,25 +1,25 @@
-#ifndef _SocialCtrl_SongInfoCtrl_h_
-#define _SocialCtrl_SongInfoCtrl_h_
+#ifndef _SocialCtrl_ProgramInfoCtrl_h_
+#define _SocialCtrl_ProgramInfoCtrl_h_
 
 
-class Editor;
+class SocialEditor;
 
-class SongInfoCtrl : public WithSongInfo<ToolAppCtrl> {
-	int focus_tc = -1, focus_arch = -1, focus_lyr = -1;
+class ProgramInfoCtrl : public WithProgramInfo<ToolAppCtrl> {
+	int focus_role = -1, focus_generic = -1, focus_story = -1;
 	
 public:
-	typedef SongInfoCtrl CLASSNAME;
-	SongInfoCtrl();
+	typedef ProgramInfoCtrl CLASSNAME;
+	ProgramInfoCtrl();
 	
 	void Data();
 	void Clear();
-	void DataTypecast();
-	void DataArchetype();
-	void DataLyrics();
+	void DataRole();
+	void DataGeneric();
+	void DataStory();
 	void OnValueChange();
-	void SetLyrics();
+	void SetStory();
 	
-	Editor* editor = 0;
+	SocialEditor* editor = 0;
 	
 };
 

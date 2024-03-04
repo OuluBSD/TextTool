@@ -1,9 +1,9 @@
-#ifndef _SongDataCtrl_SongDataCtrl_h_
-#define _SongDataCtrl_SongDataCtrl_h_
+#ifndef _SocialDataCtrl_SocialDataCtrl_h_
+#define _SocialDataCtrl_SocialDataCtrl_h_
 
 #include <SocialCtrl/SocialCtrl.h>
 
-#define LAYOUTFILE <SongDataCtrl/SongDataCtrl.lay>
+#define LAYOUTFILE <SocialDataCtrl/SocialDataCtrl.lay>
 #include <CtrlCore/lay.h>
 
 #include "Loader.h"

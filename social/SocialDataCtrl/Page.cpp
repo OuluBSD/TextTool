@@ -1,157 +1,157 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 
-SongDataPage::SongDataPage() {
+SocialDataPage::SocialDataPage() {
 	Add(hsplit.HSizePos().VSizePos(0,30));
 	Add(prog.HSizePos().BottomPos(0,30));
 	
 	prog.Set(0,1);
 	
-	hsplit.Horz() << vsplit << lyrics << analysis;
+	hsplit.Horz() << vsplit << story << analysis;
 	hsplit.SetPos(2500);
 	
-	vsplit.Vert() << datasets << artists << songs;// << active_songs;
+	vsplit.Vert() << datasets << companies << programs;// << active_programs;
 	
 	datasets.AddColumn(t_("Dataset"));
 	datasets.WhenCursor << THISBACK(DataDataset);
 	
-	artists.AddColumn(t_("Artist"));
-	artists.WhenCursor << THISBACK(DataArtist);
+	companies.AddColumn(t_("Company"));
+	companies.WhenCursor << THISBACK(DataCompany);
 	
-	songs.AddColumn(t_("Song"));
-	songs.WhenCursor << THISBACK(DataSong);
-	/*songs.WhenBar << [this](Bar& bar) {
-		bar.Add(t_("Add song to active list"), THISBACK(AddSongToActiveList));
+	programs.AddColumn(t_("Program"));
+	programs.WhenCursor << THISBACK(DataProgram);
+	/*programs.WhenBar << [this](Bar& bar) {
+		bar.Add(t_("Add program to active list"), THISBACK(AddProgramToActiveList));
 	};*/
 	
-	/*active_songs.AddColumn(t_("Song"));
-	active_songs.WhenCursor << THISBACK(DataActiveSong);
-	active_songs.WhenBar << [this](Bar& bar) {
-		bar.Add(t_("Remove song from active list"), THISBACK(RemoveSongFromActiveList));
+	/*active_programs.AddColumn(t_("Program"));
+	active_programs.WhenCursor << THISBACK(DataActiveProgram);
+	active_programs.WhenBar << [this](Bar& bar) {
+		bar.Add(t_("Remove program from active list"), THISBACK(RemoveProgramFromActiveList));
 	};*/
 	
 	
 }
 
-void SongDataPage::EnableAll() {
+void SocialDataPage::EnableAll() {
 	disabled = false;
 	datasets.Enable();
-	artists.Enable();
-	songs.Enable();
-	//active_songs.Enable();
+	companies.Enable();
+	programs.Enable();
+	//active_programs.Enable();
 	analysis.Enable();
 }
 
-void SongDataPage::DisableAll() {
+void SocialDataPage::DisableAll() {
 	disabled = true;
 	datasets.Disable();
-	artists.Disable();
-	songs.Disable();
-	//active_songs.Disable();
+	companies.Disable();
+	programs.Disable();
+	//active_programs.Disable();
 	analysis.Disable();
 }
 
-void SongDataPage::ToolMenu(Bar& bar) {
-	//bar.Add(t_("Add 10 random songs to list"), AppImg::BlueRing(), THISBACK1(AddRandomSongsToList, 10)).Key(K_CTRL_Q);
-	//bar.Add(t_("Remove song from list"), AppImg::BlueRing(), THISBACK(RemoveSongFromActiveList)).Key(K_CTRL_W);
+void SocialDataPage::ToolMenu(Bar& bar) {
+	//bar.Add(t_("Add 10 random programs to list"), AppImg::BlueRing(), THISBACK1(AddRandomProgramsToList, 10)).Key(K_CTRL_Q);
+	//bar.Add(t_("Remove program from list"), AppImg::BlueRing(), THISBACK(RemoveProgramFromActiveList)).Key(K_CTRL_W);
 	//bar.Separator();
 	//bar.Add(t_("Hotfix text"), AppImg::RedRing(), THISBACK(StartHotfixText)).Key(K_F5);
-	bar.Add(t_("Import lyrics"), AppImg::RedRing(), THISBACK(ImportLyrics)).Key(K_F5);
+	bar.Add(t_("Import story"), AppImg::RedRing(), THISBACK(ImportStory)).Key(K_F5);
 }
 
-/*void SongDataPage::AddRandomSongsToList(int count) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+/*void SocialDataPage::AddRandomProgramsToList(int count) {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
-	if (!datasets.IsCursor() || !artists.IsCursor() || !songs.IsCursor()) return;
+	if (!datasets.IsCursor() || !companies.IsCursor() || !programs.IsCursor()) return;
 	int cur = datasets.GetCursor();
-	int acur = artists.GetCursor();
-	const auto& data = db.song_data[cur];
-	const auto& artist = data[acur];
-	if (artist.lyrics.IsEmpty()) return;
+	int acur = companies.GetCursor();
+	const auto& data = db.program_data[cur];
+	const auto& company = data[acur];
+	if (company.story.IsEmpty()) return;
 	
 	String ds_key = sd.GetKey(cur);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 	
-	auto& songs = artist.lyrics;// ds.artists.GetAdd(artist.name).songs;
+	auto& programs = company.story;// ds.companies.GetAdd(company.name).programs;
 	
 	for(int i = 0; i < count; i++) {
 		for (int tries = 0; tries < 1000; tries++) {
-			int scur = Random(artist.lyrics.GetCount());
-			const auto& song = artist.lyrics[scur];
+			int scur = Random(company.stories.GetCount());
+			const auto& program = company.stories[scur];
 			int k = -1;
-			for(int j = 0; j < songs.GetCount(); j++) {
-				if (songs[j].name == song.name) {
+			for(int j = 0; j < programs.GetCount(); j++) {
+				if (programs[j].name == program.name) {
 					k = j;
 					break;
 				}
 			}
 			if (k >= 0)
 				continue;
-			songs.Add().name = song.name;
+			programs.Add().name = program.name;
 			break;
 		}
 	}
 	
-	PostCallback(THISBACK(DataArtistActiveSongs));
-	PostCallback(THISBACK(DataActiveSong));
+	PostCallback(THISBACK(DataCompanyActivePrograms));
+	PostCallback(THISBACK(DataActiveProgram));
 }*/
 
-/*void SongDataPage::AddSongToActiveList() {
+/*void SocialDataPage::AddProgramToActiveList() {
 	TODO
 	#if 0
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
-	if (!datasets.IsCursor() || !artists.IsCursor() || !songs.IsCursor()) return;
+	if (!datasets.IsCursor() || !companies.IsCursor() || !programs.IsCursor()) return;
 	int cur = datasets.GetCursor();
-	int acur = artists.GetCursor();
-	int scur = songs.GetCursor();
-	const auto& data = db.song_data[cur];
-	const auto& artist = data[acur];
-	const auto& song = artist.lyrics[scur];
+	int acur = companies.GetCursor();
+	int scur = programs.GetCursor();
+	const auto& data = db.program_data[cur];
+	const auto& company = data[acur];
+	const auto& program = company.stories[scur];
 	
 	String ds_key = sd.GetKey(cur);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
-	auto& v = ds.artists.GetAdd(artist.name).songs;
+	auto& v = ds.companies.GetAdd(company.name).programs;
 	int j = -1;
-	for(int i = 0; i < v.GetCount(); i++) if (v[i].name == song.name) {j = i; break;}
+	for(int i = 0; i < v.GetCount(); i++) if (v[i].name == program.name) {j = i; break;}
 	if (j < 0)
-		v.Add().name = song.name;
+		v.Add().name = program.name;
 	
-	PostCallback(THISBACK(DataArtistActiveSongs));
-	PostCallback(THISBACK(DataActiveSong));
+	PostCallback(THISBACK(DataCompanyActivePrograms));
+	PostCallback(THISBACK(DataActiveProgram));
 	#endif
 }*/
 
-/*void SongDataPage::RemoveSongFromActiveList() {
+/*void SocialDataPage::RemoveProgramFromActiveList() {
 	TODO
 	#if 0
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
-	if (!datasets.IsCursor() || !artists.IsCursor() || !active_songs.IsCursor()) return;
+	if (!datasets.IsCursor() || !companies.IsCursor() || !active_programs.IsCursor()) return;
 	int cur = datasets.GetCursor();
-	int acur = artists.GetCursor();
-	int scur = active_songs.GetCursor();
-	const auto& data = db.song_data[cur];
-	const auto& artist = data[acur];
+	int acur = companies.GetCursor();
+	int scur = active_programs.GetCursor();
+	const auto& data = db.program_data[cur];
+	const auto& company = data[acur];
 	
 	String ds_key = sd.GetKey(cur);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 	
-	ds.artists.GetAdd(artist.name).songs.Remove(scur);
+	ds.companies.GetAdd(company.name).programs.Remove(scur);
 	
-	PostCallback(THISBACK(DataArtistActiveSongs));
-	PostCallback(THISBACK(DataActiveSong));
+	PostCallback(THISBACK(DataCompanyActivePrograms));
+	PostCallback(THISBACK(DataActiveProgram));
 	#endif
 }*/
 
-void SongDataPage::Data() {
-	Database& db = Database::Single();
+void SocialDataPage::Data() {
+	SocialDatabase& db = SocialDatabase::Single();
 	
 	datasets.Set(0, 0, "English");
 	datasets.Set(1, 0, "Finnish");
@@ -162,136 +162,136 @@ void SongDataPage::Data() {
 	DataDataset();
 }
 
-void SongDataPage::DataDataset() {
-	Database& db = Database::Single();
+void SocialDataPage::DataDataset() {
+	SocialDatabase& db = SocialDatabase::Single();
 	
 	if (!datasets.IsCursor()) return;
 	int cur = datasets.GetCursor();
-	const auto& data = db.song_data[cur];
+	const auto& data = db.program_data[cur];
 	
-	artists.SetCount(data.GetCount());
+	companies.SetCount(data.GetCount());
 	for(int i = 0; i < data.GetCount(); i++) {
 		String s = data[i].name;
 		if (GetDefaultCharset() != CHARSET_UTF8)
 			s = ToCharset(CHARSET_DEFAULT, s, CHARSET_UTF8);
 		
-		artists.Set(i, 0, s);
+		companies.Set(i, 0, s);
 	}
 	
-	if (!artists.IsCursor() && artists.GetCount())
-		artists.SetCursor(0);
+	if (!companies.IsCursor() && companies.GetCount())
+		companies.SetCursor(0);
 	
-	DataArtist();
+	DataCompany();
 }
 
-void SongDataPage::DataArtist() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
+void SocialDataPage::DataCompany() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
 	
-	if (!datasets.IsCursor() || !artists.IsCursor()) return;
+	if (!datasets.IsCursor() || !companies.IsCursor()) return;
 	int cur = datasets.GetCursor();
-	int acur = artists.GetCursor();
-	const auto& data = db.song_data[cur];
-	const auto& artist = data[acur];
+	int acur = companies.GetCursor();
+	const auto& data = db.program_data[cur];
+	const auto& company = data[acur];
 	
-	songs.SetCount(artist.lyrics.GetCount());
-	for(int i = 0; i < artist.lyrics.GetCount(); i++) {
-		String s = artist.lyrics[i].name;
+	programs.SetCount(company.stories.GetCount());
+	for(int i = 0; i < company.stories.GetCount(); i++) {
+		String s = company.stories[i].name;
 		if (GetDefaultCharset() != CHARSET_UTF8)
 			s = ToCharset(CHARSET_DEFAULT, s, CHARSET_UTF8);
 		
-		songs.Set(i, 0, s);
+		programs.Set(i, 0, s);
 	}
 	
-	if (!songs.IsCursor() && songs.GetCount())
-		songs.SetCursor(0);
+	if (!programs.IsCursor() && programs.GetCount())
+		programs.SetCursor(0);
 	
-	//DataArtistActiveSongs();
-	DataSong();
+	//DataCompanyActivePrograms();
+	DataProgram();
 }
 
 #if 0
-void SongDataPage::DataArtistActiveSongs() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void SocialDataPage::DataCompanyActivePrograms() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
-	if (!datasets.IsCursor() || !artists.IsCursor()) return;
+	if (!datasets.IsCursor() || !companies.IsCursor()) return;
 	int cur = datasets.GetCursor();
-	int acur = artists.GetCursor();
-	const auto& data = db.song_data[cur];
-	const auto& artist = data[acur];
+	int acur = companies.GetCursor();
+	const auto& data = db.program_data[cur];
+	const auto& company = data[acur];
 	
 	String ds_key = sd.GetKey(cur);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 	
-	/*int i = ds.artists.Find(artist.name);
+	/*int i = ds.companies.Find(company.name);
 	if (i < 0) {
-		active_songs.Clear();
+		active_programs.Clear();
 	}
 	else {*/
-	//const auto& songs = ds.artists[i].songs;
-	const auto& songs = artist.lyrics;
-	active_songs.SetCount(songs.GetCount());
-	for(int i = 0; i < songs.GetCount(); i++) {
-		active_songs.Set(i, 0, songs[i].name);
+	//const auto& programs = ds.companies[i].programs;
+	const auto& programs = company.story;
+	active_programs.SetCount(programs.GetCount());
+	for(int i = 0; i < programs.GetCount(); i++) {
+		active_programs.Set(i, 0, programs[i].name);
 	}
 	//}
 }
 #endif
 
-void SongDataPage::DataSong() {
-	Database& db = Database::Single();
+void SocialDataPage::DataProgram() {
+	SocialDatabase& db = SocialDatabase::Single();
 	
-	if (!datasets.IsCursor() || !artists.IsCursor() || !songs.IsCursor()) return;
+	if (!datasets.IsCursor() || !companies.IsCursor() || !programs.IsCursor()) return;
 	int cur = datasets.GetCursor();
-	int acur = artists.GetCursor();
-	int scur = songs.GetCursor();
-	const auto& data = db.song_data[cur];
-	const auto& artist = data[acur];
-	const auto& song = artist.lyrics[scur];
+	int acur = companies.GetCursor();
+	int scur = programs.GetCursor();
+	const auto& data = db.program_data[cur];
+	const auto& company = data[acur];
+	const auto& program = company.stories[scur];
 	
-	String s = song.text;
+	String s = program.text;
 	if (GetDefaultCharset() != CHARSET_UTF8)
 		s = ToCharset(CHARSET_DEFAULT, s, CHARSET_UTF8);
-	lyrics.SetData(s);
+	story.SetData(s);
 	analysis.Clear();
 }
 
 #if 0
-void SongDataPage::DataActiveSong() {
+void SocialDataPage::DataActiveProgram() {
 	TODO
 	#if 0
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
-	if (!datasets.IsCursor() || !artists.IsCursor() || !active_songs.IsCursor()) return;
+	if (!datasets.IsCursor() || !companies.IsCursor() || !active_programs.IsCursor()) return;
 	int cur = datasets.GetCursor();
-	int acur = artists.GetCursor();
-	int scur = active_songs.GetCursor();
-	const auto& data = db.song_data[cur];
-	const auto& artist = data[acur];
+	int acur = companies.GetCursor();
+	int scur = active_programs.GetCursor();
+	const auto& data = db.program_data[cur];
+	const auto& company = data[acur];
 	
 	String ds_key = sd.GetKey(cur);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 	
-	lyrics.Clear();
+	story.Clear();
 	analysis.Clear();
 	
-	int i = ds.artists.Find(artist.name);
+	int i = ds.companies.Find(company.name);
 	if (i < 0)
 		return;
 	
-	const LyricsAnalysis& la = ds.artists[i].songs[scur];
-	String song_name = la.name;
-	for(int i = 0; i < artist.lyrics.GetCount(); i++) {
-		const LyricsDataset& song = artist.lyrics[i];
-		if (song.name == song_name) {
-			String s = song.text;
+	const StoryAnalysis& la = ds.companies[i].programs[scur];
+	String program_name = la.name;
+	for(int i = 0; i < company.stories.GetCount(); i++) {
+		const StoryDataset& program = company.stories[i];
+		if (program.name == program_name) {
+			String s = program.text;
 			if (GetDefaultCharset() != CHARSET_UTF8)
 				s = ToCharset(CHARSET_DEFAULT, s, CHARSET_UTF8);
-			lyrics.SetData(s);
+			story.SetData(s);
 			
 			s = la.AsString();
 			if (GetDefaultCharset() != CHARSET_UTF8)
@@ -302,29 +302,29 @@ void SongDataPage::DataActiveSong() {
 	#endif
 }
 
-void SongDataPage::HotfixText() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void SocialDataPage::HotfixText() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	int total = 0;
 	for(int i = 0; i < sd.GetCount(); i++) {
-		Vector<ArtistDataset>& artists = sd[i];
-		for(int j = 0; j < artists.GetCount(); j++) {
-			ArtistDataset& artist = artists[j];
-			total += artist.lyrics.GetCount();
+		Vector<CompanyDataset>& companies = sd[i];
+		for(int j = 0; j < companies.GetCount(); j++) {
+			CompanyDataset& company = companies[j];
+			total += company.stories.GetCount();
 		}
 	}
 	
 	int actual = 0;
 	for(int i = 0; i < sd.GetCount(); i++) {
-		Vector<ArtistDataset>& artists = sd[i];
-		for(int j = 0; j < artists.GetCount(); j++) {
-			ArtistDataset& artist = artists[j];
-			for(int k = 0; k < artist.lyrics.GetCount(); k++) {
-				LyricsDataset& song = artist.lyrics[k];
+		Vector<CompanyDataset>& companies = sd[i];
+		for(int j = 0; j < companies.GetCount(); j++) {
+			CompanyDataset& company = companies[j];
+			for(int k = 0; k < company.stories.GetCount(); k++) {
+				StoryDataset& program = company.stories[k];
 				
-				HotfixReplaceWord(song.text);
+				HotfixReplaceWord(program.text);
 				
 				if (actual++ % 100 == 0)
 					PostProgress(actual, total);
@@ -337,10 +337,10 @@ void SongDataPage::HotfixText() {
 
 #endif
 
-void SongDataPage::ImportLyrics() {
+void SocialDataPage::ImportStory() {
 	if (!datasets.IsCursor())
 		return;
 	int ds_i = datasets.GetCursor();
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	tm.DoSongs(ds_i, 0);
+	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
+	tm.DoPrograms(ds_i, 0);
 }

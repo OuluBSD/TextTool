@@ -1,10 +1,10 @@
-#ifndef _SongDataCtrl_SongDataWordnetScoring_h_
-#define _SongDataCtrl_SongDataWordnetScoring_h_
+#ifndef _SocialDataCtrl_ProgramDataWordnetScoring_h_
+#define _SocialDataCtrl_ProgramDataWordnetScoring_h_
 
 
 #if 0
 
-class SongDataWordnetScoring : public ToolAppCtrl {
+class ProgramDataWordnetScoring : public ToolAppCtrl {
 	Splitter vsplit, hsplit, vsplit1;
 	ArrayCtrl datasets, attrs, colors, wordnets, clr_wordnets;
 	Mutex lock;
@@ -17,8 +17,8 @@ class SongDataWordnetScoring : public ToolAppCtrl {
 	int per_batch = 40;
 	bool batch = false;
 public:
-	typedef SongDataWordnetScoring CLASSNAME;
-	SongDataWordnetScoring();
+	typedef ProgramDataWordnetScoring CLASSNAME;
+	ProgramDataWordnetScoring();
 	
 	void EnableAll();
 	void DisableAll();

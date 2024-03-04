@@ -1,8 +1,8 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 #if 0
 
-SongDataAnalysisPage::SongDataAnalysisPage() {
+ProgramDataAnalysisPage::ProgramDataAnalysisPage() {
 	Add(hsplit.HSizePos().VSizePos(0,30));
 	Add(prog.HSizePos().BottomPos(0,30));
 	hsplit.Horz() << list << analysis;
@@ -10,7 +10,7 @@ SongDataAnalysisPage::SongDataAnalysisPage() {
 	
 	list.AddColumn(t_("#"));
 	list.AddColumn(t_("Task"));
-	list.AddColumn(t_("Song"));
+	list.AddColumn(t_("Program"));
 	list.AddColumn(t_("Txt-length"));
 	list.AddColumn(t_("Ready"));
 	list.ColumnWidths("1 2 3 1 1");
@@ -19,19 +19,19 @@ SongDataAnalysisPage::SongDataAnalysisPage() {
 	prog.Set(0, 1);
 }
 
-void SongDataAnalysisPage::DisableAll() {
+void ProgramDataAnalysisPage::DisableAll() {
 	disabled = true;
 	list.Disable();
 	analysis.Disable();
 }
 
-void SongDataAnalysisPage::EnableAll() {
+void ProgramDataAnalysisPage::EnableAll() {
 	disabled = false;
 	list.Enable();
 	analysis.Enable();
 }
 
-void SongDataAnalysisPage::ToolMenu(Bar& bar) {
+void ProgramDataAnalysisPage::ToolMenu(Bar& bar) {
 	//bar.Add(t_("Get rhymes"), AppImg::BlueRing(), THISBACK2(GetRhymes, -1, false)).Key(K_CTRL_Q);
 	bar.Add(t_("Get words"), AppImg::BlueRing(), THISBACK2(GetWords, -1, false)).Key(K_CTRL_W);
 	bar.Add(t_("Get attribute distributions"), AppImg::BlueRing(), THISBACK2(GetAttributeDistributions, -1, false)).Key(K_CTRL_E);
@@ -46,7 +46,7 @@ void SongDataAnalysisPage::ToolMenu(Bar& bar) {
 	
 }
 
-void SongDataAnalysisPage::StartBatch() {
+void ProgramDataAnalysisPage::StartBatch() {
 	if (disabled)
 		return;
 	batch = true;
@@ -55,7 +55,7 @@ void SongDataAnalysisPage::StartBatch() {
 
 #if 0
 
-void SongDataAnalysisPage::GetRhymes(int list_i, bool start_next) {
+void ProgramDataAnalysisPage::GetRhymes(int list_i, bool start_next) {
 	if (disabled)
 		return;
 	if (list_i < 0) {
@@ -82,24 +82,24 @@ void SongDataAnalysisPage::GetRhymes(int list_i, bool start_next) {
 	
 	PostCallback(THISBACK(DisableAll));
 	
-	Song& song = GetSong();
+	Program& program = GetProgram();
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	args.fn = 0;
-	args.artist = t.artist;
-	args.song = t.song;
+	args.company = t.company;
+	args.program = t.program;
 	args.text = t.text;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSongDataAnalysis(args, THISBACK2(OnRhymes, list_i, start_next));
+	m.GetProgramDataAnalysis(args, THISBACK2(OnRhymes, list_i, start_next));
 }
 
-void SongDataAnalysisPage::OnRhymes(String res, int list_i, bool start_next) {
+void ProgramDataAnalysisPage::OnRhymes(String res, int list_i, bool start_next) {
 	PostCallback(THISBACK(EnableAll));
 	
 	Task& t = tasks[list_i];
-	LyricsDataset& ld = *t.ld;
-	LyricsAnalysis& anal = *t.analysis;
+	StoryDataset& ld = *t.ld;
+	StoryAnalysis& anal = *t.analysis;
 	
 	anal.rhymes.Clear();
 	res.Replace("\r", "");
@@ -139,7 +139,7 @@ void SongDataAnalysisPage::OnRhymes(String res, int list_i, bool start_next) {
 
 #endif
 
-void SongDataAnalysisPage::GetWords(int list_i, bool start_next) {
+void ProgramDataAnalysisPage::GetWords(int list_i, bool start_next) {
 	if (disabled || Thread::IsShutdownThreads())
 		return;
 	bool forced = false;
@@ -168,27 +168,27 @@ void SongDataAnalysisPage::GetWords(int list_i, bool start_next) {
 	
 	PostCallback(THISBACK(DisableAll));
 	
-	Song& song = GetSong();
+	Program& program = GetProgram();
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	args.fn = 1;
-	args.artist = t.artist;
-	args.song = t.song;
+	args.company = t.company;
+	args.program = t.program;
 	args.text = t.text;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSongDataAnalysis(args, THISBACK2(OnWords, list_i, start_next));
+	m.GetProgramDataAnalysis(args, THISBACK2(OnWords, list_i, start_next));
 }
 
-void SongDataAnalysisPage::OnWords(String res, int list_i, bool start_next) {
+void ProgramDataAnalysisPage::OnWords(String res, int list_i, bool start_next) {
 	PostCallback(THISBACK(EnableAll));
 	
 	if (Thread::IsShutdownThreads())
 		return;
 	
 	Task& t = tasks[list_i];
-	LyricsDataset& ld = *t.ld;
-	LyricsAnalysis& anal = *t.analysis;
+	StoryDataset& ld = *t.ld;
+	StoryAnalysis& anal = *t.analysis;
 	
 	anal.phrases.Clear();
 	res.Replace("\r", "");
@@ -257,7 +257,7 @@ void SongDataAnalysisPage::OnWords(String res, int list_i, bool start_next) {
 	}
 }
 
-void SongDataAnalysisPage::GetAttributeDistributions(int list_i, bool start_next) {
+void ProgramDataAnalysisPage::GetAttributeDistributions(int list_i, bool start_next) {
 	if (disabled || Thread::IsShutdownThreads())
 		return;
 	bool forced = false;
@@ -287,27 +287,27 @@ void SongDataAnalysisPage::GetAttributeDistributions(int list_i, bool start_next
 	
 	PostCallback(THISBACK(DisableAll));
 	
-	Song& song = GetSong();
+	Program& program = GetProgram();
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	args.fn = 2;
-	args.artist = t.artist;
-	args.song = t.song;
+	args.company = t.company;
+	args.program = t.program;
 	args.text = t.text;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSongDataAnalysis(args, THISBACK2(OnRoleDistributions, list_i, start_next));
+	m.GetProgramDataAnalysis(args, THISBACK2(OnRoleDistributions, list_i, start_next));
 }
 
-void SongDataAnalysisPage::OnRoleDistributions(String res, int list_i, bool start_next) {
+void ProgramDataAnalysisPage::OnRoleDistributions(String res, int list_i, bool start_next) {
 	PostCallback(THISBACK(EnableAll));
 	
 	if (Thread::IsShutdownThreads())
 		return;
 	
 	Task& t = tasks[list_i];
-	LyricsDataset& ld = *t.ld;
-	LyricsAnalysis& anal = *t.analysis;
+	StoryDataset& ld = *t.ld;
+	StoryAnalysis& anal = *t.analysis;
 	
 	anal.positive_roles.Clear();
 	anal.negative_roles.Clear();
@@ -383,7 +383,7 @@ void SongDataAnalysisPage::OnRoleDistributions(String res, int list_i, bool star
 
 #if 0
 
-void SongDataAnalysisPage::GetRhymeLocations(int list_i, bool start_next) {
+void ProgramDataAnalysisPage::GetRhymeLocations(int list_i, bool start_next) {
 	if (disabled)
 		return;
 	if (list_i < 0) {
@@ -412,24 +412,24 @@ void SongDataAnalysisPage::GetRhymeLocations(int list_i, bool start_next) {
 	
 	PostCallback(THISBACK(DisableAll));
 	
-	Song& song = GetSong();
+	Program& program = GetProgram();
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	args.fn = 3;
-	args.artist = t.artist;
-	args.song = t.song;
+	args.company = t.company;
+	args.program = t.program;
 	args.text = t.text;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSongDataAnalysis(args, THISBACK2(OnRhymeLocations, list_i, start_next));
+	m.GetProgramDataAnalysis(args, THISBACK2(OnRhymeLocations, list_i, start_next));
 }
 
-void SongDataAnalysisPage::OnRhymeLocations(String res, int list_i, bool start_next) {
+void ProgramDataAnalysisPage::OnRhymeLocations(String res, int list_i, bool start_next) {
 	PostCallback(THISBACK(EnableAll));
 	
 	Task& t = tasks[list_i];
-	LyricsDataset& ld = *t.ld;
-	LyricsAnalysis& anal = *t.analysis;
+	StoryDataset& ld = *t.ld;
+	StoryAnalysis& anal = *t.analysis;
 	
 	anal.rhyme_locations.Clear();
 	
@@ -448,7 +448,7 @@ void SongDataAnalysisPage::OnRhymeLocations(String res, int list_i, bool start_n
 		//DUMPC(rhyming);
 		
 		if (words.GetCount()) {
-			LyricsAnalysis::RhymeLocationLine& l = anal.rhyme_locations.Add();
+			StoryAnalysis::RhymeLocationLine& l = anal.rhyme_locations.Add();
 			l.words <<= words;
 			l.rhyming <<= rhyming;
 		}
@@ -465,7 +465,7 @@ void SongDataAnalysisPage::OnRhymeLocations(String res, int list_i, bool start_n
 
 #endif
 
-void SongDataAnalysisPage::Data() {
+void ProgramDataAnalysisPage::Data() {
 	if (tasks.GetCount() == 0)
 		UpdateTasks();
 	
@@ -473,15 +473,15 @@ void SongDataAnalysisPage::Data() {
 	for(int i = 0; i < tasks.GetCount(); i++) {
 		Task& t = tasks[i];
 		list.Set(i, 0, i);
-		list.Set(i, 1, t.artist);
-		list.Set(i, 2, t.song);
+		list.Set(i, 1, t.company);
+		list.Set(i, 2, t.program);
 		list.Set(i, 3, t.text.GetCount());
 	}
 	
 	DataTask();
 }
 
-void SongDataAnalysisPage::DataTask() {
+void ProgramDataAnalysisPage::DataTask() {
 	analysis.Clear();
 	
 	if (!list.IsCursor()) {
@@ -497,10 +497,10 @@ void SongDataAnalysisPage::DataTask() {
 	}
 }
 
-void SongDataAnalysisPage::UpdateTasks() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataAnalysisPage::UpdateTasks() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	tasks.Clear();
 	
@@ -508,38 +508,38 @@ void SongDataAnalysisPage::UpdateTasks() {
 		String ds_key = sd.GetKey(ds_i);
 		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 		
-		for(int i = 0; i < ds.artists.GetCount(); i++) {
-			String artist_name = ds.artists.GetKey(i);
-			auto& v = ds.artists[i].songs;
+		for(int i = 0; i < ds.companies.GetCount(); i++) {
+			String company_name = ds.companies.GetKey(i);
+			auto& v = ds.companies[i].programs;
 			for(int j = 0; j < v.GetCount(); j++) {
-				LyricsAnalysis& song = v[j];
+				StoryAnalysis& program = v[j];
 				bool found = false;
 				
-				if (!found) for(ArtistDataset& ad : sd.artists_en) {
-					if (ad.name != artist_name) continue;
-					for (LyricsDataset& ld : ad.lyrics) {
-						if (ld.name != song.name) continue;
+				if (!found) for(CompanyDataset& ad : sd.companies_en) {
+					if (ad.name != company_name) continue;
+					for (StoryDataset& ld : ad.story) {
+						if (ld.name != program.name) continue;
 						if (ld.text.GetCount() > txt_limit) continue;
 						Task& t = tasks.Add();
 						t.ld = &ld;
-						t.analysis = &song;
-						t.artist = ad.name;
-						t.song = ld.name;
+						t.analysis = &program;
+						t.company = ad.name;
+						t.program = ld.name;
 						t.text = ld.text;
 						found = true;
 					}
 				}
 				
-				if (!found) for(ArtistDataset& ad : sd.artists_fi) {
-					if (ad.name != artist_name) continue;
-					for (LyricsDataset& ld : ad.lyrics) {
-						if (ld.name != song.name) continue;
+				if (!found) for(CompanyDataset& ad : sd.companies_fi) {
+					if (ad.name != company_name) continue;
+					for (StoryDataset& ld : ad.story) {
+						if (ld.name != program.name) continue;
 						if (ld.text.GetCount() > txt_limit) continue;
 						Task& t = tasks.Add();
 						t.ld = &ld;
-						t.analysis = &song;
-						t.artist = ad.name;
-						t.song = ld.name;
+						t.analysis = &program;
+						t.company = ad.name;
+						t.program = ld.name;
 						t.text = ld.text;
 						found = true;
 					}

@@ -19,7 +19,7 @@ void CalMgrCtrl::Data() {
 
 void CalMgrCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Import automatically"), AppImg::import_(), THISBACK(ImportAutomatically))
-	   .Help(t_("Import calendar events automatically from artist's catalogue"))
+	   .Help(t_("Import calendar events automatically from company's catalogue"))
 	   .Key(K_F5);
 }
 
@@ -40,14 +40,14 @@ void CalMgrCtrl::ImportAutomatically() {
 
 
 
-ArtistCalendarCtrl::ArtistCalendarCtrl() {
+CompanyCalendarCtrl::CompanyCalendarCtrl() {
 	bg = Color(255, 241, 241);
 	scroll_date = GetSysTime();
 	cursor_date = scroll_date;
 	SetScroll(scroll_date);
 }
 
-void ArtistCalendarCtrl::Paint(Draw& d) {
+void CompanyCalendarCtrl::Paint(Draw& d) {
 	Size sz = GetSize();
 	Date today = GetSysTime();
 	
@@ -96,7 +96,7 @@ void ArtistCalendarCtrl::Paint(Draw& d) {
 	}
 }
 
-void ArtistCalendarCtrl::SetScroll(Date d) {
+void CompanyCalendarCtrl::SetScroll(Date d) {
 	Date cur = d;
 	cur.day = 1;
 	month_offset = DayOfWeek(cur);

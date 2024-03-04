@@ -1,16 +1,16 @@
-#ifndef _SongDataCtrl_SongDataLoader_h_
-#define _SongDataCtrl_SongDataLoader_h_
+#ifndef _SocialDataCtrl_SocialDataLoader_h_
+#define _SocialDataCtrl_SocialDataLoader_h_
 
 
-class SongDataLoader : public WithSongDataLoader<TopWindow> {
+class SocialDataLoader : public WithSocialDataLoader<TopWindow> {
 	
 	
-	void LoadHuggingArtists();
+	void LoadHuggingCompanys();
 	void LoadHuggingFinn();
 	
 public:
-	typedef SongDataLoader CLASSNAME;
-	SongDataLoader();
+	typedef SocialDataLoader CLASSNAME;
+	SocialDataLoader();
 	
 	void Process();
 	void Start() {Thread::Start(THISBACK(Process));}

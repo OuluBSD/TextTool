@@ -181,6 +181,8 @@ struct DataFile {
 };
 
 
+struct TaskMgr;
+
 struct Artist;
 struct Release;
 struct Song;
@@ -188,12 +190,14 @@ struct Typecast;
 struct Archetype;
 struct Lyrics;
 struct StaticPart;
-struct TaskMgr;
+
 struct Company;
 struct Campaign;
 struct Story;
 struct Role;
 struct Generic;
+struct Program;
+struct StoryPart;
 
 
 
@@ -205,11 +209,14 @@ struct EditorPtrs {
 	Archetype*		archetype = 0;
 	Lyrics*			lyrics = 0;
 	StaticPart*		part = 0;
+	
 	Company*		company = 0;
 	Campaign*		campaign = 0;
+	Program*		program = 0;
 	Story*			story = 0;
 	Role*			role = 0;
 	Generic*		generic = 0;
+	StoryPart*		story_part = 0;
 	
 	void Zero() {memset(this, 0, sizeof(EditorPtrs));}
 	
@@ -222,6 +229,14 @@ struct EditorPtrs {
 	int GetActiveArtistIndex() const;
 	int GetActiveReleaseIndex() const;
 	int GetActiveSongIndex() const;
+	
+	int GetActiveRoleIndex() const;
+	int GetActiveGenericIndex() const;
+	int GetActiveStoryIndex() const;
+	
+	int GetActiveCompanyIndex() const;
+	int GetActiveCampaignIndex() const;
+	int GetActiveProgramIndex() const;
 	
 	//void RealizePipe();
 	
@@ -408,6 +423,8 @@ Vector<String> GetStructureParts(String s);
 String ToMinSec(double sec);
 String GetSongPartFromAbbr(const String& abbr);
 Color GetSongPartPaperColor(const String& abbr);
+String GetProgramPartFromAbbr(const String& abbr);
+Color GetProgramPartPaperColor(const String& abbr);
 int GetSongPartPriority(const String& abbr);
 
 template <class T> void CheckSerialisationData(const String& json) {}
@@ -940,7 +957,27 @@ VectorMap<String,Vector<String>>& GetTypecastRappersFemale();
 VectorMap<String,Vector<String>>& GetTypecastSingers(bool gender);
 VectorMap<String,Vector<String>>& GetTypecastRappers(bool gender);
 VectorMap<String,Vector<String>>& GetTypecastArtists(bool rapper, bool gender);
+VectorMap<String,Vector<String>>& GetRoleCompanys(bool unsafe, bool gender);
 
+
+const Index<String>& GetRoles();
+
+struct GenericType : Moveable<GenericType> {
+	static const int PART_COUNT = 3;
+	String key, parts[PART_COUNT];
+	
+	void Set(String k, String p0, String p1, String p2) {
+		key = k;
+		parts[0] = p0;
+		parts[1] = p1;
+		parts[2] = p2;
+	}
+};
+
+const Vector<GenericType>& GetGenerics();
+int GetRoleCount();
+int GetGenericCount();
+const Vector<String>& GetGenericParts();
 
 
 void SetIndexCursor(ArrayCtrl& arr, int cur);

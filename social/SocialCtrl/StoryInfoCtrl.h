@@ -1,21 +1,21 @@
-#ifndef _SocialCtrl_LyricsInfoCtrl_h_
-#define _SocialCtrl_LyricsInfoCtrl_h_
+#ifndef _SocialCtrl_StoryInfoCtrl_h_
+#define _SocialCtrl_StoryInfoCtrl_h_
 
 
-class Editor;
+class SocialEditor;
 
-class LyricsInfoCtrl : public WithLyricsInfo<ToolAppCtrl> {
+class StoryInfoCtrl : public WithStoryInfo<ToolAppCtrl> {
 	
 	
 public:
-	typedef LyricsInfoCtrl CLASSNAME;
-	LyricsInfoCtrl();
+	typedef StoryInfoCtrl CLASSNAME;
+	StoryInfoCtrl();
 	
 	void Data();
 	void Clear();
 	void OnValueChange();
 	
-	Editor* editor = 0;
+	SocialEditor* editor = 0;
 	
 };
 

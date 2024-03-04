@@ -1,14 +1,14 @@
-#ifndef _SocialCtrl_SongPool_h_
-#define _SocialCtrl_SongPool_h_
+#ifndef _SocialCtrl_StoryPool_h_
+#define _SocialCtrl_StoryPool_h_
 
 
-class SongPool : public ToolAppCtrl {
+class StoryPool : public ToolAppCtrl {
 	ArrayCtrl list;
 	ProgressIndicator summary_bar;
 	
 public:
-	typedef SongPool CLASSNAME;
-	SongPool();
+	typedef StoryPool CLASSNAME;
+	StoryPool();
 	
 	void ToolMenu(Bar& bar) override;
 	void Data() override;

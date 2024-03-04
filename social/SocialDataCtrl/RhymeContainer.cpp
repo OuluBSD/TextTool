@@ -1,4 +1,4 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 
 RhymeContainerPage::RhymeContainerPage() {
@@ -86,9 +86,9 @@ void RhymeContainerPage::DisableAll() {
 }
 
 void RhymeContainerPage::Data() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
 		datasets.Set(i, 0, sda.datasets.GetKey(i));
@@ -152,7 +152,7 @@ void RhymeContainerPage::Data() {
 	
 	Index<int> syllable_counts;
 	for(int i = 0; i < da.packed_rhymes.GetCount(); i++) {
-		const PackedRhymeHeader& prh = da.packed_rhymes.GetKey(i);
+		const PackedImpactHeader& prh = da.packed_rhymes.GetKey(i);
 		syllable_counts.FindAdd(prh.syllable_count);
 	}
 	SortIndex(syllable_counts, StdLess<int>());
@@ -171,9 +171,9 @@ void RhymeContainerPage::Data() {
 }
 
 void RhymeContainerPage::DataAction() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	if (!datasets.IsCursor() || !syl_counts.IsCursor() || !colors.IsCursor() ||
 		!attrs.IsCursor() || !actions.IsCursor()) {
@@ -214,9 +214,9 @@ void RhymeContainerPage::ManualData() {
 }
 
 void RhymeContainerPage::MainData() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	if (!datasets.IsCursor() || !syl_counts.IsCursor() || !colors.IsCursor() ||
 		!attrs.IsCursor() || !actions.IsCursor()) {
@@ -258,7 +258,7 @@ void RhymeContainerPage::MainData() {
 	int row = 0;
 	
 	for(int i = 0; i < da.packed_rhymes.GetCount(); i++) {
-		const PackedRhymeHeader& prh = da.packed_rhymes.GetKey(i);
+		const PackedImpactHeader& prh = da.packed_rhymes.GetKey(i);
 		
 		if (syl_filter && prh.syllable_count != syl_value) continue;
 		if (clr_filter && prh.color_group != clr_value) continue;
@@ -323,7 +323,7 @@ void RhymeContainerPage::ToolMenu(Bar& bar) {
 
 void RhymeContainerPage::DoContainer(int fn) {
 	int ds_i = datasets.GetCursor();
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoContainer(ds_i, fn, THISBACK(PostProgress));
 }
 

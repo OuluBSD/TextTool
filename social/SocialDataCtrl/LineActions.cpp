@@ -1,7 +1,7 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 
-SongDataLineActions::SongDataLineActions() {
+ProgramDataLineActions::ProgramDataLineActions() {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << vsplit << vsplit1;
@@ -49,22 +49,22 @@ SongDataLineActions::SongDataLineActions() {
 	
 }
 
-void SongDataLineActions::EnableAll() {
+void ProgramDataLineActions::EnableAll() {
 	
 }
 
-void SongDataLineActions::DisableAll() {
+void ProgramDataLineActions::DisableAll() {
 	
 }
 
-void SongDataLineActions::Data() {
+void ProgramDataLineActions::Data() {
 	
 }
 
-void SongDataLineActions::DataMain() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataLineActions::DataMain() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -77,13 +77,13 @@ void SongDataLineActions::DataMain() {
 	DataDataset();
 }
 	
-void SongDataLineActions::DataDataset() {
+void ProgramDataLineActions::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -113,13 +113,13 @@ void SongDataLineActions::DataDataset() {
 	DataAction();
 }
 
-void SongDataLineActions::DataAction() {
+void ProgramDataLineActions::DataAction() {
 	if (!datasets.IsCursor() || !actions.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -147,13 +147,13 @@ void SongDataLineActions::DataAction() {
 	DataActionHeader();
 }
 
-void SongDataLineActions::DataActionHeader() {
+void ProgramDataLineActions::DataActionHeader() {
 	if (!datasets.IsCursor() || !actions.IsCursor() || !action_args.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -219,15 +219,15 @@ void SongDataLineActions::DataActionHeader() {
 	DataNextLine();
 }
 
-void SongDataLineActions::DataNextLine() {
+void ProgramDataLineActions::DataNextLine() {
 	if (!datasets.IsCursor() || !actions.IsCursor() || !action_args.IsCursor() || !phrases.IsCursor()) {
 		next_lines.Clear();
 		return;
 	}
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	int phrase_i = phrases.Get("IDX");
@@ -259,7 +259,7 @@ void SongDataLineActions::DataNextLine() {
 	
 }
 
-void SongDataLineActions::ToolMenu(Bar& bar) {
+void ProgramDataLineActions::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
 	/*bar.Separator();
 	if (running0)
@@ -276,7 +276,7 @@ void SongDataLineActions::ToolMenu(Bar& bar) {
 	}*/
 }
 
-/*void SongDataLineActions::ToggleGettingLineActions() {
+/*void ProgramDataLineActions::ToggleGettingLineActions() {
 	running0 = !running0;
 	if (running0) {
 		UpdateBatches();
@@ -284,7 +284,7 @@ void SongDataLineActions::ToolMenu(Bar& bar) {
 	}
 }
 
-void SongDataLineActions::ToggleGettingLineChangeScores(int score_mode) {
+void ProgramDataLineActions::ToggleGettingLineChangeScores(int score_mode) {
 	running1 = !running1;
 	if (running1) {
 		Thread::Start(THISBACK2(GetLineChangeScores, 0, score_mode));

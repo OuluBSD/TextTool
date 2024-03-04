@@ -56,7 +56,7 @@ void SocialTool::FastExit() {
 	TopWindow::Close();
 }
 
-void SocialTool::ClearSongLibTasks() {
+void SocialTool::ClearSocialLibTasks() {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.Clear();
 }
@@ -67,11 +67,11 @@ void SocialTool::MainMenu(Bar& bar) {
 		bar.Separator();
 		bar.Add(t_("Set OpenAI token"), THISBACK(SetOpenAIToken));
 		bar.Separator();
-		bar.Add(t_("Save program data analysis"), callback(&SocialDatabase::Single().program_data, &SongData::Store));
+		bar.Add(t_("Save program data analysis"), callback(&SocialDatabase::Single().program_data, &ProgramData::Store));
 		if (!ed.save_programdata)
-			bar.Add(t_("Save program data analysis on exit"), THISBACK1(SetSaveSongdata, 1));
+			bar.Add(t_("Save program data analysis on exit"), THISBACK1(SetSaveProgramData, 1));
 		else
-			bar.Add(t_("Do not save program data analysis on exit"), THISBACK1(SetSaveSongdata, 0));
+			bar.Add(t_("Do not save program data analysis on exit"), THISBACK1(SetSaveProgramData, 0));
 		bar.Separator();
 		bar.Add(t_("Exit"), callback(this, &TopWindow::Close));
 		bar.Add(t_("Fast Exit"), THISBACK(FastExit)).Key(K_CTRL|K_SHIFT|K_Q);
@@ -88,13 +88,11 @@ void SocialTool::MainMenu(Bar& bar) {
 		bar.Add(t_("Move to lower page"), THISBACK1(MovePage, +1)).Key(K_CTRL_2);
 		bar.Add(t_("Move to higher page group"), THISBACK1(MovePageGroup, -1)).Key(K_CTRL_3);
 		bar.Add(t_("Move to lower page group"), THISBACK1(MovePageGroup, +1)).Key(K_CTRL_4);
-		bar.Add(t_("Move to higher part"), THISBACK1(MovePart, -1)).Key(K_SHIFT_1);
-		bar.Add(t_("Move to lower part"), THISBACK1(MovePart, +1)).Key(K_SHIFT_2);
 	});
 	bar.Sub(t_("Tools"), [this](Bar& bar) {
 		bar.Add(t_("Show orphaned files"), THISBACK(ShowOrphanedFiles));
 		//bar.Add(t_("Make Tasks"), THISBACK(MakeTasks));//.Key(K_CTRL_R);
-		bar.Add(t_("Clear SocialLib tasks"), THISBACK(ClearSonglibTasks));
+		bar.Add(t_("Clear SocialLib tasks"), THISBACK(ClearSocialLibTasks));
 	});
 }
 
@@ -173,15 +171,6 @@ void SocialTool::MovePage(int i) {
 		//case 1: cal.MovePage(i); break;
 		case 2: ed.MovePage(i); break;
 		//case 3: ai.MovePage(i); break;
-	}
-}
-
-void SocialTool::MovePart(int i) {
-	switch (page) {
-		//case 0: fp.MovePart(i); break;
-		//case 1: cal.MovePart(i); break;
-		case 2: ed.MovePart(i); break;
-		//case 3: ai.MovePart(i); break;
 	}
 }
 

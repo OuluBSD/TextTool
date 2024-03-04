@@ -1,5 +1,5 @@
-#ifndef _SongDataCtrl_PhrasePartAnalysis_h_
-#define _SongDataCtrl_PhrasePartAnalysis_h_
+#ifndef _SocialDataCtrl_PhrasePartAnalysis_h_
+#define _SocialDataCtrl_PhrasePartAnalysis_h_
 
 
 struct ScoreDisplay : public Display {
@@ -11,6 +11,8 @@ struct ScoreDisplay : public Display {
 class PhrasePartAnalysis : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, attrs, colors, actions, action_args, parts;
+	
+	VectorMap<String, VectorMap<String, int>> uniq_acts;
 	
 public:
 	typedef PhrasePartAnalysis CLASSNAME;

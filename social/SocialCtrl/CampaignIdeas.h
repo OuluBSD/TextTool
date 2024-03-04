@@ -1,17 +1,16 @@
-#ifndef _SongTool_AlbumIdeas_h_
-#define _SongTool_AlbumIdeas_h_
+#ifndef _SocialTool_CampaignIdeas_h_
+#define _SocialTool_CampaignIdeas_h_
 
 
-class AlbumIdeas : public ToolAppCtrl {
+class CampaignIdeas : public ToolAppCtrl {
 	Splitter hsplit;
 	ArrayCtrl list;
-	WithAlbumIdeas<Ctrl> idea;
-	
+	WithCampaignIdeas<Ctrl> idea;
 	
 	
 public:
-	typedef AlbumIdeas CLASSNAME;
-	AlbumIdeas();
+	typedef CampaignIdeas CLASSNAME;
+	CampaignIdeas();
 	
 	void Data();
 	void Clear();

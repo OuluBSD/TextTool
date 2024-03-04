@@ -1,9 +1,9 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 #if 0
 
 
-SongDataTmplActions::SongDataTmplActions() {
+ProgramDataTmplActions::ProgramDataTmplActions() {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << vsplit << vsplit1;
@@ -52,22 +52,22 @@ SongDataTmplActions::SongDataTmplActions() {
 	
 }
 
-void SongDataTmplActions::EnableAll() {
+void ProgramDataTmplActions::EnableAll() {
 	
 }
 
-void SongDataTmplActions::DisableAll() {
+void ProgramDataTmplActions::DisableAll() {
 	
 }
 
-void SongDataTmplActions::Data() {
+void ProgramDataTmplActions::Data() {
 	
 }
 
-void SongDataTmplActions::DataMain() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataTmplActions::DataMain() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -80,7 +80,7 @@ void SongDataTmplActions::DataMain() {
 	DataDataset();
 }
 
-void SongDataTmplActions::DataDataset() {
+void ProgramDataTmplActions::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 	
@@ -115,7 +115,7 @@ void SongDataTmplActions::DataDataset() {
 	DataAttribute();
 }
 
-void SongDataTmplActions::DataAttribute() {
+void ProgramDataTmplActions::DataAttribute() {
 	if (!attrs.IsCursor())
 		return;
 	
@@ -136,13 +136,13 @@ void SongDataTmplActions::DataAttribute() {
 	DataColor();
 }
 
-void SongDataTmplActions::DataColor() {
+void ProgramDataTmplActions::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -196,15 +196,15 @@ void SongDataTmplActions::DataColor() {
 	DataMatches();
 }
 
-void SongDataTmplActions::DataMatches() {
+void ProgramDataTmplActions::DataMatches() {
 	if (!datasets.IsCursor() || !attrs.IsCursor() || !colors.IsCursor() || !phrases.IsCursor()) {
 		matches.Clear();
 		return;
 	}
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	int phrase_i = phrases.Get("IDX");
@@ -250,7 +250,7 @@ void SongDataTmplActions::DataMatches() {
 	matches.SetSortColumn(0, true);
 }
 
-void SongDataTmplActions::ToolMenu(Bar& bar) {
+void ProgramDataTmplActions::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
 	bar.Separator();
 	bar.Add(t_("Update batches"), AppImg::BlueRing(), THISBACK(UpdateBatches)).Key(K_F5);
@@ -262,10 +262,10 @@ void SongDataTmplActions::ToolMenu(Bar& bar) {
 	bar.Separator();
 }
 
-void SongDataTmplActions::UpdateBatches() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataTmplActions::UpdateBatches() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	batches.SetCount(0);
 	batches.Reserve(1000);
@@ -302,13 +302,13 @@ void SongDataTmplActions::UpdateBatches() {
 	}
 }
 
-void SongDataTmplActions::ToggleGettingLineActions() {
+void ProgramDataTmplActions::ToggleGettingLineActions() {
 	running0 = !running0;
 	if (running0) {
 		if (0) {
-			Database& db = Database::Single();
-			SongData& sd = db.song_data;
-			SongDataAnalysis& sda = db.song_data.a;
+			SocialDatabase& db = SocialDatabase::Single();
+			ProgramData& sd = db.program_data;
+			ProgramDataAnalysis& sda = db.program_data.a;
 			for (DatasetAnalysis& da : sda.datasets) {
 				da.action_phrases.Clear();
 			}
@@ -318,7 +318,7 @@ void SongDataTmplActions::ToggleGettingLineActions() {
 	}
 }
 
-void SongDataTmplActions::GetLineActions(int batch_i) {
+void ProgramDataTmplActions::GetLineActions(int batch_i) {
 	if (Thread::IsShutdownThreads())
 		return;
 	if (batches.IsEmpty()) UpdateBatches();
@@ -329,26 +329,26 @@ void SongDataTmplActions::GetLineActions(int batch_i) {
 	Batch& batch = batches[batch_i];
 	tmp_batch_i = batch_i;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	args.fn = 12;
 	args.phrases <<= Split(batch.txt, "\n");
 	
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSongDataAnalysis(args, THISBACK1(OnLineActions, batch_i));
+	m.GetProgramDataAnalysis(args, THISBACK1(OnLineActions, batch_i));
 }
 
-void SongDataTmplActions::OnLineActions(String res, int batch_i) {
+void ProgramDataTmplActions::OnLineActions(String res, int batch_i) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	Batch& batch = batches[tmp_batch_i];
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	

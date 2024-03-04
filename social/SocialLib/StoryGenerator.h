@@ -1,11 +1,11 @@
-#ifndef _SongLib_LyricsGenerator_h_
-#define _SongLib_LyricsGenerator_h_
+#ifndef _SocialLib_StoryGenerator_h_
+#define _SocialLib_StoryGenerator_h_
 
 
-namespace SongLib {
+namespace SocialLib {
 
 
-class LyricsGenerator {
+class StoryGenerator {
 	enum {
 		LG_BEGIN,
 		LG_COLOR,
@@ -23,8 +23,8 @@ class LyricsGenerator {
 	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
 	int ds_i = 0;
 	TaskMgr* pipe = 0;
-	Artist* artist = 0;
-	Lyrics* lyrics = 0;
+	Company* company = 0;
+	Story* story = 0;
 	
 	bool waiting = false;
 	bool running = false, stopped = true;
@@ -62,13 +62,13 @@ class LyricsGenerator {
 	void NextSubBatch() {sub_batch++;}
 	
 public:
-	typedef LyricsGenerator CLASSNAME;
-	LyricsGenerator();
+	typedef StoryGenerator CLASSNAME;
+	StoryGenerator();
 	
 	void Start() {if (!running) {running = true; stopped = false; Thread::Start(THISBACK(Process));}}
 	void Stop() {running = false; while (!stopped) Sleep(1);}
 	
-	static LyricsGenerator& Get(Artist& a, Lyrics& l);
+	static StoryGenerator& Get(Company& a, Story& l);
 	
 	Callback2<int,int> WhenProgress;
 	

@@ -1,29 +1,29 @@
-#include "SongLib.h"
+#include "SocialLib.h"
 
 
-namespace SongLib {
+namespace SocialLib {
 
 
-LyricsGenerator::LyricsGenerator() {
+StoryGenerator::StoryGenerator() {
 	
 }
 
-LyricsGenerator& LyricsGenerator::Get(Artist& a, Lyrics& l) {
+StoryGenerator& StoryGenerator::Get(Company& a, Story& l) {
 	String t = a.file_title + " - " + l.file_title;
 	hash_t h = t.GetHashValue();
-	static ArrayMap<hash_t, LyricsGenerator> map;
+	static ArrayMap<hash_t, StoryGenerator> map;
 	int i = map.Find(h);
 	if (i >= 0)
 		return map[i];
 	
-	LyricsGenerator& ls = map.Add(h);
-	ls.artist = &a;
-	ls.lyrics = &l;
+	StoryGenerator& ls = map.Add(h);
+	ls.company = &a;
+	ls.story = &l;
 	return ls;
 }
 
-void LyricsGenerator::RealizePipe() {
-	Database& db = Database::Single();
+void StoryGenerator::RealizePipe() {
+	SocialDatabase& db = SocialDatabase::Single();
 	if (!pipe) {
 		TaskManager::Single().RealizePipe();
 		pipe = TaskManager::Single().GetPipe();
@@ -31,7 +31,7 @@ void LyricsGenerator::RealizePipe() {
 	}
 }
 
-void LyricsGenerator::Process() {
+void StoryGenerator::Process() {
 	
 	while (running && !Thread::IsShutdownThreads()) {
 		if (waiting) {
@@ -70,9 +70,9 @@ void LyricsGenerator::Process() {
 			time_stopped = GetSysTime();
 			phase = LG_BEGIN;
 			
-			// Start LyricsSolver
-			ASSERT(artist && lyrics);
-			LyricsSolver& ls = LyricsSolver::Get(*artist,*lyrics);
+			// Start StorySolver
+			ASSERT(company && story);
+			StorySolver& ls = StorySolver::Get(*company,*story);
 			ls.Start();
 			
 			break;
@@ -87,20 +87,20 @@ void LyricsGenerator::Process() {
 	stopped = true;
 }
 
-void LyricsGenerator::ProcessSourcePool() {
+void StoryGenerator::ProcessSourcePool() {
 	TimeStop ts;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Lyrics& song = *this->lyrics;
+	Story& program = *this->story;
 	
-	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	ProgramAnalysis& sa = da.GetProgramAnalysis(company->native_name + " - " + program.native_title);
 	
-	int song_tc = song.typecast;
-	int song_con_base = song.archetype; // archetype/contrast has name mix-up problem
-	//int song_arch = ScanInt(song.data.Get("ATTR_ARCHETYPE", "0"));
+	int program_tc = program.role;
+	int program_con_base = program.generic; // generic/contrast has name mix-up problem
+	//int program_arch = ScanInt(program.data.Get("ATTR_ARCHETYPE", "0"));
 	
 	Color no_clr(0,0,0);
 	
@@ -115,13 +115,13 @@ void LyricsGenerator::ProcessSourcePool() {
 	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
 		const PhrasePart& pp = da.phrase_parts[i];
 		
-		// Typecast
-		// - get song's typecast
-		// - check that phrase matches to typecast
+		// Role
+		// - get program's role
+		// - check that phrase matches to role
 		{
 			bool found = false;
-			for (int tc : pp.typecasts)
-				if (tc == song_tc)
+			for (int tc : pp.roles)
+				if (tc == program_tc)
 					{found = true; break;}
 			if (!found)
 				continue;
@@ -131,10 +131,10 @@ void LyricsGenerator::ProcessSourcePool() {
 		bool found_contrast[ContrastType::PART_COUNT] = {false,false,false};
 		{
 			bool found = false;
-			for (int con : pp.contrasts) {
+			for (int con : pp.generics) {
 				int con_base = con / ContrastType::PART_COUNT;
 				int con_mod = con % ContrastType::PART_COUNT;
-				if (con_base == song_con_base) {
+				if (con_base == program_con_base) {
 					found = true;
 					found_contrast[con_mod] = true;
 				}
@@ -143,14 +143,14 @@ void LyricsGenerator::ProcessSourcePool() {
 				continue;
 		}
 		
-		// Archetype
-		// - get song's archetype
-		// - check that phrases matches to the archetype
+		// Generic
+		// - get program's generic
+		// - check that phrases matches to the generic
 		// NOTE skip this since data is not usualle fetched
 		/*if (0) {
 			bool found = false;
-			for (int arch : pp.archetypes)
-				if (arch == song_arch)
+			for (int arch : pp.generics)
+				if (arch == program_arch)
 					{found = true; break;}
 			if (!found)
 				continue;
@@ -162,8 +162,8 @@ void LyricsGenerator::ProcessSourcePool() {
 			if (ea->link >= 0)
 				ea = &da.attrs[ea->link];
 			if (ea->simple_attr >= 0) {
-				bool song_enabled = song.simple_attrs[ea->simple_attr];
-				if (!song_enabled)
+				bool program_enabled = program.simple_attrs[ea->simple_attr];
+				if (!program_enabled)
 					continue;
 			}
 			else continue;
@@ -172,7 +172,7 @@ void LyricsGenerator::ProcessSourcePool() {
 		// Check clr
 		if (pp.clr != no_clr) {
 			int clr_group = GetColorGroup(pp.clr);
-			bool part_enabled = VectorFind(song.clr_list, clr_group) >= 0;
+			bool part_enabled = VectorFind(program.clr_list, clr_group) >= 0;
 			if (!part_enabled)
 				continue;
 		}
@@ -185,23 +185,23 @@ void LyricsGenerator::ProcessSourcePool() {
 		}
 	}
 	
-	LOG("LyricsGenerator::ProcessSourcePool: took " << ts.ToString());
+	LOG("StoryGenerator::ProcessSourcePool: took " << ts.ToString());
 	for(int j = 0; j < ContrastType::PART_COUNT; j++) {
-		LOG("LyricsGenerator::ProcessSourcePool: in pool #" << j << ": " << sa.source_pool[j].GetCount() << " phrases");
+		LOG("StoryGenerator::ProcessSourcePool: in pool #" << j << ": " << sa.source_pool[j].GetCount() << " phrases");
 	}
 	
 	NextPhase();
 	
 }
 
-void LyricsGenerator::ProcessPairPhrases() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StoryGenerator::ProcessPairPhrases() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Lyrics& song = *this->lyrics;
+	Story& program = *this->story;
 	
-	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	ProgramAnalysis& sa = da.GetProgramAnalysis(company->native_name + " - " + program.native_title);
 	
 	// Prepare process
 	if (batch == 0 && sub_batch == 0) {
@@ -239,7 +239,7 @@ void LyricsGenerator::ProcessPairPhrases() {
 		return;
 	}
 	
-	LyricsSolverArgs args;
+	StorySolverArgs args;
 	args.fn = 3;
 	
 	per_sub_batch =  50;
@@ -257,27 +257,27 @@ void LyricsGenerator::ProcessPairPhrases() {
 	}
 	
 	
-	int song_tc = song.typecast;
-	bool is_rapper = song.is_rapper;
-	bool is_female = artist->is_female;
-	const Vector<String>& artists = GetTypecastArtists(is_rapper, is_female)[song_tc];
-	args.parts <<= artists;
+	int program_tc = program.role;
+	bool is_unsafe = program.is_unsafe;
+	bool is_female = company->is_female;
+	const Vector<String>& companies = GetRoleCompanys(is_unsafe, is_female)[program_tc];
+	args.parts <<= companies;
 	
 	SetWaiting(1);
 	RealizePipe();
 	TaskMgr& m = *pipe;
-	m.GetLyricsSolver(args, THISBACK(OnProcessPairPhrases));
+	m.GetStorySolver(args, THISBACK(OnProcessPairPhrases));
 	
 }
 
-void LyricsGenerator::OnProcessPairPhrases(String res) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StoryGenerator::OnProcessPairPhrases(String res) {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Lyrics& song = *this->lyrics;
+	Story& program = *this->story;
 	
-	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	ProgramAnalysis& sa = da.GetProgramAnalysis(company->native_name + " - " + program.native_title);
 	
 	res = "3. " + res;
 	
@@ -336,15 +336,15 @@ void LyricsGenerator::OnProcessPairPhrases(String res) {
 	
 }
 
-void LyricsGenerator::ProcessRhymes() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StoryGenerator::ProcessRhymes() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Lyrics& song = *this->lyrics;
+	Story& program = *this->story;
 	
 	
-	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	ProgramAnalysis& sa = da.GetProgramAnalysis(company->native_name + " - " + program.native_title);
 	
 	
 	if (batch >= ContrastType::PART_COUNT) {
@@ -357,7 +357,7 @@ void LyricsGenerator::ProcessRhymes() {
 		return;
 	}
 	
-	LyricsSolverArgs args;
+	StorySolverArgs args;
 	args.fn = 4;
 	
 	per_sub_batch =  15;
@@ -381,28 +381,28 @@ void LyricsGenerator::ProcessRhymes() {
 	}
 	
 	
-	int song_tc = song.typecast;
-	bool is_rapper = song.is_rapper;
-	bool is_female = artist->is_female;
-	const Vector<String>& artists = GetTypecastArtists(is_rapper, is_female)[song_tc];
-	args.parts <<= artists;
+	int program_tc = program.role;
+	bool is_unsafe = program.is_unsafe;
+	bool is_female = company->is_female;
+	const Vector<String>& companies = GetRoleCompanys(is_unsafe, is_female)[program_tc];
+	args.parts <<= companies;
 	
 	SetWaiting(1);
 	RealizePipe();
 	TaskMgr& m = *pipe;
-	m.GetLyricsSolver(args, THISBACK(OnProcessRhymes));
+	m.GetStorySolver(args, THISBACK(OnProcessRhymes));
 	
 }
 
-void LyricsGenerator::OnProcessRhymes(String res) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StoryGenerator::OnProcessRhymes(String res) {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Lyrics& song = *this->lyrics;
+	Story& program = *this->story;
 	
 	
-	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	ProgramAnalysis& sa = da.GetProgramAnalysis(company->native_name + " - " + program.native_title);
 	
 	res = "3. '','': \"" + res;
 	
@@ -498,15 +498,15 @@ void LyricsGenerator::OnProcessRhymes(String res) {
 	
 }
 
-void LyricsGenerator::ProcessScores() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StoryGenerator::ProcessScores() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Lyrics& song = *this->lyrics;
+	Story& program = *this->story;
 	
 	
-	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	ProgramAnalysis& sa = da.GetProgramAnalysis(company->native_name + " - " + program.native_title);
 	
 	if (sub_batch == 0)
 		iter = 0;
@@ -516,7 +516,7 @@ void LyricsGenerator::ProcessScores() {
 		return;
 	}
 	
-	LyricsSolverArgs args;
+	StorySolverArgs args;
 	args.fn = 5;
 	
 	per_sub_batch =  15;
@@ -551,19 +551,19 @@ void LyricsGenerator::ProcessScores() {
 	SetWaiting(1);
 	RealizePipe();
 	TaskMgr& m = *pipe;
-	m.GetLyricsSolver(args, THISBACK(OnProcessScores));
+	m.GetStorySolver(args, THISBACK(OnProcessScores));
 	
 }
 
-void LyricsGenerator::OnProcessScores(String res) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void StoryGenerator::OnProcessScores(String res) {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
-	Lyrics& song = *this->lyrics;
+	Story& program = *this->story;
 	
 	
-	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	ProgramAnalysis& sa = da.GetProgramAnalysis(company->native_name + " - " + program.native_title);
 	
 	res = "2. \"" + res;
 	

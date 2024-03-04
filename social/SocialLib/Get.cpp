@@ -1,10 +1,10 @@
-#include "SongLib.h"
+#include "SocialLib.h"
 
-namespace SongLib {
+namespace SocialLib {
 
-void TaskManager::GetSongs(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
+void TaskManager::GetPrograms(Task* t) {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
 	
 	Vector<int> token_is;
 	
@@ -13,21 +13,21 @@ void TaskManager::GetSongs(Task* t) {
 	bool filter_foreign = sd_key == "en";
 	
 	DatasetAnalysis& da = sd.a.datasets[t->ds_i];
-	Vector<ArtistDataset>& artists = sd[t->ds_i];
+	Vector<CompanyDataset>& companies = sd[t->ds_i];
 	
 	TimeStop ts;
 	int total = 0, actual = 0;
 	int well_filter_loss = 0, parse_loss = 0, foreign_loss = 0;
-	for(int j = 0; j < artists.GetCount(); j++) {
-		ArtistDataset& artist = artists[j];
+	for(int j = 0; j < companies.GetCount(); j++) {
+		CompanyDataset& company = companies[j];
 		
-		for(int k = 0; k < artist.lyrics.GetCount(); k++) {
+		for(int k = 0; k < company.stories.GetCount(); k++) {
 			total++;
-			LyricsDataset& lyrics = artist.lyrics[k];
+			StoryDataset& story = company.stories[k];
 			
 			NaturalTokenizer tk;
 			
-			String str = lyrics.text;
+			String str = story.text;
 			
 			// Ignore files with hard ambiguities
 			if (str.Find(" well ") >= 0) {
@@ -69,30 +69,30 @@ void TaskManager::GetSongs(Task* t) {
 			actual++;
 			
 			if (total % 500 == 0) {
-				da.diagnostics.GetAdd("songs: total") = IntStr(total);
-				da.diagnostics.GetAdd("songs: actual") =  IntStr(actual);
-				da.diagnostics.GetAdd("songs: percentage") =  DblStr((double)actual / (double) total * 100);
-				da.diagnostics.GetAdd("songs: filter 'well' loss") =  DblStr((double)well_filter_loss / (double) total * 100);
-				da.diagnostics.GetAdd("songs: filter 'parse success' loss") =  DblStr((double)parse_loss / (double) total * 100);
-				da.diagnostics.GetAdd("songs: filter 'foreign' loss") =  DblStr((double)foreign_loss / (double) total * 100);
+				da.diagnostics.GetAdd("programs: total") = IntStr(total);
+				da.diagnostics.GetAdd("programs: actual") =  IntStr(actual);
+				da.diagnostics.GetAdd("programs: percentage") =  DblStr((double)actual / (double) total * 100);
+				da.diagnostics.GetAdd("programs: filter 'well' loss") =  DblStr((double)well_filter_loss / (double) total * 100);
+				da.diagnostics.GetAdd("programs: filter 'parse success' loss") =  DblStr((double)parse_loss / (double) total * 100);
+				da.diagnostics.GetAdd("programs: filter 'foreign' loss") =  DblStr((double)foreign_loss / (double) total * 100);
 			}
 		}
 	}
 	
-	da.diagnostics.GetAdd("songs: total") = IntStr(total);
-	da.diagnostics.GetAdd("songs: actual") =  IntStr(actual);
-	da.diagnostics.GetAdd("songs: percentage") =  DblStr((double)actual / (double) total * 100);
-	da.diagnostics.GetAdd("songs: filter 'well' loss") =  DblStr((double)well_filter_loss / (double) total * 100);
-	da.diagnostics.GetAdd("songs: filter 'parse success' loss") =  DblStr((double)parse_loss / (double) total * 100);
-	da.diagnostics.GetAdd("songs: filter 'foreign' loss") =  DblStr((double)foreign_loss / (double) total * 100);
-	da.diagnostics.GetAdd("songs: duration of song process") =  ts.ToString();
+	da.diagnostics.GetAdd("programs: total") = IntStr(total);
+	da.diagnostics.GetAdd("programs: actual") =  IntStr(actual);
+	da.diagnostics.GetAdd("programs: percentage") =  DblStr((double)actual / (double) total * 100);
+	da.diagnostics.GetAdd("programs: filter 'well' loss") =  DblStr((double)well_filter_loss / (double) total * 100);
+	da.diagnostics.GetAdd("programs: filter 'parse success' loss") =  DblStr((double)parse_loss / (double) total * 100);
+	da.diagnostics.GetAdd("programs: filter 'foreign' loss") =  DblStr((double)foreign_loss / (double) total * 100);
+	da.diagnostics.GetAdd("programs: duration of program process") =  ts.ToString();
 	
 }
 
 void TaskManager::GetTokenData(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	TokenArgs& args = token_args;
@@ -124,8 +124,8 @@ void TaskManager::GetTokenData(Task* t) {
 }
 
 void TaskManager::GetUnknownTokenPairs(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
 	
 	DatasetAnalysis& da = sd.a.datasets[t->ds_i];
 	
@@ -184,9 +184,9 @@ void TaskManager::GetUnknownTokenPairs(Task* t) {
 }
 
 void TaskManager::GetAmbiguousWordPairs(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	TokenArgs& args = token_args;
@@ -230,24 +230,24 @@ void TaskManager::GetAmbiguousWordPairs(Task* t) {
 }
 
 void TaskManager::GetWordProcess(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	String ds_key = sd.GetKey(t->ds_i);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
 	
 	
-	const Vector<ArtistDataset>& dataset = sd[t->ds_i];
+	const Vector<CompanyDataset>& dataset = sd[t->ds_i];
 	for(int j = 0; j < dataset.GetCount(); j++) {
-		const ArtistDataset& artist = dataset[j];
-		//ArtistAnalysis& aa = ds.artists.GetAdd(artist.name);
+		const CompanyDataset& company = dataset[j];
+		//CompanyAnalysis& aa = ds.companies.GetAdd(company.name);
 		//aa.word_counts.Clear();
 		
-		for(int k = 0; k < artist.lyrics.GetCount(); k++) {
-			const LyricsDataset& song = artist.lyrics[k];
+		for(int k = 0; k < company.stories.GetCount(); k++) {
+			const StoryDataset& program = company.stories[k];
 			
-			String text = song.text;
+			String text = program.text;
 			if (GetDefaultCharset() != CHARSET_UTF8)
 				text = ToCharset(CHARSET_DEFAULT, text, CHARSET_UTF8);
 			
@@ -274,9 +274,9 @@ void TaskManager::GetWordProcess(Task* t) {
 }
 
 void TaskManager::GetWordFix(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	String ds_key = sd.GetKey(t->ds_i);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
@@ -379,9 +379,9 @@ void TaskManager::GetWordFix(Task* t) {
 }
 
 void TaskManager::GetVirtualPhrases(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	if (t->fn == 0) {
@@ -728,9 +728,9 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 }
 
 void TaskManager::GetPhrases(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	PhraseArgs& args = phrase_args;
@@ -765,22 +765,10 @@ void TaskManager::GetPhrases(Task* t) {
 		if (t->fn == 3 && pp.HasScores())
 			continue;
 		
-		if (t->fn == 4 && !pp.typecasts.IsEmpty())
+		if (t->fn == 4 && !pp.roles.IsEmpty())
 			continue;
 		
-		if (t->fn == 5 && !pp.contrasts.IsEmpty())
-			continue;
-		
-		if (t->fn == 6 && !pp.profiles.IsEmpty())
-			continue;
-		
-		if (t->fn == 7 && !pp.archetypes.IsEmpty())
-			continue;
-		
-		if (t->fn == 8 && !pp.primary.IsEmpty())
-			continue;
-		
-		if (t->fn == 9 && !pp.secondary.IsEmpty())
+		if (t->fn == 5 && !pp.generics.IsEmpty())
 			continue;
 		
 		if (iter >= begin && iter < end) {
@@ -815,27 +803,19 @@ void TaskManager::GetPhrases(Task* t) {
 	else if (args.fn == 3)
 		m.GetPhraseData(args, THISBACK1(OnPhraseScores, t));
 	else if (args.fn == 4)
-		m.GetPhraseData(args, THISBACK1(OnPhraseTypecasts, t));
+		m.GetPhraseData(args, THISBACK1(OnPhraseRoles, t));
 	else if (args.fn == 5)
-		m.GetPhraseData(args, THISBACK1(OnPhraseContrast, t));
-	else if (args.fn == 6)
-		m.GetPhraseData(args, THISBACK1(OnPhraseProfile, t));
-	else if (args.fn == 7)
-		m.GetPhraseData(args, THISBACK1(OnPhraseArchetype, t));
-	else if (args.fn == 8)
-		m.GetPhraseData(args, THISBACK1(OnPhrasePrimary, t));
-	else if (args.fn == 9)
-		m.GetPhraseData(args, THISBACK1(OnPhraseSecondary, t));
+		m.GetPhraseData(args, THISBACK1(OnPhraseGeneric, t));
 	
 }
 
 #if 0
 void TaskManager::GetNana(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
-	Song& song = *t->song;
+	Program& program = *t->program;
 	
 	t->tmp.Clear();
 	
@@ -843,21 +823,21 @@ void TaskManager::GetNana(Task* t) {
 	args.fn = t->fn;
 	
 	if (args.fn == 0) {
-		for(int i = 0; i < song.parts.GetCount(); i++) {
-			const StaticPart& sp = song.parts[i];
+		for(int i = 0; i < program.parts.GetCount(); i++) {
+			const StoryPart& sp = program.parts[i];
 			args.parts << sp.name;
 			args.counts << sp.nana.Get().GetCount();
 		}
 		#if !PRIMARY_STATIC_PART
-		for(int i = 0; i < song.picked_phrase_parts.GetCount(); i++) {
-			int pp_i = song.picked_phrase_parts[i];
+		for(int i = 0; i < program.picked_phrase_parts.GetCount(); i++) {
+			int pp_i = program.picked_phrase_parts[i];
 			const PhrasePart& pp = da.phrase_parts[pp_i];
 			String phrase = da.GetWordString(pp.words);
 			args.phrases << phrase;
 		}
 		#else
 		ASSERT(t->part_i >= 0);
-		const StaticPart& sp = song.parts[t->part_i];
+		const StoryPart& sp = program.parts[t->part_i];
 		args.part = sp.name;
 		for(int i = 0; i < sp.picked_phrase_parts.GetCount(); i++) {
 			int pp_i = sp.picked_phrase_parts[i];
@@ -869,7 +849,7 @@ void TaskManager::GetNana(Task* t) {
 	}
 	if (args.fn == 1) {
 		ASSERT(t->part_i >= 0 && t->line_i >= 0);
-		const StaticPart& sp = song.parts[t->part_i];
+		const StoryPart& sp = program.parts[t->part_i];
 		const auto& line = sp.nana.Get()[t->line_i];
 		
 		if (line.pp_i < 0 || line.sub_pp_i.IsEmpty()) {
@@ -888,11 +868,11 @@ void TaskManager::GetNana(Task* t) {
 	}
 	
 	if (t->part_i >= 0) {
-		const StaticPart& sp = song.parts[t->part_i];
+		const StoryPart& sp = program.parts[t->part_i];
 		const RhymeContainer::Line* line = t->line_i >= 0 ? &sp.nana.Get()[t->line_i] : 0;
 		String pre_text;
-		for(int i = 0; i < song.parts.GetCount(); i++) {
-			const auto& lines = song.parts[i].nana.Get();
+		for(int i = 0; i < program.parts.GetCount(); i++) {
+			const auto& lines = program.parts[i].nana.Get();
 			bool end = false;
 			if (i == t->part_i && t->line_i < 0) break;
 			for(int j = 0; j < lines.GetCount(); j++) {
@@ -923,7 +903,7 @@ void TaskManager::GetNana(Task* t) {
 	}
 	/*if (args.fn == 1) {
 		ASSERT(t->part_i >= 0 && t->line_i >= 0);
-		const StaticPart& sp = song.parts[t->part_i];
+		const StoryPart& sp = program.parts[t->part_i];
 		const auto& line = sp.nana.Get()[t->line_i];
 		
 		//const StaticPhrase& spa = sp.phrases[t->line_i];
@@ -944,7 +924,7 @@ void TaskManager::GetNana(Task* t) {
 	TaskMgr& m = *pipe;
 	
 	if (args.fn == 0)
-		m.GetNanaData(args, THISBACK1(OnSongStory, t));
+		m.GetNanaData(args, THISBACK1(OnProgramStory, t));
 	if (args.fn == 1)
 		//m.GetNanaData(args, THISBACK1(OnNanaFit, t));
 		m.GetNanaData(args, THISBACK1(OnSubPicked, t));
@@ -952,9 +932,9 @@ void TaskManager::GetNana(Task* t) {
 #endif
 
 void TaskManager::GetActionlist(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	ActionAnalysisArgs args;
@@ -1006,9 +986,9 @@ void TaskManager::GetActionlist(Task* t) {
 }
 
 void TaskManager::GetActionParallels(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	TimeStop ts;
@@ -1071,9 +1051,9 @@ void TaskManager::GetActionParallels(Task* t) {
 }
 
 void TaskManager::GetActionTransitions(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	TimeStop ts;
@@ -1133,10 +1113,9 @@ void TaskManager::GetContainer(Task* t) {
 }
 
 void TaskManager::MakeNana(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
-	EnglishPronounciation ep;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	int ds_i = t->ds_i;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -1149,7 +1128,7 @@ void TaskManager::MakeNana(Task* t) {
 	
 	t->actual = 0;
 	for(int i = 0; i < da.packed_rhymes.GetCount(); i++) {
-		const PackedRhymeHeader& h = da.packed_rhymes.GetKey(i);
+		const PackedImpactHeader& h = da.packed_rhymes.GetKey(i);
 		Vector<PackedRhymeContainer>& v = da.packed_rhymes[i];
 		
 		for(int j = 0; j < v.GetCount(); j++) {
@@ -1177,10 +1156,9 @@ void TaskManager::MakeNana(Task* t) {
 }
 
 void TaskManager::GetRhymeContainers(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
-	EnglishPronounciation ep;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -1209,11 +1187,12 @@ void TaskManager::GetRhymeContainers(Task* t) {
 		// Make sentences from templates
 		String phrase = da.GetWordString(pp.words);
 		
-		if (ep.Parse(phrase, da)) {
+		TODO
+		/*if (ep.Parse(phrase, da)) {
 			//const Color& clr = ep.GetColor();
 			Color clr = pp.clr;
 			
-			PackedRhymeHeader prh;
+			PackedImpactHeader prh;
 			prh.syllable_count = ep.GetSyllableCount();
 			prh.color_group = GetColorGroup(clr);
 			prh.attr = pp.attr;
@@ -1242,7 +1221,7 @@ void TaskManager::GetRhymeContainers(Task* t) {
 				
 				t->actual++;
 			}
-		}
+		}*/
 		
 		if ((pp_i % 100) == 0)
 			t->update(pp_i, da.phrase_parts.GetCount());
@@ -1254,9 +1233,9 @@ void TaskManager::GetRhymeContainers(Task* t) {
 	da.diagnostics.GetAdd("rhyme container: percentage") =  DblStr((double)t->actual / (double)da.phrase_parts.GetCount() * 100);
 	
 	
-	SortByKey(da.packed_rhymes, PackedRhymeHeader());
+	SortByKey(da.packed_rhymes, PackedImpactHeader());
 	for(int i = 0; i < sda.datasets.GetCount(); i++)
-		SortByKey(sda.datasets[i].packed_rhymes, PackedRhymeHeader());
+		SortByKey(sda.datasets[i].packed_rhymes, PackedImpactHeader());
 	
 	t->update(0,1);
 	RemoveTask(*t);
@@ -1265,9 +1244,9 @@ void TaskManager::GetRhymeContainers(Task* t) {
 void TaskManager::GetRhymeContainersFromTemplates(Task* t) {
 	TODO
 	#if 0
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	EnglishPronounciation ep;
 	
 	int ds_i = 0;
@@ -1290,7 +1269,7 @@ void TaskManager::GetRhymeContainersFromTemplates(Task* t) {
 			da.dynamic_attrs.Clear();
 		}
 		if (at_i >= da.action_tmpls.GetCount()) {
-			SortByKey(da.packed_rhymes, PackedRhymeHeader());
+			SortByKey(da.packed_rhymes, PackedImpactHeader());
 			at_i = 0;
 			ds_i++;
 			continue;
@@ -1422,7 +1401,7 @@ void TaskManager::GetRhymeContainersFromTemplates(Task* t) {
 				if (!fail) {
 					const Color& clr = ep.GetColor();
 					
-					PackedRhymeHeader prh;
+					PackedImpactHeader prh;
 					prh.syllable_count = ep.GetSyllableCount();
 					prh.color_group = GetColorGroup(clr);
 					prh.attr_group = attr_group;
@@ -1452,7 +1431,7 @@ void TaskManager::GetRhymeContainersFromTemplates(Task* t) {
 					}
 					
 					if (sort)
-						SortByKey(da.packed_rhymes, PackedRhymeHeader());
+						SortByKey(da.packed_rhymes, PackedImpactHeader());
 					
 					phrase_count++;
 				}
@@ -1487,30 +1466,30 @@ void TaskManager::GetLineActions(Task* t) {
 	}
 	Task::Batch& batch = t->batches[t->batch_i];
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	args.fn = 10;
 	args.phrases <<= Split(batch.txt, "\n");
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSongDataAnalysis(args, THISBACK1(OnLineActions, t));
+	m.GetProgramDataAnalysis(args, THISBACK1(OnLineActions, t));
 }
 
 void TaskManager::GetSyllables(Task* t) {
 	int per_batch = 30;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	int begin = t->batch_i * per_batch;
 	int end = (t->batch_i+1) * per_batch;
 	
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	
 	int iter = 0;
 	int ds_i = t->ds_i;
@@ -1582,13 +1561,13 @@ void TaskManager::GetSyllables(Task* t) {
 	args.fn = 4;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSongDataAnalysis(args, THISBACK1(OnSyllables, t));
+	m.GetProgramDataAnalysis(args, THISBACK1(OnSyllables, t));
 }
 
 void TaskManager::GetDetails(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	int per_batch = 30;
 	
@@ -1598,7 +1577,7 @@ void TaskManager::GetDetails(Task* t) {
 	
 	t->tmp_words.Clear();
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	
 	int ds_i = t->ds_i;
 	int iter = 0;
@@ -1664,7 +1643,7 @@ void TaskManager::GetDetails(Task* t) {
 	args.fn = 5;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSongDataAnalysis(args, THISBACK1(OnDetails, t));
+	m.GetProgramDataAnalysis(args, THISBACK1(OnDetails, t));
 }
 
 void TaskManager::GetLineChangeScores(Task* t) {
@@ -1683,12 +1662,12 @@ void TaskManager::GetLineChangeScores(Task* t) {
 	
 	Task::Batch& batch = t->batches[t->batch_i];
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	args.fn = 11;
 	//args.score_mode = score_mode;
 	args.phrases <<= Split(batch.txt, "\n");
@@ -1728,7 +1707,7 @@ void TaskManager::GetLineChangeScores(Task* t) {
 	
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSongDataAnalysis(args, THISBACK1(OnLineChangeScores, t));
+	m.GetProgramDataAnalysis(args, THISBACK1(OnLineChangeScores, t));
 }
 
 void TaskManager::GetWordData(Task* t) {
@@ -1756,9 +1735,9 @@ void TaskManager::GetColorAlternatives(Task* t) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	int per_batch = 25;
 	int begin = t->batch_i * per_batch;
@@ -1769,7 +1748,7 @@ void TaskManager::GetColorAlternatives(Task* t) {
 		end = 1;
 	}
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	
 	VectorMap<String, Color>& word_clr = t->word_clr;
 	word_clr.Clear();
@@ -1810,13 +1789,13 @@ void TaskManager::GetColorAlternatives(Task* t) {
 	args.fn = 7;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSongDataAnalysis(args, THISBACK1(OnColorAlternatives, t));
+	m.GetProgramDataAnalysis(args, THISBACK1(OnColorAlternatives, t));
 }
 
 void TaskManager::MakeWordnetsFromTemplates(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	TimeStop ts;
 	
@@ -1888,9 +1867,9 @@ void TaskManager::MakeWordnetsFromTemplates(Task* t) {
 }
 
 void TaskManager::GetAttributes(Task* t) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// TODO optimize: this is being done every time

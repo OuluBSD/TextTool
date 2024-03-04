@@ -2,7 +2,7 @@
 
 
 
-AlbumBriefing::AlbumBriefing() {
+CampaignBriefing::CampaignBriefing() {
 	Add(vsplit.SizePos());
 	
 	vsplit.Vert() << list << values;
@@ -19,15 +19,15 @@ AlbumBriefing::AlbumBriefing() {
 	
 }
 
-void AlbumBriefing::Data() {
-	Database& db = Database::Single();
+void CampaignBriefing::Data() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.release) return;
-	Release& release = *p.release;
+	if (!p.campaign) return;
+	Campaign& campaign = *p.campaign;
 	for(int i = 0; i < ITEM_COUNT; i++) {
 		list.Set(i, 0, i);
 		switch(i) {
-			#define ITEM(k,s,d) case k: list.Set(i, 1, s); list.Set(i, 2, release.data.Get(#k, "")); break;
+			#define ITEM(k,s,d) case k: list.Set(i, 1, s); list.Set(i, 2, campaign.data.Get(#k, "")); break;
 			ALBUM_BRIEFING_LIST
 			#undef ITEM
 		
@@ -41,19 +41,19 @@ void AlbumBriefing::Data() {
 	OnListCursor();
 }
 
-void AlbumBriefing::OnListCursor() {
+void CampaignBriefing::OnListCursor() {
 	values.key.Clear();
 	values.description.Clear();
 	values.value.Clear();
 	
-	Database& db = Database::Single();
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.release) return;
-	Release& release = *p.release;
+	if (!p.campaign) return;
+	Campaign& campaign = *p.campaign;
 	
 	String value_str;
 	switch (list.GetCursor()) {
-		#define ITEM(k,s,d) case k: values.key.SetData(s); values.description.SetData(d); value_str = release.data.Get(#k, ""); break;
+		#define ITEM(k,s,d) case k: values.key.SetData(s); values.description.SetData(d); value_str = campaign.data.Get(#k, ""); break;
 		ALBUM_BRIEFING_LIST
 		#undef ITEM
 		
@@ -63,11 +63,11 @@ void AlbumBriefing::OnListCursor() {
 	values.value.SetData(value_str);
 }
 
-void AlbumBriefing::OnValueChange() {
-	Database& db = Database::Single();
+void CampaignBriefing::OnValueChange() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.release) return;
-	Release& release = *p.release;
+	if (!p.campaign) return;
+	Campaign& campaign = *p.campaign;
 	
 	if (!list.IsCursor()) return;
 	
@@ -80,7 +80,7 @@ void AlbumBriefing::OnValueChange() {
 	}
 	
 	String value_str = values.value.GetData();
-	release.data.GetAdd(key_str) = value_str;
+	campaign.data.GetAdd(key_str) = value_str;
 	
 	list.Set(2, value_str);
 }

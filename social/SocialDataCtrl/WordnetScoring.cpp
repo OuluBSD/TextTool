@@ -1,9 +1,9 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 #if 0
 
 
-SongDataWordnetScoring::SongDataWordnetScoring() {
+ProgramDataWordnetScoring::ProgramDataWordnetScoring() {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << vsplit << vsplit1;
@@ -64,22 +64,22 @@ SongDataWordnetScoring::SongDataWordnetScoring() {
 	
 }
 
-void SongDataWordnetScoring::EnableAll() {
+void ProgramDataWordnetScoring::EnableAll() {
 	
 }
 
-void SongDataWordnetScoring::DisableAll() {
+void ProgramDataWordnetScoring::DisableAll() {
 	
 }
 
-void SongDataWordnetScoring::Data() {
+void ProgramDataWordnetScoring::Data() {
 	
 }
 
-void SongDataWordnetScoring::DataMain() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataWordnetScoring::DataMain() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -92,7 +92,7 @@ void SongDataWordnetScoring::DataMain() {
 	DataDataset();
 }
 	
-void SongDataWordnetScoring::DataDataset() {
+void ProgramDataWordnetScoring::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 	
@@ -127,7 +127,7 @@ void SongDataWordnetScoring::DataDataset() {
 	DataAttribute();
 }
 
-void SongDataWordnetScoring::DataAttribute() {
+void ProgramDataWordnetScoring::DataAttribute() {
 	if (!attrs.IsCursor())
 		return;
 	
@@ -148,13 +148,13 @@ void SongDataWordnetScoring::DataAttribute() {
 	DataColor();
 }
 
-void SongDataWordnetScoring::DataColor() {
+void ProgramDataWordnetScoring::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -302,7 +302,7 @@ void SongDataWordnetScoring::DataColor() {
 	
 }
 
-void SongDataWordnetScoring::ToolMenu(Bar& bar) {
+void ProgramDataWordnetScoring::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
 	for(int i = 0; i < SCORE_MODE_COUNT; i++) {
 		bar.Separator();
@@ -318,20 +318,20 @@ void SongDataWordnetScoring::ToolMenu(Bar& bar) {
 	}
 }
 
-void SongDataWordnetScoring::ToggleGettingWordnetScores(int score_mode) {
+void ProgramDataWordnetScoring::ToggleGettingWordnetScores(int score_mode) {
 	running = !running;
 	if (running) {
 		Thread::Start(THISBACK2(GetWordnetScores, 0, score_mode));
 	}
 }
 
-void SongDataWordnetScoring::GetWordnetScores(int batch_i, int score_mode) {
+void ProgramDataWordnetScoring::GetWordnetScores(int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	int begin = batch_i * per_batch;
 	int end = (batch_i+1) * per_batch;
@@ -341,7 +341,7 @@ void SongDataWordnetScoring::GetWordnetScores(int batch_i, int score_mode) {
 		end = 1;
 	}
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	
 	tmp_wordnets.Clear();
 	
@@ -376,22 +376,22 @@ void SongDataWordnetScoring::GetWordnetScores(int batch_i, int score_mode) {
 		return;
 	}
 	
-	Song& song = GetSong();
+	Program& program = GetProgram();
 	
 	args.fn = 9;
 	args.score_mode = score_mode;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSongDataAnalysis(args, THISBACK2(OnWordnetScores, batch_i, score_mode));
+	m.GetProgramDataAnalysis(args, THISBACK2(OnWordnetScores, batch_i, score_mode));
 }
 
-void SongDataWordnetScoring::OnWordnetScores(String res, int batch_i, int score_mode) {
+void ProgramDataWordnetScoring::OnWordnetScores(String res, int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	res.Replace("\r", "");
 	Vector<String> lines = Split(res, "\n");
@@ -438,20 +438,20 @@ void SongDataWordnetScoring::OnWordnetScores(String res, int batch_i, int score_
 		PostCallback(THISBACK2(GetWordnetScores, batch_i+1, score_mode));
 }
 
-void SongDataWordnetScoring::ToggleGettingColorWordnetScores(int score_mode) {
+void ProgramDataWordnetScoring::ToggleGettingColorWordnetScores(int score_mode) {
 	running = !running;
 	if (running) {
 		Thread::Start(THISBACK2(GetColorWordnetScores, 0, score_mode));
 	}
 }
 
-void SongDataWordnetScoring::GetColorWordnetScores(int batch_i, int score_mode) {
+void ProgramDataWordnetScoring::GetColorWordnetScores(int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	int begin = batch_i * per_batch;
 	int end = (batch_i+1) * per_batch;
@@ -461,7 +461,7 @@ void SongDataWordnetScoring::GetColorWordnetScores(int batch_i, int score_mode) 
 		end = 1;
 	}
 	
-	SongDataAnalysisArgs args;
+	ProgramDataAnalysisArgs args;
 	
 	tmp_clr_wordnets.Clear();
 	
@@ -496,22 +496,22 @@ void SongDataWordnetScoring::GetColorWordnetScores(int batch_i, int score_mode) 
 		return;
 	}
 	
-	Song& song = GetSong();
+	Program& program = GetProgram();
 	
 	args.fn = 9;
 	args.score_mode = score_mode;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSongDataAnalysis(args, THISBACK2(OnColorWordnetScores, batch_i, score_mode));
+	m.GetProgramDataAnalysis(args, THISBACK2(OnColorWordnetScores, batch_i, score_mode));
 }
 
-void SongDataWordnetScoring::OnColorWordnetScores(String res, int batch_i, int score_mode) {
+void ProgramDataWordnetScoring::OnColorWordnetScores(String res, int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	res.Replace("\r", "");
 	Vector<String> lines = Split(res, "\n");

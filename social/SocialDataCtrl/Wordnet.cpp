@@ -1,7 +1,7 @@
-#include "SongDataCtrl.h"
+#include "SocialDataCtrl.h"
 
 
-SongDataWordnet::SongDataWordnet() {
+ProgramDataWordnet::ProgramDataWordnet() {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << vsplit << wordnets;
@@ -40,22 +40,22 @@ SongDataWordnet::SongDataWordnet() {
 	
 }
 
-void SongDataWordnet::EnableAll() {
+void ProgramDataWordnet::EnableAll() {
 	
 }
 
-void SongDataWordnet::DisableAll() {
+void ProgramDataWordnet::DisableAll() {
 	
 }
 
-void SongDataWordnet::Data() {
+void ProgramDataWordnet::Data() {
 	
 }
 
-void SongDataWordnet::DataMain() {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void ProgramDataWordnet::DataMain() {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -68,7 +68,7 @@ void SongDataWordnet::DataMain() {
 	DataDataset();
 }
 	
-void SongDataWordnet::DataDataset() {
+void ProgramDataWordnet::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 	
@@ -103,7 +103,7 @@ void SongDataWordnet::DataDataset() {
 	DataAttribute();
 }
 
-void SongDataWordnet::DataAttribute() {
+void ProgramDataWordnet::DataAttribute() {
 	if (!attrs.IsCursor())
 		return;
 	
@@ -124,13 +124,13 @@ void SongDataWordnet::DataAttribute() {
 	DataColor();
 }
 
-void SongDataWordnet::DataColor() {
+void ProgramDataWordnet::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -230,15 +230,15 @@ void SongDataWordnet::DataColor() {
 	lock.Leave();
 }
 
-void SongDataWordnet::ToolMenu(Bar& bar) {
+void ProgramDataWordnet::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
 	bar.Separator();
 	//bar.Add(t_("Make wordnets from template phrases"), AppImg::RedRing(), THISBACK1(DoWordnet, 0)).Key(K_F5);
 	bar.Add(t_("Get color alternatives"), AppImg::RedRing(), THISBACK1(DoWordnet, 1)).Key(K_F6);
 }
 
-void SongDataWordnet::DoWordnet(int fn) {
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
+void ProgramDataWordnet::DoWordnet(int fn) {
+	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoWordnet(0, fn);
 }
 

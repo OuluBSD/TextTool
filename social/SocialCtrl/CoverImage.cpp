@@ -20,12 +20,12 @@ void CoverImage::ToolMenu(Bar& bar) {
 }
 
 void CoverImage::CreateSuggestionsForPrompts() {
-	Database& db = Database::Single();
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist ||!p.release)
+	if(!p.program || !p.company ||!p.campaign)
 		return;
 	
-	Release& rel = *p.release;
+	Campaign& rel = *p.campaign;
 	
 	
 	
@@ -35,27 +35,27 @@ void CoverImage::CreateSuggestionsForPrompts() {
 	}
 	
 	int row = 0;
-	for(int i = 0; i < rel.songs.GetCount(); i++) {
-		const Song& song = rel.songs[i];
+	for(int i = 0; i < rel.programs.GetCount(); i++) {
+		const Program& program = rel.programs[i];
 		PromptOK("TODO");
-		String lyrics;
-		/*String lyrics = song.data.Get(user_natural_english_key, "");
-		if (lyrics.IsEmpty())
+		String story;
+		/*String story = program.data.Get(user_natural_english_key, "");
+		if (story.IsEmpty())
 			continue;*/
 		
-		String title;// = !song.english_title.IsEmpty() ? song.english_title : song.native_title;
+		String title;// = !program.english_title.IsEmpty() ? program.english_title : program.native_title;
 		
 		String raw_prompt;
-		raw_prompt << "Artist: " << p.artist->english_name << "\n";
-		raw_prompt << "Album: " << p.release->english_title << "\n";
-		raw_prompt << "Year: " << (int)p.release->date.year << "\n";
-		raw_prompt << "Genre: " << p.artist->musical_style << "\n";
-		raw_prompt << "Description of singer: " << p.artist->vocalist_visual << "\n";
-		raw_prompt << "Count of songs: " << p.release->songs.GetCount() << "\n";
+		raw_prompt << "Company: " << p.company->english_name << "\n";
+		raw_prompt << "Album: " << p.campaign->english_title << "\n";
+		raw_prompt << "Year: " << (int)p.campaign->date.year << "\n";
+		raw_prompt << "Genre: " << p.company->musical_style << "\n";
+		raw_prompt << "Description of singer: " << p.company->vocalist_visual << "\n";
+		raw_prompt << "Count of programs: " << p.campaign->programs.GetCount() << "\n";
 		raw_prompt << "\n\n";
 		
-		raw_prompt << "Song: " << title << "\n\n";
-		raw_prompt << lyrics << "\n\n";
+		raw_prompt << "Program: " << title << "\n\n";
+		raw_prompt << story << "\n\n";
 		
 		raw_prompt << "Short description of the album's cover image for the generative image AI:\n";
 		

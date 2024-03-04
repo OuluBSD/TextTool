@@ -1,5 +1,5 @@
 #include "SocialCtrl.h"
-#include <SongTool/SongTool.h>
+#include <SocialTool/SocialTool.h>
 
 CompanyInfoCtrl::CompanyInfoCtrl() {
 	CtrlLayout(*this);
@@ -37,19 +37,19 @@ void CompanyInfoCtrl::Clear() {
 }
 
 void CompanyInfoCtrl::Data() {
-	Database& db = Database::Single();
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
-	if (language.GetCount() == 0 && db.song_data.GetCount()) {
-		for(int i = 0; i < db.song_data.GetCount(); i++)
-			language.Add(db.song_data.GetKey(i));
+	if (language.GetCount() == 0 && db.program_data.GetCount()) {
+		for(int i = 0; i < db.program_data.GetCount(); i++)
+			language.Add(db.program_data.GetKey(i));
 		language.SetIndex(0);
 	}
 	
 	Clear();
 	
-	if (p.artist) {
-		Artist& a = *p.artist;
+	if (p.company) {
+		Company& a = *p.company;
 			
 		this->native_name				.SetData(a.native_name);
 		this->english_name				.SetData(a.english_name);
@@ -69,11 +69,11 @@ void CompanyInfoCtrl::Data() {
 }
 
 void CompanyInfoCtrl::OnValueChange() {
-	Database& db = Database::Single();
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
-	if (p.artist && editor->artists.IsCursor()) {
-		Artist& o = *p.artist;
+	if (p.company && editor->companies.IsCursor()) {
+		Company& o = *p.company;
 		o.native_name				= this->native_name.GetData();
 		o.english_name				= this->english_name.GetData();
 		o.year_of_birth				= this->year_of_birth.GetData();
@@ -87,7 +87,7 @@ void CompanyInfoCtrl::OnValueChange() {
 		o.is_female					= this->sex.GetIndex();
 		o.language					= this->language.GetIndex();
 		
-		int c = editor->artists.GetCursor();
-		editor->artists.Set(c, 0, o.native_name);
+		int c = editor->companies.GetCursor();
+		editor->companies.Set(c, 0, o.native_name);
 	}
 }

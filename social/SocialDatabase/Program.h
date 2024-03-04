@@ -29,11 +29,11 @@ struct Program : DataFile
 {
 	
 	// Public
-	String						artist;
+	String						company;
 	String						prj_name;
 	String						reference;
 	String						origins;
-	String						stories_file_title;
+	String						story_file_title;
 	int							default_line_syllables = 0;
 	int							default_attr_count = 7;
 	int							theme_cursor = -1;
@@ -49,11 +49,11 @@ struct Program : DataFile
 	void Serialize(Stream& s) {TODO}
 	void Jsonize(JsonIO& json) {
 		json
-			("artist", artist)
+			("company", company)
 			("prj_name", prj_name)
 			("origins", origins)
 			("reference", reference)
-			("stories_file_title", stories_file_title)
+			("story_file_title", story_file_title)
 			("default_line_syllables", default_line_syllables)
 			("default_attr_count", default_attr_count)
 			("theme_cursor", theme_cursor)

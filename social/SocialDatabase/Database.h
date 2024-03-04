@@ -37,10 +37,8 @@ struct SocialDatabase {
 		}
 	}
 	String GetCompanysDir() const;
-	String GetReleasesDir() const;
+	String GetCampaignsDir() const;
 	String GetProgramsDir() const;
-	
-	String Translate(const String& s);
 	
 	
 	

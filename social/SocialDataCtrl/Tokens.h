@@ -1,5 +1,5 @@
-#ifndef _SongDataCtrl_Tokens_h_
-#define _SongDataCtrl_Tokens_h_
+#ifndef _SocialDataCtrl_Tokens_h_
+#define _SocialDataCtrl_Tokens_h_
 
 
 class TokensPage : public ToolAppCtrl {

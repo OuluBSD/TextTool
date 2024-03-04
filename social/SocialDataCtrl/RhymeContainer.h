@@ -1,5 +1,5 @@
-#ifndef _SongDataCtrl_RhymeContainer_h_
-#define _SongDataCtrl_RhymeContainer_h_
+#ifndef _SocialDataCtrl_RhymeContainer_h_
+#define _SocialDataCtrl_RhymeContainer_h_
 
 
 class RhymeContainerPage : public ToolAppCtrl {

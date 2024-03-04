@@ -1,13 +1,13 @@
-#ifndef _SocialCtrl_PressRelease_h_
-#define _SocialCtrl_PressRelease_h_
+#ifndef _SocialCtrl_PressCampaign_h_
+#define _SocialCtrl_PressCampaign_h_
 
 
-class PressReleaseCtrl : public ToolAppCtrl {
+class PressCampaignCtrl : public ToolAppCtrl {
 	
 	
 public:
-	typedef PressReleaseCtrl CLASSNAME;
-	PressReleaseCtrl();
+	typedef PressCampaignCtrl CLASSNAME;
+	PressCampaignCtrl();
 	
 	void Data() override;
 	void ToolMenu(Bar& bar) override;

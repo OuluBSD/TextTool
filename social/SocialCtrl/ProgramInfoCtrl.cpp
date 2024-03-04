@@ -1,201 +1,201 @@
 #include "SocialCtrl.h"
-#include <SongTool/SongTool.h>
+#include <SocialTool/SocialTool.h>
 
-SongInfoCtrl::SongInfoCtrl() {
+ProgramInfoCtrl::ProgramInfoCtrl() {
 	CtrlLayout(*this);
 	
-	song_artist <<= THISBACK(OnValueChange);
-	song_prj_name <<= THISBACK(OnValueChange);
+	program_company <<= THISBACK(OnValueChange);
+	program_prj_name <<= THISBACK(OnValueChange);
 	reference <<= THISBACK(OnValueChange);
 	origins <<= THISBACK(OnValueChange);
 	
-	typecasts.AddColumn(t_("Typecast"));
-	typecasts.AddColumn(t_("Count"));
-	typecasts.AddIndex("IDX");
-	typecasts.ColumnWidths("3 1");
-	archetypes.AddColumn(t_("Archetype"));
-	archetypes.AddColumn(t_("Count"));
-	archetypes.AddIndex("IDX");
-	archetypes.ColumnWidths("3 1");
-	lyrics.AddColumn(t_("Lyrics"));
-	lyrics.AddIndex("IDX");
+	roles.AddColumn(t_("Role"));
+	roles.AddColumn(t_("Count"));
+	roles.AddIndex("IDX");
+	roles.ColumnWidths("3 1");
+	generics.AddColumn(t_("Generic"));
+	generics.AddColumn(t_("Count"));
+	generics.AddIndex("IDX");
+	generics.ColumnWidths("3 1");
+	stories.AddColumn(t_("Story"));
+	stories.AddIndex("IDX");
 	
-	typecasts.WhenCursor << THISBACK(DataTypecast);
-	archetypes.WhenCursor << THISBACK(DataArchetype);
-	lyrics.WhenCursor << THISBACK(DataLyrics);
+	roles.WhenCursor << THISBACK(DataRole);
+	generics.WhenCursor << THISBACK(DataGeneric);
+	stories.WhenCursor << THISBACK(DataStory);
 	
-	set.WhenAction << THISBACK(SetLyrics);
-	
-}
-
-void SongInfoCtrl::Clear() {
-	this->song_artist				.Clear();
-	this->song_prj_name				.Clear();
+	set.WhenAction << THISBACK(SetStory);
 	
 }
 
-void SongInfoCtrl::Data() {
-	Database& db = Database::Single();
+void ProgramInfoCtrl::Clear() {
+	this->program_company				.Clear();
+	this->program_prj_name				.Clear();
+	
+}
+
+void ProgramInfoCtrl::Data() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	Clear();
 	
-	if (p.song) {
-		Song& s = *p.song;
+	if (p.program) {
+		Program& s = *p.program;
 		
-		song_artist.SetData(s.artist);
-		song_prj_name.SetData(s.prj_name);
+		program_company.SetData(s.company);
+		program_prj_name.SetData(s.prj_name);
 		reference.SetData(s.reference);
 		origins.SetData(s.origins);
 	}
 	
 	
-	if (!p.artist) {
-		typecasts.Clear();
-		archetypes.Clear();
-		lyrics.Clear();
+	if (!p.company) {
+		roles.Clear();
+		generics.Clear();
+		stories.Clear();
 		return;
 	}
 	
-	Artist& a = *p.artist;
-	if (p.song)
-		a.FindSong(focus_tc, focus_arch, focus_lyr, p.song->lyrics_file_title);
+	Company& a = *p.company;
+	if (p.program)
+		a.FindProgram(focus_role, focus_generic, focus_story, p.program->story_file_title);
 	
-	if (focus_tc < 0) {
-		focus_tc = p.GetActiveTypecastIndex();
-		focus_arch = p.GetActiveArchetypeIndex();
-		focus_lyr = p.GetActiveLyricsIndex();
+	if (focus_role < 0) {
+		focus_role = p.GetActiveRoleIndex();
+		focus_generic = p.GetActiveGenericIndex();
+		focus_story = p.GetActiveStoryIndex();
 	}
 	
-	const auto& tcs = GetTypecasts();
-	for(int i = 0; i < a.typecasts.GetCount(); i++) {
+	const auto& tcs = GetRoles();
+	for(int i = 0; i < a.roles.GetCount(); i++) {
 		const auto& t = tcs[i];
-		const auto& tc = a.typecasts[i];
-		typecasts.Set(i, "IDX", i);
-		typecasts.Set(i, 0, t);
-		typecasts.Set(i, 1, a.typecasts[i].GetLyricsCount());
+		const auto& tc = a.roles[i];
+		roles.Set(i, "IDX", i);
+		roles.Set(i, 0, t);
+		roles.Set(i, 1, a.roles[i].GetStoryCount());
 	}
-	INHIBIT_CURSOR(typecasts);
-	typecasts.SetSortColumn(1, true);
+	INHIBIT_CURSOR(roles);
+	roles.SetSortColumn(1, true);
 	
-	int cursor = max(0, focus_tc);
-	if (cursor >= 0 && cursor < typecasts.GetCount())
-		SetIndexCursor(typecasts, cursor);
+	int cursor = max(0, focus_role);
+	if (cursor >= 0 && cursor < roles.GetCount())
+		SetIndexCursor(roles, cursor);
 
-	DataTypecast();
+	DataRole();
 }
 
-void SongInfoCtrl::DataTypecast() {
-	Database& db = Database::Single();
+void ProgramInfoCtrl::DataRole() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.artist || !typecasts.IsCursor()) {
-		archetypes.Clear();
-		lyrics.Clear();
+	if (!p.company || !roles.IsCursor()) {
+		generics.Clear();
+		stories.Clear();
 		return;
 	}
 	
-	Artist& a = *p.artist;
-	Typecast& t = a.typecasts[typecasts.Get("IDX")];
+	Company& a = *p.company;
+	Role& t = a.roles[roles.Get("IDX")];
 	const auto& cons = GetContrasts();
-	for(int i = 0; i < t.archetypes.GetCount(); i++) {
+	for(int i = 0; i < t.generics.GetCount(); i++) {
 		const auto& con = cons[i];
-		const auto& at = t.archetypes[i];
-		archetypes.Set(i, "IDX", i);
-		archetypes.Set(i, 0, con.key);
-		archetypes.Set(i, 1, at.lyrics.GetCount());
+		const auto& at = t.generics[i];
+		generics.Set(i, "IDX", i);
+		generics.Set(i, 0, con.key);
+		generics.Set(i, 1, at.stories.GetCount());
 	}
-	INHIBIT_CURSOR(archetypes);
-	archetypes.SetSortColumn(1, true);
+	INHIBIT_CURSOR(generics);
+	generics.SetSortColumn(1, true);
 	
-	int cursor = max(0, focus_arch);
-	if (cursor >= 0 && cursor < archetypes.GetCount())
-		SetIndexCursor(archetypes, cursor);
+	int cursor = max(0, focus_generic);
+	if (cursor >= 0 && cursor < generics.GetCount())
+		SetIndexCursor(generics, cursor);
 
-	DataArchetype();
+	DataGeneric();
 }
 
-void SongInfoCtrl::DataArchetype() {
-	Database& db = Database::Single();
+void ProgramInfoCtrl::DataGeneric() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.artist || !typecasts.IsCursor() || !archetypes.IsCursor()) {
-		lyrics.Clear();
+	if (!p.company || !roles.IsCursor() || !generics.IsCursor()) {
+		stories.Clear();
 		return;
 	}
 	
-	Artist& a = *p.artist;
-	Typecast& t = a.typecasts[typecasts.Get("IDX")];
-	Archetype& at = t.archetypes[archetypes.Get("IDX")];
+	Company& a = *p.company;
+	Role& t = a.roles[roles.Get("IDX")];
+	Generic& at = t.generics[generics.Get("IDX")];
 	
-	for(int i = 0; i < at.lyrics.GetCount(); i++) {
-		const Lyrics& lyr = at.lyrics[i];
-		lyrics.Set(i, "IDX", i);
-		lyrics.Set(i, 0, lyr.GetAnyTitle());
+	for(int i = 0; i < at.stories.GetCount(); i++) {
+		const Story& lyr = at.stories[i];
+		stories.Set(i, "IDX", i);
+		stories.Set(i, 0, lyr.GetAnyTitle());
 	}
-	INHIBIT_CURSOR(lyrics);
+	INHIBIT_CURSOR(stories);
 	
-	int cursor = max(0, focus_lyr);
-	if (cursor >= 0 && cursor < lyrics.GetCount())
-		SetIndexCursor(lyrics, cursor);
+	int cursor = max(0, focus_story);
+	if (cursor >= 0 && cursor < stories.GetCount())
+		SetIndexCursor(stories, cursor);
 
-	DataLyrics();
+	DataStory();
 }
 
-void SongInfoCtrl::DataLyrics() {
-	Database& db = Database::Single();
+void ProgramInfoCtrl::DataStory() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.artist || !typecasts.IsCursor() || !archetypes.IsCursor() || !lyrics.IsCursor()) {
-		lyrics_text.Clear();
+	if (!p.company || !roles.IsCursor() || !generics.IsCursor() || !stories.IsCursor()) {
+		story_text.Clear();
 		return;
 	}
 	
-	Artist& a = *p.artist;
-	Typecast& t = a.typecasts[typecasts.Get("IDX")];
-	Archetype& at = t.archetypes[archetypes.Get("IDX")];
-	int lyr_i = lyrics.Get("IDX");
-	if (lyr_i >= at.lyrics.GetCount()) {
-		lyrics_text.SetData("<invalid IDX>");
+	Company& a = *p.company;
+	Role& t = a.roles[roles.Get("IDX")];
+	Generic& at = t.generics[generics.Get("IDX")];
+	int lyr_i = stories.Get("IDX");
+	if (lyr_i >= at.stories.GetCount()) {
+		story_text.SetData("<invalid IDX>");
 		return;
 	}
-	Lyrics& lyr = at.lyrics[lyr_i];
+	Story& lyr = at.stories[lyr_i];
 	
 	if (lyr.text.GetCount())
-		lyrics_text.SetData(lyr.text);
+		story_text.SetData(lyr.text);
 	else
-		lyrics_text.SetData("<no lyrics>");
+		story_text.SetData("<no story>");
 }
 
-void SongInfoCtrl::OnValueChange() {
-	Database& db = Database::Single();
+void ProgramInfoCtrl::OnValueChange() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
-	if (p.song && editor->songs.IsCursor()) {
-		Song& s = *p.song;
+	if (p.program && editor->programs.IsCursor()) {
+		Program& s = *p.program;
 		
-		s.artist = song_artist.GetData();
-		s.prj_name = song_prj_name.GetData();
+		s.company = program_company.GetData();
+		s.prj_name = program_prj_name.GetData();
 		s.reference = reference.GetData();
 		s.origins = origins.GetData();
 		
-		int c = editor->songs.GetCursor();
-		editor->songs.Set(c, 0, s.artist);
-		editor->songs.Set(c, 1, s.prj_name);
+		int c = editor->programs.GetCursor();
+		editor->programs.Set(c, 0, s.company);
+		editor->programs.Set(c, 1, s.prj_name);
 	}
 }
 
-void SongInfoCtrl::SetLyrics() {
-	Database& db = Database::Single();
+void ProgramInfoCtrl::SetStory() {
+	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	Song& s = *p.song;
+	Program& s = *p.program;
 	
-	if (!p.artist || !p.song || !typecasts.IsCursor() || !archetypes.IsCursor() || !lyrics.IsCursor()) {
+	if (!p.company || !p.program || !roles.IsCursor() || !generics.IsCursor() || !stories.IsCursor()) {
 		return;
 	}
 	
-	int tc_i = typecasts.Get("IDX");
-	int at_i = archetypes.Get("IDX");
-	int l_i = lyrics.Get("IDX");
+	int tc_i = roles.Get("IDX");
+	int at_i = generics.Get("IDX");
+	int l_i = stories.Get("IDX");
 	
-	Lyrics& l = p.artist->typecasts[tc_i].archetypes[at_i].lyrics[l_i];
+	Story& l = p.company->roles[tc_i].generics[at_i].stories[l_i];
 	
-	s.lyrics_file_title = l.file_title;
+	s.story_file_title = l.file_title;
 }

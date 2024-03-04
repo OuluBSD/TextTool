@@ -1,17 +1,17 @@
-#include "SongLib.h"
+#include "SocialLib.h"
 
-namespace SongLib {
+namespace SocialLib {
 
-void TaskManager::DoSongs(int ds_i, int fn) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+void TaskManager::DoPrograms(int ds_i, int fn) {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_SONGS;
-	t.cb = THISBACK1(GetSongs, &t);
+	t.cb = THISBACK1(GetPrograms, &t);
 	t.ds_i = ds_i;
 	t.batch_i = 0;
 	t.fn = fn;
@@ -19,9 +19,9 @@ void TaskManager::DoSongs(int ds_i, int fn) {
 }
 
 void TaskManager::DoTokens(int ds_i, int fn) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -35,9 +35,9 @@ void TaskManager::DoTokens(int ds_i, int fn) {
 }
 
 void TaskManager::DoUnknownTokenPairs(int ds_i, int fn) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -51,9 +51,9 @@ void TaskManager::DoUnknownTokenPairs(int ds_i, int fn) {
 }
 
 void TaskManager::DoAmbiguousWordPairs(int ds_i, int fn) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -67,9 +67,9 @@ void TaskManager::DoAmbiguousWordPairs(int ds_i, int fn) {
 }
 
 void TaskManager::DoVirtualPhrases(int ds_i, int fn) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -83,9 +83,9 @@ void TaskManager::DoVirtualPhrases(int ds_i, int fn) {
 }
 
 void TaskManager::DoPhrases(int ds_i, int fn) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -98,10 +98,10 @@ void TaskManager::DoPhrases(int ds_i, int fn) {
 	lock.LeaveWrite();
 }
 
-/*void TaskManager::DoNana(int ds_i, int fn, Song& song, Callback OnReady, int line_i, int part_i) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+/*void TaskManager::DoNana(int ds_i, int fn, Program& program, Callback OnReady, int line_i, int part_i) {
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -111,7 +111,7 @@ void TaskManager::DoPhrases(int ds_i, int fn) {
 	t.ds_i = ds_i;
 	t.batch_i = 0;
 	t.fn = fn;
-	t.song = &song;
+	t.program = &program;
 	t.on_ready = OnReady;
 	t.line_i = line_i;
 	t.part_i = part_i;
@@ -119,9 +119,9 @@ void TaskManager::DoPhrases(int ds_i, int fn) {
 }*/
 
 void TaskManager::DoContainer(int ds_i, int fn, Callback2<int,int> update) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -136,9 +136,9 @@ void TaskManager::DoContainer(int ds_i, int fn, Callback2<int,int> update) {
 }
 
 void TaskManager::DoActionlistCache(int ds_i) {
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Task task;
 	task.ds_i = ds_i;
@@ -165,9 +165,9 @@ void TaskManager::DoActionlist(int ds_i, int fn) {
 	if (IsInTaskList(TASK_ACTIONLIST))
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	if (uniq_acts.IsEmpty()) {
@@ -198,9 +198,9 @@ void TaskManager::DoActionParallel(int ds_i, int fn) {
 	if (IsInTaskList(TASK_ACTION_PARALLELS))
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -217,9 +217,9 @@ void TaskManager::DoActionTransition(int ds_i, int fn) {
 	if (IsInTaskList(TASK_ACTION_TRANSITIONS))
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -236,9 +236,9 @@ void TaskManager::DoWordFix(int ds_i, int fn) {
 	//if (IsInTaskList(TASK_WORD_FIX))
 	//	return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -255,9 +255,9 @@ void TaskManager::DoWords(int ds_i, int fn) {
 	if (IsInTaskList(TASK_WORD_DATA))
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -277,9 +277,9 @@ void TaskManager::DoWordnet(int ds_i, int fn) {
 	PromptOK("TODO");
 	return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -296,9 +296,9 @@ void TaskManager::DoAttributes(int ds_i, int fn) {
 	if (IsInTaskList(TASK_ATTRIBUTES))
 		return;
 	
-	Database& db = Database::Single();
-	SongData& sd = db.song_data;
-	SongDataAnalysis& sda = db.song_data.a;
+	SocialDatabase& db = SocialDatabase::Single();
+	ProgramData& sd = db.program_data;
+	ProgramDataAnalysis& sda = db.program_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();

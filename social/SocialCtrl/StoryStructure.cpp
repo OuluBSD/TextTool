@@ -1,8 +1,8 @@
 #include "SocialCtrl.h"
-#include <SongTool/SongTool.h>
+#include <SocialTool/SocialTool.h>
 
 
-SongStructure::SongStructure() {
+StoryStructure::StoryStructure() {
 	Add(vsplit.SizePos());
 	CtrlLayout(active);
 	
@@ -38,57 +38,57 @@ SongStructure::SongStructure() {
 	{
 		params.Add(t_("User's structure"), "");
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetLyrics().user_structure = e.GetData();};
+		e.WhenAction << [this,&e]() {GetStory().user_structure = e.GetData();};
 	}
 	{
 		params.Add(t_("Required parts"), "");
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetLyrics().required_parts =  e.GetData();};
+		e.WhenAction << [this,&e]() {GetStory().required_parts =  e.GetData();};
 	}
 	{
 		params.Add(t_("Avoid parts"), "");
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetLyrics().avoid_parts = e.GetData();};
+		e.WhenAction << [this,&e]() {GetStory().avoid_parts = e.GetData();};
 	}
 	{
-		params.Add(t_("Description of the song for suggestions"), "");
+		params.Add(t_("Description of the program for suggestions"), "");
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetLyrics().structure_suggestion_description = e.GetData();};
+		e.WhenAction << [this,&e]() {GetStory().structure_suggestion_description = e.GetData();};
 	}
 	{
 		params.Add(t_("Parts in total for suggestions"), "");
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetLyrics().parts_total = e.GetData();};
+		e.WhenAction << [this,&e]() {GetStory().parts_total = e.GetData();};
 	}
 	{
-		params.Add(t_("Song bpm"), "");
+		params.Add(t_("Program bpm"), "");
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetLyrics().bpm =  e.GetData(); DataActive(); DataSuggestions();};
+		e.WhenAction << [this,&e]() {GetStory().bpm =  e.GetData(); DataActive(); DataSuggestions();};
 	}
 	{
 		params.Add(t_("Verse length (2 rhymes, 4 bars)"), "");
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetLyrics().verse_length = e.GetData();};
+		e.WhenAction << [this,&e]() {GetStory().verse_length = e.GetData();};
 	}
 	{
 		params.Add(t_("Pre-chorus length (2 rhymes, 4 bars)"), "");
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetLyrics().prechorus_length = e.GetData();};
+		e.WhenAction << [this,&e]() {GetStory().prechorus_length = e.GetData();};
 	}
 	{
 		params.Add(t_("Chorus length (2 rhymes, 4 bars)"), "");
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetLyrics().chorus_length = e.GetData();};
+		e.WhenAction << [this,&e]() {GetStory().chorus_length = e.GetData();};
 	}
 	{
 		params.Add(t_("Bridge length (2 rhymes, 4 bars)"), "");
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetLyrics().bridge_length = e.GetData();};
+		e.WhenAction << [this,&e]() {GetStory().bridge_length = e.GetData();};
 	}
 	
 }
 
-void SongStructure::DisableAll() {
+void StoryStructure::DisableAll() {
 	disabled = true;
 	active.Disable();
 	params.Disable();
@@ -97,7 +97,7 @@ void SongStructure::DisableAll() {
 	parts.Disable();
 }
 
-void SongStructure::EnableAll() {
+void StoryStructure::EnableAll() {
 	disabled = false;
 	active.Enable();
 	params.Enable();
@@ -106,19 +106,19 @@ void SongStructure::EnableAll() {
 	parts.Enable();
 }
 
-void SongStructure::Data() {
+void StoryStructure::Data() {
 	DataActive();
-	DataSong();
+	DataProgram();
 }
 
-void SongStructure::DataActive() {
-	Lyrics& l = GetLyrics();
+void StoryStructure::DataActive() {
+	Story& l = GetStory();
 	
-	StructSuggestion& s = l.active_struct;
+	StoryStructSuggestion& s = l.active_struct;
 	
 	//s.chords.SetCount(s.parts.GetCount());
 	
-	int bpm = GetLyrics().bpm;
+	int bpm = GetStory().bpm;
 	
 	active.struct_name.SetData(s.name);
 	active.struct_str.SetData(Join(s.parts, ", "));
@@ -131,18 +131,18 @@ void SongStructure::DataActive() {
 	active.attrs.SetCount(s.attrs.GetCount());
 	
 	for(int i = 0; i < s.parts.GetCount(); i++) {
-		StaticPart* sp = l.FindPartByType(s.parts[i]);
+		StoryPart* sp = l.FindPartByType(s.parts[i]);
 		String abbr = s.parts[i];
 		active.parts.Set(i, 0,
-			AttrText(GetSongPartFromAbbr(abbr)).NormalPaper(GetSongPartPaperColor(abbr)));
+			AttrText(GetProgramPartFromAbbr(abbr)).NormalPaper(GetProgramPartPaperColor(abbr)));
 		
 	}
 	active.parts.SetCount(s.parts.GetCount());
 	
 }
 
-void SongStructure::DataSong() {
-	Lyrics& l = GetLyrics();
+void StoryStructure::DataProgram() {
+	Story& l = GetStory();
 	
 	params.Set(0, 1, l.user_structure);
 	params.Set(1, 1, l.required_parts);
@@ -158,14 +158,14 @@ void SongStructure::DataSong() {
 	DataSuggestions();
 }
 
-void SongStructure::DataSuggestions() {
-	Lyrics& l = GetLyrics();
+void StoryStructure::DataSuggestions() {
+	Story& l = GetStory();
 	
 	int bpm = l.bpm;
 	
 	int c = l.struct_suggs.GetCount();
 	for(int i = 0; i < c; i++) {
-		StructSuggestion& sug = l.struct_suggs[i];
+		StoryStructSuggestion& sug = l.struct_suggs[i];
 		
 		structs.Set(i, 0, i);
 		structs.Set(i, 1, sug.name);
@@ -181,8 +181,8 @@ void SongStructure::DataSuggestions() {
 	DataSuggestionAttributes();
 }
 
-void SongStructure::DataSuggestionAttributes() {
-	Lyrics& l = GetLyrics();
+void StoryStructure::DataSuggestionAttributes() {
+	Story& l = GetStory();
 	
 	if (!structs.IsCursor()) {
 		attributes.Clear();
@@ -192,7 +192,7 @@ void SongStructure::DataSuggestionAttributes() {
 	
 	int cur = structs.GetCursor();
 	int idx = structs.Get(cur, 0);
-	StructSuggestion& sug = l.struct_suggs[idx];
+	StoryStructSuggestion& sug = l.struct_suggs[idx];
 	
 	for(int i = 0; i < sug.attrs.GetCount(); i++) {
 		String& attr = sug.attrs[i];
@@ -202,12 +202,12 @@ void SongStructure::DataSuggestionAttributes() {
 	
 	for(int i = 0; i < sug.parts.GetCount(); i++) {
 		String abbr = sug.parts[i];
-		parts.Set(i, 0, AttrText(GetSongPartFromAbbr(abbr)).NormalPaper(GetSongPartPaperColor(abbr)));
+		parts.Set(i, 0, AttrText(GetProgramPartFromAbbr(abbr)).NormalPaper(GetProgramPartPaperColor(abbr)));
 	}
 	parts.SetCount(sug.parts.GetCount());
 }
 
-void SongStructure::ToolMenu(Bar& bar) {
+void StoryStructure::ToolMenu(Bar& bar) {
 	bar.Add(t_("Load user's structure"), AppImg::BlueRing(), THISBACK(LoadUserStructure)).Key(K_CTRL_Q);
 	bar.Separator();
 	bar.Add(t_("Get structure suggestions"), AppImg::RedRing(), THISBACK(GetStructureSuggestions)).Key(K_F5);
@@ -215,18 +215,18 @@ void SongStructure::ToolMenu(Bar& bar) {
 	bar.Add(t_("Load selected structure"), AppImg::RedRing(), THISBACK(LoadStructure)).Key(K_F7);
 }
 
-String SongStructure::GetStatusText() {
+String StoryStructure::GetStatusText() {
 	return "";
 }
 
-void SongStructure::LoadStructure() {
+void StoryStructure::LoadStructure() {
 	if (!structs.IsCursor())
 		return;
 	try {
-		Lyrics& l = GetLyrics();
+		Story& l = GetStory();
 		int cur = structs.GetCursor();
 		int idx = structs.Get(cur, 0);
-		StructSuggestion& sug = l.struct_suggs[idx];
+		StoryStructSuggestion& sug = l.struct_suggs[idx];
 		l.active_struct = sug;
 		
 		LoadActiveStruct();
@@ -236,13 +236,13 @@ void SongStructure::LoadStructure() {
 	
 }
 
-void SongStructure::LoadStructureString(String struct_str) {
+void StoryStructure::LoadStructureString(String struct_str) {
 	if (struct_str.IsEmpty())
 		return;
 	
 	try {
-		Lyrics& l = GetLyrics();
-		StructSuggestion& sug = l.active_struct;
+		Story& l = GetStory();
+		StoryStructSuggestion& sug = l.active_struct;
 		sug.Clear();
 		sug.name = "User's structure";
 		sug.parts <<= Split(struct_str, ",");
@@ -257,8 +257,8 @@ void SongStructure::LoadStructureString(String struct_str) {
 	PostCallback(THISBACK(DataActive));
 }
 
-void SongStructure::LoadActiveStruct() {
-	Lyrics& l = GetLyrics();
+void StoryStructure::LoadActiveStruct() {
+	Story& l = GetStory();
 	
 	Index<String> unique_parts;
 	for(int i = 0; i < l.active_struct.parts.GetCount(); i++) {
@@ -270,20 +270,20 @@ void SongStructure::LoadActiveStruct() {
 	l.parts.Clear();
 	for(int i = 0; i < unique_parts.GetCount(); i++) {
 		String abbr = unique_parts[i];
-		StaticPart& part = l.parts.Add();
-		part.name = TrimBoth(GetSongPartFromAbbr(abbr));
+		StoryPart& part = l.parts.Add();
+		part.name = TrimBoth(GetProgramPartFromAbbr(abbr));
 		part.type = abbr;
 	}
 }
 
-void SongStructure::LoadUserStructure() {
-	Lyrics& l = GetLyrics();
+void StoryStructure::LoadUserStructure() {
+	Story& l = GetStory();
 	LoadStructureString(l.user_structure);
 }
 
-void SongStructure::GetStructureSuggestions() {
+void StoryStructure::GetStructureSuggestions() {
 	if (disabled) return;
-	Lyrics& l = GetLyrics();
+	Story& l = GetStory();
 	
 	DisableAll();
 	
@@ -297,9 +297,9 @@ void SongStructure::GetStructureSuggestions() {
 	}
 }
 
-void SongStructure::GetSuggestionAttributes() {
+void StoryStructure::GetSuggestionAttributes() {
 	if (disabled) return;
-	Lyrics& l = GetLyrics();
+	Story& l = GetStory();
 	
 	DisableAll();
 	
@@ -312,21 +312,21 @@ void SongStructure::GetSuggestionAttributes() {
 	}
 }
 
-/*void SongStructure::SetParam(String key, String value) {
-	Song& song = GetSong();
-	song.data.GetAdd(key) = value;
+/*void StoryStructure::SetParam(String key, String value) {
+	Program& program = GetProgram();
+	program.data.GetAdd(key) = value;
 }
 
-String SongStructure::GetParam(String key, String def) {
-	Song& song = GetSong();
-	return song.data.Get(key, def);
+String StoryStructure::GetParam(String key, String def) {
+	Program& program = GetProgram();
+	return program.data.Get(key, def);
 }*/
 
-void SongStructure::OnStructureSuggestion(String result, Lyrics* l_) {
+void StoryStructure::OnStructureSuggestion(String result, Story* l_) {
 	PostCallback(THISBACK(EnableAll));
 	//LOG(result);
 	
-	Lyrics& l = *l_;
+	Story& l = *l_;
 	l.struct_suggs.Clear();
 	
 	Vector<String> suggestions = Split(result, "\n");
@@ -344,7 +344,7 @@ void SongStructure::OnStructureSuggestion(String result, Lyrics* l_) {
 		}
 		if (sug.Left(1) == "\"") sug = TrimBoth(sug.Mid(1, sug.GetCount()-2));
 		
-		StructSuggestion& struct_sug = l.struct_suggs.Add();
+		StoryStructSuggestion& struct_sug = l.struct_suggs.Add();
 		struct_sug.name = name;
 		struct_sug.parts = Split(sug, ",");
 		for (String& p : struct_sug.parts)
@@ -354,7 +354,7 @@ void SongStructure::OnStructureSuggestion(String result, Lyrics* l_) {
 	PostCallback(THISBACK(DataSuggestions));
 }
 
-void SongStructure::OnSuggestionAttributes(String result, Lyrics* l) {
+void StoryStructure::OnSuggestionAttributes(String result, Story* l) {
 	PostCallback(THISBACK(EnableAll));
 	//LOG(result);
 	
@@ -371,7 +371,7 @@ void SongStructure::OnSuggestionAttributes(String result, Lyrics* l) {
 		if (lines[0].Left(1) != "-")
 			lines.Remove(0);
 		
-		StructSuggestion& sug = l->struct_suggs[i];
+		StoryStructSuggestion& sug = l->struct_suggs[i];
 		sug.attrs.Clear();
 		for (String& l : lines)
 			sug.attrs << TrimBoth(l.Mid(1));

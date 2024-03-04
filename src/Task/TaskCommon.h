@@ -561,6 +561,54 @@ struct LyricsSolverArgs {
 	
 };
 
+struct StorySolverArgs {
+	int fn;
+	VectorMap<String,String> company, campaign, program;
+	Vector<String> parts, attrs, phrases;
+	Vector<int> counts, offsets;
+	String part;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("company", company)
+				("campaign", campaign)
+				("program", program)
+				("parts", parts)
+				("attrs", attrs)
+				("phrases", phrases)
+				("counts", counts)
+				("offsets", offsets)
+				("part", part)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct ProgramDataAnalysisArgs {
+	int fn;
+	int score_mode;
+	String company, program, text;
+	Vector<String> words;
+	Vector<String> phrases;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("sm", score_mode)
+				("company", company)
+				("program", program)
+				("text", text)
+				("words", words)
+				("phrases", phrases)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+
 
 
 #endif

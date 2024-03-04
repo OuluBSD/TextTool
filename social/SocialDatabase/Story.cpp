@@ -29,7 +29,7 @@ int Story::GetFirstPartPosition() const {
 	for(int i = 0; i < active_struct.parts.GetCount(); i++) {
 		String type = active_struct.parts[i];
 		for(int j = 0; j < parts.GetCount(); j++) {
-			if (parts[j].part_type != StaticPart::SKIP &&
+			if (parts[j].part_type != StoryPart::SKIP &&
 				parts[j].type == type)
 				return j;
 		}
@@ -37,7 +37,7 @@ int Story::GetFirstPartPosition() const {
 	return -1;
 }
 
-Vector<int> Story::GetPartPositions(const StaticPart& part) const {
+Vector<int> Story::GetPartPositions(const StoryPart& part) const {
 	Vector<int> v;
 	for(int i = 0; i < active_struct.parts.GetCount(); i++) {
 		if (active_struct.parts[i] == part.type)
@@ -46,7 +46,7 @@ Vector<int> Story::GetPartPositions(const StaticPart& part) const {
 	return v;
 }
 
-Vector<int> Story::GetPreviousParts(const StaticPart& part) const {
+Vector<int> Story::GetPreviousParts(const StoryPart& part) const {
 	Vector<int> pos = GetPartPositions(part);
 	for(int i = 0; i < pos.GetCount(); i++) {
 		int& p = pos[i];
@@ -56,11 +56,11 @@ Vector<int> Story::GetPreviousParts(const StaticPart& part) const {
 	return pos;
 }
 
-Vector<StaticPart*> Story::GetNonSkippedStructureParts() {
-	Vector<StaticPart*> parts;
+Vector<StoryPart*> Story::GetNonSkippedStructureParts() {
+	Vector<StoryPart*> parts;
 	for(int i = 0; i < active_struct.parts.GetCount(); i++) {
 		String type = active_struct.parts[i];
-		for(StaticPart& sp : this->parts) {
+		for(StoryPart& sp : this->parts) {
 			if (sp.type == type) {
 				parts << &sp;
 				break;
@@ -70,7 +70,7 @@ Vector<StaticPart*> Story::GetNonSkippedStructureParts() {
 	return parts;
 }
 
-int Story::FindPart(const StaticPart& part) const {
+int Story::FindPart(const StoryPart& part) const {
 	for(int i = 0; i < parts.GetCount(); i++) {
 		if (&parts[i] == &part)
 			return i;
@@ -78,7 +78,7 @@ int Story::FindPart(const StaticPart& part) const {
 	return -1;
 }
 
-Vector<int> Story::GetPreviousPartsNonSkipped(const StaticPart& part) const {
+Vector<int> Story::GetPreviousPartsNonSkipped(const StoryPart& part) const {
 	Vector<int> pos = GetPartPositions(part);
 	for(int i = 0; i < pos.GetCount(); i++) {
 		int& p = pos[i];
@@ -89,9 +89,9 @@ Vector<int> Story::GetPreviousPartsNonSkipped(const StaticPart& part) const {
 			}
 			p--;
 			const String& type = active_struct.parts[p];
-			const StaticPart* sp = 0;
+			const StoryPart* sp = 0;
 			for(int j = 0; j < parts.GetCount(); j++) {
-				const StaticPart& part = parts[p];
+				const StoryPart& part = parts[p];
 				if (part.type != type) continue;
 				sp = &part;
 				break;
@@ -102,29 +102,29 @@ Vector<int> Story::GetPreviousPartsNonSkipped(const StaticPart& part) const {
 				pos.Remove(i--);
 				break;
 			}
-			if (sp->part_type != StaticPart::SKIP)
+			if (sp->part_type != StoryPart::SKIP)
 				break;
 		}
 	}
 	return pos;
 }
 
-StaticPart* Story::FindPartByType(const String& type) {
-	for (StaticPart& sp : parts)
+StoryPart* Story::FindPartByType(const String& type) {
+	for (StoryPart& sp : parts)
 		if (sp.type == type)
 			return &sp;
 	return 0;
 }
 
-StaticPart* Story::FindPartByName(const String& name) {
+StoryPart* Story::FindPartByName(const String& name) {
 	String lname = ToLower(name);
-	for (StaticPart& sp : parts)
+	for (StoryPart& sp : parts)
 		if (ToLower(sp.name) == lname)
 			return &sp;
 	return 0;
 }
 
-double StructSuggestion::GetEstimatedDuration(int bpm) const {
+double StoryStructSuggestion::GetEstimatedDuration(int bpm) const {
 	double bars_per_min = (double)bpm / 4.0;
 	double bars_per_sec = bars_per_min / 60.0;
 	int bars = 8 * parts.GetCount();

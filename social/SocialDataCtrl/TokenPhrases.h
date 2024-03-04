@@ -1,5 +1,5 @@
-#ifndef _SongDataCtrl_TokenPhrases_h_
-#define _SongDataCtrl_TokenPhrases_h_
+#ifndef _SocialDataCtrl_TokenPhrases_h_
+#define _SocialDataCtrl_TokenPhrases_h_
 
 
 class TokenPhrases : public ToolAppCtrl {

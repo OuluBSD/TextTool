@@ -19,6 +19,10 @@ private:
 	
 protected:
 	friend class SocialTool;
+	friend class ProgramInfoCtrl;
+	friend class CompanyInfoCtrl;
+	friend class CampaignInfoCtrl;
+	friend class StoryInfoCtrl;
 	
 	Ctrl				subsplit;
 	Splitter			hsplit, menusplit, programsplit, storiessplit;
@@ -28,7 +32,7 @@ protected:
 	Ctrl				base;
 	int					page_group = 0;
 	VectorMap<int,int>	page;
-	bool				save_storydata = false;
+	bool				save_programdata = false;
 	bool				fast_exit = false;
 	
 	
@@ -38,14 +42,14 @@ public:
 	typedef SocialEditor CLASSNAME;
 	SocialEditor(SocialTool* app);
 	
-	void Serialize(Stream& s) {s % page_group % page % save_storydata;}
+	void Serialize(Stream& s) {s % page_group % page % save_programdata;}
 	void Init();
 	void ViewPageGroup();
 	void ViewPage();
 	void Data();
 	void DataPage();
 	void DataCompany();
-	void DataCampaing();
+	void DataCampaign();
 	void DataProgram();
 	void DataRole();
 	void DataGeneric();
@@ -58,13 +62,13 @@ public:
 	void MovePageGroup(int d);
 	void MovePage(int d);
 	String GetStatusText();
-	bool GetSaveSocialdata() const {return save_storydata;}
+	bool GetSaveProgramData() const {return save_programdata;}
 	bool IsFastExit() const {return fast_exit;}
-	void SetSaveSocialdata(bool b) {save_storydata = b;}
+	void SetSaveProgramData(bool b) {save_programdata = b;}
 	void SetFastExit(bool b) {fast_exit = b;}
 	
 	void CompanyMenu(Bar& bar);
-	void CampaingMenu(Bar& bar);
+	void CampaignMenu(Bar& bar);
 	void ProgramMenu(Bar& bar);
 	void StoryMenu(Bar& bar);
 	

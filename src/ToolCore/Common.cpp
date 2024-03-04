@@ -552,6 +552,16 @@ Color GetSongPartPaperColor(const String& abbr) {
 	return White();
 }
 
+String GetProgramPartFromAbbr(const String& abbr) {
+	TODO
+	return "";
+}
+
+Color GetProgramPartPaperColor(const String& abbr) {
+	TODO
+	return Color();
+}
+
 int GetSongPartPriority(const String& abbr) {
 	String pre, post;
 	int split = -1;
@@ -1287,6 +1297,32 @@ int FindNonEscaped(const WString& s, const WString& search, int begin) {
 	return -1;
 }
 
+const Index<String>& GetRoles() {
+	static Index<String> idx;
+	TODO
+	return idx;
+}
+
+int GetRoleCount() {
+	return GetRoles().GetCount();
+}
+
+const Vector<GenericType>& GetGenerics() {
+	static Vector<GenericType> v;
+	TODO
+	return v;
+}
+
+int GetGenericCount() {
+	return GetGenerics().GetCount();
+}
+
+const Vector<String>& GetGenericParts() {
+	static Vector<String> v;
+	TODO
+	return v;
+}
+
 const Index<String>& GetTypecasts() {
 	thread_local static Index<String> list;
 	if (list.IsEmpty()) {
@@ -1670,4 +1706,10 @@ void SetIndexCursor(ArrayCtrl& arr, int cur) {
 			break;
 		}
 	}
+}
+
+VectorMap<String,Vector<String>>& GetRoleCompanys(bool unsafe, bool gender) {
+	TODO
+	static VectorMap<String,Vector<String>> v;
+	return v;
 }

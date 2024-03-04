@@ -1,8 +1,8 @@
-#ifndef _SongDataCtrl_SongDataLineActions_h_
-#define _SongDataCtrl_SongDataLineActions_h_
+#ifndef _SocialDataCtrl_ProgramDataLineActions_h_
+#define _SocialDataCtrl_ProgramDataLineActions_h_
 
 
-class SongDataLineActions : public ToolAppCtrl {
+class ProgramDataLineActions : public ToolAppCtrl {
 	
 	
 protected:
@@ -21,8 +21,8 @@ protected:
 	bool batch = false;*/
 	
 public:
-	typedef SongDataLineActions CLASSNAME;
-	SongDataLineActions();
+	typedef ProgramDataLineActions CLASSNAME;
+	ProgramDataLineActions();
 	
 	void EnableAll();
 	void DisableAll();

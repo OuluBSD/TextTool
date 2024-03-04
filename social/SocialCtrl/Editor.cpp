@@ -17,7 +17,7 @@ SocialEditor::SocialEditor(SocialTool* app) : app(*app) {
 	
 	stories.WhenBar << THISBACK(StoryMenu);
 	companies.WhenBar << THISBACK(CompanyMenu);
-	campaigns.WhenBar << THISBACK(CampaingMenu);
+	campaigns.WhenBar << THISBACK(CampaignMenu);
 	programs.WhenBar << THISBACK(ProgramMenu);
 	
 	page_group_list.AddColumn(t_("Page group"));
@@ -29,9 +29,9 @@ SocialEditor::SocialEditor(SocialTool* app) : app(*app) {
 	companies.AddColumn(t_("Company"));
 	companies <<= THISBACK(DataCompany);
 	
-	campaigns.AddColumn(t_("Campaing"));
+	campaigns.AddColumn(t_("Campaign"));
 	campaigns.ColumnWidths("3 2");
-	campaigns <<= THISBACK(DataCampaing);
+	campaigns <<= THISBACK(DataCampaign);
 	
 	programs.AddColumn(t_("Social"));
 	programs <<= THISBACK(DataProgram);
@@ -187,9 +187,9 @@ void SocialEditor::LoadLast() {
 						for (Story& s : r.stories) {
 							if (s.file_title == app.last_story) {
 								p.story = &s;
-								for (StaticPart& part : s.parts) {
-									if (part.name == app.last_part) {
-										p.part = &part;
+								for (StoryPart& part : s.parts) {
+									if (part.name == app.last_story_part) {
+										p.story_part = &part;
 										break;
 									}
 								}
@@ -204,12 +204,12 @@ void SocialEditor::LoadLast() {
 		}
 		if (a.file_title == app.last_company) {
 			p.company = &a;
-			for (Campaing& r : a.campaigns) {
+			for (Campaign& r : a.campaigns) {
 				if (r.file_title == app.last_campaign) {
 					p.campaign = &r;
 					for (Program& s : r.programs) {
-						if (s.file_title == app.last_story) {
-							p.story = &s;
+						if (s.file_title == app.last_program) {
+							p.program = &s;
 							break;
 						}
 					}
@@ -226,8 +226,8 @@ void SocialEditor::StoreLast() {
 	EditorPtrs& p = EditorPtrs::Single();
 	app.last_role = p.role ? p.role->file_title : String();
 	app.last_generic = p.generic ? p.generic->file_title : String();
-	app.last_stories = p.story ? p.story->file_title : String();
-	app.last_part = p.part ? p.part->name : String();
+	app.last_story = p.story ? p.story->file_title : String();
+	app.last_story_part = p.story_part ? p.story_part->name : String();
 	app.last_company = p.company ? p.company->file_title : String();
 	app.last_campaign = p.campaign ? p.campaign->file_title : String();
 	app.last_story = p.story ? p.story->file_title : String();
@@ -320,21 +320,21 @@ void SocialEditor::DataCompany() {
 	Company& a = *p.company;
 	
 	for(int i = 0; i < a.campaigns.GetCount(); i++) {
-		Campaing& r = a.campaigns[i];
+		Campaign& r = a.campaigns[i];
 		campaigns.Set(i, 0, r.native_title);
 		campaigns.Set(i, 1, r.date);
 	}
 	INHIBIT_ACTION(campaigns);
 	campaigns.SetCount(a.campaigns.GetCount());
 	
-	int cursor = max(0, p.GetActiveCampaingIndex());
+	int cursor = max(0, p.GetActiveCampaignIndex());
 	if (cursor >= 0 && cursor < campaigns.GetCount())
 		campaigns.SetCursor(cursor);
 	
-	DataCampaing();
+	DataCampaign();
 }
 
-void SocialEditor::DataCampaing() {
+void SocialEditor::DataCampaign() {
 	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!campaigns.IsCursor() || !p.company) {
@@ -347,7 +347,7 @@ void SocialEditor::DataCampaing() {
 	
 	p.campaign = &p.company->campaigns[campaigns.GetCursor()];
 	Company& a = *p.company;
-	Campaing& r = *p.campaign;
+	Campaign& r = *p.campaign;
 	
 	for(int i = 0; i < r.programs.GetCount(); i++) {
 		Program& s = r.programs[i];
@@ -359,7 +359,7 @@ void SocialEditor::DataCampaing() {
 	INHIBIT_ACTION(programs);
 	programs.SetCount(r.programs.GetCount());
 	
-	int cursor = max(0, p.GetActiveSocialIndex());
+	int cursor = max(0, p.GetActiveProgramIndex());
 	if (cursor >= 0 && cursor < programs.GetCount())
 		programs.SetCursor(cursor);
 	
@@ -370,15 +370,15 @@ void SocialEditor::DataProgram() {
 	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!programs.IsCursor() || !p.company || !p.campaign) {
-		p.story = 0;
+		p.program = 0;
 		DataPage();
 		return;
 	}
 	
-	p.story = &p.campaign->programs[programs.GetCursor()];
+	p.program = &p.campaign->programs[programs.GetCursor()];
 	Company& a = *p.company;
-	Campaing& r = *p.campaign;
-	Program& s = *p.story;
+	Campaign& r = *p.campaign;
+	Program& s = *p.program;
 	
 	
 	/*
@@ -386,7 +386,7 @@ void SocialEditor::DataProgram() {
 		String k;
 		int c = 0;
 		Color clr = White();
-		StaticPart& p = s.parts[i];
+		StoryPart& p = s.parts[i];
 		k = p.name;
 		clr = GetSocialPartPaperColor(p.type);
 		c = p.rhymes.GetCount();
@@ -492,21 +492,21 @@ void SocialEditor::CompanyMenu(Bar& bar) {
 	}
 }
 
-void SocialEditor::CampaingMenu(Bar& bar) {
-	bar.Add(t_("Add Campaing"), THISBACK(AddCampaing));
+void SocialEditor::CampaignMenu(Bar& bar) {
+	bar.Add(t_("Add Campaign"), THISBACK(AddCampaign));
 	
 	if (campaigns.IsCursor()) {
-		bar.Add(t_("Rename Campaing"), THISBACK(RenameCampaing));
-		bar.Add(t_("Delete Campaing"), THISBACK(RemoveCampaing));
+		bar.Add(t_("Rename Campaign"), THISBACK(RenameCampaign));
+		bar.Add(t_("Delete Campaign"), THISBACK(RemoveCampaign));
 	}
 }
 
 void SocialEditor::ProgramMenu(Bar& bar) {
-	bar.Add(t_("Add Social"), THISBACK(AddSocial));
+	bar.Add(t_("Add Program"), THISBACK(AddProgram));
 	
 	if (programs.IsCursor()) {
-		bar.Add(t_("Rename Social"), THISBACK(RenameSocial));
-		bar.Add(t_("Delete Social"), THISBACK(RemoveSocial));
+		bar.Add(t_("Rename Program"), THISBACK(RenameProgram));
+		bar.Add(t_("Delete Program"), THISBACK(RemoveProgram));
 	}
 }
 
@@ -585,7 +585,7 @@ void SocialEditor::RemoveCompany() {
 	Data();
 }
 
-void SocialEditor::AddCampaing() {
+void SocialEditor::AddCampaign() {
 	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.company)
@@ -595,26 +595,26 @@ void SocialEditor::AddCampaing() {
 	String title;
 	bool b = EditTextNotNull(
 		title,
-		t_("Add Campaing"),
-		t_("Campaing's English title"),
+		t_("Add Campaign"),
+		t_("Campaign's English title"),
 		0
 	);
 	if (!b) return;
 	
 	int rel_i = -1;
 	for(int i = 0; i < a.campaigns.GetCount(); i++) {
-		Campaing& r = a.campaigns[i];
+		Campaign& r = a.campaigns[i];
 		if (r.english_title == title) {
 			rel_i = i;
 			break;
 		}
 	}
 	if (rel_i >= 0) {
-		PromptOK(DeQtf(t_("Campaing exist already")));
+		PromptOK(DeQtf(t_("Campaign exist already")));
 		return;
 	}
 	
-	Campaing& r = a.campaigns.Add();
+	Campaign& r = a.campaigns.Add();
 	r.file_title = MakeTitle(title);
 	r.english_title = title;
 	p.campaign = &r;
@@ -622,7 +622,7 @@ void SocialEditor::AddCampaing() {
 	DataCompany();
 }
 
-void SocialEditor::RenameCampaing() {
+void SocialEditor::RenameCampaign() {
 	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.campaign)
@@ -631,8 +631,8 @@ void SocialEditor::RenameCampaing() {
 	String title;
 	bool b = EditTextNotNull(
 		title,
-		t_("Rename Campaing"),
-		t_("Campaing's English title"),
+		t_("Rename Campaign"),
+		t_("Campaign's English title"),
 		0
 	);
 	if (!b) return;
@@ -642,12 +642,12 @@ void SocialEditor::RenameCampaing() {
 	DataCompany();
 }
 
-void SocialEditor::RemoveCampaing() {
+void SocialEditor::RemoveCampaign() {
 	SocialDatabase& db = SocialDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.company || !p.campaign)
 		return;
-	int idx = p.GetActiveCampaingIndex();
+	int idx = p.GetActiveCampaignIndex();
 	if (idx < 0) return;
 	p.company->campaigns.Remove(idx);
 	DataCompany();
@@ -659,7 +659,7 @@ void SocialEditor::AddProgram() {
 	if (!p.company)
 		return;
 	Company& a = *p.company;
-	Campaing& r = *p.campaign;
+	Campaign& r = *p.campaign;
 	
 	String title;
 	bool b = EditTextNotNull(
@@ -711,7 +711,7 @@ void SocialEditor::RenameProgram() {
 	
 	TODO //p.story->english_title = title.ToString();
 	
-	DataCampaing();
+	DataCampaign();
 }
 
 void SocialEditor::RemoveProgram() {
@@ -719,11 +719,11 @@ void SocialEditor::RemoveProgram() {
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.story || !p.campaign)
 		return;
-	int idx = p.GetActiveSocialIndex();
+	int idx = p.GetActiveProgramIndex();
 	if (idx < 0) return;
 	p.campaign->programs.Remove(idx);
 	p.story = 0;
-	DataCampaing();
+	DataCampaign();
 }
 
 void SocialEditor::AddStory() {

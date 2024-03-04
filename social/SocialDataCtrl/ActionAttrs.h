@@ -1,5 +1,5 @@
-#ifndef _SongDataCtrl_ActionAttrs_h_
-#define _SongDataCtrl_ActionAttrs_h_
+#ifndef _SocialDataCtrl_ActionAttrs_h_
+#define _SocialDataCtrl_ActionAttrs_h_
 
 
 class ActionAttrsPage : public ToolAppCtrl {

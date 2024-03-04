@@ -1,16 +1,16 @@
-#ifndef _SongDataCtrl_LineTypes_h_
-#define _SongDataCtrl_LineTypes_h_
+#ifndef _SocialDataCtrl_LineTypes_h_
+#define _SocialDataCtrl_LineTypes_h_
 
 
 #if 0
 
 class LineTypesPage : public ToolAppCtrl {
 	struct Batch : Moveable<Batch> {
-		ArtistDataset* artist;
-		LyricsDataset* lyrics;
+		CompanyDataset* company;
+		StoryDataset* story;
 		String txt;
 		int ds_i;
-		bool song_begins;
+		bool program_begins;
 	};
 	
 	Vector<Batch> batches;
