@@ -16,8 +16,8 @@ private:
 	void InitListItems();
 	
 protected:
-	friend class CompanyInfoCtrl;
-	friend class ProductInfoCtrl;
+	friend class ArtistInfoCtrl;
+	friend class ReleaseInfoCtrl;
 	friend class SongInfoCtrl;
 	friend class LyricsInfoCtrl;
 	friend class SongTool;
@@ -53,8 +53,8 @@ protected:
 	SongStructure					song_struct;
 	//LyricsEditor					lyrics_editor;
 	//ActionEditor					action_editor;
-	CompanyInfoCtrl					company_info;
-	ProductInfoCtrl					product_info;
+	ArtistInfoCtrl					company_info;
+	ReleaseInfoCtrl					product_info;
 	SongInfoCtrl					song_info;
 	LyricsInfoCtrl					lyrics_info;
 	

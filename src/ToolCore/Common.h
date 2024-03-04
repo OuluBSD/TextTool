@@ -189,6 +189,11 @@ struct Archetype;
 struct Lyrics;
 struct StaticPart;
 struct TaskMgr;
+struct Company;
+struct Campaign;
+struct Story;
+struct Role;
+struct Generic;
 
 
 
@@ -200,6 +205,11 @@ struct EditorPtrs {
 	Archetype*		archetype = 0;
 	Lyrics*			lyrics = 0;
 	StaticPart*		part = 0;
+	Company*		company = 0;
+	Campaign*		campaign = 0;
+	Story*			story = 0;
+	Role*			role = 0;
+	Generic*		generic = 0;
 	
 	void Zero() {memset(this, 0, sizeof(EditorPtrs));}
 	

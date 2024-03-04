@@ -10,34 +10,21 @@
 #define LAYOUTFILE <SongCtrl/Simplified.lay>
 #include <CtrlCore/lay.h>
 
-#include "Checklists.h"
-#include "AlbumBriefing.h"
-#include "AlbumIdeas.h"
-#include "CoverImage.h"
-#include "Pitching.h"
-#include "SongBriefing.h"
-#include "SongStructure.h"
-#include "CalMgrCtrl.h"
-#include "ContextAttributes.h"
-#include "PublicRelations.h"
-#include "PressRelease.h"
-#include "Marketing.h"
+
+#include "LyricsStructure.h"
 #include "LyricsEditor.h"
-#include "AttributeDistribution.h"
-#include "NanaEditor.h"
-#include "ActionEditor.h"
-#include "CompanyInfoCtrl.h"
-#include "ProductInfoCtrl.h"
-#include "SongInfoCtrl.h"
 #include "LyricsInfoCtrl.h"
-#include "LineStructureEditor.h"
-#include "EnglishEditor.h"
-#include "LinePicker.h"
-#include "LineSetter.h"
-#include "NativeEditor.h"
-#include "SecondarySetter.h"
 #include "LyricsSolverCtrl.h"
-#include "SongPool.h"
+#include "LyricsPool.h"
+
+#include "SongInfoCtrl.h"
+
+#include "ReleaseInfoCtrl.h"
+#include "ReleaseBriefing.h"
+#include "ReleaseIdeas.h"
+#include "ReleaseCoverImage.h"
+
+#include "ArtistInfoCtrl.h"
 #include "Fns.h"
 
 

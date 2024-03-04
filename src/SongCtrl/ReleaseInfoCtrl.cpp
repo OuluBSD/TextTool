@@ -1,7 +1,7 @@
 #include "SongCtrl.h"
 #include <SongTool/SongTool.h>
 
-ProductInfoCtrl::ProductInfoCtrl() {
+ReleaseInfoCtrl::ReleaseInfoCtrl() {
 	CtrlLayout(*this);
 	
 	native_album_title <<= THISBACK(OnValueChange);
@@ -11,14 +11,14 @@ ProductInfoCtrl::ProductInfoCtrl() {
 	
 }
 
-void ProductInfoCtrl::Clear() {
+void ReleaseInfoCtrl::Clear() {
 	this->native_album_title		.Clear();
 	this->english_album_title		.Clear();
 	this->album_date				.Clear();
 	this->year_of_content			.Clear();
 }
 
-void ProductInfoCtrl::Data() {
+void ReleaseInfoCtrl::Data() {
 	Database& db = Database::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
@@ -35,7 +35,7 @@ void ProductInfoCtrl::Data() {
 	
 }
 
-void ProductInfoCtrl::OnValueChange() {
+void ReleaseInfoCtrl::OnValueChange() {
 	Database& db = Database::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	

@@ -1,8 +1,5 @@
 description "\377B128,0,0";
 
-uses
-	SongDatabase;
-
 uses(LLAMACPP) LlamaCpp;
 
 library(WIN32 & CLANG) "curl libcurl.dll.a";

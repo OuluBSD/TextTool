@@ -11,7 +11,7 @@
 #include "Release.h"
 #include "Artist.h"
 #include "SongData.h"
-#include "DatabaseClass.h"
+#include "Database.h"
 #include "Pronounciation.h"
 #include "Browser.h"
 

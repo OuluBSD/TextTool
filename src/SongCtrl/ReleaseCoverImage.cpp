@@ -2,24 +2,24 @@
 
 
 
-CoverImage::CoverImage() {
+ReleaseCoverImage::ReleaseCoverImage() {
 	user_natural_english_key = "NATURAL_ENGLISH_OF_AUTHOR";
 	
 }
 
-void CoverImage::Init() {
+void ReleaseCoverImage::Init() {
 	ImagePlayerBase::Init();
 	
 }
 
-void CoverImage::ToolMenu(Bar& bar) {
+void ReleaseCoverImage::ToolMenu(Bar& bar) {
 	bar.Add(t_("Create suggestions for prompts"), AppImg::Part(), THISBACK(CreateSuggestionsForPrompts)).Key(K_F5);
 	bar.Add(t_("Make single image"), AppImg::Part(), THISBACK(MakeSingleImage)).Key(K_F6);
 	bar.Add(t_("Make all images"), AppImg::Part(), THISBACK(MakeAllImages)).Key(K_F7);
 	
 }
 
-void CoverImage::CreateSuggestionsForPrompts() {
+void ReleaseCoverImage::CreateSuggestionsForPrompts() {
 	Database& db = Database::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist ||!p.release)
@@ -66,7 +66,7 @@ void CoverImage::CreateSuggestionsForPrompts() {
 	}
 }
 
-void CoverImage::OnResult(String res, String part) {
+void ReleaseCoverImage::OnResult(String res, String part) {
 	Item& item = items.Add();
 	item.part = part;
 	item.prompt = res;
@@ -74,10 +74,10 @@ void CoverImage::OnResult(String res, String part) {
 	DataList();
 }
 
-void CoverImage::MakeSingleImage() {
+void ReleaseCoverImage::MakeSingleImage() {
 	ImagePlayerBase::MakeSingleImage();
 }
 
-void CoverImage::MakeAllImages() {
+void ReleaseCoverImage::MakeAllImages() {
 	ImagePlayerBase::MakeAllImages();
 }

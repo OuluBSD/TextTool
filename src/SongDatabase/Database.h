@@ -47,9 +47,7 @@ struct Database {
 	void FindOrphaned();
 	void Serialize(Stream& s) {
 		s	% artists
-			% translation
-			/*% attrs
-			% attrscores*/;
+			% translation;
 	}
 	void Jsonize(JsonIO& json) {
 		json ("translation", translation);

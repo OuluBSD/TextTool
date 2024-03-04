@@ -1,7 +1,7 @@
 #include "SongCtrl.h"
 #include <SongTool/SongTool.h>
 
-CompanyInfoCtrl::CompanyInfoCtrl() {
+ArtistInfoCtrl::ArtistInfoCtrl() {
 	CtrlLayout(*this);
 	
 	sex.Add(t_("Male"));
@@ -22,7 +22,7 @@ CompanyInfoCtrl::CompanyInfoCtrl() {
 	
 }
 
-void CompanyInfoCtrl::Clear() {
+void ArtistInfoCtrl::Clear() {
 	this->native_name				.Clear();
 	this->english_name				.Clear();
 	this->year_of_birth				.Clear();
@@ -36,7 +36,7 @@ void CompanyInfoCtrl::Clear() {
 	this->sex						.SetIndex(0);
 }
 
-void CompanyInfoCtrl::Data() {
+void ArtistInfoCtrl::Data() {
 	Database& db = Database::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
@@ -68,7 +68,7 @@ void CompanyInfoCtrl::Data() {
 	
 }
 
-void CompanyInfoCtrl::OnValueChange() {
+void ArtistInfoCtrl::OnValueChange() {
 	Database& db = Database::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
