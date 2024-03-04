@@ -8,9 +8,9 @@ uses
 	BlueBar,
 	RedBar,
 	ToolBase,
-	EditorCtrl,
+	SongCtrl,
 	Task,
-	Database,
+	SongDatabase,
 	SongDataCtrl;
 
 library(WIN32 & CLANG) "curl libcurl.dll.a";
@@ -21,8 +21,8 @@ library(WIN32 & MSC) libcurl;
 
 file
 	TODO.txt,
-	SongTool.cpp,
 	SongTool.h,
+	SongTool.cpp,
 	SongTool.rc,
 	SongTool.t,
 	App.h,

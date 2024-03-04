@@ -1,5 +1,5 @@
 #include "ToolBase.h"
-#include <Database/Database.h>
+#include <SongDatabase/SongDatabase.h>
 #include <SongLib/SongLib.h>
 
 void PreviewDisplay::Paint(Draw& w, const Rect& r, const Value& q,

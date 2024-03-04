@@ -1,7 +1,7 @@
 #ifndef _SongTool_SongTool_h_
 #define _SongTool_SongTool_h_
 
-#include <EditorCtrl/EditorCtrl.h>
+#include <SongCtrl/SongCtrl.h>
 #include <SongDataCtrl/SongDataCtrl.h>
 
 #include "FrontPage.h"

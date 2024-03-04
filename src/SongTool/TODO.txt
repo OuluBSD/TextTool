@@ -280,7 +280,7 @@ Mid priority:
 - TxtStructEdit: scroll position of best doc edit is lost
 
 Low priority:
-- See all "#include <Database/Database.h>" and change that to use some virtual base class in ToolCore
+- See all "#include <SongDatabase/SongDatabase.h>" and change that to use some virtual base class in ToolCore
 	- also "#include <SongTool/SongTool.h>"
 - TxtStructEdit: feed previous text to prompt when requesting style-comparison completion
 

@@ -1,7 +1,7 @@
 #ifndef _SongDataCtrl_SongDataCtrl_h_
 #define _SongDataCtrl_SongDataCtrl_h_
 
-#include <EditorCtrl/EditorCtrl.h>
+#include <SongCtrl/SongCtrl.h>
 
 #define LAYOUTFILE <SongDataCtrl/SongDataCtrl.lay>
 #include <CtrlCore/lay.h>

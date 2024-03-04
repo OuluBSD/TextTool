@@ -1,5 +1,5 @@
 #include "ToolBase.h"
-#include <Database/Database.h>
+#include <SongDatabase/SongDatabase.h>
 
 
 TranslatorToolCtrl::TranslatorToolCtrl() {
