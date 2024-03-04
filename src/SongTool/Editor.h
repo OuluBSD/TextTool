@@ -36,7 +36,7 @@ protected:
 	
 	AlbumBriefing					album_briefing;
 	AlbumIdeas						album_ideas;
-	CoverImage						cover_image;
+	//CoverImage						cover_image;
 	//Pitching						pitching;
 	//SongBriefing					song_briefing;
 	/*ChecklistComposition			checklist_composition;
@@ -45,11 +45,11 @@ protected:
 	ChecklistRelease				release_checklist;*/
 	ImageGenTool					image_gen;
 	//ContextAttributesCtrl			ctx_attrs;
-	PressReleaseCtrl				pressrel;
+	/*PressReleaseCtrl				pressrel;
 	PublicRelationsCtrl				pubrel;
 	MarketingCtrl					marketing;
 	//AttributeDistribution			attr_dist;
-	CalMgrCtrl						cal;
+	CalMgrCtrl						cal;*/
 	SongStructure					song_struct;
 	//LyricsEditor					lyrics_editor;
 	//ActionEditor					action_editor;

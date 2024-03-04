@@ -108,7 +108,7 @@ void TaskManager::RemoveTask(Task& t) {
 void TaskManager::RealizePipe() {
 	Database& db = Database::Single();
 	if (!pipe) {
-		pipe = &db.pipes.Add();
+		pipe = &TaskMgr::Single();
 		pipe->song = 0;
 	}
 }

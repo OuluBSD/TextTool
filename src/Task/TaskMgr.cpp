@@ -111,8 +111,7 @@ void TaskMgrConfig::Process() {
 	
 	while (running) {
 		db.lock.EnterRead();
-		for (TaskMgr& pipe : db.pipes)
-			pipe.TaskMgr::Process();
+		TaskMgr::Single().Process();
 		db.lock.LeaveRead();
 		
 		Sleep(10);
