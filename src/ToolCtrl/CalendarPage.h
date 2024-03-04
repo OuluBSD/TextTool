@@ -1,5 +1,5 @@
-#ifndef _SongTool_CalendarPage_h_
-#define _SongTool_CalendarPage_h_
+#ifndef _ToolCtrl_CalendarPage_h_
+#define _ToolCtrl_CalendarPage_h_
 
 
 class CalendarPage : public WithCalendar<Ctrl> {

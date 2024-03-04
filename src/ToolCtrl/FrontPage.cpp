@@ -1,4 +1,4 @@
-#include "SongTool.h"
+#include "ToolCtrl.h"
 
 FrontPage::FrontPage() {
 	CtrlLayout(*this);

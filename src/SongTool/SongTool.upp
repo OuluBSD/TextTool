@@ -11,7 +11,8 @@ uses
 	SongCtrl,
 	Task,
 	SongDatabase,
-	SongDataCtrl;
+	SongDataCtrl,
+	ToolCtrl;
 
 library(WIN32 & CLANG) "curl libcurl.dll.a";
 
@@ -28,15 +29,8 @@ file
 	App.h,
 	App.cpp,
 	View readonly separator,
-	FrontPage.h,
-	FrontPage.cpp,
-	CalendarPage.h,
-	CalendarPage.cpp,
 	Editor.h,
-	Editor.cpp,
-	TaskCtrl.h,
-	TaskCtrl.cpp,
-	_ readonly separator;
+	Editor.cpp;
 
 mainconfig
 	"" = "GUI",

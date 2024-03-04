@@ -1,5 +1,5 @@
-#ifndef _SongTool_FrontPage_h_
-#define _SongTool_FrontPage_h_
+#ifndef _ToolCtrl_FrontPage_h_
+#define _ToolCtrl_FrontPage_h_
 
 
 class FrontPage : public WithFrontPage<Ctrl> {

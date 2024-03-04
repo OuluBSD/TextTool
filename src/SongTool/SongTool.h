@@ -3,11 +3,9 @@
 
 #include <SongCtrl/SongCtrl.h>
 #include <SongDataCtrl/SongDataCtrl.h>
+#include <ToolCtrl/ToolCtrl.h>
 
-#include "FrontPage.h"
-#include "CalendarPage.h"
 #include "Editor.h"
-#include "TaskCtrl.h"
 
 #include "App.h"
 

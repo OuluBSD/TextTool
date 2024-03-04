@@ -90,6 +90,9 @@ struct TaskMgr {
 	void GetNanaData(const NanaArgs& args, Event<String> WhenResult);
 	void GetLyricsSolver(const LyricsSolverArgs& args, Event<String> WhenResult);
 	
+	static TaskMgr& Single() {static TaskMgr tm; return tm;}
+	
+	
 };
 
 struct TaskMgrConfig {

@@ -1,5 +1,5 @@
-#ifndef _SongTool_TaskCtrl_h_
-#define _SongTool_TaskCtrl_h_
+#ifndef _ToolCtrl_TaskCtrl_h_
+#define _ToolCtrl_TaskCtrl_h_
 
 
 class Tasks : public Ctrl {

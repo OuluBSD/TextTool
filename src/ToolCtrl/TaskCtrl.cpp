@@ -1,4 +1,4 @@
-#include "SongTool.h"
+#include "ToolCtrl.h"
 
 
 Tasks::Tasks() {
@@ -24,14 +24,7 @@ Tasks::Tasks() {
 }
 
 void Tasks::Data() {
-	Database& db = Database::Single();
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	TaskMgr* p = tm.GetPipe();
-	if(!p) {
-		list.Clear();
-		return;
-	}
-	TaskMgr& m = *p;
+	TaskMgr& m = TaskMgr::Single();
 	
 	for(int i = 0; i < m.tasks.GetCount(); i++) {
 		Task& t = m.tasks[i];
@@ -61,15 +54,7 @@ void Tasks::Data() {
 }
 
 void Tasks::DataTask() {
-	Database& db = Database::Single();
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	TaskMgr* p = tm.GetPipe();
-	if(!p) {
-		list.Clear();
-		return;
-	}
-	TaskMgr& pipe = *p;
-	TaskMgr& m = pipe;
+	TaskMgr& m = TaskMgr::Single();
 	
 	if (!list.IsCursor())
 		return;
@@ -89,15 +74,7 @@ void Tasks::DataTask() {
 }
 
 void Tasks::ValueChange() {
-	Database& db = Database::Single();
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	TaskMgr* p = tm.GetPipe();
-	if(!p) {
-		list.Clear();
-		return;
-	}
-	TaskMgr& pipe = *p;
-	TaskMgr& m = pipe;
+	TaskMgr& m = TaskMgr::Single();
 	
 	if (!m.active_task)
 		return;
@@ -111,15 +88,7 @@ void Tasks::ValueChange() {
 }
 
 void Tasks::ProcessItem() {
-	Database& db = Database::Single();
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	TaskMgr* p = tm.GetPipe();
-	if(!p) {
-		list.Clear();
-		return;
-	}
-	TaskMgr& pipe = *p;
-	TaskMgr& m = pipe;
+	TaskMgr& m = TaskMgr::Single();
 	
 	if (!list.IsCursor())
 		return;
@@ -130,15 +99,7 @@ void Tasks::ProcessItem() {
 }
 
 void Tasks::RetryItem(bool skip_prompt, bool skip_cache) {
-	Database& db = Database::Single();
-	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	TaskMgr* p = tm.GetPipe();
-	if(!p) {
-		list.Clear();
-		return;
-	}
-	TaskMgr& pipe = *p;
-	TaskMgr& m = pipe;
+	TaskMgr& m = TaskMgr::Single();
 	
 	if (!list.IsCursor())
 		return;
