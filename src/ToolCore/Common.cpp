@@ -1283,9 +1283,87 @@ int FindNonEscaped(const WString& s, const WString& search, int begin) {
 }
 
 const Index<String>& GetRoles() {
-	static Index<String> idx;
-	TODO
-	return idx;
+	static Index<String> list;
+	if (list.IsEmpty()) {
+		list.Add("Influencer");
+		list.Add("Activist");
+		list.Add("Expert");
+		list.Add("Comedian");
+		list.Add("Politician");
+		list.Add("Social media personality");
+		list.Add("Marketer");
+		list.Add("Journalist");
+		list.Add("Writer/author");
+		list.Add("Celebrity/entertainer");
+		list.Add("Blogger");
+		list.Add("Entrepreneur");
+		list.Add("Educator");
+		list.Add("Student");
+		list.Add("Parent");
+		list.Add("Athlete");
+		list.Add("Music fan");
+		list.Add("Foodie");
+		list.Add("Traveler");
+		list.Add("Developer/programmer");
+		list.Add("Artist/creative");
+		list.Add("Scientist/researcher");
+		list.Add("Environmentalist");
+		list.Add("Animal lover/activist");
+		list.Add("Fashionista");
+		list.Add("Homemaker");
+		list.Add("Philanthropist");
+		list.Add("Socialite");
+		list.Add("Food/drink critic");
+		list.Add("Gamer");
+		list.Add("Fitness enthusiast");
+		list.Add("Health/wellness guru");
+		list.Add("Spiritual leader");
+		list.Add("Parenting advice");
+		list.Add("Career coach/advisor");
+		list.Add("Travel blogger");
+		list.Add("Book lover/reader");
+		list.Add("DIY enthusiast");
+		list.Add("Pet lover/owner");
+		list.Add("Movie/TV critic");
+		list.Add("Beauty/fashion blogger");
+		list.Add("Tech geek");
+		list.Add("Nature lover");
+		list.Add("Political commentator");
+		list.Add("Relationship expert");
+		list.Add("Human rights activist");
+		list.Add("Social justice warrior");
+		list.Add("Music reviewer");
+		list.Add("Interior design enthusiast");
+		list.Add("Self-help guru");
+		list.Add("Life coach");
+		list.Add("Mental health advocate");
+		list.Add("Promoter/event organizer");
+		list.Add("Financial advisor");
+		list.Add("Food blogger");
+		list.Add("Sports enthusiast");
+		list.Add("Fashion designer");
+		list.Add("Makeup artist");
+		list.Add("Gardening enthusiast");
+		list.Add("Geek/nerd");
+		list.Add("History buff");
+		list.Add("Business owner");
+		list.Add("Legal expert");
+		list.Add("Parenting blogger");
+		list.Add("Senior citizen/retiree");
+		list.Add("Marriage counselor");
+		list.Add("Wine connoisseur");
+		list.Add("Youth advocate");
+		list.Add("Success coach");
+		list.Add("Career woman/man");
+		list.Add("Fitness coach");
+		list.Add("Political blogger");
+		list.Add("Blogger/influencer relations");
+		list.Add("Adult entertainer");
+		list.Add("Adult content creator");
+		list.Add("Adult industry critic");
+		list.Add("Adult content reviewer");
+	}
+	return list;
 }
 
 int GetRoleCount() {
@@ -1293,9 +1371,104 @@ int GetRoleCount() {
 }
 
 const Vector<GenericType>& GetGenerics() {
-	static Vector<GenericType> v;
-	TODO
-	return v;
+	static Vector<GenericType> list;
+	if (list.IsEmpty()) {
+		list.Add().Set("Rise to fame", "a person shares their journey and successes", "shares achievements and milestones", "shares their expertise and advice for others to achieve success");
+		list.Add().Set("Call to Action", "person speaks out on important social or political issues", "uses their platform and influence to promote change", "urges others to take action and make a difference");
+		list.Add().Set("Everyday life updates", "person shares personal and relatable experiences", "offers glimpses into their daily routines", "shares thoughts and opinions on current events or pop culture");
+		list.Add().Set("Brand promotion", "person promotes their products or services", "creates hype and anticipation for upcoming releases or events", "collaborates with other brands and influencers to expand reach and exposure");
+		list.Add().Set("Entertainment", "person shares jokes and comedic content", "reacts to memes and trending topics", "creates funny and entertaining videos/performances");
+		list.Add().Set("Advocacy and awareness", "person raises awareness for important causes", "shares personal stories and experiences", "educates and informs their followers on important issues");
+		list.Add().Set("Political opinions and debates", "person shares their political views and beliefs", "engages in debates and discussions with others", "campaigns for a particular candidate or party");
+		list.Add().Set("Behind the scenes", "person offers an inside look into their creative process or work", "shares sneak peeks of upcoming projects", "takes followers on a virtual tour of their workspace");
+		list.Add().Set("Travel adventures", "person shares photos and videos from their travels", "explores new places and cultures", "shares tips and recommendations for others interested in traveling");
+		list.Add().Set("Fitness journey", "person shares their fitness goals and progress", "creates workout videos and tutorials", "motivates and inspires others to prioritize their health and fitness");
+		list.Add().Set("Food and cooking", "person shares their favorite recipes and cooking tips", "reviews restaurants and food products", "documents their food adventures and cooking experiments");
+		list.Add().Set("Tech and innovation", "person shares news and updates on the latest technology and innovations", "offers tech advice and recommendations", "discusses the impact of technology on society");
+		list.Add().Set("Self-care and wellness", "person promotes self-care practices and mindfulness", "shares motivational quotes and tips for self-improvement", "discusses mental health and self-care");
+		list.Add().Set("Relationships and love", "person shares their own experiences with relationships and dating", "offers advice and support to others going through similar situations", "discusses different types of relationships and love");
+		list.Add().Set("Fashion and style", "person showcases their own fashion and style", "collaborates with fashion brands and influencers for sponsored content", "offers fashion tips and advice");
+		list.Add().Set("Music and concerts", "person shares their favorite music and artists", "attends and covers concerts and music festivals", "discusses the impact of music on culture and society");
+		list.Add().Set("DIY and crafts", "person shares DIY tutorials and projects", "offers tips and tricks for crafting and home decor", "encourages others to unleash their creativity");
+		list.Add().Set("Animal lover", "person shares photos and videos of their pets", "raises awareness for animal rights and welfare", "promotes adoption and rescue organizations");
+		list.Add().Set("Reviews and recommendations", "person shares their thoughts and opinions on products, services, and experiences", "provides honest reviews and recommendations", "collaborates with brands for sponsored reviews");
+		list.Add().Set("Beauty and makeup", "person shares makeup tutorials and beauty tips", "collaborates with beauty brands for sponsored content", "discusses body positivity and self-love");
+		list.Add().Set("Bookworm", "person shares their current reads and book recommendations", "participates in book clubs and discussions", "writes book reviews and author interviews");
+		list.Add().Set("Gaming and esports", "person shares their favorite games and gaming setup", "streams their gameplay for followers", "discusses the latest news and trends in the gaming industry");
+		list.Add().Set("Education and learning", "person shares their educational journey and tips for academic success", "creates educational content and resources", "discusses the importance of education and lifelong learning");
+		list.Add().Set("Nature and conservation", "person shares photos and videos of nature and wildlife", "raises awareness for environmental conservation and sustainability", "discusses ways to protect and preserve the planet");
+		list.Add().Set("Entrepreneurship", "person shares their experience and lessons as a business owner", "offers business advice and strategies", "collaborates with other entrepreneurs and businesses for networking and growth");
+		list.Add().Set("Art and creativity", "person showcases their artistic talents and creations", "collaborates with other artists and galleries for exposure", "discusses the impact of art on society");
+		list.Add().Set("Health and medical advice", "person shares medical advice and resources", "discusses the latest news and research in the healthcare industry", "raises awareness for health issues and campaigns");
+		list.Add().Set("Celebrity gossip", "person shares the latest celebrity news and rumors", "participates in discussions and debates about celebrities and their personal lives", "creates humorous content and memes related to celebrity culture");
+		list.Add().Set("Philanthropy and charity", "person raises money and awareness for charitable causes", "participates in fundraising events and campaigns", "uses their platform for good and to make a positive impact on society");
+		list.Add().Set("Career and job advice", "person shares their career journey and tips for professional growth", "offers job search strategies and resume advice", "discusses workplace culture and trends");
+		list.Add().Set("Wedding planning", "person shares their own wedding planning journey and tips", "offers wedding planning services and advice for followers", "collaborates with wedding vendors and venues");
+		list.Add().Set("Senior citizen lifestyle", "person shares their experiences and struggles as a senior citizen", "discusses issues related to aging and retirement", "offers advice and support to other seniors");
+		list.Add().Set("Travel photography", "person captures and shares stunning photos of different locations around the world", "offers photography tips and advice", "collaborates with travel brands for sponsored content");
+		list.Add().Set("Culinary adventures", "person shares their culinary experiences and food adventures", "tries new and unique foods and cuisines", "discovers hidden food gems in their city");
+		list.Add().Set("LGBTQ+ advocate", "person shares their personal experiences and insights as a member of the LGBTQ+ community", "raises awareness for LGBTQ+ rights and issues", "participates in Pride events and campaigns");
+		list.Add().Set("Motivational speaker", "person shares inspirational quotes and words of wisdom", "offers advice and support to followers", "shares their own personal journey and obstacles overcome");
+		list.Add().Set("News and current events", "person discusses and provides updates on important news and current events", "engages in discussions and debates on controversial topics", "shares unbiased and factual information");
+		list.Add().Set("Fitness challenges", "person creates fitness challenges and workouts for followers to join", "tracks their progress and invites others to do the same", "offers prizes and incentives for completion");
+		list.Add().Set("Hiking and outdoors", "person shares photos and videos of their outdoor adventures", "offers tips and recommendations for hiking and camping", "advocates for environmental conservation and protection");
+		list.Add().Set("Parenting humor", "person shares funny and relatable parenting memes and content", "creates humorous videos and sketches about the realities of parenting", "engages in lighthearted discussions and debates with other parents");
+		list.Add().Set("Financial literacy", "person shares budgeting tips and financial advice", "discusses the importance of saving and investing", "collaborates with financial advisors and experts for educational content");
+		list.Add().Set("Pop culture analysis", "person shares their thoughts and opinions on trends and pop culture phenomena", "discusses the impact of popular media on society", "creates content that deconstructs and analyzes popular culture");
+		list.Add().Set("Mental health advocacy", "person shares their personal struggles and journey with mental health", "raises awareness and fights stigma associated with mental illness", "offers resources and support to those struggling with mental health issues");
+		list.Add().Set("Raising a special needs child", "person shares their experiences and challenges raising a child with special needs", "offers support and resources to other parents in similar situations", "advocates for improved rights and accommodations for individuals with disabilities");
+		list.Add().Set("Marketing and branding strategies", "person shares their expertise in marketing and branding", "offers tips and advice for entrepreneurs and small business owners", "collaborates with brands for sponsored content and partnerships");
+		list.Add().Set("Conspiracy theories", "person shares theories and evidence supporting various conspiracy theories", "participates in discussions and debates with other believers and skeptics", "creates content that dives deep into the world of conspiracy");
+		list.Add().Set("Music producer and songwriter", "person shares their own original music and songwriting process", "collaborates with other artists and producers for music projects", "shares behind the scenes footage of music production and studio work");
+		list.Add().Set("Tech gadgets and reviews", "person shares reviews and recommendations for the latest tech gadgets and devices", "offers tech advice and tutorials", "collaborates with tech brands for sponsored content and reviews");
+		list.Add().Set("The single life", "person shares their experiences and thoughts on being single", "discusses dating and relationships", "creates content that challenges the societal norms and expectations surrounding being in a relationship");
+		list.Add().Set("Online activism", "person uses their platform and influence to advocate for social and political issues", "participates in online campaigns and hashtags", "encourages their followers to take action and make a difference");
+		list.Add().Set("Music producer", "person shares their music production process and techniques", "offers tips and tricks for aspiring producers", "collaborates with other artists for music projects");
+		list.Add().Set("Singer in a rock band", "person shares music from their band and performances at concerts and festivals", "creates music videos and behind the scenes footage", "discusses the rock music genre and its evolution");
+		list.Add().Set("Running and fitness challenges", "person participates in running challenges and documents their progress", "encourages followers to join them in achieving fitness goals", "advocates for running as a form of physical and mental health");
+		list.Add().Set("Rapper", "person shares their original rap songs and music videos", "documents the process of creating and producing rap music", "discusses the hip hop and rap culture");
+		list.Add().Set("Rap music producer", "person shares their production techniques and collaborations with rap artists", "discusses the evolution and trends in rap music production", "offers advice and resources for aspiring rap music producers");
+		list.Add().Set("Luxury lifestyle", "person shares their luxurious travels, fashion, and lifestyle", "collaborates with luxury brands for sponsored content", "creates content that showcases and celebrates the finer things in life");
+		list.Add().Set("Being a new parent", "person shares the ups and downs of being a new parent", "offers advice and support for other new parents", "documents their child's growth and milestones");
+		list.Add().Set("Cheap local traveller", "person documents their budget-friendly travels to local destinations", "offers tips and recommendations for affordable travel", "advocates for responsible and sustainable tourism");
+		list.Add().Set("Bakery owner", "person shares their baking journey and creates content featuring their bakery", "offers baking tips and recipes", "promotes their bakery and engages with customers online");
+		list.Add().Set("Music photographer", "person shares their concert photography and behind the scenes shots", "offers photography tips and advice", "collaborates with music artists and festivals for content and coverage");
+		list.Add().Set("Metal music producer", "person shares their process of producing metal music and collaborations with metal artists", "discusses the history and sub-genres of metal music", "offers resources and advice for aspiring metal music producers");
+		list.Add().Set("Self-taught artist", "person documents their art journey and progress as a self-taught artist", "shares tutorials and tips for aspiring artists", "collaborates with other artists for inspiration and growth");
+		list.Add().Set("Beet enthusiasist", "person shares their love for beets and creates original recipes and dishes featuring beets", "discusses the health benefits and uses of beets", "participates in online discussions with other beet lovers");
+		list.Add().Set("Rock music producer", "person shares their process of producing rock music and collaborations with rock artists", "discusses the evolution and trends of rock music production", "offers resources and advice for aspiring rock music producers");
+		list.Add().Set("News commentator", "person shares their perspectives and analysis on current events and news stories", "discusses politics, society, and culture", "participates in debates and discussions with others");
+		list.Add().Set("Left-wing commentator", "person shares their liberal views and critiques on politics and social issues", "offers alternative perspectives and solutions to current problems", "advocates for progressive change and activism");
+		list.Add().Set("Music business owner", "person shares their experiences and challenges as a music business owner", "offers advice and resources for running a successful music business", "collaborates with other professionals in the music industry");
+		list.Add().Set("Cheap local hiker", "person documents their budget-friendly hikes and nature adventures in their local area", "offers tips and recommendations for affordable outdoor activities", "advocates for environmental conservation and responsible hiking");
+		list.Add().Set("Downhill skiing enthusiast", "person shares footage and photos from their downhill skiing adventures", "discusses techniques and gear for skiing", "collaborates with ski resorts and brands for sponsored content");
+		list.Add().Set("Kayak owner", "person shares their kayaking trips and adventures", "offers tips and recommendations for beginner kayakers", "discusses the benefits and environmental impact of kayaking");
+		list.Add().Set("Podcaster", "person hosts and produces their own podcast on a specific topic or theme", "invites guests to share their expertise and opinions", "promotes and engages with listeners on social media");
+		list.Add().Set("Music podcaster", "person hosts and produces a podcast featuring interviews and discussions with music artists and industry professionals", "discusses the latest trends and happenings in the music industry", "collaborates with independent musicians and record labels for content");
+		list.Add().Set("Music production podcaster", "person hosts and produces a podcast on the topic of music production", "features interviews and discussions with music producers and engineers", "offers tips and resources for aspiring music producers");
+		list.Add().Set("Food vlogger", "person creates videos documenting their culinary adventures and recipes", "collaborates with restaurants and brands for sponsored content", "offers cooking and food-related tips and tutorials");
+		list.Add().Set("Adventure seeker", "person shares their adrenaline-fueled travels and activities", "documents extreme sports and outdoor adventures", "advocates for embracing new challenges and getting out of one's comfort zone");
+		list.Add().Set("Metal band vlogger", "person documents their life and career as a member of a metal band", "shares videos of live performances and behind the scenes footage", "discusses the metal music community and culture");
+		list.Add().Set("Fitness model", "person shares their fitness journey and offers workout and nutrition advice", "collaborates with fitness and sports brands for sponsored content", "promotes body positivity and healthy living");
+		list.Add().Set("EDM producer vlogger", "person documents their journey and process of producing electronic dance music", "shares behind the scenes footage of festivals and events", "collaborates with other EDM artists and DJs for content");
+		list.Add().Set("C++ programmer", "person shares their coding projects and programming tips and resources for C++", "discusses advancements and updates in C++ programming language", "participates in online discussions and collaborations with fellow C++ programmers");
+		list.Add().Set("Small business owner", "person shares their experiences and challenges of owning a small business", "discusses entrepreneurship and offers advice for other small business owners", "collaborates with other entrepreneurs and local businesses for a stronger community");
+		list.Add().Set("Daily life vlogger", "person shares snippets of their daily life and activities", "creates a personal connection with followers by providing a glimpse into their life", "engages with followers and responds to comments and questions");
+		list.Add().Set("Influencer on the rise", "person documents their journey as an up-and-coming social media influencer", "shares tips and strategies for growing a following and establishing a brand on social media", "collaborates with brands for sponsored content and partnerships");
+		list.Add().Set("Beauty guru", "person creates makeup tutorials, product reviews, and beauty hacks", "collaborates with beauty brands for sponsored content", "promotes self-love and confidence through makeup");
+		list.Add().Set("Animal rescue advocate", "person shares their experiences rescuing and caring for animals in need", "promotes adoption and responsible pet ownership", "participates in online campaigns and donations for animal rescue organizations");
+		list.Add().Set("Food critic", "person shares reviews and critiques of restaurants and dishes", "creates food-related content such as recipes and food challenges", "collaborates with restaurants and food brands for sponsored content");
+		list.Add().Set("Travel photographer", "person shares their travel photography from destinations around the world", "offers tips for improving photography skills and capturing unique shots", "collaborates with tourism boards and travel brands for sponsored content");
+		list.Add().Set("Music business thoughts", "person shares their opinions and ideas on the music industry and its future", "discusses the impact of technology and social media on the music business", "collaborates with other industry professionals for discussions and debates");
+		list.Add().Set("Thoughts about the music business" , "person shares their experiences and insights as a music industry professional", "offers advice and resources for aspiring musicians and industry professionals", "discusses the challenges and opportunities in the music business");
+		list.Add().Set("Thoughts about other artists as an music artist", "person shares their thoughts and analysis on other music artists and their work", "engages in discussions and debates about different music genres and styles", "creates content that promotes and supports other talent");
+		list.Add().Set("Starting a business from scratch", "person documents their journey and struggles of starting a business from the ground up", "offers advice and resources for aspiring entrepreneurs", "encourages and motivates others to pursue their dreams");
+		list.Add().Set("Art collector", "person shares their art collection and discusses the stories behind each piece", "offers tips for building an art collection and investing in art", "collaborates with artists and galleries for sponsored content and events");
+		list.Add().Set("Music listener", "person shares their music playlist and recommendations for different music genres", "engages in discussions and debates about music and artists", "creates content that celebrates the power and influence of music");
+		list.Add().Set("Metal music listener", "person shares their metal music playlist and attends concerts and festivals", "participates in online discussions and debates about metal music", "creates content that promotes and celebrates the metal music community");
+		list.Add().Set("Political news junkie", "person shares news articles and updates on politics and current events", "discusses and analyses political policies and decisions", "participates in online discussions and debates with others");
+	}
+	return list;
 }
 
 int GetGenericCount() {
@@ -1303,9 +1476,17 @@ int GetGenericCount() {
 }
 
 const Vector<String>& GetGenericParts() {
-	static Vector<String> v;
-	TODO
-	return v;
+	thread_local static Vector<String> list;
+	if (list.IsEmpty()) {
+		const auto& v = GetGenerics();
+		for(int i = 0; i < v.GetCount(); i++) {
+			const auto& it = v[i];
+			for(int j = 0; j < GenericType::PART_COUNT; j++) {
+				list.Add() = it.key + " #" + IntStr(j+1) + ": " + it.parts[j];
+			}
+		}
+	}
+	return list;
 }
 
 const Index<String>& GetTypecasts() {
