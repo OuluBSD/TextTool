@@ -1,6 +1,9 @@
 #include "SocialDatabase.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 void Company::Store() {
 	String dir = SocialDatabase::Single().GetCompanysDir();
 	RealizeDirectory(dir);
@@ -90,4 +93,7 @@ bool Company::FindProgram(int& tc_i, int& arch_i, int& lyr_i, const String& stor
 	}
 	return false;
 }
+
+
+END_SOCIALLIB_NAMESPACE
 

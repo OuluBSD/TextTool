@@ -1,6 +1,9 @@
 #include "SongDataCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 SongDataWords::SongDataWords() {
 	Add(hsplit.SizePos());
 	
@@ -43,7 +46,7 @@ void SongDataWords::DisableAll() {
 }
 
 void SongDataWords::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	
 	datasets.SetCount(sd.GetCount());
@@ -64,7 +67,7 @@ void SongDataWords::DataMain() {
 }
 
 void SongDataWords::DataDataset() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -93,7 +96,7 @@ void SongDataWords::DataDataset() {
 }
 
 void SongDataWords::DataColor() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -209,7 +212,7 @@ void SongDataWords::ToolMenu(Bar& bar) {
 
 
 /*void SongDataWords::UpdateWordFlagGroups() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -253,7 +256,7 @@ void SongDataWords::ToolMenu(Bar& bar) {
 }*/
 
 /*void SongDataWords::UpdateWordFlags() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -281,7 +284,7 @@ void SongDataWords::ToolMenu(Bar& bar) {
 }*/
 
 void SongDataWords::DumpWordGroups() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -308,7 +311,7 @@ void SongDataWords::DumpWordGroups() {
 }
 
 void SongDataWords::DumpPhoneticChars() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -352,3 +355,6 @@ void SongDataWords::DoWords(int fn) {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoWords(ds_i, fn);
 }
+
+
+END_SONGLIB_NAMESPACE

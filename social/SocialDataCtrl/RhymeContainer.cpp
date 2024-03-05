@@ -1,6 +1,9 @@
 #include "SocialDataCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 RhymeContainerPage::RhymeContainerPage() {
 	Add(hsplit.VSizePos(0,30).HSizePos());
 	Add(prog.BottomPos(0,30).HSizePos());
@@ -388,4 +391,7 @@ int RhymeContainerPage::FindSplit(const Vector<String>& part_words) {
 	}
 	return -1;
 }
+
+
+END_SOCIALLIB_NAMESPACE
 

@@ -1,6 +1,9 @@
 #include "SocialDataCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 ActionTransitionsPage::ActionTransitionsPage() {
 	Add(hsplit.SizePos());
 	
@@ -208,3 +211,6 @@ void ActionTransitionsPage::UpdateTransitions() {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoActionTransition(0, 0);
 }
+
+
+END_SOCIALLIB_NAMESPACE

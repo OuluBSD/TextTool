@@ -1,5 +1,9 @@
 #include "SongDatabase.h"
 
+
+BEGIN_SONGLIB_NAMESPACE
+
+
 EnglishPronounciation::EnglishPronounciation() {
 	
 	
@@ -15,7 +19,7 @@ void EnglishPronounciation::Clear() {
 }
 
 bool EnglishPronounciation::Parse(const String& s) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	if (sda.datasets.IsEmpty())
@@ -173,3 +177,7 @@ double EnglishPronounciation::GetInternalRhyming() const {
 int EnglishPronounciation::GetSyllableCount() const {
 	return pron_parts.GetCount();
 }
+
+
+END_SONGLIB_NAMESPACE
+

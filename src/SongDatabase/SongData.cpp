@@ -1,6 +1,9 @@
 #include "SongDatabase.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 SongData::SongData() {
 	
 }
@@ -18,12 +21,12 @@ void SongData::Serialize(Stream& s) {
 }
 
 /*void SongData::StoreJson() {
-	String dir = Database::Single().dir;
+	String dir = SongDatabase::Single().dir;
 	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json", true);
 }
 
 void SongData::LoadJson() {
-	String dir = Database::Single().dir;
+	String dir = SongDatabase::Single().dir;
 	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json");
 }
 
@@ -46,7 +49,7 @@ void SongDataAnalysis::Load() {
 	if (datasets.IsEmpty())
 		LoadJson();
 	
-	SongData& sd = Database::Single().song_data;
+	SongData& sd = SongDatabase::Single().song_data;
 	for(int i = 0; i < sd.GetCount(); i++) {
 		String key = sd.GetKey(i);
 		auto& ds = sd.a.datasets.GetAdd(key);
@@ -55,7 +58,7 @@ void SongDataAnalysis::Load() {
 }
 
 void SongDataAnalysis::StoreJson() {
-	String dir = Database::Single().dir;
+	String dir = SongDatabase::Single().dir;
 	StoreAsJsonFileStandard(*this, ConfigFile("SongData.json"), false);
 }
 
@@ -64,7 +67,7 @@ void SongDataAnalysis::LoadJson() {
 	DatasetAnalysis da;
 	LoadFromJsonFileStandard(da, ConfigFile("SongData.json"));
 	
-	SongData& sd = Database::Single().song_data;
+	SongData& sd = SongDatabase::Single().song_data;
 	for(int j = 0; j < sd.GetCount(); j++) {
 		DatasetAnalysis& tgt = datasets.GetAdd(sd.GetKey(j));
 		
@@ -82,7 +85,7 @@ void SongDataAnalysis::LoadJson() {
 		}
 	}
 	#else
-	String dir = Database::Single().dir;
+	String dir = SongDatabase::Single().dir;
 	LoadFromJsonFileStandard(*this, ConfigFile("SongData.json"));
 	#endif
 }
@@ -251,7 +254,7 @@ DatasetAnalysis::DatasetAnalysis() {
 }
 
 void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -308,7 +311,7 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 }
 
 SongAnalysis& DatasetAnalysis::GetSongAnalysis(const String& name) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -487,3 +490,7 @@ String LyricsSuggestions::GetText() const {
 	}
 	return content;
 }
+
+
+END_SONGLIB_NAMESPACE
+

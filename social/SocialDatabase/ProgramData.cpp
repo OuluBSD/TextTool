@@ -1,6 +1,9 @@
 #include "SocialDatabase.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 ProgramData::ProgramData() {
 	
 }
@@ -331,3 +334,6 @@ String StorySuggestions::GetText() const {
 	}
 	return content;
 }
+
+
+END_SOCIALLIB_NAMESPACE

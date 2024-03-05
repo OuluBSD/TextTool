@@ -2,6 +2,9 @@
 #define _SongDataCtrl_SongDataWords_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class SongDataWords : public ToolAppCtrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl datasets, colors, words;
@@ -29,6 +32,9 @@ public:
 	void DoWords(int fn);
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

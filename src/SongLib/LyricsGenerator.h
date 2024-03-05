@@ -2,7 +2,7 @@
 #define _SongLib_LyricsGenerator_h_
 
 
-namespace SongLib {
+BEGIN_SONGLIB_NAMESPACE
 
 
 class LyricsGenerator {
@@ -22,7 +22,6 @@ class LyricsGenerator {
 	int phase = LG_BEGIN;
 	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
 	int ds_i = 0;
-	TaskMgr* pipe = 0;
 	Artist* artist = 0;
 	Lyrics* lyrics = 0;
 	
@@ -40,7 +39,6 @@ class LyricsGenerator {
 	int iter = 0;
 	VectorMap<String, int> pp_is;
 	
-	void RealizePipe();
 	void Process();
 	void ProcessSourcePool();
 	void ProcessPairPhrases();
@@ -75,6 +73,7 @@ public:
 };
 
 
-}
+END_SONGLIB_NAMESPACE
+
 
 #endif

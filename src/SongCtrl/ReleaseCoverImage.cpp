@@ -1,6 +1,8 @@
 #include "SongCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
 
 ReleaseCoverImage::ReleaseCoverImage() {
 	user_natural_english_key = "NATURAL_ENGLISH_OF_AUTHOR";
@@ -20,7 +22,7 @@ void ReleaseCoverImage::ToolMenu(Bar& bar) {
 }
 
 void ReleaseCoverImage::CreateSuggestionsForPrompts() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist ||!p.release)
 		return;
@@ -81,3 +83,6 @@ void ReleaseCoverImage::MakeSingleImage() {
 void ReleaseCoverImage::MakeAllImages() {
 	ImagePlayerBase::MakeAllImages();
 }
+
+
+END_SONGLIB_NAMESPACE

@@ -2,6 +2,9 @@
 #define _SongDataCtrl_VirtualPhrases_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 String GetTypePhraseString(const Vector<int>& word_classes, const DatasetAnalysis& da);
 
 class VirtualPhrases : public ToolAppCtrl {
@@ -19,6 +22,9 @@ public:
 	void ProcessVirtualPhraseParts();
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

@@ -1,6 +1,8 @@
 #include "SongDatabase.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
 
 String StaticPart::GetTypeString() const {
 	return GetTypeString(part_type);
@@ -77,14 +79,14 @@ Impact& Song::GetAddImpact(String impact_txt, String brk_txt) {
 }*/
 
 void Song::Store() {
-	String dir = Database::Single().GetSongsDir();
+	String dir = SongDatabase::Single().GetSongsDir();
 	RealizeDirectory(dir);
 	String json_path = dir + file_title + ".json";
 	StoreAsJsonFileStandard(*this, json_path, true);
 }
 
 void Song::LoadTitle(String title) {
-	String dir = Database::Single().GetSongsDir();
+	String dir = SongDatabase::Single().GetSongsDir();
 	file_title = title;
 	String json_path = dir + file_title + ".json";
 	LoadFromJsonFileStandard(*this, json_path);
@@ -104,3 +106,7 @@ String Song::GetAnyTitle(Artist& a) const {
 	}
 	return file_title;
 }
+
+
+END_SONGLIB_NAMESPACE
+

@@ -1,3 +1,10 @@
 #include "SongDatabase.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
+
+
+END_SONGLIB_NAMESPACE
+

@@ -146,7 +146,7 @@ struct ExportTemplate : Moveable<ExportTemplate> {
 };
 
 void ExportPage::Export() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	

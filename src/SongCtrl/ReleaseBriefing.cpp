@@ -1,6 +1,8 @@
 #include "SongCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
 
 AlbumBriefing::AlbumBriefing() {
 	Add(vsplit.SizePos());
@@ -20,7 +22,7 @@ AlbumBriefing::AlbumBriefing() {
 }
 
 void AlbumBriefing::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release) return;
 	Release& release = *p.release;
@@ -46,7 +48,7 @@ void AlbumBriefing::OnListCursor() {
 	values.description.Clear();
 	values.value.Clear();
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release) return;
 	Release& release = *p.release;
@@ -64,7 +66,7 @@ void AlbumBriefing::OnListCursor() {
 }
 
 void AlbumBriefing::OnValueChange() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release) return;
 	Release& release = *p.release;
@@ -84,3 +86,6 @@ void AlbumBriefing::OnValueChange() {
 	
 	list.Set(2, value_str);
 }
+
+
+END_SONGLIB_NAMESPACE

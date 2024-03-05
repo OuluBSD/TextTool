@@ -1,6 +1,9 @@
 #include "SocialDataCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 ProgramDataWordnet::ProgramDataWordnet() {
 	Add(hsplit.SizePos());
 	
@@ -243,3 +246,4 @@ void ProgramDataWordnet::DoWordnet(int fn) {
 }
 
 
+END_SOCIALLIB_NAMESPACE

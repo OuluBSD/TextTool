@@ -1,6 +1,9 @@
 #include "SocialDataCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 PhrasePartAnalysis2::PhrasePartAnalysis2() {
 	Add(hsplit.SizePos());
 	
@@ -247,3 +250,6 @@ void PhrasePartAnalysis2::UpdateCounts() {
 		}
 	}*/
 }
+
+
+END_SOCIALLIB_NAMESPACE

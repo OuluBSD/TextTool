@@ -1,7 +1,7 @@
 #include "ToolBase.h"
-#include <SongDatabase/SongDatabase.h>
 
 #if 0
+#include <SongDatabase/SongDatabase.h>
 
 ChecklistBase::ChecklistBase() {
 	Add(list.SizePos());
@@ -32,7 +32,7 @@ void ChecklistBase::Init() {
 }
 
 void ChecklistBase::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song) return;
 	Song& song = *p.song;
@@ -49,7 +49,7 @@ void ChecklistBase::Data() {
 }
 
 void ChecklistBase::OnValueChange(int i) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song) return;
 	Song& song = *p.song;
@@ -63,7 +63,7 @@ void ChecklistBase::OnValueChange(int i) {
 }
 
 void ChecklistBase::OnOptionChange(int i) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song) return;
 	Song& song = *p.song;

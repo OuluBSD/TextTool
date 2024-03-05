@@ -47,7 +47,7 @@ void LineTypesPage::Data() {
 }
 
 void LineTypesPage::DataMain() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -66,7 +66,7 @@ void LineTypesPage::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -103,7 +103,7 @@ void LineTypesPage::DataStructure() {
 	if (!datasets.IsCursor() || !structures.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -141,7 +141,7 @@ void LineTypesPage::DataStructureHeader() {
 	if (!datasets.IsCursor() || !structures.IsCursor() || !clauses.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -207,7 +207,7 @@ void LineTypesPage::ToolMenu(Bar& bar) {
 }
 
 void LineTypesPage::UpdateBatches() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	
 	batches.SetCount(0);
@@ -292,7 +292,7 @@ void LineTypesPage::GetLineStructures(int batch_i) {
 	}
 	Batch& batch = batches[batch_i];
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -310,7 +310,7 @@ void LineTypesPage::OnLineStructures(String res, int batch_i) {
 		return;
 	
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	Batch& batch = batches[batch_i];
@@ -397,7 +397,7 @@ void LineTypesPage::GetStructureColors(int batch_i) {
 	int begin = batch_i * per_color_batch;
 	int end = begin + per_color_batch;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -421,7 +421,7 @@ void LineTypesPage::OnStructureColors(String res, int batch_i) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	Batch& batch = batches[batch_i];

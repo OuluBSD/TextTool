@@ -2,6 +2,9 @@
 #define _SocialDataCtrl_SocialDataPage_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class SocialDataPage : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, companies, programs;//, active_programs;
@@ -33,6 +36,9 @@ public:
 	void SetProgress(int a, int t) {prog.Set(a,t);}
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

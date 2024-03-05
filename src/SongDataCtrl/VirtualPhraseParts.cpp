@@ -1,6 +1,9 @@
 #include "SongDataCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 VirtualPhraseParts::VirtualPhraseParts() {
 	Add(hsplit.SizePos());
 	
@@ -33,7 +36,7 @@ VirtualPhraseParts::VirtualPhraseParts() {
 }
 
 void VirtualPhraseParts::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -48,7 +51,7 @@ void VirtualPhraseParts::Data() {
 }
 
 void VirtualPhraseParts::DataDataset() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	
 	int ds_i = datasets.GetCursor();
@@ -82,3 +85,6 @@ void VirtualPhraseParts::ProcessStructureNames() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoVirtualPhrases(ds_i, 2);
 }
+
+
+END_SONGLIB_NAMESPACE

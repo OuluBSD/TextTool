@@ -2,6 +2,9 @@
 #define _SocialTool_CalMgrCtrl_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class CompanyCalendarCtrl : public Ctrl {
 	Color bg;
 	Date scroll_date;
@@ -38,5 +41,9 @@ public:
 	void ImportAutomatically();
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
+
 
 #endif

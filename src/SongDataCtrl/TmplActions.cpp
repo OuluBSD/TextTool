@@ -65,7 +65,7 @@ void SongDataTmplActions::Data() {
 }
 
 void SongDataTmplActions::DataMain() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -140,7 +140,7 @@ void SongDataTmplActions::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -202,7 +202,7 @@ void SongDataTmplActions::DataMatches() {
 		return;
 	}
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -263,7 +263,7 @@ void SongDataTmplActions::ToolMenu(Bar& bar) {
 }
 
 void SongDataTmplActions::UpdateBatches() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -306,7 +306,7 @@ void SongDataTmplActions::ToggleGettingLineActions() {
 	running0 = !running0;
 	if (running0) {
 		if (0) {
-			Database& db = Database::Single();
+			SongDatabase& db = SongDatabase::Single();
 			SongData& sd = db.song_data;
 			SongDataAnalysis& sda = db.song_data.a;
 			for (DatasetAnalysis& da : sda.datasets) {
@@ -329,7 +329,7 @@ void SongDataTmplActions::GetLineActions(int batch_i) {
 	Batch& batch = batches[batch_i];
 	tmp_batch_i = batch_i;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -346,7 +346,7 @@ void SongDataTmplActions::OnLineActions(String res, int batch_i) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	Batch& batch = batches[tmp_batch_i];

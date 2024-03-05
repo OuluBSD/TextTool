@@ -2,7 +2,10 @@
 #define _SongCtrl_SongInfoCtrl_h_
 
 
-class Editor;
+BEGIN_SONGLIB_NAMESPACE
+
+
+class SongEditor;
 
 class SongInfoCtrl : public WithSongInfo<ToolAppCtrl> {
 	int focus_tc = -1, focus_arch = -1, focus_lyr = -1;
@@ -19,9 +22,12 @@ public:
 	void OnValueChange();
 	void SetLyrics();
 	
-	Editor* editor = 0;
+	SongEditor* editor = 0;
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

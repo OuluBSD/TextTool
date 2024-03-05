@@ -1,6 +1,8 @@
 #include "SongLib.h"
 
-namespace SongLib {
+
+BEGIN_SONGLIB_NAMESPACE
+
 
 TaskManager::TaskManager() {
 	
@@ -103,14 +105,6 @@ void TaskManager::RemoveTask(Task& t) {
 	if (pos >= 0)
 		task_list.Remove(pos);
 	lock.LeaveWrite();
-}
-
-void TaskManager::RealizePipe() {
-	Database& db = Database::Single();
-	if (!pipe) {
-		pipe = &TaskMgr::Single();
-		pipe->song = 0;
-	}
 }
 
 bool GetTypePhrase(Vector<int>& types, const DatasetAnalysis& da, int next_w_i, int w_i, int prev_w_i) {
@@ -235,4 +229,6 @@ void TaskManager::ImportPromptAnswers() {
 	
 }
 
-}
+
+END_SONGLIB_NAMESPACE
+

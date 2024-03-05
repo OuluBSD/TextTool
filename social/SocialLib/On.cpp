@@ -1,6 +1,8 @@
 #include "SocialLib.h"
 
-namespace SocialLib {
+
+BEGIN_SOCIALLIB_NAMESPACE
+
 
 void TaskManager::OnTokenData(String result, Task* t) {
 	TokenArgs& args = token_args;
@@ -1683,4 +1685,5 @@ void TaskManager::OnAttributeJoins(String res, Task* t) {
 	t->running = false;
 }
 
-}
+
+END_SOCIALLIB_NAMESPACE

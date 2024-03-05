@@ -2,6 +2,9 @@
 #define _SongDatabase_Release_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 struct Release :
 	DataFile
 {
@@ -65,6 +68,9 @@ struct Release :
 	
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

@@ -2,6 +2,9 @@
 #define _SocialCtrl_CampaignInfoCtrl_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class SocialEditor;
 
 class CampaignInfoCtrl : public WithProductInfo<ToolAppCtrl> {
@@ -18,6 +21,9 @@ public:
 	SocialEditor* editor = 0;
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

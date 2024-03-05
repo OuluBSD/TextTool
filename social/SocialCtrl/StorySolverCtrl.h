@@ -2,6 +2,9 @@
 #define _SocialCtrl_StorySolverCtrl_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class StorySolverCtrl : public ToolAppCtrl {
 	TabCtrl tabs;
 	
@@ -49,6 +52,9 @@ public:
 	void SetProgress(int a, int t) {summary_bar.Set(a,t);}
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

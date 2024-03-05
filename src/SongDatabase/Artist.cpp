@@ -1,7 +1,11 @@
 #include "SongDatabase.h"
 
+
+BEGIN_SONGLIB_NAMESPACE
+
+
 void Artist::Store() {
-	String dir = Database::Single().GetArtistsDir();
+	String dir = SongDatabase::Single().GetArtistsDir();
 	RealizeDirectory(dir);
 	String json_path = dir + file_title + ".json";
 	StoreAsJsonFileStandard(*this, json_path, true);
@@ -10,7 +14,7 @@ void Artist::Store() {
 }
 
 void Artist::LoadTitle(String title) {
-	String dir = Database::Single().GetArtistsDir();
+	String dir = SongDatabase::Single().GetArtistsDir();
 	file_title = title;
 	String json_path = dir + file_title + ".json";
 	LoadFromJsonFileStandard(*this, json_path);
@@ -29,7 +33,7 @@ void Artist::StoreLyrics() {
 }
 
 void Artist::LoadLyrics() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	RealizeTypecasts();
 	FindFile ff(AppendFileName(GetLyricsDir(), "*.json"));
 	do {
@@ -64,7 +68,7 @@ void Artist::RealizeTypecasts() {
 
 String Artist::GetLyricsDir() const {
 	ASSERT(!file_title.IsEmpty());
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	return db.dir + DIR_SEPS "share" DIR_SEPS "lyrics" DIR_SEPS + file_title + DIR_SEPS;
 }
 
@@ -89,3 +93,7 @@ bool Artist::FindSong(int& tc_i, int& arch_i, int& lyr_i, const String& lyrics_f
 	}
 	return false;
 }
+
+
+END_SONGLIB_NAMESPACE
+

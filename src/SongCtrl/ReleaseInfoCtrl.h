@@ -2,7 +2,10 @@
 #define _SongCtrl_ReleaseInfoCtrl_h_
 
 
-class Editor;
+BEGIN_SONGLIB_NAMESPACE
+
+
+class SongEditor;
 
 class ReleaseInfoCtrl : public WithProductInfo<ToolAppCtrl> {
 	
@@ -15,9 +18,12 @@ public:
 	void Clear();
 	void OnValueChange();
 	
-	Editor* editor = 0;
+	SongEditor* editor = 0;
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

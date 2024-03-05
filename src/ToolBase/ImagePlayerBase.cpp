@@ -1,6 +1,5 @@
 #include "ToolBase.h"
-#include <SongDatabase/SongDatabase.h>
-#include <SongLib/SongLib.h>
+#include <Task/Task.h>
 
 void PreviewDisplay::Paint(Draw& w, const Rect& r, const Value& q,
 	                       Color ink, Color paper, dword style) const
@@ -124,7 +123,6 @@ void ImagePlayerBase::MakeSingleImage() {
 	const Item& item = items[cur];
 	String prompt = item.prompt;
 	
-	Database& db = Database::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist)
 		return;

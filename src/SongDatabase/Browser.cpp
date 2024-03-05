@@ -1,6 +1,9 @@
 #include "SongDatabase.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 DatabaseBrowser::DatabaseBrowser() {
 	Load();
 }
@@ -155,7 +158,7 @@ void DatabaseBrowser::Load() {
 }
 
 void DatabaseBrowser::SortBy(int i) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -266,3 +269,7 @@ bool DatabaseBrowser::FilterPronounciation(DatasetAnalysis& da, const PhrasePart
 	}
 	return false;
 }
+
+
+END_SONGLIB_NAMESPACE
+

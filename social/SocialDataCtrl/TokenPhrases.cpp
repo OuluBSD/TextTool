@@ -1,6 +1,9 @@
 #include "SocialDataCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 TokenPhrases::TokenPhrases() {
 	Add(hsplit.SizePos());
 	
@@ -79,4 +82,7 @@ void TokenPhrases::GetUnknownPairs() {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoUnknownTokenPairs(ds_i, 0);
 }
+
+
+END_SOCIALLIB_NAMESPACE
 

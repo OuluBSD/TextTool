@@ -1,6 +1,9 @@
 #include "SocialCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 CalMgrCtrl::CalMgrCtrl() {
 	Add(split.SizePos());
 	
@@ -104,3 +107,6 @@ void CompanyCalendarCtrl::SetScroll(Date d) {
 	scroll_date = d;
 }
 
+
+
+END_SOCIALLIB_NAMESPACE

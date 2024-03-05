@@ -1,6 +1,10 @@
 #include "SongCtrl.h"
 #include <SongTool/SongTool.h>
 
+
+BEGIN_SONGLIB_NAMESPACE
+
+
 ArtistInfoCtrl::ArtistInfoCtrl() {
 	CtrlLayout(*this);
 	
@@ -37,7 +41,7 @@ void ArtistInfoCtrl::Clear() {
 }
 
 void ArtistInfoCtrl::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	if (language.GetCount() == 0 && db.song_data.GetCount()) {
@@ -69,7 +73,7 @@ void ArtistInfoCtrl::Data() {
 }
 
 void ArtistInfoCtrl::OnValueChange() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	if (p.artist && editor->artists.IsCursor()) {
@@ -91,3 +95,6 @@ void ArtistInfoCtrl::OnValueChange() {
 		editor->artists.Set(c, 0, o.native_name);
 	}
 }
+
+
+END_SONGLIB_NAMESPACE

@@ -1,5 +1,9 @@
 #include "SongDataCtrl.h"
 
+
+BEGIN_SONGLIB_NAMESPACE
+
+
 SongDataLoader::SongDataLoader() {
 	CtrlLayout(*this);
 	Title("SongData loader");
@@ -8,7 +12,7 @@ SongDataLoader::SongDataLoader() {
 }
 
 void SongDataLoader::Process() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	
 	LoadHuggingArtists();
 	LoadHuggingFinn();
@@ -29,7 +33,7 @@ void SongDataLoader::LoadHuggingArtists() {
 		return;
 	}
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	db.song_data.artists_en.Clear();
 	
 	PostMessage("Searching for huggingartists dataset json files");
@@ -176,7 +180,7 @@ void SongDataLoader::LoadHuggingFinn() {
 		return;
 	}
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	db.song_data.artists_fi.Clear();
 	
 	PostMessage("Searching for huggingfinn dataset json files");
@@ -223,4 +227,7 @@ void SongDataLoader::LoadHuggingFinn() {
 		}
 	}
 }
+
+
+END_SONGLIB_NAMESPACE
 

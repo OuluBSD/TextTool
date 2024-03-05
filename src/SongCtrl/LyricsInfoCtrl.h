@@ -2,7 +2,10 @@
 #define _SongCtrl_LyricsInfoCtrl_h_
 
 
-class Editor;
+BEGIN_SONGLIB_NAMESPACE
+
+
+class SongEditor;
 
 class LyricsInfoCtrl : public WithLyricsInfo<ToolAppCtrl> {
 	
@@ -15,9 +18,12 @@ public:
 	void Clear();
 	void OnValueChange();
 	
-	Editor* editor = 0;
+	SongEditor* editor = 0;
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

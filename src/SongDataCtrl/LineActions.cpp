@@ -1,6 +1,9 @@
 #include "SongDataCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 SongDataLineActions::SongDataLineActions() {
 	Add(hsplit.SizePos());
 	
@@ -62,7 +65,7 @@ void SongDataLineActions::Data() {
 }
 
 void SongDataLineActions::DataMain() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -81,7 +84,7 @@ void SongDataLineActions::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -117,7 +120,7 @@ void SongDataLineActions::DataAction() {
 	if (!datasets.IsCursor() || !actions.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -151,7 +154,7 @@ void SongDataLineActions::DataActionHeader() {
 	if (!datasets.IsCursor() || !actions.IsCursor() || !action_args.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -225,7 +228,7 @@ void SongDataLineActions::DataNextLine() {
 		return;
 	}
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -290,3 +293,6 @@ void SongDataLineActions::ToggleGettingLineChangeScores(int score_mode) {
 		Thread::Start(THISBACK2(GetLineChangeScores, 0, score_mode));
 	}
 }*/
+
+
+END_SONGLIB_NAMESPACE

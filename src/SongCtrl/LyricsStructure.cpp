@@ -2,6 +2,9 @@
 #include <SongTool/SongTool.h>
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 SongStructure::SongStructure() {
 	Add(vsplit.SizePos());
 	CtrlLayout(active);
@@ -379,3 +382,6 @@ void SongStructure::OnSuggestionAttributes(String result, Lyrics* l) {
 	
 	PostCallback(THISBACK(DataSuggestionAttributes));
 }
+
+
+END_SONGLIB_NAMESPACE

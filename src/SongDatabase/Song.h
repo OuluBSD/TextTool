@@ -2,6 +2,9 @@
 #define _SongDatabase_Song_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 struct SongIdea {
 	String title, target_song, reference_song, description;
 	
@@ -71,6 +74,8 @@ struct Song :
 	
 };
 
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

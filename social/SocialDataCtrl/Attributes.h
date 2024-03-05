@@ -2,6 +2,9 @@
 #define _SocialDataCtrl_Attributes_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class Attributes : public ToolAppCtrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl datasets, groups, values, pos_values, neg_values;
@@ -21,6 +24,9 @@ public:
 	void ToolMenu(Bar& bar) override;
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

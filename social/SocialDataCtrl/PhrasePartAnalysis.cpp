@@ -1,6 +1,9 @@
 #include "SocialDataCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 void ScoreDisplay::Paint(Draw& d, const Rect& r, const Value& q,
                          Color ink, Color paper, dword style) const {
 	d.DrawRect(r, Blend(paper, White()));
@@ -344,3 +347,6 @@ void PhrasePartAnalysis::DoPhrases(int fn) {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoPhrases(ds_i, fn);
 }
+
+
+END_SOCIALLIB_NAMESPACE

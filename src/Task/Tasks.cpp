@@ -1,6 +1,4 @@
 #include "Task.h"
-#include <SongDatabase/SongDatabase.h>
-#include <SongLib/SongLib.h>
 
 #ifdef flagLLAMACCP
 #include <LlamaCpp/LlamaCpp.h>
@@ -9,7 +7,6 @@
 void Task::Store(bool force) {
 	if (output.IsEmpty()) return;
 	if (!changed) return;
-	Database& db = Database::Single();
 	String dir = ConfigFile("share" DIR_SEPS "ai_results" DIR_SEPS);
 	RealizeDirectory(dir);
 	String filename = GetInputHash() + ".txt";
@@ -22,7 +19,6 @@ void Task::Store(bool force) {
 void Task::Load() {
 	if (skip_load)
 		return;
-	Database& db = Database::Single();
 	String dir = ConfigFile("share" DIR_SEPS "ai_results" DIR_SEPS);
 	RealizeDirectory(dir);
 	String filename = GetInputHash() + ".txt";
@@ -203,7 +199,6 @@ bool Task::CheckArguments() {
 }
 
 bool Task::WriteResults() {
-	Database& db = Database::Single();
 	TaskMgr& m = GetTaskMgr();
 	TaskMgr& pipe = GetPipe();
 	
@@ -540,5 +535,5 @@ TaskMgr& Task::GetTaskMgr() {
 }
 
 TaskMgr& Task::GetPipe() {
-	return SongLib::TaskManager::Single().MakePipe();
+	return TaskMgr::Single();
 }

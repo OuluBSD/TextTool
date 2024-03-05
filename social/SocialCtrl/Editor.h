@@ -1,9 +1,14 @@
 #ifndef _SocialCtrl_Editor_h_
 #define _SocialCtrl_Editor_h_
 
+class ToolAppCtrl;
+
+
+BEGIN_SOCIALLIB_NAMESPACE
+
 
 class SocialTool;
-class ToolAppCtrl;
+
 
 class SocialEditor : public Ctrl {
 	
@@ -90,6 +95,9 @@ public:
 	SocialTool& app;
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

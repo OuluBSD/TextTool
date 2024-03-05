@@ -2,6 +2,9 @@
 #define _SongDatabase_Browser_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class DatabaseBrowser {
 	VectorMap<String, VectorMap<String, int>> uniq_acts;
 	int cursor[4] = {0,0,0,0};
@@ -126,6 +129,9 @@ public:
 	static DatabaseBrowser& Single() {static DatabaseBrowser db; return db;}
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

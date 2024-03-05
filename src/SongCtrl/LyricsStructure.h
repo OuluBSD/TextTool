@@ -2,6 +2,9 @@
 #define _SongCtrl_SongStructure_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class SongStructure : public ToolAppCtrl {
 	Splitter vsplit, hsplit, attr_split;
 	WithSongStructure<Ctrl> active;
@@ -34,5 +37,9 @@ public:
 	
 	
 };
+
+
+END_SONGLIB_NAMESPACE
+
 
 #endif

@@ -1,5 +1,9 @@
 #include "SongDataCtrl.h"
 
+
+BEGIN_SONGLIB_NAMESPACE
+
+
 AmbiguousWordPairs::AmbiguousWordPairs() {
 	Add(hsplit.SizePos());
 	
@@ -32,7 +36,7 @@ AmbiguousWordPairs::AmbiguousWordPairs() {
 }
 
 void AmbiguousWordPairs::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -47,7 +51,7 @@ void AmbiguousWordPairs::Data() {
 }
 
 void AmbiguousWordPairs::DataDataset() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	
 	int ds_i = datasets.GetCursor();
@@ -78,3 +82,6 @@ void AmbiguousWordPairs::Process() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoAmbiguousWordPairs(0, 1);
 }
+
+
+END_SONGLIB_NAMESPACE

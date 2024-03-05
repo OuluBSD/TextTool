@@ -2,6 +2,9 @@
 #define _SongDatabase_Artist_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 struct Artist :
 	DataFile
 {
@@ -117,6 +120,9 @@ struct Artist :
 	bool FindSong(int& tc, int& arch, int& lyr_i, const String& lyrics_file_title) const;
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

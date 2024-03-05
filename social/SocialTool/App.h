@@ -1,7 +1,12 @@
 #ifndef _SocialTool_App_h_
 #define _SocialTool_App_h_
 
+
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class SocialEditor;
+
 
 class SocialTool : public TopWindow {
 	
@@ -64,5 +69,6 @@ public:
 };
 
 
+END_SOCIALLIB_NAMESPACE
 
 #endif

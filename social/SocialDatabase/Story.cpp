@@ -1,6 +1,9 @@
 #include "SocialDatabase.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 void Story::Store(Company& a) {
 	String dir = a.GetStoryDir();
 	RealizeDirectory(dir);
@@ -131,3 +134,6 @@ double StoryStructSuggestion::GetEstimatedDuration(int bpm) const {
 	double sec = bars / bars_per_sec;
 	return sec;
 }
+
+
+END_SOCIALLIB_NAMESPACE

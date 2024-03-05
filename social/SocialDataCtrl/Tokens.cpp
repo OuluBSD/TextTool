@@ -1,6 +1,9 @@
 #include "SocialDataCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 TokensPage::TokensPage() {
 	Add(hsplit.SizePos());
 	
@@ -66,3 +69,6 @@ void TokensPage::ProcessTokens() {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoTokens(0, 0);
 }
+
+
+END_SOCIALLIB_NAMESPACE

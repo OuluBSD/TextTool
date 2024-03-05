@@ -2,9 +2,12 @@
 #include <SongDataCtrl/SongDataCtrl.h>
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 void SongStartup() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	TaskMgrConfig& m = TaskMgrConfig::Single();
 	
 	// Load Database
@@ -35,7 +38,7 @@ void SongStartup() {
 
 void SongShutdown(bool fast_exit, bool save_songdata) {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	TaskMgrConfig& m = TaskMgrConfig::Single();
 	
 	// Deinit storing of files
@@ -57,3 +60,6 @@ void SongShutdown(bool fast_exit, bool save_songdata) {
 	
 	
 }
+
+
+END_SONGLIB_NAMESPACE

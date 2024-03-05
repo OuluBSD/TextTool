@@ -1,6 +1,8 @@
 #include "SocialLib.h"
 
-namespace SocialLib {
+
+BEGIN_SOCIALLIB_NAMESPACE
+
 
 TaskManager::TaskManager() {
 	
@@ -234,4 +236,5 @@ void TaskManager::ImportPromptAnswers() {
 	
 }
 
-}
+
+END_SOCIALLIB_NAMESPACE

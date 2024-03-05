@@ -2,7 +2,7 @@
 #define _SocialLib_StorySolver_h_
 
 
-namespace SocialLib {
+BEGIN_SOCIALLIB_NAMESPACE
 
 
 class StorySolver {
@@ -80,6 +80,7 @@ public:
 };
 
 
-}
+END_SOCIALLIB_NAMESPACE
+
 
 #endif

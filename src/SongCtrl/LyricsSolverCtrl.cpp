@@ -1,6 +1,9 @@
 #include "SongCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 LyricsSolverCtrl::LyricsSolverCtrl() {
 	
 	Add(tabs.SizePos());
@@ -131,7 +134,7 @@ void LyricsSolverCtrl::DataSuggestion() {
 }
 
 void LyricsSolverCtrl::UserLyricsChange() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.lyrics)
 		return;
@@ -163,3 +166,6 @@ void LyricsSolverCtrl::OnNewTitle(String res) {
 		l.native_title.Clear();
 	}
 }
+
+
+END_SONGLIB_NAMESPACE

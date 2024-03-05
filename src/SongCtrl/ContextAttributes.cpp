@@ -16,7 +16,7 @@ ContextAttributesCtrl::ContextAttributesCtrl() {
 }
 
 void ContextAttributesCtrl::InitList(ArrayCtrl& attrs) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	if (sda.datasets.IsEmpty()) return;
@@ -81,7 +81,7 @@ void ContextAttributesCtrl::InitList(ArrayCtrl& attrs) {
 }
 
 void ContextAttributesCtrl::SetData(VectorMap<String,String>& data, ArrayCtrl& attrs) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -127,7 +127,7 @@ void ContextAttributesCtrl::ToolMenu(Bar& bar) {
 }
 
 void ContextAttributesCtrl::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.release || !p.artist)
 		return;

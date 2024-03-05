@@ -2,6 +2,9 @@
 #define _SocialDatabase_Campaign_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 struct Campaign : DataFile
 {
 	// Public
@@ -62,6 +65,9 @@ struct Campaign : DataFile
 	
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

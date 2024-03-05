@@ -1,6 +1,9 @@
 #include "SongDataCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 SongDataDiagnostics::SongDataDiagnostics() {
 	Add(hsplit.HSizePos().VSizePos(0,30));
 	
@@ -15,7 +18,7 @@ SongDataDiagnostics::SongDataDiagnostics() {
 }
 
 void SongDataDiagnostics::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -30,7 +33,7 @@ void SongDataDiagnostics::Data() {
 }
 
 void SongDataDiagnostics::DataDataset() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	
 	if (!datasets.IsCursor()) return;
 	int cur = datasets.GetCursor();
@@ -58,3 +61,6 @@ void SongDataDiagnostics::DataDataset() {
 void SongDataDiagnostics::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataDataset)).Key(K_CTRL_Q);
 }
+
+
+END_SONGLIB_NAMESPACE

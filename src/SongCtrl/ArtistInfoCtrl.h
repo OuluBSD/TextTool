@@ -1,7 +1,11 @@
 #ifndef _SongTool_ArtistInfoCtrl_h_
 #define _SongTool_ArtistInfoCtrl_h_
 
-class Editor;
+
+BEGIN_SONGLIB_NAMESPACE
+
+
+class SongEditor;
 
 class ArtistInfoCtrl : public WithCompanyInfo<ToolAppCtrl> {
 	
@@ -14,9 +18,12 @@ public:
 	void Clear();
 	void OnValueChange();
 	
-	Editor* editor = 0;
+	SongEditor* editor = 0;
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

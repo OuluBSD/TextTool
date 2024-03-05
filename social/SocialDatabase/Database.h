@@ -2,6 +2,9 @@
 #define _SocialDatabase_Database_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 struct SocialDatabase {
 	// Public
 	Array<Company>	companies;
@@ -45,6 +48,9 @@ struct SocialDatabase {
 	static SocialDatabase& Single() {static SocialDatabase db; return db;}
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

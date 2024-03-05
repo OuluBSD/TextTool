@@ -54,7 +54,7 @@ void SongDataTemplateScoring::Data() {
 }
 
 void SongDataTemplateScoring::DataMain() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -129,7 +129,7 @@ void SongDataTemplateScoring::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -218,7 +218,7 @@ void SongDataTemplateScoring::GetTemplateScores(int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -311,7 +311,7 @@ void SongDataTemplateScoring::OnTemplateScores(String res, int batch_i, int scor
 	
 	lock.Enter();
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	

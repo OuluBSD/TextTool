@@ -2,6 +2,9 @@
 #define _SocialDataCtrl_AmbiguousWordPairs_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class AmbiguousWordPairs : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, texts;
@@ -16,6 +19,9 @@ public:
 	void Process();
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

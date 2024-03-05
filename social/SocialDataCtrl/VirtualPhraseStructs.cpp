@@ -1,5 +1,9 @@
 #include "SocialDataCtrl.h"
 
+
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 VirtualPhraseStructs::VirtualPhraseStructs() {
 	Add(hsplit.SizePos());
 	
@@ -93,4 +97,7 @@ void VirtualPhraseStructs::Process() {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoVirtualPhrases(ds_i, 3);
 }
+
+
+END_SOCIALLIB_NAMESPACE
 

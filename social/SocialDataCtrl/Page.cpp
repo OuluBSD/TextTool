@@ -1,6 +1,9 @@
 #include "SocialDataCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 SocialDataPage::SocialDataPage() {
 	Add(hsplit.HSizePos().VSizePos(0,30));
 	Add(prog.HSizePos().BottomPos(0,30));
@@ -344,3 +347,6 @@ void SocialDataPage::ImportStory() {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoPrograms(ds_i, 0);
 }
+
+
+END_SOCIALLIB_NAMESPACE

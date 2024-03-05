@@ -1,6 +1,8 @@
 #include "SongDataCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
 
 Attributes::Attributes() {
 	Add(hsplit.SizePos());
@@ -32,7 +34,7 @@ Attributes::Attributes() {
 }
 
 void Attributes::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -48,7 +50,7 @@ void Attributes::Data() {
 }
 
 void Attributes::DataDataset() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -104,7 +106,7 @@ void Attributes::DataDataset() {
 }
 
 void Attributes::DataGroup() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -184,3 +186,6 @@ void Attributes::DoAttributes(int fn) {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoAttributes(0, fn);
 }
+
+
+END_SONGLIB_NAMESPACE

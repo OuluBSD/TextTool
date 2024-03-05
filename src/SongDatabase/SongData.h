@@ -2,6 +2,9 @@
 #define _SongDatabase_SongData_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 struct LyricsDataset : Moveable<LyricsDataset> {
 	String name;
 	String text;
@@ -809,6 +812,9 @@ struct SongData {
 	bool IsEmpty() const {return artists_en.IsEmpty() || artists_fi.IsEmpty();}
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

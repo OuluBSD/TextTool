@@ -2,6 +2,9 @@
 #define _SocialDatabase_Program_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 struct ProgramIdea {
 	String title, target_program, reference_program, description;
 	
@@ -69,6 +72,9 @@ struct Program : DataFile
 	}
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

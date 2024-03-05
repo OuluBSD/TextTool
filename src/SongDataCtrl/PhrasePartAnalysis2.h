@@ -2,6 +2,9 @@
 #define _SongDataCtrl_PhrasePartAnalysis2_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class PhrasePartAnalysis2 : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, typecasts, contrasts, profiles, archetypes, primaries, secondaries, parts;
@@ -24,6 +27,9 @@ public:
 	void UpdateCounts();
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

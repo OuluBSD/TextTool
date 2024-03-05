@@ -1,6 +1,10 @@
 #ifndef _SongDatabase_DatabaseClass_h_
 #define _SongDatabase_DatabaseClass_h_
 
+
+BEGIN_SONGLIB_NAMESPACE
+
+
 struct Translation : Moveable<Translation> {
 	VectorMap<String, String> data;
 	
@@ -25,7 +29,7 @@ struct Translation : Moveable<Translation> {
 
 
 
-struct Database {
+struct SongDatabase {
 	// Public
 	Array<Artist>	artists;
 	VectorMap<String, Translation> translation;
@@ -37,7 +41,7 @@ struct Database {
 	String			dir;
 	RWMutex			lock;
 	
-	Database();
+	SongDatabase();
 	Array<Artist>& GetSub() {return artists;}
 	const Array<Artist>& GetSub() const {return artists;}
 	void Clear() {artists.Clear(); }
@@ -71,16 +75,14 @@ struct Database {
 	
 	String Translate(const String& s);
 	
-	static Database& Single() {static Database db; return db;}
+	static SongDatabase& Single() {static SongDatabase db; return db;}
 	
 	static int trans_i; // active language translation index
 	
 };
 
 
-
-
-
+END_SONGLIB_NAMESPACE
 
 
 #endif

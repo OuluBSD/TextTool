@@ -99,7 +99,7 @@ void ActionEditor::Data() {
 	Song& song = GetSong();
 	
 	{
-		Database& db = Database::Single();
+		SongDatabase& db = SongDatabase::Single();
 		SongData& sd = db.song_data;
 		SongDataAnalysis& sda = db.song_data.a;
 		DatasetAnalysis& da = sda.datasets[ds_i];
@@ -172,7 +172,7 @@ void ActionEditor::DataThread() {
 		return;
 	}
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -227,7 +227,7 @@ void ActionEditor::DataSuggestions() {
 		return;
 	}
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -443,7 +443,7 @@ void ActionEditor::DataSuggestions() {
 }
 
 void ActionEditor::DataAction() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -533,7 +533,7 @@ void ActionEditor::DataSong() {
 }
 
 void ActionEditor::AddAction() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];

@@ -1,5 +1,9 @@
 #include "SocialDataCtrl.h"
 
+
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 AmbiguousWordPairs::AmbiguousWordPairs() {
 	Add(hsplit.SizePos());
 	
@@ -78,3 +82,6 @@ void AmbiguousWordPairs::Process() {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoAmbiguousWordPairs(0, 1);
 }
+
+
+END_SOCIALLIB_NAMESPACE

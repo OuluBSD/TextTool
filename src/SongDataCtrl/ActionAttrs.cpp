@@ -1,6 +1,9 @@
 #include "SongDataCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 ActionAttrsPage::ActionAttrsPage() {
 	Add(hsplit.SizePos());
 	
@@ -45,7 +48,7 @@ void ActionAttrsPage::ToolMenu(Bar& bar) {
 }
 
 void ActionAttrsPage::DataMain() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -120,7 +123,7 @@ void ActionAttrsPage::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -186,4 +189,7 @@ void ActionAttrsPage::UpdateAttributes() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoActionlist(0, 1);
 }
+
+
+END_SONGLIB_NAMESPACE
 

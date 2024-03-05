@@ -1,7 +1,10 @@
 #include "SongTool.h"
 
 
-Editor::Editor(SongTool* app) : app(*app) {
+BEGIN_SONGLIB_NAMESPACE
+
+
+SongEditor::SongEditor(SongTool* app) : app(*app) {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << menusplit << base;
@@ -59,7 +62,7 @@ Editor::Editor(SongTool* app) : app(*app) {
 	SetSubMenu(0);
 }
 
-void Editor::SetSubMenu(int i) {
+void SongEditor::SetSubMenu(int i) {
 	subsplit.RemoveChild(&songsplit);
 	subsplit.RemoveChild(&lyricssplit);
 	
@@ -69,13 +72,13 @@ void Editor::SetSubMenu(int i) {
 		subsplit.Add(lyricssplit.SizePos());
 }
 
-void Editor::AddItem(String g, String i, ToolAppCtrl& c) {
+void SongEditor::AddItem(String g, String i, ToolAppCtrl& c) {
 	ListItem& it = items.GetAdd(g).Add();
 	it.item = i;
 	it.ctrl = &c;
 }
 
-void Editor::InitListItems() {
+void SongEditor::InitListItems() {
 	for(int i = 0; i < items.GetCount(); i++) {
 		String group = items.GetKey(i);
 		page_group_list.Add(group);
@@ -86,7 +89,7 @@ void Editor::InitListItems() {
 	PostCallback(THISBACK(ViewPageGroup));
 }
 
-void Editor::InitSimplified() {
+void SongEditor::InitSimplified() {
 	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
 	
 	AddItem(t_("Database"), t_("Songs"), song_data);
@@ -160,7 +163,7 @@ void Editor::InitSimplified() {
 	InitListItems();
 }
 
-void Editor::Init() {
+void SongEditor::Init() {
 	INHIBIT_ACTION_(page_group_list, 0);
 	INHIBIT_ACTION_(page_list, 1);
 	LoadLast();
@@ -172,7 +175,7 @@ void Editor::Init() {
 	app.SetBar(); // requires Data();
 }
 
-void Editor::SetView(int i, int j) {
+void SongEditor::SetView(int i, int j) {
 	for (const auto& v : items)
 		for (const ListItem& it : v)
 			it.ctrl->Hide();
@@ -198,7 +201,7 @@ void Editor::SetView(int i, int j) {
 	app.SetBar();
 }
 
-void Editor::DataPage() {
+void SongEditor::DataPage() {
 	if (app.skip_data) return;
 	
 	StoreLast();
@@ -213,13 +216,13 @@ void Editor::DataPage() {
 	}
 }
 
-void Editor::ToolMenu(Bar& bar) {
+void SongEditor::ToolMenu(Bar& bar) {
 	int page = this->page.GetAdd(page_group, 0);
 	if (page_group >= 0 && page_group < items.GetCount() && page >= 0 && page < items[page_group].GetCount())
 		items[page_group][page].ctrl->ToolMenu(bar);
 }
 
-String Editor::GetStatusText() {
+String SongEditor::GetStatusText() {
 	int page = this->page.GetAdd(page_group, 0);
 	if (page_group >= 0 && page_group < items.GetCount() && page >= 0 && page < items[page_group].GetCount())
 		return items[page_group][page].ctrl->GetStatusText();
@@ -227,7 +230,7 @@ String Editor::GetStatusText() {
 		return String();
 }
 
-void Editor::MovePageGroup(int d) {
+void SongEditor::MovePageGroup(int d) {
 	if (page_group_list.IsCursor()) {
 		int c = page_group_list.GetCursor();
 		c += d;
@@ -236,7 +239,7 @@ void Editor::MovePageGroup(int d) {
 	}
 }
 
-void Editor::MovePage(int d) {
+void SongEditor::MovePage(int d) {
 	if (page_list.IsCursor()) {
 		int c = page_list.GetCursor();
 		c += d;
@@ -245,7 +248,7 @@ void Editor::MovePage(int d) {
 	}
 }
 
-void Editor::MovePart(int d) {
+void SongEditor::MovePart(int d) {
 	if (parts.IsCursor()) {
 		int c = parts.GetCursor();
 		c += d;
@@ -254,8 +257,8 @@ void Editor::MovePart(int d) {
 	}
 }
 
-void Editor::LoadLast() {
-	Database& db = Database::Single();
+void SongEditor::LoadLast() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	p.Zero();
 	for (Artist& a : db.artists) {
@@ -302,8 +305,8 @@ void Editor::LoadLast() {
 	}
 }
 
-void Editor::StoreLast() {
-	Database& db = Database::Single();
+void SongEditor::StoreLast() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	app.last_typecast = p.typecast ? p.typecast->file_title : String();
 	app.last_archetype = p.archetype ? p.archetype->file_title : String();
@@ -315,7 +318,7 @@ void Editor::StoreLast() {
 	app.Store();
 }
 
-void Editor::ViewPageGroup() {
+void SongEditor::ViewPageGroup() {
 	int page_group = page_group_list.GetCursor();
 	int page = this->page.GetAdd(page_group, 0);
 	
@@ -340,13 +343,13 @@ void Editor::ViewPageGroup() {
 	DataPage();
 }
 
-void Editor::ViewPage() {
+void SongEditor::ViewPage() {
 	SetView(page_group_list.GetCursor(), page_list.GetCursor());
 	//DataPage(); // Duplicate
 }
 
-void Editor::Data() {
-	Database& db = Database::Single();
+void SongEditor::Data() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	for(int i = 0; i < db.artists.GetCount(); i++) {
@@ -385,8 +388,8 @@ void Editor::Data() {
 	DataTypecast();
 }
 
-void Editor::DataArtist() {
-	Database& db = Database::Single();
+void SongEditor::DataArtist() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!artists.IsCursor()) {
 		p.artist = 0;
@@ -415,8 +418,8 @@ void Editor::DataArtist() {
 	DataRelease();
 }
 
-void Editor::DataRelease() {
-	Database& db = Database::Single();
+void SongEditor::DataRelease() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!releases.IsCursor() || !p.artist) {
 		p.release = 0;
@@ -447,8 +450,8 @@ void Editor::DataRelease() {
 	DataSong();
 }
 
-void Editor::DataSong() {
-	Database& db = Database::Single();
+void SongEditor::DataSong() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!songs.IsCursor() || !p.artist || !p.release) {
 		p.song = 0;
@@ -484,8 +487,8 @@ void Editor::DataSong() {
 	DataPage();
 }
 
-void Editor::DataTypecast() {
-	Database& db = Database::Single();
+void SongEditor::DataTypecast() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!typecasts.IsCursor()) {
 		p.typecast = 0;
@@ -517,8 +520,8 @@ void Editor::DataTypecast() {
 	DataArchetype();
 }
 
-void Editor::DataArchetype() {
-	Database& db = Database::Single();
+void SongEditor::DataArchetype() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!archetypes.IsCursor()) {
 		p.archetype = 0;
@@ -546,8 +549,8 @@ void Editor::DataArchetype() {
 	DataLyrics();
 }
 
-void Editor::DataLyrics() {
-	Database& db = Database::Single();
+void SongEditor::DataLyrics() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!lyrics.IsCursor()) {
 		p.lyrics = 0;
@@ -565,8 +568,8 @@ void Editor::DataLyrics() {
 }
 
 #if 0
-void Editor::DataPart() {
-	Database& db = Database::Single();
+void SongEditor::DataPart() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!parts.IsCursor() || !p.artist || !p.release || !p.song /*|| !p.song->pipe*/) {
 		DataPage();
@@ -608,7 +611,7 @@ void Editor::DataPart() {
 }
 #endif
 
-void Editor::ArtistMenu(Bar& bar) {
+void SongEditor::ArtistMenu(Bar& bar) {
 	bar.Add(t_("Add Artist"), THISBACK(AddArtist));
 	
 	if (artists.IsCursor()) {
@@ -617,7 +620,7 @@ void Editor::ArtistMenu(Bar& bar) {
 	}
 }
 
-void Editor::ReleaseMenu(Bar& bar) {
+void SongEditor::ReleaseMenu(Bar& bar) {
 	bar.Add(t_("Add Release"), THISBACK(AddRelease));
 	
 	if (releases.IsCursor()) {
@@ -626,7 +629,7 @@ void Editor::ReleaseMenu(Bar& bar) {
 	}
 }
 
-void Editor::SongMenu(Bar& bar) {
+void SongEditor::SongMenu(Bar& bar) {
 	bar.Add(t_("Add Song"), THISBACK(AddSong));
 	
 	if (songs.IsCursor()) {
@@ -635,7 +638,7 @@ void Editor::SongMenu(Bar& bar) {
 	}
 }
 
-void Editor::LyricsMenu(Bar& bar) {
+void SongEditor::LyricsMenu(Bar& bar) {
 	bar.Add(t_("Add Lyrics"), THISBACK(AddLyrics));
 	
 	if (lyrics.IsCursor()) {
@@ -643,8 +646,8 @@ void Editor::LyricsMenu(Bar& bar) {
 	}
 }
 
-void Editor::AddArtist() {
-	Database& db = Database::Single();
+void SongEditor::AddArtist() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	String name;
@@ -679,8 +682,8 @@ void Editor::AddArtist() {
 	Data();
 }
 
-void Editor::RenameArtist() {
-	Database& db = Database::Single();
+void SongEditor::RenameArtist() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist)
 		return;
@@ -699,8 +702,8 @@ void Editor::RenameArtist() {
 	Data();
 }
 
-void Editor::RemoveArtist() {
-	Database& db = Database::Single();
+void SongEditor::RemoveArtist() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist)
 		return;
@@ -710,8 +713,8 @@ void Editor::RemoveArtist() {
 	Data();
 }
 
-void Editor::AddRelease() {
-	Database& db = Database::Single();
+void SongEditor::AddRelease() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist)
 		return;
@@ -747,8 +750,8 @@ void Editor::AddRelease() {
 	DataArtist();
 }
 
-void Editor::RenameRelease() {
-	Database& db = Database::Single();
+void SongEditor::RenameRelease() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release)
 		return;
@@ -767,8 +770,8 @@ void Editor::RenameRelease() {
 	DataArtist();
 }
 
-void Editor::RemoveRelease() {
-	Database& db = Database::Single();
+void SongEditor::RemoveRelease() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist || !p.release)
 		return;
@@ -778,8 +781,8 @@ void Editor::RemoveRelease() {
 	DataArtist();
 }
 
-void Editor::AddSong() {
-	Database& db = Database::Single();
+void SongEditor::AddSong() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist)
 		return;
@@ -818,8 +821,8 @@ void Editor::AddSong() {
 	DataArtist();
 }
 
-void Editor::RenameSong() {
-	Database& db = Database::Single();
+void SongEditor::RenameSong() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song)
 		return;
@@ -839,8 +842,8 @@ void Editor::RenameSong() {
 	DataRelease();
 }
 
-void Editor::RemoveSong() {
-	Database& db = Database::Single();
+void SongEditor::RemoveSong() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song || !p.release)
 		return;
@@ -851,8 +854,8 @@ void Editor::RemoveSong() {
 	DataRelease();
 }
 
-void Editor::AddLyrics() {
-	Database& db = Database::Single();
+void SongEditor::AddLyrics() {
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.archetype)
 		return;
@@ -876,8 +879,12 @@ void Editor::AddLyrics() {
 	Data();
 }
 
-void Editor::RemoveLyrics() {
+void SongEditor::RemoveLyrics() {
 	
 	
 	
 }
+
+
+END_SONGLIB_NAMESPACE
+

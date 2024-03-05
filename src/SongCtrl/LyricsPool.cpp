@@ -1,5 +1,9 @@
 #include "SongCtrl.h"
 
+
+BEGIN_SONGLIB_NAMESPACE
+
+
 SongPool::SongPool() {
 	Add(list.SizePos());
 	
@@ -32,3 +36,5 @@ void SongPool::Data() {
 	
 }
 
+
+END_SONGLIB_NAMESPACE

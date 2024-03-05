@@ -1,6 +1,10 @@
 #include "SongCtrl.h"
 #include <SongTool/SongTool.h>
 
+
+BEGIN_SONGLIB_NAMESPACE
+
+
 ReleaseInfoCtrl::ReleaseInfoCtrl() {
 	CtrlLayout(*this);
 	
@@ -19,7 +23,7 @@ void ReleaseInfoCtrl::Clear() {
 }
 
 void ReleaseInfoCtrl::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	Clear();
@@ -36,7 +40,7 @@ void ReleaseInfoCtrl::Data() {
 }
 
 void ReleaseInfoCtrl::OnValueChange() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	if (p.release && editor->releases.IsCursor()) {
@@ -52,3 +56,6 @@ void ReleaseInfoCtrl::OnValueChange() {
 	}
 	
 }
+
+
+END_SONGLIB_NAMESPACE

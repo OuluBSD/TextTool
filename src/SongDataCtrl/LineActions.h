@@ -2,6 +2,9 @@
 #define _SongDataCtrl_SongDataLineActions_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class SongDataLineActions : public ToolAppCtrl {
 	
 	
@@ -43,6 +46,9 @@ public:
 	void OnLineChangeScores(String res, int batch_i, int score_mode);*/
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

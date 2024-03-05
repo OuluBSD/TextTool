@@ -1,6 +1,9 @@
 #include "SocialDataCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 ProgramDataWords::ProgramDataWords() {
 	Add(hsplit.SizePos());
 	
@@ -352,3 +355,6 @@ void ProgramDataWords::DoWords(int fn) {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoWords(ds_i, fn);
 }
+
+
+END_SOCIALLIB_NAMESPACE

@@ -2,6 +2,9 @@
 #define _SongTool_CoverImage_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class ReleaseCoverImage : public ImagePlayerBase {
 	Button create_suggestions, make_single_image, make_all_images;
 	String user_natural_english_key;
@@ -19,6 +22,9 @@ public:
 	void OnResult(String res, String part);
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

@@ -2,6 +2,9 @@
 #define _SongDataCtrl_SongDataLoader_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class SongDataLoader : public WithSongDataLoader<TopWindow> {
 	
 	
@@ -21,6 +24,9 @@ public:
 	void SetProgress(int i, int t) {prog.Set(i,t);}
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

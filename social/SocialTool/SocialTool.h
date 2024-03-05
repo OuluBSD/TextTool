@@ -11,6 +11,6 @@
 #include <Draw/iml_header.h>
 
 #include "App.h"
-
+using namespace SocialLib;
 
 #endif

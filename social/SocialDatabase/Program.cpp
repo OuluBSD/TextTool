@@ -1,6 +1,9 @@
 #include "SocialDatabase.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 String StoryPart::GetTypeString() const {
 	return GetTypeString(part_type);
 }
@@ -103,3 +106,6 @@ String Program::GetAnyTitle(Company& a) const {
 	}
 	return file_title;
 }
+
+
+END_SOCIALLIB_NAMESPACE

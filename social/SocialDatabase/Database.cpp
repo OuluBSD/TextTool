@@ -1,6 +1,8 @@
 #include "SocialDatabase.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
 
 SocialDatabase::SocialDatabase() {
 	
@@ -54,3 +56,14 @@ void SocialDatabase::FindOrphaned() {
 		while (ff.Next());
 	}
 }
+
+
+END_SOCIALLIB_NAMESPACE
+
+
+int EditorPtrs::GetActiveCompanyIndex() const {return VectorFindPtr(company, SocialLib::SocialDatabase::Single().companies);}
+int EditorPtrs::GetActiveCampaignIndex() const {if (!company) return -1; return VectorFindPtr(campaign, company->campaigns);}
+int EditorPtrs::GetActiveProgramIndex() const {if (!campaign) return -1; return VectorFindPtr(program, campaign->programs);}
+int EditorPtrs::GetActiveRoleIndex() const {return VectorFindPtr(role, company->roles);}
+int EditorPtrs::GetActiveGenericIndex() const {return VectorFindPtr(generic, role->generics);}
+int EditorPtrs::GetActiveStoryIndex() const {return VectorFindPtr(story, generic->stories);}

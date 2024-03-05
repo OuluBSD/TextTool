@@ -1,5 +1,4 @@
 #include "ToolCore.h"
-#include <SongDatabase/SongDatabase.h>
 
 
 #define IMAGECLASS AppImg
@@ -140,15 +139,8 @@ const char* IdeaPathString[IDEAPATH_COUNT][2] {
 
 
 
-int EditorPtrs::GetActiveArtistIndex() const {return VectorFindPtr(artist, Database::Single().artists);}
-int EditorPtrs::GetActiveTypecastIndex() const {return VectorFindPtr(typecast, artist->typecasts);}
-int EditorPtrs::GetActiveArchetypeIndex() const {return VectorFindPtr(archetype, typecast->archetypes);}
-int EditorPtrs::GetActiveLyricsIndex() const {return VectorFindPtr(lyrics, archetype->lyrics);}
-int EditorPtrs::GetActiveReleaseIndex() const {if (!artist) return -1; return VectorFindPtr(release, artist->releases);}
-int EditorPtrs::GetActiveSongIndex() const {if (!release) return -1; return VectorFindPtr(song, release->songs);}
-
 /*void EditorPtrs::RealizePipe() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	
 	if (!song || !artist)
 		return;
@@ -477,13 +469,6 @@ String GetBiasHeader(int mode) {
 		case BIAS_BEAUTIFULMUSIC:	return "Lyrical bias pleasing to pop music listeners, containing the most beautiful lyrics possible.";
 		default: return String();
 	}
-}
-
-template <>
-void CheckSerialisationData<Song>(const String& json) {
-	Song song;
-	LoadFromJson(song, json);
-	//ASSERT(song.native_title.GetCount() || song.english_title.GetCount());
 }
 
 String ToMinSec(double sec) {

@@ -49,7 +49,7 @@ void SongDataPhrases::Data() {
 }
 
 void SongDataPhrases::DataDataset() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -64,7 +64,7 @@ void SongDataPhrases::DataDataset() {
 }
 
 void SongDataPhrases::DataMain() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -97,7 +97,7 @@ void SongDataPhrases::DataMain() {
 }
 
 void SongDataPhrases::DataAttribute() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	

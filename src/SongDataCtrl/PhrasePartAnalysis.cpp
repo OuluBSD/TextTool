@@ -1,6 +1,9 @@
 #include "SongDataCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 void ScoreDisplay::Paint(Draw& d, const Rect& r, const Value& q,
                          Color ink, Color paper, dword style) const {
 	d.DrawRect(r, Blend(paper, White()));
@@ -89,7 +92,7 @@ void PhrasePartAnalysis::Data() {
 }
 
 void PhrasePartAnalysis::DataMain() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 
@@ -108,7 +111,7 @@ void PhrasePartAnalysis::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -155,7 +158,7 @@ void PhrasePartAnalysis::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -192,7 +195,7 @@ void PhrasePartAnalysis::DataAction() {
 	if (!datasets.IsCursor() || !actions.IsCursor())
 		return;
 
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -228,7 +231,7 @@ void PhrasePartAnalysis::DataActionHeader() {
 		return;
 
 
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -344,3 +347,6 @@ void PhrasePartAnalysis::DoPhrases(int fn) {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoPhrases(ds_i, fn);
 }
+
+
+END_SONGLIB_NAMESPACE

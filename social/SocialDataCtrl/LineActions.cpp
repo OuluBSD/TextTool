@@ -1,6 +1,9 @@
 #include "SocialDataCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 ProgramDataLineActions::ProgramDataLineActions() {
 	Add(hsplit.SizePos());
 	
@@ -290,3 +293,6 @@ void ProgramDataLineActions::ToggleGettingLineChangeScores(int score_mode) {
 		Thread::Start(THISBACK2(GetLineChangeScores, 0, score_mode));
 	}
 }*/
+
+
+END_SOCIALLIB_NAMESPACE

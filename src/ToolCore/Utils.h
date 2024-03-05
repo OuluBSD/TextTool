@@ -3,12 +3,24 @@
 
 
 typedef String NoPointerExc;
-struct Lyrics;
-struct Song;
-struct Release;
+
+BEGIN_SONGLIB_NAMESPACE
+
 struct Artist;
+struct Release;
+struct Song;
+struct Lyrics;
+
+END_SONGLIB_NAMESPACE
+
+BEGIN_SOCIALLIB_NAMESPACE
+
 struct Company;
+struct Campaign;
 struct Story;
+struct Program;
+
+END_SOCIALLIB_NAMESPACE
 
 
 class ToolAppCtrl : public Ctrl {
@@ -20,12 +32,16 @@ public:
 	virtual void ToolMenu(Bar& bar) {bar.Add("", AppImg::placeholder16(), Callback());}
 	virtual String GetStatusText() {return String();}
 	
-	Lyrics& GetLyrics();
-	Song& GetSong();
-	Release& GetRelease();
-	Artist& GetArtist();
-	Company& GetCompany();
-	Story& GetStory();
+	SongLib::Artist& GetArtist();
+	SongLib::Release& GetRelease();
+	SongLib::Song& GetSong();
+	SongLib::Lyrics& GetLyrics();
+	
+	SocialLib::Company& GetCompany();
+	SocialLib::Campaign& GetCampaign();
+	SocialLib::Program& GetProgram();
+	SocialLib::Story& GetStory();
+	
 	String GetSongTitle() const;
 	//int GetDataset();
 	

@@ -2,6 +2,9 @@
 #define _SongDataCtrl_Diagnostics_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class SongDataDiagnostics : public ToolAppCtrl {
 	Splitter hsplit;
 	ArrayCtrl datasets, values;
@@ -16,6 +19,9 @@ public:
 	
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

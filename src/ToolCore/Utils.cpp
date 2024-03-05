@@ -1,43 +1,67 @@
 #include "ToolCore.h"
-#include <SongDatabase/SongDatabase.h>
 
 
 
-Lyrics& ToolAppCtrl::GetLyrics() {
-	Database& db = Database::Single();
+SongLib::Lyrics& ToolAppCtrl::GetLyrics() {
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.lyrics)
 		throw NoPointerExc("no lyrics");
 	return *p.lyrics;
 }
 
-Song& ToolAppCtrl::GetSong() {
-	Database& db = Database::Single();
+SongLib::Song& ToolAppCtrl::GetSong() {
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist)
 		throw NoPointerExc("no song");
-	Song& song = *p.song;
-	return song;
+	return *p.song;
 }
 
-Release& ToolAppCtrl::GetRelease() {
-	Database& db = Database::Single();
+SongLib::Release& ToolAppCtrl::GetRelease() {
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.release)
 		throw NoPointerExc("no release");
 	return *p.release;
 }
 
-Artist& ToolAppCtrl::GetArtist() {
-	Database& db = Database::Single();
+SongLib::Artist& ToolAppCtrl::GetArtist() {
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.artist)
 		throw NoPointerExc("no artist");
 	return *p.artist;
 }
 
+
+SocialLib::Company& ToolAppCtrl::GetCompany() {
+	EditorPtrs& p = EditorPtrs::Single();
+	if(!p.artist)
+		throw NoPointerExc("no company");
+	return *p.company;
+}
+
+SocialLib::Campaign& ToolAppCtrl::GetCampaign() {
+	EditorPtrs& p = EditorPtrs::Single();
+	if(!p.artist)
+		throw NoPointerExc("no campaign");
+	return *p.campaign;
+}
+
+SocialLib::Program& ToolAppCtrl::GetProgram() {
+	EditorPtrs& p = EditorPtrs::Single();
+	if(!p.artist)
+		throw NoPointerExc("no program");
+	return *p.program;
+}
+
+SocialLib::Story& ToolAppCtrl::GetStory() {
+	EditorPtrs& p = EditorPtrs::Single();
+	if(!p.artist)
+		throw NoPointerExc("no story");
+	return *p.story;
+}
+
+
 String ToolAppCtrl::GetSongTitle() const {
-	/*Database& db = Database::Single();
+	/*SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist)
 		throw NoPointerExc("no song");
@@ -51,7 +75,7 @@ String ToolAppCtrl::GetSongTitle() const {
 }
 
 /*int ToolAppCtrl::GetDataset() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist)
 		throw NoPointerExc("no song");

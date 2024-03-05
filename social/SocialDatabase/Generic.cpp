@@ -1,2 +1,8 @@
 #include "SocialDatabase.h"
 
+
+BEGIN_SOCIALLIB_NAMESPACE
+
+
+
+END_SOCIALLIB_NAMESPACE

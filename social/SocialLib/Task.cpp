@@ -1,6 +1,8 @@
 #include "SocialLib.h"
 
-namespace SocialLib {
+
+BEGIN_SOCIALLIB_NAMESPACE
+
 
 void Task::UpdateBatches(int per_batch) {
 	SocialDatabase& db = SocialDatabase::Single();
@@ -61,4 +63,5 @@ void Task::UpdateBatches(int per_batch) {
 	}
 }
 
-}
+
+END_SOCIALLIB_NAMESPACE

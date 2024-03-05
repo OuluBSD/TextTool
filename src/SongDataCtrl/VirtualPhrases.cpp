@@ -1,5 +1,9 @@
 #include "SongDataCtrl.h"
 
+
+BEGIN_SONGLIB_NAMESPACE
+
+
 VirtualPhrases::VirtualPhrases() {
 	Add(hsplit.SizePos());
 	
@@ -43,7 +47,7 @@ VirtualPhrases::VirtualPhrases() {
 }
 
 void VirtualPhrases::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -80,7 +84,7 @@ String GetTypePhraseString(const Vector<int>& word_classes, const DatasetAnalysi
 }
 
 void VirtualPhrases::DataDataset() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	
 	int ds_i = datasets.GetCursor();
@@ -148,4 +152,7 @@ void VirtualPhrases::ProcessVirtualPhraseParts() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoVirtualPhrases(ds_i, 1);
 }
+
+
+END_SONGLIB_NAMESPACE
 

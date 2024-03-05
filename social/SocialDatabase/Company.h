@@ -2,6 +2,9 @@
 #define _SocialDatabase_Company_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 struct Company : DataFile
 {
 	// Public
@@ -103,6 +106,9 @@ struct Company : DataFile
 	bool FindProgram(int& tc, int& arch, int& lyr_i, const String& story_file_title) const;
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

@@ -1,5 +1,9 @@
 #include "SocialDataCtrl.h"
 
+
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 SocialDataLoader::SocialDataLoader() {
 	CtrlLayout(*this);
 	Title("ProgramData loader");
@@ -223,4 +227,7 @@ void SocialDataLoader::LoadHuggingFinn() {
 		}
 	}
 }
+
+
+END_SOCIALLIB_NAMESPACE
 

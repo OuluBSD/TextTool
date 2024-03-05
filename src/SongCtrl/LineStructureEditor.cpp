@@ -36,7 +36,7 @@ LineStructureEditor::LineStructureEditor() {
 }
 
 void LineStructureEditor::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -63,7 +63,7 @@ void LineStructureEditor::Data() {
 }
 
 void LineStructureEditor::DataPart() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -127,7 +127,7 @@ void LineStructureEditor::ToolMenu(Bar& bar) {
 }
 
 void LineStructureEditor::UpdateSuggestions() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	DatasetAnalysis& da = sd.a.datasets[ds_i];
 	

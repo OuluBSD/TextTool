@@ -1,5 +1,4 @@
 #include "Task.h"
-#include <SongDatabase/SongDatabase.h>
 
 
 void TaskMgrConfig::CreateDefaultTaskRules() {
@@ -107,12 +106,8 @@ void TaskMgrConfig::Store() {
 }
 
 void TaskMgrConfig::Process() {
-	Database& db = Database::Single();
-	
 	while (running) {
-		db.lock.EnterRead();
 		TaskMgr::Single().Process();
-		db.lock.LeaveRead();
 		
 		Sleep(10);
 	}
@@ -199,7 +194,6 @@ void TaskMgr::ProcessSingle(int task_i) {
 
 void TaskMgr::Translate(String orig_lang, String orig_txt, String trans_lang, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_TRANSLATE);
 	TaskMgr& p = *this;
 	
@@ -211,7 +205,6 @@ void TaskMgr::Translate(String orig_lang, String orig_txt, String trans_lang, Ev
 
 void TaskMgr::RawCompletion(String prompt, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_RAW_COMPLETION);
 	TaskMgr& p = *this;
 	
@@ -223,7 +216,6 @@ void TaskMgr::RawCompletion(String prompt, Event<String> WhenResult) {
 
 void TaskMgr::GetStructureSuggestions(String req, String avoid, String desc, int total, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_STRUCTURE_SUGGESTIONS);
 	TaskMgr& p = *this;
 	
@@ -235,7 +227,6 @@ void TaskMgr::GetStructureSuggestions(String req, String avoid, String desc, int
 
 void TaskMgr::GetSuggestionAttributes(Vector<String>& structs, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_SUGGESTION_ATTRIBUTES);
 	TaskMgr& p = *this;
 	
@@ -247,7 +238,6 @@ void TaskMgr::GetSuggestionAttributes(Vector<String>& structs, Event<String> Whe
 
 void TaskMgr::CreateImage(String prompt, int count, Event<Array<Image>&> WhenResult, int reduce_size_mode, Event<> WhenError) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_CREATE_IMAGE);
 	TaskMgr& p = *this;
 	
@@ -260,7 +250,6 @@ void TaskMgr::CreateImage(String prompt, int count, Event<Array<Image>&> WhenRes
 
 void TaskMgr::GetEditImage(Image orig, Image mask, String prompt, int count, Event<Array<Image>&> WhenResult, Event<> WhenError) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_EDIT_IMAGE);
 	TaskMgr& p = *this;
 	
@@ -303,7 +292,6 @@ void TaskMgr::GetEditImage(Image orig, Image mask, String prompt, int count, Eve
 
 void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResult, Event<> WhenError) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_VARIATE_IMAGE);
 	TaskMgr& p = *this;
 	
@@ -317,7 +305,6 @@ void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResul
 
 void TaskMgr::GetSongDataAnalysis(const SongDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_SONG_DATA_ANALYSIS);
 	TaskMgr& p = *this;
 
@@ -335,7 +322,6 @@ void TaskMgr::GetSongDataAnalysis(const SongDataAnalysisArgs& args, Event<String
 
 void TaskMgr::GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_ACTION_ANALYSIS);
 	TaskMgr& p = *this;
 
@@ -351,7 +337,6 @@ void TaskMgr::GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> Wh
 
 void TaskMgr::GetLyricsPhrase(const LyricsPhraseArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_LYRICS_PHRASE);
 	TaskMgr& p = *this;
 	
@@ -367,7 +352,6 @@ void TaskMgr::GetLyricsPhrase(const LyricsPhraseArgs& args, Event<String> WhenRe
 
 void TaskMgr::GetTokenData(const TokenArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_TOKEN_DATA);
 	TaskMgr& p = *this;
 	
@@ -383,7 +367,6 @@ void TaskMgr::GetTokenData(const TokenArgs& args, Event<String> WhenResult) {
 
 void TaskMgr::GetPhraseData(const PhraseArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_PHRASE_DATA);
 	TaskMgr& p = *this;
 	
@@ -399,7 +382,6 @@ void TaskMgr::GetPhraseData(const PhraseArgs& args, Event<String> WhenResult) {
 
 void TaskMgr::GetAttributes(const AttrArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_ATTRIBUTES);
 	TaskMgr& p = *this;
 	
@@ -415,7 +397,6 @@ void TaskMgr::GetAttributes(const AttrArgs& args, Event<String> WhenResult) {
 
 void TaskMgr::GetNanaData(const NanaArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_NANA_DATA);
 	TaskMgr& p = *this;
 	
@@ -431,7 +412,6 @@ void TaskMgr::GetNanaData(const NanaArgs& args, Event<String> WhenResult) {
 
 void TaskMgr::GetLyricsSolver(const LyricsSolverArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	Database& db = Database::Single();
 	const TaskRule& r = mgr.GetRule(TASK_LYRICS_SOLVER);
 	TaskMgr& p = *this;
 	
@@ -443,6 +423,14 @@ void TaskMgr::GetLyricsSolver(const LyricsSolverArgs& args, Event<String> WhenRe
 	t.args << s;
 	t.WhenResult << WhenResult;
 	task_lock.Leave();
+}
+
+void TaskMgr::GetStorySolver(const StorySolverArgs& args, Event<String> WhenResult) {
+	TODO
+}
+
+void TaskMgr::GetProgramDataAnalysis(const ProgramDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
+	TODO
 }
 
 

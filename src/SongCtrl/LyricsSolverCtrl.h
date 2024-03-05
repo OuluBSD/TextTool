@@ -2,6 +2,9 @@
 #define _SongCtrl_LyricsSolverCtrl_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class LyricsSolverCtrl : public ToolAppCtrl {
 	TabCtrl tabs;
 	
@@ -49,6 +52,9 @@ public:
 	void SetProgress(int a, int t) {summary_bar.Set(a,t);}
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

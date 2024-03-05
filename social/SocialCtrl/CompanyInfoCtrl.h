@@ -1,6 +1,10 @@
 #ifndef _SocialTool_CompanyInfoCtrl_h_
 #define _SocialTool_CompanyInfoCtrl_h_
 
+
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class SocialEditor;
 
 class CompanyInfoCtrl : public WithCompanyInfo<ToolAppCtrl> {
@@ -17,6 +21,9 @@ public:
 	SocialEditor* editor = 0;
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

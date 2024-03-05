@@ -1,6 +1,8 @@
 #include "SongTool.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
 
 SongTool::SongTool() : ed(this) {
 	skip_data = true;
@@ -64,11 +66,11 @@ void SongTool::ClearSonglibTasks() {
 
 void SongTool::MainMenu(Bar& bar) {
 	bar.Sub(t_("App"), [this](Bar& bar) {
-		bar.Add(t_("Save"), callback(&Database::Single(), &Database::Store)).Key(K_CTRL_S);
+		bar.Add(t_("Save"), callback(&SongDatabase::Single(), &SongDatabase::Store)).Key(K_CTRL_S);
 		bar.Separator();
 		bar.Add(t_("Set OpenAI token"), THISBACK(SetOpenAIToken));
 		bar.Separator();
-		bar.Add(t_("Save song data analysis"), callback(&Database::Single().song_data, &SongData::Store));
+		bar.Add(t_("Save song data analysis"), callback(&SongDatabase::Single().song_data, &SongData::Store));
 		if (!ed.save_songdata)
 			bar.Add(t_("Save song data analysis on exit"), THISBACK1(SetSaveSongdata, 1));
 		else
@@ -221,3 +223,7 @@ void SongTool::ShowOrphanedFiles() {
 	doc.SetData("TODO");
 	tw.Open();
 }
+
+
+END_SONGLIB_NAMESPACE
+

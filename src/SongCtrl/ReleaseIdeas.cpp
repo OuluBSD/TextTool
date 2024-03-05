@@ -1,6 +1,8 @@
 #include "SongCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
 
 AlbumIdeas::AlbumIdeas() {
 	CtrlLayout(idea);
@@ -29,7 +31,7 @@ void AlbumIdeas::Clear() {
 }
 
 void AlbumIdeas::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release) {
 		Clear();
@@ -51,7 +53,7 @@ void AlbumIdeas::Data() {
 }
 
 void AlbumIdeas::IdeaData() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release || !list.IsCursor()) {
 		Clear();
@@ -68,7 +70,7 @@ void AlbumIdeas::IdeaData() {
 }
 
 void AlbumIdeas::OnValueChange() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release) return;
 	Release& release = *p.release;
@@ -91,7 +93,7 @@ void AlbumIdeas::OnListMenu(Bar& bar) {
 }
 
 void AlbumIdeas::AddIdea() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release) return;
 	Release& release = *p.release;
@@ -128,7 +130,7 @@ void AlbumIdeas::AddIdea() {
 }
 
 void AlbumIdeas::RemoveIdea() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.release) return;
 	Release& release = *p.release;
@@ -138,3 +140,6 @@ void AlbumIdeas::RemoveIdea() {
 	release.ideas.Remove(idx);
 	Data();
 }
+
+
+END_SONGLIB_NAMESPACE

@@ -2,6 +2,9 @@
 #define _SongDatabase_Pronounciation_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class EnglishPronounciation {
 	Vector<WString> parts;
 	Vector<int> word_is;
@@ -33,5 +36,9 @@ public:
 	static bool IsPunct(int chr);
 	
 };
+
+
+END_SONGLIB_NAMESPACE
+
 
 #endif

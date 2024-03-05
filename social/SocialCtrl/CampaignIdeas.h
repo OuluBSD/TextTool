@@ -2,6 +2,9 @@
 #define _SocialTool_CampaignIdeas_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class CampaignIdeas : public ToolAppCtrl {
 	Splitter hsplit;
 	ArrayCtrl list;
@@ -21,6 +24,9 @@ public:
 	void OnValueChange();
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

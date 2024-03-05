@@ -1,6 +1,10 @@
 #include "SocialCtrl.h"
 #include <SocialTool/SocialTool.h>
 
+
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 CampaignInfoCtrl::CampaignInfoCtrl() {
 	CtrlLayout(*this);
 	
@@ -52,3 +56,6 @@ void CampaignInfoCtrl::OnValueChange() {
 	}
 	
 }
+
+
+END_SOCIALLIB_NAMESPACE

@@ -20,6 +20,13 @@ using namespace Upp;
 #include <CtrlCore/lay.h>
 
 
+#define BEGIN_SONGLIB_NAMESPACE namespace SongLib {
+#define END_SONGLIB_NAMESPACE }
+
+#define BEGIN_SOCIALLIB_NAMESPACE namespace SocialLib {
+#define END_SOCIALLIB_NAMESPACE }
+
+
 #include "OpenAI.h"
 
 #include "Utils.h"

@@ -2,6 +2,9 @@
 #define _SocialDataCtrl_Tokens_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class TokensPage : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, tokens;
@@ -17,6 +20,9 @@ public:
 	
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

@@ -2,6 +2,9 @@
 #define _SocialCtrl_ProgramInfoCtrl_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class SocialEditor;
 
 class ProgramInfoCtrl : public WithProgramInfo<ToolAppCtrl> {
@@ -22,6 +25,9 @@ public:
 	SocialEditor* editor = 0;
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

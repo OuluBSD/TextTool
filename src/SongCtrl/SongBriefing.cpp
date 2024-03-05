@@ -4,7 +4,7 @@
 
 
 SongBriefing::SongBriefing() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	
 	Add(vsplit.SizePos());
 	vsplit.Vert() << list << values;
@@ -21,7 +21,7 @@ SongBriefing::SongBriefing() {
 		switch(i) {
 			
 			case ATTR_DATASET: {
-				SongData& sd = Database::Single().song_data;
+				SongData& sd = SongDatabase::Single().song_data;
 				DropList* dl = new DropList;
 				list.SetCtrl(i, 1, dl);
 				for(int j = 0; j < sd.GetCount(); j++) {
@@ -111,7 +111,7 @@ SongBriefing::SongBriefing() {
 }
 
 /*DropList* SongBriefing::SetAgreementValues(DropList* dl, const char* positive, const char* negative, int idx, const char* key) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	dl->WhenAction << THISBACK2(OnPollValueChange, idx, key);
 	dl->Add("");
 	dl->Add(t_("Very ") + db.Translate(positive));
@@ -123,7 +123,7 @@ SongBriefing::SongBriefing() {
 }*/
 
 void SongBriefing::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song) return;
 	Song& song = *p.song;
@@ -214,7 +214,7 @@ void SongBriefing::Data() {
 }
 
 void SongBriefing::OnListCursor() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	{
 		auto& key = values.key;
 		auto& description = values.description;
@@ -223,7 +223,7 @@ void SongBriefing::OnListCursor() {
 		description.Clear();
 		value.Clear();
 		
-		Database& db = Database::Single();
+		SongDatabase& db = SongDatabase::Single();
 		EditorPtrs& p = EditorPtrs::Single();
 		if (!p.song) return;
 		Song& song = *p.song;
@@ -255,7 +255,7 @@ void SongBriefing::OnListCursor() {
 }
 
 void SongBriefing::OnValueChange() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song) return;
 	Song& song = *p.song;
@@ -291,7 +291,7 @@ void SongBriefing::OnValueChange() {
 }
 
 /*void SongBriefing::OnPollValueChange(int i, const char* key) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.song) return;
 	Song& song = *p.song;

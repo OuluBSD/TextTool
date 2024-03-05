@@ -2,6 +2,9 @@
 #define _SongDataCtrl_SongDataWordnet_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class SongDataWordnet : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, attrs, colors, wordnets;
@@ -31,6 +34,9 @@ public:
 	void DoWordnet(int fn);
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

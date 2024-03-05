@@ -2,6 +2,9 @@
 #define _SocialTool_CoverImage_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class CoverImage : public ImagePlayerBase {
 	Button create_suggestions, make_single_image, make_all_images;
 	String user_natural_english_key;
@@ -19,6 +22,9 @@ public:
 	void OnResult(String res, String part);
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

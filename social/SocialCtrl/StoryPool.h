@@ -2,6 +2,9 @@
 #define _SocialCtrl_StoryPool_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class StoryPool : public ToolAppCtrl {
 	ArrayCtrl list;
 	ProgressIndicator summary_bar;
@@ -19,6 +22,9 @@ public:
 	void SetProgress(int a, int t) {summary_bar.Set(a,t);}
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

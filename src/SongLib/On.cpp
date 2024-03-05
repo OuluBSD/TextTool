@@ -1,10 +1,12 @@
 #include "SongLib.h"
 
-namespace SongLib {
+
+BEGIN_SONGLIB_NAMESPACE
+
 
 void TaskManager::OnTokenData(String result, Task* t) {
 	TokenArgs& args = token_args;
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -78,7 +80,7 @@ void TaskManager::OnTokenData(String result, Task* t) {
 
 void TaskManager::OnAmbiguousWordPairs(String res, Task* t) {
 	TokenArgs& args = token_args;
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -160,7 +162,7 @@ void TaskManager::OnAmbiguousWordPairs(String res, Task* t) {
 
 void TaskManager::OnVirtualPhrases(String res, Task* t) {
 	TokenArgs& args = token_args;
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -238,7 +240,7 @@ void TaskManager::OnVirtualPhrases(String res, Task* t) {
 
 void TaskManager::OnVirtualPhraseTypes(String res, Task* t) {
 	TokenArgs& args = token_args;
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -323,7 +325,7 @@ void TaskManager::OnVirtualPhraseTypes(String res, Task* t) {
 
 void TaskManager::OnPhraseColors(String res, Task* t) {
 	TokenArgs& args = token_args;
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -396,7 +398,7 @@ void TaskManager::OnPhraseColors(String res, Task* t) {
 
 void TaskManager::OnPhraseAttrs(String res, Task* t) {
 	TokenArgs& args = token_args;
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -459,7 +461,7 @@ void TaskManager::OnPhraseAttrs(String res, Task* t) {
 
 void TaskManager::OnPhraseActions(String res, Task* t) {
 	TokenArgs& args = token_args;
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -537,7 +539,7 @@ void TaskManager::OnPhraseActions(String res, Task* t) {
 
 void TaskManager::OnPhraseScores(String res, Task* t) {
 	TokenArgs& args = token_args;
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -609,7 +611,7 @@ void TaskManager::OnPhraseScores(String res, Task* t) {
 
 void TaskManager::OnPhraseTypecasts(String res, Task* t) {
 	TokenArgs& args = token_args;
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -693,7 +695,7 @@ void TaskManager::OnPhraseTypecasts(String res, Task* t) {
 
 void TaskManager::OnPhraseContrast(String res, Task* t) {
 	TokenArgs& args = token_args;
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -784,7 +786,7 @@ void TaskManager::OnPhraseContrast(String res, Task* t) {
 
 void TaskManager::OnPhraseProfile(String res, Task* t) {
 	TokenArgs& args = token_args;
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -868,7 +870,7 @@ void TaskManager::OnPhraseProfile(String res, Task* t) {
 
 void TaskManager::OnPhraseArchetype(String res, Task* t) {
 	TokenArgs& args = token_args;
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -950,7 +952,7 @@ void TaskManager::OnPhraseArchetype(String res, Task* t) {
 
 void TaskManager::OnPhrasePrimary(String res, Task* t) {
 	TokenArgs& args = token_args;
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -1033,7 +1035,7 @@ void TaskManager::OnPhrasePrimary(String res, Task* t) {
 
 void TaskManager::OnPhraseSecondary(String res, Task* t) {
 	TokenArgs& args = token_args;
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -1114,7 +1116,7 @@ void TaskManager::OnPhraseSecondary(String res, Task* t) {
 }
 
 void TaskManager::OnActionlistColors(String result, Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -1176,7 +1178,7 @@ void TaskManager::OnActionlistColors(String result, Task* t) {
 }
 
 void TaskManager::OnActionlistAttrs(String result, Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -1230,7 +1232,7 @@ void TaskManager::OnLineActions(String res, Task* t) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	Task::Batch& batch = t->batches[t->batch_i];
@@ -1323,7 +1325,7 @@ void TaskManager::OnLineActions(String res, Task* t) {
 }
 
 void TaskManager::OnSyllables(String res, Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -1398,7 +1400,7 @@ void TaskManager::OnSyllables(String res, Task* t) {
 }
 
 void TaskManager::OnDetails(String res, Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -1521,7 +1523,7 @@ void TaskManager::OnLineChangeScores(String res, Task* t) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	Task::Batch& batch = t->batches[t->batch_i];
@@ -1592,7 +1594,7 @@ void TaskManager::OnColorAlternatives(String res, Task* t) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	VectorMap<String, Color>& word_clr = t->word_clr;
@@ -1689,7 +1691,7 @@ void TaskManager::OnWordData(String res, Task* t) {
 
 #if 0
 void TaskManager::OnSongStory(String res, Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -1765,7 +1767,7 @@ void TaskManager::OnSongStory(String res, Task* t) {
 #endif
 
 void TaskManager::OnSubPicked(String result, Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -1814,7 +1816,7 @@ void TaskManager::OnNanaFit(String result, Task* t) {
 }
 
 void TaskManager::OnAttributes(String res, Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -1902,7 +1904,7 @@ void TaskManager::OnAttributes(String res, Task* t) {
 }
 
 void TaskManager::OnAttributePolars(String res, Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -1951,7 +1953,7 @@ void TaskManager::OnAttributePolars(String res, Task* t) {
 }
 
 void TaskManager::OnAttributeJoins(String res, Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -2014,4 +2016,6 @@ void TaskManager::OnAttributeJoins(String res, Task* t) {
 	t->running = false;
 }
 
-}
+
+END_SONGLIB_NAMESPACE
+

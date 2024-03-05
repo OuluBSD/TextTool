@@ -1,6 +1,10 @@
 #include "SongCtrl.h"
 #include <SongTool/SongTool.h>
 
+
+BEGIN_SONGLIB_NAMESPACE
+
+
 SongInfoCtrl::SongInfoCtrl() {
 	CtrlLayout(*this);
 	
@@ -35,7 +39,7 @@ void SongInfoCtrl::Clear() {
 }
 
 void SongInfoCtrl::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	Clear();
@@ -86,7 +90,7 @@ void SongInfoCtrl::Data() {
 }
 
 void SongInfoCtrl::DataTypecast() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist || !typecasts.IsCursor()) {
 		archetypes.Clear();
@@ -115,7 +119,7 @@ void SongInfoCtrl::DataTypecast() {
 }
 
 void SongInfoCtrl::DataArchetype() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist || !typecasts.IsCursor() || !archetypes.IsCursor()) {
 		lyrics.Clear();
@@ -141,7 +145,7 @@ void SongInfoCtrl::DataArchetype() {
 }
 
 void SongInfoCtrl::DataLyrics() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if (!p.artist || !typecasts.IsCursor() || !archetypes.IsCursor() || !lyrics.IsCursor()) {
 		lyrics_text.Clear();
@@ -165,7 +169,7 @@ void SongInfoCtrl::DataLyrics() {
 }
 
 void SongInfoCtrl::OnValueChange() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	if (p.song && editor->songs.IsCursor()) {
@@ -183,7 +187,7 @@ void SongInfoCtrl::OnValueChange() {
 }
 
 void SongInfoCtrl::SetLyrics() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	Song& s = *p.song;
 	
@@ -199,3 +203,6 @@ void SongInfoCtrl::SetLyrics() {
 	
 	s.lyrics_file_title = l.file_title;
 }
+
+
+END_SONGLIB_NAMESPACE

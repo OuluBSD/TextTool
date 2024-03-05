@@ -2,6 +2,9 @@
 #define _SongTool_AlbumIdeas_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class AlbumIdeas : public ToolAppCtrl {
 	Splitter hsplit;
 	ArrayCtrl list;
@@ -22,6 +25,9 @@ public:
 	void OnValueChange();
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

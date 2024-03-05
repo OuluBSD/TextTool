@@ -2,6 +2,9 @@
 #define _SongCtrl_SongPool_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class SongPool : public ToolAppCtrl {
 	ArrayCtrl list;
 	ProgressIndicator summary_bar;
@@ -19,6 +22,9 @@ public:
 	void SetProgress(int a, int t) {summary_bar.Set(a,t);}
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

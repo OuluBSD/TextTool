@@ -2,6 +2,9 @@
 #define _SocialDataCtrl_ActionTransitions_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class ActionTransitionsPage : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, actions, action_args, transitions;
@@ -22,6 +25,9 @@ public:
 	void UpdateTransitions();
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

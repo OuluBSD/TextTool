@@ -1,12 +1,15 @@
 #include "SocialTool.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 SocialTool::SocialTool() : ed(this) {
 	skip_data = true;
 	
 	Title("SocialTool");
 	MaximizeBox().MinimizeBox().Sizeable();
-	Icon(AppImg::icon());
+	Icon(SocialToolImg::icon());
 	
 	last_window = RectC(0,0, 800, 600);
 	is_maximized = false;
@@ -209,3 +212,6 @@ void SocialTool::ShowOrphanedFiles() {
 	doc.SetData("TODO");
 	tw.Open();
 }
+
+
+END_SOCIALLIB_NAMESPACE

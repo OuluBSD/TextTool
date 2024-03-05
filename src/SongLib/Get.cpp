@@ -1,9 +1,11 @@
 #include "SongLib.h"
 
-namespace SongLib {
+
+BEGIN_SONGLIB_NAMESPACE
+
 
 void TaskManager::GetSongs(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	
 	Vector<int> token_is;
@@ -90,7 +92,7 @@ void TaskManager::GetSongs(Task* t) {
 }
 
 void TaskManager::GetTokenData(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -116,15 +118,15 @@ void TaskManager::GetTokenData(Task* t) {
 	
 	t->total += args.words.GetCount();
 	
-	RealizePipe();
-	TaskMgr& m = *pipe;
+	
+	TaskMgr& m = TaskMgr::Single();
 	if (t->fn == 0)
 		m.GetTokenData(args, THISBACK1(OnTokenData, t));
 	
 }
 
 void TaskManager::GetUnknownTokenPairs(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	
 	DatasetAnalysis& da = sd.a.datasets[t->ds_i];
@@ -184,7 +186,7 @@ void TaskManager::GetUnknownTokenPairs(Task* t) {
 }
 
 void TaskManager::GetAmbiguousWordPairs(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -222,15 +224,15 @@ void TaskManager::GetAmbiguousWordPairs(Task* t) {
 		return;
 	}
 	
-	RealizePipe();
-	TaskMgr& m = *pipe;
+	
+	TaskMgr& m = TaskMgr::Single();
 	if (t->fn == 1)
 		m.GetTokenData(args, THISBACK1(OnAmbiguousWordPairs, t));
 	
 }
 
 void TaskManager::GetWordProcess(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -274,7 +276,7 @@ void TaskManager::GetWordProcess(Task* t) {
 }
 
 void TaskManager::GetWordFix(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -379,7 +381,7 @@ void TaskManager::GetWordFix(Task* t) {
 }
 
 void TaskManager::GetVirtualPhrases(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -555,8 +557,8 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 			return;
 		}
 		
-		RealizePipe();
-		TaskMgr& m = *pipe;
+		
+		TaskMgr& m = TaskMgr::Single();
 		m.GetTokenData(args, THISBACK1(OnVirtualPhrases, t));
 	}
 	else if (t->fn == 2) {
@@ -614,8 +616,8 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 			return;
 		}
 		
-		RealizePipe();
-		TaskMgr& m = *pipe;
+		
+		TaskMgr& m = TaskMgr::Single();
 		m.GetTokenData(args, THISBACK1(OnVirtualPhraseTypes, t));
 	}
 	
@@ -728,7 +730,7 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 }
 
 void TaskManager::GetPhrases(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -803,8 +805,8 @@ void TaskManager::GetPhrases(Task* t) {
 		return;
 	}
 	
-	RealizePipe();
-	TaskMgr& m = *pipe;
+	
+	TaskMgr& m = TaskMgr::Single();
 	
 	if (args.fn == 0)
 		m.GetPhraseData(args, THISBACK1(OnPhraseColors, t));
@@ -831,7 +833,7 @@ void TaskManager::GetPhrases(Task* t) {
 
 #if 0
 void TaskManager::GetNana(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -940,8 +942,8 @@ void TaskManager::GetNana(Task* t) {
 	}*/
 	
 	
-	RealizePipe();
-	TaskMgr& m = *pipe;
+	
+	TaskMgr& m = TaskMgr::Single();
 	
 	if (args.fn == 0)
 		m.GetNanaData(args, THISBACK1(OnSongStory, t));
@@ -952,7 +954,7 @@ void TaskManager::GetNana(Task* t) {
 #endif
 
 void TaskManager::GetActionlist(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -997,8 +999,8 @@ void TaskManager::GetActionlist(Task* t) {
 		return; // ready
 	}
 	
-	RealizePipe();
-	TaskMgr& m = *pipe;
+	
+	TaskMgr& m = TaskMgr::Single();
 	if (t->fn == 0)
 		m.GetActionAnalysis(args, THISBACK1(OnActionlistColors, t));
 	else if (t->fn == 1)
@@ -1006,7 +1008,7 @@ void TaskManager::GetActionlist(Task* t) {
 }
 
 void TaskManager::GetActionParallels(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -1071,7 +1073,7 @@ void TaskManager::GetActionParallels(Task* t) {
 }
 
 void TaskManager::GetActionTransitions(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -1133,7 +1135,7 @@ void TaskManager::GetContainer(Task* t) {
 }
 
 void TaskManager::MakeNana(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	EnglishPronounciation ep;
@@ -1177,7 +1179,7 @@ void TaskManager::MakeNana(Task* t) {
 }
 
 void TaskManager::GetRhymeContainers(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	EnglishPronounciation ep;
@@ -1265,7 +1267,7 @@ void TaskManager::GetRhymeContainers(Task* t) {
 void TaskManager::GetRhymeContainersFromTemplates(Task* t) {
 	TODO
 	#if 0
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	EnglishPronounciation ep;
@@ -1487,7 +1489,7 @@ void TaskManager::GetLineActions(Task* t) {
 	}
 	Task::Batch& batch = t->batches[t->batch_i];
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -1502,7 +1504,7 @@ void TaskManager::GetLineActions(Task* t) {
 void TaskManager::GetSyllables(Task* t) {
 	int per_batch = 30;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -1586,7 +1588,7 @@ void TaskManager::GetSyllables(Task* t) {
 }
 
 void TaskManager::GetDetails(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -1683,7 +1685,7 @@ void TaskManager::GetLineChangeScores(Task* t) {
 	
 	Task::Batch& batch = t->batches[t->batch_i];
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
@@ -1756,7 +1758,7 @@ void TaskManager::GetColorAlternatives(Task* t) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -1814,7 +1816,7 @@ void TaskManager::GetColorAlternatives(Task* t) {
 }
 
 void TaskManager::MakeWordnetsFromTemplates(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -1888,7 +1890,7 @@ void TaskManager::MakeWordnetsFromTemplates(Task* t) {
 }
 
 void TaskManager::GetAttributes(Task* t) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
@@ -1963,8 +1965,8 @@ void TaskManager::GetAttributes(Task* t) {
 		
 		t->tmp_str = args.group;
 		
-		RealizePipe();
-		TaskMgr& m = *pipe;
+		
+		TaskMgr& m = TaskMgr::Single();
 		m.GetAttributes(args, THISBACK1(OnAttributes, t));
 	}
 	else if (t->fn == 1) {
@@ -2028,8 +2030,8 @@ void TaskManager::GetAttributes(Task* t) {
 		t->tmp_words <<= batch.attrs;
 		t->tmp_str = args.group;
 		
-		RealizePipe();
-		TaskMgr& m = *pipe;
+		
+		TaskMgr& m = TaskMgr::Single();
 		m.GetAttributes(args, THISBACK1(OnAttributePolars, t));
 	}
 	else if (t->fn == 2) {
@@ -2088,8 +2090,8 @@ void TaskManager::GetAttributes(Task* t) {
 		t->tmp_words <<= batch.values;
 		t->tmp_str = args.group;
 		
-		RealizePipe();
-		TaskMgr& m = *pipe;
+		
+		TaskMgr& m = TaskMgr::Single();
 		m.GetAttributes(args, THISBACK1(OnAttributeJoins, t));
 	}
 	else if (t->fn == 3) {
@@ -2115,4 +2117,6 @@ void TaskManager::GetAttributes(Task* t) {
 	}
 }
 
-}
+
+END_SONGLIB_NAMESPACE
+

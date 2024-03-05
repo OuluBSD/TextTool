@@ -1,6 +1,9 @@
 #include "SongDataCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 SongDataWordnet::SongDataWordnet() {
 	Add(hsplit.SizePos());
 	
@@ -53,7 +56,7 @@ void SongDataWordnet::Data() {
 }
 
 void SongDataWordnet::DataMain() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -128,7 +131,7 @@ void SongDataWordnet::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -242,4 +245,6 @@ void SongDataWordnet::DoWordnet(int fn) {
 	tm.DoWordnet(0, fn);
 }
 
+
+END_SONGLIB_NAMESPACE
 

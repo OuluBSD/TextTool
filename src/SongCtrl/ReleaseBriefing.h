@@ -2,6 +2,9 @@
 #define _SongTool_AlbumBriefing_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class AlbumBriefing : public ToolAppCtrl {
 	WithKeyValueList<Ctrl> values;
 	ArrayCtrl list;
@@ -43,6 +46,9 @@ public:
 	void OnValueChange();
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

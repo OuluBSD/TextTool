@@ -1,6 +1,9 @@
 #include "SongDataCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 SongDataPage::SongDataPage() {
 	Add(hsplit.HSizePos().VSizePos(0,30));
 	Add(prog.HSizePos().BottomPos(0,30));
@@ -60,7 +63,7 @@ void SongDataPage::ToolMenu(Bar& bar) {
 }
 
 /*void SongDataPage::AddRandomSongsToList(int count) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -101,7 +104,7 @@ void SongDataPage::ToolMenu(Bar& bar) {
 /*void SongDataPage::AddSongToActiveList() {
 	TODO
 	#if 0
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -129,7 +132,7 @@ void SongDataPage::ToolMenu(Bar& bar) {
 /*void SongDataPage::RemoveSongFromActiveList() {
 	TODO
 	#if 0
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -151,7 +154,7 @@ void SongDataPage::ToolMenu(Bar& bar) {
 }*/
 
 void SongDataPage::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	
 	datasets.Set(0, 0, "English");
 	datasets.Set(1, 0, "Finnish");
@@ -163,7 +166,7 @@ void SongDataPage::Data() {
 }
 
 void SongDataPage::DataDataset() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	
 	if (!datasets.IsCursor()) return;
 	int cur = datasets.GetCursor();
@@ -185,7 +188,7 @@ void SongDataPage::DataDataset() {
 }
 
 void SongDataPage::DataArtist() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	
 	if (!datasets.IsCursor() || !artists.IsCursor()) return;
@@ -212,7 +215,7 @@ void SongDataPage::DataArtist() {
 
 #if 0
 void SongDataPage::DataArtistActiveSongs() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -241,7 +244,7 @@ void SongDataPage::DataArtistActiveSongs() {
 #endif
 
 void SongDataPage::DataSong() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	
 	if (!datasets.IsCursor() || !artists.IsCursor() || !songs.IsCursor()) return;
 	int cur = datasets.GetCursor();
@@ -262,7 +265,7 @@ void SongDataPage::DataSong() {
 void SongDataPage::DataActiveSong() {
 	TODO
 	#if 0
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -303,7 +306,7 @@ void SongDataPage::DataActiveSong() {
 }
 
 void SongDataPage::HotfixText() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -344,3 +347,6 @@ void SongDataPage::ImportLyrics() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoSongs(ds_i, 0);
 }
+
+
+END_SONGLIB_NAMESPACE

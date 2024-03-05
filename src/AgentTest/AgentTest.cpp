@@ -3,7 +3,7 @@
 CONSOLE_APP_MAIN {
 	SetDefaultCharset(CHARSET_UTF8);
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	#ifdef flagWIN32
 	db.dir = AppendFileName(GetHomeDirectory(), "SongTool");
 	#else

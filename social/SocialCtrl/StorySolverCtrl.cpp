@@ -1,6 +1,9 @@
 #include "SocialCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 StorySolverCtrl::StorySolverCtrl() {
 	
 	Add(tabs.SizePos());
@@ -163,3 +166,6 @@ void StorySolverCtrl::OnNewTitle(String res) {
 		l.native_title.Clear();
 	}
 }
+
+
+END_SOCIALLIB_NAMESPACE

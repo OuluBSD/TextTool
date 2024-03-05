@@ -1,6 +1,9 @@
 #include "SongDataCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 TokensPage::TokensPage() {
 	Add(hsplit.SizePos());
 	
@@ -26,7 +29,7 @@ TokensPage::TokensPage() {
 }
 
 void TokensPage::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -41,7 +44,7 @@ void TokensPage::Data() {
 }
 
 void TokensPage::DataDataset() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	
 	int ds_i = datasets.GetCursor();
@@ -66,3 +69,6 @@ void TokensPage::ProcessTokens() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoTokens(0, 0);
 }
+
+
+END_SONGLIB_NAMESPACE

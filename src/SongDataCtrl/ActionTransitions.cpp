@@ -1,6 +1,9 @@
 #include "SongDataCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 ActionTransitionsPage::ActionTransitionsPage() {
 	Add(hsplit.SizePos());
 	
@@ -48,7 +51,7 @@ void ActionTransitionsPage::ToolMenu(Bar& bar) {
 }
 
 void ActionTransitionsPage::DataMain() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -67,7 +70,7 @@ void ActionTransitionsPage::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -103,7 +106,7 @@ void ActionTransitionsPage::DataAction() {
 	if (!datasets.IsCursor() || !actions.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -137,7 +140,7 @@ void ActionTransitionsPage::DataActionHeader() {
 	if (!datasets.IsCursor() || !actions.IsCursor() || !action_args.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -208,3 +211,6 @@ void ActionTransitionsPage::UpdateTransitions() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoActionTransition(0, 0);
 }
+
+
+END_SONGLIB_NAMESPACE

@@ -2,6 +2,9 @@
 #define _SocialCtrl_StoryStructure_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class StoryStructure : public ToolAppCtrl {
 	Splitter vsplit, hsplit, attr_split;
 	WithStoryStructure<Ctrl> active;
@@ -34,5 +37,8 @@ public:
 	
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 #endif

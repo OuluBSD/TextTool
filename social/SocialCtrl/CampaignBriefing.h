@@ -2,6 +2,9 @@
 #define _SocialTool_CampaignBriefing_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class CampaignBriefing : public ToolAppCtrl {
 	WithKeyValueList<Ctrl> values;
 	ArrayCtrl list;
@@ -43,6 +46,9 @@ public:
 	void OnValueChange();
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

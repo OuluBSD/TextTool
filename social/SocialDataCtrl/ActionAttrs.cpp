@@ -1,6 +1,9 @@
 #include "SocialDataCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 ActionAttrsPage::ActionAttrsPage() {
 	Add(hsplit.SizePos());
 	
@@ -186,4 +189,7 @@ void ActionAttrsPage::UpdateAttributes() {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoActionlist(0, 1);
 }
+
+
+END_SOCIALLIB_NAMESPACE
 

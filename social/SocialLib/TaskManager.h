@@ -1,7 +1,8 @@
 #ifndef _SocialLib_ProgramDataManager_h_
 #define _SocialLib_ProgramDataManager_h_
 
-namespace SocialLib {
+
+BEGIN_SOCIALLIB_NAMESPACE
 
 
 typedef enum {
@@ -205,6 +206,6 @@ public:
 bool GetTypePhrase(Vector<int>& types, const DatasetAnalysis& da, int next_w_i, int w_i, int prev_w_i);
 
 
-}
+END_SOCIALLIB_NAMESPACE
 
 #endif

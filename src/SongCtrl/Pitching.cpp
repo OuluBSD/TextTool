@@ -40,7 +40,7 @@ void Pitching::Data() {
 }
 
 void Pitching::SetText(DocEdit& e, String data_key) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist || data_key.IsEmpty())
 		return;
@@ -50,7 +50,7 @@ void Pitching::SetText(DocEdit& e, String data_key) {
 }
 
 void Pitching::OnText(DocEdit* e, String data_key) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist || data_key.IsEmpty())
 		return;
@@ -60,7 +60,7 @@ void Pitching::OnText(DocEdit* e, String data_key) {
 }
 
 void Pitching::TranslateEnglishArtistProcess() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist || native_pitching_key.IsEmpty())
 		return;
@@ -89,7 +89,7 @@ void Pitching::OnTranslateReady(String res) {
 }
 
 void Pitching::MakeFeedback() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist ||!p.release)
 		return;
@@ -139,7 +139,7 @@ void Pitching::OnFeedback(String result) {
 }
 
 void Pitching::MakePitch() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist ||!p.release)
 		return;

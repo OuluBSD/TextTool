@@ -1,9 +1,11 @@
 #include "SongLib.h"
 
-namespace SongLib {
+
+BEGIN_SONGLIB_NAMESPACE
+
 
 void Task::UpdateBatches(int per_batch) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	
 	batches.SetCount(0);
@@ -61,4 +63,6 @@ void Task::UpdateBatches(int per_batch) {
 	}
 }
 
-}
+
+END_SONGLIB_NAMESPACE
+

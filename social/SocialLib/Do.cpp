@@ -1,6 +1,8 @@
 #include "SocialLib.h"
 
-namespace SocialLib {
+
+BEGIN_SOCIALLIB_NAMESPACE
+
 
 void TaskManager::DoPrograms(int ds_i, int fn) {
 	SocialDatabase& db = SocialDatabase::Single();
@@ -311,4 +313,5 @@ void TaskManager::DoAttributes(int ds_i, int fn) {
 	lock.LeaveWrite();
 }
 
-}
+
+END_SOCIALLIB_NAMESPACE

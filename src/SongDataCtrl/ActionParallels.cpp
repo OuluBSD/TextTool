@@ -1,6 +1,9 @@
 #include "SongDataCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 ActionParallelsPage::ActionParallelsPage() {
 	Add(hsplit.SizePos());
 	
@@ -48,7 +51,7 @@ void ActionParallelsPage::ToolMenu(Bar& bar) {
 }
 
 void ActionParallelsPage::DataMain() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -67,7 +70,7 @@ void ActionParallelsPage::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -103,7 +106,7 @@ void ActionParallelsPage::DataAction() {
 	if (!datasets.IsCursor() || !actions.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -137,7 +140,7 @@ void ActionParallelsPage::DataActionHeader() {
 	if (!datasets.IsCursor() || !actions.IsCursor() || !action_args.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -201,4 +204,7 @@ void ActionParallelsPage::UpdateParallels() {
 	SongLib::TaskManager& tm = SongLib::TaskManager::Single();
 	tm.DoActionParallel(0, 0);
 }
+
+
+END_SONGLIB_NAMESPACE
 

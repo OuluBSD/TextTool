@@ -2,6 +2,9 @@
 #define _SocialDataCtrl_ActionParallels_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class ActionParallelsPage : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, actions, action_args, parallels;
@@ -22,6 +25,9 @@ public:
 	void UpdateParallels();
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

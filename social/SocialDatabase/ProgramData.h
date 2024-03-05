@@ -1,5 +1,8 @@
-#ifndef _ToolBase_ProgramData_h_
-#define _ToolBase_ProgramData_h_
+#ifndef _SocialDatabase_ProgramData_h_
+#define _SocialDatabase_ProgramData_h_
+
+
+BEGIN_SOCIALLIB_NAMESPACE
 
 
 struct StoryDataset : Moveable<StoryDataset> {
@@ -656,6 +659,9 @@ struct ProgramData {
 	bool IsEmpty() const {return companies_en.IsEmpty() || companies_fi.IsEmpty();}
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

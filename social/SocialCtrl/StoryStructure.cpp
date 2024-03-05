@@ -2,6 +2,9 @@
 #include <SocialTool/SocialTool.h>
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 StoryStructure::StoryStructure() {
 	Add(vsplit.SizePos());
 	CtrlLayout(active);
@@ -379,3 +382,6 @@ void StoryStructure::OnSuggestionAttributes(String result, Story* l) {
 	
 	PostCallback(THISBACK(DataSuggestionAttributes));
 }
+
+
+END_SOCIALLIB_NAMESPACE

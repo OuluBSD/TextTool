@@ -2,6 +2,9 @@
 #define _SongDataCtrl_PhraseParts_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class PhraseParts : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, texts, parts;
@@ -16,6 +19,9 @@ public:
 	void Process();
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

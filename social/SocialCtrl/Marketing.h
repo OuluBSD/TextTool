@@ -2,6 +2,9 @@
 #define _SocialCtrl_Marketing_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class MarketingCtrl : public ToolAppCtrl {
 	
 	
@@ -13,6 +16,9 @@ public:
 	void ToolMenu(Bar& bar) override;
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

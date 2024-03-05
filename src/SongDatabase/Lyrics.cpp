@@ -1,6 +1,9 @@
 #include "SongDatabase.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 void Lyrics::Store(Artist& a) {
 	String dir = a.GetLyricsDir();
 	RealizeDirectory(dir);
@@ -131,3 +134,7 @@ double StructSuggestion::GetEstimatedDuration(int bpm) const {
 	double sec = bars / bars_per_sec;
 	return sec;
 }
+
+
+END_SONGLIB_NAMESPACE
+

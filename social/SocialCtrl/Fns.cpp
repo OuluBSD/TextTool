@@ -2,6 +2,9 @@
 #include <SocialDataCtrl/SocialDataCtrl.h>
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 void SongStartup() {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	SocialDatabase& db = SocialDatabase::Single();
@@ -57,3 +60,6 @@ void SongShutdown(bool fast_exit, bool save_programdata) {
 	
 	
 }
+
+
+END_SOCIALLIB_NAMESPACE

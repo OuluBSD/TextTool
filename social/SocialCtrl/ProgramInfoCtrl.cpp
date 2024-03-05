@@ -1,6 +1,10 @@
 #include "SocialCtrl.h"
 #include <SocialTool/SocialTool.h>
 
+
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 ProgramInfoCtrl::ProgramInfoCtrl() {
 	CtrlLayout(*this);
 	
@@ -199,3 +203,6 @@ void ProgramInfoCtrl::SetStory() {
 	
 	s.story_file_title = l.file_title;
 }
+
+
+END_SOCIALLIB_NAMESPACE

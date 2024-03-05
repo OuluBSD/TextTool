@@ -1,6 +1,10 @@
 #include "SongCtrl.h"
 #include <SongTool/SongTool.h>
 
+
+BEGIN_SONGLIB_NAMESPACE
+
+
 LyricsInfoCtrl::LyricsInfoCtrl() {
 	CtrlLayout(*this);
 	
@@ -40,7 +44,7 @@ void LyricsInfoCtrl::Clear() {
 }
 
 void LyricsInfoCtrl::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	Clear();
@@ -60,7 +64,7 @@ void LyricsInfoCtrl::Data() {
 }
 
 void LyricsInfoCtrl::OnValueChange() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	if (p.lyrics && editor->lyrics.IsCursor()) {
@@ -78,3 +82,6 @@ void LyricsInfoCtrl::OnValueChange() {
 		editor->lyrics.Set(c, 0, l.GetAnyTitle());
 	}
 }
+
+
+END_SONGLIB_NAMESPACE

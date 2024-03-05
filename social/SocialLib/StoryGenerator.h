@@ -2,7 +2,7 @@
 #define _SocialLib_StoryGenerator_h_
 
 
-namespace SocialLib {
+BEGIN_SOCIALLIB_NAMESPACE
 
 
 class StoryGenerator {
@@ -75,6 +75,7 @@ public:
 };
 
 
-}
+END_SOCIALLIB_NAMESPACE
+
 
 #endif

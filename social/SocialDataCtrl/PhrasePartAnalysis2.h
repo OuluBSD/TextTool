@@ -2,6 +2,9 @@
 #define _SocialDataCtrl_PhrasePartAnalysis2_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class PhrasePartAnalysis2 : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, roles, generics, parts;
@@ -20,6 +23,9 @@ public:
 	void UpdateCounts();
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

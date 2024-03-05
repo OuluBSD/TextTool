@@ -124,7 +124,7 @@ void LyricsEditor::Data() {
 }
 
 void LyricsEditor::DataPhrase() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -189,7 +189,7 @@ void LyricsEditor::DataPhrase() {
 }
 
 void LyricsEditor::DataDoActions() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -221,7 +221,7 @@ void LyricsEditor::DataDoActions() {
 }
 
 void LyricsEditor::DataAction() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -257,7 +257,7 @@ void LyricsEditor::DataAction() {
 
 
 void LyricsEditor::DataActionHeader() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -430,7 +430,7 @@ void LyricsEditor::CopyPronounciationToClipboard() {
 }
 
 void LyricsEditor::SetPhrase() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -470,7 +470,7 @@ void LyricsEditor::MovePhrase(int i) {
 
 #if 0
 void LyricsEditor::GetSuggestionsAI() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];

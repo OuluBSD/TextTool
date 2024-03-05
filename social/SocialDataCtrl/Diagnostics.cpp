@@ -1,6 +1,9 @@
 #include "SocialDataCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 ProgramDataDiagnostics::ProgramDataDiagnostics() {
 	Add(hsplit.HSizePos().VSizePos(0,30));
 	
@@ -58,3 +61,6 @@ void ProgramDataDiagnostics::DataDataset() {
 void ProgramDataDiagnostics::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataDataset)).Key(K_CTRL_Q);
 }
+
+
+END_SOCIALLIB_NAMESPACE

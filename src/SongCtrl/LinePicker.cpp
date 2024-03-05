@@ -198,7 +198,7 @@ LinePicker::LinePicker() {
 }
 
 void LinePicker::SetView(int i) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	this->mode = i;
 	
 	main_split.Clear();
@@ -249,7 +249,7 @@ void LinePicker::SetFilterValues() {
 }
 
 void LinePicker::DataMain(int cur) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -321,7 +321,7 @@ void LinePicker::DataPhrases() {
 		!actions.IsCursor() || !action_args.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -373,7 +373,7 @@ void LinePicker::DataPhrases() {
 }
 
 void LinePicker::DataPicked() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -468,7 +468,7 @@ void LinePicker::DataPicked() {
 }
 
 void LinePicker::DataSubPicked() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -612,7 +612,7 @@ void LinePicker::ClearAll() {
 }
 
 void LinePicker::SetMidRhyme(String word_) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -635,7 +635,7 @@ void LinePicker::SetMidRhyme(String word_) {
 }
 
 void LinePicker::SetEndRhyme(String word_) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];

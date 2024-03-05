@@ -1,8 +1,11 @@
 #include "SongDatabase.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 void DatabaseBrowser::SetColor3(int i) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -44,7 +47,7 @@ void DatabaseBrowser::SetColor3(int i) {
 }
 
 void DatabaseBrowser::SetGroup3(int i) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -109,7 +112,7 @@ void DatabaseBrowser::SetGroup3(int i) {
 }
 
 void DatabaseBrowser::SetAttr3(int i) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -178,7 +181,7 @@ void DatabaseBrowser::SetAttr3(int i) {
 }
 
 void DatabaseBrowser::SetValue3(int i) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -259,7 +262,7 @@ void DatabaseBrowser::DataAttr3() {
 }
 
 void DatabaseBrowser::DataValue3() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -339,3 +342,7 @@ void DatabaseBrowser::DataValue3() {
 	
 	SortBy(sorting);
 }
+
+
+END_SONGLIB_NAMESPACE
+

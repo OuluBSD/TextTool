@@ -1,7 +1,8 @@
 #ifndef _SongLib_SongDataManager_h_
 #define _SongLib_SongDataManager_h_
 
-namespace SongLib {
+
+BEGIN_SONGLIB_NAMESPACE
 
 
 typedef enum {
@@ -85,7 +86,6 @@ class TaskManager {
 	RWMutex lock;
 	Array<Task> task_list;
 	bool running = false, stopped = true;
-	TaskMgr* pipe = 0;
 	
 	TokenArgs token_args;
 	PhraseArgs phrase_args;
@@ -179,9 +179,6 @@ public:
 	void Stop();
 	void Clear();
 	bool IsInTaskList(TaskType type) const;
-	void RealizePipe();
-	TaskMgr* GetPipe() const {return pipe;}
-	TaskMgr& MakePipe() {if (!pipe) RealizePipe(); return *pipe;}
 	
 	static TaskManager& Single() {static TaskManager o; return o;}
 	
@@ -209,6 +206,7 @@ public:
 bool GetTypePhrase(Vector<int>& types, const DatasetAnalysis& da, int next_w_i, int w_i, int prev_w_i);
 
 
-}
+END_SONGLIB_NAMESPACE
+
 
 #endif

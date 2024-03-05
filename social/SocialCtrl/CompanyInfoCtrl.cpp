@@ -1,6 +1,10 @@
 #include "SocialCtrl.h"
 #include <SocialTool/SocialTool.h>
 
+
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 CompanyInfoCtrl::CompanyInfoCtrl() {
 	CtrlLayout(*this);
 	
@@ -91,3 +95,6 @@ void CompanyInfoCtrl::OnValueChange() {
 		editor->companies.Set(c, 0, o.native_name);
 	}
 }
+
+
+END_SOCIALLIB_NAMESPACE

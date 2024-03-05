@@ -1,6 +1,8 @@
 #include "SocialCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
 
 CampaignBriefing::CampaignBriefing() {
 	Add(vsplit.SizePos());
@@ -84,3 +86,6 @@ void CampaignBriefing::OnValueChange() {
 	
 	list.Set(2, value_str);
 }
+
+
+END_SOCIALLIB_NAMESPACE

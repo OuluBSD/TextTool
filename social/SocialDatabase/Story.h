@@ -2,6 +2,9 @@
 #define _SocialDatabase_Story_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 struct Company;
 
 
@@ -200,6 +203,9 @@ struct Story : DataFile {
 	}
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

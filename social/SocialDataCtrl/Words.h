@@ -2,6 +2,9 @@
 #define _SocialDataCtrl_ProgramDataWords_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class ProgramDataWords : public ToolAppCtrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl datasets, colors, words;
@@ -29,6 +32,9 @@ public:
 	void DoWords(int fn);
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

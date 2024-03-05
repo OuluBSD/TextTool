@@ -1,6 +1,10 @@
 #include "SocialCtrl.h"
 #include <SocialTool/SocialTool.h>
 
+
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 StoryInfoCtrl::StoryInfoCtrl() {
 	CtrlLayout(*this);
 	
@@ -78,3 +82,6 @@ void StoryInfoCtrl::OnValueChange() {
 		editor->stories.Set(c, 0, l.GetAnyTitle());
 	}
 }
+
+
+END_SOCIALLIB_NAMESPACE

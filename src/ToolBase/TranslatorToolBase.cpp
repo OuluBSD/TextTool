@@ -1,5 +1,4 @@
 #include "ToolBase.h"
-#include <SongDatabase/SongDatabase.h>
 
 
 TranslatorToolCtrl::TranslatorToolCtrl() {
@@ -76,7 +75,6 @@ void TranslatorToolCtrl::InitEditor(CodeEditor& codeedit) {
 }
 
 void TranslatorToolCtrl::Data() {
-	Database& db = Database::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	#if 0
@@ -95,7 +93,7 @@ String TranslatorToolCtrl::GetStatusText() {
 }
 
 void TranslatorToolCtrl::Translate() {
-	Database& db = Database::Single();
+	using namespace SongLib;
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.song || !p.artist || key.IsEmpty() || trans_key.IsEmpty())
 		return;
@@ -111,7 +109,7 @@ void TranslatorToolCtrl::Translate() {
 }
 /*
 String TranslatorToolCtrl::GetOriginalText() const {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	if (key.GetCount()) {
@@ -129,7 +127,7 @@ String TranslatorToolCtrl::GetOriginalText() const {
 }
 
 String TranslatorToolCtrl::GetTranslatedText() const {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	if (trans_key.GetCount()) {
@@ -147,7 +145,7 @@ String TranslatorToolCtrl::GetTranslatedText() const {
 }
 
 void TranslatorToolCtrl::OnOriginalChange() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	String txt = orig.GetData();
@@ -165,7 +163,7 @@ void TranslatorToolCtrl::OnOriginalChange() {
 }
 
 void TranslatorToolCtrl::OnTranslatedChange() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	String txt = trans.GetData();
@@ -184,7 +182,7 @@ void TranslatorToolCtrl::OnTranslatedChange() {
 
 void TranslatorToolCtrl::OnTranslatedRecv() {
 	#if 0
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
 	
 	trans.SetData(GetTranslatedText());

@@ -1,6 +1,8 @@
 #include "SocialDataCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
 
 Attributes::Attributes() {
 	Add(hsplit.SizePos());
@@ -184,3 +186,6 @@ void Attributes::DoAttributes(int fn) {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoAttributes(0, fn);
 }
+
+
+END_SOCIALLIB_NAMESPACE

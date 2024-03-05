@@ -2,13 +2,15 @@
 #define _SongTool_App_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
 
 class SongTool : public TopWindow {
 	MenuBar				menu;
 	ToolBar				toolbar;
 	StatusBar			statusbar;
 	
-	Editor				ed;
+	SongEditor			ed;
 	Tasks				ai;
 	TimeCallback		tc;
 	bool				skip_data = false;
@@ -22,7 +24,7 @@ class SongTool : public TopWindow {
 	void Store() {StoreToFile(*this, ConfigFile("cookie.bin"));}
 	
 protected:
-	friend class Editor;
+	friend class SongEditor;
 	
 	String last_typecast, last_archetype, last_lyrics, last_part;
 	String last_artist, last_release, last_song;
@@ -54,9 +56,12 @@ public:
 	void FastExit();
 	void ClearSonglibTasks();
 	
-	Editor& GetEditor() {return ed;}
+	SongEditor& GetEditor() {return ed;}
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

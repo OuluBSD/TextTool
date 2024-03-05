@@ -2,6 +2,9 @@
 #define _SongDataCtrl_ActionAttrs_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class ActionAttrsPage : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, attrs, colors, actions;
@@ -21,6 +24,9 @@ public:
 	void UpdateAttributes();
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

@@ -1,7 +1,7 @@
 #include "SocialLib.h"
 
 
-namespace SocialLib {
+BEGIN_SOCIALLIB_NAMESPACE
 
 
 StoryGenerator::StoryGenerator() {
@@ -628,4 +628,5 @@ void StoryGenerator::OnProcessScores(String res) {
 	
 }
 
-}
+
+END_SOCIALLIB_NAMESPACE

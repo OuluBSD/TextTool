@@ -2,6 +2,9 @@
 #define _SocialDataCtrl_VirtualPhrases_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 String GetTypePhraseString(const Vector<int>& word_classes, const DatasetAnalysis& da);
 
 class VirtualPhrases : public ToolAppCtrl {
@@ -19,6 +22,9 @@ public:
 	void ProcessVirtualPhraseParts();
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

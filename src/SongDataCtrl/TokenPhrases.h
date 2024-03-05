@@ -2,6 +2,9 @@
 #define _SongDataCtrl_TokenPhrases_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class TokenPhrases : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, texts;
@@ -17,6 +20,9 @@ public:
 	
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

@@ -1,9 +1,11 @@
 #include "SongLib.h"
 
-namespace SongLib {
+
+BEGIN_SONGLIB_NAMESPACE
+
 
 void TaskManager::DoSongs(int ds_i, int fn) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -19,7 +21,7 @@ void TaskManager::DoSongs(int ds_i, int fn) {
 }
 
 void TaskManager::DoTokens(int ds_i, int fn) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -35,7 +37,7 @@ void TaskManager::DoTokens(int ds_i, int fn) {
 }
 
 void TaskManager::DoUnknownTokenPairs(int ds_i, int fn) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -51,7 +53,7 @@ void TaskManager::DoUnknownTokenPairs(int ds_i, int fn) {
 }
 
 void TaskManager::DoAmbiguousWordPairs(int ds_i, int fn) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -67,7 +69,7 @@ void TaskManager::DoAmbiguousWordPairs(int ds_i, int fn) {
 }
 
 void TaskManager::DoVirtualPhrases(int ds_i, int fn) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -83,7 +85,7 @@ void TaskManager::DoVirtualPhrases(int ds_i, int fn) {
 }
 
 void TaskManager::DoPhrases(int ds_i, int fn) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -99,7 +101,7 @@ void TaskManager::DoPhrases(int ds_i, int fn) {
 }
 
 /*void TaskManager::DoNana(int ds_i, int fn, Song& song, Callback OnReady, int line_i, int part_i) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -119,7 +121,7 @@ void TaskManager::DoPhrases(int ds_i, int fn) {
 }*/
 
 void TaskManager::DoContainer(int ds_i, int fn, Callback2<int,int> update) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -136,7 +138,7 @@ void TaskManager::DoContainer(int ds_i, int fn, Callback2<int,int> update) {
 }
 
 void TaskManager::DoActionlistCache(int ds_i) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -165,7 +167,7 @@ void TaskManager::DoActionlist(int ds_i, int fn) {
 	if (IsInTaskList(TASK_ACTIONLIST))
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -198,7 +200,7 @@ void TaskManager::DoActionParallel(int ds_i, int fn) {
 	if (IsInTaskList(TASK_ACTION_PARALLELS))
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -217,7 +219,7 @@ void TaskManager::DoActionTransition(int ds_i, int fn) {
 	if (IsInTaskList(TASK_ACTION_TRANSITIONS))
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -236,7 +238,7 @@ void TaskManager::DoWordFix(int ds_i, int fn) {
 	//if (IsInTaskList(TASK_WORD_FIX))
 	//	return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -255,7 +257,7 @@ void TaskManager::DoWords(int ds_i, int fn) {
 	if (IsInTaskList(TASK_WORD_DATA))
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -277,7 +279,7 @@ void TaskManager::DoWordnet(int ds_i, int fn) {
 	PromptOK("TODO");
 	return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -296,7 +298,7 @@ void TaskManager::DoAttributes(int ds_i, int fn) {
 	if (IsInTaskList(TASK_ATTRIBUTES))
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -311,4 +313,6 @@ void TaskManager::DoAttributes(int ds_i, int fn) {
 	lock.LeaveWrite();
 }
 
-}
+
+END_SONGLIB_NAMESPACE
+

@@ -2,6 +2,9 @@
 #include <SocialTool/SocialTool.h>
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 SocialEditor::SocialEditor(SocialTool* app) : app(*app) {
 	Add(hsplit.SizePos());
 	
@@ -756,3 +759,6 @@ void SocialEditor::RemoveStory() {
 	
 	
 }
+
+
+END_SOCIALLIB_NAMESPACE

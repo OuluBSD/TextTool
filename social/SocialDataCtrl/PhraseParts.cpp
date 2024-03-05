@@ -1,5 +1,9 @@
 #include "SocialDataCtrl.h"
 
+
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 PhraseParts::PhraseParts() {
 	Add(hsplit.SizePos());
 	
@@ -84,4 +88,7 @@ void PhraseParts::ToolMenu(Bar& bar) {
 void PhraseParts::Process() {
 	
 }
+
+
+END_SOCIALLIB_NAMESPACE
 

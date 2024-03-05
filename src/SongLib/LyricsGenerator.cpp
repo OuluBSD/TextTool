@@ -1,7 +1,7 @@
 #include "SongLib.h"
 
 
-namespace SongLib {
+BEGIN_SONGLIB_NAMESPACE
 
 
 LyricsGenerator::LyricsGenerator() {
@@ -20,15 +20,6 @@ LyricsGenerator& LyricsGenerator::Get(Artist& a, Lyrics& l) {
 	ls.artist = &a;
 	ls.lyrics = &l;
 	return ls;
-}
-
-void LyricsGenerator::RealizePipe() {
-	Database& db = Database::Single();
-	if (!pipe) {
-		TaskManager::Single().RealizePipe();
-		pipe = TaskManager::Single().GetPipe();
-		ASSERT(pipe);
-	}
 }
 
 void LyricsGenerator::Process() {
@@ -90,7 +81,7 @@ void LyricsGenerator::Process() {
 void LyricsGenerator::ProcessSourcePool() {
 	TimeStop ts;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -195,7 +186,7 @@ void LyricsGenerator::ProcessSourcePool() {
 }
 
 void LyricsGenerator::ProcessPairPhrases() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -264,14 +255,14 @@ void LyricsGenerator::ProcessPairPhrases() {
 	args.parts <<= artists;
 	
 	SetWaiting(1);
-	RealizePipe();
-	TaskMgr& m = *pipe;
+	
+	TaskMgr& m = TaskMgr::Single();
 	m.GetLyricsSolver(args, THISBACK(OnProcessPairPhrases));
 	
 }
 
 void LyricsGenerator::OnProcessPairPhrases(String res) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -337,7 +328,7 @@ void LyricsGenerator::OnProcessPairPhrases(String res) {
 }
 
 void LyricsGenerator::ProcessRhymes() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -388,14 +379,14 @@ void LyricsGenerator::ProcessRhymes() {
 	args.parts <<= artists;
 	
 	SetWaiting(1);
-	RealizePipe();
-	TaskMgr& m = *pipe;
+	
+	TaskMgr& m = TaskMgr::Single();
 	m.GetLyricsSolver(args, THISBACK(OnProcessRhymes));
 	
 }
 
 void LyricsGenerator::OnProcessRhymes(String res) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -499,7 +490,7 @@ void LyricsGenerator::OnProcessRhymes(String res) {
 }
 
 void LyricsGenerator::ProcessScores() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -549,14 +540,14 @@ void LyricsGenerator::ProcessScores() {
 	}
 	
 	SetWaiting(1);
-	RealizePipe();
-	TaskMgr& m = *pipe;
+	
+	TaskMgr& m = TaskMgr::Single();
 	m.GetLyricsSolver(args, THISBACK(OnProcessScores));
 	
 }
 
 void LyricsGenerator::OnProcessScores(String res) {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -628,4 +619,6 @@ void LyricsGenerator::OnProcessScores(String res) {
 	
 }
 
-}
+
+END_SONGLIB_NAMESPACE
+

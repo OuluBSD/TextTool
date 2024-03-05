@@ -183,6 +183,8 @@ struct DataFile {
 
 struct TaskMgr;
 
+BEGIN_SONGLIB_NAMESPACE
+
 struct Artist;
 struct Release;
 struct Song;
@@ -190,6 +192,10 @@ struct Typecast;
 struct Archetype;
 struct Lyrics;
 struct StaticPart;
+
+END_SONGLIB_NAMESPACE
+
+BEGIN_SOCIALLIB_NAMESPACE
 
 struct Company;
 struct Campaign;
@@ -199,24 +205,27 @@ struct Generic;
 struct Program;
 struct StoryPart;
 
+END_SOCIALLIB_NAMESPACE
+
 
 
 struct EditorPtrs {
-	Artist*			artist = 0;
-	Release*		release = 0;
-	Song*			song = 0;
-	Typecast*		typecast = 0;
-	Archetype*		archetype = 0;
-	Lyrics*			lyrics = 0;
-	StaticPart*		part = 0;
 	
-	Company*		company = 0;
-	Campaign*		campaign = 0;
-	Program*		program = 0;
-	Story*			story = 0;
-	Role*			role = 0;
-	Generic*		generic = 0;
-	StoryPart*		story_part = 0;
+	SongLib::Artist*		artist = 0;
+	SongLib::Release*		release = 0;
+	SongLib::Song*			song = 0;
+	SongLib::Typecast*		typecast = 0;
+	SongLib::Archetype*		archetype = 0;
+	SongLib::Lyrics*		lyrics = 0;
+	SongLib::StaticPart*	part = 0;
+	
+	SocialLib::Company*		company = 0;
+	SocialLib::Campaign*	campaign = 0;
+	SocialLib::Program*		program = 0;
+	SocialLib::Story*		story = 0;
+	SocialLib::Role*		role = 0;
+	SocialLib::Generic*		generic = 0;
+	SocialLib::StoryPart*	story_part = 0;
 	
 	void Zero() {memset(this, 0, sizeof(EditorPtrs));}
 	
@@ -238,7 +247,7 @@ struct EditorPtrs {
 	int GetActiveCampaignIndex() const;
 	int GetActiveProgramIndex() const;
 	
-	//void RealizePipe();
+	//void 
 	
 	static EditorPtrs& Single() {static EditorPtrs e; return e;}
 };
@@ -428,7 +437,7 @@ Color GetProgramPartPaperColor(const String& abbr);
 int GetSongPartPriority(const String& abbr);
 
 template <class T> void CheckSerialisationData(const String& json) {}
-template <> void CheckSerialisationData<Song>(const String& json);
+template <> void CheckSerialisationData<SongLib::Song>(const String& json);
 
 template <class T>
 void LoadFromJsonFileStandard(T& o, const String& path) {

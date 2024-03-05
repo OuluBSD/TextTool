@@ -1,9 +1,13 @@
 #ifndef _SongTool_Editor_h_
 #define _SongTool_Editor_h_
 
+
+BEGIN_SONGLIB_NAMESPACE
+
+
 class SongTool;
 
-class Editor : public Ctrl {
+class SongEditor : public Ctrl {
 	
 private:
 	struct ListItem : Moveable<ListItem> {
@@ -100,8 +104,8 @@ protected:
 	*/
 	
 public:
-	typedef Editor CLASSNAME;
-	Editor(SongTool* app);
+	typedef SongEditor CLASSNAME;
+	SongEditor(SongTool* app);
 	
 	void Serialize(Stream& s) {s % page_group % page % save_songdata;}
 	void Init();
@@ -154,6 +158,9 @@ public:
 	SongTool& app;
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

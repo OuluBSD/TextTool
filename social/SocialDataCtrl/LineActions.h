@@ -2,6 +2,9 @@
 #define _SocialDataCtrl_ProgramDataLineActions_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class ProgramDataLineActions : public ToolAppCtrl {
 	
 	
@@ -43,6 +46,9 @@ public:
 	void OnLineChangeScores(String res, int batch_i, int score_mode);*/
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

@@ -2,6 +2,9 @@
 #define _SocialDataCtrl_SocialDataLoader_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class SocialDataLoader : public WithSocialDataLoader<TopWindow> {
 	
 	
@@ -21,6 +24,9 @@ public:
 	void SetProgress(int i, int t) {prog.Set(i,t);}
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

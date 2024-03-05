@@ -1,6 +1,8 @@
 #include "SocialCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
 
 CampaignIdeas::CampaignIdeas() {
 	CtrlLayout(idea);
@@ -138,3 +140,6 @@ void CampaignIdeas::RemoveIdea() {
 	campaign.ideas.Remove(idx);
 	Data();
 }
+
+
+END_SOCIALLIB_NAMESPACE

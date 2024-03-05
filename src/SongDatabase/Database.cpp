@@ -1,29 +1,33 @@
 #include "SongDatabase.h"
 
-int Database::trans_i = -1;
+
+BEGIN_SONGLIB_NAMESPACE
 
 
-Database::Database() {
+int SongDatabase::trans_i = -1;
+
+
+SongDatabase::SongDatabase() {
 	
 }
 
-String Database::GetArtistsDir() const {
+String SongDatabase::GetArtistsDir() const {
 	return dir + DIR_SEPS "share" DIR_SEPS "artists" DIR_SEPS;
 }
 
-String Database::GetReleasesDir() const {
+String SongDatabase::GetReleasesDir() const {
 	return dir + DIR_SEPS "share" DIR_SEPS "releases" DIR_SEPS;
 }
 
-String Database::GetSongsDir() const {
+String SongDatabase::GetSongsDir() const {
 	return dir + DIR_SEPS "share" DIR_SEPS "songs" DIR_SEPS;
 }
 
-void Database::Store() {
+void SongDatabase::Store() {
 	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json", true);
 }
 
-void Database::Load() {
+void SongDatabase::Load() {
 	Clear();
 	
 	lock.EnterWrite();
@@ -32,7 +36,7 @@ void Database::Load() {
 	
 }
 
-void Database::FindOrphaned() {
+void SongDatabase::FindOrphaned() {
 	{
 		String dir = GetArtistsDir();
 		String search = dir + "*.json";
@@ -56,7 +60,7 @@ void Database::FindOrphaned() {
 	}
 }
 
-String Database::Translate(const String& s) {
+String SongDatabase::Translate(const String& s) {
 	if (trans_i < 0)
 		return s;
 	Translation& t = this->translation[trans_i];
@@ -74,3 +78,26 @@ String Database::Translate(const String& s) {
 	return o.IsEmpty() ? s : o;
 }
 
+
+
+
+
+
+END_SONGLIB_NAMESPACE
+
+
+
+int EditorPtrs::GetActiveArtistIndex() const {return VectorFindPtr(artist, SongLib::SongDatabase::Single().artists);}
+int EditorPtrs::GetActiveReleaseIndex() const {if (!artist) return -1; return VectorFindPtr(release, artist->releases);}
+int EditorPtrs::GetActiveSongIndex() const {if (!release) return -1; return VectorFindPtr(song, release->songs);}
+int EditorPtrs::GetActiveTypecastIndex() const {return VectorFindPtr(typecast, artist->typecasts);}
+int EditorPtrs::GetActiveArchetypeIndex() const {return VectorFindPtr(archetype, typecast->archetypes);}
+int EditorPtrs::GetActiveLyricsIndex() const {return VectorFindPtr(lyrics, archetype->lyrics);}
+
+
+template <>
+void CheckSerialisationData<SongLib::Song>(const String& json) {
+	SongLib::Song song;
+	LoadFromJson(song, json);
+	//ASSERT(song.native_title.GetCount() || song.english_title.GetCount());
+}

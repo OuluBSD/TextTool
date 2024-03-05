@@ -1,6 +1,8 @@
 #include "SocialCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
 
 CoverImage::CoverImage() {
 	user_natural_english_key = "NATURAL_ENGLISH_OF_AUTHOR";
@@ -81,3 +83,6 @@ void CoverImage::MakeSingleImage() {
 void CoverImage::MakeAllImages() {
 	ImagePlayerBase::MakeAllImages();
 }
+
+
+END_SOCIALLIB_NAMESPACE

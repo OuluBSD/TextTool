@@ -1,6 +1,9 @@
 #include "SongDataCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 RhymeContainerPage::RhymeContainerPage() {
 	Add(hsplit.VSizePos(0,30).HSizePos());
 	Add(prog.BottomPos(0,30).HSizePos());
@@ -86,7 +89,7 @@ void RhymeContainerPage::DisableAll() {
 }
 
 void RhymeContainerPage::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -171,7 +174,7 @@ void RhymeContainerPage::Data() {
 }
 
 void RhymeContainerPage::DataAction() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -214,7 +217,7 @@ void RhymeContainerPage::ManualData() {
 }
 
 void RhymeContainerPage::MainData() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -388,4 +391,7 @@ int RhymeContainerPage::FindSplit(const Vector<String>& part_words) {
 	}
 	return -1;
 }
+
+
+END_SONGLIB_NAMESPACE
 

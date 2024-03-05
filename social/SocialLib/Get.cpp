@@ -1,6 +1,8 @@
 #include "SocialLib.h"
 
-namespace SocialLib {
+
+BEGIN_SOCIALLIB_NAMESPACE
+
 
 void TaskManager::GetPrograms(Task* t) {
 	SocialDatabase& db = SocialDatabase::Single();
@@ -2094,4 +2096,5 @@ void TaskManager::GetAttributes(Task* t) {
 	}
 }
 
-}
+
+END_SOCIALLIB_NAMESPACE

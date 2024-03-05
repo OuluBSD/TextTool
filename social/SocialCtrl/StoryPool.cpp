@@ -1,5 +1,9 @@
 #include "SocialCtrl.h"
 
+
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 StoryPool::StoryPool() {
 	Add(list.SizePos());
 	
@@ -32,3 +36,5 @@ void StoryPool::Data() {
 	
 }
 
+
+END_SOCIALLIB_NAMESPACE

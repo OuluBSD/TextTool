@@ -1,6 +1,9 @@
 #include "SongDataCtrl.h"
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 TokenPhrases::TokenPhrases() {
 	Add(hsplit.SizePos());
 	
@@ -32,7 +35,7 @@ TokenPhrases::TokenPhrases() {
 }
 
 void TokenPhrases::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -47,7 +50,7 @@ void TokenPhrases::Data() {
 }
 
 void TokenPhrases::DataDataset() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	
 	int ds_i = datasets.GetCursor();
@@ -80,3 +83,5 @@ void TokenPhrases::GetUnknownPairs() {
 	tm.DoUnknownTokenPairs(ds_i, 0);
 }
 
+
+END_SONGLIB_NAMESPACE

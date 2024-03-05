@@ -1,5 +1,9 @@
 #include "SongDataCtrl.h"
 
+
+BEGIN_SONGLIB_NAMESPACE
+
+
 PhraseParts::PhraseParts() {
 	Add(hsplit.SizePos());
 	
@@ -32,7 +36,7 @@ PhraseParts::PhraseParts() {
 }
 
 void PhraseParts::Data() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -47,7 +51,7 @@ void PhraseParts::Data() {
 }
 
 void PhraseParts::DataDataset() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	
 	int ds_i = datasets.GetCursor();
@@ -84,4 +88,7 @@ void PhraseParts::ToolMenu(Bar& bar) {
 void PhraseParts::Process() {
 	
 }
+
+
+END_SONGLIB_NAMESPACE
 

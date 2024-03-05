@@ -2,6 +2,9 @@
 #define _SocialDataCtrl_PhrasePartAnalysis_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 struct ScoreDisplay : public Display {
 	virtual void Paint(Draw& w, const Rect& r, const Value& q,
 	                   Color ink, Color paper, dword style) const;
@@ -30,6 +33,9 @@ public:
 	void UpdateCounts();
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

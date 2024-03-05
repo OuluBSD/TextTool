@@ -2,6 +2,8 @@
 
 
 GUI_APP_MAIN {
+	using namespace SongLib;
+	
 	GuiStartup();
 	SongStartup();
 	

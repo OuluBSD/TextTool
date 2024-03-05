@@ -2,7 +2,7 @@
 #define _SongLib_LyricsSolver_h_
 
 
-namespace SongLib {
+BEGIN_SONGLIB_NAMESPACE
 
 
 class LyricsSolver {
@@ -23,7 +23,6 @@ class LyricsSolver {
 	int phase = LS_BEGIN;
 	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
 	int ds_i = 0;
-	TaskMgr* pipe = 0;
 	Artist* artist = 0;
 	Lyrics* lyrics = 0;
 		
@@ -44,21 +43,13 @@ class LyricsSolver {
 	Index<int> remaining;
 	VectorMap<String,int> part_sizes;
 	
-	void RealizePipe();
 	void Process();
 	void ClearLyrics();
 	void ProcessFilter();
 	void ProcessPrimary();
 	void ProcessComparison();
-	//void ProcessFineTuning();
-	/*void ProcessSecondaryWordClass();
-	void ProcessSecondaryFilter();
-	void ProcessSecondary();*/
 	void OnProcessPrimary(String res);
 	void OnProcessComparison(String res);
-	//void OnProcessFineTuning(String res);
-	/*void OnProcessSecondaryWordClass(String res);
-	void OnProcessSecondary();*/
 	void PostProgress() {WhenProgress(phase, LS_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}
@@ -80,6 +71,7 @@ public:
 };
 
 
-}
+END_SONGLIB_NAMESPACE
+
 
 #endif

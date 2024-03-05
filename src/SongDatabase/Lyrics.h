@@ -2,6 +2,9 @@
 #define _SongDatabase_Lyrics_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 struct StaticPart {
 	// Part types
 	typedef enum : int {
@@ -197,6 +200,9 @@ struct Lyrics : DataFile {
 	}
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

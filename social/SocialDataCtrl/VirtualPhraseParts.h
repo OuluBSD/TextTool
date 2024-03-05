@@ -2,6 +2,9 @@
 #define _SocialDataCtrl_VirtualPhraseParts_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class VirtualPhraseParts : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, texts, parts;
@@ -16,6 +19,9 @@ public:
 	void ProcessStructureNames();
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

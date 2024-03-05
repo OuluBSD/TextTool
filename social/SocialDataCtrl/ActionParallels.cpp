@@ -1,6 +1,9 @@
 #include "SocialDataCtrl.h"
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 ActionParallelsPage::ActionParallelsPage() {
 	Add(hsplit.SizePos());
 	
@@ -201,4 +204,7 @@ void ActionParallelsPage::UpdateParallels() {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	tm.DoActionParallel(0, 0);
 }
+
+
+END_SOCIALLIB_NAMESPACE
 

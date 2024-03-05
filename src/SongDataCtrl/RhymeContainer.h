@@ -2,6 +2,9 @@
 #define _SongDataCtrl_RhymeContainer_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class RhymeContainerPage : public ToolAppCtrl {
 	ProgressIndicator prog;
 	Splitter hsplit, vsplit;
@@ -30,6 +33,9 @@ public:
 	void DoContainer(int fn);
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif

@@ -52,7 +52,7 @@ void SongDataTemplates::Data() {
 }
 
 void SongDataTemplates::DataMain() {
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -127,7 +127,7 @@ void SongDataTemplates::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -198,7 +198,7 @@ void SongDataTemplates::ToggleGettingTemplates() {
 		
 		// To clear old data
 		if (0) {
-			Database& db = Database::Single();
+			SongDatabase& db = SongDatabase::Single();
 			SongData& sd = db.song_data;
 			SongDataAnalysis& sda = db.song_data.a;
 			for(int i = 0; i < sda.datasets.GetCount(); i++)
@@ -213,7 +213,7 @@ void SongDataTemplates::GetTemplatePhrases(int batch_i) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	
@@ -281,7 +281,7 @@ void SongDataTemplates::OnTemplatePhrases(String res, int batch_i) {
 	
 	lock.Enter();
 	
-	Database& db = Database::Single();
+	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
 	SongDataAnalysis& sda = db.song_data.a;
 	

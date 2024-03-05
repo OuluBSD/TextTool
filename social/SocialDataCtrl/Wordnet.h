@@ -2,6 +2,9 @@
 #define _SocialDataCtrl_ProgramDataWordnet_h_
 
 
+BEGIN_SOCIALLIB_NAMESPACE
+
+
 class ProgramDataWordnet : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, attrs, colors, wordnets;
@@ -31,6 +34,9 @@ public:
 	void DoWordnet(int fn);
 	
 };
+
+
+END_SOCIALLIB_NAMESPACE
 
 
 #endif

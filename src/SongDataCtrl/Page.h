@@ -2,6 +2,9 @@
 #define _SongDataCtrl_SongDataPage_h_
 
 
+BEGIN_SONGLIB_NAMESPACE
+
+
 class SongDataPage : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl datasets, artists, songs;//, active_songs;
@@ -33,6 +36,9 @@ public:
 	void SetProgress(int a, int t) {prog.Set(a,t);}
 	
 };
+
+
+END_SONGLIB_NAMESPACE
 
 
 #endif
