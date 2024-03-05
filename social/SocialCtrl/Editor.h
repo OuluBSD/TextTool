@@ -43,6 +43,38 @@ protected:
 	
 	ImageGenTool					image_gen;
 	
+	SocialDataPage					social_data;
+	TokensPage						tokens_data;
+	TokenPhrases					token_phrases;
+	ProgramDataWords				words;
+	AmbiguousWordPairs				ambiguous_word_pairs;
+	VirtualPhrases					virtual_phrases;
+	VirtualPhraseParts				virtual_phrase_parts;
+	VirtualPhraseStructs			virtual_phrase_structs;
+	PhraseParts						phrase_parts;
+	PhrasePartAnalysis				phrase_part_analysis;
+	PhrasePartAnalysis2				phrase_part_analysis2;
+	RhymeContainerPage				rhyme_container;
+	ActionAttrsPage					action_attrs;
+	ActionParallelsPage				action_parallels;
+	ActionTransitionsPage			action_transitions;
+	ProgramDataWordnet				wordnet;
+	Attributes						db_attrs;
+	ProgramDataDiagnostics			db_diagnostics;
+	
+	CompanyInfoCtrl					company_info;
+	
+	CampaignInfoCtrl				campaign_info;
+	CampaignBriefing				campaign_briefing;
+	CampaignIdeas					campaign_ideas;
+	
+	ProgramInfoCtrl					program_info;
+	
+	StoryInfoCtrl					story_info;
+	StoryStructure					story_struct;
+	StoryPool						story_pool;
+	StorySolverCtrl					story_solver;
+	
 public:
 	typedef SocialEditor CLASSNAME;
 	SocialEditor(SocialTool* app);

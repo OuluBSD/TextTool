@@ -121,18 +121,18 @@ void SongEditor::InitSimplified() {
 	AddItem(t_("Database"), t_("Line types"), line_types);
 	AddItem(t_("Database"), t_("Export"), export_page);*/
 	
-	AddItem(t_("Company"), t_("Info"), company_info);
-	/*AddItem(t_("Company"), t_("Calendar"), cal);
-	AddItem(t_("Company"), t_("Press Release"), pressrel);
-	AddItem(t_("Company"), t_("Public Relations"), pubrel);
-	AddItem(t_("Company"), t_("Marketing"), marketing);*/
-	//AddItem(t_("Company"), t_("Vocabulary"), vocabulary);
+	AddItem(t_("Artist"), t_("Info"), company_info);
+	/*AddItem(t_("Artist"), t_("Calendar"), cal);
+	AddItem(t_("Artist"), t_("Press Release"), pressrel);
+	AddItem(t_("Artist"), t_("Public Relations"), pubrel);
+	AddItem(t_("Artist"), t_("Marketing"), marketing);*/
+	//AddItem(t_("Artist"), t_("Vocabulary"), vocabulary);
 	
-	AddItem(t_("Product"), t_("Info"), product_info);
-	AddItem(t_("Product"), t_("Briefing"), album_briefing);
-	AddItem(t_("Product"), t_("Idea notepad"), album_ideas);
-	//AddItem(t_("Product"), t_("Cover Image"), cover_image);
-	//AddItem(t_("Product"), t_("Pitching"), pitching);
+	AddItem(t_("Release"), t_("Info"), product_info);
+	AddItem(t_("Release"), t_("Briefing"), album_briefing);
+	AddItem(t_("Release"), t_("Idea notepad"), album_ideas);
+	//AddItem(t_("Release"), t_("Cover Image"), cover_image);
+	//AddItem(t_("Release"), t_("Pitching"), pitching);
 	
 	AddItem(t_("Song"), t_("Info"), song_info);
 	//AddItem(t_("Song"), t_("Briefing"), song_briefing); // initial ideas, notes, etc.

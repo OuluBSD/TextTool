@@ -1,6 +1,7 @@
 #ifndef _SocialDataCtrl_ProgramDataLineActions_h_
 #define _SocialDataCtrl_ProgramDataLineActions_h_
 
+#if 0
 
 BEGIN_SOCIALLIB_NAMESPACE
 
@@ -51,4 +52,5 @@ public:
 END_SOCIALLIB_NAMESPACE
 
 
+#endif
 #endif

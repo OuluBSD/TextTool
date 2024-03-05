@@ -1,5 +1,5 @@
 #include "SocialDataCtrl.h"
-
+#if 0
 
 BEGIN_SOCIALLIB_NAMESPACE
 
@@ -296,3 +296,4 @@ void ProgramDataLineActions::ToggleGettingLineChangeScores(int score_mode) {
 
 
 END_SOCIALLIB_NAMESPACE
+#endif

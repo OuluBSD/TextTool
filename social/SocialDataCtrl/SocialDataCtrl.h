@@ -1,7 +1,10 @@
 #ifndef _SocialDataCtrl_SocialDataCtrl_h_
 #define _SocialDataCtrl_SocialDataCtrl_h_
 
-#include <SocialCtrl/SocialCtrl.h>
+#include <ToolCtrl/ToolCtrl.h>
+#include <SocialDatabase/SocialDatabase.h>
+#include <SocialLib/SocialLib.h>
+#include <SocialDataCtrl/SocialDataCtrl.h>
 
 #define LAYOUTFILE <SocialDataCtrl/SocialDataCtrl.lay>
 #include <CtrlCore/lay.h>

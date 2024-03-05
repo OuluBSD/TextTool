@@ -88,7 +88,37 @@ void SocialEditor::InitListItems() {
 void SocialEditor::InitSimplified() {
 	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
 	
+	AddItem(t_("Database"), t_("Source data"), social_data);
+	AddItem(t_("Database"), t_("Tokens"), tokens_data);
+	AddItem(t_("Database"), t_("Token phrases"), token_phrases);
+	AddItem(t_("Database"), t_("Words"), words);
+	AddItem(t_("Database"), t_("Ambiguous word pairs"), ambiguous_word_pairs);
+	AddItem(t_("Database"), t_("Virtual phrases"), virtual_phrases);
+	AddItem(t_("Database"), t_("Virtual phrase parts"), virtual_phrase_parts);
+	AddItem(t_("Database"), t_("Virtual phrase structs"), virtual_phrase_structs);
+	AddItem(t_("Database"), t_("Phrase parts"), phrase_parts);
+	AddItem(t_("Database"), t_("Phrase part analysis 1"), phrase_part_analysis);
+	AddItem(t_("Database"), t_("Phrase part analysis 2"), phrase_part_analysis2);
+	AddItem(t_("Database"), t_("Rhyme container"), rhyme_container);
+	AddItem(t_("Database"), t_("Action attributes"), action_attrs);
+	AddItem(t_("Database"), t_("Action parallels"), action_parallels);
+	AddItem(t_("Database"), t_("Action transitions"), action_transitions);
+	AddItem(t_("Database"), t_("Wordnet"), wordnet);
+	AddItem(t_("Database"), t_("Attributes"), db_attrs);
+	AddItem(t_("Database"), t_("Diagnostics"), db_diagnostics);
 	
+	AddItem(t_("Company"), t_("Info"), company_info);
+	
+	AddItem(t_("Campaign"), t_("Info"), campaign_info);
+	AddItem(t_("Campaign"), t_("Briefing"), campaign_briefing);
+	AddItem(t_("Campaign"), t_("Idea notepad"), campaign_ideas);
+	
+	AddItem(t_("Program"), t_("Info"), program_info);
+	
+	AddItem(t_("Story"), t_("Info"), story_info);
+	AddItem(t_("Story"), t_("Structure"), story_struct);
+	AddItem(t_("Story"), t_("Song pool"), story_pool);
+	AddItem(t_("Story"), t_("Lyrics solver"), story_solver);
 	
 	InitListItems();
 }
