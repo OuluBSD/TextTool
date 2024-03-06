@@ -1,0 +1,126 @@
+"attention-place(milford mill)" -1 0 0 0 0
+"attention-place(salisbury)" -1 0 0 0 0
+"attention-person(user)" -1 0 0 0 0
+"attention-person(user's significant other)" -1 0 0 0 0
+"attention-place(beano's cabin)" -1 0 0 0 0
+"attention-person(resonate community church)" -1 0 0 0 0
+"attention-person(us army fort mccoy)" -1 0 0 0 0
+"attention-person(lukebryan)" -1 0 0 0 0
+"attention-place(lakeview amphitheater)" -1 0 0 0 0
+"attention-person(brandon)" -1 0 0 0 0
+"attention-place(cantina)" -1 0 0 0 0
+"attention-person(uncle duty)" -1 0 0 0 0
+"attention-place(pefferlaw)" -1 0 0 0 0
+"attention-person(jack)" -1 0 0 0 0
+"attention-person(me)" -1 0 0 0 0
+"attention-place(beaver stadium)" -1 0 0 0 0
+"attention-place(user's hometown)" -1 0 0 0 0
+"attention-place(ithaca beer co)" -1 0 0 0 0
+"attention-place(oasis salon and spa)" -1 0 0 0 0
+"attention-place(baltimore county)" -1 0 0 0 0
+"attention-place(mother earth)" -1 0 0 0 0
+"attention-person(neighborhood/community)" -1 0 0 0 0
+"attention-place(balch springs)" -1 0 0 0 0
+"attention-place(lasalette shrine)" -1 0 0 0 0
+"attention-place(fellowship church)" -1 0 0 0 0
+"attention-title(squad)" -1 0 0 0 0
+"attention-place(wamu theater)" -1 0 0 0 0
+"attention-person(candela)" -1 0 0 0 0
+"attention-place(blume nightclub)" -1 0 0 0 0
+"attention-message(motivation)" -1 0 0 0 0
+"attention-message(quote of the day)" -1 0 0 0 0
+"attention-message(tip of the day)" -1 0 0 0 0
+"attention-message(reality speaking)" -1 0 0 0 0
+"attention-place(vegas towers)" -1 0 0 0 0
+"attention-emotional_state(nostalgia/nostalgic)" -1 0 0 0 0
+"attention-item(mom jeans)" -1 0 0 0 0
+"attention-place(lehigh valley mall)" -1 0 0 0 0
+"attention-place(city gear)" -1 0 0 0 0
+"attention-person(almost lover)" -1 0 0 0 0
+"attention-place(bossa nova café roastery)" -1 0 0 0 0
+"attention-place(user's meditation steps)" -1 0 0 0 0
+"attention-place(roosevelt island)" -1 0 0 0 0
+"attention-message(4th of july)" -1 0 0 0 0
+"attention-place(austin)" -1 0 0 0 0
+"attention-title(brothers)" -1 0 0 0 0
+"attention-message(lake life/living on a lake)" -1 0 0 0 0
+"attention-title(brotherly love)" -1 0 0 0 0
+"attention-place(linn creek, missouri)" -1 0 0 0 0
+"attention-place(cannot find)" -1 0 0 0 0
+"attention-message(life goals)" -1 0 0 0 0
+"attention-message(friendship/friend)" -1 0 0 0 0
+"attention-person(friend)" -1 0 0 0 0
+"attention-title(mom jeans)" -1 0 0 0 0
+"tone(respectful)" -1 0 0 0 0
+"msg(addressing person)" -1 0 0 0 0
+"bias(respectful towards person)" -1 0 0 0 0
+"emotion(polite)" -1 0 0 0 0
+"level-of-certainty(statement)" -1 0 0 0 0
+"attention-person(addressed to person)" -1 0 0 0 0
+"tone(disapproving)" -1 0 0 0 0
+"msg(expressing disapproval)" -1 0 0 0 0
+"bias(disgusted)" -1 0 0 0 0
+"emotion(disgust)" -1 0 0 0 0
+"level-of-certainty(statement of disgust)" -1 0 0 0 0
+"msg(commenting on person's physical appearance)" -1 0 0 0 0
+"gesturing(lewd gesture)" -1 0 0 0 0
+"attention-physical_state(sexually suggestive)" -1 0 0 0 0
+"attention-mental_state(sexual thoughts)" -1 0 0 0 0
+"msg(commenting on current events)" -1 0 0 0 0
+"attention-current_event(topic)" -1 0 0 0 0
+"msg(expressing belief)" -1 0 0 0 0
+"emotion(confident)" -1 0 0 0 0
+"attention-likes(disbelief)" -1 0 0 0 0
+"msg(expressing agreement)" -1 0 0 0 0
+"attention-activity(awards show)" -1 0 0 0 0
+"attention-recipient(person receiving award)" -1 0 0 0 0
+"attention-relationship(competitive)" -1 0 0 0 0
+"attention-context(discussion of topic/idea)" -1 0 0 0 0
+"msg(expressing habit)" -1 0 0 0 0
+"msg(specific items mentioned)" -1 0 0 0 0
+"attention-activities(smoking)" -1 0 0 0 0
+"msg(expressing sentiment)" -1 0 0 0 0
+"attention-holidays(valentine's day)" -1 0 0 0 0
+"msg(discussing potential health concerns)" -1 0 0 0 0
+"attention-physical_state(potential harm/side effects)" -1 0 0 0 0
+"attention-focus(shadows)" -1 0 0 0 0
+"attention-audience(as participants in mannequin challenge)" -1 0 0 0 0
+"attention-topic(participation in mannequin challenge)" -1 0 0 0 0
+"attention-place(Columbus, Ohio)" -1 0 0 0 0
+"attention-animal(dogs)" -1 0 0 0 0
+"attention-breed(Labrador Retriever)" -1 0 0 0 0
+"msg(expressing openness for discussion)" -1 0 0 0 0
+"attention-person(directly addressing person)" -1 0 0 0 0
+"attention-topic(general conversation)" -1 0 0 0 0
+"attention-brand(Chanel)" -1 0 0 0 0
+"attention-message(message about self or something related to self)" -1 0 0 0 0
+"msg(referencing person\(giving shoutout)" -1 0 0 0 0
+"attention-person(addressing person who made a famous play in basketball)" -1 0 0 0 0
+"attention-person(addressing person)" -1 0 0 0 0
+"attention-activity(activity they both participated in)" -1 0 0 0 0
+"attention-relationship(friendly)" -1 0 0 0 0
+"attention-current_event(the \"mannequin challenge\")" -1 0 0 0 0
+"attention-message(excitement about participation in challenge)" -1 0 0 0 0
+"attention-activity(participation)" -1 0 0 0 0
+"attention-message(statement about feeling powerful)" -1 0 0 0 0
+"attention-emotional_state(feeling powerful)" -1 0 0 0 0
+"msg(expressing desire)" -1 0 0 0 0
+"attention-message(statement about wanting something)" -1 0 0 0 0
+"attention-person(addressing person involved in a potential \"conspiracy\")" -1 0 0 0 0
+"attention-recipient(public figure)" -1 0 0 0 0
+"attention-emotional_state(skepticism)" -1 0 0 0 0
+"attention-person(Leonard Cohen)" -1 0 0 0 0
+"attention-relationship(famous musician)" -1 0 0 0 0
+"attention-emotional_state(feeling inspired by music)" -1 0 0 0 0
+"attention-person(Bobby Bazini)" -1 0 0 0 0
+"attention-activity(activities they could possibly engage in together)" -1 0 0 0 0
+"attention-person(to suggest activities to)" -1 0 0 0 0
+"attention-current_event(the TV show \"Scream Queens\")" -1 0 0 0 0
+"attention-character(character from show)" -1 0 0 0 0
+"attention-hobbies(yoga)" -1 0 0 0 0
+"attention-dietary_preference(vegetarianism)" -1 0 0 0 0
+"attention-practice(meditation)" -1 0 0 0 0
+"attention-going_home(state of being back home)" -1 0 0 0 0
+"attention-medicine(preferred remedies)" -1 0 0 0 0
+"attention-field(homeopathy)" -1 0 0 0 0
+"attention-work(homeopathic remedies/processes)" -1 0 0 0 0

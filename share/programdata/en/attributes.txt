@@ -1,0 +1,94 @@
+"sexualization(endows natural beauty)" -1 -1 0 -1 0
+"location in real and metaphorical landscapes(seeking the ideal)" -1 -1 0 -1 0
+"self-directed love(romantic pursuit of love)" -1 -1 0 -1 0
+"self-directed love(self-acceptance)" -1 -1 0 -1 0
+"music?(indie music)" -1 -1 0 -1 0
+"romantic activities(romantic dates)" -1 -1 0 -1 0
+"romantic activities(romantic getaways)" -1 -1 0 -1 0
+"romantic activities(couple events)" -1 -1 0 -1 0
+"romantic activities(individual experiences)" -1 -1 0 -1 0
+"romantic activities(theme-park outings)" -1 -1 0 -1 0
+"romantic activities(outdoor adventures)" -1 -1 0 -1 0
+"physical preferences(enhancing physical appearance)" -1 -1 0 -1 0
+"communication(social media interaction)" -1 -1 0 -1 0
+"physical preference(appreciation for diversity)" -1 -1 0 -1 0
+"romantic activities(attending concerts)" -1 -1 0 -1 0
+"communication(social media)" -1 -1 0 -1 0
+"romantic activities(exploring new places)" -1 -1 0 -1 0
+"romantic activities(romantic meals)" -1 -1 0 -1 0
+"physical preference(natural beauty)" -1 -1 0 -1 0
+"faith extremes(skepticism)" -1 -1 0 -1 0
+"faith extremes(religious fanaticism)" -1 -1 0 -1 0
+"faith extremes(non-traditional expressions of faith)" -1 -1 0 -1 0
+"location in real and metaphorical landscapes(living in the moment)" -1 -1 0 -1 0
+"location in real and metaphorical landscapes(exploring the unknown)" -1 -1 0 -1 0
+"physical preference(attraction to various body types)" -1 -1 0 -1 0
+"physical preference(embracing individuality)" -1 -1 0 -1 0
+"communication(phone conversation)" -1 -1 0 -1 0
+"physical preference(indulging in fast food)" -1 -1 0 -1 0
+"location in real and metaphorical landscapes(urban exploration)" -1 -1 0 -1 0
+"romantic activities(weddings)" -1 -1 0 -1 0
+"belief spectrum(agnosticism)" -1 -1 0 -1 0
+"belief communities(western christianity)" -1 -1 0 -1 0
+"location in real and metaphorical landscapes(peaceful getaways)" -1 -1 0 -1 0
+"enlightenment(spiritual awakening)" -1 -1 0 -1 0
+"cultural influence(city life)" -1 -1 0 -1 0
+"romantic activities(spa days)" -1 -1 0 -1 0
+"location in real and metaphorical landscapes(nature walks)" -1 -1 0 -1 0
+"communication(social media influencers)" -1 -1 0 -1 0
+"self-directed love(self-care)" -1 -1 0 -1 0
+"romantic activities(beach days)" -1 -1 0 -1 0
+"location in real and metaphorical landscapes(outdoor recreation)" -1 -1 0 -1 0
+"physical preference(enjoying seafood cuisine)" -1 -1 0 -1 0
+"location in real and metaphorical landscapes(living in southern california)" -1 -1 0 -1 0
+"cultural influence(california culture)" -1 -1 0 -1 0
+"physical preference(dedication to physical fitness)" -1 -1 0 -1 0
+"group experience(community services)" -1 -1 0 -1 0
+"celebrity influence(celebrity appearances)" -1 -1 0 -1 0
+"location in real and metaphorical landscapes(exploring local businesses)" -1 -1 0 -1 0
+"physical preference(unique individual characteristics)" -1 -1 0 -1 0
+"cultural elements(globalization)" -1 -1 0 -1 0
+"romantic activities(date nights)" -1 -1 0 -1 0
+"romantic activities(couple trips)" -1 -1 0 -1 0
+"physical preference(outdoor activities)" -1 -1 0 -1 0
+"faith and reason seekers(exploring different beliefs)" -1 -1 0 -1 0
+"cultural influence(mass consumption of entertainment)" -1 -1 0 -1 0
+"location in real and metaphorical landscapes(attending conferences)" -1 -1 0 -1 0
+"physical preference(enjoying a variety of food)" -1 -1 0 -1 0
+"physical preference(embracing different cultures)" -1 -1 0 -1 0
+"physical preference(indulging in comfort food)" -1 -1 0 -1 0
+"physical preference(appreciation for the arts)" -1 -1 0 -1 0
+"condition of social behavior(facts, not perceptions)" -1 -1 0 -1 0
+"self-directed love(confidence and self-esteem)" -1 -1 0 -1 0
+"cultural influence(east coast lifestyle)" -1 -1 0 -1 0
+"romantic activities(attending concerts and music festivals)" -1 -1 0 -1 0
+"physical preference(unique fashion choices)" -1 -1 0 -1 0
+"communication(honesty and authenticity)" -1 -1 0 -1 0
+"physical preference(dedication to physical fitness and health)" -1 -1 0 -1 0
+"cultural influence(spanish culture)" -1 -1 0 -1 0
+"communication(language diversity)" -1 -1 0 -1 0
+"cultural influence(acceptance of diverse ideas and cultures)" -1 -1 0 -1 0
+"location in real and metaphorical landscapes(exploring national parks)" -1 -1 0 -1 0
+"genre of media(feel-good movies and shows)" -1 -1 0 -1 0
+"physical preference(appreciation for individuality and self-expression)" -1 -1 0 -1 0
+"emotional state(anger and frustration)" -1 -1 0 -1 0
+"physical preference(embracing diverse physical appearances)" -1 -1 0 -1 0
+"emotional state(hurt and pain)" -1 -1 0 -1 0
+"emotional state(anger and resentment)" -1 -1 0 -1 0
+"emotional state(nervousness and anxiety)" -1 -1 0 -1 0
+"genre of media(suspense and horror)" -1 -1 0 -1 0
+"emotional state(rage and fury)" -1 -1 0 -1 0
+"emotional state(disappointment and disgust)" -1 -1 0 -1 0
+"emotional state(horror and fear)" -1 -1 0 -1 0
+"location in real and metaphorical landscapes(exploring new places and experiences)" -1 -1 0 -1 0
+"location in real and metaphorical landscapes(wandering aimlessly)" -1 -1 0 -1 0
+"mental state(anxiety and apprehension)" -1 -1 0 -1 0
+"emotional state(disbelief and disappointment)" -1 -1 0 -1 0
+"social justice(protecting marginalized communities)" -1 -1 0 -1 0
+"cultural influence(mexican-american culture)" -1 -1 0 -1 0
+"cultural influence(diverse cultural influences)" -1 -1 0 -1 0
+"communication(online and digital communication)" -1 -1 0 -1 0
+"self-directed love(self-empowerment and self-love)" -1 -1 0 -1 0
+"location in real and metaphorical landscapes(exploring historical sites and locations)" -1 -1 0 -1 0
+"military presence(a strong defense)" -1 -1 0 -1 0
+"military presence(enforcing national security)" -1 -1 0 -1 0
