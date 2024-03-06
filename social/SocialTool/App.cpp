@@ -24,6 +24,8 @@ SocialTool::SocialTool() : ed(this) {
 	};
 	ed.WhenStopUpdating << [this](){tc.Kill();};
 	
+	Add(fp.SizePos());
+	Add(cal.SizePos());
 	Add(ed.SizePos());
 	Add(ai.SizePos());
 	
@@ -50,6 +52,8 @@ void SocialTool::Init() {
 	LoadWindowPos();
 	SetView(page);
 	
+	SetBar();
+	
 	skip_data = false;
 	//PostCallback(THISBACK(Data));
 }
@@ -71,10 +75,10 @@ void SocialTool::MainMenu(Bar& bar) {
 		bar.Add(t_("Set OpenAI token"), THISBACK(SetOpenAIToken));
 		bar.Separator();
 		bar.Add(t_("Save program data analysis"), callback(&SocialDatabase::Single().program_data, &ProgramData::Store));
-		if (!ed.save_programdata)
-			bar.Add(t_("Save program data analysis on exit"), THISBACK1(SetSaveProgramData, 1));
+		if (!ed.save_socialdata)
+			bar.Add(t_("Save program data analysis on exit"), THISBACK1(SetSaveSocialData, 1));
 		else
-			bar.Add(t_("Do not save program data analysis on exit"), THISBACK1(SetSaveProgramData, 0));
+			bar.Add(t_("Do not save program data analysis on exit"), THISBACK1(SetSaveSocialData, 0));
 		bar.Separator();
 		bar.Add(t_("Exit"), callback(this, &TopWindow::Close));
 		bar.Add(t_("Fast Exit"), THISBACK(FastExit)).Key(K_CTRL|K_SHIFT|K_Q);
@@ -134,6 +138,8 @@ void SocialTool::SaveWindowPos() {
 
 void SocialTool::Data() {
 	switch (page) {
+		case 0: fp.Data(); break;
+		case 1: cal.Data(); break;
 		case 2: ed.Data(); break;
 		case 3: ai.Data(); break;
 	}
@@ -154,6 +160,8 @@ void SocialTool::SetBar() {
 
 void SocialTool::MainBar(Bar& bar) {
 	switch (page) {
+		case 0: fp.ToolMenu(bar); break;
+		case 1: cal.ToolMenu(bar); break;
 		case 2: ed.ToolMenu(bar); break;
 		case 3: ai.ToolMenu(bar); break;
 	}
@@ -178,13 +186,16 @@ void SocialTool::MovePage(int i) {
 }
 
 void SocialTool::SetView(int i) {
+	fp.Hide();
+	cal.Hide();
 	ed.Hide();
 	ai.Hide();
 	
 	tc.Kill();
 	
 	switch (i) {
-		default: i = 0;
+		case 0: fp.Show(); break;
+		case 1: cal.Show(); break;
 		case 2: ed.Show(); break;
 		case 3: ai.Show(); PostCallback(THISBACK(StartUpdating)); break;
 	}

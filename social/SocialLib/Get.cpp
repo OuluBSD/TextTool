@@ -12,7 +12,7 @@ void TaskManager::GetPrograms(Task* t) {
 	
 	
 	String sd_key = sd.GetKey(t->ds_i);
-	bool filter_foreign = sd_key == "en";
+	bool filter_foreign = false; //sd_key == "en";
 	
 	DatasetAnalysis& da = sd.a.datasets[t->ds_i];
 	Vector<CompanyDataset>& companies = sd[t->ds_i];

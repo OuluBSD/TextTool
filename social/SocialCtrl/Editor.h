@@ -37,7 +37,7 @@ protected:
 	Ctrl				base;
 	int					page_group = 0;
 	VectorMap<int,int>	page;
-	bool				save_programdata = false;
+	bool				save_socialdata = false;
 	bool				fast_exit = false;
 	
 	
@@ -79,7 +79,7 @@ public:
 	typedef SocialEditor CLASSNAME;
 	SocialEditor(SocialTool* app);
 	
-	void Serialize(Stream& s) {s % page_group % page % save_programdata;}
+	void Serialize(Stream& s) {s % page_group % page % save_socialdata;}
 	void Init();
 	void ViewPageGroup();
 	void ViewPage();
@@ -99,9 +99,9 @@ public:
 	void MovePageGroup(int d);
 	void MovePage(int d);
 	String GetStatusText();
-	bool GetSaveProgramData() const {return save_programdata;}
+	bool GetSaveSocialData() const {return save_socialdata;}
 	bool IsFastExit() const {return fast_exit;}
-	void SetSaveProgramData(bool b) {save_programdata = b;}
+	void SetSaveSocialData(bool b) {save_socialdata = b;}
 	void SetFastExit(bool b) {fast_exit = b;}
 	
 	void CompanyMenu(Bar& bar);

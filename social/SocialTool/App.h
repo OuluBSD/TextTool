@@ -60,7 +60,7 @@ public:
 	void MovePage(int d);
 	void SetBar();
 	void MainBar(Bar& bar);
-	void SetSaveProgramData(bool b) {ed.SetSaveProgramData(b);}
+	void SetSaveSocialData(bool b) {ed.SetSaveSocialData(b);}
 	void FastExit();
 	void ClearSocialLibTasks();
 	

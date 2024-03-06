@@ -636,11 +636,10 @@ struct ProgramData {
 	
 	
 	ProgramData();
-	int GetCount() const {return 2;}
+	int GetCount() const {return 1;}
 	Vector<CompanyDataset>& operator[](int i) {
 		switch (i) {
 			case 0: return companies_en;
-			case 1: return companies_fi;
 			default: Panic("error");
 		}
 		return Single<Vector<CompanyDataset>>();
@@ -648,7 +647,6 @@ struct ProgramData {
 	String GetKey(int i) const {
 		switch (i) {
 			case 0: return "en";
-			case 1: return "fi";
 			default: Panic("error");
 		}
 		return "";

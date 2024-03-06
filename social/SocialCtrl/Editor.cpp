@@ -117,7 +117,7 @@ void SocialEditor::InitSimplified() {
 	
 	AddItem(t_("Story"), t_("Info"), story_info);
 	AddItem(t_("Story"), t_("Structure"), story_struct);
-	AddItem(t_("Story"), t_("Song pool"), story_pool);
+	AddItem(t_("Story"), t_("Social pool"), story_pool);
 	AddItem(t_("Story"), t_("Lyrics solver"), story_solver);
 	
 	InitListItems();

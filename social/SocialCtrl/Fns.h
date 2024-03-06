@@ -5,8 +5,8 @@
 BEGIN_SOCIALLIB_NAMESPACE
 
 
-void SongStartup();
-void SongShutdown(bool fast_exit, bool save_programdata);
+void SocialStartup();
+void SocialShutdown(bool fast_exit, bool save_socialdata);
 
 
 END_SOCIALLIB_NAMESPACE

@@ -5,19 +5,19 @@
 BEGIN_SOCIALLIB_NAMESPACE
 
 
-void SongStartup() {
+void SocialStartup() {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	SocialDatabase& db = SocialDatabase::Single();
 	TaskMgrConfig& m = TaskMgrConfig::Single();
 	
 	// Load SocialDatabase
 	#ifdef flagWIN32
-	db.dir = AppendFileName(GetHomeDirectory(), "SocialTool");
+	db.dir = AppendFileName(GetHomeDirectory(), "SongTool");
 	#else
-	db.dir = GetHomeDirFile("SocialTool");
+	db.dir = GetHomeDirFile("SongTool");
 	#endif
 	if (!DirectoryExists(db.dir)) {
-		PromptOK(DeQtf("Default path not found.\nSelect SocialTool directory."));
+		PromptOK(DeQtf("Default path not found.\nSelect SongTool directory."));
 		db.dir = SelectDirectory();
 	}
 	db.Load();
@@ -36,7 +36,7 @@ void SongStartup() {
 	
 }
 
-void SongShutdown(bool fast_exit, bool save_programdata) {
+void SocialShutdown(bool fast_exit, bool save_socialdata) {
 	SocialLib::TaskManager& tm = SocialLib::TaskManager::Single();
 	SocialDatabase& db = SocialDatabase::Single();
 	TaskMgrConfig& m = TaskMgrConfig::Single();
@@ -50,7 +50,7 @@ void SongShutdown(bool fast_exit, bool save_programdata) {
 		
 		db.Store();
 		
-		if (save_programdata) {
+		if (save_socialdata) {
 			db.program_data.a.Store();
 			db.program_data.a.StoreJson();
 		}

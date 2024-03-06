@@ -8,8 +8,7 @@ BEGIN_SOCIALLIB_NAMESPACE
 class SocialDataLoader : public WithSocialDataLoader<TopWindow> {
 	
 	
-	void LoadHuggingCompanys();
-	void LoadHuggingFinn();
+	void LoadHuggingTweets();
 	
 public:
 	typedef SocialDataLoader CLASSNAME;
