@@ -991,4 +991,7 @@ const Vector<String>& GetGenericParts();
 
 void SetIndexCursor(ArrayCtrl& arr, int cur);
 
+void FixOffensiveWords(String& s);
+
 #endif
+

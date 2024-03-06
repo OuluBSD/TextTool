@@ -643,7 +643,9 @@ void LyricsSolver::OnProcessComparison(String res) {
 	int loser_sugg_i = remaining[loser];
 	LyricsSuggestions& ls = sa.lyrics_suggs[loser_sugg_i];
 	ls.rank = remaining.GetCount()-1;
-	song.suggestions.GetAdd(ls.rank) = ls.GetText();
+	String& output = song.suggestions.GetAdd(ls.rank);
+	output = ls.GetText();
+	FixOffensiveWords(output);
 	remaining.Remove(loser);
 	
 	if (remaining.GetCount() == 1) {
@@ -652,6 +654,7 @@ void LyricsSolver::OnProcessComparison(String res) {
 		ls.rank = 0;
 		String& content = song.suggestions.GetAdd(ls.rank);
 		content = ls.GetText();
+		FixOffensiveWords(content);
 		
 		LOG("Winner lyrics:");
 		LOG(content);

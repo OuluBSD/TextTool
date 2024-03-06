@@ -10,10 +10,11 @@ SongEditor::SongEditor(SongTool* app) : app(*app) {
 	hsplit.Horz() << menusplit << base;
 	hsplit.SetPos(1000);
 	
-	menusplit.Vert() << page_group_list << page_list << subsplit;
+	menusplit.Vert() << page_group_list << page_list << artists << subsplit;
 	menusplit.SetPos(10000 / 5, 0);
 	menusplit.SetPos(10000 * 2 / 5, 1);
-	songsplit.Vert() << artists << releases << songs;
+	menusplit.SetPos(10000 * 3 / 5, 2);
+	songsplit.Vert() << releases << songs;
 	lyricssplit.Vert() << typecasts << archetypes << lyrics;
 	
 	
@@ -363,10 +364,40 @@ void SongEditor::Data() {
 	if (cursor >= 0 && cursor < artists.GetCount())
 		artists.SetCursor(cursor);
 	
-	if (!p.artist)
+	DataArtist();
+}
+
+void SongEditor::DataArtist() {
+	SongDatabase& db = SongDatabase::Single();
+	EditorPtrs& p = EditorPtrs::Single();
+	if (!artists.IsCursor()) {
+		p.artist = 0;
+		p.release = 0;
+		p.song = 0;
+		p.part = 0;
+		DataPage();
 		return;
+	}
 	
+	
+	// Song part of the artist
+	p.artist = &db.artists[artists.GetCursor()];
 	Artist& a = *p.artist;
+	
+	for(int i = 0; i < a.releases.GetCount(); i++) {
+		Release& r = a.releases[i];
+		releases.Set(i, 0, r.native_title);
+		releases.Set(i, 1, r.date);
+	}
+	INHIBIT_ACTION(releases);
+	releases.SetCount(a.releases.GetCount());
+	
+	int cursor = max(0, p.GetActiveReleaseIndex());
+	if (cursor >= 0 && cursor < releases.GetCount())
+		releases.SetCursor(cursor);
+	
+	
+	// Lyrics part of the artist
 	a.RealizeTypecasts();
 	const auto& tcs = GetTypecasts();
 	for(int i = 0; i < tcs.GetCount(); i++) {
@@ -383,39 +414,9 @@ void SongEditor::Data() {
 	if (cursor >= 0 && cursor < typecasts.GetCount())
 		SetIndexCursor(typecasts, cursor);
 
-	
-	DataArtist();
-	DataTypecast();
-}
 
-void SongEditor::DataArtist() {
-	SongDatabase& db = SongDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
-	if (!artists.IsCursor()) {
-		p.artist = 0;
-		p.release = 0;
-		p.song = 0;
-		p.part = 0;
-		DataPage();
-		return;
-	}
-	
-	p.artist = &db.artists[artists.GetCursor()];
-	Artist& a = *p.artist;
-	
-	for(int i = 0; i < a.releases.GetCount(); i++) {
-		Release& r = a.releases[i];
-		releases.Set(i, 0, r.native_title);
-		releases.Set(i, 1, r.date);
-	}
-	INHIBIT_ACTION(releases);
-	releases.SetCount(a.releases.GetCount());
-	
-	int cursor = max(0, p.GetActiveReleaseIndex());
-	if (cursor >= 0 && cursor < releases.GetCount())
-		releases.SetCursor(cursor);
-	
 	DataRelease();
+	DataTypecast();
 }
 
 void SongEditor::DataRelease() {
@@ -578,7 +579,6 @@ void SongEditor::DataPart() {
 	
 	// OLD!!
 	/*
-	TaskMgr& e = *p.song->pipe;
 	PipePtrs& pp = p.song->pipe->p;
 	
 	int cursor = parts.GetCursor();

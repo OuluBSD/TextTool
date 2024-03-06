@@ -1879,3 +1879,9 @@ VectorMap<String,Vector<String>>& GetRoleCompanys(bool unsafe, bool gender) {
 	static VectorMap<String,Vector<String>> v;
 	return v;
 }
+
+void FixOffensiveWords(String& s) {
+	s.Replace(" nigga ", " brother ");
+	s.Replace(" niggas ", " brothers ");
+	s.Replace(" nigga's ", " brother's ");
+}
