@@ -8005,3 +8005,410 @@ noun + noun + possessive
 noun (people)
 noun + preposition + determiner + adjective
 exclamation + noun
+number (possibly a product code)
+adjective (emphasis on "outstanding")
+shortcut
+contraction of "you have"
+contraction of "want to"
+verb+adjective
+adjective?
+time)
+number (possibly a time)
+abbreviation/shortened form
+numerical value
+username/online handle
+preposition/adverb
+interjection/adjective
+size
+name/place
+name/number
+possessive noun phrase
+proper noun/professional
+interjection/ informal greeting
+letter abbreviation
+n/a
+surname/proper noun
+Date
+Adjective
+Abbreviation
+Noun
+Number
+Verb
+int
+interj
+nound
+acronym (What Did You Wear Today)
+acronym (Toimituskunta)
+noun/brand name
+preposition + year
+possessive pronoun + noun + verb
+statement
+nomun
+time duration
+Compound noun
+interrogative
+Phrase
+expression of excitement
+abbr
+address
+numbe
+preposition+possessive pronoun+noun
+preposition+pronoun
+interrogative phrase
+noun/subject
+noun/brand
+noun/description
+noun/nationality
+noun/nickname
+noun/event
+noun/activity
+noun/position
+noun/food
+verb is action
+weekday
+adjective + verb + adverb
+acronym (points)
+noun/genre of music
+proper noun/plural
+adjective/plural
+noun/plural
+neologism
+verb noun phrase
+noun noun
+person
+code)
+acronym for Direct Messages
+acronym for Fiscal Year 2018
+acronym for The Running Festival 2017
+acronym for Arizona Weather
+preposition + acronym
+person's name
+onomatopoeic
+abbreviated phrase
+combination of words
+number/adjective
+username/phrase
+noun - adjective
+symbolismi/luku
+contracted verb
+number + negative modifier
+endearment
+proper noun/verb
+noun/pseudonym
+adverb/interjection
+province
+username/screen name
+event name
+saying/phrase
+Acronym
+Adverb
+Verb phrase
+Prepositional phrase
+Adjective phrase
+name/year
+descriptive
+conditional phrase
+term
+quote
+no translation
+nonexistent
+letter/number
+gadget
+symbol/emoji
+no relevant translation
+null
+pronoun/verb
+jocking: phrase
+adje ctive
+partikkelit
+modal auxillary verb
+word/noun
+nationality
+channel name
+organization name
+not a real word
+alliteration
+translation
+unspecified
+interjection phrase
+name + adverb
+non-existent
+acronym for "Fuck"
+city
+slang expression
+website name
+other
+Arabic phrase
+Spanish term
+numeric
+interjection/expletive
+non-word
+adjecive
+none (no clear meaning)
+exclamatory word
+character string
+product/model number
+number/technical term
+(possible typo?)
+combination of characters
+Proper noun with possesive
+acronym for "The Sports Network"
+proper noun and noun
+acronym for "decibel"
+unicode
+imperative phrase
+acronym/possessive
+compound sentence
+compound word/phrase
+Spanish phrase
+possessive name
+incorrect time
+typo
+amount
+string
+noun/sequence of numbers
+noun/unique
+adjective/unique
+combination of numbers/letters
+non-sensical
+male name
+fictional creature
+money and website
+newspaper
+political figure
+political position
+abbreviation for Social Networking Apps
+mobile app
+music and trademark
+female name
+political strategy
+acronym for "Where We Are" tour
+fictional character and website
+medical condition
+political figure and social uprising
+fraction
+play on words
+identifier
+event
+invented word
+group
+numeral phrase
+noun/contraction
+acronym/number
+proper noun/personal name
+proper noun/business name
+proper noun/nickname
+None
+full phrase
+adjective + adverb + verb
+preposition + noun + preposition + noun
+coined phrase
+adjective + year
+adjective + season
+nonsensical
+adjective and noun
+number/identifier
+text
+acronym (stands for "wife")
+Interjection
+title + proper noun
+German
+acronym noun
+letter/abbreviation
+proper noun/date
+- adjective
+idiomatic phrase
+phrase/acronym
+lemma
+pronoun + verb + verb + adjective
+verb + adjective + noun + preposition + adjective + noun
+acronym + adjective
+acronym for No Justice Crew
+compound word/acronym
+adjecitve
+string of letters
+- noun
+contraction of "should have"
+ethnicity/nationality
+numbered group
+number and characters
+unknown/not applicable
+organization
+descriptor
+names
+food/drink
+business
+industry
+number and day of week
+abbreviation and number
+noun and number
+noun and verb
+verb and proper noun
+noun and noun
+verb and noun
+name/abbreviation
+name/family
+noun/destination
+noun/fruit
+noun/drinks
+acronym (no official definition found)
+randomized string of characters
+verb/noun/adjective
+conjunction/verb
+name + noun
+firearms
+measurements
+clothing
+relationship
+gratitude
+pets
+family
+emotions
+beverage
+music
+attitude
+food
+work
+lifestyle
+entertainment
+preparation
+travel
+mythology
+social media
+verb/verb phrase
+brand/organization name
+nickname/username
+slang + acronym
+proper noun/person name
+social media hashtag
+social media trend
+familial term
+social media handle
+own class
+black: verb
+combination of noun and adjective
+combination of noun and verb
+combination of proper noun + adverb
+acronym and noun
+currency/number
+verb and pronoun
+noun and verb phrase
+adjasi
+number and unit
+invalid character combination
+symboli
+adj
+acronym for "personal video recorder"
+acronym for "database file"
+acronym for a radio station
+acronym for "sales and distribution management"
+acronym for "Royal National Lifeboat Institution"
+phone number
+random
+pronounce
+sports team
+profession
+shortened form
+website
+title/website
+random combination
+occupation/direction
+music genre
+TV show
+prepositio
+word not found
+numeron ja kirjainten yhdistelmä
+numbers and letters combination
+number with misspelling
+URL
+unkown
+abbreviation for Queen's University
+abbreviation for Kingston
+acronym for Facebook
+abbreviation for software
+abbreviation for MTV (Music Television)
+combination of words and number
+restaurant
+town
+actress
+lake
+action
+holiday
+meal
+status
+conference
+airport
+prosthetic name
+conjunction/adverb
+abbreviation for a company
+-
+acronym with text
+phrase/proper noun
+apostrophe + s
+name + noun + year
+name + noun + noun
+name + apostrophe + s
+pronoun + apostrophe + s
+name + verb
+adjective suffix
+acronym + noun + noun
+number + acronym
+proper noun (a street in France)
+adjective (could not find an exact meaning)
+no_translation_available
+abbreviation + noun + noun
+verb + verb + adjective
+adjective + noun + noun + noun
+blank entry
+misspelling of "beats"
+misspelling of "year"
+advertising for a TV show
+misspelling of "armed"
+random number
+name of a mobile app
+username and random number
+adjective and random number
+misspelling of "network"
+misspelling of "one chapel"
+random letter and number combination
+misspelling of "permanent"
+incorrect sentence
+repeated cry
+misspelling of "internalized"
+misspelling of "Senator Warren"
+misspelling of "thank"
+misspelling of "fan"
+misspelling of "minimize"
+misspelling of "education"
+-none- (not a word)
+symbolic
+mixed
+composed
+phrase/declaration
+phrase/motto
+adverbial noun
+hex number
+sound
+untranslatable
+acronym and number
+emotion
+acronym for "bitmap"
+acronym for "50
+acronym for "going to hate"
+acronym for "personal change"
+sentence/phrase
+adverb + pronoun
+proper noun/person
+proper noun/publication
+proper noun/family
+noun/technology
+proper noun/organization
+singular possessive adjective
+adjective + pronoun
+time range
+combination of numeral and preposition
+combination of numeral and time indicator
+combination of numerals and time indicator
+combination of month and year
+combination of numerals and suffix
+numerical expression
