@@ -3225,3 +3225,3015 @@ modified sentence
 quantifier phrase
 multi-partitive sentence
 noun verb sentence
+personal pronoun sentence
+possessive prepositional sentence
+descriptive noun/proper noun sentence
+meaningful sentence
+colloquial expression
+measurement sentence
+namesake sentence
+family tree sentence
+triad sentence
+story title
+gossip headline
+polite request
+possessive title
+list item
+conversation starter
+verb-noun phrase
+adverb-verb phrase
+interjection-noun phrase
+creative sentence
+nested sentence
+enumerated sentence
+sentence with proper noun and username
+sentence with username and adjective
+sentence with acronyms/initialisms
+sentence with interjection and noun
+sentence with direct object and indirect object
+title of informational sentence
+title of sentence with coordinating conjunction
+title of sentence with subordinating conjunction
+sentence with indefinite article and verb
+sentence with abbreviation/proper noun and pronoun
+title of sentence with multiple prepositional phrases
+sentence with determiner and noun phrase
+informative sentence with numbers and abbreviations
+sentence with abbreviations and pronouns
+sentence with multiple pronouns and proper nouns
+sentence with proper noun phrase
+sentence with possessive pronoun and proper noun
+sentence with possessive pronoun and numbers
+sentence with noun phrase, determiner, and preposition
+prepositional phrase title
+sentence with two proper nouns and preposition
+sentence with prepositional phrase and pronouns
+exclamatory sentence with common noun
+sentence with possessive pronoun and possessive noun
+sentence with multiple nouns and proper nouns
+sentence with multiple possessive nouns
+sentence with pronouns and interjections
+sentence with noun phrase and verb phrase
+exclamatory non-sentence
+proper subject sentence
+clause sentence
+proper transitive sentence
+entity-building sentence
+possessive proclitic sentence
+descriptive nominal
+descriptive non-sentence
+proper noun sentence with acronym
+possessive noun sentence
+complex sentence with adverb phrase
+noun phrase sentence with proper nouns
+prepositional verb phrase sentence
+compound sentence with adverbial phrase
+adverb phrase sentence
+adverb phrase sentence with verb phrase
+compound-complex sentence with indefinite article
+possessive sentence with pronoun
+complex sentence with conjunction and noun phrase
+adjective phrase sentence with adjectives
+noun phrase sentence with definite article
+possessive sentence with pronouns
+acronym sentence with numbers
+complex sentence with compound verb
+complex sentence with compound subject and compound object
+complex sentence with determiner
+introductory sentence with proper noun
+compound-complex sentence with interjections and modifiers
+compound-complex sentence with auxiliary verb
+compound-complex sentence with possessive pronoun
+compound-complex sentence with multiple objects
+compound-complex sentence with interjection and modifiers
+communicative sentence
+interrogative-exclamatory sentence
+compound-complex-compound sentence
+piecewise sentence
+classification sentence
+non-declarative sentence
+secondary sentence
+introjection sentence
+subordinate complex sentence
+interjective phrase
+trilateral sentence
+trinocular phrase
+object-centered sentence
+complex implied sentence
+attributive phrase
+pronoun phrase
+symbolic abbreviation
+adjective-action sentence
+list fragment
+object-centered clause
+coordinating phrase
+interjection fragment
+expressible fragment
+academic citation
+family tree
+geographic coordinate
+location
+personal letter
+date and time
+descriptive dialogue
+complex number
+incomplete subject
+sentence with modifying clause
+emotional dialogue
+incomplete predicate
+incomplete object
+noun phrase with numeral modifier
+sentence with multiple adverbial phrases
+compound sentence with parallel structure
+sentence using an acronym
+sentence using an abbreviation and a noun phrase
+conditional sentence with a pronoun subject
+descriptive sentence with adjectives and a proper noun subject
+sentence with a possessive pronoun subject and a proper noun object
+descriptive sentence with a verb and adjective modifying the noun subject
+sentence with multiple adverbs and a proper noun object
+complex compound sentence using various parts of speech
+descriptive sentence with a noun subject and multiple modifiers
+simple sentence expressing emotion
+descriptive sentence with two noun phrases and adjectives
+long and complex sentence with proper nouns and multiple clauses
+descriptive sentence with a noun subject and adjective modifier
+exclamatory sentence with a possessive pronoun and adjective modifiers
+sentence with two proper nouns and a descriptive adjective
+prepositional phrase with an abbreviation
+descriptive sentence with two proper nouns and an adjective modifier
+descriptive sentence with multiple modifiers and a number
+sentence with three nouns and symbols
+descriptive sentence with multiple modifiers and a pronoun subject
+sentence expressing emotion and using an acronym and abbreviation
+sentence with a possessive pronoun and multiple modifiers
+sentence with multiple nouns and a proper noun object
+complex sentence with two objects and multiple prepositions
+sentence with possessive and proper nouns
+complex sentence with multiple objects and a preposition
+sentence with multiple objects and a proper noun modifier
+sentence using a cardinal number
+complex sentence using multiple parts of speech
+sentence with various parts of speech and a number.
+names list or catalog
+pronoun repetition
+numerical expression
+sentence with multiple prepositions
+subject-verb-object-prepositional phrase sentence
+acronym usage
+short form of sentence
+compound sentence with names
+adjective-noun-verb phrase
+independent clause with phrases
+noun-noun-adverb phrase
+abbreviation usage
+prepositional sentence with multiple pronouns
+possessive sentence with proper nouns
+sentence with multiple prepositions and abbreviations
+interjection complex sentence
+quantified noun phrase
+not a complete sentence
+intriguing sentence
+technical compound-complex sentence
+technical complex sentence
+title or header
+title or heading with numbers
+company slogan
+compound descriptive phrase
+title or headline with acronym
+descriptive phrase with adverbial clause
+complex descriptive phrase
+quantity phrase
+complex descriptive phrase with prepositional phrase
+compound phrase
+descriptive phrase with possessive pronouns
+descriptive sentence with personal possessive pronouns
+conversation or dialogue
+company name or title
+list item with proper nouns
+company tagline
+company name with possessives
+descriptive phrase with quantities
+run-on sentence with multiple clauses
+descriptive phrase with proper nouns
+compound descriptive phrase with abbreviations
+descriptive phrase with abbreviated words
+complex sentence with prepositions and interjections
+descriptive phrase with multiple modifiers and articles
+describing a situation
+expressing an action
+mathematical equation
+describing a thing
+identification code
+warning sentence
+greeting or salutation
+organization name
+product or business name
+sentence containing personal details
+specific description
+location or destination
+group or team name
+filler sentence
+exclamation or abbreviation
+specified location
+sentence showing possession
+explanation or definition
+specific quantity or measurement
+inventory list
+simple instruction
+abbreviation code
+organization mission statement
+descriptive action sentence
+detailed sentence
+sentence expressing opinion or belief
+modifying phrase
+subject-verb-interjection sentence
+subject-verb disagreement
+subject-adjective agreement
+object-verb agreement
+superlative sentence
+double-object sentence
+diary entry sentence
+sentence with numbers
+sentence with measurements
+order sentence
+information sentence
+speculation sentence
+descriptive sentence with multiple prepositional phrases
+sentence with a subject-verb agreement error
+compound sentence with a coordinating conjunction
+specialized sentence with abbreviations
+sentence with a syntactic error
+possessive sentence with modifiers
+compound-preposition sentence
+complex-complicated sentence
+intransitive-evaluative sentence
+compound subject-sentence
+simple-compound sentence
+compound clause
+descriptive-compound sentence
+complete phrase
+complex-complex-comedic sentence
+transitive sentence with direct and indirect object
+combined sentence
+non-grammatical sentence
+agreeing sentence
+sentence with two subjects
+commentary sentence
+overly complicated sentence
+critique sentence
+incomplete clause
+engaging sentence
+interwoven names
+series of names
+long title or sentence
+descriptive sentence or title
+personal narrative sentence
+expository sentence
+descriptive sentence about a person or place
+descriptive sentence about an object
+telling sentence
+descriptive sentence about a subject
+descriptive sentence about a feeling
+narrative sentence with multiple clauses
+sentence expressing a sequence of events
+exclamatory action sentence
+imperative sentence with a direct object
+descriptive sentence about a person or thing
+sentence with a conjunction and pronoun
+descriptive sentence with multiple objects
+sentence with a possessive determiner and adjective
+descriptive sentence with multiple verbs and connectives
+expressive descriptive sentence
+action sentence with multiple prepositions
+descriptive sentence with multiple subjects and adjectives
+complex personal sentence with possessive pronouns
+descriptive sentence with multiple adjectives and a preposition
+narrative sentence with multiple verbs and locations
+complex descriptive sentence with multiple parts of speech.
+complex modifying sentence
+complex acronym sentence
+long action sentence
+possessive determiner phrase
+modal title
+noun phrase title
+possessive letter title
+sentence with punctuation
+sentence with apposition
+sentence with a measurement
+possessive sentence with indefinite article
+sentence with mathematical expression
+command sentence with emphasis
+complex sentence with infinitive
+sentence with abbreviation and acronym
+sentence with a location and direction
+sentence with a specified action
+conditional sentence with modal verb
+sentence with a repeating pattern
+sentence with an explanation
+sentence with a structure
+sentence with a process or action
+sentence with a description.
+noun phrase + verb phrase
+adjective phrase + verb phrase
+noun phrase + proper noun
+noun phrase + prepositional phrase
+proper noun + verb phrase
+noun phrase + pronoun + verb phrase
+noun phrase + noun phrase
+noun phrase + adjective phrase
+verb phrase + prepositional phrase
+prepositional phrase + verb phrase
+prepositional phrase + noun phrase
+description of two people
+complex sentence with numbers and abbreviations
+complex sentence with an abbreviation
+complex sentence with a prepositional phrase
+long noun phrase with an acronym
+complex sentence with a proper noun and adjective modifiers
+complex sentence about people
+complex sentence with an interjection
+complex sentence with two adjectives
+complex sentence with possessive pronouns and multiple phrases
+simple sentence about two people or things
+complex sentence with negative verb
+noun phrase with an acronym
+complex sentence with multiple descriptors
+complex prepositional phrase with abbreviations
+complex noun phrase with possessive pronouns
+simple sentence about two things
+complex sentence with a determiner
+complex sentence with numbers and possessive pronouns
+personal list of names
+sentence with prepositions
+descriptive sentence/paragraph
+plural subject sentence
+list with descriptive words
+title/name combination
+letter/symbol combination
+title/sentence combination
+introductory phrase/sentence
+title with multiple elements
+personal noun phrase
+descriptive sentence with pronouns and proper nouns
+sentence with adjectives and verbs
+complex sentence containing symbolism
+sentence with informal language
+complex sentence with interjections and verbs
+complex sentence with modifiers and multiple clauses
+complex sentence with repeated nouns
+complex sentence with multiple modifiers and numbers
+prepositional clause with specific letter
+compound sentence with personal pronouns
+compound sentence with proper nouns and descriptive language
+descriptive sentence with personal pronouns
+complex sentence with multiple symbols and modifiers
+compound sentence with conjunctions and modifiers
+complex sentence with repeated nouns and modifiers
+descriptive sentence with descriptive words
+complex sentence with repeated nouns and pronouns
+complex sentence with multiple modifiers and descriptive language
+sentence with numbers and action words
+complex sentence with possessive language
+descriptive sentence with multiple actions
+complex sentence with interjections and descriptive words
+simple sentence with pronoun
+complex sentence with pronouns and auxiliary verbs
+abbreviated title
+formal identification sentence
+statement of action
+two-word title
+detailed title with numbers
+title with acronym
+explanatory title
+punctuated sentence
+date and quantity title
+descriptive title with verbs
+description with conjunctions
+descriptive title with two subjects
+descriptive title with adjectives and prepositions
+three-word title
+personalized statement
+descriptive paragraph
+detailed title with multiple nouns
+explanation sentence
+two-word title with possessive pronoun
+abbreviated title with numbers
+descriptive sentence with determiner
+descriptive title with improper nouns
+detailed title with verb
+short title
+complex sentence with possessive and definite articles
+prepositional phrase sentence with acronym
+balanced sentence
+compound descriptive sentence with nouns
+complex sentence using numbers and symbols
+sentence with interjection and noun descriptors
+compound-complex sentence with acronyms
+descriptive phrase sentence with articles
+compound sentence with possessives and prepositions
+complex possessive sentence
+adjective phrase sentence with determiners
+interjection sentence with adjectives
+compound-complex sentence with common nouns
+prepositional phrase with adverbs
+dependent clause with proper noun
+complex sentence with slang language
+compound sentence with plural subject
+subordinate clause with pronoun object
+run-on sentence with numbers
+simple sentence with adverb
+dependent clause modifying proper noun
+compound sentence with numerical elements
+compound sentence with adjectives as modifiers
+compound sentence with proper nouns as subject
+lengthy sentence with numerals
+simple sentence with adjective modifier
+compound sentence with acronym and proper nouns
+subordinate clause with possessive
+prepositional phrase as modifier
+prepositional sentence with pronoun object
+example sentence referring to sports teams
+sentence with interjection and acronym
+lengthy sentence with phrases
+complex sentence with repeated acronyms
+complex sentence with adjectives as modifiers
+closed sentence
+brand statement
+abbreviation structure
+possessive noun
+coordinated compound sentence
+dialogue complex sentence
+coordinated compound noun phrase
+participle phrase
+number clause
+exclamatory sentence or acronym sentence
+prepositional phrase or prepositional clause
+exclamatory sentence or list sentence
+complex sentence or abbreviated name
+defining sentence
+prepositional clause or prepositional sentence
+adjective-noun sentence or abbreviation sentence
+compound sentence or named abbreviation sentence
+possessive sentence or letter sentence
+descriptive sentence or list sentence
+appositive sentence or paired sentence
+appositive sentence or compound sentence
+numerative sentence
+fragment/question
+citation
+chronological sentence
+compound sentence with possessive nouns
+title of a research paper or article
+title of a poem
+proverb or quote
+title of a painting or sculpture
+sentence with compound adjectives
+title of historical event or period
+academic title
+family tree title
+title of a blog post
+sentence with descriptive adjectives
+title of a song or album
+title of an essay
+title of a geographical location
+sentence with repeated subjects and objects
+title of a recipe or dish
+title of a biography or autobiography
+title of a magazine or newspaper article
+title or headline sentence
+title or headline sentence with list
+exclamatory sentence with prepositional phrase
+noun phrase with prepositions
+slight
+descriptive sentence with figurative language
+complex sentence with direct address
+simple sentence with adjective clause
+prepositional phrase with adjective clause
+noun phrase with possessive case
+compound sentence with adjective phrases
+compound sentence with noun phrases
+prepositional sentence with verb phrase
+compound-complex sentence with noun phrases
+list sentence with coordinating conjunction
+prepositional phrase with direct address
+complex sentence with adjective clauses and possessive determiner
+prepositional phrase with definite article
+complex sentence with appositive phrase and adjective clauses
+compound sentence with verb phrases and noun phrase
+compound sentence with noun phrase and pronoun
+list sentence with repeated nouns
+complex sentence with noun phrases and interjection
+complex sentence with adjective clauses and adverbs
+descriptive sentence with acronym
+compound sentence with pronouns and proper nouns
+complex sentence with interjection and adjective phrase
+prepositional phrase with adjective phrase
+numerically compound sentence
+sentence with complex subject and modifiers
+lengthy sentence with multiple nouns and symbols
+simple sentence with parallel structure
+sentence with adverbial phrase
+sentence with a particle
+sentence with possessive phrase
+lengthy sentence with multiple symbols and abbreviations
+detailed sentence with multiple nouns and verbs
+sentence with coordinating conjunction
+sentence with adverbial pronoun
+sentence with complex possessive phrase
+sentence with descriptive prepositional phrase
+sentence with multiple symbols and nouns
+detailed sentence with abbreviations and proper nouns
+descriptive and complex sentence
+simple phrase
+sentence with coordinating conjunction and symbols
+expressive sentence with adverbs and adjectives
+descriptive sentence with verb phrase
+lengthy sentence with multiple prepositions and symbols
+sentence with numerals
+expressive and detailed sentence
+sentence with phrases and adjectives
+sentence with coordinating conjunction and dashes
+sentence with abbreviation and descriptive phrase
+sentence with possessive nouns and numbers
+sentence with descriptive and prepositional phrases
+simple sentence with symbols and proper noun
+complex modifier
+alphanumeric code
+complex alphanumeric code
+title with proper nouns
+technological name
+possessive fragment
+financial statement
+code with acronyms
+abbreviation and noun
+date
+prepositional phrase modifying noun
+title with ordinal numbers
+code with numbers
+sequence of nouns and numbers
+declarative sentence with indefinite article
+prepositional phrase with noun phrase
+compound sentence using prepositions
+abbreviation and proper noun
+title with possessive pronouns
+pre-modifier sentence
+post-modifier sentence
+noun + modifiers sentence
+pronoun + verbs + modifiers sentence
+noun with quantifiers sentence
+genitive sentence
+definite noun phrase sentence
+connection sentence
+confusion sentence
+possessive double pronoun sentence
+conjunction phrase sentence
+multiple adjective sentence
+body location sentence
+comparing sentence
+abbreviative sentence
+interjected phrase
+internal sentence
+hyphenated sentence
+nontechnical sentence
+subject-verb-complement sentence
+possessive pronoun + preposition phrase
+concerned sentence
+nominal group
+complex direct object
+autobiographical sentence
+complex sentence with an adverbial clause
+complex sentence with a direct address
+compound sentence with multiple appositives
+complex sentence with an adjective clause
+complex sentence with an adjectival phrase
+compound subject-verb sentence
+compound-complex sentence with an exclamatory clause
+compound-complex sentence with a modal verb
+compound sentence with two adjectives modifying the noun
+compound sentence with place names
+prepositional sentence with place names
+prepositional sentence with a phrasal verb
+compound sentence with an acronym
+complex sentence with a possessive pronoun
+complex sentence with a proper noun as the subject
+prepositional sentence with a proper noun as the object
+compound sentence with an infinitive phrase
+compound-complex sentence with a noun phrase
+compound sentence with multiple countable nouns
+object-verb phrase
+proper noun phrase with numbers and various words
+prepositional phrase with acronym
+noun phrase with various words and symbols
+complex sentence with interjection and multiple nouns/pronouns
+noun phrase with numbers and multiple words
+complex sentence with modal verb and multiple words
+noun phrase with multiple verbs and articles
+compound sentence with adverb and pronoun
+prepositional phrase with proper nouns and multiple nouns
+sentence with various types of pronouns and interjection
+sentence with possessive pronoun and multiple adverbs
+simple sentence with abbreviation
+noun phrase with multiple adjectives and nouns
+sentence with preposition and multiple nouns/pronouns
+noun phrase with multiple verbs and adjectives
+noun phrase with abbreviation and multiple adjectives/nouns
+complex sentence with time element
+compound sentence with multiple pronouns and interjection
+simple sentence with modal verb
+prepositional phrase with numbers and nouns
+complex sentence with multiple pronouns and nouns
+noun phrase with multiple pronouns and nouns
+noun phrase with definite article and multiple nouns
+proper noun phrase with adjectives
+proper noun phrase with multiple nouns and adjectives
+complex sentence with proper nouns and interjections
+prepositional phrase with multiple prepositions and verbs
+complex sentence with compound components
+conjunction with noun phrases
+independent clause with direct object and modifiers
+interjection with modifiers
+complex sentence with contractions
+complex preposition phrase
+bizarre sentence
+count sentence
+location sentence with possessive nouns
+descriptive sentence with indirect object
+descriptive sentence with comparative language
+complex sentence with numerical information
+sentence with object pronoun
+descriptive sentence with possessive adjectives
+sentence with proper noun subject
+location sentence with multiple proper nouns.
+possessive-exclamatory sentence
+appositive-equisite sentence
+absolute phrase sentence
+pronoun-verb sentence
+missing verb sentence
+thematic sentence
+noun-adverb sentence
+correlative sentence
+attributive clause sentence
+conjunction-adverb sentence
+symbolic title
+numerically titled sentence
+implied command
+newspaper headline about local event
+location and time description in a calendar event
+object description in a sales listing
+reflective sentence about a relationship
+conversation between two people
+newspaper headline about a crime
+expression of surprise
+dramatic dialogue in a play
+description of an abstract concept or idea
+suggestion for improvement
+travel itinerary
+cause and effect sentence discussing a current event
+sentence about a person's background or history
+title or heading for a research paper
+sentence about a person's characteristics or personality
+conversation between family members
+list or sequence of events
+sentence describing a problem or issue
+possessive sentence expressing ownership or possession
+exclamatory sentence expressing surprise or emotion
+narrative sentence describing a specific event or experience
+sentence expressing a thought or opinion
+sentence about a person's career or achievements
+headline or heading for a news or magazine article
+sentence describing an object or location
+sentence describing a plan or project
+sentence about a cause and effect relationship in a scientific or academic context
+sentence discussing a statistic or data comparison
+sentence expressing surprise or disbelief
+sentence describing a political or social issue
+sentence about ownership or possession
+sentence describing an action or decision
+sentence discussing a relationship or connection
+sentence describing a process or method
+sentence discussing a specific event or achievement
+sentence discussing a specific field or topic
+sentence describing a scene or setting
+sentence discussing a rule or guideline.
+acronym list
+definite article sentence
+paired conjunction sentence
+complements sentence
+indirect objects sentence
+causative sentence
+title or subject
+paragraph heading or title
+detailed list item
+list or heading
+list or series of nouns
+complex sentence with a participial phrase
+descriptive sentence with an interjection and abbreviation
+series of adjectives modifying a noun
+exclamatory sentence with a fragment
+compound-complex sentence with a symbol and proper noun
+appositive sentence with multiple proper nouns and an adjective
+fragment sentence with a gerund phrase
+prepositional phrase with two proper nouns
+imperative sentence with an adverbial phrase and interjection
+prepositional phrase with a proper noun and a symbol
+complex sentence with a location and a possessive noun
+adjective phrase with a possessive pronoun
+complex sentence with a dependent clause and an auxiliary verb
+compound sentence with a location
+compound-complex sentence with multiple clauses and an interjection
+complex sentence with multiple clauses and a verb
+appositive phrase with a symbol, acronym, and proper noun
+descriptive sentence with two singular nouns
+very complex sentence with multiple clauses, a verb, and a symbol
+descriptive sentence with two proper nouns and multiple nouns
+complex sentence with two verbs and an interjection
+mixed construction
+complex sentence with adjectival clause
+noun phrase with modifiers and subordinating conjunction
+noun phrase with compound noun phrase and prepositional phrase
+noun phrase with appositive and verb phrase
+noun phrase with modifiers and symbols
+adjective phrase modifying noun
+noun phrase with multiple adjectives and pronouns
+complex sentence with modifiers and interjection
+noun phrase with compound noun phrase and descriptive adjective
+prepositional phrase modifying noun phrase
+noun phrase with modifiers and interjection
+prepositional phrase with multiple symbols
+noun phrase with pronoun and verb phrase
+complex sentence with possessive phrase and modifiers
+noun phrase with multiple nouns and modifiers
+complex sentence with multiple modifiers and phrases
+associates sentence
+auxiliary sentence
+sentence with numerical expression
+compound-noun clause
+interjection with proper nouns
+clause with abbreviation
+interjection followed by proper nouns
+complex prepositional phrase with abbreviation
+complex noun phrase with pronoun
+complex noun phrase with acronym
+complex prepositional phrase with multiple parts of speech
+phrase with abbreviation
+noun phrase with compound noun
+complex prepositional phrase with adverb
+complex verb phrase
+compound sentence with verb
+noun phrase with definite article
+complex prepositional phrase with possessive pronoun
+prepositional phrase with abbreviation
+complex noun phrase with number
+adjective phrase with possessive pronoun
+noun phrase with letter
+complex prepositional phrase with adjective
+complex prepositional phrase with verb
+complex prepositional phrase with determiner
+complex verb phrase with adverb
+complex noun phrase with adverb
+complex prepositional phrase with multiple nouns.
+communication sentence
+abbreviated subject sentence
+complex list sentence
+complex sentence with relative clause
+technical descriptive sentence
+progressive sentence
+comparison sentence fragment
+possessive action sentence
+detailed location sentence
+complex listing sentence
+expressive and technical sentence
+introductory descriptive sentence
+technical identification sentence
+complex technical sentence
+possessive technical sentence
+descriptive possessive sentence
+expressive and technical identification sentence
+complex technical identification sentence
+descriptive and quantitative sentence
+connective sentence
+compound sentence with abbreviation
+compound sentence with abbreviation and adverb
+numerical sentence with adjective
+descriptive sentence with noun phrase
+modal clause sentence
+complex sentence with noun phrase and possessive pronoun
+possessive sentence with multiple nouns
+medical sentence with abbreviation
+adjective phrase with multiple clauses
+complex sentence with dependent clauses and phrases
+prepositional phrase with multiple clauses
+compound-complex sentence with dependent clause
+complex sentence with multiple clauses, phrases, and interjections
+prepositional phrase with multiple clauses and phrases
+interjection with descriptive phrases
+subject
+compound number
+sentence with appositive phrase
+description of a noun phrase
+series of interjections
+title sentence with an abbreviation
+description of an acronym
+description of a longer noun phrase
+noun phrase with two nouns
+description of a person
+noun phrase with quantity
+title sentence using verbs
+noun phrase with multiple modifiers and prepositions
+title sentence with an acronym and multiple modifiers
+conjunction phrase
+noun phrase with proper nouns and symbols
+title sentence with an adjective and abbreviation
+complex sentence with a descriptive noun phrase
+sentence with an indefinite article and descriptive noun phrase
+title sentence with an abbreviation and multiple verbs
+action title sentence
+descriptive sentence with an action
+prepositional phrase describing a location
+descriptive adjectival phrase
+verb phrase with article and adjective
+noun phrase with interjections and verbs
+descriptive noun phrase with proper nouns and adjectives
+descriptive noun phrase with pronouns and verbs
+shorthand sentence
+present-tense sentence
+compound word sentence
+conjunctive sentence
+modifying clause sentence
+technobabble sentence
+complex fragment
+long complex prepositional sentence
+full name
+job title
+personal introduction
+location and occupation sentence
+time and location description
+preposition + NP sentence
+preposition + determiner phrase
+descriptive passage
+location description phrase
+sentence about relationship
+sentence about action
+descriptive list
+subject-verb-object word order
+introductory clause
+abbreviatory sentence
+descriptive sentence with modifying clauses
+prepositional fragment
+descriptive sentence with possessive
+location and destination sentence
+possessive sentence with descriptive clause
+descriptive sentence with adverbial clause
+purposeful sentence
+descriptive sentence with adverbial clauses
+characteristic sentence
+numerical sentence with description
+compound and complex-compound sentence
+exclamatory sentence with multiple objects
+title of a list or series
+informative title
+completed sentence
+problem-solving sentence
+list or enumeration sentence
+complex sentence with an appositive phrase
+prepositional phrase in a sentence
+dependent clause with a predicate adjective
+sentence with an embedded appositive
+complex sentence with a participle phrase
+compound sentence with gerund phrase
+noun clause with proper nouns
+modal sentence with compound numbers
+sentence with technical words
+sentence with pronoun repetition
+sentence with shortened words
+sentence with abbreviations
+adjective phrase with possessive and technical words
+noun phrase with pronoun and proper nouns
+complex sentence with interjection and compound words
+complex sentence with proper nouns and abbreviation
+noun phrase with indefinite article and proper nouns
+complex sentence with interjection and definite article
+verb phrase with pronoun and adverb
+prepositional sentence with proper noun
+complex sentence with pronoun and nouns
+sentence with shortened words and antecedent
+sentence with symbols and descriptive language
+verb phrase with pronoun and definite article
+verb phrase with gerund and preposition
+sentence with pronoun repetition and verb tense consistency
+sentence with antecedent and pronoun.
+improper sentence
+noun-based sentence
+modern sentence
+string sentence
+stylistic sentence
+noun phrase list
+verb phrase list
+complex sentence with compound objects
+list of abbreviations
+noun phrase list with acronyms
+descriptive sentence with possessive construction
+noun phrase with an abbreviation and a compound noun
+noun phrase with proper noun and adjectives
+noun phrase list with symbols
+location sentence with a prepositional phrase
+joking statement
+authoritative sentence
+conversational statement
+playful statement
+Object-Subject-Interjection sentence
+location and direction sentence
+incomplete compound sentence
+self-reflexive sentence
+consecutuve adjective sentence
+long and complex noun sentence
+scsi sentence
+descriptive and argumentative sentence
+business sentence
+metric sentence
+descriptive and time sentence
+imperative and descriptive sentence
+travelogue sentence
+exclamatory sentence with purpose
+extended possessive noun phrase
+run-on sentence with proper nouns
+simple sentence with adjectives and pronouns
+sentence with noun phrases and modifiers
+sentence mentioning acronyms and abbreviations
+complex sentence with exclamations and prepositions
+simple sentence with possessive pronouns
+complex sentence with multiple nouns and an adjective
+sentence with verb phrases and symbols
+sentence with interjections and modifiers
+descriptive sentence with a preposition and a proper noun
+sentence with an abbreviation and verbs
+sentence with proper nouns and symbols
+compound sentence with interjections and adjectives
+complex sentence mentioning acronyms and proper nouns
+sentence with adjectives and prepositions
+compound sentence with adverbs and prepositions
+sentence mentioning abbreviations and acronyms
+sentence with interjections and prepositions
+sentence mentioning abbreviations and adjectives
+long compound sentence with multiple modifiers
+sentence with acronyms and verb phrases
+sentence with verbs and symbols
+complex sentence with numerical modifiers
+compound sentence with proper nouns and symbols
+sentence with prepositions and numbers
+postal address
+personal narrative
+noun clause in apposition
+compound number sentence
+numerical descriptive sentence
+compound sentence with subordinating clause
+noun clause in adjective phrase
+complex sentence with compound noun phrase
+noun or conjunction phrase
+parallelism
+symbolic dialogue
+full title format
+clause with proper noun as subject
+dramatic outburst
+detailed address format
+important clause
+pattern noun phrase
+descriptive location title
+possessive command
+object-verb-noun structure
+specific person description
+detailed cause and effect sentence
+numerical list
+important noun phrase
+specific entity description
+specific action statement
+creative headline
+specific location title
+detailed and complex place description
+crucial clause structure
+sentence with proper nouns and abbreviations
+sentence with compound subject
+sentence with abbreviation and determiners
+sentence with compound objects
+sentence with a list of nouns and a definite article
+sentence with a list of nouns and an indefinite article
+sentence with a proper noun and an adjective
+sentence with multiple nouns and an abbreviation
+descriptive sentence with proper nouns and a determiner
+sentence with repeating nouns and proper nouns
+sentence with a modal verb and a list of nouns
+sentence with a complex object
+creative sentence with multiple nouns and an interjection
+sentence with possessive pronouns and proper nouns
+sentence with two verbs
+sentence with possessive nouns
+sentence with a list of nouns and pronouns
+sentence with modifying adverbs
+sentence with a list of nouns and a proper noun
+creative sentence with pronouns and verbs
+sentence with a modal verb and a proper noun
+sentence with a list of proper nouns
+sentence with multiple proper nouns and a descriptive adjective
+sentence with an airport name and descriptive words
+sentence with repeating nouns and a proper noun
+sentence with adjective and verbs
+creative sentence with multiple adjectives and verbs
+sentence with two proper nouns and an adjective
+sentence with compound nouns and a proper noun
+sentence with multiple verbs and an interjection
+sentence with a list of nouns, possessive determiners, and adjectives
+sentence stem
+beginning of sentence fragment
+abbreviation title
+complex descriptive sentence about a group of people
+sentence describing ownership
+sentence expressing emotion
+sentence describing a process
+sentence addressing a specific person or thing
+sentence describing an action
+sentence stating possession
+simple sentence with a conjunction
+complex sentence describing a sequence of events
+sentence describing appearance
+sentence describing a relationship between people or things
+simple sentence with an adverb
+sentence with repetition for emphasis
+sentence expressing a request or suggestion
+complex sentence expressing a complex thought or idea
+complex sentence with repeated pronouns
+complex sentence with symbols and various parts of speech
+complex sentence expressing possession
+complex sentence with possessives and multiple modifiers
+complex sentence with a preposition phrase
+complex sentence with exclamatory sentiment
+complex sentence with abbreviations and multiple parts of speech
+complex sentence describing quantity or measurements
+complex sentence with emotion and symbols
+sentence expressing action or process
+sentence showing possession or ownership
+sentence describing an object or concept
+sentence describing quantity or measurements
+complex sentence addressing a specific person or thing
+long sentence with multiple clauses
+long sentence with repetition and parallel structure
+simple subject-verb sentence
+long descriptive sentence with multiple modifiers
+complex sentence with an acronym and modifiers
+short sentence with numbers
+compound-complex sentence with possessive determiner
+complex sentence with multiple adverbs and modifiers
+long sentence with various parts of speech
+complex sentence with repetition and proper nouns
+basic sentence with numerical words
+fragmented sentence with interjection
+long sentence with multiple parts of speech and numbers
+complex sentence with numerical elements
+descriptive sentence with modal verb
+complex sentence with interjections
+compound-complex sentence with multiple parts
+prepositional sentence with numbers
+compound sentence with numbers and abbreviations
+compound sentence with adverbs
+complex sentence with indefinite articles
+complex sentence with negative verbs
+compound sentence with repeated nouns
+imperative sentence with pronoun
+short imperative sentence
+complex sentence with abbreviated modifiers
+short imperative sentence with symbols
+compound-complex sentence with symbols
+compound sentence with articles
+compound sentence with adverb
+complex sentence with indefinite and definite articles
+nonsensical sentence
+complex sentence with 4 nouns and 2 verbs
+intricate sentence with a numeral
+compound sentence with a number
+complex sentence with adjective and adverb
+long sentence with multiple parts
+intricate sentence with multiple parts
+complex sentence with multiple prepositions and determiners
+mysterious sentence
+complex sentence with possessive determiner and acronym
+complex sentence with interjection and modal verb
+compound sentence with definite article
+compound sentence with definite article and numeral
+compound sentence with numeral and possessive pronoun
+long compound sentence with possessive pronoun
+determiner sentence
+long sentence with multiple coordinating conjunctions
+complex sentence with determiner and verb
+long sentence with possessive pronoun and modal verb
+dependent clause with adjective modifier
+complex sentence with a gerund
+complicated sentence with abbreviations
+sentence with appositives
+sentence with a relative clause
+unique sentence with proper nouns and interjections
+sentence with a predicate
+sentence with a time phrase
+sentence with possessive pronouns
+sentence with a noun phrase and modifiers
+sentence with a subjective complement
+sentence with adverbial phrases and modifiers
+sentence with a definite article
+sentence with an indefinite article
+sentence with two indefinite articles
+sentence with a numeral
+spatial description sentence
+indefinite descriptive sentence
+compound sentence with clauses
+verb phrase with object pronouns
+sentence with intensifiers and interjections
+sentence with acronyms and symbols
+sentence with various clauses
+sentence with modifiers and articles
+sentence with adverbs and adjectives
+conversation sentence
+nominal appositive sentence
+non-finite sentence
+double prepositional sentence
+adverbial clause sentence
+simple sentence with object
+compound sentence with adjectives and a noun
+modal-within-a-prepositional sentence
+long complex sentence with multiple clauses
+modifier phrase
+sentence with interrupted structure
+simple sentence with appositive
+descriptive sentence with compound nouns
+sentence with parallel structures
+descriptive sentence with quantifiers
+short sentence with adverbs
+long and complicated sentence
+sentence describing a person or thing
+compound-complex sentence with repetition
+sentence with compound nouns and hyphens
+sentence with modal verb and prepositions
+complex sentence with action verbs
+descriptive sentence with numbers and compound words
+sentence with exclamation and action
+sentence with complex noun phrases
+suspended subject sentence
+interrupted phrase
+direction sentence
+partial sentence
+grounding sentence
+intensified sentence
+other
+prepositional phrase modifying an adjective
+sentence with numerical descriptions
+full sentence with specific details
+full sentence with abbreviations
+complex sentence with varied elements
+compounded sentence
+verb phrase with adjectives and adverbs
+noun phrase with modifiers and possessive
+prepositional phrase with possessive and adjective
+pronoun-verb combination with contractions
+interjection followed by verb phrase and noun phrase
+parallel structures in a list
+prepositional phrase with symbol and acronym
+prepositional phrase with conjunction
+complex sentence with double prepositions
+sentence with symbols and possessive determiners
+simple sentence with symbols and adjectives
+complex sentence with multiple verbs and adjectives
+sentence with repeated noun phrases
+noun phrase with adjective and repeated noun
+noun phrase with modifiers and abbreviations
+noun phrase with pronouns and prepositions
+verb phrase with auxiliary verb
+verb phrase with abbreviation and possessive pronoun
+verb phrase with interjection and adverbs
+sentence with interjection and noun phrase
+sentence with verb phrase and proper noun
+noun phrase with pronoun and adjectives
+simple sentence with conjunction and noun phrase
+sentence with verb phrase and prepositional phrase
+complex sentence with multiple noun phrases and modifiers
+sentence with proper noun and verb phrase
+complex sentence with noun phrases and conjunctions
+noun phrase with determiners and adjectives
+noun phrase with numeral and symbols
+noun phrase with verb and prepositions
+simple sentence with repeated nouns
+sentence with adverbial clause
+possessive sentence with prepositional phrase
+sentence with adverbial modifier
+sentence with infinitive phrase
+sentence with adverbial phrase and adjective clause
+sentence with numeral and proper nouns
+sentence with symbols and acronyms
+sentence with adjectival phrase and pronoun
+complex sentence with multiple adjectives
+sentence with pronoun subject and object
+sentence with adverbial phrases and superlatives
+sentence with adjective clause and compound nouns
+sentence with interjection and numeral
+sentence with adverb and adjective
+sentence with conjunction and adjectives
+complex sentence with possessives and prepositions
+possessive sentence with modal verb
+sentence with adverbs and verb
+sentence with modal verb and determiner
+proposition sentence
+sentence with negative structure
+sentence with list structure
+joke sentence
+unusual sentence
+sentence with number
+regular sentence
+descriptive and emphatic sentence
+descriptive and prepositional sentence
+compound sentence with a phrasal verb
+compound-complex sentence in regular word order
+possessive sentence with a conjunction
+noun phrase in a list
+underrepresented sentence
+complex compound sentence with a relative pronoun
+simple sentence with a contraction
+long list sentence
+compound sentence with a missing subject
+prepositional sentence with an adjective
+long compound sentence with a conjunction
+compound-complex sentence with an abbreviation
+compound complex sentence with a conjunction
+dependent clause as part of a larger main clause
+linear sentence using different parts of speech
+rhetorical question with a compound structure
+conditional sentence with negative form
+sentence with non-standard punctuation and abbreviations
+simple sentence with a modifier
+sentence with multiple subjects and actions
+basic sentence with plural subject and double verb
+sentence with abbreviation and auxiliary verb
+compound-complex sentence with multiple complex phrases
+parallel sentence with repetition
+appositive sentence with modifiers
+lengthy sentence with various parts of speech and symbols
+list-like sentence with parallel structure
+sentence using an abbreviation and prepositions
+sentence with possessive and descriptive phrases
+sentence with multiple objects and prepositions
+short sentence with repetition
+short sentence with emotion
+sentence with adjective and pronoun
+sentence with adverb and pronoun
+complex adjectival group
+preposition complement
+prepositional complement
+coordinated noun phrase
+complex sentence with interjections and exclamations
+complex sentence with numbers and prepositions
+complex sentence with multiple clauses and descriptive phrases
+complex sentence with negative phrasing
+descriptive sentence with added emphasis
+complex sentence with verbs and possessives
+compound sentence with descriptive words and phrases
+descriptive sentence with action
+complex sentence with prepositions and descriptive phrases
+complex sentence with modal verbs and descriptive phrases
+complex sentence with modal verbs and descriptive words
+complex sentence with multiple verbs and descriptive words
+compound sentence with repeated verb actions
+complex sentence with interjections and pronouns
+compound sentence with multiple verb actions
+complex sentence with numbers and descriptive words
+complex sentence with multiple clauses and various parts of speech
+compound sentence with multiple verb actions and adverbs.
+statement with complex punctuation
+emotional sentence with auxiliary verb
+imperative sentence with interruption
+long sentence with mixed punctuation
+imperative sentence with determiner
+prepositional phrase with numerals
+descriptive sentence with complex structure
+complex sentence with multiple symbols
+sentence fragment with acronym
+short sentence with complex punctuation
+descriptive sentence with pronoun and adjectives
+dependent clause with modifiers
+sentence with numbers and symbols
+sentence with symbols and prepositions
+dependent clause separated by prepositions
+description of a noun
+short sentence with symbols and verb
+sentence with conjunction and pronouns
+sentence with pronoun and verb
+possessive sentence with symbols
+descriptive sentence with multiple clauses
+sentence with dependent clauses and conjunction
+sentence with interjection and symbols
+sentence with a subject-verb agreement
+sentence with multiple prepositions and pronouns
+sentence with possessive adjectives
+sentence with a number and two prepositions
+sentence with a possessive determiner
+compound-complex sentence with an adverbial clause
+prepositional sentence with an article
+sentence with symbols
+compound-complex sentence with symbols and verbs
+sentence with articles and adjectives
+sentence with an indefinite article and a proper noun
+sentence with an adverb phrase
+compound-complex sentence with symbols, nouns, and prepositions
+sentence with a direct and indirect object
+sentence with a direct object and adjective
+compound-complex sentence with a dependent clause
+decimal sentence
+numerical sentence with symbols
+complex sentence with multiple prepositions, nouns, and pronouns
+sentence with a modal verb
+sentence with an acronym and verbs
+sentence with a possessive adjective
+sentence with a direct and indirect object and adverb
+sentence with a direct and indirect object and adjective
+sophisticated sentence with adjectives, verbs, and adverbs
+direct statement
+emotional clause
+technical compound sentence
+complex sentence with multiple verb phrases
+time and date sentence
+descriptive sentence with location
+complex sentence with descriptive clause
+complex sentence with clauses joined by a conjunction
+complex sentence with clauses in different tenses
+descriptive sentence with object compliment
+complex sentence with technical terms and abbreviations
+complex sentence with possessive pronoun and appositive phrase
+compound sentence with action verbs
+prepositional sentence with multiple adverbial phrases
+simple sentence with unspecified subject
+very long sentence
+independent clause with multiple pronouns and adverbs
+complex sentence with multiple adjectives and verbs
+independent clause with proper noun
+complex sentence with interjection and multiple clauses
+complex sentence with possessive pronouns and multiple clauses
+complex sentence with auxiliary verb and pronouns
+complex sentence with multiple prepositions and adjectives
+complex sentence with many modifiers
+complex sentence with possessive determiners
+complex sentence with multiple prepositions and adverbs
+complex sentence with possessive determiner and proper noun
+complex sentence with adjectives and a verb
+independent clause with adjectives and a noun
+complex sentence with a verb and a noun
+complex sentence with a noun and a verb
+complex sentence with an auxiliary verb and a noun
+complex sentence with a verb and a proper noun
+complex sentence with an abbreviation or acronym
+complex sentence with multiple nouns and a verb
+descriptive sentence with measurement quantities
+sentence with emphasis on the pronoun
+sentence with multiple verbs and actions
+sentence with symbols and numbers
+prepositional phrase indicating location or direction
+sentence with symbols and modal verbs
+prepositional sentence with multiple nouns and verbs
+complex sentence with descriptive words and proper nouns
+simple sentence with descriptive words
+sentence with time-related adverbs
+sentence with descriptive words and articles
+sentence describing action and direction
+descriptive sentence with measurement quantities and symbols
+sentence with possessive words
+descriptive sentence with symbols and emphasis on pronouns and verbs
+descriptive sentence with multiple symbols and nouns
+complex sentence with emphasis on pronouns and verbs
+sentence with symbols and adverbs
+expressive and complex sentence with symbols and phrases
+diverse sentence with proper nouns, abbreviations, and exclamations
+descriptive sentence with emphasis on verbs
+pronoun sentence
+outcry
+algebraic equation
+numerically structured sentence
+alphabetical sentence
+object-subject-preposition-preposition-qualifier-noun sentence
+verb structure
+abbreviated nouns
+subject-location sentence
+location-centric sentence
+complex sentence with multiple qualifiers
+organization-based sentence
+relational sentence
+abbreviated verb tense
+descriptive sentence with multiple qualifiers
+location-centric sentence with descriptive element
+descriptive phrase with preposition
+incomplete sentence with verbal elements
+incomplete complex sentence
+descriptive sentence with multiple qualifiers and prepositions
+complicated sentence with multiple verbs and pronouns
+sentence with descriptive adjectives and adverbs
+noun phrase with descriptive elements
+complex sentence with descriptive and possessive clauses
+grammatical sentence structure
+complex sentence with parallel clauses
+compound sentence with possessive clause
+complex sentence with descriptive and location clauses
+complex sentence with numerical and descriptive clauses
+compound-complex sentence with parallel clauses and phrases
+complex sentence with coordinating and modifying clauses
+indirect question sentence
+complex sentence with indirect object
+complex sentence with adjective and noun clauses
+compound sentence with coordinating clauses
+complex sentence with improper noun and acronym
+complex sentence with interjection and pronoun
+complex sentence with location and indirect object
+complex sentence with descriptive and proper noun
+compound sentence with descriptive and verb
+compound sentence with determiners and pronouns
+complex sentence with numeral and phrases
+complex sentence with modal verb and phrasal noun
+compound sentence with descriptive and proper noun
+complex sentence with interjection and multiple nouns
+compound-complex sentence with descriptive and prepositional clauses
+compound-complex sentence with multiple nouns and verbs
+asyndetic sentence
+statement
+sentence with modal auxiliary
+sentence with indirect object
+sentence with compound predicate
+compound-complex sentence with adjective clause
+complex sentence with infinitive phrase
+dependent clause fragment
+independent clause fragment
+prepositional sentence + clause
+simple sentence with proper noun
+compound-complex sentence with modifiers and clauses
+compound-complex sentence with interjection and negative clause
+subject-verb-object sentence with modifiers
+compound-complex sentence with coordinating clause
+complex sentence with modifiers and multiple nouns
+compound-complex sentence with possessive words
+complex sentence with multiple clauses and proper noun
+complex sentence with prefix and modifiers
+prepositional sentence with modifiers and interjection
+compound-complex sentence with modifiers and symbols
+compound-complex sentence with multiple clauses and modifiers
+compound-complex sentence with coordinating and modifying clause
+simple sentence with adverb and proper noun
+compound-complex sentence with negative clause
+compound-complex sentence with modifiers, modal verb, and adverb
+compound-complex sentence with modifiers and possessive words
+complex sentence with multiple phrases and possessive words
+simple sentence with multiple nouns and adverbs
+prepositional sentence with subject-verb-object structure
+compound-complex sentence with prepositional phrase and adverbs
+complex sentence with modifiers and symbols
+complex sentence with modifiers and adjectives
+compound-complex sentence with possessive pronoun and modifiers
+complex sentence with multiple clauses and symbols
+complex sentence with modifiers and proper noun
+complex sentence with modifiers and clauses
+complex sentence with modifiers, pronoun, and proper nouns
+complex sentence with modifiers and coordinating clause
+elaborative sentence
+directive sentence
+compound elaborative sentence
+time adverbial sentence
+nominal clause sentence
+summary sentence
+parallel syntax sentence
+complex elaborative sentence
+descriptive elaborative sentence
+compound-complex possessive sentence
+noun-adjective sentence
+exclamatory descriptive sentence
+compound simple sentence
+unified sentence
+complex long sentence
+adjective-less sentence
+parallel infinitive sentence
+hierarchical sentence
+directive persuasive sentence
+compound misnomer sentence
+parallel direct sentence
+repetitive explanatory sentence
+negative imperative sentence
+hierarchical elaborative sentence
+proper syntax sentence
+object-focused sentence
+preposition-focused sentence
+tense-changing sentence
+monetary sentence
+hybrid sentence
+complex sentence modifier
+third person sentence
+future tense sentence
+extremely lengthy sentence
+complex sentence with abbreviations and symbols
+complex sentence with parallelism
+complex sentence with varying sentence structures
+complex sentence with repeated structures
+complex sentence with possessive nouns
+incomplete sentence with symbols
+long complex sentence with multiple phrases and clauses
+complex sentence with multiple dependent clauses
+long complex sentence with possessive nouns and adjectives
+compound sentence with a list
+descriptive sentence with repetition
+compound sentence with an adverbial clause
+complex sentence with multiple clauses and prepositional phrases
+complex sentence with a compound verb
+sentence with repetition and possessive pronoun
+complex sentence with interjection and abbreviation
+compound sentence with adverbial phrases
+complex sentence with repetition and possessive pronoun
+complex sentence with repetition
+complex sentence with multiple prepositional phrases and conjunctions
+complex sentence with repetition and adjectives
+imperatives sentence
+compound sentence with a numerical phrase
+complex sentence with numbers and multiple clauses
+extremely long sentence
+sentence with numeric elements
+sentence with a pronoun as subject
+exclamatory sentence with possibly a verb
+sentence with negatives
+sentence with abbreviated elements
+sentence with modifiers and adjectives
+prepositional phrase as sentence
+sentence with an acronym and proper nouns
+multiple clauses sentence
+pre-nominal modifier sentence
+multiple verbs sentence
+multiple subject sentence
+indefinite quantity sentence
+noun adjunct sentence
+complex-compound sentence with proper noun
+clause with auxiliary verb
+multiple complete predicate sentence
+long complex-compound sentence
+prepositional phrase sentence with pronoun
+long complex sentence with acronym
+clause with adverbs
+compound sentence with indefinite article
+complex sentence with adverb and noun
+list sentence with interjection
+compound sentence with adjective phrase
+parallel complex sentence
+compound sentence with proper noun and abbreviation
+compound sentence with verb and adjective
+prepositional sentence with adjective
+parallel complex sentence with verbs
+long complex sentence with abbreviation and negative verb
+prepositional phrase sentence with proper noun
+sentence about a proper noun
+pronoun-filled sentence
+topic sentence
+complex sentence about a specific topic
+short and descriptive sentence
+sentence about a person's actions
+detailed and descriptive sentence
+sentence with a list of nouns
+complex sentence with multiple clauses about a specific topic
+brief and expressive sentence
+sentence stating a specific relationship
+long and repetitive sentence
+sentence with details and descriptors
+sentence about a quantity
+sentence about location
+sentence expressing urgency or importance
+sentence with multiple clauses and expressive words
+descriptive sentence with many descriptors
+complex and detailed sentence with many clauses and clauses about multiple topics
+sentence with specific information
+sentence about a series of actions
+sentence with quickly-changing information
+sentence with specific details and descriptors
+long sentence with numbers and specific information
+sentence with multiple clauses and specific details
+sentence with expressive and descriptive words
+noun and adjective sentence
+complex and descriptive sentence
+confusing compound sentence
+attributive adjective
+clause with prepositional phrase
+long complicated sentence
+adjective clause with possessive
+interjection followed by descriptive clause
+multiple noun phrases
+compound sentence with abbreviations and adverbs
+exclamatory sentence with negation
+interjection followed by lists
+compound sentence with multiple clauses and articles
+complex and descriptive sentence using symbols and interjections
+abbreviations and compound words
+list of objects and actions
+emotional exclamatory sentence
+list of objects and descriptions
+sentence emphasizing actions
+descriptive sentence listing actions
+abbreviations and proper nouns
+list of objects, descriptions, and actions
+list of related objects
+complex and detailed sentence
+complex sentence with contraction and adverbial phrase
+descriptive sentence with multiple descriptions
+list of abbreviations and proper nouns
+compound and descriptive sentence
+complex sentence with prepositional phrase and adverbs
+list of related objects with numbers and descriptions
+short form sentence
+sentence with list
+possessive case
+title case
+quotation fragment
+dangling preposition sentence
+compound-relative clause
+predication sentence
+idiomatic adverbial sentence
+tautological sentence
+noun construction
+appositive modifier
+sentence with abbreviations and acronyms
+connecting clause
+stream of consciousness sentence
+coding sentence
+encoded sentence
+coded clause
+secret sentence
+abbreviated clause
+encoded message
+secret code
+complex clause
+coded statement
+technical code
+encoded clause
+classified message
+encoded title
+technical title
+coded message
+complex sentence with subordination
+lengthy, descriptive sentence
+complex, descriptive sentence
+compound sentence with verb phrases
+compound sentence with adverb and noun phrases
+complex sentence with possessive noun
+complex sentence with object complement
+compound-complex sentence with acronym
+complex sentence with appositive phrase and interjection
+complex sentence with possessive adjective and noun
+complex sentence with adverb and prepositional phrase
+compound-complex sentence with adjective and verb phrases
+compound sentence with verb and noun phrases
+complex sentence with multiple verb phrases and acronym
+complex sentence with multiple noun phrases and proper noun
+complex sentence with punctuation and letter
+compound-complex sentence with pronoun and verb phrases
+compound-complex sentence with multiple verb phrases and proper noun
+complex sentence with adverb and adjective clauses
+compound-complex sentence with adjective phrase and acronym
+complex sentence with multiple verb phrases and proper noun
+article sentence
+complex sentence with an exclamation
+parallel sentence with a conditional clause
+compound sentence with multiple names
+compound sentence with an interjection
+descriptive gerund sentence
+compound sentence with multiple main verbs
+compound sentence with multiple objects
+preposition combination sentence
+parallel sentence with multiple adverbs
+exclamatory sentence with a command
+descriptive sentence with an adverbial phrase
+alphanumeric sentence
+question fragment
+modal verb sentence with pronouns
+word pair
+article phrase
+adjective phrase with prepositions
+list sentence with verbs and nouns
+interjection sentence with proper noun
+adverb phrase with verbs
+adjective phrase with modal verb
+word modification
+non-coordinate sentence
+imperative phrase
+complex sentence with embedded clauses
+complex sentence with embedded clauses and coordinating conjunctions
+personal statement sentence
+noun phrase plus prepositional phrase
+conjunction plus adverb phrase
+technical noun phrase
+technical sentence with additional modifying words
+prepositional phrase with definite article plus noun
+complex sentence with descriptive modifiers
+complex-compound sentence with proper noun phrase.
+sentence with different clauses
+appositive sentence with symbols
+complex sentence with interjections and articles
+sentence with ordinal numbers
+incomplete sentence with interjections
+incomplete sentence with prepositions
+descriptive sentence with abbreviations and symbols
+complex sentence with symbols, numbers and adjectives
+predicate nominative construction
+conjunctionless sentence
+dependent clause complex sentence
+reported speech
+noun clause as subject
+compound complex noun phrase
+simplified compound sentence
+proper noun string
+location fragment
+noun phrase as subject
+prepositional phrase with compound subject
+complex sentence with modifier
+location compound sentence
+location noun phrase
+locative clause
+numeric clause
+person's name sentence
+verbal expression sentence
+possessive list sentence
+numeric sequence sentence
+phrase-based sentence
+numeric description sentence
+verb-noun phrase sentence
+possessive description sentence
+emotion expression sentence
+personal information sentence
+structured sentence
+structured list sentence
+pluralistic article sentence
+personal numeric sentence
+descriptive noun sentence
+descriptive preposition sentence
+identification and description sentence
+basic noun sentence
+complex sentence with two subordinate clauses
+complex sentence with prepositional phrase and modal verb
+compound-complex sentence with multiple clauses and phrases
+complex sentence with prepositional phrase and adjective
+compound-complex sentence with multiple clauses connected by conjunctions
+noun list sentence with symbols
+compound-complex sentence with two subordinate clauses
+descriptive sentence with symbols
+prepositional sentence with symbols
+compound-complex sentence with acronyms and proper nouns
+compound-complex sentence with interjection and symbol
+complex sentence with numbers and proper nouns
+complex sentence beginning with conjunction
+phrase with place names
+declarative sentence about time
+lengthy sentence with abbreviations
+phrase with objects
+lengthy sentence with proper nouns
+subject-verb agreement statement
+noun appositive
+allegorical sentence
+multi-adjective sentence
+exclamatory prepositional phrase
+intricate compound-complex sentence
+listed sentence
+elaborate compound sentence
+complex-compound sentence with list
+introductory prepositional phrase
+descriptive sentence with symbol
+specified sentence
+exclamatory sentence with list
+complex sentence with abbreviated elements
+noun phrase with multiple prepositions and articles
+complex sentence with multiple adjectives and prepositions
+descriptive sentence with technical terms and acronyms
+complex sentence with symbols and numbers
+noun phrase with consecutive nouns
+descriptive sentence with specific nouns and verbs
+noun phrase with descriptive adjectives
+prepositional phrase with numbers
+descriptive sentence with ordinal numbers and adjectives
+complex sentence with definite article and proper nouns
+prepositional phrase with indefinite article
+complex sentence with symbols and adverbs
+descriptive sentence with proper nouns and superlative adjectives
+descriptive sentence with specific vocabulary
+simple sentence with symbols
+descriptive sentence with modal verbs
+descriptive sentence with possessive determiners and numbers
+sentence with location and time markers
+quantity sentence
+sentence with a list of items
+sentence expressing surprise or interruption
+complex sentence with multiple adverbs and prepositional phrases
+sentence with multiple definite articles
+sentence with specific order
+sentence with modal verb and location words
+descriptive sentence with quantity and description
+technical quantity sentence
+complex sentence with possessive and indirect object
+sentence with direct object and modifiers
+complex sentence with adverbs and conjunctions
+sentence with multiple articles and prepositions
+complex sentence with specific nouns and adjectives
+sentence with a specific number or quantity
+sentence with pronoun and adjective modifiers
+descriptive sentence with multiple nouns and modifiers
+procedural sentence
+conjunctional sentence
+coded slogan
+numerical address
+expression of possession
+connected statement
+complex statement
+unique expression
+description with location
+listing
+titled relationship
+conditional phrase
+detailed identification
+location descriptor
+conditional phrase with location
+condensed possession statement
+connected description
+connected expression
+detailed contact information
+multiple clauses with location
+detailed description and location
+possession statement
+abbreviated identification
+precise identification
+abbreviated sentence with description
+descriptive location
+encrypted statement
+coded identification
+location indicator
+detailed location
+location with specific item
+accusative sentence
+short compound sentence
+interrogative sentence with modifiers
+long compound sentence with modifiers
+simple sentence with conjunctions
+interrogative sentence with multiple clauses
+complex sentence with proper nouns and modifiers
+long complex sentence with symbols and acronyms
+interrogative sentence with modifiers and preposition
+complex sentence with modifiers and articles
+compound sentence with multiple adverbs
+long compound sentence with abbreviations and pronouns
+simple sentence with conjunction and articles
+complex sentence with adverbs and possessive pronoun
+complex phrase with possessive noun and adjectives
+compound sentence with proper nouns and adjectives
+long compound sentence with symbols, numbers, and adverbs
+long compound sentence with symbols and pronouns
+compound sentence with conjunctions and proper nouns
+chiasmus sentence
+code sentence
+extended subject-verb agreement sentence
+casual conversation sentence
+possessive modifiers sentence
+complex complex-compound sentence
+compound-complex compound sentence
+extended prepositional sentence
+parallel subordinating clause sentence
+compound sentence with inverted word order
+complex compound sentence with multiple phrases
+descriptive sentence with multiple phrases
+descriptive sentence with multiple adverbs
+compound sentence with an ordinal number
+descriptive sentence with repeating words
+descriptive sentence with multiple adverbs and pronouns
+complex sentence with verbs in different tenses
+possessive sentence with numerical values
+descriptive sentence with multiple proper nouns
+descriptive sentence with abbreviated words
+descriptive sentence with numerical values and proper nouns
+descriptive sentence with multiple articles.
+apposition
+idiomatic phrase
+prepositional adverb phrase
+compound possessive phrase
+definite article noun phrase
+sentence with compound preposition
+complex sentence with symbol
+sentence with ordinal number
+sentence with adjectives
+simple sentence with names
+long sentence with conjunctions and adverbs
+sentence with abbreviations and prepositions
+long sentence with acronyms and names
+complex sentence about objects
+short sentence with symbols
+sentence with interjections and numbers
+long sentence with nouns and abbreviations
+sentence with adverbs and abbreviations
+sentence with proper nouns and pronouns
+sentence with prepositions and articles
+long sentence with verbs and adjectives
+sentence with numbers and determiners
+short sentence with symbols and definite articles
+descriptive sentence with verbs and proper nouns
+sentence with pronouns and verbs
+sentence with pronouns and auxiliary verbs
+sentence with interjections and symbols
+sentence with possessive pronouns and nouns
+sentence with adverbs, modal verbs and abbreviations
+numerical prepositional sentence
+run-on sentence with repetition
+compact sentence
+complex sentence with possessive and adjective
+lengthy prepositional sentence
+list sentence with numbers
+complex sentence with numbers and preposition
+complex sentence with abbreviation
+complex sentence with particles
+conditional prepositional sentence
+numerical sentence with pronouns
+descriptive sentence with an interjection
+complex sentence with coordinating conjunctions
+complex compound sentence with multiple numerical elements
+complex-compound sentence with prepositions and conjunctions
+compound sentence with modal verb and abbreviation
+compound sentence with descriptive clause
+complex sentence with multiple adjectives and adverbs
+compound-complex sentence with multiple exclamations and modifiers
+compound-complex sentence with multiple elements and clauses
+complex sentence with multiple pronouns and adjectives
+compound-complex sentence with multiple abbreviations
+complex sentence with possessive and descriptive elements
+complex sentence with multiple adverbs and verbs
+abbreviation list
+headline
+noun modifier
+ordinal phrase
+interrogative phrase
+paragraph
+data sentence
+temporal sentence
+specific sentence
+functional sentence
+qualitative sentence
+pre-modified sentence
+incoherent sentence
+list of items with conjunctions
+simple sentence with proper noun subject
+prepositional phrase with adjective modifier
+noun phrase with quantity descriptor
+shorter sentence with multiple parts of speech
+sentence with multiple proper nouns and an acronym
+noun phrase with adjectives and articles
+sentence with subject and action multiple times
+descriptive sentence with various modifiers
+sentence with subject and multiple objects
+phrase with numerical values
+complex noun phrase with repetition
+long noun phrase with various modifiers
+simple sentence with multiple prepositions
+noun phrase with modifying adverb and articles
+sentence with multiple verbs and proper nouns
+prepositional phrase with multiple nouns and numbers
+sentence with conjunctions, abbreviations, and possessive pronouns
+sentence with singular and plural proper nouns and acronyms
+sentence with conjunction and ordinal number
+simple sentence with conjunction and adverbs
+sentence with abbreviation and days of the week
+prepositional phrase with various modifiers
+sentence with conjunction and interjection
+complex sentence with repetition and modifiers
+sentence with preposition and multiple parts of speech
+numeration sentence
+super complex sentence
+descriptive-argumentative sentence
+negative descriptive sentence
+factual sentence
+compound-interrogative sentence
+complex-exclamatory sentence
+complex-noun sentence
+factual statement
+explanatory-argumentative sentence
+subject-problem sentence
+descriptive-clarity sentence
+compound-argumentative sentence
+debatable sentence
+fictional sentence
+complex-procedural sentence
+descriptive-qualitative sentence
+conditional-procedural sentence
+math sentence
+organization sentence
+categorical sentence
+desiring sentence
+perspective sentence
+categorical phrase
+abbreviated numerical title
+character description sentence
+personal expression sentence
+hypothetical scenario sentence
+date and time sentence
+emotional outburst sentence
+possessive relationship sentence
+opinion sentence
+syntax sentence
+action description sentence
+place description sentence
+list sentence with symbols
+list sentence with phrases
+object description sentence
+event description sentence
+purpose sentence
+subject predicate sentence
+sentence with numerical information
+sentence with a specific quantity
+sentence with specific location information
+sentence with a sequence of actions
+sentence with a specific date or time
+sentence with a specific quantity and location
+sentence with a list of specific quantities
+sentence with a specific quantity and emotional expression
+sentence with subject and modifier
+sentence with a list of actions
+sentence with specific abbreviations and quantities
+sentence with specific names and possessive relationships
+sentence with a specific order
+sentence with a sequence of actions and expression
+sentence with a specific action
+sentence with specific numbers and abbreviations
+complex sentence with a specific action and description
+title/citation sentence
+business letter sentence
+descriptive narrative sentence
+interactive sentence
+statistic sentence
+official document sentence
+location narrative sentence
+ordered instruction sentence
+complex title/citation sentence
+newspaper title sentence
+official title sentence
+extended acronym sentence
+news headline sentence
+instructional title sentence
+command phrase
+shortened phrase
+complex sentence using varied parts of speech
+interjected fragment sentence
+straightforward description
+basic word order sentence
+complex sentence with varied functions
+basic phrase sentence
+grammatically correct sentence with proper nouns
+detailed sentence about people and actions
+event summary sentence
+detailed sentence with varied forms of speech
+descriptive subject verb sentence
+descriptive sentence with emotion
+prepositional fragment sentence
+descriptive sentence with symbols and modifiers
+complex sentence with pronouns and prepositions
+descriptive sentence with varying forms of speech
+short sentence with repeating patterns
+simple sentence with proper nouns
+basic sentence with numbers and adjectives
+detailed sentence with pronouns and determiners
+sentence describing a specific person or thing
+sentence with specific numerical measurement
+descriptive sentence with specific locations
+scientific paper title
+book title
+newspaper article title
+academic article title
+technical report title
+social media post title
+catchy phrase or slogan
+personal email subject line
+travel itinerary title
+instructional document title
+presentation or lecture title
+short story or poem title
+legal document title or section heading
+blog post title
+event or concert title
+product or service name
+brand or product slogan
+magazine article title
+graphic or visual design title
+podcast or radio show title
+biography or autobiography title
+sports game or match title
+academic course or module title
+annual report or summary title
+self-help book title
+memoir or personal story title
+cooking or recipe title
+travel blog post title
+research study title
+financial report or analysis title
+social media caption or post title
+business or organization slogan or tagline
+legal case or law title
+instructional manual or guide title
+financial or data report title
+scientific research or study title
+leading question
+complex sentence containing multiple clauses and symbols
+simple sentence with prepositions
+complex sentence with interjections and symbols
+complex sentence with multiple pronouns and interjections
+complex sentence with multiple prepositions and objects
+complex sentence with multiple clauses and verb tenses
+descriptive sentence with multiple adjectives and symbols
+complex sentence with adverbs and symbols
+complex sentence with adverbs and pronouns
+sentence with acronyms
+headline sentence about a person
+sentence with an adverb and a pronoun
+descriptive sentence with ordinal numbers
+complex sentence with a combination of numbers and adjectives
+descriptive sentence with multiple prepositions and parts of speech
+complex sentence with prepositions and adjectives
+descriptive sentence with an acronym
+complex sentence with a conjunction and an interjection
+complex sentence with multiple adjectives and pronouns
+team ranking statement
+describing a location or event
+location with historical significance
+sentence with various prepositions
+sentence describing a relationship or possession
+description of a personal item or possession
+sentence with determiners and modifiers
+action involving multiple people or entities
+statement about a statistic or number
+sentence with a mixture of modifiers and specific nouns
+sentence with a specific verb and descriptor
+sentence with a conjunction and various adverbs
+title or label for an object or place
+sentence describing a specific location or event
+exclamation or statement about a particular event or problem
+sentence with numerical values and locations
+sentence with a specific amount or value
+label or title for a specific person or group
+statement about a specific person, place, or event
+informative sentence with technical terms
+sentence with a specific structure and parts of speech
+statement with a specific conjunction and symbol
+description of a specific place or event
+sentence with a number and shortened form of a word or phrase
+sentence or exclamation addressing a specific person or group
+sentence with a mixture of adverbs and possessive pronouns
+descriptive sentence about a specific person or event
+sentence describing a specific person or entity with possessive language
+sentence with a specific grammatical structure and negative connotation
+title or label for a specific person, entity, or event
+descriptive sentence about a specific event or situation
+sentence using modal verbs
+informative sentence using abbreviations and technical terms
+sentence with a mixture of adverbs and expressions of emotion
+description of a specific event or location with numerical values
+statement or fact about a numerical value or quantity
+descriptive or informative sentence about a specific event or person with specific numerical values or locations
+non-sentence
+short declarative sentence
+historical sentence
+short prepositional phrase
+mathematical sentence with symbols
+conditional sentence with modifiers
+imperative sentence with modifiers
+long complex sentence with modifiers
+descriptive sentence with multiple articles and modifiers
+descriptive sentence with multiple modifiers and suffixes
+very long complex sentence with modifiers
+complex sentence with multiple modifiers and prefixes
+long complex sentence with multiple modifiers
+complex sentence introduction
+sentence abbreviation
+complex sentence with a possessive phrase
+complex sentence without subject
+descriptive sentence with multiple numbers
+sentence with an abbreviation/acronym
+sentence with a number
+complex sentence with a proper noun
+descriptive sentence with multiple nouns and verbs
+symbol-verb phrase
+sentence using abbreviations and proper nouns
+complete sentence with subject and predicate
+noun phrase with adjectives and prepositions
+sentence with possessive pronouns and articles
+complex sentence with symbols and acronyms
+sentence with symbols and definite articles
+sentence with auxiliary verbs and prepositions
+complete sentence with subject, object, and verb
+noun phrase with specific names
+compound sentence using articles and adjectives
+interjection sentence with symbols
+complete sentence with specific names and descriptive elements
+sentence with prepositions and common nouns
+complex sentence with verbs and adjectives
+complex sentence with proper nouns and pronouns
+compound sentence with modal verbs and adjectives
+complete sentence with subject, object, and adjectives
+complex descriptive sentence with multiple elements
+complex sentence with proper nouns and numbers
+sentence with articles, verbs, and abbreviations
+compound-complex sentence with pronouns and verbs
+sentence with interjections and pronouns
+every-day language
+sentential adverb
+sentence expressing possibility or speculation
+name-action sentence
+possessive-complex sentence
+subordinate compound sentence
+compound-noun sentence
+subordinate-clause sentence
+noun-verb clause
+noun phrase or clause
+prepositional entire sentence
+main-verbal clause
+noun-sentence phrase
+multiple-clause sentence
+common noun sentence
+compound-numerical sentence
+compound-noun phrase
+affirmative sentence
+main-verb clause
+sentence with multiple clauses and phrases
+run-on adjective clause sentence
+adverb clause sentence
+run-on noun phrase sentence
+run-on prepositional phrase sentence
+verb clause sentence
+misplaced modifier sentence
+correlative adjective clause sentence
+subject-verb agreement compound sentence
+compound-complex sentence with numerical elements
+descriptive sentence with numerical elements
+compound-complex sentence with direct speech
+complex sentence with abbreviation and modal verb
+complex sentence with descriptive adjectives and adverbs
+complex sentence with possessive adjectives
+prepositional sentence with proper nouns and multiple nouns
+complex sentence with two proper nouns
+complex sentence with definite and indefinite articles
+interjectory sentence with adverbs
+compound-complex sentence with adverbs
+noun phrase with numerical element
+compound-complex sentence with abbreviations and interjections
+complex sentence with exclamations and definite article
+compound-complex sentence with adverbs and descriptive adjectives
+prepositional sentence with multiple prepositions and definite and indefinite articles.
+direct sentence
+complex sentence with negative auxiliary verb
+long and descriptive compound sentence
+complex sentence with adverb
+descriptive sentence with preposition
+descriptive sentence with possessive and numbers
+descriptive sentence with acronyms and possessives
+complex sentence with pronoun
+convenient sentence
+prepositional object sentence
+prepositional length sentence
+curious sentence
+conversation address sentence
+polite imperative sentence
+informal conversation sentence
+polite request sentence
+prepositional introduction sentence
+descriptive sentence about an action
+coordination clause
+contractions sentence
+multiclause sentence
+subordinate clause sentence
+emotional exclamation
+incomplete sentence or phrase
+description with possessive
+action and reaction
+express feelings and emotions
+location description with indefinite article
+person or object description
+business or organizational name
+mathematical formula
+quotation attribution
+activity with location and time
+giving instructions
+biography or timeline
+setting and description
+expressing time and location
+technical terminology
+scientific notation
+financial report or statement
+sequence of events
+map coordinates
+describing an action or event
+simple sentence with added details
+introduction or first look
+scheduling or calendar
+detailed personal description
+historical or geographical reference
+location and possession
+scientific or technical procedure
+describing a situation or event
+error message or warning
+personal note or diary entry
+story plot or conflict
+personal details or identification
+logo or branding
+postal address or mailing label
+adjectival prepositional phrase
+typographical sentence
+noun and pronoun sentence
+image sentence
+request sentence
+list noun phrase
+call sentence
+personal statement/title
+article title
+journalistic headline
+autobiography title
+journal entry title
+descriptive phrase/title
+short statement
+academic paper title
+warning title
+poetry title
+historical event title
+sequential title
+mathematical title
+title abbreviation
+description title
+thesis title
+fictional title
+creative title
+competitive title
+research paper title
+writing prompt title
+rhetorical title
+forum post title
+event title
+novel title
+organization title
+greeting title
+motivational title
+clause with multiple verbs
+symbol-infused sentence
+sentence with complex punctuation
+sentence with multiple adverbs
+sentence with ordinal numbers and symbols
+compound sentence with multiple adjectives
+title-like sentence
+sentence with possessive and ordinal numbers
+sentence with multiple abbreviations and symbols
+sentence with proper nouns and numbers
+sentence with abbreviations and determiners
+sentence with symbols and punctuation
+sentence with numerals and prepositions
+complex sentence with negation
+incorrect sentence formation
+nominalized sentence
+mathematical phrase
+algebraic expression
+complex sentence with time expression
+noun-sentence
+semi-complex sentence
+sentence with negation
+complex sentence with comparative clause
+noun phrase with adverb modifier
+compound noun phrase with preposition
+semi-complex noun phrase
+noun phrase with numerical information
+complex noun phrase with conjunction
+complex noun phrase with intensifiers
+complex noun phrase with abbreviations
+semi-complex prepositional phrase
+semi-complex sentence with reflexive pronoun
+three-word sentence with number
+semi-complex noun phrase with ordinal number
+complex sentence with reflexive pronoun
+simple sentence with intensifier
+semi-complex noun phrase with auxiliary verb
+semi-complex sentence with abbreviated words
+sentence with acronyms and initialisms
+complex sentence with location and numbers
+complex sentence with multiple proper nouns and acronyms
+numerical description sentence
+verbose sentence
+complex sentence with ordinal number
+prepositional sentence with two objects
+complex-compound sentence with multiple proper nouns
+numbered noun phrase
+descriptive sentence with numerical information
+noun phrase with adjective and verb combination
+prepositional sentence with two nouns
+complex sentence with article and adjective
+verbose sentence with multiple prepositions and nouns
+compound sentence with subject and verb
+compound sentence with possessive pronouns and interjections
+complex sentence with adjective and proper noun
+descriptive sentence with number and pronoun
+complex sentence with letter and adjective
+complex sentence with numbered noun phrase
+descriptive sentence with abbreviation and numeral
+prepositional sentence with symbols and adjectives
+compound-complex sentence with interjections and adjective-noun combination
+verbose sentence with multiple pronouns and verbs
+compound sentence with preposition and nouns
+noun phrase with superlative adjective
+complex-compound sentence with auxiliary verb and pronoun
+prepositional sentence with adjective and interjection
+sentence with auxiliary verb and numeral
+infinitive construction
+time description sentence
+list-appending sentence
+personal description sentence
+personal introduction sentence
+location introduction sentence
+list introduction sentence
+story sentence
+emotional instruction sentence
+extra information sentence
+complex object sentence
+location identification sentence
+business location sentence
+location abbreviation sentence
+time instruction sentence
+location prepositional sentence
+location action sentence
+product code
+language pattern
+complex declarative sentence
+negative simple sentence
+indirect statement sentence
+pronoun agreement sentence
+simple sentence with an appositive
+three-part sentence
+preposition-based sentence
+complex sentence with a verb phrase
+correction sentence
+question
+direct and reported speech sentence
+complex sentence with a clause
+list sentence with modal verb
+compound sentence with interjections
+dialogue or conversation sentence
+noun phrase with modal verb
+complex sentence with lists
+compound sentence with modal verb and multiple clauses
+compound complex sentence with reported speech
+compound complex sentence with lists and clauses
+complex sentence with clauses
+compound complex sentence with a clause
+complex sentence with noun phrases
+compound sentence with multiple clauses and lists
+compound word
+coinage sentence
+quantified sentence
+infinitive with object phrase
+personified sentence
+spatial-temporal sentence
+spatial-relational sentence
+temporal-comparative sentence
+approximate sentence
+temporal-place sentence
+ID sentence
+converted sentence
+clause in a sentence
+sentence with complex phrases
+noun
+sentence error
+sentence with misspelled word
+overly long sentence
+descriptive sentence with numbers and articles
+mixed sentence with abbreviated word
+mixed sentence with pair of abbreviations
+prepositional sentence with adverbs
+fragmented sentence with symbols and parts of speech
+noun phrase with ordinal number
+exclamatory sentence fragment
+abbreviation sentence fragment
+subject-complement phrase
+introducing sentence
+analytical sentence
+scientific article title
+legal case title
+phrase title
+title of statistical report
+title of research study
+personal statement title
+sentence on blog post title
+newspaper opinion piece title
+intriguing title
+medical case study title
+travel blog title
+title of fictional book
+legal document title
+sentence for media campaign
+creative writing title
+intriguing article title
+title of academic paper
+phrase for marketing campaign
+intriguing title for research report
+promotional title for product
+title for academic research
+memoir title
+headline for sports article
+title for historical event
+title for case study in business
+title for legal report
+attention-grabbing title
+headline for political event
+
+complex complex
+expression of frustration
+friendly reminder
+full name declaration
+instruction manual
+recipe
+milestone announcement
+meeting agenda
+compliment
+shopping list
+thesis statement
+police report
+phone number
+love letter
+business email
+persuasive speech
+list of supplies
+job description
+letter of recommendation
+biography
+resume
+address label
+short story title
+first sentence of a novel
+description
+news article
+event date and location
+project proposal
+statistics report
+legal document
+newspaper article
+science experiment title
+command
+title of book
+encouraging phrase
+condition clause
+ordered sentence
+singular sentence
+co-dependent sentence
+location clause
+ordered clause
+personal description
+relation sentence
+personality sentence
+timeline sentence
+imagery sentence
+business phrase
+compound-complex sentence.
+complex sentence with objects and modifiers
+declarative sentence with modal verb
+short sentence with numbers and acronyms
+adjective phrase as a sentence
+simple sentence with adverb modifier
+descriptive phrase as a sentence
+complex-compound sentence with dialogue
+prepositional phrase as a sentence
+quantity phrase as a sentence
+compound subject and object sentence
+mathematic sentence
+possessive phrase as a sentence
+complex sentence with locations
+descriptive sentence with locations
+personal narrative sentence with multiple clauses
+sentence with action and description
+complex-compound sentence with interjection
+descriptive sentence with list and numbers
+personal reflective sentence
+descriptive sentence with time and location
+present-tense sentence with action and location
+complex noun phrase with multiple modifiers
+noun phrase with numerical modifiers
+complete predicate
+complex sentence with modal verb and multiple clauses
+complex sentence with multiple clauses, modifiers, and possessive pronouns
+complex-comound sentence
+sentence fragment or incomplete sentence
+complex sentence with a quotation
+sentence with parenthetical phrase
+sentence with a participle phrase
+sentence with an absolute phrase
+sentence with an ellipsis
+paragraph in a written work
+complex sentence with a complex direct object
+sentence with a negation
+simple sentence with a compound verb
+talking or listening sentence
+descriptive sentence describing a location
+complex sentence with multiple subjects
+descriptive sentence describing a person
+descriptive sentence describing an action
+complex sentence with interjections and modifiers
+complex sentence with numerical information and interjections
+complex sentence with possessive construction and symbols
+complex sentence with descriptive clause and adverbial phrase
+complex sentence with names and modal verbs
+complex sentence with multiple prepositions and a possessive construction
+complex sentence with modal verb and descriptive clause
+complex sentence with slang and multiple parts of speech
+complex sentence with descriptive clause and adverb
+complex sentence with multiple conjunctions and symbols
+simple sentence with indefinite article
+descriptive sentence with multiple adverbs and symbols
+complex sentence with multiple verbs and objects
+complex sentence with multiple prepositional phrases and descriptive clauses
+complex sentence with multiple prepositions and interjections
+descriptive sentence with numbers and possessive construction
+prepositional sentence with descriptive words
+simple sentence with a proper noun as the subject
+complex sentence with multiple phrases and appositives
+complex sentence with repetition and multiple phrases
+complex sentence with multiple clauses and an interjection
+short and complex sentence
+compound sentence with possessive and prepositional phrases
+compound sentence with gerunds and infinitives
+complex sentence with acronyms or initialisms
+sentence with modal verbs
+subject agreement sentence
+compound-complex sentence with possessive determiners
+sentence expressing permission or obligation
+descriptive sentence with two nouns
+descriptive sentence with multiple clauses and verbs
+possessive sentence with ordinal numbers
+sentence with prepositional phrases
+proper noun sentence with abbreviations
+sentence with modifier
+sentence expressing emotion or interjection
+descriptive sentence with abbreviation and adjective
+sentence with multiple action verbs and objects
+sentence with subject-verb agreement
+abbreviatory title
+compound- complex sentence
+mailing address
+greeting in a formal letter
+numbered list item
+meeting invitation
+appointment time and location
+code or password phrase
+date and location
+email address
+business slogan or motto
+person's full name and employment
+full sentence with modifiers
+request or instruction
+possessive sentence 2
+antithetical sentence
+descriptive sentence 2
+prepositional sentence 2
+descriptive sentence 3
+complex sentence 2
+exclamatory sentence 2
+descriptive sentence 4
+prepositional sentence 3
+descriptive sentence 5
+complex sentence 3
+descriptive sentence 6
+descriptive sentence 7
+list sentence 2
+descriptive sentence 8
+descriptive sentence 9
+descriptive sentence 10
+prepositional sentence 4
+descriptive sentence 11
+descriptive sentence 12
+detailed description sentence
+sentence with specific numbers
+sentence with prepositions and adverbs
+list sentence with proper nouns
+descriptive sentence with multiple prepositions and modifiers
+mathematical sentence with adverbs
+complex sentence with different parts of speech
+complex sentence with modifiers and descriptive phrases
+complex sentence with prepositions and acronyms
+interjection + noun + non-verbal expression
+conditional sentence type 2
+bonus sentence
+complex sentence type 3
+complex sentence type 4
+conditional sentence type 3
+complex sentence type 1
+descriptive sentence with compound noun
+subject-verb-adjective sentence with noun phrase modifier
+descriptive sentence with appositive and compound nouns
+descriptive sentence with prepositional phrase and compound nouns
+sentence with object complement
+complex sentence type 2
+compound sentence type 1
+descriptive sentence with letter as subject
+noun phrase with verb and adverb
+coordinating parallel sentence
+descriptive sentence with relative clauses
+specialized title
+descriptive sentence with adjective phrases
+descriptive title with time element
+detailed list sentence
+sentence with modal verb phrase
+sentence with time element and adverbial phrases
+sentence with multiple noun phrases
+sentence with ordinal number and prepositional phrases
+sentence with appositives and prepositional phrases
+subject-verb-object sentence with conjunction
+sentence with adjective phrase and prepositional phrase
+descriptive title with numbered elements
+interjection followed by noun phrase
+declarative conjunction sentence
+caption
+series of adjectives
+coordinating adjective phrase
+coherent sentence
+compound sentence with embedded clauses
+exclamatory expression
+prepositional phrase within a list
+common abbreviation
+numerically modified sentence
+complex sentence (title)
+long complex sentence (title)
+compound sentence (title)
+long descriptive sentence (title)
+descriptive sentence (title)
+adjective-based sentence
+indirect question
+indirect statement
+clause with predicate
+appositive sentence with appositive element
+structure with appositive element
+sentence with multiple elements joined by a conjunction
+sentence describing a symbol
+sentence with multiple descriptive clauses
+location statement
+descriptive sentence with a series of clauses
+complex sentence with multiple clauses and lists
+adjective-heavy sentence
+possessive location sentence
+written conversation sentence
+sentence with a prefixed verb
+complex numerical sentence
+numerical sentence using letters
+sentence describing an action by a specific person or place
+complex descriptive sentence with multiple prepositions
+possessive personal sentence
+dialogue sentence between multiple people
+compound-complex sentence with acronyms and prefixes
+compound sentence with acronyms and abbreviations
+complex sentence with ordinal numbers and proper nouns
+complex sentence with compound nouns and symbols
+complex sentence with an adjective and proper noun
+prepositional sentence with adjectives and proper nouns
+complex sentence with an acronym and adverbs
+compound-complex sentence with adjectives and interjections
+very long complex sentence with modals and symbols
+compound-complex sentence with pronouns and proper nouns
+complex sentence with modals and proper nouns
+very short complex sentence
+simple sentence with modals
+compound sentence with adjectives and an acronym
+complex sentence with prepositions and abbreviations
+noun phrase sentence with an adverb
+very long complex sentence with symbols and proper nouns
+short complex sentence with proper nouns
+complex sentence with superlatives and adverbs
+long complex sentence with proper nouns and adverbs
+complex sentence with pronouns and abbreviations
+complex prepositional sentence with proper nouns and an interjection
+complex sentence with a verb and adjectives
+internet slang sentence
+dialog sentence
+proper name sentence
+prefix sentence
+proper noun compound sentence
+complex sentence with abbreviation and acronym
+proper noun simple sentence
+complex sentence with acronym and proper noun
+prepositional compound-complex sentence
+compound sentence with acronym and interjection
+complex sentence with noun and acronym
+compound-complex sentence with modal verb
+compound-complex sentence with abbreviation
+prepositional sentence with abbreviation
+complex sentence with pronoun and preposition
+proper noun standalone sentence
+prepositional compound sentence with proper adjective
+prepositional compound sentence with adjectives
+compound-complex sentence with abbreviation and proper noun
+simple prepositional sentence
+compound-complex sentence with number
+compound-complex sentence with noun and preposition
+compound-complex sentence with numeral and preposition
+noun standalone sentence with adjectives
+compound sentence with proper noun and verb
+prepositional compound sentence with proper noun
+proper noun subject sentence
+introductory phrase sentence
+adverb-heavy sentence
+multiple adjectival modifiers sentence
+noun-heavy sentence
+compound-complex sentence with dialogue
+interjection-heavy sentence
+prepositional phrase-heavy sentence
+multi-syllabic proper nouns sentence
+verb-heavy sentence
+word-heavy sentence
+abbreviation-heavy sentence
+verb-heavy sentence with interjection
+dependent clause-heavy sentence
+grammatically complex sentence
+noun-heavy sentence with action
+time and place sentence
+emphasis on location sentence
+sentence as abstract noun
+subject-verb-heavy sentence
+sentence complex
+descriptive interjection sentence
+complex definite article sentence
+complex numbered sentence
+complex abbreviated sentence
+prepositional sentence fragment
+sentence made of acronyms
+adjective noun phrase sentence
+complex adverb phrase sentence
+simple noun phrase sentence
+incorrect sentence
+number sequence
+subordinating adjective clause
+subordinate, modified sentence
+dependent, coordinating sentence
+repeated verb sentence
+noun-noun-noun clause
+wordier sentence
+awkward sentence
+exclamatory clause
+sentence with an abbreviation
+meaningless sentence
+interrogative sentence with a list
+sentence with numbers and adverbs
+descriptive sentence with prepositions and adjectives
+sentence with prefixes
+sentence with proper nouns and numerals
+exclamatory sentence with interjections
+sentence with collective nouns and adjectives
+sentence with verb phrase and adverbs
+sentence with infinitive phrase and prepositions
+sentence with prepositions and symbols
+complex sentence with multiple symbols, pronouns, and prepositions
+sentence with symbols and verbs
+sentence with mixed parts of speech
+descriptive sentence with adjectives and nouns
+sentence with object and adjectives
+long sentence with multiple actions happening simultaneously
+complex sentence with repeating nouns and symbols
+short sentence with specific details
+sentence referring to specific entities or concepts
+sentence with punctuation used for emphasis or to set apart information
+long sentence with multiple nouns and adjectives
+sentence with abbreviated words and conjunction
+long sentence with various parts of speech, possessive nouns, and numbers
+sentence with auxiliary verbs and abbreviated words
+sentence with specific actions and prepositions
+complex sentence with multiple verbs and prepositional phrases
+sentence with specific details and descriptive words
+sentence with specific numbers and abbreviated words
+sentence with specific details and a singular letter
+sentence with multiple adjectives and prepositions
+sentence with specific actions and a noun
+long sentence with multiple nouns and a verb
+complex sentence with specific details and repeating words
+complex sentence with multiple nouns and a verb, and an abbreviated word
+long sentence with multiple modifiers and specific terms
+complex sentence with prepositions and symbols
+titular sentence
+excerpt sentence
+mixed-complex sentence
+flowing sentence
+symbollic sentence
+possessiveness sentence
+illustrative sentence
+connected sentence
+descriptive listing sentence
+complex-numerical sentence
+listing proper sentence
+purpose clause
+business letter greeting
+business email header
+reflexive clause
+telephone number
+Job title and company name
+credit card number
+instructions
+greeting
+listing items
+statement of purpose
+sentence with symbols and modifiers
+complex sentence with subordinating elements
+title of a sentence
+sentence with coordinating conjunction and modifiers
+complex sentence with symbols and prepositions
+sentence with numbers or codes
+title or label for a sentence or phrase
+descriptive sentence with alphanumeric elements
+sentence with symbols and pronouns
+sentence with pronouns and letters
+title or label for a sentence with proper nouns and adjectives
+long sentence with multiple nouns and prepositions
+sentence with symbols, nouns, and numbers
+sentence with pronouns and possessive elements
+sentence with verbs and adjectives
+long sentence with symbols, adjectives, and proper nouns
+long sentence with proper nouns and descriptive elements
+complex sentence with coordinating elements and acronyms
+sentence with conjunctions and possessives
+sentence with nouns and numbers
+sentence with pronouns and modifiers
+sentence with pronouns and symbols
+descriptive sentence with proper nouns and modifiers
+complex sentence with pronouns and modifiers
+direct speech
+list or directory
+Spanish sentence or phrase
+noun phrase followed by verb phrase
+complex sentence or description
+descriptive phrase or clause
+noun clause or phrase
+descriptive or narrative sentence
+complex sentence or descriptive phrase
+noun phrase or descriptive sentence
+descriptive sentence or phrase
+two independent clauses joined by a conjunction
+direct speech sentence
+abbreviation + proper noun
+very long and complex sentence
+very long compound sentence
+long declarative sentence
+very long declarative sentence
+extremely long and complex sentence
+hyphenated compound sentence
+prepositional-phrase sentence
+predicate-nominative sentence
+phrase fragment
+numerical structure
+time expression sentence
+correlative conjunction
+proper noun list
+ordinal list
+title with numbers
+complex sentence with relative clauses
+title with punctuation
+sentence with gerunds and infinitives
+sentence with modals
+title with possessives
+sentence with interjection addressing a proper noun
+descriptive sentence with multiple elements
+interrupting clause
+brief descriptive sentence
+multi-part verb phrase
+highly complex noun phrase
+short sentence with compound verb
+simple sentence with prepositional phrase
+complex sentence with symbols
+highly descriptive sentence
+action sentence with indirect object
+action sentence with prepositional phrase
+sentence with symbol and repeated nouns
+sentence with symbol and adjectives
+expressive sentence with symbols
+sentence with prefix and compound nouns
+sentence with auxiliary verb
+sentence with two adjectives
+sentence with multiple symbols
+long sentence with multiple prepositional phrases
+simple exclamation sentence
+lengthy sentence with multiple verbs
+very complex sentence
+sentence with symbol and prepositions
+prefix phrase
+complex sentence with coordination
+prepositional phrase with compound nouns
+complex sentence with clauses and phrases
+noun phrase with prefixes
+compound sentence with verb repetition
+noun phrase with adverbs and numerical modifiers
+noun phrase with multiple adjectives and a symbol
+prepositional phrase with possessive modifiers
+complex sentence with adverbial modifiers
+complex sentence with interjections and nouns
+complex sentence with pronouns and noun modifiers
+noun phrase with adverb and prefix modifiers
+complex sentence with modals and noun modifiers
+noun phrase with auxiliary verbs
+complex sentence with proper nouns modifying pronouns
+noun phrase with proper nouns and adjectives
+noun phrase with adverbial and noun modifiers
+noun phrase with negative modifiers
+noun phrase with multiple clauses and proper nouns
+compound noun phrase with abbreviations
+prepositional phrase with articles and adjectives
+compound-complex sentence with verb repetition and pronouns
+complex sentence with multiple clauses and verb phrases
+prepositional phrase with compound nouns and adjectives
+prepositional phrase with compound nouns and symbols
+quantifier sentence
+she said she was cold
