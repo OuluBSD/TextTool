@@ -254,8 +254,8 @@ void TaskManager::DoWordFix(int ds_i, int fn) {
 }
 
 void TaskManager::DoWords(int ds_i, int fn) {
-	if (IsInTaskList(TASK_WORD_DATA))
-		return;
+	//if (IsInTaskList(TASK_WORD_DATA))
+	//	return;
 	
 	SocialDatabase& db = SocialDatabase::Single();
 	ProgramData& sd = db.program_data;
@@ -273,8 +273,8 @@ void TaskManager::DoWords(int ds_i, int fn) {
 }
 
 void TaskManager::DoWordnet(int ds_i, int fn) {
-	if (IsInTaskList(TASK_WORDNET))
-		return;
+	//if (IsInTaskList(TASK_WORDNET))
+	//	return;
 	
 	PromptOK("TODO");
 	return;
@@ -295,8 +295,8 @@ void TaskManager::DoWordnet(int ds_i, int fn) {
 }
 
 void TaskManager::DoAttributes(int ds_i, int fn) {
-	if (IsInTaskList(TASK_ATTRIBUTES))
-		return;
+	//if (IsInTaskList(TASK_ATTRIBUTES))
+	//	return;
 	
 	SocialDatabase& db = SocialDatabase::Single();
 	ProgramData& sd = db.program_data;

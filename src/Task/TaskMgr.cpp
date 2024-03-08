@@ -95,6 +95,18 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_LyricsSolver)
 		;
 	
+	AddRule(TASK_STORY_SOLVER, "story solver")
+		.Input(&Task::CreateInput_StorySolver)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_StorySolver)
+		;
+	
+	AddRule(TASK_GET_PROGRAM_DATA_ANALYSIS, "lyrics solver")
+		.Input(&Task::CreateInput_GetProgramDataAnalysis)
+			.Arg(V_ARGS, 1, 1)
+		.Process(&Task::Process_GetProgramDataAnalysis)
+		;
+	
 }
 
 void TaskMgrConfig::Load() {
@@ -426,11 +438,35 @@ void TaskMgr::GetLyricsSolver(const LyricsSolverArgs& args, Event<String> WhenRe
 }
 
 void TaskMgr::GetStorySolver(const StorySolverArgs& args, Event<String> WhenResult) {
-	TODO
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	const TaskRule& r = mgr.GetRule(TASK_STORY_SOLVER);
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
 }
 
 void TaskMgr::GetProgramDataAnalysis(const ProgramDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
-	TODO
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	const TaskRule& r = mgr.GetRule(TASK_GET_PROGRAM_DATA_ANALYSIS);
+	TaskMgr& p = *this;
+
+
+	String s = args.Get();
+
+	task_lock.Enter();
+	Task& t = tasks.Add();
+	t.rule = &r;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	t.keep_going = keep_going;
+	task_lock.Leave();
 }
 
 

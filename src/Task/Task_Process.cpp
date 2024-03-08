@@ -93,3 +93,11 @@ void Task::Process_GetNanaData() {
 void Task::Process_LyricsSolver() {
 	WhenResult(output);
 }
+
+void Task::Process_GetProgramDataAnalysis() {
+	WhenResult(output);
+}
+
+void Task::Process_StorySolver() {
+	WhenResult(output);
+}

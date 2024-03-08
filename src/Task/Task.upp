@@ -15,6 +15,7 @@ file
 	Tasks.h,
 	Tasks.cpp,
 	Task_CreateInput.cpp,
+	Task_CreateInput_Social.cpp,
 	Task_Process.cpp,
 	TaskAbstraction.h,
 	TaskAbstraction.cpp,

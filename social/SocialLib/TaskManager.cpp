@@ -155,7 +155,7 @@ bool GetTypePhrase(Vector<int>& types, const DatasetAnalysis& da, int next_w_i, 
 			}
 			
 			if (!found)
-				return false;
+				class_i = ew.classes[0];
 		}
 		else {
 			class_i = ew.classes[0];

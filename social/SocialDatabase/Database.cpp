@@ -21,14 +21,14 @@ String SocialDatabase::GetProgramsDir() const {
 }
 
 void SocialDatabase::Store() {
-	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json", true);
+	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "social_db.json", true);
 }
 
 void SocialDatabase::Load() {
 	Clear();
 	
 	lock.EnterWrite();
-	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json");
+	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "social_db.json");
 	lock.LeaveWrite();
 	
 }
