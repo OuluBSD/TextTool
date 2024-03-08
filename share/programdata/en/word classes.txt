@@ -8412,3 +8412,140 @@ combination of numerals and time indicator
 combination of month and year
 combination of numerals and suffix
 numerical expression
+adverb/conjunction
+abbreviation for Nebraska
+abbreviation for technology
+abbreviation for Nevada
+abbreviation for Texas
+abbreviation for park
+abbreviation for conference
+abbreviation for United States of America
+adjective/determiner
+adverb/preposition
+Greek letter organization
+hyphen
+definitive article
+comma
+semicolon
+noun (slang or colloquial usage)
+noun (possibly a slang or colloquial usage)
+slang or abbreviation
+dash
+lowercase noun
+slash
+quotation
+abbreviation/spelling
+coordinating conjunction
+intensifier
+colon
+question mark
+noun/genitive
+noun/gerund
+interpolation
+transitive verb
+closing parenthesis
+parenthesis
+ellipsis
+vulgar slang
+pronoun (subject)
+symbol (letter)
+acronym (for "fuck your mom")
+acronym (for "laugh out loud")
+noun (x could represent a person's name or a number)
+noun (xd could represent a laughing emoji)
+acronym (for "laughing my fucking ass off")
+honorific
+month name
+month abbreviation
+contraction of verb "cannot"
+exclamation mark
+caret
+at sign
+month
+punctuat
+punctuation (hyphen)
+noun (symbol)
+noun/symbol
+at symbol
+underscore
+preposition.
+misspelled noun
+noun (informal slang)
+number (idiom)
+noun (initials)
+informal verb
+negative auxiliary
+negative
+letter (noun)
+acronym (adverb)
+symbol (period)
+time (adjective)
+punctuation mark (exclamation)
+interjection (abbreviation)
+hashtag (symbol)
+proper noun (day of the week)
+abbreviation (month)
+verb (acronym)
+symbol (comma)
+adjective (abbreviation for "literally")
+interjection (acronym for "what the f*ck")
+proper noun (month)
+verb (acronym for "go to f*ck")
+noun (family)
+interjection (acronym for "laughing my ass off")
+noun (abbreviation for "years")
+adjective (spell check error)
+symbol (caret)
+symbol (pound)
+verb (modal)
+noun (made up word)
+symbol (semicolon)
+adjective (suffix)
+abbreviation for "please"
+noun (physical barrier)
+verb (brand name)
+short form noun
+noun (plural proper)
+noun (the letter)
+verb (contraction)
+noun (abstract)
+cardinal noun
+demonstrative determiner
+noun (abbreviations)
+noun (internet address)
+noun (numbers)
+adverb (misspelling)
+symbol/mention
+demonym
+tilde
+equality symbol
+hyphenated word
+company/brand name
+hyphenated prefix
+caret symbol
+noun (lastname)
+noun (occupation)
+auxiliary verb (contraction)
+verb (misspelling)
+equal sign
+less than symbol
+day
+present tense verb
+masculine noun
+directional noun
+noun (likely referring to North Korea)
+noun (likely a vulgar slang term for the female genitalia)
+verb (-ing form)
+noun (likely derogatory terms)
+noun (possibly referring to Massachusetts)
+infinite
+demonstrative adjective
+quotation marks
+unclassified
+noun (phone number)
+third person pronoun
+subject pronoun
+proposition
+plus sign
+handle
+abbreviation for tuberculosis or "to be"

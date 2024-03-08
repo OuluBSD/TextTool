@@ -30,3 +30,137 @@ independent sentence
 expressive sentence
 sequential sentence
 ownership sentence
+compound-complex sentence
+simple sentence
+declarative sentence
+imperative sentence
+interjection sentence
+sentence fragment
+interrogative sentence
+title
+sentence
+non-applicable sentence
+clause
+a sentence with two or more independent clauses joined by a coordinating conjunction
+sentence with a verb-NOUN form
+sentence with a descriptive phrase
+sentence with a subject-NOUN form
+sentence with two simple clauses and a double object
+a sentence with two or more independent clauses and at least one dependent clause
+sentence with a descriptive clause
+sentence expressing strong emotion
+sentence with a clause as the subject or object
+sentence with ownership shown through a possessive phrase
+sentence with a series of items or ideas
+sentence with a phrase starting with a preposition
+sentence with multiple independent clauses improperly joined
+sentence with an adverbial phrase
+sentence showing possession of something
+sentence with ownership shown through a possessive, joined by a conjunction
+sentence with a reflexive pronoun as the subject
+sentence with two independent clauses joined by a coordinating conjunction and a title before or after the sentences
+sentence with two independent clauses and a simple noun phrase as the object or subject complement
+sentence with a proper name as the subject or object
+sentence showing ownership of something
+sentence with the object-noun form as the subject
+sentence with a proper name and a simple noun as the subject or object
+sentence with two possessive forms, one modifying the other
+a sentence with a single independent clause and a noun phrase as the subject or object
+sentence with an object-noun form
+a sentence with an independent clause and at least one dependent clause
+sentence with a single independent clause and a simple noun phrase as the subject or object
+sentence with an infinitive as the subject or object
+sentence showing possession and a simple noun phrase as the subject or object
+sentence with a simple noun phrase and a modified noun phrase
+sentence with a descriptive clause and a simple noun phrase
+sentence with an object-noun form as the indirect object
+sentence with a missing subject or verb, a possessive sentence, and an interjection phrase
+sentence with an object-noun form and a complex sentence
+sentence with a descriptive phrase for a city and a simple noun phrase as the subject or object
+sentence with an object-noun form as the indirect and direct objects
+sentence with a list of items or ideas and a proper noun as the subject or object
+sentence with an abbreviation as the subject or object
+sentence with a surname as the subject or object
+sentence with an acronym as the subject or object
+incomplete sentence missing a subject or verb
+contains two or more independent clauses joined by a coordinating conjunction
+typically serves as the subject or object of a sentence
+sentence with two noun phrases
+contains an independent clause and at least one dependent clause
+sentence with two noun phrases and a dependent clause
+sentence with an adverbial phrase modifying the independent clause
+contains two or more independent clauses and at least one dependent clause
+noun or noun phrase that renames or explains a nearby noun
+sentence with three noun phrases
+sentence that includes numbers and mathematical expressions
+noun phrase that contains multiple nouns
+sentence with two noun phrases joined by a preposition
+sentence with two clauses joined by a coordinating conjunction and a noun phrase
+sentence that contains a list of items or ideas
+contains only one independent clause
+expresses strong emotion or emphasis
+sentence with noun phrase and a coordinating conjunction joining two independent clauses
+sentence that expresses strong emotion or surprise
+sentence that provides details or characteristics about a subject
+asks a question
+sentence with subject, verb, and object in that order
+sentence that repeats one or more interjections for emphasis
+shows relationships between words and/or modifies a nearby noun or verb
+combination of a complex and simple sentence
+modifies a nearby noun or pronoun
+a descriptive statement followed by a complex sentence
+sentence that repeatedly uses one or more interjections
+combination of a descriptive sentence and a complex sentence
+sentence that begins with a prepositional phrase
+sentence with a noun phrase and a compound sentence
+sentence with a proper noun and a descriptive modifier
+two consecutive exclamatory sentences
+combination of a complex sentence and a noun phrase with a conjunction
+sentence with subject and verb only
+combination of a fragmented sentence and a numerical sentence
+sentence with a simple noun phrase and two subordinate clauses
+complex sentence with multiple clauses
+complex sentence with a dependent clause
+subordinate sentence
+sentence with a possessive noun or pronoun
+sentence with a single independent clause
+sentence with multiple noun phrases joined by a conjunction
+sentence with an independent clause and at least one dependent clause
+sentence with two or more independent clauses joined by a conjunction
+sentence with an adverbial phrase modifying a noun phrase
+sentence with a basic sentence structure and a stand-alone phrase
+incomplete sentence with a direct object
+complex sentence with multiple clauses and a simplified noun phrase
+standalone sentence
+sentence with two noun phrases joined by a conjunction and a compound sentence
+sentence with two independent clauses joined by a conjunction and a simplified noun phrase
+sentence with an interjection expressing emotion or interruption
+sentence with an independent clause and a simplified noun phrase
+standalone phrase with a noun as the main component
+sentence with a dependent clause and a noun phrase
+sentence with two independent clauses joined by a conjunction
+incomplete sentence with a noun phrase
+sentence with a dependent clause and a simplified noun phrase
+sentence with a standalone phrase and a complex sentence used as a title
+sentence with two or more independent clauses missing proper punctuation
+phrase beginning with a preposition
+standalone phrase with a noun as the main component and no modifying words
+incomplete sentence with two noun phrases
+incomplete sentence with a single word followed by a sentence fragment
+phrase beginning with an adverb
+sentence with a noun phrase and a simple sentence
+sentence with a complex sentence and a simple sentence
+complex sentence with multiple clauses and an independent clause
+sentence beginning with a preposition
+incomplete sentence with a noun phrase and an imperative sentence
+sentence with two noun phrases listed together
+sentence with a complex sentence and a simplified noun phrase
+list sentence beginning with a noun phrase with no modifying words
+clause modifying a noun
+emotional sentence
+question sentence
+transitive sentence
+fragment sentence
+proper noun sentence
+numerical sentence
+gerund sentence
