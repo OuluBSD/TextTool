@@ -1,4 +1,4 @@
 **/*.core
 *.core
 share/SongData.json
-
+share/songdata/**
