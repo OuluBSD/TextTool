@@ -6237,3 +6237,123 @@ prepositional phrase with compound nouns and adjectives
 prepositional phrase with compound nouns and symbols
 quantifier sentence
 she said she was cold
+clause with symbols
+unstructured sentence
+prenominal sentence
+lyrical sentence
+heading sentence
+definitive sentence
+emphatic exclamation sentence
+moving sentence
+second-person sentence
+academic sentence
+diagrammed sentence
+compound sentence with direct address
+compound sentence with interrupters
+sentence with proper noun as object
+sentence with adjective-noun phrase
+sentence with verb and object
+sentence with repeating pronouns
+sentence with definite and indefinite articles
+sentence with compound noun
+sentence with determiner and numeral
+sentence with interjection and object
+sentence with abbreviation list
+sentence with adjective and prepositional phrase
+sentence with adjective and abbreviation
+sentence with adverb and possessive noun
+sentence with adjectives and adverbs
+sentence with conjunction and verbs
+sentence with phrases and acronyms
+sentence with adjectives and pronouns
+sentence with verb and adverb phrases
+complex sentence with multiple conjunctions
+complex sentence with descriptive adjectives
+complex sentence with descriptive adverb
+compound-complex sentence with descriptive adjective
+possessive sentence with names in it
+exclamatory sentence with descriptive words
+noun phrase with descriptive adjective
+complex sentence with possessive words
+compound-complex sentence with action verb
+compound sentence with descriptive adjective
+complex sentence with descriptive words and abbreviations
+interrogative sentence with various word types
+descriptive sentence with action verbs
+noun phrase with descriptive adjective and numbers
+compound sentence with action verbs and proper nouns
+descriptive sentence with multiple nouns and interjection
+complex sentence with pronouns and descriptive words
+interrogative sentence with descriptive words and actions
+complex sentence with multiple nouns, pronouns, adjectives, and adverbs
+non-coordinate compound sentence
+unidentified sentence
+complex compound noun phrase
+simple noun
+complex compound noun
+word
+short-form letter
+abbreviated adjective phrase
+abbreviated noun
+sentence with proper noun and definite article
+sentence with pronouns and proper noun
+descriptive sentence with multiple prepositions and nouns
+complex sentence with pronouns and proper noun
+descriptive sentence with adjectives and noun
+descriptive sentence with adjectives and different types of nouns
+descriptive sentence with acronyms and proper nouns
+descriptive sentence with adjectives and interjections
+descriptive sentence with abbreviations and acronyms
+descriptive sentence with prepositions and possessive pronouns
+incomplete sentence with verb and article
+descriptive sentence with adverbs and interjections
+descriptive sentence with numbers and nouns
+non-sense sentence
+emotional expression
+definite noun phrase
+informal noun phrase
+labeled sentence
+complex sentence with superlative adjective phrase
+complex sentence with number phrase
+complex sentence with conjunction and object
+nonlinear sentence
+nonstandard sentence
+preposition phrase sentence
+noun phrase with multiple prepositions
+adjective phrase involving possessive pronoun
+complex sentence with acronyms and abbreviations
+noun phrase with indefinite articles and prepositions
+verb phrase with objects and proper nouns
+adverbial sentence with proper nouns
+complex sentence involving prepositions and proper nouns
+negative sentence involving numbers and nouns
+sentence with numerals and pronouns
+sentence with conjunctions and acronyms
+noun phrase with multiple nouns and a proper noun
+complex sentence with conjunctions and proper nouns
+descriptive sentence with adjectives and numbers
+complex sentence with possession and adjectives
+descriptive sentence with proper nouns and a possessive
+adjective and noun phrase
+complex sentence with articles and common nouns
+complex sentence with conjunctions and definite articles
+complex sentence with interjections and definite articles
+complex sentence with objects
+complex sentence with indefinite articles and nouns
+complex sentence with symbols and interjections
+descriptive sentence with adverbs and nouns
+sentence with possessive pronouns and common nouns
+complex sentence with proper nouns and prepositions
+exclamation sentence with adjectives
+complex sentence with pronouns, verbs, and nouns
+modal independent clause
+compound sentence with interjections and appositive phrase
+negative compound sentence
+compound-complex sentence with verb phrases
+compound-complex sentence with prepositional phrases and interjections
+descriptive compound sentence with interjections
+compound-complex sentence with modifiers and appositive phrase
+prepositional compound sentence with possessive determiners
+compound-complex sentence with modifiers and acronyms
+compound sentence with adjectives and proper nouns
+complex sentence with acronyms and prepositions
