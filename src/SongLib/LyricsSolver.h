@@ -9,13 +9,11 @@ class LyricsSolver {
 	enum {
 		LS_BEGIN,
 		LS_FILTER,
-		LS_PRIMARY,
+		LS_FILL_LINES,
+		/*LS_PRIMARY,
+		LS_MAKE_HOLES,
+		LS_FILL_HOLES,*/
 		LS_COMPARISON,
-		LS_FINETUNING,
-		
-		/*LS_SECONDARY_WORD_CLASS,
-		LS_SECONDARY_FILTER,
-		LS_SECONDARY,*/
 		
 		LS_COUNT
 	};
@@ -42,18 +40,27 @@ class LyricsSolver {
 	Vector<Tuple2<int,int>> matches;
 	Index<int> remaining;
 	VectorMap<String,int> part_sizes;
+	SongAnalysis* sa = 0;
+	Vector<int> phrase_src;
 	
 	void Process();
 	void ClearLyrics();
 	void ProcessFilter();
+	void ProcessFillLines();
 	void ProcessPrimary();
+	void ProcessMakeHoles();
+	void ProcessFillHoles();
 	void ProcessComparison();
 	void OnProcessPrimary(String res);
+	void OnProcessFillLines(String res);
+	void OnProcessMakeHoles(String res);
+	void OnProcessFillHoles(String res);
 	void OnProcessComparison(String res);
 	void PostProgress() {WhenProgress(phase, LS_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}
-	void NextPhase() {phase++; batch = 0;}
+	void MovePhase(int p) {phase = p; batch = 0; sub_batch = 0;}
+	void NextPhase() {phase++; batch = 0; sub_batch = 0;}
 	void NextBatch() {batch++; sub_batch = 0;}
 	void NextSubBatch() {sub_batch++;}
 	

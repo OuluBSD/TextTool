@@ -642,16 +642,20 @@ struct PhraseComb : Moveable<PhraseComb> {
 struct LyricsSuggestions : Moveable<LyricsSuggestions> {
 	VectorMap<String,Vector<String>> lines;
 	int rank = -1;
+	Vector<Vector<Vector<int>>> transfers;
+	int scores[2] = {0,0};
 	
 	String StoreToString() {
 		StringDumper d;
 		d % lines % rank;
+		for(int i = 0; i < 2; i++) d % scores[i];
 		return d;
 	}
 	void LoadFromString(const String& s) {
 		StringParser p(s);
 		p % lines;
 		p % rank;
+		for(int i = 0; i < 2; i++) p % scores[i];
 	}
 	String GetText() const;
 };

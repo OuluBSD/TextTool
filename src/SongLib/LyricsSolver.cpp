@@ -23,6 +23,12 @@ LyricsSolver& LyricsSolver::Get(Artist& a, Lyrics& l) {
 }
 
 void LyricsSolver::Process() {
+	SongDatabase& db = SongDatabase::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Lyrics& song = *this->lyrics;
+	sa = &da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
 	while (running && !Thread::IsShutdownThreads()) {
 		if (waiting) {
@@ -39,25 +45,21 @@ void LyricsSolver::Process() {
 		else if (phase == LS_FILTER) {
 			ProcessFilter();
 		}
-		else if (phase == LS_PRIMARY) {
+		else if (phase == LS_FILL_LINES) {
+			ProcessFillLines();
+		}
+		/*else if (phase == LS_PRIMARY) {
 			ProcessPrimary();
 		}
+		else if (phase == LS_MAKE_HOLES) {
+			ProcessMakeHoles();
+		}
+		else if (phase == LS_FILL_HOLES) {
+			ProcessFillHoles();
+		}*/
 		else if (phase == LS_COMPARISON) {
 			ProcessComparison();
 		}
-		/*else if (phase == LS_FINETUNING) {
-			ProcessFineTuning();
-		}*/
-		/*else if (phase == LS_SECONDARY_WORD_CLASS) {
-			ProcessSecondaryWordClass();
-		}
-		else if (phase == LS_SECONDARY_FILTER) {
-			ProcessSecondaryFilter();
-		}
-		else if (phase == LS_SECONDARY) {
-			ProcessSecondary();
-		}*/
-		
 		
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
@@ -373,6 +375,101 @@ void LyricsSolver::ProcessFilter() {
 	NextPhase();
 }
 
+void LyricsSolver::ProcessFillLines() {
+	SongDatabase& db = SongDatabase::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Lyrics& song = *this->lyrics;
+	
+	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	
+	if ((skip_ready && sa.lyrics_suggs.GetCount() >= sugg_limit)) {
+		NextPhase();
+		return;
+	}
+	
+	LyricsSolverArgs args;
+	args.fn = 10;
+	
+	args.song valmiit lauseet
+	args.part = se aktiivisen osan nimi
+	
+	int per_part = 12;
+	int min_per_part = 5;
+	bool fail = false;
+	int begin = batch * per_part;
+	int end = begin + per_part;
+	this->phrases.Clear();
+	for(int i = 0; i < ContrastType::PART_COUNT; i++) {
+		const auto& map = this->phrase_parts[i];
+		
+		// Save offsets for reading
+		args.offsets << args.phrases.GetCount();
+		
+		// Add phrases
+		int end0 = min(map.GetCount(), end);
+		int count = end0 - begin;
+		if (count < min_per_part) {
+			fail = true;
+			break;
+		}
+		for(int j = begin; j < end0; j++) {
+			int pp_i = map.GetKey(j);
+			const PhrasePart& pp = sa.phrase_parts[i][pp_i];
+			String s = da.GetWordString(pp.words);
+			args.phrases << s;
+			this->phrases << s;
+		}
+	}
+	if (args.phrases.IsEmpty())
+		fail = true;
+	
+	if (fail) {
+		NextPhase();
+		return;
+	}
+	
+	// Parts
+	/*part_sizes.Clear();
+	for(int i = 0; i < song.parts.GetCount(); i++) {
+		const StaticPart& sp = song.parts[i];
+		args.parts << sp.name;
+		
+		int len = 2;
+		
+		if (sp.name.Find("Verse") == 0)
+			len = song.verse_length;
+		
+		if (sp.name.Find("Prechorus") == 0)
+			len = song.prechorus_length;
+		
+		if (sp.name.Find("Chorus") == 0)
+			len = song.chorus_length;
+		
+		if (sp.name.Find("Bridge") == 0)
+			len = song.bridge_length;
+		
+		args.counts << len;
+		part_sizes.Add(sp.name, len);
+	}*/
+	
+	args.vision = song.content_vision;
+	
+	
+	 
+	SetWaiting(1);
+	
+	TaskMgr& m = TaskMgr::Single();
+	m.GetLyricsSolver(args, THISBACK(OnProcessFillLines));
+}
+
+void LyricsSolver::OnProcessFillLines(String res) {
+	
+	
+	
+}
+
 void LyricsSolver::ProcessPrimary() {
 	SongDatabase& db = SongDatabase::Single();
 	SongData& sd = db.song_data;
@@ -390,7 +487,7 @@ void LyricsSolver::ProcessPrimary() {
 	LyricsSolverArgs args;
 	args.fn = 6;
 	
-	int per_part = 15;
+	int per_part = 12;
 	int min_per_part = 5;
 	bool fail = false;
 	int begin = batch * per_part;
@@ -543,6 +640,167 @@ void LyricsSolver::OnProcessPrimary(String res) {
 	
 	SetWaiting(0);
 	NextBatch();
+}
+
+void LyricsSolver::ProcessMakeHoles() {
+	SongDatabase& db = SongDatabase::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Lyrics& song = *this->lyrics;
+	
+	
+	if (batch >= sa->lyrics_suggs.GetCount()) {
+		NextPhase();
+		return;
+	}
+	
+	LyricsSuggestions& sugg = sa->lyrics_suggs[batch];
+	
+	LyricsSolverArgs args;
+	args.fn = 9;
+	
+	phrase_src.Clear();
+	for(int i = 0; i < sugg.lines.GetCount(); i++) {
+		const String& part = sugg.lines.GetKey(i);
+		const auto& lines = sugg.lines[i];
+		for(int j = 0; j < lines.GetCount(); j+=2) {
+			String s0 = lines[j];
+			String s1 = j+1 < lines.GetCount() ? lines[j+1] : String();
+			String rhyme = s0 + " / " + s1;
+			args.phrases << rhyme;
+			int line_i = i * 1000 + j;
+			phrase_src << line_i;
+		}
+	}
+	
+	
+	SetWaiting(1);
+	
+	TaskMgr& m = TaskMgr::Single();
+	m.GetLyricsSolver(args, THISBACK(OnProcessMakeHoles));
+}
+
+void LyricsSolver::OnProcessMakeHoles(String res) {
+	LOG("RESULT:");
+	LOG(res);
+	
+	LyricsSuggestions& sugg = sa->lyrics_suggs[batch];
+	
+	res = "1. 1 to 2:" + res;
+	RemoveEmptyLines2(res);
+	
+	// 1. 1 to 2: 6, 6
+	// 2. 2 to 3: 7, 8
+	Vector<String> lines = Split(res, "\n");
+	
+	sugg.transfers.Clear();
+	int score_sum[2] = {0,0};
+	int score_count = 0;
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		line = TrimBoth(line);
+		
+		if (line.Find("n/a") >= 0)
+			continue;
+		
+		int a = line.Find(":");
+		if (a < 0) continue;
+		
+		String h = line.Left(a);
+		String v = TrimBoth(line.Mid(a+1));
+		a = h.Find(" to ");
+		if (a < 0) continue;
+		
+		int from = StrInt(h.Left(a));
+		int to = StrInt(h.Mid(a+4));
+		int src = from-1;
+		if (src < 0 || src >= phrase_src.GetCount())
+			continue;
+		
+		Vector<String> parts = Split(v, ",");
+		if (parts.GetCount() < 2) continue;
+		
+		Vector<int> scores;
+		scores.SetCount(2);
+		for(int j = 0; j < 2; j++) {
+			String& p = parts[j];
+			p = TrimBoth(p);
+			int s = ScanInt(p);
+			scores[j] = s;
+			score_sum[j] += s;
+		}
+		score_count++;
+		
+		int code = phrase_src[src];
+		int part_i = code / 1000;
+		int line_i = code % 1000;
+		
+		if (sugg.transfers.GetCount() <= part_i)
+			sugg.transfers.SetCount(part_i+1);
+		auto& trans = sugg.transfers[part_i];
+		if (line_i+1 >= trans.GetCount())
+			trans.SetCount(line_i+2);
+		trans[line_i  ] <<= scores;
+		trans[line_i+1] <<= scores;
+	}
+	for(int i = 0; i < 2; i++)
+		sugg.scores[i] = score_sum[i] * 100 / score_count;
+	
+	LOG("SCORE: " << sugg.scores[0] << ", " << sugg.scores[1]);
+	
+	NextBatch();
+	SetWaiting(0);
+}
+
+void LyricsSolver::ProcessFillHoles() {
+	SongDatabase& db = SongDatabase::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Lyrics& song = *this->lyrics;
+	
+	SetNotRunning();
+	return;
+	
+	// If all suggestions are good enough or exceeded max iterations
+	// Then move to next phase
+	TODO
+	if (0) {
+		NextPhase();
+		return;
+	}
+	// Else if all suggestions have been iterated, move back to LS_MAKE_HOLES
+	else if (0) {
+		TODO //MovePhase(LS_MAKE_HOLES);
+		return;
+	}
+	
+	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	
+	LyricsSolverArgs args;
+	TODO // args.fn = ;
+	
+	
+	
+	SetWaiting(1);
+	
+	TaskMgr& m = TaskMgr::Single();
+	m.GetLyricsSolver(args, THISBACK(OnProcessFillHoles));
+}
+
+void LyricsSolver::OnProcessFillHoles(String res) {
+	
+	
+	
+	
+	
+	bool is_good_enough = false;
+	bool is_max_iters = false;
+	
+	
+	
 }
 
 void LyricsSolver::ProcessComparison() {
