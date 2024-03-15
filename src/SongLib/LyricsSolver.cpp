@@ -383,26 +383,70 @@ void LyricsSolver::ProcessFillLines() {
 	Lyrics& song = *this->lyrics;
 	
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
+	if (/*!skip_ready &&*/ batch == 0 && sub_batch == 0)
+		sa.lyrics_suggs.Clear();
 	
-	if ((skip_ready && sa.lyrics_suggs.GetCount() >= sugg_limit)) {
+	if (sa.lyrics_suggs.GetCount() >= sugg_limit) {
 		NextPhase();
 		return;
 	}
 	
+	// Realize suggestion and minimum data
+	LyricsSuggestions& sugg = sa.lyrics_suggs.GetAdd(batch);
+	{
+		for(int i = 0; i < song.parts.GetCount(); i++) {
+			String name = song.parts[i].name;
+			if (name.GetCount())
+				sugg.lines.GetAdd(name);
+		}
+	}
+	
+	
 	LyricsSolverArgs args;
 	args.fn = 10;
 	
-	args.song valmiit lauseet
-	args.part = se aktiivisen osan nimi
+	// Add existing lyrics
+	active_part.Clear();
+	for(int i = 0; i < sugg.lines.GetCount(); i++) {
+		String key = sugg.lines.GetKey(i);
+		if (key.IsEmpty())
+			continue;
+		const auto& lines = sugg.lines[i];
+		StaticPart* sp = song.FindPartByName(key);
+		if (!sp)
+			continue;
+		int len = sp->GetExpectedLineCount(song);
+		if (active_part.IsEmpty() && lines.GetCount() < len)
+			active_part = key; // Set active part to get new lines for
+		if (lines.IsEmpty()) continue;
+		args.song.Add(key) = Join(lines, "\n");
+	}
+	args.part = active_part;
 	
-	int per_part = 12;
-	int min_per_part = 5;
+	if (active_part.IsEmpty()) {
+		NextBatch();
+		return;
+	}
+	
+	
+	StaticPart* part = song.FindPartByName(args.part);
+	ASSERT(part);
+	if (!part) part = &song.parts[0];
+	
+	int per_part = 20;
+	int min_per_part = 15;
 	bool fail = false;
 	int begin = batch * per_part;
 	int end = begin + per_part;
 	this->phrases.Clear();
-	for(int i = 0; i < ContrastType::PART_COUNT; i++) {
-		const auto& map = this->phrase_parts[i];
+	int con_type = part->GetContrastIndex(song);
+	
+	// Prefer con_type but use all if no phrases for some reason
+	for(int i = -1; i < ContrastType::PART_COUNT; i++)
+	{
+		if (i == con_type) continue;
+		int idx = i < 0 ? con_type : i;
+		const auto& map = this->phrase_parts[idx];
 		
 		// Save offsets for reading
 		args.offsets << args.phrases.GetCount();
@@ -410,17 +454,20 @@ void LyricsSolver::ProcessFillLines() {
 		// Add phrases
 		int end0 = min(map.GetCount(), end);
 		int count = end0 - begin;
-		if (count < min_per_part) {
+		/*if (count < min_per_part) {
 			fail = true;
-			break;
-		}
+			continue;
+		}*/
 		for(int j = begin; j < end0; j++) {
 			int pp_i = map.GetKey(j);
-			const PhrasePart& pp = sa.phrase_parts[i][pp_i];
+			const PhrasePart& pp = sa.phrase_parts[idx][pp_i];
 			String s = da.GetWordString(pp.words);
 			args.phrases << s;
 			this->phrases << s;
 		}
+		
+		if (args.phrases.GetCount() >= min_per_part)
+			break;
 	}
 	if (args.phrases.IsEmpty())
 		fail = true;
@@ -430,29 +477,6 @@ void LyricsSolver::ProcessFillLines() {
 		return;
 	}
 	
-	// Parts
-	/*part_sizes.Clear();
-	for(int i = 0; i < song.parts.GetCount(); i++) {
-		const StaticPart& sp = song.parts[i];
-		args.parts << sp.name;
-		
-		int len = 2;
-		
-		if (sp.name.Find("Verse") == 0)
-			len = song.verse_length;
-		
-		if (sp.name.Find("Prechorus") == 0)
-			len = song.prechorus_length;
-		
-		if (sp.name.Find("Chorus") == 0)
-			len = song.chorus_length;
-		
-		if (sp.name.Find("Bridge") == 0)
-			len = song.bridge_length;
-		
-		args.counts << len;
-		part_sizes.Add(sp.name, len);
-	}*/
 	
 	args.vision = song.content_vision;
 	
@@ -465,9 +489,86 @@ void LyricsSolver::ProcessFillLines() {
 }
 
 void LyricsSolver::OnProcessFillLines(String res) {
+	SongDatabase& db = SongDatabase::Single();
+	SongData& sd = db.song_data;
+	SongDataAnalysis& sda = db.song_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Lyrics& song = *this->lyrics;
 	
+	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
+	CombineHash ch;
+	bool fail = false;
 	
+	RemoveEmptyLines3(res);
+	Vector<String> lines = Split(res, "\n");
+	
+	Vector<int> part_is;
+	
+	res = TrimBoth(res);
+	int result_line = 0;
+	if (res.GetCount() && IsDigit(res[0])) {
+		int result_line = ScanInt(res);
+		
+		LyricsSuggestions& sugg = sa.lyrics_suggs.GetAdd(batch);
+		
+		StaticPart* sp = song.FindPartByName(active_part);
+		if (sp) {
+			if (result_line >= 0 && result_line < this->phrases.GetCount()) {
+				String phrase = this->phrases[result_line];
+				sugg.lines.GetAdd(active_part).Add(phrase);
+			}
+		}
+	}
+	else if (res.GetCount()) {
+		int a = res.Find("\"");
+		if (a >= 0)
+			res = res.Left(a);
+		
+		LyricsSuggestions& sugg = sa.lyrics_suggs.GetAdd(batch);
+		
+		StaticPart* sp = song.FindPartByName(active_part);
+		if (sp) {
+			Vector<String> lines = Split(res, "/");
+			if (lines.GetCount() == 1)
+				lines = Split(res, "\n");
+			if (lines.GetCount() == 1) {
+				lines.Clear();
+				int mid = res.GetCount() / 2;
+				int a = res.Find(",", max(0, mid-5));
+				if (a >= 0)
+					mid = a+1;
+				else {
+					a = res.Find(" ", max(0, mid-5));
+					if (a >= 0)
+						mid = a;
+				}
+				lines.Add(TrimBoth(res.Left(mid)));
+				lines.Add(TrimBoth(res.Mid(mid)));
+			}
+			else if (lines.GetCount() == 3) {
+				int c0 = lines[0].GetCount();
+				int c1 = lines[1].GetCount();
+				int c2 = lines[2].GetCount();
+				double a_bal = fabs( (c0 + c1) / (double)c2 - 1 );
+				double b_bal = fabs( (c1 + c2) / (double)c0 - 1 );
+				if (a_bal <= b_bal) {
+					lines[0] += lines[1];
+					lines.Remove(1);
+				}
+				else {
+					lines[1] += lines[2];
+					lines.Remove(2);
+				}
+			}
+			auto& dst = sugg.lines.GetAdd(active_part);
+			for (String& line : lines)
+				dst.Add(TrimBoth(line));
+		}
+	}
+	
+	SetWaiting(0);
+	NextSubBatch();
 }
 
 void LyricsSolver::ProcessPrimary() {
@@ -479,7 +580,7 @@ void LyricsSolver::ProcessPrimary() {
 	
 	SongAnalysis& sa = da.GetSongAnalysis(artist->native_name + " - " + song.native_title);
 	
-	if ((skip_ready && sa.lyrics_suggs.GetCount() >= sugg_limit)) {
+	if (sa.lyrics_suggs.GetCount() >= sugg_limit) {
 		NextPhase();
 		return;
 	}
@@ -502,10 +603,10 @@ void LyricsSolver::ProcessPrimary() {
 		// Add phrases
 		int end0 = min(map.GetCount(), end);
 		int count = end0 - begin;
-		if (count < min_per_part) {
+		/*if (count < min_per_part) {
 			fail = true;
 			break;
-		}
+		}*/
 		for(int j = begin; j < end0; j++) {
 			int pp_i = map.GetKey(j);
 			const PhrasePart& pp = sa.phrase_parts[i][pp_i];
@@ -527,21 +628,7 @@ void LyricsSolver::ProcessPrimary() {
 	for(int i = 0; i < song.parts.GetCount(); i++) {
 		const StaticPart& sp = song.parts[i];
 		args.parts << sp.name;
-		
-		int len = 2;
-		
-		if (sp.name.Find("Verse") == 0)
-			len = song.verse_length;
-		
-		if (sp.name.Find("Prechorus") == 0)
-			len = song.prechorus_length;
-		
-		if (sp.name.Find("Chorus") == 0)
-			len = song.chorus_length;
-		
-		if (sp.name.Find("Bridge") == 0)
-			len = song.bridge_length;
-		
+		int len = sp.GetExpectedLineCount(song);
 		args.counts << len;
 		part_sizes.Add(sp.name, len);
 	}

@@ -127,6 +127,42 @@ StaticPart* Lyrics::FindPartByName(const String& name) {
 	return 0;
 }
 
+int StaticPart::GetExpectedLineCount(Lyrics& song) const {
+	int len = 2;
+	
+	if (name.Find("Verse") == 0)
+		len = song.verse_length;
+	
+	if (name.Find("Pre") == 0)
+		len = song.prechorus_length;
+	
+	if (name.Find("Chorus") == 0)
+		len = song.chorus_length;
+	
+	if (name.Find("Bridge") == 0)
+		len = song.bridge_length;
+	
+	return len;
+}
+
+int StaticPart::GetContrastIndex(Lyrics& song) const {
+	int idx = ContrastType::PART_COUNT-1;
+	
+	if (name.Find("Verse") == 0)
+		idx = 0;
+	
+	if (name.Find("Pre") == 0)
+		idx = 1;
+	
+	if (name.Find("Chorus") == 0)
+		idx = 2;
+	
+	if (name.Find("Bridge") == 0)
+		idx = 1;
+	
+	return idx;
+}
+
 double StructSuggestion::GetEstimatedDuration(int bpm) const {
 	double bars_per_min = (double)bpm / 4.0;
 	double bars_per_sec = bars_per_min / 60.0;

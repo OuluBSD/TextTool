@@ -2983,8 +2983,10 @@ void Task::CreateInput_LyricsSolver() {
 			auto& list = input.AddSub().Title("Song \"A\": known lyrics so far");
 			list.NoListChar();
 			for(int i = 0; i < args.song.GetCount(); i++) {
-				list.Add(args.song.GetKey(i) + ":");
 				const Vector<String> lines = Split(args.song[i], "\n");
+				if (lines.IsEmpty())
+					continue;
+				list.Add(args.song.GetKey(i) + ":");
 				for(int j = 0; j < lines.GetCount(); j++)
 					list.Add("\t" + lines[j]);
 			}
@@ -3007,16 +3009,18 @@ void Task::CreateInput_LyricsSolver() {
 			auto& list = input.AddSub().Title("Song \"A\": properties of additional line/phrases for the best song");
 			list.Add("high coherency of the story");
 			list.Add("high semantic and contextual accuracy");
-			list.Add("high like count");
-			list.Add("high comment count");
-			list.Add("high listen count");
-			list.Add("high share count");
-			list.Add("high bookmark count");
+			list.Add("idea: high like count");
+			list.Add("emotion: high comment count");
+			list.Add("hook: high listen count");
+			list.Add("relatability: high share count");
+			list.Add("value: high bookmark count");
+			list.Add("also highly: funny, sensual, thought provoking, romantic, impactful");
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
 			results.Title("Song \"A\": Add line/phrase to the part '" + args.part + "' in a way, that the story of the song is best");
-			results.EmptyLine();
+			results.NumberedLines();
+			results.Add("phrase: \"");
 		}
 		input.response_length = 2048;
 	}

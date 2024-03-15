@@ -32,7 +32,7 @@ class LyricsSolver {
 	double dist_limit = 0.005;
 	int primary_count = 50;
 	int rhyming_list_count = 5;
-	int sugg_limit = 8;
+	int sugg_limit = 6;
 	
 	// temp
 	Vector<VectorMap<int,double>> phrase_parts;
@@ -42,6 +42,7 @@ class LyricsSolver {
 	VectorMap<String,int> part_sizes;
 	SongAnalysis* sa = 0;
 	Vector<int> phrase_src;
+	String active_part;
 	
 	void Process();
 	void ClearLyrics();

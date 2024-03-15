@@ -50,6 +50,8 @@ struct StaticPart {
 	static String GetTypeString(int part_type);
 	static String GetTypeString(PartType part_type);
 	String GetTypeString() const;
+	int GetExpectedLineCount(Lyrics& s) const;
+	int GetContrastIndex(Lyrics& s) const;
 	
 	void Jsonize(JsonIO& json) {
 		json
