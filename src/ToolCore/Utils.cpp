@@ -1,6 +1,10 @@
 #include "ToolCore.h"
 
 
+bool ToolAppCtrl::IsLyrics() const {
+	EditorPtrs& p = EditorPtrs::Single();
+	return p.lyrics != 0;
+}
 
 SongLib::Lyrics& ToolAppCtrl::GetLyrics() {
 	EditorPtrs& p = EditorPtrs::Single();

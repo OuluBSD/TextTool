@@ -36,6 +36,7 @@ public:
 	SongLib::Release& GetRelease();
 	SongLib::Song& GetSong();
 	SongLib::Lyrics& GetLyrics();
+	bool IsLyrics() const;
 	
 	SocialLib::Company& GetCompany();
 	SocialLib::Campaign& GetCampaign();
