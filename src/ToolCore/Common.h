@@ -1,5 +1,5 @@
-#ifndef _SongTool_Common_h_
-#define _SongTool_Common_h_
+#ifndef _TextTool_Common_h_
+#define _TextTool_Common_h_
 
 
 #define TODO Panic("TODO");
@@ -115,7 +115,7 @@ void PutKeyColor(const char* key, int ir, int ig, int ib, double& r, double& g, 
 	ATTR_ITEM(MINDFULNESS, "mindfulness", "mindless", "mindful") \
 	ATTR_ITEM(PEACEFULNESS, "peacefulness", "peacemaker", "troublemaker") \
 	ATTR_ITEM(NARRATIVE, "narrative", "protagonist storytelling", "narrative detachment") \
-	ATTR_ITEM(LYRICAL_EMPHASIS, "lyrical emphasis", "witty wordplay", "straightforward lyrics") \
+	ATTR_ITEM(LYRICAL_EMPHASIS, "lyrical emphasis", "witty wordplay", "straightforward scripts") \
 	ATTR_ITEM(EMOTIONALITY, "lyrical emphasis", "emotionally charged", "emotionally restrained") \
 	ATTR_ITEM(CONCEPTS, "concepts", "grounded", "psychedelic") \
 	ATTR_ITEM(STORY_MOTIVATION, "story-motivation",  "narrative-driven", "mood-driven") \
@@ -183,17 +183,17 @@ struct DataFile {
 
 struct TaskMgr;
 
-BEGIN_SONGLIB_NAMESPACE
+BEGIN_TEXTLIB_NAMESPACE
 
-struct Artist;
-struct Release;
-struct Song;
-struct Typecast;
-struct Archetype;
-struct Lyrics;
+struct Entity;
+struct Snapshot;
+struct Component;
+struct Typeclass;
+struct Content;
+struct Script;
 struct StaticPart;
 
-END_SONGLIB_NAMESPACE
+END_TEXTLIB_NAMESPACE
 
 BEGIN_SOCIALLIB_NAMESPACE
 
@@ -211,13 +211,13 @@ END_SOCIALLIB_NAMESPACE
 
 struct EditorPtrs {
 	
-	SongLib::Artist*		artist = 0;
-	SongLib::Release*		release = 0;
-	SongLib::Song*			song = 0;
-	SongLib::Typecast*		typecast = 0;
-	SongLib::Archetype*		archetype = 0;
-	SongLib::Lyrics*		lyrics = 0;
-	SongLib::StaticPart*	part = 0;
+	TextLib::Entity*		entity = 0;
+	TextLib::Snapshot*		release = 0;
+	TextLib::Component*		component = 0;
+	TextLib::Typeclass*		typecast = 0;
+	TextLib::Content*		archetype = 0;
+	TextLib::Script*		scripts = 0;
+	TextLib::StaticPart*	part = 0;
 	
 	SocialLib::Company*		company = 0;
 	SocialLib::Campaign*	campaign = 0;
@@ -229,23 +229,23 @@ struct EditorPtrs {
 	
 	void Zero() {memset(this, 0, sizeof(EditorPtrs));}
 	
-	bool HasSong() const {return song;}
+	bool HasComponent() const {return component;}
 	
-	int GetActiveTypecastIndex() const;
-	int GetActiveArchetypeIndex() const;
-	int GetActiveLyricsIndex() const;
+	int GetActiveTypeclassIndex() const;
+	int GetActiveContentIndex() const;
+	int GetActiveScriptIndex() const;
 	
-	int GetActiveArtistIndex() const;
-	int GetActiveReleaseIndex() const;
-	int GetActiveSongIndex() const;
+	int GetActiveEntityIndex() const;
+	int GetActiveSnapshotIndex() const;
+	int GetActiveComponentIndex() const;
 	
-	int GetActiveRoleIndex() const;
+	/*int GetActiveRoleIndex() const;
 	int GetActiveGenericIndex() const;
 	int GetActiveStoryIndex() const;
 	
 	int GetActiveCompanyIndex() const;
 	int GetActiveCampaignIndex() const;
-	int GetActiveProgramIndex() const;
+	int GetActiveProgramIndex() const;*/
 	
 	//void 
 	
@@ -412,17 +412,17 @@ struct CoverSuggestionData {
 	int year;
 	String genre;
 	String singer_description;
-	int count_of_songs;
+	int count_of_components;
 	
-	struct Song {
-		String name, lyrics;
+	struct Component {
+		String name, scripts;
 	};
-	Array<Song> songs;
+	Array<Component> components;
 };
 
 
 
-const Vector<String>& CommonArtists();
+const Vector<String>& CommonEntitys();
 
 void TrimBothAllLines(String& s);
 void RealizeDoubleNewlinesOnNumbered(String& s);
@@ -430,14 +430,14 @@ void RealizeDoubleNewlinesBeforeTitles(String& s);
 Vector<String> GetStructureParts(String s);
 
 String ToMinSec(double sec);
-String GetSongPartFromAbbr(const String& abbr);
-Color GetSongPartPaperColor(const String& abbr);
+String GetComponentPartFromAbbr(const String& abbr);
+Color GetComponentPartPaperColor(const String& abbr);
 String GetProgramPartFromAbbr(const String& abbr);
 Color GetProgramPartPaperColor(const String& abbr);
-int GetSongPartPriority(const String& abbr);
+int GetComponentPartPriority(const String& abbr);
 
 template <class T> void CheckSerialisationData(const String& json) {}
-template <> void CheckSerialisationData<SongLib::Song>(const String& json);
+template <> void CheckSerialisationData<TextLib::Component>(const String& json);
 
 template <class T>
 void LoadFromJsonFileStandard(T& o, const String& path) {
@@ -927,8 +927,8 @@ void JsonCompressedStream(JsonIO& json, const String& key, T& o) {
 }
 
 
-const Index<String>& GetTypecasts();
-int GetTypecastCount();
+const Index<String>& GetTypeclasss();
+int GetTypeclassCount();
 
 const Index<String>& GetProfiles();
 int GetProfileCount();
@@ -955,17 +955,17 @@ const Vector<ContrastType>& GetContrasts();
 const Vector<String>& GetContrastParts();
 int GetContrastCount();
 
-const VectorMap<String,String>& GetArchetypes();
-int GetArchetypeCount();
+const VectorMap<String,String>& GetContents();
+int GetContentCount();
 
-//VectorMap<String,Vector<String>>& GetTypecastSingers();
-VectorMap<String,Vector<String>>& GetTypecastSingersMale();
-VectorMap<String,Vector<String>>& GetTypecastSingersFemale();
-VectorMap<String,Vector<String>>& GetTypecastRappersMale();
-VectorMap<String,Vector<String>>& GetTypecastRappersFemale();
-VectorMap<String,Vector<String>>& GetTypecastSingers(bool gender);
-VectorMap<String,Vector<String>>& GetTypecastRappers(bool gender);
-VectorMap<String,Vector<String>>& GetTypecastArtists(bool rapper, bool gender);
+//VectorMap<String,Vector<String>>& GetTypeclassSingers();
+VectorMap<String,Vector<String>>& GetTypeclassSingersMale();
+VectorMap<String,Vector<String>>& GetTypeclassSingersFemale();
+VectorMap<String,Vector<String>>& GetTypeclassRappersMale();
+VectorMap<String,Vector<String>>& GetTypeclassRappersFemale();
+VectorMap<String,Vector<String>>& GetTypeclassSingers(bool gender);
+VectorMap<String,Vector<String>>& GetTypeclassRappers(bool gender);
+VectorMap<String,Vector<String>>& GetTypeclassEntitys(bool rapper, bool gender);
 VectorMap<String,Vector<String>>& GetRoleCompanys(bool unsafe, bool gender);
 
 

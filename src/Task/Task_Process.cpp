@@ -55,7 +55,7 @@ void Task::Process_GetContextIdea() {
 	WhenResult(output);
 }
 
-void Task::Process_GetSongDataAnalysis() {
+void Task::Process_GetTextDataAnalysis() {
 	WhenResult(output);
 }
 
@@ -63,7 +63,7 @@ void Task::Process_GetActionAnalysis() {
 	WhenResult(output);
 }
 
-void Task::Process_GetLyricsPhrase() {
+void Task::Process_GetScriptPhrase() {
 	WhenResult(output);
 }
 
@@ -90,7 +90,7 @@ void Task::Process_GetNanaData() {
 	WhenResult(output);
 }
 
-void Task::Process_LyricsSolver() {
+void Task::Process_ScriptSolver() {
 	WhenResult(output);
 }
 

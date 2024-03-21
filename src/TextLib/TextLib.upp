@@ -1,0 +1,18 @@
+description "\377B128,0,0";
+
+uses
+	TextDatabase;
+
+file
+	TextLib.h,
+	TaskManager.h,
+	Task.cpp,
+	TaskManager.cpp,
+	Do.cpp,
+	Get.cpp,
+	On.cpp,
+	ScriptGenerator.h,
+	ScriptGenerator.cpp,
+	ScriptSolver.h,
+	ScriptSolver.cpp;
+

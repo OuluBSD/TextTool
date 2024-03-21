@@ -1,17 +1,17 @@
-#ifndef _SongTool_Utils_h_
-#define _SongTool_Utils_h_
+#ifndef _TextTool_Utils_h_
+#define _TextTool_Utils_h_
 
 
 typedef String NoPointerExc;
 
-BEGIN_SONGLIB_NAMESPACE
+BEGIN_TEXTLIB_NAMESPACE
 
-struct Artist;
-struct Release;
-struct Song;
-struct Lyrics;
+struct Entity;
+struct Snapshot;
+struct Component;
+struct Script;
 
-END_SONGLIB_NAMESPACE
+END_TEXTLIB_NAMESPACE
 
 BEGIN_SOCIALLIB_NAMESPACE
 
@@ -32,20 +32,20 @@ public:
 	virtual void ToolMenu(Bar& bar) {bar.Add("", AppImg::placeholder16(), Callback());}
 	virtual String GetStatusText() {return String();}
 	
-	SongLib::Artist& GetArtist();
-	SongLib::Release& GetRelease();
-	SongLib::Song& GetSong();
-	SongLib::Lyrics& GetLyrics();
+	TextLib::Entity& GetEntity();
+	TextLib::Snapshot& GetSnapshot();
+	TextLib::Component& GetComponent();
+	TextLib::Script& GetScript();
 	
 	SocialLib::Company& GetCompany();
 	SocialLib::Campaign& GetCampaign();
 	SocialLib::Program& GetProgram();
 	SocialLib::Story& GetStory();
 	
-	String GetSongTitle() const;
+	String GetComponentTitle() const;
 	//int GetDataset();
 	
-	void MakeSongParts(ArrayCtrl& parts);
+	void MakeComponentParts(ArrayCtrl& parts);
 	void GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v);
 	
 };

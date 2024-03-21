@@ -44,9 +44,9 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		;
 	
 	AddRule(TASK_GET_SONG_DATA_ANALYSIS, "get song data analysis")
-		.Input(&Task::CreateInput_GetSongDataAnalysis)
+		.Input(&Task::CreateInput_GetTextDataAnalysis)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_GetSongDataAnalysis)
+		.Process(&Task::Process_GetTextDataAnalysis)
 		;
 	
 	AddRule(TASK_GET_ACTION_ANALYSIS, "get action analysis")
@@ -56,9 +56,9 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		;
 	
 	AddRule(TASK_GET_LYRICS_PHRASE, "get action analysis")
-		.Input(&Task::CreateInput_GetLyricsPhrase)
+		.Input(&Task::CreateInput_GetScriptPhrase)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_GetLyricsPhrase)
+		.Process(&Task::Process_GetScriptPhrase)
 		;
 		
 	AddRule(TASK_RAW_COMPLETION, "raw prompt completion")
@@ -89,10 +89,10 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_GetNanaData)
 		;
 	
-	AddRule(TASK_LYRICS_SOLVER, "lyrics solver")
-		.Input(&Task::CreateInput_LyricsSolver)
+	AddRule(TASK_LYRICS_SOLVER, "scripts solver")
+		.Input(&Task::CreateInput_ScriptSolver)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_LyricsSolver)
+		.Process(&Task::Process_ScriptSolver)
 		;
 	
 	AddRule(TASK_STORY_SOLVER, "story solver")
@@ -101,7 +101,7 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&Task::Process_StorySolver)
 		;
 	
-	AddRule(TASK_GET_PROGRAM_DATA_ANALYSIS, "lyrics solver")
+	AddRule(TASK_GET_PROGRAM_DATA_ANALYSIS, "scripts solver")
 		.Input(&Task::CreateInput_GetProgramDataAnalysis)
 			.Arg(V_ARGS, 1, 1)
 		.Process(&Task::Process_GetProgramDataAnalysis)
@@ -315,7 +315,7 @@ void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResul
 	t.WhenError << WhenError;
 }
 
-void TaskMgr::GetSongDataAnalysis(const SongDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
+void TaskMgr::GetTextDataAnalysis(const TextDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_SONG_DATA_ANALYSIS);
 	TaskMgr& p = *this;
@@ -347,7 +347,7 @@ void TaskMgr::GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> Wh
 	task_lock.Leave();
 }
 
-void TaskMgr::GetLyricsPhrase(const LyricsPhraseArgs& args, Event<String> WhenResult) {
+void TaskMgr::GetScriptPhrase(const ScriptPhraseArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	const TaskRule& r = mgr.GetRule(TASK_GET_LYRICS_PHRASE);
 	TaskMgr& p = *this;
@@ -422,7 +422,7 @@ void TaskMgr::GetNanaData(const NanaArgs& args, Event<String> WhenResult) {
 	task_lock.Leave();
 }
 
-void TaskMgr::GetLyricsSolver(const LyricsSolverArgs& args, Event<String> WhenResult) {
+void TaskMgr::GetScriptSolver(const ScriptSolverArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	const TaskRule& r = mgr.GetRule(TASK_LYRICS_SOLVER);
 	TaskMgr& p = *this;

@@ -400,7 +400,7 @@ struct ContextIdeaArgs {
 	
 };
 
-struct SongDataAnalysisArgs {
+struct TextDataAnalysisArgs {
 	int fn;
 	int score_mode;
 	String artist, song, text;
@@ -439,7 +439,7 @@ struct ActionAnalysisArgs {
 
 
 
-struct LyricsPhraseArgs {
+struct ScriptPhraseArgs {
 	int fn;
 	int len;
 	Vector<String> tmpls, args, attr_groups, attr_values;
@@ -538,7 +538,7 @@ struct NanaArgs {
 	
 };
 
-struct LyricsSolverArgs {
+struct ScriptSolverArgs {
 	int fn;
 	VectorMap<String,String> artist, release, song;
 	Vector<String> parts, attrs, phrases;

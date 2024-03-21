@@ -80,14 +80,14 @@ struct TaskMgr {
 	void GetVocabularyIdea(const VocabularyIdeaArgs& args, Event<String> WhenResult);
 	void GetWordSaladIdea(const WordSaladIdeaArgs& args, Event<String> WhenResult);
 	void GetContextIdea(const ContextIdeaArgs& args, Event<String> WhenResult);
-	void GetSongDataAnalysis(const SongDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going=false);
+	void GetTextDataAnalysis(const TextDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going=false);
 	void GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> WhenResult);
-	void GetLyricsPhrase(const LyricsPhraseArgs& args, Event<String> WhenResult);
+	void GetScriptPhrase(const ScriptPhraseArgs& args, Event<String> WhenResult);
 	void GetTokenData(const TokenArgs& args, Event<String> WhenResult);
 	void GetPhraseData(const PhraseArgs& args, Event<String> WhenResult);
 	void GetAttributes(const AttrArgs& args, Event<String> WhenResult);
 	void GetNanaData(const NanaArgs& args, Event<String> WhenResult);
-	void GetLyricsSolver(const LyricsSolverArgs& args, Event<String> WhenResult);
+	void GetScriptSolver(const ScriptSolverArgs& args, Event<String> WhenResult);
 	void GetStorySolver(const StorySolverArgs& args, Event<String> WhenResult);
 	void GetProgramDataAnalysis(const ProgramDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going=false);
 	

@@ -2,71 +2,71 @@
 
 
 
-SongLib::Lyrics& ToolAppCtrl::GetLyrics() {
+TextLib::Script& ToolAppCtrl::GetScript() {
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.lyrics)
-		throw NoPointerExc("no lyrics");
-	return *p.lyrics;
+	if(!p.scripts)
+		throw NoPointerExc("no scripts");
+	return *p.scripts;
 }
 
-SongLib::Song& ToolAppCtrl::GetSong() {
+TextLib::Component& ToolAppCtrl::GetComponent() {
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist)
+	if(!p.component || !p.entity)
 		throw NoPointerExc("no song");
-	return *p.song;
+	return *p.component;
 }
 
-SongLib::Release& ToolAppCtrl::GetRelease() {
+TextLib::Snapshot& ToolAppCtrl::GetSnapshot() {
 	EditorPtrs& p = EditorPtrs::Single();
 	if(!p.release)
 		throw NoPointerExc("no release");
 	return *p.release;
 }
 
-SongLib::Artist& ToolAppCtrl::GetArtist() {
+TextLib::Entity& ToolAppCtrl::GetEntity() {
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.artist)
+	if(!p.entity)
 		throw NoPointerExc("no artist");
-	return *p.artist;
+	return *p.entity;
 }
 
 
 SocialLib::Company& ToolAppCtrl::GetCompany() {
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.artist)
+	if(!p.entity)
 		throw NoPointerExc("no company");
 	return *p.company;
 }
 
 SocialLib::Campaign& ToolAppCtrl::GetCampaign() {
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.artist)
+	if(!p.entity)
 		throw NoPointerExc("no campaign");
 	return *p.campaign;
 }
 
 SocialLib::Program& ToolAppCtrl::GetProgram() {
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.artist)
+	if(!p.entity)
 		throw NoPointerExc("no program");
 	return *p.program;
 }
 
 SocialLib::Story& ToolAppCtrl::GetStory() {
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.artist)
+	if(!p.entity)
 		throw NoPointerExc("no story");
 	return *p.story;
 }
 
 
-String ToolAppCtrl::GetSongTitle() const {
-	/*SongDatabase& db = SongDatabase::Single();
+String ToolAppCtrl::GetComponentTitle() const {
+	/*TextDatabase& db = TextDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist)
+	if(!p.component || !p.entity)
 		throw NoPointerExc("no song");
-	Song& song = *p.song;
-	Artist& artist = *p.artist;
+	Component& song = *p.component;
+	Entity& artist = *p.entity;
 	String s;
 	s << artist.english_name << " - " << song.english_title;
 	return s;*/
@@ -75,11 +75,11 @@ String ToolAppCtrl::GetSongTitle() const {
 }
 
 /*int ToolAppCtrl::GetDataset() {
-	SongDatabase& db = SongDatabase::Single();
+	TextDatabase& db = TextDatabase::Single();
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist)
+	if(!p.component || !p.entity)
 		throw NoPointerExc("no song");
-	Song& song = *p.song;
+	Component& song = *p.component;
 	return ScanInt(song.data.Get("ATTR_DATASET", "0"));
 }*/
 
@@ -99,15 +99,15 @@ void ToolAppCtrl::GetAttrs(const VectorMap<String,String>& data, VectorMap<Strin
 	}
 }
 
-void ToolAppCtrl::MakeSongParts(ArrayCtrl& parts) {
-	/*Song& song = GetSong();
+void ToolAppCtrl::MakeComponentParts(ArrayCtrl& parts) {
+	/*Component& song = GetComponent();
 	
 	for(int i = 0; i < song.parts.GetCount(); i++) {
 		StaticPart& sp = song.parts[i];
 		//parts.Set(i, 0, sp.name);
 		//parts.Set(i, 1, part.GetTypeString());
 		parts.Set(i, 0,
-			AttrText(sp.name).NormalPaper(GetSongPartPaperColor(sp.type)));
+			AttrText(sp.name).NormalPaper(GetComponentPartPaperColor(sp.type)));
 		
 		DropList& dl = parts.CreateCtrl<DropList>(i, 1);
 		for(int j = 0; j < StaticPart::PART_TYPE_COUNT; j++)

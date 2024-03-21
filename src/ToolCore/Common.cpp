@@ -140,7 +140,7 @@ const char* IdeaPathString[IDEAPATH_COUNT][2] {
 
 
 /*void EditorPtrs::RealizePipe() {
-	SongDatabase& db = SongDatabase::Single();
+	TextDatabase& db = TextDatabase::Single();
 	
 	if (!song || !artist)
 		return;
@@ -148,8 +148,8 @@ const char* IdeaPathString[IDEAPATH_COUNT][2] {
 		return;
 	
 	TaskMgr& pipe = db.pipes.Add();
-	Artist& a = *artist;
-	Release& r = *release;
+	Entity& a = *artist;
+	Snapshot& r = *release;
 	
 	song->pipe = &pipe;
 	pipe.song = song;
@@ -324,59 +324,59 @@ bool TextMatchFinder::Find(String line, Point& pt) {
 	return false;
 }
 
-const Vector<String>& CommonArtists() {
-	static Vector<String> artists;
-	if (artists.IsEmpty()) {
-		artists.Add("Red Hot Chili Peppers");
-		artists.Add("Beastie Boys");
-		artists.Add("The Jimi Hendrix Experience");
-		artists.Add("Grandmaster Flash and the Furious Five");
-		artists.Add("Bob Marley");
-		artists.Add("Bob Dylan");
-		artists.Add("The Beatles");
-		artists.Add("The Doors");
-		artists.Add("Nirvana");
-		artists.Add("Tupac Shakur");
-		artists.Add("Marvin Gaye");
-		artists.Add("N.W.A");
-		artists.Add("Run-DMC");
-		artists.Add("Led Zeppelin");
-		artists.Add("Jefferson Airplane");
-		artists.Add("Madonna");
-		artists.Add("Buffalo Springfield");
-		artists.Add("Elton John");
-		artists.Add("R.E.M.");
-		artists.Add("AC/DC");
-		artists.Add("ZZ Top");
-		artists.Add("Aerosmith");
-		artists.Add("David Bowie");
-		artists.Add("The Yardbirds");
-		artists.Add("Johnny Cash ");
-		artists.Add("The Grateful Dead");
-		artists.Add("The Who");
-		artists.Add("The Byrds");
-		artists.Add("Simon & Garfunkel");
-		artists.Add("Roy Orbison");
-		artists.Add("The Beach Boys");
-		artists.Add("Ray Charles");
-		artists.Add("James Brown");
-		artists.Add("Limp Bizkit");
-		artists.Add("Public Enemy");
-		artists.Add("Eminem");
-		artists.Add("Elvis Presley");
-		artists.Add("ABBA");
-		artists.Add("Green Day");
-		artists.Add("Jay-Z");
-		artists.Add("Rage Against the Machine");
-		artists.Add("Metallica");
-		artists.Add("Pink Floyd");
-		artists.Add("Stevie Wonder");
-		artists.Add("Bon Jovi");
-		artists.Add("Guns N' Roses");
-		artists.Add("The Supremes");
-		artists.Add("Drake");
+const Vector<String>& CommonEntitys() {
+	static Vector<String> entities;
+	if (entities.IsEmpty()) {
+		entities.Add("Red Hot Chili Peppers");
+		entities.Add("Beastie Boys");
+		entities.Add("The Jimi Hendrix Experience");
+		entities.Add("Grandmaster Flash and the Furious Five");
+		entities.Add("Bob Marley");
+		entities.Add("Bob Dylan");
+		entities.Add("The Beatles");
+		entities.Add("The Doors");
+		entities.Add("Nirvana");
+		entities.Add("Tupac Shakur");
+		entities.Add("Marvin Gaye");
+		entities.Add("N.W.A");
+		entities.Add("Run-DMC");
+		entities.Add("Led Zeppelin");
+		entities.Add("Jefferson Airplane");
+		entities.Add("Madonna");
+		entities.Add("Buffalo Springfield");
+		entities.Add("Elton John");
+		entities.Add("R.E.M.");
+		entities.Add("AC/DC");
+		entities.Add("ZZ Top");
+		entities.Add("Aerosmith");
+		entities.Add("David Bowie");
+		entities.Add("The Yardbirds");
+		entities.Add("Johnny Cash ");
+		entities.Add("The Grateful Dead");
+		entities.Add("The Who");
+		entities.Add("The Byrds");
+		entities.Add("Simon & Garfunkel");
+		entities.Add("Roy Orbison");
+		entities.Add("The Beach Boys");
+		entities.Add("Ray Charles");
+		entities.Add("James Brown");
+		entities.Add("Limp Bizkit");
+		entities.Add("Public Enemy");
+		entities.Add("Eminem");
+		entities.Add("Elvis Presley");
+		entities.Add("ABBA");
+		entities.Add("Green Day");
+		entities.Add("Jay-Z");
+		entities.Add("Rage Against the Machine");
+		entities.Add("Metallica");
+		entities.Add("Pink Floyd");
+		entities.Add("Stevie Wonder");
+		entities.Add("Bon Jovi");
+		entities.Add("Guns N' Roses");
+		entities.Add("The Supremes");
+		entities.Add("Drake");
 	}
-	return artists;
+	return entities;
 }
 
 void TrimBothAllLines(String& s) {
@@ -466,7 +466,7 @@ String GetBiasHeader(int mode) {
 		case BIAS_DEMOCRAT:			return GetDemocratBiasHeader();
 		case BIAS_REPUBLICAN:		return GetRepublicanBiasHeader();
 		case BIAS_NONPARTISAN:		return GetNonPartisanBiasHeader();
-		case BIAS_BEAUTIFULMUSIC:	return "Lyrical bias pleasing to pop music listeners, containing the most beautiful lyrics possible.";
+		case BIAS_BEAUTIFULMUSIC:	return "Lyrical bias pleasing to pop music listeners, containing the most beautiful scripts possible.";
 		default: return String();
 	}
 }
@@ -477,7 +477,7 @@ String ToMinSec(double sec) {
 	return Format("%d:%02d", m, s);
 }
 
-String GetSongPartFromAbbr(const String& abbr) {
+String GetComponentPartFromAbbr(const String& abbr) {
 	String pre, post;
 	int split = -1;
 	for(int i = 0; i < abbr.GetCount(); i++) {
@@ -507,7 +507,7 @@ String GetSongPartFromAbbr(const String& abbr) {
 	return abbr;
 }
 
-Color GetSongPartPaperColor(const String& abbr) {
+Color GetComponentPartPaperColor(const String& abbr) {
 	String pre, post;
 	int split = -1;
 	for(int i = 0; i < abbr.GetCount(); i++) {
@@ -547,7 +547,7 @@ Color GetProgramPartPaperColor(const String& abbr) {
 	return Color();
 }
 
-int GetSongPartPriority(const String& abbr) {
+int GetComponentPartPriority(const String& abbr) {
 	String pre, post;
 	int split = -1;
 	for(int i = 0; i < abbr.GetCount(); i++) {
@@ -583,8 +583,8 @@ int GetSongPartPriority(const String& abbr) {
 }
 
 bool PartAbbrSorter::operator()(const String& a, const String& b) const {
-	int ai = GetSongPartPriority(a);
-	int bi = GetSongPartPriority(b);
+	int ai = GetComponentPartPriority(a);
+	int bi = GetComponentPartPriority(b);
 	return ai < bi;
 }
 
@@ -624,10 +624,10 @@ void TrimBothAll(Vector<String>& v) {
 String GetIdeaPathTitle(int i) {
 	String title;
 	switch (i) {
-		case IDEAPATH_CONTENT: title = "Using content references and interline references, include the following content in the lyrics"; break;
+		case IDEAPATH_CONTENT: title = "Using content references and interline references, include the following content in the scripts"; break;
 		case IDEAPATH_IMAGERY: title = "Using bold and vivid language, paint a picture of the following description, as the story continue"; break;
 		case IDEAPATH_SYMBOLISM: title = "When incorporating symbolism, please make sure it aligns with the following"; break;
-		case IDEAPATH_PERSON: title = "Note that the following persons and relationships are present in the lyrics"; break;
+		case IDEAPATH_PERSON: title = "Note that the following persons and relationships are present in the scripts"; break;
 		default: TODO; break;
 	}
 	return title;
@@ -817,7 +817,7 @@ const char* ColorTypeString[COLORTYPE_COUNT] = {
 	"Main",
 	"Attack",
 	"Sustain",
-	"Release"
+	"Snapshot"
 };
 
 
@@ -1305,7 +1305,7 @@ const Index<String>& GetRoles() {
 		list.Add("Foodie");
 		list.Add("Traveler");
 		list.Add("Developer/programmer");
-		list.Add("Artist/creative");
+		list.Add("Entity/creative");
 		list.Add("Scientist/researcher");
 		list.Add("Environmentalist");
 		list.Add("Animal lover/activist");
@@ -1376,7 +1376,7 @@ const Vector<GenericType>& GetGenerics() {
 		list.Add().Set("Rise to fame", "a person shares their journey and successes", "shares achievements and milestones", "shares their expertise and advice for others to achieve success");
 		list.Add().Set("Call to Action", "person speaks out on important social or political issues", "uses their platform and influence to promote change", "urges others to take action and make a difference");
 		list.Add().Set("Everyday life updates", "person shares personal and relatable experiences", "offers glimpses into their daily routines", "shares thoughts and opinions on current events or pop culture");
-		list.Add().Set("Brand promotion", "person promotes their products or services", "creates hype and anticipation for upcoming releases or events", "collaborates with other brands and influencers to expand reach and exposure");
+		list.Add().Set("Brand promotion", "person promotes their products or services", "creates hype and anticipation for upcoming snaps or events", "collaborates with other brands and influencers to expand reach and exposure");
 		list.Add().Set("Entertainment", "person shares jokes and comedic content", "reacts to memes and trending topics", "creates funny and entertaining videos/performances");
 		list.Add().Set("Advocacy and awareness", "person raises awareness for important causes", "shares personal stories and experiences", "educates and informs their followers on important issues");
 		list.Add().Set("Political opinions and debates", "person shares their political views and beliefs", "engages in debates and discussions with others", "campaigns for a particular candidate or party");
@@ -1388,7 +1388,7 @@ const Vector<GenericType>& GetGenerics() {
 		list.Add().Set("Self-care and wellness", "person promotes self-care practices and mindfulness", "shares motivational quotes and tips for self-improvement", "discusses mental health and self-care");
 		list.Add().Set("Relationships and love", "person shares their own experiences with relationships and dating", "offers advice and support to others going through similar situations", "discusses different types of relationships and love");
 		list.Add().Set("Fashion and style", "person showcases their own fashion and style", "collaborates with fashion brands and influencers for sponsored content", "offers fashion tips and advice");
-		list.Add().Set("Music and concerts", "person shares their favorite music and artists", "attends and covers concerts and music festivals", "discusses the impact of music on culture and society");
+		list.Add().Set("Music and concerts", "person shares their favorite music and entities", "attends and covers concerts and music festivals", "discusses the impact of music on culture and society");
 		list.Add().Set("DIY and crafts", "person shares DIY tutorials and projects", "offers tips and tricks for crafting and home decor", "encourages others to unleash their creativity");
 		list.Add().Set("Animal lover", "person shares photos and videos of their pets", "raises awareness for animal rights and welfare", "promotes adoption and rescue organizations");
 		list.Add().Set("Reviews and recommendations", "person shares their thoughts and opinions on products, services, and experiences", "provides honest reviews and recommendations", "collaborates with brands for sponsored reviews");
@@ -1398,7 +1398,7 @@ const Vector<GenericType>& GetGenerics() {
 		list.Add().Set("Education and learning", "person shares their educational journey and tips for academic success", "creates educational content and resources", "discusses the importance of education and lifelong learning");
 		list.Add().Set("Nature and conservation", "person shares photos and videos of nature and wildlife", "raises awareness for environmental conservation and sustainability", "discusses ways to protect and preserve the planet");
 		list.Add().Set("Entrepreneurship", "person shares their experience and lessons as a business owner", "offers business advice and strategies", "collaborates with other entrepreneurs and businesses for networking and growth");
-		list.Add().Set("Art and creativity", "person showcases their artistic talents and creations", "collaborates with other artists and galleries for exposure", "discusses the impact of art on society");
+		list.Add().Set("Art and creativity", "person showcases their artistic talents and creations", "collaborates with other entities and galleries for exposure", "discusses the impact of art on society");
 		list.Add().Set("Health and medical advice", "person shares medical advice and resources", "discusses the latest news and research in the healthcare industry", "raises awareness for health issues and campaigns");
 		list.Add().Set("Celebrity gossip", "person shares the latest celebrity news and rumors", "participates in discussions and debates about celebrities and their personal lives", "creates humorous content and memes related to celebrity culture");
 		list.Add().Set("Philanthropy and charity", "person raises money and awareness for charitable causes", "participates in fundraising events and campaigns", "uses their platform for good and to make a positive impact on society");
@@ -1419,24 +1419,24 @@ const Vector<GenericType>& GetGenerics() {
 		list.Add().Set("Raising a special needs child", "person shares their experiences and challenges raising a child with special needs", "offers support and resources to other parents in similar situations", "advocates for improved rights and accommodations for individuals with disabilities");
 		list.Add().Set("Marketing and branding strategies", "person shares their expertise in marketing and branding", "offers tips and advice for entrepreneurs and small business owners", "collaborates with brands for sponsored content and partnerships");
 		list.Add().Set("Conspiracy theories", "person shares theories and evidence supporting various conspiracy theories", "participates in discussions and debates with other believers and skeptics", "creates content that dives deep into the world of conspiracy");
-		list.Add().Set("Music producer and songwriter", "person shares their own original music and songwriting process", "collaborates with other artists and producers for music projects", "shares behind the scenes footage of music production and studio work");
+		list.Add().Set("Music producer and songwriter", "person shares their own original music and songwriting process", "collaborates with other entities and producers for music projects", "shares behind the scenes footage of music production and studio work");
 		list.Add().Set("Tech gadgets and reviews", "person shares reviews and recommendations for the latest tech gadgets and devices", "offers tech advice and tutorials", "collaborates with tech brands for sponsored content and reviews");
 		list.Add().Set("The single life", "person shares their experiences and thoughts on being single", "discusses dating and relationships", "creates content that challenges the societal norms and expectations surrounding being in a relationship");
 		list.Add().Set("Online activism", "person uses their platform and influence to advocate for social and political issues", "participates in online campaigns and hashtags", "encourages their followers to take action and make a difference");
-		list.Add().Set("Music producer", "person shares their music production process and techniques", "offers tips and tricks for aspiring producers", "collaborates with other artists for music projects");
+		list.Add().Set("Music producer", "person shares their music production process and techniques", "offers tips and tricks for aspiring producers", "collaborates with other entities for music projects");
 		list.Add().Set("Singer in a rock band", "person shares music from their band and performances at concerts and festivals", "creates music videos and behind the scenes footage", "discusses the rock music genre and its evolution");
 		list.Add().Set("Running and fitness challenges", "person participates in running challenges and documents their progress", "encourages followers to join them in achieving fitness goals", "advocates for running as a form of physical and mental health");
-		list.Add().Set("Rapper", "person shares their original rap songs and music videos", "documents the process of creating and producing rap music", "discusses the hip hop and rap culture");
-		list.Add().Set("Rap music producer", "person shares their production techniques and collaborations with rap artists", "discusses the evolution and trends in rap music production", "offers advice and resources for aspiring rap music producers");
+		list.Add().Set("Rapper", "person shares their original rap components and music videos", "documents the process of creating and producing rap music", "discusses the hip hop and rap culture");
+		list.Add().Set("Rap music producer", "person shares their production techniques and collaborations with rap entities", "discusses the evolution and trends in rap music production", "offers advice and resources for aspiring rap music producers");
 		list.Add().Set("Luxury lifestyle", "person shares their luxurious travels, fashion, and lifestyle", "collaborates with luxury brands for sponsored content", "creates content that showcases and celebrates the finer things in life");
 		list.Add().Set("Being a new parent", "person shares the ups and downs of being a new parent", "offers advice and support for other new parents", "documents their child's growth and milestones");
 		list.Add().Set("Cheap local traveller", "person documents their budget-friendly travels to local destinations", "offers tips and recommendations for affordable travel", "advocates for responsible and sustainable tourism");
 		list.Add().Set("Bakery owner", "person shares their baking journey and creates content featuring their bakery", "offers baking tips and recipes", "promotes their bakery and engages with customers online");
-		list.Add().Set("Music photographer", "person shares their concert photography and behind the scenes shots", "offers photography tips and advice", "collaborates with music artists and festivals for content and coverage");
-		list.Add().Set("Metal music producer", "person shares their process of producing metal music and collaborations with metal artists", "discusses the history and sub-genres of metal music", "offers resources and advice for aspiring metal music producers");
-		list.Add().Set("Self-taught artist", "person documents their art journey and progress as a self-taught artist", "shares tutorials and tips for aspiring artists", "collaborates with other artists for inspiration and growth");
+		list.Add().Set("Music photographer", "person shares their concert photography and behind the scenes shots", "offers photography tips and advice", "collaborates with music entities and festivals for content and coverage");
+		list.Add().Set("Metal music producer", "person shares their process of producing metal music and collaborations with metal entities", "discusses the history and sub-genres of metal music", "offers resources and advice for aspiring metal music producers");
+		list.Add().Set("Self-taught artist", "person documents their art journey and progress as a self-taught artist", "shares tutorials and tips for aspiring entities", "collaborates with other entities for inspiration and growth");
 		list.Add().Set("Beet enthusiasist", "person shares their love for beets and creates original recipes and dishes featuring beets", "discusses the health benefits and uses of beets", "participates in online discussions with other beet lovers");
-		list.Add().Set("Rock music producer", "person shares their process of producing rock music and collaborations with rock artists", "discusses the evolution and trends of rock music production", "offers resources and advice for aspiring rock music producers");
+		list.Add().Set("Rock music producer", "person shares their process of producing rock music and collaborations with rock entities", "discusses the evolution and trends of rock music production", "offers resources and advice for aspiring rock music producers");
 		list.Add().Set("News commentator", "person shares their perspectives and analysis on current events and news stories", "discusses politics, society, and culture", "participates in debates and discussions with others");
 		list.Add().Set("Left-wing commentator", "person shares their liberal views and critiques on politics and social issues", "offers alternative perspectives and solutions to current problems", "advocates for progressive change and activism");
 		list.Add().Set("Music business owner", "person shares their experiences and challenges as a music business owner", "offers advice and resources for running a successful music business", "collaborates with other professionals in the music industry");
@@ -1444,13 +1444,13 @@ const Vector<GenericType>& GetGenerics() {
 		list.Add().Set("Downhill skiing enthusiast", "person shares footage and photos from their downhill skiing adventures", "discusses techniques and gear for skiing", "collaborates with ski resorts and brands for sponsored content");
 		list.Add().Set("Kayak owner", "person shares their kayaking trips and adventures", "offers tips and recommendations for beginner kayakers", "discusses the benefits and environmental impact of kayaking");
 		list.Add().Set("Podcaster", "person hosts and produces their own podcast on a specific topic or theme", "invites guests to share their expertise and opinions", "promotes and engages with listeners on social media");
-		list.Add().Set("Music podcaster", "person hosts and produces a podcast featuring interviews and discussions with music artists and industry professionals", "discusses the latest trends and happenings in the music industry", "collaborates with independent musicians and record labels for content");
+		list.Add().Set("Music podcaster", "person hosts and produces a podcast featuring interviews and discussions with music entities and industry professionals", "discusses the latest trends and happenings in the music industry", "collaborates with independent musicians and record labels for content");
 		list.Add().Set("Music production podcaster", "person hosts and produces a podcast on the topic of music production", "features interviews and discussions with music producers and engineers", "offers tips and resources for aspiring music producers");
 		list.Add().Set("Food vlogger", "person creates videos documenting their culinary adventures and recipes", "collaborates with restaurants and brands for sponsored content", "offers cooking and food-related tips and tutorials");
 		list.Add().Set("Adventure seeker", "person shares their adrenaline-fueled travels and activities", "documents extreme sports and outdoor adventures", "advocates for embracing new challenges and getting out of one's comfort zone");
 		list.Add().Set("Metal band vlogger", "person documents their life and career as a member of a metal band", "shares videos of live performances and behind the scenes footage", "discusses the metal music community and culture");
 		list.Add().Set("Fitness model", "person shares their fitness journey and offers workout and nutrition advice", "collaborates with fitness and sports brands for sponsored content", "promotes body positivity and healthy living");
-		list.Add().Set("EDM producer vlogger", "person documents their journey and process of producing electronic dance music", "shares behind the scenes footage of festivals and events", "collaborates with other EDM artists and DJs for content");
+		list.Add().Set("EDM producer vlogger", "person documents their journey and process of producing electronic dance music", "shares behind the scenes footage of festivals and events", "collaborates with other EDM entities and DJs for content");
 		list.Add().Set("C++ programmer", "person shares their coding projects and programming tips and resources for C++", "discusses advancements and updates in C++ programming language", "participates in online discussions and collaborations with fellow C++ programmers");
 		list.Add().Set("Small business owner", "person shares their experiences and challenges of owning a small business", "discusses entrepreneurship and offers advice for other small business owners", "collaborates with other entrepreneurs and local businesses for a stronger community");
 		list.Add().Set("Daily life vlogger", "person shares snippets of their daily life and activities", "creates a personal connection with followers by providing a glimpse into their life", "engages with followers and responds to comments and questions");
@@ -1461,10 +1461,10 @@ const Vector<GenericType>& GetGenerics() {
 		list.Add().Set("Travel photographer", "person shares their travel photography from destinations around the world", "offers tips for improving photography skills and capturing unique shots", "collaborates with tourism boards and travel brands for sponsored content");
 		list.Add().Set("Music business thoughts", "person shares their opinions and ideas on the music industry and its future", "discusses the impact of technology and social media on the music business", "collaborates with other industry professionals for discussions and debates");
 		list.Add().Set("Thoughts about the music business" , "person shares their experiences and insights as a music industry professional", "offers advice and resources for aspiring musicians and industry professionals", "discusses the challenges and opportunities in the music business");
-		list.Add().Set("Thoughts about other artists as an music artist", "person shares their thoughts and analysis on other music artists and their work", "engages in discussions and debates about different music genres and styles", "creates content that promotes and supports other talent");
+		list.Add().Set("Thoughts about other entities as an music artist", "person shares their thoughts and analysis on other music entities and their work", "engages in discussions and debates about different music genres and styles", "creates content that promotes and supports other talent");
 		list.Add().Set("Starting a business from scratch", "person documents their journey and struggles of starting a business from the ground up", "offers advice and resources for aspiring entrepreneurs", "encourages and motivates others to pursue their dreams");
-		list.Add().Set("Art collector", "person shares their art collection and discusses the stories behind each piece", "offers tips for building an art collection and investing in art", "collaborates with artists and galleries for sponsored content and events");
-		list.Add().Set("Music listener", "person shares their music playlist and recommendations for different music genres", "engages in discussions and debates about music and artists", "creates content that celebrates the power and influence of music");
+		list.Add().Set("Art collector", "person shares their art collection and discusses the stories behind each piece", "offers tips for building an art collection and investing in art", "collaborates with entities and galleries for sponsored content and events");
+		list.Add().Set("Music listener", "person shares their music playlist and recommendations for different music genres", "engages in discussions and debates about music and entities", "creates content that celebrates the power and influence of music");
 		list.Add().Set("Metal music listener", "person shares their metal music playlist and attends concerts and festivals", "participates in online discussions and debates about metal music", "creates content that promotes and celebrates the metal music community");
 		list.Add().Set("Political news junkie", "person shares news articles and updates on politics and current events", "discusses and analyses political policies and decisions", "participates in online discussions and debates with others");
 	}
@@ -1489,7 +1489,7 @@ const Vector<String>& GetGenericParts() {
 	return list;
 }
 
-const Index<String>& GetTypecasts() {
+const Index<String>& GetTypeclasss() {
 	thread_local static Index<String> list;
 	if (list.IsEmpty()) {
 		list.Add("Heartbroken/lovesick");
@@ -1549,8 +1549,8 @@ const Index<String>& GetTypecasts() {
 	return list;
 }
 
-int GetTypecastCount() {
-	return GetTypecasts().GetCount();
+int GetTypeclassCount() {
+	return GetTypeclasss().GetCount();
 }
 
 const Index<String>& GetProfiles() {
@@ -1563,36 +1563,36 @@ const Index<String>& GetProfiles() {
         list.Add("embodying a character or persona");
         list.Add("a storyteller or messenger for a community or culture");
         list.Add("reflecting on past experiences or memories");
-        list.Add("interpreting or analyzing the lyrics for the listener");
+        list.Add("interpreting or analyzing the scripts for the listener");
         list.Add("challenging societal norms or addressing social issues");
         list.Add("invoking a particular mood or atmosphere through vocals");
         list.Add("having a dialogue with another singer");
         list.Add("having a dialogue with the audience");
         list.Add("using abstract or poetic language to convey feelings or ideas");
-        list.Add("highlighting the beauty or poeticism of the lyrics through their performance");
-        list.Add("asking questions and exploring different perspectives on the topic of the lyrics");
+        list.Add("highlighting the beauty or poeticism of the scripts through their performance");
+        list.Add("asking questions and exploring different perspectives on the topic of the scripts");
         list.Add("using irony or satire to convey a message or make a statement");
-        list.Add("evoking nostalgia or longing through the lyrics");
-        list.Add("using personal experiences to give depth and authenticity to the lyrics ");
-        list.Add("using humor or wit to engage with the lyrics");
-        list.Add("challenging the listener's perspective or beliefs with the lyrics");
-        list.Add("using vocal techniques or styles to add layers of meaning to the lyrics");
-        list.Add("creating a sense of intimacy or connection through their performance of the lyrics");
-        list.Add("breaking societal expectations and norms through their interpretation of the lyrics");
-        list.Add("offering a unique perspective on a commonly addressed topic in the lyrics");
+        list.Add("evoking nostalgia or longing through the scripts");
+        list.Add("using personal experiences to give depth and authenticity to the scripts ");
+        list.Add("using humor or wit to engage with the scripts");
+        list.Add("challenging the listener's perspective or beliefs with the scripts");
+        list.Add("using vocal techniques or styles to add layers of meaning to the scripts");
+        list.Add("creating a sense of intimacy or connection through their performance of the scripts");
+        list.Add("breaking societal expectations and norms through their interpretation of the scripts");
+        list.Add("offering a unique perspective on a commonly addressed topic in the scripts");
         list.Add("creating a soundtrack or anthem for a specific group or community");
-        list.Add("using repetition or emphasis to emphasize the importance of the lyrics");
-        list.Add("using double entendres or wordplay to add depth and complexity to the lyrics ");
-        list.Add("reflecting on personal growth or transformation through the lyrics");
-        list.Add("embodying a specific emotion or feeling portrayed in the lyrics");
-        list.Add("representing a marginalized or underrepresented group through the lyrics");
-        list.Add("using imagery or metaphors to convey a deeper meaning behind the lyrics");
-        list.Add("expressing vulnerability or raw emotion through the lyrics");
-        list.Add("narrating a specific event or experience through the lyrics");
-        list.Add("using the lyrics to convey a sense of empowerment or strength");
-        list.Add("engaging in introspection and self-reflection through the lyrics");
-        list.Add("confronting personal demons or struggles in the lyrics ");
-        list.Add("using the lyrics to express social or cultural commentary");
+        list.Add("using repetition or emphasis to emphasize the importance of the scripts");
+        list.Add("using double entendres or wordplay to add depth and complexity to the scripts ");
+        list.Add("reflecting on personal growth or transformation through the scripts");
+        list.Add("embodying a specific emotion or feeling portrayed in the scripts");
+        list.Add("representing a marginalized or underrepresented group through the scripts");
+        list.Add("using imagery or metaphors to convey a deeper meaning behind the scripts");
+        list.Add("expressing vulnerability or raw emotion through the scripts");
+        list.Add("narrating a specific event or experience through the scripts");
+        list.Add("using the scripts to convey a sense of empowerment or strength");
+        list.Add("engaging in introspection and self-reflection through the scripts");
+        list.Add("confronting personal demons or struggles in the scripts ");
+        list.Add("using the scripts to express social or cultural commentary");
 	}
 	return list;
 }
@@ -1647,7 +1647,7 @@ const Index<String>& GetPrimary() {
         list.Add("Those experiencing a spiritual or religious awakening");
         list.Add("Individuals from a snowy-winter culture");
         list.Add("Individuals from a snowless-winter culture");
-        list.Add("Artists or musicians");
+        list.Add("Entitys or musicians");
         list.Add("Workers in food industry");
         list.Add("Workers in sex industry");
         list.Add("Workers in car industry");
@@ -1728,7 +1728,7 @@ int GetSecondaryCount() {
 	return GetSecondary().GetCount();
 }
 
-const VectorMap<String,String>& GetArchetypes() {
+const VectorMap<String,String>& GetContents() {
 	thread_local static VectorMap<String,String> list;
 	if (list.IsEmpty()) {
 		list.Add("Young Love","a song about the electric and passionate romance between two young lovers");
@@ -1773,54 +1773,54 @@ const VectorMap<String,String>& GetArchetypes() {
 	return list;
 }
 
-int GetArchetypeCount() {
-	return GetArchetypes().GetCount();
+int GetContentCount() {
+	return GetContents().GetCount();
 }
 
 
 const Vector<ContrastType>& GetContrasts() {
 	thread_local static Vector<ContrastType> list;
 	if (list.IsEmpty()) {
-		list.Add().Set("Seductive intro", "a seductive and sultry melody draws the listener in", "the lyrics talk about a passionate and intense relationship", "the mood shifts as the singer realizes they are not truly in love");
-		list.Add().Set("Rise and fall", "the beat builds and intensifies, creating a sense of excitement and anticipation", "the lyrics tell a story of overcoming obstacles and achieving success", "the energy drops suddenly and the singer reflects on the sacrifices and struggles that came with their success");
-		list.Add().Set("Fun and games", "a carefree and lively melody sets the tone for a carefree party anthem", "the lyrics are about enjoying life and living in the moment", "the party comes to an end and the reality of responsibilities and consequences sink in");
-		list.Add().Set("Love at first sight", "a romantic and dreamy melody introduces the concept of falling in love at first sight", "the lyrics describe the intense feelings and desires that come with falling for someone instantly", "the singer wakes up from the fantasy and realizes");
-		list.Add().Set("Struggle and triumph", "a slower and melancholic melody sets the scene for a character facing challenges and adversity", "the lyrics depict the struggles and hardships they have faced", "the pace picks up and the music becomes more triumphant as the character overcomes their struggles and achieves success");
-		list.Add().Set("Ups and downs", "a catchy and upbeat melody reflects the highs of a new relationship", "the lyrics delve into the challenges and conflicts that arise within the relationship", "the music slows down as the couple try to work through their problems and find a resolution");
-		list.Add().Set("Escape to paradise", "a tropical and laid-back beat transports the listener to a paradise destination", "the lyrics describe a desire to escape from reality and find solace in a beautiful location", "the singer comes back to reality and faces the consequences of leaving everything behind");
-		list.Add().Set("Rebellious spirit", "a rebellious and edgy guitar riff sets the rebellious tone of the song", "the lyrics speak of breaking rules and societal expectations", "the song ends with the realization that rebellion can have consequences");
-		list.Add().Set("Broken and mended", "a somber and melancholic melody reflects a heartbroken state", "the lyrics describe the pain and sadness of a broken relationship", "the tone shifts as the singer begins to heal and move on from the heartbreak");
-		list.Add().Set("Chase your dreams", "an uplifting and motivational melody encourages listeners to chase their dreams", "the lyrics tell a story of overcoming obstacles and pursuing one's passions", "the song concludes with a sense of fulfillment and the realization that the journey towards achieving dreams is never-ending");
-		list.Add().Set("Dark secrets", "a haunting and mysterious introduction sets the tone for secrets and deceit", "the lyrics reveal dark secrets and hidden motives among the characters", "the song ends with a sense of betrayal and the consequences of keeping secrets");
-		list.Add().Set("Rags to riches", "a humble and modest melody represents the beginnings of a character's journey", "the lyrics describe the climb to success and wealth", "the music becomes more grandiose as the character achieves their dreams and reflects on their journey");
-		list.Add().Set("Lost and found", "a haunting and melancholic melody portrays a sense of being lost and alone", "the lyrics depict a journey of self-discovery and finding one's place in the world", "the music becomes more uplifting as the character finds a sense of belonging and purpose");
-		list.Add().Set("Ignite the fire", "an energetic and intense beat sparks excitement and passion", "the lyrics describe the power and intensity of a new love or passion", "the music dies down as the flame fades and the singer is left with the memories of the passion that once consumed them");
-		list.Add().Set("From the ashes", "a slow and mournful melody sets the scene for a character who has hit rock bottom", "the lyrics depict the struggles and hardships they have faced", "the music picks up as the character rises from the ashes and rebuilds their life" );
-		list.Add().Set("Fame and fortune", "a flashy and upbeat melody represents the allure of fame and fortune", "the lyrics describe the glamorous lifestyle and perks that come with success", "the song ends with a cautionary tale about the emptiness and pitfalls of a life solely focused on money and fame");
-		list.Add().Set("Healing in the darkness", "a haunting and ethereal melody reflects a state of darkness and pain", "the lyrics speak of finding light and healing in the darkest times", "the music builds to a triumphant and uplifting finale as the singer finds strength and hope in their struggles");
-		list.Add().Set("City lights and lonely nights", "a bustling and energetic beat represents the excitement of the city at night", "the lyrics tell a story of chasing dreams and living life to the fullest in the city", "the song ends with a sense of loneliness and longing for something more meaningful outside of the fast-paced city life");
-		list.Add().Set("Breaking the mold", "a unique and unconventional melody sets the tone for breaking the norm", "the lyrics describe defying expectations and being true to oneself", "the song ends with a sense of liberation and empowerment as the singer embraces their individuality");
-		list.Add().Set("Haunted by the past", "a haunting and eerie melody reflects the weight of a character's past traumas", "the lyrics delve into the pain and struggles of moving on from the past", "the music becomes more hopeful as the character learns to let go and move forward");
-		list.Add().Set("Wild and free", "a carefree and adventurous melody embodies the thrill of living life on the edge", "the lyrics describe the rush and excitement of taking risks and living in the moment", "the song concludes with a reminder that with freedom comes consequences and responsibilities");
-		list.Add().Set("Clash of opinions", "a catchy and upbeat melody sets the tone for a heated argument", "the lyrics depict conflicting opinions and viewpoints", "the song ends with the understanding that sometimes it's best to agree to disagree and move on" );
-		list.Add().Set("Long distance love", "a soft and tender melody represents the longing and distance in a relationship", "the lyrics tell a story of the struggles and sacrifices of maintaining a long distance love", "the song ends with a sense of hope and determination to make the relationship work");
-		list.Add().Set("Finding inner strength", "a slow and contemplative melody represents a character facing inner struggles", "the lyrics speak of finding courage and strength from within to overcome challenges", "the song crescendos as the singer embraces their inner strength and triumphs over their struggles");
-		list.Add().Set("Living a double life", "a mysterious and seductive beat sets the stage for a character leading a secretive life", "the lyrics tell the story of juggling two separate identities and the dangers that come with it", "the song concludes with the realization that living a lie is destructive and unsustainable");
-		list.Add().Set("Caught in the spotlight", "a bright and flashy melody reflects the thrill of being in the spotlight", "the lyrics depict the pressure and challenges of fame and constantly being in the public eye", "the music slows down as the singer reflects on the toll fame has taken on their personal life");
-		list.Add().Set("Love and war", "a powerful and intense beat represents the passionate and tumultuous nature of love", "the lyrics depict a couple's constant battle and struggle to make their relationship work", "the song ends with a bittersweet realization that love can be both beautiful and painful");
-		list.Add().Set("The art of letting go", "a slow and somber melody sets the tone for learning to let go", "the lyrics describe the struggles of moving on and leaving the past behind", "the music builds to a hopeful and empowering finale as the singer finally finds the strength to let go");
-		list.Add().Set("Living in the moment", "an upbeat and carefree melody represents living life with no regrets", "the lyrics encourage taking chances and embracing every moment", "the song ends with a reminder to cherish the present and not dwell on the past or worry about the future");
-		list.Add().Set("Conquering fears", "a tense and ominous melody reflects the fear and anxiety a character faces", "the lyrics speak of overcoming fears and finding courage to face them", "the music becomes triumphant and uplifting as the character conquers their fears and grows stronger" );
-		/*list.Add().Set("Heart vs. Mind", "a gentle and emotional melody sets the stage for a character torn between their heart and their logical mind", "the lyrics describe the internal struggle between following one's emotions and making rational decisions", "the song ends on a reflective note as the character finds a balance between their heart and mind");
-		list.Add().Set("Surviving the storm", "a stormy and intense melody represents facing difficult and challenging times", "the lyrics speak of resilience and perseverance through tough situations", "the music calms down as the singer finds strength and hope in surviving the storm");
-		list.Add().Set("Living a lie", "a dark and deceptive melody reflects the deception in a character's life", "the lyrics depict the consequences and chaos that come with living a lie", "the song ends with the realization that living a lie can destroy relationships and one's own sense of self");
-		list.Add().Set("Forgotten memories", "a melancholic and haunting melody sets the scene for a character's forgotten memories", "the lyrics unravel the mystery and pain behind the forgotten memories", "the music becomes reflective and haunting as the singer realizes the true impact of their forgotten memories on their life");
-		list.Add().Set("Breaking free", "a powerful and empowering melody reflects the desire to break free from constraints and expectations", "the lyrics describe the journey of breaking through obstacles and finding independence", "the song ends on a triumphant note as the character finally breaks free and finds freedom and happiness" );
-		list.Add().Set("Fake love", "a catchy and upbeat melody represents the facade of a fake love", "the lyrics reveal the deceit and manipulation in a fake relationship", "the song ends with the realization of the emptiness and pain of a love built on lies and false promises");
-		list.Add().Set("Strangers in love", "a soft and romantic melody represents the initial attraction and connection between two strangers", "the lyrics follow the journey of getting to know each other and falling in love", "the song ends with the uncertainty and fear of whether their love will last or if they were always destined to be strangers");
-		list.Add().Set("Guy in club", "an upbeat and danceable melody sets the scene for a night out at the club", "the lyrics depict the excitement and charm of a guy at the club", "the song ends on a reflective note as the singer realizes the emptiness and lack of substance in these interactions");
-		list.Add().Set("Angels and demons", "a haunting and eerie melody sets the tone for the duality within a character", "the lyrics describe the battle between good and evil within oneself", "the music becomes more chaotic as the character struggles to find balance between their angels and demons");
-		list.Add().Set("Living on the edge", "a fast-paced and thrilling beat represents the risky and dangerous lifestyle of living on the edge", "the lyrics depict the rush and adrenaline that comes with constantly pushing boundaries", "the song ends with a sense of exhaustion and questioning if the thrill is worth the consequences");*/
+		list.Add().Set("Seductive intro", "a seductive and sultry melody draws the listener in", "the scripts talk about a passionate and intense relationship", "the mood shifts as the singer realizes they are not truly in love");
+		list.Add().Set("Rise and fall", "the beat builds and intensifies, creating a sense of excitement and anticipation", "the scripts tell a story of overcoming obstacles and achieving success", "the energy drops suddenly and the singer reflects on the sacrifices and struggles that came with their success");
+		list.Add().Set("Fun and games", "a carefree and lively melody sets the tone for a carefree party anthem", "the scripts are about enjoying life and living in the moment", "the party comes to an end and the reality of responsibilities and consequences sink in");
+		list.Add().Set("Love at first sight", "a romantic and dreamy melody introduces the concept of falling in love at first sight", "the scripts describe the intense feelings and desires that come with falling for someone instantly", "the singer wakes up from the fantasy and realizes");
+		list.Add().Set("Struggle and triumph", "a slower and melancholic melody sets the scene for a character facing challenges and adversity", "the scripts depict the struggles and hardships they have faced", "the pace picks up and the music becomes more triumphant as the character overcomes their struggles and achieves success");
+		list.Add().Set("Ups and downs", "a catchy and upbeat melody reflects the highs of a new relationship", "the scripts delve into the challenges and conflicts that arise within the relationship", "the music slows down as the couple try to work through their problems and find a resolution");
+		list.Add().Set("Escape to paradise", "a tropical and laid-back beat transports the listener to a paradise destination", "the scripts describe a desire to escape from reality and find solace in a beautiful location", "the singer comes back to reality and faces the consequences of leaving everything behind");
+		list.Add().Set("Rebellious spirit", "a rebellious and edgy guitar riff sets the rebellious tone of the song", "the scripts speak of breaking rules and societal expectations", "the song ends with the realization that rebellion can have consequences");
+		list.Add().Set("Broken and mended", "a somber and melancholic melody reflects a heartbroken state", "the scripts describe the pain and sadness of a broken relationship", "the tone shifts as the singer begins to heal and move on from the heartbreak");
+		list.Add().Set("Chase your dreams", "an uplifting and motivational melody encourages listeners to chase their dreams", "the scripts tell a story of overcoming obstacles and pursuing one's passions", "the song concludes with a sense of fulfillment and the realization that the journey towards achieving dreams is never-ending");
+		list.Add().Set("Dark secrets", "a haunting and mysterious introduction sets the tone for secrets and deceit", "the scripts reveal dark secrets and hidden motives among the characters", "the song ends with a sense of betrayal and the consequences of keeping secrets");
+		list.Add().Set("Rags to riches", "a humble and modest melody represents the beginnings of a character's journey", "the scripts describe the climb to success and wealth", "the music becomes more grandiose as the character achieves their dreams and reflects on their journey");
+		list.Add().Set("Lost and found", "a haunting and melancholic melody portrays a sense of being lost and alone", "the scripts depict a journey of self-discovery and finding one's place in the world", "the music becomes more uplifting as the character finds a sense of belonging and purpose");
+		list.Add().Set("Ignite the fire", "an energetic and intense beat sparks excitement and passion", "the scripts describe the power and intensity of a new love or passion", "the music dies down as the flame fades and the singer is left with the memories of the passion that once consumed them");
+		list.Add().Set("From the ashes", "a slow and mournful melody sets the scene for a character who has hit rock bottom", "the scripts depict the struggles and hardships they have faced", "the music picks up as the character rises from the ashes and rebuilds their life" );
+		list.Add().Set("Fame and fortune", "a flashy and upbeat melody represents the allure of fame and fortune", "the scripts describe the glamorous lifestyle and perks that come with success", "the song ends with a cautionary tale about the emptiness and pitfalls of a life solely focused on money and fame");
+		list.Add().Set("Healing in the darkness", "a haunting and ethereal melody reflects a state of darkness and pain", "the scripts speak of finding light and healing in the darkest times", "the music builds to a triumphant and uplifting finale as the singer finds strength and hope in their struggles");
+		list.Add().Set("City lights and lonely nights", "a bustling and energetic beat represents the excitement of the city at night", "the scripts tell a story of chasing dreams and living life to the fullest in the city", "the song ends with a sense of loneliness and longing for something more meaningful outside of the fast-paced city life");
+		list.Add().Set("Breaking the mold", "a unique and unconventional melody sets the tone for breaking the norm", "the scripts describe defying expectations and being true to oneself", "the song ends with a sense of liberation and empowerment as the singer embraces their individuality");
+		list.Add().Set("Haunted by the past", "a haunting and eerie melody reflects the weight of a character's past traumas", "the scripts delve into the pain and struggles of moving on from the past", "the music becomes more hopeful as the character learns to let go and move forward");
+		list.Add().Set("Wild and free", "a carefree and adventurous melody embodies the thrill of living life on the edge", "the scripts describe the rush and excitement of taking risks and living in the moment", "the song concludes with a reminder that with freedom comes consequences and responsibilities");
+		list.Add().Set("Clash of opinions", "a catchy and upbeat melody sets the tone for a heated argument", "the scripts depict conflicting opinions and viewpoints", "the song ends with the understanding that sometimes it's best to agree to disagree and move on" );
+		list.Add().Set("Long distance love", "a soft and tender melody represents the longing and distance in a relationship", "the scripts tell a story of the struggles and sacrifices of maintaining a long distance love", "the song ends with a sense of hope and determination to make the relationship work");
+		list.Add().Set("Finding inner strength", "a slow and contemplative melody represents a character facing inner struggles", "the scripts speak of finding courage and strength from within to overcome challenges", "the song crescendos as the singer embraces their inner strength and triumphs over their struggles");
+		list.Add().Set("Living a double life", "a mysterious and seductive beat sets the stage for a character leading a secretive life", "the scripts tell the story of juggling two separate identities and the dangers that come with it", "the song concludes with the realization that living a lie is destructive and unsustainable");
+		list.Add().Set("Caught in the spotlight", "a bright and flashy melody reflects the thrill of being in the spotlight", "the scripts depict the pressure and challenges of fame and constantly being in the public eye", "the music slows down as the singer reflects on the toll fame has taken on their personal life");
+		list.Add().Set("Love and war", "a powerful and intense beat represents the passionate and tumultuous nature of love", "the scripts depict a couple's constant battle and struggle to make their relationship work", "the song ends with a bittersweet realization that love can be both beautiful and painful");
+		list.Add().Set("The art of letting go", "a slow and somber melody sets the tone for learning to let go", "the scripts describe the struggles of moving on and leaving the past behind", "the music builds to a hopeful and empowering finale as the singer finally finds the strength to let go");
+		list.Add().Set("Living in the moment", "an upbeat and carefree melody represents living life with no regrets", "the scripts encourage taking chances and embracing every moment", "the song ends with a reminder to cherish the present and not dwell on the past or worry about the future");
+		list.Add().Set("Conquering fears", "a tense and ominous melody reflects the fear and anxiety a character faces", "the scripts speak of overcoming fears and finding courage to face them", "the music becomes triumphant and uplifting as the character conquers their fears and grows stronger" );
+		/*list.Add().Set("Heart vs. Mind", "a gentle and emotional melody sets the stage for a character torn between their heart and their logical mind", "the scripts describe the internal struggle between following one's emotions and making rational decisions", "the song ends on a reflective note as the character finds a balance between their heart and mind");
+		list.Add().Set("Surviving the storm", "a stormy and intense melody represents facing difficult and challenging times", "the scripts speak of resilience and perseverance through tough situations", "the music calms down as the singer finds strength and hope in surviving the storm");
+		list.Add().Set("Living a lie", "a dark and deceptive melody reflects the deception in a character's life", "the scripts depict the consequences and chaos that come with living a lie", "the song ends with the realization that living a lie can destroy relationships and one's own sense of self");
+		list.Add().Set("Forgotten memories", "a melancholic and haunting melody sets the scene for a character's forgotten memories", "the scripts unravel the mystery and pain behind the forgotten memories", "the music becomes reflective and haunting as the singer realizes the true impact of their forgotten memories on their life");
+		list.Add().Set("Breaking free", "a powerful and empowering melody reflects the desire to break free from constraints and expectations", "the scripts describe the journey of breaking through obstacles and finding independence", "the song ends on a triumphant note as the character finally breaks free and finds freedom and happiness" );
+		list.Add().Set("Fake love", "a catchy and upbeat melody represents the facade of a fake love", "the scripts reveal the deceit and manipulation in a fake relationship", "the song ends with the realization of the emptiness and pain of a love built on lies and false promises");
+		list.Add().Set("Strangers in love", "a soft and romantic melody represents the initial attraction and connection between two strangers", "the scripts follow the journey of getting to know each other and falling in love", "the song ends with the uncertainty and fear of whether their love will last or if they were always destined to be strangers");
+		list.Add().Set("Guy in club", "an upbeat and danceable melody sets the scene for a night out at the club", "the scripts depict the excitement and charm of a guy at the club", "the song ends on a reflective note as the singer realizes the emptiness and lack of substance in these interactions");
+		list.Add().Set("Angels and demons", "a haunting and eerie melody sets the tone for the duality within a character", "the scripts describe the battle between good and evil within oneself", "the music becomes more chaotic as the character struggles to find balance between their angels and demons");
+		list.Add().Set("Living on the edge", "a fast-paced and thrilling beat represents the risky and dangerous lifestyle of living on the edge", "the scripts depict the rush and adrenaline that comes with constantly pushing boundaries", "the song ends with a sense of exhaustion and questioning if the thrill is worth the consequences");*/
 	}
 	return list;
 }
@@ -1843,25 +1843,25 @@ const Vector<String>& GetContrastParts() {
 	return list;
 }
 
-VectorMap<String,Vector<String>>& GetTypecastSingers(bool gender) {
+VectorMap<String,Vector<String>>& GetTypeclassSingers(bool gender) {
 	if (!gender)
-		return GetTypecastSingersMale();
+		return GetTypeclassSingersMale();
 	else
-		return GetTypecastSingersFemale();
+		return GetTypeclassSingersFemale();
 }
 
-VectorMap<String,Vector<String>>& GetTypecastRappers(bool gender) {
+VectorMap<String,Vector<String>>& GetTypeclassRappers(bool gender) {
 	if (!gender)
-		return GetTypecastRappersMale();
+		return GetTypeclassRappersMale();
 	else
-		return GetTypecastRappersFemale();
+		return GetTypeclassRappersFemale();
 }
 
-VectorMap<String,Vector<String>>& GetTypecastArtists(bool rapper, bool gender) {
+VectorMap<String,Vector<String>>& GetTypeclassEntitys(bool rapper, bool gender) {
 	if (!rapper)
-		return GetTypecastSingers(gender);
+		return GetTypeclassSingers(gender);
 	else
-		return GetTypecastRappers(gender);
+		return GetTypeclassRappers(gender);
 }
 
 void SetIndexCursor(ArrayCtrl& arr, int cur) {

@@ -124,7 +124,7 @@ void ImagePlayerBase::MakeSingleImage() {
 	String prompt = item.prompt;
 	
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist)
+	if(!p.component || !p.entity)
 		return;
 	
 	

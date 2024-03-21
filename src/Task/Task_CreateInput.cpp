@@ -1,5 +1,6 @@
 #include "Task.h"
 
+
 #ifdef flagLLAMACPP
 #include <LlamaCpp/LlamaCpp.h>
 #endif
@@ -377,12 +378,13 @@ void Task::CreateInput_GetColorIdea() {
 	
 }
 
-void Task::CreateInput_GetSongDataAnalysis() {
+void Task::CreateInput_GetTextDataAnalysis() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
 	}
-	
+	TODO
+	#if 0
 	SongDataAnalysisArgs args;
 	args.Put(this->args[0]);
 	/*ASSERT(args.artist.GetCount());
@@ -1458,7 +1460,7 @@ void Task::CreateInput_GetSongDataAnalysis() {
 		}
 		input.response_length = 2048;
 	}
-	
+	#endif
 }
 
 void Task::CreateInput_GetActionAnalysis() {
@@ -1566,12 +1568,14 @@ void Task::CreateInput_GetActionAnalysis() {
 	}
 }
 
-void Task::CreateInput_GetLyricsPhrase() {
+void Task::CreateInput_GetScriptPhrase() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
 	}
 	
+	TODO
+	#if 0
 	LyricsPhraseArgs args;
 	args.Put(this->args[0]);
 	
@@ -1594,6 +1598,7 @@ void Task::CreateInput_GetLyricsPhrase() {
 		}
 		input.response_length = 2*1024;
 	}
+	#endif
 }
 
 void Task::CreateInput_GetTokenData() {
@@ -2288,6 +2293,8 @@ void Task::CreateInput_GetPhraseData() {
 		input.response_length = 2048;
 	}
 	else if (args.fn == 4) {
+		TODO
+		#if 0
 		{
 			auto& list = input.AddSub().Title("Typecasts of singer profiles in relation to the lyrics");
 			list.NumberedLines();
@@ -2311,6 +2318,7 @@ void Task::CreateInput_GetPhraseData() {
 			results.Add("");
 		}
 		input.response_length = 2048;
+		#endif
 	}
 	else if (args.fn == 5) {
 		{
@@ -2366,6 +2374,8 @@ void Task::CreateInput_GetPhraseData() {
 		input.response_length = 2048;
 	}
 	else if (args.fn == 7) {
+		TODO
+		#if 0
 		{
 			auto& list = input.AddSub().Title("Stereotypical architypes of the storyline of a moder pop/rock/EDM/folk/metal song");
 			list.NumberedLines();
@@ -2389,6 +2399,7 @@ void Task::CreateInput_GetPhraseData() {
 			results.Add("");
 		}
 		input.response_length = 2048;
+		#endif
 	}
 	else if (args.fn == 8) {
 		{
@@ -2627,12 +2638,14 @@ void Task::CreateInput_GetNanaData() {
 	}
 }
 
-void Task::CreateInput_LyricsSolver() {
+void Task::CreateInput_ScriptSolver() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
 	}
 	
+	TODO
+	#if 0
 	LyricsSolverArgs args;
 	args.Put(this->args[0]);
 	
@@ -2942,5 +2955,7 @@ void Task::CreateInput_LyricsSolver() {
 			results.Title("Novel new name for the previous song");
 		}
 	}
+	#endif
 	
 }
+

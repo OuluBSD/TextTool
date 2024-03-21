@@ -2,7 +2,7 @@
 #define _Agent_Agent_h_
 
 #include <ToolCore/ToolCore.h>
-#include <SongDatabase/SongDatabase.h>
+#include <TextDatabase/TextDatabase.h>
 
 
 #include "Node.h"

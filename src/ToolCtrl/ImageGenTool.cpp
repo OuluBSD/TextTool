@@ -164,7 +164,7 @@ void ImageGenTool::Generate() {
 
 void ImageGenTool::GenerateArgs(String prompt_str, int n) {
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist)
+	if(!p.component || !p.entity)
 		return;
 	
 	
@@ -285,7 +285,7 @@ void ImageGenTool::DataRecent() {
 
 void ImageGenTool::GenerateFromEditor() {
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist)
+	if(!p.component || !p.entity)
 		return;
 	
 	
@@ -322,7 +322,7 @@ void ImageGenTool::GenerateFromEditor() {
 
 void ImageGenTool::VariateFromEditor() {
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist)
+	if(!p.component || !p.entity)
 		return;
 	
 	
@@ -466,7 +466,7 @@ void ImageGenTool::Upload() {
 
 void ImageGenTool::Translate(bool editor) {
 	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist)
+	if(!p.component || !p.entity)
 		return;
 	
 	
