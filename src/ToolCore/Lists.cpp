@@ -1,5 +1,9 @@
 #include "ToolCore.h"
 
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
 #if 0
 VectorMap<String,Vector<String>>& GetTypeclassSingers() {
 	thread_local static VectorMap<String,Vector<String>> list;
@@ -2740,3 +2744,7 @@ VectorMap<String,Vector<String>>& GetTypeclassRappersMale() {
 	ASSERT(list.GetCount() == GetTypeclassCount());
 	return list;
 }
+
+
+END_TEXTLIB_NAMESPACE
+

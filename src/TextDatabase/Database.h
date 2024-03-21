@@ -74,12 +74,23 @@ struct TextDatabase {
 	String GetComponentsDir() const;
 	
 	String Translate(const String& s);
-	
-	static TextDatabase& Single() {static TextDatabase db; return db;}
-	
 	static int trans_i; // active language translation index
 	
 };
+
+struct MetaDatabase {
+	TextDatabase db[DB_COUNT];
+	
+	static MetaDatabase& Single() {static MetaDatabase db; return db;}
+	
+	
+};
+
+
+TextDatabase& GetAppModeDatabase();
+TextDatabase& GetAppModeDatabase(int appmode);
+void EnterAppMode(int i);
+void LeaveAppMode();
 
 
 END_TEXTLIB_NAMESPACE

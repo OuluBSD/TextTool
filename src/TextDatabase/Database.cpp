@@ -83,16 +83,18 @@ String TextDatabase::Translate(const String& s) {
 
 
 
-END_TEXTLIB_NAMESPACE
-
-
-
-int EditorPtrs::GetActiveEntityIndex() const {return VectorFindPtr(entity, TextLib::TextDatabase::Single().entities);}
+int EditorPtrs::GetActiveEntityIndex() const {return VectorFindPtr(entity, GetDatabase().entities);}
 int EditorPtrs::GetActiveSnapshotIndex() const {if (!entity) return -1; return VectorFindPtr(release, entity->snaps);}
 int EditorPtrs::GetActiveComponentIndex() const {if (!release) return -1; return VectorFindPtr(component, release->components);}
 int EditorPtrs::GetActiveTypeclassIndex() const {return VectorFindPtr(typecast, entity->typecasts);}
 int EditorPtrs::GetActiveContentIndex() const {return VectorFindPtr(archetype, typecast->contents);}
 int EditorPtrs::GetActiveScriptIndex() const {return VectorFindPtr(scripts, archetype->scripts);}
+
+
+TextDatabase& EditorPtrs::GetDatabase() const {
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return MetaDatabase::Single().db[appmode];
+}
 
 
 template <>
@@ -101,3 +103,29 @@ void CheckSerialisationData<TextLib::Component>(const String& json) {
 	LoadFromJson(song, json);
 	//ASSERT(song.native_title.GetCount() || song.english_title.GetCount());
 }
+
+int __global_appmode;
+
+TextDatabase& GetAppModeDatabase() {
+	int appmode = __global_appmode - 1;
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return MetaDatabase::Single().db[appmode];
+}
+
+TextDatabase& GetAppModeDatabase(int appmode) {
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return MetaDatabase::Single().db[appmode];
+}
+
+void EnterAppMode(int i) {
+	__global_appmode = 1+i;
+}
+
+void LeaveAppMode() {
+	__global_appmode = 0;
+}
+
+
+
+END_TEXTLIB_NAMESPACE
+

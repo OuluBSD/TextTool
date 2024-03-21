@@ -182,7 +182,7 @@ void ScriptGenerator::OnProcessColor(String result) {
 }
 
 void ScriptGenerator::ProcessAttr() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -252,7 +252,7 @@ void ScriptGenerator::ProcessAttr() {
 }
 
 void ScriptGenerator::OnProcessAttr(String result) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -294,7 +294,7 @@ void ScriptGenerator::OnProcessAttr(String result) {
 }
 
 void ScriptGenerator::ProcessAction() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -347,7 +347,7 @@ void ScriptGenerator::ProcessAction() {
 }
 
 void ScriptSolver::ProcessFilter() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -374,7 +374,7 @@ void ScriptSolver::ProcessFilter() {
 }
 
 void ScriptSolver::ProcessPrimary() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -458,7 +458,7 @@ void ScriptSolver::ProcessPrimary() {
 }
 
 void ScriptSolver::OnProcessPrimary(String res) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -546,7 +546,7 @@ void ScriptSolver::OnProcessPrimary(String res) {
 }
 
 void ScriptSolver::ProcessComparison() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -599,7 +599,7 @@ void ScriptSolver::ProcessComparison() {
 }
 
 void ScriptSolver::OnProcessComparison(String res) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];

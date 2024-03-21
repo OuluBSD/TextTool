@@ -1,5 +1,9 @@
 #include "ToolCore.h"
 
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
 void PutKeyColor(const char* key, int ir, int ig, int ib, double& r, double& g, double& b, double& sr, double& sg, double& sb) {
 	int av = (ir + ig + ib) / 3;
 	if (strncmp(key, "noun", 4) == 0) {
@@ -2006,3 +2010,7 @@ Color GetSentenceColor(const Vector<String>& main_classes, const Vector<Color>& 
 	Color res(br, bg, bb);
 	return res;
 }
+
+
+END_TEXTLIB_NAMESPACE
+

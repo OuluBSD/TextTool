@@ -2,6 +2,10 @@
 #define _Task_Tasks_h_
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
 struct TaskMgr;
 
 struct OpenAiResponse {
@@ -105,7 +109,7 @@ struct DalleResponse {
 
 struct TaskRule;
 
-struct Task {
+struct AiTask {
 	
 protected:
 	friend struct TaskMgr;
@@ -137,7 +141,7 @@ public:
 	String raw_input;
 	
 	// Temp
-	Array<Task> result_tasks;
+	Array<AiTask> result_tasks;
 	Vector<Vector<String>> str_map;
 	Event<> WhenDone;
 	Event<String> WhenResult;
@@ -249,6 +253,10 @@ public:
 	
 };
 
+
+
+
+END_TEXTLIB_NAMESPACE
 
 
 #endif

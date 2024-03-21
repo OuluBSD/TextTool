@@ -47,7 +47,7 @@ VirtualPhrases::VirtualPhrases() {
 }
 
 void VirtualPhrases::Data() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -84,7 +84,7 @@ String GetTypePhraseString(const Vector<int>& word_classes, const DatasetAnalysi
 }
 
 void VirtualPhrases::DataDataset() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	
 	int ds_i = datasets.GetCursor();

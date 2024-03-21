@@ -5,6 +5,11 @@
 #define IMAGEFILE <ToolCore/App.iml>
 #include <Draw/iml_source.h>
 
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
 		
 const char* RhymeSchemes[RHYME_COUNT][3] {
 	{"A/A", t_("same end rhyming for both lines"), "same end rhyming for all 2 lines"},
@@ -140,7 +145,7 @@ const char* IdeaPathString[IDEAPATH_COUNT][2] {
 
 
 /*void EditorPtrs::RealizePipe() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	
 	if (!song || !artist)
 		return;
@@ -1885,3 +1890,15 @@ void FixOffensiveWords(String& s) {
 	s.Replace(" niggas ", " brothers ");
 	s.Replace(" nigga's ", " brother's ");
 }
+
+
+
+MetaPtrs::MetaPtrs() {
+	for(int i = 0; i < DB_COUNT; i++)
+		const_cast<int&>(db[i].appmode) = i;
+	
+}
+
+
+END_TEXTLIB_NAMESPACE
+

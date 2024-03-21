@@ -89,7 +89,7 @@ void RhymeContainerPage::DisableAll() {
 }
 
 void RhymeContainerPage::Data() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -174,7 +174,7 @@ void RhymeContainerPage::Data() {
 }
 
 void RhymeContainerPage::DataAction() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -217,7 +217,7 @@ void RhymeContainerPage::ManualData() {
 }
 
 void RhymeContainerPage::MainData() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	

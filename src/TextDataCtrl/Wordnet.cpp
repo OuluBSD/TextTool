@@ -56,7 +56,7 @@ void TextDataWordnet::Data() {
 }
 
 void TextDataWordnet::DataMain() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -131,7 +131,7 @@ void TextDataWordnet::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();

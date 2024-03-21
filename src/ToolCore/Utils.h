@@ -2,29 +2,23 @@
 #define _TextTool_Utils_h_
 
 
-typedef String NoPointerExc;
+
 
 BEGIN_TEXTLIB_NAMESPACE
+
+typedef String NoPointerExc;
 
 struct Entity;
 struct Snapshot;
 struct Component;
 struct Script;
+struct TextDatabase;
+struct EditorPtrs;
 
-END_TEXTLIB_NAMESPACE
-
-BEGIN_SOCIALLIB_NAMESPACE
-
-struct Company;
-struct Campaign;
-struct Story;
-struct Program;
-
-END_SOCIALLIB_NAMESPACE
 
 
 class ToolAppCtrl : public Ctrl {
-	
+	const int appmode = -1;
 	
 public:
 	virtual ~ToolAppCtrl() {}
@@ -37,16 +31,19 @@ public:
 	TextLib::Component& GetComponent();
 	TextLib::Script& GetScript();
 	
-	SocialLib::Company& GetCompany();
+/*	SocialLib::Company& GetCompany();
 	SocialLib::Campaign& GetCampaign();
 	SocialLib::Program& GetProgram();
-	SocialLib::Story& GetStory();
+	SocialLib::Story& GetStory();*/
 	
 	String GetComponentTitle() const;
 	//int GetDataset();
 	
 	void MakeComponentParts(ArrayCtrl& parts);
 	void GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v);
+	
+	TextDatabase& GetDatabase();
+	EditorPtrs& GetPointers();
 	
 };
 
@@ -112,5 +109,9 @@ inline String MakeTitle(String s) {
 	ws.Replace("ö", "o");
 	return ws.ToString();
 }
+
+
+END_TEXTLIB_NAMESPACE
+
 
 #endif

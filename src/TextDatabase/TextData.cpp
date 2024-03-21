@@ -21,12 +21,12 @@ void TextData::Serialize(Stream& s) {
 }
 
 /*void TextData::StoreJson() {
-	String dir = TextDatabase::Single().dir;
+	String dir = GetDatabase().dir;
 	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json", true);
 }
 
 void TextData::LoadJson() {
-	String dir = TextDatabase::Single().dir;
+	String dir = GetDatabase().dir;
 	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json");
 }
 
@@ -49,7 +49,7 @@ void TextDataAnalysis::Load() {
 	if (datasets.IsEmpty())
 		LoadJson();
 	
-	TextData& sd = TextDatabase::Single().song_data;
+	TextData& sd = GetAppModeDatabase().song_data;
 	for(int i = 0; i < sd.GetCount(); i++) {
 		String key = sd.GetKey(i);
 		auto& ds = sd.a.datasets.GetAdd(key);
@@ -58,7 +58,7 @@ void TextDataAnalysis::Load() {
 }
 
 void TextDataAnalysis::StoreJson() {
-	String dir = TextDatabase::Single().dir;
+	String dir = GetAppModeDatabase().dir;
 	StoreAsJsonFileStandard(*this, ConfigFile("SongData.json"), false);
 }
 
@@ -67,7 +67,7 @@ void TextDataAnalysis::LoadJson() {
 	DatasetAnalysis da;
 	LoadFromJsonFileStandard(da, ConfigFile("SongData.json"));
 	
-	TextData& sd = TextDatabase::Single().song_data;
+	TextData& sd = GetAppModeDatabase().song_data;
 	for(int j = 0; j < sd.GetCount(); j++) {
 		DatasetAnalysis& tgt = datasets.GetAdd(sd.GetKey(j));
 		
@@ -85,7 +85,7 @@ void TextDataAnalysis::LoadJson() {
 		}
 	}
 	#else
-	String dir = TextDatabase::Single().dir;
+	String dir = GetAppModeDatabase().dir;
 	LoadFromJsonFileStandard(*this, ConfigFile("SongData.json"));
 	#endif
 }
@@ -254,7 +254,7 @@ DatasetAnalysis::DatasetAnalysis() {
 }
 
 void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetAppModeDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -311,7 +311,7 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 }
 
 ComponentAnalysis& DatasetAnalysis::GetComponentAnalysis(const String& name) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetAppModeDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	

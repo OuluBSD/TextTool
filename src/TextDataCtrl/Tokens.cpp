@@ -29,7 +29,7 @@ TokensPage::TokensPage() {
 }
 
 void TokensPage::Data() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -44,7 +44,7 @@ void TokensPage::Data() {
 }
 
 void TokensPage::DataDataset() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	
 	int ds_i = datasets.GetCursor();

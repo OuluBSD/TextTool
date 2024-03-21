@@ -41,8 +41,8 @@ void EntityInfoCtrl::Clear() {
 }
 
 void EntityInfoCtrl::Data() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	if (language.GetCount() == 0 && db.song_data.GetCount()) {
 		for(int i = 0; i < db.song_data.GetCount(); i++)
@@ -73,8 +73,8 @@ void EntityInfoCtrl::Data() {
 }
 
 void EntityInfoCtrl::OnValueChange() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	if (p.entity && editor->entities.IsCursor()) {
 		Entity& o = *p.entity;

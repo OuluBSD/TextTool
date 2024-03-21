@@ -1,6 +1,10 @@
 #include "ToolBase.h"
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
 TranslatorToolCtrl::TranslatorToolCtrl() {
 	Add(hsplit.HSizePos().VSizePos());
 	
@@ -75,7 +79,7 @@ void TranslatorToolCtrl::InitEditor(CodeEditor& codeedit) {
 }
 
 void TranslatorToolCtrl::Data() {
-	EditorPtrs& p = EditorPtrs::Single();
+	EditorPtrs& p = GetPointers();
 	
 	#if 0
 	orig.SetData(GetOriginalText());
@@ -94,7 +98,7 @@ String TranslatorToolCtrl::GetStatusText() {
 
 void TranslatorToolCtrl::Translate() {
 	using namespace TextLib;
-	EditorPtrs& p = EditorPtrs::Single();
+	EditorPtrs& p = GetPointers();
 	if(!p.component || !p.entity || key.IsEmpty() || trans_key.IsEmpty())
 		return;
 	
@@ -109,8 +113,8 @@ void TranslatorToolCtrl::Translate() {
 }
 /*
 String TranslatorToolCtrl::GetOriginalText() const {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	if (key.GetCount()) {
 		if (artist && p.entity) {
@@ -127,8 +131,8 @@ String TranslatorToolCtrl::GetOriginalText() const {
 }
 
 String TranslatorToolCtrl::GetTranslatedText() const {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	if (trans_key.GetCount()) {
 		if (artist && p.entity) {
@@ -145,8 +149,8 @@ String TranslatorToolCtrl::GetTranslatedText() const {
 }
 
 void TranslatorToolCtrl::OnOriginalChange() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	String txt = orig.GetData();
 	if (key.GetCount()) {
@@ -163,8 +167,8 @@ void TranslatorToolCtrl::OnOriginalChange() {
 }
 
 void TranslatorToolCtrl::OnTranslatedChange() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	String txt = trans.GetData();
 	if (trans_key.GetCount()) {
@@ -182,8 +186,8 @@ void TranslatorToolCtrl::OnTranslatedChange() {
 
 void TranslatorToolCtrl::OnTranslatedRecv() {
 	#if 0
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	trans.SetData(GetTranslatedText());
 	#endif
@@ -192,4 +196,8 @@ void TranslatorToolCtrl::OnTranslatedRecv() {
 
 
 
+
+
+
+END_TEXTLIB_NAMESPACE
 

@@ -2,6 +2,10 @@
 #define _ToolBase_TxtStructTranslate_h_
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
 class TranslatorToolCtrl : public ToolAppCtrl {
 	Splitter hsplit;
 	CodeEditor orig, trans;
@@ -33,6 +37,10 @@ public:
 	void InitEditor(CodeEditor& edit);
 	
 };
+
+
+
+END_TEXTLIB_NAMESPACE
 
 
 #endif

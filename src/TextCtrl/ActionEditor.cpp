@@ -99,7 +99,7 @@ void ActionEditor::Data() {
 	Component& song = GetComponent();
 	
 	{
-		TextDatabase& db = TextDatabase::Single();
+		TextDatabase& db = GetDatabase();
 		TextData& sd = db.song_data;
 		TextDataAnalysis& sda = db.song_data.a;
 		DatasetAnalysis& da = sda.datasets[ds_i];
@@ -172,7 +172,7 @@ void ActionEditor::DataThread() {
 		return;
 	}
 	
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -227,7 +227,7 @@ void ActionEditor::DataSuggestions() {
 		return;
 	}
 	
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -443,7 +443,7 @@ void ActionEditor::DataSuggestions() {
 }
 
 void ActionEditor::DataAction() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -533,7 +533,7 @@ void ActionEditor::DataComponent() {
 }
 
 void ActionEditor::AddAction() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];

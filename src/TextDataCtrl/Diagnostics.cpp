@@ -18,7 +18,7 @@ TextDataDiagnostics::TextDataDiagnostics() {
 }
 
 void TextDataDiagnostics::Data() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -33,7 +33,7 @@ void TextDataDiagnostics::Data() {
 }
 
 void TextDataDiagnostics::DataDataset() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	
 	if (!datasets.IsCursor()) return;
 	int cur = datasets.GetCursor();

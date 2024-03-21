@@ -16,7 +16,7 @@ ContextAttributesCtrl::ContextAttributesCtrl() {
 }
 
 void ContextAttributesCtrl::InitList(ArrayCtrl& attrs) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	if (sda.datasets.IsEmpty()) return;
@@ -81,7 +81,7 @@ void ContextAttributesCtrl::InitList(ArrayCtrl& attrs) {
 }
 
 void ContextAttributesCtrl::SetData(VectorMap<String,String>& data, ArrayCtrl& attrs) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -127,8 +127,8 @@ void ContextAttributesCtrl::ToolMenu(Bar& bar) {
 }
 
 void ContextAttributesCtrl::Data() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if(!p.component || !p.release || !p.entity)
 		return;
 	

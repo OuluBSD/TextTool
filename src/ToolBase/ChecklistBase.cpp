@@ -1,6 +1,11 @@
 #include "ToolBase.h"
 
 #if 0
+
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
 #include <TextDatabase/TextDatabase.h>
 
 ChecklistBase::ChecklistBase() {
@@ -32,8 +37,8 @@ void ChecklistBase::Init() {
 }
 
 void ChecklistBase::Data() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.component) return;
 	Component& song = *p.component;
 	
@@ -49,8 +54,8 @@ void ChecklistBase::Data() {
 }
 
 void ChecklistBase::OnValueChange(int i) {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.component) return;
 	Component& song = *p.component;
 	
@@ -63,8 +68,8 @@ void ChecklistBase::OnValueChange(int i) {
 }
 
 void ChecklistBase::OnOptionChange(int i) {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.component) return;
 	Component& song = *p.component;
 	
@@ -75,5 +80,9 @@ void ChecklistBase::OnOptionChange(int i) {
 		song.data.GetAdd(key) = IntStr(b);
 	}
 }
+
+
+END_TEXTLIB_NAMESPACE
+
 
 #endif

@@ -44,8 +44,8 @@ void ScriptInfoCtrl::Clear() {
 }
 
 void ScriptInfoCtrl::Data() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	Clear();
 	
@@ -64,8 +64,8 @@ void ScriptInfoCtrl::Data() {
 }
 
 void ScriptInfoCtrl::OnValueChange() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	if (p.scripts && editor->scripts.IsCursor()) {
 		Script& l = *p.scripts;

@@ -2,6 +2,10 @@
 #define _Task_Cache_h_
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
 typedef enum : int {
 	CA_LYRICS,
 	CA_ATTRIBUTE_LIBRARY,
@@ -12,7 +16,7 @@ typedef enum : int {
 
 
 struct CacheItem : Moveable<CacheItem> {
-	TaskType task;
+	AiTaskType task;
 	
 	
 };
@@ -27,5 +31,10 @@ struct CacheManager {
 	CacheManager& Single() {static CacheManager mgr; return mgr;}
 	
 };
+
+
+
+END_TEXTLIB_NAMESPACE
+
 
 #endif

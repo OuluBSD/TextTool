@@ -4,7 +4,11 @@
 #include <LlamaCpp/LlamaCpp.h>
 #endif
 
-void Task::Store(bool force) {
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
+void AiTask::Store(bool force) {
 	if (output.IsEmpty()) return;
 	if (!changed) return;
 	String dir = ConfigFile("share" DIR_SEPS "ai_results" DIR_SEPS);
@@ -16,7 +20,7 @@ void Task::Store(bool force) {
 	changed = false;
 }
 
-void Task::Load() {
+void AiTask::Load() {
 	if (skip_load)
 		return;
 	String dir = ConfigFile("share" DIR_SEPS "ai_results" DIR_SEPS);
@@ -44,13 +48,13 @@ void Task::Load() {
 	}
 }
 
-void Task::SetError(String s) {
+void AiTask::SetError(String s) {
 	failed = true;
 	error = s;
 	WhenError();
 }
 
-String Task::GetInputHash() const {
+String AiTask::GetInputHash() const {
 	String input =
 		raw_input.GetCount() ?
 			raw_input :
@@ -59,22 +63,22 @@ String Task::GetInputHash() const {
 	return HexString((void*)&h, sizeof(h));
 }
 
-String Task::GetOutputHash() const {
+String AiTask::GetOutputHash() const {
 	hash_t h = output.GetHashValue();
 	return HexString((void*)&h, sizeof(h));
 }
 
-String Task::GetDescription() const {
+String AiTask::GetDescription() const {
 	String s;
 	s << GetTypeString();
 	return s;
 }
 
-String Task::GetTypeString() const {
+String AiTask::GetTypeString() const {
 	return rule->name;
 }
 
-bool Task::ProcessInput() {
+bool AiTask::ProcessInput() {
 	bool ok = true;
 	
 	if (raw_input.GetCount()) {
@@ -125,8 +129,8 @@ bool Task::ProcessInput() {
 	return ok;
 }
 
-void Task::Process() {
-	//LOG("Task::Process: begin of " << rule->name);
+void AiTask::Process() {
+	//LOG("AiTask::Process: begin of " << rule->name);
 	processing = true;
 	
 	bool ok = true;
@@ -169,10 +173,10 @@ void Task::Process() {
 	if (ready)
 		WhenDone();
 	
-	//LOG("Task::Process: end of " << rule->name);
+	//LOG("AiTask::Process: end of " << rule->name);
 }
 
-bool Task::CheckArguments() {
+bool AiTask::CheckArguments() {
 	const TaskRule& r = *rule;
 	
 	for (const TaskRule::ArgTuple& arg : r.args) {
@@ -198,7 +202,7 @@ bool Task::CheckArguments() {
 	return true;
 }
 
-bool Task::WriteResults() {
+bool AiTask::WriteResults() {
 	TaskMgr& m = GetTaskMgr();
 	TaskMgr& pipe = GetPipe();
 	
@@ -218,7 +222,7 @@ bool Task::WriteResults() {
 			m.lock.EnterWrite();
 			m.total += result_tasks.GetCount();
 			while (result_tasks.GetCount()) {
-				Task* t = result_tasks.Detach(0);
+				AiTask* t = result_tasks.Detach(0);
 				t->id = ++created_task_count;
 				m.tasks.Add(t);
 			}
@@ -266,14 +270,14 @@ bool Task::WriteResults() {
 	return true;
 }
 
-bool Task::RunOpenAI() {
+bool AiTask::RunOpenAI() {
 	if (rule->image_task)
 		return RunOpenAI_Image();
 	else
 		return RunOpenAI_Completion();
 }
 
-bool Task::RunOpenAI_Image() {
+bool AiTask::RunOpenAI_Image() {
 	output.Clear();
 	
 	String prompt =
@@ -406,7 +410,7 @@ bool Task::RunOpenAI_Image() {
 	return output.GetCount() > 0;
 }
 
-bool Task::RunOpenAI_Completion() {
+bool AiTask::RunOpenAI_Completion() {
 	output.Clear();
 	
 	if (!input.response_length) {
@@ -516,7 +520,7 @@ bool Task::RunOpenAI_Completion() {
 }
 
 
-void Task::Retry(bool skip_prompt, bool skip_cache) {
+void AiTask::Retry(bool skip_prompt, bool skip_cache) {
 	if (!skip_prompt) {
 		input.Clear();
 		output.Clear();
@@ -530,10 +534,14 @@ void Task::Retry(bool skip_prompt, bool skip_cache) {
 	tries = 0;
 }
 
-TaskMgr& Task::GetTaskMgr() {
+TaskMgr& AiTask::GetTaskMgr() {
 	return GetPipe();
 }
 
-TaskMgr& Task::GetPipe() {
+TaskMgr& AiTask::GetPipe() {
 	return TaskMgr::Single();
 }
+
+
+END_TEXTLIB_NAMESPACE
+

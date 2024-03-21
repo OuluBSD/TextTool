@@ -92,7 +92,7 @@ void PhrasePartAnalysis::Data() {
 }
 
 void PhrasePartAnalysis::DataMain() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 
@@ -111,7 +111,7 @@ void PhrasePartAnalysis::DataDataset() {
 	if (!datasets.IsCursor())
 		return;
 
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -158,7 +158,7 @@ void PhrasePartAnalysis::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -195,7 +195,7 @@ void PhrasePartAnalysis::DataAction() {
 	if (!datasets.IsCursor() || !actions.IsCursor())
 		return;
 
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -231,7 +231,7 @@ void PhrasePartAnalysis::DataActionHeader() {
 		return;
 
 
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();

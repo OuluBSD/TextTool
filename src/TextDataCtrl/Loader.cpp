@@ -4,15 +4,21 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-TextDataLoader::TextDataLoader() {
+TextDataLoader::TextDataLoader(int appmode) {
 	CtrlLayout(*this);
 	Title("SongData loader");
 	
+	this->appmode = appmode;
 	PostCallback(THISBACK(Start));
 }
 
+TextDatabase& TextDataLoader::GetDatabase() {
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return MetaDatabase::Single().db[appmode];
+}
+
 void TextDataLoader::Process() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	
 	LoadHuggingEntitys();
 	LoadHuggingFinn();
@@ -33,7 +39,7 @@ void TextDataLoader::LoadHuggingEntitys() {
 		return;
 	}
 	
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	db.song_data.entities_en.Clear();
 	
 	PostMessage("Searching for huggingentities dataset json files");
@@ -180,7 +186,7 @@ void TextDataLoader::LoadHuggingFinn() {
 		return;
 	}
 	
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	db.song_data.entities_fi.Clear();
 	
 	PostMessage("Searching for huggingfinn dataset json files");

@@ -31,8 +31,8 @@ void SnapIdeas::Clear() {
 }
 
 void SnapIdeas::Data() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.release) {
 		Clear();
 		return;
@@ -53,8 +53,8 @@ void SnapIdeas::Data() {
 }
 
 void SnapIdeas::IdeaData() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.release || !list.IsCursor()) {
 		Clear();
 		return;
@@ -70,8 +70,8 @@ void SnapIdeas::IdeaData() {
 }
 
 void SnapIdeas::OnValueChange() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.release) return;
 	Snapshot& release = *p.release;
 	
@@ -93,8 +93,8 @@ void SnapIdeas::OnListMenu(Bar& bar) {
 }
 
 void SnapIdeas::AddIdea() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.release) return;
 	Snapshot& release = *p.release;
 	
@@ -130,8 +130,8 @@ void SnapIdeas::AddIdea() {
 }
 
 void SnapIdeas::RemoveIdea() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.release) return;
 	Snapshot& release = *p.release;
 	

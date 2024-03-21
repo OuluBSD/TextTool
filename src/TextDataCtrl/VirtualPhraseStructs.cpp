@@ -36,7 +36,7 @@ VirtualPhraseStructs::VirtualPhraseStructs() {
 }
 
 void VirtualPhraseStructs::Data() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -51,7 +51,7 @@ void VirtualPhraseStructs::Data() {
 }
 
 void VirtualPhraseStructs::DataDataset() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	
 	int ds_i = datasets.GetCursor();

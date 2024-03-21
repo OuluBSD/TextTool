@@ -134,8 +134,8 @@ void ScriptSolverCtrl::DataSuggestion() {
 }
 
 void ScriptSolverCtrl::UserScriptChange() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.scripts)
 		return;
 	

@@ -3,6 +3,10 @@
 
 #if 0
 
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
 class ChecklistBase : public ToolAppCtrl {
 	ArrayCtrl list;
 	Vector<Option*> opts;
@@ -24,6 +28,10 @@ public:
 	virtual void InitKeys() = 0;
 	
 };
+
+
+END_TEXTLIB_NAMESPACE
+
 
 #endif
 #endif

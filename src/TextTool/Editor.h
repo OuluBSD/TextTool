@@ -76,6 +76,7 @@ public:
 	
 	void Serialize(Stream& s) {s % page_group % page % save_songdata;}
 	void Init();
+	void SwitchAppMode();
 	void ViewPageGroup();
 	void ViewPage();
 	void Data();
@@ -120,6 +121,9 @@ public:
 	
 	void InitSimplified();
 	//void InitAdvanced();
+	
+	TextDatabase& GetDatabase();
+	EditorPtrs& GetPointers();
 	
 	Callback WhenStartUpdating, WhenStopUpdating;
 	TextTool& app;

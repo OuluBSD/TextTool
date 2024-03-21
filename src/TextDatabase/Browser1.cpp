@@ -5,7 +5,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 void DatabaseBrowser::SetGroup1(int i) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -60,7 +60,7 @@ void DatabaseBrowser::SetGroup1(int i) {
 }
 
 void DatabaseBrowser::SetValue1(int i) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -101,7 +101,7 @@ void DatabaseBrowser::SetValue1(int i) {
 }
 
 void DatabaseBrowser::SetColor1(int i) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -183,7 +183,7 @@ void DatabaseBrowser::SetColor1(int i) {
 }
 
 void DatabaseBrowser::SetAttr1(int i) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -288,7 +288,7 @@ void DatabaseBrowser::DataColor1() {
 }
 
 void DatabaseBrowser::DataAttr1() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];

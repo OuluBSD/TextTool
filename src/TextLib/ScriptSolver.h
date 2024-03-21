@@ -29,6 +29,7 @@ class ScriptSolver {
 	bool waiting = false;
 	bool running = false, stopped = true;
 	bool skip_ready = true;
+	int appmode = -1;
 	
 	// params
 	double dist_limit = 0.005;
@@ -56,6 +57,8 @@ class ScriptSolver {
 	void NextPhase() {phase++; batch = 0;}
 	void NextBatch() {batch++; sub_batch = 0;}
 	void NextSubBatch() {sub_batch++;}
+	
+	TextDatabase& GetDatabase() {return GetAppModeDatabase(appmode);}
 	
 public:
 	typedef ScriptSolver CLASSNAME;

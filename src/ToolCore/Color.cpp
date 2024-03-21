@@ -1,6 +1,10 @@
 #include "ToolCore.h"
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
 ColoredText SignificantPhrases[VOCABULARYTYPE_COUNT][SIGNIFICANT_PHRASE_COUNT] = {
 	
 	{
@@ -1167,5 +1171,5 @@ Color HSVToRGB(double H, double S, double V) {
 }
 
 
-
+END_TEXTLIB_NAMESPACE
 

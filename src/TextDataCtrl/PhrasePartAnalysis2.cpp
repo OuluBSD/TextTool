@@ -102,7 +102,7 @@ void PhrasePartAnalysis2::Data() {
 }
 
 void PhrasePartAnalysis2::DataMain() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -267,7 +267,7 @@ void PhrasePartAnalysis2::DataSecondary() {
 		return;
 	
 	int ds_i = datasets.GetCursor();
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -414,7 +414,7 @@ void PhrasePartAnalysis2::DoPhrases(int fn) {
 }
 
 void PhrasePartAnalysis2::UpdateCounts() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();

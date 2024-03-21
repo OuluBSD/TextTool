@@ -2,13 +2,17 @@
 #define _Task_TaskMgr_h_
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
 struct TaskRule {
 	using ArgTuple = Tuple3<TaskArgType, int, int>;
 	
 	int code = -1;
 	String name;
-	void (Task::*input)() = 0;
-	void (Task::*process)() = 0;
+	void (AiTask::*input)() = 0;
+	void (AiTask::*process)() = 0;
 	Vector<ArgTuple> args;
 	Vector<TaskOutputType> reqs;
 	Vector<TaskOutputType> results;
@@ -23,10 +27,10 @@ struct TaskRule {
 	bool imagevariate_task = false;
 	VectorMap<int, Tuple2<int,int>> req_mode_ranges;
 	
-	TaskRule& Input(void (Task::*fn)());
+	TaskRule& Input(void (AiTask::*fn)());
 	TaskRule& Arg(TaskArgType arg, int i0=0, int i1=0);
 	TaskRule& Require(TaskOutputType arg);
-	TaskRule& Process(void (Task::*fn)());
+	TaskRule& Process(void (AiTask::*fn)());
 	TaskRule& Result(TaskOutputType arg);
 	TaskRule& Spawnable(bool b=true);
 	TaskRule& MultiSpawnable(bool b=true);
@@ -41,11 +45,11 @@ struct TaskRule {
 };
 
 struct TaskMgr {
-	Array<Task> tasks;
+	Array<AiTask> tasks;
 	
 	RWMutex lock;
 	Mutex task_lock;
-	Task* active_task = 0;
+	AiTask* active_task = 0;
 	int actual = 0, total = 0;
 	String status;
 	
@@ -63,7 +67,7 @@ struct TaskMgr {
 	typedef TaskMgr CLASSNAME;
 	virtual ~TaskMgr() {}
 	
-	Task& AddTask();
+	AiTask& AddTask();
 	void Process();
 	void ProcessSingle(int task_i);
 	void StartSingle(int task_i) {Thread::Start(THISBACK1(ProcessSingle, task_i));}
@@ -117,5 +121,9 @@ struct TaskMgrConfig {
 	
 	static TaskMgrConfig& Single() {static TaskMgrConfig m; return m;}
 };
+
+
+END_TEXTLIB_NAMESPACE
+
 
 #endif

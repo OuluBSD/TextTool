@@ -67,13 +67,17 @@ void TextTool::ClearSonglibTasks() {
 	tm.Clear();
 }
 
+void TextTool::SaveDatabase() {
+	PromptOK("TODO");
+}
+
 void TextTool::MainMenu(Bar& bar) {
 	bar.Sub(t_("App"), [this](Bar& bar) {
-		bar.Add(t_("Save"), callback(&TextDatabase::Single(), &TextDatabase::Store)).Key(K_CTRL_S);
+		bar.Add(t_("Save"), THISBACK(SaveDatabase)).Key(K_CTRL_S);
 		bar.Separator();
 		bar.Add(t_("Set OpenAI token"), THISBACK(SetOpenAIToken));
 		bar.Separator();
-		bar.Add(t_("Save song data analysis"), callback(&TextDatabase::Single().song_data, &TextData::Store));
+		//bar.Add(t_("Save song data analysis"), callback(&GetDatabase().song_data, &TextData::Store));
 		if (!ed.save_songdata)
 			bar.Add(t_("Save song data analysis on exit"), THISBACK1(SetSaveSongdata, 1));
 		else

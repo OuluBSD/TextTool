@@ -23,8 +23,8 @@ void SnapInfoCtrl::Clear() {
 }
 
 void SnapInfoCtrl::Data() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	Clear();
 	
@@ -40,8 +40,8 @@ void SnapInfoCtrl::Data() {
 }
 
 void SnapInfoCtrl::OnValueChange() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	if (p.release && editor->snaps.IsCursor()) {
 		Snapshot& r = *p.release;

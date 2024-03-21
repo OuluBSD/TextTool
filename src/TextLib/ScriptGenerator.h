@@ -28,6 +28,7 @@ class ScriptGenerator {
 	bool waiting = false;
 	bool running = false, stopped = true;
 	bool skip_ready = true;
+	int appmode = -1;
 	
 	// params
 	int per_sub_batch =  50;
@@ -58,6 +59,8 @@ class ScriptGenerator {
 	void NextPhase() {phase++; batch = 0; sub_batch = 0;}
 	void NextBatch() {batch++; sub_batch = 0;}
 	void NextSubBatch() {sub_batch++;}
+	
+	TextDatabase& GetDatabase() {return GetAppModeDatabase(appmode);}
 	
 public:
 	typedef ScriptGenerator CLASSNAME;

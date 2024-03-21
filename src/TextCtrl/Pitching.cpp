@@ -40,8 +40,8 @@ void Pitching::Data() {
 }
 
 void Pitching::SetText(DocEdit& e, String data_key) {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if(!p.component || !p.entity || data_key.IsEmpty())
 		return;
 	
@@ -50,8 +50,8 @@ void Pitching::SetText(DocEdit& e, String data_key) {
 }
 
 void Pitching::OnText(DocEdit* e, String data_key) {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if(!p.component || !p.entity || data_key.IsEmpty())
 		return;
 	
@@ -60,8 +60,8 @@ void Pitching::OnText(DocEdit* e, String data_key) {
 }
 
 void Pitching::TranslateEnglishEntityProcess() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if(!p.component || !p.entity || native_pitching_key.IsEmpty())
 		return;
 	
@@ -89,8 +89,8 @@ void Pitching::OnTranslateReady(String res) {
 }
 
 void Pitching::MakeFeedback() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if(!p.component || !p.entity ||!p.release)
 		return;
 	
@@ -139,8 +139,8 @@ void Pitching::OnFeedback(String result) {
 }
 
 void Pitching::MakePitch() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if(!p.component || !p.entity ||!p.release)
 		return;
 	

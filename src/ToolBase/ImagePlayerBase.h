@@ -2,6 +2,10 @@
 #define _ToolBase_ImagePlayerBase_h_
 
 
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
 struct PreviewDisplay : Display {
 	virtual void Paint(Draw& w, const Rect& r, const Value& q,
 		               Color ink, Color paper, dword style) const;
@@ -68,6 +72,10 @@ public:
 	void OnPromptImage(Array<Image>& images, int i);
 	
 };
+
+
+
+END_TEXTLIB_NAMESPACE
 
 
 #endif

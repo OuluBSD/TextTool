@@ -1,68 +1,74 @@
 #include "ToolCore.h"
 
 
+BEGIN_TEXTLIB_NAMESPACE
+// END_TEXTLIB_NAMESPACE
+
+
+
 
 TextLib::Script& ToolAppCtrl::GetScript() {
-	EditorPtrs& p = EditorPtrs::Single();
+	EditorPtrs& p = GetPointers();
 	if(!p.scripts)
 		throw NoPointerExc("no scripts");
 	return *p.scripts;
 }
 
 TextLib::Component& ToolAppCtrl::GetComponent() {
-	EditorPtrs& p = EditorPtrs::Single();
+	EditorPtrs& p = GetPointers();
 	if(!p.component || !p.entity)
 		throw NoPointerExc("no song");
 	return *p.component;
 }
 
 TextLib::Snapshot& ToolAppCtrl::GetSnapshot() {
-	EditorPtrs& p = EditorPtrs::Single();
+	EditorPtrs& p = GetPointers();
 	if(!p.release)
 		throw NoPointerExc("no release");
 	return *p.release;
 }
 
 TextLib::Entity& ToolAppCtrl::GetEntity() {
-	EditorPtrs& p = EditorPtrs::Single();
+	EditorPtrs& p = GetPointers();
 	if(!p.entity)
 		throw NoPointerExc("no artist");
 	return *p.entity;
 }
 
 
+#if 0
 SocialLib::Company& ToolAppCtrl::GetCompany() {
-	EditorPtrs& p = EditorPtrs::Single();
+	EditorPtrs& p = GetPointers();
 	if(!p.entity)
 		throw NoPointerExc("no company");
 	return *p.company;
 }
 
 SocialLib::Campaign& ToolAppCtrl::GetCampaign() {
-	EditorPtrs& p = EditorPtrs::Single();
+	EditorPtrs& p = GetPointers();
 	if(!p.entity)
 		throw NoPointerExc("no campaign");
 	return *p.campaign;
 }
 
 SocialLib::Program& ToolAppCtrl::GetProgram() {
-	EditorPtrs& p = EditorPtrs::Single();
+	EditorPtrs& p = GetPointers();
 	if(!p.entity)
 		throw NoPointerExc("no program");
 	return *p.program;
 }
 
 SocialLib::Story& ToolAppCtrl::GetStory() {
-	EditorPtrs& p = EditorPtrs::Single();
+	EditorPtrs& p = GetPointers();
 	if(!p.entity)
 		throw NoPointerExc("no story");
 	return *p.story;
 }
-
+#endif
 
 String ToolAppCtrl::GetComponentTitle() const {
-	/*TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	/*TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if(!p.component || !p.entity)
 		throw NoPointerExc("no song");
 	Component& song = *p.component;
@@ -75,8 +81,8 @@ String ToolAppCtrl::GetComponentTitle() const {
 }
 
 /*int ToolAppCtrl::GetDataset() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if(!p.component || !p.entity)
 		throw NoPointerExc("no song");
 	Component& song = *p.component;
@@ -125,3 +131,6 @@ void ToolAppCtrl::MakeComponentParts(ArrayCtrl& parts) {
 String Capitalize(String s) {
 	return ToUpper(s.Left(1)) + s.Mid(1);
 }
+
+
+END_TEXTLIB_NAMESPACE

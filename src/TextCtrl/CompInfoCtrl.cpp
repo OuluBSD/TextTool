@@ -39,8 +39,8 @@ void CompInfoCtrl::Clear() {
 }
 
 void CompInfoCtrl::Data() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	Clear();
 	
@@ -90,8 +90,8 @@ void CompInfoCtrl::Data() {
 }
 
 void CompInfoCtrl::DataTypeclass() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.entity || !typecasts.IsCursor()) {
 		contents.Clear();
 		scripts.Clear();
@@ -119,8 +119,8 @@ void CompInfoCtrl::DataTypeclass() {
 }
 
 void CompInfoCtrl::DataContent() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.entity || !typecasts.IsCursor() || !contents.IsCursor()) {
 		scripts.Clear();
 		return;
@@ -145,8 +145,8 @@ void CompInfoCtrl::DataContent() {
 }
 
 void CompInfoCtrl::DataScript() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.entity || !typecasts.IsCursor() || !contents.IsCursor() || !scripts.IsCursor()) {
 		scripts_text.Clear();
 		return;
@@ -169,8 +169,8 @@ void CompInfoCtrl::DataScript() {
 }
 
 void CompInfoCtrl::OnValueChange() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	if (p.component && editor->components.IsCursor()) {
 		Component& s = *p.component;
@@ -187,8 +187,8 @@ void CompInfoCtrl::OnValueChange() {
 }
 
 void CompInfoCtrl::SetScript() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	Component& s = *p.component;
 	
 	if (!p.entity || !p.component || !typecasts.IsCursor() || !contents.IsCursor() || !scripts.IsCursor()) {

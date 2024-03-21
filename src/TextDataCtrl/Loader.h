@@ -6,14 +6,15 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class TextDataLoader : public WithTextDataLoader<TopWindow> {
-	
+	int appmode = -1;
 	
 	void LoadHuggingEntitys();
 	void LoadHuggingFinn();
+	TextDatabase& GetDatabase();
 	
 public:
 	typedef TextDataLoader CLASSNAME;
-	TextDataLoader();
+	TextDataLoader(int appmode);
 	
 	void Process();
 	void Start() {Thread::Start(THISBACK(Process));}

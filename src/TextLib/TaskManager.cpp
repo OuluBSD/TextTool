@@ -229,6 +229,11 @@ void TaskManager::ImportPromptAnswers() {
 	
 }
 
+TextDatabase& TaskManager::GetDatabase() {
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return MetaDatabase::Single().db[appmode];
+}
+
 
 END_TEXTLIB_NAMESPACE
 

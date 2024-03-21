@@ -4,7 +4,7 @@
 
 
 SongBriefing::SongBriefing() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	
 	Add(vsplit.SizePos());
 	vsplit.Vert() << list << values;
@@ -21,7 +21,7 @@ SongBriefing::SongBriefing() {
 		switch(i) {
 			
 			case ATTR_DATASET: {
-				TextData& sd = TextDatabase::Single().song_data;
+				TextData& sd = GetDatabase().song_data;
 				DropList* dl = new DropList;
 				list.SetCtrl(i, 1, dl);
 				for(int j = 0; j < sd.GetCount(); j++) {
@@ -111,7 +111,7 @@ SongBriefing::SongBriefing() {
 }
 
 /*DropList* SongBriefing::SetAgreementValues(DropList* dl, const char* positive, const char* negative, int idx, const char* key) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	dl->WhenAction << THISBACK2(OnPollValueChange, idx, key);
 	dl->Add("");
 	dl->Add(t_("Very ") + db.Translate(positive));
@@ -123,8 +123,8 @@ SongBriefing::SongBriefing() {
 }*/
 
 void SongBriefing::Data() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.component) return;
 	Component& song = *p.component;
 	
@@ -214,7 +214,7 @@ void SongBriefing::Data() {
 }
 
 void SongBriefing::OnListCursor() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	{
 		auto& key = values.key;
 		auto& description = values.description;
@@ -223,8 +223,8 @@ void SongBriefing::OnListCursor() {
 		description.Clear();
 		value.Clear();
 		
-		TextDatabase& db = TextDatabase::Single();
-		EditorPtrs& p = EditorPtrs::Single();
+		TextDatabase& db = GetDatabase();
+		EditorPtrs& p = GetPointers();
 		if (!p.component) return;
 		Component& song = *p.component;
 		
@@ -255,8 +255,8 @@ void SongBriefing::OnListCursor() {
 }
 
 void SongBriefing::OnValueChange() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.component) return;
 	Component& song = *p.component;
 	
@@ -291,8 +291,8 @@ void SongBriefing::OnValueChange() {
 }
 
 /*void SongBriefing::OnPollValueChange(int i, const char* key) {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.component) return;
 	Component& song = *p.component;
 	

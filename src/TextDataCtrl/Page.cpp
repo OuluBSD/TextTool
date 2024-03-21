@@ -63,7 +63,7 @@ void TextDataPage::ToolMenu(Bar& bar) {
 }
 
 /*void TextDataPage::AddRandomSongsToList(int count) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -104,7 +104,7 @@ void TextDataPage::ToolMenu(Bar& bar) {
 /*void TextDataPage::AddSongToActiveList() {
 	TODO
 	#if 0
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -132,7 +132,7 @@ void TextDataPage::ToolMenu(Bar& bar) {
 /*void TextDataPage::RemoveSongFromActiveList() {
 	TODO
 	#if 0
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -154,7 +154,7 @@ void TextDataPage::ToolMenu(Bar& bar) {
 }*/
 
 void TextDataPage::Data() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	
 	datasets.Set(0, 0, "English");
 	datasets.Set(1, 0, "Finnish");
@@ -166,7 +166,7 @@ void TextDataPage::Data() {
 }
 
 void TextDataPage::DataDataset() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	
 	if (!datasets.IsCursor()) return;
 	int cur = datasets.GetCursor();
@@ -188,7 +188,7 @@ void TextDataPage::DataDataset() {
 }
 
 void TextDataPage::DataEntity() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	
 	if (!datasets.IsCursor() || !entities.IsCursor()) return;
@@ -215,7 +215,7 @@ void TextDataPage::DataEntity() {
 
 #if 0
 void TextDataPage::DataEntityActiveSongs() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -244,7 +244,7 @@ void TextDataPage::DataEntityActiveSongs() {
 #endif
 
 void TextDataPage::DataComponent() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	
 	if (!datasets.IsCursor() || !entities.IsCursor() || !components.IsCursor()) return;
 	int cur = datasets.GetCursor();
@@ -265,7 +265,7 @@ void TextDataPage::DataComponent() {
 void TextDataPage::DataActiveSong() {
 	TODO
 	#if 0
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -306,7 +306,7 @@ void TextDataPage::DataActiveSong() {
 }
 
 void TextDataPage::HotfixText() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	

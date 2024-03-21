@@ -1,6 +1,10 @@
 #include "Task.h"
 
-void Task::CreateInput_GetProgramDataAnalysis() {
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
+void AiTask::CreateInput_GetProgramDataAnalysis() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -941,7 +945,7 @@ void Task::CreateInput_GetProgramDataAnalysis() {
 	
 }
 
-void Task::CreateInput_StorySolver() {
+void AiTask::CreateInput_StorySolver() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -1258,4 +1262,8 @@ void Task::CreateInput_StorySolver() {
 	}
 	
 }
+
+
+
+END_TEXTLIB_NAMESPACE
 

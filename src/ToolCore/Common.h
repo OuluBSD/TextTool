@@ -2,6 +2,9 @@
 #define _TextTool_Common_h_
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
 #define TODO Panic("TODO");
 
 
@@ -183,7 +186,6 @@ struct DataFile {
 
 struct TaskMgr;
 
-BEGIN_TEXTLIB_NAMESPACE
 
 struct Entity;
 struct Snapshot;
@@ -193,9 +195,8 @@ struct Content;
 struct Script;
 struct StaticPart;
 
-END_TEXTLIB_NAMESPACE
 
-BEGIN_SOCIALLIB_NAMESPACE
+/*BEGIN_SOCIALLIB_NAMESPACE
 
 struct Company;
 struct Campaign;
@@ -205,11 +206,12 @@ struct Generic;
 struct Program;
 struct StoryPart;
 
-END_SOCIALLIB_NAMESPACE
+END_SOCIALLIB_NAMESPACE*/
 
 
 
 struct EditorPtrs {
+	const int appmode = -1;
 	
 	TextLib::Entity*		entity = 0;
 	TextLib::Snapshot*		release = 0;
@@ -219,13 +221,13 @@ struct EditorPtrs {
 	TextLib::Script*		scripts = 0;
 	TextLib::StaticPart*	part = 0;
 	
-	SocialLib::Company*		company = 0;
+	/*SocialLib::Company*		company = 0;
 	SocialLib::Campaign*	campaign = 0;
 	SocialLib::Program*		program = 0;
 	SocialLib::Story*		story = 0;
 	SocialLib::Role*		role = 0;
 	SocialLib::Generic*		generic = 0;
-	SocialLib::StoryPart*	story_part = 0;
+	SocialLib::StoryPart*	story_part = 0;*/
 	
 	void Zero() {memset(this, 0, sizeof(EditorPtrs));}
 	
@@ -247,11 +249,38 @@ struct EditorPtrs {
 	int GetActiveCampaignIndex() const;
 	int GetActiveProgramIndex() const;*/
 	
-	//void 
+	TextDatabase& GetDatabase() const;
 	
-	static EditorPtrs& Single() {static EditorPtrs e; return e;}
 };
 
+enum {
+	DB_SONG,
+	DB_SOCIAL,
+	DB_BLOG,
+	DB_LOCAL, // everyday politics
+	DB_LIFE,
+	
+	DB_COUNT,
+};
+
+inline String GetAppModeString(int appmode) {
+	switch (appmode) {
+		case DB_SONG:	return "Song";
+		case DB_SOCIAL:	return "Social";
+		case DB_BLOG:	return "Blog";
+		case DB_LOCAL:	return "Local";
+		case DB_LIFE:	return "Life (nothing new happens)";
+	}
+	return "<error>";
+}
+
+struct MetaPtrs {
+	EditorPtrs db[DB_COUNT];
+	
+	MetaPtrs();
+	static MetaPtrs& Single() {static MetaPtrs e; return e;}
+	
+};
 
 
 Color GetPartColor(const String& name, Color def=Color(56,170,255));
@@ -992,6 +1021,10 @@ const Vector<String>& GetGenericParts();
 void SetIndexCursor(ArrayCtrl& arr, int cur);
 
 void FixOffensiveWords(String& s);
+
+
+END_TEXTLIB_NAMESPACE
+
 
 #endif
 

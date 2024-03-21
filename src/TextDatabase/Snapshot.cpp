@@ -5,14 +5,14 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 void Snapshot::Store() {
-	String dir = TextDatabase::Single().GetSnapshotsDir();
+	String dir = GetAppModeDatabase().GetSnapshotsDir();
 	RealizeDirectory(dir);
 	String json_path = dir + file_title + ".json";
 	StoreAsJsonFileStandard(*this, json_path, true);
 }
 
 void Snapshot::LoadTitle(String title) {
-	String dir = TextDatabase::Single().GetSnapshotsDir();
+	String dir = GetAppModeDatabase().GetSnapshotsDir();
 	file_title = title;
 	String json_path = dir + file_title + ".json";
 	LoadFromJsonFileStandard(*this, json_path);

@@ -79,14 +79,14 @@ Impact& Component::GetAddImpact(String impact_txt, String brk_txt) {
 }*/
 
 void Component::Store() {
-	String dir = TextDatabase::Single().GetComponentsDir();
+	String dir = GetAppModeDatabase().GetComponentsDir();
 	RealizeDirectory(dir);
 	String json_path = dir + file_title + ".json";
 	StoreAsJsonFileStandard(*this, json_path, true);
 }
 
 void Component::LoadTitle(String title) {
-	String dir = TextDatabase::Single().GetComponentsDir();
+	String dir = GetAppModeDatabase().GetComponentsDir();
 	file_title = title;
 	String json_path = dir + file_title + ".json";
 	LoadFromJsonFileStandard(*this, json_path);

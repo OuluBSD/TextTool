@@ -36,7 +36,7 @@ AmbiguousWordPairs::AmbiguousWordPairs() {
 }
 
 void AmbiguousWordPairs::Data() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -51,7 +51,7 @@ void AmbiguousWordPairs::Data() {
 }
 
 void AmbiguousWordPairs::DataDataset() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	
 	int ds_i = datasets.GetCursor();

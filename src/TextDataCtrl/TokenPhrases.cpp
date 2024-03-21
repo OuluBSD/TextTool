@@ -35,7 +35,7 @@ TokenPhrases::TokenPhrases() {
 }
 
 void TokenPhrases::Data() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -50,7 +50,7 @@ void TokenPhrases::Data() {
 }
 
 void TokenPhrases::DataDataset() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	
 	int ds_i = datasets.GetCursor();

@@ -124,7 +124,7 @@ void ScriptEditor::Data() {
 }
 
 void ScriptEditor::DataPhrase() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -189,7 +189,7 @@ void ScriptEditor::DataPhrase() {
 }
 
 void ScriptEditor::DataDoActions() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -221,7 +221,7 @@ void ScriptEditor::DataDoActions() {
 }
 
 void ScriptEditor::DataAction() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -257,7 +257,7 @@ void ScriptEditor::DataAction() {
 
 
 void ScriptEditor::DataActionHeader() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -430,7 +430,7 @@ void ScriptEditor::CopyPronounciationToClipboard() {
 }
 
 void ScriptEditor::SetPhrase() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -470,7 +470,7 @@ void ScriptEditor::MovePhrase(int i) {
 
 #if 0
 void ScriptEditor::GetSuggestionsAI() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];

@@ -77,7 +77,7 @@ void TextDataWordnetScoring::Data() {
 }
 
 void TextDataWordnetScoring::DataMain() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -152,7 +152,7 @@ void TextDataWordnetScoring::DataColor() {
 	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	int ds_i = datasets.GetCursor();
@@ -329,7 +329,7 @@ void TextDataWordnetScoring::GetWordnetScores(int batch_i, int score_mode) {
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -389,7 +389,7 @@ void TextDataWordnetScoring::OnWordnetScores(String res, int batch_i, int score_
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -449,7 +449,7 @@ void TextDataWordnetScoring::GetColorWordnetScores(int batch_i, int score_mode) 
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -509,7 +509,7 @@ void TextDataWordnetScoring::OnColorWordnetScores(String res, int batch_i, int s
 	if (Thread::IsShutdownThreads())
 		return;
 	
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	

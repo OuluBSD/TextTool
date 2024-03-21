@@ -22,8 +22,8 @@ void SnapCoverImage::ToolMenu(Bar& bar) {
 }
 
 void SnapCoverImage::CreateSuggestionsForPrompts() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if(!p.component || !p.entity ||!p.release)
 		return;
 	

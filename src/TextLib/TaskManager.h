@@ -57,7 +57,7 @@ struct Task {
 	Vector<AttrJoinBatch> attr_join_batches;
 	
 	
-	void UpdateBatches(int per_batch);
+	void UpdateBatches(int appmode, int per_batch);
 	
 	TaskType type;
 	Callback cb;
@@ -86,6 +86,7 @@ class TaskManager {
 	RWMutex lock;
 	Array<Task> task_list;
 	bool running = false, stopped = true;
+	int appmode = -1;
 	
 	TokenArgs token_args;
 	PhraseArgs phrase_args;
@@ -170,6 +171,8 @@ class TaskManager {
 	void MakeWordnetsFromTemplates(Task* t);
 	
 	void RemoveTask(Task& t);
+	
+	TextDatabase& GetDatabase();
 	
 public:
 	typedef TaskManager CLASSNAME;

@@ -6,8 +6,10 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 void SongStartup() {
+	EnterAppMode(DB_SONG);
+	
 	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetAppModeDatabase(DB_SONG);
 	TaskMgrConfig& m = TaskMgrConfig::Single();
 	
 	// Load Database
@@ -26,7 +28,7 @@ void SongStartup() {
 	db.song_data.a.Load();
 	
 	if (db.song_data.IsEmpty()) {
-		TextDataLoader loader;
+		TextDataLoader loader(DB_SONG);
 		loader.Run();
 	}
 	
@@ -34,11 +36,14 @@ void SongStartup() {
 	
 	DatabaseBrowser::Single().Load();
 	
+	LeaveAppMode();
 }
 
 void SongShutdown(bool fast_exit, bool save_songdata) {
+	EnterAppMode(DB_SONG);
+	
 	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetAppModeDatabase(DB_SONG);
 	TaskMgrConfig& m = TaskMgrConfig::Single();
 	
 	// Deinit storing of files
@@ -59,6 +64,7 @@ void SongShutdown(bool fast_exit, bool save_songdata) {
 	}
 	
 	
+	LeaveAppMode();
 }
 
 

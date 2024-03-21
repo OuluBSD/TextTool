@@ -5,7 +5,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 void Entity::Store() {
-	String dir = TextDatabase::Single().GetEntitysDir();
+	String dir = GetAppModeDatabase().GetEntitysDir();
 	RealizeDirectory(dir);
 	String json_path = dir + file_title + ".json";
 	StoreAsJsonFileStandard(*this, json_path, true);
@@ -14,7 +14,7 @@ void Entity::Store() {
 }
 
 void Entity::LoadTitle(String title) {
-	String dir = TextDatabase::Single().GetEntitysDir();
+	String dir = GetAppModeDatabase().GetEntitysDir();
 	file_title = title;
 	String json_path = dir + file_title + ".json";
 	LoadFromJsonFileStandard(*this, json_path);
@@ -33,7 +33,7 @@ void Entity::StoreScript() {
 }
 
 void Entity::LoadScript() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetAppModeDatabase();
 	RealizeTypeclasss();
 	FindFile ff(AppendFileName(GetScriptDir(), "*.json"));
 	do {
@@ -68,7 +68,7 @@ void Entity::RealizeTypeclasss() {
 
 String Entity::GetScriptDir() const {
 	ASSERT(!file_title.IsEmpty());
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetAppModeDatabase();
 	return db.dir + DIR_SEPS "share" DIR_SEPS "scripts" DIR_SEPS + file_title + DIR_SEPS;
 }
 

@@ -3,7 +3,7 @@
 CONSOLE_APP_MAIN {
 	SetDefaultCharset(CHARSET_UTF8);
 	
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	#ifdef flagWIN32
 	db.dir = AppendFileName(GetHomeDirectory(), "TextTool");
 	#else

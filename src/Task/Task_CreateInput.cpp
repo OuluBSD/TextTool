@@ -6,7 +6,11 @@
 #endif
 
 
-void Task::CreateInput_Translate() {
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
+void AiTask::CreateInput_Translate() {
 	String orig_lng = args[0];
 	String orig_txt = args[1];
 	String trans_lng = args[2];
@@ -26,7 +30,7 @@ void Task::CreateInput_Translate() {
 
 
 
-void Task::CreateInput_CreateImage() {
+void AiTask::CreateInput_CreateImage() {
 	int count = StrInt(args[1]);
 	int reduce_size_mode = StrInt(args[2]);
 	int size = 0;
@@ -44,7 +48,7 @@ void Task::CreateInput_CreateImage() {
 	input.PreAnswer().NoColon().Title(args[0]);
 }
 
-void Task::CreateInput_EditImage() {
+void AiTask::CreateInput_EditImage() {
 	int count = StrInt(args[1]);
 	Image orig = send_images[0];
 	int size = 0;
@@ -69,7 +73,7 @@ void Task::CreateInput_EditImage() {
 	skip_load = true;
 }
 
-void Task::CreateInput_VariateImage() {
+void AiTask::CreateInput_VariateImage() {
 	int count = StrInt(args[0]);
 	Image orig = send_images[0];
 	int size = 0;
@@ -94,7 +98,7 @@ void Task::CreateInput_VariateImage() {
 	//skip_load = true;
 }
 
-void Task::CreateInput_GetStructureSuggestions() {
+void AiTask::CreateInput_GetStructureSuggestions() {
 	String req = args[0];
 	String avoid = args[1];
 	String desc = args[2];
@@ -154,7 +158,7 @@ void Task::CreateInput_GetStructureSuggestions() {
 	input.response_length = 1024*2;
 }
 
-void Task::CreateInput_GetSuggestionAttributes() {
+void AiTask::CreateInput_GetSuggestionAttributes() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -219,7 +223,7 @@ void Task::CreateInput_GetSuggestionAttributes() {
 	input.response_length = 1024*2;
 }
 
-void Task::CreateInput_GetColorIdea() {
+void AiTask::CreateInput_GetColorIdea() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -378,7 +382,7 @@ void Task::CreateInput_GetColorIdea() {
 	
 }
 
-void Task::CreateInput_GetTextDataAnalysis() {
+void AiTask::CreateInput_GetTextDataAnalysis() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -1463,7 +1467,7 @@ void Task::CreateInput_GetTextDataAnalysis() {
 	#endif
 }
 
-void Task::CreateInput_GetActionAnalysis() {
+void AiTask::CreateInput_GetActionAnalysis() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -1568,7 +1572,7 @@ void Task::CreateInput_GetActionAnalysis() {
 	}
 }
 
-void Task::CreateInput_GetScriptPhrase() {
+void AiTask::CreateInput_GetScriptPhrase() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -1601,7 +1605,7 @@ void Task::CreateInput_GetScriptPhrase() {
 	#endif
 }
 
-void Task::CreateInput_GetTokenData() {
+void AiTask::CreateInput_GetTokenData() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -1994,7 +1998,7 @@ void Task::CreateInput_GetTokenData() {
 	}
 }
 
-void Task::CreateInput_GetPhraseData() {
+void AiTask::CreateInput_GetPhraseData() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -2453,7 +2457,7 @@ void Task::CreateInput_GetPhraseData() {
 	}
 }
 
-void Task::CreateInput_GetAttributes() {
+void AiTask::CreateInput_GetAttributes() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -2558,7 +2562,7 @@ void Task::CreateInput_GetAttributes() {
 	}
 }
 
-void Task::CreateInput_GetNanaData() {
+void AiTask::CreateInput_GetNanaData() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -2638,7 +2642,7 @@ void Task::CreateInput_GetNanaData() {
 	}
 }
 
-void Task::CreateInput_ScriptSolver() {
+void AiTask::CreateInput_ScriptSolver() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -2958,4 +2962,8 @@ void Task::CreateInput_ScriptSolver() {
 	#endif
 	
 }
+
+
+
+END_TEXTLIB_NAMESPACE
 

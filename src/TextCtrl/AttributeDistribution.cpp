@@ -70,7 +70,7 @@ void AttributeDistribution::EnableAll() {
 }
 
 void AttributeDistribution::Data() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -161,7 +161,7 @@ void AttributeDistribution::Data() {
 void AttributeDistribution::DataSuggestions() {
 	LOG("TODO");
 	#if 0
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	Component& song = GetComponent();

@@ -158,7 +158,7 @@ void DatabaseBrowser::Load() {
 }
 
 void DatabaseBrowser::SortBy(int i) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -268,6 +268,11 @@ bool DatabaseBrowser::FilterPronounciation(DatasetAnalysis& da, const PhrasePart
 			return true;
 	}
 	return false;
+}
+
+TextDatabase& DatabaseBrowser::GetDatabase() {
+	TODO
+	return UPP::Single<TextDatabase>();
 }
 
 

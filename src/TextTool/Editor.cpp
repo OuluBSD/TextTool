@@ -25,6 +25,12 @@ ToolEditor::ToolEditor(TextTool* app) : app(*app) {
 	snaps.WhenBar << THISBACK(SnapshotMenu);
 	components.WhenBar << THISBACK(SongMenu);
 	
+	appmode_list.AddColumn(t_("Appmode"));
+	for(int i = 0; i < DB_COUNT; i++)
+		appmode_list.Add(GetAppModeString(i));
+	appmode_list.SetCursor(0);
+	appmode_list <<= THISBACK(SwitchAppMode);
+	
 	page_group_list.AddColumn(t_("Page group"));
 	page_group_list <<= THISBACK(ViewPageGroup);
 	
@@ -225,8 +231,8 @@ void ToolEditor::MovePart(int d) {
 }
 
 void ToolEditor::LoadLast() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	p.Zero();
 	for (Entity& a : db.entities) {
 		for (Typeclass& a : a.typecasts) {
@@ -273,8 +279,8 @@ void ToolEditor::LoadLast() {
 }
 
 void ToolEditor::StoreLast() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	app.last_typecast = p.typecast ? p.typecast->file_title : String();
 	app.last_archetype = p.archetype ? p.archetype->file_title : String();
 	app.last_scripts = p.scripts ? p.scripts->file_title : String();
@@ -283,6 +289,10 @@ void ToolEditor::StoreLast() {
 	app.last_release = p.release ? p.release->file_title : String();
 	app.last_song = p.component ? p.component->file_title : String();
 	app.Store();
+}
+
+void ToolEditor::SwitchAppMode() {
+	PromptOK("TODO");
 }
 
 void ToolEditor::ViewPageGroup() {
@@ -316,8 +326,8 @@ void ToolEditor::ViewPage() {
 }
 
 void ToolEditor::Data() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	for(int i = 0; i < db.entities.GetCount(); i++) {
 		Entity& a = db.entities[i];
@@ -334,8 +344,8 @@ void ToolEditor::Data() {
 }
 
 void ToolEditor::DataEntity() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!entities.IsCursor()) {
 		p.entity = 0;
 		p.release = 0;
@@ -386,8 +396,8 @@ void ToolEditor::DataEntity() {
 }
 
 void ToolEditor::DataSnapshot() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!snaps.IsCursor() || !p.entity) {
 		p.release = 0;
 		p.component = 0;
@@ -418,8 +428,8 @@ void ToolEditor::DataSnapshot() {
 }
 
 void ToolEditor::DataComponent() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!components.IsCursor() || !p.entity || !p.release) {
 		p.component = 0;
 		DataPage();
@@ -455,8 +465,8 @@ void ToolEditor::DataComponent() {
 }
 
 void ToolEditor::DataTypeclass() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!typecasts.IsCursor()) {
 		p.typecast = 0;
 		p.archetype = 0;
@@ -488,8 +498,8 @@ void ToolEditor::DataTypeclass() {
 }
 
 void ToolEditor::DataContent() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!contents.IsCursor()) {
 		p.archetype = 0;
 		p.scripts = 0;
@@ -517,8 +527,8 @@ void ToolEditor::DataContent() {
 }
 
 void ToolEditor::DataScript() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!scripts.IsCursor()) {
 		p.scripts = 0;
 		DataPage();
@@ -536,8 +546,8 @@ void ToolEditor::DataScript() {
 
 #if 0
 void ToolEditor::DataPart() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!parts.IsCursor() || !p.entity || !p.release || !p.component /*|| !p.component->pipe*/) {
 		DataPage();
 		return;
@@ -613,8 +623,8 @@ void ToolEditor::ScriptMenu(Bar& bar) {
 }
 
 void ToolEditor::AddEntity() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	String name;
 	bool b = EditTextNotNull(
@@ -649,8 +659,8 @@ void ToolEditor::AddEntity() {
 }
 
 void ToolEditor::RenameEntity() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.entity)
 		return;
 	
@@ -669,8 +679,8 @@ void ToolEditor::RenameEntity() {
 }
 
 void ToolEditor::RemoveEntity() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.entity)
 		return;
 	int idx = p.GetActiveEntityIndex();
@@ -680,8 +690,8 @@ void ToolEditor::RemoveEntity() {
 }
 
 void ToolEditor::AddSnapshot() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.entity)
 		return;
 	Entity& a = *p.entity;
@@ -717,8 +727,8 @@ void ToolEditor::AddSnapshot() {
 }
 
 void ToolEditor::RenameSnapshot() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.release)
 		return;
 	
@@ -737,8 +747,8 @@ void ToolEditor::RenameSnapshot() {
 }
 
 void ToolEditor::RemoveSnapshot() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.entity || !p.release)
 		return;
 	int idx = p.GetActiveSnapshotIndex();
@@ -748,8 +758,8 @@ void ToolEditor::RemoveSnapshot() {
 }
 
 void ToolEditor::AddSong() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.entity)
 		return;
 	Entity& a = *p.entity;
@@ -788,8 +798,8 @@ void ToolEditor::AddSong() {
 }
 
 void ToolEditor::RenameSong() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.component)
 		return;
 	
@@ -809,8 +819,8 @@ void ToolEditor::RenameSong() {
 }
 
 void ToolEditor::RemoveSong() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.component || !p.release)
 		return;
 	int idx = p.GetActiveComponentIndex();
@@ -821,8 +831,8 @@ void ToolEditor::RemoveSong() {
 }
 
 void ToolEditor::AddScript() {
-	TextDatabase& db = TextDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	if (!p.archetype)
 		return;
 	Typeclass& t = *p.typecast;
@@ -849,6 +859,18 @@ void ToolEditor::RemoveScript() {
 	
 	
 	
+}
+
+TextDatabase& ToolEditor::GetDatabase() {
+	int appmode = this->appmode_list.GetCursor();
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return MetaDatabase::Single().db[appmode];
+}
+
+EditorPtrs& ToolEditor::GetPointers() {
+	int appmode = this->appmode_list.GetCursor();
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return MetaPtrs::Single().db[appmode];
 }
 
 

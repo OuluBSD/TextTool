@@ -1,6 +1,10 @@
 #include "ToolCore.h"
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
 const Vector<ProductionIdeaTopic>& ProductionIdeas() {
 	static Vector<ProductionIdeaTopic> pv;
 	if (!pv.IsEmpty()) return pv;
@@ -12752,3 +12756,7 @@ v.AddPos("Dior");
 	
 	return pv;
 }
+
+
+END_TEXTLIB_NAMESPACE
+

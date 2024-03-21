@@ -6,6 +6,7 @@ uses
 file
 	TextDataCtrl.h,
 	TextDataCtrl.lay,
+	TextDataCtrl.cpp,
 	Page.h,
 	Page.cpp,
 	Tokens.h,

@@ -46,7 +46,7 @@ void TextDataWords::DisableAll() {
 }
 
 void TextDataWords::Data() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	
 	datasets.SetCount(sd.GetCount());
@@ -67,7 +67,7 @@ void TextDataWords::DataMain() {
 }
 
 void TextDataWords::DataDataset() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -96,7 +96,7 @@ void TextDataWords::DataDataset() {
 }
 
 void TextDataWords::DataColor() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -212,7 +212,7 @@ void TextDataWords::ToolMenu(Bar& bar) {
 
 
 /*void TextDataWords::UpdateWordFlagGroups() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -256,7 +256,7 @@ void TextDataWords::ToolMenu(Bar& bar) {
 }*/
 
 /*void TextDataWords::UpdateWordFlags() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -284,7 +284,7 @@ void TextDataWords::ToolMenu(Bar& bar) {
 }*/
 
 void TextDataWords::DumpWordGroups() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
@@ -311,7 +311,7 @@ void TextDataWords::DumpWordGroups() {
 }
 
 void TextDataWords::DumpPhoneticChars() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	

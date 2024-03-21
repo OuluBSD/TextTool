@@ -19,7 +19,7 @@ void EnglishPronounciation::Clear() {
 }
 
 bool EnglishPronounciation::Parse(const String& s) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetAppModeDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	if (sda.datasets.IsEmpty())

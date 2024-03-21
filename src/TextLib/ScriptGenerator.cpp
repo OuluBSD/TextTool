@@ -81,7 +81,7 @@ void ScriptGenerator::Process() {
 void ScriptGenerator::ProcessSourcePool() {
 	TimeStop ts;
 	
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -186,7 +186,7 @@ void ScriptGenerator::ProcessSourcePool() {
 }
 
 void ScriptGenerator::ProcessPairPhrases() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -262,7 +262,7 @@ void ScriptGenerator::ProcessPairPhrases() {
 }
 
 void ScriptGenerator::OnProcessPairPhrases(String res) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -328,7 +328,7 @@ void ScriptGenerator::OnProcessPairPhrases(String res) {
 }
 
 void ScriptGenerator::ProcessRhymes() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -386,7 +386,7 @@ void ScriptGenerator::ProcessRhymes() {
 }
 
 void ScriptGenerator::OnProcessRhymes(String res) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -490,7 +490,7 @@ void ScriptGenerator::OnProcessRhymes(String res) {
 }
 
 void ScriptGenerator::ProcessScores() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
@@ -547,7 +547,7 @@ void ScriptGenerator::ProcessScores() {
 }
 
 void ScriptGenerator::OnProcessScores(String res) {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];

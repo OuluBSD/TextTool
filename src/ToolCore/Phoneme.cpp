@@ -1,5 +1,6 @@
 #include "ToolCore.h"
 
+BEGIN_TEXTLIB_NAMESPACE
 
 // https://www.occasionalenthusiast.com/phonetic-distance-between-words-with-application-to-the-international-spelling-alphabet/
 
@@ -456,4 +457,8 @@ double GetSpellingRawDistance(const WString& w0, const WString& w1) {
 double GetSpellingRelativeDistance(const WString& w0, const WString& w1) {
 	return GetSpellingDistance(w0, w1, true);
 }
+
+
+END_TEXTLIB_NAMESPACE
+
 

@@ -54,6 +54,7 @@ public:
 	void SetSaveSongdata(bool b) {ed.SetSaveSongdata(b);}
 	void FastExit();
 	void ClearSonglibTasks();
+	void SaveDatabase();
 	
 	ToolEditor& GetEditor() {return ed;}
 	

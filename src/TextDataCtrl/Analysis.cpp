@@ -498,7 +498,7 @@ void TextDataAnalysisPage::DataTask() {
 }
 
 void TextDataAnalysisPage::UpdateTasks() {
-	TextDatabase& db = TextDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	TextData& sd = db.song_data;
 	TextDataAnalysis& sda = db.song_data.a;
 	
