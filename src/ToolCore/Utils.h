@@ -18,7 +18,7 @@ struct EditorPtrs;
 
 
 class ToolAppCtrl : public Ctrl {
-	const int appmode = -1;
+	//const int appmode = -1;
 	
 public:
 	virtual ~ToolAppCtrl() {}

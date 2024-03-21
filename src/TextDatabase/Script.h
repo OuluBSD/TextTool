@@ -5,6 +5,7 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+
 struct StaticPart {
 	// Part types
 	typedef enum : int {

@@ -8,7 +8,7 @@ BEGIN_TEXTLIB_NAMESPACE
 class TextDataLoader : public WithTextDataLoader<TopWindow> {
 	int appmode = -1;
 	
-	void LoadHuggingEntitys();
+	void LoadHuggingArtists();
 	void LoadHuggingFinn();
 	TextDatabase& GetDatabase();
 	

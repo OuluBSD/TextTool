@@ -175,9 +175,12 @@ void ToolEditor::SetView(int i, int j) {
 }
 
 void ToolEditor::DataPage() {
-	if (app.skip_data) return;
+	if (app.skip_data || !appmode_list.IsCursor()) return;
 	
 	StoreLast();
+	
+	int appmode = appmode_list.GetCursor();
+	EnterAppMode(appmode);
 	
 	int page = this->page.GetAdd(page_group, 0);
 	try {
@@ -187,6 +190,8 @@ void ToolEditor::DataPage() {
 	catch (NoPointerExc e) {
 		LOG("error: " << e);
 	}
+	
+	LeaveAppMode();
 }
 
 void ToolEditor::ToolMenu(Bar& bar) {

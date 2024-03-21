@@ -9,6 +9,8 @@ uses
 
 file
 	TextDatabase.h,
+	Common.h,
+	Common.cpp,
 	Database.h,
 	Database.cpp,
 	TextData.h,

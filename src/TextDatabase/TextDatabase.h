@@ -4,6 +4,7 @@
 #include <Task/Task.h>
 
 
+#include "Common.h"
 #include "Script.h"
 #include "Content.h"
 #include "Typeclass.h"

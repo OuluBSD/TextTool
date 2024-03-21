@@ -101,13 +101,13 @@ struct Entity :
 		if (json.IsStoring()) {
 			Vector<String> names;
 			for (Snapshot& r : snaps) {r.Store(); names.Add(r.file_title);}
-			json("snaps", names);
+			json(GetAppModeKeySnapshots(), names);
 			
 		}
 		if (json.IsLoading()) {
 			snaps.Clear();
 			Vector<String> names;
-			json("snaps", names);
+			json(GetAppModeKeySnapshots(), names);
 			for (String n : names) snaps.Add().LoadTitle(n);
 		}
 	}

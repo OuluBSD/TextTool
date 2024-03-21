@@ -13,11 +13,11 @@ struct Snapshot :
 	String						english_title;
 	Date						date;
 	VectorMap<String,String>	data;
-	Array<ComponentIdea>				ideas;
+	Array<ComponentIdea>		ideas;
 	int							year_of_content = 0;
 	
 	// Public (separate files)
-	Array<Component>		components;
+	Array<Component>			components;
 	
 	
 	
@@ -45,14 +45,14 @@ struct Snapshot :
 			{
 				Vector<String> names;
 				for (Component& s : components) {s.Store(); names.Add(s.file_title);}
-				json("components", names);
+				json(GetAppModeKeyComponents(), names);
 			}
 		}
 		if (json.IsLoading()) {
 			{
 				components.Clear();
 				Vector<String> names;
-				json("components", names);
+				json(GetAppModeKeyComponents(), names);
 				for (String n : names) components.Add().LoadTitle(n);
 			}
 		}

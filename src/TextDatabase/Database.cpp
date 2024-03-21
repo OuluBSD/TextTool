@@ -12,15 +12,15 @@ TextDatabase::TextDatabase() {
 }
 
 String TextDatabase::GetEntitysDir() const {
-	return dir + DIR_SEPS "share" DIR_SEPS "entities" DIR_SEPS;
+	return dir + DIR_SEPS "share" DIR_SEPS + GetAppModeKeyEntities() + DIR_SEPS;
 }
 
 String TextDatabase::GetSnapshotsDir() const {
-	return dir + DIR_SEPS "share" DIR_SEPS "snaps" DIR_SEPS;
+	return dir + DIR_SEPS "share" DIR_SEPS + GetAppModeKeySnapshots() + DIR_SEPS;
 }
 
 String TextDatabase::GetComponentsDir() const {
-	return dir + DIR_SEPS "share" DIR_SEPS "components" DIR_SEPS;
+	return dir + DIR_SEPS "share" DIR_SEPS + GetAppModeKeyComponents() + DIR_SEPS;
 }
 
 void TextDatabase::Store() {
@@ -123,6 +123,17 @@ void EnterAppMode(int i) {
 
 void LeaveAppMode() {
 	__global_appmode = 0;
+}
+
+EditorPtrs& GetAppModePointers() {
+	int appmode = __global_appmode - 1;
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return MetaPtrs::Single().db[appmode];
+}
+
+EditorPtrs& GetAppModePointers(int appmode) {
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return MetaPtrs::Single().db[appmode];
 }
 
 

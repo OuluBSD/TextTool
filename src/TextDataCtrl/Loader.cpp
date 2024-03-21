@@ -20,19 +20,19 @@ TextDatabase& TextDataLoader::GetDatabase() {
 void TextDataLoader::Process() {
 	TextDatabase& db = GetDatabase();
 	
-	LoadHuggingEntitys();
+	LoadHuggingArtists();
 	LoadHuggingFinn();
 	
 	//db.song_data.Store();
 	PostCallback(THISBACK(Stop));
 }
 
-void TextDataLoader::LoadHuggingEntitys() {
+void TextDataLoader::LoadHuggingArtists() {
 	String dir;
 	#ifdef flagWIN32
-	dir = AppendFileName(GetHomeDirectory(), "SongData\\huggingentities");
+	dir = AppendFileName(GetHomeDirectory(), "SongData\\huggingartists");
 	#elif defined flagPOSIX
-	dir = GetHomeDirFile("SongData/huggingentities");
+	dir = GetHomeDirFile("SongData/huggingartists");
 	#endif
 	if (!DirectoryExists(dir)) {
 		PromptOK("Directory doesn't exist: " + dir);
@@ -42,7 +42,7 @@ void TextDataLoader::LoadHuggingEntitys() {
 	TextDatabase& db = GetDatabase();
 	db.song_data.entities_en.Clear();
 	
-	PostMessage("Searching for huggingentities dataset json files");
+	PostMessage("Searching for huggingartists dataset json files");
 	PostProgress(0,1);
 	
 	Vector<String> files;

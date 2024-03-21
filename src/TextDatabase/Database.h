@@ -5,6 +5,7 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+
 struct Translation : Moveable<Translation> {
 	VectorMap<String, String> data;
 	
@@ -57,14 +58,14 @@ struct TextDatabase {
 		if (json.IsStoring()) {
 			Vector<String> names;
 			for (Entity& a : entities) {a.Store(); names.Add(a.file_title);}
-			json("entities", names);
+			json(GetAppModeKeyEntities(), names);
 		}
 		if (json.IsLoading()) {
 			String lng = GetCurrentLanguageString().Left(5);
 			trans_i = translation.FindAdd(lng);
 			
 			Vector<String> names;
-			json("entities", names);
+			json(GetAppModeKeyEntities(), names);
 			for (String n : names) entities.Add().LoadTitle(n);
 			Sort(entities, Entity());
 		}
@@ -89,6 +90,8 @@ struct MetaDatabase {
 
 TextDatabase& GetAppModeDatabase();
 TextDatabase& GetAppModeDatabase(int appmode);
+EditorPtrs& GetAppModePointers();
+EditorPtrs& GetAppModePointers(int appmode);
 void EnterAppMode(int i);
 void LeaveAppMode();
 
