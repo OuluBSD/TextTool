@@ -76,7 +76,7 @@ struct StaticPart {
 			("mockup", mockup)
 			("nana", nana)
 			("thrd_actions", thrd_actions)
-			("saved_scripts", saved_scripts)
+			("saved_" + GetAppModeKeyN(AM_SCRIPT), saved_scripts)
 			//("clr_list", clr_list)
 			//("picked_phrase_parts", picked_phrase_parts)
 			;
