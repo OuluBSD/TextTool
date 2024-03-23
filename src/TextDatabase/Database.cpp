@@ -24,7 +24,7 @@ String TextDatabase::GetComponentsDir() const {
 }
 
 void TextDatabase::Store() {
-	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json", true);
+	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + __db + ".json", true);
 }
 
 void TextDatabase::Load() {
