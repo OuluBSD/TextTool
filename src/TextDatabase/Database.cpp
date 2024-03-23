@@ -104,10 +104,13 @@ void CheckSerialisationData<TextLib::Component>(const String& json) {
 	//ASSERT(song.native_title.GetCount() || song.english_title.GetCount());
 }
 
-int __global_appmode;
+int& __global_appmode() {
+	thread_local int i;
+	return i;
+}
 
 TextDatabase& GetAppModeDatabase() {
-	int appmode = __global_appmode - 1;
+	int appmode = __global_appmode() - 1;
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return MetaDatabase::Single().db[appmode];
 }
@@ -118,19 +121,19 @@ TextDatabase& GetAppModeDatabase(int appmode) {
 }
 
 int GetAppModeGlobal() {
-	return __global_appmode;
+	return __global_appmode();
 }
 
 void EnterAppMode(int i) {
-	__global_appmode = 1+i;
+	__global_appmode() = 1+i;
 }
 
 void LeaveAppMode() {
-	__global_appmode = 0;
+	__global_appmode() = 0;
 }
 
 EditorPtrs& GetAppModePointers() {
-	int appmode = __global_appmode - 1;
+	int appmode = __global_appmode() - 1;
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return MetaPtrs::Single().db[appmode];
 }

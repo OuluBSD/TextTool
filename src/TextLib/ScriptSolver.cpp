@@ -24,12 +24,15 @@ ScriptSolver& ScriptSolver::Get(int appmode, Entity& a, Script& l) {
 }
 
 void ScriptSolver::Process() {
+	
+	EnterAppMode(appmode);
+	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->script;
-	sa = &da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	sa = &da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	while (running && !Thread::IsShutdownThreads()) {
 		if (waiting) {
@@ -49,26 +52,9 @@ void ScriptSolver::Process() {
 		else if (phase == LS_FILL_LINES) {
 			ProcessFillLines();
 		}
-		/*else if (phase == LS_PRIMARY) {
-			ProcessPrimary();
-		}
 		else if (phase == LS_COMPARISON) {
 			ProcessComparison();
-		}*/
-		/*else if (phase == LS_FINETUNING) {
-			ProcessFineTuning();
-		}*/
-		/*else if (phase == LS_SECONDARY_WORD_CLASS) {
-			ProcessSecondaryWordClass();
 		}
-		else if (phase == LS_SECONDARY_FILTER) {
-			ProcessSecondaryFilter();
-		}
-		else if (phase == LS_SECONDARY) {
-			ProcessSecondary();
-		}*/
-		
-		
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
 			phase = LS_BEGIN;
@@ -79,6 +65,8 @@ void ScriptSolver::Process() {
 		PostProgress();
 		Sleep(1);
 	}
+	
+	LeaveAppMode();
 	
 	running = false;
 	stopped = true;
@@ -363,7 +351,7 @@ void ScriptSolver::ProcessFilter() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->script;
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	this->phrase_parts.Clear();
 	this->phrase_parts.SetCount(ContentType::PART_COUNT);
@@ -390,7 +378,7 @@ void ScriptSolver::ProcessFillLines() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->script;
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	if (/*!skip_ready &&*/ batch == 0 && sub_batch == 0)
 		sa.script_suggs.Clear();
 	
@@ -503,7 +491,7 @@ void ScriptSolver::OnProcessFillLines(String res) {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->script;
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	CombineHash ch;
 	bool fail = false;
@@ -586,7 +574,7 @@ void ScriptSolver::ProcessPrimary() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->script;
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	if ((skip_ready && sa.script_suggs.GetCount() >= sugg_limit)) {
 		NextPhase();
@@ -670,7 +658,7 @@ void ScriptSolver::OnProcessPrimary(String res) {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->script;
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	res = "- " + res;
 	
@@ -886,7 +874,7 @@ void ScriptSolver::ProcessFillHoles() {
 		return;
 	}
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	ScriptSolverArgs args;
 	TODO // args.fn = ;
@@ -920,7 +908,7 @@ void ScriptSolver::ProcessComparison() {
 	Script& song = *this->script;
 	
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	ScriptSolverArgs args;
 	args.fn = 7;
@@ -973,7 +961,7 @@ void ScriptSolver::OnProcessComparison(String res) {
 	Script& song = *this->script;
 	
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	int loser = 0;
 	

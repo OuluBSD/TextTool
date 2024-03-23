@@ -10,6 +10,7 @@ class ScriptSolver {
 		LS_BEGIN,
 		LS_FILTER,
 		LS_FILL_LINES,
+		LS_COMPARISON,
 		
 		LS_COUNT
 	};

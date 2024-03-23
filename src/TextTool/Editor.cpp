@@ -927,7 +927,9 @@ TextLib::TaskManager& ToolAppCtrl::GetTaskManager() {
 
 int ToolAppCtrl::GetAppMode() const {
 	EditorPtrs& p = GetPointers();
-	return p.editor->GetAppMode();
+	if (p.editor)
+		return p.editor->GetAppMode();
+	return GetAnyEditor().GetAppMode();
 }
 
 

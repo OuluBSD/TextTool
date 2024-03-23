@@ -25,6 +25,8 @@ ScriptGenerator& ScriptGenerator::Get(int appmode, Entity& a, Script& l) {
 
 void ScriptGenerator::Process() {
 	
+	EnterAppMode(appmode);
+	
 	while (running && !Thread::IsShutdownThreads()) {
 		if (waiting) {
 			Sleep(10);
@@ -76,6 +78,8 @@ void ScriptGenerator::Process() {
 		Sleep(1);
 	}
 	
+	LeaveAppMode();
+	
 	running = false;
 	stopped = true;
 }
@@ -89,7 +93,7 @@ void ScriptGenerator::ProcessSourcePool() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	int song_tc = song.typeclass;
 	int song_con_base = song.content; // archetype/contrast has name mix-up problem
@@ -194,7 +198,7 @@ void ScriptGenerator::ProcessPairPhrases() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	// Prepare process
 	if (batch == 0 && sub_batch == 0) {
@@ -270,7 +274,7 @@ void ScriptGenerator::OnProcessPairPhrases(String res) {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	res = "3. " + res;
 	
@@ -337,7 +341,7 @@ void ScriptGenerator::ProcessRhymes() {
 	Script& song = *this->scripts;
 	
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	
 	if (batch >= ContentType::PART_COUNT) {
@@ -395,7 +399,7 @@ void ScriptGenerator::OnProcessRhymes(String res) {
 	Script& song = *this->scripts;
 	
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	res = "3. '','': \"" + res;
 	
@@ -499,7 +503,7 @@ void ScriptGenerator::ProcessScores() {
 	Script& song = *this->scripts;
 	
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	if (sub_batch == 0)
 		iter = 0;
@@ -556,7 +560,7 @@ void ScriptGenerator::OnProcessScores(String res) {
 	Script& song = *this->scripts;
 	
 	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	res = "2. \"" + res;
 	

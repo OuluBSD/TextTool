@@ -27,7 +27,7 @@ struct Entity :
 	
 	// Public (separate files)
 	Array<Typeclass>	typeclasses;
-	Array<Snapshot> snaps;
+	Array<Snapshot>		snaps;
 	
 	void Clear() {
 		native_name.Clear();

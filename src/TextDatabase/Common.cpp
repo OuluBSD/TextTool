@@ -5,7 +5,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 
-extern int __global_appmode;
+int& __global_appmode();
 
 
 const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
@@ -71,50 +71,60 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 };
 
 String GetAppModeLabel(int amlkey) {
-	int appmode = __global_appmode - 1;
+	int appmode = __global_appmode() - 1;
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	ASSERT(amlkey >= 0 && amlkey < AML_COUNT);
 	return AppModeLabels[appmode][amlkey];
 }
 
 String GetAppModeKeyEntities() {
-	int appmode = __global_appmode - 1;
+	int appmode = __global_appmode() - 1;
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return AppModeKeysN[appmode][0];
 }
 
 String GetAppModeKeySnapshots() {
-	int appmode = __global_appmode - 1;
+	int appmode = __global_appmode() - 1;
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return AppModeKeysN[appmode][1];
 }
 
 String GetAppModeKeyComponents() {
-	int appmode = __global_appmode - 1;
+	int appmode = __global_appmode() - 1;
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return AppModeKeysN[appmode][2];
 }
 
-String GetAppModeKey(int amkey) {
-	int appmode = __global_appmode - 1;
+String GetAppModeKey(int appmode, int amkey) {
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return AppModeKeys[appmode][amkey];
 }
 
+String GetAppModeKey(int amkey) {
+	int appmode = __global_appmode() - 1;
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return AppModeKeys[appmode][amkey];
+}
+
+String GetAppModeKeyN(int appmode, int amkey) {
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return AppModeKeysN[appmode][amkey];
+}
+
 String GetAppModeKeyN(int amkey) {
-	int appmode = __global_appmode - 1;
+	int appmode = __global_appmode() - 1;
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return AppModeKeysN[appmode][amkey];
 }
 
 String GetAppModeKeyCap(int amkey) {
-	int appmode = __global_appmode - 1;
+	int appmode = __global_appmode() - 1;
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return Capitalize(AppModeKeys[appmode][amkey]);
 }
 
 String GetAppModeKeyCapN(int amkey) {
-	int appmode = __global_appmode - 1;
+	int appmode = __global_appmode() - 1;
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return Capitalize(AppModeKeysN[appmode][amkey]);
 }

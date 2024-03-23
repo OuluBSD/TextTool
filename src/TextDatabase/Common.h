@@ -51,7 +51,9 @@ extern const char* AppModeKeys[DB_COUNT][AM_COUNT+1];
 extern const char* AppModeKeysN[DB_COUNT][AM_COUNT+1];
 
 String GetAppModeLabel(int amlkey);
+String GetAppModeKey(int appmode, int amkey);
 String GetAppModeKey(int amkey);
+String GetAppModeKeyN(int appmode, int amkey);
 String GetAppModeKeyN(int amkey);
 String GetAppModeKeyCap(int amkey);
 String GetAppModeKeyCapN(int amkey);
@@ -81,6 +83,9 @@ String GetAppModeKeyCapN(int amkey);
 #define __scripts GetAppModeKeyN(AM_SCRIPT)
 #define __Script GetAppModeKeyCap(AM_SCRIPT)
 #define __Scripts GetAppModeKeyCapN(AM_SCRIPT)
+
+#define __comp_(x) GetAppModeKey(x, AM_COMPONENT)
+#define __comps_(x) GetAppModeKeyN(x, AM_COMPONENT)
 
 #define __db GetAppModeKey(AM_DB)
 #define __unsafe GetAppModeKey(AM_UNSAFE)

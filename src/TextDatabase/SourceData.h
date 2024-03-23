@@ -697,7 +697,7 @@ struct DatasetAnalysis {
 	WString GetWordPronounciation(const Vector<int>& words) const;
 	String GetTypeString(const Vector<int>& word_classes) const;
 	String GetActionString(const Vector<int>& actions) const;
-	ComponentAnalysis& GetComponentAnalysis(const String& name);
+	ComponentAnalysis& GetComponentAnalysis(int appmode, const String& name);
 	
 	void Jsonize(JsonIO& json) {
 		json

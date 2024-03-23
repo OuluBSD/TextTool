@@ -311,18 +311,18 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	while (ff.Next());
 }
 
-ComponentAnalysis& DatasetAnalysis::GetComponentAnalysis(const String& name) {
-	TextDatabase& db = GetAppModeDatabase();
+ComponentAnalysis& DatasetAnalysis::GetComponentAnalysis(int appmode, const String& name) {
+	TextDatabase& db = GetAppModeDatabase(appmode);
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	String dir = AppendFileName(db.dir, "share" DIR_SEPS + __comp + "data");
+	String dir = AppendFileName(db.dir, "share" DIR_SEPS + __comp_(appmode) + "data");
 	RealizeDirectory(dir);
 	
 	String ds_dir = AppendFileName(dir, sd.GetKey(ds_i));
 	RealizeDirectory(ds_dir);
 	
-	String comp_dir = AppendFileName(ds_dir, __comps + DIR_SEPS + name);
+	String comp_dir = AppendFileName(ds_dir, __comps_(appmode) + DIR_SEPS + name);
 	RealizeDirectory(comp_dir);
 	
 	ComponentAnalysis& sa = components.GetAdd(name);
