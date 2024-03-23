@@ -135,10 +135,10 @@ class TaskManager {
 	void OnPhraseScores(String result, Task* t);
 	void OnPhraseTypeclasss(String result, Task* t);
 	void OnPhraseContrast(String result, Task* t);
-	void OnPhraseProfile(String result, Task* t);
+	/*void OnPhraseProfile(String result, Task* t);
 	void OnPhraseContent(String result, Task* t);
 	void OnPhrasePrimary(String result, Task* t);
-	void OnPhraseSecondary(String result, Task* t);
+	void OnPhraseSecondary(String result, Task* t);*/
 	
 	//void GetNana(Task* tp);
 	//void OnSongStory(String result, Task* t);
@@ -183,7 +183,7 @@ public:
 	void Clear();
 	bool IsInTaskList(TaskType type) const;
 	
-	static TaskManager& Single() {static TaskManager o; return o;}
+	static TaskManager& Single(int appmode);
 	
 	void DoSongs(int ds_i, int fn);
 	void DoTokens(int ds_i, int fn);

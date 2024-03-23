@@ -50,8 +50,8 @@ void SongDataPhrases::Data() {
 
 void SongDataPhrases::DataDataset() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	datasets.SetCount(sda.datasets.GetCount());
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -65,8 +65,8 @@ void SongDataPhrases::DataDataset() {
 
 void SongDataPhrases::DataMain() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	if (!datasets.IsCursor()) {
 		attrs.Clear();
@@ -98,8 +98,8 @@ void SongDataPhrases::DataMain() {
 
 void SongDataPhrases::DataAttribute() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	if (!datasets.IsCursor() || !attrs.IsCursor()) {
 		components.Clear();

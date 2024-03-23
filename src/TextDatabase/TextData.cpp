@@ -1,6 +1,7 @@
 #include "TextDatabase.h"
 
 
+
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -9,11 +10,11 @@ TextData::TextData() {
 }
 
 void TextData::Store() {
-	StoreToFile(*this, ConfigFile("SongData.bin"));
+	StoreToFile(*this, ConfigFile(__Comp + "Data.bin"));
 }
 
 void TextData::Load() {
-	LoadFromFile(*this, ConfigFile("SongData.bin"));
+	LoadFromFile(*this, ConfigFile(__Comp + "Data.bin"));
 }
 
 void TextData::Serialize(Stream& s) {
@@ -22,12 +23,12 @@ void TextData::Serialize(Stream& s) {
 
 /*void TextData::StoreJson() {
 	String dir = GetDatabase().dir;
-	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json", true);
+	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + __Comp + "Data.json", true);
 }
 
 void TextData::LoadJson() {
 	String dir = GetDatabase().dir;
-	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "SongData.json");
+	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + __Comp + "Data.json");
 }
 
 void TextData::Jsonize(JsonIO& json) {
@@ -40,16 +41,16 @@ void TextData::Jsonize(JsonIO& json) {
 
 
 void TextDataAnalysis::Store() {
-	StoreToFile(*this, ConfigFile("SongData_Analysis.bin"));
+	StoreToFile(*this, ConfigFile(__Comp + "Data_Analysis.bin"));
 	StoreJson();
 }
 
 void TextDataAnalysis::Load() {
-	LoadFromFile(*this, ConfigFile("SongData_Analysis.bin"));
+	LoadFromFile(*this, ConfigFile(__Comp + "Data_Analysis.bin"));
 	if (datasets.IsEmpty())
 		LoadJson();
 	
-	TextData& sd = GetAppModeDatabase().song_data;
+	TextData& sd = GetAppModeDatabase().comp_data;
 	for(int i = 0; i < sd.GetCount(); i++) {
 		String key = sd.GetKey(i);
 		auto& ds = sd.a.datasets.GetAdd(key);
@@ -59,15 +60,15 @@ void TextDataAnalysis::Load() {
 
 void TextDataAnalysis::StoreJson() {
 	String dir = GetAppModeDatabase().dir;
-	StoreAsJsonFileStandard(*this, ConfigFile("SongData.json"), false);
+	StoreAsJsonFileStandard(*this, ConfigFile(__Comp + "Data.json"), false);
 }
 
 void TextDataAnalysis::LoadJson() {
 	#if 0
 	DatasetAnalysis da;
-	LoadFromJsonFileStandard(da, ConfigFile("SongData.json"));
+	LoadFromJsonFileStandard(da, ConfigFile(__Comp + "Data.json"));
 	
-	TextData& sd = GetAppModeDatabase().song_data;
+	TextData& sd = GetAppModeDatabase().comp_data;
 	for(int j = 0; j < sd.GetCount(); j++) {
 		DatasetAnalysis& tgt = datasets.GetAdd(sd.GetKey(j));
 		
@@ -86,7 +87,7 @@ void TextDataAnalysis::LoadJson() {
 	}
 	#else
 	String dir = GetAppModeDatabase().dir;
-	LoadFromJsonFileStandard(*this, ConfigFile("SongData.json"));
+	LoadFromJsonFileStandard(*this, ConfigFile(__Comp + "Data.json"));
 	#endif
 }
 
@@ -255,10 +256,10 @@ DatasetAnalysis::DatasetAnalysis() {
 
 void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	TextDatabase& db = GetAppModeDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
-	String dir = AppendFileName(db.dir, "share" DIR_SEPS "songdata");
+	String dir = AppendFileName(db.dir, "share" DIR_SEPS + __comp + "data");
 	RealizeDirectory(dir);
 	
 	String ds_dir = AppendFileName(dir, ds_key);
@@ -293,11 +294,11 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	simple_attrs.Load(ds_dir, "simple_attrs");
 	
 	
-	String song_dir = AppendFileName(ds_dir, "components");
-	RealizeDirectory(song_dir);
+	String comp_dir = AppendFileName(ds_dir, GetAppModeKeyN(AM_COMPONENT));
+	RealizeDirectory(comp_dir);
 	
 	components.Clear();
-	FindFile ff(AppendFileName(song_dir, "*"));
+	FindFile ff(AppendFileName(comp_dir, "*"));
 	do {
 		if (!ff.IsDirectory()) continue;
 		String title = ff.GetName();
@@ -312,23 +313,23 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 
 ComponentAnalysis& DatasetAnalysis::GetComponentAnalysis(const String& name) {
 	TextDatabase& db = GetAppModeDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
-	String dir = AppendFileName(db.dir, "share" DIR_SEPS "songdata");
+	String dir = AppendFileName(db.dir, "share" DIR_SEPS + __comp + "data");
 	RealizeDirectory(dir);
 	
 	String ds_dir = AppendFileName(dir, sd.GetKey(ds_i));
 	RealizeDirectory(ds_dir);
 	
-	String song_dir = AppendFileName(ds_dir, "components" DIR_SEPS + name);
-	RealizeDirectory(song_dir);
+	String comp_dir = AppendFileName(ds_dir, __comps + DIR_SEPS + name);
+	RealizeDirectory(comp_dir);
 	
 	ComponentAnalysis& sa = components.GetAdd(name);
 	
 	if (sa.da == 0) {
 		sa.da = this;
-		sa.Load(song_dir);
+		sa.Load(comp_dir);
 	}
 	
 	return sa;
@@ -342,7 +343,7 @@ void ComponentAnalysis::Load(const String& dir) {
 		phrase_combs[i].Load(dir, "phrase combinations " + IntStr(i));
 	}
 	
-	scripts_suggs.Load(dir, "scripts suggestions");
+	scripts_suggs.Load(dir, __scripts + " suggestions");
 	
 }
 

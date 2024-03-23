@@ -194,6 +194,7 @@ struct Typeclass;
 struct Content;
 struct Script;
 struct StaticPart;
+class ToolEditor;
 
 
 /*BEGIN_SOCIALLIB_NAMESPACE
@@ -220,14 +221,7 @@ struct EditorPtrs {
 	TextLib::Content*		archetype = 0;
 	TextLib::Script*		scripts = 0;
 	TextLib::StaticPart*	part = 0;
-	
-	/*SocialLib::Company*		company = 0;
-	SocialLib::Campaign*	campaign = 0;
-	SocialLib::Program*		program = 0;
-	SocialLib::Story*		story = 0;
-	SocialLib::Role*		role = 0;
-	SocialLib::Generic*		generic = 0;
-	SocialLib::StoryPart*	story_part = 0;*/
+	TextLib::ToolEditor*	editor = 0;
 	
 	void Zero() {memset(this, 0, sizeof(EditorPtrs));}
 	

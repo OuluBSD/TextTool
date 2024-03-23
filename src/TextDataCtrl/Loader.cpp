@@ -23,7 +23,7 @@ void TextDataLoader::Process() {
 	LoadHuggingArtists();
 	LoadHuggingFinn();
 	
-	//db.song_data.Store();
+	//db.comp_data.Store();
 	PostCallback(THISBACK(Stop));
 }
 
@@ -40,7 +40,7 @@ void TextDataLoader::LoadHuggingArtists() {
 	}
 	
 	TextDatabase& db = GetDatabase();
-	db.song_data.entities_en.Clear();
+	db.comp_data.entities_en.Clear();
 	
 	PostMessage("Searching for huggingartists dataset json files");
 	PostProgress(0,1);
@@ -148,7 +148,7 @@ void TextDataLoader::LoadHuggingArtists() {
 		String path = files[i];
 		String title = GetFileTitle(path);
 		
-		EntityDataset& artist = db.song_data.entities_en.Add();
+		EntityDataset& artist = db.comp_data.entities_en.Add();
 		artist.name = Capitalize(title);
 		if (GetDefaultCharset() != CHARSET_UTF8)
 			artist.name = ToCharset(CHARSET_UTF8, artist.name, CHARSET_DEFAULT);
@@ -187,7 +187,7 @@ void TextDataLoader::LoadHuggingFinn() {
 	}
 	
 	TextDatabase& db = GetDatabase();
-	db.song_data.entities_fi.Clear();
+	db.comp_data.entities_fi.Clear();
 	
 	PostMessage("Searching for huggingfinn dataset json files");
 	PostProgress(0,1);
@@ -212,7 +212,7 @@ void TextDataLoader::LoadHuggingFinn() {
 	
 	int actual = 0;
 	for(int i = 0; i < files.GetCount(); i++) {
-		EntityDataset& artist = db.song_data.entities_fi.Add();
+		EntityDataset& artist = db.comp_data.entities_fi.Add();
 		artist.name = files.GetKey(i);
 		if (GetDefaultCharset() != CHARSET_UTF8)
 			artist.name = ToCharset(CHARSET_UTF8, artist.name, CHARSET_DEFAULT);

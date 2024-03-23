@@ -7,8 +7,8 @@ BEGIN_TEXTLIB_NAMESPACE
 void TaskManager::OnTokenData(String result, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// 9. suppote: verb | noun
@@ -81,8 +81,8 @@ void TaskManager::OnTokenData(String result, Task* t) {
 void TaskManager::OnAmbiguousWordPairs(String res, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// 9. is something : verb, noun
@@ -163,8 +163,8 @@ void TaskManager::OnAmbiguousWordPairs(String res, Task* t) {
 void TaskManager::OnVirtualPhrases(String res, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	t->actual = 0;
@@ -241,8 +241,8 @@ void TaskManager::OnVirtualPhrases(String res, Task* t) {
 void TaskManager::OnVirtualPhraseTypes(String res, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// 61. compound-complex sentence + complex sentence: compound-complex sentence
@@ -326,8 +326,8 @@ void TaskManager::OnVirtualPhraseTypes(String res, Task* t) {
 void TaskManager::OnPhraseColors(String res, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// 12. RGB(255, 102, 0)
@@ -399,8 +399,8 @@ void TaskManager::OnPhraseColors(String res, Task* t) {
 void TaskManager::OnPhraseAttrs(String res, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// 1. Belief communities: acceptance
@@ -462,8 +462,8 @@ void TaskManager::OnPhraseAttrs(String res, Task* t) {
 void TaskManager::OnPhraseActions(String res, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// 5. tone(admiring) + msg(expressing attraction) + bias(physical appearance) + attention-attribute(referencing arms) + attention-physical_state(strength)
@@ -540,8 +540,8 @@ void TaskManager::OnPhraseActions(String res, Task* t) {
 void TaskManager::OnPhraseScores(String res, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// 8. 4 5 7 9 6 7 9 8 6 3
@@ -612,8 +612,8 @@ void TaskManager::OnPhraseScores(String res, Task* t) {
 void TaskManager::OnPhraseTypeclasss(String res, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// 14. 2 5 9 11 14 19 22 28 34 44
@@ -696,8 +696,8 @@ void TaskManager::OnPhraseTypeclasss(String res, Task* t) {
 void TaskManager::OnPhraseContrast(String res, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// 14. 2 5 9 11 14 19 22 28 34 44
@@ -784,11 +784,12 @@ void TaskManager::OnPhraseContrast(String res, Task* t) {
 	t->running = false;
 }
 
+#if 0
 void TaskManager::OnPhraseProfile(String res, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// 14. 2 5 9 11 14 19 22 28 34 44
@@ -871,8 +872,8 @@ void TaskManager::OnPhraseProfile(String res, Task* t) {
 void TaskManager::OnPhraseContent(String res, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// 14. 2 5 9 11 14 19 22 28 34 44
@@ -953,8 +954,8 @@ void TaskManager::OnPhraseContent(String res, Task* t) {
 void TaskManager::OnPhrasePrimary(String res, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// 14. 2 5 9 11 14 19 22 28 34 44
@@ -1036,8 +1037,8 @@ void TaskManager::OnPhrasePrimary(String res, Task* t) {
 void TaskManager::OnPhraseSecondary(String res, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// 14. 2 5 9 11 14 19 22 28 34 44
@@ -1114,11 +1115,12 @@ void TaskManager::OnPhraseSecondary(String res, Task* t) {
 	t->batch_i++;
 	t->running = false;
 }
+#endif
 
 void TaskManager::OnActionlistColors(String result, Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// "attention-humor(not taking life too seriously)" RGB(255, 255, 0)
@@ -1179,8 +1181,8 @@ void TaskManager::OnActionlistColors(String result, Task* t) {
 
 void TaskManager::OnActionlistAttrs(String result, Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// "attention-procedures(planning)" problem solving strategy / shortcut taking
@@ -1233,8 +1235,8 @@ void TaskManager::OnLineActions(String res, Task* t) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	Task::Batch& batch = t->batches[t->batch_i];
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	
@@ -1326,8 +1328,8 @@ void TaskManager::OnLineActions(String res, Task* t) {
 
 void TaskManager::OnSyllables(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	//-hey: hey [heɪ]
 	//- hello: hel-lo [hɛˈloʊ]
@@ -1401,8 +1403,8 @@ void TaskManager::OnSyllables(String res, Task* t) {
 
 void TaskManager::OnDetails(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	res.Replace("\r", "");
@@ -1524,8 +1526,8 @@ void TaskManager::OnLineChangeScores(String res, Task* t) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	Task::Batch& batch = t->batches[t->batch_i];
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	
@@ -1595,8 +1597,8 @@ void TaskManager::OnColorAlternatives(String res, Task* t) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	VectorMap<String, Color>& word_clr = t->word_clr;
 	
 	res = t->tmp_str + res;
@@ -1692,8 +1694,8 @@ void TaskManager::OnWordData(String res, Task* t) {
 #if 0
 void TaskManager::OnSongStory(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	Component& song = *t->song;
 	
@@ -1768,8 +1770,8 @@ void TaskManager::OnSongStory(String res, Task* t) {
 
 void TaskManager::OnSubPicked(String result, Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	Component& song = *t->component;
 	
@@ -1817,8 +1819,8 @@ void TaskManager::OnNanaFit(String result, Task* t) {
 
 void TaskManager::OnAttributes(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	
@@ -1905,8 +1907,8 @@ void TaskManager::OnAttributes(String res, Task* t) {
 
 void TaskManager::OnAttributePolars(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	RemoveEmptyLines2(res);
@@ -1954,8 +1956,8 @@ void TaskManager::OnAttributePolars(String res, Task* t) {
 
 void TaskManager::OnAttributeJoins(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	RemoveEmptyLines2(res);

@@ -69,6 +69,10 @@ ToolEditor::ToolEditor(TextTool* app) : app(*app) {
 	scripts_info.editor = this;
 	
 	SetSubMenu(0);
+	
+	for(int i = 0; i < DB_COUNT; i++) {
+		MetaPtrs::Single().db[i].editor = this;
+	}
 }
 
 void ToolEditor::SetSubMenu(int i) {
@@ -101,7 +105,7 @@ void ToolEditor::InitListItems() {
 void ToolEditor::InitSimplified() {
 	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
 	
-	AddItem(t_("Database"), t_("Songs"), song_data);
+	AddItem(t_("Database"), t_("Songs"), comp_data);
 	AddItem(t_("Database"), t_("Tokens"), tokens_data);
 	AddItem(t_("Database"), t_("Token phrases"), token_phrases);
 	AddItem(t_("Database"), t_("Words"), song_words);
@@ -876,6 +880,19 @@ EditorPtrs& ToolEditor::GetPointers() {
 	int appmode = this->appmode_list.GetCursor();
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return MetaPtrs::Single().db[appmode];
+}
+
+int ToolEditor::GetAppMode() const {
+	int appmode = this->appmode_list.GetCursor();
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return appmode;
+}
+
+TextLib::TaskManager& ToolAppCtrl::GetTaskManager() {
+	EditorPtrs& p = GetPointers();
+	int appmode = p.editor->GetAppMode();
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return TextLib::TaskManager::Single(appmode);
 }
 
 

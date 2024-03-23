@@ -7,7 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class PhrasePartAnalysis2 : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
-	ArrayCtrl datasets, typecasts, contrasts, profiles, contents, primaries, secondaries, parts;
+	ArrayCtrl datasets, typecasts, contrasts, parts;
 	
 public:
 	typedef PhrasePartAnalysis2 CLASSNAME;
@@ -18,10 +18,6 @@ public:
 	void DataDataset();
 	void DataTypeclass();
 	void DataContrast();
-	void DataProfile();
-	void DataContent();
-	void DataPrimary();
-	void DataSecondary();
 	void ToolMenu(Bar& bar) override;
 	void DoPhrases(int fn);
 	void UpdateCounts();

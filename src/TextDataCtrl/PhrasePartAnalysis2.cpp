@@ -10,7 +10,7 @@ PhrasePartAnalysis2::PhrasePartAnalysis2() {
 	hsplit.Horz() << vsplit << parts;
 	hsplit.SetPos(2000);
 	
-	vsplit.Vert() << datasets << typecasts << contrasts << profiles << contents << primaries << secondaries;
+	vsplit.Vert() << datasets << typecasts << contrasts;
 	vsplit.SetPos(1000,0);
 	
 	datasets.AddColumn(t_("Dataset"));
@@ -32,49 +32,16 @@ PhrasePartAnalysis2::PhrasePartAnalysis2() {
 		DataContrast();
 	};
 	
-	profiles.AddColumn(t_("Profile"));
-	profiles.AddColumn(t_("Count"));
-	profiles.ColumnWidths("3 1");
-	profiles.WhenCursor << [this]() {
-		//DatabaseBrowser::Single().SetColor(profiles.GetCursor());
-		DataProfile();
-	};
-	
-	contents.AddColumn(t_("Content"));
-	contents.AddColumn(t_("Description"));
-	contents.AddColumn(t_("Count"));
-	contents.ColumnWidths("3 3 1");
-	contents.WhenCursor << [this]() {
-		//DatabaseBrowser::Single().SetColor(profiles.GetCursor());
-		DataContent();
-	};
-	
-	primaries.AddColumn(t_("Primary"));
-	primaries.AddColumn(t_("Count"));
-	primaries.ColumnWidths("3 1");
-	primaries.WhenCursor << [this]() {
-		//DatabaseBrowser::Single().SetGroup(primaries.GetCursor());
-		DataPrimary();
-	};
-	
-	secondaries.AddColumn(t_("Secondary"));
-	secondaries.AddColumn(t_("Count"));
-	secondaries.ColumnWidths("3 1");
-	secondaries.WhenCursor << [this]() {
-		//DatabaseBrowser::Single().SetValue(secondaries.GetCursor());
-		DataSecondary();
-	};
-	
 	parts.AddColumn(t_("Phrase"));
 	parts.AddColumn(t_("Typeclass"));
 	parts.AddColumn(t_("Contrast"));
-	parts.AddColumn(t_("Profile"));
+	/*parts.AddColumn(t_("Profile"));
 	parts.AddColumn(t_("Content"));
 	parts.AddColumn(t_("Primary"));
-	parts.AddColumn(t_("Secondary"));
+	parts.AddColumn(t_("Secondary"));*/
 	parts.AddColumn(t_("Score-sum"));
 	parts.AddIndex("IDX");
-	parts.ColumnWidths("16 6 6 3 3 3 3 1");
+	parts.ColumnWidths("12 12 12 1");
 	parts.WhenBar << [this](Bar& bar){
 		bar.Add("Copy", [this]() {
 			int i = parts.GetCursor();
@@ -103,8 +70,8 @@ void PhrasePartAnalysis2::Data() {
 
 void PhrasePartAnalysis2::DataMain() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -168,124 +135,21 @@ void PhrasePartAnalysis2::DataTypeclass() {
 
 
 void PhrasePartAnalysis2::DataContrast() {
-	if (!contrasts.IsCursor())
-		return;
-	
-	
-	const auto& vec = GetProfiles();
-	profiles.Set(0, 0, "All");
-	for(int i = 0; i < vec.GetCount(); i++) {
-		//DatabaseBrowser::ColorGroup& a = b.profiles[i];
-		//SetColoredListValue(profiles, i, 0, a.group, a.clr, false);
-		//profiles.Set(i, 1, a.count);
-		profiles.Set(1+i, 0, vec[i]);
-		profiles.Set(1+i, 1, 0);
-	}
-	INHIBIT_CURSOR(profiles);
-	profiles.SetCount(1+vec.GetCount());
-	//profiles.SetSortColumn(1, true);
-	if (!profiles.IsCursor() && profiles.GetCount())
-		profiles.SetCursor(0);
-	
-	
-	DataProfile();
-}
-
-void PhrasePartAnalysis2::DataProfile() {
-	if (!datasets.IsCursor() || !profiles.IsCursor() || !typecasts.IsCursor())
-		return;
-	
-	DatabaseBrowser& b = DatabaseBrowser::Single();
-	
-	
-	const auto& vec = GetContents();
-	contents.Set(0, 0, "All");
-	for(int i = 0; i < vec.GetCount(); i++) {
-		/*DatabaseBrowser::ActionValue& a = b.values[i];
-		contents.Set(i, 0, a.value);
-		contents.Set(i, 1, a.count);*/
-		contents.Set(1+i, 0, vec.GetKey(i));
-		contents.Set(1+i, 1, vec[i]);
-		contents.Set(1+i, 2, 0);
-	}
-	INHIBIT_CURSOR(contents);
-	contents.SetCount(1+vec.GetCount());
-	//contents.SetSortColumn(2, true);
-	if (!contents.IsCursor() && contents.GetCount())
-		contents.SetCursor(0);
-	
-	DataContent();
-}
-
-void PhrasePartAnalysis2::DataContent() {
-	const auto& vec = GetPrimary();
-	primaries.Set(0, 0, "All");
-	for(int i = 0; i < vec.GetCount(); i++) {
-		/*DatabaseBrowser::ActionGroup& a = b.groups[i];
-		primaries.Set(i, 0, a.group);
-		primaries.Set(i, 1, a.count);*/
-		primaries.Set(1+i, 0, vec[i]);
-		primaries.Set(1+i, 1, 0);
-	}
-	INHIBIT_CURSOR(primaries);
-	primaries.SetCount(1+vec.GetCount());
-	//primaries.SetSortColumn(1, true);
-	if (!primaries.IsCursor() && primaries.GetCount())
-		primaries.SetCursor(0);
-	
-	DataPrimary();
-}
-
-void PhrasePartAnalysis2::DataPrimary() {
-	if (!datasets.IsCursor() || !primaries.IsCursor())
-		return;
-	
-	DatabaseBrowser& b = DatabaseBrowser::Single();
-	
-	const auto& vec = GetSecondary();
-	secondaries.Set(0, 0, "All");
-	for(int i = 0; i < vec.GetCount(); i++) {
-		/*DatabaseBrowser::ActionValue& a = b.values[i];
-		secondaries.Set(i, 0, a.value);
-		secondaries.Set(i, 1, a.count);*/
-		secondaries.Set(1+i, 0, vec[i]);
-		secondaries.Set(1+i, 1, 0);
-	}
-	INHIBIT_CURSOR(secondaries);
-	secondaries.SetCount(1+vec.GetCount());
-	//secondaries.SetSortColumn(2, true);
-	if (!secondaries.IsCursor() && secondaries.GetCount())
-		secondaries.SetCursor(0);
-	
-	
-	DataSecondary();
-}
-
-void PhrasePartAnalysis2::DataSecondary() {
-	if (!datasets.IsCursor() || !profiles.IsCursor() || !typecasts.IsCursor() ||
-		!primaries.IsCursor() || !secondaries.IsCursor())
+	if (!datasets.IsCursor() || !typecasts.IsCursor())
 		return;
 	
 	int ds_i = datasets.GetCursor();
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 
 	//DatabaseBrowser& b = DatabaseBrowser::Single();
 	int tc_i = typecasts.GetCursor() - 1;
 	int con_i = contrasts.GetCursor() - 1;
-	int pro_i = profiles.GetCursor() - 1;
-	int a_i = contents.GetCursor() - 1;
-	int pri_i = primaries.GetCursor() - 1;
-	int s_i = secondaries.GetCursor() - 1;
 	
 	const auto& tc_v = GetTypeclasss();
 	const auto& con_v = GetContrasts();
-	const auto& pro_v = GetProfiles();
-	const auto& a_v = GetContents();
-	const auto& pri_v = GetPrimary();
-	const auto& sec_v = GetSecondary();
 	
 	//int count = min(b.data.GetCount(), 10000);
 	int count = da.phrase_parts.GetCount();
@@ -311,34 +175,6 @@ void PhrasePartAnalysis2::DataSecondary() {
 					{found = true; break;}
 			if (!found) continue;
 		}
-		if (pro_i >= 0) {
-			bool found = false;
-			for (int j : pp.profiles)
-				if (j == pro_i)
-					{found = true; break;}
-			if (!found) continue;
-		}
-		if (a_i >= 0) {
-			bool found = false;
-			for (int j : pp.contents)
-				if (j == a_i)
-					{found = true; break;}
-			if (!found) continue;
-		}
-		if (pri_i >= 0) {
-			bool found = false;
-			for (int j : pp.primary)
-				if (j == pri_i)
-					{found = true; break;}
-			if (!found) continue;
-		}
-		if (s_i >= 0) {
-			bool found = false;
-			for (int j : pp.secondary)
-				if (j == s_i)
-					{found = true; break;}
-			if (!found) continue;
-		}
 		
 		{
 			String s;
@@ -355,30 +191,6 @@ void PhrasePartAnalysis2::DataSecondary() {
 			}
 			parts.Set(row, 2, s);
 		}
-		{
-			String s;
-			for (int j : pp.profiles)
-				s << pro_v[j] << ", ";
-			parts.Set(row, 3, s);
-		}
-		{
-			String s;
-			for (int j : pp.contents)
-				s << a_v.GetKey(j) << ", ";
-			parts.Set(row, 4, s);
-		}
-		{
-			String s;
-			for (int j : pp.primary)
-				s << pri_v[j] << ", ";
-			parts.Set(row, 5, s);
-		}
-		{
-			String s;
-			for (int j : pp.secondary)
-				s << sec_v[j] << ", ";
-			parts.Set(row, 6, s);
-		}
 		
 		parts.Set(row, "IDX", pp_i);
 		
@@ -394,7 +206,7 @@ void PhrasePartAnalysis2::DataSecondary() {
 			sum += pp.scores[i];
 		}
 		
-		parts.Set(row, 7, sum);
+		parts.Set(row, 3, sum);
 		
 		row++;
 		
@@ -403,20 +215,20 @@ void PhrasePartAnalysis2::DataSecondary() {
 			break;
 	}
 	parts.SetCount(row);
-	parts.SetSortColumn(7, true);
+	parts.SetSortColumn(3, true);
 	
 }
 
 void PhrasePartAnalysis2::DoPhrases(int fn) {
 	int ds_i = datasets.GetCursor();
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoPhrases(ds_i, fn);
 }
 
 void PhrasePartAnalysis2::UpdateCounts() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	

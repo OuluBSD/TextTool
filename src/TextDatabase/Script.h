@@ -76,7 +76,7 @@ struct StaticPart {
 			("mockup", mockup)
 			("nana", nana)
 			("thrd_actions", thrd_actions)
-			("saved_" + GetAppModeKeyN(AM_SCRIPT), saved_scripts)
+			("saved_" + __scripts, saved_scripts)
 			//("clr_list", clr_list)
 			//("picked_phrase_parts", picked_phrase_parts)
 			;
@@ -170,9 +170,9 @@ struct Script : DataFile {
 			("english_title", english_title)
 			("copyright", copyright)
 			("content_vision", content_vision)
-			("typecast", typecast)
-			("archetype", archetype)
-			("is_rapper", is_rapper)
+			(__typeclass, typecast)
+			(__content, archetype)
+			("is_" + __unsafe, is_rapper)
 			
 			("user_structure", user_structure)
 			("required_parts", required_parts)

@@ -45,14 +45,14 @@ struct Snapshot :
 			{
 				Vector<String> names;
 				for (Component& s : components) {s.Store(); names.Add(s.file_title);}
-				json(GetAppModeKeyComponents(), names);
+				json(__comps, names);
 			}
 		}
 		if (json.IsLoading()) {
 			{
 				components.Clear();
 				Vector<String> names;
-				json(GetAppModeKeyComponents(), names);
+				json(__comps, names);
 				for (String n : names) components.Add().LoadTitle(n);
 			}
 		}

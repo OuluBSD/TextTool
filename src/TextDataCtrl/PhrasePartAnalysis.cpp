@@ -93,8 +93,8 @@ void PhrasePartAnalysis::Data() {
 
 void PhrasePartAnalysis::DataMain() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 
 
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -112,8 +112,8 @@ void PhrasePartAnalysis::DataDataset() {
 		return;
 
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 
@@ -159,8 +159,8 @@ void PhrasePartAnalysis::DataColor() {
 		return;
 
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 
@@ -196,8 +196,8 @@ void PhrasePartAnalysis::DataAction() {
 		return;
 
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 
@@ -232,8 +232,8 @@ void PhrasePartAnalysis::DataActionHeader() {
 
 
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 
@@ -344,7 +344,7 @@ void PhrasePartAnalysis::DataActionHeader() {
 
 void PhrasePartAnalysis::DoPhrases(int fn) {
 	int ds_i = datasets.GetCursor();
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoPhrases(ds_i, fn);
 }
 

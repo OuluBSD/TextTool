@@ -19,8 +19,8 @@ TextDataDiagnostics::TextDataDiagnostics() {
 
 void TextDataDiagnostics::Data() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
 		datasets.Set(i, 0, sda.datasets.GetKey(i));
@@ -37,7 +37,7 @@ void TextDataDiagnostics::DataDataset() {
 	
 	if (!datasets.IsCursor()) return;
 	int cur = datasets.GetCursor();
-	const DatasetAnalysis& da = db.song_data.a.datasets[cur];
+	const DatasetAnalysis& da = db.comp_data.a.datasets[cur];
 	
 	for(int i = 0; i < da.diagnostics.GetCount(); i++) {
 		const String& key = da.diagnostics.GetKey(i);

@@ -6,8 +6,8 @@ BEGIN_TEXTLIB_NAMESPACE
 
 void DatabaseBrowser::SetColor3(int i) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	if (color_counts.IsEmpty()) {
@@ -48,8 +48,8 @@ void DatabaseBrowser::SetColor3(int i) {
 
 void DatabaseBrowser::SetGroup3(int i) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	ColorGroup& cg = colors[cursor[1]];
@@ -113,8 +113,8 @@ void DatabaseBrowser::SetGroup3(int i) {
 
 void DatabaseBrowser::SetAttr3(int i) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	ColorGroup& cg = colors[cursor[1]];
@@ -182,8 +182,8 @@ void DatabaseBrowser::SetAttr3(int i) {
 
 void DatabaseBrowser::SetValue3(int i) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	Attr& a = attrs[cursor[0]];
@@ -263,8 +263,8 @@ void DatabaseBrowser::DataAttr3() {
 
 void DatabaseBrowser::DataValue3() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	data.SetCount(0);

@@ -1,5 +1,5 @@
-#ifndef _TextDatabase_SongData_h_
-#define _TextDatabase_SongData_h_
+#ifndef _TextDatabase_TextData_h_
+#define _TextDatabase_TextData_h_
 
 
 BEGIN_TEXTLIB_NAMESPACE
@@ -335,10 +335,6 @@ struct PhrasePart : Moveable<PhrasePart> {
 	Color clr = Black();
 	Vector<int> actions;
 	Vector<int> typecasts;
-	Vector<int> profiles;
-	Vector<int> primary;
-	Vector<int> secondary;
-	Vector<int> contents;
 	Vector<int> contrasts;
 	int scores[SCORE_COUNT] = {0,0,0,0,0,0,0,0,0,0};
 	
@@ -362,18 +358,6 @@ struct PhrasePart : Moveable<PhrasePart> {
 		d % typecasts.GetCount();
 		for (int tc_i : typecasts)
 			d % tc_i;
-		d % profiles.GetCount();
-		for (int tc_i : profiles)
-			d % tc_i;
-		d % primary.GetCount();
-		for (int tc_i : primary)
-			d % tc_i;
-		d % secondary.GetCount();
-		for (int tc_i : secondary)
-			d % tc_i;
-		d % contents.GetCount();
-		for (int i : contents)
-			d % i;
 		d % contrasts.GetCount();
 		for (int i : contrasts)
 			d % i;
@@ -399,25 +383,6 @@ struct PhrasePart : Moveable<PhrasePart> {
 		if (tc < 0 || tc > 60) tc = 0;
 		typecasts.SetCount(tc);
 		for (int& tc_i : typecasts)
-			p % tc_i;
-		p % tc;
-		if (tc < 0 || tc > 60) tc = 0;
-		profiles.SetCount(tc);
-		for (int& tc_i : profiles)
-			p % tc_i;
-		p % tc;
-		if (tc < 0 || tc > 60) tc = 0;
-		primary.SetCount(tc);
-		for (int& tc_i : primary)
-			p % tc_i;
-		p % tc;
-		if (tc < 0 || tc > 60) tc = 0;
-		secondary.SetCount(tc);
-		for (int& tc_i : secondary)
-			p % tc_i;
-		p % tc;
-		contents.SetCount(tc);
-		for (int& tc_i : contents)
 			p % tc_i;
 		p % tc;
 		contrasts.SetCount(tc);
@@ -714,7 +679,7 @@ struct DatasetAnalysis {
 	void Jsonize(JsonIO& json) {
 		json
 			("packed_rhymes", packed_rhymes)
-			("song_cache", song_cache)
+			(GetAppModeKey(AM_COMPONENT) + "_cache", song_cache)
 			;
 	}
 	void Serialize(Stream& s) {

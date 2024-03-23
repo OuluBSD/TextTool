@@ -48,8 +48,8 @@ void EnglishEditor::Data() {
 
 void EnglishEditor::DataPart() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	
@@ -124,7 +124,7 @@ void EnglishEditor::DoNana(int fn) {
 	//StaticPart& part = song.parts[part_i];
 	//const auto& line = part.nana.Get()[line_i];
 	
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoNana(ds_i, fn, GetComponent(), THISBACK(PostData), part_i, line_i);
 }
 

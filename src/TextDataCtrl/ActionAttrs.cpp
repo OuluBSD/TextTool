@@ -49,8 +49,8 @@ void ActionAttrsPage::ToolMenu(Bar& bar) {
 
 void ActionAttrsPage::DataMain() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -124,8 +124,8 @@ void ActionAttrsPage::DataColor() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -176,17 +176,17 @@ void ActionAttrsPage::DataColor() {
 }
 
 void ActionAttrsPage::UpdateFromCache() {
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoActionlistCache(0);
 }
 
 void ActionAttrsPage::UpdateColors() {
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoActionlist(0, 0);
 }
 
 void ActionAttrsPage::UpdateAttributes() {
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoActionlist(0, 1);
 }
 

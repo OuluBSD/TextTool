@@ -8,7 +8,7 @@ BEGIN_TEXTLIB_NAMESPACE
 void SongStartup() {
 	EnterAppMode(DB_SONG);
 	
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = TextLib::TaskManager::Single(DB_SONG);
 	TextDatabase& db = GetAppModeDatabase(DB_SONG);
 	TaskMgrConfig& m = TaskMgrConfig::Single();
 	
@@ -24,10 +24,10 @@ void SongStartup() {
 	}
 	db.Load();
 	
-	db.song_data.Load();
-	db.song_data.a.Load();
+	db.comp_data.Load();
+	db.comp_data.a.Load();
 	
-	if (db.song_data.IsEmpty()) {
+	if (db.comp_data.IsEmpty()) {
 		TextDataLoader loader(DB_SONG);
 		loader.Run();
 	}
@@ -42,7 +42,7 @@ void SongStartup() {
 void SongShutdown(bool fast_exit, bool save_songdata) {
 	EnterAppMode(DB_SONG);
 	
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = TextLib::TaskManager::Single(DB_SONG);
 	TextDatabase& db = GetAppModeDatabase(DB_SONG);
 	TaskMgrConfig& m = TaskMgrConfig::Single();
 	
@@ -56,13 +56,74 @@ void SongShutdown(bool fast_exit, bool save_songdata) {
 		db.Store();
 		
 		if (save_songdata) {
-			db.song_data.a.Store();
-			db.song_data.a.StoreJson();
+			db.comp_data.a.Store();
+			db.comp_data.a.StoreJson();
 		}
 		
 		m.Store();
 	}
 	
+	LeaveAppMode();
+}
+
+
+void SocialStartup() {
+	EnterAppMode(DB_SOCIAL);
+	
+	TaskManager& tm = TaskManager::Single(DB_SOCIAL);
+	TextDatabase& db = GetAppModeDatabase(DB_SOCIAL);
+	TaskMgrConfig& m = TaskMgrConfig::Single();
+	
+	// Load SocialDatabase
+	#ifdef flagWIN32
+	db.dir = AppendFileName(GetHomeDirectory(), "TextTool");
+	#else
+	db.dir = GetHomeDirFile("TextTool");
+	#endif
+	if (!DirectoryExists(db.dir)) {
+		PromptOK(DeQtf("Default path not found.\nSelect TextTool directory."));
+		db.dir = SelectDirectory();
+	}
+	db.Load();
+	
+	db.comp_data.Load();
+	db.comp_data.a.Load();
+	
+	if (db.comp_data.IsEmpty()) {
+		TextDataLoader loader(DB_SOCIAL);
+		loader.Run();
+	}
+	
+	tm.Start();
+	
+	DatabaseBrowser::Single().Load();
+	
+	LeaveAppMode();
+}
+
+void SocialShutdown(bool fast_exit, bool save_socialdata) {
+	EnterAppMode(DB_SOCIAL);
+	
+	TaskManager& tm = TaskManager::Single(DB_SOCIAL);
+	TextDatabase& db = GetAppModeDatabase(DB_SOCIAL);
+	TaskMgrConfig& m = TaskMgrConfig::Single();
+	
+	// Deinit storing of files
+	tm.Stop();
+	m.Stop();
+	
+	if (!fast_exit) {
+		DatabaseBrowser::Single().Store();
+		
+		db.Store();
+		
+		if (save_socialdata) {
+			db.comp_data.a.Store();
+			db.comp_data.a.StoreJson();
+		}
+		
+		m.Store();
+	}
 	
 	LeaveAppMode();
 }

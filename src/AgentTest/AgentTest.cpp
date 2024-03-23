@@ -15,8 +15,8 @@ CONSOLE_APP_MAIN {
 	}
 	db.Load();
 	
-	db.song_data.Load();
-	db.song_data.a.Load();
+	db.comp_data.Load();
+	db.comp_data.a.Load();
 	
 	LOG("Database loaded");
 	

@@ -14,6 +14,7 @@ struct Component;
 struct Script;
 struct TextDatabase;
 struct EditorPtrs;
+class TaskManager;
 
 
 
@@ -30,6 +31,7 @@ public:
 	TextLib::Snapshot& GetSnapshot();
 	TextLib::Component& GetComponent();
 	TextLib::Script& GetScript();
+	TextLib::TaskManager& GetTaskManager();
 	
 /*	SocialLib::Company& GetCompany();
 	SocialLib::Campaign& GetCampaign();

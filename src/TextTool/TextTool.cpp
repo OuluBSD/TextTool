@@ -6,6 +6,7 @@ GUI_APP_MAIN {
 	
 	GuiStartup();
 	SongStartup();
+	//SocialStartup();
 	
 	
 	// Run main program
@@ -24,5 +25,6 @@ GUI_APP_MAIN {
 	
 	Thread::ShutdownThreads();
 	
+	//SocialShutdown(fast_exit, save_songdata);
 	SongShutdown(fast_exit, save_songdata);
 }

@@ -31,7 +31,7 @@ void TextDatabase::Load() {
 	Clear();
 	
 	lock.EnterWrite();
-	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS "db.json");
+	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + __db + ".json");
 	lock.LeaveWrite();
 	
 }

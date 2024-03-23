@@ -63,8 +63,14 @@ void TextTool::FastExit() {
 }
 
 void TextTool::ClearSonglibTasks() {
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = GetTaskManager();
 	tm.Clear();
+}
+
+TaskManager& TextTool::GetTaskManager() {
+	int appmode = ed.GetAppMode();
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return TextLib::TaskManager::Single(appmode);
 }
 
 void TextTool::SaveDatabase() {
@@ -77,7 +83,7 @@ void TextTool::MainMenu(Bar& bar) {
 		bar.Separator();
 		bar.Add(t_("Set OpenAI token"), THISBACK(SetOpenAIToken));
 		bar.Separator();
-		//bar.Add(t_("Save song data analysis"), callback(&GetDatabase().song_data, &TextData::Store));
+		//bar.Add(t_("Save song data analysis"), callback(&GetDatabase().comp_data, &TextData::Store));
 		if (!ed.save_songdata)
 			bar.Add(t_("Save song data analysis on exit"), THISBACK1(SetSaveSongdata, 1));
 		else

@@ -48,8 +48,8 @@ void LineTypesPage::Data() {
 
 void LineTypesPage::DataMain() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -67,8 +67,8 @@ void LineTypesPage::DataDataset() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -104,8 +104,8 @@ void LineTypesPage::DataStructure() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -142,8 +142,8 @@ void LineTypesPage::DataStructureHeader() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -208,7 +208,7 @@ void LineTypesPage::ToolMenu(Bar& bar) {
 
 void LineTypesPage::UpdateBatches() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
+	TextData& sd = db.comp_data;
 	
 	batches.SetCount(0);
 	batches.Reserve(1000);
@@ -293,14 +293,14 @@ void LineTypesPage::GetLineStructures(int batch_i) {
 	Batch& batch = batches[batch_i];
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	TextDataAnalysisArgs args;
 	args.fn = 13;
 	args.phrases <<= Split(batch.txt, "\n");
 	
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = GetTaskManager();
 	TaskMgr& m = tm.MakePipe();
 	m.GetTextDataAnalysis(args, THISBACK1(OnLineStructures, batch_i), true);
 }
@@ -311,8 +311,8 @@ void LineTypesPage::OnLineStructures(String res, int batch_i) {
 	
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	Batch& batch = batches[batch_i];
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	
@@ -398,8 +398,8 @@ void LineTypesPage::GetStructureColors(int batch_i) {
 	int end = begin + per_color_batch;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	TextDataAnalysisArgs args;
@@ -412,7 +412,7 @@ void LineTypesPage::GetStructureColors(int batch_i) {
 		args.phrases << s;
 	}
 	
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = GetTaskManager();
 	TaskMgr& m = tm.MakePipe();
 	m.GetTextDataAnalysis(args, THISBACK1(OnStructureColors, batch_i), true);
 }
@@ -422,8 +422,8 @@ void LineTypesPage::OnStructureColors(String res, int batch_i) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	Batch& batch = batches[batch_i];
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	

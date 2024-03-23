@@ -6,7 +6,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 void TaskManager::GetComponents(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
+	TextData& sd = db.comp_data;
 	
 	Vector<int> token_is;
 	
@@ -93,8 +93,8 @@ void TaskManager::GetComponents(Task* t) {
 
 void TaskManager::GetTokenData(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	TokenArgs& args = token_args;
@@ -127,7 +127,7 @@ void TaskManager::GetTokenData(Task* t) {
 
 void TaskManager::GetUnknownTokenPairs(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
+	TextData& sd = db.comp_data;
 	
 	DatasetAnalysis& da = sd.a.datasets[t->ds_i];
 	
@@ -187,8 +187,8 @@ void TaskManager::GetUnknownTokenPairs(Task* t) {
 
 void TaskManager::GetAmbiguousWordPairs(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	TokenArgs& args = token_args;
@@ -233,8 +233,8 @@ void TaskManager::GetAmbiguousWordPairs(Task* t) {
 
 void TaskManager::GetWordProcess(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	String ds_key = sd.GetKey(t->ds_i);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
@@ -277,8 +277,8 @@ void TaskManager::GetWordProcess(Task* t) {
 
 void TaskManager::GetWordFix(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	String ds_key = sd.GetKey(t->ds_i);
 	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
@@ -382,8 +382,8 @@ void TaskManager::GetWordFix(Task* t) {
 
 void TaskManager::GetVirtualPhrases(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	if (t->fn == 0) {
@@ -731,8 +731,8 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 
 void TaskManager::GetPhrases(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	PhraseArgs& args = phrase_args;
@@ -773,18 +773,6 @@ void TaskManager::GetPhrases(Task* t) {
 		if (t->fn == 5 && !pp.contrasts.IsEmpty())
 			continue;
 		
-		if (t->fn == 6 && !pp.profiles.IsEmpty())
-			continue;
-		
-		if (t->fn == 7 && !pp.contents.IsEmpty())
-			continue;
-		
-		if (t->fn == 8 && !pp.primary.IsEmpty())
-			continue;
-		
-		if (t->fn == 9 && !pp.secondary.IsEmpty())
-			continue;
-		
 		if (iter >= begin && iter < end) {
 			String phrase = da.GetWordString(pp.words);
 			args.phrases << phrase;
@@ -820,22 +808,22 @@ void TaskManager::GetPhrases(Task* t) {
 		m.GetPhraseData(args, THISBACK1(OnPhraseTypeclasss, t));
 	else if (args.fn == 5)
 		m.GetPhraseData(args, THISBACK1(OnPhraseContrast, t));
-	else if (args.fn == 6)
+	/*else if (args.fn == 6)
 		m.GetPhraseData(args, THISBACK1(OnPhraseProfile, t));
 	else if (args.fn == 7)
 		m.GetPhraseData(args, THISBACK1(OnPhraseContent, t));
 	else if (args.fn == 8)
 		m.GetPhraseData(args, THISBACK1(OnPhrasePrimary, t));
 	else if (args.fn == 9)
-		m.GetPhraseData(args, THISBACK1(OnPhraseSecondary, t));
+		m.GetPhraseData(args, THISBACK1(OnPhraseSecondary, t));*/
 	
 }
 
 #if 0
 void TaskManager::GetNana(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	Component& song = *t->song;
 	
@@ -955,8 +943,8 @@ void TaskManager::GetNana(Task* t) {
 
 void TaskManager::GetActionlist(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	ActionAnalysisArgs args;
@@ -1009,8 +997,8 @@ void TaskManager::GetActionlist(Task* t) {
 
 void TaskManager::GetActionParallels(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	TimeStop ts;
@@ -1074,8 +1062,8 @@ void TaskManager::GetActionParallels(Task* t) {
 
 void TaskManager::GetActionTransitions(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	TimeStop ts;
@@ -1136,8 +1124,8 @@ void TaskManager::GetContainer(Task* t) {
 
 void TaskManager::MakeNana(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	EnglishPronounciation ep;
 	
 	int ds_i = t->ds_i;
@@ -1180,8 +1168,8 @@ void TaskManager::MakeNana(Task* t) {
 
 void TaskManager::GetRhymeContainers(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	EnglishPronounciation ep;
 	
 	
@@ -1268,8 +1256,8 @@ void TaskManager::GetRhymeContainersFromTemplates(Task* t) {
 	TODO
 	#if 0
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	EnglishPronounciation ep;
 	
 	int ds_i = 0;
@@ -1490,8 +1478,8 @@ void TaskManager::GetLineActions(Task* t) {
 	Task::Batch& batch = t->batches[t->batch_i];
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	TextDataAnalysisArgs args;
 	args.fn = 10;
@@ -1505,8 +1493,8 @@ void TaskManager::GetSyllables(Task* t) {
 	int per_batch = 30;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	int begin = t->batch_i * per_batch;
 	int end = (t->batch_i+1) * per_batch;
@@ -1589,8 +1577,8 @@ void TaskManager::GetSyllables(Task* t) {
 
 void TaskManager::GetDetails(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	int per_batch = 30;
 	
@@ -1686,8 +1674,8 @@ void TaskManager::GetLineChangeScores(Task* t) {
 	Task::Batch& batch = t->batches[t->batch_i];
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	
 	TextDataAnalysisArgs args;
@@ -1759,8 +1747,8 @@ void TaskManager::GetColorAlternatives(Task* t) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	int per_batch = 25;
 	int begin = t->batch_i * per_batch;
@@ -1817,8 +1805,8 @@ void TaskManager::GetColorAlternatives(Task* t) {
 
 void TaskManager::MakeWordnetsFromTemplates(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	TimeStop ts;
 	
@@ -1891,8 +1879,8 @@ void TaskManager::MakeWordnetsFromTemplates(Task* t) {
 
 void TaskManager::GetAttributes(Task* t) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
 	// TODO optimize: this is being done every time

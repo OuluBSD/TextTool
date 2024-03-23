@@ -499,8 +499,8 @@ void TextDataAnalysisPage::DataTask() {
 
 void TextDataAnalysisPage::UpdateTasks() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	tasks.Clear();
 	

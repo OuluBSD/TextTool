@@ -71,8 +71,8 @@ void AttributeDistribution::EnableAll() {
 
 void AttributeDistribution::Data() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	if (!db.ctx.ed.artist || !db.ctx.ed.release || !db.ctx.ed.song)
 		return;
@@ -162,8 +162,8 @@ void AttributeDistribution::DataSuggestions() {
 	LOG("TODO");
 	#if 0
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	Component& song = GetComponent();
 	
 	if (!attrs.IsCursor()) {

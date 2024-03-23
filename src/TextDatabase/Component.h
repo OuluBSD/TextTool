@@ -53,11 +53,11 @@ struct Component :
 	void Serialize(Stream& s) {TODO}
 	void Jsonize(JsonIO& json) {
 		json
-			(GetAppModeKey(AM_ENTITY), artist)
+			(__entity, artist)
 			("prj_name", prj_name)
 			("origins", origins)
 			("reference", reference)
-			(GetAppModeKeyN(AM_SCRIPT) + "_file_title", scripts_file_title)
+			(__script + "_file_title", scripts_file_title)
 			("default_line_syllables", default_line_syllables)
 			("default_attr_count", default_attr_count)
 			("theme_cursor", theme_cursor)

@@ -48,7 +48,7 @@ protected:
 	ScriptInfoCtrl					scripts_info;
 	
 	// Database Ctrls
-	TextDataPage					song_data;
+	TextDataPage					comp_data;
 	TokensPage						tokens_data;
 	TokenPhrases					token_phrases;
 	AmbiguousWordPairs				ambiguous_word_pairs;
@@ -124,6 +124,7 @@ public:
 	
 	TextDatabase& GetDatabase();
 	EditorPtrs& GetPointers();
+	int GetAppMode() const;
 	
 	Callback WhenStartUpdating, WhenStopUpdating;
 	TextTool& app;

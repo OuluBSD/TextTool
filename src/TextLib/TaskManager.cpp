@@ -234,6 +234,12 @@ TextDatabase& TaskManager::GetDatabase() {
 	return MetaDatabase::Single().db[appmode];
 }
 
+TaskManager& TaskManager::Single(int appmode) {
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	static TaskManager o[DB_COUNT];
+	return o[appmode];
+}
+
 
 END_TEXTLIB_NAMESPACE
 

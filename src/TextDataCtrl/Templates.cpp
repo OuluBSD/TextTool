@@ -53,8 +53,8 @@ void SongDataTemplates::Data() {
 
 void SongDataTemplates::DataMain() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -128,8 +128,8 @@ void SongDataTemplates::DataColor() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -199,8 +199,8 @@ void SongDataTemplates::ToggleGettingTemplates() {
 		// To clear old data
 		if (0) {
 			TextDatabase& db = GetDatabase();
-			TextData& sd = db.song_data;
-			TextDataAnalysis& sda = db.song_data.a;
+			TextData& sd = db.comp_data;
+			TextDataAnalysis& sda = db.comp_data.a;
 			for(int i = 0; i < sda.datasets.GetCount(); i++)
 				sda.datasets[i].tmpl_phrases.Clear();
 		}
@@ -214,8 +214,8 @@ void SongDataTemplates::GetTemplatePhrases(int batch_i) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	int begin = batch_i * per_batch;
 	int end = (batch_i+1) * per_batch;
@@ -282,8 +282,8 @@ void SongDataTemplates::OnTemplatePhrases(String res, int batch_i) {
 	lock.Enter();
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	res.Replace("\r", "");
 	Vector<String> lines = Split(res, "\n");

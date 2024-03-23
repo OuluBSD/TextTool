@@ -48,8 +48,8 @@ VirtualPhrases::VirtualPhrases() {
 
 void VirtualPhrases::Data() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
 		datasets.Set(i, 0, sda.datasets.GetKey(i));
@@ -85,7 +85,7 @@ String GetTypePhraseString(const Vector<int>& word_classes, const DatasetAnalysi
 
 void VirtualPhrases::DataDataset() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
+	TextData& sd = db.comp_data;
 	
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sd.a.datasets[ds_i];
@@ -143,13 +143,13 @@ void VirtualPhrases::ToolMenu(Bar& bar) {
 
 void VirtualPhrases::ProcessVirtualPhrases() {
 	int ds_i = datasets.GetCursor();
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoVirtualPhrases(ds_i, 0);
 }
 
 void VirtualPhrases::ProcessVirtualPhraseParts() {
 	int ds_i = datasets.GetCursor();
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoVirtualPhrases(ds_i, 1);
 }
 

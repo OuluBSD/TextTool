@@ -44,9 +44,9 @@ void EntityInfoCtrl::Data() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
 	
-	if (language.GetCount() == 0 && db.song_data.GetCount()) {
-		for(int i = 0; i < db.song_data.GetCount(); i++)
-			language.Add(db.song_data.GetKey(i));
+	if (language.GetCount() == 0 && db.comp_data.GetCount()) {
+		for(int i = 0; i < db.comp_data.GetCount(); i++)
+			language.Add(db.comp_data.GetKey(i));
 		language.SetIndex(0);
 	}
 	

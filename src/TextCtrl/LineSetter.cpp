@@ -51,8 +51,8 @@ void LineSetter::Data() {
 
 void LineSetter::DataSet() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	
@@ -90,8 +90,8 @@ void LineSetter::DataSet() {
 
 void LineSetter::DataPicked() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	
@@ -149,8 +149,8 @@ void LineSetter::DataPicked() {
 
 void LineSetter::DataSubPicked() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	
@@ -302,7 +302,7 @@ void LineSetter::DoNana(int fn) {
 		part_i = lines.Get("PART");
 		line_i = lines.Get("LINE");
 	}
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoNana(ds_i, fn, GetComponent(), THISBACK(PostData), line_i, part_i);
 }
 

@@ -57,6 +57,7 @@ public:
 	void SaveDatabase();
 	
 	ToolEditor& GetEditor() {return ed;}
+	TaskManager& GetTaskManager();
 	
 };
 

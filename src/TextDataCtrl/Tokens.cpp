@@ -30,8 +30,8 @@ TokensPage::TokensPage() {
 
 void TokensPage::Data() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
 		datasets.Set(i, 0, sda.datasets.GetKey(i));
@@ -45,7 +45,7 @@ void TokensPage::Data() {
 
 void TokensPage::DataDataset() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
+	TextData& sd = db.comp_data;
 	
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sd.a.datasets[ds_i];
@@ -66,7 +66,7 @@ void TokensPage::ToolMenu(Bar& bar) {
 }
 
 void TokensPage::ProcessTokens() {
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single();
+	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoTokens(0, 0);
 }
 

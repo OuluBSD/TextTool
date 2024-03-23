@@ -82,8 +82,8 @@ void ScriptGenerator::ProcessSourcePool() {
 	TimeStop ts;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	
@@ -187,8 +187,8 @@ void ScriptGenerator::ProcessSourcePool() {
 
 void ScriptGenerator::ProcessPairPhrases() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	
@@ -263,8 +263,8 @@ void ScriptGenerator::ProcessPairPhrases() {
 
 void ScriptGenerator::OnProcessPairPhrases(String res) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	
@@ -329,8 +329,8 @@ void ScriptGenerator::OnProcessPairPhrases(String res) {
 
 void ScriptGenerator::ProcessRhymes() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	
@@ -387,8 +387,8 @@ void ScriptGenerator::ProcessRhymes() {
 
 void ScriptGenerator::OnProcessRhymes(String res) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	
@@ -491,8 +491,8 @@ void ScriptGenerator::OnProcessRhymes(String res) {
 
 void ScriptGenerator::ProcessScores() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	
@@ -548,8 +548,8 @@ void ScriptGenerator::ProcessScores() {
 
 void ScriptGenerator::OnProcessScores(String res) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.song_data;
-	TextDataAnalysis& sda = db.song_data.a;
+	TextData& sd = db.comp_data;
+	TextDataAnalysis& sda = db.comp_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	
