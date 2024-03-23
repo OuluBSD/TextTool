@@ -41,7 +41,6 @@ TextLib::Entity& ToolAppCtrl::GetEntity() {
 }
 
 
-
 #if 0
 SocialLib::Company& ToolAppCtrl::GetCompany() {
 	EditorPtrs& p = GetPointers();

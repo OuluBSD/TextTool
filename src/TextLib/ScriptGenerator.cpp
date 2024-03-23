@@ -8,7 +8,7 @@ ScriptGenerator::ScriptGenerator() {
 	
 }
 
-ScriptGenerator& ScriptGenerator::Get(Entity& a, Script& l) {
+ScriptGenerator& ScriptGenerator::Get(int appmode, Entity& a, Script& l) {
 	String t = a.file_title + " - " + l.file_title;
 	hash_t h = t.GetHashValue();
 	static ArrayMap<hash_t, ScriptGenerator> map;
@@ -17,6 +17,7 @@ ScriptGenerator& ScriptGenerator::Get(Entity& a, Script& l) {
 		return map[i];
 	
 	ScriptGenerator& ls = map.Add(h);
+	ls.appmode = appmode;
 	ls.artist = &a;
 	ls.scripts = &l;
 	return ls;
@@ -29,6 +30,7 @@ void ScriptGenerator::Process() {
 			Sleep(10);
 			continue;
 		}
+		
 		
 		if (phase == LG_BEGIN) {
 			time_started = GetSysTime();
@@ -63,7 +65,7 @@ void ScriptGenerator::Process() {
 			
 			// Start ScriptSolver
 			ASSERT(artist && scripts);
-			ScriptSolver& ls = ScriptSolver::Get(*artist,*scripts);
+			ScriptSolver& ls = ScriptSolver::Get(appmode, *artist,*scripts);
 			ls.Start();
 			
 			break;

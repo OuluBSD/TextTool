@@ -925,6 +925,11 @@ TextLib::TaskManager& ToolAppCtrl::GetTaskManager() {
 	return TextLib::TaskManager::Single(appmode);
 }
 
+int ToolAppCtrl::GetAppMode() const {
+	EditorPtrs& p = GetPointers();
+	return p.editor->GetAppMode();
+}
+
 
 END_TEXTLIB_NAMESPACE
 

@@ -22,13 +22,13 @@ void ScriptPool::ToolMenu(Bar& bar) {
 }
 
 void ScriptPool::StartProcess() {
-	TextLib::ScriptGenerator& ls = TextLib::ScriptGenerator::Get(GetEntity(), GetScript());
+	TextLib::ScriptGenerator& ls = TextLib::ScriptGenerator::Get(GetAppMode(), GetEntity(), GetScript());
 	ls.WhenProgress = THISBACK(PostProgress);
 	ls.Start();
 }
 
 void ScriptPool::StopProcess() {
-	TextLib::ScriptGenerator& ls = TextLib::ScriptGenerator::Get(GetEntity(), GetScript());
+	TextLib::ScriptGenerator& ls = TextLib::ScriptGenerator::Get(GetAppMode(),GetEntity(), GetScript());
 	ls.Stop();
 }
 

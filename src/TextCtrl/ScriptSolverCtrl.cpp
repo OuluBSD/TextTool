@@ -90,13 +90,13 @@ void ScriptSolverCtrl::ToolMenu(Bar& bar) {
 }
 
 void ScriptSolverCtrl::StartProcess() {
-	TextLib::ScriptSolver& ls = TextLib::ScriptSolver::Get(GetEntity(), GetScript());
+	TextLib::ScriptSolver& ls = TextLib::ScriptSolver::Get(GetAppMode(), GetEntity(), GetScript());
 	ls.WhenProgress = THISBACK(PostProgress);
 	ls.Start();
 }
 
 void ScriptSolverCtrl::StopProcess() {
-	TextLib::ScriptSolver& ls = TextLib::ScriptSolver::Get(GetEntity(), GetScript());
+	TextLib::ScriptSolver& ls = TextLib::ScriptSolver::Get(GetAppMode(), GetEntity(), GetScript());
 	ls.Stop();
 }
 

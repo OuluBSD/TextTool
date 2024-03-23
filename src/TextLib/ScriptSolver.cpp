@@ -8,7 +8,7 @@ ScriptSolver::ScriptSolver() {
 	
 }
 
-ScriptSolver& ScriptSolver::Get(Entity& a, Script& l) {
+ScriptSolver& ScriptSolver::Get(int appmode, Entity& a, Script& l) {
 	String t = a.file_title + " - " + l.file_title;
 	hash_t h = t.GetHashValue();
 	static ArrayMap<hash_t, ScriptSolver> map;
@@ -17,6 +17,7 @@ ScriptSolver& ScriptSolver::Get(Entity& a, Script& l) {
 		return map[i];
 	
 	ScriptSolver& ls = map.Add(h);
+	ls.appmode = appmode;
 	ls.artist = &a;
 	ls.script = &l;
 	return ls;

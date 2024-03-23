@@ -73,7 +73,7 @@ public:
 	void Start() {if (!running) {running = true; stopped = false; Thread::Start(THISBACK(Process));}}
 	void Stop() {running = false; while (!stopped) Sleep(1);}
 	
-	static ScriptSolver& Get(Entity& a, Script& l);
+	static ScriptSolver& Get(int appmode, Entity& a, Script& l);
 	
 	Callback2<int,int> WhenProgress;
 	

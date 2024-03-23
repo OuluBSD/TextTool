@@ -62,6 +62,7 @@ public:
 	const Index<String>& GetTypeclasses() const;
 	const Vector<ContentType>& GetContents() const;
 	const Vector<String>& GetContentParts() const;
+	int GetAppMode() const;
 };
 
 
