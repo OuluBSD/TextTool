@@ -87,7 +87,7 @@ struct Entity :
 			("year_of_birth", year_of_birth)
 			("year_of_career_begin", year_of_career_begin)
 			("biography", biography)
-			("text_style", text_style)
+			(GetAppModeLabel(AML_FIELD_TEXT_STYLE), text_style)
 			(GetAppModeLabel(AML_FIELD_VIBE_OF_TEXT), vibe_of_text)
 			(GetAppModeLabel(AML_FIELD_NATURAL_TOOLS), natural_tools)
 			(GetAppModeLabel(AML_FIELD_ELECTRONIC_TOOLS), electronic_tools)
