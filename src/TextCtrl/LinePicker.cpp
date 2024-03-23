@@ -250,8 +250,8 @@ void LinePicker::SetFilterValues() {
 
 void LinePicker::DataMain(int cur) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	DatabaseBrowser& b = DatabaseBrowser::Single();
 	b.SetDataset(ds_i);
@@ -322,8 +322,8 @@ void LinePicker::DataPhrases() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 
 	DatabaseBrowser& b = DatabaseBrowser::Single();
@@ -374,8 +374,8 @@ void LinePicker::DataPhrases() {
 
 void LinePicker::DataPicked() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	
@@ -469,8 +469,8 @@ void LinePicker::DataPicked() {
 
 void LinePicker::DataSubPicked() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	
@@ -613,8 +613,8 @@ void LinePicker::ClearAll() {
 
 void LinePicker::SetMidRhyme(String word_) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	
@@ -636,8 +636,8 @@ void LinePicker::SetMidRhyme(String word_) {
 
 void LinePicker::SetEndRhyme(String word_) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	

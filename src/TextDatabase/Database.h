@@ -36,7 +36,7 @@ struct TextDatabase {
 	VectorMap<String, Translation> translation;
 	
 	// Local (separate)
-	TextData		comp_data;
+	TextData		src_data;
 	
 	// Temp
 	String			dir;

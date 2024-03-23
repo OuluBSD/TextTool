@@ -51,8 +51,8 @@ void LineSetter::Data() {
 
 void LineSetter::DataSet() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	
@@ -90,8 +90,8 @@ void LineSetter::DataSet() {
 
 void LineSetter::DataPicked() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	
@@ -149,8 +149,8 @@ void LineSetter::DataPicked() {
 
 void LineSetter::DataSubPicked() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	

@@ -21,7 +21,7 @@ SongBriefing::SongBriefing() {
 		switch(i) {
 			
 			case ATTR_DATASET: {
-				TextData& sd = GetDatabase().comp_data;
+				TextData& sd = GetDatabase().src_data;
 				DropList* dl = new DropList;
 				list.SetCtrl(i, 1, dl);
 				for(int j = 0; j < sd.GetCount(); j++) {

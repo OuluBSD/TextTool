@@ -50,7 +50,7 @@ void TextDataAnalysis::Load() {
 	if (datasets.IsEmpty())
 		LoadJson();
 	
-	TextData& sd = GetAppModeDatabase().comp_data;
+	TextData& sd = GetAppModeDatabase().src_data;
 	for(int i = 0; i < sd.GetCount(); i++) {
 		String key = sd.GetKey(i);
 		auto& ds = sd.a.datasets.GetAdd(key);
@@ -68,7 +68,7 @@ void TextDataAnalysis::LoadJson() {
 	DatasetAnalysis da;
 	LoadFromJsonFileStandard(da, ConfigFile(__Comp + "Data.json"));
 	
-	TextData& sd = GetAppModeDatabase().comp_data;
+	TextData& sd = GetAppModeDatabase().src_data;
 	for(int j = 0; j < sd.GetCount(); j++) {
 		DatasetAnalysis& tgt = datasets.GetAdd(sd.GetKey(j));
 		
@@ -256,8 +256,8 @@ DatasetAnalysis::DatasetAnalysis() {
 
 void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	TextDatabase& db = GetAppModeDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	String dir = AppendFileName(db.dir, "share" DIR_SEPS + __comp + "data");
 	RealizeDirectory(dir);
@@ -313,8 +313,8 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 
 ComponentAnalysis& DatasetAnalysis::GetComponentAnalysis(const String& name) {
 	TextDatabase& db = GetAppModeDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	String dir = AppendFileName(db.dir, "share" DIR_SEPS + __comp + "data");
 	RealizeDirectory(dir);

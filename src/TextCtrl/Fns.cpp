@@ -24,10 +24,10 @@ void SongStartup() {
 	}
 	db.Load();
 	
-	db.comp_data.Load();
-	db.comp_data.a.Load();
+	db.src_data.Load();
+	db.src_data.a.Load();
 	
-	if (db.comp_data.IsEmpty()) {
+	if (db.src_data.IsEmpty()) {
 		TextDataLoader loader(DB_SONG);
 		loader.Run();
 	}
@@ -56,8 +56,8 @@ void SongShutdown(bool fast_exit, bool save_songdata) {
 		db.Store();
 		
 		if (save_songdata) {
-			db.comp_data.a.Store();
-			db.comp_data.a.StoreJson();
+			db.src_data.a.Store();
+			db.src_data.a.StoreJson();
 		}
 		
 		m.Store();
@@ -86,10 +86,10 @@ void SocialStartup() {
 	}
 	db.Load();
 	
-	db.comp_data.Load();
-	db.comp_data.a.Load();
+	db.src_data.Load();
+	db.src_data.a.Load();
 	
-	if (db.comp_data.IsEmpty()) {
+	if (db.src_data.IsEmpty()) {
 		TextDataLoader loader(DB_SOCIAL);
 		loader.Run();
 	}
@@ -118,8 +118,8 @@ void SocialShutdown(bool fast_exit, bool save_socialdata) {
 		db.Store();
 		
 		if (save_socialdata) {
-			db.comp_data.a.Store();
-			db.comp_data.a.StoreJson();
+			db.src_data.a.Store();
+			db.src_data.a.StoreJson();
 		}
 		
 		m.Store();

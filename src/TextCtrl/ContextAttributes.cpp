@@ -17,8 +17,8 @@ ContextAttributesCtrl::ContextAttributesCtrl() {
 
 void ContextAttributesCtrl::InitList(ArrayCtrl& attrs) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	if (sda.datasets.IsEmpty()) return;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -82,8 +82,8 @@ void ContextAttributesCtrl::InitList(ArrayCtrl& attrs) {
 
 void ContextAttributesCtrl::SetData(VectorMap<String,String>& data, ArrayCtrl& attrs) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	for(int i = 0; i < attrs.GetCount(); i++) {

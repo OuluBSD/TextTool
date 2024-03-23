@@ -66,8 +66,8 @@ void TextDataLineActions::Data() {
 
 void TextDataLineActions::DataMain() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -85,8 +85,8 @@ void TextDataLineActions::DataDataset() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -121,8 +121,8 @@ void TextDataLineActions::DataAction() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -155,8 +155,8 @@ void TextDataLineActions::DataActionHeader() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -229,8 +229,8 @@ void TextDataLineActions::DataNextLine() {
 	}
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	int phrase_i = phrases.Get("IDX");

@@ -6,8 +6,8 @@ BEGIN_TEXTLIB_NAMESPACE
 
 void TaskManager::DoSongs(int ds_i, int fn) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -22,8 +22,8 @@ void TaskManager::DoSongs(int ds_i, int fn) {
 
 void TaskManager::DoTokens(int ds_i, int fn) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -38,8 +38,8 @@ void TaskManager::DoTokens(int ds_i, int fn) {
 
 void TaskManager::DoUnknownTokenPairs(int ds_i, int fn) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -54,8 +54,8 @@ void TaskManager::DoUnknownTokenPairs(int ds_i, int fn) {
 
 void TaskManager::DoAmbiguousWordPairs(int ds_i, int fn) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -70,8 +70,8 @@ void TaskManager::DoAmbiguousWordPairs(int ds_i, int fn) {
 
 void TaskManager::DoVirtualPhrases(int ds_i, int fn) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -86,8 +86,8 @@ void TaskManager::DoVirtualPhrases(int ds_i, int fn) {
 
 void TaskManager::DoPhrases(int ds_i, int fn) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -102,8 +102,8 @@ void TaskManager::DoPhrases(int ds_i, int fn) {
 
 /*void TaskManager::DoNana(int ds_i, int fn, Component& song, Callback OnReady, int line_i, int part_i) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -122,8 +122,8 @@ void TaskManager::DoPhrases(int ds_i, int fn) {
 
 void TaskManager::DoContainer(int ds_i, int fn, Callback2<int,int> update) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -139,8 +139,8 @@ void TaskManager::DoContainer(int ds_i, int fn, Callback2<int,int> update) {
 
 void TaskManager::DoActionlistCache(int ds_i) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Task task;
 	task.ds_i = ds_i;
@@ -168,8 +168,8 @@ void TaskManager::DoActionlist(int ds_i, int fn) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	if (uniq_acts.IsEmpty()) {
@@ -201,8 +201,8 @@ void TaskManager::DoActionParallel(int ds_i, int fn) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -220,8 +220,8 @@ void TaskManager::DoActionTransition(int ds_i, int fn) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -239,8 +239,8 @@ void TaskManager::DoWordFix(int ds_i, int fn) {
 	//	return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -258,8 +258,8 @@ void TaskManager::DoWords(int ds_i, int fn) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -280,8 +280,8 @@ void TaskManager::DoWordnet(int ds_i, int fn) {
 	return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();
@@ -299,8 +299,8 @@ void TaskManager::DoAttributes(int ds_i, int fn) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	lock.EnterWrite();

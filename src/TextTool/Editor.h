@@ -48,7 +48,7 @@ protected:
 	ScriptInfoCtrl					scripts_info;
 	
 	// Database Ctrls
-	TextDataPage					comp_data;
+	TextDataPage					src_data;
 	TokensPage						tokens_data;
 	TokenPhrases					token_phrases;
 	AmbiguousWordPairs				ambiguous_word_pairs;

@@ -78,8 +78,8 @@ void TextDataWordnetScoring::Data() {
 
 void TextDataWordnetScoring::DataMain() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -153,8 +153,8 @@ void TextDataWordnetScoring::DataColor() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -330,8 +330,8 @@ void TextDataWordnetScoring::GetWordnetScores(int batch_i, int score_mode) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	int begin = batch_i * per_batch;
 	int end = (batch_i+1) * per_batch;
@@ -390,8 +390,8 @@ void TextDataWordnetScoring::OnWordnetScores(String res, int batch_i, int score_
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	res.Replace("\r", "");
 	Vector<String> lines = Split(res, "\n");
@@ -450,8 +450,8 @@ void TextDataWordnetScoring::GetColorWordnetScores(int batch_i, int score_mode) 
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	int begin = batch_i * per_batch;
 	int end = (batch_i+1) * per_batch;
@@ -510,8 +510,8 @@ void TextDataWordnetScoring::OnColorWordnetScores(String res, int batch_i, int s
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	res.Replace("\r", "");
 	Vector<String> lines = Split(res, "\n");

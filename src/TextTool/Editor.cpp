@@ -105,7 +105,7 @@ void ToolEditor::InitListItems() {
 void ToolEditor::InitSimplified() {
 	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
 	
-	AddItem(t_("Database"), t_("Songs"), comp_data);
+	AddItem(t_("Database"), t_("Songs"), src_data);
 	AddItem(t_("Database"), t_("Tokens"), tokens_data);
 	AddItem(t_("Database"), t_("Token phrases"), token_phrases);
 	AddItem(t_("Database"), t_("Words"), song_words);

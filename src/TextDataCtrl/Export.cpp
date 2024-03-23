@@ -147,8 +147,8 @@ struct ExportTemplate : Moveable<ExportTemplate> {
 
 void ExportPage::Export() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	String dir = AppendFileName(db.dir, "share" DIR_SEPS "songdata");
 	RealizeDirectory(dir);

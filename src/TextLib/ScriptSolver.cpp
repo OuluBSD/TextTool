@@ -183,8 +183,8 @@ void ScriptGenerator::OnProcessColor(String result) {
 
 void ScriptGenerator::ProcessAttr() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	
@@ -253,8 +253,8 @@ void ScriptGenerator::ProcessAttr() {
 
 void ScriptGenerator::OnProcessAttr(String result) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	int begin = batch * per_batch;
@@ -295,8 +295,8 @@ void ScriptGenerator::OnProcessAttr(String result) {
 
 void ScriptGenerator::ProcessAction() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	if (batch >= scripts->parts.GetCount()) {
@@ -348,8 +348,8 @@ void ScriptGenerator::ProcessAction() {
 
 void ScriptSolver::ProcessFilter() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	
@@ -375,8 +375,8 @@ void ScriptSolver::ProcessFilter() {
 
 void ScriptSolver::ProcessPrimary() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	
@@ -459,8 +459,8 @@ void ScriptSolver::ProcessPrimary() {
 
 void ScriptSolver::OnProcessPrimary(String res) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	
@@ -547,8 +547,8 @@ void ScriptSolver::OnProcessPrimary(String res) {
 
 void ScriptSolver::ProcessComparison() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	
@@ -600,8 +600,8 @@ void ScriptSolver::ProcessComparison() {
 
 void ScriptSolver::OnProcessComparison(String res) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Script& song = *this->scripts;
 	

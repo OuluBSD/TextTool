@@ -28,7 +28,7 @@ void TextDataLoader::Process() {
 		LoadHuggingTweets();
 	}
 	
-	//db.comp_data.Store();
+	//db.src_data.Store();
 	PostCallback(THISBACK(Stop));
 }
 
@@ -45,7 +45,7 @@ void TextDataLoader::LoadHuggingArtists() {
 	}
 	
 	TextDatabase& db = GetDatabase();
-	db.comp_data.entities_en.Clear();
+	db.src_data.entities_en.Clear();
 	
 	PostMessage("Searching for huggingartists dataset json files");
 	PostProgress(0,1);
@@ -153,7 +153,7 @@ void TextDataLoader::LoadHuggingArtists() {
 		String path = files[i];
 		String title = GetFileTitle(path);
 		
-		EntityDataset& artist = db.comp_data.entities_en.Add();
+		EntityDataset& artist = db.src_data.entities_en.Add();
 		artist.name = Capitalize(title);
 		if (GetDefaultCharset() != CHARSET_UTF8)
 			artist.name = ToCharset(CHARSET_UTF8, artist.name, CHARSET_DEFAULT);
@@ -192,7 +192,7 @@ void TextDataLoader::LoadHuggingFinn() {
 	}
 	
 	TextDatabase& db = GetDatabase();
-	db.comp_data.entities_fi.Clear();
+	db.src_data.entities_fi.Clear();
 	
 	PostMessage("Searching for huggingfinn dataset json files");
 	PostProgress(0,1);
@@ -217,7 +217,7 @@ void TextDataLoader::LoadHuggingFinn() {
 	
 	int actual = 0;
 	for(int i = 0; i < files.GetCount(); i++) {
-		EntityDataset& artist = db.comp_data.entities_fi.Add();
+		EntityDataset& artist = db.src_data.entities_fi.Add();
 		artist.name = files.GetKey(i);
 		if (GetDefaultCharset() != CHARSET_UTF8)
 			artist.name = ToCharset(CHARSET_UTF8, artist.name, CHARSET_DEFAULT);
@@ -253,7 +253,7 @@ void TextDataLoader::LoadHuggingTweets() {
 	}
 	
 	TextDatabase& db = GetDatabase();
-	db.comp_data.entities_en.Clear();
+	db.src_data.entities_en.Clear();
 	
 	PostMessage("Searching for twitter dataset txt files");
 	PostProgress(0,1);
@@ -285,7 +285,7 @@ void TextDataLoader::LoadHuggingTweets() {
 		String title = data.GetKey(i);
 		String content = data[i];
 		
-		EntityDataset& company = db.comp_data.entities_en.Add();
+		EntityDataset& company = db.src_data.entities_en.Add();
 		company.name = Capitalize(title);
 		if (GetDefaultCharset() != CHARSET_UTF8)
 			company.name = ToCharset(CHARSET_UTF8, company.name, CHARSET_DEFAULT);

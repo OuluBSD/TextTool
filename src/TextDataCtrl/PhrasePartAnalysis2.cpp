@@ -74,8 +74,8 @@ void PhrasePartAnalysis2::Data() {
 
 void PhrasePartAnalysis2::DataMain() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -159,8 +159,8 @@ void PhrasePartAnalysis2::DataColor() {
 	
 	int ds_i = datasets.GetCursor();
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 
 	//DatabaseBrowser& b = DatabaseBrowser::Single();
@@ -252,8 +252,8 @@ void PhrasePartAnalysis2::DoPhrases(int fn) {
 
 void PhrasePartAnalysis2::UpdateCounts() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	

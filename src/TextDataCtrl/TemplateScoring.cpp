@@ -55,8 +55,8 @@ void SongDataTemplateScoring::Data() {
 
 void SongDataTemplateScoring::DataMain() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -130,8 +130,8 @@ void SongDataTemplateScoring::DataColor() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -219,8 +219,8 @@ void SongDataTemplateScoring::GetTemplateScores(int batch_i, int score_mode) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	int begin = batch_i * per_batch;
 	int end = (batch_i+1) * per_batch;
@@ -312,8 +312,8 @@ void SongDataTemplateScoring::OnTemplateScores(String res, int batch_i, int scor
 	lock.Enter();
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	res.Replace("\r", "");
 	Vector<String> lines = Split(res, "\n");

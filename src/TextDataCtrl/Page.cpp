@@ -64,13 +64,13 @@ void TextDataPage::ToolMenu(Bar& bar) {
 
 /*void TextDataPage::AddRandomSongsToList(int count) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	if (!datasets.IsCursor() || !entities.IsCursor() || !components.IsCursor()) return;
 	int cur = datasets.GetCursor();
 	int acur = entities.GetCursor();
-	const auto& data = db.comp_data[cur];
+	const auto& data = db.src_data[cur];
 	const auto& artist = data[acur];
 	if (artist.scripts.IsEmpty()) return;
 	
@@ -105,14 +105,14 @@ void TextDataPage::ToolMenu(Bar& bar) {
 	TODO
 	#if 0
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	if (!datasets.IsCursor() || !entities.IsCursor() || !components.IsCursor()) return;
 	int cur = datasets.GetCursor();
 	int acur = entities.GetCursor();
 	int scur = components.GetCursor();
-	const auto& data = db.comp_data[cur];
+	const auto& data = db.src_data[cur];
 	const auto& artist = data[acur];
 	const auto& song = artist.scripts[scur];
 	
@@ -133,14 +133,14 @@ void TextDataPage::ToolMenu(Bar& bar) {
 	TODO
 	#if 0
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	if (!datasets.IsCursor() || !entities.IsCursor() || !active_components.IsCursor()) return;
 	int cur = datasets.GetCursor();
 	int acur = entities.GetCursor();
 	int scur = active_components.GetCursor();
-	const auto& data = db.comp_data[cur];
+	const auto& data = db.src_data[cur];
 	const auto& artist = data[acur];
 	
 	String ds_key = sd.GetKey(cur);
@@ -170,7 +170,7 @@ void TextDataPage::DataDataset() {
 	
 	if (!datasets.IsCursor()) return;
 	int cur = datasets.GetCursor();
-	const auto& data = db.comp_data[cur];
+	const auto& data = db.src_data[cur];
 	
 	entities.SetCount(data.GetCount());
 	for(int i = 0; i < data.GetCount(); i++) {
@@ -189,12 +189,12 @@ void TextDataPage::DataDataset() {
 
 void TextDataPage::DataEntity() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
+	TextData& sd = db.src_data;
 	
 	if (!datasets.IsCursor() || !entities.IsCursor()) return;
 	int cur = datasets.GetCursor();
 	int acur = entities.GetCursor();
-	const auto& data = db.comp_data[cur];
+	const auto& data = db.src_data[cur];
 	const auto& artist = data[acur];
 	
 	components.SetCount(artist.scripts.GetCount());
@@ -216,13 +216,13 @@ void TextDataPage::DataEntity() {
 #if 0
 void TextDataPage::DataEntityActiveSongs() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	if (!datasets.IsCursor() || !entities.IsCursor()) return;
 	int cur = datasets.GetCursor();
 	int acur = entities.GetCursor();
-	const auto& data = db.comp_data[cur];
+	const auto& data = db.src_data[cur];
 	const auto& artist = data[acur];
 	
 	String ds_key = sd.GetKey(cur);
@@ -250,7 +250,7 @@ void TextDataPage::DataComponent() {
 	int cur = datasets.GetCursor();
 	int acur = entities.GetCursor();
 	int scur = components.GetCursor();
-	const auto& data = db.comp_data[cur];
+	const auto& data = db.src_data[cur];
 	const auto& artist = data[acur];
 	const auto& song = artist.scripts[scur];
 	
@@ -266,14 +266,14 @@ void TextDataPage::DataActiveSong() {
 	TODO
 	#if 0
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	if (!datasets.IsCursor() || !entities.IsCursor() || !active_components.IsCursor()) return;
 	int cur = datasets.GetCursor();
 	int acur = entities.GetCursor();
 	int scur = active_components.GetCursor();
-	const auto& data = db.comp_data[cur];
+	const auto& data = db.src_data[cur];
 	const auto& artist = data[acur];
 	
 	String ds_key = sd.GetKey(cur);
@@ -307,8 +307,8 @@ void TextDataPage::DataActiveSong() {
 
 void TextDataPage::HotfixText() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.comp_data;
-	TextDataAnalysis& sda = db.comp_data.a;
+	TextData& sd = db.src_data;
+	TextDataAnalysis& sda = db.src_data.a;
 	
 	int total = 0;
 	for(int i = 0; i < sd.GetCount(); i++) {

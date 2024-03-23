@@ -83,7 +83,7 @@ void TextTool::MainMenu(Bar& bar) {
 		bar.Separator();
 		bar.Add(t_("Set OpenAI token"), THISBACK(SetOpenAIToken));
 		bar.Separator();
-		//bar.Add(t_("Save song data analysis"), callback(&GetDatabase().comp_data, &TextData::Store));
+		//bar.Add(t_("Save song data analysis"), callback(&GetDatabase().src_data, &TextData::Store));
 		if (!ed.save_songdata)
 			bar.Add(t_("Save song data analysis on exit"), THISBACK1(SetSaveSongdata, 1));
 		else
