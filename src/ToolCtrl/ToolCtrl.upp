@@ -8,6 +8,7 @@ uses
 
 file
 	ToolCtrl.h,
+	ToolCtrl.lay,
 	Fns.h,
 	Fns.cpp,
 	ImageGenTool.h,

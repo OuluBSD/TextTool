@@ -684,9 +684,9 @@ void TaskManager::OnPhraseTypeclasses(String res, Task* t) {
 	for (const PhrasePart& pp : da.phrase_parts.GetValues())
 		if (pp.typecasts.GetCount())
 			a++;
-	da.diagnostics.GetAdd("typecasts: total") = IntStr(da.phrase_parts.GetCount());
-	da.diagnostics.GetAdd("typecasts: actual") = IntStr(a);
-	da.diagnostics.GetAdd("typecasts: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	da.diagnostics.GetAdd(__typeclasses + ": total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd(__typeclasses + ": actual") = IntStr(a);
+	da.diagnostics.GetAdd(__typeclasses + ": percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
 	
 	
 	t->batch_i++;
@@ -775,9 +775,9 @@ void TaskManager::OnPhraseContrast(String res, Task* t) {
 	for (const PhrasePart& pp : da.phrase_parts.GetValues())
 		if (pp.contrasts.GetCount())
 			a++;
-	da.diagnostics.GetAdd("contrast: total") = IntStr(da.phrase_parts.GetCount());
-	da.diagnostics.GetAdd("contrast: actual") = IntStr(a);
-	da.diagnostics.GetAdd("contrast: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	da.diagnostics.GetAdd(__content + ": total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd(__content + ": actual") = IntStr(a);
+	da.diagnostics.GetAdd(__content + ": percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
 	
 	
 	t->batch_i++;
@@ -860,9 +860,11 @@ void TaskManager::OnPhraseProfile(String res, Task* t) {
 	for (const PhrasePart& pp : da.phrase_parts.GetValues())
 		if (pp.profiles.GetCount())
 			a++;
-	da.diagnostics.GetAdd("singer profiles: total") = IntStr(da.phrase_parts.GetCount());
-	da.diagnostics.GetAdd("singer profiles: actual") = IntStr(a);
-	da.diagnostics.GetAdd("singer profiles: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	
+	String h = ToLower(GetAppModeLabel(AML_SPEAKER));
+	da.diagnostics.GetAdd(h + " profiles: total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd(h + " profiles: actual") = IntStr(a);
+	da.diagnostics.GetAdd(h + " profiles: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
 	
 	
 	t->batch_i++;
@@ -943,9 +945,9 @@ void TaskManager::OnPhraseContent(String res, Task* t) {
 	for (const PhrasePart& pp : da.phrase_parts.GetValues())
 		if (pp.contents.GetCount())
 			a++;
-	da.diagnostics.GetAdd("contents: total") = IntStr(da.phrase_parts.GetCount());
-	da.diagnostics.GetAdd("contents: actual") = IntStr(a);
-	da.diagnostics.GetAdd("contents: percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
+	da.diagnostics.GetAdd(__contents + ": total") = IntStr(da.phrase_parts.GetCount());
+	da.diagnostics.GetAdd(__contents + ": actual") = IntStr(a);
+	da.diagnostics.GetAdd(__contents + ": percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
 	
 	t->batch_i++;
 	t->running = false;

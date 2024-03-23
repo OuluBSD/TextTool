@@ -7,7 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class ToolEditor;
 
-class EntityInfoCtrl : public WithCompanyInfo<ToolAppCtrl> {
+class EntityInfoCtrl : public WithEntityInfo<ToolAppCtrl> {
 	
 	
 public:

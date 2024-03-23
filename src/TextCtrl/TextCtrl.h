@@ -7,7 +7,7 @@
 #include <TextLib/TextLib.h>
 
 
-#define LAYOUTFILE <TextCtrl/Simplified.lay>
+#define LAYOUTFILE <TextCtrl/TextCtrl.lay>
 #include <CtrlCore/lay.h>
 
 

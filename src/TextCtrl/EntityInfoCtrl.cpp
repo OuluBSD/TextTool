@@ -44,6 +44,13 @@ void EntityInfoCtrl::Data() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
 	
+	lbl_entity.SetLabel(GetAppModeKeyCap(AM_ENTITY));
+	lbl_speaker.SetLabel(GetAppModeLabel(AML_SPEAKER));
+	lbl_musical_style.SetLabel(GetAppModeLabel(AML_TALKINGSTYLE));
+	lbl_acoustic_instruments.SetLabel(GetAppModeLabel(AML_NATURAL_TOOLS));
+	lbl_electronic_instruments.SetLabel(GetAppModeLabel(AML_ELECTRONIC_TOOLS));
+	lbl_vibe_of_voice.SetLabel(GetAppModeLabel(AML_VIBE_OF_TEXT));
+	
 	if (language.GetCount() == 0 && db.src_data.GetCount()) {
 		for(int i = 0; i < db.src_data.GetCount(); i++)
 			language.Add(db.src_data.GetKey(i));

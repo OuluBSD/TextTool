@@ -71,23 +71,23 @@ void TaskManager::GetComponents(Task* t) {
 			actual++;
 			
 			if (total % 500 == 0) {
-				da.diagnostics.GetAdd("components: total") = IntStr(total);
-				da.diagnostics.GetAdd("components: actual") =  IntStr(actual);
-				da.diagnostics.GetAdd("components: percentage") =  DblStr((double)actual / (double) total * 100);
-				da.diagnostics.GetAdd("components: filter 'well' loss") =  DblStr((double)well_filter_loss / (double) total * 100);
-				da.diagnostics.GetAdd("components: filter 'parse success' loss") =  DblStr((double)parse_loss / (double) total * 100);
-				da.diagnostics.GetAdd("components: filter 'foreign' loss") =  DblStr((double)foreign_loss / (double) total * 100);
+				da.diagnostics.GetAdd(__comps + ": total") = IntStr(total);
+				da.diagnostics.GetAdd(__comps + ": actual") =  IntStr(actual);
+				da.diagnostics.GetAdd(__comps + ": percentage") =  DblStr((double)actual / (double) total * 100);
+				da.diagnostics.GetAdd(__comps + ": filter 'well' loss") =  DblStr((double)well_filter_loss / (double) total * 100);
+				da.diagnostics.GetAdd(__comps + ": filter 'parse success' loss") =  DblStr((double)parse_loss / (double) total * 100);
+				da.diagnostics.GetAdd(__comps + ": filter 'foreign' loss") =  DblStr((double)foreign_loss / (double) total * 100);
 			}
 		}
 	}
 	
-	da.diagnostics.GetAdd("components: total") = IntStr(total);
-	da.diagnostics.GetAdd("components: actual") =  IntStr(actual);
-	da.diagnostics.GetAdd("components: percentage") =  DblStr((double)actual / (double) total * 100);
-	da.diagnostics.GetAdd("components: filter 'well' loss") =  DblStr((double)well_filter_loss / (double) total * 100);
-	da.diagnostics.GetAdd("components: filter 'parse success' loss") =  DblStr((double)parse_loss / (double) total * 100);
-	da.diagnostics.GetAdd("components: filter 'foreign' loss") =  DblStr((double)foreign_loss / (double) total * 100);
-	da.diagnostics.GetAdd("components: duration of song process") =  ts.ToString();
+	da.diagnostics.GetAdd(__comps + ": total") = IntStr(total);
+	da.diagnostics.GetAdd(__comps + ": actual") =  IntStr(actual);
+	da.diagnostics.GetAdd(__comps + ": percentage") =  DblStr((double)actual / (double) total * 100);
+	da.diagnostics.GetAdd(__comps + ": filter 'well' loss") =  DblStr((double)well_filter_loss / (double) total * 100);
+	da.diagnostics.GetAdd(__comps + ": filter 'parse success' loss") =  DblStr((double)parse_loss / (double) total * 100);
+	da.diagnostics.GetAdd(__comps + ": filter 'foreign' loss") =  DblStr((double)foreign_loss / (double) total * 100);
+	da.diagnostics.GetAdd(__comps + ": duration of song process") =  ts.ToString();
 	
 }
 

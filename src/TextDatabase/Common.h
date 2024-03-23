@@ -20,10 +20,31 @@ enum {
 	
 	AM_COUNT,
 };
+
+enum {
+	AML_TALKINGSTYLE,
+	AML_NATURAL_TOOLS,
+	AML_ELECTRONIC_TOOLS,
+	AML_SPEAKER,
+	AML_VIBE_OF_TEXT,
 	
+	AML_SNAPSHOT,
+	AML_ENTITY_IF_DIFFERENT,
+	AML_REFERENCE_COMPONENT,
+	AML_COMPONENT_ORIGINS,
+	AML_COMPONENT_STRUCTURE,
+	AML_SPEED,
+	AML_SAFE_DESC,
+	AML_UNSAFE_DESC,
+	
+	AML_COUNT,
+};
+
+extern const char* AppModeLabels[DB_COUNT][AML_COUNT];
 extern const char* AppModeKeys[DB_COUNT][AM_COUNT+1];
 extern const char* AppModeKeysN[DB_COUNT][AM_COUNT+1];
 
+String GetAppModeLabel(int amlkey);
 String GetAppModeKey(int amkey);
 String GetAppModeKeyN(int amkey);
 String GetAppModeKeyCap(int amkey);

@@ -7,7 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class ToolEditor;
 
-class CompInfoCtrl : public WithSongInfo<ToolAppCtrl> {
+class CompInfoCtrl : public WithComponentInfo<ToolAppCtrl> {
 	int focus_tc = -1, focus_arch = -1, focus_lyr = -1;
 	
 public:

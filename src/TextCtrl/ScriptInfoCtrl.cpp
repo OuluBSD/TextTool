@@ -19,8 +19,6 @@ ScriptInfoCtrl::ScriptInfoCtrl() {
 	typecast.Disable();
 	archetype.Disable();
 	
-	is_rapper.Add(t_("Not a rap song"));
-	is_rapper.Add(t_("This is a rap song"));
 }
 
 void ScriptInfoCtrl::Clear() {
@@ -36,6 +34,15 @@ void ScriptInfoCtrl::Clear() {
 void ScriptInfoCtrl::Data() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
+	
+	lbl_script.SetLabel(GetAppModeKeyCap(AM_SCRIPT));
+	lbl_typeclass.SetLabel(GetAppModeLabel(AM_TYPECLASS) + ":");
+	lbl_content.SetLabel(GetAppModeLabel(AM_CONTENT) + ":");
+	lbl_is_unsafe.SetLabel("Is " + GetAppModeKey(AM_UNSAFE) + ":");
+	
+	is_rapper.Clear();
+	is_rapper.Add(GetAppModeLabel(AML_SAFE_DESC));
+	is_rapper.Add(GetAppModeLabel(AML_UNSAFE_DESC));
 	
 	// Requires ToolEditor ptr (can't move to ctor)
 	if (typecast.GetCount() == 0) {

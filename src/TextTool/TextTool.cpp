@@ -8,6 +8,7 @@ GUI_APP_MAIN {
 	for (const String& s : CommandLine()) {
 		if (s == "-song") {appmodes << DB_SONG;}
 		if (s == "-social") {appmodes << DB_SOCIAL;}
+		if (s == "-dialog") {appmodes << DB_DIALOG;}
 	}
 	
 	GuiStartup();

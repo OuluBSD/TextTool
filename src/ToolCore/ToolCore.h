@@ -16,9 +16,6 @@ using namespace Upp;
 #define IMAGEFILE <ToolCore/App.iml>
 #include <Draw/iml_header.h>
 
-#define LAYOUTFILE <ToolCore/App.lay>
-#include <CtrlCore/lay.h>
-
 
 #define BEGIN_TEXTLIB_NAMESPACE namespace TextLib {
 #define END_TEXTLIB_NAMESPACE }

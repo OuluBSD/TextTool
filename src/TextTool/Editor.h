@@ -17,7 +17,6 @@ private:
 	VectorMap<String, Vector<ListItem>> items;
 	
 	void AddItem(String g, String i, ToolAppCtrl& c);
-	void InitListItems();
 	
 protected:
 	friend class EntityInfoCtrl;
@@ -38,9 +37,9 @@ protected:
 	bool				fast_exit = false;
 	
 	
+	ImageGenTool					image_gen;
 	SnapBriefing					album_briefing;
 	SnapIdeas						album_ideas;
-	ImageGenTool					image_gen;
 	SongStructure					song_struct;
 	EntityInfoCtrl					company_info;
 	SnapInfoCtrl					product_info;

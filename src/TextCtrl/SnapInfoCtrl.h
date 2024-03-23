@@ -7,7 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class ToolEditor;
 
-class SnapInfoCtrl : public WithProductInfo<ToolAppCtrl> {
+class SnapInfoCtrl : public WithSnapshotInfo<ToolAppCtrl> {
 	
 	
 public:

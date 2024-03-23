@@ -5,7 +5,7 @@ uses
 
 file
 	TextCtrl.h,
-	Simplified.lay,
+	TextCtrl.lay,
 	Fns.h,
 	Fns.cpp,
 	Entity readonly separator,
@@ -40,10 +40,6 @@ file
 	Pitching.cpp,
 	Checklists.h,
 	Checklists.cpp,
-	SongBriefing.h,
-	SongBriefing.cpp,
-	LinePicker.h,
-	LinePicker.cpp,
 	LineSetter.h,
 	LineSetter.cpp,
 	NativeEditor.h,

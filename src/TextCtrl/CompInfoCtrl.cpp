@@ -42,6 +42,16 @@ void CompInfoCtrl::Data() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
 	
+	lbl_component.SetLabel(GetAppModeKeyCap(AM_COMPONENT));
+	lbl_script.SetLabel(GetAppModeKeyCap(AM_SCRIPT) + ":");
+	lbl_entity.SetLabel(GetAppModeLabel(AML_ENTITY_IF_DIFFERENT));
+	lbl_ref_comp.SetLabel(GetAppModeLabel(AML_REFERENCE_COMPONENT));
+	lbl_origins.SetLabel(GetAppModeLabel(AML_COMPONENT_ORIGINS));
+	
+	typecasts	.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_TYPECLASS));
+	contents	.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_CONTENT));
+	scripts		.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_SCRIPT));
+	
 	Clear();
 	
 	if (p.component) {

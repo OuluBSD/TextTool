@@ -25,6 +25,47 @@ const char* AppModeKeysN[DB_COUNT][AM_COUNT+1] = {
 	{"","","","","","",""},
 };
 
+const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
+	{
+		"Singing style:",
+		"Acoustic instruments",
+		"Digital instruments",
+		"Singer",
+		"Vibe of voice",
+		"Album",
+		"Artist (if different):",
+		"Reference song:",
+		"Origins of the song:",
+		"Active song structure",
+		"Song BPM",
+		"Not a rap song",
+		"This is a rap song",
+	},
+	{
+		"Talking style:",
+		"",
+		"",
+		"Speaker",
+		"Vibe of text",
+		"Campaign",
+		"Company (if different):",
+		"Reference program:",
+		"Origins of the program:",
+		"Active program structure",
+		"Speed",
+		"Safe",
+		"Unsafe",
+	},
+	
+};
+
+String GetAppModeLabel(int amlkey) {
+	int appmode = __global_appmode - 1;
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	ASSERT(amlkey >= 0 && amlkey < AML_COUNT);
+	return AppModeLabels[appmode][amlkey];
+}
+
 String GetAppModeKeyEntities() {
 	int appmode = __global_appmode - 1;
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);

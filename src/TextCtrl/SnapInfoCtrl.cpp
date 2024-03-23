@@ -26,6 +26,8 @@ void SnapInfoCtrl::Data() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
 	
+	lbl_snapshot.SetLabel(GetAppModeKeyCap(AM_SNAPSHOT));
+	
 	Clear();
 	
 	if (p.release) {

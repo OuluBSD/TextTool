@@ -54,7 +54,7 @@ SongStructure::SongStructure() {
 		e.WhenAction << [this,&e]() {GetScript().avoid_parts = e.GetData();};
 	}
 	{
-		params.Add(t_("Description of the song for suggestions"), "");
+		params.Add(t_("Description for suggestions"), "");
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
 		e.WhenAction << [this,&e]() {GetScript().structure_suggestion_description = e.GetData();};
 	}
@@ -110,6 +110,9 @@ void SongStructure::EnableAll() {
 }
 
 void SongStructure::Data() {
+	active.lbl_comp_struct.SetLabel(GetAppModeLabel(AML_COMPONENT_STRUCTURE));
+	params.Set(5, 0, GetAppModeLabel(AML_SPEED));
+	
 	DataActive();
 	DataComponent();
 }

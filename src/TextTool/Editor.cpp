@@ -79,6 +79,7 @@ void ToolEditor::InitAppModes(const Index<int>& appmodes) {
 	}
 	appmode_list.SetCursor(0);
 	appmode_list <<= THISBACK(SwitchAppMode);
+	PostCallback(THISBACK(SwitchAppMode));
 }
 
 void ToolEditor::SetSubMenu(int i) {
@@ -97,21 +98,10 @@ void ToolEditor::AddItem(String g, String i, ToolAppCtrl& c) {
 	it.ctrl = &c;
 }
 
-void ToolEditor::InitListItems() {
-	for(int i = 0; i < items.GetCount(); i++) {
-		String group = items.GetKey(i);
-		page_group_list.Add(group);
-	}
-	INHIBIT_ACTION(page_group_list);
-	if (page_group_list.GetCount() && !page_group_list.IsCursor())
-		page_group_list.SetCursor(0);
-	PostCallback(THISBACK(ViewPageGroup));
-}
-
 void ToolEditor::InitSimplified() {
 	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
 	
-	AddItem(t_("Database"), t_("Songs"), src_data);
+	AddItem(t_("Database"), "Components", src_data);
 	AddItem(t_("Database"), t_("Tokens"), tokens_data);
 	AddItem(t_("Database"), t_("Token phrases"), token_phrases);
 	AddItem(t_("Database"), t_("Words"), song_words);
@@ -130,20 +120,19 @@ void ToolEditor::InitSimplified() {
 	AddItem(t_("Database"), t_("Attributes"), db_attrs);
 	AddItem(t_("Database"), t_("Diagnostics"), db_diagnostics);
 	
-	AddItem(t_("Entity"), t_("Info"), company_info);
+	AddItem("Entity", t_("Info"), company_info);
 	
-	AddItem(t_("Snapshot"), t_("Info"), product_info);
-	AddItem(t_("Snapshot"), t_("Briefing"), album_briefing);
-	AddItem(t_("Snapshot"), t_("Idea notepad"), album_ideas);
+	AddItem("Snapshot", t_("Info"), product_info);
+	AddItem("Snapshot", t_("Briefing"), album_briefing);
+	AddItem("Snapshot", t_("Idea notepad"), album_ideas);
 	
-	AddItem(t_("Song"), t_("Info"), song_info);
+	AddItem("Component", t_("Info"), song_info);
 	
-	AddItem(t_("Script"), t_("Info"), scripts_info);
-	AddItem(t_("Script"), t_("Structure"), song_struct);
-	AddItem(t_("Script"), t_("Song pool"), song_pool);
-	AddItem(t_("Script"), t_("Script solver"), scripts_solver);
+	AddItem("Script", t_("Info"), scripts_info);
+	AddItem("Script", t_("Structure"), song_struct);
+	AddItem("Script", t_("Pool"), song_pool);
+	AddItem("Script", t_("Script solver"), scripts_solver);
 	
-	InitListItems();
 }
 
 void ToolEditor::Init() {
@@ -307,6 +296,29 @@ void ToolEditor::StoreLast() {
 }
 
 void ToolEditor::SwitchAppMode() {
+	EnterAppMode(GetAppMode());
+	
+	page_group_list.Clear();
+	
+	for(int i = 0; i < items.GetCount(); i++) {
+		String group = items.GetKey(i);
+		if      (group == "Entity") group = GetAppModeKeyCap(AM_ENTITY);
+		else if (group == "Snapshot") group = GetAppModeKeyCap(AM_SNAPSHOT);
+		else if (group == "Component") group = GetAppModeKeyCap(AM_COMPONENT);
+		else if (group == "Script") group = GetAppModeKeyCap(AM_SCRIPT);
+		page_group_list.Add(group);
+	}
+	INHIBIT_ACTION(page_group_list);
+	if (page_group_list.GetCount() && !page_group_list.IsCursor())
+		page_group_list.SetCursor(0);
+	
+	
+	entities	.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_ENTITY));
+	snaps		.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_SNAPSHOT));
+	components	.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_COMPONENT));
+	
+	LeaveAppMode();
+	
 	ViewPageGroup();
 }
 
@@ -318,9 +330,16 @@ void ToolEditor::ViewPageGroup() {
 		return;
 	}
 	
+	EnterAppMode(GetAppMode());
+	
 	const auto& v = items[page_group];
 	for(int j = 0; j < v.GetCount(); j++) {
 		const ListItem& it = v[j];
+		
+		// Rename app-mode keyed pages
+		String s = it.item;
+		if (s == "Components") s = GetAppModeKeyCapN(AM_COMPONENT);
+		
 		page_list.Set(j, 0, it.item);
 		base.Add(it.ctrl->SizePos());
 	}
@@ -330,6 +349,8 @@ void ToolEditor::ViewPageGroup() {
 	
 	if (page >= v.GetCount())
 		page = v.GetCount()-1;
+	
+	LeaveAppMode();
 	
 	SetView(page_group, page);
 	DataPage();

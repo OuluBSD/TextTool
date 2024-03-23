@@ -18,10 +18,10 @@ TextDataPage::TextDataPage() {
 	datasets.AddColumn(t_("Dataset"));
 	datasets.WhenCursor << THISBACK(DataDataset);
 	
-	entities.AddColumn(t_("Entity"));
+	entities.AddColumn(t_("File"));
 	entities.WhenCursor << THISBACK(DataEntity);
 	
-	components.AddColumn(t_("Song"));
+	components.AddColumn(t_("Entry"));
 	components.WhenCursor << THISBACK(DataComponent);
 	/*components.WhenBar << [this](Bar& bar) {
 		bar.Add(t_("Add song to active list"), THISBACK(AddSongToActiveList));
