@@ -301,7 +301,7 @@ void ToolEditor::StoreLast() {
 }
 
 void ToolEditor::SwitchAppMode() {
-	PromptOK("TODO");
+	ViewPageGroup();
 }
 
 void ToolEditor::ViewPageGroup() {
@@ -383,8 +383,8 @@ void ToolEditor::DataEntity() {
 	
 	
 	// Script part of the artist
-	a.RealizeTypeclasss();
-	const auto& tcs = GetTypeclasss();
+	a.RealizeTypeclasses();
+	const auto& tcs = GetTypeclasses(GetAppMode());
 	for(int i = 0; i < tcs.GetCount(); i++) {
 		const String& tc = tcs[i];
 		typecasts.Set(i, "IDX", i);
@@ -485,11 +485,11 @@ void ToolEditor::DataTypeclass() {
 	}
 	
 	Entity& a = *p.entity;
-	a.RealizeTypeclasss();
+	a.RealizeTypeclasses();
 	p.typecast = &a.typecasts[typecasts.Get("IDX")];
 	Typeclass& t = *p.typecast;
 	
-	const auto& cons = GetContrasts();
+	const auto& cons = GetContents(GetAppMode());
 	for(int i = 0; i < cons.GetCount(); i++) {
 		const auto& con = cons[i];
 		contents.Set(i, "IDX", i);

@@ -30,5 +30,18 @@ EditorPtrs& ToolAppCtrl::GetPointers() {
 	#endif
 }
 
+const Index<String>& ToolAppCtrl::GetTypeclasses() {
+	return TextLib::GetTypeclasses(GetAnyEditor().GetAppMode());
+}
+
+const Vector<ContentType>& ToolAppCtrl::GetContents() {
+	return TextLib::GetContents(GetAnyEditor().GetAppMode());
+}
+
+const Vector<String>& ToolAppCtrl::GetContentParts() {
+	return TextLib::GetContentParts(GetAnyEditor().GetAppMode());
+}
+
+
 
 END_TEXTLIB_NAMESPACE

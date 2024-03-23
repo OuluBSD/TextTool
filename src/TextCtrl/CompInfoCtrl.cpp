@@ -71,7 +71,7 @@ void CompInfoCtrl::Data() {
 		focus_lyr = p.GetActiveScriptIndex();
 	}
 	
-	const auto& tcs = GetTypeclasss();
+	const auto& tcs = GetTypeclasses();
 	for(int i = 0; i < a.typecasts.GetCount(); i++) {
 		const auto& t = tcs[i];
 		const auto& tc = a.typecasts[i];
@@ -100,7 +100,7 @@ void CompInfoCtrl::DataTypeclass() {
 	
 	Entity& a = *p.entity;
 	Typeclass& t = a.typecasts[typecasts.Get("IDX")];
-	const auto& cons = GetContrasts();
+	const auto& cons = GetContents();
 	for(int i = 0; i < t.contents.GetCount(); i++) {
 		const auto& con = cons[i];
 		const auto& at = t.contents[i];

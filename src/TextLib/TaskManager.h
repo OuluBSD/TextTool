@@ -133,7 +133,7 @@ class TaskManager {
 	void OnPhraseAttrs(String result, Task* t);
 	void OnPhraseActions(String result, Task* t);
 	void OnPhraseScores(String result, Task* t);
-	void OnPhraseTypeclasss(String result, Task* t);
+	void OnPhraseTypeclasses(String result, Task* t);
 	void OnPhraseContrast(String result, Task* t);
 	/*void OnPhraseProfile(String result, Task* t);
 	void OnPhraseContent(String result, Task* t);
@@ -173,6 +173,8 @@ class TaskManager {
 	void RemoveTask(Task& t);
 	
 	TextDatabase& GetDatabase();
+	int GetTypeclassCount();
+	int GetContentCount();
 	
 public:
 	typedef TaskManager CLASSNAME;

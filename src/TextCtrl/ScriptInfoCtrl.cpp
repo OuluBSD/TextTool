@@ -19,16 +19,6 @@ ScriptInfoCtrl::ScriptInfoCtrl() {
 	typecast.Disable();
 	archetype.Disable();
 	
-	const auto& tcs = GetTypeclasss();
-	for(int i = 0; i < tcs.GetCount(); i++) {
-		typecast.Add(tcs[i]);
-	}
-	
-	const auto& archs = GetContrasts();
-	for(int i = 0; i < archs.GetCount(); i++) {
-		archetype.Add(archs[i].key);
-	}
-	
 	is_rapper.Add(t_("Not a rap song"));
 	is_rapper.Add(t_("This is a rap song"));
 }
@@ -46,6 +36,21 @@ void ScriptInfoCtrl::Clear() {
 void ScriptInfoCtrl::Data() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
+	
+	// Requires ToolEditor ptr (can't move to ctor)
+	if (typecast.GetCount() == 0) {
+		const auto& tcs = GetTypeclasses();
+		ASSERT(tcs.GetCount());
+		for(int i = 0; i < tcs.GetCount(); i++) {
+			typecast.Add(tcs[i]);
+		}
+		
+		const auto& archs = GetContents();
+		ASSERT(archs.GetCount());
+		for(int i = 0; i < archs.GetCount(); i++) {
+			archetype.Add(archs[i].key);
+		}
+	}
 	
 	Clear();
 	

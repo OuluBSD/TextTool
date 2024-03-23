@@ -38,8 +38,8 @@ SongBriefing::SongBriefing() {
 			case ATTR_TYPECAST: {
 				DropList* dl = new DropList;
 				list.SetCtrl(i, 1, dl);
-				for(int j = 0; j < GetTypeclasss().GetCount(); j++) {
-					dl->Add(GetTypeclasss()[j]);
+				for(int j = 0; j < GetTypeclasses().GetCount(); j++) {
+					dl->Add(GetTypeclasses()[j]);
 				}
 				dl->SetIndex(0);
 				dl->WhenAction << [this, dl]() {
@@ -52,8 +52,8 @@ SongBriefing::SongBriefing() {
 			case ATTR_CONTRAST: {
 				DropList* dl = new DropList;
 				list.SetCtrl(i, 1, dl);
-				for(int j = 0; j < GetContrasts().GetCount(); j++) {
-					dl->Add(GetContrasts()[j].key);
+				for(int j = 0; j < GetContents().GetCount(); j++) {
+					dl->Add(GetContents()[j].key);
 				}
 				dl->SetIndex(0);
 				dl->WhenAction << [this, dl]() {

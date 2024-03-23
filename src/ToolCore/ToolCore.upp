@@ -12,6 +12,7 @@ file
 	Phoneme.cpp,
 	Nana.h,
 	Nana.cpp,
+	ProtectedCommon.h,
 	Common.h,
 	Common.cpp,
 	Utils.h,

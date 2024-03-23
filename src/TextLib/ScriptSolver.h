@@ -59,6 +59,8 @@ class ScriptSolver {
 	void NextSubBatch() {sub_batch++;}
 	
 	TextDatabase& GetDatabase() {return GetAppModeDatabase(appmode);}
+	int GetTypeclassCount() {return TextLib::GetTypeclassCount(appmode);}
+	int GetContentCount() {return TextLib::GetContentCount(appmode);}
 	
 public:
 	typedef ScriptSolver CLASSNAME;

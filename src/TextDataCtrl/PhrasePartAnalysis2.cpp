@@ -97,7 +97,7 @@ void PhrasePartAnalysis2::DataDataset() {
 	b.SetDataset(ds_i);
 		
 	// Set attributes
-	const auto& tc = GetTypeclasss();
+	const auto& tc = GetTypeclasses();
 	typecasts.Set(0, 0, "All");
 	for(int i = 0; i < tc.GetCount(); i++) {
 		typecasts.Set(1+i, 0, tc[i]);
@@ -117,9 +117,8 @@ void PhrasePartAnalysis2::DataTypeclass() {
 	if (!typecasts.IsCursor())
 		return;
 	
-	//DatabaseBrowser& b = DatabaseBrowser::Single();
-		
-	const auto& vec = GetContrastParts();
+	
+	const auto& vec = GetContentParts();
 	contrasts.Set(0, 0, "All");
 	for(int i = 0; i < vec.GetCount(); i++) {
 		/*DatabaseBrowser::ActionGroup& a = b.groups[i];
@@ -168,10 +167,10 @@ void PhrasePartAnalysis2::DataColor() {
 	int tc_i = typecasts.GetCursor() - 1;
 	int con_i = contrasts.GetCursor() - 1;
 	int clr_i = colors.GetCursor() - 1;
-	bool clr_filter = clr_i > 0;
+	bool clr_filter = clr_i >= 0;
 	
-	const auto& tc_v = GetTypeclasss();
-	const auto& con_v = GetContrasts();
+	const auto& tc_v = GetTypeclasses();
+	const auto& con_v = GetContents();
 	
 	//int count = min(b.data.GetCount(), 10000);
 	int count = da.phrase_parts.GetCount();
@@ -211,8 +210,8 @@ void PhrasePartAnalysis2::DataColor() {
 		{
 			String s;
 			for (int j : pp.contrasts) {
-				int con_i = j / ContrastType::PART_COUNT;
-				int con_j = j % ContrastType::PART_COUNT;
+				int con_i = j / ContentType::PART_COUNT;
+				int con_j = j % ContentType::PART_COUNT;
 				s << con_v[con_i].key << " #" << (con_j+1) << ", ";
 			}
 			parts.Set(row, 2, s);

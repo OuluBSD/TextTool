@@ -34,7 +34,7 @@ void Entity::StoreScript() {
 
 void Entity::LoadScript() {
 	TextDatabase& db = GetAppModeDatabase();
-	RealizeTypeclasss();
+	RealizeTypeclasses();
 	FindFile ff(AppendFileName(GetScriptDir(), "*.json"));
 	do {
 		String path = ff.GetPath();
@@ -42,8 +42,8 @@ void Entity::LoadScript() {
 		Script lyr;
 		lyr.LoadTitle(*this, title);
 		
-		const auto& typecasts = GetTypeclasss();
-		const auto& contents = GetContrasts();
+		const auto& typecasts = GetTypeclasses(GetAppModeGlobal());
+		const auto& contents = GetContents(GetAppModeGlobal());
 		if (lyr.typecast >= 0 && lyr.typecast < typecasts.GetCount() &&
 			lyr.archetype >= 0 && lyr.archetype < contents.GetCount()) {
 			this->typecasts[lyr.typecast].contents[lyr.archetype].scripts.Add()
@@ -51,12 +51,12 @@ void Entity::LoadScript() {
 		}
 	}
 	while (ff.Next());
-
+	
 }
 
-void Entity::RealizeTypeclasss() {
-	const auto& tcs = GetTypeclasss();
-	const auto& cons = GetContrasts();
+void Entity::RealizeTypeclasses() {
+	const auto& tcs = GetTypeclasses(GetAppModeGlobal());
+	const auto& cons = GetContents(GetAppModeGlobal());
 	if (typecasts.GetCount() != tcs.GetCount()) {
 		typecasts.SetCount(tcs.GetCount());
 		for(int i = 0; i < tcs.GetCount(); i++) {

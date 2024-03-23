@@ -805,7 +805,7 @@ void TaskManager::GetPhrases(Task* t) {
 	else if (args.fn == 3)
 		m.GetPhraseData(args, THISBACK1(OnPhraseScores, t));
 	else if (args.fn == 4)
-		m.GetPhraseData(args, THISBACK1(OnPhraseTypeclasss, t));
+		m.GetPhraseData(args, THISBACK1(OnPhraseTypeclasses, t));
 	else if (args.fn == 5)
 		m.GetPhraseData(args, THISBACK1(OnPhraseContrast, t));
 	/*else if (args.fn == 6)

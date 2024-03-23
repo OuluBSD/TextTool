@@ -128,8 +128,8 @@ void ScriptGenerator::ProcessColor() {
 	if (song.english_title.GetCount())
 		args.song.Add("title of song", song.english_title);
 	args.song.Add("artist's content vision", song.content_vision);
-	args.song.Add("typecast", GetTypeclasss()[song.typecast]);
-	args.song.Add("archetype", GetContrasts()[song.archetype].key);
+	args.song.Add("typecast", GetTypeclasses(appmode)[song.typecast]);
+	args.song.Add("archetype", GetContents(appmode)[song.archetype].key);
 	
 	// Parts
 	for(int i = 0; i < song.parts.GetCount(); i++)
@@ -207,8 +207,8 @@ void ScriptGenerator::ProcessAttr() {
 	if (scripts->english_title.GetCount())
 		args.song.Add("title of song", scripts->english_title);
 	args.song.Add("artist's content vision", scripts->content_vision);
-	args.song.Add("typecast", GetTypeclasss()[scripts->typecast]);
-	args.song.Add("archetype", GetContrasts()[scripts->archetype].key);
+	args.song.Add("typecast", GetTypeclasses(appmode)[scripts->typecast]);
+	args.song.Add("archetype", GetContents(appmode)[scripts->archetype].key);
 	
 	// Parts
 	for(int i = 0; i < scripts->parts.GetCount(); i++)
@@ -356,8 +356,8 @@ void ScriptSolver::ProcessFilter() {
 	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
 	
 	this->phrase_parts.Clear();
-	this->phrase_parts.SetCount(ContrastType::PART_COUNT);
-	for(int i = 0; i < ContrastType::PART_COUNT; i++) {
+	this->phrase_parts.SetCount(ContentType::PART_COUNT);
+	for(int i = 0; i < ContentType::PART_COUNT; i++) {
 		auto& m = this->phrase_parts[i];
 		for(int j = 0; j < sa.phrase_parts[i].GetCount(); j++) {
 			const PhrasePart& pp = sa.phrase_parts[i][j];
@@ -396,7 +396,7 @@ void ScriptSolver::ProcessPrimary() {
 	int begin = batch * per_part;
 	int end = begin + per_part;
 	this->phrases.Clear();
-	for(int i = 0; i < ContrastType::PART_COUNT; i++) {
+	for(int i = 0; i < ContentType::PART_COUNT; i++) {
 		const auto& map = this->phrase_parts[i];
 		
 		// Save offsets for reading

@@ -1,5 +1,5 @@
 #include "ToolCore.h"
-
+#include "ProtectedCommon.h"
 
 #define IMAGECLASS AppImg
 #define IMAGEFILE <ToolCore/App.iml>
@@ -1375,8 +1375,8 @@ int GetRoleCount() {
 	return GetRoles().GetCount();
 }
 
-const Vector<GenericType>& GetGenerics() {
-	static Vector<GenericType> list;
+const Vector<ContentType>& GetGenerics() {
+	static Vector<ContentType> list;
 	if (list.IsEmpty()) {
 		list.Add().Set("Rise to fame", "a person shares their journey and successes", "shares achievements and milestones", "shares their expertise and advice for others to achieve success");
 		list.Add().Set("Call to Action", "person speaks out on important social or political issues", "uses their platform and influence to promote change", "urges others to take action and make a difference");
@@ -1494,7 +1494,7 @@ const Vector<String>& GetGenericParts() {
 	return list;
 }
 
-const Index<String>& GetTypeclasss() {
+const Index<String>& GetTypecasts() {
 	thread_local static Index<String> list;
 	if (list.IsEmpty()) {
 		list.Add("Heartbroken/lovesick");
@@ -1554,8 +1554,8 @@ const Index<String>& GetTypeclasss() {
 	return list;
 }
 
-int GetTypeclassCount() {
-	return GetTypeclasss().GetCount();
+int GetTypecastCount() {
+	return GetTypecasts().GetCount();
 }
 
 const Index<String>& GetProfiles() {
@@ -1733,6 +1733,7 @@ int GetSecondaryCount() {
 	return GetSecondary().GetCount();
 }
 
+#if 0
 const VectorMap<String,String>& GetContents() {
 	thread_local static VectorMap<String,String> list;
 	if (list.IsEmpty()) {
@@ -1781,10 +1782,10 @@ const VectorMap<String,String>& GetContents() {
 int GetContentCount() {
 	return GetContents().GetCount();
 }
+#endif
 
-
-const Vector<ContrastType>& GetContrasts() {
-	thread_local static Vector<ContrastType> list;
+const Vector<ContentType>& GetContrasts() {
+	thread_local static Vector<ContentType> list;
 	if (list.IsEmpty()) {
 		list.Add().Set("Seductive intro", "a seductive and sultry melody draws the listener in", "the scripts talk about a passionate and intense relationship", "the mood shifts as the singer realizes they are not truly in love");
 		list.Add().Set("Rise and fall", "the beat builds and intensifies, creating a sense of excitement and anticipation", "the scripts tell a story of overcoming obstacles and achieving success", "the energy drops suddenly and the singer reflects on the sacrifices and struggles that came with their success");
@@ -1830,17 +1831,43 @@ const Vector<ContrastType>& GetContrasts() {
 	return list;
 }
 
-int GetContrastCount() {
-	return GetContrasts().GetCount();
+int GetTypeclassCount(int appmode) {
+	return GetTypeclasses(appmode).GetCount();
 }
 
-const Vector<String>& GetContrastParts() {
-	thread_local static Vector<String> list;
+const Index<String>& GetTypeclasses(int appmode) {
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	switch (appmode) {
+		case DB_SONG: return GetTypecasts();
+		case DB_SOCIAL: return GetRoles();
+	}
+	Panic("Invalid appmode");
+	return Single<Index<String>>();
+}
+
+int GetContentCount(int appmode) {
+	return GetContents(appmode).GetCount();
+}
+
+const Vector<ContentType>& GetContents(int appmode) {
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	switch (appmode) {
+		case DB_SONG: return GetContrasts();
+		case DB_SOCIAL: return GetGenerics();
+	}
+	Panic("Invalid appmode");
+	return Single<Vector<ContentType>>();
+}
+
+const Vector<String>& GetContentParts(int appmode) {
+	thread_local static Vector<String> list_[DB_COUNT];
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	auto& list = list_[appmode];
 	if (list.IsEmpty()) {
-		const auto& v = GetContrasts();
+		const auto& v = GetContents(appmode);
 		for(int i = 0; i < v.GetCount(); i++) {
 			const auto& it = v[i];
-			for(int j = 0; j < ContrastType::PART_COUNT; j++) {
+			for(int j = 0; j < ContentType::PART_COUNT; j++) {
 				list.Add() = it.key + " #" + IntStr(j+1) + ": " + it.parts[j];
 			}
 		}
@@ -1848,25 +1875,39 @@ const Vector<String>& GetContrastParts() {
 	return list;
 }
 
-VectorMap<String,Vector<String>>& GetTypeclassSingers(bool gender) {
-	if (!gender)
-		return GetTypeclassSingersMale();
-	else
-		return GetTypeclassSingersFemale();
+const Vector<String>& GetContrastParts() {
+	return GetContentParts(DB_SONG);
 }
 
-VectorMap<String,Vector<String>>& GetTypeclassRappers(bool gender) {
-	if (!gender)
-		return GetTypeclassRappersMale();
-	else
-		return GetTypeclassRappersFemale();
+VectorMap<String,Vector<String>>& GetTypeclassEntities(int appmode, bool unsafe, bool gender) {
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	switch (appmode) {
+		case DB_SONG: return GetTypecastArtists(unsafe, gender);
+		case DB_SOCIAL: return GetRoleCompanies(unsafe, gender);
+	}
+	Panic("Invalid appmode");
+	return Single<VectorMap<String,Vector<String>>>();
 }
 
-VectorMap<String,Vector<String>>& GetTypeclassEntitys(bool rapper, bool gender) {
+VectorMap<String,Vector<String>>& GetTypecastSingers(bool gender) {
+	if (!gender)
+		return GetTypecastSingersMale();
+	else
+		return GetTypecastSingersFemale();
+}
+
+VectorMap<String,Vector<String>>& GetTypecastRappers(bool gender) {
+	if (!gender)
+		return GetTypecastRappersMale();
+	else
+		return GetTypecastRappersFemale();
+}
+
+VectorMap<String,Vector<String>>& GetTypecastArtists(bool rapper, bool gender) {
 	if (!rapper)
-		return GetTypeclassSingers(gender);
+		return GetTypecastSingers(gender);
 	else
-		return GetTypeclassRappers(gender);
+		return GetTypecastRappers(gender);
 }
 
 void SetIndexCursor(ArrayCtrl& arr, int cur) {
@@ -1879,7 +1920,7 @@ void SetIndexCursor(ArrayCtrl& arr, int cur) {
 	}
 }
 
-VectorMap<String,Vector<String>>& GetRoleCompanys(bool unsafe, bool gender) {
+VectorMap<String,Vector<String>>& GetRoleCompanies(bool unsafe, bool gender) {
 	TODO
 	static VectorMap<String,Vector<String>> v;
 	return v;

@@ -337,7 +337,7 @@ ComponentAnalysis& DatasetAnalysis::GetComponentAnalysis(const String& name) {
 
 void ComponentAnalysis::Load(const String& dir) {
 	
-	for(int i = 0; i < ContrastType::PART_COUNT; i++) {
+	for(int i = 0; i < ContentType::PART_COUNT; i++) {
 		phrase_parts[i].Load(dir, "phrase parts " + IntStr(i));
 		source_pool[i].Load(dir, "source pool " + IntStr(i));
 		phrase_combs[i].Load(dir, "phrase combinations " + IntStr(i));

@@ -1,5 +1,5 @@
 #include "Task.h"
-
+#include <ToolCore/ProtectedCommon.h>
 
 #ifdef flagLLAMACPP
 #include <LlamaCpp/LlamaCpp.h>

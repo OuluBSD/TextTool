@@ -11,7 +11,7 @@ extern int __global_appmode;
 const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 	//{"entity","release","component","typeclass","content","scripts",0},
 	{"artist","release","song","typecast","archetype","lyrics","db","rapper",0},
-	{"company","campaign","program","story","role","generic","social_db","unsafe",0},
+	{"company","campaign","program","role","generic","story","social_db","unsafe",0},
 	{"","","","","","",""},
 	{"","","","","","",""},
 	{"","","","","","",""},
@@ -19,7 +19,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 
 const char* AppModeKeysN[DB_COUNT][AM_COUNT+1] = {
 	{"artists","releases","songs","typecasts","archetypes","lyrics",0,0,0},
-	{"companies","campaigns","programs","stories","roles","generics",0,0,0},
+	{"companies","campaigns","programs","roles","generics","stories",0,0,0},
 	{"","","","","","",""},
 	{"","","","","","",""},
 	{"","","","","","",""},

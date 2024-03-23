@@ -950,49 +950,17 @@ void JsonCompressedStream(JsonIO& json, const String& key, T& o) {
 }
 
 
-const Index<String>& GetTypeclasss();
-int GetTypeclassCount();
 
-const Index<String>& GetProfiles();
-int GetProfileCount();
+const Vector<ContentType>& GetContents(int appmode);
+const Vector<String>& GetContentParts(int appmode);
+int GetContentCount(int appmode);
 
-const Index<String>& GetPrimary();
-int GetPrimaryCount();
+const Index<String>& GetTypeclasses(int appmode);
+int GetTypeclassCount(int appmode);
 
-const Index<String>& GetSecondary();
-int GetSecondaryCount();
-
-struct ContrastType : Moveable<ContrastType> {
-	static const int PART_COUNT = 3;
-	String key, parts[PART_COUNT];
-	
-	void Set(String k, String p0, String p1, String p2) {
-		key = k;
-		parts[0] = p0;
-		parts[1] = p1;
-		parts[2] = p2;
-	}
-};
-
-const Vector<ContrastType>& GetContrasts();
-const Vector<String>& GetContrastParts();
-int GetContrastCount();
-
-const VectorMap<String,String>& GetContents();
-int GetContentCount();
-
-//VectorMap<String,Vector<String>>& GetTypeclassSingers();
-VectorMap<String,Vector<String>>& GetTypeclassSingersMale();
-VectorMap<String,Vector<String>>& GetTypeclassSingersFemale();
-VectorMap<String,Vector<String>>& GetTypeclassRappersMale();
-VectorMap<String,Vector<String>>& GetTypeclassRappersFemale();
-VectorMap<String,Vector<String>>& GetTypeclassSingers(bool gender);
-VectorMap<String,Vector<String>>& GetTypeclassRappers(bool gender);
-VectorMap<String,Vector<String>>& GetTypeclassEntitys(bool rapper, bool gender);
-VectorMap<String,Vector<String>>& GetRoleCompanys(bool unsafe, bool gender);
+VectorMap<String,Vector<String>>& GetTypeclassEntities(int appmode, bool unsafe, bool gender);
 
 
-const Index<String>& GetRoles();
 
 struct GenericType : Moveable<GenericType> {
 	static const int PART_COUNT = 3;
@@ -1006,7 +974,6 @@ struct GenericType : Moveable<GenericType> {
 	}
 };
 
-const Vector<GenericType>& GetGenerics();
 int GetRoleCount();
 int GetGenericCount();
 const Vector<String>& GetGenericParts();

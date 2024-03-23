@@ -240,6 +240,16 @@ TaskManager& TaskManager::Single(int appmode) {
 	return o[appmode];
 }
 
+int TaskManager::GetTypeclassCount() {
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return TextLib::GetTypeclassCount(appmode);
+}
+
+int TaskManager::GetContentCount() {
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return TextLib::GetContentCount(appmode);
+}
+
 
 END_TEXTLIB_NAMESPACE
 

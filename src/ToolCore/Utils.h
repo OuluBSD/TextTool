@@ -17,6 +17,18 @@ struct EditorPtrs;
 class TaskManager;
 
 
+struct ContentType : Moveable<ContentType> {
+	static const int PART_COUNT = 3;
+	String key, parts[PART_COUNT];
+	
+	void Set(String k, String p0, String p1, String p2) {
+		key = k;
+		parts[0] = p0;
+		parts[1] = p1;
+		parts[2] = p2;
+	}
+};
+
 
 class ToolAppCtrl : public Ctrl {
 	//const int appmode = -1;
@@ -46,7 +58,9 @@ public:
 	
 	TextDatabase& GetDatabase();
 	EditorPtrs& GetPointers();
-	
+	const Index<String>& GetTypeclasses();
+	const Vector<ContentType>& GetContents();
+	const Vector<String>& GetContentParts();
 };
 
 

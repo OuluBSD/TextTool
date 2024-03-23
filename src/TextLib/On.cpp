@@ -609,7 +609,7 @@ void TaskManager::OnPhraseScores(String res, Task* t) {
 	t->running = false;
 }
 
-void TaskManager::OnPhraseTypeclasss(String res, Task* t) {
+void TaskManager::OnPhraseTypeclasses(String res, Task* t) {
 	TokenArgs& args = token_args;
 	TextDatabase& db = GetDatabase();
 	TextData& sd = db.comp_data;
@@ -704,7 +704,7 @@ void TaskManager::OnPhraseContrast(String res, Task* t) {
 	
 	res = "2. " + res;
 	
-	int opt_count = GetContrastCount();
+	int opt_count = GetContentCount();
 	
 	Vector<int> actions;
 	int offset = 1+1;
@@ -765,7 +765,7 @@ void TaskManager::OnPhraseContrast(String res, Task* t) {
 			else if (part.Find("C") >= 0 || part.Find("c") >= 0) mod = 2;
 			else continue;
 			opt--; // convert to 0-based index
-			int code = opt * ContrastType::PART_COUNT + mod;
+			int code = opt * ContentType::PART_COUNT + mod;
 			pp.contrasts.Add(code);
 		}
 	}

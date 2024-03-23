@@ -100,7 +100,7 @@ void ScriptGenerator::ProcessSourcePool() {
 		return;
 	}
 	
-	for(int j = 0; j < ContrastType::PART_COUNT; j++)
+	for(int j = 0; j < ContentType::PART_COUNT; j++)
 		sa.source_pool[j].Clear();
 	
 	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
@@ -119,12 +119,12 @@ void ScriptGenerator::ProcessSourcePool() {
 		}
 		
 		// Contrast type
-		bool found_contrast[ContrastType::PART_COUNT] = {false,false,false};
+		bool found_contrast[ContentType::PART_COUNT] = {false,false,false};
 		{
 			bool found = false;
 			for (int con : pp.contrasts) {
-				int con_base = con / ContrastType::PART_COUNT;
-				int con_mod = con % ContrastType::PART_COUNT;
+				int con_base = con / ContentType::PART_COUNT;
+				int con_mod = con % ContentType::PART_COUNT;
 				if (con_base == song_con_base) {
 					found = true;
 					found_contrast[con_mod] = true;
@@ -170,14 +170,14 @@ void ScriptGenerator::ProcessSourcePool() {
 		else continue;
 		
 		
-		for(int j = 0; j < ContrastType::PART_COUNT; j++) {
+		for(int j = 0; j < ContentType::PART_COUNT; j++) {
 			if (found_contrast[j])
 				sa.source_pool[j].FindAdd(i);
 		}
 	}
 	
 	LOG("ScriptGenerator::ProcessSourcePool: took " << ts.ToString());
-	for(int j = 0; j < ContrastType::PART_COUNT; j++) {
+	for(int j = 0; j < ContentType::PART_COUNT; j++) {
 		LOG("ScriptGenerator::ProcessSourcePool: in pool #" << j << ": " << sa.source_pool[j].GetCount() << " phrases");
 	}
 	
@@ -197,9 +197,9 @@ void ScriptGenerator::ProcessPairPhrases() {
 	// Prepare process
 	if (batch == 0 && sub_batch == 0) {
 		phrases.SetCount(0);
-		phrases.SetCount(ContrastType::PART_COUNT);
+		phrases.SetCount(ContentType::PART_COUNT);
 		
-		for(int i = 0; i < ContrastType::PART_COUNT; i++) {
+		for(int i = 0; i < ContentType::PART_COUNT; i++) {
 			auto& p = phrases[i];
 			
 			for (int pp_i : sa.source_pool[i].GetKeys()) {
@@ -221,7 +221,7 @@ void ScriptGenerator::ProcessPairPhrases() {
 		}
 	}
 	
-	if (batch >= ContrastType::PART_COUNT) {
+	if (batch >= ContentType::PART_COUNT) {
 		NextPhase();
 		return;
 	}
@@ -251,7 +251,7 @@ void ScriptGenerator::ProcessPairPhrases() {
 	int song_tc = song.typecast;
 	bool is_rapper = song.is_rapper;
 	bool is_female = artist->is_female;
-	const Vector<String>& entities = GetTypeclassEntitys(is_rapper, is_female)[song_tc];
+	const Vector<String>& entities = GetTypeclassEntities(appmode, is_rapper, is_female)[song_tc];
 	args.parts <<= entities;
 	
 	SetWaiting(1);
@@ -338,7 +338,7 @@ void ScriptGenerator::ProcessRhymes() {
 	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
 	
 	
-	if (batch >= ContrastType::PART_COUNT) {
+	if (batch >= ContentType::PART_COUNT) {
 		NextPhase();
 		return;
 	}
@@ -375,7 +375,7 @@ void ScriptGenerator::ProcessRhymes() {
 	int song_tc = song.typecast;
 	bool is_rapper = song.is_rapper;
 	bool is_female = artist->is_female;
-	const Vector<String>& entities = GetTypeclassEntitys(is_rapper, is_female)[song_tc];
+	const Vector<String>& entities = GetTypeclassEntities(appmode, is_rapper, is_female)[song_tc];
 	args.parts <<= entities;
 	
 	SetWaiting(1);
@@ -502,7 +502,7 @@ void ScriptGenerator::ProcessScores() {
 	if (sub_batch == 0)
 		iter = 0;
 	
-	if (batch >= ContrastType::PART_COUNT) {
+	if (batch >= ContentType::PART_COUNT) {
 		NextPhase();
 		return;
 	}

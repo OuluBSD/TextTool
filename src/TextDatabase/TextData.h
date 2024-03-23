@@ -624,9 +624,9 @@ struct ScriptSuggestions : Moveable<ScriptSuggestions> {
 struct ComponentAnalysis {
 	DatasetAnalysis* da = 0;
 	
-	MapFile<hash_t,PhrasePart> phrase_parts[ContrastType::PART_COUNT];
-	IntIndexFile source_pool[ContrastType::PART_COUNT];
-	MapFile<hash_t,PhraseComb> phrase_combs[ContrastType::PART_COUNT];
+	MapFile<hash_t,PhrasePart> phrase_parts[ContentType::PART_COUNT];
+	IntIndexFile source_pool[ContentType::PART_COUNT];
+	MapFile<hash_t,PhraseComb> phrase_combs[ContentType::PART_COUNT];
 	MapFile<hash_t,ScriptSuggestions> scripts_suggs;
 	
 	void Load(const String& dir);

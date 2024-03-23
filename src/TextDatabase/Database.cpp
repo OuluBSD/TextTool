@@ -117,6 +117,10 @@ TextDatabase& GetAppModeDatabase(int appmode) {
 	return MetaDatabase::Single().db[appmode];
 }
 
+int GetAppModeGlobal() {
+	return __global_appmode;
+}
+
 void EnterAppMode(int i) {
 	__global_appmode = 1+i;
 }

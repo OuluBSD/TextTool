@@ -1,11 +1,12 @@
 #include "ToolCore.h"
+#include "ProtectedCommon.h"
 
 
 BEGIN_TEXTLIB_NAMESPACE
 
 
 #if 0
-VectorMap<String,Vector<String>>& GetTypeclassSingers() {
+VectorMap<String,Vector<String>>& GetTypecastSingers() {
 	thread_local static VectorMap<String,Vector<String>> list;
 	if (!list.IsEmpty()) return list;
 	
@@ -571,7 +572,7 @@ VectorMap<String,Vector<String>>& GetTypeclassSingers() {
 	return list;
 }
 
-VectorMap<String,Vector<String>>& GetTypeclassRappers() {
+VectorMap<String,Vector<String>>& GetTypecastRappers() {
 	thread_local static VectorMap<String,Vector<String>> list;
 	if (!list.IsEmpty()) return list;
 	
@@ -947,12 +948,12 @@ VectorMap<String,Vector<String>>& GetTypeclassRappers() {
 	tc.Add("Eminem");
 	tc.Add("Travis Scott");}
 	
-	ASSERT(list.GetCount() == GetTypeclassSingers().GetCount());
+	ASSERT(list.GetCount() == GetTypecastSingers().GetCount());
 	return list;
 }
 #endif
 
-VectorMap<String,Vector<String>>& GetTypeclassSingersFemale() {
+VectorMap<String,Vector<String>>& GetTypecastSingersFemale() {
 	thread_local static VectorMap<String,Vector<String>> list;
 	if (!list.IsEmpty()) return list;
 	
@@ -1308,11 +1309,11 @@ VectorMap<String,Vector<String>>& GetTypeclassSingersFemale() {
 	tc.Add("Beyoncé");
 	tc.Add("Miley Cyrus");}
 	
-	ASSERT(list.GetCount() == GetTypeclassCount());
+	ASSERT(list.GetCount() == GetTypecastCount());
 	return list;
 }
 
-VectorMap<String,Vector<String>>& GetTypeclassRappersFemale() {
+VectorMap<String,Vector<String>>& GetTypecastRappersFemale() {
 	thread_local static VectorMap<String,Vector<String>> list;
 	if (!list.IsEmpty()) return list;
 	
@@ -1713,11 +1714,11 @@ VectorMap<String,Vector<String>>& GetTypeclassRappersFemale() {
 	tc.Add("Angel Haze");
 	tc.Add("Rapsody");}
 
-	ASSERT(list.GetCount() == GetTypeclassCount());
+	ASSERT(list.GetCount() == GetTypecastCount());
 	return list;
 }
 
-VectorMap<String,Vector<String>>& GetTypeclassSingersMale() {
+VectorMap<String,Vector<String>>& GetTypecastSingersMale() {
 	thread_local static VectorMap<String,Vector<String>> list;
 	if (!list.IsEmpty()) return list;
 	
@@ -2362,11 +2363,11 @@ VectorMap<String,Vector<String>>& GetTypeclassSingersMale() {
 	tc.Add("The Offspring");
 	tc.Add("Nirvana");}
 	
-	ASSERT(list.GetCount() == GetTypeclassCount());
+	ASSERT(list.GetCount() == GetTypecastCount());
 	return list;
 }
 
-VectorMap<String,Vector<String>>& GetTypeclassRappersMale() {
+VectorMap<String,Vector<String>>& GetTypecastRappersMale() {
 	thread_local static VectorMap<String,Vector<String>> list;
 	if (!list.IsEmpty()) return list;
 	
@@ -2741,7 +2742,7 @@ VectorMap<String,Vector<String>>& GetTypeclassRappersMale() {
 	tc.Add("N.W.A");
 	tc.Add("Public Enemy");}
 	
-	ASSERT(list.GetCount() == GetTypeclassCount());
+	ASSERT(list.GetCount() == GetTypecastCount());
 	return list;
 }
 
