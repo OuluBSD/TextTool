@@ -71,12 +71,14 @@ ToolEditor::ToolEditor(TextTool* app) : app(*app) {
 
 void ToolEditor::InitAppModes(const Index<int>& appmodes) {
 	appmode_list.AddColumn(t_("Appmode"));
-	for(int i = 0; i < appmodes.GetCount(); i++)
-		appmode_list.Add(GetAppModeString(appmodes[i]), appmodes[i]);
+	appmode_list.AddIndex("IDX");
+	for(int i = 0; i < appmodes.GetCount(); i++) {
+		int am = appmodes[i];
+		appmode_list.Set(i, 0, GetAppModeString(am));
+		appmode_list.Set(i, "IDX", am);
+	}
 	appmode_list.SetCursor(0);
 	appmode_list <<= THISBACK(SwitchAppMode);
-	
-	
 }
 
 void ToolEditor::SetSubMenu(int i) {
@@ -187,7 +189,7 @@ void ToolEditor::DataPage() {
 	
 	StoreLast();
 	
-	int appmode = appmode_list.GetCursor();
+	int appmode = appmode_list.Get("IDX");
 	EnterAppMode(appmode);
 	
 	int page = this->page.GetAdd(page_group, 0);
@@ -875,19 +877,22 @@ void ToolEditor::RemoveScript() {
 }
 
 TextDatabase& ToolEditor::GetDatabase() {
-	int appmode = this->appmode_list.GetCursor();
+	ASSERT(appmode_list.IsCursor());
+	int appmode = this->appmode_list.Get("IDX");
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return MetaDatabase::Single().db[appmode];
 }
 
 EditorPtrs& ToolEditor::GetPointers() {
-	int appmode = this->appmode_list.GetCursor();
+	ASSERT(appmode_list.IsCursor());
+	int appmode = this->appmode_list.Get("IDX");
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return MetaPtrs::Single().db[appmode];
 }
 
 int ToolEditor::GetAppMode() const {
-	int appmode = this->appmode_list.GetCursor();
+	ASSERT(appmode_list.IsCursor());
+	int appmode = this->appmode_list.Get("IDX");
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return appmode;
 }
