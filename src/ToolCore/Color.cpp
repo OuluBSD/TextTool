@@ -1,6 +1,10 @@
 #include "ToolCore.h"
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
 ColoredText SignificantPhrases[VOCABULARYTYPE_COUNT][SIGNIFICANT_PHRASE_COUNT] = {
 	
 	{
@@ -933,7 +937,7 @@ const VectorMap<String,Color>& GetWordgroupColors() {
 	list.Add("topics/themes", Color(146, 233, 138));
 	list.Add("positive/negative", Color(138, 233, 128));
 	list.Add("emotional states/themes", Color(138, 230, 233));
-	list.Add("pair's romantic songs", Color(233, 134, 138));
+	list.Add("pair's romantic components", Color(233, 134, 138));
 	list.Add("resolutions", Color(222, 233, 138));
 	list.Add("extended metaphors", Color(138, 233, 126));
 	list.Add("exclamations", Color(174, 138, 233));
@@ -1167,5 +1171,5 @@ Color HSVToRGB(double H, double S, double V) {
 }
 
 
-
+END_TEXTLIB_NAMESPACE
 

@@ -2,80 +2,84 @@
 
 
 
-void Task::Process_Translate() {
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
+void AiTask::Process_Translate() {
 	WhenResult(output);
 }
 
-void Task::Process_CreateImage() {
+void AiTask::Process_CreateImage() {
 	WhenResultImages(recv_images);
 }
 
-void Task::Process_EditImage() {
+void AiTask::Process_EditImage() {
 	WhenResultImages(recv_images);
 }
 
-void Task::Process_VariateImage() {
+void AiTask::Process_VariateImage() {
 	WhenResultImages(recv_images);
 }
 
-void Task::Process_RawCompletion() {
+void AiTask::Process_RawCompletion() {
 	WhenResult(output);
 }
 
-void Task::Process_MorphToAttributes() {
+void AiTask::Process_MorphToAttributes() {
 	WhenResult(output);
 }
 
-void Task::Process_GetStructureSuggestions() {
+void AiTask::Process_GetStructureSuggestions() {
 	WhenResult("-\"" + output);
 }
 
-void Task::Process_GetSuggestionAttributes() {
+void AiTask::Process_GetSuggestionAttributes() {
 	WhenResult("-" + output);
 }
 
-void Task::Process_GetColorIdea() {
+void AiTask::Process_GetColorIdea() {
 	WhenResult("1.RGB(" + output);
 }
 
-void Task::Process_GetVocabulary() {
+void AiTask::Process_GetVocabulary() {
 	WhenResult(output);
 }
 
-void Task::Process_GetVocabularyIdea() {
+void AiTask::Process_GetVocabularyIdea() {
 	//WhenResult("A collection of 30 the most relevant words for the part 1 of\n" + output);
 	WhenResult("1/30: a" + output);
 }
 
-void Task::Process_GetWordSaladIdea() {
+void AiTask::Process_GetWordSaladIdea() {
 	WhenResult("1/10: a" + output);
 }
 
-void Task::Process_GetContextIdea() {
+void AiTask::Process_GetContextIdea() {
 	WhenResult(output);
 }
 
-void Task::Process_GetSongDataAnalysis() {
+void AiTask::Process_GetSourceDataAnalysis() {
 	WhenResult(output);
 }
 
-void Task::Process_GetActionAnalysis() {
+void AiTask::Process_GetActionAnalysis() {
 	WhenResult(output);
 }
 
-void Task::Process_GetLyricsPhrase() {
+void AiTask::Process_GetScriptPhrase() {
 	WhenResult(output);
 }
 
-void Task::Process_GetTokenData() {
+void AiTask::Process_GetTokenData() {
 	WhenResult(output);
 }
 
-void Task::Process_GetPhraseData() {
+void AiTask::Process_GetPhraseData() {
 	WhenResult(output);
 }
 
-void Task::Process_GetAttributes() {
+void AiTask::Process_GetAttributes() {
 	AttrArgs args;
 	args.Put(this->args[0]);
 	if (args.fn == 0)
@@ -86,18 +90,22 @@ void Task::Process_GetAttributes() {
 		WhenResult(output);
 }
 
-void Task::Process_GetNanaData() {
+void AiTask::Process_GetNanaData() {
 	WhenResult(output);
 }
 
-void Task::Process_LyricsSolver() {
+void AiTask::Process_ScriptSolver() {
 	WhenResult(output);
 }
 
-void Task::Process_GetProgramDataAnalysis() {
+void AiTask::Process_GetProgramDataAnalysis() {
 	WhenResult(output);
 }
 
-void Task::Process_StorySolver() {
+void AiTask::Process_StorySolver() {
 	WhenResult(output);
 }
+
+
+END_TEXTLIB_NAMESPACE
+

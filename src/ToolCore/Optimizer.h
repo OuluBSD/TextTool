@@ -1,5 +1,5 @@
-#ifndef _SongTool_Optimizer_h_
-#define _SongTool_Optimizer_h_
+#ifndef _TextTool_Optimizer_h_
+#define _TextTool_Optimizer_h_
 
 #include <random>
 

@@ -1,6 +1,10 @@
 #ifndef _Task_TaskCommon_h_
 #define _Task_TaskCommon_h_
 
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
 typedef enum : int {
 	V_ATTR_SCORING,
 	V_ARGS
@@ -72,36 +76,41 @@ inline bool IsTaskSkippingContext(TaskOutputType tt) {
 }
 
 typedef enum : int {
-	TASK_TRANSLATE,
-	TASK_TRANSLATE_SONG_DATA,
-	TASK_CREATE_IMAGE,
-	TASK_EDIT_IMAGE,
-	TASK_VARIATE_IMAGE,
+	AITASK_TRANSLATE,
+	AITASK_TRANSLATE_SONG_DATA,
+	AITASK_CREATE_IMAGE,
+	AITASK_EDIT_IMAGE,
+	AITASK_VARIATE_IMAGE,
 	
-	TASK_GET_SUGGESTION_ATTRIBUTES,
-	TASK_RAW_COMPLETION,
-	TASK_GET_STRUCTURE_SUGGESTIONS,
-	TASK_GET_LYRICS_PHRASE,
-	TASK_GET_SONG_DATA_ANALYSIS,
-	TASK_GET_ACTION_ANALYSIS,
+	AITASK_GET_SUGGESTION_ATTRIBUTES,
+	AITASK_RAW_COMPLETION,
+	AITASK_GET_STRUCTURE_SUGGESTIONS,
+	AITASK_GET_LYRICS_PHRASE,
+	AITASK_GET_SONG_DATA_ANALYSIS,
+	AITASK_GET_ACTION_ANALYSIS,
 	
-	TASK_GET_TOKEN_DATA,
-	TASK_GET_PHRASE_DATA,
-	TASK_GET_ATTRIBUTES,
-	TASK_NANA_DATA,
-	TASK_LYRICS_SOLVER,
-	TASK_STORY_SOLVER,
-	TASK_GET_PROGRAM_DATA_ANALYSIS,
+	AITASK_GET_TOKEN_DATA,
+	AITASK_GET_PHRASE_DATA,
+	AITASK_GET_ATTRIBUTES,
+	AITASK_NANA_DATA,
+	AITASK_LYRICS_SOLVER,
+	AITASK_STORY_SOLVER,
+	AITASK_GET_PROGRAM_DATA_ANALYSIS,
 	
-	TASK_COUNT
-} TaskType;
+	AITASK_COUNT
+} AiTaskType;
+
+
+END_TEXTLIB_NAMESPACE
 
 NAMESPACE_UPP
+using namespace TextLib;
 NTL_MOVEABLE(TaskArgType)
 NTL_MOVEABLE(TaskOutputType)
-NTL_MOVEABLE(TaskType)
+NTL_MOVEABLE(AiTaskType)
 END_UPP_NAMESPACE
 
+BEGIN_TEXTLIB_NAMESPACE
 
 
 struct IdeaArgs {
@@ -400,7 +409,7 @@ struct ContextIdeaArgs {
 	
 };
 
-struct SongDataAnalysisArgs {
+struct SourceDataAnalysisArgs {
 	int fn;
 	int score_mode;
 	String artist, song, text;
@@ -439,7 +448,7 @@ struct ActionAnalysisArgs {
 
 
 
-struct LyricsPhraseArgs {
+struct ScriptPhraseArgs {
 	int fn;
 	int len;
 	Vector<String> tmpls, args, attr_groups, attr_values;
@@ -538,7 +547,7 @@ struct NanaArgs {
 	
 };
 
-struct LyricsSolverArgs {
+struct ScriptSolverArgs {
 	int fn;
 	VectorMap<String,String> artist, release, song;
 	Vector<String> parts, attrs, phrases;
@@ -611,6 +620,9 @@ struct ProgramDataAnalysisArgs {
 };
 
 
+
+
+END_TEXTLIB_NAMESPACE
 
 
 #endif

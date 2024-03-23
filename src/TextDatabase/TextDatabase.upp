@@ -1,0 +1,39 @@
+description "\377B128,0,0";
+
+uses
+	ToolCore,
+	Painter,
+	plugin/png,
+	RichEdit,
+	plugin/jpg;
+
+file
+	TextDatabase.h,
+	Common.h,
+	Common.cpp,
+	Database.h,
+	Database.cpp,
+	SourceData.h,
+	SourceData.cpp,
+	Pronounciation.h,
+	Pronounciation.cpp,
+	Browser.h,
+	Browser.cpp,
+	Browser0.cpp,
+	Browser1.cpp,
+	Browser2.cpp,
+	Browser3.cpp,
+	"Data (assets)" readonly separator,
+	Entity.h,
+	Entity.cpp,
+	Snapshot.h,
+	Snapshot.cpp,
+	Component.h,
+	Component.cpp,
+	Typeclass.h,
+	Typeclass.cpp,
+	Content.h,
+	Content.cpp,
+	Script.h,
+	Script.cpp;
+

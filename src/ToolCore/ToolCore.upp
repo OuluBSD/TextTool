@@ -3,7 +3,6 @@ description "\377B128,0,0";
 file
 	ToolCore.h,
 	App.iml,
-	App.lay,
 	Utils.cpp,
 	OpenAI.h,
 	Json.h,
@@ -12,6 +11,7 @@ file
 	Phoneme.cpp,
 	Nana.h,
 	Nana.cpp,
+	ProtectedCommon.h,
 	Common.h,
 	Common.cpp,
 	Utils.h,

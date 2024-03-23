@@ -2,6 +2,9 @@
 #define _ToolCore_FileClasses_h_
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
 class IntVectorFile {
 	Vector<int> idx;
 	String path;
@@ -554,5 +557,9 @@ struct StringParser {
 	template <class T> StringParser& operator%(T& o) {Do(o); return *this;}
 	void Chk() {ASSERT(!err);}
 };
+
+
+END_TEXTLIB_NAMESPACE
+
 
 #endif

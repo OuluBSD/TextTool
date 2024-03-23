@@ -1,5 +1,9 @@
 #include "Task.h"
 
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
 String TaskTitledList::GetTreeString(int indent) const {
 	String s;
 	String in;
@@ -142,7 +146,7 @@ String TaskTitledList::AsString() const {
 		if (!title_format_str.IsEmpty()) {
 			String title = Format(title_format_str, title_args);
 			if (capitalize)
-				title = ::Capitalize(title);
+				title = ::TextLib::Capitalize(title);
 			s << title;
 		}
 		if (title_in_quotes)
@@ -153,7 +157,7 @@ String TaskTitledList::AsString() const {
 			if (value_in_quotes)
 				s << "\"";
 			if (capitalize)
-				s << ::Capitalize(title_value);
+				s << ::TextLib::Capitalize(title_value);
 			else
 				s << title_value;
 			if (value_in_quotes)
@@ -173,7 +177,7 @@ String TaskTitledList::AsString() const {
 			
 			String value = values[i];
 			if (capitalize) {
-				value = ::Capitalize(value);
+				value = ::TextLib::Capitalize(value);
 			}
 			if (value.GetCount()) {
 				if (parenthesis)
@@ -202,8 +206,8 @@ String TaskTitledList::AsString() const {
 			String key = items.GetKey(i);
 			String value = items[i];
 			if (capitalize) {
-				key = ::Capitalize(key);
-				value = ::Capitalize(value);
+				key = ::TextLib::Capitalize(key);
+				value = ::TextLib::Capitalize(value);
 			}
 			if (parenthesis)
 				s.Cat('(');
@@ -291,3 +295,8 @@ String TaskContent::AsString() const {
 	
 	return s;
 }
+
+
+
+END_TEXTLIB_NAMESPACE
+

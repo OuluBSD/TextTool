@@ -2,6 +2,9 @@
 #define _ToolCore_Nana_h_
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
 struct PackedRhymeContainer : Moveable<PackedRhymeContainer> {
 	static constexpr int MAX_TXT_LEN = 256;
 	static constexpr int MAX_PRON_LEN = 256;
@@ -268,5 +271,9 @@ public:
 	int GetDistance(const byte* nana0, int nana0_len, const byte* nana1, int nana1_len);
 	
 };
+
+
+END_TEXTLIB_NAMESPACE
+
 
 #endif

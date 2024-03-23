@@ -27,7 +27,7 @@ void Tasks::Data() {
 	TaskMgr& m = TaskMgr::Single();
 	
 	for(int i = 0; i < m.tasks.GetCount(); i++) {
-		Task& t = m.tasks[i];
+		AiTask& t = m.tasks[i];
 		list.Set(i, 0, i);
 		list.Set(i, 1, t.GetDescription());
 		String s;
@@ -60,7 +60,7 @@ void Tasks::DataTask() {
 		return;
 	
 	int cursor = list.GetCursor();
-	Task& t = m.tasks[cursor];
+	AiTask& t = m.tasks[cursor];
 	m.active_task = &t;
 	
 	if (cursor != data_cursor || (output.GetLength() == 0 && t.output.GetCount())) {
@@ -79,7 +79,7 @@ void Tasks::ValueChange() {
 	if (!m.active_task)
 		return;
 	
-	Task& t = *m.active_task;
+	AiTask& t = *m.active_task;
 	t.output = TrimBoth(output.GetData());
 	t.changed = true;
 	t.output.Replace("\r", "");
@@ -93,7 +93,7 @@ void Tasks::ProcessItem() {
 	if (!list.IsCursor())
 		return;
 	int cursor = list.GetCursor();
-	Task& t = m.tasks[cursor];
+	AiTask& t = m.tasks[cursor];
 	t.failed = false;
 	m.StartSingle(cursor);
 }
@@ -104,7 +104,7 @@ void Tasks::RetryItem(bool skip_prompt, bool skip_cache) {
 	if (!list.IsCursor())
 		return;
 	int cursor = list.GetCursor();
-	Task& t = m.tasks[cursor];
+	AiTask& t = m.tasks[cursor];
 	t.Retry(skip_prompt, skip_cache);
 	m.StartSingle(cursor);
 	this->output.Clear();

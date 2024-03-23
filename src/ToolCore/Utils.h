@@ -1,30 +1,37 @@
-#ifndef _SongTool_Utils_h_
-#define _SongTool_Utils_h_
+#ifndef _TextTool_Utils_h_
+#define _TextTool_Utils_h_
 
+
+
+
+BEGIN_TEXTLIB_NAMESPACE
 
 typedef String NoPointerExc;
 
-BEGIN_SONGLIB_NAMESPACE
+struct Entity;
+struct Snapshot;
+struct Component;
+struct Script;
+struct TextDatabase;
+struct EditorPtrs;
+class TaskManager;
 
-struct Artist;
-struct Release;
-struct Song;
-struct Lyrics;
 
-END_SONGLIB_NAMESPACE
-
-BEGIN_SOCIALLIB_NAMESPACE
-
-struct Company;
-struct Campaign;
-struct Story;
-struct Program;
-
-END_SOCIALLIB_NAMESPACE
+struct ContentType : Moveable<ContentType> {
+	static const int PART_COUNT = 3;
+	String key, parts[PART_COUNT];
+	
+	void Set(String k, String p0, String p1, String p2) {
+		key = k;
+		parts[0] = p0;
+		parts[1] = p1;
+		parts[2] = p2;
+	}
+};
 
 
 class ToolAppCtrl : public Ctrl {
-	
+	//const int appmode = -1;
 	
 public:
 	virtual ~ToolAppCtrl() {}
@@ -32,22 +39,28 @@ public:
 	virtual void ToolMenu(Bar& bar) {bar.Add("", AppImg::placeholder16(), Callback());}
 	virtual String GetStatusText() {return String();}
 	
-	SongLib::Artist& GetArtist();
-	SongLib::Release& GetRelease();
-	SongLib::Song& GetSong();
-	SongLib::Lyrics& GetLyrics();
+	TextLib::Entity& GetEntity();
+	TextLib::Snapshot& GetSnapshot();
+	TextLib::Component& GetComponent();
+	TextLib::Script& GetScript();
+	TextLib::TaskManager& GetTaskManager();
 	
-	SocialLib::Company& GetCompany();
+/*	SocialLib::Company& GetCompany();
 	SocialLib::Campaign& GetCampaign();
 	SocialLib::Program& GetProgram();
-	SocialLib::Story& GetStory();
+	SocialLib::Story& GetStory();*/
 	
-	String GetSongTitle() const;
+	String GetComponentTitle() const;
 	//int GetDataset();
 	
-	void MakeSongParts(ArrayCtrl& parts);
+	void MakeComponentParts(ArrayCtrl& parts);
 	void GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v);
 	
+	TextDatabase& GetDatabase();
+	EditorPtrs& GetPointers();
+	const Index<String>& GetTypeclasses();
+	const Vector<ContentType>& GetContents();
+	const Vector<String>& GetContentParts();
 };
 
 
@@ -112,5 +125,9 @@ inline String MakeTitle(String s) {
 	ws.Replace("ö", "o");
 	return ws.ToString();
 }
+
+
+END_TEXTLIB_NAMESPACE
+
 
 #endif

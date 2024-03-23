@@ -2,6 +2,10 @@
 #define _Task_TaskAbstraction_h_
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
 struct TaskTitledList {
 	String title_format_str;
 	String title_value;
@@ -107,6 +111,10 @@ struct TaskContent {
 		return titled_lists[i];}
 	
 };
+
+
+
+END_TEXTLIB_NAMESPACE
 
 
 #endif

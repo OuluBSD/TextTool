@@ -1,6 +1,10 @@
 #include "ToolBase.h"
 #include <Task/Task.h>
 
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
 void PreviewDisplay::Paint(Draw& w, const Rect& r, const Value& q,
 	                       Color ink, Color paper, dword style) const
 {
@@ -123,8 +127,8 @@ void ImagePlayerBase::MakeSingleImage() {
 	const Item& item = items[cur];
 	String prompt = item.prompt;
 	
-	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist)
+	EditorPtrs& p = GetPointers();
+	if(!p.component || !p.entity)
 		return;
 	
 	
@@ -224,3 +228,7 @@ void ImagePlayerCtrl::Paint(Draw& d) {
 		d.DrawText(x-2, y-2, str, fnt, White());
 	}
 }
+
+
+END_TEXTLIB_NAMESPACE
+

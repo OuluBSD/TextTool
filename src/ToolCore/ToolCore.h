@@ -5,7 +5,7 @@
 #include <CodeEditor/CodeEditor.h>
 #include <Esc/Esc.h>
 #include <plugin/jpg/jpg.h>
-#define TFILE <SongTool/SongTool.t>
+#define TFILE <TextTool/TextTool.t>
 #include <Core/t.h>
 #include <BlueBar/BlueBar.h>
 #include <RedBar/RedBar.h>
@@ -16,12 +16,9 @@ using namespace Upp;
 #define IMAGEFILE <ToolCore/App.iml>
 #include <Draw/iml_header.h>
 
-#define LAYOUTFILE <ToolCore/App.lay>
-#include <CtrlCore/lay.h>
 
-
-#define BEGIN_SONGLIB_NAMESPACE namespace SongLib {
-#define END_SONGLIB_NAMESPACE }
+#define BEGIN_TEXTLIB_NAMESPACE namespace TextLib {
+#define END_TEXTLIB_NAMESPACE }
 
 #define BEGIN_SOCIALLIB_NAMESPACE namespace SocialLib {
 #define END_SOCIALLIB_NAMESPACE }

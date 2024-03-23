@@ -163,12 +163,6 @@ void ImageGenTool::Generate() {
 }
 
 void ImageGenTool::GenerateArgs(String prompt_str, int n) {
-	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist)
-		return;
-	
-	
-	
 	{
 		TaskMgr& m = TaskMgr::Single();
 		m.CreateImage(prompt_str, n, THISBACK2(OnImageReady, prompt_str, n), THISBACK(EnableAll));
@@ -284,12 +278,6 @@ void ImageGenTool::DataRecent() {
 }
 
 void ImageGenTool::GenerateFromEditor() {
-	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist)
-		return;
-	
-	
-	
 	{
 		String prompt_str = prompt1.GetData();
 		if (prompt_str.IsEmpty()) {
@@ -321,12 +309,6 @@ void ImageGenTool::GenerateFromEditor() {
 }
 
 void ImageGenTool::VariateFromEditor() {
-	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist)
-		return;
-	
-	
-	
 	{
 		String prompt_str = prompt1.GetData();
 		// Prompt is optional
@@ -465,15 +447,10 @@ void ImageGenTool::Upload() {
 }
 
 void ImageGenTool::Translate(bool editor) {
-	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist)
-		return;
-	
-	
 	String prompt_str = (editor ? prompt1 : prompt).GetData();
 	
 	{
-		String orig_lng = GetCurrentLanguageString().Left(5);
+		String orig_lng = "FI-FI"; //GetCurrentLanguageString().Left(5);
 		String trans_lng = "EN-US";
 		TaskMgr& m = TaskMgr::Single();
 		m.Translate(orig_lng, prompt_str, trans_lng, THISBACK1(PostOnTranslateReady, editor));

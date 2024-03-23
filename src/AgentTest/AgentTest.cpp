@@ -3,20 +3,20 @@
 CONSOLE_APP_MAIN {
 	SetDefaultCharset(CHARSET_UTF8);
 	
-	SongDatabase& db = SongDatabase::Single();
+	TextDatabase& db = GetDatabase();
 	#ifdef flagWIN32
-	db.dir = AppendFileName(GetHomeDirectory(), "SongTool");
+	db.dir = AppendFileName(GetHomeDirectory(), "TextTool");
 	#else
-	db.dir = GetHomeDirFile("SongTool");
+	db.dir = GetHomeDirFile("TextTool");
 	#endif
 	if (!DirectoryExists(db.dir)) {
-		PromptOK(DeQtf("Default path not found.\nSelect SongTool directory."));
+		PromptOK(DeQtf("Default path not found.\nSelect TextTool directory."));
 		db.dir = SelectDirectory();
 	}
 	db.Load();
 	
-	db.song_data.Load();
-	db.song_data.a.Load();
+	db.src_data.Load();
+	db.src_data.a.Load();
 	
 	LOG("Database loaded");
 	

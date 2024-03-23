@@ -1,5 +1,8 @@
-#ifndef _SongTool_Common_h_
-#define _SongTool_Common_h_
+#ifndef _TextTool_Common_h_
+#define _TextTool_Common_h_
+
+
+BEGIN_TEXTLIB_NAMESPACE
 
 
 #define TODO Panic("TODO");
@@ -115,7 +118,7 @@ void PutKeyColor(const char* key, int ir, int ig, int ib, double& r, double& g, 
 	ATTR_ITEM(MINDFULNESS, "mindfulness", "mindless", "mindful") \
 	ATTR_ITEM(PEACEFULNESS, "peacefulness", "peacemaker", "troublemaker") \
 	ATTR_ITEM(NARRATIVE, "narrative", "protagonist storytelling", "narrative detachment") \
-	ATTR_ITEM(LYRICAL_EMPHASIS, "lyrical emphasis", "witty wordplay", "straightforward lyrics") \
+	ATTR_ITEM(LYRICAL_EMPHASIS, "lyrical emphasis", "witty wordplay", "straightforward scripts") \
 	ATTR_ITEM(EMOTIONALITY, "lyrical emphasis", "emotionally charged", "emotionally restrained") \
 	ATTR_ITEM(CONCEPTS, "concepts", "grounded", "psychedelic") \
 	ATTR_ITEM(STORY_MOTIVATION, "story-motivation",  "narrative-driven", "mood-driven") \
@@ -183,19 +186,18 @@ struct DataFile {
 
 struct TaskMgr;
 
-BEGIN_SONGLIB_NAMESPACE
 
-struct Artist;
-struct Release;
-struct Song;
-struct Typecast;
-struct Archetype;
-struct Lyrics;
+struct Entity;
+struct Snapshot;
+struct Component;
+struct Typeclass;
+struct Content;
+struct Script;
 struct StaticPart;
+class ToolEditor;
 
-END_SONGLIB_NAMESPACE
 
-BEGIN_SOCIALLIB_NAMESPACE
+/*BEGIN_SOCIALLIB_NAMESPACE
 
 struct Company;
 struct Campaign;
@@ -205,53 +207,76 @@ struct Generic;
 struct Program;
 struct StoryPart;
 
-END_SOCIALLIB_NAMESPACE
+END_SOCIALLIB_NAMESPACE*/
 
 
 
 struct EditorPtrs {
+	const int appmode = -1;
 	
-	SongLib::Artist*		artist = 0;
-	SongLib::Release*		release = 0;
-	SongLib::Song*			song = 0;
-	SongLib::Typecast*		typecast = 0;
-	SongLib::Archetype*		archetype = 0;
-	SongLib::Lyrics*		lyrics = 0;
-	SongLib::StaticPart*	part = 0;
-	
-	SocialLib::Company*		company = 0;
-	SocialLib::Campaign*	campaign = 0;
-	SocialLib::Program*		program = 0;
-	SocialLib::Story*		story = 0;
-	SocialLib::Role*		role = 0;
-	SocialLib::Generic*		generic = 0;
-	SocialLib::StoryPart*	story_part = 0;
+	TextLib::Entity*		entity = 0;
+	TextLib::Snapshot*		release = 0;
+	TextLib::Component*		component = 0;
+	TextLib::Typeclass*		typecast = 0;
+	TextLib::Content*		archetype = 0;
+	TextLib::Script*		scripts = 0;
+	TextLib::StaticPart*	part = 0;
+	TextLib::ToolEditor*	editor = 0;
 	
 	void Zero() {memset(this, 0, sizeof(EditorPtrs));}
 	
-	bool HasSong() const {return song;}
+	bool HasComponent() const {return component;}
 	
-	int GetActiveTypecastIndex() const;
-	int GetActiveArchetypeIndex() const;
-	int GetActiveLyricsIndex() const;
+	int GetActiveTypeclassIndex() const;
+	int GetActiveContentIndex() const;
+	int GetActiveScriptIndex() const;
 	
-	int GetActiveArtistIndex() const;
-	int GetActiveReleaseIndex() const;
-	int GetActiveSongIndex() const;
+	int GetActiveEntityIndex() const;
+	int GetActiveSnapshotIndex() const;
+	int GetActiveComponentIndex() const;
 	
-	int GetActiveRoleIndex() const;
+	/*int GetActiveRoleIndex() const;
 	int GetActiveGenericIndex() const;
 	int GetActiveStoryIndex() const;
 	
 	int GetActiveCompanyIndex() const;
 	int GetActiveCampaignIndex() const;
-	int GetActiveProgramIndex() const;
+	int GetActiveProgramIndex() const;*/
 	
-	//void 
+	TextDatabase& GetDatabase() const;
 	
-	static EditorPtrs& Single() {static EditorPtrs e; return e;}
 };
 
+enum {
+	DB_SONG,
+	DB_SOCIAL,
+	DB_DIALOG,
+	DB_BLOG,
+	DB_LOCAL, // everyday politics
+	DB_LIFE,
+	
+	DB_COUNT,
+};
+
+inline String GetAppModeString(int appmode) {
+	switch (appmode) {
+		case DB_SONG:	return "Song";
+		case DB_SOCIAL:	return "Social";
+		case DB_DIALOG:	return "Dialog";
+		case DB_BLOG:	return "Blog";
+		case DB_LOCAL:	return "Local";
+		case DB_LIFE:	return "Life (nothing new happens)";
+	}
+	return "<error>";
+}
+
+struct MetaPtrs {
+	EditorPtrs db[DB_COUNT];
+	
+	MetaPtrs();
+	static MetaPtrs& Single() {static MetaPtrs e; return e;}
+	
+};
 
 
 Color GetPartColor(const String& name, Color def=Color(56,170,255));
@@ -412,17 +437,17 @@ struct CoverSuggestionData {
 	int year;
 	String genre;
 	String singer_description;
-	int count_of_songs;
+	int count_of_components;
 	
-	struct Song {
-		String name, lyrics;
+	struct Component {
+		String name, scripts;
 	};
-	Array<Song> songs;
+	Array<Component> components;
 };
 
 
 
-const Vector<String>& CommonArtists();
+const Vector<String>& CommonEntitys();
 
 void TrimBothAllLines(String& s);
 void RealizeDoubleNewlinesOnNumbered(String& s);
@@ -430,14 +455,14 @@ void RealizeDoubleNewlinesBeforeTitles(String& s);
 Vector<String> GetStructureParts(String s);
 
 String ToMinSec(double sec);
-String GetSongPartFromAbbr(const String& abbr);
-Color GetSongPartPaperColor(const String& abbr);
+String GetComponentPartFromAbbr(const String& abbr);
+Color GetComponentPartPaperColor(const String& abbr);
 String GetProgramPartFromAbbr(const String& abbr);
 Color GetProgramPartPaperColor(const String& abbr);
-int GetSongPartPriority(const String& abbr);
+int GetComponentPartPriority(const String& abbr);
 
 template <class T> void CheckSerialisationData(const String& json) {}
-template <> void CheckSerialisationData<SongLib::Song>(const String& json);
+template <> void CheckSerialisationData<TextLib::Component>(const String& json);
 
 template <class T>
 void LoadFromJsonFileStandard(T& o, const String& path) {
@@ -927,49 +952,17 @@ void JsonCompressedStream(JsonIO& json, const String& key, T& o) {
 }
 
 
-const Index<String>& GetTypecasts();
-int GetTypecastCount();
 
-const Index<String>& GetProfiles();
-int GetProfileCount();
+const Vector<ContentType>& GetContents(int appmode);
+const Vector<String>& GetContentParts(int appmode);
+int GetContentCount(int appmode);
 
-const Index<String>& GetPrimary();
-int GetPrimaryCount();
+const Index<String>& GetTypeclasses(int appmode);
+int GetTypeclassCount(int appmode);
 
-const Index<String>& GetSecondary();
-int GetSecondaryCount();
-
-struct ContrastType : Moveable<ContrastType> {
-	static const int PART_COUNT = 3;
-	String key, parts[PART_COUNT];
-	
-	void Set(String k, String p0, String p1, String p2) {
-		key = k;
-		parts[0] = p0;
-		parts[1] = p1;
-		parts[2] = p2;
-	}
-};
-
-const Vector<ContrastType>& GetContrasts();
-const Vector<String>& GetContrastParts();
-int GetContrastCount();
-
-const VectorMap<String,String>& GetArchetypes();
-int GetArchetypeCount();
-
-//VectorMap<String,Vector<String>>& GetTypecastSingers();
-VectorMap<String,Vector<String>>& GetTypecastSingersMale();
-VectorMap<String,Vector<String>>& GetTypecastSingersFemale();
-VectorMap<String,Vector<String>>& GetTypecastRappersMale();
-VectorMap<String,Vector<String>>& GetTypecastRappersFemale();
-VectorMap<String,Vector<String>>& GetTypecastSingers(bool gender);
-VectorMap<String,Vector<String>>& GetTypecastRappers(bool gender);
-VectorMap<String,Vector<String>>& GetTypecastArtists(bool rapper, bool gender);
-VectorMap<String,Vector<String>>& GetRoleCompanys(bool unsafe, bool gender);
+VectorMap<String,Vector<String>>& GetTypeclassEntities(int appmode, bool unsafe, bool gender);
 
 
-const Index<String>& GetRoles();
 
 struct GenericType : Moveable<GenericType> {
 	static const int PART_COUNT = 3;
@@ -983,7 +976,6 @@ struct GenericType : Moveable<GenericType> {
 	}
 };
 
-const Vector<GenericType>& GetGenerics();
 int GetRoleCount();
 int GetGenericCount();
 const Vector<String>& GetGenericParts();
@@ -992,6 +984,10 @@ const Vector<String>& GetGenericParts();
 void SetIndexCursor(ArrayCtrl& arr, int cur);
 
 void FixOffensiveWords(String& s);
+
+
+END_TEXTLIB_NAMESPACE
+
 
 #endif
 

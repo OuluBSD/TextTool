@@ -1,4 +1,9 @@
 #include "ToolCore.h"
+#include "ProtectedCommon.h"
+
+
+BEGIN_TEXTLIB_NAMESPACE
+
 
 #if 0
 VectorMap<String,Vector<String>>& GetTypecastSingers() {
@@ -269,7 +274,7 @@ VectorMap<String,Vector<String>>& GetTypecastSingers() {
 	tc.Add("The Clash");
 	tc.Add("Bikini Kill");
 	tc.Add("Eminem");
-	tc.Add("Bob Dylan (protest songs)");}
+	tc.Add("Bob Dylan (protest components)");}
 
 	{auto& tc = list.Add("Calm/peaceful");
 	tc.Add("Jack Johnson");
@@ -2740,3 +2745,7 @@ VectorMap<String,Vector<String>>& GetTypecastRappersMale() {
 	ASSERT(list.GetCount() == GetTypecastCount());
 	return list;
 }
+
+
+END_TEXTLIB_NAMESPACE
+

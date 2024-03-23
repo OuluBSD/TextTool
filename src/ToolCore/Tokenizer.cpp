@@ -1,5 +1,9 @@
 #include "ToolCore.h"
 
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
 NaturalTokenizer::NaturalTokenizer() {
 	
 }
@@ -71,3 +75,6 @@ bool NaturalTokenizer::IsToken(int chr) {
 	if (chr >= 0xe000 && chr < 0xf000) return true;
 	return false;
 }
+
+
+END_TEXTLIB_NAMESPACE

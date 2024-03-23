@@ -1,6 +1,9 @@
 #include "ToolCore.h"
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
 String PackedRhymeContainer::GetText() const {
 	String s(txt, PackedRhymeContainer::MAX_TXT_LEN);
 	Vector<String> parts = Split(s, "\n");
@@ -803,4 +806,7 @@ int NanaCompare::GetDistance(const byte* nana0, int nana0_len, const byte* nana1
 	
 	return distance_sum;
 }
+
+
+END_TEXTLIB_NAMESPACE
 

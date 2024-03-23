@@ -2,6 +2,10 @@
 #define _ToolCore_Tokenizer_h_
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
 class NaturalTokenizer {
 	WString ws;
 	Vector<Vector<WString>> lines;
@@ -19,6 +23,10 @@ public:
 	static bool IsToken(int chr);
 	
 };
+
+
+
+END_TEXTLIB_NAMESPACE
 
 
 #endif

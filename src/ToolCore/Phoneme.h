@@ -1,6 +1,7 @@
 #ifndef _ToolCore_Phoneme_h_
 #define _ToolCore_Phoneme_h_
 
+BEGIN_TEXTLIB_NAMESPACE
 
 
 #define PHONOME_VOWELS \
@@ -203,6 +204,10 @@ int GetPhonemeRepeats(int phoneme, int stress);
 
 extern const double vowel_distance[PHONOME_VOWEL_COUNT][PHONOME_VOWEL_COUNT];
 extern const double consonant_distance[PHONOME_CONSONANT_COUNT][PHONOME_CONSONANT_COUNT];
+
+
+END_TEXTLIB_NAMESPACE
+
 
 
 #endif

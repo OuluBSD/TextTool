@@ -4,6 +4,10 @@
 #include <ToolBase/ToolBase.h>
 #include <Task/Task.h>
 
+#define LAYOUTFILE <ToolCtrl/ToolCtrl.lay>
+#include <CtrlCore/lay.h>
+
+
 #include "FrontPage.h"
 #include "CalendarPage.h"
 #include "TaskCtrl.h"

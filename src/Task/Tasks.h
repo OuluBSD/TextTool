@@ -2,6 +2,10 @@
 #define _Task_Tasks_h_
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
 struct TaskMgr;
 
 struct OpenAiResponse {
@@ -105,7 +109,7 @@ struct DalleResponse {
 
 struct TaskRule;
 
-struct Task {
+struct AiTask {
 	
 protected:
 	friend struct TaskMgr;
@@ -137,7 +141,7 @@ public:
 	String raw_input;
 	
 	// Temp
-	Array<Task> result_tasks;
+	Array<AiTask> result_tasks;
 	Vector<Vector<String>> str_map;
 	Event<> WhenDone;
 	Event<String> WhenResult;
@@ -183,14 +187,14 @@ public:
 	void CreateInput_GetStructureSuggestions();
 	void CreateInput_GetSuggestionAttributes();
 	void CreateInput_GetColorIdea();
-	void CreateInput_GetSongDataAnalysis();
+	void CreateInput_GetSourceDataAnalysis();
 	void CreateInput_GetActionAnalysis();
-	void CreateInput_GetLyricsPhrase();
+	void CreateInput_GetScriptPhrase();
 	void CreateInput_GetTokenData();
 	void CreateInput_GetPhraseData();
 	void CreateInput_GetAttributes();
 	void CreateInput_GetNanaData();
-	void CreateInput_LyricsSolver();
+	void CreateInput_ScriptSolver();
 	void CreateInput_GetProgramDataAnalysis();
 	void CreateInput_StorySolver();
 	
@@ -209,7 +213,7 @@ public:
 	void Process_Impact();
 	void Process_ImpactWeighted();
 	void Process_ImpactScoring();
-	void Process_ForwardLyricsWeighted();
+	void Process_ForwardScriptWeighted();
 	void Process_Translate();
 	void Process_TranslateSongData();
 	void Process_CheckSongNaturalErrors();
@@ -231,12 +235,12 @@ public:
 	void Process_GetVocabularyIdea();
 	void Process_GetWordSaladIdea();
 	void Process_GetContextIdea();
-	void Process_GetSongDataAnalysis();
+	void Process_GetSourceDataAnalysis();
 	void Process_GetActionAnalysis();
-	void Process_GetLyricsPhrase();
+	void Process_GetScriptPhrase();
 	void Process_GetAttributes();
 	void Process_GetNanaData();
-	void Process_LyricsSolver();
+	void Process_ScriptSolver();
 	void Process_GetProgramDataAnalysis();
 	void Process_StorySolver();
 	
@@ -249,6 +253,10 @@ public:
 	
 };
 
+
+
+
+END_TEXTLIB_NAMESPACE
 
 
 #endif

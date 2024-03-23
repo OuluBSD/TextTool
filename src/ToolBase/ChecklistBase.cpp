@@ -1,7 +1,12 @@
 #include "ToolBase.h"
 
 #if 0
-#include <SongDatabase/SongDatabase.h>
+
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
+#include <TextDatabase/TextDatabase.h>
 
 ChecklistBase::ChecklistBase() {
 	Add(list.SizePos());
@@ -32,10 +37,10 @@ void ChecklistBase::Init() {
 }
 
 void ChecklistBase::Data() {
-	SongDatabase& db = SongDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.song) return;
-	Song& song = *p.song;
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
+	if (!p.component) return;
+	Component& song = *p.component;
 	
 	if (list.GetCount() == 0)
 		Init();
@@ -49,10 +54,10 @@ void ChecklistBase::Data() {
 }
 
 void ChecklistBase::OnValueChange(int i) {
-	SongDatabase& db = SongDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.song) return;
-	Song& song = *p.song;
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
+	if (!p.component) return;
+	Component& song = *p.component;
 	
 	String key = keys[i] + "_COMMENT";
 	String value = list.Get(i, 2);
@@ -63,10 +68,10 @@ void ChecklistBase::OnValueChange(int i) {
 }
 
 void ChecklistBase::OnOptionChange(int i) {
-	SongDatabase& db = SongDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
-	if (!p.song) return;
-	Song& song = *p.song;
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
+	if (!p.component) return;
+	Component& song = *p.component;
 	
 	Option* o = dynamic_cast<Option*>(list.GetCtrl(i, 1));
 	if (o) {
@@ -75,5 +80,9 @@ void ChecklistBase::OnOptionChange(int i) {
 		song.data.GetAdd(key) = IntStr(b);
 	}
 }
+
+
+END_TEXTLIB_NAMESPACE
+
 
 #endif

@@ -1,5 +1,9 @@
 #include "ToolCore.h"
 
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
 void IntVectorFile::Load(const String& path) {
 	idx.Clear();
 	this->path = path;
@@ -79,3 +83,7 @@ void IndexFile::Store() {
 		fout.Close();
 	}
 }
+
+
+END_TEXTLIB_NAMESPACE
+

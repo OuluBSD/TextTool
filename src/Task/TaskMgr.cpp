@@ -1,110 +1,114 @@
 #include "Task.h"
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
 void TaskMgrConfig::CreateDefaultTaskRules() {
 	
-	AddRule(TASK_TRANSLATE, "translate")
-		.Input(&Task::CreateInput_Translate)
+	AddRule(AITASK_TRANSLATE, "translate")
+		.Input(&AiTask::CreateInput_Translate)
 			.Arg(V_ARGS, 3, 3)
-		.Process(&Task::Process_Translate);
+		.Process(&AiTask::Process_Translate);
 	
-	AddRule(TASK_GET_SUGGESTION_ATTRIBUTES, "get suggestion attributes")
-		.Input(&Task::CreateInput_GetSuggestionAttributes)
+	AddRule(AITASK_GET_SUGGESTION_ATTRIBUTES, "get suggestion attributes")
+		.Input(&AiTask::CreateInput_GetSuggestionAttributes)
 			.Arg(V_ARGS, 1, 100)
-		.Process(&Task::Process_GetSuggestionAttributes)
+		.Process(&AiTask::Process_GetSuggestionAttributes)
 		;
 	
-	AddRule(TASK_GET_STRUCTURE_SUGGESTIONS, "get structure suggestions")
-		.Input(&Task::CreateInput_GetStructureSuggestions)
+	AddRule(AITASK_GET_STRUCTURE_SUGGESTIONS, "get structure suggestions")
+		.Input(&AiTask::CreateInput_GetStructureSuggestions)
 			.Arg(V_ARGS, 4, 4)
-		.Process(&Task::Process_GetStructureSuggestions)
+		.Process(&AiTask::Process_GetStructureSuggestions)
 		;
 
-	AddRule(TASK_CREATE_IMAGE, "create image")
+	AddRule(AITASK_CREATE_IMAGE, "create image")
 		.ImageTask()
-		.Input(&Task::CreateInput_CreateImage)
+		.Input(&AiTask::CreateInput_CreateImage)
 			.Arg(V_ARGS, 3, 3)
-		.Process(&Task::Process_CreateImage)
+		.Process(&AiTask::Process_CreateImage)
 		;
 	
-	AddRule(TASK_EDIT_IMAGE, "edit image")
+	AddRule(AITASK_EDIT_IMAGE, "edit image")
 		.ImageTask()
 		.ImageEditTask()
-		.Input(&Task::CreateInput_EditImage)
+		.Input(&AiTask::CreateInput_EditImage)
 			.Arg(V_ARGS, 2, 2)
-		.Process(&Task::Process_EditImage)
+		.Process(&AiTask::Process_EditImage)
 		;
 	
-	AddRule(TASK_VARIATE_IMAGE, "variate image")
+	AddRule(AITASK_VARIATE_IMAGE, "variate image")
 		.ImageTask()
 		.ImageVariateTask()
-		.Input(&Task::CreateInput_VariateImage)
+		.Input(&AiTask::CreateInput_VariateImage)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_VariateImage)
+		.Process(&AiTask::Process_VariateImage)
 		;
 	
-	AddRule(TASK_GET_SONG_DATA_ANALYSIS, "get song data analysis")
-		.Input(&Task::CreateInput_GetSongDataAnalysis)
+	AddRule(AITASK_GET_SONG_DATA_ANALYSIS, "get song data analysis")
+		.Input(&AiTask::CreateInput_GetSourceDataAnalysis)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_GetSongDataAnalysis)
+		.Process(&AiTask::Process_GetSourceDataAnalysis)
 		;
 	
-	AddRule(TASK_GET_ACTION_ANALYSIS, "get action analysis")
-		.Input(&Task::CreateInput_GetActionAnalysis)
+	AddRule(AITASK_GET_ACTION_ANALYSIS, "get action analysis")
+		.Input(&AiTask::CreateInput_GetActionAnalysis)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_GetActionAnalysis)
+		.Process(&AiTask::Process_GetActionAnalysis)
 		;
 	
-	AddRule(TASK_GET_LYRICS_PHRASE, "get action analysis")
-		.Input(&Task::CreateInput_GetLyricsPhrase)
+	AddRule(AITASK_GET_LYRICS_PHRASE, "get action analysis")
+		.Input(&AiTask::CreateInput_GetScriptPhrase)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_GetLyricsPhrase)
+		.Process(&AiTask::Process_GetScriptPhrase)
 		;
 		
-	AddRule(TASK_RAW_COMPLETION, "raw prompt completion")
-		.Process(&Task::Process_RawCompletion)
+	AddRule(AITASK_RAW_COMPLETION, "raw prompt completion")
+		.Process(&AiTask::Process_RawCompletion)
 		;
 	
-	AddRule(TASK_GET_TOKEN_DATA, "get token data")
-		.Input(&Task::CreateInput_GetTokenData)
+	AddRule(AITASK_GET_TOKEN_DATA, "get token data")
+		.Input(&AiTask::CreateInput_GetTokenData)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_GetTokenData)
+		.Process(&AiTask::Process_GetTokenData)
 		;
 	
-	AddRule(TASK_GET_PHRASE_DATA, "get phrase data")
-		.Input(&Task::CreateInput_GetPhraseData)
+	AddRule(AITASK_GET_PHRASE_DATA, "get phrase data")
+		.Input(&AiTask::CreateInput_GetPhraseData)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_GetPhraseData)
+		.Process(&AiTask::Process_GetPhraseData)
 		;
 	
-	AddRule(TASK_GET_ATTRIBUTES, "get attributes")
-		.Input(&Task::CreateInput_GetAttributes)
+	AddRule(AITASK_GET_ATTRIBUTES, "get attributes")
+		.Input(&AiTask::CreateInput_GetAttributes)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_GetAttributes)
+		.Process(&AiTask::Process_GetAttributes)
 		;
 	
-	AddRule(TASK_NANA_DATA, "get nana data")
-		.Input(&Task::CreateInput_GetNanaData)
+	AddRule(AITASK_NANA_DATA, "get nana data")
+		.Input(&AiTask::CreateInput_GetNanaData)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_GetNanaData)
+		.Process(&AiTask::Process_GetNanaData)
 		;
 	
-	AddRule(TASK_LYRICS_SOLVER, "lyrics solver")
-		.Input(&Task::CreateInput_LyricsSolver)
+	AddRule(AITASK_LYRICS_SOLVER, "scripts solver")
+		.Input(&AiTask::CreateInput_ScriptSolver)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_LyricsSolver)
+		.Process(&AiTask::Process_ScriptSolver)
 		;
 	
-	AddRule(TASK_STORY_SOLVER, "story solver")
-		.Input(&Task::CreateInput_StorySolver)
+	AddRule(AITASK_STORY_SOLVER, "story solver")
+		.Input(&AiTask::CreateInput_StorySolver)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_StorySolver)
+		.Process(&AiTask::Process_StorySolver)
 		;
 	
-	AddRule(TASK_GET_PROGRAM_DATA_ANALYSIS, "lyrics solver")
-		.Input(&Task::CreateInput_GetProgramDataAnalysis)
+	AddRule(AITASK_GET_PROGRAM_DATA_ANALYSIS, "scripts solver")
+		.Input(&AiTask::CreateInput_GetProgramDataAnalysis)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&Task::Process_GetProgramDataAnalysis)
+		.Process(&AiTask::Process_GetProgramDataAnalysis)
 		;
 	
 }
@@ -139,9 +143,9 @@ void TaskMgrConfig::Process() {
 
 
 
-Task& TaskMgr::AddTask() {
+AiTask& TaskMgr::AddTask() {
 	task_lock.Enter();
-	Task& t = tasks .Add();
+	AiTask& t = tasks .Add();
 	task_lock.Leave();
 	return t;
 }
@@ -156,7 +160,7 @@ void TaskMgr::Process() {
 	this->total = tasks.GetCount();
 	
 	for(int i = 0; i < tasks.GetCount() && mgr.running && !Thread::IsShutdownThreads(); i++) {
-		Task& t = tasks[i];
+		AiTask& t = tasks[i];
 		if (!t.ready) {
 			ProcessSingle(i);
 			if (t.ready) {
@@ -173,7 +177,7 @@ void TaskMgr::Process() {
 	
 	if (!got_ready) {
 		int tried_retry = 0;
-		for (Task& t : tasks) {
+		for (AiTask& t : tasks) {
 			if (t.fatal_error)
 				continue;
 			if (t.failed && !t.ready && t.tries < mgr.max_tries) {
@@ -188,9 +192,9 @@ void TaskMgr::Process() {
 void TaskMgr::ProcessSingle(int task_i) {
 	task_lock.Enter();
 	
-	Task& t = tasks[task_i];
+	AiTask& t = tasks[task_i];
 	
-	Index<Task*> seen;
+	Index<AiTask*> seen;
 	
 	// Skip ready, failed and those with non-ready dependencies
 	if (t.ready || t.failed)
@@ -206,10 +210,10 @@ void TaskMgr::ProcessSingle(int task_i) {
 
 void TaskMgr::Translate(String orig_lang, String orig_txt, String trans_lang, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_TRANSLATE);
+	const TaskRule& r = mgr.GetRule(AITASK_TRANSLATE);
 	TaskMgr& p = *this;
 	
-	Task& t = AddTask();
+	AiTask& t = AddTask();
 	t.rule = &r;
 	t.args << orig_lang << orig_txt << trans_lang;
 	t.WhenResult << WhenResult;
@@ -217,10 +221,10 @@ void TaskMgr::Translate(String orig_lang, String orig_txt, String trans_lang, Ev
 
 void TaskMgr::RawCompletion(String prompt, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_RAW_COMPLETION);
+	const TaskRule& r = mgr.GetRule(AITASK_RAW_COMPLETION);
 	TaskMgr& p = *this;
 	
-	Task& t = AddTask();
+	AiTask& t = AddTask();
 	t.rule = &r;
 	t.raw_input = prompt;
 	t.WhenResult << WhenResult;
@@ -228,10 +232,10 @@ void TaskMgr::RawCompletion(String prompt, Event<String> WhenResult) {
 
 void TaskMgr::GetStructureSuggestions(String req, String avoid, String desc, int total, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_GET_STRUCTURE_SUGGESTIONS);
+	const TaskRule& r = mgr.GetRule(AITASK_GET_STRUCTURE_SUGGESTIONS);
 	TaskMgr& p = *this;
 	
-	Task& t = AddTask();
+	AiTask& t = AddTask();
 	t.rule = &r;
 	t.args << req << avoid << desc << IntStr(total);
 	t.WhenResult << WhenResult;
@@ -239,10 +243,10 @@ void TaskMgr::GetStructureSuggestions(String req, String avoid, String desc, int
 
 void TaskMgr::GetSuggestionAttributes(Vector<String>& structs, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_GET_SUGGESTION_ATTRIBUTES);
+	const TaskRule& r = mgr.GetRule(AITASK_GET_SUGGESTION_ATTRIBUTES);
 	TaskMgr& p = *this;
 	
-	Task& t = AddTask();
+	AiTask& t = AddTask();
 	t.rule = &r;
 	t.args <<= structs;
 	t.WhenResult << WhenResult;
@@ -250,10 +254,10 @@ void TaskMgr::GetSuggestionAttributes(Vector<String>& structs, Event<String> Whe
 
 void TaskMgr::CreateImage(String prompt, int count, Event<Array<Image>&> WhenResult, int reduce_size_mode, Event<> WhenError) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_CREATE_IMAGE);
+	const TaskRule& r = mgr.GetRule(AITASK_CREATE_IMAGE);
 	TaskMgr& p = *this;
 	
-	Task& t = AddTask();
+	AiTask& t = AddTask();
 	t.rule = &r;
 	t.args << prompt << IntStr(count) << IntStr(reduce_size_mode);
 	t.WhenResultImages << WhenResult;
@@ -262,7 +266,7 @@ void TaskMgr::CreateImage(String prompt, int count, Event<Array<Image>&> WhenRes
 
 void TaskMgr::GetEditImage(Image orig, Image mask, String prompt, int count, Event<Array<Image>&> WhenResult, Event<> WhenError) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_EDIT_IMAGE);
+	const TaskRule& r = mgr.GetRule(AITASK_EDIT_IMAGE);
 	TaskMgr& p = *this;
 	
 	if (orig.GetSize() != mask.GetSize()) {
@@ -294,7 +298,7 @@ void TaskMgr::GetEditImage(Image orig, Image mask, String prompt, int count, Eve
 		orig = ib;
 	}
 	
-	Task& t = AddTask();
+	AiTask& t = AddTask();
 	t.rule = &r;
 	t.send_images << orig;
 	t.args << prompt << IntStr(count);
@@ -304,10 +308,10 @@ void TaskMgr::GetEditImage(Image orig, Image mask, String prompt, int count, Eve
 
 void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResult, Event<> WhenError) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_VARIATE_IMAGE);
+	const TaskRule& r = mgr.GetRule(AITASK_VARIATE_IMAGE);
 	TaskMgr& p = *this;
 	
-	Task& t = AddTask();
+	AiTask& t = AddTask();
 	t.rule = &r;
 	t.send_images << orig;
 	t.args << IntStr(count);
@@ -315,16 +319,16 @@ void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResul
 	t.WhenError << WhenError;
 }
 
-void TaskMgr::GetSongDataAnalysis(const SongDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
+void TaskMgr::GetSourceDataAnalysis(const SourceDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_GET_SONG_DATA_ANALYSIS);
+	const TaskRule& r = mgr.GetRule(AITASK_GET_SONG_DATA_ANALYSIS);
 	TaskMgr& p = *this;
 
 
 	String s = args.Get();
 
 	task_lock.Enter();
-	Task& t = tasks.Add();
+	AiTask& t = tasks.Add();
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -334,28 +338,28 @@ void TaskMgr::GetSongDataAnalysis(const SongDataAnalysisArgs& args, Event<String
 
 void TaskMgr::GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_GET_ACTION_ANALYSIS);
+	const TaskRule& r = mgr.GetRule(AITASK_GET_ACTION_ANALYSIS);
 	TaskMgr& p = *this;
 
 	String s = args.Get();
 
 	task_lock.Enter();
-	Task& t = tasks.Add();
+	AiTask& t = tasks.Add();
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
 	task_lock.Leave();
 }
 
-void TaskMgr::GetLyricsPhrase(const LyricsPhraseArgs& args, Event<String> WhenResult) {
+void TaskMgr::GetScriptPhrase(const ScriptPhraseArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_GET_LYRICS_PHRASE);
+	const TaskRule& r = mgr.GetRule(AITASK_GET_LYRICS_PHRASE);
 	TaskMgr& p = *this;
 	
 	String s = args.Get();
 	
 	task_lock.Enter();
-	Task& t = tasks.Add();
+	AiTask& t = tasks.Add();
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -364,13 +368,13 @@ void TaskMgr::GetLyricsPhrase(const LyricsPhraseArgs& args, Event<String> WhenRe
 
 void TaskMgr::GetTokenData(const TokenArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_GET_TOKEN_DATA);
+	const TaskRule& r = mgr.GetRule(AITASK_GET_TOKEN_DATA);
 	TaskMgr& p = *this;
 	
 	String s = args.Get();
 	
 	task_lock.Enter();
-	Task& t = tasks.Add();
+	AiTask& t = tasks.Add();
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -379,13 +383,13 @@ void TaskMgr::GetTokenData(const TokenArgs& args, Event<String> WhenResult) {
 
 void TaskMgr::GetPhraseData(const PhraseArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_GET_PHRASE_DATA);
+	const TaskRule& r = mgr.GetRule(AITASK_GET_PHRASE_DATA);
 	TaskMgr& p = *this;
 	
 	String s = args.Get();
 	
 	task_lock.Enter();
-	Task& t = tasks.Add();
+	AiTask& t = tasks.Add();
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -394,13 +398,13 @@ void TaskMgr::GetPhraseData(const PhraseArgs& args, Event<String> WhenResult) {
 
 void TaskMgr::GetAttributes(const AttrArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_GET_ATTRIBUTES);
+	const TaskRule& r = mgr.GetRule(AITASK_GET_ATTRIBUTES);
 	TaskMgr& p = *this;
 	
 	String s = args.Get();
 	
 	task_lock.Enter();
-	Task& t = tasks.Add();
+	AiTask& t = tasks.Add();
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -409,28 +413,28 @@ void TaskMgr::GetAttributes(const AttrArgs& args, Event<String> WhenResult) {
 
 void TaskMgr::GetNanaData(const NanaArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_NANA_DATA);
+	const TaskRule& r = mgr.GetRule(AITASK_NANA_DATA);
 	TaskMgr& p = *this;
 	
 	String s = args.Get();
 	
 	task_lock.Enter();
-	Task& t = tasks.Add();
+	AiTask& t = tasks.Add();
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
 	task_lock.Leave();
 }
 
-void TaskMgr::GetLyricsSolver(const LyricsSolverArgs& args, Event<String> WhenResult) {
+void TaskMgr::GetScriptSolver(const ScriptSolverArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_LYRICS_SOLVER);
+	const TaskRule& r = mgr.GetRule(AITASK_LYRICS_SOLVER);
 	TaskMgr& p = *this;
 	
 	String s = args.Get();
 	
 	task_lock.Enter();
-	Task& t = tasks.Add();
+	AiTask& t = tasks.Add();
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -439,13 +443,13 @@ void TaskMgr::GetLyricsSolver(const LyricsSolverArgs& args, Event<String> WhenRe
 
 void TaskMgr::GetStorySolver(const StorySolverArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_STORY_SOLVER);
+	const TaskRule& r = mgr.GetRule(AITASK_STORY_SOLVER);
 	TaskMgr& p = *this;
 	
 	String s = args.Get();
 	
 	task_lock.Enter();
-	Task& t = tasks.Add();
+	AiTask& t = tasks.Add();
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -454,14 +458,14 @@ void TaskMgr::GetStorySolver(const StorySolverArgs& args, Event<String> WhenResu
 
 void TaskMgr::GetProgramDataAnalysis(const ProgramDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(TASK_GET_PROGRAM_DATA_ANALYSIS);
+	const TaskRule& r = mgr.GetRule(AITASK_GET_PROGRAM_DATA_ANALYSIS);
 	TaskMgr& p = *this;
 
 
 	String s = args.Get();
 
 	task_lock.Enter();
-	Task& t = tasks.Add();
+	AiTask& t = tasks.Add();
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -512,7 +516,7 @@ TaskRule& TaskMgrConfig::AddRule(int code, String name) {
 
 
 
-TaskRule& TaskRule::Input(void (Task::*fn)()) {
+TaskRule& TaskRule::Input(void (AiTask::*fn)()) {
 	this->input = fn;
 	return *this;
 }
@@ -530,7 +534,7 @@ TaskRule& TaskRule::Require(TaskOutputType arg) {
 	return *this;
 }
 
-TaskRule& TaskRule::Process(void (Task::*fn)()) {
+TaskRule& TaskRule::Process(void (AiTask::*fn)()) {
 	process = fn;
 	return *this;
 }
@@ -585,4 +589,8 @@ TaskRule& TaskRule::ImageVariateTask(bool b) {
 	imagevariate_task = b;
 	return *this;
 }
+
+
+
+END_TEXTLIB_NAMESPACE
 

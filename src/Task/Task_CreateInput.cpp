@@ -1,11 +1,16 @@
 #include "Task.h"
+#include <ToolCore/ProtectedCommon.h>
 
 #ifdef flagLLAMACPP
 #include <LlamaCpp/LlamaCpp.h>
 #endif
 
 
-void Task::CreateInput_Translate() {
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
+void AiTask::CreateInput_Translate() {
 	String orig_lng = args[0];
 	String orig_txt = args[1];
 	String trans_lng = args[2];
@@ -25,7 +30,7 @@ void Task::CreateInput_Translate() {
 
 
 
-void Task::CreateInput_CreateImage() {
+void AiTask::CreateInput_CreateImage() {
 	int count = StrInt(args[1]);
 	int reduce_size_mode = StrInt(args[2]);
 	int size = 0;
@@ -43,7 +48,7 @@ void Task::CreateInput_CreateImage() {
 	input.PreAnswer().NoColon().Title(args[0]);
 }
 
-void Task::CreateInput_EditImage() {
+void AiTask::CreateInput_EditImage() {
 	int count = StrInt(args[1]);
 	Image orig = send_images[0];
 	int size = 0;
@@ -68,7 +73,7 @@ void Task::CreateInput_EditImage() {
 	skip_load = true;
 }
 
-void Task::CreateInput_VariateImage() {
+void AiTask::CreateInput_VariateImage() {
 	int count = StrInt(args[0]);
 	Image orig = send_images[0];
 	int size = 0;
@@ -93,7 +98,7 @@ void Task::CreateInput_VariateImage() {
 	//skip_load = true;
 }
 
-void Task::CreateInput_GetStructureSuggestions() {
+void AiTask::CreateInput_GetStructureSuggestions() {
 	String req = args[0];
 	String avoid = args[1];
 	String desc = args[2];
@@ -153,7 +158,7 @@ void Task::CreateInput_GetStructureSuggestions() {
 	input.response_length = 1024*2;
 }
 
-void Task::CreateInput_GetSuggestionAttributes() {
+void AiTask::CreateInput_GetSuggestionAttributes() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -218,7 +223,7 @@ void Task::CreateInput_GetSuggestionAttributes() {
 	input.response_length = 1024*2;
 }
 
-void Task::CreateInput_GetColorIdea() {
+void AiTask::CreateInput_GetColorIdea() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -377,12 +382,13 @@ void Task::CreateInput_GetColorIdea() {
 	
 }
 
-void Task::CreateInput_GetSongDataAnalysis() {
+void AiTask::CreateInput_GetSourceDataAnalysis() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
 	}
-	
+	TODO
+	#if 0
 	SongDataAnalysisArgs args;
 	args.Put(this->args[0]);
 	/*ASSERT(args.artist.GetCount());
@@ -1458,10 +1464,10 @@ void Task::CreateInput_GetSongDataAnalysis() {
 		}
 		input.response_length = 2048;
 	}
-	
+	#endif
 }
 
-void Task::CreateInput_GetActionAnalysis() {
+void AiTask::CreateInput_GetActionAnalysis() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -1566,12 +1572,14 @@ void Task::CreateInput_GetActionAnalysis() {
 	}
 }
 
-void Task::CreateInput_GetLyricsPhrase() {
+void AiTask::CreateInput_GetScriptPhrase() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
 	}
 	
+	TODO
+	#if 0
 	LyricsPhraseArgs args;
 	args.Put(this->args[0]);
 	
@@ -1594,9 +1602,10 @@ void Task::CreateInput_GetLyricsPhrase() {
 		}
 		input.response_length = 2*1024;
 	}
+	#endif
 }
 
-void Task::CreateInput_GetTokenData() {
+void AiTask::CreateInput_GetTokenData() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -1989,7 +1998,7 @@ void Task::CreateInput_GetTokenData() {
 	}
 }
 
-void Task::CreateInput_GetPhraseData() {
+void AiTask::CreateInput_GetPhraseData() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -2288,6 +2297,8 @@ void Task::CreateInput_GetPhraseData() {
 		input.response_length = 2048;
 	}
 	else if (args.fn == 4) {
+		TODO
+		#if 0
 		{
 			auto& list = input.AddSub().Title("Typecasts of singer profiles in relation to the lyrics");
 			list.NumberedLines();
@@ -2311,6 +2322,7 @@ void Task::CreateInput_GetPhraseData() {
 			results.Add("");
 		}
 		input.response_length = 2048;
+		#endif
 	}
 	else if (args.fn == 5) {
 		{
@@ -2366,6 +2378,8 @@ void Task::CreateInput_GetPhraseData() {
 		input.response_length = 2048;
 	}
 	else if (args.fn == 7) {
+		TODO
+		#if 0
 		{
 			auto& list = input.AddSub().Title("Stereotypical architypes of the storyline of a moder pop/rock/EDM/folk/metal song");
 			list.NumberedLines();
@@ -2389,6 +2403,7 @@ void Task::CreateInput_GetPhraseData() {
 			results.Add("");
 		}
 		input.response_length = 2048;
+		#endif
 	}
 	else if (args.fn == 8) {
 		{
@@ -2442,7 +2457,7 @@ void Task::CreateInput_GetPhraseData() {
 	}
 }
 
-void Task::CreateInput_GetAttributes() {
+void AiTask::CreateInput_GetAttributes() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -2547,7 +2562,7 @@ void Task::CreateInput_GetAttributes() {
 	}
 }
 
-void Task::CreateInput_GetNanaData() {
+void AiTask::CreateInput_GetNanaData() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
@@ -2627,12 +2642,14 @@ void Task::CreateInput_GetNanaData() {
 	}
 }
 
-void Task::CreateInput_LyricsSolver() {
+void AiTask::CreateInput_ScriptSolver() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
 	}
 	
+	TODO
+	#if 0
 	LyricsSolverArgs args;
 	args.Put(this->args[0]);
 	
@@ -2942,5 +2959,11 @@ void Task::CreateInput_LyricsSolver() {
 			results.Title("Novel new name for the previous song");
 		}
 	}
+	#endif
 	
 }
+
+
+
+END_TEXTLIB_NAMESPACE
+

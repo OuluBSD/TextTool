@@ -1,6 +1,10 @@
 #include "ToolBase.h"
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
+
 TranslatorToolCtrl::TranslatorToolCtrl() {
 	Add(hsplit.HSizePos().VSizePos());
 	
@@ -75,7 +79,7 @@ void TranslatorToolCtrl::InitEditor(CodeEditor& codeedit) {
 }
 
 void TranslatorToolCtrl::Data() {
-	EditorPtrs& p = EditorPtrs::Single();
+	EditorPtrs& p = GetPointers();
 	
 	#if 0
 	orig.SetData(GetOriginalText());
@@ -93,9 +97,9 @@ String TranslatorToolCtrl::GetStatusText() {
 }
 
 void TranslatorToolCtrl::Translate() {
-	using namespace SongLib;
-	EditorPtrs& p = EditorPtrs::Single();
-	if(!p.song || !p.artist || key.IsEmpty() || trans_key.IsEmpty())
+	using namespace TextLib;
+	EditorPtrs& p = GetPointers();
+	if(!p.component || !p.entity || key.IsEmpty() || trans_key.IsEmpty())
 		return;
 	
 	
@@ -109,81 +113,81 @@ void TranslatorToolCtrl::Translate() {
 }
 /*
 String TranslatorToolCtrl::GetOriginalText() const {
-	SongDatabase& db = SongDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	if (key.GetCount()) {
-		if (artist && p.artist) {
-			return p.artist->data.GetAdd(key);
+		if (artist && p.entity) {
+			return p.entity->data.GetAdd(key);
 		}
 		else if (release && p.release) {
 			return p.release->data.GetAdd(key);
 		}
-		else if (song && p.song) {
-			return p.song->data.GetAdd(key);
+		else if (song && p.component) {
+			return p.component->data.GetAdd(key);
 		}
 	}
 	return String();
 }
 
 String TranslatorToolCtrl::GetTranslatedText() const {
-	SongDatabase& db = SongDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	if (trans_key.GetCount()) {
-		if (artist && p.artist) {
-			return p.artist->data.GetAdd(trans_key);
+		if (artist && p.entity) {
+			return p.entity->data.GetAdd(trans_key);
 		}
 		else if (release && p.release) {
 			return p.release->data.GetAdd(trans_key);
 		}
-		else if (song && p.song) {
-			return p.song->data.GetAdd(trans_key);
+		else if (song && p.component) {
+			return p.component->data.GetAdd(trans_key);
 		}
 	}
 	return String();
 }
 
 void TranslatorToolCtrl::OnOriginalChange() {
-	SongDatabase& db = SongDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	String txt = orig.GetData();
 	if (key.GetCount()) {
-		if (artist && p.artist) {
-			p.artist->data.GetAdd(key) = txt;
+		if (artist && p.entity) {
+			p.entity->data.GetAdd(key) = txt;
 		}
 		else if (release && p.release) {
 			p.release->data.GetAdd(key) = txt;
 		}
-		else if (song && p.song) {
-			p.song->data.GetAdd(key) = txt;
+		else if (song && p.component) {
+			p.component->data.GetAdd(key) = txt;
 		}
 	}
 }
 
 void TranslatorToolCtrl::OnTranslatedChange() {
-	SongDatabase& db = SongDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	String txt = trans.GetData();
 	if (trans_key.GetCount()) {
-		if (artist && p.artist) {
-			p.artist->data.GetAdd(trans_key) = txt;
+		if (artist && p.entity) {
+			p.entity->data.GetAdd(trans_key) = txt;
 		}
 		else if (release && p.release) {
 			p.release->data.GetAdd(trans_key) = txt;
 		}
-		else if (song && p.song) {
-			p.song->data.GetAdd(trans_key) = txt;
+		else if (song && p.component) {
+			p.component->data.GetAdd(trans_key) = txt;
 		}
 	}
 }*/
 
 void TranslatorToolCtrl::OnTranslatedRecv() {
 	#if 0
-	SongDatabase& db = SongDatabase::Single();
-	EditorPtrs& p = EditorPtrs::Single();
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	trans.SetData(GetTranslatedText());
 	#endif
@@ -192,4 +196,8 @@ void TranslatorToolCtrl::OnTranslatedRecv() {
 
 
 
+
+
+
+END_TEXTLIB_NAMESPACE
 
