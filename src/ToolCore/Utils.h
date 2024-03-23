@@ -44,6 +44,7 @@ public:
 	TextLib::Component& GetComponent();
 	TextLib::Script& GetScript();
 	TextLib::TaskManager& GetTaskManager();
+	bool IsScript() const;
 	
 /*	SocialLib::Company& GetCompany();
 	SocialLib::Campaign& GetCampaign();
@@ -56,11 +57,11 @@ public:
 	void MakeComponentParts(ArrayCtrl& parts);
 	void GetAttrs(const VectorMap<String,String>& data, VectorMap<String,String>& v);
 	
-	TextDatabase& GetDatabase();
-	EditorPtrs& GetPointers();
-	const Index<String>& GetTypeclasses();
-	const Vector<ContentType>& GetContents();
-	const Vector<String>& GetContentParts();
+	TextDatabase& GetDatabase() const;
+	EditorPtrs& GetPointers() const;
+	const Index<String>& GetTypeclasses() const;
+	const Vector<ContentType>& GetContents() const;
+	const Vector<String>& GetContentParts() const;
 };
 
 

@@ -7,11 +7,16 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 
+bool ToolAppCtrl::IsScript() const {
+	EditorPtrs& p = GetPointers();
+	return p.script != 0;
+}
+
 TextLib::Script& ToolAppCtrl::GetScript() {
 	EditorPtrs& p = GetPointers();
-	if(!p.scripts)
+	if(!p.script)
 		throw NoPointerExc("no scripts");
-	return *p.scripts;
+	return *p.script;
 }
 
 TextLib::Component& ToolAppCtrl::GetComponent() {

@@ -3,6 +3,7 @@ description "\377B128,0,0";
 file
 	ToolCore.h,
 	App.iml,
+	Utils.h,
 	Utils.cpp,
 	OpenAI.h,
 	Json.h,
@@ -14,7 +15,6 @@ file
 	ProtectedCommon.h,
 	Common.h,
 	Common.cpp,
-	Utils.h,
 	Lists.cpp,
 	Color.cpp,
 	ProductionIdeas.cpp,

@@ -41,52 +41,52 @@ ComponentStructure::ComponentStructure() {
 	{
 		params.Add(t_("User's structure"), "");
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetScript().user_structure = e.GetData();};
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().user_structure = e.GetData();};
 	}
 	{
 		params.Add(t_("Required parts"), "");
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetScript().required_parts =  e.GetData();};
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().required_parts =  e.GetData();};
 	}
 	{
 		params.Add(t_("Avoid parts"), "");
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetScript().avoid_parts = e.GetData();};
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().avoid_parts = e.GetData();};
 	}
 	{
 		params.Add(t_("Description for suggestions"), "");
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetScript().structure_suggestion_description = e.GetData();};
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().structure_suggestion_description = e.GetData();};
 	}
 	{
 		params.Add(t_("Parts in total for suggestions"), "");
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetScript().parts_total = e.GetData();};
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().parts_total = e.GetData();};
 	}
 	{
 		params.Add(t_("Song bpm"), "");
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetScript().bpm =  e.GetData(); DataActive(); DataSuggestions();};
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().bpm =  e.GetData(); DataActive(); DataSuggestions();};
 	}
 	{
 		params.Add(t_("Verse length (2 rhymes, 4 bars)"), "");
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetScript().verse_length = e.GetData();};
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().verse_length = e.GetData();};
 	}
 	{
 		params.Add(t_("Pre-chorus length (2 rhymes, 4 bars)"), "");
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetScript().prechorus_length = e.GetData();};
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().prechorus_length = e.GetData();};
 	}
 	{
 		params.Add(t_("Chorus length (2 rhymes, 4 bars)"), "");
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetScript().chorus_length = e.GetData();};
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().chorus_length = e.GetData();};
 	}
 	{
 		params.Add(t_("Bridge length (2 rhymes, 4 bars)"), "");
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
-		e.WhenAction << [this,&e]() {GetScript().bridge_length = e.GetData();};
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().bridge_length = e.GetData();};
 	}
 	
 }

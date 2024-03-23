@@ -343,7 +343,7 @@ void ComponentAnalysis::Load(const String& dir) {
 		phrase_combs[i].Load(dir, "phrase combinations " + IntStr(i));
 	}
 	
-	scripts_suggs.Load(dir, __scripts + " suggestions");
+	script_suggs.Load(dir, __scripts + " suggestions");
 	
 }
 

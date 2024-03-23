@@ -62,8 +62,8 @@ void ScriptInfoCtrl::Data() {
 	Clear();
 	
 	
-	if (p.scripts) {
-		Script& l = *p.scripts;
+	if (p.script) {
+		Script& l = *p.script;
 		
 		copyright.SetData(l.copyright);
 		native_title.SetData(l.native_title);
@@ -79,8 +79,8 @@ void ScriptInfoCtrl::OnValueChange() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
 	
-	if (p.scripts && editor->scripts.IsCursor()) {
-		Script& l = *p.scripts;
+	if (p.script && editor->scripts.IsCursor()) {
+		Script& l = *p.script;
 		
 		l.copyright = copyright.GetData();
 		l.native_title = native_title.GetData();

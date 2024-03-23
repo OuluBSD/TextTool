@@ -136,10 +136,10 @@ void ScriptSolverCtrl::DataSuggestion() {
 void ScriptSolverCtrl::UserScriptChange() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
-	if (!p.scripts)
+	if (!p.script)
 		return;
 	
-	p.scripts->text = scripts.GetData();
+	p.script->text = scripts.GetData();
 }
 
 void ScriptSolverCtrl::GetNewTitle() {

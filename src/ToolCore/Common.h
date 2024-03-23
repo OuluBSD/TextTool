@@ -219,7 +219,7 @@ struct EditorPtrs {
 	TextLib::Component*		component = 0;
 	TextLib::Typeclass*		typecast = 0;
 	TextLib::Content*		archetype = 0;
-	TextLib::Script*		scripts = 0;
+	TextLib::Script*		script = 0;
 	TextLib::StaticPart*	part = 0;
 	TextLib::ToolEditor*	editor = 0;
 	

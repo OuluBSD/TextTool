@@ -247,7 +247,7 @@ void ToolEditor::LoadLast() {
 						p.archetype = &r;
 						for (Script& s : r.scripts) {
 							if (s.file_title == app.last_component) {
-								p.scripts = &s;
+								p.script = &s;
 								for (StaticPart& part : s.parts) {
 									if (part.name == app.last_part) {
 										p.part = &part;
@@ -287,7 +287,7 @@ void ToolEditor::StoreLast() {
 	EditorPtrs& p = GetPointers();
 	app.last_typeclass = p.typecast ? p.typecast->file_title : String();
 	app.last_content = p.archetype ? p.archetype->file_title : String();
-	app.last_scripts = p.scripts ? p.scripts->file_title : String();
+	app.last_scripts = p.script ? p.script->file_title : String();
 	app.last_part = p.part ? p.part->name : String();
 	app.last_entity = p.entity ? p.entity->file_title : String();
 	app.last_snapshot = p.release ? p.release->file_title : String();
@@ -506,7 +506,7 @@ void ToolEditor::DataTypeclass() {
 	if (!typeclasses.IsCursor()) {
 		p.typecast = 0;
 		p.archetype = 0;
-		p.scripts = 0;
+		p.script = 0;
 		DataPage();
 		return;
 	}
@@ -538,7 +538,7 @@ void ToolEditor::DataContent() {
 	EditorPtrs& p = GetPointers();
 	if (!contents.IsCursor()) {
 		p.archetype = 0;
-		p.scripts = 0;
+		p.script = 0;
 		DataPage();
 		return;
 	}
@@ -566,15 +566,15 @@ void ToolEditor::DataScript() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
 	if (!scripts.IsCursor()) {
-		p.scripts = 0;
+		p.script = 0;
 		DataPage();
 		return;
 	}
 	
 	Typeclass& t = *p.typecast;
 	Content& a = *p.archetype;
-	p.scripts = &a.scripts[scripts.GetCursor()];
-	Script& l = *p.scripts;
+	p.script = &a.scripts[scripts.GetCursor()];
+	Script& l = *p.script;
 	
 	
 	DataPage();
@@ -886,7 +886,7 @@ void ToolEditor::AddScript() {
 	l.file_title = MakeTitle(title);
 	l.typeclass = t_i;
 	l.content = a_i;
-	p.scripts = &l;
+	p.script = &l;
 	
 	Data();
 }

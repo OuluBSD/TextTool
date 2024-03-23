@@ -607,16 +607,20 @@ struct PhraseComb : Moveable<PhraseComb> {
 struct ScriptSuggestions : Moveable<ScriptSuggestions> {
 	VectorMap<String,Vector<String>> lines;
 	int rank = -1;
+	Vector<Vector<Vector<int>>> transfers;
+	int scores[2] = {0,0};
 	
 	String StoreToString() {
 		StringDumper d;
 		d % lines % rank;
+		for(int i = 0; i < 2; i++) d % scores[i];
 		return d;
 	}
 	void LoadFromString(const String& s) {
 		StringParser p(s);
 		p % lines;
 		p % rank;
+		for(int i = 0; i < 2; i++) p % scores[i];
 	}
 	String GetText() const;
 };
@@ -627,7 +631,7 @@ struct ComponentAnalysis {
 	MapFile<hash_t,PhrasePart> phrase_parts[ContentType::PART_COUNT];
 	IntIndexFile source_pool[ContentType::PART_COUNT];
 	MapFile<hash_t,PhraseComb> phrase_combs[ContentType::PART_COUNT];
-	MapFile<hash_t,ScriptSuggestions> scripts_suggs;
+	MapFile<hash_t,ScriptSuggestions> script_suggs;
 	
 	void Load(const String& dir);
 };

@@ -9,13 +9,7 @@ class ScriptSolver {
 	enum {
 		LS_BEGIN,
 		LS_FILTER,
-		LS_PRIMARY,
-		LS_COMPARISON,
-		LS_FINETUNING,
-		
-		/*LS_SECONDARY_WORD_CLASS,
-		LS_SECONDARY_FILTER,
-		LS_SECONDARY,*/
+		LS_FILL_LINES,
 		
 		LS_COUNT
 	};
@@ -24,7 +18,7 @@ class ScriptSolver {
 	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
 	int ds_i = 0;
 	Entity* artist = 0;
-	Script* scripts = 0;
+	Script* script = 0;
 		
 	bool waiting = false;
 	bool running = false, stopped = true;
@@ -35,7 +29,7 @@ class ScriptSolver {
 	double dist_limit = 0.005;
 	int primary_count = 50;
 	int rhyming_list_count = 5;
-	int sugg_limit = 8;
+	int sugg_limit = 6;
 	
 	// temp
 	Vector<VectorMap<int,double>> phrase_parts;
@@ -43,18 +37,28 @@ class ScriptSolver {
 	Vector<Tuple2<int,int>> matches;
 	Index<int> remaining;
 	VectorMap<String,int> part_sizes;
+	ComponentAnalysis* sa = 0;
+	Vector<int> phrase_src;
+	String active_part;
 	
 	void Process();
 	void ClearScript();
 	void ProcessFilter();
+	void ProcessFillLines();
 	void ProcessPrimary();
+	void ProcessMakeHoles();
+	void ProcessFillHoles();
 	void ProcessComparison();
 	void OnProcessPrimary(String res);
+	void OnProcessFillLines(String res);
+	void OnProcessMakeHoles(String res);
+	void OnProcessFillHoles(String res);
 	void OnProcessComparison(String res);
 	void PostProgress() {WhenProgress(phase, LS_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}
-	void NextPhase() {phase++; batch = 0;}
+	void MovePhase(int p) {phase = p; batch = 0; sub_batch = 0;}
+	void NextPhase() {phase++; batch = 0; sub_batch = 0;}
 	void NextBatch() {batch++; sub_batch = 0;}
 	void NextSubBatch() {sub_batch++;}
 	

@@ -2648,9 +2648,7 @@ void AiTask::CreateInput_ScriptSolver() {
 		return;
 	}
 	
-	TODO
-	#if 0
-	LyricsSolverArgs args;
+	ScriptSolverArgs args;
 	args.Put(this->args[0]);
 	
 	// Color
@@ -2959,7 +2957,87 @@ void AiTask::CreateInput_ScriptSolver() {
 			results.Title("Novel new name for the previous song");
 		}
 	}
-	#endif
+	else if (args.fn == 9) {
+		{
+			auto& list = input.AddSub().Title("Lyrics of the Song A");
+			list.NumberedLines();
+			list.Add("I am a guy who likes cars and bitches");
+			list.Add("Cars give me a rush of adrenaline, and bitches give me a rush of dopamine");
+			list.Add("Apples are interesting");
+		}
+		{
+			auto& list = input.AddSub().Title("Scoring of transfer of lines 1-3 of the Song A. Value is 0-10");
+			list.Add("from line 1 to line 2: coherency of the story: 7, semantic and contextual accuracy: 8");
+			list.Add("from line 2 to line 3: coherency of the story: 5, semantic and contextual accuracy: 7");
+			list.Add("from line 1 to line 3: coherency of the story: 5, semantic and contextual accuracy: 6");
+		}
+		{
+			auto& list = input.AddSub().Title("Shortened scoring of transfer of lines 1-3 of the Song A. Value is 0-10");
+			list.NumberedLines();
+			list.Add("1 to 2: 7, 8");
+			list.Add("2 to 3: 5, 7");
+			//list.Add("1 to 3: 5, 6");
+		}
+		{
+			auto& list = input.AddSub().Title("Lyrics of the Song B");
+			list.NumberedLines();
+			for (String& l : args.phrases)
+				list.Add(l);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Shortened scoring of transfer of lines 1-" + IntStr(args.phrases.GetCount()) + " of the Song B. Value is 0-10");
+			results.NumberedLines();
+			results.Add("1 to 2:");
+		}
+	}
+	
+	else if (args.fn == 10) {
+		{
+			auto& list = input.AddSub().Title("Song \"A\": known lyrics so far");
+			list.NoListChar();
+			for(int i = 0; i < args.song.GetCount(); i++) {
+				const Vector<String> lines = Split(args.song[i], "\n");
+				if (lines.IsEmpty())
+					continue;
+				list.Add(args.song.GetKey(i) + ":");
+				for(int j = 0; j < lines.GetCount(); j++)
+					list.Add("\t" + lines[j]);
+			}
+		}
+		{
+			auto& list = input.AddSub().Title("Song \"A\": Potential phrases");
+			list.NumberedLines();
+			for(int j = 0; j < args.phrases.GetCount(); j++) {
+				const String& phrase = args.phrases[j];
+				list.Add(phrase);
+			}
+		}
+		{
+			auto& list = input.AddSub().Title("Song \"A\" should fit the following vision of the song");
+			Vector<String> lines = Split(args.vision, ". ");
+			for (String& l : lines)
+				list.Add(l);
+		}
+		{
+			auto& list = input.AddSub().Title("Song \"A\": properties of additional line/phrases for the best song");
+			list.Add("high coherency of the story");
+			list.Add("high semantic and contextual accuracy");
+			list.Add("idea: high like count");
+			list.Add("emotion: high comment count");
+			list.Add("hook: high listen count");
+			list.Add("relatability: high share count");
+			list.Add("value: high bookmark count");
+			list.Add("also highly: funny, sensual, thought provoking, romantic, impactful");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Song \"A\": Add line/phrase to the part '" + args.part + "' in a way, that the story of the song is best");
+			results.NumberedLines();
+			results.Add("phrase: \"");
+		}
+		input.response_length = 2048;
+	}
 	
 }
 
