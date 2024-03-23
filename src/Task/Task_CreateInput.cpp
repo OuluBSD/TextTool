@@ -382,7 +382,7 @@ void AiTask::CreateInput_GetColorIdea() {
 	
 }
 
-void AiTask::CreateInput_GetTextDataAnalysis() {
+void AiTask::CreateInput_GetSourceDataAnalysis() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;

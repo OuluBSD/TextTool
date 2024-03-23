@@ -52,8 +52,8 @@ void ActionTransitionsPage::ToolMenu(Bar& bar) {
 
 void ActionTransitionsPage::DataMain() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -71,8 +71,8 @@ void ActionTransitionsPage::DataDataset() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -107,8 +107,8 @@ void ActionTransitionsPage::DataAction() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -141,8 +141,8 @@ void ActionTransitionsPage::DataActionHeader() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	

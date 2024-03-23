@@ -2,7 +2,7 @@
 
 #if 0
 
-TextDataAnalysisPage::TextDataAnalysisPage() {
+SourceDataAnalysisPage::SourceDataAnalysisPage() {
 	Add(hsplit.HSizePos().VSizePos(0,30));
 	Add(prog.HSizePos().BottomPos(0,30));
 	hsplit.Horz() << list << analysis;
@@ -19,19 +19,19 @@ TextDataAnalysisPage::TextDataAnalysisPage() {
 	prog.Set(0, 1);
 }
 
-void TextDataAnalysisPage::DisableAll() {
+void SourceDataAnalysisPage::DisableAll() {
 	disabled = true;
 	list.Disable();
 	analysis.Disable();
 }
 
-void TextDataAnalysisPage::EnableAll() {
+void SourceDataAnalysisPage::EnableAll() {
 	disabled = false;
 	list.Enable();
 	analysis.Enable();
 }
 
-void TextDataAnalysisPage::ToolMenu(Bar& bar) {
+void SourceDataAnalysisPage::ToolMenu(Bar& bar) {
 	//bar.Add(t_("Get rhymes"), AppImg::BlueRing(), THISBACK2(GetRhymes, -1, false)).Key(K_CTRL_Q);
 	bar.Add(t_("Get words"), AppImg::BlueRing(), THISBACK2(GetWords, -1, false)).Key(K_CTRL_W);
 	bar.Add(t_("Get attribute distributions"), AppImg::BlueRing(), THISBACK2(GetAttributeDistributions, -1, false)).Key(K_CTRL_E);
@@ -46,7 +46,7 @@ void TextDataAnalysisPage::ToolMenu(Bar& bar) {
 	
 }
 
-void TextDataAnalysisPage::StartBatch() {
+void SourceDataAnalysisPage::StartBatch() {
 	if (disabled)
 		return;
 	batch = true;
@@ -55,7 +55,7 @@ void TextDataAnalysisPage::StartBatch() {
 
 #if 0
 
-void TextDataAnalysisPage::GetRhymes(int list_i, bool start_next) {
+void SourceDataAnalysisPage::GetRhymes(int list_i, bool start_next) {
 	if (disabled)
 		return;
 	if (list_i < 0) {
@@ -84,17 +84,17 @@ void TextDataAnalysisPage::GetRhymes(int list_i, bool start_next) {
 	
 	Component& song = GetComponent();
 	
-	TextDataAnalysisArgs args;
+	SourceDataAnalysisArgs args;
 	args.fn = 0;
 	args.artist = t.artist;
 	args.song = t.song;
 	args.text = t.text;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetTextDataAnalysis(args, THISBACK2(OnRhymes, list_i, start_next));
+	m.GetSourceDataAnalysis(args, THISBACK2(OnRhymes, list_i, start_next));
 }
 
-void TextDataAnalysisPage::OnRhymes(String res, int list_i, bool start_next) {
+void SourceDataAnalysisPage::OnRhymes(String res, int list_i, bool start_next) {
 	PostCallback(THISBACK(EnableAll));
 	
 	Task& t = tasks[list_i];
@@ -139,7 +139,7 @@ void TextDataAnalysisPage::OnRhymes(String res, int list_i, bool start_next) {
 
 #endif
 
-void TextDataAnalysisPage::GetWords(int list_i, bool start_next) {
+void SourceDataAnalysisPage::GetWords(int list_i, bool start_next) {
 	if (disabled || Thread::IsShutdownThreads())
 		return;
 	bool forced = false;
@@ -170,17 +170,17 @@ void TextDataAnalysisPage::GetWords(int list_i, bool start_next) {
 	
 	Component& song = GetComponent();
 	
-	TextDataAnalysisArgs args;
+	SourceDataAnalysisArgs args;
 	args.fn = 1;
 	args.artist = t.artist;
 	args.song = t.song;
 	args.text = t.text;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetTextDataAnalysis(args, THISBACK2(OnWords, list_i, start_next));
+	m.GetSourceDataAnalysis(args, THISBACK2(OnWords, list_i, start_next));
 }
 
-void TextDataAnalysisPage::OnWords(String res, int list_i, bool start_next) {
+void SourceDataAnalysisPage::OnWords(String res, int list_i, bool start_next) {
 	PostCallback(THISBACK(EnableAll));
 	
 	if (Thread::IsShutdownThreads())
@@ -257,7 +257,7 @@ void TextDataAnalysisPage::OnWords(String res, int list_i, bool start_next) {
 	}
 }
 
-void TextDataAnalysisPage::GetAttributeDistributions(int list_i, bool start_next) {
+void SourceDataAnalysisPage::GetAttributeDistributions(int list_i, bool start_next) {
 	if (disabled || Thread::IsShutdownThreads())
 		return;
 	bool forced = false;
@@ -289,17 +289,17 @@ void TextDataAnalysisPage::GetAttributeDistributions(int list_i, bool start_next
 	
 	Component& song = GetComponent();
 	
-	TextDataAnalysisArgs args;
+	SourceDataAnalysisArgs args;
 	args.fn = 2;
 	args.artist = t.artist;
 	args.song = t.song;
 	args.text = t.text;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetTextDataAnalysis(args, THISBACK2(OnRoleDistributions, list_i, start_next));
+	m.GetSourceDataAnalysis(args, THISBACK2(OnRoleDistributions, list_i, start_next));
 }
 
-void TextDataAnalysisPage::OnRoleDistributions(String res, int list_i, bool start_next) {
+void SourceDataAnalysisPage::OnRoleDistributions(String res, int list_i, bool start_next) {
 	PostCallback(THISBACK(EnableAll));
 	
 	if (Thread::IsShutdownThreads())
@@ -383,7 +383,7 @@ void TextDataAnalysisPage::OnRoleDistributions(String res, int list_i, bool star
 
 #if 0
 
-void TextDataAnalysisPage::GetRhymeLocations(int list_i, bool start_next) {
+void SourceDataAnalysisPage::GetRhymeLocations(int list_i, bool start_next) {
 	if (disabled)
 		return;
 	if (list_i < 0) {
@@ -414,17 +414,17 @@ void TextDataAnalysisPage::GetRhymeLocations(int list_i, bool start_next) {
 	
 	Component& song = GetComponent();
 	
-	TextDataAnalysisArgs args;
+	SourceDataAnalysisArgs args;
 	args.fn = 3;
 	args.artist = t.artist;
 	args.song = t.song;
 	args.text = t.text;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetTextDataAnalysis(args, THISBACK2(OnRhymeLocations, list_i, start_next));
+	m.GetSourceDataAnalysis(args, THISBACK2(OnRhymeLocations, list_i, start_next));
 }
 
-void TextDataAnalysisPage::OnRhymeLocations(String res, int list_i, bool start_next) {
+void SourceDataAnalysisPage::OnRhymeLocations(String res, int list_i, bool start_next) {
 	PostCallback(THISBACK(EnableAll));
 	
 	Task& t = tasks[list_i];
@@ -465,7 +465,7 @@ void TextDataAnalysisPage::OnRhymeLocations(String res, int list_i, bool start_n
 
 #endif
 
-void TextDataAnalysisPage::Data() {
+void SourceDataAnalysisPage::Data() {
 	if (tasks.GetCount() == 0)
 		UpdateTasks();
 	
@@ -481,7 +481,7 @@ void TextDataAnalysisPage::Data() {
 	DataTask();
 }
 
-void TextDataAnalysisPage::DataTask() {
+void SourceDataAnalysisPage::DataTask() {
 	analysis.Clear();
 	
 	if (!list.IsCursor()) {
@@ -497,10 +497,10 @@ void TextDataAnalysisPage::DataTask() {
 	}
 }
 
-void TextDataAnalysisPage::UpdateTasks() {
+void SourceDataAnalysisPage::UpdateTasks() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	tasks.Clear();
 	

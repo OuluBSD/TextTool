@@ -37,8 +37,8 @@ VirtualPhraseParts::VirtualPhraseParts() {
 
 void VirtualPhraseParts::Data() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
 		datasets.Set(i, 0, sda.datasets.GetKey(i));
@@ -52,7 +52,7 @@ void VirtualPhraseParts::Data() {
 
 void VirtualPhraseParts::DataDataset() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
+	SourceData& sd = db.src_data;
 	
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sd.a.datasets[ds_i];

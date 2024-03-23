@@ -125,8 +125,8 @@ void ScriptEditor::Data() {
 
 void ScriptEditor::DataPhrase() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	
@@ -190,8 +190,8 @@ void ScriptEditor::DataPhrase() {
 
 void ScriptEditor::DataDoActions() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	uniq_acts.Clear();
@@ -222,8 +222,8 @@ void ScriptEditor::DataDoActions() {
 
 void ScriptEditor::DataAction() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	if (!actions.IsCursor()) {
@@ -258,8 +258,8 @@ void ScriptEditor::DataAction() {
 
 void ScriptEditor::DataActionHeader() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	
@@ -431,8 +431,8 @@ void ScriptEditor::CopyPronounciationToClipboard() {
 
 void ScriptEditor::SetPhrase() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	
@@ -471,8 +471,8 @@ void ScriptEditor::MovePhrase(int i) {
 #if 0
 void ScriptEditor::GetSuggestionsAI() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	

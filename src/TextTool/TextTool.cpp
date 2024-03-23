@@ -4,17 +4,25 @@
 GUI_APP_MAIN {
 	using namespace TextLib;
 	
-	bool have_all = true;
-	bool have_song = 0, have_social = 0;
-	
+	Index<int> appmodes;
 	for (const String& s : CommandLine()) {
-		if (s == "-social") {have_all = false; have_social = true;}
-		if (s == "-song") {have_all = false; have_song = true;}
+		if (s == "-song") {appmodes << DB_SONG;}
+		if (s == "-social") {appmodes << DB_SOCIAL;}
 	}
 	
 	GuiStartup();
-	if (have_all || have_song)		SongStartup();
-	if (have_all || have_social)	SocialStartup();
+	
+	if (appmodes.IsEmpty())
+		for(int i = 0; i < DB_COUNT; i++)
+			appmodes.Add(i);
+	
+	for (int appmode : appmodes.GetKeys()) {
+		switch (appmode) {
+			case DB_SONG: SongStartup(); break;
+			case DB_SOCIAL: SocialStartup(); break;
+			default: break;
+		}
+	};
 	
 	
 	// Run main program
@@ -23,6 +31,7 @@ GUI_APP_MAIN {
 	{
 		TextTool t;
 		
+		t.GetEditor().InitAppModes(appmodes);
 		t.GetEditor().InitSimplified();
 		
 		t.Run();
@@ -33,6 +42,11 @@ GUI_APP_MAIN {
 	
 	Thread::ShutdownThreads();
 	
-	if (have_all || have_social)	SocialShutdown(fast_exit, save_songdata);
-	if (have_all || have_song)		SongShutdown(fast_exit, save_songdata);
+	for (int appmode : appmodes.GetKeys()) {
+		switch (appmode) {
+			case DB_SONG: SongShutdown(fast_exit, save_songdata); break;
+			case DB_SOCIAL: SocialShutdown(fast_exit, save_songdata); break;
+			default: break;
+		}
+	};
 }

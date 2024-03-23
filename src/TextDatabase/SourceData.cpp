@@ -5,33 +5,33 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-TextData::TextData() {
+SourceData::SourceData() {
 	
 }
 
-void TextData::Store() {
+void SourceData::Store() {
 	StoreToFile(*this, ConfigFile(__Comp + "Data.bin"));
 }
 
-void TextData::Load() {
+void SourceData::Load() {
 	LoadFromFile(*this, ConfigFile(__Comp + "Data.bin"));
 }
 
-void TextData::Serialize(Stream& s) {
+void SourceData::Serialize(Stream& s) {
 	s % entities_en % entities_fi;
 }
 
-/*void TextData::StoreJson() {
+/*void SourceData::StoreJson() {
 	String dir = GetDatabase().dir;
 	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + __Comp + "Data.json", true);
 }
 
-void TextData::LoadJson() {
+void SourceData::LoadJson() {
 	String dir = GetDatabase().dir;
 	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + __Comp + "Data.json");
 }
 
-void TextData::Jsonize(JsonIO& json) {
+void SourceData::Jsonize(JsonIO& json) {
 	json
 		("entities_en", entities_en)
 		("entities_fi", entities_fi)
@@ -40,17 +40,17 @@ void TextData::Jsonize(JsonIO& json) {
 
 
 
-void TextDataAnalysis::Store() {
+void SourceDataAnalysis::Store() {
 	StoreToFile(*this, ConfigFile(__Comp + "Data_Analysis.bin"));
 	StoreJson();
 }
 
-void TextDataAnalysis::Load() {
+void SourceDataAnalysis::Load() {
 	LoadFromFile(*this, ConfigFile(__Comp + "Data_Analysis.bin"));
 	if (datasets.IsEmpty())
 		LoadJson();
 	
-	TextData& sd = GetAppModeDatabase().src_data;
+	SourceData& sd = GetAppModeDatabase().src_data;
 	for(int i = 0; i < sd.GetCount(); i++) {
 		String key = sd.GetKey(i);
 		auto& ds = sd.a.datasets.GetAdd(key);
@@ -58,17 +58,17 @@ void TextDataAnalysis::Load() {
 	}
 }
 
-void TextDataAnalysis::StoreJson() {
+void SourceDataAnalysis::StoreJson() {
 	String dir = GetAppModeDatabase().dir;
 	StoreAsJsonFileStandard(*this, ConfigFile(__Comp + "Data.json"), false);
 }
 
-void TextDataAnalysis::LoadJson() {
+void SourceDataAnalysis::LoadJson() {
 	#if 0
 	DatasetAnalysis da;
 	LoadFromJsonFileStandard(da, ConfigFile(__Comp + "Data.json"));
 	
-	TextData& sd = GetAppModeDatabase().src_data;
+	SourceData& sd = GetAppModeDatabase().src_data;
 	for(int j = 0; j < sd.GetCount(); j++) {
 		DatasetAnalysis& tgt = datasets.GetAdd(sd.GetKey(j));
 		
@@ -256,8 +256,8 @@ DatasetAnalysis::DatasetAnalysis() {
 
 void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	TextDatabase& db = GetAppModeDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	String dir = AppendFileName(db.dir, "share" DIR_SEPS + __comp + "data");
 	RealizeDirectory(dir);
@@ -313,8 +313,8 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 
 ComponentAnalysis& DatasetAnalysis::GetComponentAnalysis(const String& name) {
 	TextDatabase& db = GetAppModeDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	String dir = AppendFileName(db.dir, "share" DIR_SEPS + __comp + "data");
 	RealizeDirectory(dir);

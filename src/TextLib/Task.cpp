@@ -6,7 +6,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 void Task::UpdateBatches(int appmode, int per_batch) {
 	TextDatabase& db = GetAppModeDatabase(appmode);
-	TextData& sd = db.src_data;
+	SourceData& sd = db.src_data;
 	
 	batches.SetCount(0);
 	batches.Reserve(1000);

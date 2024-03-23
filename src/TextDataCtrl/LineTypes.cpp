@@ -48,8 +48,8 @@ void LineTypesPage::Data() {
 
 void LineTypesPage::DataMain() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -67,8 +67,8 @@ void LineTypesPage::DataDataset() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -104,8 +104,8 @@ void LineTypesPage::DataStructure() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -142,8 +142,8 @@ void LineTypesPage::DataStructureHeader() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -208,7 +208,7 @@ void LineTypesPage::ToolMenu(Bar& bar) {
 
 void LineTypesPage::UpdateBatches() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
+	SourceData& sd = db.src_data;
 	
 	batches.SetCount(0);
 	batches.Reserve(1000);
@@ -293,16 +293,16 @@ void LineTypesPage::GetLineStructures(int batch_i) {
 	Batch& batch = batches[batch_i];
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
-	TextDataAnalysisArgs args;
+	SourceDataAnalysisArgs args;
 	args.fn = 13;
 	args.phrases <<= Split(batch.txt, "\n");
 	
 	TextLib::TaskManager& tm = GetTaskManager();
 	TaskMgr& m = tm.MakePipe();
-	m.GetTextDataAnalysis(args, THISBACK1(OnLineStructures, batch_i), true);
+	m.GetSourceDataAnalysis(args, THISBACK1(OnLineStructures, batch_i), true);
 }
 
 void LineTypesPage::OnLineStructures(String res, int batch_i) {
@@ -311,8 +311,8 @@ void LineTypesPage::OnLineStructures(String res, int batch_i) {
 	
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	Batch& batch = batches[batch_i];
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	
@@ -398,11 +398,11 @@ void LineTypesPage::GetStructureColors(int batch_i) {
 	int end = begin + per_color_batch;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
-	TextDataAnalysisArgs args;
+	SourceDataAnalysisArgs args;
 	args.fn = 14;
 	
 	end = min(end, da.structure_types.GetCount());
@@ -414,7 +414,7 @@ void LineTypesPage::GetStructureColors(int batch_i) {
 	
 	TextLib::TaskManager& tm = GetTaskManager();
 	TaskMgr& m = tm.MakePipe();
-	m.GetTextDataAnalysis(args, THISBACK1(OnStructureColors, batch_i), true);
+	m.GetSourceDataAnalysis(args, THISBACK1(OnStructureColors, batch_i), true);
 }
 
 void LineTypesPage::OnStructureColors(String res, int batch_i) {
@@ -422,8 +422,8 @@ void LineTypesPage::OnStructureColors(String res, int batch_i) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	Batch& batch = batches[batch_i];
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	

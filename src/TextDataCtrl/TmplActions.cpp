@@ -66,8 +66,8 @@ void SongDataTmplActions::Data() {
 
 void SongDataTmplActions::DataMain() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -141,8 +141,8 @@ void SongDataTmplActions::DataColor() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -203,8 +203,8 @@ void SongDataTmplActions::DataMatches() {
 	}
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	int phrase_i = phrases.Get("IDX");
@@ -264,8 +264,8 @@ void SongDataTmplActions::ToolMenu(Bar& bar) {
 
 void SongDataTmplActions::UpdateBatches() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	batches.SetCount(0);
 	batches.Reserve(1000);
@@ -307,8 +307,8 @@ void SongDataTmplActions::ToggleGettingLineActions() {
 	if (running0) {
 		if (0) {
 			TextDatabase& db = GetDatabase();
-			TextData& sd = db.src_data;
-			TextDataAnalysis& sda = db.src_data.a;
+			SourceData& sd = db.src_data;
+			SourceDataAnalysis& sda = db.src_data.a;
 			for (DatasetAnalysis& da : sda.datasets) {
 				da.action_phrases.Clear();
 			}
@@ -330,16 +330,16 @@ void SongDataTmplActions::GetLineActions(int batch_i) {
 	tmp_batch_i = batch_i;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
-	TextDataAnalysisArgs args;
+	SourceDataAnalysisArgs args;
 	args.fn = 12;
 	args.phrases <<= Split(batch.txt, "\n");
 	
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetTextDataAnalysis(args, THISBACK1(OnLineActions, batch_i));
+	m.GetSourceDataAnalysis(args, THISBACK1(OnLineActions, batch_i));
 }
 
 void SongDataTmplActions::OnLineActions(String res, int batch_i) {
@@ -347,8 +347,8 @@ void SongDataTmplActions::OnLineActions(String res, int batch_i) {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	Batch& batch = batches[tmp_batch_i];
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	

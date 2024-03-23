@@ -48,9 +48,9 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		;
 	
 	AddRule(AITASK_GET_SONG_DATA_ANALYSIS, "get song data analysis")
-		.Input(&AiTask::CreateInput_GetTextDataAnalysis)
+		.Input(&AiTask::CreateInput_GetSourceDataAnalysis)
 			.Arg(V_ARGS, 1, 1)
-		.Process(&AiTask::Process_GetTextDataAnalysis)
+		.Process(&AiTask::Process_GetSourceDataAnalysis)
 		;
 	
 	AddRule(AITASK_GET_ACTION_ANALYSIS, "get action analysis")
@@ -319,7 +319,7 @@ void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResul
 	t.WhenError << WhenError;
 }
 
-void TaskMgr::GetTextDataAnalysis(const TextDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
+void TaskMgr::GetSourceDataAnalysis(const SourceDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	const TaskRule& r = mgr.GetRule(AITASK_GET_SONG_DATA_ANALYSIS);
 	TaskMgr& p = *this;

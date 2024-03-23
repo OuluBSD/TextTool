@@ -19,8 +19,8 @@ TextDataDiagnostics::TextDataDiagnostics() {
 
 void TextDataDiagnostics::Data() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
 		datasets.Set(i, 0, sda.datasets.GetKey(i));

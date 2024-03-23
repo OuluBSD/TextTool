@@ -6,8 +6,8 @@ BEGIN_TEXTLIB_NAMESPACE
 
 void DatabaseBrowser::SetColor2(int i) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	if (color_counts.IsEmpty()) {
@@ -48,8 +48,8 @@ void DatabaseBrowser::SetColor2(int i) {
 
 void DatabaseBrowser::SetGroup2(int i) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	ColorGroup& cg = colors[cursor[1]];
@@ -113,8 +113,8 @@ void DatabaseBrowser::SetGroup2(int i) {
 
 void DatabaseBrowser::SetValue2(int i) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	ColorGroup& cg = colors[cursor[1]];
@@ -156,8 +156,8 @@ void DatabaseBrowser::SetValue2(int i) {
 
 void DatabaseBrowser::SetAttr2(int i) {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	ColorGroup& cg = colors[cursor[1]];
@@ -264,8 +264,8 @@ void DatabaseBrowser::DataValue2() {
 
 void DatabaseBrowser::DataAttr2() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	data.SetCount(0);

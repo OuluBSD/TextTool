@@ -59,7 +59,7 @@ void AiTask::Process_GetContextIdea() {
 	WhenResult(output);
 }
 
-void AiTask::Process_GetTextDataAnalysis() {
+void AiTask::Process_GetSourceDataAnalysis() {
 	WhenResult(output);
 }
 

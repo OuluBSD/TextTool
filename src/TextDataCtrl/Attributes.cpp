@@ -35,8 +35,8 @@ Attributes::Attributes() {
 
 void Attributes::Data() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
@@ -51,8 +51,8 @@ void Attributes::Data() {
 
 void Attributes::DataDataset() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
@@ -107,8 +107,8 @@ void Attributes::DataDataset() {
 
 void Attributes::DataGroup() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	

@@ -187,7 +187,7 @@ public:
 	void CreateInput_GetStructureSuggestions();
 	void CreateInput_GetSuggestionAttributes();
 	void CreateInput_GetColorIdea();
-	void CreateInput_GetTextDataAnalysis();
+	void CreateInput_GetSourceDataAnalysis();
 	void CreateInput_GetActionAnalysis();
 	void CreateInput_GetScriptPhrase();
 	void CreateInput_GetTokenData();
@@ -235,7 +235,7 @@ public:
 	void Process_GetVocabularyIdea();
 	void Process_GetWordSaladIdea();
 	void Process_GetContextIdea();
-	void Process_GetTextDataAnalysis();
+	void Process_GetSourceDataAnalysis();
 	void Process_GetActionAnalysis();
 	void Process_GetScriptPhrase();
 	void Process_GetAttributes();

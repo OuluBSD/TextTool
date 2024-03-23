@@ -47,7 +47,7 @@ void TextDataWords::DisableAll() {
 
 void TextDataWords::Data() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
+	SourceData& sd = db.src_data;
 	
 	datasets.SetCount(sd.GetCount());
 	for(int i = 0; i < sd.GetCount(); i++) {
@@ -68,8 +68,8 @@ void TextDataWords::DataMain() {
 
 void TextDataWords::DataDataset() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	if (!datasets.IsCursor())
 		return;
@@ -97,8 +97,8 @@ void TextDataWords::DataDataset() {
 
 void TextDataWords::DataColor() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	if (!datasets.IsCursor() || !colors.IsCursor())
 		return;
@@ -213,8 +213,8 @@ void TextDataWords::ToolMenu(Bar& bar) {
 
 /*void TextDataWords::UpdateWordFlagGroups() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	Index<String> unique_wordgroups;
 	
@@ -257,8 +257,8 @@ void TextDataWords::ToolMenu(Bar& bar) {
 
 /*void TextDataWords::UpdateWordFlags() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
 		String ds_key = sd.GetKey(ds_i);
@@ -285,8 +285,8 @@ void TextDataWords::ToolMenu(Bar& bar) {
 
 void TextDataWords::DumpWordGroups() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	Index<int> main_classes;
 	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
@@ -312,8 +312,8 @@ void TextDataWords::DumpWordGroups() {
 
 void TextDataWords::DumpPhoneticChars() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	Index<WString> chars;
 	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {

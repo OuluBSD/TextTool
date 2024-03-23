@@ -84,7 +84,7 @@ struct TaskMgr {
 	void GetVocabularyIdea(const VocabularyIdeaArgs& args, Event<String> WhenResult);
 	void GetWordSaladIdea(const WordSaladIdeaArgs& args, Event<String> WhenResult);
 	void GetContextIdea(const ContextIdeaArgs& args, Event<String> WhenResult);
-	void GetTextDataAnalysis(const TextDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going=false);
+	void GetSourceDataAnalysis(const SourceDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going=false);
 	void GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> WhenResult);
 	void GetScriptPhrase(const ScriptPhraseArgs& args, Event<String> WhenResult);
 	void GetTokenData(const TokenArgs& args, Event<String> WhenResult);

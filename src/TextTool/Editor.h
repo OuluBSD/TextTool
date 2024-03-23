@@ -75,6 +75,7 @@ public:
 	ToolEditor(TextTool* app);
 	
 	void Serialize(Stream& s) {s % page_group % page % save_songdata;}
+	void InitAppModes(const Index<int>& appmodes);
 	void Init();
 	void SwitchAppMode();
 	void ViewPageGroup();

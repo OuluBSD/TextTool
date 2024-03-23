@@ -1,10 +1,10 @@
-#ifndef _TextDataCtrl_TextDataAnalysisPage_h_
-#define _TextDataCtrl_TextDataAnalysisPage_h_
+#ifndef _TextDataCtrl_SourceDataAnalysisPage_h_
+#define _TextDataCtrl_SourceDataAnalysisPage_h_
 
 #if 0
 
 
-class TextDataAnalysisPage : public ToolAppCtrl {
+class SourceDataAnalysisPage : public ToolAppCtrl {
 	struct Task : Moveable<Task> {
 		String artist, song, text;
 		ScriptDataset* ld = 0;
@@ -23,8 +23,8 @@ private:
 	bool batch = false;
 	bool disabled = false;
 public:
-	typedef TextDataAnalysisPage CLASSNAME;
-	TextDataAnalysisPage();
+	typedef SourceDataAnalysisPage CLASSNAME;
+	SourceDataAnalysisPage();
 	
 	void DisableAll();
 	void EnableAll();

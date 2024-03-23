@@ -37,8 +37,8 @@ LineStructureEditor::LineStructureEditor() {
 
 void LineStructureEditor::Data() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	Component& song = GetComponent();
 	int part_i = parts.GetCursor();
@@ -64,8 +64,8 @@ void LineStructureEditor::Data() {
 
 void LineStructureEditor::DataPart() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	if (!parts.IsCursor()) {
@@ -128,7 +128,7 @@ void LineStructureEditor::ToolMenu(Bar& bar) {
 
 void LineStructureEditor::UpdateSuggestions() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
+	SourceData& sd = db.src_data;
 	DatasetAnalysis& da = sd.a.datasets[ds_i];
 	
 	if (part_sugs.IsEmpty()) {

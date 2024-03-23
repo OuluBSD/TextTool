@@ -100,8 +100,8 @@ void ActionEditor::Data() {
 	
 	{
 		TextDatabase& db = GetDatabase();
-		TextData& sd = db.src_data;
-		TextDataAnalysis& sda = db.src_data.a;
+		SourceData& sd = db.src_data;
+		SourceDataAnalysis& sda = db.src_data.a;
 		DatasetAnalysis& da = sda.datasets[ds_i];
 				
 		uniq_acts.Clear();
@@ -173,8 +173,8 @@ void ActionEditor::DataThread() {
 	}
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	if (!parts.IsCursor() || !thrds.IsCursor()) {
@@ -228,8 +228,8 @@ void ActionEditor::DataSuggestions() {
 	}
 	
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	
@@ -444,8 +444,8 @@ void ActionEditor::DataSuggestions() {
 
 void ActionEditor::DataAction() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	
@@ -534,8 +534,8 @@ void ActionEditor::DataComponent() {
 
 void ActionEditor::AddAction() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	if (!args.IsCursor()) return;

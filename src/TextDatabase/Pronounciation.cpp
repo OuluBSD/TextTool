@@ -20,8 +20,8 @@ void EnglishPronounciation::Clear() {
 
 bool EnglishPronounciation::Parse(const String& s) {
 	TextDatabase& db = GetAppModeDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	if (sda.datasets.IsEmpty())
 		return false;
 	String ds_key = sd.GetKey(0);

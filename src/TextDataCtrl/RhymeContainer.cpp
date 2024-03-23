@@ -90,8 +90,8 @@ void RhymeContainerPage::DisableAll() {
 
 void RhymeContainerPage::Data() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	for(int i = 0; i < sda.datasets.GetCount(); i++) {
 		datasets.Set(i, 0, sda.datasets.GetKey(i));
@@ -175,8 +175,8 @@ void RhymeContainerPage::Data() {
 
 void RhymeContainerPage::DataAction() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	if (!datasets.IsCursor() || !syl_counts.IsCursor() || !colors.IsCursor() ||
 		!attrs.IsCursor() || !actions.IsCursor()) {
@@ -218,8 +218,8 @@ void RhymeContainerPage::ManualData() {
 
 void RhymeContainerPage::MainData() {
 	TextDatabase& db = GetDatabase();
-	TextData& sd = db.src_data;
-	TextDataAnalysis& sda = db.src_data.a;
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
 	
 	if (!datasets.IsCursor() || !syl_counts.IsCursor() || !colors.IsCursor() ||
 		!attrs.IsCursor() || !actions.IsCursor()) {

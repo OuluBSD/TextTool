@@ -31,12 +31,12 @@ struct Translation : Moveable<Translation> {
 
 
 struct TextDatabase {
-	// Public
+	// Share
 	Array<Entity>	entities;
 	VectorMap<String, Translation> translation;
 	
-	// Local (separate)
-	TextData		src_data;
+	// Source
+	SourceData		src_data;
 	
 	// Temp
 	String			dir;

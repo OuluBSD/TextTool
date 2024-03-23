@@ -1,5 +1,5 @@
-#ifndef _TextDatabase_TextData_h_
-#define _TextDatabase_TextData_h_
+#ifndef _TextDatabase_SourceData_h_
+#define _TextDatabase_SourceData_h_
 
 
 BEGIN_TEXTLIB_NAMESPACE
@@ -723,7 +723,7 @@ struct DatasetAnalysis {
 	
 };
 
-struct TextDataAnalysis {
+struct SourceDataAnalysis {
 	ArrayMap<String, DatasetAnalysis> datasets;
 	
 	void Jsonize(JsonIO& json) {
@@ -742,15 +742,15 @@ struct TextDataAnalysis {
 	void Load();
 };
 
-struct TextData {
+struct SourceData {
 	// Binary data
 	Vector<EntityDataset> entities_en;
 	Vector<EntityDataset> entities_fi;
 	
-	TextDataAnalysis a;
+	SourceDataAnalysis a;
 	
 	
-	TextData();
+	SourceData();
 	int GetCount() const {return 2;}
 	Vector<EntityDataset>& operator[](int i) {
 		switch (i) {

@@ -25,12 +25,6 @@ ToolEditor::ToolEditor(TextTool* app) : app(*app) {
 	snaps.WhenBar << THISBACK(SnapshotMenu);
 	components.WhenBar << THISBACK(SongMenu);
 	
-	appmode_list.AddColumn(t_("Appmode"));
-	for(int i = 0; i < DB_COUNT; i++)
-		appmode_list.Add(GetAppModeString(i));
-	appmode_list.SetCursor(0);
-	appmode_list <<= THISBACK(SwitchAppMode);
-	
 	page_group_list.AddColumn(t_("Page group"));
 	page_group_list <<= THISBACK(ViewPageGroup);
 	
@@ -73,6 +67,16 @@ ToolEditor::ToolEditor(TextTool* app) : app(*app) {
 	for(int i = 0; i < DB_COUNT; i++) {
 		MetaPtrs::Single().db[i].editor = this;
 	}
+}
+
+void ToolEditor::InitAppModes(const Index<int>& appmodes) {
+	appmode_list.AddColumn(t_("Appmode"));
+	for(int i = 0; i < appmodes.GetCount(); i++)
+		appmode_list.Add(GetAppModeString(appmodes[i]), appmodes[i]);
+	appmode_list.SetCursor(0);
+	appmode_list <<= THISBACK(SwitchAppMode);
+	
+	
 }
 
 void ToolEditor::SetSubMenu(int i) {

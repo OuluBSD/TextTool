@@ -409,7 +409,7 @@ struct ContextIdeaArgs {
 	
 };
 
-struct TextDataAnalysisArgs {
+struct SourceDataAnalysisArgs {
 	int fn;
 	int score_mode;
 	String artist, song, text;
