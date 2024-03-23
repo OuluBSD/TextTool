@@ -51,8 +51,8 @@ void SnapCoverImage::CreateSuggestionsForPrompts() {
 		raw_prompt << "Entity: " << p.entity->english_name << "\n";
 		raw_prompt << "Album: " << p.release->english_title << "\n";
 		raw_prompt << "Year: " << (int)p.release->date.year << "\n";
-		raw_prompt << "Genre: " << p.entity->musical_style << "\n";
-		raw_prompt << "Description of singer: " << p.entity->vocalist_visual << "\n";
+		raw_prompt << "Genre: " << p.entity->text_style << "\n";
+		raw_prompt << "Description of singer: " << p.entity->speaker_visually << "\n";
 		raw_prompt << "Count of components: " << p.release->components.GetCount() << "\n";
 		raw_prompt << "\n\n";
 		

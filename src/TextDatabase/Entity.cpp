@@ -23,7 +23,7 @@ void Entity::LoadTitle(String title) {
 }
 
 void Entity::StoreScript() {
-	for (auto& tc : typecasts) {
+	for (auto& tc : typeclasses) {
 		for (auto& at : tc.contents) {
 			for (auto& l : at.scripts) {
 				l.Store(*this);
@@ -42,11 +42,11 @@ void Entity::LoadScript() {
 		Script lyr;
 		lyr.LoadTitle(*this, title);
 		
-		const auto& typecasts = GetTypeclasses(GetAppModeGlobal());
+		const auto& typeclass = GetTypeclasses(GetAppModeGlobal());
 		const auto& contents = GetContents(GetAppModeGlobal());
-		if (lyr.typecast >= 0 && lyr.typecast < typecasts.GetCount() &&
-			lyr.archetype >= 0 && lyr.archetype < contents.GetCount()) {
-			this->typecasts[lyr.typecast].contents[lyr.archetype].scripts.Add()
+		if (lyr.typeclass >= 0 && lyr.typeclass < typeclass.GetCount() &&
+			lyr.content >= 0 && lyr.content < contents.GetCount()) {
+			this->typeclasses[lyr.typeclass].contents[lyr.content].scripts.Add()
 				.LoadTitle(*this, title); // TODO avoid duplicate loading
 		}
 	}
@@ -57,10 +57,10 @@ void Entity::LoadScript() {
 void Entity::RealizeTypeclasses() {
 	const auto& tcs = GetTypeclasses(GetAppModeGlobal());
 	const auto& cons = GetContents(GetAppModeGlobal());
-	if (typecasts.GetCount() != tcs.GetCount()) {
-		typecasts.SetCount(tcs.GetCount());
+	if (typeclasses.GetCount() != tcs.GetCount()) {
+		typeclasses.SetCount(tcs.GetCount());
 		for(int i = 0; i < tcs.GetCount(); i++) {
-			auto& tc = typecasts[i];
+			auto& tc = typeclasses[i];
 			tc.contents.SetCount(cons.GetCount());
 		}
 	}
@@ -76,8 +76,8 @@ bool Entity::FindComponent(int& tc_i, int& arch_i, int& lyr_i, const String& scr
 	tc_i = -1;
 	arch_i = -1;
 	lyr_i = -1;
-	for(int i = 0; i < typecasts.GetCount(); i++) {
-		const Typeclass& tc = typecasts[i];
+	for(int i = 0; i < typeclasses.GetCount(); i++) {
+		const Typeclass& tc = typeclasses[i];
 		for(int j = 0; j < tc.contents.GetCount(); j++) {
 			const Content& arch = tc.contents[j];
 			for(int k = 0; k < arch.scripts.GetCount(); k++) {

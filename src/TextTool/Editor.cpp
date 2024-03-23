@@ -17,7 +17,7 @@ ToolEditor::ToolEditor(TextTool* app) : app(*app) {
 	menusplit.SetPos(top_total * 3 / 4, 2);
 	menusplit.SetPos(top_total, 3);
 	componentsplit.Vert() << snaps << components;
-	scriptssplit.Vert() << typecasts << contents << scripts;
+	scriptssplit.Vert() << typeclasses << contents << scripts;
 	
 	
 	scripts.WhenBar << THISBACK(ScriptMenu);
@@ -41,11 +41,11 @@ ToolEditor::ToolEditor(TextTool* app) : app(*app) {
 	components.AddColumn(t_("Song"));
 	components <<= THISBACK(DataComponent);
 	
-	typecasts.AddColumn(t_("Typeclass"));
-	typecasts.AddColumn(t_("Count"));
-	typecasts.ColumnWidths("3 1");
-	typecasts <<= THISBACK(DataTypeclass);
-	typecasts.AddIndex("IDX");
+	typeclasses.AddColumn(t_("Typeclass"));
+	typeclasses.AddColumn(t_("Count"));
+	typeclasses.ColumnWidths("3 1");
+	typeclasses <<= THISBACK(DataTypeclass);
+	typeclasses.AddIndex("IDX");
 	
 	contents.AddColumn(t_("Content"));
 	contents.AddColumn(t_("Count"));
@@ -57,10 +57,10 @@ ToolEditor::ToolEditor(TextTool* app) : app(*app) {
 	scripts.AddIndex("IDX");
 	scripts <<= THISBACK(DataScript);
 	
-	company_info.editor = this;
-	product_info.editor = this;
-	song_info.editor = this;
-	scripts_info.editor = this;
+	entity_info.editor = this;
+	snap_info.editor = this;
+	comp_info.editor = this;
+	script_info.editor = this;
 	
 	SetSubMenu(0);
 	
@@ -104,7 +104,7 @@ void ToolEditor::InitSimplified() {
 	AddItem(t_("Database"), "Components", src_data);
 	AddItem(t_("Database"), t_("Tokens"), tokens_data);
 	AddItem(t_("Database"), t_("Token phrases"), token_phrases);
-	AddItem(t_("Database"), t_("Words"), song_words);
+	AddItem(t_("Database"), t_("Words"), component_words);
 	AddItem(t_("Database"), t_("Ambiguous word pairs"), ambiguous_word_pairs);
 	AddItem(t_("Database"), t_("Virtual phrases"), virtual_phrases);
 	AddItem(t_("Database"), t_("Virtual phrase parts"), virtual_phrase_parts);
@@ -116,21 +116,21 @@ void ToolEditor::InitSimplified() {
 	AddItem(t_("Database"), t_("Action attributes"), action_attrs);
 	AddItem(t_("Database"), t_("Action parallels"), action_parallels);
 	AddItem(t_("Database"), t_("Action transitions"), action_transitions);
-	AddItem(t_("Database"), t_("Wordnet"), song_wordnet);
+	AddItem(t_("Database"), t_("Wordnet"), component_wordnet);
 	AddItem(t_("Database"), t_("Attributes"), db_attrs);
 	AddItem(t_("Database"), t_("Diagnostics"), db_diagnostics);
 	
-	AddItem("Entity", t_("Info"), company_info);
+	AddItem("Entity", t_("Info"), entity_info);
 	
-	AddItem("Snapshot", t_("Info"), product_info);
-	AddItem("Snapshot", t_("Briefing"), album_briefing);
-	AddItem("Snapshot", t_("Idea notepad"), album_ideas);
+	AddItem("Snapshot", t_("Info"), snap_info);
+	AddItem("Snapshot", t_("Briefing"), snap_briefing);
+	AddItem("Snapshot", t_("Idea notepad"), snap_ideas);
 	
-	AddItem("Component", t_("Info"), song_info);
+	AddItem("Component", t_("Info"), comp_info);
 	
-	AddItem("Script", t_("Info"), scripts_info);
-	AddItem("Script", t_("Structure"), song_struct);
-	AddItem("Script", t_("Pool"), song_pool);
+	AddItem("Script", t_("Info"), script_info);
+	AddItem("Script", t_("Structure"), comp_struct);
+	AddItem("Script", t_("Pool"), script_pool);
 	AddItem("Script", t_("Script solver"), scripts_solver);
 	
 }
@@ -239,14 +239,14 @@ void ToolEditor::LoadLast() {
 	EditorPtrs& p = GetPointers();
 	p.Zero();
 	for (Entity& a : db.entities) {
-		for (Typeclass& a : a.typecasts) {
-			if (a.file_title == app.last_artist) {
+		for (Typeclass& a : a.typeclasses) {
+			if (a.file_title == app.last_entity) {
 				p.typecast = &a;
 				for (Content& r : a.contents) {
-					if (r.file_title == app.last_release) {
+					if (r.file_title == app.last_snapshot) {
 						p.archetype = &r;
 						for (Script& s : r.scripts) {
-							if (s.file_title == app.last_song) {
+							if (s.file_title == app.last_component) {
 								p.scripts = &s;
 								for (StaticPart& part : s.parts) {
 									if (part.name == app.last_part) {
@@ -263,13 +263,13 @@ void ToolEditor::LoadLast() {
 				break;
 			}
 		}
-		if (a.file_title == app.last_artist) {
+		if (a.file_title == app.last_entity) {
 			p.entity = &a;
 			for (Snapshot& r : a.snaps) {
-				if (r.file_title == app.last_release) {
+				if (r.file_title == app.last_snapshot) {
 					p.release = &r;
 					for (Component& s : r.components) {
-						if (s.file_title == app.last_song) {
+						if (s.file_title == app.last_component) {
 							p.component = &s;
 							break;
 						}
@@ -285,13 +285,13 @@ void ToolEditor::LoadLast() {
 void ToolEditor::StoreLast() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
-	app.last_typecast = p.typecast ? p.typecast->file_title : String();
-	app.last_archetype = p.archetype ? p.archetype->file_title : String();
+	app.last_typeclass = p.typecast ? p.typecast->file_title : String();
+	app.last_content = p.archetype ? p.archetype->file_title : String();
 	app.last_scripts = p.scripts ? p.scripts->file_title : String();
 	app.last_part = p.part ? p.part->name : String();
-	app.last_artist = p.entity ? p.entity->file_title : String();
-	app.last_release = p.release ? p.release->file_title : String();
-	app.last_song = p.component ? p.component->file_title : String();
+	app.last_entity = p.entity ? p.entity->file_title : String();
+	app.last_snapshot = p.release ? p.release->file_title : String();
+	app.last_component = p.component ? p.component->file_title : String();
 	app.Store();
 }
 
@@ -414,17 +414,17 @@ void ToolEditor::DataEntity() {
 	const auto& tcs = GetTypeclasses(GetAppMode());
 	for(int i = 0; i < tcs.GetCount(); i++) {
 		const String& tc = tcs[i];
-		typecasts.Set(i, "IDX", i);
-		typecasts.Set(i, 0, tc);
-		typecasts.Set(i, 1, a.typecasts[i].GetScriptCount());
+		typeclasses.Set(i, "IDX", i);
+		typeclasses.Set(i, 0, tc);
+		typeclasses.Set(i, 1, a.typeclasses[i].GetScriptCount());
 	}
-	INHIBIT_ACTION_(typecasts, tc);
-	typecasts.SetCount(tcs.GetCount());
-	typecasts.SetSortColumn(1, true);
+	INHIBIT_ACTION_(typeclasses, tc);
+	typeclasses.SetCount(tcs.GetCount());
+	typeclasses.SetSortColumn(1, true);
 	
 	cursor = max(0, p.GetActiveTypeclassIndex());
-	if (cursor >= 0 && cursor < typecasts.GetCount())
-		SetIndexCursor(typecasts, cursor);
+	if (cursor >= 0 && cursor < typeclasses.GetCount())
+		SetIndexCursor(typeclasses, cursor);
 
 
 	DataSnapshot();
@@ -503,7 +503,7 @@ void ToolEditor::DataComponent() {
 void ToolEditor::DataTypeclass() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
-	if (!typecasts.IsCursor()) {
+	if (!typeclasses.IsCursor()) {
 		p.typecast = 0;
 		p.archetype = 0;
 		p.scripts = 0;
@@ -513,7 +513,7 @@ void ToolEditor::DataTypeclass() {
 	
 	Entity& a = *p.entity;
 	a.RealizeTypeclasses();
-	p.typecast = &a.typecasts[typecasts.Get("IDX")];
+	p.typecast = &a.typeclasses[typeclasses.Get("IDX")];
 	Typeclass& t = *p.typecast;
 	
 	const auto& cons = GetContents(GetAppMode());
@@ -884,8 +884,8 @@ void ToolEditor::AddScript() {
 	
 	Script& l = a.scripts.Add();
 	l.file_title = MakeTitle(title);
-	l.typecast = t_i;
-	l.archetype = a_i;
+	l.typeclass = t_i;
+	l.content = a_i;
 	p.scripts = &l;
 	
 	Data();

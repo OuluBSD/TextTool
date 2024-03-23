@@ -12,12 +12,12 @@ ScriptInfoCtrl::ScriptInfoCtrl() {
 	native_title <<= THISBACK(OnValueChange);
 	english_title <<= THISBACK(OnValueChange);
 	content_vision <<= THISBACK(OnValueChange);
-	//typecast <<= THISBACK(OnValueChange);
-	//archetype <<= THISBACK(OnValueChange);
-	is_rapper <<= THISBACK(OnValueChange);
+	//typeclass <<= THISBACK(OnValueChange);
+	//content <<= THISBACK(OnValueChange);
+	is_unsafe <<= THISBACK(OnValueChange);
 	
-	typecast.Disable();
-	archetype.Disable();
+	typeclass.Disable();
+	content.Disable();
 	
 }
 
@@ -26,9 +26,9 @@ void ScriptInfoCtrl::Clear() {
 	this->native_title		.Clear();
 	this->english_title		.Clear();
 	this->content_vision	.Clear();
-	this->typecast			.SetIndex(0);
-	this->archetype			.SetIndex(0);
-	this->is_rapper			.SetIndex(0);
+	this->typeclass			.SetIndex(0);
+	this->content			.SetIndex(0);
+	this->is_unsafe			.SetIndex(0);
 }
 
 void ScriptInfoCtrl::Data() {
@@ -40,22 +40,22 @@ void ScriptInfoCtrl::Data() {
 	lbl_content.SetLabel(GetAppModeLabel(AM_CONTENT) + ":");
 	lbl_is_unsafe.SetLabel("Is " + GetAppModeKey(AM_UNSAFE) + ":");
 	
-	is_rapper.Clear();
-	is_rapper.Add(GetAppModeLabel(AML_SAFE_DESC));
-	is_rapper.Add(GetAppModeLabel(AML_UNSAFE_DESC));
+	is_unsafe.Clear();
+	is_unsafe.Add(GetAppModeLabel(AML_SAFE_DESC));
+	is_unsafe.Add(GetAppModeLabel(AML_UNSAFE_DESC));
 	
 	// Requires ToolEditor ptr (can't move to ctor)
-	if (typecast.GetCount() == 0) {
+	if (typeclass.GetCount() == 0) {
 		const auto& tcs = GetTypeclasses();
 		ASSERT(tcs.GetCount());
 		for(int i = 0; i < tcs.GetCount(); i++) {
-			typecast.Add(tcs[i]);
+			typeclass.Add(tcs[i]);
 		}
 		
 		const auto& archs = GetContents();
 		ASSERT(archs.GetCount());
 		for(int i = 0; i < archs.GetCount(); i++) {
-			archetype.Add(archs[i].key);
+			content.Add(archs[i].key);
 		}
 	}
 	
@@ -69,9 +69,9 @@ void ScriptInfoCtrl::Data() {
 		native_title.SetData(l.native_title);
 		english_title.SetData(l.english_title);
 		content_vision.SetData(l.content_vision);
-		typecast.SetIndex(l.typecast);
-		archetype.SetIndex(l.archetype);
-		is_rapper.SetIndex(l.is_rapper);
+		typeclass.SetIndex(l.typeclass);
+		content.SetIndex(l.content);
+		is_unsafe.SetIndex(l.is_unsafe);
 	}
 }
 
@@ -86,9 +86,9 @@ void ScriptInfoCtrl::OnValueChange() {
 		l.native_title = native_title.GetData();
 		l.english_title = english_title.GetData();
 		l.content_vision = content_vision.GetData();
-		l.typecast = typecast.GetIndex();
-		l.archetype = archetype.GetIndex();
-		l.is_rapper = is_rapper.GetIndex();
+		l.typeclass = typeclass.GetIndex();
+		l.content = content.GetIndex();
+		l.is_unsafe = is_unsafe.GetIndex();
 		
 		int c = editor->scripts.GetCursor();
 		editor->scripts.Set(c, 0, l.GetAnyTitle());

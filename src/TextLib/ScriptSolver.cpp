@@ -117,8 +117,8 @@ void ScriptGenerator::ProcessColor() {
 	args.artist.Add("year of birth", IntStr(artist->year_of_birth));
 	args.artist.Add("year of beginning of career", IntStr(artist->year_of_career_begin));
 	args.artist.Add("biography", artist->biography);
-	args.artist.Add("musical style", artist->musical_style);
-	args.artist.Add("vocalist visually", artist->vocalist_visual);
+	args.artist.Add("musical style", artist->text_style);
+	args.artist.Add("vocalist visually", artist->speaker_visually);
 	
 	// Snapshot information
 	/*args.release.Add("title of release", release->english_title);
@@ -128,8 +128,8 @@ void ScriptGenerator::ProcessColor() {
 	if (song.english_title.GetCount())
 		args.song.Add("title of song", song.english_title);
 	args.song.Add("artist's content vision", song.content_vision);
-	args.song.Add("typecast", GetTypeclasses(appmode)[song.typecast]);
-	args.song.Add("archetype", GetContents(appmode)[song.archetype].key);
+	args.song.Add("typecast", GetTypeclasses(appmode)[song.typeclass]);
+	args.song.Add("archetype", GetContents(appmode)[song.content].key);
 	
 	// Parts
 	for(int i = 0; i < song.parts.GetCount(); i++)
@@ -196,8 +196,8 @@ void ScriptGenerator::ProcessAttr() {
 	args.artist.Add("year of birth", IntStr(artist->year_of_birth));
 	args.artist.Add("year of beginning of career", IntStr(artist->year_of_career_begin));
 	args.artist.Add("biography", artist->biography);
-	args.artist.Add("musical style", artist->musical_style);
-	args.artist.Add("vocalist visually", artist->vocalist_visual);
+	args.artist.Add("musical style", artist->text_style);
+	args.artist.Add("vocalist visually", artist->speaker_visually);
 	
 	// Snapshot information
 	/*args.release.Add("title of release", release->english_title);
@@ -207,8 +207,8 @@ void ScriptGenerator::ProcessAttr() {
 	if (scripts->english_title.GetCount())
 		args.song.Add("title of song", scripts->english_title);
 	args.song.Add("artist's content vision", scripts->content_vision);
-	args.song.Add("typecast", GetTypeclasses(appmode)[scripts->typecast]);
-	args.song.Add("archetype", GetContents(appmode)[scripts->archetype].key);
+	args.song.Add("typecast", GetTypeclasses(appmode)[scripts->typeclass]);
+	args.song.Add("archetype", GetContents(appmode)[scripts->content].key);
 	
 	// Parts
 	for(int i = 0; i < scripts->parts.GetCount(); i++)

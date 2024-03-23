@@ -86,7 +86,7 @@ String TextDatabase::Translate(const String& s) {
 int EditorPtrs::GetActiveEntityIndex() const {return VectorFindPtr(entity, GetDatabase().entities);}
 int EditorPtrs::GetActiveSnapshotIndex() const {if (!entity) return -1; return VectorFindPtr(release, entity->snaps);}
 int EditorPtrs::GetActiveComponentIndex() const {if (!release) return -1; return VectorFindPtr(component, release->components);}
-int EditorPtrs::GetActiveTypeclassIndex() const {return VectorFindPtr(typecast, entity->typecasts);}
+int EditorPtrs::GetActiveTypeclassIndex() const {return VectorFindPtr(typecast, entity->typeclasses);}
 int EditorPtrs::GetActiveContentIndex() const {return VectorFindPtr(archetype, typecast->contents);}
 int EditorPtrs::GetActiveScriptIndex() const {return VectorFindPtr(scripts, archetype->scripts);}
 

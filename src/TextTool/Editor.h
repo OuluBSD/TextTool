@@ -29,7 +29,7 @@ protected:
 	Splitter			hsplit, menusplit, componentsplit, scriptssplit;
 	ArrayCtrl			appmode_list, page_group_list, page_list, entities;
 	ArrayCtrl			snaps, components, parts;
-	ArrayCtrl			typecasts, contents, scripts;
+	ArrayCtrl			typeclasses, contents, scripts;
 	Ctrl				base;
 	int					page_group = 0;
 	VectorMap<int,int>	page;
@@ -38,13 +38,13 @@ protected:
 	
 	
 	ImageGenTool					image_gen;
-	SnapBriefing					album_briefing;
-	SnapIdeas						album_ideas;
-	SongStructure					song_struct;
-	EntityInfoCtrl					company_info;
-	SnapInfoCtrl					product_info;
-	CompInfoCtrl					song_info;
-	ScriptInfoCtrl					scripts_info;
+	SnapBriefing					snap_briefing;
+	SnapIdeas						snap_ideas;
+	ComponentStructure				comp_struct;
+	EntityInfoCtrl					entity_info;
+	SnapInfoCtrl					snap_info;
+	CompInfoCtrl					comp_info;
+	ScriptInfoCtrl					script_info;
 	
 	// Database Ctrls
 	TextDataPage					src_data;
@@ -59,15 +59,14 @@ protected:
 	PhrasePartAnalysis2				phrase_part_analysis2;
 	RhymeContainerPage				rhyme_container;
 	ActionAttrsPage					action_attrs;
-	TextDataLineActions				song_lineactions;
 	ActionParallelsPage				action_parallels;
 	ActionTransitionsPage			action_transitions;
-	TextDataWords					song_words;
-	TextDataWordnet					song_wordnet;
+	TextDataWords					component_words;
+	TextDataWordnet					component_wordnet;
 	TextDataDiagnostics				db_diagnostics;
 	Attributes						db_attrs;
 	ScriptSolverCtrl				scripts_solver;
-	ScriptPool						song_pool;
+	ScriptPool						script_pool;
 	
 public:
 	typedef ToolEditor CLASSNAME;

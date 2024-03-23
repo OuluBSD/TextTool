@@ -5,7 +5,7 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-SongStructure::SongStructure() {
+ComponentStructure::ComponentStructure() {
 	Add(vsplit.SizePos());
 	CtrlLayout(active);
 	
@@ -91,7 +91,7 @@ SongStructure::SongStructure() {
 	
 }
 
-void SongStructure::DisableAll() {
+void ComponentStructure::DisableAll() {
 	disabled = true;
 	active.Disable();
 	params.Disable();
@@ -100,7 +100,7 @@ void SongStructure::DisableAll() {
 	parts.Disable();
 }
 
-void SongStructure::EnableAll() {
+void ComponentStructure::EnableAll() {
 	disabled = false;
 	active.Enable();
 	params.Enable();
@@ -109,7 +109,7 @@ void SongStructure::EnableAll() {
 	parts.Enable();
 }
 
-void SongStructure::Data() {
+void ComponentStructure::Data() {
 	active.lbl_comp_struct.SetLabel(GetAppModeLabel(AML_COMPONENT_STRUCTURE));
 	params.Set(5, 0, GetAppModeLabel(AML_SPEED));
 	
@@ -117,7 +117,7 @@ void SongStructure::Data() {
 	DataComponent();
 }
 
-void SongStructure::DataActive() {
+void ComponentStructure::DataActive() {
 	Script& l = GetScript();
 	
 	StructSuggestion& s = l.active_struct;
@@ -147,7 +147,7 @@ void SongStructure::DataActive() {
 	
 }
 
-void SongStructure::DataComponent() {
+void ComponentStructure::DataComponent() {
 	Script& l = GetScript();
 	
 	params.Set(0, 1, l.user_structure);
@@ -164,7 +164,7 @@ void SongStructure::DataComponent() {
 	DataSuggestions();
 }
 
-void SongStructure::DataSuggestions() {
+void ComponentStructure::DataSuggestions() {
 	Script& l = GetScript();
 	
 	int bpm = l.bpm;
@@ -187,7 +187,7 @@ void SongStructure::DataSuggestions() {
 	DataSuggestionAttributes();
 }
 
-void SongStructure::DataSuggestionAttributes() {
+void ComponentStructure::DataSuggestionAttributes() {
 	Script& l = GetScript();
 	
 	if (!structs.IsCursor()) {
@@ -213,7 +213,7 @@ void SongStructure::DataSuggestionAttributes() {
 	parts.SetCount(sug.parts.GetCount());
 }
 
-void SongStructure::ToolMenu(Bar& bar) {
+void ComponentStructure::ToolMenu(Bar& bar) {
 	bar.Add(t_("Load user's structure"), AppImg::BlueRing(), THISBACK(LoadUserStructure)).Key(K_CTRL_Q);
 	bar.Separator();
 	bar.Add(t_("Get structure suggestions"), AppImg::RedRing(), THISBACK(GetStructureSuggestions)).Key(K_F5);
@@ -221,11 +221,11 @@ void SongStructure::ToolMenu(Bar& bar) {
 	bar.Add(t_("Load selected structure"), AppImg::RedRing(), THISBACK(LoadStructure)).Key(K_F7);
 }
 
-String SongStructure::GetStatusText() {
+String ComponentStructure::GetStatusText() {
 	return "";
 }
 
-void SongStructure::LoadStructure() {
+void ComponentStructure::LoadStructure() {
 	if (!structs.IsCursor())
 		return;
 	try {
@@ -242,7 +242,7 @@ void SongStructure::LoadStructure() {
 	
 }
 
-void SongStructure::LoadStructureString(String struct_str) {
+void ComponentStructure::LoadStructureString(String struct_str) {
 	if (struct_str.IsEmpty())
 		return;
 	
@@ -263,7 +263,7 @@ void SongStructure::LoadStructureString(String struct_str) {
 	PostCallback(THISBACK(DataActive));
 }
 
-void SongStructure::LoadActiveStruct() {
+void ComponentStructure::LoadActiveStruct() {
 	Script& l = GetScript();
 	
 	Index<String> unique_parts;
@@ -282,12 +282,12 @@ void SongStructure::LoadActiveStruct() {
 	}
 }
 
-void SongStructure::LoadUserStructure() {
+void ComponentStructure::LoadUserStructure() {
 	Script& l = GetScript();
 	LoadStructureString(l.user_structure);
 }
 
-void SongStructure::GetStructureSuggestions() {
+void ComponentStructure::GetStructureSuggestions() {
 	if (disabled) return;
 	Script& l = GetScript();
 	
@@ -303,7 +303,7 @@ void SongStructure::GetStructureSuggestions() {
 	}
 }
 
-void SongStructure::GetSuggestionAttributes() {
+void ComponentStructure::GetSuggestionAttributes() {
 	if (disabled) return;
 	Script& l = GetScript();
 	
@@ -318,17 +318,17 @@ void SongStructure::GetSuggestionAttributes() {
 	}
 }
 
-/*void SongStructure::SetParam(String key, String value) {
+/*void ComponentStructure::SetParam(String key, String value) {
 	Component& song = GetComponent();
 	song.data.GetAdd(key) = value;
 }
 
-String SongStructure::GetParam(String key, String def) {
+String ComponentStructure::GetParam(String key, String def) {
 	Component& song = GetComponent();
 	return song.data.Get(key, def);
 }*/
 
-void SongStructure::OnStructureSuggestion(String result, Script* l_) {
+void ComponentStructure::OnStructureSuggestion(String result, Script* l_) {
 	PostCallback(THISBACK(EnableAll));
 	//LOG(result);
 	
@@ -360,7 +360,7 @@ void SongStructure::OnStructureSuggestion(String result, Script* l_) {
 	PostCallback(THISBACK(DataSuggestions));
 }
 
-void SongStructure::OnSuggestionAttributes(String result, Script* l) {
+void ComponentStructure::OnSuggestionAttributes(String result, Script* l) {
 	PostCallback(THISBACK(EnableAll));
 	//LOG(result);
 	

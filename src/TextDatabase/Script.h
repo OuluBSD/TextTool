@@ -124,9 +124,9 @@ struct Script : DataFile {
 	String						english_title;
 	String						copyright;
 	String						content_vision;
-	int							typecast = 0;
-	int							archetype = 0;
-	bool						is_rapper = false;
+	int							typeclass = 0;
+	int							content = 0;
+	bool						is_unsafe = false;
 	
 	String user_structure;
 	String required_parts;
@@ -170,9 +170,9 @@ struct Script : DataFile {
 			("english_title", english_title)
 			("copyright", copyright)
 			("content_vision", content_vision)
-			(__typeclass, typecast)
-			(__content, archetype)
-			("is_" + __unsafe, is_rapper)
+			(__typeclass, typeclass)
+			(__content, content)
+			("is_" + __unsafe, is_unsafe)
 			
 			("user_structure", user_structure)
 			("required_parts", required_parts)

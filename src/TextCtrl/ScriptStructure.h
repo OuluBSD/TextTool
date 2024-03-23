@@ -1,19 +1,19 @@
-#ifndef _TextCtrl_SongStructure_h_
-#define _TextCtrl_SongStructure_h_
+#ifndef _TextCtrl_ComponentStructure_h_
+#define _TextCtrl_ComponentStructure_h_
 
 
 BEGIN_TEXTLIB_NAMESPACE
 
 
-class SongStructure : public ToolAppCtrl {
+class ComponentStructure : public ToolAppCtrl {
 	Splitter vsplit, hsplit, attr_split;
-	WithSongStructure<Ctrl> active;
+	WithComponentStructure<Ctrl> active;
 	ArrayCtrl params, structs, attributes, parts;
 	bool disabled = false;
 	
 public:
-	typedef SongStructure CLASSNAME;
-	SongStructure();
+	typedef ComponentStructure CLASSNAME;
+	ComponentStructure();
 	
 	void DisableAll();
 	void EnableAll();

@@ -14,11 +14,11 @@ struct Entity :
 	int year_of_birth = 0;
 	int year_of_career_begin = 0;
 	String biography;
-	String musical_style;
-	String vibe_of_voice;
-	String acoustic_instruments;
-	String electronic_instruments;
-	String vocalist_visual;
+	String text_style;
+	String vibe_of_text;
+	String natural_tools;
+	String electronic_tools;
+	String speaker_visually;
 	VectorMap<String,String>	data;
 	VectorMap<String,String>	phrases_nat;
 	VectorMap<String,String>	phrases_eng;
@@ -26,7 +26,7 @@ struct Entity :
 	int language = 0;
 	
 	// Public (separate files)
-	Array<Typeclass>	typecasts;
+	Array<Typeclass>	typeclasses;
 	Array<Snapshot> snaps;
 	
 	void Clear() {
@@ -34,11 +34,11 @@ struct Entity :
 		year_of_birth = 0;
 		year_of_career_begin = 0;
 		biography.Clear();
-		musical_style.Clear();
-		vibe_of_voice.Clear();
-		acoustic_instruments.Clear();
-		electronic_instruments.Clear();
-		vocalist_visual.Clear();
+		text_style.Clear();
+		vibe_of_text.Clear();
+		natural_tools.Clear();
+		electronic_tools.Clear();
+		speaker_visually.Clear();
 		phrases_nat.Clear();
 		phrases_eng.Clear();
 	}
@@ -66,11 +66,11 @@ struct Entity :
 			% year_of_birth
 			% year_of_career_begin
 			% biography
-			% musical_style
-			% vibe_of_voice
-			% acoustic_instruments
-			% electronic_instruments
-			% vocalist_visual
+			% text_style
+			% vibe_of_text
+			% natural_tools
+			% electronic_tools
+			% speaker_visually
 			% snaps
 			% data
 			% phrases_nat
@@ -87,11 +87,11 @@ struct Entity :
 			("year_of_birth", year_of_birth)
 			("year_of_career_begin", year_of_career_begin)
 			("biography", biography)
-			("musical_style", musical_style)
-			("vibe_of_voice", vibe_of_voice)
-			("acoustic_instruments", acoustic_instruments)
-			("electronic_instruments", electronic_instruments)
-			("vocalist_visual", vocalist_visual)
+			("text_style", text_style)
+			(GetAppModeLabel(AML_FIELD_VIBE_OF_TEXT), vibe_of_text)
+			(GetAppModeLabel(AML_FIELD_NATURAL_TOOLS), natural_tools)
+			(GetAppModeLabel(AML_FIELD_ELECTRONIC_TOOLS), electronic_tools)
+			(GetAppModeLabel(AML_FIELD_PERSON_VISUALLY), speaker_visually)
 			("data", data)
 			("phrases", phrases_nat)
 			("phrases_eng", phrases_eng)

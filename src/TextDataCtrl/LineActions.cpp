@@ -1,5 +1,6 @@
 #include "TextDataCtrl.h"
 
+#if 0
 
 BEGIN_TEXTLIB_NAMESPACE
 
@@ -296,3 +297,5 @@ void TextDataLineActions::ToggleGettingLineChangeScores(int score_mode) {
 
 
 END_TEXTLIB_NAMESPACE
+
+#endif

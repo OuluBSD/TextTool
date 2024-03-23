@@ -26,8 +26,8 @@ class TextTool : public TopWindow {
 protected:
 	friend class ToolEditor;
 	
-	String last_typecast, last_archetype, last_scripts, last_part;
-	String last_artist, last_release, last_song;
+	String last_typeclass, last_content, last_scripts, last_part;
+	String last_entity, last_snapshot, last_component;
 	
 public:
 	typedef TextTool CLASSNAME;
@@ -40,7 +40,7 @@ public:
 	void PostInit() {PostCallback(THISBACK(Init));}
 	void Data();
 	void SetView(int i);
-	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed % last_artist % last_release % last_song % last_typecast % last_archetype % last_scripts % last_part;}
+	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed % last_entity % last_snapshot % last_component % last_typeclass % last_content % last_scripts % last_part;}
 	void Layout() override {SaveWindowPos();}
 	void ShowOrphanedFiles();
 	void SaveWindowPos();

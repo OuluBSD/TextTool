@@ -89,8 +89,8 @@ void ScriptGenerator::ProcessSourcePool() {
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(artist->native_name + " - " + song.native_title);
 	
-	int song_tc = song.typecast;
-	int song_con_base = song.archetype; // archetype/contrast has name mix-up problem
+	int song_tc = song.typeclass;
+	int song_con_base = song.content; // archetype/contrast has name mix-up problem
 	//int song_arch = ScanInt(song.data.Get("ATTR_ARCHETYPE", "0"));
 	
 	Color no_clr(0,0,0);
@@ -248,10 +248,10 @@ void ScriptGenerator::ProcessPairPhrases() {
 	}
 	
 	
-	int song_tc = song.typecast;
-	bool is_rapper = song.is_rapper;
+	int song_tc = song.typeclass;
+	bool is_unsafe = song.is_unsafe;
 	bool is_female = artist->is_female;
-	const Vector<String>& entities = GetTypeclassEntities(appmode, is_rapper, is_female)[song_tc];
+	const Vector<String>& entities = GetTypeclassEntities(appmode, is_unsafe, is_female)[song_tc];
 	args.parts <<= entities;
 	
 	SetWaiting(1);
@@ -372,10 +372,10 @@ void ScriptGenerator::ProcessRhymes() {
 	}
 	
 	
-	int song_tc = song.typecast;
-	bool is_rapper = song.is_rapper;
+	int song_tc = song.typeclass;
+	bool is_unsafe = song.is_unsafe;
 	bool is_female = artist->is_female;
-	const Vector<String>& entities = GetTypeclassEntities(appmode, is_rapper, is_female)[song_tc];
+	const Vector<String>& entities = GetTypeclassEntities(appmode, is_unsafe, is_female)[song_tc];
 	args.parts <<= entities;
 	
 	SetWaiting(1);

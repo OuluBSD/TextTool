@@ -40,6 +40,12 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"Song BPM",
 		"Not a rap song",
 		"This is a rap song",
+		
+		"acoustic_instruments",
+		"electronic_instruments",
+		"vocalist_visual",
+		"vibe_of_voice",
+		"musical_style",
 	},
 	{
 		"Talking style:",
@@ -55,8 +61,13 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"Speed",
 		"Safe",
 		"Unsafe",
+		
+		"natural_features",
+		"electronic_features",
+		"person_visual",
+		"vibe_of_text",
+		"text_style",
 	},
-	
 };
 
 String GetAppModeLabel(int amlkey) {

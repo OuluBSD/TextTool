@@ -20,7 +20,7 @@ LAYOUT(SnapIdeas, 400, 228)
 	ITEM(Upp::DocEdit, desc, HSizePosZ(100, 12).VSizePosZ(92, 12))
 END_LAYOUT
 
-LAYOUT(SongStructure, 780, 200)
+LAYOUT(ComponentStructure, 780, 200)
 	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Active song structure")).HCenterPosZ(360, -206).VCenterPosZ(192, 0))
 	ITEM(Upp::Label, dv___1, SetLabel(t_("Name of the structure:")).SetAlign(Upp::ALIGN_RIGHT).HCenterPosZ(120, -322).VCenterPosZ(20, -62))
 	ITEM(Upp::EditString, struct_name, SetEditable(false).HCenterPosZ(228, -144).VCenterPosZ(20, -62))

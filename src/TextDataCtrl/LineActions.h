@@ -2,6 +2,8 @@
 #define _TextDataCtrl_TextDataLineActions_h_
 
 
+#if 0
+
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -51,4 +53,5 @@ public:
 END_TEXTLIB_NAMESPACE
 
 
+#endif
 #endif
