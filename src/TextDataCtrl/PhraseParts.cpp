@@ -55,6 +55,7 @@ void PhraseParts::DataDataset() {
 	TextData& sd = db.comp_data;
 	
 	int ds_i = datasets.GetCursor();
+	if (ds_i < 0) return;
 	DatasetAnalysis& da = sd.a.datasets[ds_i];
 	int row = 0;
 	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {

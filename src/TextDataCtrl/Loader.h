@@ -10,6 +10,7 @@ class TextDataLoader : public WithTextDataLoader<TopWindow> {
 	
 	void LoadHuggingArtists();
 	void LoadHuggingFinn();
+	void LoadHuggingTweets();
 	TextDatabase& GetDatabase();
 	
 public:
