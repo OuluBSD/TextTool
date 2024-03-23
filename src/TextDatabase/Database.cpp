@@ -136,6 +136,15 @@ EditorPtrs& GetAppModePointers(int appmode) {
 	return MetaPtrs::Single().db[appmode];
 }
 
+ToolEditor& GetAnyEditor() {
+	for(int i = 0; i < DB_COUNT; i++) {
+		auto* p = MetaPtrs::Single().db[i].editor;
+		if (p) return *p;
+	}
+	Panic("No ToolEditor pointer");
+	ToolEditor* p = 0;
+	return *p;
+}
 
 
 END_TEXTLIB_NAMESPACE

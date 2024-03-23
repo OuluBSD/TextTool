@@ -94,7 +94,7 @@ EditorPtrs& GetAppModePointers();
 EditorPtrs& GetAppModePointers(int appmode);
 void EnterAppMode(int i);
 void LeaveAppMode();
-
+ToolEditor& GetAnyEditor();
 
 END_TEXTLIB_NAMESPACE
 

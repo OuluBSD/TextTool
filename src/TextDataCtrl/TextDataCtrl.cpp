@@ -1,4 +1,5 @@
 #include "TextDataCtrl.h"
+#include <TextTool/TextTool.h>
 
 
 BEGIN_TEXTLIB_NAMESPACE
@@ -7,6 +8,8 @@ BEGIN_TEXTLIB_NAMESPACE
 
 TextDatabase& ToolAppCtrl::GetDatabase() {
 	#if 1
+	return GetAnyEditor().GetDatabase();
+	#elif 1
 	return GetAppModeDatabase();
 	#else
 	if (appmode < 0 || appmode >= DB_COUNT)
@@ -17,6 +20,8 @@ TextDatabase& ToolAppCtrl::GetDatabase() {
 
 EditorPtrs& ToolAppCtrl::GetPointers() {
 	#if 1
+	return GetAnyEditor().GetPointers();
+	#elif 1
 	return GetAppModePointers();
 	#else
 	if (appmode < 0 || appmode >= DB_COUNT)

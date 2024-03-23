@@ -10,8 +10,9 @@ PhrasePartAnalysis2::PhrasePartAnalysis2() {
 	hsplit.Horz() << vsplit << parts;
 	hsplit.SetPos(2000);
 	
-	vsplit.Vert() << datasets << typecasts << contrasts;
+	vsplit.Vert() << datasets << typecasts << contrasts << colors;
 	vsplit.SetPos(1000,0);
+	vsplit.SetPos(4500,1);
 	
 	datasets.AddColumn(t_("Dataset"));
 	datasets.WhenCursor << THISBACK(DataDataset);
@@ -31,6 +32,9 @@ PhrasePartAnalysis2::PhrasePartAnalysis2() {
 		//DatabaseBrowser::Single().SetColor(contrasts.GetCursor());
 		DataContrast();
 	};
+	
+	colors.AddColumn(t_("Colors"));
+	colors.WhenCursor << THISBACK(DataColor);
 	
 	parts.AddColumn(t_("Phrase"));
 	parts.AddColumn(t_("Typeclass"));
@@ -135,7 +139,23 @@ void PhrasePartAnalysis2::DataTypeclass() {
 
 
 void PhrasePartAnalysis2::DataContrast() {
-	if (!datasets.IsCursor() || !typecasts.IsCursor())
+	colors.SetCount(1+GetColorGroupCount());
+	colors.Set(0, 0, t_("All words"));
+	for(int i = 0; i < GetColorGroupCount(); i++) {
+		colors.Set(1+i, 0,
+			AttrText("#" + IntStr(i))
+				.NormalPaper(GetGroupColor(i)).NormalInk(Black())
+				.Paper(Blend(GrayColor(), GetGroupColor(i))).Ink(White()));
+	}
+	if (colors.GetCount() && !colors.IsCursor())
+		colors.SetCursor(0);
+
+
+	DataColor();
+}
+
+void PhrasePartAnalysis2::DataColor() {
+	if (!datasets.IsCursor() || !typecasts.IsCursor() || !colors.IsCursor())
 		return;
 	
 	int ds_i = datasets.GetCursor();
@@ -147,6 +167,8 @@ void PhrasePartAnalysis2::DataContrast() {
 	//DatabaseBrowser& b = DatabaseBrowser::Single();
 	int tc_i = typecasts.GetCursor() - 1;
 	int con_i = contrasts.GetCursor() - 1;
+	int clr_i = colors.GetCursor() - 1;
+	bool clr_filter = clr_i > 0;
 	
 	const auto& tc_v = GetTypeclasss();
 	const auto& con_v = GetContrasts();
@@ -175,6 +197,10 @@ void PhrasePartAnalysis2::DataContrast() {
 					{found = true; break;}
 			if (!found) continue;
 		}
+		
+		// Filter by color group
+		if (clr_filter && GetColorGroup(pp.clr) != clr_i)
+			continue;
 		
 		{
 			String s;
