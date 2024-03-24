@@ -9,6 +9,7 @@ uses
 
 file
 	TextDatabase.h,
+	"Gpt helpers.txt",
 	Common.h,
 	Common.cpp,
 	Database.h,

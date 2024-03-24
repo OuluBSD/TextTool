@@ -252,20 +252,23 @@ enum {
 	DB_SOCIAL,
 	DB_DIALOG,
 	DB_BLOG,
-	DB_LOCAL, // everyday politics
+	DB_POLITICS,
 	DB_LIFE,
+	DB_BUSINESS,
+	DB_FLIRTING,
 	
 	DB_COUNT,
 };
 
 inline String GetAppModeString(int appmode) {
 	switch (appmode) {
-		case DB_SONG:	return "Song";
-		case DB_SOCIAL:	return "Social";
-		case DB_DIALOG:	return "Dialog";
-		case DB_BLOG:	return "Blog";
-		case DB_LOCAL:	return "Local";
-		case DB_LIFE:	return "Life (nothing new happens)";
+		case DB_SONG:		return "Song";
+		case DB_SOCIAL:		return "Social";
+		case DB_DIALOG:		return "Dialog";
+		case DB_BLOG:		return "Blog";
+		case DB_POLITICS:	return "Politics";
+		case DB_LIFE:		return "Life (nothing new happens)";
+		case DB_BUSINESS:	return "Business";
 	}
 	return "<error>";
 }

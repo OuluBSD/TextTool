@@ -93,9 +93,9 @@ void PhrasePartAnalysis2::DataDataset() {
 		return;
 	
 	int ds_i = datasets.GetCursor();
-	DatabaseBrowser& b = DatabaseBrowser::Single();
+	DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
 	b.SetDataset(ds_i);
-		
+	
 	// Set attributes
 	const auto& tc = GetTypeclasses();
 	typecasts.Set(0, 0, "All");

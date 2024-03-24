@@ -9,12 +9,63 @@ int& __global_appmode();
 
 
 const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
-	//{"entity","release","component","typeclass","content","scripts",0},
-	{"artist","release","song","typecast","archetype","lyrics","db","rapper",0},
-	{"company","campaign","program","role","generic","story","social_db","unsafe",0},
-	{"","","","","","",""},
-	{"","","","","","",""},
-	{"","","","","","",""},
+	
+	// DB_SONG
+	{
+		"artist",		"release",		"song",
+		"typecast",		"archetype",	"lyrics",
+		"db",			"rapper",0
+	},
+	
+	// DB_SOCIAL
+	{
+		"company",		"campaign",		"program",
+		"role",			"generic",		"story",
+		"social_db",	"unsafe",0
+	},
+	
+	// DB_DIALOG
+	{
+		"presenter",	"scriptbook",	"conversation",
+		"character",	"trope",		"lines",
+		"dialog_db",	"controversial",0
+	},
+	
+	// DB_BLOG
+	{
+		"blogger",		"series",		"post",
+		"topic",		"theme",		"content",
+		"blog_db",		"provocative",0
+	},
+	
+	// DB_POLITICS
+	{
+		"politician",	"discourse",	"debate",
+		"belief",		"issue",		"discussion",
+		"politics_db",	"heated",0
+	},
+	
+	// DB_LIFE
+	{
+		"human",		"collection",	"experience",
+		"persona",		"struggle",		"lesson",
+		"life_db",		"contentious",0
+	},
+	
+	// DB_BUSINESS
+	{
+		"entrepreneur",	"forum",		"meeting",
+		"strategy",		"topic",		"talking",
+		"business_db",	"contentious",0
+	},
+	
+	// DB_FLIRTING
+	{
+		"flirt",		"ritual",		"folly",
+		"technique",	"seduction",	"lines",
+		"flirt_db",		"risqué",0
+	},
+	
 };
 
 const char* AppModeKeysN[DB_COUNT][AM_COUNT+1] = {
@@ -49,8 +100,8 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 	},
 	{
 		"Talking style:",
-		"",
-		"",
+		"Real-world props and objects",
+		"Digital props and objects",
 		"Speaker",
 		"Vibe of text",
 		"Campaign",

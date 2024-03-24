@@ -1,7 +1,4 @@
 Cleanup:
-- json file "artist" -> "entity" problem
-	- etc... song, release, lyrics, company, product, script
-	- see through json files and directories too
 
 
 
@@ -348,4 +345,6 @@ x? vocabulary: for artist, for release, for song
 - database: diagnostics
 - song attrs and colors -page (and rhyme scheme)
 - song generator: to new dataset
-
+- json file "artist" -> "entity" problem
+	- etc... song, release, lyrics, company, product, script
+	- see through json files and directories too

@@ -275,6 +275,12 @@ TextDatabase& DatabaseBrowser::GetDatabase() {
 	return UPP::Single<TextDatabase>();
 }
 
+DatabaseBrowser& DatabaseBrowser::Single(int appmode) {
+	static DatabaseBrowser db[DB_COUNT];
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return db[appmode];
+}
+
 
 END_TEXTLIB_NAMESPACE
 

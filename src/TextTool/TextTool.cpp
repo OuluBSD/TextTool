@@ -18,11 +18,7 @@ GUI_APP_MAIN {
 			appmodes.Add(i);
 	
 	for (int appmode : appmodes.GetKeys()) {
-		switch (appmode) {
-			case DB_SONG: SongStartup(); break;
-			case DB_SOCIAL: SocialStartup(); break;
-			default: break;
-		}
+		AppModeStartup(appmode);
 	};
 	
 	
@@ -44,10 +40,6 @@ GUI_APP_MAIN {
 	Thread::ShutdownThreads();
 	
 	for (int appmode : appmodes.GetKeys()) {
-		switch (appmode) {
-			case DB_SONG: SongShutdown(fast_exit, save_songdata); break;
-			case DB_SOCIAL: SocialShutdown(fast_exit, save_songdata); break;
-			default: break;
-		}
+		AppModeShutdown(appmode, fast_exit, save_songdata);
 	};
 }

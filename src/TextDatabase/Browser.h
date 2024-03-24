@@ -127,7 +127,7 @@ public:
 	hash_t GetHash(bool attr, bool clr, bool group, bool value) const;
 	TextDatabase& GetDatabase();
 	
-	static DatabaseBrowser& Single() {static DatabaseBrowser db; return db;}
+	static DatabaseBrowser& Single(int appmode);
 	
 };
 
