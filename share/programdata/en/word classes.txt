@@ -8550,3 +8550,130 @@ plus sign
 handle
 abbreviation for tuberculosis or "to be"
 four-word sentence
+numbered noun
+combined noun
+abbreviated noun
+adjective + day of the week
+possessive pronoun and noun
+determiner and adjective
+abbreviation/term
+metaphor
+area
+dog breed
+word in Italian
+possessive form of zio
+text slang
+first and last name
+slang for "dancing"
+abbrevation
+all
+screen name
+flight number
+acronym for "on the fly"
+acronym for "right now"
+acronym for "out of bounds"
+noun/metaphor
+acronym for band name
+restaurant name
+Hawaiian word
+town name
+fictional character
+acronym for name
+club name
+coffee shop name
+fictional town name
+radio station and fanbase name
+propernoun
+verb/possesive pronoun/noun
+verb/pronoun/negation
+proper noun/noun
+adverb/verb
+noun/preposition
+name/business
+non-binary pronoun
+phrase/idiom
+not familiar with current popular culture
+underdog
+fitness trend
+fitness equipment
+technology conference
+media trend
+appealing things
+fashion accessory
+time measurement
+personal brand
+desire
+natural phenomenon
+creative pursuits
+alcoholic beverage
+infinitive verb phrase
+slangisana
+phrase and verb
+hexadecimal value
+decimal value
+advice
+random number/word combination
+Indian food dish
+abbreviation for International Court of Justice
+city in Kenya
+abbreviation for Oxfordshire
+Tagalog word for discipline
+Tagalog word for wait
+female given name
+male given name
+abbreviation for Acid Gas Membrane Encapsulation
+abbreviation for pekka
+nickname for a fan of Chesterfield Football Club
+combination of Madonna and drama
+abbreviation for girlfriend model search
+lastname
+phrase/symbol
+decade noun
+number and acronym
+verb and acronym
+Portuguese verb
+file extension
+string/identifier
+derogatory slur
+smartphone
+gun
+geographical location
+political party
+contraction of "what will"
+"unequal"
+name/photography
+Spanish word meaning "we share"
+slang term for Mexican-American gang members in Los Angeles
+contraction for "I am going to"
+acronym for "Democratic People's Republic"
+misspelling of "400 degrees"
+name/term related to the Gulfster Report surf competition
+"loose"
+actions
+acronym for "Canadian Council of Montessori Administrators"
+Spanish term for "co-commerce"
+NaML value
+meaningless
+misspelled drug name
+pronoun (objective case)
+-noun
+no description
+symbol + adverb
+symbol + noun
+word mix
+street slang
+alphanumeric value
+unconventional
+no translation available
+clock time
+numeric sequence
+days of the week
+numeric range
+year range
+time and day
+-untranslatable-
+numeraalinen
+acronym (Outfit of the Day)
+Preposition
+unknown (?)
+hashtag/noun
