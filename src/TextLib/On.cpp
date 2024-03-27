@@ -1387,10 +1387,6 @@ void TaskManager::OnSyllables(String res, Task* t) {
 		t->actual++;
 	}
 	
-	//da.diagnostics.GetAdd("syllables: total") = IntStr(t->total);
-	//da.diagnostics.GetAdd("syllables: actual") =  IntStr(t->actual);
-	//da.diagnostics.GetAdd("syllables: percentage") =  DblStr((double)t->actual / (double) t->total * 100);
-	
 	int a = 0;
 	for(const ExportWord& wa : da.words.GetValues())
 		if (!wa.phonetic.IsEmpty())

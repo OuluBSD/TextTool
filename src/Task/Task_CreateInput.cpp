@@ -387,9 +387,8 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 		SetFatalError("no args");
 		return;
 	}
-	TODO
-	#if 0
-	SongDataAnalysisArgs args;
+	
+	SourceDataAnalysisArgs args;
 	args.Put(this->args[0]);
 	/*ASSERT(args.artist.GetCount());
 	ASSERT(args.song.GetCount());
@@ -420,7 +419,6 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 			results.EmptyLine();
 		}
 	}
-	#if 0
 	if (args.fn == 1) {
 		String answer_prompt = "List of phrases and phrase groups in song \"" + args.artist + " - " + args.song + "\"";
 		{
@@ -559,7 +557,6 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 		}
 		input.response_length = 2*1024;
 	}
-	#endif
 	else if (args.fn == 1) {
 		{
 			TaskTitledList& list = input.AddSub().Title("List of attribute groups and their opposite polarised attribute values");
@@ -1464,7 +1461,6 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 		}
 		input.response_length = 2048;
 	}
-	#endif
 }
 
 void AiTask::CreateInput_GetActionAnalysis() {

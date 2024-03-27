@@ -249,13 +249,14 @@ struct EditorPtrs {
 
 enum {
 	DB_SONG,
-	DB_SOCIAL,
-	DB_DIALOG,
+	DB_TWITTER,
 	DB_BLOG,
+	DB_DIALOG,
 	DB_POLITICS,
 	DB_LIFE,
 	DB_BUSINESS,
 	DB_FLIRTING,
+	DB_DOCUMENTARY,
 	
 	DB_COUNT,
 };
@@ -263,12 +264,13 @@ enum {
 inline String GetAppModeString(int appmode) {
 	switch (appmode) {
 		case DB_SONG:		return "Song";
-		case DB_SOCIAL:		return "Social";
-		case DB_DIALOG:		return "Dialog";
+		case DB_TWITTER:	return "Twitter";
 		case DB_BLOG:		return "Blog";
+		case DB_DIALOG:		return "Dialog";
 		case DB_POLITICS:	return "Politics";
 		case DB_LIFE:		return "Life (nothing new happens)";
 		case DB_BUSINESS:	return "Business";
+		case DB_DOCUMENTARY:	return "Documentary";
 	}
 	return "<error>";
 }

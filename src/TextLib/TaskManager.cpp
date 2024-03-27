@@ -237,6 +237,12 @@ TextDatabase& TaskManager::GetDatabase() {
 TaskManager& TaskManager::Single(int appmode) {
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	static TaskManager o[DB_COUNT];
+	static bool init;
+	if (!init) {
+		for(int i = 0; i < DB_COUNT; i++)
+			o[i].appmode = i;
+		init = true;
+	}
 	return o[appmode];
 }
 

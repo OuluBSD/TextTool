@@ -24,7 +24,7 @@ void TextDataLoader::Process() {
 		LoadHuggingArtists();
 		LoadHuggingFinn();
 	}
-	else if (appmode == DB_SOCIAL) {
+	else if (appmode == DB_TWITTER) {
 		LoadHuggingTweets();
 	}
 	

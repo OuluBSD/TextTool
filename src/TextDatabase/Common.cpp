@@ -17,18 +17,11 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"db",			"rapper",0
 	},
 	
-	// DB_SOCIAL
+	// DB_TWITTER
 	{
 		"company",		"campaign",		"program",
 		"role",			"generic",		"story",
 		"social_db",	"unsafe",0
-	},
-	
-	// DB_DIALOG
-	{
-		"presenter",	"scriptbook",	"conversation",
-		"character",	"trope",		"lines",
-		"dialog_db",	"controversial",0
 	},
 	
 	// DB_BLOG
@@ -36,6 +29,13 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"blogger",		"series",		"post",
 		"topic",		"theme",		"content",
 		"blog_db",		"provocative",0
+	},
+	
+	// DB_DIALOG
+	{
+		"presenter",	"scriptbook",	"conversation",
+		"character",	"trope",		"lines",
+		"dialog_db",	"controversial",0
 	},
 	
 	// DB_POLITICS

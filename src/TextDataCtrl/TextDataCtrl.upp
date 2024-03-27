@@ -4,6 +4,7 @@ uses
 	Agent;
 
 file
+	Notes.txt,
 	TextDataCtrl.h,
 	TextDataCtrl.lay,
 	TextDataCtrl.cpp,

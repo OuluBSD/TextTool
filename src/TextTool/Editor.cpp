@@ -920,7 +920,11 @@ int ToolEditor::GetAppMode() const {
 
 TextLib::TaskManager& ToolAppCtrl::GetTaskManager() {
 	EditorPtrs& p = GetPointers();
-	int appmode = p.editor->GetAppMode();
+	int appmode = -1;
+	if (p.editor)
+		appmode = p.editor->GetAppMode();
+	else
+		appmode = GetAnyEditor().GetAppMode();
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return TextLib::TaskManager::Single(appmode);
 }

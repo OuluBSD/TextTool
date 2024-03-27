@@ -1839,7 +1839,7 @@ const Index<String>& GetTypeclasses(int appmode) {
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	switch (appmode) {
 		case DB_SONG: return GetTypecasts();
-		case DB_SOCIAL: return GetRoles();
+		case DB_TWITTER: return GetRoles();
 	}
 	Panic("Invalid appmode");
 	return Single<Index<String>>();
@@ -1853,7 +1853,7 @@ const Vector<ContentType>& GetContents(int appmode) {
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	switch (appmode) {
 		case DB_SONG: return GetContrasts();
-		case DB_SOCIAL: return GetGenerics();
+		case DB_TWITTER: return GetGenerics();
 	}
 	Panic("Invalid appmode");
 	return Single<Vector<ContentType>>();
@@ -1883,7 +1883,7 @@ VectorMap<String,Vector<String>>& GetTypeclassEntities(int appmode, bool unsafe,
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	switch (appmode) {
 		case DB_SONG: return GetTypecastArtists(unsafe, gender);
-		case DB_SOCIAL: return GetRoleCompanies(unsafe, gender);
+		case DB_TWITTER: return GetRoleCompanies(unsafe, gender);
 	}
 	Panic("Invalid appmode");
 	return Single<VectorMap<String,Vector<String>>>();

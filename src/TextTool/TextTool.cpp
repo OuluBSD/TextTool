@@ -6,9 +6,10 @@ GUI_APP_MAIN {
 	
 	Index<int> appmodes;
 	for (const String& s : CommandLine()) {
-		if (s == "-song") {appmodes << DB_SONG;}
-		if (s == "-social") {appmodes << DB_SOCIAL;}
-		if (s == "-dialog") {appmodes << DB_DIALOG;}
+		if (s == "-song")		{appmodes << DB_SONG;}
+		if (s == "-twitter")	{appmodes << DB_TWITTER;}
+		if (s == "-blog")		{appmodes << DB_BLOG;}
+		if (s == "-dialog")		{appmodes << DB_DIALOG;}
 	}
 	
 	GuiStartup();

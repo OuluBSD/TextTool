@@ -1,0 +1,13 @@
+
+
+Order:
+... something in the beginning ...
+- words, get all details (F6)
+	- required for virtual phrases (type is required)
+- words, syllables (F7)
+	(unnecessary?)
+- virtual phrases (F5) "token texts to virtual phrases"
+- ambiguous word pairs (F5)
+	- required for virtual phrases (clarifies the type)
+
+	
