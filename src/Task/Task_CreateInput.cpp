@@ -2293,8 +2293,6 @@ void AiTask::CreateInput_GetPhraseData() {
 		input.response_length = 2048;
 	}
 	else if (args.fn == 4) {
-		TODO
-		#if 0
 		{
 			auto& list = input.AddSub().Title("Typecasts of singer profiles in relation to the lyrics");
 			list.NumberedLines();
@@ -2318,7 +2316,6 @@ void AiTask::CreateInput_GetPhraseData() {
 			results.Add("");
 		}
 		input.response_length = 2048;
-		#endif
 	}
 	else if (args.fn == 5) {
 		{

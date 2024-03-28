@@ -112,9 +112,9 @@ void ScriptGenerator::ProcessSourcePool() {
 	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
 		const PhrasePart& pp = da.phrase_parts[i];
 		
-		// Typeclass
-		// - get song's typecast
-		// - check that phrase matches to typecast
+		// Filter by typeclass
+		// - get text's typeclass
+		// - check that phrase matches to typeclass
 		{
 			bool found = false;
 			for (int tc : pp.typecasts)
@@ -124,7 +124,7 @@ void ScriptGenerator::ProcessSourcePool() {
 				continue;
 		}
 		
-		// Contrast type
+		// Filter by content type
 		bool found_contrast[ContentType::PART_COUNT] = {false,false,false};
 		{
 			bool found = false;
@@ -140,20 +140,7 @@ void ScriptGenerator::ProcessSourcePool() {
 				continue;
 		}
 		
-		// Content
-		// - get song's archetype
-		// - check that phrases matches to the archetype
-		// NOTE skip this since data is not usualle fetched
-		/*if (0) {
-			bool found = false;
-			for (int arch : pp.contents)
-				if (arch == song_arch)
-					{found = true; break;}
-			if (!found)
-				continue;
-		}*/
-		
-		// Check attr
+		// Filter by attr
 		if (pp.attr >= 0) {
 			const ExportAttr* ea = &da.attrs[pp.attr];
 			if (ea->link >= 0)
@@ -166,7 +153,7 @@ void ScriptGenerator::ProcessSourcePool() {
 			else continue;
 		}
 		
-		// Check clr
+		// Filter by color
 		if (pp.clr != no_clr) {
 			int clr_group = GetColorGroup(pp.clr);
 			bool part_enabled = VectorFind(song.clr_list, clr_group) >= 0;
@@ -175,7 +162,8 @@ void ScriptGenerator::ProcessSourcePool() {
 		}
 		else continue;
 		
-		
+		// Here you have filtered all the phrases, which matches to the params of the text
+		// Collect them to the ComponentAnalysis::source_pool
 		for(int j = 0; j < ContentType::PART_COUNT; j++) {
 			if (found_contrast[j])
 				sa.source_pool[j].FindAdd(i);

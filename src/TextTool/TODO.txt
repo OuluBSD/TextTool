@@ -1,5 +1,4 @@
-Cleanup:
-
+- CreateInput_GetPhraseData: convert hardcoded string values
 
 
 

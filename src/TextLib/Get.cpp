@@ -507,7 +507,7 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 		args.fn = 2;
 		args.words.Clear();
 		
-		int per_action_task = 75;
+		int per_action_task = 40;
 		int iter = 0;
 		int begin = t->batch_i * per_action_task;
 		int end = begin + per_action_task;
@@ -566,7 +566,7 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 		args.fn = 3;
 		args.words.Clear();
 		
-		int per_action_task = 75;
+		int per_action_task = 65;
 		int begin = t->batch_i * per_action_task;
 		int end = begin + per_action_task;
 		end = min(end, da.virtual_phrase_structs.GetCount());

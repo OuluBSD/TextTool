@@ -6,8 +6,18 @@ Order:
 	- required for virtual phrases (type is required)
 - words, syllables (F7)
 	(unnecessary?)
-- virtual phrases (F5) "token texts to virtual phrases"
 - ambiguous word pairs (F5)
 	- required for virtual phrases (clarifies the type)
+- virtual phrases (F5) "token texts to virtual phrases"
+	- requires "word types" and "ambiguous word pairs"
+- virtual phrase, process (F6) "virtual phrases"
+- virtual phrase parts, process (F5) "virtual phrase structs"
+- virtual phrase structs, process (F5) "token text to phrase"
+	- requires "token texts to virtual phrases"
+- phrase part analysis (F5) "phrase part color"
+- phrase part analysis (F6) "phrase part attr"
+- phrase part analysis (F7) "phrase part actions"
+- phrase part analysis (F8) "phrase part scores"
+- PhrasePartAnalysis2 (F5) "(typecasts):"
+- PhrasePartAnalysis2 (F6) "(contents):"
 
-	

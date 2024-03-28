@@ -58,12 +58,8 @@ PhrasePartAnalysis2::PhrasePartAnalysis2() {
 }
 
 void PhrasePartAnalysis2::ToolMenu(Bar& bar) {
-	bar.Add(t_("Get typecasts"), AppImg::RedRing(), THISBACK1(DoPhrases, 4)).Key(K_CTRL_1);
-	bar.Add(t_("Get contrasts"), AppImg::RedRing(), THISBACK1(DoPhrases, 5)).Key(K_CTRL_2);
-	bar.Add(t_("Get singer profile"), AppImg::RedRing(), THISBACK1(DoPhrases, 6)).Key(K_CTRL_3);
-	bar.Add(t_("Get contents"), AppImg::RedRing(), THISBACK1(DoPhrases, 7)).Key(K_CTRL_4);
-	bar.Add(t_("Get primary human"), AppImg::RedRing(), THISBACK1(DoPhrases, 8)).Key(K_CTRL_5);
-	bar.Add(t_("Get secondary human"), AppImg::RedRing(), THISBACK1(DoPhrases, 9)).Key(K_CTRL_6);
+	bar.Add(t_("Get typecasts"), AppImg::RedRing(), THISBACK1(DoPhrases, 4)).Key(K_F5);
+	bar.Add(t_("Get contrasts"), AppImg::RedRing(), THISBACK1(DoPhrases, 5)).Key(K_F6);
 	bar.Separator();
 	bar.Add(t_("Update action counts"), AppImg::RedRing(), THISBACK(UpdateCounts)).Key(K_F9);
 }

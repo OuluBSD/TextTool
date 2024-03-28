@@ -117,6 +117,9 @@ void VirtualPhrases::DataDataset() {
 		texts.Set(row, 2, parts_str);
 		texts.Set(row, 3, struct_str);
 		row++;
+		
+		if (row >= 10000)
+			break;
 	}
 	texts.SetCount(row);
 	

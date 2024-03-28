@@ -684,10 +684,12 @@ void TaskManager::OnPhraseTypeclasses(String res, Task* t) {
 	for (const PhrasePart& pp : da.phrase_parts.GetValues())
 		if (pp.typecasts.GetCount())
 			a++;
+		
+	EnterAppMode(appmode);
 	da.diagnostics.GetAdd(__typeclasses + ": total") = IntStr(da.phrase_parts.GetCount());
 	da.diagnostics.GetAdd(__typeclasses + ": actual") = IntStr(a);
 	da.diagnostics.GetAdd(__typeclasses + ": percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
-	
+	LeaveAppMode();
 	
 	t->batch_i++;
 	t->running = false;
@@ -775,10 +777,11 @@ void TaskManager::OnPhraseContrast(String res, Task* t) {
 	for (const PhrasePart& pp : da.phrase_parts.GetValues())
 		if (pp.contrasts.GetCount())
 			a++;
+	EnterAppMode(appmode);
 	da.diagnostics.GetAdd(__content + ": total") = IntStr(da.phrase_parts.GetCount());
 	da.diagnostics.GetAdd(__content + ": actual") = IntStr(a);
 	da.diagnostics.GetAdd(__content + ": percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
-	
+	LeaveAppMode();
 	
 	t->batch_i++;
 	t->running = false;
