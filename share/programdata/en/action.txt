@@ -32897,3 +32897,27 @@
 "attention-person-addressed(person interviewing with)" -1 0 0 0 0
 "attention-issue(needs to be dealt with)" -1 0 0 0 0
 "attention-identifiable(individual problems that require help)" -1 0 0 0 0
+"attention-place(state/location)" -1 0 0 0 0
+"attention-state(location)" -1 0 0 0 0
+"attention-activity(buying/trying on clothing)" -1 0 0 0 0
+"attention-action(enjoying day)" -1 0 0 0 0
+"attention-action(relaxing/enjoying day)" -1 0 0 0 0
+"attention-place(nature/lake)" -1 0 0 0 0
+"attention-audience(makeup/clothing brand advertisements/instagram feed)" -1 0 0 0 0
+"attention-aesthetic(posts/visuals for makeup/clothing brand)" -1 0 0 0 0
+"attention-place(water/lake)" -1 0 0 0 0
+"attention-state(Washington)" -1 0 0 0 0
+"attention-activity(installing protective film)" -1 0 0 0 0
+"attention-place(body shop/business)" -1 0 0 0 0
+"attention-activity(eating sushi)" -1 0 0 0 0
+"attention-activity(browsing Instagram)" -1 0 0 0 0
+"attention-profession(therapist/counselor)" -1 0 0 0 0
+"attention-education(licensure/certification)" -1 0 0 0 0
+"attention-place(concert venue/campground)" -1 0 0 0 0
+"attention-place(sell food/merchandise)" -1 0 0 0 0
+"attention-meal(type of food)" -1 0 0 0 0
+"attention-place(town/state)" -1 0 0 0 0
+"attention-state(place)" -1 0 0 0 0
+"attention-current_state(happiness/feelings)" -1 0 0 0 0
+"attention-current_state(pleasure/feelings)" -1 0 0 0 0
+"attention-place(county/state)" -1 0 0 0 0
