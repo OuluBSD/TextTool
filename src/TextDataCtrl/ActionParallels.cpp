@@ -191,7 +191,9 @@ void ActionParallelsPage::DataActionHeader() {
 			parallels.Set(row, 6, at.score_sum);
 			
 			row++;
+			if (row >= 10000) break;
 		}
+		if (row >= 10000) break;
 	}
 	parallels.SetCount(row);
 	parallels.SetSortColumn(6, true);

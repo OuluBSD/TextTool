@@ -22,6 +22,7 @@ public:
 	void ToolMenu(Bar& bar) override;
 	void DoPhrases(int fn);
 	void UpdateCounts();
+	void ClearAll();
 	
 };
 

@@ -83,11 +83,14 @@ void PhraseParts::DataDataset() {
 }
 
 void PhraseParts::ToolMenu(Bar& bar) {
-	ToolAppCtrl::ToolMenu(bar);
+	bar.Add(t_("Get line change scores"), AppImg::RedRing(), THISBACK(Process)).Key(K_F5);
+	
 }
 
 void PhraseParts::Process() {
-	
+	int ds_i = datasets.GetCursor();
+	TextLib::TaskManager& tm = GetTaskManager();
+	tm.DoWords(ds_i, 4);
 }
 
 

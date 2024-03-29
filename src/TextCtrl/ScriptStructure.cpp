@@ -315,7 +315,7 @@ void ComponentStructure::GetSuggestionAttributes() {
 		for (auto& sug : l.struct_suggs)
 			args.structs << Join(sug.parts, ", ");
 		TaskMgr& m = TaskMgr::Single();
-		m.GetSuggestionAttributes(args, THISBACK1(OnSuggestionAttributes, &l));
+		m.GetSuggestionAttributes(GetAppMode(), args, THISBACK1(OnSuggestionAttributes, &l));
 	}
 }
 

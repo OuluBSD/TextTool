@@ -144,8 +144,8 @@ void TaskManager::DoActionlistCache(int ds_i) {
 }
 
 void TaskManager::DoActionlist(int ds_i, int fn) {
-	if (IsInTaskList(TASK_ACTIONLIST))
-		return;
+	//if (IsInTaskList(TASK_ACTIONLIST))
+	//	return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
@@ -177,8 +177,8 @@ void TaskManager::DoActionlist(int ds_i, int fn) {
 }
 
 void TaskManager::DoActionParallel(int ds_i, int fn) {
-	if (IsInTaskList(TASK_ACTION_PARALLELS))
-		return;
+	//if (IsInTaskList(TASK_ACTION_PARALLELS))
+	//	return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
@@ -196,8 +196,8 @@ void TaskManager::DoActionParallel(int ds_i, int fn) {
 }
 
 void TaskManager::DoActionTransition(int ds_i, int fn) {
-	if (IsInTaskList(TASK_ACTION_TRANSITIONS))
-		return;
+	//if (IsInTaskList(TASK_ACTION_TRANSITIONS))
+	//	return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;

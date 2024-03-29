@@ -90,14 +90,12 @@ BEGIN_TEXTLIB_NAMESPACE
 
 struct SourceDataAnalysisArgs {
 	int fn;
-	int score_mode;
 	String artist, song, text;
 	Vector<String> words;
 	Vector<String> phrases;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
-				("sm", score_mode)
 				("artist", artist)
 				("song", song)
 				("text", text)

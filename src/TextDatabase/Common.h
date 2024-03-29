@@ -20,6 +20,10 @@ enum {
 	AM_CLIENT,
 	AM_AUDIENCE,
 	AM_GENRES,
+	AM_NORMAL,
+	AM_PRE_REPEAT,
+	AM_REPEAT,
+	AM_TWIST,
 	
 	AM_COUNT,
 };
@@ -65,7 +69,7 @@ String GetAppModeKeyN(int appmode, int amkey);
 String GetAppModeKeyN(int amkey);
 String GetAppModeKeyCap(int amkey);
 String GetAppModeKeyCapN(int amkey);
-
+String RemUscore(String s);
 
 #define __entity GetAppModeKey(AM_ENTITY)
 #define __entities GetAppModeKeyN(AM_ENTITY)
@@ -91,6 +95,10 @@ String GetAppModeKeyCapN(int amkey);
 #define __scripts GetAppModeKeyN(AM_SCRIPT)
 #define __Script GetAppModeKeyCap(AM_SCRIPT)
 #define __Scripts GetAppModeKeyCapN(AM_SCRIPT)
+#define __Verse GetAppModeKeyCap(AM_NORMAL)
+#define __PreChorus GetAppModeKeyCap(AM_PRE_REPEAT)
+#define __Chorus GetAppModeKeyCap(AM_REPEAT)
+#define __Bridge GetAppModeKeyCap(AM_TWIST)
 
 #define __comp_(x) GetAppModeKey(x, AM_COMPONENT)
 #define __comps_(x) GetAppModeKeyN(x, AM_COMPONENT)

@@ -62,6 +62,29 @@ void PhrasePartAnalysis2::ToolMenu(Bar& bar) {
 	bar.Add(t_("Get contrasts"), AppImg::RedRing(), THISBACK1(DoPhrases, 5)).Key(K_F6);
 	bar.Separator();
 	bar.Add(t_("Update action counts"), AppImg::RedRing(), THISBACK(UpdateCounts)).Key(K_F9);
+	#ifdef flagDEBUG
+	bar.Separator();
+	bar.Add(t_("Clear all"), AppImg::BlueRing(), THISBACK(ClearAll));
+	#endif
+}
+
+void PhrasePartAnalysis2::ClearAll() {
+	if (!PromptYesNo(DeQtf("Do you really want to remove all typecasts and contrasts?")))
+		return;
+	
+	int ds_i = datasets.GetCursor();
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
+		PhrasePart& pp = da.phrase_parts[i];
+		pp.typecasts.Clear();
+		pp.contrasts.Clear();
+	}
+	
+	PostCallback(THISBACK(Data));
 }
 
 void PhrasePartAnalysis2::Data() {
@@ -208,7 +231,8 @@ void PhrasePartAnalysis2::DataColor() {
 			for (int j : pp.contrasts) {
 				int con_i = j / ContentType::PART_COUNT;
 				int con_j = j % ContentType::PART_COUNT;
-				s << con_v[con_i].key << " #" << (con_j+1) << ", ";
+				if (con_i < con_v.GetCount())
+					s << con_v[con_i].key << " #" << (con_j+1) << ", ";
 			}
 			parts.Set(row, 2, s);
 		}

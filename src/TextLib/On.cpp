@@ -1254,6 +1254,14 @@ void TaskManager::OnLineChangeScores(String res, Task* t) {
 		}
 	}
 	
+	int a = 0;
+	for(const ExportDepActionPhrase& p : da.action_phrases.GetValues())
+		if (p.next_phrases.GetCount())
+			a++;
+	da.diagnostics.GetAdd("line change scores: actual") =  IntStr(a);
+	da.diagnostics.GetAdd("line change scores: total") = IntStr(da.action_phrases.GetCount());
+	da.diagnostics.GetAdd("line change scores: percentage") =  DblStr((double)a / (double)da.action_phrases.GetCount() * 100);
+	
 	t->batch_i++;
 	t->running = false;
 }

@@ -1,5 +1,5 @@
 #include "TextLib.h"
-
+#include <TextDatabase/TextDatabase.h>
 
 BEGIN_TEXTLIB_NAMESPACE
 
@@ -115,8 +115,8 @@ void ScriptGenerator::ProcessColor() {
 	args.artist.Add("year of birth", IntStr(artist->year_of_birth));
 	args.artist.Add("year of beginning of career", IntStr(artist->year_of_career_begin));
 	args.artist.Add("biography", artist->biography);
-	args.artist.Add("musical style", artist->text_style);
-	args.artist.Add("vocalist visually", artist->speaker_visually);
+	args.artist.Add(RemUscore(GetAppModeLabel(appmode, AML_FIELD_VIBE_OF_TEXT)), artist->text_style);
+	args.artist.Add(RemUscore(GetAppModeLabel(appmode, AML_FIELD_PERSON_VISUALLY)), artist->speaker_visually);
 	
 	// Snapshot information
 	/*args.release.Add("title of release", release->english_title);
@@ -124,10 +124,10 @@ void ScriptGenerator::ProcessColor() {
 	
 	// Song information
 	if (song.english_title.GetCount())
-		args.song.Add("title of song", song.english_title);
-	args.song.Add("artist's content vision", song.content_vision);
-	args.song.Add("typecast", GetTypeclasses(appmode)[song.typeclass]);
-	args.song.Add("archetype", GetContents(appmode)[song.content].key);
+		args.song.Add("title of " + __comp, song.english_title);
+	args.song.Add(__entity + "'s " + __content + " vision", song.content_vision);
+	args.song.Add(__typeclass, GetTypeclasses(appmode)[song.typeclass]);
+	args.song.Add(__content, GetContents(appmode)[song.content].key);
 	
 	// Parts
 	for(int i = 0; i < song.parts.GetCount(); i++)
@@ -137,7 +137,7 @@ void ScriptGenerator::ProcessColor() {
 	SetWaiting(1);
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetScriptSolver(args, THISBACK(OnProcessColor));
+	m.GetScriptSolver(appmode, args, THISBACK(OnProcessColor));
 	
 }
 
@@ -194,8 +194,8 @@ void ScriptGenerator::ProcessAttr() {
 	args.artist.Add("year of birth", IntStr(artist->year_of_birth));
 	args.artist.Add("year of beginning of career", IntStr(artist->year_of_career_begin));
 	args.artist.Add("biography", artist->biography);
-	args.artist.Add("musical style", artist->text_style);
-	args.artist.Add("vocalist visually", artist->speaker_visually);
+	args.artist.Add(RemUscore(GetAppModeLabel(appmode, AML_FIELD_TEXT_STYLE)), artist->text_style);
+	args.artist.Add(RemUscore(GetAppModeLabel(appmode, AML_FIELD_PERSON_VISUALLY)), artist->speaker_visually);
 	
 	// Snapshot information
 	/*args.release.Add("title of release", release->english_title);
@@ -203,10 +203,10 @@ void ScriptGenerator::ProcessAttr() {
 	
 	// Song information
 	if (scripts->english_title.GetCount())
-		args.song.Add("title of song", scripts->english_title);
-	args.song.Add("artist's content vision", scripts->content_vision);
-	args.song.Add("typecast", GetTypeclasses(appmode)[scripts->typeclass]);
-	args.song.Add("archetype", GetContents(appmode)[scripts->content].key);
+		args.song.Add("title of " + __comp, scripts->english_title);
+	args.song.Add(__entity + "'s content vision", scripts->content_vision);
+	args.song.Add(__typeclass, GetTypeclasses(appmode)[scripts->typeclass]);
+	args.song.Add(__content, GetContents(appmode)[scripts->content].key);
 	
 	// Parts
 	for(int i = 0; i < scripts->parts.GetCount(); i++)
@@ -245,7 +245,7 @@ void ScriptGenerator::ProcessAttr() {
 	SetWaiting(1);
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetScriptSolver(args, THISBACK(OnProcessAttr));
+	m.GetScriptSolver(appmode, args, THISBACK(OnProcessAttr));
 	
 }
 
@@ -401,7 +401,7 @@ void ScriptSolver::ProcessFillLines() {
 	ScriptSolverArgs args; // 10
 	args.fn = 10;
 	
-	// Add existing lyrics
+	// Add existing scripts
 	active_part.Clear();
 	for(int i = 0; i < sugg.lines.GetCount(); i++) {
 		String key = sugg.lines.GetKey(i);
@@ -481,7 +481,7 @@ void ScriptSolver::ProcessFillLines() {
 	SetWaiting(1);
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetScriptSolver(args, THISBACK(OnProcessFillLines));
+	m.GetScriptSolver(appmode, args, THISBACK(OnProcessFillLines));
 }
 
 void ScriptSolver::OnProcessFillLines(String res) {
@@ -627,16 +627,16 @@ void ScriptSolver::ProcessPrimary() {
 		
 		int len = 2;
 		
-		if (sp.name.Find("Verse") == 0)
+		if (sp.name.Find(__Verse) == 0)
 			len = song.verse_length;
 		
-		if (sp.name.Find("Prechorus") == 0)
+		if (sp.name.Find(__PreChorus) == 0)
 			len = song.prechorus_length;
 		
-		if (sp.name.Find("Chorus") == 0)
+		if (sp.name.Find(__Chorus) == 0)
 			len = song.chorus_length;
 		
-		if (sp.name.Find("Bridge") == 0)
+		if (sp.name.Find(__Bridge) == 0)
 			len = song.bridge_length;
 		
 		args.counts << len;
@@ -648,7 +648,7 @@ void ScriptSolver::ProcessPrimary() {
 	SetWaiting(1);
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetScriptSolver(args, THISBACK(OnProcessPrimary));
+	m.GetScriptSolver(appmode, args, THISBACK(OnProcessPrimary));
 }
 
 void ScriptSolver::OnProcessPrimary(String res) {
@@ -775,7 +775,7 @@ void ScriptSolver::ProcessMakeHoles() {
 	SetWaiting(1);
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetScriptSolver(args, THISBACK(OnProcessMakeHoles));
+	m.GetScriptSolver(appmode, args, THISBACK(OnProcessMakeHoles));
 }
 
 void ScriptSolver::OnProcessMakeHoles(String res) {
@@ -901,7 +901,7 @@ void ScriptSolver::ProcessComparison() {
 	SetWaiting(1);
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetScriptSolver(args, THISBACK(OnProcessComparison));
+	m.GetScriptSolver(appmode, args, THISBACK(OnProcessComparison));
 }
 
 void ScriptSolver::OnProcessComparison(String res) {

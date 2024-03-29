@@ -17,6 +17,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"db",			"rapper",		"listener",
 		"music audience",
 		"pop/rock/edm",
+		"verse", "prechorus", "chorus", "bridge",
 		0
 	},
 	
@@ -27,6 +28,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"social_db",	"unsafe",		"reader",
 		"twitter audience",
 		"news/entertainment/sports",
+		"thread", "prehook", "hook", "twist",
 		0
 	},
 	
@@ -37,6 +39,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"blog_db",		"provocative",	"reader",
 		"blog's audience",
 		"fashion/travel/food",
+		"body", "prerepetition", "repetition", "conclusion",
 		0
 	},
 	
@@ -47,6 +50,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"dialog_db",	"controversial","observer",
 		"conversation's audience",
 		"personal/professional/casual",
+		"main discussion", "opening", "arguments", "conclusion",
 		0
 	},
 	
@@ -57,6 +61,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"politics_db",	"heated",		"citizen",
 		"debate's audience",
 		"politics/policy/events",
+		"statements", "rebuttals", "cross-examination", "closing arguments",
 		0
 	},
 	
@@ -67,6 +72,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"life_db",		"contentious",	"observer",
 		"storytelling audience",
 		"existentialism/morality/metaphysics",
+		"exposition", "conflict", "climax", "resolution",
 		0
 	},
 	
@@ -77,6 +83,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"business_db",	"contentious",	"reader",
 		"meeting's audience",
 		"negotiation/strategy/planning",
+		"agenda", "new information", "decision-making", "follow-up tasks",
 		0
 	},
 	
@@ -87,6 +94,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"flirt_db",		"risqué",		"partner",
 		"conversation's audience",
 		"romance/flirting/seduction",
+		"playful banter", "compliments", "sexual innuendos", "plans for future dates",
 		0
 	},
 	
@@ -218,6 +226,11 @@ String GetAppModeKeyCapN(int amkey) {
 	return Capitalize(AppModeKeysN[appmode][amkey]);
 }
 
+
+String RemUscore(String s) {
+	s.Replace("_", " ");
+	return s;
+}
 
 
 END_TEXTLIB_NAMESPACE

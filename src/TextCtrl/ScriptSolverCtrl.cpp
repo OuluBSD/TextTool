@@ -150,7 +150,7 @@ void ScriptSolverCtrl::GetNewTitle() {
 	args.part = l.text;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetScriptSolver(args, THISBACK(OnNewTitle));
+	m.GetScriptSolver(GetAppMode(), args, THISBACK(OnNewTitle));
 }
 
 void ScriptSolverCtrl::OnNewTitle(String res) {

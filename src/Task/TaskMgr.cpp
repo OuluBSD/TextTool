@@ -222,7 +222,7 @@ void TaskMgr::GetStructureSuggestions(int appmode, const StructureArgs& args, Ev
 	task_lock.Leave();
 }
 
-void TaskMgr::GetSuggestionAttributes(const StructureArgs& args, Event<String> WhenResult) {
+void TaskMgr::GetSuggestionAttributes(int appmode, const StructureArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	const TaskRule& r = mgr.GetRule(AITASK_GET_SUGGESTION_ATTRIBUTES);
 	TaskMgr& p = *this;
@@ -231,6 +231,7 @@ void TaskMgr::GetSuggestionAttributes(const StructureArgs& args, Event<String> W
 	
 	task_lock.Enter();
 	AiTask& t = tasks.Add();
+	t.appmode = appmode;
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -304,7 +305,24 @@ void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResul
 	t.WhenError << WhenError;
 }
 
-void TaskMgr::GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> WhenResult) {
+void TaskMgr::GetSourceDataAnalysis(int appmode, const SourceDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	const TaskRule& r = mgr.GetRule(AITASK_GET_SONG_DATA_ANALYSIS);
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
+	t.appmode = appmode;
+	t.rule = &r;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	t.keep_going = keep_going;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetActionAnalysis(int appmode, const ActionAnalysisArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	const TaskRule& r = mgr.GetRule(AITASK_GET_ACTION_ANALYSIS);
 	TaskMgr& p = *this;
@@ -313,13 +331,14 @@ void TaskMgr::GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> Wh
 
 	task_lock.Enter();
 	AiTask& t = tasks.Add();
+	t.appmode = appmode;
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
 	task_lock.Leave();
 }
 
-void TaskMgr::GetTokenData(const TokenArgs& args, Event<String> WhenResult) {
+void TaskMgr::GetTokenData(int appmode, const TokenArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	const TaskRule& r = mgr.GetRule(AITASK_GET_TOKEN_DATA);
 	TaskMgr& p = *this;
@@ -328,13 +347,14 @@ void TaskMgr::GetTokenData(const TokenArgs& args, Event<String> WhenResult) {
 	
 	task_lock.Enter();
 	AiTask& t = tasks.Add();
+	t.appmode = appmode;
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
 	task_lock.Leave();
 }
 
-void TaskMgr::GetPhraseData(const PhraseArgs& args, Event<String> WhenResult) {
+void TaskMgr::GetPhraseData(int appmode, const PhraseArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	const TaskRule& r = mgr.GetRule(AITASK_GET_PHRASE_DATA);
 	TaskMgr& p = *this;
@@ -343,13 +363,14 @@ void TaskMgr::GetPhraseData(const PhraseArgs& args, Event<String> WhenResult) {
 	
 	task_lock.Enter();
 	AiTask& t = tasks.Add();
+	t.appmode = appmode;
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
 	task_lock.Leave();
 }
 
-void TaskMgr::GetAttributes(const AttrArgs& args, Event<String> WhenResult) {
+void TaskMgr::GetAttributes(int appmode, const AttrArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	const TaskRule& r = mgr.GetRule(AITASK_GET_ATTRIBUTES);
 	TaskMgr& p = *this;
@@ -358,13 +379,14 @@ void TaskMgr::GetAttributes(const AttrArgs& args, Event<String> WhenResult) {
 	
 	task_lock.Enter();
 	AiTask& t = tasks.Add();
+	t.appmode = appmode;
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;
 	task_lock.Leave();
 }
 
-void TaskMgr::GetScriptSolver(const ScriptSolverArgs& args, Event<String> WhenResult) {
+void TaskMgr::GetScriptSolver(int appmode, const ScriptSolverArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	const TaskRule& r = mgr.GetRule(AITASK_LYRICS_SOLVER);
 	TaskMgr& p = *this;
@@ -373,6 +395,7 @@ void TaskMgr::GetScriptSolver(const ScriptSolverArgs& args, Event<String> WhenRe
 	
 	task_lock.Enter();
 	AiTask& t = tasks.Add();
+	t.appmode = appmode;
 	t.rule = &r;
 	t.args << s;
 	t.WhenResult << WhenResult;

@@ -121,7 +121,7 @@ void TaskManager::GetTokenData(Task* t) {
 	
 	TaskMgr& m = TaskMgr::Single();
 	if (t->fn == 0)
-		m.GetTokenData(args, THISBACK1(OnTokenData, t));
+		m.GetTokenData(appmode, args, THISBACK1(OnTokenData, t));
 	
 }
 
@@ -227,7 +227,7 @@ void TaskManager::GetAmbiguousWordPairs(Task* t) {
 	
 	TaskMgr& m = TaskMgr::Single();
 	if (t->fn == 1)
-		m.GetTokenData(args, THISBACK1(OnAmbiguousWordPairs, t));
+		m.GetTokenData(appmode, args, THISBACK1(OnAmbiguousWordPairs, t));
 	
 }
 
@@ -559,7 +559,7 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 		
 		
 		TaskMgr& m = TaskMgr::Single();
-		m.GetTokenData(args, THISBACK1(OnVirtualPhrases, t));
+		m.GetTokenData(appmode, args, THISBACK1(OnVirtualPhrases, t));
 	}
 	else if (t->fn == 2) {
 		TokenArgs& args = token_args;
@@ -618,7 +618,7 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 		
 		
 		TaskMgr& m = TaskMgr::Single();
-		m.GetTokenData(args, THISBACK1(OnVirtualPhraseTypes, t));
+		m.GetTokenData(appmode, args, THISBACK1(OnVirtualPhraseTypes, t));
 	}
 	
 	// Token texts to phrases
@@ -797,17 +797,17 @@ void TaskManager::GetPhrases(Task* t) {
 	TaskMgr& m = TaskMgr::Single();
 	
 	if (args.fn == 0)
-		m.GetPhraseData(args, THISBACK1(OnPhraseColors, t));
+		m.GetPhraseData(appmode, args, THISBACK1(OnPhraseColors, t));
 	else if (args.fn == 1)
-		m.GetPhraseData(args, THISBACK1(OnPhraseAttrs, t));
+		m.GetPhraseData(appmode, args, THISBACK1(OnPhraseAttrs, t));
 	else if (args.fn == 2)
-		m.GetPhraseData(args, THISBACK1(OnPhraseActions, t));
+		m.GetPhraseData(appmode, args, THISBACK1(OnPhraseActions, t));
 	else if (args.fn == 3)
-		m.GetPhraseData(args, THISBACK1(OnPhraseScores, t));
+		m.GetPhraseData(appmode, args, THISBACK1(OnPhraseScores, t));
 	else if (args.fn == 4)
-		m.GetPhraseData(args, THISBACK1(OnPhraseTypeclasses, t));
+		m.GetPhraseData(appmode, args, THISBACK1(OnPhraseTypeclasses, t));
 	else if (args.fn == 5)
-		m.GetPhraseData(args, THISBACK1(OnPhraseContrast, t));
+		m.GetPhraseData(appmode, args, THISBACK1(OnPhraseContrast, t));
 }
 
 void TaskManager::GetActionlist(Task* t) {
@@ -859,9 +859,9 @@ void TaskManager::GetActionlist(Task* t) {
 	
 	TaskMgr& m = TaskMgr::Single();
 	if (t->fn == 0)
-		m.GetActionAnalysis(args, THISBACK1(OnActionlistColors, t));
+		m.GetActionAnalysis(appmode, args, THISBACK1(OnActionlistColors, t));
 	else if (t->fn == 1)
-		m.GetActionAnalysis(args, THISBACK1(OnActionlistAttrs, t));
+		m.GetActionAnalysis(appmode, args, THISBACK1(OnActionlistAttrs, t));
 }
 
 void TaskManager::GetActionParallels(Task* t) {
@@ -1355,7 +1355,7 @@ void TaskManager::GetLineActions(Task* t) {
 	args.phrases <<= Split(batch.txt, "\n");
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSourceDataAnalysis(args, THISBACK1(OnLineActions, t));
+	m.GetSourceDataAnalysis(appmode, args, THISBACK1(OnLineActions, t));
 }
 
 void TaskManager::GetSyllables(Task* t) {
@@ -1441,7 +1441,7 @@ void TaskManager::GetSyllables(Task* t) {
 	args.fn = 4;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSourceDataAnalysis(args, THISBACK1(OnSyllables, t));
+	m.GetSourceDataAnalysis(appmode, args, THISBACK1(OnSyllables, t));
 }
 
 void TaskManager::GetDetails(Task* t) {
@@ -1523,7 +1523,7 @@ void TaskManager::GetDetails(Task* t) {
 	args.fn = 5;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSourceDataAnalysis(args, THISBACK1(OnDetails, t));
+	m.GetSourceDataAnalysis(appmode, args, THISBACK1(OnDetails, t));
 }
 
 void TaskManager::GetLineChangeScores(Task* t) {
@@ -1587,7 +1587,7 @@ void TaskManager::GetLineChangeScores(Task* t) {
 	
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSourceDataAnalysis(args, THISBACK1(OnLineChangeScores, t));
+	m.GetSourceDataAnalysis(appmode, args, THISBACK1(OnLineChangeScores, t));
 }
 
 void TaskManager::GetWordData(Task* t) {
@@ -1600,6 +1600,10 @@ void TaskManager::GetWordData(Task* t) {
 		GetDetails(t);
 	else if (t->fn == 2)
 		GetSyllables(t);
+	else if (t->fn == 3)
+		GetLineActions(t);
+	else if (t->fn == 4)
+		GetLineChangeScores(t);
 	else
 		RemoveTask(*t);
 }
@@ -1669,7 +1673,7 @@ void TaskManager::GetColorAlternatives(Task* t) {
 	args.fn = 7;
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetSourceDataAnalysis(args, THISBACK1(OnColorAlternatives, t));
+	m.GetSourceDataAnalysis(appmode, args, THISBACK1(OnColorAlternatives, t));
 }
 
 void TaskManager::MakeWordnetsFromTemplates(Task* t) {
@@ -1824,7 +1828,7 @@ void TaskManager::GetAttributes(Task* t) {
 		
 		
 		TaskMgr& m = TaskMgr::Single();
-		m.GetAttributes(args, THISBACK1(OnAttributes, t));
+		m.GetAttributes(appmode, args, THISBACK1(OnAttributes, t));
 	}
 	else if (t->fn == 1) {
 		int per_batch = 50;
@@ -1889,7 +1893,7 @@ void TaskManager::GetAttributes(Task* t) {
 		
 		
 		TaskMgr& m = TaskMgr::Single();
-		m.GetAttributes(args, THISBACK1(OnAttributePolars, t));
+		m.GetAttributes(appmode, args, THISBACK1(OnAttributePolars, t));
 	}
 	else if (t->fn == 2) {
 		int per_batch = 35;
@@ -1949,7 +1953,7 @@ void TaskManager::GetAttributes(Task* t) {
 		
 		
 		TaskMgr& m = TaskMgr::Single();
-		m.GetAttributes(args, THISBACK1(OnAttributeJoins, t));
+		m.GetAttributes(appmode, args, THISBACK1(OnAttributeJoins, t));
 	}
 	else if (t->fn == 3) {
 		for(int i = 0; i < da.attrs.GetCount(); i++) {

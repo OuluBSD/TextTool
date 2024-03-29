@@ -497,6 +497,15 @@ struct ExportDepActionPhrase : Moveable<ExportDepActionPhrase> {
 		int c = next_phrases.GetCount();
 		d.Do(c);
 		for (int a : next_phrases) d.Do(a);
+		
+		bool all_zero = true;
+		for (auto& i : next_scores)
+			if (i) all_zero = false;
+		if (all_zero)
+			next_scores.Clear(),
+		
+		c = next_scores.GetCount();
+		d.Do(c);
 		for(int i = 0; i < c; i++) {
 			auto& v = next_scores[i];
 			d.Do(v.GetCount());
@@ -515,8 +524,9 @@ struct ExportDepActionPhrase : Moveable<ExportDepActionPhrase> {
 		int c = 0;
 		p % c;
 		next_phrases.SetCount(c);
-		next_scores.SetCount(c);
 		for (int& i : next_phrases) p % i;
+		p % c;
+		next_scores.SetCount(c);
 		for (auto& v : next_scores) {
 			int sc = 0;
 			p % sc;

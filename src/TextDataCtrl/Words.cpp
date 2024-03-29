@@ -201,11 +201,12 @@ void TextDataWords::ToolMenu(Bar& bar) {
 	//bar.Add(t_("Update all word flags"), AppImg::RedRing(), THISBACK(UpdateWordFlags)).Key(K_F7);
 	bar.Add(t_("Get all details"), AppImg::RedRing(), THISBACK1(DoWords, 1)).Key(K_F6);
 	bar.Add(t_("Get all syllables"), AppImg::RedRing(), THISBACK1(DoWords, 2)).Key(K_F7);
-	bar.Add(t_("Copy linked word data"), AppImg::RedRing(), THISBACK1(DoWordFix, 1)).Key(K_F8);
+	bar.Add(t_("Get all line actions"), AppImg::RedRing(), THISBACK1(DoWords, 3)).Key(K_F8);
+	bar.Add(t_("Copy linked word data"), AppImg::RedRing(), THISBACK1(DoWordFix, 1)).Key(K_F9);
 	
 	bar.Separator();
-	bar.Add(t_("Debug dump word groups"), AppImg::BlueRing(), THISBACK(DumpWordGroups)).Key(K_F9);
-	bar.Add(t_("Debug dump phonetic characters"), AppImg::BlueRing(), THISBACK(DumpPhoneticChars)).Key(K_F10);
+	bar.Add(t_("Debug dump word groups"), AppImg::BlueRing(), THISBACK(DumpWordGroups)).Key(K_F10);
+	bar.Add(t_("Debug dump phonetic characters"), AppImg::BlueRing(), THISBACK(DumpPhoneticChars)).Key(K_F11);
 	
 }
 

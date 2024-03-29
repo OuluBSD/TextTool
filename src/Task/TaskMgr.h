@@ -73,18 +73,19 @@ struct TaskMgr {
 	void StartSingle(int task_i) {Thread::Start(THISBACK1(ProcessSingle, task_i));}
 	
 	void Translate(String orig_lang, String orig_txt, String trans_lang, Event<String> WhenResult);
-	void GetStructureSuggestions(int appmode, const StructureArgs& args, Event<String> WhenResult);
-	void GetSuggestionAttributes(const StructureArgs& args, Event<String> WhenResult);
 	void CreateImage(String prompt, int count, Event<Array<Image>&> WhenResult, int reduce_size_mode=0, Event<> WhenError=Event<>());
 	void GetEditImage(Image orig, Image mask, String prompt, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
 	void VariateImage(Image orig, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
 	void RawCompletion(String prompt, Event<String> WhenResult);
-	void GetSourceDataAnalysis(const SourceDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going=false);
-	void GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> WhenResult);
-	void GetTokenData(const TokenArgs& args, Event<String> WhenResult);
-	void GetPhraseData(const PhraseArgs& args, Event<String> WhenResult);
-	void GetAttributes(const AttrArgs& args, Event<String> WhenResult);
-	void GetScriptSolver(const ScriptSolverArgs& args, Event<String> WhenResult);
+	
+	void GetStructureSuggestions(int appmode, const StructureArgs& args, Event<String> WhenResult);
+	void GetSuggestionAttributes(int appmode, const StructureArgs& args, Event<String> WhenResult);
+	void GetSourceDataAnalysis(int appmode, const SourceDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going=false);
+	void GetActionAnalysis(int appmode, const ActionAnalysisArgs& args, Event<String> WhenResult);
+	void GetTokenData(int appmode, const TokenArgs& args, Event<String> WhenResult);
+	void GetPhraseData(int appmode, const PhraseArgs& args, Event<String> WhenResult);
+	void GetAttributes(int appmode, const AttrArgs& args, Event<String> WhenResult);
+	void GetScriptSolver(int appmode, const ScriptSolverArgs& args, Event<String> WhenResult);
 	
 	static TaskMgr& Single() {static TaskMgr tm; return tm;}
 	

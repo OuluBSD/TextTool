@@ -1,5 +1,4 @@
 #include "Task.h"
-#include <ToolCore/ProtectedCommon.h>
 #include <TextDatabase/TextDatabase.h>
 
 #ifdef flagLLAMACPP
@@ -97,23 +96,6 @@ void AiTask::CreateInput_VariateImage() {
 	input.PreAnswer().NoColon().Title("DUMMY PROMPT! NEVER SENT IN VARIATE MODE! PREVENTS FAILING FOR 'NO-INPUT'");
 	
 	//skip_load = true;
-}
-
-void TaskMgr::GetSourceDataAnalysis(const SourceDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
-	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(AITASK_GET_SONG_DATA_ANALYSIS);
-	TaskMgr& p = *this;
-
-
-	String s = args.Get();
-
-	task_lock.Enter();
-	AiTask& t = tasks.Add();
-	t.rule = &r;
-	t.args << s;
-	t.WhenResult << WhenResult;
-	t.keep_going = keep_going;
-	task_lock.Leave();
 }
 
 void AiTask::CreateInput_GetStructureSuggestions() {
@@ -636,33 +618,22 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 		String audience = GetAppModeKey(appmode, AM_AUDIENCE);
 		{
 			auto& list = input.AddSub().Title("Action planner heuristic score factors");
-			if (args.score_mode == 0) {
-				list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
-				list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
-				list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
-				list.Add("S3: High share count from the " + audience + ". Low count means that the phrase was not relatable.");
-				list.Add("S4: High bookmark count from the " + audience + ". Low count means that the phrase had no value.");
-			}
-			else {
-				list.Add("S0: High reference count towards comedy from the " + audience + ". Low count means that the phrase was not funny.");
-				list.Add("S1: High reference count towards sex from the " + audience + ". Low count means that the phrase was not sensual.");
-				list.Add("S2: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
-				list.Add("S3: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
-				list.Add("S4: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
-			}
+			list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
+			list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
+			list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
+			list.Add("S3: High share count from the " + audience + ". Low count means that the phrase was not relatable.");
+			list.Add("S4: High bookmark count from the " + audience + ". Low count means that the phrase had no value.");
+			list.Add("S5: High reference count towards comedy from the " + audience + ". Low count means that the phrase was not funny.");
+			list.Add("S6: High reference count towards sex from the " + audience + ". Low count means that the phrase was not sensual.");
+			list.Add("S7: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
+			list.Add("S8: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
+			list.Add("S9: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
 		}
 		{
 			auto& list = input.AddSub().Title("Change of actions between 2 lines. Score of stopping actions in the first line and value of starting actions in the second line. Scores and score factors. Value is between 0-10");
-			if (args.score_mode == 0) {
-				list.Add("Stop line 1 & start line 2: S0: 0, S1: 0, S2: 7, S3: 3, S4: 0");
-				list.Add("Stop line 2 & start line 3: S0: 2, S1: 0, S2: 2, S3: 1, S4: 0");
-				list.Add("Stop line 3 & start line 4: S0: 1, S1: 5, S2: 3, S3: 2, S4: 8");
-			}
-			else {
-				list.Add("Stop line 1 & start line 2: S0: 2, S1: 3, S2: 5, S3: 7, S4: 1");
-				list.Add("Stop line 2 & start line 3: S0: 4, S1: 3, S2: 2, S3: 9, S4: 6");
-				list.Add("Stop line 3 & start line 4: S0: 8, S1: 6, S2: 9, S3: 4, S4: 2");
-			}
+			list.Add("Stop line 1 & start line 2: S0: 0, S1: 0, S2: 7, S3: 3, S4: 0, S5: 2, S6: 3, S7: 5, S8: 7, S9: 1");
+			list.Add("Stop line 2 & start line 3: S0: 2, S1: 0, S2: 2, S3: 1, S4: 0, S5: 4, S6: 3, S7: 2, S8: 9, S9: 6");
+			list.Add("Stop line 3 & start line 4: S0: 1, S1: 5, S2: 3, S3: 2, S4: 8, S5: 8, S6: 6, S7: 9, S8: 4, S9: 2");
 		}
 		String pc = IntStr(0 + args.phrases.GetCount());
 		{
@@ -675,7 +646,7 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 			TaskTitledList& results = input.PreAnswer();
 			results.NumberedLines();
 			results.NoListChar();
-			results.Title("Change of actions between 2 lines in list \"C\" with " + pc + " lines of actions. Score of stopping actions in the first line and value of starting actions in the second line. Scores and score factors. Value is between 0-10:");
+			results.Title("Change of actions between 2 lines in list \"C\" with " + pc + " lines of actions. Score of stopping actions in the first line and value of starting actions in the second line. Scores and score factors S0-S9. Value is between 0-10:");
 			results.Add("Stop line 1 & start line 2: S0:");
 		}
 		input.response_length = 1024;
@@ -1447,7 +1418,7 @@ void AiTask::CreateInput_GetPhraseData() {
 		{
 			auto& list = input.AddSub().Title(__Typeclasses + " of " + __entity + " profiles in relation to the " + __script);
 			list.NumberedLines();
-			for (String tc : GetTypecasts())
+			for (String tc : GetTypeclasses(appmode))
 				list.Add(tc);
 		}
 		String pc = IntStr(1 + args.phrases.GetCount());
@@ -1472,7 +1443,7 @@ void AiTask::CreateInput_GetPhraseData() {
 		{
 			auto& list = input.AddSub().Title("List of names for archetypical parts of storyline of a modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps + ", which contrasts each other");
 			list.NumberedLines();
-			for (const auto& it : GetContrasts()) {
+			for (const auto& it : GetContents(appmode)) {
 				String s;
 				s << "A: " << it.parts[0] << ", B: " << it.parts[1] << ", C: " << it.parts[2];
 				list.Add(s);

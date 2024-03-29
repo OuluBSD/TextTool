@@ -14,13 +14,28 @@ Order:
 - virtual phrase parts, process (F5) "virtual phrase structs"
 - virtual phrase structs, process (F5) "token text to phrase"
 	- requires "token texts to virtual phrases"
+- phrase parts (F5) "Get line change scores"
 - phrase part analysis (F5) "phrase part color"
 - phrase part analysis (F6) "phrase part attr"
 - phrase part analysis (F7) "phrase part actions"
 - phrase part analysis (F8) "phrase part scores"
 - PhrasePartAnalysis2 (F5) "(typecasts):"
 - PhrasePartAnalysis2 (F6) "(contents):"
-
+- Rhyme Container (F5) "rhyme container:"
+- Rhyme Container (F6) "rhyme container nana:"
+	(unnecessary?)
+- Action attributes (F5) "actionlist colors:"
+	- attrs are required to see anything in the list
+- Action attributes (F6) "actionlist attrs:"
+- Action parallels (F6) "actionlist parallels:"
+	- NOTE! THIS MIGHT SHOW BAD DATA (not just missing data): Do Phrase parts F5
+		- because next_scores had to be SetCount(x)
+	- requires Words "Get all line actions" (F8) and (F6) to see anything
+	- requires Phrase parts "Process" (F5) to see anything
+- Action transitions (F6) "action transition:"
+	- NOTE! THIS MIGHT SHOW BAD DATA (not just missing data): Do Phrase parts F5
+	- requires Words "Get all line actions" (F8) and (F6) to see anything
+	- requires Phrase parts "Process" (F5) to see anything
 
 
 

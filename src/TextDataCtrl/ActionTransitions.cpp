@@ -198,7 +198,9 @@ void ActionTransitionsPage::DataActionHeader() {
 			transitions.Set(row, 6, at.score_sum);
 			
 			row++;
+			if (row >= 10000) break;
 		}
+		if (row >= 10000) break;
 	}
 	transitions.SetCount(row);
 	transitions.SetSortColumn(6, true);

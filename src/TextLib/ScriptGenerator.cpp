@@ -96,7 +96,7 @@ void ScriptGenerator::ProcessSourcePool() {
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	int song_tc = song.typeclass;
-	int song_con_base = song.content; // archetype/contrast has name mix-up problem
+	int song_con_base = song.content; // content/archetype/contrast has name mix-up problem
 	//int song_arch = ScanInt(song.data.Get("ATTR_ARCHETYPE", "0"));
 	
 	Color no_clr(0,0,0);
@@ -251,7 +251,7 @@ void ScriptGenerator::ProcessPairPhrases() {
 	SetWaiting(1);
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetScriptSolver(args, THISBACK(OnProcessPairPhrases));
+	m.GetScriptSolver(appmode, args, THISBACK(OnProcessPairPhrases));
 	
 }
 
@@ -375,7 +375,7 @@ void ScriptGenerator::ProcessRhymes() {
 	SetWaiting(1);
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetScriptSolver(args, THISBACK(OnProcessRhymes));
+	m.GetScriptSolver(appmode, args, THISBACK(OnProcessRhymes));
 	
 }
 
@@ -536,7 +536,7 @@ void ScriptGenerator::ProcessScores() {
 	SetWaiting(1);
 	
 	TaskMgr& m = TaskMgr::Single();
-	m.GetScriptSolver(args, THISBACK(OnProcessScores));
+	m.GetScriptSolver(appmode, args, THISBACK(OnProcessScores));
 	
 }
 
