@@ -7,53 +7,5 @@
 	"default_line_syllables": 10,
 	"default_attr_count": 9,
 	"theme_cursor": 0,
-	"part_cursor": 1,
-	"active_idea[THEME]": "the struggles and regrets of a failing relationship",
-	"active_idea[IDEA]": "the importance of communication and effort in a relationship",
-	"active_idea[TONE]": "a mix of regret, hope, and fear",
-	"active_idea[ALLEGORY]": "comparing the roller coaster of emotions in a relationship to an actual roller coaster",
-	"active_idea[CONTENT]": "the narrator's reflections on their past mistakes and desire for a second chance",
-	"active_idea[IMAGERY]": "references to the beach, stars, and moon as symbols of the couple's love and passion",
-	"active_idea[SYMBOLISM]": "the new woman representing hope and a fresh start for the narrator",
-	"active_idea[PERSON]": "",
-	"active_idea_clr[THEME]": {
-		"red": 200,
-		"green": 0,
-		"blue": 0
-	},
-	"active_idea_clr[IDEA]": {
-		"red": 255,
-		"green": 165,
-		"blue": 0
-	},
-	"active_idea_clr[TONE]": {
-		"red": 128,
-		"green": 128,
-		"blue": 0
-	},
-	"active_idea_clr[ALLEGORY]": {
-		"red": 0,
-		"green": 255,
-		"blue": 255
-	},
-	"active_idea_clr[CONTENT]": {
-		"red": 153,
-		"green": 255,
-		"blue": 153
-	},
-	"active_idea_clr[IMAGERY]": {
-		"red": 255,
-		"green": 192,
-		"blue": 203
-	},
-	"active_idea_clr[SYMBOLISM]": {
-		"red": 0,
-		"green": 128,
-		"blue": 0
-	},
-	"active_idea_clr[PERSON]": {
-		"red": null,
-		"green": null,
-		"blue": null
-	}
+	"part_cursor": 1
 }

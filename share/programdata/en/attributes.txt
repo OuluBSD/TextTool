@@ -20083,3 +20083,1073 @@
 "political event(military offensive in mosul, iraq)" -1 -1 0 -1 0
 "political beliefs(criticism of public figure)" -1 -1 0 -1 0
 "political beliefs(criticism of certain states' use of tax dollars)" -1 -1 0 -1 0
+"party relation(playful)" -1 -1 0 -1 0
+"sexual acting(sassy)" -1 -1 0 -1 0
+"relation to others(friendship)" -1 -1 0 -1 0
+"characteristic(ugly)" -1 -1 0 -1 0
+"context(instagrammable)" -1 -1 0 -1 0
+"religion and spirituality(personal)" -1 -1 0 -1 0
+"religion and spirituality(introspective)" -1 -1 0 -1 0
+"context(nighttime)" -1 -1 0 -1 0
+"attitude(positive)" -1 -1 0 -1 0
+"cultural elements(urban)" -1 -1 0 -1 0
+"context(summertime)" -1 -1 0 -1 0
+"community(animal lovers)" -1 -1 0 -1 0
+"work and career(successful)" -1 -1 0 -1 0
+"family and love(blended family)" -1 -1 0 -1 0
+"context(nature)" -1 -1 0 -1 0
+"religion and spirituality(humble and kind)" -1 -1 0 -1 0
+"community(bikers)" -1 -1 0 -1 0
+"context(summer)" -1 -1 0 -1 0
+"family and love(traditional family)" -1 -1 0 -1 0
+"religion and spirituality(spiritual seeker)" -1 -1 0 -1 0
+"community(music lovers)" -1 -1 0 -1 0
+"context(sporting event)" -1 -1 0 -1 0
+"29(mystical practitioner)" -1 -1 0 -1 0
+"17 las vegas be@(individual-oriented)" -1 -1 0 -1 0
+"happy weekend vibrations y'all(emotional restraint)" -1 -1 0 -1 0
+"lots of dog kisses@(joyful)" -1 -1 0 -1 0
+"i ny@(mainstream)" -1 -1 0 -1 0
+"laid back kind of day@(relaxed)" -1 -1 0 -1 0
+"love that baseball sky# gododgers@(individual-oriented)" -1 -1 0 -1 0
+"@ disney's hollywood studios(escapism)" -1 -1 0 -1 0
+"25(rationalist)" -1 -1 0 -1 0
+"17@ walzem farms(individual-oriented)" -1 -1 0 -1 0
+"and# datenight yay# summertime@(individual-focused)" -1 -1 0 -1 0
+"first 20 ppl ball shots on the house(adventurous)" -1 -1 0 -1 0
+"someone is chillin@(relaxed)" -1 -1 0 -1 0
+"delaware(collective)" -1 -1 0 -1 0
+"move over# theoandbeau(rebellious)" -1 -1 0 -1 0
+"# hollandandjerry are taking over(individual-oriented)" -1 -1 0 -1 0
+"shantastic21(adventurous)" -1 -1 0 -1 0
+"and@ user(escapism)" -1 -1 0 -1 0
+"|| that magic sound||# chef# cheflife# salmon# zaza# zazadallas# dallas en dragonfly restaurant(authentic)" -1 -1 0 -1 0
+"and decorated with smarties(whimsical)" -1 -1 0 -1 0
+"maybe i should stick to granola(individual-oriented)" -1 -1 0 -1 0
+"@ victoria(globalized)" -1 -1 0 -1 0
+"british columbia(globalized)" -1 -1 0 -1 0
+"repost@ user@ nashville(individual-oriented)" -1 -1 0 -1 0
+"current view pier a(individual-oriented)" -1 -1 0 -1 0
+"one of my favorites@ balboa park(individual-oriented)" -1 -1 0 -1 0
+"jumping for joy in the gummy bear room!!! omg(whimsical)" -1 -1 0 -1 0
+"our face expressions# museumoficecream@ user(individual-oriented)" -1 -1 0 -1 0
+"definitely some products at# tas2017 inmodeaesthetics salient_ medical# aestheticmedicine@ user(individual-oriented)" -1 -1 0 -1 0
+"got to see some good ole friends@ legacy stadium- mike johnston field- katy(nostalgic)" -1 -1 0 -1 0
+"richie(individuality)" -1 -1 0 -1 0
+"a boy(youthful)" -1 -1 0 -1 0
+"and his donut!@ dunkin donuts(individual-oriented)" -1 -1 0 -1 0
+"than a mint julep at disneyland@ disneyland park(escapism)" -1 -1 0 -1 0
+"hello 4 day week# oak(individual-oriented)" -1 -1 0 -1 0
+"@ oakland international airport-@ user in oakland(globalized)" -1 -1 0 -1 0
+"tasting time! my fave so far is# limeybastard glad i got a bottle to take home!@ user(individual-oriented)" -1 -1 0 -1 0
+"truth be told@ clayton county(honest)" -1 -1 0 -1 0
+"en new york(mainstream)" -1 -1 0 -1 0
+"so good!@ mama tita's café(individual-oriented)" -1 -1 0 -1 0
+"mondayzzz(relaxed)" -1 -1 0 -1 0
+"# lovemondays@ new york(individual-oriented)" -1 -1 0 -1 0
+"# diamonds# gold# icedout# newedition# halfoff@ eastland center(mainstream)" -1 -1 0 -1 0
+"real tears@ broward county(emotional realism)" -1 -1 0 -1 0
+"we cute# selfie# ss# weekend@ western washington university(adventurous)" -1 -1 0 -1 0
+"earthly!# huhc2017# howardhomecoming# huhc@ user@ howard university(mainstream)" -1 -1 0 -1 0
+"and happy holidays# treelighting# citizensbankpark# phillies@ citizens bank park(festive)" -1 -1 0 -1 0
+"a few shots from yesterday@ gilbert(mainstream)" -1 -1 0 -1 0
+"tirame un esnapchat babe@ the grove(individual-oriented)" -1 -1 0 -1 0
+"beach daze& amp(carefree)" -1 -1 0 -1 0
+"; bonfires@ weko beach& amp(carefree)" -1 -1 0 -1 0
+"; campground(nature-focused)" -1 -1 0 -1 0
+"quiet night in!# ohchristmastree# christmas2017# romanticfire@ user(romantic)" -1 -1 0 -1 0
+"lol# 4thofjuly with# mama cindeejosephs@ murphy's irish pub(carefree)" -1 -1 0 -1 0
+"# samba(exotic)" -1 -1 0 -1 0
+"@ user@ gibraltar mke(individual-oriented)" -1 -1 0 -1 0
+"my new shoes are ready for the fireworks@ el segundo recreation& amp(adventurous)" -1 -1 0 -1 0
+"; parks(nature-focused)" -1 -1 0 -1 0
+"summer nights# la@ los angeles(individual-oriented)" -1 -1 0 -1 0
+"and pet a stingray today(adventurous)" -1 -1 0 -1 0
+"so many drums!@ house of blues houston(music-focused)" -1 -1 0 -1 0
+"saw this on my walk in capitol hill today at sugarhill(individual-oriented)" -1 -1 0 -1 0
+"# loveisactiom@ sugar hill seattle(emotional realism)" -1 -1 0 -1 0
+"cynicism(optimistic)" -1 -1 0 -1 0
+"religious group(organized religion)" -1 -1 0 -1 0
+"intellectuals(intellectual)" -1 -1 0 -1 0
+"peace and conflict(peacemaker)" -1 -1 0 -1 0
+"affiliation(individualistic)" -1 -1 0 -1 0
+"athletism(lazy)" -1 -1 0 -1 0
+"industry(arts and entertainment)" -1 -1 0 -1 0
+"government system(libertarian)" -1 -1 0 -1 0
+"pseudo-intellectual(emotional)" -1 -1 0 -1 0
+"expectation and humor(humorous)" -1 -1 0 -1 0
+"individuality(individual-oriented)" -1 -1 0 -1 0
+"self-image(body positivity)" -1 -1 0 -1 0
+"affiliation(collective)" -1 -1 0 -1 0
+"aesthetics(sophisticated)" -1 -1 0 -1 0
+"physical attractiveness(natural beauty)" -1 -1 0 -1 0
+"aesthetic(hipster)" -1 -1 0 -1 0
+"lighting and setting(moody)" -1 -1 0 -1 0
+"intimate relationship focus(partner-focused)" -1 -1 0 -1 0
+"party atmosphere(party anthems)" -1 -1 0 -1 0
+"image(trendy)" -1 -1 0 -1 0
+"daily activity(breakfast)" -1 -1 0 -1 0
+"intentional positivity(bestwishes)" -1 -1 0 -1 0
+"intentional positivity(loveyouall)" -1 -1 0 -1 0
+"geographical location(decatur seventh-day adventist church)" -1 -1 0 -1 0
+"geographical location(bosque real estate)" -1 -1 0 -1 0
+"geographical location(los angeles international airport)" -1 -1 0 -1 0
+"geographical location(royal caribbean international)" -1 -1 0 -1 0
+"awareness(sharing information)" -1 -1 0 -1 0
+"art(mississippi studios)" -1 -1 0 -1 0
+"romantic love(always)" -1 -1 0 -1 0
+"geographical location(brooklyn botanic garden)" -1 -1 0 -1 0
+"belonging(same activity interest)" -1 -1 0 -1 0
+"aesthetic(cool)" -1 -1 0 -1 0
+"aesthetic(stylish)" -1 -1 0 -1 0
+"aesthetic(trendy)" -1 -1 0 -1 0
+"comfort(comfortable)" -1 -1 0 -1 0
+"personal connection(close relationship)" -1 -1 0 -1 0
+"physical activity(boating)" -1 -1 0 -1 0
+"physical difficulty(spinal issue)" -1 -1 0 -1 0
+"holiday activities(post-turkey naps)" -1 -1 0 -1 0
+"holiday activities(post-turkey shopping)" -1 -1 0 -1 0
+"geographical location(tallahassee)" -1 -1 0 -1 0
+"personal affirmation(self-confidence)" -1 -1 0 -1 0
+"food preference(snow cones)" -1 -1 0 -1 0
+"surprise(unexpected event)" -1 -1 0 -1 0
+"unexpected event(self-destructive behavior)" -1 -1 0 -1 0
+"aesthetic(beautiful)" -1 -1 0 -1 0
+"natural environment(sequoia national park)" -1 -1 0 -1 0
+"personal connection(returning to a familiar place)" -1 -1 0 -1 0
+"personal state(feeling tired)" -1 -1 0 -1 0
+"beer preference(lucky envelope brewing)" -1 -1 0 -1 0
+"personal affirmation(compliment)" -1 -1 0 -1 0
+"natural environment(tommy thompson park)" -1 -1 0 -1 0
+"holiday activity(traveling)" -1 -1 0 -1 0
+"physical appearance(weight)" -1 -1 0 -1 0
+"atttitude 2(hopeful)" -1 -1 0 -1 0
+"emotionality(intellectual)" -1 -1 0 -1 0
+"positivity(relevant to current times)" -1 -1 0 -1 0
+"# lyircal emphasis(witty wordplay)" -1 -1 0 -1 0
+"# irmation(prescriptive)" -1 -1 0 -1 0
+"innocence(innocent)" -1 -1 0 -1 0
+"# articipating(individual-oriented)" -1 -1 0 -1 0
+"# ighly posted spot(artistic integrity)" -1 -1 0 -1 0
+"weekend(long weekend)" -1 -1 0 -1 0
+"location(mullaly park)" -1 -1 0 -1 0
+"employee(stay tuned)" -1 -1 0 -1 0
+"confidence(savage)" -1 -1 0 -1 0
+"location(century city)" -1 -1 0 -1 0
+"location(marco island)" -1 -1 0 -1 0
+"talent(artist)" -1 -1 0 -1 0
+"weekend(at work)" -1 -1 0 -1 0
+"concept(witty wordplay)" -1 -1 0 -1 0
+"geographic(cultural elements)" -1 -1 0 -1 0
+"body and beauty(body enhancing beauty)" -1 -1 0 -1 0
+"society(secular)" -1 -1 0 -1 0
+"prosperity(materialistic lifestyle)" -1 -1 0 -1 0
+"freedom(anti-authoritarian)" -1 -1 0 -1 0
+"cultural elements(individual-oriented)" -1 -1 0 -1 0
+"emotional realism(heartbreak)" -1 -1 0 -1 0
+"geographic(globalization)" -1 -1 0 -1 0
+"climate preference(natural beauty)" -1 -1 0 -1 0
+"body and beauty(natural beauty)" -1 -1 0 -1 0
+"health and wellness(natural living)" -1 -1 0 -1 0
+"nostalgia(relevant to current times)" -1 -1 0 -1 0
+"individualistic(collective)" -1 -1 0 -1 0
+"aspirational(relatable)" -1 -1 0 -1 0
+"escapism(realism)" -1 -1 0 -1 0
+"luxury(relatable)" -1 -1 0 -1 0
+"vacation(relaxation)" -1 -1 0 -1 0
+"relevant to current times(timeless)" -1 -1 0 -1 0
+"competitive spirit(collaboration)" -1 -1 0 -1 0
+"adventure(relatable)" -1 -1 0 -1 0
+"mainstream appeal(alternative appeal)" -1 -1 0 -1 0
+"competitive sport(teamwork)" -1 -1 0 -1 0
+"cultural icon(historic)" -1 -1 0 -1 0
+"cultural diversity(cultural preservation)" -1 -1 0 -1 0
+"cultural heritage(modernization)" -1 -1 0 -1 0
+"nature preservation(outdoor activities)" -1 -1 0 -1 0
+"peacefulness(nature beauty)" -1 -1 0 -1 0
+"mindfulness(healthy lifestyle)" -1 -1 0 -1 0
+"urban lifestyle(community-oriented)" -1 -1 0 -1 0
+"celeb Persona(celebrity worship)" -1 -1 0 -1 0
+"(\"attention-place\(favorite\)\" attribute - any)" -1 -1 0 -1 0
+"(\"attention-place\(California\)\" attribute - any)" -1 -1 0 -1 0
+"(\"attention-place\(Murrieta\)\" attribute - any)" -1 -1 0 -1 0
+"emotion(irrational)" -1 -1 0 -1 0
+"emotion(desperation)" -1 -1 0 -1 0
+"(\"attention-place\(city/Los Angeles\)\" attribute - any)" -1 -1 0 -1 0
+"(\"attention-place\(landmark\)\" attribute - any)" -1 -1 0 -1 0
+"(\"attention-place\(attracting attention\)\" attribute - any)" -1 -1 0 -1 0
+"emotion(realism)" -1 -1 0 -1 0
+"atttention-event(time-related\(day/night\))" -1 -1 0 -1 0
+"situation relation(descriptiv)" -1 -1 0 -1 0
+"globalizational(cultural preservation)" -1 -1 0 -1 0
+"rationalism(mystic practitioner)" -1 -1 0 -1 0
+"transparent(mysterious)" -1 -1 0 -1 0
+"celebrity Persona(celebrity worship)" -1 -1 0 -1 0
+"target of love(love / self-love)" -1 -1 0 -1 0
+"value 1(stimulating)" -1 -1 0 -1 0
+"value 2(interactive)" -1 -1 0 -1 0
+"culture(individualisitc)" -1 -1 0 -1 0
+"celebirty Persona(celebrity worship)" -1 -1 0 -1 0
+"imagination(trope-reinforcing)" -1 -1 0 -1 0
+"source of inspiration(nostalgia)" -1 -1 0 -1 0
+"culture(individulistic)" -1 -1 0 -1 0
+"commerical appeal(mainstream success)" -1 -1 0 -1 0
+"(\"attention-place\(nature destination = river bridge, possibly location = Tennessee\)\" \"human strength / strong\")" -1 -1 0 -1 0
+"(\"attention-place\(nature destination = river bridge\)\" \"environment / anti-capitalism\")" -1 -1 0 -1 0
+"freedom(dependence)" -1 -1 0 -1 0
+"body enhancing beauty(natural beauty)" -1 -1 0 -1 0
+"culture(social)" -1 -1 0 -1 0
+"polite(impolite)" -1 -1 0 -1 0
+"socioeconomic status(wealthy or powerful)" -1 -1 0 -1 0
+"simplicity(simplicity)" -1 -1 0 -1 0
+"ethnicity(racially diverse)" -1 -1 0 -1 0
+"expectation(conformed)" -1 -1 0 -1 0
+"(\"attention-place\(area of the lake\)\" audien)" -1 -1 0 -1 0
+"work environment(cooperative)" -1 -1 0 -1 0
+"location detail(simple themes)" -1 -1 0 -1 0
+"professionalism(mainstream success)" -1 -1 0 -1 0
+"patient(instantly gratifying)" -1 -1 0 -1 0
+"storyline(trope-reinforcing)" -1 -1 0 -1 0
+"tone(urgent)" -1 -1 0 -1 0
+"visual emphasis(trope-reinforcing)" -1 -1 0 -1 0
+"athleticism(aesthetic)" -1 -1 0 -1 0
+"modernization(tradition)" -1 -1 0 -1 0
+"socioeconomic status(socioeconomically diverse)" -1 -1 0 -1 0
+"technological dependence(mindfulness)" -1 -1 0 -1 0
+"hometown pride(personal attachment)" -1 -1 0 -1 0
+"entertainment(cultural preservation)" -1 -1 0 -1 0
+"social(individual)" -1 -1 0 -1 0
+"nature(urban environment)" -1 -1 0 -1 0
+"imagination(truthfulness)" -1 -1 0 -1 0
+"indulgence(healthy lifestyle)" -1 -1 0 -1 0
+"education(personal growth)" -1 -1 0 -1 0
+"cultural celebration(commercialization)" -1 -1 0 -1 0
+"culinary(authenticity)" -1 -1 0 -1 0
+"culinary(cultural preservation)" -1 -1 0 -1 0
+"performance(social validation)" -1 -1 0 -1 0
+"recreation(exploration)" -1 -1 0 -1 0
+"education(nostalgia)" -1 -1 0 -1 0
+"nightlife(cultural acceptance)" -1 -1 0 -1 0
+"hometown pride(relevant to current times)" -1 -1 0 -1 0
+"cultural diversity(social acceptance)" -1 -1 0 -1 0
+"education(intellectual)" -1 -1 0 -1 0
+"nostalgia(source of inspiration)" -1 -1 0 -1 0
+"escapism(escapism)" -1 -1 0 -1 0
+"social media-driven(authentic)" -1 -1 0 -1 0
+"specific vacation destination(desperate)" -1 -1 0 -1 0
+"mindful(effortless)" -1 -1 0 -1 0
+"party relation(social event)" -1 -1 0 -1 0
+"age target(mainstream)" -1 -1 0 -1 0
+"financial status(independence)" -1 -1 0 -1 0
+"cultural background(tradition)" -1 -1 0 -1 0
+"(\"attention-place\(at \(in-site\)\" attention-place / location: \"user\")" -1 -1 0 -1 0
+"(\"attention-place\(in place\)\" primary attribute groups and values not evident from given attributes)" -1 -1 0 -1 0
+"(\"attention-place\(city: Seattle\)\" \"culture / individualistic\")" -1 -1 0 -1 0
+"(\"attention-place\(at school\)\" attention-place / location: \"user\")" -1 -1 0 -1 0
+"(\"attention-place\(currently at present place\)\" attention-place / location: \"user\")" -1 -1 0 -1 0
+"autonomy(dependence)" -1 -1 0 -1 0
+"glamour(hipster)" -1 -1 0 -1 0
+"competitiveness(competition)" -1 -1 0 -1 0
+"economic(cultural preservation)" -1 -1 0 -1 0
+"respect(honest)" -1 -1 0 -1 0
+"maturity(mature)" -1 -1 0 -1 0
+"peace and calm(mindfulness)" -1 -1 0 -1 0
+"party lifestyle(party anthems)" -1 -1 0 -1 0
+"attention-emotional_state\(desire\)(emotion\(uncertainty\))" -1 -1 0 -1 0
+"structured religion(spiritual seeker)" -1 -1 0 -1 0
+"group experience(biographical)" -1 -1 0 -1 0
+"consumption(consumerism)" -1 -1 0 -1 0
+"globalizaiton(cultural preservation)" -1 -1 0 -1 0
+"religious community(secular society)" -1 -1 0 -1 0
+"transition\(activities(roles\))" -1 -1 0 -1 0
+"(\"attention-place\(new office\)\" attention-time\(late at night\))" -1 -1 0 -1 0
+"awe and surprise(skepticism)" -1 -1 0 -1 0
+"source of inspiration(culturally relevant)" -1 -1 0 -1 0
+"emotion(intellectual)" -1 -1 0 -1 0
+"(\"attention-place\(location of rest stop\)\" attention-time\(late at night\))" -1 -1 0 -1 0
+"competitive spirit(competitiveness)" -1 -1 0 -1 0
+"love status(living now)" -1 -1 0 -1 0
+"versatility(grounded)" -1 -1 0 -1 0
+"artistic integrity(alternative)" -1 -1 0 -1 0
+"social(individual-oriented)" -1 -1 0 -1 0
+"youth-oriented(age-inclusive)" -1 -1 0 -1 0
+"globalisation(anti-capitalism)" -1 -1 0 -1 0
+"open(mainstream)" -1 -1 0 -1 0
+"unrealistic emotions(happiness)" -1 -1 0 -1 0
+"expectation-opposed(average expectations)" -1 -1 0 -1 0
+"authenticity(relevant to current times)" -1 -1 0 -1 0
+"nostalgia(personal experience)" -1 -1 0 -1 0
+"open(inspirational)" -1 -1 0 -1 0
+"alternative(mainstream)" -1 -1 0 -1 0
+"body positivity(celebrity worship)" -1 -1 0 -1 0
+"commercial appeal(aspirational)" -1 -1 0 -1 0
+"collective(mainstream)" -1 -1 0 -1 0
+"sophisticated(body enhancing beauty)" -1 -1 0 -1 0
+"localization(anti-capitalism)" -1 -1 0 -1 0
+"imaging(non-sexual)" -1 -1 0 -1 0
+"authoritarian(libertarian)" -1 -1 0 -1 0
+"harmony(troublemaker)" -1 -1 0 -1 0
+"idealistic(realistic)" -1 -1 0 -1 0
+"provacativity(provocative)" -1 -1 0 -1 0
+"culture(traditional religion)" -1 -1 0 -1 0
+"relaxation(mindful)" -1 -1 0 -1 0
+"sincerity(authenticity)" -1 -1 0 -1 0
+"societal values(secular society)" -1 -1 0 -1 0
+"economic(globalization)" -1 -1 0 -1 0
+"authenticity(artist integrity)" -1 -1 0 -1 0
+"attitue 3(optimistic)" -1 -1 0 -1 0
+"narrativemode(narrative detachment)" -1 -1 0 -1 0
+"atttribute spectrum(believer)" -1 -1 0 -1 0
+"responsibility(twisted)" -1 -1 0 -1 0
+"fitness(active lifestyle)" -1 -1 0 -1 0
+"travel(wanderlust)" -1 -1 0 -1 0
+"migration(relocation)" -1 -1 0 -1 0
+"family(without romantic partner)" -1 -1 0 -1 0
+"geographic location(Cape Cod)" -1 -1 0 -1 0
+"geographic location(Del Puerto Canyon)" -1 -1 0 -1 0
+"geographic location(New York)" -1 -1 0 -1 0
+"aesthetic preference(natural beauty)" -1 -1 0 -1 0
+"geographic location(Royal Oak)" -1 -1 0 -1 0
+"geographic location(Nashville)" -1 -1 0 -1 0
+"sensual preference(body enhancing beauty)" -1 -1 0 -1 0
+"party relation(mainstream success)" -1 -1 0 -1 0
+"sport preference(golf)" -1 -1 0 -1 0
+"geographic location(Santa Cruz Boardwalk)" -1 -1 0 -1 0
+"geographic location(Kansas)" -1 -1 0 -1 0
+"geographic location(East MLK)" -1 -1 0 -1 0
+"home(family)" -1 -1 0 -1 0
+"geographic location(Southeast)" -1 -1 0 -1 0
+"patriotism(anti-capitalism)" -1 -1 0 -1 0
+"magazine-culture(wisdom)" -1 -1 0 -1 0
+"imagination(curious)" -1 -1 0 -1 0
+"glam-culture(men-women)" -1 -1 0 -1 0
+"atttention-time\(weekend\)(fun-time)" -1 -1 0 -1 0
+"cultural preservation(globalization)" -1 -1 0 -1 0
+"travel(tourist)" -1 -1 0 -1 0
+"tranquility(chaos)" -1 -1 0 -1 0
+"curiosity(adventure)" -1 -1 0 -1 0
+"entertainment culture(positive)" -1 -1 0 -1 0
+"social interaction(nightlife)" -1 -1 0 -1 0
+"attention-place\(outdoor fairgrounds\)(attention-event\(different cultural experiences\))" -1 -1 0 -1 0
+"culture(cultural history / cultural heritage)" -1 -1 0 -1 0
+"winter fun(cozy atmosphere)" -1 -1 0 -1 0
+"culture(cultural significance)" -1 -1 0 -1 0
+"education(knowledge)" -1 -1 0 -1 0
+"relaxation(escapism)" -1 -1 0 -1 0
+"attention-place\(nature reserve(trail\) / aspiration)" -1 -1 0 -1 0
+"awareness & consciousness(encouraging mindfulness)" -1 -1 0 -1 0
+"career focus(career-driven)" -1 -1 0 -1 0
+"media interaction(media coverage)" -1 -1 0 -1 0
+"multi-cultural(culturally diverse)" -1 -1 0 -1 0
+"brand(branding)" -1 -1 0 -1 0
+"inner vision(external vision)" -1 -1 0 -1 0
+"culure(individualistic)" -1 -1 0 -1 0
+"culture elements(globalization)" -1 -1 0 -1 0
+"narrative(protagnist storytelling)" -1 -1 0 -1 0
+"independently(independence)" -1 -1 0 -1 0
+"attituse 1(closed)" -1 -1 0 -1 0
+"targeted of love(romantic love)" -1 -1 0 -1 0
+"average expectations(expectation-looped)" -1 -1 0 -1 0
+"emotion(explicit)" -1 -1 0 -1 0
+"employment(corporation relations)" -1 -1 0 -1 0
+"realistic emotions(happiness)" -1 -1 0 -1 0
+"body-enhancing beauty(natural beauty)" -1 -1 0 -1 0
+"culture(individual)" -1 -1 0 -1 0
+"race and ethnicity(cultural preservation)" -1 -1 0 -1 0
+"food preference(adventurous)" -1 -1 0 -1 0
+"nature preference(nature-loving)" -1 -1 0 -1 0
+"physical preference(sports)" -1 -1 0 -1 0
+"party relation(lighthearted)" -1 -1 0 -1 0
+"financial status(aspirational)" -1 -1 0 -1 0
+"socio-economic(cultural)" -1 -1 0 -1 0
+"qualifiers(individual traits)" -1 -1 0 -1 0
+"popular culture(globalization)" -1 -1 0 -1 0
+"attentiveness(personal connection)" -1 -1 0 -1 0
+"attentio-place\(unknown(city name)" -1 -1 0 -1 0
+"education level(university/college)" -1 -1 0 -1 0
+"corporate relation(consumerism)" -1 -1 0 -1 0
+"nature(mindful)" -1 -1 0 -1 0
+"world-building(relevant to current times)" -1 -1 0 -1 0
+"(\"attention-place\(outdoors/nature\)\" attention-action\(the outdoors\) + attention-emotional_state\(excited about exploring nature\))" -1 -1 0 -1 0
+"celebration(relevant to current times)" -1 -1 0 -1 0
+"perception(realistic)" -1 -1 0 -1 0
+"growth(juvenile)" -1 -1 0 -1 0
+"youth(age-inclusive)" -1 -1 0 -1 0
+"calm(troubled)" -1 -1 0 -1 0
+"city life(rural life)" -1 -1 0 -1 0
+"success(failure)" -1 -1 0 -1 0
+"individual experience(communal experience)" -1 -1 0 -1 0
+"friendship(competition)" -1 -1 0 -1 0
+"real life(fantasy world)" -1 -1 0 -1 0
+"memory(reality)" -1 -1 0 -1 0
+"memory(image)" -1 -1 0 -1 0
+"escapism(reality)" -1 -1 0 -1 0
+"place of tranquility(place of chaos)" -1 -1 0 -1 0
+"beauty(simplicity)" -1 -1 0 -1 0
+"representation(abstraction)" -1 -1 0 -1 0
+"geographical location(state of mind)" -1 -1 0 -1 0
+"political(non-political)" -1 -1 0 -1 0
+"value spectrum(believer)" -1 -1 0 -1 0
+"ethnicity(individualistic)" -1 -1 0 -1 0
+"age spectrum(youth-oriented)" -1 -1 0 -1 0
+"socioeconomic status(lower-class)" -1 -1 0 -1 0
+"nationality(global citizen)" -1 -1 0 -1 0
+"musical style(jazz)" -1 -1 0 -1 0
+"environment(natural)" -1 -1 0 -1 0
+"entertainment(family-friendly)" -1 -1 0 -1 0
+"transition \(activities(roles\))" -1 -1 0 -1 0
+"lifestyle(urban)" -1 -1 0 -1 0
+"lifestyle(luxury)" -1 -1 0 -1 0
+"ethnicity(cultural communities)" -1 -1 0 -1 0
+"entertainment(tourist attraction)" -1 -1 0 -1 0
+"lifestyle(beach destination)" -1 -1 0 -1 0
+"environment(urban parks)" -1 -1 0 -1 0
+"education(medical school)" -1 -1 0 -1 0
+"emotion(constantly evolving)" -1 -1 0 -1 0
+"producer styles(acoustic)" -1 -1 0 -1 0
+"society(individualistic)" -1 -1 0 -1 0
+"nature(urban)" -1 -1 0 -1 0
+"atmosphere(peacefulness)" -1 -1 0 -1 0
+"lifestyle(relatable)" -1 -1 0 -1 0
+"many research contexts(investigational)" -1 -1 0 -1 0
+"ethnicity(globalization)" -1 -1 0 -1 0
+"social(cultural elements)" -1 -1 0 -1 0
+"lifestyle culture(globalization)" -1 -1 0 -1 0
+"lifestyle(self-acceptance)" -1 -1 0 -1 0
+"aspirational(mainstream)" -1 -1 0 -1 0
+"(\"attention-place\(night\)\" attention-time \(night\))" -1 -1 0 -1 0
+"attencional place(social gathering area)" -1 -1 0 -1 0
+"concept(storytelling)" -1 -1 0 -1 0
+"mindset(grounded)" -1 -1 0 -1 0
+"religious(scientific)" -1 -1 0 -1 0
+"image(celebrity Persona)" -1 -1 0 -1 0
+"presentation(mainstream)" -1 -1 0 -1 0
+"attention-place\(location differring from beginning(location not specified\))" -1 -1 0 -1 0
+"action(explicit)" -1 -1 0 -1 0
+"environment(controlled)" -1 -1 0 -1 0
+"art style(allegorical)" -1 -1 0 -1 0
+"peacefulness(troublesome)" -1 -1 0 -1 0
+"festive(introspective)" -1 -1 0 -1 0
+"globalized(cultural preservation)" -1 -1 0 -1 0
+"education(individual-focused)" -1 -1 0 -1 0
+"environmentalism(corporate responsibility)" -1 -1 0 -1 0
+"financial stability(adventure)" -1 -1 0 -1 0
+"life and love(relational)" -1 -1 0 -1 0
+"culture(preservation)" -1 -1 0 -1 0
+"source of inspiration(relevant to current times.)" -1 -1 0 -1 0
+"sexualization(sexually acting)" -1 -1 0 -1 0
+"emotion(emotional)" -1 -1 0 -1 0
+"(\"attention-place\(user's\(?\) information not provided\": unknown)" -1 -1 0 -1 0
+"transition(activities/roles)" -1 -1 0 -1 0
+"emotion(lyrical emphasis)" -1 -1 0 -1 0
+"generation(youth-oriented)" -1 -1 0 -1 0
+"audience(relatable)" -1 -1 0 -1 0
+"perception(personal experience)" -1 -1 0 -1 0
+"socioeconomic status(developed / underdeveloped)" -1 -1 0 -1 0
+"socio-economic status(urban / rural)" -1 -1 0 -1 0
+"attitud 1(closed)" -1 -1 0 -1 0
+"spirituality(rational thinker)" -1 -1 0 -1 0
+"socio-economic status(urban)" -1 -1 0 -1 0
+"socioeconomic status(suburban / rural)" -1 -1 0 -1 0
+"financial stability(aspirational)" -1 -1 0 -1 0
+"maturity(younger / older)" -1 -1 0 -1 0
+"nationality(Republican)" -1 -1 0 -1 0
+"provacativity(racist stereotypes)" -1 -1 0 -1 0
+"society(authoritarian)" -1 -1 0 -1 0
+"purpose(life and love)" -1 -1 0 -1 0
+"geography(Canada)" -1 -1 0 -1 0
+"economy(luxury lifestyle)" -1 -1 0 -1 0
+"attitude 2(desirability influenced by popular culture)" -1 -1 0 -1 0
+"\)(relationship focus / partner-focused)" -1 -1 0 -1 0
+"compassion(irresponsible)" -1 -1 0 -1 0
+"attitudes(attitude 2)" -1 -1 0 -1 0
+"youth(youth-oriented)" -1 -1 0 -1 0
+"representation(conforming)" -1 -1 0 -1 0
+"representatin(conforming)" -1 -1 0 -1 0
+"holiday spirit(holiday-themed)" -1 -1 0 -1 0
+"education(intelligent)" -1 -1 0 -1 0
+"consumerism(artistic integrity)" -1 -1 0 -1 0
+"celebration(celebratory)" -1 -1 0 -1 0
+"milestone(achievement)" -1 -1 0 -1 0
+"nature(nature seeker)" -1 -1 0 -1 0
+"high culture(sophistication)" -1 -1 0 -1 0
+"organization(individual spirituality)" -1 -1 0 -1 0
+"global relations(globalization)" -1 -1 0 -1 0
+"animal lovers(animal haters)" -1 -1 0 -1 0
+"family relationship(without romantic partner)" -1 -1 0 -1 0
+"source of inspiration(cultural elements)" -1 -1 0 -1 0
+"socioeconomic status(socioeconomic status)" -1 -1 0 -1 0
+"journey(self-discovery)" -1 -1 0 -1 0
+"celebration(rewarding)" -1 -1 0 -1 0
+"transition(freedom)" -1 -1 0 -1 0
+"provacativity(edgy)" -1 -1 0 -1 0
+"(\"attention-place\(Tacoma\)\" geographical location)" -1 -1 0 -1 0
+"(\"attention-place\(north slope\)\" geographical location)" -1 -1 0 -1 0
+"(\"attention-place\(Tijuana\)\" geographical location)" -1 -1 0 -1 0
+"(\"attention-place\(californian commercial location/place\)\" geographical location)" -1 -1 0 -1 0
+"(\"attention-place\(Yosemite National Park\)\" geographical location)" -1 -1 0 -1 0
+"expectation extremes(expectation-conformed)" -1 -1 0 -1 0
+"sense of adventure(adventurous)" -1 -1 0 -1 0
+"relaxation(mindfulness)" -1 -1 0 -1 0
+"beauty(body enhancing beauty)" -1 -1 0 -1 0
+"culinary(foodie)" -1 -1 0 -1 0
+"lifestyle(pleasure)" -1 -1 0 -1 0
+"(\"attention-place\(back alley\)\" attit)" -1 -1 0 -1 0
+"modern(traditional religion)" -1 -1 0 -1 0
+"calm(chaotic)" -1 -1 0 -1 0
+"energy(peacefulness)" -1 -1 0 -1 0
+"perspective(limited perspective)" -1 -1 0 -1 0
+"urban environment(natural environment)" -1 -1 0 -1 0
+"impatience(patience)" -1 -1 0 -1 0
+"nature lover(city lover)" -1 -1 0 -1 0
+"city(specific)" -1 -1 0 -1 0
+"socio-economic status(consumerism)" -1 -1 0 -1 0
+"socio-economic status(anti-capitalism)" -1 -1 0 -1 0
+"life and love(spiritual seeker)" -1 -1 0 -1 0
+"diversity(cultural elements)" -1 -1 0 -1 0
+"socio-economic status(globalization)" -1 -1 0 -1 0
+"reality(escapist)" -1 -1 0 -1 0
+"humanity(strong)" -1 -1 0 -1 0
+"party(lighthearted)" -1 -1 0 -1 0
+"celeb persona(mainstream success)" -1 -1 0 -1 0
+"attitudes towards love(hopeful)" -1 -1 0 -1 0
+"intellectual(rationalist)" -1 -1 0 -1 0
+"environmentalism(cultural preservation)" -1 -1 0 -1 0
+"peace and mindfulness(mindful)" -1 -1 0 -1 0
+"inner peace(peacefulness)" -1 -1 0 -1 0
+"relaxation(peacefulness)" -1 -1 0 -1 0
+"social media presence(authentic)" -1 -1 0 -1 0
+"artistic expression(authentic)" -1 -1 0 -1 0
+"event-driven(aspirational)" -1 -1 0 -1 0
+"mainstream(audience)" -1 -1 0 -1 0
+"celebration(consumerism)" -1 -1 0 -1 0
+"socioeconomic status(mainstream)" -1 -1 0 -1 0
+"game preference(competition)" -1 -1 0 -1 0
+"conversation focus(partner-focused)" -1 -1 0 -1 0
+"identity(identityless)" -1 -1 -1 -1 0
+"location(toronto, canada)" -1 -1 -1 -1 0
+"greeting(informal)" -1 -1 -1 -1 0
+"location(hong kong, china)" -1 -1 -1 -1 0
+"letter(d)" -1 -1 -1 -1 0
+"letter(c)" -1 -1 -1 -1 0
+"identity(personal)" -1 -1 -1 -1 0
+"letter(p)" -1 -1 -1 -1 0
+"letter(s)" -1 -1 -1 -1 0
+"location(santa fe, new mexico)" -1 -1 -1 -1 0
+"activity(eating)" -1 -1 -1 -1 0
+"trends(viral)" -1 -1 -1 -1 0
+"attitude(humorous)" -1 -1 -1 -1 0
+"content(not trending)" -1 -1 -1 -1 0
+"situation(shortage)" -1 -1 -1 -1 0
+"location(new mexico)" -1 -1 -1 -1 0
+"gratitude(thanking)" -1 -1 -1 -1 0
+"content(challenging)" -1 -1 -1 -1 0
+"style(diverse)" -1 -1 -1 -1 0
+"state(washington)" -1 -1 -1 -1 0
+"location(davis, california)" -1 -1 -1 -1 0
+"school(university of california, davis)" -1 -1 -1 -1 0
+"interest(tea)" -1 -1 -1 -1 0
+"location(annapolis, maryland)" -1 -1 -1 -1 0
+"location(college park, maryland)" -1 -1 -1 -1 0
+"clothing(ugly sweater)" -1 -1 -1 -1 0
+"location(manhattan, new york)" -1 -1 -1 -1 0
+"content(expression of joy)" -1 -1 -1 -1 0
+"location(ithaca, new york)" -1 -1 -1 -1 0
+"date(not september 4th)" -1 -1 -1 -1 0
+"content(sharing)" -1 -1 -1 -1 0
+"purpose(fitting)" -1 -1 -1 -1 0
+"location(seattle, washington)" -1 -1 -1 -1 0
+"title(tv show)" -1 -1 -1 -1 0
+"identity(undefined)" -1 -1 -1 -1 0
+"location(new york, new york)" -1 -1 -1 -1 0
+"state(south carolina)" -1 -1 -1 -1 0
+"concept(photography)" -1 -1 -1 -1 0
+"interest(coffee)" -1 -1 -1 -1 0
+"place(tasting room and growler shop)" -1 -1 -1 -1 0
+"title(pet)" -1 -1 -1 -1 0
+"title(twins)" -1 -1 -1 -1 0
+"emotion(love and happiness)" -1 -1 -1 -1 0
+"location(elizabethtown, pennsylvania)" -1 -1 -1 -1 0
+"content(new items)" -1 -1 -1 -1 0
+"location(jonesboro, arkansas)" -1 -1 -1 -1 0
+"location(pilot travel center, united states)" -1 -1 -1 -1 0
+"identity(cynthia ann)" -1 -1 -1 -1 0
+"emotion(farewell)" -1 -1 -1 -1 0
+"location(charleston, south carolina)" -1 -1 -1 -1 0
+"content(love for new york city)" -1 -1 -1 -1 0
+"identity(attractive friends)" -1 -1 -1 -1 0
+"celebration culture(merry)" -1 -1 -1 -1 0
+"responsibility(feeding others)" -1 -1 -1 -1 0
+"personal boundaries(no pictures)" -1 -1 -1 -1 0
+"location tagging(neo on locust street)" -1 -1 -1 -1 0
+"location tagging(in the streets of denver)" -1 -1 -1 -1 0
+"graffiti culture(street art)" -1 -1 -1 -1 0
+"location tagging(downtown woodstock)" -1 -1 -1 -1 0
+"personal motivation(seeking oblivion)" -1 -1 -1 -1 0
+"celebration culture(holiday time)" -1 -1 -1 -1 0
+"social activities(joining a group)" -1 -1 -1 -1 0
+"holiday activities(holiday time at disneyland)" -1 -1 -1 -1 0
+"friendship and bonding(hanging out together)" -1 -1 -1 -1 0
+"location tagging(hollywood hills)" -1 -1 -1 -1 0
+"city exploration(morning views in brooklyn)" -1 -1 -1 -1 0
+"nightlife activities(wednesday nights on the mile)" -1 -1 -1 -1 0
+"motivation(shining and being positive)" -1 -1 -1 -1 0
+"family bonding(taking care of and capturing moments with children)" -1 -1 -1 -1 0
+"personal space(at home)" -1 -1 -1 -1 0
+"hairstyle(dutch braids)" -1 -1 -1 -1 0
+"nature appreciation(deerfield beach boardwalk)" -1 -1 -1 -1 0
+"lifestyle(poker tourney at wynn las vegas)" -1 -1 -1 -1 0
+"social activities(hanging out with friends at a bar)" -1 -1 -1 -1 0
+"travel and exploration(vacationing at the beach)" -1 -1 -1 -1 0
+"volunteering(participating in adopt a beach program)" -1 -1 -1 -1 0
+"parenting(enjoying lunch with a baby)" -1 -1 -1 -1 0
+"lifestyle(enjoying mob culture)" -1 -1 -1 -1 0
+"love and marriage(taking first steps as husband and wife)" -1 -1 -1 -1 0
+"love and marriage(newlyweds)" -1 -1 -1 -1 0
+"arts and culture(face painting at a gallery event)" -1 -1 -1 -1 0
+"music and concerts(promoting a new album in toronto)" -1 -1 -1 -1 0
+"personal motivation(always maintaining hope)" -1 -1 -1 -1 0
+"fashion and accessories(kim jewelry)" -1 -1 -1 -1 0
+"lifestyle(enjoying good food)" -1 -1 -1 -1 0
+"lifestyle(spending time in the sunshine with family)" -1 -1 -1 -1 0
+"travel and exploration(capturing the beauty of brooklyn)" -1 -1 -1 -1 0
+"food and dining(trying new dishes at a restaurant incubator)" -1 -1 -1 -1 0
+"city exploration(favorite part of nyc)" -1 -1 -1 -1 0
+"food and dining(enjoying frozen yogurt)" -1 -1 -1 -1 0
+"nightlife activities(hanging out at a lounge and deck bar)" -1 -1 -1 -1 0
+"sports(attending a football game)" -1 -1 -1 -1 0
+"family bonding(celebrating a front page feature in the newspaper)" -1 -1 -1 -1 0
+"social etiquette(complimenting someone)" -1 -1 -1 -1 0
+"personal motivation(fighting for something important)" -1 -1 -1 -1 0
+"location tagging(hollywood beach)" -1 -1 -1 -1 0
+"personal relationships(father-daughter bonding)" -1 -1 -1 -1 0
+"social etiquette(smiling in photos)" -1 -1 -1 -1 0
+"internet culture(undefeated champion)" -1 -1 -1 -1 0
+"location tagging(new york city)" -1 -1 -1 -1 0
+"location tagging(north phoenix)" -1 -1 -1 -1 0
+"holiday activities(watching fireworks on fourth of july)" -1 -1 -1 -1 0
+"personal relationships(hanging out with a close friend)" -1 -1 -1 -1 0
+"location tagging(thurmont)" -1 -1 -1 -1 0
+"social activities(attending a minor league baseball game)" -1 -1 -1 -1 0
+"sports(attending a basketball game at wells fargo center)" -1 -1 -1 -1 0
+"pet ownership(introducing a new bunny)" -1 -1 -1 -1 0
+"family bonding(attending a race at talladega)" -1 -1 -1 -1 0
+"work culture(enjoying work)" -1 -1 -1 -1 0
+"food and dining(trying a whiz burger for the first time)" -1 -1 -1 -1 0
+"personal motivation(finding joy in everyday life)" -1 -1 -1 -1 0
+"travel and exploration(enjoying the sights of denver)" -1 -1 -1 -1 0
+"travel and exploration(planning a trip to orlando)" -1 -1 -1 -1 0
+"personal struggle(feeling humbled and struggling with rising rent)" -1 -1 -1 -1 0
+"beauty and grooming(getting lashes done)" -1 -1 -1 -1 0
+"social issues(rising rent costs)" -1 -1 -1 -1 0
+"beauty and grooming(being sick but still going to work)" -1 -1 -1 -1 0
+"coorperation relations(consumerism)" -1 -1 -1 -1 0
+"peacefullness(peacefulness)" -1 -1 -1 -1 0
+"motvivation(rewarding)" -1 -1 -1 -1 0
+"coorperation relations(anti-capitalism)" -1 -1 -1 -1 0
+"marriage(marriage)" -1 -1 -1 -1 0
+"celebration(celebration)" -1 -1 -1 -1 0
+"career(career)" -1 -1 -1 -1 0
+"food and drinks(food and drinks)" -1 -1 -1 -1 0
+"physical preference(natural beauty.)" -1 -1 -1 -1 0
+"romantic relationship(without romantic partner)" -1 -1 -1 -1 0
+"happily together(united and so happy)" -1 -1 -1 -1 0
+"generation(young)" -1 -1 -1 -1 0
+"generation(old)" -1 -1 -1 -1 0
+"religious extremists(religious fundamentalist)" -1 -1 -1 -1 0
+"cuisine(european)" -1 -1 -1 -1 0
+"cuisine(scandinavian)" -1 -1 -1 -1 0
+"cuisine(french)" -1 -1 -1 -1 0
+"cuisine(american southern)" -1 -1 -1 -1 0
+"old and new believers(new religious movement)" -1 -1 -1 -1 0
+"scene(nightlife)" -1 -1 -1 -1 0
+"cuisine(italian)" -1 -1 -1 -1 0
+"targets of love(romantic love)" -1 -1 -1 -1 0
+"targets of love(self-love)" -1 -1 -1 -1 0
+"patients(patient)" -1 -1 -1 -1 0
+"influence(influence on others)" -1 -1 -1 -1 0
+"complexity(complex)" -1 -1 -1 -1 0
+"happiness(happiness)" -1 -1 -1 -1 0
+"cuisine(fusion)" -1 -1 -1 -1 0
+"generation(teen)" -1 -1 -1 -1 0
+"work ethic(hard work)" -1 -1 -1 -1 0
+"tradition(old age spirituality)" -1 -1 -1 -1 0
+"intellectualism(rationalist)" -1 -1 -1 -1 0
+"city characteristics(historic charm)" -1 -1 -1 -1 0
+"experience of life(post-storm recovery)" -1 -1 -1 -1 0
+"existentialism(individual-oriented)" -1 -1 -1 -1 0
+"city characteristics(urban vibe)" -1 -1 -1 -1 0
+"explanatory language(emotional realism)" -1 -1 -1 -1 0
+"personal relationships(mentoring)" -1 -1 -1 -1 0
+"romantic feelings(infatuation)" -1 -1 -1 -1 0
+"city characteristics(metropolitan)" -1 -1 -1 -1 0
+"personal experience(personal growth)" -1 -1 -1 -1 0
+"personal experience(success)" -1 -1 -1 -1 0
+"city characteristics(bustling)" -1 -1 -1 -1 0
+"culture and history(historical relevance)" -1 -1 -1 -1 0
+"expression of feelings(happiness)" -1 -1 -1 -1 0
+"economy(corporate relations)" -1 -1 -1 -1 0
+"city characteristics(scenic)" -1 -1 -1 -1 0
+"city characteristics(beach location)" -1 -1 -1 -1 0
+"city characteristics(coastal)" -1 -1 -1 -1 0
+"physical well-being(fitness)" -1 -1 -1 -1 0
+"social activities(drinking)" -1 -1 -1 -1 0
+"personal style(alternative fashion)" -1 -1 -1 -1 0
+"entertainment and leisure(arcade)" -1 -1 -1 -1 0
+"city characteristics(suburban)" -1 -1 -1 -1 0
+"explanation(questioning reality)" -1 -1 -1 -1 0
+"city characteristics(urban)" -1 -1 -1 -1 0
+"culture(french culture and cuisine)" -1 -1 -1 -1 0
+"physical well-being(self-care)" -1 -1 -1 -1 0
+"expression of feelings(success)" -1 -1 -1 -1 0
+"financial stability(successful entrepreneurship)" -1 -1 -1 -1 0
+"spirituality(chakras)" -1 -1 -1 -1 0
+"spirituality(chakras 4 autism)" -1 -1 -1 -1 0
+"random(aaron)" -1 -1 -1 -1 0
+"provacativity(silenced)" -1 -1 -1 -1 0
+"faith extremes(cynical)" -1 -1 -1 -1 0
+"human strength(independent)" -1 -1 -1 -1 0
+"rational believers(non-believer)" -1 -1 -1 -1 0
+"imagery(picturesque)" -1 -1 -1 -1 0
+"expression(genuine)" -1 -1 -1 -1 0
+"festive(patriotic)" -1 -1 -1 -1 0
+"religious orientation(christian)" -1 -1 -1 -1 0
+"atmosphere(urban)" -1 -1 -1 -1 0
+"happy moments(relationship)" -1 -1 -1 -1 0
+"group experience(community)" -1 -1 -1 -1 0
+"natural scenery(springfield)" -1 -1 -1 -1 0
+"festive(holiday)" -1 -1 -1 -1 0
+"atmosphere(summertime)" -1 -1 -1 -1 0
+"festive(fourth of july)" -1 -1 -1 -1 0
+"random(traveling)" -1 -1 -1 -1 0
+"random(harrisburg)" -1 -1 -1 -1 0
+"festive(christmas)" -1 -1 -1 -1 0
+"random(roses are red)" -1 -1 -1 -1 0
+"random(fat tattoo)" -1 -1 -1 -1 0
+"random(violets are blue)" -1 -1 -1 -1 0
+"random(122)" -1 -1 -1 -1 0
+"random(how about you)" -1 -1 -1 -1 0
+"random(town: iron tiger tattoo)" -1 -1 -1 -1 0
+"special occasions(birthday)" -1 -1 -1 -1 0
+"love status(relationship)" -1 -1 -1 -1 0
+"festive(halloween)" -1 -1 -1 -1 0
+"service(great coffee)" -1 -1 -1 -1 0
+"atmosphere(sports stadium)" -1 -1 -1 -1 0
+"random(quotation mark)" -1 -1 -1 -1 0
+"random(37am)" -1 -1 -1 -1 0
+"random(ohio)" -1 -1 -1 -1 0
+"random(cleveland)" -1 -1 -1 -1 0
+"festive(hershey park)" -1 -1 -1 -1 0
+"personal grooming(grooming)" -1 -1 -1 -1 0
+"random(ankmat)" -1 -1 -1 -1 0
+"festive(champion)" -1 -1 -1 -1 0
+"atmosphere(akron)" -1 -1 -1 -1 0
+"social events(wedding)" -1 -1 -1 -1 0
+"personal relationship(son)" -1 -1 -1 -1 0
+"festive(disney)" -1 -1 -1 -1 0
+"service(fast service)" -1 -1 -1 -1 0
+"random(singer)" -1 -1 -1 -1 0
+"atmosphere(church)" -1 -1 -1 -1 0
+"atmosphere(urbana)" -1 -1 -1 -1 0
+"special occasions(farewell)" -1 -1 -1 -1 0
+"atmosphere(new york)" -1 -1 -1 -1 0
+"random(times square)" -1 -1 -1 -1 0
+"random(mvp)" -1 -1 -1 -1 0
+"atmosphere(city)" -1 -1 -1 -1 0
+"festive(birthday)" -1 -1 -1 -1 0
+"festive(valentine's day)" -1 -1 -1 -1 0
+"atmosphere(restaurant; catering)" -1 -1 -1 -1 0
+"physical preference(body enhancing)" -1 -1 -1 -1 0
+"identity(proud daughter/son)" -1 -1 -1 -1 0
+"personal experience(family visit)" -1 -1 -1 -1 0
+"intensity(high energy)" -1 -1 -1 -1 0
+"love status(friendship)" -1 -1 -1 -1 0
+"hobbies/interests(outdoor activities)" -1 -1 -1 -1 0
+"intensity(low energy)" -1 -1 -1 -1 0
+"love status(supportive relationships)" -1 -1 -1 -1 0
+"group experience(community gathering)" -1 -1 -1 -1 0
+"audience(celebrity fans)" -1 -1 -1 -1 0
+"identity(prodigal sibling)" -1 -1 -1 -1 0
+"love status(friends)" -1 -1 -1 -1 0
+"body positivity(positive body image)" -1 -1 -1 -1 0
+"identity(thankful)" -1 -1 -1 -1 0
+"aphorism(hope for the best)" -1 -1 -1 -1 0
+"emotions(happiness)" -1 -1 -1 -1 0
+"location(donner lake)" -1 -1 -1 -1 0
+"imagery(candid)" -1 -1 -1 -1 0
+"imagery(street art)" -1 -1 -1 -1 0
+"attitude 1(cheerful)" -1 -1 -1 -1 0
+"location(california heights)" -1 -1 -1 -1 0
+"character(champion)" -1 -1 -1 -1 0
+"location(castro theatre)" -1 -1 -1 -1 0
+"location(north shore)" -1 -1 -1 -1 0
+"location(known gallery)" -1 -1 -1 -1 0
+"album(impressive)" -1 -1 -1 -1 0
+"location(staples center)" -1 -1 -1 -1 0
+"attitude 2(happy)" -1 -1 -1 -1 0
+"location(the gastropig)" -1 -1 -1 -1 0
+"attitude 1(loving)" -1 -1 -1 -1 0
+"mood 5(sentimental)" -1 -1 -1 -1 0
+"attitude 3(rebellious)" -1 -1 -1 -1 0
+"expression(festive)" -1 -1 -1 -1 0
+"experience(stray)" -1 -1 -1 -1 0
+"relationship(kin)" -1 -1 -1 -1 0
+"character(anjellaaa)" -1 -1 -1 -1 0
+"location(bally's las vegas)" -1 -1 -1 -1 0
+"expectation(perfect)" -1 -1 -1 -1 0
+"sexucal acting(confident)" -1 -1 -1 -1 0
+"casual(mainstream)" -1 -1 -1 -1 0
+"body focus(body enhancing beauty)" -1 -1 -1 -1 0
+"cultural elements(globalizaiton)" -1 -1 -1 -1 0
+"problem solving strategy(teamwork)" -1 -1 -1 -1 0
+"sexualization(empowerment)" -1 -1 -1 -1 0
+"production style(hip-hop)" -1 -1 -1 -1 0
+"milestone(birthday celebration)" -1 -1 -1 -1 0
+"party relation(partygoer)" -1 -1 -1 -1 0
+"locality(los angeles)" -1 -1 -1 -1 0
+"locality(san francisco)" -1 -1 -1 -1 0
+"physical preference(air travel)" -1 -1 -1 -1 0
+"group experience(communal living)" -1 -1 -1 -1 0
+"sexualization(playful)" -1 -1 -1 -1 0
+"personal experience(memorable)" -1 -1 -1 -1 0
+"locality(las vegas)" -1 -1 -1 -1 0
+"religious spectrum(spiritual)" -1 -1 -1 -1 0
+"sexualization(indulgence)" -1 -1 -1 -1 0
+"locality(rowland heights)" -1 -1 -1 -1 0
+"human strength(resilience)" -1 -1 -1 -1 0
+"situation relation(persuasive)" -1 -1 -1 -1 0
+"locality(snoqualmie)" -1 -1 -1 -1 0
+"group experience(brotherhood)" -1 -1 -1 -1 0
+"party relation(nightlife)" -1 -1 -1 -1 0
+"locality(las vegas strip)" -1 -1 -1 -1 0
+"physical preference(relaxation)" -1 -1 -1 -1 0
+"locality(chicano park)" -1 -1 -1 -1 0
+"belief communities(community involvement)" -1 -1 -1 -1 0
+"locality(woodland hills)" -1 -1 -1 -1 0
+"locality(newport beach)" -1 -1 -1 -1 0
+"group experience(contentment)" -1 -1 -1 -1 0
+"situation relation(reminiscent)" -1 -1 -1 -1 0
+"locality(manhattan beach)" -1 -1 -1 -1 0
+"locality(copperopolis)" -1 -1 -1 -1 0
+"physical preference(wonder)" -1 -1 -1 -1 0
+"expressions(double entendre)" -1 -1 -1 -1 0
+"locality(cerritos)" -1 -1 -1 -1 0
+"locality(hoover dam)" -1 -1 -1 -1 0
+"locality(sacramento)" -1 -1 -1 -1 0
+"locality(downtown disney)" -1 -1 -1 -1 0
+"physical preference(aesthetic)" -1 -1 -1 -1 0
+"physical preference(customization)" -1 -1 -1 -1 0
+"physical preference(confectionery)" -1 -1 -1 -1 0
+"attitude(admiration)" -1 -1 -1 -1 0
+"relationship focus(female friendships.)" -1 -1 -1 -1 0
+"belief communities(spiritual seeker)" -1 -1 -1 -1 0
+"lyrical emphasis(straightforward scripts)" -1 -1 -1 -1 0
+"intentional avoidance(avoidance)" -1 -1 -1 -1 0
+"spiritual seekers(spiritual seeker)" -1 -1 -1 -1 0
+"religion and belief(organized religion)" -1 -1 -1 -1 0
+"conceptualization(mystical)" -1 -1 -1 -1 0
+"musical connection(musical theatre)" -1 -1 -1 -1 0
+"authencity(celebrity persona)" -1 -1 -1 -1 0
+"existentialism(seeking truth)" -1 -1 -1 -1 0
+"spiritual(religious fundamentalist)" -1 -1 -1 -1 0
+"spiritual(agnostic)" -1 -1 -1 -1 0
+"existence(existence)" -1 -1 -1 -1 0
+"clothing style(rich)" -1 -1 -1 -1 0
+"artistic expressions(explicit)" -1 -1 -1 -1 0
+"location(arts district)" -1 -1 -1 -1 0
+"location(hilly)" -1 -1 -1 -1 0
+"location(olson mansion)" -1 -1 -1 -1 0
+"location(japan town center)" -1 -1 -1 -1 0
+"location(northstar brew)" -1 -1 -1 -1 0
+"category(music festival)" -1 -1 -1 -1 0
+"location(pioneer square)" -1 -1 -1 -1 0
+"celebration(city life)" -1 -1 -1 -1 0
+"culture(historical)" -1 -1 -1 -1 0
+"celebration(nature)" -1 -1 -1 -1 0
+"culinary preference(seafood)" -1 -1 -1 -1 0
+"activity(biking)" -1 -1 -1 -1 0
+"location(catcher in the rye bar)" -1 -1 -1 -1 0
+"location(runyon canyon)" -1 -1 -1 -1 0
+"location(palos verdes)" -1 -1 -1 -1 0
+"safety(be safe)" -1 -1 -1 -1 0
+"political stance(anti-hillary)" -1 -1 -1 -1 0
+"political beliefs(skepticism)" -1 -1 -1 -1 0
+"political stance(pro-hillary)" -1 -1 -1 -1 0
+"community focus(partner-focused)" -1 -1 -1 -1 0
+"economic(liberalism)" -1 -1 -1 -1 0
+"individual spirituality(aspirational)" -1 -1 -1 -1 0
+"mood 1(angry)" -1 -1 -1 -1 0
+"age expectation(average expectation)" -1 -1 -1 -1 0
+"individual spirituality(individual-oriented)" -1 -1 -1 -1 0
+"diverse groups(global citizens)" -1 -1 -1 -1 0
+"terrorism(easily destroyable)" -1 -1 -1 -1 0
+"job description(lawyer)" -1 -1 -1 -1 0
+"self-love(personal)" -1 -1 -1 -1 0
+"diversity(honesty and diversity)" -1 -1 -1 -1 0
+"humour(lighthearted)" -1 -1 -1 -1 0
+"partying(excited)" -1 -1 -1 -1 0
+"diversity(endless diversity)" -1 -1 -1 -1 0
+"diversity(big goals)" -1 -1 -1 -1 0
+"love(loving with hatred)" -1 -1 -1 -1 0
+"motivation(positive)" -1 -1 -1 -1 0
+"immigration(xenophobic)" -1 -1 -1 -1 0
+"immigration(child abuse)" -1 -1 -1 -1 0
+"patriotism(patriotic)" -1 -1 -1 -1 0
+"immigration(immigrant)" -1 -1 -1 -1 0
+"immigration(multiculturalism)" -1 -1 -1 -1 0
+"immigration(assimilation)" -1 -1 -1 -1 0
+"immigration(raid)" -1 -1 -1 -1 0
+"immigration(reunification)" -1 -1 -1 -1 0
+"immigration(humanitarian aid)" -1 -1 -1 -1 0
+"immigration(border wall)" -1 -1 -1 -1 0
+"immigration(racial profiling)" -1 -1 -1 -1 0
+"compassion(empathy)" -1 -1 -1 -1 0
+"immigration(immigrant rights)" -1 -1 -1 -1 0
+"controversy(political correctness)" -1 -1 -1 -1 0
+"racism(offensive language)" -1 -1 -1 -1 0
+"compassion(support)" -1 -1 -1 -1 0
+"immigration(advocacy)" -1 -1 -1 -1 0
+"humor(satirical)" -1 -1 -1 -1 0
+"immigration(violence)" -1 -1 -1 -1 0
+"immigration(crime)" -1 -1 -1 -1 0
+"multiculturalism(diversity)" -1 -1 -1 -1 0
+"immigration(citizenship)" -1 -1 -1 -1 0
+"religion(religious conflict)" -1 -1 -1 -1 0
+"humanitarianism(aid)" -1 -1 -1 -1 0
+"immigration(world refugee day)" -1 -1 -1 -1 0
+"bigotry(racism)" -1 -1 -1 -1 0
+"sexism(homophobia)" -1 -1 -1 -1 0
+"fame(sudden success)" -1 -1 -1 -1 0
+"sex education(condom use)" -1 -1 -1 -1 0
+"sexism(misogynistic language)" -1 -1 -1 -1 0
+"violence(capital punishment)" -1 -1 -1 -1 0
+"immigration(migrant workers)" -1 -1 -1 -1 0
+"intra-community conflict(palestinian)" -1 -1 -1 -1 0
+"immigration(factual vs. fictional information)" -1 -1 -1 -1 0
+"humor(insult)" -1 -1 -1 -1 0
+"employment(exploitation)" -1 -1 -1 -1 0
+"employment(human trafficking)" -1 -1 -1 -1 0
+"social justice(advocating for marginalized groups)" -1 -1 -1 -1 0
+"immigration(child detention)" -1 -1 -1 -1 0
+"media bias(immigration)" -1 -1 -1 -1 0
+"media(biased reporting)" -1 -1 -1 -1 0
+"politics(fear-mongering)" -1 -1 -1 -1 0
+"politics(fear of exposure)" -1 -1 -1 -1 0
+"humor(relatable)" -1 -1 -1 -1 0
+"future(uncertain.)" -1 -1 -1 -1 0
+"individual-oriented(individual-oriented)" -1 -1 -1 -1 0
+"ethnicity(african)" -1 -1 -1 -1 0
+"communication style(grammatical correctness)" -1 -1 -1 -1 0
+"political stance(strong)" -1 -1 -1 -1 0
+"political stance(tough)" -1 -1 -1 -1 0
+"numeric system(14)" -1 -1 -1 -1 0
+"personal app(cheating)" -1 -1 -1 -1 0
+"humorous style(grammar correction)" -1 -1 -1 -1 0
+"political system(conservative)" -1 -1 -1 -1 0
+"verbal attack(vulgar language)" -1 -1 -1 -1 0
+"political issue(taxation)" -1 -1 -1 -1 0
+"situation(disaster)" -1 -1 -1 -1 0
+"political trend(migration)" -1 -1 -1 -1 0
+"dramatic style(storytelling)" -1 -1 -1 -1 0
+"gender stereotype(women are dramatic)" -1 -1 -1 -1 0
+"gender stereotype(women are hysterical)" -1 -1 -1 -1 0
+"personal story(immigrant experience)" -1 -1 -1 -1 0
+"reason(illegal immigration)" -1 -1 -1 -1 0
+"race(african)" -1 -1 -1 -1 0
+"political policy(border wall)" -1 -1 -1 -1 0
+"profession(navy seal)" -1 -1 -1 -1 0
+"personal story(military experience)" -1 -1 -1 -1 0
+"political trend(immigration)" -1 -1 -1 -1 0
+"political leader(donald trump)" -1 -1 -1 -1 0
+"social class(working class)" -1 -1 -1 -1 0
+"political establishment(establishment)" -1 -1 -1 -1 0
+"political hashtags(#maga #kavanaugh #walkaway #burtreynolds #buildthatwall)" -1 -1 -1 -1 0
+"social contribution(volunteerism)" -1 -1 -1 -1 0
+"social movement(love in action)" -1 -1 -1 -1 0
+"profession(musician)" -1 -1 -1 -1 0
+"political issue(terrorism)" -1 -1 -1 -1 0
+"political issue(voting rights)" -1 -1 -1 -1 0
+"political system(liberal)" -1 -1 -1 -1 0
+"international agreement(migrant protection)" -1 -1 -1 -1 0
+"personal story(murder victim)" -1 -1 -1 -1 0
+"celebration(building a wall)" -1 -1 -1 -1 0
+"celebration(diversity)" -1 -1 -1 -1 0
+"mindlessness(mindless)" -1 -1 -1 -1 0
+"respect(earned)" -1 -1 -1 -1 0
+"helping others(donating money)" -1 -1 -1 -1 0
+"leadership(generous)" -1 -1 -1 -1 0
+"protection(border control)" -1 -1 -1 -1 0
+"burden(financial burden)" -1 -1 -1 -1 0
+"justice(refugee crisis)" -1 -1 -1 -1 0
+"amount of ram(more ram)" -1 -1 -1 -1 0
+"amount of ram(less ram)" -1 -1 -1 -1 0
+"protecting borders(border control)" -1 -1 -1 -1 0
+"appearance(trashy)" -1 -1 -1 -1 0
+"social justice(#metoo movement)" -1 -1 -1 -1 0
+"fighting against racism(stopping xenophobia)" -1 -1 -1 -1 0
+"socio-economic status(mainstream success)" -1 -1 -1 -1 0
+"constituency(conservative)" -1 -1 -1 -1 0
+"political party(democratic)" -1 -1 -1 -1 0
+"immigration debate(secure border advocate)" -1 -1 -1 -1 0
+"immigration debate(nationalist)" -1 -1 -1 -1 0
+"immigration statistics(criminal activity focus)" -1 -1 -1 -1 0
+"immigration statistics(support for border control)" -1 -1 -1 -1 0
+"morality and immigration(cultural prejudice)" -1 -1 -1 -1 0
+"morality and immigration(anti-immigrant sentiment)" -1 -1 -1 -1 0
+"immigration and european perspective(xenophobic)" -1 -1 -1 -1 0
+"immigration and european perspective(scapegoating)" -1 -1 -1 -1 0
+"immigration and european perspective(anti-islam)" -1 -1 -1 -1 0
+"social media censorship(suppression of conservative views)" -1 -1 -1 -1 0
+"language and political correctness(terminology debate)" -1 -1 -1 -1 0
+"immigration argument(use of dehumanizing language)" -1 -1 -1 -1 0
+"immigration argument(justification for wall construction)" -1 -1 -1 -1 0
+"cult leader controversy(alleged involvement in illegal activities)" -1 -1 -1 -1 0
+"immigration and reality(impact of immigration on jobs)" -1 -1 -1 -1 0
+"immigration and reality(economic argument for restriction)" -1 -1 -1 -1 0
+"immigration and reality(criminalization of entire groups)" -1 -1 -1 -1 0
+"immigration and european perspective(far-right extremism)" -1 -1 -1 -1 0
+"immigration and european perspective(anti-globalization sentiment)" -1 -1 -1 -1 0
+"political polarization(support for trump and his policies)" -1 -1 -1 -1 0
+"immigration debate(support for strict immigration policies)" -1 -1 -1 -1 0
+"involvement in a controversial group(alleged involvement in illegal activities)" -1 -1 -1 -1 0
+"immigration and emphasizing illegal activity(justification for wall construction)" -1 -1 -1 -1 0
+"immigration debate(use of profanity)" -1 -1 -1 -1 0
+"immigration policy framing(demonization of immigrants)" -1 -1 -1 -1 0
+"immigration and politics(support for wall construction)" -1 -1 -1 -1 0
+"immigration and politics(rejection of political correctness)" -1 -1 -1 -1 0
+"immigration debate(use of dehumanizing language)" -1 -1 -1 -1 0
+"global event coverage(focus on controversial topics)" -1 -1 -1 -1 0
+"immigration and public discourse(focus on criminal activity)" -1 -1 -1 -1 0
+"immigration and public discourse(support for strict immigration policies)" -1 -1 -1 -1 0
+"immigrant/refugee perspective(vilification of muslim individuals)" -1 -1 -1 -1 0
+"immigrant/refugee perspective(rejection of stereotypes)" -1 -1 -1 -1 0
+"immigration and public discourse(use of inflammatory language)" -1 -1 -1 -1 0
+"immigration and public discourse(pushback against censorship)" -1 -1 -1 -1 0
+"political ideology and support(conservative values)" -1 -1 -1 -1 0
+"immigration and perspective on law enforcement(support for ice)" -1 -1 -1 -1 0
+"immigration and political affiliation(criticism of democratic party)" -1 -1 -1 -1 0
+"immigration and language(rejection of political correctness)" -1 -1 -1 -1 0
+"immigration and language(use of divisive language)" -1 -1 -1 -1 0
+"immigration and political affiliation(support for republican party)" -1 -1 -1 -1 0
+"immigration and political affiliation(criticism of metropolitan coastal cities)" -1 -1 -1 -1 0
+"electoral system and minority representation(focus on power disparities)" -1 -1 -1 -1 0
+"electoral system and minority representation(criticism of affluent groups)" -1 -1 -1 -1 0
+"immigration and job competition(support for strict immigration policies)" -1 -1 -1 -1 0
+"immigration and nationalist sentiments(anti-immigrant stance)" -1 -1 -1 -1 0
+"european perspective on immigration(anti-immigrant sentiment)" -1 -1 -1 -1 0
+"nationalism and sovereignty(defense against outside influences)" -1 -1 -1 -1 0
+"european politics and immigration(anti-islam views)" -1 -1 -1 -1 0
+"nationalism and protectionism(defense against outside influences)" -1 -1 -1 -1 0
+"immigrant/refugee perspective(backlash against hate speech)" -1 -1 -1 -1 0
+"age perspectives and political ideologies(criticism of older generations)" -1 -1 -1 -1 0
+"morality and political beliefs(criticism of liberal beliefs)" -1 -1 -1 -1 0
+"nationalist and conservative views(support for strict immigration policies)" -1 -1 -1 -1 0
+"immigration and political beliefs(support for restriction and control)" -1 -1 -1 -1 0
+"backlash against censorship(pushback against restriction of speech)" -1 -1 -1 -1 0
+"backlash against censorship(use of profanity to protest censorship)" -1 -1 -1 -1 0
+"backlash against censorship(support for free speech)" -1 -1 -1 -1 0
+"media censorship and political affiliation(support for conservative ideologies)" -1 -1 -1 -1 0
+"media censorship and political affiliation(rejection of censorship)" -1 -1 -1 -1 0
+"second amendment rights and immigration(support for strict immigration policies)" -1 -1 -1 -1 0
+"second amendment rights and immigration(rejection of illegal activity)" -1 -1 -1 -1 0
+"language and political correctness(use of inflammatory language)" -1 -1 -1 -1 0

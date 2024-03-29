@@ -7,53 +7,5 @@
 	"default_line_syllables": 7,
 	"default_attr_count": 7,
 	"theme_cursor": 15,
-	"part_cursor": 6,
-	"active_idea[THEME]": "Embracing the beauty of imperfection",
-	"active_idea[IDEA]": "Finding peace and contentment in imperfection instead of striving for perfection",
-	"active_idea[TONE]": "Embracing my quirks and flaws",
-	"active_idea[ALLEGORY]": "Embracing imperfections as unique traits",
-	"active_idea[CONTENT]": "I learned to love the scars on my skin, they tell the story of where I've been",
-	"active_idea[IMAGERY]": "Scars that speak of battles won",
-	"active_idea[SYMBOLISM]": "warrior's scars",
-	"active_idea[PERSON]": "The singer, embracing their imperfections and scars",
-	"active_idea_clr[THEME]": {
-		"red": 255,
-		"green": 0,
-		"blue": 255
-	},
-	"active_idea_clr[IDEA]": {
-		"red": 183,
-		"green": 163,
-		"blue": 145
-	},
-	"active_idea_clr[TONE]": {
-		"red": 199,
-		"green": 21,
-		"blue": 133
-	},
-	"active_idea_clr[ALLEGORY]": {
-		"red": 255,
-		"green": 127,
-		"blue": 0
-	},
-	"active_idea_clr[CONTENT]": {
-		"red": 255,
-		"green": 218,
-		"blue": 185
-	},
-	"active_idea_clr[IMAGERY]": {
-		"red": 166,
-		"green": 231,
-		"blue": 86
-	},
-	"active_idea_clr[SYMBOLISM]": {
-		"red": 204,
-		"green": 0,
-		"blue": 0
-	},
-	"active_idea_clr[PERSON]": {
-		"red": 0,
-		"green": 255,
-		"blue": 0
-	}
+	"part_cursor": 6
 }

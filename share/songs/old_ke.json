@@ -7,53 +7,5 @@
 	"default_line_syllables": 0,
 	"default_attr_count": 7,
 	"theme_cursor": 90,
-	"part_cursor": 2,
-	"active_idea[THEME]": "Nordic traditional fantasy christmas with hiding house elves and without Santa Claus",
-	"active_idea[IDEA]": "A Tale of the Hidden Elves",
-	"active_idea[TONE]": "The elves play and laugh, their mischief bold",
-	"active_idea[ALLEGORY]": "Mythical creatures aiding the protagonist",
-	"active_idea[CONTENT]": "A young farmer discovers a tiny, magical world of elves living in his barn",
-	"active_idea[IMAGERY]": "providing for loved ones",
-	"active_idea[SYMBOLISM]": "strong legs carrying a basket of treats for the elves",
-	"active_idea[PERSON]": "The young farmer",
-	"active_idea_clr[THEME]": {
-		"red": 255,
-		"green": 255,
-		"blue": 255
-	},
-	"active_idea_clr[IDEA]": {
-		"red": 129,
-		"green": 55,
-		"blue": 0
-	},
-	"active_idea_clr[TONE]": {
-		"red": 142,
-		"green": 206,
-		"blue": 125
-	},
-	"active_idea_clr[ALLEGORY]": {
-		"red": 0,
-		"green": 102,
-		"blue": 51
-	},
-	"active_idea_clr[CONTENT]": {
-		"red": 255,
-		"green": 177,
-		"blue": 102
-	},
-	"active_idea_clr[IMAGERY]": {
-		"red": 255,
-		"green": 153,
-		"blue": 153
-	},
-	"active_idea_clr[SYMBOLISM]": {
-		"red": 81,
-		"green": 150,
-		"blue": 120
-	},
-	"active_idea_clr[PERSON]": {
-		"red": 200,
-		"green": 120,
-		"blue": 50
-	}
+	"part_cursor": 2
 }

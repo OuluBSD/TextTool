@@ -7,53 +7,5 @@
 	"default_line_syllables": 0,
 	"default_attr_count": 7,
 	"theme_cursor": 4,
-	"part_cursor": 3,
-	"active_idea[THEME]": "The Mystic's Journey",
-	"active_idea[IDEA]": "A journey of self-discovery and accountability",
-	"active_idea[TONE]": "Beyond the Boundaries of the Mundane",
-	"active_idea[ALLEGORY]": "The intertwining of spirituality and sensuality",
-	"active_idea[CONTENT]": "She is a free-spirited mystic practitioner, always seeking new age spiritual experiences. As she explores her individual spirituality and opens herself up to new beliefs, she also embraces her sexuality and embraces her true desires. She defies the boundaries of a secular society and finds strength in her own personal journey.",
-	"active_idea[IMAGERY]": "Embracing the unknown darkness",
-	"active_idea[SYMBOLISM]": "A midnight sky full of stars",
-	"active_idea[PERSON]": "",
-	"active_idea_clr[THEME]": {
-		"red": 255,
-		"green": 202,
-		"blue": 0
-	},
-	"active_idea_clr[IDEA]": {
-		"red": 153,
-		"green": 102,
-		"blue": 51
-	},
-	"active_idea_clr[TONE]": {
-		"red": 255,
-		"green": 0,
-		"blue": 0
-	},
-	"active_idea_clr[ALLEGORY]": {
-		"red": 200,
-		"green": 50,
-		"blue": 100
-	},
-	"active_idea_clr[CONTENT]": {
-		"red": 255,
-		"green": 140,
-		"blue": 102
-	},
-	"active_idea_clr[IMAGERY]": {
-		"red": 0,
-		"green": 0,
-		"blue": 0
-	},
-	"active_idea_clr[SYMBOLISM]": {
-		"red": 0,
-		"green": 0,
-		"blue": 0
-	},
-	"active_idea_clr[PERSON]": {
-		"red": null,
-		"green": null,
-		"blue": null
-	}
+	"part_cursor": 3
 }
