@@ -100,26 +100,6 @@ void TaskManager::DoPhrases(int ds_i, int fn) {
 	lock.LeaveWrite();
 }
 
-/*void TaskManager::DoNana(int ds_i, int fn, Component& song, Callback OnReady, int line_i, int part_i) {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
-	
-	lock.EnterWrite();
-	Task& t = task_list.Add();
-	t.type = TASK_NANA;
-	t.cb = THISBACK1(GetNana, &t);
-	t.ds_i = ds_i;
-	t.batch_i = 0;
-	t.fn = fn;
-	t.song = &song;
-	t.on_ready = OnReady;
-	t.line_i = line_i;
-	t.part_i = part_i;
-	lock.LeaveWrite();
-}*/
-
 void TaskManager::DoContainer(int ds_i, int fn, Callback2<int,int> update) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;

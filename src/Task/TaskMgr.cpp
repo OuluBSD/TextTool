@@ -59,12 +59,6 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&AiTask::Process_GetActionAnalysis)
 		;
 	
-	AddRule(AITASK_GET_LYRICS_PHRASE, "get action analysis")
-		.Input(&AiTask::CreateInput_GetScriptPhrase)
-			.Arg(V_ARGS, 1, 1)
-		.Process(&AiTask::Process_GetScriptPhrase)
-		;
-		
 	AddRule(AITASK_RAW_COMPLETION, "raw prompt completion")
 		.Process(&AiTask::Process_RawCompletion)
 		;
@@ -87,28 +81,10 @@ void TaskMgrConfig::CreateDefaultTaskRules() {
 		.Process(&AiTask::Process_GetAttributes)
 		;
 	
-	AddRule(AITASK_NANA_DATA, "get nana data")
-		.Input(&AiTask::CreateInput_GetNanaData)
-			.Arg(V_ARGS, 1, 1)
-		.Process(&AiTask::Process_GetNanaData)
-		;
-	
 	AddRule(AITASK_LYRICS_SOLVER, "scripts solver")
 		.Input(&AiTask::CreateInput_ScriptSolver)
 			.Arg(V_ARGS, 1, 1)
 		.Process(&AiTask::Process_ScriptSolver)
-		;
-	
-	AddRule(AITASK_STORY_SOLVER, "story solver")
-		.Input(&AiTask::CreateInput_StorySolver)
-			.Arg(V_ARGS, 1, 1)
-		.Process(&AiTask::Process_StorySolver)
-		;
-	
-	AddRule(AITASK_GET_PROGRAM_DATA_ANALYSIS, "scripts solver")
-		.Input(&AiTask::CreateInput_GetProgramDataAnalysis)
-			.Arg(V_ARGS, 1, 1)
-		.Process(&AiTask::Process_GetProgramDataAnalysis)
 		;
 	
 }
@@ -230,26 +206,35 @@ void TaskMgr::RawCompletion(String prompt, Event<String> WhenResult) {
 	t.WhenResult << WhenResult;
 }
 
-void TaskMgr::GetStructureSuggestions(String req, String avoid, String desc, int total, Event<String> WhenResult) {
+void TaskMgr::GetStructureSuggestions(int appmode, const StructureArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	const TaskRule& r = mgr.GetRule(AITASK_GET_STRUCTURE_SUGGESTIONS);
 	TaskMgr& p = *this;
 	
-	AiTask& t = AddTask();
+	String s = args.Get();
+	
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
+	t.appmode = appmode;
 	t.rule = &r;
-	t.args << req << avoid << desc << IntStr(total);
+	t.args << s;
 	t.WhenResult << WhenResult;
+	task_lock.Leave();
 }
 
-void TaskMgr::GetSuggestionAttributes(Vector<String>& structs, Event<String> WhenResult) {
+void TaskMgr::GetSuggestionAttributes(const StructureArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	const TaskRule& r = mgr.GetRule(AITASK_GET_SUGGESTION_ATTRIBUTES);
 	TaskMgr& p = *this;
 	
-	AiTask& t = AddTask();
+	String s = args.Get();
+	
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
 	t.rule = &r;
-	t.args <<= structs;
+	t.args << s;
 	t.WhenResult << WhenResult;
+	task_lock.Leave();
 }
 
 void TaskMgr::CreateImage(String prompt, int count, Event<Array<Image>&> WhenResult, int reduce_size_mode, Event<> WhenError) {
@@ -319,23 +304,6 @@ void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResul
 	t.WhenError << WhenError;
 }
 
-void TaskMgr::GetSourceDataAnalysis(const SourceDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
-	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(AITASK_GET_SONG_DATA_ANALYSIS);
-	TaskMgr& p = *this;
-
-
-	String s = args.Get();
-
-	task_lock.Enter();
-	AiTask& t = tasks.Add();
-	t.rule = &r;
-	t.args << s;
-	t.WhenResult << WhenResult;
-	t.keep_going = keep_going;
-	task_lock.Leave();
-}
-
 void TaskMgr::GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	const TaskRule& r = mgr.GetRule(AITASK_GET_ACTION_ANALYSIS);
@@ -343,21 +311,6 @@ void TaskMgr::GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> Wh
 
 	String s = args.Get();
 
-	task_lock.Enter();
-	AiTask& t = tasks.Add();
-	t.rule = &r;
-	t.args << s;
-	t.WhenResult << WhenResult;
-	task_lock.Leave();
-}
-
-void TaskMgr::GetScriptPhrase(const ScriptPhraseArgs& args, Event<String> WhenResult) {
-	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(AITASK_GET_LYRICS_PHRASE);
-	TaskMgr& p = *this;
-	
-	String s = args.Get();
-	
 	task_lock.Enter();
 	AiTask& t = tasks.Add();
 	t.rule = &r;
@@ -411,21 +364,6 @@ void TaskMgr::GetAttributes(const AttrArgs& args, Event<String> WhenResult) {
 	task_lock.Leave();
 }
 
-void TaskMgr::GetNanaData(const NanaArgs& args, Event<String> WhenResult) {
-	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(AITASK_NANA_DATA);
-	TaskMgr& p = *this;
-	
-	String s = args.Get();
-	
-	task_lock.Enter();
-	AiTask& t = tasks.Add();
-	t.rule = &r;
-	t.args << s;
-	t.WhenResult << WhenResult;
-	task_lock.Leave();
-}
-
 void TaskMgr::GetScriptSolver(const ScriptSolverArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	const TaskRule& r = mgr.GetRule(AITASK_LYRICS_SOLVER);
@@ -441,37 +379,6 @@ void TaskMgr::GetScriptSolver(const ScriptSolverArgs& args, Event<String> WhenRe
 	task_lock.Leave();
 }
 
-void TaskMgr::GetStorySolver(const StorySolverArgs& args, Event<String> WhenResult) {
-	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(AITASK_STORY_SOLVER);
-	TaskMgr& p = *this;
-	
-	String s = args.Get();
-	
-	task_lock.Enter();
-	AiTask& t = tasks.Add();
-	t.rule = &r;
-	t.args << s;
-	t.WhenResult << WhenResult;
-	task_lock.Leave();
-}
-
-void TaskMgr::GetProgramDataAnalysis(const ProgramDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
-	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
-	const TaskRule& r = mgr.GetRule(AITASK_GET_PROGRAM_DATA_ANALYSIS);
-	TaskMgr& p = *this;
-
-
-	String s = args.Get();
-
-	task_lock.Enter();
-	AiTask& t = tasks.Add();
-	t.rule = &r;
-	t.args << s;
-	t.WhenResult << WhenResult;
-	t.keep_going = keep_going;
-	task_lock.Leave();
-}
 
 
 

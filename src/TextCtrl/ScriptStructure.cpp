@@ -294,12 +294,13 @@ void ComponentStructure::GetStructureSuggestions() {
 	DisableAll();
 	
 	{
-		String req = l.required_parts;
-		String avoid = l.avoid_parts;
-		String desc = l.structure_suggestion_description;
-		int total = l.parts_total;
+		StructureArgs args;
+		args.req = l.required_parts;
+		args.avoid = l.avoid_parts;
+		args.desc = l.structure_suggestion_description;
+		args.total = l.parts_total;
 		TaskMgr& m = TaskMgr::Single();
-		m.GetStructureSuggestions(req, avoid, desc, total, THISBACK1(OnStructureSuggestion, &l));
+		m.GetStructureSuggestions(GetAppMode(), args, THISBACK1(OnStructureSuggestion, &l));
 	}
 }
 
@@ -310,11 +311,11 @@ void ComponentStructure::GetSuggestionAttributes() {
 	DisableAll();
 	
 	{
-		Vector<String> structs;
+		StructureArgs args;
 		for (auto& sug : l.struct_suggs)
-			structs << Join(sug.parts, ", ");
+			args.structs << Join(sug.parts, ", ");
 		TaskMgr& m = TaskMgr::Single();
-		m.GetSuggestionAttributes(structs, THISBACK1(OnSuggestionAttributes, &l));
+		m.GetSuggestionAttributes(args, THISBACK1(OnSuggestionAttributes, &l));
 	}
 }
 

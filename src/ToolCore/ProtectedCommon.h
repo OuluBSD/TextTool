@@ -40,6 +40,16 @@ VectorMap<String,Vector<String>>& GetRoleCompanies(bool unsafe, bool gender);
 
 const Vector<String>& GetContrastParts();
 
+const VectorMap<String, String>& GetSongStructure();
+const Vector<String>& GetSongStructureAttrs();
+const Vector<String>& GetDefSongStructure();
+const Vector<String>& GetDefSongStructureAttrs();
+
+const VectorMap<String, String>& GetTwitterStructure();
+const Vector<String>& GetTwitterStructureAttrs();
+const Vector<String>& GetDefTwitterStructure();
+const Vector<String>& GetDefTwitterStructureAttrs();
+
 
 END_TEXTLIB_NAMESPACE
 

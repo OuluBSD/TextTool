@@ -991,6 +991,14 @@ void SetIndexCursor(ArrayCtrl& arr, int cur);
 void FixOffensiveWords(String& s);
 
 
+const VectorMap<String, String>& GetAppModeStructure(int appmode);
+const Vector<String>& GetAppModeStructureAttrs(int appmode);
+const Vector<String>& GetAppModeDefCompStructure(int appmode);
+const Vector<String>& GetAppModeDefCompStructureAttrs(int appmode);
+
+void MakeAppMode_UnsafeServers(int appmode, String& title, Vector<String>& list);
+
+
 END_TEXTLIB_NAMESPACE
 
 

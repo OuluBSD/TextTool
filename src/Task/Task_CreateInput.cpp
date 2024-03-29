@@ -1,5 +1,6 @@
 #include "Task.h"
 #include <ToolCore/ProtectedCommon.h>
+#include <TextDatabase/TextDatabase.h>
 
 #ifdef flagLLAMACPP
 #include <LlamaCpp/LlamaCpp.h>
@@ -98,36 +99,65 @@ void AiTask::CreateInput_VariateImage() {
 	//skip_load = true;
 }
 
+void TaskMgr::GetSourceDataAnalysis(const SourceDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	const TaskRule& r = mgr.GetRule(AITASK_GET_SONG_DATA_ANALYSIS);
+	TaskMgr& p = *this;
+
+
+	String s = args.Get();
+
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
+	t.rule = &r;
+	t.args << s;
+	t.WhenResult << WhenResult;
+	t.keep_going = keep_going;
+	task_lock.Leave();
+}
+
 void AiTask::CreateInput_GetStructureSuggestions() {
-	String req = args[0];
-	String avoid = args[1];
-	String desc = args[2];
-	int total = StrInt(args[3]);
-	Vector<String> req_parts = Split(req, ",");
-	Vector<String> avoid_parts = Split(avoid, ",");
+	StructureArgs args;
+	args.Put(this->args[0]);
+	
+	Vector<String> req_parts = Split(args.req, ",");
+	Vector<String> avoid_parts = Split(args.avoid, ",");
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Names of the parts of a song");
-		list		.Add("V1: verse 1");
-		list		.Add("I: intro");
-		list		.Add("PC1: prechorus 1");
-		list		.Add("C1: chorus 1");
-		list		.Add("B: bridge");
-		list		.Add("O: outro");
-		list		.Add("IN: instrumental");
-		list		.Add("T: instrumental theme melody");
-		list		.Add("S: instrumental solo");
+		TaskTitledList& list = input.AddSub().Title("Names of the parts of a " + __comp);
+		const auto& s = GetAppModeStructure(appmode);
+		for(int i = 0; i < s.GetCount(); i++) {
+			list.Add(s.GetKey(i) + ": " + s[i]);
+		}
 	}
 	
 	{
-		input.AddSub().Title("Structured string of parts of a generic song is \"I, V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\"").NoColon();
+		// >> Structured string of parts of a generic song is \"I, V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\"
+		String s;
+		s << "Structured string of parts of a generic " << __comp << " is \"";
+		const auto& st = GetAppModeStructure(appmode);
+		for(int i = 0; i < st.GetCount(); i++) {
+			if (i) s << ", ";
+			s << st.GetKey(i);
+		}
+		s << "\"";
+		input.AddSub().Title(s).NoColon();
 	}
 	
 	{
-		input.AddSub().Title("Novel name for the song structure \"V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\": \"The Build-Up Beat\"").NoColon();
+		// >> Novel name for the song structure \"V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\": \"The Build-Up Beat\"
+		String s;
+		s << "Novel name for the " << __comp << " structure \"";
+		const auto& st = GetAppModeStructure(appmode);
+		for(int i = 0; i < st.GetCount(); i++) {
+			if (i) s << ", ";
+			s << st.GetKey(i);
+		}
+		s << "\"";
+		input.AddSub().Title(s).NoColon();
 	}
 	
-	if (req_parts.GetCount() || total > 0) {
+	if (req_parts.GetCount() || args.total > 0) {
 		TaskTitledList& list = input.AddSub().Title("Only required parts are");
 		for (const String& p : req_parts)
 			list		.Add(TrimBoth(p));
@@ -139,17 +169,17 @@ void AiTask::CreateInput_GetStructureSuggestions() {
 			list		.Add(TrimBoth(p));
 	}
 	
-	if (total > 0) {
-		input.AddSub().Title("Next structured strings of parts must have " + IntStr(total) + " parts in total").NoColon();
+	if (args.total > 0) {
+		input.AddSub().Title("Next structured strings of parts must have " + IntStr(args.total) + " parts in total").NoColon();
 	}
 	
-	if (desc.GetCount()) {
-		input.AddSub().Title("What the listener should think about the structure of the song: " + desc).NoColon(); // UGLY
+	if (args.desc.GetCount()) {
+		input.AddSub().Title("What the " + __client + " should think about the structure of the " + __comp + ": " + args.desc).NoColon(); // UGLY
 	}
 	
 	{
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of 10 structured strings of good song structures (using abbreviations only) with their novel name");
+		results.Title("List of 10 structured strings of good " + __comp + " structures (using abbreviations only) with their novel name");
 		results.EmptyLine();
 		results.EmptyLineString("\"");
 	}
@@ -164,45 +194,86 @@ void AiTask::CreateInput_GetSuggestionAttributes() {
 		return;
 	}
 	
+	String struct_str1;
 	{
-		TaskTitledList& list = input.AddSub().Title("Names of the parts of a song");
-		list		.Add("V1: verse 1");
-		list		.Add("I: intro");
-		list		.Add("PC1: prechorus 1");
-		list		.Add("C1: chorus 1");
-		list		.Add("B: bridge");
-		list		.Add("O: outro");
-		list		.Add("IN: instrumental");
-		list		.Add("T: instrumental theme melody");
-		list		.Add("S: instrumental solo");
+		struct_str1 << "\"";
+		const auto& st = GetAppModeStructure(appmode);
+		for(int i = 0; i < st.GetCount(); i++) {
+			if (i) struct_str1 << ", ";
+			struct_str1 << st.GetKey(i);
+		}
+		struct_str1 << "\"";
+	}
+	
+	String struct_str2;
+	{
+		struct_str2 << "\"";
+		const auto& st = GetAppModeDefCompStructure(appmode);
+		for(int i = 0; i < st.GetCount(); i++) {
+			if (i) struct_str2 << ", ";
+			struct_str2 << st;
+		}
+		struct_str2 << "\"";
 	}
 	
 	{
-		input.AddSub().Title("Structured string of parts of a generic song is \"I, V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\"").NoColon();
+		TaskTitledList& list = input.AddSub().Title("Names of the parts of a " + __comp);
+		const auto& s = GetAppModeStructure(appmode);
+		for(int i = 0; i < s.GetCount(); i++) {
+			list.Add(s.GetKey(i) + ": " + s[i]);
+		}
 	}
 	
 	{
-		input.AddSub().Title("Novel name for the song structure \"V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\": \"The Build-Up Beat\"").NoColon();
+		// >> Structured string of parts of a generic song is \"I, V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\"
+		String s;
+		s << "Structured string of parts of a generic " << __comp << " is " << struct_str2;
+		const auto& st = GetAppModeStructure(appmode);
+		for(int i = 0; i < st.GetCount(); i++) {
+			if (i) s << ", ";
+			s << st.GetKey(i);
+		}
+		s << "\"";
+		input.AddSub().Title(s).NoColon();
 	}
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Attributes of the song structure \"V1, PC 1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\"");
-		list		.Add("get straight to the point");
-		list		.Add("has room for chorus development");
-		list		.Add("has room for medium size story arc");
-		list		.Add("has variation between two chorus");
+		// >> Novel name for the song structure "V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O": "The Build-Up Beat"
+		String s;
+		s << "Novel name for the " << __comp << " structure " << struct_str1;
+		s << ": \"The Build-Up\""; // TODO
+		input.AddSub().Title(s).NoColon();
 	}
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Attributes of the song structure \"I, V1, C1, V2, PC1, C2, B, C1, C2, V3, C2, IN, C3, O\"");
-		list		.Add("has a strong intro that catches the listener's attention");
-		list		.Add("includes a bridge which adds variety to the song");
-		list		.Add("allows for multiple verse-chorus-bridge repetitions, making it suitable for a longer song");
-		list		.Add("has a distinct build up to the final chorus in the outro");
+		/*
+		Attributes of the song structure "V1, PC 1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O"
+		- get straight to the point
+		- has room for chorus development
+		- has room for medium size story arc
+		- has variation between two chorus*/
+		String s;
+		s << "Attributes of the " << __comp << " structure " << struct_str1;
+		TaskTitledList& list = input.AddSub().Title(s);
+		const auto& v = GetAppModeDefCompStructureAttrs(appmode);
+		for (const auto& s : v) list.Add(s);
 	}
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("List of structured strings of good song structures (using abbreviations only)");
+		/*
+		Attributes of the song structure "I, V1, C1, V2, PC1, C2, B, C1, C2, V3, C2, IN, C3, O"
+		- has a strong intro that catches the listener's attention
+		- includes a bridge which adds variety to the song
+		- allows for multiple verse-chorus-bridge repetitions, making it suitable for a longer song
+		- has a distinct build up to the final chorus in the outro
+		*/
+		TaskTitledList& list = input.AddSub().Title("Attributes of the " + __comp + " structure " + struct_str2);
+		const auto& v = GetAppModeStructureAttrs(appmode);
+		for (const auto& s : v) list.Add(s);
+	}
+	
+	{
+		TaskTitledList& list = input.AddSub().Title("List of structured strings of good " + __comp + " structures (using abbreviations only)");
 		list.NumberedLines();
 		for (const String& p : args)
 			list		.Add("\"" + TrimBoth(p) + "\"");
@@ -215,7 +286,7 @@ void AiTask::CreateInput_GetSuggestionAttributes() {
 	{
 		String first = args[0];
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("1. Attributes of the song structure \"" + first + "\"");
+		results.Title("1. Attributes of the " + __comp + " structure \"" + first + "\"");
 		results.EmptyLine();
 	}
 	
@@ -223,452 +294,17 @@ void AiTask::CreateInput_GetSuggestionAttributes() {
 	input.response_length = 1024*2;
 }
 
-void AiTask::CreateInput_GetColorIdea() {
-	if (args.IsEmpty()) {
-		SetFatalError("no args");
-		return;
-	}
-	
-	ColorIdeaArgs args;
-	args.Put(this->args[0]);
-	
-	if (args.fn == 0) {
-		{
-			TaskTitledList& list = input.AddSub();
-			list.Title("Example of random colored single narrator for 1-8 lines and 8 values per line. Every line contains multiple colors in (red,green,blue) values");
-			list.NumberedLines();
-			list.Add("RGB(206,21,212),RGB(176,115,146),RGB(131,5,151),RGB(102,207,163),RGB(169,32,158),RGB(83,119,85),RGB(151,31,245),RGB(82,46,238)");
-			list.Add("RGB(230,215,241),RGB(160,16,206),RGB(137,204,255),RGB(64,66,193),RGB(94,190,99),RGB(217,213,198),RGB(10,44,147),RGB(51,70,78)");
-			list.Add("RGB(220,99,99),RGB(142,231,246),RGB(246,146,129),RGB(201,159,185),RGB(253,192,74),RGB(127,151,250),RGB(149,247,204),RGB(236,247,249)");
-			list.Add("RGB(134,161,42),RGB(251,162,45),RGB(33,113,112),RGB(163,182,183),RGB(187,101,211),RGB(240,57,188),RGB(44,144,211),RGB(250,227,240)");
-			list.Add("RGB(68,149,35),RGB(249,138,110),RGB(28,123,86),RGB(114,212,180),RGB(48,136,213),RGB(71,108,59),RGB(173,97,51),RGB(54,13,121)");
-			list.Add("RGB(17,144,124),RGB(44,157,45),RGB(255,136,222),RGB(252,6,74),RGB(29,248,114),RGB(60,231,122),RGB(124,167,128),RGB(251,74,123)");
-			list.Add("RGB(133,183,81),RGB(31,145,151),RGB(144,63,152),RGB(204,86,175),RGB(78,208,181),RGB(40,236,0),RGB(131,52,103),RGB(162,48,17)");
-			list.Add("RGB(126,219,137),RGB(3,70,184),RGB(80,73,112),RGB(198,66,254),RGB(40,52,89),RGB(230,54,91),RGB(98,94,107),RGB(68,77,20)");
-		}
-		String names;
-		for(int i = 0; i < args.dialogue.GetCount(); i++) {
-			String name = args.dialogue.GetKey(i);
-			TaskTitledList& list = input.AddSub();
-			list.Title(Capitalize(name) + " dialogue");
-			if (!names.IsEmpty()) names << " and ";
-			names << name;
-			auto& v = args.dialogue[i];
-			for(int j = 0; j < v.GetCount(); j++)
-				list.Add(v[j]);
-		}
-		{
-			TaskTitledList& list = input.AddSub();
-			list.Title("List of rappers, which use heavily internal rhyme schemes");
-			
-			// List of rappers, which use heavily internal rhyme schemes
-			for (const auto& s : InlineRapperList())
-				list.Add(s);
-		}
-		{
-			String t = "Imagine colored single narrator for 1-8 lines and 8 values per line. It summarises " + names + " dialogue. It also rhymes with internal rhyme scheme. No natural language is wanted. Every line begins with 'RGB'";
-			TaskTitledList& results = input.PreAnswer();
-			results.Title(t).NumberedLines();
-			results.EmptyLine().EmptyLineString("RGB(");
-		}
-		
-		input.response_length = 2*1024;
-	}
-	else if (args.fn == 1) {
-		{
-			TaskTitledList& list = input.AddSub();
-			list.Title(IntStr(args.main.GetCount()) + " lines of 8 \"main\" color values. Values represents poetic parts of rhyming text lines. The colors reflects induced feelings");
-			list.NumberedLines();
-			for (const auto& v : args.main) {
-				String s;
-				for (const auto& clr : v) {
-					if (!s.IsEmpty()) s << ",";
-					s << "RGB(" << (int)clr.GetR() << "," << (int)clr.GetG() << "," << (int)clr.GetB() << ")";
-				}
-				list.Add(s);
-			}
-		}
-		
-		if (args.prev_line.GetCount()) {
-			TaskTitledList& list = input.AddSub();
-			list.Title("Before the line 1, the line could have been this line");
-			list.NumberedLines();
-			for (const auto& v : args.prev_line) {
-				String s;
-				for (const auto& clr : v) {
-					if (!s.IsEmpty()) s << ",";
-					s << "RGB(" << (int)clr.GetR() << "," << (int)clr.GetG() << "," << (int)clr.GetB() << ")";
-				}
-				list.Add(s);
-			}
-		}
-		
-		if (args.next_line.GetCount()) {
-			TaskTitledList& list = input.AddSub();
-			list.Title("After the line " + IntStr(args.main.GetCount()) + ", the line could be this line");
-			list.NumberedLines();
-			for (const auto& v : args.next_line) {
-				String s;
-				for (const auto& clr : v) {
-					if (!s.IsEmpty()) s << ",";
-					s << "RGB(" << (int)clr.GetR() << "," << (int)clr.GetG() << "," << (int)clr.GetB() << ")";
-				}
-				list.Add(s);
-			}
-		}
-		
-		{
-			TaskTitledList& list = input.AddSub();
-			list.Title("4 types of color threads runs simultaneously at the same time");
-			list.Add("main: the visible value");
-			list.Add("attacking: prepares 1-4 next visible values");
-			list.Add("sustaining: combines 1-4 previous important values");
-			list.Add("releasing: tries to forget 1-16 previous values");
-		}
-		{
-			TaskTitledList& list = input.AddSub();
-			list.NoColon().Title("Imagine 8 lines for all 3 of \"attacking\", \"sustaining\", \"releasing\"");
-		}
-		{
-			String t = "Imagine 8 lines of 8 \"attacking\" color values";
-			TaskTitledList& results = input.PreAnswer();
-			results.Title(t).NumberedLines();
-			results.EmptyLine().EmptyLineString("RGB(");
-		}
-		
-		input.response_length = 3*1024;
-	}
-	else if (args.fn == 2) {
-		{
-			TaskTitledList& list = input.AddSub();
-			list.Title("Listener types");
-			for(int i = 0; i < args.begin_colors.GetCount(); i++)
-				list.Add(args.begin_colors.GetKey(i));
-		}
-		{
-			TaskTitledList& list = input.AddSub();
-			list.Title("Feelings of listener types in the beginning. Represented in RGB color values");
-			for(int i = 0; i < args.begin_colors.GetCount(); i++) {
-				String s;
-				s << args.begin_colors.GetKey(i) << ": RGB(";
-				Color clr = args.begin_colors[i];
-				s << clr.GetR() << "," << clr.GetR() << "," << clr.GetR() << ")";
-				list.Add(s);
-			}
-		}
-		{
-			TaskTitledList& list = input.AddSub();
-			list.Title(IntStr(args.main.GetCount()) + " lines of 8 color values. Values represents poetic parts of rhyming text lines. The colors reflects induced feelings");
-			list.NumberedLines();
-			for (const auto& v : args.main) {
-				String s;
-				for (const auto& clr : v) {
-					if (!s.IsEmpty()) s << ",";
-					s << "RGB(" << (int)clr.GetR() << "," << (int)clr.GetG() << "," << (int)clr.GetB() << ")";
-				}
-				list.Add(s);
-			}
-		}
-		{
-			String t = "Summarize feeling for listener types for the end of every line. The feeling can be anything between from the most negative to the most positive. The feeling of listener is represented in RGB color value only. No natural language is wanted";
-			TaskTitledList& results = input.PreAnswer();
-			results.Title(t).NumberedLines();
-			results.EmptyLine().EmptyLineString("Line 1. a) " + args.begin_colors.GetKey(0) + ": RGB(");
-		}
-		
-		input.response_length = 2*1024;
-	}
-	
-	
-}
-
 void AiTask::CreateInput_GetSourceDataAnalysis() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
 		return;
 	}
-	
+
 	SourceDataAnalysisArgs args;
 	args.Put(this->args[0]);
-	/*ASSERT(args.artist.GetCount());
-	ASSERT(args.song.GetCount());
-	ASSERT(args.text.GetCount());*/
 	
 	
-	if (args.fn == 0) {
-		String answer_prompt = "List of rhyme pairs/triplets/quads/etc. in lyrics. With score from 1-10 for quality";
-		{
-			auto& list = input.AddSub().Title(answer_prompt);
-			list.Add("triplet: cat/hat/grab (7)");
-			list.Add("pair: rotten/forgotten (6)");
-		}
-		
-		{
-			input.AddSub().Title("Artist: " + args.artist).NoColon();
-			input.AddSub().Title("Song: " + args.song).NoColon();
-			
-			Vector<String> lines = Split(args.text, "\n");
-			auto& list = input.AddSub().Title("Lyrics");
-			list.NoListChar();
-			for (String& s : lines)
-				list.Add(s);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.Title(answer_prompt);
-			results.EmptyLine();
-		}
-	}
-	if (args.fn == 1) {
-		String answer_prompt = "List of phrases and phrase groups in song \"" + args.artist + " - " + args.song + "\"";
-		{
-			auto& list = input.AddSub().Title("List of phrase groups");
-			/*list.Add("pronoun");
-			list.Add("noun");
-			list.Add("adjective");
-			list.Add("prepositions");
-			list.Add("conjunctions");
-			list.Add("verbs");
-			list.Add("adverbs");
-			list.Add("interjections");
-			list.Add("numbers");
-			list.Add("possessive pronouns");
-			list.Add("comparative adjectives");
-			list.Add("superlative adjectives");
-			list.Add("auxiliary verbs");
-			list.Add("relative pronouns");
-			list.Add("future tense verbs");
-			list.Add("past tense verbs");
-			list.Add("modal verbs");
-			list.Add("onomatopoeia");
-			list.Add("rhyming words");
-			list.Add("imperative verbs");
-			list.Add("possessive adjectives");
-			list.Add("articles");
-			list.Add("auxiliary adjectives");
-			list.Add("personal pronouns");
-			list.Add("possessive determiners");
-			list.Add("question words");
-			list.Add("compound words");
-			list.Add("repeated words");
-			list.Add("emotional words");
-			list.Add("strong verbs");
-			list.Add("weak verbs");
-			list.Add("onomatopoeic words");
-			list.Add("words that depict movement");
-			list.Add("symbolic words");
-			list.Add("descriptive words");
-			list.Add("words with multiple meanings");
-			list.Add("inline rhymes");
-			list.Add("contractions");
-			list.Add("emotive language");
-			list.Add("tense");
-			list.Add("rhythm");
-			list.Add("communication devices");
-			list.Add("themes");
-			list.Add("structure");
-			list.Add("idea");
-			*/
-			
-			list.Add("strong impact phrases");
-			list.Add("medium impact phrases");
-			list.Add("weak impact phrases");
-			list.Add("adverbial phrases");
-			list.Add("direct speech");
-			list.Add("indirect speech");
-			list.Add("repetitive phrases");
-			list.Add("personification");
-			list.Add("metaphors");
-			list.Add("hyperbole");
-			list.Add("assonance phrases");
-			list.Add("consonance phrases");
-			list.Add("alliteration");
-			list.Add("exclamations");
-			list.Add("questions");
-			list.Add("passive voice");
-			list.Add("active voice");
-			list.Add("contradictions");
-			list.Add("extended metaphor phrases");
-			list.Add("repetition");
-			list.Add("rhetorical question");
-			list.Add("tone setting phrases");
-			list.Add("mood setting phrases");
-			list.Add("vibe setting phrases");
-			list.Add("strong symbolism phrases");
-			list.Add("extended simile");
-			list.Add("dramatic endings");
-			list.Add("repeated chorus");
-			list.Add("metaphorical simile");
-			list.Add("irony");
-			list.Add("concern");
-			list.Add("insanity");
-			list.Add("pain");
-			list.Add("hope");
-			list.Add("grief");
-			list.Add("passion");
-			list.Add("happiness");
-			list.Add("anger");
-			list.Add("love");
-			list.Add("loss");
-			list.Add("sorrow");
-			list.Add("heartache");
-			list.Add("romance");
-			list.Add("longing");
-			list.Add("joy");
-			list.Add("sadness");
-			list.Add("relationship");
-			list.Add("happiness");
-			list.Add("intercourse");
-			list.Add("family");
-			list.Add("forgiveness");
-			list.Add("distance");
-			list.Add("communication");
-			list.Add("boundaries");
-			list.Add("resolution");
-			list.Add("denial");
-			list.Add("reconciliation");
-			list.Add("thoughts");
-			list.Add("mental state");
-			list.Add("messages");
-			list.Add("personal growth");
-			list.Add("storyline setting phrases");
-			list.Add("imagery");
-			list.Add("personification");
-			list.Add("hooks");
-			list.Add("sarcastic phrases");
-			list.Add("positivity");
-			list.Add("negativity");
-			list.Add("emotional progression phrases");
-		}
-		{
-			input.AddSub().Title("Artist: " + args.artist).NoColon();
-			input.AddSub().Title("Song: " + args.song).NoColon();
-			
-			Vector<String> lines = Split(args.text, "\n");
-			auto& list = input.AddSub().Title("Lyrics");
-			list.NoListChar();
-			for (String& s : lines)
-				list.Add(s);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.Title(answer_prompt);
-			results.EmptyLine().EmptyLineString("strong impact phrases:");
-		}
-		input.response_length = 2*1024;
-	}
-	else if (args.fn == 1) {
-		{
-			TaskTitledList& list = input.AddSub().Title("List of attribute groups and their opposite polarised attribute values");
-			list.NumberedLines();
-			#define ATTR_ITEM(e, g, i0, i1) list.Add(g ": " i0 " / " i1);
-			ATTR_LIST
-			#undef ATTR_ITEM
-		}
-		{
-			input.AddSub().Title("Artist: " + args.artist).NoColon();
-			input.AddSub().Title("Song: " + args.song).NoColon();
-			
-			Vector<String> lines = Split(args.text, "\n");
-			auto& list = input.AddSub().Title("Lyrics");
-			list.NoListChar();
-			for (String& s : lines)
-				list.Add(s);
-		}
-		{
-			auto& list = input.AddSub();
-			list.Title("Getting all phrases with a matching attribute group and their polarised attribute value in content of song \"" + args.artist + " - " + args.song + "\", if any. Unrelated example values. With metaphorical color of the phrase");
-			list.Add("\"Smoking cigs in the bar\": Belief communities: secular society: RGB(122,81,69)");
-			list.Add("\"You fucked up your last try\": Theological opposites: atheistic: RGB(255,0,0)");
-			list.Add("\"I was dying to find a way to kill time\": Motivation: punishing: RGB(74,135,59)");
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.Title("20 phrases with matching attribute group and their polarity in content of song \"" + args.artist + " - " + args.song + "\". With metaphorical color of the phrase");
-			results.EmptyLine().EmptyLineString("\"");
-		}
-		input.response_length = 1024;
-	}
-	else if (args.fn == 2) {
-		{
-			TaskTitledList& list = input.AddSub().Title("List of attribute groups and their opposite polarised attribute values");
-			list.NumberedLines();
-			#define ATTR_ITEM(e, g, i0, i1) list.Add(g ": " i0 " / " i1);
-			ATTR_LIST
-			#undef ATTR_ITEM
-		}
-		{
-			auto& list = input.AddSub().Title("4 positive stereotypes of distribution of attributes in content of modern songs");
-			list.Add("Intelligence/intellectual: 30\%, Attitude 1/open: 50\%, Situation relation/descriptive: 20\%");
-			list.Add("Relationship/romantic couple: 40\%, Age target/youth-oriented: 50\%, Lyrical emphasis/witty wordplay: 10\%");
-			list.Add("Culture/individualistic: 30\%, Mood 1/joyful: 40\%, Group experience/group-oriented: 30\%");
-			list.Add("Sexual Acting/confident: 40\%, Sophistication/sophisticated: 50\%, Truthfulness/personal experience: 10\%");
-		}
-		{
-			auto& list = input.AddSub().Title("4 negative stereotypes of distribution of attributes in content of modern songs");
-			list.Add("Faith extremes/agnostic: 40\%, Attitude 1/closed: 60\%, Responsibility/irresponsible: 40\%");
-			list.Add("Relationship/without romantic partner: 30\%, Situation relation/descriptive: 50\%, Commercial appeal/artistic integrity: 20\%");
-			list.Add("Gender/male: 40\%, Relationship focus/partner-focused: 50\%, Production style/electronic: 10\%");
-			list.Add("Attitude 3/pessimistic: 50\%, Average expectations/expectation-opposed: 40\%, Sophistication/simple: 10\%");
-		}
-		{
-			input.AddSub().Title("Artist: " + args.artist).NoColon();
-			input.AddSub().Title("Song: " + args.song).NoColon();
-			
-			Vector<String> lines = Split(args.text, "\n");
-			auto& list = input.AddSub().Title("Lyrics");
-			list.NoListChar();
-			for (String& s : lines)
-				list.Add(s);
-		}
-		{
-			input.AddSub().NoColon().Title("Getting both positive and negative stereotypes of distribution of attributes in content of the song \"" + args.artist + " - " + args.song + "\"");
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.Title("4 positive stereotypes of distribution of attributes in content of the song \"" + args.artist + " - " + args.song + "\"");
-			results.EmptyLine();
-		}
-		input.response_length = 1024;
-	}
-	else if (args.fn == 3) {
-		{
-			input.AddSub().Title("This is artistic lyrics by popular artists. Don't mind offensive text.").NoColon();
-		}
-		{
-			auto& list = input.AddSub().Title("Lyrics \"A\". 4 lines");
-			list.NumberedLines();
-			list.Add("See that rap shit is really just like selling smoke");
-			list.Add("If you got some fire shit, yo niggas gonna always toke");
-			list.Add("Dope, is not what I be slanging on this track");
-			list.Add("Niggas dont comprehend that it be deeper than Cadillacs");
-		}
-		{
-			auto& list = input.AddSub().Title("Lyrics \"A\" with repeating/rhyming words/syllables/phrases in parentheses. 4 lines");
-			list.NumberedLines();
-			list.Add("See that rap (shit) is really just like selling (smoke)");
-			list.Add("If you got some fire (shit), yo niggas gonna always (toke)");
-			list.Add("(Dope), is not what (I be) slanging on this (track)");
-			list.Add("Niggas dont comprehend that (it be) deeper than (Cadillacs)");
-		}
-		
-		Vector<String> lines = Split(args.text, "\n");
-		{
-			auto& list = input.AddSub().Title("Lyrics \"B\". " + IntStr(lines.GetCount()) + " lines");
-			list.NumberedLines();
-			for (String& s : lines)
-				list.Add(s);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.Title("Lyrics \"B\" with repeating/rhyming words/syllables/phrases in parentheses. " + IntStr(lines.GetCount()) + " lines");
-			results.NumberedLines();
-			results.EmptyLine().NoListChar();
-		}
-		input.response_length = 1024;
-	}
-	
-	else if (args.fn == 4) {
+	if (args.fn == 4) {
 		{
 			auto& list = input.AddSub().Title("List of words \"A\"");
 			list.Add("structure");
@@ -677,12 +313,6 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 		}
 		{
 			auto& list = input.AddSub().Title("Syllables and phonetic syllables of words \"A\"");
-			/*list.Add(WString(L"structure: struc-ture [strʌk-t͡ʃər]").ToString());
-			list.Add(WString(L"differently: dif-fer-ent-ly [ˈdɪ-fər-ənt-li]").ToString());
-			list.Add(WString(L"analyser: a-nal-y-ser [ˈæn-əl-əz-ər]").ToString());
-			if (GetDefaultCharset() != CHARSET_UTF8)
-				for(int i = 0; i < list.values.GetCount(); i++)
-					list.values[i] = ToCharset(CHARSET_DEFAULT, list.values[i], CHARSET_UTF8);*/
 			list.Add("structure: struc-ture [strʌk.t͡ʃər]");
 			list.Add("differently: dif-fer-ent-ly [ˈdɪ.fər.ənt.li]");
 			list.Add("analyser: a-nal-y-ser [ˈæn.əl.əz.ər]");
@@ -695,11 +325,11 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 		{
 			TaskTitledList& results = input.PreAnswer();
 			results.Title("Syllables and phonetic syllables of words \"B\"");
-			results.EmptyLine();//.EmptyLineString(args.words[0] + ":");
+			results.EmptyLine();
 		}
 		input.response_length = 2048;
 	}
-	
+
 	else if (args.fn == 5) {
 		{
 			auto& list = input.AddSub().Title("Wordlist \"A\"");
@@ -719,50 +349,11 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 		{
 			TaskTitledList& results = input.PreAnswer();
 			results.Title("Main class, metaphorical color in RGB value and Finnish translation for the wordlist \"B\"");
-			//results.EmptyLine().EmptyLineString(args.words[0] + ":");
 			results.EmptyLine();
 		}
 		input.response_length = 2048;
 	}
-	
-	else if (args.fn == 6) {
-		{
-			auto& list = input.AddSub().Title("Word classes");
-			list.Add("verb");
-			list.Add("noun");
-			list.Add("pronoun");
-			list.Add("pronoun/noun");
-			list.Add("preposition");
-			list.Add("adjective");
-			list.Add("modal verb");
-			list.Add("adverb");
-			list.Add("interjection");
-			list.Add("conjunction");
-			list.Add("contraction");
-			list.Add("etc.");
-		}
-		String pc = IntStr(3 + args.phrases.GetCount());
-		{
-			auto& list = input.AddSub().Title(pc + " phrases");
-			list.NumberedLines();
-			list.Add("\"You can't see it\"");
-			list.Add("\"Got a shock from my feet\"");
-			list.Add("\"Praying for the skies to clear\"");
-			for(int i = 0; i < args.phrases.GetCount(); i++)
-				list.Add("\"" + args.phrases[i] + "\"");
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.NumberedLines();
-			results.Title(pc + " template phrases,with the 1-6 most changeable words replaced with the word class,and with original wordsets an 5 example wordsets");
-			results.Add("\"You can't {verb} it\"[see][understand][ignore][hide][deny]");
-			results.Add("\"Got a {noun} from my {noun}\"[shock,feet][present,hands][smack,face][shock,feet][kiss,lips][jolt,body]");
-			results.Add("\"{verb} for the {noun} to {verb}\"[praying,skies,clear][hoping,miracle,appear][wishing,clouds,dissipate][waiting,sky,open][begging,storm,pass]");
-			results.EmptyLine();
-		}
-		input.response_length = 2048;
-	}
-	
+
 	else if (args.fn == 7) {
 		{
 			auto& list = input.AddSub().Title("Word classes");
@@ -819,124 +410,8 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 		}
 		input.response_length = 2048;
 	}
-	
-	else if (args.fn == 8) {
-		{
-			auto& list = input.AddSub().Title("Word classes");
-			list.Add("verb");
-			list.Add("noun");
-			list.Add("pronoun");
-			list.Add("pronoun/noun");
-			list.Add("preposition");
-			list.Add("adjective");
-			list.Add("modal verb");
-			list.Add("adverb");
-			list.Add("interjection");
-			list.Add("conjunction");
-			list.Add("contraction");
-			list.Add("etc.");
-		}
-		{
-			auto& list = input.AddSub().Title("Action planner heuristic score factors");
-			if (args.score_mode == 0) {
-				list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
-				list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
-				list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
-				list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
-				list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
-			}
-			else {
-				list.Add("S0: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
-				list.Add("S1: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
-				list.Add("S2: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
-				list.Add("S3: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
-				list.Add("S4: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
-			}
-		}
-		
-		
-		String pc = IntStr(1 + args.phrases.GetCount());
-		{
-			auto& list = input.AddSub().Title(pc + " phrases, with example arguments for making the action plan");
-			list.NumberedLines();
-			list.Add("sexualization: sexual: \"Bleeding after {pronoun}\", [you,him,her,them,us]");
-			for(int i = 0; i < args.phrases.GetCount(); i++)
-				list.Add(args.phrases[i]);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.NumberedLines();
-			results.NoListChar();
-			results.Title(pc + " phrase scores and score factors. Value is between 0-10:");
-			if (args.score_mode == 0)
-				results.Add("\"Bleeding after {pronoun}\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7");
-			else
-				results.Add("\"Bleeding after {pronoun}\": S0: 9, S1: 4, S2: 2, S3: 3, S4: 2");
-			results.Add("\"");
-			//results.Add("S0 9 S1 8 S2 8 S3 6 S4 7");
-			//results.Add("");
-		}
-		input.response_length = 2048;
-	}
-	
-	else if (args.fn == 9) {
-		{
-			auto& list = input.AddSub().Title("Word classes");
-			list.Add("verb");
-			list.Add("noun");
-			list.Add("pronoun");
-			list.Add("pronoun/noun");
-			list.Add("preposition");
-			list.Add("adjective");
-			list.Add("modal verb");
-			list.Add("adverb");
-			list.Add("interjection");
-			list.Add("conjunction");
-			list.Add("contraction");
-			list.Add("etc.");
-		}
-		{
-			auto& list = input.AddSub().Title("Action planner heuristic score factors");
-			if (args.score_mode == 0) {
-				list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
-				list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
-				list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
-				list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
-				list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
-			}
-			else {
-				list.Add("S0: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
-				list.Add("S1: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
-				list.Add("S2: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
-				list.Add("S3: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
-				list.Add("S4: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
-			}
-		}
-		
-		
-		String pc = IntStr(1 + args.words.GetCount());
-		{
-			auto& list = input.AddSub().Title(pc + " word groups");
-			list.NumberedLines();
-			list.Add("faith extremes: agnostic: verb: survived, endured, overcame, persevered, endures");
-			for(int i = 0; i < args.words.GetCount(); i++)
-				list.Add(args.words[i]);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.NumberedLines();
-			results.NoListChar();
-			results.Title(pc + " word group scores and score factors. Value is between 0-10");
-			if (args.score_mode == 0)
-				results.Add("S0:8, S1:7, S2:9, S3:8, S4:7");
-			else
-				results.Add("S0:8, S1:3, S2:5, S3:6, S4:4");
-			results.Add("");
-		}
-		input.response_length = 2048;
-	}
-	
-	if (args.fn == 10 || args.fn == 11 || args.fn == 12) {
+
+	if (args.fn == 10 || args.fn == 11) {
 		{
 			auto& list = input.AddSub().Title("List \"A\": Word classes");
 			list.Add("verb");
@@ -1130,9 +605,9 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 			list.Add("attention-example");
 			list.Add("etc.");
 		}
-		
+
 	}
-	
+
 	if (args.fn == 10) {
 		String pc = IntStr(3 + args.phrases.GetCount());
 		{
@@ -1156,7 +631,7 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 		}
 		input.response_length = 2048;
 	}
-	
+
 	if (args.fn == 11) {
 		{
 			auto& list = input.AddSub().Title("Action planner heuristic score factors");
@@ -1204,264 +679,9 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 		}
 		input.response_length = 1024;
 	}
-	
-	if (args.fn == 12) {
-		String pc = IntStr(3 + args.phrases.GetCount());
-		{
-			auto& list = input.AddSub().Title(pc + " lines of lyrics");
-			list.NumberedLines();
-			list.Add("2 AM, howlin outside");
-			list.Add("Lookin, but I cannot find");
-			list.Add("Only you can stand my mind");
-			for(int i = 0; i < args.phrases.GetCount(); i++)
-				list.Add(args.phrases[i]);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.NumberedLines();
-			results.NoListChar();
-			results.Title("Action planner action states for " + pc + " lines of lyrics. With the most matching actions of list \"B\"");
-			results.Add("tone(urgent) + msg(trying to reach someone) + bias(romantic) + emotion(uncertainty) + level-of-certainty(trying/desire) + gesturing(pointing) + describing-surroundings(anywhere in the dark) + attention-place(outside) + attention-time(night) + attention-emotional_state(desire) + attention-action(howling) + attention-activity(driving)");
-			results.Add("msg(searching for someone) + bias(doubt) + emotion(frustration) + level-of-certainty(cannot find) + attention-action(searching) + attention-relationship(checking for person's presence)");
-			results.Add("tone(affectionate) + msg(expressing feelings) + bias(feeling understood by person) + emotion(love) + level-of-certainty(statement) + attention-person(addressed to person) + attention-emotional_state(love/affection) + attention-mental_state(thinking about person constantly) + attention-relationship(checking for compatibility)");
-			results.Add("");
-		}
-		input.response_length = 2048;
-	}
-	
-	if (args.fn == 13) {
-		{
-			auto& list = input.AddSub().Title("List of categories of sentence structures, types of clauses, types of phrases");
-			list.Add("declarative-sentence");
-			list.Add("conditional-sentence");
-			list.Add("descriptive-sentence");
-			list.Add("causal-sentence");
-			list.Add("subject-verb-object-sentence");
-			list.Add("subject-verb-adjective-sentence");
-			list.Add("subject-verb-predicate-sentence");
-			list.Add("adverbial-sentence");
-			list.Add("compound-sentence");
-			list.Add("complex-sentence");
-			list.Add("simple-sentence");
-			list.Add("compound-complex-sentence");
-			list.Add("exclamatory-sentence");
-			list.Add("interrogative-sentence");
-			list.Add("imperative-sentence");
-			list.Add("parallel-sentence");
-			list.Add("passive-voice-sentence");
-			list.Add("active-voice-sentence");
-			list.Add("run-on-sentence");
-			list.Add("fragmented-sentence");
-			list.Add("elliptical-sentence");
-			list.Add("relative-clause-sentence");
-			list.Add("noun-clause-sentence");
-			list.Add("prepositional-phrase-sentence ");
-			list.Add("verb phrase sentence");
-			list.Add("sentence-fragments");
-			list.Add("parallel-sentences");
-			list.Add("repetition-sentences");
-			list.Add("negative-sentence");
-			list.Add("compound-sentences-with-semicolon");
-			list.Add("appositive-sentence");
-			list.Add("subordinating conjunction-in-sentence");
-			list.Add("transitional-sentence");
-			list.Add("compound-sentences-with-conjunctions");
-			list.Add("inverted-sentence");
-			list.Add("imperative-sentences-with-direct-address");
-			list.Add("demonstrative-sentence");
-			list.Add("compound-sentences-with-adverbs");
-			list.Add("first-second-and-third-person-sentences");
-			list.Add("compound-adjectives-sentence");
-			list.Add("compound-direct-objects-sentence");
-			list.Add("adjective-dependent-clause-sentence");
-			list.Add("possessive-sentences");
-			list.Add("adverb-dependent-clause-sentence");
-			list.Add("direct-object-sentence");
-			list.Add("subject-verb-inversion-sentence");
-			list.Add("restrictive-and-nonrestrictive-clauses-sentence ");
-			list.Add("compound-subjects-sentence");
-			list.Add("infinitive-sentence");
-			list.Add("participle-sentence");
-			list.Add("gerund-sentence");
-			list.Add("infinitive-phrase-sentence");
-			list.Add("participial-phrase-sentence");
-			list.Add("gerund-phrase-sentence ");
-			list.Add("adverbial-clause-sentence");
-			list.Add("adjective-clause-sentence");
-			list.Add("relative-clause-sentence ");
-			list.Add("noun-clause-sentence");
-			list.Add("prepositional-phrase-sentence ");
-			list.Add("absolute-phrase-sentence ");
-			list.Add("appositive-phrase-sentence ");
-			list.Add("adjectival-phrases-sentence");
-			list.Add("appositive-phrases-sentence");
-			list.Add("infinitive-phrases-sentence");
-			list.Add("participle-phrases-sentence");
-			list.Add("gerund-phrases-sentence");
-			list.Add("parallel-structures-sentence");
-			list.Add("sentence-combining");
-			list.Add("sentence-splicing ");
-			list.Add("parallel-sentence-structure-errors ");
-			list.Add("pronoun-antecedent-agreement-sentence ");
-			list.Add("subject-verb-agreement-sentence ");
-			list.Add("tense-agreement-sentence");
-			list.Add("plural-singular-agreement-sentence ");
-			list.Add("number-agreement-sentence");
-			list.Add("sentence-fragment-errors ");
-			list.Add("run-on-sentences ");
-			list.Add("comma-splice-sentences");
-			list.Add("sentence-conjunctions ");
-			list.Add("subject-verb-pronoun-agreement ");
-			list.Add("dangling-modifiers");
-			list.Add("misplaced-modifiers");
-			list.Add("faulty-parallelism-sentence");
-			list.Add("double-negatives-sentence");
-			list.Add("independent-clause");
-			list.Add("dependent-clause");
-			list.Add("coordinating-clause");
-			list.Add("modifying-clause");
-			list.Add("noun-phrase");
-			list.Add("verb-phrase");
-			list.Add("prepositional-phrase");
-			list.Add("adverbial-phrase");
-			list.Add("adjective-phrase");
-			list.Add("gerund-phrase");
-			list.Add("infinitive-phrase");
-			list.Add("participial-phrase");
-			list.Add("appositive-phrase");
-			list.Add("absolute-phrase");
-			list.Add("postpositional-phrase");
-			list.Add("adjectival-phrase");
-			list.Add("adverbial-phrase");
-			list.Add("noun-adjective-phrase");
-			list.Add("modal-auxiliary-phrase");
-			list.Add("adverb-phrase");
-			list.Add("conditional-phrase");
-			list.Add("object-phrase");
-			list.Add("subject-phrase");
-			list.Add("split-infinitive-phrase");
-			list.Add("non-coordinating-clause");
-			list.Add("subordinating-clause");
-			list.Add("adjective-clause");
-			list.Add("adverbial-clause");
-			list.Add("relative-clause");
-			list.Add("noun-clause");
-			list.Add("restrictive-clause");
-			list.Add("nonrestrictive-clause");
-			list.Add("appositive-clause");
-			list.Add("participial-clause");
-			list.Add("prepositional-clause");
-			list.Add("subordinate-clause");
-			list.Add("infinite-clause");
-			list.Add("gerund-clause");
-			list.Add("absolute-clause");
-			list.Add("adjectival-clause");
-			list.Add("adverbial-clause");
-			list.Add("noun-adjective-clause");
-			list.Add("modal-auxiliary-clause");
-			list.Add("adverb-clause");
-			list.Add("conditional-clause");
-			list.Add("object-clause");
-			list.Add("subject-clause");
-			list.Add("split-infinitive-clause");
-			list.Add("non-restrictive-clause");
-			list.Add("relative-clauses-with-that");
-			list.Add("relative-clauses-without-that");
-			list.Add("defining-relative-clauses");
-			list.Add("non-defining-relative-clauses");
-			list.Add("relative-clause-of-reason");
-			list.Add("relative-clause-of-time");
-			list.Add("relative-clause-of-place");
-			list.Add("relative-clause-of-manner");
-			list.Add("relative-clause-of-purpose");
-			list.Add("adverbial-clause-of-time");
-			list.Add("adverbial-clause-of-place");
-			list.Add("adverbial-clause-of-manner");
-			list.Add("adverbial-clause-of-reason");
-			list.Add("adverbial-clause-of-purpose");
-			list.Add("adverbial-clause-of-condition");
-			list.Add("adverbial-clause-of-concession");
-			list.Add("adverbial-clause-of-comparison");
-			list.Add("noun-clause-of-subject");
-			list.Add("noun-clause-of-direct-object");
-			list.Add("noun-clause-of-indirect-object");
-			list.Add("noun-clause-of-object-of-preposition");
-			list.Add("noun-clause-of-appositive");
-			list.Add("noun-clause-of-subject-complement");
-			list.Add("noun-clause-of-object-complement");
-			list.Add("noun-clause-in-an-object");
-			list.Add("noun-clause-in-object-of-preposition");
-			list.Add("coordinated-clauses");
-			list.Add("subordinate-clauses");
-			list.Add("gerund-clauses");
-			list.Add("participial-clauses");
-			list.Add("infinitive-clauses");
-			list.Add("appositive-clauses");
-			list.Add("conditional-clauses");
-			list.Add("postpositional-clauses");
-			list.Add("reduction-of-clauses");
-			list.Add("omission-of-clauses");
-			list.Add("replacement-of-clauses");
-			list.Add("transformation-of-clauses");
-			list.Add("gerund-phrases-in-a-sentence");
-			list.Add("participle-phrases-in-a-sentence");
-			list.Add("infinitive-phrases-in-a-sentence");
-			list.Add("appositive-phrases-in-a-sentence");
-			list.Add("modifier-clauses");
-			list.Add("restrictive-phrase");
-			list.Add("non-restrictive-phrase");
-			list.Add("correlatives-sentences");
-			list.Add("conjunctive-phrase");
-			list.Add("prepositional-phrases");
-			list.Add("adverbial-phrases");
-			list.Add("noun-adjective-phrases");
-			list.Add("modal-auxiliary-phrases");
-			list.Add("verb-phrases");
-			list.Add("identifying-relative-clause");
-			list.Add("non-identifying-relative");
-		}
-		{
-			auto& list = input.AddSub().Title("List of phrases");
-			list.Add("With the birds, Ill share this lonely view");
-			list.NumberedLines();
-			for(int i = 0; i < args.phrases.GetCount(); i++)
-				list.Add(args.phrases[i]);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.Title("Clauses of a line, types of clauses and category of sentence structure");
-			results.NumberedLines();
-			results.Add("\"With the birds\" + \"Ill share this lonely view\" == prepositional-phrase + independent-clause == prepositional-clause");
-			results.Add("");
-		}
-		input.response_length = 2048;
-	}
 
-	if (args.fn == 14) {
-		{
-			auto& list = input.AddSub().Title("Clauses of a line, types of clauses and category of sentence structure");
-			list.NumberedLines();
-			list.Add("\"With the birds\" + \"Ill share this lonely view\" == prepositional-phrase + independent-clause == prepositional-clause");
-			list.Add("\"Hey\" + \"you little piss baby\" == interjection + noun-phrase == exclamatory-sentence");
-			list.Add("\"You think youre so fucking cool\" + \"Huh\" == independent-clause + interjection == interrogative-sentence");
-		}
-		{
-			auto& list = input.AddSub().Title("List of sentence types");
-			list.Add("independent-clause + interjection == interrogative-sentence");
-			list.NumberedLines();
-			for(int i = 0; i < args.phrases.GetCount(); i++)
-				list.Add(args.phrases[i]);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.Title("Sentence types with their corresponding metaphorical RGB color value");
-			results.NumberedLines();
-			results.Add("independent-clause + interjection == interrogative-sentence: RGB(255,254,1)");
-			results.Add("");
-		}
-		input.response_length = 2048;
-	}
 }
+
 
 void AiTask::CreateInput_GetActionAnalysis() {
 	if (args.IsEmpty()) {
@@ -1566,39 +786,6 @@ void AiTask::CreateInput_GetActionAnalysis() {
 		}
 		input.response_length = 2*1024;
 	}
-}
-
-void AiTask::CreateInput_GetScriptPhrase() {
-	if (args.IsEmpty()) {
-		SetFatalError("no args");
-		return;
-	}
-	
-	TODO
-	#if 0
-	LyricsPhraseArgs args;
-	args.Put(this->args[0]);
-	
-	
-	if (args.fn == 0) {
-		{
-			auto& list = input.AddSub().Title("List \"A\" of words");
-			for(int i = 0; i < args.words.GetCount(); i++)
-				list.Add(args.words[i]);
-		}
-		{
-			auto& list = input.AddSub().Title("List \"B\" of template sentences");
-			for(int i = 0; i < args.tmpls.GetCount(); i++)
-				list.Add(args.tmpls[i]);
-		}
-		{
-			auto& answer = input.PreAnswer();
-			answer.Title("List of sentences using words from the list \"A\" and templates from the list \"B\". The templates can be modified slightly. Words surrounded with {} must be replaced. Length of a sentence is " + IntStr(args.len) + " phonetic syllables in total");
-			answer.Add("");
-		}
-		input.response_length = 2*1024;
-	}
-	#endif
 }
 
 void AiTask::CreateInput_GetTokenData() {
@@ -1935,44 +1122,6 @@ void AiTask::CreateInput_GetTokenData() {
 		input.response_length = 2*1024;
 	}
 	if (args.fn == 3) {
-		if (0) {
-			{
-				auto& list = input.AddSub().Title("List \"A\" sentences");
-				list.Add("With the birds , Ill share this lonely view");
-				list.Add("Soft-spoken with a broken jaw");
-			}
-			{
-				auto& list = input.AddSub().Title("List \"A\" Parts of sentences classified");
-				list.Add("\"With the birds\": prepositional phrase");
-				list.Add("\"Ill share this lonely view\": independent clause");
-				list.Add("\"Soft-spoken\": adjective phrase");
-				list.Add("\"With a broken jaw\": prepositional phrase");
-			}
-			{
-				auto& list = input.AddSub().Title("List \"A\" Classes of sentences");
-				list.Add("prepositional phrase + independent clause");
-				list.Add("adjective phrase + prepositional phrase");
-			}
-			{
-				auto& list = input.AddSub().Title("List \"A\" Categorizations of sentence structures");
-				list.Add("\"prepositional phrase + independent clause\": prepositional clause");
-				list.Add("\"adjective phrase + prepositional phrase\": modifier clause sentence");
-			}
-			{
-				auto& list = input.AddSub().Title("List \"A\" Classes of Sentences");
-				list.Add("noun phrase + independent clause");
-				list.Add("independent clause + dependent clause");
-				list.Add("prepositional phrase + independent clause");
-				list.Add("independent clause + dependent clause");
-			}
-			{
-				auto& list = input.AddSub().Title("List \"A\" Categorizations of sentence structures");
-				list.Add("noun phrase + independent clause: declarative sentence");
-				list.Add("independent clause + dependent clause: conditional sentence");
-				list.Add("prepositional phrase + independent clause: descriptive sentence");
-				list.Add("independent clause + dependent clause: causal sentence");
-			}
-		}
 		{
 			auto& list = input.AddSub().Title("List \"B\" Classes of Sentences");
 			list.NumberedLines();
@@ -2345,109 +1494,6 @@ void AiTask::CreateInput_GetPhraseData() {
 		}
 		input.response_length = 2048;
 	}
-	else if (args.fn == 6) {
-		{
-			auto& list = input.AddSub().Title("Types of profiles of the role of the singer of a song in relation to the lyrics");
-			list.NumberedLines();
-			for (String s : GetProfiles())
-				list.Add(s);
-		}
-		String pc = IntStr(1 + args.phrases.GetCount());
-		{
-			auto& list = input.AddSub().Title("List \"A\" of " + pc + " phrases");
-			list.NumberedLines();
-			list.Add("bleeding after you");
-			for(int i = 0; i < args.phrases.GetCount(); i++)
-				list.Add(args.phrases[i]);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.NumberedLines();
-			results.NoListChar();
-			results.Title(pc + " profile-number sequences for list \"A\" of phrases. Description: phrases can be used in these (numbered) profiles");
-			results.Add("2 8 16 28 35 36 27 10 21 12 13 20 30 25 34 23 29 6 14 17");
-			results.Add("");
-		}
-		input.response_length = 2048;
-	}
-	else if (args.fn == 7) {
-		TODO
-		#if 0
-		{
-			auto& list = input.AddSub().Title("Stereotypical architypes of the storyline of a moder pop/rock/EDM/folk/metal song");
-			list.NumberedLines();
-			for (String tc : GetArchetypes())
-				list.Add(tc);
-		}
-		String pc = IntStr(1 + args.phrases.GetCount());
-		{
-			auto& list = input.AddSub().Title("List \"A\" of " + pc + " phrases");
-			list.NumberedLines();
-			list.Add("bleeding after you");
-			for(int i = 0; i < args.phrases.GetCount(); i++)
-				list.Add(args.phrases[i]);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.NumberedLines();
-			results.NoListChar();
-			results.Title(pc + " archetype-number sequences for list \"A\" of phrases. Description: phrases could be used in following archetypes");
-			results.Add("2 10 12 13 17 27 24");
-			results.Add("");
-		}
-		input.response_length = 2048;
-		#endif
-	}
-	else if (args.fn == 8) {
-		{
-			auto& list = input.AddSub().Title("Primary human (main focus of the song or the singer of lyrics)");
-			list.NumberedLines();
-			for (String tc : GetPrimary())
-				list.Add(tc);
-		}
-		String pc = IntStr(1 + args.phrases.GetCount());
-		{
-			auto& list = input.AddSub().Title("List \"A\" of " + pc + " phrases");
-			list.NumberedLines();
-			list.Add("bleeding after you");
-			for(int i = 0; i < args.phrases.GetCount(); i++)
-				list.Add(args.phrases[i]);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.NumberedLines();
-			results.NoListChar();
-			results.Title(pc + " primary-number sequences for list \"A\" of phrases. Description: phrases are sang by or tells about this kind of character");
-			results.Add("33 62 61 63 64 31 28 36 27 23 57");
-			results.Add("");
-		}
-		input.response_length = 2048;
-	}
-	else if (args.fn == 9) {
-		{
-			auto& list = input.AddSub().Title("Secondary human (focus of the primary person of a song)");
-			list.NumberedLines();
-			for (String tc : GetSecondary())
-				list.Add(tc);
-		}
-		String pc = IntStr(1 + args.phrases.GetCount());
-		{
-			auto& list = input.AddSub().Title("List \"A\" of " + pc + " phrases");
-			list.NumberedLines();
-			list.Add("bleeding after you");
-			for(int i = 0; i < args.phrases.GetCount(); i++)
-				list.Add(args.phrases[i]);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.NumberedLines();
-			results.NoListChar();
-			results.Title(pc + " secondary-number sequences for list \"A\" of phrases. Description: phrases can be telling about these humans");
-			results.Add("1 15 18 24 36 2 10 14 13 20 3 6 26 32 31 34 35 37 9 4");
-			results.Add("");
-		}
-		input.response_length = 2048;
-	}
 }
 
 void AiTask::CreateInput_GetAttributes() {
@@ -2555,86 +1601,6 @@ void AiTask::CreateInput_GetAttributes() {
 	}
 }
 
-void AiTask::CreateInput_GetNanaData() {
-	if (args.IsEmpty()) {
-		SetFatalError("no args");
-		return;
-	}
-	
-	NanaArgs args;
-	args.Put(this->args[0]);
-	
-	if (args.fn == 0) {
-		{
-			auto& list = input.AddSub().Title("Song \"B\": parts");
-			for(int i = 0; i < args.parts.GetCount(); i++)
-				list.Add(args.parts[i] + ": " + IntStr(args.counts[i]) + " lines");
-		}
-		{
-			auto& list = input.AddSub().Title("Song \"B\": Potential phrases");
-			list.NumberedLines();
-			for(int i = 0; i < args.phrases.GetCount(); i++)
-				list.Add(args.phrases[i]);
-		}
-		Vector<String> pre_lines = Split(args.pre_text, "\n");
-		if (!pre_lines.IsEmpty()) {
-			auto& list = input.AddSub().Title("Song \"B\": earlier phrases in the same song");
-			list.NumberedLines();
-			for(int i = 0; i < pre_lines.GetCount(); i++)
-				list.Add(pre_lines[i]);
-		}
-		{
-			auto& list = input.AddSub().Title("Example \"A\": lines per parts");
-			//list.NumberedLines();
-			list.Add("Intro: 0 lines");
-			list.Add("Verse 1: 4 lines: 4, 2, 3, 6");
-			list.Add("Chorus: 4 lines: 8, 13, 12, 1");
-			list.Add("Verse 2: 4 lines: 10, 9, 11, 14");
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.Title("Song \"B\": lines per parts. Sort lines in a way, that the story of the song is best");
-			results.EmptyLine();
-		}
-		input.response_length = 2048;
-	}
-	if (args.fn == 1) {
-		Vector<String> pre = Split(args.pre_text, "\n");
-		int cur = pre.GetCount() + 1;
-		if (pre.GetCount() == 1) {
-			auto& list = input.AddSub().Title("Song \"B\": phrases 1.");
-			list.Add(pre[0]);
-		}
-		else if (pre.GetCount() > 1) {
-			auto& list = input.AddSub().Title("Song \"B\": phrases 1-" + IntStr(pre.GetCount()) + ".");
-			for(int i = 0; i < pre.GetCount(); i++)
-				list.Add(pre[i]);
-		}
-		{
-			auto& list = input.AddSub().Title("Song \"B\": phrase " + IntStr(cur) + ".");
-			list.Add(args.phrase);
-		}
-		{
-			auto& list = input.AddSub().Title("Song \"B\": Potential phrases to add after " + IntStr(cur) + ".");
-			list.NumberedLines();
-			for(int i = 0; i < args.phrases.GetCount(); i++)
-				list.Add(args.phrases[i]);
-		}
-		{
-			auto& list = input.AddSub().Title("Example: Song \"A\": best storyline fitting line after phrase " + IntStr(cur) + "., when only story matters and not rhyming");
-			//list.NumberedLines();
-			int id = min(args.phrases.GetCount(), 3);
-			list.Add(IntStr(id) + ". " + args.phrases[id-1]);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.Title("Exercise: Song \"B\": best storyline fitting line after phrase " + IntStr(cur) + ".");
-			results.EmptyLine();
-		}
-		input.response_length = 2048;
-	}
-}
-
 void AiTask::CreateInput_ScriptSolver() {
 	if (args.IsEmpty()) {
 		SetFatalError("no args");
@@ -2732,28 +1698,6 @@ void AiTask::CreateInput_ScriptSolver() {
 			results.NumberedLines();
 			results.Add("+/-");
 			results.Add("-/+");
-			results.Add("");
-		}
-		input.response_length = 2048;
-	}
-	else if (args.fn == 2) {
-		{
-			auto& list = input.AddSub().Title("List of main word classes");
-			for(int i = 0; i < args.attrs.GetCount(); i++)
-				list.Add(args.attrs[i]);
-		}
-		{
-			auto& list = input.AddSub().Title("Phrases of the song");
-			list.NumberedLines();
-			list.Add("I am");
-			for(int i = 0; i < args.parts.GetCount(); i++)
-				list.Add(args.parts[i]);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.Title("List of possible word classes for the immediate next word of the phrases of the song. " + IntStr(args.parts.GetCount()+1) + " lines");
-			results.NumberedLines();
-			results.Add("adjective, noun, verb, adverb, prepositional phrase");
 			results.Add("");
 		}
 		input.response_length = 2048;
@@ -2886,55 +1830,10 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Song \"B\": lines per parts. Sort lines/phrases in a way, that the story of the song is best");
+			results.Title("Song \"B\": lines per parts. Sort lines/phrases in a way, that the story of the " + __comp + " is best");
 			results.EmptyLine();
 		}
 		input.response_length = 2048;
-	}
-	
-	else if (args.fn == 7) {
-		{
-			auto& list = input.AddSub().Title("Lyrics heuristic score factors");
-			list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
-			list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
-			list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
-			list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
-			list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
-			list.Add("S5: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
-			list.Add("S6: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
-			list.Add("S7: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
-			list.Add("S8: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
-			list.Add("S9: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
-			list.Add("S10: How well lyrics fit the original vision.");
-		}
-		{
-			auto& list = input.AddSub().Title("Lyrics heuristic score factors for single phrase");
-			list.Add("\"I'm bleeding after you\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7, S5: 9, S6: 4, S7: 2, S8: 3, S9: 2, s10: 5");
-		}
-		
-		for(int i = 0; i < args.phrases.GetCount(); i++) {
-			const String& p = args.phrases[i];
-			Vector<String> lines = Split(p, "\n");
-			{
-				auto& list = input.AddSub().Title("Lyrics entry #" + IntStr(i+1));
-				list.NoListChar();
-				for(int i = 0; i < lines.GetCount(); i++)
-					list.Add(lines[i]);
-			}
-		}
-		{
-			auto& list = input.AddSub().Title("Original vision of the song");
-			//list.NumberedLines();
-			Vector<String> lines = Split(args.part, ". ");
-			for (String& l : lines)
-				list.Add(l);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.Title("Lyrics heuristic score factors");
-			results.Add("entry #1: S0:");
-			input.response_length = 2048;
-		}
 	}
 	
 	else if (args.fn == 8) {
@@ -2950,6 +1849,7 @@ void AiTask::CreateInput_ScriptSolver() {
 			results.Title("Novel new name for the previous song");
 		}
 	}
+	
 	else if (args.fn == 9) {
 		{
 			auto& list = input.AddSub().Title("Lyrics of the Song A");
@@ -3025,7 +1925,7 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Song \"A\": Add line/phrase to the part '" + args.part + "' in a way, that the story of the song is best");
+			results.Title("Song \"A\": Add line/phrase to the part '" + args.part + "' in a way, that the story of the " + __comp + " is best");
 			results.NumberedLines();
 			results.Add("phrase: \"");
 		}

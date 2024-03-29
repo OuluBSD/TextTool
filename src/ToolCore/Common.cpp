@@ -1941,5 +1941,197 @@ MetaPtrs::MetaPtrs() {
 }
 
 
+
+
+const VectorMap<String, String>& GetSongStructure() {
+	static VectorMap<String, String> v;
+	if (v.IsEmpty()) {
+		v.Add("V1", "verse 1");
+		v.Add("I", "intro");
+		v.Add("PC1", "prechorus 1");
+		v.Add("C1", "chorus 1");
+		v.Add("B", "bridge");
+		v.Add("O", "outro");
+		v.Add("IN", "instrumental");
+		v.Add("T", "instrumental theme melody");
+		v.Add("S", "instrumental solo");
+	}
+	return v;
+}
+
+const VectorMap<String, String>& GetTwitterStructure() {
+	static VectorMap<String, String> v;
+	if (v.IsEmpty()) {
+		v.Add("I", "throw in");
+		v.Add("T1", "thread 1");
+		v.Add("PH1", "prehook 1");
+		v.Add("H1", "hook 1");
+		v.Add("W", "twist");
+		v.Add("U", "wrap up");
+		v.Add("IMG", "images");
+		v.Add("IT", "informational images");
+		v.Add("PI", "personal images");
+	}
+	return v;
+}
+
+const Vector<String>& GetDefSongStructure() {
+	static Vector<String> v;
+	if (v.IsEmpty()) {
+		v.Add("I");
+		v.Add("V1");
+		v.Add("PC1");
+		v.Add("C1");
+		v.Add("V2");
+		v.Add("PC2");
+		v.Add("C1");
+		v.Add("C2");
+		v.Add("IN");
+		v.Add("B");
+		v.Add("C1");
+		v.Add("C2");
+		v.Add("O");
+	}
+	return v;
+}
+
+const Vector<String>& GetDefTwitterStructure() {
+	static Vector<String> v;
+	if (v.IsEmpty()) {
+		v.Add("H1");
+		v.Add("I");
+		v.Add("T1");
+		v.Add("PH1");
+		v.Add("H1");
+		v.Add("T2");
+		v.Add("PH2");
+		v.Add("H1");
+		v.Add("H2");
+		v.Add("IMG");
+		v.Add("W");
+		v.Add("H1");
+		v.Add("H2");
+		v.Add("U");
+	}
+	return v;
+}
+
+const Vector<String>& GetDefSongStructureAttrs() {
+	static Vector<String> v;
+	if (v.IsEmpty()) {
+		v.Add("get straight to the point");
+		v.Add("has room for chorus development");
+		v.Add("has room for medium size story arc");
+		v.Add("has variation between two chorus");
+	}
+	return v;
+}
+
+const Vector<String>& GetDefTwitterStructureAttrs() {
+	static Vector<String> v;
+	if (v.IsEmpty()) {
+		v.Add("get straight to the point");
+		v.Add("has room for hook explanation");
+		v.Add("has room for medium size story arc");
+		v.Add("has variation between two hooks");
+	}
+	return v;
+}
+
+const Vector<String>& GetSongStructureAttrs() {
+	static Vector<String> v;
+	if (v.IsEmpty()) {
+		v.Add("has a strong intro that catches the listener's attention");
+		v.Add("includes a bridge which adds variety to the song");
+		v.Add("allows for multiple verse-chorus-bridge repetitions, making it suitable for a longer song");
+		v.Add("has a distinct build up to the final chorus in the outro");
+	}
+	return v;
+}
+
+const Vector<String>& GetTwitterStructureAttrs() {
+	static Vector<String> v;
+	if (v.IsEmpty()) {
+		v.Add("has a strong hook that catches the listener's attention");
+		v.Add("includes a twist which adds variety to the song");
+		v.Add("allows for multiple thread-hook-twist repetitions, making it suitable for a longer thread");
+		v.Add("has a distinct build up to the final hook in the wrap up");
+	}
+	return v;
+}
+
+
+const VectorMap<String, String>& GetAppModeStructure(int appmode) {
+	static VectorMap<String, String> v;
+	switch (appmode) {
+		case DB_SONG:		return GetSongStructure();
+		case DB_TWITTER:	return GetTwitterStructure();
+	}
+	Panic("TODO");
+	return v;
+}
+
+const Vector<String>& GetAppModeStructureAttrs(int appmode) {
+	static Vector<String> v;
+	switch (appmode) {
+		case DB_SONG:		return GetSongStructureAttrs();
+		case DB_TWITTER:	return GetTwitterStructureAttrs();
+	}
+	Panic("TODO");
+	return v;
+}
+
+const Vector<String>& GetAppModeDefCompStructure(int appmode) {
+	static Vector<String> v;
+	switch (appmode) {
+		case DB_SONG:		return GetDefSongStructure();
+		case DB_TWITTER:	return GetDefTwitterStructure();
+	}
+	Panic("TODO");
+	return v;
+}
+
+const Vector<String>& GetAppModeDefCompStructureAttrs(int appmode) {
+	static Vector<String> v;
+	switch (appmode) {
+		case DB_SONG:		return GetDefSongStructureAttrs();
+		case DB_TWITTER:	return GetDefTwitterStructureAttrs();
+	}
+	Panic("TODO");
+	return v;
+}
+
+void MakeAppMode_UnsafeServers(int appmode, String& title, Vector<String>& list) {
+	switch (appmode) {
+		case DB_SONG:
+			title = "List of rappers, which use heavily internal rhyme schemes";
+			list <<= InlineRapperList();
+			break;
+		case DB_TWITTER:
+			title = "List of controversial tweeting persons, which use heavily internal references";
+			list.Add("Alex Jones");
+			list.Add("Donald Trump");
+			list.Add("Tucker Carlson");
+			list.Add("Joe Rogan");
+			list.Add("Elon Musk");
+			list.Add("Kanye West");
+			list.Add("Piers Morgan");
+			list.Add("Azealia Banks");
+			list.Add("Lindsay Lohan");
+			list.Add("Roseanne Barr");
+			list.Add("Amanda Bynes");
+			list.Add("Ann Coulter");
+			list.Add("James Woods");
+			list.Add("Milo Yiannopoulos");
+			list.Add("Kathy Griffin");
+			list.Add("Chelsea Handler");
+			list.Add("Wendy Williams");
+			break;
+		
+		default: Panic("TODO");
+	}
+	
+}
+
 END_TEXTLIB_NAMESPACE
 

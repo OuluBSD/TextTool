@@ -224,7 +224,7 @@ void ScriptGenerator::ProcessPairPhrases() {
 		return;
 	}
 	
-	ScriptSolverArgs args;
+	ScriptSolverArgs args; // 3
 	args.fn = 3;
 	
 	per_sub_batch =  50;
@@ -342,7 +342,7 @@ void ScriptGenerator::ProcessRhymes() {
 		return;
 	}
 	
-	ScriptSolverArgs args;
+	ScriptSolverArgs args; // 4
 	args.fn = 4;
 	
 	per_sub_batch =  15;
@@ -501,7 +501,7 @@ void ScriptGenerator::ProcessScores() {
 		return;
 	}
 	
-	ScriptSolverArgs args;
+	ScriptSolverArgs args; // 5
 	args.fn = 5;
 	
 	per_sub_batch =  15;

@@ -17,6 +17,7 @@ enum {
 	AM_SCRIPT,
 	AM_DB,
 	AM_UNSAFE,
+	AM_CLIENT,
 	
 	AM_COUNT,
 };
@@ -43,6 +44,10 @@ enum {
 	AML_FIELD_VIBE_OF_TEXT,
 	AML_FIELD_TEXT_STYLE,
 	
+	AML_INTERNAL_REFS,
+	AML_INTERNAL_REF_TYPES,
+	AML_PARTS_OF_SAME_LINES,
+	
 	AML_COUNT,
 };
 
@@ -51,6 +56,7 @@ extern const char* AppModeKeys[DB_COUNT][AM_COUNT+1];
 extern const char* AppModeKeysN[DB_COUNT][AM_COUNT+1];
 
 String GetAppModeLabel(int amlkey);
+String GetAppModeLabel(int appmode, int amlkey);
 String GetAppModeKey(int appmode, int amkey);
 String GetAppModeKey(int amkey);
 String GetAppModeKeyN(int appmode, int amkey);
@@ -89,6 +95,8 @@ String GetAppModeKeyCapN(int amkey);
 
 #define __db GetAppModeKey(AM_DB)
 #define __unsafe GetAppModeKey(AM_UNSAFE)
+#define __client GetAppModeKey(AM_CLIENT)
+#define __Client GetAppModeKeyCap(AM_CLIENT)
 
 
 END_TEXTLIB_NAMESPACE

@@ -107,7 +107,7 @@ void ScriptGenerator::ProcessColor() {
 	}
 	*/
 	
-	ScriptSolverArgs args;
+	ScriptSolverArgs args; // 0
 	args.fn = 0;
 	
 	
@@ -186,7 +186,7 @@ void ScriptGenerator::ProcessAttr() {
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
 	
-	ScriptSolverArgs args;
+	ScriptSolverArgs args; // 1
 	args.fn = 1;
 	
 	
@@ -398,7 +398,7 @@ void ScriptSolver::ProcessFillLines() {
 	}
 	
 	
-	ScriptSolverArgs args;
+	ScriptSolverArgs args; // 10
 	args.fn = 10;
 	
 	// Add existing lyrics
@@ -581,7 +581,7 @@ void ScriptSolver::ProcessPrimary() {
 		return;
 	}
 	
-	ScriptSolverArgs args;
+	ScriptSolverArgs args; // 6
 	args.fn = 6;
 	
 	int per_part = 15;
@@ -754,7 +754,7 @@ void ScriptSolver::ProcessMakeHoles() {
 	
 	ScriptSuggestions& sugg = sa->script_suggs[batch];
 	
-	ScriptSolverArgs args;
+	ScriptSolverArgs args; // 9
 	args.fn = 9;
 	
 	phrase_src.Clear();
@@ -851,55 +851,6 @@ void ScriptSolver::OnProcessMakeHoles(String res) {
 	SetWaiting(0);
 }
 
-void ScriptSolver::ProcessFillHoles() {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
-	Script& song = *this->script;
-	
-	SetNotRunning();
-	return;
-	
-	// If all suggestions are good enough or exceeded max iterations
-	// Then move to next phase
-	TODO
-	if (0) {
-		NextPhase();
-		return;
-	}
-	// Else if all suggestions have been iterated, move back to LS_MAKE_HOLES
-	else if (0) {
-		TODO //MovePhase(LS_MAKE_HOLES);
-		return;
-	}
-	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
-	
-	ScriptSolverArgs args;
-	TODO // args.fn = ;
-	
-	
-	
-	SetWaiting(1);
-	
-	TaskMgr& m = TaskMgr::Single();
-	m.GetScriptSolver(args, THISBACK(OnProcessFillHoles));
-}
-
-void ScriptSolver::OnProcessFillHoles(String res) {
-	
-	
-	
-	
-	
-	bool is_good_enough = false;
-	bool is_max_iters = false;
-	
-	
-	
-}
-
 void ScriptSolver::ProcessComparison() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
@@ -910,7 +861,7 @@ void ScriptSolver::ProcessComparison() {
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
-	ScriptSolverArgs args;
+	ScriptSolverArgs args; // 7
 	args.fn = 7;
 	
 	if (batch == 0 && sub_batch == 0) {

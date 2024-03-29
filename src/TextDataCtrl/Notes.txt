@@ -21,3 +21,26 @@ Order:
 - PhrasePartAnalysis2 (F5) "(typecasts):"
 - PhrasePartAnalysis2 (F6) "(contents):"
 
+
+
+
+- LG_COLOR: hardkoodattuja DB stringejä
+        - AiTask::CreateInput_ScriptSolver:ssa myös
+- LG_ATTR: (sama)
+- LG_ACTION: ok jo nyt
+- LG_MAKE_SOURCE_POOL: ok
+- LG_MAKE_PHRASE_PAIRS: muuten ok, mutta hardkoodattuja db stringejä Taskissa (CreateInput_ScriptSolver fn=3)
+        - tässä on pientä viilattavaa... kombinaatiomäärä on luultavasti paljon enemmän kuin 2 twitter viesteissä
+                - tämä melkein pakottaa sen, että yks "riimipari" morphautuu yhdeksi twiitiksi
+- LG_MAKE_RHYMES: (sama, fn=4)
+        - tässä on ehkä oleellisin ero biisin teon ja twitter-viestin teon välillä... tarvii olla täysin eri prompt
+                - tälläkin on kuitenkin funktio, missä hiotaan ne osat yhdeksi viestiksi, vaikka ei välitetä rimmaamisesta yhtään
+- LG_GET_AI_SCORES:(sama, fn=5) melkein ok tällaisenaan, mutta "music audience" pitää muuttaa
+- LS_FILTER: ok
+- LS_FILL_LINES: hardkoodatut stringit Taskissa...
+         - tässäkin on miettimistä sen verran, että miten se rakenne morphautuu?
+                - kun riimipari on yks twiitti
+                - iteasiassa tässä voi käyttää biisin rakennetta edelleen...
+                        - siitä saakin geneerisen konseptin siitä biisirakenteesta, eikä toisinpäin
+                        - eli riittää hardkoodattujen muuntaminen
+- LS_COMPARISON: ok

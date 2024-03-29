@@ -14,56 +14,64 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 	{
 		"artist",		"release",		"song",
 		"typecast",		"archetype",	"lyrics",
-		"db",			"rapper",0
+		"db",			"rapper",		"listener",
+		0
 	},
 	
 	// DB_TWITTER
 	{
 		"company",		"campaign",		"program",
 		"role",			"generic",		"story",
-		"social_db",	"unsafe",0
+		"social_db",	"unsafe",		"reader",
+		0
 	},
 	
 	// DB_BLOG
 	{
 		"blogger",		"series",		"post",
 		"topic",		"theme",		"content",
-		"blog_db",		"provocative",0
+		"blog_db",		"provocative",	"reader",
+		0
 	},
 	
 	// DB_DIALOG
 	{
 		"presenter",	"scriptbook",	"conversation",
 		"character",	"trope",		"lines",
-		"dialog_db",	"controversial",0
+		"dialog_db",	"controversial","observer",
+		0
 	},
 	
 	// DB_POLITICS
 	{
 		"politician",	"discourse",	"debate",
 		"belief",		"issue",		"discussion",
-		"politics_db",	"heated",0
+		"politics_db",	"heated",		"citizen",
+		0
 	},
 	
 	// DB_LIFE
 	{
 		"human",		"collection",	"experience",
 		"persona",		"struggle",		"lesson",
-		"life_db",		"contentious",0
+		"life_db",		"contentious",	"observer",
+		0
 	},
 	
 	// DB_BUSINESS
 	{
 		"entrepreneur",	"forum",		"meeting",
 		"strategy",		"topic",		"talking",
-		"business_db",	"contentious",0
+		"business_db",	"contentious",	"reader",
+		0
 	},
 	
 	// DB_FLIRTING
 	{
 		"flirt",		"ritual",		"folly",
 		"technique",	"seduction",	"lines",
-		"flirt_db",		"risqué",0
+		"flirt_db",		"risqué",		"partner",
+		0
 	},
 	
 };
@@ -97,6 +105,10 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"vocalist_visual",
 		"vibe_of_voice",
 		"musical_style",
+		
+		"rhymes with internal rhyme scheme",
+		"rhyme pairs/triplets/quads/etc.",
+		"poetic parts of rhyming text lines",
 	},
 	{
 		"Talking style:",
@@ -118,11 +130,21 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"person_visual",
 		"vibe_of_text",
 		"text_style",
+		
+		"is coherent primarily in internal references",
+		"tweets with same context",
+		"coherent parts of contextually same lines",
 	},
 };
 
 String GetAppModeLabel(int amlkey) {
 	int appmode = __global_appmode() - 1;
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	ASSERT(amlkey >= 0 && amlkey < AML_COUNT);
+	return AppModeLabels[appmode][amlkey];
+}
+
+String GetAppModeLabel(int appmode, int amlkey) {
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	ASSERT(amlkey >= 0 && amlkey < AML_COUNT);
 	return AppModeLabels[appmode][amlkey];

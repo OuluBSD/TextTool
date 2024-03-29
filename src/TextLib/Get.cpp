@@ -808,138 +808,7 @@ void TaskManager::GetPhrases(Task* t) {
 		m.GetPhraseData(args, THISBACK1(OnPhraseTypeclasses, t));
 	else if (args.fn == 5)
 		m.GetPhraseData(args, THISBACK1(OnPhraseContrast, t));
-	/*else if (args.fn == 6)
-		m.GetPhraseData(args, THISBACK1(OnPhraseProfile, t));
-	else if (args.fn == 7)
-		m.GetPhraseData(args, THISBACK1(OnPhraseContent, t));
-	else if (args.fn == 8)
-		m.GetPhraseData(args, THISBACK1(OnPhrasePrimary, t));
-	else if (args.fn == 9)
-		m.GetPhraseData(args, THISBACK1(OnPhraseSecondary, t));*/
-	
 }
-
-#if 0
-void TaskManager::GetNana(Task* t) {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
-	Component& song = *t->song;
-	
-	t->tmp.Clear();
-	
-	NanaArgs args;
-	args.fn = t->fn;
-	
-	if (args.fn == 0) {
-		for(int i = 0; i < song.parts.GetCount(); i++) {
-			const StaticPart& sp = song.parts[i];
-			args.parts << sp.name;
-			args.counts << sp.nana.Get().GetCount();
-		}
-		#if !PRIMARY_STATIC_PART
-		for(int i = 0; i < song.picked_phrase_parts.GetCount(); i++) {
-			int pp_i = song.picked_phrase_parts[i];
-			const PhrasePart& pp = da.phrase_parts[pp_i];
-			String phrase = da.GetWordString(pp.words);
-			args.phrases << phrase;
-		}
-		#else
-		ASSERT(t->part_i >= 0);
-		const StaticPart& sp = song.parts[t->part_i];
-		args.part = sp.name;
-		for(int i = 0; i < sp.picked_phrase_parts.GetCount(); i++) {
-			int pp_i = sp.picked_phrase_parts[i];
-			const PhrasePart& pp = da.phrase_parts[pp_i];
-			String phrase = da.GetWordString(pp.words);
-			args.phrases << phrase;
-		}
-		#endif
-	}
-	if (args.fn == 1) {
-		ASSERT(t->part_i >= 0 && t->line_i >= 0);
-		const StaticPart& sp = song.parts[t->part_i];
-		const auto& line = sp.nana.Get()[t->line_i];
-		
-		if (line.pp_i < 0 || line.sub_pp_i.IsEmpty()) {
-			RemoveTask(*t);
-			return;
-		}
-		
-		const PhrasePart& pp = da.phrase_parts[line.pp_i];
-		args.phrase = da.GetWordString(pp.words);
-		for(int i = 0; i < line.sub_pp_i.GetCount(); i++) {
-			const PhrasePart& pp0 = da.phrase_parts[line.sub_pp_i[i]];
-			String p = da.GetWordString(pp0.words);
-			args.phrases << p;
-			t->tmp_words.Add(p);
-		}
-	}
-	
-	if (t->part_i >= 0) {
-		const StaticPart& sp = song.parts[t->part_i];
-		const RhymeContainer::Line* line = t->line_i >= 0 ? &sp.nana.Get()[t->line_i] : 0;
-		String pre_text;
-		for(int i = 0; i < song.parts.GetCount(); i++) {
-			const auto& lines = song.parts[i].nana.Get();
-			bool end = false;
-			if (i == t->part_i && t->line_i < 0) break;
-			for(int j = 0; j < lines.GetCount(); j++) {
-				const auto& line0 = lines[j];
-				if (i == t->line_i && i == t->part_i) {
-					if (&line0 == line) {
-						end = true;
-						break;
-					}
-				}
-				if (!pre_text.IsEmpty())
-					pre_text << "\n";
-				if (line0.pp_i >= 0) {
-					const PhrasePart& pp0 = da.phrase_parts[line0.pp_i];
-					pre_text << da.GetWordString(pp0.words);
-				}
-				if (line0.end_pp_i >= 0) {
-					const PhrasePart& pp1 = da.phrase_parts[line0.end_pp_i];
-					if (line0.pp_i >= 0)
-						pre_text << ", ";
-					pre_text << da.GetWordString(pp1.words);
-				}
-			}
-			if (end)
-				break;
-		}
-		args.pre_text = pre_text;
-	}
-	/*if (args.fn == 1) {
-		ASSERT(t->part_i >= 0 && t->line_i >= 0);
-		const StaticPart& sp = song.parts[t->part_i];
-		const auto& line = sp.nana.Get()[t->line_i];
-		
-		//const StaticPhrase& spa = sp.phrases[t->line_i];
-		if (line.pp_i < 0) {
-			RemoveTask(*t);
-			return;
-		}
-		const PhrasePart& pp = da.phrase_parts[line.pp_i];
-		
-		args.nana = line.AsNana();
-		args.phrase = da.GetWordString(pp.words);
-		args.pron = da.GetWordPronounciation(pp.words);
-		
-	}*/
-	
-	
-	
-	TaskMgr& m = TaskMgr::Single();
-	
-	if (args.fn == 0)
-		m.GetNanaData(args, THISBACK1(OnSongStory, t));
-	if (args.fn == 1)
-		//m.GetNanaData(args, THISBACK1(OnNanaFit, t));
-		m.GetNanaData(args, THISBACK1(OnSubPicked, t));
-}
-#endif
 
 void TaskManager::GetActionlist(Task* t) {
 	TextDatabase& db = GetDatabase();
@@ -1481,7 +1350,7 @@ void TaskManager::GetLineActions(Task* t) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	SourceDataAnalysisArgs args;
+	SourceDataAnalysisArgs args; // 10
 	args.fn = 10;
 	args.phrases <<= Split(batch.txt, "\n");
 	
@@ -1500,7 +1369,7 @@ void TaskManager::GetSyllables(Task* t) {
 	int end = (t->batch_i+1) * per_batch;
 	
 	
-	SourceDataAnalysisArgs args;
+	SourceDataAnalysisArgs args; // 4
 	
 	int iter = 0;
 	int ds_i = t->ds_i;
@@ -1588,7 +1457,7 @@ void TaskManager::GetDetails(Task* t) {
 	
 	t->tmp_words.Clear();
 	
-	SourceDataAnalysisArgs args;
+	SourceDataAnalysisArgs args; // 5
 	
 	int ds_i = t->ds_i;
 	int iter = 0;
@@ -1678,7 +1547,7 @@ void TaskManager::GetLineChangeScores(Task* t) {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[batch.ds_i];
 	
-	SourceDataAnalysisArgs args;
+	SourceDataAnalysisArgs args; // 11
 	args.fn = 11;
 	//args.score_mode = score_mode;
 	args.phrases <<= Split(batch.txt, "\n");
@@ -1759,7 +1628,7 @@ void TaskManager::GetColorAlternatives(Task* t) {
 		end = 1;
 	}
 	
-	SourceDataAnalysisArgs args;
+	SourceDataAnalysisArgs args; // 7
 	
 	VectorMap<String, Color>& word_clr = t->word_clr;
 	word_clr.Clear();

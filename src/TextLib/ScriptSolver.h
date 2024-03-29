@@ -48,12 +48,10 @@ class ScriptSolver {
 	void ProcessFillLines();
 	void ProcessPrimary();
 	void ProcessMakeHoles();
-	void ProcessFillHoles();
 	void ProcessComparison();
 	void OnProcessPrimary(String res);
 	void OnProcessFillLines(String res);
 	void OnProcessMakeHoles(String res);
-	void OnProcessFillHoles(String res);
 	void OnProcessComparison(String res);
 	void PostProgress() {WhenProgress(phase, LS_COUNT);}
 	void SetNotRunning() {running = false;}

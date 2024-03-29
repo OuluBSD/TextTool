@@ -1,5 +1,6 @@
 #include "Task.h"
 
+#if 0
 
 BEGIN_TEXTLIB_NAMESPACE
 
@@ -1267,3 +1268,4 @@ void AiTask::CreateInput_StorySolver() {
 
 END_TEXTLIB_NAMESPACE
 
+#endif

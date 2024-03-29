@@ -73,27 +73,18 @@ struct TaskMgr {
 	void StartSingle(int task_i) {Thread::Start(THISBACK1(ProcessSingle, task_i));}
 	
 	void Translate(String orig_lang, String orig_txt, String trans_lang, Event<String> WhenResult);
-	void GetStructureSuggestions(String req, String avoid, String desc, int total, Event<String> WhenResult);
-	void GetSuggestionAttributes(Vector<String>& structs, Event<String> WhenResult);
+	void GetStructureSuggestions(int appmode, const StructureArgs& args, Event<String> WhenResult);
+	void GetSuggestionAttributes(const StructureArgs& args, Event<String> WhenResult);
 	void CreateImage(String prompt, int count, Event<Array<Image>&> WhenResult, int reduce_size_mode=0, Event<> WhenError=Event<>());
 	void GetEditImage(Image orig, Image mask, String prompt, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
 	void VariateImage(Image orig, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
 	void RawCompletion(String prompt, Event<String> WhenResult);
-	void GetColorIdea(const ColorIdeaArgs& args, Event<String> WhenResult);
-	void GetVocabulary(const VocabularyArgs& args, Event<String> WhenResult);
-	void GetVocabularyIdea(const VocabularyIdeaArgs& args, Event<String> WhenResult);
-	void GetWordSaladIdea(const WordSaladIdeaArgs& args, Event<String> WhenResult);
-	void GetContextIdea(const ContextIdeaArgs& args, Event<String> WhenResult);
 	void GetSourceDataAnalysis(const SourceDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going=false);
 	void GetActionAnalysis(const ActionAnalysisArgs& args, Event<String> WhenResult);
-	void GetScriptPhrase(const ScriptPhraseArgs& args, Event<String> WhenResult);
 	void GetTokenData(const TokenArgs& args, Event<String> WhenResult);
 	void GetPhraseData(const PhraseArgs& args, Event<String> WhenResult);
 	void GetAttributes(const AttrArgs& args, Event<String> WhenResult);
-	void GetNanaData(const NanaArgs& args, Event<String> WhenResult);
 	void GetScriptSolver(const ScriptSolverArgs& args, Event<String> WhenResult);
-	void GetStorySolver(const StorySolverArgs& args, Event<String> WhenResult);
-	void GetProgramDataAnalysis(const ProgramDataAnalysisArgs& args, Event<String> WhenResult, bool keep_going=false);
 	
 	static TaskMgr& Single() {static TaskMgr tm; return tm;}
 	

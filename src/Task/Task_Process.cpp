@@ -38,10 +38,6 @@ void AiTask::Process_GetSuggestionAttributes() {
 	WhenResult("-" + output);
 }
 
-void AiTask::Process_GetColorIdea() {
-	WhenResult("1.RGB(" + output);
-}
-
 void AiTask::Process_GetVocabulary() {
 	WhenResult(output);
 }
@@ -51,23 +47,11 @@ void AiTask::Process_GetVocabularyIdea() {
 	WhenResult("1/30: a" + output);
 }
 
-void AiTask::Process_GetWordSaladIdea() {
-	WhenResult("1/10: a" + output);
-}
-
-void AiTask::Process_GetContextIdea() {
-	WhenResult(output);
-}
-
 void AiTask::Process_GetSourceDataAnalysis() {
 	WhenResult(output);
 }
 
 void AiTask::Process_GetActionAnalysis() {
-	WhenResult(output);
-}
-
-void AiTask::Process_GetScriptPhrase() {
 	WhenResult(output);
 }
 
@@ -90,19 +74,7 @@ void AiTask::Process_GetAttributes() {
 		WhenResult(output);
 }
 
-void AiTask::Process_GetNanaData() {
-	WhenResult(output);
-}
-
 void AiTask::Process_ScriptSolver() {
-	WhenResult(output);
-}
-
-void AiTask::Process_GetProgramDataAnalysis() {
-	WhenResult(output);
-}
-
-void AiTask::Process_StorySolver() {
 	WhenResult(output);
 }
 

@@ -116,12 +116,12 @@ protected:
 	int created_task_count = 0;
 	int id = 0;
 	mutable hash_t order_hash = 0;
-	
 public:
 
 	const TaskRule* rule = 0;
 	
 	Vector<String> args;
+	int appmode = -1;
 	String output;
 	String error;
 	bool skip_load = false;
@@ -186,17 +186,12 @@ public:
 	void CreateInput_MorphToAttributes();
 	void CreateInput_GetStructureSuggestions();
 	void CreateInput_GetSuggestionAttributes();
-	void CreateInput_GetColorIdea();
 	void CreateInput_GetSourceDataAnalysis();
 	void CreateInput_GetActionAnalysis();
-	void CreateInput_GetScriptPhrase();
 	void CreateInput_GetTokenData();
 	void CreateInput_GetPhraseData();
 	void CreateInput_GetAttributes();
-	void CreateInput_GetNanaData();
 	void CreateInput_ScriptSolver();
-	void CreateInput_GetProgramDataAnalysis();
-	void CreateInput_StorySolver();
 	
 	void Process_GetTokenData();
 	void Process_GetPhraseData();
@@ -230,19 +225,12 @@ public:
 	void Process_RawCompletion();
 	void Process_MorphToAttributes();
 	void Process_GetStructureSuggestions();
-	void Process_GetColorIdea();
 	void Process_GetVocabulary();
 	void Process_GetVocabularyIdea();
-	void Process_GetWordSaladIdea();
-	void Process_GetContextIdea();
 	void Process_GetSourceDataAnalysis();
 	void Process_GetActionAnalysis();
-	void Process_GetScriptPhrase();
 	void Process_GetAttributes();
-	void Process_GetNanaData();
 	void Process_ScriptSolver();
-	void Process_GetProgramDataAnalysis();
-	void Process_StorySolver();
 	
 	void Retry(bool skip_prompt, bool skip_cache);
 	String GetDescription() const;

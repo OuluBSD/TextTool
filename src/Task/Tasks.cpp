@@ -1,4 +1,5 @@
 #include "Task.h"
+#include <TextDatabase/TextDatabase.h>
 
 #ifdef flagLLAMACCP
 #include <LlamaCpp/LlamaCpp.h>
@@ -135,6 +136,8 @@ void AiTask::Process() {
 	
 	bool ok = true;
 	
+	EnterAppMode(appmode);
+	
 	ok = CheckArguments();
 	
 	ok = ok && ProcessInput();
@@ -173,6 +176,7 @@ void AiTask::Process() {
 	if (ready)
 		WhenDone();
 	
+	LeaveAppMode();
 	//LOG("AiTask::Process: end of " << rule->name);
 }
 

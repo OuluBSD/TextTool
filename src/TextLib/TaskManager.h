@@ -135,13 +135,7 @@ class TaskManager {
 	void OnPhraseScores(String result, Task* t);
 	void OnPhraseTypeclasses(String result, Task* t);
 	void OnPhraseContrast(String result, Task* t);
-	/*void OnPhraseProfile(String result, Task* t);
-	void OnPhraseContent(String result, Task* t);
-	void OnPhrasePrimary(String result, Task* t);
-	void OnPhraseSecondary(String result, Task* t);*/
 	
-	//void GetNana(Task* tp);
-	//void OnSongStory(String result, Task* t);
 	void OnSubPicked(String result, Task* t);
 	void OnNanaFit(String result, Task* t);
 	
@@ -193,7 +187,6 @@ public:
 	void DoAmbiguousWordPairs(int ds_i, int fn);
 	void DoVirtualPhrases(int ds_i, int fn);
 	void DoPhrases(int ds_i, int fn);
-	void DoNana(int ds_i, int fn, Component& song, Callback OnReady, int line_i=-1, int part_i=-1);
 	void DoContainer(int ds_i, int fn, Callback2<int,int> update);
 	void DoWords(int ds_i, int fn);
 	void DoWordFix(int ds_i, int fn);

@@ -145,7 +145,7 @@ void ScriptSolverCtrl::UserScriptChange() {
 void ScriptSolverCtrl::GetNewTitle() {
 	Script& l = GetScript();
 	
-	ScriptSolverArgs args;
+	ScriptSolverArgs args; // 8
 	args.fn = 8;
 	args.part = l.text;
 	
