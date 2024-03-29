@@ -18,6 +18,8 @@ enum {
 	AM_DB,
 	AM_UNSAFE,
 	AM_CLIENT,
+	AM_AUDIENCE,
+	AM_GENRES,
 	
 	AM_COUNT,
 };

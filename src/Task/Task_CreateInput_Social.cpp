@@ -321,18 +321,18 @@ void AiTask::CreateInput_GetProgramDataAnalysis() {
 		{
 			auto& list = input.AddSub().Title("Action planner heuristic score factors");
 			if (args.score_mode == 0) {
-				list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
-				list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
-				list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
-				list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
-				list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+				list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
+				list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
+				list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
+				list.Add("S3: High share count from the " + audience + ". Low count means that the phrase was not relatable.");
+				list.Add("S4: High bookmark count from the " + audience + ". Low count means that the phrase had no value.");
 			}
 			else {
-				list.Add("S0: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
-				list.Add("S1: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
-				list.Add("S2: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
-				list.Add("S3: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
-				list.Add("S4: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
+				list.Add("S0: High reference count towards comedy from the " + audience + ". Low count means that the phrase was not funny.");
+				list.Add("S1: High reference count towards sex from the " + audience + ". Low count means that the phrase was not sensual.");
+				list.Add("S2: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
+				list.Add("S3: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
+				list.Add("S4: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
 			}
 		}
 		
@@ -380,18 +380,18 @@ void AiTask::CreateInput_GetProgramDataAnalysis() {
 		{
 			auto& list = input.AddSub().Title("Action planner heuristic score factors");
 			if (args.score_mode == 0) {
-				list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
-				list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
-				list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
-				list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
-				list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+				list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
+				list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
+				list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
+				list.Add("S3: High share count from the " + audience + ". Low count means that the phrase was not relatable.");
+				list.Add("S4: High bookmark count from the " + audience + ". Low count means that the phrase had no value.");
 			}
 			else {
-				list.Add("S0: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
-				list.Add("S1: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
-				list.Add("S2: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
-				list.Add("S3: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
-				list.Add("S4: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
+				list.Add("S0: High reference count towards comedy from the " + audience + ". Low count means that the phrase was not funny.");
+				list.Add("S1: High reference count towards sex from the " + audience + ". Low count means that the phrase was not sensual.");
+				list.Add("S2: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
+				list.Add("S3: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
+				list.Add("S4: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
 			}
 		}
 		
@@ -643,18 +643,18 @@ void AiTask::CreateInput_GetProgramDataAnalysis() {
 		{
 			auto& list = input.AddSub().Title("Action planner heuristic score factors");
 			if (args.score_mode == 0) {
-				list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
-				list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
-				list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
-				list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
-				list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+				list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
+				list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
+				list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
+				list.Add("S3: High share count from the " + audience + ". Low count means that the phrase was not relatable.");
+				list.Add("S4: High bookmark count from the " + audience + ". Low count means that the phrase had no value.");
 			}
 			else {
-				list.Add("S0: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
-				list.Add("S1: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
-				list.Add("S2: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
-				list.Add("S3: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
-				list.Add("S4: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
+				list.Add("S0: High reference count towards comedy from the " + audience + ". Low count means that the phrase was not funny.");
+				list.Add("S1: High reference count towards sex from the " + audience + ". Low count means that the phrase was not sensual.");
+				list.Add("S2: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
+				list.Add("S3: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
+				list.Add("S4: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
 			}
 		}
 		{
@@ -1118,16 +1118,16 @@ void AiTask::CreateInput_StorySolver() {
 	else if (args.fn == 5) {
 		{
 			auto& list = input.AddSub().Title("Action planner heuristic score factors");
-			list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
-			list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
-			list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
-			list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
-			list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
-			list.Add("S5: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
-			list.Add("S6: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
-			list.Add("S7: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
-			list.Add("S8: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
-			list.Add("S9: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
+			list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
+			list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
+			list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
+			list.Add("S3: High share count from the " + audience + ". Low count means that the phrase was not relatable.");
+			list.Add("S4: High bookmark count from the " + audience + ". Low count means that the phrase had no value.");
+			list.Add("S5: High reference count towards comedy from the " + audience + ". Low count means that the phrase was not funny.");
+			list.Add("S6: High reference count towards sex from the " + audience + ". Low count means that the phrase was not sensual.");
+			list.Add("S7: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
+			list.Add("S8: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
+			list.Add("S9: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
 		}
 		
 		
@@ -1206,16 +1206,16 @@ void AiTask::CreateInput_StorySolver() {
 	else if (args.fn == 7) {
 		{
 			auto& list = input.AddSub().Title("Story heuristic score factors");
-			list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
-			list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
-			list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
-			list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
-			list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
-			list.Add("S5: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
-			list.Add("S6: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
-			list.Add("S7: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
-			list.Add("S8: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
-			list.Add("S9: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
+			list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
+			list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
+			list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
+			list.Add("S3: High share count from the " + audience + ". Low count means that the phrase was not relatable.");
+			list.Add("S4: High bookmark count from the " + audience + ". Low count means that the phrase had no value.");
+			list.Add("S5: High reference count towards comedy from the " + audience + ". Low count means that the phrase was not funny.");
+			list.Add("S6: High reference count towards sex from the " + audience + ". Low count means that the phrase was not sensual.");
+			list.Add("S7: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
+			list.Add("S8: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
+			list.Add("S9: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
 			list.Add("S10: How well story fit the original vision.");
 		}
 		{

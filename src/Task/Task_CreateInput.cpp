@@ -611,7 +611,7 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 	if (args.fn == 10) {
 		String pc = IntStr(3 + args.phrases.GetCount());
 		{
-			auto& list = input.AddSub().Title(pc + " lines of lyrics");
+			auto& list = input.AddSub().Title(pc + " lines of " + __script);
 			list.NumberedLines();
 			list.Add("2 AM, howlin outside");
 			list.Add("Lookin, but I cannot find");
@@ -623,7 +623,7 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 			TaskTitledList& results = input.PreAnswer();
 			results.NumberedLines();
 			results.NoListChar();
-			results.Title("Action planner action states for " + pc + " lines of lyrics. With the most matching actions of list \"B\"");
+			results.Title("Action planner action states for " + pc + " lines of " + __script + ". With the most matching actions of list \"B\"");
 			results.Add("tone(urgent) + msg(trying to reach someone) + bias(romantic) + emotion(uncertainty) + level-of-certainty(trying/desire) + gesturing(pointing) + describing-surroundings(anywhere in the dark) + attention-place(outside) + attention-time(night) + attention-emotional_state(desire) + attention-action(howling) + attention-activity(driving)");
 			results.Add("msg(searching for someone) + bias(doubt) + emotion(frustration) + level-of-certainty(cannot find) + attention-action(searching) + attention-relationship(checking for person's presence)");
 			results.Add("tone(affectionate) + msg(expressing feelings) + bias(feeling understood by person) + emotion(love) + level-of-certainty(statement) + attention-person(addressed to person) + attention-emotional_state(love/affection) + attention-mental_state(thinking about person constantly) + attention-relationship(checking for compatibility)");
@@ -633,21 +633,22 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 	}
 
 	if (args.fn == 11) {
+		String audience = GetAppModeKey(appmode, AM_AUDIENCE);
 		{
 			auto& list = input.AddSub().Title("Action planner heuristic score factors");
 			if (args.score_mode == 0) {
-				list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
-				list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
-				list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
-				list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
-				list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
+				list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
+				list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
+				list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
+				list.Add("S3: High share count from the " + audience + ". Low count means that the phrase was not relatable.");
+				list.Add("S4: High bookmark count from the " + audience + ". Low count means that the phrase had no value.");
 			}
 			else {
-				list.Add("S0: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
-				list.Add("S1: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
-				list.Add("S2: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
-				list.Add("S3: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
-				list.Add("S4: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
+				list.Add("S0: High reference count towards comedy from the " + audience + ". Low count means that the phrase was not funny.");
+				list.Add("S1: High reference count towards sex from the " + audience + ". Low count means that the phrase was not sensual.");
+				list.Add("S2: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
+				list.Add("S3: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
+				list.Add("S4: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
 			}
 		}
 		{
@@ -665,7 +666,7 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 		}
 		String pc = IntStr(0 + args.phrases.GetCount());
 		{
-			auto& list = input.AddSub().Title("List \"C\": Actions per " + pc + " lines of lyrics. With the most matching actions of list \"B\"");
+			auto& list = input.AddSub().Title("List \"C\": Actions per " + pc + " lines of " + __script + ". With the most matching actions of list \"B\"");
 			list.NumberedLines();
 			for(int i = 0; i < args.phrases.GetCount(); i++)
 				list.Add(args.phrases[i]);
@@ -695,14 +696,14 @@ void AiTask::CreateInput_GetActionAnalysis() {
 	
 	if (args.fn == 0) {
 		{
-			auto& list = input.AddSub().Title("Lyrics");
+			auto& list = input.AddSub().Title(__Script);
 			list.NoListChar();
 			list.Add("2 AM, howlin outside");
 			list.Add("Lookin, but I cannot find");
 		}
 		
 		{
-			auto& list = input.AddSub().Title("Actions per a line of lyrics. With the most matching actions of list \"B\"");
+			auto& list = input.AddSub().Title("Actions per a line of " + __script + ". With the most matching actions of list \"B\"");
 			list.NoListChar();
 			list.Add("\"2 AM, howlin outside\": attention-time(night) + attention-emotional_state(desire) + attention-action(howling) + attention-activity(driving) + tone(urgent) + msg(trying to reach someone) + bias(romantic + emotion(uncertainty) + level-of-certainty(trying/desire) + gesturing(pointing) + describing-surroundings(anywhere in the dark) + attention-place(outside)");
 			list.Add("\"Lookin, but I cannot find\": attention-action(looking) + attention-physical state(tired) + emotion(frustration) + attention-emotional_state(desperation) + attention-time(late at night)");
@@ -739,14 +740,14 @@ void AiTask::CreateInput_GetActionAnalysis() {
 	}
 	if (args.fn == 1) {
 		{
-			auto& list = input.AddSub().Title("Lyrics");
+			auto& list = input.AddSub().Title(__Script);
 			list.NoListChar();
 			list.Add("2 AM, howlin outside");
 			list.Add("Lookin, but I cannot find");
 		}
 		
 		{
-			auto& list = input.AddSub().Title("Actions per a line of lyrics. With the most matching actions of list \"B\"");
+			auto& list = input.AddSub().Title("Actions per a line of " + __script + ". With the most matching actions of list \"B\"");
 			list.NoListChar();
 			list.Add("\"2 AM, howlin outside\": attention-time(night) + attention-emotional_state(desire) + attention-action(howling) + attention-activity(driving) + tone(urgent) + msg(trying to reach someone) + bias(romantic + emotion(uncertainty) + level-of-certainty(trying/desire) + gesturing(pointing) + describing-surroundings(anywhere in the dark) + attention-place(outside)");
 			list.Add("\"Lookin, but I cannot find\": attention-action(looking) + attention-physical state(tired) + emotion(frustration) + attention-emotional_state(desperation) + attention-time(late at night)");
@@ -1382,7 +1383,7 @@ void AiTask::CreateInput_GetPhraseData() {
 		
 		String pc = IntStr(3 + args.phrases.GetCount());
 		{
-			auto& list = input.AddSub().Title(pc + " lines of lyrics");
+			auto& list = input.AddSub().Title(pc + " lines of " + __script);
 			list.NumberedLines();
 			list.Add("2 AM, howlin outside");
 			list.Add("Lookin, but I cannot find");
@@ -1394,7 +1395,7 @@ void AiTask::CreateInput_GetPhraseData() {
 			TaskTitledList& results = input.PreAnswer();
 			results.NumberedLines();
 			results.NoListChar();
-			results.Title("Action planner action states for " + pc + " lines of lyrics. With the most matching actions of list \"B\"");
+			results.Title("Action planner action states for " + pc + " lines of " + __script + ". With the most matching actions of list \"B\"");
 			results.Add("tone(urgent) + msg(trying to reach someone) + bias(romantic) + emotion(uncertainty) + level-of-certainty(trying/desire) + gesturing(pointing) + describing-surroundings(anywhere in the dark) + attention-place(outside) + attention-time(night) + attention-emotional_state(desire) + attention-action(howling) + attention-activity(driving)");
 			results.Add("msg(searching for someone) + bias(doubt) + emotion(frustration) + level-of-certainty(cannot find) + attention-action(searching) + attention-relationship(checking for person's presence)");
 			results.Add("tone(affectionate) + msg(expressing feelings) + bias(feeling understood by person) + emotion(love) + level-of-certainty(statement) + attention-person(addressed to person) + attention-emotional_state(love/affection) + attention-mental_state(thinking about person constantly) + attention-relationship(checking for compatibility)");
@@ -1402,18 +1403,19 @@ void AiTask::CreateInput_GetPhraseData() {
 		input.response_length = 2048;
 	}
 	else if (args.fn == 3) {
+		String audience = GetAppModeKey(appmode, AM_AUDIENCE);
 		{
 			auto& list = input.AddSub().Title("Action planner heuristic score factors");
-			list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
-			list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
-			list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
-			list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
-			list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
-			list.Add("S5: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
-			list.Add("S6: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
-			list.Add("S7: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
-			list.Add("S8: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
-			list.Add("S9: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
+			list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
+			list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
+			list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
+			list.Add("S3: High share count from the " + audience + ". Low count means that the phrase was not relatable.");
+			list.Add("S4: High bookmark count from the " + audience + ". Low count means that the phrase had no value.");
+			list.Add("S5: High reference count towards comedy from the " + audience + ". Low count means that the phrase was not funny.");
+			list.Add("S6: High reference count towards sex from the " + audience + ". Low count means that the phrase was not sensual.");
+			list.Add("S7: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
+			list.Add("S8: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
+			list.Add("S9: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
 		}
 		{
 			auto& list = input.AddSub().Title("Example 1");
@@ -1443,7 +1445,7 @@ void AiTask::CreateInput_GetPhraseData() {
 	}
 	else if (args.fn == 4) {
 		{
-			auto& list = input.AddSub().Title("Typecasts of singer profiles in relation to the lyrics");
+			auto& list = input.AddSub().Title(__Typeclasses + " of " + __entity + " profiles in relation to the " + __script);
 			list.NumberedLines();
 			for (String tc : GetTypecasts())
 				list.Add(tc);
@@ -1460,7 +1462,7 @@ void AiTask::CreateInput_GetPhraseData() {
 			TaskTitledList& results = input.PreAnswer();
 			results.NumberedLines();
 			results.NoListChar();
-			results.Title(pc + " typecast-number sequences for list \"A\" of phrases. Description: phrases can be used in these (numbered) typecasts");
+			results.Title(pc + " " + __typeclass + "-number sequences for list \"A\" of phrases. Description: phrases can be used in these (numbered) " + __typeclasses);
 			results.Add("1 51 42 10 11 13 24 28 30 44");
 			results.Add("");
 		}
@@ -1468,7 +1470,7 @@ void AiTask::CreateInput_GetPhraseData() {
 	}
 	else if (args.fn == 5) {
 		{
-			auto& list = input.AddSub().Title("List of names for archetypical parts of storyline of a modern pop/rock/edm songs, which contrasts each other");
+			auto& list = input.AddSub().Title("List of names for archetypical parts of storyline of a modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps + ", which contrasts each other");
 			list.NumberedLines();
 			for (const auto& it : GetContrasts()) {
 				String s;
@@ -1514,14 +1516,14 @@ void AiTask::CreateInput_GetAttributes() {
 		}
 		if (end > 2) {
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("2 main values of list \"A\", which summarizes all values in a way, that the first value is the common attribute of modern pop and rock songs, and the second value is the polar opposite of the first");
+			results.Title("2 main values of list \"A\", which summarizes all values in a way, that the first value is the common attribute of modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps + ", and the second value is the polar opposite of the first");
 			results.NumberedLines();
 			results.Add("");
 		}
 		else {
 			list.NumberedLines();
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Sort 2 values of list \"A\" in a way, that the first value is the once which is closer to a common attribute of modern pop and rock songs. Use same values, but just sort the values. Don't add any text");
+			results.Title("Sort 2 values of list \"A\" in a way, that the first value is the once which is closer to a common attribute of modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps + ". Use same values, but just sort the values. Don't add any text");
 			results.NumberedLines();
 			results.Add("");
 		}
@@ -1613,22 +1615,22 @@ void AiTask::CreateInput_ScriptSolver() {
 	// Color
 	if (args.fn == 0) {
 		{
-			auto& list = input.AddSub().Title("About the artist");
+			auto& list = input.AddSub().Title("About the " + __entity);
 			for(int i = 0; i < args.artist.GetCount(); i++)
 				list.Add(args.artist.GetKey(i) + ": " + args.artist[i]);
 		}
 		if (args.release.GetCount()) {
-			auto& list = input.AddSub().Title("About the release");
+			auto& list = input.AddSub().Title("About the " + __snap);
 			for(int i = 0; i < args.release.GetCount(); i++)
 				list.Add(args.release.GetKey(i) + ": " + args.release[i]);
 		}
 		{
-			auto& list = input.AddSub().Title("About the song");
+			auto& list = input.AddSub().Title("About the " + __comp);
 			for(int i = 0; i < args.song.GetCount(); i++)
 				list.Add(args.song.GetKey(i) + ": " + args.song[i]);
 		}
 		{
-			auto& list = input.AddSub().Title("Parts off the song");
+			auto& list = input.AddSub().Title("Parts off the " + __comp);
 			for(int i = 0; i < args.parts.GetCount(); i++)
 				list.Add(args.parts[i]);
 		}
@@ -1651,13 +1653,13 @@ void AiTask::CreateInput_ScriptSolver() {
 		#if 0
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("List of metaphorical colors for the part '" + args.part + "', which does not match artist nor release nor song");
+			results.Title("List of metaphorical colors for the part '" + args.part + "', which does not match " + __entity + " nor " + __snap + " nor " + __comp);
 			results.Add("RGB(");
 		}
 		#else
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("List of metaphorical colors, which does not match artist nor release nor song");
+			results.Title("List of metaphorical colors, which does not match " + __entity + " nor " + __snap + " nor " + __comp);
 			results.Add("RGB(");
 		}
 		#endif
@@ -1665,22 +1667,22 @@ void AiTask::CreateInput_ScriptSolver() {
 	}
 	else if (args.fn == 1) {
 		{
-			auto& list = input.AddSub().Title("About the artist");
+			auto& list = input.AddSub().Title("About the " + __entity);
 			for(int i = 0; i < args.artist.GetCount(); i++)
 				list.Add(args.artist.GetKey(i) + ": " + args.artist[i]);
 		}
 		if (args.release.GetCount()) {
-			auto& list = input.AddSub().Title("About the release");
+			auto& list = input.AddSub().Title("About the " + __snap);
 			for(int i = 0; i < args.release.GetCount(); i++)
 				list.Add(args.release.GetKey(i) + ": " + args.release[i]);
 		}
 		{
-			auto& list = input.AddSub().Title("About the song");
+			auto& list = input.AddSub().Title("About the " + __comp);
 			for(int i = 0; i < args.song.GetCount(); i++)
 				list.Add(args.song.GetKey(i) + ": " + args.song[i]);
 		}
 		{
-			auto& list = input.AddSub().Title("Parts off the song");
+			auto& list = input.AddSub().Title("Parts off the " + __comp);
 			for(int i = 0; i < args.parts.GetCount(); i++)
 				list.Add(args.parts[i]);
 		}
@@ -1694,7 +1696,7 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("List of " + IntStr(args.attrs.GetCount()+2) + " attributes and the sign, which would suit better the lyrics of the song/release/artist");
+			results.Title("List of " + IntStr(args.attrs.GetCount()+2) + " attributes and the sign, which would suit better the " + __script + " of the " + __comp + "/" + __snap + "/" + __entity);
 			results.NumberedLines();
 			results.Add("+/-");
 			results.Add("-/+");
@@ -1704,7 +1706,7 @@ void AiTask::CreateInput_ScriptSolver() {
 	}
 	else if (args.fn == 3) {
 		{
-			auto& list = input.AddSub().Title("List of artists");
+			auto& list = input.AddSub().Title("List of " + __entities);
 			for(int i = 0; i < args.parts.GetCount(); i++)
 				list.Add(args.parts[i]);
 		}
@@ -1716,7 +1718,7 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("50 good combinations of List A Phrases, which would suit for given artists, with combination size 2-3");
+			results.Title("50 good combinations of List A Phrases, which would suit for given " + __entities + ", with combination size 2-3");
 			results.NumberedLines();
 			results.Add("1,4");
 			results.Add("7,3,10");
@@ -1727,7 +1729,7 @@ void AiTask::CreateInput_ScriptSolver() {
 	
 	else if (args.fn == 4) {
 		{
-			auto& list = input.AddSub().Title("List of artists");
+			auto& list = input.AddSub().Title("List of " + __entities);
 			for(int i = 0; i < args.parts.GetCount(); i++)
 				list.Add(args.parts[i]);
 		}
@@ -1739,7 +1741,7 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Use least amount of new words to combine phrases in their exact form to new sentences, using style of artist from the list");
+			results.Title("Use least amount of new words to combine phrases in their exact form to new sentences, using style of " + __entity + " from the list");
 			results.NumberedLines();
 			results.Add("'where are my panties', 'murder all these monsters': \"This girl got me feeling hella scarce, / That's why I gotta kill all these underwear monsters in her drawers.\"");
 			results.Add("'we never asked', 'we just wanna be': \"We never asked to be living this way, / We just wanna be free, escape the fray.\"");
@@ -1749,18 +1751,19 @@ void AiTask::CreateInput_ScriptSolver() {
 	}
 	
 	else if (args.fn == 5) {
+		String audience = GetAppModeKey(appmode, AM_AUDIENCE);
 		{
 			auto& list = input.AddSub().Title("Action planner heuristic score factors");
-			list.Add("S0: High like count from the music audience. Low count means that the idea behind the phrase was bad.");
-			list.Add("S1: High comment count from the music audience. Low count means that there was no emotion in the phrase.");
-			list.Add("S2: High listen count from the music audience. Low count means that there was bad so called hook in the phrase.");
-			list.Add("S3: High share count from the music audience. Low count means that the phrase was not relatable.");
-			list.Add("S4: High bookmark count from the music audience. Low count means that the phrase had no value.");
-			list.Add("S5: High reference count towards comedy from the music audience. Low count means that the phrase was not funny.");
-			list.Add("S6: High reference count towards sex from the music audience. Low count means that the phrase was not sensual.");
-			list.Add("S7: High reference count towards politics from the music audience. Low count means that the phrase was not thought-provoking.");
-			list.Add("S8: High reference count towards love from the music audience. Low count means that the phrase was not romantic.");
-			list.Add("S9: High reference count towards social issues from the music audience. Low count means that the phrase was not impactful.");
+			list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
+			list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
+			list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
+			list.Add("S3: High share count from the " + audience + ". Low count means that the phrase was not relatable.");
+			list.Add("S4: High bookmark count from the " + audience + ". Low count means that the phrase had no value.");
+			list.Add("S5: High reference count towards comedy from the " + audience + ". Low count means that the phrase was not funny.");
+			list.Add("S6: High reference count towards sex from the " + audience + ". Low count means that the phrase was not sensual.");
+			list.Add("S7: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
+			list.Add("S8: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
+			list.Add("S9: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
 		}
 		
 		
@@ -1785,34 +1788,18 @@ void AiTask::CreateInput_ScriptSolver() {
 	
 	else if (args.fn == 6) {
 		{
-			auto& list = input.AddSub().Title("Song \"B\": parts");
+			auto& list = input.AddSub().Title(__Comp + " \"B\": parts");
 			for(int i = 0; i < args.parts.GetCount(); i++)
 				list.Add(args.parts[i] + ": " + IntStr(args.counts[i]) + " lines");
 		}
 		{
-			auto& list = input.AddSub().Title("Song \"B\": Potential phrases");
+			auto& list = input.AddSub().Title(__Comp + " \"B\": Potential phrases");
 			list.NumberedLines();
 			for(int j = 0; j < args.phrases.GetCount(); j++) {
 				const String& phrase = args.phrases[j];
 				list.Add(phrase);
 			}
 		}
-		/*for(int i = 0; i < args.offsets.GetCount(); i++) {
-			auto& list = input.AddSub().Title("Song \"B\": Potential phrases");
-			int begin = args.offsets[i];
-			int end = i+1 < args.offsets.GetCount() ? args.offsets[i+1] : args.phrases.GetCount();
-			for(int j = begin; j < end; j++) {
-				const String& phrase = args.phrases[j];
-				list.Add(phrase);
-			}
-		}*/
-		/*Vector<String> pre_lines = Split(args.pre_text, "\n");
-		if (!pre_lines.IsEmpty()) {
-			auto& list = input.AddSub().Title("Song \"B\": earlier phrases in the same song");
-			list.NumberedLines();
-			for(int i = 0; i < pre_lines.GetCount(); i++)
-				list.Add(pre_lines[i]);
-		}*/
 		{
 			auto& list = input.AddSub().Title("Example \"A\": lines per parts, and phrase's line numbers");
 			//list.NumberedLines();
@@ -1822,7 +1809,7 @@ void AiTask::CreateInput_ScriptSolver() {
 			list.Add("Verse 2: 4 lines: 10, 9, 11, 14");
 		}
 		{
-			auto& list = input.AddSub().Title("Song \"B\" should fit the following vision of the song");
+			auto& list = input.AddSub().Title(__Comp + " \"B\" should fit the following vision of the " + __comp);
 			//list.NumberedLines();
 			Vector<String> lines = Split(args.part, ". ");
 			for (String& l : lines)
@@ -1830,7 +1817,7 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Song \"B\": lines per parts. Sort lines/phrases in a way, that the story of the " + __comp + " is best");
+			results.Title(__Comp + " \"B\": lines per parts. Sort lines/phrases in a way, that the story of the " + __comp + " is best");
 			results.EmptyLine();
 		}
 		input.response_length = 2048;
@@ -1838,7 +1825,7 @@ void AiTask::CreateInput_ScriptSolver() {
 	
 	else if (args.fn == 8) {
 		{
-			auto& list = input.AddSub().Title("Lyrics of the unnamed song:");
+			auto& list = input.AddSub().Title(__Script + " of the unnamed " + __comp + ":");
 			list.NoListChar();
 			Vector<String> lines = Split(args.part, ". ");
 			for (String& l : lines)
@@ -1846,40 +1833,40 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Novel new name for the previous song");
+			results.Title("Novel new name for the previous " + __comp);
 		}
 	}
 	
 	else if (args.fn == 9) {
 		{
-			auto& list = input.AddSub().Title("Lyrics of the Song A");
+			auto& list = input.AddSub().Title(__Script + " of the " + __Comp + " A");
 			list.NumberedLines();
 			list.Add("I am a guy who likes cars and bitches");
 			list.Add("Cars give me a rush of adrenaline, and bitches give me a rush of dopamine");
 			list.Add("Apples are interesting");
 		}
 		{
-			auto& list = input.AddSub().Title("Scoring of transfer of lines 1-3 of the Song A. Value is 0-10");
+			auto& list = input.AddSub().Title("Scoring of transfer of lines 1-3 of the " + __Comp + " A. Value is 0-10");
 			list.Add("from line 1 to line 2: coherency of the story: 7, semantic and contextual accuracy: 8");
 			list.Add("from line 2 to line 3: coherency of the story: 5, semantic and contextual accuracy: 7");
 			list.Add("from line 1 to line 3: coherency of the story: 5, semantic and contextual accuracy: 6");
 		}
 		{
-			auto& list = input.AddSub().Title("Shortened scoring of transfer of lines 1-3 of the Song A. Value is 0-10");
+			auto& list = input.AddSub().Title("Shortened scoring of transfer of lines 1-3 of the " + __Comp + " A. Value is 0-10");
 			list.NumberedLines();
 			list.Add("1 to 2: 7, 8");
 			list.Add("2 to 3: 5, 7");
 			//list.Add("1 to 3: 5, 6");
 		}
 		{
-			auto& list = input.AddSub().Title("Lyrics of the Song B");
+			auto& list = input.AddSub().Title(__Script + " of the " + __Comp + " B");
 			list.NumberedLines();
 			for (String& l : args.phrases)
 				list.Add(l);
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Shortened scoring of transfer of lines 1-" + IntStr(args.phrases.GetCount()) + " of the Song B. Value is 0-10");
+			results.Title("Shortened scoring of transfer of lines 1-" + IntStr(args.phrases.GetCount()) + " of the " + __Comp + " B. Value is 0-10");
 			results.NumberedLines();
 			results.Add("1 to 2:");
 		}
@@ -1887,7 +1874,7 @@ void AiTask::CreateInput_ScriptSolver() {
 	
 	else if (args.fn == 10) {
 		{
-			auto& list = input.AddSub().Title("Song \"A\": known lyrics so far");
+			auto& list = input.AddSub().Title(__Comp + " \"A\": known " + __script + " so far");
 			list.NoListChar();
 			for(int i = 0; i < args.song.GetCount(); i++) {
 				const Vector<String> lines = Split(args.song[i], "\n");
@@ -1899,7 +1886,7 @@ void AiTask::CreateInput_ScriptSolver() {
 			}
 		}
 		{
-			auto& list = input.AddSub().Title("Song \"A\": Potential phrases");
+			auto& list = input.AddSub().Title(__Comp + " \"A\": Potential phrases");
 			list.NumberedLines();
 			for(int j = 0; j < args.phrases.GetCount(); j++) {
 				const String& phrase = args.phrases[j];
@@ -1907,13 +1894,13 @@ void AiTask::CreateInput_ScriptSolver() {
 			}
 		}
 		{
-			auto& list = input.AddSub().Title("Song \"A\" should fit the following vision of the song");
+			auto& list = input.AddSub().Title(__Comp + " \"A\" should fit the following vision of the " + __comp);
 			Vector<String> lines = Split(args.vision, ". ");
 			for (String& l : lines)
 				list.Add(l);
 		}
 		{
-			auto& list = input.AddSub().Title("Song \"A\": properties of additional line/phrases for the best song");
+			auto& list = input.AddSub().Title(__Comp + " \"A\": properties of additional line/phrases for the best " + __comp);
 			list.Add("high coherency of the story");
 			list.Add("high semantic and contextual accuracy");
 			list.Add("idea: high like count");
@@ -1925,7 +1912,7 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Song \"A\": Add line/phrase to the part '" + args.part + "' in a way, that the story of the " + __comp + " is best");
+			results.Title(__Comp + " \"A\": Add line/phrase to the part '" + args.part + "' in a way, that the story of the " + __comp + " is best");
 			results.NumberedLines();
 			results.Add("phrase: \"");
 		}

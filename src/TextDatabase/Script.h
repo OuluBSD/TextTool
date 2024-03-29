@@ -20,8 +20,6 @@ struct StaticPart {
 	
 	String name;
 	String type; // abbreviation like V1, PC2, C
-	String active_idea[IDEAPATH_PARTCOUNT];
-	Color active_idea_clr[IDEAPATH_PARTCOUNT];
 	Vector<String> active_source_wordsalad;
 	Vector<String> active_source_text;
 	Vector<Vector<String>> source_text_suggestions;
@@ -84,12 +82,6 @@ struct StaticPart {
 			;
 		JsonCompressedStream(json, "actions_enabled", actions_enabled);
 		JsonCompressedStream(json, "phrase_parts", phrase_parts);
-		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
-			json(	(String)"active_idea[" + IdeaPathString[IDEAPATH_PARTBEGIN+i][1] + "]",
-					active_idea[i]);
-		for(int i = 0; i < IDEAPATH_PARTCOUNT; i++)
-			json(	(String)"active_idea_clr[" + IdeaPathString[IDEAPATH_PARTBEGIN+i][1] + "]",
-					active_idea_clr[i]);
 	}
 	
 	// Temp

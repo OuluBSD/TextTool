@@ -15,6 +15,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"artist",		"release",		"song",
 		"typecast",		"archetype",	"lyrics",
 		"db",			"rapper",		"listener",
+		"music audience",
+		"pop/rock/edm",
 		0
 	},
 	
@@ -23,6 +25,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"company",		"campaign",		"program",
 		"role",			"generic",		"story",
 		"social_db",	"unsafe",		"reader",
+		"twitter audience",
+		"news/entertainment/sports",
 		0
 	},
 	
@@ -31,6 +35,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"blogger",		"series",		"post",
 		"topic",		"theme",		"content",
 		"blog_db",		"provocative",	"reader",
+		"blog's audience",
+		"fashion/travel/food",
 		0
 	},
 	
@@ -39,6 +45,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"presenter",	"scriptbook",	"conversation",
 		"character",	"trope",		"lines",
 		"dialog_db",	"controversial","observer",
+		"conversation's audience",
+		"personal/professional/casual",
 		0
 	},
 	
@@ -47,6 +55,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"politician",	"discourse",	"debate",
 		"belief",		"issue",		"discussion",
 		"politics_db",	"heated",		"citizen",
+		"debate's audience",
+		"politics/policy/events",
 		0
 	},
 	
@@ -55,6 +65,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"human",		"collection",	"experience",
 		"persona",		"struggle",		"lesson",
 		"life_db",		"contentious",	"observer",
+		"storytelling audience",
+		"existentialism/morality/metaphysics",
 		0
 	},
 	
@@ -63,6 +75,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"entrepreneur",	"forum",		"meeting",
 		"strategy",		"topic",		"talking",
 		"business_db",	"contentious",	"reader",
+		"meeting's audience",
+		"negotiation/strategy/planning",
 		0
 	},
 	
@@ -71,6 +85,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"flirt",		"ritual",		"folly",
 		"technique",	"seduction",	"lines",
 		"flirt_db",		"risqué",		"partner",
+		"conversation's audience",
+		"romance/flirting/seduction",
 		0
 	},
 	

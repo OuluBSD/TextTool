@@ -42,8 +42,6 @@ struct Component :
 	int							default_attr_count = 7;
 	int							theme_cursor = -1;
 	int							part_cursor = -1;
-	String						active_idea[IDEAPATH_COUNT];
-	Color						active_idea_clr[IDEAPATH_COUNT];
 	
 	void Store();
 	void LoadTitle(String title);
@@ -63,13 +61,6 @@ struct Component :
 			("theme_cursor", theme_cursor)
 			("part_cursor", part_cursor)
 			;
-		
-		for(int i = 0; i < IDEAPATH_COUNT; i++)
-			json((String)"active_idea[" + IdeaPathString[i][1] + "]", active_idea[i]);
-		
-		for(int i = 0; i < IDEAPATH_COUNT; i++)
-			json((String)"active_idea_clr[" + IdeaPathString[i][1] + "]", active_idea_clr[i]);
-		
 	}
 	
 };

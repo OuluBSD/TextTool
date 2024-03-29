@@ -24,19 +24,7 @@ enum {
 	SCORE_COUNT
 };
 
-/*enum {
-	SCORE_MODE_STATS,
-	SCORE_MODE_MEANING,
-	
-	SCORE_MODE_COUNT
-};
 
-#define SCORE_ATTR_COUNT 5
-
-
-extern const char* ScoreTitles[SCORE_MODE_COUNT][SCORE_ATTR_COUNT];
-String GetScoreKey(int score_mode, int score_attr);
-*/
 extern const char* ScoreTitles[SCORE_COUNT];
 String GetScoreKey(int score);
 
@@ -197,18 +185,6 @@ struct StaticPart;
 class ToolEditor;
 
 
-/*BEGIN_SOCIALLIB_NAMESPACE
-
-struct Company;
-struct Campaign;
-struct Story;
-struct Role;
-struct Generic;
-struct Program;
-struct StoryPart;
-
-END_SOCIALLIB_NAMESPACE*/
-
 
 
 struct EditorPtrs {
@@ -234,14 +210,6 @@ struct EditorPtrs {
 	int GetActiveEntityIndex() const;
 	int GetActiveSnapshotIndex() const;
 	int GetActiveComponentIndex() const;
-	
-	/*int GetActiveRoleIndex() const;
-	int GetActiveGenericIndex() const;
-	int GetActiveStoryIndex() const;
-	
-	int GetActiveCompanyIndex() const;
-	int GetActiveCampaignIndex() const;
-	int GetActiveProgramIndex() const;*/
 	
 	TextDatabase& GetDatabase() const;
 	
@@ -517,32 +485,6 @@ AttrText GreenRedAttr(AttrText a, int red);
 
 
 
-
-// Idea path
-enum {
-	IDEAPATH_THEME,
-	IDEAPATH_IDEA,
-	IDEAPATH_TONE,
-	IDEAPATH_ALLEGORY,
-	IDEAPATH_CONTENT,
-	IDEAPATH_IMAGERY,
-	IDEAPATH_SYMBOLISM,
-	IDEAPATH_PERSON,
-	
-	IDEAPATH_COUNT,
-	
-	IDEAPATH_PARTBEGIN = IDEAPATH_CONTENT,
-	IDEAPATH_PARTCOUNT = IDEAPATH_COUNT - IDEAPATH_PARTBEGIN,
-	
-	IDEAPATH_PART_CONTENT = IDEAPATH_CONTENT - IDEAPATH_PARTBEGIN,
-	IDEAPATH_PART_IMAGERY = IDEAPATH_IMAGERY - IDEAPATH_PARTBEGIN,
-	IDEAPATH_PART_SYMBOLISM = IDEAPATH_SYMBOLISM - IDEAPATH_PARTBEGIN,
-	IDEAPATH_PART_PERSON = IDEAPATH_PERSON - IDEAPATH_PARTBEGIN,
-};
-
-extern const char* IdeaPathString[IDEAPATH_COUNT][2];
-
-String GetIdeaPathTitle(int i);
 
 
 void TrimBothAll(Vector<String>& v);
@@ -997,7 +939,7 @@ const Vector<String>& GetAppModeDefCompStructure(int appmode);
 const Vector<String>& GetAppModeDefCompStructureAttrs(int appmode);
 
 void MakeAppMode_UnsafeServers(int appmode, String& title, Vector<String>& list);
-
+//Vector<String> MakeAppMode_LinesOfScript(int appmode);
 
 END_TEXTLIB_NAMESPACE
 

@@ -129,37 +129,6 @@ String GetAttrNotString(String positive_attr) {
 
 
 
-const char* IdeaPathString[IDEAPATH_COUNT][2] {
-	{"Theme", "THEME"},
-	{"Idea", "IDEA"},
-	{"Tone Suggestion", "TONE"},
-	{"Allegorical Device", "ALLEGORY"},
-	{"Content Idea", "CONTENT"},
-	{"Specific Imagery", "IMAGERY"},
-	{"Symbolism", "SYMBOLISM"},
-	{"Person", "PERSON"},
-};
-
-
-
-
-
-/*void EditorPtrs::RealizePipe() {
-	TextDatabase& db = GetDatabase();
-	
-	if (!song || !artist)
-		return;
-	if (song->pipe)
-		return;
-	
-	TaskMgr& pipe = db.pipes.Add();
-	Entity& a = *artist;
-	Snapshot& r = *release;
-	
-	song->pipe = &pipe;
-	pipe.song = song;
-}*/
-
 Color GetPartColor(const String& key, Color def) {
 	if (key.Find("verse") == 0)
 		return Color(226, 85, 0);
@@ -624,18 +593,6 @@ AttrText GreenRedAttr(AttrText a, int red) {
 void TrimBothAll(Vector<String>& v) {
 	for (auto& s : v)
 		s = TrimBoth(s);
-}
-
-String GetIdeaPathTitle(int i) {
-	String title;
-	switch (i) {
-		case IDEAPATH_CONTENT: title = "Using content references and interline references, include the following content in the scripts"; break;
-		case IDEAPATH_IMAGERY: title = "Using bold and vivid language, paint a picture of the following description, as the story continue"; break;
-		case IDEAPATH_SYMBOLISM: title = "When incorporating symbolism, please make sure it aligns with the following"; break;
-		case IDEAPATH_PERSON: title = "Note that the following persons and relationships are present in the scripts"; break;
-		default: TODO; break;
-	}
-	return title;
 }
 
 int VectorFind(const Vector<String>& v, const String& s) {
