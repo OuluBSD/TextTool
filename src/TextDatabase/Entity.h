@@ -45,7 +45,7 @@ struct Entity :
 	void Store();
 	void StoreScript();
 	void LoadScript();
-	void RealizeTypeclasses();
+	void RealizeTypeclasses(int appmode);
 	void LoadTitle(String title);
 	String GetScriptDir() const;
 	/*void FixPtrs() {

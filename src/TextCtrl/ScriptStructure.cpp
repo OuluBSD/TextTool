@@ -140,7 +140,7 @@ void ComponentStructure::DataActive() {
 		StaticPart* sp = l.FindPartByType(s.parts[i]);
 		String abbr = s.parts[i];
 		active.parts.Set(i, 0,
-			AttrText(GetComponentPartFromAbbr(abbr)).NormalPaper(GetComponentPartPaperColor(abbr)));
+			AttrText(GetComponentPartFromAbbr(GetAppMode(), abbr)).NormalPaper(GetComponentPartPaperColor(GetAppMode(), abbr)));
 		
 	}
 	active.parts.SetCount(s.parts.GetCount());
@@ -208,7 +208,7 @@ void ComponentStructure::DataSuggestionAttributes() {
 	
 	for(int i = 0; i < sug.parts.GetCount(); i++) {
 		String abbr = sug.parts[i];
-		parts.Set(i, 0, AttrText(GetComponentPartFromAbbr(abbr)).NormalPaper(GetComponentPartPaperColor(abbr)));
+		parts.Set(i, 0, AttrText(GetComponentPartFromAbbr(GetAppMode(), abbr)).NormalPaper(GetComponentPartPaperColor(GetAppMode(), abbr)));
 	}
 	parts.SetCount(sug.parts.GetCount());
 }
@@ -277,7 +277,7 @@ void ComponentStructure::LoadActiveStruct() {
 	for(int i = 0; i < unique_parts.GetCount(); i++) {
 		String abbr = unique_parts[i];
 		StaticPart& part = l.parts.Add();
-		part.name = TrimBoth(GetComponentPartFromAbbr(abbr));
+		part.name = TrimBoth(GetComponentPartFromAbbr(GetAppMode(), abbr));
 		part.type = abbr;
 	}
 }

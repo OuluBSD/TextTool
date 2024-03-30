@@ -116,7 +116,7 @@ void ToolEditor::InitSimplified() {
 	AddItem(t_("Database"), t_("Action attributes"), action_attrs);
 	AddItem(t_("Database"), t_("Action parallels"), action_parallels);
 	AddItem(t_("Database"), t_("Action transitions"), action_transitions);
-	AddItem(t_("Database"), t_("Wordnet"), component_wordnet);
+	//AddItem(t_("Database"), t_("Wordnet"), component_wordnet);
 	AddItem(t_("Database"), t_("Attributes"), db_attrs);
 	AddItem(t_("Database"), t_("Diagnostics"), db_diagnostics);
 	
@@ -410,7 +410,7 @@ void ToolEditor::DataEntity() {
 	
 	
 	// Script part of the artist
-	a.RealizeTypeclasses();
+	a.RealizeTypeclasses(GetAppMode());
 	const auto& tcs = GetTypeclasses(GetAppMode());
 	for(int i = 0; i < tcs.GetCount(); i++) {
 		const String& tc = tcs[i];
@@ -512,7 +512,7 @@ void ToolEditor::DataTypeclass() {
 	}
 	
 	Entity& a = *p.entity;
-	a.RealizeTypeclasses();
+	a.RealizeTypeclasses(GetAppMode());
 	p.typecast = &a.typeclasses[typeclasses.Get("IDX")];
 	Typeclass& t = *p.typecast;
 	
@@ -810,12 +810,12 @@ void ToolEditor::AddSong() {
 	);
 	if (!b) return;
 	
-	TODO
-	/*
+	String file_title = MakeTitle(title);
+	
 	int rel_i = -1;
 	for(int i = 0; i < r.components.GetCount(); i++) {
 		Component& s = r.components[i];
-		if (s.english_title == title) {
+		if (s.file_title == file_title) {
 			rel_i = i;
 			break;
 		}
@@ -826,10 +826,9 @@ void ToolEditor::AddSong() {
 	}
 	
 	Component& s = r.components.Add();
-	s.file_title = MakeTitle(title);
-	s.english_title = title;
+	s.file_title = file_title;
 	p.component = &s;
-	*/
+	
 	DataEntity();
 }
 

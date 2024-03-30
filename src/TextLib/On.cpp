@@ -1493,7 +1493,7 @@ void TaskManager::OnAttributes(String res, Task* t) {
 			sat.attr_i0 = attr_i[0];
 			sat.attr_i1 = attr_i[1];
 			
-			const Index<String>& v = t->uniq_attrs.Get(group);
+			//const Index<String>& v = t->uniq_attrs.Get(group);
 		}
 	}
 	

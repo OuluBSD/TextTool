@@ -256,9 +256,6 @@ void TaskManager::DoWordnet(int ds_i, int fn) {
 	if (IsInTaskList(TASK_WORDNET))
 		return;
 	
-	PromptOK("TODO");
-	return;
-	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
@@ -275,8 +272,8 @@ void TaskManager::DoWordnet(int ds_i, int fn) {
 }
 
 void TaskManager::DoAttributes(int ds_i, int fn) {
-	if (IsInTaskList(TASK_ATTRIBUTES))
-		return;
+	//if (IsInTaskList(TASK_ATTRIBUTES))
+	//	return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;

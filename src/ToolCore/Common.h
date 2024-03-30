@@ -428,8 +428,8 @@ void RealizeDoubleNewlinesBeforeTitles(String& s);
 Vector<String> GetStructureParts(String s);
 
 String ToMinSec(double sec);
-String GetComponentPartFromAbbr(const String& abbr);
-Color GetComponentPartPaperColor(const String& abbr);
+String GetComponentPartFromAbbr(int appmode, const String& abbr);
+Color GetComponentPartPaperColor(int appmode, const String& abbr);
 String GetProgramPartFromAbbr(const String& abbr);
 Color GetProgramPartPaperColor(const String& abbr);
 int GetComponentPartPriority(const String& abbr);
@@ -932,6 +932,8 @@ void SetIndexCursor(ArrayCtrl& arr, int cur);
 
 void FixOffensiveWords(String& s);
 
+const VectorMap<String, String>& GetAppModeParts(int appmode);
+const VectorMap<String, Color>& GetAppModePartColors(int appmode);
 
 const VectorMap<String, String>& GetAppModeStructure(int appmode);
 const Vector<String>& GetAppModeStructureAttrs(int appmode);

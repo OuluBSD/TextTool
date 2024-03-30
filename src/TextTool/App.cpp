@@ -74,7 +74,11 @@ TaskManager& TextTool::GetTaskManager() {
 }
 
 void TextTool::SaveDatabase() {
-	PromptOK("TODO");
+	int appmode = ed.GetAppMode();
+	EnterAppMode(appmode);
+	TextDatabase& db = GetEditor().GetDatabase();
+	db.Store();
+	LeaveAppMode();
 }
 
 void TextTool::MainMenu(Bar& bar) {

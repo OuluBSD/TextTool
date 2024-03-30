@@ -40,10 +40,11 @@ file
 	ActionTransitions.cpp,
 	Attributes.h,
 	Attributes.cpp,
-	Wordnet.h,
-	Wordnet.cpp,
 	Loader.h,
 	Loader.cpp,
 	Diagnostics.h,
-	Diagnostics.cpp;
+	Diagnostics.cpp,
+	Trash readonly separator,
+	Wordnet.h,
+	Wordnet.cpp;
 

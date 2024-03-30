@@ -1480,7 +1480,7 @@ void AiTask::CreateInput_GetAttributes() {
 	
 	if (args.fn == 0) {
 		auto& list = input.AddSub().Title("List \"A\" values in the same group '" + args.group + "'");
-		int end = min(400, args.values.GetCount());
+		int end = min(200, args.values.GetCount());
 		for(int i = 0; i < end; i++) {
 			const String& s = args.values[i];
 			list.Add(s);

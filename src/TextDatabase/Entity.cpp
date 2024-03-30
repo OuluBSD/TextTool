@@ -34,7 +34,7 @@ void Entity::StoreScript() {
 
 void Entity::LoadScript() {
 	TextDatabase& db = GetAppModeDatabase();
-	RealizeTypeclasses();
+	RealizeTypeclasses(GetAppModeGlobal());
 	FindFile ff(AppendFileName(GetScriptDir(), "*.json"));
 	do {
 		String path = ff.GetPath();
@@ -54,9 +54,9 @@ void Entity::LoadScript() {
 	
 }
 
-void Entity::RealizeTypeclasses() {
-	const auto& tcs = GetTypeclasses(GetAppModeGlobal());
-	const auto& cons = GetContents(GetAppModeGlobal());
+void Entity::RealizeTypeclasses(int appmode) {
+	const auto& tcs = GetTypeclasses(appmode);
+	const auto& cons = GetContents(appmode);
 	if (typeclasses.GetCount() != tcs.GetCount()) {
 		typeclasses.SetCount(tcs.GetCount());
 		for(int i = 0; i < tcs.GetCount(); i++) {

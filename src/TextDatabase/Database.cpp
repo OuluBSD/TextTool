@@ -121,7 +121,7 @@ TextDatabase& GetAppModeDatabase(int appmode) {
 }
 
 int GetAppModeGlobal() {
-	return __global_appmode();
+	return __global_appmode() - 1;
 }
 
 void EnterAppMode(int i) {
