@@ -5,11 +5,6 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-
-void AiTask::Process_Translate() {
-	WhenResult(output);
-}
-
 void AiTask::Process_CreateImage() {
 	WhenResultImages(recv_images);
 }
@@ -22,14 +17,6 @@ void AiTask::Process_VariateImage() {
 	WhenResultImages(recv_images);
 }
 
-void AiTask::Process_RawCompletion() {
-	WhenResult(output);
-}
-
-void AiTask::Process_MorphToAttributes() {
-	WhenResult(output);
-}
-
 void AiTask::Process_GetStructureSuggestions() {
 	WhenResult("-\"" + output);
 }
@@ -38,29 +25,9 @@ void AiTask::Process_GetSuggestionAttributes() {
 	WhenResult("-" + output);
 }
 
-void AiTask::Process_GetVocabulary() {
-	WhenResult(output);
-}
-
 void AiTask::Process_GetVocabularyIdea() {
 	//WhenResult("A collection of 30 the most relevant words for the part 1 of\n" + output);
 	WhenResult("1/30: a" + output);
-}
-
-void AiTask::Process_GetSourceDataAnalysis() {
-	WhenResult(output);
-}
-
-void AiTask::Process_GetActionAnalysis() {
-	WhenResult(output);
-}
-
-void AiTask::Process_GetTokenData() {
-	WhenResult(output);
-}
-
-void AiTask::Process_GetPhraseData() {
-	WhenResult(output);
 }
 
 void AiTask::Process_GetAttributes() {
@@ -74,7 +41,7 @@ void AiTask::Process_GetAttributes() {
 		WhenResult(output);
 }
 
-void AiTask::Process_ScriptSolver() {
+void AiTask::Process_Default() {
 	WhenResult(output);
 }
 

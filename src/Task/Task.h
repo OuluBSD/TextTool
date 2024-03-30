@@ -3,10 +3,9 @@
 
 #include <ToolCore/ToolCore.h>
 
-#include "TaskCommon.h"
-#include "TaskAbstraction.h"
-#include "Cache.h"
-#include "Tasks.h"
+#include "Common.h"
+#include "Prompt.h"
+#include "AiTask.h"
 #include "TaskMgr.h"
 
 

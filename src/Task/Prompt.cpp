@@ -67,7 +67,7 @@ String TaskTitledList::GetTreeString(int indent) const {
 	return s;
 }
 
-String TaskContent::GetTreeString() const {
+String AiPrompt::GetTreeString() const {
 	String s;
 	
 	for (const TaskTitledList& list : titled_lists) {
@@ -277,7 +277,7 @@ String TaskTitledList::AsString() const {
 	return s;
 }
 
-String TaskContent::AsString() const {
+String AiPrompt::AsString() const {
 	String s;
 	
 	//LOG(GetTreeString());

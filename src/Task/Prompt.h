@@ -1,5 +1,5 @@
-#ifndef _Task_TaskAbstraction_h_
-#define _Task_TaskAbstraction_h_
+#ifndef _Task_Prompt_h_
+#define _Task_Prompt_h_
 
 
 BEGIN_TEXTLIB_NAMESPACE
@@ -76,7 +76,7 @@ private:
 	
 };
 
-struct TaskContent {
+struct AiPrompt {
 	Array<TaskTitledList> titled_lists;
 	One<TaskTitledList> pre_answer;
 	int response_length = 0;

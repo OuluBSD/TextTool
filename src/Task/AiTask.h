@@ -1,5 +1,5 @@
-#ifndef _Task_Tasks_h_
-#define _Task_Tasks_h_
+#ifndef _Task_AiTask_h_
+#define _Task_AiTask_h_
 
 
 BEGIN_TEXTLIB_NAMESPACE
@@ -115,8 +115,6 @@ struct TaskRule {
 	String name;
 	void (AiTask::*input)() = 0;
 	void (AiTask::*process)() = 0;
-	Vector<TaskOutputType> reqs;
-	Vector<TaskOutputType> results;
 	bool spawnable = false;
 	bool multi_spawnable = false;
 	bool allow_cross_mode = false;
@@ -129,9 +127,7 @@ struct TaskRule {
 	
 	TaskRule& SetRule(int code, const String& name);
 	TaskRule& Input(void (AiTask::*fn)());
-	TaskRule& Require(TaskOutputType arg);
 	TaskRule& Process(void (AiTask::*fn)());
-	TaskRule& Result(TaskOutputType arg);
 	TaskRule& Spawnable(bool b=true);
 	TaskRule& MultiSpawnable(bool b=true);
 	TaskRule& CrossMode(bool b=true);
@@ -171,7 +167,7 @@ public:
 	int tries = 0;
 	bool keep_going = false;
 	
-	TaskContent input;
+	AiPrompt input;
 	String raw_input;
 	
 	// Temp
@@ -209,7 +205,6 @@ public:
 	void SetFastExit() {fast_exit = true;}
 	String GetInputHash() const;
 	String GetOutputHash() const;
-	bool WriteResults();
 	
 	void CreateInput_Translate();
 	void CreateInput_CreateImage();
@@ -226,9 +221,6 @@ public:
 	void CreateInput_GetAttributes();
 	void CreateInput_ScriptSolver();
 	
-	void Process_GetTokenData();
-	void Process_GetPhraseData();
-	
 	void Process_GetSuggestionAttributes();
 	void Process_StoryArc();
 	void Process_StoryArcWeighted();
@@ -242,7 +234,6 @@ public:
 	void Process_ImpactWeighted();
 	void Process_ImpactScoring();
 	void Process_ForwardScriptWeighted();
-	void Process_Translate();
 	void Process_TranslateSongData();
 	void Process_CheckSongNaturalErrors();
 	void Process_ConvertSongStructureToEnglish();
@@ -255,15 +246,10 @@ public:
 	void Process_CreateImage();
 	void Process_EditImage();
 	void Process_VariateImage();
-	void Process_RawCompletion();
-	void Process_MorphToAttributes();
 	void Process_GetStructureSuggestions();
-	void Process_GetVocabulary();
 	void Process_GetVocabularyIdea();
-	void Process_GetSourceDataAnalysis();
-	void Process_GetActionAnalysis();
 	void Process_GetAttributes();
-	void Process_ScriptSolver();
+	void Process_Default();
 	
 	void Retry(bool skip_prompt, bool skip_cache);
 	String GetDescription() const;

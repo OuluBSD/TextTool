@@ -118,7 +118,7 @@ void TaskMgr::Translate(String orig_lang, String orig_txt, String trans_lang, Ev
 	
 	t.SetRule(AITASK_TRANSLATE, "translate")
 		.Input(&AiTask::CreateInput_Translate)
-		.Process(&AiTask::Process_Translate);
+		.Process(&AiTask::Process_Default);
 	
 	t.args << orig_lang << orig_txt << trans_lang;
 	t.WhenResult << WhenResult;
@@ -131,7 +131,7 @@ void TaskMgr::RawCompletion(String prompt, Event<String> WhenResult) {
 	AiTask& t = AddTask();
 	
 	t.SetRule(AITASK_RAW_COMPLETION, "raw prompt completion")
-		.Process(&AiTask::Process_RawCompletion);
+		.Process(&AiTask::Process_Default);
 		
 	t.raw_input = prompt;
 	t.WhenResult << WhenResult;
@@ -149,8 +149,7 @@ void TaskMgr::GetStructureSuggestions(int appmode, const StructureArgs& args, Ev
 	
 	t.SetRule(AITASK_GET_STRUCTURE_SUGGESTIONS, MakeName(args, appmode, "get structure suggestions"))
 		.Input(&AiTask::CreateInput_GetStructureSuggestions)
-		.Process(&AiTask::Process_GetStructureSuggestions)
-		;
+		.Process(&AiTask::Process_GetStructureSuggestions);
 
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -169,8 +168,7 @@ void TaskMgr::GetSuggestionAttributes(int appmode, const StructureArgs& args, Ev
 	
 	t.SetRule(AITASK_GET_SUGGESTION_ATTRIBUTES, MakeName(args, appmode, "get suggestion attributes"))
 		.Input(&AiTask::CreateInput_GetSuggestionAttributes)
-		.Process(&AiTask::Process_GetSuggestionAttributes)
-		;
+		.Process(&AiTask::Process_GetSuggestionAttributes);
 	
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -186,8 +184,7 @@ void TaskMgr::CreateImage(String prompt, int count, Event<Array<Image>&> WhenRes
 	t.SetRule(AITASK_CREATE_IMAGE, "create image")
 		.ImageTask()
 		.Input(&AiTask::CreateInput_CreateImage)
-		.Process(&AiTask::Process_CreateImage)
-		;
+		.Process(&AiTask::Process_CreateImage);
 	
 	t.args << prompt << IntStr(count) << IntStr(reduce_size_mode);
 	t.WhenResultImages << WhenResult;
@@ -233,8 +230,7 @@ void TaskMgr::GetEditImage(Image orig, Image mask, String prompt, int count, Eve
 		.ImageTask()
 		.ImageEditTask()
 		.Input(&AiTask::CreateInput_EditImage)
-		.Process(&AiTask::Process_EditImage)
-		;
+		.Process(&AiTask::Process_EditImage);
 	
 	t.send_images << orig;
 	t.args << prompt << IntStr(count);
@@ -252,8 +248,7 @@ void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResul
 		.ImageTask()
 		.ImageVariateTask()
 		.Input(&AiTask::CreateInput_VariateImage)
-		.Process(&AiTask::Process_VariateImage)
-		;
+		.Process(&AiTask::Process_VariateImage);
 	
 	t.send_images << orig;
 	t.args << IntStr(count);
@@ -273,8 +268,7 @@ void TaskMgr::GetSourceDataAnalysis(int appmode, const SourceDataAnalysisArgs& a
 	
 	t.SetRule(AITASK_GET_SONG_DATA_ANALYSIS, MakeName(args, appmode, "get song data analysis"))
 		.Input(&AiTask::CreateInput_GetSourceDataAnalysis)
-		.Process(&AiTask::Process_GetSourceDataAnalysis)
-		;
+		.Process(&AiTask::Process_Default);
 	
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -294,8 +288,7 @@ void TaskMgr::GetActionAnalysis(int appmode, const ActionAnalysisArgs& args, Eve
 	
 	t.SetRule(AITASK_GET_ACTION_ANALYSIS, MakeName(args, appmode, "get action analysis"))
 		.Input(&AiTask::CreateInput_GetActionAnalysis)
-		.Process(&AiTask::Process_GetActionAnalysis)
-		;
+		.Process(&AiTask::Process_Default);
 	
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -314,8 +307,7 @@ void TaskMgr::GetTokenData(int appmode, const TokenArgs& args, Event<String> Whe
 	
 	t.SetRule(AITASK_GET_TOKEN_DATA, MakeName(args, appmode, "get token data"))
 		.Input(&AiTask::CreateInput_GetTokenData)
-		.Process(&AiTask::Process_GetTokenData)
-		;
+		.Process(&AiTask::Process_Default);
 	
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -334,8 +326,7 @@ void TaskMgr::GetPhraseData(int appmode, const PhraseArgs& args, Event<String> W
 	
 	t.SetRule(AITASK_GET_PHRASE_DATA, MakeName(args, appmode, "get phrase data"))
 		.Input(&AiTask::CreateInput_GetPhraseData)
-		.Process(&AiTask::Process_GetPhraseData)
-		;
+		.Process(&AiTask::Process_Default);
 	
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -354,8 +345,7 @@ void TaskMgr::GetAttributes(int appmode, const AttrArgs& args, Event<String> Whe
 	
 	t.SetRule(AITASK_GET_ATTRIBUTES, MakeName(args, appmode, "get attributes"))
 		.Input(&AiTask::CreateInput_GetAttributes)
-		.Process(&AiTask::Process_GetAttributes)
-		;
+		.Process(&AiTask::Process_GetAttributes);
 	
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -374,8 +364,7 @@ void TaskMgr::GetScriptSolver(int appmode, const ScriptSolverArgs& args, Event<S
 	
 	t.SetRule(AITASK_LYRICS_SOLVER, MakeName(args, appmode, "scripts solver"))
 		.Input(&AiTask::CreateInput_ScriptSolver)
-		.Process(&AiTask::Process_ScriptSolver)
-		;
+		.Process(&AiTask::Process_Default);
 	
 	t.args << s;
 	t.WhenResult << WhenResult;
@@ -409,18 +398,8 @@ TaskRule& TaskRule::Input(void (AiTask::*fn)()) {
 	return *this;
 }
 
-TaskRule& TaskRule::Require(TaskOutputType arg) {
-	reqs.Add(arg);
-	return *this;
-}
-
 TaskRule& TaskRule::Process(void (AiTask::*fn)()) {
 	process = fn;
-	return *this;
-}
-
-TaskRule& TaskRule::Result(TaskOutputType arg) {
-	results.Add(arg);
 	return *this;
 }
 

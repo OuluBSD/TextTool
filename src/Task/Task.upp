@@ -12,13 +12,11 @@ file
 	Task.h,
 	TaskMgr.h,
 	TaskMgr.cpp,
-	Tasks.h,
-	Tasks.cpp,
-	Task_CreateInput.cpp,
-	Task_Process.cpp,
-	TaskAbstraction.h,
-	TaskAbstraction.cpp,
-	Cache.h,
-	Cache.cpp,
-	TaskCommon.h;
+	AiTask.h,
+	AiTask.cpp,
+	CreateInput.cpp,
+	Process.cpp,
+	Prompt.h,
+	Prompt.cpp,
+	Common.h;
 

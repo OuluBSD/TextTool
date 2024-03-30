@@ -158,10 +158,7 @@ void AiTask::Process() {
 		}
 		else {
 			if (!failed) {
-				if (WriteResults())
-					ready = true;
-				else
-					SetError("internal error: could not write results");
+				ready = true;
 			}
 			changed = true;
 		}
@@ -176,74 +173,6 @@ void AiTask::Process() {
 	
 	LeaveAppMode();
 	//LOG("AiTask::Process: end of " << rule->name);
-}
-
-bool AiTask::WriteResults() {
-	TaskMgr& m = GetTaskMgr();
-	TaskMgr& pipe = GetPipe();
-	
-	for (TaskOutputType t :  TaskRule::results) {
-		switch (t) {
-		// flags for dependencies only
-		case O_ORDER_IMPORT: break;
-		case O_ORDER_IMPORT_DETAILED: break;
-		case O_ORDER_REVERSE: break;
-		
-		
-		case O_TASKS:
-			if (result_tasks.IsEmpty()) {
-				SetError("no tasks to add to queue");
-				return false;
-			}
-			m.lock.EnterWrite();
-			m.total += result_tasks.GetCount();
-			while (result_tasks.GetCount()) {
-				AiTask* t = result_tasks.Detach(0);
-				t->id = ++created_task_count;
-				m.tasks.Add(t);
-			}
-			m.lock.LeaveWrite();
-			break;
-		
-		case O_SONG_MASK: break;
-		case O_SONG_ANALYSIS: break;
-		case O_SONG_DATA_STORYLINE: break;
-		/*case O_SONG_UNIQLINES:
-			for (const SnapArg& a : TextInputModeArgs()) {
-				ASSERT(p.pipe->unique_lines[a].GetCount());
-			}
-			break;*/
-		case O_SONG_UNIQLINE_ATTRS: break;
-		case O_SONG_SNAP: break;
-		case O_SONG_REVERSED_MASK_COMMON: break;
-		case O_SONG_REVERSED_MASK: break;
-		case O_SONG_REVERSED_LYRICS: break;
-		case O_SONG_REVERSED_TRANSLATED_LYRICS: break;
-		
-		case O_PART_MASK: break;
-		case O_PART_MASK_SCORE: break;
-		case O_PART_DATA_STORYLINE: break;
-		case O_PART_SNAP: break;
-		case O_PART_SNAP_SCORE: break;
-		case O_PART_REVERSED_SNAP: break;
-		
-		case O_LINE_SNAP: break;
-		case O_LINE_SNAP_SCORE: break;
-		case O_LINE_REVERSED_SNAP: break;
-		
-		case O_BREAK_SNAP: break;
-		case O_BREAK_SNAP_SCORE: break;
-		case O_BREAK_IMPACT: break;
-		case O_BREAK_IMPACT_SCORES: break;
-		case O_BREAK_REVERSED_IMPACT: break;
-		case O_BREAK_REVERSED_SNAP: break;
-		case O_NEXT_CTX_JUMP: break;
-		case O_BREAK_LYRICS: break;
-		default: break;
-		}
-	}
-	
-	return true;
 }
 
 bool AiTask::RunOpenAI() {
