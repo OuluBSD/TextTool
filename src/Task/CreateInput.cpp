@@ -1794,6 +1794,52 @@ void AiTask::CreateInput_ScriptSolver() {
 		input.response_length = 2048;
 	}
 	
+	else if (args.fn == 7) {
+		String audience = GetAppModeKey(appmode, AM_AUDIENCE);
+		{
+			auto& list = input.AddSub().Title(__Script + " heuristic score factors");
+			list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
+			list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
+			list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
+			list.Add("S3: High share count from the " + audience + ". Low count means that the phrase was not relatable.");
+			list.Add("S4: High bookmark count from the " + audience + ". Low count means that the phrase had no value.");
+			list.Add("S5: High reference count towards comedy from the " + audience + ". Low count means that the phrase was not funny.");
+			list.Add("S6: High reference count towards sex from the " + audience + ". Low count means that the phrase was not sensual.");
+			list.Add("S7: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
+			list.Add("S8: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
+			list.Add("S9: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
+			list.Add("S10: How well " + __script + " fit the original vision.");
+		}
+		{
+			auto& list = input.AddSub().Title(__Script + " heuristic score factors for single phrase");
+			list.Add("\"I'm bleeding after you\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7, S5: 9, S6: 4, S7: 2, S8: 3, S9: 2, s10: 5");
+		}
+		
+		for(int i = 0; i < args.phrases.GetCount(); i++) {
+			const String& p = args.phrases[i];
+			Vector<String> lines = Split(p, "\n");
+			{
+				auto& list = input.AddSub().Title(__Script + " entry #" + IntStr(i+1));
+				list.NoListChar();
+				for(int i = 0; i < lines.GetCount(); i++)
+					list.Add(lines[i]);
+			}
+		}
+		{
+			auto& list = input.AddSub().Title("Original vision of the " + __comp);
+			//list.NumberedLines();
+			Vector<String> lines = Split(args.part, ". ");
+			for (String& l : lines)
+				list.Add(l);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(__Script + " heuristic score factors");
+			results.Add("entry #1: S0:");
+			input.response_length = 2048;
+		}
+	}
+	
 	else if (args.fn == 8) {
 		{
 			auto& list = input.AddSub().Title(__Script + " of the unnamed " + __comp + ":");
