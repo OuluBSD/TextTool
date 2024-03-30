@@ -111,16 +111,12 @@ struct DalleResponse {
 struct AiTask;
 
 struct TaskRule {
-	using ArgTuple = Tuple3<TaskArgType, int, int>;
-	
 	int code = -1;
 	String name;
 	void (AiTask::*input)() = 0;
 	void (AiTask::*process)() = 0;
-	Vector<ArgTuple> args;
 	Vector<TaskOutputType> reqs;
 	Vector<TaskOutputType> results;
-	Vector<TaskArgType> hashes;
 	bool spawnable = false;
 	bool multi_spawnable = false;
 	bool allow_cross_mode = false;
@@ -133,14 +129,12 @@ struct TaskRule {
 	
 	TaskRule& SetRule(int code, const String& name);
 	TaskRule& Input(void (AiTask::*fn)());
-	TaskRule& Arg(TaskArgType arg, int i0=0, int i1=0);
 	TaskRule& Require(TaskOutputType arg);
 	TaskRule& Process(void (AiTask::*fn)());
 	TaskRule& Result(TaskOutputType arg);
 	TaskRule& Spawnable(bool b=true);
 	TaskRule& MultiSpawnable(bool b=true);
 	TaskRule& CrossMode(bool b=true);
-	TaskRule& Hash(TaskArgType t);
 	TaskRule& SeparateItems(bool b=true);
 	TaskRule& DebugInput(bool b=true);
 	TaskRule& ImageTask(bool b=true);
@@ -215,7 +209,6 @@ public:
 	void SetFastExit() {fast_exit = true;}
 	String GetInputHash() const;
 	String GetOutputHash() const;
-	bool CheckArguments();
 	bool WriteResults();
 	
 	void CreateInput_Translate();

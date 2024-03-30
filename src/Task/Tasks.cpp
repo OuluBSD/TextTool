@@ -138,8 +138,6 @@ void AiTask::Process() {
 	
 	EnterAppMode(appmode);
 	
-	ok = CheckArguments();
-	
 	ok = ok && ProcessInput();
 	
 	if (fast_exit) {
@@ -178,31 +176,6 @@ void AiTask::Process() {
 	
 	LeaveAppMode();
 	//LOG("AiTask::Process: end of " << rule->name);
-}
-
-bool AiTask::CheckArguments() {
-	
-	for (const TaskRule::ArgTuple& arg : TaskRule::args) {
-		TaskArgType type = arg.a;
-		int i0 = arg.b;
-		int i1 = arg.c;
-		
-		switch (type) {
-		case V_ATTR_SCORING:
-			//TODO
-			break;
-		case V_ARGS:
-			if (args.GetCount() < i0 || args.GetCount() > i1) {
-				SetFatalError(t_("argument count is not in range"));
-				return false;
-			}
-			break;
-		default:
-			TODO break;
-		}
-	}
-	
-	return true;
 }
 
 bool AiTask::WriteResults() {

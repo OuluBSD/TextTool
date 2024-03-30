@@ -6,11 +6,6 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 typedef enum : int {
-	V_ATTR_SCORING,
-	V_ARGS
-} TaskArgType;
-
-typedef enum : int {
 	O_NEVER,
 	
 	O_ORDER_IMPORT,
@@ -80,7 +75,6 @@ END_TEXTLIB_NAMESPACE
 
 NAMESPACE_UPP
 using namespace TextLib;
-NTL_MOVEABLE(TaskArgType)
 NTL_MOVEABLE(TaskOutputType)
 NTL_MOVEABLE(AiTaskType)
 END_UPP_NAMESPACE

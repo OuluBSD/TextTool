@@ -118,7 +118,6 @@ void TaskMgr::Translate(String orig_lang, String orig_txt, String trans_lang, Ev
 	
 	t.SetRule(AITASK_TRANSLATE, "translate")
 		.Input(&AiTask::CreateInput_Translate)
-			.Arg(V_ARGS, 3, 3)
 		.Process(&AiTask::Process_Translate);
 	
 	t.args << orig_lang << orig_txt << trans_lang;
@@ -150,7 +149,6 @@ void TaskMgr::GetStructureSuggestions(int appmode, const StructureArgs& args, Ev
 	
 	t.SetRule(AITASK_GET_STRUCTURE_SUGGESTIONS, MakeName(args, appmode, "get structure suggestions"))
 		.Input(&AiTask::CreateInput_GetStructureSuggestions)
-			.Arg(V_ARGS, 4, 4)
 		.Process(&AiTask::Process_GetStructureSuggestions)
 		;
 
@@ -171,7 +169,6 @@ void TaskMgr::GetSuggestionAttributes(int appmode, const StructureArgs& args, Ev
 	
 	t.SetRule(AITASK_GET_SUGGESTION_ATTRIBUTES, MakeName(args, appmode, "get suggestion attributes"))
 		.Input(&AiTask::CreateInput_GetSuggestionAttributes)
-			.Arg(V_ARGS, 1, 100)
 		.Process(&AiTask::Process_GetSuggestionAttributes)
 		;
 	
@@ -189,7 +186,6 @@ void TaskMgr::CreateImage(String prompt, int count, Event<Array<Image>&> WhenRes
 	t.SetRule(AITASK_CREATE_IMAGE, "create image")
 		.ImageTask()
 		.Input(&AiTask::CreateInput_CreateImage)
-			.Arg(V_ARGS, 3, 3)
 		.Process(&AiTask::Process_CreateImage)
 		;
 	
@@ -237,7 +233,6 @@ void TaskMgr::GetEditImage(Image orig, Image mask, String prompt, int count, Eve
 		.ImageTask()
 		.ImageEditTask()
 		.Input(&AiTask::CreateInput_EditImage)
-			.Arg(V_ARGS, 2, 2)
 		.Process(&AiTask::Process_EditImage)
 		;
 	
@@ -257,7 +252,6 @@ void TaskMgr::VariateImage(Image orig, int count, Event<Array<Image>&> WhenResul
 		.ImageTask()
 		.ImageVariateTask()
 		.Input(&AiTask::CreateInput_VariateImage)
-			.Arg(V_ARGS, 1, 1)
 		.Process(&AiTask::Process_VariateImage)
 		;
 	
@@ -279,7 +273,6 @@ void TaskMgr::GetSourceDataAnalysis(int appmode, const SourceDataAnalysisArgs& a
 	
 	t.SetRule(AITASK_GET_SONG_DATA_ANALYSIS, MakeName(args, appmode, "get song data analysis"))
 		.Input(&AiTask::CreateInput_GetSourceDataAnalysis)
-			.Arg(V_ARGS, 1, 1)
 		.Process(&AiTask::Process_GetSourceDataAnalysis)
 		;
 	
@@ -301,7 +294,6 @@ void TaskMgr::GetActionAnalysis(int appmode, const ActionAnalysisArgs& args, Eve
 	
 	t.SetRule(AITASK_GET_ACTION_ANALYSIS, MakeName(args, appmode, "get action analysis"))
 		.Input(&AiTask::CreateInput_GetActionAnalysis)
-			.Arg(V_ARGS, 1, 1)
 		.Process(&AiTask::Process_GetActionAnalysis)
 		;
 	
@@ -322,7 +314,6 @@ void TaskMgr::GetTokenData(int appmode, const TokenArgs& args, Event<String> Whe
 	
 	t.SetRule(AITASK_GET_TOKEN_DATA, MakeName(args, appmode, "get token data"))
 		.Input(&AiTask::CreateInput_GetTokenData)
-			.Arg(V_ARGS, 1, 1)
 		.Process(&AiTask::Process_GetTokenData)
 		;
 	
@@ -343,7 +334,6 @@ void TaskMgr::GetPhraseData(int appmode, const PhraseArgs& args, Event<String> W
 	
 	t.SetRule(AITASK_GET_PHRASE_DATA, MakeName(args, appmode, "get phrase data"))
 		.Input(&AiTask::CreateInput_GetPhraseData)
-			.Arg(V_ARGS, 1, 1)
 		.Process(&AiTask::Process_GetPhraseData)
 		;
 	
@@ -364,7 +354,6 @@ void TaskMgr::GetAttributes(int appmode, const AttrArgs& args, Event<String> Whe
 	
 	t.SetRule(AITASK_GET_ATTRIBUTES, MakeName(args, appmode, "get attributes"))
 		.Input(&AiTask::CreateInput_GetAttributes)
-			.Arg(V_ARGS, 1, 1)
 		.Process(&AiTask::Process_GetAttributes)
 		;
 	
@@ -385,7 +374,6 @@ void TaskMgr::GetScriptSolver(int appmode, const ScriptSolverArgs& args, Event<S
 	
 	t.SetRule(AITASK_LYRICS_SOLVER, MakeName(args, appmode, "scripts solver"))
 		.Input(&AiTask::CreateInput_ScriptSolver)
-			.Arg(V_ARGS, 1, 1)
 		.Process(&AiTask::Process_ScriptSolver)
 		;
 	
@@ -421,14 +409,6 @@ TaskRule& TaskRule::Input(void (AiTask::*fn)()) {
 	return *this;
 }
 
-TaskRule& TaskRule::Arg(TaskArgType arg, int i0, int i1) {
-	ArgTuple& a = args.Add();
-	a.a = arg;
-	a.b = i0;
-	a.c = i1;
-	return *this;
-}
-
 TaskRule& TaskRule::Require(TaskOutputType arg) {
 	reqs.Add(arg);
 	return *this;
@@ -457,11 +437,6 @@ TaskRule& TaskRule::MultiSpawnable(bool b) {
 
 TaskRule& TaskRule::CrossMode(bool b) {
 	allow_cross_mode = b;
-	return *this;
-}
-
-TaskRule& TaskRule::Hash(TaskArgType t) {
-	hashes.Add(t);
 	return *this;
 }
 
