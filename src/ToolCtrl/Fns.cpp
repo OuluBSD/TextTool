@@ -23,7 +23,6 @@ void GuiStartup() {
 	
 	// Load task manager
 	TaskMgrConfig& m = TaskMgrConfig::Single();
-	m.CreateDefaultTaskRules();
 	m.Load();
 	m.Start();
 	

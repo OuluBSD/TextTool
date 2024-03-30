@@ -30,7 +30,7 @@ void AiTask::Load() {
 	String file = dir + filename;
 	if (FileExists(file))
 		output = LoadFileBOM(file);
-	if (rule && rule->image_task) {
+	if (image_task) {
 		String dir = ConfigFile("images");
 		Vector<String> rel_paths = Split(output, "\n");
 		recv_images.Clear();
@@ -76,7 +76,7 @@ String AiTask::GetDescription() const {
 }
 
 String AiTask::GetTypeString() const {
-	return rule->name;
+	return TaskRule::name;
 }
 
 bool AiTask::ProcessInput() {
@@ -87,13 +87,13 @@ bool AiTask::ProcessInput() {
 	}
 	else {
 		// Return if this task won't have input function
-		if (!rule->input)
+		if (!TaskRule::input)
 			return ok;
 		
 		// Create input with given function
-		if (rule->input) {
+		if (TaskRule::input) {
 			input.Clear();
-			(this->*rule->input)();
+			(this->*TaskRule::input)();
 			if (fast_exit)
 				return true;
 			
@@ -102,7 +102,7 @@ bool AiTask::ProcessInput() {
 			
 			if (1) {
 				String in = input.AsString();
-				if (rule->debug_input) {
+				if (TaskRule::debug_input) {
 					LOG(in);
 					LOG("Last 3 chars: \"" + in.Right(3) + "\"");
 					TODO
@@ -131,7 +131,7 @@ bool AiTask::ProcessInput() {
 }
 
 void AiTask::Process() {
-	//LOG("AiTask::Process: begin of " << rule->name);
+	//LOG("AiTask::Process: begin of " << TaskRule::name);
 	processing = true;
 	
 	bool ok = true;
@@ -146,9 +146,9 @@ void AiTask::Process() {
 		ready = true;
 	}
 	else if (ok) {
-		if (rule->process) {
+		if (TaskRule::process) {
 			try {
-				(this->*rule->process)();
+				(this->*TaskRule::process)();
 			}
 			catch (NoPointerExc e) {
 				LOG("error: " << e);
@@ -181,9 +181,8 @@ void AiTask::Process() {
 }
 
 bool AiTask::CheckArguments() {
-	const TaskRule& r = *rule;
 	
-	for (const TaskRule::ArgTuple& arg : r.args) {
+	for (const TaskRule::ArgTuple& arg : TaskRule::args) {
 		TaskArgType type = arg.a;
 		int i0 = arg.b;
 		int i1 = arg.c;
@@ -210,7 +209,7 @@ bool AiTask::WriteResults() {
 	TaskMgr& m = GetTaskMgr();
 	TaskMgr& pipe = GetPipe();
 	
-	for (TaskOutputType t :  rule->results) {
+	for (TaskOutputType t :  TaskRule::results) {
 		switch (t) {
 		// flags for dependencies only
 		case O_ORDER_IMPORT: break;
@@ -275,7 +274,7 @@ bool AiTask::WriteResults() {
 }
 
 bool AiTask::RunOpenAI() {
-	if (rule->image_task)
+	if (image_task)
 		return RunOpenAI_Image();
 	else
 		return RunOpenAI_Completion();
@@ -304,7 +303,7 @@ bool AiTask::RunOpenAI_Image() {
 	
 	String recv;
 	try {
-		if (rule->imageedit_task) {
+		if (TaskRule::imageedit_task) {
 			if (send_images.GetCount() != 1) {
 				SetError("expected sendable images");
 				return false;
@@ -322,7 +321,7 @@ bool AiTask::RunOpenAI_Image() {
 			auto img = openai::image().edit(json);
 			recv = String(img.dump(2));
 		}
-		else if (rule->imagevariate_task){
+		else if (TaskRule::imagevariate_task){
 			if (send_images.GetCount() != 1) {
 				SetError("expected sendable images");
 				return false;
@@ -393,7 +392,7 @@ bool AiTask::RunOpenAI_Image() {
 		
 		// Get file path
 		String part_str = " " + IntStr(i+1) + "/" + IntStr(response.data.GetCount());
-		if (rule->imageedit_task || rule->imagevariate_task)
+		if (TaskRule::imageedit_task || TaskRule::imagevariate_task)
 			part_str << " " << IntStr64(Random64()); // add never-matching random number to name for editing and variation creation purposes
 		String dir = ConfigFile("images");
 		String filename = Base64Encode(prompt + part_str) + ".png";

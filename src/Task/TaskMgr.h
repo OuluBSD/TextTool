@@ -6,44 +6,6 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 
-struct TaskRule {
-	using ArgTuple = Tuple3<TaskArgType, int, int>;
-	
-	int code = -1;
-	String name;
-	void (AiTask::*input)() = 0;
-	void (AiTask::*process)() = 0;
-	Vector<ArgTuple> args;
-	Vector<TaskOutputType> reqs;
-	Vector<TaskOutputType> results;
-	Vector<TaskArgType> hashes;
-	bool spawnable = false;
-	bool multi_spawnable = false;
-	bool allow_cross_mode = false;
-	bool separate_items = false;
-	bool debug_input = false;
-	bool image_task = false;
-	bool imageedit_task = false;
-	bool imagevariate_task = false;
-	VectorMap<int, Tuple2<int,int>> req_mode_ranges;
-	
-	TaskRule& Input(void (AiTask::*fn)());
-	TaskRule& Arg(TaskArgType arg, int i0=0, int i1=0);
-	TaskRule& Require(TaskOutputType arg);
-	TaskRule& Process(void (AiTask::*fn)());
-	TaskRule& Result(TaskOutputType arg);
-	TaskRule& Spawnable(bool b=true);
-	TaskRule& MultiSpawnable(bool b=true);
-	TaskRule& CrossMode(bool b=true);
-	TaskRule& Hash(TaskArgType t);
-	TaskRule& SeparateItems(bool b=true);
-	TaskRule& DebugInput(bool b=true);
-	TaskRule& ImageTask(bool b=true);
-	TaskRule& ImageEditTask(bool b=true);
-	TaskRule& ImageVariateTask(bool b=true);
-	
-};
-
 struct TaskMgr {
 	Array<AiTask> tasks;
 	
@@ -90,11 +52,13 @@ struct TaskMgr {
 	static TaskMgr& Single() {static TaskMgr tm; return tm;}
 	
 	
+	template <class T>
+	String MakeName(T& o, int appmode, const char* name);
+	
 };
 
 struct TaskMgrConfig {
 	String openai_token;
-	Array<TaskRule> rules;
 	bool running = false, stopped = true;
 	int max_tries = 3;
 	
@@ -102,14 +66,9 @@ struct TaskMgrConfig {
 	void Load();
 	void Store();
 	void Serialize(Stream& s) {s % openai_token;}
-	void CreateDefaultTaskRules();
 	void Start() {running = true; stopped = false; Thread::Start(THISBACK(Process));}
 	void Stop() {running = false; while (!stopped) Sleep(100);}
 	void Process();
-	
-	TaskRule& AddRule(int code, String name);
-	TaskRule& GetRule(int code);
-	const TaskRule& GetRule(int code) const;
 	
 	static TaskMgrConfig& Single() {static TaskMgrConfig m; return m;}
 };

@@ -197,6 +197,7 @@ struct ScriptSolverArgs {
 };
 
 struct StructureArgs {
+	int fn = 0;
 	String req;
 	String avoid;
 	String desc;
@@ -205,6 +206,7 @@ struct StructureArgs {
 	
 	void Jsonize(JsonIO& json) {
 		json	("req", req)
+				("fn", fn)
 				("avoid", avoid)
 				("desc", desc)
 				("total", total)
