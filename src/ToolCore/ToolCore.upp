@@ -17,6 +17,7 @@ file
 	Common.cpp,
 	DbSong.cpp,
 	DbTwitter.cpp,
+	DbBlog.cpp,
 	Color.cpp,
 	ProductionIdeas.cpp,
 	ColorFn.cpp,

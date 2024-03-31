@@ -35,11 +35,11 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 	// DB_BLOG
 	{
 		"blogger",		"series",		"post",
-		"topic",		"theme",		"content",
+		"persona",		"niche",		"content",
 		"blog_db",		"provocative",	"reader",
 		"blog's audience",
 		"fashion/travel/food",
-		"body", "prerepetition", "repetition", "conclusion",
+		"body", "preconclusion", "conclusion", "call to action",
 		0
 	},
 	

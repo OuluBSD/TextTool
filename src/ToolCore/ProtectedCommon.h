@@ -40,15 +40,13 @@ VectorMap<String,Vector<String>>& GetRoleCompanies(bool unsafe, bool gender);
 
 const Vector<String>& GetContrastParts();
 
-const VectorMap<String, String>& GetSongStructure();
-const Vector<String>& GetSongStructureAttrs();
-const Vector<String>& GetDefSongStructure();
-const Vector<String>& GetDefSongStructureAttrs();
 
-const VectorMap<String, String>& GetTwitterStructure();
-const Vector<String>& GetTwitterStructureAttrs();
-const Vector<String>& GetDefTwitterStructure();
-const Vector<String>& GetDefTwitterStructureAttrs();
+const Index<String>& GetPersonas();
+const Vector<ContentType>& GetNiches();
+int GetNicheCount();
+VectorMap<String,Vector<String>>& GetPersonaSafe(bool gender);
+VectorMap<String,Vector<String>>& GetPersonaUnsafe(bool gender);
+VectorMap<String,Vector<String>>& GetPersonaNiches(bool unsafe, bool gender);
 
 
 END_TEXTLIB_NAMESPACE

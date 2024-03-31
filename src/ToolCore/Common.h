@@ -231,13 +231,14 @@ enum {
 
 inline String GetAppModeString(int appmode) {
 	switch (appmode) {
-		case DB_SONG:		return "Song";
-		case DB_TWITTER:	return "Twitter";
-		case DB_BLOG:		return "Blog";
-		case DB_DIALOG:		return "Dialog";
-		case DB_POLITICS:	return "Politics";
-		case DB_LIFE:		return "Life (nothing new happens)";
-		case DB_BUSINESS:	return "Business";
+		case DB_SONG:			return "Song";
+		case DB_TWITTER:		return "Twitter";
+		case DB_BLOG:			return "Blog";
+		case DB_DIALOG:			return "Dialog";
+		case DB_POLITICS:		return "Politics";
+		case DB_LIFE:			return "Life (nothing new happens)";
+		case DB_BUSINESS:		return "Business";
+		case DB_FLIRTING:		return "Flirting";
 		case DB_DOCUMENTARY:	return "Documentary";
 	}
 	return "<error>";

@@ -1,3 +1,22 @@
+
+
+
+
+
+
+
+
+
+       ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Half non-sensical list of stuff to do ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+
+
+
+
+
+
+
+
 - CreateInput_GetPhraseData: convert hardcoded string values
 - support other languages than English and Finnish
 	- search for "fi" and "Finnish"
