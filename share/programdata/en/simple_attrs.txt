@@ -1,0 +1,34 @@
+"location" 21155 21156
+"physical preference" 21157 21158
+"family" 21159 21160
+"cultural elements" 49 3573
+"event" 21161 20032
+"culture" 21162 15682
+"relationship" 12439 21163
+"celebration" 20750 21164
+"travel" 21165 15687
+"food" 21166 21167
+"social" 21168 924
+"sports" 21169 6459
+"entertainment" 21170 21171
+"belief communities" 21172 21173
+"politics" 21174 21175
+"emotion" 21176 21177
+"technology" 21178 21179
+"immigration" 21180 21181
+"lifestyle" 21182 21183
+"identity" 21184 21185
+"expression" 21186 21187
+"friendship" 21188 21189
+"fashion" 21190 21191
+"group experience" 21192 21193
+"faith extremes" 21194 21195
+"place" 14640 14639
+"music" 21196 21197
+"activity" 21198 21199
+"food preference" 21200 21201
+"education" 6262 710
+"group faith" 21202 21203
+"geographical location" 2985 2975
+"social media" 21204 21205
+"political" 21206 21207
