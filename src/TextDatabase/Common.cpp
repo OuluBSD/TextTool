@@ -103,9 +103,10 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 const char* AppModeKeysN[DB_COUNT][AM_COUNT+1] = {
 	{"artists","releases","songs","typecasts","archetypes","lyrics",0,0,0},
 	{"companies","campaigns","programs","roles","generics","stories",0,0,0},
-	{"","","","","","",""},
-	{"","","","","","",""},
-	{"","","","","","",""},
+	{"bloggers","series","posts","personas","niches","contents",0,0,0},
+	{"","","","","","",0,0,0},
+	{"","","","","","",0,0,0},
+	{"","","","","","",0,0,0},
 };
 
 const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
@@ -157,6 +158,31 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		
 		"is coherent primarily in internal references",
 		"tweets with same context",
+		"coherent parts of contextually same lines",
+	},
+	{
+		"Writing style:",
+		"Real-world props and objects",
+		"Digital props and objects",
+		"Writer",
+		"Vibe of text",
+		"Series",
+		"Blogger (if different):",
+		"Reference post:",
+		"Origins of the post:",
+		"Active post structure",
+		"Speed",
+		"Safe",
+		"Unsafe",
+		
+		"natural_features",
+		"electronic_features",
+		"person_visual",
+		"vibe_of_text",
+		"text_style",
+		
+		"is relying on beliefs and own research",
+		"posts with same context",
 		"coherent parts of contextually same lines",
 	},
 };

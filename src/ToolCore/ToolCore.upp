@@ -15,6 +15,7 @@ file
 	ProtectedCommon.h,
 	Common.h,
 	Common.cpp,
+	Db.cpp,
 	DbSong.cpp,
 	DbTwitter.cpp,
 	DbBlog.cpp,

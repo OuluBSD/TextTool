@@ -8,6 +8,7 @@ uses
 	plugin/jpg;
 
 file
+	Info.txt,
 	TextDatabase.h,
 	"Gpt helpers.txt",
 	Common.h,
