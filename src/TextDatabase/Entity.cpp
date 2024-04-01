@@ -37,8 +37,13 @@ void Entity::LoadScript() {
 	RealizeTypeclasses(GetAppModeGlobal());
 	FindFile ff(AppendFileName(GetScriptDir(), "*.json"));
 	do {
+		if (!ff.IsFile())
+			continue;
 		String path = ff.GetPath();
 		String title = GetFileTitle(path);
+		String name = GetFileName(path);
+		if (GetFileExt(name) != ".json")
+			continue;
 		Script lyr;
 		lyr.LoadTitle(*this, title);
 		

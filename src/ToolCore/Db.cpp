@@ -303,6 +303,33 @@ void MakeAppMode_UnsafeServers(int appmode, String& title, Vector<String>& list)
 }
 
 
+/*
+	Note: THIS IS THE MOST IMPORTANT VARIABLE. IT HEAVILY AFFECTS THE RESULT !!!
+*/
+const Vector<String>& GetAppModeResultPhraseExamples(int appmode) {
+	static Vector<String> v_[DB_COUNT];
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	auto& v = v_[appmode];
+	if (v.IsEmpty()) {
+		if (appmode == DB_SONG) {
+			v.Add("'where are my panties', 'murder all these monsters': \"This girl got me feeling hella scarce, / That's why I gotta kill all these underwear monsters in her drawers.\"");
+			v.Add("'we never asked', 'we just wanna be': \"We never asked to be living this way, / We just wanna be free, escape the fray.\"");
+		}
+		else if (appmode == DB_TWITTER) {
+			v.Add("'a soul train line', 'so much fun': \"I've never done a soul train line at an art opening so much fun!\"");
+			v.Add("'details are everything', 'in stores and online': \"These details are everything! Shop this beauty in stores and online!\"");
+			v.Add("'for three months', 'these smiles and snuggles': \"I looked forward to these smiles and snuggles for three months\"");
+		}
+		else if (appmode == DB_BLOG) {
+			v.Add("'DVD technology isn't just a transitional format from VHS', 'direct download or something else even flashier': \"The simple way of how DVD technology isn't just a transitional format from VHS to the next new medium, such as direct download or something else even flashier.\"");
+			v.Add("'details are everything', 'in stores and online': \"These details are everything! Shop this beauty in stores and online!\"");
+		}
+		else TODO
+	}
+	return v;
+}
+
+
 
 
 END_TEXTLIB_NAMESPACE

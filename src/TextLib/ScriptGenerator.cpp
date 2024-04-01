@@ -99,6 +99,9 @@ void ScriptGenerator::ProcessSourcePool() {
 	int song_con_base = song.content; // content/archetype/contrast has name mix-up problem
 	//int song_arch = ScanInt(song.data.Get("ATTR_ARCHETYPE", "0"));
 	
+	int tc_count = ::GetTypeclassCount(appmode);
+	ASSERT(song_tc >= 0 && song_tc < tc_count);
+	
 	Color no_clr(0,0,0);
 	
 	if (skip_ready && sa.source_pool[0].GetCount()) {
@@ -109,70 +112,117 @@ void ScriptGenerator::ProcessSourcePool() {
 	for(int j = 0; j < ContentType::PART_COUNT; j++)
 		sa.source_pool[j].Clear();
 	
-	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
-		const PhrasePart& pp = da.phrase_parts[i];
+	int max_tries = 0x10;
+	
+	for (int tries = 0; tries < max_tries; tries++) {
+		bool skip_filter_attr = tries & (1 << 0);
+		bool skip_filter_content = tries & (1 << 1);
+		bool skip_filter_clr = tries & (1 << 2);
+		bool skip_filter_typeclass = tries & (1 << 3);
 		
-		// Filter by typeclass
-		// - get text's typeclass
-		// - check that phrase matches to typeclass
-		{
-			bool found = false;
-			for (int tc : pp.typecasts)
-				if (tc == song_tc)
-					{found = true; break;}
-			if (!found)
-				continue;
-		}
+		int filtered_by_typeclass = 0;
+		int filtered_by_content = 0;
+		int filtered_by_attr = 0;
+		int filtered_by_clr = 0;
 		
-		// Filter by content type
-		bool found_contrast[ContentType::PART_COUNT] = {false,false,false};
-		{
-			bool found = false;
-			for (int con : pp.contrasts) {
-				int con_base = con / ContentType::PART_COUNT;
-				int con_mod = con % ContentType::PART_COUNT;
-				if (con_base == song_con_base) {
-					found = true;
-					found_contrast[con_mod] = true;
+		for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
+			const PhrasePart& pp = da.phrase_parts[i];
+			
+			// Filter by typeclass
+			// - get text's typeclass
+			// - check that phrase matches to typeclass
+			if (!skip_filter_typeclass) {
+				bool found = false;
+				for (int tc : pp.typecasts)
+					if (tc == song_tc)
+						{found = true; break;}
+				if (!found) {
+					filtered_by_typeclass++;
+					continue;
 				}
 			}
-			if (!found)
-				continue;
-		}
-		
-		// Filter by attr
-		if (pp.attr >= 0) {
-			const ExportAttr* ea = &da.attrs[pp.attr];
-			if (ea->link >= 0)
-				ea = &da.attrs[ea->link];
-			if (ea->simple_attr >= 0) {
-				bool song_enabled = song.simple_attrs[ea->simple_attr];
-				if (!song_enabled)
+			
+			// Filter by content type
+			bool found_contrast[ContentType::PART_COUNT] = {false,false,false};
+			if (!skip_filter_content) {
+				bool found = false;
+				for (int con : pp.contrasts) {
+					int con_base = con / ContentType::PART_COUNT;
+					int con_mod = con % ContentType::PART_COUNT;
+					if (con_base == song_con_base) {
+						found = true;
+						found_contrast[con_mod] = true;
+					}
+				}
+				if (!found) {
+					filtered_by_content++;
 					continue;
+				}
 			}
-			else continue;
+			
+			// Filter by attr
+			if (!skip_filter_attr && pp.attr >= 0) {
+				const ExportAttr* ea = &da.attrs[pp.attr];
+				if (ea->link >= 0)
+					ea = &da.attrs[ea->link];
+				if (ea->simple_attr >= 0) {
+					bool song_enabled = song.simple_attrs[ea->simple_attr];
+					if (!song_enabled) {
+						filtered_by_attr++;
+						continue;
+					}
+				}
+				else {
+					filtered_by_attr++;
+					continue;
+				}
+			}
+			
+			// Filter by color
+			if (!skip_filter_clr) {
+				if (pp.clr != no_clr) {
+					int clr_group = GetColorGroup(pp.clr);
+					bool part_enabled = VectorFind(song.clr_list, clr_group) >= 0;
+					if (!part_enabled) {
+						filtered_by_clr++;
+						continue;
+					}
+				}
+				else {
+					filtered_by_clr++;
+					continue;
+				}
+			}
+			
+			// Here you have filtered all the phrases, which matches to the params of the text
+			// Collect them to the ComponentAnalysis::source_pool
+			for(int j = 0; j < ContentType::PART_COUNT; j++) {
+				if (found_contrast[j])
+					sa.source_pool[j].FindAdd(i);
+			}
 		}
 		
-		// Filter by color
-		if (pp.clr != no_clr) {
-			int clr_group = GetColorGroup(pp.clr);
-			bool part_enabled = VectorFind(song.clr_list, clr_group) >= 0;
-			if (!part_enabled)
-				continue;
-		}
-		else continue;
-		
-		// Here you have filtered all the phrases, which matches to the params of the text
-		// Collect them to the ComponentAnalysis::source_pool
+		bool fail = false;
+		LOG("ScriptGenerator::ProcessSourcePool: took " << ts.ToString());
 		for(int j = 0; j < ContentType::PART_COUNT; j++) {
-			if (found_contrast[j])
-				sa.source_pool[j].FindAdd(i);
+			LOG("ScriptGenerator::ProcessSourcePool: in pool #" << j << ": " << sa.source_pool[j].GetCount() << " phrases");
+			if (sa.source_pool[j].GetCount() < (phrase_limit*2/3))
+				fail = true;
 		}
-	}
-	
-	LOG("ScriptGenerator::ProcessSourcePool: took " << ts.ToString());
-	for(int j = 0; j < ContentType::PART_COUNT; j++) {
-		LOG("ScriptGenerator::ProcessSourcePool: in pool #" << j << ": " << sa.source_pool[j].GetCount() << " phrases");
+		
+		DUMP(filtered_by_typeclass);
+		DUMP(filtered_by_content);
+		DUMP(filtered_by_attr);
+		DUMP(filtered_by_clr);
+		
+		if (fail) {
+			if (tries == max_tries-1) {
+				LOG("ScriptGenerator::ProcessSourcePool: error: not enough phrases found");
+				SetNotRunning();
+				return;
+			}
+		}
+		else break;
 	}
 	
 	NextPhase();

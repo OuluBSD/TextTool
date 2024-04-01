@@ -198,6 +198,12 @@ bool AiTask::RunOpenAI_Image() {
 	
 	prompt = FixInvalidChars(prompt); // NOTE: warning: might break something
 	
+	// Don't even try offensive language
+	prompt.Replace(" fuck ", " f**k ");
+	prompt.Replace(" bitch ", " b***h ");
+	prompt.Replace(" whore ", " w***e ");
+	prompt.Replace(" nigga ", " n***a ");
+	
 	if (image_n.IsEmpty() || image_sz.IsEmpty()) {
 		SetError("No image arguments set");
 		return false;
@@ -256,6 +262,8 @@ bool AiTask::RunOpenAI_Image() {
 		LOG(prompt);
 		fatal_error = true;
 		SetError(e.what());
+		Array<Image> res;
+		WhenResultImages(res);
 		return false;
 	}
 	catch (std::string e) {
@@ -263,6 +271,8 @@ bool AiTask::RunOpenAI_Image() {
 		LOG(prompt);
 		fatal_error = true;
 		SetError(e.c_str());
+		Array<Image> res;
+		WhenResultImages(res);
 		return false;
 	}
 	catch (NLOHMANN_JSON_NAMESPACE::detail::parse_error e) {
@@ -271,6 +281,8 @@ bool AiTask::RunOpenAI_Image() {
 		LOG(e.what());
 		fatal_error = true;
 		SetError(e.what());
+		Array<Image> res;
+		WhenResultImages(res);
 		return false;
 	}
 	catch (std::exception e) {
@@ -278,6 +290,8 @@ bool AiTask::RunOpenAI_Image() {
 		LOG(prompt);
 		SetError(e.what());
 		fatal_error = true;
+		Array<Image> res;
+		WhenResultImages(res);
 		return false;
 	}
     DalleResponse response;

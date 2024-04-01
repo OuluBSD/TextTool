@@ -12,8 +12,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 	
 	// DB_SONG
 	{
-		"artist",		"release",		"song",
-		"typecast",		"archetype",	"lyrics",
+		"artist",		"release",		"song",		"song",
+		"typecast",		"archetype",	"lyrics",	"lyrics",
 		"db",			"rapper",		"listener",
 		"music audience",
 		"pop/rock/edm",
@@ -23,8 +23,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 	
 	// DB_TWITTER
 	{
-		"company",		"campaign",		"program",
-		"role",			"generic",		"story",
+		"company",		"campaign",		"program",	"tweet thread",
+		"role",			"generic",		"story",	"tweets",
 		"social_db",	"unsafe",		"reader",
 		"twitter audience",
 		"news/entertainment/sports",
@@ -34,8 +34,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 	
 	// DB_BLOG
 	{
-		"blogger",		"series",		"post",
-		"persona",		"niche",		"content",
+		"blogger",		"series",		"post",		"post",
+		"persona",		"niche",		"content",	"content",
 		"blog_db",		"provocative",	"reader",
 		"blog's audience",
 		"fashion/travel/food",
@@ -45,8 +45,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 	
 	// DB_DIALOG
 	{
-		"presenter",	"scriptbook",	"conversation",
-		"character",	"trope",		"lines",
+		"presenter",	"scriptbook",	"conversation",	"conversation",
+		"character",	"trope",		"lines",		"lines",
 		"dialog_db",	"controversial","observer",
 		"conversation's audience",
 		"personal/professional/casual",
@@ -56,8 +56,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 	
 	// DB_POLITICS
 	{
-		"politician",	"discourse",	"debate",
-		"belief",		"issue",		"discussion",
+		"politician",	"discourse",	"debate",		"debate",
+		"belief",		"issue",		"discussion",	"discussion",
 		"politics_db",	"heated",		"citizen",
 		"debate's audience",
 		"politics/policy/events",
@@ -67,8 +67,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 	
 	// DB_LIFE
 	{
-		"human",		"collection",	"experience",
-		"persona",		"struggle",		"lesson",
+		"human",		"collection",	"experience",	"experience",
+		"persona",		"struggle",		"lesson",		"lesson",
 		"life_db",		"contentious",	"observer",
 		"storytelling audience",
 		"existentialism/morality/metaphysics",
@@ -78,8 +78,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 	
 	// DB_BUSINESS
 	{
-		"entrepreneur",	"forum",		"meeting",
-		"strategy",		"topic",		"talking",
+		"entrepreneur",	"forum",		"meeting",		"meeting",
+		"strategy",		"topic",		"talking",		"talking",
 		"business_db",	"contentious",	"reader",
 		"meeting's audience",
 		"negotiation/strategy/planning",
@@ -89,8 +89,8 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 	
 	// DB_FLIRTING
 	{
-		"flirt",		"ritual",		"folly",
-		"technique",	"seduction",	"lines",
+		"flirt",		"ritual",		"folly",		"folly",
+		"technique",	"seduction",	"lines",	"lines",
 		"flirt_db",		"risqué",		"partner",
 		"conversation's audience",
 		"romance/flirting/seduction",
@@ -101,9 +101,9 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 };
 
 const char* AppModeKeysN[DB_COUNT][AM_COUNT+1] = {
-	{"artists","releases","songs","typecasts","archetypes","lyrics",0,0,0},
-	{"companies","campaigns","programs","roles","generics","stories",0,0,0},
-	{"bloggers","series","posts","personas","niches","contents",0,0,0},
+	{"artists","releases","songs","songs","typecasts","archetypes","lyrics","lyrics",0,0,0},
+	{"companies","campaigns","programs","tweet threads","roles","generics","stories","tweets",0,0,0},
+	{"bloggers","series","posts","posts","personas","niches","contents","contents",0,0,0},
 	{"","","","","","",0,0,0},
 	{"","","","","","",0,0,0},
 	{"","","","","","",0,0,0},

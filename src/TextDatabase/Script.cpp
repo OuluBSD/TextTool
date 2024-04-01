@@ -130,17 +130,25 @@ StaticPart* Script::FindPartByName(const String& name) {
 int StaticPart::GetExpectedLineCount(Script& song) const {
 	int len = 2;
 	
-	if (name.Find("Verse") == 0)
+	if (name.Find(GetAppModeKeyCap(AM_NORMAL)) == 0)
 		len = song.verse_length;
 	
-	if (name.Find("Pre") == 0)
-		len = song.prechorus_length;
-	
-	if (name.Find("Chorus") == 0)
+	if (name.Find(GetAppModeKeyCap(AM_REPEAT)) == 0)
 		len = song.chorus_length;
 	
-	if (name.Find("Bridge") == 0)
+	if (name.Find(GetAppModeKeyCap(AM_TWIST)) == 0)
 		len = song.bridge_length;
+	
+	String pre_key = GetAppModeKeyCap(AM_PRE_REPEAT);
+	if (pre_key.Left(4) == "Pre-") {
+		if (name.Find(pre_key.Left(3)) == 0)
+			len = song.prechorus_length;
+	}
+	else {
+		if (name.Find(pre_key) == 0)
+			len = song.prechorus_length;
+	}
+	
 	
 	return len;
 }
@@ -148,17 +156,24 @@ int StaticPart::GetExpectedLineCount(Script& song) const {
 int StaticPart::GetContrastIndex(Script& song) const {
 	int idx = ContentType::PART_COUNT-1;
 	
-	if (name.Find("Verse") == 0)
+	if (name.Find(GetAppModeKeyCap(AM_NORMAL)) == 0)
 		idx = 0;
 	
-	if (name.Find("Pre") == 0)
-		idx = 1;
-	
-	if (name.Find("Chorus") == 0)
+	if (name.Find(GetAppModeKeyCap(AM_REPEAT)) == 0)
 		idx = 2;
 	
-	if (name.Find("Bridge") == 0)
+	if (name.Find(GetAppModeKeyCap(AM_TWIST)) == 0)
 		idx = 1;
+	
+	String pre_key = GetAppModeKeyCap(AM_PRE_REPEAT);
+	if (pre_key.Left(4) == "Pre-") {
+		if (name.Find(pre_key.Left(3)) == 0)
+			idx = 1;
+	}
+	else {
+		if (name.Find(pre_key) == 0)
+			idx = 1;
+	}
 	
 	return idx;
 }

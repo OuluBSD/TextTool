@@ -22,14 +22,20 @@ void ScriptPool::ToolMenu(Bar& bar) {
 }
 
 void ScriptPool::StartProcess() {
-	TextLib::ScriptGenerator& ls = TextLib::ScriptGenerator::Get(GetAppMode(), GetEntity(), GetScript());
-	ls.WhenProgress = THISBACK(PostProgress);
-	ls.Start();
+	try {
+		TextLib::ScriptGenerator& ls = TextLib::ScriptGenerator::Get(GetAppMode(), GetEntity(), GetScript());
+		ls.WhenProgress = THISBACK(PostProgress);
+		ls.Start();
+	}
+	catch (NoPointerExc e) {PromptOK("No script selected");}
 }
 
 void ScriptPool::StopProcess() {
-	TextLib::ScriptGenerator& ls = TextLib::ScriptGenerator::Get(GetAppMode(),GetEntity(), GetScript());
-	ls.Stop();
+	try {
+		TextLib::ScriptGenerator& ls = TextLib::ScriptGenerator::Get(GetAppMode(),GetEntity(), GetScript());
+		ls.Stop();
+	}
+	catch (NoPointerExc e) {PromptOK("No script selected");}
 }
 
 void ScriptPool::Data() {

@@ -893,6 +893,11 @@ void ScriptSolver::ProcessComparison() {
 			}
 			content << "\n";
 		}
+		if (TrimBoth(content).IsEmpty()) {
+			OnProcessComparisonFail(i);
+			return;
+		}
+		
 		args.phrases << content;
 	}
 	
@@ -944,6 +949,20 @@ void ScriptSolver::OnProcessComparison(String res) {
 		loser = total_scores[0] > total_scores[1] ? 1:0;
 	else
 		loser = 0; // error
+	
+	
+	OnProcessComparisonFail(loser);
+}
+
+void ScriptSolver::OnProcessComparisonFail(int loser) {
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	Script& song = *this->script;
+	
+	
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	
 	int loser_sugg_i = remaining[loser];

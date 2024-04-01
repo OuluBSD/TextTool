@@ -14,7 +14,7 @@ Tasks::Tasks() {
 	list.AddColumn(t_("#"));
 	list.AddColumn(t_("Description"));
 	list.AddColumn(t_("Status"));
-	list.ColumnWidths("1 4 2");
+	list.ColumnWidths("1 4 4");
 	list <<= THISBACK(DataTask);
 	
 	output <<= THISBACK(ValueChange);

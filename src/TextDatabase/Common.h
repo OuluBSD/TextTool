@@ -12,9 +12,11 @@ enum {
 	AM_ENTITY,
 	AM_SNAPSHOT,
 	AM_COMPONENT,
+	AM_COMPONENT2, // multi-word, for AI to understand better
 	AM_TYPECLASS,
 	AM_CONTENT,
 	AM_SCRIPT,
+	AM_SCRIPT2,
 	AM_DB,
 	AM_UNSAFE,
 	AM_CLIENT,
@@ -83,6 +85,10 @@ String RemUscore(String s);
 #define __comps GetAppModeKeyN(AM_COMPONENT)
 #define __Comp GetAppModeKeyCap(AM_COMPONENT)
 #define __Comps GetAppModeKeyCapN(AM_COMPONENT)
+#define __comp2 GetAppModeKey(AM_COMPONENT2)
+#define __comps2 GetAppModeKeyN(AM_COMPONENT2)
+#define __Comp2 GetAppModeKeyCap(AM_COMPONENT2)
+#define __Comps2 GetAppModeKeyCapN(AM_COMPONENT2)
 #define __typeclass GetAppModeKey(AM_TYPECLASS)
 #define __typeclasses GetAppModeKeyN(AM_TYPECLASS)
 #define __Typeclass GetAppModeKeyCap(AM_TYPECLASS)
@@ -95,6 +101,10 @@ String RemUscore(String s);
 #define __scripts GetAppModeKeyN(AM_SCRIPT)
 #define __Script GetAppModeKeyCap(AM_SCRIPT)
 #define __Scripts GetAppModeKeyCapN(AM_SCRIPT)
+#define __script2 GetAppModeKey(AM_SCRIPT2)
+#define __scripts2 GetAppModeKeyN(AM_SCRIPT2)
+#define __Script2 GetAppModeKeyCap(AM_SCRIPT2)
+#define __Scripts2 GetAppModeKeyCapN(AM_SCRIPT2)
 #define __Verse GetAppModeKeyCap(AM_NORMAL)
 #define __PreChorus GetAppModeKeyCap(AM_PRE_REPEAT)
 #define __Chorus GetAppModeKeyCap(AM_REPEAT)

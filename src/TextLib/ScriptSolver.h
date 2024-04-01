@@ -53,6 +53,7 @@ class ScriptSolver {
 	void OnProcessFillLines(String res);
 	void OnProcessMakeHoles(String res);
 	void OnProcessComparison(String res);
+	void OnProcessComparisonFail(int loser);
 	void PostProgress() {WhenProgress(phase, LS_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}

@@ -106,7 +106,7 @@ void AiTask::CreateInput_GetStructureSuggestions() {
 	Vector<String> avoid_parts = Split(args.avoid, ",");
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("List A: Names of the parts of a " + __comp);
+		TaskTitledList& list = input.AddSub().Title("List A: Names of the parts of a " + __comp2);
 		const auto& s = GetAppModeStructure(appmode);
 		for(int i = 0; i < s.GetCount(); i++) {
 			list.Add(s.GetKey(i) + ": " + s[i]);
@@ -116,7 +116,7 @@ void AiTask::CreateInput_GetStructureSuggestions() {
 	{
 		// >> Structured string of parts of a generic song is \"I, V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\"
 		String s;
-		s << "Structured string of parts of a generic " << __comp << " is \"";
+		s << "Structured string of parts of a generic " << __comp2 << " is \"";
 		const auto& st = GetAppModeStructure(appmode);
 		for(int i = 0; i < st.GetCount(); i++) {
 			if (i) s << ", ";
@@ -129,7 +129,7 @@ void AiTask::CreateInput_GetStructureSuggestions() {
 	{
 		// >> Novel name for the song structure \"V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\": \"The Build-Up Beat\"
 		String s;
-		s << "Novel name for the " << __comp << " structure \"";
+		s << "Novel name for the " << __comp2 << " structure \"";
 		const auto& st = GetAppModeStructure(appmode);
 		for(int i = 0; i < st.GetCount(); i++) {
 			if (i) s << ", ";
@@ -156,12 +156,12 @@ void AiTask::CreateInput_GetStructureSuggestions() {
 	}
 	
 	if (args.desc.GetCount()) {
-		input.AddSub().Title("What the " + __client + " should think about the structure of the " + __comp + ": " + args.desc).NoColon(); // UGLY
+		input.AddSub().Title("What the " + __client + " should think about the structure of the " + __comp2 + ": " + args.desc).NoColon(); // UGLY
 	}
 	
 	{
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of 10 structured strings of good " + __comp + " structures (using List A abbreviations only) with their novel name");
+		results.Title("List of 10 structured strings of good " + __comp2 + " structures (using List A abbreviations only) with their novel name");
 		results.EmptyLine();
 		results.EmptyLineString("\"");
 	}
@@ -197,7 +197,7 @@ void AiTask::CreateInput_GetSuggestionAttributes() {
 	}
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("List A: Names of the parts of a " + __comp);
+		TaskTitledList& list = input.AddSub().Title("List A: Names of the parts of a " + __comp2);
 		const auto& s = GetAppModeStructure(appmode);
 		for(int i = 0; i < s.GetCount(); i++) {
 			list.Add(s.GetKey(i) + ": " + s[i]);
@@ -207,7 +207,7 @@ void AiTask::CreateInput_GetSuggestionAttributes() {
 	{
 		// >> Structured string of parts of a generic song is \"I, V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O\"
 		String s;
-		s << "Structured string of parts of a generic " << __comp << " is " << struct_str2;
+		s << "Structured string of parts of a generic " << __comp2 << " is " << struct_str2;
 		const auto& st = GetAppModeStructure(appmode);
 		for(int i = 0; i < st.GetCount(); i++) {
 			if (i) s << ", ";
@@ -220,7 +220,7 @@ void AiTask::CreateInput_GetSuggestionAttributes() {
 	{
 		// >> Novel name for the song structure "V1, PC1, C1, V2, PC2, C1, C2, IN, B, C1, C2, O": "The Build-Up Beat"
 		String s;
-		s << "Novel name for the " << __comp << " structure " << struct_str1;
+		s << "Novel name for the " << __comp2 << " structure " << struct_str1;
 		s << ": \"The Build-Up\""; // TODO
 		input.AddSub().Title(s).NoColon();
 	}
@@ -233,7 +233,7 @@ void AiTask::CreateInput_GetSuggestionAttributes() {
 		- has room for medium size story arc
 		- has variation between two chorus*/
 		String s;
-		s << "Attributes of the " << __comp << " structure " << struct_str1;
+		s << "Attributes of the " << __comp2 << " structure " << struct_str1;
 		TaskTitledList& list = input.AddSub().Title(s);
 		const auto& v = GetAppModeDefCompStructureAttrs(appmode);
 		for (const auto& s : v) list.Add(s);
@@ -247,13 +247,13 @@ void AiTask::CreateInput_GetSuggestionAttributes() {
 		- allows for multiple verse-chorus-bridge repetitions, making it suitable for a longer song
 		- has a distinct build up to the final chorus in the outro
 		*/
-		TaskTitledList& list = input.AddSub().Title("Attributes of the " + __comp + " structure " + struct_str2);
+		TaskTitledList& list = input.AddSub().Title("Attributes of the " + __comp2 + " structure " + struct_str2);
 		const auto& v = GetAppModeStructureAttrs(appmode);
 		for (const auto& s : v) list.Add(s);
 	}
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("List of structured strings of good " + __comp + " structures (using abbreviations only)");
+		TaskTitledList& list = input.AddSub().Title("List of structured strings of good " + __comp2 + " structures (using abbreviations only)");
 		list.NumberedLines();
 		for (const String& p : args.structs)
 			list		.Add("\"" + TrimBoth(p) + "\"");
@@ -266,7 +266,7 @@ void AiTask::CreateInput_GetSuggestionAttributes() {
 	{
 		String first = args.structs[0];
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("1. Attributes of the " + __comp + " structure \"" + first + "\"");
+		results.Title("1. Attributes of the " + __comp2 + " structure \"" + first + "\"");
 		results.EmptyLine();
 	}
 	
@@ -591,7 +591,7 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 	if (args.fn == 10) {
 		String pc = IntStr(3 + args.phrases.GetCount());
 		{
-			auto& list = input.AddSub().Title(pc + " lines of " + __script);
+			auto& list = input.AddSub().Title(pc + " lines of " + __script2);
 			list.NumberedLines();
 			list.Add("2 AM, howlin outside");
 			list.Add("Lookin, but I cannot find");
@@ -603,7 +603,7 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 			TaskTitledList& results = input.PreAnswer();
 			results.NumberedLines();
 			results.NoListChar();
-			results.Title("Action planner action states for " + pc + " lines of " + __script + ". With the most matching actions of list \"B\"");
+			results.Title("Action planner action states for " + pc + " lines of " + __script2 + ". With the most matching actions of list \"B\"");
 			results.Add("tone(urgent) + msg(trying to reach someone) + bias(romantic) + emotion(uncertainty) + level-of-certainty(trying/desire) + gesturing(pointing) + describing-surroundings(anywhere in the dark) + attention-place(outside) + attention-time(night) + attention-emotional_state(desire) + attention-action(howling) + attention-activity(driving)");
 			results.Add("msg(searching for someone) + bias(doubt) + emotion(frustration) + level-of-certainty(cannot find) + attention-action(searching) + attention-relationship(checking for person's presence)");
 			results.Add("tone(affectionate) + msg(expressing feelings) + bias(feeling understood by person) + emotion(love) + level-of-certainty(statement) + attention-person(addressed to person) + attention-emotional_state(love/affection) + attention-mental_state(thinking about person constantly) + attention-relationship(checking for compatibility)");
@@ -635,7 +635,7 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 		}
 		String pc = IntStr(0 + args.phrases.GetCount());
 		{
-			auto& list = input.AddSub().Title("List \"C\": Actions per " + pc + " lines of " + __script + ". With the most matching actions of list \"B\"");
+			auto& list = input.AddSub().Title("List \"C\": Actions per " + pc + " lines of " + __script2 + ". With the most matching actions of list \"B\"");
 			list.NumberedLines();
 			for(int i = 0; i < args.phrases.GetCount(); i++)
 				list.Add(args.phrases[i]);
@@ -665,14 +665,14 @@ void AiTask::CreateInput_GetActionAnalysis() {
 	
 	if (args.fn == 0) {
 		{
-			auto& list = input.AddSub().Title(__Script);
+			auto& list = input.AddSub().Title(__Script2);
 			list.NoListChar();
 			list.Add("2 AM, howlin outside");
 			list.Add("Lookin, but I cannot find");
 		}
 		
 		{
-			auto& list = input.AddSub().Title("Actions per a line of " + __script + ". With the most matching actions of list \"B\"");
+			auto& list = input.AddSub().Title("Actions per a line of " + __script2 + ". With the most matching actions of list \"B\"");
 			list.NoListChar();
 			list.Add("\"2 AM, howlin outside\": attention-time(night) + attention-emotional_state(desire) + attention-action(howling) + attention-activity(driving) + tone(urgent) + msg(trying to reach someone) + bias(romantic + emotion(uncertainty) + level-of-certainty(trying/desire) + gesturing(pointing) + describing-surroundings(anywhere in the dark) + attention-place(outside)");
 			list.Add("\"Lookin, but I cannot find\": attention-action(looking) + attention-physical state(tired) + emotion(frustration) + attention-emotional_state(desperation) + attention-time(late at night)");
@@ -709,14 +709,14 @@ void AiTask::CreateInput_GetActionAnalysis() {
 	}
 	if (args.fn == 1) {
 		{
-			auto& list = input.AddSub().Title(__Script);
+			auto& list = input.AddSub().Title(__Script2);
 			list.NoListChar();
 			list.Add("2 AM, howlin outside");
 			list.Add("Lookin, but I cannot find");
 		}
 		
 		{
-			auto& list = input.AddSub().Title("Actions per a line of " + __script + ". With the most matching actions of list \"B\"");
+			auto& list = input.AddSub().Title("Actions per a line of " + __script2 + ". With the most matching actions of list \"B\"");
 			list.NoListChar();
 			list.Add("\"2 AM, howlin outside\": attention-time(night) + attention-emotional_state(desire) + attention-action(howling) + attention-activity(driving) + tone(urgent) + msg(trying to reach someone) + bias(romantic + emotion(uncertainty) + level-of-certainty(trying/desire) + gesturing(pointing) + describing-surroundings(anywhere in the dark) + attention-place(outside)");
 			list.Add("\"Lookin, but I cannot find\": attention-action(looking) + attention-physical state(tired) + emotion(frustration) + attention-emotional_state(desperation) + attention-time(late at night)");
@@ -1352,7 +1352,7 @@ void AiTask::CreateInput_GetPhraseData() {
 		
 		String pc = IntStr(3 + args.phrases.GetCount());
 		{
-			auto& list = input.AddSub().Title(pc + " lines of " + __script);
+			auto& list = input.AddSub().Title(pc + " lines of " + __script2);
 			list.NumberedLines();
 			list.Add("2 AM, howlin outside");
 			list.Add("Lookin, but I cannot find");
@@ -1364,7 +1364,7 @@ void AiTask::CreateInput_GetPhraseData() {
 			TaskTitledList& results = input.PreAnswer();
 			results.NumberedLines();
 			results.NoListChar();
-			results.Title("Action planner action states for " + pc + " lines of " + __script + ". With the most matching actions of list \"B\"");
+			results.Title("Action planner action states for " + pc + " lines of " + __script2 + ". With the most matching actions of list \"B\"");
 			results.Add("tone(urgent) + msg(trying to reach someone) + bias(romantic) + emotion(uncertainty) + level-of-certainty(trying/desire) + gesturing(pointing) + describing-surroundings(anywhere in the dark) + attention-place(outside) + attention-time(night) + attention-emotional_state(desire) + attention-action(howling) + attention-activity(driving)");
 			results.Add("msg(searching for someone) + bias(doubt) + emotion(frustration) + level-of-certainty(cannot find) + attention-action(searching) + attention-relationship(checking for person's presence)");
 			results.Add("tone(affectionate) + msg(expressing feelings) + bias(feeling understood by person) + emotion(love) + level-of-certainty(statement) + attention-person(addressed to person) + attention-emotional_state(love/affection) + attention-mental_state(thinking about person constantly) + attention-relationship(checking for compatibility)");
@@ -1414,7 +1414,7 @@ void AiTask::CreateInput_GetPhraseData() {
 	}
 	else if (args.fn == 4) {
 		{
-			auto& list = input.AddSub().Title(__Typeclasses + " of " + __entity + " profiles in relation to the " + __script);
+			auto& list = input.AddSub().Title(__Typeclasses + " of " + __entity + " profiles in relation to the " + __script2);
 			list.NumberedLines();
 			for (String tc : GetTypeclasses(appmode))
 				list.Add(tc);
@@ -1439,7 +1439,7 @@ void AiTask::CreateInput_GetPhraseData() {
 	}
 	else if (args.fn == 5) {
 		{
-			auto& list = input.AddSub().Title("List of names for archetypical parts of storyline of a modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps + ", which contrasts each other");
+			auto& list = input.AddSub().Title("List of names for archetypical parts of storyline of a modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps2 + ", which contrasts each other");
 			list.NumberedLines();
 			for (const auto& it : GetContents(appmode)) {
 				String s;
@@ -1485,14 +1485,14 @@ void AiTask::CreateInput_GetAttributes() {
 		}
 		if (end > 2) {
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("2 main values of list \"A\", which summarizes all values in a way, that the first value is the common attribute of modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps + ", and the second value is the polar opposite of the first");
+			results.Title("2 main values of list \"A\", which summarizes all values in a way, that the first value is the common attribute of modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps2 + ", and the second value is the polar opposite of the first");
 			results.NumberedLines();
 			results.Add("");
 		}
 		else {
 			list.NumberedLines();
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Sort 2 values of list \"A\" in a way, that the first value is the once which is closer to a common attribute of modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps + ". Use same values, but just sort the values. Don't add any text");
+			results.Title("Sort 2 values of list \"A\" in a way, that the first value is the once which is closer to a common attribute of modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps2 + ". Use same values, but just sort the values. Don't add any text");
 			results.NumberedLines();
 			results.Add("");
 		}
@@ -1594,12 +1594,12 @@ void AiTask::CreateInput_ScriptSolver() {
 				list.Add(args.release.GetKey(i) + ": " + args.release[i]);
 		}
 		{
-			auto& list = input.AddSub().Title("About the " + __comp);
+			auto& list = input.AddSub().Title("About the " + __comp2);
 			for(int i = 0; i < args.song.GetCount(); i++)
 				list.Add(args.song.GetKey(i) + ": " + args.song[i]);
 		}
 		{
-			auto& list = input.AddSub().Title("Parts off the " + __comp);
+			auto& list = input.AddSub().Title("Parts off the " + __comp2);
 			for(int i = 0; i < args.parts.GetCount(); i++)
 				list.Add(args.parts[i]);
 		}
@@ -1622,13 +1622,13 @@ void AiTask::CreateInput_ScriptSolver() {
 		#if 0
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("List of metaphorical colors for the part '" + args.part + "', which does not match " + __entity + " nor " + __snap + " nor " + __comp);
+			results.Title("List of metaphorical colors for the part '" + args.part + "', which does not match " + __entity + " nor " + __snap + " nor " + __comp2);
 			results.Add("RGB(");
 		}
 		#else
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("List of metaphorical colors, which does not match " + __entity + " nor " + __snap + " nor " + __comp);
+			results.Title("List of metaphorical colors, which does not match " + __entity + " nor " + __snap + " nor " + __comp2);
 			results.Add("RGB(");
 		}
 		#endif
@@ -1646,12 +1646,12 @@ void AiTask::CreateInput_ScriptSolver() {
 				list.Add(args.release.GetKey(i) + ": " + args.release[i]);
 		}
 		{
-			auto& list = input.AddSub().Title("About the " + __comp);
+			auto& list = input.AddSub().Title("About the " + __comp2);
 			for(int i = 0; i < args.song.GetCount(); i++)
 				list.Add(args.song.GetKey(i) + ": " + args.song[i]);
 		}
 		{
-			auto& list = input.AddSub().Title("Parts off the " + __comp);
+			auto& list = input.AddSub().Title("Parts off the " + __comp2);
 			for(int i = 0; i < args.parts.GetCount(); i++)
 				list.Add(args.parts[i]);
 		}
@@ -1665,7 +1665,7 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("List of " + IntStr(args.attrs.GetCount()+2) + " attributes and the sign, which would suit better the " + __script + " of the " + __comp + "/" + __snap + "/" + __entity);
+			results.Title("List of " + IntStr(args.attrs.GetCount()+2) + " attributes and the sign, which would suit better the " + __script2 + " of the " + __comp2 + "/" + __snap + "/" + __entity);
 			results.NumberedLines();
 			results.Add("+/-");
 			results.Add("-/+");
@@ -1712,8 +1712,8 @@ void AiTask::CreateInput_ScriptSolver() {
 			TaskTitledList& results = input.PreAnswer();
 			results.Title("Use least amount of new words to combine phrases in their exact form to new sentences, using style of " + __entity + " from the list");
 			results.NumberedLines();
-			results.Add("'where are my panties', 'murder all these monsters': \"This girl got me feeling hella scarce, / That's why I gotta kill all these underwear monsters in her drawers.\"");
-			results.Add("'we never asked', 'we just wanna be': \"We never asked to be living this way, / We just wanna be free, escape the fray.\"");
+			for (const String& s : GetAppModeResultPhraseExamples(appmode))
+				results.Add(s);
 			results.Add(args.phrases[0] + ": \"");
 		}
 		input.response_length = 2048;
@@ -1757,12 +1757,12 @@ void AiTask::CreateInput_ScriptSolver() {
 	
 	else if (args.fn == 6) {
 		{
-			auto& list = input.AddSub().Title(__Comp + " \"B\": parts");
+			auto& list = input.AddSub().Title(__Comp2 + " \"B\": parts");
 			for(int i = 0; i < args.parts.GetCount(); i++)
 				list.Add(args.parts[i] + ": " + IntStr(args.counts[i]) + " lines");
 		}
 		{
-			auto& list = input.AddSub().Title(__Comp + " \"B\": Potential phrases");
+			auto& list = input.AddSub().Title(__Comp2 + " \"B\": Potential phrases");
 			list.NumberedLines();
 			for(int j = 0; j < args.phrases.GetCount(); j++) {
 				const String& phrase = args.phrases[j];
@@ -1778,7 +1778,7 @@ void AiTask::CreateInput_ScriptSolver() {
 			list.Add("Verse 2: 4 lines: 10, 9, 11, 14");
 		}
 		{
-			auto& list = input.AddSub().Title(__Comp + " \"B\" should fit the following vision of the " + __comp);
+			auto& list = input.AddSub().Title(__Comp2 + " \"B\" should fit the following vision of the " + __comp2);
 			//list.NumberedLines();
 			Vector<String> lines = Split(args.part, ". ");
 			for (String& l : lines)
@@ -1786,7 +1786,7 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title(__Comp + " \"B\": lines per parts. Sort lines/phrases in a way, that the story of the " + __comp + " is best");
+			results.Title(__Comp2 + " \"B\": lines per parts. Sort lines/phrases in a way, that the story of the " + __comp2 + " is best");
 			results.EmptyLine();
 		}
 		input.response_length = 2048;
@@ -1795,7 +1795,7 @@ void AiTask::CreateInput_ScriptSolver() {
 	else if (args.fn == 7) {
 		String audience = GetAppModeKey(appmode, AM_AUDIENCE);
 		{
-			auto& list = input.AddSub().Title(__Script + " heuristic score factors");
+			auto& list = input.AddSub().Title(__Script2 + " heuristic score factors");
 			list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
 			list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
 			list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
@@ -1806,10 +1806,10 @@ void AiTask::CreateInput_ScriptSolver() {
 			list.Add("S7: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
 			list.Add("S8: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
 			list.Add("S9: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
-			list.Add("S10: How well " + __script + " fit the original vision.");
+			list.Add("S10: How well " + __script2 + " fit the original vision.");
 		}
 		{
-			auto& list = input.AddSub().Title(__Script + " heuristic score factors for single phrase");
+			auto& list = input.AddSub().Title(__Script2 + " heuristic score factors for single phrase");
 			list.Add("\"I'm bleeding after you\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7, S5: 9, S6: 4, S7: 2, S8: 3, S9: 2, s10: 5");
 		}
 		
@@ -1817,14 +1817,14 @@ void AiTask::CreateInput_ScriptSolver() {
 			const String& p = args.phrases[i];
 			Vector<String> lines = Split(p, "\n");
 			{
-				auto& list = input.AddSub().Title(__Script + " entry #" + IntStr(i+1));
+				auto& list = input.AddSub().Title(__Script2 + " entry #" + IntStr(i+1));
 				list.NoListChar();
 				for(int i = 0; i < lines.GetCount(); i++)
 					list.Add(lines[i]);
 			}
 		}
 		{
-			auto& list = input.AddSub().Title("Original vision of the " + __comp);
+			auto& list = input.AddSub().Title("Original vision of the " + __comp2);
 			//list.NumberedLines();
 			Vector<String> lines = Split(args.part, ". ");
 			for (String& l : lines)
@@ -1832,7 +1832,7 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title(__Script + " heuristic score factors");
+			results.Title(__Script2 + " heuristic score factors");
 			results.Add("entry #1: S0:");
 			input.response_length = 2048;
 		}
@@ -1840,7 +1840,7 @@ void AiTask::CreateInput_ScriptSolver() {
 	
 	else if (args.fn == 8) {
 		{
-			auto& list = input.AddSub().Title(__Script + " of the unnamed " + __comp + ":");
+			auto& list = input.AddSub().Title(__Script2 + " of the unnamed " + __comp2 + ":");
 			list.NoListChar();
 			Vector<String> lines = Split(args.part, ". ");
 			for (String& l : lines)
@@ -1848,40 +1848,40 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Novel new name for the previous " + __comp);
+			results.Title("Novel new name for the previous " + __comp2);
 		}
 	}
 	
 	else if (args.fn == 9) {
 		{
-			auto& list = input.AddSub().Title(__Script + " of the " + __Comp + " A");
+			auto& list = input.AddSub().Title(__Script2 + " of the " + __Comp2 + " A");
 			list.NumberedLines();
 			list.Add("I am a guy who likes cars and bitches");
 			list.Add("Cars give me a rush of adrenaline, and bitches give me a rush of dopamine");
 			list.Add("Apples are interesting");
 		}
 		{
-			auto& list = input.AddSub().Title("Scoring of transfer of lines 1-3 of the " + __Comp + " A. Value is 0-10");
+			auto& list = input.AddSub().Title("Scoring of transfer of lines 1-3 of the " + __Comp2 + " A. Value is 0-10");
 			list.Add("from line 1 to line 2: coherency of the story: 7, semantic and contextual accuracy: 8");
 			list.Add("from line 2 to line 3: coherency of the story: 5, semantic and contextual accuracy: 7");
 			list.Add("from line 1 to line 3: coherency of the story: 5, semantic and contextual accuracy: 6");
 		}
 		{
-			auto& list = input.AddSub().Title("Shortened scoring of transfer of lines 1-3 of the " + __Comp + " A. Value is 0-10");
+			auto& list = input.AddSub().Title("Shortened scoring of transfer of lines 1-3 of the " + __Comp2 + " A. Value is 0-10");
 			list.NumberedLines();
 			list.Add("1 to 2: 7, 8");
 			list.Add("2 to 3: 5, 7");
 			//list.Add("1 to 3: 5, 6");
 		}
 		{
-			auto& list = input.AddSub().Title(__Script + " of the " + __Comp + " B");
+			auto& list = input.AddSub().Title(__Script + " of the " + __Comp2 + " B");
 			list.NumberedLines();
 			for (String& l : args.phrases)
 				list.Add(l);
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Shortened scoring of transfer of lines 1-" + IntStr(args.phrases.GetCount()) + " of the " + __Comp + " B. Value is 0-10");
+			results.Title("Shortened scoring of transfer of lines 1-" + IntStr(args.phrases.GetCount()) + " of the " + __Comp2 + " B. Value is 0-10");
 			results.NumberedLines();
 			results.Add("1 to 2:");
 		}
@@ -1889,7 +1889,7 @@ void AiTask::CreateInput_ScriptSolver() {
 	
 	else if (args.fn == 10) {
 		{
-			auto& list = input.AddSub().Title(__Comp + " \"A\": known " + __script + " so far");
+			auto& list = input.AddSub().Title(__Comp2 + " \"A\": known " + __script2 + " so far");
 			list.NoListChar();
 			for(int i = 0; i < args.song.GetCount(); i++) {
 				const Vector<String> lines = Split(args.song[i], "\n");
@@ -1901,7 +1901,7 @@ void AiTask::CreateInput_ScriptSolver() {
 			}
 		}
 		{
-			auto& list = input.AddSub().Title(__Comp + " \"A\": Potential phrases");
+			auto& list = input.AddSub().Title(__Comp2 + " \"A\": Potential phrases");
 			list.NumberedLines();
 			for(int j = 0; j < args.phrases.GetCount(); j++) {
 				const String& phrase = args.phrases[j];
@@ -1909,13 +1909,13 @@ void AiTask::CreateInput_ScriptSolver() {
 			}
 		}
 		{
-			auto& list = input.AddSub().Title(__Comp + " \"A\" should fit the following vision of the " + __comp);
+			auto& list = input.AddSub().Title(__Comp2 + " \"A\" should fit the following vision of the " + __comp2);
 			Vector<String> lines = Split(args.vision, ". ");
 			for (String& l : lines)
 				list.Add(l);
 		}
 		{
-			auto& list = input.AddSub().Title(__Comp + " \"A\": properties of additional line/phrases for the best " + __comp);
+			auto& list = input.AddSub().Title(__Comp2 + " \"A\": properties of additional line/phrases for the best " + __comp2);
 			list.Add("high coherency of the story");
 			list.Add("high semantic and contextual accuracy");
 			list.Add("idea: high like count");
@@ -1927,7 +1927,7 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title(__Comp + " \"A\": Add line/phrase to the part '" + args.part + "' in a way, that the story of the " + __comp + " is best");
+			results.Title(__Comp2 + " \"A\": Add line/phrase to the part '" + args.part + "' in a way, that the story of the " + __comp2 + " is best");
 			results.NumberedLines();
 			results.Add("phrase: \"");
 		}
