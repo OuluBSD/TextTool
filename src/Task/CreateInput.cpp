@@ -106,7 +106,7 @@ void AiTask::CreateInput_GetStructureSuggestions() {
 	Vector<String> avoid_parts = Split(args.avoid, ",");
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Names of the parts of a " + __comp);
+		TaskTitledList& list = input.AddSub().Title("List A: Names of the parts of a " + __comp);
 		const auto& s = GetAppModeStructure(appmode);
 		for(int i = 0; i < s.GetCount(); i++) {
 			list.Add(s.GetKey(i) + ": " + s[i]);
@@ -161,7 +161,7 @@ void AiTask::CreateInput_GetStructureSuggestions() {
 	
 	{
 		TaskTitledList& results = input.PreAnswer();
-		results.Title("List of 10 structured strings of good " + __comp + " structures (using abbreviations only) with their novel name");
+		results.Title("List of 10 structured strings of good " + __comp + " structures (using List A abbreviations only) with their novel name");
 		results.EmptyLine();
 		results.EmptyLineString("\"");
 	}
@@ -171,10 +171,8 @@ void AiTask::CreateInput_GetStructureSuggestions() {
 }
 
 void AiTask::CreateInput_GetSuggestionAttributes() {
-	if (args.IsEmpty()) {
-		SetFatalError("no args");
-		return;
-	}
+	StructureArgs args;
+	args.Put(this->args[0]);
 	
 	String struct_str1;
 	{
@@ -193,13 +191,13 @@ void AiTask::CreateInput_GetSuggestionAttributes() {
 		const auto& st = GetAppModeDefCompStructure(appmode);
 		for(int i = 0; i < st.GetCount(); i++) {
 			if (i) struct_str2 << ", ";
-			struct_str2 << st;
+			struct_str2 << st[i];
 		}
 		struct_str2 << "\"";
 	}
 	
 	{
-		TaskTitledList& list = input.AddSub().Title("Names of the parts of a " + __comp);
+		TaskTitledList& list = input.AddSub().Title("List A: Names of the parts of a " + __comp);
 		const auto& s = GetAppModeStructure(appmode);
 		for(int i = 0; i < s.GetCount(); i++) {
 			list.Add(s.GetKey(i) + ": " + s[i]);
@@ -257,16 +255,16 @@ void AiTask::CreateInput_GetSuggestionAttributes() {
 	{
 		TaskTitledList& list = input.AddSub().Title("List of structured strings of good " + __comp + " structures (using abbreviations only)");
 		list.NumberedLines();
-		for (const String& p : args)
+		for (const String& p : args.structs)
 			list		.Add("\"" + TrimBoth(p) + "\"");
 	}
 	
 	{
-		input.AddSub().Title("Attributes for all " + IntStr(args.GetCount()) + " items of the previous list is needed.").NoColon();
+		input.AddSub().Title("Attributes for all " + IntStr(args.structs.GetCount()) + " items of the previous list is needed.").NoColon();
 	}
 	
 	{
-		String first = args[0];
+		String first = args.structs[0];
 		TaskTitledList& results = input.PreAnswer();
 		results.Title("1. Attributes of the " + __comp + " structure \"" + first + "\"");
 		results.EmptyLine();
