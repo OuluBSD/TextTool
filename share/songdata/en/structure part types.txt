@@ -14641,3 +14641,34 @@ simple interjection
 command with punctuation
 descriptive sentence with multiple modifiers, prepositions, and punctuation
 Compound sentence
+compound-complex noun phrase
+complex sentence with multiple conjunctions and an interjection
+compound-complex sentence with multiple conjunctions and an interjection
+exclamatory sentence with an adverb
+question formation
+interrogative sentence with object pronouns
+compound-complex sentence with adverbial clause and prepositional phrase
+complex sentence with a conjunction and prepositional phrase
+compound sentence with comparative adjectives
+noun phrase with particles and possessive pronouns
+complex noun phrase with possessive pronouns and slang/colloquialism.
+subject-verb sentence with pronoun subject
+complex sentence with object pronoun and possessive pronoun
+complex sentence with adverbial clauses and prepositional phrase
+simple sentence with subject-verb-word order
+prepositional sentence with adverb and verb
+complex sentence with object pronouns and preposition
+simple sentence with adjective and punctuation
+simple sentence with adjectives and punctuation
+compound-complex sentence with compound subject
+complex sentence with adjective and infinitive phrase
+compound-complex sentence with repetitive verb pattern
+compound sentence with compound direct objects
+independent clause with adjectives
+complex sentence with prepositions and definite articles
+compound sentence with prepositional phrase and object pronoun
+prepositional sentence with compound nouns
+complex sentence with interjection and possessive pronoun
+exclamatory word sentence
+interjection word sentence
+object of a verb sentence
