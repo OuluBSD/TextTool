@@ -2,14 +2,34 @@
 
 Order:
 ... something in the beginning ...
+- "Components" text data, import scripts (F5)
+	--> makes tokens from source text
+- tokens, Process using other DBs (F5)
+	--> makes words from tokens
+	--> makes translations
+
+- tokens, Process (F6)
+	--> makes words from tokens using AI
+
 - words, get all details (F6)
 	- required for virtual phrases (type is required)
 - words, syllables (F7)
 	(unnecessary?)
-- ambiguous word pairs (F5)
+
+- token phrases, Get unknown pairs (F5)
+	< req tokens, words, word classes (types)
+	--> searches for ambiguous word class usage
+
+- ambiguous word pairs, process using existing (F5)
+- ambiguous word pairs, process (F6)
 	- required for virtual phrases (clarifies the type)
+
+// NOTE: virtual phrases shows error until you press F5, F6 & F7 to process
 - virtual phrases (F5) "token texts to virtual phrases"
 	- requires "word types" and "ambiguous word pairs"
+- virtual phrases, get virtual_phrase_parts using existing (F6)
+- virtual phrases, get virtual_phrase_parts using AI (F7)
+
 - virtual phrase, process (F6) "virtual phrases"
 - virtual phrase parts, process (F5) "virtual phrase structs"
 - virtual phrase structs, process (F5) "token text to phrase"

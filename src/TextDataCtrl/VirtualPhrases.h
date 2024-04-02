@@ -20,6 +20,7 @@ public:
 	void ToolMenu(Bar& bar) override;
 	void ProcessVirtualPhrases();
 	void ProcessVirtualPhraseParts();
+	void ProcessVirtualPhrasesUsingExisting();
 	
 };
 

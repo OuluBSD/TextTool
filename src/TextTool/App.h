@@ -10,6 +10,7 @@ class TextTool : public TopWindow {
 	ToolBar				toolbar;
 	StatusBar			statusbar;
 	
+	OperationOverview	oo;
 	ToolEditor			ed;
 	Tasks				ai;
 	TimeCallback		tc;

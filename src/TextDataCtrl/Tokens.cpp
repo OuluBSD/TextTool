@@ -62,8 +62,17 @@ void TokensPage::DataDataset() {
 }
 
 void TokensPage::ToolMenu(Bar& bar) {
-	bar.Add(t_("Process"), AppImg::RedRing(), THISBACK(ProcessTokens)).Key(K_F5);
+	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
+	bar.Separator();
+	bar.Add(t_("Process using other DBs"), AppImg::VioletRing(), THISBACK(ProcessTokensUsingExisting)).Key(K_F5);
+	bar.Separator();
+	bar.Add(t_("Process"), AppImg::RedRing(), THISBACK(ProcessTokens)).Key(K_F6);
 	
+}
+
+void TokensPage::ProcessTokensUsingExisting() {
+	TextLib::TaskManager& tm = GetTaskManager();
+	tm.DoTokensUsingExisting(0, 0);
 }
 
 void TokensPage::ProcessTokens() {

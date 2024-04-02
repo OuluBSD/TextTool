@@ -220,13 +220,16 @@ enum {
 	DB_TWITTER,
 	DB_BLOG,
 	DB_DIALOG,
+	DB_STORYBOARD,
+	
+	DB_COUNT,
+	
 	DB_POLITICS,
 	DB_LIFE,
 	DB_BUSINESS,
 	DB_FLIRTING,
 	DB_DOCUMENTARY,
 	
-	DB_COUNT,
 };
 
 inline String GetAppModeString(int appmode) {
@@ -235,6 +238,8 @@ inline String GetAppModeString(int appmode) {
 		case DB_TWITTER:		return "Twitter";
 		case DB_BLOG:			return "Blog";
 		case DB_DIALOG:			return "Dialog";
+		case DB_STORYBOARD:		return "Storyboard";
+		
 		case DB_POLITICS:		return "Politics";
 		case DB_LIFE:			return "Life (nothing new happens)";
 		case DB_BUSINESS:		return "Business";

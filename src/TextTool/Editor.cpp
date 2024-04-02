@@ -103,8 +103,8 @@ void ToolEditor::InitSimplified() {
 	
 	AddItem(t_("Database"), "Components", src_data);
 	AddItem(t_("Database"), t_("Tokens"), tokens_data);
-	AddItem(t_("Database"), t_("Token phrases"), token_phrases);
 	AddItem(t_("Database"), t_("Words"), component_words);
+	AddItem(t_("Database"), t_("Token phrases"), token_phrases);
 	AddItem(t_("Database"), t_("Ambiguous word pairs"), ambiguous_word_pairs);
 	AddItem(t_("Database"), t_("Virtual phrases"), virtual_phrases);
 	AddItem(t_("Database"), t_("Virtual phrase parts"), virtual_phrase_parts);

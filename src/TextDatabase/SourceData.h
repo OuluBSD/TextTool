@@ -199,19 +199,21 @@ struct ExportWord : Moveable<ExportWord> {
 			p % classes[i];
 		p % link;
 	}
-	void CopyFrom(const ExportWord& wa) {
+	void CopyFrom(const ExportWord& wa, bool reset) {
 		spelling.Clear();
 		phonetic.Clear();
 		spelling = wa.spelling;
 		phonetic = wa.phonetic;
-		count = wa.count;
 		clr = wa.clr;
 		class_count = wa.class_count;
 		for(int i = 0; i < class_count; i++)
 			classes[i] = wa.classes[i];
-		// Don't copy link
-		// link = wa.link;
+		if (reset) {
+			count = 0;
+			link = -1;
+		}
 	}
+	
 };
 
 struct WordPairType : Moveable<WordPairType> {

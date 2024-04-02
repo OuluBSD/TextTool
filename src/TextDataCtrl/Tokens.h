@@ -17,6 +17,7 @@ public:
 	void DataDataset();
 	void ToolMenu(Bar& bar) override;
 	void ProcessTokens();
+	void ProcessTokensUsingExisting();
 	
 	
 };

@@ -8,6 +8,7 @@ BEGIN_TEXTLIB_NAMESPACE
 typedef enum {
 	TASK_CLEAR,
 	TASK_SONGS,
+	TASK_TOKENS_USING_EXISTING,
 	TASK_TOKENS,
 	TASK_WORD_DATA,
 	TASK_WORD_FIX,
@@ -101,6 +102,7 @@ class TaskManager {
 	void GetComponents(Task* t);
 	
 	void GetTokenData(Task* t);
+	void GetTokenDataUsingExisting(Task* t);
 	void OnTokenData(String result, Task* t);
 	
 	void GetAttributes(Task* t);
@@ -119,6 +121,7 @@ class TaskManager {
 	void GetActionTransitions(Task* t);
 	void GetActionParallels(Task* t);
 	
+	void GetAmbiguousWordPairsUsingExisting(Task* t);
 	void GetAmbiguousWordPairs(Task* t);
 	void OnAmbiguousWordPairs(String result, Task* t);
 	
@@ -182,9 +185,11 @@ public:
 	static TaskManager& Single(int appmode);
 	
 	void DoSongs(int ds_i, int fn);
+	void DoTokensUsingExisting(int ds_i, int fn);
 	void DoTokens(int ds_i, int fn);
 	void DoUnknownTokenPairs(int ds_i, int fn);
 	void DoAmbiguousWordPairs(int ds_i, int fn);
+	void DoAmbiguousWordPairsUsingExisting(int ds_i, int fn);
 	void DoVirtualPhrases(int ds_i, int fn);
 	void DoPhrases(int ds_i, int fn);
 	void DoContainer(int ds_i, int fn, Callback2<int,int> update);

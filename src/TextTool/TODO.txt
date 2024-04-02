@@ -17,7 +17,8 @@
 
 
 
-- CreateInput_GetPhraseData: convert hardcoded string values
+- show TextLib tasks in Tasks page
+
 - support other languages than English and Finnish
 	- search for "fi" and "Finnish"
 
@@ -368,3 +369,4 @@ x? vocabulary: for artist, for release, for song
 - json file "artist" -> "entity" problem
 	- etc... song, release, lyrics, company, product, script
 	- see through json files and directories too
+- CreateInput_GetPhraseData: convert hardcoded string values

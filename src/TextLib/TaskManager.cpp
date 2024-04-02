@@ -61,6 +61,8 @@ void TaskManager::Stop() {
 }
 
 void TaskManager::Process() {
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	EnterAppMode(appmode);
 	
 	while (running && !Thread::IsShutdownThreads()) {
 		
@@ -87,6 +89,8 @@ void TaskManager::Process() {
 		tp->running = true;
 		tp->cb();
 	}
+	
+	LeaveAppMode();
 	
 	running = false;
 	stopped = true;

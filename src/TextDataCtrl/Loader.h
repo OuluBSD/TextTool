@@ -6,11 +6,17 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class TextDataLoader : public WithTextDataLoader<TopWindow> {
+	
+	// Params
+	int size_limit = 2 * 1024*1024; // for input text data per (for blog appmode)
+	
+	
 	int appmode = -1;
 	
 	void LoadHuggingArtists();
 	void LoadHuggingFinn();
 	void LoadHuggingTweets();
+	void LoadHuggingBlogs();
 	TextDatabase& GetDatabase();
 	
 public:

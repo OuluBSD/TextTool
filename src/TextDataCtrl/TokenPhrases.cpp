@@ -71,6 +71,8 @@ void TokenPhrases::DataDataset() {
 }
 
 void TokenPhrases::ToolMenu(Bar& bar) {
+	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
+	bar.Separator();
 	bar.Add(t_("Get unknown pairs"), AppImg::RedRing(), THISBACK(GetUnknownPairs)).Key(K_F5);
 	
 }

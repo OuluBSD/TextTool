@@ -54,6 +54,11 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		0
 	},
 	
+	
+	
+	
+	
+	#if 0
 	// DB_POLITICS
 	{
 		"politician",	"discourse",	"debate",		"debate",
@@ -97,14 +102,13 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"playful banter", "compliments", "sexual innuendos", "plans for future dates",
 		0
 	},
-	
+	#endif
 };
 
 const char* AppModeKeysN[DB_COUNT][AM_COUNT+1] = {
 	{"artists","releases","songs","songs","typecasts","archetypes","lyrics","lyrics",0,0,0},
 	{"companies","campaigns","programs","tweet threads","roles","generics","stories","tweets",0,0,0},
 	{"bloggers","series","posts","posts","personas","niches","contents","contents",0,0,0},
-	{"","","","","","",0,0,0},
 	{"","","","","","",0,0,0},
 	{"","","","","","",0,0,0},
 };

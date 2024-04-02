@@ -89,6 +89,132 @@ void TaskManager::GetComponents(Task* t) {
 	da.diagnostics.GetAdd(__comps + ": filter 'foreign' loss") =  DblStr((double)foreign_loss / (double) total * 100);
 	da.diagnostics.GetAdd(__comps + ": duration of song process") =  ts.ToString();
 	
+	
+}
+
+void TaskManager::GetTokenDataUsingExisting(Task* t) {
+	TimeStop ts;
+	TextDatabase& db0 = GetDatabase();
+	SourceData& sd0 = db0.src_data;
+	SourceDataAnalysis& sda0 = db0.src_data.a;
+	DatasetAnalysis& da0 = sda0.datasets[t->ds_i];
+	
+	for(int i = 0; i < DB_COUNT; i++) {
+		if (i == appmode) continue;
+		TextDatabase& db1 = MetaDatabase::Single().db[i];
+		SourceData& sd1 = db1.src_data;
+		SourceDataAnalysis& sda1 = db1.src_data.a;
+		if (t->ds_i >= sda1.datasets.GetCount()) continue;
+		DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+		
+		for(int j = 0; j < da0.tokens.GetCount(); j++) {
+			// If token has no connected word in this database
+			Token& tk0 = da0.tokens[j];
+			if (tk0.word_ < 0) {
+				const String& tk_str0 = da0.tokens.GetKey(j);
+				
+				// Then find it in other
+				int k = da1.tokens.Find(tk_str0);
+				if (k < 0)
+					continue;
+				
+				// ...if the other has linked word
+				const Token& tk1 = da1.tokens[k];
+				if (tk1.word_ < 0) continue;
+				
+				// Copy word to avoid useless AI usage
+				const String& wrd1_str = da1.words.GetKey(tk1.word_);
+				const ExportWord& wrd1 = da1.words[tk1.word_];
+				
+				// If the word is not yet added
+				k = da0.words.Find(wrd1_str);
+				if (k < 0) {
+					int wrd_i0 = -1;
+					ExportWord& wrd0 = da0.words.GetAdd(wrd1_str, wrd_i0);
+					wrd0.CopyFrom(wrd1, true);
+					
+					// Link word
+					tk0.word_ = wrd_i0;
+					
+					// Copy word class
+					for(int j = 0; j < wrd1.class_count && j < ExportWord::MAX_CLASS_COUNT; j++) {
+						int class_type1 = wrd1.classes[j];
+						const String& word_class1 = da1.word_classes[class_type1];
+						int class_type0 = da0.word_classes.FindAdd(word_class1);
+						wrd0.classes[j] = class_type0;
+					}
+				}
+				// TODO This is a bit unexpected, but use the existing word
+				else {
+					// Link word
+					tk0.word_ = k;
+				}
+			}
+			// Fill more data
+			else {
+				ExportWord& wrd0 = da0.words[tk0.word_];
+				if (wrd0.phonetic.IsEmpty() || wrd0.spelling.IsEmpty()) {
+					
+					// Then find it in other
+					const String& tk_str0 = da0.tokens.GetKey(j);
+					int k = da1.tokens.Find(tk_str0);
+					if (k < 0)
+						continue;
+					
+					// ...if the other has linked word
+					const Token& tk1 = da1.tokens[k];
+					if (tk1.word_ < 0) continue;
+					
+					// Copy some data to avoid useless AI usage
+					const String& wrd1_str = da1.words.GetKey(tk1.word_);
+					const ExportWord& wrd1 = da1.words[tk1.word_];
+					
+					if (wrd0.phonetic.IsEmpty() && !wrd1.phonetic.IsEmpty())
+						wrd0.phonetic = wrd1.phonetic;
+					if (wrd0.spelling.IsEmpty() && !wrd1.spelling.IsEmpty())
+						wrd0.spelling = wrd1.spelling;
+				}
+					
+			}
+		}
+	}
+	
+	// Re-count word usage
+	for (ExportWord& ew0 : da0.words.GetValues()) {
+		ew0.count = 0;
+	}
+	for (TokenText& tt : da0.token_texts.GetValues()) {
+		for (int tk_i : tt.tokens) {
+			const Token& tk = da0.tokens[tk_i];
+			if (tk.word_ >= 0) {
+				ExportWord& wrd0 = da0.words[tk.word_];
+				wrd0.count++;
+			}
+		}
+	}
+	
+	// Copy translation
+	for(int i = 0; i < DB_COUNT; i++) {
+		if (i == appmode) continue;
+		TextDatabase& db1 = MetaDatabase::Single().db[i];
+		SourceData& sd1 = db1.src_data;
+		SourceDataAnalysis& sda1 = db1.src_data.a;
+		if (t->ds_i >= sda1.datasets.GetCount()) continue;
+		DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+		
+		for(const String& wrd_str0 : da0.words.GetKeys()) {
+			if (da0.translations.Find(wrd_str0) < 0) {
+				int j = da1.translations.Find(wrd_str0);
+				if (j >= 0) {
+					const String& trans1 = da1.translations[j];
+					da0.translations.GetAdd(wrd_str0) = trans1;
+				}
+			}
+		}
+	}
+	
+	LOG("TaskManager::GetTokenDataUsingExisting: copying values took " << ts.ToString());
+	LOG("");
 }
 
 void TaskManager::GetTokenData(Task* t) {
@@ -150,9 +276,14 @@ void TaskManager::GetUnknownTokenPairs(Task* t) {
 				tk.word_ = w_i;
 			}
 			if (w_i >= 0) {
+				String prev_ew_str = prev_w_i >= 0 ? da.words.GetKey(prev_w_i) : String();
+				const String& ew_str = da.words.GetKey(w_i);
 				const ExportWord& ew = da.words[w_i];
 				bool is_unknown = ew.class_count > 1;
 				
+				if (ew_str.GetCount() == 1 || prev_ew_str.GetCount() == 1) {
+					// pass
+				}
 				/*bool next_unknown = false;
 				if (!is_last && !prev_unknown && is_unknown) {
 					int next_tk_i = txt.tokens[j+1];
@@ -165,8 +296,8 @@ void TaskManager::GetUnknownTokenPairs(Task* t) {
 				
 				if (!prev_unknown && is_unknown && next_unknown) {
 					// do nothing: wait until next
-				}
-				else*/
+				}*/
+				else
 				if (prev_unknown || (is_unknown && is_last)) {
 					if (prev_w_i >= 0) {
 						CombineHash c;
@@ -183,6 +314,65 @@ void TaskManager::GetUnknownTokenPairs(Task* t) {
 			prev_w_i = w_i;
 		}
 	}
+}
+
+void TaskManager::GetAmbiguousWordPairsUsingExisting(Task* t) {
+	TimeStop ts;
+	TextDatabase& db0 = GetDatabase();
+	SourceData& sd0 = db0.src_data;
+	SourceDataAnalysis& sda0 = db0.src_data.a;
+	DatasetAnalysis& da0 = sda0.datasets[t->ds_i];
+	
+	for(int i = 0; i < DB_COUNT; i++) {
+		if (i == appmode) continue;
+		TextDatabase& db1 = MetaDatabase::Single().db[i];
+		SourceData& sd1 = db1.src_data;
+		SourceDataAnalysis& sda1 = db1.src_data.a;
+		if (t->ds_i >= sda1.datasets.GetCount()) continue;
+		DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+		
+		for(int j = 0; j < da0.ambiguous_word_pairs.GetCount(); j++) {
+			// If token has no connected word in this database
+			WordPairType& wpt0 = da0.ambiguous_word_pairs[j];
+			if (wpt0.from < 0 || wpt0.to < 0) continue;
+			
+			if (wpt0.from_type < 0 || wpt0.to_type < 0) {
+				const String& from_str0 = da0.words.GetKey(wpt0.from);
+				const String& to_str0 = da0.words.GetKey(wpt0.to);
+				
+				
+				// Then find it in other
+				int k = -1;
+				for(int j = 0; j < da1.ambiguous_word_pairs.GetCount(); j++) {
+					const WordPairType& wpt1 = da1.ambiguous_word_pairs[j];
+					if (wpt1.from < 0 || wpt1.to < 0)
+						continue;
+					const String& from_str1 = da1.words.GetKey(wpt1.from);
+					const String& to_str1 = da1.words.GetKey(wpt1.to);
+					if (from_str0 == from_str1 && to_str0 == to_str1) {
+						k = j;
+						break;
+					}
+				}
+				if (k < 0)
+					continue;
+				
+				// ...if the other has type
+				const WordPairType& wpt1 = da1.ambiguous_word_pairs[k];
+				if (wpt1.from_type < 0 || wpt1.to_type < 0)
+					continue;
+				
+				// Copy word to avoid useless AI usage
+				const String& from_type_class1 = da1.word_classes[wpt1.from_type];
+				const String& to_type_class1 = da1.word_classes[wpt1.to_type];
+				wpt0.from_type = da0.word_classes.FindAdd(from_type_class1);
+				wpt0.to_type   = da0.word_classes.FindAdd(to_type_class1);
+			}
+		}
+	}
+	
+	LOG("TaskManager::GetAmbiguousWordPairsUsingExisting: copying values took " << ts.ToString());
+	LOG("");
 }
 
 void TaskManager::GetAmbiguousWordPairs(Task* t) {
@@ -372,7 +562,7 @@ void TaskManager::GetWordFix(Task* t) {
 						from.classes[i] = wa.classes[i];
 					}
 				}
-				wa.CopyFrom(from);
+				wa.CopyFrom(from, false);
 			}
 			else if (wa.link >= 0)
 				wa.link = -1;
@@ -725,6 +915,11 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 		da.diagnostics.GetAdd("token text to phrase: total") = IntStr(da.token_texts.GetCount());
 		da.diagnostics.GetAdd("token text to phrase: actual") = IntStr(a);
 		da.diagnostics.GetAdd("token text to phrase: percentage") =  DblStr((double)a / (double)da.token_texts.GetCount() * 100);
+		
+	}
+	else if (t->fn == 4) {
+		
+		TODO
 		
 	}
 }

@@ -27,6 +27,9 @@ void TextDataLoader::Process() {
 	else if (appmode == DB_TWITTER) {
 		LoadHuggingTweets();
 	}
+	else if (appmode == DB_BLOG) {
+		LoadHuggingBlogs();
+	}
 	
 	//db.src_data.Store();
 	PostCallback(THISBACK(Stop));
@@ -239,7 +242,6 @@ void TextDataLoader::LoadHuggingFinn() {
 	}
 }
 
-
 void TextDataLoader::LoadHuggingTweets() {
 	String dir;
 	#ifdef flagWIN32
@@ -313,6 +315,144 @@ void TextDataLoader::LoadHuggingTweets() {
 		}
 	}
 	LOG("Total story count: " << story_count);
+}
+
+void TextDataLoader::LoadHuggingBlogs() {
+	String dir;
+	#ifdef flagWIN32
+	dir = AppendFileName(GetHomeDirectory(), "datasets\\blogs");
+	#elif defined flagPOSIX
+	dir = GetHomeDirFile("datasets/blogs");
+	#endif
+	if (!DirectoryExists(dir)) {
+		PromptOK("Directory doesn't exist: " + dir);
+		return;
+	}
+	
+	TextDatabase& db = GetDatabase();
+	db.src_data.entities_en.Clear();
+	
+	PostMessage("Searching for blog dataset xml files");
+	PostProgress(0,1);
+	
+	
+	int total_size = 0;
+	
+	Vector<String> files;
+	FindFile ff(AppendFileName(dir, "*.xml"));
+	do {
+		if (!ff.IsFile()) continue;
+		files << ff.GetPath();
+	}
+	while (ff.Next());
+	
+	Sort(files, StdLess<String>());
+	
+	int i = 0;
+	int story_count = 0;
+	for (String& path : files) {
+		String title = ToLower(GetFileTitle(path));
+		Vector<String> parts = Split(title, ".");
+		if (parts.GetCount() != 5)
+			continue;
+		String content = LoadFile(path);
+		content.Replace("\r", "");
+		
+		
+		// Get blogger's name
+		String blogger_name = ToLower(title);
+		if (GetDefaultCharset() != CHARSET_UTF8)
+			blogger_name = ToCharset(CHARSET_UTF8, blogger_name, CHARSET_DEFAULT);
+		
+		Vector<String> name_parts = Split(blogger_name, "-");
+		for (String& n : name_parts)
+			n = Capitalize(ToLower(n));
+		blogger_name = Join(name_parts, " ");
+		
+		// Update progress
+		PostMessage("Loading blogger: " + blogger_name);
+		PostProgress(i++, files.GetCount());
+		
+		
+		VectorMap<String, String> entries;
+		try {
+			XmlNode xn = ParseXML(content);
+			const XmlNode& blog = xn[0];
+			
+			String total_content;
+			
+			for(int i = 1; i < blog.GetCount(); i+=2) {
+				const XmlNode& date = blog[i-1];
+				const XmlNode& post = blog[i];
+				ASSERT(date.GetTag() == "date");
+				ASSERT(post.GetTag() == "post");
+				
+				for(int j = 0; j < post.GetCount(); j++) {
+					String txt = TrimBoth(post[j].GetText());
+					
+					// Hotfix blog texts
+					txt.Replace(".  ", ".\n");
+					txt.Replace("   ", " ");
+					txt.Replace("\n   ", "\n");
+					txt.Replace("\n  ", "\n");
+					txt.Replace("\n ", "\n");
+					txt.Replace(". The ", ".\nThe ");
+					txt.Replace(". This ", ".\nThis ");
+					txt.Replace(". I ", ".\nI ");
+					txt.Replace(". You ", ".\nYou ");
+					txt.Replace(". Oh ", ".\nOh ");
+					txt.Replace("...", "...\n");
+					txt.Replace("\n....", "\n");
+					txt.Replace("\n...", "\n");
+					txt.Replace("\n..", "\n");
+					txt.Replace("\n.", "\n");
+					
+					// Trim lines
+					Vector<String> lines = Split(txt, "\n");
+					for (String& l : lines) l = TrimBoth(l);
+					txt = Join(lines, "\n");
+					
+					
+					txt.Replace("\nurlLink", "\nurlLink\n");
+					txt.Replace("\nurlLink", "\nurlLink\n");
+					txt.Replace("\nurlLink", "\nurlLink\n");
+					txt.Replace("urlLink", "(urlLink)");
+					
+					// Trim lines
+					lines = Split(txt, "\n");
+					for (String& l : lines) l = TrimBoth(l);
+					txt = Join(lines, "\n");
+					
+					
+					entries.Add(date[0].GetText(), txt);
+				}
+			}
+			
+			if (total_size >= size_limit)
+				break;
+		}
+		catch (XmlError e) {
+			DLOG("XmlError: " << title << ": " << e);
+		}
+		
+		if (entries.GetCount()) {
+			EntityDataset& blogger = db.src_data.entities_en.Add();
+			blogger.name = blogger_name;
+			
+			for(int i = 0; i < entries.GetCount(); i++) {
+				
+				ScriptDataset& l = blogger.scripts.Add();
+				l.name = entries.GetKey(i);
+				l.text = entries[i];
+				story_count++;
+				
+				total_size += l.text.GetCount();
+			}
+		}
+	}
+	LOG("Total blogger count: " << db.src_data.entities_en.GetCount());
+	LOG("Total story count: " << story_count);
+	LOG("Total byte size of stories: " << total_size/1000 << "Kb");
 }
 
 

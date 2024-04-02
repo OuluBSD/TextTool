@@ -27,6 +27,7 @@ TextTool::TextTool() : ed(this) {
 	};
 	ed.WhenStopUpdating << [this](){tc.Kill();};
 	
+	Add(oo.SizePos());
 	Add(ed.SizePos());
 	Add(ai.SizePos());
 	
@@ -153,6 +154,7 @@ void TextTool::SaveWindowPos() {
 
 void TextTool::Data() {
 	switch (page) {
+		case 1: oo.Data(); break;
 		case 2: ed.Data(); break;
 		case 3: ai.Data(); break;
 	}
@@ -173,6 +175,7 @@ void TextTool::SetBar() {
 
 void TextTool::MainBar(Bar& bar) {
 	switch (page) {
+		case 1: oo.ToolMenu(bar); break;
 		case 2: ed.ToolMenu(bar); break;
 		case 3: ai.ToolMenu(bar); break;
 	}
@@ -206,6 +209,7 @@ void TextTool::MovePart(int i) {
 }
 
 void TextTool::SetView(int i) {
+	oo.Hide();
 	ed.Hide();
 	ai.Hide();
 	
@@ -213,6 +217,7 @@ void TextTool::SetView(int i) {
 	
 	switch (i) {
 		default: i = 0;
+		case 1: oo.Show(); break;
 		case 2: ed.Show(); break;
 		case 3: ai.Show(); PostCallback(THISBACK(StartUpdating)); break;
 	}

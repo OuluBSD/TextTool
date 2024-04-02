@@ -20,6 +20,22 @@ void TaskManager::DoSongs(int ds_i, int fn) {
 	lock.LeaveWrite();
 }
 
+void TaskManager::DoTokensUsingExisting(int ds_i, int fn) {
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	lock.EnterWrite();
+	Task& t = task_list.Add();
+	t.type = TASK_TOKENS_USING_EXISTING;
+	t.cb = THISBACK1(GetTokenDataUsingExisting, &t);
+	t.ds_i = ds_i;
+	t.batch_i = 0;
+	t.fn = fn;
+	lock.LeaveWrite();
+}
+
 void TaskManager::DoTokens(int ds_i, int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
@@ -46,6 +62,22 @@ void TaskManager::DoUnknownTokenPairs(int ds_i, int fn) {
 	Task& t = task_list.Add();
 	t.type = TASK_UNKNOWN_TOKEN_PAIRS;
 	t.cb = THISBACK1(GetUnknownTokenPairs, &t);
+	t.ds_i = ds_i;
+	t.batch_i = 0;
+	t.fn = fn;
+	lock.LeaveWrite();
+}
+
+void TaskManager::DoAmbiguousWordPairsUsingExisting(int ds_i, int fn) {
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	lock.EnterWrite();
+	Task& t = task_list.Add();
+	t.type = TASK_AMBIGUOUS_WORD_PAIRS;
+	t.cb = THISBACK1(GetAmbiguousWordPairsUsingExisting, &t);
 	t.ds_i = ds_i;
 	t.batch_i = 0;
 	t.fn = fn;
@@ -234,8 +266,8 @@ void TaskManager::DoWordFix(int ds_i, int fn) {
 }
 
 void TaskManager::DoWords(int ds_i, int fn) {
-	if (IsInTaskList(TASK_WORD_DATA))
-		return;
+	//if (IsInTaskList(TASK_WORD_DATA))
+	//	return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
@@ -253,8 +285,8 @@ void TaskManager::DoWords(int ds_i, int fn) {
 }
 
 void TaskManager::DoWordnet(int ds_i, int fn) {
-	if (IsInTaskList(TASK_WORDNET))
-		return;
+	//if (IsInTaskList(TASK_WORDNET))
+	//	return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
