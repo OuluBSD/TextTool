@@ -2944,7 +2944,7 @@
 "bye" 2343
 "developments" 2344
 "update" 2345
-"HAHBHN" -1
+"HAHBHN" 26632
 "baaaaaaaaack" 15293
 "Today's" 2346
 "journal" 2347
@@ -10863,7 +10863,7 @@
 "specified" 7507
 "company's" 14202
 "semi" 7508
-"LYS" -1
+"LYS" 27035
 "Westside" 7509
 "Cleveland" 7510
 "selection" 7511
@@ -13108,7 +13108,7 @@
 "blingin'" 8791
 "Natalie" 8792
 "Clang" 8793
-"Clangin'" -1
+"Clangin'" 27215
 "ANYMORE" 730
 "brighter" 8794
 "Levis" 8795
