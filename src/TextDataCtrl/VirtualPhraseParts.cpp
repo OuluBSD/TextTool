@@ -59,16 +59,19 @@ void VirtualPhraseParts::DataDataset() {
 	int row = 0;
 	for(int i = 0; i < da.virtual_phrase_parts.GetCount(); i++) {
 		const VirtualPhrasePart& vpp = da.virtual_phrase_parts[i];
-		if (vpp.struct_part_type < 0)
-			continue;
+		String type_name;
+		if (vpp.struct_part_type >= 0) {
+			type_name = da.struct_part_types[vpp.struct_part_type];
+		}
 		
-		const String& type_name = da.struct_part_types[vpp.struct_part_type];
 		String type_str = GetTypePhraseString(vpp.word_classes, da);
 		texts.Set(row, 0, type_str);
 		texts.Set(row, 1, type_name);
 		texts.Set(row, 2, vpp.count);
 		texts.Set(row, "IDX", i);
 		row++;
+		
+		if (row >= 10000) break;
 	}
 	texts.SetCount(row);
 	texts.SetSortColumn(2, true);
@@ -76,7 +79,10 @@ void VirtualPhraseParts::DataDataset() {
 }
 
 void VirtualPhraseParts::ToolMenu(Bar& bar) {
-	bar.Add(t_("Make structure names"), AppImg::RedRing(), THISBACK(ProcessStructureNames)).Key(K_F5);
+	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
+	bar.Separator();
+	bar.Add(t_("Make structure names using existing"), AppImg::VioletRing(), THISBACK(ProcessStructureNamesUsingExisting)).Key(K_F5);
+	bar.Add(t_("Make structure names"), AppImg::RedRing(), THISBACK(ProcessStructureNames)).Key(K_F6);
 	
 }
 
@@ -84,6 +90,12 @@ void VirtualPhraseParts::ProcessStructureNames() {
 	int ds_i = datasets.GetCursor();
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoVirtualPhrases(ds_i, 2);
+}
+
+void VirtualPhraseParts::ProcessStructureNamesUsingExisting() {
+	int ds_i = datasets.GetCursor();
+	TextLib::TaskManager& tm = GetTaskManager();
+	tm.DoVirtualPhrasesUsingExisting(ds_i, 2);
 }
 
 

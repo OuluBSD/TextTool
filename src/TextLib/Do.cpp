@@ -116,6 +116,22 @@ void TaskManager::DoVirtualPhrases(int ds_i, int fn) {
 	lock.LeaveWrite();
 }
 
+void TaskManager::DoVirtualPhrasesUsingExisting(int ds_i, int fn) {
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	lock.EnterWrite();
+	Task& t = task_list.Add();
+	t.type = TASK_VIRTUAL_PHRASES_USING_EXISTING;
+	t.cb = THISBACK1(GetVirtualPhrasesUsingExisting, &t);
+	t.ds_i = ds_i;
+	t.batch_i = 0;
+	t.fn = fn;
+	lock.LeaveWrite();
+}
+
 void TaskManager::DoPhrases(int ds_i, int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
@@ -278,6 +294,25 @@ void TaskManager::DoWords(int ds_i, int fn) {
 	Task& t = task_list.Add();
 	t.type = TASK_WORD_DATA;
 	t.cb = THISBACK1(GetWordData, &t);
+	t.ds_i = ds_i;
+	t.batch_i = 0;
+	t.fn = fn;
+	lock.LeaveWrite();
+}
+
+void TaskManager::DoWordsUsingExisting(int ds_i, int fn) {
+	//if (IsInTaskList(TASK_WORD_DATA))
+	//	return;
+	
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	lock.EnterWrite();
+	Task& t = task_list.Add();
+	t.type = TASK_WORD_DATA_USING_EXISTING;
+	t.cb = THISBACK1(GetWordDataUsingExisting, &t);
 	t.ds_i = ds_i;
 	t.batch_i = 0;
 	t.fn = fn;

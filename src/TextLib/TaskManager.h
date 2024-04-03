@@ -11,11 +11,13 @@ typedef enum {
 	TASK_TOKENS_USING_EXISTING,
 	TASK_TOKENS,
 	TASK_WORD_DATA,
+	TASK_WORD_DATA_USING_EXISTING,
 	TASK_WORD_FIX,
 	TASK_UNKNOWN_TOKEN_PAIRS,
 	TASK_AMBIGUOUS_WORD_PAIRS,
 	
 	TASK_VIRTUAL_PHRASES,
+	TASK_VIRTUAL_PHRASES_USING_EXISTING,
 	TASK_PHRASES,
 	TASK_NANA,
 	TASK_CONTAINER,
@@ -126,6 +128,7 @@ class TaskManager {
 	void OnAmbiguousWordPairs(String result, Task* t);
 	
 	void GetVirtualPhrases(Task* t);
+	void GetVirtualPhrasesUsingExisting(Task* t);
 	void OnVirtualPhrases(String result, Task* t);
 	void OnVirtualPhraseTypes(String result, Task* t);
 	
@@ -151,6 +154,7 @@ class TaskManager {
 	void OnLineActions(String res, Task* t);
 	
 	void GetWordData(Task* t);
+	void GetWordDataUsingExisting(Task* t);
 	void OnWordData(String res, Task* t);
 	
 	void GetSyllables(Task* t);
@@ -191,9 +195,11 @@ public:
 	void DoAmbiguousWordPairs(int ds_i, int fn);
 	void DoAmbiguousWordPairsUsingExisting(int ds_i, int fn);
 	void DoVirtualPhrases(int ds_i, int fn);
+	void DoVirtualPhrasesUsingExisting(int ds_i, int fn);
 	void DoPhrases(int ds_i, int fn);
 	void DoContainer(int ds_i, int fn, Callback2<int,int> update);
 	void DoWords(int ds_i, int fn);
+	void DoWordsUsingExisting(int ds_i, int fn);
 	void DoWordFix(int ds_i, int fn);
 	
 	void DoActionlistCache(int ds_i);

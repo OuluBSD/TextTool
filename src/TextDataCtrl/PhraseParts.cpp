@@ -7,10 +7,10 @@ BEGIN_TEXTLIB_NAMESPACE
 PhraseParts::PhraseParts() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << datasets << texts;
+	hsplit.Horz() << datasets << vsplit;
 	hsplit.SetPos(2000);
 	
-	//vsplit.Vert() << texts << parts;
+	vsplit.Vert() << texts << parts;
 	
 	datasets.AddColumn(t_("Dataset"));
 	datasets.WhenCursor << THISBACK(DataDataset);
@@ -32,6 +32,12 @@ PhraseParts::PhraseParts() {
 			WriteClipboardText(text);
 		});
 	};
+	
+	parts.AddColumn(t_("Phrase"));
+	parts.AddColumn(t_("Next scores"));
+	parts.AddColumn(t_("Score sum"));
+	parts.AddIndex("IDX");
+	parts.ColumnWidths("6 3 1");
 	
 }
 
@@ -61,30 +67,68 @@ void PhraseParts::DataDataset() {
 	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
 		const PhrasePart& pp = da.phrase_parts[i];
 		
-		if (pp.virtual_phrase_part < 0)
-			continue;
-		const VirtualPhrasePart& vpp = da.virtual_phrase_parts[pp.virtual_phrase_part];
-		
-		if (vpp.struct_part_type < 0)
-			continue;
-		const String& struct_part_type = da.struct_part_types[vpp.struct_part_type];
+		String struct_part_type, type_str;
+		if (pp.virtual_phrase_part >= 0) {
+			const VirtualPhrasePart& vpp = da.virtual_phrase_parts[pp.virtual_phrase_part];
+			type_str = da.GetTypeString(vpp.word_classes);
+			
+			if (vpp.struct_part_type >= 0)
+				const String& struct_part_type = da.struct_part_types[vpp.struct_part_type];
+		}
 		
 		String phrase = da.GetWordString(pp.words);
-		String type_str = da.GetTypeString(vpp.word_classes);
 		
 		texts.Set(row, 0, phrase);
 		texts.Set(row, 1, type_str);
 		texts.Set(row, 2, struct_part_type);
 		texts.Set(row, "IDX", i);
 		row++;
+		
+		if (row >= 10000) break;
 	}
 	texts.SetCount(row);
 	
+	
+	row = 0;
+	for(int i = 0; i < da.action_phrases.GetCount(); i++) {
+		const String& phrase = da.action_phrases.GetKey(i);
+		const ExportDepActionPhrase& ap = da.action_phrases[i];
+		
+		parts.Set(row, 0, phrase);
+		
+		String ns;
+		int score_sum = 0;
+		for(int j = 0; j < ap.next_scores.GetCount(); j++) {
+			if (j) ns << ", ";
+			int row_sum = 0;
+			for (int s : ap.next_scores[j])
+				row_sum += s;
+			ns << row_sum;
+			score_sum += row_sum;
+		}
+		parts.Set(row, 1, ns);
+		parts.Set(row, 2, score_sum);
+		parts.Set(row, "IDX", i);
+		row++;
+		
+		if (row >= 10000) break;
+	}
+	parts.SetCount(row);
+	parts.SetSortColumn(2, true);
 }
 
 void PhraseParts::ToolMenu(Bar& bar) {
-	bar.Add(t_("Get line change scores"), AppImg::RedRing(), THISBACK(Process)).Key(K_F5);
+	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
+	bar.Separator();
+	//bar.Add(t_("Get line change scores using existing"), AppImg::VioletRing(), THISBACK(ProcessUsingExisting)).Key(K_F5);
+	bar.Add(t_("Get line change scores"), AppImg::RedRing(), THISBACK(Process)).Key(K_F6);
 	
+}
+
+void PhraseParts::ProcessUsingExisting() {
+	int ds_i = datasets.GetCursor();
+	TextLib::TaskManager& tm = GetTaskManager();
+	tm.DoWordsUsingExisting(ds_i, 4);
 }
 
 void PhraseParts::Process() {

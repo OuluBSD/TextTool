@@ -301,14 +301,13 @@ struct VirtualPhrasePart : Moveable<VirtualPhrasePart> {
 struct VirtualPhraseStruct : Moveable<VirtualPhraseStruct> {
 	Vector<int> virtual_phrase_parts;
 	int struct_type = -1;
-	int count = 0;
 	
 	String StoreToString() {
 		StringDumper d;
 		d % virtual_phrase_parts.GetCount();
 		for (int part : virtual_phrase_parts)
 			d % part;
-		d % struct_type % count;
+		d % struct_type;
 		return d;
 	}
 	void LoadFromString(const String& s) {
@@ -318,7 +317,7 @@ struct VirtualPhraseStruct : Moveable<VirtualPhraseStruct> {
 		virtual_phrase_parts.SetCount(tc);
 		for (int& part : virtual_phrase_parts)
 			p % part;
-		p % struct_type % count;
+		p % struct_type;
 	}
 	
 	hash_t GetHashValue() const {

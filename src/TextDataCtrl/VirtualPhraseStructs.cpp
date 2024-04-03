@@ -17,9 +17,9 @@ VirtualPhraseStructs::VirtualPhraseStructs() {
 	
 	texts.AddColumn(t_("Structural name"));
 	texts.AddColumn(t_("Types"));
-	texts.AddColumn(t_("Count"));
+	texts.AddColumn("");
 	texts.AddIndex("IDX");
-	texts.ColumnWidths("3 2 1");
+	texts.ColumnWidths("2 3 3");
 	texts.WhenBar << [this](Bar& bar){
 		bar.Add("Copy virtual type", [this]() {
 			int i = texts.GetCursor();
@@ -59,10 +59,12 @@ void VirtualPhraseStructs::DataDataset() {
 	int row = 0;
 	for(int i = 0; i < da.virtual_phrase_structs.GetCount(); i++) {
 		const VirtualPhraseStruct& vps = da.virtual_phrase_structs[i];
-		if (vps.struct_type < 0)
-			continue;
 		
-		const String& type_name = da.struct_types[vps.struct_type];
+		String type_name;
+		if (vps.struct_type >= 0) {
+			type_name = da.struct_types[vps.struct_type];
+		}
+		
 		String type_str;
 		for(int j = 0; j < vps.virtual_phrase_parts.GetCount(); j++) {
 			if (j) type_str += " + ";
@@ -78,9 +80,10 @@ void VirtualPhraseStructs::DataDataset() {
 		}
 		texts.Set(row, 0, type_name);
 		texts.Set(row, 1, type_str);
-		texts.Set(row, 2, vps.count);
 		texts.Set(row, "IDX", i);
 		row++;
+		
+		if (row >= 10000) break;
 	}
 	texts.SetCount(row);
 	texts.SetSortColumn(2, true);
@@ -88,6 +91,8 @@ void VirtualPhraseStructs::DataDataset() {
 }
 
 void VirtualPhraseStructs::ToolMenu(Bar& bar) {
+	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
+	bar.Separator();
 	bar.Add(t_("Process"), AppImg::RedRing(), THISBACK(Process)).Key(K_F5);
 	
 }

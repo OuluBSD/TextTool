@@ -143,7 +143,7 @@ void VirtualPhrases::ToolMenu(Bar& bar) {
 	bar.Separator();
 	bar.Add(t_("Make virtual phrases"), AppImg::RedRing(), THISBACK(ProcessVirtualPhrases)).Key(K_F5);
 	bar.Separator();
-	bar.Add(t_("Make virtual phrase parts using existing"), AppImg::VioletRing(), THISBACK(ProcessVirtualPhrasesUsingExisting)).Key(K_F6);
+	bar.Add(t_("Make virtual phrase parts using existing"), AppImg::VioletRing(), THISBACK(ProcessVirtualPhrasePartsUsingExisting)).Key(K_F6);
 	bar.Add(t_("Make virtual phrase parts"), AppImg::RedRing(), THISBACK(ProcessVirtualPhraseParts)).Key(K_F7);
 	
 }
@@ -160,10 +160,10 @@ void VirtualPhrases::ProcessVirtualPhraseParts() {
 	tm.DoVirtualPhrases(ds_i, 1);
 }
 
-void VirtualPhrases::ProcessVirtualPhrasesUsingExisting() {
+void VirtualPhrases::ProcessVirtualPhrasePartsUsingExisting() {
 	int ds_i = datasets.GetCursor();
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoVirtualPhrases(ds_i, 4);
+	tm.DoVirtualPhrasesUsingExisting(ds_i, 1);
 }
 
 

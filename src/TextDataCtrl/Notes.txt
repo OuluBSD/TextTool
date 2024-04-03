@@ -1,7 +1,6 @@
 
 
 Order:
-... something in the beginning ...
 - "Components" text data, import scripts (F5)
 	--> makes tokens from source text
 - tokens, Process using other DBs (F5)
@@ -30,11 +29,18 @@ Order:
 - virtual phrases, get virtual_phrase_parts using existing (F6)
 - virtual phrases, get virtual_phrase_parts using AI (F7)
 
-- virtual phrase, process (F6) "virtual phrases"
-- virtual phrase parts, process (F5) "virtual phrase structs"
+- virtual phrase, virtual phrases using existing (F6)
+- virtual phrase, virtual phrases (F7) Diag: "virtual phrases"
+
+- virtual phrase parts, process using existing (F5)
+- virtual phrase parts, process (F6) "virtual phrase structs"
+
 - virtual phrase structs, process (F5) "token text to phrase"
 	- requires "token texts to virtual phrases"
-- phrase parts (F5) "Get line change scores"
+
+- phrase parts, process using existing (F5)
+- phrase parts, process (F6) Diag: "Get line change scores"
+
 - phrase part analysis (F5) "phrase part color"
 - phrase part analysis (F6) "phrase part attr"
 - phrase part analysis (F7) "phrase part actions"

@@ -124,21 +124,25 @@ void TaskManager::GetTokenDataUsingExisting(Task* t) {
 				
 				// Copy word to avoid useless AI usage
 				const String& wrd1_str = da1.words.GetKey(tk1.word_);
-				const ExportWord& wrd1 = da1.words[tk1.word_];
+				const ExportWord* wrd1 = &da1.words[tk1.word_];
+				
+				while (wrd1->link >= 0) {
+					wrd1 = &da1.words[wrd1->link];
+				}
 				
 				// If the word is not yet added
 				k = da0.words.Find(wrd1_str);
 				if (k < 0) {
 					int wrd_i0 = -1;
 					ExportWord& wrd0 = da0.words.GetAdd(wrd1_str, wrd_i0);
-					wrd0.CopyFrom(wrd1, true);
+					wrd0.CopyFrom(*wrd1, true);
 					
 					// Link word
 					tk0.word_ = wrd_i0;
 					
 					// Copy word class
-					for(int j = 0; j < wrd1.class_count && j < ExportWord::MAX_CLASS_COUNT; j++) {
-						int class_type1 = wrd1.classes[j];
+					for(int j = 0; j < wrd1->class_count && j < ExportWord::MAX_CLASS_COUNT; j++) {
+						int class_type1 = wrd1->classes[j];
 						const String& word_class1 = da1.word_classes[class_type1];
 						int class_type0 = da0.word_classes.FindAdd(word_class1);
 						wrd0.classes[j] = class_type0;
@@ -685,7 +689,6 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 			VirtualPhraseStruct& vps = da.virtual_phrase_structs.GetAdd(vps_h, vps_i);
 			//if (vps.parts.IsEmpty())
 				vps.virtual_phrase_parts <<= vpp_is;
-			vps.count = 0;
 			vp.virtual_phrase_struct = vps_i;
 		}
 		LOG(da.virtual_phrase_parts.GetCount());
@@ -917,11 +920,141 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 		da.diagnostics.GetAdd("token text to phrase: percentage") =  DblStr((double)a / (double)da.token_texts.GetCount() * 100);
 		
 	}
-	else if (t->fn == 4) {
+}
+
+void TaskManager::GetVirtualPhrasesUsingExisting(Task* t) {
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	TimeStop ts;
+	if (t->fn == 1) {
+		TextDatabase& db0 = GetDatabase();
+		SourceData& sd0 = db0.src_data;
+		SourceDataAnalysis& sda0 = db0.src_data.a;
+		DatasetAnalysis& da0 = sda0.datasets[t->ds_i];
 		
-		TODO
-		
+		for(int i = 0; i < DB_COUNT; i++) {
+			if (i == appmode) continue;
+			TextDatabase& db1 = MetaDatabase::Single().db[i];
+			SourceData& sd1 = db1.src_data;
+			SourceDataAnalysis& sda1 = db1.src_data.a;
+			if (t->ds_i >= sda1.datasets.GetCount()) continue;
+			DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+			
+			for(int j = 0; j < da0.virtual_phrase_parts.GetCount(); j++) {
+				// If virtual phrase part has no known type
+				VirtualPhrasePart& vpp0 = da0.virtual_phrase_parts[j];
+				if (vpp0.struct_part_type < 0) {
+					// Calculate da1 hash (since key hash is local to da0)
+					CombineHash ch;
+					bool hash_fail = false;
+					for (int wc0: vpp0.word_classes) {
+						const String& common_key = da0.word_classes[wc0];
+						int wc_i1 = da1.word_classes.Find(common_key);
+						if (wc_i1 < 0) {
+							hash_fail = true; // cannot make common hash (it's not in the list anyway then)
+							break;
+						}
+						ch.Do(wc_i1).Put(1);
+					}
+					if (hash_fail)
+						continue;
+					hash_t hash1 = ch;
+					
+					// Then find it in other
+					int k = da1.virtual_phrase_parts.Find(hash1);
+					if (k < 0)
+						continue;
+					
+					// ...if the other has type
+					const VirtualPhrasePart& vpp1 = da1.virtual_phrase_parts[k];
+					if (vpp1.struct_part_type < 0)
+						continue;
+					
+					// Copy type to avoid useless AI usage
+					const String& struct_part_type = da1.struct_part_types[vpp1.struct_part_type];
+					vpp0.struct_part_type = da0.struct_part_types.FindAdd(struct_part_type);
+				}
+			}
+		}
 	}
+	if (t->fn == 2) {
+		TextDatabase& db0 = GetDatabase();
+		SourceData& sd0 = db0.src_data;
+		SourceDataAnalysis& sda0 = db0.src_data.a;
+		DatasetAnalysis& da0 = sda0.datasets[t->ds_i];
+		
+		for(int i = 0; i < DB_COUNT; i++) {
+			if (i == appmode) continue;
+			TextDatabase& db1 = MetaDatabase::Single().db[i];
+			SourceData& sd1 = db1.src_data;
+			SourceDataAnalysis& sda1 = db1.src_data.a;
+			if (t->ds_i >= sda1.datasets.GetCount()) continue;
+			DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+			
+			for(int j = 0; j < da0.virtual_phrase_structs.GetCount(); j++) {
+				// If virtual phrase part has no known type
+				VirtualPhraseStruct& vps0 = da0.virtual_phrase_structs[j];
+				if (vps0.struct_type < 0) {
+					if (vps0.virtual_phrase_parts.IsEmpty())
+						continue;
+					
+					// Calculate da1 hash (since key hash is local to da0)
+					CombineHash vps1_ch;
+					bool hash_fail = false;
+					for (int vpp_i0 : vps0.virtual_phrase_parts) {
+						// Calculate sub-hash for VirtualPhrasePart
+						const VirtualPhrasePart& vpp0 = da0.virtual_phrase_parts[vpp_i0];
+						CombineHash vpp1_ch;
+						for (int wc0: vpp0.word_classes) {
+							const String& common_key = da0.word_classes[wc0];
+							int wc_i1 = da1.word_classes.Find(common_key);
+							if (wc_i1 < 0) {
+								hash_fail = true; // cannot make common hash (it's not in the list anyway then)
+								break;
+							}
+							vpp1_ch.Do(wc_i1).Put(1);
+						}
+						if (hash_fail)
+							break;
+						hash_t vpp1_h = vpp1_ch;
+						
+						// Use hash to find the index
+						int vpp_i1 = da1.virtual_phrase_parts.Find(vpp1_h);
+						if (vpp_i1 < 0) {
+							hash_fail = true;
+							break;
+						}
+						
+						// Collect VirtualPhrasePart indices to the hash
+						vps1_ch.Do(vpp_i1).Put(1);
+					}
+					if (hash_fail)
+						continue;
+					hash_t vps1_h = vps1_ch;
+					
+					// Then find it in other
+					int k = da1.virtual_phrase_structs.Find(vps1_h);
+					if (k < 0)
+						continue;
+					
+					// ...if the other has type
+					const VirtualPhraseStruct& vps1 = da1.virtual_phrase_structs[k];
+					if (vps1.struct_type < 0)
+						continue;
+					
+					// Copy type to avoid useless AI usage
+					const String& struct_type = da1.struct_types[vps1.struct_type];
+					vps0.struct_type = da0.struct_types.FindAdd(struct_type);
+				}
+			}
+		}
+	}
+	
+	LOG("TaskManager::GetVirtualPhrasesUsingExisting #" << t->fn << ": copying values took " << ts.ToString());
+	LOG("");
 }
 
 void TaskManager::GetPhrases(Task* t) {
@@ -1801,6 +1934,52 @@ void TaskManager::GetWordData(Task* t) {
 		GetLineChangeScores(t);
 	else
 		RemoveTask(*t);
+}
+
+void TaskManager::GetWordDataUsingExisting(Task* t) {
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	t->actual = 0;
+	t->total = 0;
+	
+	if (t->fn == 4) {
+		/*
+		Following code is incorrect. Don't use!
+		
+		
+		TextDatabase& db0 = GetDatabase();
+		SourceData& sd0 = db0.src_data;
+		SourceDataAnalysis& sda0 = db0.src_data.a;
+		DatasetAnalysis& da0 = sda0.datasets[t->ds_i];
+		
+		for(int i = 0; i < DB_COUNT; i++) {
+			if (i == appmode) continue;
+			TextDatabase& db1 = MetaDatabase::Single().db[i];
+			SourceData& sd1 = db1.src_data;
+			SourceDataAnalysis& sda1 = db1.src_data.a;
+			if (t->ds_i >= sda1.datasets.GetCount()) continue;
+			DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+			
+			for(int j = 0; j < da0.action_phrases.GetCount(); j++) {
+				// If virtual phrase part has no known type
+				ExportDepActionPhrase& ap0 = da0.action_phrases[j];
+				if (ap0.next_scores.IsEmpty()) {
+					
+					int k = da1.action_phrases.Find(key);
+					if (k < 0)
+						continue;
+					
+					const ExportDepActionPhrase& ap1 = da1.action_phrases[k];
+					ap0.next_scores <<= ap1.next_scores;
+				}
+			}
+		}*/
+	}
+	
+	RemoveTask(*t);
 }
 
 void TaskManager::GetWordnet(Task* t) {

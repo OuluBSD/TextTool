@@ -294,17 +294,6 @@ void TaskManager::OnVirtualPhraseTypes(String res, Task* t) {
 		}
 		if (fail)
 			continue;
-		/*hash_t h = ch;
-		
-		int vps_i = da.virtual_phrase_structs.Find(h);
-		if (vps_i < 0)
-			continue;
-		VirtualPhraseStruct& vps = da.virtual_phrase_structs[vps_i];*/
-		/*int vps_i = -1;
-		VirtualPhraseStruct& vps = da.virtual_phrase_structs.GetAdd(h, vps_i);
-		if (vps.parts.IsEmpty())
-			vps.parts <<= sp_is;*/
-		vps.count++;
 		
 		String struct_type = TrimBoth(line.Mid(a+1));
 		
