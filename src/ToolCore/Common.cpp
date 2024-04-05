@@ -1072,7 +1072,7 @@ hash_t HexHash(const String& s) {
 		byte b[sizeof(hash_t)];
 	};
 	int sep = min(count*2, s.GetCount());
-	ASSERT(sep % 2 == 0);
+	ASSERT(sep % 2 == 0 || sep < 2);
 	sep -= sep % 2;
 	
 	out = 0;

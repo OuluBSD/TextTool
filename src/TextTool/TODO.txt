@@ -21,8 +21,16 @@ v0.0.1
 - 5 DB support: song, twitter, blog, dialog, storyboard
 - show TextLib tasks in Tasks page
 - fix editor's user experience
+	- lyrics: editor list focus is unintuitive
+	- lyrics: add content vision text field translate button
+	- lyrics: default copyright holder fill
+	- lyrics: sort the parts in correct order (and add name of song)
 - calendar / operations overview
 - frontpage
+- remove en/fi language chain in artist/release/song structures
+	- rename files too
+- tool to find out preferred typecasts and contents for a new person
+- tool to get typecast/content from known artist's lyrics
 
 
 

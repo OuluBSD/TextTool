@@ -418,6 +418,44 @@ void TextDataLoader::LoadHuggingBlogs() {
 					txt.Replace("\nurlLink", "\nurlLink\n");
 					txt.Replace("urlLink", "(urlLink)");
 					
+					HotfixReplaceWord(txt);
+					
+					txt.Replace("Mrs.", "Mrs");
+					txt.Replace("Mr.", "Mr");
+					txt.Replace("Ms.", "Ms");
+					txt.Replace("mrs.", "mrs");
+					txt.Replace("mr.", "mr");
+					txt.Replace("ms.", "ms");
+					txt.Replace("etc.", "etc");
+					
+					txt.Replace(",\"", "\"\n");
+					txt.Replace("...\"", "\"\n");
+					txt.Replace(".\"", "\"\n");
+					txt.Replace(".\'", "\'\n");
+					txt.Replace(".)", ")\n");
+					txt.Replace("(", "\n");
+					txt.Replace(")", "\n");
+					
+					for(int i = 1; i <= 20; i++) {
+						String s = IntStr(i) + ".";
+						txt.Replace(s, "\n" + IntStr(i) + s);
+					}
+					
+					// Split txt to parts
+					txt.Replace("...", "\n");
+					txt.Replace(".", "\n");
+					txt.Replace(",", "\n");
+					txt.Replace("!", "\n");
+					txt.Replace("?", "\n");
+					txt.Replace(":", "\n");
+					
+					txt.Replace("\n\" ", "\n\"");
+					txt.Replace("\n\"\n", "\"\n");
+					
+					for(int i = 0; i < 3; i++)
+						txt.Replace("\n\n", "\n");
+					
+					
 					// Trim lines
 					lines = Split(txt, "\n");
 					for (String& l : lines) l = TrimBoth(l);
