@@ -19,6 +19,8 @@ file
 	DbSong.cpp,
 	DbTwitter.cpp,
 	DbBlog.cpp,
+	DbDialog.cpp,
+	DbStoryboard.cpp,
 	Color.cpp,
 	ProductionIdeas.cpp,
 	ColorFn.cpp,

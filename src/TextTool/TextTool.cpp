@@ -4,6 +4,12 @@
 GUI_APP_MAIN {
 	using namespace TextLib;
 	
+	#ifdef flagDEBUG
+	TestDbVars();
+	
+	#endif
+	
+	
 	Index<int> appmodes;
 	for (const String& s : CommandLine()) {
 		if (s == "-song")			{appmodes << DB_SONG;}

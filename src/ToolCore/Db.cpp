@@ -332,4 +332,15 @@ const Vector<String>& GetAppModeResultPhraseExamples(int appmode) {
 
 
 
+void TestDbVars() {
+
+	for(int i = 0; i < 4; i++) {
+		GetTypecastArtists(i & 1, i & 2);
+		GetPersonaNiches(i & 1, i & 2);
+		GetRoleCompanies(i & 1, i & 2);
+		GetCharacterTropes(i & 1, i & 2);
+		GetStyleApproaches(i & 1, i & 2);
+	}
+}
+
 END_TEXTLIB_NAMESPACE

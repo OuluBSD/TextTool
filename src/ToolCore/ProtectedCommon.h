@@ -49,6 +49,33 @@ VectorMap<String,Vector<String>>& GetPersonaUnsafe(bool gender);
 VectorMap<String,Vector<String>>& GetPersonaNiches(bool unsafe, bool gender);
 
 
+const Index<String>& GetCharacters();
+const Vector<ContentType>& GetTropes();
+int GetTropeCount();
+VectorMap<String,Vector<String>>& GetCharacterSafeMale();
+VectorMap<String,Vector<String>>& GetCharacterSafeFemale();
+VectorMap<String,Vector<String>>& GetCharacterUnsafeMale();
+VectorMap<String,Vector<String>>& GetCharacterUnsafeFemale();
+VectorMap<String,Vector<String>>& GetCharacterSafe(bool gender);
+VectorMap<String,Vector<String>>& GetCharacterUnsafe(bool gender);
+VectorMap<String,Vector<String>>& GetCharacterTropes(bool unsafe, bool gender);
+
+
+
+const Index<String>& GetStyles();
+const Vector<ContentType>& GetApproaches();
+int GetApproachCount();
+
+VectorMap<String,Vector<String>>& GetStyleSafeMale();
+VectorMap<String,Vector<String>>& GetStyleSafeFemale();
+VectorMap<String,Vector<String>>& GetStyleUnsafeMale();
+VectorMap<String,Vector<String>>& GetStyleUnsafeFemale();
+VectorMap<String,Vector<String>>& GetStyleSafe(bool gender);
+VectorMap<String,Vector<String>>& GetStyleUnsafe(bool gender);
+VectorMap<String,Vector<String>>& GetStyleApproaches(bool unsafe, bool gender);
+
+
+
 END_TEXTLIB_NAMESPACE
 
 

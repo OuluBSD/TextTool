@@ -951,6 +951,12 @@ const Vector<String>& GetAppModeResultPhraseExamples(int appmode);
 void MakeAppMode_UnsafeServers(int appmode, String& title, Vector<String>& list);
 //Vector<String> MakeAppMode_LinesOfScript(int appmode);
 
+
+
+void TestDbVars();
+
+
+
 END_TEXTLIB_NAMESPACE
 
 
