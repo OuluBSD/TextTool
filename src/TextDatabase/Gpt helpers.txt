@@ -53,6 +53,17 @@ For adding appmodes and finding good terms, use some completion AI:
 	Like song lyrics have "archetype" or stereotypical contents, "flirtatious conversations" often have "common themes" or "recurring topics" such as attraction and seduction.
 	Like rap-songs are unsafe compared to normal safe songs, unsafe "pickup lines" or flirtatious behaviors can be referred to as "risqué tactics" or "provocative advances."
 
+	A person, who shows a storyboard of a upcoming movie is called "storyboard artist" or "director." 
+	A storyboard is referred to as a "visual narrative" or "illustrated sequence." 
+	Multiple related storyboards can be called a "storyboard reel" or "visual planning." 
+	Like actors and artists have typecasts, "storyboard artists" and "directors" may have a specific visual style or storytelling approach. 
+	Like songs have lyrics, a "storyboard" has "visual cues" or "scene descriptions." 
+	English idioms can also be used in storyboards to add depth and creativity to the visuals. 
+	Controversial storyboards could be referred to as "provocative concepts" or "contentious visuals." 
+	Like song lyrics have "archetype" or stereotypical contents, "storyboards" often have "common themes" or "recurring plot points" that are seen in movies. 
+	Like rap-songs are unsafe compared to normal safe songs, unsafe "storyboard sketches" can be referred to as "risqué scenes" or "provocative depictions."
+	Like music genres have pop/rock/edm, storyboards have different genres such as action/adventure/romance, and each genre has its own visual styles and techniques.
+	Like songs have chorus/verse/bridge/prechorus, storyboards have key frames/action sequences/cinematic shots/dialogue scenes.
 
 
 switch (appmode) {

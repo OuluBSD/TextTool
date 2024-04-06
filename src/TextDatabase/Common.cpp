@@ -54,7 +54,16 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		0
 	},
 	
-	
+	// DB_STORYBOARD
+	{
+		"director",			"reel"	,		"sequence",		"sequence",
+		"style",			"approach",		"captions",		"captions",
+		"storyboard_db",	"provocative",	"viewer",
+		"story's viewers",
+		"action/adventure/romance",
+		"key frames", "action sequences", "cinematic shots", "dialogue scenes",
+		0
+	},
 	
 	
 	
@@ -106,14 +115,31 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 };
 
 const char* AppModeKeysN[DB_COUNT][AM_COUNT+1] = {
-	{"artists","releases","songs","songs","typecasts","archetypes","lyrics","lyrics",0,0,0},
-	{"companies","campaigns","programs","tweet threads","roles","generics","stories","tweets",0,0,0},
-	{"bloggers","series","posts","posts","personas","niches","contents","contents",0,0,0},
-	{"","","","","","",0,0,0},
-	{"","","","","","",0,0,0},
+	{
+		"artists","releases","songs",
+		"songs","typecasts","archetypes",
+		"lyrics","lyrics",0,0,0},
+	{
+		"companies","campaigns","programs",
+		"tweet threads","roles","generics",
+		"stories","tweets",0,0,0},
+	{
+		"bloggers","series","posts",
+		"posts","personas","niches",
+		"contents","contents",0,0,0},
+	{
+		"presenters","scriptbooks","conversations",
+		"conversations","characters","tropes",
+		"lines","lines",0,0,0},
+	{
+		"directors","reels","sequences",
+		"storyboard sketches","styles","approaches",
+		"captions","captions",0,0,0},
 };
 
 const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
+	
+	// DB_SONG
 	{
 		"Singing style:",
 		"Acoustic instruments",
@@ -139,6 +165,8 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"rhyme pairs/triplets/quads/etc.",
 		"poetic parts of rhyming text lines",
 	},
+	
+	// DB_TWITTER
 	{
 		"Talking style:",
 		"Real-world props and objects",
@@ -164,6 +192,8 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"tweets with same context",
 		"coherent parts of contextually same lines",
 	},
+	
+	// DB_BLOG
 	{
 		"Writing style:",
 		"Real-world props and objects",
@@ -188,6 +218,60 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"is relying on beliefs and own research",
 		"posts with same context",
 		"coherent parts of contextually same lines",
+	},
+	
+	// DB_DIALOG
+	{
+		"Talking style:",
+		"Real-world props and objects",
+		"Digital props and objects",
+		"Speaker",
+		"Vibe of talking",
+		"Series",
+		"Speaker (if different):",
+		"Reference post:",
+		"Origins of the post:",
+		"Active conversation structure",
+		"Speed",
+		"Safe",
+		"Unsafe",
+		
+		"natural_features",
+		"electronic_features",
+		"person_visual",
+		"vibe_of_talking",
+		"talking_style",
+		
+		"is relying on talking over others",
+		"dialogue lines with same context",
+		"coherent parts of contextually same dialogue lines",
+	},
+	
+	// DB_STORYBOARD
+	{
+		"Imagination style:",
+		"Real-world props and objects",
+		"Digital props and objects",
+		"Drawer",
+		"Vibe of drawing",
+		"Series",
+		"Drawer (if different):",
+		"Reference sequence:",
+		"Origins of the sequence:",
+		"Active sequence structure",
+		"Speed",
+		"Safe",
+		"Unsafe",
+		
+		"natural_features",
+		"electronic_features",
+		"person_visual",
+		"vibe_of_imagination",
+		"imagination_style",
+		
+		"is relying on strong emotional reactions",
+		"storyboard images with same context",
+		"coherent parts of contextually same storyboard images",
 	},
 };
 
