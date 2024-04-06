@@ -60,14 +60,14 @@ PhrasePartAnalysis::PhrasePartAnalysis() {
 	action_args.ColumnWidths("3 1");
 	action_args.WhenCursor << THISBACK(DataActionHeader);
 
+	parts.AddColumn(t_("Phrase"));
 	parts.AddColumn(t_("Actions"));
 	parts.AddColumn(t_("Group"));
 	parts.AddColumn(t_("Value"));
-	parts.AddColumn(t_("Phrase"));
 	parts.AddColumn(t_("Scores")).SetDisplay(Single<ScoreDisplay>());
 	parts.AddColumn(t_("Score-sum"));
 	parts.AddIndex("IDX");
-	parts.ColumnWidths("16 6 6 8 3 1");
+	parts.ColumnWidths("8 16 6 6 3 1");
 	parts.WhenBar << [this](Bar& bar){
 		bar.Add("Copy", [this]() {
 			int i = parts.GetCursor();
@@ -264,25 +264,36 @@ void PhrasePartAnalysis::DataActionHeader() {
 	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
 		PhrasePart& pp = da.phrase_parts[i];
 
-		parts.Set(row, 0, da.GetActionString(pp.actions));
+		parts.Set(row, "IDX", i);
 
-		String group, value;
+		String phrase = da.GetWordString(pp.words);
+		parts.Set(row, 0,
+			AttrText(phrase)
+				.NormalPaper(Blend(pp.clr, White(), 128+64)).NormalInk(Black())
+				.Paper(Blend(pp.clr, GrayColor())).Ink(White())
+			);
+
+		parts.Set(row, 1, da.GetActionString(pp.actions));
+
+
+		// Filter by attribute
+		if (attr_filter) {
+			if (pp.attr >= 0) {
+				if (match_attr != pp.attr)
+					continue;
+			}
+		}
 		if (pp.attr >= 0) {
-			// Filter by attribute
-			if (attr_filter && match_attr != pp.attr)
-				continue;
-
 			const AttrHeader& ah = da.attrs.GetKey(pp.attr);
-			parts.Set(row, 1, ah.group);
-			parts.Set(row, 2, ah.value);
+			parts.Set(row, 2, ah.group);
+			parts.Set(row, 3, ah.value);
 		}
 		else {
-			if (attr_filter)
-				continue;
-			parts.Set(row, 1, Value());
 			parts.Set(row, 2, Value());
+			parts.Set(row, 3, Value());
 		}
-
+		
+		
 		// Filter by color group
 		if (clr_filter && GetColorGroup(pp.clr) != clr_i)
 			continue;
@@ -303,15 +314,6 @@ void PhrasePartAnalysis::DataActionHeader() {
 			if (!found)
 				continue;
 		}
-
-		parts.Set(row, "IDX", i);
-
-		String phrase = da.GetWordString(pp.words);
-		parts.Set(row, 3,
-			AttrText(phrase)
-				.NormalPaper(Blend(pp.clr, White(), 128+64)).NormalInk(Black())
-				.Paper(Blend(pp.clr, GrayColor())).Ink(White())
-			);
 
 		ValueArray va;
 		int sum = 0;

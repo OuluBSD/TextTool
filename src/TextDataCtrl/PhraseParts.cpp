@@ -120,21 +120,23 @@ void PhraseParts::DataDataset() {
 void PhraseParts::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
-	//bar.Add(t_("Get line change scores using existing"), AppImg::VioletRing(), THISBACK(ProcessUsingExisting)).Key(K_F5);
-	bar.Add(t_("Get line change scores"), AppImg::RedRing(), THISBACK(Process)).Key(K_F6);
+	bar.Add(t_("Get all line actions"), AppImg::RedRing(), THISBACK1(DoWords, 3)).Key(K_F5);
+	bar.Separator();
+	// Won't ever work--> bar.Add(t_("Get line change scores using existing"), AppImg::VioletRing(), THISBACK(DoWordsUsingExisting)).Key(K_F6);
+	bar.Add(t_("Get line change scores"), AppImg::RedRing(), THISBACK1(DoWords, 4)).Key(K_F6);
 	
 }
 
-void PhraseParts::ProcessUsingExisting() {
+void PhraseParts::DoWordsUsingExisting(int fn) {
 	int ds_i = datasets.GetCursor();
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoWordsUsingExisting(ds_i, 4);
+	tm.DoWordsUsingExisting(ds_i, fn);
 }
 
-void PhraseParts::Process() {
+void PhraseParts::DoWords(int fn) {
 	int ds_i = datasets.GetCursor();
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoWords(ds_i, 4);
+	tm.DoWords(ds_i, fn);
 }
 
 

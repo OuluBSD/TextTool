@@ -108,6 +108,7 @@ class TaskManager {
 	void OnTokenData(String result, Task* t);
 	
 	void GetAttributes(Task* t);
+	void GetAttributesUsingExisting(Task* t);
 	void OnAttributes(String result, Task* t);
 	void OnAttributePolars(String result, Task* t);
 	void OnAttributeJoins(String result, Task* t);
@@ -117,6 +118,7 @@ class TaskManager {
 	void GetWordFix(Task* t);
 	
 	void GetActionlist(Task* t);
+	void GetActionlistUsingExisting(Task* t);
 	void OnActionlistColors(String result, Task* t);
 	void OnActionlistAttrs(String result, Task* t);
 	
@@ -177,6 +179,8 @@ class TaskManager {
 	int GetTypeclassCount();
 	int GetContentCount();
 	
+	void RealizeBatch_AttrExtremesBatch(Task* t);
+	
 public:
 	typedef TaskManager CLASSNAME;
 	TaskManager();
@@ -204,6 +208,7 @@ public:
 	
 	void DoActionlistCache(int ds_i);
 	void DoActionlist(int ds_i, int fn);
+	void DoActionlistUsingExisting(int ds_i, int fn);
 	
 	void DoActionParallel(int ds_i, int fn);
 	void DoActionTransition(int ds_i, int fn);

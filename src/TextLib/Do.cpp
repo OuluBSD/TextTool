@@ -224,6 +224,36 @@ void TaskManager::DoActionlist(int ds_i, int fn) {
 	lock.LeaveWrite();
 }
 
+void TaskManager::DoActionlistUsingExisting(int ds_i, int fn) {
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	if (uniq_acts.IsEmpty()) {
+		for (const ActionHeader& ah : da.actions.GetKeys()) {
+			uniq_acts.GetAdd(ah.action).GetAdd(ah.arg, 0)++;
+		}
+		struct Sorter {
+			bool operator()(const VectorMap<String, int>& a, const VectorMap<String, int>& b) const {
+				return a.GetCount() > b.GetCount();
+			}
+		};
+		SortByValue(uniq_acts, Sorter());
+		for (auto& v : uniq_acts.GetValues())
+			SortByValue(v, StdGreater<int>());
+	}
+	
+	lock.EnterWrite();
+	Task& t = task_list.Add();
+	t.type = TASK_ACTIONLIST;
+	t.cb = THISBACK1(GetActionlistUsingExisting, &t);
+	t.ds_i = ds_i;
+	t.batch_i = 0;
+	t.fn = fn;
+	lock.LeaveWrite();
+}
+
 void TaskManager::DoActionParallel(int ds_i, int fn) {
 	//if (IsInTaskList(TASK_ACTION_PARALLELS))
 	//	return;

@@ -42,8 +42,11 @@ void ActionAttrsPage::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
 	bar.Separator();
 	//bar.Add(t_("Update from cache"), AppImg::RedRing(), THISBACK(UpdateFromCache)).Key(K_F5);
-	bar.Add(t_("Update action colors"), AppImg::RedRing(), THISBACK(UpdateColors)).Key(K_F6);
-	bar.Add(t_("Update action attributes"), AppImg::RedRing(), THISBACK(UpdateAttributes)).Key(K_F7);
+	bar.Add(t_("Update action colors using existing"), AppImg::VioletRing(), THISBACK1(DoActionlistUsingExisting, 0)).Key(K_F5);
+	bar.Add(t_("Update action colors"), AppImg::RedRing(), THISBACK1(DoActionlist, 0)).Key(K_F6);
+	bar.Separator();
+	bar.Add(t_("Update action attributes using existing"), AppImg::VioletRing(), THISBACK1(DoActionlistUsingExisting, 1)).Key(K_F7);
+	bar.Add(t_("Update action attributes"), AppImg::RedRing(), THISBACK1(DoActionlist, 1)).Key(K_F8);
 	
 }
 
@@ -180,14 +183,14 @@ void ActionAttrsPage::UpdateFromCache() {
 	tm.DoActionlistCache(0);
 }
 
-void ActionAttrsPage::UpdateColors() {
+void ActionAttrsPage::DoActionlist(int fn) {
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoActionlist(0, 0);
+	tm.DoActionlist(0, fn);
 }
 
-void ActionAttrsPage::UpdateAttributes() {
+void ActionAttrsPage::DoActionlistUsingExisting(int fn) {
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoActionlist(0, 1);
+	tm.DoActionlistUsingExisting(0, fn);
 }
 
 

@@ -38,8 +38,10 @@ Order:
 - virtual phrase structs, process (F5) "token text to phrase"
 	- requires "token texts to virtual phrases"
 
-- phrase parts, process using existing (F5)
-- phrase parts, process (F6) Diag: "Get line change scores"
+- phrase parts, get line actions (F5)
+	- (unnecessary?) required by transitions, parallels
+- phrase parts, process using existing (F6)
+- phrase parts, process (F7) Diag: "Get line change scores"
 
 - phrase part analysis (F5) "phrase part color"
 - phrase part analysis (F6) "phrase part attr"
@@ -50,6 +52,9 @@ Order:
 - Rhyme Container (F5) "rhyme container:"
 - Rhyme Container (F6) "rhyme container nana:"
 	(unnecessary?)
+
+
+// Optional
 - Action attributes (F5) "actionlist colors:"
 	- attrs are required to see anything in the list
 - Action attributes (F6) "actionlist attrs:"

@@ -873,8 +873,8 @@ void TaskManager::OnActionlistAttrs(String result, Task* t) {
 		b = full_action.ReverseFind(")");
 		ah.arg = full_action.Mid(a,b-a);
 		
-		ExportAction& aa = da.actions.GetAdd(ah);
-		da.attrs.GetAdd(ath, aa.attr);
+		ExportAction& ea = da.actions.GetAdd(ah);
+		da.attrs.GetAdd(ath, ea.attr);
 	}
 	
 	int a = 0;

@@ -1192,6 +1192,73 @@ void TaskManager::GetActionlist(Task* t) {
 		m.GetActionAnalysis(appmode, args, THISBACK1(OnActionlistAttrs, t));
 }
 
+void TaskManager::GetActionlistUsingExisting(Task* t) {
+	TextDatabase& db0 = GetDatabase();
+	SourceData& sd0 = db0.src_data;
+	SourceDataAnalysis& sda0 = db0.src_data.a;
+	DatasetAnalysis& da0 = sda0.datasets[t->ds_i];
+	
+	t->actual = 0;
+	t->total = 0;
+	
+	Color black(0,0,0);
+	
+	if (t->fn == 0) {
+		for(int i = 0; i < DB_COUNT; i++) {
+			if (i == appmode) continue;
+			TextDatabase& db1 = MetaDatabase::Single().db[i];
+			SourceData& sd1 = db1.src_data;
+			SourceDataAnalysis& sda1 = db1.src_data.a;
+			if (t->ds_i >= sda1.datasets.GetCount()) continue;
+			DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+			
+			for(int j = 0; j < da0.actions.GetCount(); j++) {
+				const ActionHeader& ah0 = da0.actions.GetKey(j);
+				ExportAction& ea0 = da0.actions[j];
+				
+				if (ea0.clr == black) {
+					int k = da1.actions.Find(ah0);
+					if (k < 0)
+						continue;
+					
+					const ExportAction& ea1 = da1.actions[k];
+					if (ea1.clr != black)
+						ea0.clr = ea1.clr;
+				}
+			}
+		}
+	}
+	else if (t->fn == 1) {
+		for(int i = 0; i < DB_COUNT; i++) {
+			if (i == appmode) continue;
+			TextDatabase& db1 = MetaDatabase::Single().db[i];
+			SourceData& sd1 = db1.src_data;
+			SourceDataAnalysis& sda1 = db1.src_data.a;
+			if (t->ds_i >= sda1.datasets.GetCount()) continue;
+			DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+			
+			for(int j = 0; j < da0.actions.GetCount(); j++) {
+				const ActionHeader& ah0 = da0.actions.GetKey(j);
+				ExportAction& ea0 = da0.actions[j];
+				
+				if (ea0.attr < 0) {
+					int k = da1.actions.Find(ah0);
+					if (k < 0)
+						continue;
+					
+					const ExportAction& ea1 = da1.actions[k];
+					if (ea1.attr < 0)
+						continue;
+					
+					const AttrHeader& ath1 = da1.attrs.GetKey(ea1.attr);
+					ExportAttr& eat0 = da0.attrs.GetAdd(ath1, ea0.attr);
+				}
+			}
+		}
+	}
+	
+}
+
 void TaskManager::GetActionParallels(Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
@@ -1937,46 +2004,14 @@ void TaskManager::GetWordData(Task* t) {
 }
 
 void TaskManager::GetWordDataUsingExisting(Task* t) {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
-	
-	t->actual = 0;
-	t->total = 0;
 	
 	if (t->fn == 4) {
 		/*
-		Following code is incorrect. Don't use!
 		
+		This function is highly unlikely to be using existing data!
+		--> won't implement
 		
-		TextDatabase& db0 = GetDatabase();
-		SourceData& sd0 = db0.src_data;
-		SourceDataAnalysis& sda0 = db0.src_data.a;
-		DatasetAnalysis& da0 = sda0.datasets[t->ds_i];
-		
-		for(int i = 0; i < DB_COUNT; i++) {
-			if (i == appmode) continue;
-			TextDatabase& db1 = MetaDatabase::Single().db[i];
-			SourceData& sd1 = db1.src_data;
-			SourceDataAnalysis& sda1 = db1.src_data.a;
-			if (t->ds_i >= sda1.datasets.GetCount()) continue;
-			DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
-			
-			for(int j = 0; j < da0.action_phrases.GetCount(); j++) {
-				// If virtual phrase part has no known type
-				ExportDepActionPhrase& ap0 = da0.action_phrases[j];
-				if (ap0.next_scores.IsEmpty()) {
-					
-					int k = da1.action_phrases.Find(key);
-					if (k < 0)
-						continue;
-					
-					const ExportDepActionPhrase& ap1 = da1.action_phrases[k];
-					ap0.next_scores <<= ap1.next_scores;
-				}
-			}
-		}*/
+		*/
 	}
 	
 	RemoveTask(*t);
@@ -2124,47 +2159,57 @@ void TaskManager::MakeWordnetsFromTemplates(Task* t) {
 	#endif
 }
 
+void TaskManager::RealizeBatch_AttrExtremesBatch(Task* t) {
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	
+	/*if (t->uniq_attrs.IsEmpty())*/ {
+		t->uniq_attrs.Clear();
+		for(int i = 0; i < da.attrs.GetCount(); i++) {
+			const AttrHeader& ah = da.attrs.GetKey(i);
+			t->uniq_attrs.GetAdd(ah.group).FindAdd(ah.value);
+		}
+		
+		struct Sorter {
+			bool operator()(const Index<String>& a, const Index<String>& b) const {
+				if (a.GetCount() != b.GetCount())
+					return a.GetCount() > b.GetCount();
+				if (a.GetCount() && b.GetCount())
+					return StdLess<String>()(a[0], b[0]);
+				return false;
+			}
+		};
+		SortByValue(t->uniq_attrs, Sorter());
+	}
+	
+	Vector<Task::AttrExtremesBatch>& batches = t->attr_extremes_batches;
+	
+	if (batches.IsEmpty()) {
+		for(int i = 0; i < t->uniq_attrs.GetCount(); i++) {
+			String group = t->uniq_attrs.GetKey(i);
+			int j = da.simple_attrs.Find(group);
+			if (j >= 0) {
+				const ExportSimpleAttr& esa = da.simple_attrs[j];
+				if (esa.attr_i0 >= 0 && esa.attr_i1 >= 0)
+					continue;
+			}
+			Task::AttrExtremesBatch& b = batches.Add();
+			b.group = group;
+		}
+	}
+}
+
 void TaskManager::GetAttributes(Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[t->ds_i];
 	
-	// TODO optimize: this is being done every time
-	VectorMap<String,Index<String>> uniq_attrs;
-	uniq_attrs.Clear();
-	for(int i = 0; i < da.attrs.GetCount(); i++) {
-		const AttrHeader& ah = da.attrs.GetKey(i);
-		uniq_attrs.GetAdd(ah.group).FindAdd(ah.value);
-	}
-	
-	struct Sorter {
-		bool operator()(const Index<String>& a, const Index<String>& b) const {
-			if (a.GetCount() != b.GetCount())
-				return a.GetCount() > b.GetCount();
-			if (a.GetCount() && b.GetCount())
-				return StdLess<String>()(a[0], b[0]);
-			return false;
-		}
-	};
-	SortByValue(uniq_attrs, Sorter());
-	
 	if (t->fn == 0) {
+		RealizeBatch_AttrExtremesBatch(t);
 		Vector<Task::AttrExtremesBatch>& batches = t->attr_extremes_batches;
-		
-		if (batches.IsEmpty()) {
-			for(int i = 0; i < uniq_attrs.GetCount(); i++) {
-				String group = uniq_attrs.GetKey(i);
-				int j = da.simple_attrs.Find(group);
-				if (j >= 0) {
-					const ExportSimpleAttr& esa = da.simple_attrs[j];
-					if (esa.attr_i0 >= 0 && esa.attr_i1 >= 0)
-						continue;
-				}
-				Task::AttrExtremesBatch& b = batches.Add();
-				b.group = group;
-			}
-		}
 		
 		if (t->batch_i >= batches.GetCount()) {
 			RemoveTask(*t);
@@ -2172,15 +2217,7 @@ void TaskManager::GetAttributes(Task* t) {
 		}
 		Task::AttrExtremesBatch& batch = batches[t->batch_i];
 		
-		if (0) {
-			while (1) {
-				const Index<String>& values = uniq_attrs[t->batch_i];
-				if (values.GetCount() > 2) t->batch_i++;
-				else break;
-			}
-		}
-		
-		const Index<String>& values = uniq_attrs.Get(batch.group);
+		const Index<String>& values = t->uniq_attrs.Get(batch.group);
 		if (values.GetCount() < 2) {
 			RemoveTask(*t);
 			return;
@@ -2210,13 +2247,13 @@ void TaskManager::GetAttributes(Task* t) {
 		Vector<Task::AttrPolarBatch>& batches = t->attr_polar_batches;
 		
 		if (batches.IsEmpty()) {
-			for(int i = 0; i < uniq_attrs.GetCount(); i++) {
-				String group = uniq_attrs.GetKey(i);
+			for(int i = 0; i < t->uniq_attrs.GetCount(); i++) {
+				String group = t->uniq_attrs.GetKey(i);
 				int j = da.simple_attrs.Find(group);
 				if (j < 0) continue;
 				const auto& gsa = da.simple_attrs[j];
 				
-				const Index<String>& v = uniq_attrs[i];
+				const Index<String>& v = t->uniq_attrs[i];
 				Task::AttrPolarBatch& b = batches.Add();
 				b.attr0 = da.attrs.GetKey(gsa.attr_i0).value;
 				b.attr1 = da.attrs.GetKey(gsa.attr_i1).value;
@@ -2274,9 +2311,9 @@ void TaskManager::GetAttributes(Task* t) {
 		Vector<Task::AttrJoinBatch>& batches = t->attr_join_batches;
 		
 		if (batches.IsEmpty()) {
-			for(int i = 0; i < uniq_attrs.GetCount(); i++) {
-				String group = uniq_attrs.GetKey(i);
-				const Index<String>& v = uniq_attrs[i];
+			for(int i = 0; i < t->uniq_attrs.GetCount(); i++) {
+				String group = t->uniq_attrs.GetKey(i);
+				const Index<String>& v = t->uniq_attrs[i];
 				if (v.GetCount() > 1) continue;
 				if (v.IsEmpty()) break;
 				if (batches.IsEmpty() || batches.Top().values.GetCount() >= per_batch) {
@@ -2309,10 +2346,10 @@ void TaskManager::GetAttributes(Task* t) {
 		args.fn = t->fn;
 		//args.groups <<= batch.groups;
 		args.values <<= batch.values;
-		int count = min(20, uniq_attrs.GetCount());
+		int count = min(20, t->uniq_attrs.GetCount());
 		t->tmp_words2.Clear();
 		for(int i = 0; i < count; i++) {
-			String group = uniq_attrs.GetKey(i);
+			String group = t->uniq_attrs.GetKey(i);
 			if (!group.IsEmpty()) {
 				const ExportSimpleAttr& ea = da.simple_attrs.GetAdd(group);
 				String a0 = da.attrs.GetKey(ea.attr_i0).value;
@@ -2334,10 +2371,10 @@ void TaskManager::GetAttributes(Task* t) {
 			da.attrs[i].simple_attr = -1;
 		}
 		// Fix: add simple_attr index value to ExportAttr
-		for(int i = 0; i < uniq_attrs.GetCount(); i++) {
+		for(int i = 0; i < t->uniq_attrs.GetCount(); i++) {
 			AttrHeader ah;
-			ah.group = uniq_attrs.GetKey(i);
-			const auto& values = uniq_attrs[i];
+			ah.group = t->uniq_attrs.GetKey(i);
+			const auto& values = t->uniq_attrs[i];
 			int sa_i = da.simple_attrs.Find(ah.group);
 			if (sa_i < 0)
 				continue;
@@ -2349,6 +2386,55 @@ void TaskManager::GetAttributes(Task* t) {
 				ea.simple_attr = sa_i;
 			}
 		}
+	}
+}
+
+void TaskManager::GetAttributesUsingExisting(Task* t) {
+	TextDatabase& db0 = GetDatabase();
+	SourceData& sd0 = db0.src_data;
+	SourceDataAnalysis& sda0 = db0.src_data.a;
+	DatasetAnalysis& da0 = sda0.datasets[t->ds_i];
+	
+	t->actual = 0;
+	t->total = 0;
+	
+	Color black(0,0,0);
+	
+	if (t->fn == 0) {
+		RealizeBatch_AttrExtremesBatch(t);
+		
+		
+		// DOESN'T WORK: ACTION LISTS ARE DIFFERENT IN OTHER DBs
+		/*for(int i = 0; i < DB_COUNT; i++) {
+			if (i == appmode) continue;
+			TextDatabase& db1 = MetaDatabase::Single().db[i];
+			SourceData& sd1 = db1.src_data;
+			SourceDataAnalysis& sda1 = db1.src_data.a;
+			if (t->ds_i >= sda1.datasets.GetCount()) continue;
+			DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+			
+			for(int j = 0; j < t->uniq_attrs.GetCount(); j++) {
+				const String& group = t->uniq_attrs.GetKey(j);
+				const Index<String>& values = t->uniq_attrs[j];
+				
+				ExportSimpleAttr& sat = da0.simple_attrs.GetAdd(group);
+				
+			}
+			for(int j = 0; j < da0.actions.GetCount(); j++) {
+				const ActionHeader& ah0 = da0.actions.GetKey(j);
+				ExportAction& ea0 = da0.actions[j];
+				
+				if (ea0.clr == black) {
+					int k = da1.actions.Find(ah0);
+					if (k < 0)
+						continue;
+					
+					const ExportAction& ea1 = da1.actions[k];
+					if (ea1.clr != black)
+						ea0.clr = ea1.clr;
+				}
+			}
+		}*/
 	}
 }
 

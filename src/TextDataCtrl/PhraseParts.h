@@ -16,8 +16,8 @@ public:
 	void Data() override;
 	void DataDataset();
 	void ToolMenu(Bar& bar) override;
-	void Process();
-	void ProcessUsingExisting();
+	void DoWords(int fn);
+	void DoWordsUsingExisting(int fn);
 	
 };
 

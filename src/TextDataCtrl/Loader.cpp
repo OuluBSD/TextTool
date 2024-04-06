@@ -31,6 +31,12 @@ void TextDataLoader::Process() {
 		LoadHuggingBlogs();
 	}
 	
+	else if (appmode == DB_STORYBOARD) {
+		// https://cs.stanford.edu/people/ranjaykrishna/densevid/captions.zip
+		// https://antoyang.github.io/vidchapters.html
+		//LoadHuggingBlogs();
+	}
+	
 	//db.src_data.Store();
 	PostCallback(THISBACK(Stop));
 }
@@ -325,7 +331,8 @@ void TextDataLoader::LoadHuggingBlogs() {
 	dir = GetHomeDirFile("datasets/blogs");
 	#endif
 	if (!DirectoryExists(dir)) {
-		PromptOK("Directory doesn't exist: " + dir);
+		PromptOK("1/2: Directory doesn't exist: " + dir);
+		PromptOK(DeQtf("2/2: Download: https://huggingface.co/datasets/blog_authorship_corpus/resolve/main/data/blogs.zip?download=true"));
 		return;
 	}
 	

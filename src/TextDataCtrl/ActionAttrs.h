@@ -20,8 +20,8 @@ public:
 	void DataAttribute();
 	void DataColor();
 	void UpdateFromCache();
-	void UpdateColors();
-	void UpdateAttributes();
+	void DoActionlist(int fn);
+	void DoActionlistUsingExisting(int fn);
 	
 };
 
