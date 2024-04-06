@@ -17,6 +17,7 @@ class TextDataLoader : public WithTextDataLoader<TopWindow> {
 	void LoadHuggingFinn();
 	void LoadHuggingTweets();
 	void LoadHuggingBlogs();
+	void LoadHuggingDialogue();
 	TextDatabase& GetDatabase();
 	
 public:

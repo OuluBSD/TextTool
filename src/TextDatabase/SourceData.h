@@ -381,7 +381,7 @@ struct PhrasePart : Moveable<PhrasePart> {
 		for(int i = 0; i < SCORE_COUNT; i++)
 			p % scores[i];
 		p % tc;
-		if (tc < 0 || tc > 60) tc = 0;
+		if (tc < 0 || tc > 60) return;
 		typecasts.SetCount(tc);
 		for (int& tc_i : typecasts)
 			p % tc_i;
@@ -405,6 +405,7 @@ struct PhrasePart : Moveable<PhrasePart> {
 				p % tc_i;
 		}
 		p % tc;
+		if (tc < 0 || tc > 60) return;
 		contrasts.SetCount(tc);
 		for (int& tc_i : contrasts)
 			p % tc_i;

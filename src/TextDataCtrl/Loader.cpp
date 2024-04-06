@@ -31,7 +31,11 @@ void TextDataLoader::Process() {
 		LoadHuggingBlogs();
 	}
 	
+	else if (appmode == DB_DIALOG) {
+		LoadHuggingDialogue();
+	}
 	else if (appmode == DB_STORYBOARD) {
+		// https://huggingface.co/datasets/open_subtitles/tree/refs%2Fconvert%2Fparquet/en-hi/train
 		// https://cs.stanford.edu/people/ranjaykrishna/densevid/captions.zip
 		// https://antoyang.github.io/vidchapters.html
 		//LoadHuggingBlogs();
@@ -498,6 +502,173 @@ void TextDataLoader::LoadHuggingBlogs() {
 	LOG("Total blogger count: " << db.src_data.entities_en.GetCount());
 	LOG("Total story count: " << story_count);
 	LOG("Total byte size of stories: " << total_size/1000 << "Kb");
+}
+
+void TextDataLoader::LoadHuggingDialogue() {
+	String dir;
+	#ifdef flagWIN32
+	dir = AppendFileName(GetHomeDirectory(), "datasets\\dialog");
+	#elif defined flagPOSIX
+	dir = GetHomeDirFile("datasets/dialog");
+	#endif
+	if (!DirectoryExists(dir)) {
+		PromptOK("1/2: Directory doesn't exist: " + dir);
+		PromptOK(DeQtf("2/2: Download files and extract to ~/datasets/dialog: https://huggingface.co/datasets/RUCAIBox/Open-Dialogue"));
+		return;
+	}
+	
+	Vector<String> training_files;
+	training_files << "ed";
+	training_files << "pc";
+	training_files << "dd";
+	training_files << "dream";
+	
+	TextDatabase& db = GetDatabase();
+	db.src_data.entities_en.Clear();
+	
+	PostMessage("Searching for dialog dataset tgt files");
+	PostProgress(0,1);
+	
+	
+	int total_size = 0;
+	
+	Vector<String> files;
+	for (String& f : training_files) {
+		String path = AppendFileName(AppendFileName(dir, f), "train.tgt");
+		if (FileExists(path))
+			files << path;
+		path = AppendFileName(AppendFileName(dir, f), "test.tgt");
+		if (FileExists(path))
+			files << path;
+		path = AppendFileName(AppendFileName(dir, f), "valid.tgt");
+		if (FileExists(path))
+			files << path;
+	}
+	if (files.IsEmpty()) return;
+	
+	Sort(files, StdLess<String>());
+	
+	int per_file_limit = size_limit / files.GetCount();
+	
+	int i = 0;
+	int line_count = 0;
+	for (String& path : files) {
+		String file_title = ToLower(GetFileTitle(path));
+		String dir = GetFileDirectory(path);
+		dir = dir.Left(dir.GetCount()-1);
+		String dir_title = ToLower(GetFileTitle(dir));
+		String title = dir_title + " - " + file_title;
+		
+		String content = LoadFile(path);
+		content.Replace("\r", "");
+		
+		
+		// Update progress
+		PostMessage("Loading dialog: " + title);
+		PostProgress(i++, files.GetCount());
+		
+		
+		EntityDataset& d = db.src_data.entities_en.Add();
+		d.name = title;
+			
+		Vector<String> lines = Split(content, "\n");
+		
+		int per_entry = 50;
+		int idx = 0;
+		int entity_size = 0;
+		for(int i = 0; i < lines.GetCount(); i+=per_entry) {
+			int end = min(i + per_entry, lines.GetCount());
+			String txt;
+			for(int j = i, l = 0; j < end; j++, l++) {
+				if (l) txt.Cat('\n');
+				txt += TrimBoth(lines[j]);
+			}
+			// Hotfix blog texts
+			txt.Replace("\"", "");
+			txt.Replace("\'", "");
+			txt.Replace("   ", " ");
+			txt.Replace("\n   ", "\n");
+			txt.Replace("\n  ", "\n");
+			txt.Replace("\n ", "\n");
+			txt.Replace(". The ", ".\nThe ");
+			txt.Replace(". This ", ".\nThis ");
+			txt.Replace(". I ", ".\nI ");
+			txt.Replace(". You ", ".\nYou ");
+			txt.Replace(". Oh ", ".\nOh ");
+			txt.Replace("...", "...\n");
+			txt.Replace("\n....", "\n");
+			txt.Replace("\n...", "\n");
+			txt.Replace("\n..", "\n");
+			txt.Replace("\n.", "\n");
+			
+			txt.Replace("Mrs.", "Mrs");
+			txt.Replace("Mr.", "Mr");
+			txt.Replace("Ms.", "Ms");
+			txt.Replace("mrs.", "mrs");
+			txt.Replace("mr.", "mr");
+			txt.Replace("ms.", "ms");
+			txt.Replace("etc.", "etc");
+			
+			txt.Replace(".)", ")\n");
+			txt.Replace("(", "\n");
+			txt.Replace(")", "\n");
+			
+			HotfixReplaceWord(txt);
+			
+			// Trim lines
+			Vector<String> lines = Split(txt, "\n");
+			for (String& l : lines) l = TrimBoth(l);
+			txt = Join(lines, "\n");
+			
+			for(int i = 1; i <= 20; i++) {
+				String s = IntStr(i) + ".";
+				txt.Replace(s, "\n" + IntStr(i) + s);
+			}
+			
+			// Split txt to parts
+			txt.Replace("...", "\n");
+			txt.Replace(".", "\n");
+			txt.Replace(",", "\n");
+			txt.Replace("!", "\n");
+			txt.Replace("?", "\n");
+			txt.Replace(":", "\n");
+			
+			txt.Replace("\n\" ", "\n\"");
+			txt.Replace("\n\"\n", "\"\n");
+			
+			for(int i = 0; i < 3; i++)
+				txt.Replace("\n\n", "\n");
+			
+			
+			// Trim lines
+			lines = Split(txt, "\n");
+			for(int i = 0; i < lines.GetCount(); i++) {
+				String& l = lines[i];
+				l = TrimBoth(l);
+				if (l.IsEmpty())
+					lines.Remove(i--);
+			}
+			txt = Join(lines, "\n");
+			
+			
+			ScriptDataset& l = d.scripts.Add();
+			l.name = "#" + IntStr(idx++);
+			l.text = txt;
+			
+			line_count += lines.GetCount();
+			total_size += l.text.GetCount();
+			entity_size += l.text.GetCount();
+			
+			if (entity_size >= per_file_limit)
+				break;
+		}
+		
+		if (total_size >= size_limit)
+			break;
+	}
+	LOG("Total dialogue file count: " << db.src_data.entities_en.GetCount());
+	LOG("Total line count: " << line_count);
+	LOG("Total byte size of dialogues: " << total_size/1000 << "Kb");
 }
 
 
