@@ -2,6 +2,9 @@
 #define _ToolCtrl_OperationOverview_h_
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
 class OperationOverview : public WithOperationOverview<Ctrl> {
 	
 	
@@ -14,6 +17,9 @@ public:
 	
 	
 };
+
+
+END_TEXTLIB_NAMESPACE
 
 
 #endif

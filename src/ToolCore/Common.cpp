@@ -1216,6 +1216,8 @@ const Index<String>& GetTypeclasses(int appmode) {
 		case DB_SONG: return GetTypecasts();
 		case DB_TWITTER: return GetRoles();
 		case DB_BLOG: return GetPersonas();
+		case DB_DIALOG: return GetCharacters();
+		case DB_STORYBOARD: return GetStyles();
 	}
 	Panic("Invalid appmode");
 	return Single<Index<String>>();
@@ -1231,6 +1233,8 @@ const Vector<ContentType>& GetContents(int appmode) {
 		case DB_SONG: return GetContrasts();
 		case DB_TWITTER: return GetGenerics();
 		case DB_BLOG: return GetNiches();
+		case DB_DIALOG: return GetTropes();
+		case DB_STORYBOARD: return GetApproaches();
 	}
 	Panic("Invalid appmode");
 	return Single<Vector<ContentType>>();
@@ -1262,6 +1266,8 @@ VectorMap<String,Vector<String>>& GetTypeclassEntities(int appmode, bool unsafe,
 		case DB_SONG: return GetTypecastArtists(unsafe, gender);
 		case DB_TWITTER: return GetRoleCompanies(unsafe, gender);
 		case DB_BLOG: return GetPersonaNiches(unsafe, gender);
+		case DB_DIALOG: return GetCharacterTropes(unsafe, gender);
+		case DB_STORYBOARD: return GetStyleApproaches(unsafe, gender);
 	}
 	Panic("Invalid appmode");
 	return Single<VectorMap<String,Vector<String>>>();

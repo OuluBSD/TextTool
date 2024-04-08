@@ -385,25 +385,6 @@ struct PhrasePart : Moveable<PhrasePart> {
 		typecasts.SetCount(tc);
 		for (int& tc_i : typecasts)
 			p % tc_i;
-		if (0) {
-			Vector<int> tmp;
-			p % tc;
-			tmp.SetCount(tc);
-			for (int& tc_i : tmp)
-				p % tc_i;
-			p % tc;
-			tmp.SetCount(tc);
-			for (int& tc_i : tmp)
-				p % tc_i;
-			p % tc;
-			tmp.SetCount(tc);
-			for (int& tc_i : tmp)
-				p % tc_i;
-			p % tc;
-			tmp.SetCount(tc);
-			for (int& tc_i : tmp)
-				p % tc_i;
-		}
 		p % tc;
 		if (tc < 0 || tc > 60) return;
 		contrasts.SetCount(tc);

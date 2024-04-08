@@ -134,10 +134,8 @@ void PhrasePartAnalysis::DataDataset() {
 }
 
 void PhrasePartAnalysis::DataAttribute() {
-	if (!attrs.IsCursor())
+	if (!datasets.IsCursor())
 		return;
-
-
 
 	colors.SetCount(1+GetColorGroupCount());
 	colors.Set(0, 0, t_("All words"));
@@ -155,7 +153,7 @@ void PhrasePartAnalysis::DataAttribute() {
 }
 
 void PhrasePartAnalysis::DataColor() {
-	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
+	if (!datasets.IsCursor())
 		return;
 
 	TextDatabase& db = GetDatabase();
@@ -201,33 +199,33 @@ void PhrasePartAnalysis::DataAction() {
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 
-	String action = actions.Get(0);
-	int i = uniq_acts.Find(action);
-	if (i < 0) {
-		action_args.SetCount(1);
-		action_args.Set(0, 0, "All");
-		action_args.Set(0, 1, da.actions.GetCount());
-	}
-	else {
-		auto& args = uniq_acts[i];
-		action_args.Set(0, 0, "All");
-		action_args.Set(0, 1, args.GetCount());
-		for(int i = 0; i < args.GetCount(); i++) {
-			action_args.Set(1+i, 0, args.GetKey(i));
-			action_args.Set(1+i, 1, args[i]);
+	if (actions.IsCursor()) {
+		String action = actions.Get(0);
+		int i = uniq_acts.Find(action);
+		if (i < 0) {
+			action_args.SetCount(1);
+			action_args.Set(0, 0, "All");
+			action_args.Set(0, 1, da.actions.GetCount());
 		}
-		action_args.SetCount(1+args.GetCount());
+		else {
+			auto& args = uniq_acts[i];
+			action_args.Set(0, 0, "All");
+			action_args.Set(0, 1, args.GetCount());
+			for(int i = 0; i < args.GetCount(); i++) {
+				action_args.Set(1+i, 0, args.GetKey(i));
+				action_args.Set(1+i, 1, args[i]);
+			}
+			action_args.SetCount(1+args.GetCount());
+		}
+		if (!action_args.IsCursor() && action_args.GetCount())
+			action_args.SetCursor(0);
 	}
-	if (!action_args.IsCursor() && action_args.GetCount())
-		action_args.SetCursor(0);
-
 
 	DataActionHeader();
 }
 
 void PhrasePartAnalysis::DataActionHeader() {
-	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor() ||
-		!actions.IsCursor() || !action_args.IsCursor())
+	if (!datasets.IsCursor())
 		return;
 
 
@@ -237,10 +235,10 @@ void PhrasePartAnalysis::DataActionHeader() {
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 
-	int clr_i = colors.GetCursor();
-	int act_i = actions.GetCursor();
-	int arg_i = action_args.GetCursor();
-	int attr_i = attrs.GetCursor();
+	int clr_i = colors.IsCursor() ? colors.GetCursor() : -1;
+	int act_i = actions.IsCursor() ? actions.GetCursor() : -1;
+	int arg_i = action_args.IsCursor() ? action_args.GetCursor() : -1;
+	int attr_i = attrs.IsCursor() ? attrs.GetCursor() : -1;
 
 	bool clr_filter = clr_i > 0;
 	bool attr_filter = attr_i > 0;

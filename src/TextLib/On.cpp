@@ -660,8 +660,12 @@ void TaskManager::OnPhraseTypeclasses(String res, Task* t) {
 		for (const String& part : parts) {
 			int opt = ScanInt(part);
 			if (opt <= 0 || opt > opt_count) {
+			#if 0
 				pp.typecasts.Clear();
 				break;
+			#else
+				continue;
+			#endif
 			}
 			opt--; // convert to 0-based index
 			pp.typecasts.Add(opt);

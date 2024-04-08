@@ -17,20 +17,22 @@
 
 
 v0.0.1
-- optimize AI usage: use existing data in database process
-- 5 DB support: song, twitter, blog, dialog, storyboard
+- calendar / operations overview
+- frontpage
+- tool to find out preferred typecasts and contents for a new person
+- tool to get typecast/content from known artist's lyrics
 - show TextLib tasks in Tasks page
 - fix editor's user experience
 	- lyrics: editor list focus is unintuitive
 	- lyrics: add content vision text field translate button
 	- lyrics: default copyright holder fill
 	- lyrics: sort the parts in correct order (and add name of song)
-- calendar / operations overview
-- frontpage
+	- multi-db: no entities in list
+	- adding entity shows empty name in the list
+	- lyrics: set default structure initially
 - remove en/fi language chain in artist/release/song structures
 	- rename files too
-- tool to find out preferred typecasts and contents for a new person
-- tool to get typecast/content from known artist's lyrics
+- phrase analysis: maybe avoid getting data to phrases without previous-phase data
 
 
 
@@ -396,3 +398,5 @@ x? vocabulary: for artist, for release, for song
 	- etc... song, release, lyrics, company, product, script
 	- see through json files and directories too
 - CreateInput_GetPhraseData: convert hardcoded string values
+- optimize AI usage: use existing data in database process
+- 5 DB support: song, twitter, blog, dialog, storyboard

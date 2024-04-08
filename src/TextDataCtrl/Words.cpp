@@ -199,8 +199,10 @@ void TextDataWords::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update all words"), AppImg::RedRing(), THISBACK1(DoWords, 0)).Key(K_F5);
 	//bar.Add(t_("Update all word groups"), AppImg::RedRing(), THISBACK(UpdateWordFlagGroups)).Key(K_F6);
 	//bar.Add(t_("Update all word flags"), AppImg::RedRing(), THISBACK(UpdateWordFlags)).Key(K_F7);
+	bar.Separator();
 	bar.Add(t_("Get all details"), AppImg::RedRing(), THISBACK1(DoWords, 1)).Key(K_F6);
 	bar.Add(t_("Get all syllables"), AppImg::RedRing(), THISBACK1(DoWords, 2)).Key(K_F7);
+	bar.Separator();
 	bar.Add(t_("Copy linked word data"), AppImg::RedRing(), THISBACK1(DoWordFix, 1)).Key(K_F8);
 	
 	bar.Separator();

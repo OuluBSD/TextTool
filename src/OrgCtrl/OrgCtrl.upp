@@ -1,0 +1,10 @@
+description "Ctrls for organizational management\377B0,0,128";
+
+uses
+	OrgLib;
+
+file
+	OrgCtrl.h,
+	OperationOverview.h,
+	OperationOverview.cpp;
+

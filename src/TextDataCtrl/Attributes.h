@@ -9,8 +9,11 @@ class Attributes : public ToolAppCtrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl datasets, groups, values, pos_values, neg_values;
 	
+	int uniq_ds_i = -1;
 	VectorMap<String,Index<String>> uniq_attrs;
 	VectorMap<String,Index<int>> uniq_attrs_i;
+	
+	void RealizeTemp();
 	
 public:
 	typedef Attributes CLASSNAME;

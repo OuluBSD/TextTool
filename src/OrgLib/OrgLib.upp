@@ -1,0 +1,9 @@
+description "Organizational management and demands\377B128,0,0";
+
+file
+	OrgLib.h,
+	Organization.h,
+	Organization.cpp,
+	Demand.h,
+	Demand.cpp;
+

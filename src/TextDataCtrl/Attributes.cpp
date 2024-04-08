@@ -49,14 +49,24 @@ void Attributes::Data() {
 	DataDataset();
 }
 
-void Attributes::DataDataset() {
+void Attributes::RealizeTemp() {
+	if (!datasets.IsCursor())
+		return;
+	
+	int ds_i = datasets.GetCursor();
+	if (ds_i == uniq_ds_i)
+		return;
+	
+	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
-	/*if (uniq_attrs.IsEmpty())*/ {
+	uniq_attrs.Clear();
+	uniq_attrs_i.Clear();
+	
+	{
 		for(int i = 0; i < da.attrs.GetCount(); i++) {
 			const AttrHeader& ah = da.attrs.GetKey(i);
 			uniq_attrs.GetAdd(ah.group).FindAdd(ah.value);
@@ -68,7 +78,16 @@ void Attributes::DataDataset() {
 			SortIndex(uniq_attrs[i], StdLess<String>());
 		}
 	}
+}
+
+void Attributes::DataDataset() {
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	int ds_i = datasets.GetCursor();
+	DatasetAnalysis& da = sda.datasets[ds_i];
 	
+	RealizeTemp();
 	
 	for(int i = 0; i < uniq_attrs.GetCount(); i++) {
 		String group = uniq_attrs.GetKey(i);
@@ -111,6 +130,8 @@ void Attributes::DataGroup() {
 	SourceDataAnalysis& sda = db.src_data.a;
 	int ds_i = datasets.GetCursor();
 	DatasetAnalysis& da = sda.datasets[ds_i];
+	
+	RealizeTemp();
 	
 	if (!groups.IsCursor()) {
 		pos_values.Clear();

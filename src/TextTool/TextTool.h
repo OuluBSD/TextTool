@@ -5,6 +5,7 @@
 #include <TextCtrl/TextCtrl.h>
 #include <TextDataCtrl/TextDataCtrl.h>
 #include <ToolCtrl/ToolCtrl.h>
+#include <OrgCtrl/OrgCtrl.h>
 
 #define IMAGECLASS TextToolImg
 #define IMAGEFILE <TextTool/TextTool.iml>

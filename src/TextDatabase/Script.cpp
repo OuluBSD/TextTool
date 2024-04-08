@@ -160,10 +160,10 @@ int StaticPart::GetContrastIndex(Script& song) const {
 		idx = 0;
 	
 	if (name.Find(GetAppModeKeyCap(AM_REPEAT)) == 0)
-		idx = 2;
+		idx = 1;
 	
 	if (name.Find(GetAppModeKeyCap(AM_TWIST)) == 0)
-		idx = 1;
+		idx = 2;
 	
 	String pre_key = GetAppModeKeyCap(AM_PRE_REPEAT);
 	if (pre_key.Left(4) == "Pre-") {

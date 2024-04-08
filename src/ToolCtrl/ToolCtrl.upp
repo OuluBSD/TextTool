@@ -13,8 +13,6 @@ file
 	Fns.cpp,
 	ImageGenTool.h,
 	ImageGenTool.cpp,
-	OperationOverview.h,
-	OperationOverview.cpp,
 	FrontPage.h,
 	FrontPage.cpp,
 	TaskCtrl.h,

@@ -12,7 +12,8 @@ uses
 	TextDatabase,
 	TextDataCtrl,
 	ToolCtrl,
-	TextCtrl;
+	TextCtrl,
+	OrgCtrl;
 
 library(WIN32 & CLANG) "curl libcurl.dll.a";
 
