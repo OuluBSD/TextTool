@@ -1083,7 +1083,7 @@ void TaskManager::GetPhrases(Task* t) {
 	int iter = 0;
 	for (const PhrasePart& pp : da.phrase_parts.GetValues()) {
 		
-		if ((t->fn == 0 && pp.clr != no_clr) && (t->fn > 0 && pp.clr == no_clr))
+		if ((t->fn == 0 && pp.clr != no_clr) || (t->fn > 0 && pp.clr == no_clr))
 			continue;
 		
 		if ((t->fn == 1 && pp.attr >= 0) || (t->fn > 1 && pp.attr < 0))
