@@ -1083,22 +1083,22 @@ void TaskManager::GetPhrases(Task* t) {
 	int iter = 0;
 	for (const PhrasePart& pp : da.phrase_parts.GetValues()) {
 		
-		if (t->fn == 0 && pp.clr != no_clr)
+		if ((t->fn == 0 && pp.clr != no_clr) && (t->fn > 0 && pp.clr == no_clr))
 			continue;
 		
-		if (t->fn == 1 && pp.attr >= 0)
+		if ((t->fn == 1 && pp.attr >= 0) || (t->fn > 1 && pp.attr < 0))
 			continue;
 		
-		if (t->fn == 2 && !pp.actions.IsEmpty())
+		if ((t->fn == 2 && !pp.actions.IsEmpty()) || (t->fn > 2 && pp.actions.IsEmpty()))
 			continue;
 		
-		if (t->fn == 3 && pp.HasScores())
+		if ((t->fn == 3 && pp.HasScores()) || (t->fn > 3 && !pp.HasScores()))
 			continue;
 		
-		if (t->fn == 4 && !pp.typecasts.IsEmpty())
+		if ((t->fn == 4 && !pp.typecasts.IsEmpty()) || (t->fn > 4 && pp.typecasts.IsEmpty()))
 			continue;
 		
-		if (t->fn == 5 && !pp.contrasts.IsEmpty())
+		if ((t->fn == 5 && !pp.contrasts.IsEmpty()) || (t->fn > 5 && pp.contrasts.IsEmpty()))
 			continue;
 		
 		if (iter >= begin && iter < end) {
