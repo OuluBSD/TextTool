@@ -1,0 +1,1154 @@
+"representation of various liquids(liquid variety)" -1 -1 0 -1 0
+"representation of various liquids(mixing)" -1 -1 0 -1 0
+"representation of various liquids(pouring)" -1 -1 0 -1 0
+"representation of various liquids(demonstration)" -1 -1 0 -1 0
+"artistic performance(musical instrument)" -1 -1 0 -1 0
+"artistic performance(flute playing)" -1 -1 0 -1 0
+"artistic performance(musical instruction)" -1 -1 0 -1 0
+"artistic performance(mastering technique)" -1 -1 0 -1 0
+"human interaction(direct communication)" -1 -1 0 -1 0
+"artistic performance(dance)" -1 -1 0 -1 0
+"artistic performance(synchronized movement)" -1 -1 0 -1 0
+"artistic performance(group presentation)" -1 -1 0 -1 0
+"human interaction(conversation)" -1 -1 0 -1 0
+"artistic performance(acrobatics)" -1 -1 0 -1 0
+"artistic performance(stunt)" -1 -1 0 -1 0
+"activity(physical exercise)" -1 -1 0 -1 0
+"activity(running)" -1 -1 0 -1 0
+"activity(jumping)" -1 -1 0 -1 0
+"activity(landing)" -1 -1 0 -1 0
+"household chore(cleaning)" -1 -1 0 -1 0
+"household chore(scrubbing)" -1 -1 0 -1 0
+"household chore(rinsing)" -1 -1 0 -1 0
+"household chore(resetting)" -1 -1 0 -1 0
+"outcome(finished task)" -1 -1 0 -1 0
+"physical exercise(jogging)" -1 -1 0 -1 0
+"physical exercise(participation in marathon)" -1 -1 0 -1 0
+"physical exercise(diversity in participants)" -1 -1 0 -1 0
+"physical exercise(showcasing event)" -1 -1 0 -1 0
+"human interaction(cheering)" -1 -1 0 -1 0
+"physical exercise(participation in race)" -1 -1 0 -1 0
+"physical exercise(inclusivity)" -1 -1 0 -1 0
+"human representation(child)" -1 -1 0 -1 0
+"human action(chewing)" -1 -1 0 -1 0
+"human action(jumping)" -1 -1 0 -1 0
+"human action(kneeling)" -1 -1 0 -1 0
+"ambulatory device(prosthetic leg)" -1 -1 0 -1 0
+"ambulatory activity(indoor and outdoor running)" -1 -1 0 -1 0
+"human representation(young girl)" -1 -1 0 -1 0
+"demonstration and instruction(woodworking)" -1 -1 0 -1 0
+"household task(protective covering)" -1 -1 0 -1 0
+"household task(checking and adjusting)" -1 -1 0 -1 0
+"household task(full coverage)" -1 -1 0 -1 0
+"human action(balancing)" -1 -1 0 -1 0
+"physical competition(javelin throw)" -1 -1 0 -1 0
+"physical competition(hammer throw)" -1 -1 0 -1 0
+"physical competition(weighted ball throw)" -1 -1 0 -1 0
+"physical exercise(strength training)" -1 -1 0 -1 0
+"object(crack)" -1 -1 0 -1 0
+"human representation(dog)" -1 -1 0 -1 0
+"human action(tail wagging)" -1 -1 0 -1 0
+"relationship focus(partner-focused)" -1 -1 0 -1 0
+"physical preference(natural beauty)" -1 -1 0 -1 0
+"production style(acoustic)" -1 -1 0 -1 0
+"group experience(group-oriented)" -1 -1 0 -1 0
+"faith extremes(agnostic)" -1 -1 0 -1 0
+"gender(female)" -1 -1 0 -1 0
+"average expectations(expectation-opposed)" -1 -1 0 -1 0
+"physical preference(body enhancing beauty)" -1 -1 0 -1 0
+"belief communities(religious community)" -1 -1 0 -1 0
+"theological opposites(atheistic)" -1 -1 0 -1 0
+"mood 3(uplifting)" -1 -1 0 -1 0
+"group experience(individual-oriented)" -1 -1 0 -1 0
+"production style(electronic)" -1 -1 0 -1 0
+"culture(collective)" -1 -1 0 -1 0
+"love status(loving now)" -1 -1 0 -1 0
+"average expectations(expectation-conformed)" -1 -1 0 -1 0
+"situation relation(prescriptive)" -1 -1 0 -1 0
+"human strength(strong)" -1 -1 0 -1 0
+"group faith(organized religion)" -1 -1 0 -1 0
+"expectation(perfection)" -1 -1 0 -1 0
+"storymode(storytelling)" -1 -1 0 -1 0
+"reality(realism)" -1 -1 0 -1 0
+"social(authoritarian)" -1 -1 0 -1 0
+"economic(liberal)" -1 -1 0 -1 0
+"storymode(simple themes)" -1 -1 0 -1 0
+"woman(powerful)" -1 -1 0 -1 0
+"vibe(energetic)" -1 -1 0 -1 0
+"positive energy(harmonious)" -1 -1 0 -1 0
+"gender(male)" -1 -1 0 -1 0
+"strength(strong)" -1 -1 0 -1 0
+"culture(alternative)" -1 -1 0 -1 0
+"responsibility(accountable)" -1 -1 0 -1 0
+"belief spectrum(non-believer)" -1 -1 0 -1 0
+"rationality(reasonable)" -1 -1 0 -1 0
+"creative expression(unique)" -1 -1 0 -1 0
+"cultural elements(cultural preservation)" -1 -1 0 -1 0
+"lyric emphasis(straightforward scripts)" -1 -1 0 -1 0
+"authenticity(authentic)" -1 -1 0 -1 0
+"source of inspiration(nostalgic)" -1 -1 0 -1 0
+"morality(innocent)" -1 -1 0 -1 0
+"playfulness(playful)" -1 -1 0 -1 0
+"physical preference(fitness oriented)" -1 -1 0 -1 0
+"problem solving strategy(shortcut taking)" -1 -1 0 -1 0
+"culture(individualistic)" -1 -1 0 -1 0
+"creativity(resourceful)" -1 -1 0 -1 0
+"hygiene(cleanliness)" -1 -1 0 -1 0
+"task interest(industriousness)" -1 -1 0 -1 0
+"social(libertarian)" -1 -1 0 -1 0
+"creativity(energetic)" -1 -1 0 -1 0
+"readability(grok ability)" -1 -1 0 -1 0
+"expression(allegorical)" -1 -1 0 -1 0
+"intuitive(intuitive)" -1 -1 0 -1 0
+"traits(death defiant)" -1 -1 0 -1 0
+"group situation(slacker)" -1 -1 0 -1 0
+"group faith(collective)" -1 -1 0 -1 0
+"belief communities(cultural preservation)" -1 -1 0 -1 0
+"old and new believers(traditional religion)" -1 -1 0 -1 0
+"old and new believers(individual spirituality)" -1 -1 0 -1 0
+"belief spectrum(believer)" -1 -1 0 -1 0
+"belief spectrum(skeptic)" -1 -1 0 -1 0
+"relation to others(self-acceptance)" -1 -1 0 -1 0
+"religious(believer)" -1 -1 0 -1 0
+"religious(atheist)" -1 -1 0 -1 0
+"rational believers(scientific)" -1 -1 0 -1 0
+"rational believers(religious)" -1 -1 0 -1 0
+"visual preference(blurry and wobbly footage)" -1 -1 0 -1 0
+"physical preference(normal)" -1 -1 0 -1 0
+"social(collective)" -1 -1 0 -1 0
+"human strength(weak)" -1 -1 0 -1 0
+"responsibility(irresponsible)" -1 -1 0 -1 0
+"sexual orientation(heterosexual)" -1 -1 0 -1 0
+"belief extremes(agnostic)" -1 -1 0 -1 0
+"sexual preference(kinky)" -1 -1 0 -1 0
+"relation to others(comparison)" -1 -1 0 -1 0
+"group experience(collective)" -1 -1 0 -1 0
+"cultural elements(globalization)" -1 -1 0 -1 0
+"situation relation(descriptive)" -1 -1 0 -1 0
+"life and love(aspirational)" -1 -1 0 -1 0
+"life and love(relatable)" -1 -1 0 -1 0
+"age target(youth-oriented)" -1 -1 0 -1 0
+"problem solving strategy(cunning)" -1 -1 0 -1 0
+"physical preference(idealized beauty)" -1 -1 0 -1 0
+"story-motivation(narrative-driven)" -1 -1 0 -1 0
+"reality(escapism)" -1 -1 0 -1 0
+"faith extremes(irreligious)" -1 -1 0 -1 0
+"sophistication(simple)" -1 -1 0 -1 0
+"role of sex and sexuality(exploratory)" -1 -1 0 -1 0
+"youth culture(adventurous)" -1 -1 0 -1 0
+"faith and reason seekers(divine worshipers)" -1 -1 0 -1 0
+"philosophical ideology(closed-minded)" -1 -1 0 -1 0
+"faith and reason seekers(rational thinker)" -1 -1 0 -1 0
+"economic(conservative)" -1 -1 0 -1 0
+"love status(heartbreak)" -1 -1 0 -1 0
+"fitness and nutrition(survivalist)" -1 -1 0 -1 0
+"relationship focus(individual-focused)" -1 -1 0 -1 0
+"audience(mainstream)" -1 -1 0 -1 0
+"problem-solving strategy(step-by-step)" -1 -1 0 -1 0
+"relationship(without romantic partner)" -1 -1 0 -1 0
+"target of love(self-love)" -1 -1 0 -1 0
+"journey and discovery(informative)" -1 -1 0 -1 0
+"artistic expression(simple)" -1 -1 0 -1 0
+"artistic expression(straightforward)" -1 -1 0 -1 0
+"artistic expression(simplistic)" -1 -1 0 -1 0
+"motivation(rewarding)" -1 -1 0 -1 0
+"belief communities(secular society)" -1 -1 0 -1 0
+"food culture(health-conscious)" -1 -1 0 -1 0
+"leisure and entertainment(artistic passion)" -1 -1 0 -1 0
+"food culture(indulgent)" -1 -1 0 -1 0
+"production style(simple)" -1 -1 0 -1 0
+"story mode(simple themes)" -1 -1 0 -1 0
+"fitness and nutrition(health-conscious)" -1 -1 0 -1 0
+"theology opposites(theistic)" -1 -1 0 -1 0
+"expression(explicit)" -1 -1 0 -1 0
+"reality(realistic emotions)" -1 -1 0 -1 0
+"mood 1(joyful)" -1 -1 0 -1 0
+"mood 2(somber)" -1 -1 0 -1 0
+"emotional realism(realistic emotions)" -1 -1 0 -1 0
+"patience(longevity)" -1 -1 0 -1 0
+"sexuality(adventurous)" -1 -1 0 -1 0
+"audience(alternative)" -1 -1 0 -1 0
+"physical preference(athletically fit body)" -1 -1 0 -1 0
+"physical preference(balanced body)" -1 -1 0 -1 0
+"group faith(individual spirituality)" -1 -1 0 -1 0
+"average expectations(mainstream success)" -1 -1 0 -1 0
+"physical preference(tanned skin)" -1 -1 0 -1 0
+"physical preference(natural skin)" -1 -1 0 -1 0
+"physical preference(sunscreen)" -1 -1 0 -1 0
+"physical preference(natural skincare)" -1 -1 0 -1 0
+"responsibility(responsible)" -1 -1 0 -1 0
+"physical preference(fit body)" -1 -1 0 -1 0
+"physical preference(active lifestyle)" -1 -1 0 -1 0
+"emotional realism(happiness)" -1 -1 0 -1 0
+"physical preference(youthful appearance)" -1 -1 0 -1 0
+"relationship(romantic couple)" -1 -1 0 -1 0
+"social(liberal)" -1 -1 0 -1 0
+"physical preference(athletic ability)" -1 -1 0 -1 0
+"age target(age-inclusive)" -1 -1 0 -1 0
+"physical preference(physical strength)" -1 -1 0 -1 0
+"physical preference(styled hair)" -1 -1 0 -1 0
+"physical preference(well-groomed appearance)" -1 -1 0 -1 0
+"physical strength(strong)" -1 -1 0 -1 0
+"physical preference(clean)" -1 -1 0 -1 0
+"party relations(party anthems)" -1 -1 0 -1 0
+"cultural elements(relevant to current times)" -1 -1 0 -1 0
+"physical preference(athletic)" -1 -1 0 -1 0
+"physical preference(colorful)" -1 -1 0 -1 0
+"physical preference(complementary colors)" -1 -1 0 -1 0
+"physical preference(contrast)" -1 -1 0 -1 0
+"group experience(spectator-oriented)" -1 -1 0 -1 0
+"group experience(player-oriented)" -1 -1 0 -1 0
+"physical preference(winning)" -1 -1 0 -1 0
+"emotional realism(real emotions)" -1 -1 0 -1 0
+"mood 1(cheerful)" -1 -1 0 -1 0
+"emotional response(joy)" -1 -1 0 -1 0
+"natural rhythm(free-flowing)" -1 -1 0 -1 0
+"natural rhythm(rigid)" -1 -1 0 -1 0
+"game strategy(competitive)" -1 -1 0 -1 0
+"physical preference(expressive)" -1 -1 0 -1 0
+"physical preference(dressed up)" -1 -1 0 -1 0
+"physical preference(versatile)" -1 -1 0 -1 0
+"hygiene(grooming)" -1 -1 0 -1 0
+"problem solving strategy(preparation)" -1 -1 0 -1 0
+"physical preference(agile)" -1 -1 0 -1 0
+"group experience(team-oriented)" -1 -1 0 -1 0
+"cultural elements(diversity)" -1 -1 0 -1 0
+"physical preference(celebratory)" -1 -1 0 -1 0
+"emotional response(excitement)" -1 -1 0 -1 0
+"physical preference(unusual)" -1 -1 0 -1 0
+"physical preference(unconventional)" -1 -1 0 -1 0
+"physical preference(height)" -1 -1 0 -1 0
+"physical preference(jumping)" -1 -1 0 -1 0
+"relationship(conversational)" -1 -1 0 -1 0
+"physical preference(sporty)" -1 -1 0 -1 0
+"game strategy(focused)" -1 -1 0 -1 0
+"emotional response(interest)" -1 -1 0 -1 0
+"mental state(productive)" -1 -1 0 -1 0
+"production style(visual)" -1 -1 0 -1 0
+"physical preference(efficient)" -1 -1 0 -1 0
+"physical preference(precise)" -1 -1 0 -1 0
+"attitude 1(closed)" -1 -1 0 -1 0
+"sexual acting(confident)" -1 -1 0 -1 0
+"lyrical emphasis(emotionally restrained)" -1 -1 0 -1 0
+"sexualization(non-sexual)" -1 -1 0 -1 0
+"romantic love(romantic couple)" -1 -1 0 -1 0
+"mindfulness(mindful)" -1 -1 0 -1 0
+"sexual commitment(monogamy)" -1 -1 0 -1 0
+"conceptual(psychedelic)" -1 -1 0 -1 0
+"sexual orientation(homosexual)" -1 -1 0 -1 0
+"credibility(personal experience)" -1 -1 0 -1 0
+"sexual acting(sensitive)" -1 -1 0 -1 0
+"story-motivation(mood-driven)" -1 -1 0 -1 0
+"party relation(introspective ballads)" -1 -1 0 -1 0
+"economy(consumerism)" -1 -1 0 -1 0
+"sophistication(sophisticated)" -1 -1 0 -1 0
+"celebrity persona(body positivity)" -1 -1 0 -1 0
+"lyrical emphasis(straightforward scripts)" -1 -1 0 -1 0
+"commercial appeal(mainstream success)" -1 -1 0 -1 0
+"independent(independent)" -1 -1 0 -1 0
+"ethical strength(integrity)" -1 -1 0 -1 0
+"imaging(unique)" -1 -1 0 -1 0
+"mystical thinkers(mystic practitioner)" -1 -1 0 -1 0
+"mindfulness(mindless)" -1 -1 0 -1 0
+"party relation(party anthems)" -1 -1 0 -1 0
+"authenticity(social media-driven)" -1 -1 0 -1 0
+"belief communities(acceptance)" -1 -1 0 -1 0
+"sexual preference(normal)" -1 -1 0 -1 0
+"peacefulness(troublemaker)" -1 -1 0 -1 0
+"authencity(social media-driven)" -1 -1 0 -1 0
+"integrity(honest)" -1 -1 0 -1 0
+"attitude 3(optimistic)" -1 -1 0 -1 0
+"sexualization(sexual)" -1 -1 0 -1 0
+"beliefs extremes(agnostic)" -1 -1 0 -1 0
+"rationality(unreasonable)" -1 -1 0 -1 0
+"lyrical emphasis(witty wordplay)" -1 -1 0 -1 0
+"personal experience(mythical)" -1 -1 0 -1 0
+"patient(instant gratification)" -1 -1 0 -1 0
+"faith extremes(religious fundamentalist)" -1 -1 0 -1 0
+"emotion realism(happy)" -1 -1 0 -1 0
+"sexuality(limited)" -1 -1 0 -1 0
+"peacefulness(peacemaker)" -1 -1 0 -1 0
+"imagery(unique)" -1 -1 0 -1 0
+"attitude 2(hopeful)" -1 -1 0 -1 0
+"target of love(romantic love)" -1 -1 0 -1 0
+"game(fencing)" -1 -1 0 -1 0
+"maturity level(adult)" -1 -1 0 -1 0
+"emotional control(emotionally uncontrolled)" -1 -1 0 -1 0
+"creation(food preparation)" -1 -1 0 -1 0
+"creation(leisure activity)" -1 -1 0 -1 0
+"production style(animation)" -1 -1 0 -1 0
+"creation(personal hygiene)" -1 -1 0 -1 0
+"production style(reality show)" -1 -1 0 -1 0
+"expression(talking to the camera)" -1 -1 0 -1 0
+"creation(window washing)" -1 -1 0 -1 0
+"physical preference(cleanliness)" -1 -1 0 -1 0
+"production style(musical performance)" -1 -1 0 -1 0
+"expression(looking to the camera)" -1 -1 0 -1 0
+"expression(smiling at one another)" -1 -1 0 -1 0
+"production style(makeup tutorial)" -1 -1 0 -1 0
+"expression(applying makeup)" -1 -1 0 -1 0
+"creation(child care)" -1 -1 0 -1 0
+"expression(fixing and adjusting items)" -1 -1 0 -1 0
+"creation(transportation maintenance)" -1 -1 0 -1 0
+"creation(personal grooming)" -1 -1 0 -1 0
+"creation(appearance enhancement)" -1 -1 0 -1 0
+"production style(before and after comparison)" -1 -1 0 -1 0
+"expression(smiling at the camera)" -1 -1 0 -1 0
+"production style(leisure activity)" -1 -1 0 -1 0
+"creation(transportation)" -1 -1 0 -1 0
+"production style(shopping)" -1 -1 0 -1 0
+"expression(using tools)" -1 -1 0 -1 0
+"expression(arm wrestling)" -1 -1 0 -1 0
+"creation(communication and social interaction)" -1 -1 0 -1 0
+"love status(romantic love)" -1 -1 0 -1 0
+"ideology(pro-choice)" -1 -1 0 -1 0
+"expectation(acceptance)" -1 -1 0 -1 0
+"individualism(independent)" -1 -1 0 -1 0
+"belief communities(organized religion)" -1 -1 0 -1 0
+"emotion(joyful)" -1 -1 0 -1 0
+"truthfulness(fictional)" -1 -1 0 -1 0
+"media(news reporting)" -1 -1 0 -1 0
+"ideology(capitalist)" -1 -1 0 -1 0
+"financial support group(individual support)" -1 -1 0 -1 0
+"concepts(psychedelic)" -1 -1 0 -1 0
+"realism(expect)" -1 -1 0 -1 0
+"perception(expectation-opposed)" -1 -1 0 -1 0
+"interpersonal relations(romance)" -1 -1 0 -1 0
+"confidence(confident)" -1 -1 0 -1 0
+"competitiveness(competition)" -1 -1 0 -1 0
+"non-sexual(non-sexual)" -1 -1 0 -1 0
+"peaceflow(peacefulness: troublemaker)" -1 -1 0 -1 0
+"mood 4(humorous)" -1 -1 0 -1 0
+"body positivity(celebrity persona)" -1 -1 0 -1 0
+"truthfulness(personal experience)" -1 -1 0 -1 0
+"spirituality(mystical practitioner)" -1 -1 0 -1 0
+"music genre(party anthems)" -1 -1 0 -1 0
+"integrity(twisted)" -1 -1 0 -1 0
+"position(winner)" -1 -1 0 -1 0
+"own vocals(individual spirituality)" -1 -1 0 -1 0
+"physical preference(coordinated)" -1 -1 0 -1 0
+"physical preference(energetic)" -1 -1 0 -1 0
+"group experience(synchronised)" -1 -1 0 -1 0
+"physical preference(aerobic)" -1 -1 0 -1 0
+"physical preference(rhythmic)" -1 -1 0 -1 0
+"environment(fitness center)" -1 -1 0 -1 0
+"film techniques(panning)" -1 -1 0 -1 0
+"film techniques(close-up)" -1 -1 0 -1 0
+"physical preference(musical)" -1 -1 0 -1 0
+"environment(pool)" -1 -1 0 -1 0
+"physical preference(fluid)" -1 -1 0 -1 0
+"physical preference(technical)" -1 -1 0 -1 0
+"physical preference(skillful)" -1 -1 0 -1 0
+"film techniques(text overlay)" -1 -1 0 -1 0
+"physical preference(strong)" -1 -1 0 -1 0
+"competition(sporting event)" -1 -1 0 -1 0
+"physical preference(determined)" -1 -1 0 -1 0
+"environment(exterior)" -1 -1 0 -1 0
+"caregiving(cleaning)" -1 -1 0 -1 0
+"environment(nursery)" -1 -1 0 -1 0
+"interpersonal(friendly)" -1 -1 0 -1 0
+"physical preference(skilled)" -1 -1 0 -1 0
+"interpersonal(teamwork)" -1 -1 0 -1 0
+"interpersonal(cooperative)" -1 -1 0 -1 0
+"physical preference(active)" -1 -1 0 -1 0
+"luck/skill(attempt)" -1 -1 0 -1 0
+"physical preference(elegant)" -1 -1 0 -1 0
+"physical preference(playful)" -1 -1 0 -1 0
+"caregiving(interactive)" -1 -1 0 -1 0
+"caregiving(detail-oriented)" -1 -1 0 -1 0
+"physical preference(artistic)" -1 -1 0 -1 0
+"physical preference(polished)" -1 -1 0 -1 0
+"physical preference(decorative)" -1 -1 0 -1 0
+"kindness(encouraging)" -1 -1 0 -1 0
+"peace(cooperative)" -1 -1 0 -1 0
+"experience(adventurous)" -1 -1 0 -1 0
+"combativeness(competitive)" -1 -1 0 -1 0
+"physical preference(courage)" -1 -1 0 -1 0
+"physical preference(confident)" -1 -1 0 -1 0
+"attitude 1(open)" -1 -1 0 -1 0
+"fearlessness(daring)" -1 -1 0 -1 0
+"physical preference(daring)" -1 -1 0 -1 0
+"social group(casual)" -1 -1 0 -1 0
+"human spirit(ambition)" -1 -1 0 -1 0
+"physical preference(bold)" -1 -1 0 -1 0
+"indulgence(extravagant)" -1 -1 0 -1 0
+"peacefulness(peaceful)" -1 -1 0 -1 0
+"physical preference(focused)" -1 -1 0 -1 0
+"kindess(supportive)" -1 -1 0 -1 0
+"physical preference(adorable)" -1 -1 0 -1 0
+"fearlessness(bold)" -1 -1 0 -1 0
+"natural world(adventurous)" -1 -1 0 -1 0
+"motivation(encouraging)" -1 -1 0 -1 0
+"struggle(persevering)" -1 -1 0 -1 0
+"struggle(resilient)" -1 -1 0 -1 0
+"physical preference(enthusiasm)" -1 -1 0 -1 0
+"racial  and logic opposites(theological opposites)" -1 -1 0 -1 0
+"competitive and attractive(competitiveness)" -1 -1 0 -1 0
+"competence(competent)" -1 -1 0 -1 0
+"religious group(divine worshipers)" -1 -1 0 -1 0
+"humanity(optimistic)" -1 -1 0 -1 0
+"environment(outdoor)" -1 -1 0 -1 0
+"patient(longevity)" -1 -1 0 -1 0
+"fiction(third person)" -1 -1 0 -1 0
+"humanity(pessimistic)" -1 -1 0 -1 0
+"sexual orientation(lesbian)" -1 -1 0 -1 0
+"humanity(optimism)" -1 -1 0 -1 0
+"random(germaphobe)" -1 -1 0 -1 0
+"environment(indoor)" -1 -1 0 -1 0
+"food(pasta dish)" -1 -1 0 -1 0
+"intelligence(intellectual)" -1 -1 0 -1 0
+"sensitivity(sexual committed)" -1 -1 0 -1 0
+"old and new believers(new age spirituality)" -1 -1 0 -1 0
+"independence(independence)" -1 -1 0 -1 0
+"economy(conservative)" -1 -1 0 -1 0
+"economy(liberal)" -1 -1 0 -1 0
+"appeal(mainstream success)" -1 -1 0 -1 0
+"religion and reason seekers(skeptical)" -1 -1 0 -1 0
+"religion and reason seekers(rational thinker)" -1 -1 0 -1 0
+"problem solving strategy(methodical)" -1 -1 0 -1 0
+"technology and production(pressure washing)" -1 -1 0 -1 0
+"technology and production(cleaning)" -1 -1 0 -1 0
+"technology and production(air drying)" -1 -1 0 -1 0
+"technology and production(mopping)" -1 -1 0 -1 0
+"emotional realism(fun and playfulness)" -1 -1 0 -1 0
+"situation relation(relaxation and recreation)" -1 -1 0 -1 0
+"party relation(relaxation and recreation)" -1 -1 0 -1 0
+"social(team player)" -1 -1 0 -1 0
+"individual with individualism and culture(self-expression)" -1 -1 0 -1 0
+"product culture(advertisement)" -1 -1 0 -1 0
+"corporation relations(consumerism)" -1 -1 0 -1 0
+"problem solving strategy(systematic)" -1 -1 0 -1 0
+"technology and production(tire changing)" -1 -1 0 -1 0
+"technology and production(lifting car)" -1 -1 0 -1 0
+"technology and production(lowering car)" -1 -1 0 -1 0
+"technology and production(cleaning tools)" -1 -1 0 -1 0
+"technology and production(driving)" -1 -1 0 -1 0
+"technology and production(car maintenance)" -1 -1 0 -1 0
+"rational thinkers or technology and production(planning for car maintenance)" -1 -1 0 -1 0
+"technology and production(drumming)" -1 -1 0 -1 0
+"technology and production(teaching about drums)" -1 -1 0 -1 0
+"technology(art and painting)" -1 -1 0 -1 0
+"culture(artistic expression)" -1 -1 0 -1 0
+"faith extremes(non-believer)" -1 -1 0 -1 0
+"expectation(expectation-conformed)" -1 -1 0 -1 0
+"rhythm(heavy)" -1 -1 0 -1 0
+"expectations(perfection)" -1 -1 0 -1 0
+"complexity(grounded)" -1 -1 0 -1 0
+"emotion(playful)" -1 -1 0 -1 0
+"conformity(mainstream success)" -1 -1 0 -1 0
+"complexity(psychedelic)" -1 -1 0 -1 0
+"authentic(witty wordplay)" -1 -1 0 -1 0
+"attention(globalized)" -1 -1 0 -1 0
+"attitude 3(pessimistic)" -1 -1 0 -1 0
+"spiritual connection(rationalist)" -1 -1 0 -1 0
+"concept(psychedelic)" -1 -1 0 -1 0
+"fight and flight(flight)" -1 -1 0 -1 0
+"sophisticated(sophisticated)" -1 -1 0 -1 0
+"youth and age differences(youth-oriented)" -1 -1 0 -1 0
+"ground of motivation(mood-driven)" -1 -1 0 -1 0
+"individuality(open)" -1 -1 0 -1 0
+"strength and weakness(strong)" -1 -1 0 -1 0
+"physical location(underwater)" -1 -1 0 -1 0
+"physical location(gymnasium)" -1 -1 0 -1 0
+"physical location(track)" -1 -1 0 -1 0
+"production style(mainstream success)" -1 -1 0 -1 0
+"image(spiritual seeker)" -1 -1 0 -1 0
+"production style(alternative)" -1 -1 0 -1 0
+"product conception(hairstyling tutorial)" -1 -1 0 -1 0
+"artform(tattooing)" -1 -1 0 -1 0
+"personal talent(violin playing)" -1 -1 0 -1 0
+"personal talent(gymnastics)" -1 -1 0 -1 0
+"emotion(seriousness)" -1 -1 0 -1 0
+"individuality(closed)" -1 -1 0 -1 0
+"production style(authenticity)" -1 -1 0 -1 0
+"product service(tattooing)" -1 -1 0 -1 0
+"product conception(gymnastics competition)" -1 -1 0 -1 0
+"product service(hairstyling tutorial)" -1 -1 0 -1 0
+"individuality(playful)" -1 -1 0 -1 0
+"environment(grassy field)" -1 -1 0 -1 0
+"strength and weakness(weak)" -1 -1 0 -1 0
+"product conception(beauty tutorial)" -1 -1 0 -1 0
+"personal talent(hairstyling.)" -1 -1 0 -1 0
+"sexualisation(sexual)" -1 -1 0 -1 0
+"society faith(individual spirituality)" -1 -1 0 -1 0
+"humanity strength(strong)" -1 -1 0 -1 0
+"mankind mentality(rational)" -1 -1 0 -1 0
+"sexualisation(non-sexual)" -1 -1 0 -1 0
+"narrative(narrative detachment)" -1 -1 0 -1 0
+"narrative(protagonist storytelling)" -1 -1 0 -1 0
+"mood 2(lighthearted)" -1 -1 0 -1 0
+"humanity strength(weak)" -1 -1 0 -1 0
+"attidue 2(hopeful)" -1 -1 0 -1 0
+"group faith(traditional religion)" -1 -1 0 -1 0
+"spiritual mindfulness(personal experience)" -1 -1 0 -1 0
+"spirituality and peace(peacefulness)" -1 -1 0 -1 0
+"faith and reason seekers(rationalist)" -1 -1 0 -1 0
+"theological opposites(theistic)" -1 -1 0 -1 0
+"competitive mindset(collaboration)" -1 -1 0 -1 0
+"competitive mindset(competition)" -1 -1 0 -1 0
+"game mode(storytelling)" -1 -1 0 -1 0
+"game mode(simple themes)" -1 -1 0 -1 0
+"situational attitude(optimistic)" -1 -1 0 -1 0
+"story motivation(mood-driven)" -1 -1 0 -1 0
+"sexual commitment(polygamy)" -1 -1 0 -1 0
+"intimacy(closeness)" -1 -1 0 -1 0
+"social(partner-focused)" -1 -1 0 -1 0
+"provacativity(edgy)" -1 -1 0 -1 0
+"love and life(relatable)" -1 -1 0 -1 0
+"social media persona(authentic)" -1 -1 0 -1 0
+"motivation(punishment)" -1 -1 0 -1 0
+"culture elements(cultural preservation)" -1 -1 0 -1 0
+"passion(hopeful)" -1 -1 0 -1 0
+"narrator(ambiguous)" -1 -1 0 -1 0
+"expressive groups(explicit)" -1 -1 0 -1 0
+"society and culture(individualistic)" -1 -1 0 -1 0
+"social and economic consciousness(anti-capitalism)" -1 -1 0 -1 0
+"fitness(exercising)" -1 -1 0 -1 0
+"fitness(playing sports)" -1 -1 0 -1 0
+"creative arts(painting)" -1 -1 0 -1 0
+"social and economic consciousness(consumerism)" -1 -1 0 -1 0
+"leisure activities(jumping rope)" -1 -1 0 -1 0
+"love and romance(playful)" -1 -1 0 -1 0
+"social and economic consciousness(globalization)" -1 -1 0 -1 0
+"relationships(close friends)" -1 -1 0 -1 0
+"creative arts(music)" -1 -1 0 -1 0
+"culture and tradition(traditional gardening)" -1 -1 0 -1 0
+"culture and tradition(traditional painting)" -1 -1 0 -1 0
+"social and economic consciousness(individualism)" -1 -1 0 -1 0
+"love and romance(caring)" -1 -1 0 -1 0
+"leisure activities(playing a musical instrument)" -1 -1 0 -1 0
+"further education(physical training)" -1 -1 0 -1 0
+"further education(physical education)" -1 -1 0 -1 0
+"leisure activities(boxing)" -1 -1 0 -1 0
+"further education(sports science)" -1 -1 0 -1 0
+"further education(physical therapy)" -1 -1 0 -1 0
+"society and culture(gender roles)" -1 -1 0 -1 0
+"society and culture(childhood play)" -1 -1 0 -1 0
+"society and culture(sportsmanship)" -1 -1 0 -1 0
+"leisure activities(running)" -1 -1 0 -1 0
+"economy and finance(running an errand)" -1 -1 0 -1 0
+"economy and finance(starting a business)" -1 -1 0 -1 0
+"self-esteem(self-confidence)" -1 -1 0 -1 0
+"self-esteem(empowerment)" -1 -1 0 -1 0
+"society and culture(individualism)" -1 -1 0 -1 0
+"leisure activities(music)" -1 -1 0 -1 0
+"religion extremes(agnostics)" -1 -1 0 -1 0
+"musicianship(expert)" -1 -1 0 -1 0
+"intimacy(emotional)" -1 -1 0 -1 0
+"youth activities(cheerleading)" -1 -1 0 -1 0
+"visual representation(freeze frame)" -1 -1 0 -1 0
+"technology(individual-oriented)" -1 -1 0 -1 0
+"emotional realism(joyful)" -1 -1 0 -1 0
+"authentic(aspirational)" -1 -1 0 -1 0
+"sophisticated(simple)" -1 -1 0 -1 0
+"authority(anti-capitalism)" -1 -1 0 -1 0
+"fanaticism(religious fundamentalist)" -1 -1 0 -1 0
+"motivation(punishing)" -1 -1 0 -1 0
+"mood 4(dramatic)" -1 -1 0 -1 0
+"freedom(independent)" -1 -1 0 -1 0
+"emotional realism(happy)" -1 -1 0 -1 0
+"physical preference(body-enhancing beauty)" -1 -1 0 -1 0
+"sensitivity(sensitive)" -1 -1 0 -1 0
+"humanity(uplifting)" -1 -1 0 -1 0
+"patience(instant gratification)" -1 -1 0 -1 0
+"humanity(heavy)" -1 -1 0 -1 0
+"humanity(nostalgic)" -1 -1 0 -1 0
+"technicality(challenging)" -1 -1 0 -1 0
+"imagination(creative)" -1 -1 0 -1 0
+"mood 5(playful)" -1 -1 0 -1 0
+"independence(dependence)" -1 -1 0 -1 0
+"organization relations(anti-capitalism)" -1 -1 0 -1 0
+"emotionality(emotional)" -1 -1 0 -1 0
+"pervasivity(mainstream)" -1 -1 0 -1 0
+"provocativity(innocent)" -1 -1 0 -1 0
+"discipline relations(craftsmanship)" -1 -1 0 -1 0
+"book(hobby)" -1 -1 0 -1 0
+"storymode(narrative detachment)" -1 -1 0 -1 0
+"audience(youth-oriented)" -1 -1 0 -1 0
+"theological opposites(atheist)" -1 -1 0 -1 0
+"storymotivation(narrative-driven)" -1 -1 0 -1 0
+"hierarchy(authoritative)" -1 -1 0 -1 0
+"economy(capitalist)" -1 -1 0 -1 0
+"sexual orientation(diverse)" -1 -1 0 -1 0
+"relationships(inclusive)" -1 -1 0 -1 0
+"social(anti-capitalism)" -1 -1 0 -1 0
+"gender(diverse)" -1 -1 0 -1 0
+"mental attitude(open)" -1 -1 0 -1 0
+"attutude 1(closed)" -1 -1 0 -1 0
+"efficiency and productivity(multitasking)" -1 -1 0 -1 0
+"love status(self-love)" -1 -1 0 -1 0
+"culture(globalization)" -1 -1 0 -1 0
+"emphasis(emotionally restrained)" -1 -1 0 -1 0
+"mental attitude(closed)" -1 -1 0 -1 0
+"undefined \(no attribute group specified\)(none \(sentence fragment\))" -1 -1 0 -1 0
+"power and strength(strength)" -1 -1 0 -1 0
+"individualism and collectivism(individualistic)" -1 -1 0 -1 0
+"relationship(owning a pet)" -1 -1 0 -1 0
+"domestic responsibilities(ironing clothes)" -1 -1 0 -1 0
+"personal fashion(ironing clothes)" -1 -1 0 -1 0
+"domestic responsibilities(laundry)" -1 -1 0 -1 0
+"celebration and joy(jubilation)" -1 -1 0 -1 0
+"physical activities(sledding)" -1 -1 0 -1 0
+"physical activities(rollerblading)" -1 -1 0 -1 0
+"physical activities(horseback riding)" -1 -1 0 -1 0
+"domestic responsibilities(cleaning)" -1 -1 0 -1 0
+"communication(instructional)" -1 -1 0 -1 0
+"domestic responsibilities(grooming pets)" -1 -1 0 -1 0
+"physical activities(playing dodgeball)" -1 -1 0 -1 0
+"domestic responsibilities(putting on a belt)" -1 -1 0 -1 0
+"physical activities(marathon running)" -1 -1 0 -1 0
+"domestic responsibilities(training animals)" -1 -1 0 -1 0
+"domestic responsibilities(managing a pet)" -1 -1 0 -1 0
+"physical activities(weightlifting)" -1 -1 0 -1 0
+"physical activities(lunges)" -1 -1 0 -1 0
+"physical activities(acrobatics)" -1 -1 0 -1 0
+"parenting(correct technique)" -1 -1 0 -1 0
+"love and life(aspirational)" -1 -1 0 -1 0
+"sobriety(alcohol)" -1 -1 0 -1 0
+"simplicity(simple)" -1 -1 0 -1 0
+"diversity(diverse)" -1 -1 0 -1 0
+"fame(celebrity persona)" -1 -1 0 -1 0
+"emotional realism(realism)" -1 -1 0 -1 0
+"sobriety(smoke-free)" -1 -1 0 -1 0
+"grooming(hair brushing and cutting)" -1 -1 0 -1 0
+"animal welfare(anti-cruelty)" -1 -1 0 -1 0
+"social media-driven(body positivity)" -1 -1 0 -1 0
+"transparency(clear)" -1 -1 0 -1 0
+"animal welfare(compassion)" -1 -1 0 -1 0
+"animal welfare(empathy)" -1 -1 0 -1 0
+"cultural preservation(environmentalism)" -1 -1 0 -1 0
+"provocative(graphic)" -1 -1 0 -1 0
+"empowerment(contribution)" -1 -1 0 -1 0
+"mindfulness(intentional)" -1 -1 0 -1 0
+"corporate relations(brand promotion)" -1 -1 0 -1 0
+"adventure(challenging)" -1 -1 0 -1 0
+"adventure(thrilling)" -1 -1 0 -1 0
+"teamwork(collaboration)" -1 -1 0 -1 0
+"teamwork(support)" -1 -1 0 -1 0
+"adventure(risk-taking)" -1 -1 0 -1 0
+"teamwork(camaraderie)" -1 -1 0 -1 0
+"teamwork(coordination)" -1 -1 0 -1 0
+"adventure(adrenaline-fueled)" -1 -1 0 -1 0
+"mindfulness(meditative)" -1 -1 0 -1 0
+"animal welfare(preservation)" -1 -1 0 -1 0
+"empowerment(raising awareness)" -1 -1 0 -1 0
+"sexualization(provocative)" -1 -1 0 -1 0
+"media production(tv network)" -1 -1 0 -1 0
+"relationship building(icebreaker)" -1 -1 0 -1 0
+"physical strength(endurance)" -1 -1 0 -1 0
+"physical strength(muscle-building)" -1 -1 0 -1 0
+"teamwork(communication)" -1 -1 0 -1 0
+"empowerment(empowering others)" -1 -1 0 -1 0
+"teamwork(unity)" -1 -1 0 -1 0
+"adventure(excitement)" -1 -1 0 -1 0
+"teamwork(trust)" -1 -1 0 -1 0
+"artistic expression(creativity)" -1 -1 0 -1 0
+"artistic expression(childlike wonder)" -1 -1 0 -1 0
+"teamwork(cooperation)" -1 -1 0 -1 0
+"artistic expression(self-expression)" -1 -1 0 -1 0
+"physical health(fitness)" -1 -1 0 -1 0
+"physical strength(weightlifting)" -1 -1 0 -1 0
+"education(learning)" -1 -1 0 -1 0
+"physical fitness(strength training)" -1 -1 0 -1 0
+"education(active listening)" -1 -1 0 -1 0
+"education(attentive)" -1 -1 0 -1 0
+"education(focused)" -1 -1 0 -1 0
+"service(polishing)" -1 -1 0 -1 0
+"education(demonstration or lesson)" -1 -1 0 -1 0
+"rational believers(reasonable)" -1 -1 0 -1 0
+"media persona(news reporter)" -1 -1 0 -1 0
+"group experience(competitive)" -1 -1 0 -1 0
+"musical preference(classical)" -1 -1 0 -1 0
+"competition(collaborative)" -1 -1 0 -1 0
+"commercial appeal(artistic integrity)" -1 -1 0 -1 0
+"culture(cultural preservation)" -1 -1 0 -1 0
+"religion(unspecified)" -1 -1 0 -1 0
+"physical activity(dance)" -1 -1 0 -1 0
+"hair styling(blow drying and styling)" -1 -1 0 -1 0
+"musical preference(jazz)" -1 -1 0 -1 0
+"ethnicity(african american)" -1 -1 0 -1 0
+"job(welder)" -1 -1 0 -1 0
+"job(inspector)" -1 -1 0 -1 0
+"home design(protecting from paint splatters)" -1 -1 0 -1 0
+"fashion(accessories)" -1 -1 0 -1 0
+"family(mother and child)" -1 -1 0 -1 0
+"cooking(baking)" -1 -1 0 -1 0
+"geography(worldwide)" -1 -1 0 -1 0
+"awards(personal achievements)" -1 -1 0 -1 0
+"physical activity(hula hooping)" -1 -1 0 -1 0
+"sport(swimming)" -1 -1 0 -1 0
+"sport(water polo)" -1 -1 0 -1 0
+"storymode(narrative-driven)" -1 -1 0 -1 0
+"emotion(melancholic)" -1 -1 0 -1 0
+"musical genre(symphony)" -1 -1 0 -1 0
+"relationship(partner-focused)" -1 -1 0 -1 0
+"image(male)" -1 -1 0 -1 0
+"imagery(trope-reinforcing)" -1 -1 0 -1 0
+"sexuallziation(non-sexual)" -1 -1 0 -1 0
+"image(non-sexual)" -1 -1 0 -1 0
+"person(female)" -1 -1 0 -1 0
+"socizal(democratic)" -1 -1 0 -1 0
+"people(introverted)" -1 -1 0 -1 0
+"person(male)" -1 -1 0 -1 0
+"expectation-conformed(average expectations)" -1 -1 0 -1 0
+"transparency(transparent)" -1 -1 0 -1 0
+"competition(competitiveness)" -1 -1 0 -1 0
+"physically preference(natural beauty)" -1 -1 0 -1 0
+"physical(body enhancing beauty)" -1 -1 0 -1 0
+"authencity(authentic)" -1 -1 0 -1 0
+"lifestyle(athletic)" -1 -1 0 -1 0
+"lifestyle(indulgent)" -1 -1 0 -1 0
+"body image(confident)" -1 -1 0 -1 0
+"physical preference(fit)" -1 -1 0 -1 0
+"body image(flexible)" -1 -1 0 -1 0
+"achievement(perseverance)" -1 -1 0 -1 0
+"body image(petite)" -1 -1 0 -1 0
+"body image(playful)" -1 -1 0 -1 0
+"achievement(determination)" -1 -1 0 -1 0
+"emotional state(detached)" -1 -1 0 -1 0
+"creativity(artistic)" -1 -1 0 -1 0
+"creativity(imagination)" -1 -1 0 -1 0
+"achievement(precise)" -1 -1 0 -1 0
+"body image(quirky)" -1 -1 0 -1 0
+"body image(unconventional)" -1 -1 0 -1 0
+"physical preference(slim)" -1 -1 0 -1 0
+"expression(unconventional)" -1 -1 0 -1 0
+"expression(confident)" -1 -1 0 -1 0
+"lifestyle(adventurous)" -1 -1 0 -1 0
+"achievement(successful)" -1 -1 0 -1 0
+"group experience(spectator)" -1 -1 0 -1 0
+"achievement(competitive)" -1 -1 0 -1 0
+"culture(popular)" -1 -1 0 -1 0
+"expression(natural)" -1 -1 0 -1 0
+"music(jazz)" -1 -1 0 -1 0
+"expression(skilled)" -1 -1 0 -1 0
+"lifestyle(disciplined)" -1 -1 0 -1 0
+"expression(energetic)" -1 -1 0 -1 0
+"physical preference(toned)" -1 -1 0 -1 0
+"physical preference(acrobatic)" -1 -1 0 -1 0
+"achievement(multi-skilled)" -1 -1 0 -1 0
+"achievement(exceptional)" -1 -1 0 -1 0
+"expression(flexible)" -1 -1 0 -1 0
+"physical preference(graceful)" -1 -1 0 -1 0
+"body image(feminine)" -1 -1 0 -1 0
+"body image(charming)" -1 -1 0 -1 0
+"creativity(innovative)" -1 -1 0 -1 0
+"lifestyle(rich)" -1 -1 0 -1 0
+"creativity(confectionery)" -1 -1 0 -1 0
+"creativity(pastry)" -1 -1 0 -1 0
+"creativity(baking)" -1 -1 0 -1 0
+"creativity(culinary)" -1 -1 0 -1 0
+"entertainment(competitive sports)" -1 -1 0 -1 0
+"technical(skill-based sports)" -1 -1 0 -1 0
+"technical(hands-on process)" -1 -1 0 -1 0
+"technical(gestures)" -1 -1 0 -1 0
+"team sports(celebration)" -1 -1 0 -1 0
+"feminine gender(laughter)" -1 -1 0 -1 0
+"family and relationships(affectionate actions)" -1 -1 0 -1 0
+"adventure and thrill seeking(competitive nature)" -1 -1 0 -1 0
+"competition(trophy display)" -1 -1 0 -1 0
+"party culture(beer pong)" -1 -1 0 -1 0
+"childlike behavior(playground skills)" -1 -1 0 -1 0
+"adventure and thrill seeking(overcoming obstacles)" -1 -1 0 -1 0
+"archery(precision)" -1 -1 0 -1 0
+"visual storytelling(action shots)" -1 -1 0 -1 0
+"romance and flirtation(playful flirtation)" -1 -1 0 -1 0
+"sexualization(sexual objectification)" -1 -1 0 -1 0
+"team sports(teamwork and camaraderie)" -1 -1 0 -1 0
+"cooking and food(healthy eating)" -1 -1 0 -1 0
+"physical activity and fitness(self-improvement)" -1 -1 0 -1 0
+"production style(online promotion)" -1 -1 0 -1 0
+"childlike behavior(daring stunts)" -1 -1 0 -1 0
+"gender differences(playful aggression)" -1 -1 0 -1 0
+"competition(cheers and celebrations)" -1 -1 0 -1 0
+"performance and success(recognition and rewards)" -1 -1 0 -1 0
+"party culture(drinking and partying)" -1 -1 0 -1 0
+"childlike behavior(innocent mischief)" -1 -1 0 -1 0
+"positive emotions(joy and happiness)" -1 -1 0 -1 0
+"performance and success(trophy display)" -1 -1 0 -1 0
+"party culture(drinking games)" -1 -1 0 -1 0
+"childlike behavior(playground activities)" -1 -1 0 -1 0
+"visual storytelling(fast-paced editing)" -1 -1 0 -1 0
+"online media(call to action)" -1 -1 0 -1 0
+"physical activity and fitness(athleticism and strength)" -1 -1 0 -1 0
+"adventure and thrill seeking(bravery and risk-taking)" -1 -1 0 -1 0
+"archery(precision and skill)" -1 -1 0 -1 0
+"photography and videography(behind the scenes)" -1 -1 0 -1 0
+"cinema and entertainment(creative stunts and tricks)" -1 -1 0 -1 0
+"romance and flirtation(playful flirting)" -1 -1 0 -1 0
+"archery(accuracy and precision)" -1 -1 0 -1 0
+"water sports(diving and swimming)" -1 -1 0 -1 0
+"water sports(precision and skill)" -1 -1 0 -1 0
+"water sports(bravery and adventure)" -1 -1 0 -1 0
+"team sports(competition and celebration)" -1 -1 0 -1 0
+"cooking and food(healthy and natural ingredients)" -1 -1 0 -1 0
+"cooking and food(knife skills and preparation)" -1 -1 0 -1 0
+"cooking and food(recipe demonstration)" -1 -1 0 -1 0
+"cooking and food(food presentation)" -1 -1 0 -1 0
+"cooking and food(recipe creation)" -1 -1 0 -1 0
+"cooking and food(ingredient selection and preparation)" -1 -1 0 -1 0
+"cooking and food(cooking and food presentation)" -1 -1 0 -1 0
+"body preference(natural beauty)" -1 -1 0 -1 0
+"intimacy(romantic couple)" -1 -1 0 -1 0
+"accuracy(emotionally charged)" -1 -1 0 -1 0
+"competence(strong)" -1 -1 0 -1 0
+"emotional state(serious)" -1 -1 0 -1 0
+"cleanliness(hygiene)" -1 -1 0 -1 0
+"austerity(cleanliness)" -1 -1 0 -1 0
+"attention to detail(meticulousness)" -1 -1 0 -1 0
+"narration style(commentary)" -1 -1 0 -1 0
+"production style(color)" -1 -1 0 -1 0
+"narration style(instructions)" -1 -1 0 -1 0
+"attention to detail(attention to detail)" -1 -1 0 -1 0
+"media influence(mainstream success)" -1 -1 0 -1 0
+"skill level(experienced)" -1 -1 0 -1 0
+"job role(police officer)" -1 -1 0 -1 0
+"athleticism(track and field)" -1 -1 0 -1 0
+"sport(paintball)" -1 -1 0 -1 0
+"patriotism(patriotic)" -1 -1 0 -1 0
+"socializing(bystander)" -1 -1 0 -1 0
+"music genre(marching band/percussion)" -1 -1 0 -1 0
+"fashion style(trendy)" -1 -1 0 -1 0
+"media influence(relevant to current times)" -1 -1 0 -1 0
+"group faith(religious community)" -1 -1 0 -1 0
+"physical preference(clear pathway)" -1 -1 0 -1 0
+"physical preference(noisy street)" -1 -1 0 -1 0
+"physical preference(fast moving cars)" -1 -1 0 -1 0
+"physical preference(precision in sport)" -1 -1 0 -1 0
+"physical preference(strength and coordination)" -1 -1 0 -1 0
+"physical preference(hitting the target)" -1 -1 0 -1 0
+"motivation(fitness)" -1 -1 0 -1 0
+"rational believers(rational thinker)" -1 -1 0 -1 0
+"rational believers(rational demonstrator)" -1 -1 0 -1 0
+"physical preference(outdoor playground)" -1 -1 0 -1 0
+"physical preference(enjoyment)" -1 -1 0 -1 0
+"physical preference(playful activities)" -1 -1 0 -1 0
+"physical preference(physical strength and coordination)" -1 -1 0 -1 0
+"physical preference(gymnast)" -1 -1 0 -1 0
+"rational believers(logical explanation)" -1 -1 0 -1 0
+"physical preference(adventurous)" -1 -1 0 -1 0
+"physical preference(safety measures)" -1 -1 0 -1 0
+"physical preference(motor biking)" -1 -1 0 -1 0
+"physical preference(challenging terrain)" -1 -1 0 -1 0
+"physical preference(extreme sports)" -1 -1 0 -1 0
+"physical preference(adrenaline rush)" -1 -1 0 -1 0
+"physical preference(daring and adventurous)" -1 -1 0 -1 0
+"auditioning competition(aspiring performer)" -1 -1 0 -1 0
+"physical preference(technique and skill)" -1 -1 0 -1 0
+"intention 2(despair)" -1 -1 0 -1 0
+"honesty(honest)" -1 -1 0 -1 0
+"humanity(human strength)" -1 -1 0 -1 0
+"theology(theistic)" -1 -1 0 -1 0
+"average expectations(acceptance)" -1 -1 0 -1 0
+"calm mood(playful)" -1 -1 0 -1 0
+"image(natural beauty)" -1 -1 0 -1 0
+"life and love(romantic love)" -1 -1 0 -1 0
+"independentism(dependent)" -1 -1 0 -1 0
+"economy(economic conservatism)" -1 -1 0 -1 0
+"attitude 2(optimistic)" -1 -1 0 -1 0
+"love target(romantic love)" -1 -1 0 -1 0
+"technological use(social media-driven)" -1 -1 0 -1 0
+"traditional religion(another religion)" -1 -1 0 -1 0
+"calm mood(serious)" -1 -1 0 -1 0
+"mainstream appeal(alternative success)" -1 -1 0 -1 0
+"visual focus(close-up)" -1 -1 0 -1 0
+"party preference(inward-focused party)" -1 -1 0 -1 0
+"situational approaches(prescriptive)" -1 -1 0 -1 0
+"mindfullness(mindless)" -1 -1 0 -1 0
+"mood 3(playful)" -1 -1 0 -1 0
+"physical preference(unique)" -1 -1 0 -1 0
+"emotion realism(realistic emotions)" -1 -1 0 -1 0
+"process(vacuuming)" -1 -1 0 -1 0
+"process(shoveling)" -1 -1 0 -1 0
+"storymode(performance)" -1 -1 0 -1 0
+"process(playing music)" -1 -1 0 -1 0
+"process(weightlifting)" -1 -1 0 -1 0
+"process(running)" -1 -1 0 -1 0
+"process(dancing)" -1 -1 0 -1 0
+"process(hugging)" -1 -1 0 -1 0
+"process(hairstyling)" -1 -1 0 -1 0
+"process(playing bagpipes)" -1 -1 0 -1 0
+"process(blowing leaves)" -1 -1 0 -1 0
+"process(walking)" -1 -1 0 -1 0
+"process(pouring drink)" -1 -1 0 -1 0
+"process(practicing)" -1 -1 0 -1 0
+"process(playing a game)" -1 -1 0 -1 0
+"food and health(healthy)" -1 -1 0 -1 0
+"food and health(unhealthy)" -1 -1 0 -1 0
+"identity(individual)" -1 -1 0 -1 0
+"identity(collective)" -1 -1 0 -1 0
+"physical activity(water sports)" -1 -1 0 -1 0
+"physical activity(land sports)" -1 -1 0 -1 0
+"technology and internet(online browsing)" -1 -1 0 -1 0
+"technology and internet(offline activities)" -1 -1 0 -1 0
+"family relationships(mother-daughter bond)" -1 -1 0 -1 0
+"family relationships(father-daughter bond)" -1 -1 0 -1 0
+"food and health(nutrition)" -1 -1 0 -1 0
+"relationship(romantic partner)" -1 -1 0 -1 0
+"relationship(friend)" -1 -1 0 -1 0
+"hobbies(winter sports)" -1 -1 0 -1 0
+"hobbies(summer sports)" -1 -1 0 -1 0
+"hobbies(outdoor activities)" -1 -1 0 -1 0
+"hobbies(indoor activities)" -1 -1 0 -1 0
+"family relationships(parents and children)" -1 -1 0 -1 0
+"human behavior(aggressive)" -1 -1 0 -1 0
+"human behavior(passive)" -1 -1 0 -1 0
+"relationship(mother-daughter)" -1 -1 0 -1 0
+"crafts and skills(ski maintenance)" -1 -1 0 -1 0
+"crafts and skills(knife sharpening)" -1 -1 0 -1 0
+"household chores(kitchen cleaning)" -1 -1 0 -1 0
+"crafts and skills(wall cleaning)" -1 -1 0 -1 0
+"household chores(cooking)" -1 -1 0 -1 0
+"human behavior(informative)" -1 -1 0 -1 0
+"human behavior(critical)" -1 -1 0 -1 0
+"group experience(crowd celebration)" -1 -1 0 -1 0
+"physical activity(motorcycle riding)" -1 -1 0 -1 0
+"visual arts(slow motion capture)" -1 -1 0 -1 0
+"social(hierarchical)" -1 -1 0 -1 0
+"athletic drive(competitive)" -1 -1 0 -1 0
+"concept(fact-based)" -1 -1 0 -1 0
+"traditional and new believers(new age spirituality)" -1 -1 0 -1 0
+"conceptualization(abstract)" -1 -1 0 -1 0
+"religion(catholic)" -1 -1 0 -1 0
+"responsibilities(accountable)" -1 -1 0 -1 0
+"action(deliberate)" -1 -1 0 -1 0
+"material(concrete)" -1 -1 0 -1 0
+"group faith(secular society)" -1 -1 0 -1 0
+"belief communities(group affiliation)" -1 -1 0 -1 0
+"faith extremes(reasonable)" -1 -1 0 -1 0
+"group experience(individual-focused)" -1 -1 0 -1 0
+"group experience(spectator-focused)" -1 -1 0 -1 0
+"theology opposites(libertarian)" -1 -1 0 -1 0
+"group experience(personal hygiene)" -1 -1 0 -1 0
+"group experience(cutting and preparing food)" -1 -1 0 -1 0
+"group experience(cooking and creating)" -1 -1 0 -1 0
+"group experience(arts and crafts)" -1 -1 0 -1 0
+"cognitive aptitude(puzzle-solving)" -1 -1 0 -1 0
+"cognitive aptitude(time-management)" -1 -1 0 -1 0
+"group experience(earning and spending money)" -1 -1 0 -1 0
+"group experience(sharing and giving)" -1 -1 0 -1 0
+"group experience(empathizing and connecting)" -1 -1 0 -1 0
+"group experience(socializing and engaging)" -1 -1 0 -1 0
+"group experience(community-building)" -1 -1 0 -1 0
+"cognitive aptitude(physical strength)" -1 -1 0 -1 0
+"group experience(competition)" -1 -1 0 -1 0
+"group experience(physical activity and movement)" -1 -1 0 -1 0
+"cognitive aptitude(strategic thinking)" -1 -1 0 -1 0
+"group experience(careful positioning)" -1 -1 0 -1 0
+"group experience(physical strength)" -1 -1 0 -1 0
+"lyrical emphasis(emotionally charged)" -1 -1 0 -1 0
+"intuitive thinkers(rationalist)" -1 -1 0 -1 0
+"playfulness(serious)" -1 -1 0 -1 0
+"concepts(grounded)" -1 -1 0 -1 0
+"visual(close up)" -1 -1 0 -1 0
+"religious(divine worshiper)" -1 -1 0 -1 0
+"physical preference(body enhancing beauty.)" -1 -1 0 -1 0
+"socioeconomic(anti-capitalism)" -1 -1 0 -1 0
+"socioeconomic(consumerism)" -1 -1 0 -1 0
+"socioeconomic(cultural preservation)" -1 -1 0 -1 0
+"cleanliness(hand hygiene)" -1 -1 0 -1 0
+"song lyrics(counting)" -1 -1 0 -1 0
+"socioeconomic(globalization)" -1 -1 0 -1 0
+"transportation(train)" -1 -1 0 -1 0
+"performance(piano playing)" -1 -1 0 -1 0
+"physical strength(strength demonstration)" -1 -1 0 -1 0
+"social identity(group identity)" -1 -1 0 -1 0
+"knowledge(tile design)" -1 -1 0 -1 0
+"transportation(cars)" -1 -1 0 -1 0
+"physical strength(rope climbing)" -1 -1 0 -1 0
+"physical strength(rope acrobatics/circus skills)" -1 -1 0 -1 0
+"performance(rope acrobatics/circus show)" -1 -1 0 -1 0
+"group experience(team bonding)" -1 -1 0 -1 0
+"group experience(teamwork)" -1 -1 0 -1 0
+"group experience(cheerleading squad)" -1 -1 0 -1 0
+"group experience(stunt acrobatics)" -1 -1 0 -1 0
+"group experience(cheerleading performance)" -1 -1 0 -1 0
+"group experience(pyramids/stunts)" -1 -1 0 -1 0
+"physical strength(acrobatics/dancing)" -1 -1 0 -1 0
+"physical strength(strength demonstration/acrobatics.)" -1 -1 0 -1 0
+"calmness(patience)" -1 -1 0 -1 0
+"playful spirit(playful)" -1 -1 0 -1 0
+"musical style(acoustic)" -1 -1 0 -1 0
+"youth identity(peer approval)" -1 -1 0 -1 0
+"musical talent(violinist)" -1 -1 0 -1 0
+"visual storytelling(dialogue)" -1 -1 0 -1 0
+"youth identity(peer pressure)" -1 -1 0 -1 0
+"social interaction(laughter)" -1 -1 0 -1 0
+"cultural food(cooking)" -1 -1 0 -1 0
+"productivity(multitasking)" -1 -1 0 -1 0
+"unity(collaboration)" -1 -1 0 -1 0
+"cooking(cooking with ingredients)" -1 -1 0 -1 0
+"cooking(cooking with liquids)" -1 -1 0 -1 0
+"food presentation(presentation on a plate)" -1 -1 0 -1 0
+"religious extremes(atheist)" -1 -1 0 -1 0
+"financial(conservative)" -1 -1 0 -1 0
+"hope(despair)" -1 -1 0 -1 0
+"society(collective)" -1 -1 0 -1 0
+"mood 1(melancholic)" -1 -1 0 -1 0
+"financial(liberal)" -1 -1 0 -1 0
+"mood 3(heavy)" -1 -1 0 -1 0
+"general attitude(closed)" -1 -1 0 -1 0
+"ethnicity(global)" -1 -1 0 -1 0
+"noun(sand dunes)" -1 -1 0 -1 0
+"noun(camels)" -1 -1 0 -1 0
+"noun(arm wrestling matches)" -1 -1 0 -1 0
+"attitude 2(despair)" -1 -1 0 -1 0
+"celebrity persona(celebrity worship)" -1 -1 0 -1 0
+"hygiene(shaving)" -1 -1 0 -1 0
+"noun(woods)" -1 -1 0 -1 0
+"realistic expectations(realistic emotions)" -1 -1 0 -1 0
+"organ(horse)" -1 -1 0 -1 0
+"noun(equestrian center)" -1 -1 0 -1 0
+"expressions(explicit)" -1 -1 0 -1 0
+"intuition thinkers(rationalist)" -1 -1 0 -1 0
+"lover status(heartbreak)" -1 -1 0 -1 0
+"believability(skeptical)" -1 -1 0 -1 0
+"mental strength(strong)" -1 -1 0 -1 0
+"ethical extremes(skeptical)" -1 -1 0 -1 0
+"musical preference(instrumental)" -1 -1 0 -1 0
+"religiousness(believer)" -1 -1 0 -1 0
+"situational relation(descriptive)" -1 -1 0 -1 0
+"peacefullness(peacemaker)" -1 -1 0 -1 0
+"patientce(longevity)" -1 -1 0 -1 0
+"uniqueness(unique)" -1 -1 0 -1 0
+"social(cultural globalization)" -1 -1 0 -1 0
+"interpersonal attitude(hopeful)" -1 -1 0 -1 0
+"duty ethics(responsible)" -1 -1 0 -1 0
+"physical preference(visual simplicity)" -1 -1 0 -1 0
+"physical preference(killing of nerves)" -1 -1 0 -1 0
+"economic(anti-capitalism)" -1 -1 0 -1 0
+"attending the activity(participation)" -1 -1 0 -1 0
+"event focus(performance-oriented)" -1 -1 0 -1 0
+"economic(consumerism)" -1 -1 0 -1 0
+"corporeal sensuality(self-love)" -1 -1 0 -1 0
+"athletics(acrobatic)" -1 -1 0 -1 0
+"loyalty sacrifice(mandatory)" -1 -1 0 -1 0
+"corporeal sensuality(adventurous)" -1 -1 0 -1 0
+"spirit(joy in life)" -1 -1 0 -1 0
+"consequentialism(utilitarian)" -1 -1 0 -1 0
+"musical expression(instrumental)" -1 -1 0 -1 0
+"group experience(performance-oriented)" -1 -1 0 -1 0
+"industrial expression(how-to)" -1 -1 0 -1 0
+"intellectual(intellectual)" -1 -1 0 -1 0
+"place of production(garden)" -1 -1 0 -1 0
+"corporate relations(anti-capitalism)" -1 -1 0 -1 0
+"substance(snow)" -1 -1 0 -1 0
+"competition(competition)" -1 -1 0 -1 0
+"youth(babies)" -1 -1 0 -1 0
+"emotion(despair)" -1 -1 0 -1 0
+"self-acceptance(self-acceptance)" -1 -1 0 -1 0
+"beliefs(religious)" -1 -1 0 -1 0
+"musical instruments(violin)" -1 -1 0 -1 0
+"self-love(self-love)" -1 -1 0 -1 0
+"physical ability(flexible)" -1 -1 0 -1 0
+"human skill(skilled)" -1 -1 0 -1 0
+"talents(skilled)" -1 -1 0 -1 0
+"visual elements(snow)" -1 -1 0 -1 0
+"tool(pocket knife)" -1 -1 0 -1 0
+"visual elements(garden)" -1 -1 0 -1 0
+"sports(skateboarding)" -1 -1 0 -1 0
+"beliefs spectrum(believer)" -1 -1 0 -1 0
+"feature loving love(interest)" -1 -1 0 -1 0
+"media relations(celebrity worship)" -1 -1 0 -1 0
+"visual representation(slow motion)" -1 -1 0 -1 0
+"god and satan(divine worshipers)" -1 -1 0 -1 0
+"body positivity(body enhancing beauty)" -1 -1 0 -1 0
+"cultural preservation(individualistic)" -1 -1 0 -1 0
+"self-expression(allegorical)" -1 -1 0 -1 0
+"emotionality(realistic emotions)" -1 -1 0 -1 0
+"sports and competition(playing at a field)" -1 -1 0 -1 0
+"intimacy(romantic love)" -1 -1 0 -1 0
+"independence(independent)" -1 -1 0 -1 0
+"social relations(team-oriented)" -1 -1 0 -1 0
+"media relations(advertisement)" -1 -1 0 -1 0
+"god and satan(theistic)" -1 -1 0 -1 0
+"traveling(city)" -1 -1 0 -1 0
+"dignity and freedom(open)" -1 -1 0 -1 0
+"sports and competition(beach volleyball)" -1 -1 0 -1 0
+"cooking and drinking(making coffee)" -1 -1 0 -1 0
+"emotionality(slow motion)" -1 -1 0 -1 0
+"travel and transportation(boat)" -1 -1 0 -1 0
+"intimacy(child and adult)" -1 -1 0 -1 0
+"self-expression(explicit)" -1 -1 0 -1 0
+"traveling(yard)" -1 -1 0 -1 0
+"sports and competition(jumping on jump stilts)" -1 -1 0 -1 0
+"visual(sport and recreation)" -1 -1 0 -1 0
+"fitness(strength training)" -1 -1 0 -1 0
+"visual(arts and crafts)" -1 -1 0 -1 0
+"beauty(nail art)" -1 -1 0 -1 0
+"self-expression(fashion and style)" -1 -1 0 -1 0
+"motivation(longevity)" -1 -1 0 -1 0
+"attitude 5(playful)" -1 -1 0 -1 0
+"attitude 3(uplifted)" -1 -1 0 -1 0
+"attitude 4(emotional)" -1 -1 0 -1 0
+"influences(social media influencers)" -1 -1 0 -1 0
+"fitness(yoga)" -1 -1 0 -1 0
+"existence(beauty of nature)" -1 -1 0 -1 0
+"visual(painting and drawing)" -1 -1 0 -1 0
+"attitude 3(uplifting)" -1 -1 0 -1 0
+"physical preference(strength)" -1 -1 0 -1 0
+"wisdom(honest)" -1 -1 0 -1 0
+"mental health(support)" -1 -1 0 -1 0
+"sense of self(self-improvement)" -1 -1 0 -1 0
+"exercise(active lifestyle)" -1 -1 0 -1 0
+"self-worth(determination)" -1 -1 0 -1 0
+"physical preference(flexibility)" -1 -1 0 -1 0
+"physical preference(agility)" -1 -1 0 -1 0
+"visualization(dance)" -1 -1 0 -1 0
+"physical preference(athleticism)" -1 -1 0 -1 0
+"physical strength(athleticism)" -1 -1 0 -1 0
+"mind-body connection(fitness)" -1 -1 0 -1 0
+"exercise routine(disciplined approach)" -1 -1 0 -1 0
+"exercise routine(strength)" -1 -1 0 -1 0
+"exercise routine(range of motion)" -1 -1 0 -1 0
+"body movement(flexibility)" -1 -1 0 -1 0
+"body movement(gracefulness)" -1 -1 0 -1 0
+"body movement(rhythm)" -1 -1 0 -1 0
+"body movement(coordination)" -1 -1 0 -1 0
+"self-care(grooming)" -1 -1 0 -1 0
+"adventure(thrill-seeking)" -1 -1 0 -1 0
+"physical preference(cute)" -1 -1 0 -1 0
+"family structure(single parent)" -1 -1 0 -1 0
+"body image(body positive)" -1 -1 0 -1 0
+"mental health(emotional support)" -1 -1 0 -1 0
+"sexual identity(heterosexual)" -1 -1 0 -1 0
+"societal expectations(mainstream)" -1 -1 0 -1 0
+"physical strength(weak)" -1 -1 0 -1 0
+"family structure(blended family)" -1 -1 0 -1 0
+"body image(self-conscious)" -1 -1 0 -1 0
+"societal expectations(alternative)" -1 -1 0 -1 0
+"problem solving strategy(creative)" -1 -1 0 -1 0
+"problem solving strategy(resourceful)" -1 -1 0 -1 0
+"production style(handmade)" -1 -1 0 -1 0
+"societal expectations(traditional)" -1 -1 0 -1 0
+"mental health(anxiety)" -1 -1 0 -1 0
+"talent or passion(musical)" -1 -1 0 -1 0
+"talent or passion(athletic)" -1 -1 0 -1 0
+"mental health(overwhelmed)" -1 -1 0 -1 0
+"cultural elements(westernized)" -1 -1 0 -1 0
+"societal expectations(non-conformity)" -1 -1 0 -1 0
+"role in society(news anchor)" -1 -1 0 -1 0
+"societal expectations(individualistic)" -1 -1 0 -1 0
+"artistic expression(performance)" -1 -1 0 -1 0
+"societal expectations(conformity)" -1 -1 0 -1 0
+"cultural elements(cultural appropriation)" -1 -1 0 -1 0
+"societal expectations(professionalism)" -1 -1 0 -1 0
+"societal expectations(freedom of expression)" -1 -1 0 -1 0
+"responsibility(attentive)" -1 -1 0 -1 0
+"societal expectations(fashion trend following)" -1 -1 0 -1 0
+"problem solving strategy(improvisational)" -1 -1 0 -1 0
+"societal expectations(perfection)" -1 -1 0 -1 0
+"physical strength(athletic)" -1 -1 0 -1 0
+"societal expectations(athletic)" -1 -1 0 -1 0
+"cognitive opposites(reasonableness)" -1 -1 0 -1 0
+"dance focus(couple-focused)" -1 -1 0 -1 0
+"creative opposites(explicit)" -1 -1 0 -1 0
+"physicality(body enhancing beauty)" -1 -1 0 -1 0
+"emotional opposites(pessimistic)" -1 -1 0 -1 0
+"dance focus(individual-oriented)" -1 -1 0 -1 0
+"cognitive opposites(reasonable)" -1 -1 0 -1 0
+"physicality(natural beauty)" -1 -1 0 -1 0
+"creative opposites(allegorical)" -1 -1 0 -1 0
+"emotional opposites(optimistic)" -1 -1 0 -1 0
+"image(trope-reinforcing)" -1 -1 0 -1 0
+"image(unique)" -1 -1 0 -1 0

@@ -1,0 +1,660 @@
+pronoun
+verb
+determiner
+conjunction
+adverb
+adjective
+auxiliary verb
+preposition
+noun
+possessive determiner
+possessive pronoun
+interrogative adjective
+exclamation
+noun (proper)
+interjection
+preposition (also serves as infinitive marker)
+letter
+vowel
+contraction (do + not)
+contraction of "do not"
+contraction
+negation
+{contraction of "do not"}
+negative auxiliary verb
+modal verb
+article
+suffix
+indefinite article
+definite article
+definitive article
+verb (modal)
+contraction (that + is)
+pronoun + verb
+contraction of "that is"
+proper noun (name)
+proper noun
+none
+: noun
+unknown
+punctuation
+gerund
+possessive
+consonant
+reflexive pronoun
+contraction (it + is)
+number
+noun (abbreviation for United Parcel Service)
+linking verb
+verb, past tense of "watch"
+verb, past tense
+verb/adjective
+verb/noun
+preposition/adverb
+abbreviation for meter
+noun (letter)
+contraction (am)
+verb contraction (do not)
+noun (possible abbreviation for Donkey Kong)
+abbreviation for teaspoon
+abbreviation
+prefix
+verb contraction (are)
+noun (short for regarding)
+particle
+noun (month)
+ordinal number
+noun/verb
+: noun
+verb contraction (will)
+pronoun/adjective
+demonstrative pronoun
+: verb
+verb (past tense of "buy")
+abbreviation/acronym
+verb (gerund)
+personal pronoun
+possessive adjective
+numeral
+contraction (I + am)
+contraction of "I am"
+short form of "I am"
+pronoun/contraction
+pronoun/verb
+noun (day of the week)
+noun (possibly a proper noun)
+abbreviation (ante meridiem)
+acronym (Army Medical Corps)
+verb (1st person singular present tense)
+contraction (I + will)
+contraction of "I will"
+adjective (pleasant or enjoyable)
+noun (possibility)
+abbreviation / shortened form
+cardinal number
+integer
+digit
+: number
+contraction (is + not)
+noun (favorite)
+present tense
+verb (past tense)
+noun (plural)
+past participle
+noun (abbreviation)
+noun (slang for a young man)
+contraction (there + is)
+contraction (have + not)
+verb (slang for bought)
+contraction (have)
+verb (contraction of "are not")
+noun (abbreviation for "agreement")
+contraction (you + are)
+contraction of "you are"
+contraction (did + not)
+contraction of "did not"
+contraction (I + have)
+contraction (you + would)
+contraction of "you would"
+contraction (you + will)
+verb (present tense of "close")
+object pronoun
+contraction (what + is)
+noun (plural form of "direction", meaning instructions)
+present tense (of verb "hurt")
+adjective (past tense of "use")
+past tense verb
+verb + suffix -ing
+contraction of "let us"
+noun (slang for $20 bills)
+noun (plural of dozen)
+gerund (assuming a typo)
+noun (abbreviation for disc jockey)
+verb (gerund form of "stop")
+contraction (want + to)
+contractions (want + to)
+contraction (cannot)
+contraction (he + would / he + had)
+noun (informal term for dollars)
+contraction (come + on)
+interjection (slang for "come on")
+contraction (come on)
+noun, irregular plural form of "brick"
+noun (slang for muscles)
+contraction (could + not)
+adjective (referring to China or someone from China)
+plural noun
+contraction (does + not)
+comparative adjective
+contraction (he + is)
+contraction of "he is"
+contraction of "is not"
+verb (present participle)
+verb (past tense of "arrive")
+acronym
+contraction (i + would)
+contraction (are + not)
+noun (abstract)
+abbreviation (post-mortem
+private message)
+noun (plural form of "ball" or slang for "courage" or "bravery")
+contraction (you + have)
+contraction of "you have"
+participle
+contraction (should + not)
+pronoun (everyone + possessive -s)
+past tense
+proper noun (brand name)
+noun (slang)
+noun (possibly adjective)
+verb (past participle)
+noun (plural of "ton")
+verb (present participle of "wonder")
+verb (third-person singular present tense of walk), noun
+past tense of "go"
+verb (present participle of "swim")
+contraction (it + will)
+noun (slang for "o'clock")
+adjective (informal - meaning "of the clock")
+noun (decade)
+slang
+contraction (she + is)
+acronym (possible reference to a music CD)
+noun (abbreviation for 'compact disc')
+contraction (has + not)
+noun (plural of scientist)
+numeral (ordinal)
+noun (common)
+noun (proper noun)
+adverb (possibly a misspelling of "any time")
+noun (possibly a compound word - "anytime")
+noun/adjective
+noun (referring to someone from the Philippines)
+noun (country in Central Asia)
+Preposition
+noun (plural of "shop")
+noun (name)
+contraction (don + 't)
+auxiliary verb (short for "does not")
+verb (plural form of "birdie")
+noun (probably a proper noun)
+contraction (they + are)
+contraction of "they are"
+conjunction (when + is)
+contraction (we + have)
+verb (past tense of "sell")
+filler word
+verb (past tense of "embarrass")
+contraction (got + to)
+contraction (have/has + to)
+noun (slang for buttocks)
+third person singular verb (dog + -s)
+noun (pl.)
+noun (plural form)
+contraction (was + not)
+contraction (she + would)
+contraction (would + not)
+adjective (past tense of "reduce")
+verb, past tense of "fall"
+adjective (gerund form of "blow")
+noun (possibly proper noun)
+noun (possibly the proper noun and capital of the United States)
+name (surname)
+abbreviation for gram
+noun (slang for "neighborhood")
+verb (present tense)
+adverb (describes a verb)
+noun (possibly an abbreviation for "about" or "absolute")
+noun (informal term for mother)
+noun (slang for sister)
+noun (slang for "Barbie")
+name
+noun (plural of "hair")
+noun (possibly a first name)
+noun (numeral)
+verb (present participle of "drop")
+contraction (it + would)
+noun (informal term for a small amount)
+acronym (could also be a proper noun if it refers to a specific person)
+verb (contraction of were + not)
+verb (contraction of "were not")
+contraction (had + not)
+noun (countable)
+noun (plural of "baby")
+noun (misspelling of "environment")
+noun (plural form of "teenager")
+present participle
+verb, noun
+noun (slang for "wives")
+abbreviation for "light"
+contraction (they + will)
+adjective (present participle/past participle of want)
+verb (present tense of "shanghaied")
+noun (possibly a vulgar slang term)
+abbreviation (mister)
+verb (past tense of "wear")
+noun (plural of "traveler")
+adjective (possibly a misspelling of "marvelous")
+proper noun (university)
+past participle verb
+superlative adjective
+proper noun (possible name)
+noun, abbreviation for "number" or "noun"
+noun (plural of "gift")
+verb (present participle of point)
+adjective (past participle of form)
+noun (assuming a proper name)
+gerund (verb ending in -ing used as a noun)
+noun (plural form of "super")
+acronym (GFL - Global Organization of Learning and Fun)
+number/numeral
+verb (present participle of "dodge")
+past tense of "to download"
+verb (past tense of "raise")
+adjective (relating to or from Colombia)
+relative pronoun
+verb (third-person singular present tense of enjoy)
+abbreviation (versus)
+past participle (of verb "eat")
+adjective (as a form of "bring")
+noun (possible proper noun)
+noun (abbreviation for situation comedy)
+note: "la" is also used in Spanish as a pronoun (feminine singular)
+plural
+contraction (here + is)
+noun (referring to a travel document)
+onomatopoeia
+abbreviation (yes in Spanish)
+verb (past tense of "fire")
+verb (past tense of 'stress')
+noun (a shopping center)
+verb (past tense of "kill")
+noun (plural form of "school")
+noun (referring to the Nobel Prize)
+verb (past tense of "pay")
+acronym (Entertainment and Sports Programming Network)
+contraction (where + is)
+verb (present participle of "lend")
+verb (contraction of "was not")
+verb (possibly a misspelling of "wasn't")
+contraction (that + will)
+contraction (that will)
+noun (letter of the alphabet)
+combining form (meaning "related to or derived from phosphorous")
+verb (past tense of "lead")
+verb (past tense of 'lead')
+past participle of "get"
+proper noun (referring to the city of Rome)
+contraction (that + had)
+verb (past tense of "consider")
+conjunction (what + are)
+contraction (what + are)
+proper noun (name of a place)
+noun (possibly a number)
+noun (plural of credit)
+noun.
+noun (plural of "coast")
+noun (plural form of winter)
+acronym/noun
+noun (abbreviation for "equalizer")
+verb, past tense of "rent"
+verb (past tense of "borrow")
+pronoun (possessive)
+contraction (they + have)
+noun (plural of "tom")
+noun (Latin for "earth")
+noun plural
+form of address
+noun (plural of "sister")
+abbreviation for mathematics
+noun (plural of requirement)
+verb (present participle of "hope")
+adjective (slang)
+gerund/verb
+noun (verb)
+noun (plural of "seashell")
+noun (plural form of "short")
+definite article (slang for "the")
+pronoun (depending on context)
+adjective (possibly referring to something that has been controlled or guided)
+noun (short for "second")
+verb (past tense of sleeve)
+verb (present participle of "shoot")
+proper noun (referring to basketball player Kobe Bryant)
+noun (laughing sound)
+noun (abbreviation for currency)
+noun (slang term)
+noun (plural form of "wine")
+verb (past tense of "carry")
+verb (ring = sound)
+noun (possible abbreviation of "atmosphere" or "ATM")
+noun (referring to the author Charles Dickens or a synonym for "devil")
+- noun
+contraction (were + not)
+verb (present participle of "spew")
+abbreviation/numeral
+noun (possibly an abbreviation)
+noun (plural form of "Mary", possibly a misspelling of "marries")
+noun (plural of "chair")
+noun (plural form of "dunk")
+noun (plural of "volcano")
+noun (referring to Jesus Christ)
+noun (short for "influenza")
+verb (gerund or present participle)
+pronoun (je + en)
+noun, abbreviation for referee
+verb (third person present)
+abbreviation (them)
+number (numeral)
+noun (plural of "tomorrow")
+interjection (slang)
+noun (possibly a place name)
+noun (abbreviated form of "Chief Executive Officer")
+ordinal numeral
+noun (plural form of "son")
+abbreviation (advertisement)
+noun (short for "honey")
+verb (past tense of "knock")
+noun (a person who turns something or a British occupational surname)
+noun (abbreviation for "digital versatile disc")
+noun (a pain or discomfort in the stomach)
+noun (plural of "guard")
+noun (plural form of "nothing")
+contraction (what + will)
+pronoun (possibly a misspelling of "you")
+noun (slang for a specific drug)
+noun (a name)
+verb (past participle of 'convince')
+adjective (referring to the ocean)
+noun (plural form of "valuable")
+abbreviation (doctor)
+abbreviation (could refer to many things)
+noun (affectionate term for grandmother)
+adjective (possibly ordinal number)
+verb (slang)
+name (given name)
+number (as in "fifty dollars")
+noun (a type of car)
+noun (proper name)
+noun (short for "taxicab")
+noun (possibly a verb)
+proper noun (acronym)
+noun(plural)
+possessive noun
+contraction (what + have)
+pronoun (there)
+noun (plural form of "onion", a type of vegetable)
+noun (plural of pepper, a type of vegetable)
+contraction (something + is)
+contraction (they + would)
+noun (short for "million")
+noun (plural of reading)
+article (slang for "the")
+noun (proper noun or name)
+Proper noun
+contraction (more), noun
+noun (possibly slang)
+noun (plural of husband)
+noun (possibly a name)
+number/year
+noun (present participle of "design")
+noun (plural form of "chicken")
+adjective (a number)
+adjective (informal variation of 'morning')
+verb (past tense of "face")
+noun (plural of "kilo")
+verb (past tense of "ring")
+noun (referring to the famous street in New York City)
+noun (plural form of "demonstration")
+noun (plural form of politician)
+noun (a person or animal who eats something)
+contraction (must + not)
+contraction (there + will)
+past participle (of educate)
+adjective (superlative)
+noun (short for "error")
+adjective (past tense of "sprain")
+verb (past tense of "infect")
+verb (present participle of "answer")
+verb (gerund form of "operate")
+noun (abbreviation for business)
+acronym (American Broadcasting Company)
+noun (plural form of body)
+acronym (Tupac Hologram)
+acronym/proper noun
+title
+contraction (could + have)
+given name
+noun (abbreviation for New York)
+abbreviation (NY)
+noun (plural form of "cheque")
+collective noun
+contraction (am/are/is + not)
+contraction (am + not)
+contraction of "am not"
+noun (plural form of "cousin")
+noun (plural form of "noodle")
+interjection (could also be a verb)
+noun (usually capitalized as "CHiPs")
+adverb (should be "at least")
+noun or interjection (slang for no or no thanks)
+verb (past tense modal + helping verb)
+contraction (would + have)
+interjection (should be spelled out as "oh my god")
+noun (short for "statistics")
+adjective (misspelling of "little")
+verb (confront)
+noun (possible reference to Max Payne video game)
+noun (plural form of "burger")
+contraction (got + you)
+acronym/abbreviation
+contraction (must + have)
+contraction (must have)
+contracted verb phrase
+adverb (should be "a lot")
+proper noun (referring to the city in Tennessee)
+noun (plural of "athletic", pertaining to sports or physical activity)
+verb (slang for pretending or lying)
+proper noun (possibly referring to Pittsburgh or a surname)
+noun (type of fish)
+noun (slang for "cash on delivery")
+noun (referring to the video game)
+noun (brand name)
+noun (possibly a place)
+abbreviation (first-person shooter)
+pronoun (second person)
+colloquial pronoun
+noun (short for "medications")
+noun (referring to a mountain range or a name)
+verb (present participle of "attack")
+noun (possibly a misspelling)
+noun (possessive)
+noun (referring to a possession of a father)
+noun (slang term for "Louis Vuitton")
+noun (plural of 'child')
+number/code
+verb (past tense of "credit")
+abbreviation for veteran
+interjection (laughing)
+Adjective
+abbreviation for minimum
+noun (not commonly used in English, but could refer to a priest or a military chaplain)
+noun (acronym for "best friends forever")
+abbreviation (by the way)
+noun (referring to the state in the US)
+proper noun (a streaming platform)
+noun (plural form of "eagle")
+noun (plural of "girlfriend")
+verb (past tense of "choke")
+numerical symbol
+abbreviation for "alternating current"
+abbreviation (e.g. alternating current)
+adjective (gerund form of "bend")
+noun (slang for "how'd you do?")
+contraction (how + did)
+verb (past tense of "bake")
+noun (plural form of "scam")
+verb (slang for "move away quickly")
+unknown (possibly a typo for "war" or a shorthand for "writer")
+verb (past tense of "ace")
+verb (past tense of "total")
+verb (present tense of "excite")
+noun (slang for barbiturates or toys)
+noun (possibly referring to the number 100 or the brand of cigarettes)
+noun (abbreviation for pounds)
+noun (informal)
+verb (third person singular present tense of "glance")
+noun (referring to Kanye West's line of shoes)
+verb (past tense of "commit")
+adjective (misspelling of "committed")
+verb (informal)
+noun (abbreviation for alligator)
+noun (plural form of "throne")
+noun (possibly a name of a band)
+noun (slang for "success")
+noun (plural form of "farm")
+noun (slang for "technology")
+adjective (referring to a person or culture)
+noun (plural form of "joy")
+verb (variant of dunking)
+abbreviation/acronym for adjacent possible or audio principle
+abbreviation (girlfriend)
+abbreviation (education)
+adjective (referring to finger or color)
+noun (genre of electronic music)
+abbreviation (e.g. good luck)
+noun (slang for "200,000")
+number (currency)
+noun (plural form of "slave")
+noun (slang for "wig" or "fake")
+noun, letter of the alphabet
+noun (likely referring to musician Kurt Cobain)
+preposition/determiner (French for "of/the")
+noun (potentially a software or company name)
+abbreviation (possibly for "organization")
+noun (plural of cupcake)
+noun (plural form of "daniel")
+slang/colloquialism (a lot of)
+slang (a lot of)
+abbreviation for subwoofers or submarine sandwiches
+noun (abbreviation for "science")
+noun (acronym for "girlfriends")
+abbreviation (delaware)
+preposition (Spanish for "of")
+contraction (not + is)
+noun (plural of "wife")
+noun (proper noun or generic term for a type of cryptocurrency)
+noun (cryptocurrency)
+initialism
+noun (plural form of "minion")
+adjective (misspelled word, should be necessary)
+verb (kidnap)
+noun (plural of "portrait")
+noun (Japanese)
+noun, slang for "great song"
+verb (variant of watching)
+noun (plural of "mosquito")
+noun (informal shortening of university)
+acronynm
+noun (compound)
+noun (could also be a proper noun)
+noun (referring to remote and rural areas)
+noun (plural of "maid")
+noun (a type of cheese or a person from Switzerland)
+noun (plural form of "pooch")
+noun (acronym for "British Broadcasting Corporation")
+contraction (don't + know)
+preposition (misspelling of "with")
+noun (a mixed-breed dog)
+noun (possibly a name or a term in a specific context)
+noun (plural of "election")
+noun (possible misspelling of "wolves" or "wolves'")
+noun (plural of "wolf")
+noun (colloquial word for "pig")
+an entrance or access point
+adjective/verb
+acronym (Greatest Of All Time)
+noun (repeated word)
+decade
+noun (informal term for a cool or laid-back person)
+abbreviation (promenade)
+contraction (give + me)
+adjective (slang for excited or high)
+noun (plural of "hippie")
+noun (abbreviation for "because")
+verb/participle
+verb, adjective
+noun (abbreviation for "9 pm")
+noun (a showing of a movie or performance in the afternoon)
+verb (shortened form of "we are")
+noun (possibly a proper noun or a slogan)
+acronym (unidentifiable)
+no description
+acronym (English as a Second Language)
+misspelling (should be radio)
+symbol
+misspelling ("daughter")
+abbreviation (possibly for round)
+noun (compound noun)
+common noun
+expression
+abbreviation for "just kidding"
+acronym / initialism
+abbreviation for boyfriend
+Acronym
+acronym (New York City)
+abbreviation (answer)
+proper noun (referring to a band)
+noun (slang, a reference to the band)
+acronym or proper noun
+noun (abbreviation for "Ontario Works")
+adjective (descriptive or subjective)
+noun (abbreviation for Facebook)
+abbreviation (could refer to different things)
+noun (colloquial)
+abbreviation (could refer to mountain, mount, or other words)
+past tense helping verb
+infinitive
+infinitive verb
+interrogative pronoun
+auxililiary verb
+determinant
+present tense verb
+helping verb
+negative adverb
+demonstrative determiner
+verb (noun form)
+enough
+indefinite pronoun
+adv.
+adj.
+possesive pronoun
+indefinite adjective
+present participle verb
+prep.
+time adverb
+prepositional phrase
+proposition
+adjective (ordinal number)
+noun (time)
+negative auxiliary

@@ -1,0 +1,2655 @@
+"gesturing(jumping)" -1 0 0 0 0
+"pointing(grabbing the doll)" -1 0 0 0 0
+"describing-surroundings(on trampoline outside)" -1 0 0 0 0
+"attention-action(jumping)" -1 0 0 0 0
+"attention-activity(playful)" -1 0 0 0 0
+"attention-physical_state(jumping)" -1 0 0 0 0
+"attention-relationship(checking for skill in catching object)" -1 0 0 0 0
+"gesturing(grabbing the doll)" -1 0 0 0 0
+"pointing(to the doll)" -1 0 0 0 0
+"describing-surroundings(on trampoline)" -1 0 0 0 0
+"attention-action(grabbing)" -1 0 0 0 0
+"attention-relationship(checking for skill and coordination)" -1 0 0 0 0
+"gesturing(slams between legs)" -1 0 0 0 0
+"pointing(at the doll between his legs)" -1 0 0 0 0
+"attention-action(slams)" -1 0 0 0 0
+"attention-emotional_state(amused)" -1 0 0 0 0
+"attention-physical_state(exerting force)" -1 0 0 0 0
+"attention-relationship(showing off to friends)" -1 0 0 0 0
+"gesturing(missing attempt)" -1 0 0 0 0
+"pointing(to the doll falling)" -1 0 0 0 0
+"attention-action(missing)" -1 0 0 0 0
+"attention-emotional_state(disappointed)" -1 0 0 0 0
+"attention-physical_state(falling)" -1 0 0 0 0
+"attention-relationship(trying to impress others)" -1 0 0 0 0
+"gesturing(falling on trampoline)" -1 0 0 0 0
+"attention-action(falling)" -1 0 0 0 0
+"attention-relationship(finding humor in failure)" -1 0 0 0 0
+"gesturing(attaching the sign)" -1 0 0 0 0
+"pointing(at the sign)" -1 0 0 0 0
+"describing-surroundings(outside the business)" -1 0 0 0 0
+"attention-action(attaching)" -1 0 0 0 0
+"attention-activity(lowkey advertisement)" -1 0 0 0 0
+"attention-place(outside)" -1 0 0 0 0
+"attention-physical_state(reaching up)" -1 0 0 0 0
+"attention-purpose(advertising the business)" -1 0 0 0 0
+"attention-relationship(connection to business)" -1 0 0 0 0
+"gesturing(typing on computer)" -1 0 0 0 0
+"describing-surroundings(indoors)" -1 0 0 0 0
+"attention-action(typing)" -1 0 0 0 0
+"attention-activity(braiding client's hair)" -1 0 0 0 0
+"attention-place(salon)" -1 0 0 0 0
+"attention-mental_state(thinking about task)" -1 0 0 0 0
+"attention-relationship(providing a service)" -1 0 0 0 0
+"attention-work(hair stylist)" -1 0 0 0 0
+"gesturing(running scissors)" -1 0 0 0 0
+"attention-action(running)" -1 0 0 0 0
+"attention-mental_state(focused)" -1 0 0 0 0
+"attention-relationship(paying attention to task)" -1 0 0 0 0
+"gesturing(applying rods)" -1 0 0 0 0
+"attention-action(applying)" -1 0 0 0 0
+"attention-mental_state(working)" -1 0 0 0 0
+"gesturing(putting braids in water)" -1 0 0 0 0
+"attention-action(putting)" -1 0 0 0 0
+"gesturing(talking)" -1 0 0 0 0
+"pointing(at reading glasses)" -1 0 0 0 0
+"describing-surroundings(salon)" -1 0 0 0 0
+"attention-person(client)" -1 0 0 0 0
+"attention-action(talking)" -1 0 0 0 0
+"attention-mental_state(listening/focused)" -1 0 0 0 0
+"attention-relationship(client-salon interaction)" -1 0 0 0 0
+"attention-preferences(accessibility/comfort during appointment)" -1 0 0 0 0
+"gesturing(leaving)" -1 0 0 0 0
+"pointing(to salon)" -1 0 0 0 0
+"describing-surroundings(outside of salon)" -1 0 0 0 0
+"attention-action(leaving)" -1 0 0 0 0
+"attention-mental_state(thinking about results)" -1 0 0 0 0
+"gesturing(showing credits)" -1 0 0 0 0
+"describing-surroundings(outside/bar/hotel)" -1 0 0 0 0
+"attention-action(showing)" -1 0 0 0 0
+"attention-activity(driving/hanging out at bar)" -1 0 0 0 0
+"attention-person(implied director/producer)" -1 0 0 0 0
+"gesturing(driving quickly)" -1 0 0 0 0
+"describing-surroundings(highway)" -1 0 0 0 0
+"attention-action(driving)" -1 0 0 0 0
+"attention-place(highway/road)" -1 0 0 0 0
+"gesturing(walking into bar)" -1 0 0 0 0
+"describing-surroundings(indoors/bar)" -1 0 0 0 0
+"attention-action(walking)" -1 0 0 0 0
+"attention-place(bar)" -1 0 0 0 0
+"attention-relationship(social interaction)" -1 0 0 0 0
+"attention-social_activity(drinking/talking)" -1 0 0 0 0
+"gesturing(throwing ball)" -1 0 0 0 0
+"describing-surroundings(bar)" -1 0 0 0 0
+"attention-action(throwing)" -1 0 0 0 0
+"attention-physical_state(excited/hyper)" -1 0 0 0 0
+"attention-relationship(playful competition)" -1 0 0 0 0
+"gesturing(waking up)" -1 0 0 0 0
+"describing-surroundings(dorm/bed)" -1 0 0 0 0
+"attention-action(waking up)" -1 0 0 0 0
+"attention-place(dorm)" -1 0 0 0 0
+"attention-time(2 AM)" -1 0 0 0 0
+"attention-mental_state(worried/anxious about time)" -1 0 0 0 0
+"attention-relationship(need for sleep)" -1 0 0 0 0
+"attention-mental_state(preparing to sleep)" -1 0 0 0 0
+"attention-place(iPad)" -1 0 0 0 0
+"gesturing(clicking on iPad)" -1 0 0 0 0
+"attention-action(clicking)" -1 0 0 0 0
+"attention-activity(hosting beer pong championship)" -1 0 0 0 0
+"attention-mental_state(excited/focused)" -1 0 0 0 0
+"attention-physical_state(hand-eye coordination)" -1 0 0 0 0
+"attention-relationship(friendly competition)" -1 0 0 0 0
+"gesturing(marching in place)" -1 0 0 0 0
+"describing-surroundings(field)" -1 0 0 0 0
+"attention-action(marching)" -1 0 0 0 0
+"attention-physical_state(excited)" -1 0 0 0 0
+"attention-activity(performing/drumming)" -1 0 0 0 0
+"attention-place(field)" -1 0 0 0 0
+"attention-emotional_state(proud)" -1 0 0 0 0
+"attention-relationship(membership in band/camaraderie)" -1 0 0 0 0
+"gesturing(drumming)" -1 0 0 0 0
+"attention-action(drumming)" -1 0 0 0 0
+"attention-physical_state(coordinated)" -1 0 0 0 0
+"attention-activity(performing/marching)" -1 0 0 0 0
+"gesturing(recording)" -1 0 0 0 0
+"pointing(camera)" -1 0 0 0 0
+"attention-action(recording)" -1 0 0 0 0
+"attention-activity(capturing moment)" -1 0 0 0 0
+"attention-person(camera operator)" -1 0 0 0 0
+"attention-relationship(passing by/observing)" -1 0 0 0 0
+"gesturing(looking)" -1 0 0 0 0
+"attention-action(looking)" -1 0 0 0 0
+"attention-relationship(observer/outsider)" -1 0 0 0 0
+"gesturing(looking back)" -1 0 0 0 0
+"pointing(elsewhere)" -1 0 0 0 0
+"attention-relationship(neutral/indifferent)" -1 0 0 0 0
+"gesturing(racing)" -1 0 0 0 0
+"attention-action(racing)" -1 0 0 0 0
+"attention-physical_state(riding horses)" -1 0 0 0 0
+"attention-activity(polo game)" -1 0 0 0 0
+"attention-relationship(membership in team)" -1 0 0 0 0
+"gesturing(fighting)" -1 0 0 0 0
+"attention-action(fighting)" -1 0 0 0 0
+"attention-emotional_state(competing)" -1 0 0 0 0
+"attention-mental_state(strategic)" -1 0 0 0 0
+"attention-relationship(struggle/goal orientation)" -1 0 0 0 0
+"gesturing(direction)" -1 0 0 0 0
+"pointing(to goal)" -1 0 0 0 0
+"attention-action(direction)" -1 0 0 0 0
+"attention-relationship(goal-oriented/driven)" -1 0 0 0 0
+"pointing(towards goal)" -1 0 0 0 0
+"attention-action(riding towards)" -1 0 0 0 0
+"attention-emotional_state(focused)" -1 0 0 0 0
+"attention-mental_state(strategic/decisive)" -1 0 0 0 0
+"attention-relationship(competitive/strength)" -1 0 0 0 0
+"gesturing(indicating agreement)" -1 0 0 0 0
+"pointing(trophy)" -1 0 0 0 0
+"attention-action(indicating)" -1 0 0 0 0
+"attention-relationship(successful achievement)" -1 0 0 0 0
+"attention-mental_state(satisfied)" -1 0 0 0 0
+"gesturing(pretty vigorously)" -1 0 0 0 0
+"pointing(to cricket field)" -1 0 0 0 0
+"describing-surroundings(outside playing cricket)" -1 0 0 0 0
+"attention-action(playing)" -1 0 0 0 0
+"attention-place(outdoors/cricket field)" -1 0 0 0 0
+"attention-relationship(teammates)" -1 0 0 0 0
+"attention-team(tactics/coordination)" -1 0 0 0 0
+"attention-activity(combat game/sports)" -1 0 0 0 0
+"attention-physical_state(playing cricket)" -1 0 0 0 0
+"gesturing(celebrating)" -1 0 0 0 0
+"attention-action(celebrating)" -1 0 0 0 0
+"attention-relationship(celebrating victory)" -1 0 0 0 0
+"attention-mental_state(confidence)" -1 0 0 0 0
+"attention-emotional_state(joyful)" -1 0 0 0 0
+"gesturing(walking)" -1 0 0 0 0
+"attention-relationship(speaking)" -1 0 0 0 0
+"attention-communcation(film/article)" -1 0 0 0 0
+"pointing(outside)" -1 0 0 0 0
+"describing-surroundings(person)" -1 0 0 0 0
+"attention-person(age)" -1 0 0 0 0
+"attention-object(eyeliner)" -1 0 0 0 0
+"attention-action(applying makeup)" -1 0 0 0 0
+"attention-physical_state(applying makeup)" -1 0 0 0 0
+"attention-object(tape)" -1 0 0 0 0
+"attention-physical_state(attaching)" -1 0 0 0 0
+"attention-mental_state(thinking about appearance)" -1 0 0 0 0
+"gesturing(continuous applying)" -1 0 0 0 0
+"pointing(tape)" -1 0 0 0 0
+"describing-surroundings(personal appearance)" -1 0 0 0 0
+"attention-mannerism(neatly/gently)" -1 0 0 0 0
+"attention-place(reflecting on appearance/personal grooming)" -1 0 0 0 0
+"gesturing(finishing makeup)" -1 0 0 0 0
+"describing-surroundings(indoors/bedroom)" -1 0 0 0 0
+"attention-action(finished)" -1 0 0 0 0
+"attention-place(bathroom/bedroom)" -1 0 0 0 0
+"attention-time(night)" -1 0 0 0 0
+"gesturing(talking/communicating)" -1 0 0 0 0
+"describing-surroundings(audience filming)" -1 0 0 0 0
+"attention-action(speaking)" -1 0 0 0 0
+"attention-object(makeup tips)" -1 0 0 0 0
+"attention-emotional_state(confident)" -1 0 0 0 0
+"attention-opinion(beauty standards)" -1 0 0 0 0
+"attention-explanation(affirming/explaining idea)" -1 0 0 0 0
+"attention-activity(riding bikes)" -1 0 0 0 0
+"attention-action(attempts)" -1 0 0 0 0
+"attention-action(mixing)" -1 0 0 0 0
+"attention-action(putting sandwich in the mix)" -1 0 0 0 0
+"attention-action(using mop)" -1 0 0 0 0
+"attention-action(pulling out bucket)" -1 0 0 0 0
+"attention-method(choosing between tools)" -1 0 0 0 0
+"attention-action(piecing together mop)" -1 0 0 0 0
+"attention-action(panning camera)" -1 0 0 0 0
+"attention-action(moving around object)" -1 0 0 0 0
+"attention-action(kneeling)" -1 0 0 0 0
+"attention-action(swinging arms)" -1 0 0 0 0
+"attention-action(text appearing on face)" -1 0 0 0 0
+"attention-mental_state(continuing certain action)" -1 0 0 0 0
+"attention-action(pushing swing)" -1 0 0 0 0
+"attention-action(smiling)" -1 0 0 0 0
+"attention-action(swinging back)" -1 0 0 0 0
+"attention-action(swinging forth)" -1 0 0 0 0
+"attention-action(focusing on saddles)" -1 0 0 0 0
+"28. attention-action(riding horses)" -1 0 0 0 0
+"attention-action(working with a rope)" -1 0 0 0 0
+"attention-action(riding)" -1 0 0 0 0
+"attention-action(answer questions)" -1 0 0 0 0
+"attention-action(listening)" -1 0 0 0 0
+"attention-action(watching others)" -1 0 0 0 0
+"attention-action(reflecting on experience)" -1 0 0 0 0
+"attention-action(interview)" -1 0 0 0 0
+"attention-action(rinsing toothbrush/a person)" -1 0 0 0 0
+"attention-surroundings(beach)" -1 0 0 0 0
+"attention-activity(run)" -1 0 0 0 0
+"attention-action(following)" -1 0 0 0 0
+"attention-person(on beach)" -1 0 0 0 0
+"attention-relationship(friends)" -1 0 0 0 0
+"tone(thoughtful)" -1 0 0 0 0
+"attention-location(somewhere mysterious)" -1 0 0 0 0
+"attention-surroundings(ending screen)" -1 0 0 0 0
+"attention-person(videographer)" -1 0 0 0 0
+"describing-surroundings(cube puzzle)" -1 0 0 0 0
+"gesturing(spinning)" -1 0 0 0 0
+"attention-activity(solving puzzle)" -1 0 0 0 0
+"attention-action(spinning)" -1 0 0 0 0
+"attention-object(cube puzzle)" -1 0 0 0 0
+"attention-action(matching colors)" -1 0 0 0 0
+"tone(excited)" -1 0 0 0 0
+"gesturing(waving)" -1 0 0 0 0
+"attention-surroundings(shown on camera)" -1 0 0 0 0
+"attention-object(bull)" -1 0 0 0 0
+"attention-audience(people)" -1 0 0 0 0
+"attention-object(sticks)" -1 0 0 0 0
+"attention-emotional_state(excitement)" -1 0 0 0 0
+"attention-relationship(friends/supporters)" -1 0 0 0 0
+"attention-action(encouraging)" -1 0 0 0 0
+"gesturing(following)" -1 0 0 0 0
+"attention-activity(observing)" -1 0 0 0 0
+"tone(serious)" -1 0 0 0 0
+"attention-emotional_state(intense)" -1 0 0 0 0
+"gesturing(angry)" -1 0 0 0 0
+"attention-emotional_state(angry/defensive)" -1 0 0 0 0
+"attention-emotional_state(checking for reaction)" -1 0 0 0 0
+"attention-emotional_state(angry/aggressive)" -1 0 0 0 0
+"attention-surroundings(show down)" -1 0 0 0 0
+"gesturing(fighting/wrestling)" -1 0 0 0 0
+"attention-emotional_state(defensive/aggressive)" -1 0 0 0 0
+"attention-object(other bull)" -1 0 0 0 0
+"attention-emotional_state(excited/enthusiastic)" -1 0 0 0 0
+"gesturing(clapping/cheering)" -1 0 0 0 0
+"describing-surroundings(long jump)" -1 0 0 0 0
+"attention-object(player)" -1 0 0 0 0
+"tone(worried)" -1 0 0 0 0
+"gesturing(stressed)" -1 0 0 0 0
+"attention-location(street)" -1 0 0 0 0
+"attention-object(box)" -1 0 0 0 0
+"tone(nervous)" -1 0 0 0 0
+"attention-surroundings(other man standing)" -1 0 0 0 0
+"attention-person(kid)" -1 0 0 0 0
+"tone(sweet)" -1 0 0 0 0
+"attention-relationship(caregiver/child)" -1 0 0 0 0
+"attention-action(spending time together)" -1 0 0 0 0
+"attention-object(game)" -1 0 0 0 0
+"gesturing(bowing)" -1 0 0 0 0
+"attention-relationship(playful)" -1 0 0 0 0
+"attention-emotional_state(happy/laughing)" -1 0 0 0 0
+"tone(playful)" -1 0 0 0 0
+"attention-emotional_state(playful/laughing)" -1 0 0 0 0
+"tone(affectionate)" -1 0 0 0 0
+"gesturing(kissing)" -1 0 0 0 0
+"attention-action(expressing affection)" -1 0 0 0 0
+"tone(friendly)" -1 0 0 0 0
+"gesturing(solving hair)" -1 0 0 0 0
+"attention-action(taking care of someone)" -1 0 0 0 0
+"attention-object(girl's hair)" -1 0 0 0 0
+"attention-object(woman)" -1 0 0 0 0
+"attention-relationship(hair stylist/client)" -1 0 0 0 0
+"gesturing(separating strands)" -1 0 0 0 0
+"attention-object(hair strands)" -1 0 0 0 0
+"attention-action(dividing)" -1 0 0 0 0
+"attention-emotional_state(satisfied)" -1 0 0 0 0
+"attention-object(comb)" -1 0 0 0 0
+"gesturing(backing)" -1 0 0 0 0
+"attention-action(taking care of hair)" -1 0 0 0 0
+"attention-object(hair)" -1 0 0 0 0
+"attention-emotional_state(tender care)" -1 0 0 0 0
+"gesturing(slowly stretching)" -1 0 0 0 0
+"attention-object(strands of hair)" -1 0 0 0 0
+"gesturing(together)" -1 0 0 0 0
+"attention-action(braiding)" -1 0 0 0 0
+"attention-emotional_state(care)" -1 0 0 0 0
+"attention-object(braids)" -1 0 0 0 0
+"tone(speed)" -1 0 0 0 0
+"attention-action(running at high speed)" -1 0 0 0 0
+"attention-object(strider/striper)" -1 0 0 0 0
+"gesturing(running)" -1 0 0 0 0
+"attention-activity(obstacle running)" -1 0 0 0 0
+"attention-action(climbing, reaching for height)" -1 0 0 0 0
+"attention-place(narrow path)" -1 0 0 0 0
+"attention-object(nature/grass,neighbourhood)" -1 0 0 0 0
+"attention-emotional_state(tension/focus)" -1 0 0 0 0
+"attention-emotional_state(serious)" -1 0 0 0 0
+"attention-emotional_state(determination)" -1 0 0 0 0
+"attention-action(advancing)" -1 0 0 0 0
+"attention-surroundings(other faces)" -1 0 0 0 0
+"attention-place(sandy)" -1 0 0 0 0
+"attention-action(compare note)" -1 0 0 0 0
+"attention-on(relationship)" -1 0 0 0 0
+"attention-emotional_state(happy)" -1 0 0 0 0
+"gesturing(measure)" -1 0 0 0 0
+"attention-emotional_state(inquisitive)" -1 0 0 0 0
+"attention-location(porch)" -1 0 0 0 0
+"gesturing(coming back to ask what)" -1 0 0 0 0
+"tone(wanting)" -1 0 0 0 0
+"attention-action(walking by the house)" -1 0 0 0 0
+"attention-object(house)" -1 0 0 0 0
+"tone(excited/umpiring)" -1 0 0 0 0
+"gesturing(getting back up)" -1 0 0 0 0
+"attention-object(was busy)" -1 0 0 0 0
+"attention-emotional_state(focusing)" -1 0 0 0 0
+"attention-action(restarting)" -1 0 0 0 0
+"gesturing(pushing target down causing failure)" -1 0 0 0 0
+"attention-surroundings(monitor)" -1 0 0 0 0
+"attention-emotional_state(frustrating/agitating/trying)" -1 0 0 0 0
+"attention-action(does his best)" -1 0 0 0 0
+"attention-action(remaining on feet)" -1 0 0 0 0
+"attention-person(performer who fails)" -1 0 0 0 0
+"attention-emotional_state(pain/discomfort/embarrassment)" -1 0 0 0 0
+"tone(excited/happy)" -1 0 0 0 0
+"attention-object(during ski)" -1 0 0 0 0
+"attention-emotional_state(enjoyable/relaxing)" -1 0 0 0 0
+"attention-person(skiing expert)" -1 0 0 0 0
+"attention-action(skiing)" -1 0 0 0 0
+"attention-location(water/beaches/mountains)" -1 0 0 0 0
+"attention-object(skiing implements)" -1 0 0 0 0
+"attention-emotional_state(cool)" -1 0 0 0 0
+"gesturing(holding bottle)" -1 0 0 0 0
+"attention-person(person holding bottle)" -1 0 0 0 0
+"attention-action(holding)" -1 0 0 0 0
+"attention-object(orange bottle)" -1 0 0 0 0
+"attention-relationship_status(checking for illness/health)" -1 0 0 0 0
+"attention-recipient(each other)" -1 0 0 0 0
+"attention-activity(pool activity)" -1 0 0 0 0
+"attention-object(balls)" -1 0 0 0 0
+"attention-relationship(friends/enemies)" -1 0 0 0 0
+"attention-action(swimming)" -1 0 0 0 0
+"attention-recipient(other side of pool)" -1 0 0 0 0
+"attention-place(pool)" -1 0 0 0 0
+"attention-relationship(goal to reach other side)" -1 0 0 0 0
+"attention-person(little girl)" -1 0 0 0 0
+"attention-action(putting makeup)" -1 0 0 0 0
+"attention-clothing(makeup on face)" -1 0 0 0 0
+"attention-object(lipstick)" -1 0 0 0 0
+"attention-body_part(lips)" -1 0 0 0 0
+"attention-appearance(makeup)" -1 0 0 0 0
+"attention-object(mascara)" -1 0 0 0 0
+"attention-body_part(eyelashes)" -1 0 0 0 0
+"attention-action(spraying)" -1 0 0 0 0
+"attention-object(body spray)" -1 0 0 0 0
+"attention-clothing(shirt)" -1 0 0 0 0
+"attention-appearance(perfume/body odor)" -1 0 0 0 0
+"attention-object(eye shadow)" -1 0 0 0 0
+"attention-body_part(eyes)" -1 0 0 0 0
+"attention-action(staring)" -1 0 0 0 0
+"attention-gesture(eye contact)" -1 0 0 0 0
+"attention-relationship_status(focus on self)" -1 0 0 0 0
+"attention-object(keyboard)" -1 0 0 0 0
+"attention-activity(music playing)" -1 0 0 0 0
+"attention-action(pulling)" -1 0 0 0 0
+"attention-object(accordian)" -1 0 0 0 0
+"attention-action(pulling in)" -1 0 0 0 0
+"attention-object(person/place/object to interact with)" -1 0 0 0 0
+"attention-place(table)" -1 0 0 0 0
+"attention-action(sitting)" -1 0 0 0 0
+"attention-object(bike)" -1 0 0 0 0
+"attention-action(unpacking)" -1 0 0 0 0
+"attention-recipient(person)" -1 0 0 0 0
+"attention-action(assembling)" -1 0 0 0 0
+"attention-gesture(hand movements)" -1 0 0 0 0
+"attention-place(assembly area)" -1 0 0 0 0
+"attention-object(tire)" -1 0 0 0 0
+"attention-body_part(tire)" -1 0 0 0 0
+"attention-recipient(bike)" -1 0 0 0 0
+"attention-action(tightening)" -1 0 0 0 0
+"attention-object(holds on handlebars)" -1 0 0 0 0
+"attention-body_part(handlebars)" -1 0 0 0 0
+"attention-object(lubricant)" -1 0 0 0 0
+"attention-person(person)" -1 0 0 0 0
+"attention-body_part(paddles)" -1 0 0 0 0
+"attention-action(installing)" -1 0 0 0 0
+"attention-object(paddles)" -1 0 0 0 0
+"attention-action(properly prepared)" -1 0 0 0 0
+"attention-appearance(finishing touches)" -1 0 0 0 0
+"attention-object(title screen)" -1 0 0 0 0
+"attention-activity(finishing video)" -1 0 0 0 0
+"attention-action(standing)" -1 0 0 0 0
+"attention-gesture(jumping)" -1 0 0 0 0
+"attention-place(diving board)" -1 0 0 0 0
+"attention-action(seen from distance)" -1 0 0 0 0
+"attention-object(people)" -1 0 0 0 0
+"attention-place(swimming pool)" -1 0 0 0 0
+"attention-emotional_state(amusement/relaxation)" -1 0 0 0 0
+"attention-action(sitting quietly)" -1 0 0 0 0
+"attention-place(stairs)" -1 0 0 0 0
+"attention-object(harmonica)" -1 0 0 0 0
+"attention-activity(listening to music)" -1 0 0 0 0
+"attention-person(man)" -1 0 0 0 0
+"attention-action(standing up)" -1 0 0 0 0
+"attention-emotional_state(proud/fulfilled)" -1 0 0 0 0
+"attention-action(continuing)" -1 0 0 0 0
+"attention-place(anywhere)" -1 0 0 0 0
+"attention-action(appearing)" -1 0 0 0 0
+"attention-object(words)" -1 0 0 0 0
+"attention-activity(transition to next scene)" -1 0 0 0 0
+"attention-object(credits)" -1 0 0 0 0
+"attention-object(description of video)" -1 0 0 0 0
+"attention-activity(introducing video)" -1 0 0 0 0
+"attention-person(woman)" -1 0 0 0 0
+"attention-action(waving)" -1 0 0 0 0
+"attention-gesture(hand waving)" -1 0 0 0 0
+"attention-appearance(hair and face)" -1 0 0 0 0
+"attention-emotional_state(happy/greeting)" -1 0 0 0 0
+"attention-action(acknowledging)" -1 0 0 0 0
+"attention-body_part(hair)" -1 0 0 0 0
+"attention-action(starting)" -1 0 0 0 0
+"attention-appearance(hair)" -1 0 0 0 0
+"attention-clothing(design/style)" -1 0 0 0 0
+"attention-action(completing)" -1 0 0 0 0
+"attention-action(styling hair)" -1 0 0 0 0
+"attention-activity(self-care)" -1 0 0 0 0
+"attention-emotional_state(happy/fulfilled)" -1 0 0 0 0
+"gesturing(glancing)" -1 0 0 0 0
+"pointing(looking towards camera)" -1 0 0 0 0
+"attention-place(looking towards camera)" -1 0 0 0 0
+"attention-person_implied(addressing viewer)" -1 0 0 0 0
+"attention-audience(viewer)" -1 0 0 0 0
+"gesturing(throwing)" -1 0 0 0 0
+"pointing(throwing towards ground)" -1 0 0 0 0
+"attention-target(cows/bulls/animals)" -1 0 0 0 0
+"attention-recipient(ground)" -1 0 0 0 0
+"attention-experience(at rodeo)" -1 0 0 0 0
+"pointing(observing)" -1 0 0 0 0
+"gesturing(riding)" -1 0 0 0 0
+"attention-action(observing)" -1 0 0 0 0
+"attention-recipient(cows/bulls/animals)" -1 0 0 0 0
+"attention-feeling(entertainment)" -1 0 0 0 0
+"attention-feeling(competition)" -1 0 0 0 0
+"gesturing(kicking with legs)" -1 0 0 0 0
+"pointing(kicking)" -1 0 0 0 0
+"attention-action(kicking)" -1 0 0 0 0
+"attention-target(person/other cow/bull/animal)" -1 0 0 0 0
+"attention-recipient(ground/other animal)" -1 0 0 0 0
+"attention-feeling(competition/fear)" -1 0 0 0 0
+"gesturing(pouring)" -1 0 0 0 0
+"attention-action(pouring)" -1 0 0 0 0
+"attention-target(sink/bowl)" -1 0 0 0 0
+"attention-place(kitchen)" -1 0 0 0 0
+"attention-activity(cooking/cleaning)" -1 0 0 0 0
+"attention-recipient(messy area)" -1 0 0 0 0
+"pointing(walking away)" -1 0 0 0 0
+"gesturing(looking/cleaning)" -1 0 0 0 0
+"attention-action(walking away)" -1 0 0 0 0
+"attention-recipient(person/area)" -1 0 0 0 0
+"gesturing(wiping hands)" -1 0 0 0 0
+"pointing(looking/cleaning)" -1 0 0 0 0
+"attention-action(wiping)" -1 0 0 0 0
+"attention-target(hands)" -1 0 0 0 0
+"attention-recipient(towel)" -1 0 0 0 0
+"pointing(pouring towards ground)" -1 0 0 0 0
+"attention-target(bucket)" -1 0 0 0 0
+"attention-feeling(frustration)" -1 0 0 0 0
+"gesturing(wiping)" -1 0 0 0 0
+"pointing(wiping towards ground)" -1 0 0 0 0
+"attention-target(floor)" -1 0 0 0 0
+"attention-place(classroom)" -1 0 0 0 0
+"attention-recipient(messy area/ground)" -1 0 0 0 0
+"attention-activity(cleaning)" -1 0 0 0 0
+"gesturing(move towards)" -1 0 0 0 0
+"pointing(dumping ground)" -1 0 0 0 0
+"attention-action(moving/dumping)" -1 0 0 0 0
+"attention-feeling(determined)" -1 0 0 0 0
+"gesturing(dumping)" -1 0 0 0 0
+"attention-action(dumping)" -1 0 0 0 0
+"attention-feeling(accomplishment)" -1 0 0 0 0
+"pointing(observing person)" -1 0 0 0 0
+"attention-person(addressed to person)" -1 0 0 0 0
+"attention-activity(talking on phone)" -1 0 0 0 0
+"attention-audience(person on phone)" -1 0 0 0 0
+"attention-relationship(friend/partner/family)" -1 0 0 0 0
+"pointing(talking on phone)" -1 0 0 0 0
+"attention-target(cell phone)" -1 0 0 0 0
+"attention-audience(person on other side of phone)" -1 0 0 0 0
+"gesturing(riding in car)" -1 0 0 0 0
+"attention-activity(riding in car)" -1 0 0 0 0
+"attention-place(car)" -1 0 0 0 0
+"gesturing(laying)" -1 0 0 0 0
+"pointing(looking at tattoo being done)" -1 0 0 0 0
+"attention-action(laying down)" -1 0 0 0 0
+"attention-target(person getting tattoo)" -1 0 0 0 0
+"attention-place(tattoo shop)" -1 0 0 0 0
+"attention-experience(first tattoo)" -1 0 0 0 0
+"attention-emotional_state(nervous/excited)" -1 0 0 0 0
+"gesturing(showing foot)" -1 0 0 0 0
+"pointing(showing off)" -1 0 0 0 0
+"attention-target(tattoo)" -1 0 0 0 0
+"attention-emotional_state(nervous/pleased)" -1 0 0 0 0
+"attention-emotional_state(socializing)" -1 0 0 0 0
+"gesturing(playing)" -1 0 0 0 0
+"pointing(tossing)" -1 0 0 0 0
+"attention-activity(game)" -1 0 0 0 0
+"gesturing(tossing forward)" -1 0 0 0 0
+"pointing(tossing towards field/home plate)" -1 0 0 0 0
+"attention-action(tossing)" -1 0 0 0 0
+"attention-target(badminton mallet)" -1 0 0 0 0
+"attention-person(addressed to team member)" -1 0 0 0 0
+"attention-audience(teammate)" -1 0 0 0 0
+"attention-relationship(teammate)" -1 0 0 0 0
+"gesturing(standing)" -1 0 0 0 0
+"pointing(running back)" -1 0 0 0 0
+"attention-target(position/area)" -1 0 0 0 0
+"attention-place(game)" -1 0 0 0 0
+"attention-audience(surrounding players)" -1 0 0 0 0
+"attention-experience(sports event)" -1 0 0 0 0
+"attention-feeling(competitive/spirited)" -1 0 0 0 0
+"gesturing(batting)" -1 0 0 0 0
+"pointing(turning back towards teammate)" -1 0 0 0 0
+"attention-action(batting)" -1 0 0 0 0
+"attention-target(home plate)" -1 0 0 0 0
+"attention-audience(teammate/field)" -1 0 0 0 0
+"attention-feeling(determined/competitive)" -1 0 0 0 0
+"pointing(tossing forward)" -1 0 0 0 0
+"attention-target(ball/bat/teammate)" -1 0 0 0 0
+"attention-reciepient(ground/opposing team/teammate)" -1 0 0 0 0
+"attention-audience(opposing team/teammates)" -1 0 0 0 0
+"attention-feeling(victory/defeat)" -1 0 0 0 0
+"pointing(viewing surroundings)" -1 0 0 0 0
+"attention-target(pitcher/team)" -1 0 0 0 0
+"attention-emotional_state(anticipation/competitor)" -1 0 0 0 0
+"gesturing(fast running)" -1 0 0 0 0
+"pointing(running on field)" -1 0 0 0 0
+"attention-target(home plate/opposing team)" -1 0 0 0 0
+"gesturing(decorating)" -1 0 0 0 0
+"pointing(placing ornaments)" -1 0 0 0 0
+"attention-action(decorating)" -1 0 0 0 0
+"attention-place(living room)" -1 0 0 0 0
+"attention-activity(christmas decorating)" -1 0 0 0 0
+"attention-recipient(christmas tree)" -1 0 0 0 0
+"attention-emotional_state(cheerful/merry)" -1 0 0 0 0
+"gesturing(\(adding string of lights)" -1 0 0 0 0
+"pointing(clipping/attaching lights)" -1 0 0 0 0
+"attention-action(decorating/holiday preparations)" -1 0 0 0 0
+"attention-emotional_state(cheerful/excited)" -1 0 0 0 0
+"pointing(adding bulbs)" -1 0 0 0 0
+"attention-target(christmas tree)" -1 0 0 0 0
+"attention-recipient(child)" -1 0 0 0 0
+"attention-emotional_state(entertaining/pleased)" -1 0 0 0 0
+"gesturing(throwing forward)" -1 0 0 0 0
+"pointing(press-switch)" -1 0 0 0 0
+"attention-action(turning on)" -1 0 0 0 0
+"attention-target(lights)" -1 0 0 0 0
+"attention-feeling(exciting)" -1 0 0 0 0
+"gesturing(going up)" -1 0 0 0 0
+"attention-action(climbing)" -1 0 0 0 0
+"attention-target(stairs)" -1 0 0 0 0
+"pointing(adding ornaments/tree-topper)" -1 0 0 0 0
+"attention-action(decorating/tree-topper)" -1 0 0 0 0
+"attention-target(living room)" -1 0 0 0 0
+"attention-emotional_state(entertaining/calming)" -1 0 0 0 0
+"gesturing(climbing)" -1 0 0 0 0
+"pointing(adding star/tree-topper)" -1 0 0 0 0
+"emotion(amazement)" -1 0 0 0 0
+"level-of-certainty(impressive)" -1 0 0 0 0
+"attention-action(performance)" -1 0 0 0 0
+"attention-activity(thrilling activity)" -1 0 0 0 0
+"attention-emotional_state(excited)" -1 0 0 0 0
+"gesturing(taking gesture)" -1 0 0 0 0
+"attention-action(going back)" -1 0 0 0 0
+"attention-place(parked car)" -1 0 0 0 0
+"attention-body_part(hips)" -1 0 0 0 0
+"attention-action(emotionally responding)" -1 0 0 0 0
+"gesturing(hand on heart)" -1 0 0 0 0
+"attention-emotional_state(shock/surprise)" -1 0 0 0 0
+"bias(adverse situation)" -1 0 0 0 0
+"emotion(anxiety/worry)" -1 0 0 0 0
+"level-of-certainty(difficulty)" -1 0 0 0 0
+"attention-action(problem-solving)" -1 0 0 0 0
+"attention-object(car)" -1 0 0 0 0
+"attention-emotional_state(worry/panic)" -1 0 0 0 0
+"attention-activity(changing tire)" -1 0 0 0 0
+"gesturing(hand motion)" -1 0 0 0 0
+"attention-object(jack)" -1 0 0 0 0
+"attention-body_part(arm)" -1 0 0 0 0
+"attention-action(tutorial)" -1 0 0 0 0
+"gesturing(hand movement)" -1 0 0 0 0
+"attention-procedure(changing a tire)" -1 0 0 0 0
+"attention-action(interrupting)" -1 0 0 0 0
+"attention-recipient(other person)" -1 0 0 0 0
+"attention-body_part(foot)" -1 0 0 0 0
+"attention-emotional_state(amusement)" -1 0 0 0 0
+"attention-activity(tubing)" -1 0 0 0 0
+"attention-object(bowling alley)" -1 0 0 0 0
+"attention-person(Gender: male)" -1 0 0 0 0
+"attention-body_part(side)" -1 0 0 0 0
+"attention-body_part(head)" -1 0 0 0 0
+"attention-color(burgundy)" -1 0 0 0 0
+"attention-clothing(polo shirt)" -1 0 0 0 0
+"attention-action(bowling)" -1 0 0 0 0
+"attention-object(bowling ball)" -1 0 0 0 0
+"attention-position(aerial)" -1 0 0 0 0
+"attention-action(response)" -1 0 0 0 0
+"attention-object(bowling lane)" -1 0 0 0 0
+"attention-person(Gender: multiple)" -1 0 0 0 0
+"attention-body_part(back)" -1 0 0 0 0
+"attention-recipient(symbolic)" -1 0 0 0 0
+"attention-action(cool move)" -1 0 0 0 0
+"attention-emotional_state(amazement)" -1 0 0 0 0
+"attention-action(spins on head)" -1 0 0 0 0
+"attention-object(bowling pins)" -1 0 0 0 0
+"attention-object(court)" -1 0 0 0 0
+"attention-body_part(standing)" -1 0 0 0 0
+"attention-action(explaining)" -1 0 0 0 0
+"attention-action(exercise)" -1 0 0 0 0
+"attention-action(enjoying activity)" -1 0 0 0 0
+"attention-object(kite)" -1 0 0 0 0
+"attention-place(yard/field)" -1 0 0 0 0
+"attention-position(flying)" -1 0 0 0 0
+"attention-emotional_state(being carefree)" -1 0 0 0 0
+"attention-person(Gender: female)" -1 0 0 0 0
+"attention-action(taking over)" -1 0 0 0 0
+"attention-target(action)" -1 0 0 0 0
+"attention-action(flying)" -1 0 0 0 0
+"attention-recipient(multiple)" -1 0 0 0 0
+"attention-body_part(hand)" -1 0 0 0 0
+"attention-place(outdoors)" -1 0 0 0 0
+"attention-action(explanation)" -1 0 0 0 0
+"attention-action(entering)" -1 0 0 0 0
+"attention-body_part(lower body)" -1 0 0 0 0
+"attention-body_part(feet)" -1 0 0 0 0
+"attention-action(sweeping)" -1 0 0 0 0
+"attention-object(dirt)" -1 0 0 0 0
+"attention-body_part(ground)" -1 0 0 0 0
+"attention-emotional_state(tired)" -1 0 0 0 0
+"attention-action(putting down)" -1 0 0 0 0
+"attention-object(tarp)" -1 0 0 0 0
+"attention-object(wood)" -1 0 0 0 0
+"attention-place(court)" -1 0 0 0 0
+"attention-action(bringing back)" -1 0 0 0 0
+"attention-object(furniture)" -1 0 0 0 0
+"attention-action(rowing)" -1 0 0 0 0
+"attention-object(raft)" -1 0 0 0 0
+"attention-body_part(arms)" -1 0 0 0 0
+"attention-object(waves)" -1 0 0 0 0
+"attention-emotional_state(determined)" -1 0 0 0 0
+"attention-outcome(success)" -1 0 0 0 0
+"attention-action(flowing through)" -1 0 0 0 0
+"attention-place(river)" -1 0 0 0 0
+"attention-body_part(legs)" -1 0 0 0 0
+"attention-activity(rafting)" -1 0 0 0 0
+"attention-action(peeling off)" -1 0 0 0 0
+"attention-body_part(rafters)" -1 0 0 0 0
+"attention-object(unsafe waters)" -1 0 0 0 0
+"attention-activity(staying afloat)" -1 0 0 0 0
+"attention-place(hilltop)" -1 0 0 0 0
+"action(grabbing)" -1 0 0 0 0
+"attention-recipient(just found an item)" -1 0 0 0 0
+"attention-item(clothing line)" -1 0 0 0 0
+"attention-action(sitting/playing)" -1 0 0 0 0
+"attention-instrument(hand drum)" -1 0 0 0 0
+"attention-instrument(bongos)" -1 0 0 0 0
+"attention-time(extended period)" -1 0 0 0 0
+"action(drawing)" -1 0 0 0 0
+"attention-attribute(lines)" -1 0 0 0 0
+"attention-place(piece of paper)" -1 0 0 0 0
+"attention-transitioning(switching between scenes)" -1 0 0 0 0
+"attention-surroundings(snowy areas)" -1 0 0 0 0
+"attention-speed(fast motion clips)" -1 0 0 0 0
+"attention-activity(skiing/snowboarding)" -1 0 0 0 0
+"attention-place(mountain)" -1 0 0 0 0
+"attention-surroundings(close-ups of mountains)" -1 0 0 0 0
+"attention-action(riding down)" -1 0 0 0 0
+"attention-action(performing tricks)" -1 0 0 0 0
+"attention-qualifications(ski/snowboarding abilities)" -1 0 0 0 0
+"attention-goal(perfecting tricks)" -1 0 0 0 0
+"attention-instrument(piano)" -1 0 0 0 0
+"attention-body_part(fingertips)" -1 0 0 0 0
+"attention-recipient(captured by camera)" -1 0 0 0 0
+"attention-action(smoking)" -1 0 0 0 0
+"attention-activity(talking/communicating)" -1 0 0 0 0
+"attention-action(blowing smoke)" -1 0 0 0 0
+"attention-emotional_state(relaxation)" -1 0 0 0 0
+"attention-transitioning(switching between actions)" -1 0 0 0 0
+"attention-action(charging)" -1 0 0 0 0
+"attention-activity(rodeo)" -1 0 0 0 0
+"attention-item(rope)" -1 0 0 0 0
+"attention-action(lassoing)" -1 0 0 0 0
+"attention-recipient(calf)" -1 0 0 0 0
+"attention-action(successful)" -1 0 0 0 0
+"attention-action(showing off)" -1 0 0 0 0
+"attention-item(plate)" -1 0 0 0 0
+"attention-food(pasta salad)" -1 0 0 0 0
+"attention-food(vegetables)" -1 0 0 0 0
+"attention-food(pesto sauce)" -1 0 0 0 0
+"attention-item(blender)" -1 0 0 0 0
+"attention-place(gymnasium)" -1 0 0 0 0
+"attention-item(bars)" -1 0 0 0 0
+"attention-action(moving)" -1 0 0 0 0
+"attention-body_part(hands)" -1 0 0 0 0
+"attention-action(steps up)" -1 0 0 0 0
+"attention-action(attempting)" -1 0 0 0 0
+"attention-activity(gymnastics)" -1 0 0 0 0
+"attention-motion(spins)" -1 0 0 0 0
+"attention-recipient(woman)" -1 0 0 0 0
+"attention-item(sweater)" -1 0 0 0 0
+"attention-color(green)" -1 0 0 0 0
+"attention-talking(telling a story)" -1 0 0 0 0
+"attention-appendage(hand)" -1 0 0 0 0
+"attention-action(showing how)" -1 0 0 0 0
+"attention-ingredient(pesto sauce)" -1 0 0 0 0
+"attention-activity(preparing)" -1 0 0 0 0
+"attention-speed(slow motion)" -1 0 0 0 0
+"attention-motion(mixing)" -1 0 0 0 0
+"attention-food(tomatoes)" -1 0 0 0 0
+"attention-action(splashing)" -1 0 0 0 0
+"attention-item(boat)" -1 0 0 0 0
+"attention-object(water)" -1 0 0 0 0
+"attention-animation(animation)" -1 0 0 0 0
+"attention-title(title)" -1 0 0 0 0
+"attention-action(washing)" -1 0 0 0 0
+"attention-item(potato)" -1 0 0 0 0
+"attention-prep(peeling)" -1 0 0 0 0
+"attention-prep(dicing)" -1 0 0 0 0
+"attention-action(dicing)" -1 0 0 0 0
+"attention-action(smashing)" -1 0 0 0 0
+"gesturing(stumbling)" -1 0 0 0 0
+"attention-relationship_status(team members)" -1 0 0 0 0
+"attention-physical_state(exhaustion)" -1 0 0 0 0
+"attention-mental_state(confusion, disorientation)" -1 0 0 0 0
+"attention-consequence(falling behind)" -1 0 0 0 0
+"attention-person(addressed to winner)" -1 0 0 0 0
+"attention-relationship_status(competitors)" -1 0 0 0 0
+"gesturing(demonstrating)" -1 0 0 0 0
+"attention-action(wrestling match)" -1 0 0 0 0
+"attention-activity(competition)" -1 0 0 0 0
+"attention-audience(onlookers)" -1 0 0 0 0
+"attention-occasion(sporting event)" -1 0 0 0 0
+"attention-person(addressed to audience/camera)" -1 0 0 0 0
+"attention-relationship_status(speaker)" -1 0 0 0 0
+"attention-activity(interview/reporting)" -1 0 0 0 0
+"gesturing(directing attention)" -1 0 0 0 0
+"attention-topic(narrative)" -1 0 0 0 0
+"attention-occasion(tv broadcast)" -1 0 0 0 0
+"attention-action(running/crawling)" -1 0 0 0 0
+"attention-physical_state(exhaustion, distress)" -1 0 0 0 0
+"attention-place(finish line)" -1 0 0 0 0
+"attention-relationship_status(assistance needed)" -1 0 0 0 0
+"attention-physical_state(injury, exhaustion)" -1 0 0 0 0
+"attention-action(needing help/carrying away)" -1 0 0 0 0
+"attention-activity(racing/competition)" -1 0 0 0 0
+"attention-relationship_status(applauding)" -1 0 0 0 0
+"attention-action(showing distress)" -1 0 0 0 0
+"attention-person(addressed to viewers)" -1 0 0 0 0
+"attention-relationship_status(interviewee)" -1 0 0 0 0
+"attention-activity(interview/announcement)" -1 0 0 0 0
+"attention-emotional_state(direct/emotional)" -1 0 0 0 0
+"attention-mental_state(sharp thinking)" -1 0 0 0 0
+"attention-action(arm wrestling)" -1 0 0 0 0
+"attention-physical_state(strength)" -1 0 0 0 0
+"attention-relationship_status(referee)" -1 0 0 0 0
+"attention-action(declaring winner)" -1 0 0 0 0
+"attention-action(fighting/competing)" -1 0 0 0 0
+"attention-action(challenging)" -1 0 0 0 0
+"attention-action(shifting focus)" -1 0 0 0 0
+"attention-relationship_status(onlookers)" -1 0 0 0 0
+"attention-audience(crowd)" -1 0 0 0 0
+"gesturing(pointing)" -1 0 0 0 0
+"attention-action(coming and going)" -1 0 0 0 0
+"attention-place(sidelines)" -1 0 0 0 0
+"attention-action(grooming)" -1 0 0 0 0
+"attention-relationship(pet/owner)" -1 0 0 0 0
+"attention-activity(pet care)" -1 0 0 0 0
+"attention-emotional_state(attachment)" -1 0 0 0 0
+"attention-physical_state(dependency)" -1 0 0 0 0
+"attention-action(taking care)" -1 0 0 0 0
+"attention-place(grooming room)" -1 0 0 0 0
+"attention-physical_state(restraint)" -1 0 0 0 0
+"attention-relationship(pet owner)" -1 0 0 0 0
+"attention-action(combing)" -1 0 0 0 0
+"attention-activity(pet care/grooming)" -1 0 0 0 0
+"attention-physical_state(cleanliness)" -1 0 0 0 0
+"attention-place(bathroom)" -1 0 0 0 0
+"attention-conversation(discussing)" -1 0 0 0 0
+"attention-topic(personal grooming)" -1 0 0 0 0
+"attention-relationship_status(trainer/leader)" -1 0 0 0 0
+"attention-action(teaching)" -1 0 0 0 0
+"attention-activity(fitness/spin class)" -1 0 0 0 0
+"attention-place(gym)" -1 0 0 0 0
+"attention-audience(students)" -1 0 0 0 0
+"attention-relationship_status(leaders)" -1 0 0 0 0
+"attention-conversation(instructor's instructions)" -1 0 0 0 0
+"attention-action(demonstrating)" -1 0 0 0 0
+"attention-relationship_status(instructor)" -1 0 0 0 0
+"attention-physical_state(performing)" -1 0 0 0 0
+"attention-relationship_status(fitness participants)" -1 0 0 0 0
+"attention-activity(fitness class)" -1 0 0 0 0
+"attention-action(coordinating)" -1 0 0 0 0
+"attention-relationship_status(demonstrator)" -1 0 0 0 0
+"attention-emotional_state(empowered)" -1 0 0 0 0
+"attention-action(finishing)" -1 0 0 0 0
+"attention-physical_state(fatigue)" -1 0 0 0 0
+"attention-action(working together)" -1 0 0 0 0
+"attention-physical_state(exertion)" -1 0 0 0 0
+"attention-relationship_status(news anchor)" -1 0 0 0 0
+"attention-action(introducing news segment)" -1 0 0 0 0
+"attention-topic(local events)" -1 0 0 0 0
+"attention-occasion(news broadcast)" -1 0 0 0 0
+"attention-relationship_status(firefighters)" -1 0 0 0 0
+"attention-action(rescuing)" -1 0 0 0 0
+"attention-activity(saving lives)" -1 0 0 0 0
+"attention-occasion(emergency)" -1 0 0 0 0
+"attention-place(street)" -1 0 0 0 0
+"attention-relationship_status(responder)" -1 0 0 0 0
+"attention-action(directing attention)" -1 0 0 0 0
+"attention-topic(emergency situation)" -1 0 0 0 0
+"attention-occasion(news report)" -1 0 0 0 0
+"attention-relationship_status(participants)" -1 0 0 0 0
+"attention-activity(training/competing)" -1 0 0 0 0
+"attention-relationship_status(spectators)" -1 0 0 0 0
+"attention-action(cheering)" -1 0 0 0 0
+"attention-topic(sports event)" -1 0 0 0 0
+"attention-relationship_status(practitioner)" -1 0 0 0 0
+"attention-place(field/track)" -1 0 0 0 0
+"attention-activity(training)" -1 0 0 0 0
+"attention-relationship_status(participant)" -1 0 0 0 0
+"attention-action(performing)" -1 0 0 0 0
+"attention-physical_state(strength, technique)" -1 0 0 0 0
+"attention-action(transitioning)" -1 0 0 0 0
+"attention-relationship_status(storyteller)" -1 0 0 0 0
+"attention-activity(narration)" -1 0 0 0 0
+"attention-place(training facility)" -1 0 0 0 0
+"attention-topic(sports training)" -1 0 0 0 0
+"msg(starting an action)" -1 0 0 0 0
+"bias(excited)" -1 0 0 0 0
+"emotion(energy)" -1 0 0 0 0
+"level-of-certainty(certain)" -1 0 0 0 0
+"gesturing(motioning to start)" -1 0 0 0 0
+"describing-surroundings(Runway)" -1 0 0 0 0
+"attention-place(side of something)" -1 0 0 0 0
+"attention-time(start of action)" -1 0 0 0 0
+"attention-activity(athletics)" -1 0 0 0 0
+"msg(doing an action)" -1 0 0 0 0
+"emotion(excitement)" -1 0 0 0 0
+"attention-place(sandpit)" -1 0 0 0 0
+"attention-recipient(filming person)" -1 0 0 0 0
+"attention-relationship(checking for success)" -1 0 0 0 0
+"describing-surroundings(tracks)" -1 0 0 0 0
+"attention-person(filmed)" -1 0 0 0 0
+"attention-action(runned)" -1 0 0 0 0
+"attention-relationship(reference)" -1 0 0 0 0
+"msg(expressing excitement)" -1 0 0 0 0
+"gesturing(cheering)" -1 0 0 0 0
+"attention-activity(freestyle motorbiking)" -1 0 0 0 0
+"attention-place(dirt track)" -1 0 0 0 0
+"attention-time(daytime)" -1 0 0 0 0
+"attention-place(dirt pile)" -1 0 0 0 0
+"attention-place(incline)" -1 0 0 0 0
+"attention-place(ramp)" -1 0 0 0 0
+"attention-person(conversation)" -1 0 0 0 0
+"attention-person(escalate emotions)" -1 0 0 0 0
+"attention-emotional_state(distracted)" -1 0 0 0 0
+"attention-topic(person's activity)" -1 0 0 0 0
+"attention-person(causing emotion)" -1 0 0 0 0
+"attention-emotional_state(angry)" -1 0 0 0 0
+"attention-action(inspiring action)" -1 0 0 0 0
+"attention-place(sand pit)" -1 0 0 0 0
+"attention-recipient(spectators)" -1 0 0 0 0
+"attention-action(lightening)" -1 0 0 0 0
+"attention-place(camp site)" -1 0 0 0 0
+"attention-place(wood)" -1 0 0 0 0
+"attention-place(cwood pile)" -1 0 0 0 0
+"attention-relationship(creating excitement)" -1 0 0 0 0
+"attention-action(rafting down)" -1 0 0 0 0
+"attention-place(rapids)" -1 0 0 0 0
+"attention-action(paddling)" -1 0 0 0 0
+"attention-place(tunnels)" -1 0 0 0 0
+"attention-relationship(choosing direction)" -1 0 0 0 0
+"attention-action(shooting)" -1 0 0 0 0
+"attention-emotional_state(euphoria)" -1 0 0 0 0
+"attention-emotional_state(fear)" -1 0 0 0 0
+"attention-relationship(moving through)" -1 0 0 0 0
+"attention-action(running down)" -1 0 0 0 0
+"attention-action(running progress)" -1 0 0 0 0
+"attention-emotional_state(satisfaction)" -1 0 0 0 0
+"attention-relationship(ending)" -1 0 0 0 0
+"attention-person(solo action)" -1 0 0 0 0
+"attention-place(wall)" -1 0 0 0 0
+"attention-person(communicating verbally)" -1 0 0 0 0
+"attention-activity(climbing)" -1 0 0 0 0
+"attention-relationship(sharing knowledge)" -1 0 0 0 0
+"attention-relationship(ending progress)" -1 0 0 0 0
+"attention-emotional_state(struggle)" -1 0 0 0 0
+"attention-action(climbing end)" -1 0 0 0 0
+"attention-emotional_state(exhaustion)" -1 0 0 0 0
+"attention-mental_state(determination)" -1 0 0 0 0
+"gesture(exhaustion)" -1 0 0 0 0
+"attention-person(facing audience)" -1 0 0 0 0
+"attention-relationship(celebration)" -1 0 0 0 0
+"attention-place(dirt path)" -1 0 0 0 0
+"attention-activity(racing)" -1 0 0 0 0
+"attention-emotional_state(desire)" -1 0 0 0 0
+"attention-activity(vaulting)" -1 0 0 0 0
+"attention-place(high beam)" -1 0 0 0 0
+"attention-organization(title slide)" -1 0 0 0 0
+"attention-person(adult and child)" -1 0 0 0 0
+"attention-activity(jump rope)" -1 0 0 0 0
+"attention-person(imitating)" -1 0 0 0 0
+"attention-action(copying)" -1 0 0 0 0
+"attention-person(understanding)" -1 0 0 0 0
+"attention-emotional_state(usual activity)" -1 0 0 0 0
+"attention-emotional_state(celebration)" -1 0 0 0 0
+"attention-emotional_state(boredom)" -1 0 0 0 0
+"attention-action(excelling)" -1 0 0 0 0
+"attention-emotional_state(discussing)" -1 0 0 0 0
+"attention-action(performing routine)" -1 0 0 0 0
+"attention-place(uneven bars)" -1 0 0 0 0
+"attention-action(movement)" -1 0 0 0 0
+"attention-emotional_state(approval)" -1 0 0 0 0
+"attention-place(creative environment)" -1 0 0 0 0
+"describing-surroundings(lazy river)" -1 0 0 0 0
+"gesturing(rowing motion)" -1 0 0 0 0
+"action(rowing)" -1 0 0 0 0
+"attention-place(river/stream)" -1 0 0 0 0
+"action(paddling)" -1 0 0 0 0
+"attention-place(water)" -1 0 0 0 0
+"msg(stating age)" -1 0 0 0 0
+"level-of-certainty(statement)" -1 0 0 0 0
+"attention-topic(rest before competition)" -1 0 0 0 0
+"attention-action(coach speaking)" -1 0 0 0 0
+"action(lifting)" -1 0 0 0 0
+"attention-attributes(physical strength)" -1 0 0 0 0
+"attention-action(displaying strength)" -1 0 0 0 0
+"attention-activity(sports/athletics)" -1 0 0 0 0
+"action(dropping weight)" -1 0 0 0 0
+"attention-action(performing/competing)" -1 0 0 0 0
+"attention-activity(strength training)" -1 0 0 0 0
+"describing-surroundings(two people in room)" -1 0 0 0 0
+"attention-person(person holding teddy bear)" -1 0 0 0 0
+"gesturing(holding up teddy bear)" -1 0 0 0 0
+"attention-object(teddy bear)" -1 0 0 0 0
+"action(game beginning)" -1 0 0 0 0
+"attention-action(game playing)" -1 0 0 0 0
+"attention-place(sports arena)" -1 0 0 0 0
+"attention-color(blue)" -1 0 0 0 0
+"attention-action(scoring)" -1 0 0 0 0
+"attention-relationship(sports team)" -1 0 0 0 0
+"attention-color(white)" -1 0 0 0 0
+"action(moving in)" -1 0 0 0 0
+"attention-purpose(scorer)" -1 0 0 0 0
+"describing-surroundings(10-10 tie)" -1 0 0 0 0
+"attention-number(10)" -1 0 0 0 0
+"attention-activity(sports)" -1 0 0 0 0
+"attention-color(team color)" -1 0 0 0 0
+"attention-place(podium)" -1 0 0 0 0
+"gesturing(taking podium)" -1 0 0 0 0
+"attention-action(receiving medal)" -1 0 0 0 0
+"attention-activity(awards ceremony)" -1 0 0 0 0
+"attention-goal(achieving gold)" -1 0 0 0 0
+"attention-activity(game of curling)" -1 0 0 0 0
+"attention-audience(cheering/applauding)" -1 0 0 0 0
+"attention-place(arena/sports venue)" -1 0 0 0 0
+"gesturing(cheering/applauding)" -1 0 0 0 0
+"attention-action(supporting/enjoying)" -1 0 0 0 0
+"attention-audience(cheering audience)" -1 0 0 0 0
+"describing-surroundings(handyman standing in front of porch)" -1 0 0 0 0
+"attention-action(cleaner)" -1 0 0 0 0
+"attention-place(house)" -1 0 0 0 0
+"attention-action(profession)" -1 0 0 0 0
+"action(cleaning)" -1 0 0 0 0
+"attention-tool(tool belt)" -1 0 0 0 0
+"action(finishes)" -1 0 0 0 0
+"attention-attributes(happiness)" -1 0 0 0 0
+"attention-activity(profession)" -1 0 0 0 0
+"attention-emotional_state(happiness/fulfillment)" -1 0 0 0 0
+"action(spraying)" -1 0 0 0 0
+"attention-object(powder)" -1 0 0 0 0
+"attention-action(cleaning)" -1 0 0 0 0
+"attention-place(sink)" -1 0 0 0 0
+"attention-object(bleach)" -1 0 0 0 0
+"action(scrubbing)" -1 0 0 0 0
+"attention-object(sink)" -1 0 0 0 0
+"attention-color(pink)" -1 0 0 0 0
+"attention-expression(on face)" -1 0 0 0 0
+"action(washing)" -1 0 0 0 0
+"attention-emotional_state(careful/cautious)" -1 0 0 0 0
+"action(wiping)" -1 0 0 0 0
+"attention-tool(paper towel)" -1 0 0 0 0
+"attention-result(clean surface)" -1 0 0 0 0
+"attention-object(child)" -1 0 0 0 0
+"attention-expression(smiling)" -1 0 0 0 0
+"attention-place(playground)" -1 0 0 0 0
+"attention-object(boy)" -1 0 0 0 0
+"attention-color(boy's shirt color)" -1 0 0 0 0
+"attention-action(moving back and forth)" -1 0 0 0 0
+"attention-place(swing)" -1 0 0 0 0
+"attention-activity(enjoyment)" -1 0 0 0 0
+"attention-place(sports venue)" -1 0 0 0 0
+"actions(revealing/showing)" -1 0 0 0 0
+"attention-emotional_state(happiness/enjoyment)" -1 0 0 0 0
+"describing-surroundings(ocean)" -1 0 0 0 0
+"interrupting(call to action)" -1 0 0 0 0
+"emphasizing(persistence)" -1 0 0 0 0
+"gesturing(follow the action)" -1 0 0 0 0
+"describing-surroundings(anywhere outside)" -1 0 0 0 0
+"attention-action(riding on water)" -1 0 0 0 0
+"attention-place(beach/ocean)" -1 0 0 0 0
+"tone(polite)" -1 0 0 0 0
+"msg(personal habit)" -1 0 0 0 0
+"bias(relaxation)" -1 0 0 0 0
+"emotion(nostalgia)" -1 0 0 0 0
+"level-of-certainty(expressing)" -1 0 0 0 0
+"attention-action(going outside)" -1 0 0 0 0
+"attention-physical_state(relaxing)" -1 0 0 0 0
+"describing-surroundings(sports equipment)" -1 0 0 0 0
+"describing-surroundings(equipment of player)" -1 0 0 0 0
+"gesturing(showing)" -1 0 0 0 0
+"attention-activity(exercise)" -1 0 0 0 0
+"attention-physical_state(ready)" -1 0 0 0 0
+"attention-goal(reaching goal)" -1 0 0 0 0
+"tone(authoritative)" -1 0 0 0 0
+"msg(coaching)" -1 0 0 0 0
+"bias(instructing)" -1 0 0 0 0
+"emotion(determination)" -1 0 0 0 0
+"level-of-certainty(assertive/stating)" -1 0 0 0 0
+"attention-action(giving instruction)" -1 0 0 0 0
+"attention-recipient(of instruction)" -1 0 0 0 0
+"attention-physical_state(ready to execute)" -1 0 0 0 0
+"msg(debate/strategy session)" -1 0 0 0 0
+"bias(competing views)" -1 0 0 0 0
+"emotion(determined/confident)" -1 0 0 0 0
+"level-of-certainty(opposing)" -1 0 0 0 0
+"gesturing(demonstrating strategy)" -1 0 0 0 0
+"attention-action(discussing strategy)" -1 0 0 0 0
+"attention-concept(strategy)" -1 0 0 0 0
+"attention-physical_state(determined)" -1 0 0 0 0
+"attention-goal(victory)" -1 0 0 0 0
+"tone(urgent)" -1 0 0 0 0
+"msg(argument/competition)" -1 0 0 0 0
+"bias(youthful competition)" -1 0 0 0 0
+"emotion(determined)" -1 0 0 0 0
+"level-of-certainty(stating)" -1 0 0 0 0
+"attention-person(addressed to girl)" -1 0 0 0 0
+"attention-person-implied(reference to boy)" -1 0 0 0 0
+"attention-relationship(argument/disagreement)" -1 0 0 0 0
+"attention-consequence(discussion)" -1 0 0 0 0
+"tone(any)" -1 0 0 0 0
+"msg(reference to previous line)" -1 0 0 0 0
+"emotion(passionate)" -1 0 0 0 0
+"level-of-certainty(determined)" -1 0 0 0 0
+"attention-action(discussing)" -1 0 0 0 0
+"attention-relationship(possible conflict)" -1 0 0 0 0
+"describing-surroundings(gym)" -1 0 0 0 0
+"gesturing(playful/energetic)" -1 0 0 0 0
+"describing-surroundings(activity)" -1 0 0 0 0
+"attention-recipient(group of boys)" -1 0 0 0 0
+"attention-consequence(playful competition)" -1 0 0 0 0
+"tone(caring)" -1 0 0 0 0
+"msg(encouraging)" -1 0 0 0 0
+"bias(nurturing)" -1 0 0 0 0
+"emotion(concern)" -1 0 0 0 0
+"level-of-certainty(encouraging)" -1 0 0 0 0
+"gesturing(affectionate)" -1 0 0 0 0
+"attention-action(hydrating)" -1 0 0 0 0
+"attention-person(addressed to boys)" -1 0 0 0 0
+"attention-emotional_state(care/concern)" -1 0 0 0 0
+"msg(analysis/critique)" -1 0 0 0 0
+"bias(observing/judging)" -1 0 0 0 0
+"emotion(focused)" -1 0 0 0 0
+"level-of-certainty(stating/judging)" -1 0 0 0 0
+"attention-action(watching)" -1 0 0 0 0
+"attention-action(judging)" -1 0 0 0 0
+"attention-physical_state(observing)" -1 0 0 0 0
+"attention-acitivty(discussing strategy)" -1 0 0 0 0
+"describing-surroundings(sport equipment)" -1 0 0 0 0
+"describing-surroundings(scene of sport)" -1 0 0 0 0
+"gesturing(showing action)" -1 0 0 0 0
+"attention-physical_state(playing)" -1 0 0 0 0
+"tone(nostalgic)" -1 0 0 0 0
+"msg(memories)" -1 0 0 0 0
+"bias(reflecting)" -1 0 0 0 0
+"emotion(nostalgia/remembering)" -1 0 0 0 0
+"level-of-certainty(reminiscing)" -1 0 0 0 0
+"attention-action(showing memories)" -1 0 0 0 0
+"attention-experience(memories)" -1 0 0 0 0
+"describing-surroundings(smiling)" -1 0 0 0 0
+"gesturing(smiling)" -1 0 0 0 0
+"attention-relationship(positivity)" -1 0 0 0 0
+"attention-audience(people in the video)" -1 0 0 0 0
+"gesturing(clearing view)" -1 0 0 0 0
+"attention-recipient(person obscuring view)" -1 0 0 0 0
+"attention-action(walking by)" -1 0 0 0 0
+"attention-emotional_state(unconcerned)" -1 0 0 0 0
+"msg(info/gossip/news)" -1 0 0 0 0
+"bias(things on the rise)" -1 0 0 0 0
+"emotion(positivity/happiness)" -1 0 0 0 0
+"level-of-certainty(excited)" -1 0 0 0 0
+"attention-action(sharing news)" -1 0 0 0 0
+"attention-audience(listeners)" -1 0 0 0 0
+"attention-recipient(implied listener)" -1 0 0 0 0
+"msg(rising/positive trend going viral)" -1 0 0 0 0
+"bias(connection)" -1 0 0 0 0
+"emotion(happiness)" -1 0 0 0 0
+"level-of-certainty(shared info)" -1 0 0 0 0
+"gesturing(showing enthusiasm)" -1 0 0 0 0
+"msg(childhood activities)" -1 0 0 0 0
+"bias(positive memories)" -1 0 0 0 0
+"gesturing(enjoying)" -1 0 0 0 0
+"attention-action(laughing/playing)" -1 0 0 0 0
+"tone(concerned)" -1 0 0 0 0
+"msg(reminders of responsibilities)" -1 0 0 0 0
+"bias(checking up)" -1 0 0 0 0
+"level-of-certainty(worried)" -1 0 0 0 0
+"gesturing(warning/cautioning)" -1 0 0 0 0
+"attention-physical_state(hydrating)" -1 0 0 0 0
+"attention-action(explaining game)" -1 0 0 0 0
+"attention-conseuence(discussion)" -1 0 0 0 0
+"msg(victorious)" -1 0 0 0 0
+"bias(euphoric)" -1 0 0 0 0
+"level-of-certainty(loudly stated)" -1 0 0 0 0
+"attention-action(demonstrating goal)" -1 0 0 0 0
+"attention-recipient(cheering/celebrating)" -1 0 0 0 0
+"msg(direct statement/observation)" -1 0 0 0 0
+"attention-action(explaining victory)" -1 0 0 0 0
+"bias(nostalgia)" -1 0 0 0 0
+"emotion(remembering)" -1 0 0 0 0
+"level-of-certainty(recalling)" -1 0 0 0 0
+"description-surroundings(playing)" -1 0 0 0 0
+"attention-consequence(reflecting)" -1 0 0 0 0
+"msg(good day)" -1 0 0 0 0
+"bias(any emotion)" -1 0 0 0 0
+"emotional(customary emotion of person)" -1 0 0 0 0
+"gesturing(relaxing)" -1 0 0 0 0
+"attention-action(wiping down)" -1 0 0 0 0
+"attention-tool(sponge)" -1 0 0 0 0
+"attention-consequence(cleaning)" -1 0 0 0 0
+"msg(cleaning)" -1 0 0 0 0
+"bias(efficiency)" -1 0 0 0 0
+"level-of-certainty(demonstrating)" -1 0 0 0 0
+"gesturing(handling)" -1 0 0 0 0
+"attention-tool(handle)" -1 0 0 0 0
+"attention-action(organizing)" -1 0 0 0 0
+"attention-attribute(cleaning/sorting)" -1 0 0 0 0
+"tone(aesthetic/any)" -1 0 0 0 0
+"attitude(efficiency)" -1 0 0 0 0
+"emotion(dutiful)" -1 0 0 0 0
+"gesturing(demonstrating steps)" -1 0 0 0 0
+"attention-tool(cleaning product)" -1 0 0 0 0
+"attention-action(marking instructions)" -1 0 0 0 0
+"tone(charming/preparation/beautifying)" -1 0 0 0 0
+"msg(making repellent)" -1 0 0 0 0
+"bias(discussing craft)" -1 0 0 0 0
+"emotion(amazed)" -1 0 0 0 0
+"level-of-certainty(demonstrating/teaching)" -1 0 0 0 0
+"tone(charming/food&wine)" -1 0 0 0 0
+"msg(spicing up their day)" -1 0 0 0 0
+"bias(making food)" -1 0 0 0 0
+"emotion(proud)" -1 0 0 0 0
+"level-of-certainty(any)" -1 0 0 0 0
+"gesturing(instructing)" -1 0 0 0 0
+"attention-tool(chopping board)" -1 0 0 0 0
+"msg(cooking)" -1 0 0 0 0
+"bias(comforting)" -1 0 0 0 0
+"emotion(recipe)" -1 0 0 0 0
+"level-of-certainty(pouring)" -1 0 0 0 0
+"gesturing(passion)" -1 0 0 0 0
+"attention-action(cutting)" -1 0 0 0 0
+"attention-evidences(cutting were shown)" -1 0 0 0 0
+"msg(customary skill)" -1 0 0 0 0
+"bias(credibility)" -1 0 0 0 0
+"emotion(craft)" -1 0 0 0 0
+"gesturing(comforting)" -1 0 0 0 0
+"attention-person-implied(cooking for someone)" -1 0 0 0 0
+"bias(logical)" -1 0 0 0 0
+"emotion(duty)" -1 0 0 0 0
+"level-of-certainty(demands)" -1 0 0 0 0
+"attention-action(placing)" -1 0 0 0 0
+"attention-exception(\"except for this shirt\")" -1 0 0 0 0
+"attention-tool(ironing board)" -1 0 0 0 0
+"msg(company)" -1 0 0 0 0
+"bias(tied together neatly)" -1 0 0 0 0
+"emotion(pride)" -1 0 0 0 0
+"msg(cleanliness)" -1 0 0 0 0
+"bias(demonstrating)" -1 0 0 0 0
+"emotion(obeying)" -1 0 0 0 0
+"gesturing(showing tool)" -1 0 0 0 0
+"attention-action(ironing)" -1 0 0 0 0
+"attention-tool(inventory)" -1 0 0 0 0
+"msg(an epic villian of literature, film and oral tradition)" -1 0 0 0 0
+"bias(works\(delete: grab)" -1 0 0 0 0
+"emotion(ridicule)" -1 0 0 0 0
+"gesturing(showing pay off)" -1 0 0 0 0
+"tone(motivating)" -1 0 0 0 0
+"msg(environment that encourages creative spontaneous expression)" -1 0 0 0 0
+"bias(Enlightened Mind responds)" -1 0 0 0 0
+"gesturing(enjoying with cat)" -1 0 0 0 0
+"attention-activity(environment)" -1 0 0 0 0
+"msg(representing a slow motion scene)" -1 0 0 0 0
+"describing-surroundings(darkness/night)" -1 0 0 0 0
+"attention-activity(dart game)" -1 0 0 0 0
+"attention-focus(dart)" -1 0 0 0 0
+"attention-action(hit)" -1 0 0 0 0
+"attention-state(hand raised to throw dart)" -1 0 0 0 0
+"attention-mental_state(focusing)" -1 0 0 0 0
+"tone(describing in a normal tone)" -1 0 0 0 0
+"msg(describing a specific location)" -1 0 0 0 0
+"attention-place(pavement)" -1 0 0 0 0
+"attention-activity(drawing a game)" -1 0 0 0 0
+"attention-state(ground drawn with chalk)" -1 0 0 0 0
+"attnetion-event(drawn game)" -1 0 0 0 0
+"attention-cultural_significance(hopscotch is a common children's game)" -1 0 0 0 0
+"decribing-surroundings(describing the girl's clothing)" -1 0 0 0 0
+"msg(describing action)" -1 0 0 0 0
+"attention-activity(taking a turn)" -1 0 0 0 0
+"attention-person(girl)" -1 0 0 0 0
+"attention-state(squatting down)" -1 0 0 0 0
+"msg(peers joining in an activity)" -1 0 0 0 0
+"attention-person(group of friends)" -1 0 0 0 0
+"attention-activity(taking turns in a game)" -1 0 0 0 0
+"attention-state(throwing the cap)" -1 0 0 0 0
+"attention-social_interactions(group activity)" -1 0 0 0 0
+"attention-relatioship(friendship)" -1 0 0 0 0
+"attention-cultural_significance(childhood game)" -1 0 0 0 0
+"msg(describing a scene)" -1 0 0 0 0
+"attention-person(group of girls)" -1 0 0 0 0
+"attention-state(standing up)" -1 0 0 0 0
+"msg(describing an action)" -1 0 0 0 0
+"attention-person(person dropping cap)" -1 0 0 0 0
+"attention-activity(jumping in hopscotch game)" -1 0 0 0 0
+"attention-state(jumping)" -1 0 0 0 0
+"msg(secondary narration to video content)" -1 0 0 0 0
+"describing-surroundings(text popping up)" -1 0 0 0 0
+"attention-event(bull being hurt)" -1 0 0 0 0
+"attention-state(hurt)" -1 0 0 0 0
+"attention-mental_state(witnessing violence)" -1 0 0 0 0
+"attention-emotional_state(disgust/anger)" -1 0 0 0 0
+"msg(introducing a new video clip)" -1 0 0 0 0
+"attention-event(bulls being hurt)" -1 0 0 0 0
+"attention-physical_state(hurt/injured)" -1 0 0 0 0
+"msg(showing a violent action)" -1 0 0 0 0
+"attention-person(hurting bulls)" -1 0 0 0 0
+"attention-social_interactions(violence towards animals)" -1 0 0 0 0
+"attention-cultural_significance(anti-animal cruelty message)" -1 0 0 0 0
+"tone(describing in a calm tone)" -1 0 0 0 0
+"msg(describing video)" -1 0 0 0 0
+"attention-person(victims with arrows)" -1 0 0 0 0
+"attention-social_interactions(violence)" -1 0 0 0 0
+"attention-cultural_significance(showing the reality of violence)" -1 0 0 0 0
+"msg(showing cruelty towards animals)" -1 0 0 0 0
+"attention-person(bulls)" -1 0 0 0 0
+"attention-state(hurt/injured)" -1 0 0 0 0
+"msg(showing violence towards animals)" -1 0 0 0 0
+"attention-state(dead)" -1 0 0 0 0
+"attention-state(hurt bulls)" -1 0 0 0 0
+"attention-mental_state(disgust/furious)" -1 0 0 0 0
+"attention-emotional_state(anger/sadness)" -1 0 0 0 0
+"tone(describing in a neutral tone)" -1 0 0 0 0
+"msg(describing an event)" -1 0 0 0 0
+"describing-surroundings(bullfighter)" -1 0 0 0 0
+"attention-activity(fighting)" -1 0 0 0 0
+"attention-state(fighting)" -1 0 0 0 0
+"attention-cultural_significance(bullfighting)" -1 0 0 0 0
+"attention-physical_state(hurt)" -1 0 0 0 0
+"attention-mental_state(fighting unnecessarily)" -1 0 0 0 0
+"attention-person(dead animals)" -1 0 0 0 0
+"attention-social_interactions(cruelty towards animals)" -1 0 0 0 0
+"msg(describing an object)" -1 0 0 0 0
+"attention-physical_state(at the bottom of mop)" -1 0 0 0 0
+"attention-state(showing)" -1 0 0 0 0
+"attnetion-object(mop)" -1 0 0 0 0
+"attention-sensory_visual(seeing)" -1 0 0 0 0
+"attention-activity(lawn mowing)" -1 0 0 0 0
+"attention-state(struggling)" -1 0 0 0 0
+"attention-mental_state(confusion)" -1 0 0 0 0
+"attention-sensory_visual(watching)" -1 0 0 0 0
+"attention-social_interactions(trouble with lawn mower)" -1 0 0 0 0
+"msg(describing a change in direction)" -1 0 0 0 0
+"attention-action(turning)" -1 0 0 0 0
+"attention-physical_state(struggling with lawn mower)" -1 0 0 0 0
+"msg(describing an obstacle)" -1 0 0 0 0
+"attention-action(blocking)" -1 0 0 0 0
+"attention-state(in the way)" -1 0 0 0 0
+"attention-object(water fountain)" -1 0 0 0 0
+"attention-physical_state(blocking path)" -1 0 0 0 0
+"attention-logo(company logo appears)" -1 0 0 0 0
+"attention-company(company logo belongs)" -1 0 0 0 0
+"attention-cultural_significance(promoting company)" -1 0 0 0 0
+"tone(describing in a determined tone)" -1 0 0 0 0
+"msg(addressing a group)" -1 0 0 0 0
+"attention-person(group of people)" -1 0 0 0 0
+"attention-state(speaking)" -1 0 0 0 0
+"attention-social_interactions(group discussion)" -1 0 0 0 0
+"attention-audience(speaking to group)" -1 0 0 0 0
+"attention-purpose(initialization of discussion or direction)" -1 0 0 0 0
+"attention-state(cheering)" -1 0 0 0 0
+"attention-physical_state(standing)" -1 0 0 0 0
+"msg(showing a continuation of rafting activity)" -1 0 0 0 0
+"attention-state(continuing)" -1 0 0 0 0
+"attention-physical_state(moving)" -1 0 0 0 0
+"msg(showing continuation of rafting activity)" -1 0 0 0 0
+"msg(describing a change in location)" -1 0 0 0 0
+"attention-place(river bank)" -1 0 0 0 0
+"attention-state(changing locations)" -1 0 0 0 0
+"attention-social_interactions(camping)" -1 0 0 0 0
+"attention-activity(kayaking)" -1 0 0 0 0
+"attention-state(moving)" -1 0 0 0 0
+"attention-social_interactions(lone activity)" -1 0 0 0 0
+"msg(showing continuation of kayaking)" -1 0 0 0 0
+"attnetion-activity(kayaking)" -1 0 0 0 0
+"msg(describing surrounding animals)" -1 0 0 0 0
+"attention-person(monkeys)" -1 0 0 0 0
+"attention-social_interactions(nature)" -1 0 0 0 0
+"attention-cultural_significance(animals in their natural habitat)" -1 0 0 0 0
+"msg(showing a change in environment)" -1 0 0 0 0
+"attention-environment(waterfall)" -1 0 0 0 0
+"attention-state(splashing)" -1 0 0 0 0
+"attention-physical_state(wet)" -1 0 0 0 0
+"attention-info(company information appears)" -1 0 0 0 0
+"attention-company(company information belongs)" -1 0 0 0 0
+"attention-cultural_significance(company advertisement)" -1 0 0 0 0
+"attention-social_interactions(conducting interview)" -1 0 0 0 0
+"attention-place(outdoor location)" -1 0 0 0 0
+"attention-message(reporting)" -1 0 0 0 0
+"attention-social_interactions(children playing)" -1 0 0 0 0
+"attention-activity(wall ball)" -1 0 0 0 0
+"attention-state(playing)" -1 0 0 0 0
+"attention-object(ball)" -1 0 0 0 0
+"attention-the_self(childhood memories)" -1 0 0 0 0
+"msg(disruptive/provoking)" -1 0 0 0 0
+"bias(emotional/mental reaction)" -1 0 0 0 0
+"emotion(stirring)" -1 0 0 0 0
+"attention-action(stirring)" -1 0 0 0 0
+"attention-mental_state(emotional/mental reaction)" -1 0 0 0 0
+"msg(judging/criticizing)" -1 0 0 0 0
+"bias(detrimental effect on cake)" -1 0 0 0 0
+"emotion(dissatisfaction)" -1 0 0 0 0
+"attention-action(judging/criticizing)" -1 0 0 0 0
+"attention-recipient(cake)" -1 0 0 0 0
+"attention-physical_state(destruction)" -1 0 0 0 0
+"attention-mental_state(displeasure)" -1 0 0 0 0
+"attention-collaboration(critical/judgmental tone)" -1 0 0 0 0
+"attention-evaluative_criteria(ingredient placement on cake)" -1 0 0 0 0
+"msg(improving)" -1 0 0 0 0
+"bias(trying to make something better)" -1 0 0 0 0
+"emotion(satisfaction)" -1 0 0 0 0
+"attention-action(improving)" -1 0 0 0 0
+"attention-physical_state(enhancement)" -1 0 0 0 0
+"attention-mental_state(satisfaction)" -1 0 0 0 0
+"attention-collaboration(working together to better cake)" -1 0 0 0 0
+"attention-physical_state(difficulties in pouring the mixture)" -1 0 0 0 0
+"attention-action(plan)" -1 0 0 0 0
+"attention-plan-task(mixing the ingredients)" -1 0 0 0 0
+"tone(eager)" -1 0 0 0 0
+"msg(anticipating)" -1 0 0 0 0
+"bias(excitement)" -1 0 0 0 0
+"emotion(anticipation)" -1 0 0 0 0
+"attention-physical_state(waiting in front of cake)" -1 0 0 0 0
+"attention-mental_state(hyping up)" -1 0 0 0 0
+"attention-collaboration(eagerly anticipating eating cake)" -1 0 0 0 0
+"attention-plan-communication(discussion about eating cake)" -1 0 0 0 0
+"attention-expectations(tasting the cake)" -1 0 0 0 0
+"tone(engaging)" -1 0 0 0 0
+"msg(initiating conversation)" -1 0 0 0 0
+"bias(interesting topic)" -1 0 0 0 0
+"emotion(curiosity)" -1 0 0 0 0
+"attention-action(talk)" -1 0 0 0 0
+"attention-relationship(initiating a conversation with someone)" -1 0 0 0 0
+"attention-topic(conversation topic)" -1 0 0 0 0
+"attention-audience(specific person)" -1 0 0 0 0
+"attention-collaboration(young boy and man talking)" -1 0 0 0 0
+"attention-conversation(initiating conversation with another)" -1 0 0 0 0
+"msg(enjoyment)" -1 0 0 0 0
+"bias(satisfying needs)" -1 0 0 0 0
+"emotion(pleasure/enjoyment)" -1 0 0 0 0
+"attention-physical_state(eating cake)" -1 0 0 0 0
+"attention-activity(eating)" -1 0 0 0 0
+"attention-experiences(memory of eating cake)" -1 0 0 0 0
+"attention-like(taste of cake)" -1 0 0 0 0
+"attention-consequence(satisfaction from eating cake)" -1 0 0 0 0
+"attention-physical_state(stood on the ground)" -1 0 0 0 0
+"attention-mental_state(displaying behavior)" -1 0 0 0 0
+"attention-activity(boxing)" -1 0 0 0 0
+"attention-person(good fist fighting partner)" -1 0 0 0 0
+"attention-consequence(fun physical activity)" -1 0 0 0 0
+"tone(thinking of strategy)" -1 0 0 0 0
+"bias(trying to outsmart opponent)" -1 0 0 0 0
+"attention-action(boxing)" -1 0 0 0 0
+"attention-physical_state(fighting)" -1 0 0 0 0
+"attention-mental_state(strategizing)" -1 0 0 0 0
+"attention-physical_state(wearing gloves)" -1 0 0 0 0
+"attention-action(punching)" -1 0 0 0 0
+"attention-action-evaluation(hit someone else)" -1 0 0 0 0
+"attention-person(person being punched)" -1 0 0 0 0
+"attention-quantity(continuing to punch)" -1 0 0 0 0
+"attention-plan-task(continuing to punch)" -1 0 0 0 0
+"attention-recipient(person being punched)" -1 0 0 0 0
+"attention-positive_attribute(persistence)" -1 0 0 0 0
+"bias(attempting to win)" -1 0 0 0 0
+"attention-action(evaluating success)" -1 0 0 0 0
+"attention-quantity(multiple punches)" -1 0 0 0 0
+"attention-target(person in front)" -1 0 0 0 0
+"attention-consequence(persistence leads to victory)" -1 0 0 0 0
+"attention-action(removing snow)" -1 0 0 0 0
+"attention-physical_state(pushing snow off)" -1 0 0 0 0
+"attention-place(front of house)" -1 0 0 0 0
+"attention-physical_state(wet from snow)" -1 0 0 0 0
+"attention-action(use of snow scraper)" -1 0 0 0 0
+"attention-action(task)" -1 0 0 0 0
+"attention-goal(clearing car of snow)" -1 0 0 0 0
+"attention-action(low power)" -1 0 0 0 0
+"attention-physical_state(bending down)" -1 0 0 0 0
+"attention-place(other section of car window)" -1 0 0 0 0
+"attention-algorithm(wiping with blade)" -1 0 0 0 0
+"attention-place(home)" -1 0 0 0 0
+"attention-physical_state(snow on car)" -1 0 0 0 0
+"attention-action(clarifying appearance)" -1 0 0 0 0
+"attention-action(looking around)" -1 0 0 0 0
+"attention-environment(panning)" -1 0 0 0 0
+"attention-location(pile)" -1 0 0 0 0
+"attention-people(speaking)" -1 0 0 0 0
+"tone(grandmotherly)" -1 0 0 0 0
+"attention-object(object for cleaning)" -1 0 0 0 0
+"attention-activity(verbally explaining)" -1 0 0 0 0
+"attention-environment(stationary location)" -1 0 0 0 0
+"attention-engagement(interaction with audience)" -1 0 0 0 0
+"attention-algorithm(explaining)" -1 0 0 0 0
+"attention-activity(demonstrating)" -1 0 0 0 0
+"attention-plan-communication(interactive teaching)" -1 0 0 0 0
+"attention-place(park/outdoors)" -1 0 0 0 0
+"attention-activity(moving)" -1 0 0 0 0
+"attention-place(holding park)" -1 0 0 0 0
+"attention-action(demonstration)" -1 0 0 0 0
+"attention-physical_state(sliding off)" -1 0 0 0 0
+"attention-mental_state(enthusiasm)" -1 0 0 0 0
+"attention-recipient(grass)" -1 0 0 0 0
+"attention-object(box/jumping rope)" -1 0 0 0 0
+"attention-movement(spinning jump rope)" -1 0 0 0 0
+"emotion(joy)" -1 0 0 0 0
+"tone(exciting)" -1 0 0 0 0
+"attention-action(hand-stand)" -1 0 0 0 0
+"attention-state(physical achievement)" -1 0 0 0 0
+"attention-active(muscular ability)" -1 0 0 0 0
+"attention-physical_state(dexterity)" -1 0 0 0 0
+"attention-goal(play/performing)" -1 0 0 0 0
+"attention-action(flip)" -1 0 0 0 0
+"attention-action-likelihood(fully rotating)" -1 0 0 0 0
+"attention-object(jump rope)" -1 0 0 0 0
+"attention-emotion(relaxed)" -1 0 0 0 0
+"attention-action(completing jump roping routine)" -1 0 0 0 0
+"emotion(relief)" -1 0 0 0 0
+"attention-place(gym/park)" -1 0 0 0 0
+"attention-algorithm(jump roping routine)" -1 0 0 0 0
+"attention-action(slowing down)" -1 0 0 0 0
+"attention-physical_state(recovery from fast movement)" -1 0 0 0 0
+"attention-emotion(satisfaction)" -1 0 0 0 0
+"attention-goal(playing/performing)" -1 0 0 0 0
+"emotion(not quite complete)" -1 0 0 0 0
+"bias(carried out till end)" -1 0 0 0 0
+"attention-place(of other people)" -1 0 0 0 0
+"attention-involvement(walking in direction of other people)" -1 0 0 0 0
+"attention-contrast(moving vs. still)" -1 0 0 0 0
+"attention-place(park)" -1 0 0 0 0
+"attention-action(team sport)" -1 0 0 0 0
+"attention-activity(taught at a young age)" -1 0 0 0 0
+"attention-activity(lacrosse)" -1 0 0 0 0
+"attention-networking(meeting people playing lacrosse)" -1 0 0 0 0
+"attention-activity(sport)" -1 0 0 0 0
+"attention-action(team effort)" -1 0 0 0 0
+"attention-activity(action requiring collaboration)" -1 0 0 0 0
+"attention-result(applying skills to game)" -1 0 0 0 0
+"attention-environment(field)" -1 0 0 0 0
+"attention-place(standing)" -1 0 0 0 0
+"attention-person(always observing)" -1 0 0 0 0
+"attention-active(visual stimulation)" -1 0 0 0 0
+"attention-lighting(sunlight/police sirens)" -1 0 0 0 0
+"attention-state(relaxed hips/legs/mind)" -1 0 0 0 0
+"emotion(peaking high)" -1 0 0 0 0
+"attention-person(adult watching playground)" -1 0 0 0 0
+"attention-action(enjoying)" -1 0 0 0 0
+"tone(relaxed)" -1 0 0 0 0
+"emotion(peace/confidence in knowledge of activity)" -1 0 0 0 0
+"attention-activity(friendship building/sharing tips)" -1 0 0 0 0
+"attention-action(exercising)" -1 0 0 0 0
+"attention-action-likelihood(not very likely)" -1 0 0 0 0
+"attention-mental_state(intimidation)" -1 0 0 0 0
+"attention-goal(getting in shape)" -1 0 0 0 0
+"attention-physical_state(muscle soreness)" -1 0 0 0 0
+"attention-action-explanation(being sore due to exercising)" -1 0 0 0 0
+"attention-analogy(comparing with past injuries)" -1 0 0 0 0
+"attention-involvement(child/learner)" -1 0 0 0 0
+"attention-place(place of teaching)" -1 0 0 0 0
+"attention-active(teacher)" -1 0 0 0 0
+"emotion(patience)" -1 0 0 0 0
+"attention-emotional_state(teaching)" -1 0 0 0 0
+"attention-activity(verbally teaching)" -1 0 0 0 0
+"attention-goal(improving teaching skills)" -1 0 0 0 0
+"attention-action(shuffling cards)" -1 0 0 0 0
+"attention-activity(patterns)" -1 0 0 0 0
+"attention-goal(getting students to understand)" -1 0 0 0 0
+"emotion(focus and dedication to teaching)" -1 0 0 0 0
+"attention-state(focused)" -1 0 0 0 0
+"attention-quantity(generating hands)" -1 0 0 0 0
+"attention-action-pair-dealing(tactfully shuffling)" -1 0 0 0 0
+"attention-networking(teaching/showcasing)" -1 0 0 0 0
+"attention-requirement(extensive skills lead to teaching)" -1 0 0 0 0
+"attention-success(determination for student success)" -1 0 0 0 0
+"attention-consciousness(due to compassion)" -1 0 0 0 0
+"attention-action(shuffling)" -1 0 0 0 0
+"attention-active(on the spot decision)" -1 0 0 0 0
+"attention-job(time to teach students better)" -1 0 0 0 0
+"attention-consequence(teaching is never easy)" -1 0 0 0 0
+"attention-quantity(more information)" -1 0 0 0 0
+"attention-repairing(dealing cards)" -1 0 0 0 0
+"attention-involvement(the teacher)" -1 0 0 0 0
+"attention-action(programming)" -1 0 0 0 0
+"attention-repetitiveness(programming)" -1 0 0 0 0
+"msg(addressing an agreement between two people)" -1 0 0 0 0
+"bias(reiterating previous statement)" -1 0 0 0 0
+"attention-activity(conversation)" -1 0 0 0 0
+"attention-relationship(acknowledging two people's connection)" -1 0 0 0 0
+"attention-surroundings(orange walled room)" -1 0 0 0 0
+"attention-objects(dumbbells)" -1 0 0 0 0
+"attention-colors(black)" -1 0 0 0 0
+"attention-position(horizontal)" -1 0 0 0 0
+"attention-place(empty room)" -1 0 0 0 0
+"attention-activity(resting)" -1 0 0 0 0
+"attention-gender(male)" -1 0 0 0 0
+"attention-activity(exercising)" -1 0 0 0 0
+"attention-person(number of people)" -1 0 0 0 0
+"attention-object(tennis racquet)" -1 0 0 0 0
+"attention-place(tennis court)" -1 0 0 0 0
+"attention-activity(child's play)" -1 0 0 0 0
+"attention-surroundings(wall)" -1 0 0 0 0
+"attention-activity(repairing)" -1 0 0 0 0
+"attention-object(tool)" -1 0 0 0 0
+"attention-surroundings(carpet)" -1 0 0 0 0
+"attention-action(touching)" -1 0 0 0 0
+"attention-object(carpet)" -1 0 0 0 0
+"attention-activity(cutting)" -1 0 0 0 0
+"attention-activity(cleaning/repairing)" -1 0 0 0 0
+"attention-effect(straightening out rug)" -1 0 0 0 0
+"attention-person(female)" -1 0 0 0 0
+"attention-gender(female)" -1 0 0 0 0
+"attention-place(stage)" -1 0 0 0 0
+"attention-activity(performing)" -1 0 0 0 0
+"attention-action(routine)" -1 0 0 0 0
+"attention-activity(dancing)" -1 0 0 0 0
+"attention-action(lefting)" -1 0 0 0 0
+"attention-object(human pyramid)" -1 0 0 0 0
+"attention-activity(carrying)" -1 0 0 0 0
+"attention-position(between two other females)" -1 0 0 0 0
+"attention-relationips(group of friends/teammates)" -1 0 0 0 0
+"attention-surroundings(stage)" -1 0 0 0 0
+"attention-action(shaking)" -1 0 0 0 0
+"attention-objects(pom poms)" -1 0 0 0 0
+"attention-persons(group of females)" -1 0 0 0 0
+"attention-task(dancing)" -1 0 0 0 0
+"attention-activity(cheering)" -1 0 0 0 0
+"attention-activity(lefting)" -1 0 0 0 0
+"attention-object(pom poms)" -1 0 0 0 0
+"attention-position(on stage)" -1 0 0 0 0
+"attention-person(male)" -1 0 0 0 0
+"attention-object(humans)" -1 0 0 0 0
+"attention-position(dancing in front of group)" -1 0 0 0 0
+"attention-emotional_state(joy/celebration)" -1 0 0 0 0
+"attention-relationships(group of friends/teammates)" -1 0 0 0 0
+"attention-emotional_state(joy)" -1 0 0 0 0
+"attention-action(hugging)" -1 0 0 0 0
+"attention-relationships(team members/friends)" -1 0 0 0 0
+"attention-state(ending)" -1 0 0 0 0
+"attention-activity(listing names/credits)" -1 0 0 0 0
+"attention-state(showing/hiding)" -1 0 0 0 0
+"attention-state(paused frames/captured moments)" -1 0 0 0 0
+"attention-state(reading)" -1 0 0 0 0
+"attention-object(quote)" -1 0 0 0 0
+"attention-object(website)" -1 0 0 0 0
+"attention-action(stopping)" -1 0 0 0 0
+"attention-position(on sidewalk)" -1 0 0 0 0
+"attention-object(flag)" -1 0 0 0 0
+"attention-object(mascot)" -1 0 0 0 0
+"attention-action(catching)" -1 0 0 0 0
+"attention-persons(group of people)" -1 0 0 0 0
+"attention-action(hitting)" -1 0 0 0 0
+"attention-person(mascot)" -1 0 0 0 0
+"attention-action(supporting)" -1 0 0 0 0
+"attention-emotional_state(pride/joy)" -1 0 0 0 0
+"attention-task(celebration)" -1 0 0 0 0
+"attention-persons(final group member)" -1 0 0 0 0
+"attention-state(knocked over)" -1 0 0 0 0
+"attention-action(greeting)" -1 0 0 0 0
+"attention-state(introducing)" -1 0 0 0 0
+"attention-posotion(infront of group)" -1 0 0 0 0
+"attention-artifact(racket)" -1 0 0 0 0
+"attention-activity(explaining)" -1 0 0 0 0
+"attention-activity(practicing)" -1 0 0 0 0
+"attention-person(baby)" -1 0 0 0 0
+"attention-action(eating)" -1 0 0 0 0
+"attention-object(bread)" -1 0 0 0 0
+"attention-position(high chair)" -1 0 0 0 0
+"attention-surroundings(kitchen)" -1 0 0 0 0
+"attention-activity(weight lifting)" -1 0 0 0 0
+"attention-time(currently happening)" -1 0 0 0 0
+"attention-surroundings(competition)" -1 0 0 0 0
+"gesture(stopping)" -1 0 0 0 0
+"attention-emotional_state(disinclination to keep dancing)" -1 0 0 0 0
+"attention-time(moments following someone's actions)" -1 0 0 0 0
+"gesture(pause)" -1 0 0 0 0
+"attention-action(\"doesn't move for a moment\")" -1 0 0 0 0
+"attention-activity(watching credits)" -1 0 0 0 0
+"attention-event(end of movie)" -1 0 0 0 0
+"attention-activity(parading)" -1 0 0 0 0
+"attention-occasion(celebration)" -1 0 0 0 0
+"attention-emotional_state(excited/joyful)" -1 0 0 0 0
+"attention-awareness(people watching parade from both sides)" -1 0 0 0 0
+"attention-event(parade)" -1 0 0 0 0
+"attention-awareness(applauding)" -1 0 0 0 0
+"attention-emotional_state(appreciation)" -1 0 0 0 0
+"attention-conclusion(end of event)" -1 0 0 0 0
+"attention-person(child)" -1 0 0 0 0
+"attention-activity(ironing)" -1 0 0 0 0
+"attention-object(clothing)" -1 0 0 0 0
+"attention-emotional_state(imagination/pretending)" -1 0 0 0 0
+"attention-intention(impressing/learning)" -1 0 0 0 0
+"attention-object(camera)" -1 0 0 0 0
+"attention-emotional_state(curiosity)" -1 0 0 0 0
+"attention-action(pretending to iron)" -1 0 0 0 0
+"attention-feeling(happiness)" -1 0 0 0 0
+"attention-object(dress)" -1 0 0 0 0
+"attention-action(swinging)" -1 0 0 0 0
+"attention-feeling(playfulness)" -1 0 0 0 0
+"attention-emotional_state(sure/confident)" -1 0 0 0 0
+"attention-activity(talking to camera)" -1 0 0 0 0
+"attention-intention(demonstrating)" -1 0 0 0 0
+"attention-action(displaying)" -1 0 0 0 0
+"attention-object(cleaning products)" -1 0 0 0 0
+"attention-emotional_state(satisfaction/pride)" -1 0 0 0 0
+"attention-object(products)" -1 0 0 0 0
+"attention-emotional_state(diligence/thoroughness)" -1 0 0 0 0
+"attention-action(scrubbing)" -1 0 0 0 0
+"attention-object(counter)" -1 0 0 0 0
+"attention-emotional_state(cleanness)" -1 0 0 0 0
+"gesture(pointing)" -1 0 0 0 0
+"attention-action(finish)" -1 0 0 0 0
+"attention-activity(holding)" -1 0 0 0 0
+"attention-object(lacrosse stick)" -1 0 0 0 0
+"attention-action(instructing)" -1 0 0 0 0
+"attention-activity(tossing)" -1 0 0 0 0
+"attention-intention(discussing)" -1 0 0 0 0
+"attention-goal(scorer)" -1 0 0 0 0
+"attention-activity(team sport)" -1 0 0 0 0
+"attention-object(team color)" -1 0 0 0 0
+"attention-emotional_state(competition)" -1 0 0 0 0
+"attention-activity(sport event)" -1 0 0 0 0
+"attention-person(competitor)" -1 0 0 0 0
+"attention-action(encounter)" -1 0 0 0 0
+"attention-action(scrambling)" -1 0 0 0 0
+"gesture(amidst hustling)" -1 0 0 0 0
+"attention-activity(scoring/moving closer to target)" -1 0 0 0 0
+"attention-place(on the field)" -1 0 0 0 0
+"attention-action(preventing)" -1 0 0 0 0
+"attention-action(trying to keep up)" -1 0 0 0 0
+"attention-action(break)" -1 0 0 0 0
+"attention-object(cards)" -1 0 0 0 0
+"attention-activity(sitting)" -1 0 0 0 0
+"attention-object(poker chips)" -1 0 0 0 0
+"attention-action(dealing)" -1 0 0 0 0
+"attention-action(pointing)" -1 0 0 0 0
+"attention-activity(pool game)" -1 0 0 0 0
+"attention-attribute(good eyesight)" -1 0 0 0 0
+"attention-person(dealer)" -1 0 0 0 0
+"attention-action(additional dealing)" -1 0 0 0 0
+"emotion(excited/jumping)" -1 0 0 0 0
+"level-of-certainty(actively participating)" -1 0 0 0 0
+"attention-activity(outdoor activity)" -1 0 0 0 0
+"gesturing(picking up)" -1 0 0 0 0
+"attention-action(picking up)" -1 0 0 0 0
+"attention-event(occurrence of pink item)" -1 0 0 0 0
+"attention-item(object)" -1 0 0 0 0
+"attention-activity(cleaning up)" -1 0 0 0 0
+"attention-location(nearby)" -1 0 0 0 0
+"attention-audience(viewers)" -1 0 0 0 0
+"gesturing(chopping)" -1 0 0 0 0
+"attention-action(chopping)" -1 0 0 0 0
+"attention-item(tree)" -1 0 0 0 0
+"attention-activity(hard work)" -1 0 0 0 0
+"attention-physical_state(exerting physical strength)" -1 0 0 0 0
+"attention-mental_state(frustration/anger)" -1 0 0 0 0
+"attention-work(job as a lumberjack/laborer)" -1 0 0 0 0
+"level-of-certainty(actively trying)" -1 0 0 0 0
+"gesturing(hard work/exerting strength)" -1 0 0 0 0
+"emotion(exhaustion/frustration)" -1 0 0 0 0
+"attention-action(trying)" -1 0 0 0 0
+"attention-activity(labor/work)" -1 0 0 0 0
+"attention-work(lumberjack/menial laborer)" -1 0 0 0 0
+"gesturing(frustration)" -1 0 0 0 0
+"attention-action(not making progress)" -1 0 0 0 0
+"attention-phrase(frustrated exclamation)" -1 0 0 0 0
+"emotion(frustration/anger)" -1 0 0 0 0
+"gesturing(frustrating situation)" -1 0 0 0 0
+"attention-emotional_state(frustrated)" -1 0 0 0 0
+"attention-mental_state(unable to complete task)" -1 0 0 0 0
+"gesturing(trying again)" -1 0 0 0 0
+"gesturing(chopping again)" -1 0 0 0 0
+"attention-emotional_state(frustration)" -1 0 0 0 0
+"attention-conversation(breaking the silence by looking at camera)" -1 0 0 0 0
+"tone(cheerful)" -1 0 0 0 0
+"gesturing(small smile)" -1 0 0 0 0
+"attention-mental_state(pleasant thought)" -1 0 0 0 0
+"gesturing(stopping)" -1 0 0 0 0
+"gesturing(staring)" -1 0 0 0 0
+"tone(direct)" -1 0 0 0 0
+"attention-mental_state(determined to complete task)" -1 0 0 0 0
+"attention-item(axe)" -1 0 0 0 0
+"attention-emotional_state(exerting physical strength)" -1 0 0 0 0
+"attention-emotion(trying hard)" -1 0 0 0 0
+"attention-physical_state(trying again)" -1 0 0 0 0
+"tone(determined)" -1 0 0 0 0
+"tone(steady)" -1 0 0 0 0
+"attention-emotional_state(exerting effort)" -1 0 0 0 0
+"attention-face(man's face)" -1 0 0 0 0
+"attention-item(wood)" -1 0 0 0 0
+"attention-mental_state(intense focus)" -1 0 0 0 0
+"gesturing(passing by)" -1 0 0 0 0
+"attention-person(passerby)" -1 0 0 0 0
+"attention-location(mirror)" -1 0 0 0 0
+"attention-time(intense focus)" -1 0 0 0 0
+"attention-activity(kickboxing)" -1 0 0 0 0
+"attention-work(fitness)" -1 0 0 0 0
+"attention-physical_state(engaged in martial arts)" -1 0 0 0 0
+"attention-relationship(checking for attacker)" -1 0 0 0 0
+"attention-place(indoor)" -1 0 0 0 0
+"gesturing(holding and playing)" -1 0 0 0 0
+"attention-item(saxophone)" -1 0 0 0 0
+"attention-activity(music)" -1 0 0 0 0
+"attention-mental_state(pleasure)" -1 0 0 0 0
+"attention-emotion(joy)" -1 0 0 0 0
+"attention-physical_state(relaxation)" -1 0 0 0 0
+"attention-work(musician)" -1 0 0 0 0
+"attention-audience(listening/viewing)" -1 0 0 0 0
+"attention-action(lifting/squatting)" -1 0 0 0 0
+"attention-item(barbell)" -1 0 0 0 0
+"attention-body_part(shoulder)" -1 0 0 0 0
+"attention-emotional_state(exertion)" -1 0 0 0 0
+"attention-physical_state(tearing muscles)" -1 0 0 0 0
+"attention-work(bodybuilding)" -1 0 0 0 0
+"attention-location(gym)" -1 0 0 0 0
+"attention-objectiveness(discipline)" -1 0 0 0 0
+"attention-audience(partner)" -1 0 0 0 0
+"gesture(squatting)" -1 0 0 0 0
+"attention-action(squatting)" -1 0 0 0 0
+"emotion(determination/exertion)" -1 0 0 0 0
+"attention-physical_state(lifting heavy weight)" -1 0 0 0 0
+"attention-mental_state(focus)" -1 0 0 0 0
+"attention-emotional_state(determination/effort)" -1 0 0 0 0
+"attention-activity(workout)" -1 0 0 0 0
+"attention-work(bodybuilding/fitness)" -1 0 0 0 0
+"attention-body_part(fingers)" -1 0 0 0 0
+"attention-physical_state(skillful playing)" -1 0 0 0 0
+"attention-location(outdoor)" -1 0 0 0 0
+"attention-physical_state(playing music)" -1 0 0 0 0
+"attention-emotion(relaxation)" -1 0 0 0 0
+"attention-object(saxophone)" -1 0 0 0 0
+"attention-worker(musician)" -1 0 0 0 0
+"attention-action(title appearing)" -1 0 0 0 0
+"attention-physical_state(ENDGAME text)" -1 0 0 0 0
+"attention-item(title)" -1 0 0 0 0
+"tone(dark)" -1 0 0 0 0
+"attention-background(white letters)" -1 0 0 0 0
+"gesturing(pulling)" -1 0 0 0 0
+"attention-action(lifting weights)" -1 0 0 0 0
+"attention-audience(participant)" -1 0 0 0 0
+"attention-person(men)" -1 0 0 0 0
+"attention-action(passing by)" -1 0 0 0 0
+"attention-item(bodybuilding equipment)" -1 0 0 0 0
+"attention-physical_state(lifting weights)" -1 0 0 0 0
+"attention-object(person)" -1 0 0 0 0
+"attention-action(zooming)" -1 0 0 0 0
+"attention-camera(action)" -1 0 0 0 0
+"attention-action(checking himself)" -1 0 0 0 0
+"attention-outfit(black shirt)" -1 0 0 0 0
+"attention-othersl(men)" -1 0 0 0 0
+"attention-background(black)" -1 0 0 0 0
+"attention-activity(indoor activity)" -1 0 0 0 0
+"attention-action(blanking out)" -1 0 0 0 0
+"gesture(cut)" -1 0 0 0 0
+"tone(sudden fade)" -1 0 0 0 0
+"attention-others(black screen)" -1 0 0 0 0
+"gesturing(motion)" -1 0 0 0 0
+"attention-person(girls)" -1 0 0 0 0
+"attention-action(doing flips)" -1 0 0 0 0
+"attention-location(decorative building)" -1 0 0 0 0
+"attention-first_person(viewer)" -1 0 0 0 0
+"attention-second_person(performer)" -1 0 0 0 0
+"attention-activity(flipping)" -1 0 0 0 0
+"mentioning-action(loading)" -1 0 0 0 0
+"describing-surroundings(river or lake)" -1 0 0 0 0
+"attention-activity(boating)" -1 0 0 0 0
+"attention-object(canoes)" -1 0 0 0 0
+"attention-dynamic_action(placing canoe into water)" -1 0 0 0 0
+"attention-object(canoe)" -1 0 0 0 0
+"attention-person(action involving two people)" -1 0 0 0 0
+"attention-dynamic_action(paddling together)" -1 0 0 0 0
+"attention-object(backpack)" -1 0 0 0 0
+"describing-surroundings(train station)" -1 0 0 0 0
+"attention-activity(traveling)" -1 0 0 0 0
+"attention-work(traveling for work)" -1 0 0 0 0
+"attention-place(station)" -1 0 0 0 0
+"attention-activity(arriving or departing from station)" -1 0 0 0 0
+"attention-object(shoe stand)" -1 0 0 0 0
+"attention-activity(shoe shining)" -1 0 0 0 0
+"attention-activity(working)" -1 0 0 0 0
+"attention-object(shoe)" -1 0 0 0 0
+"attention-dynamic_action(shoe shining)" -1 0 0 0 0
+"attention-body_part(ft)" -1 0 0 0 0
+"attention-physical_state(moving foot down)" -1 0 0 0 0
+"attention-object(stand)" -1 0 0 0 0
+"attention-physical_state(moving foot onto stand)" -1 0 0 0 0
+"attention-dynamic_action(taking a break from walking)" -1 0 0 0 0
+"attention-action(shining)" -1 0 0 0 0
+"attention-preferences(cleaning shoes)" -1 0 0 0 0
+"attention-activity(manual labor)" -1 0 0 0 0
+"attention-emotional_state(observing)" -1 0 0 0 0
+"attention-person(person/people)" -1 0 0 0 0
+"attention-dynamic_action(observing a crowd)" -1 0 0 0 0
+"attention-action(buffing)" -1 0 0 0 0
+"attention-preferences(shoe maintenance)" -1 0 0 0 0
+"describing-surroundings(train)" -1 0 0 0 0
+"attention-motion(moving)" -1 0 0 0 0
+"attention-object(crowd)" -1 0 0 0 0
+"attention-activity(daily routine)" -1 0 0 0 0
+"attention-dynamic_action(checking out shoes)" -1 0 0 0 0
+"attention-activity(taking leave)" -1 0 0 0 0
+"attention-emotional_state(feeling confident/fresh)" -1 0 0 0 0
+"attention-physical_state(standing up)" -1 0 0 0 0
+"attention-age(baby)" -1 0 0 0 0
+"attention-interests(exploring)" -1 0 0 0 0
+"attention-activity(learning new things)" -1 0 0 0 0
+"attention-person(including people's opinion)" -1 0 0 0 0
+"attention-action(interrogating)" -1 0 0 0 0
+"attention-work(conducting interviews)" -1 0 0 0 0
+"attention-consequences(gathering information)" -1 0 0 0 0
+"attention-object(helmet)" -1 0 0 0 0
+"describing-surroundings(football stadium)" -1 0 0 0 0
+"attention-action(interviewing)" -1 0 0 0 0
+"attention-work(reporting)" -1 0 0 0 0
+"attention-place(stadium)" -1 0 0 0 0
+"attention-time(match day)" -1 0 0 0 0
+"attention-action(assessing)" -1 0 0 0 0
+"attention-work(performing)" -1 0 0 0 0
+"attention-object(women)" -1 0 0 0 0
+"attention-interests(sports)" -1 0 0 0 0
+"attention-age(children)" -1 0 0 0 0
+"attention-object(vacuum attachment)" -1 0 0 0 0
+"attention-action(playtime)" -1 0 0 0 0
+"attention-place(bedroom)" -1 0 0 0 0
+"attention-dynamic_action(exploring/play-acting)" -1 0 0 0 0
+"attention-object(vacuum)" -1 0 0 0 0
+"attention-activity(household chores)" -1 0 0 0 0
+"attention-place(another room of house)" -1 0 0 0 0
+"attention-action(toying)" -1 0 0 0 0
+"attention-activity(curiosity)" -1 0 0 0 0
+"attention-emotional_state(persistence)" -1 0 0 0 0
+"attention-place(outdoor field)" -1 0 0 0 0
+"attention-physical_state(running)" -1 0 0 0 0
+"attention-object(hurling equipment)" -1 0 0 0 0
+"attention-action(practicing)" -1 0 0 0 0
+"attention-preferences(sports/competition)" -1 0 0 0 0
+"attention-physical_state(celebrating)" -1 0 0 0 0
+"attention-activity(team spirit/support)" -1 0 0 0 0
+"attention-action(pitching)" -1 0 0 0 0
+"attention-direction(left, right, etc.)" -1 0 0 0 0
+"attention-preferences(strategic moves/planning)" -1 0 0 0 0
+"attention-object(bat)" -1 0 0 0 0
+"attention-preferences(aggressive/competitive attitude)" -1 0 0 0 0
+"attention-physical_state(swinging)" -1 0 0 0 0
+"attention-action(failing)" -1 0 0 0 0
+"attention-emotional_state(disappointment)" -1 0 0 0 0
+"attention-person(attempting)" -1 0 0 0 0
+"attention-action(exit)" -1 0 0 0 0
+"attention-physical_state(fast-paced)" -1 0 0 0 0
+"describing-surroundings(stadium)" -1 0 0 0 0
+"attention-emotional_state(encouraging)" -1 0 0 0 0
+"attention-age(women)" -1 0 0 0 0
+"attention-object(bicycle)" -1 0 0 0 0
+"attention-physical_state(working out)" -1 0 0 0 0
+"attention-goals(health/fitness)" -1 0 0 0 0
+"attention-age(man)" -1 0 0 0 0
+"attention-action(filming)" -1 0 0 0 0
+"attention-emotional_state(enthusiasm)" -1 0 0 0 0
+"attention-gender(girls)" -1 0 0 0 0
+"attention-physical_state(stationary/cycling in place)" -1 0 0 0 0
+"attention-preferences(athletics/health)" -1 0 0 0 0
+"gesturing(applying eye shadow)" -1 0 0 0 0
+"attention-activity(preparing makeup)" -1 0 0 0 0
+"attention-appearance(makeup application)" -1 0 0 0 0
+"gesturing(applying lipstick)" -1 0 0 0 0
+"gesturing(sitting)" -1 0 0 0 0
+"attention-position(sitting)" -1 0 0 0 0
+"attention-location(on the ground)" -1 0 0 0 0
+"attention-appearance(polka dot clothing)" -1 0 0 0 0
+"gesturing(showing pants)" -1 0 0 0 0
+"attention-direction(indicating/pointing to something)" -1 0 0 0 0
+"attention-person(addressed to someone)" -1 0 0 0 0
+"attention-activity(waving)" -1 0 0 0 0
+"attention-emotional_state(friendly)" -1 0 0 0 0
+"attention-activity(greeting)" -1 0 0 0 0
+"attention-object(razor)" -1 0 0 0 0
+"attention-sound(close up sound effect)" -1 0 0 0 0
+"attention-activity(grooming)" -1 0 0 0 0
+"attention-animal(dog)" -1 0 0 0 0
+"attention-action(process of getting fur trimmed)" -1 0 0 0 0
+"attention-object(tools)" -1 0 0 0 0
+"attention-animal(cat)" -1 0 0 0 0
+"attention-action(process of getting groomed)" -1 0 0 0 0
+"gesturing(laying down)" -1 0 0 0 0
+"attention-action(receiving love and attention)" -1 0 0 0 0
+"gesturing(presenting)" -1 0 0 0 0
+"attention-object(food)" -1 0 0 0 0
+"attention-emotional_state(hungry/desire)" -1 0 0 0 0
+"attention-action(presenting food)" -1 0 0 0 0
+"tone(informative)" -1 0 0 0 0
+"msg(talking through recipe)" -1 0 0 0 0
+"bias(helpful)" -1 0 0 0 0
+"emotion(pleased/satisfied)" -1 0 0 0 0
+"gesturing(pointing/holding ingredients)" -1 0 0 0 0
+"attention-activity(cooking)" -1 0 0 0 0
+"gesturing(laying out)" -1 0 0 0 0
+"attention-object(ingredients)" -1 0 0 0 0
+"attention-sound(presenting ingredients)" -1 0 0 0 0
+"attention-activity(prep work)" -1 0 0 0 0
+"gesturing(mixing)" -1 0 0 0 0
+"attention-sound(mixing)" -1 0 0 0 0
+"attention-action(creating mixture)" -1 0 0 0 0
+"attention-object(break/food)" -1 0 0 0 0
+"attention-action(adding ingredients)" -1 0 0 0 0
+"tone(explaining)" -1 0 0 0 0
+"msg(walking through recipe)" -1 0 0 0 0
+"emotion(happy/satisfied)" -1 0 0 0 0
+"attention-emotional_state(satisfied/happy)" -1 0 0 0 0
+"attention-action(completing recipe)" -1 0 0 0 0
+"attention-object(logo)" -1 0 0 0 0
+"attention-sound(water drop)" -1 0 0 0 0
+"attention-activity(branding)" -1 0 0 0 0
+"attention-activity(serial sound effect)" -1 0 0 0 0
+"gesturing(showing moves)" -1 0 0 0 0
+"attention-subject(swimming/diving/martial arts)" -1 0 0 0 0
+"attention-purpose(instructional)" -1 0 0 0 0
+"gesturing(showing meaning with hands)" -1 0 0 0 0
+"attention-appearance(hand gestures)" -1 0 0 0 0
+"gesturing(pushing)" -1 0 0 0 0
+"attention-place(different areas)" -1 0 0 0 0
+"gesturing(slowing down)" -1 0 0 0 0
+"attention-action(demonstrating proper technique)" -1 0 0 0 0
+"attention-appearance(hand gestures in slow motion)" -1 0 0 0 0
+"attention-subject(swimming/diving)" -1 0 0 0 0
+"attention-action(speed up)" -1 0 0 0 0
+"attention-emotional_state(calm)" -1 0 0 0 0
+"attention-object(picture)" -1 0 0 0 0
+"attention-location(sunset)" -1 0 0 0 0
+"attention-action(just)" -1 0 0 0 0
+"tone(demonstrating)" -1 0 0 0 0
+"msg(talking through technique)" -1 0 0 0 0
+"emotion(calming)" -1 0 0 0 0
+"level-of-certainty(instructional)" -1 0 0 0 0
+"attention-action(marching in parade procession)" -1 0 0 0 0
+"attention-subject(parade)" -1 0 0 0 0
+"attention-action(participating in parade)" -1 0 0 0 0
+"attention-appearance(uniforms)" -1 0 0 0 0
+"gesturing(waving flags)" -1 0 0 0 0
+"attention-object(flags)" -1 0 0 0 0
+"gesturing(playing instruments)" -1 0 0 0 0
+"attention-object(instruments)" -1 0 0 0 0
+"attention-subject(drums)" -1 0 0 0 0
+"attention-appearance(marching with music)" -1 0 0 0 0
+"attention-subject(horn instruments)" -1 0 0 0 0
+"attention-age(child)" -1 0 0 0 0
+"attention-emotional_state(happy/joyful)" -1 0 0 0 0
+"gesturing(washing hands)" -1 0 0 0 0
+"attention-position(sink)" -1 0 0 0 0
+"attention-activity(personal hygiene)" -1 0 0 0 0
+"gesturing(washing face)" -1 0 0 0 0
+"attention-object(face wash)" -1 0 0 0 0
+"attention-body_part(face)" -1 0 0 0 0
+"attention-relationship(status as mother/son)" -1 0 0 0 0
+"attention-action(caring for child)" -1 0 0 0 0
+"attention-body_part(son's face)" -1 0 0 0 0
+"attention-object(paper towel)" -1 0 0 0 0
+"attention-action(drying face)" -1 0 0 0 0
+"gesturing(driving)" -1 0 0 0 0
+"attention-object(bumper car)" -1 0 0 0 0
+"attention-place(outdoor)" -1 0 0 0 0
+"attention-action(having fun)" -1 0 0 0 0
+"attention-emotional_state(excited/enjoying)" -1 0 0 0 0
+"attention-action(collision of bumper cars)" -1 0 0 0 0
+"attention-sound(hit sounds)" -1 0 0 0 0
+"describing-surroundings(cake-making process)" -1 0 0 0 0
+"attention-activity(baking)" -1 0 0 0 0
+"gesturing(pointing at cake on plate)" -1 0 0 0 0
+"attention-action(putting on display)" -1 0 0 0 0
+"attention-time(now/ready to eat)" -1 0 0 0 0
+"summarizing(Lacrosse match)" -1 0 0 0 0
+"referencing(teams playing)" -1 0 0 0 0
+"attention-activity(sports game)" -1 0 0 0 0
+"attention-action(outdoors)" -1 0 0 0 0
+"attention-action(scored)" -1 0 0 0 0
+"attention-emotional_state(excited/happy)" -1 0 0 0 0
+"attention-perspective(team's perspective)" -1 0 0 0 0
+"gesturing(jumping/celebrating)" -1 0 0 0 0
+"attention-place(game field)" -1 0 0 0 0
+"attention-audience(other players and observers)" -1 0 0 0 0
+"referencing(winning team)" -1 0 0 0 0
+"describing-surroundings(result board)" -1 0 0 0 0
+"attention-action(deciding)" -1 0 0 0 0
+"attention-emotional_state(proud of winning)" -1 0 0 0 0
+"attention-audience(opponents)" -1 0 0 0 0
+"attention-place(by water)" -1 0 0 0 0
+"attention-action(putting hand in water)" -1 0 0 0 0
+"attention-physical_state(washing face)" -1 0 0 0 0
+"describing-surroundings(work area/worker)" -1 0 0 0 0
+"attention-action(laughing at worker)" -1 0 0 0 0
+"gesturing(reaction to worker getting splashed)" -1 0 0 0 0
+"attention-emotional_state(humorous)" -1 0 0 0 0
+"attention-relationship(companions teasing each other)" -1 0 0 0 0
+"gesturing(talking to camera/viewers)" -1 0 0 0 0
+"referencing(beach/goers)" -1 0 0 0 0
+"attention-action(interacting with strangers)" -1 0 0 0 0
+"attention-person-addressed(narrating person)" -1 0 0 0 0
+"attention-action(playfully splashing water)" -1 0 0 0 0
+"gesturing(laughing)" -1 0 0 0 0
+"attention-relationship(friend/enjoying each other's company)" -1 0 0 0 0
+"attention-expectations(playing along in a fun game)" -1 0 0 0 0
+"tone(agonizing/comforting)" -1 0 0 0 0
+"msg(showing player's emotions)" -1 0 0 0 0
+"describing-surroundings(tensions/excitement)" -1 0 0 0 0
+"attention-time(now)" -1 0 0 0 0
+"tone(happy)" -1 0 0 0 0
+"attention-mental_state(thinking of a witty remark)" -1 0 0 0 0
+"attention-action(putting on gear)" -1 0 0 0 0
+"gesturing(action of putting on helmet)" -1 0 0 0 0
+"attention-action(industrial work/manufacturing)" -1 0 0 0 0
+"attention-action(conversing)" -1 0 0 0 0
+"attention-person-addressed(narrator's gender)" -1 0 0 0 0
+"attention-place(beach)" -1 0 0 0 0
+"attention-audience(women)" -1 0 0 0 0
+"attention-relationship(female acquaintances)" -1 0 0 0 0
+"attention-action(enjoying themselves)" -1 0 0 0 0
+"attention-place(outdoor game area)" -1 0 0 0 0
+"attention-relationship(being playful with each other)" -1 0 0 0 0
+"attention-interests(entertainment)" -1 0 0 0 0
+"attention-action(winning/losing)" -1 0 0 0 0
+"attention-action(losing)" -1 0 0 0 0
+"attention-relationship(receiving playful smack from friend)" -1 0 0 0 0
+"attention-interactions(interacting with friends during a game)" -1 0 0 0 0
+"attention-action(laughing)" -1 0 0 0 0
+"attention-relationship(joking with friends)" -1 0 0 0 0
+"attention-action(participating in game)" -1 0 0 0 0
+"attention-interactions(joining in on a fun activity)" -1 0 0 0 0
+"attention-place(party/outdoor area)" -1 0 0 0 0
+"attention-interactions(playfully teasing/joking with colleagues)" -1 0 0 0 0
+"tone(cheering)" -1 0 0 0 0
+"msg(celebrating)" -1 0 0 0 0
+"attention-action(running/jumping)" -1 0 0 0 0
+"describing-surroundings(presentation of trophies)" -1 0 0 0 0
+"attention-place(awards ceremony)" -1 0 0 0 0
+"attention-activity(celebration)" -1 0 0 0 0
+"attention-time(current event)" -1 0 0 0 0
+"gesturing(jumping with excitement)" -1 0 0 0 0
+"attention-mental_state(being in the moment/forgetting about worries)" -1 0 0 0 0
+"attention-action(encouraging participation)" -1 0 0 0 0
+"gesturing(showcasing their achievements)" -1 0 0 0 0
+"attention-relationship(friendships formed)" -1 0 0 0 0
+"attention-action(mixed crowd)" -1 0 0 0 0
+"gesturing(interacting)" -1 0 0 0 0
+"attention-action(game of beer pong)" -1 0 0 0 0
+"attention-activity(drinking/socializing)" -1 0 0 0 0
+"attention-place(party)" -1 0 0 0 0
+"tone(presenting)" -1 0 0 0 0
+"msg(engaging viewers)" -1 0 0 0 0
+"attention-action(directing to website/more information)" -1 0 0 0 0
+"attention-topic(game/event)" -1 0 0 0 0
+"gesturing(hanging from monkey bars)" -1 0 0 0 0
+"attention-action(crossing obstacle course)" -1 0 0 0 0
+"attention-activity(outdoor recreation)" -1 0 0 0 0
+"referencing(hard work)" -1 0 0 0 0
+"acknowledging(accomplishments)" -1 0 0 0 0
+"gesturing(pointing to web address)" -1 0 0 0 0
+"attention-action(encouraging to seek more information about the event/game)" -1 0 0 0 0
+"attention-action(getting physical exercise)" -1 0 0 0 0
+"gesturing(showcasing strength and achievement)" -1 0 0 0 0
+"attention-physical_state(healthy and strong)" -1 0 0 0 0
+"tone(proud)" -1 0 0 0 0
+"msg(showing progress)" -1 0 0 0 0
+"attention-action(accomplishing task)" -1 0 0 0 0
+"attention-goal(fitness/overcoming obstacles)" -1 0 0 0 0
+"msg(celebrating success)" -1 0 0 0 0
+"attention-emotional_state(feeling proud/happy)" -1 0 0 0 0
+"attention-goal(accomplishing an obstacle)" -1 0 0 0 0
+"attention-action(showing skill)" -1 0 0 0 0
+"gesturing(showing off aim/swinging arm with bow)" -1 0 0 0 0
+"attention-place(shooting range)" -1 0 0 0 0
+"gesturing(releasing arrow)" -1 0 0 0 0
+"attention-action(structuring)" -1 0 0 0 0
+"attention-goal(precision/aim)" -1 0 0 0 0
+"attention-emotional_state(fulfillment of current objective)" -1 0 0 0 0
+"attention-goal(conquering the task at hand)" -1 0 0 0 0
+"attention-action(taking a photo)" -1 0 0 0 0
+"attention-place(nature)" -1 0 0 0 0
+"attention-time(current moment)" -1 0 0 0 0
+"attention-collaboration(working together to achieve a goal)" -1 0 0 0 0
+"attention-relationship(working closely with others)" -1 0 0 0 0
+"attention-action(throwing arrow confidently)" -1 0 0 0 0
+"attention-place(workplace)" -1 0 0 0 0
+"attention-relationship(proudly showcasing the work of others)" -1 0 0 0 0
+"attention-goal(teamwork)" -1 0 0 0 0
+"gesturing(raising arms up)" -1 0 0 0 0
+"attention-action(putting arms in air)" -1 0 0 0 0
+"attention-person(imagine someone in front of him)" -1 0 0 0 0
+"attention-action(protecting)" -1 0 0 0 0
+"attention-clothing(purple blouse)" -1 0 0 0 0
+"attention-surroundings(sitting on a fence post)" -1 0 0 0 0
+"attention-relationship(nurturing)" -1 0 0 0 0
+"attention-recipient(horse)" -1 0 0 0 0
+"attention-emotional_state(peace/fulfillment)" -1 0 0 0 0
+"attention-physical_state(brushing)" -1 0 0 0 0
+"attention-behavior(brushing)" -1 0 0 0 0
+"attention-action(tying horse)" -1 0 0 0 0
+"attention-emotional_state(love/affection)" -1 0 0 0 0
+"attention-mental_state(encouraging/inspiring)" -1 0 0 0 0
+"attention-surroundings(standing on fence post)" -1 0 0 0 0
+"attention-action(reaching)" -1 0 0 0 0
+"attention-action(brushing)" -1 0 0 0 0
+"attention-physical_state(stretching)" -1 0 0 0 0
+"attention-emotional_state(happiness/contentment)" -1 0 0 0 0
+"attention-action(leisure activity)" -1 0 0 0 0
+"attention-physical_state(leisure)" -1 0 0 0 0
+"attention-emotional_state(peace/relaxation)" -1 0 0 0 0
+"attention-action(leisure)" -1 0 0 0 0
+"attention-surroundings(camera)" -1 0 0 0 0
+"attention-physical_state(smiling/laughing)" -1 0 0 0 0
+"tone(passionate)" -1 0 0 0 0
+"attention-agent(horse)" -1 0 0 0 0
+"attention-emotional_state(love/passion)" -1 0 0 0 0
+"attention-mental_state(fulfillment)" -1 0 0 0 0
+"attention-action(mounting)" -1 0 0 0 0
+"attention-object(horse)" -1 0 0 0 0
+"attention-mental_state(nurturing/encouraging)" -1 0 0 0 0
+"attention-behavior(dismounting)" -1 0 0 0 0
+"attention-mental_state(nurturing)" -1 0 0 0 0
+"attention-surroundings(fence post)" -1 0 0 0 0
+"level-of-certainty(statement/announcement)" -1 0 0 0 0
+"gesturing(zooming text)" -1 0 0 0 0
+"attention-surroundings(black screen)" -1 0 0 0 0
+"attention-object(girl)" -1 0 0 0 0
+"attention-clothing(uneven bars)" -1 0 0 0 0
+"attention-person(gymnast)" -1 0 0 0 0
+"attention-action(striding)" -1 0 0 0 0
+"attention-location(uneven bars)" -1 0 0 0 0
+"attention-movement(jumping)" -1 0 0 0 0
+"attention-agent(gymnast)" -1 0 0 0 0
+"attention-object(bars)" -1 0 0 0 0
+"attention-emotional_state(determination/concentration)" -1 0 0 0 0
+"attention-mental_state(preparing for performance/muscle memory)" -1 0 0 0 0
+"attention-action(going through routine)" -1 0 0 0 0
+"attention-recipient(judges/crowd)" -1 0 0 0 0
+"attention-mental_state(focus/effort)" -1 0 0 0 0
+"attention-relationship(performance evaluation)" -1 0 0 0 0
+"tone(eager/excited)" -1 0 0 0 0
+"emotion(eagerness/anticipation)" -1 0 0 0 0
+"level-of-certainty(instruction/description)" -1 0 0 0 0
+"gesturing(showing on screen)" -1 0 0 0 0
+"attention-recipient(judge/audience)" -1 0 0 0 0
+"attention-mental_state(preparing for performance)" -1 0 0 0 0
+"attention-physical_state(fitness/technique)" -1 0 0 0 0
+"tone(encouraging)" -1 0 0 0 0
+"emotion(encouragement)" -1 0 0 0 0
+"attention-action(finish performance)" -1 0 0 0 0
+"attention-recipient(judges/audience)" -1 0 0 0 0
+"attention-emotional_state(pride/happiness)" -1 0 0 0 0
+"attention-mental_state(self-reflection)" -1 0 0 0 0
+"attention-action(receiving score)" -1 0 0 0 0
+"attention-physical_state(smiling/cheering)" -1 0 0 0 0
+"attention-object(gymnast)" -1 0 0 0 0
+"attention-emotional_state(victorious)" -1 0 0 0 0
+"attention-surroundings(by a bike)" -1 0 0 0 0
+"attention-mental_state(thoughts/opinions)" -1 0 0 0 0
+"attention-activity(riding)" -1 0 0 0 0
+"attention-place(track/forest)" -1 0 0 0 0
+"attention-emotional_state(happiness/exhilaration)" -1 0 0 0 0
+"attention-mental_state(enjoyment)" -1 0 0 0 0
+"attention-behavior(speaking)" -1 0 0 0 0
+"attention-agent(bike)" -1 0 0 0 0
+"attention-location(track/forest)" -1 0 0 0 0
+"attention-emotional_state(loving activity)" -1 0 0 0 0
+"attention-mental_state(awareness of surroundings)" -1 0 0 0 0
+"tone(surprised)" -1 0 0 0 0
+"emotion(surprise/awe)" -1 0 0 0 0
+"attention-mental_state(challenging/expertise)" -1 0 0 0 0
+"attention-physical_state(competing/performing)" -1 0 0 0 0
+"attention-person(older man)" -1 0 0 0 0
+"attention-appearance(glasses/gray hair)" -1 0 0 0 0
+"attention-surroundings(seated)" -1 0 0 0 0
+"attention-state(sitting)" -1 0 0 0 0
+"attention-action(introduction)" -1 0 0 0 0
+"attention-mental_state(experience/proficiency)" -1 0 0 0 0
+"attention-action(pausing)" -1 0 0 0 0
+"attention-emotional_state(thoughtful)" -1 0 0 0 0
+"attention-conversation(topic of song)" -1 0 0 0 0
+"attention-action(song)" -1 0 0 0 0
+"attention-action(opening curtain)" -1 0 0 0 0
+"attention-place(final credits)" -1 0 0 0 0
+"attention-object(cat)" -1 0 0 0 0
+"attention-clothing(title screen)" -1 0 0 0 0
+"attention-emotional_state(cuteness/adoration)" -1 0 0 0 0
+"tone(euphoric)" -1 0 0 0 0
+"emotion(euphoria)" -1 0 0 0 0
+"gesturing(flowing movements)" -1 0 0 0 0
+"attention-action(roller skating)" -1 0 0 0 0
+"attention-location(forest)" -1 0 0 0 0
+"attention-object(road)" -1 0 0 0 0
+"attention-emotional_state(happiness/adventure)" -1 0 0 0 0
+"attention-person(young lady)" -1 0 0 0 0
+"attention-activity(roller skating)" -1 0 0 0 0
+"attention-place(road)" -1 0 0 0 0
+"attention-surroundings(forest)" -1 0 0 0 0
+"attention-vehicle(abandoned car)" -1 0 0 0 0
+"attention-recipient(viewer)" -1 0 0 0 0
+"attention-surroundings(vanishing quickly)" -1 0 0 0 0
+"attention-instrument(guitar)" -1 0 0 0 0
+"attention-physical_state(enthusiasm)" -1 0 0 0 0
+"attention-location(field)" -1 0 0 0 0
+"attention-surroundings(marching band)" -1 0 0 0 0
+"attention-action(positioning)" -1 0 0 0 0
+"attention-activity(marching band)" -1 0 0 0 0
+"attention-mental_state(preparation for performance)" -1 0 0 0 0
+"attention-physical_state(energy)" -1 0 0 0 0
+"attention-activity(performing gymnastics)" -1 0 0 0 0
+"attention-action(flipping)" -1 0 0 0 0
+"attention-environment(outdoor stadium)" -1 0 0 0 0
+"attention-time(live performance)" -1 0 0 0 0
+"attention-participant(athlete)" -1 0 0 0 0
+"attention-participant(men)" -1 0 0 0 0
+"attention-participant(group)" -1 0 0 0 0
+"attention-storyteller(observing)" -1 0 0 0 0
+"attention-environment(stage)" -1 0 0 0 0
+"attention-participant(woman)" -1 0 0 0 0
+"attention-audience(mirrored reflection)" -1 0 0 0 0
+"attention-action(dancing)" -1 0 0 0 0
+"attention-characters(performance crew)" -1 0 0 0 0
+"attention-action(pumping up)" -1 0 0 0 0
+"attention-audience(group)" -1 0 0 0 0
+"attention-characters(coach)" -1 0 0 0 0
+"attention-message(encouragement/energy)" -1 0 0 0 0
+"attention-characters(audience)" -1 0 0 0 0
+"attention-characters(cheer coach)" -1 0 0 0 0
+"attention-activity(talking)" -1 0 0 0 0
+"attention-environment(athletic field)" -1 0 0 0 0
+"attention-storyparticipant(coach)" -1 0 0 0 0
+"attention-action(spots)" -1 0 0 0 0
+"attention-time(moment)" -1 0 0 0 0
+"attention-activity(i.e. looking for movement/change)" -1 0 0 0 0
+"attention-action(girl)" -1 0 0 0 0
+"attention-action(approaching)" -1 0 0 0 0
+"attention-enviroment(street)" -1 0 0 0 0
+"attention-characters(spectators)" -1 0 0 0 0
+"attention-action(replacing)" -1 0 0 0 0
+"attention-activity(mechanic work)" -1 0 0 0 0
+"attention-participant(driver)" -1 0 0 0 0
+"attention-environment(street/neighborhood)" -1 0 0 0 0
+"attention-participant(spectators)" -1 0 0 0 0
+"attention-message(problem solving)" -1 0 0 0 0
+"attention-participant(truck)" -1 0 0 0 0
+"attention-activity(problem solving)" -1 0 0 0 0
+"attention-message(encouragement)" -1 0 0 0 0
+"attention-characters(closer look)" -1 0 0 0 0
+"attention-objects(tire)" -1 0 0 0 0
+"attention-environment(room)" -1 0 0 0 0
+"attention-participant(child)" -1 0 0 0 0
+"attention-participant(group of kids)" -1 0 0 0 0
+"attention-message(talkin to the camera/conversation)" -1 0 0 0 0
+"attention-action(grabs)" -1 0 0 0 0
+"attention-activity(live performance)" -1 0 0 0 0
+"attention-action(starts)" -1 0 0 0 0
+"attention-participant(co-storyteller/singer)" -1 0 0 0 0
+"attention-message(talking to the camera)" -1 0 0 0 0
+"attention-characters(man)" -1 0 0 0 0
+"attention-action(bending down)" -1 0 0 0 0
+"attention-participant(gym goer)" -1 0 0 0 0
+"attention-activity(weight-lifting)" -1 0 0 0 0
+"attention-instrument(kettle bells)" -1 0 0 0 0
+"attention-participant(man)" -1 0 0 0 0
+"attention-environment(gym)" -1 0 0 0 0
+"attention-activity(raises)" -1 0 0 0 0
+"attention-action(lowers)" -1 0 0 0 0
+"attention-action(puts them down)" -1 0 0 0 0
+"attention-environment(grass)" -1 0 0 0 0
+"attention-objects(kettle bells)" -1 0 0 0 0
+"attention-action(using)" -1 0 0 0 0
+"attention-environment(woods)" -1 0 0 0 0
+"attention-activity(hiking)" -1 0 0 0 0
+"attention-characters(child)" -1 0 0 0 0
+"attention-objects(hiking gear)" -1 0 0 0 0
+"attention-environment(porch)" -1 0 0 0 0
+"attention-activity(play)" -1 0 0 0 0
+"attention-action(runs)" -1 0 0 0 0
+"attention-environment(playground)" -1 0 0 0 0
+"attention-objects(toy\(s)" -1 0 0 0 0
+"attention-characters(father)" -1 0 0 0 0
+"attention-action(puts on)" -1 0 0 0 0
+"attention-activity(skateboarding)" -1 0 0 0 0
+"attention-participant(father)" -1 0 0 0 0
+"attention-action(skateboarding)" -1 0 0 0 0
+"attention-instrument(skateboard)" -1 0 0 0 0
+"attention-partipant(child)" -1 0 0 0 0
+"attention-state(high five-ing)" -1 0 0 0 0
+"attention-recipient(father)" -1 0 0 0 0
+"attention-action(high five-ing)" -1 0 0 0 0
+"attention-payoff(cut to close screen/Cover)" -1 0 0 0 0
+"action(laying)" -1 0 0 0 0
+"gesture(lying down on towel)" -1 0 0 0 0
+"action(sitting)" -1 0 0 0 0
+"gesture(pointing at dogs)" -1 0 0 0 0
+"attention-relationship(owner and pets)" -1 0 0 0 0
+"gesturing(using hand gestures)" -1 0 0 0 0
+"attention-place(studio)" -1 0 0 0 0
+"attention-activity(giving news)" -1 0 0 0 0
+"attention-topic(news)" -1 0 0 0 0
+"attention-physical_state(sitting)" -1 0 0 0 0
+"attention-emotional_state(calming presence)" -1 0 0 0 0
+"action(sweeping)" -1 0 0 0 0
+"attention-place(yard)" -1 0 0 0 0
+"attention-object(leaves)" -1 0 0 0 0
+"action(speaking)" -1 0 0 0 0
+"attention-action(interviewed)" -1 0 0 0 0
+"attention-topic(interview)" -1 0 0 0 0
+"attention-pattern(man and woman being interviewed)" -1 0 0 0 0
+"attention-mental_state(focused on answering questions)" -1 0 0 0 0
+"action(talking)" -1 0 0 0 0
+"attention-emotional_state(calm/collected)" -1 0 0 0 0
+"action(talking/answering questions)" -1 0 0 0 0
+"attention-pattern(two people being interviewed)" -1 0 0 0 0
+"attention-mental_state(engaging in conversation while working)" -1 0 0 0 0
+"action(standing)" -1 0 0 0 0
+"attention-place(near water)" -1 0 0 0 0
+"attention-activity(scuba diving)" -1 0 0 0 0
+"attention-person(person about to go scuba diving)" -1 0 0 0 0
+"attention-object(wooden logs)" -1 0 0 0 0
+"attention-activity(scuba diving preparation)" -1 0 0 0 0
+"attention-physical_state(walking/standing)" -1 0 0 0 0
+"action(crawling)" -1 0 0 0 0
+"attention-place(ocean floor)" -1 0 0 0 0
+"attention-object(lobsters)" -1 0 0 0 0
+"attention-activity(searching for lobsters)" -1 0 0 0 0
+"attention-physical_state(crawling on ocean floor)" -1 0 0 0 0
+"action(talking/explaining)" -1 0 0 0 0
+"attention-physical_state(talking to camera)" -1 0 0 0 0
+"attention-object(microphone)" -1 0 0 0 0
+"attention-emotional_state(focused/serious)" -1 0 0 0 0
+"action(wiping down)" -1 0 0 0 0
+"attention-place(in front of window)" -1 0 0 0 0
+"attention-object(window)" -1 0 0 0 0
+"attention-tools(cloth, spray bottle)" -1 0 0 0 0
+"action(uses tools)" -1 0 0 0 0
+"attention-tools(tools for cleaning)" -1 0 0 0 0
+"action(continues wiping)" -1 0 0 0 0
+"attention-action(looking at camera)" -1 0 0 0 0
+"attention-physical_state(wiping)" -1 0 0 0 0
+"attention-emotional_state(concentrated/focused)" -1 0 0 0 0
+"person(uid_6347263)" -1 0 0 0 0
+"action(walking)" -1 0 0 0 0
+"attention-activity(watering plants)" -1 0 0 0 0
+"attention-object(gardening pot)" -1 0 0 0 0
+"attention-relationship(siblings)" -1 0 0 0 0
+"person(uid_7346845)" -1 0 0 0 0
+"action(walking towards)" -1 0 0 0 0
+"attention-object(plants)" -1 0 0 0 0
+"attention-topic(talking about game)" -1 0 0 0 0
+"action(talking about game)" -1 0 0 0 0
+"attention-relationship(group playing paintball)" -1 0 0 0 0
+"person(uid_2347268)" -1 0 0 0 0
+"attention-topic(cowboy on horse)" -1 0 0 0 0
+"attention-place(farm/field)" -1 0 0 0 0
+"action(running/tackling)" -1 0 0 0 0
+"attention-relationship(player and cattle)" -1 0 0 0 0
+"attention-activity(doing dishes)" -1 0 0 0 0
+"attention-object(dishes)" -1 0 0 0 0
+"attention-physical_state(cleaning)" -1 0 0 0 0
+"attention-place(kitchen sink)" -1 0 0 0 0
+"attention-tools(sponge/scrub)" -1 0 0 0 0
+"attention-physical_state(scrubbing)" -1 0 0 0 0
+"action(takes scrub)" -1 0 0 0 0
+"attention-object(sponge/scrub)" -1 0 0 0 0
+"attention-pattern(scrubbing to clean dish)" -1 0 0 0 0
+"action(scrubs)" -1 0 0 0 0
+"attention-action(scrubbing/trying to clean dish)" -1 0 0 0 0
+"action(place)" -1 0 0 0 0
+"attention-place(dish on top of each other)" -1 0 0 0 0
+"attention-object(dish)" -1 0 0 0 0
+"attention-activity(placing dish in sink)" -1 0 0 0 0
+"person(uid_8374657)" -1 0 0 0 0
+"action(places)" -1 0 0 0 0
+"action(washes)" -1 0 0 0 0
+"action(talking/announcing)" -1 0 0 0 0
+"attention-object(paintball gun)" -1 0 0 0 0
+"attention-activity(shoots wall)" -1 0 0 0 0
+"action(shot wall)" -1 0 0 0 0
+"attention-activity(shooting)" -1 0 0 0 0
+"person(uid_8374621)" -1 0 0 0 0
+"action(doing shots)" -1 0 0 0 0
+"attention-pattern(two people doing shots)" -1 0 0 0 0
+"attention-mental_state(concentrated)" -1 0 0 0 0
+"action(reloads)" -1 0 0 0 0
+"attention-activity(reloading)" -1 0 0 0 0
+"action(playing)" -1 0 0 0 0
+"attention-place(green backyard)" -1 0 0 0 0
+"attention-activity(paintball practice)" -1 0 0 0 0
+"attention-object(paintball gun, paintballs)" -1 0 0 0 0
+"msg(introducing musical performance)" -1 0 0 0 0
+"emotion(hopeful)" -1 0 0 0 0
+"level-of-certainty(unfamiliar)" -1 0 0 0 0
+"attention-action(instrument performance)" -1 0 0 0 0
+"attention-audience(performer)" -1 0 0 0 0
+"attention-musical_concept(performance)" -1 0 0 0 0
+"attention-occasion(musical event)" -1 0 0 0 0
+"msg(enjoying performance)" -1 0 0 0 0
+"level-of-certainty(enjoyment)" -1 0 0 0 0
+"attention-action(musical performance)" -1 0 0 0 0
+"msg(person tries to continue display)" -1 0 0 0 0
+"bias(urgent)" -1 0 0 0 0
+"level-of-certainty(desire to continue)" -1 0 0 0 0
+"attention-action(continuing performance)" -1 0 0 0 0
+"msg(showing off skills)" -1 0 0 0 0
+"emotion(energetic)" -1 0 0 0 0
+"level-of-certainty(confidence)" -1 0 0 0 0
+"attention-mental_state(focused on performance)" -1 0 0 0 0
+"msg(conveying emotions through music)" -1 0 0 0 0
+"bias(gentle)" -1 0 0 0 0
+"emotion(feeling)" -1 0 0 0 0
+"level-of-certainty(expertise)" -1 0 0 0 0
+"attention-action(dancing and playing)" -1 0 0 0 0
+"attention-emotional_state(conveying emotions)" -1 0 0 0 0
+"tone(neutral)" -1 0 0 0 0
+"msg(grouping of people)" -1 0 0 0 0
+"bias(observing)" -1 0 0 0 0
+"attention-event(sporting event)" -1 0 0 0 0
+"msg(person running towards another)" -1 0 0 0 0
+"bias(attracted to other person)" -1 0 0 0 0
+"emotion(togetherness)" -1 0 0 0 0
+"level-of-certainty(desire)" -1 0 0 0 0
+"attention-action(running towards)" -1 0 0 0 0
+"attention-person(other person)" -1 0 0 0 0
+"msg(enjoying company)" -1 0 0 0 0
+"bias(friendly)" -1 0 0 0 0
+"emotion(bonding)" -1 0 0 0 0
+"level-of-certainty(closeness)" -1 0 0 0 0
+"attention-relationship(friendship)" -1 0 0 0 0
+"msg(enjoying sports game)" -1 0 0 0 0
+"emotion(competitive)" -1 0 0 0 0
+"level-of-certainty(desire to win)" -1 0 0 0 0
+"attention-recipient(other person on team)" -1 0 0 0 0
+"msg(taking responsibility for cleanliness)" -1 0 0 0 0
+"bias(diligent)" -1 0 0 0 0
+"emotion(responsibility)" -1 0 0 0 0
+"level-of-certainty(duty)" -1 0 0 0 0
+"attention-action(picking up wand)" -1 0 0 0 0
+"attention-environment(household)" -1 0 0 0 0
+"attention-object(vacuum cleaner)" -1 0 0 0 0
+"attention-task(clean and organize)" -1 0 0 0 0
+"tone(procedural)" -1 0 0 0 0
+"bias(necessity)" -1 0 0 0 0
+"action(state-of-doing with no visible recipient)" -1 0 0 0 0
+"level-of-certainty(resolution)" -1 0 0 0 0
+"attention-action(vacuuming)" -1 0 0 0 0
+"attention-object(wand)" -1 0 0 0 0
+"msg(completing cleaning task)" -1 0 0 0 0
+"level-of-certainty(success)" -1 0 0 0 0
+"attention-action(turning off)" -1 0 0 0 0
+"attention-task(vacuuming)" -1 0 0 0 0
+"msg(replacing attachment)" -1 0 0 0 0
+"attention-object(attachment)" -1 0 0 0 0
+"attention-object(household item)" -1 0 0 0 0
+"msg(setting up cleaning equipment)" -1 0 0 0 0
+"attention-action(adjusting)" -1 0 0 0 0
+"attention-object(dial)" -1 0 0 0 0
+"tone(calm)" -1 0 0 0 0
+"attention-place(backyard)" -1 0 0 0 0
+"msg(observing)" -1 0 0 0 0
+"bias(dormant)" -1 0 0 0 0
+"level-of-certainty(unproductive)" -1 0 0 0 0
+"attention-object(large yard)" -1 0 0 0 0
+"attention-environment(outdoor)" -1 0 0 0 0
+"attention-time(winter)" -1 0 0 0 0
+"attention-relationship(person)" -1 0 0 0 0
+"msg(completing outdoor task)" -1 0 0 0 0
+"attention-action(shoveling)" -1 0 0 0 0
+"attention-object(shovel)" -1 0 0 0 0
+"msg(viewing end result)" -1 0 0 0 0
+"attention-action(clearing out)" -1 0 0 0 0
+"attention-object(snow)" -1 0 0 0 0
+"msg(proud of accomplishment)" -1 0 0 0 0
+"attention-object(path)" -1 0 0 0 0
+"tone(professional)" -1 0 0 0 0
+"msg(transition in performance)" -1 0 0 0 0
+"bias(appreciative)" -1 0 0 0 0
+"level-of-certainty(standing ovation)" -1 0 0 0 0
+"attention-object(violinist)" -1 0 0 0 0
+"attention-activity(musical performance)" -1 0 0 0 0
+"attention-event(musical event)" -1 0 0 0 0
+"msg(addressing audience)" -1 0 0 0 0
+"bias(grateful)" -1 0 0 0 0
+"emotion(honored)" -1 0 0 0 0
+"attention-person(performer)" -1 0 0 0 0
+"attention-emotional_state(affection)" -1 0 0 0 0
+"attention-musical_instrument(violin)" -1 0 0 0 0
+"tone(melancholic)" -1 0 0 0 0
+"msg(expressing feelings through music)" -1 0 0 0 0
+"bias(melancholy)" -1 0 0 0 0
+"emotion(heartache)" -1 0 0 0 0
+"attention-action(violin playing)" -1 0 0 0 0
+"attention-emotional_state(sadness)" -1 0 0 0 0
+"bias(fascinated)" -1 0 0 0 0
+"attention-action(viewing)" -1 0 0 0 0
+"msg(finishing performance)" -1 0 0 0 0
+"bias(satisfied)" -1 0 0 0 0
+"emotion(fulfillment)" -1 0 0 0 0
+"tone(appreciative)" -1 0 0 0 0
+"msg(expressing appreciation)" -1 0 0 0 0
+"emotion(acknowledgment)" -1 0 0 0 0
+"attention-activity(recreational event)" -1 0 0 0 0
+"msg(observing sporting event)" -1 0 0 0 0
+"bias(nostalgic)" -1 0 0 0 0
+"emotion(remembrance)" -1 0 0 0 0
+"tone(girly)" -1 0 0 0 0
+"msg(exploring physicality)" -1 0 0 0 0
+"emotion(youthful curiosity)" -1 0 0 0 0
+"attention-action(swirling)" -1 0 0 0 0
+"attention-object(fabric)" -1 0 0 0 0
+"attention-relationship(dancing with person)" -1 0 0 0 0
+"attention-physical_state(fitness)" -1 0 0 0 0
+"msg(enjoying physical activity)" -1 0 0 0 0
+"bias(flirtatious)" -1 0 0 0 0
+"emotion(sensual)" -1 0 0 0 0
+"msg(discussing preparation)" -1 0 0 0 0
+"attention-object(pink top)" -1 0 0 0 0
+"attention-relationship(person taking initiative)" -1 0 0 0 0
+"msg(demonstrating athletic ability)" -1 0 0 0 0
+"attention-action(raising)" -1 0 0 0 0
+"attention-object(item)" -1 0 0 0 0
+"attention-enviornment(field)" -1 0 0 0 0
+"msg(discussing physical activity)" -1 0 0 0 0
+"attention-emotional_state(fulfillment)" -1 0 0 0 0
+"msg(contacting person)" -1 0 0 0 0
+"bias(determined)" -1 0 0 0 0
+"emotion(desire)" -1 0 0 0 0
+"attention-action(executing)" -1 0 0 0 0
+"attention-person(person on other side of phone)" -1 0 0 0 0
+"attention-goal(arranging physical activity)" -1 0 0 0 0
+"attention-location(phone)" -1 0 0 0 0
+"attention-environment(social interaction)" -1 0 0 0 0
+"msg(working towards goal)" -1 0 0 0 0
+"bias(focused)" -1 0 0 0 0
+"emotion(resolution)" -1 0 0 0 0
+"attention-place(basketball court)" -1 0 0 0 0
+"attention-goal(shooting ball)" -1 0 0 0 0
+"msg(observing surroundings)" -1 0 0 0 0
+"bias(lingerer)" -1 0 0 0 0
+"emotion(observation)" -1 0 0 0 0
+"msg(displaying physical talent)" -1 0 0 0 0
+"attention-goal(scoring points)" -1 0 0 0 0
+"describing-surroundings(backyard)" -1 0 0 0 0
+"attention-activity(showing surroundings)" -1 0 0 0 0
+"introducing(showing character)" -1 0 0 0 0
+"attentio-place(backyard)" -1 0 0 0 0
+"gesturing(making a motion)" -1 0 0 0 0
+"attention-activity(cutting grass)" -1 0 0 0 0
+"interrupting(unexpected obstacle)" -1 0 0 0 0
+"gesturing(making a motion to stop)" -1 0 0 0 0
+"attention-obstacle(obstacle in his way)" -1 0 0 0 0
+"attention-audience(watching)" -1 0 0 0 0
+"gesturing(arm-waving)" -1 0 0 0 0
+"attention-action(waving hands)" -1 0 0 0 0
+"introducing(introducing others)" -1 0 0 0 0
+"describing-surroundings(the ground)" -1 0 0 0 0
+"introducing(showing characters)" -1 0 0 0 0
+"attention-activity(field hockey)" -1 0 0 0 0
+"attention-action(saving)" -1 0 0 0 0
+"attention-physical_state(slide)" -1 0 0 0 0
+"describing-surroundings(the field)" -1 0 0 0 0
+"attention-action(kicks)" -1 0 0 0 0
+"attention-target(ball)" -1 0 0 0 0
+"attention-physical_state(kicking)" -1 0 0 0 0
+"emphasizing(giving)" -1 0 0 0 0
+"attention-audience(teammates)" -1 0 0 0 0
+"attention-action(celabrating)" -1 0 0 0 0
+"attention-outcome(save)" -1 0 0 0 0
+"introducing(showing object)" -1 0 0 0 0
+"attention-object(towel)" -1 0 0 0 0
+"attention-object(table)" -1 0 0 0 0
+"attention-materials(glass)" -1 0 0 0 0
+"attention-materials(foam)" -1 0 0 0 0
+"gesturing(make a motion)" -1 0 0 0 0
+"pointing(showing object)" -1 0 0 0 0
+"attention-materials(metal)" -1 0 0 0 0
+"bias(nervous/anxious)" -1 0 0 0 0
+"attention-object(sharpening)" -1 0 0 0 0
+"attention-action(sharpening)" -1 0 0 0 0
+"attention-tools(tool)" -1 0 0 0 0
+"introduction(showing topic)" -1 0 0 0 0
+"attention-topic(horseback riding)" -1 0 0 0 0
+"listing(highlights)" -1 0 0 0 0
+"attention-activity(competitive riding)" -1 0 0 0 0
+"describing-surroundings(ocean water)" -1 0 0 0 0
+"attention-place(ocean)" -1 0 0 0 0
+"attention-action(sailing)" -1 0 0 0 0
+"attention-activity(diving)" -1 0 0 0 0
+"summarizing(briefly showing action)" -1 0 0 0 0
+"questioning(asking about action)" -1 0 0 0 0
+"gesturing(hands moving)" -1 0 0 0 0
+"introducing(showing action)" -1 0 0 0 0
+"attention-action(play)" -1 0 0 0 0
+"attention-object(instrument)" -1 0 0 0 0
+"attention-activity(listening/playing)" -1 0 0 0 0
+"summary(summarizing action)" -1 0 0 0 0
+"describing-surroundings(scene)" -1 0 0 0 0
+"attention-emotion(excited)" -1 0 0 0 0
+"gesturing(moving hands)" -1 0 0 0 0
+"attention-focus(face)" -1 0 0 0 0
+"attention-perspective(face)" -1 0 0 0 0
+"attention-action(handling object)" -1 0 0 0 0
+"attention-object(object blocking face)" -1 0 0 0 0
+"attention-person_impiled(hiding face)" -1 0 0 0 0
+"attention-emotion(confused/frustrated)" -1 0 0 0 0
+"attention-emotion(excited/interested)" -1 0 0 0 0
+"attention-object(clear object)" -1 0 0 0 0
+"gesturing(showing hand position)" -1 0 0 0 0
+"listing(showing examples of actions)" -1 0 0 0 0
+"gesturing(hand movements)" -1 0 0 0 0
+"describing-surroundings(stage)" -1 0 0 0 0
+"attention-stage(Guinness world records)" -1 0 0 0 0
+"attention-activity(table tennis)" -1 0 0 0 0
+"attention-audience(spectators)" -1 0 0 0 0
