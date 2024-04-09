@@ -1079,32 +1079,50 @@ void TaskManager::GetPhrases(Task* t) {
 	
 	Color no_clr(0,0,0);
 	t->tmp_ptrs.SetCount(0);
+	t->tmp.SetCount(0);
+	
+	int trimmed_by[6] = {0,0,0,0,0,0};
 	
 	int iter = 0;
+	int idx = -1;
 	for (const PhrasePart& pp : da.phrase_parts.GetValues()) {
+		idx++;
 		
-		if ((t->fn == 0 && pp.clr != no_clr) || (t->fn > 0 && pp.clr == no_clr))
+		if ((t->fn == 0 && pp.clr != no_clr) || (t->fn > 0 && pp.clr == no_clr)) {
+			trimmed_by[0]++;
 			continue;
+		}
 		
-		if ((t->fn == 1 && pp.attr >= 0) || (t->fn > 1 && pp.attr < 0))
+		if ((t->fn == 1 && pp.attr >= 0) || (t->fn > 1 && pp.attr < 0)){
+			trimmed_by[1]++;
 			continue;
+		}
 		
-		if ((t->fn == 2 && !pp.actions.IsEmpty()) || (t->fn > 2 && pp.actions.IsEmpty()))
+		if ((t->fn == 2 && !pp.actions.IsEmpty()) || (t->fn > 2 && pp.actions.IsEmpty())){
+			trimmed_by[2]++;
 			continue;
+		}
 		
-		if ((t->fn == 3 && pp.HasScores()) || (t->fn > 3 && !pp.HasScores()))
+		if ((t->fn == 3 && pp.HasScores()) || (t->fn > 3 && !pp.HasScores())){
+			trimmed_by[3]++;
 			continue;
+		}
 		
-		if ((t->fn == 4 && !pp.typecasts.IsEmpty()) || (t->fn > 4 && pp.typecasts.IsEmpty()))
+		if ((t->fn == 4 && !pp.typecasts.IsEmpty()) || (t->fn > 4 && pp.typecasts.IsEmpty())){
+			trimmed_by[4]++;
 			continue;
+		}
 		
-		if ((t->fn == 5 && !pp.contrasts.IsEmpty()) || (t->fn > 5 && pp.contrasts.IsEmpty()))
+		if ((t->fn == 5 && !pp.contrasts.IsEmpty()) || (t->fn > 5 && pp.contrasts.IsEmpty())){
+			trimmed_by[5]++;
 			continue;
+		}
 		
 		if (iter >= begin && iter < end) {
 			String phrase = da.GetWordString(pp.words);
 			args.phrases << phrase;
 			t->tmp_ptrs << (void*)&pp;
+			t->tmp << idx;
 		}
 		else if (iter >= end)
 			break;
@@ -1180,7 +1198,12 @@ void TaskManager::GetActionlist(Task* t) {
 		}
 	}
 	if (args.actions.IsEmpty()) {
-		RemoveTask(*t);
+		if (t->fn < 1) {
+			t->fn++;
+			t->batch_i = 0;
+			t->running = false;
+		}
+		else RemoveTask(*t);
 		return; // ready
 	}
 	
@@ -1910,6 +1933,8 @@ void TaskManager::GetDetails(Task* t) {
 	if (args.words.IsEmpty()) {
 		//RemoveTask(*t);
 		t->fn++;
+		t->batch_i = 0;
+		t->running = false;
 		return;
 	}
 	

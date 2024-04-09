@@ -5,7 +5,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 const Index<String>& GetPersonas() {
 	static Index<String> list;
-	ONCELOCK
+	
 	if (list.IsEmpty()) {
 		list.Add("Expert/guru");
 		list.Add("Aspiring/learner");
@@ -37,7 +37,7 @@ const Index<String>& GetPersonas() {
 
 const Vector<ContentType>& GetNiches() {
 	thread_local static Vector<ContentType> list;
-	ONCELOCK
+	
 	if (list.IsEmpty()) {
         list.Add().Set("Fashion/Beauty", "Luxury",  "Minimalism", "Streetwear");
         list.Add().Set("Food", "Healthy", "Indulgent", "Budget-friendly");
@@ -99,7 +99,7 @@ int GetNicheCount() {
 
 VectorMap<String,Vector<String>>& GetPersonaSafeMale() {
 	thread_local static VectorMap<String,Vector<String>> list;
-	ONCELOCK
+	
 	if (!list.IsEmpty()) return list;
 	
     {auto& tc = list.Add("Expert/guru");
@@ -347,7 +347,7 @@ VectorMap<String,Vector<String>>& GetPersonaSafeMale() {
 
 VectorMap<String,Vector<String>>& GetPersonaSafeFemale() {
 	thread_local static VectorMap<String,Vector<String>> list;
-	ONCELOCK
+	
 	if (!list.IsEmpty()) return list;
     {auto& tc = list.Add("Expert/guru");
     tc.Add("Marie Forleo (entrepreneurship/personal development)");
@@ -595,7 +595,7 @@ VectorMap<String,Vector<String>>& GetPersonaSafeFemale() {
 
 VectorMap<String,Vector<String>>& GetPersonaUnsafeMale() {
 	thread_local static VectorMap<String,Vector<String>> list;
-	ONCELOCK
+	
 	if (!list.IsEmpty()) return list;
 	
     {auto& tc = list.Add("Expert/guru");
@@ -772,7 +772,7 @@ VectorMap<String,Vector<String>>& GetPersonaUnsafeMale() {
 
 VectorMap<String,Vector<String>>& GetPersonaUnsafeFemale() {
 	thread_local static VectorMap<String,Vector<String>> list;
-	ONCELOCK
+	
 	if (!list.IsEmpty()) return list;
 	{auto& tc = list.Add("Expert/guru");
     tc.Add("Marie Forleo (entrepreneurship/coaching)");

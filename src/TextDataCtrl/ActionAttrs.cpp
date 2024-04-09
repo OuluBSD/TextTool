@@ -142,7 +142,7 @@ void ActionAttrsPage::DataColor() {
 	bool attr_filter = attr_group_i >= 0;
 	clr_i--;
 	
-	int row = 0;
+	int row = 0, max_rows = 10000;
 	for(int i = 0; i < da.actions.GetCount(); i++) {
 		const ActionHeader& ah = da.actions.GetKey(i);
 		ExportAction& aa = da.actions[i];
@@ -152,15 +152,26 @@ void ActionAttrsPage::DataColor() {
 			continue;
 		
 		// Filter by attribute
-		if (aa.attr < 0)
-			continue;
-		const AttrHeader& ath = da.attrs.GetKey(aa.attr);
-		if (attr_filter && (ath.group != group_str || ath.value != value_str))
-			continue;
+		String g, v;
+		if (attr_filter) {
+			if (aa.attr < 0)
+				continue;
+			const AttrHeader& ath = da.attrs.GetKey(aa.attr);
+			if (ath.group != group_str || ath.value != value_str)
+				continue;
+		}
+		
 		
 		actions.Set(row, "IDX", i);
-		actions.Set(row, 0, ath.group);
-		actions.Set(row, 1, ath.value);
+		if (aa.attr >= 0) {
+			const AttrHeader& ath = da.attrs.GetKey(aa.attr);
+			actions.Set(row, 0, ath.group);
+			actions.Set(row, 1, ath.value);
+		}
+		else {
+			actions.Set(row, 0, Value());
+			actions.Set(row, 1, Value());
+		}
 		actions.Set(row, 2,
 			AttrText(ah.action)
 				.NormalPaper(Blend(aa.clr, White(), 128+64)).NormalInk(Black())
@@ -172,6 +183,8 @@ void ActionAttrsPage::DataColor() {
 				.Paper(Blend(aa.clr, GrayColor())).Ink(White())
 			);
 		row++;
+		if (row >= max_rows)
+			break;
 	}
 	actions.SetCount(row);
 	actions.SetSortColumn(2);

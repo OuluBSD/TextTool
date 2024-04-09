@@ -457,6 +457,8 @@ void TaskManager::OnPhraseActions(String res, Task* t) {
 	
 	// 5. tone(admiring) + msg(expressing attraction) + bias(physical appearance) + attention-attribute(referencing arms) + attention-physical_state(strength)
 	
+	res = "4. " + res;
+	
 	Vector<int> actions;
 	int offset = 3+1;
 	RemoveEmptyLines(res);

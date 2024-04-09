@@ -5,7 +5,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 const Index<String>& GetCharacters() {
 	static Index<String> list;
-	ONCELOCK
+	
 	if (list.IsEmpty()) {
 		list.Add("The Influencer");
 		list.Add("The Authority");
@@ -32,7 +32,7 @@ const Index<String>& GetCharacters() {
 
 const Vector<ContentType>& GetTropes() {
 	thread_local static Vector<ContentType> list;
-	ONCELOCK
+	
 	if (list.IsEmpty()) {
 		list.Add().Set("The Hero", "Chosen One", "Reluctant Hero", "Fallen Hero");
 		list.Add().Set("The Villain", "Pure Evil", "Tragic Villain", "Anti-Villain");
@@ -73,7 +73,7 @@ int GetTropeCount() {
 
 VectorMap<String,Vector<String>>& GetCharacterSafeMale() {
 	thread_local static VectorMap<String,Vector<String>> list;
-	ONCELOCK
+	
 	if (!list.IsEmpty()) return list;
 	
 	
@@ -223,7 +223,7 @@ VectorMap<String,Vector<String>>& GetCharacterSafeMale() {
 
 VectorMap<String,Vector<String>>& GetCharacterSafeFemale() {
 	thread_local static VectorMap<String,Vector<String>> list;
-	ONCELOCK
+	
 	if (!list.IsEmpty()) return list;
     
 	{auto& tc = list.Add("The Influencer");
@@ -366,7 +366,7 @@ VectorMap<String,Vector<String>>& GetCharacterSafeFemale() {
 
 VectorMap<String,Vector<String>>& GetCharacterUnsafeMale() {
 	thread_local static VectorMap<String,Vector<String>> list;
-	ONCELOCK
+	
 	if (!list.IsEmpty()) return list;
 	
 	{auto& tc = list.Add("The Influencer");
@@ -508,7 +508,7 @@ VectorMap<String,Vector<String>>& GetCharacterUnsafeMale() {
 
 VectorMap<String,Vector<String>>& GetCharacterUnsafeFemale() {
 	thread_local static VectorMap<String,Vector<String>> list;
-	ONCELOCK
+	
 	if (!list.IsEmpty()) return list;
 		{auto& tc = list.Add("The Influencer");
 	tc.Add("Cardi B (rapper/actress/entrepreneur)");

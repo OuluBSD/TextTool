@@ -64,7 +64,7 @@ void PhrasePartAnalysis2::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update action counts"), AppImg::RedRing(), THISBACK(UpdateCounts)).Key(K_F9);
 	#ifdef flagDEBUG
 	bar.Separator();
-	bar.Add(t_("Clear all"), AppImg::BlueRing(), THISBACK(ClearAll));
+	bar.Add(t_("Clear all"), AppImg::BlackRing(), THISBACK(ClearAll));
 	#endif
 }
 

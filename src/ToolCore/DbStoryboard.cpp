@@ -5,7 +5,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 const Index<String>& GetStyles() {
 	static Index<String> list;
-	ONCELOCK
+	
 	if (list.IsEmpty()) {
 		list.Add("Intense");
 		list.Add("Dark and brooding");
@@ -37,7 +37,7 @@ const Index<String>& GetStyles() {
 
 const Vector<ContentType>& GetApproaches() {
 	thread_local static Vector<ContentType> list;
-	ONCELOCK
+	
 	if (list.IsEmpty()) {
 		list.Add().Set("Sequential", "Linear", "Non-linear", "Cyclical");
 		list.Add().Set("Parallel", "Simultaneous", "Interweaving", "Parallel Universes");
@@ -76,7 +76,7 @@ int GetApproachCount() {
 
 VectorMap<String,Vector<String>>& GetStyleSafeMale() {
 	thread_local static VectorMap<String,Vector<String>> list;
-	ONCELOCK
+	
 	if (!list.IsEmpty()) return list;
 	
 	{auto& tc = list.Add("Intense");
@@ -277,7 +277,7 @@ VectorMap<String,Vector<String>>& GetStyleSafeMale() {
 
 VectorMap<String,Vector<String>>& GetStyleSafeFemale() {
 	thread_local static VectorMap<String,Vector<String>> list;
-	ONCELOCK
+	
 	if (!list.IsEmpty()) return list;
     
 	{auto& tc = list.Add("Intense");
@@ -454,7 +454,7 @@ VectorMap<String,Vector<String>>& GetStyleSafeFemale() {
 
 VectorMap<String,Vector<String>>& GetStyleUnsafeMale() {
 	thread_local static VectorMap<String,Vector<String>> list;
-	ONCELOCK
+	
 	if (!list.IsEmpty()) return list;
 	
 	{auto& tc = list.Add("Intense");
@@ -631,7 +631,7 @@ VectorMap<String,Vector<String>>& GetStyleUnsafeMale() {
 
 VectorMap<String,Vector<String>>& GetStyleUnsafeFemale() {
 	thread_local static VectorMap<String,Vector<String>> list;
-	ONCELOCK
+	
 	if (!list.IsEmpty()) return list;
 	
 	{auto& tc = list.Add("Intense");

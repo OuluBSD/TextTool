@@ -280,6 +280,7 @@ void PhrasePartAnalysis::DataActionHeader() {
 				if (match_attr != pp.attr)
 					continue;
 			}
+			else continue;
 		}
 		if (pp.attr >= 0) {
 			const AttrHeader& ah = da.attrs.GetKey(pp.attr);
