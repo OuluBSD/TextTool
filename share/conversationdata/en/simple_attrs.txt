@@ -1,0 +1,892 @@
+"physical preference" 7343 1
+"problem solving strategy" 7344 7345
+"relationship" 7346 7347
+"cultural elements" 187 3721
+"emotion" 5035 2574
+"culture" 2671 7348
+"situation relation" 7349 7350
+"responsibility" 5238 7351
+"social" 7352 7353
+"faith extremes" 7354 7355
+"economic" 7356 6542
+"reality" 7357 7358
+"socioeconomic status" 7359 7360
+"communication" 7361 7362
+"average expectations" 7363 4129
+"family" 7364 7365
+"belief communities" 2943 731
+"emotional realism" 7366 7367
+"authenticity" 419 7368
+"education" 7369 7370
+"mindset" 7185 7371
+"love status" 7372 7373
+"group faith" 7374 7375
+"human strength" 7376 7377
+"life and love" 557 1579
+"time" 5348 7378
+"theological opposites" 7379 7380
+"rationality" 160 1335
+"motivation" 163 4929
+"old and new believers" 7381 7382
+"faith and reason seekers" 3757 7383
+"transportation" 7384 7385
+"group experience" 7386 7387
+"patience" 2998 1288
+"rational believers" 954 546
+"profession" 7388 7389
+"truthfulness" 7390 4933
+"societal norms" 7391 7392
+"age target" 7393 7394
+"health" 5239 7395
+"attitude 2" 7396 6547
+"sexual preference" 7397 7398
+"mainstream" 7399 7400
+"belief spectrum" 7401 7402
+"production style" 7403 7404
+"wisdom" 7405 2316
+"gender" 7406 7407
+"socioeconomic class" 7408 7409
+"location" 7410 7411
+"attitude 1" 280 7412
+"identity" 7413 7414
+"creativity" 7415 7261
+"intimacy" 7416 7417
+"storymode" 7418 7419
+"physical health" 7420 7421
+"understanding" 7422 7423
+"mental health" 7424 7425
+"integrity" 0 7426
+"mindfulness" 3838 7427
+"expectations" 360 1982
+"leisure activities" 7428 7429
+"expectation-opposed" 7430 7430
+"sexual orientation" 7431 7432
+"career" 7433 7434
+"audience" 7435 7436
+"attitude 3" 2677 7437
+"relationship focus" 7438 7439
+"maturity" 7440 7441
+"humanity" 6152 5565
+"emotional state" 7442 7443
+"expectation" 7444 7445
+"rational thinker" 5419 7446
+"financial" 181 7447
+"independence" 368 1617
+"personal experience" 7448 7449
+"sexualization" 849 765
+"narrative" 7450 4993
+"food preference" 7451 7452
+"expectation-conformed" 7453 7454
+"action" 7455 7456
+"patient" 571 7457
+"target of love" 7458 7459
+"religion" 7460 7461
+"language" 7462 7463
+"party relation" 7464 7465
+"mood 1" 7466 7467
+"personality" 7468 7469
+"sophistication" 545 359
+"authentic" 5534 7470
+"empathy" 7471 5856
+"authority" 5406 5407
+"perception" 7472 7473
+"hobbies" 7474 7475
+"occupation" 7476 7477
+"concept" 7478 7479
+"humor" 7480 7481
+"happiness" 7482 7483
+"commercial appeal" 518 746
+"attitude" 572 6844
+"preference" 7484 7485
+"family dynamics" 7486 7487
+"society" 7488 7489
+"communication style" 297 308
+"behaviour" 7490 7491
+"emotional" 7492 7493
+"expectation spectrum" 7494 4990
+"corporation relations" 3474 7495
+"personal preference" 7496 7497
+"time management" 7498 7499
+"monetary" 7500 7501
+"employment" 7502 2255
+"socioeconomic" 2938 4995
+"diversity" 193 167
+"memory" 7503 7504
+"leisure activity" 7505 7506
+"beliefs spectrum" 537 1594
+"emotion realism" 7507 7508
+"expression" 7509 262
+"family relations" 7510 7511
+"trust" 3863 7512
+"intelligence" 433 7513
+"lyrical emphasis" 7234 7514
+"artistic expression" 7515 7516
+"concepts" 538 7517
+"work ethic" 7518 6692
+"morality" 7519 7520
+"productivity" 7521 7522
+"source of inspiration" 7523 5272
+"familial relationships" 1973 7524
+"lifestyle" 4820 7525
+"honesty" 7526 7527
+"pet ownership" 7528 7529
+"goal-oriented" 7530 7531
+"attentiveness" 7532 5144
+"celebration" 7533 7534
+"body positivity" 7535 7536
+"academic achievement" 7537 6368
+"technology" 7538 7539
+"family relationships" 7540 7541
+"efficiency" 7542 6697
+"beliefs" 7543 7544
+"artistic integrity" 5891 6602
+"work" 7545 7546
+"relationships" 7547 7548
+"freedom" 7549 2020
+"curiosity" 7550 7551
+"travel" 7552 7553
+"personal interests" 7554 7555
+"mood 2" 310 1921
+"socio-economic status" 7556 7557
+"friendship" 7558 7559
+"nostalgia" 1637 7560
+"consumer behavior" 7561 7562
+"emotions" 7563 7564
+"success" 7565 4957
+"financial situation" 7566 7567
+"spirituality" 7568 7569
+"physical activity" 7570 7571
+"theatre/performing arts" 7572 7573
+"imagination" 7574 7575
+"peacefulness" 7576 1786
+"language and communication" 7577 7578
+"temporal information" 7579 7580
+"achievement" 6405 7581
+"conflict resolution" 7582 7583
+"rational belief" 183 7584
+"atmosphere" 7585 3519
+"sexual acting" 5 197
+"situation" 6848 4627
+"romantic couple" 7586 7587
+"personal growth" 7588 7589
+"mental state" 7590 7591
+"intellectual" 7592 7593
+"expectancy" 7594 7595
+"financial preference" 7596 7597
+"socio-political stances" 7598 7599
+"social interaction" 7600 7601
+"relationship status" 7602 7603
+"rational thinkers" 7604 7605
+"attraction" 7606 7607
+"story-motivation" 7608 2655
+"fear" 7609 7610
+"visual preference" 7611 7612
+"socio mind" 7613 7614
+"aspiration" 7615 5307
+"complexity" 7616 7617
+"physical appearance" 7618 7619
+"authencity" 5924 7620
+"individualistic" 7621 7622
+"mood 3" 7623 5004
+"sophisticated" 7624 7625
+"desire" 7626 7627
+"confidence" 6872 7628
+"age" 7629 7630
+"emotion(frustration)" 7631 7632
+"item preference" 7633 7634
+"loyalty" 7635 7636
+"cultural celebration" 7637 7638
+"habit" 7639 4544
+"altruism" 7640 7641
+"conceptual" 7642 7643
+"identification" 7644 7645
+"question" 7646 7647
+"fear and worry" 7648 7649
+"sports" 7650 7651
+"sexuality" 7652 7653
+"technical innovation" 7654 7655
+"knowledge" 99 900
+"physical age" 7656 7657
+"specific interest" 7658 7659
+"celebrity persona" 1310 7660
+"mentality" 7661 7662
+"portrayal of human emotions" 7663 7664
+"job" 7665 7666
+"physical ability" 7667 7668
+"aspirational" 6301 6291
+"competency" 7669 7670
+"motive" 7671 7672
+"attention-place(outside)" 7673 7673
+"seekers of truth" 7674 7675
+"gratitude" 7676 7677
+"cleanliness" 7678 7679
+"romantic relationship" 7680 7681
+"cultural preservation" 7682 5819
+"intention" 7683 7684
+"food preferences" 7685 7686
+"recreational activity" 7687 7688
+"experience" 7689 7690
+"demographic" 7691 7692
+"exploration" 7693 7694
+"belief extremes" 7695 7696
+"psychological state" 7697 7698
+"media consumption" 7699 7700
+"positive attitude" 7701 7702
+"evidence" 7703 7704
+"body image" 6184 7132
+"generosity" 7705 2861
+"media influence" 7706 7707
+"social relationships" 7708 7709
+"kindness" 7710 7711
+"competitive" 5524 812
+"competitiveness" 7712 3386
+"competence" 7713 7714
+"belief groups" 7715 7716
+"clarity" 7717 7718
+"attitudes" 7719 7720
+"offering help" 7721 7722
+"independent" 7723 7724
+"situational relation" 848 7024
+"cognition" 7725 7726
+"behavior" 7727 7728
+"activity" 7729 7730
+"natural disasters" 7731 7732
+"invitation" 7733 7734
+"expectation extremes" 7735 7736
+"academic" 7737 7738
+"socio-economic" 7739 7740
+"positivity" 7741 7742
+"realistic emotions" 7743 7744
+"mood 4" 7745 7746
+"acceptance" 7747 7748
+"socio-relations" 7749 7750
+"courage" 7751 7752
+"physical description" 7753 7754
+"energy" 7755 7756
+"living situation" 7757 7758
+"existentialism" 7759 7760
+"interests" 7761 7762
+"transparency" 7763 7764
+"lifelong learning" 7765 7766
+"context" 7767 7768
+"family loss" 7769 7770
+"academic performance" 7771 7772
+"mood 5" 7773 7774
+"practicality" 6238 7775
+"accountability" 7776 7777
+"profession/interest" 7778 7779
+"individual strength" 7780 7781
+"habitual action" 4529 4554
+"event" 7782 7783
+"introspective" 7784 7785
+"education and learning" 7786 7787
+"appearance" 7788 7789
+"image" 7790 7791
+"urgency" 607 5147
+"communication method" 7792 7793
+"relaxation" 7794 7795
+"aspirations" 7796 7797
+"environment" 7798 6012
+"goal orientation" 7799 7800
+"youth-oriented" 7801 7802
+"narrativity" 7803 7804
+"consumerism" 7805 7806
+"self-expression" 7807 7808
+"politeness" 7809 7810
+"leadership" 7811 7812
+"celebrity Persona" 7813 1310
+"problem-solving strategy" 7814 7815
+"ethics" 7816 7817
+"ambition" 7818 7819
+"professional career" 7820 7821
+"travel preferences" 7822 7823
+"household chore" 7824 7825
+"consumer experience" 7826 7827
+"teamwork" 7828 7829
+"competition" 7830 7831
+"technological" 7832 7833
+"emotional intelligence" 1609 6481
+"individual strengths" 7834 7835
+"cultural interest" 7836 7837
+"mindsets" 7838 7839
+"romantic relationships" 7840 7841
+"emotional attachment" 7842 7843
+"appreciation" 7844 7845
+"media representation" 7846 7847
+"pet preference" 7848 7849
+"personal well-being" 7850 7851
+"skill" 7852 7853
+"compassion" 2046 6821
+"hobby" 7854 7855
+"realism" 7856 7857
+"interaction" 1300 7858
+"family relationship" 7859 7860
+"feeling" 7861 7862
+"work-life balance" 7863 7864
+"moral" 7865 7866
+"work preference" 7867 7868
+"emotional experience" 7869 7870
+"gender roles" 7871 7872
+"enjoyment" 7873 7874
+"life stages" 7875 7876
+"hierarchy" 7877 7878
+"geographical preference" 7879 7880
+"individuality" 7881 6369
+"individual-oriented" 7882 7883
+"individualism" 7884 7885
+"provocative" 7886 2443
+"social interactions" 7887 7888
+"intelligent" 2803 7889
+"rationalist" 7890 7891
+"romantic love" 7892 7893
+"emotional attitude" 7894 7895
+"mood" 7896 7897
+"socio-political" 7898 7899
+"economic status" 7900 7901
+"parental love" 7902 7903
+"reliability" 7904 3187
+"social hierarchy" 7905 6804
+"economical" 7906 7907
+"emotional commitment" 7908 7909
+"language and culture" 7910 7911
+"narration" 7912 7913
+"entertainment value" 7914 7915
+"job satisfaction" 7916 7917
+"socio-political attitudes" 3287 7918
+"triality" 7919 7920
+"life outlook" 7921 7922
+"societal attitudes" 7923 7924
+"individual spirituality" 7925 7926
+"focus" 7927 6946
+"perspective" 7928 7929
+"transition" 7930 7931
+"nature" 7932 7933
+"food" 7934 7935
+"self-esteem" 7936 7937
+"autonomy" 7938 7939
+"work and career" 7940 7941
+"realistic" 7942 7943
+"peacefullness" 7944 7945
+"transition(activities" 7946 7947
+"romantic status" 809 7948
+"location preference" 7949 7950
+"rational beliefers" 7951 7952
+"family bonds" 7953 7954
+"self-acceptance" 7955 7955
+"name" 7956 3339
+"purpose" 7957 7958
+"storytelling" 7959 7960
+"seeker of truth" 7961 7962
+"social norms" 7963 7964
+"safety precautions" 7965 7966
+"family focus" 7967 7968
+"strength" 7969 7970
+"media and entertainment" 7971 7972
+"introspection" 7973 7974
+"school schedule" 7975 7976
+"body aesthetics" 7977 7978
+"imagery" 7979 7980
+"portrayal of computer technology" 7981 7982
+"physical" 7983 7984
+"individual experience" 7985 7986
+"financial status" 1001 7987
+"interpersonal support" 7988 7989
+"physical attribute" 7990 7991
+"attribute group not listed" 7992 7993
+"well my journey through the college education system i should of mentioned" 7994 7995
+"traditional stereotype" 7996 7997
+"agreement" 7998 7999
+"cultural pride" 8000 8001
+"privacy concerns" 8002 8003
+"political views" 8004 8005
+"cynicism" 8006 8007
+"romantic competition" 8008 8009
+"societal" 8010 8011
+"interest in sports" 8012 8013
+"responsible" 8014 8015
+"sex appeal" 8016 8017
+"resilience" 8018 8019
+"personal finance" 8020 8021
+"gift giving" 8022 8023
+"parental role" 5681 8024
+"music" 8025 8026
+"openness" 8027 6064
+"attitute 1" 8028 8029
+"status" 8030 8031
+"trustworthiness" 8032 8033
+"humility" 8034 8035
+"tradition" 8036 8037
+"economics" 8038 8039
+"corporate relations" 8040 8041
+"positive experience" 8042 8043
+"general beliefs" 8044 8045
+"commitment" 8046 8047
+"persistence" 8048 6365
+"spiritual seekers" 8049 8050
+"theology" 8051 8052
+"sincerity" 8053 8054
+"entertainment" 8055 8056
+"culinary preference" 8057 8058
+"socialization" 8059 8060
+"ethical extremes" 8061 8062
+"expectation focus" 8063 8064
+"cultural expectations" 8065 8066
+"reasoning" 8067 8068
+"attribute groups" 8069 8070
+"information" 8071 8072
+"media" 8073 8074
+"fitness" 8075 8076
+"advice" 8077 8078
+"class" 8079 8080
+"parental influence" 8081 8082
+"personality trait" 8083 8084
+"attention-time" 8085 8086
+"love and relationship" 8087 8088
+"career focus" 8089 8090
+"socio-political views" 8091 8092
+"physical abilities" 8093 8094
+"satisfaction" 8095 8096
+"family life" 8097 8098
+"parent-child" 8099 8099
+"attitutde 1" 8100 8101
+"attitiude 1" 8102 8103
+"hope and despair" 8104 8105
+"discrimination" 8106 8107
+"independance" 8108 8109
+"importance" 8110 8111
+"teamwork vs. independence" 323 321
+"attribution spectrum" 8112 8113
+"individual focus" 8114 8115
+"provacativity" 2646 8116
+"provocativity" 8117 8118
+"educational" 7226 8119
+"technology preference" 8120 8121
+"hobbies and interests" 8122 8123
+"individual identity" 8124 8125
+"leisure 1" 8126 8127
+"thought process" 8128 8129
+"emotionality" 2670 8130
+"mindfullness" 8131 8132
+"personal possessions" 8133 8134
+"sexual commitment" 8135 8136
+"creative interests" 8137 8138
+"intuitive thinkers" 8139 8140
+"introduction" 8141 8142
+"storymotivation" 8143 8144
+"body preference" 8145 8146
+"belief" 8147 8148
+"familial relations" 8149 8150
+"beverage etiquette" 8151 270
+"hygiene" 8152 8153
+"uncertainty" 8154 8155
+"relationship with siblings" 8156 8157
+"adventurousness" 8158 8159
+"attitutde 2" 8160 8161
+"wellness" 4824 7171
+"career goals" 8162 8163
+"cooperation" 8164 8165
+"interpersonal" 8166 8167
+"career motivation" 8168 8169
+"peace" 8170 8171
+"calmness" 8172 8173
+"fashion" 8174 8175
+"body enhancing beauty" 8176 8177
+"party anthems" 8178 8179
+"international relations" 8180 8181
+"logistical instructions" 8182 8183
+"dating" 8184 8185
+"literacy" 8186 8187
+"musical preference" 8188 8189
+"intuition" 8190 8191
+"awareness" 7127 8192
+"conformity" 8193 8194
+"religious community" 8195 8196
+"love" 8197 8198
+"community" 8199 5748
+"event planning" 8200 8201
+"academic pursuit" 8202 8203
+"philosophical" 8204 8205
+"moral responsibility" 8206 8207
+"activities" 8208 8209
+"physical condition" 8210 8211
+"visuals" 8212 8213
+"social expectations" 8214 8215
+"companionship" 8216 8217
+"organization" 5428 8218
+"story-mode" 8219 8220
+"study habits" 8221 8222
+"academic success" 8223 8224
+"portrayal" 8225 8226
+"encouragement" 8227 8228
+"family values" 8229 8230
+"assistance" 8231 8232
+"societal norm/expectation" 8233 8234
+"body modifications" 8235 8236
+"etiquette" 8237 8238
+"genre" 8239 8240
+"privacy" 8241 8242
+"storyline" 8243 8244
+"entertainment preference" 8245 8246
+"problem solving" 8247 8248
+"enlightenment" 8249 8250
+"personal appearance" 8251 8252
+"health and physical activity" 8253 8254
+"concern" 8255 8256
+"time frame" 8257 3520
+"child development" 8258 2162
+"price" 7087 1052
+"fulfillment" 8259 5435
+"achievements" 4757 1669
+"goal setting" 6975 4913
+"comprehension" 584 579
+"style production" 5989 5987
+"personal opinion" 258 257
+"new experiences" 8260 6342
+"promotion" 4890 3100
+"affiliation" 418 2005
+"age-inclusive" 8261 8262
+"mindlessness" 1446 502
+"emotion extremes" 2827 5795
+"action focus" 8263 5377
+"corporate mentality" 3119 3117
+"emotion(frustration" 8264 8265
+"company relations" 6958 8266
+"civilization relations" 873 8267
+"clothing" 8268 8269
+"other materials" 3476 3472
+"recognition" 8270 1716
+"creative preference" 4843 4120
+"mainstream success" 6298 4979
+"athleticism" 6742 5491
+"personal background" 2289 2272
+"attencation-time(nostalgia)" 8271 8272
+"travel destination" 4056 1623
+"anti-capitalism" 6120 8273
+"ideology" 6111 6088
+"intellectual interests" 4013 4006
+"cultural events" 43 41
+"targeting" 8274 4868
+"self-awareness" 8275 4389
+"values spectrum" 8276 6282
+"value spectrum" 6200 6200
+"physical fitness" 220 219
+"attractiveness" 8277 8278
+"approval" 2617 1984
+"excitement" 6628 5265
+"alternative solutions" 2981 2980
+"causing trouble" 688 682
+"accidents" 250 249
+"shopping" 3518 3517
+"emotional preference" 927 923
+"entertainment industry" 1860 1859
+"familial relationship" 1049 1046
+"safety" 8279 3531
+"caution" 5843 3905
+"individual preferences" 1188 1187
+"festive" 1902 1901
+"financial concern" 5550 1132
+"humanity and society" 1891 1889
+"cultural background" 4533 3202
+"individual origin" 3080 3079
+"cultural comparisons" 44 42
+"long distance relationship" 1894 1893
+"attitide 1" 6942 533
+"open-mindedness" 8280 8281
+"weather preference" 4578 4574
+"we have to move to where the hospital is for three months while he recovers" 2181 2177
+"ethos" 2010 2009
+"organizational" 5500 8282
+"ethic" 2233 2232
+"humanity spectrum" 5621 5620
+"challenge" 5744 5499
+"discipline" 6384 5044
+"assertiveness" 5949 5122
+"creative expression" 8283 2314
+"sport" 5578 3250
+"group behavior" 1017 1016
+"individual expression" 4429 1871
+"corp relations" 8284 3280
+"financial matters" 1983 1974
+"persuasion" 8285 92
+"use of leisure time" 2469 2464
+"philosophy" 2858 1931
+"artistic" 3096 3095
+"feedback" 5436 5060
+"pluralism" 3276 3270
+"cultural element" 4310 983
+"action-taking" 6939 2825
+"patients" 148 143
+"auditory emphasis" 5708 4743
+"violent thoughts" 3883 3882
+"immediacy" 6181 8286
+"attention-emotional_state" 6839 5042
+"history and heritage" 60 59
+"professional relationships" 333 325
+"shock" 115 113
+"ethical" 1820 1813
+"what a jerk for him to up" 2184 2202
+"dysfunctional society" 1870 8287
+"respect" 6633 5841
+"musical style" 6889 2622
+"pets" 4756 925
+"difficulty in pronunciation" 3505 3506
+"economic priorities" 2960 2959
+"respect for time" 326 322
+"productivity style" 5274 5138
+"attenton-emotional_state(desire)" 8288 8288
+"attention-emotional_state(desire)" 8289 8289
+"intellectuality" 6903 6901
+"emotion intelligence" 3269 3264
+"lyrial emphasis" 8290 6166
+"emotional emphasis" 5764 4922
+"lyrcial emphasis" 6015 5055
+"seeking truth" 5545 2121
+"medical nature" 2364 2365
+"but it was a long time of stress" 2212 2204
+"language preference" 4126 2550
+"diet" 8291 4338
+"reflexivity" 5536 5479
+"expectation-perfection" 5637 8292
+"emoting" 6713 6711
+"textile reference" 3284 3279
+"family role" 3362 3361
+"family influence" 8293 8293
+"fashion preference" 4590 860
+"live location" 4822 4811
+"innovation" 7168 4934
+"formality" 6781 428
+"relationship seeking" 4821 4819
+"economic strategy" 4879 4877
+"employment preferences" 8294 2093
+"youth-targeted" 6488 1102
+"anticipation" 6252 8295
+"routine" 1033 1027
+"determination" 8296 2730
+"culture elements" 6595 6124
+"communication skill" 4485 4463
+"self-identity" 4036 4027
+"creative focus" 4831 4830
+"celebrations" 494 493
+"communication with family" 1645 1644
+"social circle" 4045 4044
+"need fulfillment" 1127 8297
+"romantic orientation" 8298 2716
+"cars" 4781 4779
+"attidude 2" 5787 5782
+"hopefulness" 5833 1975
+"hopeful" 5297 5177
+"attitude 4" 5124 8299
+"knowledge-seeking" 6372 8300
+"perseverance" 6827 6699
+"financial success" 3677 221
+"family status" 6274 8301
+"long-distance relationships" 4086 4085
+"dependence" 6745 5233
+"future goals" 4228 4216
+"type of relationship" 6754 8302
+"relational focus" 8303 8304
+"socio-cultural" 5476 8305
+"corporeal relationship" 3484 3491
+"power" 2416 1271
+"provocation" 2656 5050
+"knowledge orientation" 713 710
+"impatience" 5938 3710
+"impatient" 4976 2784
+"signal" 312 296
+"intellectual intelligence" 4430 3243
+"cognitive preference" 7099 6097
+"care-taking" 6422 5482
+"financial responsibility" 2129 1323
+"job seeking" 1486 1462
+"environmental activism" 2966 2965
+"communication and language" 4675 4671
+"place preference" 4478 4456
+"workload management" 1322 1321
+"diligence" 6828 6363
+"cultural differences" 6705 74
+"socio-economic class" 8306 8307
+"geographical experience" 3705 3699
+"probability" 1368 1342
+"financial issue" 2069 2068
+"geographical distance" 1904 1892
+"requirements" 8308 3342
+"time preference" 5098 2433
+"social preference" 4884 4047
+"singlehood" 1994 1977
+"lovability" 8309 5709
+"values" 5789 4778
+"lucidity" 6808 8310
+"deception" 3629 3627
+"primary attribute groups" 6956 8311
+"presentation" 7293 8312
+"plans" 3200 3198
+"Gender" 356 198
+"financial stability" 4074 3683
+"interest" 4253 3526
+"instant gratification" 6926 4982
+"patient mood" 3549 3548
+"holiday" 393 391
+"geographic location" 4871 4050
+"laziness" 6674 6373
+"stress management" 6752 2765
+"fun" 6636 5683
+"new and old believers" 4133 3542
+"day of the week" 3408 3407
+"moral extremes" 6399 5728
+"moral compass" 7255 8313
+"personal" 8314 8315
+"relocation" 4577 4271
+"meeting place" 1631 1627
+"relationship conflict" 5337 3690
+"greeting" 2489 1153
+"cultural interests" 8316 4018
+"transparent" 6195 2571
+"rationalism" 8317 2778
+"physical preferences" 5200 902
+"environmentalism" 6918 8318
+"commercials" 106 105
+"help seeker" 1128 1113
+"parenthood" 4392 2438
+"faith extremists" 1914 8319
+"age spectrum" 6951 8320
+"beliefe spectrum" 8321 8322
+"racial identity" 6484 8323
+"it could be anything lol" 2209 2183
+"future" 8324 5072
+"modernity" 6861 5421
+"group identity" 4243 4209
+"impact of past experiences" 6522 6516
+"employment status" 2285 2281
+"tolerance" 8325 1768
+"primary value" 5674 5203
+"organizational skills" 6455 2381
+"professionalism" 5029 916
+"activity preference" 8326 3927
+"we went to my favorite cafe" 8327 8328
+"work schedule" 4816 3346
+"childhood influences" 4769 4768
+"introspective ballads" 7273 5158
+"value" 2921 1546
+"fulfilling" 5197 2718
+"violence and peace" 3498 3497
+"average expectation" 8329 3835
+"may i turn on the radio then" 8330 8331
+"one-on-one interaction" 3510 3509
+"job position" 2387 1406
+"emotional sincerity" 5362 5360
+"truthful" 5556 2708
+"fiction" 8332 5277
+"worldview" 8333 6523
+"pragmatic opposites" 8334 8335
+"well-being" 6133 2321
+"materialism" 6803 2050
+"boundary setting" 1497 1496
+"favorite food" 2424 2423
+"social issue" 3789 3791
+"well wishes" 4390 1485
+"judgment" 7007 5751
+"acknowledgement" 8336 1164
+"event relation" 4991 4987
+"but i do love the fact i destroyed that test like a boss" 2208 2194
+"distance" 1405 1404
+"fear and anxiety" 2931 2933
+"timing" 6182 3495
+"time sensibility" 1042 1041
+"rewarding" 7160 6639
+"explanation" 2915 107
+"monitoring progress" 3224 8337
+"weeks turned into months" 2214 2200
+"household chore expectation" 8338 4409
+"relatability" 5364 2450
+"personality traits" 8339 801
+"time for self" 883 876
+"nostalgic" 6346 6327
+"quality" 6632 108
+"rational believer" 5077 4960
+"escapism" 6757 1780
+"future plans" 4058 3237
+"education system" 35 33
+"responsiveness" 6895 6466
+"self-care" 5343 3515
+"life transition" 4065 4052
+"did you guys do anything" 2213 8340
+"motivational" 6227 1286
+"goal-setting" 3238 2675
+"music preference" 4107 4094
+"transition (activities" 8341 8342
+"romantic preference" 4466 989
+"self-love" 6314 7174
+"love target" 8343 2032
+"disastrous events" 3906 3898
+"peacekeeping" 2228 2222
+"food and preferences" 69 46
+"television preference" 8344 8345
+"rational beliefs" 286 281
+"skepticism" 5950 5335
+"and leave with no way to contact him" 2211 8346
+"patient of love" 1279 8347
+"targeting of love" 6214 8348
+"cynic" 8349 5092
+"selfishness" 5854 2216
+"soul and identity" 3277 3282
+"confrontation style" 1179 1177
+"number" 3376 605
+"emotions 1" 3006 3005
+"sexualemphasis" 8350 3535
+"intentionality" 6572 5903
+"life experience" 2901 1852
+"emotion acting" 3834 3832
+"personal relationships" 4683 4682
+"appearance and grooming" 4680 4665
+"seeking of truth" 5363 1634
+"spiritual seeker" 1615 539
+"accuracy" 7057 6196
+"talent" 6966 6379
+"generic conversation" 1490 1484
+"style" 8351 8352
+"holidays" 236 235
+"clarification" 3240 3222
+"free-spirited" 6065 8353
+"flexibility" 8354 6300
+"auditory preference" 2224 549
+"interpretation" 5470 3274
+"weather" 1369 1361
+"theme" 5779 5768
+"academic pursuits" 2971 2968
+"coping mechanisms" 1489 1481
+"family love" 445 444
+"vocational preference" 1020 1018
+"technological issues" 1387 1374
+"story mode" 6216 5056
+"theology opposites" 3321 529
+"legal system" 657 656
+"values and beliefs" 8355 57
+"structure" 496 489
+"social media-driven" 6786 3711
+"careers and professions" 4678 4674
+"relevance" 5298 1058
+"impact" 6220 5237
+"group behaviour" 1026 1014
+"inclusivity" 6136 5749
+"reationality" 6689 6687
+"irrationality" 5309 3839
+"gift" 1633 1077
+"quantity" 1151 1051
+"accessibility" 4098 8356
+"prior knowledge/experience" 8357 3215
+"season" 3552 3551
+"dietary preference" 8358 8359
+"travel experiences" 4055 4030
+"influence" 6851 4510
+"need" 7288 1025
+"environmental consciousness" 2958 2955
+"marriage tradition" 4387 4386
+"generous" 577 575
+"hope" 1779 1229
+"lyric emphasis" 8360 458
+"humorous" 5525 1608
+"current activity" 4560 4534
+"personal fulfillment" 1658 1203
+"generation gap" 2487 2481
+"age group" 2475 8361
+"employment sector" 4391 4377

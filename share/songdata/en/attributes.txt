@@ -50963,3 +50963,45 @@
 "interpretation(mainstream)" 3846 -1 0 -1 0
 "emotion\(uncertainty\)(level)" 3847 -1 0 -1 0
 "emotion\(uncertainty\)(emotion)" 3847 -1 0 -1 0
+"love status(living now)" -1 -1 0 -1 0
+"target of love(love / self-love)" -1 -1 0 -1 0
+"aspirational(mainstream)" -1 -1 0 -1 0
+"party relation(mainstream success)" -1 -1 0 -1 0
+"professionalism(mainstream success)" -1 -1 0 -1 0
+"globalizational(cultural preservation)" -1 -1 0 -1 0
+"nature(nature seeker)" -1 -1 0 -1 0
+"socioeconomic status(wealthy or powerful)" -1 -1 0 -1 0
+"party relation(social event)" -1 -1 0 -1 0
+"idealistic(realistic)" -1 -1 0 -1 0
+"cultural celebration(commercialization)" -1 -1 0 -1 0
+"narrative(protagnist storytelling)" -1 -1 0 -1 0
+"athleticism(aesthetic)" -1 -1 0 -1 0
+"(\"attention-place\(outdoors/nature\)\" attention-action\(the outdoors\) + attention-emotional_state\(excited about exploring nature\))" -1 -1 0 -1 0
+"atttention-event(time-related\(day/night\))" -1 -1 0 -1 0
+"source of inspiration(cultural elements)" -1 -1 0 -1 0
+"race and ethnicity(cultural preservation)" -1 -1 0 -1 0
+"nationality(global citizen)" -1 -1 0 -1 0
+"specific vacation destination(desperate)" -1 -1 0 -1 0
+"calm(chaotic)" -1 -1 0 -1 0
+"socio-economic(cultural)" -1 -1 0 -1 0
+"relaxation(escapism)" -1 -1 0 -1 0
+"imagination(curious)" -1 -1 0 -1 0
+"life and love(spiritual seeker)" -1 -1 0 -1 0
+"culture(cultural significance)" -1 -1 0 -1 0
+"ethnicity(individualistic)" -1 -1 0 -1 0
+"global relations(globalization)" -1 -1 0 -1 0
+"migration(relocation)" -1 -1 0 -1 0
+"(\"attention-place\(attracting attention\)\" attribute - any)" -1 -1 0 -1 0
+"luxury(relatable)" -1 -1 0 -1 0
+"friendship(competition)" -1 -1 0 -1 0
+"cultural heritage(modernization)" -1 -1 0 -1 0
+"maturity(younger / older)" -1 -1 0 -1 0
+"concept(storytelling)" -1 -1 0 -1 0
+"organization(individual spirituality)" -1 -1 0 -1 0
+"adventure(relatable)" -1 -1 0 -1 0
+"globalized(cultural preservation)" -1 -1 0 -1 0
+"provacativity(provocative)" -1 -1 0 -1 0
+"vacation(relaxation)" -1 -1 0 -1 0
+"narrativemode(narrative detachment)" -1 -1 0 -1 0
+"real life(fantasy world)" -1 -1 0 -1 0
+"emotion(explicit)" -1 -1 0 -1 0

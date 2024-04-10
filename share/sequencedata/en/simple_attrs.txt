@@ -1,0 +1,691 @@
+"physical preference" 2710 2711
+"production style" 226 2712
+"group experience" 1948 1330
+"relationship" 2713 2714
+"expression" 2715 2716
+"problem solving strategy" 1744 2717
+"game players" 2718 2719
+"cultural elements" 2720 2721
+"culture" 2029 2722
+"social" 2723 2724
+"physical strength" 2725 2726
+"physical activity" 2727 2728
+"process" 2729 2730
+"teamwork" 625 626
+"humanity" 2731 2732
+"creativity" 2733 2504
+"competition" 1035 1635
+"performance" 2734 2735
+"technology and production" 2736 2737
+"emotional realism" 2738 1377
+"outdoor activities" 2739 2740
+"responsibility" 2741 2742
+"sports and competitive activities" 2743 2744
+"intimacy" 2745 2746
+"environment" 1957 396
+"attitude 2" 271 847
+"identity" 2747 2748
+"party relation" 2749 2750
+"societal expectations" 1132 2751
+"personal grooming" 2752 2753
+"artistic expression" 2754 2755
+"skill" 2756 2757
+"body image" 700 2758
+"creation" 2759 2760
+"sport" 2761 2762
+"faith and reason seekers" 2763 2764
+"lyrical emphasis" 2765 2766
+"communication" 2767 2768
+"artistic performance" 2769 2770
+"achievement" 2771 2772
+"rational believers" 2773 2774
+"image" 2775 2776
+"faith extremes" 2777 2778
+"adventure" 2779 2780
+"talent" 2781 2782
+"cooking and food" 2783 2784
+"mindset" 2785 2786
+"mental state" 2787 2788
+"rationality" 2789 262
+"motivation" 2790 2791
+"physical activities" 2792 2793
+"human strength" 2794 2795
+"body positivity" 2796 2797
+"imagination" 2798 2799
+"cleanliness" 2800 2801
+"domestic responsibilities" 2802 2803
+"physical exercise" 2804 2805
+"education" 2806 2807
+"economic" 2808 2809
+"mindfulness" 621 234
+"sexualization" 2810 2811
+"group faith" 2812 2813
+"situation relation" 66 2814
+"creative expression" 2815 2816
+"artistic" 2817 2818
+"authority" 2819 2820
+"technology" 2821 2822
+"lifestyle" 2823 2824
+"movement" 2825 2826
+"physicality" 2827 2828
+"visual" 2829 2830
+"attitude 1" 2831 2832
+"game culture" 2833 2834
+"food and drink" 2835 2836
+"physical ability" 2837 2838
+"celebration" 2839 2840
+"independence" 401 2841
+"atmosphere" 2842 2843
+"love status" 2844 142
+"narrative" 2139 2845
+"attitude 3" 2846 2847
+"individual spirituality" 2848 2849
+"reality" 71 133
+"imagery" 2850 2851
+"religion" 2852 2853
+"mood 3" 60 988
+"fashion" 2854 2855
+"self-expression" 2856 2857
+"theological opposites" 2858 2859
+"authenticity" 2860 2861
+"human action" 2862 2863
+"competence" 2864 2865
+"sexual acting" 2866 2867
+"economy" 2868 2869
+"exercise routine" 2870 2871
+"time" 2872 2873
+"gender" 2874 2875
+"sexual orientation" 2876 2877
+"individualism" 2878 2879
+"society and culture" 2880 2881
+"patient" 265 390
+"mood 1" 2882 2883
+"leisure activities" 2884 2885
+"commercial appeal" 2886 2887
+"beauty" 2888 2889
+"camera movements" 2890 2891
+"physical constraint" 2892 2893
+"motion focus" 2894 2895
+"noun" 2896 2897
+"profession" 2898 2899
+"athleticism" 2900 2901
+"cultural element" 2902 2903
+"household activities" 2904 2905
+"hobbies" 2906 2907
+"authentic" 2908 2909
+"human behavior" 2910 2911
+"social and economic consciousness" 2912 2913
+"socioeconomic" 2914 2915
+"animal welfare" 2916 2917
+"life and love" 2918 2919
+"grooming habits" 2920 2921
+"financial responsibility" 2922 2923
+"musical preference" 2924 2925
+"household chore" 2926 2927
+"relationships" 2928 2929
+"sport-focused" 2930 2931
+"skilled labor" 2932 2933
+"lifestyle choices" 2934 2935
+"physical challenge" 2936 2937
+"action" 2938 2939
+"task focus" 2940 2941
+"human interaction" 2942 2943
+"diversity" 2944 2945
+"emotionality" 2946 2947
+"individual exercise" 2948 2949
+"fitness" 2950 2951
+"expectation spectrum" 2952 2953
+"average expectations" 2954 2955
+"personality" 2956 2957
+"escapism level" 2958 2959
+"truthfulness" 308 1702
+"body movement" 2960 2961
+"coaching" 2962 2963
+"mood 4" 2964 2965
+"intelligence" 2966 2967
+"sexual preference" 2968 2969
+"representation of various liquids" 2970 2971
+"patience" 2972 2973
+"physical beauty" 2974 2975
+"attribution preference" 2976 2977
+"media" 2978 2979
+"belief spectrum" 2980 2981
+"emotional" 2982 2983
+"individuality" 2984 2985
+"relationship focus" 2986 2987
+"expectation" 2988 2989
+"activity" 2990 2991
+"further education" 2992 2993
+"playfulness" 2994 2995
+"childlike behavior" 2996 2997
+"ideology" 2998 2999
+"cognitive aptitude" 3000 3001
+"emotional expression" 3002 3003
+"body position" 3004 3005
+"motion preference" 3006 3007
+"mental health" 3008 3009
+"team cohesion" 3010 3011
+"musical style" 3012 3013
+"visual storytelling" 3014 3015
+"family and relationships" 3016 3017
+"athletic ability" 3018 3019
+"belief extremes" 3020 3021
+"youth" 3022 3023
+"cooking" 3024 3025
+"party culture" 3026 3027
+"trust" 1880 3028
+"religious" 3029 3030
+"celebrity persona" 3031 3032
+"individual dynamics" 3033 3034
+"corporate relations" 3035 3036
+"team sports" 3037 3038
+"caregiving" 3039 3040
+"personal hygiene" 3041 3042
+"transparency" 3043 3044
+"competitive mindset" 3045 3046
+"competitive spirit" 3047 3048
+"competitiveness" 3049 3050
+"adventure and thrill seeking" 3051 3052
+"financial" 3053 3054
+"empowerment" 3055 3056
+"peace" 3057 3058
+"intention" 3059 3060
+"emotional state" 3061 3062
+"water sports" 3063 3064
+"exercise equipment" 3065 3066
+"life stage" 3067 3068
+"appearance" 3069 3070
+"cultural preservation" 3071 3072
+"identity expression" 3073 3074
+"interpersonal" 3075 3076
+"socio-economic" 3077 3078
+"body care" 3079 3080
+"complexity" 3081 3082
+"belief groups" 3083 3084
+"grooming" 3085 3086
+"product conception" 3087 3088
+"emotion realism" 3089 3090
+"food and health" 3091 3092
+"independent" 247 1845
+"individuals" 3093 3094
+"provocativity" 3095 3096
+"physical competition" 3097 3098
+"emotional response" 3099 3100
+"social interaction" 3101 3102
+"cooking tool" 3103 3104
+"audience" 3105 3106
+"media influence" 3107 3108
+"family relationships" 3109 3110
+"story-motivation" 3111 3112
+"source of inspiration" 3113 3114
+"public event" 3115 3116
+"film techniques" 3117 3118
+"food" 3119 3120
+"violence" 3121 3122
+"artistic integrity" 3123 3124
+"leisure" 3125 3126
+"attitude" 3127 3128
+"sports and competition" 3129 3130
+"archery" 3131 3132
+"household task" 3133 3134
+"individual-oriented" 3135 3136
+"aspiration" 3137 3138
+"sophistication" 3139 3140
+"crafts and skills" 3141 3142
+"technical" 3143 3144
+"technical quality" 3145 3146
+"company and business" 3147 3148
+"mood 2" 3149 3150
+"sophisticated" 3151 3152
+"dance and music" 3153 3154
+"elements of competition" 3155 3156
+"strength" 1648 3157
+"mental strength" 3158 3159
+"musical genre" 3160 3161
+"old and new believers" 3162 3163
+"transportation" 3164 3165
+"peacefulness" 3166 3167
+"physical location" 3168 3169
+"personal talent" 3170 3171
+"interest" 3172 3173
+"age target" 3174 3175
+"conceptualization" 1336 910
+"sexuality" 168 268
+"ethnicity" 990 668
+"sobriety" 3176 606
+"organization relations" 1590 3177
+"socioeconomic stance" 1289 1279
+"motive for action" 2308 2309
+"diverse lifestyles" 2303 2296
+"attentiveness" 2457 1502
+"hierarchy" 1861 569
+"expectation-conformed" 3178 692
+"visual preference" 3179 115
+"socializing" 1813 808
+"advertisement" 2062 1360
+"media relations" 1062 1051
+"traveling" 1072 1064
+"attitudes" 2664 1324
+"narration style" 800 798
+"competitive" 3180 3181
+"goal orientation" 3182 1276
+"game strategy" 223 206
+"therapeutic importance" 1264 1263
+"confidence" 2691 316
+"work" 3183 3184
+"corporation relations" 3185 418
+"dance focus" 3186 3187
+"tradition" 2441 1634
+"visualization" 2227 1096
+"person's role" 1288 1287
+"fearlessness" 378 368
+"sovereignty" 1245 1242
+"partnership" 1494 1492
+"hope" 1532 984
+"human characteristics" 2286 2284
+"efficiency" 1941 1940
+"god and satan" 1063 1053
+"person's appearance" 1296 1295
+"provacativity" 1516 495
+"emotional intelligence" 1864 1582
+"kindness" 361 2648
+"fitness and wellness" 1310 1309
+"realism" 1583 313
+"perception" 2439 3188
+"creative opposites" 1150 1144
+"curiosity" 2323 2322
+"person" 691 688
+"game" 2118 273
+"truthful" 2636 2470
+"entertainment preferences" 3189 3190
+"mind-body connection" 1561 1099
+"motion" 1954 1884
+"natural rhythm" 205 3191
+"visual representation" 1052 538
+"object preference" 2366 2358
+"clothing" 1678 1677
+"personal appearance" 2342 2341
+"food culture" 157 3192
+"culinary elements" 1223 1222
+"rhythm" 433 2110
+"honesty" 838 2527
+"integrity" 325 258
+"leadership" 1870 1862
+"spiritual beliefs" 2292 2276
+"morality" 2028 89
+"patiente" 1529 1526
+"tutorial" 3193 3194
+"intelligent" 2565 2637
+"animal lovers" 1874 1873
+"romantic couple" 1923 2442
+"cultural activities" 2334 2333
+"emotions" 1322 1252
+"positive emotions" 1238 766
+"harmony" 1265 1261
+"household chores" 900 898
+"leisure activity" 1351 1350
+"landscaping" 1693 1692
+"relaxation" 2032 2031
+"socio-political" 2595 2532
+"societal" 2050 2049
+"scene mood" 1567 1570
+"attention to detail" 801 797
+"consciousness" 2610 1304
+"mindfullness" 1832 856
+"sexual commitment" 3195 3195
+"talent expression" 2277 2287
+"talent or passion" 1125 1124
+"storymotivation" 2495 3196
+"slow motion" 3197 3198
+"health" 3199 3200
+"nature" 2421 2243
+"technology and internet" 882 881
+"mental attitude" 581 575
+"openness" 2592 1724
+"location" 1253 2008
+"creative arts" 3201 3202
+"social obligation" 1762 1761
+"music genre" 3203 324
+"compassion" 2708 2646
+"youth identity" 974 971
+"expectations" 1728 434
+"event focus" 3204 3205
+"struggle" 382 381
+"individual-focused" 1926 1925
+"emotional opposites" 1151 1146
+"ludic playfulness" 1213 1206
+"mood 5" 1368 557
+"family life" 1966 1965
+"love and romance" 517 510
+"calm mood" 851 842
+"romance and flirtation" 3206 754
+"concepts" 941 312
+"reality and fantasy" 3207 3208
+"cognitive opposites" 1148 1142
+"performance and success" 767 763
+"love and life" 605 496
+"motivational" 1895 1581
+"expressive ability" 1501 1499
+"rhythmic emphasis" 1729 1155
+"romantic love" 3209 233
+"love target" 848 3210
+"economy and finance" 529 528
+"relation to others" 123 3211
+"self-esteem" 531 3212
+"physical activity and fitness" 772 3213
+"target of love" 272 3214
+"corporeal sensuality" 1025 3215
+"corporeality sensual" 1220 1219
+"sexualisation" 3216 471
+"sensitivity" 550 399
+"maintenance" 1914 1913
+"family bonds" 1571 1569
+"simplicity" 1972 607
+"story mode" 1504 159
+"family structure" 1116 1110
+"sports" 2075 1048
+"religion and reason seekers" 406 405
+"technical expertise" 1709 1563
+"coordination" 1901 1900
+"visual elements" 1047 1045
+"authencity" 697 3217
+"emotion 2" 2434 1200
+"artistic elements" 2380 2372
+"experience transition" 1250 1247
+"friendship" 2670 2078
+"problem-solving strategy" 2681 3218
+"exercise routines" 2072 3219
+"game mode" 489 488
+"lyrics" 1912 1518
+"physical fitness" 3220 3221
+"courage" 2702 2556
+"humanity strength" 479 473
+"strength and weakness" 449 468
+"fitness and nutrition" 3222 143
+"product service" 463 465
+"body art focus" 1301 1300
+"community participation" 2317 2316
+"theology opposites" 161 920
+"culture and tradition" 515 514
+"irrationality" 3223 3224
+"musical instruments" 3225 3226
+"musical talent" 2684 972
+"alcoholic drinks" 2077 2067
+"deep cleaning" 2082 2081
+"romantic relationship" 2007 1830
+"visual emphasis" 2010 2009
+"physical training" 1695 1694
+"emotion" 3539 5695
+"hygiene" 5696 5697
+"aspect of time" 5698 5699
+"storymode" 70 5700
+"socioeconomic status" 5701 5702
+"freedom" 2047 5703
+"maturity" 5704 5705
+"concept" 5706 5707
+"success" 5708 5098
+"work ethic" 5709 5710
+"body preference" 5711 5712
+"storytelling" 3973 5713
+"attention-place(outside)" 5714 5715
+"self-care" 5716 5717
+"wisdom" 5718 5719
+"society" 5720 5721
+"perseverance" 5722 5723
+"art" 5724 5725
+"risk-taking" 5726 5727
+"emotion(frustration)" 5728 5271
+"innocence" 5729 4297
+"narration" 3300 3955
+"satisfaction" 4084 4741
+"attractiveness" 5730 5731
+"primary value" 5732 5733
+"artistry" 5734 5735
+"perfection" 4962 5736
+"challenge" 5737 5738
+"transition" 3556 5739
+"representation" 3818 5273
+"spontaneity" 5740 5741
+"safety" 5742 5743
+"perspective" 5744 5745
+"conceptual" 5746 5747
+"happiness" 5748 5749
+"self-love" 5750 5751
+"language" 5752 5753
+"mood" 5001 5068
+"aesthetics" 5754 5755
+"bravery" 5756 4136
+"communication style" 5757 5758
+"culinary preference" 5182 5759
+"expectation extremes" 5760 5760
+"skill level" 5761 5762
+"culinary preferences" 5763 5764
+"provocative" 5765 5766
+"reward" 5767 5768
+"energy" 5769 5770
+"appreciation" 5771 5772
+"socio-cultural" 5773 4043
+"goal-oriented" 5774 3304
+"persistence" 5775 5776
+"economical" 5777 5778
+"targeting" 5779 5780
+"mindful" 5781 5782
+"precision" 5783 5784
+"productivity" 5785 3506
+"food preference" 5786 5787
+"behavior" 5788 5789
+"humor" 5790 5791
+"escapism" 4509 5792
+"vulnerability" 5793 5794
+"societal norms" 5795 5796
+"interpersonal relationships" 5797 5798
+"attire" 5799 5800
+"event" 5801 5802
+"rational thinking" 5803 5355
+"place" 5804 5805
+"fiction" 5806 5807
+"expectancy" 5808 5809
+"athletics" 5810 5811
+"experience" 5812 5813
+"emotion extremes" 5814 5815
+"relatability" 5816 5817
+"social media-driven" 5818 5819
+"beauty standards" 5820 5821
+"celebrity Persona" 5822 5823
+"emotional emphasis" 5824 5825
+"romantic" 5826 5827
+"self-reflection" 5828 5829
+"accuracy" 5830 5831
+"indulgence" 5832 5833
+"transitional" 5834 5835
+"determination" 5836 5837
+"realistic emotions" 5838 5839
+"unique" 5840 5841
+"autonomy" 5842 5843
+"socio-cultural influence" 5844 5845
+"provocation" 5846 5847
+"urgency" 5848 5849
+"intensity" 1998 5850
+"philosophy" 5851 5852
+"patientce" 5853 1011
+"attraction" 5854 5855
+"conformity" 5856 5857
+"loyalty" 5858 5859
+"attention-place(outdoor setting)" 5860 5861
+"spirituality" 5862 5863
+"personal experience" 5864 5865
+"image preference" 5866 5867
+"preference" 5868 5869
+"discipline" 5870 5871
+"dedication" 5872 5873
+"preparation" 5874 5875
+"community" 5876 5877
+"body enhancement" 5878 5879
+"aspirational" 5880 5881
+"beliefs" 5882 5883
+"support" 5884 5885
+"addiction" 5886 5887
+"seekers of truth" 5888 5889
+"musicality" 5890 5891
+"emotional extremes" 5892 5893
+"nostalgia" 5894 5895
+"uniqueness" 5896 5897
+"professionalism" 5898 5899
+"balance" 5900 5901
+"introspection" 3296 2490
+"responsibilty" 5686 4569
+"action-perception" 4934 5902
+"exercise" 4072 1092
+"mobility" 5903 2431
+"childhood" 4345 4282
+"exploration" 3714 2578
+"youth target" 5904 5905
+"mode of expression" 4474 4473
+"artistic appeal" 3519 3285
+"musical skill" 5906 3879
+"consideration" 4791 4086
+"health and wellness" 3230 2459
+"athletic" 5907 2088
+"attention-action(looking)" 5908 5908
+"influence" 5596 3966
+"expectation-opposed" 5909 3553
+"judgement" 5910 5911
+"action 3" 5109 1576
+"attentive_place" 5059 5058
+"natural beauty" 3337 4801
+"health and fitness" 4035 4031
+"economics" 5912 5913
+"personal style" 4090 1828
+"celeb Persona" 4238 5914
+"celebirty persona" 5383 5084
+"organization" 3779 3762
+"atttitude 1" 5365 2551
+"unity" 5915 978
+"power dynamic" 4472 4464
+"collaboration" 4935 5916
+"- culture" 5917 5918
+"individualistic" 5152 3719
+"competiveness" 3844 3844
+"entertainment" 4854 740
+"public speaking" 3980 2312
+"attention-physical state" 3848 3503
+"persuasion" 3682 3566
+"consumerism" 5919 1720
+"body enhancing beauty" 3358 1207
+"socio-economic status" 5920 5921
+"creative process" 5459 4812
+"culinary skills" 4284 3256
+"culture elements" 3548 499
+"problem-solving" 4586 1835
+"repetitive" 4163 3456
+"grace" 3462 3460
+"situational relation" 4008 1009
+"comfort" 4906 3777
+"rational thinkers" 4794 2672
+"provactevity" 4695 4696
+"routine" 5242 3458
+"producer style" 4144 1440
+"emotion(happiness)" 5922 5922
+"competency" 3388 1233
+"attitude 4" 3327 1082
+"cognitive preference" 4592 2526
+"cognitive" 4826 4740
+"emotionalism" 3893 3284
+"lyical emphasis" 5481 5175
+"power dynamics" 5221 5608
+"process and progress" 5000 4999
+"expressive" 3783 3764
+"privacy" 5923 4471
+"emotional range" 5924 1791
+"body language" 5487 1823
+"femininity" 4198 3693
+"masculinity" 4196 2604
+"fitness and health" 5925 5926
+"sportsmanship" 3741 2076
+"attention" 5927 440
+"musical inclination" 4382 4373
+"narrative detachment" 5307 5191
+"craftsmanship" 4135 2112
+"positivity" 3708 3615
+"critical thinking" 4190 4732
+"open" 5381 5155
+"passion" 500 5169
+"attitdue 2" 5033 5928
+"attidude 2" 5929 4790
+"teaching" 5656 5251
+"focus on relationship" 5930 5931
+"cultured" 3858 2453
+"flexibility" 4140 4134
+"impatient" 4993 2659
+"portrayal" 3938 1820
+"cerebral" 4782 3371
+"spirit" 5932 1026
+"enjoyment" 5408 1349
+"love-status" 3837 3833
+"fidelity" 5522 3550
+"voice" 4301 2109
+"mindlessness" 5318 3600
+"action-focus" 3330 3328
+"cognition" 3963 3383
+"story motivation" 5933 5934
+"family relationship" 5499 5935
+"persona" 5593 3915
+"storyline" 5936 4446
+"game play" 3657 5937
+"body" 4630 3321
+"personal habits" 3604 3603
+"role in society" 4798 1129
+"patient attitude" 4070 4067
+"attittude 1" 4025 2598
+"attitudes 1" 4615 3815
+"attidtude 1" 5938 5939
+"attention-focus" 4083 5940
+"focus" 5941 5942
+"party relationship" 4950 4307
+"peacefullness" 1010 4825
+"performer" 2106 5302
+"effort" 5943 3731
+"memory" 3967 4292
+"thoughtfulness" 4867 4524
+"attitute 3" 5534 4256
+"attention-place" 3497 5944
+"emotional intensity" 4871 2363
+"attitude 5" 3759 1080
+"goal-orientation" 5945 5946
+"product" 4320 5947
+"color" 5400 5295
+"motivaton" 3288 3235
+"intellect" 5948 5949
+"realistic expectations" 5950 998
+"situation" 5022 5003
+"enlightenment" 5329 5951
+"irresponsibility" 1815 5361
+"scientific" 5952 5953
+"repetition" 5617 1537
+"practicality" 3800 3620
+"transition (activities" 5954 5955
+"interpersonal relations" 315 5956
+"desire" 5104 4450
+"targeting of love" 5957 4161
+"action 2" 4123 1575
+"ambition" 5958 2561
+"rational believer" 5959 5960
+"purpose" 5961 5962
+"relations with others" 4048 5963
+"self-acceptance" 3950 5964
+"relationship to others" 5309 5965
+"generosity" 3443 3315
+"fun" 5966 2425
+"stage presence" 4865 3863
+"action 1" 1574 3898
+"lyrically emphasis" 5121 1260
+"auditory emphasis" 5054 2006
+"physical state" 3435 3303
+"physique" 5647 5235
+"speed" 4777 4054
+"attention-participants" 5390 5388
+"artistic medium" 4391 5967
+"tranquility" 5181 4765
+"presentation" 4885 1690
+"mentality" 5968 5969
+"strong" 4609 3378
