@@ -422,7 +422,10 @@ void TaskManager::OnPhraseAttrs(String res, Task* t) {
 			pp_p = &da.phrase_parts[pp_i];
 		}
 		PhrasePart& pp = *pp_p;
-		ASSERT(pp.attr < 0);
+		
+		// This shouldn't happen
+		if (pp.attr >= 0)
+			continue;
 		
 		line = TrimBoth(line.Mid(a+1));
 		a = line.Find(":");
@@ -508,7 +511,11 @@ void TaskManager::OnPhraseActions(String res, Task* t) {
 			a++;
 			aa.arg = TrimBoth(s.Mid(a,b-a));
 			
-			ASSERT(aa.action.Find("\"") < 0 && aa.arg.Find("\"") < 0);
+			if (aa.action.GetCount() >= 2 && aa.action.Left(1) == "\"" && aa.action.Right(1) == "\"")
+				aa.action = aa.action.Mid(1, aa.action.GetCount()-2);
+			if (aa.arg.GetCount() >= 2 && aa.arg.Left(1) == "\"" && aa.arg.Right(1) == "\"")
+				aa.arg = aa.arg.Mid(1, aa.arg.GetCount()-2);
+			
 			da.actions.GetAdd(aa, actions.Add());
 		}
 		Sort(actions, StdLess<int>());

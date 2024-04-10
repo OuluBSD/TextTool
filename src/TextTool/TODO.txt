@@ -34,6 +34,7 @@ v0.0.1
 	- rename files too
 - phrase analysis: maybe avoid getting data to phrases without previous-phase data
 - fix bug: see database / attributes broken values in empty group name
+	- function to fix those (remove "" and link duplicates)
 - lead parser and analyzer (taxi)
 
 
