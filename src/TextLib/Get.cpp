@@ -1182,6 +1182,9 @@ void TaskManager::GetActionlist(Task* t) {
 		for(int j = 0; j < idx.GetCount(); j++) {
 			ah.arg = idx.GetKey(j);
 			
+			if ((ah.action.GetCount() && ah.action[0] == '\"') || (ah.arg.GetCount() && ah.arg[0] == '\"'))
+				continue;
+			
 			if (iter >= begin && iter < end) {
 				ExportAction& aa = da.actions.GetAdd(ah);
 				

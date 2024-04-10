@@ -508,6 +508,7 @@ void TaskManager::OnPhraseActions(String res, Task* t) {
 			a++;
 			aa.arg = TrimBoth(s.Mid(a,b-a));
 			
+			ASSERT(aa.action.Find("\"") < 0 && aa.arg.Find("\"") < 0);
 			da.actions.GetAdd(aa, actions.Add());
 		}
 		Sort(actions, StdLess<int>());
@@ -828,6 +829,8 @@ void TaskManager::OnActionlistColors(String result, Task* t) {
 		if (clr == black)
 			clr = non_black;
 		
+		if ((ah.action.GetCount() && ah.action[0] == '\"') || (ah.arg.GetCount() && ah.arg[0] == '\"'))
+			continue;
 		ExportAction& aa = da.actions.GetAdd(ah);
 		aa.clr = clr;
 	}
@@ -879,6 +882,7 @@ void TaskManager::OnActionlistAttrs(String result, Task* t) {
 		b = full_action.ReverseFind(")");
 		ah.arg = full_action.Mid(a,b-a);
 		
+		ASSERT(ah.action.Find("\"") != 0 && ah.arg.Find("\"") != 0);
 		ExportAction& ea = da.actions.GetAdd(ah);
 		da.attrs.GetAdd(ath, ea.attr);
 	}
@@ -973,8 +977,10 @@ void TaskManager::OnLineActions(String res, Task* t) {
 				//ap.txt = txt;
 				ap.first_lines = line_idx == 0 && batch.song_begins ? 1 : 0;
 				//Swap(ap.actions, actions);
-				for (const ActionHeader& ah : actions)
+				for (const ActionHeader& ah : actions) {
+					ASSERT(ah.action.Find("\"") != 0 && ah.arg.Find("\"") != 0);
 					da.actions.GetAdd(ah, ap.actions.Add());
+				}
 			}
 		}
 		for(int i = 1; i < ap_is.GetCount(); i++) {

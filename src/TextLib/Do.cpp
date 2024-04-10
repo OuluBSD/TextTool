@@ -200,8 +200,11 @@ void TaskManager::DoActionlist(int ds_i, int fn) {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
-	if (uniq_acts.IsEmpty()) {
+	{
+		uniq_acts.Clear();
 		for (const ActionHeader& ah : da.actions.GetKeys()) {
+			if ((ah.action.GetCount() && ah.action[0] == '\"') || (ah.arg.GetCount() && ah.arg[0] == '\"'))
+				continue;
 			uniq_acts.GetAdd(ah.action).GetAdd(ah.arg, 0)++;
 		}
 		struct Sorter {
@@ -230,8 +233,11 @@ void TaskManager::DoActionlistUsingExisting(int ds_i, int fn) {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.datasets[ds_i];
 	
-	if (uniq_acts.IsEmpty()) {
+	{
+		uniq_acts.Clear();
 		for (const ActionHeader& ah : da.actions.GetKeys()) {
+			if ((ah.action.GetCount() && ah.action[0] == '\"') || (ah.arg.GetCount() && ah.arg[0] == '\"'))
+				continue;
 			uniq_acts.GetAdd(ah.action).GetAdd(ah.arg, 0)++;
 		}
 		struct Sorter {
