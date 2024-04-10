@@ -7341,1022 +7341,1022 @@
 "curiosity(unbiased)" -1 -1 0 -1 0
 "beliefs(believer)" -1 -1 0 -1 0
 "(\"attention-habitual_laughter\(appear comfortable? to entertain?\)\" attit)" -1 -1 0 -1 0
-"physical preference(preference for a healthy lifestyle)" -1 -1 -1 -1 0
-"problem solving strategy(problem)" -1 -1 -1 -1 0
-"problem solving strategy(manipulative or dishonest values)" -1 -1 -1 -1 0
-"relationship(relationship)" -1 -1 -1 -1 0
-"relationship(individuality vs. partnership)" -1 -1 -1 -1 0
-"culture(collectivism)" -1 -1 -1 -1 0
-"situation relation(normative)" -1 -1 -1 -1 0
-"situation relation(non)" -1 -1 -1 -1 0
-"responsibility(irresponsibility)" -1 -1 -1 -1 0
-"social(communication)" -1 -1 -1 -1 0
-"social(independence)" -1 -1 -1 -1 0
-"faith extremes(belief)" -1 -1 -1 -1 0
-"faith extremes(open)" -1 -1 -1 -1 0
-"economic(financial success)" -1 -1 -1 -1 0
-"reality(realistic)" -1 -1 -1 -1 0
-"reality(personal)" -1 -1 -1 -1 0
-"socioeconomic status(socioeconomic status)" -1 -1 -1 -1 0
-"socioeconomic status(personal)" -1 -1 -1 -1 0
-"communication(effective communication)" -1 -1 -1 -1 0
-"communication(ineffective communication)" -1 -1 -1 -1 0
-"average expectations(expectation)" -1 -1 -1 -1 0
-"family(family)" -1 -1 -1 -1 0
-"family(responsibility)" -1 -1 -1 -1 0
-"emotional realism(emotional realism)" -1 -1 -1 -1 0
-"emotional realism(unrealistic expectations)" -1 -1 -1 -1 0
-"authenticity(social media)" -1 -1 -1 -1 0
-"education(education)" -1 -1 -1 -1 0
-"education(alternative)" -1 -1 -1 -1 0
-"mindset(closedness)" -1 -1 -1 -1 0
-"love status(relationship status)" -1 -1 -1 -1 0
-"love status(emotional well)" -1 -1 -1 -1 0
-"group faith(open)" -1 -1 -1 -1 0
-"group faith(close)" -1 -1 -1 -1 0
-"human strength(strength)" -1 -1 -1 -1 0
-"human strength(youthfulness)" -1 -1 -1 -1 0
-"time(flexibility)" -1 -1 -1 -1 0
-"theological opposites(open)" -1 -1 -1 -1 0
-"theological opposites(closed)" -1 -1 -1 -1 0
-"old and new believers(open)" -1 -1 -1 -1 0
-"old and new believers(respect for tradition and rebellion against tradition)" -1 -1 -1 -1 0
-"faith and reason seekers(skepticism)" -1 -1 -1 -1 0
-"transportation(transportation)" -1 -1 -1 -1 0
-"transportation(inconvenience)" -1 -1 -1 -1 0
-"group experience(individual)" -1 -1 -1 -1 0
-"group experience(empathy)" -1 -1 -1 -1 0
-"profession(occupation)" -1 -1 -1 -1 0
-"profession(work)" -1 -1 -1 -1 0
-"truthfulness(truthfulness)" -1 -1 -1 -1 0
-"societal norms(conformity)" -1 -1 -1 -1 0
-"societal norms(non)" -1 -1 -1 -1 0
-"age target(age inclusivity)" -1 -1 -1 -1 0
-"age target(exclusivity)" -1 -1 -1 -1 0
-"health(self)" -1 -1 -1 -1 0
-"attitude 2(optimism)" -1 -1 -1 -1 0
-"sexual preference(conventional norms and outside societal norms)" -1 -1 -1 -1 0
-"sexual preference(monogamy and adventure)" -1 -1 -1 -1 0
-"mainstream(adventurous and open)" -1 -1 -1 -1 0
-"mainstream(comfortable and traditional)" -1 -1 -1 -1 0
-"belief spectrum(belief)" -1 -1 -1 -1 0
-"belief spectrum(open)" -1 -1 -1 -1 0
-"production style(versatile)" -1 -1 -1 -1 0
-"production style(bold)" -1 -1 -1 -1 0
-"wisdom(wisdom)" -1 -1 -1 -1 0
-"gender(gender)" -1 -1 -1 -1 0
-"gender(traditional)" -1 -1 -1 -1 0
-"socioeconomic class(socioeconomic status)" -1 -1 -1 -1 0
-"socioeconomic class(inequality)" -1 -1 -1 -1 0
-"location(location)" -1 -1 -1 -1 0
-"location(distance from home)" -1 -1 -1 -1 0
-"attitude 1(optimism)" -1 -1 -1 -1 0
-"identity(identity)" -1 -1 -1 -1 0
-"identity(individuality)" -1 -1 -1 -1 0
-"creativity(creativity)" -1 -1 -1 -1 0
-"intimacy(intimacy)" -1 -1 -1 -1 0
-"intimacy(distance)" -1 -1 -1 -1 0
-"storymode(emotional impact)" -1 -1 -1 -1 0
-"storymode(detachment)" -1 -1 -1 -1 0
-"physical health(physical well)" -1 -1 -1 -1 0
-"physical health(self)" -1 -1 -1 -1 0
-"understanding(effective communication)" -1 -1 -1 -1 0
-"understanding(miscommunication)" -1 -1 -1 -1 0
-"mental health(mental health struggles and challenges.)" -1 -1 -1 -1 0
-"mental health(mental health awareness and self)" -1 -1 -1 -1 0
-"integrity(authenticity)" -1 -1 -1 -1 0
-"mindfulness(organization)" -1 -1 -1 -1 0
-"leisure activities(conformity)" -1 -1 -1 -1 0
-"leisure activities(individuality)" -1 -1 -1 -1 0
-"expectation-opposed(expectation)" -1 -1 -1 -1 0
-"sexual orientation(sexual orientation acceptance and diversity)" -1 -1 -1 -1 0
-"sexual orientation(fluidity and non)" -1 -1 -1 -1 0
-"career(career fulfillment)" -1 -1 -1 -1 0
-"career(job dissatisfaction)" -1 -1 -1 -1 0
-"audience(popularity)" -1 -1 -1 -1 0
-"audience(individuality)" -1 -1 -1 -1 0
-"attitude 3(hope)" -1 -1 -1 -1 0
-"relationship focus(focused)" -1 -1 -1 -1 0
-"relationship focus(spontaneous)" -1 -1 -1 -1 0
-"maturity(maturity)" -1 -1 -1 -1 0
-"maturity(thoughtfulness)" -1 -1 -1 -1 0
-"emotional state(empathy)" -1 -1 -1 -1 0
-"emotional state(positivity)" -1 -1 -1 -1 0
-"expectation(expectation)" -1 -1 -1 -1 0
-"expectation(authenticity)" -1 -1 -1 -1 0
-"rational thinker(spirituality)" -1 -1 -1 -1 0
-"financial(financial insecurity)" -1 -1 -1 -1 0
-"personal experience(authenticity)" -1 -1 -1 -1 0
-"personal experience(fabrication)" -1 -1 -1 -1 0
-"narrative(narrative)" -1 -1 -1 -1 0
-"food preference(open)" -1 -1 -1 -1 0
-"food preference(traditionalism)" -1 -1 -1 -1 0
-"expectation-conformed(expectation)" -1 -1 -1 -1 0
-"expectation-conformed(flexible mindset)" -1 -1 -1 -1 0
-"action(communication)" -1 -1 -1 -1 0
-"action(isolation)" -1 -1 -1 -1 0
-"patient(impatience)" -1 -1 -1 -1 0
-"target of love(love)" -1 -1 -1 -1 0
-"target of love(indifference)" -1 -1 -1 -1 0
-"religion(religious belief)" -1 -1 -1 -1 0
-"religion(belonging to an organized religion)" -1 -1 -1 -1 0
-"language(multilingualism)" -1 -1 -1 -1 0
-"language(individuality)" -1 -1 -1 -1 0
-"party relation(social)" -1 -1 -1 -1 0
-"party relation(serious)" -1 -1 -1 -1 0
-"mood 1(emotional)" -1 -1 -1 -1 0
-"mood 1(composed)" -1 -1 -1 -1 0
-"personality(humor)" -1 -1 -1 -1 0
-"personality(individuality)" -1 -1 -1 -1 0
-"authentic(anti)" -1 -1 -1 -1 0
-"empathy(empathy)" -1 -1 -1 -1 0
-"perception(thinking critically)" -1 -1 -1 -1 0
-"perception(accepting at face value)" -1 -1 -1 -1 0
-"hobbies(hobbies)" -1 -1 -1 -1 0
-"hobbies(hustle culture)" -1 -1 -1 -1 0
-"occupation(professions involving customer service and social interaction)" -1 -1 -1 -1 0
-"occupation(professions involving a solitary and analytical approach)" -1 -1 -1 -1 0
-"concept(relevance)" -1 -1 -1 -1 0
-"concept(unrealistic)" -1 -1 -1 -1 0
-"humor(humor)" -1 -1 -1 -1 0
-"humor(seriousness)" -1 -1 -1 -1 0
-"happiness(happiness)" -1 -1 -1 -1 0
-"happiness(authenticity)" -1 -1 -1 -1 0
-"preference(familiarity)" -1 -1 -1 -1 0
-"preference(novelty)" -1 -1 -1 -1 0
-"family dynamics(familial relationships)" -1 -1 -1 -1 0
-"family dynamics(individuality vs. conformity)" -1 -1 -1 -1 0
-"society(individualism)" -1 -1 -1 -1 0
-"society(collectivism)" -1 -1 -1 -1 0
-"behaviour(honest)" -1 -1 -1 -1 0
-"behaviour(respectful)" -1 -1 -1 -1 0
-"emotional(emotional intelligence and rational thinking)" -1 -1 -1 -1 0
-"emotional(confidence and pessimism)" -1 -1 -1 -1 0
-"expectation spectrum(expectation)" -1 -1 -1 -1 0
-"corporation relations(anti)" -1 -1 -1 -1 0
-"personal preference(preference for food)" -1 -1 -1 -1 0
-"personal preference(love for sports cars)" -1 -1 -1 -1 0
-"time management(efficiency and inefficiency)" -1 -1 -1 -1 0
-"time management(responsibility and procrastination)" -1 -1 -1 -1 0
-"monetary(financial literacy)" -1 -1 -1 -1 0
-"monetary(financial ignorance)" -1 -1 -1 -1 0
-"employment(ambition)" -1 -1 -1 -1 0
-"memory(remembering)" -1 -1 -1 -1 0
-"memory(mindfulness)" -1 -1 -1 -1 0
-"leisure activity(modern leisure activities)" -1 -1 -1 -1 0
-"leisure activity(traditional leisure activities)" -1 -1 -1 -1 0
-"emotion realism(emotionality)" -1 -1 -1 -1 0
-"emotion realism(positivity)" -1 -1 -1 -1 0
-"expression(explicitness)" -1 -1 -1 -1 0
-"family relations(close relationships)" -1 -1 -1 -1 0
-"family relations(estranged relationships)" -1 -1 -1 -1 0
-"trust(honesty)" -1 -1 -1 -1 0
-"intelligence(curiosity)" -1 -1 -1 -1 0
-"lyrical emphasis(emotional restraint)" -1 -1 -1 -1 0
-"artistic expression(individuality)" -1 -1 -1 -1 0
-"artistic expression(conformity)" -1 -1 -1 -1 0
-"concepts(logical)" -1 -1 -1 -1 0
-"work ethic(work ethic)" -1 -1 -1 -1 0
-"morality(morality)" -1 -1 -1 -1 0
-"morality(integrity)" -1 -1 -1 -1 0
-"productivity(productivity)" -1 -1 -1 -1 0
-"productivity(efficiency)" -1 -1 -1 -1 0
-"source of inspiration(relevancy)" -1 -1 -1 -1 0
-"familial relationships(disagreements and conflicts)" -1 -1 -1 -1 0
-"lifestyle(introverted)" -1 -1 -1 -1 0
-"honesty(honesty)" -1 -1 -1 -1 0
-"honesty(deception)" -1 -1 -1 -1 0
-"pet ownership(pet ownership)" -1 -1 -1 -1 0
-"pet ownership(attitude towards pets)" -1 -1 -1 -1 0
-"goal-oriented(goal)" -1 -1 -1 -1 0
-"goal-oriented(achievement)" -1 -1 -1 -1 0
-"attentiveness(attentiveness)" -1 -1 -1 -1 0
-"celebration(emotionality)" -1 -1 -1 -1 0
-"celebration(objectivity)" -1 -1 -1 -1 0
-"body positivity(inclusivity)" -1 -1 -1 -1 0
-"body positivity(body shaming)" -1 -1 -1 -1 0
-"academic achievement(success)" -1 -1 -1 -1 0
-"technology(efficiency)" -1 -1 -1 -1 0
-"technology(inconvenience)" -1 -1 -1 -1 0
-"family relationships(communication)" -1 -1 -1 -1 0
-"family relationships(conflict resolution)" -1 -1 -1 -1 0
-"efficiency(efficiency)" -1 -1 -1 -1 0
-"beliefs(nostalgia for childhood and reminiscing about good memories with friends)" -1 -1 -1 -1 0
-"beliefs(skepticism and belief)" -1 -1 -1 -1 0
-"work(work)" -1 -1 -1 -1 0
-"work(stress management)" -1 -1 -1 -1 0
-"relationships(connection)" -1 -1 -1 -1 0
-"relationships(independence)" -1 -1 -1 -1 0
-"freedom(freedom)" -1 -1 -1 -1 0
-"curiosity(open)" -1 -1 -1 -1 0
-"curiosity(close)" -1 -1 -1 -1 0
-"travel(cultural diversity)" -1 -1 -1 -1 0
-"travel(isolationism)" -1 -1 -1 -1 0
-"personal interests(interests)" -1 -1 -1 -1 0
-"personal interests(disinterests)" -1 -1 -1 -1 0
-"socio-economic status(materialism)" -1 -1 -1 -1 0
-"socio-economic status(status)" -1 -1 -1 -1 0
-"friendship(open)" -1 -1 -1 -1 0
-"friendship(close)" -1 -1 -1 -1 0
-"nostalgia(relevance)" -1 -1 -1 -1 0
-"consumer behavior(spontaneity)" -1 -1 -1 -1 0
-"consumer behavior(self)" -1 -1 -1 -1 0
-"emotions(complexity)" -1 -1 -1 -1 0
-"emotions(transparency)" -1 -1 -1 -1 0
-"success(success)" -1 -1 -1 -1 0
-"financial situation(financial stability)" -1 -1 -1 -1 0
-"financial situation(money management)" -1 -1 -1 -1 0
-"spirituality(spiritual beliefs)" -1 -1 -1 -1 0
-"spirituality(rationality)" -1 -1 -1 -1 0
-"physical activity(physical activity)" -1 -1 -1 -1 0
-"physical activity(socialization)" -1 -1 -1 -1 0
-"theatre/performing arts(engaging)" -1 -1 -1 -1 0
-"theatre/performing arts(authentic)" -1 -1 -1 -1 0
-"imagination(creative expression)" -1 -1 -1 -1 0
-"imagination(practicality)" -1 -1 -1 -1 0
-"peacefulness(peacefulness)" -1 -1 -1 -1 0
-"language and communication(effective communication)" -1 -1 -1 -1 0
-"language and communication(ineffective communication)" -1 -1 -1 -1 0
-"temporal information(time)" -1 -1 -1 -1 0
-"temporal information(evening\).)" -1 -1 -1 -1 0
-"achievement(independence)" -1 -1 -1 -1 0
-"conflict resolution(effective communication)" -1 -1 -1 -1 0
-"conflict resolution(hostile communication)" -1 -1 -1 -1 0
-"rational belief(evidence)" -1 -1 -1 -1 0
-"atmosphere(comfortable)" -1 -1 -1 -1 0
-"romantic couple(connectedness)" -1 -1 -1 -1 0
-"romantic couple(isolation)" -1 -1 -1 -1 0
-"personal growth(self)" -1 -1 -1 -1 0
-"personal growth(complacency)" -1 -1 -1 -1 0
-"mental state(emotional well)" -1 -1 -1 -1 0
-"mental state(mental distress)" -1 -1 -1 -1 0
-"intellectual(intellectually curious)" -1 -1 -1 -1 0
-"intellectual(culturally aware)" -1 -1 -1 -1 0
-"expectancy(expectation)" -1 -1 -1 -1 0
-"expectancy(conformity)" -1 -1 -1 -1 0
-"financial preference(mindful spending)" -1 -1 -1 -1 0
-"financial preference(financial stability)" -1 -1 -1 -1 0
-"socio-political stances(pragmatism)" -1 -1 -1 -1 0
-"socio-political stances(open)" -1 -1 -1 -1 0
-"social interaction(communication)" -1 -1 -1 -1 0
-"social interaction(isolation)" -1 -1 -1 -1 0
-"relationship status(relationship status)" -1 -1 -1 -1 0
-"relationship status(emotional state)" -1 -1 -1 -1 0
-"rational thinkers(rationality)" -1 -1 -1 -1 0
-"rational thinkers(intuition)" -1 -1 -1 -1 0
-"attraction(open)" -1 -1 -1 -1 0
-"attraction(acceptance)" -1 -1 -1 -1 0
-"story-motivation(narrative)" -1 -1 -1 -1 0
-"fear(fearful)" -1 -1 -1 -1 0
-"fear(confident)" -1 -1 -1 -1 0
-"visual preference(aesthetic appeal)" -1 -1 -1 -1 0
-"visual preference(eccentricity)" -1 -1 -1 -1 0
-"socio mind(lightheartedness)" -1 -1 -1 -1 0
-"socio mind(depth)" -1 -1 -1 -1 0
-"aspiration(relatability)" -1 -1 -1 -1 0
-"complexity(clarity)" -1 -1 -1 -1 0
-"complexity(directness)" -1 -1 -1 -1 0
-"physical appearance(physical appearance)" -1 -1 -1 -1 0
-"physical appearance(fitness level)" -1 -1 -1 -1 0
-"authencity(social)" -1 -1 -1 -1 0
-"individualistic(individuality)" -1 -1 -1 -1 0
-"individualistic(autonomy)" -1 -1 -1 -1 0
-"mood 3(positive)" -1 -1 -1 -1 0
-"sophisticated(sophistication)" -1 -1 -1 -1 0
-"sophisticated(simplicity)" -1 -1 -1 -1 0
-"desire(conformity)" -1 -1 -1 -1 0
-"desire(individualism)" -1 -1 -1 -1 0
-"confidence(assurance)" -1 -1 -1 -1 0
-"age(young)" -1 -1 -1 -1 0
-"age(mature)" -1 -1 -1 -1 0
-"emotion\(frustration\)(emotion)" -1 -1 -1 -1 0
-"emotion\(frustration\)(attention)" -1 -1 -1 -1 0
-"item preference(practicality)" -1 -1 -1 -1 0
-"item preference(luxury)" -1 -1 -1 -1 0
-"loyalty(trustworthy)" -1 -1 -1 -1 0
-"loyalty(untrustworthy)" -1 -1 -1 -1 0
-"cultural celebration(engaging)" -1 -1 -1 -1 0
-"cultural celebration(dull)" -1 -1 -1 -1 0
-"habit(active)" -1 -1 -1 -1 0
-"altruism(altruism)" -1 -1 -1 -1 0
-"altruism(selfishness)" -1 -1 -1 -1 0
-"conceptual(open)" -1 -1 -1 -1 0
-"conceptual(authenticity)" -1 -1 -1 -1 0
-"identification(inclusivity)" -1 -1 -1 -1 0
-"identification(non)" -1 -1 -1 -1 0
-"question(curiosity)" -1 -1 -1 -1 0
-"question(self)" -1 -1 -1 -1 0
-"fear and worry(emotional)" -1 -1 -1 -1 0
-"fear and worry(unpredictable)" -1 -1 -1 -1 0
-"sports(active)" -1 -1 -1 -1 0
-"sports(competitiveness)" -1 -1 -1 -1 0
-"sexuality(openness)" -1 -1 -1 -1 0
-"sexuality(closed)" -1 -1 -1 -1 0
-"technical innovation(relevance and irrelevance)" -1 -1 -1 -1 0
-"technical innovation(progression and stagnation)" -1 -1 -1 -1 0
-"physical age(youthful)" -1 -1 -1 -1 0
-"physical age(casual)" -1 -1 -1 -1 0
-"specific interest(shared experiences and memories)" -1 -1 -1 -1 0
-"specific interest(novelty and innovation)" -1 -1 -1 -1 0
-"celebrity persona(anti)" -1 -1 -1 -1 0
-"mentality(open)" -1 -1 -1 -1 0
-"mentality(optimistic and pessimistic)" -1 -1 -1 -1 0
-"portrayal of human emotions(positive emotions)" -1 -1 -1 -1 0
-"portrayal of human emotions(negative emotions)" -1 -1 -1 -1 0
-"job(technology)" -1 -1 -1 -1 0
-"job(nature)" -1 -1 -1 -1 0
-"physical ability(fitness)" -1 -1 -1 -1 0
-"physical ability(adaptability)" -1 -1 -1 -1 0
-"competency(effective)" -1 -1 -1 -1 0
-"competency(ineffective)" -1 -1 -1 -1 0
-"motive(personal growth)" -1 -1 -1 -1 0
-"motive(social impact)" -1 -1 -1 -1 0
-"attention-place\(outside\)(attention)" -1 -1 -1 -1 0
-"seekers of truth(open)" -1 -1 -1 -1 0
-"seekers of truth(skepticism)" -1 -1 -1 -1 0
-"gratitude(gratitude)" -1 -1 -1 -1 0
-"gratitude(discontent)" -1 -1 -1 -1 0
-"cleanliness(neatness)" -1 -1 -1 -1 0
-"cleanliness(order)" -1 -1 -1 -1 0
-"romantic relationship(intimacy)" -1 -1 -1 -1 0
-"romantic relationship(distance)" -1 -1 -1 -1 0
-"cultural preservation(culture preservation)" -1 -1 -1 -1 0
-"intention(inclusivity)" -1 -1 -1 -1 0
-"intention(authenticity)" -1 -1 -1 -1 0
-"food preferences(food preference)" -1 -1 -1 -1 0
-"food preferences(polarization)" -1 -1 -1 -1 0
-"recreational activity(indoor activities)" -1 -1 -1 -1 0
-"recreational activity(outdoor activities)" -1 -1 -1 -1 0
-"experience(experience)" -1 -1 -1 -1 0
-"experience(inexperience)" -1 -1 -1 -1 0
-"demographic(age)" -1 -1 -1 -1 0
-"demographic(generation)" -1 -1 -1 -1 0
-"exploration(adventure)" -1 -1 -1 -1 0
-"exploration(authenticity)" -1 -1 -1 -1 0
-"belief extremes(personal)" -1 -1 -1 -1 0
-"belief extremes(group)" -1 -1 -1 -1 0
-"psychological state(empathy)" -1 -1 -1 -1 0
-"psychological state(apathy)" -1 -1 -1 -1 0
-"media consumption(pop culture references)" -1 -1 -1 -1 0
-"media consumption(intellectual discussions)" -1 -1 -1 -1 0
-"positive attitude(positive attitude)" -1 -1 -1 -1 0
-"positive attitude(openness)" -1 -1 -1 -1 0
-"evidence(belief)" -1 -1 -1 -1 0
-"evidence(perception)" -1 -1 -1 -1 0
-"generosity(generosity)" -1 -1 -1 -1 0
-"media influence(influence)" -1 -1 -1 -1 0
-"media influence(negativity)" -1 -1 -1 -1 0
-"social relationships(open)" -1 -1 -1 -1 0
-"social relationships(close)" -1 -1 -1 -1 0
-"kindness(kindness)" -1 -1 -1 -1 0
-"kindness(indifference)" -1 -1 -1 -1 0
-"competitiveness(individuality)" -1 -1 -1 -1 0
-"competence(confidence)" -1 -1 -1 -1 0
-"competence(competence)" -1 -1 -1 -1 0
-"belief groups(personal growth)" -1 -1 -1 -1 0
-"belief groups(open)" -1 -1 -1 -1 0
-"clarity(clear)" -1 -1 -1 -1 0
-"clarity(direct)" -1 -1 -1 -1 0
-"attitudes(openness)" -1 -1 -1 -1 0
-"attitudes(optimism)" -1 -1 -1 -1 0
-"offering help(helpfulness)" -1 -1 -1 -1 0
-"offering help(indifference)" -1 -1 -1 -1 0
-"independent(autonomy)" -1 -1 -1 -1 0
-"independent(self)" -1 -1 -1 -1 0
-"cognition(innovation)" -1 -1 -1 -1 0
-"cognition(tradition)" -1 -1 -1 -1 0
-"behavior(clear and direct communication)" -1 -1 -1 -1 0
-"behavior(respect for boundaries and personal space)" -1 -1 -1 -1 0
-"activity(communication)" -1 -1 -1 -1 0
-"activity(isolation)" -1 -1 -1 -1 0
-"natural disasters(casual)" -1 -1 -1 -1 0
-"natural disasters(formal)" -1 -1 -1 -1 0
-"invitation(inclusion)" -1 -1 -1 -1 0
-"invitation(exclusivity)" -1 -1 -1 -1 0
-"expectation extremes(open)" -1 -1 -1 -1 0
-"expectation extremes(flexibility and rigidity)" -1 -1 -1 -1 0
-"academic(diligence)" -1 -1 -1 -1 0
-"academic(laziness)" -1 -1 -1 -1 0
-"socio-economic(individualism)" -1 -1 -1 -1 0
-"socio-economic(progressiveness)" -1 -1 -1 -1 0
-"positivity(emotional well)" -1 -1 -1 -1 0
-"positivity(negativity and pessimism)" -1 -1 -1 -1 0
-"realistic emotions(authenticity)" -1 -1 -1 -1 0
-"realistic emotions(deception)" -1 -1 -1 -1 0
-"mood 4(lighthearted)" -1 -1 -1 -1 0
-"mood 4(relatable)" -1 -1 -1 -1 0
-"acceptance(acceptance and non)" -1 -1 -1 -1 0
-"acceptance(open)" -1 -1 -1 -1 0
-"socio-relations(cooperation)" -1 -1 -1 -1 0
-"socio-relations(competition)" -1 -1 -1 -1 0
-"courage(responsibility)" -1 -1 -1 -1 0
-"courage(courage)" -1 -1 -1 -1 0
-"physical description(physical appearance and characteristics)" -1 -1 -1 -1 0
-"physical description(perception and expression of safety)" -1 -1 -1 -1 0
-"energy(active)" -1 -1 -1 -1 0
-"energy(confident)" -1 -1 -1 -1 0
-"living situation(independence)" -1 -1 -1 -1 0
-"living situation(dependence)" -1 -1 -1 -1 0
-"existentialism(authenticity)" -1 -1 -1 -1 0
-"existentialism(inauthenticity)" -1 -1 -1 -1 0
-"interests(communication)" -1 -1 -1 -1 0
-"interests(isolation)" -1 -1 -1 -1 0
-"transparency(transparency and mysteriousness)" -1 -1 -1 -1 0
-"transparency(communication and mystery)" -1 -1 -1 -1 0
-"lifelong learning(open)" -1 -1 -1 -1 0
-"lifelong learning(closed)" -1 -1 -1 -1 0
-"context(emotion)" -1 -1 -1 -1 0
-"context(rationality)" -1 -1 -1 -1 0
-"family loss(discussion)" -1 -1 -1 -1 0
-"family loss(sharing)" -1 -1 -1 -1 0
-"academic performance(academic performance)" -1 -1 -1 -1 0
-"academic performance(low academic performance)" -1 -1 -1 -1 0
-"mood 5(openness)" -1 -1 -1 -1 0
-"mood 5(formality)" -1 -1 -1 -1 0
-"practicality(challenge)" -1 -1 -1 -1 0
-"accountability(responsibility)" -1 -1 -1 -1 0
-"accountability(recklessness)" -1 -1 -1 -1 0
-"profession/interest(multifaceted individual)" -1 -1 -1 -1 0
-"profession/interest(single)" -1 -1 -1 -1 0
-"individual strength(confident)" -1 -1 -1 -1 0
-"individual strength(authentic)" -1 -1 -1 -1 0
-"event(connection)" -1 -1 -1 -1 0
-"event(disconnection)" -1 -1 -1 -1 0
-"introspective(introspective)" -1 -1 -1 -1 0
-"introspective(serious)" -1 -1 -1 -1 0
-"education and learning(continuous learning)" -1 -1 -1 -1 0
-"education and learning(ignorance)" -1 -1 -1 -1 0
-"appearance(appearance)" -1 -1 -1 -1 0
-"appearance(self)" -1 -1 -1 -1 0
-"image(personal)" -1 -1 -1 -1 0
-"image(collaborative)" -1 -1 -1 -1 0
-"communication method(digital communication)" -1 -1 -1 -1 0
-"communication method(face)" -1 -1 -1 -1 0
-"relaxation(relaxation)" -1 -1 -1 -1 0
-"relaxation(stress)" -1 -1 -1 -1 0
-"aspirations(aspirations)" -1 -1 -1 -1 0
-"aspirations(contentment)" -1 -1 -1 -1 0
-"environment(environment)" -1 -1 -1 -1 0
-"goal orientation(motivated)" -1 -1 -1 -1 0
-"goal orientation(driven)" -1 -1 -1 -1 0
-"youth-oriented(inclusion)" -1 -1 -1 -1 0
-"youth-oriented(exclusivity)" -1 -1 -1 -1 0
-"narrativity(narrativity)" -1 -1 -1 -1 0
-"narrativity(non)" -1 -1 -1 -1 0
-"consumerism(focus on individual success and material wealth)" -1 -1 -1 -1 0
-"consumerism(prioritizing communal collaboration and non)" -1 -1 -1 -1 0
-"self-expression(self)" -1 -1 -1 -1 0
-"self-expression(conformity)" -1 -1 -1 -1 0
-"politeness(politeness)" -1 -1 -1 -1 0
-"politeness(rudeness)" -1 -1 -1 -1 0
-"leadership(open)" -1 -1 -1 -1 0
-"leadership(inclusive)" -1 -1 -1 -1 0
-"celebrity persona(authenticity)" -1 -1 -1 -1 0
-"problem-solving strategy(efficiency)" -1 -1 -1 -1 0
-"problem-solving strategy(carelessness)" -1 -1 -1 -1 0
-"ethics(empathy)" -1 -1 -1 -1 0
-"ethics(indifference)" -1 -1 -1 -1 0
-"ambition(progression)" -1 -1 -1 -1 0
-"ambition(resistance)" -1 -1 -1 -1 0
-"professional career(employment)" -1 -1 -1 -1 0
-"professional career(success)" -1 -1 -1 -1 0
-"travel preferences(modernity)" -1 -1 -1 -1 0
-"travel preferences(tradition)" -1 -1 -1 -1 0
-"household chore(productivity)" -1 -1 -1 -1 0
-"household chore(responsibility)" -1 -1 -1 -1 0
-"consumer experience(inclusivity)" -1 -1 -1 -1 0
-"consumer experience(exclusivity)" -1 -1 -1 -1 0
-"teamwork(communication)" -1 -1 -1 -1 0
-"teamwork(independence)" -1 -1 -1 -1 0
-"competition(interaction)" -1 -1 -1 -1 0
-"competition(isolation)" -1 -1 -1 -1 0
-"technological(\"digital\")" -1 -1 -1 -1 0
-"technological(\"analog\")" -1 -1 -1 -1 0
-"individual strengths(confidence and humility)" -1 -1 -1 -1 0
-"individual strengths(empathy and self)" -1 -1 -1 -1 0
-"cultural interest(open)" -1 -1 -1 -1 0
-"cultural interest(closed)" -1 -1 -1 -1 0
-"mindsets(inquisitive)" -1 -1 -1 -1 0
-"mindsets(creative)" -1 -1 -1 -1 0
-"romantic relationships(communication)" -1 -1 -1 -1 0
-"romantic relationships(silence)" -1 -1 -1 -1 0
-"emotional attachment(emotional attachment and detachment)" -1 -1 -1 -1 0
-"emotional attachment(individual focus and partner focus)" -1 -1 -1 -1 0
-"appreciation(positivity)" -1 -1 -1 -1 0
-"appreciation(openness)" -1 -1 -1 -1 0
-"media representation(inclusion)" -1 -1 -1 -1 0
-"media representation(exclusion)" -1 -1 -1 -1 0
-"pet preference(affirmative)" -1 -1 -1 -1 0
-"pet preference(negative)" -1 -1 -1 -1 0
-"personal well-being(health and wellness)" -1 -1 -1 -1 0
-"personal well-being(burnout and overwork)" -1 -1 -1 -1 0
-"skill(adaptability)" -1 -1 -1 -1 0
-"skill(inflexibility)" -1 -1 -1 -1 0
-"hobby(active hobbies)" -1 -1 -1 -1 0
-"hobby(sedentary hobbies)" -1 -1 -1 -1 0
-"realism(authenticity)" -1 -1 -1 -1 0
-"realism(deception)" -1 -1 -1 -1 0
-"interaction(rudeness)" -1 -1 -1 -1 0
-"family relationship(family relationship)" -1 -1 -1 -1 0
-"family relationship(language)" -1 -1 -1 -1 0
-"feeling(emotions)" -1 -1 -1 -1 0
-"feeling(positivity)" -1 -1 -1 -1 0
-"work-life balance(work)" -1 -1 -1 -1 0
-"work-life balance(finding joy in work and dissatisfaction)" -1 -1 -1 -1 0
-"moral(open)" -1 -1 -1 -1 0
-"moral(closed)" -1 -1 -1 -1 0
-"work preference(flexibility vs rigidity)" -1 -1 -1 -1 0
-"work preference(independence vs dependence)" -1 -1 -1 -1 0
-"emotional experience(communication)" -1 -1 -1 -1 0
-"emotional experience(disconnection)" -1 -1 -1 -1 0
-"gender roles(gender equality – traditional gender roles)" -1 -1 -1 -1 0
-"gender roles(collaboration – individualism)" -1 -1 -1 -1 0
-"enjoyment(enjoyment)" -1 -1 -1 -1 0
-"enjoyment(disinterest)" -1 -1 -1 -1 0
-"life stages(progression)" -1 -1 -1 -1 0
-"life stages(stagnation)" -1 -1 -1 -1 0
-"hierarchy(hierarchy)" -1 -1 -1 -1 0
-"hierarchy(equality)" -1 -1 -1 -1 0
-"geographical preference(climate preference)" -1 -1 -1 -1 0
-"geographical preference(geographical loyalty)" -1 -1 -1 -1 0
-"individuality(independence)" -1 -1 -1 -1 0
-"individual-oriented(individuality)" -1 -1 -1 -1 0
-"individual-oriented(conformity)" -1 -1 -1 -1 0
-"individualism(independence)" -1 -1 -1 -1 0
-"individualism(interdependence)" -1 -1 -1 -1 0
-"provocative(provocative)" -1 -1 -1 -1 0
-"social interactions(communication)" -1 -1 -1 -1 0
-"social interactions(disagreement)" -1 -1 -1 -1 0
-"intelligent(rational)" -1 -1 -1 -1 0
-"rationalist(rationality)" -1 -1 -1 -1 0
-"rationalist(irrationality)" -1 -1 -1 -1 0
-"romantic love(love)" -1 -1 -1 -1 0
-"romantic love(disconnection)" -1 -1 -1 -1 0
-"emotional attitude(emotionality)" -1 -1 -1 -1 0
-"emotional attitude(rationality)" -1 -1 -1 -1 0
-"mood(positivity)" -1 -1 -1 -1 0
-"mood(heaviness)" -1 -1 -1 -1 0
-"socio-political(progressive)" -1 -1 -1 -1 0
-"socio-political(open)" -1 -1 -1 -1 0
-"economic status(open)" -1 -1 -1 -1 0
-"economic status(inclusive)" -1 -1 -1 -1 0
-"parental love(unconditional love)" -1 -1 -1 -1 0
-"parental love(tough love)" -1 -1 -1 -1 0
-"reliability(trustworthiness)" -1 -1 -1 -1 0
-"social hierarchy(hierarchy)" -1 -1 -1 -1 0
-"economical(open)" -1 -1 -1 -1 0
-"economical(close)" -1 -1 -1 -1 0
-"emotional commitment(authenticity)" -1 -1 -1 -1 0
-"emotional commitment(deception)" -1 -1 -1 -1 0
-"language and culture(communication)" -1 -1 -1 -1 0
-"language and culture(inclusivity)" -1 -1 -1 -1 0
-"narration(narrative approach)" -1 -1 -1 -1 0
-"narration(detached communication)" -1 -1 -1 -1 0
-"entertainment value(engaging and entertaining)" -1 -1 -1 -1 0
-"entertainment value(serious and meaningful)" -1 -1 -1 -1 0
-"job satisfaction(satisfaction vs dissatisfaction)" -1 -1 -1 -1 0
-"job satisfaction(positive vs negative)" -1 -1 -1 -1 0
-"socio-political attitudes(close)" -1 -1 -1 -1 0
-"triality(openness)" -1 -1 -1 -1 0
-"triality(pessimism)" -1 -1 -1 -1 0
-"life outlook(positivity)" -1 -1 -1 -1 0
-"life outlook(negativity)" -1 -1 -1 -1 0
-"societal attitudes(positive mindset)" -1 -1 -1 -1 0
-"societal attitudes(negative mindset)" -1 -1 -1 -1 0
-"individual spirituality(open)" -1 -1 -1 -1 0
-"individual spirituality(close)" -1 -1 -1 -1 0
-"focus(focused)" -1 -1 -1 -1 0
-"perspective(transparency and honesty)" -1 -1 -1 -1 0
-"perspective(escapism and avoidance of difficult topics)" -1 -1 -1 -1 0
-"transition(adaptability)" -1 -1 -1 -1 0
-"transition(rigidity)" -1 -1 -1 -1 0
-"nature(open)" -1 -1 -1 -1 0
-"nature(close)" -1 -1 -1 -1 0
-"food(conversation topics)" -1 -1 -1 -1 0
-"food(conversation tone)" -1 -1 -1 -1 0
-"self-esteem(self)" -1 -1 -1 -1 0
-"self-esteem(insecurity)" -1 -1 -1 -1 0
-"autonomy(autonomy)" -1 -1 -1 -1 0
-"autonomy(flexibility)" -1 -1 -1 -1 0
-"work and career(ambition)" -1 -1 -1 -1 0
-"work and career(success)" -1 -1 -1 -1 0
-"realistic(authenticity)" -1 -1 -1 -1 0
-"realistic(facade)" -1 -1 -1 -1 0
-"peacefullness(honesty)" -1 -1 -1 -1 0
-"peacefullness(respect)" -1 -1 -1 -1 0
-"transition\(activities(casual conversation)" -1 -1 -1 -1 0
-"transition\(activities(spontaneity)" -1 -1 -1 -1 0
-"romantic status(self)" -1 -1 -1 -1 0
-"location preference(open)" -1 -1 -1 -1 0
-"location preference(tolerance)" -1 -1 -1 -1 0
-"rational beliefers(open)" -1 -1 -1 -1 0
-"rational beliefers(closed)" -1 -1 -1 -1 0
-"family bonds(connection)" -1 -1 -1 -1 0
-"family bonds(disconnection)" -1 -1 -1 -1 0
-"self-acceptance(self)" -1 -1 -1 -1 0
-"name(self)" -1 -1 -1 -1 0
-"purpose(pragmatism)" -1 -1 -1 -1 0
-"purpose(idealism)" -1 -1 -1 -1 0
-"storytelling(engaging storytelling)" -1 -1 -1 -1 0
-"storytelling(dispassionate detachment)" -1 -1 -1 -1 0
-"seeker of truth(open)" -1 -1 -1 -1 0
-"seeker of truth(close)" -1 -1 -1 -1 0
-"social norms(social conformity)" -1 -1 -1 -1 0
-"social norms(authenticity)" -1 -1 -1 -1 0
-"safety precautions(safety)" -1 -1 -1 -1 0
-"safety precautions(risk)" -1 -1 -1 -1 0
-"family focus(parenthood)" -1 -1 -1 -1 0
-"family focus(independence)" -1 -1 -1 -1 0
-"strength(confidence)" -1 -1 -1 -1 0
-"strength(strength)" -1 -1 -1 -1 0
-"media and entertainment(entertainment)" -1 -1 -1 -1 0
-"media and entertainment(mainstream)" -1 -1 -1 -1 0
-"introspection(reflective)" -1 -1 -1 -1 0
-"introspection(impulsive)" -1 -1 -1 -1 0
-"school schedule(efficiency)" -1 -1 -1 -1 0
-"school schedule(procrastination)" -1 -1 -1 -1 0
-"body aesthetics(open)" -1 -1 -1 -1 0
-"body aesthetics(traditionalism)" -1 -1 -1 -1 0
-"imagery(relevant)" -1 -1 -1 -1 0
-"imagery(authentic)" -1 -1 -1 -1 0
-"portrayal of computer technology(relevant)" -1 -1 -1 -1 0
-"portrayal of computer technology(practical)" -1 -1 -1 -1 0
-"physical(transparency)" -1 -1 -1 -1 0
-"physical(secrecy)" -1 -1 -1 -1 0
-"individual experience(authenticity)" -1 -1 -1 -1 0
-"individual experience(artificiality)" -1 -1 -1 -1 0
-"financial status(struggling)" -1 -1 -1 -1 0
-"interpersonal support(empathy)" -1 -1 -1 -1 0
-"interpersonal support(disconnection)" -1 -1 -1 -1 0
-"physical attribute(appearance)" -1 -1 -1 -1 0
-"physical attribute(nonchalance)" -1 -1 -1 -1 0
-"attribute group not listed(authenticity)" -1 -1 -1 -1 0
-"attribute group not listed(formality)" -1 -1 -1 -1 0
-"well my journey through the college education system i should of mentioned(open)" -1 -1 -1 -1 0
-"well my journey through the college education system i should of mentioned(close)" -1 -1 -1 -1 0
-"traditional stereotype(judgment)" -1 -1 -1 -1 0
-"traditional stereotype(acceptance)" -1 -1 -1 -1 0
-"agreement(preference for convenience and comfort in daily tasks)" -1 -1 -1 -1 0
-"agreement(aversion to manual labor and cleaning duties)" -1 -1 -1 -1 0
-"cultural pride(patriotism)" -1 -1 -1 -1 0
-"cultural pride(cultural appropriation)" -1 -1 -1 -1 0
-"privacy concerns(security)" -1 -1 -1 -1 0
-"privacy concerns(transparency)" -1 -1 -1 -1 0
-"political views(political engagement)" -1 -1 -1 -1 0
-"political views(political apathy)" -1 -1 -1 -1 0
-"cynicism(sarcasm)" -1 -1 -1 -1 0
-"cynicism(sincerity)" -1 -1 -1 -1 0
-"romantic competition(respectful communication)" -1 -1 -1 -1 0
-"romantic competition(manipulative behavior)" -1 -1 -1 -1 0
-"societal(open)" -1 -1 -1 -1 0
-"societal(closed)" -1 -1 -1 -1 0
-"interest in sports(being well)" -1 -1 -1 -1 0
-"interest in sports(having a growth mindset and being open to learning and new ideas)" -1 -1 -1 -1 0
-"responsible(accountability)" -1 -1 -1 -1 0
-"responsible(irresponsibility)" -1 -1 -1 -1 0
-"sex appeal(expressiveness)" -1 -1 -1 -1 0
-"sex appeal(modesty)" -1 -1 -1 -1 0
-"resilience(confidence)" -1 -1 -1 -1 0
-"resilience(vulnerability)" -1 -1 -1 -1 0
-"personal finance(financial responsibility)" -1 -1 -1 -1 0
-"personal finance(financial recklessness)" -1 -1 -1 -1 0
-"gift giving(gratitude)" -1 -1 -1 -1 0
-"gift giving(self)" -1 -1 -1 -1 0
-"parental role(neglectful)" -1 -1 -1 -1 0
-"music(music)" -1 -1 -1 -1 0
-"music(silence)" -1 -1 -1 -1 0
-"openness(openness)" -1 -1 -1 -1 0
-"attitute 1(formal)" -1 -1 -1 -1 0
-"attitute 1(casual)" -1 -1 -1 -1 0
-"status(availability)" -1 -1 -1 -1 0
-"status(unavailability)" -1 -1 -1 -1 0
-"trustworthiness(sincerity)" -1 -1 -1 -1 0
-"trustworthiness(deception)" -1 -1 -1 -1 0
-"humility(confidence and humility)" -1 -1 -1 -1 0
-"humility(arrogance and humility)" -1 -1 -1 -1 0
-"tradition(relevance)" -1 -1 -1 -1 0
-"tradition(authenticity)" -1 -1 -1 -1 0
-"economics(political ideology)" -1 -1 -1 -1 0
-"economics(liberal)" -1 -1 -1 -1 0
-"corporate relations(collaboration)" -1 -1 -1 -1 0
-"corporate relations(individualism)" -1 -1 -1 -1 0
-"positive experience(positive)" -1 -1 -1 -1 0
-"positive experience(negative)" -1 -1 -1 -1 0
-"general beliefs(honesty)" -1 -1 -1 -1 0
-"general beliefs(deception)" -1 -1 -1 -1 0
-"commitment(commitment)" -1 -1 -1 -1 0
-"commitment(unreliable)" -1 -1 -1 -1 0
-"persistence(persistence)" -1 -1 -1 -1 0
-"spiritual seekers(open)" -1 -1 -1 -1 0
-"spiritual seekers(close)" -1 -1 -1 -1 0
-"theology(open)" -1 -1 -1 -1 0
-"theology(close)" -1 -1 -1 -1 0
-"sincerity(authenticity)" -1 -1 -1 -1 0
-"sincerity(deception)" -1 -1 -1 -1 0
-"entertainment(common attribute)" -1 -1 -1 -1 0
-"entertainment(polar opposite)" -1 -1 -1 -1 0
-"culinary preference(dietary preferences)" -1 -1 -1 -1 0
-"culinary preference(food preferences)" -1 -1 -1 -1 0
-"socialization(enjoying social interactions and connections with others)" -1 -1 -1 -1 0
-"socialization(valuing personal boundaries and respectful communication.)" -1 -1 -1 -1 0
-"ethical extremes(honesty)" -1 -1 -1 -1 0
-"ethical extremes(deception)" -1 -1 -1 -1 0
-"expectation focus(positivity)" -1 -1 -1 -1 0
-"expectation focus(openness)" -1 -1 -1 -1 0
-"cultural expectations(prioritizing individualism and individual choice in decision making)" -1 -1 -1 -1 0
-"cultural expectations(following cultural expectations and societal norms)" -1 -1 -1 -1 0
-"reasoning(logic)" -1 -1 -1 -1 0
-"reasoning(irrationality)" -1 -1 -1 -1 0
-"attribute groups(authenticity)" -1 -1 -1 -1 0
-"attribute groups(pretense)" -1 -1 -1 -1 0
-"information(relevant and irrelevant)" -1 -1 -1 -1 0
-"information(informative and distracting)" -1 -1 -1 -1 0
-"media(relevance)" -1 -1 -1 -1 0
-"media(inclusivity)" -1 -1 -1 -1 0
-"fitness(movement)" -1 -1 -1 -1 0
-"fitness(inactivity)" -1 -1 -1 -1 0
-"advice(effective communication)" -1 -1 -1 -1 0
-"advice(lack of communication)" -1 -1 -1 -1 0
-"class(achievement)" -1 -1 -1 -1 0
-"class(equality)" -1 -1 -1 -1 0
-"parental influence(respect)" -1 -1 -1 -1 0
-"parental influence(disrespect)" -1 -1 -1 -1 0
-"personality trait(honesty)" -1 -1 -1 -1 0
-"personality trait(deception)" -1 -1 -1 -1 0
-"attention-time(connection)" -1 -1 -1 -1 0
-"attention-time(disconnection)" -1 -1 -1 -1 0
-"love and relationship(empathy)" -1 -1 -1 -1 0
-"love and relationship(indifference)" -1 -1 -1 -1 0
-"career focus(fulfillment and financial stability)" -1 -1 -1 -1 0
-"career focus(self)" -1 -1 -1 -1 0
-"socio-political views(progressive)" -1 -1 -1 -1 0
-"socio-political views(conservative)" -1 -1 -1 -1 0
-"physical abilities(physical fitness)" -1 -1 -1 -1 0
-"physical abilities(inadequacy)" -1 -1 -1 -1 0
-"satisfaction(attentive)" -1 -1 -1 -1 0
-"satisfaction(open)" -1 -1 -1 -1 0
-"family life(relationships)" -1 -1 -1 -1 0
-"family life(independence)" -1 -1 -1 -1 0
-"parent-child(health)" -1 -1 -1 -1 0
-"attitutde 1(positive)" -1 -1 -1 -1 0
-"attitutde 1(negative)" -1 -1 -1 -1 0
-"attitiude 1(positive attitudes)" -1 -1 -1 -1 0
-"attitiude 1(negative attitudes)" -1 -1 -1 -1 0
-"hope and despair(confidence)" -1 -1 -1 -1 0
-"hope and despair(positivity)" -1 -1 -1 -1 0
-"discrimination(acceptance)" -1 -1 -1 -1 0
-"discrimination(discrimination)" -1 -1 -1 -1 0
-"independance(openness)" -1 -1 -1 -1 0
-"independance(closedness)" -1 -1 -1 -1 0
-"importance(equality)" -1 -1 -1 -1 0
-"importance(domination)" -1 -1 -1 -1 0
-"attribution spectrum(open)" -1 -1 -1 -1 0
-"attribution spectrum(close)" -1 -1 -1 -1 0
-"individual focus(individualism)" -1 -1 -1 -1 0
-"individual focus(collectivism)" -1 -1 -1 -1 0
-"provacativity(provocative)" -1 -1 -1 -1 0
-"provocativity(risqué)" -1 -1 -1 -1 0
-"provocativity(casual)" -1 -1 -1 -1 0
-"educational(small talk)" -1 -1 -1 -1 0
-"technology preference(technology usage)" -1 -1 -1 -1 0
-"technology preference(non)" -1 -1 -1 -1 0
-"hobbies and interests(personal)" -1 -1 -1 -1 0
-"hobbies and interests(professional)" -1 -1 -1 -1 0
-"individual identity(independence)" -1 -1 -1 -1 0
-"individual identity(isolation)" -1 -1 -1 -1 0
-"leisure 1(communication)" -1 -1 -1 -1 0
-"leisure 1(isolation)" -1 -1 -1 -1 0
-"thought process(rational)" -1 -1 -1 -1 0
-"thought process(open)" -1 -1 -1 -1 0
-"emotionality(logical)" -1 -1 -1 -1 0
-"mindfullness(attentiveness)" -1 -1 -1 -1 0
-"mindfullness(distraction)" -1 -1 -1 -1 0
-"personal possessions(organization)" -1 -1 -1 -1 0
-"personal possessions(spontaneity)" -1 -1 -1 -1 0
-"sexual commitment(authenticity)" -1 -1 -1 -1 0
-"sexual commitment(deception)" -1 -1 -1 -1 0
-"creative interests(creative interests)" -1 -1 -1 -1 0
-"creative interests(professional experience)" -1 -1 -1 -1 0
-"intuitive thinkers(intuition)" -1 -1 -1 -1 0
-"intuitive thinkers(rationality)" -1 -1 -1 -1 0
-"introduction(self)" -1 -1 -1 -1 0
-"introduction(social conformity)" -1 -1 -1 -1 0
-"storymotivation(emotional authenticity)" -1 -1 -1 -1 0
-"storymotivation(detachment or neutrality)" -1 -1 -1 -1 0
-"body preference(self)" -1 -1 -1 -1 0
-"body preference(body shaming)" -1 -1 -1 -1 0
-"belief(flexibility)" -1 -1 -1 -1 0
-"belief(strict adherence to rules and unwillingness to deviate from established norms in conversations)" -1 -1 -1 -1 0
-"familial relations(family relationships and connections)" -1 -1 -1 -1 0
-"familial relations(strangers and acquaintances)" -1 -1 -1 -1 0
-"beverage etiquette(etiquette)" -1 -1 -1 -1 0
-"hygiene(hygiene)" -1 -1 -1 -1 0
-"hygiene(lack of hygiene)" -1 -1 -1 -1 0
-"uncertainty(uncertainty and change)" -1 -1 -1 -1 0
-"uncertainty(transition and growth)" -1 -1 -1 -1 0
-"relationship with siblings(family dynamic)" -1 -1 -1 -1 0
-"relationship with siblings(multiple siblings)" -1 -1 -1 -1 0
-"adventurousness(open)" -1 -1 -1 -1 0
-"adventurousness(close)" -1 -1 -1 -1 0
-"attitutde 2(positive)" -1 -1 -1 -1 0
-"attitutde 2(negative)" -1 -1 -1 -1 0
-"career goals(aspiration)" -1 -1 -1 -1 0
-"career goals(contentment)" -1 -1 -1 -1 0
-"cooperation(communication)" -1 -1 -1 -1 0
-"cooperation(isolation)" -1 -1 -1 -1 0
-"interpersonal(communication)" -1 -1 -1 -1 0
-"interpersonal(independence)" -1 -1 -1 -1 0
-"career motivation(change)" -1 -1 -1 -1 0
-"career motivation(complacency)" -1 -1 -1 -1 0
-"peace(peacefulness)" -1 -1 -1 -1 0
-"peace(conflict)" -1 -1 -1 -1 0
-"calmness(open)" -1 -1 -1 -1 0
-"calmness(close)" -1 -1 -1 -1 0
-"fashion(personal preference)" -1 -1 -1 -1 0
-"fashion(social conformity)" -1 -1 -1 -1 0
-"body enhancing beauty(desirability)" -1 -1 -1 -1 0
-"body enhancing beauty(imperfection)" -1 -1 -1 -1 0
-"party anthems(playfulness)" -1 -1 -1 -1 0
-"party anthems(introspection)" -1 -1 -1 -1 0
-"international relations(openness)" -1 -1 -1 -1 0
-"international relations(secrecy)" -1 -1 -1 -1 0
-"logistical instructions(direct communication methods)" -1 -1 -1 -1 0
-"logistical instructions(indirect communication methods)" -1 -1 -1 -1 0
-"dating(open)" -1 -1 -1 -1 0
-"dating(flexibility)" -1 -1 -1 -1 0
-"literacy(communication)" -1 -1 -1 -1 0
-"literacy(inefficiency)" -1 -1 -1 -1 0
-"musical preference(music preference)" -1 -1 -1 -1 0
-"musical preference(genre preference)" -1 -1 -1 -1 0
-"intuition(open)" -1 -1 -1 -1 0
-"intuition(close)" -1 -1 -1 -1 0
-"awareness(attention)" -1 -1 -1 -1 0
-"conformity(conformity)" -1 -1 -1 -1 0
-"conformity(non)" -1 -1 -1 -1 0
-"religious community(consensus)" -1 -1 -1 -1 0
-"religious community(conflict)" -1 -1 -1 -1 0
-"love(emotional connection)" -1 -1 -1 -1 0
-"love(detachment)" -1 -1 -1 -1 0
-"community(community)" -1 -1 -1 -1 0
-"event planning(communication)" -1 -1 -1 -1 0
-"event planning(authenticity)" -1 -1 -1 -1 0
-"academic pursuit(education)" -1 -1 -1 -1 0
-"academic pursuit(ignorance)" -1 -1 -1 -1 0
-"philosophical(open)" -1 -1 -1 -1 0
-"philosophical(closed)" -1 -1 -1 -1 0
-"moral responsibility(effective communication and understanding)" -1 -1 -1 -1 0
-"moral responsibility(ineffective communication and misunderstanding)" -1 -1 -1 -1 0
-"activities(socializing)" -1 -1 -1 -1 0
-"activities(isolation)" -1 -1 -1 -1 0
-"physical condition(wellness)" -1 -1 -1 -1 0
-"physical condition(ability)" -1 -1 -1 -1 0
-"visuals(weather)" -1 -1 -1 -1 0
-"visuals(technology)" -1 -1 -1 -1 0
-"social expectations(conformity)" -1 -1 -1 -1 0
-"social expectations(authenticity)" -1 -1 -1 -1 0
-"companionship(connection)" -1 -1 -1 -1 0
-"companionship(isolation)" -1 -1 -1 -1 0
-"organization(structure)" -1 -1 -1 -1 0
-"story-mode(authenticity)" -1 -1 -1 -1 0
-"story-mode(superficiality)" -1 -1 -1 -1 0
-"study habits(efficiency and productivity)" -1 -1 -1 -1 0
-"study habits(procrastination and wasted time)" -1 -1 -1 -1 0
-"academic success(ambition)" -1 -1 -1 -1 0
-"academic success(complacency)" -1 -1 -1 -1 0
-"portrayal(engaging)" -1 -1 -1 -1 0
-"portrayal(confident)" -1 -1 -1 -1 0
-"encouragement(encouragement)" -1 -1 -1 -1 0
-"encouragement(discouragement)" -1 -1 -1 -1 0
-"family values(open)" -1 -1 -1 -1 0
-"family values(authenticity)" -1 -1 -1 -1 0
-"assistance(empathy)" -1 -1 -1 -1 0
-"assistance(indifference)" -1 -1 -1 -1 0
-"societal norm/expectation(social etiquette)" -1 -1 -1 -1 0
-"societal norm/expectation(informality)" -1 -1 -1 -1 0
-"body modifications(body modifications)" -1 -1 -1 -1 0
-"body modifications(natural appearance)" -1 -1 -1 -1 0
-"etiquette(politeness)" -1 -1 -1 -1 0
-"etiquette(rudeness)" -1 -1 -1 -1 0
-"genre(community)" -1 -1 -1 -1 0
-"genre(self)" -1 -1 -1 -1 0
-"privacy(honesty)" -1 -1 -1 -1 0
-"privacy(authenticity)" -1 -1 -1 -1 0
-"storyline(authenticity)" -1 -1 -1 -1 0
-"storyline(deception)" -1 -1 -1 -1 0
-"entertainment preference(popular)" -1 -1 -1 -1 0
-"entertainment preference(niche)" -1 -1 -1 -1 0
-"problem solving(effective communication)" -1 -1 -1 -1 0
-"problem solving(lack of communication)" -1 -1 -1 -1 0
-"enlightenment(communication)" -1 -1 -1 -1 0
-"enlightenment(misunderstanding)" -1 -1 -1 -1 0
-"personal appearance(physical appearance)" -1 -1 -1 -1 0
-"personal appearance(self)" -1 -1 -1 -1 0
-"health and physical activity(healthy lifestyle)" -1 -1 -1 -1 0
-"health and physical activity(sedentary lifestyle)" -1 -1 -1 -1 0
-"concern(empathy)" -1 -1 -1 -1 0
-"concern(insensitivity)" -1 -1 -1 -1 0
-"time frame(1990)" -1 -1 -1 -1 0
-"child development(2)" -1 -1 -1 -1 0
-"fulfillment(personal growth and self)" -1 -1 -1 -1 0
-"new experiences(routine)" -1 -1 -1 -1 0
-"age-inclusive(youth)" -1 -1 -1 -1 0
-"age-inclusive(age)" -1 -1 -1 -1 0
-"action focus(individual)" -1 -1 -1 -1 0
-"emotion\(frustration(anger)" -1 -1 -1 -1 0
-"emotion\(frustration(annoyance)" -1 -1 -1 -1 0
-"company relations(anti)" -1 -1 -1 -1 0
-"civilization relations(anti)" -1 -1 -1 -1 0
-"clothing(style)" -1 -1 -1 -1 0
-"clothing(appearance)" -1 -1 -1 -1 0
-"recognition(acknowledged)" -1 -1 -1 -1 0
-"attencation-time\(nostalgia\)(production style)" -1 -1 -1 -1 0
-"attencation-time\(nostalgia\)(attention)" -1 -1 -1 -1 0
-"anti-capitalism(authencity)" -1 -1 -1 -1 0
-"targeting(age)" -1 -1 -1 -1 0
-"self-awareness(personal development)" -1 -1 -1 -1 0
-"values spectrum(non)" -1 -1 -1 -1 0
-"attractiveness(natural beauty)" -1 -1 -1 -1 0
-"attractiveness(body enhancing beauty)" -1 -1 -1 -1 0
-"safety(recklessness)" -1 -1 -1 -1 0
-"open-mindedness(close)" -1 -1 -1 -1 0
-"open-mindedness(closed)" -1 -1 -1 -1 0
-"organizational(community)" -1 -1 -1 -1 0
-"creative expression(out)" -1 -1 -1 -1 0
-"corp relations(anti)" -1 -1 -1 -1 0
-"persuasion(authority)" -1 -1 -1 -1 0
-"immediacy(desperate + negative_attitude)" -1 -1 -1 -1 0
-"dysfunctional society(disregard for safety and well)" -1 -1 -1 -1 0
-"attenton-emotional_state\(desire\)(emotion)" -1 -1 -1 -1 0
-"attention-emotional_state\(desire\)(emotion)" -1 -1 -1 -1 0
-"lyrial emphasis(emotionally)" -1 -1 -1 -1 0
-"diet(healthy)" -1 -1 -1 -1 0
-"expectation-perfection(expectation)" -1 -1 -1 -1 0
-"family influence(father)" -1 -1 -1 -1 0
-"employment preferences(work)" -1 -1 -1 -1 0
-"anticipation(future)" -1 -1 -1 -1 0
-"determination(goal)" -1 -1 -1 -1 0
-"need fulfillment(help)" -1 -1 -1 -1 0
-"romantic orientation(self)" -1 -1 -1 -1 0
-"attitude 4(passionate)" -1 -1 -1 -1 0
-"knowledge-seeking(ig)" -1 -1 -1 -1 0
-"family status(in a relationship)" -1 -1 -1 -1 0
-"type of relationship(individual)" -1 -1 -1 -1 0
-"relational focus(partner)" -1 -1 -1 -1 0
-"relational focus(individual)" -1 -1 -1 -1 0
-"socio-cultural(individual)" -1 -1 -1 -1 0
-"socio-economic class(conservative)" -1 -1 -1 -1 0
-"socio-economic class(liberal)" -1 -1 -1 -1 0
-"requirements(four)" -1 -1 -1 -1 0
-"lovability(self)" -1 -1 -1 -1 0
-"lucidity(lucidity)" -1 -1 -1 -1 0
-"primary attribute groups(lyrical emphasis)" -1 -1 -1 -1 0
-"presentation(mainstream)" -1 -1 -1 -1 0
-"moral compass(moral)" -1 -1 -1 -1 0
-"personal(muse)" -1 -1 -1 -1 0
-"personal(motivational ambiguity)" -1 -1 -1 -1 0
-"cultural interests(rap)" -1 -1 -1 -1 0
-"rationalism(intuitive thinkers)" -1 -1 -1 -1 0
-"environmentalism(nature)" -1 -1 -1 -1 0
-"faith extremists(non)" -1 -1 -1 -1 0
-"age spectrum(non)" -1 -1 -1 -1 0
-"beliefe spectrum(believer + emotion)" -1 -1 -1 -1 0
-"beliefe spectrum(non)" -1 -1 -1 -1 0
-"racial identity(non)" -1 -1 -1 -1 0
-"future(self)" -1 -1 -1 -1 0
-"tolerance(self)" -1 -1 -1 -1 0
-"activity preference(socializing)" -1 -1 -1 -1 0
-"we went to my favorite cafe(enjoyment)" -1 -1 -1 -1 0
-"we went to my favorite cafe(outing)" -1 -1 -1 -1 0
-"average expectation(expectation)" -1 -1 -1 -1 0
-"may i turn on the radio then(relaxation)" -1 -1 -1 -1 0
-"may i turn on the radio then(collaboration)" -1 -1 -1 -1 0
-"fiction(storyline)" -1 -1 -1 -1 0
-"worldview(open)" -1 -1 -1 -1 0
-"pragmatic opposites(pet owners vs non)" -1 -1 -1 -1 0
-"pragmatic opposites(minimalist vs collector)" -1 -1 -1 -1 0
-"acknowledgement(self)" -1 -1 -1 -1 0
-"monitoring progress(recording weights)" -1 -1 -1 -1 0
-"household chore expectation(regular laundry doing for partner)" -1 -1 -1 -1 0
-"personality traits(expectations)" -1 -1 -1 -1 0
-"did you guys do anything(reunion)" -1 -1 -1 -1 0
-"transition \(activities(personal transformation)" -1 -1 -1 -1 0
-"transition \(activities(transitioning)" -1 -1 -1 -1 0
-"love target(self)" -1 -1 -1 -1 0
-"television preference(mainstream)" -1 -1 -1 -1 0
-"television preference(science fiction)" -1 -1 -1 -1 0
-"and leave with no way to contact him(self)" -1 -1 -1 -1 0
-"patient of love(self)" -1 -1 -1 -1 0
-"targeting of love(self)" -1 -1 -1 -1 0
-"cynic(challenge)" -1 -1 -1 -1 0
-"sexualemphasis(non)" -1 -1 -1 -1 0
-"style(simple)" -1 -1 -1 -1 0
-"style(sophisticated)" -1 -1 -1 -1 0
-"free-spirited(free)" -1 -1 -1 -1 0
-"flexibility(spontaneous)" -1 -1 -1 -1 0
-"values and beliefs(long)" -1 -1 -1 -1 0
-"accessibility(using transportation)" -1 -1 -1 -1 0
-"prior knowledge/experience(warm)" -1 -1 -1 -1 0
-"dietary preference(coffee)" -1 -1 -1 -1 0
-"dietary preference(tea)" -1 -1 -1 -1 0
-"lyric emphasis(emotionally restrained)" -1 -1 -1 -1 0
-"age group(youth)" -1 -1 -1 -1 0
+"physical preference(preference for a healthy lifestyle)" -1 -1 0 -1 0
+"problem solving strategy(problem)" -1 -1 0 -1 0
+"problem solving strategy(manipulative or dishonest values)" -1 -1 0 -1 0
+"relationship(relationship)" -1 -1 0 -1 0
+"relationship(individuality vs. partnership)" -1 -1 0 -1 0
+"culture(collectivism)" -1 -1 0 -1 0
+"situation relation(normative)" -1 -1 0 -1 0
+"situation relation(non)" -1 -1 0 -1 0
+"responsibility(irresponsibility)" -1 -1 0 -1 0
+"social(communication)" -1 -1 0 -1 0
+"social(independence)" -1 -1 0 -1 0
+"faith extremes(belief)" -1 -1 0 -1 0
+"faith extremes(open)" -1 -1 0 -1 0
+"economic(financial success)" -1 -1 0 -1 0
+"reality(realistic)" -1 -1 0 -1 0
+"reality(personal)" -1 -1 0 -1 0
+"socioeconomic status(socioeconomic status)" -1 -1 0 -1 0
+"socioeconomic status(personal)" -1 -1 0 -1 0
+"communication(effective communication)" -1 -1 0 -1 0
+"communication(ineffective communication)" -1 -1 0 -1 0
+"average expectations(expectation)" -1 -1 0 -1 0
+"family(family)" -1 -1 0 -1 0
+"family(responsibility)" -1 -1 0 -1 0
+"emotional realism(emotional realism)" -1 -1 0 -1 0
+"emotional realism(unrealistic expectations)" -1 -1 0 -1 0
+"authenticity(social media)" -1 -1 0 -1 0
+"education(education)" -1 -1 0 -1 0
+"education(alternative)" -1 -1 0 -1 0
+"mindset(closedness)" -1 -1 0 -1 0
+"love status(relationship status)" -1 -1 0 -1 0
+"love status(emotional well)" -1 -1 0 -1 0
+"group faith(open)" -1 -1 0 -1 0
+"group faith(close)" -1 -1 0 -1 0
+"human strength(strength)" -1 -1 0 -1 0
+"human strength(youthfulness)" -1 -1 0 -1 0
+"time(flexibility)" -1 -1 0 -1 0
+"theological opposites(open)" -1 -1 0 -1 0
+"theological opposites(closed)" -1 -1 0 -1 0
+"old and new believers(open)" -1 -1 0 -1 0
+"old and new believers(respect for tradition and rebellion against tradition)" -1 -1 0 -1 0
+"faith and reason seekers(skepticism)" -1 -1 0 -1 0
+"transportation(transportation)" -1 -1 0 -1 0
+"transportation(inconvenience)" -1 -1 0 -1 0
+"group experience(individual)" -1 -1 0 -1 0
+"group experience(empathy)" -1 -1 0 -1 0
+"profession(occupation)" -1 -1 0 -1 0
+"profession(work)" -1 -1 0 -1 0
+"truthfulness(truthfulness)" -1 -1 0 -1 0
+"societal norms(conformity)" -1 -1 0 -1 0
+"societal norms(non)" -1 -1 0 -1 0
+"age target(age inclusivity)" -1 -1 0 -1 0
+"age target(exclusivity)" -1 -1 0 -1 0
+"health(self)" -1 -1 0 -1 0
+"attitude 2(optimism)" -1 -1 0 -1 0
+"sexual preference(conventional norms and outside societal norms)" -1 -1 0 -1 0
+"sexual preference(monogamy and adventure)" -1 -1 0 -1 0
+"mainstream(adventurous and open)" -1 -1 0 -1 0
+"mainstream(comfortable and traditional)" -1 -1 0 -1 0
+"belief spectrum(belief)" -1 -1 0 -1 0
+"belief spectrum(open)" -1 -1 0 -1 0
+"production style(versatile)" -1 -1 0 -1 0
+"production style(bold)" -1 -1 0 -1 0
+"wisdom(wisdom)" -1 -1 0 -1 0
+"gender(gender)" -1 -1 0 -1 0
+"gender(traditional)" -1 -1 0 -1 0
+"socioeconomic class(socioeconomic status)" -1 -1 0 -1 0
+"socioeconomic class(inequality)" -1 -1 0 -1 0
+"location(location)" -1 -1 0 -1 0
+"location(distance from home)" -1 -1 0 -1 0
+"attitude 1(optimism)" -1 -1 0 -1 0
+"identity(identity)" -1 -1 0 -1 0
+"identity(individuality)" -1 -1 0 -1 0
+"creativity(creativity)" -1 -1 0 -1 0
+"intimacy(intimacy)" -1 -1 0 -1 0
+"intimacy(distance)" -1 -1 0 -1 0
+"storymode(emotional impact)" -1 -1 0 -1 0
+"storymode(detachment)" -1 -1 0 -1 0
+"physical health(physical well)" -1 -1 0 -1 0
+"physical health(self)" -1 -1 0 -1 0
+"understanding(effective communication)" -1 -1 0 -1 0
+"understanding(miscommunication)" -1 -1 0 -1 0
+"mental health(mental health struggles and challenges.)" -1 -1 0 -1 0
+"mental health(mental health awareness and self)" -1 -1 0 -1 0
+"integrity(authenticity)" -1 -1 0 -1 0
+"mindfulness(organization)" -1 -1 0 -1 0
+"leisure activities(conformity)" -1 -1 0 -1 0
+"leisure activities(individuality)" -1 -1 0 -1 0
+"expectation-opposed(expectation)" -1 -1 0 -1 0
+"sexual orientation(sexual orientation acceptance and diversity)" -1 -1 0 -1 0
+"sexual orientation(fluidity and non)" -1 -1 0 -1 0
+"career(career fulfillment)" -1 -1 0 -1 0
+"career(job dissatisfaction)" -1 -1 0 -1 0
+"audience(popularity)" -1 -1 0 -1 0
+"audience(individuality)" -1 -1 0 -1 0
+"attitude 3(hope)" -1 -1 0 -1 0
+"relationship focus(focused)" -1 -1 0 -1 0
+"relationship focus(spontaneous)" -1 -1 0 -1 0
+"maturity(maturity)" -1 -1 0 -1 0
+"maturity(thoughtfulness)" -1 -1 0 -1 0
+"emotional state(empathy)" -1 -1 0 -1 0
+"emotional state(positivity)" -1 -1 0 -1 0
+"expectation(expectation)" -1 -1 0 -1 0
+"expectation(authenticity)" -1 -1 0 -1 0
+"rational thinker(spirituality)" -1 -1 0 -1 0
+"financial(financial insecurity)" -1 -1 0 -1 0
+"personal experience(authenticity)" -1 -1 0 -1 0
+"personal experience(fabrication)" -1 -1 0 -1 0
+"narrative(narrative)" -1 -1 0 -1 0
+"food preference(open)" -1 -1 0 -1 0
+"food preference(traditionalism)" -1 -1 0 -1 0
+"expectation-conformed(expectation)" -1 -1 0 -1 0
+"expectation-conformed(flexible mindset)" -1 -1 0 -1 0
+"action(communication)" -1 -1 0 -1 0
+"action(isolation)" -1 -1 0 -1 0
+"patient(impatience)" -1 -1 0 -1 0
+"target of love(love)" -1 -1 0 -1 0
+"target of love(indifference)" -1 -1 0 -1 0
+"religion(religious belief)" -1 -1 0 -1 0
+"religion(belonging to an organized religion)" -1 -1 0 -1 0
+"language(multilingualism)" -1 -1 0 -1 0
+"language(individuality)" -1 -1 0 -1 0
+"party relation(social)" -1 -1 0 -1 0
+"party relation(serious)" -1 -1 0 -1 0
+"mood 1(emotional)" -1 -1 0 -1 0
+"mood 1(composed)" -1 -1 0 -1 0
+"personality(humor)" -1 -1 0 -1 0
+"personality(individuality)" -1 -1 0 -1 0
+"authentic(anti)" -1 -1 0 -1 0
+"empathy(empathy)" -1 -1 0 -1 0
+"perception(thinking critically)" -1 -1 0 -1 0
+"perception(accepting at face value)" -1 -1 0 -1 0
+"hobbies(hobbies)" -1 -1 0 -1 0
+"hobbies(hustle culture)" -1 -1 0 -1 0
+"occupation(professions involving customer service and social interaction)" -1 -1 0 -1 0
+"occupation(professions involving a solitary and analytical approach)" -1 -1 0 -1 0
+"concept(relevance)" -1 -1 0 -1 0
+"concept(unrealistic)" -1 -1 0 -1 0
+"humor(humor)" -1 -1 0 -1 0
+"humor(seriousness)" -1 -1 0 -1 0
+"happiness(happiness)" -1 -1 0 -1 0
+"happiness(authenticity)" -1 -1 0 -1 0
+"preference(familiarity)" -1 -1 0 -1 0
+"preference(novelty)" -1 -1 0 -1 0
+"family dynamics(familial relationships)" -1 -1 0 -1 0
+"family dynamics(individuality vs. conformity)" -1 -1 0 -1 0
+"society(individualism)" -1 -1 0 -1 0
+"society(collectivism)" -1 -1 0 -1 0
+"behaviour(honest)" -1 -1 0 -1 0
+"behaviour(respectful)" -1 -1 0 -1 0
+"emotional(emotional intelligence and rational thinking)" -1 -1 0 -1 0
+"emotional(confidence and pessimism)" -1 -1 0 -1 0
+"expectation spectrum(expectation)" -1 -1 0 -1 0
+"corporation relations(anti)" -1 -1 0 -1 0
+"personal preference(preference for food)" -1 -1 0 -1 0
+"personal preference(love for sports cars)" -1 -1 0 -1 0
+"time management(efficiency and inefficiency)" -1 -1 0 -1 0
+"time management(responsibility and procrastination)" -1 -1 0 -1 0
+"monetary(financial literacy)" -1 -1 0 -1 0
+"monetary(financial ignorance)" -1 -1 0 -1 0
+"employment(ambition)" -1 -1 0 -1 0
+"memory(remembering)" -1 -1 0 -1 0
+"memory(mindfulness)" -1 -1 0 -1 0
+"leisure activity(modern leisure activities)" -1 -1 0 -1 0
+"leisure activity(traditional leisure activities)" -1 -1 0 -1 0
+"emotion realism(emotionality)" -1 -1 0 -1 0
+"emotion realism(positivity)" -1 -1 0 -1 0
+"expression(explicitness)" -1 -1 0 -1 0
+"family relations(close relationships)" -1 -1 0 -1 0
+"family relations(estranged relationships)" -1 -1 0 -1 0
+"trust(honesty)" -1 -1 0 -1 0
+"intelligence(curiosity)" -1 -1 0 -1 0
+"lyrical emphasis(emotional restraint)" -1 -1 0 -1 0
+"artistic expression(individuality)" -1 -1 0 -1 0
+"artistic expression(conformity)" -1 -1 0 -1 0
+"concepts(logical)" -1 -1 0 -1 0
+"work ethic(work ethic)" -1 -1 0 -1 0
+"morality(morality)" -1 -1 0 -1 0
+"morality(integrity)" -1 -1 0 -1 0
+"productivity(productivity)" -1 -1 0 -1 0
+"productivity(efficiency)" -1 -1 0 -1 0
+"source of inspiration(relevancy)" -1 -1 0 -1 0
+"familial relationships(disagreements and conflicts)" -1 -1 0 -1 0
+"lifestyle(introverted)" -1 -1 0 -1 0
+"honesty(honesty)" -1 -1 0 -1 0
+"honesty(deception)" -1 -1 0 -1 0
+"pet ownership(pet ownership)" -1 -1 0 -1 0
+"pet ownership(attitude towards pets)" -1 -1 0 -1 0
+"goal-oriented(goal)" -1 -1 0 -1 0
+"goal-oriented(achievement)" -1 -1 0 -1 0
+"attentiveness(attentiveness)" -1 -1 0 -1 0
+"celebration(emotionality)" -1 -1 0 -1 0
+"celebration(objectivity)" -1 -1 0 -1 0
+"body positivity(inclusivity)" -1 -1 0 -1 0
+"body positivity(body shaming)" -1 -1 0 -1 0
+"academic achievement(success)" -1 -1 0 -1 0
+"technology(efficiency)" -1 -1 0 -1 0
+"technology(inconvenience)" -1 -1 0 -1 0
+"family relationships(communication)" -1 -1 0 -1 0
+"family relationships(conflict resolution)" -1 -1 0 -1 0
+"efficiency(efficiency)" -1 -1 0 -1 0
+"beliefs(nostalgia for childhood and reminiscing about good memories with friends)" -1 -1 0 -1 0
+"beliefs(skepticism and belief)" -1 -1 0 -1 0
+"work(work)" -1 -1 0 -1 0
+"work(stress management)" -1 -1 0 -1 0
+"relationships(connection)" -1 -1 0 -1 0
+"relationships(independence)" -1 -1 0 -1 0
+"freedom(freedom)" -1 -1 0 -1 0
+"curiosity(open)" -1 -1 0 -1 0
+"curiosity(close)" -1 -1 0 -1 0
+"travel(cultural diversity)" -1 -1 0 -1 0
+"travel(isolationism)" -1 -1 0 -1 0
+"personal interests(interests)" -1 -1 0 -1 0
+"personal interests(disinterests)" -1 -1 0 -1 0
+"socio-economic status(materialism)" -1 -1 0 -1 0
+"socio-economic status(status)" -1 -1 0 -1 0
+"friendship(open)" -1 -1 0 -1 0
+"friendship(close)" -1 -1 0 -1 0
+"nostalgia(relevance)" -1 -1 0 -1 0
+"consumer behavior(spontaneity)" -1 -1 0 -1 0
+"consumer behavior(self)" -1 -1 0 -1 0
+"emotions(complexity)" -1 -1 0 -1 0
+"emotions(transparency)" -1 -1 0 -1 0
+"success(success)" -1 -1 0 -1 0
+"financial situation(financial stability)" -1 -1 0 -1 0
+"financial situation(money management)" -1 -1 0 -1 0
+"spirituality(spiritual beliefs)" -1 -1 0 -1 0
+"spirituality(rationality)" -1 -1 0 -1 0
+"physical activity(physical activity)" -1 -1 0 -1 0
+"physical activity(socialization)" -1 -1 0 -1 0
+"theatre/performing arts(engaging)" -1 -1 0 -1 0
+"theatre/performing arts(authentic)" -1 -1 0 -1 0
+"imagination(creative expression)" -1 -1 0 -1 0
+"imagination(practicality)" -1 -1 0 -1 0
+"peacefulness(peacefulness)" -1 -1 0 -1 0
+"language and communication(effective communication)" -1 -1 0 -1 0
+"language and communication(ineffective communication)" -1 -1 0 -1 0
+"temporal information(time)" -1 -1 0 -1 0
+"temporal information(evening\).)" -1 -1 0 -1 0
+"achievement(independence)" -1 -1 0 -1 0
+"conflict resolution(effective communication)" -1 -1 0 -1 0
+"conflict resolution(hostile communication)" -1 -1 0 -1 0
+"rational belief(evidence)" -1 -1 0 -1 0
+"atmosphere(comfortable)" -1 -1 0 -1 0
+"romantic couple(connectedness)" -1 -1 0 -1 0
+"romantic couple(isolation)" -1 -1 0 -1 0
+"personal growth(self)" -1 -1 0 -1 0
+"personal growth(complacency)" -1 -1 0 -1 0
+"mental state(emotional well)" -1 -1 0 -1 0
+"mental state(mental distress)" -1 -1 0 -1 0
+"intellectual(intellectually curious)" -1 -1 0 -1 0
+"intellectual(culturally aware)" -1 -1 0 -1 0
+"expectancy(expectation)" -1 -1 0 -1 0
+"expectancy(conformity)" -1 -1 0 -1 0
+"financial preference(mindful spending)" -1 -1 0 -1 0
+"financial preference(financial stability)" -1 -1 0 -1 0
+"socio-political stances(pragmatism)" -1 -1 0 -1 0
+"socio-political stances(open)" -1 -1 0 -1 0
+"social interaction(communication)" -1 -1 0 -1 0
+"social interaction(isolation)" -1 -1 0 -1 0
+"relationship status(relationship status)" -1 -1 0 -1 0
+"relationship status(emotional state)" -1 -1 0 -1 0
+"rational thinkers(rationality)" -1 -1 0 -1 0
+"rational thinkers(intuition)" -1 -1 0 -1 0
+"attraction(open)" -1 -1 0 -1 0
+"attraction(acceptance)" -1 -1 0 -1 0
+"story-motivation(narrative)" -1 -1 0 -1 0
+"fear(fearful)" -1 -1 0 -1 0
+"fear(confident)" -1 -1 0 -1 0
+"visual preference(aesthetic appeal)" -1 -1 0 -1 0
+"visual preference(eccentricity)" -1 -1 0 -1 0
+"socio mind(lightheartedness)" -1 -1 0 -1 0
+"socio mind(depth)" -1 -1 0 -1 0
+"aspiration(relatability)" -1 -1 0 -1 0
+"complexity(clarity)" -1 -1 0 -1 0
+"complexity(directness)" -1 -1 0 -1 0
+"physical appearance(physical appearance)" -1 -1 0 -1 0
+"physical appearance(fitness level)" -1 -1 0 -1 0
+"authencity(social)" -1 -1 0 -1 0
+"individualistic(individuality)" -1 -1 0 -1 0
+"individualistic(autonomy)" -1 -1 0 -1 0
+"mood 3(positive)" -1 -1 0 -1 0
+"sophisticated(sophistication)" -1 -1 0 -1 0
+"sophisticated(simplicity)" -1 -1 0 -1 0
+"desire(conformity)" -1 -1 0 -1 0
+"desire(individualism)" -1 -1 0 -1 0
+"confidence(assurance)" -1 -1 0 -1 0
+"age(young)" -1 -1 0 -1 0
+"age(mature)" -1 -1 0 -1 0
+"emotion\(frustration\)(emotion)" -1 -1 0 -1 0
+"emotion\(frustration\)(attention)" -1 -1 0 -1 0
+"item preference(practicality)" -1 -1 0 -1 0
+"item preference(luxury)" -1 -1 0 -1 0
+"loyalty(trustworthy)" -1 -1 0 -1 0
+"loyalty(untrustworthy)" -1 -1 0 -1 0
+"cultural celebration(engaging)" -1 -1 0 -1 0
+"cultural celebration(dull)" -1 -1 0 -1 0
+"habit(active)" -1 -1 0 -1 0
+"altruism(altruism)" -1 -1 0 -1 0
+"altruism(selfishness)" -1 -1 0 -1 0
+"conceptual(open)" -1 -1 0 -1 0
+"conceptual(authenticity)" -1 -1 0 -1 0
+"identification(inclusivity)" -1 -1 0 -1 0
+"identification(non)" -1 -1 0 -1 0
+"question(curiosity)" -1 -1 0 -1 0
+"question(self)" -1 -1 0 -1 0
+"fear and worry(emotional)" -1 -1 0 -1 0
+"fear and worry(unpredictable)" -1 -1 0 -1 0
+"sports(active)" -1 -1 0 -1 0
+"sports(competitiveness)" -1 -1 0 -1 0
+"sexuality(openness)" -1 -1 0 -1 0
+"sexuality(closed)" -1 -1 0 -1 0
+"technical innovation(relevance and irrelevance)" -1 -1 0 -1 0
+"technical innovation(progression and stagnation)" -1 -1 0 -1 0
+"physical age(youthful)" -1 -1 0 -1 0
+"physical age(casual)" -1 -1 0 -1 0
+"specific interest(shared experiences and memories)" -1 -1 0 -1 0
+"specific interest(novelty and innovation)" -1 -1 0 -1 0
+"celebrity persona(anti)" -1 -1 0 -1 0
+"mentality(open)" -1 -1 0 -1 0
+"mentality(optimistic and pessimistic)" -1 -1 0 -1 0
+"portrayal of human emotions(positive emotions)" -1 -1 0 -1 0
+"portrayal of human emotions(negative emotions)" -1 -1 0 -1 0
+"job(technology)" -1 -1 0 -1 0
+"job(nature)" -1 -1 0 -1 0
+"physical ability(fitness)" -1 -1 0 -1 0
+"physical ability(adaptability)" -1 -1 0 -1 0
+"competency(effective)" -1 -1 0 -1 0
+"competency(ineffective)" -1 -1 0 -1 0
+"motive(personal growth)" -1 -1 0 -1 0
+"motive(social impact)" -1 -1 0 -1 0
+"attention-place\(outside\)(attention)" -1 -1 0 -1 0
+"seekers of truth(open)" -1 -1 0 -1 0
+"seekers of truth(skepticism)" -1 -1 0 -1 0
+"gratitude(gratitude)" -1 -1 0 -1 0
+"gratitude(discontent)" -1 -1 0 -1 0
+"cleanliness(neatness)" -1 -1 0 -1 0
+"cleanliness(order)" -1 -1 0 -1 0
+"romantic relationship(intimacy)" -1 -1 0 -1 0
+"romantic relationship(distance)" -1 -1 0 -1 0
+"cultural preservation(culture preservation)" -1 -1 0 -1 0
+"intention(inclusivity)" -1 -1 0 -1 0
+"intention(authenticity)" -1 -1 0 -1 0
+"food preferences(food preference)" -1 -1 0 -1 0
+"food preferences(polarization)" -1 -1 0 -1 0
+"recreational activity(indoor activities)" -1 -1 0 -1 0
+"recreational activity(outdoor activities)" -1 -1 0 -1 0
+"experience(experience)" -1 -1 0 -1 0
+"experience(inexperience)" -1 -1 0 -1 0
+"demographic(age)" -1 -1 0 -1 0
+"demographic(generation)" -1 -1 0 -1 0
+"exploration(adventure)" -1 -1 0 -1 0
+"exploration(authenticity)" -1 -1 0 -1 0
+"belief extremes(personal)" -1 -1 0 -1 0
+"belief extremes(group)" -1 -1 0 -1 0
+"psychological state(empathy)" -1 -1 0 -1 0
+"psychological state(apathy)" -1 -1 0 -1 0
+"media consumption(pop culture references)" -1 -1 0 -1 0
+"media consumption(intellectual discussions)" -1 -1 0 -1 0
+"positive attitude(positive attitude)" -1 -1 0 -1 0
+"positive attitude(openness)" -1 -1 0 -1 0
+"evidence(belief)" -1 -1 0 -1 0
+"evidence(perception)" -1 -1 0 -1 0
+"generosity(generosity)" -1 -1 0 -1 0
+"media influence(influence)" -1 -1 0 -1 0
+"media influence(negativity)" -1 -1 0 -1 0
+"social relationships(open)" -1 -1 0 -1 0
+"social relationships(close)" -1 -1 0 -1 0
+"kindness(kindness)" -1 -1 0 -1 0
+"kindness(indifference)" -1 -1 0 -1 0
+"competitiveness(individuality)" -1 -1 0 -1 0
+"competence(confidence)" -1 -1 0 -1 0
+"competence(competence)" -1 -1 0 -1 0
+"belief groups(personal growth)" -1 -1 0 -1 0
+"belief groups(open)" -1 -1 0 -1 0
+"clarity(clear)" -1 -1 0 -1 0
+"clarity(direct)" -1 -1 0 -1 0
+"attitudes(openness)" -1 -1 0 -1 0
+"attitudes(optimism)" -1 -1 0 -1 0
+"offering help(helpfulness)" -1 -1 0 -1 0
+"offering help(indifference)" -1 -1 0 -1 0
+"independent(autonomy)" -1 -1 0 -1 0
+"independent(self)" -1 -1 0 -1 0
+"cognition(innovation)" -1 -1 0 -1 0
+"cognition(tradition)" -1 -1 0 -1 0
+"behavior(clear and direct communication)" -1 -1 0 -1 0
+"behavior(respect for boundaries and personal space)" -1 -1 0 -1 0
+"activity(communication)" -1 -1 0 -1 0
+"activity(isolation)" -1 -1 0 -1 0
+"natural disasters(casual)" -1 -1 0 -1 0
+"natural disasters(formal)" -1 -1 0 -1 0
+"invitation(inclusion)" -1 -1 0 -1 0
+"invitation(exclusivity)" -1 -1 0 -1 0
+"expectation extremes(open)" -1 -1 0 -1 0
+"expectation extremes(flexibility and rigidity)" -1 -1 0 -1 0
+"academic(diligence)" -1 -1 0 -1 0
+"academic(laziness)" -1 -1 0 -1 0
+"socio-economic(individualism)" -1 -1 0 -1 0
+"socio-economic(progressiveness)" -1 -1 0 -1 0
+"positivity(emotional well)" -1 -1 0 -1 0
+"positivity(negativity and pessimism)" -1 -1 0 -1 0
+"realistic emotions(authenticity)" -1 -1 0 -1 0
+"realistic emotions(deception)" -1 -1 0 -1 0
+"mood 4(lighthearted)" -1 -1 0 -1 0
+"mood 4(relatable)" -1 -1 0 -1 0
+"acceptance(acceptance and non)" -1 -1 0 -1 0
+"acceptance(open)" -1 -1 0 -1 0
+"socio-relations(cooperation)" -1 -1 0 -1 0
+"socio-relations(competition)" -1 -1 0 -1 0
+"courage(responsibility)" -1 -1 0 -1 0
+"courage(courage)" -1 -1 0 -1 0
+"physical description(physical appearance and characteristics)" -1 -1 0 -1 0
+"physical description(perception and expression of safety)" -1 -1 0 -1 0
+"energy(active)" -1 -1 0 -1 0
+"energy(confident)" -1 -1 0 -1 0
+"living situation(independence)" -1 -1 0 -1 0
+"living situation(dependence)" -1 -1 0 -1 0
+"existentialism(authenticity)" -1 -1 0 -1 0
+"existentialism(inauthenticity)" -1 -1 0 -1 0
+"interests(communication)" -1 -1 0 -1 0
+"interests(isolation)" -1 -1 0 -1 0
+"transparency(transparency and mysteriousness)" -1 -1 0 -1 0
+"transparency(communication and mystery)" -1 -1 0 -1 0
+"lifelong learning(open)" -1 -1 0 -1 0
+"lifelong learning(closed)" -1 -1 0 -1 0
+"context(emotion)" -1 -1 0 -1 0
+"context(rationality)" -1 -1 0 -1 0
+"family loss(discussion)" -1 -1 0 -1 0
+"family loss(sharing)" -1 -1 0 -1 0
+"academic performance(academic performance)" -1 -1 0 -1 0
+"academic performance(low academic performance)" -1 -1 0 -1 0
+"mood 5(openness)" -1 -1 0 -1 0
+"mood 5(formality)" -1 -1 0 -1 0
+"practicality(challenge)" -1 -1 0 -1 0
+"accountability(responsibility)" -1 -1 0 -1 0
+"accountability(recklessness)" -1 -1 0 -1 0
+"profession/interest(multifaceted individual)" -1 -1 0 -1 0
+"profession/interest(single)" -1 -1 0 -1 0
+"individual strength(confident)" -1 -1 0 -1 0
+"individual strength(authentic)" -1 -1 0 -1 0
+"event(connection)" -1 -1 0 -1 0
+"event(disconnection)" -1 -1 0 -1 0
+"introspective(introspective)" -1 -1 0 -1 0
+"introspective(serious)" -1 -1 0 -1 0
+"education and learning(continuous learning)" -1 -1 0 -1 0
+"education and learning(ignorance)" -1 -1 0 -1 0
+"appearance(appearance)" -1 -1 0 -1 0
+"appearance(self)" -1 -1 0 -1 0
+"image(personal)" -1 -1 0 -1 0
+"image(collaborative)" -1 -1 0 -1 0
+"communication method(digital communication)" -1 -1 0 -1 0
+"communication method(face)" -1 -1 0 -1 0
+"relaxation(relaxation)" -1 -1 0 -1 0
+"relaxation(stress)" -1 -1 0 -1 0
+"aspirations(aspirations)" -1 -1 0 -1 0
+"aspirations(contentment)" -1 -1 0 -1 0
+"environment(environment)" -1 -1 0 -1 0
+"goal orientation(motivated)" -1 -1 0 -1 0
+"goal orientation(driven)" -1 -1 0 -1 0
+"youth-oriented(inclusion)" -1 -1 0 -1 0
+"youth-oriented(exclusivity)" -1 -1 0 -1 0
+"narrativity(narrativity)" -1 -1 0 -1 0
+"narrativity(non)" -1 -1 0 -1 0
+"consumerism(focus on individual success and material wealth)" -1 -1 0 -1 0
+"consumerism(prioritizing communal collaboration and non)" -1 -1 0 -1 0
+"self-expression(self)" -1 -1 0 -1 0
+"self-expression(conformity)" -1 -1 0 -1 0
+"politeness(politeness)" -1 -1 0 -1 0
+"politeness(rudeness)" -1 -1 0 -1 0
+"leadership(open)" -1 -1 0 -1 0
+"leadership(inclusive)" -1 -1 0 -1 0
+"celebrity persona(authenticity)" -1 -1 0 -1 0
+"problem-solving strategy(efficiency)" -1 -1 0 -1 0
+"problem-solving strategy(carelessness)" -1 -1 0 -1 0
+"ethics(empathy)" -1 -1 0 -1 0
+"ethics(indifference)" -1 -1 0 -1 0
+"ambition(progression)" -1 -1 0 -1 0
+"ambition(resistance)" -1 -1 0 -1 0
+"professional career(employment)" -1 -1 0 -1 0
+"professional career(success)" -1 -1 0 -1 0
+"travel preferences(modernity)" -1 -1 0 -1 0
+"travel preferences(tradition)" -1 -1 0 -1 0
+"household chore(productivity)" -1 -1 0 -1 0
+"household chore(responsibility)" -1 -1 0 -1 0
+"consumer experience(inclusivity)" -1 -1 0 -1 0
+"consumer experience(exclusivity)" -1 -1 0 -1 0
+"teamwork(communication)" -1 -1 0 -1 0
+"teamwork(independence)" -1 -1 0 -1 0
+"competition(interaction)" -1 -1 0 -1 0
+"competition(isolation)" -1 -1 0 -1 0
+"technological(\"digital\")" -1 -1 0 -1 0
+"technological(\"analog\")" -1 -1 0 -1 0
+"individual strengths(confidence and humility)" -1 -1 0 -1 0
+"individual strengths(empathy and self)" -1 -1 0 -1 0
+"cultural interest(open)" -1 -1 0 -1 0
+"cultural interest(closed)" -1 -1 0 -1 0
+"mindsets(inquisitive)" -1 -1 0 -1 0
+"mindsets(creative)" -1 -1 0 -1 0
+"romantic relationships(communication)" -1 -1 0 -1 0
+"romantic relationships(silence)" -1 -1 0 -1 0
+"emotional attachment(emotional attachment and detachment)" -1 -1 0 -1 0
+"emotional attachment(individual focus and partner focus)" -1 -1 0 -1 0
+"appreciation(positivity)" -1 -1 0 -1 0
+"appreciation(openness)" -1 -1 0 -1 0
+"media representation(inclusion)" -1 -1 0 -1 0
+"media representation(exclusion)" -1 -1 0 -1 0
+"pet preference(affirmative)" -1 -1 0 -1 0
+"pet preference(negative)" -1 -1 0 -1 0
+"personal well-being(health and wellness)" -1 -1 0 -1 0
+"personal well-being(burnout and overwork)" -1 -1 0 -1 0
+"skill(adaptability)" -1 -1 0 -1 0
+"skill(inflexibility)" -1 -1 0 -1 0
+"hobby(active hobbies)" -1 -1 0 -1 0
+"hobby(sedentary hobbies)" -1 -1 0 -1 0
+"realism(authenticity)" -1 -1 0 -1 0
+"realism(deception)" -1 -1 0 -1 0
+"interaction(rudeness)" -1 -1 0 -1 0
+"family relationship(family relationship)" -1 -1 0 -1 0
+"family relationship(language)" -1 -1 0 -1 0
+"feeling(emotions)" -1 -1 0 -1 0
+"feeling(positivity)" -1 -1 0 -1 0
+"work-life balance(work)" -1 -1 0 -1 0
+"work-life balance(finding joy in work and dissatisfaction)" -1 -1 0 -1 0
+"moral(open)" -1 -1 0 -1 0
+"moral(closed)" -1 -1 0 -1 0
+"work preference(flexibility vs rigidity)" -1 -1 0 -1 0
+"work preference(independence vs dependence)" -1 -1 0 -1 0
+"emotional experience(communication)" -1 -1 0 -1 0
+"emotional experience(disconnection)" -1 -1 0 -1 0
+"gender roles(gender equality – traditional gender roles)" -1 -1 0 -1 0
+"gender roles(collaboration – individualism)" -1 -1 0 -1 0
+"enjoyment(enjoyment)" -1 -1 0 -1 0
+"enjoyment(disinterest)" -1 -1 0 -1 0
+"life stages(progression)" -1 -1 0 -1 0
+"life stages(stagnation)" -1 -1 0 -1 0
+"hierarchy(hierarchy)" -1 -1 0 -1 0
+"hierarchy(equality)" -1 -1 0 -1 0
+"geographical preference(climate preference)" -1 -1 0 -1 0
+"geographical preference(geographical loyalty)" -1 -1 0 -1 0
+"individuality(independence)" -1 -1 0 -1 0
+"individual-oriented(individuality)" -1 -1 0 -1 0
+"individual-oriented(conformity)" -1 -1 0 -1 0
+"individualism(independence)" -1 -1 0 -1 0
+"individualism(interdependence)" -1 -1 0 -1 0
+"provocative(provocative)" -1 -1 0 -1 0
+"social interactions(communication)" -1 -1 0 -1 0
+"social interactions(disagreement)" -1 -1 0 -1 0
+"intelligent(rational)" -1 -1 0 -1 0
+"rationalist(rationality)" -1 -1 0 -1 0
+"rationalist(irrationality)" -1 -1 0 -1 0
+"romantic love(love)" -1 -1 0 -1 0
+"romantic love(disconnection)" -1 -1 0 -1 0
+"emotional attitude(emotionality)" -1 -1 0 -1 0
+"emotional attitude(rationality)" -1 -1 0 -1 0
+"mood(positivity)" -1 -1 0 -1 0
+"mood(heaviness)" -1 -1 0 -1 0
+"socio-political(progressive)" -1 -1 0 -1 0
+"socio-political(open)" -1 -1 0 -1 0
+"economic status(open)" -1 -1 0 -1 0
+"economic status(inclusive)" -1 -1 0 -1 0
+"parental love(unconditional love)" -1 -1 0 -1 0
+"parental love(tough love)" -1 -1 0 -1 0
+"reliability(trustworthiness)" -1 -1 0 -1 0
+"social hierarchy(hierarchy)" -1 -1 0 -1 0
+"economical(open)" -1 -1 0 -1 0
+"economical(close)" -1 -1 0 -1 0
+"emotional commitment(authenticity)" -1 -1 0 -1 0
+"emotional commitment(deception)" -1 -1 0 -1 0
+"language and culture(communication)" -1 -1 0 -1 0
+"language and culture(inclusivity)" -1 -1 0 -1 0
+"narration(narrative approach)" -1 -1 0 -1 0
+"narration(detached communication)" -1 -1 0 -1 0
+"entertainment value(engaging and entertaining)" -1 -1 0 -1 0
+"entertainment value(serious and meaningful)" -1 -1 0 -1 0
+"job satisfaction(satisfaction vs dissatisfaction)" -1 -1 0 -1 0
+"job satisfaction(positive vs negative)" -1 -1 0 -1 0
+"socio-political attitudes(close)" -1 -1 0 -1 0
+"triality(openness)" -1 -1 0 -1 0
+"triality(pessimism)" -1 -1 0 -1 0
+"life outlook(positivity)" -1 -1 0 -1 0
+"life outlook(negativity)" -1 -1 0 -1 0
+"societal attitudes(positive mindset)" -1 -1 0 -1 0
+"societal attitudes(negative mindset)" -1 -1 0 -1 0
+"individual spirituality(open)" -1 -1 0 -1 0
+"individual spirituality(close)" -1 -1 0 -1 0
+"focus(focused)" -1 -1 0 -1 0
+"perspective(transparency and honesty)" -1 -1 0 -1 0
+"perspective(escapism and avoidance of difficult topics)" -1 -1 0 -1 0
+"transition(adaptability)" -1 -1 0 -1 0
+"transition(rigidity)" -1 -1 0 -1 0
+"nature(open)" -1 -1 0 -1 0
+"nature(close)" -1 -1 0 -1 0
+"food(conversation topics)" -1 -1 0 -1 0
+"food(conversation tone)" -1 -1 0 -1 0
+"self-esteem(self)" -1 -1 0 -1 0
+"self-esteem(insecurity)" -1 -1 0 -1 0
+"autonomy(autonomy)" -1 -1 0 -1 0
+"autonomy(flexibility)" -1 -1 0 -1 0
+"work and career(ambition)" -1 -1 0 -1 0
+"work and career(success)" -1 -1 0 -1 0
+"realistic(authenticity)" -1 -1 0 -1 0
+"realistic(facade)" -1 -1 0 -1 0
+"peacefullness(honesty)" -1 -1 0 -1 0
+"peacefullness(respect)" -1 -1 0 -1 0
+"transition\(activities(casual conversation)" -1 -1 0 -1 0
+"transition\(activities(spontaneity)" -1 -1 0 -1 0
+"romantic status(self)" -1 -1 0 -1 0
+"location preference(open)" -1 -1 0 -1 0
+"location preference(tolerance)" -1 -1 0 -1 0
+"rational beliefers(open)" -1 -1 0 -1 0
+"rational beliefers(closed)" -1 -1 0 -1 0
+"family bonds(connection)" -1 -1 0 -1 0
+"family bonds(disconnection)" -1 -1 0 -1 0
+"self-acceptance(self)" -1 -1 0 -1 0
+"name(self)" -1 -1 0 -1 0
+"purpose(pragmatism)" -1 -1 0 -1 0
+"purpose(idealism)" -1 -1 0 -1 0
+"storytelling(engaging storytelling)" -1 -1 0 -1 0
+"storytelling(dispassionate detachment)" -1 -1 0 -1 0
+"seeker of truth(open)" -1 -1 0 -1 0
+"seeker of truth(close)" -1 -1 0 -1 0
+"social norms(social conformity)" -1 -1 0 -1 0
+"social norms(authenticity)" -1 -1 0 -1 0
+"safety precautions(safety)" -1 -1 0 -1 0
+"safety precautions(risk)" -1 -1 0 -1 0
+"family focus(parenthood)" -1 -1 0 -1 0
+"family focus(independence)" -1 -1 0 -1 0
+"strength(confidence)" -1 -1 0 -1 0
+"strength(strength)" -1 -1 0 -1 0
+"media and entertainment(entertainment)" -1 -1 0 -1 0
+"media and entertainment(mainstream)" -1 -1 0 -1 0
+"introspection(reflective)" -1 -1 0 -1 0
+"introspection(impulsive)" -1 -1 0 -1 0
+"school schedule(efficiency)" -1 -1 0 -1 0
+"school schedule(procrastination)" -1 -1 0 -1 0
+"body aesthetics(open)" -1 -1 0 -1 0
+"body aesthetics(traditionalism)" -1 -1 0 -1 0
+"imagery(relevant)" -1 -1 0 -1 0
+"imagery(authentic)" -1 -1 0 -1 0
+"portrayal of computer technology(relevant)" -1 -1 0 -1 0
+"portrayal of computer technology(practical)" -1 -1 0 -1 0
+"physical(transparency)" -1 -1 0 -1 0
+"physical(secrecy)" -1 -1 0 -1 0
+"individual experience(authenticity)" -1 -1 0 -1 0
+"individual experience(artificiality)" -1 -1 0 -1 0
+"financial status(struggling)" -1 -1 0 -1 0
+"interpersonal support(empathy)" -1 -1 0 -1 0
+"interpersonal support(disconnection)" -1 -1 0 -1 0
+"physical attribute(appearance)" -1 -1 0 -1 0
+"physical attribute(nonchalance)" -1 -1 0 -1 0
+"attribute group not listed(authenticity)" -1 -1 0 -1 0
+"attribute group not listed(formality)" -1 -1 0 -1 0
+"well my journey through the college education system i should of mentioned(open)" -1 -1 0 -1 0
+"well my journey through the college education system i should of mentioned(close)" -1 -1 0 -1 0
+"traditional stereotype(judgment)" -1 -1 0 -1 0
+"traditional stereotype(acceptance)" -1 -1 0 -1 0
+"agreement(preference for convenience and comfort in daily tasks)" -1 -1 0 -1 0
+"agreement(aversion to manual labor and cleaning duties)" -1 -1 0 -1 0
+"cultural pride(patriotism)" -1 -1 0 -1 0
+"cultural pride(cultural appropriation)" -1 -1 0 -1 0
+"privacy concerns(security)" -1 -1 0 -1 0
+"privacy concerns(transparency)" -1 -1 0 -1 0
+"political views(political engagement)" -1 -1 0 -1 0
+"political views(political apathy)" -1 -1 0 -1 0
+"cynicism(sarcasm)" -1 -1 0 -1 0
+"cynicism(sincerity)" -1 -1 0 -1 0
+"romantic competition(respectful communication)" -1 -1 0 -1 0
+"romantic competition(manipulative behavior)" -1 -1 0 -1 0
+"societal(open)" -1 -1 0 -1 0
+"societal(closed)" -1 -1 0 -1 0
+"interest in sports(being well)" -1 -1 0 -1 0
+"interest in sports(having a growth mindset and being open to learning and new ideas)" -1 -1 0 -1 0
+"responsible(accountability)" -1 -1 0 -1 0
+"responsible(irresponsibility)" -1 -1 0 -1 0
+"sex appeal(expressiveness)" -1 -1 0 -1 0
+"sex appeal(modesty)" -1 -1 0 -1 0
+"resilience(confidence)" -1 -1 0 -1 0
+"resilience(vulnerability)" -1 -1 0 -1 0
+"personal finance(financial responsibility)" -1 -1 0 -1 0
+"personal finance(financial recklessness)" -1 -1 0 -1 0
+"gift giving(gratitude)" -1 -1 0 -1 0
+"gift giving(self)" -1 -1 0 -1 0
+"parental role(neglectful)" -1 -1 0 -1 0
+"music(music)" -1 -1 0 -1 0
+"music(silence)" -1 -1 0 -1 0
+"openness(openness)" -1 -1 0 -1 0
+"attitute 1(formal)" -1 -1 0 -1 0
+"attitute 1(casual)" -1 -1 0 -1 0
+"status(availability)" -1 -1 0 -1 0
+"status(unavailability)" -1 -1 0 -1 0
+"trustworthiness(sincerity)" -1 -1 0 -1 0
+"trustworthiness(deception)" -1 -1 0 -1 0
+"humility(confidence and humility)" -1 -1 0 -1 0
+"humility(arrogance and humility)" -1 -1 0 -1 0
+"tradition(relevance)" -1 -1 0 -1 0
+"tradition(authenticity)" -1 -1 0 -1 0
+"economics(political ideology)" -1 -1 0 -1 0
+"economics(liberal)" -1 -1 0 -1 0
+"corporate relations(collaboration)" -1 -1 0 -1 0
+"corporate relations(individualism)" -1 -1 0 -1 0
+"positive experience(positive)" -1 -1 0 -1 0
+"positive experience(negative)" -1 -1 0 -1 0
+"general beliefs(honesty)" -1 -1 0 -1 0
+"general beliefs(deception)" -1 -1 0 -1 0
+"commitment(commitment)" -1 -1 0 -1 0
+"commitment(unreliable)" -1 -1 0 -1 0
+"persistence(persistence)" -1 -1 0 -1 0
+"spiritual seekers(open)" -1 -1 0 -1 0
+"spiritual seekers(close)" -1 -1 0 -1 0
+"theology(open)" -1 -1 0 -1 0
+"theology(close)" -1 -1 0 -1 0
+"sincerity(authenticity)" -1 -1 0 -1 0
+"sincerity(deception)" -1 -1 0 -1 0
+"entertainment(common attribute)" -1 -1 0 -1 0
+"entertainment(polar opposite)" -1 -1 0 -1 0
+"culinary preference(dietary preferences)" -1 -1 0 -1 0
+"culinary preference(food preferences)" -1 -1 0 -1 0
+"socialization(enjoying social interactions and connections with others)" -1 -1 0 -1 0
+"socialization(valuing personal boundaries and respectful communication.)" -1 -1 0 -1 0
+"ethical extremes(honesty)" -1 -1 0 -1 0
+"ethical extremes(deception)" -1 -1 0 -1 0
+"expectation focus(positivity)" -1 -1 0 -1 0
+"expectation focus(openness)" -1 -1 0 -1 0
+"cultural expectations(prioritizing individualism and individual choice in decision making)" -1 -1 0 -1 0
+"cultural expectations(following cultural expectations and societal norms)" -1 -1 0 -1 0
+"reasoning(logic)" -1 -1 0 -1 0
+"reasoning(irrationality)" -1 -1 0 -1 0
+"attribute groups(authenticity)" -1 -1 0 -1 0
+"attribute groups(pretense)" -1 -1 0 -1 0
+"information(relevant and irrelevant)" -1 -1 0 -1 0
+"information(informative and distracting)" -1 -1 0 -1 0
+"media(relevance)" -1 -1 0 -1 0
+"media(inclusivity)" -1 -1 0 -1 0
+"fitness(movement)" -1 -1 0 -1 0
+"fitness(inactivity)" -1 -1 0 -1 0
+"advice(effective communication)" -1 -1 0 -1 0
+"advice(lack of communication)" -1 -1 0 -1 0
+"class(achievement)" -1 -1 0 -1 0
+"class(equality)" -1 -1 0 -1 0
+"parental influence(respect)" -1 -1 0 -1 0
+"parental influence(disrespect)" -1 -1 0 -1 0
+"personality trait(honesty)" -1 -1 0 -1 0
+"personality trait(deception)" -1 -1 0 -1 0
+"attention-time(connection)" -1 -1 0 -1 0
+"attention-time(disconnection)" -1 -1 0 -1 0
+"love and relationship(empathy)" -1 -1 0 -1 0
+"love and relationship(indifference)" -1 -1 0 -1 0
+"career focus(fulfillment and financial stability)" -1 -1 0 -1 0
+"career focus(self)" -1 -1 0 -1 0
+"socio-political views(progressive)" -1 -1 0 -1 0
+"socio-political views(conservative)" -1 -1 0 -1 0
+"physical abilities(physical fitness)" -1 -1 0 -1 0
+"physical abilities(inadequacy)" -1 -1 0 -1 0
+"satisfaction(attentive)" -1 -1 0 -1 0
+"satisfaction(open)" -1 -1 0 -1 0
+"family life(relationships)" -1 -1 0 -1 0
+"family life(independence)" -1 -1 0 -1 0
+"parent-child(health)" -1 -1 0 -1 0
+"attitutde 1(positive)" -1 -1 0 -1 0
+"attitutde 1(negative)" -1 -1 0 -1 0
+"attitiude 1(positive attitudes)" -1 -1 0 -1 0
+"attitiude 1(negative attitudes)" -1 -1 0 -1 0
+"hope and despair(confidence)" -1 -1 0 -1 0
+"hope and despair(positivity)" -1 -1 0 -1 0
+"discrimination(acceptance)" -1 -1 0 -1 0
+"discrimination(discrimination)" -1 -1 0 -1 0
+"independance(openness)" -1 -1 0 -1 0
+"independance(closedness)" -1 -1 0 -1 0
+"importance(equality)" -1 -1 0 -1 0
+"importance(domination)" -1 -1 0 -1 0
+"attribution spectrum(open)" -1 -1 0 -1 0
+"attribution spectrum(close)" -1 -1 0 -1 0
+"individual focus(individualism)" -1 -1 0 -1 0
+"individual focus(collectivism)" -1 -1 0 -1 0
+"provacativity(provocative)" -1 -1 0 -1 0
+"provocativity(risqué)" -1 -1 0 -1 0
+"provocativity(casual)" -1 -1 0 -1 0
+"educational(small talk)" -1 -1 0 -1 0
+"technology preference(technology usage)" -1 -1 0 -1 0
+"technology preference(non)" -1 -1 0 -1 0
+"hobbies and interests(personal)" -1 -1 0 -1 0
+"hobbies and interests(professional)" -1 -1 0 -1 0
+"individual identity(independence)" -1 -1 0 -1 0
+"individual identity(isolation)" -1 -1 0 -1 0
+"leisure 1(communication)" -1 -1 0 -1 0
+"leisure 1(isolation)" -1 -1 0 -1 0
+"thought process(rational)" -1 -1 0 -1 0
+"thought process(open)" -1 -1 0 -1 0
+"emotionality(logical)" -1 -1 0 -1 0
+"mindfullness(attentiveness)" -1 -1 0 -1 0
+"mindfullness(distraction)" -1 -1 0 -1 0
+"personal possessions(organization)" -1 -1 0 -1 0
+"personal possessions(spontaneity)" -1 -1 0 -1 0
+"sexual commitment(authenticity)" -1 -1 0 -1 0
+"sexual commitment(deception)" -1 -1 0 -1 0
+"creative interests(creative interests)" -1 -1 0 -1 0
+"creative interests(professional experience)" -1 -1 0 -1 0
+"intuitive thinkers(intuition)" -1 -1 0 -1 0
+"intuitive thinkers(rationality)" -1 -1 0 -1 0
+"introduction(self)" -1 -1 0 -1 0
+"introduction(social conformity)" -1 -1 0 -1 0
+"storymotivation(emotional authenticity)" -1 -1 0 -1 0
+"storymotivation(detachment or neutrality)" -1 -1 0 -1 0
+"body preference(self)" -1 -1 0 -1 0
+"body preference(body shaming)" -1 -1 0 -1 0
+"belief(flexibility)" -1 -1 0 -1 0
+"belief(strict adherence to rules and unwillingness to deviate from established norms in conversations)" -1 -1 0 -1 0
+"familial relations(family relationships and connections)" -1 -1 0 -1 0
+"familial relations(strangers and acquaintances)" -1 -1 0 -1 0
+"beverage etiquette(etiquette)" -1 -1 0 -1 0
+"hygiene(hygiene)" -1 -1 0 -1 0
+"hygiene(lack of hygiene)" -1 -1 0 -1 0
+"uncertainty(uncertainty and change)" -1 -1 0 -1 0
+"uncertainty(transition and growth)" -1 -1 0 -1 0
+"relationship with siblings(family dynamic)" -1 -1 0 -1 0
+"relationship with siblings(multiple siblings)" -1 -1 0 -1 0
+"adventurousness(open)" -1 -1 0 -1 0
+"adventurousness(close)" -1 -1 0 -1 0
+"attitutde 2(positive)" -1 -1 0 -1 0
+"attitutde 2(negative)" -1 -1 0 -1 0
+"career goals(aspiration)" -1 -1 0 -1 0
+"career goals(contentment)" -1 -1 0 -1 0
+"cooperation(communication)" -1 -1 0 -1 0
+"cooperation(isolation)" -1 -1 0 -1 0
+"interpersonal(communication)" -1 -1 0 -1 0
+"interpersonal(independence)" -1 -1 0 -1 0
+"career motivation(change)" -1 -1 0 -1 0
+"career motivation(complacency)" -1 -1 0 -1 0
+"peace(peacefulness)" -1 -1 0 -1 0
+"peace(conflict)" -1 -1 0 -1 0
+"calmness(open)" -1 -1 0 -1 0
+"calmness(close)" -1 -1 0 -1 0
+"fashion(personal preference)" -1 -1 0 -1 0
+"fashion(social conformity)" -1 -1 0 -1 0
+"body enhancing beauty(desirability)" -1 -1 0 -1 0
+"body enhancing beauty(imperfection)" -1 -1 0 -1 0
+"party anthems(playfulness)" -1 -1 0 -1 0
+"party anthems(introspection)" -1 -1 0 -1 0
+"international relations(openness)" -1 -1 0 -1 0
+"international relations(secrecy)" -1 -1 0 -1 0
+"logistical instructions(direct communication methods)" -1 -1 0 -1 0
+"logistical instructions(indirect communication methods)" -1 -1 0 -1 0
+"dating(open)" -1 -1 0 -1 0
+"dating(flexibility)" -1 -1 0 -1 0
+"literacy(communication)" -1 -1 0 -1 0
+"literacy(inefficiency)" -1 -1 0 -1 0
+"musical preference(music preference)" -1 -1 0 -1 0
+"musical preference(genre preference)" -1 -1 0 -1 0
+"intuition(open)" -1 -1 0 -1 0
+"intuition(close)" -1 -1 0 -1 0
+"awareness(attention)" -1 -1 0 -1 0
+"conformity(conformity)" -1 -1 0 -1 0
+"conformity(non)" -1 -1 0 -1 0
+"religious community(consensus)" -1 -1 0 -1 0
+"religious community(conflict)" -1 -1 0 -1 0
+"love(emotional connection)" -1 -1 0 -1 0
+"love(detachment)" -1 -1 0 -1 0
+"community(community)" -1 -1 0 -1 0
+"event planning(communication)" -1 -1 0 -1 0
+"event planning(authenticity)" -1 -1 0 -1 0
+"academic pursuit(education)" -1 -1 0 -1 0
+"academic pursuit(ignorance)" -1 -1 0 -1 0
+"philosophical(open)" -1 -1 0 -1 0
+"philosophical(closed)" -1 -1 0 -1 0
+"moral responsibility(effective communication and understanding)" -1 -1 0 -1 0
+"moral responsibility(ineffective communication and misunderstanding)" -1 -1 0 -1 0
+"activities(socializing)" -1 -1 0 -1 0
+"activities(isolation)" -1 -1 0 -1 0
+"physical condition(wellness)" -1 -1 0 -1 0
+"physical condition(ability)" -1 -1 0 -1 0
+"visuals(weather)" -1 -1 0 -1 0
+"visuals(technology)" -1 -1 0 -1 0
+"social expectations(conformity)" -1 -1 0 -1 0
+"social expectations(authenticity)" -1 -1 0 -1 0
+"companionship(connection)" -1 -1 0 -1 0
+"companionship(isolation)" -1 -1 0 -1 0
+"organization(structure)" -1 -1 0 -1 0
+"story-mode(authenticity)" -1 -1 0 -1 0
+"story-mode(superficiality)" -1 -1 0 -1 0
+"study habits(efficiency and productivity)" -1 -1 0 -1 0
+"study habits(procrastination and wasted time)" -1 -1 0 -1 0
+"academic success(ambition)" -1 -1 0 -1 0
+"academic success(complacency)" -1 -1 0 -1 0
+"portrayal(engaging)" -1 -1 0 -1 0
+"portrayal(confident)" -1 -1 0 -1 0
+"encouragement(encouragement)" -1 -1 0 -1 0
+"encouragement(discouragement)" -1 -1 0 -1 0
+"family values(open)" -1 -1 0 -1 0
+"family values(authenticity)" -1 -1 0 -1 0
+"assistance(empathy)" -1 -1 0 -1 0
+"assistance(indifference)" -1 -1 0 -1 0
+"societal norm/expectation(social etiquette)" -1 -1 0 -1 0
+"societal norm/expectation(informality)" -1 -1 0 -1 0
+"body modifications(body modifications)" -1 -1 0 -1 0
+"body modifications(natural appearance)" -1 -1 0 -1 0
+"etiquette(politeness)" -1 -1 0 -1 0
+"etiquette(rudeness)" -1 -1 0 -1 0
+"genre(community)" -1 -1 0 -1 0
+"genre(self)" -1 -1 0 -1 0
+"privacy(honesty)" -1 -1 0 -1 0
+"privacy(authenticity)" -1 -1 0 -1 0
+"storyline(authenticity)" -1 -1 0 -1 0
+"storyline(deception)" -1 -1 0 -1 0
+"entertainment preference(popular)" -1 -1 0 -1 0
+"entertainment preference(niche)" -1 -1 0 -1 0
+"problem solving(effective communication)" -1 -1 0 -1 0
+"problem solving(lack of communication)" -1 -1 0 -1 0
+"enlightenment(communication)" -1 -1 0 -1 0
+"enlightenment(misunderstanding)" -1 -1 0 -1 0
+"personal appearance(physical appearance)" -1 -1 0 -1 0
+"personal appearance(self)" -1 -1 0 -1 0
+"health and physical activity(healthy lifestyle)" -1 -1 0 -1 0
+"health and physical activity(sedentary lifestyle)" -1 -1 0 -1 0
+"concern(empathy)" -1 -1 0 -1 0
+"concern(insensitivity)" -1 -1 0 -1 0
+"time frame(1990)" -1 -1 0 -1 0
+"child development(2)" -1 -1 0 -1 0
+"fulfillment(personal growth and self)" -1 -1 0 -1 0
+"new experiences(routine)" -1 -1 0 -1 0
+"age-inclusive(youth)" -1 -1 0 -1 0
+"age-inclusive(age)" -1 -1 0 -1 0
+"action focus(individual)" -1 -1 0 -1 0
+"emotion\(frustration(anger)" -1 -1 0 -1 0
+"emotion\(frustration(annoyance)" -1 -1 0 -1 0
+"company relations(anti)" -1 -1 0 -1 0
+"civilization relations(anti)" -1 -1 0 -1 0
+"clothing(style)" -1 -1 0 -1 0
+"clothing(appearance)" -1 -1 0 -1 0
+"recognition(acknowledged)" -1 -1 0 -1 0
+"attencation-time\(nostalgia\)(production style)" -1 -1 0 -1 0
+"attencation-time\(nostalgia\)(attention)" -1 -1 0 -1 0
+"anti-capitalism(authencity)" -1 -1 0 -1 0
+"targeting(age)" -1 -1 0 -1 0
+"self-awareness(personal development)" -1 -1 0 -1 0
+"values spectrum(non)" -1 -1 0 -1 0
+"attractiveness(natural beauty)" -1 -1 0 -1 0
+"attractiveness(body enhancing beauty)" -1 -1 0 -1 0
+"safety(recklessness)" -1 -1 0 -1 0
+"open-mindedness(close)" -1 -1 0 -1 0
+"open-mindedness(closed)" -1 -1 0 -1 0
+"organizational(community)" -1 -1 0 -1 0
+"creative expression(out)" -1 -1 0 -1 0
+"corp relations(anti)" -1 -1 0 -1 0
+"persuasion(authority)" -1 -1 0 -1 0
+"immediacy(desperate + negative_attitude)" -1 -1 0 -1 0
+"dysfunctional society(disregard for safety and well)" -1 -1 0 -1 0
+"attenton-emotional_state\(desire\)(emotion)" -1 -1 0 -1 0
+"attention-emotional_state\(desire\)(emotion)" -1 -1 0 -1 0
+"lyrial emphasis(emotionally)" -1 -1 0 -1 0
+"diet(healthy)" -1 -1 0 -1 0
+"expectation-perfection(expectation)" -1 -1 0 -1 0
+"family influence(father)" -1 -1 0 -1 0
+"employment preferences(work)" -1 -1 0 -1 0
+"anticipation(future)" -1 -1 0 -1 0
+"determination(goal)" -1 -1 0 -1 0
+"need fulfillment(help)" -1 -1 0 -1 0
+"romantic orientation(self)" -1 -1 0 -1 0
+"attitude 4(passionate)" -1 -1 0 -1 0
+"knowledge-seeking(ig)" -1 -1 0 -1 0
+"family status(in a relationship)" -1 -1 0 -1 0
+"type of relationship(individual)" -1 -1 0 -1 0
+"relational focus(partner)" -1 -1 0 -1 0
+"relational focus(individual)" -1 -1 0 -1 0
+"socio-cultural(individual)" -1 -1 0 -1 0
+"socio-economic class(conservative)" -1 -1 0 -1 0
+"socio-economic class(liberal)" -1 -1 0 -1 0
+"requirements(four)" -1 -1 0 -1 0
+"lovability(self)" -1 -1 0 -1 0
+"lucidity(lucidity)" -1 -1 0 -1 0
+"primary attribute groups(lyrical emphasis)" -1 -1 0 -1 0
+"presentation(mainstream)" -1 -1 0 -1 0
+"moral compass(moral)" -1 -1 0 -1 0
+"personal(muse)" -1 -1 0 -1 0
+"personal(motivational ambiguity)" -1 -1 0 -1 0
+"cultural interests(rap)" -1 -1 0 -1 0
+"rationalism(intuitive thinkers)" -1 -1 0 -1 0
+"environmentalism(nature)" -1 -1 0 -1 0
+"faith extremists(non)" -1 -1 0 -1 0
+"age spectrum(non)" -1 -1 0 -1 0
+"beliefe spectrum(believer + emotion)" -1 -1 0 -1 0
+"beliefe spectrum(non)" -1 -1 0 -1 0
+"racial identity(non)" -1 -1 0 -1 0
+"future(self)" -1 -1 0 -1 0
+"tolerance(self)" -1 -1 0 -1 0
+"activity preference(socializing)" -1 -1 0 -1 0
+"we went to my favorite cafe(enjoyment)" -1 -1 0 -1 0
+"we went to my favorite cafe(outing)" -1 -1 0 -1 0
+"average expectation(expectation)" -1 -1 0 -1 0
+"may i turn on the radio then(relaxation)" -1 -1 0 -1 0
+"may i turn on the radio then(collaboration)" -1 -1 0 -1 0
+"fiction(storyline)" -1 -1 0 -1 0
+"worldview(open)" -1 -1 0 -1 0
+"pragmatic opposites(pet owners vs non)" -1 -1 0 -1 0
+"pragmatic opposites(minimalist vs collector)" -1 -1 0 -1 0
+"acknowledgement(self)" -1 -1 0 -1 0
+"monitoring progress(recording weights)" -1 -1 0 -1 0
+"household chore expectation(regular laundry doing for partner)" -1 -1 0 -1 0
+"personality traits(expectations)" -1 -1 0 -1 0
+"did you guys do anything(reunion)" -1 -1 0 -1 0
+"transition \(activities(personal transformation)" -1 -1 0 -1 0
+"transition \(activities(transitioning)" -1 -1 0 -1 0
+"love target(self)" -1 -1 0 -1 0
+"television preference(mainstream)" -1 -1 0 -1 0
+"television preference(science fiction)" -1 -1 0 -1 0
+"and leave with no way to contact him(self)" -1 -1 0 -1 0
+"patient of love(self)" -1 -1 0 -1 0
+"targeting of love(self)" -1 -1 0 -1 0
+"cynic(challenge)" -1 -1 0 -1 0
+"sexualemphasis(non)" -1 -1 0 -1 0
+"style(simple)" -1 -1 0 -1 0
+"style(sophisticated)" -1 -1 0 -1 0
+"free-spirited(free)" -1 -1 0 -1 0
+"flexibility(spontaneous)" -1 -1 0 -1 0
+"values and beliefs(long)" -1 -1 0 -1 0
+"accessibility(using transportation)" -1 -1 0 -1 0
+"prior knowledge/experience(warm)" -1 -1 0 -1 0
+"dietary preference(coffee)" -1 -1 0 -1 0
+"dietary preference(tea)" -1 -1 0 -1 0
+"lyric emphasis(emotionally restrained)" -1 -1 0 -1 0
+"age group(youth)" -1 -1 0 -1 0

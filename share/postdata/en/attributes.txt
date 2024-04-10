@@ -5879,3 +5879,1943 @@
 "beliefs spectrum(believer)" -1 -1 0 -1 0
 "expectation-opposed(artistic integrity)" -1 -1 0 -1 0
 "romantic love(self-love)" -1 -1 0 -1 0
+"intentional love(loving now)" -1 -1 0 -1 0
+"existential attitude(pessimistic)" -1 -1 0 -1 0
+"intentional partying(party anthems)" -1 -1 0 -1 0
+"spiritual group(individual spirituality)" -1 -1 0 -1 0
+"intentional love(heartbreak)" -1 -1 0 -1 0
+"intentional love(self-love)" -1 -1 0 -1 0
+"intentional family time(family bonding)" -1 -1 0 -1 0
+"intentional family time(quality time)" -1 -1 0 -1 0
+"silence group(silenced)" -1 -1 0 -1 0
+"self-care group(need help)" -1 -1 0 -1 0
+"self-care group(contribute)" -1 -1 0 -1 0
+"self-care group(glad)" -1 -1 0 -1 0
+"self-care group(snooze)" -1 -1 0 -1 0
+"silence group(librarian)" -1 -1 0 -1 0
+"self-care group(tired)" -1 -1 0 -1 0
+"silence group(contribute)" -1 -1 0 -1 0
+"silence group(i am)" -1 -1 0 -1 0
+"self-care group(changing)" -1 -1 0 -1 0
+"physical preference(unhealthy food)" -1 -1 0 -1 0
+"intensity group(painful)" -1 -1 0 -1 0
+"mortality group(dying)" -1 -1 0 -1 0
+"intensity group(difficult)" -1 -1 0 -1 0
+"motivation(avoid embarrassment)" -1 -1 0 -1 0
+"self-care group(reward)" -1 -1 0 -1 0
+"behavior change(decrease walk time)" -1 -1 0 -1 0
+"intuitive thinkers(mystical practitioner)" -1 -1 0 -1 0
+"storytelling(emotional detachment)" -1 -1 0 -1 0
+"ethical responsibility(individual-oriented)" -1 -1 0 -1 0
+"ethical responsibility(authoritarian)" -1 -1 0 -1 0
+"personification(personality)" -1 -1 0 -1 0
+"language(other than english)" -1 -1 0 -1 0
+"ethnicity(chinese/taiwanese)" -1 -1 0 -1 0
+"world leader(chen shui bian)" -1 -1 0 -1 0
+"situation(election in taiwan)" -1 -1 0 -1 0
+"sentence analysis(fake assassination for political gain)" -1 -1 0 -1 0
+"situation(hypothetical scenario of assassination)" -1 -1 0 -1 0
+"support(political leader taking a bullet)" -1 -1 0 -1 0
+"sentence analysis(question about presidential election)" -1 -1 0 -1 0
+"sentence analysis(sarcastic remark)" -1 -1 0 -1 0
+"situation(being asked about personal opinion on election)" -1 -1 0 -1 0
+"personality(unsure)" -1 -1 0 -1 0
+"situation(reflecting on previous beliefs)" -1 -1 0 -1 0
+"personality(young and naive)" -1 -1 0 -1 0
+"personality(supporting bush)" -1 -1 0 -1 0
+"ethic responsibility(collective)" -1 -1 0 -1 0
+"reason for war(questionable)" -1 -1 0 -1 0
+"narrative(upcoming election)" -1 -1 0 -1 0
+"communication(excited)" -1 -1 0 -1 0
+"communication(frustrated)" -1 -1 0 -1 0
+"problem solving strategy(preparation)" -1 -1 0 -1 0
+"problem solving strategy(last-minute)" -1 -1 0 -1 0
+"comfort(warmth)" -1 -1 0 -1 0
+"comfort(safety)" -1 -1 0 -1 0
+"trauma(emotional scarring)" -1 -1 0 -1 0
+"trauma(healing)" -1 -1 0 -1 0
+"individualism(dependent)" -1 -1 0 -1 0
+"psychological state(frustration)" -1 -1 0 -1 0
+"psychological state(satisfaction)" -1 -1 0 -1 0
+"personal relationships(close friendships)" -1 -1 0 -1 0
+"personal relationships(distant acquaintances)" -1 -1 0 -1 0
+"personal relationships(sibling bond)" -1 -1 0 -1 0
+"personal relationships(reminiscence)" -1 -1 0 -1 0
+"memory(association)" -1 -1 0 -1 0
+"memory(separation)" -1 -1 0 -1 0
+"culture(pop culture influenced)" -1 -1 0 -1 0
+"culture(traditional culture)" -1 -1 0 -1 0
+"culture(mainstream entertainment)" -1 -1 0 -1 0
+"culture(niche media)" -1 -1 0 -1 0
+"fear(fear of invasive creatures)" -1 -1 0 -1 0
+"fear(fear of ghosts)" -1 -1 0 -1 0
+"fear(fear of the unknown)" -1 -1 0 -1 0
+"fear(fear of being deceived)" -1 -1 0 -1 0
+"focus on aesthetics(visually stunning)" -1 -1 0 -1 0
+"focus on aesthetics(visually unappealing)" -1 -1 0 -1 0
+"story elements(supernatural)" -1 -1 0 -1 0
+"story elements(grounded in reality)" -1 -1 0 -1 0
+"expression(exclamatory)" -1 -1 0 -1 0
+"expression(hesitant)" -1 -1 0 -1 0
+"emotional state(sadness)" -1 -1 0 -1 0
+"emotional state(fear)" -1 -1 0 -1 0
+"emotional state(curiosity)" -1 -1 0 -1 0
+"emotional state(ambivalence)" -1 -1 0 -1 0
+"personal needs(relaxation)" -1 -1 0 -1 0
+"personal needs(productivity)" -1 -1 0 -1 0
+"personal needs(procrastination)" -1 -1 0 -1 0
+"live concert(los angeles)" -1 -1 0 -1 0
+"youth target(freshman)" -1 -1 0 -1 0
+"individual-oriented(introspective ballads)" -1 -1 0 -1 0
+"sophisticated(witty wordplay)" -1 -1 0 -1 0
+"personal experience(self-acceptance)" -1 -1 0 -1 0
+"dynamic quality(playful)" -1 -1 0 -1 0
+"humanity(body enhancing beauty)" -1 -1 0 -1 0
+"individual spirituality(personal experience)" -1 -1 0 -1 0
+"media(storytelling)" -1 -1 0 -1 0
+"humanity(biblical teachings)" -1 -1 0 -1 0
+"logical reasoning(spy)" -1 -1 0 -1 0
+"rational thinkers(scientific)" -1 -1 0 -1 0
+"masculinity(confident)" -1 -1 0 -1 0
+"dynamic quality(explosive)" -1 -1 0 -1 0
+"employment(demanding boss)" -1 -1 0 -1 0
+"emotional state(anger)" -1 -1 0 -1 0
+"academic success(algebra test passing)" -1 -1 0 -1 0
+"leisure activity(attending church)" -1 -1 0 -1 0
+"academic workload(studying for biblical ethics test)" -1 -1 0 -1 0
+"emotional state(nervousness)" -1 -1 0 -1 0
+"academic progress(finishing eleventh lesson)" -1 -1 0 -1 0
+"academic deadline(testing for biblical ethics)" -1 -1 0 -1 0
+"contrast(however)" -1 -1 0 -1 0
+"quantity(as much as possible)" -1 -1 0 -1 0
+"time management(taking time away from mornings for studying)" -1 -1 0 -1 0
+"belief(belief in god)" -1 -1 0 -1 0
+"expression(using the words \"spiffy\" and \"ahoy\")" -1 -1 0 -1 0
+"expression(encouraging others to attend a youth rally)" -1 -1 0 -1 0
+"leisure activity(playing video games)" -1 -1 0 -1 0
+"belief(belief in god's involvement in daily life)" -1 -1 0 -1 0
+"academic workload(studying for various subjects)" -1 -1 0 -1 0
+"academic motivation(avoiding failure)" -1 -1 0 -1 0
+"historical fact(edmund randolph's role in george washington's cabinet)" -1 -1 0 -1 0
+"historical fact(george washington's storage of edmund randolph)" -1 -1 0 -1 0
+"evaluation(calling a statement \"dumb\")" -1 -1 0 -1 0
+"academic progress(forgetting key information on a test)" -1 -1 0 -1 0
+"historical fact(thomas jefferson's role in george washington's cabinet)" -1 -1 0 -1 0
+"historical fact(alexander hamilton's role in george washington's cabinet)" -1 -1 0 -1 0
+"historical fact(henry knox's role in george washington's cabinet)" -1 -1 0 -1 0
+"social event(attending a youth rally)" -1 -1 0 -1 0
+"contrast(other than)" -1 -1 0 -1 0
+"expression(using the word \"ahoy\")" -1 -1 0 -1 0
+"evaluation(calling something \"spiffy\")" -1 -1 0 -1 0
+"encouragement(directing someone to a website)" -1 -1 0 -1 0
+"company(tierra entertainment)" -1 -1 0 -1 0
+"encouragement(directing someone to visit tierra entertainment)" -1 -1 0 -1 0
+"evaluation(questioning if something is a journal)" -1 -1 0 -1 0
+"belief(belief in god's control over technology)" -1 -1 0 -1 0
+"reasoning(explaining why problems with technology occur)" -1 -1 0 -1 0
+"employment(helpful coworker)" -1 -1 0 -1 0
+"gratitude(receiving free replacement for a faulty modem)" -1 -1 0 -1 0
+"comparison(preferring old technology over new)" -1 -1 0 -1 0
+"academic progress(feeling unconnected due to lack of internet access)" -1 -1 0 -1 0
+"expression(saying \"cheerio\" and \"urgh\" in frustration)" -1 -1 0 -1 0
+"expression(expressing extreme frustration with \"times infinity\")" -1 -1 0 -1 0
+"musical preference(liking the beatles)" -1 -1 0 -1 0
+"reflection(recognizing when a song has been used previously)" -1 -1 0 -1 0
+"reflection(finding a song fitting for the current situation)" -1 -1 0 -1 0
+"reflection(recognizing when a song is thematically appropriate)" -1 -1 0 -1 0
+"social event(enjoying a wonderful day)" -1 -1 0 -1 0
+"leisure activity(installing and setting up a dsl router)" -1 -1 0 -1 0
+"technological opposites(technological)" -1 -1 0 -1 0
+"physical preference(healthy body)" -1 -1 0 -1 0
+"belief communities(group-oriented)" -1 -1 0 -1 0
+"lifestyle(adventurous)" -1 -1 0 -1 0
+"lifestyle(closed-minded)" -1 -1 0 -1 0
+"belief communities(alternative)" -1 -1 0 -1 0
+"aphorisms(please)" -1 -1 0 -1 0
+"aphorisms(silence)" -1 -1 0 -1 0
+"urgency(urgent)" -1 -1 0 -1 0
+"expression(expressive)" -1 -1 0 -1 0
+"memory(nostalgic)" -1 -1 0 -1 0
+"career(summer job)" -1 -1 0 -1 0
+"memory(varied)" -1 -1 0 -1 0
+"expression(philosophical)" -1 -1 0 -1 0
+"memory(meaningful)" -1 -1 0 -1 0
+"life and love(purposeful)" -1 -1 0 -1 0
+"expression(stuttering)" -1 -1 0 -1 0
+"attitude 3(neutral)" -1 -1 0 -1 0
+"expression(filler)" -1 -1 0 -1 0
+"aphorisms(maybe)" -1 -1 0 -1 0
+"work(blogger)" -1 -1 0 -1 0
+"expression(the unexpected)" -1 -1 0 -1 0
+"lifestyle(busy)" -1 -1 0 -1 0
+"expression(literally)" -1 -1 0 -1 0
+"expression(venting)" -1 -1 0 -1 0
+"storytelling(ongoing)" -1 -1 0 -1 0
+"aphorisms(patience)" -1 -1 0 -1 0
+"culture(anti-capitalist)" -1 -1 0 -1 0
+"aphorisms(free)" -1 -1 0 -1 0
+"work(blog post)" -1 -1 0 -1 0
+"belief communities(wanderlust)" -1 -1 0 -1 0
+"old and new believers(mystic practitioner)" -1 -1 0 -1 0
+"humanity(adventurers)" -1 -1 0 -1 0
+"entertainment(adventure games)" -1 -1 0 -1 0
+"waste of time(idle)" -1 -1 0 -1 0
+"old and new believers(agnostic)" -1 -1 0 -1 0
+"disability(problem solving strategy: workaround)" -1 -1 0 -1 0
+"life and love(the life of a wanderer)" -1 -1 0 -1 0
+"situations(boredom)" -1 -1 0 -1 0
+"expression(freedom of thought)" -1 -1 0 -1 0
+"communication(online chatting)" -1 -1 0 -1 0
+"expression(realization)" -1 -1 0 -1 0
+"self-realization(self-reflection)" -1 -1 0 -1 0
+"mental state(happiness)" -1 -1 0 -1 0
+"humanity(connection)" -1 -1 0 -1 0
+"media(music)" -1 -1 0 -1 0
+"media(nostalgia)" -1 -1 0 -1 0
+"society(mainstream success)" -1 -1 0 -1 0
+"society(escape)" -1 -1 0 -1 0
+"community(connection)" -1 -1 0 -1 0
+"technology(laptop problem)" -1 -1 0 -1 0
+"society(unconventional solution)" -1 -1 0 -1 0
+"technology(unconventional solution)" -1 -1 0 -1 0
+"technology(temporary solution)" -1 -1 0 -1 0
+"random(bob)" -1 -1 0 -1 0
+"media(parody songs)" -1 -1 0 -1 0
+"emotion(pensiveness)" -1 -1 0 -1 0
+"random(waiting for someone)" -1 -1 0 -1 0
+"self-realization(introspection)" -1 -1 0 -1 0
+"media(powerful music)" -1 -1 0 -1 0
+"self-realization(no escape from thoughts)" -1 -1 0 -1 0
+"emotion(depression)" -1 -1 0 -1 0
+"help(need for support)" -1 -1 0 -1 0
+"rational belief(religious)" -1 -1 0 -1 0
+"power(dependence)" -1 -1 0 -1 0
+"faith and reason seekers(skeptic)" -1 -1 0 -1 0
+"fear(panic)" -1 -1 0 -1 0
+"responsiveness(rewarding)" -1 -1 0 -1 0
+"currency issuers(alternative)" -1 -1 0 -1 0
+"visual effect(yellow and orange color scheme)" -1 -1 0 -1 0
+"reality(nightmare)" -1 -1 0 -1 0
+"imagination(surrealism)" -1 -1 0 -1 0
+"natural preference(inconsistent narrator)" -1 -1 0 -1 0
+"reality(dream)" -1 -1 0 -1 0
+"production style(web-based)" -1 -1 0 -1 0
+"emotions(relief)" -1 -1 0 -1 0
+"rational thinkers(rationalist)" -1 -1 0 -1 0
+"cynicism(wild)" -1 -1 0 -1 0
+"golden rule(salvation)" -1 -1 0 -1 0
+"everyone of us(collective)" -1 -1 0 -1 0
+"they need to be silenced(non-believers)" -1 -1 0 -1 0
+"you need help and we can contribute(collaboration)" -1 -1 0 -1 0
+"my christian friends(religious community)" -1 -1 0 -1 0
+"please keep kat in your prayers(belief communities)" -1 -1 0 -1 0
+"you may(individual-oriented)" -1 -1 0 -1 0
+"or may not know her-- probably not(mysterious)" -1 -1 0 -1 0
+"still(patient)" -1 -1 0 -1 0
+"please pray for her(religious)" -1 -1 0 -1 0
+"pray that she recovers from her ailments(healing)" -1 -1 0 -1 0
+"pray that she learns the truth about the lord(rational belief)" -1 -1 0 -1 0
+"and his plan of salvation for us(salvation)" -1 -1 0 -1 0
+"most of all(main focus)" -1 -1 0 -1 0
+"pray that she accepts him in time(faith seekers)" -1 -1 0 -1 0
+"that she finds that he really is the closest confidant one can have(strong spiritual relationship)" -1 -1 0 -1 0
+"not trying to embarrass her(respectful)" -1 -1 0 -1 0
+"or pry into her business-- far from it(personal boundaries)" -1 -1 0 -1 0
+"nothing terribly exciting has happened lately(mundane)" -1 -1 0 -1 0
+"go read \"the hiding place\" by corrie ten boom(religious literature)" -1 -1 0 -1 0
+"the author(creator)" -1 -1 0 -1 0
+"corrie(christian believer)" -1 -1 0 -1 0
+"became a \"militant leader in the anti-nazi dutch underground\"(brave defender)" -1 -1 0 -1 0
+"she risked everything to save the persecuted jews from hitler's rage(humanitarian)" -1 -1 0 -1 0
+"since blogger(technological)" -1 -1 0 -1 0
+"i took a look at the first link on the list of sources--(research)" -1 -1 0 -1 0
+"and eventually(patient)" -1 -1 0 -1 0
+"under the digital category(technologically advanced)" -1 -1 0 -1 0
+"i found this one(preference for unique)" -1 -1 0 -1 0
+"liked it a bunch(appreciative)" -1 -1 0 -1 0
+"and saved it to my drive(preservation)" -1 -1 0 -1 0
+"after a bunch of editing away at the sidebar(refining process)" -1 -1 0 -1 0
+"i present to you-- my new blog(expression and creation)" -1 -1 0 -1 0
+"immensely(emotionally charged)" -1 -1 0 -1 0
+"on to more pressing matters(prioritizing)" -1 -1 0 -1 0
+"last night i finished the beast within(chills and thrills)" -1 -1 0 -1 0
+"a gabriel knight mystery(supernatural)" -1 -1 0 -1 0
+"gabriel knight 2(sequel)" -1 -1 0 -1 0
+"the climax was a thriller(suspenseful)" -1 -1 0 -1 0
+"that opera(intense)" -1 -1 0 -1 0
+"hoo(excitement)" -1 -1 0 -1 0
+"it had me shaking(adrenaline rush)" -1 -1 0 -1 0
+"not from fright(thrill seeker)" -1 -1 0 -1 0
+"but from sheer excitement(adventurous)" -1 -1 0 -1 0
+"but i finished that game(accomplished)" -1 -1 0 -1 0
+"finally-- the museum in chapter 4 held me up forever(perseverance)" -1 -1 0 -1 0
+"aaaand it hung again(technological hindrance)" -1 -1 0 -1 0
+"just like last time(recurring issue)" -1 -1 0 -1 0
+"at 31%(specific achievement)" -1 -1 0 -1 0
+"human strength(physical preference: body enhancing beauty)" -1 -1 0 -1 0
+"belief extremes(loser)" -1 -1 0 -1 0
+"sincerity(false statement)" -1 -1 0 -1 0
+"behavior(falling asleep)" -1 -1 0 -1 0
+"behavior(lying around)" -1 -1 0 -1 0
+"behavior(sleeping)" -1 -1 0 -1 0
+"behavior(getting up)" -1 -1 0 -1 0
+"behavior(getting angry)" -1 -1 0 -1 0
+"behavior(procrastination)" -1 -1 0 -1 0
+"creative inspiration(funny joke)" -1 -1 0 -1 0
+"image(cute animal)" -1 -1 0 -1 0
+"experience(insomnia)" -1 -1 0 -1 0
+"experience(fatigue)" -1 -1 0 -1 0
+"imagery(mysterious)" -1 -1 0 -1 0
+"financial(debt)" -1 -1 0 -1 0
+"party relation(playfulness)" -1 -1 0 -1 0
+"emotional realism(melancholy)" -1 -1 0 -1 0
+"socioeconomic status(middle class)" -1 -1 0 -1 0
+"responsible(dependent)" -1 -1 0 -1 0
+"food(pesto)" -1 -1 0 -1 0
+"hairstyle(loose and messy)" -1 -1 0 -1 0
+"nudity(not sorry)" -1 -1 0 -1 0
+"country(japan)" -1 -1 0 -1 0
+"underwear color(not applicable)" -1 -1 0 -1 0
+"pattern(not applicable)" -1 -1 0 -1 0
+"country(denmark)" -1 -1 0 -1 0
+"country(norway)" -1 -1 0 -1 0
+"country(greece)" -1 -1 0 -1 0
+"country(russia)" -1 -1 0 -1 0
+"country(ukraine)" -1 -1 0 -1 0
+"country(india)" -1 -1 0 -1 0
+"country(china)" -1 -1 0 -1 0
+"happy mood 5(playful)" -1 -1 0 -1 0
+"party relation(humorous)" -1 -1 0 -1 0
+"transparent(transparency)" -1 -1 0 -1 0
+"song of the day(tempered steel)" -1 -1 0 -1 0
+"identity(partner-focused)" -1 -1 0 -1 0
+"religious(everyone of us loves her)" -1 -1 0 -1 0
+"time(3 days)" -1 -1 0 -1 0
+"religion(last night at 10)" -1 -1 0 -1 0
+"person(cousin from california)" -1 -1 0 -1 0
+"person(ryan)" -1 -1 0 -1 0
+"concept(loosely connected to another)" -1 -1 0 -1 0
+"time(tempered steel)" -1 -1 0 -1 0
+"time(i just got done talking to ryan)" -1 -1 0 -1 0
+"time(song of the day)" -1 -1 0 -1 0
+"expectation spectrum(expectation-conformed)" -1 -1 0 -1 0
+"financial concerns(bills)" -1 -1 0 -1 0
+"financial concerns(insurance)" -1 -1 0 -1 0
+"financial concerns(credit cards)" -1 -1 0 -1 0
+"financial concerns(house payments)" -1 -1 0 -1 0
+"financial concerns(car payments)" -1 -1 0 -1 0
+"legal obligations(jury duty)" -1 -1 0 -1 0
+"legal obligations(parking tickets)" -1 -1 0 -1 0
+"physical health(heart disease)" -1 -1 0 -1 0
+"mental health(alzheimers)" -1 -1 0 -1 0
+"death and dying(coffin shopping)" -1 -1 0 -1 0
+"future planning(will writing)" -1 -1 0 -1 0
+"experience(graduation)" -1 -1 0 -1 0
+"listless days(passing the days)" -1 -1 0 -1 0
+"memory(childhood memories)" -1 -1 0 -1 0
+"memory(first encounter with someone)" -1 -1 0 -1 0
+"identity(blur)" -1 -1 0 -1 0
+"identity(presence in the moment)" -1 -1 0 -1 0
+"memory(trivial memories)" -1 -1 0 -1 0
+"memory(memories from childhood)" -1 -1 0 -1 0
+"relationship(father figure)" -1 -1 0 -1 0
+"relationship(childhood fear)" -1 -1 0 -1 0
+"family dynamics(step-family)" -1 -1 0 -1 0
+"family dynamics(visitation rights)" -1 -1 0 -1 0
+"transition(light to dark)" -1 -1 0 -1 0
+"hopelessness(despair)" -1 -1 0 -1 0
+"leadership(motivating)" -1 -1 0 -1 0
+"faith extremes(skeptical)" -1 -1 0 -1 0
+"friendship(loving and supportive)" -1 -1 0 -1 0
+"identity(belonging)" -1 -1 0 -1 0
+"authenticity(true to oneself)" -1 -1 0 -1 0
+"inspiration(seeking input from others)" -1 -1 0 -1 0
+"authenticity(unconventional)" -1 -1 0 -1 0
+"authenticity(diversity in perspectives)" -1 -1 0 -1 0
+"inspiration(constantly learning and growing)" -1 -1 0 -1 0
+"authenticity(staying true to oneself)" -1 -1 0 -1 0
+"friendship(highly valued and influential)" -1 -1 0 -1 0
+"authenticity(unique and genuine)" -1 -1 0 -1 0
+"motivation(strong desire for connection with friends)" -1 -1 0 -1 0
+"friendship(meaningful and essential)" -1 -1 0 -1 0
+"communication(open and honest)" -1 -1 0 -1 0
+"authenticity(genuine and open)" -1 -1 0 -1 0
+"identity(introspection and self-awareness)" -1 -1 0 -1 0
+"authenticity(praiseworthy and admirable)" -1 -1 0 -1 0
+"friendship(fulfilling and enriching)" -1 -1 0 -1 0
+"ethos(humility)" -1 -1 0 -1 0
+"ethical persuasion(logical appeal)" -1 -1 0 -1 0
+"economic background(prosperity in clinton years)" -1 -1 0 -1 0
+"ethosis(compassionate)" -1 -1 0 -1 0
+"protagonist storytelling(atticus finch)" -1 -1 0 -1 0
+"ethos(sensitivity)" -1 -1 0 -1 0
+"ethos(chivalrous)" -1 -1 0 -1 0
+"ethos(optimistic)" -1 -1 0 -1 0
+"emotion(joyful)" -1 -1 0 -1 0
+"motivation(awarding)" -1 -1 0 -1 0
+"sexuailization(non-sexual)" -1 -1 0 -1 0
+"emotional honesty(honest)" -1 -1 0 -1 0
+"belief extremes(open)" -1 -1 0 -1 0
+"group faith(individual-focused)" -1 -1 0 -1 0
+"individual spirituality(self-love)" -1 -1 0 -1 0
+"traditional religion(monogamy)" -1 -1 0 -1 0
+"traditional religion(religious)" -1 -1 0 -1 0
+"introspection(introspective)" -1 -1 0 -1 0
+"sexual behavior(respectful)" -1 -1 0 -1 0
+"tradition(traditional values)" -1 -1 0 -1 0
+"belief extremes(closed)" -1 -1 0 -1 0
+"successful update(successful)" -1 -1 0 -1 0
+"development(globalization)" -1 -1 0 -1 0
+"system of control(authoritarian)" -1 -1 0 -1 0
+"spiritual states(transformed)" -1 -1 0 -1 0
+"image(patriotic)" -1 -1 0 -1 0
+"seeking the unknown(curious)" -1 -1 0 -1 0
+"experiences(saved)" -1 -1 0 -1 0
+"experiences(in awe)" -1 -1 0 -1 0
+"influence(powerful)" -1 -1 0 -1 0
+"attitude(hopeful)" -1 -1 0 -1 0
+"belief extremes(religious fundamentalist)" -1 -1 0 -1 0
+"group-friendly(emotionally restrained)" -1 -1 0 -1 0
+"corporate relations(anti-capitalism)" -1 -1 0 -1 0
+"religious doctrine(portrayal of jesus)" -1 -1 0 -1 0
+"environment(clouded)" -1 -1 0 -1 0
+"moral and ethical standards(being a light in darkness)" -1 -1 0 -1 0
+"moral and ethical standards(being a good influence)" -1 -1 0 -1 0
+"religious doctrine(portrayal of jesus' love)" -1 -1 0 -1 0
+"vocational calling(gratitude for job opportunities)" -1 -1 0 -1 0
+"vocational calling(faith in god's plan)" -1 -1 0 -1 0
+"group impact(making a difference)" -1 -1 0 -1 0
+"personal(individual impression.)" -1 -1 0 -1 0
+"book of isaiah(least favorite part)" -1 -1 0 -1 0
+"book of isaiah(like the first 20 chapters)" -1 -1 0 -1 0
+"book of isaiah(like the last 20 chapters)" -1 -1 0 -1 0
+"book of isaiah(middle chapters)" -1 -1 0 -1 0
+"group faith(trials)" -1 -1 0 -1 0
+"faith extremes(trials)" -1 -1 0 -1 0
+"faith extremes(god is able to make way out of trials)" -1 -1 0 -1 0
+"faith extremes(god can change circumstances)" -1 -1 0 -1 0
+"belief spectrum(god is able to do everything)" -1 -1 0 -1 0
+"belief spectrum(god can do the impossible)" -1 -1 0 -1 0
+"cultural elements(praising god)" -1 -1 0 -1 0
+"disclaimer(disclosure)" -1 -1 0 -1 0
+"audience(sharing with everyone)" -1 -1 0 -1 0
+"faith extremes(belief in changing untouchable people)" -1 -1 0 -1 0
+"storymode(little tidbits of light reaching god's people)" -1 -1 0 -1 0
+"culture(god can do amazing things with us)" -1 -1 0 -1 0
+"faith and reason seekers(believing god is good and worthy of praise)" -1 -1 0 -1 0
+"responsibility(disclosure)" -1 -1 0 -1 0
+"gender(sharing with girls)" -1 -1 0 -1 0
+"group experience(accountability)" -1 -1 0 -1 0
+"responsibility(consistency in blogging)" -1 -1 0 -1 0
+"attitude 1(acknowledging flaws)" -1 -1 0 -1 0
+"audience(regular blogging for accountability)" -1 -1 0 -1 0
+"authenticity(sharing personal experiences)" -1 -1 0 -1 0
+"authenticity(sharing personal favorites/hobbies)" -1 -1 0 -1 0
+"sophistication(use of technology)" -1 -1 0 -1 0
+"cultural elements(popular media trend)" -1 -1 0 -1 0
+"god's power(ability to know the future)" -1 -1 0 -1 0
+"situation relation(acknowledgement of nothing special happening)" -1 -1 0 -1 0
+"authenticity(acknowledgement of mundane activities)" -1 -1 0 -1 0
+"disclaimer(clarification)" -1 -1 0 -1 0
+"audience(specifying which blog to share)" -1 -1 0 -1 0
+"group experience(accountability with girls)" -1 -1 0 -1 0
+"authenticity(being open about a preferred blogging platform)" -1 -1 0 -1 0
+"sophistication(organization)" -1 -1 0 -1 0
+"responsibility(commitment to regular blogging)" -1 -1 0 -1 0
+"authenticity(copying and pasting content)" -1 -1 0 -1 0
+"source of inspiration(getting a gmail account)" -1 -1 0 -1 0
+"gender(stereotypical activity)" -1 -1 0 -1 0
+"sophistication(use of technology for leisure)" -1 -1 0 -1 0
+"authenticity(personal interests)" -1 -1 0 -1 0
+"age target(unknown)" -1 -1 0 -1 0
+"situation relation(anticipation of future tasks)" -1 -1 0 -1 0
+"time and date(present moment)" -1 -1 0 -1 0
+"time and date(nothing special about june 6th)" -1 -1 0 -1 0
+"situation relation(acknowledgment of nothing special)" -1 -1 0 -1 0
+"situation relation(acknowledging regular sleeping habits.)" -1 -1 0 -1 0
+"religion seeking(individual spirituality)" -1 -1 0 -1 0
+"attitudue 2(hopeful)" -1 -1 0 -1 0
+"belieft spectum(non-believer)" -1 -1 0 -1 0
+"mindfullness(mindless)" -1 -1 0 -1 0
+"accuracy(fictional)" -1 -1 0 -1 0
+"cynical cynosure(cynical)" -1 -1 0 -1 0
+"motivation(selfish)" -1 -1 0 -1 0
+"problem solving strategy(non-conformist)" -1 -1 0 -1 0
+"physical preference(normal)" -1 -1 0 -1 0
+"country(sweden)" -1 -1 0 -1 0
+"responsibility(independent)" -1 -1 0 -1 0
+"independence(independent)" -1 -1 0 -1 0
+"theological opposites(confession)" -1 -1 0 -1 0
+"faith and reason seekers(belief in love)" -1 -1 0 -1 0
+"theological opposites(soul mates)" -1 -1 0 -1 0
+"faith and reason seekers(love at first sight)" -1 -1 0 -1 0
+"cultural elements(cities \(nyc, boston, seattle\))" -1 -1 0 -1 0
+"culture(pig out foods)" -1 -1 0 -1 0
+"emotional realism(catchy songs)" -1 -1 0 -1 0
+"authenticity(buying cds and movies)" -1 -1 0 -1 0
+"culture(listening to cds)" -1 -1 0 -1 0
+"intensity of thoughts(people \(joe\))" -1 -1 0 -1 0
+"attitude 3(wishing to live somewhere else)" -1 -1 0 -1 0
+"attitude 2(thoughts of suicide)" -1 -1 0 -1 0
+"physical preference(being perceived as attractive)" -1 -1 0 -1 0
+"intellect(rational)" -1 -1 0 -1 0
+"intellect(emotional)" -1 -1 0 -1 0
+"old & new believers(traditional religion)" -1 -1 0 -1 0
+"old & new believers(new age spirituality)" -1 -1 0 -1 0
+"social relations(open)" -1 -1 0 -1 0
+"social relations(closed)" -1 -1 0 -1 0
+"fear/anxiety(scared)" -1 -1 0 -1 0
+"fear/anxiety(numb)" -1 -1 0 -1 0
+"sexual orientation(crush on somebody)" -1 -1 0 -1 0
+"physical preference(footwear options)" -1 -1 0 -1 0
+"fear/anxiety(pleads the 5th)" -1 -1 0 -1 0
+"belief spectrum(polygamy)" -1 -1 0 -1 0
+"romantic love(number of times in love)" -1 -1 0 -1 0
+"romantic love(zero times in love)" -1 -1 0 -1 0
+"romantic love(gazillion times heart broken)" -1 -1 0 -1 0
+"romantic love(million hearts broken)" -1 -1 0 -1 0
+"romantic love(a million guys/girls kissed)" -1 -1 0 -1 0
+"sexual acting(number of times been in love)" -1 -1 0 -1 0
+"group experience(million enemies)" -1 -1 0 -1 0
+"group experience(zero enemies)" -1 -1 0 -1 0
+"story-motivation(plays and theatrical experiences)" -1 -1 0 -1 0
+"story-motivation(opposite)" -1 -1 0 -1 0
+"intellect(understanding/shrewd)" -1 -1 0 -1 0
+"intellect(opposite)" -1 -1 0 -1 0
+"physical preference(eyes)" -1 -1 0 -1 0
+"romantic love(last person slow danced with)" -1 -1 0 -1 0
+"humor(makes you laugh the most)" -1 -1 0 -1 0
+"relationship(no comment on crushes)" -1 -1 0 -1 0
+"relationship(ashley rehak)" -1 -1 0 -1 0
+"social relations(ashley and maddie)" -1 -1 0 -1 0
+"emotional realism(makes you smile)" -1 -1 0 -1 0
+"romantic love(crush on)" -1 -1 0 -1 0
+"romantic love(has a crush on you)" -1 -1 0 -1 0
+"social relations(easy to talk to)" -1 -1 0 -1 0
+"relationship(mean a lot to the other person)" -1 -1 0 -1 0
+"relationship(doesn't mean much to the other person)" -1 -1 0 -1 0
+"honesty(might not mean much to the other person)" -1 -1 0 -1 0
+"honesty(really means something to the other person)" -1 -1 0 -1 0
+"hidden emotions(mean something to the other person)" -1 -1 0 -1 0
+"liberation(independent)" -1 -1 0 -1 0
+"problem solving strategy(accepting help)" -1 -1 0 -1 0
+"societal norms(controlling behavior)" -1 -1 0 -1 0
+"gender roles(opportunity for sexual submissiveness)" -1 -1 0 -1 0
+"motivation(submissive)" -1 -1 0 -1 0
+"impulsiveness(impatience)" -1 -1 0 -1 0
+"changing feelings(confusion)" -1 -1 0 -1 0
+"physical attraction(objectification of others)" -1 -1 0 -1 0
+"physical attraction(mutual attraction)" -1 -1 0 -1 0
+"addiction(smoking)" -1 -1 0 -1 0
+"addiction(swearing)" -1 -1 0 -1 0
+"addiction(singing)" -1 -1 0 -1 0
+"personal hygiene(cleanliness)" -1 -1 0 -1 0
+"personal hygiene(personal grooming)" -1 -1 0 -1 0
+"attraction(having a crush)" -1 -1 0 -1 0
+"ambition(wanting to pursue higher education)" -1 -1 0 -1 0
+"ambition(unsure about future plans)" -1 -1 0 -1 0
+"ambition(questioning the importance of high school)" -1 -1 0 -1 0
+"relationship expectations(wanting to get married)" -1 -1 0 -1 0
+"self-confidence(self-doubt)" -1 -1 0 -1 0
+"physical sensitivity(motion sickness)" -1 -1 0 -1 0
+"physical sensitivity(occasional sickness)" -1 -1 0 -1 0
+"self-confidence(fluctuating feelings of self-worth)" -1 -1 0 -1 0
+"family dynamics(getting along with parents)" -1 -1 0 -1 0
+"emotional comfort(enjoying thunderstorms)" -1 -1 0 -1 0
+"artistic expression(playing a musical instrument)" -1 -1 0 -1 0
+"artistic expression(singing)" -1 -1 0 -1 0
+"artistic expression(playing drums)" -1 -1 0 -1 0
+"alcohol consumption(pretending to drink wine)" -1 -1 0 -1 0
+"alcohol consumption(enjoying fondue)" -1 -1 0 -1 0
+"self-perception(considering oneself a smoker)" -1 -1 0 -1 0
+"societal norms(abstaining from smoking and drugs)" -1 -1 0 -1 0
+"societal norms(abstaining from drugs)" -1 -1 0 -1 0
+"sexual behavior(making out)" -1 -1 0 -1 0
+"leisure activities(shopping at the mall)" -1 -1 0 -1 0
+"indulging in sweets(eating an entire box of oreos)" -1 -1 0 -1 0
+"experimenting with food(trying sushi)" -1 -1 0 -1 0
+"performance(being on stage)" -1 -1 0 -1 0
+"romantic experiences(being dumped)" -1 -1 0 -1 0
+"leisure activities(going skating)" -1 -1 0 -1 0
+"leisure activities(going skating multiple times)" -1 -1 0 -1 0
+"reflection(looking back on past experiences)" -1 -1 0 -1 0
+"theological opposites(nihilist)" -1 -1 0 -1 0
+"status of love(loving now)" -1 -1 0 -1 0
+"worldviews(libertarian)" -1 -1 0 -1 0
+"attitude(closed)" -1 -1 0 -1 0
+"celebrity persona(body positive)" -1 -1 0 -1 0
+"name(peter)" -1 -1 0 -1 0
+"socioeconomic status(multi-millionaire)" -1 -1 0 -1 0
+"socioeconomic status(lower class)" -1 -1 0 -1 0
+"responsible consumption(smoker)" -1 -1 0 -1 0
+"responsible consumption(non-smoker)" -1 -1 0 -1 0
+"belief communities(consumerism)" -1 -1 0 -1 0
+"faith and reason seekers(skepticism)" -1 -1 0 -1 0
+"ethos extremes(open)" -1 -1 0 -1 0
+"ethos extremes(closed)" -1 -1 0 -1 0
+"ethos extremes(optimistic)" -1 -1 0 -1 0
+"ethos extremes(pessimistic)" -1 -1 0 -1 0
+"ethos extremes(hopeful)" -1 -1 0 -1 0
+"expression(link)" -1 -1 0 -1 0
+"expression(positive)" -1 -1 0 -1 0
+"truths(theoretical)" -1 -1 0 -1 0
+"truths(factual)" -1 -1 0 -1 0
+"ethos extremes(conformed)" -1 -1 0 -1 0
+"ethos extremes(mainstream)" -1 -1 0 -1 0
+"ethos extremes(loving)" -1 -1 0 -1 0
+"ethos extremes(slave)" -1 -1 0 -1 0
+"sexual acting(slave)" -1 -1 0 -1 0
+"ethos extremes(exclusive)" -1 -1 0 -1 0
+"ethos extremes(love quote)" -1 -1 0 -1 0
+"celebebrity persona(body positivity)" -1 -1 0 -1 0
+"rational beliefs(religious)" -1 -1 0 -1 0
+"complexity(simple)" -1 -1 0 -1 0
+"complexity(grounded)" -1 -1 0 -1 0
+"nature preference(nature lover)" -1 -1 0 -1 0
+"pursuit of thrill(skateboarder)" -1 -1 0 -1 0
+"physical preference(adventure)" -1 -1 0 -1 0
+"emotional realism(love for non-living objects)" -1 -1 0 -1 0
+"life and love(adventurous love)" -1 -1 0 -1 0
+"belief communities(accepting of alternative lifestyles)" -1 -1 0 -1 0
+"pursuit of thrill(street and dirt riding)" -1 -1 0 -1 0
+"production style(diy \(do it yourself\))" -1 -1 0 -1 0
+"physical preference(pursuit of adrenaline)" -1 -1 0 -1 0
+"life and love(love for personal interests)" -1 -1 0 -1 0
+"responsibility(accountability to challenges)" -1 -1 0 -1 0
+"faith extremes(pleasure in sadism)" -1 -1 0 -1 0
+"life and love(living for oneself)" -1 -1 0 -1 0
+"pursuit of thrill(facing fears and overcoming challenges)" -1 -1 0 -1 0
+"faith extremes(awareness of human nature)" -1 -1 0 -1 0
+"group experience(individuality in the bmx community)" -1 -1 0 -1 0
+"physical preference(bodily injury and thrill seeking)" -1 -1 0 -1 0
+"life and love(living in the present and appreciating life)" -1 -1 0 -1 0
+"group experience(individual self-expression)" -1 -1 0 -1 0
+"group experience(feeling judged in a school environment)" -1 -1 0 -1 0
+"nature preference(love for nature)" -1 -1 0 -1 0
+"group experience(feeling watched and judged in a school environment)" -1 -1 0 -1 0
+"nature preference(outdoor activities and exercises)" -1 -1 0 -1 0
+"pursuit of thrill(bmx rider and thrill seeker)" -1 -1 0 -1 0
+"pursuit of thrill(the love and attachment for one's bike)" -1 -1 0 -1 0
+"pursuit of thrill(the unpredictable journey of life)" -1 -1 0 -1 0
+"group experience(team sport and winning games)" -1 -1 0 -1 0
+"group experience(disappointment in winning a game)" -1 -1 0 -1 0
+"group experience(peer encouragement to express oneself)" -1 -1 0 -1 0
+"attitude 1(having an open mindset)" -1 -1 0 -1 0
+"attitude 1(being closed and reserved)" -1 -1 0 -1 0
+"attitude 2(hopeful and positive)" -1 -1 0 -1 0
+"mood 4(humor in difficult situations)" -1 -1 0 -1 0
+"age target(youth-oriented sports and activities)" -1 -1 0 -1 0
+"attitude 3(optimistic and positive outlook)" -1 -1 0 -1 0
+"attitude 1(breaking out of one's shell)" -1 -1 0 -1 0
+"attitude 1(being apologetic for previous blog content)" -1 -1 0 -1 0
+"lyrical emphasis(poetic expression in the form of a poem)" -1 -1 0 -1 0
+"group faith(acknowledging struggles to express oneself through writing)" -1 -1 0 -1 0
+"group faith(striving to keep an open mind)" -1 -1 0 -1 0
+"sexualization(edgy)" -1 -1 0 -1 0
+"motivation(punishment)" -1 -1 0 -1 0
+"expectation extremes(perfection)" -1 -1 0 -1 0
+"motivation(acceptance)" -1 -1 0 -1 0
+"emotionality(sensitive)" -1 -1 0 -1 0
+"emotionality(curious)" -1 -1 0 -1 0
+"financial status(wealthy)" -1 -1 0 -1 0
+"visualization(narcissistic)" -1 -1 0 -1 0
+"financial status(impoverished)" -1 -1 0 -1 0
+"romantic love(monogamy)" -1 -1 0 -1 0
+"attitiude 1(closed)" -1 -1 0 -1 0
+"belief communities(support)" -1 -1 0 -1 0
+"mystic practitioners(transcendent connection)" -1 -1 0 -1 0
+"faith extremes(surrender)" -1 -1 0 -1 0
+"intuitive thinkers(oneness)" -1 -1 0 -1 0
+"mystic practitioners(inspiration)" -1 -1 0 -1 0
+"faith extremes(eternity)" -1 -1 0 -1 0
+"intuitive thinkers(endlessness)" -1 -1 0 -1 0
+"individualistic culture(self-discovery)" -1 -1 0 -1 0
+"culture(insignificant)" -1 -1 0 -1 0
+"individualistic culture(mindfulness)" -1 -1 0 -1 0
+"group faith(spirituality)" -1 -1 0 -1 0
+"individualistic culture(freedom)" -1 -1 0 -1 0
+"average expectations(normalcy)" -1 -1 0 -1 0
+"subtle emotions(peace)" -1 -1 0 -1 0
+"sexuality(negative childhood memories)" -1 -1 0 -1 0
+"social(bus driver)" -1 -1 0 -1 0
+"religion(afternoon)" -1 -1 0 -1 0
+"life and love(nostalgia)" -1 -1 0 -1 0
+"peacefulness(summer night)" -1 -1 0 -1 0
+"atmosphere(allure)" -1 -1 0 -1 0
+"culture(childhood)" -1 -1 0 -1 0
+"culture(carefree)" -1 -1 0 -1 0
+"peacefulness(tranquility)" -1 -1 0 -1 0
+"old and new believers(new traditions)" -1 -1 0 -1 0
+"culture(collective memory)" -1 -1 0 -1 0
+"strong human(individuality)" -1 -1 0 -1 0
+"rationality(authenticity)" -1 -1 0 -1 0
+"rationality(perspective)" -1 -1 0 -1 0
+"authenticity(misunderstood)" -1 -1 0 -1 0
+"authenticity(individualism)" -1 -1 0 -1 0
+"rationality(seriousness)" -1 -1 0 -1 0
+"rationality(light-heartedness)" -1 -1 0 -1 0
+"rationality(balance)" -1 -1 0 -1 0
+"authenticity(playfulness)" -1 -1 0 -1 0
+"rationality(humor)" -1 -1 0 -1 0
+"rationality(apology)" -1 -1 0 -1 0
+"transparency(stubbornness)" -1 -1 0 -1 0
+"attitude 1(stubbornness)" -1 -1 0 -1 0
+"attitude 1(strength)" -1 -1 0 -1 0
+"rationality(determination)" -1 -1 0 -1 0
+"patience(resilience)" -1 -1 0 -1 0
+"rationality(independence)" -1 -1 0 -1 0
+"theological opposites(doubtful)" -1 -1 0 -1 0
+"theological opposites(skeptical)" -1 -1 0 -1 0
+"hygiene preference(personal experience)" -1 -1 0 -1 0
+"maturity(young-at-heart)" -1 -1 0 -1 0
+"job focus(occupation-oriented)" -1 -1 0 -1 0
+"attitudes(open)" -1 -1 0 -1 0
+"mental state(sane)" -1 -1 0 -1 0
+"emotion(appreciation)" -1 -1 0 -1 0
+"playful expression(witty wordplay)" -1 -1 0 -1 0
+"role playing(dominant)" -1 -1 0 -1 0
+"social status(popularity)" -1 -1 0 -1 0
+"relationships(trust)" -1 -1 0 -1 0
+"sport(ice hockey)" -1 -1 0 -1 0
+"habits(morning routine)" -1 -1 0 -1 0
+"social status(dependence on family)" -1 -1 0 -1 0
+"avg expectations(expectation-conformed)" -1 -1 0 -1 0
+"romanticism(traditional ballads)" -1 -1 0 -1 0
+"belonging(family ties)" -1 -1 0 -1 0
+"love status(commitment)" -1 -1 0 -1 0
+"problem-solving strategy(logical)" -1 -1 0 -1 0
+"love status(uncertainty)" -1 -1 0 -1 0
+"individualism(individual-focused)" -1 -1 0 -1 0
+"individualism(dependence)" -1 -1 0 -1 0
+"social(liberal)" -1 -1 0 -1 0
+"romanticism(wedding music)" -1 -1 0 -1 0
+"rationalization(cynical)" -1 -1 0 -1 0
+"romanticism(childhood memories)" -1 -1 0 -1 0
+"reality(realistic expectations)" -1 -1 0 -1 0
+"corporational relations(consumerism)" -1 -1 0 -1 0
+"modernity(contemporary music)" -1 -1 0 -1 0
+"sexual acts(confidence)" -1 -1 0 -1 0
+"situation relation(personal experience)" -1 -1 0 -1 0
+"political(anti-capitalism)" -1 -1 0 -1 0
+"pursuit of power(power seeker)" -1 -1 0 -1 0
+"existentialism(optimistic)" -1 -1 0 -1 0
+"lifestyle(indulgent)" -1 -1 0 -1 0
+"individual preference(individual-focused)" -1 -1 0 -1 0
+"desire for control(closed)" -1 -1 0 -1 0
+"attitude(serious)" -1 -1 0 -1 0
+"societal views(alternative)" -1 -1 0 -1 0
+"individual preference(individual spirituality)" -1 -1 0 -1 0
+"linguistic style(witty wordplay)" -1 -1 0 -1 0
+"sensory preference(visual)" -1 -1 0 -1 0
+"authenticity(celebrity persona: body positivity)" -1 -1 0 -1 0
+"group faith(divine worshipers)" -1 -1 0 -1 0
+"authenticity(anti-capitalism)" -1 -1 0 -1 0
+"sexual activity(sensitive)" -1 -1 0 -1 0
+"loyalty(indecisive)" -1 -1 0 -1 0
+"academic expectations(excellence)" -1 -1 0 -1 0
+"lyricism(emotional restraint)" -1 -1 0 -1 0
+"audible emphasis(witty wordplay)" -1 -1 0 -1 0
+"religion(traditional religion)" -1 -1 0 -1 0
+"society(college-style interview)" -1 -1 0 -1 0
+"social(consumerism)" -1 -1 0 -1 0
+"authenticity(consumerism)" -1 -1 0 -1 0
+"society(team-building exercise game)" -1 -1 0 -1 0
+"culture(individualism)" -1 -1 0 -1 0
+"productive style(acoustic)" -1 -1 0 -1 0
+"custom(flexible)" -1 -1 0 -1 0
+"motivational strategy(punishing)" -1 -1 0 -1 0
+"attitute 3(hopeful)" -1 -1 0 -1 0
+"situations relation(descriptive)" -1 -1 0 -1 0
+"external circumstances(annoyance)" -1 -1 0 -1 0
+"problem solving strategy(efficient solutions)" -1 -1 0 -1 0
+"access(granted)" -1 -1 0 -1 0
+"emotional state(exhaustion)" -1 -1 0 -1 0
+"external circumstances(challenging situation)" -1 -1 0 -1 0
+"personal feelings(negative sentiment)" -1 -1 0 -1 0
+"external circumstances(financial strain)" -1 -1 0 -1 0
+"health(medical costs)" -1 -1 0 -1 0
+"health(dental expenses)" -1 -1 0 -1 0
+"financial situation(debt)" -1 -1 0 -1 0
+"government(frustration)" -1 -1 0 -1 0
+"relationship status(fear)" -1 -1 0 -1 0
+"personal feelings(fear)" -1 -1 0 -1 0
+"relationship status(distress)" -1 -1 0 -1 0
+"financial situation(expenses)" -1 -1 0 -1 0
+"financial situation(insufficient coverage)" -1 -1 0 -1 0
+"government(resentment)" -1 -1 0 -1 0
+"personal feelings(anger)" -1 -1 0 -1 0
+"relationship status(ambivalence)" -1 -1 0 -1 0
+"relationship status(uncertainty)" -1 -1 0 -1 0
+"personal feelings(loneliness)" -1 -1 0 -1 0
+"motivation(companionship)" -1 -1 0 -1 0
+"relationship status(loneliness)" -1 -1 0 -1 0
+"personal feelings(uncertainty)" -1 -1 0 -1 0
+"readiness for commitment(uncertainty)" -1 -1 0 -1 0
+"motivation(seeking true passion)" -1 -1 0 -1 0
+"external circumstances(job dissatisfaction)" -1 -1 0 -1 0
+"career aspirations(fulfillment)" -1 -1 0 -1 0
+"motivation(following passion)" -1 -1 0 -1 0
+"aspirations(humanitarianism)" -1 -1 0 -1 0
+"motivation(seeking purpose)" -1 -1 0 -1 0
+"life goals(giving back)" -1 -1 0 -1 0
+"perseverance(dedication to passion)" -1 -1 0 -1 0
+"career aspirations(sharing knowledge)" -1 -1 0 -1 0
+"motivation(fulfillment through teaching)" -1 -1 0 -1 0
+"fear(fear of being harmed by others)" -1 -1 0 -1 0
+"fear(fear of paralysis)" -1 -1 0 -1 0
+"speech mode(straightforward scripts)" -1 -1 0 -1 0
+"speech mode(allegorical)" -1 -1 0 -1 0
+"individual strength(inner courage)" -1 -1 0 -1 0
+"individual strength(inner fear)" -1 -1 0 -1 0
+"responsibility(responsibility)" -1 -1 0 -1 0
+"responsibility(lack of responsibility)" -1 -1 0 -1 0
+"emotional realism(unhappiness)" -1 -1 0 -1 0
+"fear(creature and monster fear)" -1 -1 0 -1 0
+"fear(fear of violence and harm)" -1 -1 0 -1 0
+"expectation focus(expectation-opposed)" -1 -1 0 -1 0
+"fear(fear of failure)" -1 -1 0 -1 0
+"paralysis(mental paralysis)" -1 -1 0 -1 0
+"fear(fear of making a mistake)" -1 -1 0 -1 0
+"vicious circles(paralyzed with fear)" -1 -1 0 -1 0
+"emotional realism(fear)" -1 -1 0 -1 0
+"nightmares(self-inflicted trauma)" -1 -1 0 -1 0
+"fears(fear of the unknown)" -1 -1 0 -1 0
+"problem solving strategy(coping mechanisms)" -1 -1 0 -1 0
+"knowledge and ignorance(knowledgeable)" -1 -1 0 -1 0
+"romantic preference(monogamy)" -1 -1 0 -1 0
+"social(cooperative)" -1 -1 0 -1 0
+"expectation-conformed(without romantic partner)" -1 -1 0 -1 0
+"religious community(divine worshipers)" -1 -1 0 -1 0
+"mental state(frustrated)" -1 -1 0 -1 0
+"financial status(budget will go through with little or no changes)" -1 -1 0 -1 0
+"physical appearance(well-maintained)" -1 -1 0 -1 0
+"cultural identity(moving to new location)" -1 -1 0 -1 0
+"romantic preference(seeking companionship)" -1 -1 0 -1 0
+"sexual commitment(undecided)" -1 -1 0 -1 0
+"materialism(nice table settings)" -1 -1 0 -1 0
+"romantic preference(polygamy)" -1 -1 0 -1 0
+"cultural identity(living with someone)" -1 -1 0 -1 0
+"individual fitness(exercising regularly)" -1 -1 0 -1 0
+"socially introverted(left a message)" -1 -1 0 -1 0
+"cultural identity(living together)" -1 -1 0 -1 0
+"materialism(photo archives)" -1 -1 0 -1 0
+"mental state(inquisitive)" -1 -1 0 -1 0
+"emotional realism(emotional attachment)" -1 -1 0 -1 0
+"feelings(romantic feelings)" -1 -1 0 -1 0
+"feelings(past love)" -1 -1 0 -1 0
+"feelings(content with current relationship)" -1 -1 0 -1 0
+"calmness(calm)" -1 -1 0 -1 0
+"peer connection(peer connection)" -1 -1 0 -1 0
+"craftiness(craftiness)" -1 -1 0 -1 0
+"personal interests(personal interests)" -1 -1 0 -1 0
+"social activities(social activities)" -1 -1 0 -1 0
+"creativity(trendy)" -1 -1 0 -1 0
+"attentiveness(attentiveness)" -1 -1 0 -1 0
+"entertainment(enjoyable)" -1 -1 0 -1 0
+"ambiguity(ambiguous)" -1 -1 0 -1 0
+"arrogance(arrogant)" -1 -1 0 -1 0
+"mental peace(peace)" -1 -1 0 -1 0
+"anxiety(anxious)" -1 -1 0 -1 0
+"essence(essential)" -1 -1 0 -1 0
+"understanding(understanding)" -1 -1 0 -1 0
+"enthusiasm(enthusiastic)" -1 -1 0 -1 0
+"engagement(engagement)" -1 -1 0 -1 0
+"attribute groups(main webpage)" -1 -1 0 -1 0
+"technological resources(internet connection)" -1 -1 0 -1 0
+"sexual orientation(not specified in the sentence)" -1 -1 0 -1 0
+"individual(individual)" -1 -1 0 -1 0
+"personal experience(impersonal)" -1 -1 0 -1 0
+"sexial preference(normal)" -1 -1 0 -1 0
+"corporeation relations(consumerism)" -1 -1 0 -1 0
+"storymode(allegorical)" -1 -1 0 -1 0
+"faith(idolizing figures of worship)" -1 -1 0 -1 0
+"language(constantly thinking about it)" -1 -1 0 -1 0
+"culture(multicultural influences)" -1 -1 0 -1 0
+"theology(diverse influences)" -1 -1 0 -1 0
+"language(love for it)" -1 -1 0 -1 0
+"rational thinkers(admired for their writing)" -1 -1 0 -1 0
+"intellectualism(long term project)" -1 -1 0 -1 0
+"perception(admired for their writing)" -1 -1 0 -1 0
+"lyrical emphasis(concise)" -1 -1 0 -1 0
+"sophistication(sophisticated language)" -1 -1 0 -1 0
+"lyrical emphasis(simple)" -1 -1 0 -1 0
+"reality(not fantastical)" -1 -1 0 -1 0
+"narrative(imaginative)" -1 -1 0 -1 0
+"inspiration(fantasy literature)" -1 -1 0 -1 0
+"narrative(imaginative and creative)" -1 -1 0 -1 0
+"list \"a\"(close-minded)" -1 -1 0 -1 0
+"list \"a\"(fun-seeking)" -1 -1 0 -1 0
+"list \"a\"(boastful)" -1 -1 0 -1 0
+"provocativity(anti-establishment)" -1 -1 0 -1 0
+"theological opposites(libertarian)" -1 -1 0 -1 0
+"list \"a\"(arrogant)" -1 -1 0 -1 0
+"list \"a\"(informational)" -1 -1 0 -1 0
+"list \"a\"(sentimental)" -1 -1 0 -1 0
+"list \"a\"(adventurous)" -1 -1 0 -1 0
+"list \"a\"(self-centered)" -1 -1 0 -1 0
+"list \"a\"(self-absorbed)" -1 -1 0 -1 0
+"list \"a\"(imaginative)" -1 -1 0 -1 0
+"list \"a\"(self-aggrandizing)" -1 -1 0 -1 0
+"list \"a\"(overly positive)" -1 -1 0 -1 0
+"list \"a\"(nostalgic)" -1 -1 0 -1 0
+"comprehensiveness(all-inclusive)" -1 -1 0 -1 0
+"list \"a\"(detached)" -1 -1 0 -1 0
+"list \"a\"(apocalyptic)" -1 -1 0 -1 0
+"list \"a\"(ignorant)" -1 -1 0 -1 0
+"list \"a\"(cautionary)" -1 -1 0 -1 0
+"list \"a\"(cynical)" -1 -1 0 -1 0
+"list \"a\"(nihilistic)" -1 -1 0 -1 0
+"list \"a\"(endless)" -1 -1 0 -1 0
+"list \"a\"(destructive)" -1 -1 0 -1 0
+"physical preference(square face)" -1 -1 0 -1 0
+"physical preference(symbol of accomplishment)" -1 -1 0 -1 0
+"average expectations(published at sixteen)" -1 -1 0 -1 0
+"average expectations(incredible)" -1 -1 0 -1 0
+"faith extremes(deluded)" -1 -1 0 -1 0
+"motivation(future for myself)" -1 -1 0 -1 0
+"motivation(working in physical therapy)" -1 -1 0 -1 0
+"relationship focus(different from majority)" -1 -1 0 -1 0
+"relationship focus(deluded)" -1 -1 0 -1 0
+"authenticity(conceited)" -1 -1 0 -1 0
+"authenticity(bad)" -1 -1 0 -1 0
+"mindfulnes(digression)" -1 -1 0 -1 0
+"mindfulnes(highlight elementary school students behavior)" -1 -1 0 -1 0
+"moral responsibility(lie)" -1 -1 0 -1 0
+"moral responsibility(lie being bad)" -1 -1 0 -1 0
+"lyrical emphasis(lying is bad)" -1 -1 0 -1 0
+"lyrical emphasis(truthfulness is good)" -1 -1 0 -1 0
+"expression(blunt person)" -1 -1 0 -1 0
+"expression(cut to the chase)" -1 -1 0 -1 0
+"cultural elements(socialist)" -1 -1 0 -1 0
+"cultural elements(communist)" -1 -1 0 -1 0
+"provocativity(dangerous)" -1 -1 0 -1 0
+"provocativity(progress)" -1 -1 0 -1 0
+"production style(children's book publishing czar)" -1 -1 0 -1 0
+"production style(high level in a big company)" -1 -1 0 -1 0
+"romantic focus(individual-focused)" -1 -1 0 -1 0
+"application of power(involving risk)" -1 -1 0 -1 0
+"attitude 3(cynical)" -1 -1 0 -1 0
+"narrative(creative)" -1 -1 0 -1 0
+"religious extremism(religious fundamentalist)" -1 -1 0 -1 0
+"style(straightforward scripts)" -1 -1 0 -1 0
+"religion(organized)" -1 -1 0 -1 0
+"existentialism(existentialist)" -1 -1 0 -1 0
+"belief communities(contribution)" -1 -1 0 -1 0
+"group faith(pleasing scent)" -1 -1 0 -1 0
+"group faith(holy book)" -1 -1 0 -1 0
+"group faith(opposition)" -1 -1 0 -1 0
+"moral code(slavery)" -1 -1 0 -1 0
+"societal norms(accepted practice)" -1 -1 0 -1 0
+"group faith(modern times)" -1 -1 0 -1 0
+"group faith(modern society)" -1 -1 0 -1 0
+"characterization(daterape)" -1 -1 0 -1 0
+"group faith(selling a daughter)" -1 -1 0 -1 0
+"knowledge and education(leviticus)" -1 -1 0 -1 0
+"societal norms(challenging beliefs)" -1 -1 0 -1 0
+"communication(expressing)" -1 -1 0 -1 0
+"communication(seeking advice)" -1 -1 0 -1 0
+"characterization(warlord)" -1 -1 0 -1 0
+"group faith(flawed leader)" -1 -1 0 -1 0
+"group faith(controversial prophet)" -1 -1 0 -1 0
+"group faith(founder)" -1 -1 0 -1 0
+"group faith(radical figurehead)" -1 -1 0 -1 0
+"history(religious movement)" -1 -1 0 -1 0
+"history(17th century)" -1 -1 0 -1 0
+"societal norms(unconventional beliefs)" -1 -1 0 -1 0
+"group faith(alternative spirituality)" -1 -1 0 -1 0
+"morality and ethics(non-religious ideals)" -1 -1 0 -1 0
+"societal norms(progressive mindset)" -1 -1 0 -1 0
+"societal norms(current culture)" -1 -1 0 -1 0
+"societal norms(mainstream media)" -1 -1 0 -1 0
+"societal norms(commercialized television)" -1 -1 0 -1 0
+"characterization(named individual)" -1 -1 0 -1 0
+"specific date and time(monday, december 1)" -1 -1 0 -1 0
+"societal norms(sharing opinions online)" -1 -1 0 -1 0
+"societal norms(online platforms)" -1 -1 0 -1 0
+"characterization(setting/location)" -1 -1 0 -1 0
+"specific date and time(monday, february 9)" -1 -1 0 -1 0
+"societal norms(consumerism and advertising)" -1 -1 0 -1 0
+"popular culture(commercials)" -1 -1 0 -1 0
+"popular culture(90s punk/alternative music)" -1 -1 0 -1 0
+"popular culture(music)" -1 -1 0 -1 0
+"popular culture(film)" -1 -1 0 -1 0
+"popular culture(tv show)" -1 -1 0 -1 0
+"societal norms(obsession with nostalgia)" -1 -1 0 -1 0
+"popular culture(music concert)" -1 -1 0 -1 0
+"societal norms(popular slogans/sayings)" -1 -1 0 -1 0
+"societal norms(social media hashtag)" -1 -1 0 -1 0
+"societal norms(list/numbering)" -1 -1 0 -1 0
+"technology(distraction)" -1 -1 0 -1 0
+"technology(convenience)" -1 -1 0 -1 0
+"party relation(action-oriented)" -1 -1 0 -1 0
+"situation relation(focus on details)" -1 -1 0 -1 0
+"financial responsibility(sticking to budget)" -1 -1 0 -1 0
+"entertainment(exciting action)" -1 -1 0 -1 0
+"trust(doubt)" -1 -1 0 -1 0
+"authenticity(colloquial language)" -1 -1 0 -1 0
+"authenticity(slang language)" -1 -1 0 -1 0
+"film genre(gunplay)" -1 -1 0 -1 0
+"film genre(camera angles)" -1 -1 0 -1 0
+"reality(possibility of sequel)" -1 -1 0 -1 0
+"social media(frequent posts)" -1 -1 0 -1 0
+"eloquence(use of idioms)" -1 -1 0 -1 0
+"eloquence(use of colloquialisms)" -1 -1 0 -1 0
+"time and day(wednesday)" -1 -1 0 -1 0
+"technology(use of a personal digital assistant \(pda\))" -1 -1 0 -1 0
+"athletic competition(soccer game)" -1 -1 0 -1 0
+"results-oriented(winning or losing)" -1 -1 0 -1 0
+"numerical analysis(2-0)" -1 -1 0 -1 0
+"time and day(thursday)" -1 -1 0 -1 0
+"educational experience(enlightening)" -1 -1 0 -1 0
+"communication(different levels of knowledge)" -1 -1 0 -1 0
+"form filling(completing eye test)" -1 -1 0 -1 0
+"problem solving solution(answering multiple choice questions)" -1 -1 0 -1 0
+"life skills(driving)" -1 -1 0 -1 0
+"animal behavior(flying)" -1 -1 0 -1 0
+"animal behavior(blood/alcohol level)" -1 -1 0 -1 0
+"parental presence(adult passenger with experience)" -1 -1 0 -1 0
+"time of day(between one half-hour before sunrise to one half-hour after sunset)" -1 -1 0 -1 0
+"financial responsibility(access to means of transportation)" -1 -1 0 -1 0
+"life milestones(passing driver's test)" -1 -1 0 -1 0
+"economics/financial planning(cost of driver's education)" -1 -1 0 -1 0
+"family dynamics(learning to drive with parental figure)" -1 -1 0 -1 0
+"financial responsibility(managing expenses)" -1 -1 0 -1 0
+"life milestones(becoming a licensed driver)" -1 -1 0 -1 0
+"time of day(3:30pm-5pm)" -1 -1 0 -1 0
+"perception of time(feels longer than it really is)" -1 -1 0 -1 0
+"social outing(working at the library)" -1 -1 0 -1 0
+"importance of safety(proper equipment for sporting event)" -1 -1 0 -1 0
+"family dynamics(single parent)" -1 -1 0 -1 0
+"work-life balance(parental responsibilities)" -1 -1 0 -1 0
+"problem-solving(using alternate means of transportation)" -1 -1 0 -1 0
+"technology(reliance on personal vehicle)" -1 -1 0 -1 0
+"frustration(questioning societal norms)" -1 -1 0 -1 0
+"self-reflection(acknowledging personal flaws)" -1 -1 0 -1 0
+"self-perception(defense mechanism)" -1 -1 0 -1 0
+"relationship dynamics(facing disagreement or conflict)" -1 -1 0 -1 0
+"physical preference(mineral water)" -1 -1 0 -1 0
+"physical preference(electrical appliances)" -1 -1 0 -1 0
+"physical preference(heating systems)" -1 -1 0 -1 0
+"culture(american culture)" -1 -1 0 -1 0
+"social(taken for granted)" -1 -1 0 -1 0
+"physical preference(timepieces)" -1 -1 0 -1 0
+"zeitgeist(contemporary)" -1 -1 0 -1 0
+"linguistic(interjection)" -1 -1 0 -1 0
+"situational(shocking)" -1 -1 0 -1 0
+"zeitgeist(ironic awe)" -1 -1 0 -1 0
+"zeitgeist(surreal)" -1 -1 0 -1 0
+"provocative(outrageous)" -1 -1 0 -1 0
+"provocative(shocking and funny)" -1 -1 0 -1 0
+"mood 3(amusement)" -1 -1 0 -1 0
+"provocative(unexpected)" -1 -1 0 -1 0
+"socio-emotional(confusion)" -1 -1 0 -1 0
+"mood 5(boredom)" -1 -1 0 -1 0
+"language(positive connotation)" -1 -1 0 -1 0
+"mood 1(positive)" -1 -1 0 -1 0
+"social(gossip)" -1 -1 0 -1 0
+"zeitgeist(constraints)" -1 -1 0 -1 0
+"zeitgeist(free time)" -1 -1 0 -1 0
+"zeitgeist(uneventful)" -1 -1 0 -1 0
+"linguistic(euphemism)" -1 -1 0 -1 0
+"mood 5(forgetfulness)" -1 -1 0 -1 0
+"linguistic(vocabulary)" -1 -1 0 -1 0
+"social(desire for change)" -1 -1 0 -1 0
+"socio-emotional(frustrated)" -1 -1 0 -1 0
+"zeitgeist(mundane)" -1 -1 0 -1 0
+"physical preference(pre-packaged food)" -1 -1 0 -1 0
+"physical preference(bland taste)" -1 -1 0 -1 0
+"physical preference(snacks)" -1 -1 0 -1 0
+"auditory preference(speakers)" -1 -1 0 -1 0
+"socio-emotional(satisfaction)" -1 -1 0 -1 0
+"linguistic(academic text)" -1 -1 0 -1 0
+"boredom(tedium)" -1 -1 0 -1 0
+"cultural elements(fusion cuisine)" -1 -1 0 -1 0
+"physical preference(fruity flavor)" -1 -1 0 -1 0
+"physical preference(unique produce)" -1 -1 0 -1 0
+"expression(short updates)" -1 -1 0 -1 0
+"socio-emotional(fatigue)" -1 -1 0 -1 0
+"physical impact(power outages)" -1 -1 0 -1 0
+"expression(dramatic retelling)" -1 -1 0 -1 0
+"socio-cultural(shared experiences)" -1 -1 0 -1 0
+"literature(moral lesson)" -1 -1 0 -1 0
+"literature(satire)" -1 -1 0 -1 0
+"beliefs(peer pressure)" -1 -1 0 -1 0
+"beliefs(groupthink)" -1 -1 0 -1 0
+"narrative(fantasy world)" -1 -1 0 -1 0
+"creative expression(stream of consciousness)" -1 -1 0 -1 0
+"creative expression(stylistic changes)" -1 -1 0 -1 0
+"design and layout(column width)" -1 -1 0 -1 0
+"social norms(non-compliant)" -1 -1 0 -1 0
+"humor(sarcasm)" -1 -1 0 -1 0
+"cultural norms(indirect communication)" -1 -1 0 -1 0
+"time(24 hours)" -1 -1 0 -1 0
+"attitude(rebellious)" -1 -1 0 -1 0
+"societal institutions(disregard for rules)" -1 -1 0 -1 0
+"sexualization(objectification)" -1 -1 0 -1 0
+"societal values(apathy)" -1 -1 0 -1 0
+"societal values(materialism)" -1 -1 0 -1 0
+"child safety(predatory behavior)" -1 -1 0 -1 0
+"child safety(naivety)" -1 -1 0 -1 0
+"child safety(grooming)" -1 -1 0 -1 0
+"child safety(vulnerability)" -1 -1 0 -1 0
+"child safety(manipulation)" -1 -1 0 -1 0
+"societal norms(materialism)" -1 -1 0 -1 0
+"societal values(innocence)" -1 -1 0 -1 0
+"child safety(false promises)" -1 -1 0 -1 0
+"societal values(ignorance)" -1 -1 0 -1 0
+"societal norms(conformity)" -1 -1 0 -1 0
+"discrimination(against mentally ill)" -1 -1 0 -1 0
+"societal expectations(perfectionism)" -1 -1 0 -1 0
+"societal values(elitism)" -1 -1 0 -1 0
+"societal norms(group conformity)" -1 -1 0 -1 0
+"societal values(skepticism)" -1 -1 0 -1 0
+"health and wellness(potential benefits of red wine)" -1 -1 0 -1 0
+"health and wellness(potential risks of red wine)" -1 -1 0 -1 0
+"societal norms(slang)" -1 -1 0 -1 0
+"societal norms(taboo)" -1 -1 0 -1 0
+"interpersonal communication(use of slang)" -1 -1 0 -1 0
+"communication barriers(fear of judgment)" -1 -1 0 -1 0
+"societal expectations(privacy)" -1 -1 0 -1 0
+"societal norms(privacy)" -1 -1 0 -1 0
+"societal fears(judgment)" -1 -1 0 -1 0
+"societal values(parental responsibility)" -1 -1 0 -1 0
+"societal norms(age restrictions)" -1 -1 0 -1 0
+"societal issues(violence)" -1 -1 0 -1 0
+"censorship(language)" -1 -1 0 -1 0
+"creative expression(combination of unrelated topics)" -1 -1 0 -1 0
+"societal norms(judging based on superficial traits)" -1 -1 0 -1 0
+"rational believers(responsible)" -1 -1 0 -1 0
+"individual-focused(attitude 1: closed)" -1 -1 0 -1 0
+"party anthems(mood 1: joyful)" -1 -1 0 -1 0
+"believe extremes(religious fundamentalist)" -1 -1 0 -1 0
+"rational believers(honest)" -1 -1 0 -1 0
+"realistic emotions(mood 3: uplifting)" -1 -1 0 -1 0
+"rational thinkers(emotional)" -1 -1 0 -1 0
+"group faith(individual spiritual)" -1 -1 0 -1 0
+"intimate relationship(romantic love)" -1 -1 0 -1 0
+"philosophical(psychedelic)" -1 -1 0 -1 0
+"publication(the new yorker)" -1 -1 0 -1 0
+"date(february 12, 2004)" -1 -1 0 -1 0
+"philosophical(pessimistic)" -1 -1 0 -1 0
+"philosophy(cliche)" -1 -1 0 -1 0
+"event timing(change your name)" -1 -1 0 -1 0
+"ownership(the owner)" -1 -1 0 -1 0
+"philosophical(optimistic)" -1 -1 0 -1 0
+"internet explorer alternative(firefox)" -1 -1 0 -1 0
+"open source(freedom to modify software)" -1 -1 0 -1 0
+"open source(encouragement of software improvement and distribution)" -1 -1 0 -1 0
+"open source(future of computer software)" -1 -1 0 -1 0
+"open source(potential threat to large corporations)" -1 -1 0 -1 0
+"mindful(mindful)" -1 -1 0 -1 0
+"communication(sound)" -1 -1 0 -1 0
+"death(end of something)" -1 -1 0 -1 0
+"consumption(personal)" -1 -1 0 -1 0
+"sophisticated(intellectual)" -1 -1 0 -1 0
+"attendance(free time)" -1 -1 0 -1 0
+"corporations(consumerism)" -1 -1 0 -1 0
+"complexity(low-key)" -1 -1 0 -1 0
+"story-mode(storytelling)" -1 -1 0 -1 0
+"focus(project-oriented)" -1 -1 0 -1 0
+"story-mode(simple themes)" -1 -1 0 -1 0
+"average expectations(introspective)" -1 -1 0 -1 0
+"sacred and profane(public)" -1 -1 0 -1 0
+"sacred and profane(private)" -1 -1 0 -1 0
+"religion and science(offline)" -1 -1 0 -1 0
+"religion and science(online)" -1 -1 0 -1 0
+"intimacy(discussing problems with others)" -1 -1 0 -1 0
+"belief communities(self-acceptance)" -1 -1 0 -1 0
+"belief communities(spirituality)" -1 -1 0 -1 0
+"religious beliefs(personification)" -1 -1 0 -1 0
+"provocative thoughts(zombie apocalypse)" -1 -1 0 -1 0
+"provocative thoughts(survival instinct)" -1 -1 0 -1 0
+"physical preference(self-image)" -1 -1 0 -1 0
+"provocative thoughts(zombie hunting)" -1 -1 0 -1 0
+"physical preference(self-defense)" -1 -1 0 -1 0
+"physical preference(physical endurance)" -1 -1 0 -1 0
+"provocative thoughts(zombie chase)" -1 -1 0 -1 0
+"physical preference(physical strength)" -1 -1 0 -1 0
+"provocative thoughts(zombie fighting)" -1 -1 0 -1 0
+"physical preference(physical agility)" -1 -1 0 -1 0
+"temptation(fear)" -1 -1 0 -1 0
+"temptation(seeking safety)" -1 -1 0 -1 0
+"provocation(anti-hero)" -1 -1 0 -1 0
+"provocation(survival)" -1 -1 0 -1 0
+"responsibility(safety precautions)" -1 -1 0 -1 0
+"provocative thoughts(giant monsters)" -1 -1 0 -1 0
+"temptation(fear of danger)" -1 -1 0 -1 0
+"temptations(exaggeration)" -1 -1 0 -1 0
+"entertainment(online browsing)" -1 -1 0 -1 0
+"entertainment(physical activity)" -1 -1 0 -1 0
+"social skills(coordination)" -1 -1 0 -1 0
+"entertainment(online gaming)" -1 -1 0 -1 0
+"entertainment(physical game)" -1 -1 0 -1 0
+"social settings(isolation)" -1 -1 0 -1 0
+"social isolation(solitary activities)" -1 -1 0 -1 0
+"social skills(solitary activities)" -1 -1 0 -1 0
+"social skills(lack of physical activity)" -1 -1 0 -1 0
+"social isolation(lack of social interaction.)" -1 -1 0 -1 0
+"superstition(leprechauns)" -1 -1 0 -1 0
+"action(trapping)" -1 -1 0 -1 0
+"problem solving strategy(persistence)" -1 -1 0 -1 0
+"problem solving strategy(empathy)" -1 -1 0 -1 0
+"unique experience(childhood eccentricities)" -1 -1 0 -1 0
+"unique experience(artistic expression)" -1 -1 0 -1 0
+"power dynamic(bully and victim)" -1 -1 0 -1 0
+"interpersonal relations(fear and dominance)" -1 -1 0 -1 0
+"creativity(self-doubt)" -1 -1 0 -1 0
+"creativity(validation)" -1 -1 0 -1 0
+"self-discovery(self-acceptance)" -1 -1 0 -1 0
+"self-discovery(self-expression)" -1 -1 0 -1 0
+"activity(art creation)" -1 -1 0 -1 0
+"activity(deciphering a code)" -1 -1 0 -1 0
+"exploration(identity formation)" -1 -1 0 -1 0
+"judgment(confusion)" -1 -1 0 -1 0
+"questioning(seeking understanding)" -1 -1 0 -1 0
+"questioning(curiosity)" -1 -1 0 -1 0
+"language(deciphering)" -1 -1 0 -1 0
+"language(miscommunication)" -1 -1 0 -1 0
+"language(vowel replacement)" -1 -1 0 -1 0
+"language(word meaning)" -1 -1 0 -1 0
+"language(mother tongue)" -1 -1 0 -1 0
+"family(mother and child)" -1 -1 0 -1 0
+"interpersonal relations(protectiveness and vulnerability)" -1 -1 0 -1 0
+"introspection(reflection on the past)" -1 -1 0 -1 0
+"introspection(nostalgia)" -1 -1 0 -1 0
+"introspection(personal growth)" -1 -1 0 -1 0
+"identity(self-awareness)" -1 -1 0 -1 0
+"perseverance(determination)" -1 -1 0 -1 0
+"problem solving strategy(critical thinking)" -1 -1 0 -1 0
+"exploration(deciphering a code)" -1 -1 0 -1 0
+"exploration(search for the missing person)" -1 -1 0 -1 0
+"time management(deciphering a hidden message)" -1 -1 0 -1 0
+"exploration(solving a mystery)" -1 -1 0 -1 0
+"time management(crucial moment)" -1 -1 0 -1 0
+"location(a specific address)" -1 -1 0 -1 0
+"exploration(finding clues)" -1 -1 0 -1 0
+"location(216 stoney road)" -1 -1 0 -1 0
+"exploration(detective work)" -1 -1 0 -1 0
+"exploration(mental work)" -1 -1 0 -1 0
+"location(library)" -1 -1 0 -1 0
+"interpersonal relations(concern and relief)" -1 -1 0 -1 0
+"interpersonal relations(mother and child)" -1 -1 0 -1 0
+"introspection(uncertainty)" -1 -1 0 -1 0
+"taking action(finding the missing person)" -1 -1 0 -1 0
+"hesitation(indecisiveness)" -1 -1 0 -1 0
+"depiction of love(self-love)" -1 -1 0 -1 0
+"intensity of thoughts(anxious)" -1 -1 0 -1 0
+"intensity of feelings(fearful)" -1 -1 0 -1 0
+"patiente(instant gratification)" -1 -1 0 -1 0
+"freedom(dependence)" -1 -1 0 -1 0
+"implicit or explicit patterns(implicit)" -1 -1 0 -1 0
+"state of mind(mindful)" -1 -1 0 -1 0
+"implicit or explicit patterns(explicit)" -1 -1 0 -1 0
+"intellectual(enlightening)" -1 -1 0 -1 0
+"maturity(adult-oriented)" -1 -1 0 -1 0
+"socioeconomic(mainstream)" -1 -1 0 -1 0
+"expectation-opposed(somber)" -1 -1 0 -1 0
+"regions(windy)" -1 -1 0 -1 0
+"regions(snowy)" -1 -1 0 -1 0
+"geographical(windy)" -1 -1 0 -1 0
+"religion(organized religion)" -1 -1 0 -1 0
+"geographic(windy)" -1 -1 0 -1 0
+"scripture interpretation(literal)" -1 -1 0 -1 0
+"socio-economic status(middle-class)" -1 -1 0 -1 0
+"socio-economic status(upper-class)" -1 -1 0 -1 0
+"imagination(creative)" -1 -1 0 -1 0
+"socio-economic status(lower-class)" -1 -1 0 -1 0
+"intellectualism(intellectual)" -1 -1 0 -1 0
+"political views(liberal)" -1 -1 0 -1 0
+"theological extremes(agnostic)" -1 -1 0 -1 0
+"academia(academic)" -1 -1 0 -1 0
+"religious texts(literal interpretation)" -1 -1 0 -1 0
+"beliefs(belief in a higher power)" -1 -1 0 -1 0
+"political views(conservative)" -1 -1 0 -1 0
+"sexual attitudes(adventurous)" -1 -1 0 -1 0
+"themes(environmentalism)" -1 -1 0 -1 0
+"spirituality(individual-oriented)" -1 -1 0 -1 0
+"authority figure(walter cronkite)" -1 -1 0 -1 0
+"energy source(renewable energy world)" -1 -1 0 -1 0
+"expectation-conformed(by elisa wood)" -1 -1 0 -1 0
+"peace and conflict(resolution)" -1 -1 0 -1 0
+"legal affairs correspondent(the independent)" -1 -1 0 -1 0
+"compromise(middle ground)" -1 -1 0 -1 0
+"spirituality(prescriptive)" -1 -1 0 -1 0
+"traditional religion(organized religion)" -1 -1 0 -1 0
+"religious debate(opposition from environmental groups)" -1 -1 0 -1 0
+"legal debate(permitting process)" -1 -1 0 -1 0
+"legal debate(payment for leasing rights)" -1 -1 0 -1 0
+"technology(wind power)" -1 -1 0 -1 0
+"technology(solar power)" -1 -1 0 -1 0
+"technology(renewable energy)" -1 -1 0 -1 0
+"environment(energy conservation)" -1 -1 0 -1 0
+"environment(alternative energy)" -1 -1 0 -1 0
+"technology(underwater cables)" -1 -1 0 -1 0
+"political(support for renewable energy)" -1 -1 0 -1 0
+"technology(wind turbines)" -1 -1 0 -1 0
+"political(opposition to wind energy)" -1 -1 0 -1 0
+"technology(radar interference)" -1 -1 0 -1 0
+"religion(agnostic)" -1 -1 0 -1 0
+"political(support for wind energy)" -1 -1 0 -1 0
+"technology(offshore wind farms)" -1 -1 0 -1 0
+"technology(data sharing)" -1 -1 0 -1 0
+"faith and reason seekers(rationalist)" -1 -1 0 -1 0
+"geography(uk)" -1 -1 0 -1 0
+"geography(thames estuary)" -1 -1 0 -1 0
+"geography(greater wash)" -1 -1 0 -1 0
+"environment(environmental groups)" -1 -1 0 -1 0
+"economics(dependence on fossil fuels)" -1 -1 0 -1 0
+"environment(renewable energy industry)" -1 -1 0 -1 0
+"technology(wave energy)" -1 -1 0 -1 0
+"economics(cheap and plentiful fossil fuels)" -1 -1 0 -1 0
+"environment(alternative energy industry)" -1 -1 0 -1 0
+"environment(offshore wind farms)" -1 -1 0 -1 0
+"religion(india)" -1 -1 0 -1 0
+"economics(reliance on renewable energy)" -1 -1 0 -1 0
+"economics(renewable energy target)" -1 -1 0 -1 0
+"politics(support for renewable energy)" -1 -1 0 -1 0
+"technology(wind energy)" -1 -1 0 -1 0
+"technology(solar energy)" -1 -1 0 -1 0
+"technology(offshore wind and wave projects)" -1 -1 0 -1 0
+"geography(british columbia)" -1 -1 0 -1 0
+"environment(solar access)" -1 -1 0 -1 0
+"economics(distribution)" -1 -1 0 -1 0
+"technology(wind and wave energy)" -1 -1 0 -1 0
+"expectation-conformed(glenn ritt)" -1 -1 0 -1 0
+"expectation-opposed(mitt romney)" -1 -1 0 -1 0
+"financial(us$)" -1 -1 0 -1 0
+"financial(revenue- 1m)" -1 -1 0 -1 0
+"expediency(1-93003)" -1 -1 0 -1 0
+"environmental impact(negative)" -1 -1 0 -1 0
+"environmental impact(positive)" -1 -1 0 -1 0
+"transformational alterity(energy output)" -1 -1 0 -1 0
+"realism(obedient response)" -1 -1 0 -1 0
+"legal(emergency)" -1 -1 0 -1 0
+"religion and reason seekers(rational thinker)" -1 -1 0 -1 0
+"production style(alternative)" -1 -1 0 -1 0
+"expectations(expectation-conformed)" -1 -1 0 -1 0
+"ethics(accountancy)" -1 -1 0 -1 0
+"aesthetics(attractive)" -1 -1 0 -1 0
+"international relations(globalization)" -1 -1 0 -1 0
+"urgency(instant gratification)" -1 -1 0 -1 0
+"courage(independence)" -1 -1 0 -1 0
+"concepts(psychedlic)" -1 -1 0 -1 0
+"time(flexibility)" -1 -1 0 -1 0
+"philosophical(pragmatic)" -1 -1 0 -1 0
+"center of attention(introverted)" -1 -1 0 -1 0
+"humanity(children)" -1 -1 0 -1 0
+"style(hip-hop)" -1 -1 0 -1 0
+"wealth(rich)" -1 -1 0 -1 0
+"humanity(adults)" -1 -1 0 -1 0
+"center of attention(confident)" -1 -1 0 -1 0
+"intimacy(sexual)" -1 -1 0 -1 0
+"expression(lyricism)" -1 -1 0 -1 0
+"humanity(unimportant)" -1 -1 0 -1 0
+"expectation-conformed(youth-oriented)" -1 -1 0 -1 0
+"economics(liberal)" -1 -1 0 -1 0
+"party relation(introspective ballad)" -1 -1 0 -1 0
+"independent(dependent)" -1 -1 0 -1 0
+"youth target(youth-oriented)" -1 -1 0 -1 0
+"imagey(trope-reinforcing)" -1 -1 0 -1 0
+"passions(joy)" -1 -1 0 -1 0
+"patience(technology)" -1 -1 0 -1 0
+"moral beliefs(helping)" -1 -1 0 -1 0
+"passions(internet)" -1 -1 0 -1 0
+"technology(electronic)" -1 -1 0 -1 0
+"technology(internet)" -1 -1 0 -1 0
+"technology(internet connection)" -1 -1 0 -1 0
+"technology(working technology)" -1 -1 0 -1 0
+"peacefulness(troublesmaker)" -1 -1 0 -1 0
+"gender(unknown \(sentence refers to \"everyone\" which includes both genders\))" -1 -1 0 -1 0
+"celebration(christmas season)" -1 -1 0 -1 0
+"awareness(realization)" -1 -1 0 -1 0
+"time(november)" -1 -1 0 -1 0
+"awareness(insight)" -1 -1 0 -1 0
+"action(completion)" -1 -1 0 -1 0
+"written works(novel)" -1 -1 0 -1 0
+"creative process(procrastination)" -1 -1 0 -1 0
+"written works(novel writing)" -1 -1 0 -1 0
+"truthfulness(honest)" -1 -1 0 -1 0
+"creative process(time management)" -1 -1 0 -1 0
+"surprise(unexpectedness)" -1 -1 0 -1 0
+"action(accomplishment)" -1 -1 0 -1 0
+"motivation(determination)" -1 -1 0 -1 0
+"authorship(personal website)" -1 -1 0 -1 0
+"laziness(procrastination)" -1 -1 0 -1 0
+"time(after christmas)" -1 -1 0 -1 0
+"time(christmas)" -1 -1 0 -1 0
+"action(revealing)" -1 -1 0 -1 0
+"disclosure(explanation)" -1 -1 0 -1 0
+"shock(unexpectedness)" -1 -1 0 -1 0
+"action(creation)" -1 -1 0 -1 0
+"motivation(completion)" -1 -1 0 -1 0
+"game development(unfinished projects)" -1 -1 0 -1 0
+"possession(completion)" -1 -1 0 -1 0
+"time(approaching)" -1 -1 0 -1 0
+"game aspect(level design)" -1 -1 0 -1 0
+"creative process(writing difficulties)" -1 -1 0 -1 0
+"writing(daunting task)" -1 -1 0 -1 0
+"creativity(resuming)" -1 -1 0 -1 0
+"creation(interruption)" -1 -1 0 -1 0
+"time(200)" -1 -1 0 -1 0
+"personal experience(contributor)" -1 -1 0 -1 0
+"time shift(later on in the day)" -1 -1 0 -1 0
+"time shift(at any rate)" -1 -1 0 -1 0
+"well-being(have a good day)" -1 -1 0 -1 0
+"fear(the smell of fear)" -1 -1 0 -1 0
+"transportation(drive)" -1 -1 0 -1 0
+"emotional state(current mood)" -1 -1 0 -1 0
+"self-promotion(got my site up)" -1 -1 0 -1 0
+"self-promotion(check out my site)" -1 -1 0 -1 0
+"reaction to criticism(if you don't like it)" -1 -1 0 -1 0
+"romantic gesture(slideshow with romantic captions)" -1 -1 0 -1 0
+"creation process(creating it)" -1 -1 0 -1 0
+"organization(putting it together)" -1 -1 0 -1 0
+"technical difficulty(opening the file)" -1 -1 0 -1 0
+"technical difficulty(resolving the problem)" -1 -1 0 -1 0
+"academic resource(help from photostudio 2000)" -1 -1 0 -1 0
+"user choice(option or preference)" -1 -1 0 -1 0
+"interpersonal relationship(arch-nemesis)" -1 -1 0 -1 0
+"interpersonal relationship(mother and daughter)" -1 -1 0 -1 0
+"conflict resolution(going back to doing something else)" -1 -1 0 -1 0
+"anticipation(feeling that arch-nemesis will show up)" -1 -1 0 -1 0
+"sudden event(arch-nemesis falling from ceiling)" -1 -1 0 -1 0
+"color symbolism(red and black armor)" -1 -1 0 -1 0
+"emotional state(seeing her sitting on the couch)" -1 -1 0 -1 0
+"defense mechanism(defense)" -1 -1 0 -1 0
+"defense mechanism(shall not be greatly moved)" -1 -1 0 -1 0
+"theological opposites(divine worshipers)" -1 -1 0 -1 0
+"theological opposites(mystical practitioner)" -1 -1 0 -1 0
+"maturity(independence)" -1 -1 0 -1 0
+"expectation spectrum(expectation-opposed)" -1 -1 0 -1 0
+"attitute 2(despair)" -1 -1 0 -1 0
+"creativity(spontaneous)" -1 -1 0 -1 0
+"religious belief(atheism)" -1 -1 0 -1 0
+"creativity(improvisation)" -1 -1 0 -1 0
+"announcing(farewell)" -1 -1 0 -1 0
+"imagination(whimsical)" -1 -1 0 -1 0
+"imagination(hallucination)" -1 -1 0 -1 0
+"music style(comedic)" -1 -1 0 -1 0
+"death(pacifist)" -1 -1 0 -1 0
+"celebrity persona(anti-capitalism)" -1 -1 0 -1 0
+"patiente(longevity)" -1 -1 0 -1 0
+"lyrical emphasis(emotional restraint)" -1 -1 0 -1 0
+"culture(individualistic.)" -1 -1 0 -1 0
+"faith and reason seekers(organized religion)" -1 -1 0 -1 0
+"sexual acting(hugged someone)" -1 -1 0 -1 0
+"sexual acting(kissed someone)" -1 -1 0 -1 0
+"mood 4(playful)" -1 -1 0 -1 0
+"attittude 1(open)" -1 -1 0 -1 0
+"humanity and love(self-love)" -1 -1 0 -1 0
+"lyric emphasis(wit)" -1 -1 0 -1 0
+"faith and reason seekers(individual-focused)" -1 -1 0 -1 0
+"traditional gender roles(female)" -1 -1 0 -1 0
+"aspiration(staying true to oneself)" -1 -1 0 -1 0
+"aspiration(creative expression)" -1 -1 0 -1 0
+"concept(serenity)" -1 -1 0 -1 0
+"inspiration(dream imagery)" -1 -1 0 -1 0
+"emotional realism(contentment)" -1 -1 0 -1 0
+"artistic expression(poetic language)" -1 -1 0 -1 0
+"artistic expression(graceful and elegant)" -1 -1 0 -1 0
+"aspiration(self-improvement)" -1 -1 0 -1 0
+"emotional realism(confused)" -1 -1 0 -1 0
+"aspiration(eloquence)" -1 -1 0 -1 0
+"aspiration(talent)" -1 -1 0 -1 0
+"linguistic precision(proper grammar)" -1 -1 0 -1 0
+"cultural elements(globalized world)" -1 -1 0 -1 0
+"emotional realism(optimistic)" -1 -1 0 -1 0
+"aspiration(reaching one's potential)" -1 -1 0 -1 0
+"cultural elements(individual interpretation)" -1 -1 0 -1 0
+"individualistic perspective(uniqueness)" -1 -1 0 -1 0
+"aspiration(greatness)" -1 -1 0 -1 0
+"aspiration(self-actualization)" -1 -1 0 -1 0
+"aspiration(self-acceptance)" -1 -1 0 -1 0
+"cultural elements(media influence)" -1 -1 0 -1 0
+"personal relevance(music quote)" -1 -1 0 -1 0
+"cultural elements(cultural symbolism)" -1 -1 0 -1 0
+"cultural elements(historical significance)" -1 -1 0 -1 0
+"media influence(television ratings)" -1 -1 0 -1 0
+"individualistic perspective(personal opinion)" -1 -1 0 -1 0
+"traditional culture(resilience)" -1 -1 0 -1 0
+"cultural elements(mental well-being)" -1 -1 0 -1 0
+"cultural elements(letting go of the past)" -1 -1 0 -1 0
+"individualistic perspective(resilience)" -1 -1 0 -1 0
+"cultural elements(coping mechanisms)" -1 -1 0 -1 0
+"cultural elements(collective memory)" -1 -1 0 -1 0
+"cultural elements(commemoration)" -1 -1 0 -1 0
+"individualistic perspective(personal expression)" -1 -1 0 -1 0
+"cultural elements(ritual and tradition)" -1 -1 0 -1 0
+"cultural elements(collective grief)" -1 -1 0 -1 0
+"individualistic perspective(processing trauma)" -1 -1 0 -1 0
+"cultural elements(mourning rituals)" -1 -1 0 -1 0
+"problem-solving strategy(shortcut taking)" -1 -1 0 -1 0
+"financial outlook(broke)" -1 -1 0 -1 0
+"financial outlook(well-off)" -1 -1 0 -1 0
+"controversial topics(paying insurance on time)" -1 -1 0 -1 0
+"intentionality(mindful)" -1 -1 0 -1 0
+"trust and intimacy(trustworthy)" -1 -1 0 -1 0
+"trust and intimacy(untrustworthy)" -1 -1 0 -1 0
+"emotionality(emotional)" -1 -1 0 -1 0
+"sophisticated(sophomoric)" -1 -1 0 -1 0
+"culture(irritating)" -1 -1 0 -1 0
+"sophistication(unsophisticated)" -1 -1 0 -1 0
+"need for validation(arrogant)" -1 -1 0 -1 0
+"loyal fans(enthusiastic)" -1 -1 0 -1 0
+"faith and reason seekers(reason)" -1 -1 0 -1 0
+"catharsis(joyful)" -1 -1 0 -1 0
+"naturalness(artificial)" -1 -1 0 -1 0
+"emotions(joy)" -1 -1 0 -1 0
+"lifestyle(relaxed)" -1 -1 0 -1 0
+"worship(heart)" -1 -1 0 -1 0
+"words(god)" -1 -1 0 -1 0
+"physical preference(softness)" -1 -1 0 -1 0
+"physical preference(minimalistic)" -1 -1 0 -1 0
+"physical preference(elaborate)" -1 -1 0 -1 0
+"physical preference(functional)" -1 -1 0 -1 0
+"physical preference(traditional)" -1 -1 0 -1 0
+"physical preference(simple)" -1 -1 0 -1 0
+"physical preference(casual)" -1 -1 0 -1 0
+"analytical thinking(detailed analysis)" -1 -1 0 -1 0
+"mainstream success(entrepreneurial)" -1 -1 0 -1 0
+"mainstream success(artistic integrity)" -1 -1 0 -1 0
+"selfishness(self-aware)" -1 -1 0 -1 0
+"introspection(self-protective)" -1 -1 0 -1 0
+"accountability(responsible)" -1 -1 0 -1 0
+"corporation relations(artistic integrity)" -1 -1 0 -1 0
+"psychological extremes(cynical)" -1 -1 0 -1 0
+"psychological extremes(naive)" -1 -1 0 -1 0
+"work and productivity(teamwork)" -1 -1 0 -1 0
+"song(alternative)" -1 -1 0 -1 0
+"song(hip hop)" -1 -1 0 -1 0
+"social dynamics(opposition)" -1 -1 0 -1 0
+"gratitude(appreciation)" -1 -1 0 -1 0
+"song(pop)" -1 -1 0 -1 0
+"song(rock)" -1 -1 0 -1 0
+"social dynamics(inclusion)" -1 -1 0 -1 0
+"song(rap)" -1 -1 0 -1 0
+"song(new wave)" -1 -1 0 -1 0
+"comparing and contrasting(similarity)" -1 -1 0 -1 0
+"comparing and contrasting(difference)" -1 -1 0 -1 0
+"song(hard rock)" -1 -1 0 -1 0
+"song(heavy metal)" -1 -1 0 -1 0
+"adversarial dynamics(competition)" -1 -1 0 -1 0
+"predicting the future(prediction)" -1 -1 0 -1 0
+"identity(gender identity)" -1 -1 0 -1 0
+"expressing love(affection)" -1 -1 0 -1 0
+"expressing love(forgetfulness)" -1 -1 0 -1 0
+"expressing gratitude(thankfulness)" -1 -1 0 -1 0
+"work and productivity(collaboration)" -1 -1 0 -1 0
+"future plans(reunion)" -1 -1 0 -1 0
+"inside joke(nickname)" -1 -1 0 -1 0
+"animal analogy(poodle)" -1 -1 0 -1 0
+"animal analogy(hamster)" -1 -1 0 -1 0
+"attention span(short)" -1 -1 0 -1 0
+"location(georgia)" -1 -1 0 -1 0
+"expressing admiration(appreciation)" -1 -1 0 -1 0
+"relationship status(coworker)" -1 -1 0 -1 0
+"social interaction(small talk)" -1 -1 0 -1 0
+"expressing skepticism(doubt)" -1 -1 0 -1 0
+"social dynamics(power dynamics)" -1 -1 0 -1 0
+"media influence(advertisement)" -1 -1 0 -1 0
+"expectation-conformity(societal expectation)" -1 -1 0 -1 0
+"judgment vs. reality(skepticism)" -1 -1 0 -1 0
+"expectation probability(slim)" -1 -1 0 -1 0
+"situation perception(negativity)" -1 -1 0 -1 0
+"physical preference(decent looking)" -1 -1 0 -1 0
+"death(fate)" -1 -1 0 -1 0
+"fear(courage)" -1 -1 0 -1 0
+"love(romantic relationship)" -1 -1 0 -1 0
+"love status(ambiguous)" -1 -1 0 -1 0
+"salvation(saved)" -1 -1 0 -1 0
+"salvation(will be saved)" -1 -1 0 -1 0
+"salvation(are being saved)" -1 -1 0 -1 0
+"destiny(predetermined)" -1 -1 0 -1 0
+"death and fate(uncontrollable)" -1 -1 0 -1 0
+"holiday(valentine's day)" -1 -1 0 -1 0
+"attitude 1(uncertain)" -1 -1 0 -1 0
+"intimacy(potential)" -1 -1 0 -1 0
+"relationship(potential crush)" -1 -1 0 -1 0
+"intimacy(getting to know someone)" -1 -1 0 -1 0
+"social(interrogative)" -1 -1 0 -1 0
+"social(asking for help)" -1 -1 0 -1 0
+"fear(fearlessness)" -1 -1 0 -1 0
+"fear(taking risks)" -1 -1 0 -1 0
+"friendship(close)" -1 -1 0 -1 0
+"friendship(frequent visits)" -1 -1 0 -1 0
+"social stigma(stereotyping)" -1 -1 0 -1 0
+"stigma reversal(judgmental)" -1 -1 0 -1 0
+"attitude 2(positive)" -1 -1 0 -1 0
+"social expectation(peer pressure)" -1 -1 0 -1 0
+"social expectation(acceptance)" -1 -1 0 -1 0
+"social stigma(insensitive)" -1 -1 0 -1 0
+"social stigma(hurtful)" -1 -1 0 -1 0
+"social stigma(painful)" -1 -1 0 -1 0
+"response(standing up for oneself)" -1 -1 0 -1 0
+"social expectation(thick skin)" -1 -1 0 -1 0
+"response(defensive humor)" -1 -1 0 -1 0
+"social expectation(sensitivity)" -1 -1 0 -1 0
+"death(losing a loved one)" -1 -1 0 -1 0
+"opinion 1(favorable)" -1 -1 0 -1 0
+"emotion 2(anger)" -1 -1 0 -1 0
+"love status(relatable)" -1 -1 0 -1 0
+"revelation(bittersweetness)" -1 -1 0 -1 0
+"parental role(nagging)" -1 -1 0 -1 0
+"dream interpretation(epiphany)" -1 -1 0 -1 0
+"narrative(memory recall)" -1 -1 0 -1 0
+"relationship(spouse)" -1 -1 0 -1 0
+"love status(married)" -1 -1 0 -1 0
+"cultural elements(integration)" -1 -1 0 -1 0
+"materialism(possessions)" -1 -1 0 -1 0
+"physical preference(formal attire)" -1 -1 0 -1 0
+"materialism(wealth)" -1 -1 0 -1 0
+"mindfulness(dream state)" -1 -1 0 -1 0
+"physical preference(black and white clothing)" -1 -1 0 -1 0
+"old and new believers(modern belief)" -1 -1 0 -1 0
+"production style(speakers and music equipment)" -1 -1 0 -1 0
+"financial status(luxury)" -1 -1 0 -1 0
+"production style(technology)" -1 -1 0 -1 0
+"social class(high society)" -1 -1 0 -1 0
+"physical preference(athletic body type)" -1 -1 0 -1 0
+"physical preference(designer clothing)" -1 -1 0 -1 0
+"physical preference(trendy fashion)" -1 -1 0 -1 0
+"responsibility(owning a car)" -1 -1 0 -1 0
+"physical preference(confidence and sophistication)" -1 -1 0 -1 0
+"physical preference(fashionable accessories)" -1 -1 0 -1 0
+"love status(attractive partner)" -1 -1 0 -1 0
+"physical preference(luxury car brand)" -1 -1 0 -1 0
+"physical preference(fit and active lifestyle)" -1 -1 0 -1 0
+"responsibility(financial stability)" -1 -1 0 -1 0
+"love status(committed relationship)" -1 -1 0 -1 0
+"sleep(dreamless state)" -1 -1 0 -1 0
+"sleep(lucid dreaming)" -1 -1 0 -1 0
+"love status(romantic relationship)" -1 -1 0 -1 0
+"sleep(deep sleep)" -1 -1 0 -1 0
+"sleep(dream world)" -1 -1 0 -1 0
+"sleep(nightmares)" -1 -1 0 -1 0
+"sleep(subconscious desires)" -1 -1 0 -1 0
+"dream interpretation(strange and puzzling dream)" -1 -1 0 -1 0
+"emotional state(confusion)" -1 -1 0 -1 0
+"sophistication(eloquent speech)" -1 -1 0 -1 0
+"dream interpretation(shared dream)" -1 -1 0 -1 0
+"privacy(undisclosed information)" -1 -1 0 -1 0
+"relationship(secret love interest)" -1 -1 0 -1 0
+"identity(low self-esteem)" -1 -1 0 -1 0
+"mindset(self-doubt)" -1 -1 0 -1 0
+"mental health(coping mechanisms)" -1 -1 0 -1 0
+"humanity(vulnerability)" -1 -1 0 -1 0
+"humanity(facade)" -1 -1 0 -1 0
+"temptation(material possessions)" -1 -1 0 -1 0
+"temptation(minimalism)" -1 -1 0 -1 0
+"art and creativity(animation)" -1 -1 0 -1 0
+"reality(current times)" -1 -1 0 -1 0
+"art and creativity(remakes)" -1 -1 0 -1 0
+"expression(sparseness)" -1 -1 0 -1 0
+"beliefs(self-deprecation)" -1 -1 0 -1 0
+"educational system(ib critic)" -1 -1 0 -1 0
+"educational system(slacker)" -1 -1 0 -1 0
+"rationality(bullshitting)" -1 -1 0 -1 0
+"beliefs(materialism)" -1 -1 0 -1 0
+"identity(self-introduction)" -1 -1 0 -1 0
+"education(freshman)" -1 -1 0 -1 0
+"complaints(grievances)" -1 -1 0 -1 0
+"disregard(nonchalant attitude)" -1 -1 0 -1 0
+"commercial appeal(expensive products)" -1 -1 0 -1 0
+"mistakes(regret)" -1 -1 0 -1 0
+"friendship(misunderstanding)" -1 -1 0 -1 0
+"appearance(judgement based on wealth)" -1 -1 0 -1 0
+"friendship(loyalty)" -1 -1 0 -1 0
+"forgiveness(understanding)" -1 -1 0 -1 0
+"friendship(familiarity)" -1 -1 0 -1 0
+"friendship(trust)" -1 -1 0 -1 0
+"friendship(allyship)" -1 -1 0 -1 0
+"family ties(kinship)" -1 -1 0 -1 0
+"friendship(alliances)" -1 -1 0 -1 0
+"social causes(activism)" -1 -1 0 -1 0
+"social causes(support)" -1 -1 0 -1 0
+"social causes(empathy)" -1 -1 0 -1 0
+"social movements(support)" -1 -1 0 -1 0
+"social movements(solidarity)" -1 -1 0 -1 0
+"social movements(affiliation)" -1 -1 0 -1 0
+"community(quakerism)" -1 -1 0 -1 0
+"emotions(love)" -1 -1 0 -1 0
+"mistreatment(emotional abuse)" -1 -1 0 -1 0
+"mistreatment(mental abuse)" -1 -1 0 -1 0
+"character(altruism)" -1 -1 0 -1 0
+"character(emotional instability)" -1 -1 0 -1 0
+"appearance(font selection)" -1 -1 0 -1 0
+"technological struggles(software limitations)" -1 -1 0 -1 0
+"technological struggles(user dissatisfaction)" -1 -1 0 -1 0
+"technological struggles(program comparison)" -1 -1 0 -1 0
+"technology(software integration)" -1 -1 0 -1 0
+"art and creativity(drawings)" -1 -1 0 -1 0
+"social patterns(monotony)" -1 -1 0 -1 0
+"daily routine(repetition)" -1 -1 0 -1 0
+"weekly routine(ordinary days)" -1 -1 0 -1 0
+"school life(routine)" -1 -1 0 -1 0
+"education(academic tasks)" -1 -1 0 -1 0
+"weekend activities(free time)" -1 -1 0 -1 0
+"theological opposites(open)" -1 -1 0 -1 0
+"emotional realism(realism)" -1 -1 0 -1 0
+"group experience(collective)" -1 -1 0 -1 0
+"conceptualization(psychedelic)" -1 -1 0 -1 0
+"sensitivity(sensitive)" -1 -1 0 -1 0
+"technology(28)" -1 -1 0 -1 0
+"personal choices(independent)" -1 -1 0 -1 0
+"companion animals(given good homes)" -1 -1 0 -1 0
+"personal possessions(computer)" -1 -1 0 -1 0
+"technology(game dev)" -1 -1 0 -1 0
+"motion(back)" -1 -1 0 -1 0
+"emotional state(overwhelmed)" -1 -1 0 -1 0
+"personal choices(dependent)" -1 -1 0 -1 0
+"life(journey with ups and downs)" -1 -1 0 -1 0
+"emotional state(frustrated)" -1 -1 0 -1 0
+"personal goals(pursue interests)" -1 -1 0 -1 0
+"time(passing)" -1 -1 0 -1 0
+"time(counting seconds)" -1 -1 0 -1 0
+"time(counting minutes)" -1 -1 0 -1 0
+"time(counting hours)" -1 -1 0 -1 0
+"time(counting days)" -1 -1 0 -1 0
+"life(journey with milestones)" -1 -1 0 -1 0
+"time(age)" -1 -1 0 -1 0
+"personal goals(follow passion)" -1 -1 0 -1 0
+"life(journey with uncertainty)" -1 -1 0 -1 0
+"time(ticking)" -1 -1 0 -1 0
+"career(medical school)" -1 -1 0 -1 0
+"cultural elements(destiny)" -1 -1 0 -1 0
+"personal goals(fulfill purpose)" -1 -1 0 -1 0
+"life(journey with purpose)" -1 -1 0 -1 0
+"cultural elements(fate)" -1 -1 0 -1 0
+"personal choices(following a calling)" -1 -1 0 -1 0
+"personal choices(having a sense of direction)" -1 -1 0 -1 0
+"time(limited)" -1 -1 0 -1 0
+"life(limited time on earth)" -1 -1 0 -1 0
+"time(decades)" -1 -1 0 -1 0
+"life(journey with limited time.)" -1 -1 0 -1 0
+"socioeconomic status(upper class)" -1 -1 0 -1 0
+"theological opposites(prophecy)" -1 -1 0 -1 0
+"old and new believers(non-believer)" -1 -1 0 -1 0
+"theological opposites(prophetic)" -1 -1 0 -1 0
+"family and relationships(marriage)" -1 -1 0 -1 0
+"family and relationships(blended family)" -1 -1 0 -1 0
+"family and relationships(close friends)" -1 -1 0 -1 0
+"family and relationships(distant friends)" -1 -1 0 -1 0
+"family and relationships(dating)" -1 -1 0 -1 0
+"family and relationships(casual acquaintances)" -1 -1 0 -1 0
+"religiousness(casual participant)" -1 -1 0 -1 0
+"faith and reason seekers(disinterest in math)" -1 -1 0 -1 0
+"rational believers(poor at math)" -1 -1 0 -1 0
+"group faith(desire for self-improvement)" -1 -1 0 -1 0
+"group faith(disapproval of past teacher)" -1 -1 0 -1 0
+"old and new believers(dislike for society's conformity)" -1 -1 0 -1 0
+"old and new believers(satisfaction with personal intelligence)" -1 -1 0 -1 0
+"reality(enjoyment of lunch and relaxation)" -1 -1 0 -1 0
+"reality(unpleasant cooperation with society)" -1 -1 0 -1 0
+"rational believers(desire for personal success)" -1 -1 0 -1 0
+"rational believers(distaste for wellness teacher)" -1 -1 0 -1 0
+"belief communities(belief in humanity's potential power)" -1 -1 0 -1 0
+"belief communities(concern for humanity's flaws)" -1 -1 0 -1 0
+"old and new believers(susceptibility to corruption)" -1 -1 0 -1 0
+"physical preference(preference for food and drinks)" -1 -1 0 -1 0
+"physical preference(adaptable taste preferences)" -1 -1 0 -1 0
+"average expectations(desire for material possessions)" -1 -1 0 -1 0
+"average expectations(different priorities from others)" -1 -1 0 -1 0
+"faith extremes(belief in ultimate power in humans)" -1 -1 0 -1 0
+"faith extremes(fear of potential for self-destruction)" -1 -1 0 -1 0
+"culture(future prediction of societal growth)" -1 -1 0 -1 0
+"culture(acknowledgement of societal issues)" -1 -1 0 -1 0
+"culture(appreciation of variety of people's influence)" -1 -1 0 -1 0
+"gender(current balance in population numbers)" -1 -1 0 -1 0
+"gender(speculation on future population growth)" -1 -1 0 -1 0
+"culture(reliance on societal systems and power dynamics)" -1 -1 0 -1 0
+"physical preference(broad shoulders)" -1 -1 0 -1 0
+"problem solving strategy(cutting to the chase)" -1 -1 0 -1 0
+"authenticity(lying)" -1 -1 0 -1 0
+"problem solving strategy(directness)" -1 -1 0 -1 0
+"faith extremes(dishonest)" -1 -1 0 -1 0
+"belief spectrum(negative)" -1 -1 0 -1 0
+"faith and reason seekers(open-mindedness)" -1 -1 0 -1 0
+"theological opposites(pessimistic)" -1 -1 0 -1 0
+"group faith(conforming to expectations)" -1 -1 0 -1 0
+"group experience(serious)" -1 -1 0 -1 0
+"authenticity(skepticism)" -1 -1 0 -1 0
+"responsibility(dishonesty)" -1 -1 0 -1 0
+"situation relation(outside influence)" -1 -1 0 -1 0
+"rationality(logical reasoning)" -1 -1 0 -1 0
+"faith extremes(lying for personal gain)" -1 -1 0 -1 0
+"integrity(progress)" -1 -1 0 -1 0
+"employment(assistant editor)" -1 -1 0 -1 0
+"audience(children)" -1 -1 0 -1 0
+"celebrity persona(influential position)" -1 -1 0 -1 0
+"economic(high-level in a big company)" -1 -1 0 -1 0
+"sexualization(surprising)" -1 -1 0 -1 0
+"spiritual preference(liking the piece)" -1 -1 0 -1 0
+"responsibilty(constructive criticism)" -1 -1 0 -1 0
+"temporal focus(present)" -1 -1 0 -1 0
+"age target(youth)" -1 -1 0 -1 0
+"problem solving strategy(rewriting)" -1 -1 0 -1 0
+"authenticity(pride)" -1 -1 0 -1 0
+"professional relation(assistant editor)" -1 -1 0 -1 0
+"authencity(internal influence)" -1 -1 0 -1 0
+"truthfulness(honest self-reflection)" -1 -1 0 -1 0
+"authenticity(personal growth)" -1 -1 0 -1 0
+"integrity(self-satisfaction)" -1 -1 0 -1 0
+"situation relation(routine)" -1 -1 0 -1 0
+"time focus(daily routine)" -1 -1 0 -1 0
+"interval(yesterday)" -1 -1 0 -1 0
+"time period(after school)" -1 -1 0 -1 0
+"physical preference(breeze)" -1 -1 0 -1 0
+"physical preference(saltiness)" -1 -1 0 -1 0
+"physical preference(greenery)" -1 -1 0 -1 0
+"physical preference(ocean air)" -1 -1 0 -1 0
+"physical preference(sea)" -1 -1 0 -1 0
+"cultural elements(coastal influence)" -1 -1 0 -1 0
+"faith extremists(extremist)" -1 -1 0 -1 0
+"faith and reason seekers(divine worshippers)" -1 -1 0 -1 0
+"story-mode(narrative detachment)" -1 -1 0 -1 0
+"identity(self-acceptance)" -1 -1 0 -1 0
+"belief spectrum(agnostic)" -1 -1 0 -1 0
+"male strength(weak)" -1 -1 0 -1 0
+"intelligibility(emotional)" -1 -1 0 -1 0
+"patient 2(longevity)" -1 -1 0 -1 0
+"understanding(emotional detachment)" -1 -1 0 -1 0
+"party acceptance(party anthem)" -1 -1 0 -1 0
+"success in life(accomplished)" -1 -1 0 -1 0
+"relationship(romantic)" -1 -1 0 -1 0
+"peacekeepers(peacemaker)" -1 -1 0 -1 0
+"understanding(real emotions)" -1 -1 0 -1 0
+"scorned(hateful)" -1 -1 0 -1 0
+"season(fall)" -1 -1 0 -1 0
+"cultural elements(appreciation of natural beauty)" -1 -1 0 -1 0
+"cultural elements(confusion)" -1 -1 0 -1 0
+"social media-driven authenticity(privacy settings)" -1 -1 0 -1 0
+"cultural elements(individual responsibility)" -1 -1 0 -1 0
+"social media-driven authenticity(misplaced online information)" -1 -1 0 -1 0
+"authenticity(acceptance of mistakes)" -1 -1 0 -1 0
+"integrity(honesty in communication)" -1 -1 0 -1 0
+"sophistication(attention to detail)" -1 -1 0 -1 0
+"stress relief(cooking)" -1 -1 0 -1 0
+"relationship(mutual understanding)" -1 -1 0 -1 0
+"weirdness(quirky habits)" -1 -1 0 -1 0
+"imagination(visualization)" -1 -1 0 -1 0
+"provocative imagery(violence towards oneself)" -1 -1 0 -1 0
+"provocativity(shock value)" -1 -1 0 -1 0
+"sexuality(consent)" -1 -1 0 -1 0
+"identity(uncertainty)" -1 -1 0 -1 0
+"motivation(fear)" -1 -1 0 -1 0
+"motivation(indecision)" -1 -1 0 -1 0
+"connection(vague association)" -1 -1 0 -1 0
+"perspective(strange perspective shift)" -1 -1 0 -1 0
+"personal growth(positive outlook)" -1 -1 0 -1 0
+"love and relationships(gossip)" -1 -1 0 -1 0
+"communication(open discussion)" -1 -1 0 -1 0
+"personal growth(self-reflection)" -1 -1 0 -1 0
+"social dynamics(gossiping about others)" -1 -1 0 -1 0
+"irrationality(illogical connection)" -1 -1 0 -1 0
+"human behavior(unpredictable actions)" -1 -1 0 -1 0
+"appearance(misleading)" -1 -1 0 -1 0
+"personal growth(self-discovery)" -1 -1 0 -1 0
+"appearance(false expectations)" -1 -1 0 -1 0
+"authenticity(deceptive behavior)" -1 -1 0 -1 0
+"perception(false assumptions)" -1 -1 0 -1 0
+"discernment(superficial qualities)" -1 -1 0 -1 0
+"discernment(critical thinking)" -1 -1 0 -1 0
+"trust(naivety)" -1 -1 0 -1 0
+"personal integrity(questioning others)" -1 -1 0 -1 0
+"curiosity(seeking understanding)" -1 -1 0 -1 0
+"practicality(functional activity)" -1 -1 0 -1 0
+"practicality(maintaining a home)" -1 -1 0 -1 0
+"cultural norms(preference for physical labor)" -1 -1 0 -1 0
+"beauty preferences(appreciation of natural beauty)" -1 -1 0 -1 0
+"writing style(casual tone)" -1 -1 0 -1 0
+"technological advancement(accessibility to digital cameras)" -1 -1 0 -1 0
+"intellectual(emotional)" -1 -1 0 -1 0
+"complexity(sophisticated)" -1 -1 0 -1 0
+"language(witty wordplay)" -1 -1 0 -1 0
+"diversity(diverse taste)" -1 -1 0 -1 0
+"authenticity(celebrity worship)" -1 -1 0 -1 0
+"expectation-opposed(source of inspiration)" -1 -1 0 -1 0
+"spirituality(skeptic)" -1 -1 0 -1 0
+"body positivity(body enhancing beauty)" -1 -1 0 -1 0
+"belief extremes(traditional religion)" -1 -1 0 -1 0
+"plot device/strategy(humor)" -1 -1 0 -1 0
+"emotion(realistic emotions)" -1 -1 0 -1 0
+"celebration(party anthems)" -1 -1 0 -1 0
+"influence of inspiration(relevant to current times)" -1 -1 0 -1 0
+"celebration(introspective ballads)" -1 -1 0 -1 0
+"corporeal relations(anti-capitalism)" -1 -1 0 -1 0
+"cynicism(pessimistic)" -1 -1 0 -1 0
+"aesthetics(sophisticated)" -1 -1 0 -1 0
+"calmness(calming)" -1 -1 0 -1 0
+"calmness(fierce)" -1 -1 0 -1 0
+"emotion(bravery)" -1 -1 0 -1 0
+"emotion(alert)" -1 -1 0 -1 0
+"authority(belief)" -1 -1 0 -1 0
+"authority(individual spirituality)" -1 -1 0 -1 0
+"authority(rationality)" -1 -1 0 -1 0
+"authority(mainline faith)" -1 -1 0 -1 0
+"avg expectations(expectation-opposed)" -1 -1 0 -1 0
+"attainable(renewable energy)" -1 -1 0 -1 0
+"reaction(reception)" -1 -1 0 -1 0
+"seeking truth(skeptical)" -1 -1 0 -1 0
+"political extremism(anti-nuclear)" -1 -1 0 -1 0
+"cultural preservation(environmentalism)" -1 -1 0 -1 0
+"political activism(government)" -1 -1 0 -1 0
+"theology opposites(atheistic)" -1 -1 0 -1 0
+"group communities(religious community)" -1 -1 0 -1 0
+"truthfulness(political)" -1 -1 0 -1 0
+"opinion 1(open)" -1 -1 0 -1 0
+"justification(attentive)" -1 -1 0 -1 0
+"insecurity(dependent)" -1 -1 0 -1 0
+"mood 3(dramatic)" -1 -1 0 -1 0
+"beauty of nature(wind)" -1 -1 0 -1 0
+"opinion 1(closed)" -1 -1 0 -1 0
+"economy(new)" -1 -1 0 -1 0
+"concept(fiction)" -1 -1 0 -1 0
+"mood 5(serious)" -1 -1 0 -1 0
+"freedom(authoritarian)" -1 -1 0 -1 0
+"retell of news(support of the project)" -1 -1 0 -1 0
+"physical preference(clean power)" -1 -1 0 -1 0
+"group experience(division)" -1 -1 0 -1 0
+"cultural elements(preservation)" -1 -1 0 -1 0
+"production style(hi-tech)" -1 -1 0 -1 0
+"belief spectrum(clean energy)" -1 -1 0 -1 0
+"situation relation(non-controversial)" -1 -1 0 -1 0
+"faith extremes(opposition)" -1 -1 0 -1 0
+"belief spectrum(innovative)" -1 -1 0 -1 0
+"patientce(long-term)" -1 -1 0 -1 0
+"situation relation(intersting)" -1 -1 0 -1 0
+"cultural elements(alternative)" -1 -1 0 -1 0
+"corporation relations(jobs)" -1 -1 0 -1 0
+"storymode(informative)" -1 -1 0 -1 0
+"reality(proposed)" -1 -1 0 -1 0
+"emotional realism(challenging)" -1 -1 0 -1 0
+"emotional realism(advanced)" -1 -1 0 -1 0
+"party relation(alternative)" -1 -1 0 -1 0
+"mood 2(interesting)" -1 -1 0 -1 0
+"corporation relations(development)" -1 -1 0 -1 0
+"emotion(divide)" -1 -1 0 -1 0
+"cultural elements(unique)" -1 -1 0 -1 0
+"expectation(job creation)" -1 -1 0 -1 0
+"emotional realim(entertaining)" -1 -1 0 -1 0
+"mood 1(love)" -1 -1 0 -1 0
+"problem solving strategy(long-term planning)" -1 -1 0 -1 0
+"energy(alternative)" -1 -1 0 -1 0
+"beliefs(opposition)" -1 -1 0 -1 0
+"intellectual(informative)" -1 -1 0 -1 0
+"group experience(community-oriented)" -1 -1 0 -1 0
+"emotional realism(technical)" -1 -1 0 -1 0
+"life and love(forever after)" -1 -1 0 -1 0
+"gender(technological)" -1 -1 0 -1 0
+"responsibility(environmentally conscious)" -1 -1 0 -1 0
+"faith and reason seekers(alternative energy)" -1 -1 0 -1 0
+"situation relation(less controversial)" -1 -1 0 -1 0
+"production style(energetic)" -1 -1 0 -1 0
+"situation relation(ambitious)" -1 -1 0 -1 0
+"problem solving strategy(innovative approach)" -1 -1 0 -1 0
+"culture(british)" -1 -1 0 -1 0
+"group experience(shared goal)" -1 -1 0 -1 0
+"responsibility(environmental impact)" -1 -1 0 -1 0
+"reality(proposed wind farms)" -1 -1 0 -1 0
+"economic(development sites)" -1 -1 0 -1 0
+"relationship focus(coastal communities)" -1 -1 0 -1 0
+"cultural elements(planning and development)" -1 -1 0 -1 0
+"cultural elements(body positivity)" -1 -1 0 -1 0

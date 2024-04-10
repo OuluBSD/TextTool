@@ -27915,3 +27915,2136 @@
 "friendship(missed a friend)" -1 -1 0 -1 0
 "event(red carpet)" -1 -1 0 -1 0
 "nostalgia(looking at old photos)" -1 -1 0 -1 0
+"geographical location(norfolk southern inman yard)" -1 -1 0 -1 0
+"geographical location(baltimore, maryland)" -1 -1 0 -1 0
+"family and friends(love for family)" -1 -1 0 -1 0
+"geographical location(harlingen, texas)" -1 -1 0 -1 0
+"geographical location(planet earth)" -1 -1 0 -1 0
+"geographical location(los angeles, california)" -1 -1 0 -1 0
+"food preference(dessert from duck donuts)" -1 -1 0 -1 0
+"holiday(december nights)" -1 -1 0 -1 0
+"geographical location(doheny room)" -1 -1 0 -1 0
+"music preference(lollapalooza festival)" -1 -1 0 -1 0
+"geographical location(milford mill, maryland)" -1 -1 0 -1 0
+"geographical location(salisbury, maryland)" -1 -1 0 -1 0
+"family and friends(love for significant other)" -1 -1 0 -1 0
+"military(us army)" -1 -1 0 -1 0
+"music preference(don't matter tour at the ritz raleigh)" -1 -1 0 -1 0
+"geographical location(sagamore pendry baltimore)" -1 -1 0 -1 0
+"music preference(country music)" -1 -1 0 -1 0
+"family and friends(brother)" -1 -1 0 -1 0
+"family and friends(friend)" -1 -1 0 -1 0
+"fitness(going to brandon's cantina)" -1 -1 0 -1 0
+"family and friends(uncle)" -1 -1 0 -1 0
+"family and friends(hanging out at rockcreek)" -1 -1 0 -1 0
+"family and friends(going to ithaca beer co.)" -1 -1 0 -1 0
+"self-care(going to oasis salon and spa)" -1 -1 0 -1 0
+"geographical location(baltimore county, maryland)" -1 -1 0 -1 0
+"geographical location(balch springs, texas)" -1 -1 0 -1 0
+"religious tradition(lasalette shrine)" -1 -1 0 -1 0
+"music preference(rap/hip hop)" -1 -1 0 -1 0
+"nightlife(going to blume nightclub)" -1 -1 0 -1 0
+"self-improvement(motivation and reality speaking at vegas towers)" -1 -1 0 -1 0
+"clothing preference(mom jeans)" -1 -1 0 -1 0
+"clothing store(city gear)" -1 -1 0 -1 0
+"music preference(bossa nova café roastery)" -1 -1 0 -1 0
+"self-care(meditation)" -1 -1 0 -1 0
+"geographical location(roosevelt island, new york)" -1 -1 0 -1 0
+"religious community(solidarity)" -1 -1 0 -1 0
+"media influence(social media-driven)" -1 -1 0 -1 0
+"faith extremes(edgy)" -1 -1 0 -1 0
+"needs(sleep)" -1 -1 0 -1 0
+"artistic expression(singing)" -1 -1 0 -1 0
+"location(city of hope)" -1 -1 0 -1 0
+"interpersonal dynamics(laughter)" -1 -1 0 -1 0
+"life and love(healing)" -1 -1 0 -1 0
+"artistic expression(fashion)" -1 -1 0 -1 0
+"interpersonal dynamics(liar)" -1 -1 0 -1 0
+"identity(real name)" -1 -1 0 -1 0
+"appearance(adorable)" -1 -1 0 -1 0
+"interpersonal dynamics(despicable)" -1 -1 0 -1 0
+"identity(traitor)" -1 -1 0 -1 0
+"personality(malignant narcissist)" -1 -1 0 -1 0
+"artistic expression(performing)" -1 -1 0 -1 0
+"physical appearance(beautiful)" -1 -1 0 -1 0
+"behavior(irrational)" -1 -1 0 -1 0
+"needs(hunger)" -1 -1 0 -1 0
+"places(rhode island)" -1 -1 0 -1 0
+"response to someone's post(positive)" -1 -1 0 -1 0
+"friends(support)" -1 -1 0 -1 0
+"places(nashville, tennessee)" -1 -1 0 -1 0
+"places(tennessee)" -1 -1 0 -1 0
+"feeling(annoyance)" -1 -1 0 -1 0
+"places(silver creek, austell)" -1 -1 0 -1 0
+"places(disneyland, los angeles)" -1 -1 0 -1 0
+"hobby/skill(aerial hoop)" -1 -1 0 -1 0
+"hobby(attending concerts)" -1 -1 0 -1 0
+"attitude(confidence)" -1 -1 0 -1 0
+"adventurousness(high)" -1 -1 0 -1 0
+"relationship status(friendship)" -1 -1 0 -1 0
+"places(burt's pumpkin farm)" -1 -1 0 -1 0
+"responsibility(maturity)" -1 -1 0 -1 0
+"creative activity(creative direction)" -1 -1 0 -1 0
+"occupation(writing)" -1 -1 0 -1 0
+"hobby/skill(playing piano)" -1 -1 0 -1 0
+"places(delray beach, florida)" -1 -1 0 -1 0
+"hobby/skill(shooting)" -1 -1 0 -1 0
+"money(unsure)" -1 -1 0 -1 0
+"confidence(moderate)" -1 -1 0 -1 0
+"occupation(business owner)" -1 -1 0 -1 0
+"occupation(involved in illegal activities)" -1 -1 0 -1 0
+"feelings(proud of children)" -1 -1 0 -1 0
+"places(red apple farm)" -1 -1 0 -1 0
+"compliments(attractive)" -1 -1 0 -1 0
+"hobby(tattooing)" -1 -1 0 -1 0
+"places(corpus christi, texas)" -1 -1 0 -1 0
+"attitude(appreciation for life)" -1 -1 0 -1 0
+"hobby(reading)" -1 -1 0 -1 0
+"hobby(collecting reptiles)" -1 -1 0 -1 0
+"hobby(waist training/corset)" -1 -1 0 -1 0
+"places(disneyland, anaheim)" -1 -1 0 -1 0
+"playful interaction(bumping butts)" -1 -1 0 -1 0
+"days since a certain event(significant)" -1 -1 0 -1 0
+"accomplishment(completing a project)" -1 -1 0 -1 0
+"places(wilmington, north carolina)" -1 -1 0 -1 0
+"places(dodger stadium, los angeles)" -1 -1 0 -1 0
+"hobby(taking care of animals)" -1 -1 0 -1 0
+"places(coffee shop/bar)" -1 -1 0 -1 0
+"action(repeating behavior)" -1 -1 0 -1 0
+"feelings(gratitude)" -1 -1 0 -1 0
+"feelings(appreciation)" -1 -1 0 -1 0
+"interaction between friends(posing for a photo)" -1 -1 0 -1 0
+"resourcefulded-lt;int twist('# provoca)" -1 -1 0 -1 0
+"purpose motivation(moodydriven)" -1 -1 0 -1 0
+"opportunity(first-time)" -1 -1 0 -1 0
+"love subtle(self-love)" -1 -1 0 -1 0
+"truthfulness(heartfelt)" -1 -1 0 -1 0
+"location(sandbridge)" -1 -1 0 -1 0
+"type(photography)" -1 -1 0 -1 0
+"count(17)" -1 -1 0 -1 0
+"user mention(@ user)" -1 -1 0 -1 0
+"event(monday munchies)" -1 -1 0 -1 0
+"topic(2018 goals)" -1 -1 0 -1 0
+"location(157 lounge)" -1 -1 0 -1 0
+"video(comedy)" -1 -1 0 -1 0
+"difficulty(tough)" -1 -1 0 -1 0
+"topic(doughnuts)" -1 -1 0 -1 0
+"topic(home)" -1 -1 0 -1 0
+"activity(rock climbing)" -1 -1 0 -1 0
+"focus(physical health)" -1 -1 0 -1 0
+"topic(spontaneity)" -1 -1 0 -1 0
+"location(the breakfast klub)" -1 -1 0 -1 0
+"activity(girls night out)" -1 -1 0 -1 0
+"location(the hutch on avondale)" -1 -1 0 -1 0
+"topic(new year's resolutions)" -1 -1 0 -1 0
+"topic(weather)" -1 -1 0 -1 0
+"location(rockwell)" -1 -1 0 -1 0
+"focus(fashion)" -1 -1 0 -1 0
+"emoji(o)" -1 -1 0 -1 0
+"activity(break)" -1 -1 0 -1 0
+"topic(road trip)" -1 -1 0 -1 0
+"location(shreveport)" -1 -1 0 -1 0
+"topic(self-portrait)" -1 -1 0 -1 0
+"location(big dub festival)" -1 -1 0 -1 0
+"focus(partner)" -1 -1 0 -1 0
+"user mention(@ rockville)" -1 -1 0 -1 0
+"topic(couple's photo)" -1 -1 0 -1 0
+"topic(entertainment)" -1 -1 0 -1 0
+"topic(dreams)" -1 -1 0 -1 0
+"topic(love)" -1 -1 0 -1 0
+"topic(friendship)" -1 -1 0 -1 0
+"activity(giving)" -1 -1 0 -1 0
+"user mention(@ gibson)" -1 -1 0 -1 0
+"topic(humor)" -1 -1 0 -1 0
+"topic(college)" -1 -1 0 -1 0
+"topic(craft beer)" -1 -1 0 -1 0
+"topic(burgers)" -1 -1 0 -1 0
+"youth-oriented(millennial)" -1 -1 0 -1 0
+"nativity(escapism)" -1 -1 0 -1 0
+"resolution transferer(drunken)" -1 -1 0 -1 0
+"christology(christian)" -1 -1 0 -1 0
+"globalization(global citizen)" -1 -1 0 -1 0
+"cleanliness(neat)" -1 -1 0 -1 0
+"education(university)" -1 -1 0 -1 0
+"nativity(new yorker)" -1 -1 0 -1 0
+"purpose(madness)" -1 -1 0 -1 0
+"obsessions(obsessed)" -1 -1 0 -1 0
+"construction(heavy)" -1 -1 0 -1 0
+"cityscape(urban)" -1 -1 0 -1 0
+"celebration(local theatre)" -1 -1 0 -1 0
+"productivity(busy)" -1 -1 0 -1 0
+"friendship(comrades)" -1 -1 0 -1 0
+"cultural elements(chinese culture)" -1 -1 0 -1 0
+"imagery(festive)" -1 -1 0 -1 0
+"group experience(night club scene)" -1 -1 0 -1 0
+"faith extremes(atheistic)" -1 -1 0 -1 0
+"perseverance(courage)" -1 -1 0 -1 0
+"imagery(natural beauty)" -1 -1 0 -1 0
+"food preference(japanese cuisine)" -1 -1 0 -1 0
+"food preference(fusion cuisine)" -1 -1 0 -1 0
+"party relation(dance party)" -1 -1 0 -1 0
+"party relation(sports bar vibe)" -1 -1 0 -1 0
+"self-confidence(self-assured)" -1 -1 0 -1 0
+"image creation(capturing memories)" -1 -1 0 -1 0
+"situation relation(flirty)" -1 -1 0 -1 0
+"live performance(concert)" -1 -1 0 -1 0
+"hospitality(historic bed and breakfast)" -1 -1 0 -1 0
+"humor(joking around with friends)" -1 -1 0 -1 0
+"humor(satire)" -1 -1 0 -1 0
+"live music(country music)" -1 -1 0 -1 0
+"pop culture(dance craze)" -1 -1 0 -1 0
+"nightlife(popular bar)" -1 -1 0 -1 0
+"sushi(japanese street food)" -1 -1 0 -1 0
+"worldview(japanese culture)" -1 -1 0 -1 0
+"live music experience(jam band scene)" -1 -1 0 -1 0
+"live performance(theater)" -1 -1 0 -1 0
+"perseverance(persistence)" -1 -1 0 -1 0
+"self-care(self-reward)" -1 -1 0 -1 0
+"coffee(specialty coffee shop)" -1 -1 0 -1 0
+"love and commitment(support for a loved one)" -1 -1 0 -1 0
+"outdoor activities(bonfire)" -1 -1 0 -1 0
+"group experience(music festival)" -1 -1 0 -1 0
+"embrace(ocean)" -1 -1 0 -1 0
+"romance(romantic love)" -1 -1 0 -1 0
+"embrace(family)" -1 -1 0 -1 0
+"embrace(mother)" -1 -1 0 -1 0
+"place(terrace lakes resort)" -1 -1 0 -1 0
+"philosophy(right this second)" -1 -1 0 -1 0
+"embrace(country girl survival)" -1 -1 0 -1 0
+"affiliation(los angeles)" -1 -1 0 -1 0
+"affiliation(tahoe national forest)" -1 -1 0 -1 0
+"attitiude 1(open)" -1 -1 0 -1 0
+"affiliation(griffith observatory)" -1 -1 0 -1 0
+"affiliation(user)" -1 -1 0 -1 0
+"affiliation(oracle arena)" -1 -1 0 -1 0
+"affiliation(universal studios theme park)" -1 -1 0 -1 0
+"affiliation(bruh)" -1 -1 0 -1 0
+"affiliation(highland park)" -1 -1 0 -1 0
+"bold and new believers(new age spirituality)" -1 -1 0 -1 0
+"experience(escapism)" -1 -1 0 -1 0
+"experience(realism)" -1 -1 0 -1 0
+"powerful physical characteristics(muscular)" -1 -1 0 -1 0
+"intimate behavior(flirtatious)" -1 -1 0 -1 0
+"cultural and religious traditions(traditional)" -1 -1 0 -1 0
+"group identity(united)" -1 -1 0 -1 0
+"physical appearance(glamorous)" -1 -1 0 -1 0
+"religion extremes(agnostic)" -1 -1 0 -1 0
+"creation and destruction(constructive)" -1 -1 0 -1 0
+"visual style(urban)" -1 -1 0 -1 0
+"improvisation(spontaneous)" -1 -1 0 -1 0
+"religious extremists(secular society)" -1 -1 0 -1 0
+"attention seeking(attention-seeking)" -1 -1 0 -1 0
+"authority loyalty(anti-capitalism)" -1 -1 0 -1 0
+"corporate image(consumerism)" -1 -1 0 -1 0
+"creativity(creativity)" -1 -1 0 -1 0
+"party-goer(excitement)" -1 -1 0 -1 0
+"irpercentage(age-oriented)" -1 -1 0 -1 0
+"food choices(unhealthy)" -1 -1 0 -1 0
+"intellectual property(international)" -1 -1 0 -1 0
+"religious extremists(satire)" -1 -1 0 -1 0
+"transportation(bike-friendly)" -1 -1 0 -1 0
+"socialization(group-oriented)" -1 -1 0 -1 0
+"financial security(richness)" -1 -1 0 -1 0
+"beauty(external beauty)" -1 -1 0 -1 0
+"food choices(healthy)" -1 -1 0 -1 0
+"athleticism(athleticism)" -1 -1 0 -1 0
+"risk-taking(adventurous)" -1 -1 0 -1 0
+"truthfulness(authentic)" -1 -1 0 -1 0
+"erraticness(dramatic)" -1 -1 0 -1 0
+"political alignment(democrat)" -1 -1 0 -1 0
+"political alignment(republican)" -1 -1 0 -1 0
+"stereotype(hipster)" -1 -1 0 -1 0
+"recreational activities(hula hooping)" -1 -1 0 -1 0
+"recreational activities(drinking hot chocolate)" -1 -1 0 -1 0
+"education(law school)" -1 -1 0 -1 0
+"recreation(glamour and fun)" -1 -1 0 -1 0
+"physical appearance(exotic brunette)" -1 -1 0 -1 0
+"special occasions(new year's day)" -1 -1 0 -1 0
+"movie preferences(action)" -1 -1 0 -1 0
+"journalism(great)" -1 -1 0 -1 0
+"double standards(unfairness)" -1 -1 0 -1 0
+"stress level(high)" -1 -1 0 -1 0
+"political situation(protesting)" -1 -1 0 -1 0
+"news and information(international)" -1 -1 0 -1 0
+"physical skill(agility)" -1 -1 0 -1 0
+"religious expression(worship)" -1 -1 0 -1 0
+"happiness(congratulations)" -1 -1 0 -1 0
+"friendship(cute)" -1 -1 0 -1 0
+"cell phone plan(free unlimited texts)" -1 -1 0 -1 0
+"cell phone plan(limited texts to other networks)" -1 -1 0 -1 0
+"video games(fun)" -1 -1 0 -1 0
+"pregnancy(round ligament pain)" -1 -1 0 -1 0
+"pregnancy(pregnancy problems)" -1 -1 0 -1 0
+"freedom(2nd amendment)" -1 -1 0 -1 0
+"nonchalance(nothing to see here)" -1 -1 0 -1 0
+"family(brother)" -1 -1 0 -1 0
+"customer service(service with no explanation)" -1 -1 0 -1 0
+"customer service(unsatisfactory)" -1 -1 0 -1 0
+"technology(confusion)" -1 -1 0 -1 0
+"commercial appeal(anti-corporation)" -1 -1 0 -1 0
+"technology(confusing)" -1 -1 0 -1 0
+"unethical actions(excessive drinking)" -1 -1 0 -1 0
+"unethical actions(irresponsible behavior)" -1 -1 0 -1 0
+"expectancy(naivety)" -1 -1 0 -1 0
+"country bias(extreme bias)" -1 -1 0 -1 0
+"identity of self(self-doubt)" -1 -1 0 -1 0
+"rivalry(rivalry-based)" -1 -1 0 -1 0
+"competence(incompetence)" -1 -1 0 -1 0
+"hopefulness(hopefulness)" -1 -1 0 -1 0
+"change(changeable)" -1 -1 0 -1 0
+"ownership(possessive)" -1 -1 0 -1 0
+"border control(anti-immigration)" -1 -1 0 -1 0
+"compassion for refugees(support for refugee rights)" -1 -1 0 -1 0
+"immigration issues(deportation)" -1 -1 0 -1 0
+"border control(opposition to illegal immigration)" -1 -1 0 -1 0
+"leadership(idolization)" -1 -1 0 -1 0
+"feminist perspectives(empowerment)" -1 -1 0 -1 0
+"humanitarian efforts(assistance to refugees)" -1 -1 0 -1 0
+"political opinions(liberal)" -1 -1 0 -1 0
+"political opinions(conservative)" -1 -1 0 -1 0
+"refugee crisis(human rights violations)" -1 -1 0 -1 0
+"patriotism(nationalism)" -1 -1 0 -1 0
+"traditional gender roles(expectations of women)" -1 -1 0 -1 0
+"traditional gender roles(expectations of men)" -1 -1 0 -1 0
+"national identity(secure borders)" -1 -1 0 -1 0
+"faith extremists(religious fanaticism)" -1 -1 0 -1 0
+"identity politics(diversity)" -1 -1 0 -1 0
+"diverse cultural perspectives(appreciation for cultural differences)" -1 -1 0 -1 0
+"migrant crisis(support for refugees)" -1 -1 0 -1 0
+"refugee crisis(restrictions on immigration)" -1 -1 0 -1 0
+"humanitarian efforts(aid to refugees)" -1 -1 0 -1 0
+"border control(opposition to immigration policies)" -1 -1 0 -1 0
+"social media(censorship)" -1 -1 0 -1 0
+"leadership(admiration)" -1 -1 0 -1 0
+"gender roles(traditional expectations of women)" -1 -1 0 -1 0
+"global politics(opposition to globalization)" -1 -1 0 -1 0
+"censorship(restrictions on free speech)" -1 -1 0 -1 0
+"refugee crisis(fear)" -1 -1 0 -1 0
+"social media(derogatory language)" -1 -1 0 -1 0
+"border control(restriction of immigration)" -1 -1 0 -1 0
+"immigrant stereotypes(religious fanaticism)" -1 -1 0 -1 0
+"immigration issues(push for immigration reform)" -1 -1 0 -1 0
+"compassion for refugees(concern for undocumented immigrants)" -1 -1 0 -1 0
+"political opinions(opposition to liberal policies)" -1 -1 0 -1 0
+"ethnic stereotypes(intelligence)" -1 -1 0 -1 0
+"immigration issues(support for stricter immigration policies)" -1 -1 0 -1 0
+"immigrant stereotypes(fear)" -1 -1 0 -1 0
+"faith communities(devotion to religion)" -1 -1 0 -1 0
+"religious persecution(support for minority groups)" -1 -1 0 -1 0
+"refugee crisis(call for international aid)" -1 -1 0 -1 0
+"romantic partners(shared interests)" -1 -1 0 -1 0
+"migrant crisis(opposition to refugee acceptance)" -1 -1 0 -1 0
+"border control(restrictions on immigration)" -1 -1 0 -1 0
+"political division(selfishness)" -1 -1 0 -1 0
+"economic(financial gain)" -1 -1 0 -1 0
+"economic(corporate influence)" -1 -1 0 -1 0
+"political division(conservative)" -1 -1 0 -1 0
+"faith extremes(fanatical)" -1 -1 0 -1 0
+"belief spectrum(immigration)" -1 -1 0 -1 0
+"economic(financial cost)" -1 -1 0 -1 0
+"economic(average income)" -1 -1 0 -1 0
+"economic(cost of living)" -1 -1 0 -1 0
+"economic(citizen taxes)" -1 -1 0 -1 0
+"law and order(crime)" -1 -1 0 -1 0
+"law and order(safety)" -1 -1 0 -1 0
+"law and order(protection)" -1 -1 0 -1 0
+"law and order(criminal justice)" -1 -1 0 -1 0
+"law and order(consequences for criminal behavior)" -1 -1 0 -1 0
+"political leader(presidential candidate)" -1 -1 0 -1 0
+"economic(job growth)" -1 -1 0 -1 0
+"political leader(obama)" -1 -1 0 -1 0
+"political division(red vs. blue states)" -1 -1 0 -1 0
+"political division(liberal vs. conservative)" -1 -1 0 -1 0
+"separation of families(illegal immigration)" -1 -1 0 -1 0
+"law and order(illegal actions)" -1 -1 0 -1 0
+"faith extremes(religious beliefs)" -1 -1 0 -1 0
+"political division(infiltrators)" -1 -1 0 -1 0
+"political division(opposing ideologies)" -1 -1 0 -1 0
+"political division(propaganda)" -1 -1 0 -1 0
+"political division(destruction of a movement)" -1 -1 0 -1 0
+"political division(manipulation)" -1 -1 0 -1 0
+"political division(polarization)" -1 -1 0 -1 0
+"immigration(green card issues)" -1 -1 0 -1 0
+"economic(job protection)" -1 -1 0 -1 0
+"immigration(illegal entry into the country)" -1 -1 0 -1 0
+"political division(negotiations)" -1 -1 0 -1 0
+"immigration(return to country of origin)" -1 -1 0 -1 0
+"immigration(refugee age discrepancies)" -1 -1 0 -1 0
+"political division(voter turnout)" -1 -1 0 -1 0
+"belief communities(support for trump)" -1 -1 0 -1 0
+"political division(political party affiliation)" -1 -1 0 -1 0
+"immigration(number of unauthorized immigrants)" -1 -1 0 -1 0
+"immigration(citizenship application processing time)" -1 -1 0 -1 0
+"immigration(asylum claims)" -1 -1 0 -1 0
+"immigration(criminal deportations)" -1 -1 0 -1 0
+"immigration(control and prevention)" -1 -1 0 -1 0
+"immigration(refugee crisis in europe)" -1 -1 0 -1 0
+"immigration(public outcry)" -1 -1 0 -1 0
+"cult of personality(celebrity worship)" -1 -1 0 -1 0
+"cult of personality(nationalist)" -1 -1 0 -1 0
+"faith extremes(anti-islam sentiment)" -1 -1 0 -1 0
+"belief communities(immigration control)" -1 -1 0 -1 0
+"faith extremes(anti-refugee sentiment)" -1 -1 0 -1 0
+"group faith(political unity)" -1 -1 0 -1 0
+"average expectations(political unity)" -1 -1 0 -1 0
+"average expectations(political divide)" -1 -1 0 -1 0
+"belief communities(anti-refugee sentiment)" -1 -1 0 -1 0
+"human strength(violent)" -1 -1 0 -1 0
+"belief spectrum(political divide)" -1 -1 0 -1 0
+"faith extremes(anti-illegal immigration sentiment)" -1 -1 0 -1 0
+"faith extremes(anti-government sentiment)" -1 -1 0 -1 0
+"theology extremist(violent)" -1 -1 0 -1 0
+"theology extremist(anti-government sentiment)" -1 -1 0 -1 0
+"group faith(nationalism)" -1 -1 0 -1 0
+"cult of personality(political nationalism)" -1 -1 0 -1 0
+"cult of personality(nationalist sentiment)" -1 -1 0 -1 0
+"theology extremist(anti-democrat)" -1 -1 0 -1 0
+"cult of personality(anti-immigration sentiment)" -1 -1 0 -1 0
+"theological opposites(conspiracy theorist)" -1 -1 0 -1 0
+"cult of personality(conspiracy theorist)" -1 -1 0 -1 0
+"cult of personality(climate change deniers)" -1 -1 0 -1 0
+"belief communities(anti-immigration sentiment)" -1 -1 0 -1 0
+"faith extremes(anti-immigration sentiment)" -1 -1 0 -1 0
+"faith extremes(logical)" -1 -1 0 -1 0
+"belief communities(political divide)" -1 -1 0 -1 0
+"cult of personality(political unity)" -1 -1 0 -1 0
+"cult of personality(anti-liberal sentiment)" -1 -1 0 -1 0
+"theological opposites(political divide)" -1 -1 0 -1 0
+"cult of personality(hypocritical)" -1 -1 0 -1 0
+"social(closed)" -1 -1 0 -1 0
+"mental health(toxic)" -1 -1 0 -1 0
+"community membership(patriots/conservatives)" -1 -1 0 -1 0
+"intelligence(witty/sophisticated)" -1 -1 0 -1 0
+"job market(gig economy/tech industry)" -1 -1 0 -1 0
+"personal qualities(nasty)" -1 -1 0 -1 0
+"political ideologies(ambivalent/two-faced)" -1 -1 0 -1 0
+"mental health(delusional)" -1 -1 0 -1 0
+"political ideologies(republican)" -1 -1 0 -1 0
+"political figures(trump)" -1 -1 0 -1 0
+"social issues(increasing crime rates)" -1 -1 0 -1 0
+"political ideologies(liberal)" -1 -1 0 -1 0
+"job market(chaplain?/religious role)" -1 -1 0 -1 0
+"personal qualities(weak/three soft little figure skating ballerinas)" -1 -1 0 -1 0
+"entertainment(monster hunter/game enthusiast)" -1 -1 0 -1 0
+"personal qualities(polite)" -1 -1 0 -1 0
+"community membership(trump supporters/conservatives)" -1 -1 0 -1 0
+"personal qualities(physical appearance/attractions)" -1 -1 0 -1 0
+"relationships(possessiveness)" -1 -1 0 -1 0
+"internet slang/lingo(emoticons)" -1 -1 0 -1 0
+"political figures(eric holder)" -1 -1 0 -1 0
+"political ideologies(fiscally conservative)" -1 -1 0 -1 0
+"personal qualities(manipulative)" -1 -1 0 -1 0
+"personal qualities(conniving/criminal)" -1 -1 0 -1 0
+"personal qualities(humorous)" -1 -1 0 -1 0
+"personal qualities(hypocritical)" -1 -1 0 -1 0
+"entertainment(indian actress/character)" -1 -1 0 -1 0
+"personal qualities(disrespectful)" -1 -1 0 -1 0
+"personal qualities(judgy)" -1 -1 0 -1 0
+"entertainment(casual fans/comedy)" -1 -1 0 -1 0
+"production style(cinematic)" -1 -1 0 -1 0
+"psychological realism(optimistic)" -1 -1 0 -1 0
+"gender(pieer)" -1 -1 0 -1 0
+"religion group(opposition to religion)" -1 -1 0 -1 0
+"actor record(b self-expression)" -1 -1 0 -1 0
+"characteristic(spontaneous)" -1 -1 0 -1 0
+"characteristic(formal)" -1 -1 0 -1 0
+"characteristic(extroverted)" -1 -1 0 -1 0
+"culture(support)" -1 -1 0 -1 0
+"individual characteristic(self-reflection)" -1 -1 0 -1 0
+"individual strength(intellectual)" -1 -1 0 -1 0
+"average expectation(expectation-opposed)" -1 -1 0 -1 0
+"accuracy(incorrect)" -1 -1 0 -1 0
+"church rationale(puritan work ethic)" -1 -1 0 -1 0
+"moral group(idealistic morality)" -1 -1 0 -1 0
+"psychological realism(pessimistic)" -1 -1 0 -1 0
+"secularity(new age spirituality)" -1 -1 0 -1 0
+"psychological realism(insightful)" -1 -1 0 -1 0
+"communism(totalitarianism)" -1 -1 0 -1 0
+"legitimacy(legitimate government)" -1 -1 0 -1 0
+"church rationale(social justice)" -1 -1 0 -1 0
+"sports group(oppressed athlete)" -1 -1 0 -1 0
+"social group(hypocritical liberals)" -1 -1 0 -1 0
+"economic philosophy(capitalism)" -1 -1 0 -1 0
+"economic philosophy(socialism)" -1 -1 0 -1 0
+"individual characteristic(meaningful conversation)" -1 -1 0 -1 0
+"appreciation(appreciation for art and literature)" -1 -1 0 -1 0
+"criticism(opposing viewpoints)" -1 -1 0 -1 0
+"singular existence(short-minded)" -1 -1 0 -1 0
+"reality(mysterious)" -1 -1 0 -1 0
+"expectation extremes(pessimistic)" -1 -1 0 -1 0
+"celeb personas(body positivity)" -1 -1 0 -1 0
+"celeb personas(celebrity worship)" -1 -1 0 -1 0
+"religion and politics(liberal)" -1 -1 0 -1 0
+"religious extremism(non-worthy)" -1 -1 0 -1 0
+"social groups(alt-right)" -1 -1 0 -1 0
+"religious extremism(corrupt)" -1 -1 0 -1 0
+"socia groups(radial liberals)" -1 -1 0 -1 0
+"social media(qanon supporter)" -1 -1 0 -1 0
+"belief communities(accountable)" -1 -1 0 -1 0
+"single existence(short-minded)" -1 -1 0 -1 0
+"political power(conservatives)" -1 -1 0 -1 0
+"scientific concept(quantum field)" -1 -1 0 -1 0
+"scientific concept(differential geometry)" -1 -1 0 -1 0
+"entertainment(enjoying watching others fail)" -1 -1 0 -1 0
+"personal achievement(success)" -1 -1 0 -1 0
+"political power(democrats)" -1 -1 0 -1 0
+"scapegoat(president trump)" -1 -1 0 -1 0
+"ethical violations(illegal activity by the democratic national committee \(dnc\) and clinton campaign)" -1 -1 0 -1 0
+"insult(negative connotations towards liberals)" -1 -1 0 -1 0
+"policy debate(concern with policy a8)" -1 -1 0 -1 0
+"political change(need for bipartisan cooperation)" -1 -1 0 -1 0
+"political goal(supporting conservatives)" -1 -1 0 -1 0
+"problem solving(using facts to address sexual assault)" -1 -1 0 -1 0
+"technology(access to wifi)" -1 -1 0 -1 0
+"political power(returning to vietnam)" -1 -1 0 -1 0
+"gender(non-binary)" -1 -1 0 -1 0
+"joke/reference(the \"midas touch\" but reversed)" -1 -1 0 -1 0
+"ethical evaluation(mistrust in lindsey graham)" -1 -1 0 -1 0
+"prediction(gordon would be cut from team)" -1 -1 0 -1 0
+"insult(labeling someone as \"obsessed\" with trump)" -1 -1 0 -1 0
+"inclusivity(welcoming conservatives into a conversation/argument.)" -1 -1 0 -1 0
+"economic impact(promoting good business practices)" -1 -1 0 -1 0
+"interest(lack of interest in liberal opinions)" -1 -1 0 -1 0
+"education(criticism of democrats for eliminating shop class)" -1 -1 0 -1 0
+"insult(labeling someone as a \"dipshit\")" -1 -1 0 -1 0
+"gender equality(promoting women's power)" -1 -1 0 -1 0
+"ethical violation(hiding from accountability)" -1 -1 0 -1 0
+"social media(comparison of twitter becoming similar to tumblr in the past)" -1 -1 0 -1 0
+"scientific concept(never having done something)" -1 -1 0 -1 0
+"honesty(calling someone a liar)" -1 -1 0 -1 0
+"political strategy(fear-mongering)" -1 -1 0 -1 0
+"friendship(supporting a friend in a difficult time.)" -1 -1 0 -1 0
+"political stance(anti-liberal)" -1 -1 0 -1 0
+"gender roles(traditional male)" -1 -1 0 -1 0
+"violent actions(rioting)" -1 -1 0 -1 0
+"situational(hanging out at home)" -1 -1 0 -1 0
+"situational(communal meal)" -1 -1 0 -1 0
+"political stance(pro-liberal)" -1 -1 0 -1 0
+"manipulative behavior(furthers own agenda)" -1 -1 0 -1 0
+"ethics(lacking integrity)" -1 -1 0 -1 0
+"corrupt behavior(projection)" -1 -1 0 -1 0
+"familial(celebrating the growth of a baby)" -1 -1 0 -1 0
+"social(praising a sports player)" -1 -1 0 -1 0
+"generalization(overly emotional)" -1 -1 0 -1 0
+"accusations(projection)" -1 -1 0 -1 0
+"familial(celebrating a baby growing up)" -1 -1 0 -1 0
+"familial(congratulating a child)" -1 -1 0 -1 0
+"situational(video game excitement)" -1 -1 0 -1 0
+"political stance(anti-conservative)" -1 -1 0 -1 0
+"political stance(anti-brexit)" -1 -1 0 -1 0
+"political stance(pro-nationalism)" -1 -1 0 -1 0
+"political stance(pro-growth and stability)" -1 -1 0 -1 0
+"social(complimenting a woman)" -1 -1 0 -1 0
+"ethical(showing concern for income inequality)" -1 -1 0 -1 0
+"political stance(pro-investigation)" -1 -1 0 -1 0
+"social(acknowledging political views)" -1 -1 0 -1 0
+"situational(potential power outage)" -1 -1 0 -1 0
+"social(dismissing the importance of a political election)" -1 -1 0 -1 0
+"aggressive behavior(challenging to physical fight)" -1 -1 0 -1 0
+"political stance(pro-republican)" -1 -1 0 -1 0
+"social(complimenting a celebrity)" -1 -1 0 -1 0
+"relationship(supportive)" -1 -1 0 -1 0
+"random(nonsensical)" -1 -1 0 -1 0
+"random(tagged users)" -1 -1 0 -1 0
+"financial goals(retirement planning)" -1 -1 0 -1 0
+"career goals(job searching)" -1 -1 0 -1 0
+"political stance(opposing viewpoints)" -1 -1 0 -1 0
+"political stance(advocating for and against social issues)" -1 -1 0 -1 0
+"social issue(government policies)" -1 -1 0 -1 0
+"government policies(impact on individuals)" -1 -1 0 -1 0
+"statistics(data analysis)" -1 -1 0 -1 0
+"statistics(comparison to previous data)" -1 -1 0 -1 0
+"observations(insightful)" -1 -1 0 -1 0
+"random(random fact)" -1 -1 0 -1 0
+"sexual desire(sexual satisfaction)" -1 -1 0 -1 0
+"random(unrelated statement)" -1 -1 0 -1 0
+"social event(weekend plans)" -1 -1 0 -1 0
+"collaboration(teaming up)" -1 -1 0 -1 0
+"character(genuine)" -1 -1 0 -1 0
+"political stance(global views)" -1 -1 0 -1 0
+"political stance(liberal vs. conservative)" -1 -1 0 -1 0
+"spiritual beliefs(religious values)" -1 -1 0 -1 0
+"social media activity(following and retweeting)" -1 -1 0 -1 0
+"sensory experience(food and eating)" -1 -1 0 -1 0
+"random(sound effects)" -1 -1 0 -1 0
+"sensory experience(asmr)" -1 -1 0 -1 0
+"collaboration(debating)" -1 -1 0 -1 0
+"political stance(discriminatory practices)" -1 -1 0 -1 0
+"random(unspecified)" -1 -1 0 -1 0
+"political stance(discrimination and citizenship)" -1 -1 0 -1 0
+"appearance(familiarity)" -1 -1 0 -1 0
+"criminal record(history of abuse)" -1 -1 0 -1 0
+"mental state(crazy)" -1 -1 0 -1 0
+"appearance(physical attractiveness)" -1 -1 0 -1 0
+"random(passing comment)" -1 -1 0 -1 0
+"random(someone leaving their feed)" -1 -1 0 -1 0
+"social media activity(praising someone)" -1 -1 0 -1 0
+"political stance(opposing views)" -1 -1 0 -1 0
+"political stance(praising a political figure)" -1 -1 0 -1 0
+"criminal record(opportunism)" -1 -1 0 -1 0
+"political stance(labor and liberal democrats)" -1 -1 0 -1 0
+"political stance(remaining in the eu)" -1 -1 0 -1 0
+"appearance(joining a protest group)" -1 -1 0 -1 0
+"political stance(hoping for a specific political outcome)" -1 -1 0 -1 0
+"appearance(resentful towards opposition)" -1 -1 0 -1 0
+"sober emotional(somber)" -1 -1 0 -1 0
+"economical(conservative)" -1 -1 0 -1 0
+"expressive(emotional)" -1 -1 0 -1 0
+"gender identity(transgender)" -1 -1 0 -1 0
+"spiritual(seeker)" -1 -1 0 -1 0
+"product(medical)" -1 -1 0 -1 0
+"shock(surprise)" -1 -1 0 -1 0
+"mental status(insane)" -1 -1 0 -1 0
+"general mood(joyful)" -1 -1 0 -1 0
+"individual-focused(comparison)" -1 -1 0 -1 0
+"cooperation(collaborator)" -1 -1 0 -1 0
+"individualized spirituality(mystical practitioner)" -1 -1 0 -1 0
+"personal health concern(strive towards healthy living)" -1 -1 0 -1 0
+"health concern(strive towards healthy living)" -1 -1 0 -1 0
+"intolerance(dismissive)" -1 -1 0 -1 0
+"intolerance(threatening)" -1 -1 0 -1 0
+"power dynamics(financial leverage)" -1 -1 0 -1 0
+"power dynamics(financial consequences)" -1 -1 0 -1 0
+"accountability(repeat offender)" -1 -1 0 -1 0
+"accountability(repeat offense)" -1 -1 0 -1 0
+"authority(law enforcement)" -1 -1 0 -1 0
+"authority(legal consequences)" -1 -1 0 -1 0
+"tolerance(open-mindedness)" -1 -1 0 -1 0
+"resilience(strong-willed)" -1 -1 0 -1 0
+"refusal(defiance)" -1 -1 0 -1 0
+"personal identity(entitled)" -1 -1 0 -1 0
+"personal identity(insecure)" -1 -1 0 -1 0
+"loyalty(integrity)" -1 -1 0 -1 0
+"loyalty(family-oriented)" -1 -1 0 -1 0
+"personal traits(introspective)" -1 -1 0 -1 0
+"president(malloy)" -1 -1 0 -1 0
+"empowerment(courageous)" -1 -1 0 -1 0
+"global relations(import reduction)" -1 -1 0 -1 0
+"protection(hiding and shielding)" -1 -1 0 -1 0
+"recovery(resilience)" -1 -1 0 -1 0
+"conflict(infighting)" -1 -1 0 -1 0
+"hypocrisy(double standard)" -1 -1 0 -1 0
+"global relations(election interference)" -1 -1 0 -1 0
+"employment(government affiliation)" -1 -1 0 -1 0
+"corporate power(monopolization)" -1 -1 0 -1 0
+"social impact(influencing change)" -1 -1 0 -1 0
+"personal identity(doubtful)" -1 -1 0 -1 0
+"corporate decisions(consumer impact)" -1 -1 0 -1 0
+"social impact(influencing support)" -1 -1 0 -1 0
+"political stance(conservatism)" -1 -1 0 -1 0
+"political stance(capitalism)" -1 -1 0 -1 0
+"political stance(populism)" -1 -1 0 -1 0
+"celebration of political event(support for president trump)" -1 -1 0 -1 0
+"belief spectrum(supporter of president trump)" -1 -1 0 -1 0
+"political stance(opposition to president trump)" -1 -1 0 -1 0
+"theological opposites(racist)" -1 -1 0 -1 0
+"sociocultural group(anglo-saxons)" -1 -1 0 -1 0
+"cultural diversity(melting pot of ethnicities)" -1 -1 0 -1 0
+"political figures(sean spicer and donald trump)" -1 -1 0 -1 0
+"cultural diversity(multicultural)" -1 -1 0 -1 0
+"political stance(winning)" -1 -1 0 -1 0
+"sociocultural change(living in the new millennium)" -1 -1 0 -1 0
+"physical preference(use of a knife)" -1 -1 0 -1 0
+"cultural diversity(diverse literary influences)" -1 -1 0 -1 0
+"cultural critique(hollywood's detachment from reality)" -1 -1 0 -1 0
+"political conspiracy(qanon)" -1 -1 0 -1 0
+"political stance(dislike for president trump)" -1 -1 0 -1 0
+"political event(predicting a win for his team)" -1 -1 0 -1 0
+"political event(actions to ensure a win)" -1 -1 0 -1 0
+"commentary(comparing one's own behavior to a perceived worse alternative)" -1 -1 0 -1 0
+"sexualization(lewd behavior)" -1 -1 0 -1 0
+"psychological condition(being a picky person)" -1 -1 0 -1 0
+"linguistic authority(google)" -1 -1 0 -1 0
+"linguistic authority(twitter)" -1 -1 0 -1 0
+"political stance(opposition to monopolies)" -1 -1 0 -1 0
+"political solution(government intervention)" -1 -1 0 -1 0
+"cultural critique(rejection of certain political ideas)" -1 -1 0 -1 0
+"commentary(criticizing news media)" -1 -1 0 -1 0
+"social media usage(return to platform after a break)" -1 -1 0 -1 0
+"sociocultural group(antifa)" -1 -1 0 -1 0
+"sociocultural event(nail-biting experience)" -1 -1 0 -1 0
+"sociocultural impact(uncovering someone's true character)" -1 -1 0 -1 0
+"social media usage(feeling lonely)" -1 -1 0 -1 0
+"cultural critique(rejection of specific celebrity)" -1 -1 0 -1 0
+"political stance(opposition to democrats)" -1 -1 0 -1 0
+"sociocultural critique(criticism of democratic socialism)" -1 -1 0 -1 0
+"political figures(diane feinstein and dick schumer)" -1 -1 0 -1 0
+"sociocultural group(jews)" -1 -1 0 -1 0
+"political critique(embarrassment)" -1 -1 0 -1 0
+"sociocultural critique(rejection of cultural and political identity)" -1 -1 0 -1 0
+"sociocultural critique(animosity towards certain groups and countries)" -1 -1 0 -1 0
+"sociocultural critique(criticism of religious beliefs)" -1 -1 0 -1 0
+"sociocultural critique(shame towards political representatives)" -1 -1 0 -1 0
+"expectations(irresponsible)" -1 -1 0 -1 0
+"nakedness(non sex-polarized)" -1 -1 0 -1 0
+"emotionalism(emotionally charged)" -1 -1 0 -1 0
+"physical preference(large size)" -1 -1 0 -1 0
+"average expectations(negative response)" -1 -1 0 -1 0
+"old and new believers(conservative)" -1 -1 0 -1 0
+"belief spectrum(liberal)" -1 -1 0 -1 0
+"belief communities(mainstream society)" -1 -1 0 -1 0
+"age target(adults)" -1 -1 0 -1 0
+"sexual orientation(cisgender)" -1 -1 0 -1 0
+"disbelief(disbelief)" -1 -1 0 -1 0
+"corporate relations(business)" -1 -1 0 -1 0
+"physical preference(small size)" -1 -1 0 -1 0
+"religious(religious)" -1 -1 0 -1 0
+"reality(unrealistic)" -1 -1 0 -1 0
+"physical preference(same height)" -1 -1 0 -1 0
+"average expectations(positive response)" -1 -1 0 -1 0
+"situation relation(projection)" -1 -1 0 -1 0
+"emotional realism(satisfaction)" -1 -1 0 -1 0
+"theological opposites(fascist)" -1 -1 0 -1 0
+"theological opposites(neo-nazi)" -1 -1 0 -1 0
+"theological opposites(antifa)" -1 -1 0 -1 0
+"integrity(selfish)" -1 -1 0 -1 0
+"sexualization(unsexualized)" -1 -1 0 -1 0
+"sexual acting(self-restraint)" -1 -1 0 -1 0
+"rationality(illogical)" -1 -1 0 -1 0
+"political(dictator)" -1 -1 0 -1 0
+"political(transatlantic)" -1 -1 0 -1 0
+"academic achievement(high achiever)" -1 -1 0 -1 0
+"political affiliation(progressive)" -1 -1 0 -1 0
+"monetary system(capitalism)" -1 -1 0 -1 0
+"interest(history)" -1 -1 0 -1 0
+"customs(traditions)" -1 -1 0 -1 0
+"intellig(intellectual)" -1 -1 0 -1 0
+"genre(punk rock)" -1 -1 0 -1 0
+"judicial system(rule of law)" -1 -1 0 -1 0
+"legal ruling(gay marriage ban)" -1 -1 0 -1 0
+"judicial system(court ruling)" -1 -1 0 -1 0
+"legal ruling(refusal to issue marriage licenses)" -1 -1 0 -1 0
+"general expectation(perfect)" -1 -1 0 -1 0
+"general situation(social gathering)" -1 -1 0 -1 0
+"storytelling(narrator)" -1 -1 0 -1 0
+"maturity(experienced)" -1 -1 0 -1 0
+"maturity(inexperienced)" -1 -1 0 -1 0
+"talent(up-and-coming)" -1 -1 0 -1 0
+"communication(soft)" -1 -1 0 -1 0
+"humanity's strength(strong)" -1 -1 0 -1 0
+"kbc episode on sony(november 4)" -1 -1 0 -1 0
+"image of christians and muslims(different)" -1 -1 0 -1 0
+"image of christians and jews(different)" -1 -1 0 -1 0
+"regional politics(minnesota)" -1 -1 0 -1 0
+"economic policies(ineffective)" -1 -1 0 -1 0
+"celebrity persona(celebrity accolades)" -1 -1 0 -1 0
+"grammy awards(photography)" -1 -1 0 -1 0
+"attribution spectrum(believer)" -1 -1 0 -1 0
+"artist mood and love(aspirational)" -1 -1 0 -1 0
+"artist mood and love(emotionally charged)" -1 -1 0 -1 0
+"artist identity(mainstream)" -1 -1 0 -1 0
+"artist birthday(personal experience)" -1 -1 0 -1 0
+"attribution(aspirational)" -1 -1 0 -1 0
+"country/culture(caribbean)" -1 -1 0 -1 0
+"legislation value(anti-piracy)" -1 -1 0 -1 0
+"legislation value(censorship)" -1 -1 0 -1 0
+"legislation value(privacy protection)" -1 -1 0 -1 0
+"perseverance(longevity)" -1 -1 0 -1 0
+"provoked(innocent)" -1 -1 0 -1 0
+"fear and blame(despair)" -1 -1 0 -1 0
+"democratic ideals(libertarian)" -1 -1 0 -1 0
+"key religious groups(islam)" -1 -1 0 -1 0
+"democratic ideals(liberal)" -1 -1 0 -1 0
+"compassionate and forgiving(loving now)" -1 -1 0 -1 0
+"scenarios(grand day)" -1 -1 0 -1 0
+"intimacy focus(condom focus)" -1 -1 0 -1 0
+"hitter(justin meeting)" -1 -1 0 -1 0
+"expectancy(deadline expectation)" -1 -1 0 -1 0
+"attention focus(aiming)" -1 -1 0 -1 0
+"multimediafiguration(movie reference)" -1 -1 0 -1 0
+"global intelligence(political correctness)" -1 -1 0 -1 0
+"situations(grand day)" -1 -1 0 -1 0
+"people(bernie sanders)" -1 -1 0 -1 0
+"hitter(sam smith in glendale)" -1 -1 0 -1 0
+"expectations(realistic emotions)" -1 -1 0 -1 0
+"responsibility(dependent)" -1 -1 0 -1 0
+"time(november 2nd at 6:21 am utc time)" -1 -1 0 -1 0
+"location(abu dhabi)" -1 -1 0 -1 0
+"time(time of arrival for a ship)" -1 -1 0 -1 0
+"time(arrival of a ship)" -1 -1 0 -1 0
+"time(time of departure for a ship)" -1 -1 0 -1 0
+"time(time the vessel approaches)" -1 -1 0 -1 0
+"emotion(attraction)" -1 -1 0 -1 0
+"faith extremes(agnostic/atheistic \(depending on interpretation of \"lights out\"\))" -1 -1 0 -1 0
+"product(cd)" -1 -1 0 -1 0
+"product(box set)" -1 -1 0 -1 0
+"party focus(upbeat/party anthems)" -1 -1 0 -1 0
+"production company(dgc \(david geffen company\))" -1 -1 0 -1 0
+"product(compilation of songs \(linking \"3 discs\"\))" -1 -1 0 -1 0
+"artist(nirvana)" -1 -1 0 -1 0
+"artist(dierks bentley and eric church)" -1 -1 0 -1 0
+"cultural event(july \(perhaps referring to 4th of july\))" -1 -1 0 -1 0
+"neurological opposites(happy)" -1 -1 0 -1 0
+"neurological opposites(somber)" -1 -1 0 -1 0
+"rationality(spontaneous)" -1 -1 0 -1 0
+"faith extremes(partisan)" -1 -1 0 -1 0
+"rationality(balanced)" -1 -1 0 -1 0
+"fame status(famous)" -1 -1 0 -1 0
+"famous persona(mayweather)" -1 -1 0 -1 0
+"famous persona(pacquiao)" -1 -1 0 -1 0
+"timeless popularity(cult following)" -1 -1 0 -1 0
+"fame status(infamous)" -1 -1 0 -1 0
+"intellect(smart)" -1 -1 0 -1 0
+"culture(protest)" -1 -1 0 -1 0
+"time(christmas)" -1 -1 0 -1 0
+"famous persona(plant-based)" -1 -1 0 -1 0
+"good luck for tomorrow's keynote(attitude 2: hopeful)" -1 -1 0 -1 0
+"believe spectrum(believer)" -1 -1 0 -1 0
+"seekes of truth(skeptic)" -1 -1 0 -1 0
+"seekes of truth(spiritual seeker)" -1 -1 0 -1 0
+"physical prefeence(body enhancing beauty)" -1 -1 0 -1 0
+"religion and reason(rational thinker)" -1 -1 0 -1 0
+"longevity(longevity)" -1 -1 0 -1 0
+"wager(wager)" -1 -1 0 -1 0
+"social aspects(cultural preservation)" -1 -1 0 -1 0
+"event focus(event-based)" -1 -1 0 -1 0
+"planning and preparation(preparation plans)" -1 -1 0 -1 0
+"motivational(punishing)" -1 -1 0 -1 0
+"international perspective(not just africa)" -1 -1 0 -1 0
+"international perspective(iran)" -1 -1 0 -1 0
+"international perspective(many islamic theocracies)" -1 -1 0 -1 0
+"relationship(prescriptive)" -1 -1 0 -1 0
+"belief communities(non-believer)" -1 -1 0 -1 0
+"authority relation(accountable)" -1 -1 0 -1 0
+"political(gop)" -1 -1 0 -1 0
+"political(dcu)" -1 -1 0 -1 0
+"conceptualization(reality television)" -1 -1 0 -1 0
+"technology(apple watch)" -1 -1 0 -1 0
+"financial preference(responsible)" -1 -1 0 -1 0
+"paternity preference(responsible)" -1 -1 0 -1 0
+"concept(psychedelia)" -1 -1 0 -1 0
+"assumption(common assumptions)" -1 -1 0 -1 0
+"moods(serious)" -1 -1 0 -1 0
+"dance style(dancing)" -1 -1 0 -1 0
+"value spectrum(value reinforced)" -1 -1 0 -1 0
+"background music(music playing)" -1 -1 0 -1 0
+"faith extremes(desperate)" -1 -1 0 -1 0
+"storymode(game-driven)" -1 -1 0 -1 0
+"authenticity(scripted)" -1 -1 0 -1 0
+"music genre(heavy metal)" -1 -1 0 -1 0
+"interpersonal relations(connection)" -1 -1 0 -1 0
+"situation relation(meta)" -1 -1 0 -1 0
+"faith communities(secular society)" -1 -1 0 -1 0
+"political attitude(apathetic)" -1 -1 0 -1 0
+"political attitude(socialist)" -1 -1 0 -1 0
+"communication(ironic)" -1 -1 0 -1 0
+"communication(straightforward)" -1 -1 0 -1 0
+"sports(jersey shore)" -1 -1 0 -1 0
+"non-religious belief(non-believer)" -1 -1 0 -1 0
+"responsibility(unfit for the office)" -1 -1 0 -1 0
+"vocabulary(pompous)" -1 -1 0 -1 0
+"corporate relations(corporate defender)" -1 -1 0 -1 0
+"corporate relations(corporate critic)" -1 -1 0 -1 0
+"financial attitude(content)" -1 -1 0 -1 0
+"entertainment(gaming)" -1 -1 0 -1 0
+"career(music promotion)" -1 -1 0 -1 0
+"happy birthday to my dude@ user jason aldean bout to be live come the 5th(celebration)" -1 -1 0 -1 0
+"briana is acting like us not wearing uniforms to school tomorrow is the next world war 2(exaggerated language)" -1 -1 0 -1 0
+"today is definitely friday(certainty)" -1 -1 0 -1 0
+"a fresh catch over@ user my 1st column of 3 on the(marketing)" -1 -1 0 -1 0
+"everyone of us loves her(emotion)" -1 -1 0 -1 0
+"floyd mayweather shows how he spends his nights(display of wealth)" -1 -1 0 -1 0
+"ben howland implies he has no interest in# huskers hoops coaching job(denial)" -1 -1 0 -1 0
+"gay(sexual preference)" -1 -1 0 -1 0
+"spirituality(religious community)" -1 -1 0 -1 0
+"happy birthday to my dude@ user jason aldean bout to be live come the 5th(specific event)" -1 -1 0 -1 0
+"and the weather is this cold(observation)" -1 -1 0 -1 0
+"and canal st(location)" -1 -1 0 -1 0
+"briana is acting like us not wearing uniforms to school tomorrow is the next world war 2(exaggeration)" -1 -1 0 -1 0
+"and danee gon beat my ass at school tomorrow especially net net she be on dummy(aggression)" -1 -1 0 -1 0
+"truck will be doing a private event(business activity)" -1 -1 0 -1 0
+"and mark wahlberg is still on for tomorrow(confirmation of plans)" -1 -1 0 -1 0
+"happy birthday to my dude@ user jason aldean bout to be live come the 5th(personal celebration)" -1 -1 0 -1 0
+"not even may(disbelief)" -1 -1 0 -1 0
+"and the cart will be at the lent space on 6th ave(location)" -1 -1 0 -1 0
+"someone mentioned that he has previous(second-hand information)" -1 -1 0 -1 0
+"red sox tie it up(sports update)" -1 -1 0 -1 0
+"fire damages buddhist temple at skorea's mt naejang seoul oct 31 kyodo(natural disaster)" -1 -1 0 -1 0
+"making all the phone calls today(task-oriented)" -1 -1 0 -1 0
+"a fire destroyed the main building of(destruction)" -1 -1 0 -1 0
+"someone mentioned that he has previous(hearsay)" -1 -1 0 -1 0
+"today is definitely friday(acknowledgement of time)" -1 -1 0 -1 0
+"the weeknd(music artist)" -1 -1 0 -1 0
+"i want to see jason aldean tomorrow night(making plans)" -1 -1 0 -1 0
+"especially net net schneider(familiarity)" -1 -1 0 -1 0
+"* melts*(emotion)" -1 -1 0 -1 0
+"media influence(sports news coverage)" -1 -1 0 -1 0
+"media influence(music podcasts)" -1 -1 0 -1 0
+"media influence(music columns)" -1 -1 0 -1 0
+"cultural elements(western music influence)" -1 -1 0 -1 0
+"group experience(team solidarity)" -1 -1 0 -1 0
+"social media-driven(attention-seeking behavior)" -1 -1 0 -1 0
+"strength(strength in adversity)" -1 -1 0 -1 0
+"rationality(reasonable decision-making)" -1 -1 0 -1 0
+"culture(cultural sensitivity)" -1 -1 0 -1 0
+"artistic expression(creativity)" -1 -1 0 -1 0
+"artistic expression(appreciation)" -1 -1 0 -1 0
+"artistic expression(emotional impact)" -1 -1 0 -1 0
+"relationship(mentor-mentee)" -1 -1 0 -1 0
+"group dynamics(emotionality)" -1 -1 0 -1 0
+"media influence(commercialism in holidays)" -1 -1 0 -1 0
+"sports news coverage(baseball coverage)" -1 -1 0 -1 0
+"strength(strength in sports)" -1 -1 0 -1 0
+"strength(leadership)" -1 -1 0 -1 0
+"media influence(radio coverage)" -1 -1 0 -1 0
+"spiritual beliefs(belief in the afterlife)" -1 -1 0 -1 0
+"cultural elements(western literature)" -1 -1 0 -1 0
+"technical preference(gaming consoles)" -1 -1 0 -1 0
+"event(on this day)" -1 -1 0 -1 0
+"traditions(indian)" -1 -1 0 -1 0
+"music(acapella)" -1 -1 0 -1 0
+"of the singer and politician(politically active)" -1 -1 0 -1 0
+"event(winter classic)" -1 -1 0 -1 0
+"event(mlb all-star game)" -1 -1 0 -1 0
+"importance(hopeful)" -1 -1 0 -1 0
+"peaceableness(troublemaker)" -1 -1 0 -1 0
+"attitudes 1(open)" -1 -1 0 -1 0
+"atttiude 3(optimistic)" -1 -1 0 -1 0
+"celebriy persona(body positivity)" -1 -1 0 -1 0
+"language preference(witty wordplay)" -1 -1 0 -1 0
+"language preference(straightforward scripts)" -1 -1 0 -1 0
+"majority target(youth-oriented)" -1 -1 0 -1 0
+"partnership(sibling rivalry)" -1 -1 0 -1 0
+"expectation-opposed(skepticism)" -1 -1 0 -1 0
+"faith extremes(apa atheistic)" -1 -1 0 -1 0
+"expectation-conformed(conformity)" -1 -1 0 -1 0
+"societal role(athlete)" -1 -1 0 -1 0
+"monetary availability(financial stability)" -1 -1 0 -1 0
+"travel(cruise)" -1 -1 0 -1 0
+"travel(boat)" -1 -1 0 -1 0
+"transportation(departure)" -1 -1 0 -1 0
+"musical genre(disco)" -1 -1 0 -1 0
+"political(independent)" -1 -1 0 -1 0
+"sport(cricket)" -1 -1 0 -1 0
+"social media tone(excited)" -1 -1 0 -1 0
+"software(ios)" -1 -1 0 -1 0
+"cultural elements(red carpet)" -1 -1 0 -1 0
+"cultural elements(hollywood)" -1 -1 0 -1 0
+"cultural elements(celebrity culture)" -1 -1 0 -1 0
+"cultural elements(traditional boston culture)" -1 -1 0 -1 0
+"music(rock)" -1 -1 0 -1 0
+"attributing meaning(analysis)" -1 -1 0 -1 0
+"visual(magazine cover)" -1 -1 0 -1 0
+"software(ipad)" -1 -1 0 -1 0
+"economic(lower price point)" -1 -1 0 -1 0
+"belief communities(prayer for protection)" -1 -1 0 -1 0
+"tone(embarrassed)" -1 -1 0 -1 0
+"tone(angry)" -1 -1 0 -1 0
+"gaming(dark souls series)" -1 -1 0 -1 0
+"sport(rugby)" -1 -1 0 -1 0
+"school spirit(supporting unc)" -1 -1 0 -1 0
+"school spirit(girls playing traditionally masculine sport)" -1 -1 0 -1 0
+"cultural elements(traditional texas culture)" -1 -1 0 -1 0
+"cultural elements(historic fan bases)" -1 -1 0 -1 0
+"cultural elements(traditional american sports culture)" -1 -1 0 -1 0
+"rational believers(irrational)" -1 -1 0 -1 0
+"promise compatibility(future)" -1 -1 0 -1 0
+"realistic portrayal(unrealistic events)" -1 -1 0 -1 0
+"corporeal relations(anti-capitalism)" -1 -1 0 -1 0
+"promise compatibility(current state)" -1 -1 0 -1 0
+"promise compatibility(unresolved)" -1 -1 0 -1 0
+"faithful believers(believer)" -1 -1 0 -1 0
+"location-oriented(st. paul)" -1 -1 0 -1 0
+"spontaneity(spur-of-the-moment decision)" -1 -1 0 -1 0
+"aggressive attitude(fired back)" -1 -1 0 -1 0
+"mood 4(sarcastic)" -1 -1 0 -1 0
+"realistic emotions(sorrow)" -1 -1 0 -1 0
+"sentimentality(missing)" -1 -1 0 -1 0
+"cultural elements(british open)" -1 -1 0 -1 0
+"location-oriented(new york)" -1 -1 0 -1 0
+"sports fandom(new york giants)" -1 -1 0 -1 0
+"sports fandom(seattle mariners)" -1 -1 0 -1 0
+"game playing(minecraft)" -1 -1 0 -1 0
+"date-oriented(friday)" -1 -1 0 -1 0
+"technology(live streaming)" -1 -1 0 -1 0
+"location-oriented(epicenter)" -1 -1 0 -1 0
+"authoritative figure(anchorman)" -1 -1 0 -1 0
+"nostalgia(feelings about frank gifford)" -1 -1 0 -1 0
+"emotional state(sorrow)" -1 -1 0 -1 0
+"sports matchup(rangers vs. mariners)" -1 -1 0 -1 0
+"sentimentality(sadness)" -1 -1 0 -1 0
+"date-oriented(february)" -1 -1 0 -1 0
+"sentimentality(excitement)" -1 -1 0 -1 0
+"spontaneous plans(making sure schedule aligns)" -1 -1 0 -1 0
+"entertainment(sharknado 3)" -1 -1 0 -1 0
+"entertainment(the mentalist)" -1 -1 0 -1 0
+"entertainment(reign)" -1 -1 0 -1 0
+"fashion(fedora hat and over-sized clothing)" -1 -1 0 -1 0
+"sports matchup(heat vs. knicks)" -1 -1 0 -1 0
+"sports fandom(vfl \(vol for life\))" -1 -1 0 -1 0
+"spontaneity(getting pumped)" -1 -1 0 -1 0
+"entertainment(flopping onto a bed in tears after defeat)" -1 -1 0 -1 0
+"spontaneous plans(sticking to a small acca \(bet\) for fun)" -1 -1 0 -1 0
+"expectation-conformed(buying players)" -1 -1 0 -1 0
+"problem-solving strategy(hard work)" -1 -1 0 -1 0
+"cultural elements(nationalistic)" -1 -1 0 -1 0
+"expectation-opposed(false rumor)" -1 -1 0 -1 0
+"individual spirituality(real relationship)" -1 -1 0 -1 0
+"new age spirituality(open)" -1 -1 0 -1 0
+"individual-oriented(genuine relationship)" -1 -1 0 -1 0
+"production style(musical remaster)" -1 -1 0 -1 0
+"patience(hard work)" -1 -1 0 -1 0
+"romantic couple(new stage of relationship)" -1 -1 0 -1 0
+"romantic love(genuine relationship)" -1 -1 0 -1 0
+"intentional(chris brown's music)" -1 -1 0 -1 0
+"sophistication(realistic emotions)" -1 -1 0 -1 0
+"rationality(unreasonably committed)" -1 -1 0 -1 0
+"individualistic(self-determined journey)" -1 -1 0 -1 0
+"calm and peace(peaceful scenery)" -1 -1 0 -1 0
+"media influence(beautiful scenery)" -1 -1 0 -1 0
+"rational believers(individual-oriented)" -1 -1 0 -1 0
+"authenticity(mainstream success)" -1 -1 0 -1 0
+"audible emphasis(straightforward scripts)" -1 -1 0 -1 0
+"expectancy-conformed(expectation-opposed)" -1 -1 0 -1 0
+"romantic couple(romantic love)" -1 -1 0 -1 0
+"possible election(hopeful)" -1 -1 0 -1 0
+"global opposition(internationalism)" -1 -1 0 -1 0
+"family relations(fulfilling commitments)" -1 -1 0 -1 0
+"sought alternatives(mindless)" -1 -1 0 -1 0
+"family relations(unrealistic expectations)" -1 -1 0 -1 0
+"ambiguity(multiple interpretations)" -1 -1 0 -1 0
+"collection of heroes(courageous)" -1 -1 0 -1 0
+"service(community service)" -1 -1 0 -1 0
+"justice department(victims are late)" -1 -1 0 -1 0
+"etymology(late)" -1 -1 0 -1 0
+"politics(political bias)" -1 -1 0 -1 0
+"excitement(social interactions)" -1 -1 0 -1 0
+"etymology(ironic)" -1 -1 0 -1 0
+"social media platforms(boycott)" -1 -1 0 -1 0
+"internet shutdown(none)" -1 -1 0 -1 0
+"technical difficulties(down hours)" -1 -1 0 -1 0
+"languages(technical terminologies)" -1 -1 0 -1 0
+"internet slang(thanks)" -1 -1 0 -1 0
+"year-end lists(drama/mystery films)" -1 -1 0 -1 0
+"production style(mainstream success)" -1 -1 0 -1 0
+"narrative(descriptive)" -1 -1 0 -1 0
+"intuition(intuitive thinker)" -1 -1 0 -1 0
+"event(le tour)" -1 -1 0 -1 0
+"self-development(help-seeking)" -1 -1 0 -1 0
+"self-development(independence)" -1 -1 0 -1 0
+"religious groups(christian)" -1 -1 0 -1 0
+"general machines(printers)" -1 -1 0 -1 0
+"event(minecraft)" -1 -1 0 -1 0
+"event(fifa world cup)" -1 -1 0 -1 0
+"professional athlete(alessio cerci)" -1 -1 0 -1 0
+"entities(atleti \(athletico madrid\))" -1 -1 0 -1 0
+"religious figures(jesus)" -1 -1 0 -1 0
+"new technology(apple watch)" -1 -1 0 -1 0
+"new technology(wearable tech)" -1 -1 0 -1 0
+"media(anime)" -1 -1 0 -1 0
+"travel(a country that speaks malaysian november)" -1 -1 0 -1 0
+"political figures(congress leaders)" -1 -1 0 -1 0
+"political figures(pm modi)" -1 -1 0 -1 0
+"political figures(mayor of washington st.)" -1 -1 0 -1 0
+"collective morality(racism)" -1 -1 0 -1 0
+"advice(keeping quiet)" -1 -1 0 -1 0
+"soundtrack(emotionally charged)" -1 -1 0 -1 0
+"dynamic personality(political)" -1 -1 0 -1 0
+"lyfrikal emphasis(humorous)" -1 -1 0 -1 0
+"creativity(individualistic)" -1 -1 0 -1 0
+"interest/hobby(music)" -1 -1 0 -1 0
+"location(california/usa)" -1 -1 0 -1 0
+"interest/hobby(sports)" -1 -1 0 -1 0
+"interest/hobby(wrestling)" -1 -1 0 -1 0
+"geopolitical(multicultural society)" -1 -1 0 -1 0
+"geopolitical(ethnocentric)" -1 -1 0 -1 0
+"media influence(pro-government)" -1 -1 0 -1 0
+"geopolitical(regional)" -1 -1 0 -1 0
+"geopolitical(national)" -1 -1 0 -1 0
+"geopolitical(international)" -1 -1 0 -1 0
+"geopolitical(authoritarian)" -1 -1 0 -1 0
+"media influence(anti-government)" -1 -1 0 -1 0
+"geopolitical(intergalactic)" -1 -1 0 -1 0
+"geopolitical(socialist)" -1 -1 0 -1 0
+"geopolitical(liberal)" -1 -1 0 -1 0
+"geopolitical(anti-war)" -1 -1 0 -1 0
+"geopolitical(individualistic)" -1 -1 0 -1 0
+"political(monarchy)" -1 -1 0 -1 0
+"society(conflict)" -1 -1 0 -1 0
+"technology(reward system)" -1 -1 0 -1 0
+"athletics(women's volleyball)" -1 -1 0 -1 0
+"academics(liu post)" -1 -1 0 -1 0
+"academics(bentley)" -1 -1 0 -1 0
+"sports(final)" -1 -1 0 -1 0
+"athletics(falcons)" -1 -1 0 -1 0
+"athletics(team practice)" -1 -1 0 -1 0
+"get-togethers(lions park)" -1 -1 0 -1 0
+"holiday(religious observance)" -1 -1 0 -1 0
+"holiday(cultural celebration)" -1 -1 0 -1 0
+"sports(denver broncos)" -1 -1 0 -1 0
+"sports(touchdowns)" -1 -1 0 -1 0
+"technology(replacement)" -1 -1 0 -1 0
+"technology(product release)" -1 -1 0 -1 0
+"time(planning)" -1 -1 0 -1 0
+"time(days of the week)" -1 -1 0 -1 0
+"religion(cultural influence)" -1 -1 0 -1 0
+"morality(turning away from religion)" -1 -1 0 -1 0
+"ticket sales(concert tickets)" -1 -1 0 -1 0
+"ticket sales(reselling tickets)" -1 -1 0 -1 0
+"social media(fan promotion)" -1 -1 0 -1 0
+"media(sports broadcasting)" -1 -1 0 -1 0
+"media(airing schedule)" -1 -1 0 -1 0
+"television(wrestling event)" -1 -1 0 -1 0
+"social media(hashtag usage)" -1 -1 0 -1 0
+"social interaction(greeting)" -1 -1 0 -1 0
+"technology(phone usage)" -1 -1 0 -1 0
+"celebrity(pop star)" -1 -1 0 -1 0
+"media(vamps announcement)" -1 -1 0 -1 0
+"family(daughter's disappointment)" -1 -1 0 -1 0
+"media(broadcasting duo)" -1 -1 0 -1 0
+"sports(ufc)" -1 -1 0 -1 0
+"sports(undefeated champion)" -1 -1 0 -1 0
+"social interaction(family involvement)" -1 -1 0 -1 0
+"social plans(attending events)" -1 -1 0 -1 0
+"media(hype)" -1 -1 0 -1 0
+"frustration(envy)" -1 -1 0 -1 0
+"celebrity crush(idolization)" -1 -1 0 -1 0
+"real estate(house hunting)" -1 -1 0 -1 0
+"celebrities(lookalikes)" -1 -1 0 -1 0
+"concert(luke bryan)" -1 -1 0 -1 0
+"producers(partnership)" -1 -1 0 -1 0
+"producers(promotional)" -1 -1 0 -1 0
+"producers(partnering with other brands)" -1 -1 0 -1 0
+"producers(partnership promotions)" -1 -1 0 -1 0
+"trade connections(partnership)" -1 -1 0 -1 0
+"transport(limousine)" -1 -1 0 -1 0
+"technology(ride sharing)" -1 -1 0 -1 0
+"producers(partnership promotion)" -1 -1 0 -1 0
+"general(entertainment)" -1 -1 0 -1 0
+"cultural elements(global spread of ideas)" -1 -1 0 -1 0
+"general(evolution)" -1 -1 0 -1 0
+"producers(documentary about evolution)" -1 -1 0 -1 0
+"government(budget cuts)" -1 -1 0 -1 0
+"government(human rights)" -1 -1 0 -1 0
+"political group(conservative)" -1 -1 0 -1 0
+"religious group(republican)" -1 -1 0 -1 0
+"religious group(catholic)" -1 -1 0 -1 0
+"producers(scriptwriting)" -1 -1 0 -1 0
+"cultural elements(influence of media)" -1 -1 0 -1 0
+"political figure(joe biden)" -1 -1 0 -1 0
+"audience(teen girls)" -1 -1 0 -1 0
+"producers(advertisement)" -1 -1 0 -1 0
+"producers(promoting new music release)" -1 -1 0 -1 0
+"transportation(car racing)" -1 -1 0 -1 0
+"entertainment(live shows)" -1 -1 0 -1 0
+"entertainment(making fun of a celebrity)" -1 -1 0 -1 0
+"education(advocacy)" -1 -1 0 -1 0
+"cultural elements(social issues)" -1 -1 0 -1 0
+"education(guest speaker event)" -1 -1 0 -1 0
+"political figure(chris christie)" -1 -1 0 -1 0
+"producers(reality television)" -1 -1 0 -1 0
+"transportation(public transit)" -1 -1 0 -1 0
+"human strength(dependent)" -1 -1 0 -1 0
+"mood 3(somber)" -1 -1 0 -1 0
+"morality(shocking)" -1 -1 0 -1 0
+"religion and state(separation)" -1 -1 0 -1 0
+"environment(outdoors)" -1 -1 0 -1 0
+"celebrities(celebrity worship)" -1 -1 0 -1 0
+"mortality(death)" -1 -1 0 -1 0
+"competitors(competing)" -1 -1 0 -1 0
+"lesson learned(acceptance)" -1 -1 0 -1 0
+"unique(situation relation)" -1 -1 0 -1 0
+"romantic relationship(romantic love)" -1 -1 0 -1 0
+"region(british)" -1 -1 0 -1 0
+"superior strength(emotionally restrained)" -1 -1 0 -1 0
+"provocative activities(drama)" -1 -1 0 -1 0
+"problem solving strategy(silence)" -1 -1 0 -1 0
+"production style(delayed release)" -1 -1 0 -1 0
+"human strength(physical strength)" -1 -1 0 -1 0
+"theological opposites(irreligious)" -1 -1 0 -1 0
+"group faith(example-setting)" -1 -1 0 -1 0
+"theological opposites(knowledge-focused)" -1 -1 0 -1 0
+"kingdom of circumstance(chance)" -1 -1 0 -1 0
+"knowledge(trivial information)" -1 -1 0 -1 0
+"commercial appeal(lacking quality)" -1 -1 0 -1 0
+"attitude 1(disapproval)" -1 -1 0 -1 0
+"commercial appeal(disappointing)" -1 -1 0 -1 0
+"human strength(physical weakness)" -1 -1 0 -1 0
+"globalization(foreign influence)" -1 -1 0 -1 0
+"globalization(international relations)" -1 -1 0 -1 0
+"commerce(selfish agenda)" -1 -1 0 -1 0
+"commerce(greed)" -1 -1 0 -1 0
+"commerce(profit-driven)" -1 -1 0 -1 0
+"cultural elements(relevant to current culture)" -1 -1 0 -1 0
+"motivation(excitement)" -1 -1 0 -1 0
+"financial situation(watching budget)" -1 -1 0 -1 0
+"success(victory)" -1 -1 0 -1 0
+"human strength(physical competition)" -1 -1 0 -1 0
+"belief spectrum(spirituality)" -1 -1 0 -1 0
+"holiday(cultural tradition)" -1 -1 0 -1 0
+"cultural elements(traditional culture)" -1 -1 0 -1 0
+"financial situation(expensive vacation)" -1 -1 0 -1 0
+"financial situation(affordability)" -1 -1 0 -1 0
+"financial situation(access)" -1 -1 0 -1 0
+"personality traits(extroversion)" -1 -1 0 -1 0
+"media(popular trends)" -1 -1 0 -1 0
+"media consumption(binge-watching)" -1 -1 0 -1 0
+"knowledge(addiction)" -1 -1 0 -1 0
+"sports(swinging hard)" -1 -1 0 -1 0
+"sports(pressure handling)" -1 -1 0 -1 0
+"sports(underdog potential)" -1 -1 0 -1 0
+"music(experimental)" -1 -1 0 -1 0
+"music(local concert)" -1 -1 0 -1 0
+"music(upcoming event)" -1 -1 0 -1 0
+"knowledge(confidence)" -1 -1 0 -1 0
+"relationship(making amends)" -1 -1 0 -1 0
+"culinary arts(creative expression)" -1 -1 0 -1 0
+"probability(random choice)" -1 -1 0 -1 0
+"date(18 oct)" -1 -1 0 -1 0
+"faith and reason seekers(theistic)" -1 -1 0 -1 0
+"technique(skillful)" -1 -1 0 -1 0
+"trend(popular)" -1 -1 0 -1 0
+"storymode(straightforward scripts)" -1 -1 0 -1 0
+"producer(independent)" -1 -1 0 -1 0
+"theological opposites(honest)" -1 -1 0 -1 0
+"sexual preference(traditional)" -1 -1 0 -1 0
+"mathematical(logic system)" -1 -1 0 -1 0
+"spiritalism(mystical powers)" -1 -1 0 -1 0
+"intentional placement(punctuated)" -1 -1 0 -1 0
+"sexual orientation(reserved)" -1 -1 0 -1 0
+"ethnicity(asian)" -1 -1 0 -1 0
+"love status(relatable)" -1 -1 0 -1 0
+"baby naming(baby names)" -1 -1 0 -1 0
+"baby naming(traditional names)" -1 -1 0 -1 0
+"relational values(collaborative)" -1 -1 0 -1 0
+"relational values(comparative)" -1 -1 0 -1 0
+"travel destinations(las vegas)" -1 -1 0 -1 0
+"travel destinations(hawaii)" -1 -1 0 -1 0
+"political view(democratic)" -1 -1 0 -1 0
+"political view(republican)" -1 -1 0 -1 0
+"interpersonal communication(persuasion)" -1 -1 0 -1 0
+"interpersonal communication(assertiveness)" -1 -1 0 -1 0
+"school activities(book club)" -1 -1 0 -1 0
+"school activities(sports)" -1 -1 0 -1 0
+"school activities(music programs)" -1 -1 0 -1 0
+"hangouts(movies)" -1 -1 0 -1 0
+"petition(supporting)" -1 -1 0 -1 0
+"moral beliefs(compassion)" -1 -1 0 -1 0
+"technological devices(ipod)" -1 -1 0 -1 0
+"query(google search)" -1 -1 0 -1 0
+"event attendance(concert)" -1 -1 0 -1 0
+"sports(ufc fighting)" -1 -1 0 -1 0
+"belief communities(pro-capitalist)" -1 -1 0 -1 0
+"lively entertainment(party anthems)" -1 -1 0 -1 0
+"authentic values(genuine)" -1 -1 0 -1 0
+"time and event(december 12th)" -1 -1 0 -1 0
+"leadership and achievement(carlo ancelotti)" -1 -1 0 -1 0
+"political views(pro-erdogan)" -1 -1 0 -1 0
+"political views(social democratic)" -1 -1 0 -1 0
+"time and event(tomorrow morning)" -1 -1 0 -1 0
+"search term(google hot trend)" -1 -1 0 -1 0
+"time and event(tomorrow)" -1 -1 0 -1 0
+"attendance(attending for 7th time)" -1 -1 0 -1 0
+"presence(in sharknado 3)" -1 -1 0 -1 0
+"type of game(monday night brawl)" -1 -1 0 -1 0
+"political views(may see possibilities in chaos)" -1 -1 0 -1 0
+"economic(striving for success)" -1 -1 0 -1 0
+"attendance(attended 7 times)" -1 -1 0 -1 0
+"time and event(2013 03 10)" -1 -1 0 -1 0
+"purchasing(selling tickets at face value)" -1 -1 0 -1 0
+"purchasing(buying from friend)" -1 -1 0 -1 0
+"food(spaghetti dinner)" -1 -1 0 -1 0
+"entertaining(movie night)" -1 -1 0 -1 0
+"team support(supporting high school football team)" -1 -1 0 -1 0
+"cultural background(northerners)" -1 -1 0 -1 0
+"political views(victims of war against boko haram)" -1 -1 0 -1 0
+"political views(criticizing other celebrities)" -1 -1 0 -1 0
+"romantic targeting(romantic love)" -1 -1 0 -1 0
+"financial preference(natural)" -1 -1 0 -1 0
+"recommendation(bee gees with immortality)" -1 -1 0 -1 0
+"tolerance for accuracy(straightforward scripts)" -1 -1 0 -1 0
+"disregard of norm(emotional restraint)" -1 -1 0 -1 0
+"team match for season(@ [collison, mclemore, landry, cousins])" -1 -1 0 -1 0
+"disregard of norm(witty wordplay)" -1 -1 0 -1 0
+"rating for music(consistent with mainstream success)" -1 -1 0 -1 0
+"disregard of norm(realistic emotions)" -1 -1 0 -1 0
+"team match for inning([6-2, 1-6, 6-3])" -1 -1 0 -1 0
+"baseball team(mets)" -1 -1 0 -1 0
+"recognition of work(david wright is in it for 1st time in 4 months)" -1 -1 0 -1 0
+"recommendation(related articles)" -1 -1 0 -1 0
+"team match for season(adams & mcguinness)" -1 -1 0 -1 0
+"team match for season(flatbush zombies)" -1 -1 0 -1 0
+"experience(seeing ac/dc at united center on a friday)" -1 -1 0 -1 0
+"event(attending blink-182 concert in tinley park)" -1 -1 0 -1 0
+"experience(weekend music festival)" -1 -1 0 -1 0
+"celebration(third day of eid ul fitar)" -1 -1 0 -1 0
+"worst event([blank])" -1 -1 0 -1 0
+"team match for round([blank])" -1 -1 0 -1 0
+"narrative(pilantual)" -1 -1 0 -1 0
+"critique(openness)" -1 -1 0 -1 0
+"financial($7 billion)" -1 -1 0 -1 0
+"diversity and inclusion(lgbtq+)" -1 -1 0 -1 0
+"pop culture(netflix)" -1 -1 0 -1 0
+"belief extremes(unholy alliance)" -1 -1 0 -1 0
+"foreign policy(unhcr)" -1 -1 0 -1 0
+"civic duty(important distinction)" -1 -1 0 -1 0
+"technology(cloud storage)" -1 -1 0 -1 0
+"dance and music(dance off)" -1 -1 0 -1 0
+"business(concert cancellation)" -1 -1 0 -1 0
+"sports(anti-real madrid)" -1 -1 0 -1 0
+"sports(pro-barca)" -1 -1 0 -1 0
+"sports(off days for both teams)" -1 -1 0 -1 0
+"sports(home game)" -1 -1 0 -1 0
+"sports(scheduling conflicts)" -1 -1 0 -1 0
+"love and marriage(16th wedding anniversary)" -1 -1 0 -1 0
+"sports(football \(nfl, cfb\))" -1 -1 0 -1 0
+"sports(football \(cfb\))" -1 -1 0 -1 0
+"government and society(lgbtq+ rights)" -1 -1 0 -1 0
+"government and society(evolving beliefs)" -1 -1 0 -1 0
+"faith and reason seekers(non-believer)" -1 -1 0 -1 0
+"identity(self-love)" -1 -1 0 -1 0
+"media usage(social media-driven)" -1 -1 0 -1 0
+"sexuality(homosexual)" -1 -1 0 -1 0
+"media usage(anti-capitalism)" -1 -1 0 -1 0
+"identity(aspiration)" -1 -1 0 -1 0
+"identity(fan)" -1 -1 0 -1 0
+"marriage(void)" -1 -1 0 -1 0
+"humanity(weak)" -1 -1 0 -1 0
+"identity(sam smith fan)" -1 -1 0 -1 0
+"sports(baseball player)" -1 -1 0 -1 0
+"persecution(targeted)" -1 -1 0 -1 0
+"rise up(rebellion)" -1 -1 0 -1 0
+"other people(football fans)" -1 -1 0 -1 0
+"religion(atheist)" -1 -1 0 -1 0
+"political stance(anti-authority)" -1 -1 0 -1 0
+"financial(planning ahead)" -1 -1 0 -1 0
+"other people(professional soccer fans)" -1 -1 0 -1 0
+"sporting event(professional soccer match)" -1 -1 0 -1 0
+"travel(milan)" -1 -1 0 -1 0
+"other people(critical thinkers)" -1 -1 0 -1 0
+"leisure activity(watching tv commercials)" -1 -1 0 -1 0
+"leisure activity(partying)" -1 -1 0 -1 0
+"education(college/university)" -1 -1 0 -1 0
+"leisure activity(watching movies)" -1 -1 0 -1 0
+"other people(david bowie fans)" -1 -1 0 -1 0
+"other people(people who enjoy concerts)" -1 -1 0 -1 0
+"interests(extraterrestrial life)" -1 -1 0 -1 0
+"leisure activity(watching comedy shows)" -1 -1 0 -1 0
+"dining(eating at a bar and grill)" -1 -1 0 -1 0
+"entertainment(binge-watching netflix)" -1 -1 0 -1 0
+"lifestyle(lazy day)" -1 -1 0 -1 0
+"dining(eating)" -1 -1 0 -1 0
+"education(no school)" -1 -1 0 -1 0
+"other people(katy perry fans)" -1 -1 0 -1 0
+"music format(cd)" -1 -1 0 -1 0
+"date(june 2008)" -1 -1 0 -1 0
+"musician(katy perry)" -1 -1 0 -1 0
+"career(refugee education advocate)" -1 -1 0 -1 0
+"education(refugee education)" -1 -1 0 -1 0
+"other people(refugee children)" -1 -1 0 -1 0
+"narrative(protagonists narration)" -1 -1 0 -1 0
+"celebration(saturday)" -1 -1 0 -1 0
+"celebration(friday)" -1 -1 0 -1 0
+"political(political debates)" -1 -1 0 -1 0
+"fandom(sports fandom)" -1 -1 0 -1 0
+"sarcasm(possible sarcasm)" -1 -1 0 -1 0
+"sarcasm(potential no sarcasm)" -1 -1 0 -1 0
+"communication(approval seeking)" -1 -1 0 -1 0
+"communication(confidence)" -1 -1 0 -1 0
+"political(election-related news)" -1 -1 0 -1 0
+"relationship(gratefulness)" -1 -1 0 -1 0
+"relationship(regretfulness)" -1 -1 0 -1 0
+"fandom(wrestling fandom)" -1 -1 0 -1 0
+"fandom(country music fandom)" -1 -1 0 -1 0
+"ticket-selling(ticket-selling)" -1 -1 0 -1 0
+"communication(invitation)" -1 -1 0 -1 0
+"communication(rejection)" -1 -1 0 -1 0
+"food(salmon dish)" -1 -1 0 -1 0
+"food(roasted beets dish)" -1 -1 0 -1 0
+"food(salad dish)" -1 -1 0 -1 0
+"celebration(thursday)" -1 -1 0 -1 0
+"communication(planning)" -1 -1 0 -1 0
+"communication(social plan)" -1 -1 0 -1 0
+"celebration(excitement)" -1 -1 0 -1 0
+"communication(busy schedule)" -1 -1 0 -1 0
+"communication(movie plans)" -1 -1 0 -1 0
+"music(album charts)" -1 -1 0 -1 0
+"food(seasonal food)" -1 -1 0 -1 0
+"marketing(pumpkin-flavored products)" -1 -1 0 -1 0
+"fandom(college football fandom)" -1 -1 0 -1 0
+"expectation-opposed(stressful situations)" -1 -1 0 -1 0
+"social media-driven(online events)" -1 -1 0 -1 0
+"mainstream success(rap music)" -1 -1 0 -1 0
+"mainstream(celebrity obsession)" -1 -1 0 -1 0
+"physical preference(dressing up)" -1 -1 0 -1 0
+"sexual orientation(lesbian/bisexual)" -1 -1 0 -1 0
+"economic(government shutdown)" -1 -1 0 -1 0
+"commercial appeal(planned parenthood)" -1 -1 0 -1 0
+"group experience(loyalty to artist)" -1 -1 0 -1 0
+"cultural elements(tribute to late icon)" -1 -1 0 -1 0
+"average expectations(calmness)" -1 -1 0 -1 0
+"age target(young audience)" -1 -1 0 -1 0
+"hedonism(drug use)" -1 -1 0 -1 0
+"irrational attachment(nostalgic feelings)" -1 -1 0 -1 0
+"faith extremes(religious gathering)" -1 -1 0 -1 0
+"consciousness(being informed)" -1 -1 0 -1 0
+"love status(supportive friendship)" -1 -1 0 -1 0
+"institution(team loyalty)" -1 -1 0 -1 0
+"greed(material possessions)" -1 -1 0 -1 0
+"attitude 1(love for someone)" -1 -1 0 -1 0
+"inspiration(appreciation for singer)" -1 -1 0 -1 0
+"inspiration(admiration for artist)" -1 -1 0 -1 0
+"institution(sports team loyalty)" -1 -1 0 -1 0
+"faith extremes(religious pilgrimage)" -1 -1 0 -1 0
+"age target(young adult concert-goers)" -1 -1 0 -1 0
+"persistence(determination for success)" -1 -1 0 -1 0
+"religion(islamic celebration)" -1 -1 0 -1 0
+"happiness(positivity)" -1 -1 0 -1 0
+"lyrical emphasis(spiritual themes)" -1 -1 0 -1 0
+"institution(political party loyalty)" -1 -1 0 -1 0
+"fear(government shutdown consequences)" -1 -1 0 -1 0
+"emotional realism(emotional vulnerability)" -1 -1 0 -1 0
+"reality(addiction and temptation)" -1 -1 0 -1 0
+"positive attitude(excited anticipation)" -1 -1 0 -1 0
+"culture(middle eastern customs)" -1 -1 0 -1 0
+"conscious awakening(self-discovery journey)" -1 -1 0 -1 0
+"group faith(spiritual pilgrimage)" -1 -1 0 -1 0
+"fear(conflict)" -1 -1 0 -1 0
+"fear(danger)" -1 -1 0 -1 0
+"commercial appeal(concert ticket sales)" -1 -1 0 -1 0
+"social media-driven(private messaging)" -1 -1 0 -1 0
+"social(party etiquette)" -1 -1 0 -1 0
+"emotional realism(mourning and remembrance)" -1 -1 0 -1 0
+"sexuality(changing sexual orientations)" -1 -1 0 -1 0
+"attitude 3(positive outlook)" -1 -1 0 -1 0
+"emotional realism(positive outlook)" -1 -1 0 -1 0
+"country(indonesia)" -1 -1 0 -1 0
+"numerical value(12 \(november 12\))" -1 -1 0 -1 0
+"celebration(black friday)" -1 -1 0 -1 0
+"event(george harrison being treated for cancer)" -1 -1 0 -1 0
+"media(snapchat)" -1 -1 0 -1 0
+"date(october 17)" -1 -1 0 -1 0
+"media(twitter)" -1 -1 0 -1 0
+"country(nigeria)" -1 -1 0 -1 0
+"event(chad executing alleged members of boko haram)" -1 -1 0 -1 0
+"political stance(pro-israel)" -1 -1 0 -1 0
+"celebration(australia day)" -1 -1 0 -1 0
+"media(bbc)" -1 -1 0 -1 0
+"media(sports/news outlet)" -1 -1 0 -1 0
+"media(email)" -1 -1 0 -1 0
+"society(tolerant)" -1 -1 0 -1 0
+"humanity(brutal)" -1 -1 0 -1 0
+"economy(innovation-driven)" -1 -1 0 -1 0
+"religion seekers(devotee)" -1 -1 0 -1 0
+"industry relations(anti-capitalism)" -1 -1 0 -1 0
+"circumstance motivation(mood-driven)" -1 -1 0 -1 0
+"attitude 5(serious)" -1 -1 0 -1 0
+"audio(metal)" -1 -1 0 -1 0
+"audio(heavy metal)" -1 -1 0 -1 0
+"belief communities(scientific)" -1 -1 0 -1 0
+"old and new believers(relevant to current times)" -1 -1 0 -1 0
+"leadership(political leader)" -1 -1 0 -1 0
+"leadership(influential person)" -1 -1 0 -1 0
+"influence(influential figure)" -1 -1 0 -1 0
+"influence(follower)" -1 -1 0 -1 0
+"person(dennis kucinich)" -1 -1 0 -1 0
+"person(nirvana)" -1 -1 0 -1 0
+"person(fleetwood mac)" -1 -1 0 -1 0
+"brand(playstation)" -1 -1 0 -1 0
+"person(milan)" -1 -1 0 -1 0
+"person(willard mitt romney)" -1 -1 0 -1 0
+"person(paul dunne)" -1 -1 0 -1 0
+"brand(playstation vita)" -1 -1 0 -1 0
+"expectation(possibly exaggerated)" -1 -1 0 -1 0
+"political view(democrat)" -1 -1 0 -1 0
+"opposition group(human rights activists)" -1 -1 0 -1 0
+"opposition group(opposition forces)" -1 -1 0 -1 0
+"final hours for 2012 stn challenge(time constraint)" -1 -1 0 -1 0
+"baby boom(celebration)" -1 -1 0 -1 0
+"with diane keaton(admiration)" -1 -1 0 -1 0
+"and corn flakes - happy monday!(positivity)" -1 -1 0 -1 0
+"any nfl fans tell me why this new bbc deal only includes highlights on tv from november(curiosity)" -1 -1 0 -1 0
+"sweet lord baby jesus(admiration)" -1 -1 0 -1 0
+"david beckham is one fine piece of ass may his life be filled with happiness(lust)" -1 -1 0 -1 0
+"friday night lights on spotify(excitement)" -1 -1 0 -1 0
+"this friday's about to get grimey(anticipation)" -1 -1 0 -1 0
+"bayern munich vs. bayer leverkusen soccer match(competition)" -1 -1 0 -1 0
+"exploring new strategies(brainstorming)" -1 -1 0 -1 0
+"interaction with followers(discussion)" -1 -1 0 -1 0
+"planning for holidays(time management)" -1 -1 0 -1 0
+"weekend relaxation(unwinding)" -1 -1 0 -1 0
+"physical exertion(exercise)" -1 -1 0 -1 0
+"spectator sports(entertainment)" -1 -1 0 -1 0
+"predicting future events(speculation)" -1 -1 0 -1 0
+"mixed martial arts competitors(rivalry)" -1 -1 0 -1 0
+"potential for victory or defeat(uncertainty)" -1 -1 0 -1 0
+"family gatherings(celebration)" -1 -1 0 -1 0
+"childhood memories(nostalgia)" -1 -1 0 -1 0
+"traveling plans(spontaneity)" -1 -1 0 -1 0
+"halloween celebrations(dress up)" -1 -1 0 -1 0
+"expressing grievances(venting)" -1 -1 0 -1 0
+"current events(politics)" -1 -1 0 -1 0
+"compassionate action(empathy)" -1 -1 0 -1 0
+"city exploration(tourism)" -1 -1 0 -1 0
+"celebrity spotting(excitement)" -1 -1 0 -1 0
+"live music events(performance)" -1 -1 0 -1 0
+"rock music(genre)" -1 -1 0 -1 0
+"comic book convention(pop culture)" -1 -1 0 -1 0
+"video sharing(social media)" -1 -1 0 -1 0
+"political commentary(opinion)" -1 -1 0 -1 0
+"global tech industry(business)" -1 -1 0 -1 0
+"political leaders(admiration)" -1 -1 0 -1 0
+"sharing creative work(self-promotion)" -1 -1 0 -1 0
+"academic achievement(education)" -1 -1 0 -1 0
+"news consumption(staying informed)" -1 -1 0 -1 0
+"film festival(entertainment)" -1 -1 0 -1 0
+"attending concerts(music)" -1 -1 0 -1 0
+"dance music(genre)" -1 -1 0 -1 0
+"getting lost in music(escapism)" -1 -1 0 -1 0
+"bravery(brave)" -1 -1 0 -1 0
+"eagles of death metal definitely get you going on a monday morning(lighthearted)" -1 -1 0 -1 0
+"hrer bapgrp(heavy)" -1 -1 0 -1 0
+"brave entertainment(brave)" -1 -1 0 -1 0
+"announces dictionary(stutter)" -1 -1 0 -1 0
+"eagles of death metal definitely get you going on a monday morning(playful)" -1 -1 0 -1 0
+"hrg bapgrp(playful)" -1 -1 0 -1 0
+"valencia currently 2nd in la liga(uplifting)" -1 -1 0 -1 0
+"and caitlyn jenner in one sentence is the funniest shit ever(witty wordplay)" -1 -1 0 -1 0
+"positive communication(encouraging)" -1 -1 0 -1 0
+"humanity inserir knowledge(realistic)" -1 -1 0 -1 0
+"self exploration(self-love)" -1 -1 0 -1 0
+"kornhamnst(relevant to current times)" -1 -1 0 -1 0
+"world of entertainment(mainstream success)" -1 -1 0 -1 0
+"female different nice keen friendly #2(mainstream)" -1 -1 0 -1 0
+"motivational speaker(uplifting)" -1 -1 0 -1 0
+"beliefe creativ stretch pc(creative)" -1 -1 0 -1 0
+"logic_14543 magazine(reasonable)" -1 -1 0 -1 0
+"equality(tolerant)" -1 -1 0 -1 0
+"morality(honest)" -1 -1 0 -1 0
+"sincerity(honest)" -1 -1 0 -1 0
+"world of entertainment(alternative)" -1 -1 0 -1 0
+"victorious party filled eyesat the arriviar in exten(joyful)" -1 -1 0 -1 0
+"unconditional love(loving now)" -1 -1 0 -1 0
+"positive affirmations(hopeful)" -1 -1 0 -1 0
+"violence(real)" -1 -1 0 -1 0
+"girl group experience(group-oriented)" -1 -1 0 -1 0
+"popularity target(mainstream)" -1 -1 0 -1 0
+"media(broadcasting corporation)" -1 -1 0 -1 0
+"economic(expanding)" -1 -1 0 -1 0
+"celebrity persona(celebrity fascination)" -1 -1 0 -1 0
+"ambition and success(ambition for power)" -1 -1 0 -1 0
+"college age knowledge(college)" -1 -1 0 -1 0
+"technological(millennium)" -1 -1 0 -1 0
+"media(television)" -1 -1 0 -1 0
+"situation match(out of town)" -1 -1 0 -1 0
+"publication(publishing)" -1 -1 0 -1 0
+"financial(financing)" -1 -1 0 -1 0
+"situation conflict(conflict resolution)" -1 -1 0 -1 0
+"technological(technology brand)" -1 -1 0 -1 0
+"storytelling genre(superhero comics)" -1 -1 0 -1 0
+"faith extremes(saudi arabian elections)" -1 -1 0 -1 0
+"direction(corruption fighting)" -1 -1 0 -1 0
+"direction(business management)" -1 -1 0 -1 0
+"technological(panel discussion)" -1 -1 0 -1 0
+"media(media coverage)" -1 -1 0 -1 0
+"media(political news)" -1 -1 0 -1 0
+"populism(populism)" -1 -1 0 -1 0
+"21st-century(iraqi civil war)" -1 -1 0 -1 0
+"popular target(adidas footwear)" -1 -1 0 -1 0
+"relevance(global warming)" -1 -1 0 -1 0
+"culture(cultural norms)" -1 -1 0 -1 0
+"technological(nokia phones)" -1 -1 0 -1 0
+"poetry(poetry book)" -1 -1 0 -1 0
+"pop sounding experimental(spoken-word)" -1 -1 0 -1 0
+"adult contemporary(adult contemporary artist)" -1 -1 0 -1 0
+"rock(rock performance)" -1 -1 0 -1 0
+"metal(heavy metal performance)" -1 -1 0 -1 0
+"comedy(comedy film)" -1 -1 0 -1 0
+"pop(pop culture references)" -1 -1 0 -1 0
+"action(action sequence ending)" -1 -1 0 -1 0
+"character focus(character focus ending)" -1 -1 0 -1 0
+"playfulness(lighthearted humor)" -1 -1 0 -1 0
+"surprising event(shocked)" -1 -1 0 -1 0
+"surprise factor(awesome)" -1 -1 0 -1 0
+"linguistic context(pirate slang)" -1 -1 0 -1 0
+"self-improvement(inner peace)" -1 -1 0 -1 0
+"individual spirituality(christianity)" -1 -1 0 -1 0
+"postal service(mailing)" -1 -1 0 -1 0
+"postal service(stamps)" -1 -1 0 -1 0
+"political connections(anti-fracking activists)" -1 -1 0 -1 0
+"media focus(magazines)" -1 -1 0 -1 0
+"submitting work(deadline)" -1 -1 0 -1 0
+"media promotion(advertising)" -1 -1 0 -1 0
+"political stance(centrist)" -1 -1 0 -1 0
+"social event(sports fans)" -1 -1 0 -1 0
+"social event(championship game)" -1 -1 0 -1 0
+"death(memorial)" -1 -1 0 -1 0
+"art and music(streaming event)" -1 -1 0 -1 0
+"promotion(event appearance)" -1 -1 0 -1 0
+"promotion(invitation)" -1 -1 0 -1 0
+"promotion(interests)" -1 -1 0 -1 0
+"expression of endearment(affection)" -1 -1 0 -1 0
+"sports(double play)" -1 -1 0 -1 0
+"sports(perfect execution)" -1 -1 0 -1 0
+"entertainment(television talk show)" -1 -1 0 -1 0
+"job opportunities(internship)" -1 -1 0 -1 0
+"job opportunities(web development)" -1 -1 0 -1 0
+"welfare of friends(inquiries)" -1 -1 0 -1 0
+"travel(weekend getaway)" -1 -1 0 -1 0
+"travel(itinerary)" -1 -1 0 -1 0
+"welfare of friends(best wishes)" -1 -1 0 -1 0
+"travel(destination)" -1 -1 0 -1 0
+"political relations(international relations)" -1 -1 0 -1 0
+"sports(title win)" -1 -1 0 -1 0
+"media(broadcasting)" -1 -1 0 -1 0
+"friends(conversations)" -1 -1 0 -1 0
+"promotion(bilingualism)" -1 -1 0 -1 0
+"communication(messaging)" -1 -1 0 -1 0
+"entertainment(foam party)" -1 -1 0 -1 0
+"social event(celebrity appearance)" -1 -1 0 -1 0
+"marketing(promotion)" -1 -1 0 -1 0
+"culture(celebration)" -1 -1 0 -1 0
+"civic observance(national holiday)" -1 -1 0 -1 0
+"celebration focus(religious)" -1 -1 0 -1 0
+"random and irrelevant(meaningless)" -1 -1 0 -1 0
+"celebration focus(cultural)" -1 -1 0 -1 0
+"celebratory(party)" -1 -1 0 -1 0
+"corporate(consumerist)" -1 -1 0 -1 0
+"celebration focus(celebrity)" -1 -1 0 -1 0
+"celebration focus(local)" -1 -1 0 -1 0
+"celebratory(political)" -1 -1 0 -1 0
+"legal(appeal)" -1 -1 0 -1 0
+"celebratory(tv)" -1 -1 0 -1 0
+"arbitrary(delayed)" -1 -1 0 -1 0
+"arbitrary(court)" -1 -1 0 -1 0
+"celebratory(music)" -1 -1 0 -1 0
+"laziness(procrastination)" -1 -1 0 -1 0
+"communication(conversation)" -1 -1 0 -1 0
+"celebratory(birthday)" -1 -1 0 -1 0
+"personal(family)" -1 -1 0 -1 0
+"communication(book)" -1 -1 0 -1 0
+"celebratory(cultural)" -1 -1 0 -1 0
+"entertainment(media)" -1 -1 0 -1 0
+"random and irrelevant(irrelevant)" -1 -1 0 -1 0
+"personal(ego)" -1 -1 0 -1 0
+"celebratory(sports)" -1 -1 0 -1 0
+"values(party anthems)" -1 -1 0 -1 0
+"personal experience(1st time)" -1 -1 0 -1 0
+"responsibly(irresponsible)" -1 -1 0 -1 0
+"belief communities(globalisation)" -1 -1 0 -1 0
+"event(grammy awards)" -1 -1 0 -1 0
+"event(fishing)" -1 -1 0 -1 0
+"values(mainstream success)" -1 -1 0 -1 0
+"mainstream celebrity(kendrick perkins)" -1 -1 0 -1 0
+"values(small-town)" -1 -1 0 -1 0
+"sports(eibar)" -1 -1 0 -1 0
+"values(small-budget)" -1 -1 0 -1 0
+"sports(barcelona)" -1 -1 0 -1 0
+"technological advancements(instagram)" -1 -1 0 -1 0
+"technological advancements(ipad)" -1 -1 0 -1 0
+"technological advancements(iwatch)" -1 -1 0 -1 0
+"music(ss501)" -1 -1 0 -1 0
+"technological trends(instagram)" -1 -1 0 -1 0
+"data transfer(starhub)" -1 -1 0 -1 0
+"description length(long)" -1 -1 0 -1 0
+"achievement(1st)" -1 -1 0 -1 0
+"keywords(cubs)" -1 -1 0 -1 0
+"mainstream celebrity(lady gaga)" -1 -1 0 -1 0
+"data transfer(december 11th)" -1 -1 0 -1 0
+"mental state(lost in emotions)" -1 -1 0 -1 0
+"faith and reason seekers(imbalance in faith and reason)" -1 -1 0 -1 0
+"provactitivity(innocent)" -1 -1 0 -1 0
+"average expectation(perfection)" -1 -1 0 -1 0
+"life & love(aspirational)" -1 -1 0 -1 0
+"average expectation(acceptance)" -1 -1 0 -1 0
+"visuals(spectacle)" -1 -1 0 -1 0
+"attitdue 3(optimistic)" -1 -1 0 -1 0
+"media mix(tv)" -1 -1 0 -1 0
+"external stimulus(advertisement)" -1 -1 0 -1 0
+"career(informatics)" -1 -1 0 -1 0
+"creator preference(abstract)" -1 -1 0 -1 0
+"year(2006)" -1 -1 0 -1 0
+"obsession(obsession is being repaid in what she has given her in the format of a parody)" -1 -1 0 -1 0
+"selfworth(social field of reference)" -1 -1 0 -1 0
+"party outfit(appropriate)" -1 -1 0 -1 0
+"ritual(praying)" -1 -1 0 -1 0
+"ritual(prayer)" -1 -1 0 -1 0
+"creed(islam)" -1 -1 0 -1 0
+"physical attraction(average looking)" -1 -1 0 -1 0
+"ritual(almsgiving)" -1 -1 0 -1 0
+"ritual(charity)" -1 -1 0 -1 0
+"obstacle(technological limitations)" -1 -1 0 -1 0
+"creator preference(alternative)" -1 -1 0 -1 0
+"identity characteristic(independence)" -1 -1 0 -1 0
+"brand loyalty(apple fan)" -1 -1 0 -1 0
+"social atmosphere(tense)" -1 -1 0 -1 0
+"extraversion(introverted)" -1 -1 0 -1 0
+"career(statistician)" -1 -1 0 -1 0
+"career(engineer)" -1 -1 0 -1 0
+"spiritual practice(meditation)" -1 -1 0 -1 0
+"cultural identity(dutch)" -1 -1 0 -1 0
+"consumer product(discounts)" -1 -1 0 -1 0
+"ritual(ablution)" -1 -1 0 -1 0
+"ritual(purification)" -1 -1 0 -1 0
+"religious scripture(quran)" -1 -1 0 -1 0
+"religious duty(zakat)" -1 -1 0 -1 0
+"religious duty(giving to the poor)" -1 -1 0 -1 0
+"competitiveness(ruthless)" -1 -1 0 -1 0
+"time management(punctual)" -1 -1 0 -1 0
+"concert experience(crowded)" -1 -1 0 -1 0
+"profession(doctor)" -1 -1 0 -1 0
+"media ratings(low-rated)" -1 -1 0 -1 0
+"name-dropping(obama, sarkozy)" -1 -1 0 -1 0
+"commerical appeal(commercial success)" -1 -1 0 -1 0
+"partnership focus(partner-focused)" -1 -1 0 -1 0
+"expectation-opposed(realistic emotions)" -1 -1 0 -1 0
+"volume(narrator death)" -1 -1 0 -1 0
+"gender(heterosexual)" -1 -1 0 -1 0
+"atmosphere(horror)" -1 -1 0 -1 0
+"atmosphere(suspense)" -1 -1 0 -1 0
+"memoir(memoir writing)" -1 -1 0 -1 0
+"volume(football match)" -1 -1 0 -1 0
+"volume(baseball game)" -1 -1 0 -1 0
+"religious expression(allegorical)" -1 -1 0 -1 0
+"foreign relations(possible tension)" -1 -1 0 -1 0
+"technical developments(neglectful)" -1 -1 0 -1 0
+"availability(limited)" -1 -1 0 -1 0
+"interpersonal relationship(without romantic partner)" -1 -1 0 -1 0
+"corporations relations(anti-capitalism)" -1 -1 0 -1 0
+"interpersonal relationship(romantic couple)" -1 -1 0 -1 0
+"responsive behaviour(patient)" -1 -1 0 -1 0
+"social relation(collaboration)" -1 -1 0 -1 0
+"expectation-opposed(c' mon kenny!!;)" -1 -1 0 -1 0
+"party relation(heavy)" -1 -1 0 -1 0
+"start time(individual-focused)" -1 -1 0 -1 0
+"where to watch the live blog(individual-oriented)" -1 -1 0 -1 0
+"and how to stream(transparent)" -1 -1 0 -1 0
+"game event(individual-oriented)" -1 -1 0 -1 0
+"game time(prescriptive)" -1 -1 0 -1 0
+"player performance(intellectual)" -1 -1 0 -1 0
+"salacious gossip(provocative)" -1 -1 0 -1 0
+"social media(mainstream)" -1 -1 0 -1 0
+"sanctions(anti-capitalism)" -1 -1 0 -1 0
+"ideological statement(cultural preservation)" -1 -1 0 -1 0
+"cultural icon(sophisticaed)" -1 -1 0 -1 0
+"creative collaboration(simple themes)" -1 -1 0 -1 0
+"creative collaboration(spontaneous)" -1 -1 0 -1 0
+"fashion industry(stylish)" -1 -1 0 -1 0
+"fashion industry(trendy)" -1 -1 0 -1 0
+"exclamatory expression(emotional)" -1 -1 0 -1 0
+"holiday celebration(individual-oriented)" -1 -1 0 -1 0
+"luxury(high-end)" -1 -1 0 -1 0
+"celebrity gossip(trendy)" -1 -1 0 -1 0
+"work relationships(cooperative)" -1 -1 0 -1 0
+"game plan(strategic)" -1 -1 0 -1 0
+"sports analysis(analytical)" -1 -1 0 -1 0
+"sports fan excitement(passionate)" -1 -1 0 -1 0
+"movie industry(iconic)" -1 -1 0 -1 0
+"movie industry(comedic)" -1 -1 0 -1 0
+"movie industry(popular)" -1 -1 0 -1 0
+"search engine(efficient)" -1 -1 0 -1 0
+"technology(compatible)" -1 -1 0 -1 0
+"technology(versatile)" -1 -1 0 -1 0
+"technological advancements(futuristic)" -1 -1 0 -1 0
+"contest promotion(competitive)" -1 -1 0 -1 0
+"holiday celebration(cultural preservation)" -1 -1 0 -1 0
+"giveaway promotion(interactive)" -1 -1 0 -1 0
+"top chart placement(popular)" -1 -1 0 -1 0
+"music industry(successful)" -1 -1 0 -1 0
+"music industry(empowering)" -1 -1 0 -1 0
+"hip-hop culture(fashion-forward)" -1 -1 0 -1 0
+"sports event(exciting)" -1 -1 0 -1 0
+"fan engagement(interactive)" -1 -1 0 -1 0
+"sports analysis(enthusiastic)" -1 -1 0 -1 0
+"sports performance(remarkable)" -1 -1 0 -1 0
+"sports performance(exceptional)" -1 -1 0 -1 0
+"tennis match(intense)" -1 -1 0 -1 0
+"tennis players(highly skilled)" -1 -1 0 -1 0
+"basketball game(high-scoring)" -1 -1 0 -1 0
+"basketball players(complimentary)" -1 -1 0 -1 0
+"specific event(breaking barriers)" -1 -1 0 -1 0
+"culture(future-oriented)" -1 -1 0 -1 0
+"animal behavior(survival instincts)" -1 -1 0 -1 0
+"specific person(famous musician)" -1 -1 0 -1 0
+"faith and reason seekers(faith in personal life)" -1 -1 0 -1 0
+"faith and reason seekers(spiritual practice)" -1 -1 0 -1 0
+"belief extremes(religious zealotry)" -1 -1 0 -1 0
+"belief extremes(anti-religion)" -1 -1 0 -1 0
+"social gatherings(group hangouts)" -1 -1 0 -1 0
+"social interactions(saying goodnight)" -1 -1 0 -1 0
+"technical device(electronic device)" -1 -1 0 -1 0
+"sports(supporting a player)" -1 -1 0 -1 0
+"sports(attending a match)" -1 -1 0 -1 0
+"job(behind-the-scenes tasks)" -1 -1 0 -1 0
+"specific group(farewell ceremony)" -1 -1 0 -1 0
+"government(federal leadership)" -1 -1 0 -1 0
+"sports(attending a game)" -1 -1 0 -1 0
+"social media(rumor \(denied\))" -1 -1 0 -1 0
+"literary work(fantasy novel)" -1 -1 0 -1 0
+"sports(predicting outcomes)" -1 -1 0 -1 0
+"personal life(upcoming event)" -1 -1 0 -1 0
+"specific event(product launch)" -1 -1 0 -1 0
+"movies(date night)" -1 -1 0 -1 0
+"sports(team allegiance)" -1 -1 0 -1 0
+"exclamation(expressing excitement)" -1 -1 0 -1 0
+"personal life(reflecting on past)" -1 -1 0 -1 0
+"personal life(expressing nostalgia)" -1 -1 0 -1 0
+"holidays(spending time with loved ones)" -1 -1 0 -1 0
+"news(potential legal charges)" -1 -1 0 -1 0
+"specific event(car accident)" -1 -1 0 -1 0
+"products(luxury vehicle brand)" -1 -1 0 -1 0
+"specific day(end of the week)" -1 -1 0 -1 0
+"tv shows(ratings announcement)" -1 -1 0 -1 0
+"tv shows(comparison of ratings)" -1 -1 0 -1 0
+"sports(team performance)" -1 -1 0 -1 0
+"sports(team expectations)" -1 -1 0 -1 0
+"specific person(professional athlete)" -1 -1 0 -1 0
+"personal life(looking forward)" -1 -1 0 -1 0
+"personal style(fashion excitement)" -1 -1 0 -1 0
+"specific event(attending a concert)" -1 -1 0 -1 0
+"social media(contest promotion)" -1 -1 0 -1 0
+"sports(player's role in team.)" -1 -1 0 -1 0
+"group experience(historic event)" -1 -1 0 -1 0
+"group experience(cultural event)" -1 -1 0 -1 0
+"romantic love(commitment)" -1 -1 0 -1 0
+"culture(westernized)" -1 -1 0 -1 0
+"media influence(celebrity culture)" -1 -1 0 -1 0
+"event anticipation(live event)" -1 -1 0 -1 0
+"amateur status(novice)" -1 -1 0 -1 0
+"sportsmanship(successful performance)" -1 -1 0 -1 0
+"technological dependency(online shopping)" -1 -1 0 -1 0
+"impulsivity(spontaneous purchasing)" -1 -1 0 -1 0
+"materialism(luxury item)" -1 -1 0 -1 0
+"materialism(practicality)" -1 -1 0 -1 0
+"time sensitivity(expedited shipping)" -1 -1 0 -1 0
+"cultural influence(american)" -1 -1 0 -1 0
+"media influence(movie promotion)" -1 -1 0 -1 0
+"media influence(music recommendation)" -1 -1 0 -1 0
+"environmentalism(sustainability)" -1 -1 0 -1 0
+"geographic location(japan)" -1 -1 0 -1 0
+"financial news(stock performance)" -1 -1 0 -1 0
+"financial news(stock market)" -1 -1 0 -1 0
+"social norms(stereotypical behavior)" -1 -1 0 -1 0
+"craving(physical desire)" -1 -1 0 -1 0
+"domestic life(daily routine)" -1 -1 0 -1 0
+"media influence(tv show)" -1 -1 0 -1 0
+"current events(social commentary)" -1 -1 0 -1 0
+"group experience(collaborative project)" -1 -1 0 -1 0
+"event anticipation(movie marathon)" -1 -1 0 -1 0
+"weather mood(relaxing atmosphere)" -1 -1 0 -1 0
+"cultural influence(japanese)" -1 -1 0 -1 0
+"event anticipation(anniversary)" -1 -1 0 -1 0
+"historical event(death of a musician)" -1 -1 0 -1 0
+"aptitude(open)" -1 -1 0 -1 0
+"song artist(easybeats)" -1 -1 0 -1 0
+"imagination(unique)" -1 -1 0 -1 0
+"technology(electronic)" -1 -1 0 -1 0
+"category(sports)" -1 -1 0 -1 0
+"category(boxing)" -1 -1 0 -1 0
+"category(rock music)" -1 -1 0 -1 0
+"category(country music)" -1 -1 0 -1 0
+"expectation(timeliness)" -1 -1 0 -1 0
+"physical attribute(overweight)" -1 -1 0 -1 0
+"hashtag trends(wearetexans)" -1 -1 0 -1 0
+"culture(hinduism)" -1 -1 0 -1 0
+"attribution(chandy \(possibly referring to a political figure\))" -1 -1 0 -1 0
+"cultural event(ballet performance)" -1 -1 0 -1 0
+"love and relationships(falling in love)" -1 -1 0 -1 0
+"love and relationships(third wheel)" -1 -1 0 -1 0
+"sports(investigation in cricket)" -1 -1 0 -1 0
+"sports(kane's friend joins him on the pitch)" -1 -1 0 -1 0
+"television(big brother tv show)" -1 -1 0 -1 0
+"anticipation(looking forward to a specific day)" -1 -1 0 -1 0
+"event(a music concert or show)" -1 -1 0 -1 0
+"event(a book festival)" -1 -1 0 -1 0
+"personal update(notes from a trip or journey)" -1 -1 0 -1 0
+"cultural event(a book festival)" -1 -1 0 -1 0
+"weather(dry climate)" -1 -1 0 -1 0
+"celebrity news(hulk hogan)" -1 -1 0 -1 0
+"celebrity(hulk hogan)" -1 -1 0 -1 0
+"shopping(promotion for a product on amazon prime)" -1 -1 0 -1 0
+"shopping(product advertisement)" -1 -1 0 -1 0
+"personal opinion/experience(changing a vote or opinion)" -1 -1 0 -1 0
+"sports(mlb \(major league baseball\) hall of fame vote)" -1 -1 0 -1 0
+"sports(mlb \(major league baseball\) player)" -1 -1 0 -1 0
+"politics(political figures not present in a political debate)" -1 -1 0 -1 0
+"direct message(salutation or greeting with endearment)" -1 -1 0 -1 0
+"event(meeting up at a mall)" -1 -1 0 -1 0
+"event(attending a religious service and social event)" -1 -1 0 -1 0
+"event(attending a religious retreat)" -1 -1 0 -1 0
+"personal belief(having no regrets in life)" -1 -1 0 -1 0
+"personal belief(practicing islam)" -1 -1 0 -1 0
+"event(model search for a company)" -1 -1 0 -1 0
+"advertisement(application availability)" -1 -1 0 -1 0
+"leisure(a gym playing a popular news show)" -1 -1 0 -1 0
+"leisure(a gym playing a popular radio station)" -1 -1 0 -1 0
+"personal preference(enjoying a tv show)" -1 -1 0 -1 0
+"personal preference(enjoying a radio station)" -1 -1 0 -1 0
+"celebrity(neil degrasse tyson)" -1 -1 0 -1 0
+"activism(supporting petition to increase space exploration funding)" -1 -1 0 -1 0
+"time(friday)" -1 -1 0 -1 0
+"sexuality(arranged)" -1 -1 0 -1 0
+"financial(student debt)" -1 -1 0 -1 0
+"faith extremes(celebrity worship)" -1 -1 0 -1 0
+"personal qualities(bravery)" -1 -1 0 -1 0
+"primary(sports)" -1 -1 0 -1 0
+"interest(golf)" -1 -1 0 -1 0
+"medium(television)" -1 -1 0 -1 0
+"time(january)" -1 -1 0 -1 0
+"primary(celebrity gossip)" -1 -1 0 -1 0
+"internet(twitter)" -1 -1 0 -1 0
+"medium(twitter)" -1 -1 0 -1 0
+"media and entertainment(television)" -1 -1 0 -1 0
+"relationship(commitment)" -1 -1 0 -1 0
+"media and entertainment(netflix)" -1 -1 0 -1 0
+"personal experience(repetition)" -1 -1 0 -1 0
+"popular culture(celebrity worship)" -1 -1 0 -1 0
+"media and entertainment(break from social media)" -1 -1 0 -1 0
+"media and entertainment(music/fitness)" -1 -1 0 -1 0
+"media and entertainment(telecommunications)" -1 -1 0 -1 0
+"theological opposites(monotheism)" -1 -1 0 -1 0
+"media and entertainment(technology)" -1 -1 0 -1 0
+"media and entertainment(consumerism)" -1 -1 0 -1 0
+"media and entertainment(iphone)" -1 -1 0 -1 0
+"media and entertainment(sports)" -1 -1 0 -1 0
+"theological opposites(anti-islam)" -1 -1 0 -1 0
+"media and entertainment(pop culture)" -1 -1 0 -1 0
+"personal experience(excitement)" -1 -1 0 -1 0
+"media and entertainment(live performance)" -1 -1 0 -1 0
+"group faith(catholic church)" -1 -1 0 -1 0
+"media and entertainment(music/concert)" -1 -1 0 -1 0
+"media and entertainment(tv show)" -1 -1 0 -1 0
+"personal experience(persistence)" -1 -1 0 -1 0
+"personal experience(support)" -1 -1 0 -1 0
+"personal experience(determination)" -1 -1 0 -1 0
+"personal experience(fear)" -1 -1 0 -1 0
+"personal experience(self-reflection)" -1 -1 0 -1 0
+"personal experience(communication)" -1 -1 0 -1 0
+"personal experience(event planning)" -1 -1 0 -1 0
+"media and entertainment(video game)" -1 -1 0 -1 0
+"popular culture(olympics)" -1 -1 0 -1 0
+"media and entertainment(music award show)" -1 -1 0 -1 0
+"media and entertainment(music video)" -1 -1 0 -1 0
+"personal experience(agreement)" -1 -1 0 -1 0
+"media and entertainment(sports fantasy game)" -1 -1 0 -1 0
+"personal experience(fandom)" -1 -1 0 -1 0
+"media and entertainment(film)" -1 -1 0 -1 0
+"personal experience(historical event)" -1 -1 0 -1 0
+"faith extremes(hinduism)" -1 -1 0 -1 0
+"personal experience(familiarity)" -1 -1 0 -1 0
+"media and entertainment(anime)" -1 -1 0 -1 0
+"political(political apathy)" -1 -1 0 -1 0
+"political(political activism)" -1 -1 0 -1 0
+"political(political centrism)" -1 -1 0 -1 0
+"media(media-related)" -1 -1 0 -1 0
+"audience(celebrity worship)" -1 -1 0 -1 0
+"audience(non-conformity)" -1 -1 0 -1 0
+"production style(technology-driven)" -1 -1 0 -1 0
+"event(performance/music)" -1 -1 0 -1 0
+"event(sports)" -1 -1 0 -1 0
+"political(anti-socialism)" -1 -1 0 -1 0
+"beverage(beer)" -1 -1 0 -1 0
+"physical preference(herbal)" -1 -1 0 -1 0
+"physical preference(non-alcoholic)" -1 -1 0 -1 0
+"physical preference(organic)" -1 -1 0 -1 0
+"event(event-related)" -1 -1 0 -1 0
+"political(political extremism)" -1 -1 0 -1 0
+"cultural elements(cultural shock)" -1 -1 0 -1 0
+"political(political neutrality)" -1 -1 0 -1 0
+"political(political commentary)" -1 -1 0 -1 0
+"political(political condemnation)" -1 -1 0 -1 0
+"personal experiences(grounded)" -1 -1 0 -1 0
+"courage(strong)" -1 -1 0 -1 0
+"message(witty wordplay)" -1 -1 0 -1 0
+"controversial topics(conspiracy theories)" -1 -1 0 -1 0
+"group experience(panel discussion)" -1 -1 0 -1 0
+"academic topics(science)" -1 -1 0 -1 0
+"fandom(musicals)" -1 -1 0 -1 0
+"political issues(international conflicts)" -1 -1 0 -1 0
+"music genres(folk)" -1 -1 0 -1 0
+"inspiration(personal growth)" -1 -1 0 -1 0
+"digital content(article)" -1 -1 0 -1 0
+"social issues(student activism)" -1 -1 0 -1 0
+"human rights(activism)" -1 -1 0 -1 0
+"travel destinations(nature)" -1 -1 0 -1 0
+"representation in media(body positivity)" -1 -1 0 -1 0
+"music genres(pop)" -1 -1 0 -1 0
+"political beliefs(divided)" -1 -1 0 -1 0
+"political issues(electoral college)" -1 -1 0 -1 0
+"controversial topics(religion)" -1 -1 0 -1 0
+"human rights(aid and assistance)" -1 -1 0 -1 0
+"global issues(terrorism)" -1 -1 0 -1 0
+"music genres(latin)" -1 -1 0 -1 0
+"representation in media(diversity)" -1 -1 0 -1 0
+"music genres(pop-rock)" -1 -1 0 -1 0
+"travel destinations(new york city)" -1 -1 0 -1 0
+"fandom(gilmore girls)" -1 -1 0 -1 0
+"political figures(george soros)" -1 -1 0 -1 0
+"time(18 minutes and 30 seconds)" -1 -1 0 -1 0
+"academic topics(medicine)" -1 -1 0 -1 0
+"government policy(healthcare)" -1 -1 0 -1 0
+"social issues(refugees)" -1 -1 0 -1 0
+"activism(humanitarian aid)" -1 -1 0 -1 0
+"global issues(war)" -1 -1 0 -1 0
+"human rights(child activism)" -1 -1 0 -1 0
+"representation in media(palestine conflict)" -1 -1 0 -1 0
+"government policy(voting)" -1 -1 0 -1 0
+"democratic processes(voter registration)" -1 -1 0 -1 0
+"global issues(human rights violations)" -1 -1 0 -1 0
+"media influence(disney)" -1 -1 0 -1 0
+"media influence(nostalgia)" -1 -1 0 -1 0
+"nostalgia(1990s)" -1 -1 0 -1 0
+"faith extremes(secularism)" -1 -1 0 -1 0
+"religion focus(individual-focused)" -1 -1 0 -1 0
+"political(pro-capitalism)" -1 -1 0 -1 0
+"scientific(reasoned)" -1 -1 0 -1 0
+"scientific(innovative)" -1 -1 0 -1 0
+"story-telling(narrative-driven)" -1 -1 0 -1 0
+"independent(socialist)" -1 -1 0 -1 0
+"social issues(sexism)" -1 -1 0 -1 0
+"international relations(russia)" -1 -1 0 -1 0
+"social issues(ableism)" -1 -1 0 -1 0
+"environmentalism(sustainable living)" -1 -1 0 -1 0
+"evolutionism(human evolution)" -1 -1 0 -1 0
+"evolutionism(human adaptation)" -1 -1 0 -1 0
+"environmentalism(renewable energy)" -1 -1 0 -1 0
+"employment(government worker)" -1 -1 0 -1 0
+"individual experiences(personal story)" -1 -1 0 -1 0
+"reproductive rights(anti-abortion)" -1 -1 0 -1 0
+"individual experiences(personal empowerment)" -1 -1 0 -1 0
+"cultural preferences(musical taste)" -1 -1 0 -1 0
+"cultural preferences(holiday music)" -1 -1 0 -1 0
+"consumerism(brand name)" -1 -1 0 -1 0
+"technology(smartwatch)" -1 -1 0 -1 0
+"international politics(israeli-palestinian conflict)" -1 -1 0 -1 0
+"international politics(support for israel)" -1 -1 0 -1 0
+"animal rights(wildlife protection)" -1 -1 0 -1 0
+"healthcare(medicaid managed care)" -1 -1 0 -1 0
+"communication(social media messaging)" -1 -1 0 -1 0
+"information(staying informed)" -1 -1 0 -1 0
+"natural disasters(wildfire response)" -1 -1 0 -1 0
+"satire(political comedy)" -1 -1 0 -1 0
+"apology(sincere)" -1 -1 0 -1 0
+"entertainment(celebrity interview)" -1 -1 0 -1 0
+"sports(sports prediction)" -1 -1 0 -1 0
+"sports(admiration for athlete)" -1 -1 0 -1 0
+"social issues(violence prevention)" -1 -1 0 -1 0
+"music(music promotion)" -1 -1 0 -1 0
+"social(gratitude)" -1 -1 0 -1 0
+"medical marijuana permit(permitted)" -1 -1 0 -1 0
+"apologies(apology)" -1 -1 0 -1 0
+"economic(monetary)" -1 -1 0 -1 0
+"political issue(problem)" -1 -1 0 -1 0
+"celebrity(celebrity)" -1 -1 0 -1 0
+"religious order(order)" -1 -1 0 -1 0
+"historical group(predecessor)" -1 -1 0 -1 0
+"holiday(day)" -1 -1 0 -1 0
+"worldview(perspective)" -1 -1 0 -1 0
+"political(resistance)" -1 -1 0 -1 0
+"science(non-believer)" -1 -1 0 -1 0
+"economic(inferior)" -1 -1 0 -1 0
+"religious(prayer)" -1 -1 0 -1 0
+"politics(recount)" -1 -1 0 -1 0
+"political movement(movement)" -1 -1 0 -1 0
+"character(fictional)" -1 -1 0 -1 0
+"political(border)" -1 -1 0 -1 0
+"work(job)" -1 -1 0 -1 0
+"baseball(pitch)" -1 -1 0 -1 0
+"music(singing)" -1 -1 0 -1 0
+"movie(fantasy)" -1 -1 0 -1 0
+"technology(surprise)" -1 -1 0 -1 0
+"movie(adventure)" -1 -1 0 -1 0
+"music(clapping)" -1 -1 0 -1 0
+"political figure(president)" -1 -1 0 -1 0
+"political legacy(legacy)" -1 -1 0 -1 0
+"political issue(fear)" -1 -1 0 -1 0
+"television(hit)" -1 -1 0 -1 0
+"medical issue(euthanasia)" -1 -1 0 -1 0
+"political figure(politician)" -1 -1 0 -1 0
+"political issue(controversy)" -1 -1 0 -1 0
+"political figure(leader)" -1 -1 0 -1 0
+"transportation(design challenge)" -1 -1 0 -1 0
+"legal issue(appeal)" -1 -1 0 -1 0
+"date(april 25, 1995)" -1 -1 0 -1 0
+"legal issue(upheld)" -1 -1 0 -1 0
+"legal issue(death penalty)" -1 -1 0 -1 0
+"personality(offensive)" -1 -1 0 -1 0
+"commentary(criticism)" -1 -1 0 -1 0
+"news source(fox news)" -1 -1 0 -1 0
+"political commentator(commentator)" -1 -1 0 -1 0
+"frustration(frustrating)" -1 -1 0 -1 0
+"sports teams(san antonio spurs)" -1 -1 0 -1 0
+"quality(high quality)" -1 -1 0 -1 0
+"clarity(clear)" -1 -1 0 -1 0
+"political controversy(samsung galaxy note 7)" -1 -1 0 -1 0
+"gossip(celebrity breakups)" -1 -1 0 -1 0
+"dance(tutorial)" -1 -1 0 -1 0
+"music(vente pa' ca by ricky martin ft. maluma)" -1 -1 0 -1 0
+"politics(white house staff changes)" -1 -1 0 -1 0
+"hope and optimism(hope)" -1 -1 0 -1 0
+"politics(cuba)" -1 -1 0 -1 0
+"politics(venezuela)" -1 -1 0 -1 0
+"politics(lebanon)" -1 -1 0 -1 0
+"internet trend(mannequin challenge)" -1 -1 0 -1 0
+"politics(elizabeth warren)" -1 -1 0 -1 0
+"encouragement(keep it up)" -1 -1 0 -1 0
+"cultural differences(east vs. west)" -1 -1 0 -1 0
+"cultural awareness(multiculturalism)" -1 -1 0 -1 0
+"political controversy(immigration)" -1 -1 0 -1 0
+"international relations(united states and russia)" -1 -1 0 -1 0
+"celebrity crush(zac efron)" -1 -1 0 -1 0
+"world news(jerusalem)" -1 -1 0 -1 0
+"nostalgia(hearing a song from the past)" -1 -1 0 -1 0
+"political controversy(conservative targets)" -1 -1 0 -1 0
+"online video streaming(periscope)" -1 -1 0 -1 0
+"entertainment(magician david blaine)" -1 -1 0 -1 0
+"violence(physical assaults)" -1 -1 0 -1 0
+"society(global)" -1 -1 0 -1 0
+"tolerance(intolerant)" -1 -1 0 -1 0
+"traditional religion(jewish, muslim)" -1 -1 0 -1 0
+"society(traditional)" -1 -1 0 -1 0
+"medical myth(natural treatments)" -1 -1 0 -1 0
+"aspirational(confident)" -1 -1 0 -1 0
+"socio-political(liberal)" -1 -1 0 -1 0
+"legends/myths(supernatural)" -1 -1 0 -1 0
+"international politics(international disputes)" -1 -1 0 -1 0
+"scapegoats(scapegoating)" -1 -1 0 -1 0
+"individual spirituality(spiritual seekers)" -1 -1 0 -1 0
+"socio-political(progressive)" -1 -1 0 -1 0
+"international politics(humanitarian crisis)" -1 -1 0 -1 0
+"attractive partner(attractive partners)" -1 -1 0 -1 0
+"race relations(black lives matter)" -1 -1 0 -1 0
+"conspiracy theories(pizzagate)" -1 -1 0 -1 0
+"television shows(drama)" -1 -1 0 -1 0
+"person(affection)" -1 -1 0 -1 0
+"location(landmark)" -1 -1 0 -1 0
+"emotion(constancy)" -1 -1 0 -1 0
+"auxiliary verb(auxiliary/conditional)" -1 -1 0 -1 0
+"person(request/question)" -1 -1 0 -1 0
+"expressive intensity(exclamation marks)" -1 -1 0 -1 0
+"location(global)" -1 -1 0 -1 0
+"person(laughter)" -1 -1 0 -1 0
+"instruction(end celebration)" -1 -1 0 -1 0
+"belief(trust)" -1 -1 0 -1 0
+"event(international)" -1 -1 0 -1 0
+"movie(young adult)" -1 -1 0 -1 0
+"location(concert)" -1 -1 0 -1 0
+"week day(monday)" -1 -1 0 -1 0
+"activity(having fun)" -1 -1 0 -1 0
+"meal time(lunch)" -1 -1 0 -1 0
+"idol(bernie sanders)" -1 -1 0 -1 0
+"event(coffee)" -1 -1 0 -1 0
+"location(museum)" -1 -1 0 -1 0
+"personal attribute(relationship status)" -1 -1 0 -1 0
+"concept(limitless time)" -1 -1 0 -1 0
+"natural phenomenon(fire)" -1 -1 0 -1 0
+"emotion(playful/affectionate)" -1 -1 0 -1 0
+"family member(sibling)" -1 -1 0 -1 0
+"peacefulness(heartbreak)" -1 -1 0 -1 0
+"situation relation(narrative-driven)" -1 -1 0 -1 0
+"admiration(ecstatic)" -1 -1 0 -1 0
+"romantic community(loving now)" -1 -1 0 -1 0
+"faith extremes(positive)" -1 -1 0 -1 0
+"expectations(perfect)" -1 -1 0 -1 0
+"belief extremes(positive)" -1 -1 0 -1 0
+"realistic(realistic)" -1 -1 0 -1 0
+"celebration(christmas cheer)" -1 -1 0 -1 0
+"celebration(christmas time)" -1 -1 0 -1 0
+"configuration(open)" -1 -1 0 -1 0
+"relations to others(comparison)" -1 -1 0 -1 0
+"characteristic(strong)" -1 -1 0 -1 0
+"situation relations(descriptive)" -1 -1 0 -1 0
+"influence(social media-driven)" -1 -1 0 -1 0
+"responsible(responsible)" -1 -1 0 -1 0
+"purpose(hopeful)" -1 -1 0 -1 0
+"celebration(happylabrador enjoy)" -1 -1 0 -1 0
