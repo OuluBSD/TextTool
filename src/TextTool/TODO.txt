@@ -39,7 +39,10 @@ v0.0.1
 
 
 v0.0.2
+- song DBs for spanish, korean, japanese, russian
 - fix Finnish language support with at least 1 new DB
+
+v0.0.3
 - share folder structure improvements: avoid DB specific names, avoid language mismatch
 - join duplicate database data to one
 - sort TextLib functions numbers to match the correct order
