@@ -7819,3 +7819,1162 @@
 "relationship focus(coastal communities)" -1 -1 0 -1 0
 "cultural elements(planning and development)" -1 -1 0 -1 0
 "cultural elements(body positivity)" -1 -1 0 -1 0
+"physical preference(simplicity)" -1 -1 -1 -1 0
+"faith extremes(lifestyle indulgence)" -1 -1 -1 -1 0
+"faith extremes(spiritual contentment)" -1 -1 -1 -1 0
+"theological opposites(belief)" -1 -1 -1 -1 0
+"theological opposites(authority)" -1 -1 -1 -1 0
+"group faith(individuality)" -1 -1 -1 -1 0
+"group faith(personal enjoyment)" -1 -1 -1 -1 0
+"belief communities(community)" -1 -1 -1 -1 0
+"relationship(social media influence)" -1 -1 -1 -1 0
+"relationship(authenticity)" -1 -1 -1 -1 0
+"group experience(social connection)" -1 -1 -1 -1 0
+"group experience(individual expression)" -1 -1 -1 -1 0
+"time(time)" -1 -1 -1 -1 0
+"time(experience)" -1 -1 -1 -1 0
+"communication(visual appeal)" -1 -1 -1 -1 0
+"communication(authenticity)" -1 -1 -1 -1 0
+"expression(authenticity)" -1 -1 -1 -1 0
+"authenticity(individuality)" -1 -1 -1 -1 0
+"problem solving strategy(creativity)" -1 -1 -1 -1 0
+"culture(collectivism)" -1 -1 -1 -1 0
+"faith and reason seekers(open)" -1 -1 -1 -1 0
+"faith and reason seekers(religious fundamentalism)" -1 -1 -1 -1 0
+"motivation(hedonism)" -1 -1 -1 -1 0
+"motivation(self)" -1 -1 -1 -1 0
+"responsibility(irresponsibility)" -1 -1 -1 -1 0
+"technology(trendy)" -1 -1 -1 -1 0
+"technology(exotic)" -1 -1 -1 -1 0
+"social(social conformity)" -1 -1 -1 -1 0
+"social(materialism)" -1 -1 -1 -1 0
+"situation relation(community)" -1 -1 -1 -1 0
+"identity(desire for attention and recognition)" -1 -1 -1 -1 0
+"identity(struggle with identity and personal insecurities)" -1 -1 -1 -1 0
+"emotional realism(aesthetic appeal and aesthetic simplicity)" -1 -1 -1 -1 0
+"emotional realism(authenticity)" -1 -1 -1 -1 0
+"average expectations(social conformity)" -1 -1 -1 -1 0
+"average expectations(materialism)" -1 -1 -1 -1 0
+"production style(modern and trendy)" -1 -1 -1 -1 0
+"production style(classic and timeless)" -1 -1 -1 -1 0
+"belief spectrum(individualism)" -1 -1 -1 -1 0
+"belief spectrum(progress)" -1 -1 -1 -1 0
+"old and new believers(fashion)" -1 -1 -1 -1 0
+"old and new believers(counter)" -1 -1 -1 -1 0
+"emotional state(aspirational)" -1 -1 -1 -1 0
+"emotional state(relatable)" -1 -1 -1 -1 0
+"rationality(trendy)" -1 -1 -1 -1 0
+"rationality(exotic)" -1 -1 -1 -1 0
+"attitude(trendy)" -1 -1 -1 -1 0
+"attitude(classic)" -1 -1 -1 -1 0
+"human strength(self)" -1 -1 -1 -1 0
+"human strength(humility)" -1 -1 -1 -1 0
+"technical issues(trends)" -1 -1 -1 -1 0
+"technical issues(luxury)" -1 -1 -1 -1 0
+"societal norms(individuality)" -1 -1 -1 -1 0
+"love status(fancy)" -1 -1 -1 -1 0
+"love status(authentic)" -1 -1 -1 -1 0
+"sexualization(trendy)" -1 -1 -1 -1 0
+"attitude 1(openness)" -1 -1 -1 -1 0
+"attitude 1(closedness)" -1 -1 -1 -1 0
+"life and love(captivating aesthetics)" -1 -1 -1 -1 0
+"life and love(authenticity)" -1 -1 -1 -1 0
+"fear(desire for excitement)" -1 -1 -1 -1 0
+"fear(fear of discomfort)" -1 -1 -1 -1 0
+"truthfulness(aesthetic appeal)" -1 -1 -1 -1 0
+"truthfulness(authenticity)" -1 -1 -1 -1 0
+"sexual orientation(trendy)" -1 -1 -1 -1 0
+"sexual orientation(glamorous)" -1 -1 -1 -1 0
+"mindfulness(beauty)" -1 -1 -1 -1 0
+"behavior(stylish)" -1 -1 -1 -1 0
+"behavior(adventurous)" -1 -1 -1 -1 0
+"rational believers(trendy)" -1 -1 -1 -1 0
+"rational believers(traditional)" -1 -1 -1 -1 0
+"storymode(narrative)" -1 -1 -1 -1 0
+"location(\"urban setting\" and \"rural setting\")" -1 -1 -1 -1 0
+"location(\"adventure\" and \"relaxation\")" -1 -1 -1 -1 0
+"list \"a\"(self)" -1 -1 -1 -1 0
+"entertainment(desire for personal experiences)" -1 -1 -1 -1 0
+"entertainment(critiquing)" -1 -1 -1 -1 0
+"imagination(imagination and reality)" -1 -1 -1 -1 0
+"imagination(adventure and routine)" -1 -1 -1 -1 0
+"intimacy(photo)" -1 -1 -1 -1 0
+"intimacy(authenticity)" -1 -1 -1 -1 0
+"lyrical emphasis(visual appeal)" -1 -1 -1 -1 0
+"lyrical emphasis(authenticity)" -1 -1 -1 -1 0
+"language(language)" -1 -1 -1 -1 0
+"language(language barriers)" -1 -1 -1 -1 0
+"personality(outgoing personality)" -1 -1 -1 -1 0
+"personality(positive outlook)" -1 -1 -1 -1 0
+"gender(desire for new experiences)" -1 -1 -1 -1 0
+"gender(tradition)" -1 -1 -1 -1 0
+"family(connection to family and loved ones)" -1 -1 -1 -1 0
+"family(enamoration with modern trends and experiences)" -1 -1 -1 -1 0
+"person/group being appreciated(celebrity)" -1 -1 -1 -1 0
+"person/group being appreciated(non)" -1 -1 -1 -1 0
+"body image(beauty)" -1 -1 -1 -1 0
+"body image(authenticity)" -1 -1 -1 -1 0
+"integrity(authenticity)" -1 -1 -1 -1 0
+"integrity(superficiality)" -1 -1 -1 -1 0
+"economic(anti)" -1 -1 -1 -1 0
+"education(social media presence)" -1 -1 -1 -1 0
+"education(minimalism)" -1 -1 -1 -1 0
+"self-awareness(image)" -1 -1 -1 -1 0
+"self-awareness(materialism)" -1 -1 -1 -1 0
+"attitude 3(enjoyment)" -1 -1 -1 -1 0
+"personal experience(authenticity)" -1 -1 -1 -1 0
+"personal experience(artificiality)" -1 -1 -1 -1 0
+"intention(self)" -1 -1 -1 -1 0
+"intention(humility)" -1 -1 -1 -1 0
+"concept(entertainment)" -1 -1 -1 -1 0
+"concept(meaningful)" -1 -1 -1 -1 0
+"environment(experience)" -1 -1 -1 -1 0
+"environment(natural living and conservation efforts)" -1 -1 -1 -1 0
+"expectations(expectations)" -1 -1 -1 -1 0
+"party relation(vibrant)" -1 -1 -1 -1 0
+"party relation(introspective)" -1 -1 -1 -1 0
+"friendship(visual appeal)" -1 -1 -1 -1 0
+"friendship(authenticity)" -1 -1 -1 -1 0
+"authority(trendiness)" -1 -1 -1 -1 0
+"authority(authenticity)" -1 -1 -1 -1 0
+"relationship focus(self)" -1 -1 -1 -1 0
+"relationship focus(conformity)" -1 -1 -1 -1 0
+"societal values(simplicity)" -1 -1 -1 -1 0
+"mental state(positivity)" -1 -1 -1 -1 0
+"mental state(negativity)" -1 -1 -1 -1 0
+"travel(experience)" -1 -1 -1 -1 0
+"travel(inconvenience)" -1 -1 -1 -1 0
+"time management(consistency)" -1 -1 -1 -1 0
+"time management(inconsistency)" -1 -1 -1 -1 0
+"honesty(authenticity)" -1 -1 -1 -1 0
+"societal expectations(attention)" -1 -1 -1 -1 0
+"societal expectations(authenticity)" -1 -1 -1 -1 0
+"age target(youthful)" -1 -1 -1 -1 0
+"individual spirituality(superficiality)" -1 -1 -1 -1 0
+"individual spirituality(materialism)" -1 -1 -1 -1 0
+"sexual acting(confidence)" -1 -1 -1 -1 0
+"sexual acting(adventure)" -1 -1 -1 -1 0
+"romantic love(visual appeal)" -1 -1 -1 -1 0
+"romantic love(authenticity)" -1 -1 -1 -1 0
+"situation(relevance)" -1 -1 -1 -1 0
+"situation(rejection of traditional norms)" -1 -1 -1 -1 0
+"attitude 2(positivity)" -1 -1 -1 -1 0
+"attitude 2(optimism)" -1 -1 -1 -1 0
+"completely opposite(trendy)" -1 -1 -1 -1 0
+"completely opposite(luxurious)" -1 -1 -1 -1 0
+"humor(popularity)" -1 -1 -1 -1 0
+"humor(aesthetic)" -1 -1 -1 -1 0
+"productivity(visual appeal)" -1 -1 -1 -1 0
+"productivity(authenticity)" -1 -1 -1 -1 0
+"mood 3(upbeat)" -1 -1 -1 -1 0
+"mood 3(excitement)" -1 -1 -1 -1 0
+"narrative(imagination)" -1 -1 -1 -1 0
+"narrative(literal)" -1 -1 -1 -1 0
+"experience focus(inauthenticity)" -1 -1 -1 -1 0
+"experience focus(authenticity)" -1 -1 -1 -1 0
+"memory(nostalgia)" -1 -1 -1 -1 0
+"memory(opposite value)" -1 -1 -1 -1 0
+"belief extremes(trendy)" -1 -1 -1 -1 0
+"belief extremes(adventurous)" -1 -1 -1 -1 0
+"perseverance(expansiveness)" -1 -1 -1 -1 0
+"perseverance(simplicity)" -1 -1 -1 -1 0
+"mindset(optimism)" -1 -1 -1 -1 0
+"mindset(pessimism)" -1 -1 -1 -1 0
+"work(career)" -1 -1 -1 -1 0
+"work(leisurely)" -1 -1 -1 -1 0
+"celebrity persona(social media presence)" -1 -1 -1 -1 0
+"celebrity persona(authenticity vs. superficiality)" -1 -1 -1 -1 0
+"spirituality(trendy)" -1 -1 -1 -1 0
+"spirituality(traditional)" -1 -1 -1 -1 0
+"segmentation(aesthetic)" -1 -1 -1 -1 0
+"segmentation(functional)" -1 -1 -1 -1 0
+"place and time(location)" -1 -1 -1 -1 0
+"ethos extremes(trendy)" -1 -1 -1 -1 0
+"ethos extremes(exotic)" -1 -1 -1 -1 0
+"expectation-conformed(conformity)" -1 -1 -1 -1 0
+"expectation-conformed(non)" -1 -1 -1 -1 0
+"beliefs(self)" -1 -1 -1 -1 0
+"beliefs(hedonism)" -1 -1 -1 -1 0
+"person of faith(aesthetic pleasure and enjoyment)" -1 -1 -1 -1 0
+"person of faith(simplicity and minimalism)" -1 -1 -1 -1 0
+"mental health(lifestyle promotion)" -1 -1 -1 -1 0
+"mental health(authenticity)" -1 -1 -1 -1 0
+"experience(adventure)" -1 -1 -1 -1 0
+"experience(comfort)" -1 -1 -1 -1 0
+"media(self)" -1 -1 -1 -1 0
+"media(authenticity)" -1 -1 -1 -1 0
+"physical state(trendy)" -1 -1 -1 -1 0
+"physical state(luxurious)" -1 -1 -1 -1 0
+"peacefulness(innovative)" -1 -1 -1 -1 0
+"peacefulness(vibrant)" -1 -1 -1 -1 0
+"existentialism(authenticity)" -1 -1 -1 -1 0
+"unknown(influencer a and influencer b)" -1 -1 -1 -1 0
+"unknown(basic and authentic)" -1 -1 -1 -1 0
+"mood(happy)" -1 -1 -1 -1 0
+"socio-economic status(materialism)" -1 -1 -1 -1 0
+"socio-economic status(exclusivity)" -1 -1 -1 -1 0
+"color(vibrant)" -1 -1 -1 -1 0
+"color(trendy)" -1 -1 -1 -1 0
+"personal relationships(trendy and fashionable)" -1 -1 -1 -1 0
+"personal relationships(authentic and unique)" -1 -1 -1 -1 0
+"self-perception(superficiality)" -1 -1 -1 -1 0
+"self-perception(authenticity)" -1 -1 -1 -1 0
+"existential(desire)" -1 -1 -1 -1 0
+"existential(glamour)" -1 -1 -1 -1 0
+"story-motivation(narrative)" -1 -1 -1 -1 0
+"story-motivation(mood)" -1 -1 -1 -1 0
+"art and creativity(creativity)" -1 -1 -1 -1 0
+"art and creativity(tradition)" -1 -1 -1 -1 0
+"individual(self)" -1 -1 -1 -1 0
+"individual(materialism)" -1 -1 -1 -1 0
+"expectation(aspiration)" -1 -1 -1 -1 0
+"intuitive thinkers(creativity)" -1 -1 -1 -1 0
+"intuitive thinkers(rationality)" -1 -1 -1 -1 0
+"religion(social media presence)" -1 -1 -1 -1 0
+"religion(exclusivity)" -1 -1 -1 -1 0
+"love and relationships(visual appeal)" -1 -1 -1 -1 0
+"love and relationships(authenticity)" -1 -1 -1 -1 0
+"self-reflection(self)" -1 -1 -1 -1 0
+"purpose(self)" -1 -1 -1 -1 0
+"purpose(personalization)" -1 -1 -1 -1 0
+"country(trendy)" -1 -1 -1 -1 0
+"country(traditional)" -1 -1 -1 -1 0
+"maturity(rebellious)" -1 -1 -1 -1 0
+"maturity(conventional)" -1 -1 -1 -1 0
+"frustration(publicly sharing curated and glamorous aspects of one's life)" -1 -1 -1 -1 0
+"frustration(feeling frustrated or unsatisfied with everyday realities and societal expectations)" -1 -1 -1 -1 0
+"intelligence(trendy)" -1 -1 -1 -1 0
+"intelligence(exotic)" -1 -1 -1 -1 0
+"appearance(appearance)" -1 -1 -1 -1 0
+"nature(natural)" -1 -1 -1 -1 0
+"nature(destruction)" -1 -1 -1 -1 0
+"individualism(self)" -1 -1 -1 -1 0
+"individualism(novelty)" -1 -1 -1 -1 0
+"provocativity(boldness)" -1 -1 -1 -1 0
+"provocativity(conformity)" -1 -1 -1 -1 0
+"sexual preference(trendy)" -1 -1 -1 -1 0
+"sexual preference(exotic)" -1 -1 -1 -1 0
+"action(progressive)" -1 -1 -1 -1 0
+"action(adventure)" -1 -1 -1 -1 0
+"sexuality(hedonism and adventure)" -1 -1 -1 -1 0
+"sexuality(conformity and restriction)" -1 -1 -1 -1 0
+"animal behavior(trendy)" -1 -1 -1 -1 0
+"animal behavior(classic)" -1 -1 -1 -1 0
+"transformation(conformity vs individuality)" -1 -1 -1 -1 0
+"transformation(traditional vs innovative)" -1 -1 -1 -1 0
+"song(trendy)" -1 -1 -1 -1 0
+"song(cosmopolitan)" -1 -1 -1 -1 0
+"mood 4(aesthetic)" -1 -1 -1 -1 0
+"mood 4(authenticity)" -1 -1 -1 -1 0
+"social media(self)" -1 -1 -1 -1 0
+"social media(authenticity)" -1 -1 -1 -1 0
+"political(trendy)" -1 -1 -1 -1 0
+"political(traditional)" -1 -1 -1 -1 0
+"artistic expression(creativity)" -1 -1 -1 -1 0
+"artistic expression(conformity)" -1 -1 -1 -1 0
+"technical difficulty(trendy)" -1 -1 -1 -1 0
+"technical difficulty(outdated)" -1 -1 -1 -1 0
+"personal project(creativity)" -1 -1 -1 -1 0
+"personal project(efficiency)" -1 -1 -1 -1 0
+"socio-economic(promotion of materialism)" -1 -1 -1 -1 0
+"socio-economic(critique of capitalism)" -1 -1 -1 -1 0
+"sleep(trendy and popular)" -1 -1 -1 -1 0
+"sleep(classic and timeless)" -1 -1 -1 -1 0
+"personal growth(aspiration)" -1 -1 -1 -1 0
+"personal growth(materialism)" -1 -1 -1 -1 0
+"bizarre(creativity and conventionality)" -1 -1 -1 -1 0
+"bizarre(authenticity and artificiality)" -1 -1 -1 -1 0
+"individual identity(aesthetic)" -1 -1 -1 -1 0
+"individual identity(authenticity)" -1 -1 -1 -1 0
+"storytelling(emotional engagement)" -1 -1 -1 -1 0
+"storytelling(detachment)" -1 -1 -1 -1 0
+"collaboration(collaboration)" -1 -1 -1 -1 0
+"collaboration(individualism)" -1 -1 -1 -1 0
+"self-improvement(personal growth)" -1 -1 -1 -1 0
+"self-improvement(authenticity)" -1 -1 -1 -1 0
+"creative projects(creativity)" -1 -1 -1 -1 0
+"creative projects(minimalism)" -1 -1 -1 -1 0
+"inspiration(social media presence and trendiness)" -1 -1 -1 -1 0
+"inspiration(authenticity and uniqueness)" -1 -1 -1 -1 0
+"source of inspiration(relevance to current times)" -1 -1 -1 -1 0
+"source of inspiration(nostalgia)" -1 -1 -1 -1 0
+"relationship status(trendy)" -1 -1 -1 -1 0
+"relationship status(classic)" -1 -1 -1 -1 0
+"seekers of truth(extravagance)" -1 -1 -1 -1 0
+"seekers of truth(excess)" -1 -1 -1 -1 0
+"mood 2(trendy)" -1 -1 -1 -1 0
+"mood 2(adventurous)" -1 -1 -1 -1 0
+"cultural identity(diversity inclusivity)" -1 -1 -1 -1 0
+"cultural identity(homogeneity)" -1 -1 -1 -1 0
+"social interaction(social status and image)" -1 -1 -1 -1 0
+"social interaction(authenticity and simplicity)" -1 -1 -1 -1 0
+"faith(visual appeal and attractiveness)" -1 -1 -1 -1 0
+"faith(substance and depth)" -1 -1 -1 -1 0
+"school(desire for individual expression and self)" -1 -1 -1 -1 0
+"school(emphasis on conformity and following societal norms)" -1 -1 -1 -1 0
+"artistic integrity(creativity)" -1 -1 -1 -1 0
+"artistic integrity(conformity)" -1 -1 -1 -1 0
+"problem-solving strategy(visual appeal)" -1 -1 -1 -1 0
+"problem-solving strategy(authenticity)" -1 -1 -1 -1 0
+"society(trendy)" -1 -1 -1 -1 0
+"society(individualistic)" -1 -1 -1 -1 0
+"celebration(lifestyle and trends)" -1 -1 -1 -1 0
+"celebration(authenticity and tradition)" -1 -1 -1 -1 0
+"competition(desire for attention)" -1 -1 -1 -1 0
+"competition(materialism)" -1 -1 -1 -1 0
+"complexity(minimalism)" -1 -1 -1 -1 0
+"zeitgeist(aestheticism)" -1 -1 -1 -1 0
+"zeitgeist(minimalism)" -1 -1 -1 -1 0
+"personality trait(trendy)" -1 -1 -1 -1 0
+"personality trait(exotic)" -1 -1 -1 -1 0
+"family and relationships(trendy)" -1 -1 -1 -1 0
+"family and relationships(traditional)" -1 -1 -1 -1 0
+"existential belief(desire)" -1 -1 -1 -1 0
+"existential belief(simplicity)" -1 -1 -1 -1 0
+"compassion for animals(aesthetic appeal)" -1 -1 -1 -1 0
+"compassion for animals(authenticity)" -1 -1 -1 -1 0
+"activity(experience)" -1 -1 -1 -1 0
+"activity(stability)" -1 -1 -1 -1 0
+"emotions(positivity)" -1 -1 -1 -1 0
+"emotions(negativity)" -1 -1 -1 -1 0
+"exploration(aesthetic appeal)" -1 -1 -1 -1 0
+"exploration(authenticity)" -1 -1 -1 -1 0
+"opinion(interest in trying new things)" -1 -1 -1 -1 0
+"opinion(avoiding change and sticking to what is familiar)" -1 -1 -1 -1 0
+"self-care group(influence)" -1 -1 -1 -1 0
+"self-care group(aspiration)" -1 -1 -1 -1 0
+"temporal orientation(temporal orientation)" -1 -1 -1 -1 0
+"belief groups(trendy)" -1 -1 -1 -1 0
+"belief groups(traditional)" -1 -1 -1 -1 0
+"emotionality(trendy & timeless)" -1 -1 -1 -1 0
+"emotionality(adventurous & safe)" -1 -1 -1 -1 0
+"relation to others(self)" -1 -1 -1 -1 0
+"relation to others(materialism)" -1 -1 -1 -1 0
+"introspection(experience)" -1 -1 -1 -1 0
+"introspection(materialism)" -1 -1 -1 -1 0
+"target of love(personal expression)" -1 -1 -1 -1 0
+"target of love(adventure)" -1 -1 -1 -1 0
+"physical characteristics(aesthetic appeal)" -1 -1 -1 -1 0
+"physical characteristics(luxury)" -1 -1 -1 -1 0
+"societal issues(superficiality and materialism)" -1 -1 -1 -1 0
+"societal issues(authenticity and simplicity)" -1 -1 -1 -1 0
+"provocative(attention)" -1 -1 -1 -1 0
+"provocative(understated)" -1 -1 -1 -1 0
+"patient(delayed gratification)" -1 -1 -1 -1 0
+"image(eye)" -1 -1 -1 -1 0
+"image(understated)" -1 -1 -1 -1 0
+"imagery(visual appeal)" -1 -1 -1 -1 0
+"imagery(authenticity)" -1 -1 -1 -1 0
+"life(experience)" -1 -1 -1 -1 0
+"life(perfectionism)" -1 -1 -1 -1 0
+"seeking validation(authenticity)" -1 -1 -1 -1 0
+"seeking validation(excess)" -1 -1 -1 -1 0
+"trust(aspirational)" -1 -1 -1 -1 0
+"trust(genuine)" -1 -1 -1 -1 0
+"event(modern)" -1 -1 -1 -1 0
+"event(opposite)" -1 -1 -1 -1 0
+"hygiene(aspirational)" -1 -1 -1 -1 0
+"hygiene(relatable)" -1 -1 -1 -1 0
+"body positivity(body positivity)" -1 -1 -1 -1 0
+"body positivity(body shaming)" -1 -1 -1 -1 0
+"individual-oriented(self)" -1 -1 -1 -1 0
+"individual-oriented(conformity)" -1 -1 -1 -1 0
+"popular culture(trendy)" -1 -1 -1 -1 0
+"popular culture(glamorous)" -1 -1 -1 -1 0
+"economics(trendy)" -1 -1 -1 -1 0
+"economics(exotic)" -1 -1 -1 -1 0
+"possession(desirability)" -1 -1 -1 -1 0
+"possession(authenticity)" -1 -1 -1 -1 0
+"emotional attribute(aesthetic experience)" -1 -1 -1 -1 0
+"emotional attribute(authenticity)" -1 -1 -1 -1 0
+"intensity(positivity)" -1 -1 -1 -1 0
+"intensity(overwhelmed)" -1 -1 -1 -1 0
+"interpersonal relations(aspiration and luxury)" -1 -1 -1 -1 0
+"interpersonal relations(individuality and self)" -1 -1 -1 -1 0
+"human connection(presentation)" -1 -1 -1 -1 0
+"human connection(authenticity)" -1 -1 -1 -1 0
+"psychological state(trendy and traditional)" -1 -1 -1 -1 0
+"psychological state(adventurous and homey)" -1 -1 -1 -1 0
+"food(trends)" -1 -1 -1 -1 0
+"food(classic)" -1 -1 -1 -1 0
+"small talk(significance)" -1 -1 -1 -1 0
+"small talk(authenticity)" -1 -1 -1 -1 0
+"belief(appearance)" -1 -1 -1 -1 0
+"belief(authenticity)" -1 -1 -1 -1 0
+"therapy approach(aesthetic experience and visual appeal)" -1 -1 -1 -1 0
+"therapy approach(luxury and indulgence)" -1 -1 -1 -1 0
+"resources(experience)" -1 -1 -1 -1 0
+"resources(flexibility)" -1 -1 -1 -1 0
+"ethos(freedom)" -1 -1 -1 -1 0
+"ethos(tradition)" -1 -1 -1 -1 0
+"self-expression(self)" -1 -1 -1 -1 0
+"self-expression(conformity)" -1 -1 -1 -1 0
+"child safety(desirability and aspiration)" -1 -1 -1 -1 0
+"child safety(materialism and consumerism)" -1 -1 -1 -1 0
+"weather(neutral)" -1 -1 -1 -1 0
+"weather(practical)" -1 -1 -1 -1 0
+"genre(trendy)" -1 -1 -1 -1 0
+"genre(traditional)" -1 -1 -1 -1 0
+"self-care(self)" -1 -1 -1 -1 0
+"philosophical(aesthetic beauty)" -1 -1 -1 -1 0
+"philosophical(hedonism)" -1 -1 -1 -1 0
+"storyline(social media presence)" -1 -1 -1 -1 0
+"storyline(authenticity)" -1 -1 -1 -1 0
+"pursuit of thrill(presenting a perfectly curated image)" -1 -1 -1 -1 0
+"pursuit of thrill(embracing imperfection and authenticity)" -1 -1 -1 -1 0
+"personal goals(insta)" -1 -1 -1 -1 0
+"personal goals(authenticity)" -1 -1 -1 -1 0
+"accountability(trendy)" -1 -1 -1 -1 0
+"accountability(glamorous)" -1 -1 -1 -1 0
+"spiritual practice(self)" -1 -1 -1 -1 0
+"spiritual practice(tradition)" -1 -1 -1 -1 0
+"provocative thoughts(visual appeal)" -1 -1 -1 -1 0
+"provocative thoughts(authenticity)" -1 -1 -1 -1 0
+"game genre(trendy)" -1 -1 -1 -1 0
+"game genre(timeless)" -1 -1 -1 -1 0
+"physical attraction(visual appeal and aesthetic appreciation)" -1 -1 -1 -1 0
+"physical attraction(authenticity and true representation.)" -1 -1 -1 -1 0
+"theology opposites(trendy)" -1 -1 -1 -1 0
+"theology opposites(luxury)" -1 -1 -1 -1 0
+"financial concerns(trendy)" -1 -1 -1 -1 0
+"financial concerns(classic)" -1 -1 -1 -1 0
+"community(visual appeal)" -1 -1 -1 -1 0
+"community(authenticity)" -1 -1 -1 -1 0
+"economy(trendy)" -1 -1 -1 -1 0
+"economy(expensive)" -1 -1 -1 -1 0
+"social dynamics(trendy)" -1 -1 -1 -1 0
+"social dynamics(authentic)" -1 -1 -1 -1 0
+"technology troubleshooting(visual appeal)" -1 -1 -1 -1 0
+"technology troubleshooting(minimalism)" -1 -1 -1 -1 0
+"theology(influence and inspiration)" -1 -1 -1 -1 0
+"theology(authenticity and individuality)" -1 -1 -1 -1 0
+"spiritual seeker(trendiness)" -1 -1 -1 -1 0
+"spiritual seeker(authenticity)" -1 -1 -1 -1 0
+"diversity(diversity)" -1 -1 -1 -1 0
+"diversity(homogeneity)" -1 -1 -1 -1 0
+"materialism(materialism)" -1 -1 -1 -1 0
+"materialism(minimalism)" -1 -1 -1 -1 0
+"personality traits(carefree)" -1 -1 -1 -1 0
+"personality traits(meticulous)" -1 -1 -1 -1 0
+"ambition(aspiration)" -1 -1 -1 -1 0
+"ambition(authenticity)" -1 -1 -1 -1 0
+"historical fact(the common attribute)" -1 -1 -1 -1 0
+"historical fact(the polar opposite)" -1 -1 -1 -1 0
+"discrimination(desire for uniqueness and self)" -1 -1 -1 -1 0
+"discrimination(emphasis on appearance and aesthetics)" -1 -1 -1 -1 0
+"sexual commitment(visual appeal)" -1 -1 -1 -1 0
+"sexual commitment(authenticity)" -1 -1 -1 -1 0
+"love and connection(aspiration)" -1 -1 -1 -1 0
+"love and connection(simplicity)" -1 -1 -1 -1 0
+"temptation(desire for consumption versus sustainability)" -1 -1 -1 -1 0
+"temptation(seeking popularity and validation versus authenticity and individuality)" -1 -1 -1 -1 0
+"appreciation(aesthetic appeal and trendiness)" -1 -1 -1 -1 0
+"appreciation(authenticity and simplicity)" -1 -1 -1 -1 0
+"concept preference(relatability)" -1 -1 -1 -1 0
+"concept preference(authenticity)" -1 -1 -1 -1 0
+"personal attributes(trendy)" -1 -1 -1 -1 0
+"personal attributes(classic)" -1 -1 -1 -1 0
+"interest(relevance)" -1 -1 -1 -1 0
+"interest(irrelevance)" -1 -1 -1 -1 0
+"gaming industry(visual appeal)" -1 -1 -1 -1 0
+"gaming industry(authenticity.)" -1 -1 -1 -1 0
+"intellectual(inspiring)" -1 -1 -1 -1 0
+"intellectual(boring)" -1 -1 -1 -1 0
+"nickname(trendy)" -1 -1 -1 -1 0
+"nickname(luxurious)" -1 -1 -1 -1 0
+"office supplies(aesthetic)" -1 -1 -1 -1 0
+"office supplies(authenticity)" -1 -1 -1 -1 0
+"self-discovery(self)" -1 -1 -1 -1 0
+"self-discovery(superficiality)" -1 -1 -1 -1 0
+"object(trendy)" -1 -1 -1 -1 0
+"object(classic)" -1 -1 -1 -1 0
+"personal connection(aesthetic perfection and trendiness)" -1 -1 -1 -1 0
+"personal connection(authenticity and imperfection)" -1 -1 -1 -1 0
+"traditional religion(trend)" -1 -1 -1 -1 0
+"traditional religion(authenticity)" -1 -1 -1 -1 0
+"wisdom(trendy)" -1 -1 -1 -1 0
+"wisdom(authentic)" -1 -1 -1 -1 0
+"leisure(sharing and self)" -1 -1 -1 -1 0
+"leisure(authenticity and individuality)" -1 -1 -1 -1 0
+"rational thinkers(aesthetic appeal)" -1 -1 -1 -1 0
+"rational thinkers(authenticity)" -1 -1 -1 -1 0
+"personal feelings(desire)" -1 -1 -1 -1 0
+"personal feelings(humility)" -1 -1 -1 -1 0
+"individuality(trendy)" -1 -1 -1 -1 0
+"individuality(glamorous)" -1 -1 -1 -1 0
+"curiosity(adventurous)" -1 -1 -1 -1 0
+"curiosity(predictable)" -1 -1 -1 -1 0
+"calmness(trendy)" -1 -1 -1 -1 0
+"calmness(adventurous)" -1 -1 -1 -1 0
+"media influence(trendy)" -1 -1 -1 -1 0
+"media influence(authentic)" -1 -1 -1 -1 0
+"beverage preference(trendy)" -1 -1 -1 -1 0
+"beverage preference(exotic)" -1 -1 -1 -1 0
+"reason for change(individualism)" -1 -1 -1 -1 0
+"reason for change(group conformity)" -1 -1 -1 -1 0
+"mood 5(popularity)" -1 -1 -1 -1 0
+"mood 5(glamour)" -1 -1 -1 -1 0
+"aphorisms(popularity)" -1 -1 -1 -1 0
+"aphorisms(instant gratification)" -1 -1 -1 -1 0
+"crime(aesthetic)" -1 -1 -1 -1 0
+"crime(disgusting or disturbing)" -1 -1 -1 -1 0
+"goal(aesthetic)" -1 -1 -1 -1 0
+"goal(authenticity)" -1 -1 -1 -1 0
+"existence(influence)" -1 -1 -1 -1 0
+"existence(authenticity)" -1 -1 -1 -1 0
+"lyrics(self)" -1 -1 -1 -1 0
+"lyrics(conformity)" -1 -1 -1 -1 0
+"music(visual appeal)" -1 -1 -1 -1 0
+"music(authenticity)" -1 -1 -1 -1 0
+"regret(desire)" -1 -1 -1 -1 0
+"regret(contentment)" -1 -1 -1 -1 0
+"reflection(aesthetic)" -1 -1 -1 -1 0
+"reflection(authenticity)" -1 -1 -1 -1 0
+"game genres(trendy)" -1 -1 -1 -1 0
+"game genres(traditional)" -1 -1 -1 -1 0
+"family relations(trendy)" -1 -1 -1 -1 0
+"family relations(exotic)" -1 -1 -1 -1 0
+"health(trendiness)" -1 -1 -1 -1 0
+"health(authenticity)" -1 -1 -1 -1 0
+"family dynamics(trendiness)" -1 -1 -1 -1 0
+"family dynamics(timelessness)" -1 -1 -1 -1 0
+"provacativity(boldness)" -1 -1 -1 -1 0
+"provacativity(subtlety)" -1 -1 -1 -1 0
+"popular films(the common attribute of modern fashion)" -1 -1 -1 -1 0
+"popular films(the polar opposite could be the appreciation of simplicity and minimalism)" -1 -1 -1 -1 0
+"family values(aesthetic appearance)" -1 -1 -1 -1 0
+"family values(authenticity)" -1 -1 -1 -1 0
+"character description(curated)" -1 -1 -1 -1 0
+"character description(polished)" -1 -1 -1 -1 0
+"social expectations(beauty)" -1 -1 -1 -1 0
+"social expectations(authenticity)" -1 -1 -1 -1 0
+"thoughts and opinions(self)" -1 -1 -1 -1 0
+"thoughts and opinions(authenticity)" -1 -1 -1 -1 0
+"understanding(aspirational)" -1 -1 -1 -1 0
+"understanding(relatable)" -1 -1 -1 -1 0
+"individualistic perspective(self)" -1 -1 -1 -1 0
+"individualistic perspective(authenticity)" -1 -1 -1 -1 0
+"trauma(self)" -1 -1 -1 -1 0
+"trauma(simplicity)" -1 -1 -1 -1 0
+"seeking truth(adventurous)" -1 -1 -1 -1 0
+"seeking truth(trendy)" -1 -1 -1 -1 0
+"morality(appearance over substance)" -1 -1 -1 -1 0
+"morality(authenticity over superficiality)" -1 -1 -1 -1 0
+"age(trendy)" -1 -1 -1 -1 0
+"age(traditional)" -1 -1 -1 -1 0
+"historical significance(trendy)" -1 -1 -1 -1 0
+"historical significance(relevant)" -1 -1 -1 -1 0
+"external circumstances(aspiration)" -1 -1 -1 -1 0
+"external circumstances(realism)" -1 -1 -1 -1 0
+"process of change(desire for attention)" -1 -1 -1 -1 0
+"process of change(authenticity)" -1 -1 -1 -1 0
+"authencity(superficiality)" -1 -1 -1 -1 0
+"time period(modernity)" -1 -1 -1 -1 0
+"time period(tradition)" -1 -1 -1 -1 0
+"perspective(personal expression)" -1 -1 -1 -1 0
+"perspective(conformity)" -1 -1 -1 -1 0
+"financial situation(aspirational)" -1 -1 -1 -1 0
+"financial situation(glamorous)" -1 -1 -1 -1 0
+"attribute group(trendy)" -1 -1 -1 -1 0
+"attribute group(extravagant)" -1 -1 -1 -1 0
+"animal personality(trendy)" -1 -1 -1 -1 0
+"animal personality(classic)" -1 -1 -1 -1 0
+"changes in mindset(image)" -1 -1 -1 -1 0
+"changes in mindset(substance)" -1 -1 -1 -1 0
+"reasons for conversation(self)" -1 -1 -1 -1 0
+"reasons for conversation(humility and emphasizing collective experiences)" -1 -1 -1 -1 0
+"thought process(aspirational)" -1 -1 -1 -1 0
+"thought process(authentic)" -1 -1 -1 -1 0
+"socio-emotional(satisfying)" -1 -1 -1 -1 0
+"socio-emotional(chaotic)" -1 -1 -1 -1 0
+"therapist contact(visual appeal)" -1 -1 -1 -1 0
+"therapist contact(authenticity)" -1 -1 -1 -1 0
+"expectancy(lifestyle)" -1 -1 -1 -1 0
+"expectancy(simplicity)" -1 -1 -1 -1 0
+"characterization(culture and tradition)" -1 -1 -1 -1 0
+"characterization(innovation and modernity)" -1 -1 -1 -1 0
+"digital communication(authenticity)" -1 -1 -1 -1 0
+"digital communication(imitation)" -1 -1 -1 -1 0
+"physical appearance(aesthetic appeal)" -1 -1 -1 -1 0
+"physical appearance(authenticity)" -1 -1 -1 -1 0
+"logical reasoning(imagery)" -1 -1 -1 -1 0
+"logical reasoning(authenticity)" -1 -1 -1 -1 0
+"questioning reality(image)" -1 -1 -1 -1 0
+"questioning reality(materialism)" -1 -1 -1 -1 0
+"practicality(artistic expression)" -1 -1 -1 -1 0
+"practicality(practicality)" -1 -1 -1 -1 0
+"sentiment(desire for material wealth and status)" -1 -1 -1 -1 0
+"sentiment(acceptance and appreciation of simplicity and impermanence of life)" -1 -1 -1 -1 0
+"death(trendy)" -1 -1 -1 -1 0
+"death(luxurious)" -1 -1 -1 -1 0
+"group strength(tasteful)" -1 -1 -1 -1 0
+"group strength(adventurous)" -1 -1 -1 -1 0
+"influence(aspirational)" -1 -1 -1 -1 0
+"influence(authentic)" -1 -1 -1 -1 0
+"pizza toppings(tastemakers)" -1 -1 -1 -1 0
+"pizza toppings(non)" -1 -1 -1 -1 0
+"family dynamic(aspirational)" -1 -1 -1 -1 0
+"family dynamic(realistic)" -1 -1 -1 -1 0
+"open source(desire for aesthetic and trendy experiences)" -1 -1 -1 -1 0
+"open source(authenticity and uniqueness)" -1 -1 -1 -1 0
+"gratitude(lifestyle)" -1 -1 -1 -1 0
+"gratitude(simplicity)" -1 -1 -1 -1 0
+"culinary(exploration)" -1 -1 -1 -1 0
+"culinary(familiarity)" -1 -1 -1 -1 0
+"tradition(trendiness)" -1 -1 -1 -1 0
+"tradition(tradition)" -1 -1 -1 -1 0
+"employment(trendy)" -1 -1 -1 -1 0
+"employment(luxurious)" -1 -1 -1 -1 0
+"technical advancements(technological advancements)" -1 -1 -1 -1 0
+"technical advancements(authenticity)" -1 -1 -1 -1 0
+"comfort(comfort)" -1 -1 -1 -1 0
+"comfort(adventure)" -1 -1 -1 -1 0
+"philosophical opposites(materialism)" -1 -1 -1 -1 0
+"philosophical opposites(minimalism)" -1 -1 -1 -1 0
+"personal choices(authenticity)" -1 -1 -1 -1 0
+"personal choices(fantasy)" -1 -1 -1 -1 0
+"linguistic(visual appeal)" -1 -1 -1 -1 0
+"linguistic(aspirational)" -1 -1 -1 -1 0
+"personal possessions(aesthetic)" -1 -1 -1 -1 0
+"personal possessions(functionality)" -1 -1 -1 -1 0
+"book of isaiah(aesthetics)" -1 -1 -1 -1 0
+"book of isaiah(authenticity)" -1 -1 -1 -1 0
+"level of hell(trendy)" -1 -1 -1 -1 0
+"level of hell(traditional)" -1 -1 -1 -1 0
+"game role(trendy)" -1 -1 -1 -1 0
+"game role(timeless)" -1 -1 -1 -1 0
+"political leaning(trendy)" -1 -1 -1 -1 0
+"political leaning(traditional)" -1 -1 -1 -1 0
+"digital media(visual appeal)" -1 -1 -1 -1 0
+"digital media(practicality)" -1 -1 -1 -1 0
+"intercession(self)" -1 -1 -1 -1 0
+"intercession(selflessness)" -1 -1 -1 -1 0
+"stage of life(trendy)" -1 -1 -1 -1 0
+"stage of life(current)" -1 -1 -1 -1 0
+"socioeconomic status(luxury)" -1 -1 -1 -1 0
+"socioeconomic status(simplicity)" -1 -1 -1 -1 0
+"date(trendy)" -1 -1 -1 -1 0
+"date(timeless)" -1 -1 -1 -1 0
+"income(exclusivity)" -1 -1 -1 -1 0
+"income(accessibility)" -1 -1 -1 -1 0
+"perception of others(image)" -1 -1 -1 -1 0
+"perception of others(authentic and individualistic)" -1 -1 -1 -1 0
+"material preference(trendy)" -1 -1 -1 -1 0
+"material preference(traditional)" -1 -1 -1 -1 0
+"change(evolving)" -1 -1 -1 -1 0
+"change(tradition)" -1 -1 -1 -1 0
+"conformity(conformity)" -1 -1 -1 -1 0
+"conformity(individuality)" -1 -1 -1 -1 0
+"cultural norms(self)" -1 -1 -1 -1 0
+"cultural norms(conformity)" -1 -1 -1 -1 0
+"adherence to belief(trendy)" -1 -1 -1 -1 0
+"adherence to belief(unique)" -1 -1 -1 -1 0
+"social relations(popular)" -1 -1 -1 -1 0
+"social relations(unique)" -1 -1 -1 -1 0
+"hierarchy(sophistication)" -1 -1 -1 -1 0
+"hierarchy(simplicity)" -1 -1 -1 -1 0
+"emotionalism(hype)" -1 -1 -1 -1 0
+"emotionalism(authenticity)" -1 -1 -1 -1 0
+"conflict resolution(aesthetic)" -1 -1 -1 -1 0
+"conflict resolution(authentic)" -1 -1 -1 -1 0
+"technological opposites(trends)" -1 -1 -1 -1 0
+"technological opposites(luxury)" -1 -1 -1 -1 0
+"social expectation(image)" -1 -1 -1 -1 0
+"social expectation(conformity)" -1 -1 -1 -1 0
+"preferences(visual appeal)" -1 -1 -1 -1 0
+"preferences(unconventional)" -1 -1 -1 -1 0
+"superficial characteristics(aesthetic appeal and image projection)" -1 -1 -1 -1 0
+"superficial characteristics(authenticity and genuine experiences)" -1 -1 -1 -1 0
+"societal pressure(highlighting and elevating individuality)" -1 -1 -1 -1 0
+"societal pressure(conforming to societal norms and expectations)" -1 -1 -1 -1 0
+"exploitation(aesthetics)" -1 -1 -1 -1 0
+"exploitation(authenticity)" -1 -1 -1 -1 0
+"history(trends)" -1 -1 -1 -1 0
+"history(traditional)" -1 -1 -1 -1 0
+"philosophical orientation(aesthetic)" -1 -1 -1 -1 0
+"philosophical orientation(authenticity)" -1 -1 -1 -1 0
+"perception(visibility)" -1 -1 -1 -1 0
+"perception(misconception)" -1 -1 -1 -1 0
+"personal privacy(exclusivity)" -1 -1 -1 -1 0
+"personal privacy(accessibility)" -1 -1 -1 -1 0
+"concepts(exotic)" -1 -1 -1 -1 0
+"concepts(familiar)" -1 -1 -1 -1 0
+"intellect(trendy)" -1 -1 -1 -1 0
+"intellect(luxurious)" -1 -1 -1 -1 0
+"psychological realism(aspiration)" -1 -1 -1 -1 0
+"psychological realism(authenticity)" -1 -1 -1 -1 0
+"personal experiences(superficiality vs authenticity)" -1 -1 -1 -1 0
+"personal experiences(conformity vs individuality)" -1 -1 -1 -1 0
+"improbabilities(trendy)" -1 -1 -1 -1 0
+"improbabilities(traditional)" -1 -1 -1 -1 0
+"goal setting(visual appeal)" -1 -1 -1 -1 0
+"goal setting(authenticity)" -1 -1 -1 -1 0
+"spiritual hunger and thirst(visual appeal)" -1 -1 -1 -1 0
+"spiritual hunger and thirst(authenticity)" -1 -1 -1 -1 0
+"emotivity(aspirational)" -1 -1 -1 -1 0
+"emotivity(unpretentious)" -1 -1 -1 -1 0
+"silence group(sharing experiences)" -1 -1 -1 -1 0
+"silence group(individuality)" -1 -1 -1 -1 0
+"talent(adventure)" -1 -1 -1 -1 0
+"talent(comfort)" -1 -1 -1 -1 0
+"physical attribute(trendy)" -1 -1 -1 -1 0
+"physical attribute(classic)" -1 -1 -1 -1 0
+"game development(aesthetic appeal)" -1 -1 -1 -1 0
+"game development(spontaneity)" -1 -1 -1 -1 0
+"leisure activities(adventure)" -1 -1 -1 -1 0
+"leisure activities(leisurely)" -1 -1 -1 -1 0
+"social stigma(trendy | outdated)" -1 -1 -1 -1 0
+"social stigma(glamorous | dull)" -1 -1 -1 -1 0
+"courage(authenticity)" -1 -1 -1 -1 0
+"courage(awareness)" -1 -1 -1 -1 0
+"individual strength(trendy)" -1 -1 -1 -1 0
+"individual strength(luxurious)" -1 -1 -1 -1 0
+"aspirations(aspiration)" -1 -1 -1 -1 0
+"aspirations(individuality)" -1 -1 -1 -1 0
+"warning(relevancy)" -1 -1 -1 -1 0
+"warning(spontaneity)" -1 -1 -1 -1 0
+"importance(trendy)" -1 -1 -1 -1 0
+"importance(adventurous)" -1 -1 -1 -1 0
+"geography(cityscape)" -1 -1 -1 -1 0
+"geography(nature)" -1 -1 -1 -1 0
+"uniqueness(trendy)" -1 -1 -1 -1 0
+"uniqueness(authentic)" -1 -1 -1 -1 0
+"character(aesthetic)" -1 -1 -1 -1 0
+"character(authenticity)" -1 -1 -1 -1 0
+"gaming technology(visual appeal)" -1 -1 -1 -1 0
+"gaming technology(natural authenticity)" -1 -1 -1 -1 0
+"work opportunity(aspiration)" -1 -1 -1 -1 0
+"work opportunity(realism)" -1 -1 -1 -1 0
+"childhood innocence(trendiness)" -1 -1 -1 -1 0
+"childhood innocence(sophistication)" -1 -1 -1 -1 0
+"financial status(luxury and budget)" -1 -1 -1 -1 0
+"financial status(wealth and poverty)" -1 -1 -1 -1 0
+"other attribute group(adventurous and reserved)" -1 -1 -1 -1 0
+"other attribute group(trendy and classic)" -1 -1 -1 -1 0
+"media player(trendiness)" -1 -1 -1 -1 0
+"media player(accessibility)" -1 -1 -1 -1 0
+"relationships(innovation)" -1 -1 -1 -1 0
+"relationships(luxury)" -1 -1 -1 -1 0
+"positivity(positive)" -1 -1 -1 -1 0
+"positivity(negativity)" -1 -1 -1 -1 0
+"self-acceptance(trendiness)" -1 -1 -1 -1 0
+"self-acceptance(authenticity)" -1 -1 -1 -1 0
+"response(desire for attention and validation through external validation)" -1 -1 -1 -1 0
+"response(authenticity and individuality)" -1 -1 -1 -1 0
+"coming of age(desire for new experiences)" -1 -1 -1 -1 0
+"coming of age(nostalgia for the past)" -1 -1 -1 -1 0
+"internet service provider(trendy)" -1 -1 -1 -1 0
+"internet service provider(traditional)" -1 -1 -1 -1 0
+"aesthetics(aesthetic)" -1 -1 -1 -1 0
+"aesthetics(edgy)" -1 -1 -1 -1 0
+"relatability(aspirational)" -1 -1 -1 -1 0
+"relatability(relatable)" -1 -1 -1 -1 0
+"leisure activity(exploration)" -1 -1 -1 -1 0
+"leisure activity(comfort)" -1 -1 -1 -1 0
+"they need to be silenced(aspirational)" -1 -1 -1 -1 0
+"they need to be silenced(accessible)" -1 -1 -1 -1 0
+"authentic(artistic)" -1 -1 -1 -1 0
+"authoritarian(minimalism)" -1 -1 -1 -1 0
+"purchase behavior(trendy)" -1 -1 -1 -1 0
+"purchase behavior(timeless)" -1 -1 -1 -1 0
+"expression of emotions(authenticity)" -1 -1 -1 -1 0
+"expression of emotions(superficiality)" -1 -1 -1 -1 0
+"literature(aesthetic)" -1 -1 -1 -1 0
+"literature(authenticity)" -1 -1 -1 -1 0
+"evaluation(evaluation of aesthetics and appearance)" -1 -1 -1 -1 0
+"evaluation(evaluation of purpose or usefulness)" -1 -1 -1 -1 0
+"goal orientation(aspiration)" -1 -1 -1 -1 0
+"goal orientation(authenticity)" -1 -1 -1 -1 0
+"special occasions(trendy)" -1 -1 -1 -1 0
+"special occasions(classic)" -1 -1 -1 -1 0
+"game design(visual appeal)" -1 -1 -1 -1 0
+"game design(authenticity)" -1 -1 -1 -1 0
+"intimacy level(popularity)" -1 -1 -1 -1 0
+"intimacy level(individuality)" -1 -1 -1 -1 0
+"attitudes(trendy)" -1 -1 -1 -1 0
+"attitudes(traditional)" -1 -1 -1 -1 0
+"media preferences(trendy)" -1 -1 -1 -1 0
+"media preferences(timeless)" -1 -1 -1 -1 0
+"personal understanding(aesthetic)" -1 -1 -1 -1 0
+"personal understanding(authenticity)" -1 -1 -1 -1 0
+"social skills(aesthetic appeal)" -1 -1 -1 -1 0
+"social skills(authenticity)" -1 -1 -1 -1 0
+"defiance and expression(trendy)" -1 -1 -1 -1 0
+"defiance and expression(adventurous)" -1 -1 -1 -1 0
+"questioning behavior(lifestyle)" -1 -1 -1 -1 0
+"questioning behavior(authentic)" -1 -1 -1 -1 0
+"fitness preference(trendiness)" -1 -1 -1 -1 0
+"fitness preference(authenticity)" -1 -1 -1 -1 0
+"computer ownership(trendy)" -1 -1 -1 -1 0
+"computer ownership(traditional)" -1 -1 -1 -1 0
+"urgency(image)" -1 -1 -1 -1 0
+"urgency(authenticity)" -1 -1 -1 -1 0
+"style(rebellion)" -1 -1 -1 -1 0
+"style(simplicity)" -1 -1 -1 -1 0
+"work ethic(aesthetic)" -1 -1 -1 -1 0
+"work ethic(authenticity)" -1 -1 -1 -1 0
+"food preference(trendy)" -1 -1 -1 -1 0
+"food preference(traditional)" -1 -1 -1 -1 0
+"expressiveness(authenticity)" -1 -1 -1 -1 0
+"expressiveness(superficiality)" -1 -1 -1 -1 0
+"task difficulty(trendy)" -1 -1 -1 -1 0
+"task difficulty(classic)" -1 -1 -1 -1 0
+"musical taste(trendy)" -1 -1 -1 -1 0
+"musical taste(vintage)" -1 -1 -1 -1 0
+"supportive signatures(enjoying social interactions)" -1 -1 -1 -1 0
+"supportive signatures(solitude)" -1 -1 -1 -1 0
+"sociability(trendy)" -1 -1 -1 -1 0
+"sociability(timelessness)" -1 -1 -1 -1 0
+"body response(aesthetic appeal)" -1 -1 -1 -1 0
+"body response(practicality)" -1 -1 -1 -1 0
+"dream interpretation(trendy)" -1 -1 -1 -1 0
+"dream interpretation(timeless)" -1 -1 -1 -1 0
+"socioeconomic class(social status and wealth)" -1 -1 -1 -1 0
+"socioeconomic class(minimalism and simplicity)" -1 -1 -1 -1 0
+"visualization(aesthetic)" -1 -1 -1 -1 0
+"visualization(authentic)" -1 -1 -1 -1 0
+"love for god(aesthetic appreciation)" -1 -1 -1 -1 0
+"love for god(anti)" -1 -1 -1 -1 0
+"rational thinker(trendiness)" -1 -1 -1 -1 0
+"rational thinker(individuality)" -1 -1 -1 -1 0
+"sentence analysis(social media popularity)" -1 -1 -1 -1 0
+"sentence analysis(authenticity)" -1 -1 -1 -1 0
+"similarities in appearance(visual appeal)" -1 -1 -1 -1 0
+"similarities in appearance(authenticity)" -1 -1 -1 -1 0
+"artistic style(trendy)" -1 -1 -1 -1 0
+"artistic style(adventurous)" -1 -1 -1 -1 0
+"opinion 1(trendy)" -1 -1 -1 -1 0
+"opinion 1(adventurous)" -1 -1 -1 -1 0
+"pain(trendiness and glamour)" -1 -1 -1 -1 0
+"pain(simplicity and minimalism)" -1 -1 -1 -1 0
+"truthful(inspirational)" -1 -1 -1 -1 0
+"truthful(relatable)" -1 -1 -1 -1 0
+"money(sophistication)" -1 -1 -1 -1 0
+"money(authenticity)" -1 -1 -1 -1 0
+"academic progress(desire for aesthetic perfection)" -1 -1 -1 -1 0
+"academic progress(embracing imperfection and authenticity)" -1 -1 -1 -1 0
+"natural disasters(trendy)" -1 -1 -1 -1 0
+"natural disasters(traditional)" -1 -1 -1 -1 0
+"obedience and disobedience(trendiness)" -1 -1 -1 -1 0
+"obedience and disobedience(traditionality)" -1 -1 -1 -1 0
+"consumer experience(engaging)" -1 -1 -1 -1 0
+"consumer experience(boring)" -1 -1 -1 -1 0
+"impulsiveness(spontaneity)" -1 -1 -1 -1 0
+"impulsiveness(thoughtfulness)" -1 -1 -1 -1 0
+"social event(desire for excitement and novelty)" -1 -1 -1 -1 0
+"social event(desire for simplicity and authenticity)" -1 -1 -1 -1 0
+"acknowledgement(aesthetics)" -1 -1 -1 -1 0
+"acknowledgement(authenticity)" -1 -1 -1 -1 0
+"technological presence(connectedness)" -1 -1 -1 -1 0
+"technological presence(authenticity)" -1 -1 -1 -1 0
+"social isolation(luxury)" -1 -1 -1 -1 0
+"social isolation(simplicity)" -1 -1 -1 -1 0
+"openness(curated)" -1 -1 -1 -1 0
+"openness(spontaneous)" -1 -1 -1 -1 0
+"humor preference(trendy)" -1 -1 -1 -1 0
+"humor preference(adventurous)" -1 -1 -1 -1 0
+"escapism(aspiration)" -1 -1 -1 -1 0
+"escapism(reality)" -1 -1 -1 -1 0
+"coping mechanisms(extravagance)" -1 -1 -1 -1 0
+"coping mechanisms(simplicity)" -1 -1 -1 -1 0
+"focus(aesthetics)" -1 -1 -1 -1 0
+"focus(authenticity)" -1 -1 -1 -1 0
+"food experience(luxury)" -1 -1 -1 -1 0
+"food experience(budget)" -1 -1 -1 -1 0
+"decision-making(trendy)" -1 -1 -1 -1 0
+"decision-making(unique)" -1 -1 -1 -1 0
+"fear and anxiety(embracing extravagance and luxury)" -1 -1 -1 -1 0
+"fear and anxiety(rejecting materialism and embracing simplicity)" -1 -1 -1 -1 0
+"freedom(trendsetting)" -1 -1 -1 -1 0
+"freedom(luxury)" -1 -1 -1 -1 0
+"parenthood(experience)" -1 -1 -1 -1 0
+"parenthood(simplicity)" -1 -1 -1 -1 0
+"psychological orientation(self)" -1 -1 -1 -1 0
+"psychological orientation(conformity)" -1 -1 -1 -1 0
+"attraction(extravagance)" -1 -1 -1 -1 0
+"attraction(simplicity)" -1 -1 -1 -1 0
+"work-life balance(aspirational lifestyle)" -1 -1 -1 -1 0
+"work-life balance(realistic representation)" -1 -1 -1 -1 0
+"composite personality(social media presence)" -1 -1 -1 -1 0
+"composite personality(minimalism)" -1 -1 -1 -1 0
+"party anthems(trendy)" -1 -1 -1 -1 0
+"party anthems(understated)" -1 -1 -1 -1 0
+"encouragement(influential)" -1 -1 -1 -1 0
+"encouragement(authentic)" -1 -1 -1 -1 0
+"existential question(curiosity)" -1 -1 -1 -1 0
+"existential question(mundanity)" -1 -1 -1 -1 0
+"time of day(trendy)" -1 -1 -1 -1 0
+"time of day(luxurious)" -1 -1 -1 -1 0
+"procrastination(aesthetic)" -1 -1 -1 -1 0
+"procrastination(authenticity)" -1 -1 -1 -1 0
+"leadership(trendy)" -1 -1 -1 -1 0
+"leadership(timeless)" -1 -1 -1 -1 0
+"life and death(conformity)" -1 -1 -1 -1 0
+"life and death(individuality)" -1 -1 -1 -1 0
+"harmony(curated)" -1 -1 -1 -1 0
+"harmony(polished)" -1 -1 -1 -1 0
+"logical thinking(trendy)" -1 -1 -1 -1 0
+"logical thinking(timeless)" -1 -1 -1 -1 0
+"risk(aspiration)" -1 -1 -1 -1 0
+"risk(accessibility)" -1 -1 -1 -1 0
+"power dynamics(visual appeal)" -1 -1 -1 -1 0
+"power dynamics(hyper)" -1 -1 -1 -1 0
+"romantic couple(trendy)" -1 -1 -1 -1 0
+"romantic couple(classic)" -1 -1 -1 -1 0
+"love(trendy)" -1 -1 -1 -1 0
+"love(luxurious)" -1 -1 -1 -1 0
+"intentional love(current trends)" -1 -1 -1 -1 0
+"intentional love(timelessness)" -1 -1 -1 -1 0
+"self-motivation(social media presence and aesthetic appeal)" -1 -1 -1 -1 0
+"self-motivation(authenticity and individuality)" -1 -1 -1 -1 0
+"career(lifestyle)" -1 -1 -1 -1 0
+"career(simplicity)" -1 -1 -1 -1 0
+"fast food preference(popular)" -1 -1 -1 -1 0
+"fast food preference(traditional)" -1 -1 -1 -1 0
+"mindfulnes(visual appeal)" -1 -1 -1 -1 0
+"mindfulnes(authenticity)" -1 -1 -1 -1 0
+"music genre(trendy)" -1 -1 -1 -1 0
+"music genre(timeless)" -1 -1 -1 -1 0
+"romantic preference(following trends)" -1 -1 -1 -1 0
+"romantic preference(being unique)" -1 -1 -1 -1 0
+"emotional commitment(materialism)" -1 -1 -1 -1 0
+"emotional commitment(minimalism)" -1 -1 -1 -1 0
+"medium(trendy)" -1 -1 -1 -1 0
+"medium(adventurous)" -1 -1 -1 -1 0
+"career aspirations(appearance)" -1 -1 -1 -1 0
+"career aspirations(authenticity)" -1 -1 -1 -1 0
+"transparency(transparency)" -1 -1 -1 -1 0
+"transparency(mysteriousness)" -1 -1 -1 -1 0
+"nature preference(aesthetic appeal)" -1 -1 -1 -1 0
+"nature preference(authentic experience)" -1 -1 -1 -1 0
+"material possessions(showing off wealth)" -1 -1 -1 -1 0
+"material possessions(embracing minimalism or simplicity)" -1 -1 -1 -1 0
+"expectation spectrum(aspirational)" -1 -1 -1 -1 0
+"expectation spectrum(realistic)" -1 -1 -1 -1 0
+"moral beliefs(\"trendy\")" -1 -1 -1 -1 0
+"moral beliefs(\"authentic\")" -1 -1 -1 -1 0
+"future plans(trendy)" -1 -1 -1 -1 0
+"future plans(timeless)" -1 -1 -1 -1 0
+"media coverage(visibility)" -1 -1 -1 -1 0
+"media coverage(authenticity)" -1 -1 -1 -1 0
+"credibility(authenticity)" -1 -1 -1 -1 0
+"credibility(creativity)" -1 -1 -1 -1 0
+"geopolitical relations(influence)" -1 -1 -1 -1 0
+"geopolitical relations(individuality)" -1 -1 -1 -1 0
+"emotion 3(trendy)" -1 -1 -1 -1 0
+"emotion 3(adventurous)" -1 -1 -1 -1 0
+"you need help and we can contribute(visual presentation)" -1 -1 -1 -1 0
+"you need help and we can contribute(authenticity)" -1 -1 -1 -1 0
+"peace(trendy)" -1 -1 -1 -1 0
+"peace(classic)" -1 -1 -1 -1 0
+"quiz(authenticity)" -1 -1 -1 -1 0
+"quiz(luxury)" -1 -1 -1 -1 0
+"emotional impact(emotional impact)" -1 -1 -1 -1 0
+"emotional impact(visual appeal)" -1 -1 -1 -1 0
+"performance(social media presence)" -1 -1 -1 -1 0
+"performance(authenticity)" -1 -1 -1 -1 0
+"creative process(instant gratification)" -1 -1 -1 -1 0
+"creative process(long)" -1 -1 -1 -1 0
+"brand(sleek)" -1 -1 -1 -1 0
+"brand(edgy)" -1 -1 -1 -1 0
+"sexual behavior(aesthetic sensitivity)" -1 -1 -1 -1 0
+"sexual behavior(practicality)" -1 -1 -1 -1 0
+"marketing and merchandise(visual appeal)" -1 -1 -1 -1 0
+"marketing and merchandise(authenticity)" -1 -1 -1 -1 0
+"time orientation(aestheticism)" -1 -1 -1 -1 0
+"time orientation(non)" -1 -1 -1 -1 0
+"rational belief(trendy)" -1 -1 -1 -1 0
+"rational belief(traditional)" -1 -1 -1 -1 0
+"religious community(aesthetic appeal)" -1 -1 -1 -1 0
+"religious community(simplicity)" -1 -1 -1 -1 0
+"reason(trendy)" -1 -1 -1 -1 0
+"reason(edgy)" -1 -1 -1 -1 0
+"time-related concept(trendiness)" -1 -1 -1 -1 0
+"time-related concept(authenticity)" -1 -1 -1 -1 0
+"body preference(aesthetic appeal)" -1 -1 -1 -1 0
+"body preference(authenticity)" -1 -1 -1 -1 0
+"personal needs(aesthetic)" -1 -1 -1 -1 0
+"personal needs(authentic)" -1 -1 -1 -1 0
+"energy(trendy and classic)" -1 -1 -1 -1 0
+"energy(adventurous and relaxed)" -1 -1 -1 -1 0
+"motivational(aspirational)" -1 -1 -1 -1 0
+"motivational(empowering)" -1 -1 -1 -1 0
+"feelings(aspirational)" -1 -1 -1 -1 0
+"feelings(authentic)" -1 -1 -1 -1 0
+"familiar character types(self)" -1 -1 -1 -1 0
+"familiar character types(authenticity)" -1 -1 -1 -1 0
+"salvation(trendy)" -1 -1 -1 -1 0
+"salvation(traditional)" -1 -1 -1 -1 0
+"television shows(trendy and popular places for travel)" -1 -1 -1 -1 0
+"television shows(underrated and lesser)" -1 -1 -1 -1 0
+"fear/anxiety(aesthetics)" -1 -1 -1 -1 0
+"fear/anxiety(authenticity)" -1 -1 -1 -1 0
+"organization(creativity)" -1 -1 -1 -1 0
+"organization(conformity)" -1 -1 -1 -1 0
+"individualistic culture(individualistic)" -1 -1 -1 -1 0
+"individualistic culture(communal)" -1 -1 -1 -1 0
+"self-realization(self)" -1 -1 -1 -1 0
+"self-realization(minimalism)" -1 -1 -1 -1 0
+"personal moral(materialism)" -1 -1 -1 -1 0
+"personal moral(simplicity)" -1 -1 -1 -1 0
+"cultural values(sensationalism)" -1 -1 -1 -1 0
+"cultural values(simplicity)" -1 -1 -1 -1 0
+"philosophical reflection(superficiality)" -1 -1 -1 -1 0
+"philosophical reflection(authenticity)" -1 -1 -1 -1 0
+"spiritual seekers(trendy)" -1 -1 -1 -1 0
+"spiritual seekers(traditional)" -1 -1 -1 -1 0
+"seeker of truth(aspiration)" -1 -1 -1 -1 0
+"seeker of truth(authenticity)" -1 -1 -1 -1 0
+"technology preference(trendy)" -1 -1 -1 -1 0
+"technology preference(classic)" -1 -1 -1 -1 0
+"addiction(attention)" -1 -1 -1 -1 0
+"addiction(minimalism)" -1 -1 -1 -1 0
+"technological struggles(visual appeal)" -1 -1 -1 -1 0
+"technological struggles(authenticity)" -1 -1 -1 -1 0
+"recreational activities(trendy)" -1 -1 -1 -1 0
+"recreational activities(luxurious)" -1 -1 -1 -1 0
+"power(appreciation of luxury)" -1 -1 -1 -1 0
+"power(modern fashion)" -1 -1 -1 -1 0
+"financial responsibility(aspiration)" -1 -1 -1 -1 0
+"financial responsibility(authenticity)" -1 -1 -1 -1 0
+"story-mode(visual appeal)" -1 -1 -1 -1 0
+"story-mode(authenticity)" -1 -1 -1 -1 0
+"group game(trendiness)" -1 -1 -1 -1 0
+"group game(authenticity)" -1 -1 -1 -1 0
+"creative expression(visual appeal)" -1 -1 -1 -1 0
+"creative expression(authenticity)" -1 -1 -1 -1 0
+"psychological(trendy)" -1 -1 -1 -1 0
+"psychological(adventurous)" -1 -1 -1 -1 0
+"social movements(aspiration)" -1 -1 -1 -1 0
+"social movements(authenticity)" -1 -1 -1 -1 0
+"religious(visual appeal)" -1 -1 -1 -1 0
+"religious(authenticity)" -1 -1 -1 -1 0
+"gift giving(high quality and aesthetically pleasing content)" -1 -1 -1 -1 0
+"gift giving(authentic and genuine representation)" -1 -1 -1 -1 0
+"alcohol consumption(luxurious lifestyle)" -1 -1 -1 -1 0
+"alcohol consumption(simple and minimal)" -1 -1 -1 -1 0
+"romanticism(extravagance)" -1 -1 -1 -1 0
+"romanticism(minimalism)" -1 -1 -1 -1 0
+"visual preference(aesthetic appeal)" -1 -1 -1 -1 0
+"visual preference(practicality)" -1 -1 -1 -1 0
+"determination(aspiration)" -1 -1 -1 -1 0
+"determination(authenticity)" -1 -1 -1 -1 0
+"awareness(trendy)" -1 -1 -1 -1 0
+"awareness(exotic)" -1 -1 -1 -1 0
+"question(desire for social validation through experiences and material possessions)" -1 -1 -1 -1 0
+"question(rejection of societal expectations and pressures)" -1 -1 -1 -1 0
+"family relationships(trendy)" -1 -1 -1 -1 0
+"family relationships(adventurous)" -1 -1 -1 -1 0
+"health and wellness(trends and novelty)" -1 -1 -1 -1 0
+"health and wellness(tradition and authenticity)" -1 -1 -1 -1 0
+"individual preference(trendy)" -1 -1 -1 -1 0
+"individual preference(traditional)" -1 -1 -1 -1 0
+"spiritual beliefs(visual appeal)" -1 -1 -1 -1 0
+"spiritual beliefs(authenticity)" -1 -1 -1 -1 0
+"irrationality(superficiality)" -1 -1 -1 -1 0
+"irrationality(authenticity)" -1 -1 -1 -1 0
+"technological progress(innovation)" -1 -1 -1 -1 0
+"technological progress(tradition or nostalgia)" -1 -1 -1 -1 0
+"anticipation(curiosity)" -1 -1 -1 -1 0
+"anticipation(familiarity)" -1 -1 -1 -1 0
+"impatience(mindful moderation)" -1 -1 -1 -1 0
+"personal achievement(extravagance)" -1 -1 -1 -1 0
+"personal achievement(simplicity)" -1 -1 -1 -1 0
+"lyrically charged(stylish and trend)" -1 -1 -1 -1 0
+"lyrically charged(natural and casual)" -1 -1 -1 -1 0
+"time frame(trendy)" -1 -1 -1 -1 0
+"time frame(timeless)" -1 -1 -1 -1 0
+"timeline(10)" -1 -1 -1 -1 0
+"game preference(role)" -1 -1 -1 -1 0
+"entertainment preferences(action)" -1 -1 -1 -1 0
+"contrarian belief groups(anti)" -1 -1 -1 -1 0
+"sexual expression(non)" -1 -1 -1 -1 0
+"interpersonal relationship(arch)" -1 -1 -1 -1 0
+"financial outlook(well)" -1 -1 -1 -1 0
+"programming(best travel destinations)" -1 -1 -1 -1 0
+"programming(best food bloggers)" -1 -1 -1 -1 0
+"website(sign)" -1 -1 -1 -1 0
+"website(check)" -1 -1 -1 -1 0
+"corporate relations(anti)" -1 -1 -1 -1 0
+"philosophical pondering(contemplation of self)" -1 -1 -1 -1 0
+"self-doubt(self)" -1 -1 -1 -1 0
+"national threats(preservation)" -1 -1 -1 -1 0
+"defense mechanism(d)" -1 -1 -1 -1 0
+"human tendency(2. easily amused)" -1 -1 -1 -1 0
+"democratic process(travel posts)" -1 -1 -1 -1 0
+"democratic process(food posts)" -1 -1 -1 -1 0
+"expectation focus(expectation)" -1 -1 -1 -1 0
+"avg expectations(expectation)" -1 -1 -1 -1 0
+"social events(having a good time)" -1 -1 -1 -1 0
+"fears(fear of heights)" -1 -1 -1 -1 0
+"youth target(youth)" -1 -1 -1 -1 0
+"context(future)" -1 -1 -1 -1 0
+"group experiences(group)" -1 -1 -1 -1 0
+"social hierarchy('social hierarchy')" -1 -1 -1 -1 0
+"social hierarchy('marginalized individuals')" -1 -1 -1 -1 0
+"questioning sexuality(child)" -1 -1 -1 -1 0
+"compassionate animal(travel)" -1 -1 -1 -1 0
+"compassionate animal(fashion)" -1 -1 -1 -1 0
+"implicit or explicit patterns(modern fashion)" -1 -1 -1 -1 0
+"implicit or explicit patterns(travel posts)" -1 -1 -1 -1 0
+"relational focus(partner)" -1 -1 -1 -1 0
+"relational focus(individual)" -1 -1 -1 -1 0
+"ethical responsibility(individual)" -1 -1 -1 -1 0
+"socio-cultural(individual)" -1 -1 -1 -1 0
+"animal reactions(imitates others)" -1 -1 -1 -1 0
+"emotional(travel)" -1 -1 -1 -1 0
+"emotional(food)" -1 -1 -1 -1 0
+"individual-focused(5)" -1 -1 -1 -1 0
+"individual-focused(luxury accommodations)" -1 -1 -1 -1 0
+"natural opposite(food)" -1 -1 -1 -1 0
+"natural opposite(travel)" -1 -1 -1 -1 0
+"behavior related attribute(wearing a superman t)" -1 -1 -1 -1 0
+"fair democracy(local)" -1 -1 -1 -1 0
+"patientce(long)" -1 -1 -1 -1 0
+"loss(losing money)" -1 -1 -1 -1 0
+"type of meal(supper)" -1 -1 -1 -1 0
+"specific date and time(monday)" -1 -1 -1 -1 0
+"personal item(possible name for an ipod)" -1 -1 -1 -1 0
+"belief in a higher power(travel)" -1 -1 -1 -1 0
+"belief in a higher power(fashion)" -1 -1 -1 -1 0
+"body shaming(self)" -1 -1 -1 -1 0
+"new age spirituality(self)" -1 -1 -1 -1 0
+"beliefs spectrum(non)" -1 -1 -1 -1 0
+"religious belief(non)" -1 -1 -1 -1 0
+"conspiracy theorists(hyper)" -1 -1 -1 -1 0
+"humanity's potential(travel)" -1 -1 -1 -1 0
+"humanity's potential(fashion)" -1 -1 -1 -1 0
+"romantic relationship(partner)" -1 -1 -1 -1 0
+"intensity of thoughts(people)" -1 -1 -1 -1 0
+"art(post)" -1 -1 -1 -1 0
+"therapeutic technique(hands)" -1 -1 -1 -1 0
+"physical health(prioritizes own well)" -1 -1 -1 -1 0
+"sacred and profane(travel)" -1 -1 -1 -1 0
+"sacred and profane(food)" -1 -1 -1 -1 0
+"love focus(quality time)" -1 -1 -1 -1 0
+"fear & reason seekers(food)" -1 -1 -1 -1 0
+"fear & reason seekers(travel)" -1 -1 -1 -1 0
+"equality(rule)" -1 -1 -1 -1 0
+"religious communities(individual)" -1 -1 -1 -1 0
+"humour style(self)" -1 -1 -1 -1 0
+"victim blaming(self)" -1 -1 -1 -1 0
+"self-confidence(fluctuating feelings of self)" -1 -1 -1 -1 0
+"self-confidence(self)" -1 -1 -1 -1 0
+"social behavior(self)" -1 -1 -1 -1 0
+"family focus(family)" -1 -1 -1 -1 0
+"size comparisons(bigger)" -1 -1 -1 -1 0
+"size comparisons(smaller)" -1 -1 -1 -1 0
+"responsible consumption(non)" -1 -1 -1 -1 0
+"invitation(proposal)" -1 -1 -1 -1 0
+"invitation(networking)" -1 -1 -1 -1 0
+"attentiveness(soon proceeding)" -1 -1 -1 -1 0
+"power and strength(travel)" -1 -1 -1 -1 0
+"power and strength(food)" -1 -1 -1 -1 0
+"transformer(transmogrification)" -1 -1 -1 -1 0
+"technology ownership(t)" -1 -1 -1 -1 0
+"conceptualization(trope)" -1 -1 -1 -1 0
+"disability(problem solving strategy)" -1 -1 -1 -1 0
+"voice(voice)" -1 -1 -1 -1 0
+"conflict(cooperation)" -1 -1 -1 -1 0
+"conflict(desperate)" -1 -1 -1 -1 0
+"behaviour(well)" -1 -1 -1 -1 0

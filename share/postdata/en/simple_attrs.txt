@@ -1,0 +1,992 @@
+"physical preference" 4293 7821
+"faith extremes" 7822 7823
+"theological opposites" 7824 7825
+"group faith" 7826 7827
+"belief communities" 4868 7828
+"relationship" 7829 7830
+"cultural elements" 4705 4122
+"group experience" 7831 7832
+"time" 7833 7834
+"communication" 7835 7836
+"expression" 4317 7837
+"authenticity" 3522 7838
+"problem solving strategy" 4874 7839
+"culture" 6622 7840
+"faith and reason seekers" 7841 7842
+"motivation" 7843 7844
+"reality" 40 41
+"emotion" 149 1400
+"responsibility" 1414 7845
+"technology" 7846 7847
+"social" 7848 7849
+"situation relation" 57 7850
+"identity" 7851 7852
+"emotional realism" 7853 7854
+"average expectations" 7855 7856
+"production style" 7857 7858
+"belief spectrum" 7859 7860
+"old and new believers" 7861 7862
+"creativity" 6711 3675
+"emotional state" 7863 7864
+"rationality" 7865 7866
+"attitude" 7867 7868
+"human strength" 7869 7870
+"technical issues" 7871 7872
+"societal norms" 6965 7873
+"love status" 7874 7875
+"sexualization" 7876 1675
+"attitude 1" 7877 7878
+"life and love" 7879 7880
+"sophistication" 908 872
+"fear" 7881 7882
+"truthfulness" 7883 7884
+"aspiration" 1774 5382
+"sexual orientation" 7885 7886
+"mindfulness" 7887 4019
+"behavior" 7888 7889
+"rational believers" 7890 7891
+"storymode" 7892 231
+"location" 7893 7894
+"list \"a\"" 7895 6756
+"entertainment" 7896 7897
+"imagination" 7898 7899
+"intimacy" 7900 7901
+"lyrical emphasis" 7902 7903
+"language" 7904 7905
+"personality" 7906 7907
+"audience" 70 3125
+"humanity" 290 5686
+"gender" 7908 7909
+"family" 7910 7911
+"person/group being appreciated" 7912 7913
+"body image" 7914 7915
+"integrity" 7916 7917
+"economic" 863 7918
+"education" 7919 7920
+"self-awareness" 7921 7922
+"lifestyle" 4596 2
+"attitude 3" 62 7923
+"personal experience" 7924 7925
+"intention" 7926 7927
+"concept" 7928 7929
+"patience" 241 706
+"environment" 7930 7931
+"expectations" 210 7932
+"party relation" 7933 7934
+"friendship" 7935 7936
+"authority" 7937 7938
+"relationship focus" 7939 7940
+"mood 1" 6913 237
+"societal values" 6955 7941
+"mental state" 7942 7943
+"travel" 7944 7945
+"time management" 7946 7947
+"honesty" 7948 2222
+"societal expectations" 7949 7950
+"age target" 7951 1844
+"individual spirituality" 7952 7953
+"sexual acting" 7954 7955
+"romantic love" 7956 7957
+"situation" 7958 7959
+"attitude 2" 7960 7961
+"completely opposite" 7962 7963
+"humor" 7964 7965
+"productivity" 7966 7967
+"mood 3" 7968 7969
+"narrative" 7970 7971
+"experience focus" 7972 7973
+"memory" 7974 7975
+"belief extremes" 7976 7977
+"perseverance" 7978 7979
+"mindset" 7980 7981
+"work" 7982 7983
+"celebrity persona" 7984 7985
+"spirituality" 7986 7987
+"segmentation" 7988 7989
+"place and time" 7990 7990
+"ethos extremes" 7991 7992
+"expectation-conformed" 7993 7994
+"beliefs" 7995 7996
+"person of faith" 7997 7998
+"mental health" 7999 8000
+"experience" 8001 8002
+"media" 8003 8004
+"physical state" 8005 8006
+"peacefulness" 8007 8008
+"existentialism" 8009 2047
+"unknown" 8010 8011
+"mood" 8012 5317
+"socio-economic status" 8013 8014
+"color" 8015 8016
+"personal relationships" 8017 8018
+"self-perception" 8019 8020
+"existential" 8021 8022
+"story-motivation" 8023 8024
+"art and creativity" 8025 8026
+"individual" 8027 8028
+"socioeconomic" 7113 1931
+"expectation" 8029 5208
+"intuitive thinkers" 8030 8031
+"religion" 8032 8033
+"love and relationships" 8034 8035
+"self-reflection" 8036 8036
+"purpose" 8037 8038
+"country" 8039 8040
+"maturity" 8041 8042
+"frustration" 8043 8044
+"intelligence" 8045 8046
+"appearance" 8047 7715
+"nature" 8048 8049
+"individualism" 8050 8051
+"provocativity" 8052 8053
+"sexual preference" 8054 8055
+"action" 8056 8057
+"sophisticated" 1609 3311
+"sexuality" 8058 8059
+"animal behavior" 8060 8061
+"transformation" 8062 8063
+"song" 8064 8065
+"mood 4" 8066 8067
+"social media" 8068 8069
+"political" 8070 8071
+"independence" 224 221
+"artistic expression" 8072 8073
+"technical difficulty" 8074 8075
+"personal project" 8076 8077
+"socio-economic" 8078 8079
+"sleep" 8080 8081
+"personal growth" 8082 8083
+"commercial appeal" 1364 983
+"bizarre" 8084 8085
+"individual identity" 8086 8087
+"storytelling" 8088 8089
+"collaboration" 8090 8091
+"self-improvement" 8092 8093
+"creative projects" 8094 8095
+"inspiration" 8096 8097
+"source of inspiration" 8098 8099
+"relationship status" 8100 8101
+"seekers of truth" 8102 8103
+"mood 2" 8104 8105
+"cultural identity" 8106 8107
+"social interaction" 8108 8109
+"faith" 8110 8111
+"school" 8112 8113
+"artistic integrity" 8114 8115
+"problem-solving strategy" 8116 8117
+"society" 8118 8119
+"celebration" 8120 8121
+"competition" 8122 8123
+"complexity" 4904 8124
+"zeitgeist" 8125 8126
+"personality trait" 8127 8128
+"family and relationships" 8129 8130
+"existential belief" 8131 8132
+"compassion for animals" 8133 8134
+"activity" 8135 8136
+"emotions" 8137 8138
+"exploration" 8139 8140
+"opinion" 8141 8142
+"self-care group" 8143 8144
+"temporal orientation" 8145 8145
+"belief groups" 8146 8147
+"emotionality" 8148 8149
+"relation to others" 8150 8151
+"introspection" 8152 8153
+"target of love" 8154 8155
+"physical characteristics" 8156 8157
+"societal issues" 8158 8159
+"provocative" 8160 8161
+"patient" 619 8162
+"image" 8163 8164
+"imagery" 8165 8166
+"life" 8167 8168
+"whole number value" 1806 1817
+"seeking validation" 8169 8170
+"trust" 8171 8172
+"event" 8173 8174
+"hygiene" 8175 8176
+"body positivity" 8177 8178
+"individual-oriented" 8179 8180
+"popular culture" 8181 8182
+"name" 1718 1726
+"economics" 8183 8184
+"possession" 8185 8186
+"emotional attribute" 8187 8188
+"intensity" 8189 8190
+"interpersonal relations" 8191 8192
+"human connection" 8193 8194
+"corporation relations" 744 7382
+"psychological state" 8195 8196
+"food" 8197 8198
+"small talk" 8199 8200
+"belief" 8201 8202
+"therapy approach" 8203 8204
+"resources" 8205 8206
+"ethos" 8207 8208
+"self-expression" 8209 8210
+"child safety" 8211 8212
+"weather" 8213 8214
+"genre" 8215 8216
+"self-care" 8217 8217
+"philosophical" 8218 8219
+"storyline" 8220 8221
+"pursuit of thrill" 8222 8223
+"personal goals" 8224 8225
+"accountability" 8226 8227
+"spiritual practice" 8228 8229
+"provocative thoughts" 8230 8231
+"game genre" 8232 8233
+"physical attraction" 8234 8235
+"theology opposites" 8236 8237
+"financial concerns" 8238 8239
+"community" 8240 8241
+"economy" 8242 8243
+"social dynamics" 8244 8245
+"technology troubleshooting" 8246 8247
+"theology" 8248 8249
+"spiritual seeker" 8250 8251
+"diversity" 8252 8253
+"cynicism" 2182 6104
+"materialism" 8254 8255
+"personality traits" 8256 8257
+"ambition" 8258 8259
+"historical fact" 8260 8261
+"discrimination" 8262 8263
+"sexual commitment" 8264 8265
+"love and connection" 8266 8267
+"temptation" 8268 8269
+"appreciation" 8270 8271
+"concept preference" 8272 8273
+"personal attributes" 8274 8275
+"interest" 8276 8277
+"gaming industry" 8278 8279
+"intellectual" 8280 8281
+"nickname" 8282 8283
+"office supplies" 8284 8285
+"self-discovery" 8286 8287
+"object" 8288 8289
+"personal connection" 8290 8291
+"traditional religion" 8292 8293
+"wisdom" 8294 8295
+"leisure" 8296 8297
+"rational thinkers" 8298 8299
+"personal feelings" 8300 8301
+"individuality" 8302 8303
+"curiosity" 8304 8305
+"calmness" 8306 8307
+"media influence" 8308 8309
+"beverage preference" 8310 8311
+"reason for change" 8312 8313
+"mood 5" 8314 8315
+"aphorisms" 8316 8317
+"crime" 8318 8319
+"goal" 8320 8321
+"existence" 8322 8323
+"lyrics" 8324 8325
+"music" 8326 8327
+"regret" 8328 8329
+"reflection" 8330 8331
+"game genres" 8332 8333
+"family relations" 8334 8335
+"health" 8336 8337
+"family dynamics" 8338 8339
+"provacativity" 8340 8341
+"popular films" 8342 8343
+"family values" 8344 8345
+"character description" 8346 8347
+"social expectations" 8348 8349
+"thoughts and opinions" 8350 8351
+"understanding" 8352 8353
+"individualistic perspective" 8354 8355
+"trauma" 8356 8357
+"seeking truth" 8358 8359
+"morality" 8360 8361
+"age" 8362 8363
+"historical significance" 8364 8365
+"external circumstances" 8366 8367
+"process of change" 8368 8369
+"authencity" 3429 8370
+"time period" 8371 8372
+"perspective" 8373 8374
+"financial situation" 8375 8376
+"attribute group" 8377 8378
+"animal personality" 8379 8380
+"changes in mindset" 8381 8382
+"reasons for conversation" 8383 8384
+"thought process" 8385 8386
+"socio-emotional" 8387 8388
+"therapist contact" 8389 8390
+"expectancy" 8391 8392
+"characterization" 8393 8394
+"digital communication" 8395 8396
+"physical appearance" 8397 8398
+"logical reasoning" 8399 8400
+"questioning reality" 8401 8402
+"practicality" 8403 8404
+"sentiment" 8405 8406
+"death" 8407 8408
+"group strength" 8409 8410
+"influence" 8411 8412
+"pizza toppings" 8413 8414
+"family dynamic" 8415 8416
+"open source" 8417 8418
+"gratitude" 8419 8420
+"culinary" 8421 8422
+"tradition" 8423 8424
+"employment" 8425 8426
+"technical advancements" 8427 8428
+"comfort" 8429 8430
+"philosophical opposites" 8431 8432
+"personal choices" 8433 8434
+"linguistic" 8435 8436
+"personal possessions" 8437 8438
+"book of isaiah" 8439 8440
+"level of hell" 8441 8442
+"game role" 8443 8444
+"political leaning" 8445 8446
+"digital media" 8447 8448
+"intercession" 8449 8450
+"stage of life" 8451 8452
+"socioeconomic status" 8453 8454
+"date" 8455 8456
+"income" 8457 8458
+"perception of others" 8459 8460
+"material preference" 8461 8462
+"change" 8463 8464
+"conformity" 8465 8466
+"cultural norms" 8467 8468
+"adherence to belief" 8469 8470
+"social relations" 8471 8472
+"hierarchy" 8473 8474
+"emotionalism" 8475 8476
+"conflict resolution" 8477 8478
+"technological opposites" 8479 8480
+"social expectation" 8481 8482
+"preferences" 8483 8484
+"superficial characteristics" 8485 8486
+"societal pressure" 8487 8488
+"exploitation" 8489 8490
+"history" 8491 8492
+"philosophical orientation" 8493 8494
+"perception" 8495 8496
+"personal privacy" 8497 8498
+"concepts" 8499 8500
+"intellect" 8501 8502
+"realism" 4284 2451
+"psychological realism" 8503 8504
+"personal experiences" 8505 8506
+"improbabilities" 8507 8508
+"goal setting" 8509 8510
+"spiritual hunger and thirst" 8511 8512
+"emotivity" 8513 8514
+"silence group" 8515 8516
+"talent" 8517 8518
+"physical attribute" 8519 8520
+"game development" 8521 8522
+"leisure activities" 8523 8524
+"social stigma" 8525 8526
+"courage" 8527 8528
+"individual strength" 8529 8530
+"aspirations" 8531 8532
+"warning" 8533 8534
+"importance" 8535 8536
+"geography" 8537 8538
+"uniqueness" 8539 8540
+"character" 8541 8542
+"gaming technology" 8543 8544
+"work opportunity" 8545 8546
+"childhood innocence" 8547 8548
+"financial status" 8549 8550
+"other attribute group" 8551 8552
+"media player" 8553 8554
+"relationships" 8555 8556
+"positivity" 8557 8558
+"self-acceptance" 8559 8560
+"response" 8561 8562
+"coming of age" 8563 8564
+"internet service provider" 8565 8566
+"aesthetics" 8567 8568
+"relatability" 8569 8570
+"leisure activity" 8571 8572
+"they need to be silenced" 8573 8574
+"authentic" 8575 3644
+"authoritarian" 4074 8576
+"purchase behavior" 8577 8578
+"expression of emotions" 8579 8580
+"literature" 8581 8582
+"evaluation" 8583 8584
+"goal orientation" 8585 8586
+"special occasions" 8587 8588
+"game design" 8589 8590
+"intimacy level" 8591 8592
+"attitudes" 8593 8594
+"media preferences" 8595 8596
+"personal understanding" 8597 8598
+"social skills" 8599 8600
+"defiance and expression" 8601 8602
+"questioning behavior" 8603 8604
+"fitness preference" 8605 8606
+"computer ownership" 8607 8608
+"urgency" 8609 8610
+"style" 8611 8612
+"work ethic" 8613 8614
+"food preference" 8615 8616
+"expressiveness" 8617 8618
+"task difficulty" 8619 8620
+"musical taste" 8621 8622
+"supportive signatures" 8623 8624
+"sociability" 8625 8626
+"body response" 8627 8628
+"dream interpretation" 8629 8630
+"socioeconomic class" 8631 8632
+"visualization" 8633 8634
+"love for god" 8635 8636
+"rational thinker" 8637 8638
+"sentence analysis" 8639 8640
+"similarities in appearance" 8641 8642
+"artistic style" 8643 8644
+"opinion 1" 8645 8646
+"pain" 8647 8648
+"truthful" 8649 8650
+"money" 8651 8652
+"academic progress" 8653 8654
+"natural disasters" 8655 8656
+"obedience and disobedience" 8657 8658
+"consumer experience" 8659 8660
+"impulsiveness" 8661 8662
+"social event" 8663 8664
+"acknowledgement" 8665 8666
+"technological presence" 8667 8668
+"social isolation" 8669 8670
+"openness" 8671 8672
+"humor preference" 8673 8674
+"escapism" 8675 8676
+"coping mechanisms" 8677 8678
+"focus" 8679 8680
+"food experience" 8681 8682
+"decision-making" 8683 8684
+"fear and anxiety" 8685 8686
+"freedom" 8687 8688
+"parenthood" 8689 8690
+"psychological orientation" 8691 8692
+"attraction" 8693 8694
+"work-life balance" 8695 8696
+"composite personality" 8697 8698
+"party anthems" 8699 8700
+"encouragement" 8701 8702
+"existential question" 8703 8704
+"time of day" 8705 8706
+"procrastination" 8707 8708
+"leadership" 8709 8710
+"life and death" 8711 8712
+"harmony" 8713 8714
+"logical thinking" 8715 8716
+"risk" 8717 8718
+"power dynamics" 8719 8720
+"romantic couple" 8721 8722
+"love" 8723 8724
+"intentional love" 8725 8726
+"self-motivation" 8727 8728
+"career" 8729 8730
+"fast food preference" 8731 8732
+"mindfulnes" 8733 8734
+"music genre" 8735 8736
+"romantic preference" 8737 8738
+"emotional commitment" 8739 8740
+"medium" 8741 8742
+"career aspirations" 8743 8744
+"transparency" 8745 8746
+"nature preference" 8747 8748
+"material possessions" 8749 8750
+"expectation spectrum" 8751 8752
+"moral beliefs" 8753 8754
+"future plans" 8755 8756
+"media coverage" 8757 8758
+"credibility" 8759 8760
+"geopolitical relations" 8761 8762
+"emotion 3" 8763 8764
+"you need help and we can contribute" 8765 8766
+"peace" 8767 8768
+"quiz" 8769 8770
+"emotional impact" 8771 8772
+"performance" 8773 8774
+"creative process" 8775 8776
+"brand" 8777 8778
+"sexual behavior" 8779 8780
+"marketing and merchandise" 8781 8782
+"time orientation" 8783 8784
+"rational belief" 8785 8786
+"religious community" 8787 8788
+"reason" 8789 8790
+"time-related concept" 8791 8792
+"body preference" 8793 8794
+"personal needs" 8795 8796
+"energy" 8797 8798
+"motivational" 8799 8800
+"feelings" 8801 8802
+"familiar character types" 8803 8804
+"salvation" 8805 8806
+"television shows" 8807 8808
+"fear/anxiety" 8809 8810
+"organization" 8811 8812
+"individualistic culture" 8813 8814
+"self-realization" 8815 8816
+"personal moral" 8817 8818
+"cultural values" 8819 8820
+"philosophical reflection" 8821 8822
+"spiritual seekers" 8823 8824
+"seeker of truth" 8825 8826
+"technology preference" 8827 8828
+"addiction" 8829 8830
+"technological struggles" 8831 8832
+"recreational activities" 8833 8834
+"power" 8835 8836
+"financial responsibility" 8837 8838
+"story-mode" 8839 8840
+"group game" 8841 8842
+"creative expression" 8843 8844
+"psychological" 8845 8846
+"social movements" 8847 8848
+"religious" 8849 8850
+"gift giving" 8851 8852
+"alcohol consumption" 8853 8854
+"romanticism" 8855 8856
+"visual preference" 8857 8858
+"determination" 8859 8860
+"awareness" 8861 8862
+"question" 8863 8864
+"family relationships" 8865 8866
+"health and wellness" 8867 8868
+"individual preference" 8869 8870
+"spiritual beliefs" 8871 8872
+"irrationality" 8873 8874
+"technological progress" 8875 8876
+"anticipation" 8877 8878
+"impatience" 2295 8879
+"personal achievement" 8880 8881
+"lyrically charged" 8882 8883
+"time frame" 8884 8885
+"current song" 2519 2427
+"timeline" 8886 2510
+"age difference" 3889 3890
+"year or age" 5397 5392
+"animal ownership" 1075 1045
+"medium type" 1914 1913
+"societal priorities" 1875 1874
+"success" 2030 470
+"responsible" 6172 988
+"mortality" 2739 2618
+"game preference" 8887 1465
+"entertainment preferences" 5634 8888
+"life struggles" 3992 3990
+"appreciation for animals" 1066 1042
+"sensory experience" 5653 5651
+"expressing love" 7403 7402
+"physical" 5026 3778
+"religion extremes" 5348 5347
+"car name" 2558 2557
+"group identity" 5045 1552
+"beliefs and values" 4018 4017
+"reaction" 7756 2386
+"producer" 2439 2428
+"connection" 7704 3192
+"contrarian belief groups" 8889 8889
+"psychological struggles" 2596 2595
+"sexual expression" 8890 491
+"interpersonal relationship" 7277 8891
+"homecoming" 3565 3563
+"creative inspiration" 4558 6163
+"youth-oriented" 4286 1920
+"conditionism" 4747 4746
+"characteristic" 4833 4823
+"theological extremes" 7127 1549
+"earnestness" 3830 3822
+"safe driving" 1475 1474
+"knowledge" 5774 1061
+"cultural beliefs" 1374 1371
+"physical ability" 5621 1460
+"moral and ethical standards" 6282 6281
+"commitment" 3447 717
+"existential fear" 1453 1416
+"scapegoating" 5280 5268
+"random" 6084 6081
+"attractiveness" 4288 550
+"newcomers" 3130 3129
+"mechanics" 5002 5001
+"financial outlook" 8892 7350
+"group dynamic" 1507 1505
+"schedule" 5210 5209
+"programming" 8893 8894
+"community events" 5567 5566
+"car talk" 2556 2555
+"kind of relationship" 177 176
+"pop culture reference" 4316 4315
+"website" 8895 8896
+"unique experience" 7061 7060
+"formation of faith" 1307 1306
+"personal hygiene" 6412 6411
+"societal attitudes" 1557 1546
+"mindset 1" 3117 106
+"partying" 1362 1361
+"collective effort" 4261 4260
+"unity" 3949 1383
+"competitiveness" 2239 2212
+"task preparation" 1343 1342
+"social influences" 3988 3987
+"ownership" 2669 7001
+"compassion" 2728 765
+"conflicting goals" 5771 5770
+"flirtation" 3292 3293
+"artistic techniques" 5747 5746
+"technological device" 644 629
+"reality perception" 4787 4786
+"confidence" 5487 985
+"statement" 4121 2473
+"arguing relation" 5492 5491
+"empathy" 3271 2601
+"corporate relations" 8897 557
+"philosophical pondering" 8898 3344
+"technological ownership" 3897 3886
+"coordination" 832 831
+"person" 6195 6194
+"self-doubt" 8899 5090
+"problem solving" 917 344
+"destructive behavior" 5040 5044
+"psychological extremes" 7384 7383
+"technical issue" 2516 2511
+"national threats" 8900 4240
+"parenting" 4434 4429
+"defense mechanism" 7284 8901
+"balanced political system" 4270 4271
+"dependency" 4748 4055
+"personal struggle" 5256 5083
+"expressive mode" 1730 1722
+"insecurity" 3163 7766
+"seeking forgiveness" 2651 2646
+"financial loss" 5737 5736
+"toilet activity" 1405 1404
+"outcome" 2518 2514
+"disclaimer" 6318 6299
+"global cooperation" 4265 4264
+"skepticism" 5597 2605
+"eating preference" 4700 4692
+"theistic" 4756 4755
+"transportation" 7264 1458
+"human tendency" 8902 2090
+"decision" 2577 2566
+"everyday life" 1748 1752
+"democratic process" 8903 8904
+"emotional intelligence" 891 245
+"emotionality intelligence" 944 943
+"mistreatment" 7540 7539
+"emotional intensity" 3584 2261
+"lyric emphasis" 7308 4844
+"news source" 3315 3310
+"simplicity" 5809 4915
+"language preference" 1328 1329
+"mentality" 3072 1370
+"mainstream success" 7378 7377
+"equal responsibility for all" 4259 4258
+"distrust" 976 963
+"perpetuity" 2737 2734
+"hope for humanity" 4247 4246
+"psychoactive pleasure" 5732 5733
+"expectation focus" 8905 8905
+"avg expectations" 8906 8906
+"writing style" 7727 4177
+"group dynamics" 5188 5135
+"intentional family time" 5888 5887
+"social events" 2612 8907
+"cultural trend" 4550 4549
+"download speed preference" 1325 1324
+"intensity of emotions" 2416 2410
+"effects of trauma" 5225 5224
+"fears" 6681 8908
+"assistance" 1392 974
+"life goals" 6659 576
+"divine worshipers" 2946 2944
+"country of origin" 1386 1384
+"youth target" 8909 5967
+"people" 3028 762
+"shopping" 5544 5490
+"government" 6644 6638
+"context" 4024 8910
+"national holidays" 5615 5614
+"hope for the future" 4245 4244
+"ethical" 1727 1728
+"self-promotion" 7267 7266
+"vocational calling" 6285 6284
+"conceptual" 2528 2187
+"evening session" 2795 2794
+"religious fundamentalism" 4782 1566
+"group experiences" 5851 8911
+"film genre" 6857 6856
+"expressions" 3359 3358
+"societal constructs" 365 358
+"social hierarchy" 8912 8913
+"contextual" 1712 1711
+"academic expectations" 6614 5578
+"questioning sexuality" 8914 5239
+"personal integrity" 7721 4076
+"mental attitude" 4604 2520
+"belief in change" 4253 4252
+"belief in miracles" 4234 4235
+"contrast" 6006 5988
+"compassionate animal" 8915 8916
+"physical need" 1376 1375
+"longing for god's love" 1289 1284
+"cleanliness" 4054 465
+"educational system" 7513 7512
+"legal" 7191 5011
+"long wait time tolerance" 1314 1313
+"implicit or explicit patterns" 8917 8918
+"individualistic mindset" 5048 5017
+"technology advancements" 404 402
+"purchase decision" 1318 1317
+"verbal expression" 579 577
+"songwriting inspiration" 836 835
+"relational focus" 8919 8920
+"ethical responsibility" 5909 8921
+"socio-cultural" 6938 8922
+"political and social issues" 4079 4078
+"politics" 7174 5278
+"death and dying" 6210 3498
+"animal reactions" 8923 1058
+"psychological response" 5000 1894
+"inside joke" 7407 3302
+"patiente" 7299 7106
+"ethics" 7195 5662
+"emotional" 8924 8925
+"truth and knowledge" 4175 4174
+"introspective" 3509 3507
+"individual-focused" 8926 8927
+"center of attention" 7208 7203
+"passions" 7221 7218
+"dynamics" 3073 3070
+"legal obligations" 6207 6206
+"attitude towards others" 2161 2160
+"competence" 2278 772
+"computer proficiency" 1333 1332
+"geographical features" 5539 5538
+"group and individual" 3203 3200
+"time shift" 7261 7260
+"revision preference" 1327 1326
+"immigration" 5237 5236
+"political views" 7126 7131
+"moral responsibility" 6783 6782
+"natural opposite" 8928 8929
+"behavior related attribute" 8930 4811
+"sex appeal" 3317 1935
+"population control" 4263 4262
+"fair democracy" 4269 8931
+"physical uniqueness" 5039 5029
+"intellectualism" 7125 6736
+"patientce" 8932 3061
+"loss" 8933 5530
+"absence" 5752 5751
+"romance" 3253 3252
+"inspirational" 2995 2994
+"heart" 3574 2259
+"maturity level" 1620 1619
+"social class" 7475 1402
+"type of meal" 8934 5412
+"mainstream audience" 990 4275
+"financial success" 1401 1387
+"multitasking" 5069 5068
+"artistic skill" 5762 5761
+"mindfullness" 6338 4502
+"mindful" 2302 7008
+"sexual attraction" 3998 3983
+"specific date and time" 8935 8935
+"physical sensitivity" 6420 6419
+"psychological complexity" 2658 2654
+"violence" 2384 1839
+"art form" 684 683
+"stereotype" 2677 2676
+"transparent" 6188 2208
+"personal item" 8936 1882
+"spiritual preference" 7649 2450
+"belief in a higher power" 8937 8938
+"living situation" 5065 5064
+"longing" 4766 4765
+"environmental impact" 7188 7187
+"body shaming" 8939 2411
+"new age spirituality" 8940 379
+"worldview" 5829 5826
+"religious extremism" 6798 839
+"irrational love" 4150 4149
+"time perception" 5668 5664
+"beliefs spectrum" 5878 8941
+"religious belief" 7291 8942
+"recent events" 2454 2453
+"written works" 7235 7233
+"conspiracy theorists" 8943 5609
+"racial discrimination" 2405 2374
+"religion and science" 7023 7022
+"online presence" 2615 2614
+"age of the mona lisa" 5760 5759
+"daily routine" 7550 3901
+"political attitude 1" 5270 5259
+"political attitude 2" 5260 5282
+"attitute 3" 989 6626
+"attidude 3" 1229 1604
+"humanity's potential" 8944 8945
+"recipient" 96 91
+"present state" 5061 5060
+"health and fitness" 5599 5598
+"intensity group" 5902 5900
+"conspiracy theories" 5606 5605
+"romantic relationship" 1605 8946
+"family tradition" 3108 3107
+"life milestones" 6882 6878
+"emotional baggage" 4060 4059
+"personal development" 2424 2423
+"peace and conflict" 7138 4082
+"peacefullness" 947 49
+"social influence" 5046 4129
+"stationery preference" 1345 1344
+"intensity of thoughts" 7104 8947
+"legal debate" 7145 7144
+"purity" 4847 1704
+"spiritual connection" 3550 2788
+"consequences" 5556 3562
+"harm" 5758 5757
+"physical pain" 3735 3730
+"pet behavior" 3105 3097
+"dynamic quality" 5979 5971
+"concept of abundance" 4541 4540
+"animal analogy" 7408 7409
+"societal influence" 364 359
+"social status" 6580 6576
+"religious doctrine" 6283 6279
+"game review" 5176 1466
+"social relationships" 881 879
+"consideration of potential outcomes" 4254 4255
+"congratulatory phrase" 3304 3303
+"human potential" 4251 4250
+"learning opportunity" 1511 1495
+"uncertainty of the future" 4248 4249
+"boredom reliever" 5565 5564
+"art" 740 8948
+"mental well-being" 5850 5846
+"therapeutic technique" 8949 2127
+"belief system" 4452 4436
+"time and date" 6332 6331
+"status" 624 471
+"physical aggression" 5043 5038
+"physical health" 6208 8950
+"social media-driven authenticity" 7690 7688
+"motivational differences" 2068 2034
+"personal update" 481 480
+"humanity's purpose" 4232 4233
+"emotional fulfillment" 5805 5800
+"reorganization of government" 4267 4266
+"sacred and profane" 8951 8952
+"love focus" 1681 8953
+"spiritual exploration" 4760 4759
+"intuition" 4794 2180
+"fear & reason seekers" 8954 8955
+"emotion realism" 242 239
+"explanation" 2562 2560
+"relationship change" 4143 4132
+"drug use" 1861 1859
+"societal views" 6605 348
+"personal history" 1853 1852
+"surprise" 7238 2224
+"believers spectrum" 1298 1297
+"comment" 2671 2668
+"book" 4481 4454
+"equality" 2052 8956
+"conflicts" 2369 2365
+"atmosphere" 6543 214
+"satisfaction" 3667 939
+"experiences" 6273 6272
+"religious communities" 2019 8957
+"belief community" 5033 1127
+"economic situation" 934 932
+"questioning" 7073 7072
+"humour style" 753 8958
+"victim blaming" 5244 8959
+"self-confidence" 8960 8961
+"social behavior" 3899 8962
+"desires and wants" 5612 5611
+"aesthetic" 1734 1721
+"mystical experience" 4764 4763
+"peer influence" 4781 4145
+"hairstyle" 6174 153
+"complication" 3517 3516
+"family focus" 8963 1624
+"comparing and contrasting" 7396 7395
+"dating preference" 3400 3399
+"technical difficulties" 5622 4619
+"truth seekers" 903 896
+"realistic" 732 139
+"speculation" 2402 2388
+"size comparisons" 8964 8965
+"responsible consumption" 8966 6449
+"sport" 6578 4086
+"political stance" 5345 3361
+"invitation" 8967 8968
+"social commentary" 5552 5551
+"societal pressures" 5735 5734
+"attentiveness" 6712 8969
+"particular way of writing" 4908 4907
+"exploration of beliefs" 3812 3807
+"society/culture" 31 30
+"political goals" 4243 4242
+"speech mode" 6665 6666
+"logical fallacy" 1442 1438
+"physical strength" 1949 1282
+"power and strength" 8970 8971
+"academic workload" 5996 5984
+"academic goals" 1498 1472
+"discernment" 7719 7718
+"story elements" 5956 5955
+"dream content" 613 611
+"excellence" 5380 5379
+"work and productivity" 7405 7385
+"future possibilities" 4237 4236
+"pop culture" 662 661
+"obsessions" 391 383
+"peer pressure" 5027 1492
+"theme" 4482 4459
+"truths" 6461 6460
+"support systems" 5248 5247
+"traditional and modern" 2665 2664
+"new and old believers" 1919 771
+"old & new believers" 6363 6362
+"mystic practitioners" 6528 6525
+"transformer" 3157 8972
+"international relations" 7197 5457
+"situational problem" 5543 5542
+"technology ownership" 8973 1315
+"conceptualization" 7558 8974
+"trust and doubt" 1159 1128
+"trust and intimacy" 7354 7355
+"scenario" 3638 707
+"number attribute" 4806 4796
+"disability" 8975 1599
+"emotional maturity" 4144 5241
+"imaging" 5307 565
+"collective responsibility" 4257 4256
+"individual desires" 3306 3282
+"website ownership" 1323 1322
+"communication style" 3386 3385
+"focus on aesthetics" 5953 5954
+"voice" 5369 8976
+"higher consciousness" 4774 4773
+"female friendship" 4776 4775
+"conflict" 8977 8978
+"embarrassment" 1746 1745
+"hydration preference" 1347 1346
+"humanity strength" 2106 650
+"time and day" 6867 6862
+"time passing" 1054 1048
+"return" 5403 4831
+"everyone of us" 2892 6106
+"behaviour" 287 8979
+"regions" 7116 7115
+"entity" 3444 2477
+"routine" 37 20
+"generation" 1650 1650
