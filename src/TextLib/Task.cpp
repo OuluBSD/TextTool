@@ -14,8 +14,8 @@ void Task::UpdateBatches(int appmode, int per_batch) {
 	Vector<hash_t> line_hashes;
 	Vector<String> added_lines;
 	
-	for (int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
-		Vector<EntityDataset>& entities = sd[ds_i];
+	{
+		Vector<EntityDataset>& entities = sd.entities;
 		for(int i = 0; i < entities.GetCount(); i++) {
 			EntityDataset& artist = entities[i];
 			for(int j = 0; j < artist.scripts.GetCount(); j++) {
@@ -42,7 +42,6 @@ void Task::UpdateBatches(int appmode, int per_batch) {
 						b.song_begins = song_begins;
 						b.artist = &artist;
 						b.scripts = &scripts;
-						b.ds_i = ds_i;
 						b.txt = Join(added_lines, "\n");
 						ASSERT(b.txt.GetCount());
 						added_lines.SetCount(0);
@@ -54,7 +53,6 @@ void Task::UpdateBatches(int appmode, int per_batch) {
 					b.song_begins = song_begins;
 					b.artist = &artist;
 					b.scripts = &scripts;
-					b.ds_i = ds_i;
 					b.txt = Join(added_lines, "\n");
 					ASSERT(b.txt.GetCount());
 				}

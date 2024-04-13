@@ -21,7 +21,6 @@ class ScriptGenerator {
 	Time time_started, time_stopped;
 	int phase = LG_BEGIN;
 	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
-	int ds_i = 0;
 	Entity* artist = 0;
 	Script* scripts = 0;
 	

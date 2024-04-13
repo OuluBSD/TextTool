@@ -128,23 +128,12 @@ void DatabaseBrowser::DataValue() {
 
 hash_t DatabaseBrowser::GetHash(bool attr, bool clr, bool group, bool value) const {
 	CombineHash ch;
-	ch.Do(ds_i);
 	ch.Do(mode);
 	ch.Do(attr  ? cursor[0] : -1);
 	ch.Do(clr   ? cursor[1] : -1);
 	ch.Do(group ? cursor[2] : -1);
 	ch.Do(value ? cursor[3] : -1);
 	return ch;
-}
-
-void DatabaseBrowser::SetDataset(int i) {
-	if (i == ds_i)
-		return;
-	ds_i = i;
-	attrs.Clear();
-	if (mode == 0)	SetAttr0(0);
-	if (mode == 1)	SetGroup1(0);
-	if (mode == 2)	SetColor2(0);
 }
 
 void DatabaseBrowser::Store() {
@@ -161,7 +150,7 @@ void DatabaseBrowser::SortBy(int i) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	if (i == 0) {
 		struct Sorter {

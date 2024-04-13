@@ -9,7 +9,7 @@ void TaskManager::OnTokenData(String result, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	// 9. suppote: verb | noun
 	
@@ -83,7 +83,7 @@ void TaskManager::OnAmbiguousWordPairs(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	// 9. is something : verb, noun
 	
@@ -165,7 +165,7 @@ void TaskManager::OnVirtualPhrases(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	t->actual = 0;
 	t->total = 0;
@@ -243,7 +243,7 @@ void TaskManager::OnVirtualPhraseTypes(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	// 61. compound-complex sentence + complex sentence: compound-complex sentence
 	
@@ -317,7 +317,7 @@ void TaskManager::OnPhraseColors(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	// 12. RGB(255, 102, 0)
 	
@@ -390,7 +390,7 @@ void TaskManager::OnPhraseAttrs(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	// 1. Belief communities: acceptance
 	
@@ -456,7 +456,7 @@ void TaskManager::OnPhraseActions(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	// 5. tone(admiring) + msg(expressing attraction) + bias(physical appearance) + attention-attribute(referencing arms) + attention-physical_state(strength)
 	
@@ -541,7 +541,7 @@ void TaskManager::OnPhraseScores(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	// 8. 4 5 7 9 6 7 9 8 6 3
 	
@@ -613,7 +613,7 @@ void TaskManager::OnPhraseTypeclasses(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	// 14. 2 5 9 11 14 19 22 28 34 44
 	
@@ -703,7 +703,7 @@ void TaskManager::OnPhraseContrast(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	// 14. 2 5 9 11 14 19 22 28 34 44
 	
@@ -794,7 +794,7 @@ void TaskManager::OnActionlistColors(String result, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	// "attention-humor(not taking life too seriously)" RGB(255, 255, 0)
 	
@@ -858,7 +858,7 @@ void TaskManager::OnActionlistAttrs(String result, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	// "attention-procedures(planning)" problem solving strategy / shortcut taking
 	
@@ -914,7 +914,7 @@ void TaskManager::OnLineActions(String res, Task* t) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	Task::Batch& batch = t->batches[t->batch_i];
-	DatasetAnalysis& da = sda.datasets[batch.ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	RemoveEmptyLines2(res);
 	Vector<String> lines = Split(res, "\n");
@@ -1008,13 +1008,11 @@ void TaskManager::OnSyllables(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	//-hey: hey [heɪ]
 	//- hello: hel-lo [hɛˈloʊ]
 	
-	int ds_i = t->ds_i;
-	String ds_key = sd.GetKey(ds_i);
-	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	DatasetAnalysis& ds = sda.dataset;
 	
 	res.Replace("\r", "");
 	RemoveEmptyLines(res);
@@ -1079,7 +1077,7 @@ void TaskManager::OnDetails(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	res.Replace("\r", "");
 	
@@ -1087,14 +1085,14 @@ void TaskManager::OnDetails(String res, Task* t) {
 	Vector<String> lines = Split(res, "\n");
 	
 	//DUMPC(lines);
-	int ds_i = t->ds_i;
 	
 	Color black(0,0,0);
 	Color non_black(1,1,1);
 	
-	DatasetAnalysis& ds = sda.datasets[ds_i];
+	DatasetAnalysis& ds = sda.dataset;
 	
 	bool line_match = t->tmp_words.GetCount() == lines.GetCount();
+	ASSERT(t->lng_i >= 0);
 	
 	for(int i = 0; i < lines.GetCount(); i++) {
 		String& l = lines[i];
@@ -1162,7 +1160,7 @@ void TaskManager::OnDetails(String res, Task* t) {
 				wa.classes[wa.class_count++] = c_i;
 		}
 		
-		String& trans_dst = ds.translations.GetAdd(orig);
+		String& trans_dst = ds.translations[t->lng_i].GetAdd(orig);
 		if (trans_dst.IsEmpty())
 			trans_dst = translation;
 		
@@ -1203,7 +1201,7 @@ void TaskManager::OnLineChangeScores(String res, Task* t) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	Task::Batch& batch = t->batches[t->batch_i];
-	DatasetAnalysis& da = sda.datasets[batch.ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	res.Replace("\r", "");
 	res = "1. Stop line 1 & start line 2: S0:" + res;
@@ -1290,8 +1288,6 @@ void TaskManager::OnColorAlternatives(String res, Task* t) {
 	VectorMap<int,Vector<String>> iter_phrase_parts;
 	VectorMap<int,Vector<Vector<String>>> iter_phrase_words;
 	
-	int ds_i = t->ds_i;
-	
 	for (String& l : lines) {
 		l = TrimBoth(l);
 		if (l.IsEmpty()) continue;
@@ -1338,7 +1334,7 @@ void TaskManager::OnColorAlternatives(String res, Task* t) {
 		
 		break; // difficult problem: hash is calculated differently & matching is done differently
 		#if 0
-		DatasetAnalysis& ds = sda.datasets[ds_i];
+		DatasetAnalysis& ds = sda.dataset;
 		bool found = false;
 		for (ColorWordnet& wn : ds.clr_wordnets) {
 			if (wn.hash == h) {
@@ -1377,7 +1373,7 @@ void TaskManager::OnSubPicked(String result, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	Component& song = *t->component;
 	
 	TODO
@@ -1426,7 +1422,7 @@ void TaskManager::OnAttributes(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	
 	RemoveEmptyLines2(res);
@@ -1514,7 +1510,7 @@ void TaskManager::OnAttributePolars(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	RemoveEmptyLines2(res);
 	Vector<String> lines = Split(res, "\n");
@@ -1563,7 +1559,7 @@ void TaskManager::OnAttributeJoins(String res, Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	RemoveEmptyLines2(res);
 	Vector<String> lines = Split(res, "\n");

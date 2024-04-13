@@ -478,6 +478,36 @@ String GetNonPartisanBiasHeader();
 String GetBiasHeader(int mode);
 
 
+enum {
+	#undef LNG_ENGLISH
+	LNG_ENGLISH,
+	LNG_FINNISH,
+	LNG_SPANISH,
+	LNG_PORTUGUESE,
+	LNG_KOREAN,
+	LNG_JAPANESE,
+	LNG_RUSSIAN,
+	LNG_CHINESE,
+	
+	LNG_COUNT
+};
+
+inline int GetLanguageCount() {return LNG_COUNT;}
+inline const char* GetLanguageKey(int i) {
+	switch (i) {
+		case LNG_ENGLISH: return "english";
+		case LNG_FINNISH: return "finnish";
+		case LNG_SPANISH: return "spanish";
+		case LNG_PORTUGUESE: return "portuguese";
+		case LNG_KOREAN: return "korean";
+		case LNG_JAPANESE: return "japanese";
+		case LNG_RUSSIAN: return "russian";
+		case LNG_CHINESE: return "chinese";
+		default: return "";
+	}
+}
+
+
 namespace Attr {
 
 struct Group;

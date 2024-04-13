@@ -6,15 +6,14 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class TokenPhrases : public ToolAppCtrl {
-	Splitter vsplit, hsplit;
-	ArrayCtrl datasets, texts;
+	Splitter hsplit;
+	ArrayCtrl texts;
 	
 public:
 	typedef TokenPhrases CLASSNAME;
 	TokenPhrases();
 	
 	void Data() override;
-	void DataDataset();
 	void ToolMenu(Bar& bar) override;
 	void GetUnknownPairs();
 	

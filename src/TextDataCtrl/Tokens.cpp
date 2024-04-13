@@ -7,13 +7,8 @@ BEGIN_TEXTLIB_NAMESPACE
 TokensPage::TokensPage() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << vsplit << tokens;
+	hsplit.Horz() << tokens;
 	hsplit.SetPos(2000);
-	
-	vsplit.Vert() << datasets;
-	
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
 	
 	tokens.AddColumn(t_("Token"));
 	tokens.AddColumn(t_("Count"));
@@ -32,24 +27,7 @@ void TokensPage::Data() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		datasets.Set(i, 0, sda.datasets.GetKey(i));
-	}
-	datasets.SetCount(sda.datasets.GetCount());
-	if (!datasets.IsCursor() || datasets.GetCount())
-		datasets.SetCursor(0);
-	
-	DataDataset();
-}
-
-void TokensPage::DataDataset() {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	
-	int ds_i = datasets.GetCursor();
-	if (ds_i < 0) return;
-	DatasetAnalysis& da = sd.a.datasets[ds_i];
+	DatasetAnalysis& da = sd.a.dataset;
 	
 	for(int j = 0; j < da.tokens.GetCount(); j++) {
 		const String& txt = da.tokens.GetKey(j);
@@ -72,12 +50,12 @@ void TokensPage::ToolMenu(Bar& bar) {
 
 void TokensPage::ProcessTokensUsingExisting() {
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoTokensUsingExisting(0, 0);
+	tm.DoTokensUsingExisting(0);
 }
 
 void TokensPage::ProcessTokens() {
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoTokens(0, 0);
+	tm.DoTokens(0);
 }
 
 

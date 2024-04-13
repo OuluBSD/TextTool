@@ -44,7 +44,6 @@ public:
 	Vector<ColorGroup>	colors;
 	Vector<ActionGroup> groups;
 	Vector<ActionValue> values;
-	int ds_i = -1;
 	int mode = -1;
 	Vector<int> data;
 	int sorting = 0;
@@ -60,7 +59,6 @@ public:
 	DatabaseBrowser();
 	void Init();
 	void Update();
-	void SetDataset(int i);
 	void SetMode(int i);
 	void SetMidRhymeFilter(WString wrd, bool up=true);
 	void SetEndRhymeFilter(WString wrd, bool up=true);

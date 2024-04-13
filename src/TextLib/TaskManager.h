@@ -36,7 +36,7 @@ struct Task {
 		EntityDataset* artist;
 		ScriptDataset* scripts;
 		String txt;
-		int ds_i;
+		int lng_i;
 		bool song_begins;
 	};
 	
@@ -67,10 +67,10 @@ struct Task {
 	Callback on_ready;
 	Callback2<int,int> update;
 	int fn = -1;
-	int ds_i = -1;
 	int batch_i = 0;
 	int part_i = -1;
 	int line_i = -1;
+	int lng_i = -1;
 	bool running = false;
 	Vector<int> tmp;
 	Vector<Batch> batches;
@@ -97,6 +97,7 @@ class TaskManager {
 	int per_action_clrs = 60;
 	int per_action_attrs = 40;
 	VectorMap<String, VectorMap<String, int>> uniq_acts;
+	bool filter_foreign = true;
 	
 	void ImportPromptAnswers();
 	void Process();
@@ -192,28 +193,28 @@ public:
 	
 	static TaskManager& Single(int appmode);
 	
-	void DoSongs(int ds_i, int fn);
-	void DoTokensUsingExisting(int ds_i, int fn);
-	void DoTokens(int ds_i, int fn);
-	void DoUnknownTokenPairs(int ds_i, int fn);
-	void DoAmbiguousWordPairs(int ds_i, int fn);
-	void DoAmbiguousWordPairsUsingExisting(int ds_i, int fn);
-	void DoVirtualPhrases(int ds_i, int fn);
-	void DoVirtualPhrasesUsingExisting(int ds_i, int fn);
-	void DoPhrases(int ds_i, int fn);
-	void DoContainer(int ds_i, int fn, Callback2<int,int> update);
-	void DoWords(int ds_i, int fn);
-	void DoWordsUsingExisting(int ds_i, int fn);
-	void DoWordFix(int ds_i, int fn);
+	void DoSongs(int fn);
+	void DoTokensUsingExisting(int fn);
+	void DoTokens(int fn);
+	void DoUnknownTokenPairs(int fn);
+	void DoAmbiguousWordPairs(int fn);
+	void DoAmbiguousWordPairsUsingExisting(int fn);
+	void DoVirtualPhrases(int fn);
+	void DoVirtualPhrasesUsingExisting(int fn);
+	void DoPhrases(int fn);
+	void DoContainer(int fn, Callback2<int,int> update);
+	void DoWords(int lng_i, int fn);
+	void DoWordsUsingExisting(int lng_i, int fn);
+	void DoWordFix(int fn);
 	
-	void DoActionlistCache(int ds_i);
-	void DoActionlist(int ds_i, int fn);
-	void DoActionlistUsingExisting(int ds_i, int fn);
+	void DoActionlistCache();
+	void DoActionlist(int fn);
+	void DoActionlistUsingExisting(int fn);
 	
-	void DoActionParallel(int ds_i, int fn);
-	void DoActionTransition(int ds_i, int fn);
-	void DoWordnet(int ds_i, int fn);
-	void DoAttributes(int ds_i, int fn);
+	void DoActionParallel(int fn);
+	void DoActionTransition(int fn);
+	void DoWordnet(int fn);
+	void DoAttributes(int fn);
 	
 };
 

@@ -10,11 +10,7 @@ ActionAttrsPage::ActionAttrsPage() {
 	hsplit.Horz() << vsplit << actions;
 	hsplit.SetPos(2000);
 	
-	vsplit.Vert() << datasets << attrs << colors;
-	vsplit.SetPos(1000,0);
-	
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
+	vsplit.Vert() << attrs << colors;
 	
 	attrs.AddColumn(t_("Group"));
 	attrs.AddColumn(t_("Value"));
@@ -34,12 +30,8 @@ ActionAttrsPage::ActionAttrsPage() {
 	actions.ColumnWidths("2 2 4 4");
 }
 
-void ActionAttrsPage::Data() {
-	
-}
-
 void ActionAttrsPage::ToolMenu(Bar& bar) {
-	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
+	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
 	//bar.Add(t_("Update from cache"), AppImg::RedRing(), THISBACK(UpdateFromCache)).Key(K_F5);
 	bar.Add(t_("Update action colors using existing"), AppImg::VioletRing(), THISBACK1(DoActionlistUsingExisting, 0)).Key(K_F5);
@@ -50,27 +42,7 @@ void ActionAttrsPage::ToolMenu(Bar& bar) {
 	
 }
 
-void ActionAttrsPage::DataMain() {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	
-	
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		datasets.Set(i, 0, sda.datasets.GetKey(i));
-	}
-	datasets.SetCount(sda.datasets.GetCount());
-	if (!datasets.IsCursor() || datasets.GetCount())
-		datasets.SetCursor(0);
-	
-	DataDataset();
-}
-
-void ActionAttrsPage::DataDataset() {
-	if (!datasets.IsCursor())
-		return;
-	
-	
+void ActionAttrsPage::Data() {
 	int gi = 0;
 	int i = 0;
 	
@@ -123,14 +95,13 @@ void ActionAttrsPage::DataAttribute() {
 }
 
 void ActionAttrsPage::DataColor() {
-	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
+	if (!colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	int clr_i = colors.GetCursor();
 	int attr_group_i = attrs.Get("GROUP");
@@ -193,17 +164,17 @@ void ActionAttrsPage::DataColor() {
 
 void ActionAttrsPage::UpdateFromCache() {
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoActionlistCache(0);
+	tm.DoActionlistCache();
 }
 
 void ActionAttrsPage::DoActionlist(int fn) {
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoActionlist(0, fn);
+	tm.DoActionlist(fn);
 }
 
 void ActionAttrsPage::DoActionlistUsingExisting(int fn) {
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoActionlistUsingExisting(0, fn);
+	tm.DoActionlistUsingExisting(fn);
 }
 
 

@@ -7,13 +7,10 @@ BEGIN_TEXTLIB_NAMESPACE
 Attributes::Attributes() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << datasets << groups << values << vsplit;
+	hsplit.Horz() << groups << values << vsplit;
 	hsplit.SetPos(1000,0);
 	
 	vsplit.Vert() << pos_values << neg_values;
-	
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
 	
 	groups.AddColumn(t_("Group"));
 	groups.AddColumn(t_("Value count"));
@@ -33,35 +30,11 @@ Attributes::Attributes() {
 	
 }
 
-void Attributes::Data() {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	
-	
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		datasets.Set(i, 0, sda.datasets.GetKey(i));
-	}
-	datasets.SetCount(sda.datasets.GetCount());
-	if (!datasets.IsCursor() || datasets.GetCount())
-		datasets.SetCursor(0);
-	
-	DataDataset();
-}
-
 void Attributes::RealizeTemp() {
-	if (!datasets.IsCursor())
-		return;
-	
-	int ds_i = datasets.GetCursor();
-	if (ds_i == uniq_ds_i)
-		return;
-	
-	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	uniq_attrs.Clear();
 	uniq_attrs_i.Clear();
@@ -80,12 +53,11 @@ void Attributes::RealizeTemp() {
 	}
 }
 
-void Attributes::DataDataset() {
+void Attributes::Data() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	RealizeTemp();
 	
@@ -128,8 +100,7 @@ void Attributes::DataGroup() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	RealizeTemp();
 	
@@ -205,7 +176,7 @@ void Attributes::ToolMenu(Bar& bar) {
 
 void Attributes::DoAttributes(int fn) {
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoAttributes(0, fn);
+	tm.DoAttributes(fn);
 }
 
 

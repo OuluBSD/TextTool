@@ -8,7 +8,7 @@ void DatabaseBrowser::SetGroup1(int i) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	if (uniq_acts.IsEmpty()) {
 		for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
@@ -63,7 +63,7 @@ void DatabaseBrowser::SetValue1(int i) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	ActionGroup& ag = groups[cursor[2]];
 	bool all_ag = cursor[2] == 0;
@@ -104,7 +104,7 @@ void DatabaseBrowser::SetColor1(int i) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	ActionGroup& ag = groups[cursor[2]];
 	ActionValue& av = values[cursor[3]];
@@ -186,7 +186,7 @@ void DatabaseBrowser::SetAttr1(int i) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	ColorGroup& cg = colors[cursor[1]];
 	ActionGroup& ag = groups[cursor[2]];
@@ -291,7 +291,7 @@ void DatabaseBrowser::DataAttr1() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	data.SetCount(0);
 	data.Reserve(10000);

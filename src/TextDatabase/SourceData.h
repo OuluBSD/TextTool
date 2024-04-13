@@ -667,23 +667,19 @@ struct DatasetAnalysis {
 	MapMapFile<int,int,ExportParallel> parallel;
 	MapMapFile<int,int,ExportTransition> trans;
 	MapFile<String,ExportDepActionPhrase> action_phrases;
-	MapFile<String,String> translations;
+	MapFile<String,String> translations[LNG_COUNT];
 	MapFile<hash_t,ExportWordnet> wordnets;
 	MapFile<String,String> diagnostics;
 	MapFile<String,ExportSimpleAttr> simple_attrs;
 	
 	// Cached data
 	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;
-	ArrayMap<String, ComponentCandidateCache> song_cache;
-	
-	// Temp
-	int ds_i = -1;
-	
+	ArrayMap<String, ComponentCandidateCache> cache;
 	
 	DatasetAnalysis();
 	DatasetAnalysis(DatasetAnalysis&) {}
 	DatasetAnalysis(DatasetAnalysis&& o) {LOG("warning: TODO: DatasetAnalysis(DatasetAnalysis&& o)");}
-	void Load(int ds_i, const String& ds_key);
+	void Load();
 	String GetTokenTextString(const TokenText& txt) const;
 	String GetTokenTypeString(const TokenText& txt) const;
 	String GetWordString(const Vector<int>& words) const;
@@ -695,11 +691,11 @@ struct DatasetAnalysis {
 	void Jsonize(JsonIO& json) {
 		json
 			("packed_rhymes", packed_rhymes)
-			(GetAppModeKey(AM_COMPONENT) + "_cache", song_cache)
+			(GetAppModeKey(AM_COMPONENT) + "_cache", cache)
 			;
 	}
 	void Serialize(Stream& s) {
-		s % packed_rhymes % song_cache;
+		s % packed_rhymes % cache;
 	}
 	
 	#if 0
@@ -740,17 +736,22 @@ struct DatasetAnalysis {
 };
 
 struct SourceDataAnalysis {
-	ArrayMap<String, DatasetAnalysis> datasets;
+	DatasetAnalysis dataset;
 	
 	void Jsonize(JsonIO& json) {
+		ArrayMap<String, DatasetAnalysis> datasets;
 		json
 			("datasets", datasets)
 			;
+			
+		TODO
 	}
 	
 	
 	void Serialize(Stream& s) {
+		ArrayMap<String, DatasetAnalysis> datasets;
 		s % datasets;
+		TODO
 	}
 	void StoreJson();
 	void LoadJson();
@@ -760,17 +761,16 @@ struct SourceDataAnalysis {
 
 struct SourceData {
 	// Binary data
-	Vector<EntityDataset> entities_en;
-	Vector<EntityDataset> entities_fi;
+	Vector<EntityDataset> entities;
 	
 	SourceDataAnalysis a;
 	
 	
 	SourceData();
-	int GetCount() const {return 2;}
+	/*int GetCount() const {return 2;}
 	Vector<EntityDataset>& operator[](int i) {
 		switch (i) {
-			case 0: return entities_en;
+			case 0: return entities;
 			case 1: return entities_fi;
 			default: Panic("error");
 		}
@@ -783,14 +783,14 @@ struct SourceData {
 			default: Panic("error");
 		}
 		return "";
-	}
+	}*/
 	void Load();
 	void Store();
 	void Serialize(Stream& s);
 	/*void LoadJson();
 	void StoreJson();
 	void Jsonize(JsonIO& json);*/
-	bool IsEmpty() const {return entities_en.IsEmpty() || entities_fi.IsEmpty();}
+	bool IsEmpty() const {return entities.IsEmpty();}
 	
 };
 

@@ -8,7 +8,7 @@ BEGIN_TEXTLIB_NAMESPACE
 class RhymeContainerPage : public ToolAppCtrl {
 	ProgressIndicator prog;
 	Splitter hsplit, vsplit;
-	ArrayCtrl datasets, syl_counts, colors, attrs, actions, action_args, data;
+	ArrayCtrl syl_counts, colors, attrs, actions, action_args, data;
 	
 	VectorMap<String, String> mirror_words;
 	VectorMap<String, VectorMap<String, int>> uniq_acts;

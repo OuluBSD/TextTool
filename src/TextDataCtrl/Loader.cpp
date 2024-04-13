@@ -22,7 +22,7 @@ void TextDataLoader::Process() {
 	
 	if (appmode == DB_SONG) {
 		LoadHuggingArtists();
-		LoadHuggingFinn();
+		//LoadHuggingFinn();
 	}
 	else if (appmode == DB_TWITTER) {
 		LoadHuggingTweets();
@@ -54,7 +54,7 @@ void TextDataLoader::LoadHuggingArtists() {
 	}
 	
 	TextDatabase& db = GetDatabase();
-	db.src_data.entities_en.Clear();
+	db.src_data.entities.Clear();
 	
 	PostMessage("Searching for huggingartists dataset json files");
 	PostProgress(0,1);
@@ -162,7 +162,7 @@ void TextDataLoader::LoadHuggingArtists() {
 		String path = files[i];
 		String title = GetFileTitle(path);
 		
-		EntityDataset& artist = db.src_data.entities_en.Add();
+		EntityDataset& artist = db.src_data.entities.Add();
 		artist.name = Capitalize(title);
 		if (GetDefaultCharset() != CHARSET_UTF8)
 			artist.name = ToCharset(CHARSET_UTF8, artist.name, CHARSET_DEFAULT);
@@ -188,6 +188,7 @@ void TextDataLoader::LoadHuggingArtists() {
 	}
 }
 
+#if 0
 void TextDataLoader::LoadHuggingFinn() {
 	String dir;
 	#ifdef flagWIN32
@@ -247,6 +248,7 @@ void TextDataLoader::LoadHuggingFinn() {
 		}
 	}
 }
+#endif
 
 void TextDataLoader::LoadHuggingTweets() {
 	String dir;
@@ -261,7 +263,7 @@ void TextDataLoader::LoadHuggingTweets() {
 	}
 	
 	TextDatabase& db = GetDatabase();
-	db.src_data.entities_en.Clear();
+	db.src_data.entities.Clear();
 	
 	PostMessage("Searching for twitter dataset txt files");
 	PostProgress(0,1);
@@ -293,7 +295,7 @@ void TextDataLoader::LoadHuggingTweets() {
 		String title = data.GetKey(i);
 		String content = data[i];
 		
-		EntityDataset& company = db.src_data.entities_en.Add();
+		EntityDataset& company = db.src_data.entities.Add();
 		company.name = Capitalize(title);
 		if (GetDefaultCharset() != CHARSET_UTF8)
 			company.name = ToCharset(CHARSET_UTF8, company.name, CHARSET_DEFAULT);
@@ -337,7 +339,7 @@ void TextDataLoader::LoadHuggingBlogs() {
 	}
 	
 	TextDatabase& db = GetDatabase();
-	db.src_data.entities_en.Clear();
+	db.src_data.entities.Clear();
 	
 	PostMessage("Searching for blog dataset xml files");
 	PostProgress(0,1);
@@ -484,7 +486,7 @@ void TextDataLoader::LoadHuggingBlogs() {
 		}
 		
 		if (entries.GetCount()) {
-			EntityDataset& blogger = db.src_data.entities_en.Add();
+			EntityDataset& blogger = db.src_data.entities.Add();
 			blogger.name = blogger_name;
 			
 			for(int i = 0; i < entries.GetCount(); i++) {
@@ -498,7 +500,7 @@ void TextDataLoader::LoadHuggingBlogs() {
 			}
 		}
 	}
-	LOG("Total blogger count: " << db.src_data.entities_en.GetCount());
+	LOG("Total blogger count: " << db.src_data.entities.GetCount());
 	LOG("Total story count: " << story_count);
 	LOG("Total byte size of stories: " << total_size/1000 << "Kb");
 }
@@ -523,7 +525,7 @@ void TextDataLoader::LoadHuggingDialogue() {
 	training_files << "dream";
 	
 	TextDatabase& db = GetDatabase();
-	db.src_data.entities_en.Clear();
+	db.src_data.entities.Clear();
 	
 	PostMessage("Searching for dialog dataset tgt files");
 	PostProgress(0,1);
@@ -571,7 +573,7 @@ void TextDataLoader::LoadHuggingDialogue() {
 		PostProgress(i++, files.GetCount());
 		
 		
-		EntityDataset& d = db.src_data.entities_en.Add();
+		EntityDataset& d = db.src_data.entities.Add();
 		d.name = title;
 			
 		Vector<String> lines = Split(content, "\n");
@@ -672,7 +674,7 @@ void TextDataLoader::LoadHuggingDialogue() {
 		if (total_size >= size_limit)
 			break;
 	}
-	LOG("Total dialogue file count: " << db.src_data.entities_en.GetCount());
+	LOG("Total dialogue file count: " << db.src_data.entities.GetCount());
 	LOG("Total line count: " << line_count);
 	LOG("Total byte size of dialogues: " << total_size/1000 << "Kb");
 }
@@ -699,7 +701,7 @@ void TextDataLoader::LoadHuggingStoryboard() {
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	db.src_data.entities_en.Clear();
+	db.src_data.entities.Clear();
 	
 	PostMessage("Searching for dialog dataset tgt files");
 	PostProgress(0,1);
@@ -723,7 +725,7 @@ void TextDataLoader::LoadHuggingStoryboard() {
 		PostProgress(i++, js.GetCount());
 		
 		
-		EntityDataset& d = db.src_data.entities_en.Add();
+		EntityDataset& d = db.src_data.entities.Add();
 		d.name = title;
 		
 		
@@ -815,7 +817,7 @@ void TextDataLoader::LoadHuggingStoryboard() {
 		if (total_size >= size_limit)
 			break;
 	}
-	LOG("Total dialogue file count: " << db.src_data.entities_en.GetCount());
+	LOG("Total dialogue file count: " << db.src_data.entities.GetCount());
 	LOG("Total line count: " << line_count);
 	LOG("Total byte size of dialogues: " << total_size/1000 << "Kb");
 }

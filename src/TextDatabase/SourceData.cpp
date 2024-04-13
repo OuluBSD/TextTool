@@ -18,7 +18,7 @@ void SourceData::Load() {
 }
 
 void SourceData::Serialize(Stream& s) {
-	s % entities_en % entities_fi;
+	s % entities;
 }
 
 /*void SourceData::StoreJson() {
@@ -33,7 +33,7 @@ void SourceData::LoadJson() {
 
 void SourceData::Jsonize(JsonIO& json) {
 	json
-		("entities_en", entities_en)
+		("entities", entities)
 		("entities_fi", entities_fi)
 		;
 }*/
@@ -47,15 +47,13 @@ void SourceDataAnalysis::Store() {
 
 void SourceDataAnalysis::Load() {
 	LoadFromFile(*this, ConfigFile(__Comp + "Data_Analysis.bin"));
-	if (datasets.IsEmpty())
+	if (dataset.cache.IsEmpty() && dataset.packed_rhymes.IsEmpty())
 		LoadJson();
 	
 	SourceData& sd = GetAppModeDatabase().src_data;
-	for(int i = 0; i < sd.GetCount(); i++) {
-		String key = sd.GetKey(i);
-		auto& ds = sd.a.datasets.GetAdd(key);
-		ds.Load(i, key);
-	}
+
+	auto& ds = sd.a.dataset;
+	ds.Load();
 }
 
 void SourceDataAnalysis::StoreJson() {
@@ -69,15 +67,15 @@ void SourceDataAnalysis::LoadJson() {
 	LoadFromJsonFileStandard(da, ConfigFile(__Comp + "Data.json"));
 	
 	SourceData& sd = GetAppModeDatabase().src_data;
-	for(int j = 0; j < sd.GetCount(); j++) {
+	{
 		DatasetAnalysis& tgt = datasets.GetAdd(sd.GetKey(j));
 		
 		for(int k = 0; k < da.entities.GetCount(); k++) {
 			String name0 = da.entities.GetKey(k);
 			if (name0.IsEmpty()) continue;
 			
-			for(int i = 0; i < sd.entities_en.GetCount(); i++) {
-				String name1 = sd.entities_en[i].name;
+			for(int i = 0; i < sd.entities.GetCount(); i++) {
+				String name1 = sd.entities[i].name;
 				if (name0 == name1) {
 					Swap(da.entities[k], tgt.entities.Add(name0));
 					break;
@@ -254,7 +252,7 @@ DatasetAnalysis::DatasetAnalysis() {
 	
 }
 
-void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
+void DatasetAnalysis::Load() {
 	TextDatabase& db = GetAppModeDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
@@ -263,17 +261,13 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	RealizeDirectory(dir);
 	
 	String ds_dir = dir;
-	
-	/*String ds_dir = AppendFileName(dir, ds_key);
 	RealizeDirectory(ds_dir);
-	*/
-	String trans_ds_key;
-	if (ds_i == 0)
-		trans_ds_key = "fi";
-	else
-		trans_ds_key = "en";
 	
-	this->ds_i = ds_i;
+	
+	for(int i = 1; i < LNG_COUNT; i++) {
+		String trans_ds_key = String(GetLanguageKey(i)).Left(2);
+		translations[i].Load(ds_dir, trans_ds_key);
+	}
 	
 	tokens.Load(ds_dir, "tokens");
 	token_texts.Load(ds_dir, "tokenized texts");
@@ -291,7 +285,6 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	parallel.Load(ds_dir, "action parallel");
 	trans.Load(ds_dir, "action transition");
 	action_phrases.Load(ds_dir, "action phrases");
-	translations.Load(ds_dir, trans_ds_key);
 	wordnets.Load(ds_dir, "wordnets");
 	diagnostics.Load(ds_dir, "diagnostics");
 	simple_attrs.Load(ds_dir, "simple_attrs");
@@ -319,13 +312,10 @@ ComponentAnalysis& DatasetAnalysis::GetComponentAnalysis(int appmode, const Stri
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	String dir = AppendFileName(db.dir, "share" DIR_SEPS + __comp_(appmode) + "data");
+	String dir = AppendFileName(db.dir, "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "data");
 	RealizeDirectory(dir);
 	
-	String ds_dir = AppendFileName(dir, sd.GetKey(ds_i));
-	RealizeDirectory(ds_dir);
-	
-	String comp_dir = AppendFileName(ds_dir, __comps_(appmode) + DIR_SEPS + name);
+	String comp_dir = AppendFileName(dir, "components" DIR_SEPS + name);
 	RealizeDirectory(comp_dir);
 	
 	ComponentAnalysis& sa = components.GetAdd(name);

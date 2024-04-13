@@ -22,10 +22,7 @@ bool EnglishPronounciation::Parse(const String& s) {
 	TextDatabase& db = GetAppModeDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	if (sda.datasets.IsEmpty())
-		return false;
-	String ds_key = sd.GetKey(0);
-	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	DatasetAnalysis& ds = sda.dataset;
 	return Parse(s, ds);
 }
 	

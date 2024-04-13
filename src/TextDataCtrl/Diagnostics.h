@@ -7,14 +7,13 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class TextDataDiagnostics : public ToolAppCtrl {
 	Splitter hsplit;
-	ArrayCtrl datasets, values;
+	ArrayCtrl values;
 	
 public:
 	typedef TextDataDiagnostics CLASSNAME;
 	TextDataDiagnostics();
 	
 	void Data() override;
-	void DataDataset();
 	void ToolMenu(Bar& bar) override;
 	
 	

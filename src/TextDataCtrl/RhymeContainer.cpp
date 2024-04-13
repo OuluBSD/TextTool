@@ -11,10 +11,8 @@ RhymeContainerPage::RhymeContainerPage() {
 	hsplit.Horz() << vsplit << data;
 	hsplit.SetPos(1500);
 	
-	vsplit.Vert() << datasets << syl_counts << colors << attrs << actions << action_args;
+	vsplit.Vert() << syl_counts << colors << attrs << actions << action_args;
 	
-	
-	datasets.AddColumn(t_("Datasets"));
 	
 	syl_counts.AddColumn(t_("Syllable count"));
 	syl_counts.WhenCursor << THISBACK(ManualData);
@@ -92,20 +90,7 @@ void RhymeContainerPage::Data() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		datasets.Set(i, 0, sda.datasets.GetKey(i));
-	}
-	datasets.SetCount(sda.datasets.GetCount());
-	if (!datasets.IsCursor() || datasets.GetCount())
-		datasets.SetCursor(0);
-	
-	if (!datasets.IsCursor())
-		return;
-	
-	
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	
 	// Set attributes
@@ -178,14 +163,13 @@ void RhymeContainerPage::DataAction() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	if (!datasets.IsCursor() || !syl_counts.IsCursor() || !colors.IsCursor() ||
+	if (!syl_counts.IsCursor() || !colors.IsCursor() ||
 		!attrs.IsCursor() || !actions.IsCursor()) {
 		data.Clear();
 		return;
 	}
 	
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	
 	String action = actions.Get(0);
@@ -221,14 +205,13 @@ void RhymeContainerPage::MainData() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	if (!datasets.IsCursor() || !syl_counts.IsCursor() || !colors.IsCursor() ||
+	if (!syl_counts.IsCursor() || !colors.IsCursor() ||
 		!attrs.IsCursor() || !actions.IsCursor()) {
 		data.Clear();
 		return;
 	}
 	
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	Vector<int> attr_ids, clr_ids, sc_ids;
 	
@@ -325,9 +308,8 @@ void RhymeContainerPage::ToolMenu(Bar& bar) {
 }
 
 void RhymeContainerPage::DoContainer(int fn) {
-	int ds_i = datasets.GetCursor();
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoContainer(ds_i, fn, THISBACK(PostProgress));
+	tm.DoContainer(fn, THISBACK(PostProgress));
 }
 
 void RhymeContainerPage::MakeSplit(Vector<String>& parts, Vector<Index<String>>& words) {

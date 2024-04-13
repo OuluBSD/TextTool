@@ -4,177 +4,175 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-void TaskManager::DoSongs(int ds_i, int fn) {
+void TaskManager::DoSongs(int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_SONGS;
 	t.cb = THISBACK1(GetComponents, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoTokensUsingExisting(int ds_i, int fn) {
+void TaskManager::DoTokensUsingExisting(int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_TOKENS_USING_EXISTING;
 	t.cb = THISBACK1(GetTokenDataUsingExisting, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoTokens(int ds_i, int fn) {
+void TaskManager::DoTokens(int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_TOKENS;
 	t.cb = THISBACK1(GetTokenData, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoUnknownTokenPairs(int ds_i, int fn) {
+void TaskManager::DoUnknownTokenPairs(int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_UNKNOWN_TOKEN_PAIRS;
 	t.cb = THISBACK1(GetUnknownTokenPairs, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoAmbiguousWordPairsUsingExisting(int ds_i, int fn) {
+void TaskManager::DoAmbiguousWordPairsUsingExisting(int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_AMBIGUOUS_WORD_PAIRS;
 	t.cb = THISBACK1(GetAmbiguousWordPairsUsingExisting, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoAmbiguousWordPairs(int ds_i, int fn) {
+void TaskManager::DoAmbiguousWordPairs(int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_AMBIGUOUS_WORD_PAIRS;
 	t.cb = THISBACK1(GetAmbiguousWordPairs, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoVirtualPhrases(int ds_i, int fn) {
+void TaskManager::DoVirtualPhrases(int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_VIRTUAL_PHRASES;
 	t.cb = THISBACK1(GetVirtualPhrases, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoVirtualPhrasesUsingExisting(int ds_i, int fn) {
+void TaskManager::DoVirtualPhrasesUsingExisting(int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_VIRTUAL_PHRASES_USING_EXISTING;
 	t.cb = THISBACK1(GetVirtualPhrasesUsingExisting, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoPhrases(int ds_i, int fn) {
+void TaskManager::DoPhrases(int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_PHRASES;
 	t.cb = THISBACK1(GetPhrases, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoContainer(int ds_i, int fn, Callback2<int,int> update) {
+void TaskManager::DoContainer(int fn, Callback2<int,int> update) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_CONTAINER;
 	t.cb = THISBACK1(GetContainer, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	t.update = update;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoActionlistCache(int ds_i) {
+void TaskManager::DoActionlistCache() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	Task task;
-	task.ds_i = ds_i;
 	
-	String dir = ConfigFile("share") + DIR_SEPS + "task_actionlist" + DIR_SEPS +
-		sda.datasets.GetKey(ds_i);
+	String dir = ConfigFile("share") + DIR_SEPS + "task_actionlist";
 	if (!DirectoryExists(dir))
 		return;
 	
@@ -191,14 +189,14 @@ void TaskManager::DoActionlistCache(int ds_i) {
 	while (ff.Next());
 }
 
-void TaskManager::DoActionlist(int ds_i, int fn) {
+void TaskManager::DoActionlist(int fn) {
 	//if (IsInTaskList(TASK_ACTIONLIST))
 	//	return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	{
 		uniq_acts.Clear();
@@ -221,17 +219,17 @@ void TaskManager::DoActionlist(int ds_i, int fn) {
 	Task& t = task_list.Add();
 	t.type = TASK_ACTIONLIST;
 	t.cb = THISBACK1(GetActionlist, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoActionlistUsingExisting(int ds_i, int fn) {
+void TaskManager::DoActionlistUsingExisting(int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	{
 		uniq_acts.Clear();
@@ -254,140 +252,140 @@ void TaskManager::DoActionlistUsingExisting(int ds_i, int fn) {
 	Task& t = task_list.Add();
 	t.type = TASK_ACTIONLIST;
 	t.cb = THISBACK1(GetActionlistUsingExisting, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoActionParallel(int ds_i, int fn) {
+void TaskManager::DoActionParallel(int fn) {
 	//if (IsInTaskList(TASK_ACTION_PARALLELS))
 	//	return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_ACTION_PARALLELS;
 	t.cb = THISBACK1(GetActionParallels, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoActionTransition(int ds_i, int fn) {
+void TaskManager::DoActionTransition(int fn) {
 	//if (IsInTaskList(TASK_ACTION_TRANSITIONS))
 	//	return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_ACTION_TRANSITIONS;
 	t.cb = THISBACK1(GetActionTransitions, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoWordFix(int ds_i, int fn) {
+void TaskManager::DoWordFix(int fn) {
 	//if (IsInTaskList(TASK_WORD_FIX))
 	//	return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_WORD_FIX;
 	t.cb = THISBACK1(GetWordFix, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoWords(int ds_i, int fn) {
+void TaskManager::DoWords(int lng_i, int fn) {
 	//if (IsInTaskList(TASK_WORD_DATA))
 	//	return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_WORD_DATA;
 	t.cb = THISBACK1(GetWordData, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoWordsUsingExisting(int ds_i, int fn) {
+void TaskManager::DoWordsUsingExisting(int lng_i, int fn) {
 	//if (IsInTaskList(TASK_WORD_DATA))
 	//	return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_WORD_DATA_USING_EXISTING;
 	t.cb = THISBACK1(GetWordDataUsingExisting, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoWordnet(int ds_i, int fn) {
+void TaskManager::DoWordnet(int fn) {
 	//if (IsInTaskList(TASK_WORDNET))
 	//	return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_WORDNET;
 	t.cb = THISBACK1(GetWordnet, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
 }
 
-void TaskManager::DoAttributes(int ds_i, int fn) {
+void TaskManager::DoAttributes(int fn) {
 	//if (IsInTaskList(TASK_ATTRIBUTES))
 	//	return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	lock.EnterWrite();
 	Task& t = task_list.Add();
 	t.type = TASK_ATTRIBUTES;
 	t.cb = THISBACK1(GetAttributes, &t);
-	t.ds_i = ds_i;
+	
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();

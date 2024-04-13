@@ -7,13 +7,10 @@ BEGIN_TEXTLIB_NAMESPACE
 VirtualPhraseStructs::VirtualPhraseStructs() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << datasets << texts;
+	hsplit.Horz() << texts;
 	hsplit.SetPos(2000);
 	
 	//vsplit.Vert() << texts << parts;
-	
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
 	
 	texts.AddColumn(t_("Structural name"));
 	texts.AddColumn(t_("Types"));
@@ -40,22 +37,7 @@ void VirtualPhraseStructs::Data() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		datasets.Set(i, 0, sda.datasets.GetKey(i));
-	}
-	datasets.SetCount(sda.datasets.GetCount());
-	if (!datasets.IsCursor() || datasets.GetCount())
-		datasets.SetCursor(0);
-	
-	DataDataset();
-}
-
-void VirtualPhraseStructs::DataDataset() {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sd.a.datasets[ds_i];
+	DatasetAnalysis& da = sd.a.dataset;
 	int row = 0;
 	for(int i = 0; i < da.virtual_phrase_structs.GetCount(); i++) {
 		const VirtualPhraseStruct& vps = da.virtual_phrase_structs[i];
@@ -98,9 +80,8 @@ void VirtualPhraseStructs::ToolMenu(Bar& bar) {
 }
 
 void VirtualPhraseStructs::Process() {
-	int ds_i = datasets.GetCursor();
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoVirtualPhrases(ds_i, 3);
+	tm.DoVirtualPhrases(3);
 }
 
 

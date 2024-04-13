@@ -7,7 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class TextDataWords : public ToolAppCtrl {
 	Splitter hsplit, vsplit;
-	ArrayCtrl datasets, colors, words;
+	ArrayCtrl colors, words;
 	bool disabled = false;
 	bool batch = false;
 	
@@ -18,8 +18,6 @@ public:
 	void EnableAll();
 	void DisableAll();
 	void Data() override;
-	void DataMain();
-	void DataDataset();
 	void DataColor();
 	void ToolMenu(Bar& bar) override;
 	//void UpdateWords();

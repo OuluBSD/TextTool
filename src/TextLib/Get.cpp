@@ -11,11 +11,8 @@ void TaskManager::GetComponents(Task* t) {
 	Vector<int> token_is;
 	
 	
-	String sd_key = sd.GetKey(t->ds_i);
-	bool filter_foreign = sd_key == "en";
-	
-	DatasetAnalysis& da = sd.a.datasets[t->ds_i];
-	Vector<EntityDataset>& entities = sd[t->ds_i];
+	DatasetAnalysis& da = sd.a.dataset;
+	Vector<EntityDataset>& entities = sd.entities;
 	
 	TimeStop ts;
 	int total = 0, actual = 0;
@@ -97,15 +94,17 @@ void TaskManager::GetTokenDataUsingExisting(Task* t) {
 	TextDatabase& db0 = GetDatabase();
 	SourceData& sd0 = db0.src_data;
 	SourceDataAnalysis& sda0 = db0.src_data.a;
-	DatasetAnalysis& da0 = sda0.datasets[t->ds_i];
+	DatasetAnalysis& da0 = sda0.dataset;
+	
+	int lng_i = LNG_FINNISH;
+	auto& translations0 = da0.translations[lng_i];
 	
 	for(int i = 0; i < DB_COUNT; i++) {
 		if (i == appmode) continue;
 		TextDatabase& db1 = MetaDatabase::Single().db[i];
 		SourceData& sd1 = db1.src_data;
 		SourceDataAnalysis& sda1 = db1.src_data.a;
-		if (t->ds_i >= sda1.datasets.GetCount()) continue;
-		DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+		DatasetAnalysis& da1 = sda1.dataset;
 		
 		for(int j = 0; j < da0.tokens.GetCount(); j++) {
 			// If token has no connected word in this database
@@ -203,15 +202,15 @@ void TaskManager::GetTokenDataUsingExisting(Task* t) {
 		TextDatabase& db1 = MetaDatabase::Single().db[i];
 		SourceData& sd1 = db1.src_data;
 		SourceDataAnalysis& sda1 = db1.src_data.a;
-		if (t->ds_i >= sda1.datasets.GetCount()) continue;
-		DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+		DatasetAnalysis& da1 = sda1.dataset;
+		auto& translations1 = da1.translations[lng_i];
 		
 		for(const String& wrd_str0 : da0.words.GetKeys()) {
-			if (da0.translations.Find(wrd_str0) < 0) {
-				int j = da1.translations.Find(wrd_str0);
+			if (translations0[lng_i].Find(wrd_str0) < 0) {
+				int j = translations1.Find(wrd_str0);
 				if (j >= 0) {
-					const String& trans1 = da1.translations[j];
-					da0.translations.GetAdd(wrd_str0) = trans1;
+					const String& trans1 = translations1[j];
+					translations1.GetAdd(wrd_str0) = trans1;
 				}
 			}
 		}
@@ -225,7 +224,7 @@ void TaskManager::GetTokenData(Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	TokenArgs& args = token_args;
 	args.fn = 0;
@@ -259,7 +258,7 @@ void TaskManager::GetUnknownTokenPairs(Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	
-	DatasetAnalysis& da = sd.a.datasets[t->ds_i];
+	DatasetAnalysis& da = sd.a.dataset;
 	
 	for(int i = 0; i < da.token_texts.GetCount(); i++) {
 		const TokenText& txt = da.token_texts[i];
@@ -325,15 +324,14 @@ void TaskManager::GetAmbiguousWordPairsUsingExisting(Task* t) {
 	TextDatabase& db0 = GetDatabase();
 	SourceData& sd0 = db0.src_data;
 	SourceDataAnalysis& sda0 = db0.src_data.a;
-	DatasetAnalysis& da0 = sda0.datasets[t->ds_i];
+	DatasetAnalysis& da0 = sda0.dataset;
 	
 	for(int i = 0; i < DB_COUNT; i++) {
 		if (i == appmode) continue;
 		TextDatabase& db1 = MetaDatabase::Single().db[i];
 		SourceData& sd1 = db1.src_data;
 		SourceDataAnalysis& sda1 = db1.src_data.a;
-		if (t->ds_i >= sda1.datasets.GetCount()) continue;
-		DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+		DatasetAnalysis& da1 = sda1.dataset;
 		
 		for(int j = 0; j < da0.ambiguous_word_pairs.GetCount(); j++) {
 			// If token has no connected word in this database
@@ -383,7 +381,7 @@ void TaskManager::GetAmbiguousWordPairs(Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	TokenArgs& args = token_args;
 	args.fn = 1;
@@ -430,11 +428,10 @@ void TaskManager::GetWordProcess(Task* t) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	String ds_key = sd.GetKey(t->ds_i);
-	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	DatasetAnalysis& ds = sda.dataset;
 	
 	
-	const Vector<EntityDataset>& dataset = sd[t->ds_i];
+	const Vector<EntityDataset>& dataset = sd.entities;
 	for(int j = 0; j < dataset.GetCount(); j++) {
 		const EntityDataset& artist = dataset[j];
 		//EntityAnalysis& aa = ds.entities.GetAdd(artist.name);
@@ -474,8 +471,7 @@ void TaskManager::GetWordFix(Task* t) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	String ds_key = sd.GetKey(t->ds_i);
-	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	DatasetAnalysis& ds = sda.dataset;
 	
 	if (t->fn == 0) {
 		int fails = 0;
@@ -578,7 +574,7 @@ void TaskManager::GetVirtualPhrases(Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	if (t->fn == 0) {
 		Vector<int> word_is, word_classes;
@@ -926,22 +922,21 @@ void TaskManager::GetVirtualPhrasesUsingExisting(Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	TimeStop ts;
 	if (t->fn == 1) {
 		TextDatabase& db0 = GetDatabase();
 		SourceData& sd0 = db0.src_data;
 		SourceDataAnalysis& sda0 = db0.src_data.a;
-		DatasetAnalysis& da0 = sda0.datasets[t->ds_i];
+		DatasetAnalysis& da0 = sda0.dataset;
 		
 		for(int i = 0; i < DB_COUNT; i++) {
 			if (i == appmode) continue;
 			TextDatabase& db1 = MetaDatabase::Single().db[i];
 			SourceData& sd1 = db1.src_data;
 			SourceDataAnalysis& sda1 = db1.src_data.a;
-			if (t->ds_i >= sda1.datasets.GetCount()) continue;
-			DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+			DatasetAnalysis& da1 = sda1.dataset;
 			
 			for(int j = 0; j < da0.virtual_phrase_parts.GetCount(); j++) {
 				// If virtual phrase part has no known type
@@ -984,15 +979,14 @@ void TaskManager::GetVirtualPhrasesUsingExisting(Task* t) {
 		TextDatabase& db0 = GetDatabase();
 		SourceData& sd0 = db0.src_data;
 		SourceDataAnalysis& sda0 = db0.src_data.a;
-		DatasetAnalysis& da0 = sda0.datasets[t->ds_i];
+		DatasetAnalysis& da0 = sda0.dataset;
 		
 		for(int i = 0; i < DB_COUNT; i++) {
 			if (i == appmode) continue;
 			TextDatabase& db1 = MetaDatabase::Single().db[i];
 			SourceData& sd1 = db1.src_data;
 			SourceDataAnalysis& sda1 = db1.src_data.a;
-			if (t->ds_i >= sda1.datasets.GetCount()) continue;
-			DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+			DatasetAnalysis& da1 = sda1.dataset;
 			
 			for(int j = 0; j < da0.virtual_phrase_structs.GetCount(); j++) {
 				// If virtual phrase part has no known type
@@ -1061,7 +1055,7 @@ void TaskManager::GetPhrases(Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	PhraseArgs& args = phrase_args;
 	args.fn = t->fn;
@@ -1160,7 +1154,7 @@ void TaskManager::GetActionlist(Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	ActionAnalysisArgs args;
 	args.fn = t->fn;
@@ -1222,7 +1216,7 @@ void TaskManager::GetActionlistUsingExisting(Task* t) {
 	TextDatabase& db0 = GetDatabase();
 	SourceData& sd0 = db0.src_data;
 	SourceDataAnalysis& sda0 = db0.src_data.a;
-	DatasetAnalysis& da0 = sda0.datasets[t->ds_i];
+	DatasetAnalysis& da0 = sda0.dataset;
 	
 	t->actual = 0;
 	t->total = 0;
@@ -1235,8 +1229,7 @@ void TaskManager::GetActionlistUsingExisting(Task* t) {
 			TextDatabase& db1 = MetaDatabase::Single().db[i];
 			SourceData& sd1 = db1.src_data;
 			SourceDataAnalysis& sda1 = db1.src_data.a;
-			if (t->ds_i >= sda1.datasets.GetCount()) continue;
-			DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+			DatasetAnalysis& da1 = sda1.dataset;
 			
 			for(int j = 0; j < da0.actions.GetCount(); j++) {
 				const ActionHeader& ah0 = da0.actions.GetKey(j);
@@ -1260,8 +1253,7 @@ void TaskManager::GetActionlistUsingExisting(Task* t) {
 			TextDatabase& db1 = MetaDatabase::Single().db[i];
 			SourceData& sd1 = db1.src_data;
 			SourceDataAnalysis& sda1 = db1.src_data.a;
-			if (t->ds_i >= sda1.datasets.GetCount()) continue;
-			DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+			DatasetAnalysis& da1 = sda1.dataset;
 			
 			for(int j = 0; j < da0.actions.GetCount(); j++) {
 				const ActionHeader& ah0 = da0.actions.GetKey(j);
@@ -1289,7 +1281,7 @@ void TaskManager::GetActionParallels(Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	TimeStop ts;
 	
@@ -1354,7 +1346,7 @@ void TaskManager::GetActionTransitions(Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	TimeStop ts;
 	
@@ -1417,10 +1409,7 @@ void TaskManager::MakeNana(Task* t) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	EnglishPronounciation ep;
-	
-	int ds_i = t->ds_i;
-	DatasetAnalysis& da = sda.datasets[ds_i];
-	
+	DatasetAnalysis& da = sda.dataset;
 	PhoneticNanaAnalyser anal;
 	
 	t->total = 0;
@@ -1463,7 +1452,7 @@ void TaskManager::GetRhymeContainers(Task* t) {
 	EnglishPronounciation ep;
 	
 	
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	da.packed_rhymes.Clear();
 	
@@ -1535,8 +1524,7 @@ void TaskManager::GetRhymeContainers(Task* t) {
 	
 	
 	SortByKey(da.packed_rhymes, PackedRhymeHeader());
-	for(int i = 0; i < sda.datasets.GetCount(); i++)
-		SortByKey(sda.datasets[i].packed_rhymes, PackedRhymeHeader());
+	SortByKey(sda.dataset.packed_rhymes, PackedRhymeHeader());
 	
 	t->update(0,1);
 	RemoveTask(*t);
@@ -1550,7 +1538,6 @@ void TaskManager::GetRhymeContainersFromTemplates(Task* t) {
 	SourceDataAnalysis& sda = db.src_data.a;
 	EnglishPronounciation ep;
 	
-	int ds_i = 0;
 	int at_i = 0;
 	
 	
@@ -1560,10 +1547,7 @@ void TaskManager::GetRhymeContainersFromTemplates(Task* t) {
 	int phrase_count = 0;
 	
 	while (running) {
-		
-		if (ds_i >= sda.datasets.GetCount())
-			break;
-		DatasetAnalysis& da = sda.datasets[ds_i];
+		DatasetAnalysis& da = sda.dataset;
 		if (at_i == 0) {
 			da.packed_rhymes.Clear();
 			da.dynamic_actions.Clear();
@@ -1572,7 +1556,6 @@ void TaskManager::GetRhymeContainersFromTemplates(Task* t) {
 		if (at_i >= da.action_tmpls.GetCount()) {
 			SortByKey(da.packed_rhymes, PackedRhymeHeader());
 			at_i = 0;
-			ds_i++;
 			continue;
 		}
 		
@@ -1793,9 +1776,7 @@ void TaskManager::GetSyllables(Task* t) {
 	SourceDataAnalysisArgs args; // 4
 	
 	int iter = 0;
-	int ds_i = t->ds_i;
-	String ds_key = sd.GetKey(ds_i);
-	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	DatasetAnalysis& ds = sda.dataset;
 	
 	for(int i = 0; i < ds.words.GetCount(); i++) {
 		const String& wrd = ds.words.GetKey(i);
@@ -1880,10 +1861,8 @@ void TaskManager::GetDetails(Task* t) {
 	
 	SourceDataAnalysisArgs args; // 5
 	
-	int ds_i = t->ds_i;
 	int iter = 0;
-	String ds_key = sd.GetKey(ds_i);
-	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	DatasetAnalysis& ds = sda.dataset;
 	Color black(0,0,0);
 	
 	for(int i = 0; i < ds.words.GetCount(); i++) {
@@ -1968,7 +1947,7 @@ void TaskManager::GetLineChangeScores(Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[batch.ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	SourceDataAnalysisArgs args; // 11
 	args.fn = 11;
@@ -2075,9 +2054,8 @@ void TaskManager::GetColorAlternatives(Task* t) {
 	word_clr.Clear();
 	
 	int iter = 0;
-	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
-		String ds_key = sd.GetKey(ds_i);
-		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	{
+		DatasetAnalysis& ds = sda.dataset;
 		
 		for(int i = 0; i < ds.words.GetCount(); i++) {
 			if (iter >= begin) {
@@ -2099,7 +2077,6 @@ void TaskManager::GetColorAlternatives(Task* t) {
 			iter++;
 			if (iter >=  end) break;
 		}
-		if (iter >=  end) break;
 	}
 	
 	if (args.words.IsEmpty()) {
@@ -2122,8 +2099,8 @@ void TaskManager::MakeWordnetsFromTemplates(Task* t) {
 	
 	PromptOK("TODO");
 	#if 0
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		DatasetAnalysis& da = sda.datasets[i];
+	{
+		DatasetAnalysis& da = sda.dataset;
 		for(int j = 0; j < da.tmpl_phrases.GetCount(); j++) {
 			TemplatePhrase& tp = da.tmpl_phrases[j];
 			String group = tp.group;
@@ -2191,7 +2168,7 @@ void TaskManager::RealizeBatch_AttrExtremesBatch(Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	/*if (t->uniq_attrs.IsEmpty())*/ {
 		t->uniq_attrs.Clear();
@@ -2233,7 +2210,7 @@ void TaskManager::GetAttributes(Task* t) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[t->ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	if (t->fn == 0) {
 		RealizeBatch_AttrExtremesBatch(t);
@@ -2421,7 +2398,7 @@ void TaskManager::GetAttributesUsingExisting(Task* t) {
 	TextDatabase& db0 = GetDatabase();
 	SourceData& sd0 = db0.src_data;
 	SourceDataAnalysis& sda0 = db0.src_data.a;
-	DatasetAnalysis& da0 = sda0.datasets[t->ds_i];
+	DatasetAnalysis& da0 = sda0.dataset;
 	
 	t->actual = 0;
 	t->total = 0;
@@ -2438,8 +2415,7 @@ void TaskManager::GetAttributesUsingExisting(Task* t) {
 			TextDatabase& db1 = MetaDatabase::Single().db[i];
 			SourceData& sd1 = db1.src_data;
 			SourceDataAnalysis& sda1 = db1.src_data.a;
-			if (t->ds_i >= sda1.datasets.GetCount()) continue;
-			DatasetAnalysis& da1 = sda1.datasets[t->ds_i];
+			DatasetAnalysis& da1 = sda1.dataset;
 			
 			for(int j = 0; j < t->uniq_attrs.GetCount(); j++) {
 				const String& group = t->uniq_attrs.GetKey(j);

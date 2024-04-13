@@ -13,7 +13,7 @@ struct ScoreDisplay : public Display {
 
 class PhrasePartAnalysis : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
-	ArrayCtrl datasets, attrs, colors, actions, action_args, parts;
+	ArrayCtrl attrs, colors, actions, action_args, parts;
 	
 	VectorMap<String, VectorMap<String, int>> uniq_acts;
 	
@@ -23,7 +23,6 @@ public:
 	
 	void Data() override;
 	void DataMain();
-	void DataDataset();
 	void DataAttribute();
 	void DataColor();
 	void DataAction();

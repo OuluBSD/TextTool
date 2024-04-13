@@ -7,13 +7,10 @@ BEGIN_TEXTLIB_NAMESPACE
 VirtualPhrases::VirtualPhrases() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << datasets << vsplit;
+	hsplit.Horz() << vsplit;
 	hsplit.SetPos(2000);
 	
 	vsplit.Vert() << texts << parts;
-	
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
 	
 	texts.AddColumn(t_("Phrase"));
 	texts.AddColumn(t_("Classes"));
@@ -46,21 +43,6 @@ VirtualPhrases::VirtualPhrases() {
 	
 }
 
-void VirtualPhrases::Data() {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		datasets.Set(i, 0, sda.datasets.GetKey(i));
-	}
-	datasets.SetCount(sda.datasets.GetCount());
-	if (!datasets.IsCursor() || datasets.GetCount())
-		datasets.SetCursor(0);
-	
-	DataDataset();
-}
-
 String GetTypePhraseString(const Vector<int>& word_classes, const DatasetAnalysis& da) {
 	String o;
 	for (int wc_i : word_classes) {
@@ -83,12 +65,10 @@ String GetTypePhraseString(const Vector<int>& word_classes, const DatasetAnalysi
 	return o;
 }
 
-void VirtualPhrases::DataDataset() {
+void VirtualPhrases::Data() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
-	
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sd.a.datasets[ds_i];
+	DatasetAnalysis& da = sd.a.dataset;
 	int row = 0;
 	for(int i = 0; i < da.token_texts.GetCount(); i++) {
 		const TokenText& txt = da.token_texts[i];
@@ -149,21 +129,18 @@ void VirtualPhrases::ToolMenu(Bar& bar) {
 }
 
 void VirtualPhrases::ProcessVirtualPhrases() {
-	int ds_i = datasets.GetCursor();
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoVirtualPhrases(ds_i, 0);
+	tm.DoVirtualPhrases(0);
 }
 
 void VirtualPhrases::ProcessVirtualPhraseParts() {
-	int ds_i = datasets.GetCursor();
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoVirtualPhrases(ds_i, 1);
+	tm.DoVirtualPhrases(1);
 }
 
 void VirtualPhrases::ProcessVirtualPhrasePartsUsingExisting() {
-	int ds_i = datasets.GetCursor();
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoVirtualPhrasesUsingExisting(ds_i, 1);
+	tm.DoVirtualPhrasesUsingExisting(1);
 }
 
 

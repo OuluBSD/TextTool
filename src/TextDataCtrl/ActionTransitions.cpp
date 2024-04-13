@@ -10,11 +10,7 @@ ActionTransitionsPage::ActionTransitionsPage() {
 	hsplit.Horz() << vsplit << transitions;
 	hsplit.SetPos(2000);
 	
-	vsplit.Vert() << datasets << actions << action_args;
-	vsplit.SetPos(1000,0);
-	
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
+	vsplit.Vert() << actions << action_args;
 	
 	actions.AddColumn(t_("Action"));
 	actions.AddColumn(t_("Count"));
@@ -54,27 +50,7 @@ void ActionTransitionsPage::DataMain() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	
-	
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		datasets.Set(i, 0, sda.datasets.GetKey(i));
-	}
-	datasets.SetCount(sda.datasets.GetCount());
-	if (!datasets.IsCursor() || datasets.GetCount())
-		datasets.SetCursor(0);
-	
-	DataDataset();
-}
-
-void ActionTransitionsPage::DataDataset() {
-	if (!datasets.IsCursor())
-		return;
-	
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	uniq_acts.Clear();
 	for (const ActionHeader& ah : da.actions.GetKeys()) {
@@ -103,14 +79,13 @@ void ActionTransitionsPage::DataDataset() {
 }
 
 void ActionTransitionsPage::DataAction() {
-	if (!datasets.IsCursor() || !actions.IsCursor())
+	if (!actions.IsCursor())
 		return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	
 	String action = actions.Get(0);
@@ -137,14 +112,13 @@ void ActionTransitionsPage::DataAction() {
 }
 
 void ActionTransitionsPage::DataActionHeader() {
-	if (!datasets.IsCursor() || !actions.IsCursor() || !action_args.IsCursor())
+	if (!actions.IsCursor() || !action_args.IsCursor())
 		return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	String action = actions.Get(0);
 	String action_arg = action_args.Get(0);
@@ -211,7 +185,7 @@ void ActionTransitionsPage::DataActionHeader() {
 
 void ActionTransitionsPage::UpdateTransitions() {
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoActionTransition(0, 0);
+	tm.DoActionTransition(0);
 }
 
 

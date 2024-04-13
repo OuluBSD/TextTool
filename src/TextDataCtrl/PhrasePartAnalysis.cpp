@@ -36,11 +36,7 @@ PhrasePartAnalysis::PhrasePartAnalysis() {
 	hsplit.Horz() << vsplit << parts;
 	hsplit.SetPos(2000);
 
-	vsplit.Vert() << datasets << attrs << colors << actions << action_args;
-	vsplit.SetPos(1000,0);
-
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
+	vsplit.Vert() << attrs << colors << actions << action_args;
 
 	attrs.AddColumn(t_("Group"));
 	attrs.AddColumn(t_("Value"));
@@ -88,34 +84,10 @@ void PhrasePartAnalysis::ToolMenu(Bar& bar) {
 }
 
 void PhrasePartAnalysis::Data() {
-	DataMain();
-}
-
-void PhrasePartAnalysis::DataMain() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-
-
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		datasets.Set(i, 0, sda.datasets.GetKey(i));
-	}
-	datasets.SetCount(sda.datasets.GetCount());
-	if (!datasets.IsCursor() || datasets.GetCount())
-		datasets.SetCursor(0);
-
-	DataDataset();
-}
-
-void PhrasePartAnalysis::DataDataset() {
-	if (!datasets.IsCursor())
-		return;
-
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 
 	// Set attributes
 	attrs.Set(0,0, "All");
@@ -134,9 +106,6 @@ void PhrasePartAnalysis::DataDataset() {
 }
 
 void PhrasePartAnalysis::DataAttribute() {
-	if (!datasets.IsCursor())
-		return;
-
 	colors.SetCount(1+GetColorGroupCount());
 	colors.Set(0, 0, t_("All words"));
 	for(int i = 0; i < GetColorGroupCount(); i++) {
@@ -153,14 +122,10 @@ void PhrasePartAnalysis::DataAttribute() {
 }
 
 void PhrasePartAnalysis::DataColor() {
-	if (!datasets.IsCursor())
-		return;
-
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 
 
 	uniq_acts.Clear();
@@ -190,14 +155,13 @@ void PhrasePartAnalysis::DataColor() {
 }
 
 void PhrasePartAnalysis::DataAction() {
-	if (!datasets.IsCursor() || !actions.IsCursor())
+	if (!actions.IsCursor())
 		return;
 
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 
 	if (actions.IsCursor()) {
 		String action = actions.Get(0);
@@ -225,15 +189,10 @@ void PhrasePartAnalysis::DataAction() {
 }
 
 void PhrasePartAnalysis::DataActionHeader() {
-	if (!datasets.IsCursor())
-		return;
-
-
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 
 	int clr_i = colors.IsCursor() ? colors.GetCursor() : -1;
 	int act_i = actions.IsCursor() ? actions.GetCursor() : -1;
@@ -344,9 +303,8 @@ void PhrasePartAnalysis::DataActionHeader() {
 }
 
 void PhrasePartAnalysis::DoPhrases(int fn) {
-	int ds_i = datasets.GetCursor();
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoPhrases(ds_i, fn);
+	tm.DoPhrases(fn);
 }
 
 

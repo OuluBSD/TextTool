@@ -7,14 +7,13 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class PhraseParts : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
-	ArrayCtrl datasets, texts, parts;
+	ArrayCtrl texts, parts;
 	
 public:
 	typedef PhraseParts CLASSNAME;
 	PhraseParts();
 	
 	void Data() override;
-	void DataDataset();
 	void ToolMenu(Bar& bar) override;
 	void DoWords(int fn);
 	void DoWordsUsingExisting(int fn);

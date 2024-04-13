@@ -10,11 +10,8 @@ TextDataWordnet::TextDataWordnet() {
 	hsplit.Horz() << vsplit << wordnets;
 	hsplit.SetPos(2000);
 	
-	vsplit.Vert() << datasets << attrs << colors;
+	vsplit.Vert() << attrs << colors;
 	vsplit.SetPos(1000,0);
-	
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
 	
 	attrs.AddColumn(t_("Group"));
 	attrs.AddColumn(t_("Value"));
@@ -59,21 +56,6 @@ void TextDataWordnet::DataMain() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	
-	
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		datasets.Set(i, 0, sda.datasets.GetKey(i));
-	}
-	datasets.SetCount(sda.datasets.GetCount());
-	if (!datasets.IsCursor() || datasets.GetCount())
-		datasets.SetCursor(0);
-	
-	DataDataset();
-}
-	
-void TextDataWordnet::DataDataset() {
-	if (!datasets.IsCursor())
-		return;
 	
 	
 	int gi = 0;
@@ -128,14 +110,13 @@ void TextDataWordnet::DataAttribute() {
 }
 
 void TextDataWordnet::DataColor() {
-	if (!datasets.IsCursor() || !colors.IsCursor() || !attrs.IsCursor())
+	if (!colors.IsCursor() || !attrs.IsCursor())
 		return;
 	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	int clr_i = colors.GetCursor();
 	int attr_group_i = attrs.Get("GROUP");
@@ -242,7 +223,7 @@ void TextDataWordnet::ToolMenu(Bar& bar) {
 
 void TextDataWordnet::DoWordnet(int fn) {
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoWordnet(0, fn);
+	tm.DoWordnet(fn);
 }
 
 

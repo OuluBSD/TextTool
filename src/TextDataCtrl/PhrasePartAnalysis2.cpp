@@ -10,12 +10,8 @@ PhrasePartAnalysis2::PhrasePartAnalysis2() {
 	hsplit.Horz() << vsplit << parts;
 	hsplit.SetPos(2000);
 	
-	vsplit.Vert() << datasets << typecasts << contrasts << colors;
-	vsplit.SetPos(1000,0);
-	vsplit.SetPos(4500,1);
-	
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
+	vsplit.Vert() << typecasts << contrasts << colors;
+	vsplit.SetPos(4500,0);
 	
 	typecasts.AddColumn(t_("Typeclass"));
 	typecasts.AddColumn(t_("Count"));
@@ -72,11 +68,10 @@ void PhrasePartAnalysis2::ClearAll() {
 	if (!PromptYesNo(DeQtf("Do you really want to remove all typecasts and contrasts?")))
 		return;
 	
-	int ds_i = datasets.GetCursor();
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
 		PhrasePart& pp = da.phrase_parts[i];
@@ -92,28 +87,7 @@ void PhrasePartAnalysis2::Data() {
 }
 
 void PhrasePartAnalysis2::DataMain() {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	
-	
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		datasets.Set(i, 0, sda.datasets.GetKey(i));
-	}
-	datasets.SetCount(sda.datasets.GetCount());
-	if (!datasets.IsCursor() || datasets.GetCount())
-		datasets.SetCursor(0);
-	
-	DataDataset();
-}
-
-void PhrasePartAnalysis2::DataDataset() {
-	if (!datasets.IsCursor())
-		return;
-	
-	int ds_i = datasets.GetCursor();
 	DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
-	b.SetDataset(ds_i);
 	
 	// Set attributes
 	const auto& tc = GetTypeclasses();
@@ -173,14 +147,13 @@ void PhrasePartAnalysis2::DataContrast() {
 }
 
 void PhrasePartAnalysis2::DataColor() {
-	if (!datasets.IsCursor() || !typecasts.IsCursor() || !colors.IsCursor())
+	if (!typecasts.IsCursor() || !colors.IsCursor())
 		return;
 	
-	int ds_i = datasets.GetCursor();
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 
 	//DatabaseBrowser& b = DatabaseBrowser::Single();
 	int tc_i = typecasts.GetCursor() - 1;
@@ -265,17 +238,15 @@ void PhrasePartAnalysis2::DataColor() {
 }
 
 void PhrasePartAnalysis2::DoPhrases(int fn) {
-	int ds_i = datasets.GetCursor();
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoPhrases(ds_i, fn);
+	tm.DoPhrases(fn);
 }
 
 void PhrasePartAnalysis2::UpdateCounts() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	/*int count = da.phrase_parts.GetCount();
 	int row = 0;

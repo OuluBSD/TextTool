@@ -7,13 +7,8 @@ BEGIN_TEXTLIB_NAMESPACE
 AmbiguousWordPairs::AmbiguousWordPairs() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << vsplit << texts;
+	hsplit.Horz() << texts;
 	hsplit.SetPos(2000);
-	
-	vsplit.Vert() << datasets;
-	
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
 	
 	texts.AddColumn(t_("From"));
 	texts.AddColumn(t_("To"));
@@ -40,24 +35,7 @@ AmbiguousWordPairs::AmbiguousWordPairs() {
 void AmbiguousWordPairs::Data() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		datasets.Set(i, 0, sda.datasets.GetKey(i));
-	}
-	datasets.SetCount(sda.datasets.GetCount());
-	if (!datasets.IsCursor() || datasets.GetCount())
-		datasets.SetCursor(0);
-	
-	DataDataset();
-}
-
-void AmbiguousWordPairs::DataDataset() {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sd.a.datasets[ds_i];
+	DatasetAnalysis& da = sd.a.dataset;
 	
 	int row = 0;
 	for(int i = 0; i < da.ambiguous_word_pairs.GetCount(); i++) {
@@ -89,12 +67,12 @@ void AmbiguousWordPairs::ToolMenu(Bar& bar) {
 
 void AmbiguousWordPairs::ProcessUsingExisting() {
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoAmbiguousWordPairsUsingExisting(0, 1);
+	tm.DoAmbiguousWordPairsUsingExisting(1);
 }
 
 void AmbiguousWordPairs::Process() {
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoAmbiguousWordPairs(0, 1);
+	tm.DoAmbiguousWordPairs(1);
 }
 
 

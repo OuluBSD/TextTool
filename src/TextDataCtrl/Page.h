@@ -7,7 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class TextDataPage : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
-	ArrayCtrl datasets, entities, components;//, active_components;
+	ArrayCtrl entities, components;//, active_components;
 	DocEdit scripts, analysis;
 	ProgressIndicator prog;
 	bool disabled = false;
@@ -20,7 +20,6 @@ public:
 	void EnableAll();
 	void DisableAll();
 	void Data() override;
-	void DataDataset();
 	void DataEntity();
 	//void DataEntityActiveSongs();
 	void DataComponent();

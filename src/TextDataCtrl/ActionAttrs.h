@@ -7,7 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class ActionAttrsPage : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
-	ArrayCtrl datasets, attrs, colors, actions;
+	ArrayCtrl attrs, colors, actions;
 	
 public:
 	typedef ActionAttrsPage CLASSNAME;
@@ -15,8 +15,6 @@ public:
 	
 	void Data() override;
 	void ToolMenu(Bar& bar) override;
-	void DataMain();
-	void DataDataset();
 	void DataAttribute();
 	void DataColor();
 	void UpdateFromCache();

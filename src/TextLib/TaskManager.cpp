@@ -220,7 +220,6 @@ void TaskManager::ImportPromptAnswers() {
 		String content = LoadFileBOM(path);
 		
 		Task t;
-		t.ds_i = 0;
 		if (content.Find("RGB(") >= 0) {
 			OnDetails(content, &t);
 		}

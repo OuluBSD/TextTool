@@ -13,10 +13,7 @@ TextDataPage::TextDataPage() {
 	hsplit.Horz() << vsplit << scripts << analysis;
 	hsplit.SetPos(2500);
 	
-	vsplit.Vert() << datasets << entities << components;// << active_components;
-	
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
+	vsplit.Vert() << entities << components;// << active_components;
 	
 	entities.AddColumn(t_("File"));
 	entities.WhenCursor << THISBACK(DataEntity);
@@ -38,7 +35,6 @@ TextDataPage::TextDataPage() {
 
 void TextDataPage::EnableAll() {
 	disabled = false;
-	datasets.Enable();
 	entities.Enable();
 	components.Enable();
 	//active_components.Enable();
@@ -47,7 +43,6 @@ void TextDataPage::EnableAll() {
 
 void TextDataPage::DisableAll() {
 	disabled = true;
-	datasets.Disable();
 	entities.Disable();
 	components.Disable();
 	//active_components.Disable();
@@ -67,15 +62,13 @@ void TextDataPage::ToolMenu(Bar& bar) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	if (!datasets.IsCursor() || !entities.IsCursor() || !components.IsCursor()) return;
-	int cur = datasets.GetCursor();
+	if (!entities.IsCursor() || !components.IsCursor()) return;
 	int acur = entities.GetCursor();
 	const auto& data = db.src_data[cur];
 	const auto& artist = data[acur];
 	if (artist.scripts.IsEmpty()) return;
 	
-	String ds_key = sd.GetKey(cur);
-	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	DatasetAnalysis& ds = sda.dataset;
 	
 	auto& components = artist.scripts;// ds.entities.GetAdd(artist.name).components;
 	
@@ -108,16 +101,14 @@ void TextDataPage::ToolMenu(Bar& bar) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	if (!datasets.IsCursor() || !entities.IsCursor() || !components.IsCursor()) return;
-	int cur = datasets.GetCursor();
+	if (!entities.IsCursor() || !components.IsCursor()) return;
 	int acur = entities.GetCursor();
 	int scur = components.GetCursor();
 	const auto& data = db.src_data[cur];
 	const auto& artist = data[acur];
 	const auto& song = artist.scripts[scur];
 	
-	String ds_key = sd.GetKey(cur);
-	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	DatasetAnalysis& ds = sda.dataset;
 	auto& v = ds.entities.GetAdd(artist.name).components;
 	int j = -1;
 	for(int i = 0; i < v.GetCount(); i++) if (v[i].name == song.name) {j = i; break;}
@@ -136,15 +127,14 @@ void TextDataPage::ToolMenu(Bar& bar) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	if (!datasets.IsCursor() || !entities.IsCursor() || !active_components.IsCursor()) return;
-	int cur = datasets.GetCursor();
+	if (!entities.IsCursor() || !active_components.IsCursor()) return;
 	int acur = entities.GetCursor();
 	int scur = active_components.GetCursor();
 	const auto& data = db.src_data[cur];
 	const auto& artist = data[acur];
 	
 	String ds_key = sd.GetKey(cur);
-	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	DatasetAnalysis& ds = sda.dataset;
 	
 	ds.entities.GetAdd(artist.name).components.Remove(scur);
 	
@@ -155,22 +145,7 @@ void TextDataPage::ToolMenu(Bar& bar) {
 
 void TextDataPage::Data() {
 	TextDatabase& db = GetDatabase();
-	
-	datasets.Set(0, 0, "English");
-	datasets.Set(1, 0, "Finnish");
-	
-	if (!datasets.IsCursor())
-		datasets.SetCursor(0);
-	
-	DataDataset();
-}
-
-void TextDataPage::DataDataset() {
-	TextDatabase& db = GetDatabase();
-	
-	if (!datasets.IsCursor()) return;
-	int cur = datasets.GetCursor();
-	const auto& data = db.src_data[cur];
+	const auto& data = db.src_data.entities;
 	
 	entities.SetCount(data.GetCount());
 	for(int i = 0; i < data.GetCount(); i++) {
@@ -191,10 +166,9 @@ void TextDataPage::DataEntity() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	
-	if (!datasets.IsCursor() || !entities.IsCursor()) return;
-	int cur = datasets.GetCursor();
+	if (!entities.IsCursor()) return;
 	int acur = entities.GetCursor();
-	const auto& data = db.src_data[cur];
+	const auto& data = db.src_data.entities;
 	const auto& artist = data[acur];
 	
 	components.SetCount(artist.scripts.GetCount());
@@ -219,14 +193,12 @@ void TextDataPage::DataEntityActiveSongs() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	if (!datasets.IsCursor() || !entities.IsCursor()) return;
-	int cur = datasets.GetCursor();
+	if (!entities.IsCursor()) return;
 	int acur = entities.GetCursor();
-	const auto& data = db.src_data[cur];
+	const auto& data = db.src_data.entities;
 	const auto& artist = data[acur];
 	
-	String ds_key = sd.GetKey(cur);
-	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	DatasetAnalysis& ds = sda.dataset;
 	
 	/*int i = ds.entities.Find(artist.name);
 	if (i < 0) {
@@ -246,11 +218,10 @@ void TextDataPage::DataEntityActiveSongs() {
 void TextDataPage::DataComponent() {
 	TextDatabase& db = GetDatabase();
 	
-	if (!datasets.IsCursor() || !entities.IsCursor() || !components.IsCursor()) return;
-	int cur = datasets.GetCursor();
+	if (!entities.IsCursor() || !components.IsCursor()) return;
 	int acur = entities.GetCursor();
 	int scur = components.GetCursor();
-	const auto& data = db.src_data[cur];
+	const auto& data = db.src_data.entities;
 	const auto& artist = data[acur];
 	const auto& song = artist.scripts[scur];
 	
@@ -269,15 +240,14 @@ void TextDataPage::DataActiveSong() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	if (!datasets.IsCursor() || !entities.IsCursor() || !active_components.IsCursor()) return;
-	int cur = datasets.GetCursor();
+	if (!entities.IsCursor() || !active_components.IsCursor()) return;
 	int acur = entities.GetCursor();
 	int scur = active_components.GetCursor();
 	const auto& data = db.src_data[cur];
 	const auto& artist = data[acur];
 	
 	String ds_key = sd.GetKey(cur);
-	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	DatasetAnalysis& ds = sda.dataset.entities;
 	
 	scripts.Clear();
 	analysis.Clear();
@@ -341,11 +311,8 @@ void TextDataPage::HotfixText() {
 #endif
 
 void TextDataPage::ImportScript() {
-	if (!datasets.IsCursor())
-		return;
-	int ds_i = datasets.GetCursor();
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoSongs(ds_i, 0);
+	tm.DoSongs(0);
 }
 
 

@@ -7,11 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 TextDataDiagnostics::TextDataDiagnostics() {
 	Add(hsplit.HSizePos().VSizePos(0,30));
 	
-	hsplit.Horz() << datasets << values;
-	hsplit.SetPos(2500);
-	
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
+	hsplit.Horz() << values;
 	
 	values.AddColumn(t_("Key"));
 	values.AddColumn(t_("Value"));
@@ -19,25 +15,7 @@ TextDataDiagnostics::TextDataDiagnostics() {
 
 void TextDataDiagnostics::Data() {
 	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		datasets.Set(i, 0, sda.datasets.GetKey(i));
-	}
-	datasets.SetCount(sda.datasets.GetCount());
-	if (!datasets.IsCursor() || datasets.GetCount())
-		datasets.SetCursor(0);
-	
-	DataDataset();
-}
-
-void TextDataDiagnostics::DataDataset() {
-	TextDatabase& db = GetDatabase();
-	
-	if (!datasets.IsCursor()) return;
-	int cur = datasets.GetCursor();
-	const DatasetAnalysis& da = db.src_data.a.datasets[cur];
+	const DatasetAnalysis& da = db.src_data.a.dataset;
 	
 	for(int i = 0; i < da.diagnostics.GetCount(); i++) {
 		const String& key = da.diagnostics.GetKey(i);
@@ -59,7 +37,7 @@ void TextDataDiagnostics::DataDataset() {
 }
 
 void TextDataDiagnostics::ToolMenu(Bar& bar) {
-	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(DataDataset)).Key(K_CTRL_Q);
+	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 }
 
 

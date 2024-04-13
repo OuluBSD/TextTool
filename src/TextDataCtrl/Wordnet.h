@@ -7,7 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class TextDataWordnet : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
-	ArrayCtrl datasets, attrs, colors, wordnets;
+	ArrayCtrl attrs, colors, wordnets;
 	Mutex lock;
 	
 	String tmp_first_line;
@@ -22,7 +22,6 @@ public:
 	void DisableAll();
 	void Data() override;
 	void DataMain();
-	void DataDataset();
 	void DataAttribute();
 	void DataColor();
 	void ToolMenu(Bar& bar) override;

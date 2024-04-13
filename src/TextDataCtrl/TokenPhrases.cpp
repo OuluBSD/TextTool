@@ -7,13 +7,8 @@ BEGIN_TEXTLIB_NAMESPACE
 TokenPhrases::TokenPhrases() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << vsplit << texts;
+	hsplit.Horz() << texts;
 	hsplit.SetPos(2000);
-	
-	vsplit.Vert() << datasets;
-	
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
 	
 	texts.AddColumn(t_("Text"));
 	texts.AddColumn(t_("Virtual phrase"));
@@ -37,24 +32,7 @@ TokenPhrases::TokenPhrases() {
 void TokenPhrases::Data() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		datasets.Set(i, 0, sda.datasets.GetKey(i));
-	}
-	datasets.SetCount(sda.datasets.GetCount());
-	if (!datasets.IsCursor() || datasets.GetCount())
-		datasets.SetCursor(0);
-	
-	DataDataset();
-}
-
-void TokenPhrases::DataDataset() {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	
-	int ds_i = datasets.GetCursor();
-	DatasetAnalysis& da = sd.a.datasets[ds_i];
+	DatasetAnalysis& da = sd.a.dataset;
 	
 	for(int i = 0; i < da.token_texts.GetCount(); i++) {
 		const TokenText& txt = da.token_texts[i];
@@ -78,11 +56,8 @@ void TokenPhrases::ToolMenu(Bar& bar) {
 }
 
 void TokenPhrases::GetUnknownPairs() {
-	if (!datasets.IsCursor())
-		return;
-	int ds_i = datasets.GetCursor();
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoUnknownTokenPairs(ds_i, 0);
+	tm.DoUnknownTokenPairs(0);
 }
 
 

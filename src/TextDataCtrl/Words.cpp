@@ -10,10 +10,7 @@ TextDataWords::TextDataWords() {
 	hsplit.Horz() << vsplit << words;
 	hsplit.SetPos(2500);
 	
-	vsplit.Vert() << datasets << colors;
-	
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
+	vsplit.Vert() << colors;
 	
 	colors.AddColumn(t_("Word group"));
 	colors.ColumnWidths("1");
@@ -34,51 +31,21 @@ TextDataWords::TextDataWords() {
 void TextDataWords::EnableAll() {
 	disabled = false;
 	words.Enable();
-	datasets.Enable();
 	colors.Enable();
 }
 
 void TextDataWords::DisableAll() {
 	disabled = true;
 	words.Disable();
-	datasets.Disable();
 	colors.Disable();
 }
 
 void TextDataWords::Data() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
-	
-	datasets.SetCount(sd.GetCount());
-	for(int i = 0; i < sd.GetCount(); i++) {
-		String key = sd.GetKey(i);
-		datasets.Set(i, 0, key);
-	}
-	
-	if (!datasets.IsCursor() && datasets.GetCount())
-		datasets.SetCursor(0);
-	
-}
-
-void TextDataWords::DataMain() {
-	
-	Data();
-	DataDataset();
-}
-
-void TextDataWords::DataDataset() {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	
-	if (!datasets.IsCursor())
-		return;
-	
-	int ds_i = datasets.GetCursor();
-	
-	String ds_key = sd.GetKey(ds_i);
-	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
-	Vector<EntityDataset>& avec = sd[ds_i];
+	DatasetAnalysis& ds = sda.dataset;
+	Vector<EntityDataset>& avec = sd.entities;
 	
 	
 	colors.SetCount(1+GetColorGroupCount());
@@ -100,14 +67,14 @@ void TextDataWords::DataColor() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	if (!datasets.IsCursor() || !colors.IsCursor())
+	if (!colors.IsCursor())
 		return;
 	
-	int ds_i = datasets.GetCursor();
 	int wg_i = colors.GetCursor();
-	String ds_key = sd.GetKey(ds_i);
-	DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
-	const Vector<EntityDataset>& avec = sd[ds_i];
+	DatasetAnalysis& ds = sda.dataset;
+	const Vector<EntityDataset>& avec = sd.entities;
+	
+	int lng_i = LNG_FINNISH;
 	
 	{
 		bool clr_filter = wg_i > 0;
@@ -129,8 +96,8 @@ void TextDataWords::DataColor() {
 				continue;
 			
 			// Translation
-			int t_i = ds.translations.Find(key);
-			String translation = t_i >= 0 ? ds.translations[t_i] : String();
+			int t_i = ds.translations[lng_i].Find(key);
+			String translation = t_i >= 0 ? ds.translations[lng_i][t_i] : String();
 			
 			// If details have parsed
 			if (wa.class_count > 0) {
@@ -193,7 +160,7 @@ void TextDataWords::DataColor() {
 }
 
 void TextDataWords::ToolMenu(Bar& bar) {
-	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(DataMain)).Key(K_CTRL_Q);
+	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
 	bar.Add(t_("Fix all words"), AppImg::RedRing(), THISBACK1(DoWordFix, 0)).Key(K_F4);
 	bar.Add(t_("Update all words"), AppImg::RedRing(), THISBACK1(DoWords, 0)).Key(K_F5);
@@ -220,9 +187,8 @@ void TextDataWords::ToolMenu(Bar& bar) {
 	
 	Index<String> unique_wordgroups;
 	
-	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
-		String ds_key = sd.GetKey(ds_i);
-		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	{
+		DatasetAnalysis& ds = sda.dataset;
 			
 		ds.groups.Clear();
 		
@@ -262,9 +228,8 @@ void TextDataWords::ToolMenu(Bar& bar) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
-		String ds_key = sd.GetKey(ds_i);
-		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	{
+		DatasetAnalysis& ds = sda.dataset;
 		
 		for (auto& wa : ds.words)
 			wa.group_is.Clear();
@@ -291,9 +256,8 @@ void TextDataWords::DumpWordGroups() {
 	SourceDataAnalysis& sda = db.src_data.a;
 	
 	Index<int> main_classes;
-	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
-		String ds_key = sd.GetKey(ds_i);
-		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	{
+		DatasetAnalysis& ds = sda.dataset;
 		
 		for(int i = 0; i < ds.words.GetCount(); i++) {
 			const ExportWord& wa = ds.words[i];
@@ -318,9 +282,8 @@ void TextDataWords::DumpPhoneticChars() {
 	SourceDataAnalysis& sda = db.src_data.a;
 	
 	Index<WString> chars;
-	for(int ds_i = 0; ds_i < sd.GetCount(); ds_i++) {
-		String ds_key = sd.GetKey(ds_i);
-		DatasetAnalysis& ds = sda.datasets.GetAdd(ds_key);
+	{
+		DatasetAnalysis& ds = sda.dataset;
 		
 		for(int i = 0; i < ds.words.GetCount(); i++) {
 			const ExportWord& wa = ds.words[i];
@@ -343,19 +306,14 @@ void TextDataWords::DumpPhoneticChars() {
 }
 
 void TextDataWords::DoWordFix(int fn) {
-	if (!datasets.IsCursor())
-		return;
-	int ds_i = datasets.GetCursor();
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoWordFix(ds_i, fn);
+	tm.DoWordFix(fn);
 }
 
 void TextDataWords::DoWords(int fn) {
-	if (!datasets.IsCursor())
-		return;
-	int ds_i = datasets.GetCursor();
+	int lng_i = LNG_FINNISH;
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoWords(ds_i, fn);
+	tm.DoWords(lng_i, fn);
 }
 
 

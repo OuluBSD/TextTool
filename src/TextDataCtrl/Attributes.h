@@ -7,9 +7,8 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class Attributes : public ToolAppCtrl {
 	Splitter hsplit, vsplit;
-	ArrayCtrl datasets, groups, values, pos_values, neg_values;
+	ArrayCtrl groups, values, pos_values, neg_values;
 	
-	int uniq_ds_i = -1;
 	VectorMap<String,Index<String>> uniq_attrs;
 	VectorMap<String,Index<int>> uniq_attrs_i;
 	
@@ -20,7 +19,6 @@ public:
 	Attributes();
 	
 	void Data() override;
-	void DataDataset();
 	void DataGroup();
 	void DoAttributes(int fn);
 	

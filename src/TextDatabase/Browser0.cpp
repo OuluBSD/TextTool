@@ -8,7 +8,7 @@ void DatabaseBrowser::SetAttr0(int i) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	if (attrs.IsEmpty()) {
 		attrs.SetCount(1 + da.attrs.GetCount());
@@ -39,7 +39,7 @@ void DatabaseBrowser::SetColor0(int i) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	Attr& a = attrs[cursor[0]];
 	bool all_attr = cursor[0] == 0;
@@ -93,7 +93,7 @@ void DatabaseBrowser::SetGroup0(int i) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	Attr& a = attrs[cursor[0]];
 	ColorGroup& cg = colors[cursor[1]];
@@ -169,7 +169,7 @@ void DatabaseBrowser::SetValue0(int i) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	Attr& a = attrs[cursor[0]];
 	ColorGroup& cg = colors[cursor[1]];
@@ -229,7 +229,7 @@ void DatabaseBrowser::DataValue0() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.datasets[ds_i];
+	DatasetAnalysis& da = sda.dataset;
 	
 	data.SetCount(0);
 	data.Reserve(10000);

@@ -7,13 +7,10 @@ BEGIN_TEXTLIB_NAMESPACE
 PhraseParts::PhraseParts() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << datasets << vsplit;
+	hsplit.Horz() << vsplit;
 	hsplit.SetPos(2000);
 	
 	vsplit.Vert() << texts << parts;
-	
-	datasets.AddColumn(t_("Dataset"));
-	datasets.WhenCursor << THISBACK(DataDataset);
 	
 	texts.AddColumn(t_("Phrase"));
 	texts.AddColumn(t_("Types"));
@@ -45,24 +42,7 @@ void PhraseParts::Data() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	
-	for(int i = 0; i < sda.datasets.GetCount(); i++) {
-		datasets.Set(i, 0, sda.datasets.GetKey(i));
-	}
-	datasets.SetCount(sda.datasets.GetCount());
-	if (!datasets.IsCursor() || datasets.GetCount())
-		datasets.SetCursor(0);
-	
-	DataDataset();
-}
-
-void PhraseParts::DataDataset() {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	
-	int ds_i = datasets.GetCursor();
-	if (ds_i < 0) return;
-	DatasetAnalysis& da = sd.a.datasets[ds_i];
+	DatasetAnalysis& da = sd.a.dataset;
 	int row = 0;
 	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
 		const PhrasePart& pp = da.phrase_parts[i];
@@ -128,15 +108,15 @@ void PhraseParts::ToolMenu(Bar& bar) {
 }
 
 void PhraseParts::DoWordsUsingExisting(int fn) {
-	int ds_i = datasets.GetCursor();
+	int lng_i = LNG_FINNISH;
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoWordsUsingExisting(ds_i, fn);
+	tm.DoWordsUsingExisting(lng_i, fn);
 }
 
 void PhraseParts::DoWords(int fn) {
-	int ds_i = datasets.GetCursor();
+	int lng_i = LNG_FINNISH;
 	TextLib::TaskManager& tm = GetTaskManager();
-	tm.DoWords(ds_i, fn);
+	tm.DoWords(lng_i, fn);
 }
 
 

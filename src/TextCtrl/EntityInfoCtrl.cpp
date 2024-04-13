@@ -51,9 +51,9 @@ void EntityInfoCtrl::Data() {
 	lbl_electronic_tools.SetLabel(GetAppModeLabel(AML_ELECTRONIC_TOOLS));
 	lbl_vibe_of_text.SetLabel(GetAppModeLabel(AML_VIBE_OF_TEXT));
 	
-	if (language.GetCount() == 0 && db.src_data.GetCount()) {
-		for(int i = 0; i < db.src_data.GetCount(); i++)
-			language.Add(db.src_data.GetKey(i));
+	if (language.GetCount() == 0 && GetLanguageCount()) {
+		for(int i = 0; i < GetLanguageCount(); i++)
+			language.Add(GetLanguageKey(i));
 		language.SetIndex(0);
 	}
 	
