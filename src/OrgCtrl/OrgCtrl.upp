@@ -5,6 +5,11 @@ uses
 
 file
 	OrgCtrl.h,
-	OperationOverview.h,
-	OperationOverview.cpp;
+	Common.h,
+	Organization.h,
+	Organization.cpp,
+	Services.h,
+	Services.cpp,
+	Manager.h,
+	Manager.cpp;
 

@@ -36,6 +36,7 @@ v0.0.1
 - fix bug: see database / attributes broken values in empty group name
 	- function to fix those (remove "" and link duplicates)
 - lead parser and analyzer (taxi)
+- managerctrl
 
 
 v0.0.2

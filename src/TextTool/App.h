@@ -10,9 +10,12 @@ class TextTool : public TopWindow {
 	ToolBar				toolbar;
 	StatusBar			statusbar;
 	
-	OperationOverview	oo;
+	OrganizationCtrl	org;
+	ServicesCtrl		svc;
 	ToolEditor			ed;
 	Tasks				ai;
+	ManagerCtrl			mc;
+	
 	TimeCallback		tc;
 	bool				skip_data = false;
 	

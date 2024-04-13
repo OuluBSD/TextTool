@@ -27,9 +27,11 @@ TextTool::TextTool() : ed(this) {
 	};
 	ed.WhenStopUpdating << [this](){tc.Kill();};
 	
-	Add(oo.SizePos());
+	Add(org.SizePos());
 	Add(ed.SizePos());
 	Add(ai.SizePos());
+	Add(svc.SizePos());
+	Add(mc.SizePos());
 	
 	AddFrame(menu);
 	AddFrame(toolbar);
@@ -48,6 +50,10 @@ TextTool::~TextTool() {
 }
 
 void TextTool::Init() {
+	org.Init();
+	svc.Init();
+	mc.Init();
+	
 	ed.Init();
 	ed.Data(); // sets active artist, song, etc.
 	
@@ -154,9 +160,11 @@ void TextTool::SaveWindowPos() {
 
 void TextTool::Data() {
 	switch (page) {
-		case 1: oo.Data(); break;
+		case 1: org.Data(); break;
 		case 2: ed.Data(); break;
 		case 3: ai.Data(); break;
+		case 4: svc.Data(); break;
+		case 5: mc.Data(); break;
 	}
 }
 
@@ -169,15 +177,18 @@ void TextTool::SetBar() {
 		case 1: break;
 		case 2: s = ed.GetStatusText(); break;
 		case 3: break;
+		case 4: break;
 	}
 	statusbar.SetData(s);
 }
 
 void TextTool::MainBar(Bar& bar) {
 	switch (page) {
-		case 1: oo.ToolMenu(bar); break;
+		case 1: org.ToolMenu(bar); break;
 		case 2: ed.ToolMenu(bar); break;
 		case 3: ai.ToolMenu(bar); break;
+		case 4: svc.ToolMenu(bar); break;
+		case 5: mc.ToolMenu(bar); break;
 	}
 }
 
@@ -209,17 +220,21 @@ void TextTool::MovePart(int i) {
 }
 
 void TextTool::SetView(int i) {
-	oo.Hide();
+	org.Hide();
 	ed.Hide();
 	ai.Hide();
+	svc.Hide();
+	mc.Hide();
 	
 	tc.Kill();
 	
 	switch (i) {
 		default: i = 0;
-		case 1: oo.Show(); break;
+		case 1: org.Show(); break;
 		case 2: ed.Show(); break;
 		case 3: ai.Show(); PostCallback(THISBACK(StartUpdating)); break;
+		case 4: svc.Show(); break;
+		case 5: mc.Show(); break;
 	}
 	
 	page = i;

@@ -4,7 +4,9 @@
 #include <ToolCtrl/ToolCtrl.h>
 #include <OrgLib/OrgLib.h>
 
-#include "OperationOverview.h"
+#include "Services.h"
+#include "Organization.h"
+#include "Manager.h"
 
 
 #endif
