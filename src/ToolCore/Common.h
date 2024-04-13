@@ -241,13 +241,16 @@ inline String GetAppModeString(int appmode) {
 		case DB_STORYBOARD:		return "Storyboard";
 		
 		case DB_POLITICS:		return "Politics";
-		case DB_LIFE:			return "Life (nothing new happens)";
+		case DB_LIFE:			return "Life";
 		case DB_BUSINESS:		return "Business";
 		case DB_FLIRTING:		return "Flirting";
 		case DB_DOCUMENTARY:	return "Documentary";
 	}
 	return "<error>";
 }
+
+String GetAppModeDir(int appmode=-1);
+
 
 struct MetaPtrs {
 	EditorPtrs db[DB_COUNT];

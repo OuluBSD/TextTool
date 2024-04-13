@@ -5,7 +5,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 void Entity::Store() {
-	String dir = GetAppModeDatabase().GetEntitysDir();
+	String dir = GetAppModeDatabase().GetEntitiesDir();
 	RealizeDirectory(dir);
 	String json_path = dir + file_title + ".json";
 	StoreAsJsonFileStandard(*this, json_path, true);
@@ -14,7 +14,7 @@ void Entity::Store() {
 }
 
 void Entity::LoadTitle(String title) {
-	String dir = GetAppModeDatabase().GetEntitysDir();
+	String dir = GetAppModeDatabase().GetEntitiesDir();
 	file_title = title;
 	String json_path = dir + file_title + ".json";
 	LoadFromJsonFileStandard(*this, json_path);
@@ -74,7 +74,7 @@ void Entity::RealizeTypeclasses(int appmode) {
 String Entity::GetScriptDir() const {
 	ASSERT(!file_title.IsEmpty());
 	TextDatabase& db = GetAppModeDatabase();
-	return db.dir + DIR_SEPS "share" DIR_SEPS + __scripts + DIR_SEPS + file_title + DIR_SEPS;
+	return db.dir + DIR_SEPS "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "scripts" + DIR_SEPS + file_title + DIR_SEPS;
 }
 
 bool Entity::FindComponent(int& tc_i, int& arch_i, int& lyr_i, const String& scripts_file_title) const {

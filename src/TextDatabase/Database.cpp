@@ -11,34 +11,34 @@ TextDatabase::TextDatabase() {
 	
 }
 
-String TextDatabase::GetEntitysDir() const {
-	return dir + DIR_SEPS "share" DIR_SEPS + GetAppModeKeyEntities() + DIR_SEPS;
+String TextDatabase::GetEntitiesDir() const {
+	return dir + DIR_SEPS "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "entities" + DIR_SEPS;
 }
 
 String TextDatabase::GetSnapshotsDir() const {
-	return dir + DIR_SEPS "share" DIR_SEPS + GetAppModeKeySnapshots() + DIR_SEPS;
+	return dir + DIR_SEPS "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "snapshots" + DIR_SEPS;
 }
 
 String TextDatabase::GetComponentsDir() const {
-	return dir + DIR_SEPS "share" DIR_SEPS + GetAppModeKeyComponents() + DIR_SEPS;
+	return dir + DIR_SEPS "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "components" + DIR_SEPS;
 }
 
 void TextDatabase::Store() {
-	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + __db + ".json", true);
+	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "db.json", true);
 }
 
 void TextDatabase::Load() {
 	Clear();
 	
 	lock.EnterWrite();
-	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + __db + ".json");
+	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "db.json");
 	lock.LeaveWrite();
 	
 }
 
 void TextDatabase::FindOrphaned() {
 	{
-		String dir = GetEntitysDir();
+		String dir = GetEntitiesDir();
 		String search = dir + "*.json";
 		
 		FindFile ff;
@@ -151,6 +151,13 @@ ToolEditor& GetAnyEditor() {
 	Panic("No ToolEditor pointer");
 	ToolEditor* p = 0;
 	return *p;
+}
+
+String GetAppModeDir(int appmode) {
+	if (appmode < 0)
+		appmode = GetAppModeGlobal();
+	ASSERT(appmode >= 0 && appmode < DB_COUNT);
+	return ToLower(GetAppModeString(appmode));
 }
 
 

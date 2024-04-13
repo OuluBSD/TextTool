@@ -70,7 +70,7 @@ struct TextDatabase {
 			Sort(entities, Entity());
 		}
 	}
-	String GetEntitysDir() const;
+	String GetEntitiesDir() const;
 	String GetSnapshotsDir() const;
 	String GetComponentsDir() const;
 	

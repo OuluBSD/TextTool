@@ -259,11 +259,14 @@ void DatasetAnalysis::Load(int ds_i, const String& ds_key) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	String dir = AppendFileName(db.dir, "share" DIR_SEPS + __comp + "data");
+	String dir = AppendFileName(db.dir, "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "data");
 	RealizeDirectory(dir);
 	
-	String ds_dir = AppendFileName(dir, ds_key);
+	String ds_dir = dir;
+	
+	/*String ds_dir = AppendFileName(dir, ds_key);
 	RealizeDirectory(ds_dir);
+	*/
 	String trans_ds_key;
 	if (ds_i == 0)
 		trans_ds_key = "fi";
