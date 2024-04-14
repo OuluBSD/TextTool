@@ -9,17 +9,34 @@ BEGIN_TEXTLIB_NAMESPACE
 struct TaskMgr;
 
 struct OpenAiResponse {
+	struct Msg : Moveable<Msg> {
+		String content, role;
+		
+		void Jsonize(JsonIO& json) {
+			json("content", content)
+				("role", role);
+		}
+		String ToString() const {
+			String s;
+			s	<< "content: " << content << "\n"
+				<< "role: " << role << "\n";
+			return s;
+		}
+	};
 	struct Choice : Moveable<Choice> {
 		String text;
 		String finish_reason;
 		int index;
 		Vector<double> logprobs;
+		Msg message;
 		
 		void Jsonize(JsonIO& json) {
 			json("text", text)
 				("finish_reason", finish_reason)
 				("logprobs", logprobs)
-				("index", index);
+				("index", index)
+				("message", message)
+				;
 		}
 		String ToString() const {
 			String s;
@@ -30,6 +47,9 @@ struct OpenAiResponse {
 				s << d <<", ";
 			s	<< "\nindex: " << index << "\n";
 			return s;
+		}
+		String GetText() const {
+			return text.IsEmpty() ? message.content : text;
 		}
 	};
 	struct Usage {
@@ -166,6 +186,7 @@ public:
 	bool allow_multi_spawn = false;
 	int tries = 0;
 	bool keep_going = false;
+	int quality = 0;
 	
 	AiPrompt input;
 	String raw_input;
@@ -203,6 +224,7 @@ public:
 	void SetFatalError(String s) {SetError(s); fatal_error = true;}
 	void SetWaiting() {wait_task = true;}
 	void SetFastExit() {fast_exit = true;}
+	void SetHighQuality() {quality = 1;}
 	String GetInputHash() const;
 	String GetOutputHash() const;
 	

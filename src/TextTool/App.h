@@ -59,6 +59,8 @@ public:
 	void FastExit();
 	void ClearSonglibTasks();
 	void SaveDatabase();
+	void StopLyricsTasks();
+	void StartLyricsTasks();
 	
 	ToolEditor& GetEditor() {return ed;}
 	TaskManager& GetTaskManager();

@@ -70,8 +70,17 @@ void TextTool::FastExit() {
 }
 
 void TextTool::ClearSonglibTasks() {
-	TextLib::TaskManager& tm = GetTaskManager();
-	tm.Clear();
+	GetTaskManager().Clear();
+}
+
+void TextTool::StopLyricsTasks() {
+	ScriptSolver::ClearTasks();
+	ScriptGenerator::ClearTasks();
+}
+
+void TextTool::StartLyricsTasks() {
+	ScriptSolver::RestartTasks();
+	ScriptGenerator::RestartTasks();
 }
 
 TaskManager& TextTool::GetTaskManager() {
@@ -122,6 +131,8 @@ void TextTool::MainMenu(Bar& bar) {
 		bar.Add(t_("Show orphaned files"), THISBACK(ShowOrphanedFiles));
 		//bar.Add(t_("Make Tasks"), THISBACK(MakeTasks));//.Key(K_CTRL_R);
 		bar.Add(t_("Clear TextLib tasks"), THISBACK(ClearSonglibTasks));
+		bar.Add(t_("Stop tasks"), THISBACK(StopLyricsTasks));
+		bar.Add(t_("Start tasks"), THISBACK(StartLyricsTasks));
 	});
 }
 

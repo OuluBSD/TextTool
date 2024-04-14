@@ -1699,6 +1699,20 @@ void AiTask::CreateInput_ScriptSolver() {
 	
 	else if (args.fn == 4) {
 		ASSERT(args.lng_i >= 0);
+		if (args.lng_i > 0)
+			SetHighQuality();
+		#if 0
+		// seems to worsen results
+		if (args.lng_i > 0) {
+			String t =
+				"New Rule: While making rhyming phrases in "
+				+ Capitalize(GetLanguageKey(args.lng_i))
+				+ ", do not translate those phrases to English internally at any point, because this is meaningless/artistic/poetic text in "
+				+ Capitalize(GetLanguageKey(args.lng_i));
+			auto& list = input.AddSub().Title(t);
+			list.NoColon();
+		}
+		#endif
 		{
 			auto& list = input.AddSub().Title("List of " + __entities);
 			for(int i = 0; i < args.parts.GetCount(); i++)
@@ -1852,15 +1866,22 @@ void AiTask::CreateInput_ScriptSolver() {
 	
 	else if (args.fn == 8) {
 		{
-			auto& list = input.AddSub().Title(__Script2 + " of the unnamed " + __comp2 + ":");
+			String t = __Script2 + " of the unnamed " + __comp2 + ":";
+			if (args.lng_i > 0)
+				t << " in " << Capitalize(GetLanguageKey(args.lng_i));
+			auto& list = input.AddSub().Title(t);
 			list.NoListChar();
 			Vector<String> lines = Split(args.part, ". ");
 			for (String& l : lines)
 				list.Add(l);
 		}
 		{
+			String t = "Novel new name for the previous " + __comp2;
+			if (args.lng_i > 0)
+				t << " in " << Capitalize(GetLanguageKey(args.lng_i));
+			
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Novel new name for the previous " + __comp2);
+			results.Title(t);
 		}
 	}
 	
@@ -1945,7 +1966,7 @@ void AiTask::CreateInput_ScriptSolver() {
 			results.NumberedLines();
 			results.Add("phrase: \"");
 		}
-		input.response_length = 2048;
+		input.response_length = 1024;
 	}
 	
 	else if (args.fn == 11) {
@@ -1963,8 +1984,10 @@ void AiTask::CreateInput_ScriptSolver() {
 			TaskTitledList& results = input.PreAnswer();
 			results.Title("Translated phrases of List A in " + lang + " in slightly dialect");
 			results.NumberedLines();
+			results.Add("");
 		}
 		input.response_length = 2048;
+		this->SetHighQuality();
 	}
 	
 	

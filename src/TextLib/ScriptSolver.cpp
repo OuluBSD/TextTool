@@ -4,6 +4,12 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+ArrayMap<hash_t, ScriptSolver>& __ScriptSolvers() {
+	static ArrayMap<hash_t, ScriptSolver> map;
+	return map;
+}
+
+
 ScriptSolver::ScriptSolver() {
 	
 }
@@ -11,7 +17,7 @@ ScriptSolver::ScriptSolver() {
 ScriptSolver& ScriptSolver::Get(int appmode, Entity& a, Script& l) {
 	String t = a.file_title + " - " + l.file_title;
 	hash_t h = t.GetHashValue();
-	static ArrayMap<hash_t, ScriptSolver> map;
+	ArrayMap<hash_t, ScriptSolver>& map = __ScriptSolvers();
 	int i = map.Find(h);
 	if (i >= 0)
 		return map[i];
@@ -21,6 +27,16 @@ ScriptSolver& ScriptSolver::Get(int appmode, Entity& a, Script& l) {
 	ls.artist = &a;
 	ls.script = &l;
 	return ls;
+}
+
+void ScriptSolver::ClearTasks() {
+	for (ScriptSolver& g : __ScriptSolvers().GetValues())
+		g.SetNotRunning();
+}
+
+void ScriptSolver::RestartTasks() {
+	for (ScriptSolver& g : __ScriptSolvers().GetValues())
+		g.Start();
 }
 
 void ScriptSolver::Process() {

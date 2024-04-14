@@ -75,6 +75,8 @@ public:
 	void Stop() {running = false; while (!stopped) Sleep(1);}
 	
 	static ScriptGenerator& Get(int appmode, Entity& a, Script& l);
+	static void ClearTasks();
+	static void RestartTasks();
 	
 	Callback2<int,int> WhenProgress;
 	

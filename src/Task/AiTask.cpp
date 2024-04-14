@@ -366,26 +366,44 @@ bool AiTask::RunOpenAI_Completion() {
 		
 	    // "model": "text-davinci-003",
 	    
-		String txt = R"_({
-	    "model": "gpt-3.5-turbo-instruct",
-	    "prompt": ")_" + prompt + R"_(",
-	    "max_tokens": )_" + IntStr(input.response_length) + R"_(,
-	    "temperature": 1
-	})_";
+		String txt;
+		if (quality == 1) {
+			txt = R"_({
+    "model": "gpt-4-turbo",
+    "messages":[
+		{"role":"user", "content": ")_" + prompt + R"_("}
+	],
+    "max_tokens": )_" + IntStr(input.response_length) + R"_(,
+    "temperature": 1
+})_";
+		}
+		else {
+			txt = R"_({
+    "model": "gpt-3.5-turbo-instruct",
+    "prompt": ")_" + prompt + R"_(",
+    "max_tokens": )_" + IntStr(input.response_length) + R"_(,
+    "temperature": 1
+})_";
+		}
 	    //LOG(txt);
 		
 		try {
 			nlohmann::json json = nlohmann::json::parse(txt.Begin(), txt.End());
-			auto completion = openai::completion().create(json);
-		    //LOG("Response is:\n" << completion.dump(2));
-		    
 		    OpenAiResponse response;
 		    
-		    LoadFromJson(response, String(completion.dump(2)));
-		    //LOG(response.ToString());
+		    if (quality == 1) {
+				auto completion = openai::completion().create_gpt4(json);
+			    LoadFromJson(response, String(completion.dump(2)));
+		    }
+		    else {
+				auto completion = openai::completion().create(json);
+			    //LOG("Response is:\n" << completion.dump(2));
+			    LoadFromJson(response, String(completion.dump(2)));
+			    //LOG(response.ToString());
+		    }
 		    
 		    if (response.choices.GetCount())
-				output = response.choices[0].text;
+				output = response.choices[0].GetText();
 		    else
 		        output.Clear();
 		}

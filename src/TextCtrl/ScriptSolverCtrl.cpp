@@ -148,6 +148,7 @@ void ScriptSolverCtrl::GetNewTitle() {
 	ScriptSolverArgs args; // 8
 	args.fn = 8;
 	args.part = l.text;
+	args.lng_i = l.lng_i;
 	
 	TaskMgr& m = TaskMgr::Single();
 	m.GetScriptSolver(GetAppMode(), args, THISBACK(OnNewTitle));
@@ -156,6 +157,11 @@ void ScriptSolverCtrl::GetNewTitle() {
 void ScriptSolverCtrl::OnNewTitle(String res) {
 	Script& l = GetScript();
 	
+	if (res.Left(1) == "\"") {
+		int a = res.Find("\"", 1);
+		if (a >= 0)
+			res = res.Mid(1, a-1);
+	}
 	res.Replace("\n","");
 	res.Replace("\r","");
 	res.Replace("\"","");

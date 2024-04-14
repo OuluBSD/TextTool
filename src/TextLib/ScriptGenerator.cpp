@@ -4,6 +4,11 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+ArrayMap<hash_t, ScriptGenerator>& __ScriptGenerators() {
+	static ArrayMap<hash_t, ScriptGenerator> map;
+	return map;
+}
+
 ScriptGenerator::ScriptGenerator() {
 	
 }
@@ -11,7 +16,7 @@ ScriptGenerator::ScriptGenerator() {
 ScriptGenerator& ScriptGenerator::Get(int appmode, Entity& a, Script& l) {
 	String t = a.file_title + " - " + l.file_title;
 	hash_t h = t.GetHashValue();
-	static ArrayMap<hash_t, ScriptGenerator> map;
+	ArrayMap<hash_t, ScriptGenerator>& map = __ScriptGenerators();
 	int i = map.Find(h);
 	if (i >= 0)
 		return map[i];
@@ -21,6 +26,16 @@ ScriptGenerator& ScriptGenerator::Get(int appmode, Entity& a, Script& l) {
 	ls.artist = &a;
 	ls.scripts = &l;
 	return ls;
+}
+
+void ScriptGenerator::ClearTasks() {
+	for (ScriptGenerator& g : __ScriptGenerators().GetValues())
+		g.SetNotRunning();
+}
+
+void ScriptGenerator::RestartTasks() {
+	for (ScriptGenerator& g : __ScriptGenerators().GetValues())
+		g.Start();
 }
 
 void ScriptGenerator::Process() {
@@ -326,6 +341,8 @@ void ScriptGenerator::OnProcessTranslate(String res) {
 	
 	int begin = sub_batch * per_sub_batch;
 	ASSERT(begin >= 0);
+	
+	res = "1. " + res;
 	
 	RemoveEmptyLines2(res);
 	Vector<String> lines = Split(res, "\n");
