@@ -6,7 +6,7 @@
 				"data": [
 					{
 						"key": "acceptance",
-						"value": "hyväksyvä"
+						"value": "hyvï¿½ksyvï¿½"
 					},
 					{
 						"key": "accountable",
@@ -90,7 +90,7 @@
 					},
 					{
 						"key": "average expectations",
-						"value": "keskimääräiset odotukset"
+						"value": "keskimï¿½ï¿½rï¿½iset odotukset"
 					},
 					{
 						"key": "belief communities",
@@ -262,7 +262,7 @@
 					},
 					{
 						"key": "explicit",
-						"value": "selkeää"
+						"value": "selkeï¿½ï¿½"
 					},
 					{
 						"key": "expression",
@@ -362,7 +362,7 @@
 					},
 					{
 						"key": "individual-focused",
-						"value": "yksilöön keskittyvä"
+						"value": "yksilï¿½ï¿½n keskittyvï¿½"
 					},
 					{
 						"key": "individual-oriented",
@@ -370,7 +370,7 @@
 					},
 					{
 						"key": "individualistic",
-						"value": "yksilökeskeinen"
+						"value": "yksilï¿½keskeinen"
 					},
 					{
 						"key": "innocent",
@@ -402,7 +402,7 @@
 					},
 					{
 						"key": "inversed",
-						"value": "käänteinen"
+						"value": "kï¿½ï¿½nteinen"
 					},
 					{
 						"key": "irresponsible",
@@ -430,7 +430,7 @@
 					},
 					{
 						"key": "lighthearted",
-						"value": "hilpeä"
+						"value": "hilpeï¿½"
 					},
 					{
 						"key": "limited",
@@ -614,7 +614,7 @@
 					},
 					{
 						"key": "perfection",
-						"value": "täydellinen"
+						"value": "tï¿½ydellinen"
 					},
 					{
 						"key": "personal experience",
@@ -630,7 +630,7 @@
 					},
 					{
 						"key": "playful",
-						"value": "leikkisä"
+						"value": "leikkisï¿½"
 					},
 					{
 						"key": "polygamy",
@@ -770,7 +770,7 @@
 					},
 					{
 						"key": "sensitive",
-						"value": "herkkä"
+						"value": "herkkï¿½"
 					},
 					{
 						"key": "serious",
@@ -782,7 +782,7 @@
 					},
 					{
 						"key": "sexual acting",
-						"value": "seksuaalinen käyttäytyminen"
+						"value": "seksuaalinen kï¿½yttï¿½ytyminen"
 					},
 					{
 						"key": "sexual commitment",
@@ -834,7 +834,7 @@
 					},
 					{
 						"key": "somber",
-						"value": "synkkä"
+						"value": "synkkï¿½"
 					},
 					{
 						"key": "sophisticated",
@@ -1862,6 +1862,7 @@
 		"lappia_students",
 		"seppo_pakonen",
 		"difficult_times",
+		"vaikeat_ajat",
 		"diandra",
 		"uni-iq"
 	]

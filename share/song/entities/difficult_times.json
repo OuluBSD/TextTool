@@ -1,9 +1,9 @@
 {
-	"name": "Vaikeat Ajat",
-	"english_name": "Difficult Times",
+	"name": "DiffTimes",
+	"english_name": "DiffTimes",
 	"year_of_birth": 1989,
 	"year_of_career_begin": 2001,
-	"biography": "The band is personified by the singer, who started producing music already in 2001 and has maintained one music project ever since. The final name of the band was only found in 2007, but all the activities were one continuation.\n\nThe singer Seppo Pakonen is from Oulu, Finland. The band takes strong influences from American 90s hip-hop, grunge, classic rock, and Finnish alternative rock.",
+	"biography": "The band called DiffTimes (Difficult Times in short) is personified by the singer, who started producing music already in 2001 and has maintained one music project ever since. The final name of the band was only found in 2007, but all the activities were one continuation.\n\nThe singer Seppo Pakonen is from Oulu, Finland. The band takes strong influences from American 90s hip-hop, grunge, classic rock, and Finnish alternative rock.",
 	"musical_style": "finnish rap, rock-rap, pop, alternative pop",
 	"vibe_of_voice": "Sophisticated, rich, manly",
 	"acoustic_instruments": "Guitar",
@@ -968,6 +968,7 @@
 	"releases": [
 		"my_page",
 		"pms_07",
-		"oudot_05-09"
+		"oudot_05-09",
+		"vice"
 	]
 }
