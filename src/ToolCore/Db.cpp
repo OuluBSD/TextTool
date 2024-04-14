@@ -306,23 +306,99 @@ void MakeAppMode_UnsafeServers(int appmode, String& title, Vector<String>& list)
 /*
 	Note: THIS IS THE MOST IMPORTANT VARIABLE. IT HEAVILY AFFECTS THE RESULT !!!
 */
-const Vector<String>& GetAppModeResultPhraseExamples(int appmode) {
+const Vector<String>& GetAppModeResultPhraseExamples(int appmode, int lng_i) {
 	static Vector<String> v_[DB_COUNT];
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	auto& v = v_[appmode];
 	if (v.IsEmpty()) {
 		if (appmode == DB_SONG) {
-			v.Add("'where are my panties', 'murder all these monsters': \"This girl got me feeling hella scarce, / That's why I gotta kill all these underwear monsters in her drawers.\"");
-			v.Add("'we never asked', 'we just wanna be': \"We never asked to be living this way, / We just wanna be free, escape the fray.\"");
+			if (lng_i == LNG_ENGLISH) {
+				v.Add("'where are my panties', 'murder all these monsters': \"This girl got me feeling hella scarce, / That's why I gotta kill all these underwear monsters in her drawers.\"");
+				v.Add("'we never asked', 'we just wanna be': \"We never asked to be living this way, / We just wanna be free, escape the fray.\"");
+			}
+			else if (lng_i == LNG_FINNISH) {
+				v.Add("'missä on mun alkkarit', 'murhaa kaikki nämä hirviöt': \"Tää muija riisui mut enkä tiiä mis on mun alkkarit, / Hirviöt sen sängyn alla lanteen rytmil murhasin\"");
+				v.Add("'me ei koskaan haluttu', 'me vain halutaan olla': \"Me ei koskaan haluttu elää täl tavalla, / Me vain halutaan olla vapaita, ja karata kaikelta pahalta.\"");
+			}
+			else TODO
 		}
 		else if (appmode == DB_TWITTER) {
-			v.Add("'a soul train line', 'so much fun': \"I've never done a soul train line at an art opening so much fun!\"");
-			v.Add("'details are everything', 'in stores and online': \"These details are everything! Shop this beauty in stores and online!\"");
-			v.Add("'for three months', 'these smiles and snuggles': \"I looked forward to these smiles and snuggles for three months\"");
+			if (lng_i == LNG_ENGLISH) {
+				v.Add("'a soul train line', 'so much fun': \"I've never done a soul train line at an art opening so much fun!\"");
+				v.Add("'details are everything', 'in stores and online': \"These details are everything! Shop this beauty in stores and online!\"");
+				v.Add("'for three months', 'these smiles and snuggles': \"I looked forward to these smiles and snuggles for three months\"");
+			}
+			else if (lng_i == LNG_FINNISH) {
+				v.Add("'sielujunalinja', 'niin hauskaa': \"En ole koskaan tehnyt soul-junalinjaa taiteen avajaisissa niin hauskaa!\"");
+				v.Add("'yksityiskohdat ovat kaikki', 'kaupoissa ja verkossa': \"Nämä yksityiskohdat ovat kaikki! Osta tätä kaunotarjousta kaupoista ja verkosta!\"");
+				v.Add("'kolmen kuukauden ajan', 'nämä hymyt ja käpertelyt': \"Odotin innolla näitä hymyjä ja käpertelyjä kolmen kuukauden ajan\"");
+			}
+			else if (lng_i == LNG_SPANISH) {
+				v.Add("'una línea de tren del alma', 'muy divertida': \"¡Nunca había hecho una línea de tren del alma en una inauguración de arte tan divertida!\"");
+				v.Add("'los detalles lo son todo', 'en tiendas y en línea': \"¡Estos detalles lo son todo! ¡Compre esta belleza en tiendas y en línea!\"");
+				v.Add("'durante tres meses', 'estas sonrisas y abrazos': \"Esperé con ansias estas sonrisas y abrazos durante tres meses\"");
+			}
+			else if (lng_i == LNG_PORTUGUESE) {
+				v.Add("'uma linha de soul train', 'muito divertido': \"Nunca fiz uma linha de soul train em uma abertura de arte tão divertida!\"");
+				v.Add("'detalhes são tudo', 'nas lojas e online': \"Esses detalhes são tudo! Compre essa beleza nas lojas e online!\"");
+				v.Add("'por três meses', 'esses sorrisos e aconchegos': \"Esperei por esses sorrisos e aconchegos por três meses\"");
+			}
+			else if (lng_i == LNG_KOREAN) {
+				v.Add("'소울 트레인 라인', '너무 재미있습니다': \"이렇게 재미있는 아트 오프닝에서 소울 트레인 라인을 해본 적이 없습니다!\"");
+				v.Add("'세부사항이 전부입니다', '매장과 온라인': \"세부사항이 전부입니다! 이 뷰티 제품을 매장과 온라인에서 쇼핑하세요!\"");
+				v.Add("'3개월 동안', '이 미소와 포옹': \"3개월 동안 이 미소와 포옹을 기대했습니다\"");
+			}
+			else if (lng_i == LNG_JAPANESE) {
+				v.Add("'ソウル トレイン ライン', 'とても楽しい': \"アート オープニングでソウル トレイン ラインをやったのは初めてです!\"");
+				v.Add("'詳細がすべて', '店舗とオンライン': \"これらの詳細がすべてです! この美しさを店舗とオンラインで購入してください!\"");
+				v.Add("'3 か月間', 'これらの笑顔と寄り添い': \"これらの笑顔と寄り添いを 3 か月間楽しみにしていました\"");
+			}
+			else if (lng_i == LNG_RUSSIAN) {
+				v.Add("'поезд души', 'так весело': \"Я никогда не делал так весело на открытии арт-открытия!\"");
+				v.Add("'детали решают все', 'в магазинах и онлайн': \"Эти детали решают всё! Покупайте эту красоту в магазинах и онлайн!\"");
+				v.Add("'в течение трех месяцев', 'эти улыбки и объятия': \"Я с нетерпением ждал этих улыбок и объятий три месяца\"");
+			}
+			else if (lng_i == LNG_CHINESE) {
+				v.Add("'灵魂列车线', '太有趣了': \"我从来没有在艺术开幕式上做过如此有趣的灵魂列车线！\"");
+				v.Add("'细节决定一切', '商店和网上': \"这些细节决定一切！在商店和网上购买这款美丽的商品！\"");
+				v.Add("'三个月了', '这些微笑和依偎': \"我期待这些微笑和依偎三个月\"");
+			}
+			else TODO
 		}
 		else if (appmode == DB_BLOG) {
-			v.Add("'DVD technology isn't just a transitional format from VHS', 'direct download or something else even flashier': \"The simple way of how DVD technology isn't just a transitional format from VHS to the next new medium, such as direct download or something else even flashier.\"");
-			v.Add("'details are everything', 'in stores and online': \"These details are everything! Shop this beauty in stores and online!\"");
+			if (lng_i == LNG_ENGLISH) {
+				v.Add("'DVD technology isn't just a transitional format from VHS', 'direct download or something else even flashier': \"The simple way of how DVD technology isn't just a transitional format from VHS to the next new medium, such as direct download or something else even flashier.\"");
+				v.Add("'details are everything', 'in stores and online': \"These details are everything! Shop this beauty in stores and online!\"");
+			}
+			else if (lng_i == LNG_FINNISH) {
+				v.Add("'DVD-tekniikka ei ole vain siirtymämuoto VHS:stä', 'suora lataus tai jotain muuta vielä räikeämpää': \"Yksinkertainen tapa kuinka DVD-tekniikka ei ole vain siirtymämuoto VHS:stä seuraavaan uusi media, kuten suora lataus tai jokin muu vieläkin näyttävämpi.\"");
+				v.Add("'yksityiskohdat ovat kaikki', 'kaupoissa ja verkossa': \"Nämä yksityiskohdat ovat kaikki! Osta tätä kaunotarjousta kaupoista ja verkosta!\"");
+			}
+			else if (lng_i == LNG_SPANISH) {
+				v.Add("'La tecnología DVD no es sólo un formato de transición de VHS', 'descarga directa o algo aún más llamativo': \"La forma sencilla de cómo la tecnología DVD no es sólo un formato de transición de VHS al siguiente nuevo medio, como la descarga directa o algo aún más llamativo.\"");
+				v.Add("'los detalles lo son todo', 'en tiendas y en línea': \"¡Estos detalles lo son todo! ¡Compre esta belleza en tiendas y en línea!\"");
+			}
+			else if (lng_i == LNG_PORTUGUESE) {
+				v.Add("'A tecnologia DVD não é apenas um formato de transição do VHS', 'download direto ou algo ainda mais chamativo': \"A maneira simples de como a tecnologia DVD não é apenas um formato de transição do VHS para o próximo novo meio, como download direto ou algo ainda mais chamativo.\"");
+				v.Add("'detalhes são tudo', 'nas lojas e online': \"Esses detalhes são tudo! Compre essa beleza nas lojas e online!\"");
+			}
+			else if (lng_i == LNG_KOREAN) {
+				v.Add("'DVD 기술은 VHS의 단순한 전환 형식이 아닙니다.', '직접 다운로드 또는 더 화려한 다른 형식이 아닙니다.': \"DVD 기술이 VHS에서 다음 형식으로의 전환 형식이 아니라는 간단한 방법입니다. 직접 다운로드 또는 더욱 화려한 매체와 같은 새로운 매체.\"");
+				v.Add("'세부사항이 전부입니다', '매장과 온라인': \"세부사항이 전부입니다! 이 뷰티 제품을 매장과 온라인에서 쇼핑하세요!\"");
+			}
+			else if (lng_i == LNG_JAPANESE) {
+				v.Add("'DVD テクノロジーは VHS からの単なる過渡的なフォーマットではありません', '直接ダウンロード、あるいはもっと派手なもの': \"DVD テクノロジーが単なる VHS から次の VHS への過渡的なフォーマットではないことを示す簡単な方法 新しいメディア (直接ダウンロードやその他のさらに派手なものなど)。\"");
+				v.Add("'詳細がすべて', '店舗とオンライン': \"これらの詳細がすべてです! この美しさを店舗とオンラインで購入してください!\"");
+			}
+			else if (lng_i == LNG_RUSSIAN) {
+				v.Add("'Технология DVD - это не просто переходный формат от VHS', 'прямая загрузка или что-то еще более яркое': \"Простой способ понять, почему технология DVD - это не просто переходный формат от VHS к следующему новый носитель, например прямая загрузка или что-то еще более яркое.\"");
+				v.Add("'детали решают все', 'в магазинах и онлайн': \"Эти детали решают всё! Покупайте эту красоту в магазинах и онлайн!\"");
+			}
+			else if (lng_i == LNG_CHINESE) {
+				v.Add("'DVD 技术不仅仅是 VHS 的过渡格式', '直接下载或其他更华丽的格式': \"DVD 技术不仅仅是从 VHS 到下一个格式的过渡格式的简单方法 新媒体，例如直接下载或其他更华丽的媒体。\"");
+				v.Add("'细节决定一切', '商店和网上': \"这些细节决定一切！在商店和网上购买这款美丽的商品！\"");
+			}
+			else TODO
 		}
 		else TODO
 	}

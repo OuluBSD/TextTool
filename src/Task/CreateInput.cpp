@@ -1698,22 +1698,33 @@ void AiTask::CreateInput_ScriptSolver() {
 	}
 	
 	else if (args.fn == 4) {
+		ASSERT(args.lng_i >= 0);
 		{
 			auto& list = input.AddSub().Title("List of " + __entities);
 			for(int i = 0; i < args.parts.GetCount(); i++)
 				list.Add(args.parts[i]);
 		}
 		{
-			auto& list = input.AddSub().Title("List A: Phrases");
+			String t = "List A: Phrases";
+			if (args.lng_i > 0)
+				t << " in " << Capitalize(GetLanguageKey(args.lng_i));
+			
+			auto& list = input.AddSub().Title(t);
 			list.NumberedLines();
 			for(int i = 0; i < args.phrases.GetCount(); i++)
 				list.Add(args.phrases[i]);
 		}
 		{
+			String lng;
+			if (args.lng_i > 0)
+				lng = Capitalize(GetLanguageKey(args.lng_i)) + " ";
+			
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Use least amount of new words to combine phrases in their exact form to new sentences, using style of " + __entity + " from the list");
+			String t = "Use least amount of new words to combine " + lng + "phrases in their exact form to new sentences, using style of " + __entity + " from the list";
+			
+			results.Title(t);
 			results.NumberedLines();
-			for (const String& s : GetAppModeResultPhraseExamples(appmode))
+			for (const String& s : GetAppModeResultPhraseExamples(appmode, args.lng_i))
 				results.Add(s);
 			results.Add(args.phrases[0] + ": \"");
 		}
@@ -1889,6 +1900,7 @@ void AiTask::CreateInput_ScriptSolver() {
 	}
 	
 	else if (args.fn == 10) {
+		ASSERT(args.lng_i >= 0);
 		{
 			auto& list = input.AddSub().Title(__Comp2 + " \"A\": known " + __script2 + " so far");
 			list.NoListChar();
@@ -1927,13 +1939,34 @@ void AiTask::CreateInput_ScriptSolver() {
 			list.Add("also highly: funny, sensual, thought provoking, romantic, impactful");
 		}
 		{
+			String lang = args.lng_i > 0 ? Capitalize(GetLanguageKey(args.lng_i)) + " ": String();
 			TaskTitledList& results = input.PreAnswer();
-			results.Title(__Comp2 + " \"A\": Add line/phrase to the part '" + args.part + "' in a way, that the story of the " + __comp2 + " is best");
+			results.Title(__Comp2 + " \"A\": Add " + lang + "line/phrase to the part '" + args.part + "' in a way, that the story of the " + __comp2 + " is best");
 			results.NumberedLines();
 			results.Add("phrase: \"");
 		}
 		input.response_length = 2048;
 	}
+	
+	else if (args.fn == 11) {
+		{
+			auto& list = input.AddSub().Title("List A: English phrases");
+			list.NumberedLines();
+			for(int j = 0; j < args.phrases.GetCount(); j++) {
+				const String& phrase = args.phrases[j];
+				list.Add(phrase);
+			}
+		}
+		{
+			ASSERT(args.lng_i > 0);
+			String lang = Capitalize(GetLanguageKey(args.lng_i));
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Translated phrases of List A in " + lang + " in slightly dialect");
+			results.NumberedLines();
+		}
+		input.response_length = 2048;
+	}
+	
 	
 }
 

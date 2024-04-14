@@ -361,7 +361,6 @@ void TaskMgr::GetScriptSolver(int appmode, const ScriptSolverArgs& args, Event<S
 	task_lock.Enter();
 	AiTask& t = tasks.Add();
 	t.appmode = appmode;
-	
 	t.SetRule(AITASK_LYRICS_SOLVER, MakeName(args, appmode, "scripts solver"))
 		.Input(&AiTask::CreateInput_ScriptSolver)
 		.Process(&AiTask::Process_Default);

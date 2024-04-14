@@ -51,6 +51,9 @@ void ScriptGenerator::Process() {
 		else if (phase == LG_MAKE_SOURCE_POOL) {
 			ProcessSourcePool();
 		}
+		else if (phase == LG_TRANSLATE) {
+			ProcessTranslate();
+		}
 		else if (phase == LG_MAKE_PHRASE_PAIRS) {
 			ProcessPairPhrases();
 		}
@@ -229,6 +232,125 @@ void ScriptGenerator::ProcessSourcePool() {
 	
 }
 
+void ScriptGenerator::ProcessTranslate() {
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	DatasetAnalysis& da = sda.dataset;
+	Script& song = *this->scripts;
+	
+	if (song.lng_i == 0) {
+		NextPhase();
+		return;
+	}
+	
+	auto& translations = da.phrase_translations[song.lng_i];
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
+	
+	// Prepare process
+	if (batch == 0 && sub_batch == 0) {
+		phrases.SetCount(0);
+		phrases.SetCount(ContentType::PART_COUNT);
+		
+		for(int i = 0; i < ContentType::PART_COUNT; i++) {
+			auto& p = phrases[i];
+			
+			for (int pp_i : sa.source_pool[i].GetKeys()) {
+				
+				// Get score sum
+				const PhrasePart& pp = da.phrase_parts[pp_i];
+				double score = 0;
+				for(int j = 0; j < SCORE_COUNT; j++)
+					score += pp.scores[j];
+				
+				p.Add(pp_i, score);
+			}
+			// Sort phrases
+			SortByValue(p, StdGreater<double>());
+			
+			// Clear old phrases
+			if (!skip_ready)
+				sa.phrase_combs[i].Clear();
+		}
+	}
+	
+	if (batch >= ContentType::PART_COUNT) {
+		NextPhase();
+		return;
+	}
+	
+	ScriptSolverArgs args; // 11
+	args.fn = 11;
+	args.lng_i = song.lng_i;
+	
+	per_sub_batch =  20;
+	int begin = sub_batch * per_sub_batch;
+	int end = min(begin + per_sub_batch, phrases[batch].GetCount());
+	if (end <= begin) {
+		NextBatch();
+		return;
+	}
+	
+	tmp.Clear();
+	for(int i = begin; i < end; i++) {
+		int pp_i = phrases[batch].GetKey(i);
+		hash_t hash = da.phrase_parts.GetKey(pp_i);
+		if (translations.Find(hash) >= 0)
+			continue;
+		
+		const PhrasePart& pp = da.phrase_parts[pp_i];
+		args.phrases << da.GetWordString(pp.words);
+		tmp << pp_i;
+	}
+	
+	if (args.phrases.IsEmpty()) {
+		NextBatch();
+		return;
+	}
+	
+	SetWaiting(1);
+	
+	TaskMgr& m = TaskMgr::Single();
+	m.GetScriptSolver(appmode, args, THISBACK(OnProcessTranslate));
+}
+
+void ScriptGenerator::OnProcessTranslate(String res) {
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	DatasetAnalysis& da = sda.dataset;
+	Script& song = *this->scripts;
+	ASSERT(song.lng_i > 0 && song.lng_i < LNG_COUNT);
+	auto& translations = da.phrase_translations[song.lng_i];
+	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
+	
+	int begin = sub_batch * per_sub_batch;
+	ASSERT(begin >= 0);
+	
+	RemoveEmptyLines2(res);
+	Vector<String> lines = Split(res, "\n");
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		line = TrimBoth(line);
+		if (line.IsEmpty())
+			continue;
+		
+		if (i >= tmp.GetCount())
+			break;
+		
+		int pp_i = tmp[i];
+		const PhrasePart& pp = da.phrase_parts[pp_i];
+		hash_t hash = da.phrase_parts.GetKey(pp_i);
+		
+		translations.GetAdd(hash) = line;
+	}
+	
+	SetWaiting(0);
+	
+	NextSubBatch();
+}
+
 void ScriptGenerator::ProcessPairPhrases() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
@@ -285,10 +407,22 @@ void ScriptGenerator::ProcessPairPhrases() {
 		return;
 	}
 	
+	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
+	const auto& translations = da.phrase_translations[song.lng_i];
 	for(int i = begin; i < end; i++) {
 		int pp_i = phrases[batch].GetKey(i);
-		const PhrasePart& pp = da.phrase_parts[pp_i];
-		args.phrases << da.GetWordString(pp.words);
+		if (collect_token_texts) {
+			const PhrasePart& pp = da.phrase_parts[pp_i];
+			args.phrases << da.GetWordString(pp.words);
+		}
+		else {
+			hash_t hash = da.phrase_parts.GetKey(pp_i);
+			int j = translations.Find(hash);
+			if (j < 0)
+				continue;
+			String trans_phrase = translations[j];
+			args.phrases << trans_phrase;
+		}
 	}
 	
 	
@@ -302,7 +436,6 @@ void ScriptGenerator::ProcessPairPhrases() {
 	
 	TaskMgr& m = TaskMgr::Single();
 	m.GetScriptSolver(appmode, args, THISBACK(OnProcessPairPhrases));
-	
 }
 
 void ScriptGenerator::OnProcessPairPhrases(String res) {
@@ -368,7 +501,6 @@ void ScriptGenerator::OnProcessPairPhrases(String res) {
 		NextBatch();
 	else
 		NextSubBatch();
-	
 }
 
 void ScriptGenerator::ProcessRhymes() {
@@ -377,23 +509,31 @@ void ScriptGenerator::ProcessRhymes() {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->scripts;
-	
+	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
-	
 	
 	if (batch >= ContentType::PART_COUNT) {
 		NextPhase();
 		return;
 	}
 	
-	if (skip_ready && sa.phrase_parts[batch].GetCount() >= phrase_limit) {
-		NextBatch();
-		return;
+	if (collect_token_texts) {
+		if (skip_ready && sa.phrase_parts[batch].GetCount() >= phrase_limit) {
+			NextBatch();
+			return;
+		}
+	}
+	else {
+		if (skip_ready && sa.trans_phrase_combs[song.lng_i][batch].GetCount() >= phrase_limit) {
+			NextBatch();
+			return;
+		}
 	}
 	
 	ScriptSolverArgs args; // 4
 	args.fn = 4;
+	args.lng_i = song.lng_i;
 	
 	per_sub_batch =  15;
 	int begin = sub_batch * per_sub_batch;
@@ -403,14 +543,26 @@ void ScriptGenerator::ProcessRhymes() {
 		return;
 	}
 	
+	const auto& translations = da.phrase_translations[song.lng_i];
 	for(int i = begin; i < end; i++) {
 		const PhraseComb& pc = sa.phrase_combs[batch][i];
 		
 		String p;
 		for (int pp_i : pc.phrase_parts) {
-			const PhrasePart& pp = da.phrase_parts[pp_i];
-			if (!p.IsEmpty()) p << ", ";
-			p << '\''<< da.GetWordString(pp.words) << '\'';
+			if (collect_token_texts) {
+				const PhrasePart& pp = da.phrase_parts[pp_i];
+				if (!p.IsEmpty()) p << ", ";
+				p << '\''<< da.GetWordString(pp.words) << '\'';
+			}
+			else {
+				hash_t hash = da.phrase_parts.GetKey(pp_i);
+				int j = translations.Find(hash);
+				if (j < 0)
+					continue;
+				if (!p.IsEmpty()) p << ", ";
+				String trans_phrase = translations[j];
+				p << '\''<< trans_phrase << '\'';
+			}
 		}
 		args.phrases << p;
 	}
@@ -426,7 +578,6 @@ void ScriptGenerator::ProcessRhymes() {
 	
 	TaskMgr& m = TaskMgr::Single();
 	m.GetScriptSolver(appmode, args, THISBACK(OnProcessRhymes));
-	
 }
 
 void ScriptGenerator::OnProcessRhymes(String res) {
@@ -435,6 +586,7 @@ void ScriptGenerator::OnProcessRhymes(String res) {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->scripts;
+	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
 	
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
@@ -444,10 +596,10 @@ void ScriptGenerator::OnProcessRhymes(String res) {
 	int begin = sub_batch * per_sub_batch;
 	ASSERT(begin >= 0);
 	MapFile<hash_t,PhraseComb>& p = sa.phrase_combs[batch];
-	
 	RemoveEmptyLines2(res);
 	Vector<String> lines = Split(res, "\n");
 	Vector<int> token_is, word_is;
+	
 	for(int i = 0; i < lines.GetCount(); i++) {
 		String& line = lines[i];
 		//LOG(line);
@@ -461,66 +613,76 @@ void ScriptGenerator::OnProcessRhymes(String res) {
 		if (line.IsEmpty()) continue;
 		
 		
-		// Parse text
-		NaturalTokenizer tk;
-		
-		String str = line;
-		
-		if (!tk.Parse(str)) {
-			continue;
-		}
-		
-		//LOG("Lines: " << tk.GetLines().GetCount());
-		for (const auto& line : tk.GetLines()) {
-			token_is.SetCount(0);
-			CombineHash ch;
-			for (const WString& line : line) {
-				String s = line.ToString();
-				int tk_i = -1;
-				Token& tk = da.tokens.GetAdd(s, tk_i);
-				ch.Do(tk_i);
-				token_is << tk_i;
-			}
-			hash_t h = ch;
+		if (collect_token_texts) {
+			// Parse text
+			NaturalTokenizer tk;
 			
-			int tt_i = -1;
-			TokenText& tt = da.token_texts.GetAdd(h, tt_i);
-			if (tt.tokens.IsEmpty()) {
-				Swap(tt.tokens, token_is);
-			}
+			String str = line;
 			
-			word_is.SetCount(0);
-			for (int tk_i : tt.tokens) {
-				const Token& tk = da.tokens[tk_i];
-				if (tk.word_ < 0) {
-					String key = ToLower(da.tokens.GetKey(tk_i));
-					tk.word_ = da.words.FindAdd(key);
-				}
-				int w_i = tk.word_;
-				word_is << w_i;
-			}
-			
-			if (word_is.GetCount() == 0)
+			if (!tk.Parse(str)) {
 				continue;
-			
-			if (0) {
-				LOG("Original: " << str);
-				LOG("Token string: " << da.GetTokenTextString(tt));
-				LOG("Word string: " << da.GetWordString(word_is));
 			}
 			
-			hash_t w_h;
-			{
+			//LOG("Lines: " << tk.GetLines().GetCount());
+			for (const auto& line : tk.GetLines()) {
+				token_is.SetCount(0);
 				CombineHash ch;
-				for (int w_i : word_is)
-					ch.Do(w_i).Put(1);
-				w_h = ch;
+				for (const WString& line : line) {
+					String s = line.ToString();
+					int tk_i = -1;
+					Token& tk = da.tokens.GetAdd(s, tk_i);
+					ch.Do(tk_i);
+					token_is << tk_i;
+				}
+				hash_t h = ch;
+				
+				int tt_i = -1;
+				TokenText& tt = da.token_texts.GetAdd(h, tt_i);
+				if (tt.tokens.IsEmpty()) {
+					Swap(tt.tokens, token_is);
+				}
+				
+				word_is.SetCount(0);
+				for (int tk_i : tt.tokens) {
+					const Token& tk = da.tokens[tk_i];
+					if (tk.word_ < 0) {
+						String key = ToLower(da.tokens.GetKey(tk_i));
+						tk.word_ = da.words.FindAdd(key);
+					}
+					int w_i = tk.word_;
+					word_is << w_i;
+				}
+				
+				if (word_is.GetCount() == 0)
+					continue;
+				
+				if (0) {
+					LOG("Original: " << str);
+					LOG("Token string: " << da.GetTokenTextString(tt));
+					LOG("Word string: " << da.GetWordString(word_is));
+				}
+				
+				hash_t w_h;
+				{
+					CombineHash ch;
+					for (int w_i : word_is)
+						ch.Do(w_i).Put(1);
+					w_h = ch;
+				}
+				
+				PhrasePart& pp = sa.phrase_parts[batch].GetAdd(w_h);
+				pp.tt_i = tt_i;
+				if (pp.words.IsEmpty())
+					Swap(pp.words, word_is);
 			}
-			
-			PhrasePart& pp = sa.phrase_parts[batch].GetAdd(w_h);
-			pp.tt_i = tt_i;
-			if (pp.words.IsEmpty())
-				Swap(pp.words, word_is);
+		}
+		// Don't collect texts for other languages than english
+		else {
+			ASSERT(song.lng_i > 0);
+			hash_t hash = line.GetHashValue();
+			int tpp_i = -1;
+			TranslatedPhrasePart& tpp = sa.trans_phrase_combs[song.lng_i][batch].GetAdd(hash, tpp_i);
+			tpp.phrase = line;
 		}
 	}
 	
@@ -540,8 +702,8 @@ void ScriptGenerator::ProcessScores() {
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->scripts;
 	
-	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
+	
 	
 	if (sub_batch == 0)
 		iter = 0;
@@ -555,39 +717,71 @@ void ScriptGenerator::ProcessScores() {
 	args.fn = 5;
 	
 	per_sub_batch =  15;
-	
-	const auto& v = sa.phrase_parts[batch];
-	pp_is.Clear();
-	while(iter < v.GetCount()) {
-		int pp_i = iter++;
-		const PhrasePart& pp = v[pp_i];
 		
-		// Check if score is fetched already
-		int total_score = 0;
-		for(int i = 0; i < SCORE_COUNT; i++)
-			total_score += pp.scores[i];
-		if (total_score > 0)
-			continue;
+	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
+	if (collect_token_texts) {
+		const auto& v = sa.phrase_parts[batch];
+		pp_is.Clear();
+		while(iter < v.GetCount()) {
+			int pp_i = iter++;
+			const PhrasePart& pp = v[pp_i];
+			
+			// Check if score is fetched already
+			int total_score = 0;
+			for(int i = 0; i < SCORE_COUNT; i++)
+				total_score += pp.scores[i];
+			if (total_score > 0)
+				continue;
+			
+			// Fetch scores for the phrase
+			String phrase = da.GetWordString(pp.words);
+			args.phrases << phrase;
+			pp_is.Add(phrase, pp_i);
+			if (args.phrases.GetCount() >= per_sub_batch)
+				break;
+		}
 		
-		// Fetch scores for the phrase
-		String phrase = da.GetWordString(pp.words);
-		args.phrases << phrase;
-		pp_is.Add(phrase, pp_i);
+		if (args.phrases.IsEmpty()) {
+			NextBatch();
+			return;
+		}
+	}
+	else {
+		// Use temporary and non-persistent phrases from the previous phase
+		// This may cause duplicate queries to the AI
+		// TODO optimize: cache
+		ASSERT(song.lng_i > 0);
+		const auto& v = sa.trans_phrase_combs[song.lng_i][batch];
+		pp_is.Clear();
+		while(iter < v.GetCount()) {
+			int tpp_i = iter++;
+			const TranslatedPhrasePart& tpp = v[tpp_i];
+			
+			// Check if score is fetched already
+			int total_score = 0;
+			for(int i = 0; i < SCORE_COUNT; i++)
+				total_score += tpp.scores[i];
+			if (total_score > 0)
+				continue;
+			
+			// Fetch scores for the phrase
+			args.phrases << tpp.phrase;
+			pp_is.Add(tpp.phrase, tpp_i);
+			if (args.phrases.GetCount() >= per_sub_batch)
+				break;
+		}
 		
-		if (args.phrases.GetCount() >= per_sub_batch)
-			break;
+		if (args.phrases.IsEmpty()) {
+			NextBatch();
+			return;
+		}
 	}
 	
-	if (args.phrases.IsEmpty()) {
-		NextBatch();
-		return;
-	}
 	
 	SetWaiting(1);
 	
 	TaskMgr& m = TaskMgr::Single();
 	m.GetScriptSolver(appmode, args, THISBACK(OnProcessScores));
-	
 }
 
 void ScriptGenerator::OnProcessScores(String res) {
@@ -597,7 +791,6 @@ void ScriptGenerator::OnProcessScores(String res) {
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->scripts;
 	
-	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	res = "2. \"" + res;
@@ -606,6 +799,7 @@ void ScriptGenerator::OnProcessScores(String res) {
 	Vector<String> lines = Split(res, "\n");
 	int scores[SCORE_COUNT];
 	bool use_tmp = lines.GetCount() == pp_is.GetCount();
+	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
 	for(int i = 0; i < lines.GetCount(); i++) {
 		String& line = lines[i];
 		
@@ -626,7 +820,6 @@ void ScriptGenerator::OnProcessScores(String res) {
 		
 		line = TrimBoth(line.Mid(a+1));
 		
-		PhrasePart& pp = sa.phrase_parts[batch][pp_i];
 		
 		Vector<String> parts = Split(line, ",");
 		if (parts.GetCount() != SCORE_COUNT)
@@ -653,14 +846,22 @@ void ScriptGenerator::OnProcessScores(String res) {
 		if (fail)
 			continue;
 		
-		for(int j = 0; j < SCORE_COUNT; j++) {
-			pp.scores[j] = scores[j];
+		if (collect_token_texts) {
+			PhrasePart& pp = sa.phrase_parts[batch][pp_i];
+			for(int j = 0; j < SCORE_COUNT; j++) {
+				pp.scores[j] = scores[j];
+			}
+		}
+		else {
+			TranslatedPhrasePart& tpp = sa.trans_phrase_combs[song.lng_i][batch][pp_i];
+			for(int j = 0; j < SCORE_COUNT; j++) {
+				tpp.scores[j] = scores[j];
+			}
 		}
 	}
 	
 	SetWaiting(0);
 	NextSubBatch();
-	
 }
 
 

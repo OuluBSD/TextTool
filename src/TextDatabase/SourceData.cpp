@@ -267,6 +267,7 @@ void DatasetAnalysis::Load() {
 	for(int i = 1; i < LNG_COUNT; i++) {
 		String trans_ds_key = String(GetLanguageKey(i)).Left(2);
 		translations[i].Load(ds_dir, trans_ds_key);
+		phrase_translations[i].Load(ds_dir, "phrase_trans_" + trans_ds_key);
 	}
 	
 	tokens.Load(ds_dir, "tokens");
@@ -334,6 +335,10 @@ void ComponentAnalysis::Load(const String& dir) {
 		phrase_parts[i].Load(dir, "phrase parts " + IntStr(i));
 		source_pool[i].Load(dir, "source pool " + IntStr(i));
 		phrase_combs[i].Load(dir, "phrase combinations " + IntStr(i));
+		for(int j = 1; j < LNG_COUNT; j++) {
+			String lng = String(GetLanguageKey(j)).Left(2);
+			trans_phrase_combs[j][i].Load(dir, lng + " " + IntStr(i));
+		}
 	}
 	
 	script_suggs.Load(dir, __scripts + " suggestions");

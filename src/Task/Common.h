@@ -122,6 +122,7 @@ struct AttrArgs {
 
 struct ScriptSolverArgs {
 	int fn;
+	int lng_i = -1;
 	VectorMap<String,String> artist, release, song;
 	Vector<String> parts, attrs, phrases;
 	Vector<int> counts, offsets;
@@ -129,6 +130,7 @@ struct ScriptSolverArgs {
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
+				("lng_i", lng_i)
 				("artist", artist)
 				("release", release)
 				("song", song)

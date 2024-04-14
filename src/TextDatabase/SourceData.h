@@ -400,6 +400,25 @@ struct PhrasePart : Moveable<PhrasePart> {
 	}
 };
 
+struct TranslatedPhrasePart : Moveable<TranslatedPhrasePart> {
+	String phrase;
+	int scores[SCORE_COUNT] = {0,0,0,0,0,0,0,0,0,0};
+	
+	String StoreToString() {
+		StringDumper d;
+		d % phrase;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			d % scores[i];
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser p(s);
+		p % phrase;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			p % scores[i];
+	}
+};
+
 struct ExportAttr : Moveable<ExportAttr> {
 	int simple_attr = -1, unused = -1;
 	int positive = -1, link = -1;
@@ -644,6 +663,8 @@ struct ComponentAnalysis {
 	IntIndexFile source_pool[ContentType::PART_COUNT];
 	MapFile<hash_t,PhraseComb> phrase_combs[ContentType::PART_COUNT];
 	MapFile<hash_t,ScriptSuggestions> script_suggs;
+	MapFile<hash_t,TranslatedPhrasePart> trans_phrase_combs[LNG_COUNT][ContentType::PART_COUNT];
+	
 	
 	void Load(const String& dir);
 };
@@ -671,6 +692,7 @@ struct DatasetAnalysis {
 	MapFile<hash_t,ExportWordnet> wordnets;
 	MapFile<String,String> diagnostics;
 	MapFile<String,ExportSimpleAttr> simple_attrs;
+	MapFile<hash_t,String> phrase_translations[LNG_COUNT];
 	
 	// Cached data
 	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;

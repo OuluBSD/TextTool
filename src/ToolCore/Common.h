@@ -979,7 +979,7 @@ const Vector<String>& GetAppModeStructureAttrs(int appmode);
 const Vector<String>& GetAppModeDefCompStructure(int appmode);
 const Vector<String>& GetAppModeDefCompStructureAttrs(int appmode);
 
-const Vector<String>& GetAppModeResultPhraseExamples(int appmode);
+const Vector<String>& GetAppModeResultPhraseExamples(int appmode, int lng_i);
 
 void MakeAppMode_UnsafeServers(int appmode, String& title, Vector<String>& list);
 //Vector<String> MakeAppMode_LinesOfScript(int appmode);

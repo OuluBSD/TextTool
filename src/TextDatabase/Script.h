@@ -120,6 +120,7 @@ struct Script : DataFile {
 	String						content_vision;
 	int							typeclass = 0;
 	int							content = 0;
+	int							lng_i = 0;
 	bool						is_unsafe = false;
 	
 	String user_structure;
@@ -188,6 +189,7 @@ struct Script : DataFile {
 			("picked_phrase_parts", picked_phrase_parts)
 			("clr_list", clr_list)
 			("suggestions", suggestions)
+			("lng_i", lng_i)
 			;
 		
 		JsonCompressedStream(json, "simple_attrs", simple_attrs);

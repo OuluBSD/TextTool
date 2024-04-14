@@ -12,6 +12,7 @@ class ScriptGenerator {
 		LG_ATTR,
 		LG_ACTION,
 		LG_MAKE_SOURCE_POOL,
+		LG_TRANSLATE,
 		LG_MAKE_PHRASE_PAIRS,
 		LG_MAKE_RHYMES,
 		LG_GET_AI_SCORES,
@@ -36,11 +37,13 @@ class ScriptGenerator {
 	
 	// temp
 	Vector<VectorMap<int,double>> phrases;
+	Vector<int> tmp;
 	int iter = 0;
 	VectorMap<String, int> pp_is;
 	
 	void Process();
 	void ProcessSourcePool();
+	void ProcessTranslate();
 	void ProcessPairPhrases();
 	void ProcessColor();
 	void ProcessAttr();
@@ -52,6 +55,7 @@ class ScriptGenerator {
 	void OnProcessPairPhrases(String result);
 	void OnProcessRhymes(String result);
 	void OnProcessScores(String result);
+	void OnProcessTranslate(String result);
 	void PostProgress() {WhenProgress(phase, LG_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}

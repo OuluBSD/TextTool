@@ -46,8 +46,8 @@ void ScriptSolver::Process() {
 			NextPhase();
 			ClearScript();
 		}
-		else if (phase == LS_FILTER) {
-			ProcessFilter();
+		else if (phase == LS_COLLECT) {
+			ProcessCollect();
 		}
 		else if (phase == LS_FILL_LINES) {
 			ProcessFillLines();
@@ -344,28 +344,47 @@ void ScriptGenerator::ProcessAction() {
 	NextBatch();
 }
 
-void ScriptSolver::ProcessFilter() {
+void ScriptSolver::ProcessCollect() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->script;
+	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	this->phrase_parts.Clear();
 	this->phrase_parts.SetCount(ContentType::PART_COUNT);
-	for(int i = 0; i < ContentType::PART_COUNT; i++) {
-		auto& m = this->phrase_parts[i];
-		for(int j = 0; j < sa.phrase_parts[i].GetCount(); j++) {
-			const PhrasePart& pp = sa.phrase_parts[i][j];
-			
-			double score = 0;
-			for(int j = 0; j < SCORE_COUNT; j++)
-				score += pp.scores[j];
-			m.Add(j, score);
+	
+	if (collect_token_texts) {
+		for(int i = 0; i < ContentType::PART_COUNT; i++) {
+			auto& m = this->phrase_parts[i];
+			for(int j = 0; j < sa.phrase_parts[i].GetCount(); j++) {
+				const PhrasePart& pp = sa.phrase_parts[i][j];
+				
+				double score = 0;
+				for(int j = 0; j < SCORE_COUNT; j++)
+					score += pp.scores[j];
+				m.Add(j, score);
+			}
+			SortByValue(m, StdGreater<double>());
 		}
-		SortByValue(m, StdGreater<double>());
+	}
+	else {
+		for(int i = 0; i < ContentType::PART_COUNT; i++) {
+			auto& m = this->phrase_parts[i];
+			const auto& v = sa.trans_phrase_combs[song.lng_i][i];
+			for(int j = 0; j < v.GetCount(); j++) {
+				const TranslatedPhrasePart& tpp = v[j];
+				
+				double score = 0;
+				for(int j = 0; j < SCORE_COUNT; j++)
+					score += tpp.scores[j];
+				m.Add(j, score);
+			}
+			SortByValue(m, StdGreater<double>());
+		}
 	}
 	
 	NextPhase();
@@ -377,8 +396,10 @@ void ScriptSolver::ProcessFillLines() {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->script;
+	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
+	
 	if (/*!skip_ready &&*/ batch == 0 && sub_batch == 0)
 		sa.script_suggs.Clear();
 	
@@ -400,6 +421,7 @@ void ScriptSolver::ProcessFillLines() {
 	
 	ScriptSolverArgs args; // 10
 	args.fn = 10;
+	args.lng_i = song.lng_i;
 	
 	// Add existing scripts
 	active_part.Clear();
@@ -442,6 +464,7 @@ void ScriptSolver::ProcessFillLines() {
 	{
 		if (i == con_type) continue;
 		int idx = i < 0 ? con_type : i;
+		
 		const auto& map = this->phrase_parts[idx];
 		
 		// Save offsets for reading
@@ -456,10 +479,17 @@ void ScriptSolver::ProcessFillLines() {
 		}*/
 		for(int j = begin; j < end0; j++) {
 			int pp_i = map.GetKey(j);
-			const PhrasePart& pp = sa.phrase_parts[idx][pp_i];
-			String s = da.GetWordString(pp.words);
-			args.phrases << s;
-			this->phrases << s;
+			if (collect_token_texts) {
+				const PhrasePart& pp = sa.phrase_parts[idx][pp_i];
+				String s = da.GetWordString(pp.words);
+				args.phrases << s;
+				this->phrases << s;
+			}
+			else {
+				const TranslatedPhrasePart& tpp = sa.trans_phrase_combs[song.lng_i][idx][pp_i];
+				args.phrases << tpp.phrase;
+				this->phrases << tpp.phrase;
+			}
 		}
 		
 		if (args.phrases.GetCount() >= min_per_part)
@@ -573,6 +603,7 @@ void ScriptSolver::ProcessPrimary() {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->script;
+	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
@@ -605,10 +636,17 @@ void ScriptSolver::ProcessPrimary() {
 		}
 		for(int j = begin; j < end0; j++) {
 			int pp_i = map.GetKey(j);
-			const PhrasePart& pp = sa.phrase_parts[i][pp_i];
-			String s = da.GetWordString(pp.words);
-			args.phrases << s;
-			this->phrases << s;
+			if (collect_token_texts) {
+				const PhrasePart& pp = sa.phrase_parts[i][pp_i];
+				String s = da.GetWordString(pp.words);
+				args.phrases << s;
+				this->phrases << s;
+			}
+			else {
+				const TranslatedPhrasePart& tpp = sa.trans_phrase_combs[song.lng_i][i][pp_i];
+				args.phrases << tpp.phrase;
+				this->phrases << tpp.phrase;
+			}
 		}
 	}
 	if (args.phrases.IsEmpty())

@@ -297,6 +297,7 @@ public:
 		content.Replace("\r","");
 		if (content.IsEmpty())
 			return;
+		if (content.Right(1) == "\n") content = content.Left(content.GetCount()-1);
 		Vector<String> lines = Split(content, "\n", false);
 		MapKeys<K> k;
 		MapKeys<T> v;
@@ -390,6 +391,7 @@ public:
 		this->path = path;
 		String content = LoadFile(path);
 		content.Replace("\r","");
+		if (content.Right(1) == "\n") content = content.Left(content.GetCount()-1);
 		Vector<String> lines = Split(content, "\n", false);
 		VectorMap<K1,T>* m = 0;
 		MapKeys<K0> k0;

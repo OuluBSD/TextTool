@@ -8,6 +8,11 @@ BEGIN_TEXTLIB_NAMESPACE
 ScriptInfoCtrl::ScriptInfoCtrl() {
 	CtrlLayout(*this);
 	
+	for(int i = 0; i < LNG_COUNT; i++) {
+		language.Add(Capitalize(GetLanguageKey(i)));
+	}
+	language.SetIndex(0);
+	
 	copyright <<= THISBACK(OnValueChange);
 	native_title <<= THISBACK(OnValueChange);
 	english_title <<= THISBACK(OnValueChange);
@@ -15,6 +20,7 @@ ScriptInfoCtrl::ScriptInfoCtrl() {
 	//typeclass <<= THISBACK(OnValueChange);
 	//content <<= THISBACK(OnValueChange);
 	is_unsafe <<= THISBACK(OnValueChange);
+	language <<= THISBACK(OnValueChange);
 	
 	typeclass.Disable();
 	content.Disable();
@@ -29,6 +35,7 @@ void ScriptInfoCtrl::Clear() {
 	this->typeclass			.SetIndex(0);
 	this->content			.SetIndex(0);
 	this->is_unsafe			.SetIndex(0);
+	this->language			.SetIndex(0);
 }
 
 void ScriptInfoCtrl::Data() {
@@ -72,6 +79,7 @@ void ScriptInfoCtrl::Data() {
 		typeclass.SetIndex(l.typeclass);
 		content.SetIndex(l.content);
 		is_unsafe.SetIndex(l.is_unsafe);
+		language.SetIndex(l.lng_i);
 	}
 }
 
@@ -89,6 +97,7 @@ void ScriptInfoCtrl::OnValueChange() {
 		l.typeclass = typeclass.GetIndex();
 		l.content = content.GetIndex();
 		l.is_unsafe = is_unsafe.GetIndex();
+		l.lng_i = language.GetIndex();
 		
 		int c = editor->scripts.GetCursor();
 		editor->scripts.Set(c, 0, l.GetAnyTitle());
