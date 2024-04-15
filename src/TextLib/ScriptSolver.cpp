@@ -15,7 +15,7 @@ ScriptSolver::ScriptSolver() {
 }
 
 ScriptSolver& ScriptSolver::Get(int appmode, Entity& a, Script& l) {
-	String t = a.file_title + " - " + l.file_title;
+	String t = IntStr(appmode) + " - " + a.file_title + " - " + l.file_title;
 	hash_t h = t.GetHashValue();
 	ArrayMap<hash_t, ScriptSolver>& map = __ScriptSolvers();
 	int i = map.Find(h);

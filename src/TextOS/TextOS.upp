@@ -1,0 +1,22 @@
+description "\377B0,128,128";
+
+uses
+	TextLib,
+	Esc;
+
+file
+	TextOS.h,
+	TextOS.cpp,
+	VM.h,
+	VM.cpp,
+	VFS.h,
+	VFS.cpp,
+	Shell.h,
+	Shell.cpp,
+	EscInterpreter.h,
+	EscInterpreter.cpp,
+	Util.h,
+	Util.cpp,
+	Parser.h,
+	Parser.cpp;
+

@@ -11,6 +11,7 @@
 #include "Component.h"
 #include "Snapshot.h"
 #include "Entity.h"
+#include "MetaEntity.h"
 #include "SourceData.h"
 #include "Database.h"
 #include "Pronounciation.h"

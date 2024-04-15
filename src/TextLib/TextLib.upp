@@ -14,5 +14,11 @@ file
 	ScriptGenerator.h,
 	ScriptGenerator.cpp,
 	ScriptSolver.h,
-	ScriptSolver.cpp;
+	ScriptSolver.cpp,
+	LeadSolver.h,
+	LeadSolver.cpp,
+	DemandSolver.h,
+	DemandSolver.cpp,
+	CollabSolver.h,
+	CollabSolver.cpp;
 

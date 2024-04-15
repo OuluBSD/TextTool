@@ -6,6 +6,7 @@
 #include "TaskManager.h"
 #include "ScriptGenerator.h"
 #include "ScriptSolver.h"
+#include "DemandSolver.h"
 
 
 #endif

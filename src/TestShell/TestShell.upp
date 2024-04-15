@@ -1,0 +1,14 @@
+uses
+	CtrlLib,
+	TextOS,
+	ToolCtrl,
+	TextDataCtrl,
+	TextTool;
+
+file
+	TestShell.h,
+	main.cpp;
+
+mainconfig
+	"" = "GUI";
+

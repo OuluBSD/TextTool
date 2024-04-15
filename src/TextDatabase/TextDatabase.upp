@@ -26,6 +26,8 @@ file
 	Browser2.cpp,
 	Browser3.cpp,
 	"Data (assets)" readonly separator,
+	MetaEntity.h,
+	MetaEntity.cpp,
 	Entity.h,
 	Entity.cpp,
 	Snapshot.h,

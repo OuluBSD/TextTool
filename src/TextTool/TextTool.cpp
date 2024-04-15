@@ -1,5 +1,6 @@
 #include "TextTool.h"
 
+#ifdef flagMAIN
 
 GUI_APP_MAIN {
 	using namespace TextLib;
@@ -51,3 +52,5 @@ GUI_APP_MAIN {
 		AppModeShutdown(appmode, fast_exit, save_songdata);
 	};
 }
+
+#endif
