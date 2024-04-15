@@ -1,0 +1,1 @@
+"0000000000000000" 7 "Intro" 0 "Verse 1" 0 "Chorus 1" 0 "Verse 2" 0 "Chorus 2" 0 "Bridge" 0 "Outro" 0 -1 0 0

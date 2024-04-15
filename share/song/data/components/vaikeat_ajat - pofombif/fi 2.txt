@@ -1,0 +1,81 @@
+"0ed72cf7b02790c9" "Tää elämä lainaa aikaa mut itselleen, / Kun suutelen sua vain hymyilen." 8 9 7 8 7 7 7 4 7 6
+"3a625ec2f65f65bc" "Sä tarviit vähän rakkautta tänä yönä, / Mut sä jäät yksin kun taas sanoin sen sulle." 9 8 7 8 8 7 7 4 8 6
+"51628db1e43722ec" "Kaikki noi lutkat tietää meidän hommasta, / Mut se menetti kaiken kun sänkyynsä otin matkustan." 8 8 7 8 7 7 5 3 7 5
+"788fc5e8b46b68ee" "Häikäilemättä ja vähä puolivalosen, mä telen Ulkomaille; / Vittu sä olet kenellekkään helppo rasti, juoksen pois sun luota." 7 7 8 5 6 6 3 5 4 3
+"0ee845f8215f0068" "Sä oot fakkiin voittaja, musta ei oo tähän paikkaan; / Kerran tahdon olla tsiigi rikas, ja kokea olevani kuolematon." 8 7 8 6 7 7 4 5 6 4
+"283f9f9e982408e5" "Kelaan tarkkana, kun kuljen tällä kadulla; / Kossupullossa on kuin suojelus enkeleiden kirkasta lohtuu." 7 6 6 5 7 5 5 3 4 4
+"e9e947132f8d4a33" "Me ollaan vapautettuja, me ei tarvita perkele; / Ja ku ei maiset vangitse ja musta kaikki pahat pelkää." 9 7 7 8 8 7 6 5 7 6
+"8041c26895b505e0" "Mikä mä olen, tehnyt mulle niitä ei riitä; / En ikimaailmassa ansaitse rakkautta, sitä musta ei ollut." 10 8 7 8 8 7 6 4 7 6
+"c9634f0268979373" "Et heittää mitään, sä pidä ne sun huulillas; / Termospullon henki ja meet ulos, taaksepäin." 7 7 6 6 5 6 3 3 4 4
+"54a5c50a1cc43de5" "Matkalla oon missä oon, mun isänmaani kotka prefekti? / Oon jo siinainen. Oliko se vain teeskentelyä, vai tulipa vain mukavasti mule.?!" 0 0 0 0 0 0 0 0 0 0
+"f17043683798a131" "Et teeskentele sen enempää, kaikki on turhaa; / Rakastaisitko vaikka kuolinki, tai koi pitää olla hankaa." 8 6 6 6 7 5 4 4 5 4
+"7e7509a1cf737e66" "Me melkein luultiin et on tätä omaisuutta, / Mut en hyväksynyt ja mä tiedän etten välitä." 7 6 6 6 6 5 5 4 4 5
+"85eab898888ccbb4" "Jengi kaikki kattele, katon niin pahaa; / Ei näe koskaan hällenpi takaa, ku kukaties sulle ympärillä." 6 6 6 5 5 5 4 3 4 4
+"2155ce4576e4cc7f" "Mä tiedän, sen nytkähyttää, aina jonkun juujuukin; / Mut kutitus- haluista til<valle ja vaihun vuoksi, tarttuu sitä joskus." 7 6 6 6 5 5 4 4 4 4
+"a0dc039be98376a6" "Viikko siin ain valta siin, sai omaa valtaa; / Marraskuuta mitä en tiedä, takas sun kappaletta näyttää." 6 5 5 5 4 4 3 3 3 3
+"6cf83527c1c3256b" "Valheita kuin henkäykset, alkunut niitä haluat; / Mut kaikkea sitä kuvittelitkaan, jestaa sun olkapäälle." 5 7 8 7 6 3 4 1 6 3
+"aa400a6faed609ed" "Upotettu veteen kuin sukeltaessa, / Mun mieli koittaa pysyä pinnalla, / Mut karmaa enemmän kuin runoissa kerrotaan." 7 8 9 7 7 3 3 4 5 7
+"458872675b8ac2e7" "En välitä älä salaa miksään, / Aika ja paikka unohdettu, / Ei mikään oo vakavaa, kunhan on funtsittu." 6 6 7 7 8 4 3 3 3 5
+"3d02a6d995267171" "Me pimeiden varjoihin kadottiin, / Kuolema selässä aina takertui, / Mut me ollaan täällä, vaik ketkä viidakosta poistuu." 8 7 9 8 7 2 3 2 4 6
+"0dc7af219b73e847" "Kääreet ja lyijyt kuin tähtisumu, / Homma muuttuu raskaaks ja ei kenellä oo unelmii / Pitää pysyä rajalinjalla ja hyvä jos ei tosikko ala." 8 6 9 6 6 5 3 4 3 6
+"802fe5df61cd49fa" "Jätin kaiken ja lähdin sillä, / Nykyää keikkaa ja biletän isolla jäthälii." 7 6 8 8 6 3 3 2 4 5
+"eb76e12c4ae9f0da" "Merirosvot jalkas roikkuu sohvalla, / Vievät sut, mut aja mun puolesta, tehkää oikein / Seiskaseljäs ja itseluottamus iha taivaan tuulia." 8 6 7 8 7 2 3 4 3 5
+"d2ae6ad91564e670" "Älä sano ettet pärjää, / Et tarvii mitään mistä kiinni pitää." 7 6 8 7 6 4 2 3 3 4
+"74d569a89bb560f7" "Tummat silmät ja varjo mun takana, / Minne se musta saapuu ja löytyykö sielu vielä täältä." 7 8 9 7 6 5 2 3 4 6
+"6ebee16c628e2b14" "Ja kastunut kuin suihkussa, se ajattelee olevansa nykäri, / Mut paatuu piiriin ne haluu nauraa mut ei uskalla pistää säksänäisi." 6 7 8 8 6 5 3 5 3 4
+"c3d8df14f5b00265" "Onneni ei oo myynnissä, vaikka välillä neki yrittää, / Mun virheeni ei oo paluu voidaan, ne on mun tiellä tulevaisuuksieni." 7 6 7 7 6 4 3 4 3 5
+"7b4ea9a601ad2e74" "Puhun asioita suoraan, enkä taivu pelkoo tän enempää, / Isot pojat ja tytöt eivät puhu, ne vaan läikkyy täyteen lyönnit." 8 7 9 7 5 5 3 3 2 5
+"b980c3c48b2fc48a" "Äiti hoiti ripulin sillä yhdellä puolikkaalla, / Taas maalaismies soorinut silloin villin monia sianlihoja." 6 5 7 4 6 3 5 3 2 2
+"a00c5ad7a0f0a6ad" "Mä oon aina kännissä ja mun pää ei taida pysyy, / Men mielesä äläkä itke kun herään sun vierestä." 7 6 7 7 6 3 4 3 2 3
+"1e8c0ab85adaa960" "Tuhlaa rakkauttas mulle, mä tarviin sen lämmön, / Ovi pyörittäjä, älä sulje mua ulkopuoliseksi." 8 7 8 7 5 5 3 3 7 4
+"b516269f2bd00bd9" "Ja hän tietää, että mulla on rahaa, mut en anna sen estää mua, / Ny mennään parempi, unohdetaan kammo enemmän." 5 6 7 6 6 4 4 3 6 4
+"7472fe28f9ecb744" "Vittuunoilun voisi välttää jos vaan ymmärtäisitte, / Ole hyvä ja muistuttakaa, ettei tää oo se tapa vaan." 6 6 6 6 8 5 3 6 4 7
+"b00f99aa20425d4c" "Tähtisumu, tähtisumu, sekoan sen keskellä, / Mä oon aina kännissä ja maailma kauas edelleen painuu." 7 8 8 6 6 3 2 2 4 3
+"d398d65cb3c3fc24" "Omena iston, tartu huulil vaihni, jätä siihen, / Haisunarkkarornina, hapuit mitä sun piti tehdä." 6 6 6 4 6 8 2 6 2 3
+"86fe4e2473a5bafa" "Vanha ja viisas, muistan viel silloin kun olin, / Ei se ollut vaikee, nuorena ja hulluna niin kuin nyt." 6 6 6 6 6 5 3 3 5 4
+"58ed33a09dcdd724" "Kaksiosainen funktio, ei se voi olla näin vaikeeta, / Ynnä muut kielletyt asiat, se kaatuu nyt käsissäni." 5 6 7 6 7 6 3 8 4 7
+"9d48b986fe8e0576" "Liian myöhäistä jotka voivat kääntää ajan, / Mut sää oot musta totuus jota en saa kaivaa." 7 6 6 6 8 5 3 5 5 4
+"b069fdba2d0f7300" "Mä asettaudun, mut se vois olla nykäri, / mä en haluu jäädä kiinni, aattelen äkkiä." 6 5 6 5 6 5 4 5 5 5
+"934886275b672c9d" "Sä fäggöt mitä madöt sä ne pyrkiin / Mut pitää muistaa ettei meiltä oo mennyt hermot viel." 5 6 4 5 5 6 4 5 6 7
+"0ec582e85f21dce4" "Kuka pystyy kuvittelemaan, mitä joku tekee ajoissa, / hengittää naulaa, kun me tiedetään sen olevan loppuvaiheessa." 5 4 3 4 6 6 3 8 5 7
+"75704806e47a4025" "Sä olit huono nainen, baby, sä valehtelit mulle / Mä olin huono mies, mä tiesin sen, mut pidin sut lähellä." 7 6 6 6 7 5 4 5 5 5
+"ba86f986778fc2e2" "Kun sul on niin paljon versoo, mä en pysty enää arvostaa / Ja siit tulee niin vähän kii, mut ei se estä mua kertomasta." 5 6 6 5 4 5 8 5 6 7
+"f325db661f82b8a8" "Mä haluun mun rahat nyt, en jaksa odottaa, / Oikeet lämpöetsijät, sun pankkitilis, se on liian lämmin, / ole vaan hiljaa, ei tänään oo aikaa pitkiin monologeihin." 5 6 6 6 5 5 5 6 7 6
+"b731f81cecbedca8" "Sun sydän hakkaa niin kovaa ja oon ihan sekaisin, / Enkä osaa muuta kuin vaan hengittää ja kuunnella Dolbya." 8 9 9 8 6 4 5 5 6 4
+"29b281c9a982b28b" "En jaksa enää taistella, tää mua vaan uuvuttaa, / Mut onneks mulla on rajattomat selät, jotka kantaa mua pitkälle." 7 7 7 7 7 5 4 5 5 4
+"89db765b66700d7f" "Maksoin kalliin hinnan, mutta onneks sulla on hyvä näkö, / Ja mä pyydän sua, anna jotain mitä en oo ollut ennen, / Vaikken tiedä miten oon, otan vielä yhden pillerin päälle." 6 7 7 5 6 9 3 2 6 3
+"5c4ef383f4a69275" "Tuhat kiveä raskaina painaa meitä alas, / Mutta rajattomat selät ne vastaan taistelee." 9 7 7 6 7 5 3 2 4 5
+"1ec91f0219851cfd" "Mun koira ottaa kipan, sun pitää pysyä vyöhykkeellä, / Tällä kadulla tuntee selkänsä vasten, ei oo varaa epäillä." 7 8 8 5 6 6 2 4 3 4
+"694b656fe5255554" "Älä anna sen näkyä, sillä oikeat lämpöetsijät tarkkailee meitä, / Ne ei anna mun ja sun olla rauhassa, vaikka ei mitään vikaa meillä ei oo." 8 9 9 7 7 7 3 3 3 4
+"2b1a3c4ca7aedaa2" "Et oo mukana tän jengin menossa, et saa edes katsoa, / Läpi päästän sut vain jos sul on tarpeeks munaa, ja huumori kohdallaan." 7 8 8 8 6 8 4 2 4 4
+"84adfd1848718272" "Päästätkö läpi, etkö tajuu sä oon tän kaiken takana, / Sun lempiräppäreides räppäreistä mä oon kingi, ne sulle sanoo neenaa." 7 8 8 7 6 7 2 6 3 4
+"a1834b123c99c14f" "Aja mun puolesta, älä katso taaksesi, kaikki painuu unholaan, / Eikä mikään oo lähellä sitä kuinka paljon rakastin sua vaan." 9 9 9 6 6 4 4 3 8 2
+"65463e99720ce102" "Me tarvittais isompaa venettä, jos meillä tää kaikki jäis, / Mä oon aina kännissä, mutta se ei haittaa koska mä edelleen soudan tää laiva rantaan." 8 7 6 6 6 4 4 3 4 5
+"552c8e233a23eaaf" "Kukaan ei näe näitä samoja unia kuin mä, / Se saa mun kropan huutamaan, mutta silti mä en haluu luovuttaa." 9 7 6 6 7 4 3 3 5 5
+"37b9a79f91da5cb7" "En aio asettautua, tää elämä on liian vauhdikas, / Viilasin sua hapan, mut en tarkoita sitä pahaks." 7 8 8 6 6 6 3 5 4 4
+"392b86483e3a1145" "Sanoin sulle lähelt sä näät, mut sä et voinu vastustaa, / Yllätys, aplaa löydättiin sisäveräjiltä, tää rakkaus ei oo ilman tierypyrating." 6 8 6 5 6 5 2 3 7 1
+"ef40e74e0690cced" "Se vois olla nykäri, se sekoittais pään, / Oi, tällä katul on aina jotain jännää nähtävää." 8 7 8 6 5 4 2 3 3 4
+"62f375636971c71e" "Ollaan vaan, ei tarvii muuta, / Mut mitä tapahtuis jos nyt men mielesä? Taas säikähdettäs samat pelot uudelleen." 7 7 6 7 6 4 2 3 5 3
+"e55ac624ba2153ae" "Inhorealistit kuvailee maailman kovuutta, / Väistele kameraa, tääl meil ei oo mitään käryä, / Stinttiä tiärengon katkeumukset lahjottaa katuja." 6 8 6 5 5 3 2 8 4 7
+"89f6e3866929167c" "Jos et tiiä, älä höpötä, / Ole lyhytsanainen, älä, / Anna vaan sun ajatustesi mennä iha ilmaan." 8 7 7 5 5 3 2 3 3 4
+"6b8bfbab0dd41992" "Ovi pyörii ja pyörii kuin hullu, mut ei avaudu, / Kuulemma meijän lempiräppäreides räppäri ei oo tarpeeks kuuma, / Mut älkää vaa unohtako et me ollaan oikeet lämpöetsijät." 8 9 8 7 7 6 7 3 4 3
+"8ce9e86c33b7fb25" "Et oo mukana meijän jengis, et oo ollu alusta asti, / Mut nyt on myöhästä, ei oo sulle sijaa, / Ajetaan meijän rahtin kaa, meil on tarpeeks isoo venettä." 7 7 6 7 6 6 4 3 3 3
+"f8b0d685564e1c3a" "Vain me kaksi tääl pimeellä kadulla, ei kukaan ikinä näe, / Otan kiikkustuolista hyppäyksen, tähtään ilmikopterist, / Jos joku pysäyttää mut perääntymättä, se vois olla nykäri." 8 7 8 6 6 7 3 4 2 2
+"ea0791d484714821" "Tiedän et on vaikeeta sietää tätä maailmaa, / Pimitettiin kerta jos toinenki, olo kuin madon, / Mut elämä jatkuu vaik ku hinta tuntuu kammottaval enemmän." 6 7 7 6 6 7 4 5 3 3
+"b70d3529e04b7e13" "Ku kastuit näin märäks ku suihkusa haes päivät sängystäs, / Kattelee et se tai tää ettei kukaan nää, / Eikä mikään oo ees lähelläkään ku päästät mut kuumalle munanet soi täälkää." 6 7 6 5 6 8 5 3 3 3
+"bab83ff22bf5fc7d" "Tätä kirjottaa tyttäres lapsensa pappa, kuuluuko tää läpi, / Oot siellä jokapaikas, kaikkeen vaikutat, kaikki meinaa kaikki sulle, / Kaikkialla sun huulillas kuiskaat aina jotain, ja mä en voi muuta ku kuunnella." 8 9 7 7 7 5 4 6 4 3
+"23ff026025107afb" "Se on kulttuuria kultaisilta vuosilta, kun sanoo ettei enää koskaan, / Mut kaikki mun rakkaat tuotteeni ja kaikki tääl, mä oon aina kännissä, / Ja kaikki tunteet, saa mun kropan huutamaan, kun ens itse koet ääni, sä otat multa kaiken mut reilust kusi saat kato viel." 7 6 7 6 7 9 3 5 3 3
+"3a562b161534622f" "Taiteilija ei voi asettautua, se yrittää, mut se ei ehdi kaikkia kuvia kattoo, / Jos jäät tänne osotat et et opi, mä syön pellavemorjonajoita, / Kyl ku meinasit löytäytyä aplaa, sun käpäläs luokka jossa olit keikalla." 8 7 7 5 5 5 4 6 4 2
+"48b2022fa65a27f6" "Sun pitäis mennä mieles, et meijän jutut alkaa oudoks, / Meijän piirit on rajattomat, mitä tippaanki afrikkalaisii, / Ku meil kaikki on iisei ja se on siistiä." 7 6 6 5 5 6 3 4 4 3
+"813d8f2445dddf3d" "Haluun takas sun asuhuoneelle, sängyn alle ja koputtaa seinää, / Ku tuuletin sulta sanas sait, päästä mut nyt iha ilmaan." 8 6 7 6 5 6 5 3 4 3
+"01ee2b64fded5937" "Sanominen ei auta, meidän täytyy kattella viel kerran, / Ku ei oo niin rellestäjää ku meit vastaan, ja todellinen tsäänssi, / Ovi pyörittäjää vartioi ku kauhistutaan." 6 6 7 6 6 5 4 4 3 2
+"f0eb1b20cf3b0df2" "Pop a pill ja hän ei oo enää sama, se ei oo se mikä ennen, / Tuhlaa rakkauttas mulle baby, täs on mun vastaus sulle, / Ja älä anna sen näkyä ku me valot sammu, ku meist ei koskaan tule kahta." 8 7 7 7 6 5 5 3 4 3
+"cfb340adb6e1be91" "Kun mun koira ottaa kipan, se ei anna sitä enää pois, / Eikä mikään oo ees lähelläkään, ku tules liikut säädyttömästi, / Se on mun koira, se osaa olla parempi ku kinoton teoriassa." 7 6 7 5 5 6 2 3 3 3
+"dc5f6f684b31d4f3" "\"Kaikkialla sun huulillas tunnen ritmin syvälle sieluun, / Sisäveräjiltä se kutsuu, ja mun kropan se saa huutamaan." 8 8 7 6 6 8 3 2 4 2
+"58ede1b1a4732ae2" "\"Luodinkestävät mustat retket yksinä kujillisi, / Ja jos et oo mukana jengis, sitä reittiä et tunnista." 7 6 6 5 5 6 4 4 3 2
+"f47aed314fcf00db" "\"Sä pumpataan biitti niin kovaa se saa mun kropan huutamaan, / Ja päivän päätteeks mä syön pellavemorjonajoita, chillaan." 8 7 9 7 8 6 6 3 3 4
+"cde288ef4f8f309f" "\"Oi, aja mun puolesta, ja meet ulost." 3 2 5 2 4 1 1 6 2 1
+"75e2b1880c97525f" "\"Takas sun asuhuoneellen, käyt pop a pill she not herself, / Kovaa tässä hommassa ja flame roihuu, pysy pelissä." 6 7 9 7 8 5 4 3 3 4
+"fb774fb6b1a4a066" "\"Oi, väistele kameraa, kun jengi tulee sun kylkeen / Salama välähtää mut et saa mua linssiin jäämään." 7 7 8 9 7 7 7 1 3 3
+"b4dccafd11fb2cd7" "\"Ja pitään kerta madon olo niinku olis keskiyö, / Ole lyhytsanainen, se on kultaa, sanat syö." 5 5 6 6 6 5 5 4 4 6
+"bd8110981585969d" "Me tehdään tätä kovaa tässä hommassa, / Omistetaan peli eikä mikään ole lähelläkään samaa, / Tyylit nousee ihan ilmaan kuin leijat vaan." 8 6 7 7 7 4 3 3 3 5

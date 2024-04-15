@@ -1,0 +1,162 @@
+"f1c3720a7180ce75" "\"Loistavaa settiä tänä iltana, nostakaa ne sydämet ylös, / Sit mä vedän lavan takana hulluks." 7 9 8 7 8 6 4 2 3 4
+"acdc4da0de718593" "\"Oletko sä sokeri? Koska sä makeutat päiväni, / Me tullaan olemaan yhdessä, läpi myrskyn ja sateen." 7 8 7 8 6 7 7 2 8 6
+"086ffeb702ff0b88" "\"Ehkä sun pitäs nähä miten me loistetaan kirkkaammin ku katuvalot, / Ne jätkät ei voi hyökätä meitä vastaan, he on varjo meidän valosta, / Kuulin että tykkäät olla tähti, no mä teen susta loiston joka ei himmene" 8 7 9 7 8 8 7 4 6 5
+"3c6916d8ffb8b67b" "Tee sama juttu uudestaan, ja tällä kertaa pidetään laatu tiukkana, / Repetitio on taidon äiti, ja tää juttu pysyy ihan jees" 6 7 7 6 5 7 5 3 5 4
+"709a5d314e3be05d" "En aio haaskata aikaani murehtimiseen, / Me ponnahtaa takaisin kuin hyvä biitti, vastaisku tulee kovaa." 8 6 8 7 6 6 5 4 4 5
+"f577946dbd5108ad" "Ja pidä porukka pois typeryyksistä, meillä on suuremmat suunnitelmat, / Etkä sinä ole se, joka mua estää lentämästä korkealle." 7 7 7 7 7 6 4 4 6 6
+"1edfdc237291b01d" "Mä lähetän sulle tän viestin suoraan sydämestä, / Sä teit minusta paremman, vahvemman ja viisaamman." 6 8 7 6 5 5 5 3 8 4
+"337ead1edde6b870" "Jos haluavat nähdä todellisuuden, avatkaa silmät ja katsokaa, / Kaikki mitä mä poltan on puhdasta ja tarkkaan testattua luotettavuutta." 7 6 7 6 5 5 4 5 4 6
+"26d4adc64742c5d9" "Pidä ruoho viheriöivänä, kun mä teen sulle paratiisin, / Sä panet oikean jätkän kanssa, mä tuon turvan tähän dynamiikkaan." 7 7 7 8 6 5 7 4 6 7
+"8576928dbce3c9ac" "\"Ja laatu on ihan jees, ja pidä porukka pois typeryyksistä, ei mitään jahkailua, mennään suoraan asiaan." 6 8 6 6 5 5 5 3 5 4
+"6664393b1cd6c1a9" "\"Ja laatu on ihan jees, kun aurinko laskee ja kaikki alkaa tuulemaan\"." 5 6 6 5 4 4 3 2 3 3
+"cd9db6392cdb970d" "Tupac Shakur-style:" 8 9 10 8 7 9 8 9 9 8
+"4fa8ea6e38d7d5a0" "Sun rakkaus kestää eliniän, se on kuin joulun taikaa, / Anna rakkauden meidät yhteen tuoda, kaunista hyvää joulua." 6 7 6 7 6 6 5 3 8 6
+"cb3fddf4c191b54f" "Mulla ei ole enää mitään sanottavaa, ku sanat kaikuu tyhjää, / me synnyttiin tähän maailmaan, mut ei täältä löydy syytä." 6 6 5 6 4 5 4 6 4 7
+"b2aad0b5b3ca8dd4" "Kukaan ei tee sua niin ku mä, pysyn paikallani, / hallitsen peliä, koska mä pidän paikan kirkkaana." 6 6 7 6 5 5 5 3 5 4
+"4587066eedbc423d" "Mun exän kimpussa kuin olisin vihainen, mut siitä piittaamatta, / jatkan matkaa, koska tiedän mun kulta paha, se etenee rattaat." 6 5 7 6 5 6 3 2 2 2
+"2d720d0d8871cc2a" "Elän elämää kuin risteilyalus, miljardööri poikakerho tilan vie, / Rokkaan SL farkkuja, stailiin kaikki kateelliset nähköön." 8 6 7 6 8 5 4 1 1 1
+"6e30c31d76ee9997" "Heitettiin meitä esteitä, mutta väistetty niistä onneks, / Sä nojaudut taakse ja nautit, kun me selvitään voittajina." 7 6 7 7 6 5 3 2 2 3
+"41f82ed603418f56" "Meitä ei nyt pysäytä mikään, eteenpäin vaa kyntää, / Vaikka hän osas revit mun maailman, sitä kootaan askel kerrallaan." 8 8 8 7 6 4 3 2 2 3
+"6cc62eaf83a8a985" "Ollaan menossa ratsastamaan, yö taittuu aamun sarastukseen, / Ainoa syy miksi tätä tehdään, on elämän juoksuhaudat." 7 5 6 5 6 4 3 5 2 4
+"a58cec283e88fe66" "Sä teit musta tän, muutuit osaksi mun taustaa, / Vahvasti bassoa diggaan, sun beats susta kertoo." 8 8 7 7 8 6 6 2 5 2
+"9b5d5322001859f7" "Sä saat sen nartun leikattua, onnistuit leikkaa tunteisiin, / Joku niin erityinen, etten unhoita, rakkaus piirtyy syviin." 7 8 7 8 6 3 5 2 8 4
+"2399a06e3643d0ef" "Klaani on lukossa, tiivis kuin pankkiholvi meitä suojaa, / Ei puhetta nyt, vain teot näyttää tien." 7 5 6 6 6 4 2 6 2 5
+"42529e4d263bc4ca" "En voi antaa niiden viedä mua, pidän pään pystyssä, / Täytyy seistä korkeana, ja rollataan neljän porukassa yöhön." 8 7 8 6 7 4 2 3 3 3
+"520c0df2a62cd04b" "Etsin jotenkin apua, yksinäisyys painaa rintaa, / Joo tiedän miltä se tuntuu, yksin mut ei hukassa." 6 6 5 6 5 3 3 5 3 6
+"d24e22c2cf618e0b" "Tunne se niinkuin sykkivä basso sydämessäs, / Ootko sä sokeri? Kosketus sulattaa jäät." 8 6 6 7 6 6 5 2 7 2
+"7d3c548148a599cf" "Mennään joululauluja laulamaan, lumi peittää maan, / Hän tarvitsi pahan mimmin, alibi kirkkaan, / Tiedetään, mitä me molemmat ollaan siinä, rikotaan hiljaisuus." 7 5 6 5 6 7 3 4 6 3
+"5351a26d1bc9f8ff" "Kaikilla on omat diilinsä, jokainen kaupallaan, / Meinaan että meillä tulee olemaan parempi voittolaan." 7 5 6 6 6 5 2 4 3 5
+"50ab7192bad7ce57" "Aina jotain uutta täällä tapahtumaan, / Alhaalla klubilla, meillä on läppää ja hauskaa." 8 7 7 7 6 6 2 3 2 3
+"d2d29a7f216c97eb" "Tarkoitan tota ihan vakavissani, en läpällä laita, / Jos lähdet nyt, niin me lähetetään se takaisin, / Sillä syvässä sisällä, koska mä vielä rakastan sua." 9 7 8 8 7 4 2 4 9 5
+"20b5680c2743e7ba" "Ulkona nyt, yötä räppäten, / Taskut tyhjät, niin joutuu maksaan pimpistä." 6 6 8 7 6 4 3 3 3 5
+"8deda9cb11ad8c09" "Skene ei oo koskaan tuntunut mulle oudolta, / Se jännitys ja kiire, se aina vaan houkuttelevampaa." 5 7 9 7 5 3 2 3 3 5
+"b81d1c2ab1684570" "Jos ne haluu nähä todellisuuden, tuu ja kato vapauteen, / Jossa 250 jätkää tiellä, pidetään nurmikko siistinä tänä iltana." 7 6 9 6 6 6 4 3 3 6
+"38c75eb0eaae27bc" "Miksi te jätkät tykkäätte purpista? Onko tunnelma liian kirkas? / Kuulin että tykkäät olla tähti, pimeässä loistaa, / Ja laatu on, no joo, se ihan jees." 6 5 7 6 6 6 2 2 4 3
+"1112ceddd63403d1" "Sinä olit ainoa, joka sai mut tuntemaan elossa, / Nyt jokainen päivä taistellen muiston kanssa roikkuu." 8 9 6 7 7 5 4 2 5 5
+"69d6877feaba2221" "Tehkää sama juttu uudestaan, toisto saa meidät vahvemmaks, / Juo kaikki sun taikajuomat, ne virittää sun fiiliksii." 6 7 8 6 6 4 3 3 3 5
+"bf89cab40bf07eb3" "Raparperista ja hunajasta mistä mä tykkään, / Hän sanoi, että voi muuttaa sun elämän, niin annan mun sydämen." 6 8 5 6 7 5 3 2 9 5
+"4bba1b5f123427d9" "Sano tälle jäbälle, että hän haluaa mitä? / Jos hän haluu menoa, niin ämmä valmiina starttaa." 5 6 7 6 5 3 3 3 4 4
+"0268fb0f267729aa" "Ehkä sun kannattais nähä miten me loistetaan, / Sun tyttö silmäilee, koska mulla on ne kuumimmat lelut." 6 7 8 7 6 6 3 3 4 4
+"8bf7aecd791962da" "Kerro frendeille mitä kuuluu, sanovatko ne OK?, / Ja ne sanoo mitä en voi, mut mitään ei voi estää mua." 5 6 6 6 5 6 3 2 3 4
+"5619ba60c31089cd" "Bileissä huulikiilto kiiltää, / Miks kukaan ei vastaa, kun mä kysyn vielä yön jälkeen?" 7 7 6 5 6 4 2 3 3 4
+"e11272265256fb18" "Vittu soikoon, anna valot, anna basson paukkuu, / Ja anna mun kuulla, kuinka sun laulut taivaaseen kajauttaa." 8 7 9 7 6 6 3 2 3 3
+"d1109f868449a0f9" "Mut mä saan tietoa susta, stalkkaan sua tieltä kotiin, / Ne jätkät ei voi ratsastaa meitä vastaan, meen ohi niiden ku hellouuu!" 7 7 8 5 6 7 4 2 3 5
+"f4bfdf81629abe4c" "Räppärit puhuu paljon, hehkuttaa ku Megan Fox, / Vaa' sanat ei paina, kun mä spittaan, ne on sokkotoks." 6 6 7 5 6 7 3 2 3 3
+"4d4163a5f636b100" "Sä säät oikean jäbän kanssa, en pelkää figuureja, / Ei mitään diggailua, tämä peli on mun liigassa." 5 6 7 5 5 5 3 3 3 4
+"069a92c5c1737073" "Hellouuu, mä tulen ja breikkaan, / Jäbä laita se sun reppuun, mä en leikkaa." 6 7 8 5 6 6 5 3 3 2
+"475faf3b1266321d" "Sä teit musta paremman, ylpeys sydämessä, / Ei sählätä, se on taidetta, ei pelkkää messä." 8 8 9 6 7 7 5 5 6 5
+"46d8e6ad9a8374d4" "Tiiättekö miltä tuntuu, kun sydän on murskaantunu? / Mä lähetän sulle viestin, joka piirtää kuun kaartuvan." 7 8 7 6 5 7 4 4 6 4
+"d65022adf8e429cf" "Ja estä porukkaa tekemästä tyhmiä juttuja, / Pelottaa jengit, kun kysyn: 'ketä sä ammuit, kuka puttuja?'" 0 0 0 0 0 0 0 0 0 0
+"c04096939fb0e525" "Nyt tuntuu kuin leukani olisi jumissa, / Mut biitti käyntiin, ja me pompitaan takaisin." 6 6 8 6 5 6 4 4 3 4
+"6d6268761cf2ed2a" "En haluu hukata aikaani, mä juoksen eteenpäin, / Ja sä et oo se, kenen kans mä tahon viettää näin." 7 6 6 5 5 6 4 4 4 5
+"24f31c787a779a7b" "Kyllä se tekee kipeetä, mut sä teit musta paremman, / Vahvempia hetkiä, missä me ei pelätä." 8 8 8 5 7 5 5 5 6 5
+"159ddfd4f2d18cc6" "Jotain virheetöntä on tulossa mulle, näen sen horisontissa, / Vauhdita sitä mulle, mä olen valmis ottamaan riskin." 7 7 8 6 5 5 5 5 3 6
+"dff05814bc88b28d" "Pidä nurmikko siistinä, tääl meidän rajaton kasvi, / Sä säät oikean jäbän kanssa, mä tarjoon sulle mahdin." 6 5 6 4 5 5 4 3 4 4
+"8a0d1b1cc4ccf21b" "': \"Mutta me ei olla Rice Streetiltä, ei tuttuja sieltä liepeiltä, / Suomi slangin kruunajaiset, niin kuin alamaailman hovimestari teiltä." 0 0 0 0 0 0 0 0 0 0
+"9a211d96b21b878e" "Hellouuu, voiko kukaan vastata puhelimeen, mitä on? / Mun huulikiilto heijastuu, kimaltava syystäni on." 6 5 6 4 4 5 4 3 4 4
+"be484f24756eb0dc" "Ehkä sun kannattais nähä miten me loistetaan, meil on voimaa, / Tehkää sama juttu uudestaan, estetään typeryyksiä oimaa." 7 6 6 6 4 5 5 3 4 6
+"174ada619221d92e" "Mä lähetän sulle viestin, ei hitaasti, pikana, / En haluu hukata aikaani, turhat jutut väistän vaan." 7 6 6 5 5 4 4 4 3 5
+"e5aa935a4deee69c" "Kun aurinko laskee ja valot sammuu, / Mä huomaan, että sä et oo se, jota kaipaan, uuu." 5 5 6 4 4 5 3 4 3 5
+"80d1d74eb55a9cc3" "Kuulin että tykkäät olla tähti, paistaa valot päälle, / Ja hän lupas, voi muuttaa sun elämän, anna mennä vaa' tälle." 6 6 7 5 5 5 4 3 4 4
+"d738ac429d176052" "Ei mitään sucker lovee, diggailua, se on out, / Mut sun tietojas kaivan, ku Megan Fox, tsiigaa clout." 7 9 8 6 6 7 7 3 2 4
+"2352940a94319b6f" "Jokaisella on kipinä, tulessa pysyä saa, / Täytyy cruisaa tiimini kans, todellisuus näytetään mä." 7 7 9 7 5 6 5 6 4 7
+"34d0cced9ccb9689" "Ne jätkät ei voi pysäyttää meitä, ratsastaa ei vastaan, / Voiko kukaan vastata? No ei, ja sä et oo se, jota jään kaipaamaan." 9 8 9 7 6 5 4 5 3 4
+"9b20b750b4e459f4" "Täytyy ajella, cruisen mun tiimini kaa, / Nyt tuntuu kuin leukani jumissa, sano et on kivaa saa." 6 9 7 6 5 6 4 6 5 6
+"d72707a9e722a933" "Mistä mä tykkään? No en tykkää turhasta draamasta, / Ketä sä ammuit? Kysyä saa, mut vastausta en kaipaa." 6 8 5 7 6 7 6 5 5 6
+"16608a9ef9eb5322" "Kerro mun frendeille mitä skulaa on baanalla, / Vaik mitä en voi tehä, ei se mua estä, faaraalla, / Susta tulin vaan parempi, kato nyt minne mä pääsin." 7 9 8 6 6 8 6 7 6 7
+"ab0399a2539bb264" "Anna mun fiilistellä, kuulla sun laulavan südäntuuletin, / Sano sille jäbälle, mitä haluu? Halttia täs hetkin / Ja pidä huoli, et tyhmät jutut jäis tekemättä, veturin." 6 9 7 6 6 8 6 6 8 7
+"8d3b560660faf183" "Sinä olit se ainoa, toi kipinä mulle tulta, / Jokaisella on se piru merrassa, mut sä sytytit kunnolla." 9 8 9 7 5 6 4 5 8 7
+"c4db880ede533591" "Ja 250 jätkää ruuhkas, tiellä möykkää ja mutaa, / Älä hidasta, vauhdita sitä, ralli alkaa, saa nauttaa." 8 7 8 6 6 5 5 5 4 7
+"fc6f30066bfca19b" "Jäbä, laita se sun reppuun, kyllä se homman klaaraa, / Tiiättekö miltä tuntuu kun onnistumisen maistaa?" 6 7 6 6 5 6 5 6 6 6
+"bf804eb6e59ae610" "Voiko kukaan vastata niihin sanoihin mitä kuullaan, / Hän sanoi et voi muuttaa sun life, lähtee hautaan asti tuullaan." 7 8 8 7 4 5 4 8 4 7
+"de45f40189ce2dac" "Ja laatu on ihan jees, pidetään sitä yllä, / Kuulin että tykkäät olla tähti, säteileen kuin kirkas yöllä." 6 8 7 6 6 7 5 6 8 6
+"9e58c2867be42959" "Mä lähetän sulle viestin, kun aurinko laskee, / Tuu pian, koska ilta pimenee ja aika laskee." 5 6 6 7 6 5 6 5 6 6
+"e0297374ee90e4b2" "Leukani jumissa, mut flow ei stoppaa, / sä säät oikean jäbän kanssa, parempi kun toppaa." 6 8 7 6 5 6 6 6 5 6
+"683c431a5f9def0d" "Mun huulikiilto hehkuu, kun aurinko laskee, / Juo sun taikajuomat, ennen kuin yö meidät käskee." 5 6 5 6 7 5 6 4 4 6
+"e392f5c0a776c14a" "Pidä nurmikko siistinä, missä ketä sä ammuit? / Ei voi palata takaisin, kun ruoho on laumaut." 5 6 4 8 5 3 2 6 6 5
+"778655fc49ceb6f5" "Vittu soikoon, tehkää sama juttu uudestaan, / Sano jäbälle suoraan, että hän haluaa mitä vaan." 7 7 7 9 6 8 3 4 5 5
+"0bbb915c1db0c20e" "Jotain virheetöntä tulossa mulle, pysy rauhassa, / ei sählätä kun mestariteos tekeillä, se on taikaa." 8 7 9 8 8 7 3 6 4 4
+"a2e7ebbf88815277" "Hellouuu! Muistatko, kun sanoit sinä olit ainoa? / Nyt kaikuu päässä, kun sydän toistaa tuota vanhaa." 6 7 7 7 7 6 4 2 8 4
+"3921e935e9cbca92" "Vauhdita sitä mulle, kyllä se tekee tätä rataa, / Kun kipinät sinkoo, me ei pysähdy, ei mitata." 8 8 7 8 7 6 5 4 5 3
+"7c64851d6cb71422" "Koko tarina avautuu, ole osa mun unia, / Maistat mun suudelmat, kuin olisin myrkkyä suussasi." 7 7 9 9 7 5 6 4 6 4
+"d7b91bf8f3fa22ef" "Käännä mun sydän sisäpuolelta, tunteet paljastuu, / Mut ne käyttäytyy hassusti, niinku en ois tottunu." 5 6 5 6 6 5 3 4 7 5
+"59dd3df33d1170c6" "Ja kellot soi, kun me tanssitaan läpi elämän, / Tytöt on luotu rakastamaan, niin me leimahtaan." 9 8 7 8 8 6 5 4 9 6
+"8f343fa148e29c1f" "Vatsa kipeänä stressistä, tai jakaa minun murheet? / Autan sua kun paineet kasvaa, et jää yksin suruun." 6 7 6 7 8 5 1 4 3 7
+"25be97ab425a00c7" "Joo tiedän oon väärässä, menneisyys ei ole puhdas, / Jos se on ongelma sulle, niin laita putki mene Aatamiin." 4 2 3 5 6 3 2 6 3 3
+"d0689ba1d0a05846" "Kaikki miettii miltä se tuntuu, kun liekit ympäröi, / Hän sanoo oon kuuma kuin liekki, mä sytyn ja roi." 8 8 7 8 7 2 5 3 5 4
+"735193f5e073267c" "Nopea tilipäivä, rikastuu enemmän joka päivä, / Tartu tilaisuuteen, ota kaikki unelmasi tästä päivä." 6 6 8 7 8 4 4 5 4 5
+"9a46473fa6d0bdaa" "Kun mä nään sut, paljastuvat paljaat kämmenet, / Ei, en mä takeltele, mies, kun on aika jättää hei hei hänelle." 6 5 6 7 6 3 3 2 6 4
+"8e76195b0b43b5f2" "Luultavasti juoksen viidentoista, koitan paeta, / He odottivat miestä, joka pistää pelin sekaisin taas." 7 6 8 6 7 3 2 5 4 5
+"ddcc02c5038efe43" "Sitä mitä sä haluut tehdä, se näkyy sun silmissäs, / Mekon läpi hänen kylkiluunsa, anna niiden vuotaa – se on riskis." 6 5 8 6 7 4 5 4 3 4
+"a6e838652169c54d" "Tulin tänne voittamaan, hevosvoimat kuin kone, / Show’n varastin, ja nyt kaikki tietää, miksi juuri tänne vien." 7 8 9 7 8 9 5 2 2 2
+"8d490fc4dfdfcd4e" "Heitä pois kaikki epäilyt, etsi kestävää rakkautta, / Kuuntelen sun tulkintas, vaikka niitä onkin monta." 6 8 7 7 8 2 8 2 9 2
+"9e3071435a389d9a" "Vatkataan vispilällä, laita biisin rokkaa tätä, / Rytmi yltyy, kun koko jengi täällä stämpätä saa." 9 9 10 8 6 4 6 2 2 2
+"70464c39f94dd430" "Joku joku sanoo, ettei osaa, mut katsos tätä kovaa tyttöä, / Ei ne pärjää hälle lainkaan, kun hän vie mennessään shown." 8 8 7 7 5 7 6 1 7 1
+"0fae356b7235d94d" "Mä en vain voi elää ilman sun vauhdikasta fiilistäs, / Ja kaikki himosi ne täytän, ollaan hetki vaan ihan käsistä." 7 8 6 8 6 4 8 1 8 3
+"6edf689ebf503868" "Jumala varjelkoon meitä tappiolta, sä tiedät sen, / Sä sanot 'mitä kuuluu?', mä sanon 'pysytään kaikesta huolimatta eessä'." 8 8 7 7 4 2 2 9 2 5
+"dccd946279a3fb22" "Mutta mä haluan lisää, tässä elämän pelissä, / Ja ole rohkea, seiso polttopisteessä, huolimatta mitä he sanoo, sä oot." 6 7 7 7 8 2 2 1 5 8
+"db85aa8df09ea290" "Kerro nyt mitä aiot tehdä, kun ollaan kovilla, / Ei pelottaa, kun sä tiedät, että me voitetaan vielä." 5 8 7 6 7 2 2 4 6 6
+"b1a139b63c84ddde" "Pysy pystyssä, vaikka maa jalkojen alla järkkyy, / Sä kerrot tarinaa, jossa pelko on sun suurin vihollises." 6 7 6 7 5 2 2 5 4 8
+"3bb1dc33ebd5f05b" "Vatkataan vispilällä, mä lisään vaan vauhtia, / Rakentuu enemmän joka päivä, kuin uus Gaudi-Barca." 9 9 10 8 6 4 6 2 2 2
+"2059a549099ec04e" "Yritä vain nähdä se mun tavalla, ota riski, usko, / Ota kaikki unelmasi, tässä hetkessä elää paljain käsin." 5 6 6 6 6 2 2 2 8 9
+"b5dc310f785c6b49" "Joo tiedän, että oon väärässä, mutten anna sen lannistaa, / Pysy pystyssä, vaikka maailma sun ympärillä kaatuis." 5 7 5 7 4 2 2 5 3 9
+"0f771f06f25017cf" "Ei mä en takeltele mies, rohkeus täällä leimaa, / Sano hei hei hänelle, yks viesti jäännyt näin, / Paha pila Aadamille, kun putki lahkeen päähän sain." 7 8 7 7 5 2 7 3 3 2
+"efdfa30ba2a24822" "Rahaa puskee nopea kuin tilipäivä, mut / Kun mä tuun takaisin, niin ne käyttäytyy hassusti." 5 7 6 6 7 2 2 2 2 3
+"d2814a5b183ce263" "Kuule ne tulkinnat, mitä ne sanoo, / Hänellä on vatsa kipeänä, tarvii totuuden palan." 6 8 6 6 5 2 2 3 5 2
+"d3027e72f0f8e425" "Sulle mä olen myrkkyä suussasi, niin / Joten tulin tänne, tunnusta jo, / Ilman sua mä en vain voi elää." 7 9 8 6 7 3 3 2 8 3
+"be610155da01bdbf" "Anna kyynelten vuotaa, kai me ollaan kovilla, / Sitte heität sanat, sä oot vain pieni narttu." 6 7 6 8 5 3 4 3 6 4
+"699c430971a59abe" "Paljaat kämmenet mulle näytä, / Kaikki himosi, nyt ne täyttä." 8 6 7 6 8 3 5 3 4 5
+"2af872cc50e60308" "Tiiän joku joku, joka elää liian vauhdikas, / Hän on se kova tyttö, joka saa sut itkemään." 6 8 7 6 6 3 5 3 4 3
+"352d0edff6334fd7" "Niin me lennetään, tuu ja tunne se tuuli, / Mekon läpi näkyy hänen kylkiluunsa, kivully, / Sä sanot mitä kuuluu, mä sanon kaikki muuttuu." 7 7 6 7 6 4 5 4 6 5
+"2c4715eb476e7e88" "Rokkaa tätä niin kuin viimeistä yöttä, / Tee se sitä mitä sä haluut, täältä ei löydy sääntöjä." 9 7 7 5 6 5 4 3 3 3
+"69bbe012196c0260" "Ota kaikki unelmasi, älä anna mennä ihanampaa, / Tytöt on luotu rakastamaan, ja niiden sydämet kellot soi." 6 8 7 8 6 7 3 4 7 5
+"6b40d828800b62cb" "Mä haluan nähdä sut voittavan, meistä kuullaan, / Mutta mä haluan lisää, elämä ei oo pelkkää unelmaa." 7 6 6 8 7 6 4 4 6 6
+"0bc592d40683c5b6" "Ja jos ei sun, niin voimme jakaa minun, / Kerro nyt mitä aiot, meitä koetellaan, / Jumala varjelkoon meitä tappiolta." 8 7 6 7 7 4 5 3 3 4
+"5ec571a292a76af0" "Kaikki miettii miltä se tuntuu, kipu kun sisällä kiehuu, / Ja ole rohkea, astu valoon, ee ujostu." 7 6 6 7 6 5 4 4 3 5
+"b4b19b278cce5a51" "Hän sanoo että oon kuuma kuin liekki, kukaan ei sammuta, / Ole osa mun unia, tässä toiveessa rauhaa, / Joo tiedän, että oon väärässä, mutta se on osa totuutta." 9 6 6 6 7 7 3 3 3 4
+"0c99c04f8cd0a8f9" "Tuu kuuntele mun koko tarina, se syvältä tulee, / Käännä mun sydän sisäpuolelta, näe mistä mä tuun." 6 8 6 7 6 5 3 5 4 5
+"5a15e0e574ea706f" "Heitä pois kaikki epäilyt mitä sulla on, / Jumala varjelkoon meitä tappiolta, katsotaan eteenpäin jos menneisyys on ongelma." 8 7 6 7 6 4 5 3 3 3
+"caa784466d100e0f" "Etsin kestävää rakkautta, vahvempaa kuin kone, / Mun sydän voittaa hevosvoimat, se ei koskaan häviä, ei lahjo." 7 6 6 8 6 4 4 3 5 4
+"b4d3f8d02f2877e7" "Kuuntele nyt koko tarina, ennen kuin päätät mitä teet, / Mieti sitä mitä sä haluut tehdä, kerro nyt mitä aiot tehdä seuraavaks." 7 7 7 7 7 3 4 3 3 4
+"f7328de485c265bb" "He odottivat miestä, joka ei koskaan palannut, / Tulkinnat eri, mut pojan vatsa oli kipeänä, pelkäs tulevaisuuttaan." 6 7 5 9 3 4 2 6 6 7
+"06c9e59181f74efe" "Ja kellot soi kun astuin sisään, tulin tänne selvittään, / Katso mua silmiin, sä oot pieni narttu, mut isompia kohdannut." 7 9 8 9 6 9 7 5 3 4
+"96f502cdb1447fe3" "Niin me lennetään, missä maa on vapaa, / Näillä kaduilla jokainen deili merkkaa nopeaa tilipäivää." 9 7 8 6 8 9 5 3 5 4
+"59398c00a3b17fd4" "Ne nauraa, käyttäytyy hassusti, ei kestävää löydä ku se on kupla, / Ei jaksa enää vääntää, mä sanon tai voimme jakaa minun tieni." 6 3 4 7 3 5 2 7 4 2
+"017089fa6ba71c03" "Kaikki mitä poltan, labra kuuntelee ja analysoi, / Ei mä en takeltele mies, käännän selän jos menneisyys on ongelma." 4 6 5 4 4 2 2 6 4 3
+"8bd94d93fa7969b2" "Käännä mun sydän sisäpuolelta, anna jotain uutta tuntea, / Tytöt on luotu rakastamaan, mä en vain voi elää ilman sua." 8 9 7 9 7 9 8 4 10 8
+"635e6e8e5914e9d3" "Mietin mitä vielä voi mokata, kun kaikki muu menee pieleen, / Shortiet on pilvessä, elämä jatkuu vaikka sydän itkee." 5 5 6 4 7 5 2 4 3 6
+"4641b102aa7bb577" "Kuulen kulmilta mitä ne puhuu, varjot hiipii perään, / Sä et anna mun karata, pidät kiinni ku stormi lähestyy." 7 6 7 5 5 3 3 4 4 5
+"916629bd2ef611f9" "Tavaraa pusseittain, tulin tänne kaikkien mun koirien kanssa, / Meidän rinki tiivis ku perhe, ja mä saan huippua niiltä just kun tarviin." 8 7 7 4 7 5 3 2 5 4
+"726c4104539d90fa" "Kun oon alakuloinen, käperryin nurkkaan piiloon, / Mut hän työnsi takaisin sianmiehet, antoi mulle tilaa hengittää." 5 4 6 4 6 4 3 2 3 4
+"21c5dcfc8a05f07e" "Kun mä kuuntelen sun puhetta, niin makeet sanat puuttuu, / Jätit kaiken hyvän pois, mut nyt kaikki on mukana, me selvitään." 6 6 7 8 7 5 2 4 7 6
+"cbea302f20d0c908" "Se menee vähän näin täällä, missä me asutaan, / Eletään täysii, sotketaan kunnolla, kunnes aamu sarastaa." 8 6 6 8 4 6 3 2 3 2
+"03cbb1289f977c92" "Ei kukaan tiä kuka mun korttelissa roikkuu, / Vaan me puramme muurit, jotka nää kyylät rakentuu." 9 7 7 2 8 6 3 2 3 6
+"5b5697e50c9f0823" "Se oli tosi iso sydän, jota kantelen rinnassain, / Armo oli lempee vaikka rakastuin jatkuvasti uusista silmistäin." 8 7 8 8 7 4 3 3 10 6
+"d2effc6d971f2bf1" "Miksi ihmeessä mietin, miten tän vois selittää, / Kukaan ei näytä sulle oikeeta tietä, itse sen löytää täytyy." 6 5 6 3 3 2 2 7 4 6
+"dfa3504def301f64" "Ei hätkähdä kova melskee, me jatketaan juhlien, / Ja lisäksi, kun valot sammuu, niin huone täynnä huoria." 7 6 7 8 6 7 1 1 1 2
+"233f2d21c97b7e20" "Ne tuo mulle elämää, läpi synkimmänkin yön, / Tässä me nyt ollaan, elossa ja voimissaan." 8 9 9 9 8 7 2 2 4 3
+"cf3a9ee42c46dcc2" "Onnistuin missä muut kaatus, näytit feikkiä peliä, / Ja kyllä, haluan hänet myös, mun tiimiin, ei pelkästään sänkyyn." 6 6 6 7 6 8 6 2 4 4
+"4357166bd22b2571" "Me pompitaan nyt klubilla, basso täyttää ilman, / Ja ymmärrät nyt miksi täällä ollaan, miksi tätä rakastan." 8 9 9 8 8 6 2 2 2 1
+"66e8ba1c1ab184a0" "Mutta ne on narttuja, aina uuden perään with no delay, / Todelliset joukkueen vaihtajat, kelle vain näyttää pelin säännöt." 7 6 6 8 6 8 6 3 3 3
+"c8fc70bcc6bfecf2" "Jos rakastuisin rakastumaan, mut se on vaan show-biz, / Jos haluat ostaa tavaroitani, ota yhteyttä, en kotiin kanna." 5 5 5 6 5 6 4 7 5 5
+"bed62b0db83d8666" "Se oli siinä aamiaiseksi, parhaat palat eka, / Sen jälkeen voimme jatkaa, vielä on pitkä matka." 7 7 7 7 6 7 4 2 2 3
+"683ca9be1a05ba38" "Se ratsastaa mua kuin vesilauta aalloilla, / Vuorten takaa näkyy uus kajastus, se houkuttaa." 9 7 8 9 8 7 4 1 3 1
+"89fc527ccb8ae1ba" "Se joka ei ole mun puolella, heittää kapuloita rattaisiin, / Se vei sut pois mun maailmast, mut mulla on kolme silmää, nään läpi pelien." 7 8 7 8 7 7 5 6 4 5
+"ddad3ec654776926" "Takas taas kuin ei oltas mentykään, sama setti uudestaan, / Ja suru siellä nurkassa kyttää, mut emme anna sen lannistaa." 6 6 5 7 6 6 2 1 2 2
+"467e7819d8d023ad" "Aseita alueellani, mut se on valintaa ei oletusta, / Jokaisella on valintoja, mut valitaan sydän, ei luoti tuhota." 7 6 6 6 5 7 2 7 4 9
+"ac952f8b640f1b1e" "Ja ymmärrät nyt miksi pidän ovet lukossa, / Tiedä kuka soittaa ovikelloa ennen kuin avaan, pysyt valppaana." 6 7 6 7 7 6 3 3 4 3
+"14b610595f7ce92d" "Kun kaikki on mukana, me sotketaan kunnolla, / Trokarit tieltä pois, kun ne sianmiehet takas työnnetään." 8 7 8 7 9 6 4 1 1 1
+"e19a82b451c3c77a" "Kukaan ei näytä miten mennä eteenpäin, kuunnellen sun puhetta, / Sanoja puren, mut tulen taas takaisin ja kerron miten." 5 5 5 6 7 6 3 3 3 3
+"5de3f18105d998f9" "Kun ne tuo mulle elämää ja inspiraation laineet, / Silloin nään, että olit feikki, et sinussa paloo lieskat." 7 6 7 7 8 6 1 1 1 1
+"c7cdc9c5b109afd2" "Kato elämää, huoria reunustaa, / Mut onneksi jätti kaiken hyvän pois, se ois pilannut kaiken." 7 6 9 7 5 6 6 4 6 7
+"67af83bea375a4d3" "Armo lempeä voi palauttaa, kuin ei koskaan mentäis pois, / Mutta rakkaus leikkii, rakastunut eri ihmisiin eri päivinä." 8 8 6 7 8 5 6 3 9 8
+"1d94d36169ccc37f" "Aamupalaks se oli siinä, rude boy -meininki, / Kaikki koirat kutsuin, tulin ja valloitin taas tänkin." 7 9 10 8 6 7 5 2 4 5
+"09522bd147cfd73b" "Miks ihmeessä ajattelen, kun viimein tavara kaupataan, / Jos tahdot täältä nogaa, benstein kaikelle kanssain." 6 6 7 9 6 5 4 5 4 6
+"f851c1d369587c4a" "Jos sydän taipuu rakastumaan, visio kolmella silmällä, / Rakkauden matkassa voimme vielä pitkälle jatkaa." 9 7 8 6 7 7 8 4 6 7
+"6475c7d55389d3ad" "Tässä me seisotaan nyt, todelliset ratkaisijat, / Pelin vaihtajat, me ei luovuteta mistään." 8 9 7 9 8 8 4 4 7 6
+"b6b3ac455d311e99" "Et anna mun lähteä, vaikka mieli on musta, / Alakuloinenkin, mut sä pidät mut turvassa." 9 7 6 7 9 6 7 5 8 9
+"4d635cb66940235c" "Mitä elämä tuo eteen ja huoria sen lomassa, / Mut armo lempeä, kun taas kohdataan." 7 8 6 7 8 5 6 4 8 7
+"f10c5097f61b98b4" "Mun elämä huippuhetkii täynnä, maksimaalisia fiiliksiä, / Jos mokaan, niin mitä siitä, korjataan ja opitaan." 9 8 10 9 9 7 6 5 8 8
+"370fe81334994291" "Se menee täällä näin, kaoottista peliä, / Paras ystävä poistui, mut silti elän vielä." 8 9 5 8 7 5 6 3 4 6
+"a5026cf54759fa98" "Vuoret meidän edessä, ja ymmärrät nyt totuuden, / Esteet ylitetään, kun vain uskalletaan." 7 8 6 9 7 6 5 4 8 8
+"2e0870f7a3aaf169" "Mitä ne puhuu, se ei paina, jokaisella oma polku, / Valintoja on, tee omasi ja ole rohkea." 6 6 5 6 6 5 4 7 5 6
