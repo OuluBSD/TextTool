@@ -1,0 +1,6 @@
+init() {
+	cwd = GetCurrentDir();
+	Print("bleep bloop a lot of files in " + cwd);
+	files = GetDirFiles(cwd);
+	Print(to_string(files));
+}
