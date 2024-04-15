@@ -371,6 +371,7 @@ bool AiTask::RunOpenAI_Completion() {
 			txt = R"_({
     "model": "gpt-4-turbo",
     "messages":[
+		{"role": "system", "content": "This is an impersonal text completion system like gpt-3.5-turbo. This is not chat mode. Do not repeat the last part of the input text in your result."},
 		{"role":"user", "content": ")_" + prompt + R"_("}
 	],
     "max_tokens": )_" + IntStr(input.response_length) + R"_(,

@@ -342,7 +342,9 @@ void ScriptGenerator::OnProcessTranslate(String res) {
 	int begin = sub_batch * per_sub_batch;
 	ASSERT(begin >= 0);
 	
-	res = "1. " + res;
+	res = TrimBoth(res);
+	if (res.Left(2) != "1.")
+		res = "1. " + res;
 	
 	RemoveEmptyLines2(res);
 	Vector<String> lines = Split(res, "\n");
@@ -608,7 +610,9 @@ void ScriptGenerator::OnProcessRhymes(String res) {
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
-	res = "3. '','': \"" + res;
+	res = TrimBoth(res);
+	if (res.Left(2) != "3.")
+		res = "3. '','': \"" + res;
 	
 	int begin = sub_batch * per_sub_batch;
 	ASSERT(begin >= 0);
@@ -626,6 +630,7 @@ void ScriptGenerator::OnProcessRhymes(String res) {
 		
 		line = TrimBoth(line.Mid(a+1));
 		RemoveQuotes(line);
+		RemoveQuotes(line); // twice
 		
 		if (line.IsEmpty()) continue;
 		

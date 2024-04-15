@@ -1719,26 +1719,39 @@ void AiTask::CreateInput_ScriptSolver() {
 				list.Add(args.parts[i]);
 		}
 		{
+			const auto& ex = GetAppModeResultPhraseExamples(appmode, args.lng_i);
+			
 			String t = "List A: Phrases";
 			if (args.lng_i > 0)
 				t << " in " << Capitalize(GetLanguageKey(args.lng_i));
 			
 			auto& list = input.AddSub().Title(t);
 			list.NumberedLines();
+			for (String s : ex) {
+				int a = s.Find("': \"");
+				if (a >= 0)
+					s = s.Left(a+1);
+				list.Add(s);
+			}
 			for(int i = 0; i < args.phrases.GetCount(); i++)
 				list.Add(args.phrases[i]);
 		}
 		{
+			const auto& ex = GetAppModeResultPhraseExamples(appmode, args.lng_i);
+			
 			String lng;
 			if (args.lng_i > 0)
 				lng = Capitalize(GetLanguageKey(args.lng_i)) + " ";
 			
 			TaskTitledList& results = input.PreAnswer();
-			String t = "Use least amount of new words to combine " + lng + "phrases in their exact form to new sentences, using style of " + __entity + " from the list";
+			String t = "Use least amount of new words to combine " + lng + "phrases in their exact form to new sentences, using style of " + __entity + " from the list.";
+			if (appmode == DB_SONG)
+				t += " Make phrases rhyme.";
+			t += " Write all " + IntStr(ex.GetCount()+args.phrases.GetCount()) + " lines of results";
 			
 			results.Title(t);
 			results.NumberedLines();
-			for (const String& s : GetAppModeResultPhraseExamples(appmode, args.lng_i))
+			for (const String& s : ex)
 				results.Add(s);
 			results.Add(args.phrases[0] + ": \"");
 		}
