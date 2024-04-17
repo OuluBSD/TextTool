@@ -6,6 +6,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 /*
 Notes:
+	- single page text/manifest for startup
 	- growing phase / maintaining phase / legacy phase
 	- fast (everyday) / regular (weekly or bi-weekly) / slow (from monthly to once in a half year)
 	- list of products that can be demanded:
