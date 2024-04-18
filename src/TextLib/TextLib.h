@@ -7,6 +7,8 @@
 #include "ScriptGenerator.h"
 #include "ScriptSolver.h"
 #include "DemandSolver.h"
+#include "LeadSolver.h"
+#include "CollabSolver.h"
 
 
 #endif

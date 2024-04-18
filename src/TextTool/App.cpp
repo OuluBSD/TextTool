@@ -7,7 +7,7 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-TextTool::TextTool() : ed(this) {
+TextTool::TextTool() : ed(this), lead(this) {
 	skip_data = true;
 	
 	Title("TextTool");
@@ -27,6 +27,7 @@ TextTool::TextTool() : ed(this) {
 	};
 	ed.WhenStopUpdating << [this](){tc.Kill();};
 	
+	Add(lead.SizePos());
 	Add(org.SizePos());
 	Add(ed.SizePos());
 	Add(ai.SizePos());
@@ -50,6 +51,7 @@ TextTool::~TextTool() {
 }
 
 void TextTool::Init() {
+	lead.Init();
 	org.Init();
 	svc.Init();
 	mc.Init();
@@ -171,6 +173,7 @@ void TextTool::SaveWindowPos() {
 
 void TextTool::Data() {
 	switch (page) {
+		case 0: lead.Data(); break;
 		case 1: org.Data(); break;
 		case 2: ed.Data(); break;
 		case 3: ai.Data(); break;
@@ -195,6 +198,7 @@ void TextTool::SetBar() {
 
 void TextTool::MainBar(Bar& bar) {
 	switch (page) {
+		case 0: lead.ToolMenu(bar); break;
 		case 1: org.ToolMenu(bar); break;
 		case 2: ed.ToolMenu(bar); break;
 		case 3: ai.ToolMenu(bar); break;
@@ -231,6 +235,7 @@ void TextTool::MovePart(int i) {
 }
 
 void TextTool::SetView(int i) {
+	lead.Hide();
 	org.Hide();
 	ed.Hide();
 	ai.Hide();
@@ -241,6 +246,7 @@ void TextTool::SetView(int i) {
 	
 	switch (i) {
 		default: i = 0;
+		case 0: lead.Show(); break;
 		case 1: org.Show(); break;
 		case 2: ed.Show(); break;
 		case 3: ai.Show(); PostCallback(THISBACK(StartUpdating)); break;

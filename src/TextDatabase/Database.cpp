@@ -161,5 +161,19 @@ String GetAppModeDir(int appmode) {
 }
 
 
+
+
+
+
+
+
+
+
+MetaDatabase& MetaDatabase::Single() {
+	static MetaDatabase db;
+	return db;
+}
+
+
 END_TEXTLIB_NAMESPACE
 

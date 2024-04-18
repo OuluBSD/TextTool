@@ -39,6 +39,7 @@ GUI_APP_MAIN {
 		
 		t.GetEditor().InitAppModes(appmodes);
 		t.GetEditor().InitSimplified();
+		t.GetLeads().InitSimplified();
 		
 		t.Run();
 		

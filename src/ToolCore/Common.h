@@ -990,6 +990,22 @@ void TestDbVars();
 
 
 
+
+
+
+
+enum {
+	LEADSITE_TAXI,
+	LEADSITE_MUSICXRAY,
+	LEADSITE_SONICBIDS,
+	
+	LEADSITE_COUNT,
+};
+
+const char* GetLeadWebsiteKey(int leadsite_idx);
+
+
+
 END_TEXTLIB_NAMESPACE
 
 

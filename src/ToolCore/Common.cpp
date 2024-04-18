@@ -1298,6 +1298,17 @@ MetaPtrs::MetaPtrs() {
 }
 
 
+const char* GetLeadWebsiteKey(int leadsite_idx) {
+	switch (leadsite_idx) {
+		case LEADSITE_TAXI:			return "Taxi";
+		case LEADSITE_MUSICXRAY:	return "MusicXray";
+		case LEADSITE_SONICBIDS:	return "SonicBids";
+		default: return "<error>";
+	}
+}
+
+
+
 
 
 END_TEXTLIB_NAMESPACE

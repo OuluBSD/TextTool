@@ -44,6 +44,9 @@ file
 	Loader.cpp,
 	Diagnostics.h,
 	Diagnostics.cpp,
+	Leads readonly separator,
+	LeadWebsites.h,
+	LeadWebsites.cpp,
 	Trash readonly separator,
 	Wordnet.h,
 	Wordnet.cpp;

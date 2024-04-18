@@ -31,6 +31,8 @@ file
 	App.h,
 	App.cpp,
 	View readonly separator,
+	Leads.h,
+	Leads.cpp,
 	Editor.h,
 	Editor.cpp;
 

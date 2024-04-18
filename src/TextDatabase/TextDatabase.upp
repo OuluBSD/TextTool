@@ -39,5 +39,8 @@ file
 	Content.h,
 	Content.cpp,
 	Script.h,
-	Script.cpp;
+	Script.cpp,
+	Leads readonly separator,
+	LeadData.h,
+	LeadData.cpp;
 

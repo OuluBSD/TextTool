@@ -7,16 +7,46 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class TextTool;
 
-class ToolEditor : public Ctrl {
+class ToolEditorBase : public Ctrl {
+	const char* title = 0;
 	
-private:
+protected:
 	struct ListItem : Moveable<ListItem> {
 		String item;
 		ToolAppCtrl* ctrl = 0;
 	};
 	VectorMap<String, Vector<ListItem>> items;
 	
+	
+	TextTool&			app;
+	ArrayCtrl			parts, page_group_list, page_list;
+	int					page_group = 0;
+	VectorMap<int,int>	page;
+	
 	void AddItem(String g, String i, ToolAppCtrl& c);
+	
+public:
+	Ctrl				base;
+	Ctrl				subsplit;
+	
+public:
+	typedef ToolEditorBase CLASSNAME;
+	ToolEditorBase(const char* title, TextTool& app);
+	void UpdatePageList();
+	void ViewPage();
+	void Init();
+	void SetView(int i, int j);
+	void ToolMenu(Bar& bar);
+	virtual void Data() {}
+	virtual void ViewPageGroup();
+	virtual void DataPage();
+	virtual void SetSubMenu(int i) = 0;
+	
+	Callback WhenStartUpdating, WhenStopUpdating;
+	
+};
+
+class ToolEditor : public ToolEditorBase {
 	
 protected:
 	friend class EntityInfoCtrl;
@@ -25,14 +55,10 @@ protected:
 	friend class ScriptInfoCtrl;
 	friend class TextTool;
 	
-	Ctrl				subsplit;
 	Splitter			hsplit, menusplit, componentsplit, scriptssplit;
-	ArrayCtrl			appmode_list, page_group_list, page_list, entities;
-	ArrayCtrl			snaps, components, parts;
+	ArrayCtrl			appmode_list, entities;
+	ArrayCtrl			snaps, components;
 	ArrayCtrl			typeclasses, contents, scripts;
-	Ctrl				base;
-	int					page_group = 0;
-	VectorMap<int,int>	page;
 	bool				save_songdata = false;
 	bool				fast_exit = false;
 	
@@ -72,14 +98,12 @@ public:
 	typedef ToolEditor CLASSNAME;
 	ToolEditor(TextTool* app);
 	
-	void Serialize(Stream& s) {s % page_group % page % save_songdata;}
+	void Serialize(Stream& s) override {s % page_group % page % save_songdata;}
 	void InitAppModes(const Index<int>& appmodes);
 	void Init();
 	void SwitchAppMode();
-	void ViewPageGroup();
-	void ViewPage();
-	void Data();
-	void DataPage();
+	void ViewPageGroup() override;
+	void Data() override;
 	void DataEntity();
 	void DataSnapshot();
 	void DataComponent();
@@ -87,10 +111,6 @@ public:
 	void DataContent();
 	void DataScript();
 	//void DataPart();
-	void ToolMenu(Bar& bar);
-	void SetView(int i, int j);
-	void SetSubMenu(int i);
-	void LoadLast();
 	void StoreLast();
 	void MovePageGroup(int d);
 	void MovePage(int d);
@@ -100,6 +120,9 @@ public:
 	bool IsFastExit() const {return fast_exit;}
 	void SetSaveSongdata(bool b) {save_songdata = b;}
 	void SetFastExit(bool b) {fast_exit = b;}
+	void LoadLast();
+	void SetSubMenu(int i) override;
+	void DataPage() override;
 	
 	void EntityMenu(Bar& bar);
 	void SnapshotMenu(Bar& bar);
@@ -124,9 +147,6 @@ public:
 	TextDatabase& GetDatabase();
 	EditorPtrs& GetPointers();
 	int GetAppMode() const;
-	
-	Callback WhenStartUpdating, WhenStopUpdating;
-	TextTool& app;
 	
 };
 

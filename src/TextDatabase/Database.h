@@ -82,7 +82,11 @@ struct TextDatabase {
 struct MetaDatabase {
 	TextDatabase db[DB_COUNT];
 	
-	static MetaDatabase& Single() {static MetaDatabase db; return db;}
+	// Source
+	LeadData		lead_data;
+	
+	
+	static MetaDatabase& Single();
 	
 	
 };
@@ -96,6 +100,18 @@ void EnterAppMode(int i);
 void LeaveAppMode();
 ToolEditor& GetAnyEditor();
 int GetAppModeGlobal();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 END_TEXTLIB_NAMESPACE

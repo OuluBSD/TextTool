@@ -19,7 +19,10 @@ struct MetaEntity :
 		
 	}
 	
+	static MetaEntity& DatabaseUpdate();
 };
+
+
 
 
 END_TEXTLIB_NAMESPACE

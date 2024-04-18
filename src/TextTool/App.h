@@ -10,6 +10,7 @@ class TextTool : public TopWindow {
 	ToolBar				toolbar;
 	StatusBar			statusbar;
 	
+	LeadsCtrl			lead;
 	OrganizationCtrl	org;
 	ServicesCtrl		svc;
 	ToolEditor			ed;
@@ -63,6 +64,7 @@ public:
 	void StartLyricsTasks();
 	
 	ToolEditor& GetEditor() {return ed;}
+	LeadsCtrl& GetLeads() {return lead;}
 	TaskManager& GetTaskManager();
 	
 };
