@@ -39,7 +39,6 @@ struct TextDatabase {
 	SourceData		src_data;
 	
 	// Temp
-	String			dir;
 	RWMutex			lock;
 	
 	TextDatabase();
@@ -85,6 +84,8 @@ struct MetaDatabase {
 	// Source
 	LeadData		lead_data;
 	
+	// Temp
+	String			dir;
 	
 	static MetaDatabase& Single();
 	

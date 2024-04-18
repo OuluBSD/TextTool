@@ -13,7 +13,10 @@ Notes:
 	- the product
 		- prune bad options
 		- rate good options
-
+	
+	- create multiple entries for suno
+	- generate checklist for asserting generated suno songs
+	
 */
 
 class LeadSolver {
@@ -45,8 +48,11 @@ class LeadSolver {
 	void NextSubBatch() {sub_batch++;}
 	
 	void ClearDB();
-	void ProcessDownloadWebsites();
-	void ProcessParseWebsites();
+	void ProcessDownloadWebsites(bool parse);
+	void ParseWebsite(int batch, String content);
+	String ProcessDownloadWebsiteUrl(String url);
+	
+	static String GetLeadCacheDir();
 	
 public:
 	typedef LeadSolver CLASSNAME;

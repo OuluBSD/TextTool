@@ -57,7 +57,7 @@ void SourceDataAnalysis::Load() {
 }
 
 void SourceDataAnalysis::StoreJson() {
-	String dir = GetAppModeDatabase().dir;
+	String& dir = MetaDatabase::Single().dir;
 	StoreAsJsonFileStandard(*this, ConfigFile(__Comp + "Data.json"), false);
 }
 
@@ -84,7 +84,7 @@ void SourceDataAnalysis::LoadJson() {
 		}
 	}
 	#else
-	String dir = GetAppModeDatabase().dir;
+	String& dir = MetaDatabase::Single().dir;
 	LoadFromJsonFileStandard(*this, ConfigFile(__Comp + "Data.json"));
 	#endif
 }
@@ -257,7 +257,7 @@ void DatasetAnalysis::Load() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	String dir = AppendFileName(db.dir, "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "data");
+	String dir = AppendFileName(MetaDatabase::Single().dir, "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "data");
 	RealizeDirectory(dir);
 	
 	String ds_dir = dir;
@@ -313,7 +313,7 @@ ComponentAnalysis& DatasetAnalysis::GetComponentAnalysis(int appmode, const Stri
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	String dir = AppendFileName(db.dir, "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "data");
+	String dir = AppendFileName(MetaDatabase::Single().dir, "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "data");
 	RealizeDirectory(dir);
 	
 	String comp_dir = AppendFileName(dir, "components" DIR_SEPS + name);

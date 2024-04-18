@@ -7,6 +7,72 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 
+struct LeadOpportunity : Moveable<LeadOpportunity> {
+	struct Genre : Moveable<Genre> {
+		int id;
+		String name;
+		bool primary;
+		void Jsonize(JsonIO& json);
+	};
+	
+	int leadsite = -1;
+	String id;
+	Time first_seen, last_seen;
+	String name;
+	Vector<String> links;
+	Vector<Genre> genres;
+	Vector<Genre> promoter_group_genres;
+	String band_opportunity_type;
+	String obj_class;
+	bool request_entry_fee = 0;
+	bool request_featured = 0;
+	bool request_exclusive = 0;
+	bool request_curated = 0;
+	bool request_contest = 0;
+	String request_comments;
+	String request_first_name;
+	String request_last_name;
+	String request_email;
+	String request_phone;
+	String request_description;
+	String request_opportunity_description;
+	String request_band_description;
+	String request_selection_description;
+	int vanity_url_id = 0;
+	String vanity_url_name;
+	String status_text;
+	String description;
+	String band_opportunity_type_text;
+	String local_event_end_datetime;
+	bool is_accepting_entries = true;
+	bool deleted = 0;
+	String address_str;
+	String public_image_url;
+	String logo_image_url;
+	String promoter_group_name;
+	String promoter_group_main_image_url;
+	String promoter_group_facebook_url;
+	String promoter_group_twitter_url;
+	String promoter_group_youtube_url;
+	String promoter_group_instagram_url;
+	String promoter_group_talent_description;
+	String promoter_group_short_description;
+	String promoter_group_talent_roster;
+	int promoter_group_opportunity_frequency_count = 0;
+	String promoter_group_opportunity_frequency;
+	bool compensated = 0;
+	int min_compensation = 0;
+	int max_compensation = 0;
+	bool pay_to_apply = 0;
+	bool free_to_apply = 0;
+	int entry_count = 0;
+	String entry_end_datetime;
+	String date_created;
+	
+	void Jsonize(JsonIO& json);
+};
+
+
 struct LeadEntityAnalysis {
 	
 	
@@ -77,12 +143,15 @@ struct LeadDataAnalysis {
 struct LeadData {
 	LeadDataAnalysis a;
 	
+	Vector<LeadOpportunity> opportunities;
 	
 	LeadData();
-	
+	LeadData(LeadData&&) {}
+	LeadData(const LeadData&) {}
 	void Load();
 	void Store();
-	void Serialize(Stream& s);
+	LeadOpportunity& GetAddOpportunity(int leadsite, String id);
+	void Jsonize(JsonIO& json);
 	
 };
 

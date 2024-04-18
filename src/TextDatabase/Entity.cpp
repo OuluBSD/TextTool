@@ -73,8 +73,7 @@ void Entity::RealizeTypeclasses(int appmode) {
 
 String Entity::GetScriptDir() const {
 	ASSERT(!file_title.IsEmpty());
-	TextDatabase& db = GetAppModeDatabase();
-	return db.dir + DIR_SEPS "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "scripts" + DIR_SEPS + file_title + DIR_SEPS;
+	return MetaDatabase::Single().dir + DIR_SEPS "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "scripts" + DIR_SEPS + file_title + DIR_SEPS;
 }
 
 bool Entity::FindComponent(int& tc_i, int& arch_i, int& lyr_i, const String& scripts_file_title) const {

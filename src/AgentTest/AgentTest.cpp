@@ -4,14 +4,15 @@ CONSOLE_APP_MAIN {
 	SetDefaultCharset(CHARSET_UTF8);
 	
 	TextDatabase& db = GetDatabase();
+	MetaDatabase& mdb = MetaDatabase::Single();
 	#ifdef flagWIN32
-	db.dir = AppendFileName(GetHomeDirectory(), "TextTool");
+	mdb.dir = AppendFileName(GetHomeDirectory(), "TextTool");
 	#else
-	db.dir = GetHomeDirFile("TextTool");
+	mdb.dir = GetHomeDirFile("TextTool");
 	#endif
-	if (!DirectoryExists(db.dir)) {
+	if (!DirectoryExists(mdb.dir)) {
 		PromptOK(DeQtf("Default path not found.\nSelect TextTool directory."));
-		db.dir = SelectDirectory();
+		mdb.dir = SelectDirectory();
 	}
 	db.Load();
 	

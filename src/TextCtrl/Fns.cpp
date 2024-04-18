@@ -10,17 +10,18 @@ void AppModeStartup(int appmode) {
 	
 	TextLib::TaskManager& tm = TextLib::TaskManager::Single(appmode);
 	TextDatabase& db = GetAppModeDatabase(appmode);
+	MetaDatabase& mdb = MetaDatabase::Single();
 	TaskMgrConfig& m = TaskMgrConfig::Single();
 	
 	// Load Database
 	#ifdef flagWIN32
-	db.dir = AppendFileName(GetHomeDirectory(), "TextTool");
+	mdb.dir = AppendFileName(GetHomeDirectory(), "TextTool");
 	#else
-	db.dir = GetHomeDirFile("TextTool");
+	mdb.dir = GetHomeDirFile("TextTool");
 	#endif
-	if (!DirectoryExists(db.dir)) {
+	if (!DirectoryExists(mdb.dir)) {
 		PromptOK(DeQtf("Default path not found.\nSelect TextTool directory."));
-		db.dir = SelectDirectory();
+		mdb.dir = SelectDirectory();
 	}
 	db.Load();
 	

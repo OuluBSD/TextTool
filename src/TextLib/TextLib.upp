@@ -1,7 +1,8 @@
 description "\377B128,0,0";
 
 uses
-	TextDatabase;
+	TextDatabase,
+	Core/SSL;
 
 file
 	TextLib.h,

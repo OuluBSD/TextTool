@@ -1310,6 +1310,49 @@ const char* GetLeadWebsiteKey(int leadsite_idx) {
 
 
 
+String DeHtml(String html, Vector<String>& links) {
+	String out;
+	int a, b;
+	int depth = 0;
+	String deep;
+	for(int i = 0; i < html.GetCount(); i++) {
+		int chr = html[i];
+		if (chr == '<') {
+			if (depth == 0)
+				deep.Clear();
+			depth++;
+		}
+		else if (chr == '>') {
+			depth--;
+			if (depth == 0) {
+				int href = deep.Find(" href=\"");
+				if (href >= 0) {
+					href += 7;
+					int end = deep.Find("\"", href);
+					if (end >= 0) {
+						String addr = deep.Mid(href, end-href);
+						links << addr;
+					}
+				}
+			}
+		}
+		else if (depth == 0) {
+			out.Cat(chr);
+		}
+		else {
+			deep.Cat(chr);
+		}
+	}
+	out.Replace("&amp;", "&");
+	out.Replace("&quot;", "\"");
+	out.Replace("&#39;", "'");
+	
+	out = TrimBoth(out);
+	
+	return out;
+}
+
+
 
 END_TEXTLIB_NAMESPACE
 

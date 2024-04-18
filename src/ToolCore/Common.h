@@ -1006,6 +1006,23 @@ const char* GetLeadWebsiteKey(int leadsite_idx);
 
 
 
+struct LeadCache {
+	VectorMap<String, Time> last_update;
+	
+	
+	LeadCache() {LoadFromFile(*this, ConfigFile("lead-cache.bin"));}
+	~LeadCache() {StoreToFile(*this, ConfigFile("lead-cache.bin"));}
+	void Serialize(Stream& s) {s % last_update;}
+	
+};
+
+
+
+
+String DeHtml(String html, Vector<String>& links);
+
+
+
 END_TEXTLIB_NAMESPACE
 
 

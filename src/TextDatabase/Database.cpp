@@ -12,22 +12,27 @@ TextDatabase::TextDatabase() {
 }
 
 String TextDatabase::GetEntitiesDir() const {
+	String& dir = MetaDatabase::Single().dir;
 	return dir + DIR_SEPS "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "entities" + DIR_SEPS;
 }
 
 String TextDatabase::GetSnapshotsDir() const {
+	String& dir = MetaDatabase::Single().dir;
 	return dir + DIR_SEPS "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "snapshots" + DIR_SEPS;
 }
 
 String TextDatabase::GetComponentsDir() const {
+	String& dir = MetaDatabase::Single().dir;
 	return dir + DIR_SEPS "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "components" + DIR_SEPS;
 }
 
 void TextDatabase::Store() {
+	String& dir = MetaDatabase::Single().dir;
 	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "db.json", true);
 }
 
 void TextDatabase::Load() {
+	String& dir = MetaDatabase::Single().dir;
 	Clear();
 	
 	lock.EnterWrite();
