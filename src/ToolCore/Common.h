@@ -1021,6 +1021,7 @@ struct LeadCache {
 
 String DeHtml(String html, Vector<String>& links);
 
+bool IsAllUpper(const String& s);
 
 
 END_TEXTLIB_NAMESPACE

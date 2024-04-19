@@ -5,13 +5,8 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-void AppModeStartup(int appmode) {
-	EnterAppMode(appmode);
-	
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single(appmode);
-	TextDatabase& db = GetAppModeDatabase(appmode);
+void MetaStartup() {
 	MetaDatabase& mdb = MetaDatabase::Single();
-	TaskMgrConfig& m = TaskMgrConfig::Single();
 	
 	// Load Database
 	#ifdef flagWIN32
@@ -23,6 +18,22 @@ void AppModeStartup(int appmode) {
 		PromptOK(DeQtf("Default path not found.\nSelect TextTool directory."));
 		mdb.dir = SelectDirectory();
 	}
+	
+	mdb.lead_data.Load();
+}
+
+void MetaShutdown() {
+	MetaDatabase::Single().lead_data.Store();
+}
+
+void AppModeStartup(int appmode) {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	EnterAppMode(appmode);
+	
+	TextLib::TaskManager& tm = TextLib::TaskManager::Single(appmode);
+	TextDatabase& db = GetAppModeDatabase(appmode);
+	TaskMgrConfig& m = TaskMgrConfig::Single();
+	
 	db.Load();
 	
 	db.src_data.Load();

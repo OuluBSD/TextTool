@@ -35,7 +35,7 @@ void LeadsCtrl::Init() {
 }
 
 void LeadsCtrl::Data() {
-	
+	DataPage();
 }
 
 void LeadsCtrl::DataProfile() {

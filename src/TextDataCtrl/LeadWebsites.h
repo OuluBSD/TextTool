@@ -7,8 +7,8 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class LeadWebsites : public ToolAppCtrl {
-	Splitter vsplit, hsplit;
-	ArrayCtrl websites, list, payouts, prices;
+	Splitter vsplit, hsplit, mainsplit;
+	ArrayCtrl websites, list, payouts, prices, attrs;
 	
 public:
 	typedef LeadWebsites CLASSNAME;
@@ -18,6 +18,7 @@ public:
 	void DataWebsite();
 	void DataPayout();
 	void DataPrice();
+	void DataOpportunity();
 	void ToolMenu(Bar& bar) override;
 	void Do(int fn);
 	

@@ -168,13 +168,53 @@ void LeadSolver::ParseWebsite(int batch, String content) {
 				String text = DeHtml(listing_str, links);
 				
 				
+				double payout = 0;
+				a = text.Find("$");
+				if (a >= 0) {
+					a++;
+					String payout_str;
+					for(int i = a; i < text.GetCount(); i++) {
+						int chr = text[i];
+						if (chr == ',')
+							continue;
+						if (IsDigit(chr) || chr == '.')
+							payout_str.Cat(chr);
+						else break;
+					}
+					payout = ScanDouble(payout_str);
+				}
+				
 				/*LOG(id);
 				LOG(text);
 				DUMPC(links);*/
 				
+				
+				String title;
+				{
+					Vector<String> words = Split(text, " ");
+					for(int i = 0; i < words.GetCount(); i++) {
+						String& w = words[i];
+						if (w.Left(1) == "'" || IsAllUpper(w) ||
+							w == "A" || w == "Bunch" || w == "Wide" || w == "Range" ||
+							w == "Lots" || w == "Tons" || w == "of") {
+							if (!title.IsEmpty()) title.Cat(' ');
+							title << w;
+						}
+						else break;
+					}
+					if (title.IsEmpty()) {
+						for(int i = 0; i < 4 && i < words.GetCount(); i++) {
+							if (!title.IsEmpty()) title.Cat(' ');
+							title << words[i];
+						}
+					}
+				}
+				
 				LeadOpportunity& o = ld.GetAddOpportunity(batch, id);
+				o.name = title;
 				o.request_description = text;
 				o.links <<= links;
+				o.min_compensation = o.max_compensation = payout;
 			}
 		}
 	}
@@ -246,6 +286,8 @@ void LeadSolver::ParseWebsite(int batch, String content) {
 			String text = DeHtml(html, links);
 			
 			title = DeHtml(title, links);
+			if (title.Find("new") == 0)
+				title = TrimBoth(title.Mid(3));
 			
 			/*DUMP(title);
 			DUMP(price);
@@ -264,6 +306,7 @@ void LeadSolver::ParseWebsite(int batch, String content) {
 			o.min_compensation = payout_from;
 			o.max_compensation = payout_to;
 			o.request_description = text;
+			o.min_entry_price_cents = price * 100;
 			o.links <<= links;
 		}
 	}
@@ -359,6 +402,15 @@ void LeadSolver::ParseWebsite(int batch, String content) {
 			o.entry_end_datetime = opp.GetAdd("entry_end_datetime");
 			o.date_created = opp.GetAdd("date_created");
 			o.compensated = opp.GetAdd("compensated");
+			o.min_entry_price_cents = opp.GetAdd("min_entry_price_cents");
+			
+			if (o.compensated && o.max_compensation == 0) {
+				o.min_compensation = o.max_compensation = 1;
+			}
+			
+			if (o.pay_to_apply && o.min_entry_price_cents == 0) {
+				o.min_entry_price_cents = 1;
+			}
 			
 			o.request_description.Replace("\r", "");
 			

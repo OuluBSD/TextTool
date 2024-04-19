@@ -1349,9 +1349,29 @@ String DeHtml(String html, Vector<String>& links) {
 	
 	out = TrimBoth(out);
 	
+	/*for(int i = 0; i < out.GetCount()-1; i++) {
+		int chr0 = out[i];
+		int chr1 = out[i+1];
+		if (chr0 >= 'a' && chr0 <= 'z' &&
+			chr1 >= 'A' && chr1 <= 'Z') {
+			out.Insert(i+1, '\n');
+		}
+	}*/
+	
 	return out;
 }
 
+bool IsAllUpper(const String& s) {
+	for(int i = 0; i < s.GetCount(); i++) {
+		int chr = s[i];
+		if (chr >= 'A' && chr <= 'Z')
+			continue;
+		if (chr == '\'' || chr == '-' || chr == '/' || chr == ',' || chr == '&')
+			continue;
+		return false;
+	}
+	return !s.IsEmpty();
+}
 
 
 END_TEXTLIB_NAMESPACE

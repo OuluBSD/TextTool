@@ -21,8 +21,7 @@ GUI_APP_MAIN {
 	}
 	
 	GuiStartup();
-	
-	MetaDatabase::Single().lead_data.Load();
+	MetaStartup();
 	
 	if (appmodes.IsEmpty())
 		for(int i = 0; i < DB_COUNT; i++)
@@ -51,7 +50,7 @@ GUI_APP_MAIN {
 	
 	Thread::ShutdownThreads();
 	
-	MetaDatabase::Single().lead_data.Store();
+	MetaShutdown();
 	
 	for (int appmode : appmodes.GetKeys()) {
 		AppModeShutdown(appmode, fast_exit, save_songdata);

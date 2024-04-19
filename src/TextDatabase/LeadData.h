@@ -13,6 +13,7 @@ struct LeadOpportunity : Moveable<LeadOpportunity> {
 		String name;
 		bool primary;
 		void Jsonize(JsonIO& json);
+		String ToString() const;
 	};
 	
 	int leadsite = -1;
@@ -66,9 +67,13 @@ struct LeadOpportunity : Moveable<LeadOpportunity> {
 	bool pay_to_apply = 0;
 	bool free_to_apply = 0;
 	int entry_count = 0;
+	int min_entry_price_cents = 0;
 	String entry_end_datetime;
 	String date_created;
 	
+	int GetCount() const;
+	Value operator[](int i) const;
+	const char* GetKey(int i) const;
 	void Jsonize(JsonIO& json);
 };
 
