@@ -242,6 +242,7 @@ public:
 	void CreateInput_GetPhraseData();
 	void CreateInput_GetAttributes();
 	void CreateInput_ScriptSolver();
+	void CreateInput_LeadSolver();
 	
 	void Process_GetSuggestionAttributes();
 	void Process_StoryArc();

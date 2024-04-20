@@ -42,80 +42,17 @@ LeadOpportunity& LeadData::GetAddOpportunity(int leadsite, String id) {
 
 
 
-void LeadOpportunity::Jsonize(JsonIO& json) {
-	#define ITEM(x) (#x, x)
-	json
-		ITEM(first_seen)
-		ITEM(last_seen)
-		ITEM(leadsite)
-		ITEM(id)
-		ITEM(name)
-		ITEM(links)
-		ITEM(genres)
-		ITEM(promoter_group_genres)
-		ITEM(band_opportunity_type)
-		ITEM(obj_class)
-		ITEM(request_entry_fee)
-		ITEM(request_featured )
-		ITEM(request_exclusive )
-		ITEM(request_curated )
-		ITEM(request_contest )
-		ITEM(request_comments)
-		ITEM(request_first_name)
-		ITEM(request_last_name)
-		ITEM(request_email)
-		ITEM(request_phone)
-		ITEM(request_description)
-		ITEM(request_opportunity_description)
-		ITEM(request_band_description)
-		ITEM(request_selection_description)
-		ITEM(vanity_url_id )
-		ITEM(vanity_url_name)
-		ITEM(status_text)
-		ITEM(description)
-		ITEM(band_opportunity_type_text)
-		ITEM(local_event_end_datetime)
-		ITEM(is_accepting_entries)
-		ITEM(deleted )
-		ITEM(address_str)
-		ITEM(public_image_url)
-		ITEM(logo_image_url)
-		ITEM(promoter_group_name)
-		ITEM(promoter_group_main_image_url)
-		ITEM(promoter_group_facebook_url)
-		ITEM(promoter_group_twitter_url)
-		ITEM(promoter_group_youtube_url)
-		ITEM(promoter_group_instagram_url)
-		ITEM(promoter_group_talent_description)
-		ITEM(promoter_group_short_description)
-		ITEM(promoter_group_talent_roster)
-		ITEM(promoter_group_opportunity_frequency_count )
-		ITEM(promoter_group_opportunity_frequency)
-		ITEM(compensated )
-		ITEM(min_compensation )
-		ITEM(max_compensation )
-		ITEM(pay_to_apply )
-		ITEM(free_to_apply )
-		ITEM(entry_count )
-		ITEM(entry_end_datetime)
-		ITEM(date_created)
-		ITEM(min_entry_price_cents)
-	;
-	#undef ITEM
-}
-
-void LeadOpportunity::Genre::Jsonize(JsonIO& json) {
-	json
-		("id", id)
-		("name", name)
-		("primary", primary)
-		;
-}
-
 #define OPP_LIST \
 	ITEMV(links) \
 	ITEMV(genres) \
 	ITEMV(promoter_group_genres) \
+	ITEMV(analyzed_booleans) \
+	ITEMV(analyzed_string) \
+	ITEMV(analyzed_lists) \
+	ITEMV(analyzed_song_typecast) \
+	ITEMV(analyzed_song_content) \
+	ITEMV(analyzed_song_attrs) \
+	ITEMV(analyzed_song_colors) \
 	ITEM(leadsite) \
 	ITEM(id) \
 	ITEM(first_seen) \
@@ -169,6 +106,25 @@ void LeadOpportunity::Genre::Jsonize(JsonIO& json) {
 	ITEM(entry_end_datetime) \
 	ITEM(date_created) \
 	
+
+
+void LeadOpportunity::Jsonize(JsonIO& json) {
+	json
+	#define ITEM(x) (#x, x)
+	#define ITEMV(x) (#x, x)
+	OPP_LIST
+	;
+	#undef ITEM
+	#undef ITEMV
+}
+
+void LeadOpportunity::Genre::Jsonize(JsonIO& json) {
+	json
+		("id", id)
+		("name", name)
+		("primary", primary)
+		;
+}
 
 
 int LeadOpportunity::GetCount() const {

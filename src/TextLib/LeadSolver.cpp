@@ -62,6 +62,27 @@ void LeadSolver::Process() {
 		else if (phase == LS_PARSE_WEBSITES) {
 			ProcessDownloadWebsites(true); // this won't actually download the website again
 		}
+		else if (phase == LS_ANALYZE_BOOLEANS) {
+			ProcessAnalyzeBooleans();
+		}
+		else if (phase == LS_ANALYZE_STRINGS) {
+			ProcessAnalyzeStrings();
+		}
+		else if (phase == LS_ANALYZE_LISTS) {
+			ProcessAnalyzeLists();
+		}
+		else if (phase == LS_ANALYZE_POTENTIAL_SONG_TYPECAST) {
+			ProcessAnalyzeSongTypecast();
+		}
+		else if (phase == LS_ANALYZE_POTENTIAL_SONG_CONTENT) {
+			ProcessAnalyzeSongContent();
+		}
+		else if (phase == LS_ANALYZE_POTENTIAL_SONG_ATTRS) {
+			ProcessAnalyzeSongAttrs();
+		}
+		else if (phase == LS_ANALYZE_POTENTIAL_SONG_COLORS) {
+			ProcessAnalyzeSongColors();
+		}
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
 			phase = LS_BEGIN;
@@ -446,6 +467,202 @@ String LeadSolver::ProcessDownloadWebsiteUrl(String url) {
 		return content;
 	}
 	return prev;
+}
+
+void LeadSolver::ProcessAnalyzeFn(int fn, Event<String> cb) {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadSolverArgs args;
+	args.opp_i = batch;
+	args.fn = fn;
+	
+	if (batch >= ld.opportunities.GetCount()) {
+		NextPhase();
+		return;
+	}
+	
+	
+	SetWaiting(1);
+	TaskMgr& m = TaskMgr::Single();
+	m.GetLeadSolver(args, cb);
+}
+
+void LeadSolver::ProcessAnalyzeBooleans() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
+	if (!opp.analyzed_booleans.IsEmpty()) {
+		NextBatch();
+		return;
+	}
+	
+	ProcessAnalyzeFn(0, THISBACK(OnProcessAnalyzeBooleans));
+}
+
+void LeadSolver::OnProcessAnalyzeBooleans(String res) {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
+	
+	RemoveEmptyLines2(res);
+	
+	Vector<String> lines = Split(res, "\n");
+	
+	if (lines.GetCount() == LISTING_SONG_BOOLEAN_COUNT+1)
+		lines.Remove(0);
+	
+	bool fast_analyse = lines.GetCount() == LISTING_SONG_BOOLEAN_COUNT;
+	
+	opp.analyzed_booleans.SetCount(LISTING_SONG_BOOLEAN_COUNT, 0);
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		line = TrimBoth(line);
+		
+		int a = line.Find(":");
+		if (a < 0) continue;
+		String key = TrimBoth(line.Left(a));
+		String value = ToLower(TrimBoth(line.Mid(a+1)));
+		
+		int idx = i;
+		if (!fast_analyse) {
+			idx = -1;
+			for(int j = 0; j < LISTING_SONG_BOOLEAN_COUNT; j++) {
+				if (key == GetSongListingBooleanKey(j)) {
+					idx = j;
+					break;
+				}
+			}
+			if (idx < 0)
+				continue;
+		}
+		
+		bool b = value.Find("true") == 0;
+		opp.analyzed_booleans[idx] = b;
+	}
+	
+	
+	NextBatch();
+	SetWaiting(0);
+}
+
+void LeadSolver::ProcessAnalyzeStrings() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
+	if (!opp.analyzed_string.IsEmpty()) {
+		NextBatch();
+		return;
+	}
+	
+	ProcessAnalyzeFn(1, THISBACK(OnProcessAnalyzeBooleans));
+}
+
+void LeadSolver::OnProcessAnalyzeStrings(String res) {
+	
+	
+	
+	NextBatch();
+	SetWaiting(0);
+}
+
+void LeadSolver::ProcessAnalyzeLists() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
+	if (!opp.analyzed_lists.IsEmpty()) {
+		NextBatch();
+		return;
+	}
+	
+	ProcessAnalyzeFn(2, THISBACK(OnProcessAnalyzeBooleans));
+}
+
+void LeadSolver::OnProcessAnalyzeLists(String res) {
+	
+	
+	
+	NextBatch();
+	SetWaiting(0);
+}
+
+void LeadSolver::ProcessAnalyzeSongTypecast() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
+	if (!opp.analyzed_song_typecast.IsEmpty()) {
+		NextBatch();
+		return;
+	}
+	
+	ProcessAnalyzeFn(3, THISBACK(OnProcessAnalyzeBooleans));
+}
+
+void LeadSolver::OnProcessAnalyzeSongTypecast(String res) {
+	
+	
+	
+	NextBatch();
+	SetWaiting(0);
+}
+
+void LeadSolver::ProcessAnalyzeSongContent() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
+	if (!opp.analyzed_song_content.IsEmpty()) {
+		NextBatch();
+		return;
+	}
+	
+	ProcessAnalyzeFn(4, THISBACK(OnProcessAnalyzeBooleans));
+}
+
+void LeadSolver::OnProcessAnalyzeSongContent(String res) {
+	
+	
+	
+	NextBatch();
+	SetWaiting(0);
+}
+
+void LeadSolver::ProcessAnalyzeSongAttrs() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
+	if (!opp.analyzed_song_attrs.IsEmpty()) {
+		NextBatch();
+		return;
+	}
+	
+	ProcessAnalyzeFn(5, THISBACK(OnProcessAnalyzeBooleans));
+}
+
+void LeadSolver::OnProcessAnalyzeSongAttrs(String res) {
+	
+	
+	
+	NextBatch();
+	SetWaiting(0);
+}
+
+void LeadSolver::ProcessAnalyzeSongColors() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
+	if (!opp.analyzed_song_colors.IsEmpty()) {
+		NextBatch();
+		return;
+	}
+	
+	ProcessAnalyzeFn(6, THISBACK(OnProcessAnalyzeBooleans));
+}
+
+void LeadSolver::OnProcessAnalyzeSongColors(String res) {
+	
+	
+	
+	NextBatch();
+	SetWaiting(0);
 }
 
 

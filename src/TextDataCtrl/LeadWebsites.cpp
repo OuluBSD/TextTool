@@ -298,12 +298,18 @@ void LeadWebsites::DataOpportunity() {
 	int idx = list.Get("IDX");
 	LeadOpportunity& o = ld.opportunities[idx];
 	
+	int row = 0;
 	for(int i = 0; i < o.GetCount(); i++) {
 		const char* key = o.GetKey(i);
 		Value val = o[i];
-		attrs.Set(i, 0, key);
-		attrs.Set(i, 1, val);
+		if (val.IsVoid() || val.IsNull())
+			continue;
+		attrs.Set(row, 0, key);
+		attrs.Set(row, 1, val);
+		row++;
 	}
+	INHIBIT_CURSOR(attrs);
+	attrs.SetCount(row);
 	
 }
 

@@ -2006,6 +2006,66 @@ void AiTask::CreateInput_ScriptSolver() {
 	
 }
 
+void AiTask::CreateInput_LeadSolver() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadDataAnalysis& lda = mdb.lead_data.a;
+	
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	LeadSolverArgs args;
+	args.Put(this->args[0]);
+	
+	// Booleans
+	if (args.fn == 0) {
+		const LeadOpportunity& opp = ld.opportunities[args.opp_i];
+		
+		{
+			auto& list = input.AddSub().Title("Music A&R opportunity listing");
+			list.Add("Name", opp.name);
+			if (opp.min_entry_price_cents > 0)
+				list.Add("Submission price", "$" + DblStr(opp.min_entry_price_cents*0.01));
+			if (opp.min_compensation > 0)
+				list.Add("Minimum compensation", "$" + DblStr(opp.min_compensation));
+			if (opp.max_compensation > 0)
+				list.Add("Maximum compensation", "$" + DblStr(opp.min_compensation));
+			
+			if (opp.request_description.GetCount())
+				list.Add("Description (multiline)", "\n" + opp.request_description);
+			if (opp.request_opportunity_description.GetCount())
+				list.Add("Opportunity description (multiline)", "\n" + opp.request_opportunity_description);
+			if (opp.request_band_description.GetCount())
+				list.Add("Band rescription (multiline)", "\n" + opp.request_band_description);
+			if (opp.request_selection_description.GetCount())
+				list.Add("Selection description (multiline)", "\n" + opp.request_selection_description);
+			
+		}
+		{
+			auto& list = input.AddSub().Title("List of boolean attribute values, which can describe the listing");
+			list.NumberedLines();
+			list.Add("the listing is requesting music");
+			for(int i = 0; i < LISTING_SONG_BOOLEAN_COUNT; i++) {
+				list.Add(GetSongListingBooleanKey(i));
+			}
+		}
+		
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Results for all attribute values");
+			results.NumberedLines();
+			results.Add("the listing is requesting music: true");
+			//results.Add("true");
+			results.Add("");
+		}
+		input.response_length = 1024*1;
+		this->SetHighQuality();
+	}
+	
+	
+}
 
 
 END_TEXTLIB_NAMESPACE

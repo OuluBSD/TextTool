@@ -23,6 +23,7 @@ typedef enum : int {
 	AITASK_GET_ATTRIBUTES,
 	AITASK_LYRICS_SOLVER,
 	AITASK_STORY_SOLVER,
+	AITASK_LEAD_SOLVER,
 	
 	AITASK_COUNT
 } AiTaskType;
@@ -163,6 +164,20 @@ struct StructureArgs {
 				("desc", desc)
 				("total", total)
 				("structs", structs)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct LeadSolverArgs {
+	int fn = 0;
+	int opp_i = 0;
+	
+	void Jsonize(JsonIO& json) {
+		json	("opp_i", opp_i)
+				("fn", fn)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}
