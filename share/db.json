@@ -1,0 +1,15 @@
+{
+	"meta_entities": [
+		{
+			"name": "Seppo Pakonen",
+			"year_of_birth": 1989,
+			"year_of_hobbyist_begin": 1999,
+			"year_of_career_begin": 2023,
+			"biography": "biography\ndsfghdfh",
+			"preferred_genres": "electronic, rock, metal, jazz, folk, bluegrass",
+			"is_guitarist": true,
+			"electronic_tools": "DAW, voice tune correction, voice changer, synths, drum samplers, midi libraries",
+			"languages": "English, Finnish, Swedish, German, Spanish, Japanese, Korean"
+		}
+	]
+}
