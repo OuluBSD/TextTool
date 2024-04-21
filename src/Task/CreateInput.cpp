@@ -2019,30 +2019,31 @@ void AiTask::CreateInput_LeadSolver() {
 	LeadSolverArgs args;
 	args.Put(this->args[0]);
 	
+	{
+		const LeadOpportunity& opp = ld.opportunities[args.opp_i];
+		auto& list = input.AddSub().Title("Music A&R opportunity listing");
+		list.Add("Name", opp.name);
+		if (opp.min_entry_price_cents > 0)
+			list.Add("Submission price", "$" + DblStr(opp.min_entry_price_cents*0.01));
+		if (opp.min_compensation > 0)
+			list.Add("Minimum compensation", "$" + DblStr(opp.min_compensation));
+		if (opp.max_compensation > 0)
+			list.Add("Maximum compensation", "$" + DblStr(opp.min_compensation));
+		
+		if (opp.request_description.GetCount())
+			list.Add("Description (multiline)", "\n" + opp.request_description);
+		if (opp.request_opportunity_description.GetCount())
+			list.Add("Opportunity description (multiline)", "\n" + opp.request_opportunity_description);
+		if (opp.request_band_description.GetCount())
+			list.Add("Band rescription (multiline)", "\n" + opp.request_band_description);
+		if (opp.request_selection_description.GetCount())
+			list.Add("Selection description (multiline)", "\n" + opp.request_selection_description);
+		
+	}
+	
 	// Booleans
 	if (args.fn == 0) {
-		const LeadOpportunity& opp = ld.opportunities[args.opp_i];
 		
-		{
-			auto& list = input.AddSub().Title("Music A&R opportunity listing");
-			list.Add("Name", opp.name);
-			if (opp.min_entry_price_cents > 0)
-				list.Add("Submission price", "$" + DblStr(opp.min_entry_price_cents*0.01));
-			if (opp.min_compensation > 0)
-				list.Add("Minimum compensation", "$" + DblStr(opp.min_compensation));
-			if (opp.max_compensation > 0)
-				list.Add("Maximum compensation", "$" + DblStr(opp.min_compensation));
-			
-			if (opp.request_description.GetCount())
-				list.Add("Description (multiline)", "\n" + opp.request_description);
-			if (opp.request_opportunity_description.GetCount())
-				list.Add("Opportunity description (multiline)", "\n" + opp.request_opportunity_description);
-			if (opp.request_band_description.GetCount())
-				list.Add("Band rescription (multiline)", "\n" + opp.request_band_description);
-			if (opp.request_selection_description.GetCount())
-				list.Add("Selection description (multiline)", "\n" + opp.request_selection_description);
-			
-		}
 		{
 			auto& list = input.AddSub().Title("List of boolean attribute values, which can describe the listing");
 			list.NumberedLines();
@@ -2062,6 +2063,51 @@ void AiTask::CreateInput_LeadSolver() {
 		}
 		input.response_length = 1024*1;
 		this->SetHighQuality();
+	}
+	
+	// Strings
+	if (args.fn == 1) {
+		{
+			auto& list = input.AddSub().Title("List of string attribute values, which can describe the listing");
+			list.NumberedLines();
+			list.Add("what kind of product is the listing requesting");
+			for(int i = 0; i < LISTING_SONG_STRING_COUNT; i++) {
+				list.Add(GetSongListingStringKey(i));
+			}
+		}
+		
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Results for all attribute values");
+			results.NumberedLines();
+			results.Add("what kind of product is the listing requesting: music");
+			//results.Add("true");
+			results.Add("");
+		}
+		input.response_length = 1024*1;
+		//this->SetHighQuality();
+	}
+	
+	// Lists
+	if (args.fn == 2) {
+		{
+			auto& list = input.AddSub().Title("List of attribute value lists, which can describe the listing");
+			list.NumberedLines();
+			list.Add("list of related words for this listing");
+			for(int i = 0; i < LISTING_SONG_LIST_COUNT; i++) {
+				list.Add(GetSongListingListKey(i));
+			}
+		}
+		
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Results for all attribute values");
+			results.NumberedLines();
+			results.Add("list of related words for this listing: [music, song, opportunity, A&R]");
+			results.Add("");
+		}
+		input.response_length = 1024*1;
+		//this->SetHighQuality();
 	}
 	
 	

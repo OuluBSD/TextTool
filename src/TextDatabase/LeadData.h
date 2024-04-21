@@ -50,7 +50,6 @@ enum {
 	LISTING_SONG_BOOLEAN_COUNT
 };
 
-
 inline String GetSongListingBooleanKey(int i) {
 	switch (i) {
 		case LISTING_SONG_BOOLEAN_IS_ALLOWED_MALE: return "the singer can be male";
@@ -97,6 +96,66 @@ inline String GetSongListingBooleanKey(int i) {
 	}
 }
 
+enum {
+	LISTING_SONG_STRING_DEAL_STRUCTURE,
+	LISTING_SONG_STRING_DEAL_TYPE,
+	LISTING_SONG_STRING_ARTIST_ROYALTY_PERCENTAGE,
+	LISTING_SONG_STRING_DECISION_MAKER,
+	LISTING_SONG_STRING_WHAT_KIND_OF_SOUND,
+	LISTING_SONG_STRING_TYPE_OF_TARGET,
+	LISTING_SONG_STRING_COMPANY_BEHIND,
+	LISTING_SONG_STRING_DESIRED_ARTIST,
+	LISTING_SONG_STRING_LACKING_INFORMATION_CONTEXT,
+	LISTING_SONG_STRING_LACKING_INFORMATION_SONG,
+	LISTING_SONG_STRING_SONGWRITING_GUIDELINES,
+	LISTING_SONG_STRING_EXPECTED_MONETARY_INCOME,
+	LISTING_SONG_STRING_LEVEL_OF_COMPETITION,
+	
+	LISTING_SONG_STRING_COUNT
+};
+
+
+inline String GetSongListingStringKey(int i) {
+	switch (i) {
+		case LISTING_SONG_STRING_DEAL_STRUCTURE: return "deal structure (e.g. exclusive)";
+		case LISTING_SONG_STRING_DEAL_TYPE: return "deal type (e.g. song placement, radio play)";
+		case LISTING_SONG_STRING_ARTIST_ROYALTY_PERCENTAGE: return "artist's royalty percentage";
+		case LISTING_SONG_STRING_DECISION_MAKER: return "who is the decision maker";
+		case LISTING_SONG_STRING_WHAT_KIND_OF_SOUND: return "what kind of sound the song should have";
+		case LISTING_SONG_STRING_TYPE_OF_TARGET: return "type of the target movie / advertisement (e.g. romantic, sport product)";
+		case LISTING_SONG_STRING_COMPANY_BEHIND: return "based on the language and tone, what type of company/person wrote this listing";
+		case LISTING_SONG_STRING_DESIRED_ARTIST: return "based on the language and tone, what type of artist does the company/person want to work with";
+		case LISTING_SONG_STRING_LACKING_INFORMATION_CONTEXT: return "based on general assumptions, what information is lacking about the context";
+		case LISTING_SONG_STRING_LACKING_INFORMATION_SONG: return "based on general assumptions, what information is lacking about the song";
+		case LISTING_SONG_STRING_SONGWRITING_GUIDELINES: return "based on general assumptions, what guidelines could be used while deciding what kind of song to make";
+		case LISTING_SONG_STRING_EXPECTED_MONETARY_INCOME: return "based on general assumptions,  what kind of monetary income can be expected by getting accepted in this listing";
+		case LISTING_SONG_STRING_LEVEL_OF_COMPETITION: return "based on general assumptions, what kind of level of competition is expected for this listing";
+		
+		default: return "";
+	}
+}
+
+enum {
+	LISTING_SONG_LIST_SIMILAR_SOUNDING_ARTIST,
+	LISTING_SONG_LIST_DATA_WHAT_CAN_BE_INTERPRETED,
+	LISTING_SONG_LIST_TONES_AND_MOODS,
+	LISTING_SONG_LIST_INCREASED_CHANCES,
+	LISTING_SONG_LIST_DOES_THIS_SONG_GET_SELECTED,
+	
+	LISTING_SONG_LIST_COUNT
+};
+
+
+inline String GetSongListingListKey(int i) {
+	switch (i) {
+		case LISTING_SONG_LIST_SIMILAR_SOUNDING_ARTIST: return "list of similar sounding artists";
+		case LISTING_SONG_LIST_DATA_WHAT_CAN_BE_INTERPRETED: return "list of Data, what can be interpreted from this";
+		case LISTING_SONG_LIST_TONES_AND_MOODS: return "what kind of tones and moods could be suggested for the song for this opportunity";
+		case LISTING_SONG_LIST_INCREASED_CHANCES: return "List of \"does this listing have increased chances of\" for \"Based on assumptions about pop music and music producers/industry\"";
+		case LISTING_SONG_LIST_DOES_THIS_SONG_GET_SELECTED: return "List of \"does this kind of song get selected\" for \"Based on assumptions about pop music and music producers/industry\"";
+		default: return "";
+	}
+}
 
 struct LeadOpportunity : Moveable<LeadOpportunity> {
 	struct Genre : Moveable<Genre> {

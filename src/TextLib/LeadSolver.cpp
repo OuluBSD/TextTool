@@ -490,6 +490,10 @@ void LeadSolver::ProcessAnalyzeFn(int fn, Event<String> cb) {
 void LeadSolver::ProcessAnalyzeBooleans() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	LeadData& ld = mdb.lead_data;
+	if (batch >= mdb.lead_data.opportunities.GetCount()) {
+		NextPhase();
+		return;
+	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
 	if (!opp.analyzed_booleans.IsEmpty()) {
 		NextBatch();
@@ -548,6 +552,10 @@ void LeadSolver::OnProcessAnalyzeBooleans(String res) {
 void LeadSolver::ProcessAnalyzeStrings() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	LeadData& ld = mdb.lead_data;
+	if (batch >= mdb.lead_data.opportunities.GetCount()) {
+		NextPhase();
+		return;
+	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
 	if (!opp.analyzed_string.IsEmpty()) {
 		NextBatch();
@@ -568,6 +576,10 @@ void LeadSolver::OnProcessAnalyzeStrings(String res) {
 void LeadSolver::ProcessAnalyzeLists() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	LeadData& ld = mdb.lead_data;
+	if (batch >= mdb.lead_data.opportunities.GetCount()) {
+		NextPhase();
+		return;
+	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
 	if (!opp.analyzed_lists.IsEmpty()) {
 		NextBatch();
@@ -588,6 +600,10 @@ void LeadSolver::OnProcessAnalyzeLists(String res) {
 void LeadSolver::ProcessAnalyzeSongTypecast() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	LeadData& ld = mdb.lead_data;
+	if (batch >= mdb.lead_data.opportunities.GetCount()) {
+		NextPhase();
+		return;
+	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
 	if (!opp.analyzed_song_typecast.IsEmpty()) {
 		NextBatch();
@@ -608,6 +624,10 @@ void LeadSolver::OnProcessAnalyzeSongTypecast(String res) {
 void LeadSolver::ProcessAnalyzeSongContent() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	LeadData& ld = mdb.lead_data;
+	if (batch >= mdb.lead_data.opportunities.GetCount()) {
+		NextPhase();
+		return;
+	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
 	if (!opp.analyzed_song_content.IsEmpty()) {
 		NextBatch();
@@ -628,6 +648,10 @@ void LeadSolver::OnProcessAnalyzeSongContent(String res) {
 void LeadSolver::ProcessAnalyzeSongAttrs() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	LeadData& ld = mdb.lead_data;
+	if (batch >= mdb.lead_data.opportunities.GetCount()) {
+		NextPhase();
+		return;
+	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
 	if (!opp.analyzed_song_attrs.IsEmpty()) {
 		NextBatch();
@@ -648,6 +672,10 @@ void LeadSolver::OnProcessAnalyzeSongAttrs(String res) {
 void LeadSolver::ProcessAnalyzeSongColors() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	LeadData& ld = mdb.lead_data;
+	if (batch >= mdb.lead_data.opportunities.GetCount()) {
+		NextPhase();
+		return;
+	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
 	if (!opp.analyzed_song_colors.IsEmpty()) {
 		NextBatch();
