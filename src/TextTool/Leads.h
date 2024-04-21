@@ -9,12 +9,14 @@ class TextTool;
 
 class LeadsCtrl : public ToolEditorBase {
 	
-private:
+protected:
+	friend class MetaEntityInfoCtrl;
 	Splitter			hsplit, menusplit;
 	ArrayCtrl			componentlist, profile;
 	
 	
 	ImageGenTool					image_gen;
+	MetaEntityInfoCtrl				basic_info;
 	LeadWebsites					lead_sites;
 	
 	
@@ -29,6 +31,8 @@ public:
 	void DataProfile();
 	void InitSimplified();
 	void SetSubMenu(int i) override;
+	void AddMetaEntity();
+	void RemoveMetaEntity();
 	
 };
 

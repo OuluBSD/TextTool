@@ -175,6 +175,7 @@ struct DataFile {
 struct TaskMgr;
 
 
+struct MetaEntity;
 struct Entity;
 struct Snapshot;
 struct Component;
@@ -183,9 +184,12 @@ struct Content;
 struct Script;
 struct StaticPart;
 class ToolEditor;
+class LeadsCtrl;
 
 
 
+
+	
 
 struct EditorPtrs {
 	const int appmode = -1;
@@ -252,8 +256,13 @@ inline String GetAppModeString(int appmode) {
 String GetAppModeDir(int appmode=-1);
 
 
+
+
+
 struct MetaPtrs {
 	EditorPtrs db[DB_COUNT];
+	MetaEntity*				meta_entity = 0;
+	LeadsCtrl*				leads = 0;
 	
 	MetaPtrs();
 	static MetaPtrs& Single() {static MetaPtrs e; return e;}

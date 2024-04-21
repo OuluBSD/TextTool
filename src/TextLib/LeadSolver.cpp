@@ -44,6 +44,11 @@ void LeadSolver::Process() {
 	LeadDataAnalysis& sda = db.lead_data.a;
 	sa = &sda.GetLeadEntityAnalysis(entity->file_title);
 	
+	// Don't process all data with AI when using generic updater profile,
+	// because more costly AI profile is used:
+	// skip after booleans
+	bool reduce_load = entity == &MetaEntity::DatabaseUpdate();
+	
 	while (running && !Thread::IsShutdownThreads()) {
 		if (waiting) {
 			Sleep(10);
@@ -66,6 +71,10 @@ void LeadSolver::Process() {
 			ProcessAnalyzeBooleans();
 		}
 		else if (phase == LS_ANALYZE_STRINGS) {
+			if (reduce_load) {
+				phase = LS_COUNT;
+				continue;
+			}
 			ProcessAnalyzeStrings();
 		}
 		else if (phase == LS_ANALYZE_LISTS) {
@@ -549,6 +558,23 @@ void LeadSolver::OnProcessAnalyzeBooleans(String res) {
 	SetWaiting(0);
 }
 
+double LeadSolver::GetAverageOpportunityScore() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	double score_sum = 0;
+	for (const LeadOpportunity& opp : mdb.lead_data.opportunities)
+		score_sum += entity->GetOpportunityScore(opp);
+	double score_av = score_sum / mdb.lead_data.opportunities.GetCount();
+	return score_av;
+}
+
+bool LeadSolver::SkipLowScoreOpportunity() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	double score_limit = GetAverageOpportunityScore() * score_limit_factor;
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
+	int score = entity->GetOpportunityScore(opp);
+	return score < score_limit;
+}
+
 void LeadSolver::ProcessAnalyzeStrings() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	LeadData& ld = mdb.lead_data;
@@ -556,8 +582,9 @@ void LeadSolver::ProcessAnalyzeStrings() {
 		NextPhase();
 		return;
 	}
+	
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.analyzed_string.IsEmpty()) {
+	if (!opp.analyzed_string.IsEmpty() || SkipLowScoreOpportunity()) {
 		NextBatch();
 		return;
 	}
@@ -567,7 +594,21 @@ void LeadSolver::ProcessAnalyzeStrings() {
 
 void LeadSolver::OnProcessAnalyzeStrings(String res) {
 	
-	
+	/*
+	 deal structure (e.g. exclusive): not specified
+3. deal type (e.g. song placement, radio play): not specified
+4. artist's royalty percentage: not specified
+5. who is the decision maker: Jared Hassan Foles - Producer/Chief Engineer of World Eater Recordings
+6. what kind of sound the song should have: able to achieve desired results in sound
+7. type of the target movie / advertisement (e.g. romantic, sport product): not specified
+8. based on the language and tone, what type of company/person wrote this listing: professional and experienced in the music industry
+9. based on the language and tone, what type of artist does the company/person want to work with: open to collaborating with all types of artists
+10. based on general assumptions, what information is lacking about the context: specific goals or end result desired by the company/person
+11. based on general assumptions, what information is lacking about the song: current genre or style of the song
+12. based on general assumptions, what guidelines could be used while deciding what kind of song to make: any type of song that fits within the artist's goals and desired results
+13. based on general assumptions,  what kind of monetary income can be expected by getting accepted in this listing: not specified
+14. based on general assumptions, what kind of level of competition is expected for this listing: not specified, but it can be assumed that there will be competition among songwriters and musicians.
+*/
 	
 	NextBatch();
 	SetWaiting(0);
@@ -581,7 +622,7 @@ void LeadSolver::ProcessAnalyzeLists() {
 		return;
 	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.analyzed_lists.IsEmpty()) {
+	if (!opp.analyzed_lists.IsEmpty() || SkipLowScoreOpportunity()) {
 		NextBatch();
 		return;
 	}
@@ -590,7 +631,13 @@ void LeadSolver::ProcessAnalyzeLists() {
 }
 
 void LeadSolver::OnProcessAnalyzeLists(String res) {
-	
+	/*
+	list of similar sounding artists: [Calvin Harris, Martin Garrix, Avicii]
+3. list of Data, what can be interpreted from this: [completed single, EDM, writer, producer, management, artist development, production, publishing, co-publishing, record deal]
+4. what kind of tones and moods could be suggested for the song for this opportunity: [energetic, danceable, electronic]
+5. List of "does this listing have increased chances of" for "Based on assumptions about pop music and music producers/industry": [getting your single noticed, securing a record deal or co-publishing agreement, gaining exposure and potential success in the EDM genre]
+6. List of "does this kind of song get selected" for "Based on assumptions about pop music and music producers/industry": [songs that are well-produced and have a strong EDM influence, songs with high energy and a catchy beat, songs that are unique and stand out from the crowd]
+*/
 	
 	
 	NextBatch();
@@ -605,7 +652,7 @@ void LeadSolver::ProcessAnalyzeSongTypecast() {
 		return;
 	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.analyzed_song_typecast.IsEmpty()) {
+	if (!opp.analyzed_song_typecast.IsEmpty() || SkipLowScoreOpportunity()) {
 		NextBatch();
 		return;
 	}
@@ -629,7 +676,7 @@ void LeadSolver::ProcessAnalyzeSongContent() {
 		return;
 	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.analyzed_song_content.IsEmpty()) {
+	if (!opp.analyzed_song_content.IsEmpty() || SkipLowScoreOpportunity()) {
 		NextBatch();
 		return;
 	}
@@ -653,7 +700,7 @@ void LeadSolver::ProcessAnalyzeSongAttrs() {
 		return;
 	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.analyzed_song_attrs.IsEmpty()) {
+	if (!opp.analyzed_song_attrs.IsEmpty() || SkipLowScoreOpportunity()) {
 		NextBatch();
 		return;
 	}
@@ -677,7 +724,7 @@ void LeadSolver::ProcessAnalyzeSongColors() {
 		return;
 	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.analyzed_song_colors.IsEmpty()) {
+	if (!opp.analyzed_song_colors.IsEmpty() || SkipLowScoreOpportunity()) {
 		NextBatch();
 		return;
 	}

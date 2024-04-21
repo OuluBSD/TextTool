@@ -25,6 +25,7 @@
 
 #include "EntityInfoCtrl.h"
 #include "Fns.h"
+#include "LeadProfile.h"
 
 
 #endif

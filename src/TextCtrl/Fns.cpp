@@ -19,11 +19,11 @@ void MetaStartup() {
 		mdb.dir = SelectDirectory();
 	}
 	
-	mdb.lead_data.Load();
+	mdb.Load();
 }
 
 void MetaShutdown() {
-	MetaDatabase::Single().lead_data.Store();
+	MetaDatabase::Single().Store();
 }
 
 void AppModeStartup(int appmode) {

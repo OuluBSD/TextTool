@@ -46,6 +46,10 @@ class LeadSolver {
 	bool running = false, stopped = true;
 	bool skip_ready = true;
 	
+	// Params
+	double score_limit_factor = 0.8;
+	
+	
 	void Process();
 	
 	void PostProgress() {WhenProgress(phase, LS_COUNT);}
@@ -75,6 +79,9 @@ class LeadSolver {
 	void OnProcessAnalyzeSongContent(String res);
 	void OnProcessAnalyzeSongAttrs(String res);
 	void OnProcessAnalyzeSongColors(String res);
+	
+	double GetAverageOpportunityScore();
+	bool SkipLowScoreOpportunity();
 	
 	static String GetLeadCacheDir();
 	

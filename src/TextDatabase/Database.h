@@ -81,12 +81,17 @@ struct TextDatabase {
 struct MetaDatabase {
 	TextDatabase db[DB_COUNT];
 	
+	Array<MetaEntity> meta_entities;
+	
 	// Source
 	LeadData		lead_data;
 	
 	// Temp
 	String			dir;
 	
+	void Store();
+	void Load();
+	void Jsonize(JsonIO& json);
 	static MetaDatabase& Single();
 	
 	
@@ -100,6 +105,7 @@ EditorPtrs& GetAppModePointers(int appmode);
 void EnterAppMode(int i);
 void LeaveAppMode();
 ToolEditor& GetAnyEditor();
+LeadsCtrl& GetAnyLeads();
 int GetAppModeGlobal();
 
 

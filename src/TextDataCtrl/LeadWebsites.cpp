@@ -317,12 +317,22 @@ void LeadWebsites::ToolMenu(Bar& bar) {
 	bar.Add(t_("Refresh"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
 	bar.Add(t_("Update website leads"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Update website leads"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	
 }
 
 void LeadWebsites::Do(int fn) {
-	LeadSolver& tm = LeadSolver::Get(MetaEntity::DatabaseUpdate());
-	tm.Start();
+	if (fn == 0) {
+		LeadSolver& tm = LeadSolver::Get(MetaEntity::DatabaseUpdate());
+		tm.Start();
+	}
+	else {
+		MetaPtrs& p = MetaPtrs::Single();
+		if (p.meta_entity) {
+			LeadSolver& tm = LeadSolver::Get(*p.meta_entity);
+			tm.Start();
+		}
+	}
 }
 
 

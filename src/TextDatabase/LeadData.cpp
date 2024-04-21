@@ -11,12 +11,12 @@ LeadData::LeadData() {
 void LeadData::Load() {
 	String& dir = MetaDatabase::Single().dir;
 	ASSERT(dir.GetCount());
-	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + "db.json");
+	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + "lead_data.json");
 }
 
 void LeadData::Store() {
 	String& dir = MetaDatabase::Single().dir;
-	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + "db.json", true);
+	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + "lead_data.json", true);
 }
 
 void LeadData::Jsonize(JsonIO& json) {

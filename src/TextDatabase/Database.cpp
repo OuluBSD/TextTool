@@ -158,6 +158,10 @@ ToolEditor& GetAnyEditor() {
 	return *p;
 }
 
+LeadsCtrl& GetAnyLeads() {
+	return *MetaPtrs::Single().leads;
+}
+
 String GetAppModeDir(int appmode) {
 	if (appmode < 0)
 		appmode = GetAppModeGlobal();
@@ -178,6 +182,28 @@ MetaDatabase& MetaDatabase::Single() {
 	static MetaDatabase db;
 	return db;
 }
+
+void MetaDatabase::Store() {
+	lead_data.Store();
+	
+	String& dir = MetaDatabase::Single().dir;
+	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + "db.json", true);
+}
+
+void MetaDatabase::Load() {
+	String& dir = MetaDatabase::Single().dir;
+	ASSERT(dir.GetCount());
+	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + "db.json");
+	
+	lead_data.Load();
+}
+
+void MetaDatabase::Jsonize(JsonIO& json) {
+	json
+		("meta_entities", meta_entities)
+		;
+}
+
 
 
 END_TEXTLIB_NAMESPACE
