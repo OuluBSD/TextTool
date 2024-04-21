@@ -761,19 +761,30 @@ struct SourceDataAnalysis {
 	DatasetAnalysis dataset;
 	
 	void Jsonize(JsonIO& json) {
-		ArrayMap<String, DatasetAnalysis> datasets;
-		json
-			("datasets", datasets)
+		if (json.IsLoading()) {
+			ArrayMap<String, DatasetAnalysis> datasets;
+			json
+				("datasets", datasets)
 			;
-			
-		TODO
+			int i = datasets.Find("en");
+			if (i >= 0) {
+				byte tmp[sizeof(dataset)];
+				memcpy(tmp, &datasets[i], sizeof(dataset));
+				memcpy(&datasets[i], &dataset, sizeof(dataset));
+				memcpy(&dataset, tmp, sizeof(dataset));
+			}
+			else {
+				json("dataset", dataset);
+			}
+		}
+		else {
+			json("dataset", dataset);
+		}
 	}
 	
 	
 	void Serialize(Stream& s) {
-		ArrayMap<String, DatasetAnalysis> datasets;
-		s % datasets;
-		TODO
+		s % dataset;
 	}
 	void StoreJson();
 	void LoadJson();
