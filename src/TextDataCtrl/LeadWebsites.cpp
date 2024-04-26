@@ -8,12 +8,18 @@ LeadWebsites::LeadWebsites() {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << vsplit << mainsplit;
-	hsplit.SetPos(2000);
+	hsplit.SetPos(1500);
 	
 	vsplit.Vert() << websites << payouts << prices;
 	
-	mainsplit.Vert() << list << attrs;
+	mainsplit.Vert() << list << bsplit << bssplit;
+	mainsplit.SetPos(4500,0);
+	mainsplit.SetPos(9000,1);
 	
+	bsplit.Horz() << attrs << bools << strings << bvsplit;
+	bvsplit.Vert() << list_names << list_values;
+	//bvsplit.SetPos(2500);
+	bssplit.Horz() << song_typecasts << lyrics_ideas << music_styles;
 	
 	websites.AddColumn(t_("Website"));
 	websites.AddColumn(t_("Count"));
@@ -43,15 +49,45 @@ LeadWebsites::LeadWebsites() {
 	list.AddColumn(t_("Price"));
 	list.AddColumn(t_("Payout"));
 	list.AddColumn(t_("Description"));
-	list.AddColumn(t_("Score"));
+	list.AddColumn(t_("Money-score"));
+	list.AddColumn(t_("Money-score-rank"));
+	list.AddColumn(t_("Opp-score"));
+	list.AddColumn(t_("Opp-score-rank"));
+	list.AddColumn(t_("Weighted-rank"));
+	list.AddColumn(t_("Chance %"));
+	list.AddColumn(t_("Av. Payout"));
 	list.AddIndex("IDX");
-	list.ColumnWidths("2 4 1 1 10 1");
+	list.ColumnWidths("2 4 1 1 10 1 1 1 1 1 1 1");
 	list.WhenCursor << THISBACK(DataOpportunity);
 	
 	attrs.AddColumn(t_("Key"));
 	attrs.AddColumn(t_("Value"));
-	attrs.ColumnWidths("1 8");
+	attrs.ColumnWidths("2 3");
 	
+	bools.AddColumn(t_("Key"));
+	bools.AddColumn(t_("Value"));
+	bools.ColumnWidths("5 1");
+	
+	strings.AddColumn(t_("Key"));
+	strings.AddColumn(t_("Value"));
+	strings.ColumnWidths("2 3");
+	
+	list_names.AddColumn(t_("Key"));
+	list_names.WhenCursor << THISBACK(DataAnalyzedList);
+	list_values.AddColumn(t_("Value"));
+	
+	song_typecasts.AddColumn(t_("#"));
+	song_typecasts.AddColumn(t_("Typecast"));
+	song_typecasts.AddColumn(t_("Content"));
+	song_typecasts.ColumnWidths("1 3 3");
+	
+	lyrics_ideas.AddColumn(t_("#"));
+	lyrics_ideas.AddColumn(t_("Lyrics idea"));
+	lyrics_ideas.ColumnWidths("1 10");
+	
+	music_styles.AddColumn(t_("#"));
+	music_styles.AddColumn(t_("Music style"));
+	music_styles.ColumnWidths("1 10");
 }
 
 void LeadWebsites::Data() {
@@ -223,6 +259,7 @@ void LeadWebsites::DataPayout() {
 
 void LeadWebsites::DataPrice() {
 	MetaDatabase& db = MetaDatabase::Single();
+	MetaPtrs& p = MetaPtrs::Single();
 	LeadData& ld = db.lead_data;
 	LeadDataAnalysis& sda = db.lead_data.a;
 	
@@ -249,15 +286,6 @@ void LeadWebsites::DataPrice() {
 		if (price < price_min || price >= price_max)
 			continue;
 		
-		double score = 0;
-		if (price > 0 && o.min_compensation) {
-			score = o.min_compensation / price * 1000;
-		}
-		else if (o.min_compensation > 0) {
-			score = o.min_compensation;
-		}
-			
-		
 		list.Set(row, 0, GetLeadWebsiteKey(o.leadsite));
 		list.Set(row, 1, o.name);
 		list.Set(row, 2, price);
@@ -272,7 +300,13 @@ void LeadWebsites::DataPrice() {
 		else {
 			list.Set(row, 4, o.request_description);
 		}
-		list.Set(row, 5, score);
+		list.Set(row, 5, o.money_score);
+		list.Set(row, 6, o.money_score_rank);
+		list.Set(row, 7, o.opp_score);
+		list.Set(row, 8, o.opp_score_rank);
+		list.Set(row, 9, o.weighted_rank);
+		list.Set(row, 10, o.chance_of_acceptance);
+		list.Set(row, 11, o.average_payout_estimation);
 		list.Set(row, "IDX", i);
 		
 		row++;
@@ -280,7 +314,7 @@ void LeadWebsites::DataPrice() {
 	
 	INHIBIT_CURSOR(list);
 	list.SetCount(row);
-	list.SetSortColumn(5, true);
+	list.SetSortColumn(11, true);
 	if (!list.IsCursor() && list.GetCount())
 		list.SetCursor(0);
 	
@@ -298,18 +332,122 @@ void LeadWebsites::DataOpportunity() {
 	int idx = list.Get("IDX");
 	LeadOpportunity& o = ld.opportunities[idx];
 	
-	int row = 0;
-	for(int i = 0; i < o.GetCount(); i++) {
-		const char* key = o.GetKey(i);
-		Value val = o[i];
-		if (val.IsVoid() || val.IsNull())
-			continue;
-		attrs.Set(row, 0, key);
-		attrs.Set(row, 1, val);
-		row++;
+	{
+		int row = 0;
+		for(int i = 0; i < o.GetCount(); i++) {
+			const char* key = o.GetKey(i);
+			Value val = o[i];
+			if (val.IsVoid() || val.IsNull())
+				continue;
+			attrs.Set(row, 0, key);
+			attrs.Set(row, 1, val);
+			row++;
+		}
+		INHIBIT_CURSOR(attrs);
+		attrs.SetCount(row);
 	}
-	INHIBIT_CURSOR(attrs);
-	attrs.SetCount(row);
+	
+	{
+		for(int i = 0; i < o.analyzed_booleans.GetCount(); i++) {
+			String key = GetSongListingBooleanKey(i);
+			bool b = o.analyzed_booleans[i];
+			bools.Set(i, 0, key);
+			bools.Set(i, 1, b ? "true" : "false");
+		}
+		INHIBIT_CURSOR(bools);
+		bools.SetCount(o.analyzed_booleans.GetCount());
+	}
+	
+	{
+		for(int i = 0; i < o.analyzed_string.GetCount(); i++) {
+			String key = GetSongListingStringKey(i);
+			const String& s = o.analyzed_string[i];
+			strings.Set(i, 0, key);
+			strings.Set(i, 1, s);
+		}
+		INHIBIT_CURSOR(strings);
+		strings.SetCount(o.analyzed_string.GetCount());
+	}
+	
+	{
+		for(int i = 0; i < o.analyzed_lists.GetCount(); i++) {
+			String key = GetSongListingListKey(i);
+			list_names.Set(i, 0, key);
+		}
+		INHIBIT_CURSOR(list_names);
+		list_names.SetCount(o.analyzed_lists.GetCount());
+		if (list_names.GetCount() && !list_names.IsCursor())
+			list_names.SetCursor(0);
+		DataAnalyzedList();
+	}
+	
+	{
+		const auto& tc_list = TextLib::GetTypeclasses(DB_SONG);
+		const auto& co_list = TextLib::GetContents(DB_SONG);
+		int c = min(o.typeclasses.GetCount(), o.contents.GetCount());
+		for(int i = 0; i < c; i++) {
+			int tc_i = o.typeclasses[i];
+			int co_i = o.contents[i];
+			String tc = tc_i < tc_list.GetCount() ? tc_list[tc_i] : String();
+			String co = co_i < co_list.GetCount() ? co_list[co_i].key : String();
+			song_typecasts.Set(i, 0, 1+i);
+			song_typecasts.Set(i, 1, tc);
+			song_typecasts.Set(i, 2, co);
+		}
+		INHIBIT_CURSOR(song_typecasts);
+		song_typecasts.SetCount(o.typeclasses.GetCount());
+		if (song_typecasts.GetCount() && !song_typecasts.IsCursor())
+			song_typecasts.SetCursor(0);
+	}
+	
+	{
+		for(int i = 0; i < o.lyrics_ideas.GetCount(); i++) {
+			String idea = o.lyrics_ideas[i];
+			lyrics_ideas.Set(i, 0, 1+i);
+			lyrics_ideas.Set(i, 1, idea);
+		}
+		INHIBIT_CURSOR(lyrics_ideas);
+		lyrics_ideas.SetCount(o.lyrics_ideas.GetCount());
+		if (lyrics_ideas.GetCount() && !lyrics_ideas.IsCursor())
+			lyrics_ideas.SetCursor(0);
+	}
+	
+	{
+		for(int i = 0; i < o.music_styles.GetCount(); i++) {
+			String s = o.music_styles[i];
+			music_styles.Set(i, 0, 1+i);
+			music_styles.Set(i, 1, s);
+		}
+		INHIBIT_CURSOR(music_styles);
+		music_styles.SetCount(o.music_styles.GetCount());
+		if (music_styles.GetCount() && !music_styles.IsCursor())
+			music_styles.SetCursor(0);
+	}
+	
+}
+
+void LeadWebsites::DataAnalyzedList() {
+	MetaDatabase& db = MetaDatabase::Single();
+	LeadData& ld = db.lead_data;
+	LeadDataAnalysis& sda = db.lead_data.a;
+	
+	if (!list.IsCursor() || !list_names.IsCursor())
+		return;
+	
+	int idx = list.Get("IDX");
+	int list_idx = list_names.GetCursor();
+	LeadOpportunity& o = ld.opportunities[idx];
+	
+	const Vector<String>& l = o.analyzed_lists[list_idx];
+	
+	{
+		for(int i = 0; i < l.GetCount(); i++) {
+			const String& v = l[i];
+			list_values.Set(i, 0, v);
+		}
+		INHIBIT_CURSOR(list_values);
+		list_values.SetCount(l.GetCount());
+	}
 	
 }
 
@@ -317,7 +455,7 @@ void LeadWebsites::ToolMenu(Bar& bar) {
 	bar.Add(t_("Refresh"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
 	bar.Add(t_("Update website leads"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
-	bar.Add(t_("Update website leads"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	bar.Add(t_("Update website leads (with MetaEntity)"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	
 }
 

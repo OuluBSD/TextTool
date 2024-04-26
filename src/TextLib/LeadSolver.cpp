@@ -80,17 +80,20 @@ void LeadSolver::Process() {
 		else if (phase == LS_ANALYZE_LISTS) {
 			ProcessAnalyzeLists();
 		}
+		else if (phase == LS_COARSE_RANKING) {
+			ProcessCoarseRanking();
+		}
+		else if (phase == LS_AVERAGE_PAYOUT_ESTIMATION) {
+			ProcessAveragePayoutEstimation();
+		}
 		else if (phase == LS_ANALYZE_POTENTIAL_SONG_TYPECAST) {
 			ProcessAnalyzeSongTypecast();
 		}
-		else if (phase == LS_ANALYZE_POTENTIAL_SONG_CONTENT) {
-			ProcessAnalyzeSongContent();
+		else if (phase == LS_ANALYZE_POTENTIAL_SONG_IDEAS) {
+			ProcessAnalyzeLyricsIdeas();
 		}
-		else if (phase == LS_ANALYZE_POTENTIAL_SONG_ATTRS) {
-			ProcessAnalyzeSongAttrs();
-		}
-		else if (phase == LS_ANALYZE_POTENTIAL_SONG_COLORS) {
-			ProcessAnalyzeSongColors();
+		else if (phase == LS_ANALYZE_POTENTIAL_MUSIC_STYLE_TEXT) {
+			ProcessAnalyzeMusicStyle();
 		}
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
@@ -341,7 +344,7 @@ void LeadSolver::ParseWebsite(int batch, String content) {
 		}
 	}
 	else if (batch == LEADSITE_SONICBIDS) {
-		LOG(content);
+		//LOG(content);
 		
 		int a = content.Find("require.config['opportunity-search']");
 		if (a < 0) return;
@@ -356,10 +359,10 @@ void LeadSolver::ParseWebsite(int batch, String content) {
 		if (b < 0) return;
 		b = content.ReverseFind("};", b);
 		String json = content.Mid(a,b-a);
-		DUMP(json);
+		//DUMP(json);
 		
 		Value v = ParseJSON(json);
-		LOG(AsJSON(v, true));
+		//LOG(AsJSON(v, true));
 		ValueMap root = v;
 		ValueArray opportunities = root.GetAdd("opportunities");
 		for(int i = 0; i < opportunities.GetCount(); i++) {
@@ -493,7 +496,7 @@ void LeadSolver::ProcessAnalyzeFn(int fn, Event<String> cb) {
 	
 	SetWaiting(1);
 	TaskMgr& m = TaskMgr::Single();
-	m.GetLeadSolver(args, cb);
+	m.GetLeadSolver(DB_SONG, args, cb);
 }
 
 void LeadSolver::ProcessAnalyzeBooleans() {
@@ -572,7 +575,7 @@ bool LeadSolver::SkipLowScoreOpportunity() {
 	double score_limit = GetAverageOpportunityScore() * score_limit_factor;
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
 	int score = entity->GetOpportunityScore(opp);
-	return score < score_limit;
+	return score < score_limit && opp.min_compensation <= 0;
 }
 
 void LeadSolver::ProcessAnalyzeStrings() {
@@ -589,26 +592,64 @@ void LeadSolver::ProcessAnalyzeStrings() {
 		return;
 	}
 	
-	ProcessAnalyzeFn(1, THISBACK(OnProcessAnalyzeBooleans));
+	ProcessAnalyzeFn(1, THISBACK(OnProcessAnalyzeStrings));
 }
 
 void LeadSolver::OnProcessAnalyzeStrings(String res) {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
 	
 	/*
 	 deal structure (e.g. exclusive): not specified
-3. deal type (e.g. song placement, radio play): not specified
-4. artist's royalty percentage: not specified
-5. who is the decision maker: Jared Hassan Foles - Producer/Chief Engineer of World Eater Recordings
-6. what kind of sound the song should have: able to achieve desired results in sound
-7. type of the target movie / advertisement (e.g. romantic, sport product): not specified
-8. based on the language and tone, what type of company/person wrote this listing: professional and experienced in the music industry
-9. based on the language and tone, what type of artist does the company/person want to work with: open to collaborating with all types of artists
-10. based on general assumptions, what information is lacking about the context: specific goals or end result desired by the company/person
-11. based on general assumptions, what information is lacking about the song: current genre or style of the song
-12. based on general assumptions, what guidelines could be used while deciding what kind of song to make: any type of song that fits within the artist's goals and desired results
-13. based on general assumptions,  what kind of monetary income can be expected by getting accepted in this listing: not specified
-14. based on general assumptions, what kind of level of competition is expected for this listing: not specified, but it can be assumed that there will be competition among songwriters and musicians.
-*/
+	3. deal type (e.g. song placement, radio play): not specified
+	4. artist's royalty percentage: not specified
+	5. who is the decision maker: Jared Hassan Foles - Producer/Chief Engineer of World Eater Recordings
+	6. what kind of sound the song should have: able to achieve desired results in sound
+	7. type of the target movie / advertisement (e.g. romantic, sport product): not specified
+	8. based on the language and tone, what type of company/person wrote this listing: professional and experienced in the music industry
+	9. based on the language and tone, what type of artist does the company/person want to work with: open to collaborating with all types of artists
+	10. based on general assumptions, what information is lacking about the context: specific goals or end result desired by the company/person
+	11. based on general assumptions, what information is lacking about the song: current genre or style of the song
+	12. based on general assumptions, what guidelines could be used while deciding what kind of song to make: any type of song that fits within the artist's goals and desired results
+	13. based on general assumptions,  what kind of monetary income can be expected by getting accepted in this listing: not specified
+	14. based on general assumptions, what kind of level of competition is expected for this listing: not specified, but it can be assumed that there will be competition among songwriters and musicians.
+	*/
+	RemoveEmptyLines2(res);
+	
+	Vector<String> lines = Split(res, "\n");
+	
+	if (lines.GetCount() == LISTING_SONG_STRING_COUNT+1)
+		lines.Remove(0);
+	
+	bool fast_analyse = lines.GetCount() == LISTING_SONG_STRING_COUNT;
+	
+	opp.analyzed_string.SetCount(LISTING_SONG_STRING_COUNT);
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		line = TrimBoth(line);
+		
+		int a = line.Find(":");
+		if (a < 0) continue;
+		String key = TrimBoth(line.Left(a));
+		String value = TrimBoth(line.Mid(a+1));
+		
+		int idx = i;
+		if (!fast_analyse) {
+			idx = -1;
+			for(int j = 0; j < LISTING_SONG_STRING_COUNT; j++) {
+				if (key == GetSongListingStringKey(j)) {
+					idx = j;
+					break;
+				}
+			}
+			if (idx < 0)
+				continue;
+		}
+		
+		opp.analyzed_string[idx] = value;
+	}
+	
 	
 	NextBatch();
 	SetWaiting(0);
@@ -627,18 +668,249 @@ void LeadSolver::ProcessAnalyzeLists() {
 		return;
 	}
 	
-	ProcessAnalyzeFn(2, THISBACK(OnProcessAnalyzeBooleans));
+	ProcessAnalyzeFn(2, THISBACK(OnProcessAnalyzeLists));
 }
 
 void LeadSolver::OnProcessAnalyzeLists(String res) {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
+	
 	/*
 	list of similar sounding artists: [Calvin Harris, Martin Garrix, Avicii]
-3. list of Data, what can be interpreted from this: [completed single, EDM, writer, producer, management, artist development, production, publishing, co-publishing, record deal]
-4. what kind of tones and moods could be suggested for the song for this opportunity: [energetic, danceable, electronic]
-5. List of "does this listing have increased chances of" for "Based on assumptions about pop music and music producers/industry": [getting your single noticed, securing a record deal or co-publishing agreement, gaining exposure and potential success in the EDM genre]
-6. List of "does this kind of song get selected" for "Based on assumptions about pop music and music producers/industry": [songs that are well-produced and have a strong EDM influence, songs with high energy and a catchy beat, songs that are unique and stand out from the crowd]
-*/
+	3. list of Data, what can be interpreted from this: [completed single, EDM, writer, producer, management, artist development, production, publishing, co-publishing, record deal]
+	4. what kind of tones and moods could be suggested for the song for this opportunity: [energetic, danceable, electronic]
+	5. List of "does this listing have increased chances of" for "Based on assumptions about pop music and music producers/industry": [getting your single noticed, securing a record deal or co-publishing agreement, gaining exposure and potential success in the EDM genre]
+	6. List of "does this kind of song get selected" for "Based on assumptions about pop music and music producers/industry": [songs that are well-produced and have a strong EDM influence, songs with high energy and a catchy beat, songs that are unique and stand out from the crowd]
+	*/
 	
+	RemoveEmptyLines2(res);
+	
+	Vector<String> lines = Split(res, "\n");
+	
+	if (lines.GetCount() == LISTING_SONG_LIST_COUNT+1)
+		lines.Remove(0);
+	
+	bool fast_analyse = lines.GetCount() == LISTING_SONG_LIST_COUNT;
+	
+	opp.analyzed_lists.SetCount(LISTING_SONG_LIST_COUNT);
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		line = TrimBoth(line);
+		
+		int a = line.Find(":");
+		if (a < 0) continue;
+		String key = TrimBoth(line.Left(a));
+		String value = ToLower(TrimBoth(line.Mid(a+1)));
+		
+		int idx = i;
+		if (!fast_analyse) {
+			idx = -1;
+			for(int j = 0; j < LISTING_SONG_LIST_COUNT; j++) {
+				if (key == GetSongListingListKey(j)) {
+					idx = j;
+					break;
+				}
+			}
+			if (idx < 0)
+				continue;
+		}
+		
+		Vector<String>& list = opp.analyzed_lists[idx];
+		
+		a = value.Find("[");
+		if (a >= 0) {
+			a++;
+			int b = value.ReverseFind("]");
+			if (b >= 0) {
+				value = value.Mid(a,b-a);
+			}
+		}
+		
+		list = Split(value, ", ");
+	}
+	
+	
+	
+	NextBatch();
+	SetWaiting(0);
+}
+
+void LeadSolver::ProcessCoarseRanking() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	
+	
+	VectorMap<int,double> money_scores, opp_scores;
+	
+	for(int i = 0; i < mdb.lead_data.opportunities.GetCount(); i++) {
+		LeadOpportunity& o = mdb.lead_data.opportunities[i];
+		
+		double price = 0.01 * o.min_entry_price_cents;
+		
+		double money_score = 0;
+		if (price > 0 && o.min_compensation) {
+			money_score = o.min_compensation / price * 1000;
+		}
+		else if (o.min_compensation > 0) {
+			money_score = o.min_compensation;
+		}
+		// Punish expensive listings
+		if (price > 50)
+			money_score -= 100;
+		// Reward easy and significant income
+		if (LISTING_SONG_BOOLEAN_MONETARY_SIGNIFICANT_INCOME < o.analyzed_booleans.GetCount() &&
+			o.analyzed_booleans[LISTING_SONG_BOOLEAN_MONETARY_SIGNIFICANT_INCOME] > 0) {
+			money_score += 100;
+			if (o.analyzed_booleans[LISTING_SONG_BOOLEAN_MONETARY_DIFFICULT_TO_DETERMINE] == 0)
+				money_score += 200;
+		}
+		
+		money_scores.Add(i, money_score);
+		
+		int opp_score =
+			entity ?
+				entity->GetOpportunityScore(o) :
+				-1;
+		opp_scores.Add(i, opp_score);
+	}
+	
+	SortByValue(money_scores, StdGreater<double>());
+	SortByValue(opp_scores, StdGreater<double>());
+	
+	for(int i = 0; i < money_scores.GetCount(); i++) {
+		int opp_i = money_scores.GetKey(i);
+		LeadOpportunity& o = mdb.lead_data.opportunities[opp_i];
+		int rank = min(max_rank, 1+i);
+		o.money_score = money_scores[i];
+		o.money_score_rank = rank;
+	}
+	for(int i = 0; i < opp_scores.GetCount(); i++) {
+		int opp_i = opp_scores.GetKey(i);
+		LeadOpportunity& o = mdb.lead_data.opportunities[opp_i];
+		int rank = min(max_rank, 1+i);
+		o.opp_score = opp_scores[i];
+		o.opp_score_rank = rank;
+	}
+	for (LeadOpportunity& o : mdb.lead_data.opportunities) {
+		o.weighted_rank =
+			o.money_score_rank * 0.3 +
+			o.opp_score_rank * 0.7;
+	}
+	
+	NextPhase();
+}
+
+void LeadSolver::ProcessAveragePayoutEstimation() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	if (batch >= mdb.lead_data.opportunities.GetCount()) {
+		NextPhase();
+		return;
+	}
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
+	if (opp.weighted_rank >= (double)max_rank) {
+		NextBatch();
+		return;
+	}
+	
+	ProcessAnalyzeFn(3, THISBACK(OnProcessAveragePayoutEstimation));
+}
+
+void LeadSolver::OnProcessAveragePayoutEstimation(String res) {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
+	
+	/*
+	Initial listen: 70%
+	- Production quality: 50%
+	- Comparison to other submissions: 40%
+	- Collaboration potential: 20%
+	- Refinement and final review: 15%
+	- Top contender selection: 10%
+	- Total chance of acceptance: 2.1% (0.7 x 0.5 x 0.4 x 0.2 x 0.15 x 0.1 = 0.0021 = 0.21%). Again, keep in mind that these numbers are theoretical and may vary.
+	- Average payout estimation for accepted song: $1,250 x 2.1% = $26.25 or approximately $26.
+	*/
+	
+	if (res.Find("\n2.") >= 0)
+		RemoveEmptyLines2(res);
+	else
+		RemoveEmptyLines3(res);
+	
+	Vector<String> lines = Split(res, "\n");
+	
+	double chance = 1.0;
+	
+	opp.chance_list.Clear();
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		line = TrimBoth(line);
+		int a0 = line.Find("otal chance of acceptance");
+		int a1 = line.Find("verage payout estimation");
+		if (a0 >= 0) {
+			/*int a = line.Find(":");
+			if (a >= 0) {
+				a++;
+				String value = TrimBoth(line.Mid(a));
+				
+				a = value.Find("%");
+				if (a >= 0) {
+					String perc_str = value.Left(a);
+					int begin = 0;
+					for (int j = perc_str.GetCount()-1; j >= 0; j--) {
+						int chr = perc_str[j];
+						if (IsDigit(chr) || chr == '.')
+							continue;
+						else {
+							begin = j+1;
+							break;
+						}
+					}
+					perc_str = TrimBoth(value.Mid(begin));
+					opp.chance_of_acceptance = ScanDouble(perc_str) * 0.01;
+				}
+			}*/
+		}
+		/*else if (a1 >= 0) {
+			int a = line.Find(":");
+			if (a >= 0) {
+				a++;
+				String value = TrimBoth(line.Mid(a));
+				
+				a = value.Find("=");
+				if (a >= 0) {
+					String money_str;
+					for(int j = a+1; j < value.GetCount(); j++) {
+						int chr = value[j];
+						if (IsSpace(chr) || chr == ',' || chr == '$')
+							continue;
+						if (IsDigit(chr) || chr == '.')
+							money_str.Cat(chr);
+						else
+							break;
+					}
+					opp.average_payout_estimation = ScanDouble(money_str);
+				}
+			}
+		}*/
+		else {
+			int a = line.Find(":");
+			if (a >= 0) {
+				a++;
+				String value = TrimBoth(line.Mid(a));
+				double factor = ScanDouble(value) * 0.01;
+				chance *= factor;
+			}
+			opp.chance_list << line;
+		}
+	}
+	
+	if (chance == 1.0)
+		opp.chance_of_acceptance = 0.0001;
+	else
+		opp.chance_of_acceptance = chance;
+	
+	opp.average_payout_estimation =
+		opp.chance_of_acceptance * (opp.min_compensation + opp.max_compensation) * 0.5;
 	
 	NextBatch();
 	SetWaiting(0);
@@ -652,23 +924,61 @@ void LeadSolver::ProcessAnalyzeSongTypecast() {
 		return;
 	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.analyzed_song_typecast.IsEmpty() || SkipLowScoreOpportunity()) {
+	if (!(opp.contents.IsEmpty() || opp.typeclasses.IsEmpty()) ||
+		SkipLowScoreOpportunity() ||
+		opp.weighted_rank >= (double)max_rank ||
+		opp.average_payout_estimation <= 0.1) {
 		NextBatch();
 		return;
 	}
 	
-	ProcessAnalyzeFn(3, THISBACK(OnProcessAnalyzeBooleans));
+	ProcessAnalyzeFn(4, THISBACK(OnProcessAnalyzeSongTypecast));
 }
 
 void LeadSolver::OnProcessAnalyzeSongTypecast(String res) {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
 	
+	/*
+	1,2
+	- 3,4
+	- 5,6
+	- 7,8
+	- 9,10
+	*/
+	Vector<String> lines = Split(res, "\n");
+	
+	opp.typeclasses.Clear();
+	opp.contents.Clear();
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		{
+			int a;
+			while ((a = line.Find("(")) >= 0) {
+				int b = line.Find(")", a);
+				if (b < 0) break;
+				line = line.Left(a) + line.Mid(b+1);
+			}
+		}
+		int a = line.Find(".");
+		if (a >= 0)
+			line = line.Mid(a+1);
+		line = TrimBoth(line);
+		Vector<String> parts = Split(line, ",");
+		if (parts.GetCount() < 2)
+			continue;
+		int tc = ScanInt(TrimLeft(parts[0])) - 1;
+		int co = ScanInt(TrimLeft(parts[1])) - 1;
+		opp.typeclasses << tc;
+		opp.contents << co;
+	}
 	
 	
 	NextBatch();
 	SetWaiting(0);
 }
 
-void LeadSolver::ProcessAnalyzeSongContent() {
+void LeadSolver::ProcessAnalyzeLyricsIdeas() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	LeadData& ld = mdb.lead_data;
 	if (batch >= mdb.lead_data.opportunities.GetCount()) {
@@ -676,23 +986,52 @@ void LeadSolver::ProcessAnalyzeSongContent() {
 		return;
 	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.analyzed_song_content.IsEmpty() || SkipLowScoreOpportunity()) {
+	if (!opp.lyrics_ideas.IsEmpty() ||
+		SkipLowScoreOpportunity() ||
+		opp.weighted_rank >= (double)max_rank||
+		opp.average_payout_estimation <= 0.1) {
 		NextBatch();
 		return;
 	}
 	
-	ProcessAnalyzeFn(4, THISBACK(OnProcessAnalyzeBooleans));
+	ProcessAnalyzeFn(5, THISBACK(OnProcessAnalyzeLyricsIdeas));
 }
 
-void LeadSolver::OnProcessAnalyzeSongContent(String res) {
+void LeadSolver::OnProcessAnalyzeLyricsIdeas(String res) {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
 	
+	Vector<String> lines = Split(res, "\n");
+	
+	opp.lyrics_ideas.Clear();
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		if (line.IsEmpty()) continue;
+		
+		int a = line.Find(".");
+		bool no_beginning = (i == 0 && (a < 0 || a >= 4));
+		if (a >= 0 && a < 4)
+			line = line.Mid(a+1);
+		line = TrimBoth(line);
+		
+		if (line.IsEmpty()) continue;
+		int chr = line[0];
+		if (no_beginning && chr >= 'a' && chr <= 'z' && line.Find("he lyrics is about") < 0)
+			line = "The lyrics is about " + line;
+		
+		a = line.Find("** - ");
+		if (a >= 0)
+			line = line.Mid(a+5);
+		
+		opp.lyrics_ideas << line;
+	}
 	
 	
 	NextBatch();
 	SetWaiting(0);
 }
 
-void LeadSolver::ProcessAnalyzeSongAttrs() {
+void LeadSolver::ProcessAnalyzeMusicStyle() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	LeadData& ld = mdb.lead_data;
 	if (batch >= mdb.lead_data.opportunities.GetCount()) {
@@ -700,40 +1039,45 @@ void LeadSolver::ProcessAnalyzeSongAttrs() {
 		return;
 	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.analyzed_song_attrs.IsEmpty() || SkipLowScoreOpportunity()) {
+	if (!opp.music_styles.IsEmpty() ||
+		SkipLowScoreOpportunity() ||
+		opp.weighted_rank >= (double)max_rank||
+		opp.average_payout_estimation <= 0.1) {
 		NextBatch();
 		return;
 	}
 	
-	ProcessAnalyzeFn(5, THISBACK(OnProcessAnalyzeBooleans));
+	ProcessAnalyzeFn(6, THISBACK(OnProcessAnalyzeMusicStyle));
 }
 
-void LeadSolver::OnProcessAnalyzeSongAttrs(String res) {
-	
-	
-	
-	NextBatch();
-	SetWaiting(0);
-}
-
-void LeadSolver::ProcessAnalyzeSongColors() {
+void LeadSolver::OnProcessAnalyzeMusicStyle(String res) {
 	MetaDatabase& mdb = MetaDatabase::Single();
-	LeadData& ld = mdb.lead_data;
-	if (batch >= mdb.lead_data.opportunities.GetCount()) {
-		NextPhase();
-		return;
-	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.analyzed_song_colors.IsEmpty() || SkipLowScoreOpportunity()) {
-		NextBatch();
-		return;
+	
+	Vector<String> lines = Split(res, "\n");
+	
+	opp.music_styles.Clear();
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String& line = lines[i];
+		if (line.IsEmpty()) continue;
+		
+		int a = line.Find(".");
+		bool no_beginning = (i == 0 && (a < 0 || a >= 4));
+		if (a >= 0 && a < 4)
+			line = line.Mid(a+1);
+		line = TrimBoth(line);
+		
+		if (line.IsEmpty()) continue;
+		int chr = line[0];
+		if (no_beginning && chr >= 'a' && chr <= 'z' && line.Find("he lyrics is about") < 0)
+			line = "The lyrics is about " + line;
+		
+		a = line.Find("** - ");
+		if (a >= 0)
+			line = line.Mid(a+5);
+		
+		opp.music_styles << line;
 	}
-	
-	ProcessAnalyzeFn(6, THISBACK(OnProcessAnalyzeBooleans));
-}
-
-void LeadSolver::OnProcessAnalyzeSongColors(String res) {
-	
 	
 	
 	NextBatch();

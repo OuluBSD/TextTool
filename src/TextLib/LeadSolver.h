@@ -29,10 +29,12 @@ class LeadSolver {
 		LS_ANALYZE_STRINGS,
 		LS_ANALYZE_LISTS,
 		
+		LS_COARSE_RANKING,
+		LS_AVERAGE_PAYOUT_ESTIMATION,
+		
 		LS_ANALYZE_POTENTIAL_SONG_TYPECAST,
-		LS_ANALYZE_POTENTIAL_SONG_CONTENT,
-		LS_ANALYZE_POTENTIAL_SONG_ATTRS,
-		LS_ANALYZE_POTENTIAL_SONG_COLORS,
+		LS_ANALYZE_POTENTIAL_SONG_IDEAS,
+		LS_ANALYZE_POTENTIAL_MUSIC_STYLE_TEXT,
 		
 		LS_COUNT
 	};
@@ -48,6 +50,7 @@ class LeadSolver {
 	
 	// Params
 	double score_limit_factor = 0.8;
+	int max_rank = 100;
 	
 	
 	void Process();
@@ -69,16 +72,17 @@ class LeadSolver {
 	void ProcessAnalyzeStrings();
 	void ProcessAnalyzeLists();
 	void ProcessAnalyzeSongTypecast();
-	void ProcessAnalyzeSongContent();
-	void ProcessAnalyzeSongAttrs();
-	void ProcessAnalyzeSongColors();
+	void ProcessAnalyzeLyricsIdeas();
+	void ProcessAnalyzeMusicStyle();
+	void ProcessCoarseRanking();
+	void ProcessAveragePayoutEstimation();
 	void OnProcessAnalyzeBooleans(String res);
 	void OnProcessAnalyzeStrings(String res);
 	void OnProcessAnalyzeLists(String res);
 	void OnProcessAnalyzeSongTypecast(String res);
-	void OnProcessAnalyzeSongContent(String res);
-	void OnProcessAnalyzeSongAttrs(String res);
-	void OnProcessAnalyzeSongColors(String res);
+	void OnProcessAnalyzeLyricsIdeas(String res);
+	void OnProcessAnalyzeMusicStyle(String res);
+	void OnProcessAveragePayoutEstimation(String res);
 	
 	double GetAverageOpportunityScore();
 	bool SkipLowScoreOpportunity();

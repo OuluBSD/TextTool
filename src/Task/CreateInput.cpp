@@ -2066,7 +2066,7 @@ void AiTask::CreateInput_LeadSolver() {
 	}
 	
 	// Strings
-	if (args.fn == 1) {
+	else if (args.fn == 1) {
 		{
 			auto& list = input.AddSub().Title("List of string attribute values, which can describe the listing");
 			list.NumberedLines();
@@ -2089,7 +2089,7 @@ void AiTask::CreateInput_LeadSolver() {
 	}
 	
 	// Lists
-	if (args.fn == 2) {
+	else if (args.fn == 2) {
 		{
 			auto& list = input.AddSub().Title("List of attribute value lists, which can describe the listing");
 			list.NumberedLines();
@@ -2109,8 +2109,138 @@ void AiTask::CreateInput_LeadSolver() {
 		input.response_length = 1024*1;
 		//this->SetHighQuality();
 	}
+	// Average payout estimation
+	else if (args.fn == 3) {
+		{
+			auto& list = input.AddSub().Title("List of probabilities (in percentages) to get accepted per stage for a unrelated song. Include total chance of acceptance percentage also");
+			list.Add("Initial listen: 70%");
+			list.Add("Production quality: 50%");
+			list.Add("Comparison to other submissions: 40%");
+			list.Add("Collaboration potential: 20%");
+			list.Add("Refinement and final review: 15%");
+			list.Add("Top contender selection: 10%");
+			list.Add("Total chance of acceptance: 2.1% (0.7 x 0.5 x 0.4 x 0.2 x 0.15 x 0.1 = 0.0021 = 0.21%). Again, keep in mind that these numbers are theoretical and may vary.");
+			//list.Add("Average payout estimation for accepted song: $1,250 x 2.1% = $26.25 or approximately $26.");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of probabilities (in percentages) to get accepted per stage for the accepted song for the previous listing. Include total chance of acceptance percentage also");
+			//results.Add("");
+		}
+		input.response_length = 1024*1;
+	}
+	// Typecast
+	else if (args.fn == 4) {
+		EnterAppMode(appmode);
+		{
+			auto& list = input.AddSub().Title("List A: " + __Typeclasses + " of " + __entity + " profiles in relation to the " + __script2);
+			list.NumberedLines();
+			for (String tc : GetTypeclasses(appmode))
+				list.Add(tc);
+		}
+		{
+			auto& list = input.AddSub().Title("List B of names for archetypical parts of storyline of a modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps2 + ", which contrasts each other");
+			list.NumberedLines();
+			for (const auto& it : GetContents(appmode)) {
+				String s;
+				s << "A: " << it.parts[0] << ", B: " << it.parts[1] << ", C: " << it.parts[2];
+				list.Add(s);
+			}
+		}
+		{
+			auto& list = input.AddSub().Title("Examples of combinations from List A and List B");
+			list.NumberedLines();
+			list.Add("4,6");
+			list.Add("7,2");
+			list.Add("6,1");
+		}
+		LeaveAppMode();
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.NumberedLines();
+			results.Title("Top 3 combinations from List A and List B, which best fits the Music A&R opportunity listing");
+			results.Add("");
+		}
+		SetHighQuality();
+	}
+	// Script ideas
+	else if (args.fn == 5) {
+		const LeadOpportunity& o = ld.opportunities[args.opp_i];
+		
+		const auto& tc_list = TextLib::GetTypeclasses(DB_SONG);
+		if (o.typeclasses.GetCount() && o.typeclasses[0] < tc_list.GetCount()) {
+			String tc = tc_list[o.typeclasses[0]];
+			auto& list = input.AddSub().Title("Preferred typecast for the song");
+			list.Add(tc);
+		}
+		
+		const auto& co_list = TextLib::GetContents(DB_SONG);
+		if (o.contents.GetCount() && o.contents[0] < co_list.GetCount()) {
+			const auto& co_full = co_list[o.contents[0]];
+			auto& list = input.AddSub().Title("Preferred content");
+			list.Add(co_full.key);
+			for(int i = 0; i < ContentType::PART_COUNT; i++)
+				list.Add(co_full.parts[i]);
+		}
+		{
+			auto& list = input.AddSub().Title("Examples of ideas for unrelated lyrics");
+			list.NumberedLines();
+			list.Add("The lyrics expresses the frustration and impatience of being caught up and hung up on someone, using time as a metaphor for the slow progress of a relationship.");
+			list.Add("The lyrics is about the destructive and seductive nature of fame and the Hollywood lifestyle, comparing it to a drug addiction that can lead to the downfall of individuals and society.");
+			list.Add("The lyrics is about a wannabe who tries too hard to fit in with the cool crowd, using humor and irony to convey the idea that people should just be themselves instead of trying to be something they're not.");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.NumberedLines();
+			results.Title("Top 3 ideas for a lyrics, which would best fit the Music A&R opportunity listing");
+			results.Add("The lyrics is about");
+		}
+		SetHighQuality();
+	}
+	// Music style ideas
+	else if (args.fn == 6) {
+		const LeadOpportunity& o = ld.opportunities[args.opp_i];
+		
+		const auto& tc_list = TextLib::GetTypeclasses(DB_SONG);
+		if (o.typeclasses.GetCount() && o.typeclasses[0] < tc_list.GetCount()) {
+			String tc = tc_list[o.typeclasses[0]];
+			auto& list = input.AddSub().Title("Preferred typecast for the song");
+			list.Add(tc);
+		}
+		
+		const auto& co_list = TextLib::GetContents(DB_SONG);
+		if (o.contents.GetCount() && o.contents[0] < co_list.GetCount()) {
+			const auto& co_full = co_list[o.contents[0]];
+			auto& list = input.AddSub().Title("Preferred content");
+			list.Add(co_full.key);
+			for(int i = 0; i < ContentType::PART_COUNT; i++)
+				list.Add(co_full.parts[i]);
+		}
+		
+		
+		if (o.lyrics_ideas.GetCount()) {
+			const auto& co_full = co_list[o.contents[0]];
+			auto& list = input.AddSub().Title("Preferred lyrics idea");
+			list.Add(o.lyrics_ideas[0]);
+		}
+		{
+			auto& list = input.AddSub().Title("Examples of music styles for unrelated songs, which fits under 120 characters");
+			list.NumberedLines();
+			list.Add("Rap, EDM, 90bpm, female alto vocal range, long vocal notes");
+			list.Add("EDM, Nu-Metal, Funk Rock, 120bpm, male vocals");
+			list.Add("Country, Country Pop, 100bpm, alto female vocals, long vocal notes, Acoustic Guitar, Electric Bass, Drums");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.NumberedLines();
+			results.Title("Top 3 ideas for a music style, which would best fit the Music A&R opportunity listing, and which fits under 120 characters");
+			results.Add("");
+		}
+		SetHighQuality();
+	}
 	
-	
+	else TODO
+		
 }
 
 

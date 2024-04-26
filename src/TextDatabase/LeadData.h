@@ -221,13 +221,22 @@ struct LeadOpportunity : Moveable<LeadOpportunity> {
 	String entry_end_datetime;
 	String date_created;
 	
+	int opp_score = -1;
+	int money_score = -1;
+	int money_score_rank = -1;
+	int opp_score_rank = -1;
+	double weighted_rank = 0;
+	double chance_of_acceptance = 0;
+	double average_payout_estimation = 0;
+	Vector<String> chance_list;
+	Vector<int> typeclasses;
+	Vector<int> contents;
+	Vector<String> lyrics_ideas;
+	Vector<String> music_styles;
+	
 	Vector<int> analyzed_booleans;
-	Vector<int> analyzed_string;
-	Vector<int> analyzed_lists;
-	Vector<int> analyzed_song_typecast;
-	Vector<int> analyzed_song_content;
-	Vector<int> analyzed_song_attrs;
-	Vector<int> analyzed_song_colors;
+	Vector<String> analyzed_string;
+	Vector<Vector<String>> analyzed_lists;
 	
 	int GetCount() const;
 	Value operator[](int i) const;

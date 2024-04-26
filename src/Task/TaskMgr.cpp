@@ -370,7 +370,7 @@ void TaskMgr::GetScriptSolver(int appmode, const ScriptSolverArgs& args, Event<S
 	task_lock.Leave();
 }
 
-void TaskMgr::GetLeadSolver(const LeadSolverArgs& args, Event<String> WhenResult) {
+void TaskMgr::GetLeadSolver(int appmode, const LeadSolverArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	TaskMgr& p = *this;
 	
@@ -378,6 +378,7 @@ void TaskMgr::GetLeadSolver(const LeadSolverArgs& args, Event<String> WhenResult
 	
 	task_lock.Enter();
 	AiTask& t = tasks.Add();
+	t.appmode = appmode;
 	t.SetRule(AITASK_LEAD_SOLVER, MakeName(args, -1, "lead solver"))
 		.Input(&AiTask::CreateInput_LeadSolver)
 		.Process(&AiTask::Process_Default);

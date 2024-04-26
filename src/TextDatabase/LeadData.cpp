@@ -49,10 +49,6 @@ LeadOpportunity& LeadData::GetAddOpportunity(int leadsite, String id) {
 	ITEMV(analyzed_booleans) \
 	ITEMV(analyzed_string) \
 	ITEMV(analyzed_lists) \
-	ITEMV(analyzed_song_typecast) \
-	ITEMV(analyzed_song_content) \
-	ITEMV(analyzed_song_attrs) \
-	ITEMV(analyzed_song_colors) \
 	ITEM(leadsite) \
 	ITEM(id) \
 	ITEM(first_seen) \
@@ -105,7 +101,18 @@ LeadOpportunity& LeadData::GetAddOpportunity(int leadsite, String id) {
 	ITEM(min_entry_price_cents) \
 	ITEM(entry_end_datetime) \
 	ITEM(date_created) \
-	
+	ITEM(opp_score) \
+	ITEM(money_score) \
+	ITEM(money_score_rank) \
+	ITEM(opp_score_rank) \
+	ITEM(weighted_rank) \
+	ITEM(chance_of_acceptance) \
+	ITEM(average_payout_estimation) \
+	ITEMV(chance_list) \
+	ITEMV(typeclasses) \
+	ITEMV(contents) \
+	ITEMV(lyrics_ideas) \
+	ITEMV(music_styles) \
 
 
 void LeadOpportunity::Jsonize(JsonIO& json) {

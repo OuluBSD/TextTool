@@ -7,8 +7,10 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class LeadWebsites : public ToolAppCtrl {
-	Splitter vsplit, hsplit, mainsplit;
+	Splitter vsplit, hsplit, mainsplit, bsplit, bvsplit, bssplit;
 	ArrayCtrl websites, list, payouts, prices, attrs;
+	ArrayCtrl bools, strings, list_names, list_values;
+	ArrayCtrl song_typecasts, lyrics_ideas, music_styles;
 	
 public:
 	typedef LeadWebsites CLASSNAME;
@@ -19,6 +21,7 @@ public:
 	void DataPayout();
 	void DataPrice();
 	void DataOpportunity();
+	void DataAnalyzedList();
 	void ToolMenu(Bar& bar) override;
 	void Do(int fn);
 	
