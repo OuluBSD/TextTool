@@ -10,19 +10,20 @@ VM::VM() {
 }
 
 void VM::InitDefault() {
+	String& share = MetaDatabase::Single().share;
 	AddPath("/bin");
 	AddPath("/local/bin");
 	
 	// bind TextTool share dir
 	{
-		String dir = GetHomeDirFile("TextTool" DIR_SEPS "share" DIR_SEPS "script" DIR_SEPS "bin");
+		String dir = GetHomeDirFile("TextTool" DIR_SEPS + share + DIR_SEPS "script" DIR_SEPS "bin");
 		if (DirectoryExists(dir))
 			vfs.BindHost("/bin", dir);
 	}
 	
 	// bind TextTool share dir
 	{
-		String dir = GetHomeDirFile("TextTool" DIR_SEPS "share");
+		String dir = GetHomeDirFile("TextTool" DIR_SEPS + share);
 		if (DirectoryExists(dir))
 			vfs.BindHost("/share", dir);
 	}

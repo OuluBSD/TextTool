@@ -10,15 +10,19 @@ GUI_APP_MAIN {
 	
 	#endif
 	
+	String sharedir = "share";
 	
 	Index<int> appmodes;
 	for (const String& s : CommandLine()) {
+		if (s == "-finshare")		{sharedir += "-fi";}
 		if (s == "-song")			{appmodes << DB_SONG;}
 		if (s == "-twitter")		{appmodes << DB_TWITTER;}
 		if (s == "-blog")			{appmodes << DB_BLOG;}
 		if (s == "-dialog")			{appmodes << DB_DIALOG;}
 		if (s == "-storyboard")		{appmodes << DB_STORYBOARD;}
 	}
+	
+	MetaDatabase::Single().share = sharedir;
 	
 	GuiStartup();
 	MetaStartup();

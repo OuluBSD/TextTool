@@ -172,7 +172,8 @@ void TaskManager::DoActionlistCache() {
 	DatasetAnalysis& da = sda.dataset;
 	Task task;
 	
-	String dir = ConfigFile("share") + DIR_SEPS + "task_actionlist";
+	String& share = MetaDatabase::Single().share;
+	String dir = ConfigFile(share) + DIR_SEPS + "task_actionlist";
 	if (!DirectoryExists(dir))
 		return;
 	

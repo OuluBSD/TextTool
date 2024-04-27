@@ -19,24 +19,31 @@ TextDatabase& TextDataLoader::GetDatabase() {
 
 void TextDataLoader::Process() {
 	TextDatabase& db = GetDatabase();
+	String share = MetaDatabase::Single().share;
 	
-	if (appmode == DB_SONG) {
-		LoadHuggingArtists();
-		//LoadHuggingFinn();
+	if (share == "share") {
+		if (appmode == DB_SONG) {
+			LoadHuggingArtists();
+		}
+		else if (appmode == DB_TWITTER) {
+			LoadHuggingTweets();
+		}
+		else if (appmode == DB_BLOG) {
+			LoadHuggingBlogs();
+		}
+		else if (appmode == DB_DIALOG) {
+			LoadHuggingDialogue();
+		}
+		else if (appmode == DB_STORYBOARD) {
+			LoadHuggingStoryboard();
+		}
 	}
-	else if (appmode == DB_TWITTER) {
-		LoadHuggingTweets();
+	else if (share == "share-fi") {
+		if (appmode == DB_SONG) {
+			LoadHuggingFinn();
+		}
 	}
-	else if (appmode == DB_BLOG) {
-		LoadHuggingBlogs();
-	}
-	else if (appmode == DB_DIALOG) {
-		LoadHuggingDialogue();
-	}
-	else if (appmode == DB_STORYBOARD) {
-		LoadHuggingStoryboard();
-	}
-	
+		
 	//db.src_data.Store();
 	PostCallback(THISBACK(Stop));
 }
@@ -188,7 +195,6 @@ void TextDataLoader::LoadHuggingArtists() {
 	}
 }
 
-#if 0
 void TextDataLoader::LoadHuggingFinn() {
 	String dir;
 	#ifdef flagWIN32
@@ -202,7 +208,7 @@ void TextDataLoader::LoadHuggingFinn() {
 	}
 	
 	TextDatabase& db = GetDatabase();
-	db.src_data.entities_fi.Clear();
+	db.src_data.entities.Clear();
 	
 	PostMessage("Searching for huggingfinn dataset json files");
 	PostProgress(0,1);
@@ -227,7 +233,7 @@ void TextDataLoader::LoadHuggingFinn() {
 	
 	int actual = 0;
 	for(int i = 0; i < files.GetCount(); i++) {
-		EntityDataset& artist = db.src_data.entities_fi.Add();
+		EntityDataset& artist = db.src_data.entities.Add();
 		artist.name = files.GetKey(i);
 		if (GetDefaultCharset() != CHARSET_UTF8)
 			artist.name = ToCharset(CHARSET_UTF8, artist.name, CHARSET_DEFAULT);
@@ -248,7 +254,6 @@ void TextDataLoader::LoadHuggingFinn() {
 		}
 	}
 }
-#endif
 
 void TextDataLoader::LoadHuggingTweets() {
 	String dir;

@@ -87,7 +87,7 @@ struct MetaDatabase {
 	LeadData		lead_data;
 	
 	// Temp
-	String			dir;
+	String			dir, share;
 	
 	void Store();
 	void Load();

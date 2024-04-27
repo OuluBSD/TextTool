@@ -12,7 +12,8 @@ BEGIN_TEXTLIB_NAMESPACE
 void AiTask::Store(bool force) {
 	if (output.IsEmpty()) return;
 	if (!changed) return;
-	String dir = ConfigFile("share" DIR_SEPS "ai_results" DIR_SEPS);
+	String& share = MetaDatabase::Single().share;
+	String dir = ConfigFile(share + DIR_SEPS "ai_results" DIR_SEPS);
 	RealizeDirectory(dir);
 	String filename = GetInputHash() + ".txt";
 	String file = dir + filename;
@@ -24,7 +25,8 @@ void AiTask::Store(bool force) {
 void AiTask::Load() {
 	if (skip_load)
 		return;
-	String dir = ConfigFile("share" DIR_SEPS "ai_results" DIR_SEPS);
+	String& share = MetaDatabase::Single().share;
+	String dir = ConfigFile(share + DIR_SEPS "ai_results" DIR_SEPS);
 	RealizeDirectory(dir);
 	String filename = GetInputHash() + ".txt";
 	String file = dir + filename;

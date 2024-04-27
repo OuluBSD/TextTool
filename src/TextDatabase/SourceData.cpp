@@ -23,12 +23,14 @@ void SourceData::Serialize(Stream& s) {
 
 /*void SourceData::StoreJson() {
 	String dir = GetDatabase().dir;
-	StoreAsJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + __Comp + "Data.json", true);
+	String share = MetaDatabase::Single().share;
+	StoreAsJsonFileStandard(*this, dir + DIR_SEPS + share + DIR_SEPS + __Comp + "Data.json", true);
 }
 
 void SourceData::LoadJson() {
 	String dir = GetDatabase().dir;
-	LoadFromJsonFileStandard(*this, dir + DIR_SEPS "share" DIR_SEPS + __Comp + "Data.json");
+	String share = MetaDatabase::Single().share;
+	LoadFromJsonFileStandard(*this, dir + DIR_SEPS + share + DIR_SEPS + __Comp + "Data.json");
 }
 
 void SourceData::Jsonize(JsonIO& json) {
@@ -257,7 +259,12 @@ void DatasetAnalysis::Load() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	String dir = AppendFileName(MetaDatabase::Single().dir, "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "data");
+	String dir =
+		AppendFileName(MetaDatabase::Single().dir,
+		MetaDatabase::Single().share + DIR_SEPS +
+		GetAppModeDir() + DIR_SEPS +
+		"data");
+	
 	RealizeDirectory(dir);
 	
 	String ds_dir = dir;
@@ -313,7 +320,12 @@ ComponentAnalysis& DatasetAnalysis::GetComponentAnalysis(int appmode, const Stri
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	String dir = AppendFileName(MetaDatabase::Single().dir, "share" DIR_SEPS + GetAppModeDir() + DIR_SEPS + "data");
+	String dir =
+		AppendFileName(MetaDatabase::Single().dir,
+		MetaDatabase::Single().share + DIR_SEPS +
+		GetAppModeDir() + DIR_SEPS +
+		"data");
+	
 	RealizeDirectory(dir);
 	
 	String comp_dir = AppendFileName(dir, "components" DIR_SEPS + name);
