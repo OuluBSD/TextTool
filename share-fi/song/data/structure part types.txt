@@ -1,0 +1,591 @@
+noun phrase
+coordinate clause
+relative clause
+complex sentence
+simple sentence
+compound sentence
+phrase
+independent clause
+adjective phrase
+exclamation
+question
+descriptive sentence
+subject-verb sentence
+question sentence
+imperative sentence
+coordinating clause
+coordinating conjunction
+compound-complex sentence
+prepositional phrase
+dependent clause
+adverbial phrase
+exclamatory sentence
+subordinating clause
+interjection phrase
+verb phrase
+appositive phrase
+interrogative sentence
+rhetorical question
+narrative sentence
+numerical sentence
+indefinite sentence
+subordinate clause
+conditional sentence
+subject-verb-object sentence
+labeling sentence
+phrase sentence
+modifying clause
+attributive sentence
+label sentence
+mixed sentence
+quantitative sentence
+sentence fragment
+adverb phrase
+verb-framing sentence
+possessive sentence
+declarative sentence
+adjective sentence
+hierarchical sentence
+possession sentence
+expressive sentence
+list sentence
+noun adverb clause
+formula
+object predicate sentence
+pronoun substitution
+noun clause
+complex question
+verb clause
+adjective predicate sentence
+adjective clause
+pronoun agreement clause
+question fragment
+noun verb clause
+verb clause with modifiers
+adjective verb clause
+complex phrase
+verb phrase with modifiers
+adverb object clause
+question clause
+incomplete clause
+compound verb phrase
+verb question
+adverb clause
+question substitution
+complex sentence with multiple adjectives and adverbs
+compound sentence with multiple pronouns and adjectives
+exclamatory sentence or simple sentence with strong emotion
+complex sentence with multiple verbs and nouns
+independent clause with multiple adverbs modifying the verb
+complex sentence with two verbs and multiple adverbs
+complex sentence with two clauses joined by a conjunction
+independent clause with an object in a different grammatical case
+complex sentence with a compound subject and two verbs
+independent clause with a reflexive pronoun as the object
+compound sentence with multiple nouns and interjections
+complex sentence with multiple adjectives, verbs, and pronouns
+independent clause with an adjective modifying the subject and an adverb modifying the verb
+simple sentence with a descriptive adjective
+complex sentence with multiple descriptors and modifiers
+independent clause with multiple modifiers
+compound sentence with a noun and adjective together as the object
+independent clause with multiple adverbs modifying the verb and object
+compound sentence with two verbs and an adverb modifying the first verb
+independent clause with multiple verbs and pronouns
+complex sentence with a variety of modifiers
+independent clause with an adverb modifying the subject
+complex sentence with a compound subject
+complex sentence with a compound predicate
+compound sentence with multiple adverbs
+compound sentence with a modifying adverb
+simple sentence with an interjection
+independent clause with a possessive pronoun replacing the subject
+simple sentence with two interjections
+simple sentence with a noun and adverb modifying the object
+simple sentence with a common noun and a symbol
+independent clause with two adverbs modifying the verb
+simple sentence expressing strong emotion
+complex sentence with a compound object and multiple modifiers
+complex sentence with a compound object and a symbol
+independent clause with parallel structure
+complex sentence with direct object
+complex sentence with adverbial clause
+complex sentence with adjectival clause
+complex sentence with adverbial conjunction
+independent clause with subject complement
+complex sentence with indirect object
+compound sentence with coordinating conjunction
+independent clause with compound verb
+compound sentence with adverbial conjunction
+simple sentence with adjective modifier
+complex sentence with adverbial phrase
+compound-complex sentence with correlative conjunctions
+complex sentence with adjective clause
+compound sentence with conjunctive adverb
+complex sentence with appositive phrase
+compound sentence with adverbial conjunction and object complement
+compound sentence with adverbial modifiers
+compound sentence with adverbial conjunction and adverbial modifier
+complex sentence with adverbial clause and coordinating conjunction
+simple sentence expressing a number
+adjectival sentence
+complex sentence with prepositional phrase
+independent clause with compound nouns
+compound-complex sentence with coordinating conjunction
+complex sentence with object complement
+independent clause with compound subject
+complex sentence with appositive clause
+independent clause with compound object
+complex sentence with adverbial phrase modifying verb
+complex sentence with adverbial modifiers and object
+simple sentence with interrogative pronoun
+complex sentence with adverbial modifiers and adjective modifier
+compound sentence with coordinating conjunction and object complement
+compound sentence with coordinating conjunction and object pronoun.
+prepositional sentence
+modal sentence
+numeral sentence
+number sentence
+run-on sentence
+inverted sentence
+interjection sentence
+complex-compound sentence
+adverbial clause
+descriptive clause
+pronoun clause
+proper noun phrase
+parallel sentence
+adverbial sentence
+sentence with determiner
+compound adjective sentence
+abbreviated sentence
+proper noun sentence
+postpositional sentence
+sentence with alternative forms
+sentence with unidentified word
+listing sentence
+cumulative sentence
+gerund phrase
+predicate nominative sentence
+appositive sentence
+compound-complex sentence with multiple adverbs
+cumulative sentence with multiple pronouns
+predicate adjective sentence
+numerically descriptive sentence
+compound-complex sentence with symbols
+symbolically descriptive sentence
+complex sentence with symbols
+prepositional phrase sentence
+long complex sentence
+appositive phrase sentence
+one-word sentence
+nominal sentence
+noun phrase sentence
+conversational sentence
+creative sentence
+instructive sentence
+dependent clause in a complex sentence
+poetic sentence
+personal sentence
+introductory sentence
+emphatic sentence
+compound sentence with multiple proper nouns
+reflective sentence
+straightforward sentence
+compound sentence with multiple nouns
+complex sentence with descriptive elements
+compound-complex sentence used for persuasion
+persuasive sentence
+descriptive sentence with proper nouns
+reflective sentence with emphasis on adverbs
+compound sentence with a prepositional ending
+creative sentence with expressions and actions
+descriptive sentence with adverb phrases
+scientific sentence
+multi-action sentence
+complex sentence with multiple pronouns
+long compound sentence with descriptive adjectives
+logical sentence
+familiar sentence
+personal sentence with multiple pronouns
+complex sentence with multiple adverbs
+persuasive sentence with proper nouns
+action sentence
+action sentence with multiple verbs
+parallel structure
+direct object sentence
+object sentence
+transitive sentence
+dependent clause sentence
+subordinate clause sentence
+object complement sentence
+indirect object sentence
+reflexive sentence
+compound-coordinating sentence
+transitional sentence
+transition sentence
+indirect question sentence
+description sentence
+modified sentence
+complete sentence
+possessive clause
+cause-effect sentence
+subject complement
+descriptive phrase
+quantity sentence
+compound complex sentence
+passive voice sentence
+interrupting sentence
+article sentence
+adverbial phrase sentence
+direct address sentence
+repetition sentence
+modifying sentence
+subject-verb agreement sentence
+adverbial conjunct sentence
+adjective clause sentence
+idiomatic sentence
+passive sentence
+subject-auxiliary inversion sentence
+double object sentence
+infinitive sentence
+interjection
+dialogue sentence
+noun clause modified by an adjective clause
+genre.
+phrasal verb
+transitive verb sentence
+sentence with emotion
+sentence with feeling
+quantifying sentence
+coordinating sentence
+sentence with action
+sentence with comparison
+subordinate sentence
+object-verb sentence
+sentence with description
+complex sentence with multiple clauses
+descriptive sentence with emphasis
+sentence category
+helper sentence
+sentence with description and action
+nested sentence
+verb phrase sentence
+causal sentence
+incomplete sentence
+letter sentence
+epicene sentence
+coordinate sentence
+interrogative complex sentence
+interrogative compound-complex sentence
+interrogative simple sentence
+predicate sentence
+anatomical sentence
+complex sentence with relative clause
+compound-complex sentence with relative clause
+compound subject sentence
+compound complex sentence with multiple clauses
+expletive sentence
+prepositional clause
+simple sentence with modifiers
+compound sentence with modifiers
+complex sentence with modifiers
+subordinate clause with modifiers.
+compound sentence with parallel structure
+complex sentence with parallel structure
+complex sentence with postposition
+descriptive sentence with parallel structure
+compound-complex sentence with parallel structure
+complex sentence with preposition
+phrasal verb sentence
+compound verb sentence
+adjectival phrase sentence
+informative sentence
+idiomatic expression
+colloquial sentence
+informal sentence
+exclamation sentence
+complex sentence with multiple phrases
+verb fragment
+compound sentence with multiple modifiers
+noun phrase with additional verb
+compound sentence with multiple verbs
+compound sentence with multiple modifiers and verbs
+noun phrase with additional adverb and verb
+adjectival sentence with additional verb
+compound adjective phrase
+complex sentence with abbreviations
+complex sentence with additional pronoun
+complex sentence with multiple modifiers and clauses
+compound-complex sentence with proper nouns
+complex sentence with multiple nouns
+compound-complex sentence with multiple modifiers and clauses
+compound sentence with proper nouns
+object-subject sentence
+subject-predicate sentence
+complex prepositional phrase
+subject-verb-object phrase
+subject-verb phrase
+possessive phrase
+complex clause
+verb contraction
+compound-complex clause
+emotional sentence
+series sentence
+name sentence
+dynamic sentence
+action sentence with quantity
+detailed sentence
+action-packed sentence
+possessive action sentence
+noun-heavy sentence
+descriptive compound sentence
+compound-complex sentence with conjunction
+continuous sentence
+descriptive action sentence
+noun-heavy action sentence
+descriptive complex sentence
+possessive descriptive compound sentence
+complex sentence with conjunction
+grammatically complex sentence
+compound sentence with preposition
+compound noun sentence
+sequential sentence
+temporal sentence
+exclamatory phrase
+comparative sentence
+comparative clause
+warning sentence
+listing clause
+title sentence
+naming sentence
+descriptive comparative sentence
+prepositional-verb sentence
+pronoun cluster
+adverb clause sentence
+contracted sentence
+adverbial noun phrase
+proper noun cluster
+subordinate complex sentence
+intransitive sentence
+contracted prepositional phrase
+simple proper noun phrase
+complex proper noun phrase
+contracted adverbial phrase
+acronym compound sentence
+compound prepositional phrase
+possessive noun phrase
+adverbial prepositional phrase
+adjective-noun phrase
+compound predicate sentence
+compound sentence with a compound subject and object
+complex-compound sentence with a compound subject
+compound sentence with a compound verb
+simple sentence with a subject and verb
+complex sentence with a modifying clause
+complex sentence with a prepositional phrase
+complex-compound sentence with a compound subject and object
+complex sentence with a compound-complex modifying clause
+complex sentence with a possessive noun phrase
+complex sentence with a modifying clause and compound predicate
+simple sentence with a predicate
+complex sentence with an adverbial clause
+compound sentence with a compound subject and verb
+simple sentence with a subject and compound verb
+complex sentence with a compound subject and a modifying clause
+complex sentence with a compound subject and an object
+compound sentence with a compound predicate
+compound sentence with a compound predicate and verb
+complex sentence with a modifying clause and a prepositional phrase
+simple sentence with a compound predicate
+complex sentence with a possessive pronoun and a prepositional phrase
+compound sentence with a compound subject and object and an adverbial clause
+compound-complex sentence with a compound subject, compound object, and modifying clauses
+simple sentence with a subject and a predicate
+compound sentence with multiple modifying clauses
+compound sentence with a compound subject and object and an adverbial phrase
+compound sentence with a subject, verb, and direct object
+simple sentence with a subject and predicate
+imperatives or commands
+compound noun phrase
+fragment sentence
+elaborative sentence
+subjective sentence
+objective sentence
+participle sentence
+exclamatory series sentence
+independent clause with dependent clauses
+dependent clauses with independent clause
+correlative sentence
+complex-cumulative sentence
+exclamatory sentence with appositive phrases
+compound-complex sentence with compound phrases
+independent clause with modifiers
+fragment sentence with modifiers
+absolute construction sentence
+defining relative clause
+hesitant sentence
+title
+identification sentence
+dialogic sentence
+sentence with a subject complement
+sentence with an adverbial modifier
+sentence with a verb contraction
+contraction sentence
+command sentence
+interjectional sentence
+vocative sentence
+subject-verb-object-object sentence
+yes/no question
+double subject-verb sentence
+object-complement sentence
+wh- question
+interjectional-sentence
+exclamatory sentence with embedded question
+adverbial adjective sentence
+interjectional sentence with emphatic adverb
+postpositional particle sentence
+subordinating sentence
+multi-clause sentence
+lengthy sentence
+sentence with a literary technique
+Turkish sentence structure
+unconventional sentence
+repetitive sentence
+conditional clause sentence
+intricate sentence
+rhetorical sentence
+descriptive independent clause
+understated sentence
+request sentence
+shortened sentence
+short sentence
+complex declarative sentence
+descriptive nominal sentence
+unconventional fragment
+forceful sentence
+adverbial expression
+demonstrative sentence
+pronoun sentence
+descriptive sentence with prepositional phrase
+postposition sentence
+past tense sentence
+direct imperative sentence
+coordinated sentence
+compound complex sentence with adverbial clause
+complex sentence with noun clause
+multiple clause sentence
+nuanced sentence
+exclamatory compound sentence
+complex conditional sentence
+indirect interrogative sentence
+compound sentence with adverbial phrase
+prepositional sentence with adverbial phrase
+introductory clause
+juxtaposition sentence
+sentence of opposition
+parallel structure sentence
+time clause
+sentence of inquiry
+sentence of comparison
+intensifier sentence
+relative clause sentence
+object-verb-object sentence
+extended sentence
+complex sentence with adverbs
+indirect statement sentence
+subject-verb-adverb sentence
+contrast sentence
+connecting sentence
+noun phrase clause
+sentence with postposition
+counting sentence
+sentence with contracted form
+contractions sentence
+reported speech sentence
+adjective phrase sentence
+abbreviation sentence
+compound abbreviation sentence
+modifier sentence
+complex modifier sentence
+gerund sentence
+introductory phrase sentence
+abstract sentence
+plural sentence
+adverbial conjunction
+list of proper nouns
+question statement
+introductory phrase
+mathematical sentence
+complex mathematical sentence
+prepositional phrase or clause
+list or enumeration
+measurement or quantity phrase
+sentence fragment or phrase
+noun phrase or clause
+complex prepositional sentence
+descriptive sentence with numbers
+sentence indicating time
+sentence indicating direction
+descriptive sentence with time element
+complex sentence with numerical elements
+exclamation with action
+compound proper noun sentence
+descriptive sentence with proper noun
+complex sentence with adjectives
+simple sentence with interjection
+sentence with interjection and prepositional phrase
+complex sentence with pronouns
+compound sentence with pronouns
+sentence with multiple interjections
+sentence with multiple adverbs and pronouns
+complex sentence with multiple nouns and a prepositional phrase
+subject-verb-complement sentence
+subject-complement phrase
+incomplete sentence or sentence fragment
+abbreviated phrase
+quantifier phrase
+adjective string
+postpositional phrase
+noun clause phrase
+subject-object sentence
+complex compound sentence
+incomplete sentence (fragment)
+interjected sentence
+simple adverbial sentence
+complex adverbial sentence
+sentence containing numbers
+active voice sentence
+complex sentence with numbers
+elliptical sentence
+compound-complex sentence with modifiers
+descriptive sentence with modifiers
+noun-centered sentence
+verb-centered sentence
+verb-focused sentence
+descriptive sentence with multiple modifiers
+noun-focused sentence
+prepositional sentence with modifiers
+compound sentence with repetitive nouns
+verb-focused compound sentence
+descriptive sentence with personal pronouns
+adjective-centered sentence
+descriptive sentence with multiple nouns
+conditional clause
+descriptive sentence with mixed parts of speech
+complex or compound sentence with modifiers
+descriptive sentence with multiple adverbs
+compound sentence with repeated verbs
+imperative sentence with modifiers
+compound sentence with repetitive verbs
+descriptive sentence with multiple adverbs and adjectives
+compound sentence with modifiers and pronouns
+tercet sentence
+geographical sentence
+numeral phrase
+indirect question
+contracted clause with adjectives
+contracted clause with verbs and prepositions
+determiner phrase
+noun cluster
+complex sentence or noun phrase

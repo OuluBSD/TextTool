@@ -1,0 +1,246 @@
+adjective
+noun
+conjunction
+punctuation mark
+verb
+pronoun
+adverb
+proper noun
+interrogative pronoun
+number
+abbreviation
+interjection
+punctuation
+preposition
+contraction
+possessive determiner
+definite article
+modal verb
+acronym
+determiner
+plural
+symbol
+pronoun + preposition
+pronoun + possessive pronoun
+pronoun + postposition
+postposition
+preposition + pronoun
+numeral
+letter/symbol
+article
+adjective.
+auxiliary verb
+proper adjective
+suffix
+pronoun / preposition
+noun / adjective
+adjective / noun
+pronoun / conjunction
+noun / adverb
+pronoun / adjective
+noun / verb
+noun/proper noun
+noun/adjective
+pronoun/interjection
+particle
+superlative
+indirect object pronoun
+possessive adjective
+possessive pronoun
+genitive
+letter
+collective noun
+personal pronoun
+conjugation
+demonstrative pronoun
+indefinite article
+adjective + noun
+adjective / pronoun
+noun / acronym
+unknown word
+unknown character
+noun + possessive suffix
+determinant
+none
+acronym/proper noun
+transitive verb
+preposition or noun
+pronoun + adverb
+gerund
+participle
+numbers
+verbs
+adjectives
+proper nouns
+reflexive pronoun
+prefix
+adverb, conjunction
+inne
+Proper noun
+genre
+noun/verb
+verb/adjective
+pronoun/determiner
+imperative verb
+Adverb
+number noun
+abbreviation/initialism
+numeral adjective
+common noun
+Adjective
+adjective/verb
+verb/auxiliary verb
+noun/body part
+adjective/noun
+letter/slang
+slang/interjection
+unknown
+colloquial shorten form of 'kerkee'
+colloquial shorten form of 'kirjoittanut'
+colloquial shorten form of 'Facebook'
+colloquial shorten form of 'tuntenut'
+colloquial shorten form of 'puuttuunut'
+colloquial shorten form of 'kiinnostunut'
+colloquial shorten form of 'action'
+colloquial shorten form of 'myös minäkin'
+colloquial shorten form of 'helposti'
+colloquial shorten form of 'työlästä'
+colloquial shorten form of 'alkaakaan'
+colloquial shorten form of 'tiedettyä'
+colloquial shorten form of 'yhtäkkiä'
+colloquial shorten form of 'vanhoja'
+colloquial shorten form of 'tavoista'
+colloquial shorten form of 'rauhoittumaisillani'
+colloquial shorten form of 'pinna'
+colloquial shorten form of 'koittanut'
+colloquial shorten form of 'juoksinut'
+colloquial shorten form of 'bensaa'
+colloquial shorten form of 'suonissani'
+colloquial shorten form of 'kasvettua'
+colloquial shorten form of 'itserakkaana'
+colloquial shorten form of 'diggaat'
+colloquial shorten form of 'hyväksikö'
+colloquial shorten form of 'annoinkin'
+colloquial shorten form of 'yläfemma'
+colloquial shorten form of 'tien päällä'
+colloquial shorten form of 'hiffannut'
+colloquial shorten form of 'paljosta'
+colloquial shorten form of 'vastaan kaan'
+colloquial shorten form of 'keksinyt'
+colloquial shorten form of 'mitkä ne'
+noun, adverb
+verb, modal verb
+adjective, adverb
+verb, adverb
+noun.
+slang term
+indefinite pronoun
+acronym / abbreviation
+abstract noun
+plural noun
+suffix for noun
+suffix for adjective
+adverbial phrase
+interjection/exclamation
+number + adverb
+compound noun
+adjective/adverb
+pronom
+expression
+name
+question word
+adjective/personal pronoun
+exclamation
+phrase
+past tense verb
+present tense verb
+preposition/adverb
+numeral + noun
+contraction of "onko"
+contraction of "siinä"
+contraction of "onko sinulla"
+adverb/adjective
+verb/participle
+pronoun/preposition
+noun/preposition
+noun/adverb
+slang/wordplay
+slang
+adjecive
+adjecitve
+slang for "beats"
+slang for "thanks to"
+slang for "to list
+slang for "domestic
+slang for "apparently"
+slang for "to pay"
+slang for "full
+slang for "should
+slang for "to chill
+numerical
+contraction of "did not"
+verb (past tense of "are")
+contraction of "want to"
+verb (present continuous form of "love")
+location
+prep
+punctuation/mark
+multiplication
+idiom
+propernoun
+noun (bottle cap)
+noun (bottle mail)
+noun (ice cubes)
+noun (mail)
+noun (mailbox)
+noun (throat)
+noun (grave)
+noun (borrow)
+integer
+noun/phrase
+indefinite number
+slang word for "pants"
+slang word for "shit"
+abbreviation for "esimerkiksi"
+slang word for "even if it's forced"
+slang word for "fire"
+slang word for "chill"
+quantity
+adposition
+time phrase
+prepositional phrase
+direction phrase
+number (seven)
+noun (honey)
+verb (to respect)
+noun (mouth)
+verb (to free)
+noun (salmon)
+noun (truth)
+verb (to anger)
+adjective (wild)
+noun (blocks)
+noun (clubs)
+noun (tips)
+adverb (there)
+noun (table)
+noun (drinks)
+adverb (still)
+noun (brothers)
+adjective (of the family)
+noun (possessions)
+number (one)
+noun (click)
+verb (to drop)
+noun (microphones)
+verb (to measure)
+noun (crimes)
+verb (to withdraw)
+noun (home)
+noun (people)
+noun (death)
+preposition/conjunction
+noun/name
+verb phrase
+interjection (representing excitement or enthusiasm)
+onomatopoeia

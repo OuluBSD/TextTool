@@ -1,0 +1,3226 @@
+"faith and reason seekers(divine worshipers)" -1 -1 0 -1 0
+"group faith(individual spirituality)" -1 -1 0 -1 0
+"group faith(organized religion)" -1 -1 0 -1 0
+"faith extremes(agnostic)" -1 -1 0 -1 0
+"faith extremes(religious fundamentalist)" -1 -1 0 -1 0
+"physical preference(body enhancing beauty)" -1 -1 0 -1 0
+"physical preference(natural beauty)" -1 -1 0 -1 0
+"gender(female)" -1 -1 0 -1 0
+"gender(male)" -1 -1 0 -1 0
+"sexual acting(sensitive)" -1 -1 0 -1 0
+"sexual acting(confident)" -1 -1 0 -1 0
+"sexual orientation(heterosexual)" -1 -1 0 -1 0
+"sexual orientation(homosexual)" -1 -1 0 -1 0
+"age target(youth-oriented)" -1 -1 0 -1 0
+"age target(age-inclusive)" -1 -1 0 -1 0
+"group experience(individual-oriented)" -1 -1 0 -1 0
+"group experience(group-oriented)" -1 -1 0 -1 0
+"social(authoritarian)" -1 -1 0 -1 0
+"social(libertarian)" -1 -1 0 -1 0
+"situation relation(descriptive)" -1 -1 0 -1 0
+"situation relation(prescriptive)" -1 -1 0 -1 0
+"life and love(relatable)" -1 -1 0 -1 0
+"life and love(aspirational)" -1 -1 0 -1 0
+"integrity(twisted)" -1 -1 0 -1 0
+"integrity(honest)" -1 -1 0 -1 0
+"sexual preference(kinky)" -1 -1 0 -1 0
+"sexual preference(normal)" -1 -1 0 -1 0
+"party relation(introspective ballads)" -1 -1 0 -1 0
+"party relation(party anthems)" -1 -1 0 -1 0
+"expression(explicit)" -1 -1 0 -1 0
+"expression(allegorical)" -1 -1 0 -1 0
+"cynicism(hopefulness)" -1 -1 0 -1 0
+"cynicism(despair)" -1 -1 0 -1 0
+"body positivity(body positivity)" -1 -1 0 -1 0
+"body positivity(celebrity worship)" -1 -1 0 -1 0
+"young and popular(youth-oriented)" -1 -1 0 -1 0
+"young and popular(age-inclusive)" -1 -1 0 -1 0
+"love status(heartbreak)" -1 -1 0 -1 0
+"love status(loving now)" -1 -1 0 -1 0
+"imagination(unique)" -1 -1 0 -1 0
+"imagination(trope-reinforcing)" -1 -1 0 -1 0
+"belief spectrum(believer)" -1 -1 0 -1 0
+"belief spectrum(non-believer)" -1 -1 0 -1 0
+"contagiousness(engaging)" -1 -1 0 -1 0
+"contagiousness(lackluster)" -1 -1 0 -1 0
+"prophecy(prophetic)" -1 -1 0 -1 0
+"storymode(storytelling)" -1 -1 0 -1 0
+"story-motivation(mood-driven)" -1 -1 0 -1 0
+"rational believers(religious)" -1 -1 0 -1 0
+"story-motivation(narrative-driven)" -1 -1 0 -1 0
+"faith and reason seekers(individual spirituality)" -1 -1 0 -1 0
+"mindfulness(mindful)" -1 -1 0 -1 0
+"lyrical emphasis(emotionally charged)" -1 -1 0 -1 0
+"authenticity(authentic)" -1 -1 0 -1 0
+"narrative(protagonist storytelling)" -1 -1 0 -1 0
+"theological opposites(theistic)" -1 -1 0 -1 0
+"seeker of truth(skeptic)" -1 -1 0 -1 0
+"faith and reason seekers(rational thinker)" -1 -1 0 -1 0
+"responsibility(accountable)" -1 -1 0 -1 0
+"cultural elements(cultural preservation)" -1 -1 0 -1 0
+"attitude 2(optimistic)" -1 -1 0 -1 0
+"rational believer(scientific)" -1 -1 0 -1 0
+"sexual commitment(monogamy)" -1 -1 0 -1 0
+"lyrical emphasis(witty wordplay)" -1 -1 0 -1 0
+"truthfulness(personal experience)" -1 -1 0 -1 0
+"culture(individualistic)" -1 -1 0 -1 0
+"belief communities(acceptance)" -1 -1 0 -1 0
+"source of inspiration(nostalgic)" -1 -1 0 -1 0
+"attitude 1(open)" -1 -1 0 -1 0
+"production style(electronic)" -1 -1 0 -1 0
+"attitude 3(optimistic)" -1 -1 0 -1 0
+"relationship focus(partner-focused)" -1 -1 0 -1 0
+"human strength(strong)" -1 -1 0 -1 0
+"belief communities(religious community)" -1 -1 0 -1 0
+"average expectations(expectation-opposed)" -1 -1 0 -1 0
+"old and new believers(traditional religion)" -1 -1 0 -1 0
+"motivation(rewarding)" -1 -1 0 -1 0
+"old and new believers(new age spirituality)" -1 -1 0 -1 0
+"traditional opposites(atheist)" -1 -1 0 -1 0
+"physical preference(normal)" -1 -1 0 -1 0
+"relationship(romantic couple)" -1 -1 0 -1 0
+"belief communities(secular society)" -1 -1 0 -1 0
+"human strength(weak)" -1 -1 0 -1 0
+"average expectations(expectation-conformed)" -1 -1 0 -1 0
+"rational believers(scientific)" -1 -1 0 -1 0
+"sexualization(non-sexual)" -1 -1 0 -1 0
+"mood 3(uplifting)" -1 -1 0 -1 0
+"passion(romantic love)" -1 -1 0 -1 0
+"reality(escapism)" -1 -1 0 -1 0
+"responsibility(irresponsible)" -1 -1 0 -1 0
+"rationality(unreasonable)" -1 -1 0 -1 0
+"problem solving strategy(shortcut taking)" -1 -1 0 -1 0
+"sexualization(sexual)" -1 -1 0 -1 0
+"mood 5(playful)" -1 -1 0 -1 0
+"concept(grounded)" -1 -1 0 -1 0
+"cultural elements(globalization)" -1 -1 0 -1 0
+"emotional realism(happiness)" -1 -1 0 -1 0
+"expectation(acceptance)" -1 -1 0 -1 0
+"target of love(romantic love)" -1 -1 0 -1 0
+"conceptual opposite(opposite)" -1 -1 0 -1 0
+"emotional commitment(self-commitment)" -1 -1 0 -1 0
+"patient(patient)" -1 -1 0 -1 0
+"audience(mainstream)" -1 -1 0 -1 0
+"paternal figure(mother)" -1 -1 0 -1 0
+"company relationship(consumerism)" -1 -1 0 -1 0
+"worldview(traditional)" -1 -1 0 -1 0
+"mood 1(joyful)" -1 -1 0 -1 0
+"belief communities(individual-oriented)" -1 -1 0 -1 0
+"relation to others(self-acceptance)" -1 -1 0 -1 0
+"relationships(without romantic partner)" -1 -1 0 -1 0
+"culture(collective)" -1 -1 0 -1 0
+"love status(self-love)" -1 -1 0 -1 0
+"hope and responsibility(expectation-conformed)" -1 -1 0 -1 0
+"reality(realism)" -1 -1 0 -1 0
+"peace and harmony(peacemaker)" -1 -1 0 -1 0
+"contemporaneous experience(reality-based)" -1 -1 0 -1 0
+"relation to others(comparison)" -1 -1 0 -1 0
+"faith and reason seekers(organized religion)" -1 -1 0 -1 0
+"group faith(fan base)" -1 -1 0 -1 0
+"faith extremes(gratitude)" -1 -1 0 -1 0
+"belief communities(diverse audience)" -1 -1 0 -1 0
+"belief communities(importance of religion in music)" -1 -1 0 -1 0
+"group faith(support from fans)" -1 -1 0 -1 0
+"faith and reason seekers(appreciation for traditional values)" -1 -1 0 -1 0
+"faith and reason seekers(diversity in believers)" -1 -1 0 -1 0
+"group faith(acknowledgement for community)" -1 -1 0 -1 0
+"group faith(recognition for young and old fans)" -1 -1 0 -1 0
+"old and new believers(importance of fan support)" -1 -1 0 -1 0
+"old and new believers(impact on fans)" -1 -1 0 -1 0
+"old and new believers(purpose for creating music)" -1 -1 0 -1 0
+"group experience(gender inclusivity)" -1 -1 0 -1 0
+"age target(diverse audience)" -1 -1 0 -1 0
+"expression(personal)" -1 -1 0 -1 0
+"expression(detached)" -1 -1 0 -1 0
+"relationship(appreciation for fan support)" -1 -1 0 -1 0
+"expression(gratitude)" -1 -1 0 -1 0
+"theological opposites(gratitude)" -1 -1 0 -1 0
+"theological opposites(celebration of community)" -1 -1 0 -1 0
+"expression(appreciation for fan support)" -1 -1 0 -1 0
+"physical preference(humility)" -1 -1 0 -1 0
+"social(diverse fan base)" -1 -1 0 -1 0
+"relationship focus(impact on fans)" -1 -1 0 -1 0
+"sexual orientation(appreciation for fan support)" -1 -1 0 -1 0
+"physical preference(body image inclusivity)" -1 -1 0 -1 0
+"culture(intergenerational impact)" -1 -1 0 -1 0
+"group faith(appreciation for fan support)" -1 -1 0 -1 0
+"old and new believers(appreciation for fan support)" -1 -1 0 -1 0
+"old and new believers(responsibility as a role model)" -1 -1 0 -1 0
+"expression(influence on fans)" -1 -1 0 -1 0
+"sexual orientation(influence on fans)" -1 -1 0 -1 0
+"group experience()" -1 -1 0 -1 0
+"gender(influence on fans)" -1 -1 0 -1 0
+"old and new believers(recognition for perseverance)" -1 -1 0 -1 0
+"theological opposites(recognition for cultural impact)" -1 -1 0 -1 0
+"belief communities(impact on fans)" -1 -1 0 -1 0
+"theological opposites(impact on fans)" -1 -1 0 -1 0
+"faith and reason seekers(recognition for appreciation)" -1 -1 0 -1 0
+"faith and reason seekers(recognition for diversity)" -1 -1 0 -1 0
+"faith and reason seekers(recognition for inspiration)" -1 -1 0 -1 0
+"rational believers(individualistic)" -1 -1 0 -1 0
+"theological opposites(atheistic)" -1 -1 0 -1 0
+"group faith(religious community)" -1 -1 0 -1 0
+"rationality(reasonable)" -1 -1 0 -1 0
+"social(individual-focused)" -1 -1 0 -1 0
+"rational believers(skeptic)" -1 -1 0 -1 0
+"group faith(secular society)" -1 -1 0 -1 0
+"patience(instant gratification)" -1 -1 0 -1 0
+"emotional realism(realistic emotions)" -1 -1 0 -1 0
+"relationship focus(individual-focused)" -1 -1 0 -1 0
+"truthfulness(fictional)" -1 -1 0 -1 0
+"authencity(authentic)" -1 -1 0 -1 0
+"authenticity(social media-driven)" -1 -1 0 -1 0
+"social(anti-capitalism)" -1 -1 0 -1 0
+"intimacy preference(monogamy)" -1 -1 0 -1 0
+"romance style(playful)" -1 -1 0 -1 0
+"theological opposites(atheist)" -1 -1 0 -1 0
+"economic(liberal)" -1 -1 0 -1 0
+"peacefulness(troublemaker)" -1 -1 0 -1 0
+"identity(independent)" -1 -1 0 -1 0
+"identity(dependent)" -1 -1 0 -1 0
+"lyrical emphasis(straightforward scripts)" -1 -1 0 -1 0
+"romantic preference(self-love)" -1 -1 0 -1 0
+"romantic preference(no preference)" -1 -1 0 -1 0
+"storymode(simple themes)" -1 -1 0 -1 0
+"mindfulness(mindless)" -1 -1 0 -1 0
+"sovereignty(individual)" -1 -1 0 -1 0
+"problem solving strategy(cunning)" -1 -1 0 -1 0
+"emotion(melancholic)" -1 -1 0 -1 0
+"attitude 1(closed)" -1 -1 0 -1 0
+"emotion(joyful)" -1 -1 0 -1 0
+"love status(romantic love)" -1 -1 0 -1 0
+"patient patience(impatience)" -1 -1 0 -1 0
+"sovereignty(collective)" -1 -1 0 -1 0
+"socioeconomic status(high)" -1 -1 0 -1 0
+"socioeconomic status(low)" -1 -1 0 -1 0
+"belief communities(collective)" -1 -1 0 -1 0
+"attitude 2(hopeful)" -1 -1 0 -1 0
+"mood 2(lighthearted)" -1 -1 0 -1 0
+"patient(longevity)" -1 -1 0 -1 0
+"sexuality(adventurous)" -1 -1 0 -1 0
+"relationship(without romantic partner)" -1 -1 0 -1 0
+"anti-capitalism(corporation relations)" -1 -1 0 -1 0
+"celebrity persona(body positivity)" -1 -1 0 -1 0
+"spirituality(self-love)" -1 -1 0 -1 0
+"generation(youth-oriented)" -1 -1 0 -1 0
+"relationship(issues with mother)" -1 -1 0 -1 0
+"sophistication(sophisticated)" -1 -1 0 -1 0
+"average expectations(acceptance)" -1 -1 0 -1 0
+"relational to others(self-acceptance)" -1 -1 0 -1 0
+"expectations(perfection)" -1 -1 0 -1 0
+"peacefulness(peacemaker)" -1 -1 0 -1 0
+"faith extremes(skeptic)" -1 -1 0 -1 0
+"attitude 1(hopeful)" -1 -1 0 -1 0
+"attitude 2(despair)" -1 -1 0 -1 0
+"economic(conservative)" -1 -1 0 -1 0
+"language and communication(slang)" -1 -1 0 -1 0
+"lifestyle and environment(suburban)" -1 -1 0 -1 0
+"expectation extremes(disappointment)" -1 -1 0 -1 0
+"family(loving family)" -1 -1 0 -1 0
+"mood 4(dramatic)" -1 -1 0 -1 0
+"lyrical emphasis(emotionally restrained)" -1 -1 0 -1 0
+"patience(longevity)" -1 -1 0 -1 0
+"authencity(social media-driven)" -1 -1 0 -1 0
+"sophisticated(simple)" -1 -1 0 -1 0
+"individual spirituality(faith and reason seekers)" -1 -1 0 -1 0
+"attitude 5(serious)" -1 -1 0 -1 0
+"imagery(unique)" -1 -1 0 -1 0
+"group faith(collective)" -1 -1 0 -1 0
+"group faith(individual-oriented)" -1 -1 0 -1 0
+"interpersonal relations(rude behavior)" -1 -1 0 -1 0
+"expectation management(lazy behavior)" -1 -1 0 -1 0
+"critical attitude(self-criticism)" -1 -1 0 -1 0
+"emotional honesty(emotional expression)" -1 -1 0 -1 0
+"pattern-breaking(unproductive habits)" -1 -1 0 -1 0
+"bodily signals(bodily discomfort)" -1 -1 0 -1 0
+"sleep management(lack of sleep)" -1 -1 0 -1 0
+"emotional well-being(fear)" -1 -1 0 -1 0
+"sleep management(difficulty falling asleep)" -1 -1 0 -1 0
+"mental health(anxiety)" -1 -1 0 -1 0
+"mental health(fear)" -1 -1 0 -1 0
+"expectation management(new beginning)" -1 -1 0 -1 0
+"critical attitude(openness)" -1 -1 0 -1 0
+"existential experience(everyday life)" -1 -1 0 -1 0
+"perception of time(change)" -1 -1 0 -1 0
+"mental health(joy)" -1 -1 0 -1 0
+"pattern-making(planning and organizing)" -1 -1 0 -1 0
+"physical well-being(fearlessness)" -1 -1 0 -1 0
+"creativity(inspiration)" -1 -1 0 -1 0
+"interpersonal relations(sibling love)" -1 -1 0 -1 0
+"critical attitude(self-reflection)" -1 -1 0 -1 0
+"critical attitude(self-acceptance)" -1 -1 0 -1 0
+"interpersonal relations(father-daughter/son relationship)" -1 -1 0 -1 0
+"ion(openness)" -1 -1 0 -1 0
+"emotion realism(realistic emotions)" -1 -1 0 -1 0
+"event focus(party anthems)" -1 -1 0 -1 0
+"event focus(introspective ballads)" -1 -1 0 -1 0
+"truthful(transparent)" -1 -1 0 -1 0
+"truthful(mysterious)" -1 -1 0 -1 0
+"commercial appeal(artistic integrity)" -1 -1 0 -1 0
+"relational focus(partner-focused)" -1 -1 0 -1 0
+"relational focus(individual-focused)" -1 -1 0 -1 0
+"motivational tactic(rewarding)" -1 -1 0 -1 0
+"motivational tactic(punishing)" -1 -1 0 -1 0
+"hygiene(emotional hygiene)" -1 -1 0 -1 0
+"mental health(depression)" -1 -1 0 -1 0
+"introspection(self-doubt)" -1 -1 0 -1 0
+"love status(unsure)" -1 -1 0 -1 0
+"love status(interested in friendship)" -1 -1 0 -1 0
+"communication(confusion)" -1 -1 0 -1 0
+"introspection(self-reflection)" -1 -1 0 -1 0
+"happiness(joyful)" -1 -1 0 -1 0
+"society(diversity)" -1 -1 0 -1 0
+"community(companionship)" -1 -1 0 -1 0
+"relationship(together)" -1 -1 0 -1 0
+"community(equality)" -1 -1 0 -1 0
+"society(unity)" -1 -1 0 -1 0
+"society(segregation)" -1 -1 0 -1 0
+"faith and reason seekers(binaural)" -1 -1 0 -1 0
+"old and new believers(irreligious)" -1 -1 0 -1 0
+"accountability(accountable)" -1 -1 0 -1 0
+"economy(anti-capitalism)" -1 -1 0 -1 0
+"responsibility(accountability)" -1 -1 0 -1 0
+"independence(dependence)" -1 -1 0 -1 0
+"autonomy(dependent)" -1 -1 0 -1 0
+"problem-solving strategy(cunning)" -1 -1 0 -1 0
+"moral code(immoral)" -1 -1 0 -1 0
+"life and love(self-love)" -1 -1 0 -1 0
+"importance(important)" -1 -1 0 -1 0
+"responsibility(responsible)" -1 -1 0 -1 0
+"song lyrics(encouragement)" -1 -1 0 -1 0
+"song lyrics(perseverance)" -1 -1 0 -1 0
+"love and relationships(communication)" -1 -1 0 -1 0
+"faith and reason seekers(skeptic)" -1 -1 0 -1 0
+"mental health(seeking help)" -1 -1 0 -1 0
+"mental health(acceptance of emotions)" -1 -1 0 -1 0
+"life experiences(ups and downs)" -1 -1 0 -1 0
+"life experiences(things that change)" -1 -1 0 -1 0
+"life experiences(changes in seasons)" -1 -1 0 -1 0
+"life experiences(changes in weather)" -1 -1 0 -1 0
+"cultural elements(changing cultural norms)" -1 -1 0 -1 0
+"mood 5(serious)" -1 -1 0 -1 0
+"situation relation(diplomatic)" -1 -1 0 -1 0
+"situation relation(aggressive)" -1 -1 0 -1 0
+"average expectations(expectation-bending)" -1 -1 0 -1 0
+"average expectations(expectation-breaking)" -1 -1 0 -1 0
+"life and love(regrets)" -1 -1 0 -1 0
+"life and love(learning from mistakes)" -1 -1 0 -1 0
+"physical preference(body enhancing beauty.)" -1 -1 0 -1 0
+"institutions of power(radio stations)" -1 -1 0 -1 0
+"institutions of power(record labels)" -1 -1 0 -1 0
+"institutions of power(fame)" -1 -1 0 -1 0
+"institutions of power(media outlets)" -1 -1 0 -1 0
+"institutions of power(production studios)" -1 -1 0 -1 0
+"institutions of power(music industry)" -1 -1 0 -1 0
+"institutions of power(music critics)" -1 -1 0 -1 0
+"institutions of power(gossipers)" -1 -1 0 -1 0
+"institutions of power(critics)" -1 -1 0 -1 0
+"institutions of power(producers)" -1 -1 0 -1 0
+"institutions of power(music engineers)" -1 -1 0 -1 0
+"institutions of power(social media influencers)" -1 -1 0 -1 0
+"institutions of power(record executives)" -1 -1 0 -1 0
+"institution of power(manager)" -1 -1 0 -1 0
+"institutions of power(chart toppers)" -1 -1 0 -1 0
+"institutions of power(competitors)" -1 -1 0 -1 0
+"institutions of power(fake friends)" -1 -1 0 -1 0
+"institutions of power(powerful connections)" -1 -1 0 -1 0
+"institutions of power(market trend analysts)" -1 -1 0 -1 0
+"institutions of power(publicists)" -1 -1 0 -1 0
+"institutions of power(stylists)" -1 -1 0 -1 0
+"institutions of power(legal team)" -1 -1 0 -1 0
+"institutions of power(personal advisors)" -1 -1 0 -1 0
+"institutions of power(self-made musicians)" -1 -1 0 -1 0
+"institutions of power(mentors)" -1 -1 0 -1 0
+"institutions of power(hit-making collaborators)" -1 -1 0 -1 0
+"institutions of power(songwriters)" -1 -1 0 -1 0
+"institutions of power(music producers)" -1 -1 0 -1 0
+"reality(material possessions ≠ true happiness)" -1 -1 0 -1 0
+"institutions of power(music industry gatekeepers)" -1 -1 0 -1 0
+"institutions of power(music industry decision-makers)" -1 -1 0 -1 0
+"motivational(rewarding)" -1 -1 0 -1 0
+"audience(alternative)" -1 -1 0 -1 0
+"sensitivity(sensitive)" -1 -1 0 -1 0
+"motto of life(altruistic)" -1 -1 0 -1 0
+"cynicism(pessimistic)" -1 -1 0 -1 0
+"humanity(compassion)" -1 -1 0 -1 0
+"philosophical outlook(altruism)" -1 -1 0 -1 0
+"humanity(interconnectedness)" -1 -1 0 -1 0
+"worldview(individualism)" -1 -1 0 -1 0
+"attitude 2(hopeless)" -1 -1 0 -1 0
+"attitude 3(pessimistic)" -1 -1 0 -1 0
+"production style(acoustic)" -1 -1 0 -1 0
+"sophistication(simple)" -1 -1 0 -1 0
+"aggression(passive)" -1 -1 0 -1 0
+"view on love(aspirational)" -1 -1 0 -1 0
+"commercial appeal(mainstream success)" -1 -1 0 -1 0
+"physical preference(body-enhancing beauty)" -1 -1 0 -1 0
+"comprehensive(young lady)" -1 -1 0 -1 0
+"rational believers(reasonable)" -1 -1 0 -1 0
+"spiritual seeker(rational thinker)" -1 -1 0 -1 0
+"seeker of truth(rational thinker)" -1 -1 0 -1 0
+"universal group(individual-oriented)" -1 -1 0 -1 0
+"intuitive thinkers(mystic practitioner)" -1 -1 0 -1 0
+"intuitive thinkers(rationalist)" -1 -1 0 -1 0
+"intuition thinkers(rationalist)" -1 -1 0 -1 0
+"seekers of truth(spiritual seeker)" -1 -1 0 -1 0
+"theology attributes(atheistic)" -1 -1 0 -1 0
+"cheeky talk(rebellious)" -1 -1 0 -1 0
+"joking(demonic imagery)" -1 -1 0 -1 0
+"cheeky talk(provocative)" -1 -1 0 -1 0
+"cheeky talk(adventurous)" -1 -1 0 -1 0
+"cliche attributes(basic)" -1 -1 0 -1 0
+"gender(homosexual)" -1 -1 0 -1 0
+"cheeky talk(insulting humor)" -1 -1 0 -1 0
+"cheeky talk(confident)" -1 -1 0 -1 0
+"cheeky talk(playful)" -1 -1 0 -1 0
+"hip hop culture(bragging)" -1 -1 0 -1 0
+"cheeky talk(sexualized)" -1 -1 0 -1 0
+"occupation(rapper/hip hop artist)" -1 -1 0 -1 0
+"occupation(blue-collar worker)" -1 -1 0 -1 0
+"cheeky talk(paranoid)" -1 -1 0 -1 0
+"theatre attributes(attention-seeking)" -1 -1 0 -1 0
+"cheeky talk(clever wordplay)" -1 -1 0 -1 0
+"occupation(criminal/convict)" -1 -1 0 -1 0
+"drug culture(marijuana use)" -1 -1 0 -1 0
+"negative attitude(complaining)" -1 -1 0 -1 0
+"regional pride(helsinki)" -1 -1 0 -1 0
+"cheeky talk(boasting)" -1 -1 0 -1 0
+"drug culture(access to high-quality drugs)" -1 -1 0 -1 0
+"cultural elements(traditional finnish alcohol)" -1 -1 0 -1 0
+"cheeky talk(male bravado)" -1 -1 0 -1 0
+"occupational attributes(rapper)" -1 -1 0 -1 0
+"negative attitude(hating on others)" -1 -1 0 -1 0
+"cheeky talk(materialistic)" -1 -1 0 -1 0
+"financial struggles(lack of wealth)" -1 -1 0 -1 0
+"negative attitude(blaming others)" -1 -1 0 -1 0
+"blaming others(police/security guards)" -1 -1 0 -1 0
+"financial struggles(limited income)" -1 -1 0 -1 0
+"cultural elements(hip hop culture)" -1 -1 0 -1 0
+"mental health(need for therapy and support)" -1 -1 0 -1 0
+"culture(foreign influences)" -1 -1 0 -1 0
+"culture(diverse elements)" -1 -1 0 -1 0
+"social(party culture)" -1 -1 0 -1 0
+"social(solo lifestyle)" -1 -1 0 -1 0
+"physical preference(artificial beauty)" -1 -1 0 -1 0
+"social(fame and celebrity culture)" -1 -1 0 -1 0
+"social(self-love and body positivity)" -1 -1 0 -1 0
+"faith extremes(disillusionment with organized religion)" -1 -1 0 -1 0
+"mental health(trauma and healing)" -1 -1 0 -1 0
+"relationship(breakup and moving on)" -1 -1 0 -1 0
+"physical preference(youthful appearance)" -1 -1 0 -1 0
+"consumerism(cheap vs expensive love)" -1 -1 0 -1 0
+"love status(unrequited love)" -1 -1 0 -1 0
+"mental health(anxiety and fear)" -1 -1 0 -1 0
+"spiritual(feelings of guilt and shame)" -1 -1 0 -1 0
+"physical preference(attractive vs unattractive)" -1 -1 0 -1 0
+"love status(single and independent)" -1 -1 0 -1 0
+"mental health(depression and isolation)" -1 -1 0 -1 0
+"relationship(breakup and loss)" -1 -1 0 -1 0
+"mental health(addiction and recovery)" -1 -1 0 -1 0
+"social(communal living)" -1 -1 0 -1 0
+"mental health(coping with breakup)" -1 -1 0 -1 0
+"mental health(denial and avoidance)" -1 -1 0 -1 0
+"mental health(coping with grief and loss)" -1 -1 0 -1 0
+"mental health(seeking closure and moving on)" -1 -1 0 -1 0
+"mental health(processing emotions and healing)" -1 -1 0 -1 0
+"mental health(being rejected and coping)" -1 -1 0 -1 0
+"mental health(being rejected and moving on)" -1 -1 0 -1 0
+"mental health(depression and self-esteem issues)" -1 -1 0 -1 0
+"mental health(coping with rejection and moving on)" -1 -1 0 -1 0
+"mental health(confusion and denial)" -1 -1 0 -1 0
+"mental health(irreversible decisions and consequences)" -1 -1 0 -1 0
+"mental health(self-sufficient and independent)" -1 -1 0 -1 0
+"mental health(moving on and working through emotions)" -1 -1 0 -1 0
+"mental health(survivor's guilt and acceptance)" -1 -1 0 -1 0
+"spiritual(reflection and self-discovery)" -1 -1 0 -1 0
+"mental health(understanding and learning to let go)" -1 -1 0 -1 0
+"mental health(detachment and detachment)" -1 -1 0 -1 0
+"mental health(processing and acceptance)" -1 -1 0 -1 0
+"mental health(coping with change and finding solace)" -1 -1 0 -1 0
+"mental health(finding meaning and purpose in mundane tasks)" -1 -1 0 -1 0
+"mental health(therapeutic value of cleaning and organizing)" -1 -1 0 -1 0
+"relationship(navigating conflicting desires and goals)" -1 -1 0 -1 0
+"love status(ready to move on and explore new relationships)" -1 -1 0 -1 0
+"sexuality(limited)" -1 -1 0 -1 0
+"sexual commitment(polygamy)" -1 -1 0 -1 0
+"rational beliefs(religious)" -1 -1 0 -1 0
+"rational beliefs(scientific)" -1 -1 0 -1 0
+"independent(independence)" -1 -1 0 -1 0
+"independent(dependence)" -1 -1 0 -1 0
+"cooperation relations(anti-capitalism)" -1 -1 0 -1 0
+"cooperation relations(consumerism)" -1 -1 0 -1 0
+"motivation(punishing)" -1 -1 0 -1 0
+"faith and reason seekers(mystical practitioner)" -1 -1 0 -1 0
+"narrative(narrative detachment)" -1 -1 0 -1 0
+"mood 1(melancholic)" -1 -1 0 -1 0
+"social(individualistic)" -1 -1 0 -1 0
+"nyt mä nauran(joyful \(mood 1\))" -1 -1 0 -1 0
+"ystävyyttä ilman pyrkimystä pitää yhtä(independent \(attitude 3\))" -1 -1 0 -1 0
+"autatsä paikkaamaan taivaan(optimistic \(attitude 3\))" -1 -1 0 -1 0
+"laita sä pohjantähti oikeeseen paikkaan(correcting/fixing \(problem solving strategy\))" -1 -1 0 -1 0
+"eikä marttyyrius tee susta automaattisesti pyhimystä(anti-capitalism \(culture\))" -1 -1 0 -1 0
+"vaikka ne tossa käiesi ku ole(existential crisis \(life and love\))" -1 -1 0 -1 0
+"financial situation(financially stable)" -1 -1 0 -1 0
+"financial situation(struggling)" -1 -1 0 -1 0
+"emotions(joy)" -1 -1 0 -1 0
+"family(mother)" -1 -1 0 -1 0
+"time(running late)" -1 -1 0 -1 0
+"earnings(extra income)" -1 -1 0 -1 0
+"earnings(insufficient)" -1 -1 0 -1 0
+"spending(impulsiveness)" -1 -1 0 -1 0
+"spending(budgeting)" -1 -1 0 -1 0
+"youth(growing up)" -1 -1 0 -1 0
+"youth(learning from mistakes)" -1 -1 0 -1 0
+"experience(gaining knowledge)" -1 -1 0 -1 0
+"location(in the city)" -1 -1 0 -1 0
+"appearance(iro)" -1 -1 0 -1 0
+"appearance(punk)" -1 -1 0 -1 0
+"entertainment(people-watching)" -1 -1 0 -1 0
+"entertainment(going to concerts)" -1 -1 0 -1 0
+"transportation(taking public transportation)" -1 -1 0 -1 0
+"transportation(riding a moped)" -1 -1 0 -1 0
+"relationships(friendship)" -1 -1 0 -1 0
+"location(in a big city)" -1 -1 0 -1 0
+"appearance(unconventional)" -1 -1 0 -1 0
+"appearance(edgy)" -1 -1 0 -1 0
+"entertainment(listening to music)" -1 -1 0 -1 0
+"entertainment(playing street hockey)" -1 -1 0 -1 0
+"habits(smoking)" -1 -1 0 -1 0
+"habits(partying)" -1 -1 0 -1 0
+"habits(drinking alcohol)" -1 -1 0 -1 0
+"reactions(fear)" -1 -1 0 -1 0
+"reactions(judgement)" -1 -1 0 -1 0
+"transportation(walking)" -1 -1 0 -1 0
+"habits(swearing)" -1 -1 0 -1 0
+"entertainment(alternative music)" -1 -1 0 -1 0
+"entertainment(dancing)" -1 -1 0 -1 0
+"entertainment(loud music)" -1 -1 0 -1 0
+"transportation(reckless driving)" -1 -1 0 -1 0
+"music taste(hop hop)" -1 -1 0 -1 0
+"appearance(streetwear)" -1 -1 0 -1 0
+"technology(headphones)" -1 -1 0 -1 0
+"seekers of truth(skeptic)" -1 -1 0 -1 0
+"political standing(liberal)" -1 -1 0 -1 0
+"maturity(responsible.)" -1 -1 0 -1 0
+"intuitive thinkers(emotional)" -1 -1 0 -1 0
+"belief communities(cultural preservation)" -1 -1 0 -1 0
+"belief communities(anti-capitalism)" -1 -1 0 -1 0
+"provocativity(innocent)" -1 -1 0 -1 0
+"beliefs spectrum(believer)" -1 -1 0 -1 0
+"song theme(unity)" -1 -1 0 -1 0
+"ethics(values community)" -1 -1 0 -1 0
+"belief extremes(agnostic)" -1 -1 0 -1 0
+"group faith(individualistic)" -1 -1 0 -1 0
+"language(explicit)" -1 -1 0 -1 0
+"agency(independence)" -1 -1 0 -1 0
+"intensity(emotional)" -1 -1 0 -1 0
+"artistry(poetic)" -1 -1 0 -1 0
+"sensory stimulation(soaring)" -1 -1 0 -1 0
+"theological opposites(agnostic)" -1 -1 0 -1 0
+"belief communities(social)" -1 -1 0 -1 0
+"family and relationships(family-oriented)" -1 -1 0 -1 0
+"genuineness(honest)" -1 -1 0 -1 0
+"family and relationships(friends)" -1 -1 0 -1 0
+"purpose and goals(dreams and aspirations)" -1 -1 0 -1 0
+"self-concept(ambitious)" -1 -1 0 -1 0
+"family and relationships(intimate relationships)" -1 -1 0 -1 0
+"love and romance(nostalgic)" -1 -1 0 -1 0
+"love and romance(heartbreak)" -1 -1 0 -1 0
+"economy and politics(anti-capitalism)" -1 -1 0 -1 0
+"love and romance(romantic love)" -1 -1 0 -1 0
+"economy and politics(libertarian)" -1 -1 0 -1 0
+"purpose and goals(self-discovery)" -1 -1 0 -1 0
+"love and romance(unrequited love)" -1 -1 0 -1 0
+"love and romance(soulmates)" -1 -1 0 -1 0
+"purpose and goals(embracing failure)" -1 -1 0 -1 0
+"intimacy(vulnerability)" -1 -1 0 -1 0
+"identity and self-concept(self-doubt)" -1 -1 0 -1 0
+"socioeconomic(consumerism)" -1 -1 0 -1 0
+"romantic love status(heartbreak)" -1 -1 0 -1 0
+"socioeconomic(anti-capitalism)" -1 -1 0 -1 0
+"duty relationship(responsible)" -1 -1 0 -1 0
+"mood 4(playful)" -1 -1 0 -1 0
+"motivational attitude(optimistic)" -1 -1 0 -1 0
+"physique preference(luxurious body)" -1 -1 0 -1 0
+"physical preference(captivating gaze)" -1 -1 0 -1 0
+"physical preference(unique beauty)" -1 -1 0 -1 0
+"physical preference(captivating appearance)" -1 -1 0 -1 0
+"sexual orientation(normal)" -1 -1 0 -1 0
+"patient responsibility(dependence)" -1 -1 0 -1 0
+"physical preference(attention-grabbing)" -1 -1 0 -1 0
+"physical preference(unforgettable)" -1 -1 0 -1 0
+"human strength(attractive qualities)" -1 -1 0 -1 0
+"human strength(hectic life)" -1 -1 0 -1 0
+"physical preference(intense gaze)" -1 -1 0 -1 0
+"average expectations(perfection)" -1 -1 0 -1 0
+"rationality(emotional)" -1 -1 0 -1 0
+"physical preference(attractive appearance)" -1 -1 0 -1 0
+"belief communities(individual spirituality)" -1 -1 0 -1 0
+"theological opposites(honest)" -1 -1 0 -1 0
+"theological opposites(honesty)" -1 -1 0 -1 0
+"theological opposites(authenticity)" -1 -1 0 -1 0
+"belief communities(authentic)" -1 -1 0 -1 0
+"artistic integrity(artistic integrity)" -1 -1 0 -1 0
+"family bond(parent-child trust)" -1 -1 0 -1 0
+"artistic integrity(authenticity)" -1 -1 0 -1 0
+"mindfulness(patience and awareness)" -1 -1 0 -1 0
+"eternal love(unconditional love)" -1 -1 0 -1 0
+"independence(independence)" -1 -1 0 -1 0
+"life and love(perseverance)" -1 -1 0 -1 0
+"perseverance(perseverance)" -1 -1 0 -1 0
+"perseverance(resilience)" -1 -1 0 -1 0
+"perspective(determination and ambition)" -1 -1 0 -1 0
+"target of love(self-love)" -1 -1 0 -1 0
+"goal(determination)" -1 -1 0 -1 0
+"songwriting style(emotional realism)" -1 -1 0 -1 0
+"artistry(independent)" -1 -1 0 -1 0
+"corporation relations(anti-capitalism)" -1 -1 0 -1 0
+"artistry(mainstream success)" -1 -1 0 -1 0
+"humanity(youth-oriented)" -1 -1 0 -1 0
+"attitute 2(hopeful)" -1 -1 0 -1 0
+"concept(psychedelic)" -1 -1 0 -1 0
+"attitute 3(optimistic)" -1 -1 0 -1 0
+"emotion realism(happiness)" -1 -1 0 -1 0
+"cynicism(open-minded)" -1 -1 0 -1 0
+"corporate relations(consumerism)" -1 -1 0 -1 0
+"friendship(open)" -1 -1 0 -1 0
+"sexualization(innocent)" -1 -1 0 -1 0
+"expectations(acceptance)" -1 -1 0 -1 0
+"direction(positive)" -1 -1 0 -1 0
+"relationship(partner-focused)" -1 -1 0 -1 0
+"group experience(party anthems)" -1 -1 0 -1 0
+"communal faith(traditional religion)" -1 -1 0 -1 0
+"seeking truth(spiritual seeker)" -1 -1 0 -1 0
+"seeking truth(skeptic)" -1 -1 0 -1 0
+"psychological focus(emotional realism)" -1 -1 0 -1 0
+"psychological focus(realistic emotions)" -1 -1 0 -1 0
+"parental parenting(social monitoring)" -1 -1 0 -1 0
+"parental parenting(authoritative)" -1 -1 0 -1 0
+"pyschological naturalness(nature)" -1 -1 0 -1 0
+"pyschological naturalness(nurture)" -1 -1 0 -1 0
+"violence glorification(peacefulness)" -1 -1 0 -1 0
+"violence glorification(troublemaker)" -1 -1 0 -1 0
+"education and knowledge(knowledge-seeking)" -1 -1 0 -1 0
+"education and knowledge(knowledge-withholding)" -1 -1 0 -1 0
+"tragedy and loss(death)" -1 -1 0 -1 0
+"tragedy and loss(grief)" -1 -1 0 -1 0
+"parental parenting(love and support)" -1 -1 0 -1 0
+"intuition thinkers(mystic practitioner)" -1 -1 0 -1 0
+"time relation(past)" -1 -1 0 -1 0
+"emotional realism(melancholic)" -1 -1 0 -1 0
+"emotional realism(heavy)" -1 -1 0 -1 0
+"intimacy(buried feelings)" -1 -1 0 -1 0
+"attitude(closed)" -1 -1 0 -1 0
+"intimacy(broken trust)" -1 -1 0 -1 0
+"time relation(future)" -1 -1 0 -1 0
+"attitutde 1(closed)" -1 -1 0 -1 0
+"audio production(acoustic)" -1 -1 0 -1 0
+"intensity(heavy)" -1 -1 0 -1 0
+"interpretation and response(film noir)" -1 -1 0 -1 0
+"maturity and disillusionment(disillusionment)" -1 -1 0 -1 0
+"image(unique)" -1 -1 0 -1 0
+"image(trope-reinforcing)" -1 -1 0 -1 0
+"sexuality(heterosexual)" -1 -1 0 -1 0
+"belief communities(respectful)" -1 -1 0 -1 0
+"competitiveness(competition)" -1 -1 0 -1 0
+"seekers of truth(critical thinker)" -1 -1 0 -1 0
+"rational believers(logical)" -1 -1 0 -1 0
+"belief communities(reflective)" -1 -1 0 -1 0
+"belief communities(influential)" -1 -1 0 -1 0
+"integrity(respectful)" -1 -1 0 -1 0
+"belief communities(creative outlets)" -1 -1 0 -1 0
+"sexual orientation(neutral)" -1 -1 0 -1 0
+"culture(globalized)" -1 -1 0 -1 0
+"cultural elements(corporate ties)" -1 -1 0 -1 0
+"cultural elements(alternative culture)" -1 -1 0 -1 0
+"cultural elements(geographic markers)" -1 -1 0 -1 0
+"sophisticated(sophisticated)" -1 -1 0 -1 0
+"economical(economical)" -1 -1 0 -1 0
+"belief communities(globalism)" -1 -1 0 -1 0
+"ethical dilemma(personal responsibility)" -1 -1 0 -1 0
+"social(liberal)" -1 -1 0 -1 0
+"wizard(magical)" -1 -1 0 -1 0
+"wizard(non-magical)" -1 -1 0 -1 0
+"position of power(successful)" -1 -1 0 -1 0
+"communication style(lyrical)" -1 -1 0 -1 0
+"communication style(straightforward)" -1 -1 0 -1 0
+"emotion(joy)" -1 -1 0 -1 0
+"emotion(shame)" -1 -1 0 -1 0
+"communication style(boasting)" -1 -1 0 -1 0
+"identity(show-off)" -1 -1 0 -1 0
+"position of power(influential)" -1 -1 0 -1 0
+"time(past)" -1 -1 0 -1 0
+"potential(learning)" -1 -1 0 -1 0
+"society(modern)" -1 -1 0 -1 0
+"writing tools(pen and paper)" -1 -1 0 -1 0
+"potential(potential for growth)" -1 -1 0 -1 0
+"potential(earnings)" -1 -1 0 -1 0
+"social(totalitarian)" -1 -1 0 -1 0
+"body preference(body enhancing beauty)" -1 -1 0 -1 0
+"body preference(natural beauty)" -1 -1 0 -1 0
+"individual spirituality(spiritual practice)" -1 -1 0 -1 0
+"authenticity(celebrity worship)" -1 -1 0 -1 0
+"mainstream success(mainstream success)" -1 -1 0 -1 0
+"expectation-conformed(expectation-conformed)" -1 -1 0 -1 0
+"friendship(loyalty)" -1 -1 0 -1 0
+"fanship(obsessed)" -1 -1 0 -1 0
+"motivational(heavy)" -1 -1 0 -1 0
+"atmosphere(gloomy)" -1 -1 0 -1 0
+"personal values(empathy)" -1 -1 0 -1 0
+"philosophical beliefs(existentialism)" -1 -1 0 -1 0
+"mental health(anger)" -1 -1 0 -1 0
+"philosophical beliefs(cynicism)" -1 -1 0 -1 0
+"emotional realism(hate)" -1 -1 0 -1 0
+"motivation(selfishness)" -1 -1 0 -1 0
+"humanity(selfishness)" -1 -1 0 -1 0
+"philosophy(materialism)" -1 -1 0 -1 0
+"media influence(violence)" -1 -1 0 -1 0
+"societal issues(consumerism)" -1 -1 0 -1 0
+"humanity(cynicism)" -1 -1 0 -1 0
+"personal values(compassion)" -1 -1 0 -1 0
+"media influence(materialism)" -1 -1 0 -1 0
+"societal issues(neglect)" -1 -1 0 -1 0
+"societal issues(waste)" -1 -1 0 -1 0
+"societal issues(overspending)" -1 -1 0 -1 0
+"personal values(minimalism)" -1 -1 0 -1 0
+"societal issues(greed)" -1 -1 0 -1 0
+"personal values(generosity)" -1 -1 0 -1 0
+"societal issues(lack of critical thinking)" -1 -1 0 -1 0
+"societal issues(lack of self-reflection)" -1 -1 0 -1 0
+"societal issues(lack of communication)" -1 -1 0 -1 0
+"societal issues(lack of empathy)" -1 -1 0 -1 0
+"societal issues(lack of mindfulness)" -1 -1 0 -1 0
+"lyrical emphasis(repetitive)" -1 -1 0 -1 0
+"personal values(loyalty)" -1 -1 0 -1 0
+"personal values(honesty)" -1 -1 0 -1 0
+"expression(intense)" -1 -1 0 -1 0
+"love status(infatuation)" -1 -1 0 -1 0
+"expression(obsessive)" -1 -1 0 -1 0
+"self-reflection(introspection)" -1 -1 0 -1 0
+"philosophy(hedonism)" -1 -1 0 -1 0
+"belief communities(mainstream success)" -1 -1 0 -1 0
+"faith extremes(skeptical)" -1 -1 0 -1 0
+"faith extremes(optimistic)" -1 -1 0 -1 0
+"faith extremes(romantic love)" -1 -1 0 -1 0
+"faith and reason seekers(believer)" -1 -1 0 -1 0
+"faith and reason seekers(mystic practitioner)" -1 -1 0 -1 0
+"faith extremes(hopeful)" -1 -1 0 -1 0
+"relationship focus(partnership-focused)" -1 -1 0 -1 0
+"rational believers(rationalist)" -1 -1 0 -1 0
+"rational belief(religious)" -1 -1 0 -1 0
+"theological opposites(compassionate)" -1 -1 0 -1 0
+"theological opposites(doubter)" -1 -1 0 -1 0
+"theological opposites(believer)" -1 -1 0 -1 0
+"faith extremes(faithful)" -1 -1 0 -1 0
+"shape your reality(knowledge)" -1 -1 0 -1 0
+"theological opposites(unbeliever)" -1 -1 0 -1 0
+"theological opposites(skeptical)" -1 -1 0 -1 0
+"belief spectrum(skeptic)" -1 -1 0 -1 0
+"closeness and unity(holding on)" -1 -1 0 -1 0
+"personal relationship building(arrogant)" -1 -1 0 -1 0
+"situational control(cooperative)" -1 -1 0 -1 0
+"closeness and unity(loyal)" -1 -1 0 -1 0
+"personal relationship building(friendly)" -1 -1 0 -1 0
+"language(playful)" -1 -1 0 -1 0
+"tradition and modernity(traditional religion)" -1 -1 0 -1 0
+"culture(individual-oriented)" -1 -1 0 -1 0
+"corporation relations(consumerism)" -1 -1 0 -1 0
+"attractiveness(natural beauty)" -1 -1 0 -1 0
+"tradition and modernity(new age spirituality)" -1 -1 0 -1 0
+"attracts crowds(alternative)" -1 -1 0 -1 0
+"expectation(perfection)" -1 -1 0 -1 0
+"responsible(secular society)" -1 -1 0 -1 0
+"loyalty(loving now)" -1 -1 0 -1 0
+"communication style(text message)" -1 -1 0 -1 0
+"reaction(confusion)" -1 -1 0 -1 0
+"introspection(indecisiveness)" -1 -1 0 -1 0
+"individualism(isolation)" -1 -1 0 -1 0
+"emotional connection(comfort)" -1 -1 0 -1 0
+"past relationships(melancholy)" -1 -1 0 -1 0
+"partner focus(physical affection)" -1 -1 0 -1 0
+"individualism(neglect)" -1 -1 0 -1 0
+"authenticity(recognition)" -1 -1 0 -1 0
+"belief spectrum(influence on behavior)" -1 -1 0 -1 0
+"personal growth(age maturation)" -1 -1 0 -1 0
+"thought process(rationality)" -1 -1 0 -1 0
+"prioritization(personal values)" -1 -1 0 -1 0
+"self-care(relaxation)" -1 -1 0 -1 0
+"work-life balance(time management)" -1 -1 0 -1 0
+"partnership(compromise)" -1 -1 0 -1 0
+"partnership(commitment)" -1 -1 0 -1 0
+"introspection(self-realization)" -1 -1 0 -1 0
+"support(encouragement)" -1 -1 0 -1 0
+"communication style(aggressive)" -1 -1 0 -1 0
+"busy lifestyle(time pressure)" -1 -1 0 -1 0
+"mutual interests(music)" -1 -1 0 -1 0
+"personal growth(self-expression)" -1 -1 0 -1 0
+"career challenges(rejection)" -1 -1 0 -1 0
+"cultural differences(loss of identity)" -1 -1 0 -1 0
+"career aspirations(determination)" -1 -1 0 -1 0
+"career development(job seeking)" -1 -1 0 -1 0
+"emotional struggle(heartache)" -1 -1 0 -1 0
+"emotional struggle(grief)" -1 -1 0 -1 0
+"changing seasons(autumn)" -1 -1 0 -1 0
+"passing of time(nostalgia)" -1 -1 0 -1 0
+"lasting impact(unforgettable memories)" -1 -1 0 -1 0
+"past events(reminiscing)" -1 -1 0 -1 0
+"changing roles(from lovers to strangers)" -1 -1 0 -1 0
+"career success(breakthrough)" -1 -1 0 -1 0
+"media attention(fame)" -1 -1 0 -1 0
+"coping mechanism(alcohol)" -1 -1 0 -1 0
+"bonding(shared interest)" -1 -1 0 -1 0
+"personal strength(hope)" -1 -1 0 -1 0
+"coping mechanism(music therapy)" -1 -1 0 -1 0
+"remembrance(tribute)" -1 -1 0 -1 0
+"greeting(informal)" -1 -1 0 -1 0
+"media(celebrity news)" -1 -1 0 -1 0
+"curiosity(questioning)" -1 -1 0 -1 0
+"societal issues(domestic violence)" -1 -1 0 -1 0
+"familiarity(previous occurrences)" -1 -1 0 -1 0
+"moral values(consequences of actions)" -1 -1 0 -1 0
+"moral values(consequences of violence)" -1 -1 0 -1 0
+"familiarity(past experiences)" -1 -1 0 -1 0
+"communication style(seeking clarification)" -1 -1 0 -1 0
+"theological opposites(non-believer)" -1 -1 0 -1 0
+"theological opposites(individual spirituality)" -1 -1 0 -1 0
+"faith extremes(traditional religion)" -1 -1 0 -1 0
+"financial relations(contributor)" -1 -1 0 -1 0
+"transparency(mysterious)" -1 -1 0 -1 0
+"faith extremes(fundamentalist)" -1 -1 0 -1 0
+"financial relations(debtor)" -1 -1 0 -1 0
+"authencity(celebrity worship)" -1 -1 0 -1 0
+"faith extremes(new age spirituality)" -1 -1 0 -1 0
+"cultural elements(anti-capitalism)" -1 -1 0 -1 0
+"mood 2(somber)" -1 -1 0 -1 0
+"theological opposites(unbelief)" -1 -1 0 -1 0
+"experience(active party-goer)" -1 -1 0 -1 0
+"position in society(upper class)" -1 -1 0 -1 0
+"faith extremes(self-proclaimed deity)" -1 -1 0 -1 0
+"existence(purposeful)" -1 -1 0 -1 0
+"scientific(logical thinker)" -1 -1 0 -1 0
+"faith extremes(false belief)" -1 -1 0 -1 0
+"belief communities(loyalty)" -1 -1 0 -1 0
+"existence(heaven)" -1 -1 0 -1 0
+"theological opposites(higher being)" -1 -1 0 -1 0
+"group experience(supportive community)" -1 -1 0 -1 0
+"human strength(vulnerable)" -1 -1 0 -1 0
+"theological opposites(harmlessness)" -1 -1 0 -1 0
+"existence(hell)" -1 -1 0 -1 0
+"belief communities(spiritual conflict)" -1 -1 0 -1 0
+"group faith(divine guidance)" -1 -1 0 -1 0
+"faith extremes(belief in higher power)" -1 -1 0 -1 0
+"important possession(status symbol)" -1 -1 0 -1 0
+"social(unapologetic)" -1 -1 0 -1 0
+"belief spectrum(spectrum adherence)" -1 -1 0 -1 0
+"body type(fit)" -1 -1 0 -1 0
+"body type(muscular)" -1 -1 0 -1 0
+"party relation(party-goer)" -1 -1 0 -1 0
+"stereotype(alpha male)" -1 -1 0 -1 0
+"social(popular)" -1 -1 0 -1 0
+"stereotype(clownish)" -1 -1 0 -1 0
+"stereotype(wealthy)" -1 -1 0 -1 0
+"experience(fitness enthusiast)" -1 -1 0 -1 0
+"uniform(muscle t-shirt)" -1 -1 0 -1 0
+"production style(club music)" -1 -1 0 -1 0
+"cultural elements(westernized culture)" -1 -1 0 -1 0
+"cultural elements(cultural adaptation)" -1 -1 0 -1 0
+"appearance(attractive)" -1 -1 0 -1 0
+"motivation(pleasing)" -1 -1 0 -1 0
+"social(alternative)" -1 -1 0 -1 0
+"mood 3(heavy)" -1 -1 0 -1 0
+"mood 1(lighthearted)" -1 -1 0 -1 0
+"romantic target(self-love)" -1 -1 0 -1 0
+"financial status(wealthy)" -1 -1 0 -1 0
+"religion(organized religion)" -1 -1 0 -1 0
+"reason and faith seekers(rational thinker)" -1 -1 0 -1 0
+"impression(witty wordplay)" -1 -1 0 -1 0
+"mood 4(humorous)" -1 -1 0 -1 0
+"mental image(innocent)" -1 -1 0 -1 0
+"group experience(individual-focused)" -1 -1 0 -1 0
+"harmful effects(intoxication)" -1 -1 0 -1 0
+"rational believers(intellectual)" -1 -1 0 -1 0
+"media and society(controversial)" -1 -1 0 -1 0
+"emotionality(emotional)" -1 -1 0 -1 0
+"emotional detachment(emotionally restrained)" -1 -1 0 -1 0
+"emotional rigor(heavy)" -1 -1 0 -1 0
+"faith extremes(atheist)" -1 -1 0 -1 0
+"intuitive thinkers(mystical practitioner)" -1 -1 0 -1 0
+"seekers of truth(seeker)" -1 -1 0 -1 0
+"identity(agent)" -1 -1 0 -1 0
+"party relation(party anthem)" -1 -1 0 -1 0
+"average expectations(mainstream success)" -1 -1 0 -1 0
+"illegal activities(drug use)" -1 -1 0 -1 0
+"illegal activities(police confrontation)" -1 -1 0 -1 0
+"sexual expression(nudity)" -1 -1 0 -1 0
+"physical preference(flared jeans)" -1 -1 0 -1 0
+"group experience(fun and positive)" -1 -1 0 -1 0
+"identity(unique and confident in their appearance)" -1 -1 0 -1 0
+"physical preference(cold weather)" -1 -1 0 -1 0
+"social movement(feminist)" -1 -1 0 -1 0
+"musical style(experimental)" -1 -1 0 -1 0
+"musical style(alternative)" -1 -1 0 -1 0
+"reckless stereotypes(seemingly derogatory)" -1 -1 0 -1 0
+"mindless(mindless)" -1 -1 0 -1 0
+"livelihood(word of honesty)" -1 -1 0 -1 0
+"emotion(optimistic)" -1 -1 0 -1 0
+"competition(competition)" -1 -1 0 -1 0
+"nature preference(natural beauty)" -1 -1 0 -1 0
+"power(influential)" -1 -1 0 -1 0
+"symbols(religious iconography)" -1 -1 0 -1 0
+"tradition(cultural preservation)" -1 -1 0 -1 0
+"courage(brave)" -1 -1 0 -1 0
+"friendship(supportive)" -1 -1 0 -1 0
+"group faith(non-believer)" -1 -1 0 -1 0
+"belief spectrum(relevant to current times)" -1 -1 0 -1 0
+"old and new believers(mainstream success)" -1 -1 0 -1 0
+"belief communities(globalization)" -1 -1 0 -1 0
+"theological opposites(religious fundamentalist)" -1 -1 0 -1 0
+"seekers of truth(altruistic)" -1 -1 0 -1 0
+"seekers of truth(hedonistic)" -1 -1 0 -1 0
+"rational believers(artistic integrity)" -1 -1 0 -1 0
+"rational believers(mainstream success)" -1 -1 0 -1 0
+"sexual orientation(bisexual)" -1 -1 0 -1 0
+"sexual preference(non-sexual)" -1 -1 0 -1 0
+"sexual preference(sexual)" -1 -1 0 -1 0
+"faith extremes(mainstream)" -1 -1 0 -1 0
+"faith extremes(alternative)" -1 -1 0 -1 0
+"imagery(metaphorical)" -1 -1 0 -1 0
+"imagery(literal)" -1 -1 0 -1 0
+"femininity(modesty)" -1 -1 0 -1 0
+"femininity(boldness)" -1 -1 0 -1 0
+"clarity(directness)" -1 -1 0 -1 0
+"emotional realism(happy)" -1 -1 0 -1 0
+"intelligence(intellectual)" -1 -1 0 -1 0
+"attitude 1(open \(covert\))" -1 -1 0 -1 0
+"physical preference(voluptuousness)" -1 -1 0 -1 0
+"objectification(objectifying women)" -1 -1 0 -1 0
+"physical preference(luxury brands)" -1 -1 0 -1 0
+"physical preference(phallic symbols)" -1 -1 0 -1 0
+"physical preference(luxurious lifestyle)" -1 -1 0 -1 0
+"discrimination(homophobia)" -1 -1 0 -1 0
+"sexual acting(confidence)" -1 -1 0 -1 0
+"anxiety(performance anxiety)" -1 -1 0 -1 0
+"mental health(performance pressure)" -1 -1 0 -1 0
+"self-esteem(unhealthy self-esteem)" -1 -1 0 -1 0
+"career goals(achieving success)" -1 -1 0 -1 0
+"independence(rebellion)" -1 -1 0 -1 0
+"cultural elements(americanization)" -1 -1 0 -1 0
+"religious extreme(hedonism)" -1 -1 0 -1 0
+"maturity level(immature)" -1 -1 0 -1 0
+"body image(focus on physical appearance)" -1 -1 0 -1 0
+"substance abuse(alcohol addiction)" -1 -1 0 -1 0
+"body image(objectifying women's bodies)" -1 -1 0 -1 0
+"substance abuse(drug addiction)" -1 -1 0 -1 0
+"self-esteem(self-importance)" -1 -1 0 -1 0
+"discrimination(objectifying women)" -1 -1 0 -1 0
+"cultural appropriation(commercialization of culture)" -1 -1 0 -1 0
+"cultural appropriation(misrepresentation of culture)" -1 -1 0 -1 0
+"religious belief(christian)" -1 -1 0 -1 0
+"cultural appropriation(commodification of culture)" -1 -1 0 -1 0
+"storymode(narrative detachment)" -1 -1 0 -1 0
+"narrative(protagonist storytelling or mindfulness: mindless \(unclear\))" -1 -1 0 -1 0
+"language(finnish)" -1 -1 0 -1 0
+"religion(not specified)" -1 -1 0 -1 0
+"language(english)" -1 -1 0 -1 0
+"intolerance(intolerant)" -1 -1 0 -1 0
+"expectancy(rewarding)" -1 -1 0 -1 0
+"expect say(honesty)" -1 -1 0 -1 0
+"sophisticaion(simple)" -1 -1 0 -1 0
+"brand(luxurious)" -1 -1 0 -1 0
+"attitue 2(hopeful)" -1 -1 0 -1 0
+"attitue 3(optimistic)" -1 -1 0 -1 0
+"source of inspiration(relevant to current times)" -1 -1 0 -1 0
+"mindfuless(mindless)" -1 -1 0 -1 0
+"adherence(genuine)" -1 -1 0 -1 0
+"ideological shift(anti-capitalism)" -1 -1 0 -1 0
+"sexualizing behavior(confident)" -1 -1 0 -1 0
+"humanity representation(animalistic)" -1 -1 0 -1 0
+"generic narrative(generic)" -1 -1 0 -1 0
+"ideological extremes(optimistic)" -1 -1 0 -1 0
+"scientific(unrealistic)" -1 -1 0 -1 0
+"cultural stylings(regional)" -1 -1 0 -1 0
+"inspirational aspiration(hopeful)" -1 -1 0 -1 0
+"linguistic construct(heavy slang and profanity)" -1 -1 0 -1 0
+"cultural elements(urban influences)" -1 -1 0 -1 0
+"cultural stylings(urban)" -1 -1 0 -1 0
+"humankind(evolved)" -1 -1 0 -1 0
+"humankind(savage)" -1 -1 0 -1 0
+"social effects(poverty)" -1 -1 0 -1 0
+"authenticity(inauthentic)" -1 -1 0 -1 0
+"ideological extremes(pessimistic)" -1 -1 0 -1 0
+"philosophical perspective(introspective)" -1 -1 0 -1 0
+"old and new believers(nostalgic)" -1 -1 0 -1 0
+"old and new believers(spiritual seeker)" -1 -1 0 -1 0
+"old and new believers(heartbreak)" -1 -1 0 -1 0
+"disbelief spectrum(skeptic)" -1 -1 0 -1 0
+"cynical believers(anti-capitalism)" -1 -1 0 -1 0
+"old and new believers(globalisation)" -1 -1 0 -1 0
+"belief communities(individualistic)" -1 -1 0 -1 0
+"faith extremes(mainstream success)" -1 -1 0 -1 0
+"old and new believers(mainstream)" -1 -1 0 -1 0
+"theatre group(traditional religion)" -1 -1 0 -1 0
+"old and new believers(peacefulness)" -1 -1 0 -1 0
+"old and new believers(drugs)" -1 -1 0 -1 0
+"old and new believers(somber)" -1 -1 0 -1 0
+"lyrics(drug influence)" -1 -1 0 -1 0
+"mainstream musisians(mainstream success)" -1 -1 0 -1 0
+"lyrics(unoriginal)" -1 -1 0 -1 0
+"imagery(trope-reinforcing)" -1 -1 0 -1 0
+"disbelief spectrum(non-believer)" -1 -1 0 -1 0
+"group faith(traditional religion)" -1 -1 0 -1 0
+"disbelief spectrum(mainstream)" -1 -1 0 -1 0
+"changing beliefs(authenticity)" -1 -1 0 -1 0
+"old and new believers(love and relationships)" -1 -1 0 -1 0
+"changing beliefs(honest)" -1 -1 0 -1 0
+"conventional listeners(commercial appeal)" -1 -1 0 -1 0
+"old and new believers(problematic behavior)" -1 -1 0 -1 0
+"old and new believers(traditional finnish music)" -1 -1 0 -1 0
+"old and new believers(conformity)" -1 -1 0 -1 0
+"old and new believers(individual-oriented)" -1 -1 0 -1 0
+"faith extremes(aspirational)" -1 -1 0 -1 0
+"belief communities(consumerism)" -1 -1 0 -1 0
+"ethics(criminal)" -1 -1 0 -1 0
+"culture(globalisation)" -1 -1 0 -1 0
+"faith extremes(non-believer)" -1 -1 0 -1 0
+"physical strength(strong)" -1 -1 0 -1 0
+"faith extremes(open)" -1 -1 0 -1 0
+"gender(male/female)" -1 -1 0 -1 0
+"transparency(transparent)" -1 -1 0 -1 0
+"stereotypes(wild)" -1 -1 0 -1 0
+"beliefs communities(cultural preservation)" -1 -1 0 -1 0
+"artistic style(fine art)" -1 -1 0 -1 0
+"romantic love(loving now)" -1 -1 0 -1 0
+"presence(empty)" -1 -1 0 -1 0
+"problem solving strategy(manipulative)" -1 -1 0 -1 0
+"emotion realism(happy)" -1 -1 0 -1 0
+"consumerism(authentic)" -1 -1 0 -1 0
+"exploitative relationships(romantic couple)" -1 -1 0 -1 0
+"ethereal nature(mystical practitioner)" -1 -1 0 -1 0
+"relationship(individual-focused)" -1 -1 0 -1 0
+"ethereal nature(nocturnal creatures)" -1 -1 0 -1 0
+"sex fetish(sexual objects)" -1 -1 0 -1 0
+"intellectualism(aspirational)" -1 -1 0 -1 0
+"realistic expectations(realistic emotions)" -1 -1 0 -1 0
+"immediate pleasure(instant gratification)" -1 -1 0 -1 0
+"physical appearance(physically handicapped)" -1 -1 0 -1 0
+"ethereal nature(ascension)" -1 -1 0 -1 0
+"individual strength(aspirational)" -1 -1 0 -1 0
+"beliefs spectrum(non-believer)" -1 -1 0 -1 0
+"sexual attitude(adventurous)" -1 -1 0 -1 0
+"cultural elements(relevant to current times)" -1 -1 0 -1 0
+"cultural elements(psychedelic)" -1 -1 0 -1 0
+"self-expression(witty wordplay)" -1 -1 0 -1 0
+"belief communities(organized religion)" -1 -1 0 -1 0
+"belief communities(non-believer)" -1 -1 0 -1 0
+"psychological states(despair)" -1 -1 0 -1 0
+"psychological states(hopeful)" -1 -1 0 -1 0
+"provocativity(edgy)" -1 -1 0 -1 0
+"faith extremes(satanist)" -1 -1 0 -1 0
+"economic(consumerism)" -1 -1 0 -1 0
+"faith and reason seekers(neo)" -1 -1 0 -1 0
+"cultural elements(secret agent)" -1 -1 0 -1 0
+"psychological states(chill)" -1 -1 0 -1 0
+"psychological states(serious)" -1 -1 0 -1 0
+"provacativity(edgy)" -1 -1 0 -1 0
+"self-expression(straightforward scripts)" -1 -1 0 -1 0
+"peacefulness(peacefulness: peacemaker)" -1 -1 0 -1 0
+"humanity strength(strong)" -1 -1 0 -1 0
+"non-sexualization(non-sexual)" -1 -1 0 -1 0
+"team experience(group-oriented)" -1 -1 0 -1 0
+"attitude 2(hope)" -1 -1 0 -1 0
+"conceptual(psychedelic)" -1 -1 0 -1 0
+"confronting issues(taking action)" -1 -1 0 -1 0
+"musical preference(aggressive)" -1 -1 0 -1 0
+"peace and conflict(conflict)" -1 -1 0 -1 0
+"purpose of existence(questioning)" -1 -1 0 -1 0
+"nostalgic elements(referencing past events)" -1 -1 0 -1 0
+"health(substance abuse)" -1 -1 0 -1 0
+"social norms(gossip)" -1 -1 0 -1 0
+"physical attraction(body type preference)" -1 -1 0 -1 0
+"romantic love(physical touch)" -1 -1 0 -1 0
+"social interaction(lack of communication)" -1 -1 0 -1 0
+"romantic love(expression of love)" -1 -1 0 -1 0
+"social norms(need for approval)" -1 -1 0 -1 0
+"social interaction(interrupting conversation)" -1 -1 0 -1 0
+"patience(impatience)" -1 -1 0 -1 0
+"procrastination(delaying tactics)" -1 -1 0 -1 0
+"understanding(confusion)" -1 -1 0 -1 0
+"loyalty(betrayal)" -1 -1 0 -1 0
+"problem solving strategy(unconventional)" -1 -1 0 -1 0
+"poetic elements(wordplay)" -1 -1 0 -1 0
+"poetic elements(straightforward language)" -1 -1 0 -1 0
+"confrontation(challenging others)" -1 -1 0 -1 0
+"artistic expression(unconventional)" -1 -1 0 -1 0
+"aspiration(ambition)" -1 -1 0 -1 0
+"cultural references(indigenous culture)" -1 -1 0 -1 0
+"competition(competitive spirit)" -1 -1 0 -1 0
+"problem solving strategy(quick thinking)" -1 -1 0 -1 0
+"public safety(preventing violence)" -1 -1 0 -1 0
+"health(addiction)" -1 -1 0 -1 0
+"spirituality(spiritual seeker)" -1 -1 0 -1 0
+"mindset(open)" -1 -1 0 -1 0
+"technical skill(scratching)" -1 -1 0 -1 0
+"mindset(closed)" -1 -1 0 -1 0
+"unique(secret agent)" -1 -1 0 -1 0
+"authentic(genuine)" -1 -1 0 -1 0
+"mindfulness(mindless attitude)" -1 -1 0 -1 0
+"rational thinker(logical)" -1 -1 0 -1 0
+"tribal(ku choo kuuda/)" -1 -1 0 -1 0
+"sameness(repetition)" -1 -1 0 -1 0
+"violence(violent actions)" -1 -1 0 -1 0
+"violence(violent thoughts)" -1 -1 0 -1 0
+"lylical emphasis(straightforward scripts)" -1 -1 0 -1 0
+"sexuality(sensitive)" -1 -1 0 -1 0
+"attitudes(closed)" -1 -1 0 -1 0
+"romantic target(romantic love)" -1 -1 0 -1 0
+"psychological opposites(skeptic)" -1 -1 0 -1 0
+"psychological opposites(intuitive thinker)" -1 -1 0 -1 0
+"psychological opposites(rational thinker)" -1 -1 0 -1 0
+"influence(global impact)" -1 -1 0 -1 0
+"psychological opposites(mystic practitioner)" -1 -1 0 -1 0
+"culture(globalization)" -1 -1 0 -1 0
+"culture(cultural preservation)" -1 -1 0 -1 0
+"patient(instant gratification)" -1 -1 0 -1 0
+"intelligence(emotional)" -1 -1 0 -1 0
+"attitude 2(pessimistic)" -1 -1 0 -1 0
+"socio-economically(anti-capitalism)" -1 -1 0 -1 0
+"social(collective)" -1 -1 0 -1 0
+"appearance(unkempt)" -1 -1 0 -1 0
+"attitude 3(playful)" -1 -1 0 -1 0
+"attitude 3(hopeful)" -1 -1 0 -1 0
+"song lyrics(explicit)" -1 -1 0 -1 0
+"appearance(overweight)" -1 -1 0 -1 0
+"emotional aspect(emotional attachment)" -1 -1 0 -1 0
+"physical strength(physical combat proficiency)" -1 -1 0 -1 0
+"sexualization(confident)" -1 -1 0 -1 0
+"socio-cultural significance(diversity)" -1 -1 0 -1 0
+"attitiude 1(closed)" -1 -1 0 -1 0
+"emotion 3(somber)" -1 -1 0 -1 0
+"emotion 3(melancholic)" -1 -1 0 -1 0
+"average expectations(aspiration)" -1 -1 0 -1 0
+"emotional realism(realism)" -1 -1 0 -1 0
+"psychological types(insecure)" -1 -1 0 -1 0
+"mental health(mental health disorder)" -1 -1 0 -1 0
+"behavior(alcohol and drug use)" -1 -1 0 -1 0
+"mental state(broken)" -1 -1 0 -1 0
+"emotional state(trapped)" -1 -1 0 -1 0
+"physical strength(weak)" -1 -1 0 -1 0
+"belief communities(acceptance and forgiveness)" -1 -1 0 -1 0
+"emotion(vulnerability)" -1 -1 0 -1 0
+"relationship(emotional and intimate)" -1 -1 0 -1 0
+"intimacy(being emotionally open)" -1 -1 0 -1 0
+"intimacy(physical dependency)" -1 -1 0 -1 0
+"emotion(crying and screaming)" -1 -1 0 -1 0
+"emotional support(healing and understanding)" -1 -1 0 -1 0
+"emotional support(helping the person realize their self-destructive behavior)" -1 -1 0 -1 0
+"response(avoidance and anger)" -1 -1 0 -1 0
+"behavioral influence(control)" -1 -1 0 -1 0
+"relationship(mourning and grief)" -1 -1 0 -1 0
+"behavior(destructive actions)" -1 -1 0 -1 0
+"relationship(boundaries and distance)" -1 -1 0 -1 0
+"responsibility(tied to someone else's mistakes)" -1 -1 0 -1 0
+"responsibility(blaming someone else for the end of the relationship)" -1 -1 0 -1 0
+"gender(woman)" -1 -1 0 -1 0
+"expressions(explicit)" -1 -1 0 -1 0
+"social(conservative)" -1 -1 0 -1 0
+"complexity(psychological)" -1 -1 0 -1 0
+"complexity(rhythmic)" -1 -1 0 -1 0
+"faith extremes(anti-capitalism)" -1 -1 0 -1 0
+"moral concept(collective)" -1 -1 0 -1 0
+"faith and reason seekers(divine worshippers)" -1 -1 0 -1 0
+"socio-political(liberal)" -1 -1 0 -1 0
+"moral concept(mainstream success)" -1 -1 0 -1 0
+"spiritual emotion(peacefulness)" -1 -1 0 -1 0
+"intellectual(intellectual)" -1 -1 0 -1 0
+"attitde 1(open)" -1 -1 0 -1 0
+"competency(collaboration)" -1 -1 0 -1 0
+"creativity(creative break)" -1 -1 0 -1 0
+"intimacy(monogamy)" -1 -1 0 -1 0
+"mindfuleness(mindless)" -1 -1 0 -1 0
+"attitude 4(dramatic)" -1 -1 0 -1 0
+"religious communities(religious fundamentalist)" -1 -1 0 -1 0
+"economic(anti-capitalism)" -1 -1 0 -1 0
+"theological opposites(individualistic)" -1 -1 0 -1 0
+"theological opposites(collective)" -1 -1 0 -1 0
+"cultural elements(individualistic)" -1 -1 0 -1 0
+"individual strength(strength)" -1 -1 0 -1 0
+"patience(dependent)" -1 -1 0 -1 0
+"spiritual preference(spiritual)" -1 -1 0 -1 0
+"spiritual preference(atheist)" -1 -1 0 -1 0
+"attitudes(pessimistic)" -1 -1 0 -1 0
+"attitude(pessimistic)" -1 -1 0 -1 0
+"sexual activity(confident)" -1 -1 0 -1 0
+"sexual activity(sensitive)" -1 -1 0 -1 0
+"physical attribute(female reproductive organs)" -1 -1 0 -1 0
+"physical attribute(male reproductive organs)" -1 -1 0 -1 0
+"physical attribute()" -1 -1 0 -1 0
+"spirituality(mystical practitioner)" -1 -1 0 -1 0
+"sexual relationship(polygamy)" -1 -1 0 -1 0
+"responsible(responsible)" -1 -1 0 -1 0
+"expectance-opposed(expectation-opposed)" -1 -1 0 -1 0
+"behaviour(accepting)" -1 -1 0 -1 0
+"theological opposites(reason)" -1 -1 0 -1 0
+"cultural elements(moderation)" -1 -1 0 -1 0
+"cultural elements(excess)" -1 -1 0 -1 0
+"truthfulness(confronting reality)" -1 -1 0 -1 0
+"truthfulness(denial)" -1 -1 0 -1 0
+"sexualization(alcohol abuse)" -1 -1 0 -1 0
+"sexualization(sobriety)" -1 -1 0 -1 0
+"physical preference(inexperienced)" -1 -1 0 -1 0
+"physical preference(experienced)" -1 -1 0 -1 0
+"group faith(individualism)" -1 -1 0 -1 0
+"group faith(conformity)" -1 -1 0 -1 0
+"theological opposites(violence)" -1 -1 0 -1 0
+"theological opposites(peace)" -1 -1 0 -1 0
+"belief communities(sharing resources)" -1 -1 0 -1 0
+"belief communities(selfishness)" -1 -1 0 -1 0
+"physical preference(tall and strong)" -1 -1 0 -1 0
+"physical preference(short and delicate)" -1 -1 0 -1 0
+"relationship(sibling loyalty)" -1 -1 0 -1 0
+"relationship(sibling rivalry)" -1 -1 0 -1 0
+"theological opposites(blind faith)" -1 -1 0 -1 0
+"theological opposites(critical thinking)" -1 -1 0 -1 0
+"physical preference(aggressive)" -1 -1 0 -1 0
+"physical preference(passive)" -1 -1 0 -1 0
+"economic(capitalist)" -1 -1 0 -1 0
+"economic(socialist)" -1 -1 0 -1 0
+"gender(male superiority)" -1 -1 0 -1 0
+"gender(gender equality)" -1 -1 0 -1 0
+"physical preference(well-groomed)" -1 -1 0 -1 0
+"physical preference(natural appearance)" -1 -1 0 -1 0
+"sexual orientation(straight privilege)" -1 -1 0 -1 0
+"sexual orientation(lgbtq+ acceptance)" -1 -1 0 -1 0
+"physical preference(physically attractive)" -1 -1 0 -1 0
+"physical preference(plain/average looking)" -1 -1 0 -1 0
+"responsibility(blame-shifting)" -1 -1 0 -1 0
+"relationship focus(codependency)" -1 -1 0 -1 0
+"relationship focus(independence)" -1 -1 0 -1 0
+"physical preference(muscular/fit)" -1 -1 0 -1 0
+"physical preference(thin/slim)" -1 -1 0 -1 0
+"physical preference(practical)" -1 -1 0 -1 0
+"physical preference(extravagant)" -1 -1 0 -1 0
+"culture(assimilation)" -1 -1 0 -1 0
+"culture(multiculturalism)" -1 -1 0 -1 0
+"belief communities(radicalism)" -1 -1 0 -1 0
+"belief communities(tolerance)" -1 -1 0 -1 0
+"belief communities(resistance)" -1 -1 0 -1 0
+"faith extremes(orthodoxy)" -1 -1 0 -1 0
+"faith extremes(questioning)" -1 -1 0 -1 0
+"faith and reason seekers(seeking guidance)" -1 -1 0 -1 0
+"faith and reason seekers(self-discovery)" -1 -1 0 -1 0
+"attitude 1(optimistic)" -1 -1 0 -1 0
+"respect(disrespectful)" -1 -1 0 -1 0
+"financial stability(financial struggle)" -1 -1 0 -1 0
+"spiritual growth(spiritual decline)" -1 -1 0 -1 0
+"virtual escape(deleting messages)" -1 -1 0 -1 0
+"security(fear)" -1 -1 0 -1 0
+"virtual escape(reflecting on past memories)" -1 -1 0 -1 0
+"morality(value placed in human life)" -1 -1 0 -1 0
+"morality(value placed in material possessions)" -1 -1 0 -1 0
+"sexuality(monogamy)" -1 -1 0 -1 0
+"conceptualization(grounded)" -1 -1 0 -1 0
+"emotion versatility(emotional)" -1 -1 0 -1 0
+"lyrics(personal experience)" -1 -1 0 -1 0
+"diversity(age-inclusive)" -1 -1 0 -1 0
+"rationale(escapism)" -1 -1 0 -1 0
+"old and new believers(rational thinker)" -1 -1 0 -1 0
+"intuitive thinkers(rational thinker)" -1 -1 0 -1 0
+"sophisticated(unsettling)" -1 -1 0 -1 0
+"identity(romantic love)" -1 -1 0 -1 0
+"identity(intellectual)" -1 -1 0 -1 0
+"faith and reason seekers(spiritual seeker)" -1 -1 0 -1 0
+"sophistication(subtle)" -1 -1 0 -1 0
+"sophisticated(subtle)" -1 -1 0 -1 0
+"once the acceptance is there everything becomes hope(optimistic)" -1 -1 0 -1 0
+"songwriting theme(loss and heartache)" -1 -1 0 -1 0
+"spiritual experience(seeking divine guidance)" -1 -1 0 -1 0
+"sex(adventurous)" -1 -1 0 -1 0
+"maturity(independence)" -1 -1 0 -1 0
+"time(future)" -1 -1 0 -1 0
+"theological opposites(skepticism)" -1 -1 0 -1 0
+"employment(unemployment)" -1 -1 0 -1 0
+"employment(addiction recovery)" -1 -1 0 -1 0
+"faith extremes(alcoholic)" -1 -1 0 -1 0
+"faith extremes(recovering addict)" -1 -1 0 -1 0
+"historical period(winter season)" -1 -1 0 -1 0
+"historical period(summer season)" -1 -1 0 -1 0
+"unemployment challenges(struggle of finding work)" -1 -1 0 -1 0
+"unemployment challenges(coping with unemployment)" -1 -1 0 -1 0
+"nature(winter landscape)" -1 -1 0 -1 0
+"nature(summer landscape)" -1 -1 0 -1 0
+"historical period(post-agricultural revolution)" -1 -1 0 -1 0
+"historical period(pre-agricultural revolution)" -1 -1 0 -1 0
+"cultural preservation(self-pitying)" -1 -1 0 -1 0
+"cultural preservation(self-reflexive)" -1 -1 0 -1 0
+"theological opposites(silenced)" -1 -1 0 -1 0
+"faith extremes(despair)" -1 -1 0 -1 0
+"prevalence of belief(black and white thinking)" -1 -1 0 -1 0
+"physical preference(dark coloring)" -1 -1 0 -1 0
+"religious(ethereal imagery)" -1 -1 0 -1 0
+"theological opposites(gnostic)" -1 -1 0 -1 0
+"physical preference(herbal remedies)" -1 -1 0 -1 0
+"prevalence of belief(individualistic culture)" -1 -1 0 -1 0
+"theological opposites(pious)" -1 -1 0 -1 0
+"prevalence of belief(religious fundamentalism)" -1 -1 0 -1 0
+"theological opposites(unbelieving)" -1 -1 0 -1 0
+"prevalence of belief(supernatural explanation)" -1 -1 0 -1 0
+"theological opposites(rationalist)" -1 -1 0 -1 0
+"artistic expression(melancholic tone)" -1 -1 0 -1 0
+"religious(melancholic imagery)" -1 -1 0 -1 0
+"prevalence of belief(supernatural interpretation)" -1 -1 0 -1 0
+"artistic expression(melancholic mood)" -1 -1 0 -1 0
+"situation relation(descriptiveness)" -1 -1 0 -1 0
+"religious(reliance on traditional beliefs)" -1 -1 0 -1 0
+"belief communities(individual-focused)" -1 -1 0 -1 0
+"time and day(friday)" -1 -1 0 -1 0
+"time and day(endless friday)" -1 -1 0 -1 0
+"peace and contentment(joyful)" -1 -1 0 -1 0
+"peace and contentment(self-satisfied)" -1 -1 0 -1 0
+"living space(small apartment)" -1 -1 0 -1 0
+"peacefulness(peaceful sleep)" -1 -1 0 -1 0
+"peacefulness(rejuvenating bath)" -1 -1 0 -1 0
+"living space(clean and well-kept)" -1 -1 0 -1 0
+"living space(suburban neighborhood)" -1 -1 0 -1 0
+"relationship with neighbors(peaceful)" -1 -1 0 -1 0
+"group experience(communal living)" -1 -1 0 -1 0
+"time and day(day and night)" -1 -1 0 -1 0
+"relationship with neighbors(sharing struggles)" -1 -1 0 -1 0
+"living space(shared apartment complex)" -1 -1 0 -1 0
+"living space(relaxing view)" -1 -1 0 -1 0
+"living space(city view)" -1 -1 0 -1 0
+"living space(comfortable)" -1 -1 0 -1 0
+"standard of living(luxury)" -1 -1 0 -1 0
+"relationship with neighbors(distant)" -1 -1 0 -1 0
+"belief communities(connectedness)" -1 -1 0 -1 0
+"living space(communal learning)" -1 -1 0 -1 0
+"sexual jealousy(limited)" -1 -1 0 -1 0
+"emotive realism(realism)" -1 -1 0 -1 0
+"cultural elements(collective)" -1 -1 0 -1 0
+"lyrical emphasis(emotional restraint)" -1 -1 0 -1 0
+"generation difference(youth-oriented)" -1 -1 0 -1 0
+"mainstream(witty wordplay)" -1 -1 0 -1 0
+"cultural elements(globalizaation)" -1 -1 0 -1 0
+"mainstream(mainstream success)" -1 -1 0 -1 0
+"generation difference(age-inclusive)" -1 -1 0 -1 0
+"mainstream(alternative)" -1 -1 0 -1 0
+"social(irresponsible)" -1 -1 0 -1 0
+"intimacy(physical intimacy)" -1 -1 0 -1 0
+"storytelling(protagonist storytelling)" -1 -1 0 -1 0
+"intimacy(emotional intimacy)" -1 -1 0 -1 0
+"supportive community(contributor)" -1 -1 0 -1 0
+"emotional realism(love)" -1 -1 0 -1 0
+"peace(joyful)" -1 -1 0 -1 0
+"peace(silence)" -1 -1 0 -1 0
+"creation and destruction(rebuilding)" -1 -1 0 -1 0
+"creation and destruction(rust and decay)" -1 -1 0 -1 0
+"creation and destruction(turning over)" -1 -1 0 -1 0
+"creation and destruction(continuation)" -1 -1 0 -1 0
+"community support(comforting)" -1 -1 0 -1 0
+"physicality(poison)" -1 -1 0 -1 0
+"physicality(taming)" -1 -1 0 -1 0
+"daily life(routine)" -1 -1 0 -1 0
+"daily life(repetition)" -1 -1 0 -1 0
+"love status(yearning)" -1 -1 0 -1 0
+"beauty(world)" -1 -1 0 -1 0
+"beauty(winds)" -1 -1 0 -1 0
+"belief communities(questioning)" -1 -1 0 -1 0
+"belief communities(seeking)" -1 -1 0 -1 0
+"separation and togetherness(distance)" -1 -1 0 -1 0
+"separation and togetherness(nearness)" -1 -1 0 -1 0
+"love(heart)" -1 -1 0 -1 0
+"love(dependency)" -1 -1 0 -1 0
+"love(longing)" -1 -1 0 -1 0
+"peace(calling out)" -1 -1 0 -1 0
+"creation and destruction(change)" -1 -1 0 -1 0
+"daily life(presence)" -1 -1 0 -1 0
+"challenges and fears(struggling)" -1 -1 0 -1 0
+"challenges and fears(overcoming)" -1 -1 0 -1 0
+"vulnerability(beating heart)" -1 -1 0 -1 0
+"vulnerability(brave heart)" -1 -1 0 -1 0
+"peace(darkness)" -1 -1 0 -1 0
+"separation and togetherness(longing)" -1 -1 0 -1 0
+"challenges and fears(silence)" -1 -1 0 -1 0
+"communication(hearing)" -1 -1 0 -1 0
+"communication(reading)" -1 -1 0 -1 0
+"daily life(walking)" -1 -1 0 -1 0
+"physicality(feeling)" -1 -1 0 -1 0
+"physicality(touch)" -1 -1 0 -1 0
+"separation and togetherness(returning)" -1 -1 0 -1 0
+"challenges and fears(facing)" -1 -1 0 -1 0
+"authenticity(permanence)" -1 -1 0 -1 0
+"truthfulness(changeless)" -1 -1 0 -1 0
+"communication(writing)" -1 -1 0 -1 0
+"mindfullness(mindless)" -1 -1 0 -1 0
+"prayer(divine worshipers)" -1 -1 0 -1 0
+"prayer(spiritual seeker)" -1 -1 0 -1 0
+"honesty(twisted)" -1 -1 0 -1 0
+"honesty(honest)" -1 -1 0 -1 0
+"peace(peacemaker)" -1 -1 0 -1 0
+"peace(troublemaker)" -1 -1 0 -1 0
+"water and earth(rain)" -1 -1 0 -1 0
+"self acceptance(comparison)" -1 -1 0 -1 0
+"self acceptance(self-acceptance)" -1 -1 0 -1 0
+"prayer(religious fundamentalist)" -1 -1 0 -1 0
+"truthfulness(self-acceptance)" -1 -1 0 -1 0
+"seekers of truth(skeptical)" -1 -1 0 -1 0
+"solace(peacemaker)" -1 -1 0 -1 0
+"peacefulness(troubled-maker)" -1 -1 0 -1 0
+"musicality(uncreative)" -1 -1 0 -1 0
+"perspective(realistic)" -1 -1 0 -1 0
+"experience(past)" -1 -1 0 -1 0
+"daily life(normal)" -1 -1 0 -1 0
+"theological opposites(authoritarian)" -1 -1 0 -1 0
+"theological opposites(globalist)" -1 -1 0 -1 0
+"maturity(adulthood)" -1 -1 0 -1 0
+"belief extremes(religious fundamentalist)" -1 -1 0 -1 0
+"belief extremes(non-believer)" -1 -1 0 -1 0
+"honesty(dishonest)" -1 -1 0 -1 0
+"realism(realism)" -1 -1 0 -1 0
+"commercial appeal(anti-capitalism)" -1 -1 0 -1 0
+"identity(individualistic)" -1 -1 0 -1 0
+"worldview(escapism)" -1 -1 0 -1 0
+"bravery(weak)" -1 -1 0 -1 0
+"faith extremes(believer)" -1 -1 0 -1 0
+"food preference(healthy eating)" -1 -1 0 -1 0
+"musical style(acoustic)" -1 -1 0 -1 0
+"existence(materialistic)" -1 -1 0 -1 0
+"self-love(romantic love)" -1 -1 0 -1 0
+"transparent(transparent)" -1 -1 0 -1 0
+"representations(aspirational)" -1 -1 0 -1 0
+"representation \"artist\"(sensitive)" -1 -1 0 -1 0
+"individual-oriented thinking(individual spirituality)" -1 -1 0 -1 0
+"production-style(electronic)" -1 -1 0 -1 0
+"emotional realism(sadness)" -1 -1 0 -1 0
+"emotional integrity(realistic)" -1 -1 0 -1 0
+"physical enhancement(body enhancing beauty)" -1 -1 0 -1 0
+"representation nationality(finnish)" -1 -1 0 -1 0
+"concrete relationships(romantic couple)" -1 -1 0 -1 0
+"image focus(explicit)" -1 -1 0 -1 0
+"addiction and fulfillment(drug use)" -1 -1 0 -1 0
+"social pressure(routine)" -1 -1 0 -1 0
+"love and relationships(heartbreak)" -1 -1 0 -1 0
+"love and relationships(shame)" -1 -1 0 -1 0
+"mythical creatures(mythical creatures)" -1 -1 0 -1 0
+"love and relationships(self-acceptance)" -1 -1 0 -1 0
+"authenticity(unfiltered)" -1 -1 0 -1 0
+"addiction and fulfillment(substance abuse)" -1 -1 0 -1 0
+"social pressure(societal expectations)" -1 -1 0 -1 0
+"existential dread(uncertainty)" -1 -1 0 -1 0
+"existential dread(insignificance)" -1 -1 0 -1 0
+"existential dread(anxiety)" -1 -1 0 -1 0
+"overcoming challenges(perseverance)" -1 -1 0 -1 0
+"authenticity(self-expression)" -1 -1 0 -1 0
+"cultural identity(displacement)" -1 -1 0 -1 0
+"cultural identity(nostalgia)" -1 -1 0 -1 0
+"performance and fame(performer)" -1 -1 0 -1 0
+"performance and fame(facade)" -1 -1 0 -1 0
+"performance and fame(false image)" -1 -1 0 -1 0
+"overcoming challenges(resilience)" -1 -1 0 -1 0
+"social pressure(societal norms)" -1 -1 0 -1 0
+"fashion and trends(trend-followers)" -1 -1 0 -1 0
+"fashion and trends(outcasts)" -1 -1 0 -1 0
+"fashion and trends(individual style)" -1 -1 0 -1 0
+"social commentary(wealth inequality)" -1 -1 0 -1 0
+"social commentary(societal corruption)" -1 -1 0 -1 0
+"social commentary(materialism)" -1 -1 0 -1 0
+"social commentary(greed)" -1 -1 0 -1 0
+"love and relationships(denying attraction)" -1 -1 0 -1 0
+"exploration and curiosity(the unknown)" -1 -1 0 -1 0
+"age and experience(young)" -1 -1 0 -1 0
+"age and experience(old)" -1 -1 0 -1 0
+"cultural identity(societal divisions)" -1 -1 0 -1 0
+"cultural identity(unity and diversity)" -1 -1 0 -1 0
+"existential dread(haunting memories)" -1 -1 0 -1 0
+"overcoming challenges(self-acceptance)" -1 -1 0 -1 0
+"peterson group faith(organized religion)" -1 -1 0 -1 0
+"feminine(female)" -1 -1 0 -1 0
+"leadership style(collaboration)" -1 -1 0 -1 0
+"peterson group faith(individual spirituality)" -1 -1 0 -1 0
+"realistic emotions(melancholic)" -1 -1 0 -1 0
+"romantic love(romantic couple)" -1 -1 0 -1 0
+"romance(hopeful)" -1 -1 0 -1 0
+"escapism(escapism)" -1 -1 0 -1 0
+"romance(romantic couple)" -1 -1 0 -1 0
+"femininity(female)" -1 -1 0 -1 0
+"emotional realism(playful)" -1 -1 0 -1 0
+"situation relation(prescription)" -1 -1 0 -1 0
+"intuitionate thinkers(mystic practitioner)" -1 -1 0 -1 0
+"aspiration(relatable)" -1 -1 0 -1 0
+"wisdom and intelligence(intellectual)" -1 -1 0 -1 0
+"wisdom and intelligence(emotional)" -1 -1 0 -1 0
+"desirable qualities(dependance)" -1 -1 0 -1 0
+"religion(divine worshiper)" -1 -1 0 -1 0
+"desirable qualities(independence)" -1 -1 0 -1 0
+"desire(self-improvement)" -1 -1 0 -1 0
+"desire(success)" -1 -1 0 -1 0
+"emotion(proud)" -1 -1 0 -1 0
+"belief communities(atheist community)" -1 -1 0 -1 0
+"belief communities(individualistic culture)" -1 -1 0 -1 0
+"belief communities(collective culture)" -1 -1 0 -1 0
+"group faith(individual faith)" -1 -1 0 -1 0
+"belief communities(group-oriented mentality)" -1 -1 0 -1 0
+"belief communities(individual-oriented mentality)" -1 -1 0 -1 0
+"faith extremes(irrational)" -1 -1 0 -1 0
+"faith extremes(unreasonable)" -1 -1 0 -1 0
+"autonomy(independence)" -1 -1 0 -1 0
+"intimacy(distance)" -1 -1 0 -1 0
+"trust(paranoia)" -1 -1 0 -1 0
+"trust(lack of trust)" -1 -1 0 -1 0
+"cleanliness(unpleasant odor)" -1 -1 0 -1 0
+"trust(loyalty)" -1 -1 0 -1 0
+"trust(reliability)" -1 -1 0 -1 0
+"group faith(organize religion)" -1 -1 0 -1 0
+"new and old believers(traditional religion)" -1 -1 0 -1 0
+"influence(inspiring)" -1 -1 0 -1 0
+"influence(uplifting)" -1 -1 0 -1 0
+"influence(mental clarity)" -1 -1 0 -1 0
+"influence(stress relief)" -1 -1 0 -1 0
+"nostalgia(nostalgic)" -1 -1 0 -1 0
+"nostalgia(relevant to current times)" -1 -1 0 -1 0
+"society(acceptance)" -1 -1 0 -1 0
+"society(mainstream success)" -1 -1 0 -1 0
+"maturity(mature)" -1 -1 0 -1 0
+"youth-oriented(youth-oriented)" -1 -1 0 -1 0
+"provocation(innocent)" -1 -1 0 -1 0
+"values(moral)" -1 -1 0 -1 0
+"sexualizing(non-sexual)" -1 -1 0 -1 0
+"individualism(individual-oriented)" -1 -1 0 -1 0
+"old and new beliefs(traditional religion)" -1 -1 0 -1 0
+"problem solving strategy(critical thinking)" -1 -1 0 -1 0
+"rational believers(independent)" -1 -1 0 -1 0
+"old and new believers(modern spirituality)" -1 -1 0 -1 0
+"group experience(group-focused)" -1 -1 0 -1 0
+"attention(focused)" -1 -1 0 -1 0
+"attention(distracted)" -1 -1 0 -1 0
+"celeb personality(body positivity)" -1 -1 0 -1 0
+"celeb personality(celebrity worship)" -1 -1 0 -1 0
+"covenant hamstrings(advancement)" -1 -1 0 -1 0
+"covenants(hindrance)" -1 -1 0 -1 0
+"personal experience(introspective)" -1 -1 0 -1 0
+"youthful focus(youth-oriented)" -1 -1 0 -1 0
+"youth focus(age-inclusive)" -1 -1 0 -1 0
+"financial commitment(monogamy)" -1 -1 0 -1 0
+"provacativity(innocent)" -1 -1 0 -1 0
+"attitued 1(open)" -1 -1 0 -1 0
+"romantic commitment(monogamy)" -1 -1 0 -1 0
+"personal expression(explicit)" -1 -1 0 -1 0
+"faith and reason seekers(irrationality)" -1 -1 0 -1 0
+"biological sex(female)" -1 -1 0 -1 0
+"societal norms(normal)" -1 -1 0 -1 0
+"creativity(creative expression)" -1 -1 0 -1 0
+"spiritual seeker(mindfulness)" -1 -1 0 -1 0
+"romantic couple(monogamy)" -1 -1 0 -1 0
+"individual-focused(self-acceptance)" -1 -1 0 -1 0
+"collective(globalization)" -1 -1 0 -1 0
+"anti-capitalism(cultural elements)" -1 -1 0 -1 0
+"individual spirituality(non-conformity)" -1 -1 0 -1 0
+"secular society(closed)" -1 -1 0 -1 0
+"cultural preservation(cultural elements)" -1 -1 0 -1 0
+"emotional restraint(emotional realism)" -1 -1 0 -1 0
+"traditional religion(religious)" -1 -1 0 -1 0
+"non-believer(skepticism)" -1 -1 0 -1 0
+"rational thinker(intellectual)" -1 -1 0 -1 0
+"group-oriented(collaboration)" -1 -1 0 -1 0
+"mainstream(celebrity worship)" -1 -1 0 -1 0
+"religious fundamentalist(extremism)" -1 -1 0 -1 0
+"traditional religion(organized religion)" -1 -1 0 -1 0
+"self-love(self-acceptance)" -1 -1 0 -1 0
+"single(attitude 1: closed)" -1 -1 0 -1 0
+"spiritual seeker(storytelling)" -1 -1 0 -1 0
+"party anthems(lighthearted)" -1 -1 0 -1 0
+"artistic integrity(corporation relations)" -1 -1 0 -1 0
+"aspirational(life and love)" -1 -1 0 -1 0
+"non-conformity(authenticity)" -1 -1 0 -1 0
+"accountability(responsibility)" -1 -1 0 -1 0
+"self-acceptance(mindfulness)" -1 -1 0 -1 0
+"escapism(reality)" -1 -1 0 -1 0
+"youth-oriented(age target)" -1 -1 0 -1 0
+"expectation-conformed(attitude 1: open)" -1 -1 0 -1 0
+"patient(metamorphosis)" -1 -1 0 -1 0
+"youth-oriented(savvy)" -1 -1 0 -1 0
+"religion(liberal)" -1 -1 0 -1 0
+"responsible(accountable)" -1 -1 0 -1 0
+"responsibility(responsible decision-making)" -1 -1 0 -1 0
+"faith and reason seekers(rationalist)" -1 -1 0 -1 0
+"humanity(mortality)" -1 -1 0 -1 0
+"humanity(fallibility)" -1 -1 0 -1 0
+"mental health(peace of mind)" -1 -1 0 -1 0
+"authenticity(genuine)" -1 -1 0 -1 0
+"imagination(creative expression)" -1 -1 0 -1 0
+"self-love(self-love)" -1 -1 0 -1 0
+"intention(radio-friendly)" -1 -1 0 -1 0
+"concepts(psychedelic)" -1 -1 0 -1 0
+"liberty(dependence)" -1 -1 0 -1 0
+"celebrity persona(celebrity worship)" -1 -1 0 -1 0
+"emotional turbulence(heavy)" -1 -1 0 -1 0
+"motivational status(heartbreak)" -1 -1 0 -1 0
+"self-expression(personal experience)" -1 -1 0 -1 0
+"motivation(instant gratification)" -1 -1 0 -1 0
+"society(individualistic)" -1 -1 0 -1 0
+"emotional turbulence(somber)" -1 -1 0 -1 0
+"attitide 2(hopeful)" -1 -1 0 -1 0
+"spiritual(spiritual seeker)" -1 -1 0 -1 0
+"spiritual(divine worshipers)" -1 -1 0 -1 0
+"emotion(happy)" -1 -1 0 -1 0
+"emotion(serious)" -1 -1 0 -1 0
+"ethical opposites(twisted)" -1 -1 0 -1 0
+"lyrical emphasis(unique)" -1 -1 0 -1 0
+"patiente(instant gratification)" -1 -1 0 -1 0
+"economy(liberal)" -1 -1 0 -1 0
+"vocabulary(explicit)" -1 -1 0 -1 0
+"tolerance(open-mindedness)" -1 -1 0 -1 0
+"separation(individual-oriented)" -1 -1 0 -1 0
+"intuitive thinkers(rationalists)" -1 -1 0 -1 0
+"sexual orientation(straight)" -1 -1 0 -1 0
+"sexuality(individual-oriented)" -1 -1 0 -1 0
+"linguistic preference(abstract)" -1 -1 0 -1 0
+"linguistic preference(explicit)" -1 -1 0 -1 0
+"romantic relationship(without romantic partner)" -1 -1 0 -1 0
+"romantic relationship(individual-focused)" -1 -1 0 -1 0
+"size and strength(small and weak)" -1 -1 0 -1 0
+"music genre(hip hop)" -1 -1 0 -1 0
+"media influence(social media-driven)" -1 -1 0 -1 0
+"male sexual acting(confident)" -1 -1 0 -1 0
+"emotional realism(optimistic)" -1 -1 0 -1 0
+"realism(escapism)" -1 -1 0 -1 0
+"faith extremes(disrespectful)" -1 -1 0 -1 0
+"average expectations(individual-oriented)" -1 -1 0 -1 0
+"problem solving strategy(deceitful)" -1 -1 0 -1 0
+"cultural elements(social inequality)" -1 -1 0 -1 0
+"financial status(affluent)" -1 -1 0 -1 0
+"family values(strict)" -1 -1 0 -1 0
+"family values(supportive)" -1 -1 0 -1 0
+"socioeconomic status(affluent)" -1 -1 0 -1 0
+"socioeconomic status(lower class)" -1 -1 0 -1 0
+"socioeconomic status(middle class)" -1 -1 0 -1 0
+"group faith(divine worshipers)" -1 -1 0 -1 0
+"group faith(rational thinker)" -1 -1 0 -1 0
+"vibe genre(hip hop)" -1 -1 0 -1 0
+"problem solving strategy(goal-oriented)" -1 -1 0 -1 0
+"self perception(self-improvement)" -1 -1 0 -1 0
+"life and love(pursuing passions)" -1 -1 0 -1 0
+"group experience(teamwork)" -1 -1 0 -1 0
+"life and love(seeking fulfillment)" -1 -1 0 -1 0
+"production style(quality-driven)" -1 -1 0 -1 0
+"life and love(following dreams)" -1 -1 0 -1 0
+"life and love(fame and success)" -1 -1 0 -1 0
+"life and love(committed and dedicated)" -1 -1 0 -1 0
+"group experience(collaboration)" -1 -1 0 -1 0
+"financial status(success and luxury)" -1 -1 0 -1 0
+"group experience(brotherhood)" -1 -1 0 -1 0
+"production style(high-quality)" -1 -1 0 -1 0
+"socio-economic status(upper class)" -1 -1 0 -1 0
+"socio-economic status(high-pressure environment)" -1 -1 0 -1 0
+"commercial appeal(celebrity status)" -1 -1 0 -1 0
+"group experience(gossip and rumors)" -1 -1 0 -1 0
+"group dynamics(loyalty and solidarity)" -1 -1 0 -1 0
+"group dynamics(rumors and false information)" -1 -1 0 -1 0
+"group dynamics(social hierarchy)" -1 -1 0 -1 0
+"group experience(collaborative and supportive)" -1 -1 0 -1 0
+"self-perception(pride and confidence)" -1 -1 0 -1 0
+"group dynamics(admiration and respect)" -1 -1 0 -1 0
+"self-perception(contentment and satisfaction)" -1 -1 0 -1 0
+"real life experiences(success and happiness)" -1 -1 0 -1 0
+"country(norway)" -1 -1 0 -1 0
+"attitue 1(closed)" -1 -1 0 -1 0
+"history(war)" -1 -1 0 -1 0
+"technology(recording industry)" -1 -1 0 -1 0
+"technological advancements(soundproofing)" -1 -1 0 -1 0
+"housing(rental property)" -1 -1 0 -1 0
+"financial aspects(investment)" -1 -1 0 -1 0
+"housing(bunker)" -1 -1 0 -1 0
+"music(rap)" -1 -1 0 -1 0
+"cultural elements(internet)" -1 -1 0 -1 0
+"transportation(pipes)" -1 -1 0 -1 0
+"music(recording industry)" -1 -1 0 -1 0
+"time period(renaissance)" -1 -1 0 -1 0
+"commercial appeal(underground success)" -1 -1 0 -1 0
+"social status(rebellion)" -1 -1 0 -1 0
+"relationship(tumultuous)" -1 -1 0 -1 0
+"technology(internet)" -1 -1 0 -1 0
+"communication(covert)" -1 -1 0 -1 0
+"physical space(bomb shelter)" -1 -1 0 -1 0
+"beliefs(freedom of expression)" -1 -1 0 -1 0
+"human experience(loneliness)" -1 -1 0 -1 0
+"human experience(struggle)" -1 -1 0 -1 0
+"expectations(personal growth)" -1 -1 0 -1 0
+"human experience(nostalgia)" -1 -1 0 -1 0
+"relationship(unfulfilling)" -1 -1 0 -1 0
+"memories(sentimental)" -1 -1 0 -1 0
+"memories(musical milestones)" -1 -1 0 -1 0
+"religion and reason seekers(spiritual seeker)" -1 -1 0 -1 0
+"faith extremes(monogamy)" -1 -1 0 -1 0
+"sexual orientation(adventurous)" -1 -1 0 -1 0
+"rational believers(confident)" -1 -1 0 -1 0
+"faith and reason seekers(individual-focused)" -1 -1 0 -1 0
+"existential attitudes(desperate)" -1 -1 0 -1 0
+"music culture(band formation)" -1 -1 0 -1 0
+"music production(recording location)" -1 -1 0 -1 0
+"resources(financial limitations)" -1 -1 0 -1 0
+"music culture(underground scene)" -1 -1 0 -1 0
+"resources(trade-offs)" -1 -1 0 -1 0
+"reality(minimalist lifestyle)" -1 -1 0 -1 0
+"resources(budget restrictions)" -1 -1 0 -1 0
+"resources(resourceful)" -1 -1 0 -1 0
+"reality(hard work)" -1 -1 0 -1 0
+"music production(recording equipment)" -1 -1 0 -1 0
+"resources(successful outcome)" -1 -1 0 -1 0
+"music culture(legendary place)" -1 -1 0 -1 0
+"emotions(nostalgia)" -1 -1 0 -1 0
+"memories(childhood memories)" -1 -1 0 -1 0
+"passion(passion for music)" -1 -1 0 -1 0
+"music production(technical skills)" -1 -1 0 -1 0
+"competition(comparison to other artists)" -1 -1 0 -1 0
+"emotional connection(satisfaction)" -1 -1 0 -1 0
+"values(success)" -1 -1 0 -1 0
+"expectations(dealing with challenges)" -1 -1 0 -1 0
+"memories(returning to a familiar place)" -1 -1 0 -1 0
+"nostalgia(nostalgic feelings)" -1 -1 0 -1 0
+"music culture(origin of a music genre)" -1 -1 0 -1 0
+"memories(longing for the past)" -1 -1 0 -1 0
+"social interaction(pre-party)" -1 -1 0 -1 0
+"party culture(after-party)" -1 -1 0 -1 0
+"social interaction(bonding with friends)" -1 -1 0 -1 0
+"enjoyment(drinking and socializing)" -1 -1 0 -1 0
+"social interaction(crowded house party)" -1 -1 0 -1 0
+"party culture(pre-game)" -1 -1 0 -1 0
+"physical movement(dancing)" -1 -1 0 -1 0
+"media(television programs.)" -1 -1 0 -1 0
+"competitiveness(collaboration)" -1 -1 0 -1 0
+"imaging(unique)" -1 -1 0 -1 0
+"musical(dj)" -1 -1 0 -1 0
+"problem solving strategy(shortcut-taking)" -1 -1 0 -1 0
+"cynicism(optimistic)" -1 -1 0 -1 0
+"mood(party anthem)" -1 -1 0 -1 0
+"ownership(private)" -1 -1 0 -1 0
+"mood(lighthearted)" -1 -1 0 -1 0
+"partnership(companionship)" -1 -1 0 -1 0
+"language style(slang)" -1 -1 0 -1 0
+"number preference(even)" -1 -1 0 -1 0
+"number preference(odd)" -1 -1 0 -1 0
+"economic(risky)" -1 -1 0 -1 0
+"rhythm 2(somber)" -1 -1 0 -1 0
+"diversity(nostalgic)" -1 -1 0 -1 0
+"storytelling(simple themes)" -1 -1 0 -1 0
+"storyteller(narrative detachment)" -1 -1 0 -1 0
+"prosperity(abundance)" -1 -1 0 -1 0
+"economy(conservative)" -1 -1 0 -1 0
+"religion group(individual spirituality)" -1 -1 0 -1 0
+"competence(strong)" -1 -1 0 -1 0
+"translation(personal experience)" -1 -1 0 -1 0
+"provocative(edgy)" -1 -1 0 -1 0
+"production pattern(acoustic)" -1 -1 0 -1 0
+"trust(twisted)" -1 -1 0 -1 0
+"view from the heart(song)" -1 -1 0 -1 0
+"sexuessnow aromantiaa(self-love)" -1 -1 0 -1 0
+"situation relation(desriptive)" -1 -1 0 -1 0
+"relatioin to others(self-acceptance)" -1 -1 0 -1 0
+"societal expectations(expectation-conformed)" -1 -1 0 -1 0
+"balance(balance)" -1 -1 0 -1 0
+"individualism(independent)" -1 -1 0 -1 0
+"individualism(dependent)" -1 -1 0 -1 0
+"interpersonal relationships(self-love)" -1 -1 0 -1 0
+"honesty(personal experience)" -1 -1 0 -1 0
+"corporate relations(anti-capitalism)" -1 -1 0 -1 0
+"patient(monogamy)" -1 -1 0 -1 0
+"financial responsibility(accountable)" -1 -1 0 -1 0
+"intentional antonym(stopped)" -1 -1 0 -1 0
+"intentional antonym(peacefulness)" -1 -1 0 -1 0
+"party relation(carefree)" -1 -1 0 -1 0
+"intentional antonym(small)" -1 -1 0 -1 0
+"technical antonym(untied)" -1 -1 0 -1 0
+"technical antonym(unmetered)" -1 -1 0 -1 0
+"work style(productive)" -1 -1 0 -1 0
+"work style(carefree)" -1 -1 0 -1 0
+"intentional antonym(stopping)" -1 -1 0 -1 0
+"sophistication(mysterious)" -1 -1 0 -1 0
+"intentional antonym(outgoing)" -1 -1 0 -1 0
+"information attitude(engaged)" -1 -1 0 -1 0
+"expressive(not expressive)" -1 -1 0 -1 0
+"expressive(expressive)" -1 -1 0 -1 0
+"rational believers(irrational)" -1 -1 0 -1 0
+"theological opposites(inclusive)" -1 -1 0 -1 0
+"socio-political(anti-capitalism)" -1 -1 0 -1 0
+"socio-political(consumerism)" -1 -1 0 -1 0
+"technological(technological dependence)" -1 -1 0 -1 0
+"technological(technological independence)" -1 -1 0 -1 0
+"societal norms(non-conformity)" -1 -1 0 -1 0
+"societal norms(conformity)" -1 -1 0 -1 0
+"individualistic(individualistic consumer)" -1 -1 0 -1 0
+"individualistic(conformist consumer)" -1 -1 0 -1 0
+"artist(resistance against mainstream)" -1 -1 0 -1 0
+"artist(conformist to mainstream)" -1 -1 0 -1 0
+"artist(self-expression)" -1 -1 0 -1 0
+"artist(communicator)" -1 -1 0 -1 0
+"artist(introverted)" -1 -1 0 -1 0
+"artist(extroverted)" -1 -1 0 -1 0
+"technological dependence(technological independence)" -1 -1 0 -1 0
+"technological dependence(technological dependence)" -1 -1 0 -1 0
+"creativity(introverted)" -1 -1 0 -1 0
+"creativity(extroverted)" -1 -1 0 -1 0
+"belief communities(mainstream)" -1 -1 0 -1 0
+"belief communities(alternative)" -1 -1 0 -1 0
+"socioeconomic class(poverty)" -1 -1 0 -1 0
+"socioeconomic class(wealth)" -1 -1 0 -1 0
+"personal struggles(mental illness)" -1 -1 0 -1 0
+"personal struggles(resilience)" -1 -1 0 -1 0
+"personal struggles(superstition)" -1 -1 0 -1 0
+"personal struggles(atheism)" -1 -1 0 -1 0
+"value(peace)" -1 -1 0 -1 0
+"value(non-violence)" -1 -1 0 -1 0
+"mindset(pacifist)" -1 -1 0 -1 0
+"mindset(warmonger)" -1 -1 0 -1 0
+"societal norms(anti-authoritarian)" -1 -1 0 -1 0
+"belief communities(individualism)" -1 -1 0 -1 0
+"belief communities(collectivism)" -1 -1 0 -1 0
+"selfish commitment(monogamy)" -1 -1 0 -1 0
+"artistic element(individual-oriented)" -1 -1 0 -1 0
+"realistic expectations(expectation-conformed)" -1 -1 0 -1 0
+"mindset(pessimistic)" -1 -1 0 -1 0
+"artistic element(artistic integrity)" -1 -1 0 -1 0
+"spirituality(individual spirituality)" -1 -1 0 -1 0
+"fear of death(non-existent)" -1 -1 0 -1 0
+"work ethic(dedicated)" -1 -1 0 -1 0
+"speed(fast)" -1 -1 0 -1 0
+"physical damage(minor)" -1 -1 0 -1 0
+"self-reflection(introspective)" -1 -1 0 -1 0
+"mentality(reckless)" -1 -1 0 -1 0
+"physical damage(severe)" -1 -1 0 -1 0
+"material possession(totaled)" -1 -1 0 -1 0
+"perseverance(resilient)" -1 -1 0 -1 0
+"problem solving(proactive)" -1 -1 0 -1 0
+"resilience(determined)" -1 -1 0 -1 0
+"attitude(open)" -1 -1 0 -1 0
+"mindset(optimistic)" -1 -1 0 -1 0
+"material possession(abundance)" -1 -1 0 -1 0
+"entitlement(satisfied)" -1 -1 0 -1 0
+"mindset(adaptable)" -1 -1 0 -1 0
+"mindset(determined)" -1 -1 0 -1 0
+"barrier(overcome)" -1 -1 0 -1 0
+"internal strength(strong)" -1 -1 0 -1 0
+"internal strength(weak)" -1 -1 0 -1 0
+"death and afterlife(fear of death)" -1 -1 0 -1 0
+"death and afterlife(acceptance of death)" -1 -1 0 -1 0
+"belief communities(group-oriented)" -1 -1 0 -1 0
+"existential fear(fear of dying alone)" -1 -1 0 -1 0
+"existential fear(acceptance of dying alone)" -1 -1 0 -1 0
+"death and afterlife(preparation for death)" -1 -1 0 -1 0
+"death and afterlife(avoidance of death)" -1 -1 0 -1 0
+"spiritual struggle(questioning faith)" -1 -1 0 -1 0
+"spiritual struggle(blind devotion)" -1 -1 0 -1 0
+"spiritual struggle(conflict with patriarchal religion)" -1 -1 0 -1 0
+"spiritual struggle(respect for patriarchal religion)" -1 -1 0 -1 0
+"death and afterlife(belief in afterlife)" -1 -1 0 -1 0
+"death and afterlife(disbelief in afterlife)" -1 -1 0 -1 0
+"belief spectrum(open-minded)" -1 -1 0 -1 0
+"belief spectrum(close-minded)" -1 -1 0 -1 0
+"existential fear(fear of judgment after death)" -1 -1 0 -1 0
+"existential fear(acceptance of judgment after death)" -1 -1 0 -1 0
+"belief spectrum(life philosophy)" -1 -1 0 -1 0
+"belief spectrum(indifference to philosophy)" -1 -1 0 -1 0
+"afterlife beliefs(certainty of death)" -1 -1 0 -1 0
+"afterlife beliefs(uncertainty of death)" -1 -1 0 -1 0
+"death and afterlife(heartbreak for loved ones)" -1 -1 0 -1 0
+"faith extremes(non-religious)" -1 -1 0 -1 0
+"faith extremes(religious)" -1 -1 0 -1 0
+"group faith(resistance to organized religion)" -1 -1 0 -1 0
+"group faith(adherence to organized religion)" -1 -1 0 -1 0
+"rational believers(acceptance of death)" -1 -1 0 -1 0
+"rational believers(fear of death)" -1 -1 0 -1 0
+"theological opposites(rebelliousness against patriarchal religion)" -1 -1 0 -1 0
+"theological opposites(respect for patriarchal religion)" -1 -1 0 -1 0
+"existential fear(fear of the unknown)" -1 -1 0 -1 0
+"existential fear(acceptance of the unknown)" -1 -1 0 -1 0
+"spiritual journey(questioning faith)" -1 -1 0 -1 0
+"spiritual journey(blind devotion)" -1 -1 0 -1 0
+"existential fear(anger towards father)" -1 -1 0 -1 0
+"existential fear(gratitude towards father)" -1 -1 0 -1 0
+"spiritual journey(sacrifice for family)" -1 -1 0 -1 0
+"spiritual journey(saving oneself)" -1 -1 0 -1 0
+"existential fear(fear for one's life)" -1 -1 0 -1 0
+"religious fundamentalist(corporate relations)" -1 -1 0 -1 0
+"expectation-opposed(new age spirituality)" -1 -1 0 -1 0
+"fear and insecurity(fear of discrimination)" -1 -1 0 -1 0
+"fear and insecurity(insecurities)" -1 -1 0 -1 0
+"language(informal slang)" -1 -1 0 -1 0
+"group identity(male group)" -1 -1 0 -1 0
+"enthusiasm(anticipation)" -1 -1 0 -1 0
+"intimacy(intimate)" -1 -1 0 -1 0
+"sophistication(innocent)" -1 -1 0 -1 0
+"sophistication(psychedelic)" -1 -1 0 -1 0
+"mindset(realistic)" -1 -1 0 -1 0
+"prospective(authentic)" -1 -1 0 -1 0
+"romantic love(romantic love)" -1 -1 0 -1 0
+"responsibilities(accountable)" -1 -1 0 -1 0
+"millennals(youth-oriented)" -1 -1 0 -1 0
+"societal norms(social media-driven)" -1 -1 0 -1 0
+"courageousness(brave)" -1 -1 0 -1 0
+"streamlined production style(electronic)" -1 -1 0 -1 0
+"faith extremes(desperate)" -1 -1 0 -1 0
+"stages of life(adulthood)" -1 -1 0 -1 0
+"religion and spirituality(individualistic)" -1 -1 0 -1 0
+"attitude 3(heavy)" -1 -1 0 -1 0
+"lyrical emphasis(simple themes)" -1 -1 0 -1 0
+"social(egalitarian)" -1 -1 0 -1 0
+"social media(contribute)" -1 -1 0 -1 0
+"self-acceptance(self-pride)" -1 -1 0 -1 0
+"cultural elements(finnish)" -1 -1 0 -1 0
+"commercial appeal(alternative success)" -1 -1 0 -1 0
+"technological advancement(advanced technology)" -1 -1 0 -1 0
+"international(nokia)" -1 -1 0 -1 0
+"faith extremes(informed)" -1 -1 0 -1 0
+"medical substances(drugs)" -1 -1 0 -1 0
+"spiritual mindset(success-oriented)" -1 -1 0 -1 0
+"popularity(successful)" -1 -1 0 -1 0
+"artistry(unique)" -1 -1 0 -1 0
+"authenticity(authenticity)" -1 -1 0 -1 0
+"creativity(originality)" -1 -1 0 -1 0
+"intellectual property(lyrics)" -1 -1 0 -1 0
+"caution(careful thought)" -1 -1 0 -1 0
+"performance(energetic)" -1 -1 0 -1 0
+"performance(expressive)" -1 -1 0 -1 0
+"mood 2(melancholic)" -1 -1 0 -1 0
+"relationships(partner-focused)" -1 -1 0 -1 0
+"city-based pride(oulu \(city in finland\))" -1 -1 0 -1 0
+"city-based pride(vaasa \(city in finland\))" -1 -1 0 -1 0
+"city-based pride(tampere \(city in finland\))" -1 -1 0 -1 0
+"city-based pride(turku \(city in finland\))" -1 -1 0 -1 0
+"city-based pride(jyväskylä \(city in finland\))" -1 -1 0 -1 0
+"city-based pride(lahti \(city in finland\))" -1 -1 0 -1 0
+"city-based pride(rovaniemi \(city in finland\))" -1 -1 0 -1 0
+"city-based pride(helsinki \(city in finland\))" -1 -1 0 -1 0
+"musician pride(savage feet)" -1 -1 0 -1 0
+"musician pride(uniikki)" -1 -1 0 -1 0
+"musician pride(ääretön)" -1 -1 0 -1 0
+"musician pride(avain)" -1 -1 0 -1 0
+"musician pride(tasapaino)" -1 -1 0 -1 0
+"new beliefs and attitudes(healthy eating)" -1 -1 0 -1 0
+"new beliefs and attitudes(self-care)" -1 -1 0 -1 0
+"new beliefs and attitudes(physical health)" -1 -1 0 -1 0
+"new beliefs and attitudes(mental health)" -1 -1 0 -1 0
+"new beliefs and attitudes(balanced lifestyle)" -1 -1 0 -1 0
+"new beliefs and attitudes(whole foods)" -1 -1 0 -1 0
+"new beliefs and attitudes(organic food)" -1 -1 0 -1 0
+"body empowerment(listening to one's body)" -1 -1 0 -1 0
+"body empowerment(self-experimentation)" -1 -1 0 -1 0
+"belief in moderation(balanced diet)" -1 -1 0 -1 0
+"belief in moderation(variety in meals)" -1 -1 0 -1 0
+"fear of processed food(guilt)" -1 -1 0 -1 0
+"fear of processed food(convenience)" -1 -1 0 -1 0
+"cooking skills(challenging)" -1 -1 0 -1 0
+"cooking skills(time-consuming)" -1 -1 0 -1 0
+"appreciation for school lunches(gratitude)" -1 -1 0 -1 0
+"appreciation for school lunches(parental experience)" -1 -1 0 -1 0
+"interest in cooking at home(homemade meals)" -1 -1 0 -1 0
+"interest in cooking at home(avoiding fast food)" -1 -1 0 -1 0
+"negative view on fast food(unhealthy)" -1 -1 0 -1 0
+"negative view on fast food(lack of nutrition)" -1 -1 0 -1 0
+"busy lifestyle(time management)" -1 -1 0 -1 0
+"busy lifestyle(quick meals)" -1 -1 0 -1 0
+"reflection on school lunches(positive impact)" -1 -1 0 -1 0
+"reflection on school lunches(preference for homemade meals)" -1 -1 0 -1 0
+"prioritizing health(conscious food choices)" -1 -1 0 -1 0
+"prioritizing health(avoiding unhealthy foods)" -1 -1 0 -1 0
+"indulging occasionally(occasional fast food)" -1 -1 0 -1 0
+"indulging occasionally(occasional cravings)" -1 -1 0 -1 0
+"avoiding processed snacks(unhealthy choices)" -1 -1 0 -1 0
+"avoiding processed snacks(prioritizing fresh ingredients)" -1 -1 0 -1 0
+"preference for organic food(belief in natural products)" -1 -1 0 -1 0
+"preference for organic food(support for domestic produce)" -1 -1 0 -1 0
+"appreciation for local food(sourcing from nearby sources)" -1 -1 0 -1 0
+"emotion(serenity)" -1 -1 0 -1 0
+"emotion(balance)" -1 -1 0 -1 0
+"paternal bond(loving)" -1 -1 0 -1 0
+"child-rearing(nurturing parenting style)" -1 -1 0 -1 0
+"child-rearing(authoritarian parenting style)" -1 -1 0 -1 0
+"understanding(compassionate)" -1 -1 0 -1 0
+"understanding(judgmental)" -1 -1 0 -1 0
+"consumer attitude(frugal)" -1 -1 0 -1 0
+"consumer attitude(impulsive)" -1 -1 0 -1 0
+"maturity(immature)" -1 -1 0 -1 0
+"personal experience(fictional)" -1 -1 0 -1 0
+"individual-focused(introspective)" -1 -1 0 -1 0
+"individual spirituality(self-love)" -1 -1 0 -1 0
+"expectation-opposed(realistic)" -1 -1 0 -1 0
+"individual-focused(independence)" -1 -1 0 -1 0
+"authenticity(body positivity)" -1 -1 0 -1 0
+"cultural elements(consumerism)" -1 -1 0 -1 0
+"authenticity(unique)" -1 -1 0 -1 0
+"individual-focused(party anthems)" -1 -1 0 -1 0
+"party focus(lighthearted)" -1 -1 0 -1 0
+"individual-focused(sensitive)" -1 -1 0 -1 0
+"socioeconomic(secretive)" -1 -1 0 -1 0
+"socioeconomic(sophisticated)" -1 -1 0 -1 0
+"norms(venture-seeking)" -1 -1 0 -1 0
+"norms(materialistic)" -1 -1 0 -1 0
+"norms(romantic)" -1 -1 0 -1 0
+"depiction of self(genuine authenticity)" -1 -1 0 -1 0
+"depiction of others(respectful)" -1 -1 0 -1 0
+"depiction of self(confident)" -1 -1 0 -1 0
+"currency(international)" -1 -1 0 -1 0
+"depiction of self(honest)" -1 -1 0 -1 0
+"positive self-estimation(confident)" -1 -1 0 -1 0
+"characteristics(rare and valuable)" -1 -1 0 -1 0
+"characteristics(materialistic)" -1 -1 0 -1 0
+"relationship(monogamy)" -1 -1 0 -1 0
+"rejection of stereotypes(authenticity)" -1 -1 0 -1 0
+"peace(non-confrontational)" -1 -1 0 -1 0
+"depiction of self(relaxed)" -1 -1 0 -1 0
+"partner-focused(individual-oriented)" -1 -1 0 -1 0
+"madpires(dreamy synthpop)" -1 -1 0 -1 0
+"madpires(aggressive punk)" -1 -1 0 -1 0
+"financial responsibility(irresponsible)" -1 -1 0 -1 0
+"sophisticated(grounde)" -1 -1 0 -1 0
+"authentic(mimicry)" -1 -1 0 -1 0
+"dance(slow)" -1 -1 0 -1 0
+"liveliness(high-energy)" -1 -1 0 -1 0
+"dance-exercise combination(dance-heavy)" -1 -1 0 -1 0
+"dance-exercise combination(exercise-heavy)" -1 -1 0 -1 0
+"dance(energetic)" -1 -1 0 -1 0
+"dance(synchronized)" -1 -1 0 -1 0
+"humanities(creative)" -1 -1 0 -1 0
+"country of citizenship(finland)" -1 -1 0 -1 0
+"attributional facet(evaluating)" -1 -1 0 -1 0
+"attributional facet(mastery)" -1 -1 0 -1 0
+"sex association(female)" -1 -1 0 -1 0
+"sport(balance)" -1 -1 0 -1 0
+"sophistification(sophisticated)" -1 -1 0 -1 0
+"career and success(success-driven)" -1 -1 0 -1 0
+"calmness(patient)" -1 -1 0 -1 0
+"bolo identity(ncvi)" -1 -1 0 -1 0
+"individualization(individualistic)" -1 -1 0 -1 0
+"theological opposites(innocent)" -1 -1 0 -1 0
+"intuitive thinkers(straightforward scripts)" -1 -1 0 -1 0
+"individual spirituality(mindfulness)" -1 -1 0 -1 0
+"individual spirituality(authenticity)" -1 -1 0 -1 0
+"individualistic culture(emotional restraint)" -1 -1 0 -1 0
+"individualistic culture(independence)" -1 -1 0 -1 0
+"religious fundamentalist(closed)" -1 -1 0 -1 0
+"individualistic culture(independent)" -1 -1 0 -1 0
+"traditional religion(kaukaisista ajoista)" -1 -1 0 -1 0
+"organized religion(restarting)" -1 -1 0 -1 0
+"traditional religion(reassessing)" -1 -1 0 -1 0
+"emotion 1(happy)" -1 -1 0 -1 0
+"emotion 1(melancholic)" -1 -1 0 -1 0
+"philosophical opposites(rationality)" -1 -1 0 -1 0
+"professional 2(detailed)" -1 -1 0 -1 0
+"workstyle(buttoned-up)" -1 -1 0 -1 0
+"theological opposites(secular society)" -1 -1 0 -1 0
+"socially responsible 1(considerate)" -1 -1 0 -1 0
+"team orientation(what is priority?)" -1 -1 0 -1 0
+"diversity(fifty percent positive)" -1 -1 0 -1 0
+"belief communities(independent)" -1 -1 0 -1 0
+"traditional religion(modern times)" -1 -1 0 -1 0
+"professional 1(silly)" -1 -1 0 -1 0
+"professional 1(subtle)" -1 -1 0 -1 0
+"long-term commitment(monogamy)" -1 -1 0 -1 0
+"career woman(multitasking)" -1 -1 0 -1 0
+"religion(acceptance)" -1 -1 0 -1 0
+"indecisiveness(indecisive)" -1 -1 0 -1 0
+"professional 2(attentive)" -1 -1 0 -1 0
+"communication(straightforward)" -1 -1 0 -1 0
+"traditional religion(persistence)" -1 -1 0 -1 0
+"societal expectations(not putting pressure on yourself)" -1 -1 0 -1 0
+"group faith(narrative-driven)" -1 -1 0 -1 0
+"theological opposites(spiritual seeker)" -1 -1 0 -1 0
+"philosophical extremes(nihilistic)" -1 -1 0 -1 0
+"philosophical extremes(hesitant)" -1 -1 0 -1 0
+"group faith(group-oriented)" -1 -1 0 -1 0
+"faith extremes(vain)" -1 -1 0 -1 0
+"belief communities(loving now)" -1 -1 0 -1 0
+"emotional realism(uplifting)" -1 -1 0 -1 0
+"positive attitudes(hopeful)" -1 -1 0 -1 0
+"belief communities(aspirational)" -1 -1 0 -1 0
+"cultural elements(city life)" -1 -1 0 -1 0
+"group experience(going against norms)" -1 -1 0 -1 0
+"value spectrum(privilege)" -1 -1 0 -1 0
+"interdependence(support from friends)" -1 -1 0 -1 0
+"physical preference(body positivity)" -1 -1 0 -1 0
+"group faith(belief in a higher power)" -1 -1 0 -1 0
+"cultural elements(touring)" -1 -1 0 -1 0
+"average expectations(pressure to succeed)" -1 -1 0 -1 0
+"average expectations(relief)" -1 -1 0 -1 0
+"situation relation(accepting limitations)" -1 -1 0 -1 0
+"problem solving strategy(overcoming obstacles)" -1 -1 0 -1 0
+"problem solving strategy(adapting)" -1 -1 0 -1 0
+"problem solving strategy(going around obstacles)" -1 -1 0 -1 0
+"problem solving strategy(facing obstacles)" -1 -1 0 -1 0
+"faith and reason seekers(balance)" -1 -1 0 -1 0
+"faith and reason seekers(accepting limitations)" -1 -1 0 -1 0
+"value spectrum(adaptability)" -1 -1 0 -1 0
+"value spectrum(inclusivity)" -1 -1 0 -1 0
+"group faith(communal worship)" -1 -1 0 -1 0
+"relational dynamics(feeling relieved)" -1 -1 0 -1 0
+"group experience(bonding with friends)" -1 -1 0 -1 0
+"group experience(going out)" -1 -1 0 -1 0
+"average expectations(relief from responsibilities)" -1 -1 0 -1 0
+"individuality(independence)" -1 -1 0 -1 0
+"individuality(dependence)" -1 -1 0 -1 0
+"interdependence(mutual support)" -1 -1 0 -1 0
+"situation relation(personal accountability)" -1 -1 0 -1 0
+"situation relation(taking responsibility)" -1 -1 0 -1 0
+"mental health(free from mental stress)" -1 -1 0 -1 0
+"individuality(spontaneity)" -1 -1 0 -1 0
+"mental health(overcoming fears)" -1 -1 0 -1 0
+"physical health(overall wellness)" -1 -1 0 -1 0
+"individuality(not conforming to societal norms)" -1 -1 0 -1 0
+"emotional health(coping mechanisms)" -1 -1 0 -1 0
+"mental health(facing personal demons)" -1 -1 0 -1 0
+"belief communities(support and community)" -1 -1 0 -1 0
+"average expectations(facing challenges)" -1 -1 0 -1 0
+"physical preference(extreme)" -1 -1 0 -1 0
+"sexualization(explicit)" -1 -1 0 -1 0
+"socioeconomic status(struggling)" -1 -1 0 -1 0
+"socioeconomic status(wealthy)" -1 -1 0 -1 0
+"problematic behavior(excessive consumerism)" -1 -1 0 -1 0
+"socioeconomic status(impoverished)" -1 -1 0 -1 0
+"socioeconomic status(poverty-stricken)" -1 -1 0 -1 0
+"socioeconomic status(upper class)" -1 -1 0 -1 0
+"socioeconomic status(financial stability)" -1 -1 0 -1 0
+"problematic behavior(impulsive spending)" -1 -1 0 -1 0
+"socio-economic mobility(upward mobility)" -1 -1 0 -1 0
+"socio-economic mobility(downward mobility)" -1 -1 0 -1 0
+"problematic behavior(gambling)" -1 -1 0 -1 0
+"socioeconomic status(underprivileged)" -1 -1 0 -1 0
+"socio-economic mobility(stagnant)" -1 -1 0 -1 0
+"socioeconomic status(financial security)" -1 -1 0 -1 0
+"socio-economic mobility(social climbing)" -1 -1 0 -1 0
+"problematic behavior(obsessing over material possessions)" -1 -1 0 -1 0
+"socio-economic mobility(living paycheck to paycheck)" -1 -1 0 -1 0
+"problematic behavior(hoarding wealth)" -1 -1 0 -1 0
+"socio-economic mobility(inherited wealth)" -1 -1 0 -1 0
+"socioeconomic status(privileged)" -1 -1 0 -1 0
+"socioeconomic status(luxurious)" -1 -1 0 -1 0
+"socioeconomic status(financial freedom)" -1 -1 0 -1 0
+"socio-economic mobility(self-made success)" -1 -1 0 -1 0
+"socio-economic mobility(rags-to-riches)" -1 -1 0 -1 0
+"socio-economic mobility(wealth gap)" -1 -1 0 -1 0
+"socioeconomic status(comfortable)" -1 -1 0 -1 0
+"socio-economic mobility(chasing wealth)" -1 -1 0 -1 0
+"socio-economic mobility(poverty trap)" -1 -1 0 -1 0
+"problematic behavior(excessive materialism)" -1 -1 0 -1 0
+"socioeconomic status(upper middle class)" -1 -1 0 -1 0
+"rational believers(financial stability)" -1 -1 0 -1 0
+"economic(pauperization)" -1 -1 0 -1 0
+"financial stability(mortgage approval)" -1 -1 0 -1 0
+"financial stability(aspiration for wealth)" -1 -1 0 -1 0
+"economic(debt management)" -1 -1 0 -1 0
+"economic(debt reduction)" -1 -1 0 -1 0
+"economic(consumer loans)" -1 -1 0 -1 0
+"mental health(clear conscience)" -1 -1 0 -1 0
+"financial stability(creditworthiness)" -1 -1 0 -1 0
+"financial stability(homeownership)" -1 -1 0 -1 0
+"financial stability(desire to be indebted)" -1 -1 0 -1 0
+"social(communal effort)" -1 -1 0 -1 0
+"economics(capitalism)" -1 -1 0 -1 0
+"economics(global control)" -1 -1 0 -1 0
+"economics(wealth distribution)" -1 -1 0 -1 0
+"economics(sensitivity to income disparities)" -1 -1 0 -1 0
+"financial stability(divorce prevention)" -1 -1 0 -1 0
+"financial stability(proposal)" -1 -1 0 -1 0
+"romantic relationships(constant disagreements)" -1 -1 0 -1 0
+"romantic relationships(conflict resolution through marriage)" -1 -1 0 -1 0
+"romantic relationships(war tactics)" -1 -1 0 -1 0
+"friendship(creating tension)" -1 -1 0 -1 0
+"friendship(maintaining social dominance)" -1 -1 0 -1 0
+"financial stability(commodity scarcity)" -1 -1 0 -1 0
+"financial stability(frequent discussions about budget)" -1 -1 0 -1 0
+"financial stability(impulsiveness control)" -1 -1 0 -1 0
+"financial stability(understanding of complex financial systems)" -1 -1 0 -1 0
+"financial stability(managing and calculating value)" -1 -1 0 -1 0
+"financial stability(dirty money)" -1 -1 0 -1 0
+"financial stability(illegal money)" -1 -1 0 -1 0
+"old and new believers(combination of religious and monetary values)" -1 -1 0 -1 0
+"financial stability(quick cash)" -1 -1 0 -1 0
+"financial stability(short-term investment)" -1 -1 0 -1 0
+"rational believers(honest work)" -1 -1 0 -1 0
+"economic(wealth inequality)" -1 -1 0 -1 0
+"economic(disregard for significant amounts of money)" -1 -1 0 -1 0
+"financial stability(physical manifestations of wealth)" -1 -1 0 -1 0
+"financial stability(desire for material possessions)" -1 -1 0 -1 0
+"financial stability(excesses of wealth)" -1 -1 0 -1 0
+"economic(minimalistic approach to money management)" -1 -1 0 -1 0
+"financial stability(saving for emergency funds)" -1 -1 0 -1 0
+"economic(conspiracy theories)" -1 -1 0 -1 0
+"economic(fabricated economic downturns)" -1 -1 0 -1 0
+"economic(corruption in the financial system)" -1 -1 0 -1 0
+"financial stability(decent water supply)" -1 -1 0 -1 0
+"economic(differentiating between clean and tainted money)" -1 -1 0 -1 0
+"life and love(illusion of stability.)" -1 -1 0 -1 0
+"financial mindset(greedy)" -1 -1 0 -1 0
+"change(resistance)" -1 -1 0 -1 0
+"financial mindset(wealthy)" -1 -1 0 -1 0
+"financial outlook(risk-averse)" -1 -1 0 -1 0
+"aspiration(success)" -1 -1 0 -1 0
+"creativity(imagination)" -1 -1 0 -1 0
+"motivation(determination)" -1 -1 0 -1 0
+"individualism(confident)" -1 -1 0 -1 0
+"change(embracing)" -1 -1 0 -1 0
+"expectation(goal-oriented)" -1 -1 0 -1 0
+"change(stagnant)" -1 -1 0 -1 0
+"change(progress)" -1 -1 0 -1 0
+"group faith(dogmatism)" -1 -1 0 -1 0
+"financial mindset(frugal)" -1 -1 0 -1 0
+"financial outlook(long-term success)" -1 -1 0 -1 0
+"mindset(dreamer)" -1 -1 0 -1 0
+"effort(patience)" -1 -1 0 -1 0
+"denial(denial)" -1 -1 0 -1 0
+"career(professional)" -1 -1 0 -1 0
+"cultural preservation(cultural identity)" -1 -1 0 -1 0
+"financial mindset(materialistic)" -1 -1 0 -1 0
+"individualism(self-reliance)" -1 -1 0 -1 0
+"financial outlook(careful)" -1 -1 0 -1 0
+"change(breaking barriers)" -1 -1 0 -1 0
+"commitment(monogamy)" -1 -1 0 -1 0
+"behaviour(confident)" -1 -1 0 -1 0
+"art(traditional)" -1 -1 0 -1 0
+"game(hockey)" -1 -1 0 -1 0
+"language(vernacular)" -1 -1 0 -1 0
+"behaviour(aggressive)" -1 -1 0 -1 0
+"behaviour(polite)" -1 -1 0 -1 0
+"situation(sports game)" -1 -1 0 -1 0
+"production style(authentic)" -1 -1 0 -1 0
+"romantic love(monogamy)" -1 -1 0 -1 0
+"socioeconomic class(consumerism)" -1 -1 0 -1 0
+"conceptualization(psychedelic)" -1 -1 0 -1 0
+"democratic attitude(pessimistic)" -1 -1 0 -1 0
+"situational relation(prescriptive)" -1 -1 0 -1 0
+"goal-oriented attitude(competitive)" -1 -1 0 -1 0
+"relational to others(comparison)" -1 -1 0 -1 0
+"role in group(leader)" -1 -1 0 -1 0
+"emotional stability(unstable)" -1 -1 0 -1 0
+"creative expression(witty wordplay)" -1 -1 0 -1 0
+"religious belief(believer)" -1 -1 0 -1 0
+"economic perspective(liberal)" -1 -1 0 -1 0
+"cultural preservation(cultural preservation)" -1 -1 0 -1 0
+"love target(self-love)" -1 -1 0 -1 0
+"truth seeking(seeker)" -1 -1 0 -1 0
+"identity(identity)" -1 -1 0 -1 0
+"relational commitment(monogamy)" -1 -1 0 -1 0
+"intentional contradictions(intentional contradiction)" -1 -1 0 -1 0
+"cultural elements(celebrity worship)" -1 -1 0 -1 0
+"cultural elements(mainstream success)" -1 -1 0 -1 0
+"persistence(independent)" -1 -1 0 -1 0
+"independency(dependence)" -1 -1 0 -1 0
+"persistency(self-love)" -1 -1 0 -1 0
+"creation(innovative)" -1 -1 0 -1 0
+"target of love(artistic integrity)" -1 -1 0 -1 0
+"persistence(longevity)" -1 -1 0 -1 0
+"realization(open)" -1 -1 0 -1 0
+"harmony(transparent)" -1 -1 0 -1 0
+"simplicity(straightforward)" -1 -1 0 -1 0
+"socioeconomic(mainstream success)" -1 -1 0 -1 0
+"socioeconomic(globalized)" -1 -1 0 -1 0
+"socioeconomic(age-inclusive)" -1 -1 0 -1 0
+"socio-economic status(higher status)" -1 -1 0 -1 0
+"individualism(independence)" -1 -1 0 -1 0
+"ambition(confident)" -1 -1 0 -1 0
+"teamwork orientation(supportive)" -1 -1 0 -1 0
+"identity(personal)" -1 -1 0 -1 0
+"materialism(wealth)" -1 -1 0 -1 0
+"social status(lower status)" -1 -1 0 -1 0
+"mutual admiration(mutual respect)" -1 -1 0 -1 0
+"honesty(truthful)" -1 -1 0 -1 0
+"curiosity(knowledge-seeking)" -1 -1 0 -1 0
+"intimate relationships(invitation and acceptance)" -1 -1 0 -1 0
+"sexual behavior(consensual)" -1 -1 0 -1 0
+"intimate relationships(self-awareness and mutual respect)" -1 -1 0 -1 0
+"intimate relationships(consent and communication)" -1 -1 0 -1 0
+"intimate relationships(open-mindedness and negotiation)" -1 -1 0 -1 0
+"purpose(self-serving)" -1 -1 0 -1 0
+"intimacy(physical)" -1 -1 0 -1 0
+"romantic relationships(mutual understanding and trust)" -1 -1 0 -1 0
+"romantic relationships(equal partnership)" -1 -1 0 -1 0
+"physical desire(assertive)" -1 -1 0 -1 0
+"romantic relationships(mutual attraction and consent)" -1 -1 0 -1 0
+"purpose(positive reinforcement)" -1 -1 0 -1 0
+"masculine traits(assertive)" -1 -1 0 -1 0
+"physical intimacy(private setting)" -1 -1 0 -1 0
+"materialism(responsible spending)" -1 -1 0 -1 0
+"physical intimacy(discreet departure)" -1 -1 0 -1 0
+"physical intimacy(directness)" -1 -1 0 -1 0
+"physical intimacy(adventurous)" -1 -1 0 -1 0
+"romantic relationships(mutual trust and respect)" -1 -1 0 -1 0
+"clear communication(trust)" -1 -1 0 -1 0
+"sexual acting(playful)" -1 -1 0 -1 0
+"mood 3(optimistic)" -1 -1 0 -1 0
+"socioeconomic(liberal)" -1 -1 0 -1 0
+"socioeconomic(conservative)" -1 -1 0 -1 0
+"socioeconomic(globalization)" -1 -1 0 -1 0
+"socioeconomic(cultural preservation)" -1 -1 0 -1 0
+"socioeconomic(alternative)" -1 -1 0 -1 0
+"socioeconomic(artistic integrity)" -1 -1 0 -1 0
+"socioeconomic(social media-driven)" -1 -1 0 -1 0
+"socioeconomic(authentic)" -1 -1 0 -1 0
+"socioeconomic(celebrity worship)" -1 -1 0 -1 0
+"socioeconomic(body positivity)" -1 -1 0 -1 0
+"socioeconomic(realism)" -1 -1 0 -1 0
+"faith and reason seekers(tough love supporters)" -1 -1 0 -1 0
+"theology opposites(atheistic)" -1 -1 0 -1 0
+"theology opposites(theistic)" -1 -1 0 -1 0
+"healing(therapeutic)" -1 -1 0 -1 0
+"healing(repressive)" -1 -1 0 -1 0
+"belief communities(social norms)" -1 -1 0 -1 0
+"belief communities(cultural diversity)" -1 -1 0 -1 0
+"ethos(authentic)" -1 -1 0 -1 0
+"ethos(trendy)" -1 -1 0 -1 0
+"spiritual orientation(spiritual)" -1 -1 0 -1 0
+"ethos(designer)" -1 -1 0 -1 0
+"year of formation(1996)" -1 -1 0 -1 0
+"intellectual gap(misfits)" -1 -1 0 -1 0
+"concept(psychedelia)" -1 -1 0 -1 0
+"group faith(religious fundamentalist)" -1 -1 0 -1 0
+"rational expectations(normal)" -1 -1 0 -1 0
+"lyrical emphasis(volatile)" -1 -1 0 -1 0
+"lyricale emphasis(emotionally restrained)" -1 -1 0 -1 0
+"musical genre(rap)" -1 -1 0 -1 0
+"expectation extremes(unrealistic)" -1 -1 0 -1 0
+"emotion(desire)" -1 -1 0 -1 0
+"personal growth(ongoing)" -1 -1 0 -1 0
+"expectation extremes(perfection)" -1 -1 0 -1 0
+"emotion(passion)" -1 -1 0 -1 0
+"emotion(satisfaction)" -1 -1 0 -1 0
+"personal growth(unfinished)" -1 -1 0 -1 0
+"faith extremes(success-obsessed)" -1 -1 0 -1 0
+"belief spectrum(successful)" -1 -1 0 -1 0
+"belief communities(motivation-focused)" -1 -1 0 -1 0
+"authentic(individual-focused)" -1 -1 0 -1 0
+"faith extremes(ambitious)" -1 -1 0 -1 0
+"authenticity(self-acceptance)" -1 -1 0 -1 0
+"belief spectrum(ambitious)" -1 -1 0 -1 0
+"authenticity(positive emotions)" -1 -1 0 -1 0
+"faith extremes(successful)" -1 -1 0 -1 0
+"authenticity(realistic emotions)" -1 -1 0 -1 0
+"perspective(optimistic)" -1 -1 0 -1 0
+"authenticity(ambitious)" -1 -1 0 -1 0
+"motivation(motivation-focused)" -1 -1 0 -1 0
+"motivational(ambitious)" -1 -1 0 -1 0
+"motivation(ambitious)" -1 -1 0 -1 0
+"motivation(goal-oriented)" -1 -1 0 -1 0
+"motivational(determined)" -1 -1 0 -1 0
+"motivation(selflessness)" -1 -1 0 -1 0
+"motivation(ambition)" -1 -1 0 -1 0
+"financial preference(independent)" -1 -1 0 -1 0
+"abstract concepts(individualistic)" -1 -1 0 -1 0
+"power and control(ambitious)" -1 -1 0 -1 0
+"strength and weakness(strong)" -1 -1 0 -1 0
+"self-identity(confident)" -1 -1 0 -1 0
+"stability and support(trusting)" -1 -1 0 -1 0
+"socioeconomic status(opportunity for success)" -1 -1 0 -1 0
+"socioeconomic status(no class divide)" -1 -1 0 -1 0
+"socioeconomic status(access to resources)" -1 -1 0 -1 0
+"socioeconomic status(equal chances)" -1 -1 0 -1 0
+"expression(smile)" -1 -1 0 -1 0
+"expression(minimalistic)" -1 -1 0 -1 0
+"self-efficacy(self-sufficient)" -1 -1 0 -1 0
+"self-efficacy(support from others)" -1 -1 0 -1 0
+"uncertainty(unpredictable)" -1 -1 0 -1 0
+"uncertainty(belief in control)" -1 -1 0 -1 0
+"faith extremes(skepticism)" -1 -1 0 -1 0
+"various groups(inclusivity)" -1 -1 0 -1 0
+"self-efficacy(competent)" -1 -1 0 -1 0
+"self-esteem(self-trust)" -1 -1 0 -1 0
+"self-esteem(self-doubt)" -1 -1 0 -1 0
+"success mentality(positive mindset)" -1 -1 0 -1 0
+"success mentality(negativity)" -1 -1 0 -1 0
+"personal growth(overcoming obstacles)" -1 -1 0 -1 0
+"personal growth(goal-setting)" -1 -1 0 -1 0
+"self-efficacy(self-empowerment)" -1 -1 0 -1 0
+"self-esteem(self-worth)" -1 -1 0 -1 0
+"positivity(optimistic thinking)" -1 -1 0 -1 0
+"life-long learning(university experience)" -1 -1 0 -1 0
+"life-long learning(success in academic performance)" -1 -1 0 -1 0
+"self-efficacy(dedicated to achieving goals)" -1 -1 0 -1 0
+"success mentality(financial stability)" -1 -1 0 -1 0
+"decision-making(choices have consequences)" -1 -1 0 -1 0
+"fate(uncontrollable circumstances)" -1 -1 0 -1 0
+"adversity(difficult life challenges)" -1 -1 0 -1 0
+"success mentality(persistence)" -1 -1 0 -1 0
+"self-efficacy(resourceful)" -1 -1 0 -1 0
+"socioeconomic status(privilege)" -1 -1 0 -1 0
+"decision-making(critical thinking)" -1 -1 0 -1 0
+"socioeconomic status(inequality)" -1 -1 0 -1 0
+"adversity(corrupt system)" -1 -1 0 -1 0
+"socioeconomic status(disadvantages)" -1 -1 0 -1 0
+"community(gentrification)" -1 -1 0 -1 0
+"economy(global financial crisis)" -1 -1 0 -1 0
+"economy(inflation)" -1 -1 0 -1 0
+"community(limited resources)" -1 -1 0 -1 0
+"socioeconomic status(poverty)" -1 -1 0 -1 0
+"community(loss of resources)" -1 -1 0 -1 0
+"law and justice(flawed legal system)" -1 -1 0 -1 0
+"self-efficacy(adaptable)" -1 -1 0 -1 0
+"change and growth(evolving circumstances)" -1 -1 0 -1 0
+"personal history(past experiences)" -1 -1 0 -1 0
+"addiction(alcoholism)" -1 -1 0 -1 0
+"family dynamics(troubled sibling)" -1 -1 0 -1 0
+"addiction(drug abuse)" -1 -1 0 -1 0
+"mental health(chaos)" -1 -1 0 -1 0
+"social(cultural preservation)" -1 -1 0 -1 0
+"authority(authoritarian)" -1 -1 0 -1 0
+"authority(libertarian)" -1 -1 0 -1 0
+"language style(straightforward)" -1 -1 0 -1 0
+"financial status(struggling)" -1 -1 0 -1 0
+"emotion focus(frustration)" -1 -1 0 -1 0
+"society(social injustice)" -1 -1 0 -1 0
+"emotion focus(anger)" -1 -1 0 -1 0
+"financial status(middle class)" -1 -1 0 -1 0
+"family structure(single-parent)" -1 -1 0 -1 0
+"society(individualism)" -1 -1 0 -1 0
+"individualism(independent thinking)" -1 -1 0 -1 0
+"social media usage(frequent)" -1 -1 0 -1 0
+"authority(legal)" -1 -1 0 -1 0
+"economy(wealthy)" -1 -1 0 -1 0
+"economy(transparency)" -1 -1 0 -1 0
+"economic(wealthy)" -1 -1 0 -1 0
+"lyric theme(materialism)" -1 -1 0 -1 0
+"political views(leftist)" -1 -1 0 -1 0
+"life lesson(learning from mistakes)" -1 -1 0 -1 0
+"reality(escapeism)" -1 -1 0 -1 0
+"spiritual belief(individual spirituality)" -1 -1 0 -1 0
+"time perspective(living in the present)" -1 -1 0 -1 0
+"wisdom(living life to the fullest)" -1 -1 0 -1 0
+"lyric theme(car culture)" -1 -1 0 -1 0
+"ownership(material possessions)" -1 -1 0 -1 0
+"line(material possessions)" -1 -1 0 -1 0
+"sexual expression(sexually confident)" -1 -1 0 -1 0
+"human strength(confident)" -1 -1 0 -1 0
+"romantic relationships(casual hook-ups)" -1 -1 0 -1 0
+"physical preference(physical beauty)" -1 -1 0 -1 0
+"belief communities(self-acceptance)" -1 -1 0 -1 0
+"targeting love(romantic love)" -1 -1 0 -1 0
+"human strength(articulate)" -1 -1 0 -1 0
+"physical preference(curvy body type)" -1 -1 0 -1 0
+"musical preference(r&b)" -1 -1 0 -1 0
+"physical preference(long dark hair)" -1 -1 0 -1 0
+"person's name(joka taakin tarpeen)" -1 -1 0 -1 0
+"cynicism(willing to sleep around)" -1 -1 0 -1 0
+"sexual preference(confident in their sexuality)" -1 -1 0 -1 0
+"independence(dependent on their partner)" -1 -1 0 -1 0
+"economic(mainstream success)" -1 -1 0 -1 0
+"attitude 2(lighthearted)" -1 -1 0 -1 0
+"intimacy(not applicable)" -1 -1 0 -1 0
+"objective likelihood(leading)" -1 -1 0 -1 0
+"attitude 3(uplifting)" -1 -1 0 -1 0
+"expectation(expectation-conformed)" -1 -1 0 -1 0
+"older and new believers(traditional religion)" -1 -1 0 -1 0
+"catharsis(return to the beginning)" -1 -1 0 -1 0
+"image(allegorical)" -1 -1 0 -1 0
+"belief communities(oppressed groups)" -1 -1 0 -1 0
+"harm reduction(harm prevention)" -1 -1 0 -1 0
+"rational thinkers(scientific)" -1 -1 0 -1 0
+"expressing(explicit)" -1 -1 0 -1 0
+"wisdom(perseverance)" -1 -1 0 -1 0
+"lifestyle(determination)" -1 -1 0 -1 0
+"attitudes 1(open)" -1 -1 0 -1 0
+"target of love(individual-focused)" -1 -1 0 -1 0
+"musician's personal growth and values(resilience)" -1 -1 0 -1 0
+"beliefs and values(personal happiness)" -1 -1 0 -1 0
+"experience and learning(accumulation of experiences)" -1 -1 0 -1 0
+"faith extremes(loyal follower)" -1 -1 0 -1 0
+"faith extremes(independent thinker)" -1 -1 0 -1 0
+"seeking of truth(skeptical)" -1 -1 0 -1 0
+"financial motivation(consumerism)" -1 -1 0 -1 0
+"financial motivation(anti-capitalism)" -1 -1 0 -1 0
+"materialism(independent)" -1 -1 0 -1 0
+"materialism(politically-conscious)" -1 -1 0 -1 0
+"materialism(natural beauty-centric)" -1 -1 0 -1 0
+"materialism(moderation in expenses)" -1 -1 0 -1 0
+"materialism(minimalistic)" -1 -1 0 -1 0
+"need for family and love(prioritizing family)" -1 -1 0 -1 0
+"need for family and love(prioritizing love and self-growth)" -1 -1 0 -1 0
+"need for closeness and support(prioritizing solitude and independence)" -1 -1 0 -1 0
+"need for closeness and support(prioritizing close relationships)" -1 -1 0 -1 0
+"need for closeness and support(prioritizing personal space)" -1 -1 0 -1 0
+"need for closeness and support(prioritizing freedom and individuality)" -1 -1 0 -1 0
+"need for closeness and support(prioritizing personal growth)" -1 -1 0 -1 0
+"time perception(leisurely lifestyle)" -1 -1 0 -1 0
+"time perception(fast-paced lifestyle)" -1 -1 0 -1 0
+"prioritizing personal health and hygiene(self-care and relaxation)" -1 -1 0 -1 0
+"prioritizing personal health and hygiene(putting work first)" -1 -1 0 -1 0
+"prioritizing personal health and hygiene(valuing physical i am s care)" -1 -1 0 -1 0
+"prioritizing personal health and hygiene(prioritizing career and success)" -1 -1 0 -1 0
+"efficient use of time(multitasking and prioritizing work)" -1 -1 0 -1 0
+"efficient use of time(taking time for leisure and self-care)" -1 -1 0 -1 0
+"daily routine(early riser and productiveness)" -1 -1 0 -1 0
+"transportation preference(public transportation)" -1 -1 0 -1 0
+"technology usage(computer programming)" -1 -1 0 -1 0
+"media influence(music creation)" -1 -1 0 -1 0
+"time of day(weekend)" -1 -1 0 -1 0
+"physical preference(beauty)" -1 -1 0 -1 0
+"social(socializing)" -1 -1 0 -1 0
+"work-life balance(weekend)" -1 -1 0 -1 0
+"media influence(sponsored content)" -1 -1 0 -1 0
+"transportation preference(private car)" -1 -1 0 -1 0
+"cultural elements(cultural norm)" -1 -1 0 -1 0
+"food preference(party food)" -1 -1 0 -1 0
+"food preference(party drinks)" -1 -1 0 -1 0
+"work-life balance(leisure time)" -1 -1 0 -1 0
+"life balance(leisure time with friends)" -1 -1 0 -1 0
+"relationship focus(friend-focused)" -1 -1 0 -1 0
+"music preference(background music)" -1 -1 0 -1 0
+"responsible behavior(respectful behavior)" -1 -1 0 -1 0
+"travel destination(city)" -1 -1 0 -1 0
+"currency usage(tipping)" -1 -1 0 -1 0
+"finance(budgeting)" -1 -1 0 -1 0
+"media influence(endorsements)" -1 -1 0 -1 0
+"financial status(generous)" -1 -1 0 -1 0
+"music preference(dance music)" -1 -1 0 -1 0
+"work-life balance(leisure time with friends)" -1 -1 0 -1 0
+"celebritiy persona(celebrity worship)" -1 -1 0 -1 0
+"theologial opposites(theistic)" -1 -1 0 -1 0
+"attitiude 3(optimistic)" -1 -1 0 -1 0
+"attitiude 1(open)" -1 -1 0 -1 0
+"emotion(uplifting)" -1 -1 0 -1 0
+"scene harmonic(lyric-driven)" -1 -1 0 -1 0
+"people of faith(religious)" -1 -1 0 -1 0
+"people of faith(traditional religion)" -1 -1 0 -1 0
+"realism(realistic emotions)" -1 -1 0 -1 0
+"targeting of love(romantic love)" -1 -1 0 -1 0
+"beliefs communities(acceptance)" -1 -1 0 -1 0
+"rhythmic emphasis(danceable)" -1 -1 0 -1 0
+"philosophical opposites(metaphor maker)" -1 -1 0 -1 0
+"cultural elements(party culture)" -1 -1 0 -1 0
+"cultural elements(artistic expression)" -1 -1 0 -1 0
+"cultural elements(group mentality)" -1 -1 0 -1 0
+"philosophical opposites(logical reasoning)" -1 -1 0 -1 0
+"human strength(mental resilience)" -1 -1 0 -1 0
+"human strength(physical strength)" -1 -1 0 -1 0
+"authenticity(genuine connection)" -1 -1 0 -1 0
+"authenticity(originality)" -1 -1 0 -1 0
+"language(playfulness)" -1 -1 0 -1 0
+"humanity(emotional depth)" -1 -1 0 -1 0
+"humanity(intelligence)" -1 -1 0 -1 0
+"group experience(collaborative)" -1 -1 0 -1 0
+"problem solving strategy(intellectual)" -1 -1 0 -1 0
+"language(poetic)" -1 -1 0 -1 0
+"culture(cultural fusion)" -1 -1 0 -1 0
+"culture(cultural revival)" -1 -1 0 -1 0
+"production style(traditional)" -1 -1 0 -1 0
+"culture(cultural identity)" -1 -1 0 -1 0
+"humanity(empathy)" -1 -1 0 -1 0
+"happiness(joy)" -1 -1 0 -1 0
+"language(sophisticated)" -1 -1 0 -1 0
+"morality(ethical values)" -1 -1 0 -1 0
+"wisdom(insight)" -1 -1 0 -1 0
+"language(straightforward)" -1 -1 0 -1 0
+"culture(individualism)" -1 -1 0 -1 0
+"cultural elements(creative expression)" -1 -1 0 -1 0
+"humanity(resilience)" -1 -1 0 -1 0
+"cultural elements(group identity)" -1 -1 0 -1 0
+"cultural elements(communal gathering)" -1 -1 0 -1 0
+"language(smart)" -1 -1 0 -1 0
+"human strength(vocal strength)" -1 -1 0 -1 0
+"human strength(leadership)" -1 -1 0 -1 0
+"cultural elements(social hierarchy)" -1 -1 0 -1 0
+"human strength(problem solving)" -1 -1 0 -1 0
+"linguistic preference(vowel)" -1 -1 0 -1 0
+"linguistic preference(consonant)" -1 -1 0 -1 0
+"individual differences(relevance)" -1 -1 0 -1 0
+"group differences(mainstream)" -1 -1 0 -1 0
+"group differences(alternative)" -1 -1 0 -1 0
+"ambiguous(ambiguous)" -1 -1 0 -1 0
+"attitutude 2(optimistic)" -1 -1 0 -1 0
+"employment(janitor)" -1 -1 0 -1 0
+"logical difference(logical)" -1 -1 0 -1 0
+"logic and reason(manipulating)" -1 -1 0 -1 0
+"emotional state(happiness)" -1 -1 0 -1 0
+"logical difference(confusing)" -1 -1 0 -1 0
+"reward and punishment(rewarding)" -1 -1 0 -1 0
+"emotional state(despair)" -1 -1 0 -1 0
+"action(pedaling)" -1 -1 0 -1 0
+"romantic interest(handsome)" -1 -1 0 -1 0
+"romantic interest(confident)" -1 -1 0 -1 0
+"emotional state(arrogant)" -1 -1 0 -1 0
+"emotional state(frustrated)" -1 -1 0 -1 0
+"materialism(materialistic)" -1 -1 0 -1 0
+"logic and reason(illogical)" -1 -1 0 -1 0
+"moral difference(choice)" -1 -1 0 -1 0
+"moral difference(decision-making)" -1 -1 0 -1 0
+"emotional state(willing)" -1 -1 0 -1 0
+"time perspective(future focus)" -1 -1 0 -1 0
+"problem solving strategy(problem-solving)" -1 -1 0 -1 0
+"romantic couples(love and affection)" -1 -1 0 -1 0
+"romantic couples(drifting apart)" -1 -1 0 -1 0
+"romantic couples(conflict and communication)" -1 -1 0 -1 0
+"romantic couples(relationship struggles)" -1 -1 0 -1 0
+"problem solving strategy(short-term thinking)" -1 -1 0 -1 0
+"problem solving strategy(manipulation)" -1 -1 0 -1 0
+"love and affection(longing and heartbreak)" -1 -1 0 -1 0
+"love and affection(unrequited love)" -1 -1 0 -1 0
+"romantic couples(seeking reconciliation)" -1 -1 0 -1 0
+"romantic couples(seeking communication)" -1 -1 0 -1 0
+"humanity and connection(gratitude)" -1 -1 0 -1 0
+"humanity and connection(need for companionship)" -1 -1 0 -1 0
+"love status(loving continuously)" -1 -1 0 -1 0
+"love and affection(expressing love)" -1 -1 0 -1 0
+"love and affection(intense emotions)" -1 -1 0 -1 0
+"romantic couples(non-verbal communication)" -1 -1 0 -1 0
+"romantic couples(daily routines and habits)" -1 -1 0 -1 0
+"love and affection(feelings of dependency)" -1 -1 0 -1 0
+"authenticity(genuine and sincere expression)" -1 -1 0 -1 0
+"financial mindset(spendthrift)" -1 -1 0 -1 0
+"consumption habits(substance abuse)" -1 -1 0 -1 0
+"religious practices(worship)" -1 -1 0 -1 0
+"romantic orientation(heterosexual)" -1 -1 0 -1 0
+"social(antagonist)" -1 -1 0 -1 0
+"irrationality(instant gratification)" -1 -1 0 -1 0
+"genius(emotional)" -1 -1 0 -1 0
+"genius(authentic)" -1 -1 0 -1 0
+"expressiveness(explicit)" -1 -1 0 -1 0
+"celebrity persona(authentic)" -1 -1 0 -1 0
+"everyone of us loves her(everyone loves her)" -1 -1 0 -1 0
+"they need to be silenced(they need to be heard)" -1 -1 0 -1 0
+"you need help and we can contribute(you need support and we can contribute)" -1 -1 0 -1 0
+"jaha(en)" -1 -1 0 -1 0
+"läppii douppei(vapaata puhetta)" -1 -1 0 -1 0
+"ja flowt ei koskaan kitkaa(ja flow ei koskaan tökkää)" -1 -1 0 -1 0
+"ei koskaan roskaa viskaa(ei koskaan roskia jätä)" -1 -1 0 -1 0
+"rimaa nostaa nostamistaan(tasoa parantaa jatkuvasti)" -1 -1 0 -1 0
+"uudet pohjat tost(uudet lähtökohdat siitä)" -1 -1 0 -1 0
+"vaan listaan(listaan vain)" -1 -1 0 -1 0
+"siks sä vältät kohtaamista(siksi vältät yhteenottoja)" -1 -1 0 -1 0
+"ku johtajisto ottaa ohjat piiskaan(kun johtoryhmä ottaa ohjat käsiinsä)" -1 -1 0 -1 0
+"pohja visva(alhaalta aloittaa)" -1 -1 0 -1 0
+"ekan bissen ostaan kiskalt(ensimmäisen annoksen ostamme baarista)" -1 -1 0 -1 0
+"sit taas kippaa(sitten taas juodaan)" -1 -1 0 -1 0
+"rippaa(kilistetään)" -1 -1 0 -1 0
+"mikkei(miksei)" -1 -1 0 -1 0
+"dippaa chicksei(uppoo naisiin)" -1 -1 0 -1 0
+"lippaa killist(maistuu viinalle)" -1 -1 0 -1 0
+"mittaa skillsei(mittaa taitojaan)" -1 -1 0 -1 0
+"ei ilman kiksei synny yhtään tykkiträkkii(ilman kilpailua ei synny yhtään hittibiisiä)" -1 -1 0 -1 0
+"kymppisäkki(kymppisaksa)" -1 -1 0 -1 0
+"ja kaverit luo fiilist biisiin(ja kaverit tuovat tunnelmaa biisiin)" -1 -1 0 -1 0
+"tajuu tyhmimmätki(ymmärtävät myös ne tyhmimmät)" -1 -1 0 -1 0
+"ayo(kuulkaa)" -1 -1 0 -1 0
+"one small step for a man(yksi pieni askel ihmiselle)" -1 -1 0 -1 0
+"a giant leap(jättiläismäinen loikka)" -1 -1 0 -1 0
+"as far as finnish hiphop goes(mitä tulee suomalaiseen hiphoppiin)" -1 -1 0 -1 0
+"my big(oma juttuni)" -1 -1 0 -1 0
+"will give props like all the big fuck know(antaa kredittiä kuten suurestakin tiedetään)" -1 -1 0 -1 0
+"it's tick(se on hyväksytty)" -1 -1 0 -1 0
+"tack(kiitos)" -1 -1 0 -1 0
+"physical preference(bling bling)" -1 -1 0 -1 0
+"physical preference(asymmetrical)" -1 -1 0 -1 0
+"physical preference(plastic jewelry)" -1 -1 0 -1 0
+"sexualization(objectification)" -1 -1 0 -1 0
+"physical preference(average)" -1 -1 0 -1 0
+"physical preference(individualistic)" -1 -1 0 -1 0
+"physical preference(artificial)" -1 -1 0 -1 0
+"emotion 1(joyful)" -1 -1 0 -1 0
+"emotion 1(somber)" -1 -1 0 -1 0
+"cultural elements(individual-oriented)" -1 -1 0 -1 0
+"temperament(adventurous)" -1 -1 0 -1 0
+"emotional transparency(transparent)" -1 -1 0 -1 0
+"substance use(alcohol and marijuana)" -1 -1 0 -1 0
+"neighborhood(urban ghetto)" -1 -1 0 -1 0
+"lifestyle(indulgent)" -1 -1 0 -1 0
+"emotional connection(negative emotions)" -1 -1 0 -1 0
+"morality(immoral)" -1 -1 0 -1 0
+"mental state(unstable)" -1 -1 0 -1 0
+"physical appearance(unconventional)" -1 -1 0 -1 0
+"culinary preference(savory)" -1 -1 0 -1 0
+"culinary preference(sweet)" -1 -1 0 -1 0
+"toxicity(dangerous individuals)" -1 -1 0 -1 0
+"faith and reason seekers(individual-oriented)" -1 -1 0 -1 0
+"belief communities(traditional religion)" -1 -1 0 -1 0
+"fairness(responsible)" -1 -1 0 -1 0
+"sense of purpose(realistic)" -1 -1 0 -1 0
+"aspirations(unattainable)" -1 -1 0 -1 0
+"perseverance(hopeful)" -1 -1 0 -1 0
+"philosophical opposites(open)" -1 -1 0 -1 0
+"personal attitudes(hopeful)" -1 -1 0 -1 0
+"sexual relationship style(polygamy)" -1 -1 0 -1 0
+"personal attitudes(closed)" -1 -1 0 -1 0
+"love target(romantic love)" -1 -1 0 -1 0
+"philosophical opposites(closed)" -1 -1 0 -1 0
+"freedom(dependence)" -1 -1 0 -1 0
+"past actions(negligent)" -1 -1 0 -1 0
+"past actions(regretful)" -1 -1 0 -1 0
+"personal attitudes(optimistic)" -1 -1 0 -1 0
+"past actions(dishonest)" -1 -1 0 -1 0
+"personal relationships(neglected)" -1 -1 0 -1 0
+"looking back(regretful)" -1 -1 0 -1 0
+"looking ahead(hopeful)" -1 -1 0 -1 0
+"expectations(unrealistic)" -1 -1 0 -1 0
+"mental illness(mentally ill)" -1 -1 0 -1 0
+"collection and preservation(collection)" -1 -1 0 -1 0
+"violence and conflict(veteran)" -1 -1 0 -1 0
+"violence and conflict(deceased soldier)" -1 -1 0 -1 0
+"social norms(judgment)" -1 -1 0 -1 0
+"celebration(tanssii)" -1 -1 0 -1 0
+"lyrics emphasis(witty wordplay)" -1 -1 0 -1 0
+"libel communities(secular society)" -1 -1 0 -1 0
+"equity spectrum(non-believer)" -1 -1 0 -1 0
+"goal-orientation(longevity)" -1 -1 0 -1 0
+"narration(protagonist storytelling)" -1 -1 0 -1 0
+"corpation relations(anti-capitalism)" -1 -1 0 -1 0
+"situation relation(alternative)" -1 -1 0 -1 0
+"perception(perfect)" -1 -1 0 -1 0
+"lifestyle(isolated)" -1 -1 0 -1 0
+"independent(dependent)" -1 -1 0 -1 0
+"reality(realistic emotions)" -1 -1 0 -1 0
+"education(high school dropout)" -1 -1 0 -1 0
+"collaboration(competition)" -1 -1 0 -1 0
+"adventure(limited)" -1 -1 0 -1 0
+"family status(single)" -1 -1 0 -1 0
+"socioeconomic(wealthy)" -1 -1 0 -1 0
+"unattainable expectations(perfection)" -1 -1 0 -1 0
+"pacientia(longevity)" -1 -1 0 -1 0
+"individual spirituality(lucid belief)" -1 -1 0 -1 0
+"food preference(luxurious)" -1 -1 0 -1 0
+"emotional realism(happier)" -1 -1 0 -1 0
+"religion extremes(agnostic)" -1 -1 0 -1 0
+"religion extremes(religious fundamentalist)" -1 -1 0 -1 0
+"body positivity(body enhancing beauty)" -1 -1 0 -1 0
+"body positivity(natural beauty)" -1 -1 0 -1 0
+"mindlessness(mindless)" -1 -1 0 -1 0
+"mindset(self-acceptance)" -1 -1 0 -1 0
+"financial preference(body enhancing beauty)" -1 -1 0 -1 0
+"mental health(traumatized)" -1 -1 0 -1 0
+"religious fundamentalism(extreme)" -1 -1 0 -1 0
+"attributional certainty(uncertainty)" -1 -1 0 -1 0
+"financial status(financially stable)" -1 -1 0 -1 0
+"mood 5(dramatic)" -1 -1 0 -1 0
+"spirituality(divine worshipers)" -1 -1 0 -1 0
+"humanity(strong)" -1 -1 0 -1 0
+"consciousness(leaving home)" -1 -1 0 -1 0
+"transcendence(journey to distant stars)" -1 -1 0 -1 0
+"consciousness(navigation)" -1 -1 0 -1 0
+"mood 1(magical and enchanting)" -1 -1 0 -1 0
+"mood 2(winter and dreamy)" -1 -1 0 -1 0
+"tradition(christmas spirit)" -1 -1 0 -1 0
+"environment(frosty fields)" -1 -1 0 -1 0
+"tradition(holiday music)" -1 -1 0 -1 0
+"tradition(festive and cheerful atmosphere)" -1 -1 0 -1 0
+"artistic expression(children's music)" -1 -1 0 -1 0
+"instruments(flutes and cellos)" -1 -1 0 -1 0
+"concept(nostalgia)" -1 -1 0 -1 0
+"holiday(christmas)" -1 -1 0 -1 0
+"holiday(miracles and wonder)" -1 -1 0 -1 0
+"atmosphere(candlelit)" -1 -1 0 -1 0
+"tradition(festive music)" -1 -1 0 -1 0
+"human connection(loved one)" -1 -1 0 -1 0
+"human connection(summers together)" -1 -1 0 -1 0
+"unconventional(feline person)" -1 -1 0 -1 0
+"unconventional(different from others)" -1 -1 0 -1 0
+"individual preference(seeking uniqueness)" -1 -1 0 -1 0
+"individual preference(rejecting mainstream ideals)" -1 -1 0 -1 0
+"unconventional(rejecting societal norms)" -1 -1 0 -1 0
+"nostalgia(longing for past love)" -1 -1 0 -1 0
+"fate(being swept away)" -1 -1 0 -1 0
+"comparison(posing for men's magazine)" -1 -1 0 -1 0
+"judgement(called a drunk)" -1 -1 0 -1 0
+"freedom(running away secretly)" -1 -1 0 -1 0
+"relationship(no longer responding to letters)" -1 -1 0 -1 0
+"betrayal(finding someone else)" -1 -1 0 -1 0
+"individual situation(somehow ended up here)" -1 -1 0 -1 0
+"media(reading about you in magazines)" -1 -1 0 -1 0
+"regret(not letting you go)" -1 -1 0 -1 0
+"youth(being together in the summers)" -1 -1 0 -1 0
+"nostalgia(seeking lost time)" -1 -1 0 -1 0
+"longing(giving up something)" -1 -1 0 -1 0
+"searching(not knowing what you're looking for)" -1 -1 0 -1 0
+"journey(aimless wandering)" -1 -1 0 -1 0
+"human connection(writing to an old friend)" -1 -1 0 -1 0
+"communication(lost words)" -1 -1 0 -1 0
+"communication(words left unsaid)" -1 -1 0 -1 0
+"ambiguity(words that were never spoken)" -1 -1 0 -1 0
+"trust(when words fail)" -1 -1 0 -1 0
+"relationship(contemplating the past)" -1 -1 0 -1 0
+"personal growth(sharing a long-kept secret)" -1 -1 0 -1 0
+"forgetting(inability to remember)" -1 -1 0 -1 0
+"pet preference(dog)" -1 -1 0 -1 0
+"half-truth(seeking clarity)" -1 -1 0 -1 0
+"irrationality(self-doubt)" -1 -1 0 -1 0
+"personal development(seeking help)" -1 -1 0 -1 0
+"religious practice(praying)" -1 -1 0 -1 0
+"nostalgic elements(reminiscing)" -1 -1 0 -1 0
+"cultural preservation(traditional music)" -1 -1 0 -1 0
+"major life event(getting married)" -1 -1 0 -1 0
+"social expectations(gender roles)" -1 -1 0 -1 0
+"social media trends(technology advancement)" -1 -1 0 -1 0
+"modern technology(electronic devices)" -1 -1 0 -1 0
+"cultural shift(adapting to new technology)" -1 -1 0 -1 0
+"entertainment(listening to the radio)" -1 -1 0 -1 0
+"cultural shift(rejecting societal norms)" -1 -1 0 -1 0
+"household tasks(cleaning)" -1 -1 0 -1 0
+"household appliances(vacuum cleaner)" -1 -1 0 -1 0
+"cultural shift(replacing traditional tasks with technology)" -1 -1 0 -1 0
+"cultural shift(embracing modern technology)" -1 -1 0 -1 0
+"household appliances(coffee maker)" -1 -1 0 -1 0
+"cultural preservation(traditional food)" -1 -1 0 -1 0
+"household appliances(microwave)" -1 -1 0 -1 0
+"cultural shift(convenience over tradition)" -1 -1 0 -1 0
+"household appliances(freezer)" -1 -1 0 -1 0
+"cultural shift(prioritizing convenience over tradition)" -1 -1 0 -1 0
+"self-awareness(knowing the concept of happiness)" -1 -1 0 -1 0
+"personal experience(reminiscing past relationships)" -1 -1 0 -1 0
+"reflection(enjoying alone time)" -1 -1 0 -1 0
+"traditional tasks(spring cleaning)" -1 -1 0 -1 0
+"cultural preservation(old objects)" -1 -1 0 -1 0
+"curiosity(exploring old objects)" -1 -1 0 -1 0
+"old memories(nostalgic music)" -1 -1 0 -1 0
+"mainstream media(popular music)" -1 -1 0 -1 0
+"mainstream media(modern music trends)" -1 -1 0 -1 0
+"mainstream media(influences on culture)" -1 -1 0 -1 0
+"youth culture(fashion trends)" -1 -1 0 -1 0
+"cultural symbols(peace symbol)" -1 -1 0 -1 0
+"counter-cultural movement(rejecting mainstream culture)" -1 -1 0 -1 0
+"music genre(rock music)" -1 -1 0 -1 0
+"song narrative(introspective)" -1 -1 0 -1 0
+"identity(working class)" -1 -1 0 -1 0
+"emotion(content)" -1 -1 0 -1 0
+"directors role(realist)" -1 -1 0 -1 0
+"emotion(attraction)" -1 -1 0 -1 0
+"identity(otherworldly)" -1 -1 0 -1 0
+"imagebuilding(enigmatic)" -1 -1 0 -1 0
+"commitment(responsibility)" -1 -1 0 -1 0
+"mindulness(mindful)" -1 -1 0 -1 0
+"mindulness(mindless)" -1 -1 0 -1 0
+"influence(outside forces)" -1 -1 0 -1 0
+"sublime(supreme)" -1 -1 0 -1 0
+"value(important)" -1 -1 0 -1 0
+"financial responsibility(budgeting)" -1 -1 0 -1 0
+"spontaneity(planned)" -1 -1 0 -1 0
+"intellectual capability(intellectual)" -1 -1 0 -1 0
+"security(insecure)" -1 -1 0 -1 0
+"self-discovery(lost)" -1 -1 0 -1 0
+"existentialism(nihilistic)" -1 -1 0 -1 0
+"failure(unsuccessful)" -1 -1 0 -1 0
+"success(failure)" -1 -1 0 -1 0
+"external factors(societal pressures)" -1 -1 0 -1 0
+"emptiness(void)" -1 -1 0 -1 0
+"loss(emptiness)" -1 -1 0 -1 0
+"emotional state(longing)" -1 -1 0 -1 0
+"emotional state(content)" -1 -1 0 -1 0
+"emotional state(disappointment)" -1 -1 0 -1 0
+"hope(disillusionment)" -1 -1 0 -1 0
+"humor(light-hearted)" -1 -1 0 -1 0
+"mood(upbeat)" -1 -1 0 -1 0
+"beat(catchy)" -1 -1 0 -1 0
+"beat(repetitive)" -1 -1 0 -1 0
+"location(rural)" -1 -1 0 -1 0
+"location(urban)" -1 -1 0 -1 0
+"clothing style(casual)" -1 -1 0 -1 0
+"lifestyle(laid-back)" -1 -1 0 -1 0
+"hope(despondency)" -1 -1 0 -1 0
+"acceptance(contentment)" -1 -1 0 -1 0
+"possibility(aspiration)" -1 -1 0 -1 0
+"beliefs extremes(religious fundamentalist)" -1 -1 0 -1 0
+"expression(explicit.)" -1 -1 0 -1 0
+"sexualization(sexy)" -1 -1 0 -1 0
+"power and control(domination)" -1 -1 0 -1 0
+"power and control(control)" -1 -1 0 -1 0
+"actualization(detached)" -1 -1 0 -1 0
+"actualization(unique)" -1 -1 0 -1 0
+"actualization(individuality)" -1 -1 0 -1 0
+"romantic relationship(romantic love)" -1 -1 0 -1 0
+"romantic relationship(intimacy)" -1 -1 0 -1 0
+"romantic relationship(partnership)" -1 -1 0 -1 0
+"actualization(personal experience)" -1 -1 0 -1 0
+"adverse experiences(fear of failure)" -1 -1 0 -1 0
+"racial preference(black)" -1 -1 0 -1 0
+"cultural elements(art exhibitions)" -1 -1 0 -1 0
+"racial preference(mixed race)" -1 -1 0 -1 0
+"sexual attraction(beards)" -1 -1 0 -1 0
+"relationship(widows)" -1 -1 0 -1 0
+"sexual attraction(interracial)" -1 -1 0 -1 0
+"sexualization(kissing)" -1 -1 0 -1 0
+"physical preference(small dogs)" -1 -1 0 -1 0
+"climate(rain)" -1 -1 0 -1 0
+"physical preference(body modification)" -1 -1 0 -1 0
+"physical discomfort(cold weather)" -1 -1 0 -1 0
+"moral opposition(torture)" -1 -1 0 -1 0
+"human strength(enduring the rain)" -1 -1 0 -1 0
+"physical discomfort(being stuck in the rain)" -1 -1 0 -1 0
+"group experience(being together in bad weather)" -1 -1 0 -1 0
+"emotions(singing in the rain)" -1 -1 0 -1 0
+"communication(talking, silence, and planning)" -1 -1 0 -1 0
+"addictions(smoking)" -1 -1 0 -1 0
+"addictions(running out of cigarettes)" -1 -1 0 -1 0
+"addictions(sharing cigarettes with others)" -1 -1 0 -1 0
+"nature(sounds of the forest)" -1 -1 0 -1 0
+"nature(sounds of the lake)" -1 -1 0 -1 0
+"night setting(misty weather)" -1 -1 0 -1 0
+"physical discomfort(being scared on a lake)" -1 -1 0 -1 0
+"communication(talking and praying)" -1 -1 0 -1 0
+"physical discomfort(driving towards a storm)" -1 -1 0 -1 0
+"faith extremes(encountering jesus on a boat)" -1 -1 0 -1 0
+"faith extremes(seeing a figure in the mist)" -1 -1 0 -1 0
+"war(bombs dropping)" -1 -1 0 -1 0
+"vulgarity(confusion and disbelief)" -1 -1 0 -1 0
+"math(addition)" -1 -1 0 -1 0
+"math(subtraction)" -1 -1 0 -1 0
+"emotions(agreement and affirmation)" -1 -1 0 -1 0
+"attitudes(openness)" -1 -1 0 -1 0
+"politics(right-wing)" -1 -1 0 -1 0
+"crisis(fire at a mcdonald's)" -1 -1 0 -1 0
+"politics(racial segregation)" -1 -1 0 -1 0
+"cultural elements(diversity and unity)" -1 -1 0 -1 0
+"social issues(homelessness)" -1 -1 0 -1 0
+"cultural elements(gentrification)" -1 -1 0 -1 0
+"vulgarity(referencing genitals)" -1 -1 0 -1 0
+"social issues(poverty)" -1 -1 0 -1 0
+"stereotypes(an outspoken woman)" -1 -1 0 -1 0
+"stereotypes(a european politician)" -1 -1 0 -1 0
+"social issues(urban decay and gentrification)" -1 -1 0 -1 0
+"stereotypes(a group of friends labeled as lazy and dependent on welfare)" -1 -1 0 -1 0
+"identity(derogatory language)" -1 -1 0 -1 0
+"group identity(belonging)" -1 -1 0 -1 0
+"group identity(slang/inside joke)" -1 -1 0 -1 0
+"harm(violence)" -1 -1 0 -1 0
+"social issue(homelessness)" -1 -1 0 -1 0
+"social issue(drug addiction)" -1 -1 0 -1 0
+"mental health(stress)" -1 -1 0 -1 0
+"substance use(alcoholism)" -1 -1 0 -1 0
+"harm(racism)" -1 -1 0 -1 0
+"conflict(personal conflict)" -1 -1 0 -1 0
+"conflict(group conflict)" -1 -1 0 -1 0
+"harm(discrimination)" -1 -1 0 -1 0
+"perspective(superiority)" -1 -1 0 -1 0
+"perspective(criticism)" -1 -1 0 -1 0
+"group identity(pride)" -1 -1 0 -1 0
+"perspective(comparison)" -1 -1 0 -1 0
+"harm(income inequality)" -1 -1 0 -1 0
+"social issue(alcoholism)" -1 -1 0 -1 0
+"social issue(crime)" -1 -1 0 -1 0
+"social issue(poverty)" -1 -1 0 -1 0
+"social issue(absent fathers)" -1 -1 0 -1 0
+"social issue(loyalty)" -1 -1 0 -1 0
+"lifestyle(busy)" -1 -1 0 -1 0
+"political belief(right-wing)" -1 -1 0 -1 0
+"politics(activism)" -1 -1 0 -1 0
+"harm(pollution)" -1 -1 0 -1 0
+"societal issue(corruption)" -1 -1 0 -1 0
+"politics(politicians)" -1 -1 0 -1 0
+"politics(disruption)" -1 -1 0 -1 0
+"wealth inequality(classism)" -1 -1 0 -1 0
+"lifestyle(party culture)" -1 -1 0 -1 0
+"group identity(inclusivity)" -1 -1 0 -1 0
+"diversity(arab)" -1 -1 0 -1 0
+"diversity(somali)" -1 -1 0 -1 0
+"diversity(vietnamese)" -1 -1 0 -1 0
+"diversity(african american/black)" -1 -1 0 -1 0
+"diversity(inclusivity)" -1 -1 0 -1 0
+"group identity(urban culture)" -1 -1 0 -1 0
+"belief communities(socialist)" -1 -1 0 -1 0
+"belief communities(anti-establishment)" -1 -1 0 -1 0
+"old and new believers(non-believer)" -1 -1 0 -1 0
+"rational believers(progressive)" -1 -1 0 -1 0
+"responsibility(unaccountable)" -1 -1 0 -1 0
+"belief communities(working class)" -1 -1 0 -1 0
+"theological opposites(religious)" -1 -1 0 -1 0
+"theological opposites(non-religious)" -1 -1 0 -1 0
+"theology opposites(abstinent)" -1 -1 0 -1 0
+"theology opposites(indulgent)" -1 -1 0 -1 0
+"theological opposites(conservative)" -1 -1 0 -1 0
+"theological opposites(liberal)" -1 -1 0 -1 0
+"theological opposites(hierarchical)" -1 -1 0 -1 0
+"belief spectrum(atheist)" -1 -1 0 -1 0
+"belief spectrum(theist)" -1 -1 0 -1 0
+"complexity(simple)" -1 -1 0 -1 0
+"complexity(complex)" -1 -1 0 -1 0
+"rational believers(critical thinker)" -1 -1 0 -1 0
+"rational believers(uncritical thinker)" -1 -1 0 -1 0
+"old and new believers(atheist)" -1 -1 0 -1 0
+"faith extremes(extremist)" -1 -1 0 -1 0
+"theological opposites(progressive)" -1 -1 0 -1 0
+"theological opposites(capitalist)" -1 -1 0 -1 0
+"theological opposites(secular)" -1 -1 0 -1 0
+"belief communities(institutionalized education)" -1 -1 0 -1 0
+"motto(learning is necessary for success)" -1 -1 0 -1 0
+"motto(talent is the key to success)" -1 -1 0 -1 0
+"motto(determination is necessary for success)" -1 -1 0 -1 0
+"motto(networking is necessary for success)" -1 -1 0 -1 0
+"intellectual(talented)" -1 -1 0 -1 0
+"intuitive thinkers(self-acceptance)" -1 -1 0 -1 0
+"theological opposites(rebellious)" -1 -1 0 -1 0
+"theological opposites(anti-religion)" -1 -1 0 -1 0
+"group experience(apathetic)" -1 -1 0 -1 0
+"group faith(conforming)" -1 -1 0 -1 0
+"group faith(submission)" -1 -1 0 -1 0
+"group faith(obedient)" -1 -1 0 -1 0
+"faith extremes(rebellious)" -1 -1 0 -1 0
+"belief communities(non-conformist)" -1 -1 0 -1 0
+"belief communities(critical)" -1 -1 0 -1 0
+"belief communities(liberating)" -1 -1 0 -1 0
+"numerical belief systems(non-conforming)" -1 -1 0 -1 0
+"belief communities(diverse)" -1 -1 0 -1 0
+"belief communities(non-conventional)" -1 -1 0 -1 0
+"belief communities(rebellious)" -1 -1 0 -1 0
+"theological opposites(non-conformist)" -1 -1 0 -1 0
+"culture(non-conformist)" -1 -1 0 -1 0
+"social(non-conformist)" -1 -1 0 -1 0
+"economic(non-conformist)" -1 -1 0 -1 0
+"culture(alternative)" -1 -1 0 -1 0
+"narrative(rebellious)" -1 -1 0 -1 0
+"group experience(non-conforming)" -1 -1 0 -1 0
+"faith extremes(questioning authority)" -1 -1 0 -1 0
+"belief communities(elite)" -1 -1 0 -1 0
+"faith and reason seekers(critical thinker)" -1 -1 0 -1 0
+"physical preference(body shaming)" -1 -1 0 -1 0
+"intelligence(questioning authority)" -1 -1 0 -1 0
+"theology(critical)" -1 -1 0 -1 0
+"theology(rebellious)" -1 -1 0 -1 0
+"educational system(critical)" -1 -1 0 -1 0
+"belief communities(excluded)" -1 -1 0 -1 0
+"belief communities(divided)" -1 -1 0 -1 0
+"age target(rebellious)" -1 -1 0 -1 0
+"numerical belief systems(critical)" -1 -1 0 -1 0
+"miscellaneous(rebellious)" -1 -1 0 -1 0
+"miscellaneous(questioning authority)" -1 -1 0 -1 0
+"alcohol consumption(excessive)" -1 -1 0 -1 0
+"mental health(serious illness)" -1 -1 0 -1 0
+"comparing substances(alcohol)" -1 -1 0 -1 0
+"spirituality(reliance on alcohol)" -1 -1 0 -1 0
+"mental health(struggling to stay afloat)" -1 -1 0 -1 0
+"romantic relationships(controlling partner)" -1 -1 0 -1 0
+"religion(catholicism)" -1 -1 0 -1 0
+"mental health(struggle with substance abuse)" -1 -1 0 -1 0
+"romantic relationships(unrequited love)" -1 -1 0 -1 0
+"communication(difficulty in reaching someone)" -1 -1 0 -1 0
+"physical discomfort(urinary urgency)" -1 -1 0 -1 0
+"domestic violence(domestic violence in a relationship)" -1 -1 0 -1 0
+"power dynamics(controlling partner)" -1 -1 0 -1 0
+"physical appearance(body measurement)" -1 -1 0 -1 0
+"peer pressure(wanting to fit in)" -1 -1 0 -1 0
+"comparing substances(different types of alcohol)" -1 -1 0 -1 0
+"death(fear of death)" -1 -1 0 -1 0
+"physical health(liver damage from alcohol)" -1 -1 0 -1 0
+"physical health(body heat and sweating)" -1 -1 0 -1 0
+"sexual relationships(consequences of excessive alcohol)" -1 -1 0 -1 0
+"physical discomfort(hangover)" -1 -1 0 -1 0
+"family and relationships(supportive)" -1 -1 0 -1 0
+"family and relationships(responsible)" -1 -1 0 -1 0
+"family and relationships(maternal love)" -1 -1 0 -1 0
+"family and relationships(bonding over activities)" -1 -1 0 -1 0
+"communication(discussing)" -1 -1 0 -1 0
+"relaxation(calm)" -1 -1 0 -1 0
+"travel(vacation)" -1 -1 0 -1 0
+"society(modern society)" -1 -1 0 -1 0
+"society(critical thinking)" -1 -1 0 -1 0
+"intellectual development(difficulty understanding)" -1 -1 0 -1 0
+"family and relationships(parental decision)" -1 -1 0 -1 0
+"family and relationships(parental influence)" -1 -1 0 -1 0
+"family and relationships(gratefulness)" -1 -1 0 -1 0
+"family and relationships(grieving)" -1 -1 0 -1 0
+"family and relationships(memorializing)" -1 -1 0 -1 0
+"healthcare(hospital care)" -1 -1 0 -1 0
+"healthcare(illness)" -1 -1 0 -1 0
+"lifestyle(sudden changes)" -1 -1 0 -1 0
+"family and relationships(upbringing)" -1 -1 0 -1 0
+"lifestyle(rebellious)" -1 -1 0 -1 0
+"expression(graffiti art)" -1 -1 0 -1 0
+"responsibility(taking responsibility for choices)" -1 -1 0 -1 0
+"family and relationships(providing for family)" -1 -1 0 -1 0
+"economic(resorting to theft)" -1 -1 0 -1 0
+"expression(infrequent communication)" -1 -1 0 -1 0
+"family and relationships(expressing love to parents)" -1 -1 0 -1 0
+"family and relationships(appreciating family)" -1 -1 0 -1 0
+"communication(confirmation)" -1 -1 0 -1 0
+"societal norms(routine)" -1 -1 0 -1 0
+"societal norms(tradition)" -1 -1 0 -1 0
+"societal norms(familiarity)" -1 -1 0 -1 0
+"group faith(sense of family and belonging)" -1 -1 0 -1 0
+"group faith(sense of community)" -1 -1 0 -1 0
+"group faith(sense of financial stability)" -1 -1 0 -1 0
+"group faith(sense of government support)" -1 -1 0 -1 0
+"economic(dependent)" -1 -1 0 -1 0
+"family relations(sibling bond)" -1 -1 0 -1 0
+"family relations(supportive and successful siblings)" -1 -1 0 -1 0
+"cultural elements(multiculturalism)" -1 -1 0 -1 0
+"family relations(multilingualism)" -1 -1 0 -1 0
+"belief communities(acceptance of diversity)" -1 -1 0 -1 0
+"belief communities(hipster culture)" -1 -1 0 -1 0
+"belief communities(sense of family and belonging)" -1 -1 0 -1 0
+"belief communities(sense of camaraderie)" -1 -1 0 -1 0
+"belief communities(sense of support)" -1 -1 0 -1 0
+"belief communities(sense of loyalty)" -1 -1 0 -1 0
+"family relations(supportive and successful friends)" -1 -1 0 -1 0
+"family relations(supportive and loyal friends)" -1 -1 0 -1 0
+"youth culture(rebellious attitude)" -1 -1 0 -1 0
+"youth culture(fashion and style statements)" -1 -1 0 -1 0
+"youth culture(rejecting traditional norms)" -1 -1 0 -1 0
+"family relations(sense of support)" -1 -1 0 -1 0
+"family relations(supportive and understanding parent)" -1 -1 0 -1 0
+"family relations(supportive and nurturing parent)" -1 -1 0 -1 0
+"group faith(sense of camaraderie)" -1 -1 0 -1 0
+"family relations(unspoken love and appreciation)" -1 -1 0 -1 0
+"family relations(unconditional love)" -1 -1 0 -1 0
+"family relations(sense of nostalgia)" -1 -1 0 -1 0
+"law enforcement(police uniform)" -1 -1 0 -1 0
+"law enforcement(authority and power)" -1 -1 0 -1 0
+"law enforcement(sense of control)" -1 -1 0 -1 0
+"law enforcement(weapon for protection)" -1 -1 0 -1 0
+"law enforcement(sense of order)" -1 -1 0 -1 0
+"law enforcement(fear and intimidation)" -1 -1 0 -1 0
+"emotion(despair)" -1 -1 0 -1 0
+"morality(twisted)" -1 -1 0 -1 0
+"youth identity(youth-oriented)" -1 -1 0 -1 0
+"economy(capitalist)" -1 -1 0 -1 0
+"partnership focus(individual-focused)" -1 -1 0 -1 0
+"media(biased)" -1 -1 0 -1 0
+"media(unbiased)" -1 -1 0 -1 0
+"production style(electric)" -1 -1 0 -1 0
+"love and life(life focus)" -1 -1 0 -1 0
+"mental health(coping)" -1 -1 0 -1 0
+"peacefulness(peaceful)" -1 -1 0 -1 0
+"communication style(collaborative)" -1 -1 0 -1 0
+"worldview(optimistic)" -1 -1 0 -1 0
+"equality(egalitarian)" -1 -1 0 -1 0
+"social(leftist)" -1 -1 0 -1 0
+"social(social justice)" -1 -1 0 -1 0
+"communication style(assertive)" -1 -1 0 -1 0
+"media influence(propaganda)" -1 -1 0 -1 0
+"lyrics(conscious)" -1 -1 0 -1 0
+"belief communities(contribution)" -1 -1 0 -1 0
+"truthfulness(clear)" -1 -1 0 -1 0
+"group experience(lasting change)" -1 -1 0 -1 0
+"sophistication(fame)" -1 -1 0 -1 0
+"relationship(problems)" -1 -1 0 -1 0
+"sexual acting(power)" -1 -1 0 -1 0
+"theological opposites(humans in control)" -1 -1 0 -1 0
+"theological opposites(animalistic)" -1 -1 0 -1 0
+"group experience(returning to roots)" -1 -1 0 -1 0
+"rationality(economic cycle)" -1 -1 0 -1 0
+"economic(value system)" -1 -1 0 -1 0
+"political(political figure)" -1 -1 0 -1 0
+"sexual commitment(taking a break)" -1 -1 0 -1 0
+"responsibility(fair wages)" -1 -1 0 -1 0
+"responsibility(united effort)" -1 -1 0 -1 0
+"rational believers(leftist politician)" -1 -1 0 -1 0
+"theological opposites(leftist politician)" -1 -1 0 -1 0
+"mindfulness(introspection)" -1 -1 0 -1 0
+"situations(introspection)" -1 -1 0 -1 0
+"social(activism)" -1 -1 0 -1 0
+"expression(self-reflection)" -1 -1 0 -1 0
+"expression(creative expression)" -1 -1 0 -1 0
+"criticism(anti-capitalist)" -1 -1 0 -1 0
+"situation relation(concrete meaning)" -1 -1 0 -1 0
+"physical preference(physical challenge)" -1 -1 0 -1 0
+"physical preference(physical fitness)" -1 -1 0 -1 0
+"social(class division)" -1 -1 0 -1 0
+"economic(wealth distribution)" -1 -1 0 -1 0
+"responsibility(laziness)" -1 -1 0 -1 0
+"cultural elements(focus on youth)" -1 -1 0 -1 0
+"physical preference(uniqueness)" -1 -1 0 -1 0
+"problem solving strategy(avoiding violence)" -1 -1 0 -1 0
+"media influence(verbal representation)" -1 -1 0 -1 0
+"theological opposites(violence in society)" -1 -1 0 -1 0
+"belief communities(freedom)" -1 -1 0 -1 0
+"relationship(looking out for others)" -1 -1 0 -1 0
+"theology(balance between earth and heaven)" -1 -1 0 -1 0
+"economic(power of money)" -1 -1 0 -1 0
+"motivation(striving for change)" -1 -1 0 -1 0
+"truthfulness(living by principles)" -1 -1 0 -1 0
+"mindfulness(self-care)" -1 -1 0 -1 0
+"change and transformation(hope for the future)" -1 -1 0 -1 0
+"economic(post-capitalist society)" -1 -1 0 -1 0
+"relationship(love and intimacy)" -1 -1 0 -1 0
+"mental resilience(forgiveness)" -1 -1 0 -1 0
+"situations(forgiveness)" -1 -1 0 -1 0
+"relationship(separation)" -1 -1 0 -1 0
+"expression(commodification)" -1 -1 0 -1 0
+"belief communities(support)" -1 -1 0 -1 0
+"mood 2(relaxed)" -1 -1 0 -1 0
+"physical preference(alcohol)" -1 -1 0 -1 0
+"problematic behavior(violence)" -1 -1 0 -1 0
+"family relations(separation)" -1 -1 0 -1 0
+"family relations(distant)" -1 -1 0 -1 0
+"faith and reason seekers(conflicted)" -1 -1 0 -1 0
+"physical preference(drugs)" -1 -1 0 -1 0
+"group faith(individuality)" -1 -1 0 -1 0
+"physical preference(regret)" -1 -1 0 -1 0
+"group faith(remembrance)" -1 -1 0 -1 0
+"theological opposites(neutral)" -1 -1 0 -1 0
+"life and love(mourning)" -1 -1 0 -1 0
+"faith extremes(mortal)" -1 -1 0 -1 0
+"attitude 1(melancholic)" -1 -1 0 -1 0
+"emotion(nostalgia)" -1 -1 0 -1 0
+"mindstate(confused)" -1 -1 0 -1 0
+"situational(challenges)" -1 -1 0 -1 0
+"love status(single)" -1 -1 0 -1 0
+"social(adolescent)" -1 -1 0 -1 0
+"physical preference(tradition)" -1 -1 0 -1 0
+"targeting(struggling individuals)" -1 -1 0 -1 0
+"attitude 3(rebellious)" -1 -1 0 -1 0
+"physical preference(escapism)" -1 -1 0 -1 0
+"physical preference(marijuana)" -1 -1 0 -1 0
+"emotion(sadness)" -1 -1 0 -1 0
+"emotion(reflection)" -1 -1 0 -1 0
+"physical preference(smoking)" -1 -1 0 -1 0
+"life and love(tragedy)" -1 -1 0 -1 0
+"physical preference(rebellion)" -1 -1 0 -1 0
+"life and love(guilt)" -1 -1 0 -1 0
+"family roles(powerless)" -1 -1 0 -1 0
+"problematic behavior(self-destructive)" -1 -1 0 -1 0
+"physical preference(reality)" -1 -1 0 -1 0
+"emotion(avoidance)" -1 -1 0 -1 0
+"attitude 1(repetitive)" -1 -1 0 -1 0
+"attitude 1(evolving)" -1 -1 0 -1 0
+"attitude 2(repetitive)" -1 -1 0 -1 0
+"attitude 2(evolving)" -1 -1 0 -1 0
+"mood 1(nostalgic)" -1 -1 0 -1 0
+"emotional state(nostalgia)" -1 -1 0 -1 0
+"emotion(regret)" -1 -1 0 -1 0
+"emotion(acceptance)" -1 -1 0 -1 0
+"communication(presence)" -1 -1 0 -1 0
+"communication(silence)" -1 -1 0 -1 0
+"social roles(outcast)" -1 -1 0 -1 0
+"family roles(rebellious children)" -1 -1 0 -1 0
+"problematic behavior(underage drinking)" -1 -1 0 -1 0
+"mode of existence(ironic)" -1 -1 0 -1 0
+"life and death(death)" -1 -1 0 -1 0
+"life and death(life)" -1 -1 0 -1 0
+"website usage(real life usage issues)" -1 -1 0 -1 0
+"rational believers(rational)" -1 -1 0 -1 0
+"theological opposites(theologian)" -1 -1 0 -1 0
+"lyrics(poetic)" -1 -1 0 -1 0
+"faith extremes(normal)" -1 -1 0 -1 0
+"peacefullness(troublemaker)" -1 -1 0 -1 0
+"traceable to a condition(autonomous)" -1 -1 0 -1 0
+"economist(conservative)" -1 -1 0 -1 0
+"mood 1(win)" -1 -1 0 -1 0
+"independent thoughts(closed)" -1 -1 0 -1 0
+"expression(witty wordplay)" -1 -1 0 -1 0
+"expression(straightforward scripts)" -1 -1 0 -1 0
+"motivational(punishing)" -1 -1 0 -1 0
+"spiritual seekers(skeptical)" -1 -1 0 -1 0
+"religion(atheist)" -1 -1 0 -1 0
+"hunger(hunger)" -1 -1 0 -1 0
+"hunger(satiety)" -1 -1 0 -1 0
+"success and power(success-seeking)" -1 -1 0 -1 0
+"success and power(power-seeking)" -1 -1 0 -1 0
+"direction and purpose(purpose-driven)" -1 -1 0 -1 0
+"direction and purpose(directionless)" -1 -1 0 -1 0
+"drive(driven)" -1 -1 0 -1 0
+"drive(unmotivated)" -1 -1 0 -1 0
+"self-awareness(self-aware)" -1 -1 0 -1 0
+"self-awareness(unaware)" -1 -1 0 -1 0
+"past experiences(rough past)" -1 -1 0 -1 0
+"personal growth(growth-focused)" -1 -1 0 -1 0
+"relationship(loving)" -1 -1 0 -1 0
+"musical knowledge(knowledgeable)" -1 -1 0 -1 0
+"musical knowledge(inexperienced)" -1 -1 0 -1 0
+"relationship focus(group-oriented)" -1 -1 0 -1 0
+"physical preference(wildness)" -1 -1 0 -1 0
+"physical preference(intoxication)" -1 -1 0 -1 0
+"intimacy(voyeurism)" -1 -1 0 -1 0
+"predicted evolutionary progressivist(intentionality)" -1 -1 0 -1 0
+"consumer(product usage)" -1 -1 0 -1 0
+"beliefs in one god(belief in multiple gods)" -1 -1 0 -1 0
+"physical preference(nostalgic)" -1 -1 0 -1 0
+"reflection(self-reflection)" -1 -1 0 -1 0
+"reflection(nostalgia)" -1 -1 0 -1 0
+"situational(situational perspective)" -1 -1 0 -1 0
+"arts and humanities(media and entertainment)" -1 -1 0 -1 0
+"seekers of truth(intuitive thinker)" -1 -1 0 -1 0
+"affirmation(trusting)" -1 -1 0 -1 0
+"political stance(anti-capitalism)" -1 -1 0 -1 0
+"political stance(anti-authoritarian)" -1 -1 0 -1 0
+"future orientation(idealistic)" -1 -1 0 -1 0
+"group identity(rebellious)" -1 -1 0 -1 0
+"civic responsibility(activism)" -1 -1 0 -1 0
+"attitude towards nature(environmentalist)" -1 -1 0 -1 0
