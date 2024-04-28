@@ -74,7 +74,7 @@ void TextDataWords::DataColor() {
 	DatasetAnalysis& ds = sda.dataset;
 	const Vector<EntityDataset>& avec = sd.entities;
 	
-	int lng_i = LNG_FINNISH;
+	int lng_i = MetaDatabase::Single().GetOtherLanguageIndex();
 	
 	{
 		bool clr_filter = wg_i > 0;
@@ -311,7 +311,7 @@ void TextDataWords::DoWordFix(int fn) {
 }
 
 void TextDataWords::DoWords(int fn) {
-	int lng_i = LNG_FINNISH;
+	int lng_i = MetaDatabase::Single().GetOtherLanguageIndex();
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoWords(lng_i, fn);
 }

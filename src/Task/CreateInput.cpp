@@ -311,6 +311,7 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 	}
 
 	else if (args.fn == 5) {
+		String other = Capitalize(MetaDatabase::Single().GetOtherLanguage());
 		{
 			auto& list = input.AddSub().Title("Wordlist \"A\"");
 			list.Add("introducing");
@@ -328,7 +329,7 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Main class, metaphorical color in RGB value and Finnish translation for the wordlist \"B\"");
+			results.Title("Main class, metaphorical color in RGB value and " + other + " translation for the wordlist \"B\"");
 			results.EmptyLine();
 		}
 		input.response_length = 2048;
@@ -1464,7 +1465,7 @@ void AiTask::CreateInput_GetPhraseData() {
 			results.Add("33A 15C 9B 31B 32A 34B 36C 27C 40C");
 			results.Add("");
 		}
-		input.response_length = 2048;
+		input.response_length = 1024*3/2;
 	}
 }
 

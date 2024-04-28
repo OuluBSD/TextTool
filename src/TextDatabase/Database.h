@@ -95,6 +95,10 @@ struct MetaDatabase {
 	static MetaDatabase& Single();
 	
 	
+	// Dummy temporary solution
+	int GetOtherLanguageIndex() const;
+	String GetOtherLanguage() const;
+	
 };
 
 

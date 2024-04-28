@@ -47,6 +47,7 @@ void TaskManager::OnTokenData(String result, Task* t) {
 		//int orig_word_i = ;
 		
 		String result_word = TrimBoth(line.Left(a));
+		
 		/*ExportWord& wrd =
 			orig_word_i >= 0 ?
 				da.words[orig_word_i] :
@@ -57,6 +58,10 @@ void TaskManager::OnTokenData(String result, Task* t) {
 		//TODO // token to word
 		
 		line = TrimBoth(line.Mid(a+1));
+		
+		a = line.Find("(");
+		if (a >= 0)
+			line = line.Left(a);
 		
 		Vector<String> parts = Split(line, "|");
 		for (String& p : parts) {
@@ -1161,7 +1166,7 @@ void TaskManager::OnDetails(String res, Task* t) {
 		}
 		
 		String& trans_dst = ds.translations[t->lng_i].GetAdd(orig);
-		if (trans_dst.IsEmpty())
+		if (!translation.IsEmpty())
 			trans_dst = translation;
 		
 		Vector<String> clr_str = Split(rgb, ",");

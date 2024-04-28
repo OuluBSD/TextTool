@@ -72,7 +72,7 @@ struct Task {
 	int line_i = -1;
 	int lng_i = -1;
 	bool running = false;
-	Vector<int> tmp;
+	Vector<int> tmp, tmp_iters;
 	Vector<Batch> batches;
 	Index<String> tmp_words, tmp_words2;
 	VectorMap<String, Color> word_clr;

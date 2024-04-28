@@ -96,7 +96,7 @@ void TaskManager::GetTokenDataUsingExisting(Task* t) {
 	SourceDataAnalysis& sda0 = db0.src_data.a;
 	DatasetAnalysis& da0 = sda0.dataset;
 	
-	int lng_i = LNG_FINNISH;
+	int lng_i = MetaDatabase::Single().GetOtherLanguageIndex();
 	auto& translations0 = da0.translations[lng_i];
 	
 	for(int i = 0; i < DB_COUNT; i++) {
@@ -1069,58 +1069,62 @@ void TaskManager::GetPhrases(Task* t) {
 	
 	int begin = t->batch_i * per_action_task;
 	int end = begin + per_action_task;
-	end = min(end, da.ambiguous_word_pairs.GetCount());
 	
 	Color no_clr(0,0,0);
 	t->tmp_ptrs.SetCount(0);
 	t->tmp.SetCount(0);
 	
-	int trimmed_by[6] = {0,0,0,0,0,0};
+	if (t->batch_i == 0) {
+		t->tmp_iters.SetCount(0);
+		int trimmed_by[6] = {0,0,0,0,0,0};
+		
+		int iter = 0;
+		int idx = -1;
+		for (const PhrasePart& pp : da.phrase_parts.GetValues()) {
+			idx++;
+			
+			if ((t->fn == 0 && pp.clr != no_clr) || (t->fn > 0 && pp.clr == no_clr)) {
+				trimmed_by[0]++;
+				continue;
+			}
+			
+			if ((t->fn == 1 && pp.attr >= 0) || (t->fn > 1 && pp.attr < 0)){
+				trimmed_by[1]++;
+				continue;
+			}
+			
+			if ((t->fn == 2 && !pp.actions.IsEmpty()) || (t->fn > 2 && pp.actions.IsEmpty())){
+				trimmed_by[2]++;
+				continue;
+			}
+			
+			if ((t->fn == 3 && pp.HasScores()) || (t->fn > 3 && !pp.HasScores())){
+				trimmed_by[3]++;
+				continue;
+			}
+			
+			if ((t->fn == 4 && !pp.typecasts.IsEmpty()) || (t->fn > 4 && pp.typecasts.IsEmpty())){
+				trimmed_by[4]++;
+				continue;
+			}
+			
+			if ((t->fn == 5 && !pp.contrasts.IsEmpty()) || (t->fn > 5 && pp.contrasts.IsEmpty())){
+				trimmed_by[5]++;
+				continue;
+			}
+			
+			t->tmp_iters << idx;
+			iter++;
+		}
+	}
 	
-	int iter = 0;
-	int idx = -1;
-	for (const PhrasePart& pp : da.phrase_parts.GetValues()) {
-		idx++;
-		
-		if ((t->fn == 0 && pp.clr != no_clr) || (t->fn > 0 && pp.clr == no_clr)) {
-			trimmed_by[0]++;
-			continue;
-		}
-		
-		if ((t->fn == 1 && pp.attr >= 0) || (t->fn > 1 && pp.attr < 0)){
-			trimmed_by[1]++;
-			continue;
-		}
-		
-		if ((t->fn == 2 && !pp.actions.IsEmpty()) || (t->fn > 2 && pp.actions.IsEmpty())){
-			trimmed_by[2]++;
-			continue;
-		}
-		
-		if ((t->fn == 3 && pp.HasScores()) || (t->fn > 3 && !pp.HasScores())){
-			trimmed_by[3]++;
-			continue;
-		}
-		
-		if ((t->fn == 4 && !pp.typecasts.IsEmpty()) || (t->fn > 4 && pp.typecasts.IsEmpty())){
-			trimmed_by[4]++;
-			continue;
-		}
-		
-		if ((t->fn == 5 && !pp.contrasts.IsEmpty()) || (t->fn > 5 && pp.contrasts.IsEmpty())){
-			trimmed_by[5]++;
-			continue;
-		}
-		
-		if (iter >= begin && iter < end) {
-			String phrase = da.GetWordString(pp.words);
-			args.phrases << phrase;
-			t->tmp_ptrs << (void*)&pp;
-			t->tmp << idx;
-		}
-		else if (iter >= end)
-			break;
-		iter++;
+	for(int i = begin; i < end && i < t->tmp_iters.GetCount(); i++) {
+		int idx = t->tmp_iters[i];
+		const PhrasePart& pp = da.phrase_parts[idx];
+		String phrase = da.GetWordString(pp.words);
+		args.phrases << phrase;
+		t->tmp_ptrs << (void*)&pp;
+		t->tmp << idx;
 	}
 	
 	if (args.phrases.IsEmpty()) {

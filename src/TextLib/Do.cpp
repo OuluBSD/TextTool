@@ -330,6 +330,7 @@ void TaskManager::DoWords(int lng_i, int fn) {
 	t.type = TASK_WORD_DATA;
 	t.cb = THISBACK1(GetWordData, &t);
 	
+	t.lng_i = lng_i;
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();
@@ -349,6 +350,7 @@ void TaskManager::DoWordsUsingExisting(int lng_i, int fn) {
 	t.type = TASK_WORD_DATA_USING_EXISTING;
 	t.cb = THISBACK1(GetWordDataUsingExisting, &t);
 	
+	t.lng_i = lng_i;
 	t.batch_i = 0;
 	t.fn = fn;
 	lock.LeaveWrite();

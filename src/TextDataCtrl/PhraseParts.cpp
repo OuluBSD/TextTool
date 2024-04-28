@@ -108,13 +108,13 @@ void PhraseParts::ToolMenu(Bar& bar) {
 }
 
 void PhraseParts::DoWordsUsingExisting(int fn) {
-	int lng_i = LNG_FINNISH;
+	int lng_i = MetaDatabase::Single().GetOtherLanguageIndex();
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoWordsUsingExisting(lng_i, fn);
 }
 
 void PhraseParts::DoWords(int fn) {
-	int lng_i = LNG_FINNISH;
+	int lng_i = MetaDatabase::Single().GetOtherLanguageIndex();
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoWords(lng_i, fn);
 }

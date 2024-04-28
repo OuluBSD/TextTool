@@ -37,6 +37,10 @@ v0.0.1
 	- function to fix those (remove "" and link duplicates)
 - lead parser and analyzer (taxi)
 - managerctrl
+- tautology (fun lyrics)
+- lead opportunities: sell construction kits, hiphop beats
+- lyrics generator: logical post-analysis and fixes
+- lyrics generator: repeat/new metrics, analysis, fixes (check that repeats enough)
 
 
 v0.0.2
