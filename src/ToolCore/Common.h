@@ -489,6 +489,7 @@ String GetBiasHeader(int mode);
 
 enum {
 	#undef LNG_ENGLISH
+	LNG_NATIVE,
 	LNG_ENGLISH,
 	LNG_FINNISH,
 	LNG_SPANISH,
@@ -504,6 +505,7 @@ enum {
 inline int GetLanguageCount() {return LNG_COUNT;}
 inline const char* GetLanguageKey(int i) {
 	switch (i) {
+		case LNG_NATIVE: return "dataset native";
 		case LNG_ENGLISH: return "english";
 		case LNG_FINNISH: return "finnish";
 		case LNG_SPANISH: return "spanish";

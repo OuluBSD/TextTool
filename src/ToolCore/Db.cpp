@@ -1,5 +1,6 @@
 #include "ToolCore.h"
 #include "ProtectedCommon.h"
+#include <TextDatabase/TextDatabase.h>
 
 
 BEGIN_TEXTLIB_NAMESPACE
@@ -310,6 +311,10 @@ const Vector<String>& GetAppModeResultPhraseExamples(int appmode, int lng_i) {
 	static Vector<String> v_[DB_COUNT];
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	auto& v = v_[appmode];
+	
+	if (lng_i == LNG_NATIVE)
+		lng_i = MetaDatabase::Single().GetLanguageIndex();
+	
 	if (v.IsEmpty()) {
 		if (appmode == DB_SONG) {
 			if (lng_i == LNG_ENGLISH) {

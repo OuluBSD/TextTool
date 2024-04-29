@@ -426,7 +426,7 @@ void ScriptGenerator::ProcessPairPhrases() {
 		return;
 	}
 	
-	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
+	bool collect_token_texts = song.lng_i == LNG_NATIVE;
 	const auto& translations = da.phrase_translations[song.lng_i];
 	for(int i = begin; i < end; i++) {
 		int pp_i = phrases[batch].GetKey(i);
@@ -528,7 +528,7 @@ void ScriptGenerator::ProcessRhymes() {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->scripts;
-	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
+	bool collect_token_texts = song.lng_i == LNG_NATIVE;
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
@@ -605,7 +605,7 @@ void ScriptGenerator::OnProcessRhymes(String res) {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->scripts;
-	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
+	bool collect_token_texts = song.lng_i == LNG_NATIVE;
 	
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
@@ -698,7 +698,7 @@ void ScriptGenerator::OnProcessRhymes(String res) {
 					Swap(pp.words, word_is);
 			}
 		}
-		// Don't collect texts for other languages than english
+		// Don't collect texts for other languages than native dataset language
 		else {
 			ASSERT(song.lng_i > 0);
 			hash_t hash = line.GetHashValue();
@@ -740,7 +740,7 @@ void ScriptGenerator::ProcessScores() {
 	
 	per_sub_batch =  15;
 		
-	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
+	bool collect_token_texts = song.lng_i == LNG_NATIVE;
 	if (collect_token_texts) {
 		const auto& v = sa.phrase_parts[batch];
 		pp_is.Clear();
@@ -821,7 +821,7 @@ void ScriptGenerator::OnProcessScores(String res) {
 	Vector<String> lines = Split(res, "\n");
 	int scores[SCORE_COUNT];
 	bool use_tmp = lines.GetCount() == pp_is.GetCount();
-	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
+	bool collect_token_texts = song.lng_i == LNG_NATIVE;
 	for(int i = 0; i < lines.GetCount(); i++) {
 		String& line = lines[i];
 		

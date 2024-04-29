@@ -211,11 +211,24 @@ void MetaDatabase::Jsonize(JsonIO& json) {
 		;
 }
 
+int MetaDatabase::GetLanguageIndex() const {
+	if (share == "share")
+		return LNG_ENGLISH;
+	if (share == "share-fi")
+		return LNG_FINNISH;
+	TODO
+	return LNG_NATIVE;
+}
+
 int MetaDatabase::GetOtherLanguageIndex() const {
 	if (share == "share-fi")
 		return LNG_ENGLISH;
 	else
 		return LNG_FINNISH;
+}
+
+String MetaDatabase::GetLanguage() const {
+	return GetLanguageKey(GetLanguageIndex());
 }
 
 String MetaDatabase::GetOtherLanguage() const {

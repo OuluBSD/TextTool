@@ -366,7 +366,7 @@ void ScriptSolver::ProcessCollect() {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->script;
-	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
+	bool collect_token_texts = song.lng_i == LNG_NATIVE;
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
@@ -412,7 +412,7 @@ void ScriptSolver::ProcessFillLines() {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->script;
-	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
+	bool collect_token_texts = song.lng_i == LNG_NATIVE;
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
@@ -619,7 +619,7 @@ void ScriptSolver::ProcessPrimary() {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->script;
-	bool collect_token_texts = song.lng_i == LNG_ENGLISH;
+	bool collect_token_texts = song.lng_i == LNG_NATIVE;
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	

@@ -1874,7 +1874,7 @@ void AiTask::CreateInput_ScriptSolver() {
 			TaskTitledList& results = input.PreAnswer();
 			results.Title(__Script2 + " heuristic score factors");
 			results.Add("entry #1: S0:");
-			input.response_length = 2048;
+			input.response_length = 512;
 		}
 	}
 	
@@ -1974,9 +1974,10 @@ void AiTask::CreateInput_ScriptSolver() {
 			list.Add("also highly: funny, sensual, thought provoking, romantic, impactful");
 		}
 		{
-			String lang = args.lng_i > 0 ? Capitalize(GetLanguageKey(args.lng_i)) + " ": String();
+			int lng_i = args.lng_i > 0 ? args.lng_i : MetaDatabase::Single().GetLanguageIndex();
+			String lang = Capitalize(GetLanguageKey(lng_i));
 			TaskTitledList& results = input.PreAnswer();
-			results.Title(__Comp2 + " \"A\": Add " + lang + "line/phrase to the part '" + args.part + "' in a way, that the story of the " + __comp2 + " is best");
+			results.Title(__Comp2 + " \"A\": Add " + lang + " line/phrase to the part '" + args.part + "' in a way, that the story of the " + __comp2 + " is best");
 			results.NumberedLines();
 			results.Add("phrase: \"");
 		}
@@ -1984,8 +1985,9 @@ void AiTask::CreateInput_ScriptSolver() {
 	}
 	
 	else if (args.fn == 11) {
+		String db_lang = Capitalize(MetaDatabase::Single().GetLanguage());
 		{
-			auto& list = input.AddSub().Title("List A: English phrases");
+			auto& list = input.AddSub().Title("List A: " + db_lang + " phrases");
 			list.NumberedLines();
 			for(int j = 0; j < args.phrases.GetCount(); j++) {
 				const String& phrase = args.phrases[j];
