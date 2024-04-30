@@ -932,15 +932,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 52,
 			"weighted_rank": 66.4,
-			"chance_of_acceptance": 0.06048,
+			"chance_of_acceptance": 0.07938,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 80%",
+				"Production quality: 90%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
+				"Collaboration potential: 40%",
 				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Top contender selection: 70%"
 			],
 			"typeclasses": [
 				10,
@@ -1426,15 +1426,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 24,
 			"weighted_rank": 46.8,
-			"chance_of_acceptance": 0.03024,
+			"chance_of_acceptance": 0.1526175,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Production quality: 95%",
+				"Comparison to other submissions: 85%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				15,
@@ -1614,15 +1614,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 57,
 			"weighted_rank": 69.9,
-			"chance_of_acceptance": 0.06048,
+			"chance_of_acceptance": 0.02128,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
+				"Initial listen: 95%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 				16,
@@ -7253,17 +7253,17 @@
 			"opp_score": 58,
 			"money_score": 10300,
 			"money_score_rank": 100,
-			"opp_score_rank": 95,
-			"weighted_rank": 96.5,
-			"chance_of_acceptance": 0.102816,
-			"average_payout_estimation": 1028.16,
+			"opp_score_rank": 87,
+			"weighted_rank": 90.9,
+			"chance_of_acceptance": 0.326592,
+			"average_payout_estimation": 3265.92,
 			"chance_list": [
-				"Initial listen: 80%",
+				"Initial listen: 90%",
 				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 40%"
+				"Comparison to other submissions: 90%",
+				"Collaboration potential: 80%",
+				"Refinement and final review: 80%",
+				"Top contender selection: 70%"
 			],
 			"typeclasses": [
 				18,
@@ -8123,17 +8123,17 @@
 			"opp_score": 60,
 			"money_score": 300,
 			"money_score_rank": 100,
-			"opp_score_rank": 72,
-			"weighted_rank": 80.4,
-			"chance_of_acceptance": 0.00576,
+			"opp_score_rank": 74,
+			"weighted_rank": 81.8,
+			"chance_of_acceptance": 0.03024,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 60%",
-				"Comparison to other submissions: 50%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				2147483647,
@@ -8484,13 +8484,13 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 26,
 			"weighted_rank": 48.2,
-			"chance_of_acceptance": 0.06048,
+			"chance_of_acceptance": 0.0576,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
+				"Initial listen: 80%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 50%",
 				"Refinement and final review: 50%",
 				"Top contender selection: 40%"
 			],
@@ -11544,12 +11544,12 @@
 			"money_score_rank": 63,
 			"opp_score_rank": 100,
 			"weighted_rank": 88.9,
-			"chance_of_acceptance": 0.14364,
-			"average_payout_estimation": 359.17182,
+			"chance_of_acceptance": 0.13608,
+			"average_payout_estimation": 340.26804,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 80%",
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 90%",
 				"Collaboration potential: 70%",
 				"Refinement and final review: 60%",
 				"Top contender selection: 50%"
@@ -11739,15 +11739,15 @@
 			"money_score_rank": 23,
 			"opp_score_rank": 97,
 			"weighted_rank": 74.8,
-			"chance_of_acceptance": 0.08721,
-			"average_payout_estimation": 348.883605,
+			"chance_of_acceptance": 0.03024,
+			"average_payout_estimation": 120.97512,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				4,
@@ -11929,15 +11929,15 @@
 			"money_score_rank": 30,
 			"opp_score_rank": 100,
 			"weighted_rank": 79,
-			"chance_of_acceptance": 0.305235,
-			"average_payout_estimation": 1221.0926175,
+			"chance_of_acceptance": 0.04536,
+			"average_payout_estimation": 181.46268,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
-				"Collaboration potential: 80%",
-				"Refinement and final review: 75%",
-				"Top contender selection: 70%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				18,
@@ -12114,11 +12114,11 @@
 			"money_score_rank": 26,
 			"opp_score_rank": 100,
 			"weighted_rank": 77.8,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 226.81512,
+			"chance_of_acceptance": 0.0378,
+			"average_payout_estimation": 283.5189,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
+				"Initial listen: 100%",
+				"Production quality: 90%",
 				"Comparison to other submissions: 70%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
@@ -12306,9 +12306,9 @@
 			"date_created": "",
 			"opp_score": 55,
 			"money_score": 42050,
-			"money_score_rank": 96,
+			"money_score_rank": 95,
 			"opp_score_rank": 100,
-			"weighted_rank": 98.8,
+			"weighted_rank": 98.5,
 			"chance_of_acceptance": 0.1512,
 			"average_payout_estimation": 113.4756,
 			"chance_list": [
@@ -12802,17 +12802,17 @@
 			"opp_score": 58,
 			"money_score": 300,
 			"money_score_rank": 100,
-			"opp_score_rank": 84,
-			"weighted_rank": 88.8,
-			"chance_of_acceptance": 0.03024,
+			"opp_score_rank": 92,
+			"weighted_rank": 94.4,
+			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				12,
@@ -13123,15 +13123,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 70,
 			"weighted_rank": 79,
-			"chance_of_acceptance": 0.008064,
+			"chance_of_acceptance": 0.305235,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 85%",
+				"Collaboration potential: 80%",
+				"Refinement and final review: 75%",
+				"Top contender selection: 70%"
 			],
 			"typeclasses": [
 				30,
@@ -13650,17 +13650,17 @@
 			"opp_score": 63,
 			"money_score": 100,
 			"money_score_rank": 100,
-			"opp_score_rank": 50,
-			"weighted_rank": 65,
-			"chance_of_acceptance": 0.22743,
+			"opp_score_rank": 56,
+			"weighted_rank": 69.2,
+			"chance_of_acceptance": 0.0648,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 95%",
-				"Comparison to other submissions: 90%",
-				"Collaboration potential: 80%",
-				"Refinement and final review: 70%",
-				"Top contender selection: 50%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 75%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				6,
@@ -13829,15 +13829,16 @@
 			"money_score_rank": 44,
 			"opp_score_rank": 100,
 			"weighted_rank": 83.2,
-			"chance_of_acceptance": 0.28917,
-			"average_payout_estimation": 723.069585,
+			"chance_of_acceptance": 0.0486,
+			"average_payout_estimation": 121.5243,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
-				"Collaboration potential: 80%",
-				"Refinement and final review: 75%",
-				"Top contender selection: 70%"
+				"Production quality: 80%",
+				"Comparison to other submissions: 75%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 30%",
+				"Again, these numbers are theoretical and may vary. However, since this song has a higher chance of acceptance based on its qualities, the overall acceptance rate would also be slightly higher than the previous listing at 0.4032%."
 			],
 			"typeclasses": [
 				11,
@@ -14013,15 +14014,15 @@
 			"money_score_rank": 67,
 			"opp_score_rank": 100,
 			"weighted_rank": 90.1,
-			"chance_of_acceptance": 0.02016,
-			"average_payout_estimation": 25.21008,
+			"chance_of_acceptance": 0.344736,
+			"average_payout_estimation": 431.092368,
 			"chance_list": [
 				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Production quality: 90%",
+				"Comparison to other submissions: 95%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 80%",
+				"Top contender selection: 90%"
 			],
 			"typeclasses": [
 				5,
@@ -14221,12 +14222,12 @@
 			"opp_score": 61,
 			"money_score": 300,
 			"money_score_rank": 100,
-			"opp_score_rank": 60,
-			"weighted_rank": 72,
-			"chance_of_acceptance": 0.06048,
+			"opp_score_rank": 69,
+			"weighted_rank": 78.3,
+			"chance_of_acceptance": 0.05712,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
+				"Initial listen: 85%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
 				"Collaboration potential: 60%",
@@ -14539,13 +14540,12 @@
 			"money_score_rank": 16,
 			"opp_score_rank": 100,
 			"weighted_rank": 74.8,
-			"chance_of_acceptance": 0.063,
-			"average_payout_estimation": 1102.5315,
+			"chance_of_acceptance": 0.504,
+			"average_payout_estimation": 8820.252,
 			"chance_list": [
-				"Final review: 50%",
-				"Licensing potential: 30%",
-				"Marketability: 70%",
-				"Longevity and potential for commercial placement opportunities: 60%"
+				"Licensing terms: 80%",
+				"Synchronization timing: 70%",
+				"General satisfaction: 90%"
 			],
 			"typeclasses": [
 				30,
@@ -16275,13 +16275,15 @@
 			"money_score_rank": 20,
 			"opp_score_rank": 100,
 			"weighted_rank": 76,
-			"chance_of_acceptance": 0.00075,
-			"average_payout_estimation": 5.625375,
+			"chance_of_acceptance": 0.1512,
+			"average_payout_estimation": 1134.0756,
 			"chance_list": [
-				"Advertising campaign selection: 25%",
-				"Usage in multiple ads: 20%",
-				"Worldwide usage: 15%",
-				"Final approval: 10%"
+				"Initial listen: 100%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				18,
@@ -16652,15 +16654,15 @@
 			"money_score_rank": 25,
 			"opp_score_rank": 100,
 			"weighted_rank": 77.5,
-			"chance_of_acceptance": 0.02016,
-			"average_payout_estimation": 151.21008,
+			"chance_of_acceptance": 0.06048,
+			"average_payout_estimation": 453.63024,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				11,
@@ -16831,17 +16833,17 @@
 			"opp_score": 70,
 			"money_score": 3000340,
 			"money_score_rank": 3,
-			"opp_score_rank": 31,
-			"weighted_rank": 22.6,
-			"chance_of_acceptance": 0.008064,
-			"average_payout_estimation": 705.604032,
+			"opp_score_rank": 30,
+			"weighted_rank": 21.9,
+			"chance_of_acceptance": 0.03024,
+			"average_payout_estimation": 2646.01512,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				8,
@@ -17158,15 +17160,15 @@
 			"money_score_rank": 98,
 			"opp_score_rank": 100,
 			"weighted_rank": 99.4,
-			"chance_of_acceptance": 0.04536,
-			"average_payout_estimation": 34.04268,
+			"chance_of_acceptance": 0.0702,
+			"average_payout_estimation": 52.6851,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
+				"Comparison to other submissions: 75%",
+				"Collaboration potential: 65%",
 				"Refinement and final review: 50%",
-				"Top contender selection: 30%"
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				6,
@@ -17534,15 +17536,15 @@
 			"money_score_rank": 77,
 			"opp_score_rank": 100,
 			"weighted_rank": 93.1,
-			"chance_of_acceptance": 0.14364,
-			"average_payout_estimation": 107.80182,
+			"chance_of_acceptance": 0.27702,
+			"average_payout_estimation": 207.90351,
 			"chance_list": [
-				"Initial listen: 95%",
+				"Initial listen: 80%",
 				"Production quality: 90%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Comparison to other submissions: 95%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 75%",
+				"Top contender selection: 90%"
 			],
 			"typeclasses": [
 				6,
@@ -17907,18 +17909,18 @@
 			"date_created": "",
 			"opp_score": -1,
 			"money_score": 50100,
-			"money_score_rank": 79,
+			"money_score_rank": 90,
 			"opp_score_rank": 100,
-			"weighted_rank": 93.7,
-			"chance_of_acceptance": 0.02016,
-			"average_payout_estimation": 15.13008,
+			"weighted_rank": 97,
+			"chance_of_acceptance": 0.625026375,
+			"average_payout_estimation": 469.0822944375,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Initial listen: 95%",
+				"Production quality: 95%",
+				"Comparison to other submissions: 95%",
+				"Collaboration potential: 90%",
+				"Refinement and final review: 90%",
+				"Top contender selection: 90%"
 			],
 			"typeclasses": [
 				6,
@@ -18092,18 +18094,18 @@
 			"date_created": "",
 			"opp_score": -3,
 			"money_score": 100100,
-			"money_score_rank": 62,
+			"money_score_rank": 61,
 			"opp_score_rank": 100,
-			"weighted_rank": 88.6,
-			"chance_of_acceptance": 0.262656,
-			"average_payout_estimation": 328.451328,
+			"weighted_rank": 88.3,
+			"chance_of_acceptance": 0.1512,
+			"average_payout_estimation": 189.0756,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 90%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 80%",
-				"Top contender selection: 80%"
+				"Initial listen: 100%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				4,
@@ -18277,17 +18279,17 @@
 			"opp_score": 71,
 			"money_score": 100,
 			"money_score_rank": 100,
-			"opp_score_rank": 28,
-			"weighted_rank": 49.6,
-			"chance_of_acceptance": 0.06048,
+			"opp_score_rank": 27,
+			"weighted_rank": 48.9,
+			"chance_of_acceptance": 0.190771875,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 85%",
+				"Collaboration potential: 75%",
+				"Refinement and final review: 70%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				4,
@@ -18464,13 +18466,13 @@
 			"money_score_rank": 57,
 			"opp_score_rank": 100,
 			"weighted_rank": 87.1,
-			"chance_of_acceptance": 0.008064,
-			"average_payout_estimation": 10.084032,
+			"chance_of_acceptance": 0.01512,
+			"average_payout_estimation": 18.90756,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 40%",
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
 				"Refinement and final review: 30%",
 				"Top contender selection: 20%"
 			],
@@ -18817,13 +18819,13 @@
 			"money_score_rank": 97,
 			"opp_score_rank": 100,
 			"weighted_rank": 99.1,
-			"chance_of_acceptance": 0.0336,
-			"average_payout_estimation": 25.2168,
+			"chance_of_acceptance": 0.0722925,
+			"average_payout_estimation": 54.25552125,
 			"chance_list": [
-				"Initial listen: 70%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 50%",
+				"Initial listen: 90%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 85%",
+				"Collaboration potential: 70%",
 				"Refinement and final review: 50%",
 				"Top contender selection: 30%"
 			],
@@ -19357,18 +19359,18 @@
 			"date_created": "",
 			"opp_score": 18,
 			"money_score": 50100,
-			"money_score_rank": 87,
+			"money_score_rank": 86,
 			"opp_score_rank": 100,
-			"weighted_rank": 96.1,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 22.69512,
+			"weighted_rank": 95.8,
+			"chance_of_acceptance": 0.02016,
+			"average_payout_estimation": 15.13008,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 				18,
@@ -19548,18 +19550,18 @@
 			"date_created": "",
 			"opp_score": 19,
 			"money_score": 50100,
-			"money_score_rank": 88,
+			"money_score_rank": 87,
 			"opp_score_rank": 100,
-			"weighted_rank": 96.4,
-			"chance_of_acceptance": 0.0108,
-			"average_payout_estimation": 8.1054,
+			"weighted_rank": 96.1,
+			"chance_of_acceptance": 0.1008,
+			"average_payout_estimation": 75.6504,
 			"chance_list": [
 				"Initial listen: 100%",
 				"Production quality: 90%",
 				"Comparison to other submissions: 80%",
-				"Collaboration potential: 30%",
-				"Refinement and final review: 25%",
-				"Top contender selection: 20%"
+				"Collaboration potential: 70%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				11,
@@ -19730,18 +19732,18 @@
 			"date_created": "",
 			"opp_score": 2,
 			"money_score": 50100,
-			"money_score_rank": 86,
+			"money_score_rank": 85,
 			"opp_score_rank": 100,
-			"weighted_rank": 95.8,
-			"chance_of_acceptance": 0.0612,
-			"average_payout_estimation": 45.9306,
+			"weighted_rank": 95.5,
+			"chance_of_acceptance": 0.14364,
+			"average_payout_estimation": 107.80182,
 			"chance_list": [
-				"Initial listen: 85%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 75%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				4,
@@ -19917,18 +19919,18 @@
 			"date_created": "",
 			"opp_score": -1,
 			"money_score": 50100,
-			"money_score_rank": 85,
+			"money_score_rank": 84,
 			"opp_score_rank": 100,
-			"weighted_rank": 95.5,
-			"chance_of_acceptance": 0.00252,
-			"average_payout_estimation": 1.89126,
+			"weighted_rank": 95.2,
+			"chance_of_acceptance": 0.01512,
+			"average_payout_estimation": 11.34756,
 			"chance_list": [
-				"Initial listen: 50%",
+				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 30%",
-				"Refinement and final review: 20%",
-				"Top contender selection: 15%"
+				"Collaboration potential: 50%",
+				"Refinement and final review: 30%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 				4,
@@ -20105,18 +20107,18 @@
 			"date_created": "",
 			"opp_score": -1,
 			"money_score": 50100,
-			"money_score_rank": 84,
+			"money_score_rank": 83,
 			"opp_score_rank": 100,
-			"weighted_rank": 95.2,
-			"chance_of_acceptance": 0.012096,
-			"average_payout_estimation": 9.078048,
+			"weighted_rank": 94.9,
+			"chance_of_acceptance": 0.06048,
+			"average_payout_estimation": 45.39024,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				11,
@@ -20287,18 +20289,18 @@
 			"date_created": "",
 			"opp_score": 5,
 			"money_score": 50100,
-			"money_score_rank": 82,
+			"money_score_rank": 81,
 			"opp_score_rank": 100,
-			"weighted_rank": 94.6,
-			"chance_of_acceptance": 0.081,
-			"average_payout_estimation": 60.7905,
+			"weighted_rank": 94.3,
+			"chance_of_acceptance": 0.03024,
+			"average_payout_estimation": 22.69512,
 			"chance_list": [
-				"Initial listen: 100%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 75%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				5,
@@ -20658,18 +20660,18 @@
 			"date_created": "",
 			"opp_score": 0,
 			"money_score": 50100,
-			"money_score_rank": 80,
+			"money_score_rank": 79,
 			"opp_score_rank": 100,
-			"weighted_rank": 94,
-			"chance_of_acceptance": 0.010368,
-			"average_payout_estimation": 7.781184,
+			"weighted_rank": 93.7,
+			"chance_of_acceptance": 0.03024,
+			"average_payout_estimation": 22.69512,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				11,
@@ -20840,15 +20842,15 @@
 			"money_score_rank": 75,
 			"opp_score_rank": 100,
 			"weighted_rank": 92.5,
-			"chance_of_acceptance": 0.305235,
-			"average_payout_estimation": 229.0788675,
+			"chance_of_acceptance": 0.12096,
+			"average_payout_estimation": 90.78048,
 			"chance_list": [
-				"Initial listen: 95%",
+				"Initial listen: 80%",
 				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
-				"Collaboration potential: 80%",
-				"Refinement and final review: 75%",
-				"Top contender selection: 70%"
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				18,
@@ -21148,9 +21150,9 @@
 			"date_created": "",
 			"opp_score": 1,
 			"money_score": 50100,
-			"money_score_rank": 83,
+			"money_score_rank": 82,
 			"opp_score_rank": 100,
-			"weighted_rank": 94.9,
+			"weighted_rank": 94.6,
 			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 45.39024,
 			"chance_list": [
@@ -21959,15 +21961,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 16,
 			"weighted_rank": 41.2,
-			"chance_of_acceptance": 0.03024,
+			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 
@@ -22312,15 +22314,15 @@
 			"money_score_rank": 17,
 			"opp_score_rank": 100,
 			"weighted_rank": 75.1,
-			"chance_of_acceptance": 0.06048,
-			"average_payout_estimation": 1058.43024,
+			"chance_of_acceptance": 0.02592,
+			"average_payout_estimation": 453.61296,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Comparison to other submissions: 60%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				8,
@@ -22499,12 +22501,12 @@
 			"money_score_rank": 28,
 			"opp_score_rank": 100,
 			"weighted_rank": 78.4,
-			"chance_of_acceptance": 0.0432,
-			"average_payout_estimation": 108.0216,
+			"chance_of_acceptance": 0.03024,
+			"average_payout_estimation": 75.61512,
 			"chance_list": [
-				"Initial listen: 100%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 80%",
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
 				"Top contender selection: 30%"
@@ -22691,15 +22693,15 @@
 			"money_score_rank": 40,
 			"opp_score_rank": 100,
 			"weighted_rank": 82,
-			"chance_of_acceptance": 0.0576,
-			"average_payout_estimation": 100.8,
+			"chance_of_acceptance": 0.21546,
+			"average_payout_estimation": 377.055,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 75%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 90%",
+				"Collaboration potential: 80%",
+				"Refinement and final review: 70%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				4,
@@ -22875,17 +22877,17 @@
 			"opp_score": 58,
 			"money_score": 200340,
 			"money_score_rank": 37,
-			"opp_score_rank": 96,
-			"weighted_rank": 78.3,
-			"chance_of_acceptance": 0.12852,
-			"average_payout_estimation": 963.96426,
+			"opp_score_rank": 83,
+			"weighted_rank": 69.2,
+			"chance_of_acceptance": 0.26163,
+			"average_payout_estimation": 1962.355815,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 85%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Initial listen: 85%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 95%",
+				"Collaboration potential: 80%",
+				"Refinement and final review: 75%",
+				"Top contender selection: 60%"
 			],
 			"typeclasses": [
 				6,
@@ -23058,15 +23060,15 @@
 			"money_score_rank": 51,
 			"opp_score_rank": 100,
 			"weighted_rank": 85.3,
-			"chance_of_acceptance": 0.08208,
-			"average_payout_estimation": 328.36104,
+			"chance_of_acceptance": 0.0266,
+			"average_payout_estimation": 106.4133,
 			"chance_list": [
 				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 25%"
 			],
 			"typeclasses": [
 				37,
@@ -23252,15 +23254,15 @@
 			"money_score_rank": 54,
 			"opp_score_rank": 100,
 			"weighted_rank": 86.2,
-			"chance_of_acceptance": 0.008505,
-			"average_payout_estimation": 34.0242525,
+			"chance_of_acceptance": 0.12852,
+			"average_payout_estimation": 514.14426,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 75%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 35%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Production quality: 85%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				6,
@@ -23437,15 +23439,13 @@
 			"money_score_rank": 5,
 			"opp_score_rank": 100,
 			"weighted_rank": 71.5,
-			"chance_of_acceptance": 0.21546,
-			"average_payout_estimation": 8079.75,
+			"chance_of_acceptance": 0.4536,
+			"average_payout_estimation": 17010,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 90%",
-				"Collaboration potential: 80%",
-				"Refinement and final review: 70%",
-				"Top contender selection: 50%"
+				"Final decision: 90%",
+				"Exclusivity: 80%",
+				"Usage rights: 70%",
+				"Budget approval: 90%"
 			],
 			"typeclasses": [
 				6,
@@ -24268,12 +24268,12 @@
 			"money_score_rank": 33,
 			"opp_score_rank": 100,
 			"weighted_rank": 79.9,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 120.97512,
+			"chance_of_acceptance": 0.04104,
+			"average_payout_estimation": 164.18052,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
 				"Top contender selection: 30%"
@@ -24456,15 +24456,15 @@
 			"money_score_rank": 19,
 			"opp_score_rank": 100,
 			"weighted_rank": 75.7,
-			"chance_of_acceptance": 0.009072,
-			"average_payout_estimation": 68.044536,
+			"chance_of_acceptance": 0.07182,
+			"average_payout_estimation": 538.68591,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				6,
@@ -24644,13 +24644,13 @@
 			"money_score_rank": 8,
 			"opp_score_rank": 100,
 			"weighted_rank": 72.4,
-			"chance_of_acceptance": 0.012096,
-			"average_payout_estimation": 211.686048,
+			"chance_of_acceptance": 0.01512,
+			"average_payout_estimation": 264.60756,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 40%",
+				"Collaboration potential: 50%",
 				"Refinement and final review: 30%",
 				"Top contender selection: 20%"
 			],
@@ -24841,15 +24841,15 @@
 			"money_score_rank": 48,
 			"opp_score_rank": 100,
 			"weighted_rank": 84.4,
-			"chance_of_acceptance": 0.01512,
-			"average_payout_estimation": 26.46,
+			"chance_of_acceptance": 0.13608,
+			"average_payout_estimation": 238.14,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				18,
@@ -25496,15 +25496,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 1,
 			"weighted_rank": 30.7,
-			"chance_of_acceptance": 0.00576,
+			"chance_of_acceptance": 0.02592,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 60%",
-				"Comparison to other submissions: 50%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 60%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -25673,15 +25673,15 @@
 			"money_score_rank": 93,
 			"opp_score_rank": 100,
 			"weighted_rank": 97.9,
-			"chance_of_acceptance": 0.01512,
-			"average_payout_estimation": 18.90756,
+			"chance_of_acceptance": 0.1512,
+			"average_payout_estimation": 189.0756,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Initial listen: 100%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				6,
@@ -25993,15 +25993,15 @@
 			"money_score_rank": 42,
 			"opp_score_rank": 100,
 			"weighted_rank": 82.6,
-			"chance_of_acceptance": 0.389174625,
-			"average_payout_estimation": 973.1311498125,
+			"chance_of_acceptance": 0.16065,
+			"average_payout_estimation": 401.705325,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 85%",
-				"Comparison to other submissions: 90%",
+				"Initial listen: 100%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 85%",
 				"Collaboration potential: 70%",
-				"Refinement and final review: 85%",
-				"Top contender selection: 95%"
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				18,
@@ -26176,13 +26176,13 @@
 			"money_score_rank": 64,
 			"opp_score_rank": 100,
 			"weighted_rank": 89.2,
-			"chance_of_acceptance": 0.386631,
-			"average_payout_estimation": 483.4820655,
+			"chance_of_acceptance": 0.470934,
+			"average_payout_estimation": 588.902967,
 			"chance_list": [
-				"Initial listen: 80%",
+				"Initial listen: 90%",
 				"Production quality: 90%",
-				"Comparison to other submissions: 95%",
-				"Collaboration potential: 70%",
+				"Comparison to other submissions: 90%",
+				"Collaboration potential: 80%",
 				"Refinement and final review: 85%",
 				"Top contender selection: 95%"
 			],
@@ -26713,15 +26713,15 @@
 			"money_score_rank": 24,
 			"opp_score_rank": 100,
 			"weighted_rank": 77.2,
-			"chance_of_acceptance": 0.12852,
-			"average_payout_estimation": 514.14426,
+			"chance_of_acceptance": 0.012096,
+			"average_payout_estimation": 48.390048,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 85%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 40%",
+				"Refinement and final review: 30%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 				19,
@@ -29472,15 +29472,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 17,
 			"weighted_rank": 41.9,
-			"chance_of_acceptance": 0.02688,
-			"average_payout_estimation": 2.688,
+			"chance_of_acceptance": 0.06048,
+			"average_payout_estimation": 6.048,
 			"chance_list": [
-				"Initial listen: 80%",
+				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				11,
@@ -29979,15 +29979,15 @@
 			"money_score_rank": 22,
 			"opp_score_rank": 100,
 			"weighted_rank": 76.6,
-			"chance_of_acceptance": 0.1526175,
-			"average_payout_estimation": 381.62005875,
+			"chance_of_acceptance": 0.09576,
+			"average_payout_estimation": 239.44788,
 			"chance_list": [
 				"Initial listen: 95%",
 				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
+				"Comparison to other submissions: 80%",
 				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				18,
@@ -30293,15 +30293,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 9,
 			"weighted_rank": 36.3,
-			"chance_of_acceptance": 0.12852,
-			"average_payout_estimation": 96.45426,
+			"chance_of_acceptance": 0.11305,
+			"average_payout_estimation": 84.844025,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 85%",
-				"Comparison to other submissions: 80%",
+				"Initial listen: 100%",
+				"Production quality: 95%",
+				"Comparison to other submissions: 85%",
 				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				6,
@@ -30480,15 +30480,15 @@
 			"money_score_rank": 94,
 			"opp_score_rank": 100,
 			"weighted_rank": 98.2,
-			"chance_of_acceptance": 0.06048,
-			"average_payout_estimation": 75.63024,
+			"chance_of_acceptance": 0.07182,
+			"average_payout_estimation": 89.81091,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
 				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				2147483647,
@@ -30965,15 +30965,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 6,
 			"weighted_rank": 34.2,
-			"chance_of_acceptance": 0.03024,
+			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 
@@ -31135,17 +31135,17 @@
 			"opp_score": 63,
 			"money_score": 0,
 			"money_score_rank": 100,
-			"opp_score_rank": 53,
-			"weighted_rank": 67.1,
-			"chance_of_acceptance": 0.1526175,
+			"opp_score_rank": 51,
+			"weighted_rank": 65.7,
+			"chance_of_acceptance": 0.02268,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Initial listen: 90%",
+				"Production quality: 70%",
+				"Comparison to other submissions: 60%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -31799,11 +31799,11 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 4,
 			"weighted_rank": 32.8,
-			"chance_of_acceptance": 0.12852,
+			"chance_of_acceptance": 0.14364,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 85%",
+				"Initial listen: 95%",
+				"Production quality: 90%",
 				"Comparison to other submissions: 80%",
 				"Collaboration potential: 70%",
 				"Refinement and final review: 60%",
@@ -32111,15 +32111,15 @@
 			"money_score_rank": 55,
 			"opp_score_rank": 100,
 			"weighted_rank": 86.5,
-			"chance_of_acceptance": 0.06048,
-			"average_payout_estimation": 75.63024,
+			"chance_of_acceptance": 0.03024,
+			"average_payout_estimation": 37.81512,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				5,
@@ -32746,12 +32746,12 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 45,
 			"weighted_rank": 61.5,
-			"chance_of_acceptance": 0.03024,
+			"chance_of_acceptance": 0.02268,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
+				"Production quality: 70%",
+				"Comparison to other submissions: 60%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
 				"Top contender selection: 30%"
@@ -33101,15 +33101,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 8,
 			"weighted_rank": 35.6,
-			"chance_of_acceptance": 0.0672,
+			"chance_of_acceptance": 0.1526175,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 100%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 85%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 
@@ -33283,15 +33283,15 @@
 			"money_score_rank": 11,
 			"opp_score_rank": 100,
 			"weighted_rank": 73.3,
-			"chance_of_acceptance": 0.02016,
-			"average_payout_estimation": 151.21008,
+			"chance_of_acceptance": 0.14364,
+			"average_payout_estimation": 1077.37182,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 20%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				11,
@@ -34163,12 +34163,12 @@
 			"money_score_rank": 60,
 			"opp_score_rank": 100,
 			"weighted_rank": 88,
-			"chance_of_acceptance": 0.02016,
-			"average_payout_estimation": 15.13008,
+			"chance_of_acceptance": 0.03024,
+			"average_payout_estimation": 22.69512,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
 				"Top contender selection: 30%"
@@ -36653,15 +36653,15 @@
 			"money_score_rank": 56,
 			"opp_score_rank": 100,
 			"weighted_rank": 86.8,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 37.81512,
+			"chance_of_acceptance": 0.305235,
+			"average_payout_estimation": 381.6963675,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 85%",
+				"Collaboration potential: 80%",
+				"Refinement and final review: 75%",
+				"Top contender selection: 70%"
 			],
 			"typeclasses": [
 				18,
@@ -37016,17 +37016,17 @@
 			"opp_score": 63,
 			"money_score": 416866,
 			"money_score_rank": 21,
-			"opp_score_rank": 54,
-			"weighted_rank": 44.1,
-			"chance_of_acceptance": 0.081648,
-			"average_payout_estimation": 3061.8,
+			"opp_score_rank": 49,
+			"weighted_rank": 40.6,
+			"chance_of_acceptance": 0.03024,
+			"average_payout_estimation": 1134,
 			"chance_list": [
-				"Initial listen: 30%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 90%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 80%",
-				"Top contender selection: 90%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				1,
@@ -37214,15 +37214,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 43,
 			"weighted_rank": 60.1,
-			"chance_of_acceptance": 0.0001,
+			"chance_of_acceptance": 0.1512,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 100%",
-				"Production quality: 100%",
-				"Comparison to other submissions: 100%",
-				"Collaboration potential: 100%",
-				"Refinement and final review: 100%",
-				"Top contender selection: 100%"
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 
@@ -37563,17 +37563,17 @@
 			"opp_score": 58,
 			"money_score": 100,
 			"money_score_rank": 100,
-			"opp_score_rank": 93,
-			"weighted_rank": 95.1,
-			"chance_of_acceptance": 0.03024,
+			"opp_score_rank": 84,
+			"weighted_rank": 88.8,
+			"chance_of_acceptance": 0.0864,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Initial listen: 100%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 
@@ -37749,17 +37749,17 @@
 			"opp_score": 58,
 			"money_score": 100,
 			"money_score_rank": 100,
-			"opp_score_rank": 83,
-			"weighted_rank": 88.1,
-			"chance_of_acceptance": 0.1526175,
+			"opp_score_rank": 85,
+			"weighted_rank": 89.5,
+			"chance_of_acceptance": 0.048195,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Initial listen: 90%",
+				"Production quality: 85%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -38101,17 +38101,17 @@
 			"opp_score": 58,
 			"money_score": 100,
 			"money_score_rank": 100,
-			"opp_score_rank": 86,
-			"weighted_rank": 90.2,
-			"chance_of_acceptance": 0.06048,
+			"opp_score_rank": 82,
+			"weighted_rank": 87.4,
+			"chance_of_acceptance": 0.03213,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 80%",
+				"Production quality: 85%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -38285,15 +38285,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 12,
 			"weighted_rank": 38.4,
-			"chance_of_acceptance": 0.13566,
+			"chance_of_acceptance": 0.531441,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 85%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Initial listen: 90%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 90%",
+				"Collaboration potential: 90%",
+				"Refinement and final review: 90%",
+				"Top contender selection: 90%"
 			],
 			"typeclasses": [
 
@@ -38462,15 +38462,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 88,
 			"weighted_rank": 91.6,
-			"chance_of_acceptance": 0.1008,
+			"chance_of_acceptance": 0.0192375,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Comparison to x Ambassadors style: 80%",
-				"Originality and creativity: 60%",
-				"Lyrical content and theme: 50%",
-				"Vocal performance: 70%",
-				"Memorable and catchy: 75%",
-				"Overall production quality: 80%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 75%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 30%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 
@@ -38644,15 +38644,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 65,
 			"weighted_rank": 75.5,
-			"chance_of_acceptance": 0.13608,
+			"chance_of_acceptance": 0.03024,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 90%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -41862,15 +41862,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 90,
 			"weighted_rank": 93,
-			"chance_of_acceptance": 0.01512,
+			"chance_of_acceptance": 0.03024,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
 				"Collaboration potential: 50%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -43929,12 +43929,12 @@
 			"money_score_rank": 66,
 			"opp_score_rank": 100,
 			"weighted_rank": 89.8,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 52.92,
+			"chance_of_acceptance": 0.02268,
+			"average_payout_estimation": 39.69,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
+				"Production quality: 70%",
+				"Comparison to other submissions: 60%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
 				"Top contender selection: 30%"
@@ -44632,15 +44632,15 @@
 			"money_score_rank": 49,
 			"opp_score_rank": 100,
 			"weighted_rank": 84.7,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 22.69512,
+			"chance_of_acceptance": 0.06048,
+			"average_payout_estimation": 45.39024,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				6,
@@ -44826,17 +44826,17 @@
 			"opp_score": 60,
 			"money_score": 0,
 			"money_score_rank": 100,
-			"opp_score_rank": 78,
-			"weighted_rank": 84.6,
-			"chance_of_acceptance": 0.12096,
+			"opp_score_rank": 75,
+			"weighted_rank": 82.5,
+			"chance_of_acceptance": 0.02688,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
+				"Initial listen: 80%",
 				"Production quality: 80%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -45186,15 +45186,14 @@
 			"money_score_rank": 34,
 			"opp_score_rank": 100,
 			"weighted_rank": 80.2,
-			"chance_of_acceptance": 0.02016,
-			"average_payout_estimation": 80.65008,
+			"chance_of_acceptance": 0.1344,
+			"average_payout_estimation": 537.6672,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Songwriting: 60%",
+				"Vocal performance: 70%",
+				"Instrumentation and production: 80%",
+				"Cohesiveness and overall quality: 80%",
+				"Potential for commercial success: 50%"
 			],
 			"typeclasses": [
 				6,
@@ -45733,14 +45732,14 @@
 			"opp_score": 61,
 			"money_score": 0,
 			"money_score_rank": 100,
-			"opp_score_rank": 63,
-			"weighted_rank": 74.1,
-			"chance_of_acceptance": 0.03024,
+			"opp_score_rank": 61,
+			"weighted_rank": 72.7,
+			"chance_of_acceptance": 0.02016,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
+				"Initial listen: 80%",
+				"Production quality: 70%",
+				"Comparison to other submissions: 60%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
 				"Top contender selection: 30%"
@@ -45915,17 +45914,17 @@
 			"opp_score": 64,
 			"money_score": 0,
 			"money_score_rank": 100,
-			"opp_score_rank": 48,
-			"weighted_rank": 63.6,
-			"chance_of_acceptance": 0.14364,
+			"opp_score_rank": 47,
+			"weighted_rank": 62.9,
+			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 
@@ -46441,15 +46440,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 7,
 			"weighted_rank": 34.9,
-			"chance_of_acceptance": 0.06048,
+			"chance_of_acceptance": 0.03024,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -46614,15 +46613,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 46,
 			"weighted_rank": 62.2,
-			"chance_of_acceptance": 0.06048,
+			"chance_of_acceptance": 0.01512,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Collaboration potential: 50%",
+				"Refinement and final review: 30%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 
@@ -47190,17 +47189,17 @@
 			"opp_score": 60,
 			"money_score": 500350,
 			"money_score_rank": 15,
-			"opp_score_rank": 79,
-			"weighted_rank": 59.8,
-			"chance_of_acceptance": 0.01008,
-			"average_payout_estimation": 176.40504,
+			"opp_score_rank": 72,
+			"weighted_rank": 54.9,
+			"chance_of_acceptance": 0.14364,
+			"average_payout_estimation": 2513.77182,
 			"chance_list": [
-				"Initial listen: 60%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Initial listen: 50%",
+				"Production quality: 60%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 80%",
+				"Refinement and final review: 90%",
+				"Top contender selection: 95%"
 			],
 			"typeclasses": [
 				28,
@@ -47546,15 +47545,15 @@
 			"money_score_rank": 13,
 			"opp_score_rank": 100,
 			"weighted_rank": 73.9,
-			"chance_of_acceptance": 0.497097,
-			"average_payout_estimation": 3728.4760485,
+			"chance_of_acceptance": 0.06048,
+			"average_payout_estimation": 453.63024,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 85%",
-				"Comparison to other submissions: 95%",
-				"Collaboration potential: 80%",
-				"Refinement and final review: 90%",
-				"Top contender selection: 95%"
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				8,
@@ -47732,14 +47731,14 @@
 			"money_score_rank": 12,
 			"opp_score_rank": 80,
 			"weighted_rank": 59.6,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 226.81512,
+			"chance_of_acceptance": 0.06156,
+			"average_payout_estimation": 461.73078,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
 				"Top contender selection: 30%"
 			],
 			"typeclasses": [
@@ -48903,15 +48902,15 @@
 			"money_score_rank": 68,
 			"opp_score_rank": 100,
 			"weighted_rank": 90.4,
-			"chance_of_acceptance": 0.06156,
-			"average_payout_estimation": 46.20078,
+			"chance_of_acceptance": 0.05712,
+			"average_payout_estimation": 42.86856,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 80%",
+				"Initial listen: 85%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
 				"Collaboration potential: 60%",
 				"Refinement and final review: 50%",
-				"Top contender selection: 30%"
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				37,
@@ -49219,15 +49218,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 37,
 			"weighted_rank": 55.9,
-			"chance_of_acceptance": 0.03024,
+			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 
@@ -50831,14 +50830,14 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 25,
 			"weighted_rank": 47.5,
-			"chance_of_acceptance": 0.1512,
+			"chance_of_acceptance": 0.04032,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Usage potential: 80%",
-				"Brand synergy: 70%",
-				"Artist potential: 50%",
-				"Marketability: 60%",
-				"Music quality: 90%"
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 
@@ -51193,15 +51192,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 99,
 			"weighted_rank": 99.3,
-			"chance_of_acceptance": 0.0192,
+			"chance_of_acceptance": 0.14364,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 100%",
-				"Production quality: 100%",
+				"Initial listen: 95%",
+				"Production quality: 90%",
 				"Comparison to other submissions: 80%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 
@@ -51375,17 +51374,17 @@
 			"opp_score": 58,
 			"money_score": 300,
 			"money_score_rank": 100,
-			"opp_score_rank": 91,
-			"weighted_rank": 93.7,
-			"chance_of_acceptance": 0.2844072,
+			"opp_score_rank": 89,
+			"weighted_rank": 92.3,
+			"chance_of_acceptance": 0.305235,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 99%",
-				"Production quality: 95%",
-				"Comparison to other submissions: 90%",
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 85%",
 				"Collaboration potential: 80%",
-				"Refinement and final review: 70%",
-				"Top contender selection: 60%"
+				"Refinement and final review: 75%",
+				"Top contender selection: 70%"
 			],
 			"typeclasses": [
 
@@ -51544,14 +51543,14 @@
 			"opp_score": 58,
 			"money_score": 100,
 			"money_score_rank": 100,
-			"opp_score_rank": 85,
-			"weighted_rank": 89.5,
-			"chance_of_acceptance": 0.07776,
+			"opp_score_rank": 95,
+			"weighted_rank": 96.5,
+			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 80%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
 				"Collaboration potential: 60%",
 				"Refinement and final review: 50%",
 				"Top contender selection: 40%"
@@ -51930,15 +51929,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 77,
 			"weighted_rank": 83.9,
-			"chance_of_acceptance": 0.467856,
+			"chance_of_acceptance": 0.13608,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
+				"Initial listen: 90%",
 				"Production quality: 90%",
-				"Comparison to other submissions: 95%",
-				"Collaboration potential: 80%",
-				"Refinement and final review: 90%",
-				"Top contender selection: 95%"
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 
@@ -52318,15 +52317,15 @@
 			"money_score_rank": 31,
 			"opp_score_rank": 100,
 			"weighted_rank": 79.3,
-			"chance_of_acceptance": 0.305235,
-			"average_payout_estimation": 1221.0926175,
+			"chance_of_acceptance": 0.12852,
+			"average_payout_estimation": 514.14426,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
-				"Collaboration potential: 80%",
-				"Refinement and final review: 75%",
-				"Top contender selection: 70%"
+				"Initial listen: 90%",
+				"Production quality: 85%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				22,
@@ -52512,15 +52511,15 @@
 			"money_score_rank": 50,
 			"opp_score_rank": 100,
 			"weighted_rank": 85,
-			"chance_of_acceptance": 0.1526175,
-			"average_payout_estimation": 267.080625,
+			"chance_of_acceptance": 0.009072,
+			"average_payout_estimation": 15.876,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Initial listen: 90%",
+				"Production quality: 70%",
+				"Comparison to other submissions: 60%",
+				"Collaboration potential: 40%",
+				"Refinement and final review: 30%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 				18,
@@ -52687,17 +52686,17 @@
 			"opp_score": 63,
 			"money_score": 100,
 			"money_score_rank": 100,
-			"opp_score_rank": 51,
-			"weighted_rank": 65.7,
-			"chance_of_acceptance": 0.06048,
+			"opp_score_rank": 54,
+			"weighted_rank": 67.8,
+			"chance_of_acceptance": 0.14364,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 
@@ -52869,13 +52868,13 @@
 			"money_score_rank": 91,
 			"opp_score_rank": 100,
 			"weighted_rank": 97.3,
-			"chance_of_acceptance": 0.06048,
-			"average_payout_estimation": 45.39024,
+			"chance_of_acceptance": 0.09576,
+			"average_payout_estimation": 71.86788,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
 				"Refinement and final review: 50%",
 				"Top contender selection: 40%"
 			],
@@ -53367,15 +53366,15 @@
 			"money_score_rank": 39,
 			"opp_score_rank": 100,
 			"weighted_rank": 81.7,
-			"chance_of_acceptance": 0.06048,
-			"average_payout_estimation": 151.23024,
+			"chance_of_acceptance": 0.01512,
+			"average_payout_estimation": 37.80756,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Collaboration potential: 50%",
+				"Refinement and final review: 30%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 				22,
@@ -54491,15 +54490,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 68,
 			"weighted_rank": 77.6,
-			"chance_of_acceptance": 0.06048,
+			"chance_of_acceptance": 0.03213,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 80%",
+				"Production quality: 85%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -55868,15 +55867,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 62,
 			"weighted_rank": 73.4,
-			"chance_of_acceptance": 0.010368,
+			"chance_of_acceptance": 0.14364,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 
@@ -58087,12 +58086,12 @@
 			"money_score_rank": 65,
 			"opp_score_rank": 15,
 			"weighted_rank": 30,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 52.92,
+			"chance_of_acceptance": 0.02808,
+			"average_payout_estimation": 49.14,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
+				"Comparison to other submissions: 65%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
 				"Top contender selection: 30%"
@@ -58915,15 +58914,15 @@
 			"money_score_rank": 76,
 			"opp_score_rank": 100,
 			"weighted_rank": 92.8,
-			"chance_of_acceptance": 0.02268,
-			"average_payout_estimation": 17.02134,
+			"chance_of_acceptance": 0.00324,
+			"average_payout_estimation": 2.43162,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Production quality: 80%",
+				"Comparison to other submissions: 50%",
+				"Collaboration potential: 30%",
+				"Refinement and final review: 20%",
+				"Top contender selection: 15%"
 			],
 			"typeclasses": [
 				6,
@@ -59098,18 +59097,18 @@
 			"date_created": "",
 			"opp_score": 27,
 			"money_score": 50100,
-			"money_score_rank": 90,
+			"money_score_rank": 89,
 			"opp_score_rank": 100,
-			"weighted_rank": 97,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 22.69512,
+			"weighted_rank": 96.7,
+			"chance_of_acceptance": 0.06048,
+			"average_payout_estimation": 45.39024,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
+				"Initial listen: 80%",
+				"Production quality: 90%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				6,
@@ -59427,17 +59426,17 @@
 			"opp_score": 70,
 			"money_score": 200400,
 			"money_score_rank": 36,
-			"opp_score_rank": 30,
-			"weighted_rank": 31.8,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 75.61512,
+			"opp_score_rank": 32,
+			"weighted_rank": 33.2,
+			"chance_of_acceptance": 0.00972,
+			"average_payout_estimation": 24.30486,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Production quality: 75%",
+				"Comparison to other submissions: 60%",
+				"Collaboration potential: 40%",
+				"Refinement and final review: 30%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 				6,
@@ -59926,15 +59925,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 10,
 			"weighted_rank": 37,
-			"chance_of_acceptance": 0.02016,
+			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 20%"
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 
@@ -60106,15 +60105,15 @@
 			"money_score_rank": 99,
 			"opp_score_rank": 100,
 			"weighted_rank": 99.7,
-			"chance_of_acceptance": 0.0504,
-			"average_payout_estimation": 37.8252,
+			"chance_of_acceptance": 0.01728,
+			"average_payout_estimation": 12.96864,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 75%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 60%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 				20,
@@ -60314,15 +60313,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 2,
 			"weighted_rank": 31.4,
-			"chance_of_acceptance": 0.009072,
+			"chance_of_acceptance": 0.01296,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 70%",
+				"Production quality: 80%",
 				"Comparison to other submissions: 60%",
 				"Collaboration potential: 40%",
 				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Top contender selection: 25%"
 			],
 			"typeclasses": [
 
@@ -60868,12 +60867,12 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 38,
 			"weighted_rank": 56.6,
-			"chance_of_acceptance": 0.02016,
+			"chance_of_acceptance": 0.03024,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
 				"Top contender selection: 30%"
@@ -61984,18 +61983,18 @@
 			"date_created": "",
 			"opp_score": 9,
 			"money_score": 100100,
-			"money_score_rank": 61,
+			"money_score_rank": 62,
 			"opp_score_rank": 100,
-			"weighted_rank": 88.3,
-			"chance_of_acceptance": 0.1526175,
-			"average_payout_estimation": 190.84818375,
+			"weighted_rank": 88.6,
+			"chance_of_acceptance": 0.326592,
+			"average_payout_estimation": 408.403296,
 			"chance_list": [
-				"Initial listen: 95%",
+				"Initial listen: 90%",
 				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
+				"Comparison to other submissions: 80%",
 				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Refinement and final review: 80%",
+				"Top contender selection: 90%"
 			],
 			"typeclasses": [
 				6,
@@ -62175,14 +62174,14 @@
 			"money_score_rank": 38,
 			"opp_score_rank": 100,
 			"weighted_rank": 81.4,
-			"chance_of_acceptance": 0.010752,
-			"average_payout_estimation": 26.885376,
+			"chance_of_acceptance": 0.02016,
+			"average_payout_estimation": 50.41008,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 30%",
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
 				"Top contender selection: 20%"
 			],
 			"typeclasses": [
@@ -63657,15 +63656,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 22,
 			"weighted_rank": 45.4,
-			"chance_of_acceptance": 0.13608,
+			"chance_of_acceptance": 0.19278,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 90%",
+				"Production quality: 85%",
 				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Collaboration potential: 75%",
+				"Refinement and final review: 70%",
+				"Top contender selection: 60%"
 			],
 			"typeclasses": [
 
@@ -63833,15 +63832,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 3,
 			"weighted_rank": 32.1,
-			"chance_of_acceptance": 0.12852,
+			"chance_of_acceptance": 0.0567,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Initial listen: 90%",
+				"Production quality: 75%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 
@@ -64781,14 +64780,14 @@
 			"opp_score": 64,
 			"money_score": 0,
 			"money_score_rank": 100,
-			"opp_score_rank": 47,
-			"weighted_rank": 62.9,
-			"chance_of_acceptance": 0.01512,
+			"opp_score_rank": 48,
+			"weighted_rank": 63.6,
+			"chance_of_acceptance": 0.0192375,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 75%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 30%",
 				"Top contender selection: 20%"
@@ -65460,15 +65459,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 58,
 			"weighted_rank": 70.6,
-			"chance_of_acceptance": 0.12852,
+			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 85%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 
@@ -66022,15 +66021,15 @@
 			"money_score_rank": 9,
 			"opp_score_rank": 100,
 			"weighted_rank": 72.7,
-			"chance_of_acceptance": 0.1512,
-			"average_payout_estimation": 13230.0756,
+			"chance_of_acceptance": 0.497097,
+			"average_payout_estimation": 43496.2360485,
 			"chance_list": [
-				"Initial listen: 100%",
+				"Initial listen: 80%",
 				"Production quality: 90%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Comparison to other submissions: 95%",
+				"Collaboration potential: 85%",
+				"Refinement and final review: 90%",
+				"Top contender selection: 95%"
 			],
 			"typeclasses": [
 				6,
@@ -66382,17 +66381,17 @@
 			"opp_score": 60,
 			"money_score": 200,
 			"money_score_rank": 100,
-			"opp_score_rank": 75,
-			"weighted_rank": 82.5,
-			"chance_of_acceptance": 0.04536,
+			"opp_score_rank": 79,
+			"weighted_rank": 85.3,
+			"chance_of_acceptance": 0.1512,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 30%"
+				"Initial listen: 100%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 
@@ -66747,17 +66746,17 @@
 			"opp_score": 58,
 			"money_score": 100,
 			"money_score_rank": 100,
-			"opp_score_rank": 92,
-			"weighted_rank": 94.4,
-			"chance_of_acceptance": 0.03024,
+			"opp_score_rank": 96,
+			"weighted_rank": 97.2,
+			"chance_of_acceptance": 0.57159432,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Initial listen: 99%",
+				"Production quality: 99%",
+				"Comparison to other submissions: 90%",
+				"Collaboration potential: 90%",
+				"Refinement and final review: 90%",
+				"Top contender selection: 80%"
 			],
 			"typeclasses": [
 
@@ -66922,16 +66921,16 @@
 			"opp_score": 66,
 			"money_score": 100,
 			"money_score_rank": 100,
-			"opp_score_rank": 44,
-			"weighted_rank": 60.8,
-			"chance_of_acceptance": 0.27702,
+			"opp_score_rank": 41,
+			"weighted_rank": 58.7,
+			"chance_of_acceptance": 0.18144,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 80%",
 				"Production quality: 90%",
-				"Comparison to other submissions: 95%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 75%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 70%",
 				"Top contender selection: 90%"
 			],
 			"typeclasses": [
@@ -67452,17 +67451,17 @@
 			"opp_score": 58,
 			"money_score": 0,
 			"money_score_rank": 100,
-			"opp_score_rank": 87,
-			"weighted_rank": 90.9,
-			"chance_of_acceptance": 0.21546,
+			"opp_score_rank": 91,
+			"weighted_rank": 93.7,
+			"chance_of_acceptance": 0.074844,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
+				"Initial listen: 99%",
 				"Production quality: 90%",
-				"Comparison to other submissions: 95%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 70%",
-				"Top contender selection: 90%"
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -67794,18 +67793,18 @@
 			"date_created": "",
 			"opp_score": 16,
 			"money_score": 50100,
-			"money_score_rank": 89,
+			"money_score_rank": 88,
 			"opp_score_rank": 100,
-			"weighted_rank": 96.7,
-			"chance_of_acceptance": 0.02592,
-			"average_payout_estimation": 19.45296,
+			"weighted_rank": 96.4,
+			"chance_of_acceptance": 0.1526175,
+			"average_payout_estimation": 114.53943375,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 85%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				36,
@@ -69283,15 +69282,15 @@
 			"money_score_rank": 46,
 			"opp_score_rank": 100,
 			"weighted_rank": 83.8,
-			"chance_of_acceptance": 0.13608,
-			"average_payout_estimation": 544.38804,
+			"chance_of_acceptance": 0.02268,
+			"average_payout_estimation": 90.73134,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Production quality: 70%",
+				"Comparison to other submissions: 60%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				6,
@@ -69985,15 +69984,16 @@
 			"money_score_rank": 1,
 			"opp_score_rank": 100,
 			"weighted_rank": 70.3,
-			"chance_of_acceptance": 0.12852,
-			"average_payout_estimation": 11245.56426,
+			"chance_of_acceptance": 0.0001,
+			"average_payout_estimation": 8.75005,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 85%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"No changes",
+				"Initial listen: 100%",
+				"Production quality: 100%",
+				"Comparison to other submissions: 100%",
+				"Collaboration potential: 100%",
+				"Refinement and final review: 100%",
+				"Top contender selection: 100%"
 			],
 			"typeclasses": [
 				11,
@@ -70436,15 +70436,15 @@
 			"money_score_rank": 43,
 			"opp_score_rank": 39,
 			"weighted_rank": 40.2,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 37.81512,
+			"chance_of_acceptance": 0.01904,
+			"average_payout_estimation": 23.80952,
 			"chance_list": [
-				"Initial listen: 90%",
+				"Initial listen: 85%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 				2147483647,
@@ -71975,15 +71975,15 @@
 			"money_score_rank": 45,
 			"opp_score_rank": 100,
 			"weighted_rank": 83.5,
-			"chance_of_acceptance": 0.06048,
-			"average_payout_estimation": 105.84,
+			"chance_of_acceptance": 0.03024,
+			"average_payout_estimation": 52.92,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				4,
@@ -72764,14 +72764,14 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 14,
 			"weighted_rank": 39.8,
-			"chance_of_acceptance": 0.01008,
+			"chance_of_acceptance": 0.012096,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
 				"Collaboration potential: 40%",
-				"Refinement and final review: 25%",
+				"Refinement and final review: 30%",
 				"Top contender selection: 20%"
 			],
 			"typeclasses": [
@@ -73556,15 +73556,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 18,
 			"weighted_rank": 42.6,
-			"chance_of_acceptance": 0.305235,
+			"chance_of_acceptance": 0.03024,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
-				"Collaboration potential: 80%",
-				"Refinement and final review: 75%",
-				"Top contender selection: 70%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -74165,17 +74165,17 @@
 			"opp_score": 66,
 			"money_score": 667033,
 			"money_score_rank": 10,
-			"opp_score_rank": 42,
-			"weighted_rank": 32.4,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 529.21512,
+			"opp_score_rank": 40,
+			"weighted_rank": 31,
+			"chance_of_acceptance": 0.32319,
+			"average_payout_estimation": 5655.986595,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Comparison to other submissions: 75%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 90%",
+				"Top contender selection: 95%"
 			],
 			"typeclasses": [
 				17,
@@ -74359,15 +74359,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 98,
 			"weighted_rank": 98.6,
-			"chance_of_acceptance": 0.00756,
+			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 50%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 
@@ -74540,15 +74540,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 13,
 			"weighted_rank": 39.1,
-			"chance_of_acceptance": 0.008064,
+			"chance_of_acceptance": 0.03024,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -74709,17 +74709,17 @@
 			"opp_score": 71,
 			"money_score": 100,
 			"money_score_rank": 100,
-			"opp_score_rank": 27,
-			"weighted_rank": 48.9,
-			"chance_of_acceptance": 0.01512,
+			"opp_score_rank": 28,
+			"weighted_rank": 49.6,
+			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 
@@ -76154,15 +76154,15 @@
 			"money_score_rank": 47,
 			"opp_score_rank": 100,
 			"weighted_rank": 84.1,
-			"chance_of_acceptance": 0.003888,
-			"average_payout_estimation": 1.459944,
+			"chance_of_acceptance": 0.0054,
+			"average_payout_estimation": 2.0277,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 30%",
-				"Refinement and final review: 20%",
-				"Top contender selection: 15%"
+				"Initial listen: 75%",
+				"Production quality: 60%",
+				"Comparison to other submissions: 50%",
+				"Collaboration potential: 40%",
+				"Refinement and final review: 30%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 				6,
@@ -77112,8 +77112,8 @@
 			"opp_score": 58,
 			"money_score": 0,
 			"money_score_rank": 100,
-			"opp_score_rank": 89,
-			"weighted_rank": 92.3,
+			"opp_score_rank": 93,
+			"weighted_rank": 95.1,
 			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 0,
 			"chance_list": [
@@ -77792,17 +77792,17 @@
 			"opp_score": 69,
 			"money_score": 0,
 			"money_score_rank": 100,
-			"opp_score_rank": 34,
-			"weighted_rank": 53.8,
-			"chance_of_acceptance": 0.02016,
+			"opp_score_rank": 33,
+			"weighted_rank": 53.1,
+			"chance_of_acceptance": 0.012096,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 40%",
+				"Refinement and final review: 30%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 
@@ -79128,13 +79128,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 64,
 			"weighted_rank": 74.8,
-			"chance_of_acceptance": 0.254016,
+			"chance_of_acceptance": 0.285768,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Review of catalog for other opportunities: 90%",
-				"Use in TV shows or films: 80%",
-				"Selection as a ride along song with major artists: 70%",
-				"Total chance of being accepted after being selected as a top contender: 50.4% (0.9 x 0.8 x 0.7 = 0.504 = 50.4%)"
+				"Initial listen: 90%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 70%",
+				"Top contender selection: 90%"
 			],
 			"typeclasses": [
 
@@ -80016,18 +80018,18 @@
 			"date_created": "",
 			"opp_score": 47,
 			"money_score": 42050,
-			"money_score_rank": 95,
+			"money_score_rank": 96,
 			"opp_score_rank": 100,
-			"weighted_rank": 98.5,
-			"chance_of_acceptance": 0.252,
-			"average_payout_estimation": 189.126,
+			"weighted_rank": 98.8,
+			"chance_of_acceptance": 0.10206,
+			"average_payout_estimation": 76.59603,
 			"chance_list": [
-				"Initial listen: 100%",
-				"Production quality: 100%",
+				"Initial listen: 90%",
+				"Production quality: 90%",
 				"Comparison to other submissions: 90%",
-				"Collaboration potential: 80%",
-				"Refinement and final review: 70%",
-				"Top contender selection: 50%"
+				"Collaboration potential: 70%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				36,
@@ -80233,15 +80235,10 @@
 			"money_score_rank": 72,
 			"opp_score_rank": 100,
 			"weighted_rank": 91.6,
-			"chance_of_acceptance": 0.63686898,
-			"average_payout_estimation": 477.97016949,
+			"chance_of_acceptance": 0.0001,
+			"average_payout_estimation": 0.07505,
 			"chance_list": [
-				"Initial listen: 99%",
-				"Production quality: 99%",
-				"Comparison to other submissions: 95%",
-				"Collaboration potential: 95%",
-				"Refinement and final review: 90%",
-				"Top contender selection: 80%"
+				"With each stage of the process, the chances of acceptance will increase due to the song already being accepted into the catalogue and meeting the requirements for this specific listing. Therefore, the initial listen stage may have a higher chance of acceptance (i.e. 80% instead of 70%), and the other stages may also have a slightly higher chance. However, it ultimately depends on the individual preferences of the A&R team and the competition among other submissions."
 			],
 			"typeclasses": [
 				4,
@@ -80577,18 +80574,18 @@
 			"date_created": "",
 			"opp_score": 1,
 			"money_score": 50100,
-			"money_score_rank": 81,
+			"money_score_rank": 80,
 			"opp_score_rank": 100,
-			"weighted_rank": 94.3,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 22.69512,
+			"weighted_rank": 94,
+			"chance_of_acceptance": 0.06048,
+			"average_payout_estimation": 45.39024,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				10,
@@ -80917,15 +80914,15 @@
 			"money_score_rank": 71,
 			"opp_score_rank": 100,
 			"weighted_rank": 91.3,
-			"chance_of_acceptance": 0.06048,
-			"average_payout_estimation": 45.39024,
+			"chance_of_acceptance": 0.14364,
+			"average_payout_estimation": 107.80182,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				18,
@@ -81104,12 +81101,12 @@
 			"money_score_rank": 78,
 			"opp_score_rank": 100,
 			"weighted_rank": 93.4,
-			"chance_of_acceptance": 0.06048,
-			"average_payout_estimation": 45.39024,
+			"chance_of_acceptance": 0.0648,
+			"average_payout_estimation": 48.6324,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
+				"Comparison to other submissions: 75%",
 				"Collaboration potential: 60%",
 				"Refinement and final review: 50%",
 				"Top contender selection: 40%"
@@ -82766,15 +82763,15 @@
 			"money_score_rank": 32,
 			"opp_score_rank": 100,
 			"weighted_rank": 79.6,
-			"chance_of_acceptance": 0.06048,
-			"average_payout_estimation": 241.95024,
+			"chance_of_acceptance": 0.36288,
+			"average_payout_estimation": 1451.70144,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Initial listen: 80%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 90%",
+				"Top contender selection: 100%"
 			],
 			"typeclasses": [
 				18,
@@ -85372,17 +85369,17 @@
 			"opp_score": 69,
 			"money_score": 100,
 			"money_score_rank": 100,
-			"opp_score_rank": 33,
-			"weighted_rank": 53.1,
-			"chance_of_acceptance": 0.264537,
-			"average_payout_estimation": 26.4537,
+			"opp_score_rank": 34,
+			"weighted_rank": 53.8,
+			"chance_of_acceptance": 0.06048,
+			"average_payout_estimation": 6.048,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 85%",
-				"Comparison to other submissions: 95%",
-				"Collaboration potential: 65%",
-				"Refinement and final review: 80%",
-				"Top contender selection: 70%"
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				11,
@@ -86046,15 +86043,15 @@
 			"money_score_rank": 35,
 			"opp_score_rank": 100,
 			"weighted_rank": 80.5,
-			"chance_of_acceptance": 0.06048,
-			"average_payout_estimation": 151.23024,
+			"chance_of_acceptance": 0.00756,
+			"average_payout_estimation": 18.90378,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Production quality: 70%",
+				"Comparison to other submissions: 60%",
+				"Collaboration potential: 40%",
+				"Refinement and final review: 25%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 				2147483647,
@@ -86937,15 +86934,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 19,
 			"weighted_rank": 43.3,
-			"chance_of_acceptance": 0.14364,
+			"chance_of_acceptance": 0.01512,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 30%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 
@@ -87108,15 +87105,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 81,
 			"weighted_rank": 86.7,
-			"chance_of_acceptance": 0.0648,
+			"chance_of_acceptance": 0.01512,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
-				"Comparison to other submissions: 75%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 30%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 
@@ -87609,17 +87606,17 @@
 			"opp_score": 60,
 			"money_score": 100,
 			"money_score_rank": 100,
-			"opp_score_rank": 76,
-			"weighted_rank": 83.2,
-			"chance_of_acceptance": 0.02016,
+			"opp_score_rank": 78,
+			"weighted_rank": 84.6,
+			"chance_of_acceptance": 0.00756,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
+				"Initial listen: 90%",
 				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Comparison to other submissions: 50%",
+				"Collaboration potential: 40%",
+				"Refinement and final review: 30%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 
@@ -87955,15 +87952,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 73,
 			"weighted_rank": 81.1,
-			"chance_of_acceptance": 0.5814,
+			"chance_of_acceptance": 0.02016,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 100%",
-				"Production quality: 100%",
-				"Comparison to other submissions: 95%",
-				"Collaboration potential: 90%",
-				"Refinement and final review: 85%",
-				"Top contender selection: 80%"
+				"Initial listen: 80%",
+				"Production quality: 70%",
+				"Comparison to other submissions: 60%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -88145,17 +88142,17 @@
 			"opp_score": 66,
 			"money_score": 0,
 			"money_score_rank": 100,
-			"opp_score_rank": 41,
-			"weighted_rank": 58.7,
-			"chance_of_acceptance": 0.00864,
+			"opp_score_rank": 42,
+			"weighted_rank": 59.4,
+			"chance_of_acceptance": 0.02016,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
+				"Initial listen: 80%",
+				"Production quality: 70%",
 				"Comparison to other submissions: 60%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 25%",
-				"Top contender selection: 20%"
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -90808,17 +90805,17 @@
 			"opp_score": 66,
 			"money_score": 0,
 			"money_score_rank": 100,
-			"opp_score_rank": 40,
-			"weighted_rank": 58,
-			"chance_of_acceptance": 0.244188,
+			"opp_score_rank": 44,
+			"weighted_rank": 60.8,
+			"chance_of_acceptance": 0.03024,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
-				"Collaboration potential: 80%",
-				"Refinement and final review: 70%",
-				"Top contender selection: 60%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -91832,17 +91829,17 @@
 			"opp_score": 61,
 			"money_score": 200,
 			"money_score_rank": 100,
-			"opp_score_rank": 69,
-			"weighted_rank": 78.3,
-			"chance_of_acceptance": 0.03024,
+			"opp_score_rank": 60,
+			"weighted_rank": 72,
+			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 
@@ -92019,15 +92016,15 @@
 			"money_score_rank": 58,
 			"opp_score_rank": 100,
 			"weighted_rank": 87.4,
-			"chance_of_acceptance": 0.32319,
-			"average_payout_estimation": 5655.986595,
+			"chance_of_acceptance": 0.30618,
+			"average_payout_estimation": 5358.30309,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 75%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 90%",
-				"Top contender selection: 95%"
+				"Production quality: 90%",
+				"Comparison to other submissions: 90%",
+				"Collaboration potential: 80%",
+				"Refinement and final review: 75%",
+				"Top contender selection: 70%"
 			],
 			"typeclasses": [
 				18,
@@ -92212,15 +92209,15 @@
 			"money_score_rank": 73,
 			"opp_score_rank": 100,
 			"weighted_rank": 91.9,
-			"chance_of_acceptance": 0.02016,
-			"average_payout_estimation": 151.21008,
+			"chance_of_acceptance": 0.1512,
+			"average_payout_estimation": 1134.0756,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Initial listen: 100%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				21,
@@ -92412,15 +92409,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 71,
 			"weighted_rank": 79.7,
-			"chance_of_acceptance": 0.0042,
+			"chance_of_acceptance": 0.009975,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 50%",
-				"Collaboration potential: 30%",
+				"Initial listen: 95%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
 				"Refinement and final review: 25%",
-				"Top contender selection: 20%"
+				"Top contender selection: 15%"
 			],
 			"typeclasses": [
 
@@ -92593,17 +92590,17 @@
 			"opp_score": 61,
 			"money_score": 200,
 			"money_score_rank": 100,
-			"opp_score_rank": 61,
-			"weighted_rank": 72.7,
-			"chance_of_acceptance": 0.02008125,
+			"opp_score_rank": 66,
+			"weighted_rank": 76.2,
+			"chance_of_acceptance": 0.02016,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen:  85%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 75%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 35%",
-				"Top contender selection: 25%"
+				"Initial listen: 80%",
+				"Production quality: 70%",
+				"Comparison to other submissions: 60%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -93534,15 +93531,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 94,
 			"weighted_rank": 95.8,
-			"chance_of_acceptance": 0.941480149401,
+			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 99%",
-				"Production quality: 99%",
-				"Comparison to other submissions: 99%",
-				"Collaboration potential: 99%",
-				"Refinement and final review: 99%",
-				"Top contender selection: 99%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 
@@ -93714,14 +93711,14 @@
 			"opp_score": 70,
 			"money_score": 100,
 			"money_score_rank": 100,
-			"opp_score_rank": 32,
-			"weighted_rank": 52.4,
-			"chance_of_acceptance": 0.13608,
+			"opp_score_rank": 31,
+			"weighted_rank": 51.7,
+			"chance_of_acceptance": 0.1526175,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 80%",
+				"Production quality: 95%",
+				"Comparison to other submissions: 85%",
 				"Collaboration potential: 70%",
 				"Refinement and final review: 60%",
 				"Top contender selection: 50%"
@@ -93894,17 +93891,17 @@
 			"opp_score": 63,
 			"money_score": 100,
 			"money_score_rank": 100,
-			"opp_score_rank": 49,
-			"weighted_rank": 64.3,
-			"chance_of_acceptance": 0.13608,
+			"opp_score_rank": 50,
+			"weighted_rank": 65,
+			"chance_of_acceptance": 0.3591,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Initial listen: 100%",
+				"Production quality: 95%",
+				"Comparison to other submissions: 90%",
+				"Collaboration potential: 80%",
+				"Refinement and final review: 75%",
+				"Top contender selection: 70%"
 			],
 			"typeclasses": [
 
@@ -94602,15 +94599,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 35,
 			"weighted_rank": 54.5,
-			"chance_of_acceptance": 0.3591,
+			"chance_of_acceptance": 0.1913625,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 100%",
-				"Production quality: 95%",
+				"Initial listen: 90%",
+				"Production quality: 90%",
 				"Comparison to other submissions: 90%",
-				"Collaboration potential: 80%",
-				"Refinement and final review: 75%",
-				"Top contender selection: 70%"
+				"Collaboration potential: 75%",
+				"Refinement and final review: 70%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 
@@ -94781,17 +94778,17 @@
 			"opp_score": 63,
 			"money_score": 50200,
 			"money_score_rank": 74,
-			"opp_score_rank": 55,
-			"weighted_rank": 60.7,
-			"chance_of_acceptance": 0.06048,
-			"average_payout_estimation": 45.39024,
+			"opp_score_rank": 53,
+			"weighted_rank": 59.3,
+			"chance_of_acceptance": 0.03024,
+			"average_payout_estimation": 22.69512,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				18,
@@ -94972,14 +94969,14 @@
 			"money_score_rank": 59,
 			"opp_score_rank": 100,
 			"weighted_rank": 87.7,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 37.81512,
+			"chance_of_acceptance": 0.04536,
+			"average_payout_estimation": 56.72268,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
 				"Top contender selection: 30%"
 			],
 			"typeclasses": [
@@ -95160,15 +95157,15 @@
 			"money_score_rank": 27,
 			"opp_score_rank": 11,
 			"weighted_rank": 15.8,
-			"chance_of_acceptance": 0.254016,
-			"average_payout_estimation": 1016.191008,
+			"chance_of_acceptance": 0.06048,
+			"average_payout_estimation": 241.95024,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 80%",
-				"Top contender selection: 90%"
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				11,
@@ -95335,17 +95332,17 @@
 			"opp_score": 61,
 			"money_score": 10100,
 			"money_score_rank": 100,
-			"opp_score_rank": 66,
-			"weighted_rank": 76.2,
-			"chance_of_acceptance": 0.06048,
-			"average_payout_estimation": 10.61424,
+			"opp_score_rank": 67,
+			"weighted_rank": 76.9,
+			"chance_of_acceptance": 0.02016,
+			"average_payout_estimation": 3.53808,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Initial listen: 80%",
+				"Production quality: 70%",
+				"Comparison to other submissions: 60%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				6,
@@ -95828,17 +95825,17 @@
 			"opp_score": 58,
 			"money_score": 300,
 			"money_score_rank": 100,
-			"opp_score_rank": 82,
-			"weighted_rank": 87.4,
-			"chance_of_acceptance": 0.06048,
+			"opp_score_rank": 86,
+			"weighted_rank": 90.2,
+			"chance_of_acceptance": 0.03024,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
 				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -96014,15 +96011,15 @@
 			"money_score_rank": 70,
 			"opp_score_rank": 100,
 			"weighted_rank": 91,
-			"chance_of_acceptance": 0.02592,
-			"average_payout_estimation": 19.45296,
+			"chance_of_acceptance": 0.54826875,
+			"average_payout_estimation": 411.475696875,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Production quality: 95%",
+				"Comparison to other submissions: 90%",
+				"Collaboration potential: 75%",
+				"Refinement and final review: 95%",
+				"Top contender selection: 100%"
 			],
 			"typeclasses": [
 				18,
@@ -96199,15 +96196,15 @@
 			"money_score_rank": 69,
 			"opp_score_rank": 100,
 			"weighted_rank": 90.7,
-			"chance_of_acceptance": 0.14364,
-			"average_payout_estimation": 107.80182,
+			"chance_of_acceptance": 0.0378,
+			"average_payout_estimation": 28.3689,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
+				"Initial listen: 90%",
+				"Production quality: 70%",
 				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Collaboration potential: 50%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				11,
@@ -98167,15 +98164,15 @@
 			"money_score_rank": 2,
 			"opp_score_rank": 100,
 			"weighted_rank": 70.6,
-			"chance_of_acceptance": 0.027,
-			"average_payout_estimation": 2362.5135,
+			"chance_of_acceptance": 0.03024,
+			"average_payout_estimation": 2646.01512,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
-				"Comparison to other submissions: 75%",
+				"Comparison to other submissions: 70%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
-				"Top contender selection: 25%"
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 				11,
@@ -100736,17 +100733,17 @@
 			"opp_score": 61,
 			"money_score": 0,
 			"money_score_rank": 100,
-			"opp_score_rank": 67,
-			"weighted_rank": 76.9,
-			"chance_of_acceptance": 0.004284,
+			"opp_score_rank": 63,
+			"weighted_rank": 74.1,
+			"chance_of_acceptance": 0.14364,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 85%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 20%",
-				"Top contender selection: 15%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 
@@ -100995,17 +100992,17 @@
 			"opp_score": 60,
 			"money_score": 0,
 			"money_score_rank": 100,
-			"opp_score_rank": 74,
-			"weighted_rank": 81.8,
-			"chance_of_acceptance": 0.06048,
+			"opp_score_rank": 76,
+			"weighted_rank": 83.2,
+			"chance_of_acceptance": 0.02592,
 			"average_payout_estimation": 0,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Comparison to other submissions: 60%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
+				"Top contender selection: 30%"
 			],
 			"typeclasses": [
 
@@ -106422,15 +106419,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 20,
 			"weighted_rank": 44,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 0.03024,
+			"chance_of_acceptance": 0.0036,
+			"average_payout_estimation": 0.0036,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Initial listen: 80%",
+				"Production quality: 60%",
+				"Comparison to other submissions: 50%",
+				"Collaboration potential: 30%",
+				"Refinement and final review: 25%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 
@@ -106856,15 +106853,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 29,
 			"weighted_rank": 50.3,
-			"chance_of_acceptance": 0.1526175,
+			"chance_of_acceptance": 0.06048,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 95%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 85%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 60%",
-				"Top contender selection: 50%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 
@@ -107543,12 +107540,12 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 36,
 			"weighted_rank": 55.2,
-			"chance_of_acceptance": 0.03024,
+			"chance_of_acceptance": 0.01728,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
+				"Initial listen: 80%",
+				"Production quality: 60%",
+				"Comparison to other submissions: 60%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
 				"Top contender selection: 30%"
@@ -110894,15 +110891,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 21,
 			"weighted_rank": 44.7,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 0.03024,
+			"chance_of_acceptance": 0.0036,
+			"average_payout_estimation": 0.0036,
 			"chance_list": [
-				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Initial listen: 80%",
+				"Production quality: 60%",
+				"Comparison to other submissions: 50%",
+				"Collaboration potential: 30%",
+				"Refinement and final review: 25%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 
@@ -111111,10 +111108,10 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 5,
 			"weighted_rank": 33.5,
-			"chance_of_acceptance": 0.02016,
+			"chance_of_acceptance": 0.02268,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
+				"Initial listen: 90%",
 				"Production quality: 70%",
 				"Comparison to other submissions: 60%",
 				"Collaboration potential: 50%",
@@ -112434,15 +112431,15 @@
 			"money_score_rank": 53,
 			"opp_score_rank": 100,
 			"weighted_rank": 85.9,
-			"chance_of_acceptance": 0.14364,
-			"average_payout_estimation": 574.63182,
+			"chance_of_acceptance": 0.06048,
+			"average_payout_estimation": 241.95024,
 			"chance_list": [
-				"Initial listen: 50%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 80%",
-				"Refinement and final review: 90%",
-				"Top contender selection: 95%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				37,
@@ -112629,12 +112626,12 @@
 			"chance_of_acceptance": 0.02016,
 			"average_payout_estimation": 80.65008,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 				6,
@@ -112810,15 +112807,15 @@
 			"money_score_rank": 4,
 			"opp_score_rank": 100,
 			"weighted_rank": 71.2,
-			"chance_of_acceptance": 0.09072,
-			"average_payout_estimation": 3402,
+			"chance_of_acceptance": 0.01512,
+			"average_payout_estimation": 567,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 90%",
-				"Comparison to other submissions: 80%",
-				"Collaboration potential: 70%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 30%",
+				"Top contender selection: 20%"
 			],
 			"typeclasses": [
 				34,
@@ -114359,15 +114356,15 @@
 			"money_score_rank": 100,
 			"opp_score_rank": 59,
 			"weighted_rank": 71.3,
-			"chance_of_acceptance": 0.05376,
+			"chance_of_acceptance": 0.10098,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
+				"Initial listen: 90%",
+				"Production quality: 85%",
 				"Comparison to other submissions: 80%",
 				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
-				"Top contender selection: 40%"
+				"Refinement and final review: 55%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 
@@ -116396,15 +116393,15 @@
 			"money_score_rank": 7,
 			"opp_score_rank": 100,
 			"weighted_rank": 72.1,
-			"chance_of_acceptance": 0.12096,
-			"average_payout_estimation": 2116.86048,
+			"chance_of_acceptance": 0.12852,
+			"average_payout_estimation": 2249.16426,
 			"chance_list": [
-				"Initial listen: 60%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 80%",
-				"Top contender selection: 90%"
+				"Initial listen: 90%",
+				"Production quality: 85%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				6,
@@ -116577,17 +116574,17 @@
 			"opp_score": 63,
 			"money_score": 300,
 			"money_score_rank": 100,
-			"opp_score_rank": 56,
-			"weighted_rank": 69.2,
-			"chance_of_acceptance": 0.01512,
+			"opp_score_rank": 55,
+			"weighted_rank": 68.5,
+			"chance_of_acceptance": 0.01701,
 			"average_payout_estimation": 0,
 			"chance_list": [
-				"Initial listen: 80%",
+				"Initial listen: 90%",
 				"Production quality: 90%",
 				"Comparison to other submissions: 70%",
 				"Collaboration potential: 50%",
-				"Refinement and final review: 30%",
-				"Top contender selection: 20%"
+				"Refinement and final review: 40%",
+				"Top contender selection: 15%"
 			],
 			"typeclasses": [
 
@@ -116750,15 +116747,15 @@
 			"money_score_rank": 18,
 			"opp_score_rank": 100,
 			"weighted_rank": 75.4,
-			"chance_of_acceptance": 0.2815344,
-			"average_payout_estimation": 2111.6487672,
+			"chance_of_acceptance": 0.14364,
+			"average_payout_estimation": 1077.37182,
 			"chance_list": [
-				"Initial listen: 98%",
-				"Production quality: 95%",
-				"Comparison to other submissions: 90%",
-				"Collaboration potential: 80%",
-				"Refinement and final review: 70%",
-				"Top contender selection: 60%"
+				"Initial listen: 95%",
+				"Production quality: 90%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 50%"
 			],
 			"typeclasses": [
 				18,
@@ -116936,15 +116933,15 @@
 			"money_score_rank": 6,
 			"opp_score_rank": 100,
 			"weighted_rank": 71.8,
-			"chance_of_acceptance": 0.03024,
-			"average_payout_estimation": 529.21512,
+			"chance_of_acceptance": 0.102816,
+			"average_payout_estimation": 1799.331408,
 			"chance_list": [
 				"Initial listen: 90%",
-				"Production quality: 80%",
-				"Comparison to other submissions: 70%",
-				"Collaboration potential: 50%",
-				"Refinement and final review: 40%",
-				"Top contender selection: 30%"
+				"Production quality: 85%",
+				"Comparison to other submissions: 80%",
+				"Collaboration potential: 70%",
+				"Refinement and final review: 60%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				18,
@@ -117604,12 +117601,12 @@
 			"money_score_rank": 14,
 			"opp_score_rank": 100,
 			"weighted_rank": 74.2,
-			"chance_of_acceptance": 0.0324,
-			"average_payout_estimation": 567.0162,
+			"chance_of_acceptance": 0.02592,
+			"average_payout_estimation": 453.61296,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
-				"Comparison to other submissions: 75%",
+				"Comparison to other submissions: 60%",
 				"Collaboration potential: 50%",
 				"Refinement and final review: 40%",
 				"Top contender selection: 30%"
@@ -117794,15 +117791,15 @@
 			"money_score_rank": 29,
 			"opp_score_rank": 100,
 			"weighted_rank": 78.7,
-			"chance_of_acceptance": 0.009408,
-			"average_payout_estimation": 23.524704,
+			"chance_of_acceptance": 0.06048,
+			"average_payout_estimation": 151.23024,
 			"chance_list": [
-				"Initial listen: 80%",
-				"Production quality: 70%",
-				"Comparison to other submissions: 60%",
-				"Collaboration potential: 40%",
-				"Refinement and final review: 35%",
-				"Top contender selection: 20%"
+				"Initial listen: 90%",
+				"Production quality: 80%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 60%",
+				"Refinement and final review: 50%",
+				"Top contender selection: 40%"
 			],
 			"typeclasses": [
 				11,
@@ -117986,14 +117983,14 @@
 			"money_score_rank": 41,
 			"opp_score_rank": 100,
 			"weighted_rank": 82.3,
-			"chance_of_acceptance": 0.0486,
-			"average_payout_estimation": 85.05,
+			"chance_of_acceptance": 0.03024,
+			"average_payout_estimation": 52.92,
 			"chance_list": [
 				"Initial listen: 90%",
 				"Production quality: 80%",
-				"Comparison to other submissions: 75%",
-				"Collaboration potential: 60%",
-				"Refinement and final review: 50%",
+				"Comparison to other submissions: 70%",
+				"Collaboration potential: 50%",
+				"Refinement and final review: 40%",
 				"Top contender selection: 30%"
 			],
 			"typeclasses": [
