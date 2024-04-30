@@ -32,6 +32,7 @@ void OwnerInfoCtrl::Data() {
 		this->year_of_hobbyist_begin	.SetData(a.year_of_hobbyist_begin);
 		this->year_of_career_begin		.SetData(a.year_of_career_begin);
 		this->biography					.SetData(a.biography);
+		this->is_guitarist				.SetData(a.is_guitarist);
 		this->electronic_tools			.SetData(a.electronic_tools);
 	}
 	

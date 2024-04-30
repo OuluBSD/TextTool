@@ -26,9 +26,10 @@ LeadsCtrl::LeadsCtrl(TextTool* app) : ToolEditorBase("leads", *app) {
 
 void LeadsCtrl::InitSimplified() {
 	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
+	AddItem(t_("Database"), t_("Lead Websites"), lead_sites);
 	AddItem(t_("Profile"), t_("Owner Info"), owner_info);
 	AddItem(t_("Profile"), t_("Profile Info"), profile_info);
-	AddItem(t_("Database"), t_("Lead Websites"), lead_sites);
+	AddItem(t_("Social Media"), t_("Content"), some_content);
 	
 }
 
@@ -114,7 +115,7 @@ void LeadsCtrl::AddOwner() {
 	bool b = EditTextNotNull(
 		name,
 		t_("Add Owner"),
-		t_("Owner's English name"),
+		t_("Owner's name"),
 		0
 	);
 	if (!b) return;
@@ -156,7 +157,7 @@ void LeadsCtrl::AddProfile() {
 	bool b = EditTextNotNull(
 		name,
 		t_("Add Profile"),
-		t_("Profile's English name"),
+		t_("Profile's name"),
 		0
 	);
 	if (!b) return;

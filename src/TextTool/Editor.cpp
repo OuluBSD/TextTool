@@ -662,7 +662,7 @@ void ToolEditor::AddEntity() {
 	bool b = EditTextNotNull(
 		name,
 		t_("Add Entity"),
-		t_("Entity's English name"),
+		t_("Entity's name"),
 		0
 	);
 	if (!b) return;
@@ -700,7 +700,7 @@ void ToolEditor::RenameEntity() {
 	bool b = EditTextNotNull(
 		name,
 		t_("Rename Entity"),
-		t_("Entity's English name"),
+		t_("Entity's name"),
 		0
 	);
 	if (!b) return;
@@ -732,7 +732,7 @@ void ToolEditor::AddSnapshot() {
 	bool b = EditTextNotNull(
 		title,
 		t_("Add Snapshot"),
-		t_("Snapshot's English title"),
+		t_("Snapshot's title"),
 		0
 	);
 	if (!b) return;
@@ -768,7 +768,7 @@ void ToolEditor::RenameSnapshot() {
 	bool b = EditTextNotNull(
 		title,
 		t_("Rename Snapshot"),
-		t_("Snapshot's English title"),
+		t_("Snapshot's title"),
 		0
 	);
 	if (!b) return;
@@ -801,7 +801,7 @@ void ToolEditor::AddSong() {
 	bool b = EditTextNotNull(
 		title,
 		t_("Add Song"),
-		t_("Song's English title"),
+		t_("Song's title"),
 		0
 	);
 	if (!b) return;
@@ -838,7 +838,7 @@ void ToolEditor::RenameSong() {
 	bool b = EditTextNotNull(
 		title,
 		t_("Rename Song"),
-		t_("Song's English title"),
+		t_("Song's title"),
 		0
 	);
 	if (!b) return;

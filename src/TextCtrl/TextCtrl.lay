@@ -30,6 +30,22 @@ LAYOUT(ProfileInfo, 672, 292)
 	ITEM(Upp::EditString, languages, LeftPosZ(164, 496).TopPosZ(164, 20))
 END_LAYOUT
 
+LAYOUT(SocialEntry, 824, 292)
+	ITEM(Upp::LabelBox, lbl_owner, SetLabel(t_("Entry")).HSizePosZ(4, 4).VSizePosZ(0, 4))
+	ITEM(Upp::Clock, dv___1, RightPosZ(10, 150).TopPosZ(16, 156))
+	ITEM(Upp::Label, lbl_title, SetLabel(t_("Title:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(16, 20))
+	ITEM(Upp::EditString, name, HSizePosZ(164, 408).TopPosZ(16, 20))
+	ITEM(Upp::Label, dv___4, SetLabel(t_("Keywords:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(40, 20))
+	ITEM(Upp::EditString, keywords, HSizePosZ(164, 408).TopPosZ(40, 19))
+	ITEM(Upp::Calendar, dv___6, RightPosZ(168, 236).TopPosZ(16, 156))
+	ITEM(Upp::Label, dv___7, SetLabel(t_("Hashtags:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(64, 20))
+	ITEM(Upp::EditString, hashtags, HSizePosZ(164, 408).TopPosZ(64, 19))
+	ITEM(Upp::Label, dv___9, SetLabel(t_("Location:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(88, 20))
+	ITEM(Upp::EditString, location, HSizePosZ(164, 408).TopPosZ(88, 19))
+	ITEM(Upp::Label, dv___11, SetLabel(t_("Content:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(8, 148).TopPosZ(176, 20))
+	ITEM(Upp::DocEdit, content, HSizePosZ(160, 8).VSizePosZ(176, 8))
+END_LAYOUT
+
 LAYOUT(EntityInfo, 672, 380)
 	ITEM(Upp::LabelBox, lbl_entity, SetLabel(t_("Entity")).LeftPosZ(4, 664).TopPosZ(0, 288))
 	ITEM(Upp::LabelBox, lbl_speaker, SetLabel(t_("Speaker")).LeftPosZ(4, 664).TopPosZ(292, 84))

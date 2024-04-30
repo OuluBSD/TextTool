@@ -42,5 +42,9 @@ file
 	Script.cpp,
 	Leads readonly separator,
 	LeadData.h,
-	LeadData.cpp;
+	LeadData.cpp,
+	"Social Media" readonly separator,
+	Platform.h,
+	Platform.cpp,
+	_ readonly separator;
 

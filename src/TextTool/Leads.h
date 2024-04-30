@@ -21,6 +21,7 @@ protected:
 	OwnerInfoCtrl		owner_info;
 	ProfileInfoCtrl		profile_info;
 	LeadWebsites		lead_sites;
+	SocialContent		some_content;
 	
 	
 public:

@@ -27,6 +27,7 @@
 #include "Fns.h"
 #include "Profile.h"
 #include "Owner.h"
+#include "SocialContent.h"
 
 
 #endif

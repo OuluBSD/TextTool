@@ -17,6 +17,7 @@
 
 
 v0.0.1
+- lead templates and shadow-lead generation (for share-fin)
 - calendar / operations overview
 - frontpage
 - tool to find out preferred typecasts and contents for a new person
