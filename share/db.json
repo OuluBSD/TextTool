@@ -1,15 +1,68 @@
 {
-	"meta_entities": [
+	"owners": [
 		{
 			"name": "Seppo Pakonen",
 			"year_of_birth": 1989,
 			"year_of_hobbyist_begin": 1999,
 			"year_of_career_begin": 2023,
-			"biography": "Seppo Pakonen is from Oulu, Finland. He takes strong influences from American 90s hip-hop, grunge, classic rock, and Finnish alternative rock. When he was younger, he listened to a lot of Finnish hip-hop and EDM.\n\nHe started making music in 1999 with the music program eJay Dance. He made his first completely own composition in 2001 with the Fruity Loops program. He moved into professional music production in 2003 when he started using Steinberg Cubase. He has played electric guitar in 3 metal bands and gigged locally a bit.\n\nHowever, the biggest listens he has come from hip-hop, which is closest to his heart.",
-			"preferred_genres": "hip hop, electronic, EDM, nu-metal",
-			"is_guitarist": true,
+			"biography": "asd",
+			"is_guitarist": false,
 			"electronic_tools": "DAW, voice tune correction, voice changer, synths, drum samplers, midi libraries",
-			"languages": "English, Finnish, Swedish, German, Spanish, Japanese, Korean"
+			"profiles": [
+				{
+					"name": "Seppo Pakonen",
+					"begin": "1999-12-01",
+					"biography": "Seppo Pakonen is from Oulu, Finland. He takes strong influences from American 90s hip-hop, grunge, classic rock, and Finnish alternative rock. When he was younger, he listened to a lot of Finnish hip-hop and EDM.\n\nHe started making music in 1999 with the music program eJay Dance. He made his first completely own composition in 2001 with the Fruity Loops program. He moved into professional music production in 2003 when he started using Steinberg Cubase. He has played electric guitar in 3 metal bands and gigged locally a bit.\n\nHowever, the biggest listens he has come from hip-hop, which is closest to his heart.",
+					"preferred_genres": "hip hop, electronic, EDM, nu-metal",
+					"languages": "English, Finnish, Swedish, German, Spanish, Japanese, Korean"
+				},
+				{
+					"name": "Samuel Pohjantähti",
+					"begin": "2006-06-01",
+					"biography": "",
+					"preferred_genres": "",
+					"languages": ""
+				},
+				{
+					"name": "Steve Chill",
+					"begin": "2022-12-01",
+					"biography": "",
+					"preferred_genres": "",
+					"languages": ""
+				},
+				{
+					"name": "Vaikeat Ajat",
+					"begin": "2005-05-01",
+					"biography": "",
+					"preferred_genres": "",
+					"languages": ""
+				},
+				{
+					"name": "DiffTimes",
+					"begin": "2023-09-01",
+					"biography": "",
+					"preferred_genres": "",
+					"languages": ""
+				}
+			]
+		},
+		{
+			"name": "Laura Timonen",
+			"year_of_birth": 0,
+			"year_of_hobbyist_begin": 0,
+			"year_of_career_begin": 0,
+			"biography": "",
+			"is_guitarist": false,
+			"electronic_tools": "",
+			"profiles": [
+				{
+					"name": "Lara Ciara",
+					"begin": "2023-09-01",
+					"biography": "",
+					"preferred_genres": "",
+					"languages": ""
+				}
+			]
 		}
 	]
 }
