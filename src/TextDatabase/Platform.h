@@ -33,9 +33,7 @@ enum {
 	PLATFORM_COUNT
 };
 
-class Platform {
-	
-public:
+struct Platform : Moveable<Platform> {
 	String name;
 	bool has_title = false;
 	bool has_message = false;
@@ -49,19 +47,32 @@ public:
 	bool has_comments = false;
 	bool has_comment_self_promotion_hack = false;
 	
-public:
-	typedef Platform CLASSNAME;
-	Platform();
-		
 	
 	
 	
 	
 };
 
+const Vector<Platform>& GetPlatforms();
 
 
-const Array<Platform>& GetPlatforms();
+struct ProfileData {
+	hash_t hash = 0;
+	Array<PlatformData> platforms;
+	
+	Profile* profile = 0;
+	
+	
+	void Jsonize(JsonIO& json);
+	void Load();
+	void Store();
+	
+	static void StoreAll();
+	static Array<ProfileData>& GetAll();
+	static ProfileData& Get(Profile& p);
+	
+	
+};
 
 
 END_TEXTLIB_NAMESPACE

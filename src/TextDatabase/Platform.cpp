@@ -4,11 +4,27 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-Platform::Platform() {}
+int PlatformComment::GetTotalComments() const {
+	int t = 1;
+	for (const PlatformComment& pc : responses)
+		t += pc.GetTotalComments();
+	return t;
+}
+
+int Entry::GetTotalComments() const {
+	int t = 0;
+	for (const PlatformComment& pc : comments)
+		t += pc.GetTotalComments();
+	return t;
+}
 
 
-const Array<Platform>& GetPlatforms() {
-	static Array<Platform> a;
+
+
+
+
+const Vector<Platform>& GetPlatforms() {
+	static Vector<Platform> a;
 	if (!a.IsEmpty())
 		return a;
 	a.SetCount(PLATFORM_COUNT);
@@ -242,6 +258,60 @@ const Array<Platform>& GetPlatforms() {
 	
 	
 	return a;
+}
+
+void ProfileData::Jsonize(JsonIO& json) {
+	json
+		("platforms", platforms)
+		;
+}
+
+void ProfileData::Load() {
+	String dir = AppendFileName(MetaDatabase::Single().dir, "share-common");
+	String fname = IntStr64(hash) + ".json";
+	String path = AppendFileName(dir, fname);
+	
+	LoadFromJsonFileStandard(*this, path);
+}
+
+void ProfileData::Store() {
+	String dir = AppendFileName(MetaDatabase::Single().dir, "share-common");
+	String fname = IntStr64(hash) + ".json";
+	String path = AppendFileName(dir, fname);
+	
+	RealizeDirectory(dir);
+	StoreAsJsonFileStandard(*this, path);
+}
+
+Array<ProfileData>& ProfileData::GetAll() {
+	static Array<ProfileData> a;
+	return a;
+}
+
+ProfileData& ProfileData::Get(Profile& p) {
+	Array<ProfileData>& a = GetAll();
+	CombineHash ch;
+	ch.Do(p.owner->file_title);
+	ch.Do(p.name);
+	hash_t h = ch;
+	for (ProfileData& pd : a) {
+		if (pd.hash == h) {
+			ASSERT(pd.profile == &p);
+			pd.platforms.SetCount(PLATFORM_COUNT);
+			return pd;
+		}
+	}
+	ProfileData& pd = a.Add();
+	pd.hash = h;
+	pd.Load();
+	pd.platforms.SetCount(PLATFORM_COUNT);
+	pd.profile = &p;
+	return pd;
+}
+
+void ProfileData::StoreAll() {
+	for (ProfileData& pd : GetAll())
+		pd.Store();
 }
 
 

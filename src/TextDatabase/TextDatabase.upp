@@ -46,5 +46,7 @@ file
 	"Social Media" readonly separator,
 	Platform.h,
 	Platform.cpp,
+	Entry.h,
+	Entry.cpp,
 	_ readonly separator;
 

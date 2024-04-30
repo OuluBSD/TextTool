@@ -17,6 +17,7 @@
 #include "Database.h"
 #include "Pronounciation.h"
 #include "Browser.h"
+#include "Entry.h"
 #include "Platform.h"
 
 

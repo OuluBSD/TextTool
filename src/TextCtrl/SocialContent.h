@@ -18,8 +18,15 @@ public:
 	SocialContent();
 	
 	void Data();
+	void DataPlatform();
+	void DataEntry();
 	void Clear();
+	void ClearEntry();
 	void OnValueChange();
+	void AddEntry();
+	void RemoveEntry();
+	void ToolMenu(Bar& bar) override;
+	void EntryListMenu(Bar& bar);
 	
 	
 };

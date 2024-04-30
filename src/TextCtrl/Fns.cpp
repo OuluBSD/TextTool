@@ -24,6 +24,7 @@ void MetaStartup() {
 }
 
 void MetaShutdown() {
+	ProfileData::StoreAll();
 	MetaDatabase::Single().Store();
 }
 
