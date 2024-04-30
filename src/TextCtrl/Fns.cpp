@@ -20,6 +20,7 @@ void MetaStartup() {
 	}
 	
 	mdb.Load();
+	//Owner::CopyOld();
 }
 
 void MetaShutdown() {

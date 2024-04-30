@@ -10,29 +10,36 @@ class TextTool;
 class LeadsCtrl : public ToolEditorBase {
 	
 protected:
-	friend class MetaEntityInfoCtrl;
+	friend class OwnerInfoCtrl;
+	friend class ProfileInfoCtrl;
 	Splitter			hsplit, menusplit;
-	ArrayCtrl			componentlist, profile;
+	ArrayCtrl			componentlist;
+	ArrayCtrl			owners;
+	ArrayCtrl			profiles;
 	
-	
-	ImageGenTool					image_gen;
-	MetaEntityInfoCtrl				basic_info;
-	LeadWebsites					lead_sites;
+	ImageGenTool		image_gen;
+	OwnerInfoCtrl		owner_info;
+	ProfileInfoCtrl		profile_info;
+	LeadWebsites		lead_sites;
 	
 	
 public:
 	typedef LeadsCtrl CLASSNAME;
 	LeadsCtrl(TextTool* app);
 	
+	void OwnerMenu(Bar& bar);
 	void ProfileMenu(Bar& bar);
 	void Init();
 	void Data() override;
 	void DataComponent();
 	void DataProfile();
+	void DataOwner();
 	void InitSimplified();
 	void SetSubMenu(int i) override;
-	void AddMetaEntity();
-	void RemoveMetaEntity();
+	void AddOwner();
+	void RemoveOwner();
+	void AddProfile();
+	void RemoveProfile();
 	
 };
 

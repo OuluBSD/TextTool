@@ -19,7 +19,7 @@ void DemandSolver::Process() {
 	
 }
 
-DemandSolver& DemandSolver::Get(MetaEntity& e) {
+DemandSolver& DemandSolver::Get(Owner& e) {
 	String t = e.file_title;
 	hash_t h = t.GetHashValue();
 	ArrayMap<hash_t, DemandSolver>& map = __DemandSolvers();
@@ -28,7 +28,7 @@ DemandSolver& DemandSolver::Get(MetaEntity& e) {
 		return map[i];
 	
 	DemandSolver& ls = map.Add(h);
-	ls.entity = &e;
+	ls.owner = &e;
 	return ls;
 }
 

@@ -175,7 +175,8 @@ struct DataFile {
 struct TaskMgr;
 
 
-struct MetaEntity;
+struct Owner;
+struct Profile;
 struct Entity;
 struct Snapshot;
 struct Component;
@@ -261,7 +262,8 @@ String GetAppModeDir(int appmode=-1);
 
 struct MetaPtrs {
 	EditorPtrs db[DB_COUNT];
-	MetaEntity*				meta_entity = 0;
+	Owner*					owner = 0;
+	Profile*				profile = 0;
 	LeadsCtrl*				leads = 0;
 	
 	MetaPtrs();

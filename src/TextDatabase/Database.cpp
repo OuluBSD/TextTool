@@ -207,7 +207,7 @@ void MetaDatabase::Load() {
 
 void MetaDatabase::Jsonize(JsonIO& json) {
 	json
-		("meta_entities", meta_entities)
+		("owners", owners)
 		;
 }
 

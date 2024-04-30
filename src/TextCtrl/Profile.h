@@ -7,12 +7,12 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class LeadsCtrl;
 
-class MetaEntityInfoCtrl : public WithMetaEntityInfo<ToolAppCtrl> {
+class ProfileInfoCtrl : public WithProfileInfo<ToolAppCtrl> {
 	
 	
 public:
-	typedef MetaEntityInfoCtrl CLASSNAME;
-	MetaEntityInfoCtrl();
+	typedef ProfileInfoCtrl CLASSNAME;
+	ProfileInfoCtrl();
 	
 	void Data();
 	void Clear();

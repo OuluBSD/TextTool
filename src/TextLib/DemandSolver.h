@@ -27,7 +27,7 @@ class DemandSolver {
 	Time time_started, time_stopped;
 	int phase = LS_BEGIN;
 	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
-	MetaEntity* entity = 0;
+	Owner* owner = 0;
 		
 	bool waiting = false;
 	bool running = false, stopped = true;
@@ -50,7 +50,7 @@ public:
 	void Start() {if (!running) {running = true; stopped = false; Thread::Start(THISBACK(Process));}}
 	void Stop() {running = false; while (!stopped) Sleep(1);}
 	
-	static DemandSolver& Get(MetaEntity& a);
+	static DemandSolver& Get(Owner& a);
 	static void ClearTasks();
 	static void RestartTasks();
 	

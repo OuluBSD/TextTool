@@ -5,9 +5,35 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+struct Owner;
 struct LeadOpportunity;
 
-struct MetaEntity :
+struct Profile
+{
+	Owner* owner = 0;
+	String name;
+	Date begin;
+	String biography;
+	String preferred_genres;
+	String languages;
+	
+	/*void Serialize(Stream& s) {
+		
+	}*/
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("name", name)
+			("begin", begin)
+			("biography", biography)
+			("preferred_genres", preferred_genres)
+			("languages", languages)
+			;
+	}
+	
+};
+
+struct Owner :
 	DataFile
 {
 	String name;
@@ -15,15 +41,14 @@ struct MetaEntity :
 	int year_of_hobbyist_begin = 0;
 	int year_of_career_begin = 0;
 	String biography;
-	String preferred_genres;
 	bool is_guitarist = false;
 	String electronic_tools;
-	String languages;
+	Array<Profile> profiles;
 	
 	
-	void Serialize(Stream& s) {
+	/*void Serialize(Stream& s) {
 		
-	}
+	}*/
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -32,15 +57,19 @@ struct MetaEntity :
 			("year_of_hobbyist_begin", year_of_hobbyist_begin)
 			("year_of_career_begin", year_of_career_begin)
 			("biography", biography)
-			("preferred_genres", preferred_genres)
 			("is_guitarist", is_guitarist)
 			("electronic_tools", electronic_tools)
-			("languages", languages)
+			("profiles", profiles)
 			;
+		if (json.IsLoading()) {
+			for (Profile& p : profiles)
+				p.owner = this;
+		}
 	}
-	int GetOpportunityScore(const LeadOpportunity& opp) const;
 	
-	static MetaEntity& DatabaseUpdate();
+	int GetOpportunityScore(const LeadOpportunity& opp) const;
+	static void CopyOld();
+	static Owner& DatabaseUpdate();
 };
 
 

@@ -461,13 +461,13 @@ void LeadWebsites::ToolMenu(Bar& bar) {
 
 void LeadWebsites::Do(int fn) {
 	if (fn == 0) {
-		LeadSolver& tm = LeadSolver::Get(MetaEntity::DatabaseUpdate());
+		LeadSolver& tm = LeadSolver::Get(Owner::DatabaseUpdate());
 		tm.Start();
 	}
 	else {
 		MetaPtrs& p = MetaPtrs::Single();
-		if (p.meta_entity) {
-			LeadSolver& tm = LeadSolver::Get(*p.meta_entity);
+		if (p.owner) {
+			LeadSolver& tm = LeadSolver::Get(*p.owner);
 			tm.Start();
 		}
 	}

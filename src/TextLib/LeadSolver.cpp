@@ -15,7 +15,7 @@ LeadSolver::LeadSolver() {
 	
 }
 
-LeadSolver& LeadSolver::Get(MetaEntity& e) {
+LeadSolver& LeadSolver::Get(Owner& e) {
 	String t = e.file_title;
 	hash_t h = t.GetHashValue();
 	ArrayMap<hash_t, LeadSolver>& map = __LeadSolvers();
@@ -24,7 +24,7 @@ LeadSolver& LeadSolver::Get(MetaEntity& e) {
 		return map[i];
 	
 	LeadSolver& ls = map.Add(h);
-	ls.entity = &e;
+	ls.owner = &e;
 	return ls;
 }
 
@@ -42,12 +42,12 @@ void LeadSolver::Process() {
 	MetaDatabase& db = MetaDatabase::Single();
 	LeadData& sd = db.lead_data;
 	LeadDataAnalysis& sda = db.lead_data.a;
-	sa = &sda.GetLeadEntityAnalysis(entity->file_title);
+	sa = &sda.GetLeadEntityAnalysis(owner->file_title);
 	
 	// Don't process all data with AI when using generic updater profile,
 	// because more costly AI profile is used:
 	// skip after booleans
-	bool reduce_load = entity == &MetaEntity::DatabaseUpdate();
+	bool reduce_load = owner == &Owner::DatabaseUpdate();
 	
 	while (running && !Thread::IsShutdownThreads()) {
 		if (waiting) {
@@ -565,7 +565,7 @@ double LeadSolver::GetAverageOpportunityScore() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	double score_sum = 0;
 	for (const LeadOpportunity& opp : mdb.lead_data.opportunities)
-		score_sum += entity->GetOpportunityScore(opp);
+		score_sum += owner->GetOpportunityScore(opp);
 	double score_av = score_sum / mdb.lead_data.opportunities.GetCount();
 	return score_av;
 }
@@ -574,7 +574,7 @@ bool LeadSolver::SkipLowScoreOpportunity() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	double score_limit = GetAverageOpportunityScore() * score_limit_factor;
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	int score = entity->GetOpportunityScore(opp);
+	int score = owner->GetOpportunityScore(opp);
 	return score < score_limit && opp.min_compensation <= 0;
 }
 
@@ -768,8 +768,8 @@ void LeadSolver::ProcessCoarseRanking() {
 		money_scores.Add(i, money_score);
 		
 		int opp_score =
-			entity ?
-				entity->GetOpportunityScore(o) :
+			owner ?
+				owner->GetOpportunityScore(o) :
 				-1;
 		opp_scores.Add(i, opp_score);
 	}

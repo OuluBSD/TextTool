@@ -41,7 +41,7 @@ class LeadSolver {
 	Time time_started, time_stopped;
 	int phase = LS_BEGIN;
 	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
-	MetaEntity* entity = 0;
+	Owner* owner = 0;
 	LeadEntityAnalysis* sa = 0;
 		
 	bool waiting = false;
@@ -96,7 +96,7 @@ public:
 	void Start() {if (!running) {running = true; stopped = false; Thread::Start(THISBACK(Process));}}
 	void Stop() {running = false; while (!stopped) Sleep(1);}
 	
-	static LeadSolver& Get(MetaEntity& a);
+	static LeadSolver& Get(Owner& a);
 	static void ClearTasks();
 	static void RestartTasks();
 	

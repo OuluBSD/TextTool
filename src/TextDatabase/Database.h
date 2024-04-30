@@ -81,13 +81,14 @@ struct TextDatabase {
 struct MetaDatabase {
 	TextDatabase db[DB_COUNT];
 	
-	Array<MetaEntity> meta_entities;
+	//Array<MetaEntity>	meta_entities;
+	Array<Owner>		owners;
 	
 	// Source
-	LeadData		lead_data;
+	LeadData			lead_data;
 	
 	// Temp
-	String			dir, share;
+	String				dir, share;
 	
 	void Store();
 	void Load();
