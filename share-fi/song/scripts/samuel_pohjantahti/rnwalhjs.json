@@ -1,0 +1,671 @@
+{
+	"title": "Tuuliratsastajan Tarina",
+	"english_title": "Wind Rider's Odyssey.",
+	"copyright": "Seppo Pakonen",
+	"content_vision": "The lyrics celebrate the thrill of speeding down the open road, with each verse exploring the freedom and joy that comes with driving. Choruses are anthemic, echoing the idea of escaping the mundane and chasing adventures, making it a perfect fit for a high-end car campaign.",
+	"typecast": 6,
+	"archetype": 9,
+	"is_rapper": true,
+	"user_structure": "I,V1,PC1,C1,V2,PC2,C1,C2,B1,B2,C1,C2,O",
+	"required_parts": "",
+	"avoid_parts": "",
+	"structure_suggestion_description": "",
+	"parts_total": 0,
+	"bpm": 0,
+	"verse_length": 8,
+	"prechorus_length": 2,
+	"chorus_length": 4,
+	"bridge_length": 4,
+	"structure_str": "I,V1,PC1,C1,V2,PC2,C1,C2,B1,B2,C1,C2,O",
+	"text": "Intro:\nVapauden kaipuu kaikissa meiss√§ sykkii,\nkun pakkaamme laukut ja otamme tien ylitt√§v√§n sillan,\nt√§ynn√§ toiveita ja unelmia kohti tuntematonta reitti√§,\nel√§m√§n tie juuri nyt on t√§ydellinen ja me olemme sen sankareita.\n\nVerse 1:\nT√§htisumut ohittamme,\nunohtumattomia hetki√§ luomme.\nTuulta hiuksissaan ja taivas kattona,\nt√§t√§ tunnetta ei pysty sanoin kuvaamaan.\nMatkalle l√§ht√∂, aamuvarhain, me kuiskitaan mets√§n keijulle,\ntuu mukaan vauhdikkaaseen seikkailuun, unohdetaan arjen harmaus.\nMe uppoudumme hetkeen,\nikuisuus edess√§mme.\n\nPre-Chorus 1:\nMe kaikki vaan halutaan tuntea el√§v√§mme,\neik√∂ niin?\n\nChorus 1:\nVapaana kuin tuuli, ajattelemme\nkuin viimeisi√§ p√§ivi√§mme\nKiihke√§n√§ kuin aallot, karistamme taaksemme menneen,\nuuteen seikkailuun rohkeasti astumme sivuun vaeltamme.\n\nVerse 2:\nKun tie vie mut eteenp√§in, en ole en√§√§ sidottu menneeseen, voin unohtaa kaikesta stressin ja paineen, t√§√§ matka tuo mulle sen vapauden\nja ikuisen ilon.\nRohkeasti otamme ohjat ja annamme menneen haipua taaksemme,\nsill√§ t√§m√§ hetki on ainoa, joka todella merkitsee.\nKun ajamme pimeyden halki, tuntuu kuin mik√§√§n ei pys√§ytt√§isi meit√§,\nsill√§ t√§m√§ on meid√§n ainutlaatuinen hetkemme.\nTunnen kuin olisin lentokone, joka kohoaa yl√§ilmoihin,\nen√§√§ ei mik√§√§n voi pid√§tell√§ minua\n\nPre-Chorus 2:\nAutotie vie luoksesi,\nja en voi vastustaa kiusausta.\n\nChorus 2:\nVapaana kuin tuuli,\nunelmiin me liid√§mme\nVapaana kuin tuuli,\ntiemme kietoutuu yhdeksi\n\nBridge 1:\nKaiken t√§m√§n adrenaliinin keskell√§, tied√§n syd√§meni on l√∂yt√§nyt kotinsa,\nsill√§ t√§ss√§ hetkess√§ tunnen olevani elossa enemm√§n kuin koskaan ennen.\nKun el√§m√§ tuo eteen haasteita ja vastoink√§ymisi√§,\nvain muista t√§m√§ hetki ja se, ett√§ voit tehd√§ mit√§ ikin√§ haluat.\n\nBridge 2:\nAutotelineell√§ni odottaa seikkailuja,\njotka odottavat vapautta l√∂yt√§√§kseen.\nAutotelineell√§ni odottaa seikkailuja,\njotka odottavat vapautta l√∂yt√§√§kseen\n\nOutro:\nJa niin me huristelemme, t√§ynn√§ huikeita muistoja ja ikimuistoisia hetki√§,\nt√§m√§ on meid√§n ainutkertainen tarinamme, joka j√§√§ el√§m√§mme valaistamaan.\n\n",
+	"active_struct": {
+		"name": "User's structure",
+		"parts": [
+			"I",
+			"V1",
+			"PC1",
+			"C1",
+			"V2",
+			"PC2",
+			"C1",
+			"C2",
+			"B1",
+			"B2",
+			"C1",
+			"C2",
+			"O"
+		],
+		"attrs": [
+
+		]
+	},
+	"parts": [
+		{
+			"name": "Intro",
+			"type": "I",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Verse 1",
+			"type": "V1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Pre-Chorus 1",
+			"type": "PC1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Chorus 1",
+			"type": "C1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Verse 2",
+			"type": "V2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Pre-Chorus 2",
+			"type": "PC2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Chorus 2",
+			"type": "C2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Bridge 1",
+			"type": "B1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Bridge 2",
+			"type": "B2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Outro",
+			"type": "O",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		}
+	],
+	"struct_suggs": [
+
+	],
+	"picked_phrase_parts": [
+
+	],
+	"clr_list": [
+
+	],
+	"suggestions": [
+		{
+			"key": 0,
+			"value": "Intro:\nVapauden kaipuu kaikissa meiss√§ sykkii,\nkun pakkaamme laukut ja otamme tien ylitt√§v√§n sillan,\nt√§ynn√§ toiveita ja unelmia kohti tuntematonta reitti√§,\nel√§m√§n tie juuri nyt on t√§ydellinen ja me olemme sen sankareita.\n\nVerse 1:\nT√§htisumut ohittamme,\nunohtumattomia hetki√§ luomme.\nTuulta hiuksissaan ja taivas kattona,\nt√§t√§ tunnetta ei pysty sanoin kuvaamaan.\nMatkalle l√§ht√∂, aamuvarhain, me kuiskitaan mets√§n keijulle,\ntuu mukaan vauhdikkaaseen seikkailuun, unohdetaan arjen harmaus.\nMe uppoudumme hetkeen,\nikuisuus edess√§mme.\n\nPre-Chorus 1:\nMe kaikki vaan halutaan tuntea el√§v√§mme,\neik√∂ niin?\n\nChorus 1:\nVapaana kuin tuuli, ajattelemme\nkuin viimeisi√§ p√§ivi√§mme\nKiihke√§n√§ kuin aallot, karistamme taaksemme menneen,\nuuteen seikkailuun rohkeasti astumme sivuun vaeltamme.\n\nVerse 2:\nKun tie vie mut eteenp√§in, en ole en√§√§ sidottu menneeseen, voin unohtaa kaikesta stressin ja paineen, t√§√§ matka tuo mulle sen vapauden\nja ikuisen ilon.\nRohkeasti otamme ohjat ja annamme menneen haipua taaksemme,\nsill√§ t√§m√§ hetki on ainoa, joka todella merkitsee.\nKun ajamme pimeyden halki, tuntuu kuin mik√§√§n ei pys√§ytt√§isi meit√§,\nsill√§ t√§m√§ on meid√§n ainutlaatuinen hetkemme.\nTunnen kuin olisin lentokone, joka kohoaa yl√§ilmoihin,\nen√§√§ ei mik√§√§n voi pid√§tell√§ minua\n\nPre-Chorus 2:\nAutotie vie luoksesi,\nja en voi vastustaa kiusausta.\n\nChorus 2:\nVapaana kuin tuuli,\nunelmiin me liid√§mme\nVapaana kuin tuuli,\ntiemme kietoutuu yhdeksi\n\nBridge 1:\nKaiken t√§m√§n adrenaliinin keskell√§, tied√§n syd√§meni on l√∂yt√§nyt kotinsa,\nsill√§ t√§ss√§ hetkess√§ tunnen olevani elossa enemm√§n kuin koskaan ennen.\nKun el√§m√§ tuo eteen haasteita ja vastoink√§ymisi√§,\nvain muista t√§m√§ hetki ja se, ett√§ voit tehd√§ mit√§ ikin√§ haluat.\n\nBridge 2:\nAutotelineell√§ni odottaa seikkailuja,\njotka odottavat vapautta l√∂yt√§√§kseen.\nAutotelineell√§ni odottaa seikkailuja,\njotka odottavat vapautta l√∂yt√§√§kseen\n\nOutro:\nJa niin me huristelemme, t√§ynn√§ huikeita muistoja ja ikimuistoisia hetki√§,\nt√§m√§ on meid√§n ainutkertainen tarinamme, joka j√§√§ el√§m√§mme valaistamaan.\n\n"
+		},
+		{
+			"key": 1,
+			"value": "Intro:\nTie kutsuu ja kello k√§y, ilman huolta\nja murhetta painaa vaan nappulan p√§√§t√§.\n\n"
+		},
+		{
+			"key": 2,
+			"value": "Intro:\nKiilt√§v√§t maaradat kutsuvat, nuuskutellen bensanhajua,\nastumme vapauteen, ilman huolia ja taakkoja.\nT√§ss√§ hetkess√§ olemme yht√§, ikuisia matkakumppaneita,\nunohdamme menneet ja otamme rohkeasti riskej√§.\nHetken p√§√§ll√§ leijailemme, olkoon t√§m√§ tarinan alku tai loppu.\n\nVerse 1:\nKiit√§mme l√§pi tien, lempe√§ss√§ ajassa,\nhaastamme kohtalon ja nautimme hetkest√§ t√§ss√§.\nKuohuviinilasit kilisten,\nohitamme kaupungin valot,\nPolttoainesuonissa virtaa adrenaliini,\nunohtumattomat hetket k√§sill√§mme\nVapaana tuulten viet√§v√§n√§, tunnen\nel√§v√§ni jokaisen hetken t√§ss√§.\n\nPre-Chorus 1:\nMeid√§n matkamme\nalkaa t√§st√§ hetkest√§\n\nChorus 1:\nEl√§m√§n lailla me kiit√§mme,\ntuulien viet√§v√§n√§.\nKilometrit katoavat, vain me ja tie edess√§mme,\nUnelmaduo matkalla, ei huolta huomisesta.\n\nVerse 2:\nKiid√§mme l√§pi varjon,\ntanssien syv√§n y√∂n syleilyss√§.\nPys√§htym√§tt√§ karkaamme,\nmaantien lumoissa\nJ√§t√§mme taaksemme menneisyyden taakat, vain\ntulevaisuutta katseen kauimmaisen p√§√§dymme kohti.\nT√§m√§n hetken taika,\nmeid√§t ottaa valtaansa\n\nPre-Chorus 2:\nKun vauhtia ja tuulet kohtaavat,\nl√∂yd√§mme onnemme maanteiden syleilyst√§\n\nChorus 2:\nN√§in me ylit√§mme rajat,\ntien p√§√§ll√§ vapaina.\nSyd√§meni sykkii, kun kuolen\nvapaudelle tien p√§√§ll√§.\n\nBridge 1:\nKyynelten virta laantuu, kun tajuan\netten en√§√§ tarvitse menneisyyden taakkoja\nT√§ss√§ hetkess√§ kaikki muu unohtuu, kun kohtaan sinut,\ntie on tarinamme kaunein luku.\n\nBridge 2:\nP√§√§st√§mme menneet taakat kauas taivaisiin,\nsill√§ tulevaisuutemme on tien p√§√§ll√§ edess√§mme.\nVed√§mme huoletonta reitti√§, sin√§ ja min√§,\ntie edess√§mme avoinna.\n\nOutro:\nT√§m√§ tie on meid√§n, ja se vie\nmeid√§t sinne minne tahdomme menn√§.\n\n"
+		},
+		{
+			"key": 3,
+			"value": "Intro:\nAjetaan halki kaupungin valojen,\nkovaa musiikkia soi sun uudessa autossa.\n\nVerse 1:\nTaidan kaivata menneisyyteen, mutta tulevaisuus on suuntana,\npolkua pitkin kuljet puhtain vienoina, vapaina vauhdin valhettuna.\nKiihdyt√§n yh√§ vauhdikkaammin, tulta takanani j√§t√§n palamaan,\nunohdan taakse kaiken ja kaarran uuden maailman rajoja.\nTunnen kuinka moottori kiihtyy,\nja tuuli vie menness√§√§n.\nVauhdin viem√§n√§, unohdan kaiken taakseni j√§tt√§en,\n\n\nPre-Chorus 1:\nIlman valvontaa, unohdan normit ja s√§√§nn√∂t,\nt√§ll√§ hetkell√§ el√§n unelmiani, huolista pois√∂nn√∂n jo l√∂yd√§n.\n\nChorus 1:\nT√§√§l on yksin vaan s√§\nja m√§ m√§√§r√§np√§√§ tuntematon\nT√§ss√§ hetkess√§ voimme unohtaa kaiken muun,\n\n\nVerse 2:\nTuuli heilahtelee hiuksissani, j√§tt√§en\nj√§lkeens√§ seikkailun tuoksun.\nSuljen silm√§ni ja annan tuulen ohjata,\nties minne se minut kuljettaa.\nKun edess√§ on vain avoin tie, unelmoin\nkaikesta mit√§ viel√§ voin tehd√§.\nKun kaarran mutkia, tunnen el√§v√§ni t√§ysill√§,\nvailla huomista ja menneisyytt√§.\n\nPre-Chorus 2:\nUnohdan arjen kiireen ja surut taakse j√§tt√§en,\najan rient√§ess√§ eteenp√§in tunnen el√§v√§ni t√§ysill√§.\n\nChorus 2:\nT√§m√§ hetki on meid√§n,\nunohtakaamme murheet ja huolet.\nNyt kaikki j√§tet√§√§n taakse, ainoastaan\nt√§m√§ hetki ja vapauden lento.\n\nBridge 1:\nSilm√§t suljettu, tuulen\nhuumaan suoraan j√§√§n.\nT√§m√§n hetken unohtumattomuus,\nse tuntuu niin t√§ydelliselt√§,\n\nBridge 2:\nKun tuntee tuulen p√§√§ss√§ py√∂rteilev√§n,\nei tarvitse muuta kuin el√§√§ t√§ysin rinnoin.\nKun tuuli liekkej√§ nostaa,\nsyd√§meni l√§mpenee ja leijailee.\n\nOutro:\nVapaana vauhdin valheista,\nj√§t√§n taakseni surut ja murheet.\n\n"
+		},
+		{
+			"key": 4,
+			"value": "Intro:\nVauhdin tuoksu tarttuu ihoni pintaan,\nkun poltan renkaat ja l√§hden matkaan.\n\nVerse 1:\nTuntuu kuin lent√§isin, ratti tiukasti k√§siss√§in,\nkaikki huoli katoaa, kun menen t√§ysill√§ tiehen p√§in\nKun katselet taakse, n√§et vain p√∂lypilven,\nme rikotaan rajoja ja nautitaan t√§st√§ hetkest√§ ikuisesti.\nKun renkaat py√∂rii, ajatukset lent√§√§,\nme huumassa tanssitaan, unohtamatta huomista hetke√§\nKuulen bensan sis√§ll√§ sykkiv√§n,\nkun virta vie minut kohti tuntematonta.\n\nPre-Chorus 1:\nAjetaan rohkeasti ilman karttaa, annetaan\ntuulta ohjata meit√§ l√§pi el√§m√§n matkaa.\n\nChorus 1:\nT√§m√§ hetki on vain meid√§n, seikkailu on alkamassa,\nsyd√§miss√§mme on rohkeus ja rooli, jota ei mik√§√§n unohda.\nKaikki murheet j√§√§ taakse kun kiihdyt√§n matkaan,\nt√§ss√§ hetkess√§ el√§m√§ on vain yksinkertaista.\n\nVerse 2:\nTie jatkuu eteenp√§in, kukaan ei pys√§hdy meit√§ hidastamaan,\nt√§ss√§ hetkess√§ el√§m√§ on vain yksinkertaisempaa.\nVauhdin huuma ei h√§lvene, kun maanteill√§ huristellaan, kuin villit linnut,\najan j√§tt√§en j√§lkeens√§ vain kaipuun vapaudelle.\nTuntuu kuin olisin vapaa, kun kaasua painan,\nmik√§√§n ei voi est√§√§ meit√§, unelmien maailmaan.\nTunnen el√§m√§n kauneuden, kun kiertelen teit√§ kaukaisia,\nkuin unelmien maailmaan avautuisi portti edess√§ni.\n\nPre-Chorus 2:\nKun katson taivaalle, tied√§n\nett√§ t√§m√§ on se hetki\n\nChorus 2:\nSyd√§miss√§mme on palava rakkaus,\njoka ajaa meid√§t uusiin seikkailuihin.\nSyd√§miss√§mme on palava rakkaus,\njoka ajaa meid√§t kohti tuntematonta.\n\nBridge 1:\nMe vauhdissa ollaan yht√§, emme ole yksin t√§ss√§ hetkess√§,\nel√§m√§n liekki syttyy kun yhdess√§ huristellaan.\nKun yhdess√§ huristelemme, meist√§ tulee yht√§ - rohkeita ja vapaita,\nunohtamatta t√§t√§ hetke√§ ikuisesti.\n\nBridge 2:\nJa kun viilett√§ess√§mme yhdess√§,\nme tunnemme el√§m√§n todellisen kauneuden,\nJa kun viilett√§ess√§mme yhdess√§, me tunnemme el√§m√§n todellisen kauneuden,\nja muistutat minua jokaisella hengenvedollasi, miten t√§rke√§√§ on el√§√§ t√§ss√§ hetkess√§.\n\nOutro:\nSeikkailumme jatkuu loputtomiin,\nrohkeina ja vapaina\n\n"
+		},
+		{
+			"key": 5,
+			"value": "Intro:\nSe tunne kun pakoon p√§√§see,\ntie avoin ja pid√§t reilin laukkaan.\n\nVerse 1:\nKun vapaus tuulen mukana leijailee,\ntie kutsuu ja tunnen sen voiman ylt√§kyll√§isen.\nN√§√§ hetket on parhaimmillaan,\nkun pakeneva tuulenvire vie mukanaan.\nVapauden tunne valloittaa mieleni,\nkun kurvaan upealla tieosuudella.\nKun mutkainen tie kutsuu ja kiihdytys alkaa,\n\n\nPre-Chorus 1:\nSe tunne kun kaasun polkaisen,\ntie avautuu edess√§ ja vapaus kutsuu.\n\nChorus 1:\nHuumaavaa tuulenvirett√§, kaasu pohjassa painaen,\npakenevien hetkien hurmaan me tempaudutaan.\nKiihdytys alkaa ja kaasua painan, t√§n√§\nhetken√§ ei mik√§√§n meit√§ pys√§yt√§.\n\nVerse 2:\nKun huolet j√§√§v√§t taakse, ja huuma vie menness√§√§n, kaikki tuntuu mahdolliselta,\nkun kiihdyt√§n kaasupolkimen alle taas.\nKun huolet j√§√§v√§t taakse, ja huuma vie menness√§√§n, kaikki tuntuu mahdolliselta,\nkun kiihdyt√§√§n kohti tuntematonta maisemaa.\nKun rakkaus ja adrenaliini sekoittuu,\nen malta pys√§hty√§.\nKun tuulen mukana siivill√§ni lentelen,\ntunnen el√§v√§ni ja kaiken mahdolliseksi pettelen.\n\nPre-Chorus 2:\nKun unelmieni kyytiin hypp√§√§n, aika ja paikka unohtuu,\nkun tie vie meid√§t kohti tuntematonta\n\nChorus 2:\nVapauden tuulenvire vie meid√§t mukanaan,\nunelmat ja adrenaliini ohjaavat matkaamme.\nRakkaus ja vapauden tuulenvire,\najamme kohti seikkailuja ja mit√§ se tuo mukanaan.\n\nBridge 1:\nAjelen kohti seikkailuja,\nen malta pys√§hty√§.\naja t√§ytt√§ vauhtia, kohti tulevaisuutta ja tuntemattomia seikkailuja,\nse tunne kun vapauden tuulenvire vie mukanaan.\n\nBridge 2:\nVauhdin hurma kutkuttaa jokaisella mutkalla,\n\nAjatukset haihtuu, ja vain tie on edess√§ni,\nkun el√§n hetkess√§ ja unelmoin tulevista seikkailuista.\n\nOutro:\nJa t√§n√§ hetken√§, kun matkamme p√§√§ttyy,\ntunnen yh√§ vahvemmin, ett√§ t√§m√§ on minun iloni.\n\n"
+		}
+	],
+	"lng_i": 0,
+	"simple_attrs": "¡\u0003\u0000\u0000êˇΩ\u0003\u0000\u0000\u0000\u0001\u0000\u0001\u0006\u0000\u0002\u0005\u0000\u0010\u0001\u0010\u0000\u0006\u0001\u0000\b\f\u0000\u0005\u0002\u0000\u00011\u0000\u0001\u001A\u0000\u0000\n\u0000\u00014\u0000\u0005\u0002\u0000\u0013\u0001\u0018\u0000\u0001\u0011\u0000\u0000\a\u0000\n\u001F\u0000\u0004\u0002\u0000\u0002'\u0000\u0006\u0002\u0000\u0001*\u0000\u0002\a\u0000\u0006\u0002\u0000\v;\u0000\u0000m\u0000\u0003\u001D\u0000\u0005¶\u0000\u0003\u0012\u0000\u0002\a\u0000\u0001\u0006\u0000\u0000\u0005\u0000\u0002*\u0000\u0003\n\u0000\u0000\a\u0000\a\\\u0000\u0001\u000F\u0000\u0004\u0002\u0000\u0000\r\u0000\u0010\u0001.\u0000\u0000\t\u0000\u0002%\u0000\u0001—\u0000\u0003z\u0000\u0001\u0016\u0000\u0010\u0000\u000F\u0000\u0000\u001C\u0000\u000F\u0002\u0000#\u0000P\u0000\u0000>\u0000\u0001L\u0000\u0000\u0005\u0000\u0002\u0004\u0000\u0000\u0006\u0000\u0000\u0017\u0000\u0001\u0004\u0000\u0001\u0015\u0000\u0001\u0012\u0000\u0000\u0002\u0000\u0000\u001D\u0000\u0005·\u0000\u0003\u0002\u0000\u00020\u0001\u0005#\u0000\u00008\u0000\u0000\u0013\u0000\u0005\u0011\u0000\u0005\t\u0000\u0001\u0002\u0000\u0001@\u0000\u0001\u0002\u0000\u0006\n\u0000\v\u0002\u0000\u0002>\u0000\u0000ù\u0000\u0000\u0006\u0000\u0003Ü\u0000\u0000W\u0000\u0002\u0004\u0000\u0002\u001F\u0000\u0001\f\u0000\u0000\a\u0000\u0000(\u0000\u0003\u0006\u0000\u0003\u000F\u0000\u0000\u000E\u0000\u00011\u0000\u0000\u0002\u0000\u0000‚\u0000\u0002\u000F\u0000\u0005K\u0000\u00002\u0000\u0002\u0013\u0000\u0000\u001F\u0000\u0000\u000E\u0000\u0000≤\u0000\u0001\n\u0000\u0000=\u0000\u0000!\u0000\u00004\u0000\u0002\u0006\u0000\u0000\u0010\u0000\u0004\u0016\u0000\u0000\u0012\u0000\u0002\f\u0000\u0000\b\u0000\u0001\u000E\u0000\u0001-\u0000\u0003\f\u0000\u0005\u000E\u0000\u0000\u0015\u0000\u0000ï\u0000\u0000_\u0000\u0001\u001C\u0000\u0000#\u0000\u0001\u0006\u0000\u0001\t\u0000\u0002\u0002\u0000\u0001\u001D\u0000\u0002*\u0000\u0001{\u0000\u0000\u0016\u0000\u0003\u000F\u0000\u0000^\u0000\u00001\u0000\u0000\u0018\u0000\u0005\u0019\u0000\u0000'\u0000\u0000\u0006\u0000\u0002\u001B\u0000\u0002\u0017\u0000\u0001!\u0000\u0002\u0011\u0000\u0000*\u0000\u0000\u001F\u0000\u0002\u0002\u0000\u0003\f\u0000\u0002\u0011\u0000\u0000\u001D\u0000\u0002\u0006\u0000\u0000-\u0000\u00004\u0000\u0001\u000E\u0000\u0000\u0005\u0000\u0003\u0006\u0000\u0000k\u0000\u0000\u0006\u0000\u0004\b\u0000\u0002å\u0000\u0002\u001D\u0000\u0003Q\u0000\u0001\t\u0000\u0000\u0014\u0000\u0000\u001E\u0000\u0000\r\u0000\u0000.\u0000\u0003\"\u0000\u0001\v\u0000\u0001\u000E\u0000∞\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0001"
+}
