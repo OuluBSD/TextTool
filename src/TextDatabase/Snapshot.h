@@ -24,6 +24,7 @@ struct Snapshot :
 	
 	void Store(Entity& e);
 	void LoadTitle(Entity& e, String title);
+	Component& GetAddComponent(String name);
 	//Component& RealizeReversed(Component& s);
 	void Serialize(Stream& s) {
 		s	% native_title

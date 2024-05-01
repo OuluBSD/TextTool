@@ -13,12 +13,14 @@ ToolEditorBase::ToolEditorBase(const char* title, TextTool& app) : title(title),
 	page_list <<= THISBACK(ViewPage);
 	
 	owners.AddColumn(t_("Owner"));
+	owners.AddIndex("IDX");
 	owners <<= THISBACK(DataOwner);
 	owners.WhenBar << THISBACK(OwnerMenu);
 	
 	profiles.AddColumn(t_("Profile"));
 	profiles <<= THISBACK(DataProfile);
 	profiles.WhenBar << THISBACK(ProfileMenu);
+	profiles.AddIndex("IDX");
 	
 }
 
@@ -61,11 +63,6 @@ ToolEditor::ToolEditor(TextTool* app) : ToolEditorBase("editor", *app) {
 	components.WhenBar << THISBACK(SongMenu);
 	
 	
-	owners.AddColumn(t_("Owner"));
-	owners <<= THISBACK(DataOwner);
-	
-	profiles.AddColumn(t_("Profile"));
-	profiles <<= THISBACK(DataProfile);
 	
 	snaps.AddColumn(t_("Snapshot"));
 	snaps.ColumnWidths("3 2");
@@ -868,6 +865,7 @@ void ToolEditor::RemoveSong() {
 
 void ToolEditor::AddScript() {
 	TextDatabase& db = GetDatabase();
+	MetaPtrs& mp = MetaPtrs::Single();
 	EditorPtrs& p = GetPointers();
 	if (!p.archetype)
 		return;
@@ -887,6 +885,11 @@ void ToolEditor::AddScript() {
 	l.typeclass = t_i;
 	l.content = a_i;
 	p.script = &l;
+	
+	
+	if (mp.owner)
+		l.copyright = mp.owner->name;
+	l.user_structure = GetDefaultSongStructureString();
 	
 	Data();
 }

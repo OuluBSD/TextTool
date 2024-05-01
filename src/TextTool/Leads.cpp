@@ -43,6 +43,7 @@ void ToolEditorBase::DataMeta() {
 	
 	for(int i = 0; i < mdb.owners.GetCount(); i++) {
 		owners.Set(i, 0, mdb.owners[i].name);
+		owners.Set(i, "IDX", i);
 	}
 	INHIBIT_CURSOR(owners);
 	owners.SetCount(mdb.owners.GetCount());
@@ -72,6 +73,7 @@ void ToolEditorBase::DataOwner() {
 			p.languages.Find(LNG_NATIVE) < 0)
 			continue;
 		profiles.Set(row, 0, owner.profiles[i].name);
+		profiles.Set(row, "IDX", i);
 		row++;
 	}
 	INHIBIT_CURSOR(profiles);
@@ -88,9 +90,10 @@ void ToolEditorBase::DataProfile() {
 	if (!owners.IsCursor())
 		return;
 	
-	int owner_i = owners.GetCursor();
+	int owner_i = owners.Get("IDX");
 	Owner& owner = mdb.owners[owner_i];
-	p.profile = profiles.IsCursor() ? &owner.profiles[profiles.GetCursor()] : 0;
+	int prof_i = profiles.Get("IDX");
+	p.profile = profiles.IsCursor() ? &owner.profiles[prof_i] : 0;
 	
 	OnDataProfile();
 }

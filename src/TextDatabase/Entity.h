@@ -60,6 +60,7 @@ struct Entity :
 			r.FixPtrs();
 		}
 	}*/
+	Snapshot& GetAddSnapshot(String name);
 	Array<Snapshot>& GetSub() {return snaps;}
 	const Array<Snapshot>& GetSub() const {return snaps;}
 	void Serialize(Stream& s) {

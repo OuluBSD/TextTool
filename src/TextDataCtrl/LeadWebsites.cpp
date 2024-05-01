@@ -273,11 +273,17 @@ void LeadWebsites::DataPrice() {
 	int price_min = prices.Get("MIN");
 	int price_max = prices.Get("MAX");
 	
+	Time last_seen_limit = GetSysTime() - 24*60*60;
 	
 	int row = 0;
 	int i = -1;
+	int last_seen_skipped = 0;
 	for (LeadOpportunity& o : ld.opportunities) {
 		i++;
+		if (o.last_seen < last_seen_limit) {
+			last_seen_skipped++;
+			continue;
+		}
 		if (filter_leadsite && o.leadsite != leadsite_i)
 			continue;
 		if (o.min_compensation < payout_min || o.min_compensation >= payout_max)
@@ -311,6 +317,7 @@ void LeadWebsites::DataPrice() {
 		
 		row++;
 	}
+	double last_seen_skip_perc = last_seen_skipped * 100.0 / ld.opportunities.GetCount();
 	
 	INHIBIT_CURSOR(list);
 	list.SetCount(row);
@@ -456,6 +463,9 @@ void LeadWebsites::ToolMenu(Bar& bar) {
 	bar.Separator();
 	bar.Add(t_("Update website leads"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Add(t_("Update website leads (with MetaEntity)"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	bar.Separator();
+	bar.Add(t_("Create script"), AppImg::BlueRing(), THISBACK(CreateScript)).Key(K_F7);
+	bar.Add(t_("Copy script header to clipboard"), AppImg::BlueRing(), THISBACK(CopyHeaderClipboard)).Key(K_F8);
 	
 }
 
@@ -472,6 +482,89 @@ void LeadWebsites::Do(int fn) {
 		}
 	}
 }
+
+void LeadWebsites::CreateScript() {
+	int appmode = DB_SONG; // TODO: not a constant?
+	
+	MetaDatabase& mdb = MetaDatabase::Single();
+	TextDatabase& db = mdb.db[appmode];
+	LeadData& ld = mdb.lead_data;
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!list.IsCursor())
+		return;
+	
+	int idx = list.Get("IDX");
+	LeadOpportunity& o = ld.opportunities[idx];
+	
+	if (o.typeclasses.IsEmpty() ||
+		o.contents.IsEmpty() ||
+		o.lyrics_ideas.IsEmpty() ||
+		o.music_styles.IsEmpty()) {
+		PromptOK(DeQtf(t_("No typecast/idea/style")));
+		return;
+	}
+	
+	Entity& e = db.GetAddEntity(*mp.profile);
+	
+	int tc_i = o.typeclasses[0];
+	int con_i = o.contents[0];
+	String lyrics_idea = o.lyrics_ideas[0];
+	String music_style = o.music_styles[0];
+	
+	if (tc_i < 0 || tc_i >= TextLib::GetTypeclasses(appmode).GetCount()) {
+		PromptOK(DeQtf(t_("Invalid typeclass")));
+		return;
+	}
+	
+	if (con_i < 0 || con_i >= TextLib::GetContents(appmode).GetCount()) {
+		PromptOK(DeQtf(t_("Invalid content")));
+		return;
+	}
+	String snap_title = Format("%d %Month", o.first_seen.year, o.first_seen.month);
+	String script_title = "Lead #" + IntStr(idx);
+	
+	Snapshot& snap = e.GetAddSnapshot(snap_title);
+	Component& comp = snap.GetAddComponent(script_title);
+	e.RealizeTypeclasses(appmode);
+	Script& script = e.typeclasses[tc_i].contents[con_i].GetAddScript(script_title);
+	
+	comp.music_style = music_style;
+	if (mp.owner)
+		script.copyright = mp.owner->name;
+	script.typeclass = tc_i;
+	script.content = con_i;
+	script.content_vision = lyrics_idea;
+	script.user_structure = GetDefaultSongStructureString();
+}
+
+void LeadWebsites::CopyHeaderClipboard() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!list.IsCursor())
+		return;
+	
+	int idx = list.Get("IDX");
+	LeadOpportunity& o = ld.opportunities[idx];
+	
+	if (o.typeclasses.IsEmpty() ||
+		o.contents.IsEmpty() ||
+		o.lyrics_ideas.IsEmpty() ||
+		o.music_styles.IsEmpty()) {
+		PromptOK(DeQtf(t_("No typecast/idea/style")));
+		return;
+	}
+	
+	SongHeaderArgs args;
+	args.tc_i = o.typeclasses[0];
+	args.con_i = o.contents[0];
+	args.lyrics_idea = o.lyrics_ideas[0];
+	args.music_style = o.music_styles[0];
+	
+	String txt = args.Get();
+	WriteClipboardText(txt);
+}
+
 
 
 END_TEXTLIB_NAMESPACE

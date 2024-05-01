@@ -28,6 +28,17 @@ void Snapshot::LoadTitle(Entity& e, String title) {
 	LoadFromJsonFileStandard(*this, json_path);
 }
 
+Component& Snapshot::GetAddComponent(String name) {
+	String file_title = MakeTitle(name);
+	for(Component& comp : components) {
+		if (comp.file_title == file_title)
+			return comp;
+	}
+	Component& comp = components.Add();
+	comp.file_title = file_title;
+	return comp;
+}
+
 /*Component& Snapshot::RealizeReversed(Component& s) {
 	for (Component& r : reversed_components)
 		if (r.linked_uniq == s.uniq)

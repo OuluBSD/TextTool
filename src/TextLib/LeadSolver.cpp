@@ -457,6 +457,12 @@ void LeadSolver::ParseWebsite(int batch, String content) {
 	
 }
 
+static size_t CurlWriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
+{
+    ((String*)userp)->Cat((char*)contents, size * nmemb);
+    return size * nmemb;
+}
+
 String LeadSolver::ProcessDownloadWebsiteUrl(String url) {
 	LeadCache cache;
 	Time last_update = cache.last_update.Get(url, Time(1970,1,1));
@@ -468,10 +474,64 @@ String LeadSolver::ProcessDownloadWebsiteUrl(String url) {
 	String path = AppendFileName(dir, fname);
 	String prev = LoadFile(path);
 	if (last_update <= limit || prev.IsEmpty()) {
-		HttpRequest http;
-		http.Url(url);
-		http.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.3");
-		String content = http.Execute();
+		String proxy = GetGlobalProxy();
+		String content;
+		
+		if (1) {
+			int proxy_port = 0;
+			
+			int a = proxy.Find("://");
+			if (a >= 0) a = proxy.Find(":", a+1);
+			if (a >= 0) {
+				proxy_port = ScanInt(proxy.Mid(a+1));
+				proxy = proxy.Left(a);
+			}
+			a = proxy.Find("http://");
+			if (a >= 0) proxy = proxy.Mid(a+7);
+			a = proxy.Find("https://");
+			if (a >= 0) proxy = proxy.Mid(a+8);
+			
+			HttpRequest http;
+			//http.Trace();
+			http.Url(url);
+			http.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.3");
+			
+			if (proxy_port > 0) {
+				http.Proxy(proxy, proxy_port);
+				http.SSLProxy(proxy, proxy_port);
+			}
+			content = http.Execute();
+		}
+		else {
+			CURL *curl;
+			CURLcode res;
+			
+			curl = curl_easy_init();
+			if(curl) {
+				curl_easy_setopt(curl, CURLOPT_URL, url.Begin());
+				
+				// url is redirected, so we tell libcurl to follow redirection
+				curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+				
+				if (proxy.GetCount())
+					curl_easy_setopt(curl, CURLOPT_PROXY, proxy.Begin());
+				
+				curl_easy_setopt(curl, CURLOPT_WRITEDATA, &content);
+				curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, CurlWriteCallback);
+				
+				// Perform the request, res gets the return code
+				res = curl_easy_perform(curl);
+				
+				// Check for errors
+				if(res != CURLE_OK)
+					fprintf(stderr, "curl_easy_perform() failed: %s\n",
+				curl_easy_strerror(res));
+				
+				// always cleanup
+				curl_easy_cleanup(curl);
+			}
+		}
+		
 		FileOut fout(path);
 		fout << content;
 		fout.Close();

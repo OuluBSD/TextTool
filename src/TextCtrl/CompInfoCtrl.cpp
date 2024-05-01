@@ -12,6 +12,7 @@ CompInfoCtrl::CompInfoCtrl() {
 	comp_prj_name <<= THISBACK(OnValueChange);
 	reference <<= THISBACK(OnValueChange);
 	origins <<= THISBACK(OnValueChange);
+	music_style <<= THISBACK(OnValueChange);
 	
 	typeclasses.AddColumn(t_("Typeclass"));
 	typeclasses.AddColumn(t_("Count"));
@@ -61,6 +62,7 @@ void CompInfoCtrl::Data() {
 		comp_prj_name.SetData(s.prj_name);
 		reference.SetData(s.reference);
 		origins.SetData(s.origins);
+		music_style.SetData(s.music_style);
 	}
 	
 	
@@ -189,6 +191,7 @@ void CompInfoCtrl::OnValueChange() {
 		s.prj_name = comp_prj_name.GetData();
 		s.reference = reference.GetData();
 		s.origins = origins.GetData();
+		s.music_style = music_style.GetData();
 		
 		int c = editor->components.GetCursor();
 		editor->components.Set(c, 0, s.artist);

@@ -104,5 +104,50 @@ void ScriptInfoCtrl::OnValueChange() {
 	}
 }
 
+void ScriptInfoCtrl::ToolMenu(Bar& bar) {
+	if (GetAppMode() == DB_SONG)
+		bar.Add(t_("Paste song header"), AppImg::RedRing(), THISBACK(PasteSongHeader)).Key(K_F8);
+	
+}
+
+void ScriptInfoCtrl::PasteSongHeader() {
+	String txt = ReadClipboardText();
+	SongHeaderArgs args;
+	args.Put(txt);
+	
+	int tc_count = GetTypeclassCount(DB_SONG);
+	int con_count = GetContentCount(DB_SONG);
+	
+	if (!(args.tc_i >= 0 && args.tc_i < tc_count &&
+		args.con_i >= 0 && args.con_i < con_count)) {
+		return;
+	}
+	
+	
+	
+	int appmode = DB_SONG;
+	MetaDatabase& mdb = MetaDatabase::Single();
+	TextDatabase& db = mdb.db[appmode];
+	LeadData& ld = mdb.lead_data;
+	MetaPtrs& mp = MetaPtrs::Single();
+	Entity& e = db.GetAddEntity(*mp.profile);
+	
+	Time now = GetSysTime();
+	String snap_title = Format("%d %Month", now.year, now.month);
+	String script_title = "Paste " + IntStr64(txt.GetHashValue());
+	
+	Snapshot& snap = e.GetAddSnapshot(snap_title);
+	Component& comp = snap.GetAddComponent(script_title);
+	e.RealizeTypeclasses(appmode);
+	Script& script = e.typeclasses[args.tc_i].contents[args.con_i].GetAddScript(script_title);
+	
+	comp.music_style = args.music_style;
+	if (mp.owner)
+		script.copyright = mp.owner->name;
+	script.typeclass = args.tc_i;
+	script.content = args.con_i;
+	script.content_vision = args.lyrics_idea;
+	script.user_structure = GetDefaultSongStructureString();
+}
 
 END_TEXTLIB_NAMESPACE

@@ -1373,5 +1373,16 @@ bool IsAllUpper(const String& s) {
 }
 
 
+
+String __global_proxy;
+void SetGlobalProxy(String uri) {
+	__global_proxy = uri;
+}
+
+String GetGlobalProxy() {
+	return __global_proxy;
+}
+
+
 END_TEXTLIB_NAMESPACE
 

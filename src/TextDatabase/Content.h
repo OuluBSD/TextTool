@@ -9,7 +9,7 @@ struct Content : DataFile {
 	Array<Script>	scripts;
 	
 	
-	
+	Script& GetAddScript(String name);
 };
 
 

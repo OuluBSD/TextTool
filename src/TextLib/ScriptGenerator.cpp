@@ -184,6 +184,9 @@ void ScriptGenerator::ProcessSourcePool() {
 				if (ea->link >= 0)
 					ea = &da.attrs[ea->link];
 				if (ea->simple_attr >= 0) {
+					if (ea->simple_attr >= song.simple_attrs.GetCount()) {
+						song.simple_attrs.SetCount(ea->simple_attr+1, false);
+					}
 					bool song_enabled = song.simple_attrs[ea->simple_attr];
 					if (!song_enabled) {
 						filtered_by_attr++;

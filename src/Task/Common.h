@@ -185,6 +185,25 @@ struct LeadSolverArgs {
 	
 };
 
+struct SongHeaderArgs {
+	int fn = 0;
+	int tc_i = -1;
+	int con_i = -1;
+	String lyrics_idea;
+	String music_style;
+	
+	void Jsonize(JsonIO& json) {
+		json	("tc_i", tc_i)
+				("con_i", con_i)
+				("lyrics_idea", lyrics_idea)
+				("music_style", music_style)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
 
 END_TEXTLIB_NAMESPACE
 

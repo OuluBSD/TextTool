@@ -35,6 +35,7 @@ Entity& TextDatabase::GetAddEntity(Profile& p) {
 		if (e.file_title == title)
 			return e;
 	Entity& e = entities.Add();
+	e.file_title = title;
 	e.profile = &p;
 	return e;
 }

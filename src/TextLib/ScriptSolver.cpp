@@ -341,6 +341,9 @@ void ScriptGenerator::ProcessAction() {
 			
 			if (eat->simple_attr >= 0) {
 				const ExportSimpleAttr& esa = da.simple_attrs[eat->simple_attr];
+				if (eat->simple_attr >= scripts->simple_attrs.GetCount()) {
+					scripts->simple_attrs.SetCount(eat->simple_attr+1,false);
+				}
 				bool song_positive = scripts->simple_attrs[eat->simple_attr];
 				bool attr_positive = eat->positive;
 				enabled = song_positive == attr_positive;

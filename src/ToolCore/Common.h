@@ -1037,6 +1037,14 @@ String DeHtml(String html, Vector<String>& links);
 bool IsAllUpper(const String& s);
 
 
+
+String GetDefaultSongStructureString();
+
+
+void SetGlobalProxy(String uri);
+String GetGlobalProxy();
+
+
 END_TEXTLIB_NAMESPACE
 
 

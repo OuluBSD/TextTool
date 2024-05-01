@@ -31,6 +31,18 @@ void Entity::LoadTitle(String title) {
 	LoadScript();
 }
 
+Snapshot& Entity::GetAddSnapshot(String name) {
+	String file_title = MakeTitle(name);
+	for(Snapshot& snap : snaps) {
+		if (snap.file_title == file_title)
+			return snap;
+	}
+	Snapshot& snap = snaps.Add();
+	snap.file_title = file_title;
+	snap.native_title = name;
+	return snap;
+}
+
 void Entity::StoreScript() {
 	for (auto& tc : typeclasses) {
 		for (auto& at : tc.contents) {

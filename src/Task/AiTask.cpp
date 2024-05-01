@@ -344,6 +344,20 @@ bool AiTask::RunOpenAI_Completion() {
 			input.AsString();
 	//LOG(prompt);
 	
+	// Cache prompts too (for crash debugging)
+	if (1) {
+		String prompt_cache_dir = ConfigFile("prompt-cache");
+		String fname = IntStr64(prompt.GetHashValue()) + ".txt";
+		String path = prompt_cache_dir + DIR_SEPS + fname;
+		if (!FileExists(path)) {
+			RealizeDirectory(prompt_cache_dir);
+			FileOut fout(path);
+			fout << prompt;
+			fout.Flush();
+			fout.Close();
+		}
+	}
+	
 	#ifdef flagLLAMACPP
 	if (1) {
 		LlamaCppResponse response;

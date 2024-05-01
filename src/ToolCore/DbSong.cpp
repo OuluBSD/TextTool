@@ -2043,6 +2043,10 @@ const Vector<String>& OtherRapperList() {
 	return list;
 }
 
+String GetDefaultSongStructureString() {
+	return "I,V1,PC1,C1,V2,PC2,C1,C2,B1,B2,C1,C2,O";
+}
+
 END_TEXTLIB_NAMESPACE
 
 

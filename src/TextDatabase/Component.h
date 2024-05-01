@@ -38,6 +38,7 @@ struct Component :
 	String						reference;
 	String						origins;
 	String						scripts_file_title;
+	String						music_style;
 	int							default_line_syllables = 0;
 	int							default_attr_count = 7;
 	int							theme_cursor = -1;
@@ -58,6 +59,7 @@ struct Component :
 			("origins", origins)
 			("reference", reference)
 			(__script + "_file_title", scripts_file_title)
+			("music_style", music_style)
 			("default_line_syllables", default_line_syllables)
 			("default_attr_count", default_attr_count)
 			("theme_cursor", theme_cursor)

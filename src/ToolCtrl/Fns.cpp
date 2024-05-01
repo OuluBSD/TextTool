@@ -89,4 +89,6 @@ void GuiStartup() {
 	
 	if (instance && proxy.GetCount())
 		instance->setProxy(proxy.Begin());
+	
+	SetGlobalProxy(proxy);
 }

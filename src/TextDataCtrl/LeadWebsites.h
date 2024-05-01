@@ -22,6 +22,8 @@ public:
 	void DataPrice();
 	void DataOpportunity();
 	void DataAnalyzedList();
+	void CreateScript();
+	void CopyHeaderClipboard();
 	void ToolMenu(Bar& bar) override;
 	void Do(int fn);
 	
