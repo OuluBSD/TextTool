@@ -82,9 +82,11 @@ void EntityInfoCtrl::Data() {
 void EntityInfoCtrl::OnValueChange() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
+	MetaPtrs& mp = MetaPtrs::Single();
 	
-	if (p.entity && editor->entities.IsCursor()) {
+	if (p.entity && editor->profiles.IsCursor()) {
 		Entity& o = *p.entity;
+		ASSERT(o.profile == mp.profile);
 		o.native_name				= this->native_name.GetData();
 		o.english_name				= this->english_name.GetData();
 		o.year_of_birth				= this->year_of_birth.GetData();
@@ -98,8 +100,8 @@ void EntityInfoCtrl::OnValueChange() {
 		o.is_female					= this->sex.GetIndex();
 		o.language					= this->language.GetIndex();
 		
-		int c = editor->entities.GetCursor();
-		editor->entities.Set(c, 0, o.native_name);
+		//int c = editor->entities.GetCursor();
+		//editor->entities.Set(c, 0, o.native_name);
 	}
 }
 

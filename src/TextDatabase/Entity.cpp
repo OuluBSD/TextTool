@@ -5,18 +5,27 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 void Entity::Store() {
-	String dir = GetAppModeDatabase().GetEntitiesDir();
+	String dir = AppendFileName(GetAppModeDatabase().GetEntitiesDir(), file_title);
 	RealizeDirectory(dir);
-	String json_path = dir + file_title + ".json";
+	String json_path = dir + DIR_SEPS + "db.json";
 	StoreAsJsonFileStandard(*this, json_path, true);
 	
 	StoreScript();
 }
 
+bool Entity::FileExists(const String& title) {
+	String dir = AppendFileName(GetAppModeDatabase().GetEntitiesDir(), title);
+	String json_path = dir + DIR_SEPS + "db.json";
+	return UPP::FileExists(json_path);
+	/*String dir = AppendFileName(GetAppModeDatabase().GetEntitiesDir(), title);
+	String json_path = dir + "db.json";
+	return UPP::FileExists(json_path);*/
+}
+
 void Entity::LoadTitle(String title) {
-	String dir = GetAppModeDatabase().GetEntitiesDir();
+	String dir = AppendFileName(GetAppModeDatabase().GetEntitiesDir(), title);
 	file_title = title;
-	String json_path = dir + file_title + ".json";
+	String json_path = dir + DIR_SEPS + "db.json";
 	LoadFromJsonFileStandard(*this, json_path);
 	
 	LoadScript();

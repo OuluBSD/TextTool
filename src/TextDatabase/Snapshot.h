@@ -19,10 +19,11 @@ struct Snapshot :
 	// Public (separate files)
 	Array<Component>			components;
 	
+	Entity*						entity = 0;
 	
 	
-	void Store();
-	void LoadTitle(String title);
+	void Store(Entity& e);
+	void LoadTitle(Entity& e, String title);
 	//Component& RealizeReversed(Component& s);
 	void Serialize(Stream& s) {
 		s	% native_title
@@ -44,7 +45,7 @@ struct Snapshot :
 		if (json.IsStoring()) {
 			{
 				Vector<String> names;
-				for (Component& s : components) {s.Store(); names.Add(s.file_title);}
+				for (Component& s : components) {s.Store(*this); names.Add(s.file_title);}
 				json(__comps, names);
 			}
 		}
@@ -53,7 +54,7 @@ struct Snapshot :
 				components.Clear();
 				Vector<String> names;
 				json(__comps, names);
-				for (String n : names) components.Add().LoadTitle(n);
+				for (String n : names) components.Add().LoadTitle(*this, n);
 			}
 		}
 	}

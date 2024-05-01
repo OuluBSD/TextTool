@@ -12,8 +12,18 @@ ProfileInfoCtrl::ProfileInfoCtrl() {
 	begin <<= THISBACK(OnValueChange);
 	biography <<= THISBACK(OnValueChange);
 	preferred_genres <<= THISBACK(OnValueChange);
-	languages <<= THISBACK(OnValueChange);
 	
+	languages.AddColumn(t_("Language"));
+	languages.AddColumn(t_("Set"));
+	languages.ColumnWidths("4 1");
+	languages.SetCount(LNG_COUNT);
+	for(int i = 0; i < LNG_COUNT; i++) {
+		languages.Set(i, 0, Capitalize(GetLanguageKey(i)));
+		Option* o = new Option;
+		o->WhenAction << THISBACK(OnValueChange);
+		languages.SetCtrl(i, 1, o);
+	}
+	languages <<= THISBACK(OnValueChange);
 }
 
 void ProfileInfoCtrl::Data() {
@@ -29,7 +39,14 @@ void ProfileInfoCtrl::Data() {
 		this->begin						.SetData(a.begin);
 		this->biography					.SetData(a.biography);
 		this->preferred_genres			.SetData(a.preferred_genres);
-		this->languages					.SetData(a.languages);
+		
+		for(int i = 0; i < LNG_COUNT; i++) {
+			Ctrl* c = languages.GetCtrl(i, 1);
+			if (!c) continue;
+			Option* opt = dynamic_cast<Option*>(c);
+			ASSERT(opt);
+			opt->Set(a.languages.Find(i) >= 0);
+		}
 	}
 	
 }
@@ -39,7 +56,12 @@ void ProfileInfoCtrl::Clear() {
 	this->begin						.Clear();
 	this->biography					.Clear();
 	this->preferred_genres			.Clear();
-	this->languages					.Clear();
+	for(int i = 0; i < LNG_COUNT; i++) {
+		Ctrl* c = languages.GetCtrl(i, 1);
+		Option* opt = dynamic_cast<Option*>(c);
+		if (opt) opt->Set(0);
+	}
+		
 }
 
 void ProfileInfoCtrl::OnValueChange() {
@@ -52,7 +74,15 @@ void ProfileInfoCtrl::OnValueChange() {
 		o.begin						= this->begin.GetData();
 		o.biography					= this->biography.GetData();
 		o.preferred_genres			= this->preferred_genres.GetData();
-		o.languages					= this->languages.GetData();
+		
+		
+		o.languages.Clear();
+		for(int i = 0; i < LNG_COUNT; i++) {
+			Option* opt = dynamic_cast<Option*>(languages.GetCtrl(i, 1));
+			ASSERT(opt);
+			if (opt->Get())
+				o.languages.Add(i);
+		}
 		
 		int c = p.leads->profiles.GetCursor();
 		p.leads->profiles.Set(c, 0, o.name);

@@ -27,7 +27,7 @@ LAYOUT(ProfileInfo, 672, 292)
 	ITEM(Upp::Label, lbl_preferred_genres, SetLabel(t_("Preferred genres:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(140, 20))
 	ITEM(Upp::EditString, preferred_genres, LeftPosZ(164, 496).TopPosZ(140, 20))
 	ITEM(Upp::Label, dv___9, SetLabel(t_("Languages:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(164, 20))
-	ITEM(Upp::EditString, languages, LeftPosZ(164, 496).TopPosZ(164, 20))
+	ITEM(Upp::ArrayCtrl, languages, LeftPosZ(164, 248).TopPosZ(164, 116))
 END_LAYOUT
 
 LAYOUT(SocialEntry, 824, 292)

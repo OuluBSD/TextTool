@@ -14,14 +14,6 @@ LeadsCtrl::LeadsCtrl(TextTool* app) : ToolEditorBase("leads", *app) {
 	
 	menusplit.Vert() << page_group_list << page_list << owners << profiles;
 	
-	owners.AddColumn(t_("Owner"));
-	owners <<= THISBACK(DataOwner);
-	owners.WhenBar << THISBACK(OwnerMenu);
-	
-	profiles.AddColumn(t_("Profile"));
-	profiles <<= THISBACK(DataProfile);
-	profiles.WhenBar << THISBACK(ProfileMenu);
-	
 }
 
 void LeadsCtrl::InitSimplified() {
@@ -42,6 +34,10 @@ void LeadsCtrl::Init() {
 }
 
 void LeadsCtrl::Data() {
+	DataMeta();
+}
+
+void ToolEditorBase::DataMeta() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& p = MetaPtrs::Single();
 	
@@ -54,10 +50,10 @@ void LeadsCtrl::Data() {
 		owners.SetCursor(0);
 	
 	
-	DataPage();
+	DataOwner();
 }
 
-void LeadsCtrl::DataOwner() {
+void ToolEditorBase::DataOwner() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& p = MetaPtrs::Single();
 	if (!owners.IsCursor())
@@ -67,18 +63,26 @@ void LeadsCtrl::DataOwner() {
 	Owner& owner = mdb.owners[owner_i];
 	p.owner = owners.IsCursor() ? &mdb.owners[owners.GetCursor()] : 0;
 	
+	int row = 0;
+	int share_lng = MetaDatabase::Single().GetLanguageIndex();
 	for(int i = 0; i < owner.profiles.GetCount(); i++) {
-		profiles.Set(i, 0, owner.profiles[i].name);
+		Profile& p = owner.profiles[i];
+		if (filter_profile_language &&
+			p.languages.Find(share_lng) < 0 &&
+			p.languages.Find(LNG_NATIVE) < 0)
+			continue;
+		profiles.Set(row, 0, owner.profiles[i].name);
+		row++;
 	}
 	INHIBIT_CURSOR(profiles);
-	profiles.SetCount(owner.profiles.GetCount());
+	profiles.SetCount(row);
 	if (!profiles.IsCursor() && profiles.GetCount())
 		profiles.SetCursor(0);
 	
 	DataProfile();
 }
 
-void LeadsCtrl::DataProfile() {
+void ToolEditorBase::DataProfile() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& p = MetaPtrs::Single();
 	if (!owners.IsCursor())
@@ -88,10 +92,14 @@ void LeadsCtrl::DataProfile() {
 	Owner& owner = mdb.owners[owner_i];
 	p.profile = profiles.IsCursor() ? &owner.profiles[profiles.GetCursor()] : 0;
 	
+	OnDataProfile();
+}
+
+void LeadsCtrl::OnDataProfile() {
 	DataPage();
 }
 
-void LeadsCtrl::OwnerMenu(Bar& bar) {
+void ToolEditorBase::OwnerMenu(Bar& bar) {
 	bar.Add(t_("Add Owner"), THISBACK(AddOwner));
 	
 	if (owners.IsCursor()) {
@@ -99,7 +107,7 @@ void LeadsCtrl::OwnerMenu(Bar& bar) {
 	}
 }
 
-void LeadsCtrl::ProfileMenu(Bar& bar) {
+void ToolEditorBase::ProfileMenu(Bar& bar) {
 	bar.Add(t_("Add Profile"), THISBACK(AddProfile));
 	
 	if (profiles.IsCursor()) {
@@ -107,7 +115,7 @@ void LeadsCtrl::ProfileMenu(Bar& bar) {
 	}
 }
 
-void LeadsCtrl::AddOwner() {
+void ToolEditorBase::AddOwner() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& p = MetaPtrs::Single();
 	
@@ -144,7 +152,7 @@ void LeadsCtrl::AddOwner() {
 	Data();
 }
 
-void LeadsCtrl::AddProfile() {
+void ToolEditorBase::AddProfile() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& p = MetaPtrs::Single();
 	if (!owners.IsCursor())
@@ -184,7 +192,7 @@ void LeadsCtrl::AddProfile() {
 	DataOwner();
 }
 
-void LeadsCtrl::RemoveOwner() {
+void ToolEditorBase::RemoveOwner() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& p = MetaPtrs::Single();
 	if (owners.IsCursor()) {
@@ -193,7 +201,7 @@ void LeadsCtrl::RemoveOwner() {
 	Data();
 }
 
-void LeadsCtrl::RemoveProfile() {
+void ToolEditorBase::RemoveProfile() {
 	if (!owners.IsCursor())
 		return;
 	

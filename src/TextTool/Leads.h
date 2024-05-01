@@ -14,8 +14,6 @@ protected:
 	friend class ProfileInfoCtrl;
 	Splitter			hsplit, menusplit;
 	ArrayCtrl			componentlist;
-	ArrayCtrl			owners;
-	ArrayCtrl			profiles;
 	
 	ImageGenTool		image_gen;
 	OwnerInfoCtrl		owner_info;
@@ -28,19 +26,12 @@ public:
 	typedef LeadsCtrl CLASSNAME;
 	LeadsCtrl(TextTool* app);
 	
-	void OwnerMenu(Bar& bar);
-	void ProfileMenu(Bar& bar);
 	void Init();
 	void Data() override;
 	void DataComponent();
-	void DataProfile();
-	void DataOwner();
 	void InitSimplified();
 	void SetSubMenu(int i) override;
-	void AddOwner();
-	void RemoveOwner();
-	void AddProfile();
-	void RemoveProfile();
+	void OnDataProfile() override;
 	
 };
 

@@ -12,6 +12,14 @@ ToolEditorBase::ToolEditorBase(const char* title, TextTool& app) : title(title),
 	page_list.AddColumn(t_("Page"));
 	page_list <<= THISBACK(ViewPage);
 	
+	owners.AddColumn(t_("Owner"));
+	owners <<= THISBACK(DataOwner);
+	owners.WhenBar << THISBACK(OwnerMenu);
+	
+	profiles.AddColumn(t_("Profile"));
+	profiles <<= THISBACK(DataProfile);
+	profiles.WhenBar << THISBACK(ProfileMenu);
+	
 }
 
 void ToolEditorBase::Init() {
@@ -29,29 +37,35 @@ void ToolEditorBase::Init() {
 
 
 ToolEditor::ToolEditor(TextTool* app) : ToolEditorBase("editor", *app) {
+	filter_profile_language = true;
+	
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << menusplit << base;
 	hsplit.SetPos(1000);
 	
-	menusplit.Vert() << appmode_list << page_group_list << page_list << entities << subsplit;
+	menusplit.Vert() << appmode_list << page_group_list << page_list << owners << profiles << subsplit;
 	int top_total = 10000 * 3 / 5;
-	menusplit.SetPos(top_total * 1 / 4, 0);
-	menusplit.SetPos(top_total * 2 / 4, 1);
-	menusplit.SetPos(top_total * 3 / 4, 2);
-	menusplit.SetPos(top_total, 3);
+	menusplit.SetPos(top_total * 1 / 5, 0);
+	menusplit.SetPos(top_total * 2 / 5, 1);
+	menusplit.SetPos(top_total * 3 / 5, 2);
+	menusplit.SetPos(top_total * 4 / 5, 3);
+	menusplit.SetPos(top_total, 4);
 	componentsplit.Vert() << snaps << components;
 	scriptssplit.Vert() << typeclasses << contents << scripts;
 	
 	
 	scripts.WhenBar << THISBACK(ScriptMenu);
-	entities.WhenBar << THISBACK(EntityMenu);
+	//profiles.WhenBar << THISBACK(EntityMenu);
 	snaps.WhenBar << THISBACK(SnapshotMenu);
 	components.WhenBar << THISBACK(SongMenu);
 	
 	
-	entities.AddColumn(t_("Entity"));
-	entities <<= THISBACK(DataEntity);
+	owners.AddColumn(t_("Owner"));
+	owners <<= THISBACK(DataOwner);
+	
+	profiles.AddColumn(t_("Profile"));
+	profiles <<= THISBACK(DataProfile);
 	
 	snaps.AddColumn(t_("Snapshot"));
 	snaps.ColumnWidths("3 2");
@@ -330,7 +344,7 @@ void ToolEditor::SwitchAppMode() {
 		page_group_list.SetCursor(0);
 	
 	
-	entities	.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_ENTITY));
+	//entities	.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_ENTITY));
 	snaps		.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_SNAPSHOT));
 	components	.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_COMPONENT));
 	
@@ -358,27 +372,13 @@ void ToolEditorBase::ViewPage() {
 }
 
 void ToolEditor::Data() {
-	TextDatabase& db = GetDatabase();
-	EditorPtrs& p = GetPointers();
-	
-	for(int i = 0; i < db.entities.GetCount(); i++) {
-		Entity& a = db.entities[i];
-		entities.Set(i, 0, a.native_name);
-	}
-	INHIBIT_ACTION(entities);
-	entities.SetCount(db.entities.GetCount());
-	
-	int cursor = max(0, p.GetActiveEntityIndex());
-	if (cursor >= 0 && cursor < entities.GetCount())
-		entities.SetCursor(cursor);
-	
-	DataEntity();
+	DataMeta();
 }
 
-void ToolEditor::DataEntity() {
-	TextDatabase& db = GetDatabase();
+void ToolEditor::OnDataProfile() {
+	MetaPtrs& mp = MetaPtrs::Single();
 	EditorPtrs& p = GetPointers();
-	if (!entities.IsCursor()) {
+	if (!mp.profile) {
 		p.entity = 0;
 		p.release = 0;
 		p.component = 0;
@@ -387,9 +387,12 @@ void ToolEditor::DataEntity() {
 		return;
 	}
 	
+	TextDatabase& db = GetDatabase();
+	Entity& e = db.GetAddEntity(*mp.profile);
+	
 	
 	// Song part of the artist
-	p.entity = &db.entities[entities.GetCursor()];
+	p.entity = &e;
 	Entity& a = *p.entity;
 	
 	for(int i = 0; i < a.snaps.GetCount(); i++) {
@@ -619,14 +622,14 @@ void ToolEditor::DataPart() {
 }
 #endif
 
-void ToolEditor::EntityMenu(Bar& bar) {
+/*void ToolEditor::EntityMenu(Bar& bar) {
 	bar.Add(t_("Add Entity"), THISBACK(AddEntity));
 	
 	if (entities.IsCursor()) {
 		bar.Add(t_("Rename Entity"), THISBACK(RenameEntity));
 		bar.Add(t_("Delete Entity"), THISBACK(RemoveEntity));
 	}
-}
+}*/
 
 void ToolEditor::SnapshotMenu(Bar& bar) {
 	bar.Add(t_("Add Snapshot"), THISBACK(AddSnapshot));
@@ -654,6 +657,7 @@ void ToolEditor::ScriptMenu(Bar& bar) {
 	}
 }
 
+/*
 void ToolEditor::AddEntity() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
@@ -676,8 +680,6 @@ void ToolEditor::AddEntity() {
 		}
 	}
 	if (artist_i >= 0) {
-		/*if (!PromptYesNo(DeQtf(Format(t_("Do you want to replace file for artist '%s'"), name)))
-			return;*/
 		PromptOK(DeQtf(t_("Entity exist already")));
 		return;
 	}
@@ -719,11 +721,14 @@ void ToolEditor::RemoveEntity() {
 	if (idx < 0) return;
 	db.entities.Remove(idx);
 	Data();
-}
+}*/
 
 void ToolEditor::AddSnapshot() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!p.entity && mp.profile)
+		p.entity = &GetDatabase().GetAddEntity(*mp.profile);
 	if (!p.entity)
 		return;
 	Entity& a = *p.entity;
@@ -755,7 +760,7 @@ void ToolEditor::AddSnapshot() {
 	r.english_title = title;
 	p.release = &r;
 	
-	DataEntity();
+	OnDataProfile();
 }
 
 void ToolEditor::RenameSnapshot() {
@@ -775,7 +780,7 @@ void ToolEditor::RenameSnapshot() {
 	
 	p.release->english_title = title;
 	
-	DataEntity();
+	OnDataProfile();
 }
 
 void ToolEditor::RemoveSnapshot() {
@@ -786,7 +791,7 @@ void ToolEditor::RemoveSnapshot() {
 	int idx = p.GetActiveSnapshotIndex();
 	if (idx < 0) return;
 	p.entity->snaps.Remove(idx);
-	DataEntity();
+	OnDataProfile();
 }
 
 void ToolEditor::AddSong() {
@@ -825,7 +830,7 @@ void ToolEditor::AddSong() {
 	s.file_title = file_title;
 	p.component = &s;
 	
-	DataEntity();
+	OnDataProfile();
 }
 
 void ToolEditor::RenameSong() {

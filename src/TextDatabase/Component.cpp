@@ -78,17 +78,31 @@ Impact& Component::GetAddImpact(String impact_txt, String brk_txt) {
 	return i;
 }*/
 
-void Component::Store() {
-	String dir = GetAppModeDatabase().GetComponentsDir();
+void Component::Store(Snapshot& snap) {
+	snapshot = &snap;
+	String dir =
+		AppendFileName(
+			AppendFileName(
+				AppendFileName(
+					GetAppModeDatabase().GetEntitiesDir(), snapshot->entity->file_title),
+					snapshot->file_title),
+				file_title);
 	RealizeDirectory(dir);
-	String json_path = dir + file_title + ".json";
+	String json_path = dir + DIR_SEPS + "db.json";
 	StoreAsJsonFileStandard(*this, json_path, true);
 }
 
-void Component::LoadTitle(String title) {
-	String dir = GetAppModeDatabase().GetComponentsDir();
+void Component::LoadTitle(Snapshot& snap, String title) {
+	snapshot = &snap;
 	file_title = title;
-	String json_path = dir + file_title + ".json";
+	String dir =
+		AppendFileName(
+			AppendFileName(
+				AppendFileName(
+					GetAppModeDatabase().GetEntitiesDir(), snapshot->entity->file_title),
+					snapshot->file_title),
+				file_title);
+	String json_path = dir + DIR_SEPS + "db.json";
 	LoadFromJsonFileStandard(*this, json_path);
 }
 

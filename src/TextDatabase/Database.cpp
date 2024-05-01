@@ -4,7 +4,7 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-int TextDatabase::trans_i = -1;
+//int TextDatabase::trans_i = -1;
 
 
 TextDatabase::TextDatabase() {
@@ -17,7 +17,7 @@ String TextDatabase::GetEntitiesDir() const {
 	return dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir() + DIR_SEPS + "entities" + DIR_SEPS;
 }
 
-String TextDatabase::GetSnapshotsDir() const {
+/*String TextDatabase::GetSnapshotsDir() const {
 	String& dir = MetaDatabase::Single().dir;
 	String& share = MetaDatabase::Single().share;
 	return dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir() + DIR_SEPS + "snapshots" + DIR_SEPS;
@@ -28,22 +28,50 @@ String TextDatabase::GetComponentsDir() const {
 	String& share = MetaDatabase::Single().share;
 	return dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir() + DIR_SEPS + "components" + DIR_SEPS;
 }
+*/
+Entity& TextDatabase::GetAddEntity(Profile& p) {
+	String title = MakeTitle(p.name);
+	for (Entity& e : entities)
+		if (e.file_title == title)
+			return e;
+	Entity& e = entities.Add();
+	e.profile = &p;
+	return e;
+}
 
 void TextDatabase::Store() {
-	String& dir = MetaDatabase::Single().dir;
+	/*String& dir = MetaDatabase::Single().dir;
 	String& share = MetaDatabase::Single().share;
-	StoreAsJsonFileStandard(*this, dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir() + DIR_SEPS + "db.json", true);
+	StoreAsJsonFileStandard(*this, dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir() + DIR_SEPS + "db.json", true);*/
+	for (Entity& a : entities)
+		a.Store();
 }
 
 void TextDatabase::Load() {
-	String& dir = MetaDatabase::Single().dir;
+	//String lng = GetCurrentLanguageString().Left(5);
+	//trans_i = translation.FindAdd(lng);
+	
+	MetaDatabase& mdb = MetaDatabase::Single();
+	//ASSERT(!mdb.owners.IsEmpty());
+	
+	for(Owner& o : mdb.owners) {
+		for (Profile& p : o.profiles) {
+			String title = MakeTitle(p.name);
+			if (Entity::FileExists(title)) {
+				Entity& e = entities.Add();
+				e.profile = &p;
+				e.LoadTitle(title);
+			}
+		}
+	}
+	Sort(entities, Entity());
+	/*String& dir = MetaDatabase::Single().dir;
 	String& share = MetaDatabase::Single().share;
 	Clear();
 	
 	lock.EnterWrite();
 	LoadFromJsonFileStandard(*this, dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir() + DIR_SEPS + "db.json");
-	lock.LeaveWrite();
-	
+	lock.LeaveWrite();*/
 }
 
 void TextDatabase::FindOrphaned() {
@@ -71,6 +99,7 @@ void TextDatabase::FindOrphaned() {
 }
 
 String TextDatabase::Translate(const String& s) {
+	#if 0
 	if (trans_i < 0)
 		return s;
 	Translation& t = this->translation[trans_i];
@@ -86,6 +115,9 @@ String TextDatabase::Translate(const String& s) {
 			t.data.Add(ToLower(s));
 	}
 	return o.IsEmpty() ? s : o;
+	#else
+	return s;
+	#endif
 }
 
 
@@ -97,8 +129,8 @@ int EditorPtrs::GetActiveEntityIndex() const {return VectorFindPtr(entity, GetDa
 int EditorPtrs::GetActiveSnapshotIndex() const {if (!entity) return -1; return VectorFindPtr(release, entity->snaps);}
 int EditorPtrs::GetActiveComponentIndex() const {if (!release) return -1; return VectorFindPtr(component, release->components);}
 int EditorPtrs::GetActiveTypeclassIndex() const {return VectorFindPtr(typecast, entity->typeclasses);}
-int EditorPtrs::GetActiveContentIndex() const {return VectorFindPtr(archetype, typecast->contents);}
-int EditorPtrs::GetActiveScriptIndex() const {return VectorFindPtr(script, archetype->scripts);}
+int EditorPtrs::GetActiveContentIndex() const {if (!typecast) return -1; return VectorFindPtr(archetype, typecast->contents);}
+int EditorPtrs::GetActiveScriptIndex() const {if (!archetype) return -1; return VectorFindPtr(script, archetype->scripts);}
 
 
 TextDatabase& EditorPtrs::GetDatabase() const {

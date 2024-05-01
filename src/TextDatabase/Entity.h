@@ -8,6 +8,8 @@ BEGIN_TEXTLIB_NAMESPACE
 struct Entity :
 	DataFile
 {
+	Profile* profile = 0;
+	
 	// Public
 	String native_name;
 	String english_name;
@@ -100,7 +102,7 @@ struct Entity :
 			;
 		if (json.IsStoring()) {
 			Vector<String> names;
-			for (Snapshot& r : snaps) {r.Store(); names.Add(r.file_title);}
+			for (Snapshot& r : snaps) {r.Store(*this); names.Add(r.file_title);}
 			json(__snaps, names);
 			
 		}
@@ -108,7 +110,7 @@ struct Entity :
 			snaps.Clear();
 			Vector<String> names;
 			json(__snaps, names);
-			for (String n : names) snaps.Add().LoadTitle(n);
+			for (String n : names) snaps.Add().LoadTitle(*this, n);
 		}
 	}
 	
@@ -119,6 +121,7 @@ struct Entity :
 	
 	bool FindComponent(int& tc, int& arch, int& lyr_i, const String& scripts_file_title) const;
 	
+	static bool FileExists(const String& title);
 };
 
 

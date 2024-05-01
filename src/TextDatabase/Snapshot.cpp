@@ -4,17 +4,27 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-void Snapshot::Store() {
-	String dir = GetAppModeDatabase().GetSnapshotsDir();
+void Snapshot::Store(Entity& e) {
+	entity = &e;
+	String dir =
+		AppendFileName(
+			AppendFileName(
+				GetAppModeDatabase().GetEntitiesDir(), entity->file_title),
+				file_title);
 	RealizeDirectory(dir);
-	String json_path = dir + file_title + ".json";
+	String json_path = dir + DIR_SEPS + "db.json";
 	StoreAsJsonFileStandard(*this, json_path, true);
 }
 
-void Snapshot::LoadTitle(String title) {
-	String dir = GetAppModeDatabase().GetSnapshotsDir();
+void Snapshot::LoadTitle(Entity& e, String title) {
+	entity = &e;
 	file_title = title;
-	String json_path = dir + file_title + ".json";
+	String dir =
+		AppendFileName(
+			AppendFileName(
+				GetAppModeDatabase().GetEntitiesDir(), entity->file_title),
+				file_title);
+	String json_path = dir + DIR_SEPS + "db.json";
 	LoadFromJsonFileStandard(*this, json_path);
 }
 

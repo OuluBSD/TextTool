@@ -48,7 +48,7 @@ struct TextDatabase {
 	void Store();
 	void Load();
 	void FindOrphaned();
-	void Serialize(Stream& s) {
+	/*void Serialize(Stream& s) {
 		s	% entities
 			% translation;
 	}
@@ -68,13 +68,14 @@ struct TextDatabase {
 			for (String n : names) entities.Add().LoadTitle(n);
 			Sort(entities, Entity());
 		}
-	}
+	}*/
 	String GetEntitiesDir() const;
 	String GetSnapshotsDir() const;
 	String GetComponentsDir() const;
 	
 	String Translate(const String& s);
-	static int trans_i; // active language translation index
+	//static int trans_i; // active language translation index
+	Entity& GetAddEntity(Profile& p);
 	
 };
 

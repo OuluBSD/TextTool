@@ -15,7 +15,7 @@ struct Profile
 	Date begin;
 	String biography;
 	String preferred_genres;
-	String languages;
+	Index<int> languages;
 	
 	/*void Serialize(Stream& s) {
 		

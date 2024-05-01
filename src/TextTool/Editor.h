@@ -20,6 +20,8 @@ protected:
 	
 	TextTool&			app;
 	ArrayCtrl			parts, page_group_list, page_list;
+	ArrayCtrl			owners;
+	ArrayCtrl			profiles;
 	int					page_group = 0;
 	VectorMap<int,int>	page;
 	
@@ -28,6 +30,7 @@ protected:
 public:
 	Ctrl				base;
 	Ctrl				subsplit;
+	bool				filter_profile_language = false;
 	
 public:
 	typedef ToolEditorBase CLASSNAME;
@@ -37,9 +40,19 @@ public:
 	void Init();
 	void SetView(int i, int j);
 	void ToolMenu(Bar& bar);
+	void OwnerMenu(Bar& bar);
+	void ProfileMenu(Bar& bar);
+	void DataMeta();
+	void DataOwner();
+	void DataProfile();
+	void AddOwner();
+	void RemoveOwner();
+	void AddProfile();
+	void RemoveProfile();
 	virtual void Data() {}
 	virtual void ViewPageGroup();
 	virtual void DataPage();
+	virtual void OnDataProfile() {}
 	virtual void SetSubMenu(int i) = 0;
 	
 	Callback WhenStartUpdating, WhenStopUpdating;
@@ -56,7 +69,7 @@ protected:
 	friend class TextTool;
 	
 	Splitter			hsplit, menusplit, componentsplit, scriptssplit;
-	ArrayCtrl			appmode_list, entities;
+	ArrayCtrl			appmode_list;
 	ArrayCtrl			snaps, components;
 	ArrayCtrl			typeclasses, contents, scripts;
 	bool				save_songdata = false;
@@ -104,7 +117,7 @@ public:
 	void SwitchAppMode();
 	void ViewPageGroup() override;
 	void Data() override;
-	void DataEntity();
+	void OnDataProfile() override;
 	void DataSnapshot();
 	void DataComponent();
 	void DataTypeclass();
@@ -124,14 +137,14 @@ public:
 	void SetSubMenu(int i) override;
 	void DataPage() override;
 	
-	void EntityMenu(Bar& bar);
+	//void EntityMenu(Bar& bar);
 	void SnapshotMenu(Bar& bar);
 	void SongMenu(Bar& bar);
 	void ScriptMenu(Bar& bar);
 	
-	void AddEntity();
-	void RenameEntity();
-	void RemoveEntity();
+	//void AddEntity();
+	//void RenameEntity();
+	//void RemoveEntity();
 	void AddSnapshot();
 	void RenameSnapshot();
 	void RemoveSnapshot();

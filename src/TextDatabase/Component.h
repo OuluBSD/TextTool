@@ -43,8 +43,10 @@ struct Component :
 	int							theme_cursor = -1;
 	int							part_cursor = -1;
 	
-	void Store();
-	void LoadTitle(String title);
+	Snapshot*					snapshot = 0;
+	
+	void Store(Snapshot& snap);
+	void LoadTitle(Snapshot& snap, String title);
 	void ReloadStructure();
 	String GetAnyTitle(Entity& a) const;
 	
