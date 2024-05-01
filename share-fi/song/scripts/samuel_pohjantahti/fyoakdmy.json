@@ -1,0 +1,648 @@
+{
+	"title": "",
+	"english_title": "",
+	"copyright": "Seppo Pakonen",
+	"content_vision": "The song is about willpower. Sometimes it's better to do things without planning when you know it's the right thing to do. Sometimes it's better to just stop smoking and drinking coffee, even if you still have both left. You might be curious if you can train your willpower like muscle power. Even if you're good at planning things, there's still no substitute for sheer willpower. It is good to have both planning skills and pure willpower.",
+	"typecast": 36,
+	"archetype": 7,
+	"is_rapper": true,
+	"user_structure": "I,V1,PC1,C1,V2,PC2,C1,C2,B1,B2,C1,C2,O",
+	"required_parts": "",
+	"avoid_parts": "",
+	"structure_suggestion_description": "",
+	"parts_total": 0,
+	"bpm": 0,
+	"verse_length": 8,
+	"prechorus_length": 2,
+	"chorus_length": 4,
+	"bridge_length": 4,
+	"structure_str": "",
+	"text": "",
+	"active_struct": {
+		"name": "User's structure",
+		"parts": [
+			"I",
+			"V1",
+			"PC1",
+			"C1",
+			"V2",
+			"PC2",
+			"C1",
+			"C2",
+			"B1",
+			"B2",
+			"C1",
+			"C2",
+			"O"
+		],
+		"attrs": [
+
+		]
+	},
+	"parts": [
+		{
+			"name": "Intro",
+			"type": "I",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Verse 1",
+			"type": "V1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Pre-Chorus 1",
+			"type": "PC1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Chorus 1",
+			"type": "C1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Verse 2",
+			"type": "V2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Pre-Chorus 2",
+			"type": "PC2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Chorus 2",
+			"type": "C2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Bridge 1",
+			"type": "B1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Bridge 2",
+			"type": "B2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Outro",
+			"type": "O",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "\u0001\u0000\u0000\u0000\u0010\u0001",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		}
+	],
+	"struct_suggs": [
+
+	],
+	"picked_phrase_parts": [
+
+	],
+	"clr_list": [
+
+	],
+	"suggestions": [
+
+	],
+	"lng_i": 0,
+	"simple_attrs": "\u0001\u0000\u0000\u0000\u0010\u0001"
+}
