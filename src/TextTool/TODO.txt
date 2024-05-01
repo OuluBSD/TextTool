@@ -19,6 +19,7 @@
 v0.0.1
 - lead templates and shadow-lead generation (for share-fin)
 - calendar / operations overview
+- fix db file hierarchy: entity/snapshot/component (artist/album/song)
 - frontpage
 - tool to find out preferred typecasts and contents for a new person
 - tool to get typecast/content from known artist's lyrics

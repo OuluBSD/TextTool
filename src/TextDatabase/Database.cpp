@@ -192,15 +192,13 @@ void MetaDatabase::Store() {
 	lead_data.Store();
 	
 	String& dir = MetaDatabase::Single().dir;
-	String& share = MetaDatabase::Single().share;
-	StoreAsJsonFileStandard(*this, dir + DIR_SEPS + share + DIR_SEPS + "db.json", true);
+	StoreAsJsonFileStandard(*this, dir + DIR_SEPS + "share-common" + DIR_SEPS + "db.json", true);
 }
 
 void MetaDatabase::Load() {
 	String& dir = MetaDatabase::Single().dir;
-	String& share = MetaDatabase::Single().share;
 	ASSERT(dir.GetCount());
-	LoadFromJsonFileStandard(*this, dir + DIR_SEPS + share + DIR_SEPS + "db.json");
+	LoadFromJsonFileStandard(*this, dir + DIR_SEPS + "share-common" + DIR_SEPS + "db.json");
 	
 	lead_data.Load();
 }

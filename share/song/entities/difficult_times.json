@@ -965,10 +965,5 @@
 	],
 	"is_female": false,
 	"language": 0,
-	"releases": [
-		"my_page",
-		"pms_07",
-		"oudot_05-09",
-		"vice"
-	]
+	"releases": []
 }

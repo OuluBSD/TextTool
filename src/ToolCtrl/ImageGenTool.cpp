@@ -124,10 +124,13 @@ void ImageGenTool::Data() {
 	
 	DataRecent();
 	
+	// Ruins startup
+	#if 0
 	if (list.GetCount() && !list.IsCursor()) {
 		list.SetCursor(0);
 		OnListCursor();
 	}
+	#endif
 }
 
 void ImageGenTool::ToolMenu(Bar& bar) {

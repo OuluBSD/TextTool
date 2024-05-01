@@ -1312,7 +1312,6 @@ const char* GetLeadWebsiteKey(int leadsite_idx) {
 
 String DeHtml(String html, Vector<String>& links) {
 	String out;
-	int a, b;
 	int depth = 0;
 	String deep;
 	for(int i = 0; i < html.GetCount(); i++) {
