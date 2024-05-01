@@ -1,0 +1,47 @@
+{
+	"title": "",
+	"english_title": "",
+	"copyright": "Seppo Pakonen",
+	"content_vision": "The lyrics depict a protagonist who starts from humble beginnings, facing numerous challenges and doubters along the way. Each verse builds on their journey, showcasing their dedication and resilience, culminating in a powerful chorus that inspires listeners to never give up on their dreams, no matter the odds.",
+	"typecast": 17,
+	"archetype": 9,
+	"is_rapper": false,
+	"user_structure": "I,V1,PC1,C1,V2,PC2,C1,C2,B1,B2,C1,C2,O",
+	"required_parts": "",
+	"avoid_parts": "",
+	"structure_suggestion_description": "",
+	"parts_total": 0,
+	"bpm": 0,
+	"verse_length": 8,
+	"prechorus_length": 2,
+	"chorus_length": 4,
+	"bridge_length": 4,
+	"structure_str": "",
+	"text": "",
+	"active_struct": {
+		"name": "",
+		"parts": [
+
+		],
+		"attrs": [
+
+		]
+	},
+	"parts": [
+
+	],
+	"struct_suggs": [
+
+	],
+	"picked_phrase_parts": [
+
+	],
+	"clr_list": [
+
+	],
+	"suggestions": [
+
+	],
+	"lng_i": 0,
+	"simple_attrs": "\u0001\u0000\u0000\u0000\u0010\u0001"
+}
