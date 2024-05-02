@@ -25,6 +25,7 @@ void LeadDataTemplate::Jsonize(JsonIO& json) {
 				("author_specialities", author_specialities)
 				("profit_reasons", profit_reasons)
 				("organizational_reasons", organizational_reasons)
+				("publishers", publishers)
 				;
 }
 

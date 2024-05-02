@@ -19,7 +19,9 @@ protected:
 	OwnerInfoCtrl		owner_info;
 	ProfileInfoCtrl		profile_info;
 	LeadWebsites		lead_sites;
+	LeadTemplateCtrl	lead_templates;
 	SocialContent		some_content;
+	LeadPublishers		lead_publisher;
 	
 	
 public:

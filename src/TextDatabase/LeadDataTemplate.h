@@ -39,6 +39,21 @@ struct LeadTemplate {
 	}
 };
 
+struct LeadDataPublisher {
+	String name, info;
+	String genres, url;
+	Vector<String> artists;
+	
+	void Jsonize(JsonIO& json) {
+		json	("name", name)
+				("info", info)
+				("genres", genres)
+				("url", url)
+				("artists", artists)
+				;
+	}
+};
+
 struct LeadDataTemplate {
 	Array<LeadTemplate> templates;
 	Index<String> author_classes;
@@ -46,6 +61,7 @@ struct LeadDataTemplate {
 	Index<String> profit_reasons;
 	Index<String> organizational_reasons;
 	
+	Array<LeadDataPublisher> publishers;
 	
 	LeadDataTemplate();
 	LeadDataTemplate(LeadDataTemplate&&) {}

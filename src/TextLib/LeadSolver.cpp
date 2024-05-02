@@ -1161,6 +1161,8 @@ void LeadSolver::OnProcessTemplateTitleAndText(String res) {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	LeadDataTemplate& ldt = LeadDataTemplate::Single();
 	int lng = mdb.GetLanguageIndex();
+	LeadData& ld = mdb.lead_data;
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
 	
 	/*response example:
 		New Music Opportunity Within Specific Genres"
@@ -1201,6 +1203,7 @@ void LeadSolver::OnProcessTemplateTitleAndText(String res) {
 			t.text = txt;
 			t.orig_lead_idx = batch;
 			t.orig_lead_lng = lng;
+			t.submission_price = opp.min_entry_price_cents * 0.01;
 		}
 	}
 	
@@ -1292,6 +1295,8 @@ void LeadSolver::OnProcessTemplateAnalyze(String res) {
 	}
 	
 	if (speciality.GetCount() && classes.GetCount() && profits.GetCount() && orgs.GetCount()) {
+		lt.author_specialities.Clear();
+		lt.author_classes.Clear();
 		lt.profit_reasons.Clear();
 		lt.organizational_reasons.Clear();
 		

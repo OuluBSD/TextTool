@@ -19,6 +19,8 @@ LeadsCtrl::LeadsCtrl(TextTool* app) : ToolEditorBase("leads", *app) {
 void LeadsCtrl::InitSimplified() {
 	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
 	AddItem(t_("Database"), t_("Lead Websites"), lead_sites);
+	AddItem(t_("Database"), t_("Lead Templates"), lead_templates);
+	AddItem(t_("Database"), t_("Lead Publishers"), lead_publisher);
 	AddItem(t_("Profile"), t_("Owner Info"), owner_info);
 	AddItem(t_("Profile"), t_("Profile Info"), profile_info);
 	AddItem(t_("Social Media"), t_("Content"), some_content);

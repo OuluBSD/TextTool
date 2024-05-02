@@ -26,5 +26,7 @@
 #include "Diagnostics.h"
 #include "Attributes.h"
 #include "LeadWebsites.h"
+#include "LeadTemplates.h"
+#include "LeadPublishers.h"
 
 #endif

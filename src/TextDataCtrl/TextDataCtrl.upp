@@ -47,6 +47,10 @@ file
 	Leads readonly separator,
 	LeadWebsites.h,
 	LeadWebsites.cpp,
+	LeadTemplates.h,
+	LeadTemplates.cpp,
+	LeadPublishers.h,
+	LeadPublishers.cpp,
 	Trash readonly separator,
 	Wordnet.h,
 	Wordnet.cpp;
