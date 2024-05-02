@@ -36,6 +36,9 @@ class LeadSolver {
 		LS_ANALYZE_POTENTIAL_SONG_IDEAS,
 		LS_ANALYZE_POTENTIAL_MUSIC_STYLE_TEXT,
 		
+		LS_TEMPLATE_TITLE_AND_TEXT,
+		LS_TEMPLATE_ANALYZE,
+		
 		LS_COUNT
 	};
 	Time time_started, time_stopped;
@@ -63,7 +66,6 @@ class LeadSolver {
 	void NextBatch() {batch++; sub_batch = 0;}
 	void NextSubBatch() {sub_batch++;}
 	
-	void ClearDB();
 	void ProcessDownloadWebsites(bool parse);
 	void ParseWebsite(int batch, String content);
 	String ProcessDownloadWebsiteUrl(String url);
@@ -76,6 +78,8 @@ class LeadSolver {
 	void ProcessAnalyzeMusicStyle();
 	void ProcessCoarseRanking();
 	void ProcessAveragePayoutEstimation();
+	void ProcessTemplateTitleAndText();
+	void ProcessTemplateAnalyze();
 	void OnProcessAnalyzeBooleans(String res);
 	void OnProcessAnalyzeStrings(String res);
 	void OnProcessAnalyzeLists(String res);
@@ -83,6 +87,8 @@ class LeadSolver {
 	void OnProcessAnalyzeLyricsIdeas(String res);
 	void OnProcessAnalyzeMusicStyle(String res);
 	void OnProcessAveragePayoutEstimation(String res);
+	void OnProcessTemplateTitleAndText(String res);
+	void OnProcessTemplateAnalyze(String res);
 	
 	double GetAverageOpportunityScore();
 	bool SkipLowScoreOpportunity();

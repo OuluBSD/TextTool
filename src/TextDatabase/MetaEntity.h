@@ -33,8 +33,7 @@ struct Profile
 	
 };
 
-struct Owner :
-	DataFile
+struct Owner
 {
 	String name;
 	int year_of_birth = 0;

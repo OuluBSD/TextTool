@@ -20,7 +20,7 @@ void DemandSolver::Process() {
 }
 
 DemandSolver& DemandSolver::Get(Owner& e) {
-	String t = e.file_title;
+	String t = e.name;
 	hash_t h = t.GetHashValue();
 	ArrayMap<hash_t, DemandSolver>& map = __DemandSolvers();
 	int i = map.Find(h);

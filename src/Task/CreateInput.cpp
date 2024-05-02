@@ -2242,6 +2242,20 @@ void AiTask::CreateInput_LeadSolver() {
 		SetHighQuality();
 	}
 	
+	else if (args.fn == 7) {
+		const LeadOpportunity& o = ld.opportunities[args.opp_i];
+		
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results
+				.Title(	"Create a template listing based on this listing. "
+						"Use extremely generic and boring language. "
+						"Don't mention brands but use generic product names. Give title and description");
+			;
+			results.Add("Title: \"");
+		}
+	}
+	
 	else TODO
 		
 }

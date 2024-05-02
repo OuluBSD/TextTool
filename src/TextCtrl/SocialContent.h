@@ -17,7 +17,7 @@ public:
 	typedef SocialContent CLASSNAME;
 	SocialContent();
 	
-	void Data();
+	void Data() override;
 	void DataPlatform();
 	void DataEntry();
 	void Clear();

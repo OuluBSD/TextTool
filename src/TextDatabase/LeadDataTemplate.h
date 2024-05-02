@@ -1,0 +1,66 @@
+#ifndef _TextDatabase_LeadDataTemplate_h_
+#define _TextDatabase_LeadDataTemplate_h_
+
+
+BEGIN_TEXTLIB_NAMESPACE
+
+/*
+	There's relatively little data of lead templates, so we don't use MapFile etc classes here
+	All fit nicely in one json.
+	This is a (sort of) generic lightweight solution.
+	
+*/
+
+struct LeadTemplate {
+	hash_t hash = 0;
+	int orig_lead_lng = 0;
+	int orig_lead_idx = 0;
+	String title;
+	String text;
+	double submission_price = 0;
+	Index<int> author_classes;
+	Index<int> author_specialities;
+	Index<int> profit_reasons;
+	Index<int> organizational_reasons;
+	
+	
+	void Jsonize(JsonIO& json) {
+		json	("hash", (int64&)hash)
+				("lng", orig_lead_lng)
+				("idx", orig_lead_idx)
+				("title", title)
+				("text", text)
+				("submission", submission_price)
+				("author", author_classes)
+				("specialities", author_specialities)
+				("profit", profit_reasons)
+				("organizational", organizational_reasons)
+				;
+	}
+};
+
+struct LeadDataTemplate {
+	Array<LeadTemplate> templates;
+	Index<String> author_classes;
+	Index<String> author_specialities;
+	Index<String> profit_reasons;
+	Index<String> organizational_reasons;
+	
+	
+	LeadDataTemplate();
+	LeadDataTemplate(LeadDataTemplate&&) {}
+	LeadDataTemplate(const LeadDataTemplate&) {}
+	void Load();
+	void Store();
+	//LeadOpportunity& GetAddOpportunity(int leadsite, String id);
+	void Jsonize(JsonIO& json);
+	
+	static LeadDataTemplate& Single() {static LeadDataTemplate o; return o;}
+	
+};
+
+
+END_TEXTLIB_NAMESPACE
+
+
+#endif

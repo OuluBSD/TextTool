@@ -474,7 +474,7 @@ void LeadWebsites::Do(int fn) {
 		LeadSolver& tm = LeadSolver::Get(Owner::DatabaseUpdate());
 		tm.Start();
 	}
-	else {
+	else if (fn == 1) {
 		MetaPtrs& p = MetaPtrs::Single();
 		if (p.owner) {
 			LeadSolver& tm = LeadSolver::Get(*p.owner);
@@ -564,7 +564,6 @@ void LeadWebsites::CopyHeaderClipboard() {
 	String txt = args.Get();
 	WriteClipboardText(txt);
 }
-
 
 
 END_TEXTLIB_NAMESPACE

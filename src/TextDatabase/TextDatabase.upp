@@ -43,6 +43,8 @@ file
 	Leads readonly separator,
 	LeadData.h,
 	LeadData.cpp,
+	LeadDataTemplate.h,
+	LeadDataTemplate.cpp,
 	"Social Media" readonly separator,
 	Platform.h,
 	Platform.cpp,

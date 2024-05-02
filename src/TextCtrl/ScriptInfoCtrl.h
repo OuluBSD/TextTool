@@ -14,7 +14,7 @@ public:
 	typedef ScriptInfoCtrl CLASSNAME;
 	ScriptInfoCtrl();
 	
-	void Data();
+	void Data() override;
 	void Clear();
 	void OnValueChange();
 	void PasteSongHeader();

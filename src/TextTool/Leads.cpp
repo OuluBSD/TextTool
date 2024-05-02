@@ -135,7 +135,7 @@ void ToolEditorBase::AddOwner() {
 	int artist_i = -1;
 	for(int i = 0; i < mdb.owners.GetCount(); i++) {
 		Owner& a = mdb.owners[i];
-		if (a.file_title == t) {
+		if (a.name == t) {
 			artist_i = i;
 			break;
 		}
@@ -148,7 +148,6 @@ void ToolEditorBase::AddOwner() {
 	}
 	
 	Owner& a = mdb.owners.Add();
-	a.file_title = t;
 	a.name = name;
 	p.owner = &a;
 	

@@ -21,11 +21,14 @@ void MetaStartup() {
 	
 	mdb.Load();
 	//Owner::CopyOld();
+	
+	LeadDataTemplate::Single().Load();
 }
 
 void MetaShutdown() {
 	ProfileData::StoreAll();
 	MetaDatabase::Single().Store();
+	LeadDataTemplate::Single().Store();
 }
 
 void AppModeStartup(int appmode) {

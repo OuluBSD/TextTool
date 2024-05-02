@@ -16,7 +16,7 @@ LeadSolver::LeadSolver() {
 }
 
 LeadSolver& LeadSolver::Get(Owner& e) {
-	String t = e.file_title;
+	String t = e.name;
 	hash_t h = t.GetHashValue();
 	ArrayMap<hash_t, LeadSolver>& map = __LeadSolvers();
 	int i = map.Find(h);
@@ -42,7 +42,8 @@ void LeadSolver::Process() {
 	MetaDatabase& db = MetaDatabase::Single();
 	LeadData& sd = db.lead_data;
 	LeadDataAnalysis& sda = db.lead_data.a;
-	sa = &sda.GetLeadEntityAnalysis(owner->file_title);
+	sa = &sda.GetLeadEntityAnalysis(owner->name);
+	int lng_i = db.GetLanguageIndex();
 	
 	// Don't process all data with AI when using generic updater profile,
 	// because more costly AI profile is used:
@@ -58,8 +59,10 @@ void LeadSolver::Process() {
 		if (phase == LS_BEGIN) {
 			time_started = GetSysTime();
 			//skip_ready = false;
-			NextPhase();
-			ClearDB();
+			if (lng_i == LNG_ENGLISH)
+				NextPhase();
+			else
+				MovePhase(LS_COUNT);
 		}
 		else if (phase == LS_DOWNLOAD_WEBSITES) {
 			ProcessDownloadWebsites(false);
@@ -95,6 +98,13 @@ void LeadSolver::Process() {
 		else if (phase == LS_ANALYZE_POTENTIAL_MUSIC_STYLE_TEXT) {
 			ProcessAnalyzeMusicStyle();
 		}
+		else if (phase == LS_TEMPLATE_TITLE_AND_TEXT) {
+			ProcessTemplateTitleAndText();
+		}
+		else if (phase == LS_TEMPLATE_ANALYZE) {
+			MovePhase(LS_COUNT);
+			//ProcessTemplateAnalyze();
+		}
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
 			phase = LS_BEGIN;
@@ -108,20 +118,6 @@ void LeadSolver::Process() {
 	
 	running = false;
 	stopped = true;
-}
-
-void LeadSolver::ClearDB() {
-	/*for(int i = 0; i < script->parts.GetCount(); i++) {
-		StaticPart& sp = script->parts[i];
-		auto& lines = sp.nana.Get();
-		for(int j = 0; j < lines.GetCount(); j++) {
-			auto& line = lines[j];
-			line.pp_i = -1;
-			line.end_pp_i = -1;
-		}
-		sp.phrase_parts.Clear();
-	}
-	script->picked_phrase_parts.Clear();*/
 }
 
 String LeadSolver::GetLeadCacheDir() {
@@ -1142,6 +1138,94 @@ void LeadSolver::OnProcessAnalyzeMusicStyle(String res) {
 	
 	NextBatch();
 	SetWaiting(0);
+}
+
+void LeadSolver::ProcessTemplateTitleAndText() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	if (batch >= mdb.lead_data.opportunities.GetCount()) {
+		NextPhase();
+		return;
+	}
+	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
+	if (SkipLowScoreOpportunity() ||
+		opp.weighted_rank >= (double)max_rank||
+		opp.average_payout_estimation <= 0.1) {
+		NextBatch();
+		return;
+	}
+	
+	ProcessAnalyzeFn(7, THISBACK(OnProcessTemplateTitleAndText));
+}
+
+void LeadSolver::OnProcessTemplateTitleAndText(String res) {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	
+	/*response example:
+		New Music Opportunity Within Specific Genres"
+		- Description (multiline):
+		
+		Are you a talented musician looking for new opportunities? ...
+	*/
+	
+	String title, txt;
+	int a = res.Find("\"");
+	if (a >= 0) {
+		title = TrimBoth(res.Left(a));
+	}
+	a = res.Find("Description");
+	if (a >= 0) {
+		a = res.Find("\n", a);
+		if (a >= 0) {
+			txt = TrimBoth(res.Mid(a+1));
+		}
+	}
+	
+	if (title.GetCount() && txt.GetCount()) {
+		CombineHash ch;
+		ch.Do(title).Do(txt);
+		hash_t h = ch;
+		bool found = false;
+		for (const LeadTemplate& ldt : mdb.lead_data_template.templates) {
+			if (ldt.hash == h) {
+				found = true;
+				break;
+			}
+		}
+		
+		if (!found) {
+			LeadTemplate& t = mdb.lead_data_template.templates.Add();
+			t.hash = h;
+			t.title = title;
+			t.text = txt;
+		}
+	}
+	
+	NextBatch();
+	SetWaiting(0);
+}
+
+void LeadSolver::ProcessTemplateAnalyze() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadDataTemplate& ldt = mdb.lead_data_template;
+	if (batch >= ldt.templates.GetCount()) {
+		NextPhase();
+		return;
+	}
+	LeadTemplate& lt = ldt.templates[batch];
+	if (!lt.author_classes.IsEmpty() &&
+		!lt.author_specialities.IsEmpty() &&
+		!lt.profit_reasons.IsEmpty() &&
+		!lt.organizational_reasons.IsEmpty()) {
+		NextBatch();
+		return;
+	}
+	
+	ProcessAnalyzeFn(8, THISBACK(OnProcessAnalyzeMusicStyle));
+}
+
+void LeadSolver::OnProcessTemplateAnalyze(String res) {
+	
 }
 
 

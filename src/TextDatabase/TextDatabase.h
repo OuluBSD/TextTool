@@ -14,6 +14,7 @@
 #include "MetaEntity.h"
 #include "SourceData.h"
 #include "LeadData.h"
+#include "LeadDataTemplate.h"
 #include "Database.h"
 #include "Pronounciation.h"
 #include "Browser.h"

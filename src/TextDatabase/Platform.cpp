@@ -291,7 +291,7 @@ Array<ProfileData>& ProfileData::GetAll() {
 ProfileData& ProfileData::Get(Profile& p) {
 	Array<ProfileData>& a = GetAll();
 	CombineHash ch;
-	ch.Do(p.owner->file_title);
+	ch.Do(p.owner->name);
 	ch.Do(p.name);
 	hash_t h = ch;
 	for (ProfileData& pd : a) {
