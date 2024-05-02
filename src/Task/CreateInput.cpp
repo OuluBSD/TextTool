@@ -2022,7 +2022,7 @@ void AiTask::CreateInput_LeadSolver() {
 	LeadSolverArgs args;
 	args.Put(this->args[0]);
 	
-	{
+	if (args.fn != 8) {
 		const LeadOpportunity& opp = ld.opportunities[args.opp_i];
 		auto& list = input.AddSub().Title("Music A&R opportunity listing");
 		list.Add("Name", opp.name);
@@ -2256,6 +2256,37 @@ void AiTask::CreateInput_LeadSolver() {
 		}
 	}
 	
+	else if (args.fn == 8) {
+		MetaDatabase& mdb = MetaDatabase::Single();
+		LeadDataTemplate& ldt = LeadDataTemplate::Single();
+		LeadTemplate& lt = ldt.templates[args.opp_i];
+		{
+			auto& list = input.AddSub().Title("Music A&R opportunity listing #1");
+			list.Add("Title: \"Get Your Music Heard Worldwide with #1 Radio Promotion Opportunity\"");
+			list.Add(
+				"Description:\n"
+				"Are you a musical artist looking for a chance to have your music reach a global audience? Look no further! This opportunity offers airplay and promotion on a highly rated internet radio podcast that has been helping talented musicians gain recognition for 7 years. Featuring a variety of genres and highlighting the best in vocal excellence, emotional depth, and impactful lyrics, this station is perfect for showcasing your skills. But that's not all! Your music will also be featured on the #1 New & Noteworthy Music Podcast, reaching over 100,000 downloads in just 7 months. With promotion on social media and other channels, your music is sure to get the recognition it deserves. Don't miss your chance to get your music heard and submit your songs today! Please note that submissions must be performed by female artists, female-fronted bands, or female vocalists only. Don't let this opportunity pass you by!");
+			list.Add("Speciality of the listing's author in short (music genre speciality, clients speciality)",
+				"The listing author specializes in promoting and showcasing female artists and female-fronted bands across all genres. They have a successful track record of helping independent artists gain recognition and have a strong network in the music industry.");
+			list.Add("Class of the listing's author (e.g. publisher / A&R / licensing agent etc. ) with 1-3 words", "A&R and Promotion Expert");
+			list.Add("Profit reasons for the author of this listing",
+				"\n1. To make a profit from the submission fees of interested artists.\n"
+				"2. To promote their radio and music podcast platform and attract more listeners and sponsors.\n"
+				"3. To potentially discover and represent new talent in the industry and earn a percentage of their earnings.")
+				;
+			list.Add("Positive organizational reasons for the author of this listing",
+				"\n1. To support and promote female musicians and bring more diversity to the music industry.\n"
+				"2. To provide a platform for independent artists to gain exposure and recognition for their talent.\n"
+				"3. To stay at the forefront of the music industry and discover new trends and talent in various genres.");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Music A&R opportunity listing #2");
+			results.Add("Name", lt.title);
+			results.Add("Description (multiline)", "\n" + lt.text);
+			//results.Add("Speciality of the listing's author in short (music genre speciality, clients speciality)", "");
+		}
+	}
 	else TODO
 		
 }

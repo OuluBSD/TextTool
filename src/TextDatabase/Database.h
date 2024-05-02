@@ -87,7 +87,6 @@ struct MetaDatabase {
 	
 	// Source
 	LeadData			lead_data;
-	LeadDataTemplate	lead_data_template;
 	
 	// Temp
 	String				dir, share;

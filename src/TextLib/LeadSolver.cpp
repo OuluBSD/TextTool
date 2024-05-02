@@ -102,8 +102,7 @@ void LeadSolver::Process() {
 			ProcessTemplateTitleAndText();
 		}
 		else if (phase == LS_TEMPLATE_ANALYZE) {
-			MovePhase(LS_COUNT);
-			//ProcessTemplateAnalyze();
+			ProcessTemplateAnalyze();
 		}
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
@@ -1160,6 +1159,8 @@ void LeadSolver::ProcessTemplateTitleAndText() {
 
 void LeadSolver::OnProcessTemplateTitleAndText(String res) {
 	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadDataTemplate& ldt = LeadDataTemplate::Single();
+	int lng = mdb.GetLanguageIndex();
 	
 	/*response example:
 		New Music Opportunity Within Specific Genres"
@@ -1186,18 +1187,20 @@ void LeadSolver::OnProcessTemplateTitleAndText(String res) {
 		ch.Do(title).Do(txt);
 		hash_t h = ch;
 		bool found = false;
-		for (const LeadTemplate& ldt : mdb.lead_data_template.templates) {
-			if (ldt.hash == h) {
+		for (const LeadTemplate& lt : ldt.templates) {
+			if (lt.hash == h) {
 				found = true;
 				break;
 			}
 		}
 		
 		if (!found) {
-			LeadTemplate& t = mdb.lead_data_template.templates.Add();
+			LeadTemplate& t = ldt.templates.Add();
 			t.hash = h;
 			t.title = title;
 			t.text = txt;
+			t.orig_lead_idx = batch;
+			t.orig_lead_lng = lng;
 		}
 	}
 	
@@ -1207,7 +1210,7 @@ void LeadSolver::OnProcessTemplateTitleAndText(String res) {
 
 void LeadSolver::ProcessTemplateAnalyze() {
 	MetaDatabase& mdb = MetaDatabase::Single();
-	LeadDataTemplate& ldt = mdb.lead_data_template;
+	LeadDataTemplate& ldt = LeadDataTemplate::Single();
 	if (batch >= ldt.templates.GetCount()) {
 		NextPhase();
 		return;
@@ -1221,11 +1224,92 @@ void LeadSolver::ProcessTemplateAnalyze() {
 		return;
 	}
 	
-	ProcessAnalyzeFn(8, THISBACK(OnProcessAnalyzeMusicStyle));
+	ProcessAnalyzeFn(8, THISBACK(OnProcessTemplateAnalyze));
 }
 
 void LeadSolver::OnProcessTemplateAnalyze(String res) {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadDataTemplate& ldt = LeadDataTemplate::Single();
+	LeadTemplate& lt = ldt.templates[batch];
 	
+	/*
+	- Speciality of the listing's author in short (music genre speciality, clients speciality): The listing author specializes in sourcing and selecting songs for film soundtracks and has a particular interest in Country, Folk, and Bluegrass genres. They also have a keen understanding of the themes and musical cues most suitable for this specific project.
+	- Class of the listing's author (e.g. publisher / A&R / licensing agent etc. ) with 1-3 words: Music Licensing Agent
+	- Profit reasons for the author of this listing:
+	1. To earn a percentage of the profits from the eventual soundtrack sales.
+	2. To establish relationships with talented artists and potentially work with them on future projects.
+	3. To showcase their expertise in song selection and music curation within the film industry.
+	- Positive organizational reasons for the author of this listing:
+	1. To support and promote independent artists by featuring their music in a major film release.
+	2. To create a diverse and well-curated soundtrack that enhances the overall viewing experience.
+	3. To build a strong relationship with the film producers and establish a reputation for providing quality music choices.
+	*/
+	int a, b;
+	String speciality, classes, profits, orgs;
+	
+	a = res.Find("- Speciality of the listing's author in short");
+	if (a >= 0) {
+		a = res.Find(":", a);
+		if (a >= 0) {
+			a++;
+			b = res.Find("\n", a);
+			if (b >= 0)
+				speciality = TrimBoth(res.Mid(a, b-a));
+		}
+	}
+	
+	a = res.Find("- Class of the listing");
+	if (a >= 0) {
+		a = res.Find(":", a);
+		if (a >= 0) {
+			a++;
+			b = res.Find("\n", a);
+			if (b >= 0)
+				classes = TrimBoth(res.Mid(a, b-a));
+		}
+	}
+	
+	a = res.Find("- Profit reasons");
+	if (a >= 0) {
+		a = res.Find(":", a);
+		if (a >= 0) {
+			a++;
+			b = res.Find("- Positive organi", a);
+			if (b >= 0)
+				profits = TrimBoth(res.Mid(a, b-a));
+		}
+	}
+	
+	a = res.Find("- Positive organizational");
+	if (a >= 0) {
+		a = res.Find(":", a);
+		if (a >= 0) {
+			a++;
+			b = res.GetCount();
+			if (b >= 0)
+				orgs = TrimBoth(res.Mid(a, b-a));
+		}
+	}
+	
+	if (speciality.GetCount() && classes.GetCount() && profits.GetCount() && orgs.GetCount()) {
+		lt.profit_reasons.Clear();
+		lt.organizational_reasons.Clear();
+		
+		lt.author_specialities.FindAdd(ldt.author_specialities.FindAdd(speciality));
+		lt.author_classes.FindAdd(ldt.author_classes.FindAdd(classes));
+		
+		RemoveEmptyLines2(profits);
+		RemoveEmptyLines2(orgs);
+		Vector<String> profit_reasons = Split(profits, "\n");
+		Vector<String> organizational_reasons = Split(orgs, "\n");
+		for (String& s : profit_reasons)
+			lt.profit_reasons.FindAdd(ldt.profit_reasons.FindAdd(s));
+		for (String& s : organizational_reasons)
+			lt.organizational_reasons.FindAdd(ldt.organizational_reasons.FindAdd(s));
+	}
+	
+	NextBatch();
+	SetWaiting(0);
 }
 
 
