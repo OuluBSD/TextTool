@@ -3016,15 +3016,15 @@
 								},
 								{
 									"year": 1995,
-									"keywords": "",
-									"native_text": "",
-									"text": ""
+									"keywords": "Kiiminki, Sammaloja, Peers, Same age",
+									"native_text": "Kiiminki, Sammaloja, samanikäiset vertaiseni.",
+									"text": "Kiiminki, Sammaloja, peers of the same age as I."
 								},
 								{
 									"year": 1996,
-									"keywords": "",
-									"native_text": "",
-									"text": ""
+									"keywords": "Kiiminkijoki Elementary School, 1A students, 17 students",
+									"native_text": "Kiiminkijoen ala-aste, 1A luokkalaiset, 17 oppilasta",
+									"text": "Kiiminkijoki Elementary School, 1A students, 17 students"
 								},
 								{
 									"year": 1997,
@@ -3034,9 +3034,9 @@
 								},
 								{
 									"year": 1998,
-									"keywords": "",
-									"native_text": "",
-									"text": ""
+									"keywords": "Kiiminkijoki, Lower primary school, Class 3A, 30 students, Younger friend",
+									"native_text": "Kiiminkijoen ala-aste, luokka 3A, noin 30 oppilasta.\nNäiden lisäksi yksi vuotta nuorempi kaveri.\n",
+									"text": "Kiiminkijoki lower primary school, class 3A, about 30 students.\nIn addition to these, one younger friend."
 								},
 								{
 									"year": 1999,
@@ -10094,6 +10094,452 @@
 									"keywords": "Discussing, Situation, Old, Makeshift, Standing desk, Father, New, Incredibly, Sturdy, Tall, Not adjustable",
 									"native_text": "Rakensin isäni kanssa puisen seisovan työpöydän vanhan viritelmäni tilanne. Uusi seisova työpöytä on mielettömän tukeva, ja korkea, mutta ei säädettävä.\n",
 									"text": "I was discussing the situation of my old makeshift standing desk with my father. The new standing desk is incredibly sturdy and tall, but not adjustable."
+								},
+								{
+									"year": 2023,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2024,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								}
+							]
+						}
+					},
+					{
+						"key": "WORK_MUSIC_PRODUCTION",
+						"value": {
+							"years": [
+								{
+									"year": 1989,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1990,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1991,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1992,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1993,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1994,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1995,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1996,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1997,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1998,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1999,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2000,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2001,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2002,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2003,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2004,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2005,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2006,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2007,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2008,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2009,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2010,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2011,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2012,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2013,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2014,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2015,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2016,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2017,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2018,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2019,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2020,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2021,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2022,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2023,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2024,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								}
+							]
+						}
+					},
+					{
+						"key": "WORK_MUSIC_COLLABORATION",
+						"value": {
+							"years": [
+								{
+									"year": 1989,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1990,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1991,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1992,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1993,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1994,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1995,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1996,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1997,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1998,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 1999,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2000,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2001,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2002,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2003,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2004,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2005,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2006,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2007,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2008,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2009,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2010,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2011,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2012,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2013,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2014,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2015,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2016,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2017,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2018,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2019,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2020,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2021,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
+								},
+								{
+									"year": 2022,
+									"keywords": "",
+									"native_text": "",
+									"text": ""
 								},
 								{
 									"year": 2023,
