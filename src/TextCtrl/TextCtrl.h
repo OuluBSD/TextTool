@@ -27,9 +27,12 @@
 #include "Fns.h"
 #include "Profile.h"
 #include "Owner.h"
+#include "SocialTimeline.h"
+#include "Biography.h"
+#include "ImageBiography.h"
+#include "SocialHeader.h"
 #include "SocialContent.h"
 #include "SocialContentTemplates.h"
-#include "SocialHeader.h"
 
 
 #endif

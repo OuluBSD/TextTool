@@ -43,7 +43,7 @@ struct Owner
 	bool is_guitarist = false;
 	String electronic_tools;
 	Array<Profile> profiles;
-	
+	Biography biography_detailed;
 	
 	/*void Serialize(Stream& s) {
 		
@@ -59,6 +59,7 @@ struct Owner
 			("is_guitarist", is_guitarist)
 			("electronic_tools", electronic_tools)
 			("profiles", profiles)
+			("biography_detailed", biography_detailed)
 			;
 		if (json.IsLoading()) {
 			for (Profile& p : profiles)

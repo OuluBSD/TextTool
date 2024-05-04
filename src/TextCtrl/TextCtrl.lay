@@ -30,6 +30,18 @@ LAYOUT(ProfileInfo, 672, 292)
 	ITEM(Upp::ArrayCtrl, languages, LeftPosZ(164, 248).TopPosZ(164, 116))
 END_LAYOUT
 
+LAYOUT(Biography, 424, 292)
+	ITEM(Upp::LabelBox, lbl_biography, SetLabel(t_("Biography")).HSizePosZ(4, 4).VSizePosZ(0, 4))
+	ITEM(Upp::Label, lbl_title, SetLabel(t_("Year:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(16, 20))
+	ITEM(Upp::EditInt, year, SetEditable(false).HSizePosZ(164, 8).TopPosZ(16, 20))
+	ITEM(Upp::EditString, keywords, HSizePosZ(164, 8).BottomPosZ(9, 19))
+	ITEM(Upp::Label, dv___4, SetLabel(t_("Native text:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(40, 20))
+	ITEM(Upp::DocEdit, native_text, HSizePosZ(164, 8).VSizePosZ(40, 120))
+	ITEM(Upp::Label, dv___6, SetLabel(t_("English text:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(8, 152).BottomPosZ(96, 20))
+	ITEM(Upp::DocEdit, text, HSizePosZ(164, 8).BottomPosZ(32, 84))
+	ITEM(Upp::Label, dv___8, SetLabel(t_("Keywords:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(264, 20))
+END_LAYOUT
+
 LAYOUT(SocialHeader, 864, 344)
 	ITEM(Upp::LabelBox, lbl_owner, SetLabel(t_("Entry")).HSizePosZ(4, 4).VSizePosZ(0, 8))
 	ITEM(Upp::ImageCtrl, prof_image0, LeftPosZ(468, 192).VCenterPosZ(156, -78))

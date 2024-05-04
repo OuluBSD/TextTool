@@ -2291,6 +2291,39 @@ void AiTask::CreateInput_LeadSolver() {
 		
 }
 
+void AiTask::CreateInput_Social() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadDataAnalysis& lda = mdb.lead_data.a;
+	
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	SocialArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		{
+			auto& list = input.AddSub().Title("Text");
+			list.NoListChar();
+			Vector<String> lines = Split(args.text, "\n");
+			for (String& l : lines) {
+				l = TrimBoth(l);
+				if (!l.IsEmpty())
+					list.Add(l);
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of keywords for the text");
+			results.NumberedLines();
+			results.Add("");
+		}
+	}
+}
+
 
 END_TEXTLIB_NAMESPACE
 

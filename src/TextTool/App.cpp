@@ -97,6 +97,7 @@ void TextTool::SaveDatabase() {
 	TextDatabase& db = GetEditor().GetDatabase();
 	db.Store();
 	LeaveAppMode();
+	MetaDatabase::Single().Store();
 }
 
 void TextTool::MainMenu(Bar& bar) {

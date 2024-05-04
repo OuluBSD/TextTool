@@ -24,6 +24,8 @@ protected:
 	LeadPublishers				lead_publisher;
 	SocialContentTemplateCtrl	tmpl_content;
 	SocialHeaderCtrl			social_header;
+	BiographyCtrl				biography;
+	ImageBiographyCtrl			image_biography;
 	
 	
 public:

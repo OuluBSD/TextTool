@@ -11,6 +11,7 @@
 #include "Component.h"
 #include "Snapshot.h"
 #include "Entity.h"
+#include "Biography.h"
 #include "MetaEntity.h"
 #include "SourceData.h"
 #include "LeadData.h"

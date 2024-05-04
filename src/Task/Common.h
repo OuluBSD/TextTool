@@ -197,6 +197,21 @@ struct SongHeaderArgs {
 				("con_i", con_i)
 				("lyrics_idea", lyrics_idea)
 				("music_style", music_style)
+				("fn", fn)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct SocialArgs {
+	int fn = 0;
+	String text;
+	
+	void Jsonize(JsonIO& json) {
+		json	("text", text)
+				("fn", fn)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

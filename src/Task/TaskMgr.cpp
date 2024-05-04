@@ -388,6 +388,23 @@ void TaskMgr::GetLeadSolver(int appmode, const LeadSolverArgs& args, Event<Strin
 	task_lock.Leave();
 }
 
+void TaskMgr::GetSocial(const SocialArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
+	t.SetRule(AITASK_LEAD_SOLVER, MakeName(args, -1, "social"))
+		.Input(&AiTask::CreateInput_Social)
+		.Process(&AiTask::Process_Default);
+	
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
 
 
 

@@ -49,6 +49,7 @@ struct TaskMgr {
 	void GetAttributes(int appmode, const AttrArgs& args, Event<String> WhenResult);
 	void GetScriptSolver(int appmode, const ScriptSolverArgs& args, Event<String> WhenResult);
 	void GetLeadSolver(int appmode, const LeadSolverArgs& args, Event<String> WhenResult);
+	void GetSocial(const SocialArgs& args, Event<String> WhenResult);
 	
 	static TaskMgr& Single() {static TaskMgr tm; return tm;}
 	
