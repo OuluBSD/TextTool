@@ -23,7 +23,9 @@ void LeadsCtrl::InitSimplified() {
 	AddItem(t_("Database"), t_("Lead Publishers"), lead_publisher);
 	AddItem(t_("Profile"), t_("Owner Info"), owner_info);
 	AddItem(t_("Profile"), t_("Profile Info"), profile_info);
+	AddItem(t_("Social Media"), t_("Header"), social_header);
 	AddItem(t_("Social Media"), t_("Content"), some_content);
+	AddItem(t_("Social Media"), t_("Content Templates"), tmpl_content);
 	
 }
 

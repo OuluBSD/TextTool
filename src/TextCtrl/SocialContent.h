@@ -7,11 +7,21 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class LeadsCtrl;
 
-class SocialContent : public ToolAppCtrl {
-	Splitter hsplit, vsplit;
-	ArrayCtrl platforms, entries;
-	WithSocialEntry<Ctrl> entry;
+class SocialTimelineCtrl : public Ctrl {
 	
+public:
+	typedef SocialTimelineCtrl CLASSNAME;
+	SocialTimelineCtrl();
+	
+	void Paint(Draw& d);
+	
+};
+
+class SocialContent : public ToolAppCtrl {
+	Splitter hsplit, vsplit, menusplit;
+	ArrayCtrl platforms, entries, campaigns;
+	WithSocialEntry<Ctrl> entry;
+	SocialTimelineCtrl timeline;
 	
 public:
 	typedef SocialContent CLASSNAME;

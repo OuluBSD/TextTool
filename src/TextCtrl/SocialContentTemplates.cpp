@@ -5,7 +5,7 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-SocialContent::SocialContent() {
+SocialContentTemplateCtrl::SocialContentTemplateCtrl() {
 	CtrlLayout(entry);
 	
 	Add(hsplit.SizePos());
@@ -15,10 +15,13 @@ SocialContent::SocialContent() {
 	
 	menusplit.Vert() << platforms << campaigns;
 	
-	vsplit.Vert() << timeline << entries << entry;
+	vsplit.Vert() << timeline << entries << tabs;
 	vsplit.SetPos(800, 0);
 	vsplit.SetPos(3333, 1);
 	
+	tabs.Add(entry.SizePos(), t_("Entry"));
+	tabs.Add(tmpl_params.SizePos(), t_("Template params"));
+	tabs.Add(campaign_params.SizePos(), t_("Campaign params"));
 	
 	platforms.AddColumn(t_("Platform"));
 	platforms.AddColumn(t_("Entries"));
@@ -29,6 +32,10 @@ SocialContent::SocialContent() {
 	campaigns.AddColumn(t_("Campaign"));
 	campaigns.AddIndex("IDX");
 	//campaigns.WhenCursor << THISBACK(DataCampaign);
+	
+	campaign_tmpls.AddColumn(t_("Campaign Template"));
+	campaign_tmpls.AddIndex("IDX");
+	//campaign_tmpls.WhenCursor << THISBACK(DataCampaignTemplate);
 	
 	entries.AddColumn(t_("Published"));
 	entries.AddColumn(t_("Title"));
@@ -45,13 +52,9 @@ SocialContent::SocialContent() {
 	entry.orig_message.WhenAction << THISBACK(OnValueChange);
 	entry.hashtags.WhenAction << THISBACK(OnValueChange);
 	entry.location.WhenAction << THISBACK(OnValueChange);
-	entry.date.WhenAction << THISBACK(OnValueChange);
-	entry.clock.WhenAction << THISBACK(OnValueChange);
-	entry.clock.WhenDeactivate << THISBACK(OnValueChange);
-	entry.clock.WhenPopDown << THISBACK(OnValueChange);
 }
 
-void SocialContent::Data() {
+void SocialContentTemplateCtrl::Data() {
 	MetaPtrs& p = MetaPtrs::Single();
 	
 	if (!p.profile) {
@@ -80,7 +83,7 @@ void SocialContent::Data() {
 	DataPlatform();
 }
 
-void SocialContent::DataPlatform() {
+void SocialContentTemplateCtrl::DataPlatform() {
 	MetaPtrs& p = MetaPtrs::Single();
 	if (!platforms.IsCursor()) {
 		entries.Clear();
@@ -114,7 +117,7 @@ void SocialContent::DataPlatform() {
 	DataEntry();
 }
 
-void SocialContent::DataEntry() {
+void SocialContentTemplateCtrl::DataEntry() {
 	MetaPtrs& p = MetaPtrs::Single();
 	if (!platforms.IsCursor() || !entries.IsCursor()) {
 		ClearEntry();
@@ -132,29 +135,25 @@ void SocialContent::DataEntry() {
 	entry.orig_message.SetData(e.orig_message);
 	entry.hashtags.SetData(e.hashtags);
 	entry.location.SetData(e.location);
-	entry.date.SetData(e.published);
-	entry.clock.SetData(e.published);
 	
 }
 
-void SocialContent::ClearEntry() {
+void SocialContentTemplateCtrl::ClearEntry() {
 	entry.message.SetData("");
 	entry.orig_message.SetData("");
 	entry.hashtags.Clear();
 	entry.location.Clear();
 	entry.title.Clear();
-	entry.date.SetData(GetSysTime());
-	entry.clock.SetData(GetSysTime());
 	
 }
 
-void SocialContent::Clear() {
+void SocialContentTemplateCtrl::Clear() {
 	platforms.Clear();
 	entries.Clear();
 	ClearEntry();
 }
 
-void SocialContent::OnValueChange() {
+void SocialContentTemplateCtrl::OnValueChange() {
 	MetaPtrs& p = MetaPtrs::Single();
 	if (!platforms.IsCursor() || !entries.IsCursor())
 		return;
@@ -172,16 +171,9 @@ void SocialContent::OnValueChange() {
 	e.hashtags = entry.hashtags.GetData();
 	e.location = entry.location.GetData();
 	e.title = entry.title.GetData();
-	
-	Date date = entry.date.GetDate();
-	Time time = entry.clock.GetTime();
-	time.year = date.year;
-	time.month = date.month;
-	time.day = date.day;
-	e.published = time;
 }
 
-void SocialContent::AddEntry() {
+void SocialContentTemplateCtrl::AddEntry() {
 	MetaPtrs& p = MetaPtrs::Single();
 	if (!platforms.IsCursor())
 		return;
@@ -195,7 +187,7 @@ void SocialContent::AddEntry() {
 	DataPlatform();
 }
 
-void SocialContent::RemoveEntry() {
+void SocialContentTemplateCtrl::RemoveEntry() {
 	MetaPtrs& p = MetaPtrs::Single();
 	if (!platforms.IsCursor() || !entries.IsCursor())
 		return;
@@ -210,32 +202,19 @@ void SocialContent::RemoveEntry() {
 	DataPlatform();
 }
 
-void SocialContent::EntryListMenu(Bar& bar) {
+void SocialContentTemplateCtrl::EntryListMenu(Bar& bar) {
 	bar.Add(t_("Add Entry"), AppImg::BlueRing(), THISBACK(AddEntry)).Key(K_CTRL_W);
 	if (entries.IsCursor())
 		bar.Add(t_("Remove Entry"), AppImg::BlueRing(), THISBACK(RemoveEntry)).Key(K_CTRL_D);
 }
 
-void SocialContent::ToolMenu(Bar& bar) {
+void SocialContentTemplateCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Add Entry"), AppImg::BlueRing(), THISBACK(AddEntry)).Key(K_CTRL_W);
 	bar.Add(t_("Remove Entry"), AppImg::BlueRing(), THISBACK(RemoveEntry)).Key(K_CTRL|K_SHIFT|K_W);
 	
 }
 
 
-
-
-SocialTimelineCtrl::SocialTimelineCtrl() {
-	
-}
-
-void SocialTimelineCtrl::Paint(Draw& d) {
-	Size sz = GetSize();
-	d.DrawRect(sz, White());
-	
-	int x_2 = sz.cx / 2;
-	d.DrawLine(x_2, 0, x_2, sz.cy, 1, Black());
-}
 
 
 

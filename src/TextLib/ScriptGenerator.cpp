@@ -760,6 +760,7 @@ void ScriptGenerator::ProcessScores() {
 			
 			// Fetch scores for the phrase
 			String phrase = da.GetWordString(pp.words);
+			phrase = phrase.Left(360);
 			args.phrases << phrase;
 			pp_is.Add(phrase, pp_i);
 			if (args.phrases.GetCount() >= per_sub_batch)

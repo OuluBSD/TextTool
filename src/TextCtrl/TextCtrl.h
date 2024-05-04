@@ -28,6 +28,8 @@
 #include "Profile.h"
 #include "Owner.h"
 #include "SocialContent.h"
+#include "SocialContentTemplates.h"
+#include "SocialHeader.h"
 
 
 #endif

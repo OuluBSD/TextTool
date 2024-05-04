@@ -17,6 +17,8 @@
 
 
 v0.0.1
+- fix music style keywords: search for meaningful words which improves quality
+	- ensure matching quality for artist leads
 - fix file hierarchy: entities should be in owners directory
 - lead templates and shadow-lead generation (for share-fin)
 - calendar / operations overview
@@ -49,6 +51,7 @@ v0.0.2
 - song DBs for spanish, korean, japanese, russian
 - fix Finnish language support with at least 1 new DB
 - fix: add snapshot and entity pointers to component and snapshot at object creation
+- lead templates + publishers + artist list: shadow leads for artists
 
 v0.0.3
 - share folder structure improvements: avoid DB specific names, avoid language mismatch

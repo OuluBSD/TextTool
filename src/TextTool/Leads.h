@@ -15,13 +15,15 @@ protected:
 	Splitter			hsplit, menusplit;
 	ArrayCtrl			componentlist;
 	
-	ImageGenTool		image_gen;
-	OwnerInfoCtrl		owner_info;
-	ProfileInfoCtrl		profile_info;
-	LeadWebsites		lead_sites;
-	LeadTemplateCtrl	lead_templates;
-	SocialContent		some_content;
-	LeadPublishers		lead_publisher;
+	ImageGenTool				image_gen;
+	OwnerInfoCtrl				owner_info;
+	ProfileInfoCtrl				profile_info;
+	LeadWebsites				lead_sites;
+	LeadTemplateCtrl			lead_templates;
+	SocialContent				some_content;
+	LeadPublishers				lead_publisher;
+	SocialContentTemplateCtrl	tmpl_content;
+	SocialHeaderCtrl			social_header;
 	
 	
 public:
