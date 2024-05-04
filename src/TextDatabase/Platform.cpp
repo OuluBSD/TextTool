@@ -254,6 +254,18 @@ const Vector<Platform>& GetPlatforms() {
 		p.has_link_promotion = true;
 		p.has_comment_self_promotion_hack = true;
 	}
+	{
+		Platform& p = a[PLATFORM_BANDMIX];
+		p.name = "Bandmix";
+		p.has_comments = true;
+		p.has_title = true;
+		p.has_message = true;
+		p.has_hashtags = true;
+		p.has_music = true;
+		p.has_image = true;
+		p.has_link_promotion = true;
+		p.has_comment_self_promotion_hack = true;
+	}
 	
 	
 	
