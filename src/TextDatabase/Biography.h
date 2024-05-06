@@ -54,6 +54,8 @@ BEGIN_TEXTLIB_NAMESPACE
 	BIOCATEGORY(WORK_MUSIC_COLLABORATION) \
 	BIOCATEGORY(WORK_MUSIC_PRODUCTION) \
 	BIOCATEGORY(WORK_SONGWRITING) \
+	BIOCATEGORY(BADGE_OF_HONOR) \
+	BIOCATEGORY(BADGE_OF_SHAME) \
 
 
 
@@ -70,9 +72,41 @@ String GetBiographyCategoryEnum(int i);
 String GetBiographyCategoryKey(int i);
 
 
+enum {
+	TIME_ACCURACY_NONE,
+	TIME_ACCURACY_DATE,
+	TIME_ACCURACY_TIME,
+	
+	TIME_ACCURACY_COUNT,
+};
+
+struct BioImage {
+	String keywords, text, native_text;
+	String image_keywords, image_text;
+	String location;
+	String people;
+	Time time;
+	int time_accuracy = TIME_ACCURACY_NONE;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("keywords", keywords)
+			("text", text)
+			("native_text", native_text)
+			("image_keywords", image_keywords)
+			("image_text", image_text)
+			("location", location)
+			("people", people)
+			("time", time)
+			("time_accuracy", time_accuracy)
+			;
+	}
+};
+
 struct BioYear {
 	int year = 0;
 	String keywords, text, native_text;
+	Array<BioImage> images;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -80,6 +114,7 @@ struct BioYear {
 			("keywords", keywords)
 			("native_text", native_text)
 			("text", text)
+			("images", images)
 			;
 	}
 };
@@ -93,6 +128,8 @@ struct BiographyCategory {
 			;
 	}
 	BioYear& GetAdd(int year);
+	int GetFilledCount() const;
+	int GetFilledImagesCount() const;
 };
 
 struct Biography {

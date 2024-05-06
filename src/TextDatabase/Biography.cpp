@@ -23,6 +23,21 @@ String KeyToName(String s) {
 	return o;
 }
 
+int BiographyCategory::GetFilledCount() const {
+	int c = 0;
+	for (const BioYear& by : years)
+		if (by.text.GetCount() || by.keywords.GetCount())
+			c++;
+	return c;
+}
+
+int BiographyCategory::GetFilledImagesCount() const {
+	int c = 0;
+	for (const BioYear& by : years)
+		c += by.images.GetCount();
+	return c;
+}
+
 String GetBiographyCategoryEnum(int i) {
 	switch (i) {
 		#define BIOCATEGORY(x) case BIOCATEGORY_##x: return #x;

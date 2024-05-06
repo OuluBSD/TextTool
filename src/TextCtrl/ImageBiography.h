@@ -5,18 +5,37 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+class ImageAnalyserCtrl : public Ctrl {
+	
+	
+public:
+	typedef ImageAnalyserCtrl CLASSNAME;
+	ImageAnalyserCtrl();
+	
+	void Paint(Draw& d);
+	
+};
+
 class ImageBiographyCtrl : public ToolAppCtrl {
-	/*Splitter hsplit, vsplit;
-	ArrayCtrl platforms, entries;
-	WithSocialHeader<Ctrl> entry;
-	SocialTimelineCtrl timeline;*/
+	Splitter hsplit, vsplit, bsplit;
+	ArrayCtrl categories, years, entries;
+	WithImageBiography<Ctrl> year;
+	SocialTimelineCtrl timeline;
+	ImageAnalyserCtrl img;
 	
 public:
 	typedef ImageBiographyCtrl CLASSNAME;
 	ImageBiographyCtrl();
 	
 	void Data() override;
-	void DataPlatform();
+	void DataCategory();
+	void DataYear();
+	void DataEntry();
+	void OnValueChange();
+	void Translate();
+	void MakeKeywords(int fn);
+	void OnTranslate(String s);
+	void OnKeywords(int fn, String s);
 	void ToolMenu(Bar& bar) override;
 	void EntryListMenu(Bar& bar);
 	

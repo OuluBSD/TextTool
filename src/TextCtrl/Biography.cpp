@@ -16,11 +16,13 @@ BiographyCtrl::BiographyCtrl() {
 	CtrlLayout(year);
 	
 	categories.AddColumn(t_("Category"));
+	categories.AddColumn(t_("Entries"));
 	categories.AddIndex("IDX");
 	for(int i = 0; i < BIOCATEGORY_COUNT; i++) {
 		categories.Set(i, 0, GetBiographyCategoryKey(i));
 		categories.Set(i, "IDX", i);
 	}
+	categories.ColumnWidths("5 1");
 	categories.SetSortColumn(0);
 	categories.SetCursor(0);
 	categories <<= THISBACK(DataCategory);
@@ -43,13 +45,28 @@ BiographyCtrl::BiographyCtrl() {
 }
 
 void BiographyCtrl::Data() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.owner) {
+		for(int i = 0; i < categories.GetCount(); i++)
+			categories.Set(i, 1, 0);
+		return;
+	}
+	Owner& owner = *mp.owner;
+	Biography& biography = mp.owner->biography_detailed;
+	
+	for(int i = 0; i < categories.GetCount(); i++) {
+		int cat_i = categories.Get(i, "IDX");
+		BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
+		categories.Set(i, 1, bcat.GetFilledCount());
+	}
 	DataCategory();
 }
 
 void BiographyCtrl::DataCategory() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
-	if (!mp.owner && !categories.IsCursor()) {
+	if (!mp.owner || !categories.IsCursor()) {
 		years.Clear();
 		return;
 	}
@@ -88,7 +105,7 @@ void BiographyCtrl::DataCategory() {
 void BiographyCtrl::DataYear() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
-	if (!mp.owner && !categories.IsCursor() && !years.IsCursor())
+	if (!mp.owner || !categories.IsCursor() || !years.IsCursor())
 		return;
 	Owner& owner = *mp.owner;
 	Biography& biography = mp.owner->biography_detailed;
@@ -107,7 +124,7 @@ void BiographyCtrl::DataYear() {
 void BiographyCtrl::OnValueChange() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
-	if (!mp.owner && !categories.IsCursor() && !years.IsCursor())
+	if (!mp.owner || !categories.IsCursor() || !years.IsCursor())
 		return;
 	Owner& owner = *mp.owner;
 	Biography& biography = mp.owner->biography_detailed;
