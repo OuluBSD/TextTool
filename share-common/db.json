@@ -13242,9 +13242,9 @@
 								},
 								{
 									"year": 2017,
-									"keywords": "Puulinnankatu, 7, 7, address, street, location, number, address line, Puulinnan Neighborhood, building",
-									"native_text": "",
-									"text": "Puulinnankatu 7",
+									"keywords": "Lived, Nokelantie 40, Beginning, Winter, Moved, Puulinnankatu 7, Summer, 2017",
+									"native_text": "Asuin alkutalven osoitteessa Nokelantie 40\nMuutin kesällä 2017 osoitteeseen Puulinnankatu 7",
+									"text": "I lived in Nokelantie 40 in the beginning of winter\nI moved to Puulinnankatu 7 in the summer of 2017",
 									"images": [
 
 									]
@@ -16676,9 +16676,9 @@
 								},
 								{
 									"year": 1994,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "Friend's house, PC, Booted, DOS, Program, Launch, Game, Select, Number, Written, Older brother, Mikko Aaltonen, Impression, Programming, Difficult skill, Useful, Batch script",
+									"native_text": "Ymmärsin, että kaverini luona heidän PC käynnistyi DOS ohjelmaan, missä pystyi numeroa valitsemalla käynnistää pelin, ja tämän ohjelman oli kirjoittanut kaverini isoveli Mikko Aaltonen.\nSe jätti minuun syvään vaikutuksen, että ohjelmointi on vaikea taito, jolla voi tehdä jotain hyödyllistä muille ihmisille.\nKyseinen hjelma oli luultavasti yksinkertainen bat skripti.\n",
+									"text": "I understood that at my friend's house, their PC booted to a DOS program where they could launch a game by selecting a number, and this program was written by my friend's older brother, Mikko Aaltonen.\nIt left a deep impression on me that programming is a difficult skill that can create something useful for others.\nThe program was probably a simple batch script.",
 									"images": [
 
 									]
@@ -16721,234 +16721,234 @@
 								},
 								{
 									"year": 1999,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "Learned, Windows, Batch scripts, Friends, School, Classroom PC, Teachers, Own PC, Writing, Discouraged, Curiosity",
+									"native_text": "Opin tänä vuonna jotain Windowsin bat-skripteistä.\nKai kuulin niistä kavereilta koulussa ja kai kirjoitimme luokan PC:llä jotain bat-skriptejä yhdessä, koska opin sen.\nEn usko, että tämä oppi tuli opettajilta.\nKun sain oman PC:n taloomme, niin kirjoitin bat skriptejä, mutta en päässyt pitkälle, mikä sammutti uteliaisuuteni.\n\n",
+									"text": "This year, I learned about Windows batch scripts.\nI think I heard about them from friends at school, and I think we wrote some batch scripts together on the classroom PC, which is how I learned.\nI don't believe this knowledge came from our teachers.\nWhen I got my own PC at home, I tried writing batch scripts, but I didn't get very far, which discouraged my curiosity.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2000,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "k modem, library computer reservations, learn, Windows, bat scripts, home, occasionally, mind, computer, internet",
+									"native_text": "Luultavasti käytin kotimme 56k-modeemia ja kirjaston tietokonevarauksia Windowsin bat skriptien opetteluun. Se oli silti vain melko harvoin mielessä.\n",
+									"text": "I probably used our home's 56k modem and library computer reservations to learn Windows bat scripts. However, it was only on my mind occasionally.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2001,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "Family acquaintance, Pekka Kähkönen, Helped, Purchase, First PC, Visiting, Fast internet, Library, Computer, Internet, Freely, Showed, Interesting, Burned programs, CDs, Windows XP, Installation, FCKGW serial number, Internet meme, Messed up, Family's Windows 98 and XP installations, Experiments, Personal files, Bookmarks, Talked, Programming, Interest",
+									"native_text": "Muutimme perhetuttuni Pekka Kähkösen lähelle, joka oli auttanut meidän perhettä ensimmäisen PC:n hankkimisessa.\nAloin käymään hänen luona kylässä, etenkin koska hänellä oli nopea internet, ja minulla ei enää ollut kirjastoa lähellä, jossa käydä tietokoneella internetissä vapaasti.\nHän myös näytti kaikenlaista mielenkiintoista internetissä ja poltti minulle cd-levyillä ohjelmia.\nHän myös antoi minulle Windows XP cd-levyn asennuksen, jossa oli kuuluisa FCKGW serial, jonka minäkin opin muistamaan ulkoa, kuten internet meemissä kuuluu :)\nPilasin monta perheemme tietokoneen Windows 98 ja XP asennusta näillä kokeiluillani, mutta tietokoneilla ei säilytetty siihen aikaan omia tiedostoja ja kirjanmerkkejä juurikaan.\nPuhuimme Pekan kanssa silloin tällöin myös ohjelmoinnista, mikä ylläpiti kiinnostustani.\n",
+									"text": "We moved near my family acquaintance Pekka Kähkönen, who had helped our family purchase our first PC.\nI started visiting him often, especially because he had fast internet and I no longer had a library nearby where I could use the computer and internet freely.\nHe also showed me all sorts of interesting things on the internet and burned programs onto CDs for me.\nHe even gave me a Windows XP installation CD with the famous FCKGW serial number, which I also memorized by heart like in the internet meme :)\nI messed up many of our family's Windows 98 and XP installations with my experiments, but at that time computers didn't really store personal files and bookmarks.\nPekka and I also talked about programming from time to time, which kept my interest alive.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2002,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "Pekka Kähkönen, Programming Tunnel, Visual Basic, CD, burned, instructions, proficient, hundreds of hours, small programs, download, text files, internet, parse, important information, technique, everyday life, 20 years later, programmers, good or bad, outgrowing, MobileMese, client program, MSN Messenger, add-on, Nokia phones, dream",
+									"native_text": "Luultavasti perhetuttavani Pekka Kähkönen antoi vihjeen ohjelmointiputka nimiselle sivustolle, jossa oli Visual Basic tutoriaaleja.\nSain häneltä luultavasti Visual Basic 6:sen poltetulla cd-levyllä.\nAloin seuraamaan ohjeita ohjelmointiputkassa, ja opin Visual Basicin hyvin.\nKäytin Visual Basic ohjelmointiin paljon aikaa, satoja tunteja vuodessa.\n\nMuistan tekemistäni Visual Basic ohjelmistani pienet ohjelmat, jotka latasivat internetistä tekstitiedostoja, ja sitten parsivat sieltä jotain oleellista tietoa.\nTämä oli tekniikka, jota käytän vielä 20 vuotta myöhemmin arkisesti, ja johon en ole vieläkään saanut kommentteja muilta ohjelmoijilta, että kuinka hyvä tai huono kyseinen tekniikka on, mutta ainakin se toimii.\n\nMuistan myös viimeisen ohjelman, jonka tein, kunnes \"kasvoin yli\" VisualBasicistä.\nKyseessä oli \"MobileMese\" niminen ohjelma, joka oli asikasohjelma MSN Messengerille.\nSe käytti Visual Basicille luotua lisäosaa, mikä mahdollisti Visual Basic ohjelmien kirjoittamisen Nokian puhelimille.\nMinulla ei siltikään ollut puhelinta, jolla oikeasti kokeilla kyseistä ohjelmaa, mutta unelma eli.\n",
+									"text": "My family acquaintance, Pekka Kähkönen, probably gave me a tip about a website called \"Programming Tunnel\" where there were tutorials for Visual Basic.\nI probably got Visual Basic 6 from him on a burned CD.\nI started following the instructions on Programming Tunnel and became very proficient in Visual Basic.\nI spent a lot of time, hundreds of hours a year, programming in Visual Basic.\n\nI remember the small programs I made using Visual Basic, which would download text files from the internet and then parse out some important information.\nThis was a technique that I still use in my everyday life 20 years later, and I have yet to receive any comments from other programmers on how good or bad this technique may be, but at least it works.\n\nI also remember the last program I made before \"outgrowing\" Visual Basic.\nIt was called \"MobileMese\" and was a client program for MSN Messenger.\nIt used an add-on created for Visual Basic, which allowed for writing Visual Basic programs for Nokia phones.\nI still didn't have a phone to actually try out the program, but the dream lived on.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2003,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "Program, Small, Visual Basic, Code, Development, Programming language, Software, Application, Compiling, Interface, Debugging, Syntax, Variables, Functions, Design, GUI (Graphical User Interface), Development environment, IDE (Integrated Development Environment), Object-oriented, User-friendly",
+									"native_text": "Ohjelmoin jotain pientä Visual Basicilla\n",
+									"text": "I program something small in Visual Basic",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2004,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "Program, Small, Visual Basic, Code, Development, Programming language, Software, Application, Compiling, Interface, Debugging, Syntax, Variables, Functions, Design, GUI (Graphical User Interface), Development environment, IDE (Integrated Development Environment), Object-oriented, User-friendly",
+									"native_text": "Ohjelmoin jotain pientä Visual Basicilla\n",
+									"text": "I program something small in Visual Basic",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2005,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "music, producing, programming, focused, entirely",
+									"native_text": "Keskityin täysin musiikin tuottamiseen ohjelmoimisen sijaan.",
+									"text": "I focused entirely on producing music instead of programming.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2006,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "music, producing, programming, focused, entirely",
+									"native_text": "Keskityin täysin musiikin tuottamiseen ohjelmoimisen sijaan.",
+									"text": "I focused entirely on producing music instead of programming.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2007,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "music, producing, programming, focused, entirely",
+									"native_text": "Keskityin täysin musiikin tuottamiseen ohjelmoimisen sijaan.",
+									"text": "I focused entirely on producing music instead of programming.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2008,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "music, producing, programming, focused, entirely",
+									"native_text": "Keskityin täysin musiikin tuottamiseen ohjelmoimisen sijaan.",
+									"text": "I focused entirely on producing music instead of programming.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2009,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "music, producing, programming, focused, entirely",
+									"native_text": "Keskityin täysin musiikin tuottamiseen ohjelmoimisen sijaan.",
+									"text": "I focused entirely on producing music instead of programming.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2010,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "Army, Motivational stories, Renewed interest, Programming, Cannon targets, Computers, Officers, Programming experiences, University, Decision, Producing music, Focused, Year, Starting again, Programming.",
+									"native_text": "Armeijassa kuulin motivoivia tarinoita, jotka vaikuttivat innostumiseeni ohjelmoinnista uudelleen. Tarinoissa tykkien kohteet laskettiin tietokoneella, joiden ohjelmoinnista joillakin skappareilla oli tarinoita, mitä he jakoivat.\nMenin yliopistoon armeijan takia, mikä vaikutti ohjelmoinnin uudelleenaloittamiseen, mutta vielä tänäkin vuonna keskityin täysin musiikin tuottamiseen, enkä ohjelmoinut ollenkaan.\n",
+									"text": "In the army, I heard motivational stories that influenced my renewed interest in programming. In these stories, cannon targets were calculated using computers and some of the officers had stories to share about their programming experiences.\nI went to university because of the army, which also influenced my decision to start programming again. However, even this year I focused entirely on producing music and didn't do any programming.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2011,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "Moved back, Hometown, Rediscovered, Passion, Programming, Perl, Python, Options, University, Recommended, Ubuntu, Desktop environment, Visual Basic, Programming language, Linux, Jayno.pl, GTK2, Glade, User input, Search term, Google, URL, Code, Questionable, Pallotaustakuva.pl, Shell script, Fourmilab.ch, Earth, Desktop background, Finland, Graphviz.pl, Graph, Circles, Nodes, Connections, Places, Lived, Asennus.txt, OSX, Operating system, Hackintosh",
+									"native_text": "Muutin tänä vuonna takaisin kotikaupunkiini, ja innostuin ohjelmoimisesta uudelleen.\nAloitin ohjelmoimisen uudelleen perl-ohjelmointikielellä.\n\nMiksi valitsin Perl:in Pythonin ja muiden sijaan? En ole varma. Minulle suositeltiin yliopistokaverini toimesta Pythonia, mutta olin varma, että en halua sillä ohjelmoida.\nPerl liittyi jotenkin ubuntu työpöydän käyttöön ja aikaisempaan Visual Basic kokemukseeni intuitiivisesti. Olin kyllä nähnyt eri ohjelmointikieli-vaihtoehtoja jo vuosia linuxissa.\n\n\n\nJayno.pl: 29.9.2011\n\tTämä on ensimmäisiä ohjelmia, mitä kirjoitin linux ympäristössä koskaan.\n\tOhjelma käyttää GTK2 ikkunaa ja Glade:llä suunnitteltua käyttöliittymää.\n\tSe ottaa käyttäjältä hakusanan ja hakee sen googlesta.\n\tKun google palauttaa tuloksen, sen url kirjoitetaan gui:hin.\n\tEn muista, että ohjelma olisi koskaan toiminut.\n\tNyt kun luen koodia, ja ymmärrän perl:iä, vaikken ole sitä tämän jälkeen ohjelmoinutkaan, niin huomaan, että tässä on muutama kyseenalainen kohta.\n\npallotaustakuva.pl: 5.10.2011\n\tTämä ohjelma on käytännössä shell-skripti, mutta perl:issä.\n\tSe hakee osoitteesta \"fourmilab.ch/cgi-bin/Earth\" kuvan suomen yläpuolelta taustakuvaksi.\n\ngraphviz.pl: 6.10.2011\n\tTässä ohjelmassa tehdään graafi, missä on pallojen sisällä tekstiä, ja pallot on yhdistetty kiemuraisilla viivoilla ja nuolilla.\n\tPallot, eli nodet, on paikkoja, missä olen asunut.\n\tPallot yhdistetään siten, miten muutin paikasta toiseen.\n\nasennus.txt: 29.10.2011\n\tHalusin kovasti OSX käyttöjärjestelmän, ja asensin näihin aikoihin hackintosh käyttöjärjestelmän.\n\tOlin tehnyt sen aikaisemminkin.\n\tTein sen vielä seuraavina vuosina pari kertaa, ja lopetin.\n",
+									"text": "This year, I moved back to my hometown and rediscovered my passion for programming.\nI started programming again with the Perl programming language.\n\nWhy did I choose Perl over Python or other options? I'm not sure. A friend from university recommended Python to me, but I was certain that I didn't want to use it.\nPerl somehow connected me to using Ubuntu as my desktop environment and also to my previous experience with Visual Basic. I had seen various programming language options in Linux for years.\n\nJayno.pl: 9/29/2011\n\tThis is one of the first programs I wrote in a Linux environment.\n\tIt uses a GTK2 window and a user interface designed with Glade.\n\tIt takes a user inputted search term and searches it on Google.\n\tWhen Google returns a result, the URL is written in the GUI.\n\tI don't remember if this program ever worked properly.\n\tNow when I look at the code and understand Perl (even though I haven't used it since), I can see a few questionable sections.\n\npallotaustakuva.pl: 10/5/2011\n\tThis program is essentially a shell script, but written in Perl.\n\tIt retrieves an image from \"fourmilab.ch/cgi-bin/Earth\" and uses it as a desktop background for Finland.\n\ngraphviz.pl: 10/6/2011\n\tThis program creates a graph with text inside circles, and the circles are connected by twisting lines and arrows.\n\tThe circles, or nodes, represent places I have lived.\n\tThe connections between the nodes show how I moved from one place to another.\n\nasennus.txt: 10/29/2011\n\tI really wanted to have an OSX operating system, so I installed a hackintosh at this time.\n\tI had done it before.\n\tI even did it a couple more times in the following years before eventually stopping.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2012,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "2012, CodeBlocks, Linux, FreeBSD, development environment, CPP Playground, C++, learning, Hello World, cout statement, function, plot test, mathgl2 library, \"sin(pi*x)\", png image file, CameraLoader, console application, std c++, Samsung Galaxy S, boost libraries, PythonEmbd, HelloWorld class, Gtk::Window, MetaTrader 4, visualization library, Ogre, 3D scene, lighting, CloudyNoonSkyBox, Forex++, DLL, tcp connection, FATL, SATL, signal filters, Bollinger Bands Squeeze, Mama, JMA, cycle periods, Gtk GUI, Glade, zmq library, GNU, Investment Automation, Seppo Pakonen, MetaTrader 4, currency pairs, PriceKeeper.cpp, Data/symbols, indicator calculations, backtest data, code series, btanalyzer, risk analyses, stop loss, take profit boundaries, relative participation.",
+									"native_text": "Koko vuoden 2012 käytin kehitysympäristönä CodeBlocks:ia ja Linuxia tai FreeBSD:tä.\n\nCPP Playground: kesä 2012\n\tAloitin C++ ohjelmoimisen kesällä 2012.\n\tTämä on ensimmäinen aito 'Hello World' projektini CodeBlocksilla.\n\tSiinä on \"Hello World\" cout:ia käyttämällä ja \"funktio(4)\", joka printtaa luvun 4 ja iteroi 10000 kertaa printaten numeron.\n\nplot testi: kesä 2012\n\tSiinä käytetään mathgl2 kirjastoa \"sin(pi*x)\" käyrän piirtämiseen ja se kirjoitetaan png-kuvatiedostoksi.\n\nKameraLataaja: kesä 2012\n\tTämä on std c++ konsoliohjelma, joka kopioi kuvat Samsung Galaxy S (i9000) puhelimestani, ja tarvittaessa poistaa ne.\n\tSe on aika siisti kokonaisuus, ja siinä on ohjeet sen käyttämiseen.\n\tTämä ohjelma käyttää std c++ kirjastoja ja boost kirjastoja.\n\nPythonEmbd: kesä 2012\n\tTässä on HelloWorld niminen luokka, joka perii Gtk::Window:in, joten tämä on ensimmäinen GUI ohjelmani c++:lla.\n\tEn löydä ohjelmasta mitään Pythoniin viittaavaa, mutta luultavasti idea oli yhdistää c++, python ja gtk, jotta voisin ohjata sillä MetaTrader 4:sta, minkä tein tämän jälkeen.\n\nVisu1: kesä 2012\n\tForkkasin jonkun esimerkin \"visualization library\" kirjastolle (osoite visualizationlibrary.org).\n\tEn saanut tätä esimerkkiä edes kääntymään.\n\n3D Harjoittelua: kesä 2012\n\tAloitin C++ ohjelmoimisen kesällä 2012.\n\tOhjelma yrittää tehdä Ogre:lla yksinkertaisen 3D skenen, jossa on valo ja CloudyNoonSkyBox.\n\n3D Harjoittelua 2: kesä 2012\n\tTämäkin yrittää tehdä Ogre:lla yksinkertaisen 3D skenen, jossa on valo ja CloudyNoonSkyBox.\n\nForex++, F++, Fpp: 7.8.2012\n\tTämä on ohjelma, joka yhdistää MetaTrader 4:seen skriptin, DLL:n, ja tcp yhteyden kautta.\n\tSiinä on mm. itsekirjoittamiani: FATL SATL signaalifiltterit, Bollinger Bands Squeeze, Mama, JMA, cycle periods, jne.\n\tTämä oli toimiva ohjelma teknisesti, mutta ei se voittanut treidauksessa mitään.\n\tKuitenkin, se jätti minuun suuren nälän tehdä forex-koodia, mikä johtui köyhyydestäni.\n\tToisaalta, köyhyyteni takia minun olisi ollut järkevämpää tehdä musiikkia, mutta ympärilläni oli pelkästään toksisia ja haitallisia ihmisiä, jotka eivät tukeneet minua oikeaan suuntaan menemisessä.\n\tOhjelmassa on Gtk gui, joka on suunniteltu Glade:lla.\n\tKehitysympäristönä toimi CodeBlocks.\n\tAluksi yhteyden hoiti zmq kirjasto, mutta yksi virstanpylväs oli käyttää suoraa tcp yhteyttä.\n\n\tNäin kirjoitin itse ohjelman otsakkeeseen:\n\t\tMetaTraderin GNU-pohjainen sijoitusautomaatio\n\t \t- Seppo Pakonen\n\t\t\n\t\t 1. Asenna ja suorita Forex++.mq4 skripti MetaTrader4:ssa (määritä myös oikea kansio PriceKeeper.cpp tiedostoon).\n\t \t2. Kirjoita Data/symbols tiedostoon halutut käytössä olevat valuuttaparit\n\t \t3. Laske mesa-indikaattorit valmiiksi suorittamalla ohjelma --mesainit parametrillä.\n\t \t4. Laske backtest eli harjoitusdata valmiiksi --backtest parametrillä.\n\t \t5. Laske suotuisat indikaattori-yhdistelmät (ns. koodisarjat) --btanalyzer parametrillä.\n\t \t6. Tee riskianalyysit indikaattori-yhdistelmille --btanalyzer2 parametrillä.\n\t\t    Laske suhteellinen osallistuminen indikaattori-yhdistelmille (stop loss ja take profit rajat)\n",
+									"text": "Throughout the year of 2012, I used CodeBlocks and Linux or FreeBSD as my development environment.\n\nCPP Playground: summer 2012\n\tI started learning C++ in the summer of 2012.\n\tThis is my first real 'Hello World' project using CodeBlocks.\n\tIt includes a \"Hello World\" cout statement and a function(4) that prints the number 4 and iterates it 10,000 times.\n\nplot test: summer 2012\n\tThis project utilizes the mathgl2 library to plot a \"sin(pi*x)\" curve and then output it as a png image file.\n\nCameraLoader: summer 2012\n\tThis console application in std c++ copies images from my Samsung Galaxy S (i9000) phone and can also delete them if needed.\n\tIt's a pretty neat package and includes instructions on how to use it.\n\tThis program uses std c++ libraries as well as boost libraries.\n\nPythonEmbd: summer 2012\n\tThis project includes a HelloWorld class that inherits from Gtk::Window, making it my first GUI program in c++.\n\tI don't see anything related to Python in the code, but the idea was probably to combine c++, python, and gtk so that I could control MetaTrader 4, which I did afterwards.\n\nVisu1: summer 2012\n\tI forked an example from the \"visualization library\" at visualizationlibrary.org.\n\tI couldn't even get this example to compile successfully.\n\n3D Practice: summer 2012\n\tI started learning C++ in the summer of 2012.\n\tThis program attempts to create a simple 3D scene using Ogre, with lighting and a CloudyNoonSkyBox.\n\n3D Practice 2: summer 2012\n\tThis project also attempts to create a simple 3D scene using Ogre, with lighting and a CloudyNoonSkyBox.\n\nForex++, F++, Fpp: August 7, 2012\n\tThis is a program that combines a script, DLL, and a tcp connection to MetaTrader 4.\n\tIt includes my own custom: FATL SATL signal filters, Bollinger Bands Squeeze, Mama, JMA, cycle periods, and more.\n\tTechnically, this was a functional program, but it did not produce successful trades.\n\tHowever, it left me with a strong desire to continue writing forex code, which was largely driven by my poverty.\n\tOn the other hand, due to my poverty, it would have been more sensible to focus on making music, but I was surrounded by toxic and harmful people who did not support me in moving in the right direction.\n\tThe project includes a Gtk GUI designed with Glade.\n\tCodeBlocks was used as the development environment.\n\tInitially, the zmq library handled the connection, but I eventually switched to using a direct tcp connection.\n\nThis is how I wrote the header of the program:\n\tGNU-based Investment Automation for MetaTrader\n\t- Seppo Pakonen\n\t1. Install and run the Forex++.mq4 script in MetaTrader 4 (also specify the correct directory in the PriceKeeper.cpp file).\n\t2. Write the desired currency pairs to the Data/symbols file.\n\t3. Prepare the indicator calculations by running the program with the --mesainit parameter.\n\t4. Prepare the backtest data using the --backtest parameter.\n\t5. Calculate favorable indicator combinations (known as code series) using the --btanalyzer parameter.\n\t6. Perform risk analyses for the indicator combinations using the --btanalyzer2 parameter.\n\t\tCalculate relative participation for the indicator combinations (stop loss and take profit boundaries).",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2013,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "2013, CodeBlocks, development environment, Ultimate++, TheIDE, Version control, Zip files, Regular intervals, VideoStumbler, Vimeo, youtube-dl, mplayer, Compaq Mini 700, FreeTrader, FreeFX, Forex++, FreeBSD, Gtk, Binary files, Text, 4 bytes, Decimal, Float, eg-synth.lv2, Linux, AI, Tutorial, Kohonen neural network, Mathematical function, WxWidgets, Cross-platform support, Stub, Hello World, Gui library, Backup, TheIDE layout editor, Lines of code, Rewrite, Code, Forked, Sauerbraten, U++, TheIDE, Ultimate++, FreeTrader, C++, Neural networks, Studying, Trauma, Steiner school, Education, Cheat, Math, Parsers, Recursive parsing, Visual Basic, OodiGUI, OodiBeast, Calendar, Organizer, Alarm clock, Music, Compaq Mini 700, Netbook, RaatoTV, YouTube, RandomTrader, Theory, AI, Trading, Investment, TIHack, TI-Nspire CX CAS, Calculator, Online community, Libusb library, Emulator, Operating system, Test situations.",
+									"native_text": "Vuonna 2013 käytin CodeBlocks kehitysympäristöä toukokuuhun asti, jonka jälkeen olen käyttänyt Ultimate++ TheIDE kehitysympäristöä ainakin vuoteen 2024 asti.\nVersionhallintana taisin käyttää vain zip tiedostoja tasaisin väliajoin.\n\nVideoStumbler: 10.1.2013\n\tTämä on ohjelma, joka hakee videolistat vimeo:sta, ja lataa ne youtube-dl ohjelmalla, ja soittaa ne mplayer ohjelmalla.\n\tTämä toisti videoita Compaq Mini 700 \"raato\" netbookillani.\n\nFreeTrader, FreeFX: 2013 ennen Toukokuuta\n\tMuutin Forex++ nimen FreeTrader:iksi.\n\tTaisin alkaa käyttää FreeBSD käyttöjärjestelmää, ja tykkäsin siitä nimestä.\n\tOhjelma käyttää edelleen standardi C++:aa ja Gtk:ta.\n\nBinaryReader: 2013 ennen Toukokuuta\n\tAloin opettelemaan binääritiedostojen käyttöä, koska ne olivat nopeampi ja tavallaan helpompi lukea ja kirjoittaa, kuin teksti.\n\tToki teksti oli ollut intuitiivisempi kirjoittaa, kuin binääri.\n\tEn vielä pitkään aikaan silti oppinut ymmärtämään, mitä binäärinumerot oikeastaan ovat suhteessa toisiinsa.\n\tHädin tuskin ymmärsin, että 4 tavua on 32 bittiä.\n\tEn varmasti ollut sisäistänyt 4 tavuisen desimaalin maksimeja ja minimejä vielä, saati sitten liukuluvun.\n\neg-synth.lv2: 2013 ennen toukokuuta\n\tOlin kiinnostunut musiikinteosta linuxilla, ja forkkasin lv2 pluginin, jota aijoin muokata, mutta en varmaan saanut tätä edes kääntymään.\n\nNeuroColors: 2013 ennen toukokuuta\n\tOlin kiinnostunut tekoälystä.\n\tSeurasin netistä tutoriaalia ja suomensin kommentit, ja sain toimimaan Kohonen neuroverkon.\n\tData on vain joku yksinkertainen matemaattinen funktio: x = (1 - i/10.0) ja y = (0.3 + i/20.0) alueelle i=0..17\n\tTämä on standardi c++ konsoliohjelma.\n\nWebTrip: 2013 ennen toukokuuta\n\tEn enää ollut täysin tyytyväinen Gtk c++ kirjastoon, ja etsin vaihtoehtoja.\n\tSeuraavana kokeilussa oli WxWidgets.\n\tSe tuntui jo silloin melko vanhahtavalta, mutta pääätin kokeilla sitä sen paremman cross-platform tuen vuoksi.\n\tOhjelma on tynkä, ja en osaa arvata, että mitä yritän tehdä tällä.\n\tKäytännössä tämä ohjelma oli minulle \"Hello World\" WxWidget gui-kirjastolle, enkä ollut kiinnostunut siitä tämän enempää.\n\nMyWeb: 2013, toukokuu tai kesäkuun alku\n\tTämä on merkittävä ohjelma.\n\tTämä on ensimmäinen Ultimate++ TheIde:llä tehty backuppini, ja edelliset backupit olivat vain kuukauden vanhoja, ja niissä ei ollut ollenkaan U++ koodia.\n\tSiirsin tässä vaiheessa FreeTrader ohjelman U++ projektiksi, ja sisällytin sen MyWeb:iin.\n\tTämä MyWeb on käytännössä siis FreeTrader ja ohut kerros sen päällä.\n\tOlen tehnyt jotain gui-layoutteja TheIDE:n layout editorilla.\n\tMyWeb, mukaanlukien FreeTrader, on tässä vaiheessa 6400+490+860 = 7750 LOC kooltaan.\n\tOlen saattanut kirjoittaa isoja alueita uusiksi edellisen vuoden aikana, joten tämä koko ei välttämättä kerro koko ajan tehtyä työtä.\n\nCubeCtrl: 31.7.2013\n\tForkkasin ensimmäisen kerran (useista kerroista) Sauerbratenin koodin ja laitoin sen kääntymään U++ projektina.\n\tKoin, että TheIDE oli erityisen helppokäyttöinen, ja sen \"Replace in all\" toiminto mahdollisti hankalien muuttujien uudelleenkirjoitusta, ja siten helpottaa ymmärtämistä.\n\tMyös TheIDE:n navigointiominaisuudet olivat erinomaisia.\n\nDevTrader: kesäkuu - syyskuu 2013\n\tEn ollut tyytyväinen FreeTrader koodiin, koska se sisälsi niin paljon standardi c++:aa.\n\tPäätin kirjoittaa ohjelman uusiksi käyttäen Ultimate++ kirjastoja.\n\tTässä on jotain neuroverkkoja liitettynä, jotka on kirjoittanut Bobby Anguelov.\n\tOlin todella kiinnostunut tästä projektista.\n\tUhrasin kouluaikaani paljon tälle.\n\tEn voinut traumojeni vuoksi oikein toimia oikein koulussa.\n\tMyös steinerkoulu-vuoteni olivat jättäneet minuun erilaisen vaatimuksen opetuksen laadusta, mutta niistä oli enemmän tukea opiskelumotivaation, kuin päin vastoin.\n\tOngelmahan oli, että en osannut huijata kurssien kokeissa katsomalla vanhojen kokeiden vastauksia.\n\nMath: 20.8.2013\n\tTämä on U++ ohjelma, joka kääntyy.\n\tOhjelmaa tehdessä olen opetellut parserien, ja erityisesti matemaattisten lausekkeiden parsimista.\n\tTämä juontaa juurensa jo Visual Basic ohjelmointi-aikoihini, jolloin latasin tekstiä internetissä ja parsin siitä etsimällä tunnettuja html tageja.\n\tMinulla oli päässäni jo jonkin sortin näkemys parsimisesta, ja opin näihin aikoihin rekursiivisen parsimisen, ja halusin kokeilla omia ideoitani.\n\tOlen siis tehnyt parsereita ilman mitään ulkopuolisia ohjeita, mukaanlukien rekursiivisia parsereita, mistä olen melko ylpeä.\n\tNämä palaset vain loksahtelivat päässäni, koska olin aloittanut Visual Basic tekstinparsimisen jo 10 vuotta aikaisemmin.\n\nOodiGUI / OodiBeast: kesäkuu - syyskuu 2013\n\tAlkoi olla selvää, että opiskeluni ei edenneet toivotusti, koska voin niin huonosti.\n\tOlin huomannut ohjelmoinnin vaikutuksen ajatteluuni positiivisesti, ja kuinka se selkeyttää sitä, mitä täytyy tehdä.\n\tTästä viisastuneena tein henkilökohtaista kalenteri/organisoija-ohjelmaa.\n\tOhjelmassa on mm. herätyskello, joka soittaa kappaleita herätyskellona tiettyyn aikaan.\n\tOhjelmassa oli kursseihin liittyvien tietojen keräämistä ja lukujärjestys.\n\tSiihen pystyi myös merkitsemään oheistöitä kurssien ympäriltä.\n\tKoin, että hyvä musiikki voisi auttaa minua heräämään iloisemmin.\n\tOhjelma oli räätälöity pyörimään Compaq Mini 700 netbookissa, johon oli kytketty kaijuttimet.\n\nRaatoTV: kesäkuu - syyskuu 2013\n\tTämä oli ohjelma, mikä teki Compaq Mini 700 netbookistani tv:n, joka soitti videoita youtubesta.\n\tNetbookkini nimi oli \"raato\" sillä se oli pelastettu hajonnut netbook kierrätyskeskuksen kautta, jossa ei ollut edes näppäimistöä ja kantta.\n\tSen kotelo oli pirstoutunut myös.\n\nRandomTrader: kesäkuu - syyskuu 2013\n\tTämä oli yksi FreeTraderin jälkeisistä yrityksistäni tehdä vastaava Ultimate++:lla.\n\tOlin myös selkeästi tyytymätön treidausten tappioihin, ja koin, että teoriassa on parannettavaa.\n\tEtsin jatkuvasti tietoa internetistä, mutta sitä oli vain vähän.\n\tVasta myöhemmin tekoälyyn perustuva treidaaminen levisi suosituksi, paljon sen jälkeen, kun lopetin sijoitusohjelman kirjoittamisen.\n\nTIHack: kesäkuu - syyskuu 2013\n\tSain TI-Nspire CX CAS laskimen isältäni yliopiston matikankursseja varten.\n\tSille oli internetissä yhteisö, joka kräkkäsi sitä ja teki ohjelmia.\n\tTein jonkin ohjelman, joka yrittää kyseisen laitteen kanssa suoraan libusb kirjastolla.\n\tTämä liittyi johonkin netin ohjelmaan ja on luultavasti fork.\n\nTrade: kesäkuu - syyskuu 2013\n\tJälleen yksi FreeTraderin jälkeinen kokeilu tehdä parempi ohjelma.\n\nndless: 2013\n\tForkkasin CX Cas emulaattorin ja muunsin sen toimimaan Ultimate++ gui:ssa.\n\tMinulla oli siis toimiva CX Cas emulaattori, jossa pystyin testaamaan käyttöjärjestelmän kräkkäämistä, ja salaisten laukaisijoiden lisäämistä koetilanteita varten.\n\tLopulta minulla oli ohjelma, joka salasanamaisella näppäinyhdistelmällä kirjoitti tiedostojärjestelmään haluamiani tiedostoja.\n\tTästä ei kyllä ollut hyötyä koetilanteessa oikeasti.\n",
+									"text": "In 2013, I used CodeBlocks development environment until May, after which I switched to Ultimate++ TheIDE development environment until at least 2024. As version control, I think I used only zip files at regular intervals.\n\nVideoStumbler: 1/10/2013\n\tThis is a program that retrieves video playlists from vimeo, downloads them with the youtube-dl program, and plays them with the mplayer program.\n\tThis played videos on my \"corpse\" Compaq Mini 700 netbook.\n\nFreeTrader, FreeFX: 2013 before May\n\tI changed the name of Forex++ to FreeTrader.\n\tI might have started using the FreeBSD operating system and liked the name.\n\tThe program still uses standard C++ and Gtk.\n\nBinaryReader: 2013 before May\n\tI began learning about binary files because they were faster and somewhat easier to read and write than text.\n\tOf course, text had been more intuitive to write than binary.\n\tI had barely grasped that 4 bytes are 32 bits.\n\tI definitely hadn't internalized the maximums and minimums of a 4-byte decimal yet, let alone a float.\n\neg-synth.lv2: 2013 before May\n\tI was interested in making music on Linux, and I forked an lv2 plugin that I was going to modify, but I probably didn't even get this to compile.\n\nNeuroColors: 2013 before May\n\tI was interested in AI.\n\tI followed a tutorial online and translated the comments, and got a Kohonen neural network working.\n\tThe data is just some simple mathematical function: x = (1 - i/10.0) and y = (0.3 + i/20.0) for i=0..17\n\tThis is a standard c++ console program.\n\nWebTrip: 2013 before May\n\tI wasn't completely satisfied with the Gtk c++ library anymore, and was looking for alternatives.\n\tThe next one I tried was WxWidgets.\n\tIt already felt a bit dated, but I decided to try it for its better cross-platform support.\n\tThe program is just a stub, and I can't guess what I was trying to do with it.\n\tIn practice, this program was my \"Hello World\" to the WxWidget gui library, and I wasn't interested in it more than that.\n\nMyWeb: 2013, May or early June\n\tThis is a significant program.\n\tThis is my first backup made with Ultimate++ TheIDE, and the previous backups were only a month old and didn't have any U++ code.\n\tI turned FreeTrader into a U++ project at this stage and included it in MyWeb.\n\tSo MyWeb is basically just FreeTrader with a thin layer on top.\n\tI've made some gui layouts using TheIDE's layout editor.\n\tMyWeb, including FreeTrader, is 6400+490+860 = 7750 LOC at this stage.\n\tI might have rewritten large areas during the previous year, so this size doesn't necessarily reflect all the work done during the year.\n \nCubeCtrl: 7/31/2013\n\tI forked the Sauerbraten code for the first time in multiple attempts and turned it into a U++ project.\n\tI found that TheIDE was particularly user-friendly, and its \"Replace in all\" function allowed for easy renaming of difficult variables, thereby making it easier to understand.\n\tTheIDE's navigation features were also excellent.\n\nDevTrader: June-September 2013\n\tI was not satisfied with the FreeTrader code, as it contained so much standard C++.\n\tI decided to rewrite the program using Ultimate++ libraries.\n\tThere are some neural networks incorporated, written by Bobby Anguelov.\n\tI was really interested in this project.\n\tI sacrificed a lot of my study time to it.\n\tDue to my traumas, I couldn't really function well in school.\n\tMy years in a Steiner school had left me with a different demand for the quality of education, but they had provided more support for my study motivation rather than the other way around.\n\tThe problem was, I didn't know how to cheat on exams by looking at previous test answers.\n\nMath: 8/20/2013\n\tThis is a U++ program that compiles successfully.\n\tWhile working on this program, I have learned about parsers and specifically, mathematical expression parsing.\n\tThis traces back to my days of Visual Basic programming, when I would download text from the internet and parse it by looking for familiar HTML tags.\n\tI already had a basic understanding of parsing and during this time, I learned about recursive parsing and wanted to try my own ideas.\n\tSo, I have developed parsers without any external guidance, including recursive parsers, for which I am quite proud.\n\tThese pieces just clicked in my mind because I had started dabbling in Visual Basic text parsing 10 years earlier.\n\nOodiGUI / OodiBeast: June-September 2013\n\tIt became clear that my studies were not progressing as desired because I was feeling so unwell.\n\tI had noticed the positive impact of programming on my thinking and how it clarifies what needs to be done.\n\tAs a result, I created a personal calendar/organizer program.\n\tThe program had features like an alarm clock that played songs at a specific time.\n\tIt also allowed for collecting information related to courses and creating a schedule.\n\tI could also mark down extra materials related to my courses.\n\tI felt that good music could help me wake up in a more positive mood.\n\tThe program was tailored to run on my Compaq Mini 700 netbook, with external speakers connected.\n\nRaatoTV: June-September 2013\n\tThis program turned my Compaq Mini 700 netbook into a TV that played videos from YouTube.\n\tI named my netbook \"Raato\" because it was salvaged from a broken netbook recycling center, where it didn't even have a keyboard or lid.\n\tThe casing was also shattered.\n\nRandomTrader: June-September 2013\n\tThis was one of my attempts to create a program similar to FreeTrader using Ultimate++.\n\tI was also clearly dissatisfied with the losses incurred from trading and felt that it could be improved in theory.\n\tI was constantly searching for information online, but there was very little available.\n\tIt was only later that AI-based trading became popular, long after I had stopped writing investment programs.\n\nTIHack: June-September 2013\n\tMy father gave me a TI-Nspire CX CAS calculator for my university math courses.\n\tThere was an online community that cracked it and created programs for it.\n\tI made some sort of program that attempted direct communication with the device using the libusb library.\n\tThis was related to some online program and is probably a fork.\n\nTrade: June-September 2013\n\tAnother attempt after FreeTrader to create a better program.\n\nndless: 2013\n\tI forked the CX Cas emulator and converted it to work with Ultimate++ gui.\n\tSo, I had a functional CX Cas emulator where I could test cracking the operating system and adding secret triggers for test situations.\n\tIn the end, I had a program that, with a password-like key combination, could write desired files into the file system.\n\tHowever, this was not useful for real test situations.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2014,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "2014, tar.gz file, version control, snapshots, intervals, Freetrader, thousands of hours, Ultimate++ technology, Turtle, web browser, SceneryRoute, kola project, UCompiler, programming editor, assembly language, university, tedious, outdated, dosbox, command line, dos-toolchain, successful, coursework, difficult",
+									"native_text": "Vuonna 2014 taisin käyttää versiohallintana vielä \"tar.gz\" tiedosto snapshotteja tasaisin väliajoin.\n\nFreetrader: 2014\n\tTein koko vuoden ensisijaisesti Freetraderia.\n\tKäytin tähän aikaa useamman tuhat tuntia.\n\tTutkin paljon kaikkea Ultimate++ teknologiaa, ja kokeilin mm. Turtle tekniikkaa, joka mahdollisti ohjelmien pyörittämisen nettiselaimessa.\n\nSceneryRoute: 1.6.2014-30.6.2014\n\tTämä oli uusi meta-projekti, joka otti FreeTraderin sisällensä.\n\tTämä projekti muovautui \"kola\"-projektiksi myöhemmin.\n\t\nUCompiler: 2.5.2014\n\tTämä on yritykseni tehdä pieni ohjelmointieditori assemblylle.\n\tMuistaakseni yliopistossa oli assembly-ohjelmointikurssi, jossa oli todella ankea ja antiikkinen tapa kääntää ohjelmia dosboxin sisällä komentorivillä.\n\tYritin helpottaa sitä prosessia luomalla pienen editorin, joka kääntää ohjelman.\n\tMuistaakseni tämä ei onnistunut, sillä en saanut dos-toolchain:ia toimimaan yhdessä tämän kanssa, ja lopulta tein koulutyön loppuun vaikeimman kautta.\n\n",
+									"text": "In 2014, I was still using \"tar.gz\" file snapshots as my version control, regularly taking them at intervals.\n\nFreetrader: 2014\n\tI primarily worked on Freetrader for the entire year.\n\tI spent several thousand hours on this project.\n\tI studied a lot about Ultimate++ technology and experimented with techniques like Turtle, which allowed programs to run in a web browser.\n\nSceneryRoute: June 1, 2014 - June 30, 2014\n\tThis was a new meta-project that encompassed Freetrader.\n\tLater on, this project evolved into the \"kola\" project.\n\nUCompiler: May 2, 2014\n\tThis was my attempt to create a small programming editor for assembly language.\n\tI remember that there was an assembly language course in university with a very tedious and outdated process of compiling programs on dosbox command line.\n\tI tried to simplify the process by creating a small editor that would compile the program.\n\tI recall that this was not successful as I couldn't get the dos-toolchain to work with it, and eventually I completed the coursework in a more difficult manner.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2015,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "Cola, Size, 2015, July 2014, January 2016, Precursor, Libtopside, Topside, Name, Project, Continuation, Fossil, Version control, Ultimate++, Repository, Folder structure, Uppsrc, Reference, Tutorials, Vertical layers, Device-specific, Math code, School courses, Teacher, Desired, Completing, Forked, Mathomatic, Library, Strange references, Original source, Brand name, C language, PhoneCompanyLanguage, Code, FreeTrader, Significantly, Thousands of hours, NutritionCtrl, Agar, Alternative GUI libraries, Metaphorical layers, Life outside the computer, Model, Realistic game, Philosophical, Biological, Geographical, Reflections, Disguised, Programming language, HtmlCtrl, Clarity, U++ library code, Internet, Management, Understanding, Development, Essential, litehtml, Internet browser, Features, Complex, Project planning, Bugs, Strategic threat, Lack of understanding, People, Imposed, Culture, Practices, Forgiving",
+									"native_text": "kola: koko 2015, 2014 heinäkuusta seuraavan vuoden 2016 tammikuuhun asti\n\tTämä on ensimmäinen libtopsiden esiaste, ja määrittää vahvasti myös libtopsiden nimen \"topside\" osuutta.\n\tTämä projekti on siis suoraa jatkumoa libtopsiden kanssa.\n\tAloin käyttää fossil versionhallintaa.\n\tMatkin Ultimate++ repositoryn kansiorakennetta, ja kuinka siellä oli uppsrc/reference/tutorials erikseen.\n\tLaajensin sitä käsitettä siten, että tein vertikaaliset kerrokset 0-14, joissa 0-9 kerrokset olivat \"pinnan alla\" olevia kerroksia ja 10-14 \"pinnan päällä\" olevia kerroksia.\n\tAlimmissa kerroksissa oli hyvin laiteläheisiä U++ paketteja.\n\tMatematiikkakoodi oli suuressa roolissa, koska ratkaisin koulun kursseja käyttäen niitä, mikä oli kaukana opettajan haluamasta tavasta tehdä kurssi läpi.\n\tForkkasin tänne mm. Mathomatic kirjaston.\n\tNimesin monia paketteja kummallisilla referensseillä, koska halusin painottaa enemmän koodin alkuperäistä lähdettä kuin brändinimeä: esim \"C-kieli\" oli \"PhoneCompanyLanguage\".\n\tKerroksessa 9 oli eniten koodia.\n\tSiellä oli FreeTrader koodia paljon edelleen, jota työstin edelleen merkittävästi ja jopa tuhansia tunteja.\n\tSiellä on kuitenkin myös ruokaan liittyvää koodia, kuten \"NutritionCtrl\".\n\tForkkasin tänne myös agar kirjaston, mikä kertoi halusta tukea vaihtoehtoisia GUI kirjastoja, vaikka tykkäsin U++:sta paljon.\n\tTämä agar-kirjaston forkkaaminen ja \"vaihtoehtoiset kirjastot\" konsepti on säilynyt libtopsideen asti.\n\tYritin siis kirjoittaa kola-repositoriossa omaa gui-käyttöliittymää harjoituksen vuoksi, minkä totesin olevan vaikeaa.\n\tErikoisuutena mainittakoon 10-14 kerrokset, jotka olivat oikeastaan metaforisia kerroksia, mitkä kuvasti elämää tietokoneen ulkopuolella.\n\tYritin mallintaa maailmaa eräänlaiseksi realistiseksi peliksi näillä.\n\tNämä olivat käytännössä filosofista, biologista ja maantieteellistä pohdintaa naamioituna ohjelmointikieleksi.\n\tYritin mallintaa kerroksissa 13 ja 14 erittäin vaikeita asioita, kuten avaruus, muut humanoidi-sivilisaatiot, ja hierarkiset rakenteet meidän kaikkien välillä.\n\nHtmlCtrl: 2015\n\tHuomasin U++ kirjaston koodin ylivoimaisen selkeyden internetin keskiarvoon nähden, ja kuinka se teki ison koodimäärin hallitsemisesta ja ymmärtämisestä vaivatonta, ja siten myös jatkokehittämisestä.\n\tAloin forkkaamaan \"likaisia mutta oleellisia\" kirjastoja U++ kirjastoiksi, ja yksi näistä oli litehtml.\n\tTein käytännössä pienen internetselaimen, jossa oli vähintään samat ominaisuudet, kuin litehtml:ssä, mutta yritin kehittää sitä myös hieman paremmaksi.\n\tTämän kehitys myös paljasti heikot taitoni ohjelmointiprojektin suunnittelussa.\n\tOli paljon ominaisuuksia, joiden toteutus meni liian monimutkaiseksi, eikä toiminut jouhevasti yhteen, tehden ohjelmasta mahdottoman kehittää pidemmälle.\n\tHuomasin tämän olevan todennäköinen ongelma koodia forkatessa, eli että et ymmärrä koodia tarpeeksi hyvin, jotta voisit korjata bugeja ja jatkokehittää sitä.\n\tTotesin tämän ymmärtämättömyyden ongelman olevan suurin strateginen uhka ohjelmointiprojektissa.\n\tTietyllä tavalla aloin ymmärtää, että ymmärtämättömyys ihmisten välillä on sitä, että kulttuuri ja toimintatavat on tungettu ulkoa käsin, eivätkä ihmiset koe juurisyitä omikseen.\n\tAloin olla anteeksiantavaisempi ihmisten ymmärtämättömyydelle elämääni kohtaan.\n",
+									"text": "cola: size 2015, from July 2014 to January 2016 of the following year\nThis is the first precursor to libtopside, and also strongly defines the \"topside\" part of the name.\nSo this project is a direct continuation of libtopside.\nI started using fossil version control.\nI copied the Ultimate++ repository folder structure, and how they had separate folders for uppsrc/reference/tutorials.\nI expanded this concept by creating vertical layers 0-14, where layers 0-9 were \"under the surface\" layers and 10-14 were \"on the surface\" layers.\nThe lower layers consisted of very device-specific U++ packages.\nMath code played a big role, as I used it to solve school courses, which was far from the teacher's desired way of completing the course.\nI forked Mathomatic library here.\nI named many packages with strange references, because I wanted to emphasize the original source of the code rather than the brand name: for example, \"C language\" was \"PhoneCompanyLanguage\".\nLayer 9 had the most code.\nThere was still a lot of FreeTrader code that I continued to work on significantly and even for thousands of hours.\nHowever, there is also code related to food, such as \"NutritionCtrl\".\nI also forked the agar library here, which showed a desire to support alternative GUI libraries, even though I liked U++ a lot.\nThis forking of the agar library and the concept of \"alternative libraries\" have remained in libtopside.\nSo I tried to write my own GUI interface in the cola repository for practice, which I found to be difficult.\nAs a special mention, layers 10-14 were actually metaphorical layers that represented life outside the computer.\nI tried to model the world as a kind of realistic game with these layers.\nThese layers were essentially philosophical, biological and geographical reflections disguised as programming language.\nI tried to model very difficult things in layers 13 and 14, such as space, other humanoid civilizations, and hierarchical structures between all of us.\n\nHtmlCtrl: 2015\nI noticed the overwhelming clarity of the U++ library code compared to the average on the internet, and how it made managing and understanding a large amount of code effortless, and therefore also further development.\nI started forking \"dirty but essential\" libraries into U++ libraries, and one of these was litehtml.\nI essentially made a small internet browser, which had at least the same features as litehtml, but I tried to improve it a bit.\nThis development also revealed my weak skills in project planning.\nThere were many features that became too complex and did not work together smoothly, making it impossible to further develop the program.\nI realized this was a likely issue when forking code, meaning that you do not understand the code well enough to fix bugs and continue development.\nI saw this issue of not understanding as the biggest strategic threat in a programming project.\nIn a way, I began to understand that the lack of understanding between people is when culture and practices are imposed from outside, and people do not feel the root causes as their own.\nI began to be more forgiving towards people's lack of understanding in my life.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2016,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "\"kola\", direct continuation, libtopside, cleaned up, moved, main code, new project, independent pieces, SimTrader, FreeTrader, forex, money, MetaTrader 4, visually speaking, prices, menus, sub-windows, drawn curves, sppp, cleaning, rewriting, fork, ncursesxx project, console gui programs, Seppo Pakonen++, pretentious, self-ironic.",
+									"native_text": "new: 2016 helmikuu\n\tTotesin \"kola\"-projektin olevan hieman liian laaja, ja jättävän paljon likaista kuollutta koodia jälkeensä.\n\tTämä projekti on suoraa jatkumoa libtopsiden kanssa.\n\tSiivosin ja siirsin tärkeimmät koodit kola-projektista uuteen \"new\"-projektiin.\n\tKäytännössä kaikki koodini oli täällä, mutta ne oli hieman enemmän eriteltynä itsenäisiksi osikseen.\n\nSimTrader: 5.7.2016\n\tTämä oli yksi FreeTraderin uudelleenkirjoitus.\n\tNälkäni forex-rahaa kohtaan oli vielä suuri.\n\tSimTrader oli MetaTrader 4:sen näköinen ohjelma, mikä visuaalisesti oli hyvin samantapainen.\n\tSe sisälsi hinnat ja valikot samalla tavalla.\n\tSiinä oli myös ali-ikkunat ja niiden piirtämät käyrät kuten MetaTrader 4:ssa\n\nsppp: 17.8.2016 eteenpäin\n\tTämä oli siivous ja uudelleenkirjoitus fork edellisestä \"new\"-projektista.\n\tTämä projekti on suoraa jatkumoa libtopsiden kanssa.\n\tProjekti on siivonnut pois lisää epäoleellista tai kuollutta koodia.\n\tForkkasin tähän projektiin mm. ncursesxx projektin, jolla sai kivoja konsoli gui ohjelmia tehtyä.\n\t\"sppp\" tarkoittaa nimeäni ja ++ kirjaimia, kuten \"c++\":ssa, eli \"Seppo Pakonen ++\"\n\tTiesin, että nimi sppp saattaa olla hieman mahtipontinen, mutta se tuntui enemmän itseironiselta.\n",
+									"text": "new: February 2016\n\tI realized the \"kola\" project was a bit too extensive and leaving a lot of messy dead code behind.\n\tThis project is a direct continuation of libtopside.\n\tI cleaned up and moved the main code from the kola project to this new \"new\" project.\n\tIn practice, all of my code was here, but it was more separated into independent pieces.\n\nSimTrader: July 5, 2016\n\tThis was a rewrite of FreeTrader.\n\tMy hunger for forex money was still strong.\n\tSimTrader was a program similar to MetaTrader 4, visually speaking.\n\tIt contained prices and menus in the same manner.\n\tIt also had sub-windows and their drawn curves just like MetaTrader 4.\n\nsppp: August 17, 2016 onwards\n\tThis was a cleaning and rewriting of a fork from the previous \"new\" project.\n\tThis project is a direct continuation of libtopside.\n\tIt cleaned up more unnecessary or dead code.\n\tI forked the ncursesxx project into this one, which allowed for creating nice console gui programs.\n\t\"sppp\" stands for my name, with the added \"++\", like in \"c++\", so \"Seppo Pakonen++\".\n\tI knew \"sppp\" could come off as a bit pretentious, but it felt more self-ironic to me.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2017,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "2017, Forex investing, Project, Code, Javascript, Featherscript, Fscript, Tinyjs, U++, Esc language, Python, ConvNetCpp, Neural network, SVM/Softmas, L2 regression cost functions, Convolution networks, Reinforced learning, Recurrent Neural Networks, Long Short-Term Memory networks, Recurrent Highway Networks, Graphical examples, UltimateScript, NotificationManager, Android, Windows devices, OpenCV, Box2D, Bachelor's work, University of Oulu, Group project, Airhockey game, Metatrader 4, DLL, MQL4 language, Artificial intelligence, Financial world, Data, Diary, Mona, Neural network library, QuantumMinigolf, FFT, NARX, Nonlinear AutoRegressive with eXogenous inputs, MathPad, MathCore, GraphLib, TheoremProver, Automated theorem prover, First-order logic, Logic expressions, Random forest algorithm, Earworm, Music charts, Youtube-dl, Mplayer, SoftGLCtrl, 3D rendering, Libtopside, Hardware-accelerated opengl, Software renderer",
+									"native_text": "sppp: 2017 alkuvuodesta toukokuuhun asti\n\tKoodasin tämän projektin sisällä forex-sijoituskoodia vielä jonkin verran, mutta nälkäni alkoi jo loppua.\n\t\nfeatherscript, fscript: 21.5.2017\n\tTämä oli seuraava iteraatio \"sppp\"-projektille, kun kyllästyin siihen nimeen, ja kun minun tarvitsi siivota huonoa koodia pois projektista.\n\tTässä projektissa isossa asemassa oli forkkaamani tinyjs, ja kaikenlainen javascript tuki.\n\tRatkoin ongelmaa, että kuinka wrapata c++ koodia skriptikieleen, kuten pythonissa ja U++:n Esc-kielessä.\n\tSe ongelma ei koskaan ratkennut minua tyydyttävällä tavalla, mutta opin, että skriptikielellä on paikkansa yksinkertaisissa asioissa.\n\nConvNetCpp: 19.2.2017\n\tKonvertoin javascript ConvNetJs koodin C++:lle.\n\tPaketti tuki: neuroverkko-moduuleita, SVM/Softmas ja L2 regressio kulu-funktioita, konvoluutio verkostoja, reinforced learning, Recurrent Neural Networks, Long Short-Term Memory networks, Recurrent Highway Networks\n\tKoodi toteutti hienoja graafisia esimerkkejä C++:lla ja Ultimate++:lla, mutta sisäinen koodi muuttui, eikä pysynyt siistinä, ja lopussa muutokset veivät sitä rumaan suuntaan.\n\tTämä oli melko suosittu ja tykätty projekti githubissa.\n\nUltimateScript: 28.3.2017\n\tForkkasin tinyjs:n ja tein editorin javascript ohjelmien koodaamiseen.\n\tJavaScript moottoriini oli liitetty U++ funktioita, ja yritin yhdistää Ultimate++:n hyvät puolet javascriptiin.\n\tMotivaationa oli tehdä lopulta ultimate++ tyylillä ohjelmia moderneihin nettiselaimiin.\n\tOhjelma oli suppea funktioiltaan, mutta toimiva ja siisti.\n\n\nNotificationManager: 30.3.2017\n\tTeimme Oulun Yliopistossa tietotekniikkaa opiskellessani ryhmätyön NotificationManager, joka oli android ohjelma, joka rajoitti huomautuksia, mitä käyttäjä sai.\n\tTämä ohjelma perustui lukuisiin tieteellisiin tutkimuksiin.\n\tMyöhemmin tämän jälkeen Android ja Windows laitteisiin tuli toiminto hiljentää toimintoja määräajaksi.\n\tMyös Androidin \"hiljainen\" moodi muuttui enemmän \"älä häiritse moodiksi\", mikä myös vähentää ärsyttäviä huomautuksia.\n\tOlimme edelläkävijöitä tämän idean suhteen, mutta ei idea ollut täysin ainutlaatuinen.\n\n\nAR-AirHockey: 31.3.2017\n\tTein kandityötä Oulun yliopistossa opiskellessani Tietotekniikkaa.\n\tTein OpenCV:tä ja Box2D airhockey pelin.\n\tRyhmässäni oli 2 muuta miestä, jotka eivät puhuneet mitään eivätkä tehneet työtä.\n\tTuntui kuin olisin vetänyt kuollutta painoa perässäni.\n\tValitin opettajalle tilanteesta, että nämä 2 muuta eivät tee mitään, mutta hän ei auttanut asiaa.\n\tEmme saaneet ikinä koko projektia päätökseen, enkä saanut kandidaatin tutkintoa valmiiksi, koska tämä kuolleen painon vetäminen ja systemaattinen vastustus opettajilta oli liian haitallista.\n\nOverlook: 24.4.2017\n\tOverlook on lisäosa MetaTrader 4 ohjelmalle.\n\tMetaTrader 4:ssä ladataan skripti, joka käyttää DLL: funktioita, jotka liittää tämän standalone c++ ohjelman MetaTraderiin.\n\tTällä ohjelmalla pystyy katsomaan kursseja ja käyriä, kuten MetaTraderissa.\n\tTämä mahdollisti paljon enemmän ohjelmointia, mitä pystyi tekemään DLL:ssä tai MQL4 kielellä.\n\tYritin käyttää tekoälyä treidaamiseen, mutta yritykseni olivat liian naiveja ja epätieteellisiä.\n\tTämä projekti minulle paljon finanssimaailmasta, ja kuinka pelkkä datan saaminen on haastavaa.\n\tTämä oli melko suosittu ja tykätty projekti githubissa.\n\tKirjoitin projektin sekaan päiväkirjaa, missä oli aika hulvattomia ja surullisiakin juttuja.\n\tPäiväkirja on projektin easter egg.\n\nMona: 2.4.2017\n\tMona is a fork of the Mona neural network library.\n\tKonvertoin koodia U++ konventioille ja siivosin samalla alkuperäistä koodia helpommaksi lukea.\n\tMona on vanha keinotekoinen neuroverkko kirjasto.\n\tTämä on yksi yrityksistäni ymmärtää tekoälyä forkkaamalla muiden koodia.\n\nQuantumMinigolf: 5.5.2017\n\tPorttasin tunnetun quantum-minigolf pelin Ultimate++ frameworkille.\n\tYritin toteuttaa FFT funktiot paremmilla cross-platform kirjastoilla, mutta epäonnistuin.\n\tTämä projekti keskittyi eniten graafiseen tehokkuus-optimointiin ja FFT funktioon.\n\nNARX: 31.5.2017\n\tNARX is a U++ conversion of NarxSim.\n\tNARX tarkoittaa \"Nonlinear AutoRegressive with eXogenous inputs\".\n\tSe on eräänlainen keinotekoinen neuroverkko-kirjasto.\n\tTämä on yksi yrityksistäni ymmärtää tekoälyä forkkaamalla muiden koodia.\n\nMathPad: 23.10.2017\n\tOlin tehnyt yliopistomatematiikkaa xcas:illa ja sen giac backendillä.\n\tOlin tehnyt oman symboolisen matematiikan kirjaston, jolla pystyi laskemaan matematiikkaa hyvin.\n\tTämä oma koodini näkyy MathCore/Node.h tiedostossa.\n\tTein yliopiston matikankurssit käyttäen tätä MathCore pakettia.\n\nGraphLib: 23.10.2017\n\tGraphLib on c++ ja ultimate++ konversio Graph Dracula kirjastosta.\n\tSe piirtää kauniita graafeja.\n\tTämä projekti on sisällytetty myöhemmin libtopsideen.\n\nTheoremProver: 23.10.2017\n\tTheoremProver was forked from theorem_prover and translated to C++.\n\tTheoremProver is a automated theorem prover for first-order logic. \n\tKäytin tätä logiikkalausekkeilla leikkimiseen.\n\tTein tämän, koska yliopistokurssillani oli paljon logiikkaa liittyviä asioita, ja yritin päästä kurssin läpi ymmärtämällä tämän.\n\tTheorem_prover lähdekoodin lukeminen auttoi minua paljon ymmärtämään loogisten lauseiden tehokasta prosessointia ja rakenteellista jäsentämistä.\n\nRandomForest: 19.10.2017\n\tRandomForest is a C++ port of forestjs.\n\tSe näyttää kivan graafisen ohjelman random-forest algoritmin toimimsesta.\n\nEarworm: 14.11.2017\n\tTämä on pieni ohjelma, joka soittaa historiallisia musiikin top-listoja käyttäen youtube-dl:ää ja mplayeriä.\n\tSe toimii.\n\tTop listat tarvii vain päivittää käsin.\n\nSoftGLCtrl: 23.11.2017\n\tTämä projekti on tinygl fork, joka renderöi 3D:tä Ultimate++ ympäristössä.\n\tYritin opetella tämän avulla tinygl:ää ja 3D-renderöijää, mutta se ei ollut kovin onnistunutta.\n\tMinulla oli kova nälkä oppia 3D renderöijä, ja tämä ei taltuttanut sitä nälkää.\n\tTämä projekti oli erittäin suuntaa antava, sillä libtopside projektissa vihdoin tein 3D-renderöijän vaikeimman kautta, ja synkkasin sen toimimaan yhtäaikaa laitteistokiihdytetyn opengl:n kanssa, kuten tinygl ja tämä SoftGLCtrl teki.\n\tOlin myös oikeilla jäljillä, sillä laitteistokiihdytetyn opengl:n todellinen ymmärtäminen vaatii software-renderöijän ymmärtämistä.\n\tIdeatasolla tämä oli hyvin merkittävä projekti minulle.",
+									"text": "sppp: 2017 from the beginning of the year until May\nI coded some more forex investing code inside this project, but I was already starting to lose my hunger.\n\nfeatherscript, fscript: 21/05/2017\nThis was the next iteration of the \"sppp\" project when I got tired of that name and needed to clean up bad code from the project.\nTinyjs, which I forked, played a big role in this project, and all kinds of javascript support.\nI solved the problem of how to wrap c++ code in a scripting language like Python and U++'s Esc language.\nThat problem was never solved to my satisfaction, but I learned that a scripting language has its place for simple things.\n\nConvNetCpp: 19/02/2017\nI converted javascript ConvNetJs code to C++.\nPackage support: neural network modules, SVM/Softmas and L2 regression cost functions, convolution networks, reinforced learning, Recurrent Neural Networks, Long Short-Term Memory networks, Recurrent Highway Networks\nThe code implemented some nice graphical examples with C++ and Ultimate++, but the internal code changed and didn't stay clean, and in the end the changes took it in an ugly direction.\nThis was quite a popular and liked project on github.\n\nUltimateScript: 3/28/2017\nI forked tinyjs and made an editor for coding javascript programs.\nI had U++ functions attached to my JavaScript engine, and I tried to combine the good sides of Ultimate++ with javascript.\nThe motivation was to finally make programs in ultimate++ style for modern web browsers.\nThe program was limited in its functions, but functional and neat.\n\n\nNotificationManager: 30/03/2017\nWhen I was studying information technology at the University of Oulu, we did a group project called NotificationManager, which was an android program that limited the notifications that the user received.\nThis program was based on numerous scientific studies.\nLater after this, Android and Windows devices got a function to mute functions for a limited time.\nAndroid's \"silent\" mode also became more of a \"do not disturb\" mode, which also reduces annoying notifications.\nWe pioneered this idea, but the idea was not completely unique.\n\n\nAR-AirHockey: 31.3.2017\nI did bachelor's work at the University of Oulu while studying Information Technology.\nI made OpenCV and Box2D airhockey game.\nThere were 2 other men in my group who didn't say anything and didn't do any work.\nIt felt like I was dragging a dead weight behind me.\nI complained to the teacher about the situation, that the other 2 are not doing anything, but he did not help.\nWe never finished the whole project, and I didn't finish my bachelor's degree, because this pulling dead weight and systematic resistance from the teachers was too harmful.\n\nOverlook: 24/04/2017\nOverlook is an add-on for the MetaTrader 4 program.\nIn MetaTrader 4, a script is loaded that uses DLL: functions that connect this standalone c++ program to MetaTrader.\nWith this program, you can view courses and curves, just like in MetaTrader.\nThis allowed much more programming than could be done in DLL or MQL4 language.\nI tried to use artificial intelligence to trade, but my attempts were too naive and unscientific.\nThis project for me a lot about the financial world, and how challenging just getting data is.\nThis was quite a popular and liked project on github.\nAs part of the project, I wrote a diary, where there were quite funny and sad things.\nThe diary is the easter egg of the project.\n\nMona: 2 April 2017\nMona is a fork of the Mona neural network library.\nI converted the code to U++ conventions and at the same time cleaned up the original code to make it easier to read.\nMona is an old artificial neural network library.\nThis is one of my attempts to understand AI by forking other people's code.\n\nQuantumMinigolf: 5/5/2017\nI ported the well-known quantum minigolf game to the Ultimate++ framework.\nI tried to implement the FFT functions with better cross-platform libraries, but failed.\nThis project focused mostly on graphic efficiency optimization and FFT function.\n\nNARX: 31/05/2017\nNARX is a U++ conversion of NarxSim.\nNARX stands for \"Nonlinear AutoRegressive with eXogenous inputs\".\nIt is a kind of artificial neural network library.\nThis is one of my attempts to understand AI by forking other people's code.\n\nMathPad: 23/10/2017\nI had done college math with xcas and its giac backend.\nI had made my own symbolic math library, which I could use to calculate math well.\nThis code of mine can be seen in the MathCore/Node.h file.\nI did university math courses using this MathCore package.\n\nGraphLib: 23/10/2017\nGraphLib is a c++ and ultimate++ conversion of the Graph Dracula library.\nIt draws beautiful graphs.\nThis project is later included in libtopside.\n\nTheoremProver: 23/10/2017\nTheoremProver was forked from theorem_prover and translated to C++.\nTheoremProver is an automated theorem prover for first-order logic.\nI used this to play with logic expressions.\nI did this because my college course had a lot of logic stuff and I was trying to get through the course by understanding this.\nReading the theorem_prover source code helped me a lot to understand the efficient processing and structural parsing of logical statements.\n\nRandomForest: 10/19/2017\nRandomForest is a C++ port of forestjs.\nIt shows a nice graphical program about how the random-forest algorithm works.\n\nEarworm: 14/11/2017\nThis is a small program that plays historical music charts using youtube-dl and mplayer.\nIt works.\nThe top lists only need to be updated manually.\n\nSoftGLCtrl: 23/11/2017\nThis project is a tinygl fork that renders 3D in the Ultimate++ environment.\nI tried using this to learn tinygl and 3D renderer, but it wasn't very successful.\nI was very hungry to learn 3D rendering, and this did not satisfy that hunger.\nThis project was very instructive, because in the libtopside project I finally made a 3D renderer the hard way, and made it run concurrently with hardware-accelerated opengl, like tinygl and this SoftGLCtrl did.\nI was also on the right track, as a real understanding of hardware accelerated opengl requires an understanding of the software renderer.\nAt the idea level, this was a very significant project for me.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2018,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "FastDQL: A library for fast deep-Q-learning in C++ language., graphics: Graphics, animation and visual effects generated and introduced by software systems, code: A programming code written in C++., Art: A project involves computer programming., Art project: A project involving programming in the field of art., Rendering: The process of creating graphics and images on the screen., Commodore Amiga: A computer system released in 1985., Artistic style: An art style similar to that of 81 year old artist Samia Halaby., ThreeCtrl: A 3D engine project for creating game graphics., Terrain: Surface condition of an area., Car: A vehicle used in the ThreeCtrl project example., Ramp: A platform used to jump a car in ThreeCtrl project., Renderer: A graphics rendering program., OpenGL: A graphics-rendering API., Physics: The branch of science concerned with the study of matter and motion., ODE: A physics library used in ThreeCtrl project for handling car physics., Ultimate++: A software development platform., Planning: Development plan for ThreeCtrl project., Debug: Identifying and removing errors from a program., Libtopside: Another project similar to ThreeCtrl, with code written in C++., Stumbled: A program used for browsing through liked websites, created after the shutdown of stumbling website., F2F: Program based on a scientific research of social networking., University of Oulu: A Finnish University where the F2F project was developed., Java: A programming language used in the final version of the F2F project., CiVM: A javascript interpreter project improved by implementing a bytecode-vm mechanism., Bytecode: A type of machine code used in the CiVM project., VM: Virtual Machine., Scientific Papers: Research documents related to the F2F project., Local technical networks: Networks used for connecting people in the same geographical area., Prototype: An initial version of a software system., RainbowGame: A clone project of the Rainbow Island game., Game clone: A project that follows the structure and features of another existing game., Motivation: The inspiration or reason behind a project.",
+									"native_text": "FastDQL: 15.2.2018\n\tFast Deep-Q-Learner library in C++.\n\tOhjelma sisältää vaikuttavia graafisia esimerkki-ohjelmia.\n\tTämä projekti oli osittain fork vastaavasta Deep-Q-Learner javascript koodista.\n\nArt: 7.3.2018\n\tTämä oli ensimmäinen taideprojektini ohjelmoinnin saralla.\n\tRenderöin samantapaista taidetta, kuin 81 vuotta vanha Commodore Amiga artisti Samia Halaby teki.\n\nThreeCtrl: 11.4.2018\n\tTämä on yksi yrityksistäni tehdä 3D moottori peleille.\n\tOhjelmassa on tasainen maa ja yksinkertainen auto, jolla voi hyppiä hyppyrin yli.\n\tRenderöijä on erittäin yksinkertainen vanhan opengl version renderöijä.\n\tAuton fysiikat hoitaa ode niminen fysiikkakirjasto.\n\tForkkasin jotain koodia, ja toteutin sen siistimmin ja helpommin ymmärrettävämmin Ultimate++ tyylillä.\n\tTämä osoitti minulle, kuinka kaukana ymmärrykseni 3D renderöijästä oli.\n\tEn pystynyt muokkaamaan enkä debugaamaan mitään.\n\tTämä vain lisäsi nälkää projektille, mikä tuli lopulta olemaan libtopside.\n\tIdeatasolla tämä on osa libtopside jatkumoa, mutta koodia ei ole käytetty uudelleen.\n\nStumbled: 17.8.2018\n\tParsin stumblen kun se oltiin sulkemassa.\n\tTässä ei ole kaikki tykkäämäni, koska vanhin tilini meni hukkaan.\n\tTein pienen ohjelman, missä pystyin selaamaan läpi aikaisemmin tykkäämiäni sivustoja.\n\n\nF2F: 25.9.2018\n\tTeimme tämän projektin Oulun Yliopistossa tiimityönä.\n\tKyseessä oli tieteelliseen tutkimukseen perustuva ohjelma.\n\tLöysimme paljon tieteellisiä papereita tukemaan tällaista ideaa, missä paikallisilla teknisillä verkostoilla tavataan uusia tuttavuuksia.\n\tKyseessä on c++:lla prototyypattu ja java:lla kirjoitettu ohjelma.\n\n\nCiVM: 19.11.2018\n\tTämä projekti jatkaa minun aikaisempaa javascript interpreteriä.\n\tParansin koodia huomattavasti.\n\tKuitenkin, kun yritin muuttaa interpreteter mekanismin byte-vm:ksi, niin toteutus oli liian monimutkainen, eikä skaalautunut ja toiminut riittävän hyvin.\n\n\nRainbowGame: 25.11.2018\n\tTämä on yritys tehdä Rainbow Island pelin klooni.\n\tProjekti toteuttaa yksinkertaisia toimintoja pelistä.\n\tSelvisi, että tämän kyseisen pelin kloonin tekeminen on työlästä ja ei kovinkaan motivoivaa.\n",
+									"text": "FastDQL: 15.2.2018\nFast Deep-Q-Learner library in C++.\nThe program include impressive graphic example programs.\nThis project was partly forked from the similar Deep-Q-Learner javascript code.\n\nArt: 7.3.2018\nThis was my first art project in the field of programming.\nI rendered similar art to an 81 year old Commodore Amiga artist, Samia Halaby.\n\nThreeCtrl: 11.4.2018\nThis is one of my attempts to create a 3D engine for games.\nThe program has a flat terrain and a simple car, which can jump over a ramp.\nThe renderer is a very simple old version of opengl renderer.\nThe physics for the car is handled by the ODE physics library.\nI forked some code and implemented it more cleanly and easily understandable in the Ultimate++ style.\nThis showed me how far my understanding of a 3D renderer was.\nI couldn't modify or debug anything.\nThis just added to my hunger for a project, which eventually became libtopside.\nAt the idea level, this is a continuation of libtopside, but the code has not been reused.\n\nStumbled: 17.8.2018\nI parsed stumblen when it was closing down.\nI didn't get all of my likes back, as my oldest account was lost.\nI made a small program where I could browse through all the websites I had liked before.\n\nF2F: 25.9.2018\nWe did this project as a team project at the University of Oulu.\nIt was a program based on scientific research.\nWe found many scientific papers to support the idea of meeting new people through local technical networks.\nIt is a program made with c++ as a prototype and java for the final version.\n\nCiVM: 19.11.2018\nThis project continues my previous javascript interpreter.\nI improved the code significantly.\nHowever, when I tried to change the interpreter mechanism to a byte-vm, the implementation was too complex and did not scale or perform well enough.\n\nRainbowGame: 25.11.2018\nThis is an attempt to create a clone of the game Rainbow Island.\nThe project implements basic functions of the game.\nIt became clear that creating this particular game clone was laborious and not very motivating.\n",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2019,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "WebOverlay, libtopside, grammar, python, ecmascript, cpp14, c, ANTLR, ResolverCPP14, FOG, reference code, antlrserver, rendering, parsing, hieroglyphs, InstaBrowser, litehtml, JavaScript, tinyjs, byte-vm, Bliss, symbols, 3D game, languages, adventures, 3D VR mode, skate, SkateGame, reverse engineering, THUG1, OpenGL, Ghidra, Dolphin, U++, TheIde, debugging, HoloHigh, human anatomy, biology, BBSIM, PKR, game, AI, poker, Counterfactual Regret Minimization, FOG, Flexible Object Generator, C++ compiler, LastResort, automation, gambling, LibCity, ogrecity, 3D city, GTA, understanding.",
+									"native_text": "WebOverlay: 21.3.2019\n\tTämä on libtopside:n esiaste sen suorassa jatkumossa.\n\tSisältää kieli grammarit: python, ecmascript, cpp14, c, ANTLR, ResolverCPP14\n\tSisältää FOG reference koodia, joka siivottiin myöhemmin omaan repositoryyn.\n\tTässä on mukana antlrserver: parsi c++14 koodia käyttäen ANTLR projektia.\n\tSisältää hieroglyfien renderointia ja parsimista.\n\nInstaBrowser: 6.4.2019\n\tTämä on forkattu litehtml projekti, joka renderoi html sivustoja.\n\tOhjelma toimii melko hyvin.\n\tYritin lisätä javascript tuen tinyjs kirjaston avulla, mutta pilasin sen, kun olin liian kunniahimoinen, ja yritin muuntaa interpreter mekanismin byte-vm:ksi.\n\nBliss: 20.7.2019\n\tTämä on libtopside:n esiaste sen suorassa jatkumossa.\n\tAluksi tämä oli bliss-kielen symbolien renderöimiseen, ja siitä tuli nimi.\n\tIdea kasvoi 3D peliksi, missä olisi kaikki tekstit bliss-symboleilla, ja siellä oppisi kielen ja seikkailisi samalla.\n\tLoppuvaiheessa tämä koodi renderoi 2D ikkunoita WMR ohjelmana 3D VR tilassa.\n\tYmmärsin tämän projektin avulla 3D renderöimisen vaikeuden, ja oppimisen vaikeuden.\n\tTämä projekti oli suora esiaste libtopsiden luomiseksi.\n\tVielä vuonna 2024 libtopside yrittää toteuttaa tämän ohjelman 2D ikkunan renderointia 3D VR tilassa.\n\tKoska vaikka tämä ohjelma sai 2D ikkunat toimimaan 3D VR ympäristössä, se oli melko teknisesti surkea toteutus, joka ei skaalautunut, ja jota ei saatu parannettua hyvän ymmärryksen kanssa.\n\t\nSkate, SkateGame: 9.8.2019\n\tTämä projekti on THUG1 koodin purkamista ja yrittämistä saamaan toimimaan OpenGL:llä.\n\tReverse engineerasin Dolphin cross-platform esimerkkikoodia ghidralla, että sain minimaalisen yhteensopivuuskerroksen THUG1 gamecube platformille koodissa.\n\tJärjestin ja siivosin koodia automaatiolla, ja kehitin automaatiota.\n\tSain muodostettua koodin, mikä kääntyi U++ TheIde editorissa.\n\tPystyin debugaamaan ja työstämään koodia, mutta minulla loppui kiinnostus ja aika.\n\tMinulta puuttui myös ymmärrys 3D-renderöijästä, enkä osannut korjata pieniä bugeja dolphin opengl crossplatform koodissa.\n\tTämä oli yksi motivoija tekemään libtopside koodia, missä opettelin 3D renderoijan alusta lähtien omaan ajatukseeni sopivasti.\n\nHoloHigh: 10.8.2019\n\tTämä on libtopside:n esiaste sen suorassa jatkumossa.\n\tTämä on uusi yritys tehdä parempi projekti kuin Bliss.\n\tTämä yrittää toteuttaa kaiken saman kuin Bliss.\n\tTämä repository sisältää koodia liittyen yritykseen koodata 3D ohjelmia WMR VR:lle.\n\nBBSIM: 13.9.2019\n\tKäytin c++ ohjelmoinnissa opittua rakenteellista ajattelemista luomaan omaa rakenteellista konseptio ihmisen anatomiasta ja biologiasta yleensä.\n\nPKR: 16.10.2019\n\tPKR on repository \"pelille\", mikä oli yritys tehdä tekoäly auttamaan pokerin pelaamisessa.\n\tTutkin paljon Counterfactual Regret Minimisointi algoritmiä.\n\tOsasin käytännössä tehdä jo CFR algon zero-sum 2 pelaajan pokerin esiasteelle ilman muistiinpanoja.\n\nFOG: 12.11.2019\n\tPuhdistin erittäin vanhan \"Flexible Object Generator\" ohjelman lähdekoodin ja sain sen toimimaan modernilla c++ kääntäjällä.\n\tTämä oli osa kiinnostustani C++ kääntäjää kohtaan.\n\tKoin FOG:in olevan erittäin hieno meta-C++ kieli, ja pidän sitä edelleen parempana kuin standardi c++ meta toiminnot tai modernit LLVM:n päälle tehdyt c++ meta-kieli-lisäosat.\n\nLastResort: 26.11.2019\n\tTämä on uusi yritys PKR koodiprojektin jälkeen luoda pokeriin liittyvä automaatio.\n\tTutkin paljon Counterfactual Regret Minimisointi algoritmiä.\n\tNimi tuli siitä, kuinka huvittavaa on, että jotkut ihmiset pitävät uhkapelejä viimeisenä mahdollisuutenaan tehdä rahaa.\n\nLibCity: 2019\n\tForkkasin \"libcity\" ja \"ogrecity\" projektit.\n\tHalusin tehdä 3D kaupungin, kuten GTA 3D pelit.\n\tYritin etsiä netistä koodia, mikä vastaisi ymmärrystäni, ja mikä olisi helppo omaksua, mutta tuloksesta.\n\tNämä forkit vahvistivat ajatusta siitä, että minun on opeteltava 3D-ohjelmointi vaikeimman kautta, koska mikään ei tue ymmärrystäni valmiiksi.\n",
+									"text": "WebOverlay: 21.3.2019\n\tThis is a precursor to libtopside in its direct continuation.\n\tContains language grammars: python, ecmascript, cpp14, c, ANTLR, ResolverCPP14\n\tContains FOG reference code, which was later cleaned up into its own repository.\n\tIncludes antlrserver: parses c++14 code using the ANTLR project.\n\tIncludes rendering and parsing of hieroglyphs.\n\nInstaBrowser: 6.4.2019\n\tThis is a forked litehtml project that renders html websites.\n\tThe program works quite well.\n\tI tried to add JavaScript support using the tinyjs library, but I ruined it when I was too ambitious and tried to convert the interpreter mechanism into a byte-vm.\n\nBliss: 20.7.2019\n\tThis is a precursor to libtopside in its direct continuation.\n\tInitially, this was for rendering Bliss language symbols, hence the name.\n\tThe idea grew into a 3D game where all text would be in Bliss symbols, and players would learn the language and have adventures at the same time.\n\tIn its final stages, this code rendered 2D windows as a WMR program in 3D VR mode.\n\tThrough this project, I understood the difficulty of 3D rendering and learning it.\n\tThis project was a direct precursor to creating libtopside.\n\tIn 2024, libtopside will attempt to implement the ability to render 2D windows in 3D VR mode.\n\tAlthough this program was able to achieve this, it was a technically poor implementation that did not scale and could not be improved with a good understanding.\n\nSkate, SkateGame: 9.8.2019\n\tThis project involved reverse engineering THUG1 code and attempting to make it work with OpenGL.\n\tI used Ghidra to reverse engineer Dolphin cross-platform example code, creating minimal compatibility layers in THUG1's GameCube code.\n\tI organized and cleaned the code using automation, and developed more automation.\n\tI was able to form code that compiled in U++ TheIde editor.\n\tI could debug and work on the code, but I lost interest and time.\n\tI also lacked an understanding of the 3D renderer and could not fix small bugs in the Dolphin OpenGL cross-platform code.\n\tThis was one of the motivations for creating libtopside, where I could learn 3D rendering from the ground up in a way that made sense to me.\n\nHoloHigh: 10.8.2019\n\tThis is a precursor to libtopside in its direct continuation.\n\tThis is a new attempt to make a better project than Bliss.\n\tIt tries to achieve everything Bliss did.\n\tThis repository contains code related to my attempt to create 3D programs for WMR VR.\n\nBBSIM: 13.9.2019\n\tUsing the structural thinking I learned in C++ programming, I created my own structural concept of human anatomy and biology in general.\n\nPKR: 16.10.2019\n\tPKR is a repository for a \"game\" I created, which was an attempt at creating an AI to help with poker gameplay.\n\tI researched the Counterfactual Regret Minimization algorithm extensively.\n\tI was able to practically create a precursor for a zero-sum, two-player version of the CFR algorithm without any notes.\n\nFOG: 12.11.2019\n\tI cleaned up the very old \"Flexible Object Generator\" program's source code and got it working with a modern C++ compiler.\n\tThis was part of my interest in a C++ compiler.\n\tI found FOG to be a very cool meta-C++ language and still prefer it over standard C++ meta features or modern C++ meta-language add-ons built on LLVM.\n\nLastResort: 26.11.2019\n\tThis is a new attempt after the PKR code project to create automation for poker.\n\tI researched the Counterfactual Regret Minimization algorithm extensively.\n\tThe name comes from the amusing idea that some people see gambling as their last chance to make money.\n\nLibCity: 2019\n\tI forked the \"libcity\" and \"ogrecity\" projects.\n\tI wanted to create a 3D city like in the GTA 3D games.\n\tI tried to find code on the internet that matched my understanding and would be easy to adopt, but was unsuccessful.\n\tThese forks solidified my belief that I must learn 3D programming the hard way, as nothing was ready to support my understanding.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2020,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "Program, Calculate, Calories, Nutrition values, Weight loss, Journey, Lose, Program, Maximize, Intake, Low-calorie diet, PKR project, Addon, Code package, Parsing, Desktops, Online poker tables, Forgotten, Fixed, Flexible Object Generator, Meta-c++ language, Examples, Complete, Working library, Bugs, Bitter, Pill, Swallow",
+									"native_text": "FoodTool: 7.2.2020\n\tTein laihdutustani varten ohjelman, millä laskea kaloreita ja ravintoarvoja.\n\tTämä auttoi minua pudottamaan painoani 30kg.\n\tTällä pystyi yrittämään maksimoida ravintoarvot, vaikka olikin niukka-kalorisella dieetillä.\n\nDesktopDiary: 3.3.2020\n\tTämä on PKR projektin lisäosa koodipaketti, jolla parsia työpöytää, ja pokeripöytää nettipokerissa.\n\nForgotten: 21.9.2020\n\tForgotten sisältää korjaamani Flexible Object Generator meta-c++ kielen ja kirjoittamiani esimerkkejä kyseiselle kielelle.\n\tYritin tehdä kokonaisen toimivan kirjaston, mutta FOG:in bugisuus esti sen lopulta sen, mikä oli minulle katkera pala nieltäväksi.\n",
+									"text": "FoodTool: 2/7/2020\n\tI created a program to calculate calories and nutrition values for my weight loss journey.\n\tThis helped me lose 30kg.\n\tWith this, I could try to maximize my nutrition intake even on a low-calorie diet.\n\nDesktopDiary: 3/3/2020\n\tThis is a PKR project addon code package for parsing desktops and online poker tables.\n\nForgotten: 9/21/2020\n\tForgotten includes my fixed Flexible Object Generator meta-c++ language and examples I have written for it.\n\tI tried to create a complete working library, but FOG's bugs ultimately prevented it, which was a bitter pill for me to swallow.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2021,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "1.2021, compiled, old code, repository, Ultimate++, forks, text parsing, support code, windows, HTML renderer, Upp/ECS project, libtopside, UppConsole, console-gui library, ncursesxx, ndk++, cleaned up, Emscripte, Cheerp, UppAlt, Morphos, DOS, UppCommon, rendering code, graphics, UppCompiler, code compilation, byte-vm script code, Upp3D, 3D code, shaders, standalone program, shadertoy.com, UppAudio, audio-related code, STK, gui widgets, AI, game use, action planner, ECS, purebred precursor, data processing, virtual interfaces, tutorials, Physics, ComputerVision, Javascript, JSFeat, support library, cross-platform webcam, CommandBridge, quake-menu, guake, yakuake, Qt5-GLSL-Debugger, GLSL, opengl bugs, libtopside, real-time packet forwarding pipeline, virtual world objects, basic things, programming, significant features, 2020, working hours.",
+									"native_text": "Reference: 24.1.2021\n\tKokosin vanhaa koodia yhteenpaikkaan.\n\tTämä repository on kokoelma yksittäisiä koodipaketteja.\n\tTäällä on kaikenlaista sekalaista Ultimate++ forkkia:\n\t\t- Tekstin parsimiseen liittyvää koodia\n\t\t- Ultimate++ tukikoodia, kuten ohjelman sisäiset pikkuikkunat\n\t\t- forkattu pieni html-renderöijä muunnettu ultimate++ tyyliin sopivaksi\n\nUpp/ECS projekti (libtopside:n esiaste):\n\tTämä on osa suoraa libtopside jatkumoa.\n\tTässävaiheessa libtopside oli jaettu useaan repositoryyn, mutta myöhemmin yhdistin ne samaan.\n\tTämä repository sisälsi yhteistä koodia muille repositorylle.\n\t\n\tUppConsole: 10.1.2021\n\t\tTämä on konsoli-gui kirjasto, joka on forkattu ncursesxx & ndk++ kirjastoista.\n\t\tTämä siivottiin pois libtopsideen mennessä, mutta ideatasolla tämä ominaisuus on edelleen tuettu.\n\t\t\n\tUppAlt: 20.1.2021\n\t\tTämä repository sisälsi minimaalisen korvikkeen Ultimate++ Corelle.\n\t\tTämä korvike mahdollistaa Emscripten ja Cheerp tyyliset kevyet internetselain ohjelmat.\n\t\tTämä korvike mahdollistaa myös erikoisemmat käyttöjärjestelmät, kuten Morphos ja vanha DOS.\n\n\tUppCommon: 20.1.2021\n\t\tTämä repository sisälsi yhteistä koodia muille repositorylle.\n\t\tTäällä oli renderöintikoodia ja pieniä itsenäisiä paketteja grafiikkaan liittyen.\n\t\t\n\tUppCompiler: 28.1.2021\n\t\tTämä repository sisälsi koodin kääntämiseen liittyvää koodia.\n\t\tNämä taidettiin siivota pois melkolailla kokonaan.\n\t\tIdea kuitenkin jäi jäljelle, ja libtopsidessä on byte-vm skriptikoodi, minkä esiaste tämä on ideatasolla.\n\n\tUpp3D: 17.2.2021\n\t\t3D koodia shadereiden suorittamiseen.\n\t\tTämä oli erillinen ohjelma, joka toisti shadertoy.com shadereita windowsilla ja linuxilla.\n\t\tTämä ohjelma on erittäin oleellinen välivaihe libtopsidessa.\n\t\tKäytännössä libtopsiden pääohjelma Shell on myöhempi versio tästä ohjelmasta.\n\t\t\n\tUppAudio: 2.4.2021\n\t\tTämä repository sisälsi ääneen liittyvää koodia.\n\t\tTässä on forkattu STK ja gui widgettejä äänen käsittelyä varten.\n\t\t\n\tAI: 24.1.2021\n\t\t- turha\n\t\t- vanhan koodin ja kerääminen yhteen paikkaan\n\t\t- keräsin vanhaa kirjoittamaani AI koodia pelikäyttöön, kuten action plannerin\n\n\tECS: 26.1.2021\n\t\tTämä on suora puhdasverinen libtopsiden esiaste samassa jatkumossa.\n\t\tJo tämä versio keräsi vanhaa koodia yhteen paikkaan, ja siivosi sitä.\n\t\tTässä on toimiva ECS järjestelmä, johon viritetään datan prosessointi päälle.\n\t\tData prosessoidaan virtuaalisten interfacejen kautta, mikä tavallaan laajentaa koko Entity-Component-Engine (ECS) systeemiä.\n\t\t\n\tTutorials: 24.3.2021\n\t\tTutoriaaleja ECS projektiin.\n\t\tNämä päätyi liptopsideen myöhemmin.\n\t\t\n\tPhysics: 24.3.2021\n\t\tTukipaketti ECS projektiin.\n\t\tNämä päätyi liptopsideen myöhemmin.\n\n\tComputerVision: 5.4.2021\n\t\t- Täydellinen Javascript JSFeat computer vision kirjaston konversio C++:lle\n\t\t- tukikirjasto ECS:ään, mikä mahdollisti cross-platform webkameran käytön\n\t\tTämä liitettiin myöhemmin libtopsideen.\n\n\nCommandBridge: 14.1.2021\n\t\"CommandBridge\" on \"quake-menu \"tyylinen ohjelma windowsiin, kuten \"guake\" ja \"yakuake\" linux työpödällä.\n\tq\n\nQt5-GLSL-Debugger: 11.3.2021\n\tKorjasin vanhan GLSL-Debugger ohjelman, joka ei enää kääntynyt ja toiminut oikein uusimmassa linux ympäristössä.\n\tOhjelmalla voi debugata opengl bugeja.\n\nlibtopside: 15.4.2021:\n\tTämä on hieno projekti, josta olen ylpeä.\n\tKäytin todella paljon työtunteja tähän.\n\tTässä projektissa pohjalla on ECS:stä johdettu systeemi järjestelmän kirjastojen käyttämiseen.\n\tECS systeemin kaltaisessa systeemissä komponentit wrappaavat tunnettuja c tai c++ systeemi-kirjastoja.\n\tKomponenttien välillä toimii reaaliaikainen pakettien välitys liukuhihna, joka kuljettaa virtuaalisia paketteja systeemi-kirjastojen välillä.\n\tOhjelmassa on myös varsinainen ECS moottori virtuaalimaailman objekteja varten.\n\tVuonna 2021 tein paljon perusasioita, mutta vuosi 2022 meni myös pitkälti merkittävien ominaisuuksien ohjelmoimisessa.\n\tKäytin tähän karkeasti arvioituna yli 2000 työtuntia vuonna 2021.\n\n",
+									"text": "Reference: 24.1.2021\nI compiled the old code into one place.\nThis repository is a collection of individual code packages.\nThere's all sorts of miscellaneous Ultimate++ forks here:\n- Code related to text parsing\n- Ultimate++ support code, such as small windows inside the program\n- forked small html renderer converted to suit ultimate++ style\n\nUpp/ECS project (precursor of libtopside):\nThis is part of the direct libtopside continuum.\nAt this stage, libtopside was split into several repositories, but later I merged them into one.\nThis repository contained common code for other repositories.\n\nUppConsole: 10.1.2021\nThis is a console-gui library forked from the ncursesxx & ndk++ libraries.\nThis was cleaned up by libtopside, but at an idea level this feature is still supported.\n\nUppAlt: 20.1.2021\nThis repository contained a minimal replacement for Ultimate++ Core.\nThis substitute enables lightweight internet browser programs like Emscripte and Cheerp.\nThis replacement also allows for more specialized operating systems, such as Morphos and old DOS.\n\nUppCommon: 20.1.2021\nThis repository contained common code for other repositories.\nThere was rendering code and small independent packages related to graphics.\n\nUppCompiler: 28.1.2021\nThis repository contained code related to code compilation.\nThese seemed to be cleaned out pretty much completely.\nHowever, the idea remained, and libtopside has a byte-vm script code, which this is a precursor to at the idea level.\n\nUpp3D: 17.2.2021\n3D code to run shaders.\nThis was a standalone program that played shadertoy.com shaders on Windows and Linux.\nThis program is a very essential intermediate step in libtopside.\nIn practice, libtopside's main program Shell is a later version of this program.\n\nUppAudio: 2 April 2021\nThis repository contained audio-related code.\nHere are forked STK and gui widgets for sound processing.\n\nAI: 24/01/2021\n- useless\n- collecting the old code and in one place\n- I collected old AI code I wrote for game use, such as action planner\n\nECS: 26.1.2021\nThis is a direct purebred precursor to libtopside in the same continuum.\nEven this version collected the old code in one place, and cleaned it up.\nHere is a working ECS system, to which the data processing is turned on.\nData is processed through virtual interfaces, which in a way expands the entire Entity-Component-Engine (ECS) system.\n\nTutorials: 24.3.2021\nTutorials for the ECS project.\nThese ended up on lipopside later.\n\nPhysics: 24.3.2021\nSupport package for the ECS project.\nThese ended up on lipopside later.\n\nComputerVision: 5 April 2021\n- Complete Javascript JSFeat computer vision library conversion to C++\n- a support library for ECS, which enabled the use of a cross-platform webcam\nThis was later merged into libtopside.\n\n\nCommandBridge: 14.1.2021\n\"CommandBridge\" is a \"quake-menu\" style program for windows, like \"guake\" and \"yakuake\" for linux desktop.\nq\n\nQt5-GLSL-Debugger: 11.3.2021\nI fixed the old GLSL-Debugger program, which no longer turned and worked correctly in the latest linux environment.\nThe program can be used to debug opengl bugs.\n\nlibtopside: 15/04/2021:\nThis is a great project that I am proud of.\nI really spent a lot of work hours on this.\nThis project is based on a system derived from ECS for using the system's libraries.\nIn a system like the ECS system, the components wrap well-known c or c++ system libraries.\nA real-time packet forwarding pipeline works between the components, which transports virtual packets between system libraries.\nThe program also has an actual ECS engine for virtual world objects.\nIn 2021 I did a lot of basic things, but 2022 was also largely spent programming significant features.\nRoughly estimated, I spent more than 2000 working hours on this in 2021.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2022,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "D programming, Software-opengl renderer, Hardware-accelerated opengl, Features, Reiterations, Starting from scratch, Cleaning up, Clarifying, Breaking, Fixing, Changes, Improvements, Updates, Core, Eon code, Scripting language, Configuring, Engine, Voice, Hardware libraries, Eon-script, Dynamic layer, Scriptable dynamism",
+									"native_text": "libtopside: 15.4.2022:\n\tKäytin tähän projektiin karkeasti arvioituna 3000 työtuntia vuonna 2022.\n\tTänä vuonna puristin auki 3D ominaisuudet kehittämällä software-opengl-renderöijää ja laitteistokiihdytettyä opengl:ää yhtäaikaa.\n\tMerkittäviä ominaisuuksia syntyi harmittavan vähän, koska jouduin tekemään monta uusintakierrosta \"juuresta lähtien\", kun asioita piti siistiä ja selkeyttää.\n\tLopulta tuntui, että kiersin ympyrää, missä uusia ominaisuuksia ei tullut lisää, vaan rikoin vanhoja ominaisuuksia ja korjasin ne toimimaan uudelleen, koska syvälle ytimeen piti tehdä niin paljon muutoksia, parannuksia ja päivityksiä.\n\tTämä projekti vihdoinkin hillitsi nälkääni 3D ohjelmoinnin suhteen.\n\tKeksin myös \"eon\" koodin, mikä on skriptikieli moottorin konfigurointia varten.\n\tEON-skriptillä voi konfiguroida geneerisen 3D-moottorin äänellä, ja moottori käyttää niitä laitteistokirjastoja, jotka siihen on käänetty sisälle mukaan.\n\tTämä eon-skripti on siis dynaaminen kerros erittäin matalalla tasolla, missä ei ole aikaisemmin nähty tällaista skriptattavaa dynaamisuutta.\n",
+									"text": "libtopside: April 15, 2022:\n\tI estimated spending roughly 3000 work hours on this project in 2022.\n\tThis year, I squeezed open 3D features by developing a software-opengl renderer and hardware-accelerated opengl simultaneously.\n\tSignificant features were unfortunately few, as I had to do multiple reiterations \"starting from scratch\", as things needed to be cleaned up and clarified.\n\tIn the end, it felt like I was going in circles, where new features weren't being added, but rather breaking and fixing existing ones because so many changes, improvements, and updates had to be made deep in the core.\n\tThis project finally satisfied my thirst for 3D programming.\n\tI also came up with the \"eon\" code, which is a scripting language for configuring the engine.\n\tWith EON-script, one can configure a generic 3D engine with voice, and the engine uses the hardware libraries that are compiled inside.\n\tThis eon-script is a dynamic layer at a very low level, where such scriptable dynamism has not been seen before.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2023,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "SongTool, TextTool, 7/7/2023, significant, program, practical use, music producer, Tornio, Lapland, songwriter, AI, GPT, trend, processing cost, openai.com, news, laborious, framework, pipeline, database, lyrics, parameters, explanation, ColorOS, 11/26/2023, operating system, Unix shell, state, memory, file system, processor, tasks, text, changes.",
+									"native_text": "SongTool/TextTool: 7.7.2023\n\tTämä on merkittävä ohjelma minulle, josta on paljon käytännön hyötyä.\n\tOpiskelin musiikintuottajaksi Torniossa, Lappiassa.\n\tTunnistin ongelmia lauluntekijän näkökulmasta, mitkä voisi automatisoida tekoälyllä.\n\tNäihin aikoihin GPT oli viimeisintä huutoa.\n\tKokoajan tuli uusia GPT versioita, jotka myös tekivät prosessoinnin hintaa alemmaksi openai.com:issa.\n\tUutisissa oli kokoajan jotain GPT sanalla.\n\tOhjelmassa työläintä oli tehdä framework tekoäly-prosessien liukuhihnoja varten.\n\tMyös oikean prompt-formaatin ymmärtäminen oli työlästä.\n\tTein hyvin monivaiheisen liukuhihnan tietokannan luomiseen valmiista lyriikoista, ja sitten uuden lyriikan luomiseen käyttäen tietokantaa ja lauluntekijän antamia parametrejä ja selityksiä.\n\nColorOS: 26.11.2023\n\tTämä on SongTool AI pipelinen inspiroima uusi käyttöjärjestelmä.\n\tKäyttöjärjestelmä on metafoorinen käyttöjärjestelmä, joka muistuttaa unix shelliä.\n\tTila säilytetään ColorOS:n muistissa ja tiedostojärjestelmässä, ja GPT tekoäly on \"prosessori\", joka suorittaa asiat ja kertoo järjestelmän teksti outputit ja tiedostojärjestelmän muutokset.\n",
+									"text": "SongTool/TextTool: 7/7/2023\n\tThis is a significant program for me, with a lot of practical use.\n\tI studied to become a music producer in Tornio, Lapland.\n\tI identified issues from a songwriter's perspective that could be automated with AI.\n\tAt that time, GPT was the latest trend.\n\tNew versions of GPT were constantly being released, which also lowered the processing cost on openai.com.\n\tThe news was constantly buzzing with mentions of GPT.\n\tThe most laborious part of the program was creating the framework for the AI processing pipelines.\n\tUnderstanding the correct prompt format was also a challenge.\n\tI created a highly complex pipeline for creating a database from existing lyrics, and then generating new lyrics using the database and parameters and explanations provided by the songwriter.\n\nColorOS: 11/26/2023\n\tThis is a new operating system inspired by the SongTool AI pipeline.\n\tThe operating system is metaphorical, resembling a Unix shell.\n\tState is stored in ColorOS's memory and file system, and the GPT AI is the \"processor\" that executes tasks and outputs the system's text and file system changes.",
 									"images": [
 
 									]
 								},
 								{
 									"year": 2024,
-									"keywords": "",
-									"native_text": "",
-									"text": "",
+									"keywords": "2024, SongTool, TextTool, Music lyric writing, XOS project, Forked, Dead, Latest version, Installer, Windows XP, Visual Studio, Old project, Debugging, Compatibility issues, Windows compatibility mode, Bugs, Hard-coded restriction, USB drives.",
+									"native_text": "Vuonna 2024 kirjoitin intensiivisesti SongTool ja sittemmin TextTool ohjelmaa, joka auttoi musiikillisissa sanoittamisongelmissa.\n\nXOS: 1.4.2024\n\tForkkasin XOS projektin, jota olen seurannut jo pitkään, ja mikä on \"kuollut\".\n\tMinua vaivasi, kun en saanut alkuperäisen projektin viimeisintä versiota käyntiin jostain syystä.\n\tTartuin toimeen, ja fiksasin siihen kuuluvan asentimen.\n\tJouduin käyttämään Windows XP:tä ja hankkimaan vuoden 2010 visual studion, jolla aukaisin vanhan projektin, debugasin sen ja käänsin sen.\n\tKyseessä oli 2-3 bugia, mitkä olivat hajottaneet ohjelman yhteensopivuuden, ja missä windows yhteensopivuus moodi ei huomannut tällaista ongelmaa. Lisäksi ohjelmassa oli naurettavan tyhmä ja turha hardkoodattu rajoitus, joka esti yli 8 gigan muistitikkujen käyttämisen.\n",
+									"text": "In 2024, I was heavily focused on developing the SongTool and later the TextTool program, which helped with music lyric writing problems.\n\nXOS: 4/1/2024\n\tI forked the XOS project, which I had been following for a long time, and which was \"dead\".\n\tI was bothered by the fact that I couldn't get the latest version of the original project to work for some reason.\n\tI took action and fixed the included installer.\n\tI had to use Windows XP and get a 2010 version of Visual Studio to open the old project, debug it, and compile it.\n\tThere were 2-3 bugs that had caused compatibility issues with the program, which were not caught by the Windows compatibility mode. Additionally, there was a ridiculously stupid and unnecessary hard-coded restriction that prevented the use of over 8 gigabyte USB drives.\n",
 									"images": [
 
 									]
@@ -17948,7 +17948,343 @@
 								}
 							]
 						}
+					},
+					{
+						"key": "PERSONAL_TASTE_MUSIC",
+						"value": {
+							"years": [
+								{
+									"year": 1989,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 1990,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 1991,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 1992,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 1993,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 1994,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 1995,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 1996,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 1997,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 1998,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 1999,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2000,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2001,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2002,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2003,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2004,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2005,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2006,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2007,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2008,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2009,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2010,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2011,
+									"keywords": "",
+									"native_text": "St. Louis Blues - Ella Fitzgerald\nTruth - Alexander Ebert\nIn The Morning - Norah Jones\n",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2012,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2013,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2014,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2015,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2016,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2017,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2018,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2019,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2020,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2021,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2022,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2023,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								},
+								{
+									"year": 2024,
+									"keywords": "",
+									"native_text": "",
+									"text": "",
+									"images": [
+
+									]
+								}
+							]
+						}
 					}
+				]
+			},
+			"biography_analysis": {
+				"profiles": [
+
 				]
 			}
 		},
@@ -37424,6 +37760,11 @@
 							]
 						}
 					}
+				]
+			},
+			"biography_analysis": {
+				"profiles": [
+
 				]
 			}
 		},
@@ -67403,6 +67744,11 @@
 						}
 					}
 				]
+			},
+			"biography_analysis": {
+				"profiles": [
+
+				]
 			}
 		},
 		{
@@ -67613,6 +67959,11 @@
 							]
 						}
 					}
+				]
+			},
+			"biography_analysis": {
+				"profiles": [
+
 				]
 			}
 		}
