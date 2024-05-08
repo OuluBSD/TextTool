@@ -52,5 +52,7 @@ file
 	Entry.cpp,
 	Biography.h,
 	Biography.cpp,
+	BiographyAnalysis.h,
+	BiographyAnalysis.cpp,
 	_ readonly separator;
 

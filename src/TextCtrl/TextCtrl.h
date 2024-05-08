@@ -33,6 +33,7 @@
 #include "SocialHeader.h"
 #include "SocialContent.h"
 #include "SocialContentTemplates.h"
+#include "Audience.h"
 
 
 #endif

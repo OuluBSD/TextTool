@@ -12,6 +12,7 @@
 #include "Snapshot.h"
 #include "Entity.h"
 #include "Biography.h"
+#include "BiographyAnalysis.h"
 #include "MetaEntity.h"
 #include "SourceData.h"
 #include "LeadData.h"

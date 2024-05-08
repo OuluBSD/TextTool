@@ -44,6 +44,7 @@ struct Owner
 	String electronic_tools;
 	Array<Profile> profiles;
 	Biography biography_detailed;
+	BiographyAnalysis biography_analysis;
 	
 	/*void Serialize(Stream& s) {
 		
@@ -60,6 +61,7 @@ struct Owner
 			("electronic_tools", electronic_tools)
 			("profiles", profiles)
 			("biography_detailed", biography_detailed)
+			("biography_analysis", biography_analysis)
 			;
 		if (json.IsLoading()) {
 			for (Profile& p : profiles)

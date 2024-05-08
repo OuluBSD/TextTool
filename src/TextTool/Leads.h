@@ -26,6 +26,7 @@ protected:
 	SocialHeaderCtrl			social_header;
 	BiographyCtrl				biography;
 	ImageBiographyCtrl			image_biography;
+	AudienceCtrl				audience;
 	
 	
 public:
