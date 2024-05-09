@@ -61,7 +61,7 @@ END_LAYOUT
 LAYOUT(Audience, 424, 292)
 	ITEM(Upp::LabelBox, lbl_biography, SetLabel(t_("Result")).HSizePosZ(4, 4).VSizePosZ(0, 4))
 	ITEM(Upp::Label, lbl_description, SetLabel(t_("Profile description:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(12, 20))
-	ITEM(Upp::DocEdit, description, HSizePosZ(164, 8).TopPosZ(12, 72))
+	ITEM(Upp::DocEdit, description, SetEditable(false).HSizePosZ(164, 8).TopPosZ(12, 72))
 	ITEM(Upp::Label, dv___3, SetLabel(t_("Output description:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(88, 20))
 	ITEM(Upp::DocEdit, text, HSizePosZ(164, 8).VSizePosZ(88, 148))
 	ITEM(Upp::Label, dv___5, SetLabel(t_("Output keywords:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).BottomPosZ(124, 20))

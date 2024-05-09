@@ -17,14 +17,18 @@ AudienceCtrl::AudienceCtrl() {
 	vsplit.SetPos(3333);
 	
 	bsplit.Horz() << entry << img;
-	bsplit.SetPos(1500,0);
-	bsplit.SetPos(5000,1);
 	
 	CtrlLayout(entry);
 	
 	roles.AddColumn(t_("Role"));
+	Color clr[2] = {Color(255, 216, 246), Color(199, 201, 255)};
+	
 	for(int i = 0; i < SOCIETYROLE_COUNT; i++) {
-		roles.Set(i, 0, GetSocietyRoleKey(i));
+		int sex = i % 2;
+		const Color& c = clr[sex];
+		roles.Set(i, 0, AttrText(GetSocietyRoleKey(i))
+			.NormalPaper(c).NormalInk(Black())
+			.Paper(Blend(c, Black())).Ink(White()));
 	}
 	roles.WhenCursor << THISBACK(DataRole);
 	
@@ -77,7 +81,11 @@ void AudienceCtrl::DataProfile() {
 	Owner& owner = *mp.owner;
 	Biography& biography = mp.owner->biography_detailed;
 	BiographyAnalysis& analysis = mp.owner->biography_analysis;
+	analysis.Realize();
 	const BiographyProfileAnalysis& pa = analysis.profiles[role_i][prof_i];
+	const Array<RoleProfile>& profs = GetRoleProfile(role_i);
+	const RoleProfile& prof = profs[prof_i];
+	entry.description.SetData(prof.profile);
 	
 	for(int i = 0; i < pa.responses.GetCount(); i++) {
 		const BiographyProfileAnalysis::Response& resp = pa.responses[i];
@@ -112,7 +120,9 @@ void AudienceCtrl::DataResponse() {
 	BiographyAnalysis& analysis = mp.owner->biography_analysis;
 	const BiographyProfileAnalysis& pa = analysis.profiles[role_i][prof_i];
 	const BiographyProfileAnalysis::Response& resp = pa.responses[resp_i];
-		
+	const Array<RoleProfile>& profs = GetRoleProfile(role_i);
+	const RoleProfile& prof = profs[prof_i];
+	
 	entry.text.SetData(resp.text);
 	entry.keywords.SetData(resp.keywords);
 	entry.empathy_score.SetData(resp.score[BIOSCORE_EMPATHY]);

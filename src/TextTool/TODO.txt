@@ -42,7 +42,7 @@ v0.0.1
 - lead parser and analyzer (taxi)
 - managerctrl
 - tautology (fun lyrics)
-- lead opportunities: sell construction kits, hiphop beats
+- lead opportunities: sell construction kits, hiphop beats	
 - lyrics generator: logical post-analysis and fixes
 - lyrics generator: repeat/new metrics, analysis, fixes (check that repeats enough)
 
