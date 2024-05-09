@@ -4,7 +4,15 @@
 
 BEGIN_TEXTLIB_NAMESPACE
 
+
+/*	These have made only for male-perspective because of the lack of time.
+	Also, making the profiles for roles is really exhausting manual labor...
+*/
+
+
 #define SOCIETYROLE_LIST \
+	SOCIETYROLE(WIFE) \
+	SOCIETYROLE(BEST_MAN) \
 	SOCIETYROLE(MOTHER) \
 	SOCIETYROLE(FATHER) \
 	SOCIETYROLE(LITTLE_SISTER) \

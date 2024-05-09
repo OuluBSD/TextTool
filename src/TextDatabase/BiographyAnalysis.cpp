@@ -695,6 +695,32 @@ const Array<RoleProfile>& GetRoleProfile(int role_i) {
 				list.Add().Set("The injured soldier", "This male may have been injured in the line of duty and is still adjusting to life with a disability. He may look to his superior for understanding and support in this difficult transition.");
 				break;
 			}
+			case SOCIETYROLE_WIFE: {
+				list.Add().Set("Loving and supportive wife", "This wife is a partner in every sense of the word, providing unwavering love and support for her husband. She may prioritize their relationship and actively work to maintain a strong bond with her husband.");
+				list.Add().Set("Working wife and mother", "This wife balances a successful career and being a mother to her children, while also being an equal and supportive partner to her husband. She may work together with her husband to create a harmonious and functional family dynamic.");
+				list.Add().Set("Best friend and confidant wife", "This wife isn't just a partner, but also a best friend and confidant to her husband. They share a deep connection and often turn to each other for support and advice.");
+				list.Add().Set("Equal partnership wife", "This wife sees her relationship with her husband as a partnership, with both parties having equal say and involvement in decision-making. They may divide responsibilities and actively work together to achieve common goals.");
+				list.Add().Set("Stay-at-home wife and mother", "This wife takes on the role of primary caregiver and homemaker, while her husband focuses on providing for their family financially. She may prioritize creating a nurturing and comfortable home for her family.");
+				list.Add().Set("Independent and assertive wife", "This wife is confident, independent, and assertive in her relationship with her husband. She may challenge him to be the best version of himself and actively work towards her own personal and professional goals.");
+				list.Add().Set("Spiritual and supportive wife", "This wife may prioritize her spiritual beliefs and practices and supports her husband's spiritual growth as well. They may have a strong spiritual connection and prioritize their spiritual bond in their relationship.");
+				list.Add().Set("Team players wife", "This wife and her husband function as a cohesive team, working together towards common goals and being each other's biggest cheerleader. They may support each other's personal growth and encourage each other to chase their dreams.");
+				list.Add().Set("Healthy communication wife", "This wife prioritizes open and honest communication in her relationship with her husband. She may actively listen, express her feelings and opinions, and respects his thoughts and boundaries.");
+				list.Add().Set("All-rounder wife", "This wife is able to balance various roles in her relationship: friend, partner, lover, caregiver, and more. She is able to adapt to different situations and be the support her husband needs in different aspects of their relationship.");
+				break;
+			}
+			case SOCIETYROLE_BEST_MAN: {
+				list.Add().Set("Loyal and supportive best man", "This best man is not only a close friend of the groom, but also a loyal and supportive confidant. He may go above and beyond to help the groom with wedding preparations and offer emotional support.");
+				list.Add().Set("Long-time best friend", "This best man has been friends with the groom for a significant amount of time and has a deep understanding of their friendship. He may bring sentimental memories and inside jokes to their wedding day.");
+				list.Add().Set("Brother as best man", "This best man is the groom's brother, adding a special familial dynamic to their relationship. He may be a constant source of support and guidance for the groom and play a significant role in their childhood memories.");
+				list.Add().Set("Funny and entertaining best man", "This best man has a great sense of humor and knows how to lighten the mood. He may be responsible for bringing laughs and smiles at the wedding, making everyone feel at ease.");
+				list.Add().Set("Responsible and organized best man", "This best man takes his role seriously and ensures that everything runs smoothly on the wedding day. He may be the go-to person for any issues and is always prepared to handle unexpected situations.");
+				list.Add().Set("Emotional and sentimental best man", "This best man may have a more sentimental and emotional bond with the groom, and may express his love and appreciation for their friendship in a heartfelt speech.");
+				list.Add().Set("Adventurous and spontaneous best man", "This best man brings an element of fun and adventure to the wedding celebrations. He may plan special surprises or activities for the groom, creating unforgettable memories.");
+				list.Add().Set("Knowledgeable and experienced best man", "This best man may have been married before or has a lot of experience attending weddings, and is able to offer valuable advice and support to the groom throughout the wedding planning process.");
+				list.Add().Set("Energetic and enthusiastic best man", "This best man brings a contagious energy and enthusiasm to the wedding celebrations. He may be the life of the party and ensure that everyone is having a good time.");
+				list.Add().Set("Best man who knows how to keep secrets", "This best man is a trustworthy and reliable friend who knows how to keep the groom's secrets safe. He may be the one the groom turns to for confidential advice and support.");
+				break;
+			}
 			default: TODO
 		}
 	}
