@@ -20,6 +20,8 @@ file
 	Biography.cpp,
 	ImageBiography.h,
 	ImageBiography.cpp,
+	BiographySummary.h,
+	BiographySummary.cpp,
 	Audience.h,
 	Audience.cpp,
 	SocialHeader.h,

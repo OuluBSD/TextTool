@@ -118,19 +118,42 @@ struct BioYear {
 			("images", images)
 			;
 	}
+	bool operator()(const BioYear& a, const BioYear& b) const {return a.year < b.year;}
 };
 
 struct BiographyCategory {
+	struct Range : Moveable<Range> {
+		int off = 0, len = 0;
+		Range() {}
+		Range(Range&& r) {*this = r;}
+		Range(const Range& r) {*this = r;}
+		void operator=(const Range& r) {off = r.off; len = r.len;}
+		hash_t GetHashValue() const {CombineHash c; c.Do(off).Do(len); return c;}
+		bool operator==(const Range& r) const {return r.off == off && r.len == len;}
+		void Jsonize(JsonIO& json) {json("off", off)("len", len);}
+		bool operator()(const Range& a, const Range& b) const {
+			int a0 = a.off + a.len - 1; // last year in range
+			int b0 = b.off + b.len - 1;
+			if (a0 != b0) return a0 < b0; // sort primarily by lesser last year
+			return a.len < b.len; // otherwise sort by lesse range length
+		}
+	};
+	
 	Array<BioYear> years;
+	ArrayMap<Range,BioYear> summaries;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("years", years)
+			("summaries", summaries)
 			;
 	}
 	BioYear& GetAdd(int year);
 	int GetFilledCount() const;
 	int GetFilledImagesCount() const;
+	void RealizeSummaries();
+	BioYear& GetAddSummary(int begin_year, int years);
+	
 };
 
 struct Biography {

@@ -208,10 +208,12 @@ struct SongHeaderArgs {
 struct SocialArgs {
 	int fn = 0;
 	String text;
+	VectorMap<String,String> parts;
 	
 	void Jsonize(JsonIO& json) {
 		json	("text", text)
 				("fn", fn)
+				("parts", parts)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

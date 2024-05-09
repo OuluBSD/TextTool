@@ -18,6 +18,8 @@ file
 	ScriptSolver.cpp,
 	LeadSolver.h,
 	LeadSolver.cpp,
+	SocialSolver.h,
+	SocialSolver.cpp,
 	DemandSolver.h,
 	DemandSolver.cpp,
 	CollabSolver.h,

@@ -23,6 +23,36 @@ String KeyToName(String s) {
 	return o;
 }
 
+void BiographyCategory::RealizeSummaries() {
+	if (years.IsEmpty()) return;
+	int begin_year = years[0].year;
+	int last_year = years.Top().year;
+	
+	for(int i = 1; i <= 5; i++) {
+		int len = 1 << i;
+		for(int j = 0; j < years.GetCount(); j += len) {
+			int range_last_year = years[j].year + len - 1;
+			// When exceeding last year, allow only lowest range
+			if (i > 1 && range_last_year > last_year)
+				continue;
+			BioYear& by = GetAddSummary(years[j].year, len);
+		}
+	}
+	SortByKey(summaries, Range());
+}
+
+BioYear& BiographyCategory::GetAddSummary(int begin_year, int years) {
+	Range r;
+	r.off = begin_year;
+	r.len = years;
+	int i = summaries.Find(r);
+	if (i >= 0)
+		return summaries[i];
+	BioYear& by = summaries.Add(r);
+	by.year = begin_year + years - 1;
+	return by;
+}
+
 int BiographyCategory::GetFilledCount() const {
 	int c = 0;
 	for (const BioYear& by : years)

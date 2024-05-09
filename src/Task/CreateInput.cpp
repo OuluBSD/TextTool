@@ -2322,6 +2322,54 @@ void AiTask::CreateInput_Social() {
 			results.Add("");
 		}
 	}
+	else if (args.fn == 1) {
+		{
+			input.AddSub().Title("Merging " + IntStr(args.parts.GetCount()) + " parts").NoColon();
+		}
+		for(int i = 0; i < args.parts.GetCount(); i++) {
+			String title = args.parts.GetKey(i);
+			String s = args.parts[i];
+			auto& list = input.AddSub();
+			list.Title("Part " + IntStr(i+1) + ": " + title);
+			list.NoListChar();
+			list.Add(s);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Merge all " + IntStr(args.parts.GetCount()) + " parts and shorten slightly (to half of the total length or larger)");
+			results.NoListChar();
+			results.Add("");
+		}
+	}
+	else if (args.fn == 2) {
+		{
+			input.AddSub().Title("Task: Picking top categories for a profile").NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Sub-categories of biography of a person");
+			for(int i = 0; i < BIOCATEGORY_COUNT; i++) {
+				String bcat = "Category " + IntStr(i) + ": " + GetBiographyCategoryKey(i);
+				list.Add(bcat);
+			}
+		}
+		{
+			input.AddSub().Title("Description of the societal role of the profile: " + args.text).NoColon();
+		}
+		{
+			String name = args.parts.GetKey(0);
+			String profile = args.parts[0];
+			auto& list = input.AddSub();
+			list.Title("The profile: \"" + name + "\"");
+			list.Add(profile);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List top 10 categories, which are the interest of given profile. The most interesting is first");
+			results.NumberedLines();
+			results.Add("Category");
+		}
+	}
 }
 
 

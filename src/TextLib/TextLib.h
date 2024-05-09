@@ -9,6 +9,7 @@
 #include "DemandSolver.h"
 #include "LeadSolver.h"
 #include "CollabSolver.h"
+#include "SocialSolver.h"
 
 
 #endif

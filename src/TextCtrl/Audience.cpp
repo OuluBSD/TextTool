@@ -166,6 +166,7 @@ void AudienceCtrl::OnKeywords(int fn, String s) {
 }
 */
 void AudienceCtrl::ToolMenu(Bar& bar) {
+	ToolAppCtrl::ToolMenu(bar);
 	/*
 	bar.Add(t_("Translate"), AppImg::BlueRing(), THISBACK(Translate)).Key(K_F5);
 	bar.Add(t_("Make keywords"), AppImg::BlueRing(), THISBACK1(MakeKeywords, 0)).Key(K_F6);

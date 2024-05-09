@@ -5,7 +5,7 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-/*	These have made only for male-perspective because of the lack of time.
+/*	These have been made only for male-perspective because of the lack of time.
 	Also, making the profiles for roles is really exhausting manual labor...
 */
 
@@ -80,6 +80,7 @@ enum {
 
 String GetSocietyRoleEnum(int i);
 String GetSocietyRoleKey(int i);
+String GetSocietyRoleDescription(int i);
 
 
 struct RoleProfile {

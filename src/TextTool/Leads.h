@@ -27,6 +27,7 @@ protected:
 	BiographyCtrl				biography;
 	ImageBiographyCtrl			image_biography;
 	AudienceCtrl				audience;
+	BiographySummaryCtrl		biography_summary;
 	
 	
 public:

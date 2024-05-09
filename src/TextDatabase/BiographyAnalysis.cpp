@@ -15,6 +15,66 @@ String GetSocietyRoleEnum(int i) {
 
 String GetSocietyRoleKey(int i) {return KeyToName(GetSocietyRoleEnum(i));}
 
+String GetSocietyRoleDescription(int role_i) {
+	switch (role_i) {
+		case SOCIETYROLE_MOTHER: return "biological mother figures for a boy with special focus on mother-son relationship";
+		case SOCIETYROLE_FATHER: return "biological father figures for a boy with special focus on boy-father relationship";
+		case SOCIETYROLE_LITTLE_SISTER: return "biological little sister figures for a boy with special focus on sister-brother relationship";
+		case SOCIETYROLE_BIG_SISTER: return "biological big sister figures for a boy with special focus on sister-brother relationship";
+		case SOCIETYROLE_LITTLE_BROTHER: return "biological little brother figures for a big brother with special focus on brother-brother relationship";
+		case SOCIETYROLE_BIG_BROTHER: return "biological big brother figures for a boy with special focus on brother-brother relationship";
+		case SOCIETYROLE_PATERNAL_GRANDMOTHER: return "biological paternal grandmother figures for a boy with special focus on grandmother-grandson relationship";
+		case SOCIETYROLE_PATERNAL_GRANDFATHER: return "biological paternal grandfather figures for a boy with special focus on grandfather-grandson relationship";
+		case SOCIETYROLE_MATERNAL_GRANDMOTHER: return "biological maternal grandmother figures for a boy with special focus on grandmother-grandson relationship";
+		case SOCIETYROLE_MATERNAL_GRANDFATHER: return "biological maternal grandfather figures for a boy with special focus on grandfather-grandson relationship";
+		case SOCIETYROLE_MATERNAL_UNCLE: return "biological maternal uncle figures for a boy with special focus on uncle-nephew relationship";
+		case SOCIETYROLE_PATERNAL_UNCLE: return "biological paternal uncle figures for a boy with special focus on uncle-nephew relationship";
+		case SOCIETYROLE_MATERNAL_AUNT: return "biological maternal aunt figures for a boy with special focus on aunt- nephew relationship";
+		case SOCIETYROLE_PATERNAL_AUNT: return "biological paternal aunt figures for a boy with special focus on aunt- nephew relationship";
+		case SOCIETYROLE_MATERNAL_FEMALE_COUSIN: return "biological maternal female cousin figures for a male";
+		case SOCIETYROLE_MATERNAL_MALE_COUSIN: return "biological maternal male cousin figures for a male";
+		case SOCIETYROLE_PATERNAL_FEMALE_COUSIN: return "biological paternal female cousin figures for a male";
+		case SOCIETYROLE_PATERNAL_MALE_COUSIN: return "biological paternal male cousin figures for a male";
+		case SOCIETYROLE_FEMALE_IN_INTERNET_SHALLOW_IMAGE_SITE: return "females in shallow image websites (e.g. Instagram) for a young male adult with special focus on impact on self-esteem";
+		case SOCIETYROLE_MALE_IN_INTERNET_SHALLOW_IMAGE_SITE: return "males in shallow image websites (e.g. Instagram) for a young male adult with special focus on impact on body image and self-esteem";
+		case SOCIETYROLE_FEMALE_IN_INTERNET_SHALLOW_REEL_VIDEO_SITE: return "females in shallow reel video websites (e.g. TikTok, snapchat) for a young male adult with special focus on impact on personal development";
+		case SOCIETYROLE_MALE_IN_INTERNET_SHALLOW_REEL_VIDEO_SITE: return "males in shallow reel video websites (e.g. TikTok, snapchat) for a young male adult with special focus on impact on self-esteem and self-image";
+		case SOCIETYROLE_FEMALE_IN_INTERNET_SHALLOW_PUBLIC_MESSAGE_SITE: return "females in shallow public message websites (e.g. Twitter, X, Gettr, Mastodon, Truth social, Meta's Threads) for a young male adult with special focus on impact on mental health";
+		case SOCIETYROLE_MALE_IN_INTERNET_SHALLOW_PUBLIC_MESSAGE_SITE: return "males in shallow public message websites (e.g. Twitter, X, Gettr, Mastodon, Truth social, Meta's Threads) for a young male adult with special focus on impact on personal growth and mental health";
+		case SOCIETYROLE_FEMALE_IN_INTERNET_SHALLOW_VIDEO_STREAMING_SITE: return "females in shallow live video streaming websites (e.g. Twitch, kick.com, YouTube Gaming, YouTube) for a young male adult with special focus on impact on mental health";
+		case SOCIETYROLE_MALE_IN_INTERNET_SHALLOW_VIDEO_STREAMING_SITE: return "males in shallow live video streaming websites (e.g. Twitch, kick.com, YouTube Gaming, YouTube) for a young male adult with special focus on impact on male identity";
+		case SOCIETYROLE_FEMALE_IN_INTERNET_MODERATE_FULL_PROFILE_SITE: return "females in moderate full profile websites (e.g. Facebook, VK) for a young straight male adult with special focus on impact on romantic relationships";
+		case SOCIETYROLE_MALE_IN_INTERNET_MODERATE_FULL_PROFILE_SITE: return "males in moderate full profile websites (e.g. Facebook, VK) for a young straight male adult with special focus on impact on their social life";
+		case SOCIETYROLE_FEMALE_IN_INTERNET_MODERATE_VIDEO_SITE: return "female commentators in moderate social persistent and non-streaming video websites (e.g. YouTube, Vimeo) for a young straight male adult with special focus on impact on self-image and self-esteem";
+		case SOCIETYROLE_MALE_IN_INTERNET_MODERATE_VIDEO_SITE: return "male commentators in moderate social persistent and non-streaming video websites (e.g. YouTube, Vimeo) for a young straight male adult with special focus on impact on self-perception and behavior";
+		case SOCIETYROLE_FEMALE_IN_INTERNET_PROFSSIONAL_INDUSTRY_SITE: return "females in professional full profile websites (e.g. LinkedIn) from the perspective of a young straight male adult with special focus on mentorship and networking";
+		case SOCIETYROLE_MALE_IN_INTERNET_PROFSSIONAL_INDUSTRY_SITE: return "males in professional full profile websites (e.g. LinkedIn) from the perspective of a young straight male adult with special focus on representation of masculinity";
+		case SOCIETYROLE_FEMALE_IN_INTERNET_SOCIAL_MUSIC_SITE: return "females in social music websites (e.g. Soundcloud) from the perspective of a young male adult singer with special focus on collaboration and networking";
+		case SOCIETYROLE_MALE_IN_INTERNET_SOCIAL_MUSIC_SITE: return "males in social music websites (e.g. Soundcloud) from the perspective of a young male adult singer with special focus on male-female relationship";
+		case SOCIETYROLE_FEMALE_IN_INTERNET_SOCIAL_PROGRAMMING_SITE: return "females in social programming websites (e.g. Github, Sourceforge) from the perspective of a young male with special focus on mentorship and collaboration";
+		case SOCIETYROLE_MALE_IN_INTERNET_SOCIAL_PROGRAMMING_SITE: return "males in social programming websites (e.g. Github, Sourceforge) from the perspective of a young male with special focus on mentorship and skill development";
+		case SOCIETYROLE_FEMALE_IN_INTERNET_FORUM_MUSIC: return "females in music forum websites (e.g. soundonsound.com, forums.songstuff.com, reddit.com) from the perspective of a young male music artist with special focus on possible mentor figures";
+		case SOCIETYROLE_MALE_IN_INTERNET_FORUM_MUSIC: return "males in music forum websites (e.g. soundonsound.com, forums.songstuff.com, reddit.com) from the perspective of a young male music artist with special focus on male-male relationships";
+		case SOCIETYROLE_FEMALE_IN_INTERNET_FORUM_PROGRAMMING: return "females in computer programming forum websites (e.g. stackoverflow.com, reddit.com) from the perspective of a straight male senior c++ programmer with special focus on the role of women in the field";
+		case SOCIETYROLE_MALE_IN_INTERNET_FORUM_PROGRAMMING: return "males in computer programming forum websites (e.g. stackoverflow.com, reddit.com) from the perspective of a straight male senior c++ programmer with special focus on career advancement and professional growth";
+		case SOCIETYROLE_FEMALE_IN_INTERNET_WEBSITE_READER: return "females in Internet reading the personal website from the perspective of a straight male (a music artist and a senior c++ programmer) with special focus on their potential relationship";
+		case SOCIETYROLE_MALE_IN_INTERNET_WEBSITE_READER: return "males in Internet reading the personal website from the perspective of a straight male (a music artist and a senior c++ programmer) with special focus on representation of masculinity";
+		case SOCIETYROLE_FEMALE_IN_INTERNET_MUSIC_COOPERATION_SITE: return "females in music collaboration website (e.g. bandmix.com) from the perspective of a male music artist (singer, guitar player, producer, composer, lyricist) with special focus on collaboration";
+		case SOCIETYROLE_MALE_IN_INTERNET_MUSIC_COOPERATION_SITE: return "males in music collaboration website (e.g. bandmix.com) from the perspective of a male music artist (singer, guitar player, producer, composer, lyricist) with special focus on collaboration and creative partnerships";
+		case SOCIETYROLE_FEMALE_IN_INTERNET_PROGRAMMING_COOPERATION_SITE: return "females in c++ project collaboration website (e.g. GitHub) from the perspective of a male senior c++ programmer with special focus on working relationship";
+		case SOCIETYROLE_MALE_IN_INTERNET_PROGRAMMING_COOPERATION_SITE: return "males in c++ project collaboration website (e.g. GitHub) from the perspective of a male senior c++ programmer with special focus on working relationship";
+		case SOCIETYROLE_FEMALE_PEER_IN_MILITARY_SERVICE: return "same rank peers (not superior nor inferior) females in military service from the perspective of a straight male with special focus on potential romantic relationships";
+		case SOCIETYROLE_MALE_PEER_IN_MILITARY_SERVICE: return "same rank peers (not superior nor inferior) males in military service from the perspective of a straight male with special focus on respect and camaraderie";
+		case SOCIETYROLE_FEMALE_SUPERIOR_IN_MILITARY_SERVICE: return "superior rank females in military service from the perspective of a straight male with special focus on mentorship and leadership";
+		case SOCIETYROLE_MALE_SUPERIOR_IN_MILITARY_SERVICE: return "superior rank males in military service from the perspective of a straight male with special focus on mentorship and camaraderie";
+		case SOCIETYROLE_FEMALE_INFERIOR_IN_MILITARY_SERVICE: return "inferior rank females in military service from the perspective of a straight male with special focus on the female-male dynamic";
+		case SOCIETYROLE_MALE_INFERIOR_IN_MILITARY_SERVICE: return "inferior rank males in military service from the perspective of a superior straight male with special focus on relationships";
+		case SOCIETYROLE_WIFE: return "wife figures for a straight male with special focus on wife-husband relationship";
+		case SOCIETYROLE_BEST_MAN: return "best man for a straight male with special focus on best man-groom relationship";
+		default: TODO
+	}
+	return "";
+}
 
 const Array<RoleProfile>& GetRoleProfile(int role_i) {
 	static Array<RoleProfile> v[SOCIETYROLE_COUNT];
