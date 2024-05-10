@@ -80,14 +80,57 @@ LeadWebsites::LeadWebsites() {
 	song_typecasts.AddColumn(t_("Typecast"));
 	song_typecasts.AddColumn(t_("Content"));
 	song_typecasts.ColumnWidths("1 3 3");
+	song_typecasts.WhenBar << [this](Bar& bar) {
+		bar.Add(t_("Copy Typecast"), [this]() {
+			if (!this->song_typecasts.IsCursor()) return;
+			String txt = this->song_typecasts.Get(1);
+			WriteClipboardText(txt);
+		});
+		bar.Add(t_("Copy Content"), [this]() {
+			if (!this->song_typecasts.IsCursor()) return;
+			String txt = this->song_typecasts.Get(2);
+			WriteClipboardText(txt);
+		});
+		bar.Add(t_("Copy All"), [this]() {
+			if (!this->song_typecasts.IsCursor()) return;
+			String txt0 = this->song_typecasts.Get(1);
+			String txt1 = this->song_typecasts.Get(2);
+			WriteClipboardText(txt0 + "\n" + txt1);
+		});
+		bar.Separator();
+		bar.Add(t_("Copy All Bottom list cursor values"), [this]() {
+			if (!this->song_typecasts.IsCursor()) return;
+			if (!this->lyrics_ideas.IsCursor()) return;
+			if (!this->music_styles.IsCursor()) return;
+			String txt0 = this->song_typecasts.Get(1);
+			String txt1 = this->song_typecasts.Get(2);
+			String txt2 = this->lyrics_ideas.Get(1);
+			String txt3 = this->music_styles.Get(1);
+			WriteClipboardText(txt0 + "\n" + txt1 + "\n" + txt2 + "\n" + txt3);
+		});
+	};
 	
 	lyrics_ideas.AddColumn(t_("#"));
 	lyrics_ideas.AddColumn(t_("Lyrics idea"));
 	lyrics_ideas.ColumnWidths("1 10");
+	lyrics_ideas.WhenBar << [this](Bar& bar) {
+		bar.Add(t_("Copy text"), [this]() {
+			if (!this->lyrics_ideas.IsCursor()) return;
+			String txt = this->lyrics_ideas.Get(1);
+			WriteClipboardText(txt);
+		});
+	};
 	
 	music_styles.AddColumn(t_("#"));
 	music_styles.AddColumn(t_("Music style"));
 	music_styles.ColumnWidths("1 10");
+	music_styles.WhenBar << [this](Bar& bar) {
+		bar.Add(t_("Copy text"), [this]() {
+			if (!this->music_styles.IsCursor()) return;
+			String txt = this->music_styles.Get(1);
+			WriteClipboardText(txt);
+		});
+	};
 }
 
 void LeadWebsites::Data() {
