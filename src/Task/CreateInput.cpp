@@ -2343,29 +2343,29 @@ void AiTask::CreateInput_Social() {
 	}
 	else if (args.fn == 2) {
 		{
-			input.AddSub().Title("Task: Picking top categories for a profile").NoColon();
+			input.AddSub().Title("Task: We have two persons. Person #1: a straight male and a specified relative for the person #2. Person #2: will be described. Person #2 is interested in Person #1, and we choose the categories related to Person #1 that Person #2 is most interested in.").NoColon();
 		}
 		{
 			auto& list = input.AddSub();
-			list.Title("Sub-categories of biography of a person");
+			list.Title("Sub-categories of biography of the person #1");
 			for(int i = 0; i < BIOCATEGORY_COUNT; i++) {
 				String bcat = "Category " + IntStr(i) + ": " + GetBiographyCategoryKey(i);
 				list.Add(bcat);
 			}
 		}
 		{
-			input.AddSub().Title("Description of the societal role of the profile: " + args.text).NoColon();
+			input.AddSub().Title("Description of the societal role of the profile of the person #2: " + args.text).NoColon();
 		}
 		{
 			String name = args.parts.GetKey(0);
 			String profile = args.parts[0];
 			auto& list = input.AddSub();
-			list.Title("The profile: \"" + name + "\"");
+			list.Title("The profile of the person #2: \"" + name + "\"");
 			list.Add(profile);
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("List top 10 categories, which are the interest of given profile. The most interesting is first");
+			results.Title("List the 10 categories that person #2 is most interested in person #1. The most interesting category is the first");
 			results.NumberedLines();
 			results.Add("Category");
 		}

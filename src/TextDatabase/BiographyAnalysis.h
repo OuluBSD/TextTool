@@ -126,19 +126,19 @@ struct BiographyProfileAnalysis {
 	};
 	
 	Vector<Response> responses;
-	
+	VectorMap<int, String> categories;
 	
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("responses", responses)
+			("categories", categories)
 			;
 	}
 };
 
 struct BiographyAnalysis {
 	Array<Array<BiographyProfileAnalysis>> profiles;
-	
 	
 	void Realize();
 	void Jsonize(JsonIO& json) {

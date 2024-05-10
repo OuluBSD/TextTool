@@ -85,6 +85,13 @@ void AudienceCtrl::DataProfile() {
 	const BiographyProfileAnalysis& pa = analysis.profiles[role_i][prof_i];
 	const Array<RoleProfile>& profs = GetRoleProfile(role_i);
 	const RoleProfile& prof = profs[prof_i];
+	
+	String cat_str;
+	for(int i = 0; i < pa.categories.GetCount(); i++) {
+		int cat_i = pa.categories.GetKey(i);
+		cat_str += IntStr(i+1) + ". " + GetBiographyCategoryKey(cat_i) + ": " + pa.categories[i] + "\n";
+	}
+	entry.categories.SetData(cat_str);
 	entry.description.SetData(prof.profile);
 	
 	for(int i = 0; i < pa.responses.GetCount(); i++) {
@@ -129,6 +136,7 @@ void AudienceCtrl::DataResponse() {
 	entry.attraction_score.SetData(resp.score[BIOSCORE_ATTRACTION]);
 	entry.value_score.SetData(resp.score[BIOSCORE_VALUE]);
 	entry.leadership_score.SetData(resp.score[BIOSCORE_LEADERSHIP]);
+	
 }
 /*
 void AudienceCtrl::MakeKeywords(int fn) {
