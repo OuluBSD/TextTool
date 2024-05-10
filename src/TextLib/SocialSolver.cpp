@@ -63,6 +63,12 @@ void SocialSolver::Process() {
 		else if (phase == SS_AUDIENCE_REACTS_SUMMARY) {
 			ProcessAudienceReactsSummary();
 		}
+		else if (phase == SS_PACK_ROLE_REACTIONS) {
+			ProcessRoleReactions();
+		}
+		else if (phase == SS_PLATFORM_DESCRIPTIONS) {
+			ProcessPlatformDescriptions();
+		}
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
 			phase = SS_BEGIN;
@@ -310,12 +316,17 @@ void SocialSolver::ProcessAudienceReactsSummary() {
 		return;
 	}
 	
+	BiographyProfileAnalysis& pa = *ptrs[batch];
+	const RoleProfile& rp = *prof_ptrs[batch];
+	if (skip_ready && pa.biography_reaction.GetCount()) {
+		NextBatch();
+		return;
+	}
+	
 	SocialArgs args;
 	args.fn = 3;
 	args.text = role_descs[batch];
 	
-	BiographyProfileAnalysis& pa = *ptrs[batch];
-	const RoleProfile& rp = *prof_ptrs[batch];
 	args.parts.Add(rp.name, rp.profile);
 	
 	int cat_count = min(pa.categories.GetCount(), 10);
@@ -366,10 +377,55 @@ void SocialSolver::ProcessAudienceReactsSummary() {
 void SocialSolver::OnProcessAudienceReactsSummary(String res) {
 	BiographyProfileAnalysis& pa = *ptrs[batch];
 	
+	pa.biography_reaction = TrimBoth(res);
 	
 	NextBatch();
 	SetWaiting(0);
 }
 
+void SocialSolver::ProcessRoleReactions() {
+	
+}
+
+void SocialSolver::OnProcessRoleReactions(String res) {
+	
+}
+
+void SocialSolver::ProcessPlatformDescriptions() {
+	BiographyAnalysis& analysis = owner->biography_analysis;
+	
+	if (batch >= PLATFORM_COUNT) {
+		NextPhase();
+		return;
+	}
+	
+	NextPhase(); return;
+	
+	const Platform& plat = GetPlatforms()[batch];
+	ASSERT(plat.roles.GetCount());
+	
+	SocialArgs args;
+	args.fn = 4;
+	
+	for(int i = 0; i < plat.roles.GetCount(); i++) {
+		int role_i = plat.roles[i];
+		const auto& profs = GetRoleProfile(role_i);
+		const auto& prof_anals = analysis.profiles[role_i];
+		
+		
+	}
+	
+	SetWaiting(1);
+	TaskMgr& m = TaskMgr::Single();
+	m.GetSocial(args, THISBACK(OnProcessPlatformDescriptions));
+}
+
+void SocialSolver::OnProcessPlatformDescriptions(String res) {
+	
+	
+	
+	NextBatch();
+	SetWaiting(0);
+}
 
 END_TEXTLIB_NAMESPACE

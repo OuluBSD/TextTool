@@ -37,7 +37,6 @@ enum {
 	PLATFORM_COUNT
 };
 
-const Vector<int>& GetPlatformSocietalRoles(int platform_enum);
 
 
 struct Platform : Moveable<Platform> {

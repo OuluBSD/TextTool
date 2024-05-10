@@ -12,7 +12,8 @@ class SocialSolver {
 		SS_AUDIENCE_PROFILE_CATEGORIES,
 		SS_SUMMARIZE,
 		SS_AUDIENCE_REACTS_SUMMARY,
-		SS_PLATFORM_AUDIENCE_TYPE,
+		SS_PACK_ROLE_REACTIONS,
+		SS_PLATFORM_DESCRIPTIONS,
 		
 		SS_COUNT
 	};
@@ -33,9 +34,13 @@ class SocialSolver {
 	void ProcessAudienceProfileCategories();
 	void ProcessSummarize();
 	void ProcessAudienceReactsSummary();
+	void ProcessRoleReactions();
+	void ProcessPlatformDescriptions();
 	void OnProcessAudienceProfileCategories(String res);
 	void OnProcessSummarize(String res);
 	void OnProcessAudienceReactsSummary(String res);
+	void OnProcessRoleReactions(String res);
+	void OnProcessPlatformDescriptions(String res);
 	
 	void PostProgress() {WhenProgress(phase, SS_COUNT);}
 	void SetNotRunning() {running = false;}

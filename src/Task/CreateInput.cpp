@@ -2396,6 +2396,11 @@ void AiTask::CreateInput_Social() {
 			results.Title("The reaction and important picks of person #2 when they read the biography summary of the person #1. The reaction is from the actual perspective of the person. Don't use 'person #1' nor 'person #2' in the reaction");
 		}
 	}
+	else if (args.fn == 4) {
+		
+		
+		
+	}
 }
 
 
