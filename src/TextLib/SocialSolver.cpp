@@ -60,6 +60,9 @@ void SocialSolver::Process() {
 		else if (phase == SS_SUMMARIZE) {
 			ProcessSummarize();
 		}
+		else if (phase == SS_AUDIENCE_REACTS_SUMMARY) {
+			ProcessAudienceReactsSummary();
+		}
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
 			phase = SS_BEGIN;
@@ -95,7 +98,7 @@ void SocialSolver::ProcessAudienceProfileCategories() {
 	analysis.Realize();
 	const BiographyProfileAnalysis& pa = analysis.profiles[role_i][prof_i];
 	
-	if (pa.categories.GetCount() >= 10) {
+	if (skip_ready && pa.categories.GetCount() >= 10) {
 		NextSubBatch();
 		return;
 	}
@@ -202,6 +205,11 @@ void SocialSolver::ProcessSummarize() {
 	const BiographyCategory::Range& range = bcat.summaries.GetKey(sub_batch);
 	BioYear& sum = bcat.summaries[sub_batch];
 	
+	if (skip_ready && sum.text.GetCount()) {
+		NextSubBatch();
+		return;
+	}
+	
 	SocialArgs args;
 	args.fn = 1;
 	
@@ -273,6 +281,93 @@ void SocialSolver::OnProcessSummarize(String res) {
 	
 	
 	NextSubBatch();
+	SetWaiting(0);
+}
+
+void SocialSolver::ProcessAudienceReactsSummary() {
+	Biography& biography = owner->biography_detailed;
+	
+	if (batch == 0 && sub_batch == 0) {
+		BiographyAnalysis& analysis = owner->biography_analysis;
+		analysis.Realize();
+		ptrs.Clear();
+		role_descs.Clear();
+		prof_ptrs.Clear();
+		for(int i = 0; i < analysis.profiles.GetCount(); i++) {
+			const auto& profs = GetRoleProfile(i);
+			auto& profiles = analysis.profiles[i];
+			int c = min(profiles.GetCount(), profs.GetCount());
+			for(int j = 0; j < c; j++) {
+				ptrs << &profiles[j];
+				prof_ptrs << &profs[j];
+				role_descs << GetSocietyRoleDescription(i);
+			}
+		}
+	}
+	
+	if (batch >= ptrs.GetCount()) {
+		NextPhase();
+		return;
+	}
+	
+	SocialArgs args;
+	args.fn = 3;
+	args.text = role_descs[batch];
+	
+	BiographyProfileAnalysis& pa = *ptrs[batch];
+	const RoleProfile& rp = *prof_ptrs[batch];
+	args.parts.Add(rp.name, rp.profile);
+	
+	int cat_count = min(pa.categories.GetCount(), 10);
+	int total_length = 0;
+	for(int i = 0; i < cat_count; i++) {
+		int priority;
+		switch (i) {
+			case 0:
+				priority = 2; break;
+			case 1:
+			case 2:
+			case 3:
+			case 4:
+				priority = 1; break;
+			default:
+				priority = 0; break;
+		}
+		int bcat_i = pa.categories.GetKey(i);
+		BiographyCategory& bcat = biography.GetAdd(*owner, bcat_i);
+		
+		int top_len = 0;
+		for(int j = 0; j < bcat.summaries.GetCount(); j++)
+			top_len = max(top_len, bcat.summaries.GetKey(j).len);
+		
+		int tgt_len = max(2, top_len >> priority);
+		for(int j = 0; j < bcat.summaries.GetCount(); j++) {
+			const auto& key = bcat.summaries.GetKey(j);
+			if (key.len == tgt_len) {
+				BioYear& by = bcat.summaries[j];
+				if (by.text.GetCount()) {
+					String title =
+						GetBiographyCategoryKey(bcat_i) + ", years " +
+						IntStr(key.off) + "-" + IntStr(key.off+key.len-1);
+					args.parts.Add(title, by.text + "\n");
+					total_length += title.GetCount() + by.text.GetCount() + 2;
+					if (total_length >= 10000) break; // limit length because GPT prompt limits
+				}
+			}
+		}
+		if (total_length >= 10000) break; // limit length because GPT prompt limits
+	}
+	
+	SetWaiting(1);
+	TaskMgr& m = TaskMgr::Single();
+	m.GetSocial(args, THISBACK(OnProcessAudienceReactsSummary));
+}
+
+void SocialSolver::OnProcessAudienceReactsSummary(String res) {
+	BiographyProfileAnalysis& pa = *ptrs[batch];
+	
+	
+	NextBatch();
 	SetWaiting(0);
 }
 

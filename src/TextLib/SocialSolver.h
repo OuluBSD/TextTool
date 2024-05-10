@@ -11,6 +11,8 @@ class SocialSolver {
 		
 		SS_AUDIENCE_PROFILE_CATEGORIES,
 		SS_SUMMARIZE,
+		SS_AUDIENCE_REACTS_SUMMARY,
+		SS_PLATFORM_AUDIENCE_TYPE,
 		
 		SS_COUNT
 	};
@@ -23,11 +25,17 @@ class SocialSolver {
 	bool running = false, stopped = true;
 	bool skip_ready = true;
 	
+	Vector<BiographyProfileAnalysis*> ptrs;
+	Vector<const RoleProfile*> prof_ptrs;
+	Vector<String> role_descs;
+	
 	void Process();
 	void ProcessAudienceProfileCategories();
 	void ProcessSummarize();
+	void ProcessAudienceReactsSummary();
 	void OnProcessAudienceProfileCategories(String res);
 	void OnProcessSummarize(String res);
+	void OnProcessAudienceReactsSummary(String res);
 	
 	void PostProgress() {WhenProgress(phase, SS_COUNT);}
 	void SetNotRunning() {running = false;}

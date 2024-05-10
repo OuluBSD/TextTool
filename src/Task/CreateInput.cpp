@@ -2370,6 +2370,32 @@ void AiTask::CreateInput_Social() {
 			results.Add("Category");
 		}
 	}
+	else if (args.fn == 3) {
+		{
+			input.AddSub().Title("Task: write the reaction of the person #2 for the biography summary of person #1. Person #1 is in a a specified relation for the person #2. Person #2 will be described. Person #1 describes himself with pronouns he/him and name Steve").NoColon();
+		}
+		{
+			input.AddSub().Title("Description of the societal role of the profile of the person #2: " + args.text).NoColon();
+		}
+		{
+			String name = args.parts.GetKey(0);
+			String profile = args.parts[0];
+			auto& list = input.AddSub();
+			list.Title("The profile of the person #2: \"" + name + "\"");
+			list.Add(profile);
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("The biography summaries of the person #1");
+			for(int i = 1; i < args.parts.GetCount(); i++) {
+				list.Add(args.parts.GetKey(i), args.parts[i]);
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("The reaction and important picks of person #2 when they read the biography summary of the person #1. The reaction is from the actual perspective of the person. Don't use 'person #1' nor 'person #2' in the reaction");
+		}
+	}
 }
 
 

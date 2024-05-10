@@ -32,9 +32,13 @@ enum {
 	PLATFORM_BANDMIX,
 	PLATFORM_BANDCAMP,
 	PLATFORM_REMOTEMORE,
+	PLATFORM_KUVAKENET,
 	
 	PLATFORM_COUNT
 };
+
+const Vector<int>& GetPlatformSocietalRoles(int platform_enum);
+
 
 struct Platform : Moveable<Platform> {
 	String name;
@@ -51,9 +55,9 @@ struct Platform : Moveable<Platform> {
 	bool has_comment_self_promotion_hack = false;
 	
 	
+	Vector<int> roles;
 	
-	
-	
+	void AddRole(int i) {ASSERT(i >= 0 && i < PLATFORM_COUNT); roles << i;}
 };
 
 const Vector<Platform>& GetPlatforms();
