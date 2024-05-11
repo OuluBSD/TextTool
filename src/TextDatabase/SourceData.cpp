@@ -492,7 +492,7 @@ String ScriptSuggestions::GetText() const {
 		String part = lines.GetKey(j);
 		const auto& v = lines[j];
 		if (part.IsEmpty() || v.IsEmpty()) continue;
-		content << part << ":\n";
+		content << "[" << part << "]\n";
 		
 		for(int k = 0; k < v.GetCount(); k++) {
 			content << v[k] << "\n";
