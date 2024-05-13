@@ -156,6 +156,18 @@ enum {
 	BIOSCORE_COUNT
 };
 
+struct BiographyRoleAnalysis {
+	
+	String merged_biography_reaction;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("merged_biography_reaction", merged_biography_reaction)
+			;
+	}
+	
+};
+
 struct BiographyProfileAnalysis {
 	struct Response : Moveable<Response> {
 		int year, category;
@@ -188,11 +200,13 @@ struct BiographyProfileAnalysis {
 
 struct BiographyAnalysis {
 	Array<Array<BiographyProfileAnalysis>> profiles;
+	Array<BiographyRoleAnalysis> roles;
 	
 	void Realize();
 	void Jsonize(JsonIO& json) {
 		json
 			("profiles", profiles)
+			("roles", roles)
 			;
 	}
 	//BiographyCategory& GetAdd(Owner& o, int enum_);

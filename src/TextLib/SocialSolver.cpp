@@ -104,7 +104,7 @@ void SocialSolver::ProcessAudienceProfileCategories() {
 	analysis.Realize();
 	const BiographyProfileAnalysis& pa = analysis.profiles[role_i][prof_i];
 	
-	if (skip_ready && pa.categories.GetCount() >= 10) {
+	if (skip_ready && pa.categories.GetCount()) {
 		NextSubBatch();
 		return;
 	}
@@ -384,11 +384,55 @@ void SocialSolver::OnProcessAudienceReactsSummary(String res) {
 }
 
 void SocialSolver::ProcessRoleReactions() {
+	Biography& biography = owner->biography_detailed;
+	BiographyAnalysis& analysis = owner->biography_analysis;
+	int role_i = batch;
 	
+	if (role_i >= analysis.profiles.GetCount()) {
+		NextPhase();
+		return;
+	}
+	
+	if (role_i >= analysis.roles.GetCount())
+		analysis.roles.SetCount(role_i+1);
+	
+	BiographyRoleAnalysis& role = analysis.roles[role_i];
+	if (skip_ready && role.merged_biography_reaction.GetCount()) {
+		NextBatch();
+		return;
+	}
+	
+	SocialArgs args;
+	args.fn = 4;
+	
+	const auto& profs = GetRoleProfile(role_i);
+	auto& profiles = analysis.profiles[role_i];
+	int c = min(profiles.GetCount(), profs.GetCount());
+	for(int j = 0; j < c; j++) {
+		BiographyProfileAnalysis& pa = profiles[j];
+		args.parts.Add(profs[j].name, pa.biography_reaction);
+	}
+	
+	SetWaiting(1);
+	TaskMgr& m = TaskMgr::Single();
+	m.GetSocial(args, THISBACK(OnProcessRoleReactions));
 }
 
 void SocialSolver::OnProcessRoleReactions(String res) {
+	Biography& biography = owner->biography_detailed;
+	BiographyAnalysis& analysis = owner->biography_analysis;
+	int role_i = batch;
 	
+	if (role_i >= analysis.roles.GetCount()) {
+		analysis.roles.SetCount(role_i+1);
+	}
+	BiographyRoleAnalysis& role = analysis.roles[role_i];
+	role.merged_biography_reaction = TrimBoth(res);
+	if (role.merged_biography_reaction.Left(1) == "\"") role.merged_biography_reaction = role.merged_biography_reaction.Mid(1);
+	if (role.merged_biography_reaction.Right(1) == "\"") role.merged_biography_reaction = role.merged_biography_reaction.Left(role.merged_biography_reaction.GetCount()-1);
+	
+	NextBatch();
+	SetWaiting(0);
 }
 
 void SocialSolver::ProcessPlatformDescriptions() {
@@ -405,14 +449,12 @@ void SocialSolver::ProcessPlatformDescriptions() {
 	ASSERT(plat.roles.GetCount());
 	
 	SocialArgs args;
-	args.fn = 4;
+	args.fn = 5;
 	
 	for(int i = 0; i < plat.roles.GetCount(); i++) {
 		int role_i = plat.roles[i];
-		const auto& profs = GetRoleProfile(role_i);
-		const auto& prof_anals = analysis.profiles[role_i];
-		
-		
+		const BiographyRoleAnalysis& role = analysis.roles[role_i];
+		args.parts.Add(GetSocietyRoleDescription(role_i), role.merged_biography_reaction);
 	}
 	
 	SetWaiting(1);

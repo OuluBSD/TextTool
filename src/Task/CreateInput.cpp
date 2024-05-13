@@ -2397,9 +2397,21 @@ void AiTask::CreateInput_Social() {
 		}
 	}
 	else if (args.fn == 4) {
-		
-		
-		
+		{
+			input.AddSub().Title("Task: merge multiple reactions of the same person into one").NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Reactions");
+			for(int i = 0; i < args.parts.GetCount(); i++) {
+				list.Add(args.parts.GetKey(i), args.parts[i]);
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("The merged reaction. This should 1-2 times the length of average reaction");
+		}
+		input.response_length = 512;
 	}
 }
 

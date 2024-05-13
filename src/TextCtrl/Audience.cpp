@@ -26,7 +26,9 @@ AudienceCtrl::AudienceCtrl() {
 	for(int i = 0; i < SOCIETYROLE_COUNT; i++) {
 		int sex = i % 2;
 		const Color& c = clr[sex];
-		roles.Set(i, 0, AttrText(GetSocietyRoleKey(i))
+		String s = GetSocietyRoleKey(i);
+		s.Replace("Representative Of The Organization", "Rep.");
+		roles.Set(i, 0, AttrText(s)
 			.NormalPaper(c).NormalInk(Black())
 			.Paper(Blend(c, Black())).Ink(White()));
 	}
