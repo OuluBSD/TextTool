@@ -14,6 +14,7 @@ void AiTask::CreateInput_Translate() {
 	String orig_lng = args[0];
 	String orig_txt = args[1];
 	String trans_lng = args[2];
+	bool slightly_dialect = StrInt(args[3]);
 	
 	Vector<String> lines = Split(orig_txt, "\n", false);
 	
@@ -22,8 +23,12 @@ void AiTask::CreateInput_Translate() {
 	for (const String& line : lines)
 		in_orig		.Add(line);
 	
+	String t = "Text 1 in " + trans_lng;
+	if (slightly_dialect)
+		t += " and in slightly dialect";
+	
 	TaskTitledList& results = input.PreAnswer();
-	results		.Title("Text 1 in " + trans_lng);
+	results		.Title(t);
 	
 	input.response_length = 1024*2;
 }
@@ -2396,22 +2401,82 @@ void AiTask::CreateInput_Social() {
 			results.Title("The reaction and important picks of person #2 when they read the biography summary of the person #1. The reaction is from the actual perspective of the person. Don't use 'person #1' nor 'person #2' in the reaction");
 		}
 	}
-	else if (args.fn == 4) {
+	else if (args.fn == 4 || args.fn == 5) {
 		{
 			input.AddSub().Title("Task: merge multiple reactions of the same person into one").NoColon();
 		}
 		{
 			auto& list = input.AddSub();
 			list.Title("Reactions");
+			list.NumberedLines();
 			for(int i = 0; i < args.parts.GetCount(); i++) {
-				list.Add(args.parts.GetKey(i), args.parts[i]);
+				String& s = args.parts[i];
+				s.Replace("\r", "");
+				s.Replace("\n", " ");
+				list.Add(args.parts.GetKey(i), s);
 			}
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
 			results.Title("The merged reaction. This should 1-2 times the length of average reaction");
 		}
-		input.response_length = 512;
+		input.response_length = 1024;
+	}
+	else if (args.fn == 6) {
+		{
+			input.AddSub().Title("Task: person #2 reads the biography of the person #1, and person #2 has reaction. Convert the reaction to a public profile description of the person #1 to a website").NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Reaction of the person #2 while reading the biography of person #1");
+			list.NumberedLines();
+			for(int i = 0; i < args.parts.GetCount(); i++) {
+				String& s = args.parts[i];
+				s.Replace("\r", "");
+				s.Replace("\n", " ");
+				list.Add(args.parts.GetKey(i), s);
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("The public description of the person #1 at a website");
+		}
+		input.response_length = 1024;
+		SetHighQuality();
+	}
+	else if (args.fn == 7) {
+		{
+			input.AddSub().Title("Task: take the given description of the person (called Person #1 or Steve) and convert it to be said from the first person view (like 'I am this') by the given person").NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Description of the person");
+			list.NoListChar();
+			list.Add(args.text);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Description of the person converted to first person message (like 'I am this'). Description should fit to a social media site profile description.");
+		}
+		input.response_length = 1024;
+		//SetHighQuality();
+	}
+	else if (args.fn == 8) {
+		{
+			input.AddSub().Title("Task: take the given description of the person and shorten it while keeping the image of the person same").NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Description of the person");
+			list.NoListChar();
+			list.Add(args.text);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Shortened description of the person");
+		}
+		input.response_length = 1024;
+		//SetHighQuality();
 	}
 }
 

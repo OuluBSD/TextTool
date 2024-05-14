@@ -34,7 +34,7 @@ struct TaskMgr {
 	void ProcessSingle(int task_i);
 	void StartSingle(int task_i) {Thread::Start(THISBACK1(ProcessSingle, task_i));}
 	
-	void Translate(String orig_lang, String orig_txt, String trans_lang, Event<String> WhenResult);
+	void Translate(String orig_lang, String orig_txt, String trans_lang, Event<String> WhenResult, bool slightly_dialect=false);
 	void CreateImage(String prompt, int count, Event<Array<Image>&> WhenResult, int reduce_size_mode=0, Event<> WhenError=Event<>());
 	void GetEditImage(Image orig, Image mask, String prompt, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());
 	void VariateImage(Image orig, int count, Event<Array<Image>&> WhenResult, Event<> WhenError=Event<>());

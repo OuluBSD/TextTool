@@ -156,13 +156,38 @@ enum {
 	BIOSCORE_COUNT
 };
 
-struct BiographyRoleAnalysis {
-	
-	String merged_biography_reaction;
+struct PlatformBiographyAnalysis {
+	Vector<String> packed_reactions;
+	String profile_description_from_biography;
+	String polished_description;
+	String short_polished_description;
+	String translated_polished_description;
+	String translated_short_polished_description;
+	String short_polished_description_slightly_dialect;
+	String translated_short_polished_description_slightly_dialect;
 	
 	void Jsonize(JsonIO& json) {
 		json
-			("merged_biography_reaction", merged_biography_reaction)
+			("packed_reactions", packed_reactions)
+			("profile_description_from_biography", profile_description_from_biography)
+			("polished_desc", polished_description)
+			("short_final_desc", short_polished_description)
+			("trans_final_desc", translated_polished_description)
+			("trans_short_final_desc", translated_short_polished_description)
+			("short_final_desc_dialect", short_polished_description_slightly_dialect)
+			("trans_short_final_desc_dialect", translated_short_polished_description_slightly_dialect)
+			;
+	}
+	
+};
+
+struct BiographyRoleAnalysis {
+	
+	Vector<String> merged_biography_reactions;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("merged_biography_reactions", merged_biography_reactions)
 			;
 	}
 	
@@ -201,12 +226,14 @@ struct BiographyProfileAnalysis {
 struct BiographyAnalysis {
 	Array<Array<BiographyProfileAnalysis>> profiles;
 	Array<BiographyRoleAnalysis> roles;
+	Array<PlatformBiographyAnalysis> platforms;
 	
 	void Realize();
 	void Jsonize(JsonIO& json) {
 		json
 			("profiles", profiles)
 			("roles", roles)
+			("platforms", platforms)
 			;
 	}
 	//BiographyCategory& GetAdd(Owner& o, int enum_);

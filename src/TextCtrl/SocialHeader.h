@@ -8,7 +8,10 @@ BEGIN_TEXTLIB_NAMESPACE
 class SocialHeaderCtrl : public ToolAppCtrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl platforms, entries;
-	WithSocialHeader<Ctrl> entry;
+	//WithSocialHeader<Ctrl> entry;
+	Splitter entry_split;
+	ArrayCtrl attr_keys;
+	DocEdit attr_value;
 	SocialTimelineCtrl timeline;
 	
 public:
@@ -19,7 +22,7 @@ public:
 	void DataPlatform();
 	void ToolMenu(Bar& bar) override;
 	void EntryListMenu(Bar& bar);
-	
+	void OnValueChange();
 	
 };
 

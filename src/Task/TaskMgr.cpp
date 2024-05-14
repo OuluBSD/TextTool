@@ -110,7 +110,7 @@ void TaskMgr::ProcessSingle(int task_i) {
 	task_lock.Leave();
 }
 
-void TaskMgr::Translate(String orig_lang, String orig_txt, String trans_lang, Event<String> WhenResult) {
+void TaskMgr::Translate(String orig_lang, String orig_txt, String trans_lang, Event<String> WhenResult, bool slightly_dialect) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	TaskMgr& p = *this;
 	
@@ -120,7 +120,7 @@ void TaskMgr::Translate(String orig_lang, String orig_txt, String trans_lang, Ev
 		.Input(&AiTask::CreateInput_Translate)
 		.Process(&AiTask::Process_Default);
 	
-	t.args << orig_lang << orig_txt << trans_lang;
+	t.args << orig_lang << orig_txt << trans_lang << IntStr(slightly_dialect);
 	t.WhenResult << WhenResult;
 }
 

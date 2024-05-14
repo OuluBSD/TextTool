@@ -6,8 +6,8 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class SocialContentTemplateCtrl : public ToolAppCtrl {
-	Splitter hsplit, vsplit, menusplit;
-	ArrayCtrl platforms, entries, campaigns, campaign_tmpls, campaign_params, tmpl_params	;
+	Splitter hsplit, vsplit, menusplit, threadsplit;
+	ArrayCtrl platforms, threads, entries, campaign_tmpls, campaign_params, tmpl_params	;
 	WithSocialGeneratedEntry<Ctrl> entry;
 	SocialTimelineCtrl timeline;
 	TabCtrl tabs;
@@ -18,13 +18,17 @@ public:
 	
 	void Data() override;
 	void DataPlatform();
+	void DataThread();
 	void DataEntry();
 	void Clear();
 	void ClearEntry();
 	void OnValueChange();
 	void AddEntry();
 	void RemoveEntry();
+	void AddThread();
+	void RemoveThread();
 	void ToolMenu(Bar& bar) override;
+	void ThreadListMenu(Bar& bar);
 	void EntryListMenu(Bar& bar);
 	
 	

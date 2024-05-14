@@ -4,6 +4,12 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+void Platform::AddRole(int i) {
+	ASSERT(i >= 0 && i < SOCIETYROLE_COUNT); roles << i;
+}
+
+
+
 int PlatformComment::GetTotalComments() const {
 	int t = 1;
 	for (const PlatformComment& pc : responses)

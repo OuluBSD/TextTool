@@ -56,7 +56,7 @@ struct Platform : Moveable<Platform> {
 	
 	Vector<int> roles;
 	
-	void AddRole(int i) {ASSERT(i >= 0 && i < PLATFORM_COUNT); roles << i;}
+	void AddRole(int i);
 };
 
 const Vector<Platform>& GetPlatforms();
