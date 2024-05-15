@@ -50,6 +50,8 @@ struct Owner
 		
 	}*/
 	
+	void Store();
+	void Load(String name);
 	void Jsonize(JsonIO& json) {
 		json
 			("name", name)

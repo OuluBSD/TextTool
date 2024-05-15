@@ -221,6 +221,10 @@ MetaDatabase& MetaDatabase::Single() {
 	return db;
 }
 
+String MetaDatabase::GetUserDirectory() {
+	return AppendFileName(GetHomeDirectory(), "MyTextTool");
+}
+
 void MetaDatabase::Store() {
 	lead_data.Store();
 	
@@ -237,9 +241,24 @@ void MetaDatabase::Load() {
 }
 
 void MetaDatabase::Jsonize(JsonIO& json) {
-	json
-		("owners", owners)
-		;
+	Vector<String> names;
+	if (json.IsStoring()) {
+		for (Owner& o : owners) {
+			names << o.name;
+			o.Store();
+		}
+		json
+			("owners", names)
+			;
+	}
+	else {
+		json
+			("owners", names)
+			;
+		owners.SetCount(names.GetCount());
+		for(int i = 0; i < owners.GetCount(); i++)
+			owners[i].Load(names[i]);
+	}
 }
 
 int MetaDatabase::GetLanguageIndex() const {

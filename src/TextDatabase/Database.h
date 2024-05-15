@@ -95,6 +95,7 @@ struct MetaDatabase {
 	void Load();
 	void Jsonize(JsonIO& json);
 	static MetaDatabase& Single();
+	static String GetUserDirectory();
 	
 	
 	// Dummy temporary solution

@@ -40,6 +40,20 @@ Owner& Owner::DatabaseUpdate() {
 	return e;
 }
 
+void Owner::Store() {
+	String dir = AppendFileName(MetaDatabase::GetUserDirectory(), "share");
+	String path = AppendFileName(dir, name + ".json");
+	RealizeDirectory(dir);
+	StoreAsJsonFileStandard(*this, path);
+}
+
+void Owner::Load(String name) {
+	String dir = AppendFileName(MetaDatabase::GetUserDirectory(), "share");
+	String path = AppendFileName(dir, name + ".json");
+	RealizeDirectory(dir);
+	LoadFromJsonFileStandard(*this, path);
+}
+
 
 
 
