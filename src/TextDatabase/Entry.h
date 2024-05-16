@@ -6,24 +6,34 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 struct PlatformComment {
+	String user;
+	String orig_message, message, hashtags, location;
+	String text_merged_status;
+	Time published;
+	bool generate = false;
 	Array<PlatformComment> responses;
-	String text, user;
 	
 	
 	int GetTotalComments() const;
+	void ClearMerged();
 	
 	void Jsonize(JsonIO& json) {
 		json
-			("responses", responses)
-			("text", text)
 			("user", user)
+			("orig_message", orig_message)
+			("message", message)
+			("hashtags", hashtags)
+			("location", location)
+			("tms", text_merged_status)
+			("published", published)
+			("generate", generate)
+			("responses", responses)
 			;
 	}
 };
 
-struct Entry {
-	Time published;
-	String user, title, orig_message, message, hashtags, location;
+struct PlatformThread {
+	String user, title;
 	Array<PlatformComment> comments;
 	
 	int GetTotalComments() const;
@@ -31,24 +41,19 @@ struct Entry {
 	void Jsonize(JsonIO& json) {
 		json
 			("user", user)
-			("published", published)
 			("title", title)
-			("orig_message", orig_message)
-			("message", message)
-			("hashtags", hashtags)
-			("location", location)
 			("comments", comments)
 			;
 	}
 };
 
-struct PlatformThread {
-	Array<Entry> entries;
+struct PlatformEntry {
+	Array<PlatformThread> threads;
 	String title, subforum;
 	
 	void Jsonize(JsonIO& json) {
 		json
-			("entries", entries)
+			("threads", threads)
 			("title", title)
 			("subforum", subforum)
 			;
@@ -56,13 +61,13 @@ struct PlatformThread {
 };
 
 struct PlatformData {
-	Array<PlatformThread> threads;
+	Array<PlatformEntry> entries;
 	
 	
 	int GetTotalEntryCount() const;
 	void Jsonize(JsonIO& json) {
 		json
-			("threads", threads)
+			("entries", entries)
 			;
 	}
 };

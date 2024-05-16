@@ -22,7 +22,7 @@ protected:
 	LeadTemplateCtrl			lead_templates;
 	SocialContent				some_content;
 	LeadPublishers				lead_publisher;
-	SocialContentTemplateCtrl	tmpl_content;
+	//SocialContentTemplateCtrl	tmpl_content;
 	SocialHeaderCtrl			social_header;
 	BiographyCtrl				biography;
 	ImageBiographyCtrl			image_biography;

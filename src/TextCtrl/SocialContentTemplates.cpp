@@ -1,6 +1,7 @@
 #include "TextCtrl.h"
 #include <TextTool/TextTool.h>
 
+#if 0
 
 BEGIN_TEXTLIB_NAMESPACE
 
@@ -305,3 +306,5 @@ void SocialContentTemplateCtrl::ToolMenu(Bar& bar) {
 
 
 END_TEXTLIB_NAMESPACE
+
+#endif

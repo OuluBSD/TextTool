@@ -2478,6 +2478,41 @@ void AiTask::CreateInput_Social() {
 		input.response_length = 1024;
 		//SetHighQuality();
 	}
+	else if (args.fn == 9) {
+		{
+			input.AddSub().Title("Task: explain the discussion in the message-thread").NoColon();
+		}
+		
+		if (!args.text.IsEmpty()) {
+			auto& list = input.AddSub();
+			list.Title("Previous explanation of the message thread");
+			list.NoListChar();
+			args.text.Replace("\r", "");
+			Vector<String> parts = Split(args.text, "\n\n");
+			for(int i = 0; i < parts.GetCount(); i++) {
+				String& s = parts[i];
+				s.Replace("\n\n", "\n");
+				list.Add(s);
+			}
+		}
+		{
+			for(int i = 0; i < args.parts.GetCount(); i++) {
+				auto& list = input.AddSub();
+				list.Title("New message by " + args.parts.GetKey(i));
+				list.NoListChar();
+				list.Add(args.parts[i]);
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("The explanation of the discussion in the message-thread. Use names of persons. Keep track what was said or asked last");
+		}
+		input.response_length = 1024;
+	}
+	else {
+		TODO
+	}
+	
 }
 
 

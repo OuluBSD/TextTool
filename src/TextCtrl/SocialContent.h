@@ -7,7 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class SocialContent : public ToolAppCtrl {
 	Splitter hsplit, vsplit, menusplit, threadsplit;
-	ArrayCtrl platforms, threads, entries;
+	ArrayCtrl platforms, threads, entries, comments;
 	WithSocialEntry<Ctrl> entry;
 	SocialTimelineCtrl timeline;
 	
@@ -17,8 +17,9 @@ public:
 	
 	void Data() override;
 	void DataPlatform();
-	void DataThread();
 	void DataEntry();
+	void DataThread();
+	void DataComment();
 	void Clear();
 	void ClearEntry();
 	void OnValueChange();
@@ -26,9 +27,12 @@ public:
 	void RemoveEntry();
 	void AddThread();
 	void RemoveThread();
+	void AddComment();
+	void RemoveComment();
 	void ToolMenu(Bar& bar) override;
-	void ThreadListMenu(Bar& bar);
 	void EntryListMenu(Bar& bar);
+	void ThreadListMenu(Bar& bar);
+	void CommentListMenu(Bar& bar);
 	void Do(int fn);
 	
 };

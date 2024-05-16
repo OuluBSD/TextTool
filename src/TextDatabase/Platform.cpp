@@ -17,7 +17,7 @@ int PlatformComment::GetTotalComments() const {
 	return t;
 }
 
-int Entry::GetTotalComments() const {
+int PlatformThread::GetTotalComments() const {
 	int t = 0;
 	for (const PlatformComment& pc : comments)
 		t += pc.GetTotalComments();

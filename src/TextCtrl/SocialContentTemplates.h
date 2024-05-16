@@ -1,7 +1,7 @@
 #ifndef _TextCtrl_SocialContentTemplates_h_
 #define _TextCtrl_SocialContentTemplates_h_
 
-
+#if 0
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -38,4 +38,5 @@ public:
 END_TEXTLIB_NAMESPACE
 
 
+#endif
 #endif

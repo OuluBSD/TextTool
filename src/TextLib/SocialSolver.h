@@ -17,6 +17,7 @@ class SocialSolver {
 		SS_PLATFORM_DESCRIPTIONS,
 		SS_PLATFORM_DESCRIPTION_REFINEMENTS,
 		SS_PLATFORM_DESCRIPTION_TRANSLATED,
+		SS_MERGE_MESSAGES,
 		
 		SS_COUNT
 	};
@@ -40,6 +41,20 @@ class SocialSolver {
 	};
 	Vector<Range> ranges;
 	
+	struct MessageTask : Moveable<MessageTask> {
+		const Platform* plat = 0;
+		PlatformData* plat_data = 0;
+		PlatformEntry* entry = 0;
+		PlatformThread* thrd = 0;
+		Vector<PlatformComment*> comments;
+	};
+	Vector<MessageTask> msg_tasks;
+	MessageTask tmp_task;
+	
+	void TraverseMessageTasks(int prof_i, int plat_i);
+	void TraverseMessageTasks(Vector<PlatformComment*>& before, PlatformComment& plc);
+	
+	
 	int CreateRange(int off, int len);
 	void Process();
 	void ProcessAudienceProfileCategories();
@@ -50,6 +65,7 @@ class SocialSolver {
 	void ProcessPlatformDescriptions();
 	void ProcessPlatformDescriptionRefinements();
 	void ProcessPlatformDescriptionTranslated();
+	void ProcessMergeMessages();
 	void OnProcessAudienceProfileCategories(String res);
 	void OnProcessSummarize(String res);
 	void OnProcessAudienceReactsSummary(String res);
@@ -58,6 +74,7 @@ class SocialSolver {
 	void OnProcessPlatformDescriptions(String res);
 	void OnProcessPlatformDescriptionRefinements(String res);
 	void OnProcessPlatformDescriptionTranslated(String res);
+	void OnProcessMergeMessages(String res);
 	
 	void PostProgress() {WhenProgress(phase, SS_COUNT);}
 	void SetNotRunning() {running = false;}
