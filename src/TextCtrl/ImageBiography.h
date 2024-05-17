@@ -6,13 +6,15 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class ImageAnalyserCtrl : public Ctrl {
-	
+	Image img;
 	
 public:
 	typedef ImageAnalyserCtrl CLASSNAME;
 	ImageAnalyserCtrl();
 	
 	void Paint(Draw& d);
+	void SetImage(const Image& i);
+	
 	
 };
 
@@ -38,6 +40,10 @@ public:
 	void OnKeywords(int fn, String s);
 	void ToolMenu(Bar& bar) override;
 	void EntryListMenu(Bar& bar);
+	void AddEntry();
+	void RemoveEntry();
+	void PasteImagePath();
+	void SetCurrentImage(Image img);
 	
 	
 };

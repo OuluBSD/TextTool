@@ -48,6 +48,7 @@ ImageBiographyCtrl::ImageBiographyCtrl() {
 	entries.AddIndex("IDX");
 	entries.ColumnWidths("1 1 1 1 15");
 	entries.WhenCursor << THISBACK(DataEntry);
+	entries.WhenBar << THISBACK(EntryListMenu);
 	
 	year.keywords <<= THISBACK(OnValueChange);
 	year.native_text <<= THISBACK(OnValueChange);
@@ -227,9 +228,70 @@ void ImageBiographyCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Translate"), AppImg::BlueRing(), THISBACK(Translate)).Key(K_F5);
 	bar.Add(t_("Make keywords"), AppImg::BlueRing(), THISBACK1(MakeKeywords, 0)).Key(K_F6);
 	bar.Add(t_("Make keywords (image)"), AppImg::BlueRing(), THISBACK1(MakeKeywords, 1)).Key(K_F7);
+	bar.Separator();
+	bar.Add(t_("Paste Image path"), AppImg::BlueRing(), THISBACK(PasteImagePath)).Key(K_CTRL_V);
 }
 
 void ImageBiographyCtrl::EntryListMenu(Bar& bar) {
+	bar.Add(t_("Add Entry"), AppImg::BlueRing(), THISBACK(AddEntry)).Key(K_CTRL_T);
+	bar.Add(t_("Remove Entry"), AppImg::BlueRing(), THISBACK(RemoveEntry)).Key(K_CTRL|K_SHIFT|K_W);
+	
+}
+
+void ImageBiographyCtrl::AddEntry() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.owner || !categories.IsCursor() || !years.IsCursor())
+		return;
+	Owner& owner = *mp.owner;
+	Biography& biography = mp.owner->biography_detailed;
+	int cat_i = categories.Get("IDX");
+	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
+	int year_i = years.Get("IDX");
+	if (year_i >= bcat.years.GetCount()) return;
+	BioYear& by = bcat.years[year_i];
+	
+	by.images.Add();
+	DataYear();
+}
+
+void ImageBiographyCtrl::RemoveEntry() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.owner || !categories.IsCursor() || !years.IsCursor() || !entries.IsCursor())
+		return;
+	Owner& owner = *mp.owner;
+	Biography& biography = mp.owner->biography_detailed;
+	int cat_i = categories.Get("IDX");
+	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
+	int year_i = years.Get("IDX");
+	if (year_i >= bcat.years.GetCount()) return;
+	BioYear& by = bcat.years[year_i];
+	int entry_i = entries.Get("IDX");
+	if (entry_i >= 0 && entry_i < by.images.GetCount())
+		by.images.Remove(entry_i);
+	DataYear();
+}
+
+void ImageBiographyCtrl::PasteImagePath() {
+	Image img = ReadClipboardImage();
+	if (!img.IsEmpty()) {
+		SetCurrentImage(img);
+	}
+	else {
+		String path = ReadClipboardText();
+		if (path.Left(7) == "file://") {
+			path = path.Mid(7);
+			img = StreamRaster::LoadFileAny(path);
+			if (!img.IsEmpty())
+				SetCurrentImage(img);
+		}
+	}
+}
+
+void ImageBiographyCtrl::SetCurrentImage(Image img) {
+	
+	this->img.SetImage(img);
 	
 }
 
@@ -249,6 +311,28 @@ void ImageAnalyserCtrl::Paint(Draw& d) {
 	
 	d.DrawRect(sz, Black());
 	
+	if (!img.IsEmpty()) {
+		Size orig_sz = img.GetSize();
+		double orig_small = max(orig_sz.cx, orig_sz.cy);
+		double new_small = max(sz.cx, sz.cy);
+		double ratio = new_small / orig_small;
+		Size new_sz = orig_sz * ratio;
+		Image scaled_img = CachedRescale(img, new_sz, FILTER_BILINEAR);
+		
+		if (new_sz.cx < new_sz.cy) {
+			int off = (sz.cx - new_sz.cx) / 2;
+			d.DrawImage(off,0,scaled_img);
+		}
+		else {
+			int off = (sz.cy - new_sz.cy) / 2;
+			d.DrawImage(0,off,scaled_img);
+		}
+	}
+}
+
+void ImageAnalyserCtrl::SetImage(const Image& i) {
+	img = i;
+	PostCallback([this](){Refresh();});
 	
 }
 
