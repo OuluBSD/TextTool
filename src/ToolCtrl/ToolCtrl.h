@@ -12,6 +12,7 @@
 #include "TaskCtrl.h"
 #include "Fns.h"
 #include "ImageGenTool.h"
+#include "ImageUtils.h"
 
 
 #endif

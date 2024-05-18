@@ -88,6 +88,7 @@ struct BioImage {
 	String people;
 	Time time;
 	int time_accuracy = TIME_ACCURACY_NONE;
+	int64 image_hash = 0;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -100,6 +101,7 @@ struct BioImage {
 			("people", people)
 			("time", time)
 			("time_accuracy", time_accuracy)
+			("image_hash", image_hash)
 			;
 	}
 };

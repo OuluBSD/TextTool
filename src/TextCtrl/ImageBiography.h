@@ -14,7 +14,7 @@ public:
 	
 	void Paint(Draw& d);
 	void SetImage(const Image& i);
-	
+	void Clear();
 	
 };
 
@@ -43,7 +43,9 @@ public:
 	void AddEntry();
 	void RemoveEntry();
 	void PasteImagePath();
+	void AnalyseImage();
 	void SetCurrentImage(Image img);
+	void Do(int fn);
 	
 	
 };

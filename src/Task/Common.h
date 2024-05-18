@@ -24,6 +24,7 @@ typedef enum : int {
 	AITASK_LYRICS_SOLVER,
 	AITASK_STORY_SOLVER,
 	AITASK_LEAD_SOLVER,
+	AITASK_VISION,
 	
 	AITASK_COUNT
 } AiTaskType;
@@ -214,6 +215,18 @@ struct SocialArgs {
 		json	("text", text)
 				("fn", fn)
 				("parts", parts)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct VisionArgs {
+	int fn = 0;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

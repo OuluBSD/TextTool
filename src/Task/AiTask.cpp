@@ -63,6 +63,12 @@ String AiTask::GetInputHash() const {
 			raw_input :
 			this->input.AsString();
 	hash_t h = input.GetHashValue();
+	if (jpeg.GetCount()) {
+		CombineHash c;
+		c.Put(h);
+		c.Do(jpeg);
+		h = c;
+	}
 	return HexString((void*)&h, sizeof(h));
 }
 
@@ -178,7 +184,9 @@ void AiTask::Process() {
 }
 
 bool AiTask::RunOpenAI() {
-	if (image_task)
+	if (vision_task)
+		return RunOpenAI_Vision();
+	else if (image_task)
 		return RunOpenAI_Image();
 	else
 		return RunOpenAI_Completion();
@@ -473,6 +481,132 @@ bool AiTask::RunOpenAI_Completion() {
 	return output.GetCount() > 0;
 }
 
+bool AiTask::RunOpenAI_Vision() {
+	output.Clear();
+	
+	if (!input.response_length) {
+		LOG("warning: no response length set");
+		input.response_length = 1024;
+	}
+	String prompt =
+		raw_input.GetCount() ?
+			raw_input :
+			input.AsString();
+	
+	String base64 = Base64Encode(this->jpeg);
+	
+	{
+		EscapeString(prompt);
+		
+		if (GetDefaultCharset() != CHARSET_UTF8)
+			prompt = ToCharset(CHARSET_UTF8, prompt, CHARSET_DEFAULT);
+		
+		String txt;
+		if (quality == 1) {
+			txt = R"_({
+    "model": "gpt-4o",
+    "messages":[
+		{"role":"user", "content": [
+			{
+				"type":"text",
+				"text":")_" + prompt + R"_("
+			},
+			{
+				"type":"image_url",
+				"image_url": {
+					"url": "data:image/jpeg;base64,)_" + base64 + R"_("
+				}
+			}
+		]}
+	],
+    "max_tokens": )_" + IntStr(input.response_length) + R"_(,
+    "temperature": 1
+})_";
+		}
+		else {
+			txt = R"_({
+    "model": "gpt-4-turbo",
+    "messages":[
+		{"role":"user", "content": [
+			{
+				"type":"text",
+				"text":")_" + prompt + R"_("
+			},
+			{
+				"type":"image_url",
+				"image_url": {
+					"url": "data:image/jpeg;base64,)_" + base64 + R"_("
+				}
+			}
+		]}
+	],
+    "max_tokens": )_" + IntStr(input.response_length) + R"_(,
+    "temperature": 1
+})_";
+		}
+	    LOG(txt);
+		
+		try {
+			nlohmann::json json = nlohmann::json::parse(txt.Begin(), txt.End());
+		    OpenAiResponse response;
+		    
+		    
+			auto completion = openai::completion().create_gpt4(json);
+		    LoadFromJson(response, String(completion.dump(2)));
+			
+		    if (response.choices.GetCount())
+				output = response.choices[0].GetText();
+		    else
+		        output.Clear();
+		}
+		catch (std::runtime_error e) {
+			if (keep_going) {output = " "; return true;}
+			LOG(prompt);
+			LOG(txt);
+			fatal_error = true;
+			SetError(e.what());
+			return false;
+		}
+		catch (std::string e) {
+			if (keep_going) {output = " "; return true;}
+			LOG(prompt);
+			LOG(txt);
+			fatal_error = true;
+			SetError(e.c_str());
+			return false;
+		}
+		catch (NLOHMANN_JSON_NAMESPACE::detail::parse_error e) {
+			if (keep_going) {output = " "; return true;}
+			LOG(prompt);
+			LOG(txt);
+			LOG(e.what());
+			fatal_error = true;
+			SetError(e.what());
+			return false;
+		}
+		catch (std::exception e) {
+			if (keep_going) {output = " "; return true;}
+			LOG(prompt);
+			LOG(txt);
+			SetError(e.what());
+			fatal_error = true;
+			return false;
+		}
+		/*catch (...) {
+			SetError("unknown error");
+			return false;
+		}*/
+		
+		//LOG(IntStr64(input.AsString().GetHashValue()));
+		
+		// Fix unicode formatting
+		output = ToUnicode(output, CHARSET_UTF8).ToString();
+	}
+	
+	changed = true;
+	Store();
+	return output.GetCount() > 0;
+}
 
 void AiTask::Retry(bool skip_prompt, bool skip_cache) {
 	if (!skip_prompt) {

@@ -143,6 +143,7 @@ struct TaskRule {
 	bool image_task = false;
 	bool imageedit_task = false;
 	bool imagevariate_task = false;
+	bool vision_task = false;
 	VectorMap<int, Tuple2<int,int>> req_mode_ranges;
 	
 	TaskRule& SetRule(int code, const String& name);
@@ -190,6 +191,7 @@ public:
 	
 	AiPrompt input;
 	String raw_input;
+	String jpeg;
 	
 	// Temp
 	Array<AiTask> result_tasks;
@@ -218,6 +220,7 @@ public:
 	bool RunOpenAI();
 	bool RunOpenAI_Completion();
 	bool RunOpenAI_Image();
+	bool RunOpenAI_Vision();
 	bool ProcessInput();
 	void Process();
 	void SetError(String s);
@@ -244,6 +247,7 @@ public:
 	void CreateInput_ScriptSolver();
 	void CreateInput_LeadSolver();
 	void CreateInput_Social();
+	void CreateInput_Vision();
 	
 	void Process_GetSuggestionAttributes();
 	void Process_StoryArc();

@@ -2515,6 +2515,28 @@ void AiTask::CreateInput_Social() {
 	
 }
 
+void AiTask::CreateInput_Vision() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadDataAnalysis& lda = mdb.lead_data.a;
+	
+	this->vision_task = true;
+	
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	VisionArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		{
+			input.AddSub().Title("Task: describe content of the image in a detailed way, which enables the regeneration of the image using generative AI").NoColon();
+		}
+	}
+	else TODO
+}
 
 END_TEXTLIB_NAMESPACE
 

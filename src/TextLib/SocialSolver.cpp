@@ -1,4 +1,5 @@
 #include "TextLib.h"
+#include <TextCtrl/TextCtrl.h>
 
 
 BEGIN_TEXTLIB_NAMESPACE
@@ -80,6 +81,9 @@ void SocialSolver::Process() {
 		}
 		else if (phase == SS_MERGE_MESSAGES) {
 			ProcessMergeMessages();
+		}
+		else if (phase == SS_ANALYZE_IMAGE_BIOGRAPHY) {
+			ProcessAnalyzeImageBiography();
 		}
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
@@ -842,6 +846,40 @@ void SocialSolver::OnProcessMergeMessages(String res) {
 	SetWaiting(0);
 }
 
+void SocialSolver::ProcessAnalyzeImageBiography() {
+	
+	if (batch == 0) {
+		vision_tasks.Clear();
+		TraverseVisionTasks();
+	}
+	
+	if (batch >= vision_tasks.GetCount()) {
+		NextPhase();
+		return;
+	}
+	
+	const VisionTask& t = vision_tasks[batch];
+	
+	VisionArgs args;
+	args.fn = 0;
+	
+	SetWaiting(1);
+	TaskMgr& m = TaskMgr::Single();
+	m.GetVision(t.jpeg, args, THISBACK(OnProcessAnalyzeImageBiography));
+}
+
+void SocialSolver::OnProcessAnalyzeImageBiography(String res) {
+	const VisionTask& t = vision_tasks[batch];
+	
+	String& s = t.bimg->image_text;
+	s = TrimBoth(res);
+	if (s.Left(1) == "\"") s = s.Mid(1);
+	if (s.Right(1) == "\"") s = s.Left(s.GetCount()-1);
+	
+	NextBatch();
+	SetWaiting(0);
+}
+
 void SocialSolver::TraverseMessageTasks(int prof_i, int plat_i) {
 	Profile& prof = owner->profiles[prof_i];
 	ProfileData& pd = ProfileData::Get(prof);
@@ -871,10 +909,8 @@ void SocialSolver::TraverseMessageTasks(int prof_i, int plat_i) {
 void SocialSolver::TraverseMessageTasks(Vector<PlatformComment*>& before, PlatformComment& plc) {
 	before.Add(&plc);
 	
-	if (plc.text_merged_status.IsEmpty()) {
-		if (phase == SS_MERGE_MESSAGES && before.GetCount() == 1)
-			; // pass (because nothing to merge)
-		else {
+	if (phase == SS_MERGE_MESSAGES) {
+		if (plc.text_merged_status.IsEmpty() && before.GetCount() > 1) {
 			MessageTask& t = msg_tasks.Add();
 			t.plat = tmp_task.plat;
 			t.plat_data = tmp_task.plat_data;
@@ -890,6 +926,31 @@ void SocialSolver::TraverseMessageTasks(Vector<PlatformComment*>& before, Platfo
 		before.SetCount(begin_count);
 	}
 	
+}
+
+void SocialSolver::TraverseVisionTasks() {
+	Biography& biography = owner->biography_detailed;
+	for(int i = 0; i < biography.categories.GetCount(); i++) {
+		BiographyCategory& bcat = biography.categories[i];
+		for(int j = 0; j < bcat.years.GetCount(); j++) {
+			BioYear& by = bcat.years[j];
+			
+			for(int k = 0; k < by.images.GetCount(); k++) {
+				BioImage& bimg = by.images[k];
+				if (phase == SS_ANALYZE_IMAGE_BIOGRAPHY && bimg.image_text.IsEmpty() && bimg.image_hash != 0) {
+					String path = CacheImageFile(bimg.image_hash);
+					if (!FileExists(path))
+						path = ThumbnailImageFile(bimg.image_hash);
+					String jpeg = LoadFile(path);
+					if (!jpeg.IsEmpty()) {
+						VisionTask& t = vision_tasks.Add();
+						t.bimg = &bimg;
+						t.jpeg = jpeg;
+					}
+				}
+			}
+		}
+	}
 }
 
 END_TEXTLIB_NAMESPACE

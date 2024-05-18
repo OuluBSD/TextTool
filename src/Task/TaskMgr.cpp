@@ -405,6 +405,24 @@ void TaskMgr::GetSocial(const SocialArgs& args, Event<String> WhenResult) {
 	task_lock.Leave();
 }
 
+void TaskMgr::GetVision(const String& jpeg, const VisionArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
+	t.SetRule(AITASK_VISION, MakeName(args, -1, "vision"))
+		.Input(&AiTask::CreateInput_Vision)
+		.Process(&AiTask::Process_Default);
+	
+	t.args << s;
+	t.jpeg = jpeg;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
 
 
 

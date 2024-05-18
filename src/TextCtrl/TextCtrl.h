@@ -5,6 +5,7 @@
 #include <ToolBase/ToolBase.h>
 #include <Agent/Agent.h>
 #include <TextLib/TextLib.h>
+#include <ToolCtrl/ToolCtrl.h>
 
 
 #define LAYOUTFILE <TextCtrl/TextCtrl.lay>

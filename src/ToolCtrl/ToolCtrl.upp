@@ -16,5 +16,7 @@ file
 	FrontPage.h,
 	FrontPage.cpp,
 	TaskCtrl.h,
-	TaskCtrl.cpp;
+	TaskCtrl.cpp,
+	ImageUtils.h,
+	ImageUtils.cpp;
 

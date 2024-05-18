@@ -9,6 +9,8 @@ class SocialSolver {
 	enum {
 		SS_BEGIN,
 		
+		SS_ANALYZE_IMAGE_BIOGRAPHY,
+		
 		SS_AUDIENCE_PROFILE_CATEGORIES,
 		SS_SUMMARIZE,
 		SS_AUDIENCE_REACTS_SUMMARY,
@@ -55,6 +57,15 @@ class SocialSolver {
 	void TraverseMessageTasks(Vector<PlatformComment*>& before, PlatformComment& plc);
 	
 	
+	struct VisionTask : Moveable<VisionTask> {
+		BioImage* bimg = 0;
+		String jpeg;
+	};
+	Vector<VisionTask> vision_tasks;
+	MessageTask tmp_vision_task;
+	
+	void TraverseVisionTasks();
+	
 	int CreateRange(int off, int len);
 	void Process();
 	void ProcessAudienceProfileCategories();
@@ -66,6 +77,7 @@ class SocialSolver {
 	void ProcessPlatformDescriptionRefinements();
 	void ProcessPlatformDescriptionTranslated();
 	void ProcessMergeMessages();
+	void ProcessAnalyzeImageBiography();
 	void OnProcessAudienceProfileCategories(String res);
 	void OnProcessSummarize(String res);
 	void OnProcessAudienceReactsSummary(String res);
@@ -75,6 +87,7 @@ class SocialSolver {
 	void OnProcessPlatformDescriptionRefinements(String res);
 	void OnProcessPlatformDescriptionTranslated(String res);
 	void OnProcessMergeMessages(String res);
+	void OnProcessAnalyzeImageBiography(String res);
 	
 	void PostProgress() {WhenProgress(phase, SS_COUNT);}
 	void SetNotRunning() {running = false;}
