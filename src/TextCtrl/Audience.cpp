@@ -20,7 +20,9 @@ AudienceCtrl::AudienceCtrl() {
 	
 	CtrlLayout(entry);
 	
+	roles.AddColumn(t_("Enabled"));
 	roles.AddColumn(t_("Role"));
+	roles.ColumnWidths("1 9");
 	Color clr[2] = {Color(255, 216, 246), Color(199, 201, 255)};
 	
 	for(int i = 0; i < SOCIETYROLE_COUNT; i++) {
@@ -28,7 +30,7 @@ AudienceCtrl::AudienceCtrl() {
 		const Color& c = clr[sex];
 		String s = GetSocietyRoleKey(i);
 		s.Replace("Representative Of The Organization", "Rep.");
-		roles.Set(i, 0, AttrText(s)
+		roles.Set(i, 1, AttrText(s)
 			.NormalPaper(c).NormalInk(Black())
 			.Paper(Blend(c, Black())).Ink(White()));
 	}
@@ -51,6 +53,19 @@ AudienceCtrl::AudienceCtrl() {
 void AudienceCtrl::Data() {
 	INHIBIT_CURSOR(roles);
 	if (!roles.IsCursor()) roles.SetCursor(0);
+	
+	
+	// Check if role is enabled (indirectly by enabled platforms)
+	MetaPtrs& mp = MetaPtrs::Single();
+	Owner& owner = *mp.owner;
+	Biography& biography = mp.profile->biography_detailed;
+	BiographyAnalysis& analysis = mp.profile->biography_analysis;
+	analysis.Realize();
+	Index<int> req_roles = analysis.GetRequiredRoles();
+	for(int role_i = 0; role_i < SOCIETYROLE_COUNT; role_i++) {
+		bool enabled = req_roles.Find(role_i) >= 0;
+		roles.Set(role_i, 0, enabled ? "X":"");
+	}
 	
 	DataRole();
 }
@@ -81,8 +96,8 @@ void AudienceCtrl::DataProfile() {
 	int prof_i = profiles.GetCursor();
 	
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.owner->biography_detailed;
-	BiographyAnalysis& analysis = mp.owner->biography_analysis;
+	Biography& biography = mp.profile->biography_detailed;
+	BiographyAnalysis& analysis = mp.profile->biography_analysis;
 	analysis.Realize();
 	const BiographyProfileAnalysis& pa = analysis.profiles[role_i][prof_i];
 	const Array<RoleProfile>& profs = GetRoleProfile(role_i);
@@ -125,8 +140,8 @@ void AudienceCtrl::DataResponse() {
 	
 	
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.owner->biography_detailed;
-	BiographyAnalysis& analysis = mp.owner->biography_analysis;
+	Biography& biography = mp.profile->biography_detailed;
+	BiographyAnalysis& analysis = mp.profile->biography_analysis;
 	const BiographyProfileAnalysis& pa = analysis.profiles[role_i][prof_i];
 	const BiographyProfileAnalysis::Response& resp = pa.responses[resp_i];
 	const Array<RoleProfile>& profs = GetRoleProfile(role_i);

@@ -36,6 +36,7 @@
 #include "SocialContentTemplates.h"
 #include "Audience.h"
 #include "BiographySummary.h"
+#include "ImageBiographySummary.h"
 
 
 #endif

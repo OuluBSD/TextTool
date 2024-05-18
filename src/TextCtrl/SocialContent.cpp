@@ -89,7 +89,8 @@ void SocialContent::Data() {
 		const PlatformData& pld = pd.platforms[row];
 		platforms.Set(row, "IDX", row);
 		platforms.Set(row, 0, p.name);
-		platforms.Set(row, 1, pld.GetTotalEntryCount());
+		int c = pld.GetTotalEntryCount();
+		platforms.Set(row, 1, c > 0 ? Value(c) : Value());
 		row++;
 	}
 	INHIBIT_CURSOR(platforms);
@@ -432,10 +433,9 @@ void SocialContent::ToolMenu(Bar& bar) {
 
 void SocialContent::Do(int fn) {
 	MetaPtrs& mp = MetaPtrs::Single();
-	if (!mp.owner)
+	if (!mp.profile)
 		return;
-	Owner& owner = *mp.owner;
-	SocialSolver& ss = SocialSolver::Get(owner);
+	SocialSolver& ss = SocialSolver::Get(*mp.profile);
 	if (fn == 0) {
 		ss.Start();
 	}

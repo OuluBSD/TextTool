@@ -23,6 +23,7 @@ public:
 	void ToolMenu(Bar& bar) override;
 	void EntryListMenu(Bar& bar);
 	void OnValueChange();
+	void Do(int fn);
 	
 };
 

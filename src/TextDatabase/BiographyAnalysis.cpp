@@ -4,6 +4,9 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+
+
+
 String GetSocietyRoleEnum(int i) {
 	switch (i) {
 		#define SOCIETYROLE(x) case SOCIETYROLE_##x: return #x;
@@ -1440,7 +1443,50 @@ void BiographyAnalysis::Realize() {
 		const auto& v = GetRoleProfile(i);
 		profiles[i].SetCount(v.GetCount());
 	}
+	if (platforms.GetCount() < PLATFORM_COUNT)
+		platforms.SetCount(PLATFORM_COUNT);
 }
+
+Index<int> BiographyAnalysis::GetRequiredRoles() const {
+	MetaPtrs& mp = MetaPtrs::Single();
+	BiographyAnalysis& analysis = mp.profile->biography_analysis;
+	Index<int> ret;
+	for(int role_i0 = 0; role_i0 < SOCIETYROLE_COUNT; role_i0++) {
+		bool enabled = false;
+		
+		for(int i = 0; i < analysis.platforms.GetCount(); i++) {
+			const PlatformBiographyAnalysis& pla = analysis.platforms[i];
+			if (!pla.platform_enabled)
+				continue;
+			
+			const Platform& plat = GetPlatforms()[i];
+			for (int role_i1 : plat.roles)
+				if (role_i0 == role_i1)
+					{enabled = true; break;}
+			if (enabled) break;
+		}
+		
+		if (enabled)
+			ret.FindAdd(role_i0);
+	}
+	return ret;
+}
+
+Index<int> BiographyAnalysis::GetRequiredCategories() const {
+	Index<int> roles = GetRequiredRoles();
+	Index<int> cats;
+	for(int role_i : roles) {
+		bool enabled = false;
+		for (const auto& plat_roles : profiles) {
+			for (const auto& plat_profs : plat_roles) {
+				for (int cat_i : plat_profs.categories.GetKeys())
+					cats.FindAdd(cat_i);
+			}
+		}
+	}
+	return cats;
+}
+
 
 END_TEXTLIB_NAMESPACE
 

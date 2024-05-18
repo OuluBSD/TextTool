@@ -2463,7 +2463,10 @@ void AiTask::CreateInput_Social() {
 	}
 	else if (args.fn == 8) {
 		{
-			input.AddSub().Title("Task: take the given description of the person and shorten it while keeping the image of the person same").NoColon();
+			String t = "Task: take the given description of the person and shorten it while keeping the image of the person same";
+			if (args.len > 0)
+				t += ". Keep the shortened description in less than " + IntStr(args.len) + " characters";
+			input.AddSub().Title(t).NoColon();
 		}
 		{
 			auto& list = input.AddSub();
@@ -2472,8 +2475,11 @@ void AiTask::CreateInput_Social() {
 			list.Add(args.text);
 		}
 		{
+			String t = "Shortened description of the person";
+			if (args.len > 0)
+				t += " in less than " + IntStr(args.len) + " characters";
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Shortened description of the person");
+			results.Title(t);
 		}
 		input.response_length = 1024;
 		//SetHighQuality();

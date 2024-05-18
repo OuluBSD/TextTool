@@ -22,6 +22,8 @@ file
 	ImageBiography.cpp,
 	BiographySummary.h,
 	BiographySummary.cpp,
+	ImageBiographySummary.h,
+	ImageBiographySummary.cpp,
 	Audience.h,
 	Audience.cpp,
 	SocialHeader.h,

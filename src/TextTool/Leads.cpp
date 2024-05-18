@@ -24,8 +24,9 @@ void LeadsCtrl::InitSimplified() {
 	AddItem(t_("Profile"), t_("Owner Info"), owner_info);
 	AddItem(t_("Profile"), t_("Profile Info"), profile_info);
 	AddItem(t_("Social Media"), t_("Biography"), biography);
-	AddItem(t_("Social Media"), t_("Image Biography"), image_biography);
 	AddItem(t_("Social Media"), t_("Biography Summary"), biography_summary);
+	AddItem(t_("Social Media"), t_("Image Biography"), image_biography);
+	AddItem(t_("Social Media"), t_("Image Biography Summary"), image_biography_summary);
 	AddItem(t_("Social Media"), t_("Audience"), audience);
 	AddItem(t_("Social Media"), t_("Header"), social_header);
 	AddItem(t_("Social Media"), t_("Content"), some_content);

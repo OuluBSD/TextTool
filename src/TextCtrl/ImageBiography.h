@@ -33,6 +33,7 @@ public:
 	void DataCategory();
 	void DataYear();
 	void DataEntry();
+	void OnCategoryCursor();
 	void OnValueChange();
 	void Translate();
 	void MakeKeywords(int fn);

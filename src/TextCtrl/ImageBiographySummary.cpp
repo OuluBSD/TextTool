@@ -4,7 +4,7 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-BiographySummaryCtrl::BiographySummaryCtrl() {
+ImageBiographySummaryCtrl::ImageBiographySummaryCtrl() {
 	Add(hsplit.SizePos());
 	
 	hsplit.Horz() << categories << vsplit;
@@ -46,7 +46,7 @@ BiographySummaryCtrl::BiographySummaryCtrl() {
 	
 }
 
-void BiographySummaryCtrl::Data() {
+void ImageBiographySummaryCtrl::Data() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.owner) {
@@ -65,7 +65,7 @@ void BiographySummaryCtrl::Data() {
 	DataCategory();
 }
 
-void BiographySummaryCtrl::DataCategory() {
+void ImageBiographySummaryCtrl::DataCategory() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.owner || !categories.IsCursor()) {
@@ -108,7 +108,7 @@ void BiographySummaryCtrl::DataCategory() {
 	DataYear();
 }
 
-void BiographySummaryCtrl::DataYear() {
+void ImageBiographySummaryCtrl::DataYear() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.owner || !categories.IsCursor() || !blocks.IsCursor())
@@ -127,7 +127,7 @@ void BiographySummaryCtrl::DataYear() {
 	block.text.SetData(by.text);
 }
 
-void BiographySummaryCtrl::OnValueChange() {
+void ImageBiographySummaryCtrl::OnValueChange() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.owner || !categories.IsCursor() || !blocks.IsCursor())
@@ -147,14 +147,14 @@ void BiographySummaryCtrl::OnValueChange() {
 	blocks.Set(6, by.text);
 }
 
-void BiographySummaryCtrl::MakeKeywords () {
+void ImageBiographySummaryCtrl::MakeKeywords () {
 	TaskMgr& m = TaskMgr::Single();
 	SocialArgs args;
 	args.text = block.text.GetData();
 	m.GetSocial(args, [this](String s) {PostCallback(THISBACK1(OnKeywords, s));});
 }
 
-void BiographySummaryCtrl::Translate() {
+void ImageBiographySummaryCtrl::Translate() {
 	TaskMgr& m = TaskMgr::Single();
 	
 	String src = block.native_text.GetData();
@@ -162,12 +162,12 @@ void BiographySummaryCtrl::Translate() {
 	m.Translate("FI-FI", src, "EN-US", [this](String s) {PostCallback(THISBACK1(OnTranslate, s));});
 }
 
-void BiographySummaryCtrl::OnTranslate(String s) {
+void ImageBiographySummaryCtrl::OnTranslate(String s) {
 	block.text.SetData(s);
 	OnValueChange();
 }
 
-void BiographySummaryCtrl::OnKeywords(String s) {
+void ImageBiographySummaryCtrl::OnKeywords(String s) {
 	RemoveEmptyLines2(s);
 	Vector<String> parts = Split(s, "\n");
 	s = Join(parts, ", ");
@@ -175,14 +175,14 @@ void BiographySummaryCtrl::OnKeywords(String s) {
 	OnValueChange();
 }
 
-void BiographySummaryCtrl::ToolMenu(Bar& bar) {
+void ImageBiographySummaryCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	//bar.Add(t_("Translate"), AppImg::BlueRing(), THISBACK(Translate)).Key(K_F5);
 	//bar.Add(t_("Make keywords"), AppImg::BlueRing(), THISBACK(MakeKeywords)).Key(K_F6);
 }
 
-void BiographySummaryCtrl::Do(int fn) {
+void ImageBiographySummaryCtrl::Do(int fn) {
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.profile)
 		return;
@@ -195,11 +195,10 @@ void BiographySummaryCtrl::Do(int fn) {
 	}
 }
 
-void BiographySummaryCtrl::EntryListMenu(Bar& bar) {
+void ImageBiographySummaryCtrl::EntryListMenu(Bar& bar) {
 	
 }
 
 
 END_TEXTLIB_NAMESPACE
-
 

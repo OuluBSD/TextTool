@@ -28,6 +28,7 @@ protected:
 	ImageBiographyCtrl			image_biography;
 	AudienceCtrl				audience;
 	BiographySummaryCtrl		biography_summary;
+	ImageBiographySummaryCtrl	image_biography_summary;
 	
 	
 public:

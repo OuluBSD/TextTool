@@ -15,8 +15,8 @@ SocialSolver::SocialSolver() {
 	
 }
 
-SocialSolver& SocialSolver::Get(Owner& e) {
-	String t = e.name;
+SocialSolver& SocialSolver::Get(Profile& e) {
+	String t = e.owner->name + ": " + e.name;
 	hash_t h = t.GetHashValue();
 	ArrayMap<hash_t, SocialSolver>& map = __SocialSolvers();
 	int i = map.Find(h);
@@ -24,7 +24,9 @@ SocialSolver& SocialSolver::Get(Owner& e) {
 		return map[i];
 	
 	SocialSolver& ls = map.Add(h);
-	ls.owner = &e;
+	ASSERT(e.owner);
+	ls.owner = e.owner;
+	ls.profile = &e;
 	return ls;
 }
 
@@ -51,12 +53,17 @@ void SocialSolver::Process() {
 			continue;
 		}
 		
+		
 		if (phase == SS_BEGIN) {
 			time_started = GetSysTime();
 			NextPhase();
 		}
 		else if (phase == SS_AUDIENCE_PROFILE_CATEGORIES) {
 			ProcessAudienceProfileCategories();
+		}
+		else if (phase > SS_AUDIENCE_PROFILE_CATEGORIES && only_categories) {
+			only_categories = false;
+			phase = SS_COUNT;
 		}
 		else if (phase == SS_SUMMARIZE) {
 			ProcessSummarize();
@@ -85,7 +92,10 @@ void SocialSolver::Process() {
 		else if (phase == SS_ANALYZE_IMAGE_BIOGRAPHY) {
 			ProcessAnalyzeImageBiography();
 		}
-		else /*if (phase == LS_COUNT)*/ {
+		else if (phase == SS_SUMMARIZE_IMAGE_BIOGRAPHY) {
+			ProcessSummarizeImageBiography();
+		}
+		else /*if (phase == SS_COUNT)*/ {
 			time_stopped = GetSysTime();
 			phase = SS_BEGIN;
 			break;
@@ -101,6 +111,7 @@ void SocialSolver::Process() {
 }
 
 void SocialSolver::ProcessAudienceProfileCategories() {
+	BiographyAnalysis& analysis = profile->biography_analysis;
 	int role_i = batch;
 	int prof_i = sub_batch;
 	
@@ -108,6 +119,13 @@ void SocialSolver::ProcessAudienceProfileCategories() {
 		NextPhase();
 		return;
 	}
+	
+	analysis.Realize();
+	if (analysis.GetRequiredRoles().Find(role_i) < 0) {
+		NextBatch();
+		return;
+	}
+	
 	const Array<RoleProfile>& profs = GetRoleProfile(role_i);
 	
 	if (prof_i >= profs.GetCount()) {
@@ -116,8 +134,6 @@ void SocialSolver::ProcessAudienceProfileCategories() {
 	}
 	const RoleProfile& prof = profs[prof_i];
 	
-	BiographyAnalysis& analysis = owner->biography_analysis;
-	analysis.Realize();
 	const BiographyProfileAnalysis& pa = analysis.profiles[role_i][prof_i];
 	
 	if (skip_ready && pa.categories.GetCount()) {
@@ -140,7 +156,7 @@ void SocialSolver::OnProcessAudienceProfileCategories(String res) {
 	int prof_i = sub_batch;
 	const Array<RoleProfile>& profs = GetRoleProfile(role_i);
 	const RoleProfile& prof = profs[prof_i];
-	BiographyAnalysis& analysis = owner->biography_analysis;
+	BiographyAnalysis& analysis = profile->biography_analysis;
 	analysis.Realize();
 	BiographyProfileAnalysis& pa = analysis.profiles[role_i][prof_i];
 	
@@ -210,7 +226,7 @@ void SocialSolver::OnProcessAudienceProfileCategories(String res) {
 }
 
 void SocialSolver::ProcessSummarize() {
-	Biography& biography = owner->biography_detailed;
+	Biography& biography = profile->biography_detailed;
 	
 	if (batch >= biography.categories.GetCount()) {
 		NextPhase();
@@ -294,7 +310,7 @@ void SocialSolver::ProcessSummarize() {
 }
 
 void SocialSolver::OnProcessSummarize(String res) {
-	Biography& biography = owner->biography_detailed;
+	Biography& biography = profile->biography_detailed;
 	BiographyCategory& bcat = biography.GetAdd(*owner, batch);
 	const BiographyCategory::Range& range = bcat.summaries.GetKey(sub_batch);
 	BioYear& sum = bcat.summaries[sub_batch];
@@ -307,10 +323,10 @@ void SocialSolver::OnProcessSummarize(String res) {
 }
 
 void SocialSolver::ProcessAudienceReactsSummary() {
-	Biography& biography = owner->biography_detailed;
+	Biography& biography = profile->biography_detailed;
 	
 	if (batch == 0 && sub_batch == 0) {
-		BiographyAnalysis& analysis = owner->biography_analysis;
+		BiographyAnalysis& analysis = profile->biography_analysis;
 		analysis.Realize();
 		ptrs.Clear();
 		role_descs.Clear();
@@ -400,12 +416,17 @@ void SocialSolver::OnProcessAudienceReactsSummary(String res) {
 }
 
 void SocialSolver::ProcessRoleReactions() {
-	Biography& biography = owner->biography_detailed;
-	BiographyAnalysis& analysis = owner->biography_analysis;
+	Biography& biography = profile->biography_detailed;
+	BiographyAnalysis& analysis = profile->biography_analysis;
 	int role_i = batch;
 	
 	if (role_i >= analysis.profiles.GetCount()) {
 		NextPhase();
+		return;
+	}
+	
+	if (analysis.GetRequiredRoles().Find(role_i) < 0) {
+		NextBatch();
 		return;
 	}
 	
@@ -478,8 +499,8 @@ void SocialSolver::ProcessRoleReactions() {
 }
 
 void SocialSolver::OnProcessRoleReactions(String res) {
-	Biography& biography = owner->biography_detailed;
-	BiographyAnalysis& analysis = owner->biography_analysis;
+	Biography& biography = profile->biography_detailed;
+	BiographyAnalysis& analysis = profile->biography_analysis;
 	int role_i = batch;
 	int range_i = ranges.GetCount() - 1 - sub_batch;
 	
@@ -510,7 +531,7 @@ int SocialSolver::CreateRange(int off, int len) {
 }
 
 void SocialSolver::ProcessPlatformReactions() {
-	BiographyAnalysis& analysis = owner->biography_analysis;
+	BiographyAnalysis& analysis = profile->biography_analysis;
 	int plat_i = batch;
 	
 	if (plat_i >= PLATFORM_COUNT) {
@@ -586,7 +607,7 @@ void SocialSolver::ProcessPlatformReactions() {
 }
 
 void SocialSolver::OnProcessPlatformReactions(String res) {
-	BiographyAnalysis& analysis = owner->biography_analysis;
+	BiographyAnalysis& analysis = profile->biography_analysis;
 	int plat_i = batch;
 	int range_i = ranges.GetCount() - 1 - sub_batch;
 	if (plat_i >= analysis.platforms.GetCount())
@@ -604,7 +625,7 @@ void SocialSolver::OnProcessPlatformReactions(String res) {
 }
 
 void SocialSolver::ProcessPlatformDescriptions() {
-	BiographyAnalysis& analysis = owner->biography_analysis;
+	BiographyAnalysis& analysis = profile->biography_analysis;
 	int plat_i = batch;
 	
 	if (plat_i >= PLATFORM_COUNT) {
@@ -640,7 +661,7 @@ void SocialSolver::ProcessPlatformDescriptions() {
 }
 
 void SocialSolver::OnProcessPlatformDescriptions(String res) {
-	BiographyAnalysis& analysis = owner->biography_analysis;
+	BiographyAnalysis& analysis = profile->biography_analysis;
 	int plat_i = batch;
 	if (plat_i >= analysis.platforms.GetCount())
 		analysis.platforms.SetCount(plat_i+1);
@@ -657,7 +678,7 @@ void SocialSolver::OnProcessPlatformDescriptions(String res) {
 }
 
 void SocialSolver::ProcessPlatformDescriptionRefinements() {
-	BiographyAnalysis& analysis = owner->biography_analysis;
+	BiographyAnalysis& analysis = profile->biography_analysis;
 	int plat_i = batch;
 	
 	if (plat_i >= PLATFORM_COUNT) {
@@ -665,31 +686,35 @@ void SocialSolver::ProcessPlatformDescriptionRefinements() {
 		return;
 	}
 	
+	if (sub_batch >= PLATDESC_LEN_COUNT) {
+		NextBatch();
+		return;
+	}
+	int len_i = sub_batch;
+	int mode_i = PLATDESC_MODE_FINAL;
+	
 	const Platform& plat = GetPlatforms()[plat_i];
 	
 	PlatformBiographyAnalysis& plat_anal = analysis.platforms[plat_i];
-	String s;
-	String source;
-	switch (sub_batch) {
-		case 0: s = plat_anal.polished_description; break;
-		case 1: s = plat_anal.short_polished_description; break;
-		default: NextBatch(); return;
-	}
-	switch (sub_batch) {
-		case 0: source = plat_anal.profile_description_from_biography; break;
-		case 1: source = plat_anal.polished_description; break;
-		default: NextBatch(); return;
-	}
-	
+	String s = plat_anal.descriptions[len_i][mode_i];
 	if (skip_ready && s.GetCount()) {
 		NextSubBatch();
 		return;
 	}
 	
+	String source;
+	if(len_i == 0) {
+		source = plat_anal.profile_description_from_biography;
+	}
+	else {
+		source = plat_anal.descriptions[len_i-1][PLATDESC_MODE_FINAL];
+	}
+	
 	const String& merged_reactions = plat_anal.packed_reactions[0];
 	SocialArgs args;
-	args.fn = 7 + sub_batch;
+	args.fn = len_i == 0 ? 7 : 8;
 	args.text = source;
+	args.len = GetPlatformDescriptionLength(len_i);
 	
 	SetWaiting(1);
 	TaskMgr& m = TaskMgr::Single();
@@ -697,17 +722,14 @@ void SocialSolver::ProcessPlatformDescriptionRefinements() {
 }
 
 void SocialSolver::OnProcessPlatformDescriptionRefinements(String res) {
-	BiographyAnalysis& analysis = owner->biography_analysis;
+	BiographyAnalysis& analysis = profile->biography_analysis;
 	int plat_i = batch;
 	const Platform& plat = GetPlatforms()[plat_i];
 	PlatformBiographyAnalysis& plat_anal = analysis.platforms[plat_i];
-	String* ss = 0;
-	switch (sub_batch) {
-		case 0: ss = &plat_anal.polished_description; break;
-		case 1: ss = &plat_anal.short_polished_description; break;
-		default: NextBatch(); return;
-	}
-	String& s = *ss;
+	int len_i = sub_batch;
+	int mode_i = PLATDESC_MODE_FINAL;
+	String& s = plat_anal.descriptions[len_i][mode_i];
+	
 	s = TrimBoth(res);
 	if (s.Left(1) == "\"") s = s.Mid(1);
 	if (s.Right(1) == "\"") s = s.Left(s.GetCount()-1);
@@ -717,37 +739,33 @@ void SocialSolver::OnProcessPlatformDescriptionRefinements(String res) {
 }
 
 void SocialSolver::ProcessPlatformDescriptionTranslated() {
-	BiographyAnalysis& analysis = owner->biography_analysis;
+	BiographyAnalysis& analysis = profile->biography_analysis;
 	int plat_i = batch;
 	
 	if (plat_i >= PLATFORM_COUNT) {
 		NextPhase();
 		return;
 	}
+	int total_subbatches = PLATDESC_MODE_COUNT * PLATDESC_LEN_COUNT;
+	if (sub_batch >= total_subbatches) {
+		NextBatch();
+		return;
+	}
+	
+	int len_i = sub_batch / PLATDESC_MODE_COUNT;
+	int mode_i = sub_batch % PLATDESC_MODE_COUNT;
+	if (mode_i == PLATDESC_MODE_FINAL) {
+		NextSubBatch();
+		return;
+	}
 	
 	const Platform& plat = GetPlatforms()[plat_i];
 	
 	PlatformBiographyAnalysis& plat_anal = analysis.platforms[plat_i];
-	String s;
-	String source;
-	String dst_ln = "FI-FI";
-	bool slightly_dialect = false;
-	switch (sub_batch) {
-		case 0: s = plat_anal.translated_polished_description; break;
-		case 1: s = plat_anal.translated_short_polished_description; break;
-		case 2: s = plat_anal.translated_short_polished_description_slightly_dialect;
-				slightly_dialect = true; break;
-		case 3: s = plat_anal.short_polished_description_slightly_dialect;
-				slightly_dialect = true; dst_ln = "EN-EN"; break;
-		default: NextBatch(); return;
-	}
-	switch (sub_batch) {
-		case 0: source = plat_anal.polished_description; break;
-		case 1: source = plat_anal.short_polished_description; break;
-		case 2: source = plat_anal.short_polished_description; break;
-		case 3: source = plat_anal.short_polished_description; break;
-		default: NextBatch(); return;
-	}
+	String s = plat_anal.descriptions[len_i][mode_i];
+	String source = plat_anal.descriptions[len_i][PLATDESC_MODE_FINAL];
+	String dst_ln = mode_i == PLATDESC_MODE_FINAL_DIALECT ? "EN-EN" : "FI-FI";
+	bool slightly_dialect = (mode_i == PLATDESC_MODE_FINAL_DIALECT || mode_i == PLATDESC_MODE_FINAL_TRANSLATED_DIALECT);
 	
 	if (skip_ready && s.GetCount()) {
 		NextSubBatch();
@@ -762,19 +780,14 @@ void SocialSolver::ProcessPlatformDescriptionTranslated() {
 }
 
 void SocialSolver::OnProcessPlatformDescriptionTranslated(String res) {
-	BiographyAnalysis& analysis = owner->biography_analysis;
+	BiographyAnalysis& analysis = profile->biography_analysis;
 	int plat_i = batch;
 	const Platform& plat = GetPlatforms()[plat_i];
 	PlatformBiographyAnalysis& plat_anal = analysis.platforms[plat_i];
-	String* ss = 0;
-	switch (sub_batch) {
-		case 0: ss = &plat_anal.translated_polished_description; break;
-		case 1: ss = &plat_anal.translated_short_polished_description; break;
-		case 2: ss = &plat_anal.translated_short_polished_description_slightly_dialect; break;
-		case 3: ss = &plat_anal.short_polished_description_slightly_dialect; break;
-		default: NextBatch(); return;
-	}
-	String& s = *ss;
+	int len_i = sub_batch / PLATDESC_MODE_COUNT;
+	int mode_i = sub_batch % PLATDESC_MODE_COUNT;
+	
+	String& s = plat_anal.descriptions[len_i][mode_i];
 	s = TrimBoth(res);
 	if (s.Left(1) == "\"") s = s.Mid(1);
 	if (s.Right(1) == "\"") s = s.Left(s.GetCount()-1);
@@ -880,10 +893,100 @@ void SocialSolver::OnProcessAnalyzeImageBiography(String res) {
 	SetWaiting(0);
 }
 
+void SocialSolver::ProcessSummarizeImageBiography() {
+	Biography& biography = profile->biography_detailed;
+	
+	if (batch >= biography.categories.GetCount()) {
+		NextPhase();
+		return;
+	}
+	
+	BiographyCategory& bcat = biography.GetAdd(*owner, batch);
+	bcat.RealizeSummaries();
+	if (sub_batch >= bcat.summaries.GetCount()) {
+		NextBatch();
+		return;
+	}
+	
+	const BiographyCategory::Range& range = bcat.summaries.GetKey(sub_batch);
+	BioYear& sum = bcat.summaries[sub_batch];
+	
+	if (skip_ready && sum.text.GetCount()) {
+		NextSubBatch();
+		return;
+	}
+	
+	SocialArgs args;
+	args.fn = 1;
+	
+	if (range.len == 2) {
+		int begin = range.off;
+		int end = range.off + range.len;
+		ASSERT(begin < end && end - begin < 100);
+		for(int i = begin; i < end; i++) {
+			BioYear& by = bcat.GetAdd(i);
+			String title = GetBiographyCategoryKey(batch) +
+				", year " + IntStr(by.year) +
+				", age " + IntStr(by.year - owner->year_of_birth);
+			
+			TODO
+			if (by.text.GetCount())
+				args.parts.Add(title, by.text);
+		}
+		if (args.parts.IsEmpty()) {
+			NextSubBatch();
+			return;
+		}
+		else if (args.parts.GetCount() == 1) {
+			OnProcessSummarize("(" + args.parts.GetKey(0) + ") " + args.parts[0]);
+			return;
+		}
+	}
+	else {
+		int step = range.len / 2;
+		int begin = range.off;
+		int end = range.off + range.len;
+		for(int i = begin; i < end; i+=step) {
+			BiographyCategory::Range sub_range;
+			sub_range.off = i;
+			sub_range.len = range.len >> 1;
+			int j = bcat.summaries.Find(sub_range);
+			ASSERT(j >= 0);
+			BioYear& by = bcat.summaries[j];
+			int from = sub_range.off;
+			int to = sub_range.off + sub_range.len - 1;
+			String title =
+				GetBiographyCategoryKey(batch) +
+				", from year " + IntStr(from) +
+				" to year " + IntStr(to) +
+				", age " + IntStr(from - owner->year_of_birth) + " - " + IntStr(to - owner->year_of_birth)
+				;
+			if (by.text.GetCount())
+				args.parts.Add(title, by.text);
+		}
+		if (args.parts.IsEmpty()) {
+			NextSubBatch();
+			return;
+		}
+		else if (args.parts.GetCount() == 1) {
+			OnProcessSummarize("(" + args.parts.GetKey(0) + ") " + args.parts[0]);
+			return;
+		}
+	}
+	
+	SetWaiting(1);
+	TaskMgr& m = TaskMgr::Single();
+	m.GetSocial(args, THISBACK(OnProcessSummarizeImageBiography));
+}
+
+void SocialSolver::OnProcessSummarizeImageBiography(String res) {
+	
+}
+
 void SocialSolver::TraverseMessageTasks(int prof_i, int plat_i) {
 	Profile& prof = owner->profiles[prof_i];
 	ProfileData& pd = ProfileData::Get(prof);
-	BiographyAnalysis& analysis = owner->biography_analysis;
+	BiographyAnalysis& analysis = profile->biography_analysis;
 	const Platform& plat = GetPlatforms()[plat_i];
 	PlatformBiographyAnalysis& plat_anal = analysis.platforms[plat_i];
 	PlatformData& pld = pd.platforms[plat_i];
@@ -929,7 +1032,7 @@ void SocialSolver::TraverseMessageTasks(Vector<PlatformComment*>& before, Platfo
 }
 
 void SocialSolver::TraverseVisionTasks() {
-	Biography& biography = owner->biography_detailed;
+	Biography& biography = profile->biography_detailed;
 	for(int i = 0; i < biography.categories.GetCount(); i++) {
 		BiographyCategory& bcat = biography.categories[i];
 		for(int j = 0; j < bcat.years.GetCount(); j++) {

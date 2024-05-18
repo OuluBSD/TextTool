@@ -210,11 +210,13 @@ struct SocialArgs {
 	int fn = 0;
 	String text;
 	VectorMap<String,String> parts;
+	int len = 0;
 	
 	void Jsonize(JsonIO& json) {
 		json	("text", text)
 				("fn", fn)
 				("parts", parts)
+				("len", len)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

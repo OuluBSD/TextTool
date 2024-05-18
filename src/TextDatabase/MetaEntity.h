@@ -16,6 +16,8 @@ struct Profile
 	String biography;
 	String preferred_genres;
 	Index<int> languages;
+	Biography biography_detailed;
+	BiographyAnalysis biography_analysis;
 	
 	/*void Serialize(Stream& s) {
 		
@@ -28,6 +30,8 @@ struct Profile
 			("biography", biography)
 			("preferred_genres", preferred_genres)
 			("languages", languages)
+			("biography_detailed", biography_detailed)
+			("biography_analysis", biography_analysis)
 			;
 	}
 	
@@ -43,8 +47,7 @@ struct Owner
 	bool is_guitarist = false;
 	String electronic_tools;
 	Array<Profile> profiles;
-	Biography biography_detailed;
-	BiographyAnalysis biography_analysis;
+	
 	
 	/*void Serialize(Stream& s) {
 		
@@ -62,8 +65,6 @@ struct Owner
 			("is_guitarist", is_guitarist)
 			("electronic_tools", electronic_tools)
 			("profiles", profiles)
-			("biography_detailed", biography_detailed)
-			("biography_analysis", biography_analysis)
 			;
 		if (json.IsLoading()) {
 			for (Profile& p : profiles)

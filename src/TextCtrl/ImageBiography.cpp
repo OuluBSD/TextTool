@@ -19,17 +19,18 @@ ImageBiographyCtrl::ImageBiographyCtrl() {
 	
 	CtrlLayout(year);
 	
+	categories.AddColumn(t_("Required"));
 	categories.AddColumn(t_("Category"));
 	categories.AddColumn(t_("Entries"));
 	categories.AddIndex("IDX");
 	for(int i = 0; i < BIOCATEGORY_COUNT; i++) {
-		categories.Set(i, 0, GetBiographyCategoryKey(i));
+		categories.Set(i, 1, GetBiographyCategoryKey(i));
 		categories.Set(i, "IDX", i);
 	}
-	categories.ColumnWidths("5 1");
+	categories.ColumnWidths("1 5 1");
 	categories.SetSortColumn(0);
 	categories.SetCursor(0);
-	categories <<= THISBACK(DataCategory);
+	categories.WhenCursor << THISBACK(OnCategoryCursor);
 	
 	
 	years.AddColumn(t_("Year"));
@@ -63,17 +64,23 @@ void ImageBiographyCtrl::Data() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.owner) {
-		for(int i = 0; i < categories.GetCount(); i++)
-			categories.Set(i, 1, 0);
+		for(int i = 0; i < categories.GetCount(); i++) {
+			categories.Set(i, 0, 0);
+			categories.Set(i, 2, 0);
+		}
 		return;
 	}
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.owner->biography_detailed;
+	Biography& biography = mp.profile->biography_detailed;
 	
+	Index<int> req_cats = mp.profile->biography_analysis.GetRequiredCategories();
 	for(int i = 0; i < categories.GetCount(); i++) {
 		int cat_i = categories.Get(i, "IDX");
+		bool req = req_cats.Find(cat_i) >= 0;
+		categories.Set(i, 0, req ? "X" : "");
 		BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
-		categories.Set(i, 1, bcat.GetFilledImagesCount());
+		int c = bcat.GetFilledImagesCount();
+		categories.Set(i, 2, c > 0 ? Value(c) : Value());
 	}
 	DataCategory();
 }
@@ -86,7 +93,7 @@ void ImageBiographyCtrl::DataCategory() {
 		return;
 	}
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.owner->biography_detailed;
+	Biography& biography = mp.profile->biography_detailed;
 	int cat_i = categories.Get("IDX");
 	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
 	
@@ -104,7 +111,8 @@ void ImageBiographyCtrl::DataCategory() {
 		years.Set(i, 0, by.year);
 		years.Set(i, 1, age);
 		years.Set(i, 2, cls_str);
-		years.Set(i, 3, by.images.GetCount());
+		int c = by.images.GetCount();
+		years.Set(i, 3, c > 0 ? Value(c) : Value());
 		years.Set(i, "IDX", i);
 	}
 	INHIBIT_CURSOR(years);
@@ -122,7 +130,7 @@ void ImageBiographyCtrl::DataYear() {
 	if (!mp.owner || !categories.IsCursor() || !years.IsCursor())
 		return;
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.owner->biography_detailed;
+	Biography& biography = mp.profile->biography_detailed;
 	int cat_i = categories.Get("IDX");
 	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
 	int year_i = years.Get("IDX");
@@ -152,7 +160,7 @@ void ImageBiographyCtrl::DataEntry() {
 	if (!mp.owner || !categories.IsCursor() || !years.IsCursor() || !entries.IsCursor())
 		return;
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.owner->biography_detailed;
+	Biography& biography = mp.profile->biography_detailed;
 	int cat_i = categories.Get("IDX");
 	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
 	int year_i = years.Get("IDX");
@@ -181,13 +189,25 @@ void ImageBiographyCtrl::DataEntry() {
 	}
 }
 
+void ImageBiographyCtrl::OnCategoryCursor() {
+	DataCategory();
+	for(int i = years.GetCount()-1; i >= 0; i--) {
+		int count = years.Get(i, 3);
+		if (count > 0) {
+			years.SetCursor(i);
+			return;
+		}
+	}
+	img.Clear();
+}
+
 void ImageBiographyCtrl::OnValueChange() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.owner || !categories.IsCursor() || !years.IsCursor() || !entries.IsCursor())
 		return;
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.owner->biography_detailed;
+	Biography& biography = mp.profile->biography_detailed;
 	int cat_i = categories.Get("IDX");
 	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
 	int year_i = years.Get("IDX");
@@ -262,10 +282,9 @@ void ImageBiographyCtrl::EntryListMenu(Bar& bar) {
 
 void ImageBiographyCtrl::Do(int fn) {
 	MetaPtrs& mp = MetaPtrs::Single();
-	if (!mp.owner)
+	if (!mp.profile)
 		return;
-	Owner& owner = *mp.owner;
-	SocialSolver& ss = SocialSolver::Get(owner);
+	SocialSolver& ss = SocialSolver::Get(*mp.profile);
 	if (fn == 0) {
 		ss.Start();
 	}
@@ -280,7 +299,7 @@ void ImageBiographyCtrl::AddEntry() {
 	if (!mp.owner || !categories.IsCursor() || !years.IsCursor())
 		return;
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.owner->biography_detailed;
+	Biography& biography = mp.profile->biography_detailed;
 	int cat_i = categories.Get("IDX");
 	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
 	int year_i = years.Get("IDX");
@@ -299,7 +318,7 @@ void ImageBiographyCtrl::RemoveEntry() {
 	if (!mp.owner || !categories.IsCursor() || !years.IsCursor() || !entries.IsCursor())
 		return;
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.owner->biography_detailed;
+	Biography& biography = mp.profile->biography_detailed;
 	int cat_i = categories.Get("IDX");
 	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
 	int year_i = years.Get("IDX");
@@ -335,7 +354,7 @@ void ImageBiographyCtrl::SetCurrentImage(Image img) {
 	if (!mp.owner || !categories.IsCursor() || !years.IsCursor() || !entries.IsCursor())
 		return;
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.owner->biography_detailed;
+	Biography& biography = mp.profile->biography_detailed;
 	int cat_i = categories.Get("IDX");
 	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
 	int year_i = years.Get("IDX");
@@ -371,7 +390,7 @@ void ImageBiographyCtrl::AnalyseImage() {
 	if (!mp.owner || !categories.IsCursor() || !years.IsCursor() || !entries.IsCursor())
 		return;
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.owner->biography_detailed;
+	Biography& biography = mp.profile->biography_detailed;
 	int cat_i = categories.Get("IDX");
 	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
 	int year_i = years.Get("IDX");

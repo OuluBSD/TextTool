@@ -156,29 +156,76 @@ enum {
 	BIOSCORE_COUNT
 };
 
+enum {
+	PLATDESC_MODE_FINAL,
+	PLATDESC_MODE_FINAL_DIALECT,
+	PLATDESC_MODE_FINAL_TRANSLATED,
+	PLATDESC_MODE_FINAL_TRANSLATED_DIALECT,
+	
+	PLATDESC_MODE_COUNT,
+};
+
+enum {
+	PLATDESC_LEN_FULL,
+	PLATDESC_LEN_1280_CHARS,
+	PLATDESC_LEN_160_CHARS,
+	PLATDESC_LEN_40_CHARS,
+	
+	PLATDESC_LEN_COUNT,
+};
+
+inline String GetPlatformDescriptionModeKey(int i) {
+	switch (i) {
+		case PLATDESC_MODE_FINAL: return "engf";
+		case PLATDESC_MODE_FINAL_DIALECT: return "engfd";
+		case PLATDESC_MODE_FINAL_TRANSLATED: return "transf";
+		case PLATDESC_MODE_FINAL_TRANSLATED_DIALECT: return "transfd";
+		default: TODO; return "error";
+	}
+}
+
+inline String GetPlatformDescriptionLengthKey(int i) {
+	switch (i) {
+		case PLATDESC_LEN_FULL: return "full";
+		case PLATDESC_LEN_1280_CHARS: return "1280";
+		case PLATDESC_LEN_160_CHARS: return "160";
+		case PLATDESC_LEN_40_CHARS: return "40";
+		default: TODO; return "error";
+	}
+}
+
+inline int GetPlatformDescriptionLength(int i) {
+	switch (i) {
+		case PLATDESC_LEN_FULL: return 0;
+		case PLATDESC_LEN_1280_CHARS: return 1280;
+		case PLATDESC_LEN_160_CHARS: return 160;
+		case PLATDESC_LEN_40_CHARS: return 40;
+		default: TODO; return 0;
+	}
+}
+
+
+
+
 struct PlatformBiographyAnalysis {
 	Vector<String> packed_reactions;
 	String profile_description_from_biography;
-	String polished_description;
-	String short_polished_description;
-	String translated_polished_description;
-	String translated_short_polished_description;
-	String short_polished_description_slightly_dialect;
-	String translated_short_polished_description_slightly_dialect;
+	String descriptions[PLATDESC_LEN_COUNT][PLATDESC_MODE_COUNT];
+	bool platform_enabled = false;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("packed_reactions", packed_reactions)
 			("profile_description_from_biography", profile_description_from_biography)
-			("polished_desc", polished_description)
-			("short_final_desc", short_polished_description)
-			("trans_final_desc", translated_polished_description)
-			("trans_short_final_desc", translated_short_polished_description)
-			("short_final_desc_dialect", short_polished_description_slightly_dialect)
-			("trans_short_final_desc_dialect", translated_short_polished_description_slightly_dialect)
+			("platform_enabled", platform_enabled)
 			;
+		for(int i = 0; i < PLATDESC_LEN_COUNT; i++) {
+			for(int j = 0; j < PLATDESC_MODE_COUNT; j++) {
+				String key = GetPlatformDescriptionModeKey(j) + "_" + GetPlatformDescriptionLengthKey(i);
+				json(key, descriptions[i][j]);
+			}
+		}
 	}
-	
 };
 
 struct BiographyRoleAnalysis {
@@ -236,6 +283,8 @@ struct BiographyAnalysis {
 			("platforms", platforms)
 			;
 	}
+	Index<int> GetRequiredRoles() const;
+	Index<int> GetRequiredCategories() const;
 	//BiographyCategory& GetAdd(Owner& o, int enum_);
 	
 };
