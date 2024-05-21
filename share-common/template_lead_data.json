@@ -2187,6 +2187,30 @@
 				214,
 				215
 			]
+		},
+		{
+			"hash": "6843838670878581245",
+			"lng": 1,
+			"idx": 774,
+			"title": "Music A&R opportunity for Film placement.",
+			"text": "Seeking top-quality songs for potential film placement opportunity. Looking for tracks that cover themes of overcoming, perseverance, and heartbreak. All genres and vocal styles are welcome. Open to both male and female vocals. Please ensure the track has a glimmer of hope and is not overly dark or depressing. \nSubmissions will be reviewed by our team and if selected, we will contact you with further details. Please note, due to the high volume of submissions, we are unable to provide detailed feedback. We apologize for any inconvenience. Thank you for your understanding.\nCompensation: $5001 - $5001. Minimum submission fee of $20. Don't miss this chance to potentially have your song featured in a film. Submit now!",
+			"submission": 20,
+			"author": [
+				45
+			],
+			"specialities": [
+				72
+			],
+			"profit": [
+				201,
+				202,
+				203
+			],
+			"organizational": [
+				216,
+				217,
+				218
+			]
 		}
 	],
 	"author_classes": [
@@ -2234,7 +2258,8 @@
 		"Publisher",
 		"Placement Agent and A&R Specialist",
 		"Advertising Music Supervisor",
-		"Music Licensing and Marketing Strategist"
+		"Music Licensing and Marketing Strategist",
+		"Film Placement A&R"
 	],
 	"author_specialities": [
 		"The listing author specializes in commercial music placement and is looking for catchy, energetic songs with a variety of instruments for potential use in various projects.",
@@ -2308,7 +2333,8 @@
 		"The listing author has strong connections in the country music industry, specifically with this established artist and their team. They have a keen ear for hit songs and can identify potential hits for this artist's specific style and sound.",
 		"The listing author specializes in sourcing and selecting music for advertising campaigns and has successfully placed music in various commercials and campaigns for major brands.",
 		"The listing author specializes in sourcing and selecting music for advertising and marketing campaigns for well-known brands. They have a strong understanding of what appeals to younger generations and have a successful track record of creating viral campaigns.",
-		"The listing author specializes in seeking top-quality songs for major label artists in various genres, with a focus on contemporary and commercially appealing music."
+		"The listing author specializes in seeking top-quality songs for major label artists in various genres, with a focus on contemporary and commercially appealing music.",
+		"The listing's author is an A&R professional with a specialty in finding and placing songs in films and TV shows. They have a strong network in the entertainment industry and a track record of successfully pitching songs for placement."
 	],
 	"profit_reasons": [
 		"To make a profit from the submission fees of interested artists.",
@@ -2511,7 +2537,10 @@
 		"To provide high-quality, catchy music for their client's social media campaign and maintain a good reputation with the brand.",
 		"To earn a commission from successfully placing submitted songs with major label artists.",
 		"To build relationships with major labels and establish a reputation for discovering top talent.",
-		"To gain recognition and attract more submissions and clients in the future."
+		"To gain recognition and attract more submissions and clients in the future.",
+		"To make a profit from submission fees and potential earnings from successful placements.",
+		"To provide a valuable service for filmmakers and studios by finding the perfect songs for their projects.",
+		"To potentially discover new artists and build relationships with them, earning a percentage of their earnings."
 	],
 	"organizational_reasons": [
 		"To support and promote artists by giving them the opportunity to earn money through their music.",
@@ -2729,7 +2758,10 @@
 		"To stay current with the latest trends and find new, fresh music for future campaigns.",
 		"To discover and promote new, promising songwriters and strengthen the music industry.",
 		"To provide a platform for artists to showcase their talent and potentially launch their careers.",
-		"To stay current with popular music trends and maintain a competitive edge in the industry."
+		"To stay current with popular music trends and maintain a competitive edge in the industry.",
+		"To support and showcase talented artists and their music through film and television.",
+		"To add diversity and emotional depth to film and TV soundtracks.",
+		"To establish themselves as a go-to source for music placement in the entertainment industry."
 	],
 	"publishers": [
 		{

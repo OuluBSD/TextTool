@@ -1,0 +1,671 @@
+{
+	"title": "",
+	"english_title": "Galactic Dreams: A Journey Through the Universe",
+	"copyright": "Seppo Pakonen",
+	"content_vision": "The lyrics could paint a narrative of a young kid who dreams big and refuses to be boxed by traditional roles or expectations. Verses might detail their imaginative adventures and the different roles they play‚Äîfrom astronaut to artist‚Äîunderscoring the message that you can be anything you want to be. This would not only resonate with the visuals involving a child but also encapsulate the essence of freedom and celebrating one's uniqueness as specified by the client.",
+	"typecast": 33,
+	"archetype": 18,
+	"is_rapper": true,
+	"user_structure": "V1,PC1,C1,V2,PC2,C1,C2,V3,PC3,B1,B2,C1,C2",
+	"required_parts": "",
+	"avoid_parts": "",
+	"structure_suggestion_description": "",
+	"parts_total": 0,
+	"bpm": 0,
+	"verse_length": 8,
+	"prechorus_length": 2,
+	"chorus_length": 4,
+	"bridge_length": 4,
+	"structure_str": "",
+	"text": "[Verse 1]\nJokaisen p√§iv√§n√§ eskaloituu seikkailu,\nretken √§√§rell√§, unelmien suuruus ei pet√§.\nKun t√§htitaivas kutsuu,\nen pelk√§√§ lent√§m√§st√§.\nT√§htitorniin nousen,\nja sielt√§ viel√§ ylemm√§s,\nNauru seurana, mielikuvituksen\nmatkassa.\n\n[Pre-Chorus 1]\nSurffaamme universumin aaltoja pitkin, tavoittaen\nt√§hti√§ ja t√§ytt√§en unelmat uudelleen.\n\n[Chorus 1]\nKun unelmat puhalletaan tuleen,\nne vain lent√§v√§t korkeammalle.\nUnelmani kantavat minut\nkauas √∂isen taivaan alla.\n\n[Verse 2]\nMaailmankaikkeuden reunallakin seilaa laivamme,\nker√§ten t√§hti√§ purjeisiinsa.\nMultapalloja j√§ljitt√§en, seikkailu\njatkuu kaukaisiin galakseihin.\nMaailmojen avaruus, taivaallinen taulu piirtyy silmiini,\nvalloittaen syd√§meni, joka huutaa vapauden n√§lk√§√§.\nAvaruuksien takana siint√§√§ loputon mahdollisuuksien meri,\njota valloitan uteliaana.\n\n[Pre-Chorus 2]\nVaikka matka voi olla pelottava,\nen anna sen pel√§t√§\n\n[Chorus 2]\nUnelmat lent√§v√§t korkeuksiin,\nikuisesti meid√§n matkamme jatkuu\nUnelmat kantavat minua kuin siivill√§,\nvapauden tuulissa lenn√§n\n\n[Verse 3]\nIhmiskunnan rajapinnoilla tutkimme sanoittamattomia haaveita,\nvaeltaen upeilla taivaiden poluilla.\nTavoittelemme rajojen rajoja,\ntaivaan haaveita etsien,\nTaistelen yl√∂s ja on kuin kaatamaton,\njatkuvasti matkalla kohti t√§hti√§.\nHaipparin t√§htien keskell√§ kipin√∂i vanhat ajat,\nmuistot ja unelmat her√§√§ eloon.\n\n[Pre-Chorus 3]\nV√§lill√§ eksyin el√§m√§n kapinoinnissa, mutta jatkoin matkaani kohti horisonttia,\njossa unelmani odotti minua innokkaasti.\n\n[Bridge 1]\nV√§lill√§ kaikki voi tuntua kaoottiselta, mutta siit√§ huolimatta\njatkan itseni l√∂yt√§mist√§ t√§ss√§ suuressa maailmankaikkeudessa.\nPuurtaen l√§pi pimeyden ja sumujen,\nl√∂yd√§n itseni t√§htien √§√§rilt√§.\n\n[Bridge 2]\nSilm√§ni avautuvat uuden todellisuuden vuorilla,\nunelmieni vuodattaminen kohti taivaan kattoa\nSanattomatkin haaveeni kohisevat taivaan tuulissa,\nmuuntaen kaikuiksi ne jotka ovat sisimp√§√§ni piilotettuina.\n\n",
+	"active_struct": {
+		"name": "User's structure",
+		"parts": [
+			"V1",
+			"PC1",
+			"C1",
+			"V2",
+			"PC2",
+			"C1",
+			"C2",
+			"V3",
+			"PC3",
+			"B1",
+			"B2",
+			"C1",
+			"C2"
+		],
+		"attrs": [
+
+		]
+	},
+	"parts": [
+		{
+			"name": "Verse 1",
+			"type": "V1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Pre-Chorus 1",
+			"type": "PC1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Chorus 1",
+			"type": "C1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Verse 2",
+			"type": "V2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Pre-Chorus 2",
+			"type": "PC2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Chorus 2",
+			"type": "C2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Verse 3",
+			"type": "V3",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Pre-Chorus 3",
+			"type": "PC3",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Bridge 1",
+			"type": "B1",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		},
+		{
+			"name": "Bridge 2",
+			"type": "B2",
+			"active_source_wordsalad": [
+
+			],
+			"active_source_text": [
+
+			],
+			"source_text_suggestions": [
+
+			],
+			"source": [
+
+			],
+			"ai_source": [
+
+			],
+			"rhyme_scheme": "",
+			"data": [
+
+			],
+			"outdated_suggestions": true,
+			"content_cursor": -1,
+			"bar_length": 0,
+			"part_type": 0,
+			"colors": [
+
+			],
+			"listener_colors": [
+
+			],
+			"vocabulary": [
+
+			],
+			"wordsalads": [
+
+			],
+			"wordsalad_clrs": [
+
+			],
+			"wordgroup_factors": [
+
+			],
+			"mockup": "",
+			"nana": {
+				"lines": [
+
+				]
+			},
+			"thrd_actions": [
+
+			],
+			"saved_lyrics": [
+
+			],
+			"actions_enabled": "Œ∞\u0000\u0000Oˇ ∞\u0000\u0001\u0000ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇcP\u0000\u0000\u0000\u0000\u0000",
+			"phrase_parts": "\u0001\u0000\u0000\u0000\u0010\u0001"
+		}
+	],
+	"struct_suggs": [
+
+	],
+	"picked_phrase_parts": [
+
+	],
+	"clr_list": [
+
+	],
+	"suggestions": [
+		{
+			"key": 0,
+			"value": "[Verse 1]\nMiks en voi olla vaan oma itseni, unelmoida ja tavoitella sit√§ kaikkea,\njota taivaalla n√§en ja sisimm√§ss√§ni tunnen?\n\n"
+		},
+		{
+			"key": 1,
+			"value": "[Verse 1]\nJokaisen p√§iv√§n√§ eskaloituu seikkailu,\nretken √§√§rell√§, unelmien suuruus ei pet√§.\nKun t√§htitaivas kutsuu,\nen pelk√§√§ lent√§m√§st√§.\nT√§htitorniin nousen,\nja sielt√§ viel√§ ylemm√§s,\nNauru seurana, mielikuvituksen\nmatkassa.\n\n[Pre-Chorus 1]\nSurffaamme universumin aaltoja pitkin, tavoittaen\nt√§hti√§ ja t√§ytt√§en unelmat uudelleen.\n\n[Chorus 1]\nKun unelmat puhalletaan tuleen,\nne vain lent√§v√§t korkeammalle.\nUnelmani kantavat minut\nkauas √∂isen taivaan alla.\n\n[Verse 2]\nMaailmankaikkeuden reunallakin seilaa laivamme,\nker√§ten t√§hti√§ purjeisiinsa.\nMultapalloja j√§ljitt√§en, seikkailu\njatkuu kaukaisiin galakseihin.\nMaailmojen avaruus, taivaallinen taulu piirtyy silmiini,\nvalloittaen syd√§meni, joka huutaa vapauden n√§lk√§√§.\nAvaruuksien takana siint√§√§ loputon mahdollisuuksien meri,\njota valloitan uteliaana.\n\n[Pre-Chorus 2]\nVaikka matka voi olla pelottava,\nen anna sen pel√§t√§\n\n[Chorus 2]\nUnelmat lent√§v√§t korkeuksiin,\nikuisesti meid√§n matkamme jatkuu\nUnelmat kantavat minua kuin siivill√§,\nvapauden tuulissa lenn√§n\n\n[Verse 3]\nIhmiskunnan rajapinnoilla tutkimme sanoittamattomia haaveita,\nvaeltaen upeilla taivaiden poluilla.\nTavoittelemme rajojen rajoja,\ntaivaan haaveita etsien,\nTaistelen yl√∂s ja on kuin kaatamaton,\njatkuvasti matkalla kohti t√§hti√§.\nHaipparin t√§htien keskell√§ kipin√∂i vanhat ajat,\nmuistot ja unelmat her√§√§ eloon.\n\n[Pre-Chorus 3]\nV√§lill√§ eksyin el√§m√§n kapinoinnissa, mutta jatkoin matkaani kohti horisonttia,\njossa unelmani odotti minua innokkaasti.\n\n[Bridge 1]\nV√§lill√§ kaikki voi tuntua kaoottiselta, mutta siit√§ huolimatta\njatkan itseni l√∂yt√§mist√§ t√§ss√§ suuressa maailmankaikkeudessa.\nPuurtaen l√§pi pimeyden ja sumujen,\nl√∂yd√§n itseni t√§htien √§√§rilt√§.\n\n[Bridge 2]\nSilm√§ni avautuvat uuden todellisuuden vuorilla,\nunelmieni vuodattaminen kohti taivaan kattoa\nSanattomatkin haaveeni kohisevat taivaan tuulissa,\nmuuntaen kaikuiksi ne jotka ovat sisimp√§√§ni piilotettuina.\n\n"
+		},
+		{
+			"key": 2,
+			"value": "[Verse 1]\nYksin√§inen unelmoin, maailmaa valloitan,\nen toisten kahleissa el√§√§ halua yksink√§√§n vain.\nNuoruuteni unelmani, maailman valloitan,\nrohkeasti menen, en pelk√§√§, tied√§n voivani olla kuka vain.\nSuuret seikkailut odottaa,\nen halua el√§√§ vain hallittuna,\nKun seuraan omaa kutsumusta,\ntied√§n voivani tavoittaa t√§htien rajat ja unelmien siivet levitt√§j√§n.\n\n[Pre-Chorus 1]\nSanat eiv√§t riit√§ kuvaamaan, kuinka vapaaksi\ntunnen itseni lent√§ess√§ni t√§htien v√§liss√§\n\n[Chorus 1]\nToteutan unelmani, en\njuokse kenenk√§√§n varjossa.\nUnelmistani teen totta,\nen tallaa muiden varjoissa.\n\n[Verse 2]\nKun unelmoin, suljen silm√§ni ja leijun t√§htien seassa,\nenk√∂ ole vapaa, kun voin olla kuka vain, en tarvitse kotkaa.\nKun unelmatiell√§ni kuljen, on maailma avoinna edess√§ni,\nenk√∂h√§n l√∂yd√§ oman paikkani, siiveni levitt√§en lent√§en.\nMaailman valoissasi kaipaan sinua,\nmutta tarvitsen vapauden lent√§√§.\nMutta kun seikkailen, luon\nsilm√§t ummessa yh√§ uusia tarinoita\n\n[Pre-Chorus 2]\nMaailman rajat eiv√§t sido minua en√§√§,\nsill√§ olen oppinut ett√§ unelmilla ei ole rajoja.\n\n[Chorus 2]\nEn voi en√§√§ tyyty√§ siihen,\nmik√§ on ennalta m√§√§r√§tty.\nRohkeasti unelmoiden lentelen,\nvapaana kuin lintu yll√§ taivaiden.\n\n[Verse 3]\nT√§n√§√§n ei tarvitse kuvitella, tunnen\nolevani perhonen leijuen taivaan sinisell√§.\nT√§m√§ unelma, se on minun syd√§meni laulu,\n\nT√§m√§ unelma, se on kuin loppumaton l√§hde,\njosta ammennan voimani ja kest√§n kaikki haasteet.\nT√§n√§√§n ei tarvitse kuvitella, tunnen\nolevani perhonen leijuen taivaan sinisell√§.\nT√§m√§ unelma, se on minun syd√§meni laulu,\nT√§m√§ unelma, se on kuin loppumaton l√§hde,\njosta ammennan voimani ja kest√§n kaikki haasteet.\n\n[Pre-Chorus 3]\nVaikka saatan eksy√§ polulta, tied√§n sis√§ll√§ni palavan tunteen,\nett√§ kaikki on mahdollista.\n\n[Bridge 1]\nVaikka joudun kompastumaan,\nnousen j√§lleen lentoon.\nUnelmoin ja p√§√§ni t√§ytt√§√§ kaikenlainen maagisuus,\nja tied√§n ett√§ matkalla lopulta l√∂yd√§n oman tienni.\n\n[Bridge 2]\nKun rohkeasti tartun unelmani ohjaksiin, tied√§n\nettei mik√§√§n est√§ minua lent√§m√§st√§ korkealle.\nJa kun vihdoin rohkenen tarttua unelmani ohjaksiin, tied√§n ett√§ lopulta l√∂yd√§n oman tienni,\nt√§st√§ kauniista ja villist√§ el√§m√§st√§.\n\n"
+		},
+		{
+			"key": 3,
+			"value": "[Verse 1]\nMaailmoja m√§ luon, en vain luoja Jumalan,\nkun suljen silm√§t ja p√§√§st√§n mielikuvitukseni valloilleen.\nKun sukellan syv√§lle mielikuvitusmaailmaan,\nrajoitukset katoavat ja unelmieni ikuisuudessa voin vaeltamaan.\nUnelmiini uppoudun ja haaveillen lentelen, minne mieleni mut tuo,\nvapauden siivill√§ tunnen uudelleen.\nTied√§n etten ole vain maailman lapsi,\nvaan kaupunkimme unelmien luoja.\n\n[Pre-Chorus 1]\nKuka sanoo mit√§ ollaan,\nen anna muiden m√§√§ritt√§√§\n\n[Chorus 1]\nUnelmilla ei ole rajoja, ne kasvavat\nja muuttuvat meid√§n matkallamme.\nM√§ rikkaaksi mielikuvituksen avaimin p√§√§sen,\n\n\n[Verse 2]\nKun annan mielikuvituksen vied√§, n√§en mit√§ muut eiv√§t n√§e,\nmaailmat muuttuvat ja min√§ niiden keskell√§ olen vapaa.\nKun unelmoin ja luon mahdottomia, n√§en kauneutta\nmiss√§ muut n√§kev√§t vain arkip√§iv√§isyytt√§.\nMaalaan mieless√§ni maailman, jossa rohkeus on valttia,\nilman pelkoja lentelen korkeammalle kuin koskaan ennen.\nKun uskallan unelmoida ja murtaa rajoja, l√∂yd√§n voimaa ja kauneutta,\njota muut eiv√§t ymm√§rr√§.\n\n[Pre-Chorus 2]\nMut rohkeus on yst√§v√§ni,\nse nostaa siivet selk√§√§n\n\n[Chorus 2]\nN√§in me rakennamme meid√§n unelmien kaupungin,\nmiss√§ on tilaa jokaisen vapaalle sielulle.\nYhdess√§ rakennamme unelmien kaupungin,\njossa jokaisella on oikeus olla vapaa.\n\n[Verse 3]\nKun haaveilen ja maalaan maailman,\njossa kaikki on mahdollista,\nKun unelmoin ja maalaan maailman,\njossa kaikilla on lupa olla erilaisia,\nKun p√§√§st√§n mielikuvitukseni valloilleen,\nn√§en kaiken uusin silmin ja olen kuin taikamaailmassa.\nMik√§√§n ei ole liian hullua tai mahdotonta,\nsill√§ unelmani ovat todellisuuttani vahvempia.\n\n[Pre-Chorus 3]\nP√§√§st√§ irti arjesta ja seuraa unelmiasi,\nn√§e maailma uudella tavalla.\n\n[Bridge 1]\nOon kuin pieni kaupunki t√§ynn√§ mahdollisuuksia,\nenk√§ pelk√§√§ k√§ytt√§√§ niit√§ l√§pi el√§m√§n.\nOlen kuin koko maailma t√§ynn√§ mahdollisuuksia,\nenk√§ anna muiden rajoittaa minua.\n\n[Bridge 2]\nPrrr en ole yksin t√§ss√§, vaan\nkoko maailma on minun tiimiss√§ni\nOlen kuin sadun sankari, joka sy√∂ksyy kohti uusia\nseikkailuja ja rakentaa omann√§k√∂ist√§ maailmaansa.\n\n"
+		},
+		{
+			"key": 4,
+			"value": "[Verse 1]\nSe oli unelmien laukka, kun maalailin maailmaa,\nenk√§ antanut kenenk√§√§n rajoittaa.\nMatkalla t√§htiin, vapauden tuuli puhalsi poskille,\n\nRohkeat siivet kannoillani,\nen pel√§nnyt lent√§√§ korkeammalle.\nMatkalla t√§htiin, unelmien linnut laulaen mukanani,\n\n\n[Pre-Chorus 1]\nPuhdas ja vilpit√∂n, niin kuin lapsen syd√§n unelmille aivan uusiin,\n\n\n[Chorus 1]\nUnelmiaan seuraten,\nt√§htiin asti lent√§en\nUnelmiaan seuraten,\nt√§htiin asti lent√§en\n\n[Verse 2]\nKun mekaniikka ja logiikka eiv√§t en√§√§ riit√§,\nluotan mielikuvitukseni siipiin.\nMilloin uskalletaan irroittaa siteet\nja annetaan mielikuvituksen lent√§√§?\nKun uskallan p√§√§st√§√§ irti, alan lent√§√§ vapaammin,\nmielikuvitukseni ei tunne rajoja, se vie minut minne vain.\nLuota siipiisi, avaruuden lintu,\nja lenn√§ minne vain.\n\n[Pre-Chorus 2]\nT√§√§ll√§ olen vapaa, ilmassa lenn√§n,\nriippumatta kaikesta, mik√§ keksin.\n\n[Chorus 2]\nRakastan t√§t√§ vapautta, sill√§ t√§ss√§ taivaan alla,\nkaikki unelmani ovat mahdollisia.\nK√§tkettyn√§ unelmien siipiini,\nmatkaan kohti t√§hti√§ niin kauniisti.\n\n[Verse 3]\nKun unelmani kasvaa, niin kuin ruusu piikkeineen ja ter√§lehdill√§√§n,\n\nSun unelmiisi uskoen,\nrohkeasti kannustan.\nKun haaveeni kasvavat kuin ruusun piikikk√§√§t ter√§lehdet,\n\nKun unelmani toteutuu, uskalla\nuskoa omiisi ja lent√§√§.\n\n[Pre-Chorus 3]\nRohkeana ja v√§rien loistossa,\ntaas lenn√§n kauas toiveiden perille.\n\n[Bridge 1]\nKun uskallat lent√§√§, ei rajoille ole sijaa,\nLuota unelmiisi, sill√§ ne viev√§t sinut minne vain.\nKun uskallat unelmoida, ei unelmille ole rajoja,\nanna niiden kantaa sinut minne vain.\n\n[Bridge 2]\nSano, mit√§ haluat olla,\nja muutu siihen,\nK√§velemme yhdess√§ kohti t√§hti√§,\ntarkoituksena l√∂yt√§√§ unelmiemme koti.\n\n"
+		},
+		{
+			"key": 5,
+			"value": "[Verse 1]\nKaksnelonen selaamatta,\nmaailma on mulle leikitty atlas,\nen tarvii karttoja m√§ tiesin,\ns√§√§d√∂n rehkim√§√§n, en tarvii unelmaa mist√§ sain hiekkaa.\nKun pakopaikkani oli avaruus, vaikka\nvain l√∂ysin itteni parhaalta paikalta.\nS√§ olit auraaminen eteenp√§in, ku s√§ huomasit, et se on helppoo,\nkaikilta suuntii sinkuille suunnattuja blokkeja l√∂ytyy tartuttuja itsetuntoihin.\n\n[Pre-Chorus 1]\nJa kun maailma heitt√§√§ vastoink√§ymisi√§,\nme l√∂yd√§mme t√§htiin uudet polut k√§ymisiin.\n\n[Chorus 1]\nPid√§ unelmas kirkkaana,\nanna niille siivet lent√§√§\nUnelmat eiv√§t tunne rajoja,\nne viev√§t meid√§t mihin vain\n\n[Verse 2]\nKun taas leijailen omassa kuplassa,\narjen murheet haihtuu kuin taikasauvalla\nPime√§ll√§ saan hyp√§t√§ pilvien yli,\nilmalaivalla matkata halki galaksien\nKun katson t√§hti√§ ollessani avaruusmatkalla,\ntied√§n ett√§ pystyn mihin vain, niin kauan kuin uskallan unelmoida.\nKun tuli mahdollisuus, en ep√§r√∂inyt hetke√§k√§√§n,\nhyp√§tt√§ess√§ni ensimm√§iseen t√§htilaivaan\n\n[Pre-Chorus 2]\nMut syd√§meni sykkii vain unelmille,\nne antavat voimaa kaiken muun ohella.\n\n[Chorus 2]\nKun fantasian voima ohjaa meid√§t eteenp√§in,\n\nKun mielikuvitus johtaa\nmeid√§t maailmoihin uusiin\n\n[Verse 3]\nUnelmieni sankarina kahlitsen mielikuvitukseni\nvapauden pauloissa, l√§hett√§ytyen uusiin seikkailuihin\nMaailmojen valtias,\nluoksesi matkaan\nUnelmieni sankarina kahlitsen mielikuvitukseni,\nmutta sinun l√§sn√§olosi vapauttaa minut\nUnelmieni sankarina kahlitsen mielikuvitukseni,\nmutta sinun l√§sn√§olosi vapauttaa minut\n\n[Pre-Chorus 3]\nKun el√§m√§ heitt√§√§ haasteita eteen,\nkenp√§ tiet√§√§, mik√§ huominen tuo mukanaan\n\n[Bridge 1]\nKun paineet yritt√§√§ vied√§ voiton,\nmuistutan itselleni: min√§ olen kapteeni t√§ss√§ laivassa, ohjat ovat minun k√§siss√§ni.\nMutta en voisi olla enemm√§n onnellinen, kun l√∂ysin\nsinut veneilless√§ni t√§ss√§ meress√§ unelmoinnista.\n\n[Bridge 2]\nT√§hd√§t√§√§n korkealle\nja tehd√§√§n unelmista totta\nUnelmieni sankarina kahlitsen mielikuvitukseni,\nmutta sinun l√§sn√§olosi vapauttaa minut, kun yhdess√§ matkustamme t√§h√§n meren unelmieni veneeseen.\n\n"
+		}
+	],
+	"lng_i": 0,
+	"simple_attrs": "¡\u0003\u0000\u0000ÄˇΩ\u0003\u0000\u0000\u0000\u0000\u0001\u0005\u0000\u0003\a\u0000\u0018\u0001\u000E\u0000\u0000\r\u0000\u0002\u001D\u0000\u0000\u0006\u0000\u0000\f\u0000\u0001\b\u0000\u0010\u0001\u0003\u0000\u00002\u0000\u0001,\u0000\u0000\v\u0000\u0011\u0001\u0003\u0000\u0000\u000F\u0000\u0010\u0001\u000F\u0000\u0005 \u0000\u0001\v\u0000\u0001\u0012\u0000\u000F\u0002\u0000\u001F\u0002m\u0000\u000E\u0002\u0000\u0003O\u0000\u0003\a\u0000\u0001k\u0000\u0004\f\u0000\u0006\u0002\u0000\u0000\u0012\u0000\u0000\u0004\u0000!\u0000\u0001Ä\u0000\u0002ñ\u0000\u0002,\u0000\u0001\u0017\u0000\u0000\r\u0000\u0001\u0006\u0000\u0003\u0002\u0000\u0003\u0015\u0000\u0002»\u0000\u0000z\u0000\u0001\u0011\u0000\u00027\u0000\u0003\r\u0000\u0002\u0002\u0000\u0003¸\u0000\u0001)\u0000\u0002[\u0000\u0000K\u0000\u0000\u000F\u0000\u0001\u000E\u0000\u0001\u0016\u0000\u0000\u001F\u0000\u0001@\u0000\u000F\u0002\u0000\u0006\u00010\u0000\u000F\u001E\u0000\u0006\u0001T\u0000\u0000J\u0000\u0001)\u0000\u0002\a\u0000\u0000\u0002\u0000\u0000\u000F\u0000\u0000\u0006\u0000\u0001\b\u0000\u0001o\u0000\u0000H\u0000\u0001\"\u0000\u000F\u0002\u0000\u001D\u00005\u0000\u0010\u00015\u0000\u0000º\u0000\u0000\u000F\u0000\u0000è\u0000\u0000\b\u0000\n\u0006\u0000\u0004\u000E\u0000\u0002f\u0000\u0000 \u0000\u0000\u0004\u0000\u0000\u0002\u0000\u00000\u0000\u0002\u0002\u0000\u0000@\u0000\u0001\u0002\u0000\u0000k\u0001\u0000Q\u0000\u0002\u0017\u0000\u000F\u0002\u0000\u0000\u0002!\u0000\u0003#\u0000\u0005I\u0000\u0002^\u0000\u0003P\u0000\u0000?\u0001\u0000ò\u0000\u0000\b\u0000\u0006\u0002\u0001\u0001%\u0000\u0000\u001D\u0000\u0001\u0004\u0000\u0002\a\u0000\u0000\u0002\u0000\u0001\u0018\u0000\u0000\t\u0000\u0001>\u0000\u00012\u0000\u0000(\u0000\u0000?\u0000\u0003\u0006\u0000\u0000\u001B\u0000\u0001!\u0000\u0001\u001F\u0000\u0000\u0005\u0000\u0001\u0010\u0000\u0003+\u0000\u0000\a\u0000\u0000;\u0000\u0002J\u0000\u0003 \u0000\u0001:\u0000\u0000\f\u0000\u0001\t\u0000\u0005\u0005\u0000\u0000\t\u0000\u0001\u0014\u0000\u0001\a\u0000\u0000 \u0000\u0000X\u0000\u0000\u0006\u0000\u0001\u0013\u0000\u0002C\u0000\u0000z\u0000\u0002=\u0000\u0000\b\u0000\u0002*\u0000\u0000\u001A\u0000\u0000%\u0000\u0003\b\u0000\u0000\v\u0000\u0002\u0019\u0000\u0001\u0006\u0000\u0001Ö\u0000\u0000\a\u0000\u0000%\u0000\u0000o\u0000\u0002\u000E\u0000\u0002\u0006\u0000\u0002\"\u0000\u0003\f\u0000\a\t\u0000ê\u0000\u0000\u0000\u0001\u0000\u0000\u0001\u0001\u0001"
+}
