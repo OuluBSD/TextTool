@@ -2515,6 +2515,40 @@ void AiTask::CreateInput_Social() {
 		}
 		input.response_length = 1024;
 	}
+	else if (args.fn == 10) {
+		{
+			input.AddSub().Title("Merge images of all " + IntStr(args.parts.GetCount()) + " parts into single novel image").NoColon();
+		}
+		for(int i = 0; i < args.parts.GetCount(); i++) {
+			String title = args.parts.GetKey(i);
+			String s = args.parts[i];
+			auto& list = input.AddSub();
+			list.Title("Part " + IntStr(i+1) + ": " + title);
+			list.NoListChar();
+			list.Add(s);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Merge images of all " + IntStr(args.parts.GetCount()) + " parts into single novel image and shorten slightly (to half of the total length or larger). Don't mention that it is a merged image, but just an image.");
+			results.NoListChar();
+			results.Add("");
+		}
+	}
+	else if (args.fn == 11) {
+		{
+			auto& list = input.AddSub();
+			list.Title("List A: generic society roles for people");
+			//list.NumberedLines();
+			for(int i = 0; i < args.parts.GetCount(); i++)
+				list.Add("#" + IntStr(i) + ": " + args.parts.GetKey(i));
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Top 15 societal roles from the List A, which would best match the audience of the web service: " + args.text);
+			results.NumberedLines();
+			results.Add("#");
+		}
+	}
 	else {
 		TODO
 	}

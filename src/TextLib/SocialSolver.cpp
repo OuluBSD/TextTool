@@ -65,6 +65,9 @@ void SocialSolver::Process() {
 			only_categories = false;
 			phase = SS_COUNT;
 		}
+		else if (phase == SS_ANALYZE_PLATFORM_ROLES) {
+			ProcessAnalyzePlatformRoles();
+		}
 		else if (phase == SS_SUMMARIZE) {
 			ProcessSummarize();
 		}
@@ -92,6 +95,9 @@ void SocialSolver::Process() {
 		else if (phase == SS_ANALYZE_IMAGE_BIOGRAPHY) {
 			ProcessAnalyzeImageBiography();
 		}
+		else if (phase == SS_SUMMARIZE_IMAGE_CATEGORY_YEAR) {
+			ProcessSummarizeImageCategoryYear();
+		}
 		else if (phase == SS_SUMMARIZE_IMAGE_BIOGRAPHY) {
 			ProcessSummarizeImageBiography();
 		}
@@ -108,6 +114,56 @@ void SocialSolver::Process() {
 	
 	running = false;
 	stopped = true;
+}
+
+void SocialSolver::ProcessAnalyzePlatformRoles() {
+	if (batch >= PLATFORM_COUNT) {
+		NextPhase();
+		return;
+	}
+	
+	const Platform& plat = GetPlatforms()[batch];
+	const PlatformAnalysis& pa = MetaDatabase::Single().GetAdd(plat);
+	
+	if (skip_ready && pa.roles.GetCount()) {
+		NextBatch();
+		return;
+	}
+	
+	SocialArgs args;
+	args.fn = 11;
+	for(int i = 0; i < SOCIETYROLE_COUNT; i++)
+		args.parts.Add(GetSocietyRoleKey(i));
+	args.text = plat.name;
+	args.description = plat.description;
+	
+	SetWaiting(1);
+	TaskMgr& m = TaskMgr::Single();
+	m.GetSocial(args, THISBACK(OnProcessAnalyzePlatformRoles));
+}
+
+void SocialSolver::OnProcessAnalyzePlatformRoles(String res) {
+	const Platform& plat = GetPlatforms()[batch];
+	PlatformAnalysis& pa = MetaDatabase::Single().GetAdd(plat);
+	
+	res = "1. #" + res;
+	
+	RemoveEmptyLines2(res);
+	
+	pa.roles.Clear();
+	Vector<String> lines = Split(res, "\n");
+	for (String& l : lines) {
+		int a = l.Find("#");
+		if (a >= 0) {
+			a++;
+			int role_i = ScanInt(l.Mid(a)); // 0 is first
+			if (role_i >= 0 && role_i < SOCIETYROLE_COUNT)
+				pa.roles << role_i;
+		}
+	}
+	
+	SetWaiting(0);
+	NextBatch();
 }
 
 void SocialSolver::ProcessAudienceProfileCategories() {
@@ -228,19 +284,20 @@ void SocialSolver::OnProcessAudienceProfileCategories(String res) {
 void SocialSolver::ProcessSummarize() {
 	Biography& biography = profile->biography_detailed;
 	
-	if (batch >= biography.categories.GetCount()) {
+	if (batch >= BIOCATEGORY_COUNT) {
 		NextPhase();
 		return;
 	}
+	int bcat_i = batch;
 	
-	BiographyCategory& bcat = biography.GetAdd(*owner, batch);
+	BiographyCategory& bcat = biography.GetAdd(*owner, bcat_i);
 	bcat.RealizeSummaries();
 	if (sub_batch >= bcat.summaries.GetCount()) {
 		NextBatch();
 		return;
 	}
 	
-	const BiographyCategory::Range& range = bcat.summaries.GetKey(sub_batch);
+	const BioRange& range = bcat.summaries.GetKey(sub_batch);
 	BioYear& sum = bcat.summaries[sub_batch];
 	
 	if (skip_ready && sum.text.GetCount()) {
@@ -257,7 +314,7 @@ void SocialSolver::ProcessSummarize() {
 		ASSERT(begin < end && end - begin < 100);
 		for(int i = begin; i < end; i++) {
 			BioYear& by = bcat.GetAdd(i);
-			String title = GetBiographyCategoryKey(batch) +
+			String title = GetBiographyCategoryKey(bcat_i) +
 				", year " + IntStr(by.year) +
 				", age " + IntStr(by.year - owner->year_of_birth);
 			if (by.text.GetCount())
@@ -277,7 +334,7 @@ void SocialSolver::ProcessSummarize() {
 		int begin = range.off;
 		int end = range.off + range.len;
 		for(int i = begin; i < end; i+=step) {
-			BiographyCategory::Range sub_range;
+			BioRange sub_range;
 			sub_range.off = i;
 			sub_range.len = range.len >> 1;
 			int j = bcat.summaries.Find(sub_range);
@@ -286,7 +343,7 @@ void SocialSolver::ProcessSummarize() {
 			int from = sub_range.off;
 			int to = sub_range.off + sub_range.len - 1;
 			String title =
-				GetBiographyCategoryKey(batch) +
+				GetBiographyCategoryKey(bcat_i) +
 				", from year " + IntStr(from) +
 				" to year " + IntStr(to) +
 				", age " + IntStr(from - owner->year_of_birth) + " - " + IntStr(to - owner->year_of_birth)
@@ -311,8 +368,9 @@ void SocialSolver::ProcessSummarize() {
 
 void SocialSolver::OnProcessSummarize(String res) {
 	Biography& biography = profile->biography_detailed;
-	BiographyCategory& bcat = biography.GetAdd(*owner, batch);
-	const BiographyCategory::Range& range = bcat.summaries.GetKey(sub_batch);
+	int bcat_i = batch;
+	BiographyCategory& bcat = biography.GetAdd(*owner, bcat_i);
+	const BioRange& range = bcat.summaries.GetKey(sub_batch);
 	BioYear& sum = bcat.summaries[sub_batch];
 	
 	sum.text = TrimBoth(res);
@@ -540,12 +598,12 @@ void SocialSolver::ProcessPlatformReactions() {
 	}
 	
 	const Platform& plat = GetPlatforms()[plat_i];
-	
-	ASSERT(plat.roles.GetCount());
+	const PlatformAnalysis& pa = MetaDatabase::Single().GetAdd(plat);
+	ASSERT(pa.roles.GetCount());
 	
 	if (sub_batch == 0) {
 		ranges.Clear();
-		CreateRange(0, plat.roles.GetCount());
+		CreateRange(0, pa.roles.GetCount());
 		//DUMPC(ranges);
 	}
 	if (sub_batch >= ranges.GetCount()) {
@@ -580,7 +638,7 @@ void SocialSolver::ProcessPlatformReactions() {
 		int len_2 = range.len / 2;
 		int end = begin + len_2;
 		for(int i = begin; i < end; i++) {
-			int role_i = plat.roles[i];
+			int role_i = pa.roles[i];
 			const BiographyRoleAnalysis& role = analysis.roles[role_i];
 			args.parts.Add(Capitalize(GetSocietyRoleDescription(role_i)), role.merged_biography_reactions[0]);
 		}
@@ -595,7 +653,7 @@ void SocialSolver::ProcessPlatformReactions() {
 		int begin = range.off + len_2;
 		int end = begin + range.len - len_2;
 		for(int i = begin; i < end; i++) {
-			int role_i = plat.roles[i];
+			int role_i = pa.roles[i];
 			const BiographyRoleAnalysis& role = analysis.roles[role_i];
 			args.parts.Add(Capitalize(GetSocietyRoleDescription(role_i)), role.merged_biography_reactions[0]);
 		}
@@ -893,22 +951,121 @@ void SocialSolver::OnProcessAnalyzeImageBiography(String res) {
 	SetWaiting(0);
 }
 
-void SocialSolver::ProcessSummarizeImageBiography() {
-	Biography& biography = profile->biography_detailed;
+void SocialSolver::ProcessSummarizeImageCategoryYear() {
 	
-	if (batch >= biography.categories.GetCount()) {
+	if (batch == 0) {
+		imgsum_tasks.Clear();
+		TraverseImageSummaryTasks();
+	}
+	
+	if (batch >= imgsum_tasks.GetCount()) {
 		NextPhase();
 		return;
 	}
 	
-	BiographyCategory& bcat = biography.GetAdd(*owner, batch);
+	const ImageSummaryTask& t = imgsum_tasks[batch];
+	const BioRange& range = t.range;
+	const BiographyCategory& bcat = *t.bcat;
+	BioYear& by = *t.by;
+	
+	SocialArgs args;
+	args.fn = 10;
+	
+	if (range.len == 2) {
+		int begin = range.off;
+		int end = range.off + range.len;
+		ASSERT(begin < end && end - begin < 100);
+		for(int i = begin; i < end && i < by.images.GetCount(); i++) {
+			BioImage& bi = by.images[i];
+			String title = GetBiographyCategoryKey(t.bcat_i) +
+				", year " + IntStr(by.year) +
+				", age " + IntStr(by.year - owner->year_of_birth) +
+				", image #" + IntStr(i);
+			if (bi.image_text.GetCount())
+				args.parts.Add(title, bi.image_text);
+		}
+		if (args.parts.IsEmpty()) {
+			NextBatch();
+			return;
+		}
+		else if (args.parts.GetCount() == 1) {
+			OnProcessSummarizeImageCategoryYear("(" + args.parts.GetKey(0) + ") " + args.parts[0]);
+			return;
+		}
+	}
+	else {
+		int step = range.len / 2;
+		int begin = range.off;
+		int end = range.off + range.len;
+		for(int i = begin; i < end; i+=step) {
+			BioRange sub_range;
+			sub_range.off = i;
+			sub_range.len = range.len >> 1;
+			int j = by.image_summaries.Find(sub_range);
+			ASSERT(j >= 0);
+			BioImage& bi = by.image_summaries[j];
+			int from = sub_range.off;
+			int to = sub_range.off + sub_range.len - 1;
+			String title =
+				GetBiographyCategoryKey(t.bcat_i) +
+				", year " + IntStr(by.year) +
+				", age " + IntStr(by.year - owner->year_of_birth) +
+				", images from #" + IntStr(from) + " to #" + IntStr(to);
+				;
+			if (bi.image_text.GetCount())
+				args.parts.Add(title, bi.image_text);
+		}
+		if (args.parts.IsEmpty()) {
+			NextBatch();
+			return;
+		}
+		else if (args.parts.GetCount() == 1) {
+			OnProcessSummarizeImageCategoryYear("(" + args.parts.GetKey(0) + ") " + args.parts[0]);
+			return;
+		}
+	}
+	
+	SetWaiting(1);
+	TaskMgr& m = TaskMgr::Single();
+	m.GetSocial(args, THISBACK(OnProcessSummarizeImageCategoryYear));
+}
+
+void SocialSolver::OnProcessSummarizeImageCategoryYear(String res) {
+	const ImageSummaryTask& t = imgsum_tasks[batch];
+	
+	int j = t.by->image_summaries.Find(t.range);
+	ASSERT(j >= 0);
+	BioImage& bi = t.by->image_summaries[j];
+	String& s = bi.image_text;
+	
+	s = TrimBoth(res);
+	if (s.Left(1) == "\"") s = s.Mid(1);
+	if (s.Right(1) == "\"") s = s.Left(s.GetCount()-1);
+	
+	if (j == t.by->image_summaries.GetCount()-1)
+		t.by->image_text = s;
+	
+	NextBatch();
+	SetWaiting(0);
+}
+
+void SocialSolver::ProcessSummarizeImageBiography() {
+	Biography& biography = profile->biography_detailed;
+	
+	if (batch >= BIOCATEGORY_COUNT) {
+		NextPhase();
+		return;
+	}
+	
+	int bcat_i = batch;
+	BiographyCategory& bcat = biography.GetAdd(*owner, bcat_i);
 	bcat.RealizeSummaries();
 	if (sub_batch >= bcat.summaries.GetCount()) {
 		NextBatch();
 		return;
 	}
 	
-	const BiographyCategory::Range& range = bcat.summaries.GetKey(sub_batch);
+	const BioRange& range = bcat.summaries.GetKey(sub_batch);
 	BioYear& sum = bcat.summaries[sub_batch];
 	
 	if (skip_ready && sum.text.GetCount()) {
@@ -917,7 +1074,7 @@ void SocialSolver::ProcessSummarizeImageBiography() {
 	}
 	
 	SocialArgs args;
-	args.fn = 1;
+	args.fn = 10;
 	
 	if (range.len == 2) {
 		int begin = range.off;
@@ -925,13 +1082,11 @@ void SocialSolver::ProcessSummarizeImageBiography() {
 		ASSERT(begin < end && end - begin < 100);
 		for(int i = begin; i < end; i++) {
 			BioYear& by = bcat.GetAdd(i);
-			String title = GetBiographyCategoryKey(batch) +
+			String title = GetBiographyCategoryKey(bcat_i) +
 				", year " + IntStr(by.year) +
 				", age " + IntStr(by.year - owner->year_of_birth);
-			
-			TODO
-			if (by.text.GetCount())
-				args.parts.Add(title, by.text);
+			if (by.image_text.GetCount())
+				args.parts.Add(title, by.image_text);
 		}
 		if (args.parts.IsEmpty()) {
 			NextSubBatch();
@@ -947,7 +1102,7 @@ void SocialSolver::ProcessSummarizeImageBiography() {
 		int begin = range.off;
 		int end = range.off + range.len;
 		for(int i = begin; i < end; i+=step) {
-			BiographyCategory::Range sub_range;
+			BioRange sub_range;
 			sub_range.off = i;
 			sub_range.len = range.len >> 1;
 			int j = bcat.summaries.Find(sub_range);
@@ -956,13 +1111,13 @@ void SocialSolver::ProcessSummarizeImageBiography() {
 			int from = sub_range.off;
 			int to = sub_range.off + sub_range.len - 1;
 			String title =
-				GetBiographyCategoryKey(batch) +
+				GetBiographyCategoryKey(bcat_i) +
 				", from year " + IntStr(from) +
 				" to year " + IntStr(to) +
 				", age " + IntStr(from - owner->year_of_birth) + " - " + IntStr(to - owner->year_of_birth)
 				;
-			if (by.text.GetCount())
-				args.parts.Add(title, by.text);
+			if (by.image_text.GetCount())
+				args.parts.Add(title, by.image_text);
 		}
 		if (args.parts.IsEmpty()) {
 			NextSubBatch();
@@ -980,7 +1135,17 @@ void SocialSolver::ProcessSummarizeImageBiography() {
 }
 
 void SocialSolver::OnProcessSummarizeImageBiography(String res) {
+	Biography& biography = profile->biography_detailed;
+	int bcat_i = batch;
+	BiographyCategory& bcat = biography.GetAdd(*owner, bcat_i);
+	const BioRange& range = bcat.summaries.GetKey(sub_batch);
+	BioYear& sum = bcat.summaries[sub_batch];
 	
+	sum.image_text = TrimBoth(res);
+	
+	
+	NextSubBatch();
+	SetWaiting(0);
 }
 
 void SocialSolver::TraverseMessageTasks(int prof_i, int plat_i) {
@@ -1033,8 +1198,8 @@ void SocialSolver::TraverseMessageTasks(Vector<PlatformComment*>& before, Platfo
 
 void SocialSolver::TraverseVisionTasks() {
 	Biography& biography = profile->biography_detailed;
-	for(int i = 0; i < biography.categories.GetCount(); i++) {
-		BiographyCategory& bcat = biography.categories[i];
+	for(int i = 0; i < BIOCATEGORY_COUNT; i++) {
+		BiographyCategory& bcat = biography.GetAdd(*owner, i);
 		for(int j = 0; j < bcat.years.GetCount(); j++) {
 			BioYear& by = bcat.years[j];
 			
@@ -1050,6 +1215,30 @@ void SocialSolver::TraverseVisionTasks() {
 						t.bimg = &bimg;
 						t.jpeg = jpeg;
 					}
+				}
+			}
+		}
+	}
+}
+
+void SocialSolver::TraverseImageSummaryTasks() {
+	Biography& biography = profile->biography_detailed;
+	for(int i = 0; i < BIOCATEGORY_COUNT; i++) {
+		BiographyCategory& bcat = biography.GetAdd(*owner, i);
+		int bcat_i = i;
+		for(int j = 0; j < bcat.years.GetCount(); j++) {
+			BioYear& by = bcat.years[j];
+			by.RealizeImageSummaries();
+			for(int k = 0; k < by.image_summaries.GetCount(); k++) {
+				const BioRange& range = by.image_summaries.GetKey(k);
+				BioImage& bimg = by.image_summaries[k];
+				if (phase == SS_SUMMARIZE_IMAGE_CATEGORY_YEAR && bimg.image_text.IsEmpty()) {
+					ImageSummaryTask& t = imgsum_tasks.Add();
+					t.bcat = &bcat;
+					t.by = &by;
+					t.range = range;
+					t.summary = &bimg;
+					t.bcat_i = bcat_i;
 				}
 			}
 		}

@@ -83,13 +83,18 @@ struct MetaDatabase {
 	TextDatabase db[DB_COUNT];
 	
 	//Array<MetaEntity>	meta_entities;
-	Array<Owner>		owners;
+	Array<Owner>				owners;
 	
 	// Source
-	LeadData			lead_data;
+	LeadData					lead_data;
 	
 	// Temp
-	String				dir, share;
+	String						dir, share;
+	
+private:
+	ArrayMap<String, PlatformAnalysis>		platforms;
+	
+public:
 	
 	void Store();
 	void Load();
@@ -103,6 +108,9 @@ struct MetaDatabase {
 	int GetOtherLanguageIndex() const;
 	String GetLanguage() const;
 	String GetOtherLanguage() const;
+	const Array<PlatformAnalysis>& GetPlatforms() const {return platforms.GetValues();}
+	PlatformAnalysis& GetAdd(int plat_i);
+	PlatformAnalysis& GetAdd(const Platform& plat);
 	
 };
 

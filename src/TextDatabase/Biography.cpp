@@ -23,6 +23,36 @@ String KeyToName(String s) {
 	return o;
 }
 
+void BioYear::RealizeImageSummaries() {
+	if (images.IsEmpty()) return;
+	int begin = 0;
+	int last = images.GetCount()-1;
+	
+	for(int i = 1; i <= 5; i++) {
+		int len = 1 << i;
+		for(int j = 0; j < images.GetCount(); j += len) {
+			int range_last = j + len - 1;
+			if (i > 1 && range_last > last) // skip empty tail in largest range
+				continue;
+			BioImage& bi = GetAddImageSummary(j, len);
+		}
+		if (len >= images.GetCount())
+			break;
+	}
+	SortByKey(image_summaries, BioRange());
+}
+
+BioImage& BioYear::GetAddImageSummary(int off, int len) {
+	BioRange r;
+	r.off = off;
+	r.len = len;
+	int i = image_summaries.Find(r);
+	if (i >= 0)
+		return image_summaries[i];
+	BioImage& bi = image_summaries.Add(r);
+	return bi;
+}
+
 void BiographyCategory::RealizeSummaries() {
 	if (years.IsEmpty()) return;
 	int begin_year = years[0].year;
@@ -38,11 +68,11 @@ void BiographyCategory::RealizeSummaries() {
 			BioYear& by = GetAddSummary(years[j].year, len);
 		}
 	}
-	SortByKey(summaries, Range());
+	SortByKey(summaries, BioRange());
 }
 
 BioYear& BiographyCategory::GetAddSummary(int begin_year, int years) {
-	Range r;
+	BioRange r;
 	r.off = begin_year;
 	r.len = years;
 	int i = summaries.Find(r);
@@ -75,6 +105,23 @@ String GetBiographyCategoryEnum(int i) {
 		#undef BIOCATEGORY
 		default: return String();
 	}
+}
+
+const char* GetBiographyCategoryEnumCstr(int i) {
+	switch (i) {
+		#define BIOCATEGORY(x) case BIOCATEGORY_##x: return #x;
+		BIOCATEGORY_LIST
+		#undef BIOCATEGORY
+		default: return String();
+	}
+}
+
+int FindBiographyCategoryEnum(String s) {
+	for(int i = 0; i < BIOCATEGORY_COUNT; i++) {
+		if (s == GetBiographyCategoryEnumCstr(i))
+			return i;
+	}
+	return -1;
 }
 
 String GetBiographyCategoryKey(int i) {

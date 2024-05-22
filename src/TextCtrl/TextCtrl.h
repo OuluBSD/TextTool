@@ -37,6 +37,7 @@
 #include "Audience.h"
 #include "BiographySummary.h"
 #include "ImageBiographySummary.h"
+#include "PlatformCtrl.h"
 
 
 #endif

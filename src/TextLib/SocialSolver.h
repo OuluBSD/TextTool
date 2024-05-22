@@ -9,9 +9,12 @@ class SocialSolver {
 	enum {
 		SS_BEGIN,
 		
+		SS_ANALYZE_PLATFORM_ROLES,
+		
 		SS_AUDIENCE_PROFILE_CATEGORIES,
 		
 		SS_ANALYZE_IMAGE_BIOGRAPHY,
+		SS_SUMMARIZE_IMAGE_CATEGORY_YEAR,
 		SS_SUMMARIZE_IMAGE_BIOGRAPHY,
 		
 		SS_SUMMARIZE,
@@ -46,6 +49,7 @@ class SocialSolver {
 	};
 	Vector<Range> ranges;
 	
+	
 	struct MessageTask : Moveable<MessageTask> {
 		const Platform* plat = 0;
 		PlatformData* plat_data = 0;
@@ -55,7 +59,6 @@ class SocialSolver {
 	};
 	Vector<MessageTask> msg_tasks;
 	MessageTask tmp_task;
-	
 	void TraverseMessageTasks(int prof_i, int plat_i);
 	void TraverseMessageTasks(Vector<PlatformComment*>& before, PlatformComment& plc);
 	
@@ -66,11 +69,23 @@ class SocialSolver {
 	};
 	Vector<VisionTask> vision_tasks;
 	MessageTask tmp_vision_task;
-	
 	void TraverseVisionTasks();
+	
+	
+	struct ImageSummaryTask : Moveable<ImageSummaryTask> {
+		BiographyCategory* bcat = 0;
+		BioYear* by = 0;
+		BioImage* summary = 0;
+		BioRange range;
+		int bcat_i = -1;
+	};
+	Vector<ImageSummaryTask> imgsum_tasks;
+	void TraverseImageSummaryTasks();
+	
 	
 	int CreateRange(int off, int len);
 	void Process();
+	void ProcessAnalyzePlatformRoles();
 	void ProcessAudienceProfileCategories();
 	void ProcessSummarize();
 	void ProcessAudienceReactsSummary();
@@ -81,7 +96,9 @@ class SocialSolver {
 	void ProcessPlatformDescriptionTranslated();
 	void ProcessMergeMessages();
 	void ProcessAnalyzeImageBiography();
+	void ProcessSummarizeImageCategoryYear();
 	void ProcessSummarizeImageBiography();
+	void OnProcessAnalyzePlatformRoles(String res);
 	void OnProcessAudienceProfileCategories(String res);
 	void OnProcessSummarize(String res);
 	void OnProcessAudienceReactsSummary(String res);
@@ -92,6 +109,7 @@ class SocialSolver {
 	void OnProcessPlatformDescriptionTranslated(String res);
 	void OnProcessMergeMessages(String res);
 	void OnProcessAnalyzeImageBiography(String res);
+	void OnProcessSummarizeImageCategoryYear(String res);
 	void OnProcessSummarizeImageBiography(String res);
 	
 	void PostProgress() {WhenProgress(phase, SS_COUNT);}

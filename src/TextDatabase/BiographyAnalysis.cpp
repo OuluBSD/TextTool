@@ -123,6 +123,23 @@ String GetSocietyRoleDescription(int role_i) {
 		case SOCIETYROLE_REPRESENTATIVE_OF_THE_ORGANIZATION_FOR_RIGHTS_OF_SOFTWARE_PROJECT_MANAGERS: return "representative of the organization for rights of software project managers with special focus on managing teams";
 		case SOCIETYROLE_REPRESENTATIVE_OF_THE_ORGANIZATION_FOR_INTEREST_OF_SOFTWARE_PROJECT_MANAGERS: return "representative of the organization for interest of software project managers with special focus on organization-project manager relationship";
 		
+        case SOCIETYROLE_ANGRY_PERSON_IN_THE_INTERNET: return "angry person in the internet with special focus on effects of anger";
+        case SOCIETYROLE_EMPATHETIC_PERSON_IN_THE_INTERNET: return "empathetic person in the internet with special focus on connecting with people";
+        case SOCIETYROLE_CURIOUS_PERSON_IN_THE_INTERNET: return "curious person in the internet with special focus on diversity";
+        case SOCIETYROLE_ENTHUSIASTIC_PERSON_IN_THE_INTERNET: return "enthusiastic person in the internet with special focus on social media";
+        case SOCIETYROLE_SKEPTICAL_PERSON_IN_THE_INTERNET: return "skeptical person in the internet with special focus on handling online interactions";
+        case SOCIETYROLE_CONFUSED_PERSON_IN_THE_INTERNET: return "confused person in the internet with special focus on navigating online platforms";
+        case SOCIETYROLE_EMOTIONAL_PERSON_IN_THE_INTERNET: return "emotional person in the internet with special focus on digital relationships";
+        case SOCIETYROLE_CRITICAL_PERSON_IN_THE_INTERNET: return "critical person in the internet with special focus on online behavior";
+        case SOCIETYROLE_MOTIVATIONAL_PERSON_IN_THE_INTERNET: return "motivational person in the internet with special focus on their impact on youth";
+        case SOCIETYROLE_SUPPORTIVE_PERSON_IN_THE_INTERNET: return "supportive person in the internet with special focus on mental health and well-being";
+        case SOCIETYROLE_ANXIOUS_PERSON_IN_THE_INTERNET: return "anxious person in the internet with special focus on management and treatment";
+        case SOCIETYROLE_HUMOROUS_PERSON_IN_THE_INTERNET: return "humorous person in the internet with special focus on their content and style";
+        case SOCIETYROLE_DEFENSIVE_PERSON_IN_THE_INTERNET: return "defensive person in the internet with special focus on online behavior and interactions";
+        case SOCIETYROLE_OVERWHELMED_PERSON_IN_THE_INTERNET: return "overwhelmed person in the internet with special focus on developing healthy coping mechanisms";
+        case SOCIETYROLE_NOSTALGIC_PERSON_IN_THE_INTERNET: return "nostalgic person in the internet with special focus on their online behavior";
+        case SOCIETYROLE_OBJECTIVE_PERSON_IN_THE_INTERNET: return "impartial person in the internet with special focus on providing unbiased information";
+        
 		default: TODO
 	}
 	return "";
@@ -1429,6 +1446,213 @@ const Array<RoleProfile>& GetRoleProfile(int role_i) {
 				list.Add().Set("Resource-limited organization", "This organization may have limited resources, such as budget or staff, which can present challenges for project managers. They may prioritize effective resource allocation and creative problem-solving in order to successfully manage projects within limitations.");
 				break;
 			}
+			case SOCIETYROLE_ANGRY_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("Online troll", "This person uses the internet to purposely provoke and upset others using offensive or controversial statements. They may feel a sense of power and control when they successfully elicit angry reactions from others.");
+                list.Add().Set("Cyberbully", "This person uses the internet to bully and harass others, often targeting specific individuals or groups. They may experience feelings of anger and resentment towards their victims and use the anonymity of the internet to incite more harm.");
+                list.Add().Set("Keyboard warrior", "This person is quick to unleash their anger and frustration through aggressive and confrontational comments on social media platforms. They may feel a sense of liberation and empowerment in expressing their emotions online.");
+                list.Add().Set("Outrage machine", "This person often seeks out content or topics that they know will trigger their anger and actively fuels their own outrage and the outrage of others. They may engage in online debates and arguments, venting their anger and spreading negativity.");
+                list.Add().Set("Victim of online harassment", "This person may frequently encounter hateful and threatening comments or messages directed towards them on the internet. The constant barrage of anger and negativity can have damaging effects on their mental health and well-being.");
+                list.Add().Set("Social media addict", "This person is constantly scrolling through their social media feeds, often becoming agitated and angry when they see content or opinions that differ from their own. They may become overly invested and emotionally reactive to what they see online.");
+                list.Add().Set("Fear-monger", "This person uses anger and fear to manipulate and control others online. They may spread false or exaggerated information to incite anger and resentment towards a certain group or individual for personal gain.");
+                list.Add().Set("Burnout from exposure to angry content", "This person may feel overwhelmed and exhausted from constantly being exposed to angry and inflammatory content on the internet. The constant stream of negative emotions may lead to burnout and a decrease in their overall well-being.");
+                list.Add().Set("Impacted by online outrage culture", "This person may find it difficult to navigate online spaces where anger and outrage are constantly being amplified. The toxic environment may cause them to feel fearful, anxious, and on edge.");
+                list.Add().Set("Angry at their own online reputation", "This person may have had past instances where their own angry outbursts online have caused them a negative reputation. They may struggle with managing their anger and its effects on their relationships and digital identity.");
+				break;
+			}
+			case SOCIETYROLE_EMPATHETIC_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("Online community moderator", "This empathetic individual is responsible for cultivating a positive and inclusive online community. They actively listen to and address the concerns of community members, and foster connections between people.");
+                list.Add().Set("Mental health advocate", "This person uses the internet as a platform to spread awareness and understanding about mental health and offer support and resources to those in need. They may share personal stories and encourage open discussions to help people feel less alone.");
+                list.Add().Set("Virtual counselor or therapist", "This empathetic person offers online counseling or therapy services, providing a safe and supportive space for individuals to process and work through their emotions and challenges.");
+                list.Add().Set("Social media influencer", "This person uses their platform and influence on social media to spread positivity and uplift others. They may share messages of inspiration, offer a listening ear to their followers, and encourage authentic connections.");
+                list.Add().Set("Online support group leader", "This empathetic individual leads or moderates online support groups for people going through similar experiences. They offer a non-judgmental space for individuals to share their struggles and receive guidance and support from others.");
+                list.Add().Set("Online volunteer", "This person uses the internet to volunteer their time and skills to support various causes and organizations. They may connect with others who share their passion for making a difference and work together to create positive change.");
+                list.Add().Set("Content creator", "This empathetic individual creates online content that resonates with others and promotes empathy and understanding. They may use their platform to share diverse perspectives and experiences, and encourage meaningful conversations.");
+                list.Add().Set("Online mentor or coach", "This empathetic person offers guidance and support to others through online mentorship or coaching sessions. They may use their own experiences and expertise to connect with and help others navigate their personal and professional challenges.");
+                list.Add().Set("Blogger or vlogger", "This person uses their blog or YouTube channel to connect with their audience and share their thoughts, experiences, and advice. They may offer a listening ear to their followers and use their platform to create a sense of community and support.");
+                list.Add().Set("Virtual event organizer", "This empathetic individual organizes and hosts virtual events, such as webinars, workshops, or meet-ups, to bring people together and foster connections. They may curate events that focus on empathy and building meaningful relationships.");
+				break;
+			}
+			case SOCIETYROLE_CURIOUS_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("Multicultural blogger", "This individual uses their platform on the internet to share their experiences and knowledge about different cultures and perspectives from their own multicultural background.");
+                list.Add().Set("Inclusive influencer", "This person actively seeks out diverse perspectives and promotes inclusivity in their content on social media. They may also use their platform to amplify marginalized voices.");
+                list.Add().Set("Digital anthropologist", "This individual studies human behavior and culture online, and may focus on understanding diversity and representation in digital communities.");
+                list.Add().Set("Intersectional activist", "This person utilizes their online presence to advocate for and bring attention to issues related to intersectionality, such as racism, sexism, ableism, and more.");
+                list.Add().Set("Diversity advocate", "This individual is passionate about promoting diversity and inclusion, and may use their online presence to educate others and create conversations about important topics.");
+                list.Add().Set("International correspondent", "This person uses the internet to connect with individuals from all over the world, sharing stories and perspectives from different countries and cultures.");
+                list.Add().Set("Human rights vlogger", "This individual uses their platform on YouTube or other video-sharing sites to shed light on human rights issues and advocate for diversity and acceptance.");
+                list.Add().Set("Gender and sexuality educator", "This person utilizes their online presence to provide information and education about gender and sexuality, and may focus on promoting understanding and acceptance of diverse identities.");
+                list.Add().Set("Digital storyteller", "This individual shares personal stories and experiences from their own diverse background, promoting empathy and understanding through digital storytelling.");
+                list.Add().Set("Disability advocate", "This person uses their online presence to amplify voices and advocate for the rights and inclusion of individuals with disabilities. They may also provide resources and support for the disabled community.");
+				break;
+			}
+			case SOCIETYROLE_ENTHUSIASTIC_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("Multicultural blogger", "This individual uses their platform on the internet to share their experiences and knowledge about different cultures and perspectives from their own multicultural background.");
+                list.Add().Set("Inclusive influencer", "This person actively seeks out diverse perspectives and promotes inclusivity in their content on social media. They may also use their platform to amplify marginalized voices.");
+                list.Add().Set("Digital anthropologist", "This individual studies human behavior and culture online, and may focus on understanding diversity and representation in digital communities.");
+                list.Add().Set("Intersectional activist", "This person utilizes their online presence to advocate for and bring attention to issues related to intersectionality, such as racism, sexism, ableism, and more.");
+                list.Add().Set("Diversity advocate", "This individual is passionate about promoting diversity and inclusion, and may use their online presence to educate others and create conversations about important topics.");
+                list.Add().Set("International correspondent", "This person uses the internet to connect with individuals from all over the world, sharing stories and perspectives from different countries and cultures.");
+                list.Add().Set("Human rights vlogger", "This individual uses their platform on YouTube or other video-sharing sites to shed light on human rights issues and advocate for diversity and acceptance.");
+                list.Add().Set("Gender and sexuality educator", "This person utilizes their online presence to provide information and education about gender and sexuality, and may focus on promoting understanding and acceptance of diverse identities.");
+                list.Add().Set("Digital storyteller", "This individual shares personal stories and experiences from their own diverse background, promoting empathy and understanding through digital storytelling.");
+                list.Add().Set("Disability advocate", "This person uses their online presence to amplify voices and advocate for the rights and inclusion of individuals with disabilities. They may also provide resources and support for the disabled community.");
+				break;
+			}
+			case SOCIETYROLE_SKEPTICAL_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("The fact-checker", "This person is diligent about verifying information online before accepting it as truth. They use reputable sources and are not easily swayed by sensationalized content.");
+                list.Add().Set("The conspiracy theorist", "This person is highly skeptical of mainstream narratives and often believes in elaborate conspiracy theories. They may be distrustful of the government, media, and other institutions.");
+                list.Add().Set("The troll", "This person enjoys stirring up controversy and provoking reactions online. They may argue for the sake of arguing and love to see others get riled up.");
+                list.Add().Set("The jaded user", "This person has been burned by false information or scams on the internet before, leading them to be wary and suspicious of everything they see online.");
+                list.Add().Set("The cautious user", "This person takes every precaution when sharing personal information or engaging with strangers online. They may use privacy settings and avoid interacting with unknown accounts.");
+                list.Add().Set("The influencer skeptic", "This person is highly skeptical of influencers and their motives, often questioning the authenticity of their sponsored content and product endorsements.");
+                list.Add().Set("The social media skeptic", "This person is skeptical of the impact of social media on society, believing it to cause harm and perpetuate fake news and unhealthy comparisons.");
+                list.Add().Set("The cautionary parent", "This person is highly skeptical of the internet's influence on children and teenagers, closely monitoring their online activities and setting strict rules and restrictions.");
+                list.Add().Set("The keyboard warrior", "This person is quick to criticize and call out others online, often hiding behind a screen to voice their opinions and engage in heated debates.");
+                list.Add().Set("The skeptic turned believer", "This person used to be skeptical of the internet, but has since learned how to navigate and find trustworthy sources online. They may be more open-minded and accepting of information now.");
+				break;
+			}
+			case SOCIETYROLE_CONFUSED_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("Tech-savvy but overwhelmed", "This person is adept at navigating technology and using various online platforms, but may feel overwhelmed with the constant influx of information and updates.");
+                list.Add().Set("Social media addict", "This person spends a significant amount of time on social media and has difficulty disconnecting from the online world. They may struggle with finding a balance between online and offline life.");
+                list.Add().Set("Constantly seeking validation", "This person feels the need to constantly seek validation and approval from others on social media and may feel obsessed with likes, comments, and followers.");
+                list.Add().Set("Fear of missing out", "This person is always trying to stay updated on the latest trends and news on social media and may feel anxious about missing out on any important information.");
+                list.Add().Set("Vulnerable to cyberbullying", "This person may be vulnerable to cyberbullying due to their frequent use of online platforms and may struggle with finding ways to cope with negative comments or messages.");
+                list.Add().Set("Overwhelming FOMO", "This person is constantly worried about missing out on online opportunities, events, or new information, leading to a fear of missing out (FOMO) on social media.");
+                list.Add().Set("Struggling to keep up", "This person may struggle to keep up with the ever-changing landscape of the internet and may feel overwhelmed and left behind by new trends or platforms.");
+                list.Add().Set("Unclear about personal boundaries", "This person may have trouble maintaining boundaries online, leading to oversharing personal information or engaging in risky online behaviors.");
+                list.Add().Set("Easily influenced", "This person is easily influenced by the opinions and content they see on social media and may struggle with forming their own critical thoughts and opinions.");
+                list.Add().Set("Difficulty separating fact from fiction", "This person may have a hard time distinguishing between what is real and what is fabricated online, leading to confusion and potentially falling for false information.");
+				break;
+			}
+			case SOCIETYROLE_EMOTIONAL_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("Empathetic online friend", "This person is known for their ability to understand and empathize with others, even through digital communication. They provide a safe and supportive space for others to share their thoughts and feelings.");
+                list.Add().Set("Digital influencer", "This person has a large following on social media and is known for their emotional and relatable content. They often offer advice and support to their followers, and have a strong influence on their online community.");
+                list.Add().Set("Online counselor or therapist", "This person offers virtual therapy or counseling sessions, providing emotional support and guidance to individuals who may not have access to traditional therapy. They utilize digital communication tools to connect with their clients and help them work through their emotions.");
+                list.Add().Set("Digital activist", "This person is passionate about social issues and uses the internet as a platform to raise awareness and advocate for change. They may engage in online discussions and organize digital campaigns to promote causes that are important to them.");
+                list.Add().Set("Virtual mentor", "This person serves as a mentor to others through digital channels, offering guidance, advice, and support to those seeking personal or professional development. They leverage technology to connect with and inspire others.");
+                list.Add().Set("Online friend with shared experiences", "This person has developed close relationships with others online due to shared experiences, such as dealing with mental health struggles or facing the same challenges. They provide emotional support and understanding to their online community.");
+                list.Add().Set("Digital pen pal", "This person connects with others through email or messaging and shares their thoughts and emotions through written communication. They may form deep and meaningful friendships with people from different backgrounds and cultures.");
+                list.Add().Set("Virtual counselor", "This person offers emotional support and guidance through chat or video sessions, serving as a listening ear and offering coping strategies for individuals dealing with emotional distress.");
+                list.Add().Set("Digital confidant", "This person is trusted by others to keep their personal thoughts and feelings confidential, and offers a non-judgmental and understanding ear for individuals who may not have anyone to confide in.");
+                list.Add().Set("Online support group moderator", "This person manages and facilitates an online support group for individuals facing a specific challenge or issue. They provide emotional support and resources for members, and create a sense of community through digital connections.");				break;
+			}
+			case SOCIETYROLE_CRITICAL_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("Cybersecurity expert", "This critical person uses their knowledge and skills to protect individuals and organizations from online threats and attacks. They may also educate the public about safe online practices.");
+                list.Add().Set("Social media influencer", "This person wields a significant influence over their followers on various social media platforms, and their behavior online can greatly impact their followers' behavior as well.");
+                list.Add().Set("Online activist", "This individual uses the internet as a tool for promoting social and political causes, and their online behavior reflects their strong beliefs and values.");
+                list.Add().Set("Online troll", "This individual deliberately engages in provocative and offensive behavior online in order to elicit a reaction from others. They may target specific individuals or groups and often hide behind anonymity.");
+                list.Add().Set("Digital parenting expert", "This person specializes in advising parents on how to navigate their children's digital lives and promote responsible online behavior.");
+                list.Add().Set("Online bully", "This individual uses the internet to harass, intimidate, or harm others. Their behavior can have serious consequences for their victims and may escalate to cyberbullying.");
+                list.Add().Set("Online addiction specialist", "This expert helps individuals recognize and overcome their harmful compulsive behaviors online, such as excessive social media use or internet addiction.");
+                list.Add().Set("Cyber law expert", "This person is well-versed in the laws and regulations surrounding the internet and advises individuals and organizations on how to navigate legal issues related to online behavior.");
+                list.Add().Set("Online therapist", "This mental health professional offers therapy sessions through online platforms, allowing individuals to receive support and guidance for their mental and emotional well-being in the digital sphere.");
+                list.Add().Set("Digital detox coach", "This person helps individuals disconnect from the online world and establish healthy boundaries with technology, promoting a more mindful and balanced approach to online behavior.");
+				break;
+			}
+			case SOCIETYROLE_MOTIVATIONAL_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("Influencer", "This person has a large following on social media and uses their platform to inspire and motivate young people. They may share personal stories, positive messages, and offer advice and guidance on various topics such as self-confidence, goal-setting, and pursuing passions.");
+                list.Add().Set("Life coach", "This person offers online coaching services to help young people find direction, set goals, and overcome obstacles. They may use a combination of personalized support and motivational techniques to help their clients achieve their full potential.");
+                list.Add().Set("Fitness enthusiast", "This person promotes a healthy and active lifestyle through their online presence, encouraging young people to prioritize their physical and mental well-being. They may share workout routines, healthy recipes, and tips for self-care.");
+                list.Add().Set("Mental health advocate", "This person uses their online presence to spread awareness and break stigmas surrounding mental health. They may offer resources, support, and positive messages to empower young people to take care of their emotional and mental well-being.");
+                list.Add().Set("Entrepreneur", "This person shares their journey as a successful entrepreneur on social media, offering motivation and inspiration to young people who aspire to start their own business ventures. They may also provide advice and share their expertise in their particular industry.");
+                list.Add().Set("Activist", "This person uses their platform to raise awareness and advocate for social causes that impact young people. They may share educational resources, organize events, and offer ways for their followers to get involved and make a difference.");
+                list.Add().Set("Motivational speaker", "This person may offer virtual talks and workshops on various topics such as personal growth, goal-setting, and finding purpose. They may share their own experiences and insights to inspire and motivate young people to live their best lives.");
+                list.Add().Set("Content creator", "This person produces motivational and uplifting content, such as videos, podcasts, or blogs, aimed at inspiring and empowering young people. They may use a combination of personal stories, humor, and positive messaging to connect with their audience.");
+                list.Add().Set("Educator", "This person uses their online platform to share lessons and resources that can help young people succeed academically and in life. They may offer study tips, career advice, or share their expertise on a particular subject.");
+                list.Add().Set("Role model", "This person leads by example and uses their online presence to show young people how to be kind, confident, and resilient individuals. They may use their own experiences and positive attitude to inspire others to be their best selves.");
+				break;
+			}
+			case SOCIETYROLE_SUPPORTIVE_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("Mental health blogger", "This person uses their platform on the internet to share insights, tips, and personal experiences related to mental health. They may also create a community for individuals to connect and support each other.");
+                list.Add().Set("Online therapist", "This professional provides therapy sessions through virtual platforms for those seeking mental health support from the comfort of their own home.");
+                list.Add().Set("Social media influencer", "This person utilizes their large following on social media to spread awareness and reduce stigma surrounding mental health. They may also share resources and tips for maintaining mental well-being.");
+                list.Add().Set("Support group moderator/leader", "This person creates and moderates a support group on the internet for individuals dealing with similar mental health challenges. They may also facilitate discussions, provide resources, and offer a non-judgmental space for members to share their experiences.");
+                list.Add().Set("Mental health advocate", "This person uses their online presence to advocate for mental health awareness, policies, and resources. They may also partner with organizations and participate in campaigns to promote mental health initiatives.");
+                list.Add().Set("Positive influencer", "This person uses their positive and uplifting content on the internet to spread positivity and promote self-care practices for mental well-being.");
+                list.Add().Set("Mental health educator", "This person uses their knowledge and expertise in mental health to educate others, through online courses, workshops, or informational posts. They may also offer personalized advice and support to those seeking guidance.");
+                list.Add().Set("Online mentor/coach", "This person offers one-on-one support and guidance to individuals struggling with their mental health, through virtual coaching sessions or mentoring programs.");
+                list.Add().Set("Virtual peer support", "This is a virtual platform or forum where individuals can connect with and receive support from peers who have experienced similar mental health challenges. This can provide a sense of community and reduce feelings of isolation.");
+                list.Add().Set("Mental health hotline/chat operator", "This person provides support and guidance to individuals in crisis through a hotline or online chat service. They may also provide referrals to mental health resources and services.");
+				break;
+			}
+			case SOCIETYROLE_ANXIOUS_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("Self-diagnosing and self-medicating", "This person may spend a lot of time researching their symptoms and seeking out treatments or remedies without seeking professional help. This can lead to misinformation and potentially harmful self-treatment.");
+                list.Add().Set("Avoidant of seeking help", "This person may recognize their anxiety but is hesitant or resistant to seeking help from a therapist or doctor. This can be due to feelings of shame or fear of judgment.");
+                list.Add().Set("Somatizing anxiety", "This person may experience physical symptoms such as headaches, stomach aches, or muscle tension as a manifestation of their anxiety. They may need help recognizing the connection between their physical symptoms and their anxiety.");
+                list.Add().Set("Perfectionism and anxiety", "This person may have high standards for themselves and struggle with perfectionism, leading to heightened levels of anxiety. They may need help learning to embrace imperfection and manage their expectations.");
+                list.Add().Set("Social media comparison", "This person may constantly compare themselves to others on social media, leading to feelings of inadequacy and anxiety. They may benefit from taking breaks from social media and focusing on their own self-worth.");
+                list.Add().Set("Fear of judgment", "This person may have a fear of being judged or negatively evaluated by others, leading to heightened social anxiety. They may need support in building self-confidence and developing coping strategies.");
+                list.Add().Set("Panic attacks", "This person may experience sudden and intense panic attacks, often triggered by specific situations or thoughts. They may benefit from learning relaxation techniques and establishing a safety plan for when they experience a panic attack.");
+                list.Add().Set("Avoidance and procrastination", "This person may struggle with avoidance and procrastination as a way of coping with their anxiety. They may need help in breaking down tasks and developing a plan to manage their feelings of overwhelm.");
+                list.Add().Set("Comorbidity with depression", "This person may experience both anxiety and depression, and they can often feed into each other. They may benefit from a treatment plan that addresses both conditions.");
+                list.Add().Set("Medication shaming", "This person may feel stigmatized or ashamed for taking medication to manage their anxiety. They may need support in understanding that medication can be a valuable tool for managing their symptoms.");
+				break;
+			}
+			case SOCIETYROLE_HUMOROUS_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("Relatable comedian", "This person uses everyday experiences and observations to create relatable and hilarious content. They often use self-deprecating humor to connect with their audience.");
+                list.Add().Set("Satirist", "This person uses humor to critique and comment on societal issues and norms. They often employ irony and sarcasm to make their point.");
+                list.Add().Set("Prankster", "This person's content is centered around pulling pranks and practical jokes on others. They may also capture people's reactions to their pranks.");
+                list.Add().Set("Memelord", "This person is known for creating and sharing memes, often using popular culture references and inside jokes. They have a knack for finding humor in current events and trends.");
+                list.Add().Set("Stand-up comedian", "This person's content consists of footage from their stand-up comedy shows, where they perform jokes and stories in front of a live audience. They often have a distinct stage presence and delivery style.");
+                list.Add().Set("Sketch comedian", "This person creates scripted sketches and skits, often with a group of collaborators. They may parody popular TV shows, movies, or cultural phenomena.");
+                list.Add().Set("Vlogger", "This person's humor is incorporated into their daily vlogs, where they share their thoughts and experiences in a funny and entertaining way. They may also incorporate challenges, pranks, and other lighthearted content into their vlogs.");
+                list.Add().Set("Improv comedian", "This person's content is spontaneous and unscripted, relying on their skills in improvisation to create humor on the spot. They may also involve audience participation in their videos.");
+                list.Add().Set("Parody artist", "This person creates comedic versions of popular songs, movies, or TV shows. They may use clever wordplay and over-the-top performances to add humor to their parodies.");
+                list.Add().Set("Cartoonist", "This person uses illustrations and comics to convey their humorous take on life. They may use clever and witty captions to accompany their drawings.");
+				break;
+			}
+			case SOCIETYROLE_DEFENSIVE_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("Cyberbully", "This person uses the internet as a means to harass, intimidate, or bully others. They may target specific individuals or engage in trolling behavior, causing harm and distress to their victims.");
+                list.Add().Set("Keyboard warrior", "Similar to a cyberbully, this person engages in aggressive and confrontational behavior online, often without consequence due to the anonymity of the internet. They may use inflammatory language and attack others in online discussions.");
+                list.Add().Set("Scammer", "This person takes advantage of others through deceit and manipulation on the internet. They may create false identities or use fraudulent tactics to obtain personal information or money from unsuspecting victims.");
+                list.Add().Set("Online vigilante", "This person takes it upon themselves to enforce their own version of justice on the internet, often targeting individuals or groups they disagree with or perceive as threats. They may engage in doxxing or other forms of online harassment.");
+                list.Add().Set("Passive-aggressive internet user", "This person uses subtle, indirect ways to express their negative feelings or grievances towards others on the internet. This may manifest in snide comments, backhanded compliments, or vague posts.");
+                list.Add().Set("Cyberstalker", "This person fixates on someone else online and relentlessly pursues them, often causing fear and discomfort for their victim. They may use different online platforms to monitor their victim's activity and gather personal information.");
+                list.Add().Set("Trolling influencer", "This person uses their online influence and large following to stir up controversy and provoke reactions from others. They may make controversial statements or engage in inflammatory behavior in order to gain attention and increase their online presence.");
+                list.Add().Set("Toxic commenter", "This person constantly leaves negative and critical comments on other people's posts or content. They may have a habit of spreading negativity and causing conflict on various online platforms.");
+                list.Add().Set("Online addict", "This person has an unhealthy obsession with the internet and may struggle to disconnect or limit their usage. They may prioritize their online interactions over real-life relationships and responsibilities.");
+                list.Add().Set("Cyberphobe", "This person avoids using the internet and participating in online interactions due to fear or distrust of the internet and online communities. They may have had negative experiences or perceive the internet as a dangerous place.");
+				break;
+			}
+			case SOCIETYROLE_OVERWHELMED_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("Perfectionist", "This person feels overwhelmed by their own high expectations and may struggle to cope when things don't go according to plan. They may benefit from learning to let go of perfectionism and adopt a more flexible mindset.");
+                list.Add().Set("Overworked professional", "This person is overwhelmed by their workload and may struggle to find a work-life balance. They may benefit from setting boundaries, prioritizing self-care, and seeking support from colleagues or a therapist.");
+                list.Add().Set("Procrastinator", "This person may feel overwhelmed by their mounting to-do list and constantly putting things off. They may benefit from breaking tasks into smaller, manageable chunks and learning effective time management techniques.");
+                list.Add().Set("Social media addict", "This person may feel overwhelmed by constantly comparing their life to others and feeling the pressure to constantly be connected. They may benefit from creating boundaries around social media usage and engaging in offline activities.");
+                list.Add().Set("New parent", "This person may feel overwhelmed by the demands of caring for a new baby and adjusting to a major life change. They may benefit from seeking support from other parents, taking time for self-care, and setting realistic expectations for themselves.");
+                list.Add().Set("Caregiver", "This person may feel overwhelmed by the demands of caring for a loved one and may struggle to prioritize their own needs. They may benefit from seeking respite care, asking for help from family and friends, and practicing self-compassion.");
+                list.Add().Set("Student", "This person may feel overwhelmed by academic pressure and the expectations of their peers and family. They may benefit from seeking support from professors or a counselor, setting realistic goals, and engaging in stress-reducing activities.");
+                list.Add().Set("Recent divorcee", "This person may feel overwhelmed by the emotional toll of a divorce and adjusting to a new life on their own. They may benefit from seeking therapy, joining a support group, and finding new hobbies or interests.");
+                list.Add().Set("Chronic illness sufferer", "This person may feel overwhelmed by the physical and emotional toll of managing their health condition. They may benefit from joining a support group, seeking professional help, and practicing self-care and stress management techniques.");
+                list.Add().Set("Recent trauma survivor", "This person may feel overwhelmed by the aftermath of a traumatic event and may struggle to cope with their emotions. They may benefit from seeking therapy, attending support groups, and finding healthy outlets for their emotions such as journaling or art.");
+				break;
+			}
+			case SOCIETYROLE_NOSTALGIC_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("The constant reminiscer", "This person regularly posts throwback photos and memories on social media, often with a sense of longing for the past. They may also share old songs or movies that hold a special place in their heart.");
+                list.Add().Set("The curator", "This person carefully curates their online presence to showcase a nostalgic aesthetic, often using filters or edits to create a retro feel. They may also seek out and share vintage items, fashion, or media online.");
+                list.Add().Set("The researcher", "This person has a deep interest in history and often spends time on the internet researching past events, trends, and cultural moments. They may also follow and engage with historical accounts or archives online.");
+                list.Add().Set("The millennial nostalgiac", "This person is part of the millennial generation and often reflects on their childhood and teenage years through social media posts and online conversations. They may also gravitate towards nostalgia-themed memes and content.");
+                list.Add().Set("The nostalgist influencer", "This person has built a following by sharing nostalgic content and experiences, often with a sense of good-natured humor. They may also collaborate with brands to promote retro or vintage products.");
+                list.Add().Set("The escapists", "These individuals use nostalgia to escape from present realities and often consume media or engage with online communities that transport them back to a simpler time. They may also struggle with feelings of anxiety or disillusionment in the present.");
+                list.Add().Set("The collector", "This person is passionate about collecting and preserving items from their past or from a particular era. They may share their collections on social media and connect with others who share similar interests.");
+                list.Add().Set("The truth-seeker", "This person is motivated by a desire to uncover the truth behind popular nostalgic narratives and may actively engage in debates and discussions online about the accuracy of depictions of the past.");
+                list.Add().Set("The critic", "This person is critical of the widespread romanticization of nostalgia and may use their online platform to challenge the idea that the past was always better. They may also call attention to problematic elements of nostalgic media or trends.");
+                list.Add().Set("The community-builder", "This person uses their nostalgic interests and experiences to create a sense of community online, connecting with others who share their affection for a particular time period, style, or nostalgia-related topic.");
+				break;
+			}
+			case SOCIETYROLE_OBJECTIVE_PERSON_IN_THE_INTERNET: {
+                list.Add().Set("News journalist", "These individuals research and report on current events and issues without any personal bias. They strive to present all sides of a story and provide factual information to the public.");
+                list.Add().Set("Fact-checker", "Fact-checkers are responsible for verifying the accuracy of information presented in various media outlets. They often work for news organizations or independent platforms and aim to provide unbiased and verifiable information.");
+                list.Add().Set("Wikipedia editor", "Wikipedia relies on volunteer editors to ensure the accuracy and neutrality of information on its platform. These editors strive to maintain a neutral point of view and fact-check information before publishing it.");
+                list.Add().Set("Academic researcher", "Researchers in various fields are expected to present their findings and conclusions based on unbiased data and evidence. Their work undergoes scrutiny and peer-review to ensure objectivity.");
+                list.Add().Set("Consumer reviews writer", "Many websites and platforms rely on consumer reviews to provide information about products and services. These writers aim to provide unbiased and honest opinions to help readers make informed decisions.");
+                list.Add().Set("Moderator on online forums or discussion boards", "Moderators have the responsibility of facilitating discussions on online platforms and ensuring that the conversation is respectful, factual, and productive. They often need to intervene to prevent biased or false information from being shared.");
+                list.Add().Set("Fact-based bloggers", "There are bloggers and content creators who focus on providing fact-based information and debunking false claims. They often thoroughly research their topics and provide sources for their information to support their claims.");
+                list.Add().Set("Science communicator", "Science communicators aim to present scientific information in an engaging and easily understandable way without introducing personal biases. They often work for science magazines, documentaries, or independent platforms and aim to educate the public about various scientific topics.");
+                list.Add().Set("Book researcher", "Book researchers gather information from various sources to fact-check information presented in books and ensure their accuracy. They may also collaborate with authors to provide additional resources and references for their work.");
+                list.Add().Set("Open data advocate", "These individuals work to promote the use of open data and access to facts and statistics. They aim to increase transparency and accountability by making unbiased information easily accessible to the public.");
+				break;
+			}
 			default: TODO
 		}
 	}
@@ -1449,6 +1673,7 @@ void BiographyAnalysis::Realize() {
 
 Index<int> BiographyAnalysis::GetRequiredRoles() const {
 	MetaPtrs& mp = MetaPtrs::Single();
+	MetaDatabase& mdb = MetaDatabase::Single();
 	BiographyAnalysis& analysis = mp.profile->biography_analysis;
 	Index<int> ret;
 	for(int role_i0 = 0; role_i0 < SOCIETYROLE_COUNT; role_i0++) {
@@ -1460,7 +1685,9 @@ Index<int> BiographyAnalysis::GetRequiredRoles() const {
 				continue;
 			
 			const Platform& plat = GetPlatforms()[i];
-			for (int role_i1 : plat.roles)
+			const PlatformAnalysis& pa = mdb.GetAdd(plat);
+			
+			for (int role_i1 : pa.roles)
 				if (role_i0 == role_i1)
 					{enabled = true; break;}
 			if (enabled) break;

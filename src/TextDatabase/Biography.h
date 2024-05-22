@@ -57,6 +57,7 @@ BEGIN_TEXTLIB_NAMESPACE
 	BIOCATEGORY(BADGE_OF_HONOR) \
 	BIOCATEGORY(BADGE_OF_SHAME) \
 	BIOCATEGORY(BADGE_OF_JUDGEMENT) \
+	BIOCATEGORY(POLITICAL_IDENTITY) \
 
 
 
@@ -71,6 +72,8 @@ enum {
 String KeyToName(String s);
 String GetBiographyCategoryEnum(int i);
 String GetBiographyCategoryKey(int i);
+const char* GetBiographyCategoryEnumCstr(int i);
+int FindBiographyCategoryEnum(String s);
 
 
 enum {
@@ -106,10 +109,30 @@ struct BioImage {
 	}
 };
 
+struct BioRange : Moveable<BioRange> {
+	int off = 0, len = 0;
+	BioRange() {}
+	BioRange(BioRange&& r) {*this = r;}
+	BioRange(const BioRange& r) {*this = r;}
+	void operator=(const BioRange& r) {off = r.off; len = r.len;}
+	hash_t GetHashValue() const {CombineHash c; c.Do(off).Do(len); return c;}
+	bool operator==(const BioRange& r) const {return r.off == off && r.len == len;}
+	void Jsonize(JsonIO& json) {json("off", off)("len", len);}
+	bool operator()(const BioRange& a, const BioRange& b) const {
+		int a0 = a.off + a.len - 1; // last item in range
+		int b0 = b.off + b.len - 1;
+		if (a0 != b0) return a0 < b0; // sort primarily by lesser last item
+		return a.len < b.len; // otherwise sort by lesser range length
+	}
+};
+
+
 struct BioYear {
 	int year = 0;
 	String keywords, text, native_text;
 	Array<BioImage> images;
+	ArrayMap<BioRange,BioImage> image_summaries;
+	String image_text;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -118,31 +141,23 @@ struct BioYear {
 			("native_text", native_text)
 			("text", text)
 			("images", images)
+			("image_summaries", image_summaries)
+			("image_text", image_text)
 			;
 	}
 	bool operator()(const BioYear& a, const BioYear& b) const {return a.year < b.year;}
+	void RealizeImageSummaries();
+	BioImage& GetAddImageSummary(int begin_year, int years);
 };
 
 struct BiographyCategory {
-	struct Range : Moveable<Range> {
-		int off = 0, len = 0;
-		Range() {}
-		Range(Range&& r) {*this = r;}
-		Range(const Range& r) {*this = r;}
-		void operator=(const Range& r) {off = r.off; len = r.len;}
-		hash_t GetHashValue() const {CombineHash c; c.Do(off).Do(len); return c;}
-		bool operator==(const Range& r) const {return r.off == off && r.len == len;}
-		void Jsonize(JsonIO& json) {json("off", off)("len", len);}
-		bool operator()(const Range& a, const Range& b) const {
-			int a0 = a.off + a.len - 1; // last year in range
-			int b0 = b.off + b.len - 1;
-			if (a0 != b0) return a0 < b0; // sort primarily by lesser last year
-			return a.len < b.len; // otherwise sort by lesse range length
-		}
-	};
 	
 	Array<BioYear> years;
-	ArrayMap<Range,BioYear> summaries;
+	ArrayMap<BioRange,BioYear> summaries;
+	
+	
+	
+	BiographyCategory() {}
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -159,17 +174,42 @@ struct BiographyCategory {
 };
 
 struct Biography {
+private:
 	ArrayMap<String, BiographyCategory> categories;
 	
-	
+public:
+	struct CatSorter {
+		bool operator()(const String& a, const String& b) const {
+			int ai = FindBiographyCategoryEnum(a);
+			int bi = FindBiographyCategoryEnum(b);
+			if (bi == -1) return true;
+			if (ai == -1) return false;
+			return ai < bi;
+		}
+	};
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("categories", categories)
 			;
+		if (json.IsLoading()) {
+			Sort();
+		}
 	}
 	BiographyCategory& GetAdd(Owner& o, int enum_);
-	
+	void Sort() {
+		ArrayMap<String, BiographyCategory> tmp;
+		Swap(tmp, categories);
+		for(int i = 0; i < BIOCATEGORY_COUNT; i++) {
+			String key = GetBiographyCategoryEnumCstr(i);
+			int j = tmp.Find(key);
+			if (j >= 0) {
+				BiographyCategory& cat = tmp[j];
+				Swap(categories.Add(key), cat);
+			}
+			else categories.Add(key);
+		}
+	}
 };
 
 

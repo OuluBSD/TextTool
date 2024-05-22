@@ -78,6 +78,19 @@ LAYOUT(Audience, 424, 348)
 	ITEM(Upp::EditString, leadership_score, HSizePosZ(164, 8).BottomPosZ(9, 19))
 END_LAYOUT
 
+LAYOUT(SocialPlatform, 864, 236)
+	ITEM(Upp::LabelBox, lbl_platform, SetLabel(t_("Platform")).HSizePosZ(4, 4).VSizePosZ(0, 4))
+	ITEM(Upp::Label, lbl_title, SetLabel(t_("Name:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(16, 20))
+	ITEM(Upp::EditString, name, SetEditable(false).LeftPosZ(164, 300).TopPosZ(16, 20))
+	ITEM(Upp::Label, dv___3, SetLabel(t_("Group:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(40, 20))
+	ITEM(Upp::EditString, group, SetEditable(false).LeftPosZ(164, 300).TopPosZ(40, 19))
+	ITEM(Upp::Label, dv___5, SetLabel(t_("Description:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(64, 20))
+	ITEM(Upp::DocEdit, description, SetEditable(false).LeftPosZ(164, 300).TopPosZ(64, 56))
+	ITEM(Upp::Label, dv___7, SetLabel(t_("Attributes:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(124, 20))
+	ITEM(Upp::ArrayCtrl, attrs, LeftPosZ(164, 300).VSizePosZ(124, 8))
+	ITEM(Upp::ArrayCtrl, roles, HSizePosZ(468, 8).VSizePosZ(16, 8))
+END_LAYOUT
+
 LAYOUT(SocialHeader, 864, 344)
 	ITEM(Upp::LabelBox, lbl_owner, SetLabel(t_("Entry")).HSizePosZ(4, 4).VSizePosZ(0, 4))
 	ITEM(Upp::ImageCtrl, prof_image0, LeftPosZ(468, 192).VCenterPosZ(156, -78))

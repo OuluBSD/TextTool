@@ -29,6 +29,7 @@ protected:
 	AudienceCtrl				audience;
 	BiographySummaryCtrl		biography_summary;
 	ImageBiographySummaryCtrl	image_biography_summary;
+	PlatformCtrl				platform;
 	
 	
 public:

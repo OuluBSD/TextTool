@@ -249,11 +249,13 @@ void MetaDatabase::Jsonize(JsonIO& json) {
 		}
 		json
 			("owners", names)
+			("platforms", platforms)
 			;
 	}
 	else {
 		json
 			("owners", names)
+			("platforms", platforms)
 			;
 		owners.SetCount(names.GetCount());
 		for(int i = 0; i < owners.GetCount(); i++)
@@ -283,6 +285,15 @@ String MetaDatabase::GetLanguage() const {
 
 String MetaDatabase::GetOtherLanguage() const {
 	return GetLanguageKey(GetOtherLanguageIndex());
+}
+
+PlatformAnalysis& MetaDatabase::GetAdd(int plat_i) {
+	const char* key = TextLib::GetPlatforms()[plat_i].name;
+	return platforms.GetAdd(key);
+}
+
+PlatformAnalysis& MetaDatabase::GetAdd(const Platform& plat) {
+	return platforms.GetAdd(plat.name);
 }
 
 
