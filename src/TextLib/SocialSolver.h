@@ -9,11 +9,12 @@ class SocialSolver {
 	enum {
 		SS_BEGIN,
 		
+		SS_ANALYZE_ROLE_SCORES,
 		SS_ANALYZE_PLATFORM_ROLES,
-		/*
 		SS_ANALYZE_PLATFORM_EPK_TEXT_FIELDS,
 		SS_ANALYZE_PLATFORM_EPK_PHOTO_TYPES,
 		SS_ANALYZE_PLATFORM_EPK_PHOTO_AI_PROMPTS,
+		/*
 		SS_ANALYZE_PLATFORM_EPK_PHOTO_DALLE2_EXAMPLES,
 		SS_ANALYZE_PLATFORM_EPK_VIDEO_TYPES,
 		SS_ANALYZE_PLATFORM_EPK_VIDEO_STORYBOARD_AI_PROMPTS,
@@ -94,7 +95,11 @@ class SocialSolver {
 	
 	int CreateRange(int off, int len);
 	void Process();
+	void ProcessAnalyzeRoleScores();
 	void ProcessAnalyzePlatformRoles();
+	void ProcessAnalyzePlatformEpkTextFields();
+	void ProcessAnalyzePlatformEpkPhotoTypes();
+	void ProcessAnalyzePlatformEpkPhotoAiPrompts();
 	void ProcessAudienceProfileCategories();
 	void ProcessSummarize();
 	void ProcessAudienceReactsSummary();
@@ -107,7 +112,11 @@ class SocialSolver {
 	void ProcessAnalyzeImageBiography();
 	void ProcessSummarizeImageCategoryYear();
 	void ProcessSummarizeImageBiography();
+	void OnProcessAnalyzeRoleScores(String res);
 	void OnProcessAnalyzePlatformRoles(String res);
+	void OnProcessAnalyzePlatformEpkTextFields(String res);
+	void OnProcessAnalyzePlatformEpkPhotoTypes(String res);
+	void OnProcessAnalyzePlatformEpkPhotoAiPrompts(String res);
 	void OnProcessAudienceProfileCategories(String res);
 	void OnProcessSummarize(String res);
 	void OnProcessAudienceReactsSummary(String res);

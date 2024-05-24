@@ -6,6 +6,18 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 
+String GetSocietyRoleScoreEnum(int i) {
+	switch (i) {
+		#define SOCIETYROLE_SCORE(x) case SOCIETYROLE_SCORE_##x: return #x;
+		SOCIETYROLE_SCORE_LIST
+		#undef SOCIETYROLE_SCORE
+		default: return String();
+	}
+}
+
+String GetSocietyRoleScoreKey(int i) {return KeyToName(GetSocietyRoleScoreEnum(i));}
+
+
 
 String GetSocietyRoleEnum(int i) {
 	switch (i) {
@@ -17,6 +29,7 @@ String GetSocietyRoleEnum(int i) {
 }
 
 String GetSocietyRoleKey(int i) {return KeyToName(GetSocietyRoleEnum(i));}
+
 
 String GetSocietyRoleDescription(int role_i) {
 	switch (role_i) {
@@ -1712,6 +1725,34 @@ Index<int> BiographyAnalysis::GetRequiredCategories() const {
 		}
 	}
 	return cats;
+}
+
+
+
+
+
+void SocietyRoleAnalysis::Jsonize(JsonIO& json) {
+	thread_local static Vector<int> tmp;
+	if (json.IsStoring()) {
+		tmp.SetCount(SOCIETYROLE_SCORE_COUNT);
+		for(int i = 0; i < SOCIETYROLE_SCORE_COUNT; i++)
+			tmp[i] = scores[i];
+	}
+	json
+		("scores", tmp)
+		;
+	if (json.IsLoading()) {
+		memset(scores, 0, sizeof(scores));
+		for(int i = 0; i < tmp.GetCount() && i < SOCIETYROLE_SCORE_COUNT; i++)
+			scores[i] = tmp[i];
+	}
+}
+
+int SocietyRoleAnalysis::GetScoreSum() const {
+	int sum = 0;
+	for(int i = 0; i < SOCIETYROLE_SCORE_COUNT; i++)
+		sum += min(10, max(0, scores[i]));
+	return sum;
 }
 
 

@@ -11,45 +11,61 @@ enum {
 	PLATFORM_THREADS,
 	PLATFORM_FACEBOOK,
 	PLATFORM_INSTAGRAM,
+	
 	PLATFORM_TIKTOK,
 	PLATFORM_GETTR,
 	PLATFORM_LINKEDIN,
 	PLATFORM_SOUNDCLOUD,
 	PLATFORM_MUSIC_DISTRIBUTOR, // e.g. distrokid
+	
+	
 	PLATFORM_YOUTUBE,
 	PLATFORM_VK,
 	PLATFORM_REDDIT,
 	PLATFORM_FORUM,
 	PLATFORM_BLOGGER,
+	
 	PLATFORM_WEBSITE,
 	PLATFORM_TWITCH,
 	PLATFORM_STUMBLE,
 	PLATFORM_GITHUB,
 	PLATFORM_MYSPACE,
+	
+	
 	PLATFORM_MIKSERINET,
 	PLATFORM_IRCGALLERIA,
 	PLATFORM_DISCORD,
 	PLATFORM_MUKKEN,
 	PLATFORM_BANDCAMP,
+	
 	PLATFORM_REMOTEMORE,
 	PLATFORM_KUVAKENET,
 	PLATFORM_REVERBNATION,
 	PLATFORM_SONICBIDS,
 	PLATFORM_MUSICGATEWAY,
+	
+	
 	PLATFORM_INDIEONTHEMOVE,
 	PLATFORM_VOWAVE, // vowave.com
 	PLATFORM_AUDIUS, // audius.co
 	PLATFORM_SONGTRADR, // songtradr.com
 	PLATFORM_GROOVER, // groover.co
+	
 	PLATFORM_AIRPLAYDIRECT,
 	PLATFORM_N1M, // n1m.com
 	PLATFORM_SOUNDBETTER, // soundbetter.com
 	PLATFORM_ABOUTME, // about.me
 	PLATFORM_FIVERR, // fiverr.com
+	
+	
 	PLATFORM_THEDOTS, // the-dots.com
 	PLATFORM_CONSTANTCONTACT, // constantcontact.com
 	PLATFORM_MUUSIKOIDEN_NET,
 	PLATFORM_PODCAST,
+	PLATFORM_TINDER,
+	
+	PLATFORM_PATREON,
+	PLATFORM_LOCALS,
 	
 	
 	// PLATFORM_SOUNDMASH, // soundmash.me
@@ -65,7 +81,9 @@ enum {
 
 #define PLATFORM_PROFILE_LIST \
 	PLATFORM_PROFILE(ANY) \
-	PLATFORM_PROFILE(ARTIST) \
+	PLATFORM_PROFILE(MUSIC_ARTIST) \
+	PLATFORM_PROFILE(VISUAL_ARTIST) \
+	PLATFORM_PROFILE(PHOTOGRAPHER) \
 	PLATFORM_PROFILE(REAL_PERSON) \
 	
 enum {
@@ -170,16 +188,47 @@ struct ProfileData {
 };
 
 
+struct PhotoPrompt : Moveable<PhotoPrompt> {
+	String prompt;
+	Vector<String> instructions;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("prompt", prompt)
+			("instructions", instructions)
+			;
+	}
+};
+
+struct PlatformAnalysisPhoto : Moveable<PlatformAnalysisPhoto> {
+	String description;
+	Vector<PhotoPrompt> prompts;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("description", description)
+			("prompts", prompts)
+			;
+	}
+};
+
 struct PlatformAnalysis {
 	Index<int> roles;
-	
+	VectorMap<String,String> epk_text_fields;
+	VectorMap<String,PlatformAnalysisPhoto> epk_photos;
 	
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("roles", roles)
+			("epk_text_fields", epk_text_fields)
+			("epk_photos", epk_photos)
 			;
 	}
+	
+	int GetRoleScoreSum(int score_i) const;
+	double GetRoleScoreSumWeighted(int score_i) const;
+	
 };
 
 

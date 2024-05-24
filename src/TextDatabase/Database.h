@@ -93,6 +93,7 @@ struct MetaDatabase {
 	
 private:
 	ArrayMap<String, PlatformAnalysis>		platforms;
+	ArrayMap<String, SocietyRoleAnalysis>	roles;
 	
 public:
 	
@@ -111,6 +112,7 @@ public:
 	const Array<PlatformAnalysis>& GetPlatforms() const {return platforms.GetValues();}
 	PlatformAnalysis& GetAdd(int plat_i);
 	PlatformAnalysis& GetAdd(const Platform& plat);
+	SocietyRoleAnalysis& GetAddRole(int role_i);
 	
 };
 

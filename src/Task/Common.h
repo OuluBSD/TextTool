@@ -208,7 +208,7 @@ struct SongHeaderArgs {
 
 struct SocialArgs {
 	int fn = 0;
-	String text, description;
+	String text, description, profile, photo_description;
 	VectorMap<String,String> parts;
 	int len = 0;
 	
@@ -218,6 +218,8 @@ struct SocialArgs {
 				("fn", fn)
 				("parts", parts)
 				("len", len)
+				("profile", profile)
+				("photo_description", photo_description)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

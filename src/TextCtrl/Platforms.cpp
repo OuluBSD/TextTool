@@ -9,32 +9,75 @@ PlatformCtrl::PlatformCtrl() {
 	hsplit.Horz() << platforms << vsplit;
 	hsplit.SetPos(1500);
 	
-	vsplit.Vert() << plat << _;
+	vsplit.Vert() << plat << bottom;
+	bottom.Horz() << plat_tabs << epk_tabs;
 	CtrlLayout(plat);
 	
-	platforms.AddColumn(t_("Type"));
+	plat_tabs.Add(roles.SizePos(), "Society Roles");
+	epk_tabs.Add(epk_text_fields.SizePos(), "EPK Text Fields");
+	epk_tabs.Add(epk_photo_types.SizePos(), "EPK Photo Types");
+	
+	roles.AddColumn(t_("Role"));
+	roles.AddColumn(t_("Description"));
+	roles.ColumnWidths("1 4");
+	
+	epk_text_fields.AddColumn(t_("Key"));
+	epk_text_fields.AddColumn(t_("Description"));
+	epk_text_fields.ColumnWidths("1 4");
+	
+	epk_photo_types.AddColumn(t_("Key"));
+	epk_photo_types.AddColumn(t_("Description"));
+	epk_photo_types.ColumnWidths("1 4");
+	
 	platforms.AddColumn(t_("Platform"));
+	//platforms.AddColumn(t_("Type"));
+	platforms.AddColumn(t_("Family Chosen By Me"));
+	platforms.AddColumn(t_("Rights representatives"));
+	platforms.AddColumn(t_("Military Rank"));
+	platforms.AddColumn(t_("Sex"));
 	platforms.AddIndex("IDX");
+	platforms.ColumnWidths("2 1 1 1 1");
 	for(int i = 0; i < PLATFORM_COUNT; i++) {
 		const Platform& plat = GetPlatforms()[i];
-		platforms.Set(i, 0, plat.group);
-		platforms.Set(i, 1, plat.name);
+		platforms.Set(i, 0, plat.name);
+		//platforms.Set(i, 1, plat.group);
 		platforms.Set(i, "IDX", i);
 	}
-	platforms.SetSortColumn(0);
+	//platforms.SetSortColumn(1);
 	platforms.SetCursor(0);
 	platforms.WhenCursor << THISBACK(DataPlatform);
+	platforms.WhenBar << THISBACK(PlatformMenu);
 	
 	
 	plat.attrs.AddColumn(t_("Attribute"));
-	plat.roles.AddColumn(t_("Role"));
-	plat.roles.AddColumn(t_("Description"));
-	plat.roles.ColumnWidths("1 4");
+	plat.scores.AddColumn(t_("Score group"));
+	plat.scores.AddColumn(t_("Score"));
+	plat.scores.ColumnWidths("2 3");
 	
 }
 
 void PlatformCtrl::Data() {
-	
+	for(int i = 0; i < PLATFORM_COUNT; i++) {
+		const Platform& p = GetPlatforms()[i];
+		const PlatformAnalysis& pa = MetaDatabase::Single().GetAdd(p);
+		platforms.Set(i, 0, p.name);
+		platforms.Set(i, "IDX", i);
+		platforms.Set(i, 1, pa.GetRoleScoreSumWeighted(SOCIETYROLE_SCORE_FAMILY_CHOSEN_BY_ME));
+		platforms.Set(i, 2, pa.GetRoleScoreSumWeighted(SOCIETYROLE_SCORE_REPRESENTATIVE_FOR_RIGHTS_OF_SOMEONE));
+		platforms.Set(i, 3, pa.GetRoleScoreSumWeighted(SOCIETYROLE_SCORE_MILTARY_RANK_RELATED));
+		
+		double female = pa.GetRoleScoreSumWeighted(SOCIETYROLE_SCORE_FEMALE);
+		double male = pa.GetRoleScoreSumWeighted(SOCIETYROLE_SCORE_MALE);
+		double sum = female + male;
+		if (sum == 0)
+			platforms.Set(i, 4, 5);
+		else
+			platforms.Set(i, 4, female / sum * 10);
+	}
+	platforms.SetSortColumn(3, true);
+	INHIBIT_CURSOR(platforms);
+	if (!platforms.IsCursor() && platforms.GetCount())
+		platforms.SetCursor(0);
 	
 	DataPlatform();
 }
@@ -52,7 +95,11 @@ void PlatformCtrl::DataPlatform() {
 	const Platform& p = GetPlatforms()[plat_i];
 	const PlatformAnalysis& pa = MetaDatabase::Single().GetAdd(p);
 	
-	plat.name.SetData(p.name);
+	if (p.name && p.name[0])
+		plat.name.SetData(p.name);
+	else
+		plat.name.SetData(IntStr(plat_i));
+	
 	plat.group.SetData(p.group);
 	plat.description.SetData(p.description);
 	
@@ -63,12 +110,31 @@ void PlatformCtrl::DataPlatform() {
 	}
 	plat.attrs.SetCount(row);
 	
+	for(int i = 0; i < SOCIETYROLE_SCORE_COUNT; i++) {
+		plat.scores.Set(i, 0, GetSocietyRoleScoreKey(i));
+		plat.scores.Set(i, 1, pa.GetRoleScoreSum(i));
+	}
+	plat.scores.SetCount(SOCIETYROLE_SCORE_COUNT);
+	plat.scores.SetSortColumn(1, true);
+	
 	for(int i = 0; i < pa.roles.GetCount(); i++) {
 		int role_i = pa.roles[i];
-		plat.roles.Set(i, 0, GetSocietyRoleKey(role_i));
-		plat.roles.Set(i, 1, GetSocietyRoleDescription(role_i));
+		roles.Set(i, 0, GetSocietyRoleKey(role_i));
+		roles.Set(i, 1, GetSocietyRoleDescription(role_i));
 	}
-	plat.roles.SetCount(pa.roles.GetCount());
+	roles.SetCount(pa.roles.GetCount());
+	
+	for(int i = 0; i < pa.epk_text_fields.GetCount(); i++) {
+		epk_text_fields.Set(i, 0, pa.epk_text_fields.GetKey(i));
+		epk_text_fields.Set(i, 1, pa.epk_text_fields[i]);
+	}
+	epk_text_fields.SetCount(pa.epk_text_fields.GetCount());
+	
+	for(int i = 0; i < pa.epk_photos.GetCount(); i++) {
+		epk_photo_types.Set(i, 0, pa.epk_photos.GetKey(i));
+		epk_photo_types.Set(i, 1, pa.epk_photos[i].description);
+	}
+	epk_photo_types.SetCount(pa.epk_photos.GetCount());
 }
 
 void PlatformCtrl::ToolMenu(Bar& bar) {
@@ -89,6 +155,21 @@ void PlatformCtrl::Do(int fn) {
 		ss.Stop();
 	}
 }
+
+void PlatformCtrl::PlatformMenu(Bar& bar) {
+	bar.Add("Sort by: Family Chosen By Me", THISBACK1(SetSorting, 0));
+	bar.Add("Sort by: Rights representatives", THISBACK1(SetSorting, 1));
+	bar.Add("Sort by: Military Rank", THISBACK1(SetSorting, 2));
+	bar.Add("Sort by: Sex", THISBACK1(SetSorting, 3));
+}
+
+void PlatformCtrl::SetSorting(int col) {
+	platforms.SetSortColumn(1+col, true);
+	
+	if (!platforms.IsCursor())
+		platforms.SetCursor(0);
+}
+
 
 
 

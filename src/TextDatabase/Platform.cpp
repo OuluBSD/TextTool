@@ -236,7 +236,7 @@ const Vector<Platform>& GetPlatforms() {
 		p.name = "Soundcloud";
 		p.group = "Music artist site";
 		p.description = "An audio-sharing platform for musicians and creators to share their work.";
-		p.profile_type = PLATFORM_PROFILE_ARTIST;
+		p.profile_type = PLATFORM_PROFILE_MUSIC_ARTIST;
 		ENABLE(has_profile_image);
 		ENABLE(has_description);
 		ENABLE(has_comments);
@@ -545,7 +545,7 @@ const Vector<Platform>& GetPlatforms() {
 		p.name = "MySpace";
 		p.group = "Music artist site";
 		p.description = "A social networking platform that was once popular for music sharing and networking but has now declined in popularity.";
-		p.profile_type = PLATFORM_PROFILE_ARTIST;
+		p.profile_type = PLATFORM_PROFILE_MUSIC_ARTIST;
 		ENABLE(has_profile_image);
 		ENABLE(has_description);
 		ENABLE(has_comments);
@@ -583,7 +583,7 @@ const Vector<Platform>& GetPlatforms() {
 		p.name = "Mikseri.net";
 		p.group = "Music artist site";
 		p.description = "A Finnish social networking platform for musicians and music fans.";
-		p.profile_type = PLATFORM_PROFILE_ARTIST;
+		p.profile_type = PLATFORM_PROFILE_MUSIC_ARTIST;
 		ENABLE(has_profile_image);
 		ENABLE(has_description);
 		ENABLE(has_comments);
@@ -908,7 +908,7 @@ const Vector<Platform>& GetPlatforms() {
 		Platform& p = a[PLATFORM_AUDIUS];
 		p.name = "Audius";
 		p.group = "Professional music site";
-		p.description = "A blockchain-based music streaming platform.";
+		p.description = "A website for music artists where you can share your own music, receive donations and network with other music artists.";
 		ENABLE(has_profile_image);
 		ENABLE(has_description);
 		ENABLE(has_title);
@@ -1048,6 +1048,49 @@ const Vector<Platform>& GetPlatforms() {
 		ENABLE(has_Q_and_A_hack);
 		ENABLE(has_testimonial_hack);
 	}
+	{
+		Platform& p = a[PLATFORM_TINDER];
+		p.name = "Tinder";
+		p.group = "Dating Site";
+		p.description = "A popular dating app that allows users to swipe through potential matches and message each other if they both swipe right on each other's profiles.";
+		ENABLE(has_profile_image);
+		ENABLE(has_description);
+		ENABLE(has_message);
+	}
+	{
+		Platform& p = a[PLATFORM_PATREON];
+		p.name = "Patreon";
+		p.group = "Exclusive social media";
+		p.description = "A membership platform that allows creators to receive financial support from their fans or \"patrons\" in exchange for exclusive content and perks.";
+		ENABLE(has_profile_image);
+		ENABLE(has_description);
+		ENABLE(has_message);
+		ENABLE(has_title);
+		ENABLE(has_audio);
+		ENABLE(has_music);
+		ENABLE(has_video);
+		ENABLE(has_comments);
+		ENABLE(has_image);
+		ENABLE(has_link_promotion);
+		ENABLE(has_Q_and_A_hack);
+	}
+	{
+		Platform& p = a[PLATFORM_LOCALS];
+		p.name = "Locals";
+		p.group = "Exclusive social media";
+		p.description = "A social media platform designed for creators to interact with their audience and monetize their content.";
+		ENABLE(has_profile_image);
+		ENABLE(has_description);
+		ENABLE(has_message);
+		ENABLE(has_title);
+		ENABLE(has_audio);
+		ENABLE(has_music);
+		ENABLE(has_video);
+		ENABLE(has_comments);
+		ENABLE(has_image);
+		ENABLE(has_link_promotion);
+		ENABLE(has_Q_and_A_hack);
+	}
 	
 	
 	
@@ -1107,6 +1150,37 @@ void ProfileData::StoreAll() {
 	for (ProfileData& pd : GetAll())
 		pd.Store();
 }
+
+
+
+
+int PlatformAnalysis::GetRoleScoreSum(int score_i) const {
+	ASSERT(score_i >= 0 && score_i < SOCIETYROLE_SCORE_COUNT);
+	int sum = 0;
+	for(int i = 0; i < roles.GetCount(); i++) {
+		int role_i = roles[i];
+		int weight = 5 + (roles.GetCount() - i);
+		const SocietyRoleAnalysis& sra = MetaDatabase::Single().GetAddRole(role_i);
+		sum += weight * sra.scores[score_i];
+	}
+	return sum;
+}
+
+double PlatformAnalysis::GetRoleScoreSumWeighted(int score_i) const {
+	ASSERT(score_i >= 0 && score_i < SOCIETYROLE_SCORE_COUNT);
+	int sum = 0;
+	int weight_sum = 0;
+	for(int i = 0; i < roles.GetCount(); i++) {
+		int role_i = roles[i];
+		int weight = 5 + (roles.GetCount() - i);
+		const SocietyRoleAnalysis& sra = MetaDatabase::Single().GetAddRole(role_i);
+		sum += weight * sra.scores[score_i];
+		weight_sum += weight;
+	}
+	return (double)sum / (double)weight_sum;
+}
+
+
 
 
 END_TEXTLIB_NAMESPACE

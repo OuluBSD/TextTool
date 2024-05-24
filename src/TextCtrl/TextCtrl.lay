@@ -88,7 +88,7 @@ LAYOUT(SocialPlatform, 864, 236)
 	ITEM(Upp::DocEdit, description, SetEditable(false).LeftPosZ(164, 300).TopPosZ(64, 56))
 	ITEM(Upp::Label, dv___7, SetLabel(t_("Attributes:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(124, 20))
 	ITEM(Upp::ArrayCtrl, attrs, LeftPosZ(164, 300).VSizePosZ(124, 8))
-	ITEM(Upp::ArrayCtrl, roles, HSizePosZ(468, 8).VSizePosZ(16, 8))
+	ITEM(Upp::ArrayCtrl, scores, HSizePosZ(468, 8).VSizePosZ(16, 8))
 END_LAYOUT
 
 LAYOUT(SocialHeader, 864, 344)

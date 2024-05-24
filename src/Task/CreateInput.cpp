@@ -2544,9 +2544,98 @@ void AiTask::CreateInput_Social() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Top 15 societal roles from the List A, which would best match the audience of the web service: " + args.text);
+			results.Title("Top 15 societal roles from the List A, which would best match the audience of the web service: " + args.text + ". " + args.description);
 			results.NumberedLines();
 			results.Add("#");
+		}
+	}
+	else if (args.fn == 12) {
+		{
+			auto& list = input.AddSub();
+			list.Title("List A: roles of the audience of the website " + args.text + " (" + args.description + ")");
+			for(int i = 0; i < args.parts.GetCount(); i++)
+				list.Add(args.parts.GetKey(i));
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("What text fields should a electronic press kit include for " + args.profile + " in " + args.text + ". Give name and description of the text field (with ':' in between)");
+			results.NumberedLines();
+			results.Add("");
+		}
+	}
+	else if (args.fn == 13) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Societal roles in relation to me");
+			list.Add("my dog");
+			list.Add("(my/'for me'/'looking me') " + args.text + ": " + args.description);
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Types of score for a societal role");
+			list.NumberedLines();
+			for(int i = 0; i < SOCIETYROLE_SCORE_COUNT; i++)
+				list.Add(GetSocietyRoleScoreKey(i));
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Give all " + IntStr(SOCIETYROLE_SCORE_COUNT) + " scores for the societal role of my dog in modern western culture and in modern Nordic culture. Score is between 0 and 10:");
+			list.NumberedLines();
+			list.Add("8");
+			list.Add("0");
+			list.Add("7");
+			list.Add("5");
+			list.Add("0");
+			list.Add("0");
+			list.Add("9");
+			list.Add("9");
+			list.Add("2");
+			list.Add("1");
+			list.Add("3");
+			list.Add("0");
+			list.Add("6");
+			list.Add("2");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Give all " + IntStr(SOCIETYROLE_SCORE_COUNT) + " scores for the societal role of (my/'for me'/'looking me') " + args.text + " in modern western culture and in modern Nordic culture. Score is between 0 and 10");
+			results.NumberedLines();
+			results.Add("");
+		}
+		SetHighQuality();
+	}
+	else if (args.fn == 14) {
+		{
+			auto& list = input.AddSub();
+			list.Title("List A: roles of the audience of the website " + args.text + " (" + args.description + ")");
+			for(int i = 0; i < args.parts.GetCount(); i++)
+				list.Add(args.parts.GetKey(i));
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("What photo types should a electronic press kit include for " + args.profile + " in " + args.text + ". Give name and description of the photo type (with ':' in between)");
+			results.NumberedLines();
+			results.Add("");
+		}
+	}
+	else if (args.fn == 15) {
+		{
+			auto& list = input.AddSub();
+			list.Title("List A: roles of the audience of the website " + args.text + " (" + args.description + ")");
+			for(int i = 0; i < args.parts.GetCount(); i++)
+				list.Add(args.parts.GetKey(i));
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("We are seeing photos in a electronic press kit include for " + args.profile + " in " + args.text);
+			list.NoListChar();
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("A list of detailed descriptions of the images for a blind person. All images are following type '" +
+				args.photo_description +
+				"'. The pictures are from Western and Nordic cultures and the people are Caucasian");
+			results.Add("\"");
 		}
 	}
 	else {

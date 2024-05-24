@@ -250,12 +250,14 @@ void MetaDatabase::Jsonize(JsonIO& json) {
 		json
 			("owners", names)
 			("platforms", platforms)
+			("roles", roles)
 			;
 	}
 	else {
 		json
 			("owners", names)
 			("platforms", platforms)
+			("roles", roles)
 			;
 		owners.SetCount(names.GetCount());
 		for(int i = 0; i < owners.GetCount(); i++)
@@ -294,6 +296,11 @@ PlatformAnalysis& MetaDatabase::GetAdd(int plat_i) {
 
 PlatformAnalysis& MetaDatabase::GetAdd(const Platform& plat) {
 	return platforms.GetAdd(plat.name);
+}
+
+SocietyRoleAnalysis& MetaDatabase::GetAddRole(int role_i) {
+	String key = GetSocietyRoleEnum(role_i);
+	return roles.GetAdd(key);
 }
 
 
