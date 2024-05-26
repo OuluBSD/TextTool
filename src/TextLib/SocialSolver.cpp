@@ -609,6 +609,8 @@ void SocialSolver::TraverseProfileEPKTasks() {
 				if (skip_ready && FileExists(path))
 					continue;
 				
+				TODO
+				
 				ProfileEPKTask& t = prof_epk_tasks.Add();
 				t.pa = &pa;
 				t.pap = &pap;
@@ -644,10 +646,11 @@ void SocialSolver::ProcessAnalyzeProfileEpkPhotoDalle2Examples() {
 	
 	SetWaiting(1);
 	TaskMgr& m = TaskMgr::Single();
-	m.CreateImage(t.pp->prompt, 4, THISBACK(OnProcessAnalyzeProfileEpkPhotoDalle2Examples), 0, THISBACK(OnBatchError));
+	m.CreateImage(t.pp->prompt, 4, THISBACK1(OnProcessAnalyzeProfileEpkPhotoDalle2Examples, batch), 0, THISBACK(OnBatchError));
 }
 
-void SocialSolver::OnProcessAnalyzeProfileEpkPhotoDalle2Examples(Array<Image>& images) {
+void SocialSolver::OnProcessAnalyzeProfileEpkPhotoDalle2Examples(Array<Image>& images, int batch) {
+	if (batch >= prof_epk_tasks.GetCount()) return;
 	const ProfileEPKTask& t = prof_epk_tasks[batch];
 	
 	for(int i = 0; i < images.GetCount(); i++) {
@@ -659,12 +662,16 @@ void SocialSolver::OnProcessAnalyzeProfileEpkPhotoDalle2Examples(Array<Image>& i
 		enc.SaveFile(path, img);
 	}
 	
+	// Basic limiting: don't exceed 100 tasks in minute: sleep 1 second
+	Sleep(1000);
+	
 	SetWaiting(0);
 	NextBatch();
 }
 
 void SocialSolver::OnBatchError() {
 	LOG("error: OnBatchError");
+	Sleep(2000);
 	SetWaiting(0);
 	NextBatch();
 }
@@ -684,10 +691,10 @@ void SocialSolver::ProcessAnalyzePlatformEpkPhotoAiPrompts() {
 	}
 	
 	const PlatformAnalysisPhoto& pap = pa.epk_photos[sub_batch];
-	/*if (skip_ready && pap.prompts.GetCount()) {
+		if (skip_ready && pap.prompts.GetCount()) {
 		NextBatch();
 		return;
-	}*/
+	}
 	
 	SocialArgs args;
 	args.fn = 15;

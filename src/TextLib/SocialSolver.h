@@ -134,7 +134,7 @@ class SocialSolver {
 	void OnProcessAnalyzePlatformEpkPhotoTypes(String res);
 	void OnProcessAnalyzePlatformEpkPhotoAiPrompts(String res);
 	void OnProcessAnalyzeProfileEpkPhotoAiPrompts(String res);
-	void OnProcessAnalyzeProfileEpkPhotoDalle2Examples(Array<Image>& images);
+	void OnProcessAnalyzeProfileEpkPhotoDalle2Examples(Array<Image>& images, int batch);
 	void OnProcessAudienceProfileCategories(String res);
 	void OnProcessSummarize(String res);
 	void OnProcessAudienceReactsSummary(String res);
