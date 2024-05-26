@@ -5,12 +5,12 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-class ImageAnalyserCtrl : public Ctrl {
+class ImageViewerCtrl : public Ctrl {
 	Image img;
 	
 public:
-	typedef ImageAnalyserCtrl CLASSNAME;
-	ImageAnalyserCtrl();
+	typedef ImageViewerCtrl CLASSNAME;
+	ImageViewerCtrl();
 	
 	void Paint(Draw& d);
 	void SetImage(const Image& i);
@@ -23,7 +23,7 @@ class ImageBiographyCtrl : public ToolAppCtrl {
 	ArrayCtrl categories, years, entries;
 	WithImageBiography<Ctrl> year;
 	SocialTimelineCtrl timeline;
-	ImageAnalyserCtrl img;
+	ImageViewerCtrl img;
 	
 public:
 	typedef ImageBiographyCtrl CLASSNAME;

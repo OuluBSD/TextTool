@@ -2638,6 +2638,31 @@ void AiTask::CreateInput_Social() {
 			results.Add("\"");
 		}
 	}
+	else if (args.fn == 16) {
+		{
+			auto& list = input.AddSub();
+			list.Title("The web platform in this context: " + args.text);
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Some image descriptions suitable for some profiles in this web platform");
+			for(int i = 0; i < args.parts.GetCount(); i++)
+				list.Add(args.parts.GetKey(i));
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("The profile of the person in this context: " + args.description);
+			list.NoColon();
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Top 3 novel image descriptions for the given profile based on given suitable image descriptions");
+			results.NumberedLines();
+			results.Add("");
+		}
+		SetHighQuality();
+	}
 	else {
 		TODO
 	}

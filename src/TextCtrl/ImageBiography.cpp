@@ -436,11 +436,11 @@ void ImageBiographyCtrl::AnalyseImage() {
 
 
 
-ImageAnalyserCtrl::ImageAnalyserCtrl() {
+ImageViewerCtrl::ImageViewerCtrl() {
 	
 }
 
-void ImageAnalyserCtrl::Paint(Draw& d) {
+void ImageViewerCtrl::Paint(Draw& d) {
 	Size sz = GetSize();
 	
 	d.DrawRect(sz, Black());
@@ -464,12 +464,12 @@ void ImageAnalyserCtrl::Paint(Draw& d) {
 	}
 }
 
-void ImageAnalyserCtrl::SetImage(const Image& i) {
+void ImageViewerCtrl::SetImage(const Image& i) {
 	img = i;
 	PostCallback([this](){Refresh();});
 }
 
-void ImageAnalyserCtrl::Clear() {
+void ImageViewerCtrl::Clear() {
 	img.Clear();
 	PostCallback([this](){Refresh();});
 }

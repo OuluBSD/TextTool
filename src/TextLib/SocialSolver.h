@@ -14,8 +14,9 @@ class SocialSolver {
 		SS_ANALYZE_PLATFORM_EPK_TEXT_FIELDS,
 		SS_ANALYZE_PLATFORM_EPK_PHOTO_TYPES,
 		SS_ANALYZE_PLATFORM_EPK_PHOTO_AI_PROMPTS,
+		SS_ANALYZE_PROFILE_EPK_PHOTO_AI_PROMPTS,
+		SS_ANALYZE_PROFILE_EPK_PHOTO_DALLE2_EXAMPLES,
 		/*
-		SS_ANALYZE_PLATFORM_EPK_PHOTO_DALLE2_EXAMPLES,
 		SS_ANALYZE_PLATFORM_EPK_VIDEO_TYPES,
 		SS_ANALYZE_PLATFORM_EPK_VIDEO_STORYBOARD_AI_PROMPTS,
 		SS_ANALYZE_PLATFORM_EPK_VIDEO_STORYBOARD_DALLE2,
@@ -93,13 +94,28 @@ class SocialSolver {
 	void TraverseImageSummaryTasks();
 	
 	
+	struct ProfileEPKTask : Moveable<ProfileEPKTask> {
+		PlatformBiographyAnalysis* pba = 0;
+		const Platform* plat = 0;
+		const PlatformAnalysis* pa = 0;
+		const PlatformAnalysisPhoto* pap = 0;
+		PlatformAnalysisPhoto* prof_pap = 0;
+		PhotoPrompt* pp = 0;
+	};
+	Vector<ProfileEPKTask> prof_epk_tasks;
+	void TraverseProfileEPKTasks();
+	
+	
 	int CreateRange(int off, int len);
+	void OnBatchError();
 	void Process();
 	void ProcessAnalyzeRoleScores();
 	void ProcessAnalyzePlatformRoles();
 	void ProcessAnalyzePlatformEpkTextFields();
 	void ProcessAnalyzePlatformEpkPhotoTypes();
 	void ProcessAnalyzePlatformEpkPhotoAiPrompts();
+	void ProcessAnalyzeProfileEpkPhotoAiPrompts();
+	void ProcessAnalyzeProfileEpkPhotoDalle2Examples();
 	void ProcessAudienceProfileCategories();
 	void ProcessSummarize();
 	void ProcessAudienceReactsSummary();
@@ -117,6 +133,8 @@ class SocialSolver {
 	void OnProcessAnalyzePlatformEpkTextFields(String res);
 	void OnProcessAnalyzePlatformEpkPhotoTypes(String res);
 	void OnProcessAnalyzePlatformEpkPhotoAiPrompts(String res);
+	void OnProcessAnalyzeProfileEpkPhotoAiPrompts(String res);
+	void OnProcessAnalyzeProfileEpkPhotoDalle2Examples(Array<Image>& images);
 	void OnProcessAudienceProfileCategories(String res);
 	void OnProcessSummarize(String res);
 	void OnProcessAudienceReactsSummary(String res);

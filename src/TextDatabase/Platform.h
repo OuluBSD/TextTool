@@ -188,30 +188,6 @@ struct ProfileData {
 };
 
 
-struct PhotoPrompt : Moveable<PhotoPrompt> {
-	String prompt;
-	Vector<String> instructions;
-	
-	void Jsonize(JsonIO& json) {
-		json
-			("prompt", prompt)
-			("instructions", instructions)
-			;
-	}
-};
-
-struct PlatformAnalysisPhoto : Moveable<PlatformAnalysisPhoto> {
-	String description;
-	Vector<PhotoPrompt> prompts;
-	
-	void Jsonize(JsonIO& json) {
-		json
-			("description", description)
-			("prompts", prompts)
-			;
-	}
-};
-
 struct PlatformAnalysis {
 	Index<int> roles;
 	VectorMap<String,String> epk_text_fields;

@@ -80,6 +80,12 @@ void SocialSolver::Process() {
 		else if (phase == SS_ANALYZE_PLATFORM_EPK_PHOTO_AI_PROMPTS) {
 			ProcessAnalyzePlatformEpkPhotoAiPrompts();
 		}
+		else if (phase == SS_ANALYZE_PROFILE_EPK_PHOTO_AI_PROMPTS) {
+			ProcessAnalyzeProfileEpkPhotoAiPrompts();
+		}
+		else if (phase == SS_ANALYZE_PROFILE_EPK_PHOTO_DALLE2_EXAMPLES) {
+			ProcessAnalyzeProfileEpkPhotoDalle2Examples();
+		}
 		else if (phase == SS_SUMMARIZE) {
 			ProcessSummarize();
 		}
@@ -512,6 +518,153 @@ void SocialSolver::OnProcessAnalyzePlatformEpkPhotoTypes(String res) {
 		pa.epk_photos.Add(key).description = value;
 	}
 	
+	SetWaiting(0);
+	NextBatch();
+}
+
+void SocialSolver::ProcessAnalyzeProfileEpkPhotoAiPrompts() {
+	if (batch == 0) {
+		prof_epk_tasks.Clear();
+		TraverseProfileEPKTasks();
+	}
+	
+	if (batch >= prof_epk_tasks.GetCount()) {
+		NextPhase();
+		return;
+	}
+	const ProfileEPKTask& t = prof_epk_tasks[batch];
+	
+	SocialArgs args;
+	args.fn = 16;
+	args.text = (String)t.plat->name + ": " + t.plat->description;
+	args.description = t.pba->profile_description_from_biography;
+	for(int i = 0; i < t.pap->prompts.GetCount(); i++) {
+		const PhotoPrompt& pp = t.pap->prompts[i];
+		args.parts.Add(pp.prompt);
+	}
+	
+	SetWaiting(1);
+	TaskMgr& m = TaskMgr::Single();
+	m.GetSocial(args, THISBACK(OnProcessAnalyzeProfileEpkPhotoAiPrompts));
+}
+
+void SocialSolver::OnProcessAnalyzeProfileEpkPhotoAiPrompts(String res) {
+	const ProfileEPKTask& t = prof_epk_tasks[batch];
+	
+	if (res.Left(2) != "1.")
+		res = "1. " + res;
+	
+	RemoveEmptyLines2(res);
+	
+	Vector<String> lines = Split(res, "\n");
+	
+	t.prof_pap->prompts.Clear();
+	for(int i = 0; i < lines.GetCount(); i++) {
+		String l = TrimBoth(lines[i]);
+		RemoveQuotes(l);
+		if (l.IsEmpty())
+			continue;
+		PhotoPrompt& pp = t.prof_pap->prompts.Add();
+		pp.prompt = l;
+	}
+	
+	SetWaiting(0);
+	NextBatch();
+}
+
+void SocialSolver::TraverseProfileEPKTasks() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	BiographyAnalysis& analysis = profile->biography_analysis;
+	
+	for(int i = 0; i < analysis.platforms.GetCount(); i++) {
+		PlatformBiographyAnalysis& pba = analysis.platforms[i];
+		if (!pba.platform_enabled)
+			continue;
+		
+		const Platform& plat = GetPlatforms()[i];
+		const PlatformAnalysis& pa = mdb.GetAdd(plat);
+		int c = pa.epk_photos.GetCount();
+		
+		for(int j = 0; j < pa.epk_photos.GetCount(); j++) {
+			String key = pa.epk_photos.GetKey(j);
+			const PlatformAnalysisPhoto& pap = pa.epk_photos[j];
+			PlatformAnalysisPhoto& prof_pap = pba.epk_photos.GetAdd(key);
+			
+			if (phase == SS_ANALYZE_PROFILE_EPK_PHOTO_AI_PROMPTS) {
+				if (skip_ready && prof_pap.prompts.GetCount())
+					continue;
+				
+				ProfileEPKTask& t = prof_epk_tasks.Add();
+				t.pa = &pa;
+				t.pap = &pap;
+				t.prof_pap = &prof_pap;
+				t.pba = &pba;
+				t.plat = &plat;
+			}
+			else if (phase == SS_ANALYZE_PROFILE_EPK_PHOTO_DALLE2_EXAMPLES) {
+				ASSERT(!prof_pap.prompts.IsEmpty());
+				
+				PhotoPrompt& pp = prof_pap.prompts[0];
+				String path = pp.GetFilePath(0);
+				if (skip_ready && FileExists(path))
+					continue;
+				
+				ProfileEPKTask& t = prof_epk_tasks.Add();
+				t.pa = &pa;
+				t.pap = &pap;
+				t.prof_pap = &prof_pap;
+				t.pba = &pba;
+				t.plat = &plat;
+				t.pp = &pp;
+			}
+		}
+	}
+}
+
+void SocialSolver::ProcessAnalyzeProfileEpkPhotoDalle2Examples() {
+	if (batch == 0) {
+		prof_epk_tasks.Clear();
+		TraverseProfileEPKTasks();
+	}
+	
+	if (batch >= prof_epk_tasks.GetCount()) {
+		NextPhase();
+		return;
+	}
+	const ProfileEPKTask& t = prof_epk_tasks[batch];
+	
+	SocialArgs args;
+	args.fn = 17;
+	args.text = (String)t.plat->name + ": " + t.plat->description;
+	args.description = t.pba->profile_description_from_biography;
+	for(int i = 0; i < t.pap->prompts.GetCount(); i++) {
+		const PhotoPrompt& pp = t.pap->prompts[i];
+		args.parts.Add(pp.prompt);
+	}
+	
+	SetWaiting(1);
+	TaskMgr& m = TaskMgr::Single();
+	m.CreateImage(t.pp->prompt, 4, THISBACK(OnProcessAnalyzeProfileEpkPhotoDalle2Examples), 0, THISBACK(OnBatchError));
+}
+
+void SocialSolver::OnProcessAnalyzeProfileEpkPhotoDalle2Examples(Array<Image>& images) {
+	const ProfileEPKTask& t = prof_epk_tasks[batch];
+	
+	for(int i = 0; i < images.GetCount(); i++) {
+		Image& img = images[i];
+		String path = t.pp->GetFilePath(i);
+		String dir = GetFileDirectory(path);
+		if (i == 0) RealizeDirectory(dir);
+		JPGEncoder enc(95);
+		enc.SaveFile(path, img);
+	}
+	
+	SetWaiting(0);
+	NextBatch();
+}
+
+void SocialSolver::OnBatchError() {
+	LOG("error: OnBatchError");
 	SetWaiting(0);
 	NextBatch();
 }

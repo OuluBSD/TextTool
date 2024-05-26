@@ -265,18 +265,47 @@ inline int GetPlatformDescriptionLength(int i) {
 
 
 
+struct PhotoPrompt : Moveable<PhotoPrompt> {
+	String prompt;
+	Vector<String> instructions;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("prompt", prompt)
+			("instructions", instructions)
+			;
+	}
+	
+	String GetFilePath(int i) const;
+	
+};
+
+struct PlatformAnalysisPhoto : Moveable<PlatformAnalysisPhoto> {
+	String description;
+	Vector<PhotoPrompt> prompts;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("description", description)
+			("prompts", prompts)
+			;
+	}
+};
+
 
 struct PlatformBiographyAnalysis {
 	Vector<String> packed_reactions;
 	String profile_description_from_biography;
 	String descriptions[PLATDESC_LEN_COUNT][PLATDESC_MODE_COUNT];
 	bool platform_enabled = false;
+	ArrayMap<String,PlatformAnalysisPhoto> epk_photos;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("packed_reactions", packed_reactions)
 			("profile_description_from_biography", profile_description_from_biography)
 			("platform_enabled", platform_enabled)
+			("epk_photos", epk_photos)
 			;
 		for(int i = 0; i < PLATDESC_LEN_COUNT; i++) {
 			for(int j = 0; j < PLATDESC_MODE_COUNT; j++) {

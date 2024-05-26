@@ -9,7 +9,7 @@ class AudienceCtrl : public ToolAppCtrl {
 	Splitter menusplit, hsplit, vsplit, bsplit;
 	ArrayCtrl roles, profiles, responses, entries;
 	WithAudience<Ctrl> entry;
-	ImageAnalyserCtrl img;
+	ImageViewerCtrl img;
 	
 public:
 	typedef AudienceCtrl CLASSNAME;

@@ -1756,5 +1756,15 @@ int SocietyRoleAnalysis::GetScoreSum() const {
 }
 
 
+
+
+String PhotoPrompt::GetFilePath(int i) const {
+	String dir = MetaDatabase::GetUserDirectory();
+	dir = AppendFileName(dir, "images" DIR_SEPS "prompts");
+	String filename = IntStr64(prompt.GetHashValue()) + "_" + IntStr(i) + ".jpg";
+	String path = AppendFileName(dir, filename);
+	return path;
+}
+
 END_TEXTLIB_NAMESPACE
 

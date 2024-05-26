@@ -11,11 +11,14 @@ PlatformCtrl::PlatformCtrl() {
 	
 	vsplit.Vert() << plat << bottom;
 	bottom.Horz() << plat_tabs << epk_tabs;
+	bottom.SetPos(3333);
+	
 	CtrlLayout(plat);
 	
 	plat_tabs.Add(roles.SizePos(), "Society Roles");
 	epk_tabs.Add(epk_text_fields.SizePos(), "EPK Text Fields");
 	epk_tabs.Add(epk_photo_types.SizePos(), "EPK Photo Types");
+	epk_tabs.Add(epk_photo_prompts.SizePos(), "EPK Photo Prompts");
 	
 	roles.AddColumn(t_("Role"));
 	roles.AddColumn(t_("Description"));
@@ -28,6 +31,15 @@ PlatformCtrl::PlatformCtrl() {
 	epk_photo_types.AddColumn(t_("Key"));
 	epk_photo_types.AddColumn(t_("Description"));
 	epk_photo_types.ColumnWidths("1 4");
+	
+	epk_photo_prompts.AddColumn(t_("Type"));
+	epk_photo_prompts.AddColumn(t_("Text"));
+	epk_photo_prompts.AddIndex("IDX0");
+	epk_photo_prompts.AddIndex("IDX1");
+	epk_photo_prompts.ColumnWidths("1 3");
+	epk_photo_prompts.WhenCursor << THISBACK(OnPhotoPrompt);
+	
+	//epk_photo_prompt_split.Horz() << epk_photo_prompts << epk_photo_prompt_example;
 	
 	platforms.AddColumn(t_("Platform"));
 	//platforms.AddColumn(t_("Type"));
@@ -135,11 +147,30 @@ void PlatformCtrl::DataPlatform() {
 		epk_photo_types.Set(i, 1, pa.epk_photos[i].description);
 	}
 	epk_photo_types.SetCount(pa.epk_photos.GetCount());
+	
+	row = 0;
+	for(int i = 0; i < pa.epk_photos.GetCount(); i++) {
+		const PlatformAnalysisPhoto& pap = pa.epk_photos[i];
+		String group = pa.epk_photos.GetKey(i);
+		for(int j = 0; j < pap.prompts.GetCount(); j++) {
+			const PhotoPrompt& pp = pap.prompts[j];
+			epk_photo_prompts.Set(row, 0, group);
+			epk_photo_prompts.Set(row, 1, pp.prompt);
+			epk_photo_prompts.Set(row, "IDX0", i);
+			epk_photo_prompts.Set(row, "IDX1", j);
+			row++;
+		}
+	}
+	epk_photo_prompts.SetCount(row);
+	if (row && !epk_photo_prompts.IsCursor())
+		epk_photo_prompts.SetCursor(0);
 }
 
 void PlatformCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	bar.Separator();
+	bar.Add(t_("Fetch text prompt image"), AppImg::BlueRing(), THISBACK1(Do, 2)).Key(K_CTRL_Q);
 	
 }
 
@@ -153,6 +184,9 @@ void PlatformCtrl::Do(int fn) {
 	}
 	else if (fn == 1) {
 		ss.Stop();
+	}
+	else if (fn == 2) {
+		
 	}
 }
 
@@ -170,7 +204,9 @@ void PlatformCtrl::SetSorting(int col) {
 		platforms.SetCursor(0);
 }
 
-
+void PlatformCtrl::OnPhotoPrompt() {
+	
+}
 
 
 END_TEXTLIB_NAMESPACE
