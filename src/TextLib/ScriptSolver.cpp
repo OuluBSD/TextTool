@@ -441,6 +441,9 @@ void ScriptSolver::ProcessFillLines() {
 	ScriptSolverArgs args; // 10
 	args.fn = 10;
 	args.lng_i = song.lng_i;
+	args.is_story = song.is_story;
+	args.is_unsafe = song.is_unsafe;
+	args.is_self_centered = song.is_self_centered;
 	
 	// Add existing scripts
 	active_part.Clear();

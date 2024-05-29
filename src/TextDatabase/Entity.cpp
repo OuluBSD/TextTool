@@ -44,18 +44,21 @@ Snapshot& Entity::GetAddSnapshot(String name) {
 }
 
 void Entity::StoreScript() {
-	for (auto& tc : typeclasses) {
+	/*for (auto& tc : typeclasses) {
 		for (auto& at : tc.contents) {
 			for (auto& l : at.scripts) {
 				l.Store(*this);
 			}
 		}
+	}*/
+	for (auto& l : scripts) {
+		l.Store(*this);
 	}
 }
 
 void Entity::LoadScript() {
 	TextDatabase& db = GetAppModeDatabase();
-	RealizeTypeclasses(GetAppModeGlobal());
+	//RealizeTypeclasses(GetAppModeGlobal());
 	FindFile ff(AppendFileName(GetScriptDir(), "*.json"));
 	do {
 		if (!ff.IsFile())
@@ -72,7 +75,8 @@ void Entity::LoadScript() {
 		const auto& contents = GetContents(GetAppModeGlobal());
 		if (lyr.typeclass >= 0 && lyr.typeclass < typeclass.GetCount() &&
 			lyr.content >= 0 && lyr.content < contents.GetCount()) {
-			this->typeclasses[lyr.typeclass].contents[lyr.content].scripts.Add()
+			//this->typeclasses[lyr.typeclass].contents[lyr.content].scripts.Add()
+			scripts.Add()
 				.LoadTitle(*this, title); // TODO avoid duplicate loading
 		}
 	}
@@ -80,7 +84,7 @@ void Entity::LoadScript() {
 	
 }
 
-void Entity::RealizeTypeclasses(int appmode) {
+/*void Entity::RealizeTypeclasses(int appmode) {
 	const auto& tcs = GetTypeclasses(appmode);
 	const auto& cons = GetContents(appmode);
 	if (typeclasses.GetCount() != tcs.GetCount()) {
@@ -90,7 +94,7 @@ void Entity::RealizeTypeclasses(int appmode) {
 			tc.contents.SetCount(cons.GetCount());
 		}
 	}
-}
+}*/
 
 String Entity::GetScriptDir() const {
 	ASSERT(!file_title.IsEmpty());
@@ -100,8 +104,8 @@ String Entity::GetScriptDir() const {
 		GetAppModeDir() + DIR_SEPS + "scripts" + DIR_SEPS + file_title + DIR_SEPS;
 }
 
-bool Entity::FindComponent(int& tc_i, int& arch_i, int& lyr_i, const String& scripts_file_title) const {
-	tc_i = -1;
+int Entity::FindScript(const String& scripts_file_title) const {
+	/*tc_i = -1;
 	arch_i = -1;
 	lyr_i = -1;
 	for(int i = 0; i < typeclasses.GetCount(); i++) {
@@ -119,9 +123,26 @@ bool Entity::FindComponent(int& tc_i, int& arch_i, int& lyr_i, const String& scr
 			}
 		}
 	}
-	return false;
+	return false;*/
+	for(int i = 0; i < scripts.GetCount(); i++) {
+		const Script& lyr = scripts[i];
+		if (lyr.file_title == scripts_file_title) {
+			return i;
+		}
+	}
+	return -1;
 }
 
+Script& Entity::GetAddScript(String name) {
+	String file_title = MakeTitle(name);
+	for(Script& s : scripts) {
+		if (s.file_title == file_title)
+			return s;
+	}
+	Script& s = scripts.Add();
+	s.file_title = file_title;
+	return s;
+}
 
 END_TEXTLIB_NAMESPACE
 

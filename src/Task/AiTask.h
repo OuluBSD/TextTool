@@ -248,6 +248,7 @@ public:
 	void CreateInput_LeadSolver();
 	void CreateInput_Social();
 	void CreateInput_Vision();
+	void CreateInput_Snapshot();
 	
 	void Process_GetSuggestionAttributes();
 	void Process_StoryArc();

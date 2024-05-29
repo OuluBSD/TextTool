@@ -198,8 +198,8 @@ struct EditorPtrs {
 	TextLib::Entity*		entity = 0;
 	TextLib::Snapshot*		release = 0;
 	TextLib::Component*		component = 0;
-	TextLib::Typeclass*		typecast = 0;
-	TextLib::Content*		archetype = 0;
+	//TextLib::Typeclass*		typecast = 0;
+	//TextLib::Content*		archetype = 0;
 	TextLib::Script*		script = 0;
 	TextLib::StaticPart*	part = 0;
 	TextLib::ToolEditor*	editor = 0;
@@ -208,8 +208,8 @@ struct EditorPtrs {
 	
 	bool HasComponent() const {return component;}
 	
-	int GetActiveTypeclassIndex() const;
-	int GetActiveContentIndex() const;
+	//int GetActiveTypeclassIndex() const;
+	//int GetActiveContentIndex() const;
 	int GetActiveScriptIndex() const;
 	
 	int GetActiveEntityIndex() const;
@@ -849,6 +849,7 @@ struct CallbackInhibitor {
 };
 
 #define INHIBIT_CURSOR(x) CallbackInhibitor __(x.WhenCursor)
+#define INHIBIT_CURSOR_(x, id) CallbackInhibitor __##id(x.WhenCursor)
 #define INHIBIT_ACTION(x) CallbackInhibitor __(x.WhenAction)
 #define INHIBIT_ACTION_(x, id) CallbackInhibitor __##id(x.WhenAction)
 

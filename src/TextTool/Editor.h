@@ -68,10 +68,10 @@ protected:
 	friend class ScriptInfoCtrl;
 	friend class TextTool;
 	
-	Splitter			hsplit, menusplit, componentsplit, scriptssplit;
+	Splitter			hsplit, menusplit, componentsplit;
 	ArrayCtrl			appmode_list;
 	ArrayCtrl			snaps, components;
-	ArrayCtrl			typeclasses, contents, scripts;
+	ArrayCtrl			scripts;
 	bool				save_songdata = false;
 	bool				fast_exit = false;
 	
@@ -106,6 +106,7 @@ protected:
 	Attributes						db_attrs;
 	ScriptSolverCtrl				scripts_solver;
 	ScriptPool						script_pool;
+	SnapCoverImage					snap_cover;
 	
 public:
 	typedef ToolEditor CLASSNAME;
@@ -120,8 +121,6 @@ public:
 	void OnDataProfile() override;
 	void DataSnapshot();
 	void DataComponent();
-	void DataTypeclass();
-	void DataContent();
 	void DataScript();
 	//void DataPart();
 	void StoreLast();

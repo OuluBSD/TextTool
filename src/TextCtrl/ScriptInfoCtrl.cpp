@@ -21,10 +21,14 @@ ScriptInfoCtrl::ScriptInfoCtrl() {
 	//content <<= THISBACK(OnValueChange);
 	is_unsafe <<= THISBACK(OnValueChange);
 	is_story <<= THISBACK(OnValueChange);
+	is_self_centered <<= THISBACK(OnValueChange);
 	language <<= THISBACK(OnValueChange);
 	
-	typeclass.Disable();
-	content.Disable();
+	typeclasses.AddColumn(t_("Typeclass"));
+	typeclasses.WhenCursor << THISBACK(OnTypeclass);
+	
+	contents.AddColumn(t_("Content"));
+	contents.WhenCursor << THISBACK(OnContent);
 	
 }
 
@@ -33,10 +37,9 @@ void ScriptInfoCtrl::Clear() {
 	this->native_title		.Clear();
 	this->english_title		.Clear();
 	this->content_vision	.Clear();
-	this->typeclass			.SetIndex(0);
-	this->content			.SetIndex(0);
 	this->is_unsafe			.SetIndex(0);
 	this->is_story			.SetIndex(0);
+	this->is_self_centered	.SetIndex(0);
 	this->language			.SetIndex(0);
 }
 
@@ -45,10 +48,9 @@ void ScriptInfoCtrl::Data() {
 	EditorPtrs& p = GetPointers();
 	
 	lbl_script.SetLabel(GetAppModeKeyCap(AM_SCRIPT));
-	lbl_typeclass.SetLabel(GetAppModeLabel(AM_TYPECLASS) + ":");
-	lbl_content.SetLabel(GetAppModeLabel(AM_CONTENT) + ":");
 	lbl_is_unsafe.SetLabel("Is " + GetAppModeKey(AM_UNSAFE) + ":");
 	lbl_is_story.SetLabel("Is " + GetAppModeKey(AM_STORY) + ":");
+	lbl_is_self_centered.SetLabel("Is " + GetAppModeKey(AM_SELF_CENTERED) + ":");
 	
 	is_unsafe.Clear();
 	is_unsafe.Add(GetAppModeLabel(AML_SAFE_DESC));
@@ -58,22 +60,27 @@ void ScriptInfoCtrl::Data() {
 	is_story.Add(GetAppModeLabel(AML_NONSTORY_DESC));
 	is_story.Add(GetAppModeLabel(AML_STORY_DESC));
 	
-	// Requires ToolEditor ptr (can't move to ctor)
-	if (typeclass.GetCount() == 0) {
-		const auto& tcs = GetTypeclasses();
-		ASSERT(tcs.GetCount());
-		for(int i = 0; i < tcs.GetCount(); i++) {
-			typeclass.Add(tcs[i]);
-		}
-		
-		const auto& archs = GetContents();
-		ASSERT(archs.GetCount());
-		for(int i = 0; i < archs.GetCount(); i++) {
-			content.Add(archs[i].key);
-		}
-	}
+	is_self_centered.Clear();
+	is_self_centered.Add(GetAppModeLabel(AML_NON_SELF_CENTERED));
+	is_self_centered.Add(GetAppModeLabel(AML_SELF_CENTERED));
 	
 	Clear();
+	
+	INHIBIT_CURSOR_(typeclasses, a);
+	INHIBIT_CURSOR_(contents, b);
+	{
+		const auto& tcs = GetTypeclasses();
+		for(int i = 0; i < tcs.GetCount(); i++) {
+			typeclasses.Set(i, 0, tcs[i]);
+		}
+		typeclasses.SetCount(tcs.GetCount());
+	}{
+		const auto& cons = GetContents();
+		for(int i = 0; i < cons.GetCount(); i++) {
+			contents.Set(i, 0, cons[i].key);
+		}
+		contents.SetCount(cons.GetCount());
+	}
 	
 	
 	if (p.script) {
@@ -83,11 +90,34 @@ void ScriptInfoCtrl::Data() {
 		native_title.SetData(l.native_title);
 		english_title.SetData(l.english_title);
 		content_vision.SetData(l.content_vision);
-		typeclass.SetIndex(l.typeclass);
-		content.SetIndex(l.content);
+		if (l.typeclass >= 0 && l.typeclass < typeclasses.GetCount())
+			typeclasses.SetCursor(l.typeclass);
+		if (l.content >= 0 && l.content < contents.GetCount())
+			contents.SetCursor(l.content);
 		is_unsafe.SetIndex(l.is_unsafe);
 		is_story.SetIndex(l.is_story);
+		is_self_centered.SetIndex(l.is_self_centered);
 		language.SetIndex(l.lng_i);
+	}
+}
+
+void ScriptInfoCtrl::OnTypeclass() {
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
+	
+	if (p.script && typeclasses.IsCursor()) {
+		Script& l = *p.script;
+		l.typeclass = typeclasses.GetCursor();
+	}
+}
+
+void ScriptInfoCtrl::OnContent() {
+	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
+	
+	if (p.script && contents.IsCursor()) {
+		Script& l = *p.script;
+		l.content = contents.GetCursor();
 	}
 }
 
@@ -102,10 +132,9 @@ void ScriptInfoCtrl::OnValueChange() {
 		l.native_title = native_title.GetData();
 		l.english_title = english_title.GetData();
 		l.content_vision = content_vision.GetData();
-		l.typeclass = typeclass.GetIndex();
-		l.content = content.GetIndex();
 		l.is_unsafe = is_unsafe.GetIndex();
 		l.is_story = is_story.GetIndex();
+		l.is_self_centered = is_self_centered.GetIndex();
 		l.lng_i = language.GetIndex();
 		
 		int c = editor->scripts.GetCursor();
@@ -147,8 +176,8 @@ void ScriptInfoCtrl::PasteSongHeader() {
 	
 	Snapshot& snap = e.GetAddSnapshot(snap_title);
 	Component& comp = snap.GetAddComponent(script_title);
-	e.RealizeTypeclasses(appmode);
-	Script& script = e.typeclasses[args.tc_i].contents[args.con_i].GetAddScript(script_title);
+	//e.RealizeTypeclasses(appmode);
+	Script& script = e.GetAddScript(script_title);
 	
 	comp.music_style = args.music_style;
 	if (mp.owner)

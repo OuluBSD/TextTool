@@ -50,6 +50,15 @@ void LeadSolver::Process() {
 	// skip after booleans
 	bool reduce_load = owner == &Owner::DatabaseUpdate();
 	
+	if (0) {
+		Vector<int> rm_list;
+		for(int i = 0; i < sd.opportunities.GetCount(); i++) {
+			if (sd.opportunities[i].leadsite == LEADSITE_TAXI)
+				rm_list << i;
+		}
+		sd.opportunities.Remove(rm_list);
+	}
+	
 	while (running && !Thread::IsShutdownThreads()) {
 		if (waiting) {
 			Sleep(10);
@@ -572,7 +581,7 @@ void LeadSolver::ProcessAnalyzeBooleans() {
 		return;
 	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.analyzed_booleans.IsEmpty()) {
+	if ((skip_ready && !opp.analyzed_booleans.IsEmpty()) || opp.leadsite == LEADSITE_MUSICXRAY) {
 		NextBatch();
 		return;
 	}
@@ -652,7 +661,9 @@ void LeadSolver::ProcessAnalyzeStrings() {
 	}
 	
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.analyzed_string.IsEmpty() || SkipLowScoreOpportunity()) {
+	if ((skip_ready && (!opp.analyzed_string.IsEmpty()) ||
+		opp.leadsite == LEADSITE_MUSICXRAY) ||
+		SkipLowScoreOpportunity()) {
 		NextBatch();
 		return;
 	}
@@ -728,7 +739,9 @@ void LeadSolver::ProcessAnalyzeLists() {
 		return;
 	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.analyzed_lists.IsEmpty() || SkipLowScoreOpportunity()) {
+	if ((skip_ready && (!opp.analyzed_lists.IsEmpty())) ||
+		opp.leadsite == LEADSITE_MUSICXRAY ||
+		SkipLowScoreOpportunity()) {
 		NextBatch();
 		return;
 	}
@@ -880,6 +893,12 @@ void LeadSolver::ProcessAveragePayoutEstimation() {
 		return;
 	}
 	
+	if ((skip_ready && opp.chance_list.GetCount()) ||
+		opp.leadsite == LEADSITE_MUSICXRAY) {
+		NextBatch();
+		return;
+	}
+	
 	ProcessAnalyzeFn(3, THISBACK(OnProcessAveragePayoutEstimation));
 }
 
@@ -995,10 +1014,11 @@ void LeadSolver::ProcessAnalyzeSongTypecast() {
 		return;
 	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!(opp.contents.IsEmpty() || opp.typeclasses.IsEmpty()) ||
+	if ((skip_ready && !(opp.contents.IsEmpty() || opp.typeclasses.IsEmpty())) ||
 		SkipLowScoreOpportunity() ||
 		opp.weighted_rank >= (double)max_rank ||
-		opp.average_payout_estimation <= 0.1) {
+		opp.average_payout_estimation <= 0.1 ||
+		opp.leadsite == LEADSITE_MUSICXRAY) {
 		NextBatch();
 		return;
 	}
@@ -1057,10 +1077,11 @@ void LeadSolver::ProcessAnalyzeLyricsIdeas() {
 		return;
 	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.lyrics_ideas.IsEmpty() ||
+	if ((skip_ready && !opp.lyrics_ideas.IsEmpty()) ||
 		SkipLowScoreOpportunity() ||
-		opp.weighted_rank >= (double)max_rank||
-		opp.average_payout_estimation <= 0.1) {
+		opp.weighted_rank >= (double)max_rank ||
+		opp.average_payout_estimation <= 0.1 ||
+		opp.leadsite == LEADSITE_MUSICXRAY) {
 		NextBatch();
 		return;
 	}
@@ -1110,10 +1131,11 @@ void LeadSolver::ProcessAnalyzeMusicStyle() {
 		return;
 	}
 	LeadOpportunity& opp = mdb.lead_data.opportunities[batch];
-	if (!opp.music_styles.IsEmpty() ||
+	if ((skip_ready && !opp.music_styles.IsEmpty()) ||
 		SkipLowScoreOpportunity() ||
 		opp.weighted_rank >= (double)max_rank||
-		opp.average_payout_estimation <= 0.1) {
+		opp.average_payout_estimation <= 0.1 ||
+		opp.leadsite == LEADSITE_MUSICXRAY) {
 		NextBatch();
 		return;
 	}
@@ -1235,7 +1257,7 @@ void LeadSolver::ProcessTemplateAnalyze() {
 		return;
 	}
 	LeadTemplate& lt = ldt.templates[batch];
-	if (!lt.author_classes.IsEmpty() &&
+	if (skip_ready && !lt.author_classes.IsEmpty() &&
 		!lt.author_specialities.IsEmpty() &&
 		!lt.profit_reasons.IsEmpty() &&
 		!lt.organizational_reasons.IsEmpty()) {

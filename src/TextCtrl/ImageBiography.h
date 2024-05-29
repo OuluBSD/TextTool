@@ -5,18 +5,6 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-class ImageViewerCtrl : public Ctrl {
-	Image img;
-	
-public:
-	typedef ImageViewerCtrl CLASSNAME;
-	ImageViewerCtrl();
-	
-	void Paint(Draw& d);
-	void SetImage(const Image& i);
-	void Clear();
-	
-};
 
 class ImageBiographyCtrl : public ToolAppCtrl {
 	Splitter hsplit, vsplit, bsplit;

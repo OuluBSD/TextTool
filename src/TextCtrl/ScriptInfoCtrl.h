@@ -18,6 +18,8 @@ public:
 	void Clear();
 	void OnValueChange();
 	void PasteSongHeader();
+	void OnTypeclass();
+	void OnContent();
 	void ToolMenu(Bar& bar) override;
 	
 	ToolEditor* editor = 0;

@@ -455,6 +455,7 @@ void ScriptGenerator::ProcessPairPhrases() {
 	args.parts <<= entities;
 	args.is_story = song.is_story;
 	args.is_unsafe = song.is_unsafe;
+	args.is_self_centered = song.is_self_centered;
 	
 	SetWaiting(1);
 	
@@ -599,6 +600,7 @@ void ScriptGenerator::ProcessRhymes() {
 	args.parts <<= entities;
 	args.is_story = song.is_story;
 	args.is_unsafe = song.is_unsafe;
+	args.is_self_centered = song.is_self_centered;
 	
 	SetWaiting(1);
 	

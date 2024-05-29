@@ -6,8 +6,6 @@
 
 #include "Common.h"
 #include "Script.h"
-#include "Content.h"
-#include "Typeclass.h"
 #include "Component.h"
 #include "Snapshot.h"
 #include "Entity.h"

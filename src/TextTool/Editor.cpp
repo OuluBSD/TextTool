@@ -54,7 +54,6 @@ ToolEditor::ToolEditor(TextTool* app) : ToolEditorBase("editor", *app) {
 	menusplit.SetPos(top_total * 4 / 5, 3);
 	menusplit.SetPos(top_total, 4);
 	componentsplit.Vert() << snaps << components;
-	scriptssplit.Vert() << typeclasses << contents << scripts;
 	
 	
 	scripts.WhenBar << THISBACK(ScriptMenu);
@@ -71,20 +70,10 @@ ToolEditor::ToolEditor(TextTool* app) : ToolEditorBase("editor", *app) {
 	components.AddColumn(t_("Song"));
 	components <<= THISBACK(DataComponent);
 	
-	typeclasses.AddColumn(t_("Typeclass"));
-	typeclasses.AddColumn(t_("Count"));
-	typeclasses.ColumnWidths("3 1");
-	typeclasses <<= THISBACK(DataTypeclass);
-	typeclasses.AddIndex("IDX");
-	
-	contents.AddColumn(t_("Content"));
-	contents.AddColumn(t_("Count"));
-	contents.ColumnWidths("3 1");
-	contents <<= THISBACK(DataContent);
-	contents.AddIndex("IDX");
-	
+	scripts.AddColumn(t_("Typeclass & Content"));
 	scripts.AddColumn(t_("Script"));
 	scripts.AddIndex("IDX");
+	scripts.ColumnWidths("1 3");
 	scripts <<= THISBACK(DataScript);
 	
 	entity_info.editor = this;
@@ -114,12 +103,12 @@ void ToolEditor::InitAppModes(const Index<int>& appmodes) {
 
 void ToolEditor::SetSubMenu(int i) {
 	subsplit.RemoveChild(&componentsplit);
-	subsplit.RemoveChild(&scriptssplit);
+	subsplit.RemoveChild(&scripts);
 	
 	if (i == 0)
 		subsplit.Add(componentsplit.SizePos());
 	else
-		subsplit.Add(scriptssplit.SizePos());
+		subsplit.Add(scripts.SizePos());
 }
 
 void ToolEditorBase::AddItem(String g, String i, ToolAppCtrl& c) {
@@ -155,6 +144,7 @@ void ToolEditor::InitSimplified() {
 	AddItem("Snapshot", t_("Info"), snap_info);
 	AddItem("Snapshot", t_("Briefing"), snap_briefing);
 	AddItem("Snapshot", t_("Idea notepad"), snap_ideas);
+	AddItem("Snapshot", t_("Cover image"), snap_cover);
 	
 	AddItem("Component", t_("Info"), comp_info);
 	
@@ -267,30 +257,7 @@ void ToolEditor::LoadLast() {
 	EditorPtrs& p = GetPointers();
 	p.Zero();
 	for (Entity& a : db.entities) {
-		for (Typeclass& a : a.typeclasses) {
-			if (a.file_title == app.last_entity) {
-				p.typecast = &a;
-				for (Content& r : a.contents) {
-					if (r.file_title == app.last_snapshot) {
-						p.archetype = &r;
-						for (Script& s : r.scripts) {
-							if (s.file_title == app.last_component) {
-								p.script = &s;
-								for (StaticPart& part : s.parts) {
-									if (part.name == app.last_part) {
-										p.part = &part;
-										break;
-									}
-								}
-								break;
-							}
-						}
-						break;
-					}
-				}
-				break;
-			}
-		}
+		
 		if (a.file_title == app.last_entity) {
 			p.entity = &a;
 			for (Snapshot& r : a.snaps) {
@@ -305,6 +272,18 @@ void ToolEditor::LoadLast() {
 					break;
 				}
 			}
+			for (Script& s : a.scripts) {
+				if (s.file_title == app.last_component) {
+					p.script = &s;
+					for (StaticPart& part : s.parts) {
+						if (part.name == app.last_part) {
+							p.part = &part;
+							break;
+						}
+					}
+					break;
+				}
+			}
 			break;
 		}
 	}
@@ -313,8 +292,6 @@ void ToolEditor::LoadLast() {
 void ToolEditor::StoreLast() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
-	app.last_typeclass = p.typecast ? p.typecast->file_title : String();
-	app.last_content = p.archetype ? p.archetype->file_title : String();
 	app.last_scripts = p.script ? p.script->file_title : String();
 	app.last_part = p.part ? p.part->name : String();
 	app.last_entity = p.entity ? p.entity->file_title : String();
@@ -406,8 +383,8 @@ void ToolEditor::OnDataProfile() {
 	
 	
 	// Script part of the artist
-	a.RealizeTypeclasses(GetAppMode());
-	const auto& tcs = GetTypeclasses(GetAppMode());
+	//a.RealizeTypeclasses(GetAppMode());
+	/*const auto& tcs = GetTypeclasses(GetAppMode());
 	for(int i = 0; i < tcs.GetCount(); i++) {
 		const String& tc = tcs[i];
 		typeclasses.Set(i, "IDX", i);
@@ -420,11 +397,31 @@ void ToolEditor::OnDataProfile() {
 	
 	cursor = max(0, p.GetActiveTypeclassIndex());
 	if (cursor >= 0 && cursor < typeclasses.GetCount())
-		SetIndexCursor(typeclasses, cursor);
-
+		SetIndexCursor(typeclasses, cursor);*/
+	{
+		int focus_lyr = p.GetActiveScriptIndex();
+		int row = 0, focus_row = -1;
+		const auto& tcs = GetTypeclasses(GetAppMode());
+		const auto& cons = GetContents(GetAppMode());
+		for(int k = 0; k < a.scripts.GetCount(); k++) {
+			Script& sc = a.scripts[k];
+			String g = tcs[sc.typeclass] + ": " + cons[sc.content].key;
+			scripts.Set(row, "IDX", k);
+			scripts.Set(row, 0, g);
+			scripts.Set(row, 1, sc.GetAnyTitle());
+			if (k == focus_lyr)
+				focus_row = row;
+			row++;
+		}
+		INHIBIT_CURSOR(scripts);
+		scripts.SetCount(row);
+		int cursor = max(0, focus_row);
+		if (cursor >= 0 && cursor < scripts.GetCount())
+			scripts.SetCursor(cursor);
+	}
 
 	DataSnapshot();
-	DataTypeclass();
+	DataScript();
 }
 
 void ToolEditor::DataSnapshot() {
@@ -496,68 +493,6 @@ void ToolEditor::DataComponent() {
 	DataPage();
 }
 
-void ToolEditor::DataTypeclass() {
-	TextDatabase& db = GetDatabase();
-	EditorPtrs& p = GetPointers();
-	if (!typeclasses.IsCursor()) {
-		p.typecast = 0;
-		p.archetype = 0;
-		p.script = 0;
-		DataPage();
-		return;
-	}
-	
-	Entity& a = *p.entity;
-	a.RealizeTypeclasses(GetAppMode());
-	p.typecast = &a.typeclasses[typeclasses.Get("IDX")];
-	Typeclass& t = *p.typecast;
-	
-	const auto& cons = GetContents(GetAppMode());
-	for(int i = 0; i < cons.GetCount(); i++) {
-		const auto& con = cons[i];
-		contents.Set(i, "IDX", i);
-		contents.Set(i, 0, con.key);
-		contents.Set(i, 1, t.contents[i].scripts.GetCount());
-	}
-	INHIBIT_CURSOR(contents);
-	contents.SetSortColumn(1, true);
-	
-	int cursor = max(0, p.GetActiveContentIndex());
-	if (cursor >= 0 && cursor < contents.GetCount())
-		SetIndexCursor(contents, cursor);
-
-	DataContent();
-}
-
-void ToolEditor::DataContent() {
-	TextDatabase& db = GetDatabase();
-	EditorPtrs& p = GetPointers();
-	if (!contents.IsCursor()) {
-		p.archetype = 0;
-		p.script = 0;
-		DataPage();
-		return;
-	}
-	
-	Typeclass& t = *p.typecast;
-	p.archetype = &t.contents[contents.Get("IDX")];
-	Content& a = *p.archetype;
-	
-	for(int i = 0; i < a.scripts.GetCount(); i++) {
-		const Script& l = a.scripts[i];
-		scripts.Set(i, "IDX", i);
-		scripts.Set(i, 0, l.GetAnyTitle());
-	}
-	INHIBIT_CURSOR(scripts);
-	scripts.SetCount(a.scripts.GetCount());
-	
-	int cursor = max(0, p.GetActiveScriptIndex());
-	if (cursor >= 0 && cursor < scripts.GetCount())
-		SetIndexCursor(scripts, cursor);
-
-	DataScript();
-}
-
 void ToolEditor::DataScript() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
@@ -567,10 +502,8 @@ void ToolEditor::DataScript() {
 		return;
 	}
 	
-	Typeclass& t = *p.typecast;
-	Content& a = *p.archetype;
-	p.script = &a.scripts[scripts.GetCursor()];
-	Script& l = *p.script;
+	Entity& e = *p.entity;
+	p.script = &e.scripts[scripts.Get("IDX")];
 	
 	
 	DataPage();
@@ -867,23 +800,18 @@ void ToolEditor::AddScript() {
 	TextDatabase& db = GetDatabase();
 	MetaPtrs& mp = MetaPtrs::Single();
 	EditorPtrs& p = GetPointers();
-	if (!p.archetype)
+	if (!p.entity)
 		return;
-	Typeclass& t = *p.typecast;
-	Content& a = *p.archetype;
-	
-	int t_i = p.GetActiveTypeclassIndex();
-	int a_i = p.GetActiveContentIndex();
 	
 	String title;
 	for(int i = 0; i < 8; i++) {
 		title.Cat('a' + Random('z' - 'a' + 1));
 	}
 	
-	Script& l = a.scripts.Add();
+	Script& l = p.entity->scripts.Add();
 	l.file_title = MakeTitle(title);
-	l.typeclass = t_i;
-	l.content = a_i;
+	l.typeclass = 0;
+	l.content = 0;
 	p.script = &l;
 	
 	

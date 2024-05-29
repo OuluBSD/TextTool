@@ -25,6 +25,7 @@ typedef enum : int {
 	AITASK_STORY_SOLVER,
 	AITASK_LEAD_SOLVER,
 	AITASK_VISION,
+	AITASK_SNAPSHOT,
 	
 	AITASK_COUNT
 } AiTaskType;
@@ -131,6 +132,7 @@ struct ScriptSolverArgs {
 	String part, vision;
 	bool is_story = false;
 	bool is_unsafe = false;
+	bool is_self_centered = false;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
@@ -147,6 +149,7 @@ struct ScriptSolverArgs {
 				("vision", vision)
 				("is_story", is_story)
 				("is_unsafe", is_unsafe)
+				("is_self_centered", is_self_centered)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}
@@ -236,6 +239,24 @@ struct VisionArgs {
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct SnapshotArgs {
+	int fn = 0;
+	String entity, title, text;
+	VectorMap<String,String> songs;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("entity", entity)
+				("title", title)
+				("text", text)
+				("songs", songs)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

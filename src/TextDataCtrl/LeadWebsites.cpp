@@ -571,8 +571,8 @@ void LeadWebsites::CreateScript() {
 	
 	Snapshot& snap = e.GetAddSnapshot(snap_title);
 	Component& comp = snap.GetAddComponent(script_title);
-	e.RealizeTypeclasses(appmode);
-	Script& script = e.typeclasses[tc_i].contents[con_i].GetAddScript(script_title);
+	//e.RealizeTypeclasses(appmode);
+	Script& script = e.GetAddScript(script_title);
 	
 	comp.music_style = music_style;
 	if (mp.owner)

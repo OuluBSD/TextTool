@@ -107,10 +107,9 @@ void Component::LoadTitle(Snapshot& snap, String title) {
 }
 
 String Component::GetAnyTitle(Entity& a) const {
-	int focus_tc = -1, focus_arch = -1, focus_lyr = -1;
-	a.FindComponent(focus_tc, focus_arch, focus_lyr, scripts_file_title);
-	if (focus_tc >= 0) {
-		const Script& l = a.typeclasses[focus_tc].contents[focus_arch].scripts[focus_lyr];
+	int lyr_i = a.FindScript(scripts_file_title);
+	if (lyr_i >= 0) {
+		const Script& l = a.scripts[lyr_i];
 		if (l.native_title.GetCount())
 			return l.native_title;
 		

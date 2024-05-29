@@ -27,6 +27,7 @@ enum {
 	AM_REPEAT,
 	AM_TWIST,
 	AM_STORY,
+	AM_SELF_CENTERED,
 	
 	AM_COUNT,
 };
@@ -58,6 +59,9 @@ enum {
 	AML_PARTS_OF_SAME_LINES,
 	AML_NONSTORY_DESC,
 	AML_STORY_DESC,
+	
+	AML_NON_SELF_CENTERED,
+	AML_SELF_CENTERED,
 	
 	AML_COUNT,
 };
@@ -119,6 +123,7 @@ String RemUscore(String s);
 #define __db GetAppModeKey(AM_DB)
 #define __unsafe GetAppModeKey(AM_UNSAFE)
 #define __story GetAppModeKey(AM_STORY)
+#define __self_centered GetAppModeKey(AM_SELF_CENTERED)
 #define __client GetAppModeKey(AM_CLIENT)
 #define __Client GetAppModeKeyCap(AM_CLIENT)
 

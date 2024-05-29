@@ -5,84 +5,177 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 SnapCoverImage::SnapCoverImage() {
-	user_natural_english_key = "NATURAL_ENGLISH_OF_AUTHOR";
+	this->Add(vsplit.SizePos());
 	
+	vsplit.Vert();
+	for(int i = 0; i < 3; i++)
+		vsplit << hsplit[i];
+	
+	hsplit[0].Horz() << attr_list << attr_text;
+	hsplit[1].Horz() << sugg_list << sugg_text;
+	hsplit[2].Horz();
+	for(int i = 0; i < 4; i++)
+		hsplit[2] << suggestion[i];
+	hsplit[0].SetPos(2500);
+	hsplit[1].SetPos(2500);
+	
+	attr_list.AddColumn(t_("Attribute"));
+	//attr_list.Set(0, 0, t_("Lyrics combined"));
+	//attr_list.Set(1, 0, t_("Lyric summaries combined"));
+	for(int i = 0; i < SNAPANAL_COUNT; i++) {
+		attr_list.Set(i, 0, GetSnapshotAnalysisKey(i));
+	}
+	attr_list.SetCursor(0);
+	attr_list.WhenCursor << THISBACK(DataAttribute);
+	attr_text.WhenAction << THISBACK(OnAttributeChange);
+	
+	sugg_list.AddColumn(t_("Cover suggestion"));
+	sugg_list.WhenCursor << THISBACK(DataSuggestion);
+	sugg_text.WhenAction << THISBACK(OnSuggestionChange);
+	
+	sugg_list.WhenBar << THISBACK(SuggestionMenu);
 }
 
-void SnapCoverImage::Init() {
-	ImagePlayerBase::Init();
+void SnapCoverImage::Data() {
+	EditorPtrs& p = GetPointers();
+	if (!p.release) return;
 	
+	for(int i = 0; i < p.release->cover_suggestions.GetCount(); i++) {
+		sugg_list.Set(i, 0, p.release->cover_suggestions[i]);
+	}
+	INHIBIT_CURSOR(sugg_list);
+	sugg_list.SetCount(p.release->cover_suggestions.GetCount());
+	if (!sugg_list.IsCursor() && sugg_list.GetCount())
+		sugg_list.SetCursor(0);
+	
+	DataAttribute();
+	DataSuggestion();
+}
+
+void SnapCoverImage::DataAttribute() {
+	EditorPtrs& p = GetPointers();
+	if (!p.release) return;
+	
+	if (!attr_list.IsCursor())
+		return;
+	
+	int attr_i = attr_list.GetCursor();
+	if (attr_i < 0 || attr_i >= p.release->analysis.GetCount())
+		return;
+	
+	attr_text.SetData(p.release->analysis[attr_i]);
+}
+
+void SnapCoverImage::DataSuggestion() {
+	EditorPtrs& p = GetPointers();
+	if (!p.release) return;
+	
+	if (!sugg_list.IsCursor())
+		return;
+	
+	int sugg_i = sugg_list.GetCursor();
+	if (sugg_i < 0 || sugg_i >= p.release->cover_suggestions.GetCount())
+		return;
+	
+	sugg_text.SetData(p.release->cover_suggestions[sugg_i]);
+	
+	DataSuggestionImage();
+}
+
+void SnapCoverImage::DataSuggestionImage() {
+	EditorPtrs& p = GetPointers();
+	if (!p.release) return;
+	
+	if (!sugg_list.IsCursor())
+		return;
+	
+	int sugg_i = sugg_list.GetCursor();
+	if (sugg_i < 0 || sugg_i >= p.release->cover_suggestions.GetCount())
+		return;
+	
+	String title = IntStr64(p.release->cover_suggestions[sugg_i].GetHashValue());
+	
+	//const String& dir = MetaDatabase::Single().dir;
+	//const String& share = MetaDatabase::Single().share;
+	//String img_dir = dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir() + DIR_SEPS + "images" + DIR_SEPS;
+	//String img_dir = ConfigFile("images");
+	String img_dir = AppendFileName(MetaDatabase::GetUserDirectory(), "images" DIR_SEPS "full");
+	RealizeDirectory(img_dir);
+	for(int i = 0; i < 4; i++) {
+		String path = AppendFileName(img_dir, title + "_" + IntStr(i) + ".jpg");
+		if (FileExists(path))
+			suggestion[i].SetImage(StreamRaster::LoadFileAny(path));
+		else
+			suggestion[i].Clear();
+	}
+		
+}
+
+void SnapCoverImage::OnAttributeChange() {
+	EditorPtrs& p = GetPointers();
+	if (!p.release) return;
+	
+	if (!attr_list.IsCursor())
+		return;
+	
+	int attr_i = attr_list.GetCursor();
+	if (attr_i >= p.release->analysis.GetCount())
+		p.release->analysis.SetCount(attr_i);
+	
+	p.release->analysis[attr_i] = attr_text.GetData();
+}
+
+void SnapCoverImage::OnSuggestionChange() {
+	EditorPtrs& p = GetPointers();
+	if (!p.release) return;
+	
+	if (!sugg_list.IsCursor())
+		return;
+	
+	int sugg_i = sugg_list.GetCursor();
+	if (sugg_i >= p.release->cover_suggestions.GetCount())
+		p.release->cover_suggestions.SetCount(sugg_i);
+	
+	p.release->cover_suggestions[sugg_i] = sugg_text.GetData();
 }
 
 void SnapCoverImage::ToolMenu(Bar& bar) {
-	bar.Add(t_("Create suggestions for prompts"), AppImg::Part(), THISBACK(CreateSuggestionsForPrompts)).Key(K_F5);
+	bar.Add(t_("Make all images"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	
+	/*bar.Add(t_("Create suggestions for prompts"), AppImg::Part(), THISBACK(CreateSuggestionsForPrompts)).Key(K_F5);
 	bar.Add(t_("Make single image"), AppImg::Part(), THISBACK(MakeSingleImage)).Key(K_F6);
 	bar.Add(t_("Make all images"), AppImg::Part(), THISBACK(MakeAllImages)).Key(K_F7);
+	*/
+}
+
+void SnapCoverImage::Do(int fn) {
+	EditorPtrs& p = GetPointers();
+	if (!p.release) return;
 	
+	if (fn == 0) {
+		SnapSolver& tm = SnapSolver::Get(*p.release);
+		tm.Start();
+	}
 }
 
 void SnapCoverImage::CreateSuggestionsForPrompts() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
-	if(!p.component || !p.entity ||!p.release)
+	if(!p.component || !p.entity || !p.release)
 		return;
 	
 	Snapshot& rel = *p.release;
 	
 	
+}
+
+void SnapCoverImage::SuggestionMenu(Bar& bar) {
+	bar.Add(t_("Add suggestion"), AppImg::RedRing(), [this]() {
+		EditorPtrs& p = GetPointers();
+		p.release->cover_suggestions.Add();
+		PostCallback(THISBACK(Data));
+	});
 	
-	if (items.GetCount()) {
-		if (!PromptYesNo(DeQtf(t_("Are you sure that you want to replace all in the list?"))))
-			return;
-	}
-	
-	int row = 0;
-	for(int i = 0; i < rel.components.GetCount(); i++) {
-		const Component& song = rel.components[i];
-		PromptOK("TODO");
-		String scripts;
-		/*String scripts = song.data.Get(user_natural_english_key, "");
-		if (scripts.IsEmpty())
-			continue;*/
-		
-		String title;// = !song.english_title.IsEmpty() ? song.english_title : song.native_title;
-		
-		String raw_prompt;
-		raw_prompt << "Entity: " << p.entity->english_name << "\n";
-		raw_prompt << "Album: " << p.release->english_title << "\n";
-		raw_prompt << "Year: " << (int)p.release->date.year << "\n";
-		raw_prompt << "Genre: " << p.entity->text_style << "\n";
-		raw_prompt << "Description of singer: " << p.entity->speaker_visually << "\n";
-		raw_prompt << "Count of components: " << p.release->components.GetCount() << "\n";
-		raw_prompt << "\n\n";
-		
-		raw_prompt << "Song: " << title << "\n\n";
-		raw_prompt << scripts << "\n\n";
-		
-		raw_prompt << "Short description of the album's cover image for the generative image AI:\n";
-		
-		String result_part = title + " based cover";
-		
-		TaskMgr& m = TaskMgr::Single();
-		m.RawCompletion(raw_prompt, THISBACK1(PostOnResult, result_part));
-	}
 }
-
-void SnapCoverImage::OnResult(String res, String part) {
-	Item& item = items.Add();
-	item.part = part;
-	item.prompt = res;
-	
-	DataList();
-}
-
-void SnapCoverImage::MakeSingleImage() {
-	ImagePlayerBase::MakeSingleImage();
-}
-
-void SnapCoverImage::MakeAllImages() {
-	ImagePlayerBase::MakeAllImages();
-}
-
 
 END_TEXTLIB_NAMESPACE

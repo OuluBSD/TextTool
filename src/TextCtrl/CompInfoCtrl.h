@@ -8,7 +8,7 @@ BEGIN_TEXTLIB_NAMESPACE
 class ToolEditor;
 
 class CompInfoCtrl : public WithComponentInfo<ToolAppCtrl> {
-	int focus_tc = -1, focus_arch = -1, focus_lyr = -1;
+	int focus_lyr = -1;
 	
 public:
 	typedef CompInfoCtrl CLASSNAME;
@@ -16,8 +16,6 @@ public:
 	
 	void Data();
 	void Clear();
-	void DataTypeclass();
-	void DataContent();
 	void DataScript();
 	void OnValueChange();
 	void SetScript();

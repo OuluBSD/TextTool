@@ -14,19 +14,11 @@ CompInfoCtrl::CompInfoCtrl() {
 	origins <<= THISBACK(OnValueChange);
 	music_style <<= THISBACK(OnValueChange);
 	
-	typeclasses.AddColumn(t_("Typeclass"));
-	typeclasses.AddColumn(t_("Count"));
-	typeclasses.AddIndex("IDX");
-	typeclasses.ColumnWidths("3 1");
-	contents.AddColumn(t_("Content"));
-	contents.AddColumn(t_("Count"));
-	contents.AddIndex("IDX");
-	contents.ColumnWidths("3 1");
+	scripts.AddColumn(t_("Typeclass & Content"));
 	scripts.AddColumn(t_("Script"));
+	scripts.ColumnWidths("1 5");
 	scripts.AddIndex("IDX");
 	
-	typeclasses.WhenCursor << THISBACK(DataTypeclass);
-	contents.WhenCursor << THISBACK(DataContent);
 	scripts.WhenCursor << THISBACK(DataScript);
 	
 	set.WhenAction << THISBACK(SetScript);
@@ -49,9 +41,8 @@ void CompInfoCtrl::Data() {
 	lbl_ref_comp.SetLabel(GetAppModeLabel(AML_REFERENCE_COMPONENT));
 	lbl_origins.SetLabel(GetAppModeLabel(AML_COMPONENT_ORIGINS));
 	
-	typeclasses	.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_TYPECLASS));
-	contents	.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_CONTENT));
-	scripts		.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_SCRIPT));
+	scripts		.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_TYPECLASS) + " & " + GetAppModeKeyCapN(AM_CONTENT));
+	scripts		.ColumnAt(1).HeaderTab().SetText(GetAppModeKeyCapN(AM_SCRIPT));
 	
 	Clear();
 	
@@ -67,22 +58,18 @@ void CompInfoCtrl::Data() {
 	
 	
 	if (!p.entity) {
-		typeclasses.Clear();
-		contents.Clear();
 		scripts.Clear();
 		return;
 	}
 	
 	Entity& a = *p.entity;
 	if (p.component)
-		a.FindComponent(focus_tc, focus_arch, focus_lyr, p.component->scripts_file_title);
+		focus_lyr = a.FindScript(p.component->scripts_file_title);
 	
-	if (focus_tc < 0) {
-		focus_tc = p.GetActiveTypeclassIndex();
-		focus_arch = p.GetActiveContentIndex();
+	if (focus_lyr < 0) {
 		focus_lyr = p.GetActiveScriptIndex();
 	}
-	
+	/*
 	const auto& tcs = GetTypeclasses();
 	for(int i = 0; i < a.typeclasses.GetCount(); i++) {
 		const auto& t = tcs[i];
@@ -98,10 +85,8 @@ void CompInfoCtrl::Data() {
 	if (cursor >= 0 && cursor < typeclasses.GetCount())
 		SetIndexCursor(typeclasses, cursor);
 
-	DataTypeclass();
-}
-
-void CompInfoCtrl::DataTypeclass() {
+	DataTypeclass();*/
+	/*
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
 	if (!p.entity || !typeclasses.IsCursor()) {
@@ -128,51 +113,48 @@ void CompInfoCtrl::DataTypeclass() {
 		SetIndexCursor(contents, cursor);
 
 	DataContent();
-}
+	
 
-void CompInfoCtrl::DataContent() {
+	
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
 	if (!p.entity || !typeclasses.IsCursor() || !contents.IsCursor()) {
 		scripts.Clear();
 		return;
-	}
+	}*/
 	
-	Entity& a = *p.entity;
-	Typeclass& t = a.typeclasses[typeclasses.Get("IDX")];
-	Content& at = t.contents[contents.Get("IDX")];
+	//Entity& a = *p.entity;
 	
-	for(int i = 0; i < at.scripts.GetCount(); i++) {
-		const Script& lyr = at.scripts[i];
-		scripts.Set(i, "IDX", i);
-		scripts.Set(i, 0, lyr.GetAnyTitle());
+	int row = 0;
+	const auto& tcs = GetTypeclasses();
+	const auto& cons = GetContents();
+	for(int i = 0; i < a.scripts.GetCount(); i++) {
+		Script& sc = a.scripts[i];
+		String g = tcs[sc.typeclass] + ": " + cons[sc.content].key;
+		scripts.Set(row, "IDX", i);
+		scripts.Set(row, 0, g);
+		scripts.Set(row, 1, sc.GetAnyTitle());
+		row++;
 	}
 	INHIBIT_CURSOR(scripts);
-	
+	scripts.SetCount(row);
 	int cursor = max(0, focus_lyr);
 	if (cursor >= 0 && cursor < scripts.GetCount())
-		SetIndexCursor(scripts, cursor);
-
+		scripts.SetCursor(cursor);
+	
 	DataScript();
 }
 
 void CompInfoCtrl::DataScript() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
-	if (!p.entity || !typeclasses.IsCursor() || !contents.IsCursor() || !scripts.IsCursor()) {
+	if (!p.entity || !scripts.IsCursor()) {
 		scripts_text.Clear();
 		return;
 	}
 	
 	Entity& a = *p.entity;
-	Typeclass& t = a.typeclasses[typeclasses.Get("IDX")];
-	Content& at = t.contents[contents.Get("IDX")];
-	int lyr_i = scripts.Get("IDX");
-	if (lyr_i >= at.scripts.GetCount()) {
-		scripts_text.SetData("<invalid IDX>");
-		return;
-	}
-	Script& lyr = at.scripts[lyr_i];
+	Script& lyr = a.scripts[scripts.Get("IDX")];
 	
 	if (lyr.text.GetCount())
 		scripts_text.SetData(lyr.text);
@@ -204,16 +186,12 @@ void CompInfoCtrl::SetScript() {
 	EditorPtrs& p = GetPointers();
 	Component& s = *p.component;
 	
-	if (!p.entity || !p.component || !typeclasses.IsCursor() || !contents.IsCursor() || !scripts.IsCursor()) {
+	if (!p.entity || !p.component || !scripts.IsCursor()) {
 		return;
 	}
 	
-	int tc_i = typeclasses.Get("IDX");
-	int at_i = contents.Get("IDX");
 	int l_i = scripts.Get("IDX");
-	
-	Script& l = p.entity->typeclasses[tc_i].contents[at_i].scripts[l_i];
-	
+	Script& l = p.entity->scripts[l_i];
 	s.scripts_file_title = l.file_title;
 }
 

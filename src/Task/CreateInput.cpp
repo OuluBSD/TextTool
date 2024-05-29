@@ -1695,8 +1695,10 @@ void AiTask::CreateInput_ScriptSolver() {
 		{
 			TaskTitledList& results = input.PreAnswer();
 			String t = "50 good combinations of List A Phrases, which would suit";
-			if (args.is_unsafe && args.is_story)
-				t += " to a modern, funny and sexually explicit and daring folk tale";
+			if (args.is_unsafe && args.is_story && args.is_self_centered)
+				t += " to a narcissistically self-centered, modern, funny, sexually explicit and daring folk tale";
+			else if (args.is_unsafe && args.is_story)
+				t += " to a modern, funny, sexually explicit and daring folk tale";
 			else if (args.is_story)
 				t += " to a humoristic and modern folk tale";
 			t += " for given " + __entities + ", with combination size 2-3";
@@ -1759,8 +1761,10 @@ void AiTask::CreateInput_ScriptSolver() {
 			String t = "Use least amount of new words to combine " + lng + "phrases in their exact form to new sentences, using style of " + __entity + " from the list.";
 			if (appmode == DB_SONG)
 				t += " Make phrases rhyme.";
-			if (args.is_unsafe && args.is_story)
-				t += " These phrases should fit a fun and sexually explicit and daring modern folk tale";
+			if (args.is_unsafe && args.is_story && args.is_self_centered)
+				t += " These phrases should fit a narcissistically self-centered, modern, funny, sexually explicit and daring folk tale";
+			else if (args.is_unsafe && args.is_story)
+				t += " These phrases should fit a fun, sexually explicit, daring and modern folk tale";
 			else if (args.is_story)
 				t += " These phrases should fit a modern folk tale";
 			t += " Write all " + IntStr(ex.GetCount()+args.phrases.GetCount()) + " lines of results";
@@ -1979,7 +1983,38 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			auto& list = input.AddSub().Title(__Comp2 + " \"A\": properties of additional line/phrases for the best " + __comp2);
-			list.Add("high coherency of the story");
+			if (args.is_unsafe && args.is_story && args.is_self_centered) {
+				list.Add("each successive sentence supports the unfolding story by revealing something new in a meaningful and interesting way");
+				list.Add("the story is a narcissistically self-centered, modern, funny, sexually explicit and daring folk tale");
+				list.Add("focus on short moments in time and small detailed events");
+				list.Add("use clever wordplay and storytelling to create an entertaining and humorous song");
+				list.Add("use of slang and colloquial language adds to the comedic tone of the song");
+				list.Add("take inspiration from own experiences and observations, as well as incorporating elements of own culture");
+				list.Add("use playful language and playful references to sex and drugs adds to the overall lighthearted and comedic tone of the song");
+			}
+			else if (args.is_unsafe && args.is_story) {
+				list.Add("each successive sentence supports the unfolding story by revealing something new in a meaningful and interesting way");
+				list.Add("the story is a explicit, daring and invented folk taletale");
+				list.Add("focus on short moments in time and small detailed events");
+				list.Add("use clever wordplay and storytelling to create an entertaining and humorous song");
+				list.Add("use of slang and colloquial language adds to the comedic tone of the song");
+				list.Add("take inspiration from own experiences and observations, as well as incorporating elements of own culture");
+				list.Add("use playful language and playful references to sex and drugs adds to the overall lighthearted and comedic tone of the song");
+			}
+			else if (args.is_story) {
+				list.Add("each successive sentence supports the unfolding story by revealing something new in a meaningful and interesting way");
+				list.Add("focus on short moments in time and small detailed events");
+			}
+			else if (args.is_unsafe) {
+				list.Add("focus on short moments in time and small detailed events");
+				list.Add("use clever wordplay to create an entertaining and humorous song");
+				list.Add("use of slang and colloquial language adds to the comedic tone of the song");
+				list.Add("take inspiration from own experiences and observations, as well as incorporating elements of own culture");
+				list.Add("use playful language and playful references to sex, drugs and dangerous life adds to the overall lighthearted and comedic tone of the song");
+			}
+			else {
+				list.Add("high coherency of the story");
+			}
 			list.Add("high semantic and contextual accuracy");
 			list.Add("idea: high like count");
 			list.Add("emotion: high comment count");
@@ -2237,9 +2272,18 @@ void AiTask::CreateInput_LeadSolver() {
 		
 		
 		if (o.lyrics_ideas.GetCount()) {
-			const auto& co_full = co_list[o.contents[0]];
-			auto& list = input.AddSub().Title("Preferred lyrics idea");
-			list.Add(o.lyrics_ideas[0]);
+			for(int i = 0; i < o.contents.GetCount(); i++) {
+				int co_i = o.contents[i];
+				if (co_i >= 0 && co_i < co_list.GetCount()) {
+					const auto& co_full = co_list[co_i];
+					auto& list = input.AddSub().Title("Preferred lyrics idea");
+					list.Add(o.lyrics_ideas[0]);
+					break;
+				}
+				else {
+					LOG("warning: invalid content id");
+				}
+			}
 		}
 		{
 			auto& list = input.AddSub().Title("Examples of music styles for unrelated songs, which fits under 120 characters");
@@ -2717,6 +2761,126 @@ void AiTask::CreateInput_Vision() {
 	if (args.fn == 0) {
 		{
 			input.AddSub().Title("Task: describe content of the image in a detailed way, which enables the regeneration of the image using generative AI").NoColon();
+		}
+	}
+	else TODO
+}
+
+void AiTask::CreateInput_Snapshot() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadDataAnalysis& lda = mdb.lead_data.a;
+	
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	SnapshotArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Name of the artist: " + args.entity);
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Title of the song: " + args.title);
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Lyrics of the song");
+			list.NoListChar();
+			list.Add(args.text);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Summarize the content of the song, describe it, consider psychoanalysis, social psychology, music consumer value and music marketing aspects in English");
+			results.NoListChar();
+			results.Add("");
+		}
+	}
+	else if (args.fn >= 1 && args.fn <= 5) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Name of the artist: " + args.entity);
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Title of the music album: " + args.title);
+			list.NoColon();
+		}
+		for(int i = 0; i < args.songs.GetCount(); i++) {
+			auto& list = input.AddSub();
+			list.Title("Lyrics of the song #" + IntStr(i+1) + ": " + args.songs.GetKey(i));
+			list.NoListChar();
+			list.Add(args.songs[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			if (args.fn == 1)
+				results.Title("Summarize the lyrical content of the music album (without psychoanalysis or social psychology)");
+			if (args.fn == 2)
+				results.Title("Summarize psychoanalysis aspects of the album");
+			if (args.fn == 3)
+				results.Title("Summarize social psychology aspects of the album");
+			if (args.fn == 4)
+				results.Title("In the music business perspective, summarize the value what this album gives to the paying music consumer");
+			if (args.fn == 5)
+				results.Title("In the music marketing perspective, summarize a marketing article, which would sell this album the most");
+			results.NoListChar();
+			results.Add("");
+		}
+	}
+	else if (args.fn == 6) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Name of the artist: " + args.entity);
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Title of the music album: " + args.title);
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Marketing perspective for the album");
+			list.NoListChar();
+			list.Add(args.text);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Give a list of ideas for the album's visual art");
+			results.Add("");
+		}
+	}
+	else if (args.fn == 7) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Name of the artist: " + args.entity);
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Title of the music album: " + args.title);
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Ideas for the album's visual art");
+			list.NoListChar();
+			list.Add(args.text);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Give top 5 ideas for the album's cover image");
+			results.NumberedLines();
+			results.Add("");
 		}
 	}
 	else TODO

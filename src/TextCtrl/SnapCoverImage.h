@@ -5,21 +5,27 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-class SnapCoverImage : public ImagePlayerBase {
-	Button create_suggestions, make_single_image, make_all_images;
-	String user_natural_english_key;
+class SnapCoverImage : public ToolAppCtrl {
+	Splitter vsplit, hsplit[3];
+	ArrayCtrl attr_list, sugg_list;
+	DocEdit attr_text, sugg_text;
+	ImageViewerCtrl suggestion[4];
+	
 	
 public:
 	typedef SnapCoverImage CLASSNAME;
 	SnapCoverImage();
 	
-	void Init() override;
 	void ToolMenu(Bar& bar) override;
+	void Data() override;
 	void CreateSuggestionsForPrompts();
-	void MakeSingleImage();
-	void MakeAllImages();
-	void PostOnResult(String res, String part) {PostCallback(THISBACK2(OnResult, res, part));}
-	void OnResult(String res, String part);
+	void DataAttribute();
+	void DataSuggestion();
+	void DataSuggestionImage();
+	void OnAttributeChange();
+	void OnSuggestionChange();
+	void Do(int fn);
+	void SuggestionMenu(Bar& bar);
 	
 };
 

@@ -17,7 +17,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"db",			"rapper",		"listener",
 		"music audience",
 		"pop/rock/edm",
-		"verse", "prechorus", "chorus", "bridge","storyteller",
+		"verse", "prechorus", "chorus", "bridge","storyteller","narcissistic",
 		0
 	},
 	
@@ -28,7 +28,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"social_db",	"unsafe",		"reader",
 		"twitter audience",
 		"news/entertainment/sports",
-		"thread", "prehook", "hook", "twist","storyteller",
+		"thread", "prehook", "hook", "twist","storyteller","narcissistic",
 		0
 	},
 	
@@ -39,7 +39,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"blog_db",		"provocative",	"reader",
 		"blog's audience",
 		"fashion/travel/food",
-		"body", "preconclusion", "conclusion", "call to action","storyteller",
+		"body", "preconclusion", "conclusion", "call to action","storyteller","narcissistic",
 		0
 	},
 	
@@ -50,7 +50,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"dialog_db",	"controversial","observer",
 		"conversation's audience",
 		"personal/professional/casual",
-		"main discussion", "opening", "arguments", "conclusion","storyteller",
+		"main discussion", "opening", "arguments", "conclusion","storyteller","narcissistic",
 		0
 	},
 	
@@ -61,7 +61,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"storyboard_db",	"provocative",	"viewer",
 		"story's viewers",
 		"action/adventure/romance",
-		"key frames", "action sequences", "cinematic shots", "dialogue scenes","storyteller",
+		"key frames", "action sequences", "cinematic shots", "dialogue scenes","storyteller","narcissistic",
 		0
 	},
 	
@@ -77,7 +77,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"politics_db",	"heated",		"citizen",
 		"debate's audience",
 		"politics/policy/events",
-		"statements", "rebuttals", "cross-examination", "closing arguments","",
+		"statements", "rebuttals", "cross-examination", "closing arguments","","",
 		0
 	},
 	
@@ -88,7 +88,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"life_db",		"contentious",	"observer",
 		"storytelling audience",
 		"existentialism/morality/metaphysics",
-		"exposition", "conflict", "climax", "resolution","",
+		"exposition", "conflict", "climax", "resolution","","",
 		0
 	},
 	
@@ -99,7 +99,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"business_db",	"contentious",	"reader",
 		"meeting's audience",
 		"negotiation/strategy/planning",
-		"agenda", "new information", "decision-making", "follow-up tasks","",
+		"agenda", "new information", "decision-making", "follow-up tasks","","",
 		0
 	},
 	
@@ -110,7 +110,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"flirt_db",		"risqué",		"partner",
 		"conversation's audience",
 		"romance/flirting/seduction",
-		"playful banter", "compliments", "sexual innuendos", "plans for future dates","",
+		"playful banter", "compliments", "sexual innuendos", "plans for future dates","","",
 		0
 	},
 	#endif
@@ -120,23 +120,23 @@ const char* AppModeKeysN[DB_COUNT][AM_COUNT+1] = {
 	{
 		"artists","releases","songs",
 		"songs","typecasts","archetypes",
-		"lyrics","lyrics",0,0,0,0},
+		"lyrics","lyrics",0,0,0,0,0,0},
 	{
 		"companies","campaigns","programs",
 		"tweet threads","roles","generics",
-		"stories","tweets",0,0,0},
+		"stories","tweets",0,0,0,0,0},
 	{
 		"bloggers","series","posts",
 		"posts","personas","niches",
-		"contents","contents",0,0,0},
+		"contents","contents",0,0,0,0,0},
 	{
 		"presenters","scriptbooks","conversations",
 		"conversations","characters","tropes",
-		"lines","lines",0,0,0},
+		"lines","lines",0,0,0,0,0},
 	{
 		"directors","reels","sequences",
 		"storyboard sketches","styles","approaches",
-		"captions","captions",0,0,0},
+		"captions","captions",0,0,0,0,0},
 };
 
 const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
@@ -168,6 +168,9 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"poetic parts of rhyming text lines",
 		"Not a folktale",
 		"This is a folktale",
+		
+		"Not narcissistic",
+		"This is narcissistic",
 	},
 	
 	// DB_TWITTER
@@ -197,6 +200,9 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"coherent parts of contextually same lines",
 		"Not a anecdote",
 		"This is a anecdote",
+		
+		"Not narcissistic",
+		"This is narcissistic",
 	},
 	
 	// DB_BLOG
@@ -226,6 +232,9 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"coherent parts of contextually same lines",
 		"Not a memory",
 		"This is a memory",
+		
+		"Not narcissistic",
+		"This is narcissistic",
 	},
 	
 	// DB_DIALOG
@@ -255,6 +264,9 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"coherent parts of contextually same dialogue lines",
 		"Not a flashback",
 		"This is a flashback",
+		
+		"Not narcissistic",
+		"This is narcissistic",
 	},
 	
 	// DB_STORYBOARD
@@ -284,6 +296,9 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"coherent parts of contextually same storyboard images",
 		"Not a folktale",
 		"This is a folktale",
+		
+		"Not narcissistic",
+		"This is narcissistic",
 	},
 };
 

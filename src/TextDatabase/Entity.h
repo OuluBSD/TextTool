@@ -28,7 +28,8 @@ struct Entity :
 	int language = 0;
 	
 	// Public (separate files)
-	Array<Typeclass>	typeclasses;
+	Array<Typeclass>	typeclasses_;
+	Array<Script>		scripts;
 	Array<Snapshot>		snaps;
 	
 	void Clear() {
@@ -47,7 +48,7 @@ struct Entity :
 	void Store();
 	void StoreScript();
 	void LoadScript();
-	void RealizeTypeclasses(int appmode);
+	//void RealizeTypeclasses(int appmode);
 	void LoadTitle(String title);
 	String GetScriptDir() const;
 	/*void FixPtrs() {
@@ -120,7 +121,8 @@ struct Entity :
 		return a.native_name < b.native_name;
 	}
 	
-	bool FindComponent(int& tc, int& arch, int& lyr_i, const String& scripts_file_title) const;
+	int FindScript(const String& scripts_file_title) const;
+	Script& GetAddScript(String name);
 	
 	static bool FileExists(const String& title);
 };
