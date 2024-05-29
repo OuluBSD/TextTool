@@ -7,7 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 PlatformCtrl::PlatformCtrl() {
 	Add(hsplit.SizePos());
 	hsplit.Horz() << platforms << vsplit;
-	hsplit.SetPos(1500);
+	hsplit.SetPos(2000);
 	
 	vsplit.Vert() << plat << bottom;
 	bottom.Horz() << plat_tabs << epk_tabs;

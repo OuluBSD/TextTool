@@ -30,6 +30,7 @@ protected:
 	BiographySummaryCtrl		biography_summary;
 	ImageBiographySummaryCtrl	image_biography_summary;
 	PlatformCtrl				platform;
+	PlatformProfileCtrl			platform_profile;
 	
 	
 public:

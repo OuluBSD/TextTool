@@ -2663,6 +2663,26 @@ void AiTask::CreateInput_Social() {
 		}
 		SetHighQuality();
 	}
+	else if (args.fn == 17) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Image type: " + args.text);
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("List A: text prompts");
+			for(int i = 0; i < args.parts.GetCount(); i++)
+				list.Add(args.parts.GetKey(i));
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Top 1 novel text prompt, which merges the List A, and which is less than 400 characters long");
+			results.NumberedLines();
+			results.Add("");
+		}
+		SetHighQuality();
+	}
 	else {
 		TODO
 	}

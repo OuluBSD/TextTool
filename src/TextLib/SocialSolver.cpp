@@ -83,6 +83,9 @@ void SocialSolver::Process() {
 		else if (phase == SS_ANALYZE_PROFILE_EPK_PHOTO_AI_PROMPTS) {
 			ProcessAnalyzeProfileEpkPhotoAiPrompts();
 		}
+		else if (phase == SS_ANALYZE_PROFILE_EPK_SUMMARIZE_PHOTO_AI_PROMPTS) {
+			ProcessAnalyzeProfileEpkSummarizePhotoAiPrompts();
+		}
 		else if (phase == SS_ANALYZE_PROFILE_EPK_PHOTO_DALLE2_EXAMPLES) {
 			ProcessAnalyzeProfileEpkPhotoDalle2Examples();
 		}
@@ -609,8 +612,6 @@ void SocialSolver::TraverseProfileEPKTasks() {
 				if (skip_ready && FileExists(path))
 					continue;
 				
-				TODO
-				
 				ProfileEPKTask& t = prof_epk_tasks.Add();
 				t.pa = &pa;
 				t.pap = &pap;
@@ -621,6 +622,54 @@ void SocialSolver::TraverseProfileEPKTasks() {
 			}
 		}
 	}
+}
+
+void SocialSolver::ProcessAnalyzeProfileEpkSummarizePhotoAiPrompts() {
+	
+	if (batch == 0) {
+		profile->biography_analysis.RealizePromptImageTypes();
+	}
+	
+	if (batch >= profile->biography_analysis.image_types.GetCount()) {
+		NextPhase();
+		return;
+	}
+	PhotoPromptGroupAnalysis& ppga = profile->biography_analysis.image_types[batch];
+	if (skip_ready && ppga.prompt.GetCount()) {NextBatch(); return;}
+	
+	SocialArgs args;
+	args.fn = 17;
+	args.text = profile->biography_analysis.image_types.GetKey(batch);
+	Vector<PhotoPromptLink> links = profile->biography_analysis.GetImageTypePrompts(args.text);
+	
+	if (links.GetCount() <= 1) {
+		ppga.prompt = links[0].pp->prompt;
+		NextBatch();
+		return;
+	}
+	
+	for(int i = 0; i < links.GetCount(); i++) {
+		const PhotoPromptLink& ppl = links[i];
+		args.parts.Add(ppl.pp->prompt);
+	}
+	
+	SetWaiting(1);
+	TaskMgr& m = TaskMgr::Single();
+	m.GetSocial(args, THISBACK(OnProcessAnalyzeProfileEpkSummarizePhotoAiPrompts));
+}
+
+void SocialSolver::OnProcessAnalyzeProfileEpkSummarizePhotoAiPrompts(String res) {
+	PhotoPromptGroupAnalysis& ppga = profile->biography_analysis.image_types[batch];
+	
+	res = TrimBoth(res);
+	if (res.Left(2) == "1.") res = res.Mid(2);
+	
+	String& s = ppga.prompt;
+	s = TrimBoth(res);
+	RemoveQuotes(s);
+	
+	SetWaiting(0);
+	NextBatch();
 }
 
 void SocialSolver::ProcessAnalyzeProfileEpkPhotoDalle2Examples() {
@@ -634,15 +683,6 @@ void SocialSolver::ProcessAnalyzeProfileEpkPhotoDalle2Examples() {
 		return;
 	}
 	const ProfileEPKTask& t = prof_epk_tasks[batch];
-	
-	SocialArgs args;
-	args.fn = 17;
-	args.text = (String)t.plat->name + ": " + t.plat->description;
-	args.description = t.pba->profile_description_from_biography;
-	for(int i = 0; i < t.pap->prompts.GetCount(); i++) {
-		const PhotoPrompt& pp = t.pap->prompts[i];
-		args.parts.Add(pp.prompt);
-	}
 	
 	SetWaiting(1);
 	TaskMgr& m = TaskMgr::Single();

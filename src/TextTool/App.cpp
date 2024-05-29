@@ -98,6 +98,7 @@ void TextTool::SaveDatabase() {
 	db.Store();
 	LeaveAppMode();
 	MetaDatabase::Single().Store();
+	ProfileData::StoreAll();
 }
 
 void TextTool::MainMenu(Bar& bar) {

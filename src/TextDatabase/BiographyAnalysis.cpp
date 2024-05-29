@@ -1673,6 +1673,49 @@ const Array<RoleProfile>& GetRoleProfile(int role_i) {
 }
 
 
+void BiographyAnalysis::RealizePromptImageTypes() {
+	for(int i = 0; i < image_types.GetCount(); i++)
+		image_types[i].image_count = 0;
+	
+	for(int plat_i = 0; plat_i < platforms.GetCount(); plat_i++) {
+		const PlatformBiographyAnalysis& pba = platforms[plat_i];
+		for(int i = 0; i < pba.epk_photos.GetCount(); i++) {
+			const PlatformAnalysisPhoto& pap = pba.epk_photos[i];
+			String group = ToLower(pba.epk_photos.GetKey(i));
+			PhotoPromptGroupAnalysis& ppga = image_types.GetAdd(group);
+			ppga.image_count += 1; //pap.prompts.GetCount();
+		}
+	}
+}
+
+Vector<PhotoPromptLink> BiographyAnalysis::GetImageTypePrompts(String image_type) {
+	Vector<PhotoPromptLink> o;
+	image_type = ToLower(image_type);
+	for(int plat_i = 0; plat_i < platforms.GetCount(); plat_i++) {
+		PlatformBiographyAnalysis& pba = platforms[plat_i];
+		int i = -1;
+		for(int j = 0; j < pba.epk_photos.GetCount(); j++) {
+			if (ToLower(pba.epk_photos.GetKey(j)) == image_type) {
+				i = j;
+				break;
+			}
+		}
+		if (i >= 0) {
+			PlatformAnalysisPhoto& pap = pba.epk_photos[i];
+			//for(int j = 0; j < pap.prompts.GetCount(); j++) {
+			//	PhotoPrompt& pp = pap.prompts[j];
+			if (pap.prompts.GetCount()) {
+				PhotoPrompt& pp = pap.prompts[0];
+				PhotoPromptLink& ppl = o.Add();
+				ppl.pap = &pap;
+				ppl.pba = &pba;
+				ppl.pp = &pp;
+			}
+		}
+	}
+	return o;
+}
+
 void BiographyAnalysis::Realize() {
 	if (profiles.GetCount() < SOCIETYROLE_COUNT)
 		profiles.SetCount(SOCIETYROLE_COUNT);

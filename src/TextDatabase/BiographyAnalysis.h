@@ -282,7 +282,7 @@ struct PhotoPrompt : Moveable<PhotoPrompt> {
 
 struct PlatformAnalysisPhoto : Moveable<PlatformAnalysisPhoto> {
 	String description;
-	Vector<PhotoPrompt> prompts;
+	Array<PhotoPrompt> prompts;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -358,21 +358,46 @@ struct BiographyProfileAnalysis {
 	}
 };
 
+struct PhotoPromptGroupAnalysis {
+	Vector<PlatformAnalysisPhoto> cluster_centers;
+	int image_count = 0;
+	String prompt;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("cluster_centers", cluster_centers)
+			("image_count", image_count)
+			("prompt", prompt)
+			;
+	}
+};
+
+struct PhotoPromptLink : Moveable<PhotoPromptLink> {
+	PlatformBiographyAnalysis* pba;
+	PlatformAnalysisPhoto* pap;
+	PhotoPrompt* pp;
+};
+
 struct BiographyAnalysis {
 	Array<Array<BiographyProfileAnalysis>> profiles;
 	Array<BiographyRoleAnalysis> roles;
 	Array<PlatformBiographyAnalysis> platforms;
+	ArrayMap<String, PhotoPromptGroupAnalysis> image_types;
 	
 	void Realize();
+	void RealizePromptImageTypes();
 	void Jsonize(JsonIO& json) {
 		json
 			("profiles", profiles)
 			("roles", roles)
 			("platforms", platforms)
+			("image_types", image_types)
 			;
 	}
 	Index<int> GetRequiredRoles() const;
 	Index<int> GetRequiredCategories() const;
+	Vector<PhotoPromptLink> GetImageTypePrompts(String image_type);
+	
 	//BiographyCategory& GetAdd(Owner& o, int enum_);
 	
 };

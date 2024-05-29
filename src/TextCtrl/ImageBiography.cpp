@@ -366,8 +366,10 @@ void ImageBiographyCtrl::SetCurrentImage(Image img) {
 	hash_t h = img.GetHashValue();
 	String cache_path = CacheImageFile(h);
 	String thumb_path = ThumbnailImageFile(h);
+	String full_path = FullImageFile(h);
 	RealizeDirectory(GetFileDirectory(cache_path));
 	RealizeDirectory(GetFileDirectory(thumb_path));
+	RealizeDirectory(GetFileDirectory(full_path));
 	
 	if (!FileExists(cache_path)) {
 		Image small_img = RescaleToFit(img, 1024);
@@ -379,6 +381,11 @@ void ImageBiographyCtrl::SetCurrentImage(Image img) {
 		Image thumb_img = RescaleToFit(img, 128);
 		JPGEncoder enc(98);
 		enc.SaveFile(thumb_path, thumb_img);
+	}
+	
+	if (!FileExists(full_path)) {
+		JPGEncoder enc(100);
+		enc.SaveFile(full_path, img);
 	}
 	
 	bimg.image_hash = h;
@@ -447,13 +454,21 @@ void ImageViewerCtrl::Paint(Draw& d) {
 	
 	if (!img.IsEmpty()) {
 		Size orig_sz = img.GetSize();
-		double orig_small = max(orig_sz.cx, orig_sz.cy);
-		double new_small = max(sz.cx, sz.cy);
-		double ratio = new_small / orig_small;
-		Size new_sz = orig_sz * ratio;
+		double orig_ratio = (double)orig_sz.cx / orig_sz.cy;
+		double new_ratio = (double)sz.cx / sz.cy;
+		Size new_sz;
+		if (orig_ratio < new_ratio) {
+			new_sz.cy = sz.cy;
+			new_sz.cx = sz.cy * orig_ratio;
+		}
+		else {
+			new_sz.cx = sz.cx;
+			new_sz.cy = sz.cx / orig_ratio;
+		}
+		
 		Image scaled_img = CachedRescale(img, new_sz, FILTER_BILINEAR);
 		
-		if (new_sz.cx < new_sz.cy) {
+		if (orig_ratio < new_ratio) {
 			int off = (sz.cx - new_sz.cx) / 2;
 			d.DrawImage(off,0,scaled_img);
 		}

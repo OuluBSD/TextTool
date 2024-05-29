@@ -15,6 +15,7 @@ class SocialSolver {
 		SS_ANALYZE_PLATFORM_EPK_PHOTO_TYPES,
 		SS_ANALYZE_PLATFORM_EPK_PHOTO_AI_PROMPTS,
 		SS_ANALYZE_PROFILE_EPK_PHOTO_AI_PROMPTS,
+		SS_ANALYZE_PROFILE_EPK_SUMMARIZE_PHOTO_AI_PROMPTS,
 		SS_ANALYZE_PROFILE_EPK_PHOTO_DALLE2_EXAMPLES,
 		/*
 		SS_ANALYZE_PLATFORM_EPK_VIDEO_TYPES,
@@ -115,6 +116,7 @@ class SocialSolver {
 	void ProcessAnalyzePlatformEpkPhotoTypes();
 	void ProcessAnalyzePlatformEpkPhotoAiPrompts();
 	void ProcessAnalyzeProfileEpkPhotoAiPrompts();
+	void ProcessAnalyzeProfileEpkSummarizePhotoAiPrompts();
 	void ProcessAnalyzeProfileEpkPhotoDalle2Examples();
 	void ProcessAudienceProfileCategories();
 	void ProcessSummarize();
@@ -134,6 +136,7 @@ class SocialSolver {
 	void OnProcessAnalyzePlatformEpkPhotoTypes(String res);
 	void OnProcessAnalyzePlatformEpkPhotoAiPrompts(String res);
 	void OnProcessAnalyzeProfileEpkPhotoAiPrompts(String res);
+	void OnProcessAnalyzeProfileEpkSummarizePhotoAiPrompts(String res);
 	void OnProcessAnalyzeProfileEpkPhotoDalle2Examples(Array<Image>& images, int batch);
 	void OnProcessAudienceProfileCategories(String res);
 	void OnProcessSummarize(String res);

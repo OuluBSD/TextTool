@@ -6,6 +6,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 String CacheImageFile(hash_t h);
 String ThumbnailImageFile(hash_t h);
+String FullImageFile(hash_t h);
 
 Image RescaleToFit(const Image& img, int smaller_side_length);
 

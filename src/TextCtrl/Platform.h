@@ -1,5 +1,5 @@
-#ifndef _TextCtrl_PlatformCtrl_h_
-#define _TextCtrl_PlatformCtrl_h_
+#ifndef _TextCtrl_Platform_h_
+#define _TextCtrl_Platform_h_
 
 
 BEGIN_TEXTLIB_NAMESPACE

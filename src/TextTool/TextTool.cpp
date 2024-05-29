@@ -54,7 +54,8 @@ GUI_APP_MAIN {
 	
 	Thread::ShutdownThreads();
 	
-	MetaShutdown();
+	if (!fast_exit)
+		MetaShutdown();
 	
 	for (int appmode : appmodes.GetKeys()) {
 		AppModeShutdown(appmode, fast_exit, save_songdata);
