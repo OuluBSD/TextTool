@@ -20,6 +20,7 @@ ScriptInfoCtrl::ScriptInfoCtrl() {
 	//typeclass <<= THISBACK(OnValueChange);
 	//content <<= THISBACK(OnValueChange);
 	is_unsafe <<= THISBACK(OnValueChange);
+	is_story <<= THISBACK(OnValueChange);
 	language <<= THISBACK(OnValueChange);
 	
 	typeclass.Disable();
@@ -35,6 +36,7 @@ void ScriptInfoCtrl::Clear() {
 	this->typeclass			.SetIndex(0);
 	this->content			.SetIndex(0);
 	this->is_unsafe			.SetIndex(0);
+	this->is_story			.SetIndex(0);
 	this->language			.SetIndex(0);
 }
 
@@ -46,10 +48,15 @@ void ScriptInfoCtrl::Data() {
 	lbl_typeclass.SetLabel(GetAppModeLabel(AM_TYPECLASS) + ":");
 	lbl_content.SetLabel(GetAppModeLabel(AM_CONTENT) + ":");
 	lbl_is_unsafe.SetLabel("Is " + GetAppModeKey(AM_UNSAFE) + ":");
+	lbl_is_story.SetLabel("Is " + GetAppModeKey(AM_STORY) + ":");
 	
 	is_unsafe.Clear();
 	is_unsafe.Add(GetAppModeLabel(AML_SAFE_DESC));
 	is_unsafe.Add(GetAppModeLabel(AML_UNSAFE_DESC));
+	
+	is_story.Clear();
+	is_story.Add(GetAppModeLabel(AML_NONSTORY_DESC));
+	is_story.Add(GetAppModeLabel(AML_STORY_DESC));
 	
 	// Requires ToolEditor ptr (can't move to ctor)
 	if (typeclass.GetCount() == 0) {
@@ -79,6 +86,7 @@ void ScriptInfoCtrl::Data() {
 		typeclass.SetIndex(l.typeclass);
 		content.SetIndex(l.content);
 		is_unsafe.SetIndex(l.is_unsafe);
+		is_story.SetIndex(l.is_story);
 		language.SetIndex(l.lng_i);
 	}
 }
@@ -97,6 +105,7 @@ void ScriptInfoCtrl::OnValueChange() {
 		l.typeclass = typeclass.GetIndex();
 		l.content = content.GetIndex();
 		l.is_unsafe = is_unsafe.GetIndex();
+		l.is_story = is_story.GetIndex();
 		l.lng_i = language.GetIndex();
 		
 		int c = editor->scripts.GetCursor();

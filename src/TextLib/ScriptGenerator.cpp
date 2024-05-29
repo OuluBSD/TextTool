@@ -453,6 +453,8 @@ void ScriptGenerator::ProcessPairPhrases() {
 	bool is_female = artist->is_female;
 	const Vector<String>& entities = GetTypeclassEntities(appmode, is_unsafe, is_female)[song_tc];
 	args.parts <<= entities;
+	args.is_story = song.is_story;
+	args.is_unsafe = song.is_unsafe;
 	
 	SetWaiting(1);
 	
@@ -595,6 +597,8 @@ void ScriptGenerator::ProcessRhymes() {
 	bool is_female = artist->is_female;
 	const Vector<String>& entities = GetTypeclassEntities(appmode, is_unsafe, is_female)[song_tc];
 	args.parts <<= entities;
+	args.is_story = song.is_story;
+	args.is_unsafe = song.is_unsafe;
 	
 	SetWaiting(1);
 	

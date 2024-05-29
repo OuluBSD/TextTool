@@ -122,6 +122,7 @@ struct Script : DataFile {
 	int							content = 0;
 	int							lng_i = 0;
 	bool						is_unsafe = false;
+	bool						is_story = false;
 	
 	String user_structure;
 	String required_parts;
@@ -168,6 +169,7 @@ struct Script : DataFile {
 			(__typeclass, typeclass)
 			(__content, content)
 			("is_" + __unsafe, is_unsafe)
+			("is_" + __story, is_story)
 			
 			("user_structure", user_structure)
 			("required_parts", required_parts)

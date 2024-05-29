@@ -129,6 +129,8 @@ struct ScriptSolverArgs {
 	Vector<String> parts, attrs, phrases;
 	Vector<int> counts, offsets;
 	String part, vision;
+	bool is_story = false;
+	bool is_unsafe = false;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
@@ -143,6 +145,8 @@ struct ScriptSolverArgs {
 				("offsets", offsets)
 				("part", part)
 				("vision", vision)
+				("is_story", is_story)
+				("is_unsafe", is_unsafe)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

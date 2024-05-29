@@ -26,6 +26,7 @@ enum {
 	AM_PRE_REPEAT,
 	AM_REPEAT,
 	AM_TWIST,
+	AM_STORY,
 	
 	AM_COUNT,
 };
@@ -55,6 +56,8 @@ enum {
 	AML_INTERNAL_REFS,
 	AML_INTERNAL_REF_TYPES,
 	AML_PARTS_OF_SAME_LINES,
+	AML_NONSTORY_DESC,
+	AML_STORY_DESC,
 	
 	AML_COUNT,
 };
@@ -115,6 +118,7 @@ String RemUscore(String s);
 
 #define __db GetAppModeKey(AM_DB)
 #define __unsafe GetAppModeKey(AM_UNSAFE)
+#define __story GetAppModeKey(AM_STORY)
 #define __client GetAppModeKey(AM_CLIENT)
 #define __Client GetAppModeKeyCap(AM_CLIENT)
 

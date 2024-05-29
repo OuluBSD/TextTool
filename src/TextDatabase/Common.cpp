@@ -17,7 +17,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"db",			"rapper",		"listener",
 		"music audience",
 		"pop/rock/edm",
-		"verse", "prechorus", "chorus", "bridge",
+		"verse", "prechorus", "chorus", "bridge","storyteller",
 		0
 	},
 	
@@ -28,7 +28,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"social_db",	"unsafe",		"reader",
 		"twitter audience",
 		"news/entertainment/sports",
-		"thread", "prehook", "hook", "twist",
+		"thread", "prehook", "hook", "twist","storyteller",
 		0
 	},
 	
@@ -39,7 +39,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"blog_db",		"provocative",	"reader",
 		"blog's audience",
 		"fashion/travel/food",
-		"body", "preconclusion", "conclusion", "call to action",
+		"body", "preconclusion", "conclusion", "call to action","storyteller",
 		0
 	},
 	
@@ -50,7 +50,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"dialog_db",	"controversial","observer",
 		"conversation's audience",
 		"personal/professional/casual",
-		"main discussion", "opening", "arguments", "conclusion",
+		"main discussion", "opening", "arguments", "conclusion","storyteller",
 		0
 	},
 	
@@ -61,13 +61,15 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"storyboard_db",	"provocative",	"viewer",
 		"story's viewers",
 		"action/adventure/romance",
-		"key frames", "action sequences", "cinematic shots", "dialogue scenes",
+		"key frames", "action sequences", "cinematic shots", "dialogue scenes","storyteller",
 		0
 	},
 	
 	
 	
 	#if 0
+	TODO // missing values... see ""
+	
 	// DB_POLITICS
 	{
 		"politician",	"discourse",	"debate",		"debate",
@@ -75,7 +77,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"politics_db",	"heated",		"citizen",
 		"debate's audience",
 		"politics/policy/events",
-		"statements", "rebuttals", "cross-examination", "closing arguments",
+		"statements", "rebuttals", "cross-examination", "closing arguments","",
 		0
 	},
 	
@@ -86,7 +88,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"life_db",		"contentious",	"observer",
 		"storytelling audience",
 		"existentialism/morality/metaphysics",
-		"exposition", "conflict", "climax", "resolution",
+		"exposition", "conflict", "climax", "resolution","",
 		0
 	},
 	
@@ -97,7 +99,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"business_db",	"contentious",	"reader",
 		"meeting's audience",
 		"negotiation/strategy/planning",
-		"agenda", "new information", "decision-making", "follow-up tasks",
+		"agenda", "new information", "decision-making", "follow-up tasks","",
 		0
 	},
 	
@@ -108,7 +110,7 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		"flirt_db",		"risqué",		"partner",
 		"conversation's audience",
 		"romance/flirting/seduction",
-		"playful banter", "compliments", "sexual innuendos", "plans for future dates",
+		"playful banter", "compliments", "sexual innuendos", "plans for future dates","",
 		0
 	},
 	#endif
@@ -118,7 +120,7 @@ const char* AppModeKeysN[DB_COUNT][AM_COUNT+1] = {
 	{
 		"artists","releases","songs",
 		"songs","typecasts","archetypes",
-		"lyrics","lyrics",0,0,0},
+		"lyrics","lyrics",0,0,0,0},
 	{
 		"companies","campaigns","programs",
 		"tweet threads","roles","generics",
@@ -164,6 +166,8 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"rhymes with internal rhyme scheme",
 		"rhyme pairs/triplets/quads/etc.",
 		"poetic parts of rhyming text lines",
+		"Not a folktale",
+		"This is a folktale",
 	},
 	
 	// DB_TWITTER
@@ -191,6 +195,8 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"is coherent primarily in internal references",
 		"tweets with same context",
 		"coherent parts of contextually same lines",
+		"Not a anecdote",
+		"This is a anecdote",
 	},
 	
 	// DB_BLOG
@@ -218,6 +224,8 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"is relying on beliefs and own research",
 		"posts with same context",
 		"coherent parts of contextually same lines",
+		"Not a memory",
+		"This is a memory",
 	},
 	
 	// DB_DIALOG
@@ -245,6 +253,8 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"is relying on talking over others",
 		"dialogue lines with same context",
 		"coherent parts of contextually same dialogue lines",
+		"Not a flashback",
+		"This is a flashback",
 	},
 	
 	// DB_STORYBOARD
@@ -272,6 +282,8 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"is relying on strong emotional reactions",
 		"storyboard images with same context",
 		"coherent parts of contextually same storyboard images",
+		"Not a folktale",
+		"This is a folktale",
 	},
 };
 

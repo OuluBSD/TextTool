@@ -219,8 +219,8 @@ LAYOUT(ComponentInfo, 980, 472)
 	ITEM(Upp::Button, set, SetLabel(t_("Set")).LeftPosZ(836, 92).TopPosZ(444, 20))
 END_LAYOUT
 
-LAYOUT(ScriptInfo, 404, 228)
-	ITEM(Upp::LabelBox, lbl_script, SetLabel(t_("Script")).LeftPosZ(4, 396).TopPosZ(4, 212))
+LAYOUT(ScriptInfo, 404, 264)
+	ITEM(Upp::LabelBox, lbl_script, SetLabel(t_("Script")).LeftPosZ(4, 396).TopPosZ(4, 248))
 	ITEM(Upp::Label, dv___1, SetLabel(t_("Copyright:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 120).TopPosZ(20, 20))
 	ITEM(Upp::EditString, copyright, LeftPosZ(136, 256).TopPosZ(20, 20))
 	ITEM(Upp::Label, dv___3, SetLabel(t_("Native Title:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 120).TopPosZ(44, 20))
@@ -235,8 +235,10 @@ LAYOUT(ScriptInfo, 404, 228)
 	ITEM(Upp::DropList, content, LeftPosZ(136, 256).TopPosZ(140, 20))
 	ITEM(Upp::Label, lbl_is_unsafe, SetLabel(t_("Is unsafe:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 120).TopPosZ(164, 20))
 	ITEM(Upp::DropList, is_unsafe, LeftPosZ(136, 256).TopPosZ(164, 20))
-	ITEM(Upp::Label, lbl_language, SetLabel(t_("Language:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 120).TopPosZ(188, 20))
-	ITEM(Upp::DropList, language, LeftPosZ(136, 256).TopPosZ(188, 20))
+	ITEM(Upp::Label, lbl_is_story, SetLabel(t_("Is story:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 120).TopPosZ(188, 20))
+	ITEM(Upp::DropList, is_story, LeftPosZ(136, 256).TopPosZ(188, 20))
+	ITEM(Upp::Label, lbl_language, SetLabel(t_("Language:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 120).TopPosZ(212, 20))
+	ITEM(Upp::DropList, language, LeftPosZ(136, 256).TopPosZ(212, 20))
 END_LAYOUT
 
 LAYOUT(ComponentStructure, 780, 200)

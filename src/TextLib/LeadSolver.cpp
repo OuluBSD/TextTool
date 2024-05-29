@@ -135,6 +135,10 @@ void LeadSolver::ProcessDownloadWebsites(bool parse) {
 		NextBatch();
 	}
 	else if (batch == LEADSITE_MUSICXRAY) {
+		#if 1
+		// MusicXray is dead 29.5.2024 :(
+		NextBatch();
+		#else
 		int page = sub_batch+1;
 		String url = "https://www.musicxray.com/interactions/browse?page=" + IntStr(page) + "&per_page=50";
 		String content = ProcessDownloadWebsiteUrl(url);
@@ -144,6 +148,7 @@ void LeadSolver::ProcessDownloadWebsites(bool parse) {
 			NextSubBatch();
 		else
 			NextBatch();
+		#endif
 	}
 	else if (batch == LEADSITE_SONICBIDS) {
 		int page = sub_batch+1;
@@ -243,6 +248,11 @@ void LeadSolver::ParseWebsite(int batch, String content) {
 				o.request_description = text;
 				o.links <<= links;
 				o.min_compensation = o.max_compensation = payout;
+				
+				// Add very coarse royalty estimates. Without any of these, calculations will
+				// break.
+				o.min_compensation += 500;
+				o.max_compensation += 6000;
 			}
 		}
 	}
@@ -802,12 +812,14 @@ void LeadSolver::ProcessCoarseRanking() {
 		
 		double price = 0.01 * o.min_entry_price_cents;
 		
+		double av_compensation = 0.5 * (o.min_compensation + max(o.min_compensation, o.max_compensation));
+		
 		double money_score = 0;
-		if (price > 0 && o.min_compensation) {
-			money_score = o.min_compensation / price * 1000;
+		if (price > 0 && av_compensation) {
+			money_score = av_compensation / price * 1000;
 		}
-		else if (o.min_compensation > 0) {
-			money_score = o.min_compensation;
+		else if (av_compensation > 0) {
+			money_score = av_compensation;
 		}
 		// Punish expensive listings
 		if (price > 50)
@@ -963,6 +975,10 @@ void LeadSolver::OnProcessAveragePayoutEstimation(String res) {
 		opp.chance_of_acceptance = 0.0001;
 	else
 		opp.chance_of_acceptance = chance;
+	
+	// Hotfix taxi.com: have at least 4% chance. Their average is 6%
+	if (opp.leadsite == LEADSITE_TAXI && opp.chance_of_acceptance <= 0.04)
+		opp.chance_of_acceptance += 0.04;
 	
 	opp.average_payout_estimation =
 		opp.chance_of_acceptance * (opp.min_compensation + opp.max_compensation) * 0.5;

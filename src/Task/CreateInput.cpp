@@ -1694,7 +1694,13 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("50 good combinations of List A Phrases, which would suit for given " + __entities + ", with combination size 2-3");
+			String t = "50 good combinations of List A Phrases, which would suit";
+			if (args.is_unsafe && args.is_story)
+				t += " to a modern, funny and sexually explicit and daring folk tale";
+			else if (args.is_story)
+				t += " to a humoristic and modern folk tale";
+			t += " for given " + __entities + ", with combination size 2-3";
+			results.Title(t);
 			results.NumberedLines();
 			results.Add("1,4");
 			results.Add("7,3,10");
@@ -1753,6 +1759,10 @@ void AiTask::CreateInput_ScriptSolver() {
 			String t = "Use least amount of new words to combine " + lng + "phrases in their exact form to new sentences, using style of " + __entity + " from the list.";
 			if (appmode == DB_SONG)
 				t += " Make phrases rhyme.";
+			if (args.is_unsafe && args.is_story)
+				t += " These phrases should fit a fun and sexually explicit and daring modern folk tale";
+			else if (args.is_story)
+				t += " These phrases should fit a modern folk tale";
 			t += " Write all " + IntStr(ex.GetCount()+args.phrases.GetCount()) + " lines of results";
 			
 			results.Title(t);

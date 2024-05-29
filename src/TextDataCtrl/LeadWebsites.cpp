@@ -315,6 +315,7 @@ void LeadWebsites::DataPrice() {
 	int payout_max = payouts.Get("MAX");
 	int price_min = prices.Get("MIN");
 	int price_max = prices.Get("MAX");
+	bool show_dead = true;
 	
 	Time last_seen_limit = GetSysTime() - 24*60*60;
 	
@@ -323,7 +324,9 @@ void LeadWebsites::DataPrice() {
 	int last_seen_skipped = 0;
 	for (LeadOpportunity& o : ld.opportunities) {
 		i++;
-		if (o.last_seen < last_seen_limit) {
+		if (show_dead && filter_leadsite && o.leadsite == LEADSITE_MUSICXRAY)
+			; // don't skip
+		else if (o.last_seen < last_seen_limit) {
 			last_seen_skipped++;
 			continue;
 		}
@@ -504,7 +507,7 @@ void LeadWebsites::DataAnalyzedList() {
 void LeadWebsites::ToolMenu(Bar& bar) {
 	bar.Add(t_("Refresh"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
-	bar.Add(t_("Update website leads"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	//bar.Add(t_("Update website leads"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Add(t_("Update website leads (with MetaEntity)"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	bar.Separator();
 	bar.Add(t_("Create script"), AppImg::BlueRing(), THISBACK(CreateScript)).Key(K_F7);
