@@ -1,11 +1,13 @@
 {
-	"title": "",
-	"english_title": "Golden Memories: A Summertime Adventure",
+	"title": "Eletään hetkessä",
+	"english_title": "Living in the moment",
 	"copyright": "Seppo Pakonen",
 	"content_vision": "Joyful Anthem: The lyrics center around a vibrant summer get-together where everyone is dancing without a care. The message revolves around seizing the moment, embracing spontaneity, and enjoying the exhilaration of youth. As the night progresses, however, the song subtly transitions into reflections on how these perfect moments are fleeting, and the coming of dawn brings back reality, emphasizing the importance of living in the now.",
 	"typecast": 18,
 	"archetype": 2,
 	"is_rapper": false,
+	"is_storyteller": false,
+	"is_narcissistic": false,
 	"user_structure": "I,V1,PC1,C1,V2,PC2,C1,C2,B1,B2,C1,C2,O",
 	"required_parts": "",
 	"avoid_parts": "",
@@ -17,7 +19,7 @@
 	"chorus_length": 4,
 	"bridge_length": 4,
 	"structure_str": "",
-	"text": "[Intro]\nSä otat mut matkaan, niin kuin kuuma tuultenvire\nTiedän, että tää on meidän hetki, ei kukaan saa sitä meiltä viedä pois.\n\n[Verse 1]\nOlit vain sattumalta paikalla, kaunein kesän kosteus\ntuijotin silmiisi ja muistin, miten seikkailimmekaan\nKäsi kädessä me juoksi läpi pimeän puiston, kaikki\ntuntui mahdolliselta ja rakkaus sydämessä loisti seurassa sun.\nIlmassa tuoksuu vapaus ja kesä, ja sä\noot kaunein osa tätä satumaista seikkailua.\nPukeuduin lempeään valoon, silitä väsyneet juuripäät kainaloon,\nheiluta käsiä yläilmoissa ja huuda oman elämäsi laulu.\n\n[Pre-Chorus 1]\nLaita vaan kätesi mun vyötärölle, sytytä liekki sisälläni,\ntämä hetki on meille ihmeellinen ja unohtumaton tarina.\n\n[Chorus 1]\nKerran taas uskallan elää ja nauttia hetkestä,\nei huomista murehtien vain kuljet koskelle lempeästi.\nSielumme yhdistyy ja tunteemme korkealle lentää, tässä\nhetkessä elämme täysillä ja unohtumattomia muistoja teemme.\n\n[Verse 2]\nSuurella sydämellä suunniteltiin, mut tänään ei tarvitse edes miettiä,\nkaikki on tässä, kaikki on nyt, ja me olemme täydellisesti onnellisia.\nMuistelen, miten vietimme loputtomia kesäöitä, ajan\npysähtyessä ja onnellisuuden täyttäessä sydämemme.\nKun aamun ensimmäinen valo kurkistaa taivaanrannasta,\nmuistot kuljettavat meidät hetkiin, jotka ovat enemmän kuin unta.\nElämä kietoutuu ympärillemme\nkuin - keltainen nauha mielesi muistojen.\n\n[Pre-Chorus 2]\nKaikki tähdet taivaalla hymyilevät meille,\nkun valitsemme nyt seikkailumme polun.\n\n[Chorus 2]\nEi huomista murehtia, vain nautitaan tässä hetkessä,\nunohdetaan murheet ja murehtimiset, ollaan täysillä läsnä nyt.\nTahdon jäädä tähän hetkeen,\nikuisuutta käsissäni syleillä.\n\n[Bridge 1]\nKesäinen unelmasi on syntynyt,\nelä ja hengitä sen kultaisia hetkiä\nTämä kesäinen unelma, rakas, se ei koskaan lopu,\nelämme ja hengitämme sen kultaista hetkeä ylpeinä.\n\n[Bridge 2]\nNyt kun aurinko laskee ja tähdet piirtyvät taivaalle, muistot\nsinusta ja minusta loistavat ikuisena liekkinä sydämessäni.\nKun aurinko laskee ja tähdet piirtyvät taivaalle, nuoruuden muistot\nvalaistuvat kirkkaammin, joka kerta kun niitä muistelen.\n\n[Outro]\nJa viimeisen biisin aikana, kun tähdet haihtuvat hiljalleen taivaalta,\nme pysähdymme ja tiedämme, että tämä hetki oli enemmän kuin unta.\n\n",
+	"text": "\n[Verse 1 (Rapping)]\nOlet vain sattumalta paikalla, kaunein kesän kukka.\nTuijotan silmiisi ja muistan, miten kohtaloa uhmaat.\nKäsi kädessä me juostaan läpi pimeän puiston.\nKaikki tuntuu mahdolliselta kun oon kohde sun innon.\nIlmassa tuoksuu vapaus, kesä ja sä.\nOot kaunein osa tätä seikkailua ihmeellistä.\n\n[Pre-Chorus 1]\nLaita vaan kätesi mun vyötärölle,\nsytytä liekki mun sisällä.\nTaas kerran uskallan elää ja nauttia hetkestä.\n\n[Chorus 1]\nEletään hetkessä\nja tehdään upeita muistoja.\nEn murehdi yötä edessä,\nen huomista.\n\n[Instrumental]\n\n[Verse 2 (Rapping)]\nSuurella sydämellä suunniteltiin, mut ei enää tarvi miettii,\nkaikki on tässä ja nyt, ollaan tyytyväisii täydellisesti.\nLoputon kesäyö, aika pysähtyy,\nsydämen täyttää onnellisuus, pelko perääntyy.\nAamun ensivalo kurkistaa taivaanrannasta,\nillan hetket oli jotain enemmän kuin unta.\n\n[Pre-Chorus 2]\nTähdet taivaalla hymyilevät meille,\nkun päätetään mennä seikkaileville teille.\n\n[Chorus 1]\nEletään hetkessä\nja tehdään upeita muistoja.\nEn murehdi yötä edessä,\nen huomista.\n\n[Bridge 1]\nSun kesäinen unelma syntyi,\nelä ja hengitä sen kultaisia hetkii.\nMeillä on elämä edessä.\nYlpeinä kuljetaan tätä polkuu.\n\n[Chorus 1]\nEletään hetkessä\nja tehdään upeita muistoja.\nEn murehdi yötä edessä,\nen huomista.\n\n[Outro]\nSun kesäinen unelma syntyi,\nelä ja hengitä sen kultaisia hetkii\nmeidän unelma ei koskaan lopu.\n",
 	"active_struct": {
 		"name": "User's structure",
 		"parts": [

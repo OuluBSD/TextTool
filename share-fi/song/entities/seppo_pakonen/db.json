@@ -21,6 +21,7 @@
 	"is_female": false,
 	"language": 0,
 	"releases": [
+		"takaisin_reitilla",
 		"hello_lonely_01-04",
 		"the_wayward_05",
 		"the_vice_06",

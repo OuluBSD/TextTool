@@ -1,11 +1,13 @@
 {
-	"title": "",
-	"english_title": "Galactic Dreams: A Journey Through the Universe",
+	"title": "Kauas öisen taivaan alla",
+	"english_title": "Far away under the starry sky",
 	"copyright": "Seppo Pakonen",
 	"content_vision": "The lyrics could paint a narrative of a young kid who dreams big and refuses to be boxed by traditional roles or expectations. Verses might detail their imaginative adventures and the different roles they play—from astronaut to artist—underscoring the message that you can be anything you want to be. This would not only resonate with the visuals involving a child but also encapsulate the essence of freedom and celebrating one's uniqueness as specified by the client.",
 	"typecast": 33,
 	"archetype": 18,
 	"is_rapper": true,
+	"is_storyteller": false,
+	"is_narcissistic": false,
 	"user_structure": "V1,PC1,C1,V2,PC2,C1,C2,V3,PC3,B1,B2,C1,C2",
 	"required_parts": "",
 	"avoid_parts": "",
@@ -17,7 +19,7 @@
 	"chorus_length": 4,
 	"bridge_length": 4,
 	"structure_str": "",
-	"text": "[Verse 1]\nJokaisen päivänä eskaloituu seikkailu,\nretken äärellä, unelmien suuruus ei petä.\nKun tähtitaivas kutsuu,\nen pelkää lentämästä.\nTähtitorniin nousen,\nja sieltä vielä ylemmäs,\nNauru seurana, mielikuvituksen\nmatkassa.\n\n[Pre-Chorus 1]\nSurffaamme universumin aaltoja pitkin, tavoittaen\ntähtiä ja täyttäen unelmat uudelleen.\n\n[Chorus 1]\nKun unelmat puhalletaan tuleen,\nne vain lentävät korkeammalle.\nUnelmani kantavat minut\nkauas öisen taivaan alla.\n\n[Verse 2]\nMaailmankaikkeuden reunallakin seilaa laivamme,\nkeräten tähtiä purjeisiinsa.\nMultapalloja jäljittäen, seikkailu\njatkuu kaukaisiin galakseihin.\nMaailmojen avaruus, taivaallinen taulu piirtyy silmiini,\nvalloittaen sydämeni, joka huutaa vapauden nälkää.\nAvaruuksien takana siintää loputon mahdollisuuksien meri,\njota valloitan uteliaana.\n\n[Pre-Chorus 2]\nVaikka matka voi olla pelottava,\nen anna sen pelätä\n\n[Chorus 2]\nUnelmat lentävät korkeuksiin,\nikuisesti meidän matkamme jatkuu\nUnelmat kantavat minua kuin siivillä,\nvapauden tuulissa lennän\n\n[Verse 3]\nIhmiskunnan rajapinnoilla tutkimme sanoittamattomia haaveita,\nvaeltaen upeilla taivaiden poluilla.\nTavoittelemme rajojen rajoja,\ntaivaan haaveita etsien,\nTaistelen ylös ja on kuin kaatamaton,\njatkuvasti matkalla kohti tähtiä.\nHaipparin tähtien keskellä kipinöi vanhat ajat,\nmuistot ja unelmat herää eloon.\n\n[Pre-Chorus 3]\nVälillä eksyin elämän kapinoinnissa, mutta jatkoin matkaani kohti horisonttia,\njossa unelmani odotti minua innokkaasti.\n\n[Bridge 1]\nVälillä kaikki voi tuntua kaoottiselta, mutta siitä huolimatta\njatkan itseni löytämistä tässä suuressa maailmankaikkeudessa.\nPuurtaen läpi pimeyden ja sumujen,\nlöydän itseni tähtien ääriltä.\n\n[Bridge 2]\nSilmäni avautuvat uuden todellisuuden vuorilla,\nunelmieni vuodattaminen kohti taivaan kattoa\nSanattomatkin haaveeni kohisevat taivaan tuulissa,\nmuuntaen kaikuiksi ne jotka ovat sisimpääni piilotettuina.\n\n",
+	"text": "[Verse 1 (Rapping)]\nJokaisena päivänä eskaloituu seikkailu,\npienistä asioista unelmiin matkailu.\nKimallus kutsuu tähtitaivaalle,\nenkä pelkää lentämistä, vaan on ylöspäin kiire.\nNousen portaat tähtitorniin,\nja sieltä vielä todellisuudelta kapinointiin.\nMul on nauru seurana, ja tajuun kun oon pöljä,.\nmielikuvituksen matkassa oon paossa töiltä.\n\n[Pre-Chorus 1]\nMe surffataan universumin aalloilla,\ntavoittaen tähtiä ja täyttäen unelmia.\n\n[Chorus 1]\nKun unelmat saa tuulta siipien alle,\nne vain lentää korkeemmalle.\nMun unelmat kantaa mua\nkauas öisen taivaan alla.\n\n[Instrumental]\n\n[Verse 2 (Rapping)]\nMaailmankaikkeuden reunalla seilaa meidän laiva,\nkeräten tähtiä purjeisiinsa lainaan,\njäljittäen eläviä multapalloja,\njatkaen .kaukaisiin galakseihin sieluvanoja.\nMaailmojen avaruus, taivaallinen taulu,\npiirtyy silmiini vapauden kaipuu\ntaakse kolme-deen, mahdollisuuksien mereen.\nUteliaana kierrän sen jos satun sinne meneen.\n\n[Pre-Chorus 2]\nVaikka matka voi joskus pelottaa,\nen anna sen pysäyttää, mä ylöspäin kohoan\n\n[Chorus 1]\nKun unelmat saa tuulta siipien alle,\nne vain lentää korkeemmalle.\nMun unelmat kantaa mua\nkauas öisen taivaan alla.\n\n[Bridge 1]\nVälil kaikki voi tuntuu kaaokselta,\nmut silti löydän itseni maailmankaikkeudesta,\npuurtamas läpi pimeyden ja sumun,\näärellä tuikkivan taivaan kulun.\n\n[Chorus 1]\nKun unelmat saa tuulta siipien alle,\nne vain lentää korkeemmalle.\nMun unelmat kantaa mua\nkauas öisen taivaan alla.",
 	"active_struct": {
 		"name": "User's structure",
 		"parts": [

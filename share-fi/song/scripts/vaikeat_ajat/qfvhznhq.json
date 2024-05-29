@@ -6,6 +6,8 @@
 	"typecast": 4,
 	"archetype": 28,
 	"is_rapper": false,
+	"is_storyteller": false,
+	"is_narcissistic": false,
 	"user_structure": "I,V1,PC1,C1,V2,PC2,C1,C2,B1,B2,C1,C2,O",
 	"required_parts": "",
 	"avoid_parts": "",

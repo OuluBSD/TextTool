@@ -1,11 +1,13 @@
 {
-	"title": "",
-	"english_title": "Summer's Serenity: Our Blissful Memory on the Sandy Shore",
+	"title": "Yksi suudelma",
+	"english_title": "One kiss",
 	"copyright": "Seppo Pakonen",
 	"content_vision": "The lyrics unfold the tale of a vintage summer, where old melodies blend with the sound of waves, creating a nostalgic yet fresh feel. It tells stories of past summer loves, sun-kissed memories, and the timeless charm of seaside adventures with a modern twist, emphasizing the sophisticated yet fun atmosphere the campaign desires.",
 	"typecast": 22,
 	"archetype": 20,
 	"is_rapper": false,
+	"is_storyteller": false,
+	"is_narcissistic": false,
 	"user_structure": "I,V1,PC1,C1,V2,PC2,C1,C2,B1,B2,C1,C2,O",
 	"required_parts": "",
 	"avoid_parts": "",
@@ -17,7 +19,7 @@
 	"chorus_length": 4,
 	"bridge_length": 4,
 	"structure_str": "",
-	"text": "[Intro]\nAuringon kultaamat hiekkarannat, kesäiset tuulet ja makukas meri,\nne kietoutuvat yhteen kuin muistot menneiden kesien jättämät jäljet.\n\n[Verse 1]\nKesän tuoksut sekoittuvat merituulen kanssa,\nmeidän jalanjälkemme hukkuvat aaltojen alle.\nSinisten laineiden keskeltä löysimme toisemme,\nja saimme tuntea rakkauden ihanuuden missä tahansa.\nMeidän kahden maailma sulautuu yhdeksi,\nja kesän aurinko laskee kuin sydän sydämeen.\nKuun valo hehkuu aloilleen, korkean taivaan suojassa,\nmeidän kahden välillä ei tarvita sanoja, vain yhteistä ajatusta.\n\n[Pre-Chorus 1]\nKuuman hiekkarannan syleilyssä,\ntanssimme yön läpi kunnes ei huomenia.\n\n[Chorus 1]\nKesän yksi hetki, yksi suudelma,\nauttamaan unohtamaan kaiken muun.\nKun uni ottaa ohjat ja aamun aurinko nousee, kaipuu katkeransuloinen jää,\nmutta yksi hetki kanssasi, se sydämeni täyttää.\n\n[Verse 2]\nJa meren värjäämiseen hukutimme jokaisen huolen,\nkun auringonlasku hehkui rakkauden liekissä.\nKun aallot vyöryvät rantaan hiekkaa sirotellen,\ntiedämme että kesä on antanut meille kaiken ja vielä enemmän.\nKesän lempeä tuuli vie mennessään,\nja meren syli hellii meitä lämpimänä.\nJa kun palasimme kotiin, meri jätti meille muiston,\nsillä se ei koskaan unohda niitä, jotka sen rantaan astuvat.\n\n[Pre-Chorus 2]\nKun illan viileys peittää rantahietikon, me lämmitämme toisiamme hehkuvassa syleilyssä. Taivaan tähdet kaartuvat ylle,\nja me olemme kuin keskellä unelmaa.\n\n[Chorus 2]\nKesän tuoksut, kesän tuulet, kesän rakkaus ja meren siunaus, yhdessä kohtasimme tämän hetken,\nja se pysyy sydämissämme ikuisuuden.\nKesän lempeät tuulahdukset, rakkaudentäyteiset hetket,\ntämä on se tunne joka ei koskaan haihdu.\n\n[Bridge 1]\nKun kesä päättyy ja rannat hiljenevät,\nminä haluan vielä kerran elää tämän unelman kanssasi.\nHaluaisin vielä kerran rakentaa hiekkalinnoja ja kellua meren aalloissa kanssasi,\nunahtaa kaiken muun ja omistautua tähän kesän hetkeen.\n\n[Bridge 2]\nKesän muistoja ja unelmia,\nunohdetaan huomisen kiireet.\nKun aurinko laskee ja rannat hiljenevät, minun sydämeni huutaa sinun nimeäsi.\nHaluaisin vielä kerran tanssia kanssasi hiekalla, unohtaa kaiken muun ja olla vain meidän kahden välillä.\n\n[Outro]\nTämä on kesän rakkauden laulu, joka\npysyy ikuisesti sydämissä ja muistoissa.\n\n",
+	"text": "[Verse 1 (Rapping)]\nKesän tuoksut sekoittuu merituuleen,\njalanjäljet häviää alla aaltojen,\nLaineiden keskeltä löysimme toisemme,\n\nMeidän maailmat sulautuu yhteen,\naurinko laskee suoraan sydämeen,\nkun säästellään sanoja, silmiin katsoen.\n\n[Pre-Chorus 1]\nSyleilyssä kuuman hiekkarannan,\nollaan niinku ei tulis koskaan aamua\n\n[Chorus 1]\nKesän yksi hetki, yksi suudelma,\nauttaa kaiken muun unohtamaan.\nAurinko jo siintää, kaipuu jää,\nmut muisto sydämeni täyttää.\n\n[Verse 2 (Rapping)]\nKun aallot vyöryy rantaan hämärän\npäälle kahden pitkään kylpevän,\ntiedän että kesä antoi kaiken ja enemmän.\n\nKesän lempeä tuuli vie mennessään,\nmeren syli hellii meitä hetken tän.\nKun me palataan kotiin muisto haihdu ei minnekkään.\n\n[Pre-Chorus 2]\nIlta on viilee mut lämmin oot mun vieres\nKeskellä unelmaa, tähdet kaartuu ylle.\n\n[Chorus 1]\nKesän yksi hetki, yksi suudelma,\nauttaa kaiken muun unohtamaan.\nAurinko jo siintää, kaipuu jää,\nmut muisto sydämeni täyttää.\n\n[Bridge (Rapping)]\nMä haluisin viel kerran rakentaa hiekkalinnan\nsun kaa kellua meres yhden illan,\nunohtaa kaiken muun, omistautuu hetkeen.\nVielä kerran tanssia pois kaiken menneen.\n\n[Chorus 1]\nKesän yksi hetki, yksi suudelma,\nauttaa kaiken muun unohtamaan.\nAurinko jo siintää, kaipuu jää,\nmut muisto sydämeni täyttää.",
 	"active_struct": {
 		"name": "User's structure",
 		"parts": [
