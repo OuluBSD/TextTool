@@ -8,5 +8,17 @@
 	"default_line_syllables": 0,
 	"default_attr_count": 7,
 	"theme_cursor": 0,
-	"part_cursor": 1
+	"part_cursor": 1,
+	"storyboard_parts": [
+
+	],
+	"storyboard_prompts": [
+
+	],
+	"text_storyboard_parts": [
+
+	],
+	"text_storyboard_prompts": [
+
+	]
 }

@@ -8,5 +8,499 @@
 	"default_line_syllables": 0,
 	"default_attr_count": 7,
 	"theme_cursor": -1,
-	"part_cursor": -1
+	"part_cursor": -1,
+	"storyboard_parts": [
+		{
+			"key": "Setting",
+			"value": "A person running on a path towards their dreams"
+		},
+		{
+			"key": "Characters",
+			"value": "Protagonist, \"I\""
+		},
+		{
+			"key": "Conflict/Challenge",
+			"value": "Overcoming physical and mental obstacles in pursuit of their dreams"
+		},
+		{
+			"key": "Climax",
+			"value": "The protagonist reaches their destination and succeeds against all odds"
+		},
+		{
+			"key": "Resolution",
+			"value": "Feeling a sense of accomplishment and motivation for the future"
+		},
+		{
+			"key": "Expression",
+			"value": "Determination, resilience, and courage"
+		},
+		{
+			"key": "Action",
+			"value": "Running, pushing through barriers, not giving up"
+		},
+		{
+			"key": "Dot (beginning/middle/end)",
+			"value": "Beginning"
+		},
+		{
+			"key": "Fole, Inciting Incident",
+			"value": "Feeling pain while running, but not giving up"
+		},
+		{
+			"key": "Darkest Day(s)",
+			"value": "Feeling like everything is against them"
+		},
+		{
+			"key": "Losing/Stakes",
+			"value": "The risk of giving up on their dreams and feeling defeated"
+		},
+		{
+			"key": "Plot Development",
+			"value": "Overcoming challenges and staying motivated"
+		},
+		{
+			"key": "Scene",
+			"value": "Running against the wind, determined and focused on reaching the destination"
+		},
+		{
+			"key": "Sandwich Code",
+			"value": "Verses describing the struggle, choruses with a message of resilience and hope"
+		},
+		{
+			"key": "Serendipity / Reluctant Hero",
+			"value": "Overcoming obstacles and becoming stronger in the process"
+		},
+		{
+			"key": "Bridge",
+			"value": "An instrumental break, representing a moment of reflection and finding strength"
+		},
+		{
+			"key": "Re-Stating; Recap page",
+			"value": "Reiteration of not giving up and staying motivated"
+		},
+		{
+			"key": "Core Theme Sentence",
+			"value": "\"Silti en luovuta koskaan\" - \"I will never give up\""
+		},
+		{
+			"key": "Sub Theme 1",
+			"value": "Pursuing dreams despite challenges"
+		},
+		{
+			"key": "Sub Theme 2",
+			"value": "Overcoming obstacles to achieve success"
+		},
+		{
+			"key": "Sub Theme 3",
+			"value": "Staying motivated and determined in the face of adversity"
+		},
+		{
+			"key": "Lessons",
+			"value": "Importance of perseverance and determination in achieving goals."
+		}
+	],
+	"storyboard_prompts": [
+		{
+			"key": "Setting",
+			"value": [
+				"The sun is setting over a sprawling meadow, casting a soft golden light on the fields and the nearby trees. In the distance, a small village can be seen, with a warm glow coming from the windows of the houses. The air is calm and peaceful, with a light breeze rustling through the tall grasses. A lone figure can be seen walking towards the village, their face determined and their heart full of hope.",
+				"The inside of a city subway system, with fluorescent lights casting an eerie glow on the walls and floor. People hurry past, lost in their own thoughts and concerns. Advertisements cover the walls, trying to catch the attention of the busy commuters. In the midst of it all, a young man stands out, his headphones on and his eyes fixed on the map of the subway routes, ready to embark on a journey towards his dreams.",
+				"The dark, damp alleys of a run-down city, filled with trash and broken neon signs. In the center, a group of determined young women stand, graffiti cans in hand, ready to leave their mark on the world. Their colorful clothes and fierce expressions are a stark contrast to the dreary surroundings, showing that they will not be held back by their circumstances. This is their territory, and they are ready to take on anything to reach their goals."
+			]
+		},
+		{
+			"key": "Characters",
+			"value": [
+				"A determined young woman with a strong, athletic build and a determined look on her face, her ponytail swinging as she runs on the track.",
+				"A group of friends, arms around each other's shoulders, cheering on their teammate as she pushes through the pain and toward her dreams.",
+				"The coach, with a proud smile on her face, watching her student's progress and giving words of encouragement.",
+				"A rival competitor, sneering and trying to throw the main character off her game, but she remains focused and determined.",
+				"The protagonist's young niece, cheering her on with a homemade sign that reads \"Go Auntie Go!\" and wearing a matching outfit.",
+				"The protagonist's parents, teary-eyed and proud, watching their child chase her dreams and conquer her challenges.",
+				"A crowd of supporters, holding signs and banners, all rooting for the protagonist and her success.",
+				"A shadowy figure in the distance, representing doubt and fear, but the protagonist stands tall and continues on her journey despite these obstacles."
+			]
+		},
+		{
+			"key": "Conflict/Challenge",
+			"value": [
+				"The protagonist, a determined young woman, is shown running along a path towards her dreams, despite feeling a pain in her leg. She refuses to give up, pushing through obstacles and persevering towards her goal.",
+				"Success seems just out of reach as the protagonist faces yet another challenge, but she doesn't let it deter her. She confronts it head on, with determination and grit.",
+				"As she runs towards her dream, the protagonist is met with resistance and struggles to keep going. The path is not easy, but she refuses to give up, even when it feels like everything and everyone is against her.",
+				"The protagonist's path is filled with difficult challenges and struggles, but she never wavers in her determination to achieve her dreams. With each obstacle she overcomes, her resolve only grows stronger.",
+				"Despite facing seemingly insurmountable challenges, the protagonist continues on her journey, fueled by her unwavering passion and determination. She is an inspiration to those around her, refusing to let anything stand in the way of her dreams."
+			]
+		},
+		{
+			"key": "Climax",
+			"value": [
+				"With a determined look on her face, our protagonist sprints towards the finish line, pushing past her physical and mental limitations. The audience can feel the tension and anticipation building as she nears her goal, like a tiny spark igniting a roaring fire. The world around her blurs as she focuses on the one thing she's been working towards, her dream. It's a moment of pure adrenaline and passion, as she gives everything she has to reach the climax of her journey. The stakes are high, the competition fierce, but she refuses to give up. This is the moment she's been waiting for, and nothing will stop her from achieving her goal."
+			]
+		},
+		{
+			"key": "Resolution",
+			"value": [
+				"The protagonist stands atop a mountain, looking out at the vast, breathtaking view below. The journey has been long and challenging, but they have finally reached their goal and achieved their dream.",
+				"A group of friends hug and cheer as they stand in front of the finish line of a marathon. They have trained for months and faced many obstacles, but they have crossed the finish line together, stronger than ever before.",
+				"The stage is set for a big performance as the lights come up and the crowd roars with excitement. The main character, who has dreamed of performing on this stage for years, takes a deep breath and confidently steps out onto the stage, ready to showcase their talent to the world.",
+				"A young person sits at their desk, surrounded by books and notes. They have just received their acceptance letter for their dream university and can't help but smile with relief and pride. After years of hard work and dedication, they have finally achieved their goal.",
+				"A family sits around a table, tears in their eyes, as they watch their loved one receive an award or recognition for their outstanding achievements. They have supported and believed in this person's dream and are overjoyed to see them reach it.",
+				"A woman looks out at the ocean, a sense of peace and contentment on her face. She has just retired and can now enjoy the simple pleasures of life, something she has dreamed of for so long while working tirelessly at her job.",
+				"A struggling artist stands in front of their first sell-out gallery show, surrounded by their artwork. This is a moment they have been working towards for years, and now their talent and hard work is finally being recognized and appreciated by others."
+			]
+		},
+		{
+			"key": "Expression",
+			"value": [
+				"The rapper stands tall, determination etched on his face as he spits out the lyrics with fiery passion and conviction. He embodies the expression of never giving up and fighting for his dreams with every fiber of his being.",
+				"A subtle smile graces the face of the main character as she gazes out towards the horizon, her eyes gleaming with determination and hope. It's a small expression, but it speaks volumes about her determination to stay on the path towards her dreams.",
+				"The sweat drips down the singer's face, a mix of exhaustion and determination etched on her features. She belts out the chorus with every ounce of emotion in her body, her expression reflecting the lyrics of never giving up and always pushing forward.",
+				"With a furrowed brow and a determined gaze, the protagonist makes a triumphant fist pump in the air. Her expression exudes confidence and perseverance, showing that she's ready to take on any challenges that come her way.",
+				"As the beat drops, the rapper's expression shifts to one of intensity, his eyebrows furrowed and his lips pressed together in concentration. It's clear that this is the moment he has been working towards and he's not going to let anything stand in his way."
+			]
+		},
+		{
+			"key": "Action",
+			"value": [
+				"The protagonist is shown running with determination and grit, pushing through the pain in her leg and not letting it stop her. She is focused on her goal of reaching her dream and will stop at nothing to achieve it.",
+				"The wind is blowing fiercely against the runner, her hair streaming behind her as she sprints with all her might. Each step is a struggle, but she persists, driven by her determination and relentless pursuit of her dream.",
+				"In the background, we see a blurred image of the finish line, symbolizing the end goal that the protagonist is striving towards. But in the forefront, we see the protagonist in action, pushing forward despite the obstacles in her way.",
+				"The action of the protagonist is captured in a series of still images, showcasing her progress and determination as she runs. We see her overcome different challenges and push through her limits, never giving up.",
+				"The intensity of the action is reflected in the sweat dripping down the protagonist's face and the gritted teeth in her expression. This is not just a physical journey but also a mental and emotional one.",
+				"The contrasting colors of the vibrant blue sky and the grey track convey the theme of obstacles and determination. Though she runs towards a bright and hopeful future, the path to get there is a tough one.",
+				"The muscles in the protagonist's legs are strained, a testament to the effort and hard work she puts into achieving her dream. But her resolve is unwavering and she continues to push through, fueled by her passion and ambition.",
+				"The action in this scene is a representation of the larger journey towards achieving one's dreams, where each step forward may seem small, but collectively they lead to something bigger and more significant.",
+				"The runner's path is not a smooth one, as shown by the bumpy texture of the track and the scattered debris on the ground. But the determination in the protagonist's eyes shows that she is ready to face any challenge that comes her way.",
+				"The rhythmic beating of the protagonist's heart is evident in the movement of her body as she runs, signifying her unwavering passion and dedication towards her dream."
+			]
+		},
+		{
+			"key": "Dot (beginning/middle/end)",
+			"value": [
+				"The first dot represents the beginning of a journey, with a young woman determined to chase her dreams.",
+				"The middle dot showcases the challenges and obstacles she faces, but she never gives up and stays true to her path.",
+				"The final dot represents the end of her journey, where she has overcome all odds and reached her destination, stronger and more determined than ever before.",
+				"Input B: \"Nananananana"
+			]
+		},
+		{
+			"key": "Fole, Inciting Incident",
+			"value": [
+				"The singer is seen running along a rocky path, determined and focused despite the pain in her leg. She knows that reaching her dream will require sacrifice and perseverance.",
+				"As she continues to push forward, she is faced with a giant obstacle represented by a stick, but she gracefully overcomes it, proving her strength and determination.",
+				"Though it would be easy to give up, she knows she cannot because the dreams in her heart are too strong and they continue to call to her, bringing motivation and drive.",
+				"Her journey is not without challenges, as she encounters difficult terrain and obstacles, but every step brings her closer to her dream.",
+				"In one scene, she stands atop a rocky hill, surveying the path ahead with determination and courage, ready to face whatever challenges come her way.",
+				"The audience can see the passion and determination radiating from her as she sings, inspiring them to also chase their own dreams.",
+				"The inciting incident in this song is the moment the singer decides to pursue her dreams wholeheartedly, despite the obstacles and challenges she may face."
+			]
+		},
+		{
+			"key": "Darkest Day(s)",
+			"value": [
+				"As the protagonist in the story faces their biggest challenge yet, the sky darkens and storm clouds gather. The once bright and hopeful atmosphere is now filled with tension and fear, mirroring the protagonist's emotions. Lightning strikes in the background, symbolizing the turmoil and danger that the character must face to reach their goal.",
+				"The protagonist stands alone in a desolate landscape, their head hung low in defeat. The sun has set, leaving the world in darkness and uncertainty. The character's journey has taken a turn for the worse and this is their darkest day, filled with despair and hopelessness.",
+				"In the midst of chaos and destruction, the protagonist stands strong with determination in their eyes. Buildings are burning and enemies surround them, but the character refuses to give up. This is their darkest day, but also the moment of true strength and resilience.",
+				"As the protagonist is faced with crushing defeat and betrayal, a shadow looms overhead. The antagonist can be seen watching from above, their presence threatening and ominous. The protagonist's world has come crashing down and their darkest day has arrived."
+			]
+		},
+		{
+			"key": "Losing/Stakes",
+			"value": [
+				"The main character, a determined and driven young woman, pushes herself beyond her limits as she sprints along a rugged path towards her dream. Despite the pain and exhaustion, she refuses to give up, knowing that each step brings her closer to her goal.",
+				"The protagonist faces a seemingly insurmountable challenge as she runs against a strong headwind, her facial expression showing both determination and frustration. But she knows that giving up is not an option, because her heart beats for her dream and she refuses to let it go.",
+				"Sweat drips down the main character's face as she charges forward with all her might, her heart and soul completely dedicated to her goal. She knows that the stakes are high, but she is willing to risk it all for her dream.",
+				"As the sun sets in the background, the main character struggles and stumbles along the path, with every step becoming increasingly difficult. Yet, she keeps going, fueled by her unwavering determination to achieve her dream, even if it means sacrifices and facing difficult challenges.",
+				"The image shows the main character at her lowest point, exhausted and defeated, but still standing. She has faced multiple setbacks and losses on her journey, but she refuses to give up, knowing that each failure brings her closer to success. The stakes may be high, but her determination is higher.",
+				"With a determined look in her eyes and a fierce determination in her stance, the main character faces the ultimate challenge – the possibility of losing everything she has worked for. But she refuses to let fear of failure hold her back, as her heart and mind are set on her dream and she will do whatever it takes to achieve it."
+			]
+		},
+		{
+			"key": "Plot Development",
+			"value": [
+				"The young rapper stands on a deserted road, her determination and drive evident in her stance as she looks towards her dreams in the distance.",
+				"The verses of the song are accompanied by images of her running, pushing through pain and obstacles, focused solely on reaching her goal.",
+				"As she raps about the struggles and setbacks she faces on her journey, the images show her facing challenges and overcoming them with sheer determination.",
+				"The pre-chorus reassures her that each step brings her closer to her dreams, even when it feels like everything is against her.",
+				"The chorus shows her refusing to give up, her heart beating with the fire of her dreams as she takes one step closer to them.",
+				"The instrumental breaks are accompanied by images of the vast landscape she runs through, emphasizing the long and challenging journey she is on.",
+				"In the second verse, the rapper reflects on the enormity of her dreams and the daunting obstacles she faces, but also the motivation and drive that her dreams give her.",
+				"The pre-chorus reinforces the idea that even when faced with seemingly never-ending obstacles, she will keep moving forward.",
+				"The chorus once again shows her determination and courage, as she gets closer and closer to her dreams.",
+				"The final instrumental break is accompanied by images of her standing on the horizon, looking towards a bright future full of possibilities and accomplishments. The plot development has reached its climax, and the resolution is near."
+			]
+		},
+		{
+			"key": "Scene",
+			"value": [
+				"The sun is setting on a peaceful beach, as a determined young woman runs along the shore, her mind focused on her goal. Her feet kick up sand as she moves forward, and the sea breeze blows through her hair. The sky is a gorgeous blend of pink, orange, and purple, representing the beauty of determination.",
+				"The bustling city streets are a blur as the young woman navigates through the crowd, her eyes fixed on the horizon. Despite the chaos around her, she remains determined and focused, her determination shining through in every step. The tall buildings and bright lights serve as a reminder of the obstacles she must overcome to reach her dreams.",
+				"In the middle of a forest, a young woman stands on a fallen tree trunk, her balance perfect as she takes aim with her bow and arrow. Her fierce expression shows her unwavering determination to hit her target and make her dream a reality. Trees and leaves surround her, representing the journey she must take to reach her destination.",
+				"The setting sun casts a warm glow over the city skyline, as a young woman stands on the edge of a building. She looks out with determination, ready to jump and chase her dreams. The city below symbolizes the challenges and opportunities she will face on her journey.",
+				"The young woman stands in the center of a beautiful garden, surrounded by blooming flowers and greenery. She takes a deep breath, her mind focused on her goal. The peaceful atmosphere reflects her determination and inner strength as she continues on her journey towards her dreams.",
+				"Amidst a bustling marketplace, the young woman stands with a determined look on her face. She is surrounded by vibrant colors and the sounds of haggling, but she remains focused on her mission. The busy surroundings serve as a reminder of the obstacles she must overcome as she works towards her dream.",
+				"The young woman stands on the edge of a cliff, the wind whipping around her. A storm rages in the distance, but she stands unafraid and determined. The tumultuous weather symbolizes the challenges that she must face, but her unwavering determination will see her through."
+			]
+		},
+		{
+			"key": "Sandwich Code",
+			"value": [
+				"A close-up of a young man's determined expression as he runs along a path, the sun setting behind him casting a warm glow.",
+				"A group of friends cheering and clapping as they watch their friend give it their all in a tennis match on a sunny day.",
+				"Close-up of a blister on a runner's foot, a symbol of the pain and determination they are feeling as they push through their journey.",
+				"A woman smiling as she runs through a park, surrounded by nature and feeling a sense of accomplishment.",
+				"The lyrics \"Jokainen askel vie lähemmäs unelmaa\" in bold letters against a bright, colorful background, symbolizing the hopeful and determined message of the song.",
+				"A person standing at a crossroads, looking towards two paths - one representing giving up and the other representing pushing through and achieving their dreams.",
+				"A collage of people achieving their goals, whether it be through sports, education, or personal growth, with the words \"Silti en luovuta koskaan\" written in bold letters over it.",
+				"An image of a person with grit and determination, trying to break through a brick wall with the lyrics \"vaikka välil tuntuis et kaikki on vastaan\" written next to them.",
+				"A group of friends walking together, supporting and motivating each other along their individual journeys.",
+				"An image of a person reaching for a goal, with the words \"Oon yhden askeleen lähempänä\" written above it, symbolizing the idea that with each step, we are one step closer to achieving our dreams.",
+				"A person standing atop a mountain, arms and face lifted towards the sky in triumph and joy, surrounded by the beauty and vastness of nature. This represents the feeling of accomplishment and pride that comes with achieving our dreams.",
+				"An image of a person looking at a mirror and seeing their reflection as a superhero, representing the inner strength and courage we all have within us.",
+				"A hand extended towards the sun, with the lyrics \"Nananananana Takaisin reitillä\" written above it, symbolizing the idea of reaching towards our dreams and never giving up.",
+				"A person walking towards a light at the end of a dark tunnel, representing the idea of never losing hope, even in our darkest days.",
+				"A collage of people helping and supporting others, with the words \"yksi askel kerrallaan\" written above it, representing the idea of taking one step at a time towards our dreams and also lifting others up along the way.",
+				"A person standing in front of a podium, receiving a trophy or medal, representing the idea of achieving our goals and being recognized for our hard work and determination."
+			]
+		},
+		{
+			"key": "Serendipity / Reluctant Hero",
+			"value": [
+				"As the sun sets behind the mountains, a lone figure stands on the horizon, a look of determination on their face. They never imagined themselves as a hero, but circumstances have thrust them into a role they did not ask for.",
+				"The once ordinary office worker now stands in front of a group of people, a sword in hand and a cape fluttering behind them. They never wanted to be a hero, but their innate courage and strong sense of justice has led them to this moment.",
+				"On the crowded streets of the city, a young woman bumps into a mysterious stranger, their eyes meeting for a brief moment. Little does she know, this chance encounter will change the course of her life and she will soon embark on a journey she never thought possible."
+			]
+		},
+		{
+			"key": "Bridge",
+			"value": [
+				"As the music builds, the young woman's determination grows stronger and she pushes through the pain in her legs, taking one step closer to her dream.",
+				"The bridge provides a brief moment of respite as the young woman catches her breath and reflects on how far she has come.",
+				"The sun begins to set, casting a warm golden light on the bridge and the young woman's face, symbolizing the end of a difficult journey and the approaching realization of her dreams.",
+				"In the distance, the city skyline can be seen, reminding the young woman of the opportunities and challenges that await her on her path to success.",
+				"Despite the obstacles she has faced, the young woman stands tall and confident on the bridge, ready to take on whatever comes her way."
+			]
+		},
+		{
+			"key": "Re-Stating; Recap page",
+			"value": [
+				"A young woman runs along a dirt path, determination etched on her face as she pushes through the pain in her leg. She knows she can't stop now, she has to keep going towards her dreams.",
+				"The bustling city streets are filled with people and obstacles, but the rapper continues on, rapping about the struggles and challenges of chasing your dreams.",
+				"Against a beautiful sunset backdrop, a figure stands with their back to the camera, gazing out at the horizon with determination. This is a moment of reflection and re-statement, as the person re-affirms their commitment to their dreams and keeps going on their journey.",
+				"As the instrumental plays, a montage of the rapper's journey is shown, from the beginning of the song to this point. We see their struggles, their determination, their growth, and their ultimate goal of achieving their dreams.",
+				"Through the visual medium, we see the importance of not giving up, even when faced with obstacles and setbacks. The rapper's journey serves as an inspirational reminder to never stop chasing your dreams."
+			]
+		},
+		{
+			"key": "Core Theme Sentence",
+			"value": [
+				"A determined young woman in running gear sprints down a gravel path, her eyes fixed on the finish line in the distance. She knows that the road to her dreams may be full of obstacles, but she refuses to give up and pushes forward with all of her strength and determination.",
+				"The main theme of this song is the journey towards achieving one's dreams, no matter how difficult and challenging it may seem. The lyrics speak of perseverance, resilience, and the power of motivation in overcoming obstacles and reaching for the stars. With a catchy beat and inspiring message, this song is a reminder to never give up on one's dreams and to always have the courage to keep moving forward."
+			]
+		},
+		{
+			"key": "Sub Theme 1",
+			"value": [
+				"A determined woman runs along a winding path, her feet pounding against the ground with relentless determination. She faces obstacles and challenges along her journey, but her focus never wavers as she pushes forward towards her dreams.",
+				"Sweat drips down the woman's face as she sprints up a steep hill, her eyes fixed on the prize that awaits her at the end of the road. Despite the physical and mental exhaustion, she refuses to give up on her dreams and pushes herself to her limits.",
+				"The woman's face is filled with determination and grit as she takes on each new challenge that comes her way. She may stumble and fall, but she always gets back up and continues on her journey towards her dreams.",
+				"Amidst a sea of doubts and fears, the woman stands tall and confident, her unwavering belief in her dreams keeping her moving forward. She may be facing doubts from others or even from within herself, but each step she takes brings her closer to her goals.",
+				"With each passing step, the woman becomes stronger and more resilient. She knows that each obstacle is just another opportunity to prove to herself and others that she is capable of achieving her dreams."
+			]
+		},
+		{
+			"key": "Sub Theme 2",
+			"value": [
+				"As the rapper runs along a dusty path, determination and grit can be seen on their face. Despite feeling the pain in their legs and the challenges of the journey, they refuse to give up on their dreams. The vibrant colors of the surrounding nature contrast with the dark shades of the rapper's clothes, symbolizing the inner battle between hope and doubt.",
+				"In a moment of triumph, the rapper stands on top of a mountain, looking out at the endless possibilities ahead. Their journey has not been easy, with obstacles and doubts constantly looming, but they have persevered and are now one step closer to their dreams. The sun shines down on them, representing the warmth and light that comes with success and fulfillment.",
+				"As the rapper takes a break to catch their breath, they reflect on the struggles and challenges they have faced on their path towards their dreams. Through their determination and perseverance, they have shown that they are capable of achieving anything they set their mind to. The cloudy sky represents the hardships, while the tree in the background symbolizes growth and resilience.",
+				"The rapper stands in a crowded city street, surrounded by the hustle and bustle of everyday life. Despite the chaos, they hold onto their dreams, knowing that they are the driving force behind every step they take. The bright city lights and bustling traffic represent the energizing and fast-paced nature of pursuing one's goals."
+			]
+		},
+		{
+			"key": "Sub Theme 3",
+			"value": [
+				"The image shows a group of teenagers running and playing in a park, their faces glowing with joy and excitement. They wear matching t-shirts with a slogan that reads \"Together we are stronger\" in bold letters.",
+				"The lyrics in this part discuss the importance of community and support in achieving goals and dreams. The image reflects this message by depicting a diverse group of individuals coming together to have fun and support each other.",
+				"The park's green grass and tall trees provide a refreshing and peaceful atmosphere, symbolizing the growth and strength that comes from being part of a supportive community.",
+				"One of the teenagers holds a sign with the number 3, representing the sub-theme of this part. This could also symbolize the third member of their group or the third step in their journey towards their dreams.",
+				"The facial expressions of the teenagers show determination and camaraderie, reinforcing the message of never giving up and always having someone by your side.",
+				"This image represents the power of unity and the lasting impact of positive relationships in our pursuit of our dreams."
+			]
+		},
+		{
+			"key": "Lessons",
+			"value": [
+				"As the sun sets on the distant horizon, a young woman sits on a rock overlooking the ocean, deep in thought as she reflects on the lessons she has learned on her journey.",
+				"With determination in her eyes, a young woman stands on a mountaintop, ready to face any challenge that comes her way, having learned valuable lessons along the way.",
+				"In the midst of a bustling city, a young woman walks with confidence, knowing that the lessons she has learned have made her stronger and more resilient.",
+				"A group of friends sits around a campfire, sharing stories and reflecting on the lessons they have learned while exploring the great outdoors.",
+				"As she gazes out at the magnificent view from a high vantage point, a young woman with a backpack on her shoulders smiles, knowing that the lessons she has learned have brought her here.",
+				"Surrounded by books and notes, a student sits at her desk, deep in thought as she reflects on the lessons she has learned in the classroom and beyond.",
+				"With a sense of peace and contentment, a young woman rests on a hammock, her mind filled with the lessons she has learned from the natural world around her.",
+				"As she stands in front of a mirror, a young woman takes in her reflection with a sense of pride, knowing that the lessons she has learned have made her a stronger, more compassionate person.",
+				"A line of dancers performs on stage, each one embodying the lessons they have learned through the art of movement and expression.",
+				"With determination and focus, a young athlete trains in the gym, reflecting on the lessons they have learned through hard work and dedication."
+			]
+		}
+	],
+	"text_storyboard_parts": [
+		{
+			"key": "Nananananana Takaisin reitillä,",
+			"value": 0
+		},
+		{
+			"key": "Nananananana kohti unelmia mennään",
+			"value": 0
+		},
+		{
+			"key": "Mä juoksen jonku jäljil ja tunnen jalassa kivun,",
+			"value": 8
+		},
+		{
+			"key": "mut en pysähdy, ku ei oo aikaa vaan sisuu",
+			"value": 2
+		},
+		{
+			"key": "Elämä on hektistä, mut mä tiiän, et selviin täl reitillä",
+			"value": 5
+		},
+		{
+			"key": "Kuljen vastatuuleen, mut palkkio odottaa perillä.",
+			"value": 12
+		},
+		{
+			"key": "Jokainen askel vie lähemmäs unelmaa,",
+			"value": 11
+		},
+		{
+			"key": "vaikka välil tuntuis et kaikki on vastaan.",
+			"value": 9
+		},
+		{
+			"key": "Silti en luovuta koskaan,",
+			"value": 17
+		},
+		{
+			"key": "mun sydän sykkii unelmalle.",
+			"value": 20
+		},
+		{
+			"key": "Oon yhden askeleen lähempänä,",
+			"value": 11
+		},
+		{
+			"key": "vähän rohkeempi tulevalle",
+			"value": 20
+		},
+		{
+			"key": "Nananananana Takaisin reitillä,",
+			"value": 0
+		},
+		{
+			"key": "Nananananana kohti unelmia mennään",
+			"value": 0
+		},
+		{
+			"key": "Joka ponnistus on niinku tikku jättiläistä vastaan,",
+			"value": 6
+		},
+		{
+			"key": "mut mä teen sen näyttävästi ja osun arkaan paikkaan.",
+			"value": 15
+		},
+		{
+			"key": "Ois helppo luovuttaa, mut tiiän et en voi",
+			"value": 16
+		},
+		{
+			"key": "ku unelmat ei jätä rauhaan, ne kutsuu ja motivoi",
+			"value": 11
+		},
+		{
+			"key": "Jokainen askel vie mua eteenpäin",
+			"value": 11
+		},
+		{
+			"key": "vaikka välil tuntuis et vain esteitä on edessäin",
+			"value": 19
+		},
+		{
+			"key": "Silti en luovuta koskaan,",
+			"value": 17
+		},
+		{
+			"key": "mun sydän sykkii unelmalle.",
+			"value": 20
+		},
+		{
+			"key": "Oon yhden askeleen lähempänä,",
+			"value": 11
+		},
+		{
+			"key": "vähän rohkeempi tulevalle",
+			"value": 20
+		},
+		{
+			"key": "Nananananana kohti unelmia mennään",
+			"value": 0
+		},
+		{
+			"key": "Silti en luovuta koskaan,",
+			"value": 17
+		},
+		{
+			"key": "mun sydän sykkii unelmalle.",
+			"value": 20
+		},
+		{
+			"key": "Oon yhden askeleen lähempänä,",
+			"value": 11
+		},
+		{
+			"key": "vähän rohkeempi tulevalle",
+			"value": 20
+		},
+		{
+			"key": "Nananananana Takaisin reitillä,",
+			"value": 0
+		},
+		{
+			"key": "Nananananana kohti unelmia mennään",
+			"value": 0
+		}
+	],
+	"text_storyboard_prompts": [
+		"The inside of a city subway system, with fluorescent lights casting an eerie glow on the walls and floor. People hurry past, lost in their own thoughts and concerns. Advertisements cover the walls, trying to catch the attention of the busy commuters. In the midst of it all, a young man stands out, his headphones on and his eyes fixed on the map of the subway routes, ready to embark on a journey towards his dreams.",
+		"The inside of a city subway system, with fluorescent lights casting an eerie glow on the walls and floor. People hurry past, lost in their own thoughts and concerns. Advertisements cover the walls, trying to catch the attention of the busy commuters. In the midst of it all, a young man stands out, his headphones on and his eyes fixed on the map of the ÉÉsubway routes, ready to embark on a journey towards his dreams.",
+		"The singer is seen running along a rocky path, determined and focused despite the pain in her leg. She knows that reaching her dream will require sacrifice and perseverance.",
+		"Despite facing seemingly insurmountable challenges, the protagonist continues on her journey, fueled by her unwavering passion and determination. She is an inspiration to those around her, refusing to let anything stand in the way of her dreams.",
+		"The rapper stands tall, determination etched on his face as he spits out the lyrics with fiery passion and conviction. He embodies the expression of never giving up and fighting for his dreams with every fiber of his being.",
+		"Amidst a bustling marketplace, the young woman stands with a determined look on her face. She is surrounded by vibrant colors and the sounds of haggling, but she remains focused on her mission. The busy surroundings serve as a reminder of the obstacles she must overcome as she works towards her dream.",
+		"The pre-chorus reassures her that each step brings her closer to her dreams, even when it feels like everything is against her.",
+		"In the midst of chaos and destruction, the protagonist stands strong with determination in their eyes. Buildings are burning and enemies surround them, but the character refuses to give up. This is their darkest day, but also the moment of true strength and resilience.",
+		"A determined young woman in running gear sprints down a gravel path, her eyes fixed on the last line of horizon. She knows the road to her dreams is labyrinthine and fraught with setbacks, but she refuses to give up, pushing forward with relentless strength and determination.",
+		"The image shows a group of teenagers running and playing in a park, their faces glowing with joy and excitement. They wear matching t-shirts with a slogan that reads \"Together we are stronger\" in bold letters. The lyrics discuss the importance of community and support in achieving goals and dreams. The image reflects this message by depicting a diverse group of individuals coming together to have fun and support each other.",
+		"The pre-chorus reassures her that each step brings her closer to her dreams, even when it feels like everything is against her.",
+		"The image shows a group of teenagers running and playing in a park, their faces glowing with joy and excitement. They wear matching t-shirts with a slogan that reads \"Together we are stronger\" in bold letters. The lyrics in this part, which promote the theme of community and support in achieving goals, reflect the message of the visual by depicting a diverse group of individuals coming together to have fun and support each other.",
+		"The inside of a city subway system, with fluorescent lights casting an eerie glow on the walls and floor. People hurry past, lost in their own thoughts and concerns. Advertisements cover the walls, trying to catch the attention of the busy commuters. In the midst of it all, a young man stands out, his headphones on and his eyes fixed on the map of the subway routes, ready to embark on a journey towards his dreams.",
+		"The inside of a city subway system, with fluorescent lights casting an eerie glow on the walls and floor. People hurry past, lost in their own thoughts and concerns. Advertisements cover the walls, trying to catch the attention of the busy commuters. In the midst of it all, a young man stands out, his headphones on and his eyes fixed on the map of the subway routes, ready to embark on a journey towards his dreams.",
+		"The protagonist is shown running with determination and grit, pushing through the pain in her leg and not letting it stop her. She is focused on her goal of reaching her dream and will stop at nothing to achieve it.",
+		"As the music builds, the young woman's determination grows stronger and she pushes through the pain in her legs, taking one step closer to her dream.",
+		"A young woman runs along a dirt path, determination etched on her face as she pushes through the pain in her leg. She knows she can't stop now, she has to keep going towards her dreams.",
+		"The pre-chorus reassures her that each step brings her closer to her dreams, even when it feels like everything is against her.",
+		"The pre-chorus reassures her that each step brings her closer to her dreams, even when it feels like everything is against her.",
+		"As the rapper takes a break to catch their breath, they reflect on the struggles and challenges they have faced on their path towards their dreams. Through their determination and perseverance, they have shown that they are capable of achieving anything they set their mind to. The cloudy sky represents the hardships, while the tree in the background symbolizes growth and resilience.",
+		"A determined young woman in running gear sprints down a gravel path, her eyes fixed on the finish line in the distance. She knows that the road to her dreams may be full of obstacles, but she refuses to give up and pushes forward with all of her strength and determination.",
+		"The lyrics in this part discuss the importance of community and support in achieving goals and dreams. The image reflects this message by depicting a diverse group of individuals coming together to have fun and support each.",
+		"The pre-chorus reassures her that each step brings her closer to her dreams, even when it feels like everything is against her.",
+		"The image shows a group of teenagers running and playing in a park, their faces glowing with joy and excitement. They wear matching t-shirts with a slogan that reads \"Together we are stronger\" in bold letters. The park's green grass and tall trees provide a refreshing and peaceful atmosphere, symbolizing the growth and strength that comes from being part of a supportive community. This scene connects well to the idea of being \"a bit bolder for the future,\" showing how community and support can empower individuals to face future challenges with greater courage.",
+		"The inside of a city subway system, with fluorescent lights casting an eerie glow on the walls and floor. People hurry past, lost in their own thoughts and concerns. Advertisements cover the walls, trying to catch the attention of the busy commuters. In the midst of it all, a young man stands out, his headphones on and his eyes fixed on the map of the subway routes, ready to embark on a journey towards his dreams.",
+		"A determined young woman in running gear sprints down a gravel path, her eyes fixed on the finish line in the distance. She knows that the road to her dreams may be full of obstacles, but she refuses to give up and pushes forward with all of her strength and determination.",
+		"The lyrics in this part discuss the importance of community and support in achieving goals and dreams. The image reflects this message by depicting a diverse group of individuals coming together to have fun and support each youth other.",
+		"The pre-chorus reassures her that each step brings her closer to her dreams, even when it feels like everything is against her.",
+		"The park's green grass and tall trees provide a refreshing and peaceful atmosphere, symbolizing the growth and strength that comes from being part of a supportive community. This scene connects well to the idea of being 'a bit bolder for the future,' showing how community and support can empower individuals to face future challenges with greater courage.",
+		"The inside of a city subway system, with fluorescent lights casting an eerie glow on the walls and floor. People hurry past, lost in their own thoughts and concerns. Advertisements cover the walls, trying to catch the attention of the busy commuters. In the midst of it all, a young man stands out, his headphones on and his eyes fixed on the map of the subway routes, ready to embark on a journey towards his dreams.",
+		"The inside of a city subway system, with fluorescent lights casting an eerie glow on the walls and floor. People hurry past, lost in their own thoughts and concerns. Advertisements cover the walls, trying to catch the attention of the busy commuters. In the midst of it all, a young man stands out, his headphones on and his eyes fixed on the map of the subway routes, ready to embark on a journey towards his dreams."
+	]
 }
