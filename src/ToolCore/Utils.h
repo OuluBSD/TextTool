@@ -21,7 +21,7 @@ struct ContentType : Moveable<ContentType> {
 	static const int PART_COUNT = 3;
 	String key, parts[PART_COUNT];
 	
-	void Set(String k, String p0, String p1, String p2) {
+	void Set(String k, String p0, String p1, String p2, const char* p3=0) {
 		key = k;
 		parts[0] = p0;
 		parts[1] = p1;

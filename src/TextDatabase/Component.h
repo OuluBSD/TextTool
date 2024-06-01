@@ -43,6 +43,10 @@ struct Component :
 	int							default_attr_count = 7;
 	int							theme_cursor = -1;
 	int							part_cursor = -1;
+	VectorMap<String,String>	storyboard_parts;
+	VectorMap<String,Vector<String>>	storyboard_prompts;
+	VectorMap<String,int>		text_storyboard_parts;
+	Vector<String>				text_storyboard_prompts;
 	
 	Snapshot*					snapshot = 0;
 	
@@ -64,6 +68,10 @@ struct Component :
 			("default_attr_count", default_attr_count)
 			("theme_cursor", theme_cursor)
 			("part_cursor", part_cursor)
+			("storyboard_parts", storyboard_parts)
+			("storyboard_prompts", storyboard_prompts)
+			("text_storyboard_parts", text_storyboard_parts)
+			("text_storyboard_prompts", text_storyboard_prompts)
 			;
 	}
 	

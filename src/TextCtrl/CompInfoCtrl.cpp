@@ -25,6 +25,10 @@ CompInfoCtrl::CompInfoCtrl() {
 	
 }
 
+void CompInfoCtrl::ToolMenu(Bar& bar) {
+	ToolAppCtrl::ToolMenu(bar);
+}
+
 void CompInfoCtrl::Clear() {
 	this->comp_entity				.Clear();
 	this->comp_prj_name				.Clear();

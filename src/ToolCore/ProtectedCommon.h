@@ -76,6 +76,21 @@ VectorMap<String,Vector<String>>& GetStyleApproaches(bool unsafe, bool gender);
 
 
 
+
+const Index<String>& GetPersuasiveElements();
+const Vector<ContentType>& GetCallToActions();
+int GetCallToActionCount();
+
+VectorMap<String,Vector<String>>& GetTriggerSafeMale();
+VectorMap<String,Vector<String>>& GetTriggerSafeFemale();
+VectorMap<String,Vector<String>>& GetTriggerUnsafeMale();
+VectorMap<String,Vector<String>>& GetTriggerUnsafeFemale();
+VectorMap<String,Vector<String>>& GetTriggerSafe(bool gender);
+VectorMap<String,Vector<String>>& GetTriggerUnsafe(bool gender);
+VectorMap<String,Vector<String>>& GetPersuasiveTriggers(bool unsafe, bool gender);
+
+
+
 END_TEXTLIB_NAMESPACE
 
 

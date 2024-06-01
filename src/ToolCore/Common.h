@@ -229,6 +229,7 @@ enum {
 	
 	DB_COUNT,
 	
+	DB_MARKETING,
 	DB_POLITICS,
 	DB_LIFE,
 	DB_BUSINESS,
@@ -244,6 +245,7 @@ inline String GetAppModeString(int appmode) {
 		case DB_BLOG:			return "Blog";
 		case DB_DIALOG:			return "Dialog";
 		case DB_STORYBOARD:		return "Storyboard";
+		case DB_MARKETING:		return "Marketing";
 		
 		case DB_POLITICS:		return "Politics";
 		case DB_LIFE:			return "Life";
@@ -1039,7 +1041,7 @@ bool IsAllUpper(const String& s);
 
 
 
-String GetDefaultSongStructureString();
+String GetDefaultScriptStructureString(int appmode);
 
 
 void SetGlobalProxy(String uri);

@@ -40,6 +40,7 @@
 #include "ImageBiographySummary.h"
 #include "Platform.h"
 #include "PlatformProfile.h"
+#include "VideoPromptMaker.h"
 
 
 #endif

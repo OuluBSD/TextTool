@@ -12,6 +12,7 @@
 #include "CollabSolver.h"
 #include "SocialSolver.h"
 #include "SnapSolver.h"
+#include "VideoSolver.h"
 
 
 #endif

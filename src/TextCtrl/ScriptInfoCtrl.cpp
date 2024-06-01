@@ -185,7 +185,7 @@ void ScriptInfoCtrl::PasteSongHeader() {
 	script.typeclass = args.tc_i;
 	script.content = args.con_i;
 	script.content_vision = args.lyrics_idea;
-	script.user_structure = GetDefaultSongStructureString();
+	script.user_structure = GetDefaultScriptStructureString(GetAppMode());
 }
 
 END_TEXTLIB_NAMESPACE

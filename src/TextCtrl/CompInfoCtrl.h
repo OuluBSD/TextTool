@@ -14,11 +14,12 @@ public:
 	typedef CompInfoCtrl CLASSNAME;
 	CompInfoCtrl();
 	
-	void Data();
+	void Data() override;
 	void Clear();
 	void DataScript();
 	void OnValueChange();
 	void SetScript();
+	void ToolMenu(Bar& bar) override;
 	
 	ToolEditor* editor = 0;
 	

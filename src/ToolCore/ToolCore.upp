@@ -21,6 +21,7 @@ file
 	DbBlog.cpp,
 	DbDialog.cpp,
 	DbStoryboard.cpp,
+	DbMarketing.cpp,
 	Color.cpp,
 	ProductionIdeas.cpp,
 	ColorFn.cpp,

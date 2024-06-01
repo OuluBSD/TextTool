@@ -51,6 +51,7 @@ struct TaskMgr {
 	void GetLeadSolver(int appmode, const LeadSolverArgs& args, Event<String> WhenResult);
 	void GetSocial(const SocialArgs& args, Event<String> WhenResult);
 	void GetSnapshot(const SnapshotArgs& args, Event<String> WhenResult);
+	void GetVideoSolver(const VideoSolverArgs& args, Event<String> WhenResult);
 	void GetVision(const String& jpeg, const VisionArgs& args, Event<String> WhenResult);
 	
 	static TaskMgr& Single() {static TaskMgr tm; return tm;}

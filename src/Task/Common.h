@@ -264,6 +264,25 @@ struct SnapshotArgs {
 	
 };
 
+struct VideoSolverArgs {
+	int fn = 0;
+	String text, line;
+	VectorMap<String,String> parts;
+	Vector<String> prompts;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("text", text)
+				("line", line)
+				("parts", parts)
+				("prompts", prompts)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
 
 END_TEXTLIB_NAMESPACE
 

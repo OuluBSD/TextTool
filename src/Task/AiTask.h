@@ -249,6 +249,7 @@ public:
 	void CreateInput_Social();
 	void CreateInput_Vision();
 	void CreateInput_Snapshot();
+	void CreateInput_VideoSolver();
 	
 	void Process_GetSuggestionAttributes();
 	void Process_StoryArc();

@@ -48,6 +48,62 @@ const VectorMap<String, String>& GetAppModeParts(int appmode) {
 			v.Add("L", "Links");
 			v.Add("COM", "Comments");
 		}
+		else if (appmode == DB_DIALOG) {
+			v.Add("I", "Introduction");
+			v.Add("T", "Transition");
+			v.Add("Q", "Question");
+			v.Add("PQ", "Persuasive questions");
+			v.Add("PNA", "Positive non-answer");
+			v.Add("NA", "Answering negatives");
+			v.Add("N", "Non-sequitur");
+			v.Add("C", "Conclusion");
+			v.Add("EOD", "End of dialogue");
+			v.Add("IM", "Insults");
+			v.Add("O", "Opinion");
+			v.Add("RD", "Re-direction");
+			v.Add("S1", "Subjuctive");
+			v.Add("WI", "World Info");
+		}
+		else if (appmode == DB_STORYBOARD) {
+			v.Add("ST", "Setting");
+			v.Add("CA", "Characters");
+			v.Add("CH", "Conflict/Challenge");
+			v.Add("CB", "Climax");
+			v.Add("R", "Resolution");
+			v.Add("E", "Expression");
+			v.Add("AC", "Action");
+			v.Add("DO", "Dot (beginning/middle/end)");
+			v.Add("FI", "Fole, Inciting Incident");
+			v.Add("DD", "Darkest Day(s)");
+			v.Add("LL", "Losing/Stakes");
+			v.Add("PD", "Plot Development");
+			v.Add("S", "Scene");
+			v.Add("SC", "Sandwhich Code");
+			v.Add("SR", "Serendipity / Reluctant Hero");
+			v.Add("BR", "Bridge");
+			v.Add("RS", "Re-Stating; Recap page");
+			v.Add("CO", "Core Theme Sentence");
+			v.Add("SI", "Sub Theme 1");
+			v.Add("S2", "Sub Theme 2");
+			v.Add("S3", "Sub Theme 3");
+			v.Add("LS", "Lessons");
+		}
+		else if (appmode == DB_MARKETING) {
+			v.Add("SI", "Sales Intro");
+			v.Add("PR", "Persuasion Root");
+			v.Add("EP", "Emphatic Persuaders");
+			v.Add("DR", "Descriptive Reasoning");
+			v.Add("IC", "Infomational Copy");
+			v.Add("T", "Testimonial");
+			v.Add("FP", "Factual Proof");
+			v.Add("S", "Summary");
+			v.Add("CD", "Call to Action");
+			v.Add("FD", "Final Summarization");
+			v.Add("CS", "Closing");
+			v.Add("CU", "Cover Up");
+			v.Add("MC", "Marketing closing");
+			v.Add("DO", "Deadline Offer");
+		}
 		else TODO
 	}
 	return v;
@@ -91,6 +147,62 @@ const VectorMap<String, Color>& GetAppModePartColors(int appmode) {
 			v.Add("CA", Color(255, 226, 188));
 			v.Add("L", Color(198, 200, 255));
 			v.Add("COM", Color(198, 200, 255));
+		}
+		else if (appmode == DB_DIALOG) {
+			v.Add("I", Color(255, 195, 190));
+			v.Add("T", Color(210, 255, 208));
+			v.Add("Q", Color(225, 255, 191));
+			v.Add("PQ", Color(255, 255, 206));
+			v.Add("PNA", Color(227, 206, 255));
+			v.Add("NA", Color(255, 193, 255));
+			v.Add("N", Color(237, 190, 255));
+			v.Add("C", Color(255, 226, 188));
+			v.Add("EOD", Color(198, 200, 255));
+			v.Add("IM", Color(198, 200, 255));
+			v.Add("O", Color(198, 200, 255));
+			v.Add("RD", Color(198, 200, 255));
+			v.Add("S1", Color(198, 200, 255));
+			v.Add("WI", Color(198, 200, 255));
+		}
+		else if (appmode == DB_STORYBOARD) {
+			v.Add("ST", Color(255, 195, 190));
+			v.Add("CA", Color(210, 255, 208));
+			v.Add("CH", Color(225, 255, 191));
+			v.Add("CB", Color(255, 255, 206));
+			v.Add("R", Color(227, 206, 255));
+			v.Add("E", Color(255, 193, 255));
+			v.Add("AC", Color(237, 190, 255));
+			v.Add("DO", Color(255, 226, 188));
+			v.Add("FI", Color(255, 226, 188));
+			v.Add("DD", Color(255, 226, 188));
+			v.Add("LL", Color(255, 226, 188));
+			v.Add("PD", Color(255, 226, 188));
+			v.Add("S", Color(255, 226, 188));
+			v.Add("SC", Color(255, 226, 188));
+			v.Add("SR", Color(255, 226, 188));
+			v.Add("BR", Color(255, 226, 188));
+			v.Add("RS", Color(255, 226, 188));
+			v.Add("CO", Color(255, 226, 188));
+			v.Add("SI", Color(255, 226, 188));
+			v.Add("S2", Color(255, 226, 188));
+			v.Add("S3", Color(255, 226, 188));
+			v.Add("LS", Color(255, 226, 188));
+		}
+		else if (appmode == DB_MARKETING) {
+			v.Add("SI", Color(255, 195, 190));
+			v.Add("PR", Color(210, 255, 208));
+			v.Add("EP", Color(225, 255, 191));
+			v.Add("DR", Color(255, 255, 206));
+			v.Add("IC", Color(227, 206, 255));
+			v.Add("T", Color(255, 193, 255));
+			v.Add("FP", Color(237, 190, 255));
+			v.Add("S", Color(255, 226, 188));
+			v.Add("CD", Color(255, 226, 188));
+			v.Add("FD", Color(255, 226, 188));
+			v.Add("CS", Color(255, 226, 188));
+			v.Add("CU", Color(255, 226, 188));
+			v.Add("MC", Color(255, 226, 188));
+			v.Add("DO", Color(255, 226, 188));
 		}
 		else TODO
 	}
@@ -147,6 +259,43 @@ const Vector<String>& GetAppModeDefCompStructure(int appmode) {
 			v.Add("L");
 			v.Add("COM");
 		}
+		else if (appmode == DB_DIALOG) {
+			v.Add("I");
+			v.Add("Q");
+			v.Add("PNA");
+			v.Add("Q");
+			v.Add("NA");
+			v.Add("IM");
+			v.Add("O");
+			v.Add("RD");
+			v.Add("WI");
+			v.Add("C");
+		}
+		else if (appmode == DB_STORYBOARD) {
+			v.Add("ST");
+			v.Add("CA");
+			v.Add("CH");
+			v.Add("PD");
+			v.Add("S");
+			v.Add("FI");
+			v.Add("DO");
+			v.Add("DD");
+			v.Add("PD");
+			v.Add("SC");
+			v.Add("AC");
+			v.Add("CB");
+			v.Add("LS");
+			v.Add("E");
+		}
+		else if (appmode == DB_MARKETING) {
+			v.Add("SI");
+			v.Add("DR");
+			v.Add("EP");
+			v.Add("T");
+			v.Add("FP");
+			v.Add("CD");
+			v.Add("CS");
+		}
 		else TODO
 	}
 	return v;
@@ -190,6 +339,43 @@ const VectorMap<String, String>& GetAppModeStructure(int appmode) {
 			v.Add("IT", "informational images");
 			v.Add("PI", "personal images");
 		}
+		else if (appmode == DB_DIALOG) {
+			v.Add("I", "introduction");
+			v.Add("Q", "question");
+			v.Add("PNA", "positive non-answer");
+			v.Add("Q", "question");
+			v.Add("NA", "answering negatives");
+			v.Add("IM", "insults");
+			v.Add("O", "opinion");
+			v.Add("RD", "re-direction");
+			v.Add("WI", "world Info");
+			v.Add("C", "conclusion");
+		}
+		else if (appmode == DB_STORYBOARD) {
+			v.Add("ST", "setting");
+			v.Add("CA", "characters");
+			v.Add("CH", "conflict/Challenge");
+			v.Add("PD", "plot Development");
+			v.Add("S", "scene");
+			v.Add("FI", "fole, inciting incident");
+			v.Add("DO", "dot (beginning/middle/end)");
+			v.Add("DD", "darkest day(s)");
+			v.Add("PD", "plot development");
+			v.Add("SC", "sandwhich code");
+			v.Add("AC", "action");
+			v.Add("CB", "climax");
+			v.Add("LS", "lessons");
+			v.Add("E", "expression");
+		}
+		else if (appmode == DB_MARKETING) {
+			v.Add("SI", "sales intro");
+			v.Add("DR", "descriptive reasoning");
+			v.Add("EP", "emphatic persuaders");
+			v.Add("T", "testimonial");
+			v.Add("FP", "factual proof");
+			v.Add("CD", "call to action");
+			v.Add("CS", "closing");
+		}
 		else TODO
 	}
 	return v;
@@ -218,6 +404,24 @@ const Vector<String>& GetAppModeDefCompStructureAttrs(int appmode) {
 			v.Add("has room for 10 minute read");
 			v.Add("has variation between conclusions");
 		}
+		else if (appmode == DB_DIALOG) {
+			v.Add("jump right to story line");
+			v.Add("repetitive phrasing to stay on point");
+			v.Add("solid ending that reiterates the point");
+			v.Add("emphasizes MI speakers in relation to R");
+		}
+		else if (appmode == DB_STORYBOARD) {
+			v.Add("well formatted & medium-sized scene descriptions ");
+			v.Add("plug in dialogue lines and samples");
+			v.Add("chooses appropriate example images");
+			v.Add("graphically rich, showcasing only important images");
+		}
+		else if (appmode == DB_MARKETING) {
+			v.Add("builds an emotional prime");
+			v.Add("speaks authoritatively to influence reader opinion");
+			v.Add("hook calls to the reader's nostalgia & imagination");
+			v.Add("expresses the innovative idea from 2nd writer piece");
+		}
 		else TODO
 	}
 	return v;
@@ -245,6 +449,26 @@ const Vector<String>& GetAppModeStructureAttrs(int appmode) {
 			v.Add("includes a call to action which adds variety to the article");
 			v.Add("allows for multiple body/conclusion/call-to-action repetitions, making it suitable for a longer read");
 			v.Add("has a distinct build up to the final conclusion in the ending");
+		}
+		else if (appmode == DB_DIALOG) {
+			v.Add("has a strong introduction that catches the listener's attention");
+			v.Add("includes a persuasive question which captures the listener's interest");
+			v.Add("allows for phrases such as 'I understand' to win over the listener");
+			v.Add("has a distinct build up to the final conclusion by reinforcing main points made earlier in the dialogue");
+		}
+		else if (appmode == DB_STORYBOARD) {
+			v.Add("provides a clear setting for the story to take place");
+			v.Add("includes well-defined characters with unique personalities and traits");
+			v.Add("contains a conflict or challenge that the main characters must overcome");
+			v.Add("builds tension and leads to a dramatic climax");
+			v.Add("allows for a satisfactory resolution to the story");
+		}
+		else if (appmode == DB_MARKETING) {
+			v.Add("has a strong sales intro that captures the reader's attention");
+			v.Add("includes persuasive reasoning and emotional appeals to convince the reader");
+			v.Add("adds infomation that informs the reader and helps them make a more informed decision");
+			v.Add("includes a sense of urgency and clear call to action for the reader");
+			v.Add("has a distinct closing that effectively summarizes the main points and drives the reader to take action");
 		}
 		else TODO
 	}
@@ -278,25 +502,72 @@ void MakeAppMode_UnsafeServers(int appmode, String& title, Vector<String>& list)
 			list.Add("Chelsea Handler");
 			list.Add("Wendy Williams");
 			break;
-			
+		
 		case DB_BLOG:
-			list.Add("Jenny McCarthy");
+			title = "List of controversial but influental bloggers";
+			list.Add("Arianna Huffington");
 			list.Add("Gwyneth Paltrow");
-			list.Add("Marianne Williamson");
-			list.Add("Tim Ferriss");
-			list.Add("Rachel Hollis");
-			list.Add("Jordan Peterson");
-			list.Add("Liz Wolfe");
-			list.Add("Glennon Doyle");
-			list.Add("Mark Manson");
-			list.Add("Dave Asprey");
-			list.Add("Dietitians Unplugged");
-			list.Add("Brianna Wiest");
-			list.Add("Lauren Singer");
-			list.Add("Sarah Wilson");
-			list.Add("Marie Kondo");
-			list.Add("Wellness Mama");
-			list.Add("Dr. Axe");
+			list.Add("Alexandra Wallace");
+			list.Add("Joshua Micgah Phllips");
+			list.Add("Ziggy Greaves");
+			list.Add("Melby Cuarte");
+			list.Add("Paris Hilton");
+			list.Add("Perez Hilton");
+			list.Add("Stefani Gabrielle Germanotta");
+			list.Add("Lauren Curtis");
+			list.Add("Gary Vaynerchuk");
+			list.Add("Kris Carr");
+			list.Add("Jerome Jarre");
+			list.Add("Neil Strauss");
+			list.Add("Steve Aoki");
+			break;
+		
+		case DB_DIALOG:
+			title = "List of famous dialogues between famous and annoying people";
+			list.Add("Bill O'Riley & Russell Brand");
+			list.Add("Richard Dawkins & Ben Stein");
+			list.Add("Gordon Ramsay & Joe Jonas");
+			list.Add("Rush Limbaugh & George Takei");
+			list.Add("Pat Robertson & Kent Hovind");
+			list.Add("Neil deGrasse Tyson & Sara Palin");
+			list.Add("Cristofer Hitchens & Chrisl Al-Sabi");
+			list.Add("Donald Trump & Jesse Ventura");
+			list.Add("Bill Nye & Marsha Blackburn");
+			break;
+			
+		case DB_STORYBOARD:
+			title = "List of controversial image storyboard professionals";
+			list.Add("Zbigniew Rupcyinski");
+			list.Add("Rolph Schreckenfels");
+			list.Add("Unsuk Chin");
+			list.Add("Scott Walker");
+			list.Add("Sean Lennon");
+			list.Add("John Lennon");
+			list.Add("Yoko Ono");
+			list.Add("JG Thirlwell");
+			list.Add("Nurgul Boyrac");
+			list.Add("Can Oral");
+			list.Add("Diamanda Galas");
+			list.Add("Laurie Anderson");
+			list.Add("Frank Zappa");
+			list.Add("David Lynch");
+			list.Add("Mark Opitz");
+			break;
+		
+		case DB_MARKETING:
+			title = "List of controversial marketing/ad camplaigns creators and entities";
+			list.Add("Richard Armstrong");
+			list.Add("K. Patel");
+			list.Add("J.C. Reilly");
+			list.Add("Edward Shaw");
+			list.Add("Tiffany Grant");
+			list.Add("Dale Wright");
+			list.Add("Elaine Thomas");
+			list.Add("Jackie Taylor");
+			list.Add("Sue Carpenter");
+			list.Add("Jonas Marcy");
+			list.Add("Helencie Crabtree");
+			break;
 		
 		default: Panic("TODO");
 	}
@@ -405,6 +676,45 @@ const Vector<String>& GetAppModeResultPhraseExamples(int appmode, int lng_i) {
 			}
 			else TODO
 		}
+		else if (appmode == DB_DIALOG) {
+			if (lng_i == LNG_ENGLISH) {
+				v.Add("'a soul train line', 'so much fun': \"I've never done a soul train line at an art opening so much fun!\"");
+				v.Add("'details are everything', 'in stores and online': \"These details are everything! Shop this beauty in stores and online!\"");
+				v.Add("'for three months', 'these smiles and snuggles': \"I looked forward to these smiles and snuggles for three months\"");
+			}
+			else if (lng_i == LNG_FINNISH) {
+				v.Add("'sielujunalinja', 'niin hauskaa': \"En ole koskaan tehnyt soul-junalinjaa taiteen avajaisissa niin hauskaa!\"");
+				v.Add("'yksityiskohdat ovat kaikki', 'kaupoissa ja verkossa': \"Nämä yksityiskohdat ovat kaikki! Osta tätä kaunotarjousta kaupoista ja verkosta!\"");
+				v.Add("'kolmen kuukauden ajan', 'nämä hymyt ja käpertelyt': \"Odotin innolla näitä hymyjä ja käpertelyjä kolmen kuukauden ajan\"");
+			}
+			else TODO
+		}
+		else if (appmode == DB_STORYBOARD) {
+			if (lng_i == LNG_ENGLISH) {
+				v.Add("'a soul train line', 'so much fun': \"I've never done a soul train line at an art opening so much fun!\"");
+				v.Add("'details are everything', 'in stores and online': \"These details are everything! Shop this beauty in stores and online!\"");
+				v.Add("'for three months', 'these smiles and snuggles': \"I looked forward to these smiles and snuggles for three months\"");
+			}
+			else if (lng_i == LNG_FINNISH) {
+				v.Add("'sielujunalinja', 'niin hauskaa': \"En ole koskaan tehnyt soul-junalinjaa taiteen avajaisissa niin hauskaa!\"");
+				v.Add("'yksityiskohdat ovat kaikki', 'kaupoissa ja verkossa': \"Nämä yksityiskohdat ovat kaikki! Osta tätä kaunotarjousta kaupoista ja verkosta!\"");
+				v.Add("'kolmen kuukauden ajan', 'nämä hymyt ja käpertelyt': \"Odotin innolla näitä hymyjä ja käpertelyjä kolmen kuukauden ajan\"");
+			}
+			else TODO
+		}
+		else if (appmode == DB_MARKETING) {
+			if (lng_i == LNG_ENGLISH) {
+				v.Add("'best options', 'free book': \"Free Book: Options Expert Shows Seniors The Best Options Strategies For Income.\"");
+				v.Add("'subscribe', 'eat healthy': \"Trying to eat healthy? Sign up to our nutrition newsletter. SUBSCRIBE healthline.\"");
+				v.Add("'donate', 'kids cancer': \"Donate to a Greater Good cookies for kids cancer.\"");
+			}
+			else if (lng_i == LNG_FINNISH) {
+				v.Add("'parhaat vaihtoehdot', 'ilmainen kirja': \"Ilmainen kirja: Optioiden asiantuntija näyttää eläkeläisille parhaat tulovaihtoehtostrategiat.\"");
+				v.Add("'tilaa', 'syö terveellisesti': \"Yritätkö syödä terveellisesti? Tilaa ravitsemusuutiskirjeemme. TILAA healthline.\"");
+				v.Add("'lahjoita', 'lasten syöpä': \"Lahjoita yhteisen hyvän keksejä ja lasten syöpä rahastoon.\"");
+			}
+			else TODO
+		}
 		else TODO
 	}
 	return v;
@@ -423,5 +733,18 @@ void TestDbVars() {
 		GetStyleApproaches(i & 1, i & 2);
 	}
 }
+
+
+
+String GetDefaultScriptStructureString(int appmode) {
+	const auto& v = GetAppModeDefCompStructure(appmode);
+	String o;
+	for (const String& s : v) {
+		if (!o.IsEmpty()) o << ",";
+		o << s;
+	}
+	return o;
+}
+
 
 END_TEXTLIB_NAMESPACE

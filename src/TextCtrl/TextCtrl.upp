@@ -53,6 +53,8 @@ file
 	Component readonly separator,
 	CompInfoCtrl.h,
 	CompInfoCtrl.cpp,
+	VideoPromptMaker.h,
+	VideoPromptMaker.cpp,
 	Script readonly separator,
 	ScriptInfoCtrl.h,
 	ScriptInfoCtrl.cpp,

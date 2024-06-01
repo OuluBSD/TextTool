@@ -147,6 +147,7 @@ void ToolEditor::InitSimplified() {
 	AddItem("Snapshot", t_("Cover image"), snap_cover);
 	
 	AddItem("Component", t_("Info"), comp_info);
+	AddItem("Component", t_("Video prompt maker"), video_prompt_maker);
 	
 	AddItem("Script", t_("Info"), script_info);
 	AddItem("Script", t_("Structure"), comp_struct);
@@ -817,7 +818,7 @@ void ToolEditor::AddScript() {
 	
 	if (mp.owner)
 		l.copyright = mp.owner->name;
-	l.user_structure = GetDefaultSongStructureString();
+	l.user_structure = GetDefaultScriptStructureString(GetAppMode());
 	
 	Data();
 }

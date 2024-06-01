@@ -20,6 +20,7 @@ GUI_APP_MAIN {
 		if (s == "-blog")			{appmodes << DB_BLOG;}
 		if (s == "-dialog")			{appmodes << DB_DIALOG;}
 		if (s == "-storyboard")		{appmodes << DB_STORYBOARD;}
+		//if (s == "-marketing")		{appmodes << DB_MARKETING;}
 	}
 	
 	MetaDatabase::Single().share = sharedir;

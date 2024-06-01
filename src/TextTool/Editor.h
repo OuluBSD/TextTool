@@ -107,6 +107,7 @@ protected:
 	ScriptSolverCtrl				scripts_solver;
 	ScriptPool						script_pool;
 	SnapCoverImage					snap_cover;
+	VideoPromptMakerCtrl			video_prompt_maker;
 	
 public:
 	typedef ToolEditor CLASSNAME;

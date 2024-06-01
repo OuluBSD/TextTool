@@ -37,13 +37,16 @@ void TextDataLoader::Process() {
 		else if (appmode == DB_STORYBOARD) {
 			LoadHuggingStoryboard();
 		}
+		else if (appmode == DB_MARKETING) {
+			LoadHuggingMarketing();
+		}
 	}
 	else if (share == "share-fi") {
 		if (appmode == DB_SONG) {
 			LoadHuggingFinn();
 		}
 	}
-		
+	
 	//db.src_data.Store();
 	PostCallback(THISBACK(Stop));
 }
@@ -825,6 +828,119 @@ void TextDataLoader::LoadHuggingStoryboard() {
 	LOG("Total dialogue file count: " << db.src_data.entities.GetCount());
 	LOG("Total line count: " << line_count);
 	LOG("Total byte size of dialogues: " << total_size/1000 << "Kb");
+}
+
+void TextDataLoader::LoadHuggingMarketing() {
+	
+	String dir;
+	#ifdef flagWIN32
+	dir = AppendFileName(GetHomeDirectory(), "datasets\\marketing");
+	#elif defined flagPOSIX
+	dir = GetHomeDirFile("datasets/marketing");
+	#endif
+	if (!DirectoryExists(dir)) {
+		PromptOK("1/2: Directory doesn't exist: " + dir);
+		PromptOK(DeQtf("2/2: Download train.jsonl and extract to ~/datasets/marketing: https://huggingface.co/datasets/SetFit/enron_spam"));
+		return;
+	}
+	
+	
+	String file = AppendFileName(dir, "train.jsonl");
+	if (!FileExists(file))
+		return;
+	
+	TextDatabase& db = GetDatabase();
+	db.src_data.entities.Clear();
+	
+	PostMessage("Searching for dialog dataset tgt files");
+	PostProgress(0,1);
+	
+	
+	int total_size = 0;
+	int line_count = 0;
+	EntityDataset& d = db.src_data.entities.Add();
+	d.name = "Enron spam dataset";
+	
+	String content = LoadFile(file);
+	int b = -1, i = 0;
+	while (b < content.GetCount()) {
+		// Locate row
+		int a = b+1;
+		b = content.Find("\n", a);
+		if (b < 0)
+			b = content.GetCount();
+		String json = content.Mid(a,b-a);
+		
+		ValueMap js = ParseJSON(json);
+		
+		
+		{
+			String txt = js.GetAdd("text");
+			
+			if (txt.Find("<td>") >= 0 || txt.Find("<tr>") >= 0)
+				continue;
+			if (txt.Find(" es ") >= 0)
+				continue;
+			if (txt.Find("\n>") >= 0)
+				continue;
+			if (txt.Find(" child ") >= 0)
+				continue;
+			
+			// Update progress
+			if (i % 10 == 0) {
+				PostMessage("Loading item: #" + IntStr(i));
+				PostProgress(i, js.GetCount());
+			}
+			i++;
+			
+			
+			HotfixReplaceWord(txt);
+			
+			// Trim lines
+			Vector<String> lines = Split(txt, "\n");
+			for (String& l : lines) l = TrimBoth(l);
+			txt = Join(lines, "\n");
+			
+			for(int i = 1; i <= 20; i++) {
+				String s = IntStr(i) + ".";
+				txt.Replace(s, "\n" + IntStr(i) + s);
+			}
+			
+			txt.Replace(".\n", "\n");
+			txt.Replace("\n\" ", "\n\"");
+			txt.Replace("\n\"\n", "\"\n");
+			
+			for(int i = 0; i < 3; i++)
+				txt.Replace("\n\n", "\n");
+			
+			
+			// Trim lines
+			lines = Split(txt, "\n");
+			for(int i = 0; i < lines.GetCount(); i++) {
+				String& l = lines[i];
+				l = TrimBoth(l);
+				if (l.IsEmpty())
+					lines.Remove(i--);
+			}
+			txt = Join(lines, "\n");
+			
+			if (txt.GetCount() && txt.Right(1) == ".")
+				txt = txt.Left(txt.GetCount()-1);
+			
+			ScriptDataset& l = d.scripts.Add();
+			l.name = "#" + IntStr(i);
+			l.text = txt;
+			
+			line_count += lines.GetCount();
+			total_size += l.text.GetCount();
+			
+			if (total_size >= size_limit)
+				break;
+		}
+	}
+	LOG("Total marketing file count: " << db.src_data.entities.GetCount());
+	LOG("Total line count: " << line_count);
+	LOG("Total byte size of marketing: " << total_size/1000 << "Kb");
 }
 
 

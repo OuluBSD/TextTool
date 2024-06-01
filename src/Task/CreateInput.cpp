@@ -2886,5 +2886,135 @@ void AiTask::CreateInput_Snapshot() {
 	else TODO
 }
 
+void AiTask::CreateInput_VideoSolver() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadDataAnalysis& lda = mdb.lead_data.a;
+	
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	VideoSolverArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		const auto& parts = GetAppModeParts(DB_STORYBOARD);
+		{
+			auto& list = input.AddSub();
+			list.Title("List A: parts of storyboards");
+			for(int i = 0; i < parts.GetCount(); i++)
+				list.Add("\"" + parts[i] + "\"");
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("List B: Example of a part of a storyboard");
+			list.Add("Scene: As she hits the ball with precision, we see a glimpse of her sun-kissed smile, radiating with nostalgia and excitement for the summer ahead.");
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Input A: Source text for the storyboard");
+			list.Add(args.text);
+			list.NoListChar();
+			list.NoColon();
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of parts of storyboard, which match the Input A, like in the List B");
+			results.Add("");
+		}
+	}
+	if (args.fn == 1) {
+		const auto& parts = GetAppModeParts(DB_STORYBOARD);
+		{
+			auto& list = input.AddSub();
+			list.Title("List A: parts of storyboards");
+			for(int i = 0; i < parts.GetCount(); i++)
+				list.Add("\"" + parts[i] + "\"");
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("List B: Example of a long description of the image content for the image generating AI and for the part 'Scene'");
+			list.Add("The bright summer sun shines down on a sandy beach, as a young woman stands with a tennis racket in hand, ready to hit a ball with precision and grace.");
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Input A: Source text for the storyboard");
+			list.Add(args.text);
+			list.NoListChar();
+			list.NoColon();
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of long descriptions of the image content for the image generating AI and for the part '" + args.parts.GetKey(0) + "'");
+			results.Add("");
+		}
+		//SetHighQuality();
+	}
+	if (args.fn == 2) {
+		{
+			auto& list = input.AddSub();
+			list.Title("List A: parts of storyboards");
+			for(int i = 0; i < args.parts.GetCount(); i++)
+				list.Add("part #" + IntStr(i) + ": " + args.parts.GetKey(i) + ": " + args.parts[i]);
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("List B: Example of matching parts for an input");
+			list.Add("line #1: part #4");
+			list.Add("line #3: part #2");
+			list.Add("line #4: part #5");
+			list.Add("line #5: part #4");
+			list.Add("line #8: part #0");
+		}
+		int line_count = 0;
+		{
+			auto& list = input.AddSub();
+			list.Title("Input A: Source text for the storyboard");
+			args.text.Replace("\r", "");
+			Vector<String> lines = Split(args.text, "\n");
+			for(int i = 0; i < lines.GetCount(); i++)
+				list.Add("line #" + IntStr(i) + ": " + lines[i]);
+			line_count = lines.GetCount();
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of matching parts from the List A for the Input A, which follows good visual storytelling principles. Fill all line range from 0 to " + IntStr(line_count) + ", but not every line needs a part.");
+			results.Add("line #");
+		}
+		SetHighQuality();
+	}
+	if (args.fn == 3) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Input A: prompts of the storyboard so far");
+			args.text.Replace("\r", "");
+			Vector<String> lines = Split(args.text, "\n");
+			for(int i = 0; i < lines.GetCount(); i++)
+				list.Add(lines[i]);
+			list.NumberedLines();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Input B: current source text line in focus");
+			list.Add(args.line);
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Input C: list of prompts");
+			for(int i = 0; i < args.prompts.GetCount(); i++)
+				list.Add(args.prompts[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Read the Input A and write down a prompt from the Input C (or modified), which matches the Input B best");
+			results.Add("\"");
+		}
+		SetHighQuality();
+	}
+}
+
+
 END_TEXTLIB_NAMESPACE
 

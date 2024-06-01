@@ -580,7 +580,7 @@ void LeadWebsites::CreateScript() {
 	script.typeclass = tc_i;
 	script.content = con_i;
 	script.content_vision = lyrics_idea;
-	script.user_structure = GetDefaultSongStructureString();
+	script.user_structure = GetDefaultScriptStructureString(GetAppMode());
 }
 
 void LeadWebsites::CopyHeaderClipboard() {

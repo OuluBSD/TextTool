@@ -19,6 +19,7 @@ class TextDataLoader : public WithTextDataLoader<TopWindow> {
 	void LoadHuggingBlogs();
 	void LoadHuggingDialogue();
 	void LoadHuggingStoryboard();
+	void LoadHuggingMarketing();
 	TextDatabase& GetDatabase();
 	
 public:

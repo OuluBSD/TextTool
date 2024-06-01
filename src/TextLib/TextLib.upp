@@ -24,6 +24,8 @@ file
 	SocialSolver.cpp,
 	SnapSolver.h,
 	SnapSolver.cpp,
+	VideoSolver.h,
+	VideoSolver.cpp,
 	DemandSolver.h,
 	DemandSolver.cpp,
 	CollabSolver.h,

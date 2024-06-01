@@ -98,7 +98,7 @@ void ToolEditorBase::DataOwner() {
 void ToolEditorBase::DataProfile() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& p = MetaPtrs::Single();
-	if (!owners.IsCursor())
+	if (!owners.IsCursor() || !profiles.IsCursor())
 		return;
 	
 	int owner_i = owners.Get("IDX");
