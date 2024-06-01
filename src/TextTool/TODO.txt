@@ -1,32 +1,33 @@
 
 
-
-
-
-
-
-
-
-       ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Half non-sensical list of stuff to do ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-
-
-
-
-
-
-
 v0.0.1
+- reason-based bulk-message generation for social media
+	- conversation must be improved for usability and ease-of-use
+- lyrics generator upgrade: logical post-analysis and fixes
+	- functions to "improve humor", "improve romance", etc.
+	- 5t model for evaluation
+- lyrics generator upgrade: repeat/new metrics, analysis, fixes (check that repeats enough)
+- move share to private repo
+- generate demo share data
+
+
+v0.0.2
+- book-page: what is the "book of you" currently and what it demands now for better content
+- improve lyrics and song generation gui
+- better suno-style keyword planning (requires research)
+- ROI: how much spent time, how many likes/views/etc: track messages, posts, all
+- competition -page: other artists etc.
+- current thing: trending hashtags, gossips, news
+	- "don't push a product, push a lifestyle"
+		- "make it feel like day in a life"
+			- https://www.instagram.com/reel/C0KvqNFPzvZ/
 - fix music style keywords: search for meaningful words which improves quality
 	- ensure matching quality for artist leads
 - fix file hierarchy: entities should be in owners directory
-- lead templates and shadow-lead generation (for share-fin)
-- calendar / operations overview
-- frontpage
 - tool to find out preferred typecasts and contents for a new person
 - tool to get typecast/content from known artist's lyrics
 - show TextLib tasks in Tasks page
-- fix editor's user experience
+- small issues: fix editor's user experience
 	- lyrics: editor list focus is unintuitive
 	- lyrics: add content vision text field translate button
 	- lyrics: default copyright holder fill
@@ -37,99 +38,31 @@ v0.0.1
 - remove en/fi language chain in artist/release/song structures
 	- rename files too
 - phrase analysis: maybe avoid getting data to phrases without previous-phase data
+	(forgot what this is all about: find phrase analysis spot and check it out again)
 - fix bug: see database / attributes broken values in empty group name
 	- function to fix those (remove "" and link duplicates)
-- lead parser and analyzer (taxi)
 - managerctrl
 - tautology (fun lyrics)
-- lead opportunities: sell construction kits, hiphop beats	
-- lyrics generator: logical post-analysis and fixes
-- lyrics generator: repeat/new metrics, analysis, fixes (check that repeats enough)
-
-
-v0.0.2
+- other money opportunities
+	- lead opportunities: sell construction kits, hiphop beats	
 - song DBs for spanish, korean, japanese, russian
 - fix Finnish language support with at least 1 new DB
 - fix: add snapshot and entity pointers to component and snapshot at object creation
 - lead templates + publishers + artist list: shadow leads for artists
 
 v0.0.3
+- calendar / operations overview
+	- content calendar
+- frontpage
+- lead templates and shadow-lead generation (for share-fin)
 - share folder structure improvements: avoid DB specific names, avoid language mismatch
 - join duplicate database data to one
 - sort TextLib functions numbers to match the correct order
 - one-button solution to process database for new input data type
-
-
-
-
-Later
-- support other languages than English and Finnish
-	- search for "fi" and "Finnish"
-
-
-
-Scheduled work:
-- separate generated songs and band songs
-	- to make pool of lyrics, which to choose from
-- database: TYPECAST & IDENTITY stuff... profile, primary/secondary person (all gendered)
-	- ask I which it CAN'T be to avoid random answers
-- database: fixed rhyming word connections for filtering
-- lyrics solver: iterate phrase lists and offer AI to change few lines to better
-- database: tool to find rhyming words, and to compare two words
-	- word to word rhyming visualization
-- for debugging:
-	- show DatabaseBrowser cursor state etc.
-- missing features:
-	- ask AI narrowing suggestions for secondary phrase
-	- ask AI freeform sentence for user
-	- ask AI to rate user's secondary phrase suggestions
-	- pick all matching end rhymes and test all of them
-	- pick random primary phrase suggestions based on suggested ranges
-	- list of rhyming words for a word
-	- pattern search: "begins with verb"
-	- whole "optimization page for F6 in line setter"
-
-
-- explanation page for joining english primary and secondary lines to a coherent story
-
-- add rhyming to nana-code page
-- keep only preprocessing
-	- make full lyrics, which rhymes
-		- use genetic solver + gpt
-			- calculate rhyming score
-			- use gpt to make combinations/mutations
-				- ask also scores (10 known)
-			- mutators
-				- weakest lines by ai, and better options by ai
-				- own suggestions to weakest lines
-				- random new lines locally, which matches partially the replaced line
-		- many threads (for combining later)
-			- keep alternatives per line in thread
-		- process: find candidates per line
-			- compare rhyming to all other candidates (or the best candidate)
-			- ask ai:
-				- which line makes least sense etc.
-					- replace it
-
-- preprocess action list -page
-- pre-processing of suggestions: (use scores too)
-	- join multiple parts (start from end)
-
-
-- songlib: all iter loop 'continue statements' ruins batch calculations
-- database: GetVirtualPhrases fn 2 cache
-- database: da.parallel && da.trans is probably corrupted
-
-- line structure editor
-- attr & color editor (use existing action threads)
-? new lyrics editor based on pre-processed suggestions
-
-
 - radio pages
 	- songs what radios play
 	- analysis
 	- timeline
-- 5t model for evaluation
 - professional contacts (who is who, roles)
 	- for tasks to contact people
 - AI conversation trainer
@@ -137,222 +70,21 @@ Scheduled work:
 	 	- like phone seller: direct selling
 	- debating vs just-do-it culture balancing
 - AI
-	- be always still in "school mode": connect with professionals
+	- peer mode: connect with professionals
 		- make the AI to guide you to where to look at
-
-- powerpoint pages: ai content
-	- advertisements
-		- follow twitter etc and turn content to advertisements
-
-
-- concept oriented songs instead of character oriented
-	- wins & losses
-	- events
-	- compliment & whining targets
-- database: structure clause nana-code & phonetic
-- songlib taskmgr: cache results separately
-- tool: get actions for received messages, get attributes and colors
-
-- artist planner
-	- suno prompt generator
-
 - ai opinions about talking
 	- what things should be talked and what not
 		- during what type of conversation
-
-
-- ip: storyline etc.
-	- use books
-		- something novel
-
-- gender split to database
-- "listener requests" simulated
-
-- fix missing character ' in lyrics and gpt queries
-
-
+- DB for books
 - topic mapping: what topics a search engine requires to be elevated to an expert?
 
-- lyrics editor:
-	- new version
-		- gui
-			- list of parts
-			- DocEdit for phonetics version of the part
-				- syllables encodes rhyming priorities
-			- list of threads
-			- settings for the thread
-			- list of phrases in a thread
-				- 3 options: saved, frozen path item, best path item
-			- list of phrase item settings
-				- preferred: color, attrs, scores, action
-		- multiple threads, which tries to find the best lyrics
-		- 2 phases: 1st templates, 2nd full syllable match
-		- A* and action planner based, modular
-	- write phonetics and get rhyming phrase suggestions
-		- use "simplified phonetics"
-	- simple phrase sampler (direct copy... ugly!)
-	- target score of song: (e.g. if song is more comedic than political)
-	- user sets: syllable count range & desired color (if any) & desires attributes (if any)
-	- get candidates
-		- make rhyming phrases without ai
-		- evaluate actions for candidates with ai
-	- generate candidates from actions
-		- show partially matching phrases and action-sets
-		- get morphed output phrase
-- tempo tap based phonetic rhyme writer for fast writing
-
-- virtual artists (e.g Eminem: Slim Shady, Nicki Minaj: Roman)
-	- song style templates
-		- "colors", actions
-		- even structures (e.g. if needs simple or epic)
-- "don't push a product, push a lifestyle"
-	- "make it feel like day in a life"
-		- https://www.instagram.com/reel/C0KvqNFPzvZ/
-- price of things to do for artist
-	- "you can make cheap things look sick if you know where to source"
-- content calendaring
-
-- roles diversity
-	- singer/songwriter vs separated roles (composer, lyrics writer, producer, singer, etc)
-- competition -page
-
-- book -page
 
 
 
-- dump backup data from database parsers
-	- OR/AND dump database to clear text
-
-- improve attribute idea -page
-	- filter by syllable count (with e.g. +-1 count)
-	- sort/filter by rhyming
-	- sort/filter by asking ai, which makes contextually most sense
 
 
-- analysis
-	- remove rhymes process
-	- add examples of roles
-	- remove word classes from word groups, keep phrase stuff like "metaphors"
-	- remove rhyme locations
-- fix syllables & phonetic syllables
-
-- attribute phrases
-
-- attribute per production idea
-
-- phonetics & syllable database
-- rhythmed phrase database
-	- with syllable-spelling-length vector
-	- match syllable-count, attribute, color
-
-- phrase search
-	- regexp like language for searching
-		- includes: unknonwn syllable count, fixed syllables, word classes, metaphorical colors
-
-- tool to colorize lyric lines with metaphorical colors
-
-- fix "context: idea" to take in the "context: production idea"
-
-- artist vocabulary source: pick artists from database
-- native database
-	- e.g. I will --> Imma, popping --> poppin, you -> ya, want to --> wanna
-
-- rhyme editor
-	- grid editor
-		- primary stress & breaks
-		- long note
-		- fast note
-		- add grid rectangles and remove them
-		- metaphoric color
-		- freeze certain words to grid
-		- freeze word class
-	- give info in bottom arrayctrl lists
-		- attribute distribution stuff?
-		- find sentence, which matches breaks & stress
-		- find words, which matches syllable count, word class, color, attributes
 
 
-- rhyme structure
-	- vsplit
-		- top is lines in rows (with pad space left and right)
-		- bottom hsplit
-			- left is text editor
-			- right is mask layers
-				- e.g. role mask suggestions from ai
-				- e.g. different phrase possibilities
-				- e.g. artist styles
-				- e.g. metaphroric emotional colors
-	- assist to
-		- fit phrases
-		- find rhyming words
-- song data analyser
-	- get word syllables
-	- split lyrics to syllable structure (maybe linked list style?)
-	- link multi-syllable rhymes to other multi-syllable rhymes (e.g. word to word)
-	- calculate word counts and sort them (make vocabulary profile)
-- rhyme analyser
-	- use song data rhyme location analyser (which misses a lot of rhymes)
-	- find
-		- missed full rhymes
-		- matching rhyming syllables (e.g -ing, -lly)
-	- manual add rhymes (e.g. aging again -> everything)
-	- paint differently
-		- begin repeat
-		- begin rhymes
-		- end repeat
-		- end rhymes
-		- strong rhymes vs weak rhymes (which can't be verified)
-- sampler page
-	- user samples: vocabulary profile (blend multiple artists)
-	- user samples: role distribution, rhymes, word group data
-- rap parts
-	- user samples: rhyme profile
-- singing parts
-	- select existing phrases for rhymes, which can be sang without problems
-- rhyme replacer
-	- replace nouns, adjectives, etc. based on sampler
-
-- browse through list of ai websites
-- kaiber.ai
-- heygen.com integration
-	- social media feed
-
-- with AI: generate list of question, what you should as regarding this project and products and income etc.
-- with AI: collaboration suggestions
-
-Possibly scheduled work (must be re-checked):
-- fine structure
-	- mark beats as fast beat (easy syllables)
-- rhyme editor to context idea page
-- word group words (with artist style)
-- production idea affects attributes
-	- get song attributes from production idea
-- production idea edit shortcuts (focus list item when active list focus and vice versa)
-	- buttons in relation to that
-- text idea page
-- fix rhyme and rap rhyme stylers
-- strands of important words in a part -page
-- dynamic size line notes (not 8 lines *8 beats)
-- edit beats as full hits or half hits (no first syllables on half hits)
-- detect incorrect syllable count and try to reduce automatically
-
-High priority:
-- freeze words in rhyme editor and fill blanks
-- another prod text, which only takes into account the story
-- combine score and order
-- color lines + dialogue idea (ready-made) = lyric?
-- matching words to colors from - vocabulary: for artist, for release, for song
-- what feeling listener should have during release -page
-	- re-route it to ideas
-
-Mid priority:
-- when opening with task list view, the editor bar is not set
-- TxtStructEdit: scroll position of best doc edit is lost
-
-Low priority:
-- See all "#include <SongDatabase/SongDatabase.h>" and change that to use some virtual base class in ToolCore
-	- also "#include <SongTool/SongTool.h>"
-- TxtStructEdit: feed previous text to prompt when requesting style-comparison completion
 
 
 
@@ -417,3 +149,4 @@ x? vocabulary: for artist, for release, for song
 - optimize AI usage: use existing data in database process
 - 5 DB support: song, twitter, blog, dialog, storyboard
 - fix db file hierarchy: entity/snapshot/component (artist/album/song)
+- lead parser and analyzer (taxi)
