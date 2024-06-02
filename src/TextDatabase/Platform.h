@@ -134,10 +134,13 @@ struct Platform : Moveable<Platform> {
 	const char* description = 0;
 	int profile_type = PLATFORM_PROFILE_ANY;
 	bool attrs[PLATFORM_ATTR_COUNT];
+	Vector<String> functions;
 	
 	Platform() {memset(attrs, 0, sizeof(attrs));}
 	
 	void SetAttr(String name, bool value);
+	
+	Platform& operator << (const char* fn) {functions << fn; return *this;}
 	
 	/*String name;
 	bool has_title = false;

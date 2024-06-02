@@ -544,6 +544,7 @@ AttrText GreenRedAttr(AttrText a, int red);
 void TrimBothAll(Vector<String>& v);
 int VectorFind(const Vector<String>& v, const String& s);
 void RemoveQuotes(String& s);
+void RemoveQuotes2(String& s);
 
 
 

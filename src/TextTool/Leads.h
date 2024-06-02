@@ -31,6 +31,7 @@ protected:
 	ImageBiographySummaryCtrl	image_biography_summary;
 	PlatformCtrl				platform;
 	PlatformProfileCtrl			platform_profile;
+	SocialNeedsCtrl				social_needs;
 	
 	
 public:

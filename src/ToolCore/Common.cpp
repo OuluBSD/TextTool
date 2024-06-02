@@ -711,6 +711,16 @@ void RemoveQuotes(String& s) {
 		s = s.Left(c-1);
 }
 
+void RemoveQuotes2(String& s_) {
+	WString ws = s_.ToWString();
+	if (ws.GetCount() > 0 && (ws[0] == '\"' || ws[0] == L"“"[0]))
+		ws = ws.Mid(1);
+	int c = ws.GetCount();
+	if (c > 0 && (ws[c-1] == '\"' || ws[c-1] == L"”"[0]))
+		ws = ws.Left(c-1);
+	s_ = ws.ToString();
+}
+
 const char* VocabularyTypeString[VOCABULARYTYPE_COUNT] = {
 	"Important word",
 	"Positive word",

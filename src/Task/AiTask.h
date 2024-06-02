@@ -250,6 +250,7 @@ public:
 	void CreateInput_Vision();
 	void CreateInput_Snapshot();
 	void CreateInput_VideoSolver();
+	void CreateInput_DemandSolver();
 	
 	void Process_GetSuggestionAttributes();
 	void Process_StoryArc();

@@ -41,6 +41,7 @@
 #include "Platform.h"
 #include "PlatformProfile.h"
 #include "VideoPromptMaker.h"
+#include "SocialNeeds.h"
 
 
 #endif

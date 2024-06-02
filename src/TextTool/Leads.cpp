@@ -32,6 +32,7 @@ void LeadsCtrl::InitSimplified() {
 	AddItem(t_("Social Media"), t_("Audience"), audience);
 	AddItem(t_("Social Media"), t_("Header"), social_header);
 	AddItem(t_("Social Media"), t_("Content"), some_content);
+	AddItem(t_("Social Media"), t_("Needs"), social_needs);
 	//AddItem(t_("Social Media"), t_("Content Templates"), tmpl_content);
 	
 }

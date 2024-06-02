@@ -439,6 +439,23 @@ void TaskMgr::GetVideoSolver(const VideoSolverArgs& args, Event<String> WhenResu
 	task_lock.Leave();
 }
 
+void TaskMgr::GetDemandSolver(const DemandArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
+	t.SetRule(AITASK_SNAPSHOT, MakeName(args, -1, "demand solver"))
+		.Input(&AiTask::CreateInput_DemandSolver)
+		.Process(&AiTask::Process_Default);
+	
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
 void TaskMgr::GetVision(const String& jpeg, const VisionArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	TaskMgr& p = *this;

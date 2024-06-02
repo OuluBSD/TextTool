@@ -7,11 +7,13 @@ v0.0.1
 	- functions to "improve humor", "improve romance", etc.
 	- 5t model for evaluation
 - lyrics generator upgrade: repeat/new metrics, analysis, fixes (check that repeats enough)
+- fix 'cookie' and persistency issues: maximize, which page
 - move share to private repo
 - generate demo share data
 
 
 v0.0.2
+- DB_MEME
 - book-page: what is the "book of you" currently and what it demands now for better content
 - improve lyrics and song generation gui
 - better suno-style keyword planning (requires research)

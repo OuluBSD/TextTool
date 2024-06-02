@@ -283,6 +283,26 @@ struct VideoSolverArgs {
 	
 };
 
+struct DemandArgs {
+	int fn = 0;
+	String role, need, action;
+	int platform = 0;
+	VectorMap<String,Vector<String>> need_causes;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("role", role)
+				("need", need)
+				("action", action)
+				("platform", platform)
+				("need_causes", need_causes)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
 
 END_TEXTLIB_NAMESPACE
 

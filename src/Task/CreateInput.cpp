@@ -3015,6 +3015,90 @@ void AiTask::CreateInput_VideoSolver() {
 	}
 }
 
+void AiTask::CreateInput_DemandSolver() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadDataAnalysis& lda = mdb.lead_data.a;
+	
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	DemandArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of internal psychological needs for a " + args.role + ". Start every line with a verb, which completes the sentence \"" + args.role + " needs to ...\"");
+			results.Add("");
+		}
+		SetHighQuality();
+	}
+	else if (args.fn == 1) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Examples: List of reasons for internal psychological need of 'feel rewarded for work' for a 'music producer'");
+			list.Add("to promote new music");
+			list.Add("to promote upcoming shows or events");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of reasons for internal psychological need of '" + args.need + "' for a '" + args.role + "', which can be done in Internet or social media. Start every line with the word 'to', which completes the sentence \"To fulfill the need to '" + args.need + "', " + args.role + " needs ...\"");
+			results.Add("");
+		}
+		SetHighQuality();
+	}
+	else if (args.fn == 2) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Examples: List of reasons for internal psychological need of 'feel rewarded for work' for a 'music producer'");
+			list.Add("to promote new music");
+			list.Add("to promote upcoming shows or events");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of reasons for internal psychological need of '" + args.need + "' for a '" + args.role + "', which can be done in Internet or social media. Complete the sentence \"To fulfill the need to '" + args.need + "', " + args.role + " needs to say following thing in the Internet:\"");
+			results.Add("");
+		}
+		SetHighQuality();
+	}
+	else if (args.fn == 3) {
+		const Platform& plat = GetPlatforms()[args.platform];
+		{
+			auto& list = input.AddSub();
+			list.Title((String)"Platform: " + plat.name);
+			list.Add(plat.description);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Is this platform suitable (answer yes or no) for the need of '" + args.need + "' for a '" + args.role + "'");
+			results.Add("");
+		}
+	}
+	else if (args.fn == 4) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Lists of needs and causes for the role '" + args.role + "'");
+		}
+		for(int i = 0; i < args.need_causes.GetCount(); i++) {
+			auto& list = input.AddSub();
+			list.Title(IntStr(i+1) + ". List of causes of the need '" + args.need_causes.GetKey(i) + "'");
+			list.NoListChar();
+			const auto& v = args.need_causes[i];
+			for(int j = 0; j < v.GetCount(); j++)
+				list.Add(IntStr(i+1) + "." + IntStr(j+1) + ": " + v[j]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of needs and their causes (e.g. 1.1 or 4.3, one per line), which matches to the action '" + args.action + "' for the role '" + args.role + "'");
+			results.Add("");
+		}
+		SetHighQuality();
+	}
+	
+}
 
 END_TEXTLIB_NAMESPACE
 

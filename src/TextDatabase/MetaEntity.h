@@ -37,6 +37,65 @@ struct Profile
 	
 };
 
+struct PlatformNeed {
+	bool enabled = false;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("enabled", enabled)
+			;
+	}
+};
+
+struct Need {
+	String name;
+	Vector<String> causes, messages;
+	Array<PlatformNeed> platforms;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("name", name)
+			("causes", causes)
+			("messages", messages)
+			("platforms", platforms)
+			;
+	}
+};
+
+struct RoleAction {
+	struct NeedCause : Moveable<NeedCause> {
+		int need_i = -1;
+		int cause_i = -1;
+		void Jsonize(JsonIO& json) {json("n", need_i)("c", cause_i);}
+	};
+	String name;
+	Vector<NeedCause> need_causes;
+	
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("name", name)
+			("need_causes", need_causes)
+			;
+	}
+};
+
+struct Role {
+	String name;
+	Array<Need> needs;
+	Array<RoleAction> actions;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("name", name)
+			("needs", needs)
+			("actions", actions)
+			;
+	}
+	int FindAction(const String& name) const;
+	
+};
+
 struct Owner
 {
 	String name;
@@ -47,12 +106,13 @@ struct Owner
 	bool is_guitarist = false;
 	String electronic_tools;
 	Array<Profile> profiles;
-	
+	Array<Role> roles;
 	
 	/*void Serialize(Stream& s) {
 		
 	}*/
 	
+	int FindRole(const String& name) const;
 	void Store();
 	void Load(String name);
 	void Jsonize(JsonIO& json) {
@@ -65,6 +125,7 @@ struct Owner
 			("is_guitarist", is_guitarist)
 			("electronic_tools", electronic_tools)
 			("profiles", profiles)
+			("roles", roles)
 			;
 		if (json.IsLoading()) {
 			for (Profile& p : profiles)

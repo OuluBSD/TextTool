@@ -9,6 +9,10 @@ SolverBase::SolverBase() {
 }
 
 void SolverBase::Process() {
+	phase = 0;
+	batch = 0;
+	sub_batch = 0;
+	
 	while (running && !Thread::IsShutdownThreads()) {
 		if (waiting) {
 			Sleep(10);

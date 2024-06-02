@@ -7,12 +7,12 @@
 #include "TaskManager.h"
 #include "ScriptGenerator.h"
 #include "ScriptSolver.h"
-#include "DemandSolver.h"
 #include "LeadSolver.h"
 #include "CollabSolver.h"
 #include "SocialSolver.h"
 #include "SnapSolver.h"
 #include "VideoSolver.h"
+#include "DemandSolver.h"
 
 
 #endif

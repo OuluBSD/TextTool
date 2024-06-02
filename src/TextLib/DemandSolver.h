@@ -18,43 +18,41 @@ Notes:
 	- list of demands for images
 		- profile, target group, etc.
 */
-class DemandSolver {
+class DemandSolver : public SolverBase {
+	
+public:
 	enum {
-		LS_BEGIN,
+		PHASE_NEEDS_PER_ROLE,
+		PHASE_CAUSES_PER_NEED,
+		PHASE_MESSAGES_PER_NEED,
+		PHASE_PLATFORMS_PER_CAUSE,
+		PHASE_ACTION_CAUSES,
+		PHASE_USER_NEEDS,
+		PHASE_USER_CAUSES,
+		PHASE_USER_ACTIONS,
 		
-		LS_COUNT
+		PHASE_COUNT
 	};
-	Time time_started, time_stopped;
-	int phase = LS_BEGIN;
-	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
+	
 	Owner* owner = 0;
-		
-	bool waiting = false;
-	bool running = false, stopped = true;
-	bool skip_ready = true;
 	
-	void Process();
+	struct NeedTask : Moveable<NeedTask> {
+		Role* r = 0;
+		Need* n = 0;
+	};
+	Vector<NeedTask> need_tasks;
 	
-	void PostProgress() {WhenProgress(phase, LS_COUNT);}
-	void SetNotRunning() {running = false;}
-	void SetWaiting(bool b) {waiting = b;}
-	void MovePhase(int p) {phase = p; batch = 0; sub_batch = 0;}
-	void NextPhase() {phase++; batch = 0; sub_batch = 0;}
-	void NextBatch() {batch++; sub_batch = 0;}
-	void NextSubBatch() {sub_batch++;}
+	
+	void OnProcessAnalyzeRoleScores(String res);
 	
 public:
 	typedef DemandSolver CLASSNAME;
 	DemandSolver();
 	
-	void Start() {if (!running) {running = true; stopped = false; Thread::Start(THISBACK(Process));}}
-	void Stop() {running = false; while (!stopped) Sleep(1);}
+	int GetPhaseCount() const override;
+	void DoPhase() override;
 	
-	static DemandSolver& Get(Owner& a);
-	static void ClearTasks();
-	static void RestartTasks();
-	
-	Callback2<int,int> WhenProgress;
+	static DemandSolver& Get(Owner& c);
 	
 };
 

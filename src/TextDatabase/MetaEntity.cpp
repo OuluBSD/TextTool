@@ -54,6 +54,19 @@ void Owner::Load(String name) {
 	LoadFromJsonFileStandard(*this, path);
 }
 
+int Owner::FindRole(const String& name) const {
+	for(int i = 0; i < roles.GetCount(); i++)
+		if (roles[i].name == name)
+			return i;
+	return -1;
+}
+
+int Role::FindAction(const String& name) const {
+	for(int i = 0; i < actions.GetCount(); i++)
+		if (actions[i].name == name)
+			return i;
+	return -1;
+}
 
 
 
