@@ -3097,8 +3097,45 @@ void AiTask::CreateInput_DemandSolver() {
 		}
 		SetHighQuality();
 	}
-	
+	else if (args.fn == 5) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Creating messages for the role '" + args.role + "'");
+			list.Add("action: " + args.action);
+		}
+		{
+			args.event.Replace("\r", "");
+			Vector<String> lines = Split(args.event, "\n");
+			auto& list = input.AddSub();
+			list.Title("Background info of the event and action");
+			list.NoListChar();
+			for (String& s : lines)
+				list.Add(s);
+		}
+		String first_name;
+		{
+			auto& list = input.AddSub();
+			list.Title("Target platforms");
+			list.NumberedLines();
+			const auto& plats = GetPlatforms();
+			for(int i = 0; i < args.enabled.GetCount(); i++) {
+				if (args.enabled[i]) {
+					list.Add(plats[i].name);
+					if (first_name.IsEmpty())
+						first_name = plats[i].name;
+				}
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Messages per platform");
+			results.NumberedLines();
+			results.Add(first_name + ": \"");
+		}
+		input.response_length = 1024*3;
+	}
 }
+
 
 END_TEXTLIB_NAMESPACE
 

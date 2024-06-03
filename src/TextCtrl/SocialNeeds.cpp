@@ -7,10 +7,11 @@ BEGIN_TEXTLIB_NAMESPACE
 SocialNeedsCtrl::SocialNeedsCtrl() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Vert() << rolesplit << platsplit;
+	hsplit.Vert() << rolesplit << platsplit << eventsplit;
 	
 	rolesplit.Horz() << roles << needs << causes << messages;
 	platsplit.Horz() << platforms << actions << action_causes;
+	eventsplit.Horz() << events << event << entries << entry;
 	
 	roles.AddColumn(t_("Role"));
 	roles.AddIndex("IDX");
@@ -97,6 +98,48 @@ SocialNeedsCtrl::SocialNeedsCtrl() {
 	action_causes.ColumnWidths("1 2");
 	action_causes.AddIndex("IDX");
 	
+	events.AddColumn(t_("Event"));
+	events.AddIndex("IDX");
+	events.WhenBar << [this](Bar& b) {
+		b.Add("Add event", [this]() {
+			MetaPtrs& p = MetaPtrs::Single();
+			if (!p.owner || !roles.IsCursor() || !actions.IsCursor()) return;
+			int role_i = roles.Get("IDX");
+			int action_i = actions.Get("IDX");
+			p.owner->roles[role_i].actions[action_i].events.Add();
+			PostCallback(THISBACK(DataRole));
+		});
+		b.Add("Remove event", [this]() {
+			MetaPtrs& p = MetaPtrs::Single();
+			if (!p.owner || !roles.IsCursor() || !actions.IsCursor() || !events.IsCursor()) return;
+			int role_i = roles.Get("IDX");
+			int action_i = actions.Get("IDX");
+			int event_i = events.Get("IDX");
+			p.owner->roles[role_i].actions[action_i].events.Remove(event_i);
+			PostCallback(THISBACK(DataRole));
+		});
+		
+	};
+	
+	entries.AddColumn(t_("Platform"));
+	entries.AddColumn(t_("Entry"));
+	entries.ColumnWidths("1 4");
+	entries.AddIndex("IDX");
+	entries.WhenCursor << THISBACK(DataEntry);
+	
+	event.WhenAction << [this]() {
+		MetaPtrs& p = MetaPtrs::Single();
+		if (!p.owner || !roles.IsCursor() || !actions.IsCursor() || !events.IsCursor()) return;
+		int role_i = roles.Get("IDX");
+		int need_i = needs.Get("IDX");
+		int action_i = actions.Get("IDX");
+		int event_i = events.Get("IDX");
+		String s = event.GetData();
+		p.owner->roles[role_i].actions[action_i].events[event_i].text = s;
+		s.Replace("\n", "\\n");
+		events.Set(0, s);
+		//PostCallback(THISBACK(DataEvent));
+	};
 	
 }
 
@@ -150,6 +193,7 @@ void SocialNeedsCtrl::DataRole() {
 	
 	DataNeed();
 	DataAction();
+	DataEvent();
 }
 
 void SocialNeedsCtrl::DataNeed() {
@@ -204,6 +248,10 @@ void SocialNeedsCtrl::DataAction() {
 	MetaPtrs& p = MetaPtrs::Single();
 	if (!p.owner || !roles.IsCursor() || !actions.IsCursor()) {
 		action_causes.Clear();
+		events.Clear();
+		entries.Clear();
+		event.SetData("");
+		entry.SetData("");
 		return;
 	}
 	
@@ -229,6 +277,67 @@ void SocialNeedsCtrl::DataAction() {
 	if (!action_causes.IsCursor() && action_causes.GetCount())
 		action_causes.SetCursor(0);
 	
+	for(int i = 0; i < ra.events.GetCount(); i++) {
+		RoleEvent& re = ra.events[i];
+		String s = re.text;
+		s.Replace("\n", "\\n");
+		events.Set(i, 0, s);
+		events.Set(i, "IDX", i);
+	}
+	INHIBIT_CURSOR_(events, c);
+	events.SetCount(ra.events.GetCount());
+	events.SetSortColumn(0);
+	if (!events.IsCursor() && events.GetCount())
+		events.SetCursor(0);
+	
+	DataEvent();
+}
+
+void SocialNeedsCtrl::DataEvent() {
+	MetaPtrs& p = MetaPtrs::Single();
+	if (!p.owner || !roles.IsCursor() || !events.IsCursor() || !actions.IsCursor()) {
+		entries.Clear();
+		event.SetData("");
+		entry.SetData("");
+		return;
+	}
+	
+	int role_i = roles.Get("IDX");
+	int event_i = events.Get("IDX");
+	int action_i = actions.Get("IDX");
+	Role& r = p.owner->roles[role_i];
+	RoleAction& ra = r.actions[action_i];
+	RoleEvent& re = ra.events[event_i];
+	
+	event.SetData(re.text);
+	
+	const auto& plats = GetPlatforms();
+	for(int i = 0; i < re.entries.GetCount(); i++) {
+		int plat_i = re.entries.GetKey(i);
+		String plat_name = plats[plat_i].name;
+		entries.Set(i, 0, plat_name);
+		entries.Set(i, 1, re.entries[i]);
+		entries.Set(i, "IDX", i);
+	}
+	INHIBIT_CURSOR(entries);
+	entries.SetCount(re.entries.GetCount());
+	if (entries.GetCount() && !entries.IsCursor())
+		entries.SetCursor(0);
+	
+	DataEntry();
+}
+
+void SocialNeedsCtrl::DataEntry() {
+	MetaPtrs& p = MetaPtrs::Single();
+	if (!p.owner || !roles.IsCursor() || !actions.IsCursor() || !events.IsCursor() || !entries.IsCursor()) return;
+	int role_i = roles.Get("IDX");
+	int need_i = needs.Get("IDX");
+	int action_i = actions.Get("IDX");
+	int event_i = events.Get("IDX");
+	int entry_i = entries.Get("IDX");
+	RoleEvent& re = p.owner->roles[role_i].actions[action_i].events[event_i];
+	String& s = re.entries[entry_i];
+	entry.SetData(s);
 }
 
 void SocialNeedsCtrl::ToolMenu(Bar& bar) {

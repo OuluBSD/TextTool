@@ -127,22 +127,22 @@ void DemandSolver::DoPhase() {
 		const Platform& plat = plats[batch];
 		
 		if (!sub_batch) {
-			need_tasks.Clear();
+			tasks.Clear();
 			for (Role& r : owner->roles) {
 				for (Need& n : r.needs) {
 					if (skip_ready && batch < n.platforms.GetCount())
 						continue;
-					NeedTask& t = need_tasks.Add();
+					Task& t = tasks.Add();
 					t.r = &r;
 					t.n = &n;
 				}
 			}
 		}
-		if (sub_batch >= need_tasks.GetCount()) {
+		if (sub_batch >= tasks.GetCount()) {
 			NextBatch();
 			return;
 		}
-		NeedTask& t = need_tasks[sub_batch];
+		Task& t = tasks[sub_batch];
 		
 		
 		DemandArgs args;
@@ -154,7 +154,7 @@ void DemandSolver::DoPhase() {
 		SetWaiting(1);
 		TaskMgr& m = TaskMgr::Single();
 		m.GetDemandSolver(args, [this](String res) {
-			NeedTask& t = need_tasks[sub_batch];
+			Task& t = tasks[sub_batch];
 			
 			res = TrimBoth(ToLower(res));
 			bool yes = res.Left(3) == "yes";
@@ -221,23 +221,102 @@ void DemandSolver::DoPhase() {
 			NextSubBatch();
 		});
 	}
-	else if (phase == PHASE_USER_NEEDS) {
+	else if (phase == PHASE_EVENT_ENTRIES) {
+		if (batch == 0 && sub_batch == 0) {
+			tasks.Clear();
+			const auto& plats = GetPlatforms();
+			Vector<bool> enabled;
+			enabled.SetCount(plats.GetCount());
+			for (Role& r : owner->roles) {
+				for (RoleAction& ra : r.actions) {
+					for (auto& b : enabled) b = false;
+					for (RoleAction::NeedCause& nc : ra.need_causes) {
+						Need& n = r.needs[nc.need_i];
+						for(int i = 0; i < n.platforms.GetCount(); i++)
+							if (n.platforms[i].enabled)
+								enabled[i] = true;
+					}
+					for (RoleEvent& re : ra.events) {
+						if (skip_ready && re.entries.GetCount())
+							continue;
+						Task& t = tasks.Add();
+						t.enabled <<= enabled;
+						t.r = &r;
+						t.ra = &ra;
+						t.re = &re;
+					}
+				}
+			}
+		}
+		if (batch >= tasks.GetCount()) {
+			NextPhase();
+			return;
+		}
 		
-		SetNotRunning(); return;
-		TODO
+		Task& t = tasks[batch];
 		
-	}
-	else if (phase == PHASE_USER_CAUSES) {
+		int per_subbatch = 20;
+		int enabled_count = 0;
+		for (bool b : t.enabled) if (b) enabled_count++;
+		int sub_batches = enabled_count / per_subbatch + ((enabled_count % per_subbatch) ? 1 : 0);
+		if (sub_batch >= sub_batches) {
+			NextBatch();
+			return;
+		}
 		
-		SetNotRunning(); return;
-		TODO
+		DemandArgs args;
+		args.fn = 5;
+		args.role = t.r->name;
+		args.action = t.ra->name;
+		args.event = t.re->text;
+		args.enabled <<= t.enabled;
 		
-	}
-	else if (phase == PHASE_USER_ACTIONS) {
+		int begin = sub_batch * per_subbatch;
+		int end = begin + per_subbatch;
+		enabled_count = 0;
+		for (bool& b : args.enabled) {
+			if (b) {
+				if (enabled_count < begin || enabled_count >= end)
+					b = false;
+				enabled_count++;
+			}
+		}
 		
-		SetNotRunning(); return;
-		TODO
+		enabled_tmp <<= args.enabled;
 		
+		SetWaiting(1);
+		TaskMgr& m = TaskMgr::Single();
+		m.GetDemandSolver(args, [this](String res) {
+			Task& t = tasks[batch];
+			RemoveEmptyLines3(res);
+			Vector<String> lines = Split(res, "\n");
+			int row = 0;
+			for(int i = 0; i < enabled_tmp.GetCount(); i++) {
+				if (!enabled_tmp[i]) continue;
+				if (row >= lines.GetCount()) break;
+				String& l = lines[row];
+				int a = l.Find(":");
+				if (a >= 0) {
+					a = l.Find("\"", a);
+					if (a >= 0) a++;
+				}
+				else
+					a = 0;
+				int b = l.ReverseFind("\"");
+				if (a >= 0 && b > a) {
+					String mid = l.Mid(a,b-a);
+					t.re->entries.GetAdd(i) = mid;
+				}
+				row++;
+			}
+			/*
+			Role& r = owner->roles[batch];
+			RoleAction& ra = r.actions[sub_batch];
+			ra.need_causes.Clear();
+			*/
+			SetWaiting(0);
+			NextSubBatch();
+		});
 	}
 	else TODO
 	

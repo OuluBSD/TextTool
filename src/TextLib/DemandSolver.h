@@ -27,21 +27,22 @@ public:
 		PHASE_MESSAGES_PER_NEED,
 		PHASE_PLATFORMS_PER_CAUSE,
 		PHASE_ACTION_CAUSES,
-		PHASE_USER_NEEDS,
-		PHASE_USER_CAUSES,
-		PHASE_USER_ACTIONS,
+		PHASE_EVENT_ENTRIES,
 		
 		PHASE_COUNT
 	};
 	
 	Owner* owner = 0;
 	
-	struct NeedTask : Moveable<NeedTask> {
+	struct Task : Moveable<Task> {
 		Role* r = 0;
 		Need* n = 0;
+		RoleAction* ra = 0;
+		RoleEvent* re = 0;
+		Vector<bool> enabled;
 	};
-	Vector<NeedTask> need_tasks;
-	
+	Vector<Task> tasks;
+	Vector<bool> enabled_tmp;
 	
 	void OnProcessAnalyzeRoleScores(String res);
 	

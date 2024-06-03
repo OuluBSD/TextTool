@@ -68,6 +68,13 @@ int Role::FindAction(const String& name) const {
 	return -1;
 }
 
+int RoleAction::FindEvent(const String& event) const {
+	for(int i = 0; i < events.GetCount(); i++)
+		if (events[i].text == event)
+			return i;
+	return -1;
+}
+
 
 
 int Owner::GetOpportunityScore(const LeadOpportunity& opp) const {

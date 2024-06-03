@@ -10,12 +10,12 @@ void MetaStartup() {
 	
 	// Load Database
 	#ifdef flagWIN32
-	mdb.dir = AppendFileName(GetHomeDirectory(), "TextTool");
+	mdb.dir = AppendFileName(GetHomeDirectory(), "MyTextTool");
 	#else
-	mdb.dir = GetHomeDirFile("TextTool");
+	mdb.dir = GetHomeDirFile("MyTextTool");
 	#endif
 	if (!DirectoryExists(mdb.dir)) {
-		PromptOK(DeQtf("Default path not found.\nSelect TextTool directory."));
+		PromptOK(DeQtf("Default path not found.\nSelect MyTextTool directory."));
 		mdb.dir = SelectDirectory();
 	}
 	

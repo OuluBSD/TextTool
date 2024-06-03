@@ -6,9 +6,11 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class SocialNeedsCtrl : public ToolAppCtrl {
-	Splitter hsplit, rolesplit, platsplit;
+	Splitter hsplit, rolesplit, platsplit, eventsplit;
 	ArrayCtrl roles, needs, causes, messages;
 	ArrayCtrl platforms, actions, action_causes;
+	ArrayCtrl events, entries;
+	DocEdit event, entry;
 	
 public:
 	typedef SocialNeedsCtrl CLASSNAME;
@@ -18,6 +20,8 @@ public:
 	void DataRole();
 	void DataNeed();
 	void DataAction();
+	void DataEvent();
+	void DataEntry();
 	void ToolMenu(Bar& bar) override;
 	void Do(int fn);
 	

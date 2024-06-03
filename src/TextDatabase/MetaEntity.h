@@ -62,6 +62,18 @@ struct Need {
 	}
 };
 
+struct RoleEvent {
+	String text;
+	VectorMap<int,String> entries;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("text", text)
+			("entries", entries)
+			;
+	}
+};
+
 struct RoleAction {
 	struct NeedCause : Moveable<NeedCause> {
 		int need_i = -1;
@@ -70,14 +82,18 @@ struct RoleAction {
 	};
 	String name;
 	Vector<NeedCause> need_causes;
+	Array<RoleEvent> events;
 	
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("name", name)
 			("need_causes", need_causes)
+			("events", events)
 			;
 	}
+	int FindEvent(const String& event) const;
+	
 };
 
 struct Role {

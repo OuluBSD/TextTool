@@ -285,17 +285,20 @@ struct VideoSolverArgs {
 
 struct DemandArgs {
 	int fn = 0;
-	String role, need, action;
+	String role, need, action, event;
 	int platform = 0;
 	VectorMap<String,Vector<String>> need_causes;
+	Vector<bool> enabled;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
 				("role", role)
 				("need", need)
 				("action", action)
+				("event", event)
 				("platform", platform)
 				("need_causes", need_causes)
+				("enabled", enabled)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}
