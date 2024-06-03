@@ -28,7 +28,6 @@ struct Entity :
 	int language = 0;
 	
 	// Public (separate files)
-	Array<Typeclass>	typeclasses_;
 	Array<Script>		scripts;
 	Array<Snapshot>		snaps;
 	

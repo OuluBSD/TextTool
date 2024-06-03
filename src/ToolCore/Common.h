@@ -180,8 +180,6 @@ struct Profile;
 struct Entity;
 struct Snapshot;
 struct Component;
-struct Typeclass;
-struct Content;
 struct Script;
 struct StaticPart;
 class ToolEditor;
