@@ -401,7 +401,7 @@ void SocialContent::RemoveComment() {
 	PlatformThread& t = e.threads[thrd_i];
 	int comm_i = comments.Get("IDX");
 	if (comm_i >= 0 && comm_i < t.comments.GetCount())
-		t.comments.Remove(entry_i);
+		t.comments.Remove(comm_i);
 	
 	DataThread();
 }
@@ -429,13 +429,53 @@ void SocialContent::ToolMenu(Bar& bar) {
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	bar.Separator();
 	bar.Add(t_("Clear thread's merged text"), AppImg::BlueRing(), THISBACK1(Do, 2)).Key(K_F7);
+	bar.Separator();
+	bar.Add(t_("Add response from clipboard"), AppImg::BlueRing(), THISBACK(PasteResponse)).Key(K_CTRL_Q);
+	bar.Add(t_("Generate response"), AppImg::RedRing(), THISBACK1(Do, 3)).Key(K_F8);
+}
+
+void SocialContent::PasteResponse() {
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.profile) return;
+	if (!platforms.IsCursor() || !threads.IsCursor()) return;
+	
+	String message = ReadClipboardText();
+	if (message.IsEmpty()) return;
+	
+	Profile& prof = *mp.profile;
+	ProfileData& pd = ProfileData::Get(prof);
+	int plat_i = platforms.Get("IDX");
+	PlatformData& pld = pd.platforms[plat_i];
+	int entry_i = entries.Get("IDX");
+	PlatformEntry& e = pld.entries[entry_i];
+	int thrd_i = threads.Get("IDX");
+	PlatformThread& t = e.threads[thrd_i];
+	
+	String user;
+	bool generate_response = false;
+	for (int i = t.comments.GetCount()-1; i >= 0; i--) {
+		PlatformComment& pc = t.comments[i];
+		if (!pc.user.IsEmpty()) {
+			user = pc.user;
+			generate_response = pc.generate;
+			break;
+		}
+	}
+	
+	PlatformComment& pc = t.comments.Add();
+	pc.user = user;
+	pc.message = message;
+	pc.generate = generate_response;
+	pc.published = GetSysTime();
+	
+	PostCallback(THISBACK(DataThread));
 }
 
 void SocialContent::Do(int fn) {
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.profile)
 		return;
-	SocialSolver& ss = SocialSolver::Get(*mp.profile);
+	ContentSolver& ss = ContentSolver::Get(*mp.profile);
 	if (fn == 0) {
 		ss.Start();
 	}
@@ -455,6 +495,44 @@ void SocialContent::Do(int fn) {
 		PlatformThread& t = e.threads[thrd_i];
 		for(int i = 0; i < t.comments.GetCount(); i++)
 			t.comments[i].ClearMerged();
+	}
+	else if (fn == 3) {
+		if (!platforms.IsCursor() || !threads.IsCursor())
+			return;
+		Profile& prof = *mp.profile;
+		ProfileData& pd = ProfileData::Get(prof);
+		int plat_i = platforms.Get("IDX");
+		PlatformData& pld = pd.platforms[plat_i];
+		int entry_i = entries.Get("IDX");
+		PlatformEntry& e = pld.entries[entry_i];
+		int thrd_i = threads.Get("IDX");
+		PlatformThread& t = e.threads[thrd_i];
+		int c = t.comments.GetCount();
+		if (c < 2) return;
+		PlatformComment& pc0 = t.comments[c-1];
+		PlatformComment& pc1 = t.comments[c-2];
+		if (pc1.text_merged_status.IsEmpty()) {
+			PromptOK("The merged text is needed first. Run social data update (F5)");
+			return;
+		}
+		TaskMgr& m = TaskMgr::Single();
+		SocialArgs args;
+		args.fn = 18;
+		args.text = pc1.text_merged_status;
+		args.profile = pc0.user.GetCount() ? pc0.user : "me";
+		
+		m.GetSocial(args, [this,&pc0,&pc1](String res) {
+			RemoveEmptyLines2(res);
+			Vector<String> l = Split(res, "\n");
+			String suggs;
+			for (String& s : l) {
+				if (!suggs.IsEmpty()) suggs << "\n\n";
+				RemoveQuotes(s);
+				suggs << "- " << s;
+			}
+			pc0.message = suggs;
+			PostCallback(THISBACK(DataThread));
+		});
 	}
 }
 

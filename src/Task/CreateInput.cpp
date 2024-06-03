@@ -2737,6 +2737,20 @@ void AiTask::CreateInput_Social() {
 		}
 		SetHighQuality();
 	}
+	else if (args.fn == 18) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Summarisation of the discussion so far");
+			list.NoListChar();
+			list.Add(args.text);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Top 3 responses for to this discussion for '" + args.profile + "'");
+			results.NumberedLines();
+			results.Add("\"");
+		}
+	}
 	else {
 		TODO
 	}

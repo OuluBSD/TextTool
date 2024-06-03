@@ -36,7 +36,6 @@ class SocialSolver {
 		SS_PLATFORM_DESCRIPTIONS,
 		SS_PLATFORM_DESCRIPTION_REFINEMENTS,
 		SS_PLATFORM_DESCRIPTION_TRANSLATED,
-		SS_MERGE_MESSAGES,
 		
 		SS_COUNT
 	};
@@ -62,17 +61,6 @@ class SocialSolver {
 	Vector<Range> ranges;
 	
 	
-	struct MessageTask : Moveable<MessageTask> {
-		const Platform* plat = 0;
-		PlatformData* plat_data = 0;
-		PlatformEntry* entry = 0;
-		PlatformThread* thrd = 0;
-		Vector<PlatformComment*> comments;
-	};
-	Vector<MessageTask> msg_tasks;
-	MessageTask tmp_task;
-	void TraverseMessageTasks(int prof_i, int plat_i);
-	void TraverseMessageTasks(Vector<PlatformComment*>& before, PlatformComment& plc);
 	
 	
 	struct VisionTask : Moveable<VisionTask> {
@@ -80,7 +68,6 @@ class SocialSolver {
 		String jpeg;
 	};
 	Vector<VisionTask> vision_tasks;
-	MessageTask tmp_vision_task;
 	void TraverseVisionTasks();
 	
 	
@@ -126,7 +113,6 @@ class SocialSolver {
 	void ProcessPlatformDescriptions();
 	void ProcessPlatformDescriptionRefinements();
 	void ProcessPlatformDescriptionTranslated();
-	void ProcessMergeMessages();
 	void ProcessAnalyzeImageBiography();
 	void ProcessSummarizeImageCategoryYear();
 	void ProcessSummarizeImageBiography();
@@ -146,7 +132,6 @@ class SocialSolver {
 	void OnProcessPlatformDescriptions(String res);
 	void OnProcessPlatformDescriptionRefinements(String res);
 	void OnProcessPlatformDescriptionTranslated(String res);
-	void OnProcessMergeMessages(String res);
 	void OnProcessAnalyzeImageBiography(String res);
 	void OnProcessSummarizeImageCategoryYear(String res);
 	void OnProcessSummarizeImageBiography(String res);

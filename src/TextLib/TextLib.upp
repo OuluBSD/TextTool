@@ -28,6 +28,8 @@ file
 	VideoSolver.cpp,
 	DemandSolver.h,
 	DemandSolver.cpp,
+	ContentSolver.h,
+	ContentSolver.cpp,
 	CollabSolver.h,
 	CollabSolver.cpp;
 

@@ -1,14 +1,12 @@
 
 
 v0.0.1
-- reason-based bulk-message generation for social media
-	- conversation must be improved for usability and ease-of-use
+- conversation must be improved for usability and ease-of-use
 - lyrics generator upgrade: logical post-analysis and fixes
 	- functions to "improve humor", "improve romance", etc.
 	- 5t model for evaluation
 - lyrics generator upgrade: repeat/new metrics, analysis, fixes (check that repeats enough)
 - fix 'cookie' and persistency issues: maximize, which page
-- move share to private repo
 - generate demo share data
 
 
@@ -152,3 +150,5 @@ x? vocabulary: for artist, for release, for song
 - 5 DB support: song, twitter, blog, dialog, storyboard
 - fix db file hierarchy: entity/snapshot/component (artist/album/song)
 - lead parser and analyzer (taxi)
+- move share to private repo
+- reason-based bulk-message generation for social media

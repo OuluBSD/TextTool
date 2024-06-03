@@ -13,6 +13,7 @@
 #include "SnapSolver.h"
 #include "VideoSolver.h"
 #include "DemandSolver.h"
+#include "ContentSolver.h"
 
 
 #endif
