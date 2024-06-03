@@ -1,10 +1,4 @@
 
-
-v0.0.1
-- fix 'cookie' and persistency issues: maximize, which page
-- generate demo share data
-
-
 v0.0.2
 - DB_MEME
 - book-page: what is the "book of you" currently and what it demands now for better content
@@ -44,6 +38,7 @@ v0.0.2
 - fix Finnish language support with at least 1 new DB
 - fix: add snapshot and entity pointers to component and snapshot at object creation
 - lead templates + publishers + artist list: shadow leads for artists
+- generate better demo share data
 
 v0.0.3
 - calendar / operations overview
@@ -83,7 +78,7 @@ v0.0.3
 
 
 
-Done:
+Done (the list is growing downward):
 - import existing text to idea
 - import attributes from existing text
 - rap stylizer tab
@@ -150,3 +145,6 @@ x? vocabulary: for artist, for release, for song
 - conversation must be improved for usability and ease-of-use
 - lyrics generator upgrade: logical post-analysis and fixes
 - lyrics generator upgrade: repeat/new metrics, analysis, fixes (check that repeats enough)
+- fix 'cookie' and persistency issues: maximize, which page
+- generate demo share data
+!!! v0.0.1 checkpoint !!!
