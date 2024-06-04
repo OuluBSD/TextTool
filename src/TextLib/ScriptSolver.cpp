@@ -74,6 +74,12 @@ void ScriptSolver::Process() {
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
 			phase = LS_BEGIN;
+			
+			
+			// Start ScriptPostSolver
+			ScriptPostSolver& ls = ScriptPostSolver::Get(*artist->profile, *script, appmode);
+			ls.Start();
+			
 			break;
 		}
 		
@@ -1050,16 +1056,36 @@ void ScriptSolver::OnProcessComparisonFail(int loser) {
 		int sugg_i = remaining[0];
 		ScriptSuggestions& ls = sa.script_suggs[sugg_i];
 		ls.rank = 0;
-		String& content = song.suggestions.GetAdd(ls.rank);
-		content = ls.GetText();
+		
+		String content = ls.GetText();
 		FixOffensiveWords(content);
+		song.suggestions.GetAdd(ls.rank) = content;
+		SortByKey(song.suggestions, StdLess<int>());
+		
+		// Find average length of suggestions
+		Vector<int> lengths;
+		for(int i = 0; i < song.suggestions.GetCount(); i++)
+			lengths.Add(song.suggestions[i].GetCount());
+		Sort(lengths, StdLess<int>());
+		int mode = lengths[lengths.GetCount()/2];
+		
+		// If the winner is very short, then skip it
+		for(int i = 0; i < song.suggestions.GetCount(); i++) {
+			String& sugg = song.suggestions[i];
+			double diff = fabs((sugg.GetCount() / (double)mode) - 1.0);
+			if (diff > 0.66667)
+				continue;
+			content = sugg;
+			break;
+		}
+		
 		
 		LOG("Winner scripts:");
 		LOG(content);
 		
 		song.text = content;
+		
 	}
-	SortByKey(song.suggestions, StdLess<int>());
 	
 	SetWaiting(0);
 	NextBatch();
