@@ -186,6 +186,7 @@ double StructSuggestion::GetEstimatedDuration(int bpm) const {
 	return sec;
 }
 
+#if 0
 
 String GetPostScriptAnalysisKey(int i) {
 	switch (i) {
@@ -255,7 +256,6 @@ String GetPostScriptAnalysisDescription(int i) {
 	}
 }
 
-
 String GetPostScriptModificationKey(int i) {
 	switch (i) {
 		case POSTSCRIPTMOD_TONE_INC_HAPPY: return "Increase tone: happy";
@@ -303,6 +303,8 @@ String GetPostScriptModificationKey(int i) {
 		default: TODO return "";
 	}
 }
+#endif
+
 
 END_TEXTLIB_NAMESPACE
 

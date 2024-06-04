@@ -29,8 +29,14 @@ public:
 	struct Variation : Moveable<Variation> {
 		Vector<String> lines;
 		Vector<int> scores;
+		int ScoreSum() const {int s = 0; for (int i : scores) s += i; return s;}
+		double ScoreAv() const {int s = 0; for (int i : scores) s += i; return (double)s/scores.GetCount();}
+		#if 0
 		int rank = -1;
 		bool operator()(const Variation& a, const Variation& b) const {return a.rank < b.rank;}
+		#else
+		bool operator()(const Variation& a, const Variation& b) const {return a.ScoreSum() >= b.ScoreSum();}
+		#endif
 	};
 	Vector<Variation> variations;
 	Index<int> remaining;

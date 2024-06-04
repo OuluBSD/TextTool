@@ -26,7 +26,10 @@ enum {
 
 
 extern const char* ScoreTitles[SCORE_COUNT];
+extern const char* ScoreDescriptions[SCORE_COUNT];
 String GetScoreKey(int score);
+String GetScoreTitle(int score);
+String GetScoreDescription(int score);
 
 enum {
 	RHYME_A_A,

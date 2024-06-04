@@ -113,6 +113,7 @@ struct StructSuggestion {
 	}
 };
 
+#if 0
 enum {
 	POSTSCRIPT_STORYLINE_INCONSISTENCIES,
 	POSTSCRIPT_LOGICAL_ISSUES,
@@ -197,7 +198,7 @@ enum {
 };
 
 String GetPostScriptModificationKey(int i);
-
+#endif
 
 
 struct ScriptPostFix {
@@ -226,6 +227,8 @@ struct ScriptPostFix {
 	struct Variation : Moveable<Variation> {
 		String text;
 		Vector<int> scores;
+		int ScoreSum() const {int s = 0; for (int i : scores) s += i; return s;}
+		double ScoreAv() const {int s = 0; for (int i : scores) s += i; return (double)s/scores.GetCount();}
 		void Jsonize(JsonIO& json) {
 			json
 				("txt", text)
@@ -233,6 +236,7 @@ struct ScriptPostFix {
 				;
 			if (json.IsLoading()) scores.SetCount(10,0);
 		}
+		
 	};
 	Vector<Vector<Weak>> weaks;
 	Vector<String> src_lines;
@@ -297,7 +301,8 @@ struct Script : DataFile {
 	int GetFirstPartPosition() const;
 	String GetAnyTitle() const;
 	
-	Script() {post_analysis.SetCount(POSTSCRIPT_COUNT);}
+	//Script() {post_analysis.SetCount(POSTSCRIPT_COUNT);}
+	Script() {post_analysis.SetCount(SCORE_COUNT);}
 	void Store(Entity& a);
 	void LoadTitle(Entity& a, String title);
 	void Jsonize(JsonIO& json) {
@@ -341,8 +346,10 @@ struct Script : DataFile {
 		JsonCompressedStream(json, "simple_attrs", simple_attrs);
 		
 		if (json.IsLoading()) {
-			if (post_analysis.GetCount() < POSTSCRIPT_COUNT)
-				post_analysis.SetCount(POSTSCRIPT_COUNT);
+			//if (post_analysis.GetCount() < POSTSCRIPT_COUNT)
+			//	post_analysis.SetCount(POSTSCRIPT_COUNT);
+			if (post_analysis.GetCount() < SCORE_COUNT)
+				post_analysis.SetCount(SCORE_COUNT);
 		}
 	}
 	

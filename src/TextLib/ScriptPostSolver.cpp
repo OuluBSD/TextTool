@@ -33,7 +33,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 ScriptPostSolver::ScriptPostSolver() {
-	//skip_ready = false;
+	skip_ready = false;
 	generation_count = 4;
 }
 
@@ -108,7 +108,8 @@ void ScriptPostSolver::DoPhase() {
 			Swap(spf.src_lines, lines); // Just swap for fast write: "lines" is discarded
 		}
 		
-		if (batch >= POSTSCRIPT_COUNT) {
+		//if (batch >= POSTSCRIPT_COUNT) {
+		if (batch >= SCORE_COUNT) {
 			NextPhase();
 			return;
 		}
@@ -123,8 +124,10 @@ void ScriptPostSolver::DoPhase() {
 		
 		ScriptPostArgs args;
 		args.fn = 0;
-		args.key = GetPostScriptAnalysisKey(batch);
-		args.desc = GetPostScriptAnalysisDescription(batch);
+		//args.key = GetPostScriptAnalysisKey(batch);
+		//args.desc = GetPostScriptAnalysisDescription(batch);
+		args.key = GetScoreTitle(batch);
+		args.desc = GetScoreDescription(batch);
 		args.lines <<= spf.src_lines;
 		
 		
@@ -177,7 +180,8 @@ void ScriptPostSolver::DoPhase() {
 	}
 	else if (phase == PHASE_IMPROVE_WEAKNESSES) {
 		
-		if (batch >= POSTSCRIPTMOD_COUNT) {
+		//if (batch >= POSTSCRIPTMOD_COUNT) {
+		if (batch >= SCORE_COUNT) {
 			NextPhase();
 			return;
 		}
@@ -193,7 +197,8 @@ void ScriptPostSolver::DoPhase() {
 		
 		ScriptPostArgs args;
 		args.fn = 1;
-		args.key = GetPostScriptModificationKey(batch);
+		//args.key = GetPostScriptModificationKey(batch);
+		args.key = "Increase " + ToLower(GetScoreTitle(batch)) + " score";
 		args.lines <<= spf.src_lines;
 		
 		SetWaiting(1);
@@ -248,6 +253,8 @@ void ScriptPostSolver::DoPhase() {
 	else if (phase == PHASE_SCORE_VARIATIONS) {
 		ScriptPostFix& spf = script->postfixes[generation];
 		
+		#define SCORE_COMPARISON 1
+		
 		if (batch == 0 && sub_batch == 0) {
 			// Make probability vector for items to be changes
 			Vector<int> line_slots, line_counts;
@@ -271,7 +278,7 @@ void ScriptPostSolver::DoPhase() {
 			variations.Clear();
 			for (int var_i = 0; var_i < variation_count; var_i++) {
 				auto& var = variations.Add();
-				var.scores.SetCount(10,0);
+				var.scores.SetCount(SCORE_COUNT,0);
 				Vector<String>& lines = var.lines;
 				lines <<= spf.src_lines;
 				int max_changes = max(1,(int)(lines.GetCount() * mutation_factor));
@@ -331,14 +338,22 @@ void ScriptPostSolver::DoPhase() {
 			
 			// Do matches until 1 remaining
 			matches.Clear();
+			
+			#if !SCORE_COMPARISON
 			remaining.Clear();
 			for(int i = 0; i < variations.GetCount(); i++) {
 				remaining.Add(i);
 			}
+			#endif
 		}
 		
 		
-		if (remaining.GetCount() <= 1) {
+		#if SCORE_COMPARISON
+		if (batch >= variations.GetCount())
+		#else
+		if (remaining.GetCount() <= 1)
+		#endif
+		{
 			Sort(variations, Variation());
 			LOG(Join(variations[0].lines, "\n"));
 			spf.variations.Clear();
@@ -365,16 +380,40 @@ void ScriptPostSolver::DoPhase() {
 		ScriptPostArgs args;
 		args.fn = 2;
 		
+		#if SCORE_COMPARISON
+		args.lines << Join(variations[batch].lines, "\n");
+		#else
 		for(int i = 0; i < 2; i++) {
 			int sugg_i = remaining[i];
 			String content = Join(variations[sugg_i].lines, "\n");
 			args.lines << content;
 		}
+		#endif
 		
 		SetWaiting(1);
 		TaskMgr& m = TaskMgr::Single();
 		m.GetScriptPost(appmode, args, [this](String res) {
 			ScriptPostFix& spf = script->postfixes[generation];
+			
+			#if SCORE_COMPARISON
+			res = "S0:" + res;
+			Vector<int>& scores = variations[batch].scores;
+			scores.SetCount(0);
+			{
+				Vector<String> parts = Split(res, ",");
+				int score_sum = 0, score_count = 0;
+				for (String& p : parts) {
+					p = TrimBoth(p);
+					int a = p.Find(":");
+					if (a < 0) continue;
+					p = p.Mid(a+1);
+					int score = ScanInt(TrimLeft(p));
+					score_sum += score;
+					score_count++;
+					scores << score;
+				}
+			}
+			#else
 			int loser = 0;
 			
 			res = "entry #1: S0:" + res;
@@ -412,7 +451,7 @@ void ScriptPostSolver::DoPhase() {
 			for(int i = 0; i < all_scores.GetCount() && i < 2; i++) {
 				const Vector<int>& from = all_scores[i];
 				Vector<int>& to = variations[remaining[i]].scores;
-				to.SetCount(10,0);
+				to.SetCount(SCORE_COUNT,0);
 				for(int j = 0; j < from.GetCount() && j < to.GetCount(); j++)
 					to[j] = max(to[j], from[j]);
 			}
@@ -425,7 +464,7 @@ void ScriptPostSolver::DoPhase() {
 				int sugg_i = remaining[0];
 				variations[sugg_i].rank = 0;
 			}
-			
+			#endif
 			
 			SetWaiting(0);
 			NextBatch();

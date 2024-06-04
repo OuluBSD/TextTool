@@ -148,4 +148,5 @@ x? vocabulary: for artist, for release, for song
 - fix 'cookie' and persistency issues: maximize, which page
 - generate demo share data
 !!! v0.0.1 checkpoint !!!
-- fixed bug in text post-fix, which prevented correct results
+- fixed bug in text-post-fix, which prevented correct results
+- changed text-post-fix to consider only scores instead of complicated analysis things

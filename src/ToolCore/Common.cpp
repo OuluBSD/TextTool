@@ -1067,6 +1067,39 @@ const char* ScoreTitles[SCORE_COUNT] = {
 	
 };
 
+const char* ScoreDescriptions[SCORE_COUNT] = {
+	// Statistical measurements
+	
+		"High like count means that the idea score is high",
+		"High comment count means that the emotion score is high",
+		"High listen count means that the hook score is high",
+		"High share count means that the share score is high",
+		"High bookmark count means that the value score is high",
+	
+	// Human value measurements (meaning)
+	
+		"People finding the text funny means that the comedy score is high",
+		"People finding the text sensual means that the sex score is high",
+		"People finding the text thought-provoking means that the politics score is high",
+		"People finding the text romantic means that the love score is high",
+		"People finding the text impactful means that the social issues score is high"
+	
+};
+
+String GetScoreTitle(int score) {
+	if (score >= 0 && score < SCORE_COUNT)
+		return ScoreTitles[score];
+	else
+		return "";
+}
+
+String GetScoreDescription(int score) {
+	if (score >= 0 && score < SCORE_COUNT)
+		return ScoreDescriptions[score];
+	else
+		return "";
+}
+
 String GetScoreKey(int score) {
 	return "sc(" + IntStr(score) + ")";
 }

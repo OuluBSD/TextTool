@@ -3263,11 +3263,11 @@ void AiTask::CreateInput_ScriptPost() {
 			list.Add("S7: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
 			list.Add("S8: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
 			list.Add("S9: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
-			list.Add("S10: How well " + __script2 + " fit the original vision.");
+			//list.Add("S10: How well " + __script2 + " fit the original vision.");
 		}
 		{
 			auto& list = input.AddSub().Title(__Script2 + " heuristic score factors for single phrase");
-			list.Add("\"I'm bleeding after you\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7, S5: 9, S6: 4, S7: 2, S8: 3, S9: 2, s10: 5");
+			list.Add("\"I'm bleeding after you\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7, S5: 9, S6: 4, S7: 2, S8: 3, S9: 2");
 		}
 		
 		for(int i = 0; i < args.lines.GetCount(); i++) {

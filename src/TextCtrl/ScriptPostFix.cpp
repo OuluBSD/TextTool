@@ -30,11 +30,14 @@ ScriptPostFixCtrl::ScriptPostFixCtrl() {
 	varsplit.SetPos(2500);
 	
 	generations.AddColumn(t_("Generation"));
+	generations.AddColumn(t_("Best score-av"));
 	generations.AddIndex("IDX");
 	generations.WhenCursor << THISBACK(DataGeneration);
 	
 	weak_types.AddColumn(t_("Weak type"));
+	weak_types.AddColumn(t_("Count"));
 	weak_types.AddIndex("IDX");
+	weak_types.ColumnWidths("5 1");
 	weak_types.WhenCursor << THISBACK(DataWeak);
 	
 	weaks.AddColumn(t_("Line"));
@@ -87,12 +90,16 @@ void ScriptPostFixCtrl::Data() {
 	for(int i = 0; i < p.script->postfixes.GetCount(); i++) {
 		ScriptPostFix& spf = p.script->postfixes[i];
 		generations.Set(i, 0, IntStr(i));
+		if (spf.variations.GetCount())
+			generations.Set(i, 1, spf.variations[0].ScoreAv());
+		else
+			generations.Set(i, 1, Value());
 		generations.Set(i, "IDX", i);
 	}
 	INHIBIT_CURSOR(generations);
 	generations.SetCount(p.script->postfixes.GetCount());
 	if (!generations.IsCursor() && generations.GetCount())
-		generations.SetCursor(0);
+		generations.SetCursor(generations.GetCount()-1);
 	
 	
 	DataGeneration();
@@ -123,7 +130,8 @@ void ScriptPostFixCtrl::DataGeneration() {
 	// Weaks
 	for(int i = 0; i < spf.weaks.GetCount(); i++) {
 		Vector<ScriptPostFix::Weak>& w = spf.weaks[i];
-		weak_types.Set(i, 0, GetPostScriptAnalysisKey(i));
+		//weak_types.Set(i, 0, GetPostScriptAnalysisKey(i));
+		weak_types.Set(i, 0, GetScoreTitle(i));
 		weak_types.Set(i, 1, w.GetCount());
 		weak_types.Set(i, "IDX", i);
 	}
@@ -136,7 +144,8 @@ void ScriptPostFixCtrl::DataGeneration() {
 	// Improvements
 	for(int i = 0; i < spf.improvements.GetCount(); i++) {
 		Vector<ScriptPostFix::Improvement>& w = spf.improvements[i];
-		impr_types.Set(i, 0, GetPostScriptModificationKey(i));
+		//impr_types.Set(i, 0, GetPostScriptModificationKey(i));
+		impr_types.Set(i, 0, GetScoreTitle(i));
 		impr_types.Set(i, 1, w.GetCount());
 		impr_types.Set(i, "IDX", i);
 	}
