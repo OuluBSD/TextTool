@@ -33,7 +33,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 ScriptPostSolver::ScriptPostSolver() {
-	skip_ready = false;
+	//skip_ready = false;
 	generation_count = 4;
 }
 
@@ -374,6 +374,24 @@ void ScriptPostSolver::DoPhase() {
 				spf.variations[i].scores <<= variations[i].scores;
 			}
 			NextPhase();
+			
+			// Check if this is very well improving situation
+			if (generation == generation_count-1) {
+				double max_score = 0;
+				int max_i = -1;
+				for(int i = 0; i < script->postfixes.GetCount(); i++) {
+					double score = script->postfixes[i].variations[0].ScoreAv();
+					if (score >= max_score) {
+						max_i = i;
+						max_score = score;
+					}
+				}
+				// If the latest result is the best, then try once more
+				if (max_i == generation) {
+					generation_count++;
+				}
+			}
+			
 			return;
 		}
 		
