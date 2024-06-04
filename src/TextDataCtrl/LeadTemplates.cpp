@@ -63,9 +63,14 @@ void LeadTemplateCtrl::Data() {
 		
 		double score = 0;
 		if (lt.orig_lead_lng == lng) {
-			const LeadOpportunity& o = mdb.lead_data.opportunities[lt.orig_lead_idx];
-			score = o.average_payout_estimation;
-			//lt.submission_price = o.min_entry_price_cents * 0.01;
+			if (lt.orig_lead_idx >= mdb.lead_data.opportunities.GetCount()) {
+				LOG("error: lt.orig_lead_idx >= mdb.lead_data.opportunities.GetCount()");
+			}
+			else {
+				const LeadOpportunity& o = mdb.lead_data.opportunities[lt.orig_lead_idx];
+				score = o.average_payout_estimation;
+				//lt.submission_price = o.min_entry_price_cents * 0.01;
+			}
 		}
 		templates.Set(row, 11, score);
 		

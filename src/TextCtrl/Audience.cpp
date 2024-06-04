@@ -51,12 +51,13 @@ AudienceCtrl::AudienceCtrl() {
 }
 
 void AudienceCtrl::Data() {
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.profile) return;
 	INHIBIT_CURSOR(roles);
 	if (!roles.IsCursor()) roles.SetCursor(0);
 	
 	
 	// Check if role is enabled (indirectly by enabled platforms)
-	MetaPtrs& mp = MetaPtrs::Single();
 	Owner& owner = *mp.owner;
 	Biography& biography = mp.profile->biography_detailed;
 	BiographyAnalysis& analysis = mp.profile->biography_analysis;

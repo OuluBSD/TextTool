@@ -225,8 +225,8 @@ MetaDatabase& MetaDatabase::Single() {
 	return db;
 }
 
-String MetaDatabase::GetUserDirectory() {
-	return AppendFileName(GetHomeDirectory(), "MyTextTool");
+String MetaDatabase::GetDirectory() {
+	return Single().dir;
 }
 
 void MetaDatabase::Store() {

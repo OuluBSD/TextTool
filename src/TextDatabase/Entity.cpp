@@ -99,7 +99,7 @@ void Entity::LoadScript() {
 String Entity::GetScriptDir() const {
 	ASSERT(!file_title.IsEmpty());
 	return
-		MetaDatabase::GetUserDirectory() + DIR_SEPS +
+		MetaDatabase::GetDirectory() + DIR_SEPS +
 		MetaDatabase::Single().share + DIR_SEPS +
 		GetAppModeDir() + DIR_SEPS + "scripts" + DIR_SEPS + file_title + DIR_SEPS;
 }

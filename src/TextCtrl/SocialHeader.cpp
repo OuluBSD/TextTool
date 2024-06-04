@@ -69,6 +69,7 @@ SocialHeaderCtrl::SocialHeaderCtrl() {
 
 void SocialHeaderCtrl::Data() {
 	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.profile) return;
 	BiographyAnalysis& analysis = mp.profile->biography_analysis;
 	
 	for(int i = 0; i < platforms.GetCount(); i++) {

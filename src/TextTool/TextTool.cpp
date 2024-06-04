@@ -13,7 +13,9 @@ GUI_APP_MAIN {
 	String sharedir = "share";
 	
 	Index<int> appmodes;
+	bool my_data = false;
 	for (const String& s : CommandLine()) {
+		if (s == "-my")				{my_data = true;}
 		if (s == "-finshare")		{sharedir += "-fi";}
 		if (s == "-song")			{appmodes << DB_SONG;}
 		if (s == "-twitter")		{appmodes << DB_TWITTER;}
@@ -26,7 +28,7 @@ GUI_APP_MAIN {
 	MetaDatabase::Single().share = sharedir;
 	
 	GuiStartup();
-	MetaStartup();
+	MetaStartup(my_data);
 	
 	if (appmodes.IsEmpty())
 		for(int i = 0; i < DB_COUNT; i++)

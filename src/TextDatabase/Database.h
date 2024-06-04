@@ -101,7 +101,7 @@ public:
 	void Load();
 	void Jsonize(JsonIO& json);
 	static MetaDatabase& Single();
-	static String GetUserDirectory();
+	static String GetDirectory();
 	
 	
 	// Dummy temporary solution

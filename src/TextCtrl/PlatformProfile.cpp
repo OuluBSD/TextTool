@@ -113,10 +113,10 @@ void PlatformProfileCtrl::DataPlatforms() {
 }
 
 void PlatformProfileCtrl::DataPlatform() {
-	if (!p.platforms.IsCursor()) {
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!p.platforms.IsCursor() || !mp.profile) {
 		return;
 	}
-	MetaPtrs& mp = MetaPtrs::Single();
 	BiographyAnalysis& analysis = mp.profile->biography_analysis;
 	int plat_i = p.platforms.Get("IDX");
 	const Platform& pl = GetPlatforms()[plat_i];

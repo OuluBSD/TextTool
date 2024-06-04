@@ -137,7 +137,7 @@ void SnapSolver::DoPhase() {
 		String prompt = snap->cover_suggestions[batch];
 		
 		String title = IntStr64(prompt.GetHashValue());
-		String img_dir = AppendFileName(MetaDatabase::GetUserDirectory(), "images" DIR_SEPS "full");
+		String img_dir = AppendFileName(MetaDatabase::GetDirectory(), "images" DIR_SEPS "full");
 		RealizeDirectory(img_dir);
 		String path = AppendFileName(img_dir, title + "_" + IntStr(0) + ".jpg");
 		

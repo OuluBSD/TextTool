@@ -1178,7 +1178,7 @@ void ProfileData::Jsonize(JsonIO& json) {
 }
 
 void ProfileData::Load() {
-	String dir = AppendFileName(MetaDatabase::GetUserDirectory(), "share");
+	String dir = AppendFileName(MetaDatabase::GetDirectory(), "share");
 	String fname = IntStr64(hash) + ".json";
 	String path = AppendFileName(dir, fname);
 	
@@ -1186,7 +1186,7 @@ void ProfileData::Load() {
 }
 
 void ProfileData::Store() {
-	String dir = AppendFileName(MetaDatabase::GetUserDirectory(), "share");
+	String dir = AppendFileName(MetaDatabase::GetDirectory(), "share");
 	String fname = IntStr64(hash) + ".json";
 	String path = AppendFileName(dir, fname);
 	

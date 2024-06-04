@@ -99,7 +99,7 @@ void SnapCoverImage::DataSuggestionImage() {
 	//const String& share = MetaDatabase::Single().share;
 	//String img_dir = dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir() + DIR_SEPS + "images" + DIR_SEPS;
 	//String img_dir = ConfigFile("images");
-	String img_dir = AppendFileName(MetaDatabase::GetUserDirectory(), "images" DIR_SEPS "full");
+	String img_dir = AppendFileName(MetaDatabase::GetDirectory(), "images" DIR_SEPS "full");
 	RealizeDirectory(img_dir);
 	for(int i = 0; i < 4; i++) {
 		String path = AppendFileName(img_dir, title + "_" + IntStr(i) + ".jpg");

@@ -5,15 +5,33 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-void MetaStartup() {
+void MetaStartup(bool my_data) {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	
-	// Load Database
-	#ifdef flagWIN32
-	mdb.dir = AppendFileName(GetHomeDirectory(), "MyTextTool");
-	#else
-	mdb.dir = GetHomeDirFile("MyTextTool");
-	#endif
+	if (my_data) {
+		// Load Database
+		#ifdef flagWIN32
+		mdb.dir = AppendFileName(GetHomeDirectory(), "MyTextTool");
+		#else
+		mdb.dir = GetHomeDirFile("MyTextTool");
+		#endif
+	}
+	else {
+		String dir;
+		#ifdef flagDEBUG
+		#ifdef flagWIN32
+		dir = AppendFileName(GetHomeDirectory(), "TextTool");
+		#else
+		dir = GetHomeDirFile("TextTool");
+		#endif
+		#endif
+		
+		if (dir.IsEmpty() || !DirectoryExists(dir))
+			dir = ConfigFile("");
+		
+		mdb.dir = dir;
+	}
+	
 	if (!DirectoryExists(mdb.dir)) {
 		PromptOK(DeQtf("Default path not found.\nSelect MyTextTool directory."));
 		mdb.dir = SelectDirectory();

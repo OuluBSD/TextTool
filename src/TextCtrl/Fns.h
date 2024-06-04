@@ -5,7 +5,7 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-void MetaStartup();
+void MetaStartup(bool my_data);
 void MetaShutdown();
 void AppModeStartup(int appmode);
 void AppModeShutdown(int appmode, bool fast_exit, bool save_songdata);

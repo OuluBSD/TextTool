@@ -23,14 +23,14 @@ String CacheImageFile(hash_t h) {
 
 String ThumbnailImageFile(hash_t h) {
 	String filename = MD5String(&h, sizeof(h)) + ".jpg";
-	String thumb_dir = AppendFileName(MetaDatabase::GetUserDirectory(), "images" DIR_SEPS "thumbnails");
+	String thumb_dir = AppendFileName(MetaDatabase::GetDirectory(), "images" DIR_SEPS "thumbnails");
 	String thumb_path = AppendFileName(thumb_dir, filename);
 	return thumb_path;
 }
 
 String FullImageFile(hash_t h) {
 	String filename = MD5String(&h, sizeof(h)) + ".jpg";
-	String thumb_dir = AppendFileName(MetaDatabase::GetUserDirectory(), "images" DIR_SEPS "full");
+	String thumb_dir = AppendFileName(MetaDatabase::GetDirectory(), "images" DIR_SEPS "full");
 	String thumb_path = AppendFileName(thumb_dir, filename);
 	return thumb_path;
 }
