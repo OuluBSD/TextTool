@@ -33,7 +33,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 ScriptPostSolver::ScriptPostSolver() {
-	skip_ready = false;
+	//skip_ready = false;
 	generation_count = 4;
 }
 

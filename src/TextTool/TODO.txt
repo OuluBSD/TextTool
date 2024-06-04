@@ -1,10 +1,6 @@
 
 
 v0.0.1
-- lyrics generator upgrade: logical post-analysis and fixes
-	- functions to "improve humor", "improve romance", etc.
-	- 5t model for evaluation
-- lyrics generator upgrade: repeat/new metrics, analysis, fixes (check that repeats enough)
 - fix 'cookie' and persistency issues: maximize, which page
 - generate demo share data
 
@@ -152,3 +148,5 @@ x? vocabulary: for artist, for release, for song
 - move share to private repo
 - reason-based bulk-message generation for social media
 - conversation must be improved for usability and ease-of-use
+- lyrics generator upgrade: logical post-analysis and fixes
+- lyrics generator upgrade: repeat/new metrics, analysis, fixes (check that repeats enough)

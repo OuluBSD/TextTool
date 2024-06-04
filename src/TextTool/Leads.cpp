@@ -38,9 +38,9 @@ void LeadsCtrl::InitSimplified() {
 }
 
 void LeadsCtrl::Init() {
+	ToolEditorBase::Init(); // must be first
 	UpdatePageList();
 	
-	ToolEditorBase::Init();
 	
 	
 }
@@ -59,7 +59,10 @@ void ToolEditorBase::DataMeta() {
 	}
 	INHIBIT_CURSOR(owners);
 	owners.SetCount(mdb.owners.GetCount());
-	if (!owners.IsCursor() && owners.GetCount())
+	int owner_i = p.GetOwnerIndex();
+	if (owner_i >= 0 && owner_i < owners.GetCount())
+		owners.SetCursor(owner_i);
+	else if (!owners.IsCursor() && owners.GetCount())
 		owners.SetCursor(0);
 	
 	
@@ -90,7 +93,10 @@ void ToolEditorBase::DataOwner() {
 	}
 	INHIBIT_CURSOR(profiles);
 	profiles.SetCount(row);
-	if (!profiles.IsCursor() && profiles.GetCount())
+	int profile_i = p.GetProfileIndex();
+	if (profile_i >= 0 && profile_i < owners.GetCount())
+		profiles.SetCursor(profile_i);
+	else if (!profiles.IsCursor() && profiles.GetCount())
 		profiles.SetCursor(0);
 	
 	DataProfile();

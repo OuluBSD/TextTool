@@ -38,7 +38,7 @@ GUI_APP_MAIN {
 	
 	
 	// Run main program
-	bool save_songdata = false;
+	bool save_data = false;
 	bool fast_exit = false;
 	{
 		TextTool t;
@@ -49,7 +49,7 @@ GUI_APP_MAIN {
 		
 		t.Run();
 		
-		save_songdata = t.GetEditor().GetSaveSongdata();
+		save_data = t.GetEditor().GetSaveSongdata();
 		fast_exit = t.GetEditor().IsFastExit();
 	}
 	
@@ -59,7 +59,7 @@ GUI_APP_MAIN {
 		MetaShutdown();
 	
 	for (int appmode : appmodes.GetKeys()) {
-		AppModeShutdown(appmode, fast_exit, save_songdata);
+		AppModeShutdown(appmode, fast_exit, save_data);
 	};
 }
 

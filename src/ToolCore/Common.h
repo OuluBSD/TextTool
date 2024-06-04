@@ -271,6 +271,9 @@ struct MetaPtrs {
 	MetaPtrs();
 	static MetaPtrs& Single() {static MetaPtrs e; return e;}
 	
+	int GetOwnerIndex() const;
+	int GetProfileIndex() const;
+	
 };
 
 

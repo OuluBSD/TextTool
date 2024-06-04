@@ -1,5 +1,6 @@
 #include "TextTool.h"
 
+#define COOKIE_DEBUG 0
 
 BEGIN_TEXTLIB_NAMESPACE
 
@@ -24,9 +25,22 @@ ToolEditorBase::ToolEditorBase(const char* title, TextTool& app) : title(title),
 	
 }
 
+void ToolEditorBase::Serialize(Stream& s) {
+	s % page_group % page % save_data;
+	
+	#if COOKIE_DEBUG
+	LOG(IntStr64((size_t)this) + " Loading: " << (int)s.IsLoading());
+	DUMP(page_group);
+	DUMP(page);
+	#endif
+}
 void ToolEditorBase::Init() {
 	INHIBIT_ACTION_(page_group_list, 0);
 	INHIBIT_ACTION_(page_list, 1);
+	
+	#if COOKIE_DEBUG
+	LOG(IntStr64((size_t)this) + " Init");
+	#endif
 	
 	page_group_list.SetCursor(page_group);
 	int page = this->page.GetAdd(page_group, 0);
@@ -175,9 +189,16 @@ void ToolEditorBase::SetView(int i, int j) {
 	if (i >= 0 && i < items.GetCount() && j >= 0 && j < items[i].GetCount())
 		items[i][j].ctrl->Show();
 	
+	
 	// Save 'cookie' about last viewed page
 	page_group = i;
 	page.GetAdd(i) = j;
+	
+	#if COOKIE_DEBUG
+	LOG(IntStr64((size_t)this) + " SetView");
+	DUMP(page_group);
+	DUMP(page);
+	#endif
 	
 	if (page_group == items.Find("Script"))
 		SetSubMenu(1);
@@ -289,16 +310,36 @@ void ToolEditor::LoadLast() {
 			break;
 		}
 	}
+	
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	for(int i = 0; i < mdb.owners.GetCount(); i++) {
+		Owner& o = mdb.owners[i];
+		if (o.name == app.last_owner) {
+			mp.owner = &o;
+			for(int j = 0; j < o.profiles.GetCount(); j++) {
+				Profile& p = o.profiles[j];
+				if (p.name == app.last_profile) {
+					mp.profile = &p;
+					break;
+				}
+			}
+			break;
+		}
+	}
 }
 
 void ToolEditor::StoreLast() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
+	MetaPtrs& mp = MetaPtrs::Single();
 	app.last_scripts = p.script ? p.script->file_title : String();
 	app.last_part = p.part ? p.part->name : String();
 	app.last_entity = p.entity ? p.entity->file_title : String();
 	app.last_snapshot = p.release ? p.release->file_title : String();
 	app.last_component = p.component ? p.component->file_title : String();
+	app.last_owner = mp.owner ? mp.owner->name : String();
+	app.last_profile = mp.profile ? mp.profile->name : String();
 	app.Store();
 }
 
@@ -316,7 +357,9 @@ void ToolEditor::SwitchAppMode() {
 		page_group_list.Add(group);
 	}
 	INHIBIT_ACTION(page_group_list);
-	if (page_group_list.GetCount() && !page_group_list.IsCursor())
+	if (page_group >= 0 && page_group < page_group_list.GetCount())
+		page_group_list.SetCursor(page_group);
+	else if (page_group_list.GetCount() && !page_group_list.IsCursor())
 		page_group_list.SetCursor(0);
 	
 	
@@ -330,8 +373,7 @@ void ToolEditor::SwitchAppMode() {
 }
 
 void ToolEditor::ViewPageGroup() {
-	
-	if (!page_group_list.IsCursor() || page_group < 0 || page_group >= items.GetCount()) {
+	if (page_group < 0 || page_group >= page_group_list.GetCount()) {
 		return;
 	}
 	
@@ -878,8 +920,8 @@ void ToolEditorBase::UpdatePageList() {
 	}
 	
 	INHIBIT_ACTION(page_group_list);
-	if (page_group_list.GetCount() && !page_group_list.IsCursor())
-		page_group_list.SetCursor(0);
+	if (page_group >= 0 && page_group < page_group_list.GetCount())
+		page_group_list.SetCursor(page_group);
 	
 	ViewPageGroup();
 }

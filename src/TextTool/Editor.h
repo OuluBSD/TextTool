@@ -24,6 +24,7 @@ protected:
 	ArrayCtrl			profiles;
 	int					page_group = 0;
 	VectorMap<int,int>	page;
+	bool				save_data = false;
 	
 	void AddItem(String g, String i, ToolAppCtrl& c);
 	
@@ -54,6 +55,7 @@ public:
 	virtual void DataPage();
 	virtual void OnDataProfile() {}
 	virtual void SetSubMenu(int i) = 0;
+	void Serialize(Stream& s) override;
 	
 	Callback WhenStartUpdating, WhenStopUpdating;
 	
@@ -72,7 +74,6 @@ protected:
 	ArrayCtrl			appmode_list;
 	ArrayCtrl			snaps, components;
 	ArrayCtrl			scripts;
-	bool				save_songdata = false;
 	bool				fast_exit = false;
 	
 	
@@ -114,7 +115,6 @@ public:
 	typedef ToolEditor CLASSNAME;
 	ToolEditor(TextTool* app);
 	
-	void Serialize(Stream& s) override {s % page_group % page % save_songdata;}
 	void InitAppModes(const Index<int>& appmodes);
 	void Init();
 	void SwitchAppMode();
@@ -130,9 +130,9 @@ public:
 	void MovePage(int d);
 	void MovePart(int d);
 	String GetStatusText();
-	bool GetSaveSongdata() const {return save_songdata;}
+	bool GetSaveSongdata() const {return save_data;}
 	bool IsFastExit() const {return fast_exit;}
-	void SetSaveSongdata(bool b) {save_songdata = b;}
+	void SetSaveSongdata(bool b) {save_data = b;}
 	void SetFastExit(bool b) {fast_exit = b;}
 	void LoadLast();
 	void SetSubMenu(int i) override;

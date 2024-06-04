@@ -33,6 +33,7 @@ protected:
 	
 	String last_scripts, last_part;
 	String last_entity, last_snapshot, last_component;
+	String last_owner, last_profile;
 	
 public:
 	typedef TextTool CLASSNAME;
@@ -45,7 +46,7 @@ public:
 	void PostInit() {PostCallback(THISBACK(Init));}
 	void Data();
 	void SetView(int i);
-	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed % last_entity % last_snapshot % last_component % last_scripts % last_part;}
+	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed % lead % last_entity % last_snapshot % last_component % last_scripts % last_part % last_owner % last_profile;}
 	void Layout() override {SaveWindowPos();}
 	void ShowOrphanedFiles();
 	void SaveWindowPos();

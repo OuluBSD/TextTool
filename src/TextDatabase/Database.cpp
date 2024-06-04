@@ -134,6 +134,10 @@ int EditorPtrs::GetActiveComponentIndex() const {if (!release) return -1; return
 int EditorPtrs::GetActiveScriptIndex() const {if (!script) return -1; return VectorFindPtr(script, entity->scripts);}
 
 
+int MetaPtrs::GetOwnerIndex() const {return VectorFindPtr(owner, MetaDatabase::Single().owners);}
+int MetaPtrs::GetProfileIndex() const {if (!profile) return -1; return VectorFindPtr(profile, owner->profiles);}
+
+
 TextDatabase& EditorPtrs::GetDatabase() const {
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return MetaDatabase::Single().db[appmode];

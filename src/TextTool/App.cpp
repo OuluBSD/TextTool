@@ -108,7 +108,7 @@ void TextTool::MainMenu(Bar& bar) {
 		bar.Add(t_("Set OpenAI token"), THISBACK(SetOpenAIToken));
 		bar.Separator();
 		//bar.Add(t_("Save song data analysis"), callback(&GetDatabase().src_data, &SourceData::Store));
-		if (!ed.save_songdata)
+		if (!ed.save_data)
 			bar.Add(t_("Save song data analysis on exit"), THISBACK1(SetSaveSongdata, 1));
 		else
 			bar.Add(t_("Do not save song data analysis on exit"), THISBACK1(SetSaveSongdata, 0));
@@ -158,10 +158,16 @@ void TextTool::SetOpenAIToken() {
 }
 
 void TextTool::LoadWindowPos() {
-	if (last_window.left > 0 && last_window.top > 0)
-		SetRect(last_window);
-	if (is_maximized)
-		Maximize();
+	if (last_window.left > 0 && last_window.top > 0) {
+		PostCallback([this](){
+			SetRect(last_window);
+		});
+	}
+	if (is_maximized) {
+		PostCallback([this](){
+			Maximize();
+		});
+	}
 	started = true;
 }
 
