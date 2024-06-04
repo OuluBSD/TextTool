@@ -237,6 +237,8 @@ LAYOUT(ScriptInfo, 808, 264)
 	ITEM(Upp::DropList, is_self_centered, LeftPosZ(136, 256).TopPosZ(164, 20))
 	ITEM(Upp::Label, lbl_language, SetLabel(t_("Language:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 120).TopPosZ(188, 20))
 	ITEM(Upp::DropList, language, LeftPosZ(136, 256).TopPosZ(188, 20))
+	ITEM(Upp::Label, lbl_suggestions, SetLabel(t_("Content Vision Ideas:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 120).TopPosZ(212, 20))
+	ITEM(Upp::DocEdit, suggestions, LeftPosZ(136, 256).VSizePosZ(212, 8))
 	ITEM(Upp::ArrayCtrl, typeclasses, LeftPosZ(396, 200).VSizePosZ(20, 8))
 	ITEM(Upp::ArrayCtrl, contents, LeftPosZ(600, 200).VSizePosZ(20, 8))
 END_LAYOUT

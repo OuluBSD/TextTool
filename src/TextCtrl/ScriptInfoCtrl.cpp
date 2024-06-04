@@ -146,6 +146,7 @@ void ScriptInfoCtrl::ToolMenu(Bar& bar) {
 	if (GetAppMode() == DB_SONG)
 		bar.Add(t_("Paste song header"), AppImg::RedRing(), THISBACK(PasteSongHeader)).Key(K_F8);
 	
+	bar.Add(t_("Get content vision suggestions"), AppImg::RedRing(), THISBACK(GetSuggestions)).Key(K_F9);
 }
 
 void ScriptInfoCtrl::PasteSongHeader() {
@@ -186,6 +187,31 @@ void ScriptInfoCtrl::PasteSongHeader() {
 	script.content = args.con_i;
 	script.content_vision = args.lyrics_idea;
 	script.user_structure = GetDefaultScriptStructureString(GetAppMode());
+}
+
+void ScriptInfoCtrl::GetSuggestions() {
+	MetaPtrs& mp = MetaPtrs::Single();
+	EditorPtrs& p = GetPointers();
+	if (!mp.profile || !p.script) return;
+	
+	int appmode = GetAppMode();
+	EnterAppMode(appmode);
+	
+	ScriptSolverArgs args; // 0
+	args.fn = 12;
+	args.artist.Add(mp.profile->name, mp.profile->biography);
+	args.song.Add(__typeclass, TextLib::GetTypeclasses(appmode)[p.script->typeclass]);
+	args.song.Add(__content, TextLib::GetContents(appmode)[p.script->content].key);
+	
+	LeaveAppMode();
+	
+	TaskMgr& m = TaskMgr::Single();
+	m.GetScriptSolver(appmode, args, [this](String res) {
+		PostCallback([this, res]() {
+			suggestions.SetData("1. " + res);
+		});
+	});
+	
 }
 
 END_TEXTLIB_NAMESPACE

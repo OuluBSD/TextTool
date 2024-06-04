@@ -45,6 +45,7 @@ struct StaticPart {
 	Vector<bool> actions_enabled;
 	Vector<int> phrase_parts;
 	//Index<int> picked_phrase_parts;
+	String singer;
 	
 	static String GetTypeString(int part_type);
 	static String GetTypeString(PartType part_type);
@@ -77,6 +78,7 @@ struct StaticPart {
 			("nana", nana)
 			("thrd_actions", thrd_actions)
 			("saved_" + __scripts, saved_scripts)
+			("singer", singer)
 			//("clr_list", clr_list)
 			//("picked_phrase_parts", picked_phrase_parts)
 			;
@@ -266,6 +268,12 @@ struct Script : DataFile {
 	bool						is_unsafe = false;
 	bool						is_story = false;
 	bool						is_self_centered = false;
+	String						singer0_name;
+	String						singer1_name;
+	String						singer2_name;
+	String						singer0_parts;
+	String						singer1_parts;
+	String						singer2_parts;
 	
 	String user_structure;
 	String required_parts;
@@ -341,6 +349,13 @@ struct Script : DataFile {
 			("post_analysis", post_analysis)
 			
 			("postfixes", postfixes)
+			
+			("singer0_name", singer0_name)
+			("singer1_name", singer1_name)
+			("singer2_name", singer2_name)
+			("singer0_parts", singer0_parts)
+			("singer1_parts", singer1_parts)
+			("singer2_parts", singer2_parts)
 			;
 		
 		JsonCompressedStream(json, "simple_attrs", simple_attrs);

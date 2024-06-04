@@ -2056,6 +2056,29 @@ void AiTask::CreateInput_ScriptSolver() {
 		this->SetHighQuality();
 	}
 	
+	else if (args.fn == 12) {
+		{
+			auto& list = input.AddSub().Title("Information about the " + __entity);
+			for(int j = 0; j < args.artist.GetCount(); j++) {
+				list.Add("Name: " + args.artist.GetKey(j));
+				list.Add("Biography: " + args.artist[j]);
+			}
+		}
+		{
+			auto& list = input.AddSub().Title("Information about the " + __comp);
+			for(int j = 0; j < args.song.GetCount(); j++) {
+				list.Add(args.song.GetKey(j), args.song[j]);
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Give different detailed suggestions for the content vision of the song (with short storyline etc.)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 1024;
+	}
+	
 	
 }
 

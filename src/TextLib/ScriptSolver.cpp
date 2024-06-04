@@ -385,6 +385,11 @@ void ScriptSolver::ProcessCollect() {
 				double score = 0;
 				for(int j = 0; j < SCORE_COUNT; j++)
 					score += pp.scores[j];
+				
+				// so this actually fixes cache misses
+				double separator = j * 0.001;
+				score += separator;
+				
 				m.Add(j, score);
 			}
 			SortByValue(m, StdGreater<double>());
@@ -400,6 +405,11 @@ void ScriptSolver::ProcessCollect() {
 				double score = 0;
 				for(int j = 0; j < SCORE_COUNT; j++)
 					score += tpp.scores[j];
+				
+				// so this actually fixes cache misses
+				double separator = j * 0.001;
+				score += separator;
+				
 				m.Add(j, score);
 			}
 			SortByValue(m, StdGreater<double>());
@@ -459,6 +469,9 @@ void ScriptSolver::ProcessFillLines() {
 		if (active_part.IsEmpty() && lines.GetCount() < len)
 			active_part = key; // Set active part to get new lines for
 		if (lines.IsEmpty()) continue;
+		
+		if (!sp->singer.IsEmpty())
+			key += " by singer " + sp->singer;
 		args.song.Add(key) = Join(lines, "\n");
 	}
 	args.part = active_part;

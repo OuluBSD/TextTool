@@ -356,6 +356,7 @@ bool AiTask::RunOpenAI_Completion() {
 	if (1) {
 		String prompt_cache_dir = ConfigFile("prompt-cache");
 		String fname = IntStr64(prompt.GetHashValue()) + ".txt";
+		//DUMP(fname);
 		String path = prompt_cache_dir + DIR_SEPS + fname;
 		if (!FileExists(path)) {
 			RealizeDirectory(prompt_cache_dir);

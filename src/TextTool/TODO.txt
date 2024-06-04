@@ -1,5 +1,6 @@
 
 v0.0.2
+- change "singer" to be database agnostic in StaticPart.. see all usage
 - DB_MEME
 - book-page: what is the "book of you" currently and what it demands now for better content
 - improve lyrics and song generation gui
@@ -151,3 +152,4 @@ x? vocabulary: for artist, for release, for song
 - fixed bug in text-post-fix, which prevented correct results
 - changed text-post-fix to consider only scores instead of complicated analysis things
 - added condition to increase generations in text-post-fix, if score is constantly improving
+- added support for multiple singers in lyrics solver

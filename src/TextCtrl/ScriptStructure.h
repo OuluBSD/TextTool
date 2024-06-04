@@ -34,6 +34,7 @@ public:
 	void OnStructureSuggestion(String result, Script* l);
 	void OnSuggestionAttributes(String result, Script* l);
 	void LoadActiveStruct();
+	void LoadSingers();
 	
 	
 };

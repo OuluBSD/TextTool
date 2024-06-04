@@ -88,6 +88,36 @@ ComponentStructure::ComponentStructure() {
 		EditIntSpin& e = params.CreateCtrl<EditIntSpin>(params.GetCount()-1, 1);
 		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().bridge_length = e.GetData();};
 	}
+	{
+		params.Add(t_("Singer A: name"), "");
+		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().singer0_name = e.GetData();};
+	}
+	{
+		params.Add(t_("Singer B: name"), "");
+		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().singer1_name = e.GetData();};
+	}
+	{
+		params.Add(t_("Singer C: name"), "");
+		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().singer2_name = e.GetData();};
+	}
+	{
+		params.Add(t_("Singer A: parts"), "");
+		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().singer0_parts = e.GetData();};
+	}
+	{
+		params.Add(t_("Singer B: parts"), "");
+		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().singer1_parts = e.GetData();};
+	}
+	{
+		params.Add(t_("Singer C: parts"), "");
+		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().singer2_parts = e.GetData();};
+	}
 	
 }
 
@@ -160,6 +190,12 @@ void ComponentStructure::DataComponent() {
 	params.Set(7, 1, l.prechorus_length);
 	params.Set(8, 1, l.chorus_length);
 	params.Set(9, 1, l.bridge_length);
+	params.Set(10, 1, l.singer0_name);
+	params.Set(11, 1, l.singer1_name);
+	params.Set(12, 1, l.singer2_name);
+	params.Set(13, 1, l.singer0_parts);
+	params.Set(14, 1, l.singer1_parts);
+	params.Set(15, 1, l.singer2_parts);
 	
 	DataSuggestions();
 }
@@ -215,6 +251,7 @@ void ComponentStructure::DataSuggestionAttributes() {
 
 void ComponentStructure::ToolMenu(Bar& bar) {
 	bar.Add(t_("Load user's structure"), AppImg::BlueRing(), THISBACK(LoadUserStructure)).Key(K_CTRL_Q);
+	bar.Add(t_("Load singers"), AppImg::BlueRing(), THISBACK(LoadSingers)).Key(K_CTRL_W);
 	bar.Separator();
 	bar.Add(t_("Get structure suggestions"), AppImg::RedRing(), THISBACK(GetStructureSuggestions)).Key(K_F5);
 	bar.Add(t_("Get attributes for suggestions"), AppImg::RedRing(), THISBACK(GetSuggestionAttributes)).Key(K_F6);
@@ -279,6 +316,35 @@ void ComponentStructure::LoadActiveStruct() {
 		StaticPart& part = l.parts.Add();
 		part.name = TrimBoth(GetComponentPartFromAbbr(GetAppMode(), abbr));
 		part.type = abbr;
+	}
+}
+
+void ComponentStructure::LoadSingers() {
+	Script& l = GetScript();
+	
+	for (StaticPart& part : l.parts)
+		part.singer.Clear();
+	
+	for(int i = 0; i < 3; i++) {
+		String name, parts;
+		switch (i) {
+			case 0: name = l.singer0_name; parts = l.singer0_parts; break;
+			case 1: name = l.singer1_name; parts = l.singer1_parts; break;
+			case 2: name = l.singer2_name; parts = l.singer2_parts; break;
+		}
+		if (name.IsEmpty())
+			continue;
+		
+		Vector<String> abbrs = Split(parts, ",");
+		for(String& abbr : abbrs) {
+			String sp_name = TrimBoth(GetComponentPartFromAbbr(GetAppMode(), abbr));
+			
+			for (StaticPart& sp : l.parts) {
+				if (sp.type == abbr) {
+					sp.singer = name;
+				}
+			}
+		}
 	}
 }
 

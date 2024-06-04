@@ -273,6 +273,7 @@ void ScriptGenerator::ProcessTranslate() {
 		for(int i = 0; i < ContentType::PART_COUNT; i++) {
 			auto& p = phrases[i];
 			
+			int sep_i = 0; // add some separating value to get same sorting every time (equal values breaks sorting)
 			for (int pp_i : sa.source_pool[i].GetKeys()) {
 				
 				// Get score sum
@@ -280,6 +281,10 @@ void ScriptGenerator::ProcessTranslate() {
 				double score = 0;
 				for(int j = 0; j < SCORE_COUNT; j++)
 					score += pp.scores[j];
+				
+				// so this actually fixes cache misses
+				double separator = sep_i++ * 0.001;
+				score += separator;
 				
 				p.Add(pp_i, score);
 			}
@@ -390,6 +395,7 @@ void ScriptGenerator::ProcessPairPhrases() {
 		for(int i = 0; i < ContentType::PART_COUNT; i++) {
 			auto& p = phrases[i];
 			
+			int sep_i = 0; // add some separating value to get same sorting every time (equal values breaks sorting)
 			for (int pp_i : sa.source_pool[i].GetKeys()) {
 				
 				// Get score sum
@@ -397,6 +403,10 @@ void ScriptGenerator::ProcessPairPhrases() {
 				double score = 0;
 				for(int j = 0; j < SCORE_COUNT; j++)
 					score += pp.scores[j];
+				
+				// so this actually fixes cache misses
+				double separator = sep_i++ * 0.001;
+				score += separator;
 				
 				p.Add(pp_i, score);
 			}
