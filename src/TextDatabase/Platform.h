@@ -67,7 +67,13 @@ enum {
 	PLATFORM_PATREON,
 	PLATFORM_LOCALS,
 	
+	// Add these!
+	// PLATFORM_MUSOSOUP // musosoup.com
+	// PLATFORM_UPCOMINGSOUNDS // upcomingsounds.com
 	
+	
+	
+	// Don't add these...
 	// PLATFORM_SOUNDMASH, // soundmash.me
 	// PLATFORM_INSTRUMENTAL, // https://weareinstrumental.com/
 	// PLATFORM_DISCOGS, // discogs.com

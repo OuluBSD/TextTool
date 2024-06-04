@@ -490,7 +490,7 @@ void TextDataLoader::LoadHuggingBlogs() {
 				break;
 		}
 		catch (XmlError e) {
-			DLOG("XmlError: " << title << ": " << e);
+			LOG("XmlError: " << title << ": " << e);
 		}
 		
 		if (entries.GetCount()) {
