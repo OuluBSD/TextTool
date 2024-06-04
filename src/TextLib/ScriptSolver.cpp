@@ -463,6 +463,7 @@ void ScriptSolver::ProcessFillLines() {
 	
 	// Add existing scripts
 	active_part.Clear();
+	String active_key;
 	for(int i = 0; i < sugg.lines.GetCount(); i++) {
 		String key = sugg.lines.GetKey(i);
 		if (key.IsEmpty())
@@ -471,16 +472,19 @@ void ScriptSolver::ProcessFillLines() {
 		StaticPart* sp = song.FindPartByName(key);
 		if (!sp)
 			continue;
+		String full_key = key;
+		if (!sp->singer.IsEmpty())
+			full_key += " by singer " + sp->singer;
 		int len = sp->GetExpectedLineCount(song);
-		if (active_part.IsEmpty() && lines.GetCount() < len)
+		if (active_part.IsEmpty() && lines.GetCount() < len) {
 			active_part = key; // Set active part to get new lines for
+			active_key = full_key;
+		}
 		if (lines.IsEmpty()) continue;
 		
-		if (!sp->singer.IsEmpty())
-			key += " by singer " + sp->singer;
-		args.song.Add(key) = Join(lines, "\n");
+		args.song.Add(full_key) = Join(lines, "\n");
 	}
-	args.part = active_part;
+	args.part = active_key;
 	
 	if (active_part.IsEmpty()) {
 		NextBatch();
@@ -488,7 +492,7 @@ void ScriptSolver::ProcessFillLines() {
 	}
 	
 	
-	StaticPart* part = song.FindPartByName(args.part);
+	StaticPart* part = song.FindPartByName(active_part);
 	ASSERT(part);
 	if (!part) part = &song.parts[0];
 	
