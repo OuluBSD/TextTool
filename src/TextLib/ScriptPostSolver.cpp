@@ -339,11 +339,23 @@ void ScriptPostSolver::DoPhase() {
 		
 		
 		if (remaining.GetCount() <= 1) {
+			Sort(variations, Variation());
 			LOG(Join(variations[0].lines, "\n"));
 			spf.variations.Clear();
 			spf.variations.SetCount(variations.GetCount());
 			for(int i = 0; i < variations.GetCount(); i++) {
-				spf.variations[i].text = Join(variations[i].lines, "\n");
+				// Join text and add part names also
+				String text;
+				const auto& lines = variations[i].lines;
+				for(int j = 0; j < lines.GetCount(); j++) {
+					int k = spf.src_line_parts.Find(j);
+					if (k >= 0) {
+						if (!text.IsEmpty()) text << "\n";
+						text << "[" << spf.src_line_parts[k] << "]\n";
+					}
+					text << lines[j] << "\n";
+				}
+				spf.variations[i].text = text;
 				spf.variations[i].scores <<= variations[i].scores;
 			}
 			NextPhase();
@@ -398,8 +410,8 @@ void ScriptPostSolver::DoPhase() {
 			
 			// Don't overwrite scores, but maximize them (kinda irrelevant anyway)
 			for(int i = 0; i < all_scores.GetCount() && i < 2; i++) {
-				Vector<int>& from = all_scores[i];
-				Vector<int>& to = variations[i].scores;
+				const Vector<int>& from = all_scores[i];
+				Vector<int>& to = variations[remaining[i]].scores;
 				to.SetCount(10,0);
 				for(int j = 0; j < from.GetCount() && j < to.GetCount(); j++)
 					to[j] = max(to[j], from[j]);
@@ -413,7 +425,6 @@ void ScriptPostSolver::DoPhase() {
 				int sugg_i = remaining[0];
 				variations[sugg_i].rank = 0;
 			}
-			Sort(variations, Variation());
 			
 			
 			SetWaiting(0);
