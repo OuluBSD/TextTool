@@ -456,6 +456,24 @@ void TaskMgr::GetDemandSolver(const DemandArgs& args, Event<String> WhenResult) 
 	task_lock.Leave();
 }
 
+void TaskMgr::GetScriptPost(int appmode, const ScriptPostArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
+	t.SetRule(AITASK_SNAPSHOT, MakeName(args, -1, "script post"))
+		.Input(&AiTask::CreateInput_ScriptPost)
+		.Process(&AiTask::Process_Default);
+	
+	t.args << s;
+	t.WhenResult << WhenResult;
+	t.appmode = appmode;
+	task_lock.Leave();
+}
+
 void TaskMgr::GetVision(const String& jpeg, const VisionArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	TaskMgr& p = *this;

@@ -65,5 +65,7 @@ file
 	ScriptPool.h,
 	ScriptPool.cpp,
 	ScriptSolverCtrl.h,
-	ScriptSolverCtrl.cpp;
+	ScriptSolverCtrl.cpp,
+	ScriptPostFix.h,
+	ScriptPostFix.cpp;
 

@@ -933,7 +933,7 @@ void ScriptSolver::ProcessComparison() {
 		}
 	}
 	
-	if (remaining.GetCount() < 2) {
+	if (remaining.GetCount() <= 1) {
 		NextPhase();
 		return;
 	}

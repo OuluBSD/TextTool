@@ -29,7 +29,7 @@ public:
 	void RemoveThread();
 	void AddComment();
 	void RemoveComment();
-	void PasteResponse();
+	void PasteResponse(int fn);
 	void ToolMenu(Bar& bar) override;
 	void EntryListMenu(Bar& bar);
 	void ThreadListMenu(Bar& bar);

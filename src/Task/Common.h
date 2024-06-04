@@ -306,6 +306,24 @@ struct DemandArgs {
 	
 };
 
+struct ScriptPostArgs {
+	int fn = 0;
+	String key, desc, text;
+	Vector<String> lines;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("key", key)
+				("desc", desc)
+				("text", text)
+				("lines", lines)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
 
 END_TEXTLIB_NAMESPACE
 

@@ -30,6 +30,8 @@ file
 	DemandSolver.cpp,
 	ContentSolver.h,
 	ContentSolver.cpp,
+	ScriptPostSolver.h,
+	ScriptPostSolver.cpp,
 	CollabSolver.h,
 	CollabSolver.cpp;
 

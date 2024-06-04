@@ -9,6 +9,7 @@ SolverBase::SolverBase() {
 }
 
 void SolverBase::Process() {
+	generation = 0;
 	phase = 0;
 	batch = 0;
 	sub_batch = 0;
@@ -21,7 +22,7 @@ void SolverBase::Process() {
 		
 		int phase_count = GetPhaseCount();
 		
-		if (phase == 0 && batch == 0 && sub_batch == 0) {
+		if (generation == 0 && phase == 0 && batch == 0 && sub_batch == 0) {
 			time_started = GetSysTime();
 		}
 		
@@ -29,9 +30,15 @@ void SolverBase::Process() {
 			DoPhase();
 		}
 		else {
-			time_stopped = GetSysTime();
+			generation++;
 			phase = 0;
-			break;
+			batch = 0;
+			sub_batch = 0;
+			
+			if (generation >= generation_count) {
+				time_stopped = GetSysTime();
+				break;
+			}
 		}
 		
 		

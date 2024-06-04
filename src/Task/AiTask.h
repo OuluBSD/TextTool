@@ -251,6 +251,7 @@ public:
 	void CreateInput_Snapshot();
 	void CreateInput_VideoSolver();
 	void CreateInput_DemandSolver();
+	void CreateInput_ScriptPost();
 	
 	void Process_GetSuggestionAttributes();
 	void Process_StoryArc();

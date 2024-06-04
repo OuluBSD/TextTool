@@ -1,7 +1,6 @@
 
 
 v0.0.1
-- conversation must be improved for usability and ease-of-use
 - lyrics generator upgrade: logical post-analysis and fixes
 	- functions to "improve humor", "improve romance", etc.
 	- 5t model for evaluation
@@ -152,3 +151,4 @@ x? vocabulary: for artist, for release, for song
 - lead parser and analyzer (taxi)
 - move share to private repo
 - reason-based bulk-message generation for social media
+- conversation must be improved for usability and ease-of-use

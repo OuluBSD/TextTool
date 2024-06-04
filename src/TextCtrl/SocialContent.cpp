@@ -49,7 +49,7 @@ SocialContent::SocialContent() {
 	comments.AddColumn(t_("Published"));
 	comments.AddColumn(t_("User"));
 	comments.AddColumn(t_("Message"));
-	comments.AddColumn(t_("Hashtags"));
+	comments.AddColumn(t_("Keywords"));
 	comments.AddColumn(t_("Comments"));
 	comments.AddColumn(t_("Score"));
 	comments.AddIndex("IDX");
@@ -64,7 +64,7 @@ SocialContent::SocialContent() {
 	entry.generate.WhenAction << THISBACK(OnValueChange);
 	entry.message.WhenAction << THISBACK(OnValueChange);
 	entry.orig_message.WhenAction << THISBACK(OnValueChange);
-	entry.hashtags.WhenAction << THISBACK(OnValueChange);
+	entry.keywords.WhenAction << THISBACK(OnValueChange);
 	entry.location.WhenAction << THISBACK(OnValueChange);
 	entry.date.WhenAction << THISBACK(OnValueChange);
 	entry.clock.WhenAction << THISBACK(OnValueChange);
@@ -196,7 +196,7 @@ void SocialContent::DataThread() {
 		comments.Set(row, 1, c.published);
 		comments.Set(row, 2, c.user);
 		comments.Set(row, 3, c.message);
-		comments.Set(row, 4, c.hashtags);
+		comments.Set(row, 4, c.keywords);
 		comments.Set(row, 5, c.responses.GetCount());
 		comments.Set(row, 6, score);
 		row++;
@@ -231,7 +231,7 @@ void SocialContent::DataComment() {
 	entry.generate = c.generate;
 	entry.message.SetData(c.message);
 	entry.orig_message.SetData(c.orig_message);
-	entry.hashtags.SetData(c.hashtags);
+	entry.keywords.SetData(c.keywords);
 	entry.location.SetData(c.location);
 	entry.date.SetData(c.published);
 	entry.clock.SetData(c.published);
@@ -241,7 +241,7 @@ void SocialContent::DataComment() {
 void SocialContent::ClearEntry() {
 	entry.message.SetData("");
 	entry.orig_message.SetData("");
-	entry.hashtags.Clear();
+	entry.keywords.Clear();
 	entry.location.Clear();
 	entry.generate.Set(0);
 	entry.user.Clear();
@@ -291,7 +291,7 @@ void SocialContent::OnValueChange() {
 	PlatformComment& c = thrd.comments[comm_i];
 	c.message = entry.message.GetData();
 	c.orig_message = entry.orig_message.GetData();
-	c.hashtags = entry.hashtags.GetData();
+	c.keywords = entry.keywords.GetData();
 	c.location = entry.location.GetData();
 	c.user = entry.user.GetData();
 	c.generate = entry.generate.Get();
@@ -305,7 +305,7 @@ void SocialContent::OnValueChange() {
 	
 	comments.Set(2, c.user);
 	comments.Set(3, c.message);
-	comments.Set(4, c.hashtags);
+	comments.Set(4, c.keywords);
 }
 
 void SocialContent::AddEntry() {
@@ -430,17 +430,16 @@ void SocialContent::ToolMenu(Bar& bar) {
 	bar.Separator();
 	bar.Add(t_("Clear thread's merged text"), AppImg::BlueRing(), THISBACK1(Do, 2)).Key(K_F7);
 	bar.Separator();
-	bar.Add(t_("Add response from clipboard"), AppImg::BlueRing(), THISBACK(PasteResponse)).Key(K_CTRL_Q);
+	bar.Add(t_("Add their response from clipboard"), AppImg::BlueRing(), THISBACK1(PasteResponse, 0)).Key(K_CTRL_Q);
+	bar.Add(t_("Add own response from clipboard"), AppImg::BlueRing(), THISBACK1(PasteResponse, 1)).Key(K_CTRL_W);
 	bar.Add(t_("Generate response"), AppImg::RedRing(), THISBACK1(Do, 3)).Key(K_F8);
+	bar.Add(t_("Create keywords"), AppImg::RedRing(), THISBACK1(Do, 4)).Key(K_F9);
 }
 
-void SocialContent::PasteResponse() {
+void SocialContent::PasteResponse(int fn) {
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.profile) return;
 	if (!platforms.IsCursor() || !threads.IsCursor()) return;
-	
-	String message = ReadClipboardText();
-	if (message.IsEmpty()) return;
 	
 	Profile& prof = *mp.profile;
 	ProfileData& pd = ProfileData::Get(prof);
@@ -451,23 +450,33 @@ void SocialContent::PasteResponse() {
 	int thrd_i = threads.Get("IDX");
 	PlatformThread& t = e.threads[thrd_i];
 	
-	String user;
-	bool generate_response = false;
-	for (int i = t.comments.GetCount()-1; i >= 0; i--) {
-		PlatformComment& pc = t.comments[i];
-		if (!pc.user.IsEmpty()) {
-			user = pc.user;
-			generate_response = pc.generate;
-			break;
+	String message = ReadClipboardText();
+	if (message.IsEmpty()) return;
+	
+	if (fn == 0) {
+		String user;
+		bool generate_response = false;
+		for (int i = t.comments.GetCount()-1; i >= 0; i--) {
+			PlatformComment& pc = t.comments[i];
+			if (!pc.user.IsEmpty()) {
+				user = pc.user;
+				generate_response = pc.generate;
+				break;
+			}
 		}
+		
+		PlatformComment& pc = t.comments.Add();
+		pc.user = user;
+		pc.message = message;
+		pc.generate = generate_response;
+		pc.published = GetSysTime();
 	}
-	
-	PlatformComment& pc = t.comments.Add();
-	pc.user = user;
-	pc.message = message;
-	pc.generate = generate_response;
-	pc.published = GetSysTime();
-	
+	else if (fn == 1) {
+		PlatformComment& pc = t.comments.Add();
+		pc.message = message;
+		pc.generate = true;
+		pc.published = GetSysTime();
+	}
 	PostCallback(THISBACK(DataThread));
 }
 
@@ -532,6 +541,32 @@ void SocialContent::Do(int fn) {
 			}
 			pc0.message = suggs;
 			PostCallback(THISBACK(DataThread));
+		});
+	}
+	else if (fn == 4) {
+		if (!platforms.IsCursor() || !comments.IsCursor())
+			return;
+		Profile& prof = *mp.profile;
+		ProfileData& pd = ProfileData::Get(prof);
+		int plat_i = platforms.Get("IDX");
+		PlatformData& pld = pd.platforms[plat_i];
+		int entry_i = entries.Get("IDX");
+		PlatformEntry& e = pld.entries[entry_i];
+		int thrd_i = threads.Get("IDX");
+		PlatformThread& t = e.threads[thrd_i];
+		int comment_i = comments.Get("IDX");
+		PlatformComment& pc = t.comments[comment_i];
+		
+		TaskMgr& m = TaskMgr::Single();
+		SocialArgs args;
+		args.fn = 19;
+		args.text = pc.message;
+		
+		m.GetSocial(args, [this,&pc](String res) {
+			res = TrimBoth(res);
+			RemoveQuotes(res);
+			pc.keywords = res;
+			PostCallback(THISBACK(DataComment));
 		});
 	}
 }

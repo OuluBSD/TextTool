@@ -153,6 +153,7 @@ void ToolEditor::InitSimplified() {
 	AddItem("Script", t_("Structure"), comp_struct);
 	AddItem("Script", t_("Pool"), script_pool);
 	AddItem("Script", t_("Script solver"), scripts_solver);
+	AddItem("Script", t_("Post fix"), script_post_fix);
 	
 }
 

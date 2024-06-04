@@ -7,7 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 struct PlatformComment {
 	String user;
-	String orig_message, message, hashtags, location;
+	String orig_message, message, keywords, location;
 	String text_merged_status;
 	Time published;
 	bool generate = false;
@@ -22,7 +22,7 @@ struct PlatformComment {
 			("user", user)
 			("orig_message", orig_message)
 			("message", message)
-			("hashtags", hashtags)
+			("keywords", keywords)
 			("location", location)
 			("tms", text_merged_status)
 			("published", published)

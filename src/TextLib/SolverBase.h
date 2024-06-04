@@ -8,7 +8,8 @@ class SolverBase {
 	
 protected:
 	Time time_started, time_stopped;
-	int phase = 0, batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
+	int generation = 0, phase = 0, batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
+	int generation_count = 1;
 	Owner* owner = 0;
 	Profile* profile = 0;
 	
@@ -21,6 +22,7 @@ protected:
 	void PostProgress() {WhenProgress(phase, GetPhaseCount());}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}
+	void SetGenerations(int i) {generation_count = i;}
 	void MovePhase(int p) {phase = p; batch = 0; sub_batch = 0;}
 	void NextPhase() {phase++; batch = 0; sub_batch = 0;}
 	void NextBatch() {batch++; sub_batch = 0;}

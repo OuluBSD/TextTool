@@ -14,6 +14,7 @@
 #include "VideoSolver.h"
 #include "DemandSolver.h"
 #include "ContentSolver.h"
+#include "ScriptPostSolver.h"
 
 
 #endif

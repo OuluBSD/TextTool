@@ -42,6 +42,7 @@
 #include "PlatformProfile.h"
 #include "VideoPromptMaker.h"
 #include "SocialNeeds.h"
+#include "ScriptPostFix.h"
 
 
 #endif

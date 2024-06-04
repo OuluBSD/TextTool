@@ -53,6 +53,7 @@ struct TaskMgr {
 	void GetSnapshot(const SnapshotArgs& args, Event<String> WhenResult);
 	void GetVideoSolver(const VideoSolverArgs& args, Event<String> WhenResult);
 	void GetDemandSolver(const DemandArgs& args, Event<String> WhenResult);
+	void GetScriptPost(int appmode, const ScriptPostArgs& args, Event<String> WhenResult);
 	void GetVision(const String& jpeg, const VisionArgs& args, Event<String> WhenResult);
 	
 	static TaskMgr& Single() {static TaskMgr tm; return tm;}

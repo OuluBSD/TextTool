@@ -2751,6 +2751,20 @@ void AiTask::CreateInput_Social() {
 			results.Add("\"");
 		}
 	}
+	else if (args.fn == 19) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Message");
+			list.NoListChar();
+			list.Add(args.text);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Give keywords for the message (separated by comma in a single line)");
+			results.NoListChar();
+			results.Add("");
+		}
+	}
 	else {
 		TODO
 	}
@@ -3147,6 +3161,131 @@ void AiTask::CreateInput_DemandSolver() {
 			results.Add(first_name + ": \"");
 		}
 		input.response_length = 1024*3;
+	}
+}
+
+void AiTask::CreateInput_ScriptPost() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadDataAnalysis& lda = mdb.lead_data.a;
+	
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	ScriptPostArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Task: analyze " + __script + " for weaknesses, problems and mistakes of specified type");
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Example result: top 3 lines of some problem in " + __script + ": line number and description of the problem");
+			list.NumberedLines();
+			list.Add("line #4: the problem is that blah blah blah");
+			list.Add("line #6 and line #9: this line jumps from blah blah blah");
+			list.Add("line #1: there is no blah blah");
+		}
+		
+		{
+			auto& list = input.AddSub();
+			list.Title("Content of the " + __script);
+			for(int i = 0; i < args.lines.GetCount(); i++) {
+				list.Add("line #" + IntStr(i) + ": " + args.lines[i]);
+			}
+		}
+		
+		{
+			auto& list = input.AddSub();
+			list.Title("Analyze '" + args.key + "'");
+			list.Add("description: " + args.desc);
+		}
+		
+		{
+			TaskTitledList& results = input.PreAnswer();
+			int top_count = max(1, min(10, args.lines.GetCount() / 5));
+			results.Title("Top " + IntStr(top_count) + " lines with problem of '" + args.key + "': line number and description of the problem");
+			results.NumberedLines();
+			results.Add("line #");
+		}
+		input.response_length = 1024*2;
+	}
+	else if (args.fn == 1) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Task: analyze " + __script + " for lines to be improved");
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Example result: 3 lines of improvements in " + __script + ": line number and the replacement text");
+			list.Add("line #4: \"some blah blah\" -> \"some much improved blah blah blah\"");
+			list.Add("line #6: \"some other blah blah\" -> \"this is other blah blah blah\"");
+			list.Add("line #1: \"blah blah and blah\" -> \"blah blah\"");
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Content of the original " + __script);
+			for(int i = 0; i < args.lines.GetCount(); i++) {
+				list.Add("line #" + IntStr(i) + ": " + args.lines[i]);
+			}
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Improve '" + args.key + "' in the original " + __script);
+			list.NoColon();
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			int max_count = max(1, min(10, args.lines.GetCount() / 5));
+			results.Title("Line replacements (max " + IntStr(max_count) + ") with improved '" + args.key + "': line number, the original line and the new line (in original language)");
+			//results.NumberedLines();
+			results.Add("line #");
+		}
+		input.response_length = 1024*2;
+	}
+	else if (args.fn == 2) {
+		String audience = GetAppModeKey(appmode, AM_AUDIENCE);
+		{
+			auto& list = input.AddSub().Title(__Script2 + " heuristic score factors");
+			list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
+			list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
+			list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
+			list.Add("S3: High share count from the " + audience + ". Low count means that the phrase was not relatable.");
+			list.Add("S4: High bookmark count from the " + audience + ". Low count means that the phrase had no value.");
+			list.Add("S5: High reference count towards comedy from the " + audience + ". Low count means that the phrase was not funny.");
+			list.Add("S6: High reference count towards sex from the " + audience + ". Low count means that the phrase was not sensual.");
+			list.Add("S7: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
+			list.Add("S8: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
+			list.Add("S9: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
+			list.Add("S10: How well " + __script2 + " fit the original vision.");
+		}
+		{
+			auto& list = input.AddSub().Title(__Script2 + " heuristic score factors for single phrase");
+			list.Add("\"I'm bleeding after you\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7, S5: 9, S6: 4, S7: 2, S8: 3, S9: 2, s10: 5");
+		}
+		
+		for(int i = 0; i < args.lines.GetCount(); i++) {
+			const String& p = args.lines[i];
+			Vector<String> lines = Split(p, "\n");
+			{
+				auto& list = input.AddSub().Title(__Script2 + " entry #" + IntStr(i+1));
+				list.NoListChar();
+				for(int i = 0; i < lines.GetCount(); i++)
+					list.Add(lines[i]);
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(__Script2 + " heuristic score factors");
+			results.Add("entry #1: S0:");
+			input.response_length = 512;
+		}
 	}
 }
 
