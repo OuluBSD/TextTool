@@ -2056,7 +2056,24 @@ void AiTask::CreateInput_ScriptSolver() {
 		this->SetHighQuality();
 	}
 	
-	else if (args.fn == 12) {
+	else if (args.fn == 12 || args.fn == 13) {
+		if (args.fn == 13) {
+			{
+				auto& list = input.AddSub().Title("List A: " + __Typeclasses + " of " + __entity + " profiles in relation to the " + __script2);
+				list.NumberedLines();
+				for (String tc : GetTypeclasses(appmode))
+					list.Add(tc);
+			}
+			{
+				auto& list = input.AddSub().Title("List B of names for archetypical parts of storyline of a modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps2 + ", which contrasts each other");
+				list.NumberedLines();
+				for (const auto& it : GetContents(appmode)) {
+					String s;
+					s << "A: " << it.parts[0] << ", B: " << it.parts[1] << ", C: " << it.parts[2];
+					list.Add(s);
+				}
+			}
+		}
 		{
 			auto& list = input.AddSub().Title("Information about the " + __entity);
 			for(int j = 0; j < args.artist.GetCount(); j++) {
@@ -2072,9 +2089,15 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Give different detailed suggestions for the content vision of the song (with short storyline etc.)");
+			String t = "Give different detailed suggestions for the content vision of the song (with short storyline etc.)";
+			if (args.fn == 13) {
+				t += ". Start line with the matching indices from List A and List B e.g. \"A #3, B# 4:\"";
+				results.Add("A #");
+			}
+			else
+				results.Add("");
+			results.Title(t);
 			results.NumberedLines();
-			results.Add("");
 		}
 		input.response_length = 1024;
 	}

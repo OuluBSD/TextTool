@@ -155,3 +155,4 @@ x? vocabulary: for artist, for release, for song
 - added support for multiple singers in lyrics solver
 - fix bad ScriptSolver bug, which gave wrong best result :( ... I made over 10 songs with the wrong best suggestion
 - added ScriptIdeaCtrl to find song ideas and to score them
+- added custom lead support to ScriptIdeaCtrl

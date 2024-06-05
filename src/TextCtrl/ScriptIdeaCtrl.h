@@ -8,23 +8,24 @@ BEGIN_TEXTLIB_NAMESPACE
 class ToolEditor;
 
 class ScriptIdeaCtrl : public WithScriptInfo<ToolAppCtrl> {
-	Splitter vsplit, ideasplit;
+	DropList src;
+	Splitter ideasplit, singersplit;
 	ArrayCtrl typeclasses, contents, ideas;
-	DocEdit idea;
+	DocEdit idea[3], lead;
 	
 public:
 	typedef ScriptIdeaCtrl CLASSNAME;
 	ScriptIdeaCtrl();
 	
 	void Data() override;
-	void DataTypeclass();
+	void DataTypeclass(bool keep_content_idx);
 	void DataContent();
 	void DataIdea();
 	void Clear();
 	void Do(int fn);
 	void ToolMenu(Bar& bar) override;
 	void SetTypeclassContent();
-	
+	ContentVisionOwner& GetCVO();
 	
 };
 

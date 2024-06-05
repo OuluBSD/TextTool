@@ -145,7 +145,7 @@ Script& Entity::GetAddScript(String name) {
 }
 
 
-Vector<int> Entity::FindIdeaIndices(int tc_i, int con_i) const {
+Vector<int> ContentVisionOwner::FindIdeaIndices(int tc_i, int con_i) const {
 	Vector<int> v;
 	for(int i = 0; i < ideas.GetCount(); i++)
 		if (ideas[i].tc_i == tc_i && ideas[i].con_i == con_i)
@@ -153,7 +153,7 @@ Vector<int> Entity::FindIdeaIndices(int tc_i, int con_i) const {
 	return v;
 }
 
-Vector<const ContentVisionIdea*> Entity::FindIdeas(int tc_i, int con_i) const {
+Vector<const ContentVisionIdea*> ContentVisionOwner::FindIdeas(int tc_i, int con_i) const {
 	Vector<const ContentVisionIdea*> v;
 	for (const ContentVisionIdea& i : ideas)
 		if (i.tc_i == tc_i && i.con_i == con_i)
@@ -161,7 +161,7 @@ Vector<const ContentVisionIdea*> Entity::FindIdeas(int tc_i, int con_i) const {
 	return v;
 }
 
-Vector<ContentVisionIdea*> Entity::FindIdeas(int tc_i, int con_i) {
+Vector<ContentVisionIdea*> ContentVisionOwner::FindIdeas(int tc_i, int con_i) {
 	Vector<ContentVisionIdea*> v;
 	for (ContentVisionIdea& i : ideas)
 		if (i.tc_i == tc_i && i.con_i == con_i)
@@ -169,7 +169,7 @@ Vector<ContentVisionIdea*> Entity::FindIdeas(int tc_i, int con_i) {
 	return v;
 }
 
-void Entity::ClearIdeas(int tc_i, int con_i) {
+void ContentVisionOwner::ClearIdeas(int tc_i, int con_i) {
 	Vector<int> rm_list;
 	for(int i = 0; i < ideas.GetCount(); i++) {
 		ContentVisionIdea& idea = ideas[i];
@@ -179,7 +179,7 @@ void Entity::ClearIdeas(int tc_i, int con_i) {
 	ideas.Remove(rm_list);
 }
 
-double Entity::FindBestScore(int tc_i) const {
+double ContentVisionOwner::FindBestScore(int tc_i) const {
 	double max_score = 0;
 	for (const ContentVisionIdea& i : ideas)
 		if (i.tc_i == tc_i)
@@ -187,7 +187,7 @@ double Entity::FindBestScore(int tc_i) const {
 	return max_score;
 }
 
-double Entity::FindBestScore(int tc_i, int con_i) const {
+double ContentVisionOwner::FindBestScore(int tc_i, int con_i) const {
 	double max_score = 0;
 	for (const ContentVisionIdea& i : ideas)
 		if (i.tc_i == tc_i && i.con_i == con_i)

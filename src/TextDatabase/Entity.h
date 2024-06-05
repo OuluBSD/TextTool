@@ -6,7 +6,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 struct Entity :
-	DataFile
+	DataFile, ContentVisionOwner
 {
 	Profile* profile = 0;
 	
@@ -26,7 +26,6 @@ struct Entity :
 	VectorMap<String,String>	phrases_eng;
 	bool is_female = false;
 	int language = 0;
-	Vector<ContentVisionIdea>	ideas;
 	
 	// Public (separate files)
 	Array<Script>		scripts;
@@ -124,12 +123,6 @@ struct Entity :
 	
 	int FindScript(const String& scripts_file_title) const;
 	Script& GetAddScript(String name);
-	Vector<int> FindIdeaIndices(int tc_i, int con_i) const;
-	Vector<const ContentVisionIdea*> FindIdeas(int tc_i, int con_i) const;
-	Vector<ContentVisionIdea*> FindIdeas(int tc_i, int con_i);
-	void ClearIdeas(int tc_i, int con_i);
-	double FindBestScore(int tc_i) const;
-	double FindBestScore(int tc_i, int con_i) const;
 	
 	static bool FileExists(const String& title);
 };

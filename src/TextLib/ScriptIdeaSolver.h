@@ -10,6 +10,7 @@ class ScriptIdeaSolver : public SolverBase {
 public:
 	enum {
 		PHASE_GET_IDEAS,
+		PHASE_GET_LEAD_IDEAS,
 		PHASE_GET_SCORES_OF_IDEAS,
 		
 		PHASE_COUNT
@@ -18,10 +19,15 @@ public:
 	Owner* owner = 0;
 	Profile* profile = 0;
 	Entity* entity = 0;
+	ContentVisionOwner* cvo = 0;
+	Script* script = 0;
+	
 	int appmode = 0;
 	bool only_single = false;
 	int only_tc = -1;
 	int only_con = -1;
+	
+	void ParseSuggestions(String res, bool types, int tc_i, int con_i);
 	
 public:
 	typedef ScriptIdeaSolver CLASSNAME;
@@ -30,7 +36,7 @@ public:
 	int GetPhaseCount() const override;
 	void DoPhase() override;
 	
-	static ScriptIdeaSolver& Get(Entity& e, int appmode);
+	static ScriptIdeaSolver& Get(Entity& e, Script* s, int appmode);
 	
 	
 };
