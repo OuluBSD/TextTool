@@ -90,6 +90,13 @@ void ScriptIdeaSolver::DoPhase() {
 					i--;
 					continue;
 				}
+				if (!req_storyline && l.Find("Title:") == 0) {
+					lines.Remove(i);
+					i--;
+					continue;
+				}
+				if (l.Find("Content vision:") == 0)
+					l = TrimBoth(l.Mid(15));
 				l.Replace("\" -", "\": ");
 				if (req_storyline && l.Find("toryline:") < 0)
 					continue;

@@ -145,6 +145,14 @@ Script& Entity::GetAddScript(String name) {
 }
 
 
+Vector<int> Entity::FindIdeaIndices(int tc_i, int con_i) const {
+	Vector<int> v;
+	for(int i = 0; i < ideas.GetCount(); i++)
+		if (ideas[i].tc_i == tc_i && ideas[i].con_i == con_i)
+			v << i;
+	return v;
+}
+
 Vector<const ContentVisionIdea*> Entity::FindIdeas(int tc_i, int con_i) const {
 	Vector<const ContentVisionIdea*> v;
 	for (const ContentVisionIdea& i : ideas)

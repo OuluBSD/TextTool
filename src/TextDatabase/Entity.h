@@ -124,6 +124,7 @@ struct Entity :
 	
 	int FindScript(const String& scripts_file_title) const;
 	Script& GetAddScript(String name);
+	Vector<int> FindIdeaIndices(int tc_i, int con_i) const;
 	Vector<const ContentVisionIdea*> FindIdeas(int tc_i, int con_i) const;
 	Vector<ContentVisionIdea*> FindIdeas(int tc_i, int con_i);
 	void ClearIdeas(int tc_i, int con_i);

@@ -114,14 +114,15 @@ void ScriptIdeaCtrl::DataContent() {
 	int tc_i = typeclasses.Get("IDX");
 	int con_i = contents.Get("IDX");
 	{
-		auto cvis = e.FindIdeas(tc_i, con_i);
+		auto cvis = e.FindIdeaIndices(tc_i, con_i);
 		for(int i = 0; i < cvis.GetCount(); i++) {
-			const ContentVisionIdea* cvi = cvis[i];
-			ideas.Set(i, 0, cvi->text);
-			ideas.Set(i, "IDX", i);
+			int cvi_i = cvis[i];
+			const ContentVisionIdea& cvi = e.ideas[cvi_i];
+			ideas.Set(i, 0, cvi.text);
+			ideas.Set(i, "IDX", cvi_i);
 			int score_sum = 0;
 			for(int j = 0; j < SCORE_COUNT; j++) {
-				int score = j < cvi->scores.GetCount() ? cvi->scores[j] : 0;
+				int score = j < cvi.scores.GetCount() ? cvi.scores[j] : 0;
 				ideas.Set(i, 1+j, score);
 				score_sum += score;
 			}
