@@ -2101,8 +2101,19 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		input.response_length = 1024;
 	}
-	
-	
+	else if (args.fn == 14) {
+		{
+			auto& list = input.AddSub().Title("The content vision of the " + __comp);
+			list.Add(args.part);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			String t = "Modify the content vision to have " + IntStr(args.lng_i) + " " + __entities + " in the " + __comp + " instead of just 1";
+			results.Title(t);
+			results.Add("");
+		}
+		input.response_length = 1024;
+	}
 }
 
 void AiTask::CreateInput_LeadSolver() {

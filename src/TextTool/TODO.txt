@@ -156,3 +156,4 @@ x? vocabulary: for artist, for release, for song
 - fix bad ScriptSolver bug, which gave wrong best result :( ... I made over 10 songs with the wrong best suggestion
 - added ScriptIdeaCtrl to find song ideas and to score them
 - added custom lead support to ScriptIdeaCtrl
+- added multiple singers support to ScriptIdeaCtrl

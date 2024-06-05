@@ -120,7 +120,8 @@ void ScriptIdeaCtrl::DataTypeclass(bool keep_content_idx) {
 		int cur = 0;
 		for(int i = 0; i < contents.GetCount(); i++) {
 			if (contents.Get(i, "IDX") == con_i) {
-				cur = i;
+				if ((int)contents.Get(i, 1) != 0)
+					cur = i;
 				break;
 			}
 		}
@@ -197,6 +198,9 @@ void ScriptIdeaCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Set as typeclass/content"), AppImg::BlueRing(), THISBACK1(Do, 2)).Key(K_CTRL_Q);
 	bar.Add(t_("Set as content vision"), AppImg::BlueRing(), THISBACK1(Do, 3)).Key(K_CTRL_W);
 	bar.Add(t_("Seek song's pre-set typeclass/content"), AppImg::BlueRing(), THISBACK1(Do, 4)).Key(K_CTRL_E);
+	bar.Separator();
+	bar.Add(t_("Get 2-singers version"), AppImg::RedRing(), THISBACK1(Do, 6)).Key(K_F8);
+	bar.Add(t_("Get 3-singers version"), AppImg::RedRing(), THISBACK1(Do, 7)).Key(K_F8);
 }
 
 void ScriptIdeaCtrl::Do(int fn) {
@@ -249,6 +253,39 @@ void ScriptIdeaCtrl::Do(int fn) {
 				break;
 			}
 		}
+	}
+	else if (fn == 6 || fn == 7) {
+		if (!ideas.IsCursor()) return;
+		int cvi_i = ideas.Get("IDX");
+		
+		int appmode = GetAppMode();
+		String s = idea[0].GetData();
+		
+		ScriptSolverArgs args;
+		args.fn = 14;
+		args.part = s;
+		args.lng_i = 2 + fn-6;
+		
+		TaskMgr& m = TaskMgr::Single();
+		m.GetScriptSolver(appmode, args, [this,fn,cvi_i](String res) {
+			ContentVisionOwner& cvo = GetCVO();
+			
+			res = TrimBoth(res);
+			if (res.Left(2) == "- ") res = res.Mid(2);
+			
+			auto& cvi = cvo.ideas[cvi_i];
+			if (fn == 6)
+				cvi.singers_2 = res;
+			else
+				cvi.singers_3 = res;
+			
+			PostCallback([this,fn,res]() {
+				if (fn == 6)
+					idea[1].SetData(res);
+				else
+					idea[2].SetData(res);
+			});
+		});
 	}
 }
 
