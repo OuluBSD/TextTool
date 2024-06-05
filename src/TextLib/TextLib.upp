@@ -32,6 +32,8 @@ file
 	ContentSolver.cpp,
 	ScriptPostSolver.h,
 	ScriptPostSolver.cpp,
+	ScriptIdeaSolver.h,
+	ScriptIdeaSolver.cpp,
 	CollabSolver.h,
 	CollabSolver.cpp;
 

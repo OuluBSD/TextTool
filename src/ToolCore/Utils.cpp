@@ -137,5 +137,11 @@ String Capitalize(String s) {
 	return ToUpper(s.Left(1)) + s.Mid(1);
 }
 
+void RemoveSinger(String& s) {
+	int a = s.Find(" by the singer");
+	if (a >= 0)
+		s = s.Left(a);
+}
+
 
 END_TEXTLIB_NAMESPACE

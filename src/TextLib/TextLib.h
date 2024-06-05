@@ -15,6 +15,7 @@
 #include "DemandSolver.h"
 #include "ContentSolver.h"
 #include "ScriptPostSolver.h"
+#include "ScriptIdeaSolver.h"
 
 
 #endif

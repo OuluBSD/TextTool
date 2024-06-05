@@ -60,6 +60,8 @@ file
 	Script readonly separator,
 	ScriptInfoCtrl.h,
 	ScriptInfoCtrl.cpp,
+	ScriptIdeaCtrl.h,
+	ScriptIdeaCtrl.cpp,
 	ScriptStructure.h,
 	ScriptStructure.cpp,
 	ScriptPool.h,

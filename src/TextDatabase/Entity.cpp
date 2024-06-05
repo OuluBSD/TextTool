@@ -144,5 +144,48 @@ Script& Entity::GetAddScript(String name) {
 	return s;
 }
 
+
+Vector<const ContentVisionIdea*> Entity::FindIdeas(int tc_i, int con_i) const {
+	Vector<const ContentVisionIdea*> v;
+	for (const ContentVisionIdea& i : ideas)
+		if (i.tc_i == tc_i && i.con_i == con_i)
+			v << &i;
+	return v;
+}
+
+Vector<ContentVisionIdea*> Entity::FindIdeas(int tc_i, int con_i) {
+	Vector<ContentVisionIdea*> v;
+	for (ContentVisionIdea& i : ideas)
+		if (i.tc_i == tc_i && i.con_i == con_i)
+			v << &i;
+	return v;
+}
+
+void Entity::ClearIdeas(int tc_i, int con_i) {
+	Vector<int> rm_list;
+	for(int i = 0; i < ideas.GetCount(); i++) {
+		ContentVisionIdea& idea = ideas[i];
+		if (idea.tc_i == tc_i && idea.con_i == con_i)
+			rm_list << i;
+	}
+	ideas.Remove(rm_list);
+}
+
+double Entity::FindBestScore(int tc_i) const {
+	double max_score = 0;
+	for (const ContentVisionIdea& i : ideas)
+		if (i.tc_i == tc_i)
+			max_score = max(max_score, i.ScoreAv());
+	return max_score;
+}
+
+double Entity::FindBestScore(int tc_i, int con_i) const {
+	double max_score = 0;
+	for (const ContentVisionIdea& i : ideas)
+		if (i.tc_i == tc_i && i.con_i == con_i)
+			max_score = max(max_score, i.ScoreAv());
+	return max_score;
+}
+
 END_TEXTLIB_NAMESPACE
 

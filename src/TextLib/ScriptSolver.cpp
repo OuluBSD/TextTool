@@ -71,6 +71,9 @@ void ScriptSolver::Process() {
 		else if (phase == LS_COMPARISON) {
 			ProcessComparison();
 		}
+		else if (phase == LS_TITLE) {
+			ProcessTitle();
+		}
 		else /*if (phase == LS_COUNT)*/ {
 			time_stopped = GetSysTime();
 			phase = LS_BEGIN;
@@ -447,7 +450,10 @@ void ScriptSolver::ProcessFillLines() {
 	ScriptSuggestions& sugg = sa.script_suggs.GetAdd(batch);
 	{
 		for(int i = 0; i < song.parts.GetCount(); i++) {
-			String name = song.parts[i].name;
+			StaticPart& sp = song.parts[i];
+			String name = sp.name;
+			if (!sp.singer.IsEmpty())
+				name += " by the singer '" + sp.singer + "'";
 			if (name.GetCount())
 				sugg.lines.GetAdd(name);
 		}
@@ -463,7 +469,6 @@ void ScriptSolver::ProcessFillLines() {
 	
 	// Add existing scripts
 	active_part.Clear();
-	String active_key;
 	for(int i = 0; i < sugg.lines.GetCount(); i++) {
 		String key = sugg.lines.GetKey(i);
 		if (key.IsEmpty())
@@ -472,19 +477,15 @@ void ScriptSolver::ProcessFillLines() {
 		StaticPart* sp = song.FindPartByName(key);
 		if (!sp)
 			continue;
-		String full_key = key;
-		if (!sp->singer.IsEmpty())
-			full_key += " by singer " + sp->singer;
 		int len = sp->GetExpectedLineCount(song);
 		if (active_part.IsEmpty() && lines.GetCount() < len) {
 			active_part = key; // Set active part to get new lines for
-			active_key = full_key;
 		}
 		if (lines.IsEmpty()) continue;
 		
-		args.song.Add(full_key) = Join(lines, "\n");
+		args.song.Add(key) = Join(lines, "\n");
 	}
-	args.part = active_key;
+	args.part = active_part;
 	
 	if (active_part.IsEmpty()) {
 		NextBatch();
@@ -948,10 +949,31 @@ void ScriptSolver::ProcessComparison() {
 	args.fn = 7;
 	
 	if (batch == 0 && sub_batch == 0) {
-		// Do matches until 1 remaining
+		// Clear 'visited' vector, which stores visited suggestion comparisons
+		visited.Clear();
+		
+		// Clear output already in case of errors or break of processing
+		song.text.Clear();
+		
+		// Find average length of suggestions
+		Vector<int> lengths;
+		for(int i = 0; i < sa.script_suggs.GetCount(); i++)
+			lengths.Add(sa.script_suggs[i].GetText().GetCount());
+		Sort(lengths, StdLess<int>());
+		int mode = lengths[lengths.GetCount()/2];
+		
+		
+		// Add all proper suggestions to remaining-vector
 		matches.Clear();
 		remaining.Clear();
 		for(int i = 0; i < sa.script_suggs.GetCount(); i++) {
+			// If the suggestion is very short, then skip it
+			String sugg = sa.script_suggs[i].GetText();
+			double diff = fabs((sugg.GetCount() / (double)mode) - 1.0);
+			if (diff >= 0.66667)
+				continue;
+			
+			
 			remaining.Add(i);
 		}
 	}
@@ -964,18 +986,8 @@ void ScriptSolver::ProcessComparison() {
 	for(int i = 0; i < 2; i++) {
 		int sugg_i = remaining[i];
 		const ScriptSuggestions& ls = sa.script_suggs[sugg_i];
-		String content;
-		for(int j = 0; j < ls.lines.GetCount(); j++) {
-			String part = ls.lines.GetKey(j);
-			const auto& v = ls.lines[j];
-			if (part.IsEmpty() || v.IsEmpty()) continue;
-			content << part << ":\n";
-			
-			for(int k = 0; k < v.GetCount(); k++) {
-				content << v[k] << "\n";
-			}
-			content << "\n";
-		}
+		String content = ls.GetText();
+		
 		if (TrimBoth(content).IsEmpty()) {
 			OnProcessComparisonFail(i);
 			return;
@@ -1028,8 +1040,26 @@ void ScriptSolver::OnProcessComparison(String res) {
 		double score = (double)score_sum / score_count;
 		total_scores << score;
 	}
-	if (total_scores.GetCount() >= 2)
-		loser = total_scores[0] > total_scores[1] ? 1:0;
+	if (total_scores.GetCount() >= 2) {
+		double s0 = total_scores[0];
+		double s1 = total_scores[1];
+		
+		// Give second chance, if score is same
+		if (s0 == s1) {
+			int sugg0 = remaining[0];
+			int sugg1 = remaining[1];
+			hash_t hash = sugg0 * 1000 + sugg1; // easy
+			if (visited.FindAdd(hash) < 0) {
+				// Move first suggestion to last
+				remaining.Remove(0);
+				remaining.Add(sugg0);
+				NextSubBatch(); // just to avoid clearing in the "batch==0&&sub_batch==0" case
+				return;
+			}
+		}
+		
+		loser = s0 > s1 ? 1:0;
+	}
 	else
 		loser = 0; // error
 	
@@ -1050,7 +1080,7 @@ void ScriptSolver::OnProcessComparisonFail(int loser) {
 	
 	int loser_sugg_i = remaining[loser];
 	ScriptSuggestions& ls = sa.script_suggs[loser_sugg_i];
-	ls.rank = remaining.GetCount()-1;
+	ls.rank = remaining.GetCount()-1; // if remaining one, then rank is 0
 	String& output = song.suggestions.GetAdd(ls.rank);
 	output = ls.GetText();
 	FixOffensiveWords(output);
@@ -1066,23 +1096,6 @@ void ScriptSolver::OnProcessComparisonFail(int loser) {
 		song.suggestions.GetAdd(ls.rank) = content;
 		SortByKey(song.suggestions, StdLess<int>());
 		
-		// Find average length of suggestions
-		Vector<int> lengths;
-		for(int i = 0; i < song.suggestions.GetCount(); i++)
-			lengths.Add(song.suggestions[i].GetCount());
-		Sort(lengths, StdLess<int>());
-		int mode = lengths[lengths.GetCount()/2];
-		
-		// If the winner is very short, then skip it
-		for(int i = 0; i < song.suggestions.GetCount(); i++) {
-			String& sugg = song.suggestions[i];
-			double diff = fabs((sugg.GetCount() / (double)mode) - 1.0);
-			if (diff > 0.66667)
-				continue;
-			content = sugg;
-			break;
-		}
-		
 		
 		LOG("Winner scripts:");
 		LOG(content);
@@ -1095,6 +1108,37 @@ void ScriptSolver::OnProcessComparisonFail(int loser) {
 	NextBatch();
 }
 
+void ScriptSolver::ProcessTitle() {
+	Script& song = *this->script;
+	ScriptSolverArgs args; // 8
+	args.fn = 8;
+	args.part = song.text;
+	args.lng_i = song.lng_i;
+	
+	SetWaiting(1);
+	
+	TaskMgr& m = TaskMgr::Single();
+	m.GetScriptSolver(appmode, args, [this](String res) {
+		TaskMgr& m = TaskMgr::Single();
+		script->english_title = res;
+		script->native_title.Clear();
+		
+		if (artist->language != LNG_ENGLISH) {
+			String code = GetLanguageCode(artist->language);
+			m.Translate("EN-US", script->english_title, code, [this](String res) {
+				res = TrimBoth(res);
+				script->native_title = res;
+				SetWaiting(0);
+				NextPhase();
+			});
+		}
+		else {
+			script->native_title = script->english_title;
+			SetWaiting(0);
+			NextPhase();
+		}
+	});
+}
 
 
 

@@ -121,6 +121,7 @@ StaticPart* Script::FindPartByType(const String& type) {
 
 StaticPart* Script::FindPartByName(const String& name) {
 	String lname = ToLower(name);
+	RemoveSinger(lname);
 	for (StaticPart& sp : parts)
 		if (ToLower(sp.name) == lname)
 			return &sp;

@@ -26,6 +26,7 @@ struct Entity :
 	VectorMap<String,String>	phrases_eng;
 	bool is_female = false;
 	int language = 0;
+	Vector<ContentVisionIdea>	ideas;
 	
 	// Public (separate files)
 	Array<Script>		scripts;
@@ -100,6 +101,7 @@ struct Entity :
 			("phrases_eng", phrases_eng)
 			("is_female", is_female)
 			("language", language)
+			("ideas", ideas)
 			;
 		if (json.IsStoring()) {
 			Vector<String> names;
@@ -122,6 +124,11 @@ struct Entity :
 	
 	int FindScript(const String& scripts_file_title) const;
 	Script& GetAddScript(String name);
+	Vector<const ContentVisionIdea*> FindIdeas(int tc_i, int con_i) const;
+	Vector<ContentVisionIdea*> FindIdeas(int tc_i, int con_i);
+	void ClearIdeas(int tc_i, int con_i);
+	double FindBestScore(int tc_i) const;
+	double FindBestScore(int tc_i, int con_i) const;
 	
 	static bool FileExists(const String& title);
 };

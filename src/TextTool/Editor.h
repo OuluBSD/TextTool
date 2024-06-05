@@ -85,6 +85,7 @@ protected:
 	SnapInfoCtrl					snap_info;
 	CompInfoCtrl					comp_info;
 	ScriptInfoCtrl					script_info;
+	ScriptIdeaCtrl					script_idea;
 	
 	// Database Ctrls
 	TextDataPage					src_data;

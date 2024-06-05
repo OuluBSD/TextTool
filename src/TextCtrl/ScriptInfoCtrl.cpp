@@ -24,12 +24,6 @@ ScriptInfoCtrl::ScriptInfoCtrl() {
 	is_self_centered <<= THISBACK(OnValueChange);
 	language <<= THISBACK(OnValueChange);
 	
-	typeclasses.AddColumn(t_("Typeclass"));
-	typeclasses.WhenCursor << THISBACK(OnTypeclass);
-	
-	contents.AddColumn(t_("Content"));
-	contents.WhenCursor << THISBACK(OnContent);
-	
 }
 
 void ScriptInfoCtrl::Clear() {
@@ -66,58 +60,22 @@ void ScriptInfoCtrl::Data() {
 	
 	Clear();
 	
-	INHIBIT_CURSOR_(typeclasses, a);
-	INHIBIT_CURSOR_(contents, b);
-	{
-		const auto& tcs = GetTypeclasses();
-		for(int i = 0; i < tcs.GetCount(); i++) {
-			typeclasses.Set(i, 0, tcs[i]);
-		}
-		typeclasses.SetCount(tcs.GetCount());
-	}{
-		const auto& cons = GetContents();
-		for(int i = 0; i < cons.GetCount(); i++) {
-			contents.Set(i, 0, cons[i].key);
-		}
-		contents.SetCount(cons.GetCount());
-	}
-	
 	
 	if (p.script) {
 		Script& l = *p.script;
+		const auto& tcs = GetTypeclasses();
+		const auto& cons = GetContents();
 		
 		copyright.SetData(l.copyright);
 		native_title.SetData(l.native_title);
 		english_title.SetData(l.english_title);
 		content_vision.SetData(l.content_vision);
-		if (l.typeclass >= 0 && l.typeclass < typeclasses.GetCount())
-			typeclasses.SetCursor(l.typeclass);
-		if (l.content >= 0 && l.content < contents.GetCount())
-			contents.SetCursor(l.content);
+		typeclass.SetData(tcs[l.typeclass]);
+		content.SetData(cons[l.content].key);
 		is_unsafe.SetIndex(l.is_unsafe);
 		is_story.SetIndex(l.is_story);
 		is_self_centered.SetIndex(l.is_self_centered);
 		language.SetIndex(l.lng_i);
-	}
-}
-
-void ScriptInfoCtrl::OnTypeclass() {
-	TextDatabase& db = GetDatabase();
-	EditorPtrs& p = GetPointers();
-	
-	if (p.script && typeclasses.IsCursor()) {
-		Script& l = *p.script;
-		l.typeclass = typeclasses.GetCursor();
-	}
-}
-
-void ScriptInfoCtrl::OnContent() {
-	TextDatabase& db = GetDatabase();
-	EditorPtrs& p = GetPointers();
-	
-	if (p.script && contents.IsCursor()) {
-		Script& l = *p.script;
-		l.content = contents.GetCursor();
 	}
 }
 
@@ -146,7 +104,7 @@ void ScriptInfoCtrl::ToolMenu(Bar& bar) {
 	if (GetAppMode() == DB_SONG)
 		bar.Add(t_("Paste song header"), AppImg::RedRing(), THISBACK(PasteSongHeader)).Key(K_F8);
 	
-	bar.Add(t_("Get content vision suggestions"), AppImg::RedRing(), THISBACK(GetSuggestions)).Key(K_F9);
+	
 }
 
 void ScriptInfoCtrl::PasteSongHeader() {
@@ -187,31 +145,6 @@ void ScriptInfoCtrl::PasteSongHeader() {
 	script.content = args.con_i;
 	script.content_vision = args.lyrics_idea;
 	script.user_structure = GetDefaultScriptStructureString(GetAppMode());
-}
-
-void ScriptInfoCtrl::GetSuggestions() {
-	MetaPtrs& mp = MetaPtrs::Single();
-	EditorPtrs& p = GetPointers();
-	if (!mp.profile || !p.script) return;
-	
-	int appmode = GetAppMode();
-	EnterAppMode(appmode);
-	
-	ScriptSolverArgs args; // 0
-	args.fn = 12;
-	args.artist.Add(mp.profile->name, mp.profile->biography);
-	args.song.Add(__typeclass, TextLib::GetTypeclasses(appmode)[p.script->typeclass]);
-	args.song.Add(__content, TextLib::GetContents(appmode)[p.script->content].key);
-	
-	LeaveAppMode();
-	
-	TaskMgr& m = TaskMgr::Single();
-	m.GetScriptSolver(appmode, args, [this](String res) {
-		PostCallback([this, res]() {
-			suggestions.SetData("1. " + res);
-		});
-	});
-	
 }
 
 END_TEXTLIB_NAMESPACE

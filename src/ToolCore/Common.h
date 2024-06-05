@@ -526,6 +526,20 @@ inline const char* GetLanguageKey(int i) {
 	}
 }
 
+inline const char* GetLanguageCode(int i) {
+	switch (i) {
+		case LNG_NATIVE: return "";
+		case LNG_ENGLISH: return "EN-US";
+		case LNG_FINNISH: return "FI-FI";
+		case LNG_SPANISH: return "ES-ES";
+		case LNG_PORTUGUESE: return "PT-PT";
+		case LNG_KOREAN: return "KO-KO";
+		case LNG_JAPANESE: return "JA-JA";
+		case LNG_RUSSIAN: return "RU-RU";
+		case LNG_CHINESE: return "ZH-SG";
+		default: return "";
+	}
+}
 
 namespace Attr {
 

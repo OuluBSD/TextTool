@@ -257,6 +257,23 @@ struct ScriptPostFix {
 	}
 };
 
+struct ContentVisionIdea : Moveable<ContentVisionIdea> {
+	int tc_i = -1, con_i = -1;
+	String text;
+	Vector<int> scores;
+	double ScoreAv() const {if (scores.IsEmpty()) return 0; int s = 0; for (int i : scores) s += i; return (double)s/scores.GetCount();}
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("tc_i", tc_i)
+			("con_i", con_i)
+			("text", text)
+			("scores", scores)
+			;
+	}
+	bool operator()(const ContentVisionIdea& a, const ContentVisionIdea& b) const {return a.ScoreAv() >= b.ScoreAv();}
+};
+
 struct Script : DataFile {
 	String						native_title;
 	String						english_title;

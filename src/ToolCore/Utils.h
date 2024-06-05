@@ -128,6 +128,7 @@ inline String MakeTitle(String s) {
 	return ws.ToString();
 }
 
+void RemoveSinger(String& s);
 
 END_TEXTLIB_NAMESPACE
 

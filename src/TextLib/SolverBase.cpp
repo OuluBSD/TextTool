@@ -37,6 +37,7 @@ void SolverBase::Process() {
 			
 			if (generation >= generation_count) {
 				time_stopped = GetSysTime();
+				WhenReady();
 				break;
 			}
 		}

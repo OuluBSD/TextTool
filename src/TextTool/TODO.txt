@@ -154,3 +154,4 @@ x? vocabulary: for artist, for release, for song
 - added condition to increase generations in text-post-fix, if score is constantly improving
 - added support for multiple singers in lyrics solver
 - fix bad ScriptSolver bug, which gave wrong best result :( ... I made over 10 songs with the wrong best suggestion
+- added ScriptIdeaCtrl to find song ideas and to score them

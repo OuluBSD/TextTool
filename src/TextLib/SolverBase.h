@@ -40,6 +40,7 @@ public:
 	virtual void OnBatchError() {NextBatch();}
 	
 	Callback2<int,int> WhenProgress;
+	Event<> WhenReady;
 	
 };
 

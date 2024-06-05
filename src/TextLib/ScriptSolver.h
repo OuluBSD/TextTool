@@ -11,6 +11,7 @@ class ScriptSolver {
 		LS_COLLECT,
 		LS_FILL_LINES,
 		LS_COMPARISON,
+		LS_TITLE,
 		
 		LS_COUNT
 	};
@@ -40,6 +41,7 @@ class ScriptSolver {
 	ComponentAnalysis* sa = 0;
 	Vector<int> phrase_src;
 	String active_part;
+	Index<hash_t> visited;
 	
 	void Process();
 	void ClearScript();
@@ -48,6 +50,7 @@ class ScriptSolver {
 	void ProcessPrimary();
 	void ProcessMakeHoles();
 	void ProcessComparison();
+	void ProcessTitle();
 	void OnProcessPrimary(String res);
 	void OnProcessFillLines(String res);
 	void OnProcessMakeHoles(String res);
