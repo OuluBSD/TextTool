@@ -136,12 +136,14 @@ void ScriptIdeaSolver::DoPhase() {
 					score_sum += score;
 					score_count++;
 					scores << score;
+					if (scores.GetCount() == SCORE_COUNT)
+						break;
 				}
 			}
 			
-			if (batch == cvo->ideas.GetCount()-1) {
+			/*if (batch == cvo->ideas.GetCount()-1) {
 				Sort(cvo->ideas, ContentVisionIdea());
-			}
+			}*/
 			
 			SetWaiting(0);
 			NextBatch();
