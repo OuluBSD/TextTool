@@ -1123,8 +1123,9 @@ void ScriptSolver::ProcessTitle() {
 		script->english_title = res;
 		script->native_title.Clear();
 		
-		if (artist->language != LNG_ENGLISH) {
-			String code = GetLanguageCode(artist->language);
+		int lng = MetaDatabase::Single().GetLanguageIndex();
+		if (lng != LNG_ENGLISH) {
+			String code = GetLanguageCode(lng);
 			m.Translate("EN-US", script->english_title, code, [this](String res) {
 				res = TrimBoth(res);
 				script->native_title = res;

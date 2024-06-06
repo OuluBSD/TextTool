@@ -26,7 +26,7 @@ public:
 	int variation_count = 10;
 	double mutation_factor = 0.5; // 50%
 	
-	struct Variation : Moveable<Variation> {
+	struct Variation {
 		Vector<String> lines;
 		Vector<int> scores;
 		int ScoreSum() const {int s = 0; for (int i : scores) s += i; return s;}
@@ -38,7 +38,7 @@ public:
 		bool operator()(const Variation& a, const Variation& b) const {return a.ScoreSum() >= b.ScoreSum();}
 		#endif
 	};
-	Vector<Variation> variations;
+	Array<Variation> variations;
 	Index<int> remaining;
 	Vector<Tuple2<int,int>> matches;
 	

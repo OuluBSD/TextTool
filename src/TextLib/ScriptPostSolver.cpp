@@ -354,7 +354,31 @@ void ScriptPostSolver::DoPhase() {
 		if (remaining.GetCount() <= 1)
 		#endif
 		{
+			// U++ Sort crash bug workaround
+			#if 1
+			VectorMap<int,double> var_scores;
+			for(int i = 0; i < variations.GetCount(); i++)
+				var_scores.Add(i, variations[i].ScoreSum());
+			SortByValue(var_scores, StdGreater<double>());
+			//DUMPM(var_scores);
+			Array<Variation> tmp_vars;
+			Index<int> rm_list;
+			for (int i : var_scores.GetKeys()) {
+				int diff = 0;
+				for(int j = 0; j < i; j++) {
+					if (rm_list.Find(j) >= 0)
+						diff++;
+				}
+				tmp_vars.Add(variations.Detach(i-diff));
+				rm_list.Add(i);
+			}
+			Swap(tmp_vars, variations);
+			/*for(int i = 0; i < variations.GetCount(); i++) {
+				LOG(i << ": " << variations[i].ScoreSum());
+			}*/
+			#else
 			Sort(variations, Variation());
+			#endif
 			LOG(Join(variations[0].lines, "\n"));
 			spf.variations.Clear();
 			spf.variations.SetCount(variations.GetCount());

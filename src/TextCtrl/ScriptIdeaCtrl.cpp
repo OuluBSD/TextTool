@@ -88,6 +88,8 @@ void ScriptIdeaCtrl::Data() {
 }
 
 void ScriptIdeaCtrl::DataTypeclass(bool keep_content_idx) {
+	EditorPtrs& p = GetPointers();
+	if(!p.script || !p.entity) return;
 	Script& s = GetScript();
 	Entity& e = GetEntity();
 	ContentVisionOwner& cvo = GetCVO();
@@ -201,6 +203,10 @@ void ScriptIdeaCtrl::ToolMenu(Bar& bar) {
 	bar.Separator();
 	bar.Add(t_("Get 2-singers version"), AppImg::RedRing(), THISBACK1(Do, 6)).Key(K_F8);
 	bar.Add(t_("Get 3-singers version"), AppImg::RedRing(), THISBACK1(Do, 7)).Key(K_F8);
+	bar.Separator();
+	bar.Add(t_("Save ideas-json to clipboard"), AppImg::BlueRing(), THISBACK1(Do, 8));
+	bar.Add(t_("Load ideas-json from clipboard"), AppImg::BlueRing(), THISBACK1(Do, 9));
+	
 }
 
 void ScriptIdeaCtrl::Do(int fn) {
@@ -286,6 +292,16 @@ void ScriptIdeaCtrl::Do(int fn) {
 					idea[2].SetData(res);
 			});
 		});
+	}
+	else if (fn == 8) {
+		ContentVisionOwner& cvo = GetCVO();
+		String json = StoreAsJson(cvo.ideas);
+		WriteClipboardText(json);
+	}
+	else if (fn == 9) {
+		String json = ReadClipboardText();
+		ContentVisionOwner& cvo = GetCVO();
+		LoadFromJson(cvo.ideas, json);
 	}
 }
 
