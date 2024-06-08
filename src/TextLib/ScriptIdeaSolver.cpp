@@ -167,9 +167,13 @@ void ScriptIdeaSolver::ParseSuggestions(String res, bool types, int tc_i, int co
 			tc_i = 0, con_i = 0;
 			int a = l.Find("A #");
 			if (a < 0)
+				a = l.Find("A# ");
+			if (a < 0)
 				continue;
 			tc_i = ScanInt(l.Mid(a+3));
 			a = l.Find("B #");
+			if (a < 0)
+				a = l.Find("B# ");
 			if (a < 0)
 				continue;
 			con_i = ScanInt(l.Mid(a+3));

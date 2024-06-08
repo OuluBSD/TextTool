@@ -81,6 +81,7 @@ void ScriptSolver::Process() {
 			
 			// Start ScriptPostSolver
 			ScriptPostSolver& ls = ScriptPostSolver::Get(*artist->profile, *script, appmode);
+			ls.SetSkipReady(false);
 			ls.Start();
 			
 			break;

@@ -80,6 +80,7 @@ ScriptPostFixCtrl::ScriptPostFixCtrl() {
 void ScriptPostFixCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Start process"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Separator();
+	bar.Add(t_("Start process (don't skip ready)"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F5);
 	
 }
 
@@ -286,8 +287,9 @@ void ScriptPostFixCtrl::Do(int fn) {
 	EditorPtrs& p = GetPointers();
 	if (!p.entity || !p.entity->profile || !p.script) return;
 	
-	if (fn == 0) {
+	if (fn == 0 || fn == 1) {
 		ScriptPostSolver& tm = ScriptPostSolver::Get(*p.entity->profile, *p.script, GetAppMode());
+		tm.SetSkipReady(fn == 1);
 		tm.Start();
 	}
 }
