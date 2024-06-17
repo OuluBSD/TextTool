@@ -255,6 +255,7 @@ void MetaDatabase::Jsonize(JsonIO& json) {
 			("owners", names)
 			("platforms", platforms)
 			("roles", roles)
+			("beliefs", beliefs)
 			;
 	}
 	else {
@@ -262,6 +263,7 @@ void MetaDatabase::Jsonize(JsonIO& json) {
 			("owners", names)
 			("platforms", platforms)
 			("roles", roles)
+			("beliefs", beliefs)
 			;
 		owners.SetCount(names.GetCount());
 		for(int i = 0; i < owners.GetCount(); i++)

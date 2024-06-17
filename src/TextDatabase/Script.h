@@ -296,6 +296,7 @@ struct Script : DataFile, ContentVisionOwner {
 	int							typeclass = 0;
 	int							content = 0;
 	int							lng_i = 0;
+	int							belief_i = 0;
 	bool						is_unsafe = false;
 	bool						is_story = false;
 	bool						is_self_centered = false;
@@ -378,6 +379,7 @@ struct Script : DataFile, ContentVisionOwner {
 			("clr_list", clr_list)
 			("suggestions", suggestions)
 			("lng_i", lng_i)
+			("belief_i", belief_i)
 			("post_analysis", post_analysis)
 			
 			("postfixes", postfixes)

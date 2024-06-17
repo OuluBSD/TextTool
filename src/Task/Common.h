@@ -127,7 +127,7 @@ struct ScriptSolverArgs {
 	int fn;
 	int lng_i = -1;
 	VectorMap<String,String> artist, release, song;
-	Vector<String> parts, attrs, phrases;
+	Vector<String> parts, attrs, phrases, scores;
 	Vector<int> counts, offsets;
 	String part, vision;
 	bool is_story = false;
@@ -143,6 +143,7 @@ struct ScriptSolverArgs {
 				("parts", parts)
 				("attrs", attrs)
 				("phrases", phrases)
+				("scores", scores)
 				("counts", counts)
 				("offsets", offsets)
 				("part", part)
@@ -317,6 +318,23 @@ struct ScriptPostArgs {
 				("desc", desc)
 				("text", text)
 				("lines", lines)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct BeliefArgs {
+	int fn = 0;
+	Vector<String> user;
+	Vector<String> pos, neg;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("user", user)
+				("pos", pos)
+				("neg", neg)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

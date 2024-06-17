@@ -44,6 +44,7 @@
 #include "SocialNeeds.h"
 #include "ScriptPostFix.h"
 #include "ScriptIdeaCtrl.h"
+#include "SocialBeliefs.h"
 
 
 #endif

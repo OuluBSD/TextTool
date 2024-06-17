@@ -79,11 +79,28 @@ struct TextDatabase {
 	
 };
 
+
+struct Belief {
+	struct Attr : Moveable<Attr> {
+		String positive, negative;
+		void Jsonize(JsonIO& json) {json("positive",positive)("negative",negative);}
+	};
+	String name, reference;
+	Vector<Attr> attrs;
+	Vector<String> user;
+	
+	void Jsonize(JsonIO& json) {
+		json("name", name)("reference", reference)("attrs", attrs)("user", user);
+	}
+};
+
+
 struct MetaDatabase {
 	TextDatabase db[DB_COUNT];
 	
 	//Array<MetaEntity>	meta_entities;
 	Array<Owner>				owners;
+	Array<Belief>				beliefs;
 	
 	// Source
 	LeadData					lead_data;

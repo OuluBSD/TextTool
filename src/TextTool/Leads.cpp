@@ -33,6 +33,7 @@ void LeadsCtrl::InitSimplified() {
 	AddItem(t_("Social Media"), t_("Header"), social_header);
 	AddItem(t_("Social Media"), t_("Content"), some_content);
 	AddItem(t_("Social Media"), t_("Needs"), social_needs);
+	AddItem(t_("Social Media"), t_("Beliefs"), social_beliefs);
 	//AddItem(t_("Social Media"), t_("Content Templates"), tmpl_content);
 	
 }
@@ -206,6 +207,7 @@ void ToolEditorBase::AddProfile() {
 	}
 	
 	Profile& a = owner.profiles.Add();
+	a.owner = &owner;
 	a.name = name;
 	p.profile = &a;
 	

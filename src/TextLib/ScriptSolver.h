@@ -31,6 +31,7 @@ class ScriptSolver {
 	int primary_count = 50;
 	int rhyming_list_count = 5;
 	int sugg_limit = 6;
+	bool start_post_solver = false;
 	
 	// temp
 	Vector<VectorMap<int,double>> phrase_parts;
@@ -78,6 +79,8 @@ public:
 	static ScriptSolver& Get(int appmode, Entity& a, Script& l);
 	static void ClearTasks();
 	static void RestartTasks();
+	
+	void StartPostSolver(bool b=true) {start_post_solver = b;}
 	
 	Callback2<int,int> WhenProgress;
 	

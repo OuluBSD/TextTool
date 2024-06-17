@@ -16,6 +16,7 @@
 #include "ContentSolver.h"
 #include "ScriptPostSolver.h"
 #include "ScriptIdeaSolver.h"
+#include "BeliefSolver.h"
 
 
 #endif

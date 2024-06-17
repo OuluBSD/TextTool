@@ -23,6 +23,7 @@ ScriptInfoCtrl::ScriptInfoCtrl() {
 	is_story <<= THISBACK(OnValueChange);
 	is_self_centered <<= THISBACK(OnValueChange);
 	language <<= THISBACK(OnValueChange);
+	belief <<= THISBACK(OnValueChange);
 	
 }
 
@@ -35,9 +36,11 @@ void ScriptInfoCtrl::Clear() {
 	this->is_story			.SetIndex(0);
 	this->is_self_centered	.SetIndex(0);
 	this->language			.SetIndex(0);
+	if (this->belief.GetCount()) this->belief.SetIndex(0);
 }
 
 void ScriptInfoCtrl::Data() {
+	MetaDatabase& mdb = MetaDatabase::Single();
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
 	
@@ -58,6 +61,11 @@ void ScriptInfoCtrl::Data() {
 	is_self_centered.Add(GetAppModeLabel(AML_NON_SELF_CENTERED));
 	is_self_centered.Add(GetAppModeLabel(AML_SELF_CENTERED));
 	
+	belief.Clear();
+	belief.Add("Default");
+	for(int i = 0; i < mdb.beliefs.GetCount(); i++)
+		belief.Add(mdb.beliefs[i].name);
+	
 	Clear();
 	
 	
@@ -76,6 +84,8 @@ void ScriptInfoCtrl::Data() {
 		is_story.SetIndex(l.is_story);
 		is_self_centered.SetIndex(l.is_self_centered);
 		language.SetIndex(l.lng_i);
+		if (l.belief_i >= 0 && l.belief_i < belief.GetCount())
+			belief.SetIndex(l.belief_i);
 	}
 }
 
@@ -94,6 +104,7 @@ void ScriptInfoCtrl::OnValueChange() {
 		l.is_story = is_story.GetIndex();
 		l.is_self_centered = is_self_centered.GetIndex();
 		l.lng_i = language.GetIndex();
+		l.belief_i = belief.GetCount() ? belief.GetIndex() : -1;
 		
 		int c = editor->scripts.GetCursor();
 		editor->scripts.Set(c, 0, l.GetAnyTitle());

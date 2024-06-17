@@ -1681,10 +1681,15 @@ void AiTask::CreateInput_ScriptSolver() {
 		input.response_length = 2048;
 	}
 	else if (args.fn == 3) {
-		{
+		if (args.scores.IsEmpty()) {
 			auto& list = input.AddSub().Title("List of " + __entities);
 			for(int i = 0; i < args.parts.GetCount(); i++)
 				list.Add(args.parts[i]);
+		}
+		else {
+			auto& list = input.AddSub().Title(__Script + " heuristic score factors");
+			for(int i = 0; i < args.scores.GetCount(); i++)
+				list.Add(args.scores[i]);
 		}
 		{
 			auto& list = input.AddSub().Title("List A: Phrases");
@@ -1694,13 +1699,15 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			String t = "50 good combinations of List A Phrases, which would suit";
-			if (args.is_unsafe && args.is_story && args.is_self_centered)
-				t += " to a narcissistically self-centered, modern, funny, sexually explicit and daring folk tale";
+			String t = "50 good combinations of List A Phrases, which would";
+			if (args.scores.GetCount())
+				t += " have high score factors";
+			else if (args.is_unsafe && args.is_story && args.is_self_centered)
+				t += " suit to a narcissistically self-centered, modern, funny, sexually explicit and daring folk tale";
 			else if (args.is_unsafe && args.is_story)
-				t += " to a modern, funny, sexually explicit and daring folk tale";
+				t += " suit to a modern, funny, sexually explicit and daring folk tale";
 			else if (args.is_story)
-				t += " to a humoristic and modern folk tale";
+				t += " suit to a humoristic and modern folk tale";
 			t += " for given " + __entities + ", with combination size 2-3";
 			results.Title(t);
 			results.NumberedLines();
@@ -1727,10 +1734,15 @@ void AiTask::CreateInput_ScriptSolver() {
 			list.NoColon();
 		}
 		#endif
-		{
+		if (args.scores.IsEmpty()) {
 			auto& list = input.AddSub().Title("List of " + __entities);
 			for(int i = 0; i < args.parts.GetCount(); i++)
 				list.Add(args.parts[i]);
+		}
+		else {
+			auto& list = input.AddSub().Title(__Script + " heuristic score factors");
+			for(int i = 0; i < args.scores.GetCount(); i++)
+				list.Add(args.scores[i]);
 		}
 		{
 			const auto& ex = GetAppModeResultPhraseExamples(appmode, args.lng_i);
@@ -1761,7 +1773,10 @@ void AiTask::CreateInput_ScriptSolver() {
 			String t = "Use least amount of new words to combine " + lng + "phrases in their exact form to new sentences, using style of " + __entity + " from the list.";
 			if (appmode == DB_SONG)
 				t += " Make phrases rhyme.";
-			if (args.is_unsafe && args.is_story && args.is_self_centered)
+			
+			if (args.scores.GetCount())
+				t += " These phrases should have high " + __script + " heuristic score factors.";
+			else if (args.is_unsafe && args.is_story && args.is_self_centered)
 				t += " These phrases should fit a narcissistically self-centered, modern, funny, sexually explicit and daring folk tale";
 			else if (args.is_unsafe && args.is_story)
 				t += " These phrases should fit a fun, sexually explicit, daring and modern folk tale";
@@ -1780,7 +1795,7 @@ void AiTask::CreateInput_ScriptSolver() {
 	
 	else if (args.fn == 5) {
 		String audience = GetAppModeKey(appmode, AM_AUDIENCE);
-		{
+		if (args.scores.IsEmpty()) {
 			auto& list = input.AddSub().Title("Action planner heuristic score factors");
 			list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
 			list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
@@ -1792,6 +1807,11 @@ void AiTask::CreateInput_ScriptSolver() {
 			list.Add("S7: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
 			list.Add("S8: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
 			list.Add("S9: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
+		}
+		else {
+			auto& list = input.AddSub().Title(__Script + " heuristic score factors");
+			for(int i = 0; i < args.scores.GetCount(); i++)
+				list.Add(args.scores[i]);
 		}
 		
 		
@@ -1853,7 +1873,7 @@ void AiTask::CreateInput_ScriptSolver() {
 	
 	else if (args.fn == 7) {
 		String audience = GetAppModeKey(appmode, AM_AUDIENCE);
-		{
+		if (args.scores.IsEmpty()) {
 			auto& list = input.AddSub().Title(__Script2 + " heuristic score factors");
 			list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
 			list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
@@ -1865,6 +1885,12 @@ void AiTask::CreateInput_ScriptSolver() {
 			list.Add("S7: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
 			list.Add("S8: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
 			list.Add("S9: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
+			list.Add("S10: How well " + __script2 + " fit the original vision.");
+		}
+		else {
+			auto& list = input.AddSub().Title(__Script2 + " heuristic score factors");
+			for(int i = 0; i < args.scores.GetCount(); i++)
+				list.Add(args.scores[i]);
 			list.Add("S10: How well " + __script2 + " fit the original vision.");
 		}
 		{
@@ -2016,12 +2042,18 @@ void AiTask::CreateInput_ScriptSolver() {
 				list.Add("high coherency of the story");
 			}
 			list.Add("high semantic and contextual accuracy");
-			list.Add("idea: high like count");
-			list.Add("emotion: high comment count");
-			list.Add("hook: high listen count");
-			list.Add("relatability: high share count");
-			list.Add("value: high bookmark count");
-			list.Add("also highly: funny, sensual, thought provoking, romantic, impactful");
+			if (args.scores.IsEmpty()) {
+				list.Add("idea: high like count");
+				list.Add("emotion: high comment count");
+				list.Add("hook: high listen count");
+				list.Add("relatability: high share count");
+				list.Add("value: high bookmark count");
+				list.Add("also highly: funny, sensual, thought provoking, romantic, impactful");
+			}
+			else {
+				for(int i = 0; i < args.scores.GetCount(); i++)
+					list.Add(args.scores[i]);
+			}
 		}
 		{
 			int lng_i = args.lng_i > 0 ? args.lng_i : MetaDatabase::Single().GetLanguageIndex();
@@ -3346,6 +3378,53 @@ void AiTask::CreateInput_ScriptPost() {
 	}
 }
 
+void AiTask::CreateInput_BeliefSolver() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadDataAnalysis& lda = mdb.lead_data.a;
+	
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	BeliefArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		String c = IntStr(args.pos.GetCount());
+		{
+			auto& list = input.AddSub();
+			list.Title("Description of a text");
+			for(int i = 0; i < args.user.GetCount(); i++)
+				list.Add(args.user[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of top 10 terms that describe the text's worldview, ideology or the like");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 1024*2;
+	}
+	else if (args.fn == 1) {
+		String c = IntStr(args.pos.GetCount());
+		{
+			auto& list = input.AddSub();
+			list.Title("List of top " + c + " terms that describe this worldview, ideology or the like");
+			list.NumberedLines();
+			for(int i = 0; i < args.pos.GetCount(); i++)
+				list.Add(args.pos[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of top " + c + " terms that are the opposite of previous 10 terms");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 1024*2;
+	}
+}
 
 END_TEXTLIB_NAMESPACE
 

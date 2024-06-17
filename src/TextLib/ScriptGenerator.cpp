@@ -431,6 +431,8 @@ void ScriptGenerator::ProcessPairPhrases() {
 	ScriptSolverArgs args; // 3
 	args.fn = 3;
 	
+	MakeBelief(song, args, 0);
+	
 	per_sub_batch =  50;
 	int begin = sub_batch * per_sub_batch;
 	int end = min(begin + per_sub_batch, phrases[batch].GetCount());
@@ -569,6 +571,8 @@ void ScriptGenerator::ProcessRhymes() {
 	ScriptSolverArgs args; // 4
 	args.fn = 4;
 	args.lng_i = song.lng_i;
+	
+	MakeBelief(song, args, 0);
 	
 	per_sub_batch =  15;
 	int begin = sub_batch * per_sub_batch;
@@ -736,6 +740,23 @@ void ScriptGenerator::OnProcessRhymes(String res) {
 	
 }
 
+void MakeBelief(Script& song, ScriptSolverArgs& args, int fn) {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	if (song.belief_i > 0) {
+		int b_i = song.belief_i -1;
+		Belief& b = mdb.beliefs[b_i];
+		for(int i = 0; i < b.attrs.GetCount(); i++) {
+			Belief::Attr& a = b.attrs[i];
+			String s;
+			if (fn == 0)
+				s = "S" + IntStr(i) + ": High " + ToLower(a.positive) + " score. Low score means that the phrase is " + ToLower(a.negative) + ".";
+			else if (fn == 1)
+				s = "high " + ToLower(a.positive) + " value, low " + ToLower(a.negative) + " value";
+			args.scores << s;
+		}
+	}
+}
+
 void ScriptGenerator::ProcessScores() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
@@ -757,8 +778,10 @@ void ScriptGenerator::ProcessScores() {
 	ScriptSolverArgs args; // 5
 	args.fn = 5;
 	
+	MakeBelief(song, args, 0);
+	
 	per_sub_batch =  15;
-		
+	
 	bool collect_token_texts = song.lng_i == LNG_NATIVE;
 	if (collect_token_texts) {
 		const auto& v = sa.phrase_parts[batch];

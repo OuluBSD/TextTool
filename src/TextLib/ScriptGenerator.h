@@ -5,6 +5,9 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+void MakeBelief(Script& song, ScriptSolverArgs& args, int fn);
+
+
 class ScriptGenerator {
 	enum {
 		LG_BEGIN,

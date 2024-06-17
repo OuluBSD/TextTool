@@ -40,6 +40,8 @@ file
 	SocialContentTemplates.cpp,
 	SocialNeeds.h,
 	SocialNeeds.cpp,
+	SocialBeliefs.h,
+	SocialBeliefs.cpp,
 	Entity readonly separator,
 	EntityInfoCtrl.h,
 	EntityInfoCtrl.cpp,

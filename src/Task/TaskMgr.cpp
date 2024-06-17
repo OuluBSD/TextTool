@@ -456,6 +456,23 @@ void TaskMgr::GetDemandSolver(const DemandArgs& args, Event<String> WhenResult) 
 	task_lock.Leave();
 }
 
+void TaskMgr::GetBeliefSolver(const BeliefArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
+	t.SetRule(AITASK_SNAPSHOT, MakeName(args, -1, "belief solver"))
+		.Input(&AiTask::CreateInput_BeliefSolver)
+		.Process(&AiTask::Process_Default);
+	
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
 void TaskMgr::GetScriptPost(int appmode, const ScriptPostArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	TaskMgr& p = *this;

@@ -79,10 +79,12 @@ void ScriptSolver::Process() {
 			phase = LS_BEGIN;
 			
 			
-			// Start ScriptPostSolver
-			ScriptPostSolver& ls = ScriptPostSolver::Get(*artist->profile, *script, appmode);
-			ls.SetSkipReady(false);
-			ls.Start();
+			if (start_post_solver) {
+				// Start ScriptPostSolver
+				ScriptPostSolver& ls = ScriptPostSolver::Get(*artist->profile, *script, appmode);
+				ls.SetSkipReady(false);
+				ls.Start();
+			}
 			
 			break;
 		}
@@ -467,6 +469,8 @@ void ScriptSolver::ProcessFillLines() {
 	args.is_story = song.is_story;
 	args.is_unsafe = song.is_unsafe;
 	args.is_self_centered = song.is_self_centered;
+	
+	MakeBelief(song, args, 1);
 	
 	// Add existing scripts
 	active_part.Clear();
@@ -949,6 +953,8 @@ void ScriptSolver::ProcessComparison() {
 	ScriptSolverArgs args; // 7
 	args.fn = 7;
 	
+	MakeBelief(song, args, 0);
+	
 	if (batch == 0 && sub_batch == 0) {
 		// Clear 'visited' vector, which stores visited suggestion comparisons
 		visited.Clear();
@@ -1120,6 +1126,9 @@ void ScriptSolver::ProcessTitle() {
 	
 	TaskMgr& m = TaskMgr::Single();
 	m.GetScriptSolver(appmode, args, [this](String res) {
+		res = TrimBoth(res);
+		RemoveQuotes(res);
+		
 		TaskMgr& m = TaskMgr::Single();
 		script->english_title = res;
 		script->native_title.Clear();

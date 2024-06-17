@@ -32,6 +32,7 @@ protected:
 	PlatformCtrl				platform;
 	PlatformProfileCtrl			platform_profile;
 	SocialNeedsCtrl				social_needs;
+	SocialBeliefsCtrl			social_beliefs;
 	
 	
 public:
