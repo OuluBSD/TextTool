@@ -6,9 +6,10 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class ComponentStructure : public ToolAppCtrl {
-	Splitter vsplit, hsplit, attr_split;
+	Splitter vsplit, hsplit, attr_split, bottom;
 	WithComponentStructure<Ctrl> active;
 	ArrayCtrl params, structs, attributes, parts;
+	ArrayCtrl names, lines;
 	bool disabled = false;
 	
 public:
@@ -18,6 +19,7 @@ public:
 	void DisableAll();
 	void EnableAll();
 	void Data() override;
+	void DataScript();
 	void DataComponent();
 	void DataSuggestions();
 	void DataSuggestionAttributes();

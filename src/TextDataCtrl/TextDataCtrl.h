@@ -28,5 +28,6 @@
 #include "LeadWebsites.h"
 #include "LeadTemplates.h"
 #include "LeadPublishers.h"
+#include "StructuredScript.h"
 
 #endif

@@ -1,5 +1,6 @@
 
 v0.0.2
+- improve script post fix: get scores per line. sort lines and replace worst
 - change "singer" to be database agnostic in StaticPart.. see all usage
 - DB_MEME
 - book-page: what is the "book of you" currently and what it demands now for better content

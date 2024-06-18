@@ -44,6 +44,8 @@ file
 	Loader.cpp,
 	Diagnostics.h,
 	Diagnostics.cpp,
+	StructuredScript.h,
+	StructuredScript.cpp,
 	Leads readonly separator,
 	LeadWebsites.h,
 	LeadWebsites.cpp,

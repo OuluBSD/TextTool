@@ -310,7 +310,8 @@ struct DemandArgs {
 struct ScriptPostArgs {
 	int fn = 0;
 	String key, desc, text;
-	Vector<String> lines;
+	Vector<String> lines, scores;
+	bool is_female;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
@@ -318,6 +319,8 @@ struct ScriptPostArgs {
 				("desc", desc)
 				("text", text)
 				("lines", lines)
+				("scores", scores)
+				("is_female", is_female)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

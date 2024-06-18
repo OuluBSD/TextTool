@@ -3269,14 +3269,19 @@ void AiTask::CreateInput_ScriptPost() {
 	if (args.fn == 0) {
 		{
 			auto& list = input.AddSub();
-			list.Title("Task: analyze " + __script + " for weaknesses, problems and mistakes of specified type");
+			list.Title("Task: analyze " + __script + " for lack of specified feature");
 			list.NoColon();
 		}
 		{
 			auto& list = input.AddSub();
-			list.Title("Example result: top 3 lines of some problem in " + __script + ": line number and description of the problem");
+			list.Title((String)"Gender of the 'me, myself & I' in the " + __script + ": " + (args.is_female ? "female" : "male"));
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Example (dummy) result: top 3 lines of without some feature in " + __script + ": line number and description of the lacking of feature");
 			list.NumberedLines();
-			list.Add("line #4: the problem is that blah blah blah");
+			list.Add("line #4: the feature is that blah blah blah");
 			list.Add("line #6 and line #9: this line jumps from blah blah blah");
 			list.Add("line #1: there is no blah blah");
 		}
@@ -3298,7 +3303,7 @@ void AiTask::CreateInput_ScriptPost() {
 		{
 			TaskTitledList& results = input.PreAnswer();
 			int top_count = max(1, min(10, args.lines.GetCount() / 5));
-			results.Title("Top " + IntStr(top_count) + " lines with problem of '" + args.key + "': line number and description of the problem");
+			results.Title("Top " + IntStr(top_count) + " lines without '" + args.key + "': line number and description of the lacking of feature");
 			results.NumberedLines();
 			results.Add("line #");
 		}
@@ -3307,13 +3312,18 @@ void AiTask::CreateInput_ScriptPost() {
 	else if (args.fn == 1) {
 		{
 			auto& list = input.AddSub();
-			list.Title("Task: analyze " + __script + " for lines to be improved");
+			list.Title("Task: analyze " + __script + " for lines to be modified");
 			list.NoColon();
 		}
 		{
 			auto& list = input.AddSub();
-			list.Title("Example result: 3 lines of improvements in " + __script + ": line number and the replacement text");
-			list.Add("line #4: \"some blah blah\" -> \"some much improved blah blah blah\"");
+			list.Title((String)"Gender of the 'me, myself & I' in the " + __script + ": " + (args.is_female ? "female" : "male"));
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Example (dummy) result: 3 lines of modifications in " + __script + ": line number and the replacement text");
+			list.Add("line #4: \"some blah blah\" -> \"some blah blah blah\"");
 			list.Add("line #6: \"some other blah blah\" -> \"this is other blah blah blah\"");
 			list.Add("line #1: \"blah blah and blah\" -> \"blah blah\"");
 		}
@@ -3326,21 +3336,26 @@ void AiTask::CreateInput_ScriptPost() {
 		}
 		{
 			auto& list = input.AddSub();
-			list.Title("Improve '" + args.key + "' in the original " + __script);
+			list.Title("Modify '" + args.key + "' in the original " + __script);
 			list.NoColon();
 		}
 		{
 			TaskTitledList& results = input.PreAnswer();
 			int max_count = max(1, min(10, args.lines.GetCount() / 5));
-			results.Title("Line replacements (max " + IntStr(max_count) + ") with improved '" + args.key + "': line number, the original line and the new line (in original language)");
+			results.Title("Line replacements (max " + IntStr(max_count) + ") with modified '" + args.key + "': line number, the original line and the new line (in original language)");
 			//results.NumberedLines();
 			results.Add("line #");
 		}
 		input.response_length = 1024*2;
 	}
 	else if (args.fn == 2) {
-		String audience = GetAppModeKey(appmode, AM_AUDIENCE);
 		{
+			auto& list = input.AddSub();
+			list.Title((String)"Gender of the 'me, myself & I' in the " + __script + ": " + (args.is_female ? "female" : "male"));
+			list.NoColon();
+		}
+		String audience = GetAppModeKey(appmode, AM_AUDIENCE);
+		if (args.scores.IsEmpty()) {
 			auto& list = input.AddSub().Title(__Script2 + " heuristic score factors");
 			list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
 			list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
@@ -3354,6 +3369,12 @@ void AiTask::CreateInput_ScriptPost() {
 			list.Add("S9: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
 			//list.Add("S10: How well " + __script2 + " fit the original vision.");
 		}
+		else {
+			auto& list = input.AddSub().Title(__Script2 + " heuristic score factors");
+			for(int i = 0; i < args.scores.GetCount(); i++)
+				list.Add(args.scores[i]);
+		}
+		
 		{
 			auto& list = input.AddSub().Title(__Script2 + " heuristic score factors for single phrase");
 			list.Add("\"I'm bleeding after you\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7, S5: 9, S6: 4, S7: 2, S8: 3, S9: 2");

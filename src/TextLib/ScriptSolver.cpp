@@ -81,7 +81,7 @@ void ScriptSolver::Process() {
 			
 			if (start_post_solver) {
 				// Start ScriptPostSolver
-				ScriptPostSolver& ls = ScriptPostSolver::Get(*artist->profile, *script, appmode);
+				ScriptPostSolver& ls = ScriptPostSolver::Get(*artist->profile, *artist, *script, appmode);
 				ls.SetSkipReady(false);
 				ls.Start();
 			}

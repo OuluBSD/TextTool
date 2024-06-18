@@ -20,6 +20,7 @@ public:
 	Owner* owner = 0;
 	Profile* profile = 0;
 	Script* script = 0;
+	Entity* entity = 0;
 	int appmode = 0;
 	
 	// Genetic Solver params
@@ -56,7 +57,7 @@ public:
 	int GetPhaseCount() const override;
 	void DoPhase() override;
 	
-	static ScriptPostSolver& Get(Profile& p, Script& s, int appmode);
+	static ScriptPostSolver& Get(Profile& p, Entity& e, Script& s, int appmode);
 	
 };
 

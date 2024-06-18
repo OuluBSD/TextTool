@@ -29,11 +29,26 @@ struct Translation : Moveable<Translation> {
 };
 
 
+struct StructuredScript : Moveable<StructuredScript> {
+	String entity, title, structure_str;
+	VectorMap<String, Vector<String>> script;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("entity", entity)
+			("title", title)
+			("structure_str", structure_str)
+			("script", script)
+			;
+	}
+};
+
 
 struct TextDatabase {
 	// Share
 	Array<Entity>	entities;
 	VectorMap<String, Translation> translation;
+	Vector<StructuredScript> structured_scripts;
 	
 	// Source
 	SourceData		src_data;
@@ -51,24 +66,10 @@ struct TextDatabase {
 	/*void Serialize(Stream& s) {
 		s	% entities
 			% translation;
-	}
-	void Jsonize(JsonIO& json) {
-		json ("translation", translation);
-		if (json.IsStoring()) {
-			Vector<String> names;
-			for (Entity& a : entities) {a.Store(); names.Add(a.file_title);}
-			json(GetAppModeKeyEntities(), names);
-		}
-		if (json.IsLoading()) {
-			String lng = GetCurrentLanguageString().Left(5);
-			trans_i = translation.FindAdd(lng);
-			
-			Vector<String> names;
-			json(GetAppModeKeyEntities(), names);
-			for (String n : names) entities.Add().LoadTitle(n);
-			Sort(entities, Entity());
-		}
 	}*/
+	void Jsonize(JsonIO& json) {
+		json ("structured_scripts", structured_scripts);
+	}
 	String GetEntitiesDir() const;
 	String GetSnapshotsDir() const;
 	String GetComponentsDir() const;

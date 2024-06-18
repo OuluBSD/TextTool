@@ -111,6 +111,7 @@ protected:
 	SnapCoverImage					snap_cover;
 	VideoPromptMakerCtrl			video_prompt_maker;
 	ScriptPostFixCtrl				script_post_fix;
+	StructuredScriptCtrl			structured_script;
 	
 public:
 	typedef ToolEditor CLASSNAME;

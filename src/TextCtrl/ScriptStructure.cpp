@@ -9,7 +9,19 @@ ComponentStructure::ComponentStructure() {
 	Add(vsplit.SizePos());
 	CtrlLayout(active);
 	
-	vsplit.Vert() << hsplit << active;
+	vsplit.Vert() << hsplit << bottom;
+	
+	bottom.Horz() << active << names << lines;
+	bottom.SetPos(6666, 0);
+	bottom.SetPos(7500, 1);
+	
+	names.AddColumn("Artist");
+	names.AddColumn("Title");
+	names.WhenCursor << THISBACK(DataScript);
+	
+	lines.AddColumn("Part");
+	lines.AddColumn("Text");
+	lines.ColumnWidths("1 4");
 	
 	active.parts.AddColumn(t_("Name"));
 	//active.parts.AddColumn(t_("Type"));
@@ -140,11 +152,45 @@ void ComponentStructure::EnableAll() {
 }
 
 void ComponentStructure::Data() {
+	TextDatabase& db = GetDatabase();
+	
 	active.lbl_comp_struct.SetLabel(GetAppModeLabel(AML_COMPONENT_STRUCTURE));
 	params.Set(5, 0, GetAppModeLabel(AML_SPEED));
 	
+	for(int i = 0; i < db.structured_scripts.GetCount(); i++) {
+		StructuredScript& ss = db.structured_scripts[i];
+		names.Set(i, 0, ss.entity);
+		names.Set(i, 1, ss.title);
+	}
+	INHIBIT_CURSOR(names);
+	names.SetCount(db.structured_scripts.GetCount());
+	if (names.GetCount() && !names.IsCursor())
+		names.SetCursor(0);
+	
+	DataScript();
 	DataActive();
 	DataComponent();
+}
+
+void ComponentStructure::DataScript() {
+	if (!names.IsCursor())
+		return;
+	
+	TextDatabase& db = GetDatabase();
+	int ss_i = names.GetCursor();
+	StructuredScript& ss = db.structured_scripts[ss_i];
+	
+	int row = 0;
+	for(int i = 0; i < ss.script.GetCount(); i++) {
+		String part = ss.script.GetKey(i);
+		const auto& l = ss.script[i];
+		for(int j = 0; j < l.GetCount(); j++) {
+			lines.Set(row, 0, part);
+			lines.Set(row, 1, l[j]);
+			row++;
+		}
+	}
+	lines.SetCount(row);
 }
 
 void ComponentStructure::DataActive() {

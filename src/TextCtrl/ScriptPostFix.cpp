@@ -288,7 +288,7 @@ void ScriptPostFixCtrl::Do(int fn) {
 	if (!p.entity || !p.entity->profile || !p.script) return;
 	
 	if (fn == 0 || fn == 1) {
-		ScriptPostSolver& tm = ScriptPostSolver::Get(*p.entity->profile, *p.script, GetAppMode());
+		ScriptPostSolver& tm = ScriptPostSolver::Get(*p.entity->profile, *p.entity, *p.script, GetAppMode());
 		tm.SetSkipReady(fn == 1);
 		tm.Start();
 	}

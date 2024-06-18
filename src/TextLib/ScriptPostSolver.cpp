@@ -126,9 +126,18 @@ void ScriptPostSolver::DoPhase() {
 		args.fn = 0;
 		//args.key = GetPostScriptAnalysisKey(batch);
 		//args.desc = GetPostScriptAnalysisDescription(batch);
-		args.key = GetScoreTitle(batch);
-		args.desc = GetScoreDescription(batch);
 		args.lines <<= spf.src_lines;
+		args.is_female = entity->is_female;
+		if (script->belief_i <= 0) {
+			args.key = GetScoreTitle(batch);
+			args.desc = GetScoreDescription(batch);
+		}
+		else {
+			Belief& b = MetaDatabase::Single().beliefs[script->belief_i - 1];
+			if (batch >= b.attrs.GetCount()) {SetNotRunning(); return;}
+			args.key = b.attrs[batch].positive;
+			args.desc = "Has " + ToLower(b.attrs[batch].positive) + ". Doesn't have " + ToLower(b.attrs[batch].negative) + ".";
+		}
 		
 		
 		SetWaiting(1);
@@ -197,9 +206,17 @@ void ScriptPostSolver::DoPhase() {
 		
 		ScriptPostArgs args;
 		args.fn = 1;
+		args.is_female = entity->is_female;
 		//args.key = GetPostScriptModificationKey(batch);
-		args.key = "Increase " + ToLower(GetScoreTitle(batch)) + " score";
 		args.lines <<= spf.src_lines;
+		if (script->belief_i <= 0) {
+			args.key = "Modify text to increase " + ToLower(GetScoreTitle(batch)) + " score";
+		}
+		else {
+			Belief& b = MetaDatabase::Single().beliefs[script->belief_i - 1];
+			if (batch >= b.attrs.GetCount()) {SetNotRunning(); return;}
+			args.key = "Modify text to have more " + ToLower(b.attrs[batch].positive);
+		}
 		
 		SetWaiting(1);
 		TaskMgr& m = TaskMgr::Single();
@@ -421,6 +438,17 @@ void ScriptPostSolver::DoPhase() {
 		
 		ScriptPostArgs args;
 		args.fn = 2;
+		args.is_female = entity->is_female;
+		
+		if (script->belief_i > 0) {
+			Belief& b = MetaDatabase::Single().beliefs[script->belief_i - 1];
+			if (batch >= b.attrs.GetCount()) {SetNotRunning(); return;}
+			for(int i = 0; i < b.attrs.GetCount(); i++) {
+				Belief::Attr& a = b.attrs[i];
+				String s = "S" + IntStr(i) + ": High " + ToLower(a.positive) + " score. Low score means that the phrase is " + ToLower(a.negative) + ".";
+				args.scores << s;
+			}
+		}
 		
 		#if SCORE_COMPARISON
 		args.lines << Join(variations[batch].lines, "\n");
@@ -521,7 +549,7 @@ ArrayMap<hash_t, ScriptPostSolver>& __ScriptPostSolvers() {
 	return map;
 }
 
-ScriptPostSolver& ScriptPostSolver::Get(Profile& p, Script& s, int appmode) {
+ScriptPostSolver& ScriptPostSolver::Get(Profile& p, Entity& e, Script& s, int appmode) {
 	String t = p.owner->name + ": " + p.name + ": " + s.native_title;
 	hash_t h = t.GetHashValue();
 	ArrayMap<hash_t, ScriptPostSolver>& map = __ScriptPostSolvers();
@@ -533,6 +561,7 @@ ScriptPostSolver& ScriptPostSolver::Get(Profile& p, Script& s, int appmode) {
 	ls.owner = p.owner;
 	ls.profile = &p;
 	ls.script = &s;
+	ls.entity = &e;
 	ls.appmode = appmode;
 	return ls;
 }

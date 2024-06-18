@@ -134,7 +134,8 @@ void ToolEditorBase::AddItem(String g, String i, ToolAppCtrl& c) {
 void ToolEditor::InitSimplified() {
 	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
 	
-	AddItem(t_("Database"), "Components", src_data);
+	AddItem(t_("Database"), t_("Structured Scripts"), structured_script);
+	AddItem(t_("Database"), t_("Components"), src_data);
 	AddItem(t_("Database"), t_("Tokens"), tokens_data);
 	AddItem(t_("Database"), t_("Words"), component_words);
 	AddItem(t_("Database"), t_("Token phrases"), token_phrases);
