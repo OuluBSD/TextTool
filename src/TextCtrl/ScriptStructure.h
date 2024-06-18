@@ -37,6 +37,7 @@ public:
 	void OnSuggestionAttributes(String result, Script* l);
 	void LoadActiveStruct();
 	void LoadSingers();
+	void LoadReference();
 	
 	
 };

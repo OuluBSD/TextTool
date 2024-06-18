@@ -43,7 +43,7 @@ Entity& TextDatabase::GetAddEntity(Profile& p) {
 void TextDatabase::Store() {
 	String& dir = MetaDatabase::Single().dir;
 	String& share = MetaDatabase::Single().share;
-	StoreAsJsonFileStandard(*this, dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir() + DIR_SEPS + "db.json", true);
+	StoreAsJsonFileStandard(*this, dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir() + DIR_SEPS + "src.json", true);
 	
 	for (Entity& a : entities)
 		a.Store();
@@ -70,10 +70,9 @@ void TextDatabase::Load() {
 	
 	String& dir = MetaDatabase::Single().dir;
 	String& share = MetaDatabase::Single().share;
-	Clear();
 	
 	lock.EnterWrite();
-	LoadFromJsonFileStandard(*this, dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir() + DIR_SEPS + "db.json");
+	LoadFromJsonFileStandard(*this, dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir() + DIR_SEPS + "src.json");
 	lock.LeaveWrite();
 }
 

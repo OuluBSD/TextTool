@@ -94,16 +94,19 @@ struct StructSuggestion {
 	String name;
 	Vector<String> parts;
 	Vector<String> attrs;
+	int structured_script_i = -1;
 	
 	void operator=(const StructSuggestion& s) {
 		name = s.name;
 		parts <<= s.parts;
 		attrs <<= s.attrs;
+		structured_script_i = s.structured_script_i;
 	}
 	void Clear() {
 		name.Clear();
 		parts.Clear();
 		attrs.Clear();
+		structured_script_i = -1;
 	}
 	double GetEstimatedDuration(int bpm) const;
 	void Jsonize(JsonIO& json) {
@@ -111,6 +114,7 @@ struct StructSuggestion {
 			("name", name)
 			("parts", parts)
 			("attrs", attrs)
+			("structured_script_i", structured_script_i)
 			;
 	}
 };
@@ -344,6 +348,7 @@ struct Script : DataFile, ContentVisionOwner {
 	
 	//Script() {post_analysis.SetCount(POSTSCRIPT_COUNT);}
 	Script() {post_analysis.SetCount(SCORE_COUNT);}
+	~Script();
 	void Store(Entity& a);
 	void LoadTitle(Entity& a, String title);
 	void Jsonize(JsonIO& json) {

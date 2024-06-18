@@ -4,6 +4,10 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+Script::~Script() {
+	
+}
+
 void Script::Store(Entity& a) {
 	String dir = a.GetScriptDir();
 	RealizeDirectory(dir);

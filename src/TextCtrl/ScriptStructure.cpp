@@ -51,6 +51,11 @@ ComponentStructure::ComponentStructure() {
 	
 	
 	{
+		params.Add(t_("Reference song"), "");
+		EditInt& e = params.CreateCtrl<EditInt>(params.GetCount()-1, 1);
+		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().active_struct.structured_script_i = e.GetData();};
+	}
+	{
 		params.Add(t_("User's structure"), "");
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
 		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().user_structure = e.GetData();};
@@ -154,6 +159,8 @@ void ComponentStructure::EnableAll() {
 void ComponentStructure::Data() {
 	TextDatabase& db = GetDatabase();
 	
+	EnterAppMode(GetAppMode());
+	
 	active.lbl_comp_struct.SetLabel(GetAppModeLabel(AML_COMPONENT_STRUCTURE));
 	params.Set(5, 0, GetAppModeLabel(AML_SPEED));
 	
@@ -226,22 +233,24 @@ void ComponentStructure::DataActive() {
 void ComponentStructure::DataComponent() {
 	Script& l = GetScript();
 	
-	params.Set(0, 1, l.user_structure);
-	params.Set(1, 1, l.required_parts);
-	params.Set(2, 1, l.avoid_parts);
-	params.Set(3, 1, l.structure_suggestion_description);
-	params.Set(4, 1, l.parts_total);
-	params.Set(5, 1, l.bpm);
-	params.Set(6, 1, l.verse_length);
-	params.Set(7, 1, l.prechorus_length);
-	params.Set(8, 1, l.chorus_length);
-	params.Set(9, 1, l.bridge_length);
-	params.Set(10, 1, l.singer0_name);
-	params.Set(11, 1, l.singer1_name);
-	params.Set(12, 1, l.singer2_name);
-	params.Set(13, 1, l.singer0_parts);
-	params.Set(14, 1, l.singer1_parts);
-	params.Set(15, 1, l.singer2_parts);
+	int i = 0;
+	params.Set(i++, 1, l.active_struct.structured_script_i);
+	params.Set(i++, 1, l.user_structure);
+	params.Set(i++, 1, l.required_parts);
+	params.Set(i++, 1, l.avoid_parts);
+	params.Set(i++, 1, l.structure_suggestion_description);
+	params.Set(i++, 1, l.parts_total);
+	params.Set(i++, 1, l.bpm);
+	params.Set(i++, 1, l.verse_length);
+	params.Set(i++, 1, l.prechorus_length);
+	params.Set(i++, 1, l.chorus_length);
+	params.Set(i++, 1, l.bridge_length);
+	params.Set(i++, 1, l.singer0_name);
+	params.Set(i++, 1, l.singer1_name);
+	params.Set(i++, 1, l.singer2_name);
+	params.Set(i++, 1, l.singer0_parts);
+	params.Set(i++, 1, l.singer1_parts);
+	params.Set(i++, 1, l.singer2_parts);
 	
 	DataSuggestions();
 }
@@ -298,6 +307,7 @@ void ComponentStructure::DataSuggestionAttributes() {
 void ComponentStructure::ToolMenu(Bar& bar) {
 	bar.Add(t_("Load user's structure"), AppImg::BlueRing(), THISBACK(LoadUserStructure)).Key(K_CTRL_Q);
 	bar.Add(t_("Load singers"), AppImg::BlueRing(), THISBACK(LoadSingers)).Key(K_CTRL_W);
+	bar.Add(t_("Load reference song"), AppImg::BlueRing(), THISBACK(LoadReference)).Key(K_CTRL_E);
 	bar.Separator();
 	bar.Add(t_("Get structure suggestions"), AppImg::RedRing(), THISBACK(GetStructureSuggestions)).Key(K_F5);
 	bar.Add(t_("Get attributes for suggestions"), AppImg::RedRing(), THISBACK(GetSuggestionAttributes)).Key(K_F6);
@@ -363,6 +373,22 @@ void ComponentStructure::LoadActiveStruct() {
 		part.name = TrimBoth(GetComponentPartFromAbbr(GetAppMode(), abbr));
 		part.type = abbr;
 	}
+}
+
+void ComponentStructure::LoadReference() {
+	if (!names.IsCursor())
+		return;
+	
+	TextDatabase& db = GetDatabase();
+	int ss_i = names.GetCursor();
+	StructuredScript& ss = db.structured_scripts[ss_i];
+	Script& l = GetScript();
+	
+	l.user_structure = ss.structure_str;
+	LoadStructureString(l.user_structure);
+	l.active_struct.structured_script_i = ss_i;
+	
+	PostCallback(THISBACK(Data));
 }
 
 void ComponentStructure::LoadSingers() {

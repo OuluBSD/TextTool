@@ -68,13 +68,13 @@ void Entity::LoadScript() {
 		String name = GetFileName(path);
 		if (GetFileExt(name) != ".json")
 			continue;
-		Script lyr;
+		/*Script lyr;
 		lyr.LoadTitle(*this, title);
 		
 		const auto& typeclass = GetTypeclasses(GetAppModeGlobal());
 		const auto& contents = GetContents(GetAppModeGlobal());
 		if (lyr.typeclass >= 0 && lyr.typeclass < typeclass.GetCount() &&
-			lyr.content >= 0 && lyr.content < contents.GetCount()) {
+			lyr.content >= 0 && lyr.content < contents.GetCount()) */{
 			//this->typeclasses[lyr.typeclass].contents[lyr.content].scripts.Add()
 			scripts.Add()
 				.LoadTitle(*this, title); // TODO avoid duplicate loading
