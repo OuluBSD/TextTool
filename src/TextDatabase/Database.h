@@ -30,15 +30,32 @@ struct Translation : Moveable<Translation> {
 
 
 struct StructuredScript : Moveable<StructuredScript> {
+	struct Part : Moveable<Part> {
+		String name, person;
+		Vector<String> lines;
+		void Jsonize(JsonIO& json) {
+			json
+				("name", name)
+				("person", person)
+				("lines", lines)
+				;
+		}
+	};
 	String entity, title, structure_str;
-	VectorMap<String, Vector<String>> script;
+	Vector<Part> parts;
 	
+	Part& GetAddPart(String name) {
+		for (Part& p : parts) if (p.name == name) return p;
+		Part& p = parts.Add();
+		p.name = name;
+		return p;
+	}
 	void Jsonize(JsonIO& json) {
 		json
 			("entity", entity)
 			("title", title)
 			("structure_str", structure_str)
-			("script", script)
+			("parts", parts)
 			;
 	}
 };

@@ -26,13 +26,37 @@ String Script::GetAnyTitle() const {
 	if (native_title.GetCount())
 		return native_title;
 	
-	if (english_title.GetCount())
-		return english_title;
-	
 	return file_title;
 }
 
+String Script::GetText() const {
+	if (__text.GetCount())
+		return __text;
+	String out;
+	for(int i = 0; i < active_struct.parts.GetCount(); i++) {
+		String type = active_struct.parts[i];
+		for(const StaticPart& sp : parts) {
+			if (sp.part_type == StaticPart::SKIP)
+				continue;
+			if (sp.type != type)
+				continue;
+			
+			out << "[" << sp.name;
+			if (!sp.singer.IsEmpty())
+				out << ": " << sp.singer;
+			out << "]\n";
+			
+			out << sp.text.ToString();
+			out << "\n\n";
+			
+			break;
+		}
+	}
+	return out;
+}
+
 int Script::GetFirstPartPosition() const {
+	#if 0
 	for(int i = 0; i < active_struct.parts.GetCount(); i++) {
 		String type = active_struct.parts[i];
 		for(int j = 0; j < parts.GetCount(); j++) {
@@ -41,15 +65,18 @@ int Script::GetFirstPartPosition() const {
 				return j;
 		}
 	}
+	#endif
 	return -1;
 }
 
 Vector<int> Script::GetPartPositions(const StaticPart& part) const {
 	Vector<int> v;
+	#if 0
 	for(int i = 0; i < active_struct.parts.GetCount(); i++) {
 		if (active_struct.parts[i] == part.type)
 			v << i;
 	}
+	#endif
 	return v;
 }
 
@@ -63,6 +90,7 @@ Vector<int> Script::GetPreviousParts(const StaticPart& part) const {
 	return pos;
 }
 
+#if 0
 Vector<StaticPart*> Script::GetNonSkippedStructureParts() {
 	Vector<StaticPart*> parts;
 	for(int i = 0; i < active_struct.parts.GetCount(); i++) {
@@ -76,6 +104,7 @@ Vector<StaticPart*> Script::GetNonSkippedStructureParts() {
 	}
 	return parts;
 }
+#endif
 
 int Script::FindPart(const StaticPart& part) const {
 	for(int i = 0; i < parts.GetCount(); i++) {
@@ -85,6 +114,7 @@ int Script::FindPart(const StaticPart& part) const {
 	return -1;
 }
 
+#if 0
 Vector<int> Script::GetPreviousPartsNonSkipped(const StaticPart& part) const {
 	Vector<int> pos = GetPartPositions(part);
 	for(int i = 0; i < pos.GetCount(); i++) {
@@ -115,6 +145,7 @@ Vector<int> Script::GetPreviousPartsNonSkipped(const StaticPart& part) const {
 	}
 	return pos;
 }
+#endif
 
 StaticPart* Script::FindPartByType(const String& type) {
 	for (StaticPart& sp : parts)
@@ -133,6 +164,8 @@ StaticPart* Script::FindPartByName(const String& name) {
 }
 
 int StaticPart::GetExpectedLineCount(Script& song) const {
+	TODO
+	#if 0
 	int len = 2;
 	
 	if (name.Find(GetAppModeKeyCap(AM_NORMAL)) == 0)
@@ -156,9 +189,13 @@ int StaticPart::GetExpectedLineCount(Script& song) const {
 	
 	
 	return len;
+	#endif
+	return 0;
 }
 
 int StaticPart::GetContrastIndex(Script& song) const {
+	TODO
+	#if 0
 	int idx = ContentType::PART_COUNT-1;
 	
 	if (name.Find(GetAppModeKeyCap(AM_NORMAL)) == 0)
@@ -181,8 +218,11 @@ int StaticPart::GetContrastIndex(Script& song) const {
 	}
 	
 	return idx;
+	#endif
+	return 0;
 }
 
+#if 0
 double StructSuggestion::GetEstimatedDuration(int bpm) const {
 	double bars_per_min = (double)bpm / 4.0;
 	double bars_per_sec = bars_per_min / 60.0;
@@ -190,7 +230,7 @@ double StructSuggestion::GetEstimatedDuration(int bpm) const {
 	double sec = bars / bars_per_sec;
 	return sec;
 }
-
+#endif
 #if 0
 
 String GetPostScriptAnalysisKey(int i) {

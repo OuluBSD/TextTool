@@ -2089,6 +2089,12 @@ void AiTask::CreateInput_ScriptSolver() {
 	}
 	
 	else if (args.fn == 12 || args.fn == 13) {
+		if (args.scores.GetCount()) {
+			auto& list = input.AddSub().Title(__Script + " heuristic score factors");
+			for(int i = 0; i < args.scores.GetCount(); i++)
+				list.Add(args.scores[i]);
+		}
+		
 		if (args.fn == 13) {
 			{
 				auto& list = input.AddSub().Title("List A: " + __Typeclasses + " of " + __entity + " profiles in relation to the " + __script2);
@@ -2128,6 +2134,8 @@ void AiTask::CreateInput_ScriptSolver() {
 			}
 			else
 				results.Add("");
+			if (args.scores.GetCount())
+				t += ". Suggestions must have high score for all A0-A9 heuristic score factors.";
 			results.Title(t);
 			results.NumberedLines();
 		}

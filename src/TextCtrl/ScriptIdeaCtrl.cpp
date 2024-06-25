@@ -236,13 +236,11 @@ void ScriptIdeaCtrl::Do(int fn) {
 			String title = s.Mid(1,a-1);
 			String desc = TrimBoth(s.Mid(a+2));
 			p.script->content_vision = desc;
-			if (p.script->english_title.IsEmpty())
-				p.script->english_title = title;
-			p.script->native_title = "";
+			if (p.script->native_title.IsEmpty())
+				p.script->native_title = title;
 		}
 		else {
 			p.script->content_vision = s;
-			p.script->english_title = "";
 			p.script->native_title = "";
 		}
 	}

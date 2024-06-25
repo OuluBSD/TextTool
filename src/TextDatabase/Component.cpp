@@ -113,9 +113,6 @@ String Component::GetAnyTitle(Entity& a) const {
 		if (l.native_title.GetCount())
 			return l.native_title;
 		
-		if (l.english_title.GetCount())
-			return l.english_title;
-		
 	}
 	return file_title;
 }

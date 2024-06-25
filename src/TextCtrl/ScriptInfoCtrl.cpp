@@ -76,7 +76,7 @@ void ScriptInfoCtrl::Data() {
 		
 		copyright.SetData(l.copyright);
 		native_title.SetData(l.native_title);
-		english_title.SetData(l.english_title);
+		//english_title.SetData(l.english_title);
 		content_vision.SetData(l.content_vision);
 		typeclass.SetData(tcs[l.typeclass]);
 		content.SetData(cons[l.content].key);
@@ -98,7 +98,7 @@ void ScriptInfoCtrl::OnValueChange() {
 		
 		l.copyright = copyright.GetData();
 		l.native_title = native_title.GetData();
-		l.english_title = english_title.GetData();
+		//l.english_title = english_title.GetData();
 		l.content_vision = content_vision.GetData();
 		l.is_unsafe = is_unsafe.GetIndex();
 		l.is_story = is_story.GetIndex();
@@ -149,13 +149,13 @@ void ScriptInfoCtrl::PasteSongHeader() {
 	//e.RealizeTypeclasses(appmode);
 	Script& script = e.GetAddScript(script_title);
 	
-	comp.music_style = args.music_style;
+	comp.style = args.music_style;
 	if (mp.owner)
 		script.copyright = mp.owner->name;
 	script.typeclass = args.tc_i;
 	script.content = args.con_i;
 	script.content_vision = args.lyrics_idea;
-	script.user_structure = GetDefaultScriptStructureString(GetAppMode());
+	//script.user_structure = GetDefaultScriptStructureString(GetAppMode());
 }
 
 END_TEXTLIB_NAMESPACE

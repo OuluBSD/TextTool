@@ -104,21 +104,20 @@ void ScriptSolverCtrl::Data() {
 	Script& l = GetScript();
 	
 	if (tabs.Get() == 0) {
-		for(int i = 0; i < l.suggestions.GetCount(); i++) {
-			int rank = l.suggestions.GetKey(i);
+		for(int i = 0; i < l.__suggestions.GetCount(); i++) {
+			int rank = l.__suggestions.GetKey(i);
 			result_list.Set(i, 0, rank);
 			result_list.Set(i, "IDX", i);
 		}
-		result_list.SetCount(l.suggestions.GetCount());
+		result_list.SetCount(l.__suggestions.GetCount());
 		
 		if (!result_list.IsCursor() && result_list.GetCount())
 			result_list.SetCursor(0);
 		
-		scripts.SetData(l.text);
+		scripts.SetData(l.GetText());
 		
 		DataSuggestion();
 	}
-	
 }
 
 void ScriptSolverCtrl::DataSuggestion() {
@@ -130,7 +129,7 @@ void ScriptSolverCtrl::DataSuggestion() {
 	
 	int idx = result_list.Get("IDX");
 	
-	suggestion.SetData(l.suggestions[idx]);
+	suggestion.SetData(l.__suggestions[idx]);
 }
 
 void ScriptSolverCtrl::UserScriptChange() {
@@ -139,7 +138,10 @@ void ScriptSolverCtrl::UserScriptChange() {
 	if (!p.script)
 		return;
 	
+	TODO
+	#if 0
 	p.script->text = scripts.GetData();
+	#endif
 }
 
 void ScriptSolverCtrl::GetNewTitle() {
@@ -147,11 +149,15 @@ void ScriptSolverCtrl::GetNewTitle() {
 	
 	ScriptSolverArgs args; // 8
 	args.fn = 8;
+	
+	TODO
+	#if 0
 	args.part = l.text;
 	args.lng_i = l.lng_i;
 	
 	TaskMgr& m = TaskMgr::Single();
 	m.GetScriptSolver(GetAppMode(), args, THISBACK(OnNewTitle));
+	#endif
 }
 
 void ScriptSolverCtrl::OnNewTitle(String res) {
@@ -167,10 +173,8 @@ void ScriptSolverCtrl::OnNewTitle(String res) {
 	res.Replace("\"","");
 	res = TrimBoth(res);
 	
-	if (res.GetCount()) {
-		l.english_title = res;
-		l.native_title.Clear();
-	}
+	if (res.GetCount())
+		l.native_title = res;
 }
 
 

@@ -53,11 +53,11 @@ void CompInfoCtrl::Data() {
 	if (p.component) {
 		Component& s = *p.component;
 		
-		comp_entity.SetData(s.artist);
+		comp_entity.SetData(s.entity);
 		comp_prj_name.SetData(s.prj_name);
 		reference.SetData(s.reference);
 		origins.SetData(s.origins);
-		music_style.SetData(s.music_style);
+		music_style.SetData(s.style);
 	}
 	
 	
@@ -160,8 +160,9 @@ void CompInfoCtrl::DataScript() {
 	Entity& a = *p.entity;
 	Script& lyr = a.scripts[scripts.Get("IDX")];
 	
-	if (lyr.text.GetCount())
-		scripts_text.SetData(lyr.text);
+	String text = lyr.GetText();
+	if (text.GetCount())
+		scripts_text.SetData(text);
 	else
 		scripts_text.SetData("<no scripts>");
 }
@@ -173,14 +174,14 @@ void CompInfoCtrl::OnValueChange() {
 	if (p.component && editor->components.IsCursor()) {
 		Component& s = *p.component;
 		
-		s.artist = comp_entity.GetData();
+		s.entity = comp_entity.GetData();
 		s.prj_name = comp_prj_name.GetData();
 		s.reference = reference.GetData();
 		s.origins = origins.GetData();
-		s.music_style = music_style.GetData();
+		s.style = music_style.GetData();
 		
 		int c = editor->components.GetCursor();
-		editor->components.Set(c, 0, s.artist);
+		editor->components.Set(c, 0, s.entity);
 		editor->components.Set(c, 1, s.prj_name);
 	}
 }

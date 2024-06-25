@@ -253,18 +253,6 @@ LAYOUT(ScriptInfo, 404, 292)
 	ITEM(Upp::DropList, belief, LeftPosZ(136, 256).TopPosZ(260, 20))
 END_LAYOUT
 
-LAYOUT(ComponentStructure, 780, 200)
-	ITEM(Upp::LabelBox, lbl_comp_struct, SetLabel(t_("Active component structure")).HCenterPosZ(360, -206).VCenterPosZ(192, 0))
-	ITEM(Upp::Label, dv___1, SetLabel(t_("Name of the structure:")).SetAlign(Upp::ALIGN_RIGHT).HCenterPosZ(120, -322).VCenterPosZ(20, -62))
-	ITEM(Upp::EditString, struct_name, SetEditable(false).HCenterPosZ(228, -144).VCenterPosZ(20, -62))
-	ITEM(Upp::Label, dv___3, SetLabel(t_("Structure string:")).SetAlign(Upp::ALIGN_RIGHT).HCenterPosZ(120, -322).VCenterPosZ(20, -38))
-	ITEM(Upp::EditString, struct_str, SetEditable(false).HCenterPosZ(228, -144).VCenterPosZ(20, -38))
-	ITEM(Upp::Label, dv___5, SetLabel(t_("Duration:")).SetAlign(Upp::ALIGN_RIGHT).HCenterPosZ(120, -322).VCenterPosZ(20, -14))
-	ITEM(Upp::EditString, duration, SetEditable(false).HCenterPosZ(228, -144).VCenterPosZ(20, -14))
-	ITEM(Upp::ArrayCtrl, attrs, Header(false).HCenterPosZ(352, -206).VCenterPosZ(92, 46))
-	ITEM(Upp::ArrayCtrl, parts, HCenterPosZ(408, 182).VCenterPosZ(184, 4))
-END_LAYOUT
-
 LAYOUT(KeyValueList, 400, 132)
 	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Value")).HSizePosZ(4, 4).TopPosZ(0, 128))
 	ITEM(Upp::Label, dv___1, SetLabel(t_("Key:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 84).TopPosZ(20, 19))

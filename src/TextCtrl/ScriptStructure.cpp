@@ -6,50 +6,32 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 ComponentStructure::ComponentStructure() {
-	Add(vsplit.SizePos());
-	CtrlLayout(active);
+	Add(hsplit.SizePos());
 	
-	vsplit.Vert() << hsplit << bottom;
+	hsplit.Vert() << script_split << ref_split;
 	
-	bottom.Horz() << active << names << lines;
-	bottom.SetPos(6666, 0);
-	bottom.SetPos(7500, 1);
+	script_split.SetPos(2500);
+	script_split.Horz() << script_parts << script_lines;
 	
-	names.AddColumn("Artist");
-	names.AddColumn("Title");
-	names.WhenCursor << THISBACK(DataScript);
+	script_parts.AddColumn("Part name");
+	script_parts.AddColumn("Person");
+	script_lines.AddColumn("Part");
+	script_lines.AddColumn("Text");
+	script_lines.ColumnWidths("1 4");
 	
-	lines.AddColumn("Part");
-	lines.AddColumn("Text");
-	lines.ColumnWidths("1 4");
+	ref_split.Horz() << ref_names << ref_lines;
+	ref_split.SetPos(2500);
 	
-	active.parts.AddColumn(t_("Name"));
-	//active.parts.AddColumn(t_("Type"));
-	active.attrs.AddColumn(t_("Attribute"));
-	
-	
-	hsplit.Horz() << params << structs << attr_split;
-	hsplit.SetPos(2500, 0);
-	hsplit.SetPos(6666, 1);
-	
-	attr_split.Vert() << attributes << parts;
-	attr_split.SetPos(3333);
-	
-	params.AddColumn(t_("Key"));
-	params.AddColumn(t_("Value"));
-	params.ColumnWidths("3 2");
-	
-	structs.AddIndex();
-	structs.AddColumn(t_("Name"));
-	structs.AddColumn(t_("Structure"));
-	structs.AddColumn(t_("Duration"));
-	structs.ColumnWidths("5 9 2");
-	structs.WhenCursor << THISBACK(DataSuggestionAttributes);
-	
-	attributes.AddColumn(t_("Attribute"));
-	parts.AddColumn(t_("Part"));
+	ref_names.AddColumn("Artist");
+	ref_names.AddColumn("Title");
+	ref_names.WhenCursor << THISBACK(DataScript);
+	ref_lines.AddColumn("Part");
+	ref_lines.AddColumn("Text");
+	ref_lines.ColumnWidths("1 4");
 	
 	
+	
+	#if 0
 	{
 		params.Add(t_("Reference song"), "");
 		EditInt& e = params.CreateCtrl<EditInt>(params.GetCount()-1, 1);
@@ -135,25 +117,7 @@ ComponentStructure::ComponentStructure() {
 		EditString& e = params.CreateCtrl<EditString>(params.GetCount()-1, 1);
 		e.WhenAction << [this,&e]() {if (IsScript()) GetScript().singer2_parts = e.GetData();};
 	}
-	
-}
-
-void ComponentStructure::DisableAll() {
-	disabled = true;
-	active.Disable();
-	params.Disable();
-	structs.Disable();
-	attributes.Disable();
-	parts.Disable();
-}
-
-void ComponentStructure::EnableAll() {
-	disabled = false;
-	active.Enable();
-	params.Enable();
-	structs.Enable();
-	attributes.Enable();
-	parts.Enable();
+	#endif
 }
 
 void ComponentStructure::Data() {
@@ -188,12 +152,11 @@ void ComponentStructure::DataScript() {
 	StructuredScript& ss = db.structured_scripts[ss_i];
 	
 	int row = 0;
-	for(int i = 0; i < ss.script.GetCount(); i++) {
-		String part = ss.script.GetKey(i);
-		const auto& l = ss.script[i];
-		for(int j = 0; j < l.GetCount(); j++) {
-			lines.Set(row, 0, part);
-			lines.Set(row, 1, l[j]);
+	for(int i = 0; i < ss.parts.GetCount(); i++) {
+		const auto& l = ss.parts[i];
+		for(int j = 0; j < l.lines.GetCount(); j++) {
+			lines.Set(row, 0, l.name);
+			lines.Set(row, 1, l.lines[j]);
 			row++;
 		}
 	}
@@ -203,6 +166,7 @@ void ComponentStructure::DataScript() {
 void ComponentStructure::DataActive() {
 	Script& l = GetScript();
 	
+	#if 0
 	StructSuggestion& s = l.active_struct;
 	
 	//s.chords.SetCount(s.parts.GetCount());
@@ -227,12 +191,13 @@ void ComponentStructure::DataActive() {
 		
 	}
 	active.parts.SetCount(s.parts.GetCount());
-	
+	#endif
 }
 
 void ComponentStructure::DataComponent() {
 	Script& l = GetScript();
 	
+	#if 0
 	int i = 0;
 	params.Set(i++, 1, l.active_struct.structured_script_i);
 	params.Set(i++, 1, l.user_structure);
@@ -251,6 +216,7 @@ void ComponentStructure::DataComponent() {
 	params.Set(i++, 1, l.singer0_parts);
 	params.Set(i++, 1, l.singer1_parts);
 	params.Set(i++, 1, l.singer2_parts);
+	#endif
 	
 	DataSuggestions();
 }
@@ -258,6 +224,7 @@ void ComponentStructure::DataComponent() {
 void ComponentStructure::DataSuggestions() {
 	Script& l = GetScript();
 	
+	#if 0
 	int bpm = l.bpm;
 	
 	int c = l.struct_suggs.GetCount();
@@ -274,6 +241,7 @@ void ComponentStructure::DataSuggestions() {
 	
 	if (!structs.IsCursor() && c)
 		structs.SetCursor(0);
+	#endif
 	
 	DataSuggestionAttributes();
 }
@@ -287,6 +255,7 @@ void ComponentStructure::DataSuggestionAttributes() {
 		return;
 	}
 	
+	#if 0
 	int cur = structs.GetCursor();
 	int idx = structs.Get(cur, 0);
 	StructSuggestion& sug = l.struct_suggs[idx];
@@ -302,9 +271,12 @@ void ComponentStructure::DataSuggestionAttributes() {
 		parts.Set(i, 0, AttrText(GetComponentPartFromAbbr(GetAppMode(), abbr)).NormalPaper(GetComponentPartPaperColor(GetAppMode(), abbr)));
 	}
 	parts.SetCount(sug.parts.GetCount());
+	#endif
+	
 }
 
 void ComponentStructure::ToolMenu(Bar& bar) {
+	#if 0
 	bar.Add(t_("Load user's structure"), AppImg::BlueRing(), THISBACK(LoadUserStructure)).Key(K_CTRL_Q);
 	bar.Add(t_("Load singers"), AppImg::BlueRing(), THISBACK(LoadSingers)).Key(K_CTRL_W);
 	bar.Add(t_("Load reference song"), AppImg::BlueRing(), THISBACK(LoadReference)).Key(K_CTRL_E);
@@ -312,12 +284,14 @@ void ComponentStructure::ToolMenu(Bar& bar) {
 	bar.Add(t_("Get structure suggestions"), AppImg::RedRing(), THISBACK(GetStructureSuggestions)).Key(K_F5);
 	bar.Add(t_("Get attributes for suggestions"), AppImg::RedRing(), THISBACK(GetSuggestionAttributes)).Key(K_F6);
 	bar.Add(t_("Load selected structure"), AppImg::RedRing(), THISBACK(LoadStructure)).Key(K_F7);
+	#endif
 }
 
 String ComponentStructure::GetStatusText() {
 	return "";
 }
 
+#if 0
 void ComponentStructure::LoadStructure() {
 	if (!structs.IsCursor())
 		return;
@@ -332,7 +306,6 @@ void ComponentStructure::LoadStructure() {
 	}
 	catch (NoPointerExc e) {}
 	PostCallback(THISBACK(DataActive));
-	
 }
 
 void ComponentStructure::LoadStructureString(String struct_str) {
@@ -524,6 +497,6 @@ void ComponentStructure::OnSuggestionAttributes(String result, Script* l) {
 	
 	PostCallback(THISBACK(DataSuggestionAttributes));
 }
-
+#endif
 
 END_TEXTLIB_NAMESPACE

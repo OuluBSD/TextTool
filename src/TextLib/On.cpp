@@ -1395,7 +1395,7 @@ void TaskManager::OnSubPicked(String result, Task* t) {
 		if (sub_i >= 0) {
 			ASSERT(t->part_i >= 0 && t->line_i >= 0);
 			StaticPart& sp = song.parts[t->part_i];
-			auto& line = sp.nana.Get()[t->line_i];
+			auto& line = sp.text.Get()[t->line_i];
 			
 			if (sub_i >= 0 && sub_i < line.sub_pp_i.GetCount()) {
 				int pp_i = line.sub_pp_i[sub_i];

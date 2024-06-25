@@ -75,12 +75,11 @@ void StructuredScriptCtrl::DataScript() {
 	StructuredScript& ss = db.structured_scripts[ss_i];
 	
 	int row = 0;
-	for(int i = 0; i < ss.script.GetCount(); i++) {
-		String part = ss.script.GetKey(i);
-		const auto& l = ss.script[i];
-		for(int j = 0; j < l.GetCount(); j++) {
-			lines.Set(row, 0, part);
-			lines.Set(row, 1, l[j]);
+	for(int i = 0; i < ss.parts.GetCount(); i++) {
+		const auto& l = ss.parts[i];
+		for(int j = 0; j < l.lines.GetCount(); j++) {
+			lines.Set(row, 0, l.name);
+			lines.Set(row, 1, l.lines[j]);
 			row++;
 		}
 	}
@@ -110,7 +109,7 @@ void StructuredScriptCtrl::PasteScript() {
 	Index<String> seen_parts;
 	Vector<String> structure;
 	
-	ss.script.Clear();
+	ss.parts.Clear();
 	for (String& p : parts) {
 		p = TrimBoth(p);
 		
@@ -124,11 +123,16 @@ void StructuredScriptCtrl::PasteScript() {
 		
 		String title = TrimBoth(p.Mid(a,b-a));
 		
+		a = title.ReverseFind(":");
+		String person;
+		if (a >= 0) {
+			person = TrimBoth(title.Mid(a+1));
+			title = TrimBoth(title.Left(a));
+		}
+		
 		a = title.Find(" ");
 		String key = a >= 0 ? title.Left(a) : title;
 		String num = a >= 0 ? TrimBoth(title.Mid(a)) : String();
-		a = num.Find(":");
-		if (a >= 0) num = TrimBoth(num.Left(a));
 		String abbr;
 		for(int i = 0; i < part_names.GetCount(); i++) {
 			if (part_names[i] == key) {
@@ -150,9 +154,12 @@ void StructuredScriptCtrl::PasteScript() {
 		
 		Vector<String> lines = Split(p, "\n");
 		lines.Remove(0);
-		auto& out = ss.script.GetAdd(title);
-		for (String& l : lines)
-			out << TrimBoth(l);
+		auto& out = ss.GetAddPart(title);
+		if (out.person.IsEmpty())
+			out.person = person;
+		if (out.lines.IsEmpty())
+			for (String& l : lines)
+				out.lines << TrimBoth(l);
 	}
 	
 	//DUMPC(structure);

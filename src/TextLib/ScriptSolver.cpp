@@ -103,7 +103,7 @@ void ScriptSolver::Process() {
 void ScriptSolver::ClearScript() {
 	for(int i = 0; i < script->parts.GetCount(); i++) {
 		StaticPart& sp = script->parts[i];
-		auto& lines = sp.nana.Get();
+		auto& lines = sp.text.Get();
 		for(int j = 0; j < lines.GetCount(); j++) {
 			auto& line = lines[j];
 			line.pp_i = -1;
@@ -111,7 +111,7 @@ void ScriptSolver::ClearScript() {
 		}
 		sp.phrase_parts.Clear();
 	}
-	script->picked_phrase_parts.Clear();
+	//script->picked_phrase_parts.Clear();
 }
 
 void ScriptGenerator::ProcessColor() {
@@ -151,8 +151,8 @@ void ScriptGenerator::ProcessColor() {
 	args.release.Add("year of content", IntStr(release->year_of_content));*/
 	
 	// Song information
-	if (song.english_title.GetCount())
-		args.song.Add("title of " + __comp, song.english_title);
+	if (song.native_title.GetCount())
+		args.song.Add("title of " + __comp, song.native_title);
 	args.song.Add(__entity + "'s " + __content + " vision", song.content_vision);
 	args.song.Add(__typeclass, GetTypeclasses(appmode)[song.typeclass]);
 	args.song.Add(__content, GetContents(appmode)[song.content].key);
@@ -230,8 +230,8 @@ void ScriptGenerator::ProcessAttr() {
 	args.release.Add("year of content", IntStr(release->year_of_content));*/
 	
 	// Song information
-	if (scripts->english_title.GetCount())
-		args.song.Add("title of " + __comp, scripts->english_title);
+	if (scripts->native_title.GetCount())
+		args.song.Add("title of " + __comp, scripts->native_title);
 	args.song.Add(__entity + "'s content vision", scripts->content_vision);
 	args.song.Add(__typeclass, GetTypeclasses(appmode)[scripts->typeclass]);
 	args.song.Add(__content, GetContents(appmode)[scripts->content].key);
@@ -709,6 +709,8 @@ void ScriptSolver::ProcessPrimary() {
 	}
 	
 	// Parts
+	TODO
+	#if 0
 	part_sizes.Clear();
 	for(int i = 0; i < song.parts.GetCount(); i++) {
 		const StaticPart& sp = song.parts[i];
@@ -731,6 +733,7 @@ void ScriptSolver::ProcessPrimary() {
 		args.counts << len;
 		part_sizes.Add(sp.name, len);
 	}
+	#endif
 	
 	args.part = song.content_vision;
 	
@@ -955,6 +958,8 @@ void ScriptSolver::ProcessComparison() {
 	
 	MakeBelief(song, args, 0);
 	
+	TODO
+	#if 0
 	if (batch == 0 && sub_batch == 0) {
 		// Clear 'visited' vector, which stores visited suggestion comparisons
 		visited.Clear();
@@ -984,6 +989,7 @@ void ScriptSolver::ProcessComparison() {
 			remaining.Add(i);
 		}
 	}
+	#endif
 	
 	if (remaining.GetCount() <= 1) {
 		NextPhase();
@@ -1085,6 +1091,8 @@ void ScriptSolver::OnProcessComparisonFail(int loser) {
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
 	
+	TODO
+	#if 0
 	int loser_sugg_i = remaining[loser];
 	ScriptSuggestions& ls = sa.script_suggs[loser_sugg_i];
 	ls.rank = remaining.GetCount()-1; // if remaining one, then rank is 0
@@ -1110,6 +1118,7 @@ void ScriptSolver::OnProcessComparisonFail(int loser) {
 		song.text = content;
 		
 	}
+	#endif
 	
 	SetWaiting(0);
 	NextBatch();
@@ -1119,8 +1128,12 @@ void ScriptSolver::ProcessTitle() {
 	Script& song = *this->script;
 	ScriptSolverArgs args; // 8
 	args.fn = 8;
+	
+	TODO
+	#if 0
 	args.part = song.text;
 	args.lng_i = song.lng_i;
+	#endif
 	
 	SetWaiting(1);
 	
@@ -1130,11 +1143,11 @@ void ScriptSolver::ProcessTitle() {
 		RemoveQuotes(res);
 		
 		TaskMgr& m = TaskMgr::Single();
-		script->english_title = res;
-		script->native_title.Clear();
+		//script->english_title = res;
+		//script->native_title.Clear();
 		
 		int lng = MetaDatabase::Single().GetLanguageIndex();
-		if (lng != LNG_ENGLISH) {
+		/*if (lng != LNG_ENGLISH) {
 			String code = GetLanguageCode(lng);
 			m.Translate("EN-US", script->english_title, code, [this](String res) {
 				res = TrimBoth(res);
@@ -1143,8 +1156,9 @@ void ScriptSolver::ProcessTitle() {
 				NextPhase();
 			});
 		}
-		else {
-			script->native_title = script->english_title;
+		else*/ {
+			//script->native_title = script->english_title;
+			script->native_title = res;
 			SetWaiting(0);
 			NextPhase();
 		}

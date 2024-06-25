@@ -863,7 +863,9 @@ void ToolEditor::AddScript() {
 	
 	if (mp.owner)
 		l.copyright = mp.owner->name;
-	l.user_structure = GetDefaultScriptStructureString(GetAppMode());
+	
+	TODO
+	// l.user_structure = GetDefaultScriptStructureString(GetAppMode());
 	
 	Data();
 }

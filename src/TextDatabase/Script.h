@@ -20,6 +20,12 @@ struct StaticPart {
 	
 	String name;
 	String type; // abbreviation like V1, PC2, C
+	PartType part_type = SINGING;
+	String singer;
+	RhymeContainer text;
+	RhymeContainer reference;
+	
+	#if 0
 	Vector<String> active_source_wordsalad;
 	Vector<String> active_source_text;
 	Vector<Vector<String>> source_text_suggestions;
@@ -30,7 +36,6 @@ struct StaticPart {
 	VectorMap<String,String> data;
 	bool outdated_suggestions = true;
 	int content_cursor = -1;
-	PartType part_type = SINGING;
 	int bar_length = 0;
 	Vector<Vector<Vector<Color>>> colors;
 	Vector<Vector<Color>> listener_colors;
@@ -38,14 +43,14 @@ struct StaticPart {
 	Vector<Vector<String>> wordsalads;
 	Vector<Vector<Color>> wordsalad_clrs;
 	Vector<double> wordgroup_factors;
-	RhymeContainer nana;
 	Vector<Vector<int>> thrd_actions;
 	Vector<String> saved_scripts;
 	//Vector<int> clr_list;
+	//Index<int> picked_phrase_parts;
+	#endif
+	
 	Vector<bool> actions_enabled;
 	Vector<int> phrase_parts;
-	//Index<int> picked_phrase_parts;
-	String singer;
 	
 	static String GetTypeString(int part_type);
 	static String GetTypeString(PartType part_type);
@@ -57,6 +62,11 @@ struct StaticPart {
 		json
 			("name", name)
 			("type", type)
+			("part_type", (int&)part_type)
+			("singer", singer)
+			("text", text)
+			("reference", reference)
+			#if 0
 			("active_source_wordsalad", active_source_wordsalad)
 			("active_source_text", active_source_text)
 			("source_text_suggestions", source_text_suggestions)
@@ -67,7 +77,6 @@ struct StaticPart {
 			("outdated_suggestions", outdated_suggestions)
 			("content_cursor", content_cursor)
 			("bar_length", bar_length)
-			("part_type", (int&)part_type)
 			("colors", colors)
 			("listener_colors", listener_colors)
 			("vocabulary", vocabulary)
@@ -75,12 +84,11 @@ struct StaticPart {
 			("wordsalad_clrs", wordsalad_clrs)
 			("wordgroup_factors", wordgroup_factors)
 			("mockup", mockup)
-			("nana", nana)
 			("thrd_actions", thrd_actions)
 			("saved_" + __scripts, saved_scripts)
-			("singer", singer)
 			//("clr_list", clr_list)
 			//("picked_phrase_parts", picked_phrase_parts)
+			#endif
 			;
 		JsonCompressedStream(json, "actions_enabled", actions_enabled);
 		JsonCompressedStream(json, "phrase_parts", phrase_parts);
@@ -90,13 +98,13 @@ struct StaticPart {
 	Vector<int> valid_rhyme_schemes;
 };
 
-struct StructSuggestion {
+struct ScriptStructure {
 	String name;
 	Vector<String> parts;
 	Vector<String> attrs;
 	int structured_script_i = -1;
 	
-	void operator=(const StructSuggestion& s) {
+	void operator=(const ScriptStructure& s) {
 		name = s.name;
 		parts <<= s.parts;
 		attrs <<= s.attrs;
@@ -293,24 +301,15 @@ struct ContentVisionOwner {
 
 
 struct Script : DataFile, ContentVisionOwner {
+	#if 0
 	String						native_title;
 	String						english_title;
-	String						copyright;
-	String						content_vision;
-	int							typeclass = 0;
-	int							content = 0;
-	int							lng_i = 0;
-	int							belief_i = 0;
-	bool						is_unsafe = false;
-	bool						is_story = false;
-	bool						is_self_centered = false;
 	String						singer0_name;
 	String						singer1_name;
 	String						singer2_name;
 	String						singer0_parts;
 	String						singer1_parts;
 	String						singer2_parts;
-	String						lead;
 	
 	String user_structure;
 	String required_parts;
@@ -325,16 +324,34 @@ struct Script : DataFile, ContentVisionOwner {
 	int bridge_length = 4;
 	
 	String						structure_str;
-	String						text;
-	StructSuggestion			active_struct;
-	Array<StaticPart>			parts;
 	Array<StructSuggestion>		struct_suggs;
-	Vector<bool>				simple_attrs;
 	Index<int>					picked_phrase_parts;
+	
+	#endif
+	
+	String						native_title;
+	String						copyright;
+	String						content_vision;
+	String						lead;
+	int							belief_i = 0;
+	int							lng_i = 0;
+	int							typeclass = 0;
+	int							content = 0;
+	bool						is_unsafe = false;
+	bool						is_story = false;
+	bool						is_self_centered = false;
+	
+	Vector<bool>				simple_attrs;
 	Vector<int>					clr_list;
-	VectorMap<int, String>		suggestions;
 	Vector<String>				post_analysis;
 	Array<ScriptPostFix>		postfixes;
+	Array<StaticPart>			parts;
+	ScriptStructure				active_struct;
+	
+	// Deprecated
+	VectorMap<int, String>		__suggestions;
+	String						__text;
+	
 	
 	Vector<int> GetPartPositions(const StaticPart& part) const;
 	Vector<int> GetPreviousParts(const StaticPart& part) const;
@@ -345,6 +362,7 @@ struct Script : DataFile, ContentVisionOwner {
 	StaticPart* FindPartByName(const String& name);
 	int GetFirstPartPosition() const;
 	String GetAnyTitle() const;
+	String GetText() const;
 	
 	//Script() {post_analysis.SetCount(POSTSCRIPT_COUNT);}
 	Script() {post_analysis.SetCount(SCORE_COUNT);}
@@ -354,15 +372,25 @@ struct Script : DataFile, ContentVisionOwner {
 	void Jsonize(JsonIO& json) {
 		json
 			("title", native_title)
-			("english_title", english_title)
 			("copyright", copyright)
 			("content_vision", content_vision)
+			("lead", lead)
+			("belief_i", belief_i)
+			("lng_i", lng_i)
 			(__typeclass, typeclass)
 			(__content, content)
 			("is_" + __unsafe, is_unsafe)
 			("is_" + __story, is_story)
 			("is_" + __self_centered, is_self_centered)
+			("clr_list", clr_list)
+			("post_analysis", post_analysis)
+			("postfixes", postfixes)
+			("parts", parts)
+			("active_struct", active_struct)
+			("suggestions", __suggestions)
+			("text", __text)
 			
+		#if 0
 			("user_structure", user_structure)
 			("required_parts", required_parts)
 			("avoid_parts", avoid_parts)
@@ -376,18 +404,9 @@ struct Script : DataFile, ContentVisionOwner {
 			("bridge_length", bridge_length)
 			
 			("structure_str", structure_str)
-			("text", text)
-			("active_struct", active_struct)
-			("parts", parts)
 			("struct_suggs", struct_suggs)
 			("picked_phrase_parts", picked_phrase_parts)
-			("clr_list", clr_list)
-			("suggestions", suggestions)
-			("lng_i", lng_i)
-			("belief_i", belief_i)
-			("post_analysis", post_analysis)
 			
-			("postfixes", postfixes)
 			
 			("singer0_name", singer0_name)
 			("singer1_name", singer1_name)
@@ -395,16 +414,14 @@ struct Script : DataFile, ContentVisionOwner {
 			("singer0_parts", singer0_parts)
 			("singer1_parts", singer1_parts)
 			("singer2_parts", singer2_parts)
-			("lead", lead)
 			
 			("ideas", ideas)
+		#endif
 			;
 		
 		JsonCompressedStream(json, "simple_attrs", simple_attrs);
 		
 		if (json.IsLoading()) {
-			//if (post_analysis.GetCount() < POSTSCRIPT_COUNT)
-			//	post_analysis.SetCount(POSTSCRIPT_COUNT);
 			if (post_analysis.GetCount() < SCORE_COUNT)
 				post_analysis.SetCount(SCORE_COUNT);
 		}

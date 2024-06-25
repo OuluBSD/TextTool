@@ -15,6 +15,8 @@ int VideoSolver::GetPhaseCount() const {
 void VideoSolver::DoPhase() {
 	ASSERT(snap);
 	
+	TODO
+	#if 0
 	if (phase == PHASE_MAKE_STORYBOARD) {
 		int script_i = snap->entity->FindScript(comp->scripts_file_title);
 		if (script_i < 0) {
@@ -33,7 +35,7 @@ void VideoSolver::DoPhase() {
 		
 		VideoSolverArgs args;
 		args.fn = 0;
-		args.text = script.text;
+		args.text = script.GetText();
 		
 		SetWaiting(1);
 		TaskMgr& m = TaskMgr::Single();
@@ -79,7 +81,7 @@ void VideoSolver::DoPhase() {
 		
 		VideoSolverArgs args;
 		args.fn = 1;
-		args.text = script.text;
+		args.text = script.GetText();
 		args.parts.Add(key);
 		
 		SetWaiting(1);
@@ -116,7 +118,7 @@ void VideoSolver::DoPhase() {
 		args.fn = 2;
 		args.parts <<= comp->storyboard_parts;
 		
-		String txt = script.text;
+		String txt = script.GetText();
 		txt.Replace("\r", "");
 		tmp_lines = Split(txt, "\n");
 		for(int i = 0; i < tmp_lines.GetCount(); i++) {
@@ -199,7 +201,7 @@ void VideoSolver::DoPhase() {
 		});
 	}
 	else TODO
-	
+	#endif
 }
 
 ArrayMap<hash_t, VideoSolver>& __VideoSolvers() {

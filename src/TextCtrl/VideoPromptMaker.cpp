@@ -34,6 +34,7 @@ void VideoPromptMakerCtrl::Data() {
 	if (!p.component)
 		return;
 	
+	#if 0
 	// Storyboard parts
 	for(int i = 0; i < p.component->storyboard_parts.GetCount(); i++) {
 		String key = p.component->storyboard_parts.GetKey(i);
@@ -67,6 +68,7 @@ void VideoPromptMakerCtrl::Data() {
 	INHIBIT_CURSOR_(text_storyboard_parts, c);
 	text_storyboard_parts.SetCount(p.component->text_storyboard_parts.GetCount());
 	
+	#endif
 	
 	DataPrompt();
 }
@@ -78,6 +80,7 @@ void VideoPromptMakerCtrl::DataPrompt() {
 		return;
 	}
 	
+	#if 0
 	int cur = storyboard_prompt_keys.GetCursor();
 	const auto& values = p.component->storyboard_prompts[cur];
 	for(int j = 0; j < values.GetCount(); j++) {
@@ -85,7 +88,7 @@ void VideoPromptMakerCtrl::DataPrompt() {
 	}
 	INHIBIT_CURSOR(storyboard_prompt_values);
 	storyboard_prompt_values.SetCount(values.GetCount());
-	
+	#endif
 }
 
 void VideoPromptMakerCtrl::OnValueChange() {

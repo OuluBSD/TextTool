@@ -6,18 +6,15 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class ComponentStructure : public ToolAppCtrl {
-	Splitter vsplit, hsplit, attr_split, bottom;
-	WithComponentStructure<Ctrl> active;
-	ArrayCtrl params, structs, attributes, parts;
-	ArrayCtrl names, lines;
+	Splitter hsplit, script_split, ref_split;
+	ArrayCtrl script_parts, script_lines;
+	ArrayCtrl ref_names, ref_lines;
 	bool disabled = false;
 	
 public:
 	typedef ComponentStructure CLASSNAME;
 	ComponentStructure();
 	
-	void DisableAll();
-	void EnableAll();
 	void Data() override;
 	void DataScript();
 	void DataComponent();
@@ -26,6 +23,8 @@ public:
 	void DataActive();
 	void ToolMenu(Bar& bar) override;
 	String GetStatusText() override;
+	
+	#if 0
 	void LoadStructure();
 	void LoadUserStructure();
 	void GetStructureSuggestions();
@@ -38,7 +37,7 @@ public:
 	void LoadActiveStruct();
 	void LoadSingers();
 	void LoadReference();
-	
+	#endif
 	
 };
 

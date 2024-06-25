@@ -31,7 +31,7 @@ void SnapSolver::DoPhase() {
 		Script& script = snap->entity->scripts[script_i];
 		
 		SnapshotArgs args;
-		args.text = script.text;
+		args.text = script.GetText();
 		args.entity = snap->entity->profile->name;
 		args.title = script.native_title;
 		args.fn = 0;

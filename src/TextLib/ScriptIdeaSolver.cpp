@@ -72,6 +72,9 @@ void ScriptIdeaSolver::DoPhase() {
 		args.song.Add(__typeclass, TextLib::GetTypeclasses(appmode)[tc_i]);
 		args.song.Add(__content, TextLib::GetContents(appmode)[con_i].key);
 		
+		if (script)
+			MakeBelief(*script, args, 0);
+		
 		LeaveAppMode();
 		
 		SetWaiting(1);
@@ -100,6 +103,9 @@ void ScriptIdeaSolver::DoPhase() {
 		args.song.Add("Person visually", entity->speaker_visually);
 		args.song.Add("Lead info about the song", script->lead);
 		
+		if (script)
+			MakeBelief(*script, args, 0);
+		
 		LeaveAppMode();
 		
 		SetWaiting(1);
@@ -116,6 +122,9 @@ void ScriptIdeaSolver::DoPhase() {
 		ScriptPostArgs args;
 		args.fn = 2;
 		args.lines.Add(cvo->ideas[batch].text);
+		
+		if (script)
+			MakeBelief(*script, args, 0);
 		
 		SetWaiting(1);
 		

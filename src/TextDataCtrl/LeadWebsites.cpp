@@ -574,13 +574,13 @@ void LeadWebsites::CreateScript() {
 	//e.RealizeTypeclasses(appmode);
 	Script& script = e.GetAddScript(script_title);
 	
-	comp.music_style = music_style;
+	comp.style = music_style;
 	if (mp.owner)
 		script.copyright = mp.owner->name;
 	script.typeclass = tc_i;
 	script.content = con_i;
 	script.content_vision = lyrics_idea;
-	script.user_structure = GetDefaultScriptStructureString(GetAppMode());
+	//script.user_structure = GetDefaultScriptStructureString(GetAppMode());
 }
 
 void LeadWebsites::CopyHeaderClipboard() {
