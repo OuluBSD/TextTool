@@ -10,6 +10,7 @@ class ComponentStructure : public ToolAppCtrl {
 	ArrayCtrl script_parts, script_lines;
 	ArrayCtrl ref_names, ref_lines;
 	bool disabled = false;
+	Vector<TextSolver*> v;
 	
 public:
 	typedef ComponentStructure CLASSNAME;
@@ -21,6 +22,8 @@ public:
 	void DataSuggestions();
 	void DataSuggestionAttributes();
 	void DataActive();
+	void DataPart();
+	void LoadReference();
 	void ToolMenu(Bar& bar) override;
 	String GetStatusText() override;
 	

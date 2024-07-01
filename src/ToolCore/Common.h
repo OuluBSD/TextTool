@@ -455,6 +455,7 @@ Vector<String> GetStructureParts(String s);
 
 String ToMinSec(double sec);
 String GetComponentPartFromAbbr(int appmode, const String& abbr);
+String GetAbbrPartFromComponent(int appmode, const String& abbr);
 Color GetComponentPartPaperColor(int appmode, const String& abbr);
 String GetProgramPartFromAbbr(const String& abbr);
 Color GetProgramPartPaperColor(const String& abbr);

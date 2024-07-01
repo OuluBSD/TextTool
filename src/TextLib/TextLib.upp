@@ -12,7 +12,7 @@ file
 	Do.cpp,
 	Get.cpp,
 	On.cpp,
-	SolverBase.h,
+	SolverBase.h options(BUILDER_OPTION) PCH,
 	SolverBase.cpp,
 	ScriptGenerator.h,
 	ScriptGenerator.cpp,
@@ -37,5 +37,7 @@ file
 	BeliefSolver.h,
 	BeliefSolver.cpp,
 	CollabSolver.h,
-	CollabSolver.cpp;
+	CollabSolver.cpp,
+	TextSolver.h,
+	TextSolver.cpp;
 

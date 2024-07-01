@@ -231,6 +231,25 @@ String RhymeContainer::Line::AsNana() const {
 	return s;
 }
 
+String RhymeContainer::Line::AsText() const {
+	return text;
+}
+
+String RhymeContainer::Line::AsPhonetic() const {
+	String s;
+	int w_i = 0;
+	for (const Word& w : words) {
+		if (w_i++)
+			s.Cat(' ');
+		int sy_i = 0;
+		for (const Syllable& sy : w.syllables) {
+			if (sy_i++) s << ".";
+			s << sy.phonetic;
+		}
+	}
+	return s;
+}
+
 /*
 consonant
 n = important

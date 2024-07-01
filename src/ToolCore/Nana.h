@@ -104,11 +104,12 @@ public:
 		int vowel_importance;
 		bool long_ = false;
 		bool at_beat = false;
+		WString phonetic;
 		
 		Syllable() {}
 		Syllable(const Syllable& s) {*this = s;}
-		void operator=(const Syllable& s) {consonant_importance = s.consonant_importance; vowel_importance = s.vowel_importance; long_ = s.long_; at_beat = s.at_beat;}
-		void Jsonize(JsonIO& json) {json("c", consonant_importance)("v", vowel_importance)("l", long_)("b", at_beat);}
+		void operator=(const Syllable& s) {consonant_importance = s.consonant_importance; vowel_importance = s.vowel_importance; long_ = s.long_; at_beat = s.at_beat; phonetic = s.phonetic;}
+		void Jsonize(JsonIO& json) {json("c", consonant_importance)("v", vowel_importance)("l", long_)("b", at_beat)("p", phonetic);}
 		String AsString() const;
 	};
 	
@@ -126,12 +127,15 @@ public:
 		int pp_i = -1, end_pp_i = -1;
 		Index<int> sub_pp_i;
 		Vector<int> sub_next_wc_i;
+		String text;
 		
 		Line() {}
 		Line(const Line& s) {*this = s;}
-		void operator=(const Line& s) {words <<= s.words; pp_i = s.pp_i; end_pp_i = s.end_pp_i; sub_pp_i <<= s.sub_pp_i; sub_next_wc_i <<= s.sub_next_wc_i;}
-		void Jsonize(JsonIO& json) {json("words", words)("pp",pp_i)("epp",end_pp_i)("spp",sub_pp_i)("snwc",sub_next_wc_i);}
+		void operator=(const Line& s) {words <<= s.words; pp_i = s.pp_i; end_pp_i = s.end_pp_i; sub_pp_i <<= s.sub_pp_i; sub_next_wc_i <<= s.sub_next_wc_i; text = s.text;}
+		void Jsonize(JsonIO& json) {json("words", words)("pp",pp_i)("epp",end_pp_i)("spp",sub_pp_i)("snwc",sub_next_wc_i)("txt", text);}
 		String AsNana() const;
+		String AsPhonetic() const;
+		String AsText() const;
 		void Pack(PackedRhymeContainer& container) const;
 		void Clear() {words.Clear(); pp_i = -1; end_pp_i = -1; sub_pp_i.Clear(); sub_next_wc_i.Clear();}
 		void ClearLineWords() {words.Clear();}

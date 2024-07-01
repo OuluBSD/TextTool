@@ -15,9 +15,9 @@ ComponentStructure::ComponentStructure() {
 	
 	script_parts.AddColumn("Part name");
 	script_parts.AddColumn("Person");
-	script_lines.AddColumn("Part");
+	script_parts.WhenCursor << THISBACK(DataPart);
 	script_lines.AddColumn("Text");
-	script_lines.ColumnWidths("1 4");
+	script_lines.AddColumn("Phonetic");
 	
 	ref_split.Horz() << ref_names << ref_lines;
 	ref_split.SetPos(2500);
@@ -125,18 +125,16 @@ void ComponentStructure::Data() {
 	
 	EnterAppMode(GetAppMode());
 	
-	active.lbl_comp_struct.SetLabel(GetAppModeLabel(AML_COMPONENT_STRUCTURE));
-	params.Set(5, 0, GetAppModeLabel(AML_SPEED));
-	
 	for(int i = 0; i < db.structured_scripts.GetCount(); i++) {
 		StructuredScript& ss = db.structured_scripts[i];
-		names.Set(i, 0, ss.entity);
-		names.Set(i, 1, ss.title);
+		ref_names.Set(i, 0, ss.entity);
+		ref_names.Set(i, 1, ss.title);
 	}
-	INHIBIT_CURSOR(names);
-	names.SetCount(db.structured_scripts.GetCount());
-	if (names.GetCount() && !names.IsCursor())
-		names.SetCursor(0);
+	INHIBIT_CURSOR(ref_names);
+	ref_names.SetCount(db.structured_scripts.GetCount());
+	if (ref_names.GetCount() && !ref_names.IsCursor())
+		ref_names.SetCursor(0);
+	
 	
 	DataScript();
 	DataActive();
@@ -144,54 +142,71 @@ void ComponentStructure::Data() {
 }
 
 void ComponentStructure::DataScript() {
-	if (!names.IsCursor())
+	if (!ref_names.IsCursor())
 		return;
 	
 	TextDatabase& db = GetDatabase();
-	int ss_i = names.GetCursor();
+	int ss_i = ref_names.GetCursor();
 	StructuredScript& ss = db.structured_scripts[ss_i];
 	
 	int row = 0;
 	for(int i = 0; i < ss.parts.GetCount(); i++) {
 		const auto& l = ss.parts[i];
 		for(int j = 0; j < l.lines.GetCount(); j++) {
-			lines.Set(row, 0, l.name);
-			lines.Set(row, 1, l.lines[j]);
+			ref_lines.Set(row, 0, l.name);
+			ref_lines.Set(row, 1, l.lines[j]);
 			row++;
 		}
 	}
-	lines.SetCount(row);
+	ref_lines.SetCount(row);
 }
 
 void ComponentStructure::DataActive() {
 	Script& l = GetScript();
 	
-	#if 0
-	StructSuggestion& s = l.active_struct;
+	ScriptStructure& s = l.active_struct;
 	
 	//s.chords.SetCount(s.parts.GetCount());
 	
-	int bpm = GetScript().bpm;
-	
-	active.struct_name.SetData(s.name);
-	active.struct_str.SetData(Join(s.parts, ", "));
-	active.duration.SetData(ToMinSec(s.GetEstimatedDuration(bpm)));
-	
-	for(int i = 0; i < s.attrs.GetCount(); i++) {
-		String attr = s.attrs[i];
-		active.attrs.Set(i, 0, attr);
-	}
-	active.attrs.SetCount(s.attrs.GetCount());
-	
 	for(int i = 0; i < s.parts.GetCount(); i++) {
 		StaticPart* sp = l.FindPartByType(s.parts[i]);
-		String abbr = s.parts[i];
-		active.parts.Set(i, 0,
-			AttrText(GetComponentPartFromAbbr(GetAppMode(), abbr)).NormalPaper(GetComponentPartPaperColor(GetAppMode(), abbr)));
-		
+		script_parts.Set(i, 0, s.parts[i]);
+		if (sp)
+			script_parts.Set(i, 1, sp->singer);
+		else
+			script_parts.Set(i, 1, Value());
 	}
-	active.parts.SetCount(s.parts.GetCount());
-	#endif
+	INHIBIT_CURSOR(script_parts);
+	script_parts.SetCount(s.parts.GetCount());
+	if (script_parts.GetCount() && !script_parts.IsCursor())
+		script_parts.SetCursor(0);
+	
+	DataPart();
+}
+
+void ComponentStructure::DataPart() {
+	Script& l = GetScript();
+	if (!script_parts.IsCursor()) {
+		script_lines.Clear();
+		return;
+	}
+	
+	int line_i = script_parts.GetCursor();
+	String part_name = script_parts.Get(0);
+	
+	StaticPart* sp = l.FindPartByName(part_name);
+	if (!sp)
+		return;
+	
+	const auto& lines = sp->reference.Get();
+	for(int i = 0; i < lines.GetCount(); i++) {
+		const RhymeContainer::Line& l = lines[i];
+		script_lines.Set(i, 0, l.AsText());
+		script_lines.Set(i, 1, l.AsPhonetic());
+	}
+	INHIBIT_CURSOR(script_lines);
+	script_lines.SetCount(lines.GetCount());
+	
 }
 
 void ComponentStructure::DataComponent() {
@@ -249,13 +264,13 @@ void ComponentStructure::DataSuggestions() {
 void ComponentStructure::DataSuggestionAttributes() {
 	Script& l = GetScript();
 	
+	#if 0
 	if (!structs.IsCursor()) {
 		attributes.Clear();
 		parts.Clear();
 		return;
 	}
 	
-	#if 0
 	int cur = structs.GetCursor();
 	int idx = structs.Get(cur, 0);
 	StructSuggestion& sug = l.struct_suggs[idx];
@@ -276,6 +291,7 @@ void ComponentStructure::DataSuggestionAttributes() {
 }
 
 void ComponentStructure::ToolMenu(Bar& bar) {
+	bar.Add(t_("Load reference script"), AppImg::BlueRing(), THISBACK(LoadReference)).Key(K_F5);
 	#if 0
 	bar.Add(t_("Load user's structure"), AppImg::BlueRing(), THISBACK(LoadUserStructure)).Key(K_CTRL_Q);
 	bar.Add(t_("Load singers"), AppImg::BlueRing(), THISBACK(LoadSingers)).Key(K_CTRL_W);
@@ -289,6 +305,72 @@ void ComponentStructure::ToolMenu(Bar& bar) {
 
 String ComponentStructure::GetStatusText() {
 	return "";
+}
+
+void ComponentStructure::LoadReference() {
+	if (!ref_names.IsCursor())
+		return;
+	
+	TextDatabase& db = GetDatabase();
+	int ss_i = ref_names.GetCursor();
+	StructuredScript& ss = db.structured_scripts[ss_i];
+	Script& s = GetScript();
+	
+	int appmode = GetAppMode();
+	
+	Vector<TextSolver*> v;
+	for(int i = 0; i < ss.parts.GetCount(); i++) {
+		const auto& l = ss.parts[i];
+		
+		for(int j = 0; j < l.lines.GetCount(); j++) {
+			TextSolver& ts = TextSolver::Get(appmode, l.lines[j]);
+			v << &ts;
+		}
+	}
+	for(int i = 0; i < v.GetCount()-1; i++) {
+		TextSolver& ts0 = *v[i];
+		TextSolver* ts1 = v[i+1];
+		ts0.WhenReady << [this,ts1]() {
+			ts1->Start();
+		};
+	}
+	if (v.IsEmpty())
+		return;
+	
+	v.Top()->WhenReady << [this,ss_i,appmode]() {
+		TextDatabase& db = GetDatabase();
+		StructuredScript& ss = db.structured_scripts[ss_i];
+		Script& s = GetScript();
+		s.parts.Clear();
+		s.active_struct.structured_script_i = ss_i;
+		s.active_struct.Clear();
+		s.active_struct.parts.Clear();
+		
+		Index<String> added;
+		for(int i = 0; i < ss.parts.GetCount(); i++) {
+			const auto& l = ss.parts[i];
+			s.active_struct.parts << l.name;
+			if (added.Find(l.name) >= 0)
+				continue;
+			added.Add(l.name);
+			StaticPart& sp = s.parts.Add();
+			sp.name = l.name;
+			sp.type = GetAbbrPartFromComponent(appmode, l.name);
+			sp.singer = l.person;
+			sp.reference.Clear();
+			
+			for(int j = 0; j < l.lines.GetCount(); j++) {
+				TextSolver& ts = TextSolver::Get(appmode, l.lines[j]);
+				const auto& src = ts.rc.Get();
+				for(int k = 0; k < src.GetCount(); k++) {
+					sp.reference.Get().Add() = src[k];
+				}
+			}
+		}
+		
+		PostCallback(THISBACK(Data));
+	};
+	v[0]->Start();
 }
 
 #if 0

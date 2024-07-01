@@ -480,6 +480,35 @@ String GetComponentPartFromAbbr(int appmode, const String& abbr) {
 	return abbr;
 }
 
+String GetAbbrPartFromComponent(int appmode, const String& name) {
+	String pre, post;
+	int split = -1;
+	for(int i = 0; i < name.GetCount(); i++) {
+		int chr = name[i];
+		if (IsDigit(chr)) {
+			split = i;
+			break;
+		}
+	}
+	if (split < 0)
+		pre = TrimBoth(name);
+	else {
+		pre = TrimBoth(name.Left(split));
+		post = " " + name.Mid(split);
+	}
+	
+	const auto& m = GetAppModeParts(appmode);
+	
+	// e.g. if (pre == "I") return "Intro" + post;
+	for(int i = 0; i < m.GetCount(); i++) {
+		if (pre == m[i]) {
+			return m.GetKey(i) + post;
+		}
+	}
+	
+	return name;
+}
+
 Color GetComponentPartPaperColor(int appmode, const String& abbr) {
 	String pre, post;
 	int split = -1;

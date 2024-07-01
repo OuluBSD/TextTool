@@ -25,7 +25,6 @@ public:
 	
 	static BeliefSolver& Get();
 	
-	Event<> WhenReady;
 	
 };
 
