@@ -162,6 +162,7 @@ public:
 	void operator=(const RhymeContainer& rc) {lines <<= rc.lines;}
 	
 	String ToString() const;
+	String AsText() const;
 	String AsNana() const;
 	void Dump() {LOG(ToString());}
 	void Jsonize(JsonIO& json) {

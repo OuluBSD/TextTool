@@ -45,6 +45,7 @@
 #include "ScriptPostFix.h"
 #include "ScriptIdeaCtrl.h"
 #include "SocialBeliefs.h"
+#include "ScriptEdit.h"
 
 
 #endif

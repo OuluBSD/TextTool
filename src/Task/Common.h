@@ -129,7 +129,7 @@ struct ScriptSolverArgs {
 	VectorMap<String,String> artist, release, song;
 	Vector<String> parts, attrs, phrases, scores;
 	Vector<int> counts, offsets;
-	String part, vision;
+	String part, vision, ref;
 	bool is_story = false;
 	bool is_unsafe = false;
 	bool is_self_centered = false;
@@ -148,6 +148,7 @@ struct ScriptSolverArgs {
 				("offsets", offsets)
 				("part", part)
 				("vision", vision)
+				("ref", ref)
 				("is_story", is_story)
 				("is_unsafe", is_unsafe)
 				("is_self_centered", is_self_centered)

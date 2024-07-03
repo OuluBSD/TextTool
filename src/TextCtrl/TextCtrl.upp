@@ -70,6 +70,8 @@ file
 	ScriptPool.cpp,
 	ScriptSolverCtrl.h,
 	ScriptSolverCtrl.cpp,
+	ScriptEdit.h,
+	ScriptEdit.cpp,
 	ScriptPostFix.h,
 	ScriptPostFix.cpp;
 

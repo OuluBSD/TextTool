@@ -4,6 +4,22 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+String StructuredScript::AsText() const {
+	String out;
+	for(int i = 0; i < parts.GetCount(); i++) {
+		const Part& p = parts[i];
+		out << "[" << p.name;
+		if (p.person.GetCount())
+			out << ": " << p.person;
+		out << "]\n";
+		for(int j = 0; j < p.lines.GetCount(); j++) {
+			out << p.lines[j] << "\n";
+		}
+		out << "\n\n";
+	}
+	return out;
+}
+
 //int TextDatabase::trans_i = -1;
 
 

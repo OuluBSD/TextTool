@@ -12,7 +12,7 @@ class ScriptSolverCtrl : public ToolAppCtrl {
 	Splitter summary_split, result_split;
 	ProgressIndicator summary_bar;
 	ArrayCtrl summary_tasks, result_list;
-	DocEdit suggestion, scripts;
+	DocEdit suggestion, script, ref_script;
 	
 	// Tab 2: metaphorical color process
 	ArrayCtrl part_colors;

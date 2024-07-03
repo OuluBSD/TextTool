@@ -42,7 +42,7 @@ void AiTask::Process_GetAttributes() {
 }
 
 void AiTask::Process_Default() {
-	WhenResult(output);
+	WhenResult(tmp_str + output);
 }
 
 

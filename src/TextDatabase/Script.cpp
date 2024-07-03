@@ -4,6 +4,57 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+String LineScore::Get(int i, int j) const {
+	ASSERT(line_n > 0);
+	ASSERT(j >= 0 && j < line_n);
+	int pos = i * line_n + j;
+	return lines[pos];
+}
+
+int LineScore::GetScore(int i, int j) const {
+	ASSERT(i >= 0 && i < GetCount());
+	ASSERT(j >= 0 && j < SCORE_COUNT);
+	int pos = i * SCORE_COUNT + j;
+	return scores[pos];
+}
+
+void LineScore::SetCount(int i, int line_n) {
+	this->line_n = line_n;
+	int total = i * line_n;
+	int score_total = i * SCORE_COUNT;
+	lines.SetCount(total);
+	scores.SetCount(score_total, 0);
+}
+
+void LineScore::Set(int i, int j, const String& s) {
+	ASSERT(line_n > 0);
+	ASSERT(j >= 0 && j < line_n);
+	int pos = i * line_n + j;
+	lines[pos] = s;
+}
+
+void LineScore::SetScore(int i, int j, int value) {
+	ASSERT(i >= 0 && i < GetCount());
+	ASSERT(j >= 0 && j < SCORE_COUNT);
+	int pos = i * SCORE_COUNT + j;
+	scores[pos] = value;
+}
+
+int LineScore::GetCount() const {
+	if (line_n == 0 || lines.GetCount() == 0)
+		return 0;
+	return lines.GetCount() / line_n;
+}
+
+
+
+
+
+
+
+
+
+
 Script::~Script() {
 	
 }
@@ -32,13 +83,17 @@ String Script::GetAnyTitle() const {
 String Script::GetText() const {
 	if (__text.GetCount())
 		return __text;
+	return GetTextStructure(0);
+}
+
+String Script::GetTextStructure(bool coarse) const {
 	String out;
 	for(int i = 0; i < active_struct.parts.GetCount(); i++) {
 		String type = active_struct.parts[i];
 		for(const StaticPart& sp : parts) {
 			if (sp.part_type == StaticPart::SKIP)
 				continue;
-			if (sp.type != type)
+			if (sp.type != type && sp.name != type)
 				continue;
 			
 			out << "[" << sp.name;
@@ -46,7 +101,10 @@ String Script::GetText() const {
 				out << ": " << sp.singer;
 			out << "]\n";
 			
-			out << sp.text.ToString();
+			if (coarse)
+				out << sp.coarse_text.AsText();
+			else
+				out << sp.text.AsText();
 			out << "\n\n";
 			
 			break;
@@ -164,7 +222,6 @@ StaticPart* Script::FindPartByName(const String& name) {
 }
 
 int StaticPart::GetExpectedLineCount(Script& song) const {
-	TODO
 	#if 0
 	int len = 2;
 	
@@ -187,15 +244,16 @@ int StaticPart::GetExpectedLineCount(Script& song) const {
 			len = song.prechorus_length;
 	}
 	
-	
 	return len;
 	#endif
-	return 0;
+	
+	if (reference.Get().IsEmpty())
+		return 2;
+	
+	return reference.Get().GetCount();
 }
 
 int StaticPart::GetContrastIndex(Script& song) const {
-	TODO
-	#if 0
 	int idx = ContentType::PART_COUNT-1;
 	
 	if (name.Find(GetAppModeKeyCap(AM_NORMAL)) == 0)
@@ -218,8 +276,6 @@ int StaticPart::GetContrastIndex(Script& song) const {
 	}
 	
 	return idx;
-	#endif
-	return 0;
 }
 
 #if 0

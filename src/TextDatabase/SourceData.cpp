@@ -486,7 +486,7 @@ void ComponentCandidateCache::Realize(Script& l) {
 	}
 }
 
-String ScriptSuggestions::GetText() const {
+String ScriptSuggestion::GetText() const {
 	String content;
 	for(int j = 0; j < lines.GetCount(); j++) {
 		String part = lines.GetKey(j);

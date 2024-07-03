@@ -112,6 +112,7 @@ protected:
 	VideoPromptMakerCtrl			video_prompt_maker;
 	ScriptPostFixCtrl				script_post_fix;
 	StructuredScriptCtrl			structured_script;
+	ScriptEditCtrl					script_edit;
 	
 public:
 	typedef ToolEditor CLASSNAME;

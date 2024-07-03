@@ -167,12 +167,22 @@ void ComponentStructure::DataActive() {
 	ScriptStructure& s = l.active_struct;
 	
 	//s.chords.SetCount(s.parts.GetCount());
-	
+	script_parts.Clear();
 	for(int i = 0; i < s.parts.GetCount(); i++) {
-		StaticPart* sp = l.FindPartByType(s.parts[i]);
-		script_parts.Set(i, 0, s.parts[i]);
-		if (sp)
+		String key = s.parts[i];
+		StaticPart* sp = l.FindPartByType(key);
+		if (!sp)
+			sp = l.FindPartByName(key);
+		script_parts.Set(i, 0, key);
+		if (sp) {
+			EditString* e = new EditString;
+			//e->SetData(sp->singer);
+			e->WhenAction << [this,e,sp]() {
+				sp->singer = e->GetData();
+			};
+			script_parts.SetCtrl(i, 1, e);
 			script_parts.Set(i, 1, sp->singer);
+		}
 		else
 			script_parts.Set(i, 1, Value());
 	}
@@ -342,8 +352,8 @@ void ComponentStructure::LoadReference() {
 		StructuredScript& ss = db.structured_scripts[ss_i];
 		Script& s = GetScript();
 		s.parts.Clear();
-		s.active_struct.structured_script_i = ss_i;
 		s.active_struct.Clear();
+		s.active_struct.structured_script_i = ss_i;
 		s.active_struct.parts.Clear();
 		
 		Index<String> added;

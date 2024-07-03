@@ -11,6 +11,10 @@ class ScriptSolver {
 		LS_COLLECT,
 		LS_FILL_LINES,
 		LS_COMPARISON,
+		LS_MATCH_REFERENCE,
+		LS_SCORE_MATCH,
+		LS_FILL_REFERENCE_MATCH,
+		LS_SMOOTH_REFERENCE_MATCH,
 		LS_TITLE,
 		
 		LS_COUNT
@@ -44,6 +48,13 @@ class ScriptSolver {
 	String active_part;
 	Index<hash_t> visited;
 	
+	struct ConvTask : Moveable<ConvTask> {
+		Vector<String> from, ref;
+		String part;
+	};
+	Vector<ConvTask> conv_tasks;
+	Index<String> added_phrases;
+	
 	void Process();
 	void ClearScript();
 	void ProcessCollect();
@@ -51,12 +62,20 @@ class ScriptSolver {
 	void ProcessPrimary();
 	void ProcessMakeHoles();
 	void ProcessComparison();
+	void ProcessReference();
+	void ProcessScoreMatch();
 	void ProcessTitle();
+	void ProcessFillReferenceMatch();
+	void ProcessSmoothReferenceMatch();
 	void OnProcessPrimary(String res);
 	void OnProcessFillLines(String res);
 	void OnProcessMakeHoles(String res);
 	void OnProcessComparison(String res);
 	void OnProcessComparisonFail(int loser);
+	void OnProcessReference(String res);
+	void OnProcessScoreMatch(String res);
+	void OnProcessFillReferenceMatch(String res);
+	void OnProcessSmoothReferenceMatch(String res);
 	void PostProgress() {WhenProgress(phase, LS_COUNT);}
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}

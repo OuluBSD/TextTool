@@ -44,6 +44,7 @@ struct StructuredScript : Moveable<StructuredScript> {
 	String entity, title, structure_str;
 	Vector<Part> parts;
 	
+	String AsText() const;
 	Part& GetAddPart(String name) {
 		for (Part& p : parts) if (p.name == name) return p;
 		Part& p = parts.Add();

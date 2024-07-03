@@ -207,6 +207,18 @@ String RhymeContainer::ToString() const {
 	return o;
 }
 
+String RhymeContainer::AsText() const {
+	String o;
+	
+	for (const auto& l : lines) {
+		if (!o.IsEmpty())
+			o << "\n";
+		o << l.text;
+	}
+	
+	return o;
+}
+
 String RhymeContainer::AsNana() const {
 	String s;
 	for (const auto& l : lines) {

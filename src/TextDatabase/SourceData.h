@@ -635,7 +635,7 @@ struct PhraseComb : Moveable<PhraseComb> {
 	}
 };
 
-struct ScriptSuggestions : Moveable<ScriptSuggestions> {
+struct ScriptSuggestion : Moveable<ScriptSuggestion> {
 	VectorMap<String,Vector<String>> lines;
 	int rank = -1;
 	Vector<Vector<Vector<int>>> transfers;
@@ -662,7 +662,7 @@ struct ComponentAnalysis {
 	MapFile<hash_t,PhrasePart> phrase_parts[ContentType::PART_COUNT];
 	IntIndexFile source_pool[ContentType::PART_COUNT];
 	MapFile<hash_t,PhraseComb> phrase_combs[ContentType::PART_COUNT];
-	MapFile<hash_t,ScriptSuggestions> script_suggs;
+	MapFile<hash_t,ScriptSuggestion> script_suggs;
 	MapFile<hash_t,TranslatedPhrasePart> trans_phrase_combs[LNG_COUNT][ContentType::PART_COUNT];
 	
 	

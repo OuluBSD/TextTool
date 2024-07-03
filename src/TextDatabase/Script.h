@@ -6,6 +6,27 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 
+struct LineScore : Moveable<LineScore> {
+	Vector<String> lines;
+	Vector<int> scores;
+	int line_n = 0;
+	
+	String Get(int i, int j) const;
+	int GetScore(int i, int j) const;
+	void SetCount(int i, int line_n);
+	void Set(int i, int j, const String& s);
+	void SetScore(int i, int j, int value);
+	int GetCount() const;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("lines", lines)
+			("scores", scores)
+			("line_n", line_n)
+			;
+	}
+};
+
 struct StaticPart {
 	// Part types
 	typedef enum : int {
@@ -22,8 +43,10 @@ struct StaticPart {
 	String type; // abbreviation like V1, PC2, C
 	PartType part_type = SINGING;
 	String singer;
-	RhymeContainer text;
+	RhymeContainer text, coarse_text;
 	RhymeContainer reference;
+	
+	Vector<LineScore>	conv;
 	
 	#if 0
 	Vector<String> active_source_wordsalad;
@@ -66,6 +89,7 @@ struct StaticPart {
 			("singer", singer)
 			("text", text)
 			("reference", reference)
+			("conv", conv)
 			#if 0
 			("active_source_wordsalad", active_source_wordsalad)
 			("active_source_text", active_source_text)
@@ -363,6 +387,7 @@ struct Script : DataFile, ContentVisionOwner {
 	int GetFirstPartPosition() const;
 	String GetAnyTitle() const;
 	String GetText() const;
+	String GetTextStructure(bool coarse) const;
 	
 	//Script() {post_analysis.SetCount(POSTSCRIPT_COUNT);}
 	Script() {post_analysis.SetCount(SCORE_COUNT);}

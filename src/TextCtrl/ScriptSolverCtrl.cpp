@@ -18,14 +18,15 @@ ScriptSolverCtrl::ScriptSolverCtrl() {
 	summary_tasks.AddColumn("Description");
 	summary_tasks.ColumnWidths("1 4 10");
 	
-	result_split.Horz() << result_list << suggestion << scripts;
+	result_split.Horz() << result_list << suggestion << script << ref_script;
 	result_split.SetPos(1000, 0);
-	result_split.SetPos(5000, 1);
+	result_split.SetPos(4000, 1);
+	result_split.SetPos(7000, 2);
 	
 	result_list.AddColumn(t_("Rank"));
 	result_list.AddIndex("IDX");
 	result_list.WhenCursor << THISBACK(DataSuggestion);
-	scripts.WhenAction << THISBACK(UserScriptChange);
+	script.WhenAction << THISBACK(UserScriptChange);
 	
 	
 	// Tab 2
@@ -114,7 +115,12 @@ void ScriptSolverCtrl::Data() {
 		if (!result_list.IsCursor() && result_list.GetCount())
 			result_list.SetCursor(0);
 		
-		scripts.SetData(l.GetText());
+		script.SetData(l.GetText());
+		
+		String ref = l.GetTextStructure(0);
+		if (ref.IsEmpty())
+			ref = l.GetTextStructure(1);
+		ref_script.SetData(ref);
 		
 		DataSuggestion();
 	}
@@ -140,7 +146,7 @@ void ScriptSolverCtrl::UserScriptChange() {
 	
 	TODO
 	#if 0
-	p.script->text = scripts.GetData();
+	p.script->text = script.GetData();
 	#endif
 }
 

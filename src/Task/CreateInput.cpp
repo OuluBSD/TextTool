@@ -1995,10 +1995,11 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		{
 			auto& list = input.AddSub().Title(__Comp2 + " \"A\": Potential phrases");
-			list.NumberedLines();
+			//list.NumberedLines();
 			for(int j = 0; j < args.phrases.GetCount(); j++) {
 				const String& phrase = args.phrases[j];
-				list.Add(phrase);
+				//list.Add(phrase);
+				list.Add("line #" + IntStr(j) + ": " + phrase);
 			}
 		}
 		{
@@ -2059,11 +2060,13 @@ void AiTask::CreateInput_ScriptSolver() {
 			int lng_i = args.lng_i > 0 ? args.lng_i : MetaDatabase::Single().GetLanguageIndex();
 			String lang = Capitalize(GetLanguageKey(lng_i));
 			TaskTitledList& results = input.PreAnswer();
-			results.Title(__Comp2 + " \"A\": Add " + lang + " line/phrase to the part '" + args.part + "' in a way, that the story of the " + __comp2 + " is best");
+			//results.Title(__Comp2 + " \"A\": Add " + lang + " line/phrase to the part '" + args.part + "' in a way, that the story of the " + __comp2 + " is best");
+			results.Title(__Comp2 + " \"A\": Pick " + lang + " line/phrase from the potential phrases to the part '" + args.part + "' in a way, that the story of the " + __comp2 + " is best");
 			results.NumberedLines();
-			results.Add("phrase: \"");
+			//results.Add("phrase: \"");
+			results.Add("line #");
 		}
-		input.response_length = 1024;
+		input.response_length = 512;
 	}
 	
 	else if (args.fn == 11) {
@@ -2153,6 +2156,103 @@ void AiTask::CreateInput_ScriptSolver() {
 			results.Add("");
 		}
 		input.response_length = 1024;
+	}
+	else if (args.fn == 15) {
+		String pre;
+		{
+			auto& list = input.AddSub().Title(__Script + " A");
+			list.NoListChar();
+			list.Add(Join(args.phrases, " / "));
+		}
+		{
+			auto& list = input.AddSub().Title(__Script + " B");
+			list.NoListChar();
+			String s = Join(args.attrs, " / ");
+			list.Add(s);
+			int a = s.Find(" ");
+			if (a >= 0)
+				pre = s.Left(a);
+		}
+		// List of 10 convert of Rhyme "A" using Rhyme "B". The line should be as short as Rhyme"B". The line should begin with the same word that Rhyme "B"
+		{
+			TaskTitledList& results = input.PreAnswer();
+			String t =
+				"List of 10 convert of " + __Script + " A using " + __Script + " B. "
+				"The line should be as short as " + __Script + " B. "
+				"The line should begin with the same word that " + __Script + " B. "
+				"Don't copy a phrase of " + __Script + " B completely. "
+				". Add '/' character to between phrases";
+			if (appmode == DB_SONG)
+				t += ". Phrases should rhyme";
+			results.Title(t);
+			results.NumberedLines();
+			results.Add(pre);
+			tmp_str = "1. " + pre;
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 16) {
+		if (args.ref.GetCount()) {
+			auto& list = input.AddSub().Title("Reference " + __Comp2 + " \"B\"");
+			list.NoListChar();
+			Vector<String> lines = Split(args.ref, ". ");
+			for (String& l : lines)
+				list.Add(l);
+		}
+		if (args.parts.GetCount()) {
+			auto& list = input.AddSub().Title("Line counts of " + __Comp2 + " \"B\"");
+			for (String& l : args.parts)
+				list.Add(l);
+		}
+		{
+			auto& list = input.AddSub().Title(__Comp2 + " \"A\" should fit the following vision of the " + __comp2);
+			Vector<String> lines = Split(args.vision, ". ");
+			for (String& l : lines)
+				list.Add(l);
+		}
+		{
+			auto& list = input.AddSub().Title(__Comp2 + " \"A\"");
+			list.NoListChar();
+			Vector<String> lines = Split(args.part, ". ");
+			for (String& l : lines)
+				list.Add(l);
+		}
+		{
+			auto& list = input.AddSub().Title(__Comp2 + " \"A\": properties of additional line/phrases for the best " + __comp2);
+			list.Add("high semantic and contextual accuracy");
+			if (args.scores.IsEmpty()) {
+				list.Add("idea: high like count");
+				list.Add("emotion: high comment count");
+				list.Add("hook: high listen count");
+				list.Add("relatability: high share count");
+				list.Add("value: high bookmark count");
+				list.Add("also highly: funny, sensual, thought provoking, romantic, impactful");
+			}
+			else {
+				for(int i = 0; i < args.scores.GetCount(); i++)
+					list.Add(args.scores[i]);
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			String t =
+				"Convert " + __Comp2 + " \"A\" to use the style of " + __Comp2 + " \"B\"";
+			if (appmode == DB_SONG)
+				t += " in a way, that every line rhymes";
+			t += ", but make minimal modifications";
+			if (args.is_unsafe)
+				t += ". These are explicit lyrics and in slight dialect";
+			if (args.ref.GetCount())
+				t += ". Copy the syllable count of a line, the style and the level of simplicity of the Reference " + __Comp2 + " \"B\"";
+			t += ". Keep the line counts same";
+			results.Title(t);
+			results.NoListChar();
+			if (args.parts.GetCount())
+				results.Add("[" + args.parts[0] + "]");
+			results.Add("");
+		}
+		input.response_length = 2048;
+		SetHighQuality();
 	}
 }
 

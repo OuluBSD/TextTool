@@ -83,10 +83,12 @@ void ScriptGenerator::Process() {
 			time_stopped = GetSysTime();
 			phase = LG_BEGIN;
 			
-			// Start ScriptSolver
-			ASSERT(artist && scripts);
-			ScriptSolver& ls = ScriptSolver::Get(appmode, *artist,*scripts);
-			ls.Start();
+			if (1) {
+				// Start ScriptSolver
+				ASSERT(artist && scripts);
+				ScriptSolver& ls = ScriptSolver::Get(appmode, *artist,*scripts);
+				ls.Start();
+			}
 			
 			break;
 		}
