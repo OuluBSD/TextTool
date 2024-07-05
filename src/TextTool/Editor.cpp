@@ -90,10 +90,6 @@ ToolEditor::ToolEditor(TextTool* app) : ToolEditorBase("editor", *app) {
 	scripts.ColumnWidths("1 3");
 	scripts <<= THISBACK(DataScript);
 	
-	entity_info.editor = this;
-	snap_info.editor = this;
-	comp_info.editor = this;
-	script_info.editor = this;
 	
 	SetSubMenu(0);
 	
@@ -134,8 +130,9 @@ void ToolEditorBase::AddItem(String g, String i, ToolAppCtrl& c) {
 void ToolEditor::InitSimplified() {
 	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
 	
-	AddItem(t_("Database"), t_("Structured Scripts"), structured_script);
 	AddItem(t_("Database"), t_("Components"), src_data);
+	/*
+	AddItem(t_("Database"), t_("Structured Scripts"), structured_script);
 	AddItem(t_("Database"), t_("Tokens"), tokens_data);
 	AddItem(t_("Database"), t_("Words"), component_words);
 	AddItem(t_("Database"), t_("Token phrases"), token_phrases);
@@ -171,7 +168,7 @@ void ToolEditor::InitSimplified() {
 	AddItem("Script", t_("Script solver"), scripts_solver);
 	AddItem("Script", t_("Post edit"), script_edit);
 	AddItem("Script", t_("Post fix"), script_post_fix);
-	
+	*/
 }
 
 void ToolEditor::Init() {
@@ -933,7 +930,9 @@ void ToolEditorBase::UpdatePageList() {
 void ToolEditorBase::ViewPageGroup() {
 	int page_group = page_group_list.GetCursor();
 	int page = this->page.GetAdd(page_group, 0);
-
+	if (page_group < 0)
+		return;
+	
 	const auto& v = items[page_group];
 	for(int j = 0; j < v.GetCount(); j++) {
 		const ListItem& it = v[j];

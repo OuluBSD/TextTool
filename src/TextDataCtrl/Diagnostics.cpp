@@ -1,6 +1,6 @@
 #include "TextDataCtrl.h"
 
-
+#if 0
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -42,3 +42,4 @@ void TextDataDiagnostics::ToolMenu(Bar& bar) {
 
 
 END_TEXTLIB_NAMESPACE
+#endif

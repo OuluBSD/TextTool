@@ -76,8 +76,8 @@ protected:
 	ArrayCtrl			scripts;
 	bool				fast_exit = false;
 	
-	
 	ImageGenTool					image_gen;
+	/*
 	SnapBriefing					snap_briefing;
 	SnapIdeas						snap_ideas;
 	ComponentStructure				comp_struct;
@@ -86,9 +86,10 @@ protected:
 	CompInfoCtrl					comp_info;
 	ScriptInfoCtrl					script_info;
 	ScriptIdeaCtrl					script_idea;
-	
+	*/
 	// Database Ctrls
 	TextDataPage					src_data;
+	/*
 	TokensPage						tokens_data;
 	TokenPhrases					token_phrases;
 	AmbiguousWordPairs				ambiguous_word_pairs;
@@ -113,7 +114,7 @@ protected:
 	ScriptPostFixCtrl				script_post_fix;
 	StructuredScriptCtrl			structured_script;
 	ScriptEditCtrl					script_edit;
-	
+	*/
 public:
 	typedef ToolEditor CLASSNAME;
 	ToolEditor(TextTool* app);

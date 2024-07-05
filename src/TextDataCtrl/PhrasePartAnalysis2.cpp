@@ -1,6 +1,6 @@
 #include "TextDataCtrl.h"
 
-
+#if 0
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -278,3 +278,4 @@ void PhrasePartAnalysis2::UpdateCounts() {
 
 
 END_TEXTLIB_NAMESPACE
+#endif

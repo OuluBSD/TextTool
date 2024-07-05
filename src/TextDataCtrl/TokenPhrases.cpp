@@ -1,6 +1,6 @@
 #include "TextDataCtrl.h"
 
-
+#if 0
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -62,3 +62,4 @@ void TokenPhrases::GetUnknownPairs() {
 
 
 END_TEXTLIB_NAMESPACE
+#endif

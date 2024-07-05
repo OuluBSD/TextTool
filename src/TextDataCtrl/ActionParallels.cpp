@@ -1,6 +1,6 @@
 #include "TextDataCtrl.h"
 
-
+#if 0
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -183,4 +183,4 @@ void ActionParallelsPage::UpdateParallels() {
 
 
 END_TEXTLIB_NAMESPACE
-
+#endif

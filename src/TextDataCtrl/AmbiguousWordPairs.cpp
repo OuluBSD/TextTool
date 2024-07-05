@@ -1,6 +1,6 @@
 #include "TextDataCtrl.h"
 
-
+#if 0
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -77,3 +77,4 @@ void AmbiguousWordPairs::Process() {
 
 
 END_TEXTLIB_NAMESPACE
+#endif

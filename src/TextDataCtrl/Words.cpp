@@ -1,6 +1,6 @@
 #include "TextDataCtrl.h"
 
-
+#if 0
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -318,3 +318,4 @@ void TextDataWords::DoWords(int fn) {
 
 
 END_TEXTLIB_NAMESPACE
+#endif

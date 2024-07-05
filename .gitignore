@@ -2,3 +2,5 @@
 *.core
 share/SongData.json
 share/songdata/**
+script/models--TurkuNLP--gpt3-finnish-8B/**
+

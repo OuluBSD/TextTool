@@ -16,6 +16,7 @@ protected:
 	ArrayCtrl			componentlist;
 	
 	ImageGenTool				image_gen;
+	/*
 	OwnerInfoCtrl				owner_info;
 	ProfileInfoCtrl				profile_info;
 	LeadWebsites				lead_sites;
@@ -33,7 +34,7 @@ protected:
 	PlatformProfileCtrl			platform_profile;
 	SocialNeedsCtrl				social_needs;
 	SocialBeliefsCtrl			social_beliefs;
-	
+	*/
 	
 public:
 	typedef LeadsCtrl CLASSNAME;

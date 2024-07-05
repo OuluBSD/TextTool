@@ -1,6 +1,6 @@
 #include "TextDataCtrl.h"
 
-
+#if 0
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -190,3 +190,4 @@ void ActionTransitionsPage::UpdateTransitions() {
 
 
 END_TEXTLIB_NAMESPACE
+#endif

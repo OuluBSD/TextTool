@@ -17,6 +17,7 @@ LeadsCtrl::LeadsCtrl(TextTool* app) : ToolEditorBase("leads", *app) {
 }
 
 void LeadsCtrl::InitSimplified() {
+	/*
 	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
 	AddItem(t_("Database"), t_("Lead Websites"), lead_sites);
 	AddItem(t_("Database"), t_("Lead Templates"), lead_templates);
@@ -34,6 +35,7 @@ void LeadsCtrl::InitSimplified() {
 	AddItem(t_("Social Media"), t_("Content"), some_content);
 	AddItem(t_("Social Media"), t_("Needs"), social_needs);
 	AddItem(t_("Social Media"), t_("Beliefs"), social_beliefs);
+	*/
 	//AddItem(t_("Social Media"), t_("Content Templates"), tmpl_content);
 	
 }
