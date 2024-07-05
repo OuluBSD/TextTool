@@ -125,6 +125,7 @@ struct AttrArgs {
 
 struct ScriptSolverArgs {
 	int fn;
+	int sub_fn = -1;
 	int lng_i = -1;
 	VectorMap<String,String> artist, release, song;
 	Vector<String> parts, attrs, phrases, scores;
@@ -133,9 +134,11 @@ struct ScriptSolverArgs {
 	bool is_story = false;
 	bool is_unsafe = false;
 	bool is_self_centered = false;
+	double factor = 0;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
+				("sub_fn", sub_fn)
 				("lng_i", lng_i)
 				("artist", artist)
 				("release", release)
@@ -152,6 +155,7 @@ struct ScriptSolverArgs {
 				("is_story", is_story)
 				("is_unsafe", is_unsafe)
 				("is_self_centered", is_self_centered)
+				("factor", factor)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

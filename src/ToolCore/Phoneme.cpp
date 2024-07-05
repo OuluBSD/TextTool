@@ -242,6 +242,49 @@ int GetPhonemeDuration(int phoneme, int stress) {
 	return ms;
 }
 
+int EstimatePhonemeSyllables(const WString& w) {
+	if (w.GetCount() == 0 || w[0] == '-')
+		return 0;
+	
+	thread_local static Vector<int> phonemes;
+	
+	phonemes.SetCount(0);
+	int count = 1;
+	for(int i = 0; i < w.GetCount();) {
+		int chr0 = w[i];
+		int chr1 = i+1 < w.GetCount() ? w[i+1] : 0;
+		
+		int len = 0;
+		int phoneme = GetPhonemeEnum(chr0, chr1, &len);
+		if (!len)
+			i++;
+		else
+			i += len;
+		
+		if (phoneme >= 0)
+			phonemes << phoneme;
+	}
+	
+	bool was_vowel = false;
+	int vowel_islands = 0;
+	for(int i = 0; i < phonemes.GetCount(); i++) {
+		int ph0 = phonemes[i];
+		//int ph1 = i+1 < phonemes.GetCount() ? phonemes[i+1] : -1;
+		
+		bool is_vowel = IsPhonemeVowel(ph0);
+		//bool next_cons = ph1 >= 0 ? IsPhonemeConsonant(ph1) : false;
+		
+		if (!was_vowel && is_vowel)
+			vowel_islands++;
+		
+		was_vowel = is_vowel;
+	}
+	if  (vowel_islands > 1)
+		count += vowel_islands - 1;
+	
+	return count;
+}
+
 int GetPhonemeRepeats(int phoneme, int stress) {
 	ASSERT(phoneme >= 0 && phoneme < PHONOME_COUNT);
 	int repeats = 0;

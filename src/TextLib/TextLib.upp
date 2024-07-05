@@ -39,5 +39,7 @@ file
 	CollabSolver.h,
 	CollabSolver.cpp,
 	TextSolver.h,
-	TextSolver.cpp;
+	TextSolver.cpp,
+	TextSuggestions.h,
+	TextSuggestions.cpp;
 

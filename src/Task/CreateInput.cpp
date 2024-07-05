@@ -2254,6 +2254,60 @@ void AiTask::CreateInput_ScriptSolver() {
 		input.response_length = 2048;
 		SetHighQuality();
 	}
+	else if (args.fn == 17) {
+		bool with_ref_beginning = args.sub_fn & (1 << 0);
+		bool with_orig_last_word = args.sub_fn & (1 << 1);
+		bool with_rhyming = args.sub_fn & (1 << 2);
+		{
+			auto& list = input.AddSub().Title(__Comp2 + " \"A\": properties of additional line/phrases for the best " + __comp2);
+			if (args.scores.IsEmpty()) {
+				list.Add("idea: high like count");
+				list.Add("emotion: high comment count");
+				list.Add("hook: high listen count");
+				list.Add("relatability: high share count");
+				list.Add("value: high bookmark count");
+				list.Add("also highly: funny, sensual, thought provoking, romantic, impactful");
+			}
+			else {
+				for(int i = 0; i < args.scores.GetCount(); i++)
+					list.Add(args.scores[i]);
+			}
+		}
+		{
+			auto& list = input.AddSub().Title("Phrase A");
+			list.NoListChar();
+			list.Add(args.phrases[0]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			String t;
+			
+			/*if (args.factor < 0)
+				t = "List of phrases, which removes " + IntStr(args.factor*100) + "\% of the words of the Phrase A and tries to keep the subject, the object and the message from the Phrase A";
+			else
+				t = "List of phrases, which adds " + IntStr(args.factor*100) + "\% more words to the Phrase A and tries to keep the subject, the object and the message from the Phrase A";*/
+			if (args.factor < 0)
+				t = "List of phrases, which tries to be " + IntStr(-args.factor/2) + " words shorter than the Phrase A and tries to keep the subject, the object and the message from the Phrase A";
+			else
+				t = "List of phrases, which tries to be " + IntStr(args.factor/2) + " words longer than the Phrase A and tries to keep the subject, the object and the message from the Phrase A";
+			
+			if (with_rhyming)
+				t += ". The line must rhyme with '" + args.phrases[1] + "'";
+			if (with_orig_last_word)
+				t += ". Line must end with '" + args.phrases[2] + "'";
+			if (with_ref_beginning)
+				t += ". Line must begin with '" + args.phrases[3] + "'";
+			
+			results.Title(t);
+			if (with_ref_beginning) {
+				results.Add(args.phrases[3]);
+				tmp_str = args.phrases[3];
+			}
+			else
+				results.Add("");
+		}
+		input.response_length = 2048;
+	}
 }
 
 void AiTask::CreateInput_LeadSolver() {

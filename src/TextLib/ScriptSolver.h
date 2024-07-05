@@ -11,13 +11,15 @@ class ScriptSolver {
 		LS_COLLECT,
 		LS_FILL_LINES,
 		LS_COMPARISON,
+		
+		LS_COUNT,
+		
 		LS_MATCH_REFERENCE,
 		LS_SCORE_MATCH,
 		LS_FILL_REFERENCE_MATCH,
 		LS_SMOOTH_REFERENCE_MATCH,
 		LS_TITLE,
 		
-		LS_COUNT
 	};
 	Time time_started, time_stopped;
 	int phase = LS_BEGIN;

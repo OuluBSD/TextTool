@@ -120,6 +120,7 @@ public:
 		Word(const Word& s) {*this = s;}
 		void operator=(const Word& s) {syllables <<= s.syllables;}
 		void Jsonize(JsonIO& json) {json("syllables", syllables);}
+		WString AsWString() const {WString ws; for (const auto& s : syllables) {if (!ws.IsEmpty()) ws.Cat('.'); ws.Cat(s.phonetic);} return ws;}
 	};
 	
 	struct Line : Moveable<Line> {
@@ -164,6 +165,8 @@ public:
 	String ToString() const;
 	String AsText() const;
 	String AsNana() const;
+	String AsPhonetic() const;
+	int GetSyllableCountPhonetic() const;
 	void Dump() {LOG(ToString());}
 	void Jsonize(JsonIO& json) {
 		json("lines", lines);

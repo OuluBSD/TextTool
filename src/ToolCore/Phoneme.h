@@ -200,7 +200,7 @@ double GetSpellingDistance(const WString& w0, const WString& w1, bool relative);
 double GetSpellingRawDistance(const WString& w0, const WString& w1);
 double GetSpellingRelativeDistance(const WString& w0, const WString& w1);
 int GetPhonemeRepeats(int phoneme, int stress);
-
+int EstimatePhonemeSyllables(const WString& w);
 
 extern const double vowel_distance[PHONOME_VOWEL_COUNT][PHONOME_VOWEL_COUNT];
 extern const double consonant_distance[PHONOME_CONSONANT_COUNT][PHONOME_CONSONANT_COUNT];

@@ -207,6 +207,42 @@ String RhymeContainer::ToString() const {
 	return o;
 }
 
+String RhymeContainer::AsPhonetic() const {
+	String o;
+	
+	for (const auto& l : lines) {
+		if (!o.IsEmpty())
+			o << "\n";
+		for(int i = 0; i < l.words.GetCount(); i++) {
+			if (i) o << " ";
+			const auto& w = l.words[i];
+			for(int j = 0; j < w.syllables.GetCount(); j++) {
+				const auto& syl = w.syllables[j];
+				if (j) o << ".";
+				o << syl.phonetic.ToString();
+			}
+		}
+	}
+	
+	return o;
+}
+
+int RhymeContainer::GetSyllableCountPhonetic() const {
+	int o = 0;
+	
+	for (const auto& l : lines) {
+		for(int i = 0; i < l.words.GetCount(); i++) {
+			const auto& w = l.words[i];
+			for(int j = 0; j < w.syllables.GetCount(); j++) {
+				const auto& syl = w.syllables[j];
+				o += EstimatePhonemeSyllables(syl.phonetic);
+			}
+		}
+	}
+	
+	return o;
+}
+
 String RhymeContainer::AsText() const {
 	String o;
 	

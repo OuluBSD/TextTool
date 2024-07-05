@@ -1167,6 +1167,16 @@ void ScriptSolver::OnProcessComparisonFail(int loser) {
 		
 		song.__text = content;
 		
+		for(int i = 0; i < ls.lines.GetCount(); i++) {
+			String key = ls.lines.GetKey(i);
+			StaticPart* sp = song.FindPartByName(key);
+			if (!sp)
+				continue;
+			sp->generated.Get().Clear();
+			const auto& from = ls.lines[i];
+			for(int j = 0; j < from.GetCount(); j++)
+				sp->generated.Get().Add().text = from[j];
+		}
 	}
 	
 	SetWaiting(0);

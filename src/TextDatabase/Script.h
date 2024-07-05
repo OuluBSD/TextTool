@@ -45,6 +45,7 @@ struct StaticPart {
 	String singer;
 	RhymeContainer text, coarse_text;
 	RhymeContainer reference;
+	RhymeContainer generated;
 	
 	Vector<LineScore>	conv;
 	
@@ -88,7 +89,9 @@ struct StaticPart {
 			("part_type", (int&)part_type)
 			("singer", singer)
 			("text", text)
+			("coarse_text", coarse_text)
 			("reference", reference)
+			("generated", generated)
 			("conv", conv)
 			#if 0
 			("active_source_wordsalad", active_source_wordsalad)

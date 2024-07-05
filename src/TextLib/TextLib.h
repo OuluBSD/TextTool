@@ -18,6 +18,7 @@
 #include "ScriptIdeaSolver.h"
 #include "BeliefSolver.h"
 #include "TextSolver.h"
+#include "TextSuggestions.h"
 
 
 #endif
