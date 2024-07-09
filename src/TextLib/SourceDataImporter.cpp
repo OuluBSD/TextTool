@@ -81,7 +81,196 @@ void BasicScriptStructureSolver::Process(String s) {
 			LOG(j << ": " << (int)to.from << " -> " << (int)to.to << ": " << (int)to.count);
 		}
 		LOG("");
+		
+		line.hash = td.GetHash(section_cmp_header_len);
 	}
+	
+	#if 1
+	
+	
+	uniq_lines.Clear();
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		Line& line = lines[i];
+		UniqueLine& u = uniq_lines.GetAdd(line.hash);
+		if (u.count == 0)
+			u.txt = line.txt;
+		u.count++;
+		u.lines << i;
+	}
+	SortByValue(uniq_lines, UniqueLine());
+	
+	DUMPM(uniq_lines);
+	
+	VectorMap<hash_t,int> hash_branches;
+	Vector<int> rm_list;
+	
+	struct TempSection {
+		Vector<int> lines;
+		int length = 0;
+		
+		void Chk() {
+			for(int i = 0; i < lines.GetCount(); i++) {
+				for(int j = i+1; j < lines.GetCount(); j++) {
+					ASSERT(lines[i] != lines[j]);
+				}
+			}
+		}
+		String ToString() const {
+			String s = "weight=" + IntStr(length*lines.GetCount()) + ",length=" + IntStr(length) + ": ";
+			for(int i = 0; i < lines.GetCount(); i++) {if (i) s << ", "; s << lines[i];}
+			return s;
+		}
+		bool operator()(const TempSection& a, const TempSection& b) const {
+			return (a.length*a.lines.GetCount()) > (b.length*b.lines.GetCount());
+		}
+	};
+	Array<TempSection> v;
+	
+	for(int i = 0; i < uniq_lines.GetCount(); i++) {
+		UniqueLine& u = uniq_lines[i];
+		
+		if (u.lines.GetCount() < 2)
+			continue;
+		
+		
+		Vector<int> proc_v;
+		{
+			proc_v << v.GetCount();
+			TempSection& t = v.Add();
+			t.lines <<= u.lines;
+			t.length = 1;
+			t.Chk();
+		}
+		
+		while (proc_v.GetCount()) {
+			for(int pv_i = 0; pv_i < proc_v.GetCount(); pv_i++) {
+				TempSection& t = v[proc_v[pv_i]];
+				
+				hash_branches.Clear();
+				rm_list.SetCount(0);
+				for(int j = 0; j < t.lines.GetCount(); j++) {
+					int line_i = t.lines[j];
+					int pos = line_i + t.length;
+					if (pos >= lines.GetCount()) {
+						rm_list << j;
+					}
+					else {
+						Line& line = lines[pos];
+						hash_branches.GetAdd(line.hash,0)++; // count next hashes
+					}
+				}
+				SortByValue(hash_branches, StdGreater<int>());
+				
+				// Loop all branches
+				for(int j = 1; j < hash_branches.GetCount(); j++) {
+					// With 2 or more lines, a new section can be made
+					if (hash_branches[j] >= 2) {
+						hash_t hash = hash_branches.GetKey(j);
+						proc_v << v.GetCount(); // add new section to processing queue
+						TempSection& t0 = v.Add();
+						for(int k = 0; k < t.lines.GetCount(); k++) {
+							int line_i = t.lines[k];
+							int pos = line_i + t.length;
+							if (pos < lines.GetCount() && lines[pos].hash == hash) {
+								t0.lines << line_i;
+								t0.Chk();
+								rm_list << k;
+							}
+						}
+						t0.Chk();
+					}
+					// With 1 line, don't start new branch and remove it from the current,
+					// which triggers the forking of current branch too.
+					else {
+						ASSERT(hash_branches[j] == 1);
+						hash_t hash = hash_branches.GetKey(j);
+						for(int k = 0; k < t.lines.GetCount(); k++) {
+							int line_i = t.lines[k];
+							int pos = line_i + t.length;
+							if (pos < lines.GetCount() && lines[pos].hash == hash) {
+								rm_list << k;
+							}
+						}
+					}
+				}
+				
+				// Stop, if everything would be removed
+				if (rm_list.GetCount() == t.lines.GetCount()) {
+					proc_v.Remove(pv_i--);
+				}
+				// Fork and modify the current branch, if some line-range has ended
+				else if (rm_list.GetCount()) {
+					int remaining = t.lines.GetCount() - rm_list.GetCount();
+					
+					// Don't start new branch, if only one section remains
+					if (remaining == 1) {
+						// Just discard this section from processing queue
+						proc_v.Remove(pv_i);
+					}
+					else {
+						// discard this section in processing queue (and replace with the new one)
+						// IMPORTANT: this is processed only in the next 'while' iteration,
+						//            because the next will be pv_i+1
+						proc_v[pv_i] = v.GetCount();
+						
+						TempSection& t0 = v.Add();
+						t0.lines <<= t.lines;
+						t0.length = t.length + 1;
+						
+						Sort(rm_list, StdLess<int>());
+						t0.lines.Remove(rm_list);
+						
+						t0.Chk();
+					}
+				}
+				// Otherwise, this branch was extended without modification
+				else {
+					t.length++;
+				}
+			}
+		}
+	}
+	
+	Sort(v, TempSection());
+	DUMPC(v);
+	LOG("");
+	
+	// Try to add actual sections
+	for (TempSection& s : v) {
+		
+		// Check if lines are still assignable
+		bool all_ok = true;
+		for(int line_i : s.lines) {
+			for(int j = 0; j < s.length; j++) {
+				int pos = line_i+j;
+				if (lines[pos].section >= 0) {
+					all_ok = false;
+					break;
+				}
+			}
+			if (!all_ok) break;
+		}
+		if (!all_ok) continue;
+		
+		// Add section
+		int sect_i = sections.GetCount();
+		Section& sect = sections.Add();
+		sect.count = s.lines.GetCount();
+		sect.orig_count = sect.count;
+		sect.orig_weight = s.length * s.lines.GetCount();
+		
+		// Write section
+		for(int line_i : s.lines) {
+			for(int j = 0; j < s.length; j++) {
+				int pos = line_i+j;
+				lines[pos].section = sect_i;
+			}
+		}
+	}
+	
+	
+	#else
 	
 	// Count transforms from unique line to other unique line
 	transfers.Clear();
@@ -122,7 +311,7 @@ void BasicScriptStructureSolver::Process(String s) {
 	
 	// Make repeating sections
 	sections.Clear();
-	#if 1
+	
 	for (Transfer& t : transfers) {
 		for(auto& vec : t.vectors) {
 			if (vec.len < 3)
@@ -138,6 +327,9 @@ void BasicScriptStructureSolver::Process(String s) {
 			}
 		}
 	}
+	
+	//#error TODO Fill all possible sections and pick best
+	
 	Sort(sections, Section());
 	
 	for (int section_i = 0; section_i < sections.GetCount(); section_i++) {
@@ -149,7 +341,12 @@ void BasicScriptStructureSolver::Process(String s) {
 				continue;
 			bool matches = sect.hashes.GetCount() > 0;
 			for(int j = 0; j < sect.hashes.GetCount(); j++) {
-				Line& l0 = lines[i+j];
+				int pos = i+j;
+				if (pos >= lines.GetCount()) {
+					matches = false;
+					break;
+				}
+				Line& l0 = lines[pos];
 				if (l0.section >= 0 ||
 					l0.descriptor.GetHash(section_cmp_header_len) != sect.hashes[j]) {
 					matches = false;
@@ -162,113 +359,7 @@ void BasicScriptStructureSolver::Process(String s) {
 					lines[i+j].section = section_i;
 			}
 		}
-		
 	}
-	#else
-	Index<int> visited;
-	for(int i = 0; i < transfers.GetCount(); i++) {
-		Transfer& t = transfers[i];
-		hash_t from = t.to;
-		visited.Clear();
-		visited.Add(t.from);
-		visited.Add(t.to);
-		Section* s = 0;
-		while (1) {
-			Transfer* t0 = FindTransfer(from);
-			if (!t0 || t0->count <= 1)
-				break;
-			// The next line is accepted
-			// At this point, the section has at least 2 lines, so we can actually add it
-			if (!s) {
-				s = &sections.Add();
-				s->orig_count = t.count;
-				s->hashes.Add(t.from);
-				s->hashes.Add(t.to);
-			}
-			
-			// Add line to section
-			s->hashes.Add(t0->to);
-			from = t0->to;
-			
-			// Prevent forever loops by checking visited lines
-			int i = visited.Find(from);
-			if (i >= 0)
-				break;
-			visited.Add(from);
-		}
-	}
-	
-	// At this point, all sections have at least 2 lines and they occur at least 2 times
-	// If at least 2 consecutive lines belongs to any section, they can be attached to that section.
-	// Lines, which haven't been attached can be joined to once occuring sections.
-	Vector<int> matching_sections;
-	Vector<int> rm_list;
-	int dbg_assigned_section_count = 0;
-	int prev_sect = -1;
-	for(int i = 0; i < lines.GetCount(); i++) {
-		Line& line = lines[i];
-		
-		// Get sections, which has matching first hash
-		matching_sections.SetCount(0);
-		hash_t h0 = line.descriptor.GetHash(section_cmp_header_len);
-		for(int j = 0; j < sections.GetCount(); j++) {
-			auto& sect = sections[j];
-			ASSERT(!sect.hashes.IsEmpty());
-			if (sect.hashes[0] == h0)
-				matching_sections.Add(j);
-		}
-		
-		if (matching_sections.GetCount() >= 2) {
-			// LOG("A"); DUMPC(matching_sections);
-			
-			for(int j = i+1, pos = 1; j < lines.GetCount(); j++, pos++) {
-				hash_t h = lines[j].descriptor.GetHash(section_cmp_header_len);
-				
-				// Check if section is too short
-				rm_list.SetCount(0);
-				for(int k = 0; k < matching_sections.GetCount(); k++) {
-					Section& sect = sections[matching_sections[k]];
-					if (pos >= sect.hashes.GetCount())
-						rm_list.Add(k);
-				}
-				
-				// Save first section for default selection in case of all are removed
-				int def_selection = matching_sections[0];
-				
-				// If some sections remains, remove too short sections
-				if (rm_list.GetCount() > 0) {
-					matching_sections.Remove(rm_list);
-					// LOG("B"); DUMPC(matching_sections);
-					rm_list.SetCount(0);
-				}
-				
-				// Remove sections without matching hash
-				for(int k = 0; k < matching_sections.GetCount(); k++) {
-					Section& sect = sections[matching_sections[k]];
-					if (sect.hashes[pos] != h)
-						rm_list.Add(k);
-				}
-				if (rm_list.GetCount() > 0) {
-					matching_sections.Remove(rm_list);
-					// LOG("C"); DUMPC(matching_sections);
-				}
-				if (matching_sections.IsEmpty())
-					matching_sections << def_selection;
-				if (matching_sections.GetCount() == 1)
-					break;
-			}
-			ASSERT(matching_sections.GetCount() >= 1);
-			line.section = matching_sections[0];
-			dbg_assigned_section_count++;
-			
-			// Count section occurances
-			if (prev_sect != line.section)
-				sections[line.section].count++;
-		}
-		prev_sect = line.section;
-	}
-	
-	double assigned_perc = (double)dbg_assigned_section_count / (double)lines.GetCount();
 	
 	#endif
 	
@@ -341,6 +432,7 @@ String BasicScriptStructureSolver::FindLine(hash_t h) const {
 	return "<line not found, hash " + IntStr64(h) + ">";
 }
 
+#if 0
 BasicScriptStructureSolver::Transfer* BasicScriptStructureSolver::FindTransfer(hash_t h) {
 	int max_count = 0, pos = -1;
 	for(int i = 0; i < transfers.GetCount(); i++) {
@@ -373,7 +465,7 @@ BasicScriptStructureSolver::Transfer& BasicScriptStructureSolver::GetAddTransfer
 	t.count = 0;
 	return t;
 }
-
+#endif
 
 
 

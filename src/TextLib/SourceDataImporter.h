@@ -45,7 +45,7 @@ public:
 		bool operator()(const Section& a, const Section& b) const {return a.hashes.GetCount() > b.hashes.GetCount();}
 		//bool operator()(const Section& a, const Section& b) const {return a.orig_weight > b.orig_weight;}
 	};
-	struct Transfer : Moveable<Transfer> {
+	/*struct Transfer : Moveable<Transfer> {
 		struct Vec : Moveable<Vec> {
 			int line = -1;
 			int weight = 0;
@@ -61,24 +61,34 @@ public:
 			if (a.from != b.from) return a.from < b.from;
 			return a.to < b.to;
 		}
+	};*/
+	struct UniqueLine : Moveable<UniqueLine> {
+		String txt;
+		Vector<int> lines;
+		Vector<int> possible_sections;
+		int count = 0;
+		bool operator()(const UniqueLine& a, const UniqueLine& b) const {return a.count > b.count;}
+		String ToString() const {return IntStr(count) + ": " + txt;}
 	};
 	struct Line : Moveable<Line> {
 		TextDescriptor descriptor;
+		hash_t hash = 0;
 		String txt;
 		int section = -1;
 	};
 	
 	Vector<Line> lines;
 	Vector<Section> sections;
-	Vector<Transfer> transfers;
+	VectorMap<hash_t,UniqueLine> uniq_lines;
+	//Vector<Transfer> transfers;
 	
 	// Params
 	int section_cmp_header_len = 6;
 	
 	
-	Transfer& GetAddTransfer(hash_t h0, hash_t h1);
+	/*Transfer& GetAddTransfer(hash_t h0, hash_t h1);
 	Transfer* FindTransfer(hash_t h);
-	Transfer* FindTransfer(hash_t from, hash_t to);
+	Transfer* FindTransfer(hash_t from, hash_t to);*/
 	String FindLine(hash_t h) const;
 	
 public:
