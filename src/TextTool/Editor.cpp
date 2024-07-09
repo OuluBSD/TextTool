@@ -6,51 +6,6 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 
-ToolEditorBase::ToolEditorBase(const char* title, TextTool& app) : title(title), app(app) {
-	page_group_list.AddColumn(t_("Page group"));
-	page_group_list <<= THISBACK(ViewPageGroup);
-	
-	page_list.AddColumn(t_("Page"));
-	page_list <<= THISBACK(ViewPage);
-	
-	owners.AddColumn(t_("Owner"));
-	owners.AddIndex("IDX");
-	owners <<= THISBACK(DataOwner);
-	owners.WhenBar << THISBACK(OwnerMenu);
-	
-	profiles.AddColumn(t_("Profile"));
-	profiles <<= THISBACK(DataProfile);
-	profiles.WhenBar << THISBACK(ProfileMenu);
-	profiles.AddIndex("IDX");
-	
-}
-
-void ToolEditorBase::Serialize(Stream& s) {
-	s % page_group % page % save_data;
-	
-	#if COOKIE_DEBUG
-	LOG(IntStr64((size_t)this) + " Loading: " << (int)s.IsLoading());
-	DUMP(page_group);
-	DUMP(page);
-	#endif
-}
-void ToolEditorBase::Init() {
-	INHIBIT_ACTION_(page_group_list, 0);
-	INHIBIT_ACTION_(page_list, 1);
-	
-	#if COOKIE_DEBUG
-	LOG(IntStr64((size_t)this) + " Init");
-	#endif
-	
-	page_group_list.SetCursor(page_group);
-	int page = this->page.GetAdd(page_group, 0);
-	page_list.SetCursor(page);
-	SetView(page_group, page);
-	
-	Data();
-	app.SetBar(); // requires Data();
-}
-
 
 ToolEditor::ToolEditor(TextTool* app) : ToolEditorBase("editor", *app) {
 	filter_profile_language = true;
@@ -121,12 +76,6 @@ void ToolEditor::SetSubMenu(int i) {
 		subsplit.Add(scripts.SizePos());
 }
 
-void ToolEditorBase::AddItem(String g, String i, ToolAppCtrl& c) {
-	ListItem& it = items.GetAdd(g).Add();
-	it.item = i;
-	it.ctrl = &c;
-}
-
 void ToolEditor::InitSimplified() {
 	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
 	
@@ -177,39 +126,6 @@ void ToolEditor::Init() {
 	ToolEditorBase::Init();
 }
 
-void ToolEditorBase::SetView(int i, int j) {
-	for (const auto& v : items)
-		for (const ListItem& it : v)
-			it.ctrl->Hide();
-	
-	parts.Enable();
-	
-	WhenStopUpdating();
-	
-	if (i >= 0 && i < items.GetCount() && j >= 0 && j < items[i].GetCount())
-		items[i][j].ctrl->Show();
-	
-	
-	// Save 'cookie' about last viewed page
-	page_group = i;
-	page.GetAdd(i) = j;
-	
-	#if COOKIE_DEBUG
-	LOG(IntStr64((size_t)this) + " SetView");
-	DUMP(page_group);
-	DUMP(page);
-	#endif
-	
-	if (page_group == items.Find("Script"))
-		SetSubMenu(1);
-	else
-		SetSubMenu(0);
-	
-	DataPage();
-	
-	app.SetBar();
-}
-
 void ToolEditor::DataPage() {
 	if (app.skip_data || !appmode_list.IsCursor()) return;
 	
@@ -221,23 +137,6 @@ void ToolEditor::DataPage() {
 	ToolEditorBase::DataPage();
 	
 	LeaveAppMode();
-}
-
-void ToolEditorBase::DataPage() {
-	int page = this->page.GetAdd(page_group, 0);
-	try {
-		if (page_group >= 0 && page_group < items.GetCount() && page >= 0 && page < items[page_group].GetCount())
-			items[page_group][page].ctrl->Data();
-	}
-	catch (NoPointerExc e) {
-		LOG("error: " << e);
-	}
-}
-
-void ToolEditorBase::ToolMenu(Bar& bar) {
-	int page = this->page.GetAdd(page_group, 0);
-	if (page_group >= 0 && page_group < items.GetCount() && page >= 0 && page < items[page_group].GetCount())
-		items[page_group][page].ctrl->ToolMenu(bar);
 }
 
 String ToolEditor::GetStatusText() {
@@ -382,11 +281,6 @@ void ToolEditor::ViewPageGroup() {
 	ToolEditorBase::ViewPageGroup();
 	
 	LeaveAppMode();
-}
-
-void ToolEditorBase::ViewPage() {
-	SetView(page_group_list.GetCursor(), page_list.GetCursor());
-	//DataPage(); // Duplicate
 }
 
 void ToolEditor::Data() {
@@ -894,65 +788,11 @@ int ToolEditor::GetAppMode() const {
 	return appmode;
 }
 
-TextLib::TaskManager& ToolAppCtrl::GetTaskManager() {
-	EditorPtrs& p = GetPointers();
-	int appmode = -1;
-	if (p.editor)
-		appmode = p.editor->GetAppMode();
-	else
-		appmode = GetAnyEditor().GetAppMode();
-	ASSERT(appmode >= 0 && appmode < DB_COUNT);
-	return TextLib::TaskManager::Single(appmode);
-}
-
 int ToolAppCtrl::GetAppMode() const {
 	EditorPtrs& p = GetPointers();
 	if (p.editor)
 		return p.editor->GetAppMode();
 	return GetAnyEditor().GetAppMode();
-}
-
-void ToolEditorBase::UpdatePageList() {
-	page_group_list.Clear();
-	
-	for(int i = 0; i < items.GetCount(); i++) {
-		String group = items.GetKey(i);
-		page_group_list.Add(group);
-	}
-	
-	INHIBIT_ACTION(page_group_list);
-	if (page_group >= 0 && page_group < page_group_list.GetCount())
-		page_group_list.SetCursor(page_group);
-	
-	ViewPageGroup();
-}
-
-void ToolEditorBase::ViewPageGroup() {
-	int page_group = page_group_list.GetCursor();
-	int page = this->page.GetAdd(page_group, 0);
-	if (page_group < 0)
-		return;
-	
-	const auto& v = items[page_group];
-	for(int j = 0; j < v.GetCount(); j++) {
-		const ListItem& it = v[j];
-		
-		// Rename app-mode keyed pages
-		String s = it.item;
-		if (s == "Components") s = GetAppModeKeyCapN(AM_COMPONENT);
-		
-		page_list.Set(j, 0, it.item);
-		base.Add(it.ctrl->SizePos());
-	}
-	INHIBIT_ACTION(page_list);
-	page_list.SetCount(v.GetCount());
-	page_list.SetCursor(page);
-	
-	if (page >= v.GetCount())
-		page = v.GetCount()-1;
-	
-	SetView(page_group, page);
-	DataPage();
 }
 
 

@@ -5,9 +5,8 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-class ScriptSolver {
+class ScriptSolver : public SolverBase {
 	enum {
-		LS_BEGIN,
 		LS_COLLECT,
 		LS_FILL_LINES,
 		LS_COMPARISON,
@@ -21,15 +20,8 @@ class ScriptSolver {
 		LS_TITLE,
 		
 	};
-	Time time_started, time_stopped;
-	int phase = LS_BEGIN;
-	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
 	Entity* artist = 0;
 	Script* script = 0;
-		
-	bool waiting = false;
-	bool running = false, stopped = true;
-	bool skip_ready = true;
 	int appmode = -1;
 	
 	// params
@@ -78,13 +70,6 @@ class ScriptSolver {
 	void OnProcessScoreMatch(String res);
 	void OnProcessFillReferenceMatch(String res);
 	void OnProcessSmoothReferenceMatch(String res);
-	void PostProgress() {WhenProgress(phase, LS_COUNT);}
-	void SetNotRunning() {running = false;}
-	void SetWaiting(bool b) {waiting = b;}
-	void MovePhase(int p) {phase = p; batch = 0; sub_batch = 0;}
-	void NextPhase() {phase++; batch = 0; sub_batch = 0;}
-	void NextBatch() {batch++; sub_batch = 0;}
-	void NextSubBatch() {sub_batch++;}
 	
 	TextDatabase& GetDatabase() {return GetAppModeDatabase(appmode);}
 	int GetTypeclassCount() {return TextLib::GetTypeclassCount(appmode);}
@@ -94,12 +79,9 @@ public:
 	typedef ScriptSolver CLASSNAME;
 	ScriptSolver();
 	
-	void Start() {if (!running) {running = true; stopped = false; Thread::Start(THISBACK(Process));}}
-	void Stop() {running = false; while (!stopped) Sleep(1);}
-	
+	int GetPhaseCount() const override;
+	void DoPhase() override;
 	static ScriptSolver& Get(int appmode, Entity& a, Script& l);
-	static void ClearTasks();
-	static void RestartTasks();
 	
 	void StartPostSolver(bool b=true) {start_post_solver = b;}
 	

@@ -24,9 +24,8 @@ void MakeBelief(Script& song, T& args, int fn) {
 }
 
 
-class ScriptGenerator {
+class ScriptGenerator : public SolverBase {
 	enum {
-		LG_BEGIN,
 		LG_COLOR,
 		LG_ATTR,
 		LG_ACTION,
@@ -38,21 +37,14 @@ class ScriptGenerator {
 		
 		LG_COUNT
 	};
-	Time time_started, time_stopped;
-	int phase = LG_BEGIN;
-	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
 	Entity* artist = 0;
 	Script* scripts = 0;
-	
-	bool waiting = false;
-	bool running = false, stopped = true;
-	bool skip_ready = true;
-	int appmode = -1;
 	
 	// params
 	int per_sub_batch =  50;
 	int pair_limit = 300;
 	int phrase_limit = 150;
+	int appmode = -1;
 	
 	// temp
 	Vector<VectorMap<int,double>> phrases;
@@ -60,7 +52,6 @@ class ScriptGenerator {
 	int iter = 0;
 	VectorMap<String, int> pp_is;
 	
-	void Process();
 	void ProcessSourcePool();
 	void ProcessTranslate();
 	void ProcessPairPhrases();
@@ -75,12 +66,6 @@ class ScriptGenerator {
 	void OnProcessRhymes(String result);
 	void OnProcessScores(String result);
 	void OnProcessTranslate(String result);
-	void PostProgress() {WhenProgress(phase, LG_COUNT);}
-	void SetNotRunning() {running = false;}
-	void SetWaiting(bool b) {waiting = b;}
-	void NextPhase() {phase++; batch = 0; sub_batch = 0;}
-	void NextBatch() {batch++; sub_batch = 0;}
-	void NextSubBatch() {sub_batch++;}
 	
 	TextDatabase& GetDatabase() {return GetAppModeDatabase(appmode);}
 	int GetTypeclassCount() {return TextLib::GetTypeclassCount(appmode);}
@@ -90,12 +75,9 @@ public:
 	typedef ScriptGenerator CLASSNAME;
 	ScriptGenerator();
 	
-	void Start() {if (!running) {running = true; stopped = false; Thread::Start(THISBACK(Process));}}
-	void Stop() {running = false; while (!stopped) Sleep(1);}
-	
+	int GetPhaseCount() const override;
+	void DoPhase() override;
 	static ScriptGenerator& Get(int appmode, Entity& a, Script& l);
-	static void ClearTasks();
-	static void RestartTasks();
 	
 	Callback2<int,int> WhenProgress;
 	

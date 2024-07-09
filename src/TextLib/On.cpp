@@ -1,6 +1,6 @@
 #include "TextLib.h"
 
-
+#if 0
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -1626,4 +1626,4 @@ void TaskManager::OnAttributeJoins(String res, Task* t) {
 
 
 END_TEXTLIB_NAMESPACE
-
+#endif

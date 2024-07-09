@@ -1,6 +1,6 @@
 #include "TextLib.h"
 
-
+#if 0
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -63,4 +63,4 @@ void Task::UpdateBatches(int appmode, int per_batch) {
 
 
 END_TEXTLIB_NAMESPACE
-
+#endif

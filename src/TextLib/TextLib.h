@@ -4,11 +4,12 @@
 #include <TextDatabase/TextDatabase.h>
 
 #include "SolverBase.h"
+#include "SourceDataImporter.h"
 #include "TaskManager.h"
 #include "ScriptGenerator.h"
 #include "ScriptSolver.h"
 #include "LeadSolver.h"
-#include "CollabSolver.h"
+//#include "CollabSolver.h"
 #include "SocialSolver.h"
 #include "SnapSolver.h"
 #include "VideoSolver.h"

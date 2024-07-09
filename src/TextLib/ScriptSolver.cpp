@@ -1,6 +1,7 @@
 #include "TextLib.h"
 #include <TextDatabase/TextDatabase.h>
 
+
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -29,18 +30,11 @@ ScriptSolver& ScriptSolver::Get(int appmode, Entity& a, Script& l) {
 	return ls;
 }
 
-void ScriptSolver::ClearTasks() {
-	for (ScriptSolver& g : __ScriptSolvers().GetValues())
-		g.SetNotRunning();
+int ScriptSolver::GetPhaseCount() const {
+	return LS_COUNT;
 }
 
-void ScriptSolver::RestartTasks() {
-	for (ScriptSolver& g : __ScriptSolvers().GetValues())
-		g.Start();
-}
-
-void ScriptSolver::Process() {
-	
+void ScriptSolver::DoPhase() {
 	EnterAppMode(appmode);
 	
 	TextDatabase& db = GetDatabase();
@@ -50,66 +44,32 @@ void ScriptSolver::Process() {
 	Script& song = *this->script;
 	sa = &da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
-	while (running && !Thread::IsShutdownThreads()) {
-		if (waiting) {
-			Sleep(10);
-			continue;
-		}
-		
-		if (phase == LS_BEGIN) {
-			time_started = GetSysTime();
-			//skip_ready = false;
-			NextPhase();
-			ClearScript();
-		}
-		else if (phase == LS_COLLECT) {
-			ProcessCollect();
-		}
-		else if (phase == LS_FILL_LINES) {
-			ProcessFillLines();
-		}
-		else if (phase == LS_COMPARISON) {
-			ProcessComparison();
-		}
-		else if (phase == LS_MATCH_REFERENCE) {
-			ProcessReference();
-		}
-		else if (phase == LS_SCORE_MATCH) {
-			ProcessScoreMatch();
-		}
-		else if (phase == LS_FILL_REFERENCE_MATCH) {
-			ProcessFillReferenceMatch();
-		}
-		else if (phase == LS_SMOOTH_REFERENCE_MATCH) {
-			ProcessSmoothReferenceMatch();
-		}
-		else if (phase == LS_TITLE) {
-			ProcessTitle();
-		}
-		else /*if (phase == LS_COUNT)*/ {
-			time_stopped = GetSysTime();
-			phase = LS_BEGIN;
-			
-			
-			if (start_post_solver) {
-				// Start ScriptPostSolver
-				ScriptPostSolver& ls = ScriptPostSolver::Get(*artist->profile, *artist, *script, appmode);
-				ls.SetSkipReady(false);
-				ls.Start();
-			}
-			
-			break;
-		}
-		
-		
-		PostProgress();
-		Sleep(1);
+	if (phase == LS_COLLECT) {
+		ProcessCollect();
+	}
+	else if (phase == LS_FILL_LINES) {
+		ProcessFillLines();
+	}
+	else if (phase == LS_COMPARISON) {
+		ProcessComparison();
+	}
+	else if (phase == LS_MATCH_REFERENCE) {
+		ProcessReference();
+	}
+	else if (phase == LS_SCORE_MATCH) {
+		ProcessScoreMatch();
+	}
+	else if (phase == LS_FILL_REFERENCE_MATCH) {
+		ProcessFillReferenceMatch();
+	}
+	else if (phase == LS_SMOOTH_REFERENCE_MATCH) {
+		ProcessSmoothReferenceMatch();
+	}
+	else if (phase == LS_TITLE) {
+		ProcessTitle();
 	}
 	
 	LeaveAppMode();
-	
-	running = false;
-	stopped = true;
 }
 
 void ScriptSolver::ClearScript() {

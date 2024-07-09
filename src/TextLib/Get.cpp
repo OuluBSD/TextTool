@@ -1,6 +1,6 @@
 #include "TextLib.h"
 
-
+#if 0
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -2448,4 +2448,4 @@ void TaskManager::GetAttributesUsingExisting(Task* t) {
 
 
 END_TEXTLIB_NAMESPACE
-
+#endif

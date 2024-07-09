@@ -1,6 +1,6 @@
 #include "TextLib.h"
 
-
+#if 0
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -396,4 +396,4 @@ void TaskManager::DoAttributes(int fn) {
 
 
 END_TEXTLIB_NAMESPACE
-
+#endif

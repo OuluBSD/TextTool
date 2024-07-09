@@ -35,6 +35,7 @@ public:
 	void Start() {if (!running) {running = true; stopped = false; Thread::Start(THISBACK(Process));}}
 	void Stop() {running = false; while (!stopped) Sleep(1);}
 	void SetSkipReady(bool b) {skip_ready = false;}
+	static void StopAll();
 	
 	virtual int GetPhaseCount() const = 0;
 	virtual void DoPhase() = 0;

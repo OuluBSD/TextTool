@@ -5,10 +5,8 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-class SocialSolver {
+class SocialSolver : public SolverBase {
 	enum {
-		SS_BEGIN,
-		
 		SS_ANALYZE_ROLE_SCORES,
 		SS_ANALYZE_PLATFORM_ROLES,
 		SS_ANALYZE_PLATFORM_EPK_TEXT_FIELDS,
@@ -39,15 +37,8 @@ class SocialSolver {
 		
 		SS_COUNT
 	};
-	Time time_started, time_stopped;
-	int phase = SS_BEGIN;
-	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
 	Owner* owner = 0;
 	Profile* profile = 0;
-	
-	bool waiting = false;
-	bool running = false, stopped = true;
-	bool skip_ready = true;
 	
 	Vector<BiographyProfileAnalysis*> ptrs;
 	Vector<const RoleProfile*> prof_ptrs;
@@ -95,8 +86,6 @@ class SocialSolver {
 	
 	
 	int CreateRange(int off, int len);
-	void OnBatchError();
-	void Process();
 	void ProcessAnalyzeRoleScores();
 	void ProcessAnalyzePlatformRoles();
 	void ProcessAnalyzePlatformEpkTextFields();
@@ -136,24 +125,15 @@ class SocialSolver {
 	void OnProcessSummarizeImageCategoryYear(String res);
 	void OnProcessSummarizeImageBiography(String res);
 	
-	void PostProgress() {WhenProgress(phase, SS_COUNT);}
-	void SetNotRunning() {running = false;}
-	void SetWaiting(bool b) {waiting = b;}
-	void MovePhase(int p) {phase = p; batch = 0; sub_batch = 0;}
-	void NextPhase() {phase++; batch = 0; sub_batch = 0;}
-	void NextBatch() {batch++; sub_batch = 0;}
-	void NextSubBatch() {sub_batch++;}
-	
 public:
 	typedef SocialSolver CLASSNAME;
 	SocialSolver();
 	
-	void Start() {if (!running) {running = true; stopped = false; Thread::Start(THISBACK(Process));}}
-	void Stop() {running = false; while (!stopped) Sleep(1);}
+	int GetPhaseCount() const override;
+	void DoPhase() override;
+	void OnBatchError() override;
 	
 	static SocialSolver& Get(Profile& p);
-	static void ClearTasks();
-	static void RestartTasks();
 	
 	Callback2<int,int> WhenProgress;
 	bool only_categories = true;

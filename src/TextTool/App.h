@@ -59,14 +59,10 @@ public:
 	void MainBar(Bar& bar);
 	void SetSaveSongdata(bool b) {ed.SetSaveSongdata(b);}
 	void FastExit();
-	void ClearSonglibTasks();
 	void SaveDatabase();
-	void StopLyricsTasks();
-	void StartLyricsTasks();
 	
 	ToolEditor& GetEditor() {return ed;}
 	LeadsCtrl& GetLeads() {return lead;}
-	TaskManager& GetTaskManager();
 	
 };
 

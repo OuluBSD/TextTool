@@ -53,7 +53,6 @@ void AppModeStartup(int appmode) {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	EnterAppMode(appmode);
 	
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single(appmode);
 	TextDatabase& db = GetAppModeDatabase(appmode);
 	TaskMgrConfig& m = TaskMgrConfig::Single();
 	
@@ -67,7 +66,6 @@ void AppModeStartup(int appmode) {
 		loader.Run();
 	}
 	
-	tm.Start();
 	
 	DatabaseBrowser::Single(appmode).Load();
 	
@@ -77,12 +75,11 @@ void AppModeStartup(int appmode) {
 void AppModeShutdown(int appmode, bool fast_exit, bool save_songdata) {
 	EnterAppMode(appmode);
 	
-	TextLib::TaskManager& tm = TextLib::TaskManager::Single(appmode);
 	TextDatabase& db = GetAppModeDatabase(appmode);
 	TaskMgrConfig& m = TaskMgrConfig::Single();
 	
 	// Deinit storing of files
-	tm.Stop();
+	SolverBase::StopAll();
 	m.Stop();
 	
 	if (!fast_exit) {

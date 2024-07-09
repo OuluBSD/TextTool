@@ -6,14 +6,10 @@ uses
 
 file
 	TextLib.h,
-	TaskManager.h,
-	Task.cpp,
-	TaskManager.cpp,
-	Do.cpp,
-	Get.cpp,
-	On.cpp,
 	SolverBase.h options(BUILDER_OPTION) PCH,
 	SolverBase.cpp,
+	SourceDataImporter.h,
+	SourceDataImporter.cpp,
 	ScriptGenerator.h,
 	ScriptGenerator.cpp,
 	ScriptSolver.h,
@@ -36,10 +32,17 @@ file
 	ScriptIdeaSolver.cpp,
 	BeliefSolver.h,
 	BeliefSolver.cpp,
-	CollabSolver.h,
-	CollabSolver.cpp,
 	TextSolver.h,
 	TextSolver.cpp,
 	TextSuggestions.h,
-	TextSuggestions.cpp;
+	TextSuggestions.cpp,
+	TRASH readonly separator,
+	TaskManager.h,
+	On.cpp,
+	Get.cpp,
+	Do.cpp,
+	TaskManager.cpp,
+	Task.cpp,
+	CollabSolver.h,
+	CollabSolver.cpp;
 

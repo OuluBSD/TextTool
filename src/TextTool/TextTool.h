@@ -11,6 +11,7 @@
 #define IMAGEFILE <TextTool/TextTool.iml>
 #include <Draw/iml_header.h>
 
+#include "Base.h"
 #include "Editor.h"
 #include "Leads.h"
 #include "App.h"

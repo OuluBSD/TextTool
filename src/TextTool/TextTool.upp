@@ -34,7 +34,9 @@ file
 	Leads.h,
 	Leads.cpp,
 	Editor.h,
-	Editor.cpp;
+	Editor.cpp,
+	Base.h,
+	Base.cpp;
 
 mainconfig
 	"" = "GUI",

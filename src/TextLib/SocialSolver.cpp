@@ -30,108 +30,78 @@ SocialSolver& SocialSolver::Get(Profile& e) {
 	return ls;
 }
 
-void SocialSolver::ClearTasks() {
-	for (SocialSolver& g : __SocialSolvers().GetValues())
-		g.SetNotRunning();
+int SocialSolver::GetPhaseCount() const {
+	return SS_COUNT;
 }
 
-void SocialSolver::RestartTasks() {
-	for (SocialSolver& g : __SocialSolvers().GetValues())
-		g.Start();
-}
-
-void SocialSolver::Process() {
+void SocialSolver::DoPhase() {
 	MetaDatabase& db = MetaDatabase::Single();
 	LeadData& sd = db.lead_data;
 	LeadDataAnalysis& sda = db.lead_data.a;
 	//sa = &sda.GetLeadEntityAnalysis(owner->name);
 	int lng_i = db.GetLanguageIndex();
-	
-	while (running && !Thread::IsShutdownThreads()) {
-		if (waiting) {
-			Sleep(10);
-			continue;
-		}
-		
-		
-		if (phase == SS_BEGIN) {
-			time_started = GetSysTime();
-			NextPhase();
-		}
-		else if (phase == SS_AUDIENCE_PROFILE_CATEGORIES) {
-			ProcessAudienceProfileCategories();
-		}
-		else if (phase > SS_AUDIENCE_PROFILE_CATEGORIES && only_categories) {
-			only_categories = false;
-			phase = SS_COUNT;
-		}
-		else if (phase == SS_ANALYZE_ROLE_SCORES) {
-			ProcessAnalyzeRoleScores();
-		}
-		else if (phase == SS_ANALYZE_PLATFORM_ROLES) {
-			ProcessAnalyzePlatformRoles();
-		}
-		else if (phase == SS_ANALYZE_PLATFORM_EPK_TEXT_FIELDS) {
-			ProcessAnalyzePlatformEpkTextFields();
-		}
-		else if (phase == SS_ANALYZE_PLATFORM_EPK_PHOTO_TYPES) {
-			ProcessAnalyzePlatformEpkPhotoTypes();
-		}
-		else if (phase == SS_ANALYZE_PLATFORM_EPK_PHOTO_AI_PROMPTS) {
-			ProcessAnalyzePlatformEpkPhotoAiPrompts();
-		}
-		else if (phase == SS_ANALYZE_PROFILE_EPK_PHOTO_AI_PROMPTS) {
-			ProcessAnalyzeProfileEpkPhotoAiPrompts();
-		}
-		else if (phase == SS_ANALYZE_PROFILE_EPK_SUMMARIZE_PHOTO_AI_PROMPTS) {
-			ProcessAnalyzeProfileEpkSummarizePhotoAiPrompts();
-		}
-		else if (phase == SS_ANALYZE_PROFILE_EPK_PHOTO_DALLE2_EXAMPLES) {
-			ProcessAnalyzeProfileEpkPhotoDalle2Examples();
-		}
-		else if (phase == SS_SUMMARIZE) {
-			ProcessSummarize();
-		}
-		else if (phase == SS_AUDIENCE_REACTS_SUMMARY) {
-			ProcessAudienceReactsSummary();
-		}
-		else if (phase == SS_PACK_ROLE_REACTIONS) {
-			ProcessRoleReactions();
-		}
-		else if (phase == SS_PACK_PLATFORM_REACTIONS) {
-			ProcessPlatformReactions();
-		}
-		else if (phase == SS_PLATFORM_DESCRIPTIONS) {
-			ProcessPlatformDescriptions();
-		}
-		else if (phase == SS_PLATFORM_DESCRIPTION_REFINEMENTS) {
-			ProcessPlatformDescriptionRefinements();
-		}
-		else if (phase == SS_PLATFORM_DESCRIPTION_TRANSLATED) {
-			ProcessPlatformDescriptionTranslated();
-		}
-		else if (phase == SS_ANALYZE_IMAGE_BIOGRAPHY) {
-			ProcessAnalyzeImageBiography();
-		}
-		else if (phase == SS_SUMMARIZE_IMAGE_CATEGORY_YEAR) {
-			ProcessSummarizeImageCategoryYear();
-		}
-		else if (phase == SS_SUMMARIZE_IMAGE_BIOGRAPHY) {
-			ProcessSummarizeImageBiography();
-		}
-		else /*if (phase == SS_COUNT)*/ {
-			time_stopped = GetSysTime();
-			phase = SS_BEGIN;
-			break;
-		}
-		
-		
-		PostProgress();
-		Sleep(1);
+
+	if (phase == SS_AUDIENCE_PROFILE_CATEGORIES) {
+		ProcessAudienceProfileCategories();
 	}
-	
-	running = false;
-	stopped = true;
+	else if (phase > SS_AUDIENCE_PROFILE_CATEGORIES && only_categories) {
+		only_categories = false;
+		phase = SS_COUNT;
+	}
+	else if (phase == SS_ANALYZE_ROLE_SCORES) {
+		ProcessAnalyzeRoleScores();
+	}
+	else if (phase == SS_ANALYZE_PLATFORM_ROLES) {
+		ProcessAnalyzePlatformRoles();
+	}
+	else if (phase == SS_ANALYZE_PLATFORM_EPK_TEXT_FIELDS) {
+		ProcessAnalyzePlatformEpkTextFields();
+	}
+	else if (phase == SS_ANALYZE_PLATFORM_EPK_PHOTO_TYPES) {
+		ProcessAnalyzePlatformEpkPhotoTypes();
+	}
+	else if (phase == SS_ANALYZE_PLATFORM_EPK_PHOTO_AI_PROMPTS) {
+		ProcessAnalyzePlatformEpkPhotoAiPrompts();
+	}
+	else if (phase == SS_ANALYZE_PROFILE_EPK_PHOTO_AI_PROMPTS) {
+		ProcessAnalyzeProfileEpkPhotoAiPrompts();
+	}
+	else if (phase == SS_ANALYZE_PROFILE_EPK_SUMMARIZE_PHOTO_AI_PROMPTS) {
+		ProcessAnalyzeProfileEpkSummarizePhotoAiPrompts();
+	}
+	else if (phase == SS_ANALYZE_PROFILE_EPK_PHOTO_DALLE2_EXAMPLES) {
+		ProcessAnalyzeProfileEpkPhotoDalle2Examples();
+	}
+	else if (phase == SS_SUMMARIZE) {
+		ProcessSummarize();
+	}
+	else if (phase == SS_AUDIENCE_REACTS_SUMMARY) {
+		ProcessAudienceReactsSummary();
+	}
+	else if (phase == SS_PACK_ROLE_REACTIONS) {
+		ProcessRoleReactions();
+	}
+	else if (phase == SS_PACK_PLATFORM_REACTIONS) {
+		ProcessPlatformReactions();
+	}
+	else if (phase == SS_PLATFORM_DESCRIPTIONS) {
+		ProcessPlatformDescriptions();
+	}
+	else if (phase == SS_PLATFORM_DESCRIPTION_REFINEMENTS) {
+		ProcessPlatformDescriptionRefinements();
+	}
+	else if (phase == SS_PLATFORM_DESCRIPTION_TRANSLATED) {
+		ProcessPlatformDescriptionTranslated();
+	}
+	else if (phase == SS_ANALYZE_IMAGE_BIOGRAPHY) {
+		ProcessAnalyzeImageBiography();
+	}
+	else if (phase == SS_SUMMARIZE_IMAGE_CATEGORY_YEAR) {
+		ProcessSummarizeImageCategoryYear();
+	}
+	else if (phase == SS_SUMMARIZE_IMAGE_BIOGRAPHY) {
+		ProcessSummarizeImageBiography();
+	}
 }
 
 void SocialSolver::ProcessAnalyzeRoleScores() {
@@ -1637,3 +1607,4 @@ void SocialSolver::TraverseImageSummaryTasks() {
 }
 
 END_TEXTLIB_NAMESPACE
+

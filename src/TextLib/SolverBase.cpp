@@ -51,5 +51,8 @@ void SolverBase::Process() {
 	stopped = true;
 }
 
+void SolverBase::StopAll() {
+	LOG("SolverBase::StopAll: TODO");
+}
 
 END_TEXTLIB_NAMESPACE

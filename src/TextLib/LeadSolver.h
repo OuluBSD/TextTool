@@ -20,9 +20,8 @@ Notes:
 
 */
 
-class LeadSolver {
+class LeadSolver : public SolverBase {
 	enum {
-		LS_BEGIN,
 		LS_DOWNLOAD_WEBSITES,
 		LS_PARSE_WEBSITES,
 		LS_ANALYZE_BOOLEANS,
@@ -41,30 +40,13 @@ class LeadSolver {
 		
 		LS_COUNT
 	};
-	Time time_started, time_stopped;
-	int phase = LS_BEGIN;
-	int batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
 	Owner* owner = 0;
 	LeadEntityAnalysis* sa = 0;
-		
-	bool waiting = false;
-	bool running = false, stopped = true;
-	bool skip_ready = true;
 	
 	// Params
 	double score_limit_factor = 0.8;
 	int max_rank = 100;
 	
-	
-	void Process();
-	
-	void PostProgress() {WhenProgress(phase, LS_COUNT);}
-	void SetNotRunning() {running = false;}
-	void SetWaiting(bool b) {waiting = b;}
-	void MovePhase(int p) {phase = p; batch = 0; sub_batch = 0;}
-	void NextPhase() {phase++; batch = 0; sub_batch = 0;}
-	void NextBatch() {batch++; sub_batch = 0;}
-	void NextSubBatch() {sub_batch++;}
 	
 	void ProcessDownloadWebsites(bool parse);
 	void ParseWebsite(int batch, String content);
@@ -99,12 +81,9 @@ public:
 	typedef LeadSolver CLASSNAME;
 	LeadSolver();
 	
-	void Start() {if (!running) {running = true; stopped = false; Thread::Start(THISBACK(Process));}}
-	void Stop() {running = false; while (!stopped) Sleep(1);}
-	
 	static LeadSolver& Get(Owner& a);
-	static void ClearTasks();
-	static void RestartTasks();
+	int GetPhaseCount() const override;
+	void DoPhase() override;
 	
 	Callback2<int,int> WhenProgress;
 	

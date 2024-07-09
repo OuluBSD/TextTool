@@ -28,80 +28,39 @@ ScriptGenerator& ScriptGenerator::Get(int appmode, Entity& a, Script& l) {
 	return ls;
 }
 
-void ScriptGenerator::ClearTasks() {
-	for (ScriptGenerator& g : __ScriptGenerators().GetValues())
-		g.SetNotRunning();
+int ScriptGenerator::GetPhaseCount() const {
+	return LG_COUNT;
 }
 
-void ScriptGenerator::RestartTasks() {
-	for (ScriptGenerator& g : __ScriptGenerators().GetValues())
-		g.Start();
-}
-
-void ScriptGenerator::Process() {
-	
+void ScriptGenerator::DoPhase() {
 	EnterAppMode(appmode);
 	
-	while (running && !Thread::IsShutdownThreads()) {
-		if (waiting) {
-			Sleep(10);
-			continue;
-		}
-		
-		
-		if (phase == LG_BEGIN) {
-			time_started = GetSysTime();
-			//skip_ready = false;
-			NextPhase();
-		}
-		else if (phase == LG_COLOR) {
-			ProcessColor();
-		}
-		else if (phase == LG_ATTR) {
-			ProcessAttr();
-		}
-		else if (phase == LG_ACTION) {
-			ProcessAction();
-		}
-		else if (phase == LG_MAKE_SOURCE_POOL) {
-			ProcessSourcePool();
-		}
-		else if (phase == LG_TRANSLATE) {
-			ProcessTranslate();
-		}
-		else if (phase == LG_MAKE_PHRASE_PAIRS) {
-			ProcessPairPhrases();
-		}
-		else if (phase == LG_MAKE_RHYMES) {
-			ProcessRhymes();
-		}
-		else if (phase == LG_GET_AI_SCORES) {
-			ProcessScores();
-		}
-		
-		else /*if (phase == LS_COUNT)*/ {
-			time_stopped = GetSysTime();
-			phase = LG_BEGIN;
-			
-			if (1) {
-				// Start ScriptSolver
-				ASSERT(artist && scripts);
-				ScriptSolver& ls = ScriptSolver::Get(appmode, *artist,*scripts);
-				ls.Start();
-			}
-			
-			break;
-		}
-		
-		
-		PostProgress();
-		Sleep(1);
+	if (phase == LG_COLOR) {
+		ProcessColor();
+	}
+	else if (phase == LG_ATTR) {
+		ProcessAttr();
+	}
+	else if (phase == LG_ACTION) {
+		ProcessAction();
+	}
+	else if (phase == LG_MAKE_SOURCE_POOL) {
+		ProcessSourcePool();
+	}
+	else if (phase == LG_TRANSLATE) {
+		ProcessTranslate();
+	}
+	else if (phase == LG_MAKE_PHRASE_PAIRS) {
+		ProcessPairPhrases();
+	}
+	else if (phase == LG_MAKE_RHYMES) {
+		ProcessRhymes();
+	}
+	else if (phase == LG_GET_AI_SCORES) {
+		ProcessScores();
 	}
 	
 	LeaveAppMode();
-	
-	running = false;
-	stopped = true;
 }
 
 void ScriptGenerator::ProcessSourcePool() {

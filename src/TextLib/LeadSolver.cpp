@@ -28,17 +28,11 @@ LeadSolver& LeadSolver::Get(Owner& e) {
 	return ls;
 }
 
-void LeadSolver::ClearTasks() {
-	for (LeadSolver& g : __LeadSolvers().GetValues())
-		g.SetNotRunning();
+int LeadSolver::GetPhaseCount() const {
+	return LS_COUNT;
 }
 
-void LeadSolver::RestartTasks() {
-	for (LeadSolver& g : __LeadSolvers().GetValues())
-		g.Start();
-}
-
-void LeadSolver::Process() {
+void LeadSolver::DoPhase() {
 	MetaDatabase& db = MetaDatabase::Single();
 	LeadData& sd = db.lead_data;
 	LeadDataAnalysis& sda = db.lead_data.a;
@@ -59,73 +53,46 @@ void LeadSolver::Process() {
 		sd.opportunities.Remove(rm_list);
 	}
 	
-	while (running && !Thread::IsShutdownThreads()) {
-		if (waiting) {
-			Sleep(10);
-			continue;
-		}
-		
-		if (phase == LS_BEGIN) {
-			time_started = GetSysTime();
-			//skip_ready = false;
-			if (lng_i == LNG_ENGLISH)
-				NextPhase();
-			else
-				MovePhase(LS_COUNT);
-		}
-		else if (phase == LS_DOWNLOAD_WEBSITES) {
-			ProcessDownloadWebsites(false);
-		}
-		else if (phase == LS_PARSE_WEBSITES) {
-			ProcessDownloadWebsites(true); // this won't actually download the website again
-		}
-		else if (phase == LS_ANALYZE_BOOLEANS) {
-			ProcessAnalyzeBooleans();
-		}
-		else if (phase == LS_ANALYZE_STRINGS) {
-			if (reduce_load) {
-				phase = LS_COUNT;
-				continue;
-			}
-			ProcessAnalyzeStrings();
-		}
-		else if (phase == LS_ANALYZE_LISTS) {
-			ProcessAnalyzeLists();
-		}
-		else if (phase == LS_COARSE_RANKING) {
-			ProcessCoarseRanking();
-		}
-		else if (phase == LS_AVERAGE_PAYOUT_ESTIMATION) {
-			ProcessAveragePayoutEstimation();
-		}
-		else if (phase == LS_ANALYZE_POTENTIAL_SONG_TYPECAST) {
-			ProcessAnalyzeSongTypecast();
-		}
-		else if (phase == LS_ANALYZE_POTENTIAL_SONG_IDEAS) {
-			ProcessAnalyzeLyricsIdeas();
-		}
-		else if (phase == LS_ANALYZE_POTENTIAL_MUSIC_STYLE_TEXT) {
-			ProcessAnalyzeMusicStyle();
-		}
-		else if (phase == LS_TEMPLATE_TITLE_AND_TEXT) {
-			ProcessTemplateTitleAndText();
-		}
-		else if (phase == LS_TEMPLATE_ANALYZE) {
-			ProcessTemplateAnalyze();
-		}
-		else /*if (phase == LS_COUNT)*/ {
-			time_stopped = GetSysTime();
-			phase = LS_BEGIN;
-			break;
-		}
-		
-		
-		PostProgress();
-		Sleep(1);
+	if (phase == LS_DOWNLOAD_WEBSITES) {
+		ProcessDownloadWebsites(false);
 	}
-	
-	running = false;
-	stopped = true;
+	else if (phase == LS_PARSE_WEBSITES) {
+		ProcessDownloadWebsites(true); // this won't actually download the website again
+	}
+	else if (phase == LS_ANALYZE_BOOLEANS) {
+		ProcessAnalyzeBooleans();
+	}
+	else if (phase == LS_ANALYZE_STRINGS) {
+		if (reduce_load) {
+			phase = LS_COUNT;
+			return;
+		}
+		ProcessAnalyzeStrings();
+	}
+	else if (phase == LS_ANALYZE_LISTS) {
+		ProcessAnalyzeLists();
+	}
+	else if (phase == LS_COARSE_RANKING) {
+		ProcessCoarseRanking();
+	}
+	else if (phase == LS_AVERAGE_PAYOUT_ESTIMATION) {
+		ProcessAveragePayoutEstimation();
+	}
+	else if (phase == LS_ANALYZE_POTENTIAL_SONG_TYPECAST) {
+		ProcessAnalyzeSongTypecast();
+	}
+	else if (phase == LS_ANALYZE_POTENTIAL_SONG_IDEAS) {
+		ProcessAnalyzeLyricsIdeas();
+	}
+	else if (phase == LS_ANALYZE_POTENTIAL_MUSIC_STYLE_TEXT) {
+		ProcessAnalyzeMusicStyle();
+	}
+	else if (phase == LS_TEMPLATE_TITLE_AND_TEXT) {
+		ProcessTemplateTitleAndText();
+	}
+	else if (phase == LS_TEMPLATE_ANALYZE) {
+		ProcessTemplateAnalyze();
+	}
 }
 
 String LeadSolver::GetLeadCacheDir() {

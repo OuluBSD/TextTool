@@ -1,6 +1,6 @@
 #include "TextLib.h"
 
-
+#if 0
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -261,4 +261,4 @@ int TaskManager::GetContentCount() {
 
 
 END_TEXTLIB_NAMESPACE
-
+#endif

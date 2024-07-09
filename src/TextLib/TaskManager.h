@@ -1,7 +1,7 @@
 #ifndef _TextLib_SongDataManager_h_
 #define _TextLib_SongDataManager_h_
 
-
+#if 0
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -222,6 +222,6 @@ bool GetTypePhrase(Vector<int>& types, const DatasetAnalysis& da, int next_w_i, 
 
 
 END_TEXTLIB_NAMESPACE
-
+#endif
 
 #endif
