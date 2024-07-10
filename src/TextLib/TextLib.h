@@ -4,6 +4,7 @@
 #include <TextDatabase/TextDatabase.h>
 
 #include "SolverBase.h"
+#include "ScriptStructureSolver.h"
 #include "SourceDataImporter.h"
 #include "TaskManager.h"
 #include "ScriptGenerator.h"

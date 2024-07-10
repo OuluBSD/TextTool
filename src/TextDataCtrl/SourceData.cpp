@@ -80,7 +80,7 @@ void SourceDataCtrl::DataComponent() {
 	analysis.Clear();
 	
 	
-	BasicScriptStructureSolver solver;
+	MultiScriptStructureSolver solver;
 	solver.Process(s);
 	analysis.SetData(solver.GetResult());
 	
