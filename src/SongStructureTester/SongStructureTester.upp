@@ -1,0 +1,11 @@
+uses
+	Core,
+	TextLib,
+	TextTool;
+
+file
+	SongStructureTester.cpp;
+
+mainconfig
+	"" = "";
+

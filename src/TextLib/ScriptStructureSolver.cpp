@@ -9,7 +9,8 @@ hash_t TextDescriptor::GetHash(int c) const {
 	c = max(0,min(c, ITEM_COUNT));
 	for(int i = 0; i < c; i++) {
 		const TextDescriptor::Item& it = items[i];
-		if (!it.count) break;
+		//if (i >= 3 && it.count <= 1) break;
+		if (it.count < 1) break;
 		ch.Do(it.from);
 		ch.Do(it.to);
 	}
@@ -136,6 +137,20 @@ void ScriptStructureSolverBase::MakeSingleLineSections() {
 	}
 }
 
+String ScriptStructureSolverBase::GetDebugLines() const {
+	String s;
+	for(int i = 0; i < uniq_lines.GetCount(); i++) {
+		const UniqueLine& ul = uniq_lines[i];
+		s << ul.count << ":\t" << ul.txt  << "\n";
+	}
+	s << "\n\n";
+	for(int i = 0; i < lines.GetCount(); i++) {
+		const Line& l = lines[i];
+		s << l.txt.Left(6) + "... r=" << l.repeatability << ", cr=" << l.circumstacial_repeatability << "\n";
+	}
+	return s;
+}
+
 String ScriptStructureSolverBase::GetDebugHashes() const {
 	String s;
 	for(int i = 0; i < lines.GetCount(); i++) {
@@ -197,27 +212,17 @@ String ScriptStructureSolverBase::FindLine(hash_t h) const {
 
 
 MultiScriptStructureSolver::MultiScriptStructureSolver() {
-	c = 2;
+	c = 3;
 	
 }
 
-void MultiScriptStructureSolver::Process(String s) {
+ScriptStructureSolverBase& MultiScriptStructureSolver::Get() {
 	switch (c) {
-		case 0: t1.Process(s); break;
-		case 1: t2.Process(s); break;
-		case 2: t3.Process(s); break;
-		case 3: t4.Process(s); break;
-		default: break;
-	}
-}
-
-String MultiScriptStructureSolver::GetResult() {
-	switch (c) {
-		case 0: return t1.GetResult();
-		case 1: return t2.GetResult();
-		case 2: return t3.GetResult();
-		case 3: return t4.GetResult();
-		default: TODO; return "";
+		case 0: return t1;
+		case 1: return t2;
+		case 2: return t3;
+		case 3: return t4;
+		default: return t1;
 	}
 }
 

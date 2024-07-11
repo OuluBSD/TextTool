@@ -59,6 +59,8 @@ public:
 		hash_t hash = 0;
 		String txt;
 		int section = -1;
+		double repeatability = 0;
+		double circumstacial_repeatability = 0;
 	};
 	
 	String input;
@@ -67,7 +69,7 @@ public:
 	VectorMap<hash_t,UniqueLine> uniq_lines;
 	
 	// Params
-	int section_cmp_header_len = 6;
+	int section_cmp_header_len = 3;
 	
 	
 	
@@ -79,6 +81,7 @@ public:
 	String GetResult() const;
 	String GetDebugHashes() const;
 	String GetDebugSections() const;
+	String GetDebugLines() const;
 	String FindLine(hash_t h) const;
 	
 protected:
@@ -187,8 +190,7 @@ public:
 	typedef MultiScriptStructureSolver CLASSNAME;
 	MultiScriptStructureSolver();
 	
-	void Process(String s);
-	String GetResult();
+	ScriptStructureSolverBase& Get();
 	
 };
 
