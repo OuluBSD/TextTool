@@ -41,4 +41,5 @@ With the birds, Ill share this lonely view
 With the birds, Ill share this lonely view
 )TXT");
 	LOG(s.Get().GetDebugLines());
+	LOG(s.Get().GetResult());
 }
