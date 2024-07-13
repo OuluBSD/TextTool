@@ -272,9 +272,10 @@ void ToolEditor::SwitchAppMode() {
 }
 
 void ToolEditor::ViewPageGroup() {
-	if (page_group < 0 || page_group >= page_group_list.GetCount()) {
+	if (page_group >= page_group_list.GetCount())
+		page_group = page_group_list.GetCount()-1;
+	if (page_group < 0)
 		return;
-	}
 	
 	EnterAppMode(GetAppMode());
 	

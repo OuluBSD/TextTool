@@ -82,8 +82,8 @@ void SourceDataCtrl::DataComponent() {
 	
 	MultiScriptStructureSolver solver;
 	solver.Get().Process(s);
-	//analysis.SetData(solver.Get().GetResult());
-	analysis.SetData(solver.Get().GetDebugLines());
+	analysis.SetData(solver.Get().GetResult());
+	//analysis.SetData(solver.Get().GetDebugLines());
 	
 }
 
