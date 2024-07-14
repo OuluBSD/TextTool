@@ -43,6 +43,7 @@ public:
 		int orig_count = 0;
 		int count = 0;
 		int orig_weight = 0;
+		double repeat = 0;
 		bool operator()(const Section& a, const Section& b) const {return a.hashes.GetCount() > b.hashes.GetCount();}
 		//bool operator()(const Section& a, const Section& b) const {return a.orig_weight > b.orig_weight;}
 	};
@@ -61,16 +62,24 @@ public:
 		int section = -1;
 		double repeatability = 0;
 		double circumstacial_repeatability = 0;
+		double GetRepeatabilitySum() const {return repeatability + circumstacial_repeatability;}
 	};
 	
 	String input;
 	Vector<Line> lines;
 	Vector<Section> sections;
 	VectorMap<hash_t,UniqueLine> uniq_lines;
+	String debug_out;
 	
 	// Params
 	int section_cmp_header_len = 3;
+	double cr_limit = 0.3;
+	bool force_limit = false;
+	double forced_limit_value = 0;
+	double repeatability_range = 0.2;
 	
+	// Temp
+	double iter_r_limit = 0;
 	
 	
 public:
@@ -78,14 +87,18 @@ public:
 	ScriptStructureSolverBase();
 	
 	void Process(String s);
+	void SetForcedLimit(double d) {forced_limit_value = d; force_limit = true;}
+	
 	String GetResult() const;
 	String GetDebugHashes() const;
 	String GetDebugSections() const;
 	String GetDebugLines() const;
+	String GetDebugOut() const {return debug_out;}
 	String FindLine(hash_t h) const;
 	
 protected:
 	void DefaultProcess();
+	void SingleIteration();
 	
 	virtual void MakeLines();
 	virtual void MakeUniqueLines();

@@ -17,7 +17,7 @@ void TryNo4tStructureSolver::MakeSections() {
 		Line& line0 = lines[i-1];
 		Line& line1 = lines[i];
 		Line& line2 = lines[i+1];
-		if (line1.repeatability < 0.3 && line0.repeatability > 0.8 && line2.repeatability > 0.8) {
+		if (line1.repeatability < cr_limit && line0.repeatability > iter_r_limit && line2.repeatability > iter_r_limit) {
 			line1.circumstacial_repeatability = (line0.repeatability + line2.repeatability) * 0.5;
 		}
 	}
@@ -48,7 +48,7 @@ void TryNo4tStructureSolver::MakeSections() {
 	TmpSection* ts = 0;
 	for(int i = 0; i < lines.GetCount(); i++) {
 		Line& line = lines[i];
-		if (line.repeatability > 0.8 || line.circumstacial_repeatability > 0.8) {
+		if (line.repeatability > iter_r_limit || line.circumstacial_repeatability > iter_r_limit) {
 			if (!ts) {
 				ts = &tmp.Add();
 				ts->begin = i;
@@ -80,6 +80,9 @@ void TryNo4tStructureSolver::MakeSections() {
 		for(int i = ts.begin; i < ts.end; i++) {
 			CombineHash ch;
 			for(int j = i+1; j < ts.end; j++) {
+				Line& line = lines[j-1];
+				ch.Do(line.hash);
+				
 				int key = i * 1000 + j;
 				int range_i = ranges.Find(key);
 				if (range_i < 0) {
@@ -88,12 +91,12 @@ void TryNo4tStructureSolver::MakeSections() {
 					rh.begin = i;
 					rh.end = j;
 					rh.len = rh.end - rh.begin;
-					
-					Line& line = lines[j-1];
-					ch.Do(line.hash);
 					rh.h = ch;
 				}
+				
 				RangeHash& rh = ranges[range_i];
+				ASSERT(rh.begin == i && rh.end == j);
+				ASSERT(rh.h == ch);
 				rh.sections << ts_i;
 				ts.ranges << range_i;
 			}
@@ -102,8 +105,18 @@ void TryNo4tStructureSolver::MakeSections() {
 	}
 	SortByValue(ranges, RangeHash());
 	
-	DUMPC(tmp);
-	DUMPM(ranges);
+	debug_out << "tmp:\n";
+	for(int i = 0; i < tmp.GetCount(); i++) {
+		auto& t = tmp[i];
+		debug_out << "[" << i << "]: " << t.ToString() << "\n";
+	}
+	debug_out << "\n";
+	debug_out << "ranges:\n";
+	for(int i = 0; i < ranges.GetCount(); i++) {
+		auto& r = ranges[i];
+		debug_out << "[" << i << "]: (" << ranges.GetKey(i) << "): " << r.ToString() << "\n";
+	}
+	debug_out << "\n";
 	
 	
 	// Find most important ranges
@@ -124,7 +137,17 @@ void TryNo4tStructureSolver::MakeSections() {
 		}
 	};
 	SortByValue(hash_ranges, VecSort{ranges});
-	DUMPM(hash_ranges);
+	debug_out << "hash_ranges:\n";
+	for(int i = 0; i < hash_ranges.GetCount(); i++) {
+		debug_out << Format("%d: (%X) [", i, (int64)hash_ranges.GetKey(i));
+		const auto& v = hash_ranges[i];
+		for(int j = 0; j < v.GetCount(); j++) {
+			if (j) debug_out << ", ";
+			debug_out << v[j];
+		}
+		debug_out << "]\n";
+			
+	}
 	
 	// Make sections based on non-overlapping important ranges
 	for(int i = 0; i < hash_ranges.GetCount(); i++) {
@@ -149,8 +172,12 @@ void TryNo4tStructureSolver::MakeSections() {
 		if (fail)
 			continue;
 		
+		if (rv.GetCount() <= 1)
+			continue;
+		
 		int sect_i = sections.GetCount();
 		Section& sect = sections.Add();
+		int max_range = 0;
 		for(int j = 0; j < rv.GetCount(); j++) {
 			sect.count++;
 			RangeHash& rh = ranges[rv[j]];
@@ -160,8 +187,10 @@ void TryNo4tStructureSolver::MakeSections() {
 					Line& line = lines[k];
 					line.section = sect_i;
 				}
+				max_range = max(max_range, ts.end - ts.begin);
 			}
 		}
+		sect.orig_weight = max_range;
 	}
 	
 	
