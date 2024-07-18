@@ -177,6 +177,8 @@ void TryNo4tStructureSolver::MakeSections() {
 		
 		int sect_i = sections.GetCount();
 		Section& sect = sections.Add();
+		sect.repeat = 1.0;
+		sect.flag_repeating = true;
 		int max_range = 0;
 		for(int j = 0; j < rv.GetCount(); j++) {
 			sect.count++;
@@ -192,7 +194,6 @@ void TryNo4tStructureSolver::MakeSections() {
 		}
 		sect.orig_weight = max_range;
 	}
-	
 	
 	
 }

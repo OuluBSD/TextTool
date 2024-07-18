@@ -205,6 +205,7 @@ void ScriptStructureSolverBase::SingleIteration() {
 	MakeSections();
 	MakeRepeatingSectionLines();
 	MakeSingleLineSections();
+	MakeMetaSections();
 }
 
 void ScriptStructureSolverBase::MakeSingleLineSections() {
@@ -228,6 +229,15 @@ void ScriptStructureSolverBase::MakeSingleLineSections() {
 			sections[sect_i].hashes << line.descriptor.GetHash(section_cmp_header_len);
 		}
 		else sect_i = -1;
+	}
+}
+
+void ScriptStructureSolverBase::MakeMetaSections() {
+	meta_sections.Clear();
+	
+	for(int i = 0; i < sections.GetCount(); i++) {
+		Section& sect = sections[i];
+		
 	}
 }
 
@@ -279,7 +289,7 @@ String ScriptStructureSolverBase::GetResult() const {
 		if (line.section != prev_sect) {
 			const Section& sect = sections[line.section];
 			if (s.GetCount()) s << "\n";
-			s << "[section " << line.section << ": count " << sect.count << "]\n";
+			s << Format("[section %d: count %d, repeat %.2!m %s]\n", line.section, sect.count, sect.repeat, sect.flag_repeating ? ", flag-repeating" : "");
 		}
 		s << line.txt << "\n";
 		prev_sect = line.section;

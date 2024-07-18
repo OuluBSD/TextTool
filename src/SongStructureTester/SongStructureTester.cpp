@@ -240,7 +240,7 @@ Forever)TXT"
 CONSOLE_APP_MAIN {
 	using namespace TextLib;
 	for(int i = 0; i < SCRIPT_COUNT; i++) {
-		if (i != 2)
+		if (i != 3)
 			continue;
 		LOG("######## " << IntStr(i+1) << " ########");
 		MultiScriptStructureSolver s;

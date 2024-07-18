@@ -38,12 +38,17 @@ class ScriptStructureSolverBase {
 	
 	
 public:
+	struct MetaSection : Moveable<MetaSection> {
+		Vector<int> sections;
+		int type = -1;
+	};
 	struct Section : Moveable<Section> {
 		Vector<hash_t> hashes;
 		int orig_count = 0;
 		int count = 0;
 		int orig_weight = 0;
 		double repeat = 0;
+		bool flag_repeating = false;
 		bool operator()(const Section& a, const Section& b) const {return a.hashes.GetCount() > b.hashes.GetCount();}
 		//bool operator()(const Section& a, const Section& b) const {return a.orig_weight > b.orig_weight;}
 	};
@@ -69,6 +74,7 @@ public:
 	Vector<Line> lines;
 	Vector<Section> sections;
 	VectorMap<hash_t,UniqueLine> uniq_lines;
+	Vector<MetaSection> meta_sections;
 	String debug_out;
 	
 	// Params
@@ -105,6 +111,7 @@ protected:
 	virtual void MakeSections() = 0;
 	virtual void MakeRepeatingSectionLines() = 0;
 	virtual void MakeSingleLineSections();
+	virtual void MakeMetaSections();
 	
 };
 
