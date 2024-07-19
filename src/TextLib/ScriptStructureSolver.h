@@ -184,6 +184,7 @@ public:
 	String GetResult() const override;
 	String GetDebugHashes() const override;
 	String FindLine(hash_t h) const override;
+	int GetMetaSectionLen(int ms_i) const;
 	
 };
 

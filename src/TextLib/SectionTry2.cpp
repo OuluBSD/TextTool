@@ -203,10 +203,17 @@ void TryStrDistSectionSolverBase::MakeMetaSections() {
 	
 	for(int i = 0; i < lines.GetCount(); i++) {
 		const Line& line = lines[i];
+		const Line* next_line = i+1 < lines.GetCount() ? &lines[i+1] : 0;
+		
 		if (line.section != prev_section) {
 			Section& sect = sections[line.section];
+			Section* next_sect = next_line ? &sections[next_line->section] : 0;
+			
 			int type = -1;
 			if (sect.flag_repeating || sect.repeat > 0.666) {
+				type = TXT_REPEAT;
+			}
+			else if (prev_type == TXT_REPEAT && next_sect && (next_sect->flag_repeating || next_sect->repeat > 0.666)) {
 				type = TXT_REPEAT;
 			}
 			else if (sect.repeat > 0.2 && prev_type == TXT_NORMAL) {
@@ -217,7 +224,15 @@ void TryStrDistSectionSolverBase::MakeMetaSections() {
 			}
 			
 			if (sect.meta_section < 0) {
+				bool skip_msect = false;
 				if (sect.lines.GetCount() <= 1 && prev_type >= 0 && meta_sect >= 0) {
+					if (next_sect && next_sect->lines.GetCount() > 1 && next_sect->repeat < 0.2)
+						skip_msect = true;
+					else if (!next_sect)
+						skip_msect = true;
+				}
+				
+				if (skip_msect) {
 					type = prev_type; // reset
 				}
 				else if (prev_type != type) {
@@ -245,37 +260,65 @@ void TryStrDistSectionSolverBase::MakeMetaSections() {
 	}
 	
 	
-	// Simple check for twist
+	// Simple check for twist (must have repeat after it)
 	bool matching_len = true;
 	int normal_len = 0;
+	int normal_count = 0;
+	int last_repeat = -1;
 	Vector<int> potential_twists;
 	const double same_diff_limit = 0.25;
 	const double twist_diff_limit = 0.33;
 	for(int i = 0; i < meta_sections.GetCount(); i++) {
 		MetaSection& ms = meta_sections[i];
 		if (ms.type == TXT_NORMAL) {
+			normal_count++;
 			if (ms.num == 0)
-				normal_len = sections[ms.sections[0]].lines.GetCount();
+				normal_len = GetMetaSectionLen(i);
 			else if (ms.num == 1) {
-				double diff = fabs((double)normal_len / sections[ms.sections[0]].lines.GetCount() - 1.0);
+				double diff = fabs((double)normal_len / GetMetaSectionLen(i) - 1.0);
 				if (diff > same_diff_limit)
 					matching_len = false;
 			}
 			else if (ms.num > 1)
 				potential_twists << i;
 		}
+		else if (ms.type == TXT_REPEAT)
+			last_repeat = i;
 	}
+	
+	// Assume that different lengths of "normal" parts are twists (=bridges)
 	if (matching_len) {
 		for (int potential_twist_i : potential_twists) {
 			MetaSection& ms = meta_sections[potential_twist_i];
-			double diff = fabs((double)normal_len / sections[ms.sections[0]].lines.GetCount() - 1.0);
+			double diff = fabs((double)normal_len / GetMetaSectionLen(potential_twist_i) - 1.0);
 			if (diff > twist_diff_limit) {
 				ms.type = TXT_TWIST;
 				ms.num = type_counts[ms.type]++;
 			}
 		}
 	}
-	
+	// Just assume that last normal is twist
+	else {
+		if (normal_count > 2) {
+			int normal_i = 0;
+			for(int i = 0; i < meta_sections.GetCount(); i++) {
+				MetaSection& ms = meta_sections[i];
+				if (ms.type == TXT_NORMAL) {
+					if (normal_i == normal_count - 1)
+						ms.type = TXT_TWIST;
+					normal_i++;
+				}
+			}
+		}
+	}
+}
+
+int TryStrDistSectionSolverBase::GetMetaSectionLen(int ms_i) const {
+	const MetaSection& ms = meta_sections[ms_i];
+	int len = 0;
+	for(int i = 0; i < ms.sections.GetCount(); i++)
+		len += sections[ms.sections[i]].lines.GetCount();
+	return len;
 }
 
 String TryStrDistSectionSolverBase::GetDebugLines() const {
