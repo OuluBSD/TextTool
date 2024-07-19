@@ -185,11 +185,18 @@ void TryNo4tStructureSolver::MakeSections() {
 			RangeHash& rh = ranges[rv[j]];
 			for (int ts_i : rh.sections) {
 				TmpSection& ts = tmp[ts_i];
+				bool add_lines = sect.first_line < 0;
+				if (add_lines)
+					sect.first_line = ts.begin;
 				for(int k = ts.begin; k < ts.end; k++) {
 					Line& line = lines[k];
 					line.section = sect_i;
+					if (add_lines)
+						sect.hashes << line.hash;
 				}
 				max_range = max(max_range, ts.end - ts.begin);
+				if (sect.first_line < 0)
+					sect.first_line = ts.begin;
 			}
 		}
 		sect.orig_weight = max_range;

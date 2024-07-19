@@ -224,6 +224,7 @@ void ScriptStructureSolverBase::MakeSingleLineSections() {
 				sect.orig_count = 1;
 				sect.count = 1;
 				sect.repeat = repeat_sum;
+				sect.first_line = i;
 			}
 			line.section = sect_i;
 			sections[sect_i].hashes << line.descriptor.GetHash(section_cmp_header_len);
@@ -233,11 +234,26 @@ void ScriptStructureSolverBase::MakeSingleLineSections() {
 }
 
 void ScriptStructureSolverBase::MakeMetaSections() {
+	TextComparison tc;
+	
 	meta_sections.Clear();
 	
 	for(int i = 0; i < sections.GetCount(); i++) {
-		Section& sect = sections[i];
-		
+		Section& sect0 = sections[i];
+		if (sect0.count < 2) continue;
+		for(int j = 0; j < sections.GetCount(); j++) {
+			Section& sect1 = sections[j];
+			if (sect1.count > 1) continue;
+			
+			int len = min(sect0.hashes.GetCount(), sect1.hashes.GetCount());
+			for(int k = 0; k < len; k++) {
+				int li0 = sect0.first_line + k;
+				int li1 = sect1.first_line + k;
+				const Line& line0 = lines[li0];
+				const Line& line1 = lines[li1];
+				tc.Process(line0.txt, line1.txt);
+			}
+		}
 	}
 }
 

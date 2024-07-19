@@ -34,6 +34,7 @@ using namespace Upp;
 #include "Common.h"
 #include "FileClasses.h"
 #include "Tokenizer.h"
+#include "TextComparison.h"
 
 
 #endif

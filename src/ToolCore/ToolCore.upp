@@ -28,5 +28,7 @@ file
 	FileClasses.h,
 	FileClasses.cpp,
 	Tokenizer.h,
-	Tokenizer.cpp;
+	Tokenizer.cpp,
+	TextComparison.h,
+	TextComparison.cpp;
 

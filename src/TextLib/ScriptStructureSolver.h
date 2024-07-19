@@ -48,6 +48,7 @@ public:
 		int count = 0;
 		int orig_weight = 0;
 		double repeat = 0;
+		int first_line = -1;
 		bool flag_repeating = false;
 		bool operator()(const Section& a, const Section& b) const {return a.hashes.GetCount() > b.hashes.GetCount();}
 		//bool operator()(const Section& a, const Section& b) const {return a.orig_weight > b.orig_weight;}
