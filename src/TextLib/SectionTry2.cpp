@@ -217,7 +217,10 @@ void TryStrDistSectionSolverBase::MakeMetaSections() {
 			}
 			
 			if (sect.meta_section < 0) {
-				if (prev_type != type) {
+				if (sect.lines.GetCount() <= 1 && prev_type >= 0 && meta_sect >= 0) {
+					type = prev_type; // reset
+				}
+				else if (prev_type != type) {
 					meta_sect = meta_sections.GetCount();
 					MetaSection& ms = meta_sections.Add();
 					ms.type = type;
@@ -246,13 +249,16 @@ void TryStrDistSectionSolverBase::MakeMetaSections() {
 	bool matching_len = true;
 	int normal_len = 0;
 	Vector<int> potential_twists;
+	const double same_diff_limit = 0.25;
+	const double twist_diff_limit = 0.33;
 	for(int i = 0; i < meta_sections.GetCount(); i++) {
 		MetaSection& ms = meta_sections[i];
 		if (ms.type == TXT_NORMAL) {
 			if (ms.num == 0)
 				normal_len = sections[ms.sections[0]].lines.GetCount();
 			else if (ms.num == 1) {
-				if (normal_len != sections[ms.sections[0]].lines.GetCount())
+				double diff = fabs((double)normal_len / sections[ms.sections[0]].lines.GetCount() - 1.0);
+				if (diff > same_diff_limit)
 					matching_len = false;
 			}
 			else if (ms.num > 1)
@@ -262,7 +268,8 @@ void TryStrDistSectionSolverBase::MakeMetaSections() {
 	if (matching_len) {
 		for (int potential_twist_i : potential_twists) {
 			MetaSection& ms = meta_sections[potential_twist_i];
-			if (normal_len != sections[ms.sections[0]].lines.GetCount()) {
+			double diff = fabs((double)normal_len / sections[ms.sections[0]].lines.GetCount() - 1.0);
+			if (diff > twist_diff_limit) {
 				ms.type = TXT_TWIST;
 				ms.num = type_counts[ms.type]++;
 			}
