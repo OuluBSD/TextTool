@@ -4,6 +4,15 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+String GetTextModeString(int i) {
+	switch (i) {
+		case TXT_NORMAL:		return "Normal";
+		case TXT_PRE_REPEAT:	return "Pre-Repeat";
+		case TXT_REPEAT:		return "Repeat";
+		case TXT_TWIST:			return "Twist";
+		default: TODO			return "";
+	}
+}
 
 int& __global_appmode();
 

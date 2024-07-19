@@ -9,6 +9,18 @@ String GetAppModeKeySnapshots();
 String GetAppModeKeyComponents();
 
 enum {
+	TXT_NORMAL,
+	TXT_PRE_REPEAT,
+	TXT_REPEAT,
+	TXT_TWIST,
+	
+	TXT_COUNT
+};
+
+String GetTextModeString(int i);
+
+
+enum {
 	AM_ENTITY,
 	AM_SNAPSHOT,
 	AM_COMPONENT,

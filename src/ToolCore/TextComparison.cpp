@@ -8,11 +8,23 @@ TextComparison::TextComparison() {
 	
 }
 
+void TextComparison::ReplaceWithWhite(WString& a) {
+	for(int i = 0; i < a.GetCount(); i++) {
+		int chr = a[i];
+		if (chr >= 0x2000 && chr < 0x3000) {
+			a = a.Left(i) + WString(" ") + a.Mid(i+1);
+		}
+	}
+}
+
 double TextComparison::Process(const String& a_, const String& b_) {
 	double ret = 0;
 	
 	this->a = a_.ToWString();
 	this->b = b_.ToWString();
+	
+	ReplaceWithWhite(a);
+	ReplaceWithWhite(b);
 	
 	aw = Split(a, String(" ").ToWString());
 	bw = Split(b, String(" ").ToWString());
@@ -38,9 +50,15 @@ double TextComparison::Process(const String& a_, const String& b_) {
 	int b_remaining = bw.GetCount();
 	map_ab.SetCount(0);
 	map_ab.SetCount(aw.GetCount(), -1);
+	map_ab_weights.SetCount(0);
+	map_ab_weights.SetCount(aw.GetCount(), 0);
+	int union_count = 0;
 	while (a_remaining && b_remaining) {
 		int best_link = -1;
 		for(int i = 0; i < link_weights.GetCount(); i++) {
+			double weight = link_weights[i];
+			if (weight < 0.5)
+				break;
 			int key = link_weights.GetKey(i);
 			int ai = key / 10000;
 			int bi = key % 10000;
@@ -49,16 +67,19 @@ double TextComparison::Process(const String& a_, const String& b_) {
 				break;
 			}
 		}
-		ASSERT(best_link >= 0);
-		if (best_link < 0) break;
+		if (best_link < 0)
+			break;
+		double weight = link_weights[best_link];
 		int key = link_weights.GetKey(best_link);
 		int ai = key / 10000;
 		int bi = key % 10000;
 		a_in_use[ai] = true;
 		b_in_use[bi] = true;
 		map_ab[ai] = bi;
+		map_ab_weights[ai] = weight;
 		a_remaining--;
 		b_remaining--;
+		union_count++;
 	}
 	
 	unlinked_a.Clear();
@@ -69,17 +90,31 @@ double TextComparison::Process(const String& a_, const String& b_) {
 	for(int i = 0; i < b_in_use.GetCount(); i++)
 		if (!b_in_use[i])
 			unlinked_b << i;
-	if (1) {
-		DUMPC(map_ab);
-		DUMPC(unlinked_a);
-		DUMPC(unlinked_b);
-		
+	
+	// Use modified Jaccard similarity
+	// Use weights instead of just 0/1 values
+	double union_sum = 0;
+	for (double d: map_ab_weights)
+		union_sum += d; // just add meaningless 0-values too
+	double div = max(0.0, aw.GetCount() + bw.GetCount() - union_sum);
+	ASSERT(div >= union_sum);
+	if (div <= 0)
+		ret = 0;
+	else
+		ret = union_sum / div;
+	
+	if (0) {
+		if (0) {
+			DUMPC(map_ab);
+			DUMPC(unlinked_a);
+			DUMPC(unlinked_b);
+		}
 		for(int i = 0; i < map_ab.GetCount(); i++) {
 			int j = map_ab[i];
 			if (j < 0) continue;
 			const WString& a = aw[i];
 			const WString& b = bw[j];
-			LOG("Link " << i << ": " << a << " --> " << b);
+			LOG("Link " << i << ": " << a << " --> " << b << ": " << map_ab_weights[i]);
 		}
 		for(int i = 0; i < unlinked_a.GetCount(); i++) {
 			LOG("unlinked A: " << aw[unlinked_a[i]]);
@@ -87,7 +122,9 @@ double TextComparison::Process(const String& a_, const String& b_) {
 		for(int i = 0; i < unlinked_b.GetCount(); i++) {
 			LOG("unlinked B: " << bw[unlinked_b[i]]);
 		}
+		LOG("similarity: " << ret);
 	}
+	
 	
 	return ret;
 }
@@ -158,5 +195,26 @@ double TextComparison::JaroWinklerDistance(const WString& s, const WString& a) {
 
     return dw;
 }
+
+
+bool SoftMatchString::operator==(const SoftMatchString& s) const {
+	thread_local static TextComparison cmp;
+	if (lines.GetCount() != s.lines.GetCount())
+		return false;
+	double weight_sum = 0;
+	for(int i = 0; i < s.lines.GetCount(); i++) {
+		const String& a = lines[i];
+		const String& b = s.lines[i];
+		double weight = cmp.Process(a, b);
+		weight_sum += weight;
+	}
+	double av = weight_sum / lines.GetCount();
+	return av;
+}
+
+hash_t SoftMatchString::GetHashValue() const {
+	return lines.GetHashValue();
+}
+
 
 END_TEXTLIB_NAMESPACE

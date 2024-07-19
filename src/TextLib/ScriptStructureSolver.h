@@ -41,17 +41,8 @@ public:
 	struct MetaSection : Moveable<MetaSection> {
 		Vector<int> sections;
 		int type = -1;
-	};
-	struct Section : Moveable<Section> {
-		Vector<hash_t> hashes;
-		int orig_count = 0;
+		int num = -1;
 		int count = 0;
-		int orig_weight = 0;
-		double repeat = 0;
-		int first_line = -1;
-		bool flag_repeating = false;
-		bool operator()(const Section& a, const Section& b) const {return a.hashes.GetCount() > b.hashes.GetCount();}
-		//bool operator()(const Section& a, const Section& b) const {return a.orig_weight > b.orig_weight;}
 	};
 	struct UniqueLine : Moveable<UniqueLine> {
 		String txt;
@@ -61,20 +52,8 @@ public:
 		bool operator()(const UniqueLine& a, const UniqueLine& b) const {return a.count > b.count;}
 		String ToString() const {return IntStr(count) + ": " + txt;}
 	};
-	struct Line : Moveable<Line> {
-		TextDescriptor descriptor;
-		hash_t hash = 0;
-		String txt;
-		int section = -1;
-		double repeatability = 0;
-		double circumstacial_repeatability = 0;
-		double GetRepeatabilitySum() const {return repeatability + circumstacial_repeatability;}
-	};
 	
 	String input;
-	Vector<Line> lines;
-	Vector<Section> sections;
-	VectorMap<hash_t,UniqueLine> uniq_lines;
 	Vector<MetaSection> meta_sections;
 	String debug_out;
 	
@@ -96,27 +75,119 @@ public:
 	void Process(String s);
 	void SetForcedLimit(double d) {forced_limit_value = d; force_limit = true;}
 	
-	String GetResult() const;
-	String GetDebugHashes() const;
-	String GetDebugSections() const;
-	String GetDebugLines() const;
 	String GetDebugOut() const {return debug_out;}
-	String FindLine(hash_t h) const;
 	
 protected:
-	void DefaultProcess();
+	virtual void DefaultProcess() = 0;
 	void SingleIteration();
 	
-	virtual void MakeLines();
-	virtual void MakeUniqueLines();
+	virtual void MakeLines() = 0;
+	virtual void MakeUniqueLines() = 0;
 	virtual void MakeSections() = 0;
 	virtual void MakeRepeatingSectionLines() = 0;
-	virtual void MakeSingleLineSections();
-	virtual void MakeMetaSections();
+	virtual void MakeSingleLineSections() = 0;
+	virtual void MakeMetaSections() = 0;
+	
+public:
+	virtual String GetDebugLines() const = 0;
+	virtual String GetDebugSections() const = 0;
+	virtual String GetResult() const = 0;
+	virtual String GetDebugHashes() const = 0;
+	virtual String FindLine(hash_t h) const = 0;
 	
 };
 
-class TryWithTransferStructureSolver : public ScriptStructureSolverBase {
+class TryHashSectionSolverBase : public ScriptStructureSolverBase {
+	
+public:
+	struct Line : Moveable<Line> {
+		TextDescriptor descriptor;
+		hash_t hash = 0;
+		String txt;
+		int section = -1;
+		double repeatability = 0;
+		double circumstacial_repeatability = 0;
+		double GetRepeatabilitySum() const {return repeatability + circumstacial_repeatability;}
+	};
+	struct Section : Moveable<Section> {
+		Vector<hash_t> hashes;
+		int orig_count = 0;
+		int count = 0;
+		int orig_weight = 0;
+		double repeat = 0;
+		int first_line = -1;
+		bool flag_repeating = false;
+		bool operator()(const Section& a, const Section& b) const {return a.hashes.GetCount() > b.hashes.GetCount();}
+	};
+	
+	Vector<Line> lines;
+	Vector<Section> sections;
+	VectorMap<hash_t,UniqueLine> uniq_lines;
+	
+	
+	void DefaultProcess() override;
+	void MakeLines() override;
+	void MakeUniqueLines() override;
+	void MakeSingleLineSections() override;
+	void MakeMetaSections() override;
+	String GetDebugLines() const override;
+	String GetDebugSections() const override;
+	String GetResult() const override;
+	String GetDebugHashes() const override;
+	String FindLine(hash_t h) const override;
+	
+};
+
+class TryStrDistSectionSolverBase : public ScriptStructureSolverBase {
+	
+public:
+	struct Line : Moveable<Line> {
+		TextDescriptor descriptor;
+		String txt;
+		int section = -1;
+		double repeatability = 0;
+		double circumstacial_repeatability = 0;
+		double GetRepeatabilitySum() const {return repeatability + circumstacial_repeatability;}
+	};
+	struct Section : Moveable<Section> {
+		Vector<String> lines;
+		int meta_section = -1;
+		int orig_count = 0;
+		int count = 0;
+		int orig_weight = 0;
+		double repeat = 0;
+		int first_line = -1;
+		bool flag_repeating = false;
+		bool operator()(const Section& a, const Section& b) const {return a.lines.GetCount() > b.lines.GetCount();}
+	};
+	struct HashRangeLink : Moveable<HashRangeLink> {
+		SoftMatchString k;
+		Vector<int> v;
+	};
+	
+	Vector<Line> lines;
+	Vector<Section> sections;
+	Vector<UniqueLine> uniq_lines;
+	double unique_dist_limit = 0.95;
+	Vector<HashRangeLink> hash_ranges;
+	
+	UniqueLine& GetAddUniqueLine(const String& s);
+	Vector<int>& GetAddHashRange(const SoftMatchString& s);
+	
+	void DefaultProcess() override;
+	void MakeLines() override;
+	void MakeUniqueLines() override;
+	void MakeSingleLineSections() override;
+	void MakeMetaSections() override;
+	String GetDebugLines() const override;
+	String GetDebugSections() const override;
+	String GetResult() const override;
+	String GetDebugHashes() const override;
+	String FindLine(hash_t h) const override;
+	
+};
+
+class TryWithTransferStructureSolver : public TryHashSectionSolverBase {
 	
 public:
 	struct Transfer : Moveable<Transfer> {
@@ -161,7 +232,7 @@ public:
 	
 };
 
-class TryNo3tStructureSolver : public ScriptStructureSolverBase {
+class TryNo3tStructureSolver : public TryHashSectionSolverBase {
 	
 	struct TempSection {
 		Vector<int> lines;
@@ -192,7 +263,15 @@ public:
 	
 };
 
-class TryNo4tStructureSolver : public TryWithTransferStructureSolver {
+class TryNo4tStructureSolver : public TryHashSectionSolverBase {
+	
+public:
+	void MakeSections() override;
+	void MakeRepeatingSectionLines() override;
+	
+};
+
+class TryNo5tStructureSolver : public TryStrDistSectionSolverBase {
 	
 public:
 	void MakeSections() override;
@@ -206,6 +285,7 @@ class MultiScriptStructureSolver {
 	TryNo2tStructureSolver t2;
 	TryNo3tStructureSolver t3;
 	TryNo4tStructureSolver t4;
+	TryNo5tStructureSolver t5;
 	
 public:
 	typedef MultiScriptStructureSolver CLASSNAME;
