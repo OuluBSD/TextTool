@@ -669,9 +669,58 @@ struct ComponentAnalysis {
 	void Load(const String& dir);
 };
 
+struct ScriptStruct : Moveable<ScriptStruct> {
+	struct SubPart : Moveable<SubPart> {
+		Vector<int> token_texts;
+		int repeat = 0;
+	};
+	struct Part : Moveable<Part> {
+		Vector<SubPart> sub;
+		int type = 0;
+		int num = 0;
+	};
+	Vector<Part> parts;
+	
+	
+	String StoreToString() {
+		StringDumper d;
+		int i = parts.GetCount();
+		d % i;
+		for (Part& p : parts) {
+			i = p.sub.GetCount();
+			d % p.type % p.num % i;
+			for (SubPart& s : p.sub) {
+				d % s.repeat;
+				i = s.token_texts.GetCount();
+				d % i;
+				for (int tt : s.token_texts)
+					d % tt;
+			}
+		}
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser d(s);
+		int i;
+		d % i;
+		parts.SetCount(i);
+		for (Part& p : parts) {
+			d % p.type % p.num % i;
+			p.sub.SetCount(i);
+			for (SubPart& s : p.sub) {
+				d % s.repeat % i;
+				s.token_texts.SetCount(i,-1);
+				for (int tt : s.token_texts)
+					d % tt;
+			}
+		}
+	}
+};
+
 struct DatasetAnalysis {
 	ArrayMap<String, ComponentAnalysis> components;
 	
+	MapFile<hash_t, ScriptStruct> scripts;
 	MapFile<String,Token> tokens;
 	MapFile<hash_t,TokenText> token_texts;
 	IndexFile word_classes;
@@ -693,6 +742,7 @@ struct DatasetAnalysis {
 	MapFile<String,String> diagnostics;
 	MapFile<String,ExportSimpleAttr> simple_attrs;
 	MapFile<hash_t,String> phrase_translations[LNG_COUNT];
+	
 	
 	// Cached data
 	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;

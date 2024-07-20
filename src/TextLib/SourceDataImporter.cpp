@@ -30,7 +30,6 @@ int SourceDataImporter::GetSubBatchCount() const {
 void SourceDataImporter::DoPhase() {
 	switch (phase) {
 		case PHASE_TOKENIZE:		Tokenize();		return;
-		case PHASE_STRUCTURIZE:		Structurize();	return;
 		default: TODO;
 	}
 }
@@ -64,8 +63,6 @@ void SourceDataImporter::Tokenize() {
 	total++;
 	auto& script = entity.scripts[sub_batch];
 	
-	NaturalTokenizer tk;
-	
 	String str = script.text;
 	
 	// Ignore files with hard ambiguities
@@ -77,37 +74,75 @@ void SourceDataImporter::Tokenize() {
 	}
 	
 	HotfixReplaceWord(str);
-	
 	if (!tk.Parse(str)) {
 		parse_loss++;
 		NextSubBatch();
 		return;
 	}
-	
 	if (filter_foreign && tk.HasForeign()) {
 		foreign_loss++;
 		NextSubBatch();
 		return;
 	}
 	
-	for (const auto& line : tk.GetLines()) {
-		token_is.SetCount(0);
-		CombineHash ch;
-		for (const WString& line : line) {
-			String s = line.ToString();
-			int tk_i = -1;
-			Token& tk = da.tokens.GetAdd(s, tk_i);
-			ch.Do(tk_i);
-			token_is << tk_i;
-		}
-		hash_t h = ch;
-		
-		TokenText& tt = da.token_texts.GetAdd(h);
-		if (tt.tokens.IsEmpty()) {
-			Swap(tt.tokens, token_is);
-		}
-	}
+	String script_title = entity.name + " - " + script.name;
+	hash_t ss_hash = script_title.GetHashValue();
 	
+	int ss_i = -1;
+	if (skip_ready && da.scripts.Find(ss_hash) >= 0) {
+		NextSubBatch();
+		return;
+	}
+	ScriptStruct& ss = da.scripts.GetAdd(ss_hash, ss_i);
+	
+	solver.Process(script.text);
+	
+	int prev_msect = -1, prev_sect = -1;
+	ScriptStruct::Part* part = 0;
+	ScriptStruct::SubPart* subpart = 0;
+	for(int i = 0; i < solver.lines.GetCount(); i++) {
+		auto& line = solver.lines[i];
+		auto& sect = solver.sections[line.section];
+		auto& msect = solver.meta_sections[sect.meta_section];
+		
+		if (prev_msect != sect.meta_section) {
+			part = &ss.parts.Add();
+			subpart = &part->sub.Add();
+		}
+		else if (prev_sect != line.section) {
+			subpart = &part->sub.Add();
+		}
+		
+		if (!tk.Parse(line.txt))
+			continue;
+		
+		if (tk.GetLines().GetCount() == 1) {
+			const auto& line = tk.GetLines()[0];
+			
+			token_is.SetCount(0);
+			CombineHash ch;
+			for (const WString& line : line) {
+				String s = line.ToString();
+				int tk_i = -1;
+				Token& tk = da.tokens.GetAdd(s, tk_i);
+				ch.Do(tk_i);
+				token_is << tk_i;
+			}
+			hash_t h = ch;
+			
+			int tt_i = -1;
+			TokenText& tt = da.token_texts.GetAdd(h, tt_i);
+			if (tt.tokens.IsEmpty()) {
+				Swap(tt.tokens, token_is);
+			}
+			
+			subpart->token_texts << tt_i;
+		}
+		
+		prev_msect = sect.meta_section;
+		prev_sect = line.section;
+	}
+		
 	actual++;
 	NextSubBatch();
 	
@@ -127,35 +162,6 @@ void SourceDataImporter::Tokenize() {
 	da.diagnostics.GetAdd(__comps + ": filter 'parse success' loss") =  DblStr((double)parse_loss / (double) total * 100);
 	da.diagnostics.GetAdd(__comps + ": filter 'foreign' loss") =  DblStr((double)foreign_loss / (double) total * 100);
 	da.diagnostics.GetAdd(__comps + ": duration of song process") =  ts.ToString();
-}
-
-void SourceDataImporter::Structurize() {
-	TextDatabase& db = GetDatabase();
-	MultiScriptStructureSolver solver;
-	
-	if (batch >= db.src_data.entities.GetCount()) {
-		NextPhase();
-		return;
-	}
-	
-	auto& entity = db.src_data.entities[batch];
-	if (sub_batch >= entity.scripts.GetCount()) {
-		NextBatch();
-		return;
-	}
-	auto& script = entity.scripts[sub_batch];
-	if (TrimBoth(script.text).IsEmpty()) {
-		NextSubBatch();
-		return;
-	}
-	
-	solver.Get().Process(script.text);
-	
-	
-	// TODO
-	
-	
-	NextSubBatch();
 }
 
 SourceDataImporter& SourceDataImporter::Get(int appmode) {

@@ -9,7 +9,6 @@ class SourceDataImporter : public SolverBase {
 	
 public:
 	enum {
-		PHASE_STRUCTURIZE,
 		PHASE_TOKENIZE,
 		
 		PHASE_COUNT
@@ -18,6 +17,9 @@ public:
 	bool filter_foreign = true;
 	int actual = 0, total = 0;
 	TimeStop ts;
+	BestStructureSolver solver;
+	NaturalTokenizer tk;
+	
 	
 public:
 	typedef SourceDataImporter CLASSNAME;
