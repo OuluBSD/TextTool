@@ -5,7 +5,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 ScriptIdeaSolver::ScriptIdeaSolver() {
-	
+	appmode = DB_SONG;
 }
 
 int ScriptIdeaSolver::GetPhaseCount() const {

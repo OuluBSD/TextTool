@@ -22,7 +22,6 @@ public:
 	ContentVisionOwner* cvo = 0;
 	Script* script = 0;
 	
-	int appmode = 0;
 	bool only_single = false;
 	int only_tc = -1;
 	int only_con = -1;

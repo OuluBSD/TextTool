@@ -9,22 +9,30 @@ class SourceDataImporter : public SolverBase {
 	
 public:
 	enum {
-		PHASE_,
+		PHASE_STRUCTURIZE,
+		PHASE_TOKENIZE,
 		
 		PHASE_COUNT
 	};
 	
-	int appmode = -1;
+	bool filter_foreign = true;
+	int actual = 0, total = 0;
+	TimeStop ts;
 	
 public:
 	typedef SourceDataImporter CLASSNAME;
 	SourceDataImporter();
 	
 	int GetPhaseCount() const override;
+	int GetBatchCount() const override;
+	int GetSubBatchCount() const override;
 	void DoPhase() override;
 	
 	static SourceDataImporter& Get(int appmode);
 	
+private:
+	void Tokenize();
+	void Structurize();
 };
 
 

@@ -31,7 +31,6 @@ public:
 		
 		PHASE_COUNT
 	};
-	int appmode = -1;
 	int part_i = -1, line_i = -1;
 	int rhyme_i = -1;
 	String line;

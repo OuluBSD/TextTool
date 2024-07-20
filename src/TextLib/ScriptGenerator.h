@@ -44,7 +44,6 @@ class ScriptGenerator : public SolverBase {
 	int per_sub_batch =  50;
 	int pair_limit = 300;
 	int phrase_limit = 150;
-	int appmode = -1;
 	
 	// temp
 	Vector<VectorMap<int,double>> phrases;

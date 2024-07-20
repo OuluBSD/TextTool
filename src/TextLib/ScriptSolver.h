@@ -22,7 +22,6 @@ class ScriptSolver : public SolverBase {
 	};
 	Entity* artist = 0;
 	Script* script = 0;
-	int appmode = -1;
 	
 	// params
 	double dist_limit = 0.005;

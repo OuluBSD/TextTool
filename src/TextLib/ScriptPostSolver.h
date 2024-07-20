@@ -21,7 +21,6 @@ public:
 	Profile* profile = 0;
 	Script* script = 0;
 	Entity* entity = 0;
-	int appmode = 0;
 	
 	// Genetic Solver params
 	int variation_count = 10;

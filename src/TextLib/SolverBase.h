@@ -12,6 +12,7 @@ protected:
 	int generation_count = 1;
 	Owner* owner = 0;
 	Profile* profile = 0;
+	int appmode = -1;
 	
 	bool waiting = false;
 	bool running = false, stopped = true;
@@ -19,7 +20,7 @@ protected:
 	
 	void Process();
 	
-	void PostProgress() {WhenProgress(phase, GetPhaseCount());}
+	void PostProgress();
 	void SetNotRunning() {running = false;}
 	void SetWaiting(bool b) {waiting = b;}
 	void SetGenerations(int i) {generation_count = i;}
@@ -32,12 +33,16 @@ public:
 	typedef SolverBase CLASSNAME;
 	SolverBase();
 	
+	TextDatabase& GetDatabase() const;
+	
 	void Start() {if (!running) {running = true; stopped = false; Thread::Start(THISBACK(Process));}}
 	void Stop() {running = false; while (!stopped) Sleep(1);}
 	void SetSkipReady(bool b) {skip_ready = false;}
 	static void StopAll();
 	
 	virtual int GetPhaseCount() const = 0;
+	virtual int GetBatchCount() const {return max(1, batch);}
+	virtual int GetSubBatchCount() const {return max(1, sub_batch);}
 	virtual void DoPhase() = 0;
 	virtual void OnBatchError() {NextBatch();}
 	

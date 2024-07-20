@@ -10,6 +10,7 @@ file
 	SolverBase.cpp,
 	SourceDataImporter.h,
 	SourceDataImporter.cpp,
+	TRASH?! readonly separator,
 	ScriptGenerator.h,
 	ScriptGenerator.cpp,
 	ScriptSolver.h,

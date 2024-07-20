@@ -89,7 +89,7 @@ class TaskManager {
 	RWMutex lock;
 	Array<Task> task_list;
 	bool running = false, stopped = true;
-	int appmode = -1;
+	//int appmode = -1;
 	
 	TokenArgs token_args;
 	PhraseArgs phrase_args;

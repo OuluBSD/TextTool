@@ -35,6 +35,7 @@ BEGIN_TEXTLIB_NAMESPACE
 ScriptPostSolver::ScriptPostSolver() {
 	//skip_ready = false;
 	generation_count = 4;
+	appmode = DB_SONG;
 }
 
 int ScriptPostSolver::GetPhaseCount() const {

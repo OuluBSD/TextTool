@@ -18,7 +18,6 @@ public:
 	};
 	String text;
 	String error;
-	int appmode = -1;
 	Vector<int> tokens;
 	Vector<String> words;
 	RhymeContainer rc;
