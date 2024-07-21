@@ -296,7 +296,7 @@ public:
 	
 };
 
-typedef TryNo5tStructureSolver BestStructureSolver:
+typedef TryNo5tStructureSolver BestStructureSolver;
 
 END_TEXTLIB_NAMESPACE
 

@@ -710,7 +710,7 @@ struct ScriptStruct : Moveable<ScriptStruct> {
 			for (SubPart& s : p.sub) {
 				d % s.repeat % i;
 				s.token_texts.SetCount(i,-1);
-				for (int tt : s.token_texts)
+				for (int& tt : s.token_texts)
 					d % tt;
 			}
 		}
@@ -759,6 +759,7 @@ struct DatasetAnalysis {
 	String GetTypeString(const Vector<int>& word_classes) const;
 	String GetActionString(const Vector<int>& actions) const;
 	ComponentAnalysis& GetComponentAnalysis(int appmode, const String& name);
+	String GetScriptDump(int i) const;
 	
 	void Jsonize(JsonIO& json) {
 		json

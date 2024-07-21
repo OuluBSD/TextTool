@@ -15,10 +15,8 @@ public:
 	};
 	
 	bool filter_foreign = true;
-	int actual = 0, total = 0;
+	Atomic actual = 0, total = 0;
 	TimeStop ts;
-	BestStructureSolver solver;
-	NaturalTokenizer tk;
 	
 	
 public:
@@ -26,8 +24,8 @@ public:
 	SourceDataImporter();
 	
 	int GetPhaseCount() const override;
-	int GetBatchCount() const override;
-	int GetSubBatchCount() const override;
+	int GetBatchCount(int phase) const override;
+	int GetSubBatchCount(int phase, int batch) const override;
 	void DoPhase() override;
 	
 	static SourceDataImporter& Get(int appmode);

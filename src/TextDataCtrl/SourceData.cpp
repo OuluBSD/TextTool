@@ -20,9 +20,11 @@ void SolverBaseIndicator::SetProgress(int a, int t) {
 
 
 
+
 SourceDataCtrl::SourceDataCtrl() {
 	Add(hsplit.VSizePos(0,30).HSizePos());
-	Add(prog.BottomPos(0,30).HSizePos());
+	Add(prog.BottomPos(0,30).HSizePos(300));
+	Add(remaining.BottomPos(0,30).LeftPos(0,300));
 	
 	hsplit.Horz() << vsplit << scripts << analysis;
 	hsplit.SetPos(2500);
@@ -113,6 +115,8 @@ void SourceDataCtrl::ToolMenu(Bar& bar) {
 void SourceDataCtrl::Do(int fn) {
 	SourceDataImporter& sdi = SourceDataImporter::Get(GetAppMode());
 	prog.Attach(sdi);
+	sdi.WhenRemaining << [this](String s) {PostCallback([this,s](){remaining.SetLabel(s);});};
+	
 	if (fn == 0)
 		sdi.Start();
 	else

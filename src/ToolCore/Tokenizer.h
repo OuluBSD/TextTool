@@ -15,6 +15,7 @@ public:
 	typedef NaturalTokenizer CLASSNAME;
 	NaturalTokenizer();
 	
+	void Clear() {ws.Clear(); lines.Clear(); has_foreign = false;}
 	bool Parse(const String& txt);
 	bool HasForeign() const {return has_foreign;}
 	

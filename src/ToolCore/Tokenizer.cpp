@@ -9,7 +9,7 @@ NaturalTokenizer::NaturalTokenizer() {
 }
 
 bool NaturalTokenizer::Parse(const String& txt) {
-	lines.Clear();
+	Clear();
 	Vector<WString> line;
 	
 	ws = txt.ToWString();

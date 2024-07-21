@@ -7,19 +7,19 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 SourceDataImporter::SourceDataImporter() {
-	
+	SetParallel();
 }
 
 int SourceDataImporter::GetPhaseCount() const {
 	return PHASE_COUNT;
 }
 
-int SourceDataImporter::GetBatchCount() const {
+int SourceDataImporter::GetBatchCount(int phase) const {
 	TextDatabase& db = GetDatabase();
 	return db.src_data.entities.GetCount();
 }
 
-int SourceDataImporter::GetSubBatchCount() const {
+int SourceDataImporter::GetSubBatchCount(int phase, int batch) const {
 	TextDatabase& db = GetDatabase();
 	if (batch >= db.src_data.entities.GetCount())
 		return 1;
@@ -43,6 +43,14 @@ void SourceDataImporter::Tokenize() {
 	
 	int well_filter_loss = 0, parse_loss = 0, foreign_loss = 0;
 	
+	int phase = this->phase, batch = this->batch, sub_batch = this->sub_batch;
+	if (parallel) {
+		WorkerData& w = Worker();
+		phase = w.phase;
+		batch = w.batch;
+		sub_batch = w.sub_batch;
+	}
+	
 	if (!batch && !sub_batch) {
 		total = 0;
 		actual = 0;
@@ -60,7 +68,8 @@ void SourceDataImporter::Tokenize() {
 		return;
 	}
 	
-	total++;
+	int worker_total = total++;
+	
 	auto& script = entity.scripts[sub_batch];
 	
 	String str = script.text;
@@ -73,6 +82,10 @@ void SourceDataImporter::Tokenize() {
 		return;
 	}
 	
+	static thread_local BestStructureSolver solver;
+	static thread_local NaturalTokenizer tk;
+	
+	tk.Clear();
 	HotfixReplaceWord(str);
 	if (!tk.Parse(str)) {
 		parse_loss++;
@@ -88,14 +101,23 @@ void SourceDataImporter::Tokenize() {
 	String script_title = entity.name + " - " + script.name;
 	hash_t ss_hash = script_title.GetHashValue();
 	
-	int ss_i = -1;
-	if (skip_ready && da.scripts.Find(ss_hash) >= 0) {
+	int ss_i = da.scripts.Find(ss_hash);
+	if (skip_ready && ss_i >= 0) {
+		if (0) {
+			data_lock.Enter();
+			ScriptStruct& ss = da.scripts[ss_i];
+			LOG(da.GetScriptDump(ss_i));
+			data_lock.Leave();
+		}
 		NextSubBatch();
 		return;
 	}
-	ScriptStruct& ss = da.scripts.GetAdd(ss_hash, ss_i);
 	
+	// Slow solver process
 	solver.Process(script.text);
+	
+	data_lock.Enter();
+	ScriptStruct& ss = da.scripts.GetAdd(ss_hash, ss_i);
 	
 	int prev_msect = -1, prev_sect = -1;
 	ScriptStruct::Part* part = 0;
@@ -108,15 +130,20 @@ void SourceDataImporter::Tokenize() {
 		if (prev_msect != sect.meta_section) {
 			part = &ss.parts.Add();
 			subpart = &part->sub.Add();
+			part->type = msect.type;
+			part->num = msect.num;
+			subpart->repeat = sect.repeat;
 		}
 		else if (prev_sect != line.section) {
 			subpart = &part->sub.Add();
+			subpart->repeat = sect.repeat;
 		}
 		
 		if (!tk.Parse(line.txt))
 			continue;
 		
 		if (tk.GetLines().GetCount() == 1) {
+			//data_lock.Enter();
 			const auto& line = tk.GetLines()[0];
 			
 			token_is.SetCount(0);
@@ -136,32 +163,30 @@ void SourceDataImporter::Tokenize() {
 				Swap(tt.tokens, token_is);
 			}
 			
-			subpart->token_texts << tt_i;
+			if (tt_i >= 0)
+				subpart->token_texts << tt_i;
+			//data_lock.Leave();
 		}
 		
 		prev_msect = sect.meta_section;
 		prev_sect = line.section;
 	}
-		
+	data_lock.Leave();
+	
+	//LOG(da.GetScriptDump(ss_i));
+	
 	actual++;
 	NextSubBatch();
 	
-	if (total % 500 == 0) {
+	if (worker_total % 500 == 0) {
 		da.diagnostics.GetAdd(__comps + ": total") = IntStr(total);
 		da.diagnostics.GetAdd(__comps + ": actual") =  IntStr(actual);
 		da.diagnostics.GetAdd(__comps + ": percentage") =  DblStr((double)actual / (double) total * 100);
 		da.diagnostics.GetAdd(__comps + ": filter 'well' loss") =  DblStr((double)well_filter_loss / (double) total * 100);
 		da.diagnostics.GetAdd(__comps + ": filter 'parse success' loss") =  DblStr((double)parse_loss / (double) total * 100);
 		da.diagnostics.GetAdd(__comps + ": filter 'foreign' loss") =  DblStr((double)foreign_loss / (double) total * 100);
+		da.diagnostics.GetAdd(__comps + ": duration of song process") =  ts.ToString();
 	}
-	
-	da.diagnostics.GetAdd(__comps + ": total") = IntStr(total);
-	da.diagnostics.GetAdd(__comps + ": actual") =  IntStr(actual);
-	da.diagnostics.GetAdd(__comps + ": percentage") =  DblStr((double)actual / (double) total * 100);
-	da.diagnostics.GetAdd(__comps + ": filter 'well' loss") =  DblStr((double)well_filter_loss / (double) total * 100);
-	da.diagnostics.GetAdd(__comps + ": filter 'parse success' loss") =  DblStr((double)parse_loss / (double) total * 100);
-	da.diagnostics.GetAdd(__comps + ": filter 'foreign' loss") =  DblStr((double)foreign_loss / (double) total * 100);
-	da.diagnostics.GetAdd(__comps + ": duration of song process") =  ts.ToString();
 }
 
 SourceDataImporter& SourceDataImporter::Get(int appmode) {

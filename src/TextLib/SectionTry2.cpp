@@ -45,6 +45,7 @@ void TryStrDistSectionSolverBase::MakeLines() {
 		ws.Replace("]"," ");
 		ws.Replace("/"," ");
 		ws.Replace("&"," ");
+		ws.Replace("&"," ");
 		ws.Replace("+"," ");
 		ws.Replace("    "," ");
 		ws.Replace("   "," ");

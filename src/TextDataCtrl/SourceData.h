@@ -14,6 +14,7 @@ public:
 	SolverBaseIndicator();
 	
 	void Attach(SolverBase& sb);
+	void AttachRemaining(Label& lbl);
 	
 };
 
@@ -24,7 +25,7 @@ class SourceDataCtrl : public ToolAppCtrl {
 	ArrayCtrl entities, components;//, active_components;
 	DocEdit scripts, analysis;
 	SolverBaseIndicator prog;
-	
+	Label remaining;
 public:
 	typedef SourceDataCtrl CLASSNAME;
 	SourceDataCtrl();
