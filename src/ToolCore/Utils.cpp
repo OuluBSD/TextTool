@@ -1,8 +1,26 @@
 #include "ToolCore.h"
+#include <TextLib/TextLib.h>
 
 
 BEGIN_TEXTLIB_NAMESPACE
 // END_TEXTLIB_NAMESPACE
+
+
+
+
+SolverBaseIndicator::SolverBaseIndicator() {
+	ProgressIndicator::Set(0,1);
+	
+}
+
+void SolverBaseIndicator::Attach(SolverBase& sb) {
+	sb.WhenProgress << [this](int a, int t) {PostCallback(THISBACK2(SetProgress, a,t));};
+}
+
+void SolverBaseIndicator::SetProgress(int a, int t) {
+	ProgressIndicator::Set(a, t);
+}
+
 
 
 

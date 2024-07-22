@@ -4,8 +4,20 @@
 #include <TextDatabase/TextDatabase.h>
 
 #include "SolverBase.h"
-#include "ScriptStructureSolver.h"
 #include "SourceDataImporter.h"
+#include "ScriptStructureSolver.h"
+#include "TokenData.h"
+#include "WordData.h"
+#include "TokenPhrases.h"
+#include "AmbiguousWordPairs.h"
+#include "VirtualPhrases.h"
+#include "VirtualPhraseParts.h"
+#include "VirtualPhraseStructs.h"
+#include "PhraseParts.h"
+#include "PhrasePartAnalysis.h"
+#include "RhymeContainer.h"
+
+#if 1
 #include "TaskManager.h"
 #include "ScriptGenerator.h"
 #include "ScriptSolver.h"
@@ -21,6 +33,7 @@
 #include "BeliefSolver.h"
 #include "TextSolver.h"
 #include "TextSuggestions.h"
+#endif
 
 
 #endif

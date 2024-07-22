@@ -8,11 +8,11 @@
 
 #include "Loader.h"
 #include "SourceData.h"
+#include "Tokens.h"
+#include "Words.h"
 /*
 #include "Page.h"
-#include "Tokens.h"
 #include "TokenPhrases.h"
-#include "Words.h"
 #include "Wordnet.h"
 #include "RhymeContainer.h"
 #include "ActionAttrs.h"

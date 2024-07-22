@@ -5,27 +5,11 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-class SolverBaseIndicator : public ProgressIndicator {
-	
-	void SetProgress(int a, int t);
-	
-public:
-	typedef SolverBaseIndicator CLASSNAME;
-	SolverBaseIndicator();
-	
-	void Attach(SolverBase& sb);
-	void AttachRemaining(Label& lbl);
-	
-};
-
-
-
 class SourceDataCtrl : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
 	ArrayCtrl entities, components;//, active_components;
 	DocEdit scripts, analysis;
-	SolverBaseIndicator prog;
-	Label remaining;
+	
 public:
 	typedef SourceDataCtrl CLASSNAME;
 	SourceDataCtrl();

@@ -1,11 +1,13 @@
 #include "TextDataCtrl.h"
 
-#if 0
+
 BEGIN_TEXTLIB_NAMESPACE
 
 
 TextDataWords::TextDataWords() {
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,30).HSizePos());
+	Add(prog.BottomPos(0,30).HSizePos(300));
+	Add(remaining.BottomPos(0,30).LeftPos(0,300));
 	
 	hsplit.Horz() << vsplit << words;
 	hsplit.SetPos(2500);
@@ -162,6 +164,9 @@ void TextDataWords::DataColor() {
 void TextDataWords::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	#if 0
 	bar.Add(t_("Fix all words"), AppImg::RedRing(), THISBACK1(DoWordFix, 0)).Key(K_F4);
 	bar.Add(t_("Update all words"), AppImg::RedRing(), THISBACK1(DoWords, 0)).Key(K_F5);
 	//bar.Add(t_("Update all word groups"), AppImg::RedRing(), THISBACK(UpdateWordFlagGroups)).Key(K_F6);
@@ -175,7 +180,7 @@ void TextDataWords::ToolMenu(Bar& bar) {
 	bar.Separator();
 	bar.Add(t_("Debug dump word groups"), AppImg::BlueRing(), THISBACK(DumpWordGroups)).Key(K_F10);
 	bar.Add(t_("Debug dump phonetic characters"), AppImg::BlueRing(), THISBACK(DumpPhoneticChars)).Key(K_F11);
-	
+	#endif
 }
 
 
@@ -305,7 +310,18 @@ void TextDataWords::DumpPhoneticChars() {
 	}
 }
 
-void TextDataWords::DoWordFix(int fn) {
+void TextDataWords::Do(int fn) {
+	WordDataProcess& sdi = WordDataProcess::Get(GetAppMode());
+	prog.Attach(sdi);
+	sdi.WhenRemaining << [this](String s) {PostCallback([this,s](){remaining.SetLabel(s);});};
+	
+	if (fn == 0)
+		sdi.Start();
+	else
+		sdi.Stop();
+}
+
+/*void TextDataWords::DoWordFix(int fn) {
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoWordFix(fn);
 }
@@ -314,8 +330,7 @@ void TextDataWords::DoWords(int fn) {
 	int lng_i = MetaDatabase::Single().GetOtherLanguageIndex();
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoWords(lng_i, fn);
-}
+}*/
 
 
 END_TEXTLIB_NAMESPACE
-#endif

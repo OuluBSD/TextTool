@@ -1,11 +1,13 @@
 #include "TextDataCtrl.h"
 
-#if 0
+
 BEGIN_TEXTLIB_NAMESPACE
 
 
 TokensPage::TokensPage() {
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,30).HSizePos());
+	Add(prog.BottomPos(0,30).HSizePos(300));
+	Add(remaining.BottomPos(0,30).LeftPos(0,300));
 	
 	hsplit.Horz() << tokens;
 	hsplit.SetPos(2000);
@@ -42,12 +44,27 @@ void TokensPage::Data() {
 void TokensPage::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	#if 0
 	bar.Add(t_("Process using other DBs"), AppImg::VioletRing(), THISBACK(ProcessTokensUsingExisting)).Key(K_F5);
 	bar.Separator();
 	bar.Add(t_("Process"), AppImg::RedRing(), THISBACK(ProcessTokens)).Key(K_F6);
-	
+	#endif
 }
 
+void TokensPage::Do(int fn) {
+	TokenDataProcess& sdi = TokenDataProcess::Get(GetAppMode());
+	prog.Attach(sdi);
+	sdi.WhenRemaining << [this](String s) {PostCallback([this,s](){remaining.SetLabel(s);});};
+	
+	if (fn == 0)
+		sdi.Start();
+	else
+		sdi.Stop();
+}
+
+#if 0
 void TokensPage::ProcessTokensUsingExisting() {
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoTokensUsingExisting(0);
@@ -57,7 +74,7 @@ void TokensPage::ProcessTokens() {
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoTokens(0);
 }
+#endif
 
 
 END_TEXTLIB_NAMESPACE
-#endif

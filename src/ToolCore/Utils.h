@@ -30,8 +30,30 @@ struct ContentType : Moveable<ContentType> {
 };
 
 
+class SolverBase;
+
+
+class SolverBaseIndicator : public ProgressIndicator {
+	
+	void SetProgress(int a, int t);
+	
+public:
+	typedef SolverBaseIndicator CLASSNAME;
+	SolverBaseIndicator();
+	
+	void Attach(SolverBase& sb);
+	void AttachRemaining(Label& lbl);
+	
+};
+
+
 class ToolAppCtrl : public Ctrl {
 	//const int appmode = -1;
+	
+public:
+	SolverBaseIndicator prog;
+	Label remaining;
+	
 	
 public:
 	virtual ~ToolAppCtrl() {}

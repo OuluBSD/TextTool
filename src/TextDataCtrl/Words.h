@@ -26,8 +26,9 @@ public:
 	//void UpdateWordFlags();
 	void DumpWordGroups();
 	void DumpPhoneticChars();
-	void DoWordFix(int fn);
-	void DoWords(int fn);
+	//void DoWordFix(int fn);
+	//void DoWords(int fn);
+	void Do(int fn);
 	
 };
 
