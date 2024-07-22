@@ -16,6 +16,7 @@ public:
 	};
 	
 	int actual = 0, total = 0;
+	TokenArgs token_args;
 	
 	void GetUsingExisting();
 	void Get();

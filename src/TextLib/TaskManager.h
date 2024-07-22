@@ -32,32 +32,7 @@ typedef enum {
 
 
 struct Task {
-	struct Batch : Moveable<Batch> {
-		EntityDataset* artist;
-		ScriptDataset* scripts;
-		String txt;
-		int lng_i;
-		bool song_begins;
-	};
 	
-	
-	struct AttrExtremesBatch : Moveable<AttrExtremesBatch> {
-		String group;
-	};
-	Vector<AttrExtremesBatch> attr_extremes_batches;
-	
-	
-	struct AttrPolarBatch : Moveable<AttrPolarBatch> {
-		String group, attr0, attr1;
-		Vector<String> attrs;
-	};
-	Vector<AttrPolarBatch> attr_polar_batches;
-	
-	
-	struct AttrJoinBatch : Moveable<AttrJoinBatch> {
-		Vector<String> groups, values;
-	};
-	Vector<AttrJoinBatch> attr_join_batches;
 	
 	
 	void UpdateBatches(int appmode, int per_batch);
@@ -73,11 +48,9 @@ struct Task {
 	int lng_i = -1;
 	bool running = false;
 	Vector<int> tmp, tmp_iters;
-	Vector<Batch> batches;
 	Index<String> tmp_words, tmp_words2;
 	VectorMap<String, Color> word_clr;
 	Vector<void*> tmp_ptrs;
-	String tmp_str;
 	int actual = 0, total = 0;
 	Component* component = 0;
 	VectorMap<String,Index<String>> uniq_attrs;
@@ -138,12 +111,6 @@ class TaskManager {
 	void DoClear(Task* tp);
 	
 	void GetPhrases(Task* tp);
-	void OnPhraseColors(String result, Task* t);
-	void OnPhraseAttrs(String result, Task* t);
-	void OnPhraseActions(String result, Task* t);
-	void OnPhraseScores(String result, Task* t);
-	void OnPhraseTypeclasses(String result, Task* t);
-	void OnPhraseContrast(String result, Task* t);
 	
 	void OnSubPicked(String result, Task* t);
 	void OnNanaFit(String result, Task* t);
@@ -218,7 +185,6 @@ public:
 	
 };
 
-bool GetTypePhrase(Vector<int>& types, const DatasetAnalysis& da, int next_w_i, int w_i, int prev_w_i);
 
 
 END_TEXTLIB_NAMESPACE

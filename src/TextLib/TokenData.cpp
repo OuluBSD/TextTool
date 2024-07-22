@@ -174,7 +174,7 @@ void TokenDataProcess::Get() {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	
-	TokenArgs args;
+	TokenArgs& args = token_args;
 	args.fn = 0;
 	args.words.Clear();
 	
@@ -200,6 +200,7 @@ void TokenDataProcess::Get() {
 	SetWaiting(true);
 	TaskMgr& m = TaskMgr::Single();
 	m.GetTokenData(appmode, args, [this](String result) {
+		TokenArgs& args = token_args;
 		TextDatabase& db = GetDatabase();
 		SourceData& sd = db.src_data;
 		SourceDataAnalysis& sda = db.src_data.a;
@@ -273,8 +274,8 @@ void TokenDataProcess::Get() {
 		da.diagnostics.GetAdd("tokens: actual") =  IntStr(actual);
 		da.diagnostics.GetAdd("tokens: percentage") =  DblStr((double)actual / (double) total * 100);
 		
-		SetWaiting(false);
 		NextBatch();
+		SetWaiting(false);
 	});
 }
 

@@ -6,6 +6,8 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class VirtualPhrasePartsProcess : public SolverBase {
+	TokenArgs token_args;
+	Vector<void*> tmp_ptrs;
 	
 public:
 	enum {

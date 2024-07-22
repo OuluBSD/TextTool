@@ -6,19 +6,28 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class ActionAttrsProcess : public SolverBase {
+	VectorMap<String, VectorMap<String, int>> uniq_acts;
+	int per_action_clrs = 60;
+	int per_action_attrs = 40;
+	int actual = 0, total = 0;
+	ActionAnalysisArgs args;
 	
 public:
 	enum {
-		PHASE_GET_LINE_ACTIONS,
-		PHASE_GET_USING_EXISTING,
-		PHASE_GET,
+		PHASE_COLORS_USING_EXISTING,
+		PHASE_COLORS,
+		PHASE_ATTRS_USING_EXISTING,
+		PHASE_ATTRS,
 		
 		PHASE_COUNT
 	};
 	
-	void GetLineActions();
-	void GetUsingExisting();
-	void Get();
+	void PrepareUsingExisting();
+	void Prepare(int fn);
+	void ColorsUsingExisting();
+	void Colors();
+	void AttrsUsingExisting();
+	void Attrs();
 
 public:
 	typedef ActionAttrsProcess CLASSNAME;

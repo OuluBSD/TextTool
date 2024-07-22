@@ -47,6 +47,9 @@ public:
 	SolverBase();
 	
 	TextDatabase& GetDatabase() const;
+	int GetTypeclassCount() {return TextLib::GetTypeclassCount(appmode);}
+	int GetContentCount() {return TextLib::GetContentCount(appmode);}
+	
 	void SetParallel(bool b=true) {parallel = b;}
 	
 	void Start() {if (!running) {running = true; stopped = false; Thread::Start(THISBACK(Process));}}

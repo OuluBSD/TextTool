@@ -6,6 +6,10 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class PhrasePartAnalysisProcess : public SolverBase {
+	PhraseArgs phrase_args;
+	TokenArgs token_args;
+	Vector<void*> tmp_ptrs;
+	Vector<int> tmp, tmp_iters;
 	
 public:
 	enum {
@@ -19,12 +23,13 @@ public:
 		PHASE_COUNT
 	};
 	
-	void GetColor();
-	void GetAttr();
-	void GetActions();
-	void GetScores();
-	void GetTypeclass();
-	void GetContent();
+	void Do(int fn);
+	void OnPhraseColors(String result);
+	void OnPhraseAttrs(String result);
+	void OnPhraseActions(String result);
+	void OnPhraseScores(String result);
+	void OnPhraseTypeclasses(String result);
+	void OnPhraseContrast(String result);
 
 public:
 	typedef PhrasePartAnalysisProcess CLASSNAME;

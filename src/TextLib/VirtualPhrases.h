@@ -6,14 +6,15 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class VirtualPhrasesProcess : public SolverBase {
+	int actual = 0, total = 0;
+	Vector<void*> tmp_ptrs;
+	TokenArgs token_args;
 	
 public:
 	enum {
 		PHASE_IMPORT_TOKEN_TEXTS,
 		PHASE_GET_PARTS_USING_EXISTING,
 		PHASE_GET_PARTS,
-		PHASE_GET_USING_EXISTING,
-		PHASE_GET,
 		
 		
 		PHASE_COUNT
@@ -22,8 +23,6 @@ public:
 	void ImportTokenTexts();
 	void GetPartsUsingExisting();
 	void GetParts();
-	void GetUsingExisting();
-	void Get();
 
 public:
 	typedef VirtualPhrasesProcess CLASSNAME;
@@ -37,6 +36,9 @@ public:
 	static VirtualPhrasesProcess& Get(int appmode);
 	
 };
+
+
+bool GetTypePhrase(Vector<int>& types, const DatasetAnalysis& da, int next_w_i, int w_i, int prev_w_i);
 
 
 END_TEXTLIB_NAMESPACE
